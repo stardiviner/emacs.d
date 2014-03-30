@@ -82,3 +82,4 @@
 (require 'init-my-emacs-window)
 (require 'init-my-emacs-edit)
 (require 'init-my-emacs-bookmark)
+(require 'init-my-emacs-key-bindings)
