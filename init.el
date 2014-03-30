@@ -70,4 +70,5 @@
 (require 'init-my-emacs-popup)
 (require 'init-my-emacs-highlight)
 (require 'init-my-emacs-minibuffer)
+(require 'init-my-emacs-buffer)
 
