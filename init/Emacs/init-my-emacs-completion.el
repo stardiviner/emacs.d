@@ -58,18 +58,16 @@
 ;; wildcard match
 ;;  - ~/_esk (here `_' is a space)
 
-;; (unless (package-installed-p 'helm)
-;;   (package-install 'helm))
+(require 'helm)
+(require 'helm-config)
 
-;; (require 'helm)
-;; (require 'helm-config)
+(helm-mode 1)
 
-;; (helm-mode 1)
-
-;; (set-face-attribute 'helm-selection nil
-;;                     :background "#004A5D" :foreground "white"
-;;                     :box '(:color "cyan" :line-width 1)
-;;                     :weight 'bold)
+(set-face-attribute 'helm-selection nil
+                    :background "#004A5D" :foreground "white"
+                    :box '(:color "cyan" :line-width 1)
+                    :weight 'bold
+		    :underline nil)
 
 ;; (global-set-key (kbd "C-c h") 'helm-mini)
 
@@ -82,6 +80,20 @@
 ;; Firefox bookmarks [C-x C-x]
 ;; NOTE config your firefox `about:config' to enable:
 ;; user_pref("browser.bookmarks.autoExportHTML", false);
+
+
+;;; [ helm-descbinds ]
+
+;;; Usage:
+;; - [C-h KEY]
+;; - [KEY_PREFIX C-h]
+;; - when in helm completion buffer:
+;;   - press [RET] to select candidate command to execute.
+;;   - press [TAB], you can "execute", "describe function", "find function".
+;;   - press [C-z], selected command is described without quiting.
+
+(require 'helm-descbinds)
+(helm-descbinds-mode 1)
 
 
 

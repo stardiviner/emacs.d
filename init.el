@@ -36,6 +36,7 @@
 	   ;; completion
 	   ido-vertical-mode
 	   helm
+	   helm-descbinds
            )
         (mapcar 'el-get-source-name el-get-extra-sources)))
 
