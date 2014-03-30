@@ -137,6 +137,13 @@
              [mouse-5] [down-mouse-5] [drag-mouse-5] [double-mouse-5] [triple-mouse-5]))
   (global-unset-key k))
 
+
+;;; [ Browser ]
+(setq browse-url-browser-function 'browse-url-generic
+      ;; "firefox", "chromium-browser", "uzbl", "luakit", "jumanji", "elinks",
+      browse-url-generic-program (executable-find "firefox")
+      )
+
 
 
 
