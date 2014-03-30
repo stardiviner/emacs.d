@@ -106,3 +106,5 @@
 (require 'init-my-emacs-regexp)
 (require 'init-my-emacs-calendar)
 (require 'init-my-emacs-vcs)
+(require 'init-my-emacs-shell)
+
