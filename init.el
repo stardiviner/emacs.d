@@ -124,3 +124,4 @@
 (require 'init-my-tool-dict)
 (require 'init-my-tool-sauron)
 (require 'init-my-tool-paste)
+(require 'init-my-tool-diagram)
