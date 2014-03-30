@@ -66,3 +66,5 @@
 (require 'init-my-emacs-environment)
 (require 'init-my-emacs-settings)
 (require 'init-my-emacs-help)
+(require 'init-my-emacs-font)
+
