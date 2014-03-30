@@ -144,6 +144,13 @@
       browse-url-generic-program (executable-find "firefox")
       )
 
+
+;;; [ Search ]
+(setq-default  case-fold-search t ; whether toggle case sensitive search depend on your input has mixture of upcase and downcase.
+               case-replace t ; preserve case in replacements.
+ )
+
+
 
 
 
