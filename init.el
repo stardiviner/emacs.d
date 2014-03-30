@@ -87,3 +87,4 @@
 (require 'init-my-emacs-edit)
 (require 'init-my-emacs-bookmark)
 (require 'init-my-emacs-key-bindings)
+(require 'init-my-emacs-indent)
