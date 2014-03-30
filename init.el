@@ -32,8 +32,8 @@
            popup-pos-tip
            showtip
            tooltip-help
-           ;; auto complete
-           auto-complete
+	   ;; Emacs
+	   ;; completion
            )
         (mapcar 'el-get-source-name el-get-extra-sources)))
 
@@ -56,3 +56,5 @@
 ;;; my custom functions
 (require 'init-my-functions)
 
+;;; Emacs
+(require 'init-my-emacs-completion)
