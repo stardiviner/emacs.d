@@ -25,6 +25,13 @@
 ;; [ Bell ]
 (setq visible-bell t)
 
+
+;;; [ User Information ]
+(setq user-full-name "stardiviner")
+(setq user-mail-address "numbchild@gmail.com")
+;; (setq user-login-name "chris")
+
+
 
 
 
