@@ -122,7 +122,11 @@
 ;;; Tools
 (require 'init-my-tool-org-mode)
 (require 'init-my-tool-dict)
+;; (require 'init-my-tool-bbdb)
 (require 'init-my-tool-sauron)
 (require 'init-my-tool-paste)
 (require 'init-my-tool-w3m)
 (require 'init-my-tool-diagram)
+;; (require 'init-my-tool-emms)
+;; (require 'init-my-tool-speak)
+;; (require 'init-my-tool-newsticker)
