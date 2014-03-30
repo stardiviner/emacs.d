@@ -28,31 +28,33 @@
 ;;; my packages which will be installed.
 (setq my-el-get-packages
       (append
-        '(popup
-           pos-tip
-           popup-pos-tip
-           showtip
-           tooltip-help
-	   ;; Emacs
-	   ;; completion
-	   ido-vertical-mode
-	   helm
-	   helm-descbinds
-	   auto-complete
-	   company-mode
-	   ;; buffer & window, frame
-	   window-number ; switch-window
-	   workgroups2 ; e2wm
-	   popwin
-	   ;; edit
-	   undo-tree
-	   multiple-cursors
-	   ;; bookmark, register, macro,
-	   bm
-	   ;; keybinding
-	   guide-key
-           )
-        (mapcar 'el-get-source-name el-get-extra-sources)))
+       '(popup
+         pos-tip
+         popup-pos-tip
+         showtip
+         tooltip-help
+         ;; Emacs
+         ;; completion
+         ido-vertical-mode
+         helm
+         helm-descbinds
+         auto-complete
+         company-mode
+         ;; buffer & window, frame
+         window-number ; switch-window
+         workgroups2 ; e2wm
+         popwin
+         ;; edit
+         undo-tree
+         multiple-cursors
+         ;; bookmark, register, macro,
+         bm
+         ;; keybinding
+         guide-key
+         ;; dired
+         direx
+         )
+       (mapcar 'el-get-source-name el-get-extra-sources)))
 
 (el-get 'sync my-el-get-packages)
 
@@ -92,5 +94,4 @@
 (require 'init-my-emacs-spell)
 (require 'init-my-emacs-file)
 (require 'init-my-emacs-image)
-
-
+(require 'init-my-emacs-dired)
