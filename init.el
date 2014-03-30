@@ -98,3 +98,4 @@
 (require 'init-my-emacs-tramp)
 (require 'init-my-emacs-modes)
 (require 'init-my-emacs-abbrev)
+(require 'init-my-emacs-search)
