@@ -45,6 +45,8 @@
 	   popwin
 	   ;; edit
 	   multiple-cursors
+	   ;; bookmark, register, macro,
+	   bm
            )
         (mapcar 'el-get-source-name el-get-extra-sources)))
 
@@ -79,3 +81,4 @@
 (require 'init-my-emacs-buffer)
 (require 'init-my-emacs-window)
 (require 'init-my-emacs-edit)
+(require 'init-my-emacs-bookmark)
