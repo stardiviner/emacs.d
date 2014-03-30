@@ -89,4 +89,5 @@
 (require 'init-my-emacs-key-bindings)
 (require 'init-my-emacs-indent)
 (require 'init-my-emacs-electric)
+(require 'init-my-emacs-spell)
 
