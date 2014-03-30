@@ -122,6 +122,146 @@
 ;;   )
 
 
+
+;;; [ popwin ] -- Popup Window Manager for Emacs (*always* shows upon minibuffer)
+
+;;; https://github.com/m2ym/popwin-el
+
+;; popwin is a popup window manager for Emacs which makes you free from the hell
+;; of annoying buffers such like *Help*, *Completions*, *compilation*, and etc.
+;;
+;; Take an example. When you complete file names during find-file, the
+;; (annoying) *Completions* buffer will appear in a newly splitted window. You
+;; might understand the necessity of the window, but you may wonder why the
+;; window still remains after completion...
+;;
+;; popwin resolves there problems. Windows of such temporary buffers will be
+;; shown as a popup window, and you can close them smoothly by typing C-g in
+;; anytime.
+
+;;; Popup windows:
+;; - *Help*
+;; - *Completions*
+;; - *Compilation*
+;; - *Occur*
+
+;;; NOTE:
+;;; popwin can work for popup function like `pop-to-buffer' etc. If some
+;;; extension uses split window and switch buffer function, not popup function,
+;;; popwin may not work,
+
+;;; Config examples:
+;;;
+;;; 1. buffer name regexp pattern.
+;;;
+;;; M-! shell command output
+;;; (push '("*Shell Command Output*" :position bottom :height 15) popwin:special-display-config)
+;;;
+;;; 2. major-mode name.
+;;;
+;;; You can specify major-mode name as pattern like following.
+;;; (push '(erc-mode) popwin:special-display-config)
+;;;
+;;; 3. combine upper two matches.
+;;; regexp match + major mode match to capture a exact buffer more exactly.
+;;;
+;;; (defun my/popwin-func (buffer)
+;;;   (let ((mode (with-current-buffer buffer
+;;;                 major-mode)))
+;;;     (and (string-match "REGEXP" (buffer-name buffer))
+;;;          (eq mode 'SOME-MODE))))
+;;;
+;;; (push '(my/popwin-func :height 15 :position bottom) popwin:special-display-config)
+
+
+;;; Usage:
+;; - [C-g] :: close popup window.
+;;
+;; popwin provides a default keymap named `popwin:keymap'.
+;; (global-set-key (kbd "C-z") popwin:keymap)
+;; | Key    | Command                               |
+;; |--------+---------------------------------------|
+;; | b      | popwin:popup-buffer                   |
+;; | l      | popwin:popup-last-buffer              |
+;; | o      | popwin:display-buffer                 |
+;; | C-b    | popwin:switch-to-last-buffer          |
+;; | C-p    | popwin:original-pop-to-last-buffer    |
+;; | C-o    | popwin:original-display-last-buffer   |
+;; | SPC    | popwin:select-popup-window            |
+;; | s      | popwin:stick-popup-window             |
+;; | 0      | popwin:close-popup-window             |
+;; | f, C-f | popwin:find-file                      |
+;; | e      | popwin:messages                       |
+;; | C-u    | popwin:universal-display              |
+;; | 1      | popwin:one-window                     |
+
+
+(unless (package-installed-p 'popwin)
+  (package-install 'popwin))
+
+(require 'popwin)
+(popwin-mode 1)
+
+(global-set-key (kbd "C-z") popwin:keymap)
+
+;;; `popwin:special-display-config'
+
+;;; Debugger mode, *Backtrace*
+(push '("*Backtrace*" :position bottom :height 15) popwin:special-display-config)
+
+;; M-! shell command output
+(push '("*Shell Command Output*" :position bottom :height 15) popwin:special-display-config)
+
+;;; Org-mode
+;; (push '("*Org Agenda*" :position bottom :height 20) popwin:special-display-config)
+;; TODO: this does not work.
+;; (push '("*Org tags*" :position bottom :height 15) popwin:special-display-config)
+;; (push '("*Agenda Commands*" :position bottom :height 15) popwin:special-display-config)
+
+;;; Completion List (completion-list-mode)
+(push '(completion-list-mode :position bottom :height 15) popwin:special-display-config)
+
+;;; Occur Mode
+(push '("*Occur*" :position bottom  :height 10) popwin:special-display-config)
+
+;;; Magit
+;; TODO: create one for commit message buffer.
+
+;;; ERC
+;; TODO: This does not work. Because ERC does not use `pop-to-buffer' for private message buffer.
+(defun my/popwin-func-for-erc-private-message (buffer)
+  "Match private messages which except channel buffers that start with a #.
+
+The `BUFFER' is the popwin catch pop private message buffer."
+  (let ((mode (with-current-buffer buffer
+                major-mode)))
+    ;; TODO or string match `erc-pals' variables list.
+    (and (string-match "^[^#]*" (buffer-name buffer))
+       (eq mode 'erc-mode))))
+
+(push '(my/popwin-func-for-erc-private-message :height 15 :position bottom) popwin:special-display-config)
+
+;;; Flycheck
+(push '("*Flycheck errors*" :position bottom :height 10) popwin:special-display-config)
+(push '("*Compile-Log*" :position bottom :height 15) popwin:special-display-config)
+
+;;; *Pp Eval Output*
+;; TODO: this will make this buffer does not show up.
+(push '("*Pp Eval Output*" :position bottom :height 15) popwin:special-display-config)
+
+;;; sdcv
+(push '("*SDCV*" :position bottom :height 15) popwin:special-display-config)
+
+;; bm.el
+(push '("*bm-bookmarks*" :position bottom :height 15) popwin:special-display-config)
+(push '(bm-show-mode :position bottom :height 15) popwin:special-display-config)
+
+;; process list
+(push '("*Process List*" :position bottom :height 10) popwin:special-display-config)
+(push '(process-menu-mode :position bottom :height 10) popwin:special-display-config)
+
+;;; ruby-compilation-mode
+(push '(ruby-compilation-mode :position bottom :height 15) popwin:special-display-config)
 
 
 
