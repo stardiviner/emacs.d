@@ -116,3 +116,4 @@
 
 ;;; Tools
 (require 'init-my-tool-org-mode)
+(require 'init-my-tool-dict)
