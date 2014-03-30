@@ -105,3 +105,4 @@
 (require 'init-my-emacs-search)
 (require 'init-my-emacs-regexp)
 (require 'init-my-emacs-calendar)
+(require 'init-my-emacs-vcs)
