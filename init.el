@@ -135,3 +135,7 @@
 ;;; Email
 (require 'init-my-email-message-mode)
 (require 'init-my-email-mu4e)
+
+
+;;; IRC
+(require 'init-my-irc-erc)
