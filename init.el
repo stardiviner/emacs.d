@@ -53,6 +53,8 @@
          guide-key
          ;; dired
          direx
+         ;; search
+         isearch+
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
 

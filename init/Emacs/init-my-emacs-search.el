@@ -52,6 +52,20 @@
 ;; replace [M-%] default (query-replace)
 (global-set-key (kbd "M-%") 'query-replace-regexp)
 
+
+;;; [ Isearch+ ]
+
+;;; Usage:
+
+(unless (package-installed-p 'isearch+)
+  (package-install  'isearch+))
+(require 'isearch+)
+
+(setq isearchp-set-region-flag nil
+      isearchp-restrict-to-region-flag t
+      ;; isearchp-restrict-to-region-flag
+      )
+
 
 
 
