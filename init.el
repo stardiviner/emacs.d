@@ -18,10 +18,10 @@
 ;;; extra sources which not in el-get recipes.
 (setq el-get-extra-sources
       '(
-	;; (:name pretty-symbols
-        ;;        :description "Emacs minor mode for drawing multi-character tokens as Unicode glyphs (lambda -> λ). A configurable replacement for pretty and the like."
-        ;;        :type git
-        ;;        :url "https://github.com/drothlis/pretty-symbols")
+	(:name guide-key
+               :description "Guide following keys to an input key sequence automatically and dynamically in Emacs."
+               :type git
+               :url "https://github.com/kbkbkbkb1/guide-key")
 	))
 
 ;;; my packages which will be installed.
@@ -47,6 +47,8 @@
 	   multiple-cursors
 	   ;; bookmark, register, macro,
 	   bm
+	   ;; keybinding
+	   guide-key
            )
         (mapcar 'el-get-source-name el-get-extra-sources)))
 
