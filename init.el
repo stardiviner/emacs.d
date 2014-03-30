@@ -55,6 +55,8 @@
          direx
          ;; search
          isearch+
+         ;; tools
+         calfw
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
 
@@ -102,3 +104,4 @@
 (require 'init-my-emacs-abbrev)
 (require 'init-my-emacs-search)
 (require 'init-my-emacs-regexp)
+(require 'init-my-emacs-calendar)
