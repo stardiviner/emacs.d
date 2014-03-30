@@ -22,10 +22,11 @@
 
 (require 'org-pcomplete)
 
-;; org-protocol need server start.
-(unless (server-running-p)
-  (server-start))
-(require 'org-protocol)
+;;; org-protocol need server start.
+;; FIXME:
+;; (unless (server-running-p)
+;;   (server-start))
+;; (require 'org-protocol)
 
 ;; FIXME: (require 'org-contacts)
 
@@ -326,28 +327,34 @@
 
 ;; Org-bullets
 ;; (load-file "~/.emacs.d/my-init/extensions/org-bullets.el")
-(require 'org-bullets)
+(require 'org-bullets nil t)
 
 ;;; 希腊/罗马数字: Ⅰ、Ⅱ、Ⅲ、Ⅳ、Ⅴ、Ⅵ、Ⅶ、Ⅷ、Ⅸ、Ⅹ、Ⅺ、Ⅻ
 ;;; 繁体中文:      壹，貳，叄，肆，伍，陸，柒，捌，玖，拾
 ;;; ⒈ ⒉ ⒊ ⒋ ⒌
-(after-load 'org-bullets
-  (defcustom org-bullets-bullet-list
-    '("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
-    "This variable contains the list of bullets.
+
+;; (after-load 'org-bullets
+;;             )
+
+(add-hook 'org-mode-hook
+          (lambda ()
+            (org-bullets-mode 1)
+            (defcustom org-bullets-bullet-list
+              '("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
+              "This variable contains the list of bullets.
 It can contain any number of symbols, which will be repeated."
-    :group 'org-bullets
-    :type '(repeat (string :tag "Bullet character")))
+              :group 'org-bullets
+              :type '(repeat (string :tag "Bullet character")))
 
-  (setq org-bullets-bullet-list
-        '("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ"))
+            (setq org-bullets-bullet-list
+                  '("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ"))
 
-  ;; (setq org-bullets-face-name "org-bullet-face")
-  ;; (set-face-attribute 'org-bullet-face nil
-  ;;                     :foreground "white" :background "black")
+            ;; (setq org-bullets-face-name "org-bullet-face")
+            ;; (set-face-attribute 'org-bullet-face nil
+            ;;                     :foreground "white" :background "black")
 
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-  )
+
+            ))
 
 (setq org-ascii-headline-spacing '(1 . 2))
 
@@ -594,7 +601,7 @@ This is especially for create Org files."
 
 ;;; [ Clock ]
 
-;; (require 'org-clock)
+(require 'org-clock)
 
 ;; to save the clock history across Emacs sessions.
 (setq org-clock-persist 'history
@@ -633,9 +640,9 @@ This is especially for create Org files."
 (add-hook 'org-clock-in-prepare-hook 'org-clock-modify-effort-estimate)
 (add-hook 'org-clock-out-hook 'org-clock-remove-empty-clock-drawer)
 
-(after-load 'org-clock
-  (define-key org-clock-mode-line-map [header-line mouse-2] 'org-clock-goto)
-  (define-key org-clock-mode-line-map [header-line mouse-1] 'org-clock-menu))
+(define-key org-clock-mode-line-map [header-line mouse-2] 'org-clock-goto)
+(define-key org-clock-mode-line-map [header-line mouse-1] 'org-clock-menu)
+
 
 
 ;;; org-timer
