@@ -108,3 +108,4 @@
 (require 'init-my-emacs-vcs)
 (require 'init-my-emacs-shell)
 (require 'init-my-emacs-calculator)
+(require 'init-my-emacs-encrypt)
