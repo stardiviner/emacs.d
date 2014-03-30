@@ -31,6 +31,10 @@
 (setq user-mail-address "numbchild@gmail.com")
 ;; (setq user-login-name "chris")
 
+
+;;; [ mode ]
+(setq default-major-mode 'org-mode) ; use org-mode for any unspecified mode.
+
 
 
 
