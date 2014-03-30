@@ -130,3 +130,8 @@
 ;; (require 'init-my-tool-emms)
 ;; (require 'init-my-tool-speak)
 ;; (require 'init-my-tool-newsticker)
+
+
+;;; Email
+(require 'init-my-email-message-mode)
+(require 'init-my-email-mu4e)
