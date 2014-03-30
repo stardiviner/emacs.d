@@ -37,6 +37,7 @@
 	   ido-vertical-mode
 	   helm
 	   helm-descbinds
+	   auto-complete
            )
         (mapcar 'el-get-source-name el-get-extra-sources)))
 
