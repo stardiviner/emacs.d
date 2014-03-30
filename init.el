@@ -28,6 +28,8 @@
            popup-pos-tip
            showtip
            tooltip-help
+           ;; auto complete
+           auto-complete
            )
         (mapcar 'el-get-source-name el-get-extra-sources)))
 
