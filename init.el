@@ -68,4 +68,5 @@
 (require 'init-my-emacs-help)
 (require 'init-my-emacs-font)
 (require 'init-my-emacs-popup)
+(require 'init-my-emacs-highlight)
 
