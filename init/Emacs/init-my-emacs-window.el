@@ -85,6 +85,44 @@
 ;; (workgroups-mode 1)        ; put this one at the bottom of .emacs
 
 
+
+;;; [ E2WM ] --- Equilibrium Emacs Window Manager
+
+;;; Usage:
+;; The current implementation has following perspectives:
+;; * code      : main coding layout
+;; * two       : side by side layout
+;; * doc       : reading documentation layout
+;; * dashboard : showing plug-ins like dashboard in Mac OSX
+;; * array     : selecting buffers like expose in Mac OSX
+
+(unless (package-installed-p 'e2wm)
+  (package-install 'e2wm))
+(require 'e2wm)
+
+(global-set-key (kbd "C-c +") 'e2wm:start-management)
+(global-set-key (kbd "C-c -") 'e2wm:stop-management)
+
+;;; Customization
+;; (setq e2wm:c-my-org-repice
+;;       '(| (:left-max-size 35)
+;;           (- (:upper-size-ratio 0.7)
+;;              files history)
+;;           (- (:upper-size-ratio 0.7)
+;;              (| (:right-max-size 30)
+;;                 main imenu)
+;;              sub)))
+
+;; (setq e2wm:c-my-org-winfo
+;;   '((:name main)
+;;     (:name files :plugin files)
+;;     (:name history :plugin history-list)
+;;     (:name sub :buffer "*info*" :default-hide t)
+;;     (:name imenu :plugin imenu :default-hide nil))
+;;   )
+
+
+
 
 
 (provide 'init-my-emacs-window)
