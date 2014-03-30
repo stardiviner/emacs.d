@@ -154,6 +154,47 @@
                case-replace t ; preserve case in replacements.
 	       )
 
+
+;; [ Input Method ]
+;; Usage:
+;; - [C-u C-\]
+;; - [C-x Return C-\]
+;; - [M-x set-input-method]
+;;   - Chinese-PY
+;; - [C-\] -- toggle-input-method
+;; - chinese-py :: chinese pinyin
+(setq default-input-method "chinese-py") ; default: "rfc1345",
+;; (global-set-key (kbd "C-SPC") 'nil) ; disable [C-SPC] for input method.
+;; Usage:
+;; * input methods
+;; - [C-h I] / [C-u C-\] + [METHOD] -- interactively choose input method
+;;   - greek
+;;   - chinese-py
+;;   - keys:
+;;     - [C-f/b] -- forward/backward
+;;     - [C-n/p] -- next/previous
+;; - [C-h C-\ METHOD] -- describe the input method
+;; - [C-u C-x =] -- check out how to input the character after point using current input method.
+;; * compose key
+;; * ucs-insert
+;; - [C-x 8 RET]
+;; * abbrev
+(setq input-method-verbose-flag t)
+;; { way 1 }
+;; ibus-el
+;; (require 'ibus)
+;; (add-hook 'after-init-hook 'ibus-mode-on)
+;; (global-set-key (kbd "C-\\") 'ibus-toggle) ; [C-\] original run command `toggle-input-method`.
+;; { way 2 } (for Arch Linux which has bin file /usr/bin/emacs-real)
+;; #!/bin/sh
+;; LC_CTYPE=zh_CN.UTF-8 /usr/bin/emacs-real
+
+
+;;; add a new input-method
+;; (register-input-method
+;;  "chinese-pinyin" "Chinese-PinYin" 'quail-use-package
+;;  "拼音" "汉字输入:: [拼音] ::"
+;;  "gb/pinyin")
 
 
 
