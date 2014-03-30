@@ -69,4 +69,5 @@
 (require 'init-my-emacs-font)
 (require 'init-my-emacs-popup)
 (require 'init-my-emacs-highlight)
+(require 'init-my-emacs-minibuffer)
 
