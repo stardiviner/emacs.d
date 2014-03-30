@@ -34,8 +34,6 @@
 ;;; - When you press these prefix keys, key bindings are automatically popped up after a short delay (1 second by default).
 ;;; - [any key sequence prefix] ::
 
-(unless (package-installed-p 'guide-key)
-  (package-install 'guide-key))
 (require 'guide-key)
 
 (setq guide-key/idle-delay 0.1

@@ -83,8 +83,6 @@
       )
 
 ;; (workgroups-mode 1)        ; put this one at the bottom of .emacs
-
-
 
 ;;; [ E2WM ] --- Equilibrium Emacs Window Manager
 
@@ -96,12 +94,10 @@
 ;; * dashboard : showing plug-ins like dashboard in Mac OSX
 ;; * array     : selecting buffers like expose in Mac OSX
 
-(unless (package-installed-p 'e2wm)
-  (package-install 'e2wm))
-(require 'e2wm)
+;; (require 'e2wm)
 
-(global-set-key (kbd "C-c +") 'e2wm:start-management)
-(global-set-key (kbd "C-c -") 'e2wm:stop-management)
+;; (global-set-key (kbd "C-c +") 'e2wm:start-management)
+;; (global-set-key (kbd "C-c -") 'e2wm:stop-management)
 
 ;;; Customization
 ;; (setq e2wm:c-my-org-repice
@@ -195,9 +191,6 @@
 ;; | C-u    | popwin:universal-display              |
 ;; | 1      | popwin:one-window                     |
 
-
-(unless (package-installed-p 'popwin)
-  (package-install 'popwin))
 
 (require 'popwin)
 (popwin-mode 1)

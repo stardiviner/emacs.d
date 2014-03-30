@@ -58,16 +58,16 @@
 ;; wildcard match
 ;;  - ~/_esk (here `_' is a space)
 
-(require 'helm)
-(require 'helm-config)
+;; (require 'helm)
+;; (require 'helm-config)
 
-(helm-mode 1)
+;; (helm-mode 1)
 
-(set-face-attribute 'helm-selection nil
-                    :background "#004A5D" :foreground "white"
-                    :box '(:color "cyan" :line-width 1)
-                    :weight 'bold
-		    :underline nil)
+;; (set-face-attribute 'helm-selection nil
+;;                     :background "#004A5D" :foreground "white"
+;;                     :box '(:color "cyan" :line-width 1)
+;;                     :weight 'bold
+;; 		    :underline nil)
 
 ;; (global-set-key (kbd "C-c h") 'helm-mini)
 
@@ -92,8 +92,8 @@
 ;;   - press [TAB], you can "execute", "describe function", "find function".
 ;;   - press [C-z], selected command is described without quiting.
 
-(require 'helm-descbinds)
-(helm-descbinds-mode 1)
+;; (require 'helm-descbinds)
+;; (helm-descbinds-mode 1)
 
 
 ;;; auto-complete
@@ -289,6 +289,142 @@
 ;; (add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-20140314.802/dict/")
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete-dict")
 
+
+;;; [ auto-complete sources ]
+;; source is a concept that insures a extensibility of auto-complete-mode.
+;; Simply saying, source is a description about:
+;;  - how to generate completion candidates
+;;  - how to complete
+;;  - how to show
+;; Usually a name of source start with "ac-source-", so you can list up sources
+;; with apropos:
+;;  (M-x apropos RET ^ac-source-)
+;; you can see the setting by evaluating `ac-sources` in *scratch* buffer.
+;; "ac-sources" is a buffer local variable.
+
+;; "M-/" dabbrev-expand
+;; (unless (package-installed-p 'ac-dabbrev)
+;;   (package-install 'ac-dabbrev))
+;; (require 'ac-dabbrev)
+;; (unless (package-installed-p 'ac-ispell)
+;;   (package-install 'ac-ispell))
+;; (require 'ac-ispell)
+
+;; (unless (package-installed-p 'ac-math)
+;;   (package-install 'ac-math))
+;; (require 'ac-math)
+
+;;; chunk for dot.separated.words
+;; TODO: (require 'auto-complete-chunk)
+;; TODO: (require 'auto-complete-yasnippet)
+
+
+
+;;; ac-etags --- https://github.com/syohex/emacs-ac-etags
+
+;;; ac-complete candidate suffix symbol is [s]
+
+;; 1. generate tag file
+;; - etags *.c *.h
+;; - ctags -e *.c *.h
+;; 2. set path of TAGS
+;; - [M-x visit-tags-table]
+
+;; (unless (package-installed-p 'ac-etags)
+;;   (package-install 'ac-etags))
+;; (require 'ac-etags)
+
+;; (eval-after-load "etags"
+;;   (progn
+;;     (ac-etags-setup)))
+
+(setq ac-etags-requires 3)
+
+
+;;; [ semantic ]
+
+(semantic-mode 1)
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (add-to-list 'ac-sources 'ac-source-semantic)))
+
+
+;;; set default auto-complete source
+(setq-default ac-sources
+              '(;; snippet
+                ac-source-yasnippet
+                ;; template
+                ;; ac-source-template
+                ;; filename
+                ac-source-filename
+                ac-source-files-in-current-dir
+                ;; programming
+                ac-source-semantic
+                ;; ac-source-semantic-raw
+                ;; tags
+                ac-source-etags
+                ;; ac-source-gtags
+                ;; ac-source-functions
+                ;; ac-source-variables
+                ;; ac-source-symbols
+                ;; abbrev
+                ac-source-abbrev
+                ;; ac-source-dabbrev
+                ;; chunk
+                ;; ac-source-chunk-list
+                ;; buffer
+                ac-source-words-in-buffer
+                ac-source-words-in-same-mode-buffers
+                ;; spell
+                ;; ac-source-ispell
+                ;; dictionary
+                ;; ac-source-dictionary
+                ;; ac-source-dictionary-chunk
+                ;; ac-source-entity
+                ;; features
+                ;; ac-source-features ; for emacs-lisp features
+                ))
+
+
+;;; other sources faces
+
+;;; ac-dabbrev
+;; (set-face-attribute 'ac-dabbrev-menu-face nil
+;;                     :foreground "dark magenta"
+;;                     :bold 'normal)
+;; (set-face-attribute 'ac-dabbrev-selection-face nil
+;;                     )
+;;; ac-etags
+;; (set-face-attribute 'ac-etags-candidate-face nil
+;;                     :foreground "sea green"
+;;                     :bold 'normal)
+;; (set-face-attribute 'ac-etags-selection-face nil
+;;                     )
+;;; ac-gtags
+;; (set-face-attribute 'ac-gtags-candidate-face nil
+;;                     :foreground "dark green"
+;;                     :bold 'normal)
+;; (set-face-attribute 'ac-gtags-selection-face nil
+;;                     )
+;;; ac-yasnippet
+;; (set-face-attribute 'ac-yasnippet-candidate-face nil
+;;                     :background "deep pink"
+;;                     :bold 'normal)
+;; (set-face-attribute 'ac-yasnippet-selection-face nil
+;;                     )
+;;; auto-complete-clang
+;; (set-face-attribute 'ac-clang-candidate-face nil
+;;                     :foreground "sky blue"
+;;                     :bold 'normal)
+;; (set-face-attribute 'ac-clang-selection-face nil
+;;                      )
+
+
+
+;; TODO set auto-complete source priority.
+;; (defadvice ac-common-setup (after give-yasnippet-highest-priority activate)
+;;   (setq ac-sources (delq 'ac-source-yasnippet ac-sources))
+;;   (add-to-list 'ac-sources 'ac-source-yasnippet))
 
 
 ;;; add other modes into ac modes
@@ -319,10 +455,10 @@
 
 ;;; [ Company Mode ]
 
-(require 'company)
+;; (require 'company)
 
 ;;; To use company-mode in all buffers, add the following line to your init file:
-(add-hook 'after-init-hook 'global-company-mode)
+;; (add-hook 'after-init-hook 'global-company-mode)
 
 (setq company-minimum-prefix-length 3)
 
