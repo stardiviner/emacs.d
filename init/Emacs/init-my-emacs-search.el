@@ -67,6 +67,34 @@
       )
 
 
+
+;;; [ visual-regexp ] -- A regexp/replace command for Emacs with interactive visual feedback.
+
+;;; Usage:
+;;; [C-c C-s] + [r/q/m]
+
+(unless (package-installed-p 'visual-regexp)
+  (package-install 'visual-regexp))
+(require 'visual-regexp)
+
+(define-key my-search-prefix-map (kbd "r") 'vr/replace)
+(define-key my-search-prefix-map (kbd "q") 'vr/query-replace)
+;; if you use multiple-cursors, this is for you:
+;; TODO: add an condition here after multiple-curses loaded.
+(define-key my-search-prefix-map (kbd "m") 'vr/mc-mark)
+
+
+;;; [ visual-regexp-steroids.el ] -- Extends visual-regexp to support other regexp engines.
+
+(unless (package-installed-p 'visual-regexp-steroids)
+  (package-install 'visual-regexp-steroids))
+(require 'visual-regexp-steroids)
+
+;; to use visual-regexp-steroids's isearch instead of the built-in regexp isearch, also include the following lines:
+;; (define-key esc-map (kbd "C-r") 'vr/isearch-backward) ;; C-M-r
+;; (define-key esc-map (kbd "C-s") 'vr/isearch-forward) ;; C-M-s
+
+
 
 
 (provide 'init-my-emacs-search)
