@@ -61,7 +61,7 @@
          ;; Org-mode
          org-fstree org-bullets
          ;; tools
-         calfw
+         calfw sauron appt
          gist
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
@@ -122,4 +122,5 @@
 ;;; Tools
 (require 'init-my-tool-org-mode)
 (require 'init-my-tool-dict)
+(require 'init-my-tool-sauron)
 (require 'init-my-tool-paste)
