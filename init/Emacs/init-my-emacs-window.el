@@ -41,6 +41,50 @@
 ;;   (package-install 'window-numbering))
 ;; (require 'window-numbering)
 
+
+;;; [ workgroups2 ] --
+
+;;; Usage
+;;; Workgroups is a session manager for Emacs.
+;;;
+;;;     It saves all your opened buffers, their location and sizes on disk to restore later
+;;;     You can create several workspaces
+;;;
+;;; You can also restore such buffers as: org-agenda, shell, magit-status, help.
+
+;;; Key Bindings
+;; Most commands are bound to both <prefix> <key> and <prefix> C-<key>.
+
+;; By default prefix is: "C-c z" (To change it - see settings below)
+;; Type <prefix> ? (Eval (wg-help)) for more help.
+;; <prefix> <key>
+;; <prefix> c    - create workgroup
+;; <prefix> A    - rename workgroup
+;; <prefix> k    - kill workgroup
+;; <prefix> v    - switch to workgroup
+;; <prefix> C-s  - save session
+;; <prefix> C-f  - load session
+
+
+(require 'workgroups2)
+
+;; Change prefix key (before activating WG)
+(setq wg-prefix-key (kbd "C-c z"))
+;; Change workgroups session file
+(setq wg-default-session-file "~/.emacs.d/.emacs_workgroups")
+
+;; FIXME: remove modeline workgroups-mode dynamic part. ( (First workgroup)296, 6)
+(setq wg-mode-line-display-on nil   ; toggle workgroups' mode-line display.
+      wg-mode-line-disable t      ; do not modify mode-line.
+      wg-mode-line-only-name nil    ; only show workgroup name.
+      wg-mode-line-decor-divider ":"
+      wg-mode-line-decor-left-brace "("
+      wg-mode-line-decor-right-brace ")"
+      )
+
+;; (workgroups-mode 1)        ; put this one at the bottom of .emacs
+
+
 
 
 (provide 'init-my-emacs-window)
