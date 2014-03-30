@@ -67,4 +67,5 @@
 (require 'init-my-emacs-settings)
 (require 'init-my-emacs-help)
 (require 'init-my-emacs-font)
+(require 'init-my-emacs-popup)
 
