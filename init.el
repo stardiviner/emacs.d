@@ -43,6 +43,8 @@
 	   window-number ; switch-window
 	   workgroups2 ; e2wm
 	   popwin
+	   ;; edit
+	   multiple-cursors
            )
         (mapcar 'el-get-source-name el-get-extra-sources)))
 
