@@ -76,4 +76,4 @@
 (require 'init-my-emacs-minibuffer)
 (require 'init-my-emacs-buffer)
 (require 'init-my-emacs-window)
-
+(require 'init-my-emacs-edit)
