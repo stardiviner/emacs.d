@@ -72,6 +72,49 @@
 ;;; [ version control ] (vc)
 
 
+
+;;; [ register ]
+;; Usage:
+;; - [C-x r] -- `r' means register prefix.
+;;   - [C-x r SPC] -- `SPC' means mark
+;;     - [C-x r SPC + register_name] -- save current position to register
+;;   - [C-x r j] -- `j' means jump
+;;     - [C-x r j + register_name] -- jump to register position
+;;   - [C-x r s] -- (copy-to-register)
+;;   - [C-x r i] -- (insert-register)
+;;   - [C-x r r] -- (copy-rectangle-to-register)
+;; - [M-x view-register] -- check out a register
+;; - [M-x list-registers] -- list out all registers
+;; - [M-x append-to-register RET r]
+;; - [M-x prepend-to-register RET r]
+
+
+;; [ Bookmark ]
+;; Usage:
+;; - [C-x r m] -- mark as a bookmark
+;; - [C-x r b] -- jump to a bookmark
+;; - [C-x r l] -- list your bookmarks
+;;   - a -- show annotation for current bookmark
+;;   - A -- show all annotations
+;;   - d -- mark as delete
+;;   - e -- edit the annotation for current bookmark
+;;   - m -- mark various entries for display and other operations
+;;   - o -- visit the current bookmark in another window, keeping the bookmark list open
+;;   - C-o -- switch to the current bookmark in another window
+;;   - r -- rename the current bookmark
+;;   - x -- execute marked status actions
+;; - [M-x bookmark-set] -- add current page into bookmark
+(require 'bookmark)
+(setq bookmark-default-file "~/.emacs.d/my-init/bookmarks.bmk")
+(setq bookmark-save-flag 1)
+
+
+;;; [ macro ]
+;; file to save macros:
+;; ~/.emacs.d/macros/macros
+(load-file "~/.emacs.d/init/macros/macros")
+
+
 
 
 
