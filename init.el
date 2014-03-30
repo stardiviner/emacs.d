@@ -64,3 +64,4 @@
 ;;; Emacs
 (require 'init-my-emacs-completion)
 (require 'init-my-emacs-environment)
+(require 'init-my-emacs-settings)
