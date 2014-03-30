@@ -97,3 +97,4 @@
 (require 'init-my-emacs-dired)
 (require 'init-my-emacs-tramp)
 (require 'init-my-emacs-modes)
+(require 'init-my-emacs-abbrev)
