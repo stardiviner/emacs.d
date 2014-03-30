@@ -38,6 +38,7 @@
 	   helm
 	   helm-descbinds
 	   auto-complete
+	   company-mode
            )
         (mapcar 'el-get-source-name el-get-extra-sources)))
 

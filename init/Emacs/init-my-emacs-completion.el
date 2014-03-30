@@ -316,6 +316,20 @@
 
 (global-auto-complete-mode 1) ; use auto-complete globally
 
+
+;;; [ Company Mode ]
+
+(require 'company)
+
+;;; To use company-mode in all buffers, add the following line to your init file:
+(add-hook 'after-init-hook 'global-company-mode)
+
+(setq company-minimum-prefix-length 3)
+
+;; (setq company-backends '(company-bbdb company-nxml company-css company-eclim company-semantic company-clang company-xcode company-ropemacs company-cmake company-capf
+;;               (company-dabbrev-code company-gtags company-etags company-keywords)
+;;               company-oddmuse company-files company-dabbrev))
+
 
 
 
