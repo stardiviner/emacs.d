@@ -34,6 +34,7 @@
            tooltip-help
 	   ;; Emacs
 	   ;; completion
+	   ido-vertical-mode
            )
         (mapcar 'el-get-source-name el-get-extra-sources)))
 

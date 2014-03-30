@@ -20,6 +20,29 @@
 ;;; [ ido ]
 
 
+
+;;; [ ido-vertical-mode ] -- vertical ido.
+
+;;; Usage:
+;; - [M-x]
+;; - [C-n/p]
+
+(require 'ido-vertical-mode)
+
+(ido-mode 1)
+(ido-vertical-mode 1)
+
+;; (setq ido-decorations '("{" "}" " | " " | ..." "[" "]"
+;;                         " [No match]" " [Matched]" " [Not readable]"
+;;                         " [Too big]" " [Confirm]")
+;;       ido-vertical-decorations '("\n-> " "" "\n   " "\n   ..." "[" "]"
+;;                                  " [No match]" " [Matched]" " [Not readable]"
+;;                                  " [Too big]" " [Confirm]"
+;;                                  "\n-> " "")
+;;       )
+
+
+
 
 
 
