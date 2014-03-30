@@ -49,6 +49,29 @@
 (setq save-place t                      ; save point place
       save-place-file "~/.emacs.d/.emacs-places")
 
+
+;;; [ backup ]
+(setq make-backup-files t
+      backup-by-copying t
+      backup-by-copying-when-mismatch t
+      backup-by-copying-when-privileged-mismatch t
+      backup-by-copying-when-linked t
+      version-control t ; use versioned backups.
+      vc-make-backup-files nil ; do not backup files in vc.
+      ;; backup-inhibited ; do not generate backup
+      delete-old-versions t
+      kept-new-versions 3
+      kept-old-versions 3
+      version-control t
+      )
+
+(setq backup-directory-alist
+      `(("." . ,(expand-file-name "~/.emacs.d/backups"))))
+
+
+;;; [ version control ] (vc)
+
+
 
 
 
