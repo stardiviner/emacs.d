@@ -35,6 +35,7 @@
 	   ;; Emacs
 	   ;; completion
 	   ido-vertical-mode
+	   helm
            )
         (mapcar 'el-get-source-name el-get-extra-sources)))
 

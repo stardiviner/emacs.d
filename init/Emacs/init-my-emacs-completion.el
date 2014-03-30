@@ -43,6 +43,46 @@
 
 
 
+;;; [ Helm ] --- (incremental completion and selection narrowing framework)
+;; Customize:
+;; - [C-c c] -- for all complete framework prefix.
+
+;; Basic usage:
+;;  - M-x helm-mini
+;; general helm commands:
+;;  - [TAB] -- access to `action' menu with
+;;  - [C-z] -- use persistent actions with
+;;  - [M-SPACE] -- mark candidate with
+;; get helm help in heml minor mode:
+;;  - [C-h m]
+;; wildcard match
+;;  - ~/_esk (here `_' is a space)
+
+;; (unless (package-installed-p 'helm)
+;;   (package-install 'helm))
+
+;; (require 'helm)
+;; (require 'helm-config)
+
+;; (helm-mode 1)
+
+;; (set-face-attribute 'helm-selection nil
+;;                     :background "#004A5D" :foreground "white"
+;;                     :box '(:color "cyan" :line-width 1)
+;;                     :weight 'bold)
+
+;; (global-set-key (kbd "C-c h") 'helm-mini)
+
+;; (setq helm-case-fold-search t) ; whether toggle case sensitive search depend on your input has mixture of upcase and downcase.
+
+;;; Bookmark
+;; Helm bookmarks[C-x C-x r b]
+;; (helm-highlight-bookmark)
+
+;; Firefox bookmarks [C-x C-x]
+;; NOTE config your firefox `about:config' to enable:
+;; user_pref("browser.bookmarks.autoExportHTML", false);
+
 
 
 
