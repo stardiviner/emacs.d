@@ -40,6 +40,8 @@
          helm-descbinds
          auto-complete
          company-mode
+         ;; color theme
+         color-theme-solarized
          ;; buffer & window, frame
          window-number ; switch-window
          workgroups2 ; e2wm
@@ -60,6 +62,7 @@
          org-fstree org-bullets
          ;; tools
          calfw
+         gist
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
 
@@ -119,3 +122,4 @@
 ;;; Tools
 (require 'init-my-tool-org-mode)
 (require 'init-my-tool-dict)
+(require 'init-my-tool-paste)
