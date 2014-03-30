@@ -107,4 +107,4 @@
 (require 'init-my-emacs-calendar)
 (require 'init-my-emacs-vcs)
 (require 'init-my-emacs-shell)
-
+(require 'init-my-emacs-calculator)
