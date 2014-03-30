@@ -138,6 +138,10 @@
   (global-unset-key k))
 
 
+;;; [ clipboard ]
+(setq x-select-enable-clipboard t)
+
+
 ;;; [ Browser ]
 (setq browse-url-browser-function 'browse-url-generic
       ;; "firefox", "chromium-browser", "uzbl", "luakit", "jumanji", "elinks",
@@ -148,7 +152,8 @@
 ;;; [ Search ]
 (setq-default  case-fold-search t ; whether toggle case sensitive search depend on your input has mixture of upcase and downcase.
                case-replace t ; preserve case in replacements.
- )
+	       )
+
 
 
 
