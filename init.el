@@ -34,3 +34,14 @@
         (mapcar 'el-get-source-name el-get-extra-sources)))
 
 (el-get 'sync my-el-get-packages)
+
+
+;;; add my init files directory
+(let ((default-directory "~/.emacs.d/init/"))
+  (setq load-path
+        (append
+          (let ((load-path (copy-sequence load-path))) ; shadow
+            (append
+              (copy-sequence (normal-top-level-add-to-load-path '(".")))
+              (normal-top-level-add-subdirs-to-load-path)))
+          load-path)))
