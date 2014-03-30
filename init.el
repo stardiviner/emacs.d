@@ -95,3 +95,4 @@
 (require 'init-my-emacs-file)
 (require 'init-my-emacs-image)
 (require 'init-my-emacs-dired)
+(require 'init-my-emacs-tramp)
