@@ -39,6 +39,8 @@
 	   helm-descbinds
 	   auto-complete
 	   company-mode
+	   ;; buffer & window, frame
+	   window-number ; switch-window
            )
         (mapcar 'el-get-source-name el-get-extra-sources)))
 
@@ -71,4 +73,5 @@
 (require 'init-my-emacs-highlight)
 (require 'init-my-emacs-minibuffer)
 (require 'init-my-emacs-buffer)
+(require 'init-my-emacs-window)
 
