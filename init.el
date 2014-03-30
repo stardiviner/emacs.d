@@ -23,7 +23,11 @@
 ;;; my packages which will be installed.
 (setq my-el-get-packages
       (append
-        '(
+        '(popup
+           pos-tip
+           popup-pos-tip
+           showtip
+           tooltip-help
            )
         (mapcar 'el-get-source-name el-get-extra-sources)))
 
