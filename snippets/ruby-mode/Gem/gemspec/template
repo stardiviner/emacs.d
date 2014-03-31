@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: gemspec-templat
+# key: gemspec
+# --
+Gem::Specification.new do |s|
+  s.name        = '${1:NAME}'
+  s.version     = '${2:VERSION}'
+  s.summary     = "${3:SUMMARY}"
+  s.description = "${4:DESCRIPTION}"
+  s.authors     = ["${5:AUTHOR 1}"]
+  s.email       = '${6:numbchild@gmail.com}'
+  s.files       = ["${7:lib/filename.rb}"]
+  s.homepage    = 'https://rubygems.org/gems/${8:gem name}'
+end

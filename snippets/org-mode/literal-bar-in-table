@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: literal | in org table
+# key: \vert
+# --
+${1:\vert${2:inside\vert{}word}} $0

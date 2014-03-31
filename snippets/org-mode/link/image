@@ -1,0 +1,5 @@
+# name: image link
+# key: image
+# contributor: stardiviner
+# --
+[[file:${1:relative path}]][[${2:description, file:thumb.jpg}]]

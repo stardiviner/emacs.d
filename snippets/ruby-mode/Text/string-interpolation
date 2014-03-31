@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: string interpolation
+# key: string-interpolation
+# --
+"${1:... [%s, %f etc] ...}" % ${2:expr}

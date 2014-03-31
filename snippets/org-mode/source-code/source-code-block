@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: source code block
+# key: src
+# --
+#+NAME: ${3:source code name}
+#+HEADERS: ${4:arguments: :exports [code, results, both]} ${5:var: var1="value"}
+#+BEGIN_SRC ${1:ruby, lisp, R, js, sql, sqlite, sh C, C++}
+${2:code here}
+#+END_SRC
+
+$0

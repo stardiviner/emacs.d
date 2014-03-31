@@ -1,0 +1,212 @@
+# Template Syntax
+# Each template file has this line: [# --] (there MUST be a space).
+# Everything above that line is either comment or directive (don't worry about
+# directives for now). Below the line is the actual template definition.
+# The line [#name: ] is for a short title for the template.  This title is used
+# in menus.
+
+# supported directives:
+# - [# key: snippet abbrev]
+#     This is the probably the most important directive, it's the abbreviation
+#     you type to expand a snippet just before hitting yas-trigger-key. If you
+#     don't specify this the snippet will not be expandable through the key
+#     mechanism.
+
+# - [# name: snippet name]
+#     This is a one-line description of the snippet. It will be displayed in the
+#     menu. It's a good idea to select a descriptive name for a snippet --
+#     especially distinguishable among similar snippets.
+#     If you omit this name it will default to the file name the snippet was
+#     loaded from.
+
+# - [# condition: snippet condition]
+#     This is a piece of Emacs-lisp code. If a snippet has a condition, then it
+#     will only be expanded when the condition code evaluate to some non-nil
+#     value.
+#     See also yas-buffer-local-condition in Expanding snippets
+
+# - [# group: snippet menu grouping]
+#     When expanding/visiting snippets from the menu-bar menu, snippets for a
+#     given mode can be grouped into sub-menus . This is useful if one has too
+#     many snippets for a mode which will make the menu too long.
+#     The # group: property only affect menu construction (See the YASnippet
+#     menu) and the same effect can be achieved by grouping snippets into
+#     sub-directories and using the .yas-make-groups special file (for this see
+#     Organizing Snippets
+#     Refer to the bundled snippets for ruby-mode for examples on the # group:
+#     directive. Group can also be nested, e.g. control structure.loops tells
+#     that the snippet is under the loops group which is under the control
+#     structure group.
+
+# - [# expand-env: expand environment]
+#     This is another piece of Emacs-lisp code in the form of a let varlist
+#     form, i.e. a list of lists assigning values to variables. It can be used
+#     to override variable values while the snippet is being expanded.
+#     Interesting variables to override are yas-wrap-around-region and
+#     yas-indent-line (see Expanding Snippets).
+#     As an example, you might normally have yas-indent-line set to 'auto and
+#     yas-wrap-around-region set to t, but for this particularly brilliant piece
+#     of ASCII art these values would mess up your hard work. You can then use:
+#     # name : ASCII home
+#     # expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
+#     # --
+#
+#                     welcome to my
+#                 X      humble
+#                / \      home,
+#               /   \      $0
+#              /     \
+#             /-------\
+#             |       |
+#             |  +-+  |
+#             |  | |  |
+#             +--+-+--+
+
+# - [# binding: direct keybinding]
+#     You can use this directive to expand a snippet directly from a normal
+#     Emacs keybinding. The keybinding will be registered in the Emacs keymap
+#     named after the major mode the snippet is active for.
+#     Additionally a variable yas-prefix is set to to the prefix argument you
+#     normally use for a command. This allows for small variations on the same
+#     snippet, for example in this "html-mode" snippet.
+#     #name : <p>...</p>
+#     #binding: C-c C-c C-m
+#     # --
+#     <p>`(when yas-prefix "\n")`$0`(when yas-prefix "\n")`</p>
+#
+#     This binding will be recorded in the keymap html-mode-map. To expand a
+#     paragraph tag newlines, just press C-u C-c C-c C-m. Omitting the C-u will
+#     expand the paragraph tag without newlines.
+
+# - [# contributor: snippet author]
+#     This is optional and has no effect whatsoever on snippet functionality,
+#     but it looks nice.
+
+
+
+# Special Characters
+# In the template definition, some chars have special meaning:
+
+# - $0 -- Tab stop field
+#     is the position the cursor (after the snippet is inserted).  You don't
+#     need to put a [$0] if you don't need it.
+
+# - $<n> -- paceholder field
+#     is a field, where the <n> is a integer starting with 1.  Pressing tab will
+#     move cursor to these stops for user to fill in.  Multiple occurrence of
+#     the same [$<n>] means typing in one field will automatically fill the
+#     other.
+
+# - ${<n>:<default text>} -- placeholder field
+#     is same as [$<n>], but provides a default text.
+
+# - ${1:default-text} $1 -- mirror
+
+# - ${n:$(transformations text)} -- mirror with transformations
+#     If the value of an ${n:-construct starts with and contains $(, then it is
+#     interpreted as a mirror for field n with a transformation. The mirror's
+#     text content is calculated according to this transformation, which is
+#     Emacs-lisp code that gets evaluated in an environment where the variable
+#     text (or yas-text) is bound to the text content (string) contained in the
+#     field n.Here's an example for Objective-C:
+#     - (${1:id})${2:foo}
+#     {
+#         return $2;
+#     }
+#     - (void)set${2:$(capitalize text)}:($1)aValue
+#     {
+#         [$2 autorelease];
+#         $2 = [aValue retain];
+#     }
+#     $0
+#
+#     Look at ${2:$(capitalize text)}, it is a mirror with transformation
+#     instead of a field. The actual field is at the first line: ${2:foo}. When
+#     you type text in ${2:foo}, the transformation will be evaluated and the
+#     result will be placed there as the transformed text. So in this example,
+#     if you type "baz" in the field, the transformed text will be "Baz". This
+#     example is also available in the screencast.
+#     Another example is for rst-mode. In reStructuredText, the document title
+#     can be some text surrounded by "===" below and above. The "===" should be
+#     at least as long as the text. So
+#     =====
+#     Title
+#     =====
+#     is a valid title but
+#     ===
+#     Title
+#     ===
+#     is not.  Here's an snippet for rst title:
+#     ${1:$(make-string (string-width text) ?\=)}
+#     ${1:Title}
+#     ${1:$(make-string (string-width text) ?\=)}
+#
+#     $0
+
+# - ${n:mydefine$(upcase yas-text)} -- fields with transformations
+#     From version 0.6 on, you can also have lisp transformation inside
+#     fields. These work mostly mirror transformations but are evaluated when
+#     you first enter the field, after each change you make to the field and
+#     also just before you exit the field.
+#     The syntax is also a tiny bit different, so that the parser can
+#     distinguish between fields and mirrors. In the following example
+#
+#     #define "${1:mydefine$(upcase yas-text)}"
+#
+#     mydefine gets automatically upcased to MYDEFINE once you enter the
+#     field. As you type text, it gets filtered through the transformation every
+#     time.
+#     Note that to tell this kind of expression from a mirror with a
+#     transformation, YASnippet needs extra text between the : and the
+#     transformation's $. If you don't want this extra-text, you can use two $'s
+#     instead.
+#
+#     #define "${1:$$(upcase yas-text)}"
+#
+#     Please note that as soon as a transformation takes place, it changes the
+#     value of the field and sets it its internal modification state to true. As
+#     a consequence, the auto-deletion behaviour of normal fields does not take
+#     place. This is by design.
+
+# - ${n:$$(yas-choose-value '("right" "center" "left"))} -- choosing field value
+#   from a list and other tricks
+#     As mentioned, the field transformation is invoked just after you enter the
+#     field, and with some useful variables bound, notably yas-field-modified-p
+#     and yas-moving-away-p. Because of this feature you can place a
+#     transformation in the primary field that lets you select default values
+#     for it.
+#     The yas-choose-value does this work for you. For example:
+#
+#     <div align="${2:$$(yas-choose-value '("right" "center" "left"))}">
+#       $0
+#     </div>
+#
+#     See the definition of yas/choose-value to see how it was written using the
+#     two variables.
+#     Here's another use, for LaTeX-mode, which calls reftex-label just as you
+#     enter snippet field 2. This one makes use of yas/modified-p directly.
+#
+#     \section{${1:"Titel der Tour"}}%
+#     \index{$1}%
+#     \label{{2:"waiting for reftex-label call..."$(unless yas/modified-p (reftex-label nil 'dont-
+#     insert))}}%
+#
+#     The function yas/verify-value has another neat trick, and makes use of
+#     yas/moving-away-p. Try it and see!
+
+# - ${1:kk${2:bb}} -- nested placeholder fields
+#     By the way, C-d will only clear the field if you cursor is at the
+#     beginning of the field and it hasn't been changed yet. Otherwise, it
+#     performs the normal Emacs delete-char command.
+
+# - $&
+#     means indent the line according to the mode's indentation rule.
+
+# - ` -- (backtick)
+#     is used to enclose elisp code.  The lisp code will be evaluated in the
+#     same buffer the snippet is being expanded.
+
+
+# Escape
+# use \ to escape $ and ` .
+# The \ itself may also needed to be escaped as \\ sometimes.

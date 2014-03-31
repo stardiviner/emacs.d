@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: dolist + add-hook
+# key: dolist+add-hook
+# --
+(dolist (hook '(${1:mode-hook list}
+                ))
+  (add-hook hook ${2:'function / (lambda () (exp1) (exp2))}))

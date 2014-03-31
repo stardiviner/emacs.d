@@ -1,0 +1,10 @@
+# contributor: Xah Lee (XahLee.org)
+# name: defun
+# key: defun
+# key: d
+# --
+(defun $1 (${2:arguments})
+  "${3:DOCSTRINGS}"
+  (interactive)
+  ${4:body}
+)

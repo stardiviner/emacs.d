@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: string literal general
+# key: str
+# --
+%${1:q for \', Q or omitted for \"}${3:/}${2:string literals}$3

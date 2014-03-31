@@ -1,0 +1,21 @@
+# -*- mode: snippet -*-
+# name: wiki data
+# key: wiki-data
+# --
+* Data
+
+** Help
+
+$2
+
+** Websites
+
+${1:homepage here}
+
+** Wiki
+
+** Books [/]
+
+** Documentations [/]
+
+$0

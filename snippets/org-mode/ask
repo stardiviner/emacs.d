@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: ask
+# key: ask
+# --
+- [ ] ask [/]
+  - [ ] IRC
+  - [ ] Stack Overflow
+  - [ ] Mailing List

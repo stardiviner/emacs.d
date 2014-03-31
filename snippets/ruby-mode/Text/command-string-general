@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: command string general
+# key: cmd
+# --
+%x${1:[${2:command}]}

@@ -1,0 +1,6 @@
+# name: transformations for field or mirror 
+# key: $(
+# key: transformations
+# contributor: stardiviner
+# --
+${1:$, content}\$(${2:lisp-fun} ${3:yas/text, text})$0

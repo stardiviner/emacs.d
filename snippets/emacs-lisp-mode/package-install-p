@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: package install check
+# key: packageInstallP
+# --
+(unless (package-installed-p '${1:PACKAGE})
+  (package-install '$1))

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: unicode
+# key: unicode
+# --
+\u${1:0000~FFFF or \{0~10FFFF\}}$0

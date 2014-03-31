@@ -1,0 +1,5 @@
+# name: choosing field values from a list and other tricks
+# key: field-choosing-values
+# contributor: stardiviner
+# --
+\${${1:n}:\$\$(yas-choose-value '("${2:one}" "${3:two}"))\}$0

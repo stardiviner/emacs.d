@@ -1,0 +1,4 @@
+# name: kbd
+# key: kbd
+# --
+@<kbd>${1:C-h h}@</kbd>$0

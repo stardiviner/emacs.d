@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: snippet template
+# key: template
+# --
+# -*- mode: snippet -*-
+# name: ${1:snippet name}
+# key: ${2:trigger}
+# --
+${3:snippet}

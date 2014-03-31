@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: comment document
+# key: comment-document
+# --
+=begin ${1:a title for this comment document here}
+${2:the comment document body}
+=end
+$0

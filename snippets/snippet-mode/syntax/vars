@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: Snippet header
+# key: vars
+# --
+# name: $2
+# key: ${1:trigger-key}
+# contributor: `user-full-name`${3:
+# ${4:${5:property}: ${6:value}}}${7:
+# expand-env: ((yas/indent-line 'fixed) (yas/wrap-around-region 'nil))}${8:
+# condition: ${9:snippet condition}}
+# --
+$0

@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: here document literal
+# key: here-literal
+# --
+<<${2:\' or \"}${3:HERE}$2 ${4:# ${5:the only place comment}}
+${1:start write here document}
+$3
+$0

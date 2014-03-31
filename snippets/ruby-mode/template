@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: ruby source code template
+# key: template
+# --
+#!/usr/bin/env ruby
+# -*- coding: utf-8 -*-
+
+# ${1:comments}
+
+${2:code}
