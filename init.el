@@ -170,6 +170,7 @@
 ;; (require 'init-my-prog-ecb)
 (require 'init-my-prog-speedbar)
 (require 'init-my-prog-snippet)
+(require 'init-my-prog-document)
 
 
 
