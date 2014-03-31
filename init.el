@@ -184,6 +184,8 @@
 (require 'init-my-prog-project)
 (require 'init-my-prog-git)
 (require 'init-my-prog-regexp)
+(require 'init-my-prog-mmm-mode)
+
 
 
 ;;; at the end!!!
