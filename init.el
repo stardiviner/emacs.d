@@ -183,7 +183,7 @@
 (require 'init-my-prog-compile)
 (require 'init-my-prog-project)
 (require 'init-my-prog-git)
-
+(require 'init-my-prog-regexp)
 
 
 ;;; at the end!!!
