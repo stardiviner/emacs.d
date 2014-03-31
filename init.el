@@ -201,8 +201,11 @@
 (require 'init-my-prog-lang-lisp)
 (require 'init-my-prog-lang-common-lisp)
 
-
-
 
+;;; key bindings
+(require 'init-my-key-bindings)
+
+
+
 ;;; at the end!!!
 (workgroups-mode 1)
