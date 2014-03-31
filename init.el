@@ -78,6 +78,8 @@
          rainbow-mode rainbow-delimiters
          ;; snippet
          yasnippet
+         ;; code browser
+         sr-speedbar
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
 
@@ -165,7 +167,8 @@
 (require 'init-my-prog-comment)
 (require 'init-my-prog-electric)
 (require 'init-my-prog-tags)
-
+;; (require 'init-my-prog-ecb)
+(require 'init-my-prog-speedbar)
 
 
 
