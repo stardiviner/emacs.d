@@ -88,7 +88,13 @@
          egg
          mo-git-blame
          ;; project
-         projectile projectile-rails
+         projectile
+         ;; languages
+         ;; Ruby
+         ruby-mode ruby-electric ruby-block
+         yari
+         inf-ruby rcodetools ruby-compilation rvm
+         robe-mode rinari rhtml-mode projectile-rails
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
 
@@ -185,6 +191,13 @@
 (require 'init-my-prog-git)
 (require 'init-my-prog-regexp)
 (require 'init-my-prog-mmm-mode)
+
+
+
+;;; Programming Languages
+(require 'init-my-prog-lang-ruby)
+
+
 
 
 
