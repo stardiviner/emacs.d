@@ -70,6 +70,10 @@
          ;; Programming
          ;; indent
          highlight-indentation
+         ;; lint
+         flycheck
+         ;; comment
+         fix-mode
          ;; snippet
          yasnippet
          )
@@ -156,6 +160,11 @@
 (require 'init-my-prog-sense)
 (require 'init-my-prog-indent)
 (require 'init-my-prog-lint)
+(require 'init-my-prog-comment)
+
+
+
+
 
 
 ;;; at the end!!!
