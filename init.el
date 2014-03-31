@@ -155,7 +155,7 @@
 (require 'init-my-prog-complete)
 (require 'init-my-prog-sense)
 (require 'init-my-prog-indent)
-
+(require 'init-my-prog-lint)
 
 
 ;;; at the end!!!
