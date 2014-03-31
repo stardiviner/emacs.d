@@ -80,6 +80,8 @@
          yasnippet
          ;; code browser
          sr-speedbar
+         ;; compile
+         smart-compile smart-compile+
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
 
@@ -171,6 +173,7 @@
 (require 'init-my-prog-speedbar)
 (require 'init-my-prog-snippet)
 (require 'init-my-prog-document)
+(require 'init-my-prog-compile)
 
 
 
