@@ -82,6 +82,11 @@
          sr-speedbar
          ;; compile
          smart-compile smart-compile+
+         ;; vcs
+         git-emacs ; git-status
+         magit magithub
+         egg
+         mo-git-blame
          ;; project
          projectile projectile-rails
          )
@@ -177,7 +182,7 @@
 (require 'init-my-prog-document)
 (require 'init-my-prog-compile)
 (require 'init-my-prog-project)
-
+(require 'init-my-prog-git)
 
 
 
