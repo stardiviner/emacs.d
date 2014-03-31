@@ -39,6 +39,10 @@
          helm
          helm-descbinds
          auto-complete
+         auto-complete-yasnippet auto-complete-chunk
+         auto-complete-etags auto-complete-pcmp
+         auto-complete-emacs-lisp auto-complete-clang auto-complete-c-headers
+         auto-complete-css auto-complete-nxml auto-complete-latex auto-complete-ruby auto-complete-verilog
          company-mode
          ;; color theme
          color-theme-solarized
@@ -63,6 +67,9 @@
          ;; tools
          calfw sauron appt
          gist
+         ;; Programming
+         ;; snippet
+         yasnippet
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
 
@@ -139,3 +146,14 @@
 
 ;;; IRC
 (require 'init-my-irc-erc)
+
+
+
+;;; Programming
+(require 'init-my-prog-complete)
+(require 'init-my-prog-sense)
+
+
+
+;;; at the end!!!
+(workgroups-mode 1)
