@@ -95,6 +95,8 @@
          yari
          inf-ruby rcodetools ruby-compilation rvm
          robe-mode rinari rhtml-mode projectile-rails
+         ;; Lisp
+         slime ac-slime elisp-slime-nav elisp-format
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
 
@@ -196,7 +198,8 @@
 
 ;;; Programming Languages
 (require 'init-my-prog-lang-ruby)
-
+(require 'init-my-prog-lang-lisp)
+(require 'init-my-prog-lang-common-lisp)
 
 
 
