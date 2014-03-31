@@ -169,6 +169,7 @@
 (require 'init-my-prog-tags)
 ;; (require 'init-my-prog-ecb)
 (require 'init-my-prog-speedbar)
+(require 'init-my-prog-snippet)
 
 
 
