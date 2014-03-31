@@ -5,13 +5,16 @@
 
 ;;; Code:
 
-;;; [ pcomplete ] --- programmable completion
-(load-library "pcomplete")
+;;; [ complete ]
+
+;; (setq tab-always-indent 'complete)
+;; (add-to-list 'completion-styles 'initials t)
+;; (setq completion-cycle-threshold 5)
+(setq completion-at-point-functions 'auto-complete)
 
 
-;;; [ Icomplete ]
-
-;; (icomplete-mode 1)
+;;; [ pcomplete ] --- programmable completion
+(load-library "pcomplete")
 
 
 ;;; Press [TAB] in minibuffer to show completions in popup window buffer.
@@ -43,6 +46,12 @@
 
 
 
+;;; [ Icomplete ]
+
+;; (icomplete-mode 1)
+
+
+
 ;;; [ Helm ] --- (incremental completion and selection narrowing framework)
 ;; Customize:
 ;; - [C-c c] -- for all complete framework prefix.
@@ -66,7 +75,6 @@
 ;; (set-face-attribute 'helm-selection nil
 ;;                     :background "#004A5D" :foreground "white"
 ;;                     :box '(:color "cyan" :line-width 1)
-;;                     :weight 'bold
 ;; 		    :underline nil)
 
 ;; (global-set-key (kbd "C-c h") 'helm-mini)
@@ -139,16 +147,15 @@
 ;;      - [M-h] or [C-?] or [F1]
 ;;      - [C-M-v] or [C-M-S-v] to scroll
 
-
 (require 'auto-complete)
-
-;; (require 'auto-complete-config)
-;; (ac-config-default)
-
+(require 'auto-complete-config)
 (require 'popup)
-
 ;; TODO: remove this if not needed any more.
 ;; (require 'showtip)
+
+;; (ac-config-default)
+
+(global-auto-complete-mode 1) ; use auto-complete globally
 
 
 (setq ac-auto-start 2) ; auto start auto-complete when has N characters.
@@ -170,6 +177,11 @@
 (setq ac-auto-show-menu 0.3) ;; show popup menu after how many seconds
 (setq ac-menu-height 10) ; smaller ac-menu is more cute. big ac-menu is not necessary.
 ;; NOTE: small menu is helpful for small computer screen, because split window has small height, this cause quick help popup is shown in hidden position.
+
+
+(setq-default ac-expand-on-auto-complete nil)
+(setq-default ac-dwim nil) ; to get pop-ups with docs even if a word is uniquely completed.
+
 
 ;; trigger key [TAB]
 ;; (ac-set-trigger-key "TAB") ; usualy this, <tab> has higher priority than TAB.
@@ -191,8 +203,10 @@
     "Select the candidate and append a space. save your time for typing space."
     (interactive)
     (ac-complete)
-    (insert " ")))
+    (insert " ")
+    ))
 (define-key ac-menu-map (kbd "M-SPC") 'ac-complete) ; select current candidate.
+(define-key ac-menu-map (kbd "M-j") 'ac-complete) ; select current candidate.
 (define-key ac-menu-map (kbd "M-n") 'ac-next) ; next candidate.
 (define-key ac-menu-map (kbd "M-p") 'ac-previous) ; previous candidate.
 (define-key ac-menu-map (kbd "M-i") 'ac-expand) ; for expand snippet, abbrev etc.
@@ -223,8 +237,8 @@
 
 
 ;; show help beautifully with extension "pos-tip.el"
-;; TODO: dive into this source code.
-;; (require 'pos-tip)
+
+(require 'pos-tip)
 
 
 ;;; [ fuzzy completion ]
@@ -285,8 +299,6 @@
 ;;      M-x ac-clear-dictionary-cache
 ;;      to apply changes.
 
-;; FIXME: change auto-complete folder version after manage package with el-get.
-;; (add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-20140314.802/dict/")
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete-dict")
 
 
@@ -314,10 +326,13 @@
 ;;   (package-install 'ac-math))
 ;; (require 'ac-math)
 
-;;; chunk for dot.separated.words
-;; TODO: (require 'auto-complete-chunk)
-;; TODO: (require 'auto-complete-yasnippet)
+(require 'auto-complete-pcmp)
+(require 'auto-complete-etags)
 
+;;; chunk for dot.separated.words
+;; (require 'auto-complete-chunk)
+
+;; (require 'auto-complete-yasnippet)
 
 
 ;;; ac-etags --- https://github.com/syohex/emacs-ac-etags
@@ -330,23 +345,21 @@
 ;; 2. set path of TAGS
 ;; - [M-x visit-tags-table]
 
-;; (unless (package-installed-p 'ac-etags)
-;;   (package-install 'ac-etags))
 ;; (require 'ac-etags)
-
+;;
 ;; (eval-after-load "etags"
 ;;   (progn
 ;;     (ac-etags-setup)))
-
-(setq ac-etags-requires 3)
+;;
+;; (setq ac-etags-requires 3)
 
 
 ;;; [ semantic ]
 
-(semantic-mode 1)
-(add-hook 'c-mode-common-hook
-          (lambda ()
-            (add-to-list 'ac-sources 'ac-source-semantic)))
+;; (semantic-mode 1)
+;; (add-hook 'c-mode-common-hook
+;;           (lambda ()
+;;             (add-to-list 'ac-sources 'ac-source-semantic)))
 
 
 ;;; set default auto-complete source
@@ -359,10 +372,10 @@
                 ac-source-filename
                 ac-source-files-in-current-dir
                 ;; programming
-                ac-source-semantic
+                ;; ac-source-semantic
                 ;; ac-source-semantic-raw
                 ;; tags
-                ac-source-etags
+                ;; ac-source-etags
                 ;; ac-source-gtags
                 ;; ac-source-functions
                 ;; ac-source-variables
@@ -382,7 +395,7 @@
                 ;; ac-source-dictionary-chunk
                 ;; ac-source-entity
                 ;; features
-                ;; ac-source-features ; for emacs-lisp features
+                ac-source-features ; for emacs-lisp features
                 ))
 
 
@@ -407,11 +420,13 @@
 ;; (set-face-attribute 'ac-gtags-selection-face nil
 ;;                     )
 ;;; ac-yasnippet
-;; (set-face-attribute 'ac-yasnippet-candidate-face nil
-;;                     :background "deep pink"
-;;                     :bold 'normal)
-;; (set-face-attribute 'ac-yasnippet-selection-face nil
-;;                     )
+(set-face-attribute 'ac-yasnippet-candidate-face nil
+                    :background "deep pink"
+                    :weight 'normal)
+(set-face-attribute 'ac-yasnippet-selection-face nil
+                    :background "deep pink"
+                    :underline t
+                    )
 ;;; auto-complete-clang
 ;; (set-face-attribute 'ac-clang-candidate-face nil
 ;;                     :foreground "sky blue"
@@ -448,11 +463,6 @@
 ;; (ac-linum-workaround)
 
 
-;;; enable auto-complete mode globally.
-
-(global-auto-complete-mode 1) ; use auto-complete globally
-
-
 ;;; [ Company Mode ]
 
 ;; (require 'company)
@@ -460,7 +470,7 @@
 ;;; To use company-mode in all buffers, add the following line to your init file:
 ;; (add-hook 'after-init-hook 'global-company-mode)
 
-(setq company-minimum-prefix-length 3)
+;; (setq company-minimum-prefix-length 3)
 
 ;; (setq company-backends '(company-bbdb company-nxml company-css company-eclim company-semantic company-clang company-xcode company-ropemacs company-cmake company-capf
 ;;               (company-dabbrev-code company-gtags company-etags company-keywords)

@@ -79,8 +79,6 @@
 
 
 ;;; [ autopair ]
-(unless (package-installed-p 'autopair)
-  (package-install 'autopair))
 (require 'autopair)
 
 (autoload 'autopair "autopair" t)

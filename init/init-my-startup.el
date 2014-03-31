@@ -88,6 +88,7 @@
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Lisp/Common Lisp/Common Lisp.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Ruby.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Ruby on Rails/Ruby on Rails.org")
+(find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Wiki/The Ruby Programming Language.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Go/Go.org")
 (find-file "~/Org/Wiki/Computer/Softwares/Softwares.org")
 (find-file "~/Org/Wiki/Computer/Systems/Linux/Command Line/Command Line.org")
@@ -109,6 +110,8 @@
 (find-file "~/Org/Work/Work.org")
 (find-file "~/Org/Tasks.org")
 
+(find-file "~/Code/learning/Ruby/test.rb")
+
 
 ;;; start Sauron at Emacs startup
 (sauron-start)
@@ -121,12 +124,6 @@
 ;;; open Org-Agenda at startup.
 ;; (org-agenda-list)
 ;; (org-todo-list)
-
-
-;;; Temp workaround
-
-(set-cursor-color "cyan")
-(workgroups-mode 1)
 
 
 

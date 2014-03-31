@@ -3,4 +3,17 @@
 
 # ignored directories
 el-get/
+elpa/
 ac-comphist.dat
+auto-save-list/
+*~
+
+# projectile
+projectile.cache
+projectile-bookmarks.eld
+
+# workgroups2
+.emacs_workgroups
+
+# emacs places
+.emacs-places

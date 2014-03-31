@@ -82,8 +82,8 @@
 (if (featurep 'org)
     (require 'org))
 ;; appointment
-(if (featurep 'appt)
-    (require 'appt))
+;; (if (featurep 'appt)
+;;     (require 'appt))
 ;; sauron-erc
 (if (featurep 'erc)
     (require 'erc))
@@ -185,7 +185,8 @@
         sauron-dbus
         sauron-notifications
         ;; sauron-twittering sauron-identica
-        sauron-jabber))
+        ;; sauron-jabber
+        ))
 
 
 ;;; [ Org-mode, appt ]
@@ -203,9 +204,9 @@
 ;; For all other minutes, you’ll get events with priority 2.
 
 ;; (require 'appt)
-(setq appt-display-interval 3
-      appt-message-warning-time 10
-      appt-disp-window-function 'sr-org-handler-func)
+;; (setq appt-display-interval 3
+;;       appt-message-warning-time 10
+;;       appt-disp-window-function 'sr-org-handler-func)
 
 
 ;;; Sauron ERC

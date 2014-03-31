@@ -58,7 +58,7 @@
       org-startup-truncated t
       ;; FIXME: error: Can't preview LaTeX fragment in a non-file buffer.
       ;; org-startup-with-inline-images t
-      org-startup-with-latex-preview t
+      ;; org-startup-with-latex-preview t
       ;; org-startup-options
       ;; coordinate grid overlays
       ;; org-table-overlay-coordinates t
@@ -333,9 +333,6 @@
 ;;; 繁体中文:      壹，貳，叄，肆，伍，陸，柒，捌，玖，拾
 ;;; ⒈ ⒉ ⒊ ⒋ ⒌
 
-;; (after-load 'org-bullets
-;;             )
-
 (add-hook 'org-mode-hook
           (lambda ()
             (org-bullets-mode 1)
@@ -352,9 +349,8 @@ It can contain any number of symbols, which will be repeated."
             ;; (setq org-bullets-face-name "org-bullet-face")
             ;; (set-face-attribute 'org-bullet-face nil
             ;;                     :foreground "white" :background "black")
-
-
             ))
+
 
 (setq org-ascii-headline-spacing '(1 . 2))
 
@@ -1639,19 +1635,19 @@ This is especially for create Org files."
 
 
 ;;; 2.
-(require 'appt) ; appointment
+;; (require 'appt) ; appointment
 
-(setq appt-audible t
-      appt-display-diary t
-      appt-display-interval 3 ; interval in minutes.
-      appt-message-warning-time 15     ;; warn 15 mins in advance
-      appt-display-mode-line t     ;; show in the modeline
-      appt-display-format 'window  ;; use our func
-      appt-display-duration 10 ; the number of seconds an appointment message is displayed.
-      )
+;; (setq appt-audible t
+;;       appt-display-diary t
+;;       appt-display-interval 3 ; interval in minutes.
+;;       appt-message-warning-time 15     ;; warn 15 mins in advance
+;;       appt-display-mode-line t     ;; show in the modeline
+;;       appt-display-format 'window  ;; use our func
+;;       appt-display-duration 10 ; the number of seconds an appointment message is displayed.
+;;       )
 
-(appt-activate 1)                  ;; active appt (appointment notification)
-(display-time)                     ;; time display is required for this...
+;; (appt-activate 1)                  ;; active appt (appointment notification)
+;; (display-time)                     ;; time display is required for this...
 
 ;; update appt each time agenda opened
 ;; FIXME after fix the problem of repeated timestamp caused over size of 'appt-check'.
@@ -1667,7 +1663,7 @@ This is especially for create Org files."
 ;; ;; TODO remove this old format setting ?
 ;; (setq appt-disp-window-function 'my-appt-display) ; 'org-notify,
 
-(setq appt-disp-window-function 'sr-org-handler-func) ; for Sauron.
+;; (setq appt-disp-window-function 'sr-org-handler-func) ; for Sauron.
 
 
 ;; (add-hook 'org-mode-hook

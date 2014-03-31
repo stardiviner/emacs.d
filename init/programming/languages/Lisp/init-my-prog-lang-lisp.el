@@ -25,23 +25,33 @@
 
 ;;; [ ac-slime ] --
 
+(require 'ac-slime)
+
 (dolist (hook '(lisp-mode-hook
                 lisp-interaction-mode-hook
                 scheme-mode-hook
+                emacs-lisp-mode-hook
+                eval-expression-minibuffer-setup-hook
+                ielm-mode-hook
                 ))
   (add-hook hook (lambda ()
-                   (after-load 'auto-complete
-                     (add-to-list 'ac-sources 'ac-slime)))))
+                   (add-to-list 'ac-sources 'ac-slime))))
 
 
 (set-face-attribute 'ac-slime-menu-face nil
-                    :foreground "blue"
+                    :foreground "yellow"
                     :bold 'normal)
 ;; (set-face-attribute 'ac-slime-selection-face nil
 ;;                     )
 
+
 
 ;;; [ Emacs Lisp ]
+
+(require 'auto-complete-emacs-lisp)
+
+;; this add emacs lisp source into AC, and support show popup help doc.
+(add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)
 
 
 ;;; elisp-slime-nav
@@ -52,8 +62,19 @@
 
 (require 'elisp-slime-nav)
 
-(dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
+(dolist (hook '(emacs-lisp-mode-hook
+		ielm-mode-hook))
   (add-hook hook 'turn-on-elisp-slime-nav-mode))
+(diminish 'elisp-slime-nav-mode)
+
+
+;; A quick way to jump to the definition of a function given its key binding
+;; (global-set-key (kbd "C-h K") 'find-function-on-key)
+
+
+;;; eldoc-eval --- Enable eldoc support when minibuffer is in use.
+
+(require 'eldoc-eval)
 
 
 ;;; elisp-format

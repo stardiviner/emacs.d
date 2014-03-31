@@ -77,7 +77,7 @@
 (require 'yasnippet)
 
 (setq yas-snippet-dirs
-      '("~/.emacs.d/my-init/snippets" ; personal snippets directory
+      '("~/.emacs.d/snippets" ; personal snippets directory
         ;; "~/.emacs.d/el-get/yasnippet/snippets/" YASnippet bundled snippets
         ))
 
@@ -123,8 +123,8 @@
 
 
 ;;; enable YASnippet
-; TODO
-; (yas-global-mode 1) ; or [M-x yas-reload-all] if you've started YASnippet already.
+
+(yas-global-mode 1) ; or [M-x yas-reload-all] if you've started YASnippet already.
 
 ;;
 ;; use yas-minor-mode on a pre-buffer basis To use YASnippet as a non-global

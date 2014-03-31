@@ -69,6 +69,7 @@
         "C-c o"                         ; Org-mode (global)
         "C-c d"                         ; Dictionary
         "C-c ;"                         ; E2WM
+        "C-c z"                         ; workgroups2
         "C-c @"                         ; hs-minor-mode [Fold] (global)
         "C-c '"                         ;
         (org-mode "C-c C-x" "C-c C-v")  ; Org-mode.

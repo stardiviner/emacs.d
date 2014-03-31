@@ -39,7 +39,7 @@
       ["子" "丑" "寅" "卯" "辰" "巳" "午" "未" "申" "酉" "戌" "亥"])
 ;;; Localized National Holidays
 ;;; cal-china-x.el -- Chinese calendar extras
-(load "~/.emacs.d/my-init/extensions/cal-china-x.el")
+(load "~/.emacs.d/init/extensions/cal-china-x.el")
 (require 'cal-china-x)
 ;; location
 (setq calendar-location-name "Shaoxing")

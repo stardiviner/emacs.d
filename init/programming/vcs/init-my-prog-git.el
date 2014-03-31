@@ -147,7 +147,7 @@
 ;; and correct work on MS Windows, all other functional is almost the same as in
 ;; magit.
 
-(require 'egg)
+;; (require 'egg)
 
 
 ;;; [ git-blame ]

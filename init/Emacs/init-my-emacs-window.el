@@ -83,6 +83,8 @@
       )
 
 ;; (workgroups-mode 1)        ; put this one at the bottom of .emacs
+
+
 
 ;;; [ E2WM ] --- Equilibrium Emacs Window Manager
 

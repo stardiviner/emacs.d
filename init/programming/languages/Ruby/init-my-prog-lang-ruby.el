@@ -45,40 +45,40 @@
 ;;                "\\.irbrc\\'" "\\.pryrc\\'"
 ;;                )
 
-(after-load 'ruby-mode
-  (define-key ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
-  ;; (define-key ruby-mode-map (kbd "TAB") 'indent-for-tab-command)
+;; Stupidly the non-bundled ruby-mode isn't a derived mode of
+;; prog-mode: we run the latter's hooks anyway in that case.
+(add-hook 'ruby-mode-hook
+          (lambda ()
+            (unless (derived-mode-p 'prog-mode)
+              (run-hooks 'prog-mode-hook))
 
-  ;; Stupidly the non-bundled ruby-mode isn't a derived mode of
-  ;; prog-mode: we run the latter's hooks anyway in that case.
-  (add-hook 'ruby-mode-hook
-            (lambda ()
-              (unless (derived-mode-p 'prog-mode)
-                (run-hooks 'prog-mode-hook))
+            ;; TODO: modify those colors.
+            ;; Words prefixed with $ are global variables,
+            ;; prefixed with @ are instance variables.
+            (modify-syntax-entry ?$ "w") ; global variable
+            (modify-syntax-entry ?@ "w") ; instance variable
+            ;; FIXME: (modify-syntax-entry ?@@ "w") ; class variable
+            (modify-syntax-entry ?? "w")
+            (modify-syntax-entry ?! "w")
+            (modify-syntax-entry ?: ".")
 
-              ;; TODO: modify those colors.
-              ;; Words prefixed with $ are global variables,
-              ;; prefixed with @ are instance variables.
-              (modify-syntax-entry ?$ "w") ; global variable
-              (modify-syntax-entry ?@ "w") ; instance variable
-              ;; FIXME: (modify-syntax-entry ?@@ "w") ; class variable
-              (modify-syntax-entry ?? "w")
-              (modify-syntax-entry ?! "w")
-              (modify-syntax-entry ?: ".")
-              ))
+            (define-key ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
+            ;; (define-key ruby-mode-map (kbd "TAB") 'indent-for-tab-command)
 
-  (define-key ruby-mode-map (kbd "C-.") 'insert-arrow)
+            (define-key ruby-mode-map (kbd "C-.") 'insert-arrow)
 
-  ;; hs-minor-mode
-  (add-to-list 'hs-special-modes-alist
-             '(ruby-mode
-               "\\(class\\|def\\|do\\|if\\)" "\\(end\\)" "#"
-               (lambda (arg) (ruby-end-of-block)) nil))
+            ;; hs-minor-mode
+            (add-to-list 'hs-special-modes-alist
+                         '(ruby-mode
+                           "\\(class\\|def\\|do\\|if\\)" "\\(end\\)" "#"
+                           (lambda (arg) (ruby-end-of-block)) nil))
 
-  (electric-indent-local-mode 1)
-  (setq ruby-deep-indent-paren '(?\( ?\[ ?\] t)
-        ruby-deep-indent-paren-style 'space)
-  )
+            (electric-indent-local-mode 1)
+            (setq ruby-deep-indent-paren '(?\( ?\[ ?\] t)
+                  ruby-deep-indent-paren-style 'space)
+            ))
+
+
 
 
 ;;; enh-ruby-mode
@@ -150,9 +150,9 @@
                    (setq yari-ri-program-name "ri")
 
                    ;; (local-set-key (kbd "C-h d") 'yari)
-                   ;; or with help-document-map prefix.
-                   (define-key help-document-map (kbd "d") 'yari)
-                   (define-key help-document-map (kbd "D") 'yari-helm)
+                   ;; or with my-help-document-prefix-map prefix.
+                   (define-key my-help-document-prefix-map (kbd "d") 'yari)
+                   (define-key my-help-document-prefix-map (kbd "D") 'yari-helm)
                    )))
 
 
@@ -213,23 +213,23 @@
 ;; ;;; for Ruby buffers. {Ruby}
 ;; (add-hook 'ruby-mode-hook
 ;;           (lambda ()
-;;             (after-load 'auto-complete
+;;             (eval-after-load 'auto-complete
 ;;               (add-to-list 'ac-sources 'ac-source-inf-ruby))
 ;;             (add-hook 'inf-ruby-minor-mode-hook 'ac-inf-ruby-enable)
 ;;             ))
 
 ;; ;;; for inf-ruby buffer. (Inf-Ruby)
-;; (after-load 'auto-complete
+;; (eval-after-load 'auto-complete
 ;;   (add-to-list 'ac-modes 'inf-ruby-mode))
 ;; (add-hook 'inf-ruby-mode-hook 'ac-inf-ruby-enable)
-;; (after-load 'inf-ruby
+;; (eval-after-load 'inf-ruby
 ;;   (define-key inf-ruby-mode-map (kbd "TAB") 'auto-complete))
 
 
 
 ;;; [ auto-complete-ruby ]
 
-;; (require 'auto-complete-ruby)
+(require 'auto-complete-ruby)
 
 
 ;;; [ rcodetools ]
@@ -271,14 +271,14 @@
 
 (require 'robe)
 
-(after-load 'ruby-mode
-  (add-hook 'ruby-mode-hook 'robe-mode))
+(add-hook 'ruby-mode-hook 'robe-mode)
 
 ;;; [start robe]
 ;;; Both of the bellowing work only when the connection to the Ruby subprocess
 ;;; has been established. To do that, either use one of the core Robe commands,
 ;;; or type M-x robe-start.
-(after-load 'robe
+
+(eval-after-load 'robe
   (robe-start))
 
 ;;; [ completion ]

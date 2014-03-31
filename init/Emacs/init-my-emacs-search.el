@@ -57,8 +57,6 @@
 
 ;;; Usage:
 
-(unless (package-installed-p 'isearch+)
-  (package-install  'isearch+))
 (require 'isearch+)
 
 (setq isearchp-set-region-flag nil
@@ -66,6 +64,13 @@
       ;; isearchp-restrict-to-region-flag
       )
 
+
+;;; [ Lazy Search ]
+
+;; (require 'lazy-search)
+
+
+;;; [ Occur Mode ]
 
 
 ;;; [ visual-regexp ] -- A regexp/replace command for Emacs with interactive visual feedback.
@@ -73,8 +78,6 @@
 ;;; Usage:
 ;;; [C-c C-s] + [r/q/m]
 
-(unless (package-installed-p 'visual-regexp)
-  (package-install 'visual-regexp))
 (require 'visual-regexp)
 
 (define-key my-search-prefix-map (kbd "r") 'vr/replace)
@@ -86,14 +89,113 @@
 
 ;;; [ visual-regexp-steroids.el ] -- Extends visual-regexp to support other regexp engines.
 
-(unless (package-installed-p 'visual-regexp-steroids)
-  (package-install 'visual-regexp-steroids))
 (require 'visual-regexp-steroids)
 
 ;; to use visual-regexp-steroids's isearch instead of the built-in regexp isearch, also include the following lines:
 ;; (define-key esc-map (kbd "C-r") 'vr/isearch-backward) ;; C-M-r
 ;; (define-key esc-map (kbd "C-s") 'vr/isearch-forward) ;; C-M-s
 
+
+;;; [ replace+.el ]
+
+
+;;; [ Grep ]
+
+
+;;; [ Ack ]
+
+
+;;; [ Full Ack ] -- An Emacs front-end for ack
+
+;;; Usage:
+;; - Run ack to search for all files and ack-same to search for files of the same
+;;   type as the current buffer.
+;; - next-error and previous-error can be used to jump to the matches.
+;; - ack-find-file and ack-find-same-file use ack to list the files in the current
+;;   project. It's a convenient, though slow, way of finding files.
+
+;; TODO:
+
+;; (unless (package-installed-p 'full-ack)
+;;   (package-install 'full-ack))
+;; (require 'full-ack)
+
+;; (autoload 'ack-same "full-ack" nil t)
+;; (autoload 'ack "full-ack" nil t)
+;; (autoload 'ack-find-same-file "full-ack" nil t)
+;; (autoload 'ack-find-file "full-ack" nil t)
+
+
+;;; [ ack-and-a-half ]
+
+(require 'ack-and-a-half)
+
+;; Create shorter aliases
+(defalias 'ack 'ack-and-a-half)
+(defalias 'ack-same 'ack-and-a-half-same)
+(defalias 'ack-find-file 'ack-and-a-half-find-file)
+(defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
+
+(setq ack-and-a-half-executable "ack-grep"
+      ack-and-a-half-use-ido t               ; use ido to provide completions
+      ;; ack-and-a-half-arguments ; extra arguments passed to ack
+      ack-and-a-half-ignore-case 'smart
+      ack-and-a-half-regexp-search t
+      ack-and-a-half-regexp-history t
+      ack-and-a-half-use-environment t
+      ;; (ack-and-a-half-same)
+      ;; ack-and-a-half-mode-type-default-alist
+      ack-and-a-half-mode-type-alist nil
+      ack-and-a-half-literal-history t
+      ;; ack-and-a-half-root-directory-functions '(ack-and-a-half-guess-project-root)
+      ack-and-a-half-prompt-for-directory 'unless-guessed
+      ;; TODO add more project root file patterns.
+      ack-and-a-half-project-root-file-patterns '(".project\\'"
+                                                  "\\`.git\\'" "\\`.bzr\\'" "\\`_darcs\\'" "\\`.hg\\'"
+                                                  ".xcodeproj\\'" ".sln\\'" "\\`Project.ede\\'"
+                                                  )
+
+      )
+
+
+(define-key my-search-prefix-map (kbd "a") 'ack-and-a-half)
+
+
+;;; [ Ace Jump Mode ]
+
+;;; Usage:
+;; "C-c SPC" ==> ace-jump-word-mode
+;;     enter first character of a word, select the highlighted key to move to it.
+;; "C-u C-c SPC" ==> ace-jump-char-mode
+;;     enter a character for query, select the highlighted key to move to it.
+;; "C-u C-u C-c SPC" ==> ace-jump-line-mode
+;;     each non-empty line will be marked, select the highlighted key to move to it.
+
+(require 'ace-jump-mode)
+
+(autoload 'ace-jump-mode "ace-jump-mode" "Emacs quick move minor mode" t)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+
+;; enable a more powerful jump back function from ace jump mode
+(autoload 'ace-jump-mode-pop-mark "ace-jump-mode" "Ace jump back:-)" t)
+(eval-after-load "ace-jump-mode" '(ace-jump-mode-enable-mark-sync))
+(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+
+
+;;; Search Keybind
+
+;; Occur search the full list of keybinds & their commands. Very helpful for
+;; learning and remembering forgotten binds.
+
+(defun search-keybind (regexp &optional nlines)
+  (interactive (occur-read-primary-args))
+  (save-excursion
+    (describe-bindings)
+    (set-buffer "*Help*")
+    (occur regexp nlines)
+    (delete-windows-on "*Help*")))
+
+(define-key my-search-prefix-map (kbd "k") 'search-keybind)
 
 
 

@@ -11,6 +11,7 @@
 ;;    `- q    -- quit
 
 (require 'undo-tree)
+
 (global-undo-tree-mode t)
 
 
@@ -165,12 +166,6 @@
 ;;; https://github.com/magnars/multiple-cursors.el
 ;;; - [C-c c] -- prefix of mc.
 ;;; - [C-c c c] / [C-S-c C-S-c] -- edit-lines
-;;; When you have an active region that spans multiple lines, the following will add a cursor to each line:
-;; (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-;;; When you want to add multiple cursors not based on continuous lines, but based on keywords in the buffer, use:
-;; (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-;; (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-;; (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 (require 'multiple-cursors)
 
@@ -190,6 +185,9 @@
 ;; To get out of multiple-cursors-mode, press <return> or C-g. The latter will
 ;; first disable multiple regions before disabling multiple cursors. If you want
 ;; to insert a newline in multiple-cursors-mode, use [C-j].
+
+;; (set-face-attribute 'mc/cursor nil
+;;                     :foreground "cyan")
 
 
 

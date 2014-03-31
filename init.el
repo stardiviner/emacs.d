@@ -1,6 +1,6 @@
 
 
-
+;;; [ package manager ]
 
 ;;; el-get
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
@@ -46,6 +46,9 @@
          company-mode
          ;; color theme
          color-theme-solarized
+         ;; apperance
+         powerline
+         pretty-mode page-break-lines
          ;; buffer & window, frame
          window-number ; switch-window
          workgroups2 ; e2wm
@@ -65,7 +68,7 @@
          ;; Org-mode
          org-fstree org-bullets
          ;; tools
-         calfw sauron appt
+         calfw sauron ; appt
          gist
          ;; Programming
          ;; indent
@@ -73,8 +76,9 @@
          ;; lint
          flycheck
          ;; comment
-         fix-mode
+         fic-mode
          ;; electric
+         paredit autopair
          rainbow-mode rainbow-delimiters
          ;; snippet
          yasnippet
@@ -84,8 +88,8 @@
          smart-compile smart-compile+
          ;; vcs
          git-emacs ; git-status
-         magit magithub
-         egg
+         magit ; magithub
+         ;; egg
          mo-git-blame
          ;; project
          projectile
@@ -96,7 +100,7 @@
          inf-ruby rcodetools ruby-compilation rvm
          robe-mode rinari rhtml-mode projectile-rails
          ;; Lisp
-         slime ac-slime elisp-slime-nav elisp-format
+         slime ac-slime elisp-slime-nav elisp-format eldoc-eval
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
 
@@ -124,6 +128,7 @@
 (require 'init-my-emacs-environment)
 (require 'init-my-emacs-settings)
 (require 'init-my-emacs-help)
+(require 'init-my-emacs-apperance)
 (require 'init-my-emacs-font)
 (require 'init-my-emacs-popup)
 (require 'init-my-emacs-highlight)
@@ -210,5 +215,5 @@
 ;;; at the end!!!
 
 (require 'init-my-startup)
-
+(set-cursor-color "cyan")
 (workgroups-mode 1)

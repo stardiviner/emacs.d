@@ -8,8 +8,7 @@
 (require 'tooltip)
 (tooltip-mode t)
 
-;; (unless (package-installed-p 'tooltip-help)
-;;   (package-install 'tooltip-help))
+(require 'tooltip-help)
 
 
 ;;; [ popup ]
@@ -32,7 +31,6 @@
                     :inverse-video nil
                     :foreground "#209FC9" :background "white"
                     :underline '(:color "dim gray" :style line)
-                    :weight 'bold
                     )
 (set-face-attribute 'popup-menu-face nil
                     :foreground "green")
@@ -53,8 +51,8 @@
 
 ;;; popup-pos-tip
 
-;; (unless (package-installed-p 'popup-pos-tip)
-;;   (package-install 'popup-pos-tip))
+(require 'popup-pos-tip)
+
 
 
 ;;; [ showtip ]

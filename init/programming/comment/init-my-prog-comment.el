@@ -43,11 +43,13 @@ This functions should be added to the hooks of major modes for programming."
 ;; (setq fic-foreground-color "red")
 ;; (setq fic-background-color "yellow")
 
-(set-face-attribute 'font-lock-fic-face nil ; 'fic-face, 'font-lock-fic-face.
-                    :foreground "dark red" :background "black"
-                    :weight 'bold
-                    :box '(:color "#222222" :line-width 1 :style nil)
-                    )
+;; (set-face-attribute 'fic-face nil
+;;                     :foreground "red")
+;; (set-face-attribute 'font-lock-fic-face nil ; 'fic-face, 'font-lock-fic-face.
+;;                     :foreground "red" :background "black"
+;;                     :weight 'bold
+;;                     :box '(:color "#222222" :line-width 1 :style nil)
+;;                     )
 
 (dolist (hook
          '(prog-mode-hook

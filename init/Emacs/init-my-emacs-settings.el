@@ -14,6 +14,9 @@
 
 (setq inhibit-startup-message t) ; no splash screen
 
+(setq-default initial-scratch-message
+              (concat ";; Happy hacking " (or user-login-name "") "!\n\n"))
+
 
 ;;; [ Time ]
 (setq system-time-locale "C") ; make timestamps in org-mode appear in English.
