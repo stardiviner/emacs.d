@@ -208,4 +208,7 @@
 
 
 ;;; at the end!!!
+
+(require 'init-my-startup)
+
 (workgroups-mode 1)
