@@ -68,6 +68,8 @@
          calfw sauron appt
          gist
          ;; Programming
+         ;; indent
+         highlight-indentation
          ;; snippet
          yasnippet
          )
@@ -152,6 +154,7 @@
 ;;; Programming
 (require 'init-my-prog-complete)
 (require 'init-my-prog-sense)
+(require 'init-my-prog-indent)
 
 
 
