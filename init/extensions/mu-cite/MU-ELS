@@ -1,0 +1,26 @@
+;;; -*-Emacs-Lisp-*-
+
+;; MU-ELS: list of mu-cite modules to install
+
+;;; Code:
+
+(setq mu-modules-to-compile '(mu-cite mu-register))
+
+(if (featurep 'mule)
+    (setq mu-modules-to-compile
+	  (cons 'latex-math-symbol
+		mu-modules-to-compile))
+  )
+
+(setq mu-modules-not-to-compile nil)
+
+(if (file-installed-p "bbdb.el")
+    (setq mu-modules-to-compile (nconc mu-modules-to-compile '(mu-bbdb)))
+  (setq mu-modules-not-to-compile
+	(nconc mu-modules-not-to-compile '(mu-bbdb)))
+  )
+
+(setq mu-modules (append mu-modules-to-compile
+			 mu-modules-not-to-compile))
+
+;;; MU-ELS ends here

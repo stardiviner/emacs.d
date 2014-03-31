@@ -1,0 +1,106 @@
+MU-CITE NEWS -- history of major-changes.
+Copyright (C) 1999 Free Software Foundation, Inc.
+
+* Changes in MU-CITE 8.1
+========================
+
+** The obsolete variables and functions are ignored
+Don't use the following variables and functions:
+
+  mu-cite/cited-prefix-regexp
+  mu-cite/default-methods-alist
+  mu-cite/get-field-value-method-alist
+  mu-cite/instantiation-hook
+  mu-cite/ml-count-field-list
+  mu-cite/post-cite-hook
+  mu-cite/pre-cite-hook
+  mu-cite/prefix-format
+  mu-cite/top-format
+
+  mu-cite/registration-file
+  mu-cite/allow-null-string-registration
+  mu-cite/registration-symbol
+
+  mu-cite/cite-original
+  mu-cite/get-field-value
+  mu-cite/get-value
+
+
+* Changes in MU-CITE 8.0
+========================
+
+** Requires APEL 9.20 or later
+
+
+** Requires FLIM 1.12.2 or later
+
+
+** Text properties in the registration file is not recommended
+If you are using Emacs v19, e.g. Mule 2.3, and if you find text properties
+as below in your registration file (~/.mu-cite.el in default):
+
+	("foo@bar.com" . #("Foo" 0 3 (face bold)))
+
+please copy the following program in *scratch* buffer and type C-j key
+after the end of parenthesis for cleaning up the sort of things.
+
+	(progn
+	  (require 'mu-register)
+	  (mu-cite-load-registration-file)
+	  (mu-cite-save-registration-file)
+	  )
+
+
+** New user option `mu-registration-file-modes'
+Mode bits of `mu-registration-file', as an integer.
+
+
+** New user option `mu-registration-file-coding-system-for-read'
+Coding system used when reading a registration file.
+
+
+** Name of functions and variables have been changed
+The main changes are as follows:
+
+User options:
+  mu-cite-cited-prefix-regexp	<- mu-cite/cited-prefix-regexp
+  mu-cite-prefix-format		<- mu-cite/prefix-format
+  mu-cite-top-format		<- mu-cite/top-format
+  mu-cite-instantiation-hook	<- mu-cite/instantiation-hook
+  mu-cite-pre-cite-hook		<- mu-cite/pre-cite-hook
+  mu-cite-post-cite-hook	<- mu-cite/post-cite-hook
+  mu-cite-ml-count-field-list	<- mu-cite/ml-count-field-list
+  mu-cite-default-methods-alist	<- mu-cite/default-methods-alist
+
+  mu-registration-file		<- mu-cite/registration-file
+  mu-cite-allow-null-string-registration
+				<- mu-cite/allow-null-string-registration
+
+Functions:
+  mu-cite-original		<- mu-cite/cite-original
+  mu-cite-get-field-value	<- mu-cite/get-field-value
+  mu-cite-get-value		<- mu-cite/get-value
+
+  mu-cite-load-registration-file<- mu-cite/load-registration-file
+  mu-cite-save-registration-file<- mu-cite/save-registration-file
+  mu-cite-get-prefix-method	<- mu-cite/get-prefix-method
+  mu-cite-get-prefix-register-method
+				<- mu-cite/get-prefix-register-method
+  mu-cite-get-prefix-register-verbose-method
+				<- mu-cite/get-prefix-register-verbose-method
+
+  mu-bbdb-get-prefix-method	<- mu-cite/get-bbdb-prefix-method
+  mu-bbdb-get-prefix-register-method
+				<- mu-cite/get-bbdb-prefix-register-method
+  mu-bbdb-get-prefix-register-verbose-method
+			<- mu-cite/get-bbdb-prefix-register-verbose-method
+
+
+** New file mu-register.el which is re-separated from mu-cite.el
+
+
+
+Local variables:
+mode: outline
+paragraph-separate: "[ 	]*$"
+end:

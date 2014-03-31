@@ -1,0 +1,133 @@
+[README for MU (English Version)]
+by MORIOKA Tomohiko <morioka@jaist.ac.jp>
+
+What's MU
+=========
+
+  MU stands for "Message Utilities".  It consists of following
+  modules:
+
+	mu-cite: a citation utility
+	  mu-cite.el     --- main module of mu-cite
+	  mu-bbdb.el     --- mu-cite submodule for BBDB
+	  mu-register.el --- mu-cite submodule for registration
+
+	latex-math-symbol.el --- translate mathematical symbols of
+			     	 LaTeX into MULE characters
+
+  It requires two packages APEL 9.20 or later and FLIM 1.12.2 or later.
+  Please install them.
+
+
+Installation
+============
+
+(a) run in expanded place
+
+  If you don't want to install other directories, please do only
+  following:
+
+	% make
+
+  You can specify the emacs command name, for example
+
+	% make install EMACS=xemacs
+
+  If `EMACS=...' is omitted, EMACS=emacs is used.
+
+(b) make install
+
+  If you want to install other directories, please do following:
+
+	% make install
+
+  You can specify the emacs command name, for example
+
+	% make install EMACS=xemacs
+
+  If `EMACS=...' is omitted, EMACS=emacs is used.
+
+  You can specify the prefix of the directory tree for Emacs Lisp
+  programs and shell scripts, for example:
+
+	% make install PREFIX=~/
+
+  If `PREFIX=...' is omitted, the prefix of the directory tree of the
+  specified emacs command is used (perhaps /usr/local).
+
+  For example, if PREFIX=/usr/local and EMACS 19.34 is specified, it
+  will create the following directory tree:
+
+	/usr/local/share/emacs/site-lisp/mu/   --- MU
+
+  You can specify site-lisp directory, for example:
+
+	% make install LISPDIR=~/share/emacs/lisp
+
+  If `LISPDIR=...' is omitted, site-lisp directory of the specified
+  emacs command is used (perhaps /usr/local/share/emacs/site-lisp or
+  /usr/local/lib/xemacs/site-lisp).
+
+  If the emu modules (included in APEL package) have been installed in
+  the non-standard directory, you should specify where they will be
+  found, for example:
+
+	% make install VERSION_SPECIFIC_LISPDIR=~/elisp
+
+  You can specify other optional settings by editing the file
+  MU-CFG.  Please read comments in it.
+
+(c) install as a XEmacs package
+
+  If you want to install to XEmacs package directory, please do
+  following:
+
+	% make install-package
+
+  You can specify the XEmacs command name, for example
+
+	% make install-package XEMACS=xemacs-21
+
+  If `XEMACS=...' is omitted, XEMACS=xemacs is used.
+
+  You can specify the package directory, for example:
+
+	% make install PACKAGEDIR=~/.xemacs
+
+  If `PACKAGEDIR=...' is omitted, the first existing package
+  directory is used.
+
+  Notice that XEmacs package system requires XEmacs 21.0 or later.
+
+
+load-path (for Emacs or MULE)
+=============================
+
+  If you are using Emacs or Mule, please add directory of mu to
+  load-path.  If you install by default setting, you can write
+  subdirs.el for example:
+
+  --------------------------------------------------------------------
+  (normal-top-level-add-to-load-path '("apel" "flim" "mu"))
+  --------------------------------------------------------------------
+
+  If you are using XEmacs, there are no need of setting about
+  load-path.
+
+
+Bug reports
+-----------
+
+  If you write bug-reports and/or suggestions for improvement, please
+  send them to Elips Mailing List:
+
+	Elips@eos.hokudai.ac.jp
+
+  Elips mailing list is for discussing all sorts of Emacsen, mainly in
+  Japanese.  To join Elips ML, please introduce yourself briefly in an
+  e-mail to
+
+	Elips-request@eos.hokudai.ac.jp
+
+  Via Elips ML, you can report MU-CITE related bugs, obtain the latest
+  release of MU-CITE, and discuss future enhancements to MU-CITE.

@@ -1,0 +1,79 @@
+;;; -*-Emacs-Lisp-*-
+
+;; MU-MK: installer for mu-cite.
+
+;;; Code:
+
+(defun config-mu ()
+  (let (prefix lisp-dir version-specific-lisp-dir)
+    (and (setq prefix (car command-line-args-left))
+	 (or (string-equal "NONE" prefix)
+	     (defvar PREFIX prefix)
+	     ))
+    (setq command-line-args-left (cdr command-line-args-left))
+    (and (setq lisp-dir (car command-line-args-left))
+	 (or (string-equal "NONE" lisp-dir)
+	     (defvar LISPDIR lisp-dir)
+	     ))
+    (setq command-line-args-left (cdr command-line-args-left))
+    (and (setq version-specific-lisp-dir (car command-line-args-left))
+	 (or (string-equal "NONE" version-specific-lisp-dir)
+	     (progn
+	       (defvar VERSION_SPECIFIC_LISPDIR version-specific-lisp-dir)
+	       (princ (format "VERSION_SPECIFIC_LISPDIR=%s\n"
+			      VERSION_SPECIFIC_LISPDIR)))
+	     ))
+    (setq command-line-args-left (cdr command-line-args-left))
+    (load-file "MU-CFG")
+    (load-file "MU-ELS")
+    (princ (format "PREFIX=%s
+LISPDIR=%s\n" PREFIX LISPDIR))
+    ))
+
+(defun compile-mu ()
+  (config-mu)
+  (compile-elisp-modules mu-modules-to-compile	".")
+  )
+
+(defun install-mu ()
+  (config-mu)
+  (install-elisp-modules mu-modules	"./"	MU_DIR)
+  )
+
+(defun config-mu-package ()
+  (let (package-dir)
+    (and (setq package-dir (car command-line-args-left))
+	 (or (string= "NONE" package-dir)
+	     (defvar PACKAGEDIR package-dir)
+	     ))
+    (setq command-line-args-left (cdr command-line-args-left))
+    (load-file "MU-CFG")
+    (load-file "MU-ELS")
+    (setq mu-modules (append mu-modules
+			       '(auto-autoloads custom-load)))
+    (princ (format "PACKAGEDIR=%s\n" PACKAGEDIR))
+    ))
+
+(defun compile-mu-package ()
+  (config-mu-package)
+
+  (setq autoload-package-name "mu")
+  (add-to-list 'command-line-args-left ".")
+  (batch-update-directory)
+
+  (add-to-list 'command-line-args-left ".")
+  (Custom-make-dependencies)
+
+  (compile-elisp-modules mu-modules ".")
+  )
+
+(defun install-mu-package ()
+  (config-mu-package)
+  (install-elisp-modules mu-modules
+			 "./"
+			 (expand-file-name MU_PREFIX
+					   (expand-file-name "lisp"
+							     PACKAGEDIR)))
+  )
+
+;;; MU-MK ends here
