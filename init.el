@@ -74,6 +74,8 @@
          flycheck
          ;; comment
          fix-mode
+         ;; electric
+         rainbow-mode rainbow-delimiters
          ;; snippet
          yasnippet
          )
@@ -161,7 +163,7 @@
 (require 'init-my-prog-indent)
 (require 'init-my-prog-lint)
 (require 'init-my-prog-comment)
-
+(require 'init-my-prog-electric)
 
 
 
