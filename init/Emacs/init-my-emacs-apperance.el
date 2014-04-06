@@ -310,12 +310,19 @@
 
 (setq page-break-lines-char ?─)
 
-;; 
-;; ;;; [ Fold ]
+
+;;; [ Fold ]
 
-;; ;;; hs-minor-mode --
+;;; hs-minor-mode --
 
-;; (add-hook 'prog-mode-hook 'hs-minor-mode)
+(add-hook 'prog-mode-hook 'hs-minor-mode)
+
+
+;;; Disable GUI dialog boxes
+
+(setq use-file-dialog 'nil) ; use mini-buffer for file dialogs
+(setq use-dialog-box  'nil) ; use mini-buffer for everything' else..
+
 
 ;;; trailing whitespace
 
