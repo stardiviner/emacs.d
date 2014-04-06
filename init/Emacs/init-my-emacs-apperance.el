@@ -316,6 +316,22 @@
 ;; ;;; hs-minor-mode --
 
 ;; (add-hook 'prog-mode-hook 'hs-minor-mode)
+
+;;; trailing whitespace
+
+;;; But don't show trailing whitespace in SQLi, inf-ruby etc.
+(dolist (hook '(special-mode-hook
+                eww-mode
+                term-mode-hook
+                comint-mode-hook
+                compilation-mode-hook
+                ;; twittering-mode-hook
+                minibuffer-setup-hook))
+  (add-hook hook
+            (lambda () (setq show-trailing-whitespace nil))))
+
+;; (require 'whitespace-cleanup-mode)
+;; (global-whitespace-cleanup-mode t)
 
 
 
