@@ -146,6 +146,11 @@
 ;;; my custom functions
 (require 'init-my-functions)
 
+;;; run Emacs server
+(require 'server)
+(unless (server-running-p)
+    (server-start))
+
 ;;; Emacs
 (require 'init-my-emacs-completion)
 (require 'init-my-emacs-environment)
