@@ -8,12 +8,9 @@
 (setq inhibit-startup-message 't)
 (setq inhibit-startup-echo-area-message "Hacking happy! stardiviner.")
 
+
 ;;; [ Title ]
 (setq frame-title-format "Emacs λ %b")
-
-
-;;; [ Tool Bar ]
-(tool-bar-mode -1)
 
 
 ;;; [ Menu Bar ]
@@ -25,13 +22,17 @@
       (if (display-graphic-p)
           (modify-frame-parameters 'frame '((menu-bar-lines . 1)))
         (modify-frame-parameters 'frame '((menu-bar-lines . 0)))))
-  (menu-bar-mode -1))
+  (if (fboundp 'menu-bar-mode) (menu-bar-mode -1)))
 
 (setq-default imenu-auto-rescan t)
 
 
+;;; [ Tool Bar ]
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+
+
 ;;; [ Scroll Bar ]
-(scroll-bar-mode -1)
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; smooth scroll
 (setq scroll-margin 10
