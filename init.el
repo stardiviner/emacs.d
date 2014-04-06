@@ -89,6 +89,7 @@
          isearch+ visual-regexp visual-regexp-steroids ace-jump-mode
          ack-and-a-half
          ;; Org-mode
+         org-mode
          org-fstree org-bullets
          ;; tools
          calfw sauron ; appt
