@@ -58,27 +58,33 @@
          tooltip-help
          ;; Emacs
          ;; completion
-         ido-vertical-mode
+         ido-vertical-mode ido-ubiquitous
          helm
          helm-descbinds
          auto-complete
          auto-complete-yasnippet auto-complete-chunk
          auto-complete-etags auto-complete-pcmp
-         auto-complete-emacs-lisp auto-complete-clang auto-complete-c-headers
-         auto-complete-css auto-complete-nxml auto-complete-latex auto-complete-ruby auto-complete-verilog
-         company-mode
+         auto-complete-emacs-lisp
+         auto-complete-ruby auto-complete-clang auto-complete-c-headers
+         auto-complete-css auto-complete-nxml
+         auto-complete-verilog
+         auto-complete-latex
+         ;; company-mode
          ;; color theme
          color-theme-solarized
          ;; apperance
-         powerline
+         ;; powerline
          pretty-mode page-break-lines
          ;; buffer & window, frame
          window-number ; switch-window
          workgroups2 ; e2wm
          popwin
+         diminish
          ;; edit
          undo-tree
          multiple-cursors
+         ;; jump
+         ace-jump-mode
          ;; bookmark, register, macro,
          bm
          ;; keybinding
@@ -111,7 +117,7 @@
          ;; compile
          smart-compile smart-compile+
          ;; vcs
-         git-emacs ; git-status
+         git-modes git-emacs ; git-status
          magit ; magithub
          ;; egg
          mo-git-blame
@@ -121,10 +127,12 @@
          ;; Ruby
          ruby-mode ruby-electric ruby-block
          yari
-         inf-ruby rcodetools ruby-compilation rvm
-         robe-mode rinari rhtml-mode projectile-rails
+         inf-ruby rcodetools ruby-compilation rvm robe-mode
+         ;; rinari
+         rhtml-mode projectile-rails
          ;; Lisp
          slime ac-slime elisp-slime-nav elisp-format eldoc-eval
+         ;; C family languages
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
 
