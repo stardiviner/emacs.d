@@ -120,15 +120,23 @@
 
 
 ;;; [ Selection ]
+
 ;; transpose (for region mark)
 (setq transient-mark-mode t)
-;; (transient-mark-mode 1) ; highlight text selection
-;; (delete-selection-mode 1) ; delete selected text when typing
 
 
 ;;; [ wrap & fill ]
+
 ;; default column length (80)
 (setq-default fill-column 80)
+
+;;; [ fci -- Fill Column Indicator ]
+
+;; (eval-after-load 'fill-column-indicator
+;;   (setq fci-rule-width 10)
+;;   (setq fci-rule-character ?❚)
+;;   ;; (setq fci-rule-character-color "#999999")
+;;   (setq fci-dash-pattern 1.00))
 
 
 ;;; [ auto-fill-mode ] -- auto fill paragraphs like hitting [M-q].
