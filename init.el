@@ -171,7 +171,6 @@
 (require 'init-my-emacs-bookmark)
 (require 'init-my-emacs-key-bindings)
 (require 'init-my-emacs-indent)
-(require 'init-my-emacs-electric)
 (require 'init-my-emacs-spell)
 (require 'init-my-emacs-file)
 (require 'init-my-emacs-image)

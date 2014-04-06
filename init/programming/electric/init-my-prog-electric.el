@@ -29,9 +29,8 @@
   )
 
 
-;;; Par Edit (paredit)
-;; Par Edit
-;; paredit.el -- a minor mode for performing structured editing of S-expression data.
+;;; Par Edit (paredit) -- a minor mode for performing structured editing of S-expression data.
+
 ;; Usage:
 ;; - Basic Insertion Commands
 ;;   (), [M-)], [], "", [M-"], \, ;, [M-;], [C-j],
