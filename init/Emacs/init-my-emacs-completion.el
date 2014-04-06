@@ -198,7 +198,9 @@
 ;; trigger key [TAB]
 ;; (ac-set-trigger-key "TAB") ; usualy this, <tab> has higher priority than TAB.
 ;; (ac-set-trigger-key "<tab>")
+;;
 ;; (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+(define-key global-map (kbd "M-TAB") 'ac-fuzzy-complete) ; fuzzy complete.
 
 ;;; ac-menu-map keymap only map for menu is available, not break default.
 (setq ac-use-menu-map t)       ; nil: to disable default ac-menu-map key bindings.
@@ -208,7 +210,6 @@
 (define-key ac-menu-map (kbd "C-n") nil)
 (define-key ac-menu-map (kbd "C-p") nil)
 
-(define-key global-map (kbd "M-TAB") 'ac-fuzzy-complete) ; fuzzy complete.
 ;; ISSUE: when I typed the whole candidate string, then press [SPC] will insert two spaces.
 (define-key ac-menu-map (kbd "SPC")
   (defun ac-complete-with-space ()
