@@ -47,6 +47,36 @@
 ;; (ad-disable-advice 'message 'before 'when-was-that)
 ;; (ad-update 'message)
 
+
+
+;;; [ Checkpoints ]
+
+;; Since, this is one huge file, it is often hard to debug where a particular
+;; error has occurred, and therefore, I need some visual clue of some type,
+;; a.k.a. checkpoints. The following functions, together, help me with that. I
+;; can, simply, make a call to the stardiviner/checkpoint function, in order to
+;; echo something inside my *Messages* buffer, and immediately, know nearby
+;; location of where Emacs has stopped loading this configuration. Not to
+;; mention, these checkpoints, further, help me by acting as indirect comments.
+
+;; subtract two time entities
+(defun stardiviner/time-subtract-millis (b a)
+  "Function that can subtract time string A from time string B."
+  (* 1000.0 (float-time (time-subtract b a))))
+
+;; convenient function to measure load-time since initialization
+(defun stardiviner/load-time()
+  "Return total load-time from the initialization."
+  (stardiviner/time-subtract-millis (current-time) before-init-time))
+
+;; function to display which section is being loaded..
+(defun stardiviner/checkpoint (msg)
+  "Echo MSG to *Messages*, thereby, making it act as a checkpoint."
+  (if debug-on-error (message "- At =%.2fms=, I %s.." (stardiviner/load-time) msg)))
+
+;; an example of above
+(stardiviner/checkpoint "initialized benchmarking")
+
 
 
 (provide 'init-my-emacs-debug)
