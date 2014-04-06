@@ -298,7 +298,14 @@
 ;; ;;; load-average
 ;; (setq display-time-default-load-average 0)
 ;; (setq display-time-load-average-threshold 0.5)
+
+
 
+;;; [ diminish ]
+
+;;; Usage:
+;; Diminishing Major Modes
+;; (add-hook 'emacs-lisp-mode-hook (lambda() (setq mode-name "Emacs Lisp"))) ; emacs lisp
 
 
 
