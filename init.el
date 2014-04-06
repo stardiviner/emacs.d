@@ -144,6 +144,9 @@
 
 
 
+;;; debug, profiling etc
+(require 'init-my-emacs-debug)
+
 ;;; my custom functions
 (require 'init-my-functions)
 
