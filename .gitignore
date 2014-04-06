@@ -17,3 +17,6 @@ projectile-bookmarks.eld
 
 # emacs places
 .emacs-places
+
+# Cask
+.cask/
