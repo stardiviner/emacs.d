@@ -4,6 +4,9 @@
 
 
 ;;; Code:
+
+(setq inhibit-startup-message 't)
+(setq inhibit-startup-echo-area-message "Hacking happy! stardiviner.")
 
 ;;; [ Title ]
 (setq frame-title-format "Emacs λ %b")
