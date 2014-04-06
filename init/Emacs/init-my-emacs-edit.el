@@ -202,16 +202,20 @@
 
 (require 'multiple-cursors)
 
-;; TODO 'mc/mark-all-dwim
+;; TODO: (setq mc/keymap "C-c c")
 
-;; When you have an active region that spans multiple lines, the following will add a cursor to each line:
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-
-;; When you want to add multiple cursors not based on continuous lines, but based on keywords in the buffer, use:
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-c c c") 'mc/mark-all-dwim) ; try to be smart.
+;; multiple-cursors
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-+") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-(global-set-key (kbd "C-c C->") 'mc/mark-pop)
+;; From active region to multiple cursors:
+(global-set-key (kbd "C-c c r") 'set-rectangular-region-anchor)
+(global-set-key (kbd "C-c c l") 'mc/edit-lines)
+(global-set-key (kbd "C-c c a") 'mc/edit-beginnings-of-lines)
+(global-set-key (kbd "C-c c e") 'mc/edit-ends-of-lines)
+
 
 ;; First mark the word, then add more cursors.
 
