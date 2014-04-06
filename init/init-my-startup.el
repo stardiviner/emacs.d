@@ -113,6 +113,12 @@
 (find-file "~/Code/learning/Ruby/test.rb")
 
 
+
+;; replace initial/scratch buffer with our primary `.org' file
+(setq my-org-special-directory (expand-file-name "~/Org"))
+(setq initial-buffer-choice (concat my-org-special-directory "/Tasks.org"))
+
+
 ;;; start Sauron at Emacs startup
 (sauron-start)
 
