@@ -1,5 +1,27 @@
+;;; init.el --- Emacs init file.
+
+;;; Commentary:
 
 
+;;; Code:
+
+;;; [ version check ]
+
+(when (version< emacs-version "24")
+  (warn "Only Emacs version 24 and up are supported."))
+
+
+;;; [ Constants ]
+
+(defconst *is-mac* (eq system-type 'darwin))
+(defconst *is-linux* (eq system-type 'gnu/linux))
+(defconst *is-windows* (eq system-type 'windows-nt))
+(defconst *is-cygwin* (eq system-type 'cygwin))
+(defconst *is-mac-gui* (and *is-mac* window-system))
+(defconst *is-cocoa-emacs* (and *is-mac* (eq window-system 'ns)))
+
+
+
 ;;; [ package manager ]
 
 ;;; el-get
