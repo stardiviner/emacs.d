@@ -6,6 +6,18 @@
 
 ;;; Code:
 
+;;; [ Macros ]
+
+;;; Evaluate elisp after feature has loaded.
+(defmacro after (feature &rest body)
+  "After FEATURE is loaded, evaluate BODY."
+  (declare (indent defun))
+  `(eval-after-load ,feature
+     '(progn ,@body)))
+
+
+
+
 ;;; notify(notify-send, )
 
 (defun my-func-notify-send (title msg &optional icon sound)
