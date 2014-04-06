@@ -50,6 +50,7 @@
         "C-x r"                         ; register, bookmark, etc
         "C-x 4"                         ; other window
         "C-x 5"                         ; other frame
+        "C-x n"                         ; narrow
         "C-c s"                       ; visual-regexp-map
         (dired-mode "C-h"
                     "*" ":" "%"
