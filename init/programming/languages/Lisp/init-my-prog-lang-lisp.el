@@ -30,9 +30,6 @@
 (dolist (hook '(lisp-mode-hook
                 lisp-interaction-mode-hook
                 scheme-mode-hook
-                emacs-lisp-mode-hook
-                eval-expression-minibuffer-setup-hook
-                ielm-mode-hook
                 ))
   (add-hook hook (lambda ()
                    (add-to-list 'ac-sources 'ac-slime))))
