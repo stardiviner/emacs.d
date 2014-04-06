@@ -14,6 +14,12 @@
 
 (global-undo-tree-mode t)
 (diminish 'undo-tree-mode)
+
+
+;;; [ Edit ]
+
+(delete-selection-mode t)             ; typed text replaces the active selection
+
 
 ;;; [ Electric ]
 
