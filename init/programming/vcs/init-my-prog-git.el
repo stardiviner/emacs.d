@@ -80,6 +80,10 @@
 ;; - (C-h m in the status buffer) -- Read the short help for magit-mode.
 ;; - [C-h f magit RET] -- get Magit help.
 
+(eval-after-load 'info
+  '(progn (info-initialize)
+          (add-to-list 'Info-directory-list "~/.emacs.d/el-get/magit/")))
+
 (require 'magit)
 
 (autoload 'magit-status "magit" nil t)
