@@ -30,7 +30,8 @@
 ;; - [M-x flyspell-region] -- checks all words inside a region
 ;; - [M-x flyspell-buffer] -- checks the whole buffer
 
-(require 'flyspell)
+(when (executable-find ispell-program-name)
+  (require 'flyspell))
 (autoload 'flyspell-mode "flyspell" "on-the-fly spelling checks" t)
 
 (setq flyspell-default-dictionary "en")
