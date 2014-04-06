@@ -60,6 +60,19 @@
 (require 'paredit)
 ;; (autoload 'paredit-mode "paredit" "minor mode for pseudo-structurally editing Lisp code." t)
 
+(after 'paredit
+  (diminish 'paredit-mode " Par")
+  (dolist (binding (list (kbd "C-<left>") (kbd "C-<right>")
+                         (kbd "C-M-<left>") (kbd "C-M-<right>")))
+    (define-key paredit-mode-map binding nil))
+  ;; disable kill-sentence, which is easily confused with the kill-sexp binding, but doesn't
+  ;; preserve sexp structure
+  (define-key paredit-mode-map [remap kill-sentence] nil)
+  (define-key paredit-mode-map [remap backward-kill-sentence] nil))
+
+;;; enable some handy paredit functions in all prog modes
+;; (add-hook 'prog-mode-hook 'paredit-everywhere-mode)
+  
 ;;; FIXME how to only enable paredit in those programming language modes.
 (dolist (hook
          '(;; Lisp dialects
