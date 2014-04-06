@@ -7,7 +7,16 @@
 ;;; [ Disabled Commands ]
 ;; To enable all disabled commands in one fell swoop, put this in .emacs (not recommended for newbies):
 ;; TODO uncomment this when you are very familiar with Emacs.
+
 ;; (setq disabled-command-function nil)
+
+;;; ----------------------------------------------------------
+;; Enable some disabled commands
+(put 'narrow-to-region 'disabled nil)     ; [C-x n n]
+(put 'narrow-to-page 'disabled nil)       ; [C-x n p]
+(put 'narrow-to-defun 'disabled nil)      ; [C-x n d]
+(put 'upcase-region 'disabled nil)        ; [C-x C-u]
+(put 'downcase-region 'disabled nil)      ; [C-x C-l]
 
 
 (fset 'yes-or-no-p 'y-or-n-p) ; treat 'y' as yes, 'n' as no.
