@@ -393,9 +393,6 @@
                 ;; tags
                 ;; ac-source-etags
                 ;; ac-source-gtags
-                ;; ac-source-functions
-                ;; ac-source-variables
-                ;; ac-source-symbols
                 ;; abbrev
                 ac-source-abbrev
                 ;; ac-source-dabbrev
@@ -407,7 +404,7 @@
                 ;; spell
                 ;; ac-source-ispell
                 ;; dictionary
-                ;; ac-source-dictionary
+                ac-source-dictionary
                 ;; ac-source-dictionary-chunk
                 ;; ac-source-entity
                 ;; features
