@@ -14,6 +14,7 @@
 ;;; - [C-x r b] :: jump to bookmark.
 ;;; - [C-x r l] :: list bookmarks.
 
+(setq-default bookmark-default-file (expand-file-name "bookmarks.el" user-emacs-directory))
 
 
 ;;; [ bm.el ]
