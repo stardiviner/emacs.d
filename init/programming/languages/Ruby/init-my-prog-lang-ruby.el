@@ -253,6 +253,7 @@
 
 ;;; [ rcodetools ]
 
+(require 'rcodetools)
 
 
 ;;; [ Robe ] -- Code navigation, documentation lookup and completion for Ruby.
