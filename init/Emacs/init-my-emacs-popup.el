@@ -4,9 +4,20 @@
 
 ;;; Code:
 
-;;; [ tooltip.el ]
+;;; [ tooltip ]
+
 (require 'tooltip)
 (tooltip-mode t)
+
+(setq-default tooltip-delay 0.5         ; default 0.7
+              tooltip-hide-delay 10
+              tooltip-short-delay 0.1
+              ;; tooltip-functions '(tooltip-help-tips)
+              ;; tooltip-hide-time nil
+              ;; tooltip-frame-parameters '((name . "tooltip")
+              ;;                            (internal-border-width . 2)
+              ;;                            (border-width . 1))
+              )
 
 (require 'tooltip-help)
 
@@ -62,7 +73,6 @@
 
 ;; (set-face-attribute 'showtip-face nil
 ;;                     :background "#444444" :foreground "white")
-
 
 
 
