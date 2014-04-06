@@ -76,8 +76,25 @@
            ))
   (add-hook hook 'paredit-mode))
 
+;;; ParEdit inside mini-buffer
+;;
+;; use paredit in the minibuffer
+;; http://emacsredux.com/blog/2013/04/18/evaluate-emacs-lisp-in-the-minibuffer/
+(defvar paredit-minibuffer-commands '(eval-expression
+                                      pp-eval-expression
+                                      eval-expression-with-eldoc
+                                      ibuffer-do-eval
+                                      ibuffer-do-view-and-eval)
+  "Interactive commands for which paredit should be enabled in the minibuffer.")
+(defun conditionally-enable-paredit-mode ()
+  "Enable paredit during lisp-related minibuffer commands."
+  (if (memq this-command paredit-minibuffer-commands)
+      (enable-paredit-mode)))
+(add-hook 'minibuffer-setup-hook 'conditionally-enable-paredit-mode)
+
 
 ;;; [ autopair ]
+
 (require 'autopair)
 
 (autoload 'autopair "autopair" t)
