@@ -511,9 +511,10 @@ http://about.me/Evanescence/
 ;; counterparts, decrypting and signature verification. Even if your mu4e does
 ;; have support for the latter two, you can still sign/encrypt messages.
 
-(add-hook 'mu4e-compose-mode-hook
-          (lambda ()
-            (mml-secure-message-sign-pgp)))
+;;; Disable message inline pgp sign.
+;; (add-hook 'mu4e-compose-mode-hook
+;;           (lambda ()
+;;             (mml-secure-message-sign-pgp)))
 
 
 ;;; Headers
