@@ -22,6 +22,17 @@
 
 ;;; [ ido ]
 
+(require 'ido)
+(require 'ido-ubiquitous)
+(ido-mode t)                            ; enable ido mode
+(ido-everywhere t)                      ; use ido-mode wherever possible
+(ido-ubiquitous-mode t)                 ; enable ido-ubiquitous
+(setq ido-enable-flex-matching 't       ; enable fuzzy search
+      ido-use-filename-at-point 't      ; look for filename at point
+      ido-use-virtual-buffers 't        ; allow me to open closed buffers, even
+      ido-auto-merge-work-directories-length 0
+      ido-default-buffer-method 'selected-window ; allow buffer to be open in different frames
+      )
 
 
 ;;; [ ido-vertical-mode ] -- vertical ido.
