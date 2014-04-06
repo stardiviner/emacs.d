@@ -235,6 +235,15 @@
 ;; FIXME: this does not work, conflict with `flyspell-auto-correct-previous-word'.
 (global-set-key (kbd "C-;") 'ace-jump-mode)
 
+
+;;----------------------------------------------------------------------------
+;; TODO: Expand region
+;;----------------------------------------------------------------------------
+;; (require 'expand-region)
+;; (global-set-key (kbd "C-=") 'er/expand-region)
+
+
+
 
 
 (provide 'init-my-emacs-edit)
