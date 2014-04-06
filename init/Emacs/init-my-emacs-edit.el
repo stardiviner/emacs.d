@@ -227,6 +227,14 @@
 ;;                     :foreground "cyan")
 
 
+;; Ace Jump mode
+
+(require 'ace-jump-mode)
+
+;; (global-set-key [remap flyspell-auto-correct-previous-word] nil)
+;; FIXME: this does not work, conflict with `flyspell-auto-correct-previous-word'.
+(global-set-key (kbd "C-;") 'ace-jump-mode)
+
 
 
 (provide 'init-my-emacs-edit)
