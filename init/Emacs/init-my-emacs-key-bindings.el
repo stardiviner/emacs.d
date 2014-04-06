@@ -80,11 +80,13 @@
         (rinari-minor-mode "C-c ;" "C-c ; f" "C-c '") ; Rinari minor mode.
         ))
 
-
 (setq guide-key/highlight-command-regexp "rectangle\\|register\\|bookmark")
 
 ;;; change guide-key popup style in popwin.el
 (setq guide-key/popup-window-position 'bottom
+      ;; This variable controls the size of text in guide buffer. The default
+      ;; value is 0 (it means default size in Emacs). If you want to enlarge
+      ;; text, set positive number. Otherwise, set negative number.
       ;; guide-key/text-scale-amount 0
       )
 
