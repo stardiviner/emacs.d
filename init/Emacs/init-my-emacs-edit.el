@@ -46,6 +46,24 @@
 ;;            ))
 ;;   (add-hook hook #'(lambda () (electric-pair-mode t))))
 
+
+;;; [ skeleton ]
+
+(setq skeleton-pair t
+      skeleton-pair-alist
+      '((?\" _ "\"" >)
+        (?\' _ "\'" >)
+        (?\( _ ")" >)
+        (?\[ _ "]" >)
+        (?\{ _ "}" >)
+        ;; chinese pairs
+        (?“ _ "”" >)
+        (?‘ _ "’" >)
+        (?\（ _ "）" >)
+        (?\【 _ "】" >)
+        (?\〖 _ "〗" >)
+        )
+      )
 
 
 ;;; [ Narrowing ]
