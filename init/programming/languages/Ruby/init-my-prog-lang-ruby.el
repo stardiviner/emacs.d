@@ -8,7 +8,6 @@
 
 ;;; custom functions
 
-
 ;;; FIXME: key binding always override by flyspell-auto-correct-word.
 (defun insert-arrow ()
   "Insert => for Ruby old school style hash."
@@ -35,8 +34,8 @@
 (require 'ruby-mode)
 
 ;; (add-auto-mode 'ruby-mode
-;;                "Rakefile\\'" "\\.rake\\'"
 ;;                "Gemfile\\'" "\\.gemspec\\'"
+;;                "Rakefile\\'" "\\.rake\\'"
 ;;                "\\.erb\\'"
 ;;                "Kirkfile\\'" "Capfile\\'" "Guardfile\\'" "Vagrantfile\\'"
 ;;                "\\.rxml\\'" "\\.rjs\\'"
@@ -83,14 +82,11 @@
 
 ;;; enh-ruby-mode
 
-;; (add-to-list 'load-path "~/.emacs.d/elpa/enh-ruby-mode-20140123.1442/")
-;; (load "~/.emacs.d/elpa/enh-ruby-mode-20140123.1442/enh-ruby-mode.el")
 ;; (autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
 ;; (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 ;; (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
 ;; ;; (setq enh-ruby-program "(path-to-ruby1.9.3)/bin/ruby")
 
-;; ;; FIXME: can't load correctly.
 ;; (require 'enh-ruby-mode)
 
 
@@ -106,31 +102,33 @@
 ;;  '(("\\(\\b\\sw[_a-zA-Z0-9]*:\\)\\(?:\\s-\\|$\\)" (1 font-lock-constant-face))))
 
 
-;; TODO: whether need this?
-;; ;; append to ruby-mode.
-;; (add-hook 'ruby-mode-hook
-;;           '(lambda ()
-;;              ;; mode local indent
-;;              (setq-mode-local ruby-mode indent-tabs-mode nil)
-;;              (setq-mode-local ruby-mode tab-width 2)
-
-;;              (setq ruby-deep-arglist t)
-;;              ;; (setq ruby-deep-indent-paren nil
-;;              ;;       ruby-deep-indent-paren-style 'space)
-;;              (setq c-tab-always-indent nil
-;;                    ruby-insert-encoding-magic-comment nil)
-
-;;              (local-set-key (kbd "<return>") 'newline-and-indent)
-;;              )
-;;           )
-
-
-
-
 
 ;;; ruby-hash-syntax
 
 ;; (require 'ruby-hash-syntax)
+
+
+;;; [ ruby-block ]
+
+(require 'ruby-block)
+
+(setq ruby-block-delay 0)
+(setq ruby-block-highlight-toggle t)
+(ruby-block-mode t)
+
+
+;;; [ ruby-end ]
+
+
+
+;;; [ ruby-electric ]
+
+(require 'ruby-electric)
+
+(add-hook 'ruby-mode-hook
+          (lambda ()
+            (autopair-mode -1) ; conflict with ruby-electric.
+            ))
 
 
 ;;; yard-mode -- for Ruby YARD comments
@@ -155,6 +153,23 @@
                    (define-key my-help-document-prefix-map (kbd "D") 'yari-helm)
                    )))
 
+
+;;; [ rvm ] -- integrates Emacs with the rvm (Ruby Version Manager)
+
+;;; Usage:
+;;; - [M-x rvm-activate-corresponding-ruby]
+;;; - [M-x rvm-use] -- to use another ruby version.
+;;; - open the source of any rubygem in your current gemset.
+;;;   [M-x rvm-open-gem]
+
+(require 'rvm)
+(autoload 'rvm "rvm" "RVM" t)
+
+(rvm-use-default)        ; use rvm's default ruby for the current Emacs session.
+
+(add-hook 'ruby-mode-hook
+          (lambda ()
+            (rvm-activate-corresponding-ruby)))
 
 
 ;;; [ inf-ruby / Inferior Ruby ]
@@ -180,18 +195,21 @@
 ;; - [C-c M-r] -- ruby-send-region-and-go
 ;; - [C-c C-l] -- ruby-load-file
 
+(autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
+(eval-after-load 'ruby-mode
+  '(add-hook 'ruby-mode-hook 'inf-ruby-minor-mode))
 
-(autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
-(add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
 ;; to your init file to easily switch from common Ruby compilation modes to
 ;; interact with a debugger.
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
 (setq inf-ruby-default-implementation "ruby"
-      inf-ruby-implementations '(("ruby" . "irb --inf-ruby-mode -r irb/completion")
-                                 ("jruby" . "jruby -S irb -r irb/completion")
-                                 ("rubinius" . "rbx -r irb/completion")
-                                 ("yarv" . "irb1.9 --inf-ruby-mode -r irb/completion"))
+      ;; inf-ruby-implementations '(("ruby" . "irb --inf-ruby-mode -r irb/completion")
+      ;;                            ("pry"  . "pry")
+      ;;                            ("jruby" . "jruby -S irb -r irb/completion")
+      ;;                            ("rubinius" . "rbx -r irb/completion")
+      ;;                            ("yarv" . "irb1.9 --inf-ruby-mode -r irb/completion")
+      ;;                            ("macruby" . "macirb -r irb/completion"))
       ;; inf-ruby-prompt-format
       )
 
@@ -199,11 +217,13 @@
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   (rvm-activate-corresponding-ruby))
 
-;;; Generally, you'll want to start with `M-x inf-ruby-console-auto'. If there's
-;;; no Ruby console running, most interactive commands provided by Robe will
-;;; offer to launch it automatically.
+;; Generally, you'll want to start with `M-x inf-ruby-console-auto'. If there's
+;; no Ruby console running, most interactive commands provided by Robe will
+;; offer to launch it automatically.
+;;
 (inf-ruby)
-;; FIXME: (inf-ruby-console-auto)
+;; FIXME: (error "No matching directory found")
+;; (inf-ruby-console-auto)
 
 
 ;;; [ ac-inf-ruby ]
@@ -225,7 +245,6 @@
 ;; (eval-after-load 'inf-ruby
 ;;   (define-key inf-ruby-mode-map (kbd "TAB") 'auto-complete))
 
-
 
 ;;; [ auto-complete-ruby ]
 
@@ -235,10 +254,9 @@
 ;;; [ rcodetools ]
 
 
-
 
 ;;; [ Robe ] -- Code navigation, documentation lookup and completion for Ruby.
-
+;;;
 ;;; Robe is a code assistance tool that uses a Ruby REPL subprocess with your
 ;;; application or gem code loaded, to provide information about loaded classes
 ;;; and modules, and where each method is defined.
@@ -251,7 +269,7 @@
 ;;; process. To load the current file, type `C-c C-l (ruby-load-file)', see
 ;;; inf-ruby for more commands. When you're developing a Rails project, you can
 ;;; type `C-c C-k' instead, to reload the whole environment at once.
-
+;;;
 ;;; Features:
 ;;;
 ;;; Jump to method definition
@@ -262,7 +280,7 @@
 ;;; Method and constant name completion
 ;;;
 ;;; To see the available commands, type M-x describe-package RET robe RET.
-
+;;;
 ;;; Usage:
 ;; - [C-c C-d] -- robe-doc
 ;; - [C-c C-k] -- robe-rails-refresh
@@ -274,51 +292,28 @@
 (add-hook 'ruby-mode-hook 'robe-mode)
 
 ;;; [start robe]
+;; The exceptions are code completion and eldoc, which only work if the server
+;; is already running. To launch it, type M-x robe-start.
 ;;; Both of the bellowing work only when the connection to the Ruby subprocess
 ;;; has been established. To do that, either use one of the core Robe commands,
 ;;; or type M-x robe-start.
+;;
+;; FIXME: (error "No matching directory found")
+;; (eval-after-load 'robe
+;;   (robe-start))
 
-(eval-after-load 'robe
-  (robe-start))
-
-;;; [ completion ]
-
-;;; for auto-complete
+;; for auto-complete
 (add-hook 'robe-mode-hook
           (lambda ()
-            (robe-ac-setup)
+            (ac-robe-setup)
             (add-to-list 'ac-sources 'ac-source-robe)
-
-            ;;; color for auto-complete candidate.
             ;; (set-face-attribute 'ac-??? )
             ))
 
-;;; for company-mode
+;; for company-mode
 ;; (push 'company-robe company-backends)
 
-
-
-;;; [ RSense ] -- RSense client for Emacs
-
-;; ;; (setq rsense-home "$RSENSE_HOME")
-;; (setq rsense-home (substitute-in-file-name "$RSENSE_HOME"))
-;; (add-to-list 'load-path (concat rsense-home "/etc"))
-;; ;; TODO temp workaround method.
-;; (load-file "$RSENSE_HOME/etc/rsense.el")
-
-;; (require 'rsense nil 'noerror)
-
-;; (if (and (not (eq rsense-home "$RSENSE_HOME"))
-;;          (featurep 'rsense))
-;;     (progn
-;;       (add-hook 'ruby-mode-hook
-;;                 ;; RSense + Auto-complete
-;;                 (lambda ()
-;;                   (add-to-list 'ac-sources 'ac-source-rsense-constant)
-;;                   (add-to-list 'ac-sources 'ac-source-rsense-method)))
-;;       ;; (add-hook 'kill-emacs-hook 'rsense-exit)
-;;       ))
-
+;; TODO: (setq robe-)
 
 
 ;;; [ ruby-compilation ]
@@ -342,24 +337,7 @@
             ))
 
 
-;;; [ ruby-block ]
-
-(require 'ruby-block)
-
-(setq ruby-block-delay 0)
-(setq ruby-block-highlight-toggle t)
-(ruby-block-mode t)
-
-
-
-;;; [ ruby-end ]
-
-
-
-
-;;; [ ruby-electric ]
-
-(require 'ruby-electric)
+;;; [ rspec-mode ] -- Ruby RSpec
 
 
 ;;; [ ruby-dev ]
@@ -386,32 +364,13 @@
 ;;
 ;; C-c C-,   - Runs the current buffer's file as an unit test or an
 ;;             rspec example.
-;;
 ;; C-c M-,   - Runs the unit test or rspec example at the current buffer's
 ;;             buffer's point.
-;;
 ;; C-c C-s   - Toggle between implementation and test/example files.
 
 
 
 ;;; [ ruby-tools ]
-
-
-;;; [ rvm ] -- integrates Emacs with the rvm (Ruby Version Manager)
-
-;;; Usage:
-;;; - [M-x rvm-activate-corresponding-ruby]
-;;; - [M-x rvm-use] -- to use another ruby version.
-;;; - open the source of any rubygem in your current gemset.
-;;;   [M-x rvm-open-gem]
-
-(require 'rvm)
-(autoload 'rvm "rvm" "RVM" t)
-
-(rvm-use-default)        ; use rvm's default ruby for the current Emacs session.
-
-;; (add-hook 'ruby-mode-hook
-;;        (lambda () (rvm-activate-corresponding-ruby)))
 
 
 ;;; [ rbenv ] -- integrating rbenv with Emacs
@@ -427,12 +386,12 @@
 ;;; Well, OK it kind of is. Rinari is a set of Emacs Lisp functions aimed
 ;;; towards making Emacs (or XEmacs) into a top-notch Ruby on Rails development
 ;;; environment.
-
+;;;
 ;;; Currently Rinari focuses on the core functionality most everyone would use when working on a Rails applications including...
 ;; - Navigation between files in your Rails project (see Navigation)
 ;; - Facilitation of Test/Behavior Driven Development (see Test/Behavior Driven Development)
 ;; - Execution of tests, consoles, and web-servers (see Execution)
-
+;;
 ;;; Usage:
 ;; - [C-h b] :: show all key bindings of Rinari.
 ;; - [M-x rinari-<tab>] :: all rinari functions.
@@ -470,28 +429,19 @@
 ;; - MuMaMo-Mode: allows multiple major modes in a single buffer
 ;; - rhtml-Mode: edit rhtml files without using multiple major modes
 
-(require 'rhtml-mode)
+;; (require 'rhtml-mode)
 
-(add-hook 'rhtml-mode-hook
-          (lambda () (rinari-launch)))
+;; (add-hook 'rhtml-mode-hook
+;;           (lambda () (rinari-launch)))
 
-;;;
-(add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . rhtml-mode))
-(add-to-list 'auto-mode-alist '("\\.rhtml\\'" . rhtml-mode))
-
+;; (add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . rhtml-mode))
+;; (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . rhtml-mode))
 
 
 ;;; [ motion-mode ] -- RubyMotion
 
-
-
-;;; [ rspec-mode ] -- Ruby RSpec
-
-
-
 
 ;;; [ Cucumber ]
-
 
 
 ;;; [ projectile-rails ]
@@ -514,7 +464,7 @@
   (browse-url "http://127.0.0.1:3000"))
 
 
-
+
 (provide 'init-my-prog-lang-ruby)
 
 ;;; init-my-prog-lang-ruby.el ends here
