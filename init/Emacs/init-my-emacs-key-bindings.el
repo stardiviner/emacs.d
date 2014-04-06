@@ -39,7 +39,7 @@
 (setq guide-key/idle-delay 0.1
       ;; guide-key/idle-timer nil ; Idle timer to wait before popping up guide buffer.
       guide-key/polling-time 0.1  ; Polling time to check an input key sequence.
-      guide-key/recursive-key-sequence-flag nil
+      guide-key/recursive-key-sequence-flag t ; guide-key checks an input key sequence recursively. the guide buffer is popped up when you input “C-x r”, “C-x 8” and any other prefixes following “C-x”.
       )
 
 ;;; In respect of guide-key/guide-key-sequence, you can add mode specific key
