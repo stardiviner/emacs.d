@@ -22,7 +22,7 @@
 
 This functions should be added to the hooks of major modes for programming."
   (font-lock-add-keywords nil
-                          '(("\\<\\(FIXME\\|TODO\\|ISSUE\\|BUG\\|NOTE\\):" 1
+                          '(("\\<\\(FIXME\\|TODO\\|ISSUE\\|BUG\\|NOTE\\|NOTICE\\):" 1
                              '(:foreground "dark red" :background "black"
                                            :box '(:color "#222222" :line-width 1 :style nil)
                                            :weight 'bold) t))))
