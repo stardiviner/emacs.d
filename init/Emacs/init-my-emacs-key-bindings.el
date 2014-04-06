@@ -77,7 +77,7 @@
         (outline-minor-mode "C-c @")    ; outline minor mode.
         (markdown-mode "C-c" "C-c C-c" "C-c C-s" "C-c C-t" "C-c TAB" "C-c C-a")
         (ruby-mode "C-h d")             ; Ruby yari mode.
-        (rinari-minor-mode "C-c ;" "C-c ; f") ; Rinari minor mode.
+        (rinari-minor-mode "C-c ;" "C-c ; f" "C-c '") ; Rinari minor mode.
         ))
 
 
