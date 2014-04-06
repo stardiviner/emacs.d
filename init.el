@@ -43,8 +43,9 @@
 	;; (:name guide-key
         ;;        :description "Guide following keys to an input key sequence automatically and dynamically in Emacs."
 	;;        :depends popwin
-        ;;        :type git
-        ;;        :url "https://github.com/kbkbkbkb1/guide-key")
+        ;;        :type github
+        ;;        :pkgname "kbkbkbkb1/guide-key"
+	;;        :features guide-key)
 	))
 
 ;;; my packages which will be installed.
