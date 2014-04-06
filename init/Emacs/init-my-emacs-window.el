@@ -208,10 +208,12 @@
 (push '("*Shell Command Output*" :position bottom :height 15) popwin:special-display-config)
 
 ;;; Org-mode
-;; (push '("*Org Agenda*" :position bottom :height 20) popwin:special-display-config)
 ;; TODO: this does not work.
-;; (push '("*Org tags*" :position bottom :height 15) popwin:special-display-config)
-;; (push '("*Agenda Commands*" :position bottom :height 15) popwin:special-display-config)
+;; (push '("*Org todo" :position bottom) popwin:special-display-config)
+;; (push '("*Org Note" :position bottom :height 15) popwin:special-display-config)
+;; (push '("*Org tags*" :position bottom) popwin:special-display-config)
+;; (push '("*Agenda Commands*" :position bottom) popwin:special-display-config)
+;; (push '("*Org Agenda*" :position bottom :height 20) popwin:special-display-config)
 
 ;;; Completion List (completion-list-mode)
 (push '(completion-list-mode :position bottom :height 15) popwin:special-display-config)
