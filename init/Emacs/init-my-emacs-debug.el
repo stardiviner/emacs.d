@@ -78,6 +78,48 @@
 (stardiviner/checkpoint "initialized benchmarking")
 
 
+;;; [ Benchmarking ]
+
+;; Moreover, since, I am a quantified-geek, I love to measure various
+;; things. Why not measure time taken by our Emacs configuration, as well?
+
+;; This section, also, enables me to measure the time taken by various features
+;; in requiring them, as well as total time taken by the Emacs to load this
+;; configuration. When Emacs load this configuration, it displays which features
+;; were require‘d, and how much time that took. This is, especially, useful for
+;; debugging which module is making our Emacs start-up, so slow.
+
+;; function to display how much time a particular feature took to require..
+(defun stardiviner/require-time-message(package time)
+  (if debug-on-error ( message
+                       "- At =%.2fms=, I required a feature: =%s=, which took me =%0.2fms=."
+                       (stardiviner/load-time) package time)))
+
+(defvar feature-required-time nil "Require time for a specific feature.")
+
+(defvar stardiviner/require-times nil
+  "A list of (FEATURE . LOAD-DURATION).
+LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
+
+(defadvice require
+    (around build-require-times (feature &optional filename noerror) activate)
+  "Note in `stardiviner/require-times' the time taken to require each feature."
+  (let* ((already-loaded (memq feature features))
+         (require-start-time (and (not already-loaded) (current-time))))
+    (prog1
+        ad-do-it
+      (when (and (not already-loaded) (memq feature features) debug-on-error)
+        (setq feature-required-time
+              (stardiviner/time-subtract-millis (current-time) require-start-time))
+        (stardiviner/require-time-message feature feature-required-time)
+        (add-to-list 'stardiviner/require-times
+                     (cons feature
+                           (stardiviner/time-subtract-millis (current-time)
+                                                          require-start-time))
+                     t)))))
+
+
+
 
 (provide 'init-my-emacs-debug)
 
