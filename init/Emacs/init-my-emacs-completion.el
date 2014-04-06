@@ -115,7 +115,8 @@
 ;; (helm-descbinds-mode 1)
 
 
-;;; auto-complete
+;;; [ auto-complete ]
+
 ;; candidates suffix
 ;; - nothing  -- means it is buffer string cache complete.
 ;; - v  -- variable
@@ -272,16 +273,20 @@
 ;; black, CornflowerBlue, DarkSlateBlue, DarkRed, DeepPink, HotPink, DarkMagenta, DarkSlateGray,
 ;; GreenYellow, DimGray, IndianRed, LawnGreen, LightBlue, LightSkyBlue, pink, salmon, SkyBlue, maroon,
 
+(setq ac-disable-faces '(font-lock-comment-face font-lock-string-face font-lock-doc-face)
+      ac-disable-inline nil               ; disable inline completion visibility
+      )
 
 ;; color of candidates
 (set-face-attribute 'ac-candidate-face nil
                     :foreground "black" :background "white"
-                    :inherit nil
+                    ;; fix for ac candidates face italic/bold on comments etc.
+                    :inherit nil :slant 'normal :weight 'normal :height 100
                     )
 ;; color of selection
 (set-face-attribute 'ac-selection-face nil
                     :foreground "white" :background "black"
-                    :inherit nil
+                    :inherit nil :slant 'normal :weight 'normal :height 100
                     )
 ;; foreground color of inline completion
 (set-face-foreground 'ac-completion-face "green yellow")
@@ -412,11 +417,15 @@
 
 ;;; other sources faces
 
+;; NOTE: :inherit 'ac-candidate-face + :inherit 'ac-selection-face.
+
 ;;; ac-dabbrev
 ;; (set-face-attribute 'ac-dabbrev-menu-face nil
+;;                     :inherit 'ac-candidate-face
 ;;                     :foreground "dark magenta"
 ;;                     :bold 'normal)
 ;; (set-face-attribute 'ac-dabbrev-selection-face nil
+;;                     :inherit 'ac-selection-face
 ;;                     )
 ;;; ac-etags
 ;; (set-face-attribute 'ac-etags-candidate-face nil
@@ -432,9 +441,11 @@
 ;;                     )
 ;;; ac-yasnippet
 (set-face-attribute 'ac-yasnippet-candidate-face nil
+                    :inherit 'ac-candidate-face
                     :background "deep pink"
                     :weight 'normal)
 (set-face-attribute 'ac-yasnippet-selection-face nil
+                    :inherit 'ac-selection-face
                     :background "deep pink"
                     :underline t
                     )
