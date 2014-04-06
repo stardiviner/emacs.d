@@ -6,6 +6,16 @@
 
 ;;; Code:
 
+;;; Auto-reload external file changes
+
+(global-auto-revert-mode)
+(setq global-auto-revert-non-file-buffers t
+      auto-revert-verbose nil)
+
+
+
+(setq buffers-menu-max-size 30)
+
 
 ;;; [uniquify] -- meaningful names for buffers with the same name
 
