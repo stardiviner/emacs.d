@@ -1,4 +1,4 @@
-;;; init-my-prog-web.el --- init Web settings for Emacs
+;;; init-my-prog-framework-web.el --- 
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -39,7 +39,9 @@
                  (run-hooks 'my-web-mode-hook)))))
 
 
-
-(provide 'init-my-prog-web)
 
-;;; init-my-prog-web.el ends here
+
+
+(provide 'init-my-prog-framework-web)
+
+;;; init-my-prog-framework-web.el ends here

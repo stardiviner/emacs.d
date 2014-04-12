@@ -333,6 +333,10 @@
 (require 'init-my-prog-lang-haskell)
 
 
+;;; Frameworks
+(require 'init-my-prog-framework-web)
+
+
 ;;; key bindings
 (require 'init-my-key-bindings)
 
