@@ -262,6 +262,12 @@
                     :foreground "white"
                     :inherit 'org-level-7
                     )
+;;; tags
+(set-face-attribute 'org-tag nil
+                    :foreground "cyan"
+                    :underline nil :weight 'normal :slant 'normal
+                    :box '(:color "cyan")
+                    :height 90)
 ;;; checkbox faces
 (set-face-attribute 'org-checkbox nil
                     :bold 'normal
