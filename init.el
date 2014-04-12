@@ -104,6 +104,8 @@
          calfw sauron ; appt
          gist
          ;; Programming
+         ;; code
+         ;; glasses-mode
          ;; indent
          highlight-indentation
          ;; lint
@@ -307,6 +309,7 @@
 
 
 ;;; Programming
+(require 'init-my-prog-code)
 (require 'init-my-prog-complete)
 (require 'init-my-prog-sense)
 (require 'init-my-prog-indent)
