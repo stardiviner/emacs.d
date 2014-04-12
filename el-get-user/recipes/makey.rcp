@@ -1,0 +1,5 @@
+(:name makey
+       :description "Flexible context menu system"
+       :type github
+       :pkgname "mickeynp/makey"
+       :features makey)

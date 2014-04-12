@@ -1,0 +1,6 @@
+(:name discover
+       :description "Discover more of emacs with context menus!"
+       :depends makey
+       :type github
+       :pkgname "mickeynp/discover.el"
+       :features discover)
