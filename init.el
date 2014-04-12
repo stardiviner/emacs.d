@@ -144,6 +144,8 @@
          ;; C family languages
          ;; CSS
          auto-complete-css
+         ;; css-mode
+         css-eldoc
          ;; XML
          auto-complete-nxml
          ;; TeX
@@ -264,6 +266,7 @@
 (require 'init-my-prog-lang-lisp)
 (require 'init-my-prog-lang-emacs-lisp)
 (require 'init-my-prog-lang-common-lisp)
+(require 'init-my-prog-lang-css)
 
 
 ;;; key bindings
