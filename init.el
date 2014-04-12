@@ -145,6 +145,8 @@
          ;; C family languages
          auto-complete-clang auto-complete-c-headers
          c-eldoc
+         ;; Go
+         go-mode go-eldoc
          ;; CSS
          auto-complete-css
          ;; css-mode
@@ -307,6 +309,7 @@
 (require 'init-my-prog-lang-common-lisp)
 (require 'init-my-prog-lang-clojure)
 (require 'init-my-prog-lang-C)
+(require 'init-my-prog-lang-go)
 (require 'init-my-prog-lang-css)
 
 
