@@ -141,6 +141,7 @@
          ac-slime elisp-slime-nav elisp-format eldoc-eval
          ;; Scheme
          ;; Clojure
+         clojure-mode ac-nrepl cider ; swank-clojure
          ;; C family languages
          auto-complete-clang auto-complete-c-headers
          c-eldoc
@@ -304,6 +305,7 @@
 (require 'init-my-prog-lang-lisp)
 (require 'init-my-prog-lang-emacs-lisp)
 (require 'init-my-prog-lang-common-lisp)
+(require 'init-my-prog-lang-clojure)
 (require 'init-my-prog-lang-C)
 (require 'init-my-prog-lang-css)
 
