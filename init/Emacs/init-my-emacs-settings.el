@@ -167,6 +167,18 @@
 	       )
 
 
+;;; [ guru-mode ] --- Learn to use Emacs the way it was meant to be used (the Emacs guru way)
+
+;;; Guru mode disables some common keybindings and suggests the use of the
+;;; established Emacs alternatives instead.
+
+;; (require 'guru-mode)
+
+;; (guru-global-mode +1)
+;; ;; (add-hook 'prog-mode-hook 'turn-on-guru-mode)
+;; (diminish 'guru-mode)
+
+
 ;; [ Input Method ]
 ;; Usage:
 ;; - [C-u C-\]
