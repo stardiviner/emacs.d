@@ -311,6 +311,7 @@
 (require 'init-my-prog-lang-C)
 (require 'init-my-prog-lang-go)
 (require 'init-my-prog-lang-css)
+(require 'init-my-prog-lang-xml)
 
 
 ;;; key bindings
