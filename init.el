@@ -173,6 +173,8 @@
          ;; Verilog
          verilog-mode
          auto-complete-verilog
+         ;; gnuplot
+         gnuplot-mode
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
 
@@ -331,6 +333,7 @@
 (require 'init-my-prog-lang-xml)
 (require 'init-my-prog-lang-javascript)
 (require 'init-my-prog-lang-haskell)
+(require 'init-my-prog-lang-gnuplot)
 
 
 ;;; Frameworks
