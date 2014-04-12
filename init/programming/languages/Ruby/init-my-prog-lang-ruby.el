@@ -319,9 +319,11 @@
             ))
 
 ;; for company-mode
-;; (push 'company-robe company-backends)
+(eval-after-load 'company
+  (push 'company-robe company-backends))
 
-;; TODO: (setq robe-)
+
+(setq robe-turn-on-eldoc t)
 
 
 ;;; [ ruby-compilation ]
