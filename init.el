@@ -159,6 +159,8 @@
          ;; TeX
          auto-complete-latex
          ;; ac-math
+         ;;; Haskell
+         haskell-mode
          ;; Verilog
          auto-complete-verilog
          )
@@ -318,6 +320,7 @@
 (require 'init-my-prog-lang-css)
 (require 'init-my-prog-lang-xml)
 (require 'init-my-prog-lang-javascript)
+(require 'init-my-prog-lang-haskell)
 
 
 ;;; key bindings
