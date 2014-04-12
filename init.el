@@ -142,6 +142,8 @@
          ;; Scheme
          ;; Clojure
          ;; C family languages
+         auto-complete-clang auto-complete-c-headers
+         c-eldoc
          ;; CSS
          auto-complete-css
          ;; css-mode
@@ -302,6 +304,7 @@
 (require 'init-my-prog-lang-lisp)
 (require 'init-my-prog-lang-emacs-lisp)
 (require 'init-my-prog-lang-common-lisp)
+(require 'init-my-prog-lang-C)
 (require 'init-my-prog-lang-css)
 
 
