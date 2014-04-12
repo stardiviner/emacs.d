@@ -1,0 +1,5 @@
+# name: inline image link
+# key: image_inline
+# contributor: stardiviner
+# --
+[[file:${1:relative path}][file:$1]]
