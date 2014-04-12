@@ -142,11 +142,18 @@
          ;; Scheme
          ;; Clojure
          clojure-mode ac-nrepl cider ; swank-clojure
+         ;; Python
+         python-mode
          ;; C family languages
          auto-complete-clang auto-complete-c-headers
          c-eldoc
          ;; Go
          go-mode go-eldoc
+         ;; D
+         d-mode
+         ;; C++
+         ;; Web
+         web-mode
          ;; JavaScript
          ;; js-mode
          ;; HTML
@@ -156,12 +163,15 @@
          css-eldoc
          ;; XML
          auto-complete-nxml
+         ;; Markdown
+         markdown-mode
          ;; TeX
          auto-complete-latex
          ;; ac-math
          ;;; Haskell
          haskell-mode
          ;; Verilog
+         verilog-mode
          auto-complete-verilog
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
