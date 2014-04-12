@@ -107,7 +107,10 @@
 ;; (require 'helm)
 ;; (require 'helm-config)
 
+;; (require 'helm-misc)
+
 ;; (helm-mode 1)
+;; (diminish 'helm-mode)
 
 ;; (set-face-attribute 'helm-selection nil
 ;;                     :background "#004A5D" :foreground "white"
@@ -187,6 +190,7 @@
 ;;  - buffer help (display a help in a buffer of other window)
 ;;      - [M-h] or [C-?] or [F1]
 ;;      - [C-M-v] or [C-M-S-v] to scroll
+;;
 
 (require 'auto-complete)
 (require 'auto-complete-config)
@@ -360,10 +364,15 @@
 ;; you can see the setting by evaluating `ac-sources` in *scratch* buffer.
 ;; "ac-sources" is a buffer local variable.
 
+(require 'auto-complete-pcmp)
+(require 'auto-complete-yasnippet)
 ;; "M-/" dabbrev-expand
 ;; (unless (package-installed-p 'ac-dabbrev)
 ;;   (package-install 'ac-dabbrev))
 ;; (require 'ac-dabbrev)
+;;; chunk for dot.separated.words
+;; (require 'auto-complete-chunk)
+
 ;; (unless (package-installed-p 'ac-ispell)
 ;;   (package-install 'ac-ispell))
 ;; (require 'ac-ispell)
@@ -372,18 +381,12 @@
 ;;   (package-install 'ac-math))
 ;; (require 'ac-math)
 
-(require 'auto-complete-pcmp)
-(require 'auto-complete-etags)
-
-;;; chunk for dot.separated.words
-;; (require 'auto-complete-chunk)
-
-;; (require 'auto-complete-yasnippet)
-
 
-;;; ac-etags --- https://github.com/syohex/emacs-ac-etags
+;;; auto-complete-etags
 
 ;;; ac-complete candidate suffix symbol is [s]
+
+(require 'auto-complete-etags)
 
 ;; 1. generate tag file
 ;; - etags *.c *.h
@@ -402,18 +405,16 @@
 
 ;;; [ semantic ]
 
-;; (semantic-mode 1)
-;; (add-hook 'c-mode-common-hook
-;;           (lambda ()
-;;             (add-to-list 'ac-sources 'ac-source-semantic)))
+(semantic-mode 1)
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (add-to-list 'ac-sources 'ac-source-semantic)))
 
 
 ;;; set default auto-complete source
 (setq-default ac-sources
               '(;; snippet
                 ac-source-yasnippet
-                ;; template
-                ;; ac-source-template
                 ;; filename
                 ac-source-filename
                 ac-source-files-in-current-dir
@@ -437,8 +438,6 @@
                 ac-source-dictionary
                 ;; ac-source-dictionary-chunk
                 ;; ac-source-entity
-                ;; features
-                ac-source-features ; for emacs-lisp features
                 ))
 
 
@@ -516,15 +515,17 @@
 
 ;; (require 'company)
 
-;;; To use company-mode in all buffers, add the following line to your init file:
-;; (add-hook 'after-init-hook 'global-company-mode)
-
-;; (setq company-minimum-prefix-length 3)
+;; (setq company-minimum-prefix-length 2
+;;       company-idle-delay 0.5
+;;       company-tooltip-limit 10)
 
 ;; (setq company-backends '(company-bbdb company-nxml company-css company-eclim company-semantic company-clang company-xcode company-ropemacs company-cmake company-capf
 ;;               (company-dabbrev-code company-gtags company-etags company-keywords)
 ;;               company-oddmuse company-files company-dabbrev))
 
+
+;; To use company-mode in all buffers, add the following line to your init file:
+;; (add-hook 'after-init-hook 'global-company-mode)
 
 
 
