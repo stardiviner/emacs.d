@@ -71,13 +71,9 @@
                    ;; ac-source-words-in-buffer
                    ;; ac-source-imenu
                    ))
-;; start Eshell at Emacs startup, and put in end of buffer list:
-;; (add-hook 'emacs-startup-hook #'(lambda ()
-;;                                   (let ((default-directory (getenv "HOME")))
-;;                                     (command-execute 'eshell)
-;;                                     (bury-buffer))))
 
-;; (defun my-shell-start-or-switch ()
+;; FIXME: eshell does not run correctly.
+;; (defun my-eshell-start-or-switch ()
 ;;   "Start Emacs Shell or switch to its buffer if it already exist."
 ;;   (interactive)
 ;;   (if (get-buffer "*eshell*") ; eshell already active?
@@ -89,7 +85,10 @@
 ;;       )
 ;;     ))
 ;;
-;; (global-set-key (kbd "C-c s") 'my-shell-start-or-switch)
+;; ;;; start Eshell at Emacs startup, and put in end of buffer list:
+;; (add-hook 'emacs-startup-hook 'my-eshell-start-or-switch)
+;;
+;; (global-set-key (kbd "C-x !") 'my-eshell-start-or-switch)
 
 ;; TODO: disable whitespace mode in *eshell*.
 
