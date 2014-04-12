@@ -68,6 +68,10 @@
 
 ;;; Define Projects
 
+;;; Manually create an empty file `.projectile' under that folder which you want
+;;; make it to be a project root.
+;;; $ touch dir-root/.projectile
+
 
 ;; Helm Integration
 ;; (global-set-key (kbd "C-c p h") 'helm-projectile)
