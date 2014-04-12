@@ -338,6 +338,10 @@
 (require 'init-my-prog-lang-haskell)
 (require 'init-my-prog-lang-gnuplot)
 (require 'init-my-prog-lang-octave)
+(require 'init-my-prog-lang-tex)
+;; (require 'init-my-prog-lang-R)
+(require 'init-my-prog-lang-prolog)
+(require 'init-my-prog-lang-guile)
 
 
 ;;; Frameworks
