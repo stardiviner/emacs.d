@@ -439,23 +439,20 @@
 ;;   rails applications.
 ;;   (setq rinari-tags-file-name "TAGS")
 
-(require 'rinari)
+;; (require 'rinari)
 
-(add-hook 'rinari-minor-mode-hook
-          '(lambda ()
-             (setq yas-extra-modes (cons 'rails-mode yas-extra-modes))))
+;; (add-hook 'rinari-minor-mode-hook
+;;           '(lambda ()
+;;              (setq yas-extra-modes (cons 'rails-mode yas-extra-modes))))
 
-(setq rinari-tags-file-name "TAGS")
+;; (setq rinari-tags-file-name "TAGS")
 
-(global-rinari-mode t)
+;; ;; (add-hook 'ruby-mode-hook
+;; ;;           (lambda ()
+;; ;;             (defadvice ruby-mode-set-encoding
+;; ;;                 (around ruby-mode-set-encoding-disable activate) nil)))
 
-;; (add-hook 'ruby-mode-hook
-;;           (lambda ()
-;;             (defadvice ruby-mode-set-encoding
-;;                 (around ruby-mode-set-encoding-disable activate) nil)))
-
-
-(define-key rinari-minor-mode-map (kbd "C-.") 'insert-arrow)
+;; (global-rinari-mode t)
 
 
 ;;; Rhtml setup
