@@ -59,6 +59,7 @@
          ;; Emacs
          ;; completion
          ido-vertical-mode ido-ubiquitous
+         smex
          helm
          helm-descbinds helm-project
          auto-complete
@@ -71,10 +72,14 @@
          ;; apperance
          ;; modeline
          diminish pretty-mode page-break-lines
+         ;; others
+         ;; guru-mode
          ;; buffer & window, frame
          window-number ; switch-window
          workgroups2 ; e2wm
          popwin
+         ;; minibuffer
+         ;; eldoc-eval
          ;; edit
          undo-tree
          multiple-cursors
@@ -92,6 +97,9 @@
          ;; Org-mode
          org-mode
          org-fstree org-bullets
+         org-magit
+         ;; help
+         ;; discover
          ;; tools
          calfw sauron ; appt
          gist
@@ -189,6 +197,7 @@
 (require 'init-my-emacs-bookmark)
 (require 'init-my-emacs-key-bindings)
 (require 'init-my-emacs-indent)
+(require 'init-my-emacs-outline)
 (require 'init-my-emacs-spell)
 (require 'init-my-emacs-file)
 (require 'init-my-emacs-image)
@@ -253,6 +262,7 @@
 ;;; Programming Languages
 (require 'init-my-prog-lang-ruby)
 (require 'init-my-prog-lang-lisp)
+(require 'init-my-prog-lang-emacs-lisp)
 (require 'init-my-prog-lang-common-lisp)
 
 
