@@ -178,6 +178,9 @@
          gnuplot-mode
          ;; Octave
          ac-octave
+         ;; Frameworks
+         ;; Arduino
+         arduino-mode
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
 
@@ -346,6 +349,7 @@
 
 ;;; Frameworks
 (require 'init-my-prog-framework-web)
+(require 'init-my-prog-framework-arduino)
 
 
 ;;; key bindings
