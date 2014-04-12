@@ -1616,6 +1616,17 @@ This is especially for create Org files."
 ;; (setq org-html-head-extra)
 
 
+;;; org templates (skeleton)
+;; <s, <e, <q, ...
+
+;; avoid competing with org-mode templates.
+(add-hook 'org-mode-hook
+          (lambda ()
+            (make-local-variable 'ac-stop-words)
+            (loop for template in org-structure-template-alist do
+                  (add-to-list 'ac-stop-words (concat "<" (car template))))))
+
+
 ;; deft
 (when (require 'deft nil 'noerror)
   (setq
