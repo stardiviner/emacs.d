@@ -147,6 +147,8 @@
          c-eldoc
          ;; Go
          go-mode go-eldoc
+         ;; JavaScript
+         ;; js-mode
          ;; HTML
          ;; CSS
          auto-complete-css
@@ -315,6 +317,7 @@
 (require 'init-my-prog-lang-html5)
 (require 'init-my-prog-lang-css)
 (require 'init-my-prog-lang-xml)
+(require 'init-my-prog-lang-javascript)
 
 
 ;;; key bindings
