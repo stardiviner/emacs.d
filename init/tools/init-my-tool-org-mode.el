@@ -1772,7 +1772,29 @@ This function will promote all items in a subtree."
 (define-key org-mode-map (kbd "C-c o t") 'org-timeline) ; Show a time-sorted view of the entries in the current org file.
 
 
+;;; custom functions
+
+(defun my-insert-keybinding-code ()
+  "Insert keybinding code in Org with a keybinding quickly.
+
+In common insert mode or in select region text to press this keybinding \\<C-c k> , \\[my-insert-keybinding-code]."
+  (interactive)
+  (if (region-active-p)
+      (let ((where (cons (region-beginning) (region-end))))
+        (insert-pair where "=[" "]="))
+      ;; (insert-pair nil "=[" "]=")
+    (progn
+      (insert "=[]= ")
+      (backward-char 3)))
+  )
+
+(define-key org-mode-map (kbd "C-c k") 'my-insert-keybinding-code)
+
+
 
 (provide 'init-my-tool-org-mode)
 
 ;;; init-my-tool-org-mode.el ends here
+
+
+
