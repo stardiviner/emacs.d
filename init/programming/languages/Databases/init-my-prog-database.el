@@ -6,6 +6,8 @@
 
 ;;; Code:
 
+;;; [ sql-indent]
+;; (require 'sql-indent)
 
 
 
