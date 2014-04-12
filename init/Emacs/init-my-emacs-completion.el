@@ -75,11 +75,21 @@
 ;; (require 'flx-ido)
 
 
+;;; [ smex ] --- remember recently and most frequently used commands.
 
+;; work with ido will show recent frequently used commands in [M-x].
 
+(require 'smex)
+
+(setq smex-save-file (expand-file-name ".smex-items" user-emacs-directory))
+
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
 
 ;;; [ Helm ] --- (incremental completion and selection narrowing framework)
+
 ;; Customize:
 ;; - [C-c c] -- for all complete framework prefix.
 
