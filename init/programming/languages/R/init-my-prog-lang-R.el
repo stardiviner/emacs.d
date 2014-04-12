@@ -13,6 +13,31 @@
 (require 'ess-site)
 
 
+
+;;; [ R-mode ]
+
+(autoload 'R-mode "ess" "ESS" t)
+
+;; automatically get the correct mode
+(add-to-list 'auto-mode-alist
+             '("\\.R$" . R-mode)
+             '("\\.S$" . S-mode)
+             '("\\.Rd\\" . Rd-mode) ; R documentation
+             )
+;; comment out the following if you are not using R/S-Plus on ACPUB
+;; add a ";" in front of each line
+;; (load "/usr/pkg/ess/lisp/ess-site")
+;; (setq-default inferior-S+6-program-name "Splus")
+
+(setq-default inferior-R-program-name "R") ;; /path/to/R
+
+(setq ess-eval-visibly-p t)
+;; (setq ess-ask-for-ess-directory t)
+
+
+;;; [ ess-eldoc ]
+(require 'ess-eldoc)
+
 
 
 
