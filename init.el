@@ -125,6 +125,7 @@
          yari
          auto-complete-ruby
          inf-ruby rcodetools ruby-compilation rvm robe-mode
+         rspec-mode
          ;; rinari
          rhtml-mode projectile-rails
          ;; Lisp
