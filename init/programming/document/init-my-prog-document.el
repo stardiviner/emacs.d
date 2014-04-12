@@ -49,6 +49,16 @@
 ;;   ad-return-value)
 
 
+;;; [ which-function-mode (which-func) ]
+
+(require 'which-func)
+
+;; (setq which-func-modes t)
+(add-to-list 'which-func-modes 'org-mode)
+
+(which-function-mode 1)
+
+
 
 (provide 'init-my-prog-document)
 
