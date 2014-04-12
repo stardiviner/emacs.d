@@ -264,6 +264,7 @@
 (require 'init-my-emacs-key-bindings)
 (require 'init-my-emacs-indent)
 (require 'init-my-emacs-outline)
+(require 'init-my-emacs-input-method)
 (require 'init-my-emacs-spell)
 (require 'init-my-emacs-file)
 (require 'init-my-emacs-image)
