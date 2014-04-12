@@ -596,6 +596,9 @@ This is especially for create Org files."
 
 
 ;;; [ TODOs Items ]
+
+(setq org-open-directory-means-index-dot-org t)
+
 ;; log
 (setq org-log-done 'time) ; 'time/'note . add timestamp or note on done tasks.
 (setq org-log-into-drawer t) ; insert state change notes and time stamps into a drawer.
