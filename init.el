@@ -173,8 +173,11 @@
          ;; Verilog
          verilog-mode
          auto-complete-verilog
+         ;; R
          ;; gnuplot
          gnuplot-mode
+         ;; Octave
+         ac-octave
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
 
@@ -334,6 +337,7 @@
 (require 'init-my-prog-lang-javascript)
 (require 'init-my-prog-lang-haskell)
 (require 'init-my-prog-lang-gnuplot)
+(require 'init-my-prog-lang-octave)
 
 
 ;;; Frameworks
