@@ -436,6 +436,26 @@ It can contain any number of symbols, which will be repeated."
 
 (setq org-image-actual-width 600)
 
+;; iimage-minor-mode.
+;; -----------------------------------------------------------------------------
+;; (require 'iimage)
+;;
+;; (add-to-list 'iimage-mode-image-regex-alist
+;;              (cons (concat "\\[\\[file:\\(~?" iimage-mode-image-filename-regex
+;;                            "\\)\\]")  1))
+;;
+;; (defun org-toggle-iimage-in-org ()
+;;   "Display images in your org file."
+;;   (interactive)
+;;   (if (face-underline-p 'org-link)
+;;       (set-face-underline-p 'org-link nil)
+;;       (set-face-underline-p 'org-link t))
+;;   (iimage-mode 'toggle))
+;;
+;; (define-key org-mode-map (kbd "C-c C-x C-v") 'org-toggle-iimage-in-org)
+;; -----------------------------------------------------------------------------
+
+
 
 
 ;;; Footnote
