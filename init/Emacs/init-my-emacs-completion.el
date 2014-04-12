@@ -243,7 +243,7 @@
 ;; NOTE: small menu is helpful for small computer screen, because split window has small height, this cause quick help popup is shown in hidden position.
 
 
-(setq-default ac-expand-on-auto-complete nil)
+(setq-default ac-expand-on-auto-complete t) ; Non-nil means expand whole common part on first time `auto-complete'.
 (setq-default ac-dwim nil) ; to get pop-ups with docs even if a word is uniquely completed.
 
 
