@@ -52,12 +52,15 @@
 
 
 ;;; [ View ]
+
+;; (load "preview-latex.el" nil t) ; for option `org-startup-with-latex-preview'
+
 ;; startup & default view
 (setq org-startup-folded t  ; t, 'overview, 'content, 'showall.
       org-startup-indented t
       org-startup-truncated t
       ;; FIXME: error: Can't preview LaTeX fragment in a non-file buffer.
-      ;; org-startup-with-inline-images t
+      ;; org-startup-with-inline-images t ; `org-toggle-inline-images'
       ;; org-startup-with-latex-preview t
       ;; org-startup-options
       ;; coordinate grid overlays
@@ -81,8 +84,9 @@
       '((heading . auto)
         (plain-list-item . auto)))
 (setq org-list-empty-line-terminates-plain-lists t)
-(setq org-indirect-buffer-display 'other-window) ; default: 'other-window
+(setq org-indirect-buffer-display 'other-window)
 (setq org-display-internal-link-with-indirect-buffer nil)
+
 
 
 ;;; indentation
@@ -303,11 +307,9 @@
 ;; (add-hook 'org-agenda-mode-hook 'my-org-agenda-hl-line)
 
 
-;; toggle some displays
-;; (setq org-entities)
-
-
+;; toggle some displays: e.g. \pi will display as Pi.
 (setq org-pretty-entities t
+      ;; org-entities 
       org-pretty-entities-include-sub-superscripts t)
 ;; (add-hook 'org-mode-hook 'org-toggle-pretty-entities) ; special symbols (UTF-8 characters) [C-c C-x \]
 ;; org makes superscripts and subscripts by directly modifying the display property of the string.
@@ -325,7 +327,7 @@
       )
 
 
-;; Org-bullets
+;;; Org-bullets
 ;; (load-file "~/.emacs.d/my-init/extensions/org-bullets.el")
 (require 'org-bullets nil t)
 
@@ -564,14 +566,20 @@ This is especially for create Org files."
 (setq org-log-into-drawer t) ; insert state change notes and time stamps into a drawer.
 
 ;;; statistics -> [1/10] or [15%]
-(setq org-provide-todo-statistics t)
-(setq org-hierarchical-todo-statistics nil) ; t: covers just direct children, nil: covers all entries.
-;;; you can use property for only single todos sub-tree. ->  :COOKIE_DATA: recursive
-(setq org-checkbox-hierarchical-statistics nil) ; nil: covers all entries.
+(setq org-provide-todo-statistics t
+      org-hierarchical-todo-statistics nil ; t: covers just direct children, nil: covers all entries.
+      ;; you can use property for only single todos sub-tree. ->  :COOKIE_DATA: recursive
+      org-checkbox-hierarchical-statistics nil ; nil: covers all entries.
+      org-enforce-todo-dependencies nil ; enforce parent and sub-tasks DONE. otherwise blocked.
+      )
+
 
 ;;; time repeat
 (setq org-todo-repeat-to-state "REPEAT"
-      org-log-repeat 'time)
+      org-log-repeat 'time
+      org-agenda-repeating-timestamp-show-all t
+      )
+
 
 
 ;;; [ Properties and Columns ]
@@ -1554,10 +1562,7 @@ This is especially for create Org files."
 
 
 
-
-
-
-;; variables
+;;; variables
 ;; TODO
 ;; (setq org-todo-state-tags-triggers
 ;;       '(state-change (TAG . FLAG)))
@@ -1674,9 +1679,14 @@ This is especially for create Org files."
 ;;             ))
 
 
-;;; [ org-contacts ]
+;;; [ Org-contacts ]
 
-;; FIXME
+;; FIXME:
+
+
+;;; [ Org-magit]
+
+(require 'org-magit)
 
 
 ;;; [ Custom Functions ]
@@ -1709,6 +1719,10 @@ This function will promote all items in a subtree."
                  (org-link-escape hl-text)
                  (org-link-escape hl-text '((?\] . "%5D") (?\[ . "%5B"))))
          nil (- (point) (length hl-text)) (point))))))
+
+
+
+;; (setq org-indirect-dedicated-frame nil)
 
 
 
