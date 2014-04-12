@@ -7,21 +7,62 @@
 
 ;;; Code:
 
+;;; [ python ] --- Python's flying circus support for Emacs
+
+;;  Introduction
+;;
+;; This is now the official Python major mode for GNU Emacs.
+;;
+;; It aims to provide the stuff you'll expect from a major mode for python editing while keeping it simple.
+;;
+;; Currently it implements Syntax highlighting, Indentation, Movement, Shell
+;; interaction, Shell completion, Shell virtualenv support, Pdb tracking, Symbol
+;; completion, Skeletons, FFAP, Code Check, Eldoc, Imenu.
+;;
+;;     Syntax highlighting
+;;     Solid (auto)indentation support
+;;     auto-detection of indentation levels for current file
+;;     Robust triple quoted strings support
+;;     Fancy variable assignment colorization
+;;     Movement commands you'll expect from a major-mode.
+;;     Sexp-like movement
+;;     Python shell integration (not only for Python 2 but also Python 3!)
+;;     Python shell completion (Same as above!)
+;;     Python shell virtualenv support (as simple as setting a variable!)
+;;     PDB Tracking (it even supports ipdb!)
+;;     Symbol completion that sucks because a running inferior shell process and valid code in the current buffer are needed (Don't blame me, it's like that in every python-mode I know). Notice I don't recommend this thing, use ropemacs instead
+;;     Skeletons with a tight integration with dabbrev out of the box
+;;     FFAP (Find Filename At Point), click on an import statement and go to the module definition.
+;;     Code check via pychecker by default (this is customizable of course)
+;;     Eldoc support (this suffers the same drawbacks as the symbol completion, but it's the only sane way to do it from Elisp)
+;;     imenu support to easily navigate your code
+;;     add-log-current-defun support
+;;     hideshow support
+;;     outline support
+;;     fill paragraph (with customizable docstring formatting)
+;;
+;; The code is well organized in parts with some clean sensitive naming.
+
+(require 'python)
+
+
+
+
 ;;; [ python-mode ]
 
-(require 'python-mode)
+;; (require 'python-mode)
 
-(add-hook 'python-mode-hook
-          (lambda ()
-            (setq python-indent-offset 4
-                  python-shell-interpreter "ipython"
-                  python-shell-interpreter-args ""
-                  python-shell-prompt-regexp "In \\[[0-9]+\\]: "
-                  python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
-                  python-shell-completion-setup-code "from IPython.core.completerlib import module_completion"
-                  python-shell-completion-module-string-code "';'.join(module_completion('''%s'''))\n"
-                  python-shell-completion-string-code "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
-                  )))
+;; (add-hook 'python-mode-hook
+;;           (lambda ()
+;;             (setq python-indent-offset 4
+;;                   python-shell-interpreter "ipython"
+;;                   python-shell-interpreter-args ""
+;;                   python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+;;                   python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+;;                   python-shell-completion-setup-code "from IPython.core.completerlib import module_completion"
+;;                   python-shell-completion-module-string-code "';'.join(module_completion('''%s'''))\n"
+;;                   python-shell-completion-string-code "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
+;;                   )))
 
 
 

@@ -145,7 +145,8 @@
          ;; Clojure
          clojure-mode ac-nrepl cider ; swank-clojure
          ;; Python
-         python-mode
+         python
+         ;; python-mode
          ;; C family languages
          auto-complete-clang auto-complete-c-headers
          c-eldoc
