@@ -434,6 +434,8 @@ It can contain any number of symbols, which will be repeated."
 ;;; inline images [C-c C-x C-v] - `org-toggle-inline-images'.
 ;; (setq org-startup-with-inline-images t)
 
+(setq org-image-actual-width 600)
+
 
 
 ;;; Footnote
