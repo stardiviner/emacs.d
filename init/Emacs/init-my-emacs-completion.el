@@ -35,9 +35,15 @@
 (ido-everywhere t)                      ; use ido-mode wherever possible
 (ido-ubiquitous-mode t)                 ; enable ido-ubiquitous
 
+(setq ido-enable-prefix nil
+      ido-enable-flex-matching 't       ; enable fuzzy search
+      ido-create-new-buffer 'prompt
+      ido-use-filename-at-point 'guess  ; look for filename at point
+      ido-max-prospects 10
       ido-use-virtual-buffers 't        ; allow me to open closed buffers, even
-      ido-auto-merge-work-directories-length 0
+      ido-auto-merge-work-directories-length -1
       ido-default-buffer-method 'selected-window ; allow buffer to be open in different frames
+      ido-save-directory-list-file (expand-file-name "ido.hist" user-emacs-directory)
       )
 
 
