@@ -78,6 +78,8 @@
                              help-echo  (buffer-file-name))
                 (:propertize "] ")
 
+                ;; git-emacs (magit)
+
                 ;; line and column number, relative position
                 ;; mode-line-position
                 ;; '%02' to set to 2 chars at least; prevents flicking

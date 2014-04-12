@@ -50,6 +50,7 @@
         "C-x r"                         ; register, bookmark, etc
         "C-x 4"                         ; other window
         "C-x 5"                         ; other frame
+        "C-x *"                         ; calc
         "C-x n"                         ; narrow
         "C-c s"                       ; visual-regexp-map
         (dired-mode "C-h"
@@ -63,6 +64,7 @@
         ;; "C-c"                           ; extension functional prefix (global)
         "C-c c"                         ; mc (multi-cursor) (global)
         "C-c !"                         ; flycheck (global)
+        "C-c SPC"                       ; allout (outline)
         "C-c &"                         ; yasnippet (global)
         "C-c p"                         ; projectile (global)
         "C-c p 4"                       ; projectile (4: buffer or window)
@@ -72,7 +74,9 @@
         "C-c ;"                         ; E2WM
         "C-c z"                         ; workgroups2
         "C-c @"                         ; hs-minor-mode [Fold] (global)
-        "C-c '"                         ;
+        "C-c t"                         ; tools: paste(gist), ... etc.
+        "C-c '"                         ; ???
+        "C-x c"                         ; Helm
         (org-mode "C-c C-x" "C-c C-v")  ; Org-mode.
         (outline-minor-mode "C-c @")    ; outline minor mode.
         (markdown-mode "C-c" "C-c C-c" "C-c C-s" "C-c C-t" "C-c TAB" "C-c C-a")

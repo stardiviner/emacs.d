@@ -43,39 +43,8 @@
 
 
 
-;;; [ Emacs Lisp ]
-
-(require 'auto-complete-emacs-lisp)
-
-;; this add emacs lisp source into AC, and support show popup help doc.
-(add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)
-
-
-;;; elisp-slime-nav
-
-;;; Usage:
-;; - [M-. | M-, ] -- go to/out navigation of the function definition.
-;; - [C-c C-d d] -- slime-describe-symbol.
-
-(require 'elisp-slime-nav)
-
-(dolist (hook '(emacs-lisp-mode-hook
-		ielm-mode-hook))
-  (add-hook hook 'turn-on-elisp-slime-nav-mode))
-(diminish 'elisp-slime-nav-mode)
-
-
 ;; A quick way to jump to the definition of a function given its key binding
 ;; (global-set-key (kbd "C-h K") 'find-function-on-key)
-
-
-;;; eldoc-eval --- Enable eldoc support when minibuffer is in use.
-
-(require 'eldoc-eval)
-
-
-;;; elisp-format
-(require 'elisp-format)
 
 
 

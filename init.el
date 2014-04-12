@@ -60,26 +60,21 @@
          ;; completion
          ido-vertical-mode ido-ubiquitous
          helm
-         helm-descbinds
+         helm-descbinds helm-project
          auto-complete
          auto-complete-yasnippet auto-complete-chunk
          auto-complete-etags auto-complete-pcmp
          auto-complete-emacs-lisp
-         auto-complete-ruby auto-complete-clang auto-complete-c-headers
-         auto-complete-css auto-complete-nxml
-         auto-complete-verilog
-         auto-complete-latex
          ;; company-mode
          ;; color theme
          color-theme-solarized
          ;; apperance
-         ;; powerline
-         pretty-mode page-break-lines
+         ;; modeline
+         diminish pretty-mode page-break-lines
          ;; buffer & window, frame
          window-number ; switch-window
          workgroups2 ; e2wm
          popwin
-         diminish
          ;; edit
          undo-tree
          multiple-cursors
@@ -110,6 +105,7 @@
          ;; electric
          paredit autopair
          rainbow-mode rainbow-delimiters
+         ;; document
          ;; snippet
          yasnippet
          ;; code browser
@@ -127,12 +123,25 @@
          ;; Ruby
          ruby-mode ruby-electric ruby-block
          yari
+         auto-complete-ruby
          inf-ruby rcodetools ruby-compilation rvm robe-mode
          ;; rinari
          rhtml-mode projectile-rails
          ;; Lisp
-         slime ac-slime elisp-slime-nav elisp-format eldoc-eval
+         ;; slime
+         ac-slime elisp-slime-nav elisp-format eldoc-eval
+         ;; Scheme
+         ;; Clojure
          ;; C family languages
+         ;; CSS
+         auto-complete-css
+         ;; XML
+         auto-complete-nxml
+         ;; TeX
+         auto-complete-latex
+         ;; ac-math
+         ;; Verilog
+         auto-complete-verilog
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
 

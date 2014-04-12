@@ -139,7 +139,9 @@
 
 
 ;;; [ yari ] -- Yet Another Ri Interface
+
 ;; yari.el provides an Emacs frontend to Ruby's `ri' documentation tool. It offers lookup and completion.
+
 (require 'yari)
 
 (dolist (hook '(ruby-mode-hook
@@ -148,6 +150,7 @@
                    (setq yari-ri-program-name "ri")
 
                    ;; (local-set-key (kbd "C-h d") 'yari)
+                   ;; (define-key 'help-command (kbd "R") 'yari)
                    ;; or with my-help-document-prefix-map prefix.
                    (define-key my-help-document-prefix-map (kbd "d") 'yari)
                    (define-key my-help-document-prefix-map (kbd "D") 'yari-helm)

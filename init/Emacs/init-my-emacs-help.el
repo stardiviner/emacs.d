@@ -1,3 +1,12 @@
+;;; init-my-emacs-help.el --- init Emacs's help settings.
+;;; -*- coding: utf-8 -*-
+
+;;; Commentary:
+
+
+
+;;; Code:
+
 ;;; [ Info ]
 ;; (setq Info-directory-list "/usr/share/info/"
 ;;       Info-additional-directory-list)

@@ -53,27 +53,24 @@
              '("\\.gitignore$" . gitignore-mode))
 
 
-;;; [ git-emacs ]
-;; which provides status bar icons for git status.
-;;
-;; The git-emacs package implements almost the same functionality, as the git.el
-;; package, but it also has some improvements, mostly in the user interface.
+;;; [ git-emacs ] --- 
 
-;; load at startup
-;; (unless (package-installed-p 'git-emacs)
-;;   (package-install 'git-emacs))
-;; FIXME (require 'git-emacs)
-;; (unless (package-installed-p 'git-status)
-;;   (package-install 'git-status))
-;; FIXME (require 'git-status)
+;;; The git-emacs package implements almost the same functionality, as the
+;;; git.el package, but it also has some improvements, mostly in the user
+;;; interface.
 
-;; autoload
-;; (require 'git-emacs-autoloads)
+(require 'git-emacs)
+
+
+
+;;; git-status
 
 ;; (setq git-status-modeline-decoration 'git-state-decoration-large-dot)
 
+
 
 ;;; [ Magit ]
+
 ;; Usage:
 ;; - [M-x magit-status] -- put you in Magit's status buffer.
 ;;   - press [?] in `magit-status'. press [q] in [?]help to exit.
@@ -88,7 +85,10 @@
 
 (autoload 'magit-status "magit" nil t)
 
-(setq magit-stage-all-confirm t)
+(setq magit-stage-all-confirm t
+      magit-use-overlays t
+      magit-diff-refine-hunk 'all
+      )
 
 ;; TODO change to open magit-status in current window instead of overriding other windows. [default: 'pop-to-buffer].
 (setq magit-status-buffer-switch-function 'pop-to-buffer)
@@ -127,7 +127,7 @@
 (define-key global-map (kbd "C-c v o") 'magit-checkout) ; magit-checkout-branch-at-point
 
 
-;; TODO open magit window in current window, and without override other windows layout.
+;; TODO: open magit window in current window, and without override other windows layout.
 
 
 (set-face-attribute 'magit-item-highlight nil
@@ -137,6 +137,24 @@
 (set-face-attribute 'magit-item-mark nil
                     :foreground "black"
                     :background "gray")
+;; diff colors
+(set-face-attribute 'magit-diff-none nil
+                    :inherit 'diff-context
+                    )
+(set-face-attribute 'magit-diff-del nil
+                    :inherit 'diff-removed
+                    )
+(set-face-attribute 'magit-diff-add nil
+                    :inherit 'diff-added
+                    )
+(set-face-attribute 'magit-diff-hunk-header nil
+                    :inherit 'diff-hunk-header
+                    )
+(set-face-attribute 'magit-diff-file-header nil
+                    :inherit 'diff-file-header
+                    )
+
+
 
 
 ;;; [ MagitHub ] -- working with GitHub
@@ -161,8 +179,7 @@
 (autoload 'git-blame-mode "git-blame" "Minor mode for incremental blame for Git." t)
 
 
-;;; [ mo-git-blame ]
-;;  is an interactive and iterative major mode for git blame.
+;;; [ mo-git-blame ] --- an interactive and iterative major mode for git blame.
 
 ;; That’s what ‘mo-git-blame’ tries to solve. It is a standalone mode that can
 ;; be used with any of the various Git version control modes. Here are a couple
@@ -178,7 +195,7 @@
 (autoload 'mo-git-blame-current "mo-git-blame" nil t)
 
 
-;;; gitsum
+;;; [ gitsum ]
 
 
 ;;; [ egit ]

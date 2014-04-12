@@ -7,6 +7,7 @@
 
 
 ;;; Emacs default comment [C-;]
+
 ;; Usage:
 ;; - [M-;] -- indent-for-comment
 ;;   - for new line

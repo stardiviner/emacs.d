@@ -10,6 +10,9 @@
 ;;; Rainbow Mode (rainbow-mode.el -- colorize color names in buffers)
 
 (require 'rainbow-mode)
+(eval-after-load "rainbow-mode"
+  '(diminish 'rainbow-mode))
+
 (dolist (hook
          '(emacs-lisp-mode-hook
            css-mode-hook
@@ -143,10 +146,8 @@
            ))
   (add-hook hook #'(lambda ()
                      ;; FIXME test whether paredit is active
-                     ;; (memq 'paredit-mode minor-mode-list)
                      (unless (and (boundp 'paredit-mode) paredit-mode)
                        (autopair-mode)))))
-
 
 
 ;;; More tricks

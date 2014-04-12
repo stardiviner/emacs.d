@@ -16,6 +16,13 @@
 ;;; [ pcomplete ] --- programmable completion
 (load-library "pcomplete")
 
+
+
+;;; [ Icomplete ]
+
+;; (icomplete-mode 1)
+
+
 
 ;;; Press [TAB] in minibuffer to show completions in popup window buffer.
 
@@ -27,8 +34,7 @@
 (ido-mode t)                            ; enable ido mode
 (ido-everywhere t)                      ; use ido-mode wherever possible
 (ido-ubiquitous-mode t)                 ; enable ido-ubiquitous
-(setq ido-enable-flex-matching 't       ; enable fuzzy search
-      ido-use-filename-at-point 't      ; look for filename at point
+
       ido-use-virtual-buffers 't        ; allow me to open closed buffers, even
       ido-auto-merge-work-directories-length 0
       ido-default-buffer-method 'selected-window ; allow buffer to be open in different frames
@@ -46,6 +52,7 @@
 (ido-mode 1)
 (ido-vertical-mode 1)
 
+;; ---------------------------------------------------------------------------------
 ;; (setq ido-decorations '("{" "}" " | " " | ..." "[" "]"
 ;;                         " [No match]" " [Matched]" " [Not readable]"
 ;;                         " [Too big]" " [Confirm]")
@@ -57,9 +64,7 @@
 
 
 
-;;; [ Icomplete ]
 
-;; (icomplete-mode 1)
 
 
 
@@ -86,14 +91,16 @@
 ;; (set-face-attribute 'helm-selection nil
 ;;                     :background "#004A5D" :foreground "white"
 ;;                     :box '(:color "cyan" :line-width 1)
-;; 		    :underline nil)
+;;                     :underline nil)
 
-;; (global-set-key (kbd "C-c h") 'helm-mini)
+;; ;; (global-set-key (kbd "C-x h") 'helm-mini)
 
-;; (setq helm-case-fold-search t) ; whether toggle case sensitive search depend on your input has mixture of upcase and downcase.
+;; (setq helm-case-fold-search t
+;;       helm-full-frame nil ; use current window as popup.
+;;       )
 
 ;;; Bookmark
-;; Helm bookmarks[C-x C-x r b]
+;; Helm bookmarks [C-x C-x r b]
 ;; (helm-highlight-bookmark)
 
 ;; Firefox bookmarks [C-x C-x]
@@ -106,9 +113,10 @@
 ;;; Usage:
 ;; - [C-h KEY]
 ;; - [KEY_PREFIX C-h]
+;;
 ;; - when in helm completion buffer:
 ;;   - press [RET] to select candidate command to execute.
-;;   - press [TAB], you can "execute", "describe function", "find function".
+;;   - press [TAB], you can execute action: "execute", "describe function", "find function".
 ;;   - press [C-z], selected command is described without quiting.
 
 ;; (require 'helm-descbinds)

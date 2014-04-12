@@ -12,6 +12,7 @@
 
 
 ;;; [ ElDoc ] --- show you the argument list of the function call you are currently writing in the echo area.
+
 (require 'eldoc)
 
 (dolist (hook
@@ -20,6 +21,12 @@
            lisp-mode-hook
            ielm-mode-hook))
   (add-hook hook 'turn-on-eldoc-mode))
+
+
+(set-face-attribute 'eldoc-highlight-function-argument nil
+                    :underline t :foreground "cyan"
+                    :weight 'bold)
+
 
 ;;; ElDoc with most paredit command.
 ;;; whenever the listed commands are used, ElDoc will automatically refresh the minibuffer.
