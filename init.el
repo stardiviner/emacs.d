@@ -147,6 +147,7 @@
          c-eldoc
          ;; Go
          go-mode go-eldoc
+         ;; HTML
          ;; CSS
          auto-complete-css
          ;; css-mode
@@ -310,6 +311,8 @@
 (require 'init-my-prog-lang-clojure)
 (require 'init-my-prog-lang-C)
 (require 'init-my-prog-lang-go)
+(require 'init-my-prog-lang-html)
+(require 'init-my-prog-lang-html5)
 (require 'init-my-prog-lang-css)
 (require 'init-my-prog-lang-xml)
 
