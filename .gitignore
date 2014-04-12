@@ -1,5 +1,6 @@
 # Compiled
 *.elc
+\#?*#
 
 # ignored directories
 el-get/
@@ -20,3 +21,13 @@ projectile-bookmarks.eld
 
 # Cask
 .cask/
+/.mc-lists.el
+/.smex-items
+/ido.hist
+/var/
+/semanticdb/
+/init/Emacs/flycheck_init-my-emacs-package-management.el
+
+/customize.el
+/customize.el
+/customize.el
