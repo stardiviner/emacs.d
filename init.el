@@ -83,6 +83,7 @@
          ;; edit
          undo-tree
          multiple-cursors
+         ;; imenu
          ;; jump
          ace-jump-mode
          ;; bookmark, register, macro,

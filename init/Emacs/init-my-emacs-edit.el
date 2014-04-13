@@ -272,6 +272,13 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;;                     :foreground "cyan")
 
 
+;;; [ Imenu ]
+
+;;; Usage:
+;; - [M-x imenu-?] :: invoke imenu functions.
+
+(require 'imenu)
+
 ;; Ace Jump mode
 
 (require 'ace-jump-mode)
