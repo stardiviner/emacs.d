@@ -14,7 +14,6 @@
 (eval-after-load 'clojure-mode
   '(progn
      (defun my-clojure-mode-defaults ()
-       (subword-mode +1)
        (clojure-test-mode +1))
 
      (setq my-clojure-mode-hook 'my-clojure-mode-defaults)

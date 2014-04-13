@@ -14,7 +14,6 @@
 (eval-after-load 'haskell-mode
   '(progn
      (defun my-haskell-mode-defaults ()
-       (subword-mode +1)
        (turn-on-haskell-doc-mode)
        (turn-on-haskell-indentation))
 
