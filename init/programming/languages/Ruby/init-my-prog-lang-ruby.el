@@ -319,8 +319,8 @@
             ))
 
 ;; for company-mode
-(eval-after-load 'company
-  (push 'company-robe company-backends))
+;; (eval-after-load 'company
+;;   (push 'company-robe company-backends))
 
 
 (setq robe-turn-on-eldoc t)

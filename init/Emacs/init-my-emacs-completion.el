@@ -532,7 +532,7 @@
 
 ;;; [ Company Mode ]
 
-(require 'company)
+;; (require 'company)
 
 ;; (setq company-minimum-prefix-length 2
 ;;       company-idle-delay 0.5
