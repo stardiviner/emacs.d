@@ -178,6 +178,7 @@
          verilog-mode
          auto-complete-verilog
          ;; R
+         ess
          ;; gnuplot
          gnuplot-mode
          ;; Octave
