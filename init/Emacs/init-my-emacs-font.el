@@ -28,6 +28,9 @@
 ;;; Code:
 ;; set font for all frames
 (set-frame-font "DejaVu Sans Mono-10" t)
+(set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 100)
+(set-face-font 'default "DejaVu Sans Mono")
+
 
 ;; Averia-12
 ;; Averia Serif-12
@@ -39,18 +42,19 @@
 ;;
 ;; other charsets except 'han : kana, symbol, cjk-misc, bopomofo,
 ;; - WenQuanYi Micro Hei Mono :: 文泉驿 微米黑
+;; - FZSuXinShiLiuKaiS-R-GB :: 方正苏新诗柳字体
 ;; - DFPShaoNvW5-GB :: 华康少女体 W5
 ;; - DFPWaWaW5-GB :: 华康娃娃体
 ;; - iWawa :: 华康娃娃体
 ;; - FZMiaoWuS-GB :: 方正喵呜体
-;; - FZSuXinShiLiuKaiS-R-GB :: 方正苏新诗柳字体
+;;
 ;; 1.
 ;; (set-fontset-font t 'han (font-spec :family "WenQuanYi Micro Hei Mono" :size 13))
 ;; 2.
 (dolist (charset '(kana han symbol cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font)
                     charset
-                    (font-spec :family "WenQuanYi Micro Hei Mono" :size 13) ; 文泉驿 微米黑
+                    (font-spec :family "FZSuXinShiLiuKaiS-R-GB" :size 15) ; 文泉驿 微米黑
                     )
   )
 ;;; need to modify English font settings to suitable with chinese font.
@@ -92,7 +96,7 @@
 ;;                     :family "DejaVu Sans Mono"
 ;;                     :height 100)
 
-
+
 (provide 'init-my-emacs-font)
 
 ;;; init-my-emacs-font.el ends here
