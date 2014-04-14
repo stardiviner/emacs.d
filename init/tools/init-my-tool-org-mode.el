@@ -1773,6 +1773,13 @@ This function will promote all items in a subtree."
 
 ;; (setq org-indirect-dedicated-frame nil)
 
+
+;;; [ Pairs ]
+
+(add-hook 'org-mode-hook
+          (lambda ()
+            (paredit-mode -1)
+            (autopair-mode +1)))
 
 
 ;;; [ Key Bindings ]

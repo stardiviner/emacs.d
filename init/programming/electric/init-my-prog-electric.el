@@ -120,7 +120,8 @@
       autopair-autowrap 'help-balance ; 'help-balance, t
       autopair-blink t)
 
-(setq autopair-extra-pairs `(:everywhere ((?‘. ?’)
+(setq autopair-extra-pairs `(:everywhere (;; chinese punctuation
+                                          (?‘. ?’)
                                           (?“. ?”)
                                           (?（. ?）)
                                           (?【. ?】)
@@ -139,15 +140,14 @@
 
 ;; (autopair-global-mode 1)
 (dolist (hook
-         '(org-mode-hook
-           ;; programming modes
-           prog-mode-hook
+         '(prog-mode-hook
            ;; ess-mode-hook                ; Emacs Speaks Statistics
            ))
   (add-hook hook #'(lambda ()
                      ;; FIXME test whether paredit is active
                      (unless (and (boundp 'paredit-mode) paredit-mode)
-                       (autopair-mode)))))
+                       (autopair-mode))
+                     )))
 
 
 ;;; More tricks
