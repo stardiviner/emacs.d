@@ -218,6 +218,10 @@
 ;;; Completion List (completion-list-mode)
 (push '(completion-list-mode :position bottom :height 15) popwin:special-display-config)
 
+;;; Helm
+;; FIXME:
+;; (push '(helm-mode :position bottom :height 10) popwin:special-display-config)
+
 ;;; Occur Mode
 (push '("*Occur*" :position bottom  :height 10) popwin:special-display-config)
 

@@ -182,7 +182,7 @@
          ;; gnuplot
          gnuplot-mode
          ;; Octave
-         ac-octave
+         ;; ac-octave
          ;; Frameworks
          ;; Arduino
          arduino-mode

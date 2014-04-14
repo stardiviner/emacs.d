@@ -13,9 +13,9 @@
 (setq completion-at-point-functions 'auto-complete)
 
 
-;;; [ pcomplete ] --- programmable completion
-(load-library "pcomplete")
+;;; [ pcomplete ] --- Programmable, Context-Sensitive Completion Library
 
+(load-library "pcomplete")
 
 
 ;;; [ Icomplete ]

@@ -12,12 +12,14 @@
 ;; (setq shell-file-name "/bin/sh")        ; TODO "$SHELL", "/bin/sh", "usr/bin/zsh"
 
 
-;;; shell
+;;; [ Shell ]
+
 ;; M-x shell is a nice shell interface to use, let's make it colorful. If
 ;; you need a terminal emulator rather than just a shell, consider M-x term
 ;; instead.
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
 
 
 ;;; [ EShell ] (Emacs Shell)
@@ -53,8 +55,8 @@
 ;;           (lambda()
 ;;             (message "spend %g seconds"
 ;;                      (- (time-to-seconds) last-command-start-time))))
+
 ;;; auto-complete settings
-;; (require 'auto-complete)
 (autoload 'auto-complete "auto-complete" t)
 (defvar ac-source-eshell-pcomplete
   '((candidates . (pcomplete-completions))))
