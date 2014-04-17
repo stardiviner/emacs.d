@@ -78,7 +78,7 @@
 (put 'narrow-to-page   'disabled nil)
 
 
-;;; [ Mark ] --- [C-SPC / C-@] + [C-u C-SPC / C-u C-@] + [C-`]
+;;; [ Mark ] --- [C-SPC / C-@] + [C-u C-SPC / C-u C-@] + [C-`] / [M-`]
 
 (defun push-mark-no-activate ()
   "Pushes `point' to `mark-ring' and does not activate the region.

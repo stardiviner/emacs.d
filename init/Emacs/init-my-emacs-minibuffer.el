@@ -5,8 +5,10 @@
 ;;; Code:
 
 ;;; [ minibuffer ]
+
 (setq enable-recursive-minibuffers t)   ; enable to use minibuffer recursively.
 
+
 ;;; [ icomplete-mode ] -- incremental minibuffer completion.
 ;; - [C-h f icomplete-completions]
 ;; - (...) :: a single prospect is identified and matching is enforced,

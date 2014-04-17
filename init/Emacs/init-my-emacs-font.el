@@ -54,7 +54,7 @@
 (dolist (charset '(kana han symbol cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font)
                     charset
-                    (font-spec :family "FZSuXinShiLiuKaiS-R-GB" :size 15) ; 文泉驿 微米黑
+                    (font-spec :family "WenQuanYi Micro Hei Mono" :size 13) ; 文泉驿 微米黑
                     )
   )
 ;;; need to modify English font settings to suitable with chinese font.
