@@ -92,6 +92,7 @@
          guide-key
          ;; dired
          direx
+         emacs-dired-k
          ;; search
          isearch+
          anzu

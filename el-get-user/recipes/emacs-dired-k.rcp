@@ -1,0 +1,5 @@
+(:name emacs-dired-k
+       :description "Highlighting dired buffer like k"
+       :type github
+       :pkgname "syohex/emacs-dired-k"
+       :features emacs-dired-k)

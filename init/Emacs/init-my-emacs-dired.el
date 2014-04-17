@@ -1,3 +1,11 @@
+;;; init-my-emacs-dired.el --- init Dired for Emacs
+;;; -*- coding: utf-8 -*-
+
+;;; Commentary:
+
+
+
+;;; Code:
 
 ;;; [ Dired ] (Directory editing mode)
 ;; Usage:
@@ -21,6 +29,28 @@
 (require 'direx-project)
 
 ;; (global-set-key (kbd "C-c C-p") 'direx-project:jump-to-project-root)
-
 
+
+;;; [ emacs-dired-k ] -- highlights dired buffer like "k".
+
+;; Usage:
+;; - `dired-k'
+;;
+;; Highlight dired buffer by following parameters.
+;;
+;;     File size
+;;     Modified time
+;;     Git status(if here is in git repository)
+
+(require 'dired-k)
+
+(define-key dired-mode-map (kbd "K") 'dired-k)
+;; You can use dired-k alternative to revert-buffer
+(define-key dired-mode-map (kbd "g") 'dired-k)
+;; always execute dired-k when dired buffer is opened
+(add-hook 'dired-initial-position-hook 'dired-k)
+
+
 (provide 'init-my-emacs-dired)
+
+;;; init-my-emacs-dired.el ends here
