@@ -307,6 +307,11 @@
 
 ;; (setq git-gutter-fr:side 'right-fringe)
 
+;; -------------------------
+;; git-gutter-plus
+
+;; https://github.com/nonsequitur/git-gutter-plus
+
 
 ;;; [ diff-hl ]
 

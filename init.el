@@ -330,7 +330,7 @@
 (require 'init-my-prog-document)
 (require 'init-my-prog-compile)
 (require 'init-my-prog-project)
-(require 'init-my-prog-git)
+(require 'init-my-prog-vcs-git)
 (require 'init-my-prog-regexp)
 (require 'init-my-prog-mmm-mode)
 
