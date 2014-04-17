@@ -1623,11 +1623,13 @@ This is especially for create Org files."
 ;; <s, <e, <q, ...
 
 ;; avoid competing with org-mode templates.
-(add-hook 'org-mode-hook
-          (lambda ()
-            (make-local-variable 'ac-stop-words)
-            (loop for template in org-structure-template-alist do
-                  (add-to-list 'ac-stop-words (concat "<" (car template))))))
+(defun org-stop-auto-complete-for-structure-templates ()
+  "Avoid competing with ORG-MODE templates like <s, <e, <q etc."
+  (make-local-variable 'ac-stop-words)
+  (loop for template in org-structure-template-alist do
+        (add-to-list 'ac-stop-words (concat "<" (car template)))))
+
+(add-hook 'org-mode-hook 'org-stop-auto-complete-for-structure-templates)
 
 
 ;; deft
