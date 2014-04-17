@@ -23,6 +23,12 @@
 
 ;;; Code:
 
+;; [ keybindings prefix ]
+
+(define-prefix-command 'my-vcs-prefix-map)
+(global-set-key (kbd "C-c v") 'my-vcs-prefix-map)
+
+
 ;;; [ vc-git ] -- Git support backend
 ;; - [C-x v] -- prefix for vc-git.
 
