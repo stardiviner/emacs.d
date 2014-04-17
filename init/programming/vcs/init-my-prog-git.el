@@ -112,25 +112,25 @@
 ;; "g" for Git
 
 ;; status -- "s" for status.
- ; [C-x v-] original is prefix for vc-.
-(define-key global-map (kbd "C-x v") 'magit-status)
-(define-key global-map (kbd "C-c v s") 'magit-status)
+;; [C-x v-] original is prefix for vc-.
+(define-key my-vcs-prefix-map (kbd "v") 'magit-status)
+(define-key my-vcs-prefix-map (kbd "g s") 'magit-status)
 ;; add to stage -- "s"
 ;; FIXME this stage item, but can not stage file in current buffer.
-;; (define-key global-map (kbd "C-c v a") 'magit-stage-item)
+;; (define-key my-vcs-prefix-map (kbd "g a") 'magit-stage-item)
 ;; commit -- "c"
-(define-key global-map (kbd "C-c v c") 'magit-commit)
+(define-key my-vcs-prefix-map (kbd "g c") 'magit-commit)
 ;; diff - "d"
-(define-key global-map (kbd "C-c v d") 'magit-diff)
+(define-key my-vcs-prefix-map (kbd "g d") 'magit-diff)
 ;; file log - "l"
-(define-key global-map (kbd "C-c v l") 'magit-log)
+(define-key my-vcs-prefix-map (kbd "g l") 'magit-log)
 ;; repository log - "L"
 ;; [M-n/p] to navigate.
-(define-key global-map (kbd "C-c v L") 'magit-log-long)
+(define-key my-vcs-prefix-map (kbd "g L") 'magit-log-long)
 ;; grep - "g"
-(define-key global-map (kbd "C-c v g") 'magit-grep)
+(define-key my-vcs-prefix-map (kbd "g g") 'magit-grep)
 ;; checkout - "o"
-(define-key global-map (kbd "C-c v o") 'magit-checkout) ; magit-checkout-branch-at-point
+(define-key my-vcs-prefix-map (kbd "g o") 'magit-checkout) ; magit-checkout-branch-at-point
 
 
 ;; TODO: open magit window in current window, and without override other windows layout.
