@@ -126,6 +126,7 @@
          ;; vcs
          git-modes git-emacs ; git-status
          magit ; magithub
+         git-gutter git-gutter-fringe
          ;; egg
          mo-git-blame
          ;; project
