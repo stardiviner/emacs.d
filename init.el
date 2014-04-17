@@ -93,7 +93,9 @@
          ;; dired
          direx
          ;; search
-         isearch+ visual-regexp visual-regexp-steroids ace-jump-mode
+         isearch+
+         anzu
+         visual-regexp visual-regexp-steroids ace-jump-mode
          ack-and-a-half
          ;; Org-mode
          org-mode

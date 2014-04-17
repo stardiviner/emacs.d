@@ -177,6 +177,7 @@
     (whitespace-cleanup-mode . "") ; WSC
     (auto-fill-mode . "") ; Fill (auto-fill-mode), A/Fill
     (auto-fill-function . "") ; Fill (auto-fill-function), A/Fill
+    (anzu-mode . "") ; Anzu
     (rainbow-mode . "") ; Rbow (rainbow-mode)
     (rainbow-delimiters-mode . "") ; (rainbow-delimiters-mode)
     (auto-capitalize . "") ; Cap, (auto-capitalize), A/Cap
