@@ -182,84 +182,84 @@
 ;; More configurable 	    OK 	NG
 ;; ------------------------------------------------
 
-;; (require 'git-gutter)
-;;
-;; (setq git-gutter:disabled-modes '(asm-mode image-mode))
-;;
-;; ;; update frequency: uncomment this when Emacs/GitGutter slows.
-;; ;; (setq git-gutter:update-threshold 1)
-;; ;; (setq git-gutter:update-hooks '(after-save-hook after-revert-hook))
-;;
-;; (setq git-gutter:hide-gutter t)         ; Hide gutter if there are no changes
-;; (setq git-gutter:diff-option "-w") ; Pass option to 'git diff' command: -w: ignore all spaces
-;; (setq git-gutter:verbosity 0)           ; Log/Message Level
-;;
-;;
-;; ;;; Usage:
-;; ;; 'git-gutter:next-hunk :: Jump to next hunk
-;; ;; 'git-gutter:previous-hunk :: Jump to previous hunk
-;; ;; 'git-gutter:popup-hunk :: Popup current diff hunk
-;; ;; 'git-gutter:stage-hunk :: Stage current hunk - `git add -p`
-;; ;; 'git-gutter:revert-hunk :: Revert current hunk
-;; ;; 'git-gutter :: Show changes from last commit or Update change information.
-;; ;; 'git-gutter-toggle :: Toggle git-gutter
-;;
-;; ;;; keybindings
-;; (define-key my-vcs-prefix-map (kbd "m t") 'git-gutter:toggle)
-;; (define-key my-vcs-prefix-map (kbd "m p") 'git-gutter:popup-hunk)
-;; ;; Jump to next/previous hunk
-;; (define-key my-vcs-prefix-map (kbd "m n") 'git-gutter:next-hunk)
-;; (define-key my-vcs-prefix-map (kbd "m p") 'git-gutter:previous-hunk)
-;; ;; Stage current hunk
-;; (define-key my-vcs-prefix-map (kbd "m s") 'git-gutter:stage-hunk)
-;; ;; Revert current hunk
-;; (define-key my-vcs-prefix-map (kbd "m r") 'git-gutter:revert-hunk)
-;;
-;; ;; multiple character is OK
+(require 'git-gutter)
+
+(setq git-gutter:disabled-modes '(asm-mode image-mode))
+
+;; update frequency: uncomment this when Emacs/GitGutter slows.
+;; (setq git-gutter:update-threshold 1)
+;; (setq git-gutter:update-hooks '(after-save-hook after-revert-hook))
+
+(setq git-gutter:hide-gutter t)         ; Hide gutter if there are no changes
+(setq git-gutter:diff-option "-w") ; Pass option to 'git diff' command: -w: ignore all spaces
+(setq git-gutter:verbosity 0)           ; Log/Message Level
+
+
+;;; Usage:
+;; 'git-gutter:next-hunk :: Jump to next hunk
+;; 'git-gutter:previous-hunk :: Jump to previous hunk
+;; 'git-gutter:popup-hunk :: Popup current diff hunk
+;; 'git-gutter:stage-hunk :: Stage current hunk - `git add -p`
+;; 'git-gutter:revert-hunk :: Revert current hunk
+;; 'git-gutter :: Show changes from last commit or Update change information.
+;; 'git-gutter-toggle :: Toggle git-gutter
+
+;;; keybindings
+(define-key my-vcs-prefix-map (kbd "m t") 'git-gutter:toggle)
+(define-key my-vcs-prefix-map (kbd "m p") 'git-gutter:popup-hunk)
+;; Jump to next/previous hunk
+(define-key my-vcs-prefix-map (kbd "m n") 'git-gutter:next-hunk)
+(define-key my-vcs-prefix-map (kbd "m p") 'git-gutter:previous-hunk)
+;; Stage current hunk
+(define-key my-vcs-prefix-map (kbd "m s") 'git-gutter:stage-hunk)
+;; Revert current hunk
+(define-key my-vcs-prefix-map (kbd "m r") 'git-gutter:revert-hunk)
+
+;; multiple character is OK
+(setq git-gutter:window-width 2
+      git-gutter:modified-sign "Ϟ"
+      git-gutter:unchanged-sign " "
+      git-gutter:added-sign "✚"
+      git-gutter:deleted-sign "✖"
+      )
+
 ;; (setq git-gutter:window-width 2
-;;       git-gutter:modified-sign "Ϟ "
-;;       git-gutter:unchanged-sign nil
-;;       git-gutter:added-sign "✚ "
-;;       git-gutter:deleted-sign "✖ "
+;;       git-gutter:modified-sign "☁"
+;;       git-gutter:unchanged-sign " "
+;;       git-gutter:added-sign "☀"
+;;       git-gutter:deleted-sign "☂"
 ;;       )
-;;
-;; ;; (setq git-gutter:window-width 2
-;; ;;       git-gutter:modified-sign "☁"
-;; ;;       git-gutter:unchanged-sign " "
-;; ;;       git-gutter:added-sign "☀"
-;; ;;       git-gutter:deleted-sign "☂"
-;; ;;       )
-;;
-;; ;; |, ┇, ┋ ⋮ ¦ ┊ ┆ │ ┃ ‡ † ‖
-;; ;; (setq git-gutter:separator-sign "│")
-;; ;; (set-face-foreground 'git-gutter:separator "yellow")
-;;
-;; ;; GitGutter signs
-;; (set-face-attribute 'git-gutter:modified nil
-;;                     :foreground "yellow"
-;;                     :weight 'bold
-;;                     )
-;; (set-face-attribute 'git-gutter:added nil
-;;                     :foreground "green"
-;;                     :weight 'bold
-;;                     )
-;; (set-face-attribute 'git-gutter:deleted nil
-;;                     :foreground "red"
-;;                     :weight 'bold
-;;                     )
-;; ;; FIXME: this does not work at Emacs initially.
-;; (set-face-attribute 'git-gutter:unchanged nil
-;;                     :foreground nil :background nil
-;;                     :weight 'bold
-;;                     )
-;;
-;;
-;; (global-git-gutter-mode +1)
-;; ;; or
-;; ;; (add-hook 'ruby-mode-hook 'git-gutter-mode)
-;;
-;; ;; (setq git-gutter:lighter " GitGutter") ; minor mode name in modeline.
-;; (diminish 'git-gutter-mode)
+
+;; |, ┇, ┋ ⋮ ¦ ┊ ┆ │ ┃ ‡ † ‖
+;; (setq git-gutter:separator-sign "│")
+;; (set-face-foreground 'git-gutter:separator "yellow")
+
+;; GitGutter signs
+(set-face-attribute 'git-gutter:modified nil
+                    :foreground "yellow"
+                    :weight 'bold
+                    )
+(set-face-attribute 'git-gutter:added nil
+                    :foreground "green"
+                    :weight 'bold
+                    )
+(set-face-attribute 'git-gutter:deleted nil
+                    :foreground "red"
+                    :weight 'bold
+                    )
+;; FIXME: this does not work at Emacs initially.
+(set-face-attribute 'git-gutter:unchanged nil
+                    :foreground nil :background nil
+                    :weight 'bold
+                    )
+
+
+(global-git-gutter-mode +1)
+;; or
+;; (add-hook 'ruby-mode-hook 'git-gutter-mode)
+
+;; (setq git-gutter:lighter " GitGutter") ; minor mode name in modeline.
+(diminish 'git-gutter-mode)
 
 
 
