@@ -1,4 +1,4 @@
-;;; init-my-prog-git.el --- init Git for Emacs
+;;; init-my-prog-vcs-git.el --- init Git for Emacs
 ;;
 ;;; Commentary:
 
@@ -358,6 +358,6 @@
 
 
 
-(provide 'init-my-prog-git)
+(provide 'init-my-prog-vcs-git)
 
-;;; init-my-prog-git.el ends here
+;;; init-my-prog-vcs-git.el ends here
