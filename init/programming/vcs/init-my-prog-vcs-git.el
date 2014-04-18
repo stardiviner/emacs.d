@@ -218,7 +218,7 @@
 ;; multiple character is OK
 (setq git-gutter:window-width 2
       git-gutter:modified-sign "Ϟ"
-      git-gutter:unchanged-sign " "
+      git-gutter:unchanged-sign nil
       git-gutter:added-sign "✚"
       git-gutter:deleted-sign "✖"
       )
