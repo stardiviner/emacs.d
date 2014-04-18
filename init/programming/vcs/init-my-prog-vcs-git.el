@@ -310,10 +310,95 @@
 
 ;; (setq git-gutter-fr:side 'right-fringe)
 
-;; -------------------------
-;; git-gutter-plus
+
+;; [ git-gutter-plus ]
 
 ;; https://github.com/nonsequitur/git-gutter-plus
+
+;;; Usage:
+;;
+;; Committing
+;; The commit message buffer is based on git-commit-mode. Besides the default
+;; git-commit-mode bindings, the following bindings are provided:
+;;     C-c C-a toggles the option to amend the previous commit.
+;;     C-c C-e toggles the option to allow an empty commit that includes no changes.
+;;     C-c C-u toggles the option to edit the commit author.
+;;     C-c C-d toggles the option to edit the commit date.
+;;     M-p/M-n insert previous/next history commit message.
+;; git-commit-ack is re-bound to C-c C-b.
+
+(require 'git-gutter+)
+
+(global-git-gutter+-mode t)
+
+;;; keybindings
+(define-key my-vcs-prefix-map (kbd "m t") 'git-gutter+-mode) ; Turn on/off in the current buffer
+(define-key my-vcs-prefix-map (kbd "m T") 'global-git-gutter+-mode) ; Turn on/off globally
+
+;; NOTE: those keybindings conflict with `narrow' etc.
+;; (eval-after-load 'git-gutter+
+;;   '(progn
+;;      ;;; Jump between hunks
+;;      (define-key git-gutter+-mode-map (kbd "C-x n") 'git-gutter+-next-hunk)
+;;      (define-key git-gutter+-mode-map (kbd "C-x p") 'git-gutter+-previous-hunk)
+;;      ;;; Act on hunks
+;;      (define-key git-gutter+-mode-map (kbd "C-x v =") 'git-gutter+-show-hunk)
+;;      (define-key git-gutter+-mode-map (kbd "C-x r") 'git-gutter+-revert-hunks)
+;;      ;; Stage hunk at point.
+;;      ;; If region is active, stage all hunk lines within the region.
+;;      (define-key git-gutter+-mode-map (kbd "C-x t") 'git-gutter+-stage-hunks)
+;;      (define-key git-gutter+-mode-map (kbd "C-x c") 'git-gutter+-commit)
+;;      (define-key git-gutter+-mode-map (kbd "C-x C") 'git-gutter+-stage-and-commit)))
+
+(eval-after-load 'git-gutter+
+  '(progn
+     ;; jump between hunks
+     (define-key my-vcs-prefix-map (kbd "m n") 'git-gutter+-next-hunk)
+     (define-key my-vcs-prefix-map (kbd "m p") 'git-gutter+-previous-hunk)
+     ;; actions on hunks
+     (define-key my-vcs-prefix-map (kbd "m =") 'git-gutter+-show-hunk)
+     (define-key my-vcs-prefix-map (kbd "m r") 'git-gutter+-revert-hunk)
+     ;; stage hunk at point
+     ;; if region is active, stage all hunk lines within the region.
+     (define-key my-vcs-prefix-map (kbd "m s") 'git-gutter+-stage-hunks)
+     (define-key my-vcs-prefix-map (kbd "m c") 'git-gutter+-commit)
+     (define-key my-vcs-prefix-map (kbd "m C") 'git-gutter+-stage-and-commit)
+     ))
+
+(setq git-gutter+-disabled-modes '(asm-mode image-mode))
+
+(setq git-gutter+-hide-gutter t)         ; Hide gutter if there are no changes
+(setq git-gutter+-diff-option "-w") ; Pass option to 'git diff' command: -w: ignore all spaces
+
+;; GitGutter signs
+(set-face-attribute 'git-gutter+-modified nil
+                    :foreground "yellow"
+                    :weight 'bold
+                    )
+(set-face-attribute 'git-gutter+-added nil
+                    :foreground "green"
+                    :weight 'bold
+                    )
+(set-face-attribute 'git-gutter+-deleted nil
+                    :foreground "red"
+                    :weight 'bold
+                    )
+;; FIXME: this does not work at Emacs initially.
+(set-face-attribute 'git-gutter+-unchanged nil
+                    :foreground nil :background nil
+                    :weight 'bold
+                    )
+(set-face-foreground 'git-gutter+-separator "cyan")
+
+(setq git-gutter+-added-sign "✚"
+      git-gutter+-deleted-sign "✖"
+      git-gutter+-modified-sign "Ϟ"
+      git-gutter+-unchanged-sign nil
+      ;; git-gutter+-window-width 2 ; multiple characters is ok.
+      ;; |, ┇, ┋ ⋮ ¦ ┊ ┆ │ ┃ ‡ † ‖
+      ;; git-gutter+-separator-sign "│"
+      )
+
 
 
 ;;; [ diff-hl ]
