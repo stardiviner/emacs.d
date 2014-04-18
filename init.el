@@ -105,6 +105,8 @@
          org-magit
          ;; help
          ;; discover
+         ;; Email
+         ;; mu mu-cite
          ;; tools
          calfw sauron ; appt
          gist
