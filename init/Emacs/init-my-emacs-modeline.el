@@ -37,10 +37,17 @@
                              face (:foreground "red"))
 
                 (:propertize " ")
-                
+
+                ;; workgroups2
+                (wg-mode-line-display-on
+                 (:eval
+                  (wg-mode-line-string)))
+
+                (:propertize " ")
+
                 ;; mule info
                 (:propertize mode-line-mule-info) ; U:
-
+                
                 ;; Buffer status
                 ;; insert vs overwrite mode, input-method in a tool-tip ("Ovr", "Ins")
                 (:propertize "[")
