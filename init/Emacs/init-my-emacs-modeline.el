@@ -1,3 +1,12 @@
+;;; init-my-emacs-modeline.el --- init modeline for Emacs
+;;; -*- coding: utf-8 -*-
+
+;;; Commentary:
+
+
+
+;;; Code:
+
 ;; collapse modeline
 ;; variable: `mode-line-format'
 ;; use `setq-default` to set it for /all/ modes
@@ -150,6 +159,7 @@
 ;;             'display-time-string
 ;;             ))
 
+
 (defvar mode-line-cleaner-alist
   '((auto-complete-mode . " ac") ; AC (auto-complete)
     (yas-minor-mode . " yas") ; yas (yasnippet)
@@ -262,6 +272,7 @@
 
 (add-hook 'after-change-major-mode-hook 'clean-mode-line)
 
+
 ;; (setq mode-line-in-non-selected-windows t)
 
 ;; modeline colors
@@ -314,3 +325,5 @@
 
 
 (provide 'init-my-emacs-modeline)
+
+;;; init-my-emacs-modeline.el ends here
