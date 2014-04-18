@@ -109,14 +109,18 @@
 (find-file "~/Org/Projects/Projects.org")
 (find-file "~/Org/Work/Work.org")
 (find-file "~/Org/Tasks.org")
+(find-file "~/Org/Daily.org")
 
+
+(find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Ruby.org")
+(find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Wiki/The Ruby Programming Language.org")
 (find-file "~/Code/learning/Ruby/test.rb")
 
 
 
 ;; replace initial/scratch buffer with our primary `.org' file
 (setq my-org-special-directory (expand-file-name "~/Org"))
-(setq initial-buffer-choice (concat my-org-special-directory "/Tasks.org"))
+;; (setq initial-buffer-choice (concat my-org-special-directory "/Tasks.org"))
 
 
 ;;; start Sauron at Emacs startup
