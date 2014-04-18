@@ -13,6 +13,39 @@
 (global-unset-key [up])
 (global-unset-key [down])
 
+
+;;; [ bind-key ] -- A simple way to manage personal keybindings --- IN ATTIC BECAUSE: part of use-package.
+
+;;; Usage:
+;; - (bind-key "C-c x" 'my-ctrl-c-x-command)
+;;
+;;   normal bind a key to a command.
+;;
+;; - (bind-key* "<C-return>" 'other-window)
+;;
+;;   If you want the keybinding to override all minor modes that may also bind
+;;   the same key, use the bind-key* form.
+;;
+;; - (bind-key "C-c x" 'my-ctrl-c-x-command some-other-mode-map)
+;;
+;;   If you want to rebind a key only for a particular mode.
+;;
+;; - (unbind-key "C-c x" some-other-mode-map)
+;;
+;;   To unbind a key within a keymap (for example, to stop your favorite major
+;;   mode from changing a binding that you don't want to override everywhere),
+;;   use unbind-key.
+;;
+;; - [M-x describe-personal-keybindings]
+;;
+;;   After Emacs loads, you can see a summary of all your personal keybindings
+;;   currently in effect with this command: It will tell you if you've overriden
+;;   a default keybinding, and what that default was. Also, it will tell you if
+;;   the key was rebound after your binding it with bind-key, and what it was
+;;   rebound it to.
+
+(require 'bind-key)
+
 
 
 ;;; [ guide-key ] -- Guide following keys to an input key sequence automatically and dynamically in Emacs.

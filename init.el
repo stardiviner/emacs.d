@@ -90,6 +90,7 @@
          bm
          ;; keybinding
          guide-key
+         bind-key
          ;; dired
          direx
          dired-k
