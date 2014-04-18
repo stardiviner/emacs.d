@@ -39,9 +39,13 @@
                 (:propertize " ")
 
                 ;; workgroups2
-                (wg-mode-line-display-on
-                 (:eval
-                  (wg-mode-line-string)))
+                ;; (wg-mode-line-display-on
+                ;;  (:eval
+                ;;   (wg-mode-line-string)))
+                (:propertize (wg-mode-line-display-on
+                              (:eval
+                               (wg-mode-line-string)))
+                             :face (:foreground "cyan"))
 
                 (:propertize " ")
 

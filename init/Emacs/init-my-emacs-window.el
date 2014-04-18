@@ -74,12 +74,15 @@
 (setq wg-default-session-file "~/.emacs.d/.emacs_workgroups")
 
 (setq wg-mode-line-display-on t         ; toggle workgroups' mode-line display.
-      wg-mode-line-disable nil      ; do not modify mode-line.
+      wg-mode-line-disable t      ; do not modify mode-line.
       wg-mode-line-only-name t    ; only show workgroup name.
       wg-mode-line-decor-divider ":"
       wg-mode-line-decor-left-brace "("
       wg-mode-line-decor-right-brace ")"
       )
+
+;; (set-face-attribute 'wg-mode-line-face nil
+;;                     :foreground "dark cyan")
 
 ;; (workgroups-mode 1)        ; put this one at the bottom of .emacs
 
