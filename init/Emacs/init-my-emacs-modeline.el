@@ -36,16 +36,11 @@
                 (:propertize (:eval (window-number-string))
                              face (:foreground "red"))
 
-                (:propertize " ")
-
                 ;; workgroups2
-                ;; (wg-mode-line-display-on
-                ;;  (:eval
-                ;;   (wg-mode-line-string)))
                 (:propertize (wg-mode-line-display-on
                               (:eval
                                (wg-mode-line-string)))
-                             :face (:foreground "cyan"))
+                             face (:foreground "cyan"))
 
                 (:propertize " ")
 
@@ -67,12 +62,26 @@
                 (:propertize (:eval (when buffer-read-only ", ⚑"))
                              face (:foreground "red")
                              help-echo "Buffer is read-only!!!")
-                (:propertize "] ")
+                (:propertize "]")
 
                 ;; VCS - Git, SVN, CVS,
+
+                ;; FIXME:
+                ;; (:propertize (:eval (git--state-mark-modeline)))
+
+                ;; (:propertize (:eval
+                ;;               (git--state-mark-modeline
+                ;;                #("    " 0 4
+                ;;                  (display
+                ;;                   (image :type xpm
+                ;;                          :data "/* XPM */\nstatic char * data[] = {\n\"18 13 3 1\",\n\" 	c None\",\n\"+	c #000000\",\n\".	c GreenYellow\",\n\"                  \",\n\"       +++++      \",\n\"      +.....+     \",\n\"     +.......+    \",\n\"    +.........+   \",\n\"    +.........+   \",\n\"    +.........+   \",\n\"    +.........+   \",\n\"    +.........+   \",\n\"     +.......+    \",\n\"      +.....+     \",\n\"       +++++      \",\n\"                  \"};"
+                ;;                          :ascent center)
+                ;;                   help-echo "File status in git: uptodate")))))
+                
+
                 ;; vc indicator
                 (:propertize (vc-mode vc-mode)
-                             face (:foreground "cyan")
+                             face (:foreground "yellow")
                              help-echo (vc-mode))
 
                 ;; (vc-mode (:eval (propertize vc-mode
@@ -93,8 +102,8 @@
                 ;; mode-line-frame-identification
                 ;; mode-line-buffer-identification
                 (:propertize " [")
-                (:propertize " %b "
-                             face (:foreground "green")
+                (:propertize "%b"
+                             face (:foreground "light blue")
                              help-echo  (buffer-file-name))
                 (:propertize "] ")
 
@@ -293,13 +302,15 @@
                     :background "black"
                     :box '(:color "#444444" :line-width 1 :style nil)
                     :family "DejaVu Sans Mono"
+                    :height 90
                     )
 (set-face-attribute 'mode-line-inactive nil
                     :inverse-video nil
-                    :foreground "dim gray"
-                    :background "#002F3B"
-                    :box '(:color "dark green" :line-width 1 :style nil)
+                    :foreground "#444444"
+                    :background "#242424"
+                    :box '(:color "#444444" :line-width 1 :style nil)
                     :family "DejaVu Sans Mono"
+                    :height 90
                     )
 
 
