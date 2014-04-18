@@ -249,18 +249,21 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 ;; TODO: (setq mc/keymap "C-c c")
 
-(global-set-key (kbd "C-c c c") 'mc/mark-all-dwim) ; try to be smart.
 ;; multiple-cursors
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-+") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+;; (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+;; (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+;; (global-set-key (kbd "C-+") 'mc/mark-next-like-this)
+;; (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+;; ---------------------------------------------------------
 ;; From active region to multiple cursors:
+(global-set-key (kbd "C-c c c") 'mc/mark-all-dwim) ; try to be smart.
 (global-set-key (kbd "C-c c r") 'set-rectangular-region-anchor)
 (global-set-key (kbd "C-c c l") 'mc/edit-lines)
 (global-set-key (kbd "C-c c a") 'mc/edit-beginnings-of-lines)
 (global-set-key (kbd "C-c c e") 'mc/edit-ends-of-lines)
-
+(if (featurep 'visual-regexp)
+    (global-set-key (kbd "C-c c m") 'vr/mc-mark))
+;; TODO: `vr/select-mc-mark', `vr/select-replace', `vr/select-query-replace' etc.
 
 ;; First mark the word, then add more cursors.
 

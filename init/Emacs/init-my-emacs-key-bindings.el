@@ -53,7 +53,9 @@
         "C-x RET"                       ; coding system
         "C-x *"                         ; calc
         "C-x n"                         ; narrow
+        "C-c r"                         ; regexp prefix map
         "C-c s"                         ; visual-regexp-map
+        "C-c c"                         ; mc (multi-cursor) (global)
         (dired-mode "C-h"
                     "*" ":" "%"
                     "T" "T >" "T m" "T u"
@@ -63,7 +65,6 @@
                     )
         "C-z"                           ; popwin (global)
         ;; "C-c"                           ; extension functional prefix (global)
-        "C-c c"                         ; mc (multi-cursor) (global)
         "C-c !"                         ; flycheck (global)
         "C-c SPC"                       ; allout (outline)
         "C-c &"                         ; yasnippet (global)
