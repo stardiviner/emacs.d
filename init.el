@@ -40,12 +40,12 @@
 ;;; extra sources which not in el-get recipes.
 (setq el-get-extra-sources
       '(
-	;; (:name guide-key
+        ;; (:name guide-key
         ;;        :description "Guide following keys to an input key sequence automatically and dynamically in Emacs."
-	;;        :depends popwin
+        ;;        :depends popwin
         ;;        :type github
         ;;        :pkgname "kbkbkbkb1/guide-key"
-	;;        :features guide-key)
+        ;;        :features guide-key)
 	))
 
 ;;; my packages which will be installed.
@@ -89,8 +89,8 @@
          ;; bookmark, register, macro,
          bm
          ;; keybinding
-         guide-key
          bind-key
+         guide-key ; guide-key-tip
          ;; dired
          direx
          dired-k

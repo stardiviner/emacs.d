@@ -150,6 +150,12 @@
 (diminish 'guide-key-mode)
 
 
+;;; [ guide-key-tip ] -- Interface of guide-key.el using pos-tip.el in Emacs
+
+;; (require 'guide-key-tip)
+;; (setq guide-key-tip/enabled t)
+
+
 ;;; [ global prefix key bindings ]
 
 
