@@ -184,15 +184,16 @@
 
 (require 'git-gutter)
 
-(global-git-gutter-mode +1)
-;; or
-;; (add-hook 'ruby-mode-hook 'git-gutter-mode)
-
 (setq git-gutter:disabled-modes '(asm-mode image-mode))
 
 ;; update frequency: uncomment this when Emacs/GitGutter slows.
 ;; (setq git-gutter:update-threshold 1)
 ;; (setq git-gutter:update-hooks '(after-save-hook after-revert-hook))
+
+(setq git-gutter:hide-gutter t)         ; Hide gutter if there are no changes
+(setq git-gutter:diff-option "-w") ; Pass option to 'git diff' command: -w: ignore all spaces
+(setq git-gutter:verbosity 0)           ; Log/Message Level
+
 
 ;;; Usage:
 ;; 'git-gutter:next-hunk :: Jump to next hunk
@@ -214,24 +215,6 @@
 ;; Revert current hunk
 (define-key my-vcs-prefix-map (kbd "m r") 'git-gutter:revert-hunk)
 
-;; GitGutter signs
-(set-face-attribute 'git-gutter:modified nil
-                    :foreground "yellow"
-                    :weight 'bold
-                    )
-(set-face-attribute 'git-gutter:added nil
-                    :foreground "green"
-                    :weight 'bold
-                    )
-(set-face-attribute 'git-gutter:deleted nil
-                    :foreground "red"
-                    :weight 'bold
-                    )
-(set-face-attribute 'git-gutter:unchanged nil
-                    :foreground nil :background nil
-                    :weight 'bold
-                    )
-
 ;; multiple character is OK
 (setq git-gutter:window-width 2
       git-gutter:modified-sign "Ϟ "
@@ -251,9 +234,28 @@
 ;; (setq git-gutter:separator-sign "│")
 ;; (set-face-foreground 'git-gutter:separator "yellow")
 
-(setq git-gutter:hide-gutter t)         ; Hide gutter if there are no changes
-(setq git-gutter:diff-option "-w") ; Pass option to 'git diff' command: -w: ignore all spaces
-(setq git-gutter:verbosity 0)           ; Log/Message Level
+;; GitGutter signs
+(set-face-attribute 'git-gutter:modified nil
+                    :foreground "yellow"
+                    :weight 'bold
+                    )
+(set-face-attribute 'git-gutter:added nil
+                    :foreground "green"
+                    :weight 'bold
+                    )
+(set-face-attribute 'git-gutter:deleted nil
+                    :foreground "red"
+                    :weight 'bold
+                    )
+(set-face-attribute 'git-gutter:unchanged nil
+                    :foreground nil :background nil
+                    :weight 'bold
+                    )
+
+
+(global-git-gutter-mode +1)
+;; or
+;; (add-hook 'ruby-mode-hook 'git-gutter-mode)
 
 ;; (setq git-gutter:lighter " GitGutter") ; minor mode name in modeline.
 (diminish 'git-gutter-mode)
