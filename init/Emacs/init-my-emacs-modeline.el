@@ -182,7 +182,7 @@
 
 (defvar mode-line-cleaner-alist
   '((auto-complete-mode . " ac") ; AC (auto-complete)
-    (yas-minor-mode . " yas") ; yas (yasnippet)
+    (yas-minor-mode . "") ; yas (yasnippet)
     (helm-mode . "") ; Helm (helm),
     (paredit-mode . "") ; Paredit (paredit)
     (paredit-everywhere-mode . "") ; Par-

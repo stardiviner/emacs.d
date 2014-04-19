@@ -221,6 +221,8 @@
 
 (global-auto-complete-mode 1) ; use auto-complete globally
 
+(diminish 'auto-complete-mode)
+
 
 (setq ac-auto-start 2) ; auto start auto-complete when has N characters.
 
