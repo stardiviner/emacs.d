@@ -259,10 +259,14 @@
 ;;; ac-menu-map keymap only map for menu is available, not break default.
 (setq ac-use-menu-map t)       ; nil: to disable default ac-menu-map key bindings.
 ;; disable [<tab>] [C-n/p] -> ac-next in ac-menu.
+(define-key ac-menu-map "\t" nil)
+(define-key ac-menu-map [tab] nil)
 (define-key ac-menu-map (kbd "<tab>") nil)
 (define-key ac-menu-map (kbd "<S-tab>") nil) ; "S-TAB". "?\\s-\\t"
 (define-key ac-menu-map (kbd "C-n") nil)
 (define-key ac-menu-map (kbd "C-p") nil)
+(define-key ac-menu-map "\r" nil)
+(define-key ac-menu-map [return] nil)
 
 ;; ISSUE: when I typed the whole candidate string, then press [SPC] will insert two spaces.
 (define-key ac-menu-map (kbd "SPC")
