@@ -289,13 +289,7 @@
   ;; (if (pre-char before point is *only* not whitespace)
   ;;     (insert " "))
   )
-;; (define-key ac-menu-map [space] 'ac-complete-with-space)
-;; (define-key ac-menu-map (kbd "SPC") 'ac-complete-with-space)
 
-;; FIXME: ac-menu-map is global.
-;; (add-hook 'org-mode-hook
-;;           (lambda ()
-;;             (define-key ac-menu-map (kbd "SPC") 'self-insert-command)))
 
 
 ;; TODO:
