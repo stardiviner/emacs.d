@@ -290,6 +290,7 @@
 
 ;;; from Ubuntu package "maildir-utils"
 ;; (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
+;;
 ;;; compile from git
 (add-to-list 'load-path (expand-file-name "~/compile/Emacs/mu/mu/mu4e"))
 
@@ -421,6 +422,11 @@
 (setq smtpmail-queue-mail nil  ;; start in non-queuing mode
       smtpmail-queue-dir  "~/Mails/queue/cur" ; send with `smtpmail-send-queued-mail'
       )
+
+
+;;; View
+
+(setq mu4e-headers-visible-lines 13)
 
 
 ;;; Message
