@@ -290,6 +290,11 @@
   ;;     (insert " "))
   )
 
+;; NOTE: ac-completing-map is the parent map of ac-menu-map.
+(define-key ac-completing-map (kbd "SPC") 'ac-complete-with-space)
+(add-hook 'org-mode-hook
+          (lambda ()
+            (define-key ac-menu-map (kbd "SPC") 'self-insert-command)))
 
 
 ;; TODO:
