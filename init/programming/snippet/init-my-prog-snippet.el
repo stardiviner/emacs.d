@@ -136,6 +136,9 @@
 ;;            org-mode-hook
 ;;            ))
 ;;   (add-hook hook '(lambda () (yas-minor-mode))))
+
+(diminish 'yas-minor-mode)
+
 
 
 
