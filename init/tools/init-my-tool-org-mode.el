@@ -1802,7 +1802,8 @@ This function will promote all items in a subtree."
       (switch-to-buffer "*Org Agenda*")
     (when (y-or-n-p "build Org Agenda? ")
       (command-execute 'org-agenda-list)
-      (bury-buffer))
+      (bury-buffer)
+      (switch-to-buffer "*Org Agenda*"))
     ))
 
 ;;; start Org Agenda at Emacs startup, and put in end of buffer list:
@@ -1828,6 +1829,16 @@ In common insert mode or in select region text to press this keybinding \\<C-c k
   )
 
 (define-key org-mode-map (kbd "C-c k") 'my-insert-keybinding-code)
+
+;; TODO:
+;; (defun my-wrap-source-code-with-org-src ()
+;;   "Wrap source code with Org-mode source code format."
+;;   (interactive)
+;;   (if (region-active-p)
+;;       (let ((where (cons (region-beginning) (region-end))))
+;;         (???))))
+;;
+;; (define-key org-mode-map (kbd "C-c k s") 'my-wrap-source-code-with-org-src)
 
 
 
