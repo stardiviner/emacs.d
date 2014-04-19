@@ -323,6 +323,7 @@
 ;; Prefer native tooltip with pos-tip than overlay popup for displaying quick help.
 (setq ac-quick-help-prefer-pos-tip nil)
 (setq ac-quick-help-delay 1.3)
+(setq ac-quick-help-timer nil)     ; quick help idle timer. (nil: never disappear)
 (setq ac-quick-help-height 20)
 ;; buffer help
 (define-key ac-completing-map (kbd "M-h") 'ac-quick-help)
