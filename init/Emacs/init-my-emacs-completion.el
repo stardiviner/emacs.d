@@ -268,15 +268,6 @@
 (define-key ac-menu-map "\r" nil)
 (define-key ac-menu-map [return] nil)
 
-;; ISSUE: when I typed the whole candidate string, then press [SPC] will insert two spaces.
-(define-key ac-menu-map (kbd "SPC")
-  (defun ac-complete-with-space ()
-    "Select the candidate and append a space. save your time for typing space."
-    (interactive)
-    (ac-complete)
-    (insert " ")
-    ))
-(define-key ac-menu-map (kbd "M-SPC") 'ac-complete) ; select current candidate.
 (define-key ac-menu-map (kbd "M-j") 'ac-complete) ; select current candidate.
 (define-key ac-menu-map (kbd "M-n") 'ac-next) ; next candidate.
 (define-key ac-menu-map (kbd "M-p") 'ac-previous) ; previous candidate.
@@ -285,7 +276,37 @@
 (define-key ac-menu-map (kbd "M-s") 'ac-isearch) ; isearch in popup menu.
 (define-key ac-menu-map (kbd "C-i") 'ac-expand-common) ; complete common string.
 (define-key ac-menu-map (kbd "C-h") 'ac-stop) ; close the auto complete popup menu.
-(define-key ac-menu-map (kbd "<return>") 'newline) ; go to new line.
+
+(define-key ac-menu-map (kbd "<return>") 'newline-and-indent) ; go to new line.
+
+
+(defun ac-complete-with-space ()
+  "Select the candidate and append a space. save your time for typing space."
+  (interactive)
+  (ac-complete)
+  (insert " ")
+  ;; ISSUE: when I typed the whole candidate string, then press [SPC] will insert two spaces.
+  ;; (if (pre-char before point is *only* not whitespace)
+  ;;     (insert " "))
+  )
+;; (define-key ac-menu-map [space] 'ac-complete-with-space)
+;; (define-key ac-menu-map (kbd "SPC") 'ac-complete-with-space)
+
+;; FIXME: ac-menu-map is global.
+;; (add-hook 'org-mode-hook
+;;           (lambda ()
+;;             (define-key ac-menu-map (kbd "SPC") 'self-insert-command)))
+
+
+;; TODO:
+;; (defun ac-complete-with-expand ()
+;;   (case 'candidate
+;;     ((yas-expand-snippet 'candidate)
+;;      (yas-expand))
+;;     (nil
+;;      (ac-expand))
+;;     ))
+;; (define-key ac-menu-map (kbd "M-i") 'ac-complete-with-expand)
 
 
 ;;; [ Help ]
