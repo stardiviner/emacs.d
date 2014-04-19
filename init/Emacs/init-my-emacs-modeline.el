@@ -103,7 +103,7 @@
                 ;; mode-line-buffer-identification
                 (:propertize " [")
                 (:propertize "%b"
-                             face (:foreground "light blue")
+                             face (:foreground "white")
                              help-echo  (buffer-file-name))
                 (:propertize "] ")
 
@@ -308,7 +308,7 @@
                     :inverse-video nil
                     :foreground "#444444"
                     :background "#242424"
-                    :box '(:color "#444444" :line-width 1 :style nil)
+                    ;; :box '(:color "#444444" :line-width 1 :style nil)
                     :family "DejaVu Sans Mono"
                     :height 90
                     )
