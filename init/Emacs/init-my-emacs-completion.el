@@ -371,7 +371,7 @@
 ;;      M-x ac-clear-dictionary-cache
 ;;      to apply changes.
 
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/auto-complete-dict")
+(add-to-list 'ac-dictionary-directories (expand-file-name "auto-complete-dict" user-emacs-directory))
 
 
 ;;; [ auto-complete sources ]
