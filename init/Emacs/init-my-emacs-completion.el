@@ -325,8 +325,14 @@
 (setq ac-quick-help-delay 1.3)
 (setq ac-quick-help-timer nil)     ; quick help idle timer. (nil: never disappear)
 (setq ac-quick-help-height 20)
-;; buffer help
+
 (define-key ac-completing-map (kbd "M-h") 'ac-quick-help)
+(define-key ac-completing-map (kbd "C-M-n") 'ac-quick-help-scroll-down)
+(define-key ac-completing-map (kbd "C-M-p") 'ac-quick-help-scroll-up)
+(define-key ac-completing-map [C-down] 'ac-quick-help-scroll-down)
+(define-key ac-completing-map [C-up] 'ac-quick-help-scroll-up)
+
+;; buffer help
 (define-key ac-mode-map (kbd "C-c h") 'ac-last-quick-help)
 (define-key ac-mode-map (kbd "C-c H") 'ac-last-help)
 
@@ -334,6 +340,7 @@
 ;; show help beautifully with extension "pos-tip.el"
 
 (require 'pos-tip)
+(require 'popup-pos-tip)
 
 
 ;;; [ fuzzy completion ]
