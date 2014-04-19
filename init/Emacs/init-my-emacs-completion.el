@@ -352,7 +352,10 @@
 
 
 ;;; auto-complete UI
-(setq ac-max-width nil) ; 'nil, 25, 0.5
+;; - nil : no limit
+;; - 25  : character limit
+;; - 0.5 : window ratio limit
+(setq ac-max-width nil)
 
 
 ;;; [ AI ] (learning your operations)
