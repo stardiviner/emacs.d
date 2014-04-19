@@ -216,7 +216,7 @@
 (define-key my-vcs-prefix-map (kbd "m r") 'git-gutter:revert-hunk)
 
 ;; multiple character is OK
-(setq git-gutter:window-width 2
+(setq git-gutter:window-width 1
       git-gutter:modified-sign "Ϟ"
       git-gutter:unchanged-sign nil
       git-gutter:added-sign "✚"
