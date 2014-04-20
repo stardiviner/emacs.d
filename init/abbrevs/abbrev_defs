@@ -5,6 +5,12 @@
 
 (define-abbrev-table 'ack-and-a-half-mode-abbrev-table '())
 
+(define-abbrev-table 'apropos-mode-abbrev-table '())
+
+(define-abbrev-table 'arduino-mode-abbrev-table
+  '(
+   ))
+
 (define-abbrev-table 'asdf-mode-abbrev-table '())
 
 (define-abbrev-table 'awk-mode-abbrev-table
@@ -31,6 +37,10 @@
 
 (define-abbrev-table 'change-log-mode-abbrev-table '())
 
+(define-abbrev-table 'cider-repl-mode-abbrev-table '())
+
+(define-abbrev-table 'clojure-mode-abbrev-table '())
+
 (define-abbrev-table 'comint-mode-abbrev-table '())
 
 (define-abbrev-table 'completion-list-mode-abbrev-table '())
@@ -43,9 +53,13 @@
 
 (define-abbrev-table 'diff-mode-abbrev-table '())
 
+(define-abbrev-table 'direx:direx-mode-abbrev-table '())
+
 (define-abbrev-table 'display-time-world-mode-abbrev-table '())
 
 (define-abbrev-table 'edit-abbrevs-mode-abbrev-table '())
+
+(define-abbrev-table 'el-get-check-mode-abbrev-table '())
 
 (define-abbrev-table 'emacs-lisp-byte-code-mode-abbrev-table '())
 
@@ -67,6 +81,8 @@
 
 (define-abbrev-table 'fundamental-mode-abbrev-table '())
 
+(define-abbrev-table 'gdb-script-mode-abbrev-table '())
+
 (define-abbrev-table 'gist-list-mode-abbrev-table '())
 
 (define-abbrev-table 'git-commit-mode-abbrev-table '())
@@ -77,8 +93,16 @@
 
 (define-abbrev-table 'global-abbrev-table
   '(
+    ("." ".  " nil 0)
+    ("eg" "e.g." nil 2)
+    ("my-nick" "stardiviner" nil 0)
+    ("my.nick" "stardiviner" nil 0)
+    ("myemail" "numbchild@gmail.com" nil 0)
+    ("mygmail" "numbchild@gmail.com" nil 0)
+    ("mygmailformat" "numbchild[@]{gmail}.com" nil 0)
+    ("mynick" "stardiviner" nil 0)
     ("stackexchange" "Stack Exchange" nil 3)
-    ("uncomment" "un-comment" nil 1)
+    ("uncomment" "un-comment" nil 2)
     ("wifi" "Wi-Fi" nil 2)
    ))
 
@@ -88,6 +112,10 @@
 
 (define-abbrev-table 'grep-mode-abbrev-table '())
 
+(define-abbrev-table 'gud-mode-abbrev-table '())
+
+(define-abbrev-table 'haskell-mode-abbrev-table '())
+
 (define-abbrev-table 'help-mode-abbrev-table '())
 
 (define-abbrev-table 'html-erb-mode-abbrev-table '())
@@ -95,6 +123,10 @@
 (define-abbrev-table 'html-mode-abbrev-table '())
 
 (define-abbrev-table 'idl-mode-abbrev-table '())
+
+(define-abbrev-table 'inferior-emacs-lisp-mode-abbrev-table '())
+
+(define-abbrev-table 'inferior-lisp-mode-abbrev-table '())
 
 (define-abbrev-table 'inferior-python-mode-abbrev-table '())
 
@@ -104,11 +136,13 @@
 
 (define-abbrev-table 'lisp-mode-abbrev-table '())
 
+(define-abbrev-table 'literate-haskell-mode-abbrev-table '())
+
 (define-abbrev-table 'log-edit-mode-abbrev-table '())
 
-(define-abbrev-table 'lua-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'log4e-mode-abbrev-table '())
+
+(define-abbrev-table 'lua-mode-abbrev-table '())
 
 (define-abbrev-table 'magit-branch-manager-mode-abbrev-table '())
 
@@ -122,13 +156,27 @@
 
 (define-abbrev-table 'magit-mode-abbrev-table '())
 
+(define-abbrev-table 'magit-process-mode-abbrev-table '())
+
 (define-abbrev-table 'magit-reflog-mode-abbrev-table '())
 
 (define-abbrev-table 'magit-status-mode-abbrev-table '())
 
 (define-abbrev-table 'magit-wazzup-mode-abbrev-table '())
 
+(define-abbrev-table 'mercury-mode-abbrev-table '())
+
+(define-abbrev-table 'message-mode-abbrev-table '())
+
 (define-abbrev-table 'messages-buffer-mode-abbrev-table '())
+
+(define-abbrev-table 'mu4e-about-mode-abbrev-table '())
+
+(define-abbrev-table 'mu4e~update-mail-mode-abbrev-table '())
+
+(define-abbrev-table 'nrepl-connections-buffer-mode-abbrev-table '())
+
+(define-abbrev-table 'nxml-mode-abbrev-table '())
 
 (define-abbrev-table 'nxml-web-mode-abbrev-table '())
 
@@ -140,7 +188,12 @@
 
 (define-abbrev-table 'occur-mode-abbrev-table '())
 
-(define-abbrev-table 'org-mode-abbrev-table '())
+(define-abbrev-table 'org-mode-abbrev-table
+  '(
+    ("." ". " nil 1)
+    ("eg" "e.g." nil 3)
+    ("stackexchange" "Stack Exchange" nil 3)
+   ))
 
 (define-abbrev-table 'outline-mode-abbrev-table '())
 
@@ -154,17 +207,27 @@
 
 (define-abbrev-table 'prog-mode-abbrev-table '())
 
+(define-abbrev-table 'projectile-rails-compilation-mode-abbrev-table '())
+
+(define-abbrev-table 'projectile-rails-generate-mode-abbrev-table '())
+
+(define-abbrev-table 'prolog-inferior-mode-abbrev-table '())
+
+(define-abbrev-table 'prolog-mode-abbrev-table '())
+
+(define-abbrev-table 'pylint-mode-abbrev-table '())
+
 (define-abbrev-table 'python-mode-abbrev-table '())
 
-(define-abbrev-table 'python-mode-skeleton-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'python-mode-skeleton-abbrev-table '())
 
 (define-abbrev-table 'reb-lisp-mode-abbrev-table '())
 
 (define-abbrev-table 'reb-mode-abbrev-table '())
 
 (define-abbrev-table 'require '())
+
+(define-abbrev-table 'rspec-compilation-mode-abbrev-table '())
 
 (define-abbrev-table 'ruby-compilation-mode-abbrev-table '())
 
@@ -182,13 +245,29 @@
 
 (define-abbrev-table 'shell-mode-abbrev-table '())
 
+(define-abbrev-table 'sldb-mode-abbrev-table '())
+
+(define-abbrev-table 'slime-connection-list-mode-abbrev-table '())
+
+(define-abbrev-table 'slime-fuzzy-completions-mode-abbrev-table '())
+
+(define-abbrev-table 'slime-inspector-mode-abbrev-table '())
+
+(define-abbrev-table 'slime-thread-control-mode-abbrev-table '())
+
+(define-abbrev-table 'slime-trace-dialog--detail-mode-abbrev-table '())
+
+(define-abbrev-table 'slime-trace-dialog-mode-abbrev-table '())
+
+(define-abbrev-table 'slime-xref-mode-abbrev-table '())
+
 (define-abbrev-table 'snippet-mode-abbrev-table '())
 
 (define-abbrev-table 'special-mode-abbrev-table '())
 
-(define-abbrev-table 'sql-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'speedbar-mode-abbrev-table '())
+
+(define-abbrev-table 'sql-mode-abbrev-table '())
 
 (define-abbrev-table 'tabulated-list-mode-abbrev-table '())
 
@@ -201,4 +280,6 @@
 (define-abbrev-table 'vc-git-log-edit-mode-abbrev-table '())
 
 (define-abbrev-table 'vc-git-log-view-mode-abbrev-table '())
+
+(define-abbrev-table 'web-mode-abbrev-table '())
 
