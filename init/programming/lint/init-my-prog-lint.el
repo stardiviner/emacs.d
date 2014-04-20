@@ -56,6 +56,8 @@
       )
 
 (setq flycheck-idle-change-delay 0.5 ; delay seconds
+      ;; flycheck-temporaries nil
+      flycheck-standard-error-navigation t
       ;;; {clang}
       ;; flycheck-clang-definitions
       ;; flycheck-clang-include-path
