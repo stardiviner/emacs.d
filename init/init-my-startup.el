@@ -132,11 +132,13 @@
 
 
 ;;; open Org-Agenda at startup.
-;; (org-agenda-list)
+(org-agenda-list)
 ;; (org-todo-list)
 
-
+(setq initial-buffer-choice "*Org Agenda*")
 
 
 
 (provide 'init-my-startup)
+
+;;; init-my-startup.el ends here
