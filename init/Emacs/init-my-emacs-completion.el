@@ -283,18 +283,19 @@
 (defun ac-complete-with-space ()
   "Select the candidate and append a space. save your time for typing space."
   (interactive)
-  (ac-complete)
-  (insert " ")
+  (if (eq major-mode 'org-mode)
+      (insert " ")
+    (lambda ()
+      (ac-complete)
+      (insert " "))
+    )
   ;; ISSUE: when I typed the whole candidate string, then press [SPC] will insert two spaces.
   ;; (if (pre-char before point is *only* not whitespace)
   ;;     (insert " "))
   )
 
-;; NOTE: ac-completing-map is the parent map of ac-menu-map.
+;; FIXME: ac-completing-map is the parent map of ac-menu-map.
 (define-key ac-completing-map (kbd "SPC") 'ac-complete-with-space)
-(add-hook 'org-mode-hook
-          (lambda ()
-            (define-key ac-menu-map (kbd "SPC") 'self-insert-command)))
 
 
 ;; TODO:
