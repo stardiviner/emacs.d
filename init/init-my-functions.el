@@ -15,10 +15,25 @@
   `(eval-after-load ,feature
      '(progn ,@body)))
 
+
+;;; keybindings
+
+;;; Usage: (local-set-minor-mode-key '<minor-mode> (kbd "key-to-hide") nil).
+(defun local-set-minor-mode-key (mode key def)
+  "Overrides a minor MODE keybinding KEY (definition DEF) for the local buffer.
+by creating or altering keymaps stored in buffer-local
+`minor-mode-overriding-map-alist'."
+  (let* ((oldmap (cdr (assoc mode minor-mode-map-alist)))
+         (newmap (or (cdr (assoc mode minor-mode-overriding-map-alist))
+                     (let ((map (make-sparse-keymap)))
+                       (set-keymap-parent map oldmap)
+                       (push `(,mode . ,map) minor-mode-overriding-map-alist) 
+                       map))))
+    (define-key newmap key def)))
 
 
 
-;;; notify(notify-send, )
+;;; notify (notify-send, )
 
 (defun my-func-notify-send (title msg &optional icon sound)
   "Show a popup if we're on X, or echo it otherwise;
