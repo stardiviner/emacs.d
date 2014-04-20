@@ -79,24 +79,22 @@
 ;; - flycheck-fringe-error
 ;; - flycheck-fringe-warning
 (set-face-attribute 'flycheck-error nil
-                    :background "red" :foreground nil
-                    :foreground nil)
+                    :background "black" :foreground nil
+                    :underline "red")
 (set-face-attribute 'flycheck-warning nil
-                    :background "dark red" :foreground nil
-                    :foreground nil)
+                    :background "#222222" :foreground nil
+                    :underline "blue")
 (set-face-attribute 'flycheck-fringe-error nil
                     :background "black" :foreground "red"
-                    :bold 'normal
-                    :box '(:color "red" :line-width 1 :style nil))
+                    :bold 'normal)
 (set-face-attribute 'flycheck-fringe-warning nil
                     :background nil :foreground "dark red"
-                    :bold 'normal
-                    :box '(:color "dark red" :line-width 1 :style nil))
+                    :bold 'normal)
 
 ;; determine how to highlight errors:
 (setq flycheck-highlighting-mode 'symbols ; 'symbols, 'columns, 'sexps, 'lines, nil
       flycheck-indication-mode 'left-fringe ; 'left-fringe, 'right-fringe, nil
-      ;; flycheck-display-errors-delay
+      flycheck-display-errors-delay 0.9
       ;; flycheck-mode-line
       ;; flycheck-mode-line-lighter
       flycheck-completion-system 'ido ; 'ido, 'grizzl, nil
