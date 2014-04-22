@@ -153,8 +153,8 @@
          ;; Clojure
          clojure-mode ac-nrepl cider ; swank-clojure
          ;; Python
-         python
-         ;; python-mode
+         python ; python-mode
+         jedi
          ;; C family languages
          auto-complete-clang auto-complete-c-headers
          c-eldoc
@@ -347,6 +347,7 @@
 (require 'init-my-prog-lang-clojure)
 (require 'init-my-prog-lang-C)
 (require 'init-my-prog-lang-go)
+(require 'init-my-prog-lang-python)
 (require 'init-my-prog-lang-html)
 (require 'init-my-prog-lang-html5)
 (require 'init-my-prog-lang-css)
