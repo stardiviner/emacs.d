@@ -225,8 +225,76 @@
 (require 'semantic-tag-folding nil 'noerror)
 
 
+
+;;; [ eassist ]
+
+(require 'eassist nil 'noerror)
+
+;; Contains some useful functions features for C/C++ developers similar to
+;; those from VisualAssist.  Remember that convenient M-o, M-g and M-m?
+
+;; 1) Method navigation. [M-m]
+;;    When eassist-list-methods called when c/c++ body file buffer is active
+;;    a new buffer is shown, containing list of methods and functions in the
+;;    format: return type, class, method name.  You can select the method
+;;    moving to its line and press ENTER to jump to the method.  You also can
+;;    type a string in the buffer and method list will be reduced to those
+;;    which contain the string as a substring.  Nice highlight is implemented.
+;;    This function is recommended to be bound to M-m in c-mode.
+
+;; 2) Header <-> Body file switch. [M-o]
+;;    You can easily switch between body (c, cpp, cc...) and its corresponding
+;;    header file (h, hpp...) using eassist-switch-h-cpp.  The counterpart file
+;;    is first searched in opened buffers and if there is no match the file is
+;;    searched in the same directory.  You can adjust body to header correspondence
+;;    customizing eassist-header-switches variable.
+;;    This function is recommended to be bound to M-o in c-mode.
+
+;; EmacsAssist uses Semantic (http://cedet.sourceforge.net/semantic.shtml)
+;; EmacsAssist is a part of CEDET project (current CVS version of CEDET contains
+;; EmacsAssist)
+;; EmacsAssist works with current (22) and development (23) versions of Emacs and
+;; does not work with version 21.
+;; EmacsAssist works with CEDET 1.0pre4 and subsequent CVS versions of CEDET.
+
+;; EmacsAssist has a page at Emacs Wiki, where you can always find the latest
+;; version: http://www.emacswiki.org/cgi-bin/wiki/EAssist
+
+;; Usage:
+
+;; 1) Install CEDET package for Emacs (if you don't have CEDET already).
+;; 2) Add convenient keymaps for fast EmacsAssist calls in c-mode and (or) python-mode
+;;    and for lisp:
+;;
+;;    (defun my-c-mode-common-hook ()
+;;      (define-key c-mode-base-map (kbd "M-o") 'eassist-switch-h-cpp)
+;;      (define-key c-mode-base-map (kbd "M-m") 'eassist-list-methods))
+;;    (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+;;
+;;    (defun my-python-mode-hook ()
+;;      (define-key python-mode-map (kbd "M-m") 'eassist-list-methods))
+;;    (add-hook 'python-mode-hook 'my-python-mode-hook)
+;;
+;;    (define-key lisp-mode-shared-map (kbd "M-m") 'eassist-list-methods)
+;;
+;; 3) Open any C++ file with class definition, press M-m.  Try to type
+;;    any method name.
+;; 4) Open any .cpp file.  Press M-o.  If there is .h or .hpp file in the
+;;    same folder, it will be opened.
+
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (define-key c-mode-base-map (kbd "M-o") 'eassist-switch-h-cpp)
+            (define-key c-mode-base-map (kbd "M-m") 'eassist-list-methods)))
+
+(add-hook 'python-mode-hook
+          (lambda ()
+            (define-key python-mode-map (kbd "M-m") 'eassist-list-methods)))
+
+(define-key lisp-mode-shared-map (kbd "M-m") 'eassist-list-methods)
 
 
+
 (provide 'init-my-prog-cedet)
 
 ;;; init-my-prog-cedet.el ends here
