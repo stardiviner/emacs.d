@@ -70,6 +70,7 @@
          ;; color theme
          color-theme-solarized
          ;; apperance
+         highlight-symbol
          ;; modeline
          diminish pretty-mode page-break-lines
          ;; others
