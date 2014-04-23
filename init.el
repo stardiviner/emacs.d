@@ -66,7 +66,7 @@
          auto-complete-yasnippet auto-complete-chunk
          auto-complete-etags auto-complete-pcmp
          auto-complete-emacs-lisp
-         ;; company-mode
+         company-mode
          ;; color theme
          color-theme-solarized
          ;; apperance
