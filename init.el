@@ -166,7 +166,7 @@
          jedi
          ;; C family languages
          auto-complete-clang auto-complete-c-headers
-         c-eldoc
+         c-eldoc eassist
          ;; Go
          go-mode go-eldoc
          ;; D

@@ -15,6 +15,8 @@
 
 ;;; [ Semantic ]
 
+(require 'semantic)
+
 ;; (semantic-mode t) ; this should be placed *BEFORE* the statements which activate ECB.
 (autoload 'semantic-mode "semantic mode" nil t)
 
@@ -39,7 +41,8 @@
 
 
 ;;; Semantic (code-parsing, smart completion) features
-;; select one of the following
+
+;;; select one of the following
 ;; (semantic-load-enable-minimum-features)
 ;; (semantic-load-enable-code-helpers)
 ;; (semantic-load-enable-gaudy-code-helpers)
@@ -142,7 +145,8 @@
 ;;       (load-file "~/.emacs.d/el-get/cedet/cedet-devel-load.el"))))
 
 
-;;; ede
+;;; [ EDE ]
+
 (setq semantic-default-submodes
       '(;; cache(?)
         global-semanticdb-minor-mode
@@ -186,6 +190,17 @@
 
 ;;; [ SemanticDB ] -- is included into Semantic, and implements different storage modules, that store information, needed for names completion, source code navigation, etc.
 
+(setq semanticdb-default-save-directory (concat user-emacs-directory "semanticdb"))
+
+;; auto load index database of system /usr/include/.
+(setq semanticdb-search-system-databases t)
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (setq semanticdb-project-system-databases
+                  (list (semanticdb-create-database
+                         semanticdb-new-database-class
+                         "/usr/include")))))
+
 
 ;;; [ Senator ] -- implements navigation in source code using information extracted by Semantic.
 
@@ -204,6 +219,10 @@
 
 
 ;;; [ Cogre ] -- a library for generation of UML-like diagrams in Emacs buffer which basic integration with Semantic.
+
+
+
+(require 'semantic-tag-folding nil 'noerror)
 
 
 
