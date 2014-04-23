@@ -21,17 +21,19 @@
 ;;; https://github.com/mikeandmore/auto-complete-clang
 
 (require 'auto-complete-clang)
+(require 'auto-complete-c-headers)
 
 (dolist (hook '(c-mode-hook
                 c++-mode-hook
                 ))
   (add-hook hook (lambda ()
                    (eval-after-load 'auto-complete
-                     (add-to-list 'ac-sources 'auto-complete-clang)
-                     (add-to-list 'ac-sources 'ac-c-headers)))))
+                     (lambda ()
+                       (add-to-list 'ac-sources 'ac-source-clang)
+                       (add-to-list 'ac-sources 'ac-source-c-headers))))))
 
 
-;;; [ ac-c-headers ]
+;;; [ auto-complete-c-headers ]
 
 
 ;;; [ auto-complete-clang-async ]
