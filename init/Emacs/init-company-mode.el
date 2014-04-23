@@ -73,7 +73,7 @@
 (define-key company-mode-map (kbd "C-s") 'company-search-candidates)
 (define-key company-mode-map (kbd "C-M-s") 'company-filter-candidates)
 (define-key company-search-map (kbd "C-g") 'company-search-abort)
-(define-key company-search-map (Kbd "C-s") 'company-search-repeat-forward)
+(define-key company-search-map (kbd "C-s") 'company-search-repeat-forward)
 (define-key company-search-map (kbd "C-r") 'company-search-repeat-backward)
 (define-key company-search-map (kbd "C-o") 'company-search-kill-others)
 
