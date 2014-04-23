@@ -85,6 +85,9 @@
          multiple-cursors
          ;; kill-ring-search
          kill-ring-ido
+         ;; spell
+         flyspell flyspell-guess
+         ;; auto-dictionnary
          ;; imenu
          ;; jump
          ace-jump-mode

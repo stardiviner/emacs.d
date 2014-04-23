@@ -72,6 +72,23 @@
       flyspell-mode-line-string " FlySpell"
       )
 
+
+;;; [ flyspell-guess ] -- flyspell dictionary guesser
+
+(require 'flyspell-guess)
+
+;; to load flyspell-guess every time you start Emacs. to activate the guess indicator (in minor-mode-list: "en").
+(eval-after-load "flyspell-guess"
+  (lambda ()
+    '(flyspell-insinuate-guess-indicator)))
+
+
+
+;;; [ auto-dictionary ] -- tries to guess the buffer's text language and adjusts flyspell automatically.
+
+;; (require 'auto-dictionary)
+;;
+;; (add-hook 'flyspell-mode-hook (lambda () (auto-dictionary-mode 1)))
 
 
 
