@@ -83,6 +83,8 @@
          ;; edit
          undo-tree
          multiple-cursors
+         ;; kill-ring-search
+         kill-ring-ido
          ;; imenu
          ;; jump
          ace-jump-mode
