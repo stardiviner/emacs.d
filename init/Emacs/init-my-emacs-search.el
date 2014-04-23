@@ -64,6 +64,28 @@
       ;; isearchp-restrict-to-region-flag
       )
 
+
+
+;;; [ visual-regexp ] -- A regexp/replace command for Emacs with interactive visual feedback.
+
+;;; Usage:
+;;; [C-c C-s] + [r/q/m]
+
+(require 'visual-regexp)
+;;; [ visual-regexp-steroids.el ] -- Extends visual-regexp to support other regexp engines.
+(require 'visual-regexp-steroids)
+
+;; (global-set-key (kbd "C-s") 'vr/isearch-forward)
+;; (global-set-key (kbd "C-r") 'vr/isearch-backward)
+
+(define-key my-search-prefix-map (kbd "r") 'vr/replace)
+(define-key my-search-prefix-map (kbd "q") 'vr/query-replace)
+;; if you use multiple-cursors interface, this is for you:
+(if (featurep 'multiple-cursors)
+    (define-key my-search-prefix-map (kbd "m") 'vr/mc-mark))
+;; TODO: `vr/select-mc-mark', `vr/select-replace' etc.
+
+
 
 ;;; [ emacs-anzu ] -- Emacs Port of anzu.vim.
 
@@ -106,26 +128,6 @@
 
 
 ;;; [ Occur Mode ]
-
-
-;;; [ visual-regexp ] -- A regexp/replace command for Emacs with interactive visual feedback.
-
-;;; Usage:
-;;; [C-c C-s] + [r/q/m]
-
-(require 'visual-regexp)
-;;; [ visual-regexp-steroids.el ] -- Extends visual-regexp to support other regexp engines.
-(require 'visual-regexp-steroids)
-
-(global-set-key (kbd "C-s") 'vr/isearch-forward)
-(global-set-key (kbd "C-r") 'vr/isearch-backward)
-
-(define-key my-search-prefix-map (kbd "r") 'vr/replace)
-(define-key my-search-prefix-map (kbd "q") 'vr/query-replace)
-;; if you use multiple-cursors interface, this is for you:
-(if (featurep 'multiple-cursors)
-    (define-key my-search-prefix-map (kbd "m") 'vr/mc-mark))
-;; TODO: `vr/select-mc-mark', `vr/select-replace' etc.
 
 
 
