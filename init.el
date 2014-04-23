@@ -131,6 +131,9 @@
          ;; document
          ;; snippet
          yasnippet
+         ;; Tags
+         cscope ; xcscope
+         ascope
          ;; code browser
          sr-speedbar
          ;; compile
@@ -328,6 +331,7 @@
 (require 'init-my-prog-code)
 (require 'init-my-prog-complete)
 (require 'init-my-prog-sense)
+(require 'init-my-prog-cedet)
 (require 'init-my-prog-indent)
 (require 'init-my-prog-lint)
 (require 'init-my-prog-comment)

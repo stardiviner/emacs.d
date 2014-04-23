@@ -68,6 +68,80 @@ For project directory with Projectile root."
 
 ;;; Ctags
 
+
+
+;;; [ cscope ] -- This is an interface from GNUemacs to Joe Steffen's "cscope" C browser.
+
+;; Usage:
+;; $ cscope -bR
+
+(require 'cscope)
+
+(setq cscope-bindings-2deep nil
+      cscope-bindings-3deep t
+      cscope-blurb nil
+      )
+
+
+
+;; TODO:
+;; (defun my-find-tag (&optional prefix)
+;;   "union of `find-tag' alternatives. decides upon major-mode"
+;;   (interactive "P")
+;;   (if (and (boundp 'cscope-minor-mode)
+;;            cscope-minor-mode)
+;;       (progn
+;;         (ring-insert find-tag-marker-ring (point-marker))
+;;         (call-interactively
+;;          (if prefix
+;;              'cscope-find-this-symbol
+;;            'cscope-find-global-definition-no-prompting
+;;            )))
+;;     (call-interactively 'find-tag)))
+;;
+;; (substitute-key-definition 'find-tag 'my-find-tag  global-map)
+
+
+;;; [ xcscope ] -- interface of cscope.
+
+;; (require 'xcscope)
+
+
+;;; [ ascope ] -- another interface of cscope.
+
+;;; ascope is an improvement over xcscope that runs all queries through a single
+;;; cscope process, instead of starting a new process and reloading the database
+;;; for each query.
+
+;; Usage:
+;;load this script using (require 'ascope.el) in you .emacs
+;; M-x ascope-init load the cscope database. This command must be issue prior to issue any other command below, the directory feed to this command must be the directory include the cscope.out file
+;; M-x ascope-find-global-definition
+;; M-x ascope-find-this-symbol
+;; M-x ascope-find-this-text-string
+;; M-x ascope-find-functions-calling-this-function
+;; M-x ascope-find-called-functions
+;; M-x ascope-find-files-including-file
+;; M-x ascope-all-symbol-assignments
+;; M-x ascope-clear-overlay-arrow
+;; M-x ascope-pop-mark
+;;
+;;run next commands in the search result buffer (*Result)
+;;ascope-next-symbol this command is bind to key "n"
+;;ascope-prev-symbol this command is bind to key "p"
+;;ascope-select-entry-other-window-delete-window this command is bind to key "enter"
+
+(require 'ascope)
+
+
+;;; [ rscope ]
+
+;;; rscope is a new implementation taking its roots from ascope, thus running a
+;;; single cscope process for each cscope database. It’s a bit more versatile
+;;; than ascope because it copes with multiple cscope databases (and hence
+;;; spawns one cscope process per database once).
+
+
 ;; Find root (replace eproject-root): cd "$(git rev-parse –show-toplevel)"
 
 (defun stardiviner/build-ctags ()
