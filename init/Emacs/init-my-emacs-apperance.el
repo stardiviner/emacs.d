@@ -335,7 +335,7 @@
 (diminish 'highlight-symbol-mode)
 
 (setq highlight-symbol-idle-delay 1.3
-      highlight-symbol-border-pattern ("\\_<" . "\\_>")
+      highlight-symbol-border-pattern '("\\_<" . "\\_>")
       )
 
 (set-face-attribute 'highlight-symbol-face nil
