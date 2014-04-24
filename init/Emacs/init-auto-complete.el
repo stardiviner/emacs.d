@@ -332,7 +332,7 @@
                 ;; chunk
                 ;; ac-source-chunk-list
                 ;; buffer
-                ac-source-words-in-buffer
+                ;; ac-source-words-in-buffer ; NOTE: this source will show a lot of useless candidates.
                 ac-source-words-in-same-mode-buffers
                 ;; spell
                 ;; ac-source-ispell
