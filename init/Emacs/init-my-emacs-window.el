@@ -266,6 +266,11 @@ The `BUFFER' is the popwin catch pop private message buffer."
 ;;; ruby-compilation-mode
 (push '(ruby-compilation-mode :position bottom :height 15) popwin:special-display-config)
 
+;;; yari document lookup
+(push '(yari-mode :position bottom :height 15) popwin:special-display-config)
+
+;; octave help mode
+(push '(octave-help-mode :position bottom :height 15) popwin:special-display-config)
 
 
 (provide 'init-my-emacs-window)
