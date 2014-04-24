@@ -319,7 +319,7 @@
                 ac-source-yasnippet
                 ;; filename
                 ac-source-filename
-                ac-source-files-in-current-dir
+                ;; ac-source-files-in-current-dir
                 ;; programming
                 ;; ac-source-semantic
                 ;; ac-source-semantic-raw
@@ -334,10 +334,11 @@
                 ;; buffer
                 ;; ac-source-words-in-buffer ; NOTE: this source will show a lot of useless candidates.
                 ac-source-words-in-same-mode-buffers
-                ;; spell
-                ;; ac-source-ispell
+                ;; ac-source-words-in-all-buffer
                 ;; dictionary
                 ac-source-dictionary
+                ;; spell
+                ;; ac-source-ispell
                 ;; ac-source-dictionary-chunk
                 ;; ac-source-entity
                 ))
