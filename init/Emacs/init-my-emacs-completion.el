@@ -88,9 +88,9 @@
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
 
-(require 'init-helm)
+;; (require 'init-helm)
 (require 'init-auto-complete)
-;; (require 'init-company-mode)
+(require 'init-company-mode)
 
 
 
