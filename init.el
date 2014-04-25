@@ -182,6 +182,7 @@
          ;; js-mode
          ;; js2-mode
          js3-mode
+         swank-js
          ;; HTML
          ;; CSS
          auto-complete-css
