@@ -263,6 +263,9 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (push '("*Process List*" :position bottom :height 10) popwin:special-display-config)
 (push '(process-menu-mode :position bottom :height 10) popwin:special-display-config)
 
+;; ack-and-a-half
+(push '(ack-and-a-half-mode :position bottom :height 15) popwin:special-display-config)
+
 ;;; ruby-compilation-mode
 (push '(ruby-compilation-mode :position bottom :height 15) popwin:special-display-config)
 
