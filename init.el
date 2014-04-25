@@ -181,6 +181,7 @@
          ;; JavaScript
          ;; js-mode
          ;; js2-mode
+         js3-mode
          ;; HTML
          ;; CSS
          auto-complete-css

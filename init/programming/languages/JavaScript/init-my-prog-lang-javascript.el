@@ -7,7 +7,12 @@
 
 ;;; Code:
 
-;;; [ javascript-mode ]
+;;; [ JavaScript ]
+
+(add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
+
+
+;;; [ javascript-mode (js-mode) ]
 
 (eval-after-load 'js-mode
   '(progn
@@ -23,6 +28,14 @@
 ;;
 ;; (eval-after-load 'auto-complete
 ;;   (add-to-list 'ac-modes 'js2-mode))
+
+
+;;; [ js3-mode ]
+
+(require 'js3-mode)
+
+;; (eval-after-load 'auto-complete
+;;   (add-to-list 'ac-modes 'js3-mode))
 
 
 
