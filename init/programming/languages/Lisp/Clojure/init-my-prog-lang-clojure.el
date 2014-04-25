@@ -35,13 +35,92 @@
 ;; has opened, you can use C-c C-r to evaluate the region or C-c C-l to load the
 ;; whole file.
 ;;
-;; If you don't use Leiningen, you can set inferior-lisp-program to a different REPL command.
+;; If you don't use Leiningen, you can set inferior-lisp-program to a different
+;; REPL command.
+
+;;; Connect to a running nREPL server
+;; You can go to your project's dir in a terminal and type there (assuming you're using Leiningen that is):
+;; - $ lein repl
+;; After you get your nREPL server running go back to Emacs.
+;; Typing there [M-x cider-connect] will allow you to connect to the running
+;; nREPL server.
+
+;; - [M-x cider-jack-in] :: Launch an nREPL server and a REPL client. Prompts
+;;                          for a project root if given a prefix argument.
+;; - [M-x cider] :: Connect to an already-running nREPL server.
+
 
 (require 'cider)
+
+(setq nrepl-hide-special-buffers t ; You can hide the *nrepl-connection* and *nrepl-server* buffers from appearing in some buffer switching commands like switch-to-buffer(C-x b) like this:
+      ;; When using switch-to-buffer, pressing SPC after the command will make the hidden buffers visible. They'll always be visible in list-buffers (C-x C-b).
+      
+      ;; You can control the TAB key behavior in the REPL via the
+      ;; cider-repl-tab-command variable. While the default command
+      ;; cider-repl-indent-and-complete-symbol should be an adequate choice for
+      ;; most users, it's very easy to switch to another command if you wish
+      ;; to. For instance if you'd like TAB to only indent (maybe because you're
+      ;; used to completing with M-TAB) use the following snippet:
+      ;;
+      ;; cider-repl-tab-command 'indent-for-tab-command
+
+      ;; Prevent the auto-display of the REPL buffer in a separate window after connection is established:
+      cider-repl-pop-to-buffer-on-connect nil
+      ;; Stop the error buffer from popping up while working in buffers other than the REPL:
+      cider-popup-stacktraces nil
+      ;; Enable error buffer popping also in the REPL:
+      cider-repl-popup-stacktraces t
+      ;; To auto-select the error buffer when it's displayed:
+      cider-auto-select-error-buffer t
+      ;; If using the wrap-stacktrace middleware from cider-nrepl, error buffer
+      ;; stacktraces may be filtered by default. Valid filter types include
+      ;; java, clj, repl, tooling, and dup. Setting this to nil will show all
+      ;; stacktrace frames.
+      cider-stacktrace-default-filters '(tooling dup)
+      ;; The REPL buffer name has the format *cider-repl project-name*. Change
+      ;; the separator from space to something else by overriding
+      ;; nrepl-buffer-name-separator.
+      nrepl-buffer-name-separator " "
+      ;; The REPL buffer name can also display the port on which the nREPL
+      ;; server is running. Buffer name will look like cider-repl
+      ;; project-name:port.
+      nrepl-buffer-name-show-port t
+      ;; Make C-c C-z switch to the CIDER REPL buffer in the current window:
+      cider-repl-display-in-current-window nil
+      ;; Limit the number of items of each collection the printer will print to 100:
+      cider-repl-print-length nil
+      ;; Prevent C-c C-k from prompting to save the file corresponding to the
+      ;; buffer being loaded, if it's modified:
+      cider-prompt-save-file-on-load t
+      ;; Change the result prefix for REPL evaluation (by default there's no prefix):
+      cider-repl-result-prefix ";; => "
+      ;; Change the result prefix for interactive evaluation (by default it's =>):
+      cider-interactive-eval-result-prefix ";; => "
+      ;; Normally code you input in the REPL is font-locked with
+      ;; cider-repl-input-face (after you press RET) and results are font-locked
+      ;; with cider-repl-output-face. If you want them to be font-locked as in
+      ;; clojure-mode use the following:
+      cider-repl-use-clojure-font-lock t
+      ;; You can configure known endpoints used by the cider command offered via
+      ;; a completing read. This is useful if you have a list of common
+      ;; host/ports you want to establish remote nREPL connections to. Using an
+      ;; optional label is helpful for identifying each host.
+      ;; cider-known-endpoints '(("host-a" "10.10.10.1" "7888") ("host-b" "7888"))
+
+      ;; REPL History
+      cider-repl-wrap-history t
+      cider-repl-history-size 1000
+      cider-repl-history-file '(expand-file-name "temp/cider-repl-history.hist" user-emacs-directory)
+      )
 
 (eval-after-load 'cider
   '(progn
      (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+     
+     (add-hook 'cider-repl-mode-hook
+               (lambda ()
+                 (paredit-mode +1)
+                 (rainbow-delimiters-mode +1)))
      ))
 
 
