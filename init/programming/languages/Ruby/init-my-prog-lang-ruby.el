@@ -155,10 +155,12 @@
 
                    ;; (local-set-key (kbd "C-h d") 'yari)
                    ;; (define-key 'help-command (kbd "R") 'yari)
+                   
                    ;; or with my-help-document-prefix-map prefix.
-                   (local-set-key (kbd "C-h d") 'my-help-document-prefix-map)
-                   (define-key my-help-document-prefix-map (kbd "d") 'yari)
-                   (define-key my-help-document-prefix-map (kbd "D") 'yari-helm)
+                   (define-prefix-command 'my-help-ruby-document-prefix-map)
+                   (local-set-key (kbd "C-h d") 'my-help-ruby-document-prefix-map)
+                   (define-key my-help-ruby-document-prefix-map (kbd "d") 'yari)
+                   (define-key my-help-ruby-document-prefix-map (kbd "D") 'yari-helm)
                    )))
 
 
