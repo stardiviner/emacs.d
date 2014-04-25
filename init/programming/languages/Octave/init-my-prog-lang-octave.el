@@ -9,20 +9,28 @@
 
 ;;; [ octave-mode ]
 
-;; (require 'ac-octave)
+
+
+
+(require 'octave)
+(autoload 'octave-mode "octave-mod" nil t)
+
+
+
+
 
 ;;; [ ac-octave ]
 
-(require 'ac-octave)
-
-;; (defun ac-octave-mode-setup ()
-;;   (setq ac-sources '(ac-source-octave)))
+;; (after 'octave-inf
+;;   (require 'ac-octave)
+;;   (autoload 'ac-octave "ac-octave" "Octave auto-complete source" t))
 
 ;; (add-hook 'octave-mode-hook
-;;           '(lambda () (ac-octave-mode-setup)))
+;;           '(lambda ()
+;;              (setq ac-sources '(ac-source-octave))))
+
 
 
-
 (provide 'init-my-prog-lang-octave)
 
 ;;; init-my-prog-lang-octave.el ends here
