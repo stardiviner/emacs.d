@@ -164,7 +164,7 @@
          ac-geiser
          ;; Scheme
          ;; Clojure
-         clojure-mode ac-nrepl cider ; swank-clojure
+         clojure-mode cider ac-nrepl ; company-cider
          ;; Python
          python ; python-mode
          jedi
