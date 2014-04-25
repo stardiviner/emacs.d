@@ -13,15 +13,12 @@
 
 (eval-after-load 'haskell-mode
   '(progn
-     (defun my-haskell-mode-defaults ()
-       (turn-on-haskell-doc-mode)
-       (turn-on-haskell-indentation))
-
-     (setq my-haskell-mode-hook 'my-haskell-mode-defaults)
-
      (add-hook 'haskell-mode-hook
                (lambda ()
-                 (run-hooks 'my-haskell-mode-hook)))))
+                 (turn-on-haskell-doc-mode)
+                 (turn-on-haskell-indentation)
+
+                 ))))
 
 
 (provide 'init-my-prog-lang-haskell)
