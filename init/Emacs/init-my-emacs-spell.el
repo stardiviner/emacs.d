@@ -72,6 +72,9 @@
       flyspell-mode-line-string " FlySpell"
       )
 
+;; (define-key flyspell-mode-map (kbd "C-.") 'flyspell-correct-word-before-point)
+(define-key flyspell-mode-map (kbd "C-.") 'flyspell-auto-correct-previous-word)
+
 
 ;;; [ flyspell-guess ] -- flyspell dictionary guesser
 
