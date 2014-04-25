@@ -6,8 +6,21 @@
 
 ;;; keybindings prefix
 
-(define-prefix-command 'my-help-document-prefix-map)
-(global-set-key (kbd "C-h d") 'my-help-document-prefix-map)
+(if (boundp 'my-help-document-prefix-map)
+    (define-prefix-command 'my-help-document-prefix-map))
+
+;; FIXME: don't set prefix as global, set it major mode locally.
+;; (global-set-key (kbd "C-h d") 'my-help-document-prefix-map)
+;; (define-key 'major-mode (kbd "C-h d") 'my-help-document-prefix-map)
+
+;;; e.g.
+;;; with my-help-document-prefix-map prefix.
+;; (add-hook 'ruby-mode-hook
+;;           (lambda ()
+;;             (local-set-key (kbd "C-h d") 'my-help-document-prefix-map)
+;;             (define-key my-help-document-prefix-map (kbd "d") 'yari)
+;;             (define-key my-help-document-prefix-map (kbd "D") 'yari-helm)
+;;             ))
 
 
 

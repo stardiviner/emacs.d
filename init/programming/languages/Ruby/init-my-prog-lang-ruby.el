@@ -135,7 +135,7 @@
 (add-to-list 'which-func-modes 'ruby-mode)
 
 
-;;; yard-mode -- for Ruby YARD comments
+;;; [ yard-mode ] -- for Ruby YARD comments
 
 ;; (require 'yard-mode)
 
@@ -156,6 +156,7 @@
                    ;; (local-set-key (kbd "C-h d") 'yari)
                    ;; (define-key 'help-command (kbd "R") 'yari)
                    ;; or with my-help-document-prefix-map prefix.
+                   (local-set-key (kbd "C-h d") 'my-help-document-prefix-map)
                    (define-key my-help-document-prefix-map (kbd "d") 'yari)
                    (define-key my-help-document-prefix-map (kbd "D") 'yari-helm)
                    )))
