@@ -9,6 +9,7 @@
 
 ;;; [ Guile Mode ]
 
+;; (run-guile)
 
 
 (provide 'init-my-prog-lang-guile)
