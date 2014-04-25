@@ -64,8 +64,9 @@
          helm-descbinds helm-project
          auto-complete
          auto-complete-yasnippet auto-complete-chunk
-         auto-complete-etags auto-complete-pcmp
+         auto-complete-etags
          auto-complete-emacs-lisp
+         auto-complete-pcmp
          company-mode
          ;; color theme
          color-theme-solarized

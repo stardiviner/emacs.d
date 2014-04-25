@@ -126,10 +126,6 @@
   "Select the candidate and append a space. save your time for typing space."
   (interactive)
   (if (eq major-mode 'org-mode)
-      ;; FIXME:
-      ;; (insert " ")
-      ;; (org-self-insert-command)
-      ;; FIXME: what is the N in arguments of function `self-insert-command'.
       (self-insert-command 1)
     (ac-complete)
     (insert " "))
@@ -138,8 +134,9 @@
   ;;     (insert " "))
   )
 
-;; FIXME: ac-completing-map is the parent map of ac-menu-map.
-(define-key ac-menu-map (kbd "SPC") 'ac-complete-with-space)
+;; ac-completing-map is the parent map of ac-menu-map.
+;; (define-key ac-menu-map (kbd "SPC") 'ac-complete-with-space)
+(define-key ac-menu-map (kbd "M-SPC") 'ac-complete-with-space)
 
 ;; TODO:
 ;; (defun ac-complete-with-expand ()
@@ -284,18 +281,19 @@
 ;; (require 'ac-math)
 
 
-;;; auto-complete-etags
+;;; [ auto-complete-etags ]
 
 ;;; ac-complete candidate suffix symbol is [s]
-
-(require 'auto-complete-etags)
-
+;;;
 ;; 1. generate tag file
 ;; - etags *.c *.h
 ;; - ctags -e *.c *.h
 ;; 2. set path of TAGS
 ;; - [M-x visit-tags-table]
 
+(require 'auto-complete-etags)
+
+
 ;; (require 'ac-etags)
 ;;
 ;; (eval-after-load "etags"
@@ -317,6 +315,11 @@
 (setq-default ac-sources
               '(;; snippet
                 ac-source-yasnippet
+                ;; template
+                ;; ac-source-template
+                ;; abbrev
+                ac-source-abbrev
+                ;; ac-source-dabbrev
                 ;; filename
                 ac-source-filename
                 ;; ac-source-files-in-current-dir
@@ -324,23 +327,18 @@
                 ;; ac-source-semantic
                 ;; ac-source-semantic-raw
                 ;; tags
-                ;; ac-source-etags
+                ;; ac-source-etags ; NOTE: by default require a TAGS file.
                 ;; ac-source-gtags
-                ;; abbrev
-                ac-source-abbrev
-                ;; ac-source-dabbrev
+                ;; dictionary
+                ac-source-dictionary
                 ;; chunk
                 ;; ac-source-chunk-list
                 ;; buffer
                 ;; ac-source-words-in-buffer ; NOTE: this source will show a lot of useless candidates.
                 ac-source-words-in-same-mode-buffers
                 ;; ac-source-words-in-all-buffer
-                ;; dictionary
-                ac-source-dictionary
                 ;; spell
                 ;; ac-source-ispell
-                ;; ac-source-dictionary-chunk
-                ;; ac-source-entity
                 ))
 
 
