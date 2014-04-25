@@ -158,7 +158,8 @@
          rhtml-mode projectile-rails
          ;; Lisp
          ;; slime
-         ac-slime elisp-slime-nav elisp-format eldoc-eval
+         elisp-slime-nav elisp-format eldoc-eval
+         ac-slime slime-company
          ;; Scheme
          ;; Clojure
          clojure-mode ac-nrepl cider ; swank-clojure

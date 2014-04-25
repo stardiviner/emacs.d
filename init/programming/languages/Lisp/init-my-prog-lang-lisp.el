@@ -20,6 +20,11 @@
 ;; (require 'slime)
 
 
+;;; [ Slime Mode ]
+
+
+
+
 ;;; [ ac-slime ] --
 
 (require 'ac-slime)
@@ -38,6 +43,8 @@
 ;; (set-face-attribute 'ac-slime-selection-face nil
 ;;                     )
 
+
+;;; [ slime-company ] -- slime backend for Company mode.
 
 
 ;; A quick way to jump to the definition of a function given its key binding
