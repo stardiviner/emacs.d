@@ -160,6 +160,8 @@
          ;; slime
          elisp-slime-nav elisp-format eldoc-eval
          ac-slime slime-company
+         geiser
+         ac-geiser
          ;; Scheme
          ;; Clojure
          clojure-mode ac-nrepl cider ; swank-clojure
