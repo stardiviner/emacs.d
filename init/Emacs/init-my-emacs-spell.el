@@ -78,7 +78,7 @@
 (require 'flyspell-guess)
 
 ;; to load flyspell-guess every time you start Emacs. to activate the guess indicator (in minor-mode-list: "en").
-(eval-after-load "flyspell-guess"
+(eval-after-load 'flyspell-guess
   (lambda ()
     '(flyspell-insinuate-guess-indicator)))
 

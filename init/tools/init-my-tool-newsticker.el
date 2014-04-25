@@ -11,7 +11,7 @@
 
 ;; W3M HTML renderer isn't essential, but it's pretty useful.
 (autoload 'w3m "w3m")
-(after-load 'w3m
+(eval-after-load 'w3m
   (setq newsticker-html-renderer 'w3m-region))
 
 ;; We want our feeds pulled every 30 minutes.

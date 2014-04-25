@@ -55,7 +55,7 @@
 ;; start slime automatically when we open a lisp file
 (add-hook 'slime-mode-hook 'my-start-slime)
 
-(eval-after-load "slime"
+(eval-after-load 'slime
   '(progn
      (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol ; 'slime-simple-complete-symbol.
            slime-fuzzy-completion-in-place t

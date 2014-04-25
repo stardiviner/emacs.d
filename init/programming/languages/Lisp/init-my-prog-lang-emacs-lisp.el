@@ -40,7 +40,7 @@
 ;;; [ ElDoc ]
 
 (require 'eldoc)
-(eval-after-load "eldoc"
+(eval-after-load 'eldoc
   '(diminish 'eldoc-mode))
 
 
@@ -60,7 +60,7 @@
 ;; - [C-c C-d d] -- slime-describe-symbol.
 
 (require 'elisp-slime-nav)
-(eval-after-load "elisp-slime-nav"
+(eval-after-load 'elisp-slime-nav
   '(diminish 'elisp-slime-nav-mode))
 
 (dolist (hook '(emacs-lisp-mode-hook

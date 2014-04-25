@@ -296,7 +296,7 @@
 
 ;; (require 'ac-etags)
 ;;
-;; (eval-after-load "etags"
+;; (eval-after-load 'etags
 ;;   (progn
 ;;     (ac-etags-setup)))
 ;;

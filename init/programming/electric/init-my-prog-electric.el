@@ -10,7 +10,7 @@
 ;;; Rainbow Mode (rainbow-mode.el -- colorize color names in buffers)
 
 (require 'rainbow-mode)
-(eval-after-load "rainbow-mode"
+(eval-after-load 'rainbow-mode
   '(diminish 'rainbow-mode))
 
 (dolist (hook

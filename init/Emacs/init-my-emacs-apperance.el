@@ -188,7 +188,7 @@
 
 ;;; initialize color-theme
 (require 'color-theme)
-(eval-after-load "color-theme"
+(eval-after-load 'color-theme
   '(progn
      (color-theme-initialize)))
 (setq color-theme-is-global t)
