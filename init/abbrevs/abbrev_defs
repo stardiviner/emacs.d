@@ -7,9 +7,7 @@
 
 (define-abbrev-table 'apropos-mode-abbrev-table '())
 
-(define-abbrev-table 'arduino-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'arduino-mode-abbrev-table '())
 
 (define-abbrev-table 'asdf-mode-abbrev-table '())
 
@@ -57,6 +55,8 @@
 
 (define-abbrev-table 'display-time-world-mode-abbrev-table '())
 
+(define-abbrev-table 'eassist-mode-abbrev-table '())
+
 (define-abbrev-table 'edit-abbrevs-mode-abbrev-table '())
 
 (define-abbrev-table 'el-get-check-mode-abbrev-table '())
@@ -83,6 +83,8 @@
 
 (define-abbrev-table 'gdb-script-mode-abbrev-table '())
 
+(define-abbrev-table 'gfm-mode-abbrev-table '())
+
 (define-abbrev-table 'gist-list-mode-abbrev-table '())
 
 (define-abbrev-table 'git-commit-mode-abbrev-table '())
@@ -101,6 +103,7 @@
     ("mygmail" "numbchild@gmail.com" nil 0)
     ("mygmailformat" "numbchild[@]{gmail}.com" nil 0)
     ("mynick" "stardiviner" nil 0)
+    ("mytwitter" "@numbchild" nil 0)
     ("stackexchange" "Stack Exchange" nil 3)
     ("uncomment" "un-comment" nil 2)
     ("wifi" "Wi-Fi" nil 2)
@@ -116,6 +119,8 @@
 
 (define-abbrev-table 'haskell-mode-abbrev-table '())
 
+(define-abbrev-table 'helm-grep-mode-abbrev-table '())
+
 (define-abbrev-table 'help-mode-abbrev-table '())
 
 (define-abbrev-table 'html-erb-mode-abbrev-table '())
@@ -123,6 +128,10 @@
 (define-abbrev-table 'html-mode-abbrev-table '())
 
 (define-abbrev-table 'idl-mode-abbrev-table '())
+
+(define-abbrev-table 'image-dired-display-image-mode-abbrev-table '())
+
+(define-abbrev-table 'image-dired-thumbnail-mode-abbrev-table '())
 
 (define-abbrev-table 'inferior-emacs-lisp-mode-abbrev-table '())
 
@@ -133,6 +142,8 @@
 (define-abbrev-table 'java-mode-abbrev-table
   '(
    ))
+
+(define-abbrev-table 'js3-mode-abbrev-table '())
 
 (define-abbrev-table 'lisp-mode-abbrev-table '())
 
@@ -164,6 +175,8 @@
 
 (define-abbrev-table 'magit-wazzup-mode-abbrev-table '())
 
+(define-abbrev-table 'markdown-mode-abbrev-table '())
+
 (define-abbrev-table 'mercury-mode-abbrev-table '())
 
 (define-abbrev-table 'message-mode-abbrev-table '())
@@ -188,9 +201,13 @@
 
 (define-abbrev-table 'occur-mode-abbrev-table '())
 
+(define-abbrev-table 'octave-abbrev-table '())
+
 (define-abbrev-table 'org-mode-abbrev-table
   '(
+    ("->" " ⇨" nil 3)
     ("." ". " nil 1)
+    ("=>" " ⇨" nil 3)
     ("eg" "e.g." nil 3)
     ("stackexchange" "Stack Exchange" nil 3)
    ))
@@ -211,6 +228,8 @@
 
 (define-abbrev-table 'projectile-rails-generate-mode-abbrev-table '())
 
+(define-abbrev-table 'projectile-rails-server-mode-abbrev-table '())
+
 (define-abbrev-table 'prolog-inferior-mode-abbrev-table '())
 
 (define-abbrev-table 'prolog-mode-abbrev-table '())
@@ -219,7 +238,9 @@
 
 (define-abbrev-table 'python-mode-abbrev-table '())
 
-(define-abbrev-table 'python-mode-skeleton-abbrev-table '())
+(define-abbrev-table 'python-mode-skeleton-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'reb-lisp-mode-abbrev-table '())
 
