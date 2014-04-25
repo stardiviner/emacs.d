@@ -16,6 +16,14 @@
                  (electric-layout-mode -1) ; electric-layout-mode doesn't play nice with js-mode.
                  ))))
 
+
+;;; [ js2-mode ]
+
+;; (autoload 'js2-mode "js2-mode" nil t)
+;;
+;; (eval-after-load 'auto-complete
+;;   (add-to-list 'ac-modes 'js2-mode))
+
 
 
 

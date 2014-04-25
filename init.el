@@ -180,6 +180,7 @@
          web-mode
          ;; JavaScript
          ;; js-mode
+         ;; js2-mode
          ;; HTML
          ;; CSS
          auto-complete-css
