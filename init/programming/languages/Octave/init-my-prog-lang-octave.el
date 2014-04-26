@@ -33,6 +33,43 @@
 (define-key inferior-octave-mode-map (kbd "C-h d") 'octave-help)
 
 
+;;; [ octave-inf ] Running Octave From Within Emacs
+
+;; - [M-x run-octave] ::
+;;
+;; C-c i l
+;;     Send the current line to the inferior Octave process (octave-send-line). With positive prefix argument N, send that many lines. If octave-send-line-auto-forward is non-nil, go to the next unsent code line. 
+;; C-c i b
+;;     Send the current block to the inferior Octave process (octave-send-block). 
+;; C-c i f
+;;     Send the current function to the inferior Octave process (octave-send-defun). 
+;; C-c i r
+;;     Send the region to the inferior Octave process (octave-send-region). 
+;; C-c i s
+;;     Make sure that `inferior-octave-buffer' is displayed (octave-show-process-buffer). 
+;; C-c i h
+;;     Delete all windows that display the inferior Octave buffer (octave-hide-process-buffer). 
+;; C-c i k
+;;     Kill the inferior Octave process and its buffer (octave-kill-process). 
+
+
+;;; to directly start an inferior Octave process. If Emacs does not know about
+;;; this command, add the line
+(autoload 'run-octave "octave-inf" nil t)
+;;; enable inferior octave after Emacs startup.
+(add-hook 'emacs-startup-hook 'run-octave)
+
+
+(setq octave-send-echo-input t
+      octave-send-show-buffer t)
+
+(add-hook 'inferior-octave-mode-hook
+          (lambda ()
+            (turn-on-font-lock)
+            (define-key inferior-octave-mode-map [up]
+              'comint-previous-input)
+            (define-key inferior-octave-mode-map [down]
+              'comint-next-input)))
 
 
 ;;; [ ac-octave ]
