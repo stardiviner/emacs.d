@@ -335,6 +335,7 @@
 
 
 ;;; Programming
+(require 'init-my-prog-programming)
 (require 'init-my-prog-code)
 (require 'init-my-prog-complete)
 (require 'init-my-prog-sense)
