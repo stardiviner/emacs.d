@@ -32,8 +32,20 @@
 ;; - hot-spot operation, for single-keystroke maneuvering and exposure
 ;;   control. (See the outline-mode docstring.)
 
+;;; Usage:
+;; Help:
+;; - [C-h f allout-mode] ::
+;; - [C-c SPC] :: prefix of allout keybindings.
+;; - [C-c SPC C-s] :: show entry.
+;; - [C-c SPC h] :: hide entry.
+
 (require 'allout)
 (diminish 'allout-mode)
+
+(setq allout-auto-activation t
+      allout-command-prefix "\C-c "
+      ;; allout-prefixed-keybindings
+      )
 
 ;; To use the allout package in place of the standard outline package, add the
 ;; following bit of code.
