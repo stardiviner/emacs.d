@@ -1,12 +1,12 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: prefix map
-# key: prefix-map
+# name: prefix map mode locally
+# key: prefix-map-mode-local
 # --
-(if (boundp '$1)
-    (define-prefix-command '${1:my-???-prefix-map}))
+(unless (boundp '$1)
+   (define-prefix-command '${1:my-???-prefix-map}))
 
 (add-hook '${5:mode-hook}
           (lambda ()
             (local-set-key (kbd "${2:keybinding prefix}") '$1)
             (define-key $1 (kbd "${3:sub key . key}") '${4:command})
-            )
+            ))
