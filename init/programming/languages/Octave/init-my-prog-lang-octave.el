@@ -11,10 +11,26 @@
 
 
 
+
+;;; [ octave-mod ]
 
 (require 'octave)
 (autoload 'octave-mode "octave-mod" nil t)
 
+
+(setq auto-mode-alist
+      (cons '("\\.m$" . octave-mode) auto-mode-alist))
+
+(setq octave-auto-indent t
+      octave-auto-newline t
+      octave-blink-matching-block t
+      octave-block-offset 2
+      octave-continuation-offset 4
+      octave-continuation-string "..."
+      )
+
+(define-key octave-mode-map (kbd "C-h d") 'octave-help)
+(define-key inferior-octave-mode-map (kbd "C-h d") 'octave-help)
 
 
 
