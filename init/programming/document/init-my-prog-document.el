@@ -6,8 +6,8 @@
 
 ;;; keybindings prefix
 
-(if (boundp 'my-help-document-prefix-map)
-    (define-prefix-command 'my-help-document-prefix-map))
+(unless (boundp 'my-help-document-prefix-map)
+  (define-prefix-command 'my-help-document-prefix-map))
 
 ;; FIXME: don't set prefix as global, set it major mode locally.
 ;; (global-set-key (kbd "C-h d") 'my-help-document-prefix-map)
