@@ -78,7 +78,11 @@
                     :foreground "black" :background "green yellow")
 
 (setq helm-case-fold-search t
+      ;; helm popup window position.
       helm-full-frame nil ; use current window as popup.
+      helm-always-two-windows t
+      helm-split-window-in-side-p t ; force split inside selected window.
+      helm-split-window-default-side 'below
       )
 
 ;; Bookmark
