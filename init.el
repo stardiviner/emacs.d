@@ -20,6 +20,18 @@
 (defconst *is-mac-gui* (and *is-mac* window-system))
 (defconst *is-cocoa-emacs* (and *is-mac* (eq window-system 'ns)))
 
+
+;;; [ Benchmark ]
+(let ((benchmark-init.el (expand-file-name  "el-get/benchmark-init/benchmark-init.el" user-emacs-directory)))
+  (when (file-exists-p benchmark-init.el)
+    (load benchmark-init.el)))
+
+;;; Usage:
+;; - [benchmark-init/show-durations-tabulated] ::
+;; - [benchmark-init/show-durations-tree] ::
+;; - [benchmark-init/activate]
+;; - [benchmark-init/deactivate]
+
 
 
 ;;; [ package manager ]
@@ -51,7 +63,10 @@
 ;;; my packages which will be installed.
 (setq my-el-get-packages
       (append
-       '(popup
+       '(;; debug
+         ;; benchmark
+         benchmark-init
+         popup
          pos-tip
          popup-pos-tip
          showtip
@@ -266,6 +281,9 @@
 
 ;;; debug, profiling etc
 (require 'init-my-emacs-debug)
+
+;;; benchmark
+;; (require 'init-my-emacs-benchmark)
 
 ;;; my custom functions
 (require 'init-my-functions)
