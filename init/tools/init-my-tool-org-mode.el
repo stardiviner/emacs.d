@@ -23,6 +23,8 @@
 (require 'org-pcomplete)
 (require 'org-ac)
 
+(require 'org-linkany)
+
 ;;; org-protocol need server start.
 ;; FIXME:
 ;; (unless (server-running-p)
@@ -629,6 +631,20 @@ This is especially for create Org files."
       org-agenda-repeating-timestamp-show-all t
       )
 
+
+;;; [ org-linkany ]
+
+;; Make config suit for you. About the config item, eval the following sexp.
+;; (customize-group "org-linkany")
+
+;;; Usage:
+
+(require 'org-linkany)
+
+(setq
+ ;; org-linkany/url-source-collection
+ org-linkany/browse-function 'browse-url-firefox
+ )
 
 
 ;;; [ Properties and Columns ]

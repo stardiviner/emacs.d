@@ -124,8 +124,8 @@
          ;; Org-mode
          org-mode
          org-fstree org-bullets
-         org-magit
          org-ac
+         org-magit org-linkany
          ;; help
          ;; discover
          ;; Email
