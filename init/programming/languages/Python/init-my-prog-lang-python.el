@@ -88,7 +88,7 @@
 ;; install python jedi server (jediepcserver.py) by running:
 ;; [M-x jedi:install-server] in Emacs.
 
-(setq jedi:tooltip-method '(pos-tip popup))
+(setq jedi:tooltip-method '(pos-tip popup)) ; nil: show in minibuffer. '(pos-tip popup) : use tooltip.
 
 ;; (setq jedi:environment-root "jedi"
 ;;       jedi:environment-virtualenv '("--python" "/PATH/TO/python3")
