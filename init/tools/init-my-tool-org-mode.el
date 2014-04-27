@@ -21,6 +21,7 @@
 (require 'org-habit)
 
 (require 'org-pcomplete)
+(require 'org-ac)
 
 ;;; org-protocol need server start.
 ;; FIXME:
@@ -403,12 +404,22 @@ It can contain any number of symbols, which will be repeated."
 
 ;;; Complete
 
-;; - in minibuffer
 ;; - in buffer + [M-TAB]
+;; - in minibuffer
 
 ;; TODO
 ;; (setq org-completion-use-iswitchb)
 (setq org-completion-use-ido t)
+
+
+;;; [ org-pcomplete ]
+
+;;; [ org-ac ]
+;;; [o] -- annotation.
+(require 'org-ac)
+;; Make config suit for you. About the config item, eval the following sexp.
+;; (customize-group "org-ac")
+(org-ac/config-default)
 
 
 ;;; [ Document Structure ]

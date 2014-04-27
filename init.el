@@ -125,6 +125,7 @@
          org-mode
          org-fstree org-bullets
          org-magit
+         org-ac
          ;; help
          ;; discover
          ;; Email
