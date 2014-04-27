@@ -28,15 +28,41 @@
 
 (require 'helm-misc)
 
-(helm-mode 1)
+(helm-mode 1) ; enable Helm mode initially.
 (diminish 'helm-mode)
+
+;;; work with ido and helm together.
+;; If you like ido for some commands and helm for other commands, you should not
+;; enable ido-mode, instead customize helm-completing-read-handlers-alist; For
+;; example, you want ido-mode for find-file-read-only and helm-mode for
+;; find-file: 1) In your config you turn on helm-mode. 2) In customize-group
+;; helm-mode add to helm-completing-read-handlers-alist find-file-read-only as
+;; key and ido as value. In elisp it looks like this:
+;; (find-file-read-only . ido)
+;;
+;; Now you want find-alternate-file to not use ido and to not use helm, only the
+;; vanilla emacs completion: Add an entry to helm-completing-read-handlers-alist
+;; like this: (find-alternate-file . nil)
+;;
+(setq helm-completing-read-handlers-alist
+      '((describe-function . helm-completing-read-symbols)
+        (describe-variable . helm-completing-read-symbols)
+        (debug-on-entry . helm-completing-read-symbols)
+        (find-function . helm-completing-read-symbols)
+        (find-tag . helm-completing-read-with-cands-in-buffer)
+        (ffap-alternate-file)
+        (find-alternate-file . ido)
+        (tmm-menubar)))
+
+
+;; (global-set-key (kbd "C-x h") 'helm-mini)
+(global-set-key (kbd "M-x") 'helm-M-x)
+
 
 (set-face-attribute 'helm-selection nil
                     :background "#004A5D" :foreground "white"
                     :box '(:color "cyan" :line-width 1)
                     :underline nil)
-
-;; (global-set-key (kbd "C-x h") 'helm-mini)
 (set-face-attribute 'helm-action nil
                     :background "orange" :foreground "black")
 (set-face-attribute 'helm-header nil
