@@ -46,6 +46,9 @@
 (require 'python)
 
 
+(setq python-indent-offset 4
+      python-indent-guess-indent-offset t
+      )
 
 
 ;;; [ python-mode ]
