@@ -74,14 +74,14 @@
 
 ;;; [ ac-octave ]
 
-;; (after 'octave-inf
-;;   (require 'ac-octave)
-;;   (autoload 'ac-octave "ac-octave" "Octave auto-complete source" t))
+(after 'octave-inf
+  (require 'ac-octave))
 
+;; FIXME:
+;; (defun ac-octave-mode-setup ()
+;;   (setq ac-sources '(ac-source-octave)))
 ;; (add-hook 'octave-mode-hook
-;;           '(lambda ()
-;;              (setq ac-sources '(ac-source-octave))))
-
+;;           '(lambda () (ac-octave-mode-setup)))
 
 
 (provide 'init-my-prog-lang-octave)
