@@ -73,8 +73,7 @@
          tooltip-help
          ;; Emacs
          ;; completion
-         ido-vertical-mode ido-ubiquitous
-         smex
+         ;; ido-vertical-mode ido-ubiquitous smex
          helm
          helm-descbinds helm-project
          auto-complete
