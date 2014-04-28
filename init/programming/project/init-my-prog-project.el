@@ -74,7 +74,8 @@
 
 
 ;; Helm Integration
-;; (global-set-key (kbd "C-c p h") 'helm-projectile)
+(if (featurep 'helm)
+    (global-set-key (kbd "C-c p h") 'helm-projectile))
 
 
 ;;; [ vagrant ]
