@@ -159,8 +159,8 @@
                    ;; or with my-help-document-prefix-map prefix.
                    (define-prefix-command 'my-help-ruby-document-prefix-map)
                    (local-set-key (kbd "C-h d") 'my-help-ruby-document-prefix-map)
-                   (define-key my-help-ruby-document-prefix-map (kbd "d") 'yari)
-                   (define-key my-help-ruby-document-prefix-map (kbd "D") 'yari-helm)
+                   (define-key my-help-ruby-document-prefix-map (kbd "d") 'yari) ; seems minibuffer use ido if ido is enabled.
+                   (define-key my-help-ruby-document-prefix-map (kbd "C-d") 'yari-helm) ; interactive with Helm.
                    )))
 
 
