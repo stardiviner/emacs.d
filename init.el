@@ -397,7 +397,7 @@
 (require 'init-my-prog-lang-tex)
 ;; (require 'init-my-prog-lang-R)
 (require 'init-my-prog-lang-prolog)
-(require 'init-my-prog-lang-guile)
+(require 'init-my-prog-lang-assembly)
 
 
 ;;; Frameworks
