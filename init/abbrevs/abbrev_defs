@@ -109,6 +109,7 @@
     ("stackexchange" "Stack Exchange" nil 3)
     ("uncomment" "un-comment" nil 2)
     ("wifi" "Wi-Fi" nil 2)
+   ("stackoverflow" "Stack Overflow" nil 0)
    ))
 
 (define-abbrev-table 'gnuplot-comint-mode-abbrev-table '())
