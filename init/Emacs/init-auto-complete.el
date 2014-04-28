@@ -305,10 +305,10 @@
 
 ;;; [ semantic ]
 
-(semantic-mode 1)
-(add-hook 'c-mode-common-hook
-          (lambda ()
-            (add-to-list 'ac-sources 'ac-source-semantic)))
+;; (semantic-mode 1)
+;; (add-hook 'c-mode-common-hook
+;;           (lambda ()
+;;             (add-to-list 'ac-sources 'ac-source-semantic)))
 
 
 ;;; set default auto-complete source
