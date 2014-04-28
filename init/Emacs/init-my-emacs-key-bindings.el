@@ -85,6 +85,7 @@
         "C-x 5"                         ; other frame
         "C-x RET"                       ; coding system
         "C-x *"                         ; calc
+        "C-x a"                         ; abbrev
         "C-x n"                         ; narrow
         "C-c r"                         ; regexp prefix map
         "C-c s"                         ; visual-regexp-map
