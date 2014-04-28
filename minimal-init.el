@@ -147,10 +147,7 @@
                 ac-source-yasnippet
                 ac-source-filename
                 ac-source-files-in-current-dir
-                ;; ac-source-semantic
-                ;; ac-source-etags
                 ac-source-abbrev
-                ;; ac-source-dabbrev
                 ac-source-words-in-buffer
                 ac-source-words-in-same-mode-buffers
                 ac-source-dictionary
