@@ -9,17 +9,29 @@
 
 ;;; [ Helm ] --- (incremental completion and selection narrowing framework)
 
-;; Customize:
-;; - [C-c c] -- for all complete framework prefix.
-
-;; Basic usage:
-;;  - M-x helm-mini
-;; general helm commands:
-;;  - [TAB] -- access to `action' menu with
-;;  - [C-z] -- use persistent actions with
-;;  - [M-SPACE] -- mark candidate with
+;;; Usage:
+;;;
+;;; Helm needs you to remember only a few binding unlike all other Emacs
+;;; applications. Thus, all bindings are auto documented.
+;;
+;; So when helm starts, you have to remember:
+;; - [TAB] -- Access to action menu with.
+;; - [C-z] -- Use persistent actions with
+;; - [M-<space>] -- Mark candidate with
+;;
+;; So there are three bindings to remember and they are also documented in
+;; mode-line. For more, hitting:
+;; - [C-h m]
+;; while in helm session will show you all other bindings.
+;; NOTE: Some helm commands have a special keymap, you can access infos
+;; on these keymap with [C-c ?], it should be documented in the mode-line.
+;;
+;; Helm prefix key
+;; - [C-x c]
+;;
 ;; get helm help in heml minor mode:
 ;;  - [C-h m]
+;;  - M-x helm-mini
 ;; wildcard match
 ;;  - ~/_esk (here `_' is a space)
 
@@ -57,7 +69,9 @@
 
 ;; (global-set-key (kbd "C-x h") 'helm-mini)
 (global-set-key (kbd "M-x") 'helm-M-x)
-
+;; If you prefer the helm version of the file finder, you can bind it to C-x C-f
+;; to replace the standard find-file:
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 (set-face-attribute 'helm-selection nil
                     :background "#004A5D" :foreground "white"
