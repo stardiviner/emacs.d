@@ -22,7 +22,7 @@
 
 
 
-;;; [ EShell ] (Emacs Shell)
+;;; [ Eshell ] (Emacs Shell)
 
 (require 'eshell)
 
@@ -47,14 +47,14 @@
       )
 
 ;;; count how much time the command used.
-;; (add-hook 'eshell-load-hook
-;;           (lambda()(setq last-command-start-time (time-to-seconds))))
-;; (add-hook 'eshell-pre-command-hook
-;;           (lambda()(setq last-command-start-time (time-to-seconds))))
-;; (add-hook 'eshell-before-prompt-hook
-;;           (lambda()
-;;             (message "spend %g seconds"
-;;                      (- (time-to-seconds) last-command-start-time))))
+(add-hook 'eshell-load-hook
+          (lambda()(setq last-command-start-time (time-to-seconds))))
+(add-hook 'eshell-pre-command-hook
+          (lambda()(setq last-command-start-time (time-to-seconds))))
+(add-hook 'eshell-before-prompt-hook
+          (lambda()
+            (message "spend %g seconds"
+                     (- (time-to-seconds) last-command-start-time))))
 
 ;;; auto-complete settings
 (autoload 'auto-complete "auto-complete" t)
