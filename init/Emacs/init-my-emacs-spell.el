@@ -25,6 +25,7 @@
 ;;; Usage:
 ;;
 ;; - [M-$] / [M-TAB] -- correct word
+;;   - press [i] and answer "yes" to add word into personal dictionary.
 ;; - [C-.] -- automatically correct word
 ;; - [C-;] -- automatically correct last misspelled word
 ;; - [M-x flyspell-region] -- checks all words inside a region
