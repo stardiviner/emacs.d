@@ -487,9 +487,9 @@
 (setq mu4e-compose-signature-auto-include t
       mu4e-compose-signature
       "[ stardiviner ] I want to save myself from this world.
-IRC(freenode): stardiviner     \\ Google+:  numbchild \\
-http://about.me/Evanescence/
-"
+       IRC(freenode): stardiviner     \\ Google+:  numbchild \\
+       https://stardiviner.github.io/
+      "
       )
 
 ;;; compose address complete
