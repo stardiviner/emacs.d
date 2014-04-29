@@ -156,6 +156,41 @@
 
 (defun my-helm ()
   "My preconfigured `helm'."
+
+;; This provides a single command `helm-helm-commands' which will present a helm
+;; buffer containing a list of helm commands and short descriptions. You can
+;; press C-z on an item to see a longer description of the command, and RET to
+;; execute the command.
+
+(defvar helm-helm-commands-source-buffer "*helm source select*")
+
+(defvar helm-source-helm-commands
+  `((name . "Helm commands")
+    (candidate-number-limit . 9999)
+    (candidates
+     . (lambda nil
+         (loop for symname in (all-completions "helm-" obarray)
+               for sym = (intern symname)
+               if (commandp sym) collect
+               (cons
+                (concat
+                 (propertize (format "%s" symname)
+                             'face 'font-lock-function-name-face)
+                 (propertize (format " %s"
+                                     (or (and (documentation sym)
+                                              (car (split-string
+                                                    (documentation sym) "\n\\|\\.")))
+                                         "Not documented"))
+                             'face 'font-lock-doc-face))
+                sym))))
+    (action . (("Execute helm command" .
+                (lambda (candidate)
+                  (call-interactively candidate)))
+               ("Describe command" . describe-command)))
+    (persistent-action . describe-command)))
+
+(defun helm-helm-commands nil
+  "Select from helm commands to execute."
   (interactive)
   (condition-case nil
       (if (projectile-project-root)
@@ -164,6 +199,8 @@
         (helm-mini))
     ;; fall back to helm mini if an error occurs (usually in `projectile-project-root')
     (error (helm-mini))))
+  (helm :sources 'helm-source-helm-commands
+        :buffer helm-helm-commands-source-buffer))
 
 
 ;;; [ helm-project ]
