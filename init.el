@@ -127,7 +127,7 @@
          org-fstree org-bullets
          org-ac
          org-magit org-linkany
-         org-jekyll jekyll-el
+         org-publish org-jekyll jekyll-el
          ;; help
          ;; discover
          ;; Email

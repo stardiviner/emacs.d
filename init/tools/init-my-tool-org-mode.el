@@ -1336,9 +1336,8 @@ This is especially for create Org files."
 ;; - [C-c C-e P f] -- (org-publish-current-file)
 ;; - [C-c C-e P a] -- (org-publish-all)
 
-;; (require 'org-publish)
+(require 'org-publish)
 
-;; TODO
 ;; (require 'org-blog)
 ;; (require 'org-jekyll)
 
@@ -1351,6 +1350,7 @@ This is especially for create Org files."
 ;; property are taken to be sub-projects, which group together files requiring
 ;; different publishing options. When you publish such a “meta-project”, all the
 ;; components will also be published, in the sequence given.
+
 (setq org-publish-project-alist
       '(("Blog"
          :base-directory "~/Org/Diary/Public"

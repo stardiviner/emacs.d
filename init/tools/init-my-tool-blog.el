@@ -56,7 +56,21 @@
   )
 
 
-;;; [ org-jekyll ] --
+;;; [ org-jekyll ] -- export jekyll blog posts from org-mode.
+
+;; Extracts subtrees from your org-publish project files that have a :blog:
+;; keyword and an :on: property with a timestamp, and exports them to a
+;; subdirectory _posts of your project's publishing directory in the
+;; year-month-day-title.html format that Jekyll expects. Properties are passed
+;; over as yaml front-matter in the exported files. The title of the entry is
+;; the title of the subtree.
+
+(require 'org-jekyll)
+
+(setq org-jekyll-category nil
+      org-jekyll-new-buffers nil
+      org-jekyll-localize-dir nil
+      org-jekyll-lang-subdirs nil)
 
 
 
