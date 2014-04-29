@@ -10,7 +10,7 @@
 
 (unless (boundp 'blog-map)
   (define-prefix-command 'blog-map))
-(global-set-key (kbd "C-c t b") 'blog-map)
+(define-key my-tools-prefix-map (kbd "b") 'blog-map)
 
 
 ;;; [ jekyll.el ]
@@ -45,11 +45,11 @@
       (define-key blog-map (kbd "j") 'jekyll-map)
       
       (define-key jekyll-map (kbd "d") 'jekyll-draft-post)
-      (define-key jekyll-map (kbd "P") 'jekyll-publish-post)
-      (define-key jekyll-map (kbd "p") (lambda ()
+      (define-key jekyll-map (kbd "p") 'jekyll-publish-post)
+      (define-key jekyll-map (kbd "P") (defun jekyll-posts-files ()
                                          (interactive)
                                          (find-file (concat jekyll-directory "_posts/"))))
-      (define-key jekyll-map (kbd "d") (lambda ()
+      (define-key jekyll-map (kbd "D") (defun jekyll-drafts-files ()
                                          (interactive)
                                          (find-file (concat jekyll-directory "_drafts/"))))
       )
