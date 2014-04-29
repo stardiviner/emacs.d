@@ -11,7 +11,9 @@
 
 (define-abbrev-table 'asdf-mode-abbrev-table '())
 
-(define-abbrev-table 'awk-mode-abbrev-table '())
+(define-abbrev-table 'awk-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'bibtex-mode-abbrev-table '())
 
@@ -19,9 +21,13 @@
 
 (define-abbrev-table 'bookmark-edit-annotation-mode-abbrev-table '())
 
-(define-abbrev-table 'c++-mode-abbrev-table '())
+(define-abbrev-table 'c++-mode-abbrev-table
+  '(
+   ))
 
-(define-abbrev-table 'c-mode-abbrev-table '())
+(define-abbrev-table 'c-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'calc-trail-mode-abbrev-table '())
 
@@ -97,7 +103,6 @@
 
 (define-abbrev-table 'global-abbrev-table
   '(
-    ("." ".  " nil 0)
     ("eg" "e.g." nil 2)
     ("my-nick" "stardiviner" nil 0)
     ("my.nick" "stardiviner" nil 0)
@@ -107,9 +112,9 @@
     ("mynick" "stardiviner" nil 0)
     ("mytwitter" "@numbchild" nil 0)
     ("stackexchange" "Stack Exchange" nil 3)
+    ("stackoverflow" "Stack Overflow" nil 0)
     ("uncomment" "un-comment" nil 2)
     ("wifi" "Wi-Fi" nil 2)
-   ("stackoverflow" "Stack Overflow" nil 0)
    ))
 
 (define-abbrev-table 'gnuplot-comint-mode-abbrev-table '())
@@ -142,7 +147,9 @@
 
 (define-abbrev-table 'inferior-python-mode-abbrev-table '())
 
-(define-abbrev-table 'java-mode-abbrev-table '())
+(define-abbrev-table 'java-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'js3-mode-abbrev-table '())
 
@@ -196,7 +203,9 @@
 
 (define-abbrev-table 'nxml-web-mode-abbrev-table '())
 
-(define-abbrev-table 'objc-mode-abbrev-table '())
+(define-abbrev-table 'objc-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'occur-edit-mode-abbrev-table '())
 
@@ -210,7 +219,9 @@
 
 (define-abbrev-table 'package-menu-mode-abbrev-table '())
 
-(define-abbrev-table 'pike-mode-abbrev-table '())
+(define-abbrev-table 'pike-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'plain-tex-mode-abbrev-table '())
 
@@ -232,7 +243,9 @@
 
 (define-abbrev-table 'python-mode-abbrev-table '())
 
-(define-abbrev-table 'python-mode-skeleton-abbrev-table '())
+(define-abbrev-table 'python-mode-skeleton-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'reb-lisp-mode-abbrev-table '())
 
