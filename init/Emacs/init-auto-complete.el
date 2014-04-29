@@ -322,7 +322,7 @@
                 ;; ac-source-dabbrev
                 ;; filename
                 ac-source-filename
-                ;; ac-source-files-in-current-dir
+                ac-source-files-in-current-dir
                 ;; programming
                 ;; ac-source-semantic
                 ;; ac-source-semantic-raw
