@@ -105,18 +105,21 @@
         "C-c p"                         ; projectile (global)
         "C-c p 4"                       ; projectile (4: buffer or window)
         "C-c v"                         ; Magit (global)
+        "C-c g"                         ; Git
         "C-c o"                         ; Org-mode (global)
-        "C-c d"                         ; Dictionary
+        "C-x d"                         ; Dictionary
         "C-c ;"                         ; E2WM
         "C-c z"                         ; workgroups2
         "C-c @"                         ; hs-minor-mode [Fold] (global)
         "C-c t"                         ; tools: paste(gist), ... etc.
         "C-c '"                         ; ???
         "C-x c"                         ; Helm
+        "C-x 8"                         ; insert unicode IDE symbols
         (org-mode "C-c C-x" "C-c C-v")  ; Org-mode.
         (outline-minor-mode "C-c @")    ; outline minor mode.
         (markdown-mode "C-c" "C-c C-c" "C-c C-s" "C-c C-t" "C-c TAB" "C-c C-a")
-        (ruby-mode "C-h d")             ; Ruby yari mode.
+        (latex-mode "C-c" "C-c C-p")    ; LaTeX mode.
+        (ruby-mode "C-c" "C-x" "C-h d") ; Ruby yari mode.
         (rinari-minor-mode "C-c ;" "C-c ; f" "C-c '") ; Rinari minor mode.
         ))
 
