@@ -88,6 +88,7 @@
          color-theme-solarized
          ;; apperance
          highlight-symbol
+         cursor-chg
          ;; modeline
          diminish pretty-mode page-break-lines
          ;;; multiple major modes
