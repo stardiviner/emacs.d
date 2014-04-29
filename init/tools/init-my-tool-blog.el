@@ -36,6 +36,10 @@
 
 (require 'jekyll)
 
+(setq jekyll-directory "~/Servers/Websites/Blogs/org-publish-jekyll"
+      ;; jekyll-post-ext ".markdown"
+      )
+
 ;; (add-to-list 'jekyll-modes-list '("erlang" 'erlang-mode))
 
 (if (featurep 'jekyll)
@@ -48,10 +52,10 @@
       (define-key jekyll-map (kbd "p") 'jekyll-publish-post)
       (define-key jekyll-map (kbd "P") (defun jekyll-posts-files ()
                                          (interactive)
-                                         (find-file (concat jekyll-directory "_posts/"))))
+                                         (find-file (concat jekyll-directory "/_posts/"))))
       (define-key jekyll-map (kbd "D") (defun jekyll-drafts-files ()
                                          (interactive)
-                                         (find-file (concat jekyll-directory "_drafts/"))))
+                                         (find-file (concat jekyll-directory "/_drafts/"))))
       )
   )
 
