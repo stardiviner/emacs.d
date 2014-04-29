@@ -409,9 +409,11 @@ It can contain any number of symbols, which will be repeated."
 ;; - in buffer + [M-TAB]
 ;; - in minibuffer
 
-;; TODO
-;; (setq org-completion-use-iswitchb)
-(setq org-completion-use-ido t)
+;; more smart org completion option.
+(if (featurep 'ido-vertical-mode)
+    (setq org-completion-use-ido t)
+  (setq org-completion-use-ido nil)
+  (setq org-completion-use-iswitchb t))
 
 
 ;;; [ org-pcomplete ]

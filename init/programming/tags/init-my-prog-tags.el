@@ -160,7 +160,8 @@ For project directory with Projectile root."
 
 
 
-;; Select Tags
+;;; Select Tags
+
 ;; [ Icicles ] -- Emacs Tags Enhancements
 ;; (require 'icicles)
 ;; (icy-mode 1)
