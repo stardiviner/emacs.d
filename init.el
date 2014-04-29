@@ -127,6 +127,7 @@
          org-fstree org-bullets
          org-ac
          org-magit org-linkany
+         org-jekyll jekyll-el
          ;; help
          ;; discover
          ;; Email
@@ -343,6 +344,7 @@
 ;; (require 'init-my-tool-bbdb)
 (require 'init-my-tool-sauron)
 (require 'init-my-tool-paste)
+(require 'init-my-tool-blog)
 (require 'init-my-tool-w3m)
 (require 'init-my-tool-diagram)
 ;; (require 'init-my-tool-emms)
