@@ -74,17 +74,15 @@
                    ;; ac-source-imenu
                    ))
 
-;; FIXME: eshell does not run correctly.
+;; ;; FIXME: eshell does not run correctly.
 ;; (defun my-eshell-start-or-switch ()
 ;;   "Start Emacs Shell or switch to its buffer if it already exist."
 ;;   (interactive)
 ;;   (if (get-buffer "*eshell*") ; eshell already active?
 ;;       (switch-to-buffer "*eshell*")
-;;     (when (y-or-n-p "Start eshell? ")
-;;       (let ((default-directory (getenv "HOME")))
-;;         (command-execute 'eshell)
-;;         (bury-buffer))
-;;       )
+;;     (let ((default-directory (getenv "HOME")))
+;;       (command-execute 'eshell)
+;;       (bury-buffer))
 ;;     ))
 ;;
 ;; ;;; start Eshell at Emacs startup, and put in end of buffer list:

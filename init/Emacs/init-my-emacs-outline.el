@@ -40,11 +40,10 @@
 ;; - [C-c SPC h] :: hide entry.
 
 (require 'allout)
-(diminish 'allout-mode)
 
 (setq allout-auto-activation t
-      allout-command-prefix "\C-c "
-      ;; allout-prefixed-keybindings
+      allout-command-prefix (kbd "C-c SPC")          ; "\C-c "
+      ;; allout-prefixed-keybindings [(control ?a)] ; ?a, ?. [
       )
 
 ;; To use the allout package in place of the standard outline package, add the
@@ -52,10 +51,10 @@
 ;; (require 'outline "allout")
 
 ;;; variables:
-;; (setq allout-widgets-auto-activation t)
-;; (setq allout-auto-activation t
-;;       ;; allout-layout '(0 : -1 -1 0)
-;;       )
+(setq allout-auto-activation t
+      allout-widgets-auto-activation t
+      ;; allout-layout '(0 : -1 -1 0)
+      )
 
 
 ;; ;; -------------------------------------------------------------------------------
@@ -89,6 +88,9 @@
 
 (global-set-key (kbd "M-n") 'allout-next-heading)
 (global-set-key (kbd "M-p") 'allout-previous-heading)
+
+(allout-minor-mode 1)
+(diminish 'allout-mode)
 
 
 (provide 'init-my-emacs-outline)

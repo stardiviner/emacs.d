@@ -821,24 +821,36 @@ This is especially for create Org files."
 (setq org-default-notes-file (concat org-directory "/Capture/notes.org"))
 
 (setq org-capture-templates
-      '(("c" "Capture" entry (file+headline "~/Org/Capture/Capture.org" "Capture")
+      '(("c" "Capture"
+         entry (file+headline "~/Org/Capture/Capture.org" "Capture")
          "\n* TODO %^{prompt}\n\n%i\n\n%a\n\n%?")
-        ("t" "Capture a task into Tasks" entry (file+headline "~/Org/Tasks.org" "Tasks")
+        ("t" "Capture a task into Tasks"
+         entry (file+headline "~/Org/Tasks.org" "Tasks")
          "\n* TODO %^{prompt} [/]\n\n%?\n\n")
-        ("u" "Capture an entry into Buy list" entry (file+headline "~/Org/Tasks.org" "Buy")
+        ("u" "Capture an entry into Buy list"
+         entry (file+headline "~/Org/Tasks.org" "Buy")
          "\n* TODO %^{prompt}\n\n%i\n\n%?\n\n")
-        ("j" "Journal" entry (file+datetree "~/Org/Journal.org" "Journal")
-         "\n* %^{prompt}\nEntered on %U\n %i\n %?\n\n")
+        ("b" "Blog (jekyll)"
+         entry (file+datetree+prompt "~/Org/Diary/Public/Blog.org")
+         "* %^{Title}  :blog:\n  :PROPERTIES:\n  :on: %T\n  :END:\n  %?")
+        ;; ("j" "Journal"
+        ;;  entry (file+datetree "~/Org/Journal.org" "Journal")
+        ;;  "\n* %^{prompt}\nEntered on %U\n %i\n %?\n\n")
         ;; TODO Contacts
+        ;;
         ;; Issues, Bugs, Features
-        ("b" "record a bug to list" entry (file+olp "~/Org/Projects/Projects.org" "Computer (电子科技)" "Bugs")
+        ("b" "record a bug to list"
+         entry (file+olp "~/Org/Projects/Projects.org" "Computer (电子科技)" "Bugs")
          "\n* BUG %^{prompt}\n\n%i\n\n%?\n\n")
-        ("i" "record an issue to list" entry (file+olp "~/Org/Projects/Projects.org" "Computer (电子科技)" "Issues")
+        ("i" "record an issue to list"
+         entry (file+olp "~/Org/Projects/Projects.org" "Computer (电子科技)" "Issues")
          "\n* ISSUE %^{prompt}\n\n%i\n\n%?\n\n")
-        ("f" "record a feature to list" entry (file+olp "~/Org/Projects/Projects.org" "Computer (电子科技)" "Features")
+        ("f" "record a feature to list"
+         entry (file+olp "~/Org/Projects/Projects.org" "Computer (电子科技)" "Features")
          "\n* FEATURE %^{prompt}\n\n%i\n\n%?\n\n")
         ;; bookmark
-        ("B" "Add an URL to bookmark database" entry (file+headline "~/Org/Wiki/Data/Bookmarks/Bookmarks.org" "Others")
+        ("m" "Add an URL to bookmark database"
+         entry (file+headline "~/Org/Wiki/Data/Bookmarks/Bookmarks.org" "Others")
          "\n* %^{prompt}\n\n%A\n\n%?\n\n")
         ;; knowledge
         ;; thought
