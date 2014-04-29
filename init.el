@@ -208,6 +208,8 @@
          css-eldoc
          ;; XML
          auto-complete-nxml
+         ;; JSON
+         json-mode json-reformat json-snatcher
          ;; Markdown
          markdown-mode
          ;; TeX
@@ -398,6 +400,7 @@
 (require 'init-my-prog-lang-html5)
 (require 'init-my-prog-lang-css)
 (require 'init-my-prog-lang-xml)
+(require 'init-my-prog-lang-json)
 (require 'init-my-prog-lang-javascript)
 (require 'init-my-prog-lang-haskell)
 (require 'init-my-prog-lang-erlang)
