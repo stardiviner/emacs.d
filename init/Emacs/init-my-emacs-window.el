@@ -69,7 +69,7 @@
 (require 'workgroups2)
 
 ;; Change prefix key (before activating WG)
-(setq wg-prefix-key (kbd "C-c z"))
+(setq wg-prefix-key (kbd "C-c w"))
 ;; Change workgroups session file
 (setq wg-default-session-file "~/.emacs.d/.emacs_workgroups")
 

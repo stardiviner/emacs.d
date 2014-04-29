@@ -23,11 +23,12 @@
         "朗道汉英字典5.0"
         ))
 
-(define-prefix-command 'my-dictionary-lookup-prefix-map)
-(global-set-key (kbd "C-c d") 'my-dictionary-lookup-prefix-map)
+(unless (boundp 'dictionary-map)
+  (define-prefix-command 'dictionary-map))
+(define-key my-tools-prefix-map (kbd "d") 'dictionary-map)
 
-(define-key my-dictionary-lookup-prefix-map (kbd "d") 'sdcv-search-pointer+)
-(define-key my-dictionary-lookup-prefix-map (kbd "C-d") 'sdcv-search-input)
+(define-key dictionary-map (kbd "d") 'sdcv-search-pointer+)
+(define-key dictionary-map (kbd "C-d") 'sdcv-search-input)
 
 
 

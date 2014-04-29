@@ -7,12 +7,6 @@
 
 ;;; Code:
 
-;;; keybindings prefix
-
-(define-prefix-command 'my-search-prefix-map)
-(global-set-key (kbd "C-c s") 'my-search-prefix-map)
-
-
 ;;; [ Isearch ]
 
 ;;; Usage:
@@ -189,11 +183,13 @@
                                                   "\\`.git\\'" "\\`.bzr\\'" "\\`_darcs\\'" "\\`.hg\\'"
                                                   ".xcodeproj\\'" ".sln\\'" "\\`Project.ede\\'"
                                                   )
-
       )
 
+(unless (boundp 'ack-map)
+  (define-prefix-command 'ack-map))
+(define-key my-search-prefix-map (kbd "a") 'ack-map)
 
-(define-key my-search-prefix-map (kbd "a") 'ack-and-a-half)
+(define-key ack-map (kbd "a") 'ack-and-a-half)
 
 
 ;;; [ Ace Jump Mode ]

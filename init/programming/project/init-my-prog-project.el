@@ -48,12 +48,8 @@
 
 (require 'projectile)
 
-(projectile-global-mode)
-;; OR
-;; (dolist (hook
-;;          '(prog-mode-hook
-;;            ))
-;;   (add-hook hook 'projectile-on))
+
+(setq projectile-keymap-prefix (kbd "C-c p"))
 
 ;; Indexing method
 (setq projectile-use-native-indexing t)
@@ -64,6 +60,15 @@
 (setq projectile-require-project-root t)
 ;; Completion Options
 (setq projectile-completion-system 'ido) ; 'ido, 'grizzl, 'default
+
+
+(projectile-global-mode)
+;; OR
+;; (dolist (hook
+;;          '(prog-mode-hook
+;;            ))
+;;   (add-hook hook 'projectile-on))
+
 
 
 ;;; Define Projects

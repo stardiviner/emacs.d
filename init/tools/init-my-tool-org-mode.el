@@ -1813,9 +1813,6 @@ This function will promote all items in a subtree."
 
 ;;; [ Key Bindings ]
 
-(define-prefix-command 'my-org-prefix-map)
-(global-set-key (kbd "C-c o") 'my-org-prefix-map)
-
 (define-key my-org-prefix-map (kbd "a") 'org-agenda)
 (define-key my-org-prefix-map (kbd "c") 'org-capture)
 

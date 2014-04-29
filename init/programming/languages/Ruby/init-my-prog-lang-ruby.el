@@ -156,11 +156,12 @@
                    ;; (local-set-key (kbd "C-h d") 'yari)
                    ;; (define-key 'help-command (kbd "R") 'yari)
                    
-                   ;; or with my-help-document-prefix-map prefix.
-                   (define-prefix-command 'my-help-ruby-document-prefix-map)
-                   (local-set-key (kbd "C-h d") 'my-help-ruby-document-prefix-map)
-                   (define-key my-help-ruby-document-prefix-map (kbd "d") 'yari) ; seems minibuffer use ido if ido is enabled.
-                   (define-key my-help-ruby-document-prefix-map (kbd "C-d") 'yari-helm) ; interactive with Helm.
+                   ;; or with help-document-map prefix.
+                   (unless (boundp 'ruby-help-doc-map)
+                     (define-prefix-command 'ruby-help-doc-map))
+                   (local-set-key (kbd "C-h d") 'ruby-help-doc-map)
+                   (define-key ruby-help-doc-map (kbd "d") 'yari) ; seems minibuffer use ido if ido is enabled.
+                   (define-key ruby-help-doc-map (kbd "C-d") 'yari-helm) ; interactive with Helm.
                    )))
 
 

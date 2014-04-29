@@ -23,17 +23,15 @@
 
 ;;; Code:
 
-;; [ keybindings prefix ]
-
-(define-prefix-command 'my-vcs-prefix-map)
-(global-set-key (kbd "C-c v") 'my-vcs-prefix-map)
-
-
 ;;; [ vc-git ] -- Git support backend
+
+;;; Usage:
 ;; - [C-x v] -- prefix for vc-git.
 
 
 ;;; [ git.el ] -- front end wrapper for vc-git.
+
+;;; Usage:
 ;; - [M-x git-help] -- get help of git.el
 (require 'git)
 
@@ -113,24 +111,24 @@
 
 ;; status -- "s" for status.
 ;; [C-x v-] original is prefix for vc-.
-(define-key my-vcs-prefix-map (kbd "v") 'magit-status)
-(define-key my-vcs-prefix-map (kbd "g s") 'magit-status)
+(define-key vcs-map (kbd "v") 'magit-status)
+(define-key vcs-map (kbd "g s") 'magit-status)
 ;; add to stage -- "s"
 ;; FIXME this stage item, but can not stage file in current buffer.
-;; (define-key my-vcs-prefix-map (kbd "g a") 'magit-stage-item)
+;; (define-key vcs-map (kbd "g a") 'magit-stage-item)
 ;; commit -- "c"
-(define-key my-vcs-prefix-map (kbd "g c") 'magit-commit)
+(define-key vcs-map (kbd "g c") 'magit-commit)
 ;; diff - "d"
-(define-key my-vcs-prefix-map (kbd "g d") 'magit-diff)
+(define-key vcs-map (kbd "g d") 'magit-diff)
 ;; file log - "l"
-(define-key my-vcs-prefix-map (kbd "g l") 'magit-log)
+(define-key vcs-map (kbd "g l") 'magit-log)
 ;; repository log - "L"
 ;; [M-n/p] to navigate.
-(define-key my-vcs-prefix-map (kbd "g L") 'magit-log-long)
+(define-key vcs-map (kbd "g L") 'magit-log-long)
 ;; grep - "g"
-(define-key my-vcs-prefix-map (kbd "g g") 'magit-grep)
+(define-key vcs-map (kbd "g g") 'magit-grep)
 ;; checkout - "o"
-(define-key my-vcs-prefix-map (kbd "g o") 'magit-checkout) ; magit-checkout-branch-at-point
+(define-key vcs-map (kbd "g o") 'magit-checkout) ; magit-checkout-branch-at-point
 
 
 ;; TODO: open magit window in current window, and without override other windows layout.
@@ -205,15 +203,15 @@
 ;; 'git-gutter-toggle :: Toggle git-gutter
 
 ;;; keybindings
-(define-key my-vcs-prefix-map (kbd "m t") 'git-gutter:toggle)
-(define-key my-vcs-prefix-map (kbd "m p") 'git-gutter:popup-hunk)
+(define-key vcs-map (kbd "m t") 'git-gutter:toggle)
+(define-key vcs-map (kbd "m p") 'git-gutter:popup-hunk)
 ;; Jump to next/previous hunk
-(define-key my-vcs-prefix-map (kbd "m n") 'git-gutter:next-hunk)
-(define-key my-vcs-prefix-map (kbd "m p") 'git-gutter:previous-hunk)
+(define-key vcs-map (kbd "m n") 'git-gutter:next-hunk)
+(define-key vcs-map (kbd "m p") 'git-gutter:previous-hunk)
 ;; Stage current hunk
-(define-key my-vcs-prefix-map (kbd "m s") 'git-gutter:stage-hunk)
+(define-key vcs-map (kbd "m s") 'git-gutter:stage-hunk)
 ;; Revert current hunk
-(define-key my-vcs-prefix-map (kbd "m r") 'git-gutter:revert-hunk)
+(define-key vcs-map (kbd "m r") 'git-gutter:revert-hunk)
 
 ;; multiple character is OK
 (setq git-gutter:window-width 1
@@ -334,8 +332,8 @@
 ;; (global-git-gutter+-mode t)
 
 ;; ;;; keybindings
-;; (define-key my-vcs-prefix-map (kbd "m t") 'git-gutter+-mode) ; Turn on/off in the current buffer
-;; (define-key my-vcs-prefix-map (kbd "m T") 'global-git-gutter+-mode) ; Turn on/off globally
+;; (define-key vcs-map (kbd "m t") 'git-gutter+-mode) ; Turn on/off in the current buffer
+;; (define-key vcs-map (kbd "m T") 'global-git-gutter+-mode) ; Turn on/off globally
 
 ;; ;; NOTE: those keybindings conflict with `narrow' etc.
 ;; ;; (eval-after-load 'git-gutter+
@@ -355,16 +353,16 @@
 ;; (eval-after-load 'git-gutter+
 ;;   '(progn
 ;;      ;; jump between hunks
-;;      (define-key my-vcs-prefix-map (kbd "m n") 'git-gutter+-next-hunk)
-;;      (define-key my-vcs-prefix-map (kbd "m p") 'git-gutter+-previous-hunk)
+;;      (define-key vcs-map (kbd "m n") 'git-gutter+-next-hunk)
+;;      (define-key vcs-map (kbd "m p") 'git-gutter+-previous-hunk)
 ;;      ;; actions on hunks
-;;      (define-key my-vcs-prefix-map (kbd "m =") 'git-gutter+-show-hunk)
-;;      (define-key my-vcs-prefix-map (kbd "m r") 'git-gutter+-revert-hunk)
+;;      (define-key vcs-map (kbd "m =") 'git-gutter+-show-hunk)
+;;      (define-key vcs-map (kbd "m r") 'git-gutter+-revert-hunk)
 ;;      ;; stage hunk at point
 ;;      ;; if region is active, stage all hunk lines within the region.
-;;      (define-key my-vcs-prefix-map (kbd "m s") 'git-gutter+-stage-hunks)
-;;      (define-key my-vcs-prefix-map (kbd "m c") 'git-gutter+-commit)
-;;      (define-key my-vcs-prefix-map (kbd "m C") 'git-gutter+-stage-and-commit)
+;;      (define-key vcs-map (kbd "m s") 'git-gutter+-stage-hunks)
+;;      (define-key vcs-map (kbd "m c") 'git-gutter+-commit)
+;;      (define-key vcs-map (kbd "m C") 'git-gutter+-stage-and-commit)
 ;;      ))
 
 ;; (setq git-gutter+-disabled-modes '(asm-mode image-mode))

@@ -296,6 +296,11 @@
 (unless (server-running-p)
     (server-start))
 
+
+;;; key bindings
+(require 'init-my-keybindings)
+
+
 ;;; Emacs
 (require 'init-my-emacs-completion)
 (require 'init-my-emacs-environment)
@@ -310,7 +315,7 @@
 (require 'init-my-emacs-window)
 (require 'init-my-emacs-edit)
 (require 'init-my-emacs-bookmark)
-(require 'init-my-emacs-key-bindings)
+(require 'init-my-emacs-keybindings)
 (require 'init-my-emacs-indent)
 (require 'init-my-emacs-outline)
 (require 'init-my-emacs-input-method)
@@ -406,10 +411,6 @@
 ;;; Frameworks
 (require 'init-my-prog-framework-web)
 (require 'init-my-prog-framework-arduino)
-
-
-;;; key bindings
-(require 'init-my-key-bindings)
 
 
 

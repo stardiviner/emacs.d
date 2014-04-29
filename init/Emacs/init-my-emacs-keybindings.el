@@ -1,4 +1,4 @@
-;;; init-my-emacs-key-bindings.el --- init Emacs' key bindings.
+;;; init-my-emacs-keybindings.el --- init Emacs' key bindings.
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -109,7 +109,7 @@
         "C-c o"                         ; Org-mode (global)
         "C-x d"                         ; Dictionary
         "C-c ;"                         ; E2WM
-        "C-c z"                         ; workgroups2
+        "C-c w"                         ; workgroups2
         "C-c @"                         ; hs-minor-mode [Fold] (global)
         "C-c t"                         ; tools: paste(gist), ... etc.
         "C-c '"                         ; ???
@@ -159,12 +159,58 @@
 ;; (require 'guide-key-tip)
 ;; (setq guide-key-tip/enabled t)
 
-
-;;; [ global prefix key bindings ]
-
 
 
+;;; [ Buffer-locally overriding minor-mode key bindings in Emacs ]
 
-(provide 'init-my-emacs-key-bindings)
+;;; Solution 1.
+;;; ---------------------------------------------------
+;; (defun local-set-minor-mode-key (mode key def)
+;;   "Overrides a minor MODE keybinding KEY DEF for the local buffer.
+;;
+;;    by creating or altering keymaps stored in buffer-local
+;;    `minor-mode-overriding-map-alist'.
+;;    Usage example: (local-set-minor-mode-key '<minor-mode> (kbd 'key-to-hide') nil)"
+;;   (let* ((oldmap (cdr (assoc mode minor-mode-map-alist)))
+;;          (newmap (or (cdr (assoc mode minor-mode-overriding-map-alist))
+;;                      (let ((map (make-sparse-keymap)))
+;;                        (set-keymap-parent map oldmap)
+;;                        (push `(,mode . ,map) minor-mode-overriding-map-alist) 
+;;                        map))))
+;;     (define-key newmap key def)))
+;;; ---------------------------------------------------
 
-;;; init-my-emacs-key-bindings.el ends here
+;;; Solution 2.
+;; ----------------------------------------------------------------------------------
+;; (add-hook '<major-mode>-hook
+;;           (lambda ()
+;;             (let ((oldmap (cdr (assoc '<minor-mode> minor-mode-map-alist)))
+;;                   (newmap (make-sparse-keymap)))
+;;               (set-keymap-parent newmap oldmap)
+;;               (define-key newmap [<thekeyIwanttohide>] nil)
+;;               (make-local-variable 'minor-mode-overriding-map-alist)
+;;               (push `(<minor-mode> . ,newmap) minor-mode-overriding-map-alist))))
+;; ----------------------------------------------------------------------------------
+
+
+;;; [ redefine a map's keybinding buffer-locally ]
+
+;; avoid always select unwanted first candidate in ac when in Org writing.
+;; FIXME: this set to nil can not work `locally'.
+;; (add-hook 'org-mode-hook
+;;           (lambda ()
+;;             (eval-after-load 'auto-complete
+;;               (define-key ac-menu-map (kbd "SPC") 'self-insert-command))
+;;            
+;;             ;; *locally* unset/unbind/undefine keybinding.
+;;             ;; X (define-key ac-menu-map (kbd "SPC") nil)
+;;             ;; X (define-key ac-menu-map (kbd "SPC") 'self-insert-command)
+;;             ;; X (setq-local ac-menu-map (delq (kbd "SPC") ac-menu-map))
+;;             ))
+
+
+
+
+(provide 'init-my-emacs-keybindings)
+
+;;; init-my-emacs-keybindings.el ends here

@@ -140,7 +140,11 @@
 
 (eval-after-load 'cider
   '(define-key cider-mode-map (kbd "M-h") 'ac-nrepl-popup-doc)
-  ;; '(define-key my-help-document-prefix-map (kbd "d") 'ac-nrepl-popup-doc)
+  
+  ;; (unless (boundp 'clojure-help-doc-map)
+  ;;   (define-prefix-command 'clojure-help-doc-map))
+  ;; (local-set-key (kbd "C-h d") 'clojure-help-doc-map)
+  ;; (define-key clojure-help-doc-map (kbd "d") 'ac-nrepl-popup-doc)
   )
 
 ;;; ac-nrepl

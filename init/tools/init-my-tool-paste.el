@@ -4,6 +4,13 @@
 
 ;;; Code:
 
+
+(unless (boundp 'paste-map)
+  (define-prefix-command 'paste-map))
+
+(define-key my-tools-prefix-map (kbd "p") 'paste-map)
+
+
 ;;; [ gist.el ]
 ;; Usage:
 ;;   - Functions:
@@ -26,14 +33,12 @@
 ;; FIXME: gist-mode enable will lead to Org-mode [C-x C-s] error.
 
 ;;; --------------------------------------------------
-(define-prefix-command 'my-tools-prefix-map)
-(global-set-key (kbd "C-c t") 'my-tools-prefix-map)
 
-(define-key my-tools-prefix-map (kbd "p p") 'gist-region-or-buffer)
-(define-key my-tools-prefix-map (kbd "p v") 'gist-region-or-buffer-private)
-(define-key my-tools-prefix-map (kbd "p r") 'gist-region)
-(define-key my-tools-prefix-map (kbd "p b") 'gist-buffer)
-(define-key my-tools-prefix-map (kbd "p l") 'gist-list)
+(define-key paste-map (kbd "p") 'gist-region-or-buffer)
+(define-key paste-map (kbd "v") 'gist-region-or-buffer-private)
+(define-key paste-map (kbd "r") 'gist-region)
+(define-key paste-map (kbd "b") 'gist-buffer)
+(define-key paste-map (kbd "l") 'gist-list)
 ;;; --------------------------------------------------
 
 
