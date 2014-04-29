@@ -90,6 +90,8 @@
          highlight-symbol
          ;; modeline
          diminish pretty-mode page-break-lines
+         ;;; multiple major modes
+         mmm-mode ; mumamo-noweb
          ;; others
          ;; guru-mode
          ;; buffer & window, frame
@@ -382,7 +384,6 @@
 (require 'init-my-prog-project)
 (require 'init-my-prog-vcs-git)
 (require 'init-my-prog-regexp)
-(require 'init-my-prog-mmm-mode)
 
 
 
