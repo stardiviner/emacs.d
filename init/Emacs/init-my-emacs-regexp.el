@@ -39,6 +39,9 @@
     (define-key my-regexp-prefix-map (kbd "v m") 'vr/mc-mark))
 ;; TODO: `vr/select-mc-mark', `vr/select-replace' etc.
 
+;;; integrate with Helm version regexp
+(if (featurep 'helm)
+    (define-key my-regexp-prefix-map (kbd "h") 'helm-regexp))
 
 
 (provide 'init-my-emacs-regexp)

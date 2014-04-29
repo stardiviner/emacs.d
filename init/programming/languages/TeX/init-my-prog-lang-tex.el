@@ -7,7 +7,14 @@
 
 ;;; Code:
 
+;;; [ AUCTeX ] -- Integrated environment for TeX.
 
+
+
+;;; [ auto-complete-auctex ]
+
+
+;;; [ auto-complete-latex ]
 
 
 

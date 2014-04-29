@@ -19,6 +19,9 @@
 ;; - [C-z] -- Use persistent actions with
 ;; - [M-<space>] -- Mark candidate with
 ;;
+;; Helm prefix key
+;; - [C-x c] :: for "helm version" of other functions.
+;;
 ;; So there are three bindings to remember and they are also documented in
 ;; mode-line. For more, hitting:
 ;; - [C-h m]
@@ -26,14 +29,34 @@
 ;; NOTE: Some helm commands have a special keymap, you can access infos
 ;; on these keymap with [C-c ?], it should be documented in the mode-line.
 ;;
-;; Helm prefix key
-;; - [C-x c]
-;;
 ;; get helm help in heml minor mode:
 ;;  - [C-h m]
 ;;  - M-x helm-mini
 ;; wildcard match
 ;;  - ~/_esk (here `_' is a space)
+;;
+;; [C-x C-f] -- (helm-find-files)
+;;
+;; Find Files or url: ~/
+;; That show all ~/ directory.
+;;
+;; Find Files or url: ~/des
+;; will show all what begin with "des"
+;;
+;; Find Files or url: ~/ esk
+;; (Notice the space after ~/) will show all what contain esk.
+;;
+;; Find Files or url: ~/ el$
+;; Will show all what finish with el
+;;
+;; When a row is selected, C-z performs the default action, which is different depending on the context.
+;; When you are on a file, C-z will show only this file-name in the helm
+;; buffer. On a directory, C-z will step down into this directory to continue
+;; searching in it. On a symlink, C-z will expand to the true name of symlink
+;; (moving your mouse cursor over a symlink will also show the true name).
+;;
+;; Take advantage of the second, third and 4th actions in helm. Instead of opening action menu with TAB, just hit:
+;; C-e for 2th action, C-j for 3th action
 
 (require 'helm)
 (require 'helm-config)
@@ -55,7 +78,7 @@
 ;; Now you want find-alternate-file to not use ido and to not use helm, only the
 ;; vanilla emacs completion: Add an entry to helm-completing-read-handlers-alist
 ;; like this: (find-alternate-file . nil)
-;;
+
 (setq helm-completing-read-handlers-alist
       '((describe-function . helm-completing-read-symbols)
         (describe-variable . helm-completing-read-symbols)
@@ -63,8 +86,10 @@
         (find-function . helm-completing-read-symbols)
         (find-tag . helm-completing-read-with-cands-in-buffer)
         (ffap-alternate-file)
-        (find-alternate-file . ido)
-        (tmm-menubar)))
+        (tmm-menubar)
+        ;; customize
+        (org-insert-link . ido)         ; NOTE: temp solution for Helm org-insert-link error.
+        ))
 
 
 ;; (global-set-key (kbd "C-x h") 'helm-mini)
@@ -140,8 +165,52 @@
     ;; fall back to helm mini if an error occurs (usually in `projectile-project-root')
     (error (helm-mini))))
 
-(global-set-key (kbd "C-x h") 'my-helm)
+
+;;; [ helm-project ]
 
+
+
+;;; [ helm-ls-git ]
+
+(require 'helm-ls-git)
+
+
+;;; [ helm-c-yasnippet ] -- helm source for yasnippet.el
+
+;;; Usage:
+;; - `helm-yas-complete' :: List of yasnippet snippets using `helm' interface.
+;; - `helm-yas-create-snippet-on-region' :: Create a snippet from region.
+
+(require 'helm-c-yasnippet)
+
+(setq helm-yas-space-match-any-greedy t ; helm pattern space match anyword greedy.
+      helm-yas-not-display-dups t
+      helm-yas-display-msg-after-complete t
+      helm-yas-display-key-on-candidate t
+      )
+
+(global-set-key (kbd "C-c & C-c") 'helm-yas-complete) ; integrate helm with yasnippet.
+
+
+;;; [ helm-rails ]
+
+(require 'helm-rails-loaddefs)
+
+;; TODO: test whether has keybinding set by default.
+(define-key global-map (kbd "s-t") 'helm-rails-controllers)
+(define-key global-map (kbd "s-y") 'helm-rails-models)
+(define-key global-map (kbd "s-u") 'helm-rails-views)
+(define-key global-map (kbd "s-o") 'helm-rails-specs)
+(define-key global-map (kbd "s-r") 'helm-rails-all)
+
+
+;;; [ helm-gist ]
+
+;;; Usage:
+;; - `helm-for-gist'
+;; - Helm defined source: `helm-c-source-gist'
+
+(require 'helm-gist)
 
 
 

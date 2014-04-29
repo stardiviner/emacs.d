@@ -67,6 +67,14 @@
 ;;                   python-shell-completion-string-code "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
 ;;                   )))
 
+
+;;; [ pydoc ]
+
+(if (featurep 'helm)
+    (eval-after-load "python"
+      '(progn
+         (define-key pythom-mode-map (kbd "C-h d") 'helm-pydoc))))
+
 
 
 ;;; [ jedi ] --- a python auto-completion library.

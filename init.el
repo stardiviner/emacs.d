@@ -75,7 +75,9 @@
          ;; completion
          ;; ido-vertical-mode ido-ubiquitous smex
          helm
-         helm-descbinds helm-project
+         helm-descbinds helm-project helm-ls-git helm-c-yasnippet
+         helm-rails helm-pydoc
+         helm-gist
          auto-complete
          auto-complete-yasnippet auto-complete-chunk
          auto-complete-etags
@@ -208,6 +210,7 @@
          ;; Markdown
          markdown-mode
          ;; TeX
+         auctex auto-complete-auctex
          auto-complete-latex
          ;; ac-math
          ;;; Haskell
