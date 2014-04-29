@@ -154,8 +154,19 @@
 
 
 
-(defun my-helm ()
-  "My preconfigured `helm'."
+;; (defun my-helm ()
+;;   "My preconfigured `helm'."
+;;   (interactive)
+;;   (condition-case nil
+;;       (if (projectile-project-root)
+;;           (helm-projectile)
+;;         ;; otherwise fallback to `helm-mini'
+;;         (helm-mini))
+;;     ;; fall back to helm mini if an error occurs (usually in `projectile-project-root')
+;;     (error (helm-mini))))
+;;
+;; (global-set-key (kbd "C-x h") 'my-helm)
+
 
 ;; This provides a single command `helm-helm-commands' which will present a helm
 ;; buffer containing a list of helm commands and short descriptions. You can
@@ -192,13 +203,6 @@
 (defun helm-helm-commands nil
   "Select from helm commands to execute."
   (interactive)
-  (condition-case nil
-      (if (projectile-project-root)
-          (helm-projectile)
-        ;; otherwise fallback to `helm-mini'
-        (helm-mini))
-    ;; fall back to helm mini if an error occurs (usually in `projectile-project-root')
-    (error (helm-mini))))
   (helm :sources 'helm-source-helm-commands
         :buffer helm-helm-commands-source-buffer))
 
