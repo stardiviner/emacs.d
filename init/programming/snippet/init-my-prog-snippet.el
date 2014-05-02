@@ -20,6 +20,11 @@
 ;; - [M-x snippet-mode]
 ;; - (yas-before-expand-snippet-hook)
 ;; - (yas-after-exit-snippet-hook)
+;; - (yas-activate-extra-mode (mode))
+;;    Activates the snippets for the given mode in the buffer.
+;;    The function can be called in the hook of a minor mode to activate snippets associated with that mode.
+
+
 ;; Expanding Snippets:
 ;;   * triggering expansion
 ;;     - type an snippet's *trigger key*
@@ -81,22 +86,60 @@
         ;; "~/.emacs.d/el-get/yasnippet/snippets/" YASnippet bundled snippets
         ))
 
+
+;;; keybindings
 (setq yas-trigger-key "TAB")
 (setq yas-next-field-key '("<tab>"))
 (setq yas-prev-field-key '("<S-tab>" "<backtab>"))
-(setq yas-skip-and-clear-key "C-d")
+(setq yas-skip-and-clear-key '("C-d"))
+
+;; (define-key yas-minor-mode (kbd "") 'yas-abort-snippet)
+
+
+
+;;; indent
 (setq yas-indent-line 'auto) ; 'auto, 'fixed
 (setq yas-also-auto-indent-first-line nil)
-(setq yas-wrap-around-region nil) ; t: snippet expansion wraps around selected region.
+
+;;; wrap around region
+(setq yas-wrap-around-region t) ; t: snippet expansion wraps around selected region.
+
+;; stacked expansion
 (setq yas-triggers-in-field t) ; t: allow stacked expansions (snippets inside field).
+
 (setq yas-snippet-revival t) ; t: re-activate snippet field after undo/redo.
+
+;; TODO: (setq yas--extra-modes) ; An internal list of modes for which to also lookup snippets.
+;; TODO: (setq yas--guessed-modes)
+
+;;; menu
+(setq yas-use-menu 'abbreviate)
 (setq yas-trigger-symbol " =>") ; the text used in menu to represent the trigger.
+
+
 (setq yas-key-syntaxes
       '("w" "w_" "w_." "w_.()" "^ ") ; default
       )
-;; (setq yas-prompt-functions
-;;       '(yas-x-prompt yas-dropdown-prompt yas-completing-prompt yas-ido-prompt yas-no-prompt))
 
+;; for `yas-choose-value'.
+(setq yas-prompt-functions '(yas-dropdown-prompt
+                             yas-completing-prompt
+                             yas-ido-prompt
+                             yas-x-prompt
+                             yas-no-prompt))
+
+(setq yas-new-snippet-default "\
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: $1
+# key: ${2:${1:$(yas--key-from-desc yas-text)}}${3:
+# binding: ${4:direct-keybinding}}${5:
+# expand-env: ((${6:some-var} ${7:some-value}))}${8:
+# type: command}
+# --
+$0"
+      )
+
+(setq yas-good-grace t)
 
 
 ;; auto set major mode: snippet-mode.
