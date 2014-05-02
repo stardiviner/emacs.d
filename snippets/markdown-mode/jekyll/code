@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: code snippet highlight
+# key: code
+# --
+{% highlight ${1:lang: ruby} ${3:linenos} %}
+$2
+{% endhighlight %}
+
+$0

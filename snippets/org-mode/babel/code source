@@ -1,0 +1,12 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: code source
+# key: code
+# binding: C-c j
+#comment-here `(org-babel-insert-header-arg)` will raise a completion list if "Helm" is used.
+#comment-here yas-choose-value will raise a gui style candidate select.
+# --
+#+BEGIN_SRC ${1:$$(yas-choose-value '("ruby" "python" "lisp" "emacs-lisp" "c" "go"))}${3: `(org-babel-insert-header-arg)`}
+$2
+#+END_SRC
+
+$0

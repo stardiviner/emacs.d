@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: insert jekyll root resource image
+# key: image-jekyll
+# --
+![${1:description}]({{ site.url }}/resources/${2:path to image}}
+
+$0
