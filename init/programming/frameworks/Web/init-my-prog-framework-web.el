@@ -41,6 +41,7 @@
 ;;; The recognized file extensions are listed in the Engine families paragraph.
 ;;; In summary, you may have to set both auto-mode-alist and web-mode-engines-alist.
 
+;; (add-to-list 'web-mode-engines '(()))
 (setq web-mode-engines-alist
       '(("php" . "\\.phtml\\'")
         ("blade" . "\\.blade\\.")
@@ -90,12 +91,17 @@
 
 ;;; Faces
 
+;; unicode symbols
 (setq web-mode-enable-block-face t
       web-mode-enable-part-face t
       web-mode-enable-comment-keywords t
-      web-mode-enable-whitespaces t
+      web-mode-enable-whitespaces nil     ; show whitespace, lineend, etc with unicode symbols.
       web-mode-enable-heredoc-fontification t
-      web-mode-enable-current-element-highlight t)
+      web-mode-enable-current-element-highlight t
+      ;; web-mode-abbrev-table
+      ;; web-mode-syntax-table
+      ;; web-mode-display-table
+      )
 
 ;; ;; effects
 ;; (set-face-attribute 'web-mode-folded-face nil
