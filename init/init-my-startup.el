@@ -87,7 +87,7 @@
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Lisp/Lisp.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Lisp/Common Lisp/Common Lisp.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Ruby.org")
-(find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Ruby on Rails/Ruby on Rails.org")
+(find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Frameworks/Ruby on Rails/Ruby on Rails.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Wiki/The Ruby Programming Language.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Python/Python.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Python/Data/Wiki/The Python Programming Language.org")
@@ -116,6 +116,7 @@
 
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Ruby.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Wiki/The Ruby Programming Language.org")
+(find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Frameworks/Ruby on Rails/Ruby on Rails.org")
 (find-file "~/Code/learning/Ruby/test.rb")
 
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Python/Python.org")
