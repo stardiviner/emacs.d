@@ -151,6 +151,8 @@
          paredit autopair
          rainbow-mode rainbow-delimiters
          ;; document
+         ;; RFC
+         irfc
          ;; snippet
          yasnippet
          ;; Tags

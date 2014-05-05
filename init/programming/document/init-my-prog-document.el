@@ -52,6 +52,10 @@
 (which-function-mode 1)
 
 
+;;; [ RFC ]
+
+(require 'init-my-prog-document-rfc)
+
 
 (provide 'init-my-prog-document)
 
