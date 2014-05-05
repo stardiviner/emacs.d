@@ -2,4 +2,4 @@
 # key: image_inline
 # contributor: stardiviner
 # --
-[[file:${1:relative path}][file:$1]]
+[[file:./${1}][file:$1]]
