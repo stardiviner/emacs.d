@@ -413,7 +413,8 @@ It can contain any number of symbols, which will be repeated."
 (if (featurep 'ido-vertical-mode)
     (setq org-completion-use-ido t)
   (setq org-completion-use-ido nil)
-  (setq org-completion-use-iswitchb t))
+  (setq org-completion-use-iswitchb t)
+  (setq org-completion-fallback-command 'hippie-expand))
 
 
 ;;; [ org-pcomplete ]
