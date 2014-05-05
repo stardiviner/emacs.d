@@ -112,15 +112,16 @@
         "C-c w"                         ; workgroups2
         "C-c @"                         ; hs-minor-mode [Fold] (global)
         "C-c t"                         ; tools: paste(gist), ... etc.
-        "C-c '"                         ; ???
         "C-x c"                         ; Helm
         "C-x 8"                         ; insert unicode IDE symbols
+        ;; "C-c '"                         ; ???
         (org-mode "C-c C-x" "C-c C-v")  ; Org-mode.
         (outline-minor-mode "C-c @")    ; outline minor mode.
         (markdown-mode "C-c" "C-c C-c" "C-c C-s" "C-c C-t" "C-c TAB" "C-c C-a")
         (latex-mode "C-c" "C-c C-p")    ; LaTeX mode.
-        (ruby-mode "C-c" "C-x" "C-h d") ; Ruby yari mode.
+        (ruby-mode "C-c" "C-x") ; Ruby yari mode.
         (rinari-minor-mode "C-c ;" "C-c ; f" "C-c '") ; Rinari minor mode.
+        (web-mode "C-c")                ; web-mode.
         ))
 
 (setq guide-key/highlight-command-regexp "rectangle\\|register\\|bookmark")
