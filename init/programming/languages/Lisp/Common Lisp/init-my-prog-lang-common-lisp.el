@@ -1,3 +1,13 @@
+;;; init-my-prog-lang-common-lisp.el --- init for Common Lisp
+;;; -*- coding: utf-8 -*-
+
+;;; Commentary:
+
+
+
+;;; Code:
+
+
 (add-to-list 'auto-mode-alist '("\\.lisp\\'" . common-lisp-mode))
 
 
@@ -5,4 +15,8 @@
 (define-key lisp-mode-map (kbd "C-h d") 'lispdoc)
 
 
+
+
 (provide 'init-my-prog-lang-common-lisp)
+
+;;; init-my-prog-lang-common-lisp.el ends here
