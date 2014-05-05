@@ -217,6 +217,8 @@
          json-mode json-reformat json-snatcher
          ;; Markdown
          markdown-mode
+         ;; YAML
+         yaml-mode
          ;; TeX
          auctex auto-complete-auctex
          auto-complete-latex
