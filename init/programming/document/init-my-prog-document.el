@@ -56,6 +56,12 @@
 
 (require 'init-my-prog-document-rfc)
 
+
+;;; [ Man/Women ]
+
+(require 'init-my-prog-document-man)
+
+
 
 (provide 'init-my-prog-document)
 
