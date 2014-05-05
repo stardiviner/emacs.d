@@ -100,7 +100,7 @@
          workgroups2 ; e2wm
          popwin
          ;; minibuffer
-         ;; eldoc-eval
+         eldoc-eval
          ;; edit
          undo-tree
          multiple-cursors
