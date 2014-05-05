@@ -536,7 +536,8 @@
       minimap-recreate-window t
       minimap-automatically-delete-window t
       minimap-major-modes '(prog-mode
-                            org-mode markdown-mode fundamental-mode Man-mode
+                            ;; org-mode
+                            markdown-mode Man-mode
                             magit-mode)
       minimap-normal-height-faces '(font-lock-function-name-face)
       minimap-enlarge-certain-faces 'as-fallback
