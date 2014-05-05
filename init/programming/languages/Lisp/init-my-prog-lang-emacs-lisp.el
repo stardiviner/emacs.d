@@ -29,8 +29,7 @@
           (lambda ()
             (turn-on-eldoc-mode)
             (my-recompile-elc-on-save)
-            (rainbow-mode +1)
-            ))
+            (rainbow-mode +1)))
 
 
 (add-to-list 'auto-mode-alist '("Cask\\'" . emacs-lisp-mode))
@@ -40,8 +39,7 @@
 ;;; [ ElDoc ]
 
 (require 'eldoc)
-(eval-after-load 'eldoc
-  '(diminish 'eldoc-mode))
+(eval-after-load 'eldoc '(diminish 'eldoc-mode))
 
 
 ;;; eldoc-eval --- Enable eldoc support when minibuffer is in use.
@@ -75,8 +73,7 @@
 
 ;; this add emacs lisp source into AC, and support show popup help doc.
 (dolist (hook '(emacs-lisp-mode-hook
-                eval-expression-minibuffer-setup-hook
-                ))
+                eval-expression-minibuffer-setup-hook))
   (add-hook hook 'ac-emacs-lisp-mode-setup))
 
 
@@ -101,8 +98,7 @@
           (lambda ()
             (auto-complete-mode 1)
             (ac-emacs-lisp-mode-setup)
-            (elisp-slime-nav-mode 1)
-            ))
+            (elisp-slime-nav-mode 1)))
 
 ;; ---------------------------------------------------------------
 ;;; enable auto-complete support in ielm.
