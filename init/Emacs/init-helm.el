@@ -133,6 +133,13 @@
 ;; user_pref("browser.bookmarks.autoExportHTML", false);
 
 
+;; man-women
+
+;;; - helm-man-women ::
+
+;; (setq helm-man-or-woman-function 'Man-getpage-in-background)
+
+
 ;; [ helm-descbinds ]
 
 ;; Usage:

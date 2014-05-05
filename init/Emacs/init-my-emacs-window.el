@@ -225,7 +225,10 @@
 ;; (push '(helm-mode :position bottom :height 10) popwin:special-display-config)
 
 ;;; Occur Mode
-(push '("*Occur*" :position bottom  :height 10) popwin:special-display-config)
+(push '("*Occur*" :position bottom :height 10) popwin:special-display-config)
+
+;;; Man/Women
+(push '(Man-mode :position bottom :height 15) popwin:special-display-config)
 
 ;;; Magit
 ;; TODO: create one for commit message buffer.
