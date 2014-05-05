@@ -1,0 +1,5 @@
+RFC 500, "Integration of data management systems on a computer network", 
+April 1973. 
+
+The RFC Editor does not have a copy of RFC 500.  If you have a copy of
+the original, please send it to us at rfc-editor@rfc-editor.org.
