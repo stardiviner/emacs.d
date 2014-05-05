@@ -36,7 +36,7 @@
 
 (require 'jekyll)
 
-(setq jekyll-directory "~/Servers/Websites/Blogs/org-publish-jekyll"
+(setq jekyll-directory "~/Servers/Websites/Blogs/org-publish-jekyll/"
       ;; jekyll-post-ext ".markdown"
       )
 
@@ -52,10 +52,10 @@
       (define-key jekyll-map (kbd "p") 'jekyll-publish-post)
       (define-key jekyll-map (kbd "P") (defun jekyll-posts-files ()
                                          (interactive)
-                                         (find-file (concat jekyll-directory "/_posts/"))))
+                                         (find-file (concat jekyll-directory "_posts/"))))
       (define-key jekyll-map (kbd "D") (defun jekyll-drafts-files ()
                                          (interactive)
-                                         (find-file (concat jekyll-directory "/_drafts/"))))
+                                         (find-file (concat jekyll-directory "_drafts/"))))
       )
   )
 
@@ -77,8 +77,8 @@
       org-jekyll-lang-subdirs nil)
 
 
-(setq org-jekyll-publish-blog-dir "~/Servers/Websites/Blogs/org-publish-jekyll")
-(setq org-jekyll-publish-blog-image-dir (concat org-jekyll-publish-blog-dir "/images"))
+(setq org-jekyll-publish-blog-dir "~/Servers/Websites/Blogs/org-publish-jekyll/")
+(setq org-jekyll-publish-blog-image-dir (concat org-jekyll-publish-blog-dir "images"))
 
 (add-to-list 'org-publish-project-alist
              '("org-jekyll-blog"
