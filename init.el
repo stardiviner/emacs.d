@@ -89,6 +89,7 @@
          ;; apperance
          highlight-symbol
          cursor-chg
+         minimap
          ;; modeline
          diminish pretty-mode page-break-lines
          ;;; multiple major modes

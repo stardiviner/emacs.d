@@ -513,6 +513,34 @@
 ;; (global-whitespace-cleanup-mode t)
 
 
+;;; [ minimap ] -- implementation of a minimap sidebar, i.e., a smaller display of the current buffer on the left side.
+
+;;; Usage:
+;; - [mimimap-create] :: create minimap.
+;; - [minimap-kill] :: kill minimap.
+
+(require 'minimap)
+
+(setq minimap-tag-only nil
+      ;; minimap-numlines 200
+      minimap-update-delay 0.1
+      minimap-always-recenter nil
+      minimap-recenter-type 'relative
+      minimap-minimum-width 20
+      minimap-highlight-line nil          ; highlight current line in minimap.
+      minimap-width-fraction 0.08       ; percent of current width.
+      minimap-hide-fringes nil
+      minimap-hide-scroll-bar t
+      minimap-window-location 'right
+      minimap-dedicated-window t        ; whether create a dedicated window.
+      minimap-recreate-window t
+      minimap-automatically-delete-window t
+      minimap-normal-height-faces '(font-lock-function-name-face)
+      minimap-enlarge-certain-faces 'as-fallback
+      )
+
+(add-hook 'emacs-startup-hook 'minimap-create)
+
 
 (provide 'init-my-emacs-apperance)
 
