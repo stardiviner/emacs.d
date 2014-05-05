@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: region
+# key: region
+# --
+(let ((${1:region} (cons (region-beginning) (region-end)))
+      (${2:func} $1)))
