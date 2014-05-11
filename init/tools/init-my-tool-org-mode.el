@@ -1559,11 +1559,11 @@ This is especially for create Org files."
  org-edit-src-auto-save-idle-delay 0 ; 0: don't auto save.
  ;; org-edit-src-picture
  ;; org-edit-src-overlay
- org-tab-first-hook '(org-hide-block-toggle-maybe
-                      org-src-native-tab-command-maybe
-                      org-babel-hide-result-toggle-maybe
-                      org-babel-header-arg-expand)
- org-babel-pre-tangle-hook '(save-buffer)
+ ;; org-tab-first-hook '(org-hide-block-toggle-maybe
+ ;;                      org-src-native-tab-command-maybe
+ ;;                      org-babel-hide-result-toggle-maybe
+ ;;                      org-babel-header-arg-expand)
+ ;; org-babel-pre-tangle-hook '(save-buffer)
  org-babel-tangle-lang-exts '(("latex" . "tex")
                               ("emacs-lisp" . "el")
                               ("lisp" . "lisp")
