@@ -102,6 +102,22 @@
 (put 'narrow-to-defun  'disabled nil)
 (put 'narrow-to-page   'disabled nil)
 
+
+
+;;; custom keybinding for handy (narrow + indirect-buffer)
+;; Usage: [C-x n i], you can kill narrowed indirect buffer like normal buffer with [C-x k]. the modification will keep.
+;; FIXME: the region highlight doesn't disappear, this is a problem.
+(defun narrow-to-region-indirect (start end)
+  "Restrict editing in this buffer to the current region, indirectly."
+  (interactive "r")
+  (deactivate-mark)
+  (let ((buf (clone-indirect-buffer nil nil)))
+    (with-current-buffer buf
+      (narrow-to-region start end))
+    (switch-to-buffer buf)))
+
+(global-set-key (kbd "C-x n i") 'narrow-to-region-indirect)
+
 
 ;;; [ Mark ] --- [C-SPC / C-@] + [C-u C-SPC / C-u C-@] + [C-`] / [M-`]
 
