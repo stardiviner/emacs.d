@@ -1586,6 +1586,13 @@ This is especially for create Org files."
                               )
  )
 
+;;; babel eval result
+(setq org-babel-inline-result-wrap "=%s="
+      org-babel-hide-result-overlays nil
+      ;; org-babel-results-keyword "RESULTS"
+      org-export-babel-evaluate t
+      )
+
 
 ;;; LaTeX
 (setq org-babel-latex-htlatex t)
