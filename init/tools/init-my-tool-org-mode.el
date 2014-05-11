@@ -23,8 +23,6 @@
 (require 'org-pcomplete)
 (require 'org-ac)
 
-(require 'org-linkany)
-
 ;;; org-protocol need server start.
 ;; FIXME:
 ;; (unless (server-running-p)
@@ -162,6 +160,12 @@
 (set-face-attribute 'org-agenda-done nil
                     :foreground "#444444"
                     :background "black")
+;; Priority
+(set-face-attribute 'org-priority nil
+                    :foreground "black" :background "green yellow"
+                    :weight 'bold
+                    :box '(:color "black" :line-width 1 :style nil)
+                    )
 ;; code block face => #+BEGIN_SRC ... #+END_SRC
 (set-face-attribute 'org-code nil
                     :background "#004A5D" :foreground "white"
@@ -229,7 +233,6 @@
 ;;; the ahead stars face when org indentation. (org-hide)
 (set-face-attribute 'org-hide nil
                     :foreground "#002B36" :background "#002B36")
-;; (setq org-n-level-faces 8)
 (set-face-attribute 'org-level-1 nil
                     :family "DejaVu Sans Mono"
                     :height 1.5 :weight 'bold
@@ -335,9 +338,15 @@
         )
       )
 
+
+(setq org-ascii-headline-spacing '(1 . 2))
+
+
 
 ;;; Org-bullets
+
 ;; (load-file "~/.emacs.d/my-init/extensions/org-bullets.el")
+
 (require 'org-bullets nil t)
 
 ;;; 希腊/罗马数字: Ⅰ、Ⅱ、Ⅲ、Ⅳ、Ⅴ、Ⅵ、Ⅶ、Ⅷ、Ⅸ、Ⅹ、Ⅺ、Ⅻ
@@ -361,9 +370,6 @@ It can contain any number of symbols, which will be repeated."
             ;; (set-face-attribute 'org-bullet-face nil
             ;;                     :foreground "white" :background "black")
             ))
-
-
-(setq org-ascii-headline-spacing '(1 . 2))
 
 
 ;;; [ Editing ]
@@ -642,7 +648,7 @@ This is especially for create Org files."
 
 ;;; Usage:
 
-(require 'org-linkany)
+;; (require 'org-linkany)
 
 (setq
  ;; org-linkany/url-source-collection
