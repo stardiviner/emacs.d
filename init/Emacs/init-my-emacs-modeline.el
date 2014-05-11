@@ -42,7 +42,7 @@
                                (wg-mode-line-string)))
                              face (:foreground "cyan"))
 
-                (:propertize " ")
+                (:propertize "  ")
 
                 ;; mule info
                 (:propertize mode-line-mule-info) ; U:
@@ -141,12 +141,6 @@
                 (:propertize ") "
                              face (:foreground "orange red"))
 
-                ;; add the time, with the date and the emacs uptime in the tool-tip
-                (:propertize (:eval (format-time-string "%H:%M"))
-                             face (:foreground "white")
-                             help-echo (concat (format-time-string "%c; ")
-                                               (emacs-uptime "Uptime: %D, %z%2h:%.2m")))
-
                 ;; --------------------------- right align ----------------------------------
 
                 ;; Email
@@ -160,6 +154,12 @@
                 ;;              help-echo (format "You have %d unread RSS items! [C-c r]" unread)
                 ;;              mouse-face 'mode-line-highlight)
 
+                ;; ;; add the time, with the date and the emacs uptime in the tool-tip
+                ;; (:propertize (:eval (format-time-string "%H:%M"))
+                ;;              face (:foreground "white")
+                ;;              help-echo (concat (format-time-string "%c; ")
+                ;;                                (emacs-uptime "Uptime: %D, %z%2h:%.2m")))
+                
                 ;; fill with ' '.
                 ;; (:propertize "% ")
 
@@ -300,17 +300,15 @@
                     :inverse-video nil
                     :foreground "#444444"
                     :background "black"
-                    :box '(:color "#444444" :line-width 1 :style nil)
+                    ;; :box '(:color "#444444" :line-width 1 :style nil) :height 90
                     :family "DejaVu Sans Mono"
-                    :height 90
                     )
 (set-face-attribute 'mode-line-inactive nil
                     :inverse-video nil
-                    :foreground "#444444"
-                    :background "#242424"
-                    ;; :box '(:color "#444444" :line-width 1 :style nil)
+                    :foreground "#444444" :background "#242424"
                     :family "DejaVu Sans Mono"
-                    :height 90
+                    ;; :box '(:color "#444444" :line-width 1 :style nil)
+                    ;; :height 90
                     )
 
 
