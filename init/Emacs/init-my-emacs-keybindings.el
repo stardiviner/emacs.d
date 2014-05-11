@@ -69,8 +69,8 @@
 
 (require 'guide-key)
 
-(setq guide-key/idle-delay 0.1
-      ;; guide-key/idle-timer nil ; Idle timer to wait before popping up guide buffer.
+(setq guide-key/idle-delay 2.0 ; longer time can delay guide-key popup to speed up Emacs.
+      guide-key/idle-timer nil ; Idle timer to wait before popping up guide buffer.
       guide-key/polling-time 0.1  ; Polling time to check an input key sequence.
       guide-key/recursive-key-sequence-flag t ; guide-key checks an input key sequence recursively. the guide buffer is popped up when you input “C-x r”, “C-x 8” and any other prefixes following “C-x”.
       )
@@ -119,7 +119,7 @@
         (outline-minor-mode "C-c @")    ; outline minor mode.
         (markdown-mode "C-c" "C-c C-c" "C-c C-s" "C-c C-t" "C-c TAB" "C-c C-a")
         (latex-mode "C-c" "C-c C-p")    ; LaTeX mode.
-        (ruby-mode "C-c" "C-x") ; Ruby yari mode.
+        (ruby-mode "C-c") ; Ruby yari mode.
         (rinari-minor-mode "C-c ;" "C-c ; f" "C-c '") ; Rinari minor mode.
         (web-mode "C-c")                ; web-mode.
         ))
