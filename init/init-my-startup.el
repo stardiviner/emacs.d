@@ -81,6 +81,7 @@
 (find-file "~/Org/Wiki/Computer/Programming/Code/Code.org")
 (find-file "~/Org/Wiki/Computer/Hack/Hack.org")
 (find-file "~/Org/Wiki/Computer/Systems/Linux/Linux.org")
+(find-file "~/Org/Wiki/Computer/Systems/Linux/Arch/Arch.org")
 (find-file "~/Org/Wiki/Computer/Programming/Emacs/Emacs.org")
 (find-file "~/Org/Wiki/Computer/Programming/Emacs/modes/modes.org")
 (find-file "~/Org/Wiki/Computer/Programming/Tools/Version Control System/Git/Git.org")
