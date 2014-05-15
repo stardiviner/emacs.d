@@ -1,4 +1,4 @@
-;;; init-my-email-mu4e.el --- an e-mail client for Emacs
+;;; init-my-tool-email-mu4e.el --- an e-mail client for Emacs
 ;;
 ;;; Commentary:
 
@@ -305,9 +305,8 @@
 
 (if (featurep 'mu4e)
     (progn
+      (define-key my-tools-prefix-map (kbd "m") 'mu4e)
       ;; FIXME: let (setq mail-user-agent 'mu4e-user-agent)
-      (global-set-key (kbd "C-c m") 'mu4e)
-      ;; FIXME:
       (if (eq 'mail-user-agent 'mu4e-user-agent)
           ;; there is upper set default mail-user-agent, so default [C-x m] will be change for mu4e
           (global-set-key (kbd "C-x m") 'mu4e-compose-new)
@@ -990,6 +989,6 @@
 
 
 
-(provide 'init-my-email-mu4e)
+(provide 'init-my-tool-email-mu4e)
 
-;;; init-my-email-mu4e.el ends here
+;;; init-my-tool-email-mu4e.el ends here

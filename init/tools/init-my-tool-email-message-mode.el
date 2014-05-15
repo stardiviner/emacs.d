@@ -1,4 +1,4 @@
-;;; init-my-email-message-mode.el --- init Email message mode
+;;; init-my-tool-email-message-mode.el --- init Email message mode
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -15,6 +15,6 @@
             (turn-on-orgtbl)))
 
 
-(provide 'init-my-email-message-mode)
+(provide 'init-my-tool-email-message-mode)
 
-;;; init-my-email-message-mode.el ends here
+;;; init-my-tool-email-message-mode.el ends here

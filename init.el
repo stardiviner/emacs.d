@@ -141,6 +141,9 @@
 (require 'init-my-tool-org-mode)
 (require 'init-my-tool-dict)
 ;; (require 'init-my-tool-bbdb)
+;;; Email
+(require 'init-my-tool-email-message-mode)
+(require 'init-my-tool-email-mu4e)
 (require 'init-my-tool-sauron)
 (require 'init-my-tool-paste)
 (require 'init-my-tool-blog)
@@ -149,11 +152,6 @@
 ;; (require 'init-my-tool-emms)
 ;; (require 'init-my-tool-speak)
 ;; (require 'init-my-tool-newsticker)
-
-
-;;; Email
-(require 'init-my-email-message-mode)
-(require 'init-my-email-mu4e)
 
 
 ;;; IRC
