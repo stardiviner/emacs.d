@@ -22,9 +22,9 @@
 
 
 ;;; [ Benchmark ]
-(let ((benchmark-init.el (expand-file-name  "el-get/benchmark-init/benchmark-init.el" user-emacs-directory)))
-  (when (file-exists-p benchmark-init.el)
-    (load benchmark-init.el)))
+;; (let ((benchmark-init.el (expand-file-name  "el-get/benchmark-init/benchmark-init.el" user-emacs-directory)))
+;;   (when (file-exists-p benchmark-init.el)
+;;     (load benchmark-init.el)))
 
 ;;; Usage:
 ;; - [benchmark-init/show-durations-tabulated] ::
