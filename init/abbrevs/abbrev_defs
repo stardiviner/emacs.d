@@ -1,7 +1,11 @@
 ;;-*-coding: utf-8;-*-
 (define-abbrev-table 'Buffer-menu-mode-abbrev-table '())
 
+(define-abbrev-table 'Custom-mode-abbrev-table '())
+
 (define-abbrev-table 'Info-edit-mode-abbrev-table '())
+
+(define-abbrev-table 'Man-mode-abbrev-table '())
 
 (define-abbrev-table 'ack-and-a-half-mode-abbrev-table '())
 
@@ -103,7 +107,7 @@
 
 (define-abbrev-table 'global-abbrev-table
   '(
-    ("eg" "e.g." nil 2)
+    ("eg" "e.g." nil 3)
     ("my-nick" "stardiviner" nil 0)
     ("my.nick" "stardiviner" nil 0)
     ("myemail" "numbchild@gmail.com" nil 0)
@@ -146,6 +150,8 @@
 (define-abbrev-table 'inferior-lisp-mode-abbrev-table '())
 
 (define-abbrev-table 'inferior-python-mode-abbrev-table '())
+
+(define-abbrev-table 'internal-ange-ftp-mode-abbrev-table '())
 
 (define-abbrev-table 'irfc-mode-abbrev-table '())
 
@@ -219,7 +225,12 @@
 
 (define-abbrev-table 'octave-abbrev-table '())
 
-(define-abbrev-table 'org-mode-abbrev-table '())
+(define-abbrev-table 'org-mode-abbrev-table
+  '(
+    ("257]
+" "youtube" nil 0)
+    ("youtube" "YouTube" nil 9)
+   ))
 
 (define-abbrev-table 'outline-mode-abbrev-table '())
 
@@ -320,4 +331,6 @@
 (define-abbrev-table 'vc-git-log-view-mode-abbrev-table '())
 
 (define-abbrev-table 'web-mode-abbrev-table '())
+
+(define-abbrev-table 'yaml-mode-abbrev-table '())
 
