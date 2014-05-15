@@ -650,10 +650,18 @@ This is especially for create Org files."
 
 ;; (require 'org-linkany)
 
-(setq
- ;; org-linkany/url-source-collection
- org-linkany/browse-function 'browse-url-firefox
- )
+;; (setq org-linkany/url-source-collection
+;;       '((org-linkany/source-link-in-org-buffer . org-linkany/get-candidate-link-value)
+;;         (org-linkany/source-url-in-other-buffer)
+;;         (helm-source-w3m-bookmarks . helm-w3m-bookmarks-get-value)
+;;         (anything-c-source-w3m-bookmarks . anything-c-w3m-bookmarks-get-value)
+;;         (helm-source-firefox-bookmarks . helm-firefox-bookmarks-get-value)
+;;         (anything-c-source-firefox-bookmarks . anything-c-firefox-bookmarks-get-value)
+;;         (helm-c-source-hatena-bookmark . org-linkany/get-hatena-bookmark-candidate-url)
+;;         (anything-c-source-hatena-bookmark . org-linkany/get-hatena-bookmark-candidate-url))
+;;       )
+
+;; (setq org-linkany/browse-function 'browse-url-firefox)
 
 
 ;;; [ Properties and Columns ]
