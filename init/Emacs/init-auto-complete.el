@@ -395,6 +395,7 @@
 (setq ac-modes
       (append ac-modes
               '(prog-mode               ; programming modes
+                web-mode
                 text-mode org-mode markdown-mode
                 change-log-mode
                 ;; objc-mode
