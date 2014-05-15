@@ -76,7 +76,8 @@
 ;; contents of the line, plus optional additional vertical line spacing
 ;; above or below the display line.
 
-(setq-default line-spacing 0.1) ; additional space to put between lines.
+;; additional space to put between lines.
+(setq-default line-spacing 0.1)         ; 0.1, 1, nil.
 
 
 ;;; [ line number ]
@@ -534,7 +535,8 @@
       minimap-window-location 'right
       minimap-dedicated-window t        ; whether create a dedicated window.
       minimap-recreate-window t
-      minimap-automatically-delete-window t
+      ;; TODO: dive into minimap source code to debug this issue.
+      minimap-automatically-delete-window t ; disable auto delete minimap window will avoid weird window jumping problem. (which auto weird jump to next window after re-switch back to source code window instead of Org-mode buffer.) So set this option to `nil' will preserve the minimap window.
       minimap-major-modes '(prog-mode
                             ;; org-mode
                             markdown-mode Man-mode
@@ -543,7 +545,10 @@
       minimap-enlarge-certain-faces 'as-fallback
       )
 
-(add-hook 'emacs-startup-hook 'minimap-create)
+;; TODO: enable some weeks later.
+;; (add-hook 'emacs-startup-hook 'minimap-create)
+
+(diminish 'minimap-mode)
 
 
 (provide 'init-my-emacs-apperance)
