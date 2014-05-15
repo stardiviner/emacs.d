@@ -10,7 +10,8 @@
 ;; (setq tab-always-indent 'complete)
 ;; (add-to-list 'completion-styles 'initials t)
 ;; (setq completion-cycle-threshold 5)
-(setq completion-at-point-functions 'auto-complete)
+(setq completion-at-point-functions '(auto-complete company-complete semantic-completion-at-point-function
+                                                    lisp-completion-at-point))
 
 
 ;;; [ pcomplete ] --- Programmable, Context-Sensitive Completion Library
