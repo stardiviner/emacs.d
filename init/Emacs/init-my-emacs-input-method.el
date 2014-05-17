@@ -44,6 +44,9 @@
 
 ;;; [ EIM ] -- Emacs Input Method (for Chinese input)
 
+;; https://github.com/wenbinye/emacs-eim
+;; https://code.google.com/p/ywb-codes/source/browse/trunk/emacs/eim/
+
 ;;; Features:
 ;;
 ;; ** 五笔
@@ -87,6 +90,28 @@
                        "拼音" "汉字拼音输入法" "~/.emacs.d/site-lisp/eim/py.txt")
 (register-input-method "eim-wb" "euc-cn" 'eim-use-package
                        "五笔" "汉字五笔输入法" "~/.emacs.d/site-lisp/eim/wb.txt")
+
+(setq eim-use-tooltip nil)
+
+;; use ; for input English temporarily.
+;; (require 'eim-extra)
+;; (global-set-key ";" 'eim-insert-ascii)
+
+;; (defun my-eim-py-activate-function ()
+;;   (add-hook 'eim-active-hook
+;;             (lambda ()
+;;               (let ((map (eim-mode-map)))
+;;                 (define-key eim-mode-map "-" 'eim-previous-page)
+;;                 (define-key eim-mode-map "=" 'eim-next-page)))))
+
+
+
+(setq default-input-method "eim-py") ; set default input method: "chinese-py"
+
+(set-input-method "eim-py")              ; use EIM-pinyin input method
+(setq activate-input-method t)          ; activate input method
+(toggle-input-method nil)
+
 
 
 (provide 'init-my-emacs-input-method)
