@@ -7,7 +7,12 @@
 
 ;;; Code:
 
+;;; [ Chinese Input Method ]
 
+
+
+
+;;; [ EIM ] -- Emacs Input Method (for Chinese input)
 
 
 
