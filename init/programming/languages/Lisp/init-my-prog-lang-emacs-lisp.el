@@ -50,6 +50,8 @@
 ;;; elisp-format
 (require 'elisp-format)
 
+(setq elisp-format-indent-comment t
+      elisp-format-dired-mark-files-confirm t)
 
 ;;; elisp-slime-nav
 

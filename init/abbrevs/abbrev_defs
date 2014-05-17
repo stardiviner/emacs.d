@@ -11,7 +11,9 @@
 
 (define-abbrev-table 'apropos-mode-abbrev-table '())
 
-(define-abbrev-table 'arduino-mode-abbrev-table '())
+(define-abbrev-table 'arduino-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'asdf-mode-abbrev-table '())
 
@@ -107,6 +109,7 @@
 
 (define-abbrev-table 'global-abbrev-table
   '(
+    ("deathcode" "0xDEADCODE" nil 1)
     ("eg" "e.g." nil 3)
     ("my-nick" "stardiviner" nil 0)
     ("my.nick" "stardiviner" nil 0)
@@ -260,7 +263,9 @@
 
 (define-abbrev-table 'python-mode-abbrev-table '())
 
-(define-abbrev-table 'python-mode-skeleton-abbrev-table '())
+(define-abbrev-table 'python-mode-skeleton-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'reb-lisp-mode-abbrev-table '())
 

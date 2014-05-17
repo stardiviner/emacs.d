@@ -151,7 +151,7 @@
          ;; languages
          ;; Ruby
          ruby-mode
-         ;; ruby-electric
+         ;; ruby-electric (merged into Ruby)
          ruby-block
          yari
          auto-complete-ruby

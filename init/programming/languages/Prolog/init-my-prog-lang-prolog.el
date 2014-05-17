@@ -14,6 +14,9 @@
 (add-to-list 'auto-mode-alist '("\\.prolog$" . prolog-mode))
 
 
+;;; [ Inferior Prolog ]
+
+
 ;;; [ ediprolog ]
 
 

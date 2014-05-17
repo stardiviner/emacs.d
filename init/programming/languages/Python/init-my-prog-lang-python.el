@@ -75,6 +75,11 @@
       '(progn
          (define-key pythom-mode-map (kbd "C-h d") 'helm-pydoc))))
 
+
+;;; [ Inferior Python ]
+
+;; Usage:
+;; (run-python)
 
 
 ;;; [ jedi ] --- a python auto-completion library.
