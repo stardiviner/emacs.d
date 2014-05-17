@@ -7,9 +7,39 @@
 
 ;;; Code:
 
-;;; [ Chinese Input Method ]
+;; [ Input Method ]
+
+;; Usage:
+;; - [C-h I] / [C-u C-\] + [METHOD] -- describe the input method
+;; - [C-u C-\] -- interactively choose input method
+;; - [C-x Return C-\]
+;; - [M-x set-input-method]
+;;   - Chinese-PY
+;; - [C-\] -- toggle-input-method
+;; - [C-h C-\ METHOD] -- describe the input method
+;; - [C-u C-x =] -- check out how to input the character after point using current input method.
+;; - chinese-py :: chinese pinyin.
+;; - greek :: Greek.
+;; - keys:
+;;   - [C-f/b] -- forward/backward
+;;   - [C-n/p] -- next/previous
+;; * compose key
+;; * ucs-insert
+;; - [C-x 8 RET]
+
+;; (setq default-input-method "chinese-py") ; default: "rfc1345",
+
+(setq input-method-verbose-flag t)
+;; (global-set-key (kbd "C-SPC") 'nil) ; disable [C-SPC] for input method.
+
 
 
+;;; [ Chinese Input Method ]
+
+
+
+;;; [ quail ] -- Emacs default input method which use keymap to lookup chinese.
+
 
 
 ;;; [ EIM ] -- Emacs Input Method (for Chinese input)
