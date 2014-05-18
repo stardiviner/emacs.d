@@ -50,12 +50,14 @@
 
 ;;; [ session ]
 
+
 ;;; [ auto save ]
 ;; (auto-save-mode t)
 (setq auto-save-default t               ; create #autosave# files
       auto-save-list-file-prefix "~/.emacs.d/auto-save-list/.saves-"
       auto-save-interval 200)
 
+
 ;; places
 (require 'saveplace)
 (setq save-place t                      ; save point place
@@ -71,14 +73,16 @@
       version-control t ; use versioned backups.
       vc-make-backup-files nil ; do not backup files in vc.
       ;; backup-inhibited ; do not generate backup
-      delete-old-versions t
-      kept-new-versions 3
-      kept-old-versions 3
-      version-control t
+      delete-old-versions t             ; auto delete old versions.
+      kept-new-versions 3               ; number of new versions.
+      kept-old-versions 3               ; number of old versions.
+      version-control t                 ; multiple versions backup.
       )
 
 (setq backup-directory-alist
-      `(("." . ,(expand-file-name "~/.emacs.d/backups"))))
+      `(("." . ,(expand-file-name "~/.emacs.d/.backups")))
+      ;; `((".*" . ,temporary-file-directory)) ; put all under directory /tmp.
+      )
 
 
 ;;; [ version control ] (vc)
