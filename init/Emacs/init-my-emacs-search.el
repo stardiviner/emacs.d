@@ -176,8 +176,9 @@
       ;; ack-and-a-half-mode-type-default-alist
       ack-and-a-half-mode-type-alist nil
       ack-and-a-half-literal-history t
+      ;; ack-and-a-half-prompt-for-directory 'unless-guessed
       ;; ack-and-a-half-root-directory-functions '(ack-and-a-half-guess-project-root)
-      ack-and-a-half-prompt-for-directory 'unless-guessed
+      ack-and-a-half-prompt-for-directory t
       ;; TODO add more project root file patterns.
       ack-and-a-half-project-root-file-patterns '(".project\\'"
                                                   "\\`.git\\'" "\\`.bzr\\'" "\\`_darcs\\'" "\\`.hg\\'"
