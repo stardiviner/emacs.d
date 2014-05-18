@@ -12,6 +12,13 @@
 ;; (setq shell-file-name "/bin/sh")        ; TODO "$SHELL", "/bin/sh", "usr/bin/zsh"
 
 
+;;; [ Cominit ]
+
+(setq comint-prompt-read-only t ; prompt read-only.
+      )
+
+
+
 ;;; [ Shell ]
 
 ;; M-x shell is a nice shell interface to use, let's make it colorful. If
