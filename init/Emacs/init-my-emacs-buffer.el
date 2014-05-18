@@ -40,7 +40,7 @@
         recentf-max-saved-items 1000
         recentf-exclude '("/tmp/" "/ssh:")
         ;; recentf-keep
-        recentf-save-file (expand-file-name "temp/.recentf" user-emacs-directory)
+        recentf-save-file (expand-file-name ".temp/recentf" user-emacs-directory)
         recentf-auto-cleanup 'never ; 'mode
         recentf-max-saved-items 100
         recentf-case-fold-search t
