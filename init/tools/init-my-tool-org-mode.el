@@ -1860,10 +1860,9 @@ This function will promote all items in a subtree."
   (interactive)
   (if (get-buffer "*Org Agenda*")
       (switch-to-buffer "*Org Agenda*")
-    (when (y-or-n-p "build Org Agenda? ")
       (command-execute 'org-agenda-list)
       (bury-buffer)
-      (switch-to-buffer "*Org Agenda*"))
+    (switch-to-buffer "*Org Agenda*")
     ))
 
 ;;; start Org Agenda at Emacs startup, and put in end of buffer list:
