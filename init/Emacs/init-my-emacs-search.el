@@ -186,11 +186,13 @@
                                                   )
       )
 
-(unless (boundp 'ack-map)
-  (define-prefix-command 'ack-map))
-(define-key my-search-prefix-map (kbd "a") 'ack-map)
+;; (unless (boundp 'ack-map)
+;;   (define-prefix-command 'ack-map))
+;; (define-key my-search-prefix-map (kbd "a") 'ack-map)
 
-(define-key ack-map (kbd "a") 'ack-and-a-half)
+;; (define-key ack-map (kbd "a") 'ack-and-a-half)
+
+(define-key my-search-prefix-map (kbd "a") 'ack-and-a-half)
 
 
 ;;; [ Ace Jump Mode ]
