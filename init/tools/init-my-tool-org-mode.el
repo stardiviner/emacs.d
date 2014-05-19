@@ -326,7 +326,7 @@
 ;;; link face
 (set-face-attribute 'org-link nil
                     :foreground "cyan"
-                    :underline '(:color "dark cyan" :line-width 2 :style line))
+                    :underline "dark cyan")
 
 
 ;; FIXME this seems changed in other buffers too. seems globally.
