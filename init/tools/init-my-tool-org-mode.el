@@ -166,13 +166,6 @@
                     :weight 'bold
                     :box '(:color "black" :line-width 1 :style nil)
                     )
-;; code block face => #+BEGIN_SRC ... #+END_SRC
-(set-face-attribute 'org-code nil
-                    :background "#004A5D" :foreground "white"
-                    :box '(:color "cyan" :line-width 1 :style nil)
-                    ;; :underline '(:color "cyan") :box nil
-                    :family "DejaVu Sans Mono"
-                    :bold nil)
 
 ;;; org-verbatim: =org verbatim highlight=
 (set-face-attribute 'org-verbatim nil
@@ -180,6 +173,68 @@
                     :box '(:color "cyan" :line-width 1 :style nil)
                     :family "DejaVu Sans Mono"
                     :bold nil)
+;;; Formula face
+(set-face-attribute 'org-formula nil
+                    :background "green yellow"
+                    :foreground "black"
+                    :inverse-video nil
+                    :box '(:color "green yellow" :line-width 1 :style nil))
+
+;;; cyan style code block colorscheme
+;; ;;; babel faces (source code block) => #+BEGIN_SRC ... #+END_SRC
+;; (set-face-attribute 'org-block-begin-line nil
+;;                     :foreground "cyan" :background "#004A5D"
+;;                     :box '(:color "cyan" :line-width -1)
+;;                     :bold nil :height 80
+;;                     )
+;; (set-face-attribute 'org-block-end-line nil
+;;                     :foreground "cyan" :background "#004A5D"
+;;                     :box '(:color "cyan" :line-width -1)
+;;                     :bold nil :height 80
+;;                     )
+;; (set-face-attribute 'org-block-background nil
+;;                     :background "#004A5d"
+;;                     :foreground nil
+;;                     )
+;; (set-face-attribute 'org-block nil
+;;                     :background "#004A5D"
+;;                     :foreground "white"
+;;                     )
+;; ;; code block face => #+RESULTS: : result.
+;; (set-face-attribute 'org-code nil
+;;                     :background "#004A5D" :foreground "white"
+;;                     :box '(:color "cyan" :line-width 1 :style nil)
+;;                     ;; :underline '(:color "cyan") :box nil
+;;                     :family "DejaVu Sans Mono"
+;;                     :bold nil)
+
+;;; black style code block colorscheme
+;;; babel faces (source code block) => #+BEGIN_SRC ... #+END_SRC
+(set-face-attribute 'org-block-begin-line nil
+                    :foreground "cyan" :background "black"
+                    :box '(:color "#444444" :line-width 1)
+                    :bold t :slant 'normal
+                    )
+(set-face-attribute 'org-block-end-line nil
+                    :foreground "cyan" :background "black"
+                    :box '(:color "#444444" :line-width 1)
+                    :bold t :slant 'normal
+                    )
+(set-face-attribute 'org-block-background nil
+                    :background "black"
+                    :foreground nil
+                    )
+(set-face-attribute 'org-block nil        ; selected line color in code block begin/end line.
+                    :foreground "white" :background "#004A5D"
+                    )
+;; code block face => #+RESULTS: : result.
+(set-face-attribute 'org-code nil
+                    :background "#222222" :foreground "orange"
+                    ;; :box '(:color "cyan" :line-width 1 :style nil)
+                    ;; :underline '(:color "cyan") :box nil
+                    :family "DejaVu Sans Mono"
+                    :bold nil :box nil)
+
 
 ;; inline code face => src_ruby{require 'something'}
 ;;
@@ -202,33 +257,6 @@
 (font-lock-add-keywords 'org-mode
                         '(("@<kbd>\\([^@]*\\)@</kbd>" 1 'org-code)))
 
-
-;;; Formula face
-(set-face-attribute 'org-formula nil
-                    :background "green yellow"
-                    :foreground "black"
-                    :inverse-video nil
-                    :box '(:color "green yellow" :line-width 1 :style nil))
-
-;;; babel faces (source code block)
-(set-face-attribute 'org-block-begin-line nil
-                    :foreground "cyan" :background "#004A5D"
-                    :box '(:color "cyan" :line-width -1)
-                    :bold nil :height 80
-                    )
-(set-face-attribute 'org-block-end-line nil
-                    :foreground "cyan" :background "#004A5D"
-                    :box '(:color "cyan" :line-width -1)
-                    :bold nil :height 80
-                    )
-(set-face-attribute 'org-block-background nil
-                    :background "#004A5d"
-                    :foreground nil
-                    )
-(set-face-attribute 'org-block nil
-                    :background "#004A5D"
-                    :foreground "white"
-                    )
 ;;; headline faces
 ;;; the ahead stars face when org indentation. (org-hide)
 (set-face-attribute 'org-hide nil
