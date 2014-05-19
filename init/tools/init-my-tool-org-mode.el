@@ -608,6 +608,17 @@ It can contain any number of symbols, which will be repeated."
         ("TaoBao" . "http://s.taobao.com/search?q=%s")
         ))
 
+;; Add the following bit of code to your startup (after loading org),
+;; and you can then use links like:
+;;   occur:my-file.txt#regex
+;; to open a file and run occur with the regex on it.
+(defun org-occur-open (uri)
+  "Visit the file specified by URI, and run `occur' on the fragment
+  \(anything after the first '#') in the uri."
+  (let ((list (split-string uri "#")))
+    (org-open-file (car list) t)
+    (occur (mapconcat 'identity (cdr list) "#"))))
+(org-add-link-type "occur" 'org-occur-open)
 
 ;; change [C-c C-o] to open [[file://filename.org]] in current window instead of default in other window.
 ;; (append) (setq org-link-protocols) ; TODO append custom link protocols into this list.
