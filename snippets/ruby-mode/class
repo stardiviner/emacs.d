@@ -1,6 +1,6 @@
-# name: class ... end
-# contributor: hitesh <hitesh.jasani@gmail.com>
-# key: cls
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: class
+# key: class
 # --
 class ${1:`(let ((fn (capitalize (file-name-nondirectory
                                  (file-name-sans-extension
@@ -8,6 +8,13 @@ class ${1:`(let ((fn (capitalize (file-name-nondirectory
 				     (buffer-name (current-buffer))))))))
            (cond
              ((string-match "_" fn) (replace-match "" nil nil fn))
-              (t fn)))`}
-  $0
+              (t fn)))`}${2:(inherit)}
+  ${5:attr_...
+  }def initialize(${3:arguments})
+    $4
+  end
+  
+  $6
 end
+
+$0

@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: def initialize method
+# key: def_initialize
+# --
+def initialize(${1:parameters})
+  ${2:@instance_variables}
+end

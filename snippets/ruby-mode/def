@@ -2,8 +2,8 @@
 # name: define function
 # key: def
 # --
-def ${1:function_name}($2)
-  $3
+def ${1:function_name}${2:(${3:param1, param2})}
+  $4
 end
 
 $0
