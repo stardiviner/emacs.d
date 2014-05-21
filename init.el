@@ -190,6 +190,7 @@
 (require 'init-my-prog-lang-python)
 (require 'init-my-prog-lang-C)
 (require 'init-my-prog-lang-go)
+(require 'init-my-prog-lang-lua)
 (require 'init-my-prog-lang-html)
 (require 'init-my-prog-lang-html5)
 (require 'init-my-prog-lang-css)

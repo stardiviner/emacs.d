@@ -181,6 +181,8 @@
          ;; D
          d-mode
          ;; C++
+         ;; Lua
+         lua-mode
          ;; Web
          web-mode
          ;; JavaScript
