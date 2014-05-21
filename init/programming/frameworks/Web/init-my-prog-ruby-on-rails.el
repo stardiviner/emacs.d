@@ -48,21 +48,34 @@
 
 ;;; Rhtml setup
 
-;;; http://rinari.rubyforge.org/Rhtml-Setup.html#Rhtml-Setup
 ;;; There are three options for editing .rhtml files in Emacs. They are presented here in order of decreasing functionality.
 ;; - nXhtml-Mode: a package for web development
 ;; - MuMaMo-Mode: allows multiple major modes in a single buffer
 ;; - rhtml-Mode: edit rhtml files without using multiple major modes
 
-;; (require 'rhtml-mode)
+(require 'rhtml-mode)
 
-;; (add-hook 'rhtml-mode-hook
-;;           (lambda () (rinari-launch)))
+(add-hook 'rhtml-mode-hook
+          (lambda () (rinari-launch)))
 
-;; (add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . rhtml-mode))
-;; (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . rhtml-mode))
+(add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . rhtml-mode))
+(add-to-list 'auto-mode-alist '("\\.rhtml\\'" . rhtml-mode))
 
+;; ;; MuMaMo-Mode
+;; (require 'mumamo-fun)
+;; (setq mumamo-chunk-coloring 'submode-colored)
+;; (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . eruby-html-mumamo))
+;; (add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . eruby-html-mumamo))
 
+;; ;; nXhtml-Mode
+;; (load "~/path/to/your/elisp/nxml-directory/autostart.el")
+;; (setq nxhtml-global-minor-mode t
+;;       mumamo-chunk-coloring 'submode-colored
+;;       nxhtml-skip-welcome t
+;;       indent-region-mode t
+;;       rng-nxml-auto-validate-flag nil
+;;       nxml-degraded t)
+;; (add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . eruby-nxhtml-mumamo))
 
 
 (provide 'init-my-prog-ruby-on-rails)
