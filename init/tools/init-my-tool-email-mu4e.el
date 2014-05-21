@@ -425,7 +425,8 @@
 
 ;;; View
 
-(setq mu4e-headers-visible-lines 13)
+(setq mu4e-headers-visible-lines 13
+      mu4e-headers-show-threads t)
 
 
 ;;; Message
