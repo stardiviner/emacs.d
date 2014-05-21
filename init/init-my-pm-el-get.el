@@ -121,6 +121,7 @@
          ;; tools
          calfw sauron ; appt
          gist
+         emms ; emms-get-lyrics
          ;; Programming
          ;; code
          ;; glasses-mode
