@@ -30,18 +30,13 @@
 ;;   rails applications.
 ;;   (setq rinari-tags-file-name "TAGS")
 
-;; (require 'rinari)
+(require 'rinari)
 
-;; (add-hook 'rinari-minor-mode-hook
-;;           '(lambda ()
-;;              (setq yas-extra-modes (cons 'rails-mode yas-extra-modes))))
+(add-hook 'rinari-minor-mode-hook
+          '(lambda ()
+             (setq yas-extra-modes (cons 'rails-mode yas-extra-modes))))
 
-;; (setq rinari-tags-file-name "TAGS")
-
-;; ;; (add-hook 'ruby-mode-hook
-;; ;;           (lambda ()
-;; ;;             (defadvice ruby-mode-set-encoding
-;; ;;                 (around ruby-mode-set-encoding-disable activate) nil)))
+(setq rinari-tags-file-name "TAGS")
 
 ;; (global-rinari-mode t)
 
