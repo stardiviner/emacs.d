@@ -24,6 +24,20 @@
 ;; - [$ ctags -r -R .]
 
 
+;;; [ tags settings ]
+
+(setq 
+ ;; List of file names of tags tables to search.
+ tags-add-tables t ; always add new tags to tables
+ ;; tags-included-tables
+ ;; tags-table-list (list
+ ;;                  (expand-file-name "/usr/share/lib/TAGS"))
+ tags-revert-without-query t
+ ;; tags-completion-table
+ tags-apropos-verbose t
+ )
+
+
 ;;; Build Tags
 
 (autoload 'projectile-project-p "projectile")
