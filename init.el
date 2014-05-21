@@ -211,6 +211,7 @@
 ;;; Frameworks
 (require 'init-my-prog-framework-web)
 (require 'init-my-prog-framework-arduino)
+(require 'init-my-prog-ruby-on-rails)
 
 
 
