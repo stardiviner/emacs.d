@@ -84,9 +84,9 @@
          multiple-cursors
          ;; kill-ring-search
          kill-ring-ido
+         ;; predictive
          ;; spell
          flyspell flyspell-guess
-         ;; predictive
          ;; auto-dictionnary
          ;; imenu
          ;; jump
@@ -160,7 +160,7 @@
          auto-complete-ruby
          inf-ruby rcodetools ruby-compilation rvm robe-mode
          rspec-mode
-         ;; rinari
+         rinari
          rhtml-mode projectile-rails
          ;; Lisp
          ;; slime
