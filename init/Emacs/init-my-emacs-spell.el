@@ -14,8 +14,8 @@
 (setq ispell-dictionary "english")
 (setq ispell-program-name "aspell"
       ispell-extra-args '("--sug-mode=ultra")
-      ispell-personal-dictionary "~/.emacs.d/data/spell/personal_dictionary/" ; personal spell dictionary.
-      ispell-silently-savep t           ; save silently. stop confirm when saving personal dictionary.
+      ispell-personal-dictionary nil      ; personal spell dictionary.
+      ispell-silently-savep t ; save silently. stop confirm when saving personal dictionary.
       )
 
 ;;; [M-x ispell-complete-word]
