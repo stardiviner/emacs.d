@@ -65,6 +65,8 @@
          minimap
          ;; modeline
          diminish pretty-mode page-break-lines
+         ;; Info & help & documentation
+         info+
          ;;; multiple major modes
          mmm-mode ; mumamo-noweb
          ;; shell

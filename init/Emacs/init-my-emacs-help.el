@@ -16,6 +16,34 @@
 ;; (Info-mode-hook)
 
 
+;;; [ info+ ]
+
+(require 'info+)
+
+;; TODO:
+;;  Faces defined here:
+;;
+;;    `info-command-ref-item', `info-constant-ref-item', `info-file',
+;;    `info-function-ref-item',`info-macro-ref-item', `info-menu',
+;;    `info-node', `info-quoted-name', `info-reference-item',
+;;    `info-single-quote', `info-special-form-ref-item',
+;;    `info-string', `info-syntax-class-item',
+;;    `info-user-option-ref-item', `info-variable-ref-item',
+;;    `info-xref'.
+
+(setq Info-breadcrumbs-in-header-flag t
+      ;; Info-display-node-header-fn
+      Info-fit-frame-flag t
+      Info-fontify-angle-bracketed-flag t
+      Info-fontify-quotations-flag t
+      Info-fontify-reference-items-flag t
+      Info-fontify-single-quote-flag t
+      Info-saved-nodes t
+      ;; Info-subtree-separator "
+      ;; * "
+      )
+
+
 
 (setq suggest-key-bindings t) ; show the /equivalent/ key binding when [M-x] command has one.
 
