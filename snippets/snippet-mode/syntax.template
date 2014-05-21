@@ -100,6 +100,9 @@
 # - ${<n>:<default text>} -- placeholder field
 #     is same as [$<n>], but provides a default text.
 
+# - ${...
+#   }continue --- press [C-d] will delete this placeholder line.
+
 # - ${1:default-text} $1 -- mirror
 
 # - ${n:$(transformations text)} -- mirror with transformations
