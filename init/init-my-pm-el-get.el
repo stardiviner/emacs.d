@@ -65,6 +65,8 @@
          minimap
          ;; modeline
          diminish pretty-mode page-break-lines
+         ;; input method
+         eim
          ;; Info & help & documentation
          info+
          ;;; multiple major modes
