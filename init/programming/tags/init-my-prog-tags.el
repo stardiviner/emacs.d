@@ -157,6 +157,41 @@ For project directory with Projectile root."
   (let ((tags-file (concat (eproject-root) "TAGS")))
     (visit-tags-table tags-file)
     (message (concat "Loaded " tags-file))))
+
+;;; [ ido-find-tag ] --- custom function.
+
+;;; TODO:
+;; - whether current point word has tag in TAGS file. press [M-.]
+;; - if have, then jump directly.
+;; - if not, then open ido-find-tag.
+;; - let ido-find-tag auto integrate with projectile etc tool to find project root to locate TAGS file.
+;; - if not find, then ask user: manually set? or generate with root path, and ctags command arguments.
+
+;; (require 'etags)
+
+;; (defun ido-find-tag ()
+;;   "Find a tag using ido"
+;;   (interactive)
+;;   (tags-completion-table)
+;;   (let (tag-names)
+;;     (mapc (lambda (x)
+;;         (unless (integerp x)
+;;           (push (prin1-to-string x t) tag-names)))
+;;       tags-completion-table)
+;;     (find-tag (ido-completing-read "Tag: " tag-names))))
+ 
+;; (defun ido-find-file-in-tag-files ()
+;;   (interactive)
+;;   (save-excursion
+;;     (let ((enable-recursive-minibuffers t))
+;;       (visit-tags-table-buffer))
+;;     (find-file
+;;      (expand-file-name
+;;       (ido-completing-read
+;;        "Project file: " (tags-table-files) nil t)))))
+ 
+;; (global-set-key [remap find-tag] 'ido-find-tag)
+;; (global-set-key (kbd "C-.") 'ido-find-file-in-tag-files)
 
 
 

@@ -371,7 +371,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
           (add-to-list 'symbol-names name)
           (add-to-list 'name-and-pos (cons name position))))))))
 
-(global-set-key (kbd "M-i") 'ido-goto-symbol)
+;; TODO: (global-set-key (kbd "M-i") 'ido-goto-symbol)
 
 
 ;; Ace Jump mode
@@ -393,7 +393,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 ;;; [ predictive-mode ] -- tries to predict the rest of the word, and offers you an appropriate completion.
 
-(require 'predictive)
+;; (require 'predictive)
 
 ;; ;;; ### Predictive ###
 ;; ;;; --- 英语助手
@@ -421,7 +421,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;;  completion-map
 ;;  )
 
-
+
 (provide 'init-my-emacs-edit)
 
 ;;; init-my-emacs-edit.el ends here

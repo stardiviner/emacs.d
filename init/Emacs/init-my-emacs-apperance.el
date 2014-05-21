@@ -488,7 +488,8 @@
 
 ;;; hs-minor-mode --
 
-(add-hook 'prog-mode-hook 'hs-minor-mode)
+;; FIXME: *ERROR*: Web Mode doesn't support Hideshow Minor Mode.
+;; (add-hook 'prog-mode-hook 'hs-minor-mode)
 
 
 ;;; Disable GUI dialog boxes
@@ -550,6 +551,40 @@
 
 (diminish 'minimap-mode)
 
+
+;;; [ stripe-buffer ] -- add stripes to "list" buffers
+
+;; Use different background colors for even and odd lines.
+;;
+;; With the help of library hl-line-mode yet another color can be used for the current line.
+
+;; FIXME: project is still in alpha.
+;; (require 'stripe-buffer)
+
+;; (setq stripe-height
+;;       stripe-in-table-regex ; Regex for determining whether a line is part of a
+;;                             ; table. Used in stripe-table-mode
+;;       )
+
+;; (dolist (hook '(dired-mode-hook
+;;                 ))
+;;   (add-hook hook 'turn-on-stripe-buffer-mode))
+
+;; (after 'org-mode
+;;   (if (featurep 'stripe-buffer)
+;;       (add-hook 'org-mode-hook 'turn-on-stripe-table-mode)))
+
+
+;; (set-face-attribute 'stripe-highlight nil
+;;                     :background "Grey7"
+;;                     :foreground "Gold4"
+;;                     )
+;; (set-face-attribute 'stripe-hl-line nil ; color for hl-line, when using stripe-listify-buffer
+;;                     )
+;; (set-face-attribute 'stripe-highlight-overlays nil
+;;                     )
+
+
 
 (provide 'init-my-emacs-apperance)
 

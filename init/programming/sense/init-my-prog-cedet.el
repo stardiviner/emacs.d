@@ -30,6 +30,9 @@
 (global-semantic-idle-scheduler-mode 1)
 (global-semanticdb-minor-mode 1)
 
+;; or
+(add-hook 'semantic-init-hooks 'semantic-idle-completions-mode)
+
 
 ;;; [ Non-semantic files ]
 ;; Such non-semantic file-types can often be parsed by imenu and/or etags.

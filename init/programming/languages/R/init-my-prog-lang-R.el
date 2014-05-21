@@ -38,6 +38,14 @@
 ;;; [ ess-eldoc ]
 (require 'ess-eldoc)
 
+
+;;; [ auto-complete-acr ]
+
+;;; auto-complete-mode extension for GNU R(statistics)
+;; https://github.com/myuhe/auto-complete-acr.el
+
+
+
 
 
 

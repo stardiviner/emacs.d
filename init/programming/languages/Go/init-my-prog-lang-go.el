@@ -33,6 +33,32 @@
                           (local-set-key (kbd "M-.") #'godef-jump)))
 
 
+
+
+;;; customizations
+;; (defun go-run-buffer()
+;;   (interactive)
+;;   (shell-command (concat "go run " (buffer-name))))
+;; (define-key go-mode-map (kbd "C-c C-c") 'go-run-buffer)
+
+;; (defun go-kill()
+;;   (interactive)
+;;   (if (go-mode-in-string)
+;;       (paredit-kill-line-in-string)
+;;     (paredit-kill)))
+;; (defun go-backward-delete()
+;;   (interactive)
+;;   (if (go-mode-in-string)
+;;       (paredit-backward-delete-in-string)
+;;     (paredit-backward-delete)))
+
+;; (add-hook 'go-mode-hook
+;;           (lambda ()
+;;             (auto-complete-mode 1)
+;;             (add-to-list 'ac-sources 'ac-source-go)
+;;             (call-process "gocode" nil nil nil "-s")))
+
+
 
 ;;; [ go-eldoc ]
 

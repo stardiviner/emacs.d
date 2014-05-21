@@ -1899,8 +1899,8 @@ This function will promote all items in a subtree."
   (interactive)
   (if (get-buffer "*Org Agenda*")
       (switch-to-buffer "*Org Agenda*")
-      (command-execute 'org-agenda-list)
-      (bury-buffer)
+    (command-execute 'org-agenda-list)
+    (bury-buffer)
     (switch-to-buffer "*Org Agenda*")
     ))
 

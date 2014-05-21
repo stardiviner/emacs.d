@@ -129,6 +129,11 @@
 ;; (require 'flx-ido)
 
 
+;;; [ ido-preview ]
+
+;; TODO: (load "~/.emacs.d/init/extensions/ido-preview.el")
+
+
 ;;; [ smex ] --- remember recently and most frequently used commands.
 
 ;; work with ido will show recent frequently used commands in [M-x].

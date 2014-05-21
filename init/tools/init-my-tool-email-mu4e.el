@@ -768,6 +768,16 @@
       mu4e-headers-skip-duplicates t) ; skip duplicates
 
 
+;;; Compose
+
+;; - `org-mu4e-compose-org-mode' :: 
+
+
+;;; Send
+
+(setq mu4e-sent-messages-behavior 'sent)
+
+
 ;;; Crypto (signing, encrypting, verifying, decrypting)
 ;;; - v -- see the details of the signature verification by activating the Details.
 ;; start gpg-agent manually:

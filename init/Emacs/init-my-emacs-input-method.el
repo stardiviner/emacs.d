@@ -83,15 +83,20 @@
 ;; ("M-n" . eim-next-page)        ;page down
 ;; ("M-p" . eim-previous-page)    ;page up
 
-(add-to-list 'load-path "~/.emacs.d/init/extensions/eim.el")
-(autoload 'eim-use-package "eim" "Another emacs input method")
+;;; local extension .el files
+;; (add-to-list 'load-path "~/.emacs.d/init/extensions/eim.el")
+;; (add-to-list 'load-path "~/.emacs.d/init/extensions/eim-extra.el")
+;; (autoload 'eim-use-package "eim" "Another emacs input method")
 
-(register-input-method "eim-py" "euc-cn" 'eim-use-package
-                       "拼音" "汉字拼音输入法" "~/.emacs.d/site-lisp/eim/py.txt")
-(register-input-method "eim-wb" "euc-cn" 'eim-use-package
-                       "五笔" "汉字五笔输入法" "~/.emacs.d/site-lisp/eim/wb.txt")
+;;; el-get installed package
+;; (require 'eim)
 
-(setq eim-use-tooltip nil)
+;; (register-input-method "eim-py" "euc-cn" 'eim-use-package
+;;                        "拼音" "汉字拼音输入法" "~/.emacs.d/site-lisp/eim/py.txt")
+;; (register-input-method "eim-wb" "euc-cn" 'eim-use-package
+;;                        "五笔" "汉字五笔输入法" "~/.emacs.d/site-lisp/eim/wb.txt")
+
+;; (setq eim-use-tooltip nil)
 
 ;; use ; for input English temporarily.
 ;; (require 'eim-extra)
@@ -106,11 +111,11 @@
 
 
 
-(setq default-input-method "eim-py") ; set default input method: "chinese-py"
+;; (setq default-input-method "eim-py") ; set default input method: "chinese-py"
 
-(set-input-method "eim-py")              ; use EIM-pinyin input method
-(setq activate-input-method t)          ; activate input method
-(toggle-input-method nil)
+;; (set-input-method "eim-py")              ; use EIM-pinyin input method
+;; (setq activate-input-method t)          ; activate input method
+;; (toggle-input-method nil)
 
 
 

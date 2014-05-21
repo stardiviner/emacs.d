@@ -73,7 +73,9 @@
                            (lambda (arg) (ruby-end-of-block)) nil))
 
             (electric-indent-local-mode 1)
-            (setq ruby-deep-indent-paren '(?\( ?\[ ?\] t)
+            (setq ruby-use-smie t       ; use sexp navigation for Ruby
+                  ;; bellowing effect only when `ruby-use-smie' is `nil'.
+                  ruby-deep-indent-paren '(?\( ?\[ ?\] t)
                   ruby-deep-indent-paren-style 'space)
             ))
 
@@ -123,12 +125,19 @@
 
 ;;; [ ruby-electric ]
 
-(require 'ruby-electric)
+; (require 'ruby-electric)
+;
+; (add-hook 'ruby-mode-hook 'ruby-electric-mode)
 
-(add-hook 'ruby-mode-hook
-          (lambda ()
-            (autopair-mode -1) ; conflict with ruby-electric.
-            ))
+;; FIXME:
+;; (remove-hook 'ruby-mode-hook 'ruby-electric-mode)
+;;
+;; (add-hook 'ruby-mode-hook
+;;           (lambda ()
+;;             (require 'ruby-electric)
+;;             (autopair-mode -1) ; conflict with ruby-electric.
+;;             (ruby-electric-mode t) ; already autoload by el-get?
+;;             ))
 
 
 
@@ -210,6 +219,8 @@
 (eval-after-load 'ruby-mode
   '(add-hook 'ruby-mode-hook 'inf-ruby-minor-mode))
 
+(run-ruby)
+
 ;; to your init file to easily switch from common Ruby compilation modes to
 ;; interact with a debugger.
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
@@ -232,9 +243,10 @@
 ;; no Ruby console running, most interactive commands provided by Robe will
 ;; offer to launch it automatically.
 ;;
-(inf-ruby)
 ;; FIXME: (error "No matching directory found")
 ;; (inf-ruby-console-auto)
+;; (inf-ruby)
+
 
 
 ;;; [ ac-inf-ruby ]
@@ -421,7 +433,7 @@
 
 ;;; [ yard-mode ] --- Minor mode for Ruby YARD comments
 
-
+
 
 ;;; [ motion-mode ] -- RubyMotion
 
@@ -432,14 +444,18 @@
 ;;; [ projectile-rails ]
 
 ;;; Usage:
-;;; - <prefix> -> [C-c r] + [key]
+;;; - <prefix> -> [C-c p R] + [key] (default: [C-c r])
 
 (require 'projectile-rails)
+
+;; FIXME: this does not work!
+;; (setq projectile-rails-keymap-prefix (kbd "C-c r"))
 
 (setq projectile-rails-add-keywords t)  ; highlight rails keywords.
 (setq projectile-rails-expand-snippet t) ; yasnippet expand skeleton class snippet.
 
 (add-hook 'projectile-mode-hook 'projectile-rails-on)
+;; (add-hook 'ruby-mode-hook 'projectile-rails-mode)
 
 
 ;;; [ Misc Functions ]

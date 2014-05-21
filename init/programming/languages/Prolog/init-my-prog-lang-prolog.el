@@ -16,6 +16,8 @@
 
 ;;; [ Inferior Prolog ]
 
+;; (run-prolog)
+
 
 ;;; [ ediprolog ]
 

@@ -10,6 +10,8 @@
 ;;; [ octave-mode ]
 
 
+;;; [ EOS: Emacs Octave Support ]
+;;; {consists of the three files `octave-mod.el', `octave-inf.el', and `octave-hlp.el'.}
 
 
 ;;; [ octave-mod ]
@@ -57,7 +59,7 @@
 ;;; this command, add the line
 (autoload 'run-octave "octave-inf" nil t)
 ;;; enable inferior octave after Emacs startup.
-(add-hook 'emacs-startup-hook 'run-octave)
+;; (add-hook 'emacs-startup-hook 'run-octave)
 
 
 (setq octave-send-echo-input t
@@ -70,6 +72,14 @@
               'comint-previous-input)
             (define-key inferior-octave-mode-map [down]
               'comint-next-input)))
+
+
+;;; Using the Emacs Info Reader for Octave
+;; If `gnuserv' is installed, add the lines
+;; (autoload 'octave-help "octave-hlp" nil t)
+;; (require 'gnuserv)
+;; (gnuserv-start)
+
 
 
 ;;; [ ac-octave ]

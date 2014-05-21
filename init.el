@@ -170,7 +170,7 @@
 (require 'init-my-prog-electric)
 (require 'init-my-prog-tags)
 ;; (require 'init-my-prog-ecb)
-(require 'init-my-prog-speedbar)
+;; TODO: (require 'init-my-prog-speedbar)
 (require 'init-my-prog-snippet)
 (require 'init-my-prog-document)
 (require 'init-my-prog-compile)
@@ -201,7 +201,7 @@
 (require 'init-my-prog-lang-erlang)
 (require 'init-my-prog-lang-gnuplot)
 (require 'init-my-prog-lang-octave)
-(require 'init-my-prog-lang-matlab)
+;; (require 'init-my-prog-lang-matlab)
 (require 'init-my-prog-lang-tex)
 ;; (require 'init-my-prog-lang-R)
 (require 'init-my-prog-lang-prolog)
@@ -212,8 +212,7 @@
 (require 'init-my-prog-framework-web)
 (require 'init-my-prog-framework-arduino)
 (require 'init-my-prog-ruby-on-rails)
-
-
+(require 'init-my-prog-nginx)
 
 ;;; at the end!!!
 

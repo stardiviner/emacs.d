@@ -233,6 +233,10 @@
 
 (define-key my-search-prefix-map (kbd "k") 'search-keybind)
 
+
+;;; [ migemo ] -- provides Japanese increment search with 'Romanization of Japanese'(ローマ字).
+
+;; https://github.com/emacs-jp/migemo
 
 
 (provide 'init-my-emacs-search)

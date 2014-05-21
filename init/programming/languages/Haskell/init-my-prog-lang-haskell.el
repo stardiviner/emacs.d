@@ -18,6 +18,7 @@
                  (turn-on-haskell-doc-mode)
                  (turn-on-haskell-indentation)
 
+                 (run-haskell)
                  ))))
 
 

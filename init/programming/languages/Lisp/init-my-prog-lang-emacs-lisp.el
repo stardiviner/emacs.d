@@ -52,6 +52,16 @@
 
 (setq elisp-format-indent-comment t
       elisp-format-dired-mark-files-confirm t)
+
+;; FIXME:
+;; (define-key emacs-lisp-mode-map (kbd "M-q")
+;;   (lambda ()
+;;     (interactive)
+;;     (if (use-region-p)
+;;         (elisp-format-region)
+;;       ;; (elisp-format-buffer)
+;;       )))
+
 
 ;;; elisp-slime-nav
 

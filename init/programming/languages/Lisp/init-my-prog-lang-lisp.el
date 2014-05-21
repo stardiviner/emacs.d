@@ -126,12 +126,18 @@
 
 (require 'geiser-install)
 
+;; (run-geiser)
 
 
 ;;; [ ac-geiser ]
 
 (require 'ac-geiser)
 
+
+
+;;; [ Quack ] -- enhanced Emacs Support for Editing and Running Scheme Code
+
+;;; http://www.neilvandyke.org/quack/
 
 
 (provide 'init-my-prog-lang-lisp)
