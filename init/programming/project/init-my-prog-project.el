@@ -57,10 +57,12 @@
 (setq projectile-enable-caching t)
 ;; Using Projectile everywhere
 ;; If you want Projectile to be usable in every directory (even without the presence of project file):
-(setq projectile-require-project-root t)
+(setq projectile-require-project-root nil)
 ;; Completion Options
 (setq projectile-completion-system 'default) ; 'ido, 'grizzl, 'default
 
+(setq projectile-tags-command "ctags -Re %s"
+      projectile-use-git-grep nil)
 
 (projectile-global-mode)
 ;; OR
