@@ -111,7 +111,7 @@
 (setq mouse-avoidance-mode 'animate) ;; auto move mouse away when cursor is at mouse position
 (blink-cursor-mode 1)
 (set-cursor-color "cyan")
-(setq-default cursor-type '(bar . 3) ; '(hbar. 3), '(bar . 3), '(box . 2). '(hollow . 2)
+(setq-default cursor-type '(hbar . 2) ; '(hbar. 3), '(bar . 3), '(box . 2). '(hollow . 2)
               cursor-in-non-selected-windows t)
 (setq mouse-yank-at-point t) ; yank at point position instead of mouse position
 
