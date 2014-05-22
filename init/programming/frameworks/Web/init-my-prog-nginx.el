@@ -12,8 +12,7 @@
 ;; https://github.com/ajc/nginx-mode
 ;; https://github.com/zev/nginx-mode
 
-(unless (package-installed-p 'nginx-mode)
-  (package-install 'nginx-mode))
+(require 'nginx-mode)
 
 (autoload 'nginx-mode "nginx-mode")
 ;; (require 'nginx-mode)

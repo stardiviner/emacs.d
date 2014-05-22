@@ -226,6 +226,7 @@
          ;; Frameworks
          ;; Arduino
          arduino-mode
+         nginx-mode
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
 
