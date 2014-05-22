@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: box
+# key: box
+# --
+:box '(:color "${1:color}" :line-width ${2:1} :style ${3:nil})$0

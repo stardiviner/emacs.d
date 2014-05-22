@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: set-face-attribute
+# key: set-face-attribute
+# --
+(set-face-attribute '${1:face name} nil
+                    :background "${2:color}" :foreground "${3:color}"
+                    $0
+                    )

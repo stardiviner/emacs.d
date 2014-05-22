@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: underline
+# key: underline
+# --
+:underline '(:color "${1:color}" :style ${2:line / wave})
+$0
