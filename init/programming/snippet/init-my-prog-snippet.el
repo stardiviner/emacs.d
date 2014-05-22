@@ -165,6 +165,18 @@ $0"
 ;; (setq yas-new-snippet-default "# -*- mode: snippet -*-\n# name: $1\n# key: ${2:${1:$(yas--key-from-desc yas-text)}}${3:\n# binding: ${4:direct-keybinding}}${5:\n# expand-env: ((${6:some-var} ${7:some-value}))}${8:\n# type: command}\n# --\n$0")
 
 
+;;; Faces
+(set-face-attribute 'yas-field-highlight-face nil
+                    :background "black" :foreground " "
+                    :box '(:color "#009494" :line-width 1 :style nil)
+                    )
+(set-face-attribute 'yas--field-debug-face nil
+                    :background " " :foreground " "
+                    :box nil
+                    ;; :box '(:color "cyan")
+                    )
+
+
 ;;; enable YASnippet
 
 (yas-global-mode 1) ; or [M-x yas-reload-all] if you've started YASnippet already.
