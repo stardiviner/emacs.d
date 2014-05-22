@@ -119,29 +119,22 @@
       cursor-in-non-selected-windows t)
 
 
-;;; change cursor color dynamically
+;;; [ curchg ] -- change cursor color dynamically
 
 ;; cursor-chg.el looks nifty but just FYI I have this simple (and by comparison,
 ;; probably primitive) snippet in my .emacs. I don’t remember where I got it
 ;; from but works great for me. Note, the hardwired colors are meant for dark
 ;; backgrounds.
 
-;; Change cursor color according to mode
-(defvar hcz-set-cursor-color-color "cyan")
-(defvar hcz-set-cursor-color-buffer "yellow")
-(defun hcz-set-cursor-color-according-to-mode ()
-  "change cursor color according to some minor modes."
-  ;; set-cursor-color is somewhat costly, so we only call it when needed:
-  (let ((color
-         (if buffer-read-only "white"
-           (if overwrite-mode "yellow"
-             "cyan"))))
-    (unless (and
-             (string= color hcz-set-cursor-color-color)
-             (string= (buffer-name) hcz-set-cursor-color-buffer))
-      (set-cursor-color (setq hcz-set-cursor-color-color color))
-      (setq hcz-set-cursor-color-buffer (buffer-name)))))
-(add-hook 'post-command-hook 'hcz-set-cursor-color-according-to-mode)
+(setq curchg-change-cursor-on-input-method-flag t
+      curchg-change-cursor-on-overwrite/read-only-flag t
+      curchg-default-cursor-color "cyan"
+      curchg-default-cursor-type 'hbar
+      curchg-idle-cursor-type 'box
+      curchg-input-method-cursor-color "orange"
+      curchg-overwrite/read-only-cursor-type 'box)
+
+(change-cursor-mode 1)
 
 
 ;;; [ cursor-chg ]
