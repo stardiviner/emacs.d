@@ -219,11 +219,8 @@
 (push '("*Org-Babel Error Output*" :position bottom :height 10) popwin:special-display-config)
 
 ;;; Completion List (completion-list-mode)
+;; FIXME: popwin can't capture this popup window.
 (push '(completion-list-mode :position bottom :height 15) popwin:special-display-config)
-
-;;; Helm
-;; FIXME:
-;; (push '(helm-mode :position bottom :height 10) popwin:special-display-config)
 
 ;;; Occur Mode
 (push '("*Occur*" :position bottom :height 10) popwin:special-display-config)

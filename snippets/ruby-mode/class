@@ -9,8 +9,8 @@ class ${1:`(let ((fn (capitalize (file-name-nondirectory
            (cond
              ((string-match "_" fn) (replace-match "" nil nil fn))
               (t fn)))`}${2:(inherit)}
-  ${5:attr_...
-  }def initialize(${3:arguments})
+  ${5:attr_...}
+  def initialize(${3:arguments})
     $4
   end
   

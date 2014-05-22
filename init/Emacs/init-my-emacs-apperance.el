@@ -134,7 +134,7 @@
   ;; set-cursor-color is somewhat costly, so we only call it when needed:
   (let ((color
          (if buffer-read-only "white"
-           (if overwrite-mode "red"
+           (if overwrite-mode "yellow"
              "cyan"))))
     (unless (and
              (string= color hcz-set-cursor-color-color)
