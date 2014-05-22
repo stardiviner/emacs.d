@@ -78,6 +78,18 @@
 (stardiviner/checkpoint "initialized benchmarking")
 
 
+;;; [ Edebug ] -- Edebug is a source level debugger.
+
+;;; Extensions to Edebug to make it a little nicer to work with. Provides
+;;; highlighting for breakpoints, instrumented functions and current line of
+;;; debugger. Also provides a couple of commands to list current breakpoints and
+;;; instrumented functions.
+
+(require 'edebug-x)
+
+(setq edebug-x-stop-point-overlay t)
+
+
 ;;; [ Benchmarking ]
 
 ;; Moreover, since, I am a quantified-geek, I love to measure various

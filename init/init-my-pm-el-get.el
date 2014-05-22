@@ -36,6 +36,7 @@
 (setq my-el-get-packages
       (append
        '(;; debug
+         edebug-x
          ;; benchmark
          ;; benchmark-init
          ;; popup
