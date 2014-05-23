@@ -283,7 +283,16 @@ The `BUFFER' is the popwin catch pop private message buffer."
 ;; octave help mode
 (push '(octave-help-mode :position bottom :height 15) popwin:special-display-config)
 
+;; calc -- Calculator
+(push '(calc-mode :position bottom :height 10) popwin:special-display-config)
+;; (push '("*Calculator*" :position bottom :height 10) popwin:special-display-config)
+
 
 (provide 'init-my-emacs-window)
 
 ;;; init-my-emacs-window.el ends here
+
+
+
+
+
