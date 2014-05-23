@@ -143,6 +143,7 @@
 ;;; Tools
 (require 'init-my-tool-org-mode)
 (require 'init-my-tool-dict)
+(require 'init-my-tool-calculator)
 ;; (require 'init-my-tool-bbdb)
 ;;; Email
 (require 'init-my-tool-email-message-mode)

@@ -28,7 +28,11 @@
 ;; - [C-x * *] ::
 ;; ELISP> (calc-eval "1+2")
 ;;
-;; 
+;; - Plot
+;;   - [g p] :: graph-plot.
+
+(setq calc-complex-format 'i            ; complex number style: x + yi.
+      )
 
 (define-key my-tools-prefix-map (kbd "c") 'calc)
 
