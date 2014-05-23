@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: block
+# key: do
+# --
+do |${1:iterator}|
+  $2
+end

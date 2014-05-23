@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: info
+# key: info
+# --
+(info "(${1:file-node}) ${2:Buffer}")

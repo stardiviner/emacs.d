@@ -1,0 +1,5 @@
+# name: indent according mode
+# key: indent
+# key: $&
+# --
+$&

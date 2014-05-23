@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: inline block
+# key: bi
+# --
+{|${1:iterator}| $2}

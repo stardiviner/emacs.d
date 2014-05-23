@@ -3,6 +3,6 @@
 # contributor: stardiviner
 # --
 
-file:$1
+[[file:$1]]
 
 $0

@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: inline code
+# key: code_inline
+# --
+=src_${1:language}${3: [header args]}{${2:inline code block}}= $0
