@@ -84,6 +84,8 @@
         "C-x 4"                         ; other window
         "C-x 5"                         ; other frame
         "C-x RET"                       ; coding system
+        "C-x C-a"                       ; edebug
+        "C-c C-x"                       ; edebug-x
         "C-x *"                         ; calc
         "C-x a"                         ; abbrev
         "C-x n"                         ; narrow
@@ -104,6 +106,7 @@
         "C-c &"                         ; yasnippet (global)
         "C-c p"                         ; projectile (global)
         "C-c p 4"                       ; projectile (4: buffer or window)
+        "C-c d"                         ; Debug
         "C-c v"                         ; Magit (global)
         "C-c g"                         ; Git
         "C-c o"                         ; Org-mode (global)
