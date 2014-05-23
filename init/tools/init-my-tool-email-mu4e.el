@@ -435,11 +435,13 @@
 ;; (better only use that for the last field.
 ;; These are the defaults:
 ;; TODO add some separator symbols like | + etc between those fields.
+
+(setq mu4e-headers-date-format "%x %X")
+
 (setq mu4e-headers-fields '((:flags   .  5)
                             (:subject . 65)
                             (:from    . 15)
                             (:date    . 20))
-      mu4e-headers-date-format "%x %X"
       )
 
 ;; general emacs mail settings; used when composing e-mail

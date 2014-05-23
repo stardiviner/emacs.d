@@ -11,9 +11,7 @@
 
 (define-abbrev-table 'apropos-mode-abbrev-table '())
 
-(define-abbrev-table 'arduino-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'arduino-mode-abbrev-table '())
 
 (define-abbrev-table 'asdf-mode-abbrev-table '())
 
@@ -42,6 +40,8 @@
 (define-abbrev-table 'change-log-mode-abbrev-table '())
 
 (define-abbrev-table 'cider-repl-mode-abbrev-table '())
+
+(define-abbrev-table 'cider-stacktrace-mode-abbrev-table '())
 
 (define-abbrev-table 'clojure-mode-abbrev-table '())
 
@@ -142,6 +142,8 @@
 
 (define-abbrev-table 'html-mode-abbrev-table '())
 
+(define-abbrev-table 'ibuffer-mode-abbrev-table '())
+
 (define-abbrev-table 'idl-mode-abbrev-table '())
 
 (define-abbrev-table 'image-dired-display-image-mode-abbrev-table '())
@@ -173,6 +175,8 @@
 (define-abbrev-table 'lisp-mode-abbrev-table '())
 
 (define-abbrev-table 'literate-haskell-mode-abbrev-table '())
+
+(define-abbrev-table 'locate-mode-abbrev-table '())
 
 (define-abbrev-table 'log-edit-mode-abbrev-table '())
 
@@ -263,15 +267,15 @@
 
 (define-abbrev-table 'python-mode-abbrev-table '())
 
-(define-abbrev-table 'python-mode-skeleton-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'python-mode-skeleton-abbrev-table '())
 
 (define-abbrev-table 'reb-lisp-mode-abbrev-table '())
 
 (define-abbrev-table 'reb-mode-abbrev-table '())
 
 (define-abbrev-table 'require '())
+
+(define-abbrev-table 'rhtml-mode-abbrev-table '())
 
 (define-abbrev-table 'rspec-compilation-mode-abbrev-table '())
 

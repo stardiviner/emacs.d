@@ -45,10 +45,12 @@
                          company-capf
                          company-ropemacs
                          company-nxml company-css
+                         company-cmake
                          company-xcode
                          company-bbdb
                          (company-dabbrev-code company-yasnippet company-gtags company-etags company-keywords)
-                         company-oddmuse company-files company-dabbrev company-abbrev
+                         company-files company-dabbrev company-abbrev
+                         company-oddmuse
                          ;; company-ispell
                          ))
 

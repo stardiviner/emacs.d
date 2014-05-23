@@ -196,11 +196,17 @@
 ;;; -- inf-ruby provides a REPL buffer connected to a Ruby(irb/pry) subprocess.
 
 ;;; Usage:
+;;;
 ;;; - [M-x inf-ruby] :: A simple IRB process can be fired up with M-x inf-ruby.
-;;; - [M-x inf-ruby-console-auto] :: To launch a REPL with project-specific console instead, type M-x inf-ruby-console-auto. It recognizes several project types, including Rails, gems and anything with racksh in their Gemfile.
-;;; - To see the list of the keybindings defined by inf-ruby-minor-mode, type M-x describe-function [RET] inf-ruby-minor-mode [RET].
+;;;
+;;; - [M-x inf-ruby-console-auto] :: To launch a REPL with project-specific
+;;;   console instead, type M-x inf-ruby-console-auto. It recognizes several
+;;;   project types, including Rails, gems and anything with racksh in their
+;;;   Gemfile.
+;;;
+;;; - To see the list of the keybindings defined by inf-ruby-minor-mode, type
+;;;   M-x describe-function [RET] inf-ruby-minor-mode [RET].
 
-;;; Usage:
 ;; - [M-x run-ruby] -- which runs IRB in an Emacs buffer
 ;; keybindings:
 ;; - [C-c C-s] -- inf-ruby
@@ -215,38 +221,40 @@
 ;; - [C-c M-r] -- ruby-send-region-and-go
 ;; - [C-c C-l] -- ruby-load-file
 
+;; - [RET] -- after the end of the process' output sends the text from the end of process to point.
+;; - [RET] -- before the end of the process' output copies the sexp ending at point
+;;           to the end of the process' output, and sends it.
+;; - [DEL] -- converts tabs to spaces as it moves back.
+;; - [TAB] -- completes the input at point. IRB, Pry and Bond completion is supported.
+;; - [C-M-q] -- does TAB on each line starting within following expression.
+;; - Paragraphs are separated only by blank lines. # start comments.
+;; - If you accidentally suspend your process, use comint-continue-subjob to continue it.
+
+
+;; FIXME:
 (autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
-(eval-after-load 'ruby-mode
-  '(add-hook 'ruby-mode-hook 'inf-ruby-minor-mode))
-
-(run-ruby)
-
-;; to your init file to easily switch from common Ruby compilation modes to
-;; interact with a debugger.
-(add-hook 'after-init-hook 'inf-ruby-switch-setup)
-
-(setq inf-ruby-default-implementation "ruby"
-      ;; inf-ruby-implementations '(("ruby" . "irb --inf-ruby-mode -r irb/completion")
-      ;;                            ("pry"  . "pry")
-      ;;                            ("jruby" . "jruby -S irb -r irb/completion")
-      ;;                            ("rubinius" . "rbx -r irb/completion")
-      ;;                            ("yarv" . "irb1.9 --inf-ruby-mode -r irb/completion")
-      ;;                            ("macruby" . "macirb -r irb/completion"))
-      ;; inf-ruby-prompt-format
-      )
 
 ;; integrate with rvm.el
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   (rvm-activate-corresponding-ruby))
 
-;; Generally, you'll want to start with `M-x inf-ruby-console-auto'. If there's
-;; no Ruby console running, most interactive commands provided by Robe will
-;; offer to launch it automatically.
-;;
-;; FIXME: (error "No matching directory found")
-;; (inf-ruby-console-auto)
-;; (inf-ruby)
+(add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
 
+(add-hook 'after-init-hook 'inf-ruby-switch-setup)
+
+;; (run-ruby)
+
+(setq inf-ruby-default-implementation "pry"
+      ;; inf-ruby-implementations
+      ;; inf-ruby-orig-compilation-mode nil
+      ;; inf-ruby-console-patterns-alist '(("config/application.rb" . rails)
+      ;;                                   ("*.gemspec" . gem)
+      ;;                                   ("Gemfile" . default))
+      inf-ruby-prompt-read-only t
+      ;; inf-ruby-eval-binding
+      ;; inf-ruby-prompt-format
+      ;; inf-ruby-prompt-pattern
+      )
 
 
 ;;; [ ac-inf-ruby ]
@@ -326,6 +334,8 @@
 ;; (eval-after-load 'robe
 ;;   (robe-start))
 
+(setq robe-turn-on-eldoc t)
+
 ;; for auto-complete
 (add-hook 'robe-mode-hook
           (lambda ()
@@ -337,9 +347,6 @@
 ;; for company-mode
 ;; (eval-after-load 'company
 ;;   (push 'company-robe company-backends))
-
-
-(setq robe-turn-on-eldoc t)
 
 
 ;;; [ ruby-compilation ]

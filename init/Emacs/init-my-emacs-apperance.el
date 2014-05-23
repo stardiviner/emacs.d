@@ -134,7 +134,6 @@
       curchg-input-method-cursor-color "orange"
       curchg-overwrite/read-only-cursor-type 'box)
 
-(change-cursor-mode 1)
 
 
 ;;; [ cursor-chg ]

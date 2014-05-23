@@ -248,7 +248,7 @@
 ;; src_lang[:header arguments]{code...}
 (font-lock-add-keywords 'org-mode
                         '(("src_\\([^[{]+\\)\\(\\[:.*\\]\\){\\([^}]*\\)}"
-                           (1 '(:foreground "cyan" :weight 'bold)) ; "lang" part.
+                           (1 '(:foreground "cyan" :weight 'bold :height 75)) ; "lang" part.
                            (2 '(:foreground "gray" :height 70)) ; [:header arguments] part.
                            (3 'org-code) ; "code..." part.
                            )))
@@ -319,6 +319,9 @@
                     :background "#222222" :foreground "black"
                     :box '(:color "cyan" :line-width 1)
                     :strike-through t)
+;;; list definition terms
+;; (set-face-attribute 'org-list-dt nil
+;;                     :foreground "green yellow")
 ;;; priority faces
 (setq org-priority-faces '(:foreground "cyan" :background nil
                                        :bold 'normal
@@ -1589,6 +1592,8 @@ This is especially for create Org files."
 
 
 ;;; [ Working With Source Code ]
+
+;;; - [C-c C-v] --- prefix map.
 
 ;;; source code (src)
 (setq
