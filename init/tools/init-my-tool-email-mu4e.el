@@ -362,7 +362,8 @@
 ;; isync or your own shellscript. called when 'U' is pressed in
 ;; main view.
 (setq mu4e-get-mail-command "getmail"
-      mu4e-update-interval 900)
+      mu4e-update-interval 1800
+      mu4e-hide-index-messages t)
 
 
 ;;; Send Mail
