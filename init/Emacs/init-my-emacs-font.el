@@ -27,9 +27,19 @@
 
 ;;; Code:
 ;; set font for all frames
-(set-frame-font "DejaVu Sans Mono-10" t)
-(set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 100)
-(set-face-font 'default "DejaVu Sans Mono")
+;; (set-frame-font "DejaVu Sans Mono-10" t)
+;; (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 100)
+;; (set-face-font 'default "DejaVu Sans Mono")
+
+(defun my-set-font-default (font size height)
+  "combine multiple set font together for easy change once."
+  (interactive)
+  (set-frame-font (concat font "-" (number-to-string size)) t)
+  (set-face-attribute 'default nil :font font :height height)
+  (set-face-font 'default font)
+  )
+
+(my-set-font-default "DejaVu Sans Mono" 10 100)
 
 
 ;; Averia-12
