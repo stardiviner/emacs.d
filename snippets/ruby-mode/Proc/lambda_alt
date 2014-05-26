@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Proc object creation with lambda alternative notation
+# key: lambda_alt
+# --
+-> ${1:(parameters, )} { $0 }

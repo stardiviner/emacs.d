@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: block of do..end
+# key: do
+# --
+do${1: |${2:iterator, ;var for local to block scope}|}
+  $0
+end

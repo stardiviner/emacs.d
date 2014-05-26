@@ -170,6 +170,10 @@
 #     value of the field and sets it its internal modification state to true. As
 #     a consequence, the auto-deletion behaviour of normal fields does not take
 #     place. This is by design.
+#
+#     If field has default text, then the transformation only affect on default
+#     text, will not affect new override text. So if you want to transformation
+#     on input text, you should keep field default text empty.
 
 # - ${n:$$(yas-choose-value '("right" "center" "left"))} -- choosing field value
 #   from a list and other tricks

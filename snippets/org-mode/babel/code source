@@ -6,7 +6,5 @@
 #comment-here yas-choose-value will raise a gui style candidate select.
 # --
 #+BEGIN_SRC ${1:$$(yas-choose-value '("ruby" "lisp" "emacs-lisp" "c" "go"))} `(org-babel-insert-header-arg)`
-$2
-#+END_SRC
-
 $0
+#+END_SRC

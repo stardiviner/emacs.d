@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Proc object creation with lambda
+# key: lambda
+# --
+lambda { |${1:parameters}| $0 }
