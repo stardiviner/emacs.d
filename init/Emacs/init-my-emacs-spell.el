@@ -82,7 +82,11 @@
 
 (set-face-attribute 'flyspell-incorrect nil
                     :background "red" :foreground "yellow"
-                    :bold 'normal)
+                    :bold 'normal
+                    :underline '(:color "dark red" :style wave))
+(set-face-attribute 'flyspell-duplicate nil
+                    :background "dark gray" :foreground "black"
+                    :underline '(:color "red" :style wave))
 
 
 ;;; [ flyspell-guess ] -- flyspell dictionary guesser
