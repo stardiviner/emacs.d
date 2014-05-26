@@ -78,6 +78,12 @@
 ;; (define-key flyspell-mode-map (kbd "C-.") 'flyspell-correct-word-before-point)
 (define-key flyspell-mode-map (kbd "C-.") 'flyspell-auto-correct-previous-word)
 
+;; (setq ispell-highlight-face 'flyspell-incorrect)
+
+(set-face-attribute 'flyspell-incorrect nil
+                    :background "red" :foreground "yellow"
+                    :bold 'normal)
+
 
 ;;; [ flyspell-guess ] -- flyspell dictionary guesser
 
