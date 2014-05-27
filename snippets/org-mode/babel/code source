@@ -5,6 +5,8 @@
 #comment-here `(org-babel-insert-header-arg)` will raise a completion list if "Helm" is used.
 #comment-here yas-choose-value will raise a gui style candidate select.
 # --
-#+BEGIN_SRC ${1:$$(yas-choose-value '("ruby" "lisp" "emacs-lisp" "c" "go"))} `(org-babel-insert-header-arg)`
+#+NAME: $2
+#+HEADERS: `(org-babel-insert-header-arg)`
+#+BEGIN_SRC ${1:$$(yas-choose-value '("ruby" "lisp" "emacs-lisp" "c" "go"))}
 $0
 #+END_SRC

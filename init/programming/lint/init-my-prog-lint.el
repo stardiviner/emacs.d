@@ -100,6 +100,10 @@
       ;; flycheck-mode-line
       ;; flycheck-mode-line-lighter
       flycheck-completion-system nil ; 'ido, 'grizzl, nil
+      ;; flycheck-display-error-at-point-timer
+      ;; flycheck-deferred-syntax-check
+      flycheck-error-list-highlight-overlays t
+      ;; flycheck-error-list-mode-line-map
       )
 
 

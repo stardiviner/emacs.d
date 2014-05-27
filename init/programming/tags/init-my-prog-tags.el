@@ -205,7 +205,7 @@ For project directory with Projectile root."
 ;;        "Project file: " (tags-table-files) nil t)))))
  
 ;; (global-set-key [remap find-tag] 'ido-find-tag)
-;; (global-set-key (kbd "C-.") 'ido-find-file-in-tag-files)
+;; (global-set-key (kbd "M-.") 'ido-find-file-in-tag-files)
 
 
 

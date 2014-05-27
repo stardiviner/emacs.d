@@ -21,6 +21,7 @@
 ;; - m  -- module
 ;;--------------
 ;; - r  -- Robe for Ruby
+;; - h  -- ac-org
 ;;
 ;; Usage:
 ;; - ["M-["] / [Tab] -- to complete "common" string.

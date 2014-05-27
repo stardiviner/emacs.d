@@ -200,7 +200,7 @@
 ;;                     :background "#004A5D"
 ;;                     :foreground "white"
 ;;                     )
-;; ;; code block face => #+RESULTS: : result.
+;; ;; code face => ~code~,  #+RESULTS: : result.
 ;; (set-face-attribute 'org-code nil
 ;;                     :background "#004A5D" :foreground "white"
 ;;                     :box '(:color "cyan" :line-width 1 :style nil)
@@ -227,7 +227,7 @@
 (set-face-attribute 'org-block nil        ; selected line color in code block begin/end line.
                     :foreground "white" :background "#004A5D"
                     )
-;; code block face => #+RESULTS: : result.
+;; code face => ~code~,  #+RESULTS: : result.
 (set-face-attribute 'org-code nil
                     :background "#222222" :foreground "orange"
                     ;; :box '(:color "cyan" :line-width 1 :style nil)

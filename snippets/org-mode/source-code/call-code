@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: call code: #+CALL
-# key: call
+# key: call_code_block
 # --
 `(newline)`
 #+CALL: ${1:source code name} ${2:header arguments}

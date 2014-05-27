@@ -2,7 +2,8 @@
 # name: here document
 # key: here
 # --
-<<${2:HERE} ${3:# ${4:the only place comment}}
-${1:start write here document}
-$2
+<<-${1:HERE} ${3:# ${4:the only place comment}}
+${2:start write here document}
+$1
+
 $0
