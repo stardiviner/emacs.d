@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: regular expression simple pattern
+# key: re
+# --
+/${1:regexp}/ =~ ${2:"string" or other object}

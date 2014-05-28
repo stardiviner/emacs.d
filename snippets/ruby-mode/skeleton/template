@@ -5,6 +5,7 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
 
-# ${1:comments}
+${1:# ${2:comments}
 
-${2:code}
+}
+$0

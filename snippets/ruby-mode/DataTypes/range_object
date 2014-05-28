@@ -1,0 +1,20 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: create range object
+# key: range_object
+# --
+class ${1:ClassName}
+  attr_reader :${2:value}
+  def initialize($2)
+    @$2 = $2
+  end
+  def <=>(other)
+    @$2 <=> other.$2
+  end
+  def succ
+    $1.new(${3:next object value in sequence with expr})
+  end
+  def to_s
+    @$2.to_s
+  end
+  $0
+end

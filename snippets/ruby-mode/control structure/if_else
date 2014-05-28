@@ -1,5 +1,5 @@
 # name: if ... else ... end
-# key: ife
+# key: if_else
 # --
 if ${1:condition}
   $2
