@@ -3,7 +3,5 @@
 # key: def
 # --
 def ${1:function_name}${2:(${3:param1, param2})}
-  $4
+  $0
 end
-
-$0

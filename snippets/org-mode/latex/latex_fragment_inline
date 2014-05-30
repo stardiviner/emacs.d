@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: latex fragment inline
+# key: latex_fragment_inline
+# --
+$$ ${1:a^2=b} $$

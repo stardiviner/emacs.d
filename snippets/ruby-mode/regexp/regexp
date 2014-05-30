@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: create regexp
+# key: regexp
+# --
+${1:$$(yas-choose-value '("//" "%r{}" "Regexp.new()"))}

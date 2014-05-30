@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: regexp gsub
+# key: gsub
+# --
+gsub${1:!}(/${2:regexp}/, "${3:substitute string}"}
