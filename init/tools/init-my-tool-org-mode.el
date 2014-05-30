@@ -1648,6 +1648,9 @@ This is especially for create Org files."
 
 ;;; LaTeX
 (setq org-babel-latex-htlatex t)
+
+;;; preview LaTeX fragments [C-c C-x C-l] + [C-c C-c]
+;;
 ;; (setq org-format-latex-header)
 ;; (setq org-format-latex-options
 ;;       '(:foreground default
@@ -1659,6 +1662,7 @@ This is especially for create Org files."
 ;;                     :matchers ("begin" "$1" "$" "$$" "\\(" "\\[")
 ;;                     )
 ;;       )
+
 (setq org-latex-create-formula-image-program 'dvipng)
 
 
