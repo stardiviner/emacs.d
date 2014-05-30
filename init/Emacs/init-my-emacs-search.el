@@ -69,8 +69,8 @@
 ;;; [ visual-regexp-steroids.el ] -- Extends visual-regexp to support other regexp engines.
 (require 'visual-regexp-steroids)
 
-;; (global-set-key (kbd "C-s") 'vr/isearch-forward)
-;; (global-set-key (kbd "C-r") 'vr/isearch-backward)
+(global-set-key (kbd "C-s") 'vr/isearch-forward)
+(global-set-key (kbd "C-r") 'vr/isearch-backward)
 
 (define-key my-search-prefix-map (kbd "r") 'vr/replace)
 (define-key my-search-prefix-map (kbd "q") 'vr/query-replace)
