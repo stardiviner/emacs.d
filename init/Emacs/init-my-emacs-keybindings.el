@@ -89,9 +89,9 @@
         "C-x *"                         ; calc
         "C-x a"                         ; abbrev
         "C-x n"                         ; narrow
+        "C-c e"                         ; edit (multiple-cursor, narrow, ...)
         "C-c r"                         ; regexp prefix map
         "C-c s"                         ; visual-regexp-map
-        "C-c c"                         ; mc (multi-cursor) (global)
         (dired-mode "C-h"
                     "*" ":" "%"
                     "T" "T >" "T m" "T u"

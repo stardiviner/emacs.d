@@ -102,7 +102,15 @@
 (put 'narrow-to-defun  'disabled nil)
 (put 'narrow-to-page   'disabled nil)
 
+(unless (boundp 'my-narrow-prefix-map)
+  (define-prefix-command 'my-narrow-prefix-map))
+(define-key my-edit-prefix-map (kbd "n") 'my-narrow-prefix-map)
 
+(define-key my-narrow-prefix-map (kbd "w") 'widen)
+(define-key my-narrow-prefix-map (kbd "n") 'narrow-to-region)
+(define-key my-narrow-prefix-map (kbd "r") 'narrow-to-region)
+(define-key my-narrow-prefix-map (kbd "d") 'narrow-to-defun)
+(define-key my-narrow-prefix-map (kbd "p") 'narrow-to-page)
 
 ;;; custom keybinding for handy (narrow + indirect-buffer)
 ;; Usage: [C-x n i], you can kill narrowed indirect buffer like normal buffer with [C-x k]. the modification will keep.
@@ -116,7 +124,8 @@
       (narrow-to-region start end))
     (switch-to-buffer buf)))
 
-(global-set-key (kbd "C-x n i") 'narrow-to-region-indirect)
+;; (global-set-key (kbd "C-x n i") 'narrow-to-region-indirect)
+(define-key my-narrow-prefix-map (kbd "i") 'narrow-to-region-indirect)
 
 
 ;;; [ Mark ] --- [C-SPC / C-@] + [C-u C-SPC / C-u C-@] + [C-`] / [M-`]
@@ -295,15 +304,30 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;; (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 ;; (global-set-key (kbd "C-+") 'mc/mark-next-like-this)
 ;; (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
 ;; ---------------------------------------------------------
 ;; From active region to multiple cursors:
-(global-set-key (kbd "C-c c c") 'mc/mark-all-dwim) ; try to be smart.
-(global-set-key (kbd "C-c c r") 'set-rectangular-region-anchor)
-(global-set-key (kbd "C-c c l") 'mc/edit-lines)
-(global-set-key (kbd "C-c c a") 'mc/edit-beginnings-of-lines)
-(global-set-key (kbd "C-c c e") 'mc/edit-ends-of-lines)
+;; (global-set-key (kbd "C-c c c") 'mc/mark-all-dwim) ; try to be smart.
+;; (global-set-key (kbd "C-c c r") 'set-rectangular-region-anchor)
+;; (global-set-key (kbd "C-c c l") 'mc/edit-lines)
+;; (global-set-key (kbd "C-c c a") 'mc/edit-beginnings-of-lines)
+;; (global-set-key (kbd "C-c c e") 'mc/edit-ends-of-lines)
+;; (if (featurep 'visual-regexp)
+;;     (global-set-key (kbd "C-c c m") 'vr/mc-mark))
+;; TODO: `vr/select-mc-mark', `vr/select-replace', `vr/select-query-replace' etc.
+;; ---------------------------------------------------------
+
+(unless (boundp 'my-mc-prefix-map)
+  (define-prefix-command 'my-mc-prefix-map))
+(define-key my-edit-prefix-map (kbd "c") 'my-mc-prefix-map)
+
+(define-key my-mc-prefix-map (kbd "c") 'mc/mark-all-dwim)
+(define-key my-mc-prefix-map (kbd "r") 'set-rectangular-region-anchor)
+(define-key my-mc-prefix-map (kbd "l") 'mc/edit-lines)
+(define-key my-mc-prefix-map (kbd "a") 'mc/edit-beginnings-of-lines)
+(define-key my-mc-prefix-map (kbd "e") 'mc/edit-ends-of-lines)
 (if (featurep 'visual-regexp)
-    (global-set-key (kbd "C-c c m") 'vr/mc-mark))
+    (define-key my-mc-prefix-map (kbd "m") 'vr/mc-mark))
 ;; TODO: `vr/select-mc-mark', `vr/select-replace', `vr/select-query-replace' etc.
 
 ;; First mark the word, then add more cursors.

@@ -7,10 +7,17 @@
 
 ;;; Emacs
 
+;;; edit
+(unless (boundp 'my-edit-prefix-map)
+  (define-prefix-command 'my-edit-prefix-map))
+(global-set-key (kbd "C-c e") 'my-edit-prefix-map)
+
+;;; search
 (unless (boundp 'my-search-prefix-map)
   (define-prefix-command 'my-search-prefix-map))
 (global-set-key (kbd "C-c s") 'my-search-prefix-map)
 
+;;; regexp
 (unless (boundp 'my-regexp-prefix-map)
   (define-prefix-command 'my-regexp-prefix-map))
 (global-set-key (kbd "C-c r") 'my-regexp-prefix-map)
