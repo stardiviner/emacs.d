@@ -249,6 +249,8 @@
                     :weight 'bold
                     :underline nil
                     :foreground "white")
+(set-face-attribute 'underline nil
+                    :underline "white")
 ;; region
 (set-face-attribute 'region nil
                     :inverse-video nil
