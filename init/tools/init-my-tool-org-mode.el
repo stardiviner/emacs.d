@@ -1194,7 +1194,7 @@ This is especially for create Org files."
         ;; habits
         (sequence "HABIT(h)" "|" "DONE(d)")
         ;; Status
-        (sequence "TODO(t@/!)" "Urgent(u!)" "SOMEDAY(s!)" "FAILED(X@/!)" "CACELLED(C@/!)" "|" "DONE(d@/!)")
+        (sequence "TODO(t@/!)" "Urgent(u!)" "SOMEDAY(s!)" "FAILED(X@/!)" "CANCELLED(C@/!)" "|" "DONE(d@/!)")
         ;; Code
         (sequence "BUG(b!)" "ISSUE(i!)" "ERROR(e!)" "FEATURE(f!)" "|" "DONE(d@/!)")
         ;; Version Control System: Git
@@ -1204,31 +1204,35 @@ This is especially for create Org files."
         ;; use (@/!) to record/log info reference source link URL and timestamp.
         (type "Org(o@/!)" "code(c@/!)" "project(p@/!)" "|" "DONE(d@/!)")
         ;; Life
-        (type "SEX(x@/!)" "Outside(l@/!)" "|" "DONE(d@/!)")
+        (type "SEX(x@/!)" "|" "DONE(d@/!)")
         ;; Work
         (type "Work(w@/!)" "Meeting(m@/!)" "|" "DONE(d@/!)")
+        ;; Learn
+        (type "Learn(l!)" "Learning(n!)" "Review(r!)" "|" "DONE(d@/!)")
         ))
 (setq org-todo-keyword-faces
       (quote (;;; todos
               ("TODO" :foreground "white" :weight bold)
               ("Urgent" :foreground "red" :background "black"
-               :weight bold :box '(:color "red" :line-width 2 :style nil))
-              ("STARTED" :foreground "green" :weight bold)
+               :weight bold :overline "green yellow"
+               ;; :box '(:color "red" :line-width 2 :style nil)
+               )
+              ("STARTED" :foreground "green" :weight bold :overline "yellow")
               ("HABIT" :foreground "cyan" :background "black" :weight bold
                :box '(:color "cyan" :line-width 1 :style nil))
               ("SOMEDAY" :foreground "dim gray" :weight bold)
-              ("DONE" :foreground "black" :weight bold :strike-through t)
-              ("FAILED" :foreground "#444444" :weight bold)
-              ("CANCELLED" :foreground "#444444" :weight bold)
+              ("DONE" :foreground "black" :background " " :weight bold :strike-through t)
+              ("FAILED" :foreground "#444444" :background "orange" :weight bold :underline "dark red")
+              ("CANCELLED" :foreground "#444444" :background "orange" :weight bold :strike-through t)
               ;;; fixme
-              ("BUG" :foreground "black" :background "red" :weight bold
+              ("BUG" :foreground "red" :background " " :weight bold
                :box '(:color "red" :line-width 1 :style nil))
-              ("ISSUE" :foreground "black" :background "red" :weight bold
+              ("ISSUE" :foreground "red" :background " " :weight bold
                :box '(:color "dark red" :line-width 1 :style nil))
               ("ERROR" :foreground "red" :weight bold
                :box '(:color "red" :line-width 1 :style nil))
               ("FIXME" :foreground "black" :background "red" :weight bold
-               :box '(:color "red" :line-width 1 :style nil))
+               :box '(:color "dark red" :line-width 1 :style nil))
               ("FEATURE" :foreground "cyan" :weight bold
                :box '(:color "cyan" :line-width 1 :style nil))
               ;;; version control
@@ -1256,6 +1260,13 @@ This is especially for create Org files."
                :box '(:color "black" :line-width 1 :style nil))
               ("Meeting" :foreground "cornflower blue"
                :box '(:color "cyan" :line-width 1 :style nil))
+              ;; learn
+              ("Learn" :foreground "dark orange" :background " "
+               :overline "orange")
+              ("Learning" :foreground "green yellow" :background " "
+               :overline "lawn green")
+              ("Review" :foreground "yellow" :background " "
+               :underline "green yellow")
               )))
 
 
