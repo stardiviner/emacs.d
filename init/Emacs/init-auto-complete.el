@@ -120,7 +120,13 @@
 (define-key ac-menu-map (kbd "C-i") 'ac-expand-common) ; complete common string.
 (define-key ac-menu-map (kbd "C-h") 'ac-stop) ; close the auto complete popup menu.
 
-(define-key ac-menu-map (kbd "<return>") 'newline-and-indent) ; go to new line.
+(defun my-ac-return ()
+  (interactive)
+  (ac-stop)
+  (newline-and-indent))
+(define-key ac-menu-map (kbd "<return>") 'my-ac-return) ; go to new line.
+(define-key ac-menu-map [return] 'my-ac-return)
+(define-key ac-menu-map "\r" 'my-ac-return)
 
 
 (defun ac-complete-with-space ()
