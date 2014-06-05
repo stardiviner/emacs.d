@@ -1,0 +1,15 @@
+# key: exception
+# name: exception
+# --
+begin
+  ${1:enclose code that could raise exception}
+rescue ${2:ExceptionClass_1, ExceptionClass_2 => local_variable to $!}
+  ${3:bit of rescue clauses to handle}${4:
+  raise}${5:
+rescue ${6:ExceptionClass_1, ExceptionClass_2 => local_variable to $!}
+  ${7:bit of rescue clauses to handle}}${8:
+else
+  ${9}}${10:
+ensure
+  ${11:bit of ensure clauses}}
+end

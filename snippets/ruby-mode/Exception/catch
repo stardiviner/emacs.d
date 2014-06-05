@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: catch
+# key: catch
+# --
+catch (${1:label: :Symbol / String}) do
+  $0
+end

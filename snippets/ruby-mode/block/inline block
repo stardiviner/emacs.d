@@ -2,4 +2,4 @@
 # name: inline block
 # key: bi
 # --
-{|${1:iterator}| $2}
+{ |${1:iterator}| $2 }

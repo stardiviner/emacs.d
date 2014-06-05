@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: throw
+# key: throw
+# --
+throw(:${1:Symbol label of catch block}${2:, ${3:second parameter}})
