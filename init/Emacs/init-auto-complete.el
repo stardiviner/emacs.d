@@ -128,23 +128,44 @@
 (define-key ac-menu-map [return] 'my-ac-return)
 (define-key ac-menu-map "\r" 'my-ac-return)
 
-
-(defun ac-complete-with-space ()
-  "Select the candidate and append a space. save your time for typing space."
-  (interactive)
-  (if (eq major-mode 'org-mode)
-      (self-insert-command 1)
-    (ac-complete)
-    (insert " "))
-  ;; ISSUE: when I typed the whole candidate string, then press [SPC] will insert two spaces.
-  ;; (if (pre-char before point is *only* not whitespace)
-  ;;     (insert " "))
-  )
+
+;;; complete(select ac-candidate and insert "SPACE")
 
 ;; ac-completing-map is the parent map of ac-menu-map.
+
+;;; way 1
+(defun ac-complete-with-space ()
+  (interactive)
+  (ac-complete)
+  (insert " "))
+
 ;; (define-key ac-menu-map (kbd "SPC") 'ac-complete-with-space)
 (define-key ac-menu-map (kbd "M-SPC") 'ac-complete-with-space)
 
+(defun my-ac-complete-with-space-for-org-mode ()
+  ;; (local-set-minor-mode-key 'ac-completing-map (kbd "SPC") nil)
+  (local-set-minor-mode-key 'ac-menu-map (kbd "SPC") nil))
+
+(add-hook 'org-mode-hook #'my-ac-complete-with-space-for-org-mode)
+
+
+;;; way 2
+;; (defun ac-complete-with-space ()
+;;   "Select the candidate and append a space. save your time for typing space."
+;;   (interactive)
+;;   (if (eq major-mode 'org-mode)
+;;       (self-insert-command 1)
+;;     (ac-complete)
+;;     (insert " "))
+;;   ;; ISSUE: when I typed the whole candidate string, then press [SPC] will insert two spaces.
+;;   ;; (if (pre-char before point is *only* not whitespace)
+;;   ;;     (insert " "))
+;;   )
+
+;; (define-key ac-menu-map (kbd "SPC") 'ac-complete-with-space)
+;; (define-key ac-menu-map (kbd "M-SPC") 'ac-complete-with-space)
+
+
 ;; TODO:
 ;; (defun ac-complete-with-expand ()
 ;;   (case 'candidate
