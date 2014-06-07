@@ -45,15 +45,3 @@
 (provide 'init-my-emacs-regexp)
 
 ;;; init-my-emacs-regexp.el ends here
-
-
-
-
-
-
-
-
-
-
-
-

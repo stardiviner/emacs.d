@@ -7,6 +7,6 @@
 # --
 #+NAME: $2
 #+HEADERS: `(org-babel-insert-header-arg)`
-#+BEGIN_SRC ${1:$$(yas-choose-value '("ruby" "lisp" "emacs-lisp" "c" "go"))}
+#+BEGIN_SRC ${1:$$(yas-choose-value '("ruby" "lisp" "emacs-lisp" "c" "go" "sh"))}
 $0
 #+END_SRC
