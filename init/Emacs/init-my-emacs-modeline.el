@@ -34,13 +34,13 @@
 
                 ;; window-number
                 (:propertize (:eval (window-number-string))
-                             face (:foreground "red"))
+                             face (:foreground "orange"))
 
                 ;; workgroups2
                 (:propertize (wg-mode-line-display-on
                               (:eval
                                (wg-mode-line-string)))
-                             face (:foreground "cyan"))
+                             face (:foreground "#444444"))
 
                 (:propertize "  ")
 
@@ -81,7 +81,7 @@
 
                 ;; vc indicator
                 (:propertize (vc-mode vc-mode)
-                             face (:foreground "yellow")
+                             face (:foreground "#C05800")
                              help-echo (vc-mode))
 
                 ;; (vc-mode (:eval (propertize vc-mode
@@ -103,7 +103,7 @@
                 ;; mode-line-buffer-identification
                 (:propertize " [")
                 (:propertize "%b"
-                             face (:foreground "white")
+                             face (:foreground "dark gray")
                              help-echo  (buffer-file-name))
                 (:propertize "] ")
 
@@ -112,8 +112,8 @@
                 ;; line and column number, relative position
                 ;; mode-line-position
                 ;; '%02' to set to 2 chars at least; prevents flicking
-                (:propertize "(%02l,%02c)"
-                             face (:foreground "gray")
+                (:propertize "(%02l,%02c,%03p)"
+                             face (:foreground "dark gray")
                              ;; (:eval (if (>= (current-column) 80)
                              ;;            face (:foreground "red" :weight 'bold)))
                              )
