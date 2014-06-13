@@ -51,12 +51,12 @@
 
 ;;; Usage:
 
-(require 'isearch+)
+;; (eval-after-load "isearch" '(require 'isearch+))
 
-(setq isearchp-set-region-flag nil
-      isearchp-restrict-to-region-flag t
-      ;; isearchp-restrict-to-region-flag
-      )
+;; (setq isearchp-set-region-flag nil
+;;       isearchp-restrict-to-region-flag t
+;;       ;; isearchp-restrict-to-region-flag
+;;       )
 
 
 
