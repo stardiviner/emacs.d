@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: queue
+# key: queue
+# --
+${1:queue1} = [$2]
+${3:$1.shift, unshift first, last}

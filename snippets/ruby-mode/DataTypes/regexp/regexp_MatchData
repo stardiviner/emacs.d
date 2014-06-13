@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: regexp MatchData
+# key: regexp.match
+# --
+${1:/${3:regexp pattern}/.match(${2:string})}${4:${5:string}.match(/${6:regexp}/)}

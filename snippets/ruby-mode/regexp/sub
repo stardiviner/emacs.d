@@ -1,5 +1,5 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: regexp sub
+# name: regexp.sub
 # key: sub
 # --
 sub${1:!}(/${2:regexp}/, "${3:substitute string}"}

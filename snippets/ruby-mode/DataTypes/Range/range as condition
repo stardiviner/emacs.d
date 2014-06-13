@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: range as condition
+# key: range_as_condition
+# --
+while line = gets
+  puts line if line =~ /start/ .. line =~ /end/
+end

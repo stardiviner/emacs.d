@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: embed document
-# key: embed-doc
+# key: docstring_multiline
 # --
 =begin ${1:post-processing tool marker: rdoc}
 ${2:write embed document like: comment, SQL, HTML, etc}

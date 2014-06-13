@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: array
+# key: array
+# --
+[${1:any object}, $2${3:, $4}]

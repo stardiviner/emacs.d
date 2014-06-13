@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: File.new
+# key: file-open
+# --
+File.new("${1:filename}", "${2:$$(yas-choose-value '("r" "w" "r+"))}")

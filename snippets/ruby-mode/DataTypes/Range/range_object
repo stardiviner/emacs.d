@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: create range object
-# key: range_object
+# key: range_object_create
 # --
 class ${1:ClassName}
   attr_reader :${2:value}

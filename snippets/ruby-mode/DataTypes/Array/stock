@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: stock
+# key: stock
+# --
+${1:stock1} = [$2]
+${3:$1.push, pop}

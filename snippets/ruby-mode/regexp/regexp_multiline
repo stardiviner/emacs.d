@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: multiline regexp
-# key: regexp_multiline
+# name: regexp extended multiline
+# key: regexp_extended
 # --
 ${1:var} = /
   ${2:regexp pattern}

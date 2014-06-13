@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: range
+# key: range
+# --
+${1:start}${2:.. or ...}${3:end}
