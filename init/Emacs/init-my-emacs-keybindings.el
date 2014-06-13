@@ -109,6 +109,7 @@
         "C-c d"                         ; Debug
         "C-c v"                         ; Magit (global)
         "C-c g"                         ; Git
+        "C-c i"                         ; Inferior
         "C-c o"                         ; Org-mode (global)
         "C-x d"                         ; Dictionary
         "C-c ;"                         ; E2WM
@@ -123,7 +124,7 @@
         (markdown-mode "C-c" "C-c C-c" "C-c C-s" "C-c C-t" "C-c TAB" "C-c C-a")
         (latex-mode "C-c" "C-c C-p")    ; LaTeX mode.
         (ruby-mode "C-c") ; Ruby yari mode.
-        (rinari-minor-mode "C-c ;" "C-c ; f" "C-c '") ; Rinari minor mode.
+        (rinari-minor-mode "C-c ;" "C-c '") ; Rinari minor mode.
         (web-mode "C-c")                ; web-mode.
         ))
 

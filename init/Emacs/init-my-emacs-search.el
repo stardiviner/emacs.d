@@ -63,7 +63,6 @@
 ;;; [ visual-regexp ] -- A regexp/replace command for Emacs with interactive visual feedback.
 
 ;;; Usage:
-;;; [C-c C-s] + [r/q/m]
 
 (require 'visual-regexp)
 ;;; [ visual-regexp-steroids.el ] -- Extends visual-regexp to support other regexp engines.

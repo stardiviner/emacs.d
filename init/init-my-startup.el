@@ -73,6 +73,7 @@
 (find-file "~/Org/Wiki/Reading/Reading.org")
 (find-file "~/Org/Wiki/Reading/Aphorisms/Aphorisms.org")
 (find-file "~/Org/Wiki/Reading/Novels/Data/九州.org")
+(find-file "~/Org/Wiki/Computer/Computer.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming.org")
 (find-file "~/Org/Wiki/Computer/Programming/Implements/Implements.org")
 (find-file "~/Org/Wiki/Computer/Programming/Algorithm/Algorithm.org")

@@ -231,7 +231,6 @@
 ;; - If you accidentally suspend your process, use comint-continue-subjob to continue it.
 
 
-;; FIXME:
 (autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
 
 ;; integrate with rvm.el

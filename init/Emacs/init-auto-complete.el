@@ -22,6 +22,8 @@
 ;;--------------
 ;; - r  -- Robe for Ruby
 ;; - h  -- ac-org
+;; - t  -- ac-org -> TeX (\S in Org-mode).
+;; - k  -- ac-org
 ;;
 ;; Usage:
 ;; - ["M-["] / [Tab] -- to complete "common" string.

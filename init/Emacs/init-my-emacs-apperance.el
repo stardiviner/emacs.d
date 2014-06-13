@@ -228,6 +228,8 @@
 (require 'color-theme-solarized)
 
 (color-theme-solarized-dark)
+;; (color-theme-solarized-light)
+
 (setq solarized-termcolors 256
       ;; solarized-degrade t
       solarized-bold t

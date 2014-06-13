@@ -104,7 +104,7 @@
                 (:propertize " [")
                 (:propertize "%b"
                              face (:foreground "dark gray")
-                             help-echo  (buffer-file-name))
+                             help-echo (buffer-file-name))
                 (:propertize "] ")
 
                 ;; git-emacs (magit)
