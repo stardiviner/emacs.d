@@ -426,8 +426,9 @@
       (append ac-modes
               '(prog-mode               ; programming modes
                 web-mode
-                text-mode org-mode markdown-mode
+                text-mode markdown-mode
                 change-log-mode
+                ;; org-mode ; speed up org-mode typing by disabling auto-complete.
                 ;; objc-mode
                 ;; sql-mode js3-mode
                 makefile-mode makefile-gmake-mode makefile-automake-mode
