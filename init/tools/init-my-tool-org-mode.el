@@ -267,7 +267,7 @@
                     ;; :box '(:color "black" :line-width 1 :style nil)
                     )
 (set-face-attribute 'org-level-2 nil
-                    :foreground "cyan"
+                    :foreground "#C8C800"
                     :height 1.2 :weight 'bold
                     ;; :box '(:color "black" :line-width 1 :style nil)
                     )
@@ -276,7 +276,7 @@
                     :inherit 'org-level-2
                     )
 (set-face-attribute 'org-level-4 nil
-                    :foreground "#C8C800"
+                    :foreground "cyan"
                     :inherit 'org-level-3
                     )
 (set-face-attribute 'org-level-5 nil
@@ -533,6 +533,8 @@ It can contain any number of symbols, which will be repeated."
         ("\\.pdf::\\([[:digit:]]+\\)\\'" . "okular -p %1 %s")
         ;; CHM
         ("\\.chm\\'" . "kchmviewer %s")
+        ;; EPUB
+        ("\\.epub" . "ebook-viewer %s")
         ;; Image
         ("\\.png\\'" . "sxiv %s")
         ("\\.jpg\\'" . "sxiv %s")
@@ -754,7 +756,8 @@ This is especially for create Org files."
       ;; org-clock-task-overrun-text
       org-clock-persist-query-save nil
       org-clock-persist-query-resume t
-      org-clock-clocked-in-display 'mode-line
+      org-clock-clocked-in-display 'both
+      ;; TODO: add clock in display into my custom mode-line.
       ;; org-clock-clocktable-default-properties '(:maxlevel 2 :scope file)
       org-clock-report-include-clocking-task t
       ;; org-agenda-clockreport-mode
