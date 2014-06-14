@@ -55,14 +55,14 @@
       )
 
 ;;; count how much time the command used.
-(add-hook 'eshell-load-hook
-          (lambda()(setq last-command-start-time (time-to-seconds))))
-(add-hook 'eshell-pre-command-hook
-          (lambda()(setq last-command-start-time (time-to-seconds))))
-(add-hook 'eshell-before-prompt-hook
-          (lambda()
-            (message "spend %g seconds"
-                     (- (time-to-seconds) last-command-start-time))))
+;; (add-hook 'eshell-load-hook
+;;           (lambda()(setq last-command-start-time (time-to-seconds))))
+;; (add-hook 'eshell-pre-command-hook
+;;           (lambda()(setq last-command-start-time (time-to-seconds))))
+;; (add-hook 'eshell-before-prompt-hook
+;;           (lambda()
+;;             (message "spend %g seconds"
+;;                      (- (time-to-seconds) last-command-start-time))))
 
 ;;; auto-complete settings
 (autoload 'auto-complete "auto-complete" t)
@@ -71,7 +71,8 @@
 (defun ac-complete-eshell-pcomplete ()
   (interactive)
   (auto-complete '(ac-source-eshell-pcomplete)))
-;; auto enable ac-mode
+
+;;; auto enable ac-mode
 (global-auto-complete-mode 1)
 (add-to-list 'ac-modes 'eshell-mode)
 (setq ac-sources '(ac-source-eshell-pcomplete
@@ -82,23 +83,21 @@
                    ;; ac-source-imenu
                    ))
 
-;; ;; FIXME: eshell does not run correctly.
-;; (defun my-eshell-start-or-switch ()
-;;   "Start Emacs Shell or switch to its buffer if it already exist."
-;;   (interactive)
-;;   (if (get-buffer "*eshell*") ; eshell already active?
-;;       (switch-to-buffer "*eshell*")
-;;     (let ((default-directory (getenv "HOME")))
-;;       (command-execute 'eshell)
-;;       (bury-buffer))
-;;     ))
-;;
-;; ;;; start Eshell at Emacs startup, and put in end of buffer list:
-;; (add-hook 'emacs-startup-hook 'my-eshell-start-or-switch)
-;;
-;; (global-set-key (kbd "C-x !") 'my-eshell-start-or-switch)
+;; FIXME: eshell does not run correctly.
+(defun my-eshell-start-or-switch ()
+  "Start Emacs Shell or switch to its buffer if it already exist."
+  (interactive)
+  (if (get-buffer "*eshell*") ; eshell already active?
+      (switch-to-buffer "*eshell*")
+    (let ((default-directory (getenv "HOME")))
+      (command-execute 'eshell)
+      (bury-buffer))
+    ))
 
-;; TODO: disable whitespace mode in *eshell*.
+;;; start Eshell at Emacs startup, and put in end of buffer list:
+(add-hook 'emacs-startup-hook 'my-eshell-start-or-switch)
+
+(global-set-key (kbd "C-x !") 'my-eshell-start-or-switch)
 
 
 
