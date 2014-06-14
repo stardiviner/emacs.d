@@ -14,6 +14,11 @@
 (global-unset-key [down])
 
 
+;;; bind some useful commands to keybindings.
+(global-set-key (kbd "M-]") 'forward-sentence)
+(global-set-key (kbd "M-[") 'backward-sentence)
+
+
 ;;; [ bind-key ] -- A simple way to manage personal keybindings --- IN ATTIC BECAUSE: part of use-package.
 
 ;;; Usage:
