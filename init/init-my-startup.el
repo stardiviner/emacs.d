@@ -148,7 +148,7 @@
 
 
 ;;; Email - mu4e
-(add-hook 'emacs-startup-hook 'mu4e)
+;; (add-hook 'emacs-startup-hook 'mu4e)
 
 
 
