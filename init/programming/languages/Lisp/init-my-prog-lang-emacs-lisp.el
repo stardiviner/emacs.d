@@ -141,6 +141,8 @@
 ;; (define-key emacs-lisp-mode-map (kbd "C-c C-z") 'my-ielm-start-or-switch)
 ;; (global-set-key (kbd "C-c C-z") 'my-ielm-start-or-switch)
 
+(define-key inferior-map (kbd "l e") 'my-ielm-start-or-switch)
+
 
 
 
