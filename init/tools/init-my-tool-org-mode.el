@@ -456,11 +456,18 @@ It can contain any number of symbols, which will be repeated."
 ;;; [ org-pcomplete ]
 
 ;;; [ org-ac ]
+
 ;;; [o] -- annotation.
+
 (require 'org-ac)
 ;; ;; Make config suit for you. About the config item, eval the following sexp.
 ;; (customize-group "org-ac")
 ;; (org-ac/config-default)
+;; remove heavy auto-complete sources to speed up typing in Org.
+(add-hook 'org-mode-hook
+          '(lambda ()
+            (setq ac-sources (delq '(ac-source-dictionary ac-source-words-in-same-mode-buffers) ac-sources))))
+
 
 
 ;;; [ Document Structure ]
