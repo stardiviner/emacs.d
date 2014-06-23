@@ -113,7 +113,7 @@
                 ;; mode-line-position
                 ;; '%02' to set to 2 chars at least; prevents flicking
                 (:propertize "(%02l,%02c,%03p)"
-                             face (:foreground "dark gray")
+                             face (:foreground "#444444")
                              ;; (:eval (if (>= (current-column) 80)
                              ;;            face (:foreground "red" :weight 'bold)))
                              )
@@ -134,15 +134,15 @@
                 (:propertize "{%m}"
                              face (:foreground "cyan")
                              help-echo buffer-file-coding-system)
-                (:propertize "|")
-                ;; list of minor modes
-                (:propertize minor-mode-alist
-                             face (:foreground "dim gray"))
+                ;; (:propertize "|")
+                ;; ;; list of minor modes
+                ;; (:propertize minor-mode-alist
+                ;;              face (:foreground "dim gray"))
                 (:propertize ") "
                              face (:foreground "orange red"))
 
                 ;; --------------------------- right align ----------------------------------
-
+                
                 ;; Email
 
                 ;; newsticker RSS new feeds.
