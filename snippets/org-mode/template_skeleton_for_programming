@@ -1,0 +1,33 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: template_skeleton_for_programming
+# key: template_4_programming
+# --
+* Intro
+
+$1
+
+* Data
+
+** Help
+
+*** online help
+
+$3
+
+*** websites
+
+$2
+
+*** forums
+
+** Wiki
+
+*** Installation
+
+*** Configuration
+
+*** Notebooks
+
+*** Manuals
+
+*** Books [/]
