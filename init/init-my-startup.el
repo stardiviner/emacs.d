@@ -132,6 +132,10 @@
 ;; (setq initial-buffer-choice (concat my-org-special-directory "/Tasks.org"))
 
 
+;;; sidebar
+(neotree-show)
+
+
 ;;; start Sauron at Emacs startup
 (sauron-start)
 

@@ -145,6 +145,7 @@
          ascope
          ;; code browser
          sr-speedbar
+         emacs-neotree
          ;; compile
          smart-compile smart-compile+
          ;; vcs
