@@ -237,14 +237,20 @@
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   (rvm-activate-corresponding-ruby))
 
-(add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
-
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
+
+(add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
 
 ;; (run-ruby)
 
-(setq inf-ruby-default-implementation "pry"
-      ;; inf-ruby-implementations
+(setq inf-ruby-default-implementation "inf-ruby"
+      inf-ruby-implementations '(("inf-ruby" . "irb --inf-ruby-mode --prompt inf-ruby -r irb/completion")
+                                 ("ruby" . "irb --prompt default -r irb/completion")
+                                 ("jruby" . "jruby -S irb --prompt default -r irb/completion")
+                                 ("rubinius" . "rbx -r irb/completion")
+                                 ("yarv" . "irb1.9 -r irb/completion")
+                                 ("macruby" . "macirb -r irb/completion")
+                                 ("pry" . "pry"))
       ;; inf-ruby-orig-compilation-mode nil
       ;; inf-ruby-console-patterns-alist '(("config/application.rb" . rails)
       ;;                                   ("*.gemspec" . gem)
