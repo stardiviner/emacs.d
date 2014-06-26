@@ -243,9 +243,9 @@
 
 ;; (run-ruby)
 
-(setq inf-ruby-default-implementation "inf-ruby"
+(setq inf-ruby-default-implementation "ruby"
       inf-ruby-implementations '(("inf-ruby" . "irb --inf-ruby-mode --prompt inf-ruby -r irb/completion")
-                                 ("ruby" . "irb --prompt default -r irb/completion")
+                                 ("ruby" . "irb --prompt default -r irb/completion --noreadline")
                                  ("jruby" . "jruby -S irb --prompt default -r irb/completion")
                                  ("rubinius" . "rbx -r irb/completion")
                                  ("yarv" . "irb1.9 -r irb/completion")
