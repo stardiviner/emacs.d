@@ -167,7 +167,7 @@
 ;;           #'(lambda ()
 ;;               (push '(?< . ?>)
 ;;                     (getf autopair-extra-pairs :code))))
-;;; if you program in emacs-lisp you might also like the following to pair backtick (`) and quote (=’=).
+;;; if you program in emacs-lisp you might also like the following to pair backtick (`) and quote (’).
 ;;; for quote Emacs Lisp code. e.g. `org-mode'
 (add-hook 'emacs-lisp-mode-hook
           #'(lambda ()

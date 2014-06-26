@@ -125,9 +125,9 @@
 
 ;;; [ ruby-electric ]
 
-; (require 'ruby-electric)
-;
-; (add-hook 'ruby-mode-hook 'ruby-electric-mode)
+;; (require 'ruby-electric)
+
+;; (add-hook 'ruby-mode-hook 'ruby-electric-mode)
 
 ;; FIXME:
 ;; (remove-hook 'ruby-mode-hook 'ruby-electric-mode)

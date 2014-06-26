@@ -500,7 +500,7 @@
 (dolist (hook '(special-mode-hook
                 eww-mode
                 term-mode-hook
-                comint-mode-hook
+                ;; comint-mode-hook
                 compilation-mode-hook
                 ;; twittering-mode-hook
                 minibuffer-setup-hook))

@@ -65,6 +65,7 @@
 ;;; Usage:
 
 (require 'visual-regexp)
+
 ;;; [ visual-regexp-steroids.el ] -- Extends visual-regexp to support other regexp engines.
 (require 'visual-regexp-steroids)
 

@@ -99,6 +99,7 @@
 
 (global-set-key (kbd "C-x !") 'my-eshell-start-or-switch)
 
+(define-key inferior-map (kbd "s") 'my-eshell-start-or-switch)
 
 
 ;;; TODO: use this extension
