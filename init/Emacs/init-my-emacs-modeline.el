@@ -22,6 +22,7 @@
 
 ;; (default-value mode-line-format)
 ;; setq-default
+
 (setq-default mode-line-format
               (quote
                (
@@ -163,6 +164,14 @@
                 ;; fill with ' '.
                 ;; (:propertize "% ")
 
+                ;; Org-mode clock
+                (:propertize
+                 ;; TODO: concatenate the long string.
+                 ;; global-mode-string
+                 (t org-mode-line-string org-timer-mode-line-string)
+                 face (:foreground "cyan"
+                                   :box '(:color "cyan" :line-width 1 :style nil)))
+                
                 (:propertize mode-line-end-spaces)
                 )))
 

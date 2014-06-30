@@ -740,7 +740,7 @@ This is especially for create Org files."
 (require 'org-clock)
 
 ;; to save the clock history across Emacs sessions.
-(setq org-clock-persist 'history
+(setq org-clock-persist t
       org-clock-persistence-insinuate t
       org-clock-in-resume t    ; resume when clock in.
       org-clock-into-drawer t  ; Save clock data and notes in the LOGBOOK drawer
@@ -752,7 +752,6 @@ This is especially for create Org files."
       ;; TODO: org-clock-heading ""
       ;; TODO: use a sound file.
       org-clock-sound t
-      org-clock-persist t
       ;; org-clock-task-overrun
       org-clock-continuously nil ; don't continue on last clock out.
       ;; org-clock-persist-file
@@ -761,9 +760,9 @@ This is especially for create Org files."
       org-clock-mode-line-total 'auto
       org-clock-mode-line-entry t
       ;; org-clock-task-overrun-text
-      org-clock-persist-query-save nil
+      org-clock-persist-query-save t
       org-clock-persist-query-resume t
-      org-clock-clocked-in-display 'both
+      org-clock-clocked-in-display 'both ; 'mode-line, 'frame-title, 'both, nil.
       ;; TODO: add clock in display into my custom mode-line.
       ;; org-clock-clocktable-default-properties '(:maxlevel 2 :scope file)
       org-clock-report-include-clocking-task t
