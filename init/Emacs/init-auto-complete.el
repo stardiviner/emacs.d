@@ -83,9 +83,9 @@
 
 
 ;; auto raise popup menu
-(setq ac-delay 0.2) ; delay time to start completion in real number seconds
+(setq ac-delay 0.3) ; delay time to start completion in real number seconds
 ;; (setq ac-show-menu-immediately-on-auto-complete t) ; it is a trade off of responsibility and performance
-(setq ac-auto-show-menu 0.3) ;; show popup menu after how many seconds
+(setq ac-auto-show-menu 0.4) ;; show popup menu after how many seconds
 (setq ac-menu-height 10) ; smaller ac-menu is more cute. big ac-menu is not necessary.
 ;; NOTE: small menu is helpful for small computer screen, because split window has small height, this cause quick help popup is shown in hidden position.
 
