@@ -110,7 +110,7 @@
          ;; Org-mode
          org-mode
          org-fstree org-bullets
-         ;; org-ac
+         org-ac
          org-magit ; org-linkany
          org-publish org-jekyll jekyll-el
          ;; help
