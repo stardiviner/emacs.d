@@ -234,6 +234,8 @@
                     :family "DejaVu Sans Mono"
                     :bold nil :box nil)
 
+(set-face-attribute 'org-table nil
+                    :foreground "light sky blue")
 
 ;; inline code face => src_ruby{require 'something'}
 ;;
