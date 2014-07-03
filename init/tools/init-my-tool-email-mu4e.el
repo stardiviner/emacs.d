@@ -410,7 +410,7 @@
 ;;; two: [sendmail]
 (setq message-send-mail-function 'message-send-mail-with-sendmail)
 ;; 1: msmtp
-(setq sendmail-program "/usr/bin/msmtp")
+;; (setq sendmail-program "/usr/bin/msmtp")
 ;; $ msmtp -C $HOME/.mutt/msmtprc
 ;; 2: sendmail
 ;; (setq sendmail-program "/usr/sbin/sendmail")
@@ -786,7 +786,7 @@
 ;;; - v -- see the details of the signature verification by activating the Details.
 ;; start gpg-agent manually:
 ;; $ eval $(gpg-agent --daemon)
-(setq mu4e-decryption-policy t)
+(setq mu4e-decryption-policy t) ; auto decrypt.
 
 
 ;;; Refiling
