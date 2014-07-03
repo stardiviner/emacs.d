@@ -41,7 +41,10 @@
                 (:propertize (wg-mode-line-display-on
                               (:eval
                                (wg-mode-line-string)))
-                             face (:foreground "#444444"))
+                             face (:foreground "cyan"
+                                               ;; :underline "green yellow"
+                                               :family "Segoe Print"
+                                               ))
 
                 (:propertize "  ")
 
@@ -113,7 +116,7 @@
                 ;; line and column number, relative position
                 ;; mode-line-position
                 ;; '%02' to set to 2 chars at least; prevents flicking
-                (:propertize "(%02l,%02c,%03p)"
+                (:propertize "(%02l,%02c),%03p"
                              face (:foreground "#444444")
                              ;; (:eval (if (>= (current-column) 80)
                              ;;            face (:foreground "red" :weight 'bold)))
@@ -132,9 +135,10 @@
                 ;; the major mode of the current buffer.
                 (:propertize " ("
                              face (:foreground "orange red"))
-                (:propertize "{%m}"
-                             face (:foreground "cyan")
-                             help-echo buffer-file-coding-system)
+                (:propertize "/:%m:/"
+                             face (:foreground "green yellow"
+                                               :family "Segoe Print"
+                                               )
                 ;; (:propertize "|")
                 ;; ;; list of minor modes
                 ;; (:propertize minor-mode-alist
