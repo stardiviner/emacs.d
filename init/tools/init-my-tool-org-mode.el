@@ -56,7 +56,7 @@
 ;; (load "preview-latex.el" nil t) ; for option `org-startup-with-latex-preview'
 
 ;; startup & default view
-(setq org-startup-folded t  ; t, 'overview, 'content, 'showall.
+(setq org-startup-folded t ; t, 'overview, 'content, 'showall.
       org-startup-indented t
       org-startup-truncated t
       ;; FIXME: error: Can't preview LaTeX fragment in a non-file buffer.
@@ -858,10 +858,14 @@ This is especially for create Org files."
 (defun org-habit-apply ()
   "Apply org-habit on this task."
   (interactive)
-  (lambda ()
-    (org-todo "HABIT")
-    (org-insert-property-drawer)        ; TODO: :STYLE: habit (value)
-    (org-schedule)))
+  (org-todo "HABIT")
+  (org-set-property "STYLE" "habit")    ; :STYLE: habit
+  (org-schedule nil (current-time-string)) ; <2013-12-07 Sat 06:30 .+1d>
+  (save-excursion
+    (next-line) (beginning-of-line)
+    (when (looking-at "SCHEDULED: [^>]*\\(>\\)")
+      (goto-char (match-beginning 1))
+      (insert " .+1d"))))
 
 (define-key org-mode-map (kbd "C-c C-x h") 'org-habit-apply)
 
