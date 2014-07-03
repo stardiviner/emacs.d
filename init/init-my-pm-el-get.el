@@ -229,6 +229,8 @@
          ;; Arduino
          arduino-mode
          nginx-mode
+         ;; Linux
+         crontab-mode
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
 
