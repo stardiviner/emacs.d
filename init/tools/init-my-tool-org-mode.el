@@ -863,7 +863,7 @@ This is especially for create Org files."
   (interactive)
   (org-todo "HABIT")
   (org-set-property "STYLE" "habit")    ; :STYLE: habit
-  (org-schedule nil (current-time-string)) ; <2013-12-07 Sat 06:30 .+1d>
+  (org-schedule nil) ; <2013-12-07 Sat 06:30 .+1d>
   (save-excursion
     (next-line) (beginning-of-line)
     (when (looking-at "SCHEDULED: [^>]*\\(>\\)")
@@ -871,6 +871,14 @@ This is especially for create Org files."
       (insert " .+1d"))))
 
 (define-key org-mode-map (kbd "C-c C-x h") 'org-habit-apply)
+
+(defun org-time-interval ()
+  "Set schedule and deadline time interval for headline."
+  (interactive)
+  (org-deadline nil)
+  (org-schedule nil))
+
+(define-key org-mode-map (kbd "C-c C-x r") 'org-time-interval)
 
 
 ;;; [ Capture - Refile - Archive ]
