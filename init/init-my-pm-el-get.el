@@ -159,6 +159,7 @@
          ;; languages
          ;; Ruby
          ruby-mode
+         enh-ruby-mode
          ;; ruby-electric (merged into Ruby)
          ruby-block
          yari
@@ -166,6 +167,7 @@
          inf-ruby rcodetools ruby-compilation rvm robe-mode
          rspec-mode
          rinari
+         yard-mode
          rhtml-mode projectile-rails
          ;; Lisp
          ;; slime

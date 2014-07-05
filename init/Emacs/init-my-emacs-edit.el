@@ -446,6 +446,33 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;;  )
 
 
+;;; [ Align ]
+
+;;; Usage:
+;; commands prefix with `align-'.
+;; custom variable `align-rules-list'.
+
+(defun align-repeat (start end regexp)
+  "Repeat alignment with respect to the given regular expression.
+
+For example: input regexp like [[:space:]]+ for align several space separated section/region."
+  (interactive "r\nsAlign regexp: ")
+  (align-regexp start end 
+                (concat "\\(\\s-*\\)" regexp) 1 1 t)
+  ;; The final `t' (aka true) is responsible for repeating the task.
+  ;; Call that command with the regular expression `[[:space:]]+'
+  )
+
+(add-hook 'align-load-hook
+          (lambda ()
+            (add-to-list 'align-rules-list
+                         '(text-column-whitespace
+                           (regexp  . "\\(^\\|\\S-\\)\\([ \t]+\\)")
+                           (group   . 2)
+                           (modes   . align-text-modes)
+                           (repeat  . t)))))
+
+
 (provide 'init-my-emacs-edit)
 
 ;;; init-my-emacs-edit.el ends here

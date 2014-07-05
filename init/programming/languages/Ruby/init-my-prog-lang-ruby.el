@@ -82,15 +82,16 @@
 
 
 
-;;; enh-ruby-mode
+;;; [ enh-ruby-mode ]
 
-;; (autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
-;; (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
-;; (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
-;; ;; (setq enh-ruby-program "(path-to-ruby1.9.3)/bin/ruby")
+(autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
+(add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
+(add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
 
-;; (require 'enh-ruby-mode)
-
+;;; Enhanced Ruby Mode defines its own specific faces with the hook
+;;; erm-define-faces. If your theme is already defining those faces, to not
+;;; overwrite them, just remove the hook with:
+(remove-hook 'enh-ruby-mode-hook 'erm-define-faces)
 
 
 ;; We never want to edit Rubinius bytecode or MacRuby binaries
@@ -149,6 +150,12 @@
 ;; (require 'yard-mode)
 
 ;; (add-hook 'ruby-mode-hook 'yard-mode)
+
+;; If you would also like eldoc support, so that the expected syntax for the tag
+;; beneath your cursor is displayed in the minibuffer, add that hook too:
+;; (add-hook 'ruby-mode-hook 'eldoc-mode)
+
+(add-hook 'enh-ruby-mode-hook 'yard-mode)
 
 
 ;;; [ yari ] -- Yet Another Ri Interface
@@ -327,6 +334,8 @@
 (require 'robe)
 
 (add-hook 'ruby-mode-hook 'robe-mode)
+
+(add-hook 'enh-ruby-mode-hook 'robe-mode)
 
 ;;; [start robe]
 ;; The exceptions are code completion and eldoc, which only work if the server
