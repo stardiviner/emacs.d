@@ -15,9 +15,10 @@
 
 (require 'festival)
 
-(run-festival)
-(festival-start-process)
+;; (run-festival)              ; FIXME: (void-variable inferior-festivalr-mode-map)
+(festival-start-process)                ; start process at background of Emacs.
 
+
 (require 'thingatpt)
 
 ;; FIXME: this function seems does not work.
@@ -39,6 +40,9 @@
 (define-key my-tools-prefix-map (kbd "s") 'speak-map)
 
 (define-key speak-map (kbd "s") 'festival-read)
+
+
+
 
 
 (provide 'init-my-tool-speak)
