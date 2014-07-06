@@ -831,30 +831,33 @@ This is especially for create Org files."
       org-habit-show-all-today nil ; show all habits' consistency graph in today's agenda.
       org-habit-show-habits-only-for-today t
       org-habit-graph-column 70
-      org-habit-preceding-days 21
+      org-habit-preceding-days 14
       org-habit-following-days 7
-      org-habit-today-glyph ?!
+      org-habit-today-glyph ?>
       org-habit-completed-glyph ?-
       )
 
-;;; org-habit
+;; -----------------------------------------------------------------------------------------
+;;; org-habit faces
 (set-face-attribute 'org-habit-clear-future-face nil ; for future days on which a task shouldn't be done yet.
-                    :background "#001D25")
+                    :background " ")
 (set-face-attribute 'org-habit-alert-future-face nil ; for days on which a task is due.
-                    :background "gray")
-(set-face-attribute 'org-habit-ready-face nil ; for days on which a task should start to be done.
-                    :background "cyan")
-(set-face-attribute 'org-habit-overdue-face nil ; for days on which a task is overdue.
-                    :background "dark red")
+                    :background "orange")
+;; for days on which a task should start to be done.
+(set-face-attribute 'org-habit-ready-face nil ; 
+                    :background "yellow")
+;; for days on which a task is overdue.
+(set-face-attribute 'org-habit-overdue-face nil ; the days have passed from start day.
+                    :background "#5C5702")
 ;; -----------------------------------------------------------------------------------------
 (set-face-attribute 'org-habit-clear-face nil ; for days on which a task shouldn't be done yet.
                     :background "white")
 (set-face-attribute 'org-habit-ready-future-face nil ; for days on which a task should start to be done.
-                    :background "dark cyan")
+                    :background "green")
 (set-face-attribute 'org-habit-alert-face nil ; for days on which a task is due.
-                    :background "yellow")
+                    :background "dark red")
 (set-face-attribute 'org-habit-overdue-future-face nil ; for days on which a task is overdue.
-                    :background "red")
+                    :background "dark cyan")
 
 
 ;; TODO: create an key binding for all necessary steps for create a habit. (reference in Org-mode.org file)
