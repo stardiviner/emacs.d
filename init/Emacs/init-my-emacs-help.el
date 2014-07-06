@@ -43,6 +43,41 @@
       ;; * "
       )
 
+;;; ----------------- Faces -----------------------
+(set-face-attribute 'info-quoted-name nil
+                    :background "#004A5D" :foreground "white"
+                    :box '(:color "cyan" :line-width 1 :style nil)
+                    :family "DejaVu Sans Mono"
+                    :bold nil)
+(set-face-attribute 'info-menu-header nil
+                    :foreground "green"
+                    :weight 'extra-bold :height 150
+                    :box '(:color "black" :line-width 1 :style 'released-button))
+(set-face-attribute 'info-xref nil
+                    :foreground "dark cyan"
+                    :weight 'bold
+                    :underline t)
+(set-face-attribute 'info-xref-visited nil
+                    :foreground "#444444"
+                    :weight 'normal)
+(set-face-attribute 'info-function-ref-item nil
+                    :foreground "cyan" :background "black"
+                    :overline t
+                    :weight 'bold)
+(set-face-attribute 'info-variable-ref-item nil
+                    :foreground "orange" :background "black"
+                    :overline t
+                    :weight 'bold)
+(set-face-attribute 'info-command-ref-item nil
+                    :foreground "#7474FFFF7474" :background "black"
+                    :overline t
+                    :weight 'bold)
+(set-face-attribute 'info-reference-item nil
+                    :foreground "white" :background "black"
+                    )
+(set-face-attribute 'info-string nil
+                    :foreground "cyan")
+
 
 
 (setq suggest-key-bindings t) ; show the /equivalent/ key binding when [M-x] command has one.
