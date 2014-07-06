@@ -1954,6 +1954,8 @@ This function will promote all items in a subtree."
 
 (define-key my-org-prefix-map (kbd "a") 'org-agenda)
 (define-key my-org-prefix-map (kbd "c") 'org-capture)
+(define-key my-org-prefix-map (kbd "l") 'org-insert-link-global)
+(define-key my-org-prefix-map (kbd "u") 'org-open-at-point-global)
 
 (define-key org-mode-map (kbd "C-c o t") 'org-timeline) ; Show a time-sorted view of the entries in the current org file.
 
