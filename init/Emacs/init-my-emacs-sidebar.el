@@ -42,7 +42,7 @@
 
 (require 'neotree)
 
-(global-set-key [f8] 'neotree-toggle)
+(global-set-key [f6] 'neotree-toggle)
 
 (setq neo-persist-show nil
       neo-window-width 25

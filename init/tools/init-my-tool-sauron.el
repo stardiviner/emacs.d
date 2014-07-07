@@ -92,7 +92,7 @@
 
 ;; -- sauron display --
 (setq sauron-separate-frame t) ; default t. nil to embeded in current frame.
-(global-set-key (kbd "C-c n") 'sauron-toggle-hide-show)
+(global-set-key [f8] 'sauron-toggle-hide-show)
 (setq sauron-max-line-length 150)
 
 ;; -- sauron modeline --

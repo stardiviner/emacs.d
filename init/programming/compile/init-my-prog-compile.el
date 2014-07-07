@@ -21,6 +21,10 @@
 
 
 
+
+(global-set-key [f5] 'smart-compile)
+
+
 (provide 'init-my-prog-compile)
 
 ;;; init-my-prog-compile.el ends here
