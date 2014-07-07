@@ -375,7 +375,7 @@ The result will be displayed in buffer named with
 
 (defun sdcv-search-simple (&optional word)
   "Search WORD simple translate result."
-  (showtip ; popup-tip, tooltip-show
+  (showtip ; showtip, popup-tip, tooltip-show
    (sdcv-search-witch-dictionary word sdcv-dictionary-simple-list))
   ;; (popup-tip
   ;;  (sdcv-search-witch-dictionary word sdcv-dictionary-simple-list))

@@ -23,6 +23,15 @@
         "朗道汉英字典5.0"
         ))
 
+(define-key sdcv-mode-map (kbd "n") 'sdcv-next-dictionary)
+(define-key sdcv-mode-map (kbd "p") 'sdcv-previous-dictionary)
+(define-key sdcv-mode-map (kbd "I") 'sdcv-search-input)
+(define-key sdcv-mode-map (kbd "i") 'sdcv-search-input+)
+(define-key sdcv-mode-map (kbd "Q") 'sdcv-search-pointer)
+(define-key sdcv-mode-map (kbd "q") 'sdcv-search-pointer+)
+(define-key sdcv-mode-map (kbd "V") 'show-entry)
+(define-key sdcv-mode-map (kbd "v") 'hide-entry)
+
 (unless (boundp 'dictionary-map)
   (define-prefix-command 'dictionary-map))
 (define-key my-tools-prefix-map (kbd "d") 'dictionary-map)
