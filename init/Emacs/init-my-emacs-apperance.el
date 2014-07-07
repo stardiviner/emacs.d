@@ -99,10 +99,12 @@
 ;; disable soft wrap lines for windows which has smaller width than 80.
 (global-visual-line-mode -1) ; soft wrap lines at word boundary
 (set-face-attribute 'hl-line nil
-                    ;; :foreground nil
-                    :background "#004A5D"
+                    ;; :foreground nil :background nil
+                    ;; :weight 'bold :foreground " " :background " "
+                    :foreground nil :background "#004A5D"
+                    ;; :foreground " " :background "#004A5D"
                     ;; :box '(:color "cyan" :line-width 1 :style nil) :underline nil
-                    ;; :underline "cyan" :box nil
+                    ;; :underline "yellow" :foreground nil :background nil
                     )
 (setq hl-line-face 'hl-line)
 
