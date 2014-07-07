@@ -213,8 +213,8 @@
          ;; YAML
          yaml-mode
          ;; TeX
-         auctex auto-complete-auctex
-         auto-complete-latex
+         ;; auctex auto-complete-auctex
+         ;; auto-complete-latex
          ;; ac-math
          ;;; Haskell
          haskell-mode
