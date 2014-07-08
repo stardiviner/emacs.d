@@ -88,14 +88,21 @@
                     :underline '(:color "red" :style wave))
 
 
+;;; [ flyguess ] -- guess language/dictionary for a buffer
+
+(require 'flyguess)
+
+(setq flyguess-dictionary-list '("english" "american" "francais"))
+
+
 ;;; [ flyspell-guess ] -- flyspell dictionary guesser
 
-(require 'flyspell-guess)
+;; (require 'flyspell-guess)
 
 ;; to load flyspell-guess every time you start Emacs. to activate the guess indicator (in minor-mode-list: "en").
-(eval-after-load 'flyspell-guess
-  (lambda ()
-    '(flyspell-insinuate-guess-indicator)))
+;; (eval-after-load 'flyspell-guess
+;;   (lambda ()
+;;     '(flyspell-insinuate-guess-indicator)))
 
 
 

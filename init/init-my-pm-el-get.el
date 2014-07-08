@@ -89,7 +89,7 @@
          kill-ring-ido
          ;; predictive
          ;; spell
-         flyspell flyspell-guess
+         flyspell flyguess ; flyspell-guess inflections
          ;; auto-dictionnary
          ;; imenu
          ;; jump
