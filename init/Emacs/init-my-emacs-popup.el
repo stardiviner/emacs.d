@@ -76,8 +76,11 @@
 ;; (setq showtip-timeout 30)
 ;; (setq showtip-top-adjust 40)
 
+(require 'showtip)
+
 (set-face-attribute 'showtip-face nil
-                    :background "#222222" :foreground "white")
+                    :foreground "black" :background "light yellow"
+                    :family "WenQuanYi Zen Hei Mono")
 
 
 
