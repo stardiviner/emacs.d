@@ -93,6 +93,14 @@
 ;;; overwrite them, just remove the hook with:
 (remove-hook 'enh-ruby-mode-hook 'erm-define-faces)
 
+
+;;; Others
+(add-hook 'enh-ruby-mode-hook
+          (lambda ()
+            ;; add into auto-complete enable modes.
+            (add-to-list 'ac-modes 'enh-ruby-mode)))
+
+
 
 ;; We never want to edit Rubinius bytecode or MacRuby binaries
 (add-to-list 'completion-ignored-extensions ".rbc")
