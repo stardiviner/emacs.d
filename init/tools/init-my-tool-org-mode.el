@@ -875,16 +875,17 @@ This is especially for create Org files."
 
 (define-key org-mode-map (kbd "C-c C-x h") 'org-habit-apply)
 
-(defun org-time-interval (arg)
+(defun org-time-interval (&optional arg)
   "Set schedule and deadline time interval for headline.
 
 Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadline'."
   (interactive "P")
   ;; C-u is '(4) and C-u C-u is '(16)
+  ;; (equal arg '(4))
   ;; So I need to use `(interactive "p")' for `(org-deadline)'.
-  (org-deadline arg)
+  (org-schedule arg)
   ;; (org-deadline arg "+3d") ; this is not interactive for deadline.
-  (org-schedule arg))
+  (org-deadline arg))
 
 (define-key org-mode-map (kbd "C-c C-x r") 'org-time-interval)
 
