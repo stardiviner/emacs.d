@@ -11,7 +11,9 @@
 
 (define-abbrev-table 'apropos-mode-abbrev-table '())
 
-(define-abbrev-table 'arduino-mode-abbrev-table '())
+(define-abbrev-table 'arduino-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'asdf-mode-abbrev-table '())
 
@@ -39,9 +41,13 @@
 
 (define-abbrev-table 'change-log-mode-abbrev-table '())
 
+(define-abbrev-table 'cider-doc-mode-abbrev-table '())
+
 (define-abbrev-table 'cider-repl-mode-abbrev-table '())
 
 (define-abbrev-table 'cider-stacktrace-mode-abbrev-table '())
+
+(define-abbrev-table 'cider-test-report-mode-abbrev-table '())
 
 (define-abbrev-table 'clojure-mode-abbrev-table '())
 
@@ -67,6 +73,12 @@
 
 (define-abbrev-table 'eassist-mode-abbrev-table '())
 
+(define-abbrev-table 'edebug-eval-mode-abbrev-table '())
+
+(define-abbrev-table 'edebug-x-breakpoint-list-mode-abbrev-table '())
+
+(define-abbrev-table 'edebug-x-instrumented-function-list-mode-abbrev-table '())
+
 (define-abbrev-table 'edit-abbrevs-mode-abbrev-table '())
 
 (define-abbrev-table 'el-get-check-mode-abbrev-table '())
@@ -74,6 +86,10 @@
 (define-abbrev-table 'emacs-lisp-byte-code-mode-abbrev-table '())
 
 (define-abbrev-table 'emacs-lisp-mode-abbrev-table '())
+
+(define-abbrev-table 'enh-ruby-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'epa-info-mode-abbrev-table '())
 
@@ -136,6 +152,8 @@
 
 (define-abbrev-table 'helm-grep-mode-abbrev-table '())
 
+(define-abbrev-table 'helm-moccur-mode-abbrev-table '())
+
 (define-abbrev-table 'help-mode-abbrev-table '())
 
 (define-abbrev-table 'html-erb-mode-abbrev-table '())
@@ -182,7 +200,9 @@
 
 (define-abbrev-table 'log4e-mode-abbrev-table '())
 
-(define-abbrev-table 'lua-mode-abbrev-table '())
+(define-abbrev-table 'lua-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'magit-branch-manager-mode-abbrev-table '())
 
@@ -215,6 +235,8 @@
 (define-abbrev-table 'mu4e-about-mode-abbrev-table '())
 
 (define-abbrev-table 'mu4e~update-mail-mode-abbrev-table '())
+
+(define-abbrev-table 'neotree-mode-abbrev-table '())
 
 (define-abbrev-table 'nrepl-connections-buffer-mode-abbrev-table '())
 
@@ -267,7 +289,9 @@
 
 (define-abbrev-table 'python-mode-abbrev-table '())
 
-(define-abbrev-table 'python-mode-skeleton-abbrev-table '())
+(define-abbrev-table 'python-mode-skeleton-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'reb-lisp-mode-abbrev-table '())
 
