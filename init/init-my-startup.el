@@ -115,6 +115,8 @@
 (find-file "~/Org/Tasks.org")
 (find-file "~/Org/Daily.org")
 
+(find-file "~/Git/Accounts/accounts.org")
+(find-file "~/Org/Porn/Porn.org")
 
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Ruby.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Wiki/The Ruby Programming Language.org")
