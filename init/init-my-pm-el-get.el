@@ -185,6 +185,7 @@
          ;; C family languages
          auto-complete-clang auto-complete-c-headers
          c-eldoc eassist
+         irony-mode ac-irony company-irony
          ;; Go
          go-mode go-eldoc
          go-autocomplete ; gocode
