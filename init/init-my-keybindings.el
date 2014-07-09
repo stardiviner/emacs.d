@@ -50,6 +50,10 @@
 ;; (define-key my-programming-prefix-map (kbd "v") 'vcs-map)
 (global-set-key (kbd "C-c v") 'vcs-map)
 
+(unless (boundp 'vcs-git-map)
+  (define-prefix-command 'vcs-git-map))
+(define-key 'vcs-map (kbd "g") 'vcs-git-map)
+
 (unless (boundp 'project-map)
   (define-prefix-command 'project-map))
 ;; (define-key my-programming-prefix-map (kbd "p") 'project-map)
