@@ -233,6 +233,9 @@
          nginx-mode
          ;; Linux
          crontab-mode
+         ;; Database
+         ;; SQL
+         sqlup-mode
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
 
