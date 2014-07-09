@@ -445,6 +445,17 @@
 ;; (autoload 'egit-dir "egit" "Emacs git history directory" t)
 
 
+;;; [ git-timemachine ] -- Step through historic versions of git controlled file using everyone's favourite editor.
+
+;; Usage:
+;; - [M-x git-timemachine ]
+
+(if (featurep 'git-timemachine)
+    (lambda ()
+      (require 'git-timemachine)
+      (define-key 'vcs-git-map (kbd "h") 'git-timemachine)))
+
+
 
 (provide 'init-my-prog-vcs-git)
 

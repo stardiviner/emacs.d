@@ -152,6 +152,7 @@
          git-modes git-emacs ; git-status
          magit ; magithub
          git-gutter git-gutter-fringe ; git-gutter+
+         git-timemachine
          ;; egg
          mo-git-blame
          ;; project
