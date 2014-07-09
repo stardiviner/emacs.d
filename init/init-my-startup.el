@@ -135,7 +135,7 @@
 
 
 ;;; sidebar
-(neotree-show)
+;; (neotree-show)
 
 
 ;;; start Sauron at Emacs startup
