@@ -45,6 +45,11 @@
 ;; (define-key my-programming-prefix-map (kbd "i") 'inferior-map)
 (global-set-key (kbd "C-c i") 'inferior-map)
 
+(unless (boundp 'my-prog-debug-prefix)
+  (define-prefix-command 'my-prog-debug-prefix))
+
+(global-set-key (kbd "C-c d") 'my-prog-debug-prefix)
+
 (unless (boundp 'vcs-map)
   (define-prefix-command 'vcs-map))
 ;; (define-key my-programming-prefix-map (kbd "v") 'vcs-map)

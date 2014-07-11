@@ -7,10 +7,6 @@
 
 ;;; Code:
 
-(unless (boundp 'my-prog-debug-prefix)
-  (define-prefix-command 'my-prog-debug-prefix))
-
-;; (global-set-key (kbd "C-c d") 'my-prog-debug-prefix)
 
 
 
