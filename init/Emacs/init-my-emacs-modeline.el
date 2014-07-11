@@ -172,9 +172,9 @@
                 (:propertize
                  ;; TODO: concatenate the long string.
                  ;; global-mode-string
-                 (t org-mode-line-string org-timer-mode-line-string)
-                 face (:foreground "cyan"
-                                   :box '(:color "cyan" :line-width 1 :style nil)))
+                 ;; (t org-mode-line-string org-timer-mode-line-string)
+                 (t org-timer-mode-line-string) ; org-timer default time 25, (Pomodoro time management technique)
+                 face (:foreground "cyan"))
                 
                 (:propertize mode-line-end-spaces)
                 )))
