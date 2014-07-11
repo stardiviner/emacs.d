@@ -70,6 +70,7 @@
          eim
          ;; Info & help & documentation
          info+
+         discover-my-major
          ;;; multiple major modes
          mmm-mode ; mumamo-noweb
          ;; shell

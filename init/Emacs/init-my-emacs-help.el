@@ -103,6 +103,13 @@
 ;;   (discover-add-context-menu))
 
 
+
+;;; [ discover-my-major ] -- Discover key bindings and their meaning for the current Emacs major mode.
+
+;;; Usage:
+;; [M-x discover-my-major]
+
+(global-set-key (kbd "C-h C-m") 'discover-my-major)
 
 
 (provide 'init-my-emacs-help)
