@@ -19,6 +19,7 @@
 (require 'org-timer)
 (require 'org-clock)
 (require 'org-habit)
+(require 'org-notify)
 
 (require 'org-pcomplete)
 
@@ -41,7 +42,7 @@
 (setq org-modules '(org-pcomplete
                     org-faces org-fstree org-table org-compat
                     org-protocol
-                    org-timer org-clock org-habit
+                    org-timer org-clock org-habit org-notify
                     org-info org-bibtex org-docview
                     org-plot
                     ;; TODO wait for BBDBv3
@@ -1840,6 +1841,7 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 
 
 ;;; notify
+
 ;; TODO
 ;;; 1.
 ;; - show in modeline
@@ -1855,6 +1857,14 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;;; 3.
 ;; use function `my-func-notify-send'.
 ;; (my-func-notify-send "Warning" "the end is near" "/usr/share/icons/test.png" "/usr/share/sounds/beep.ogg")
+
+;;; [ org-notify ]
+
+(setq org-notify-audible t
+      ;; org-notify-actions '("show" "show" "done" "done" "hour" "one hour later" "day" "one day later" "week" "one week later")
+      )
+
+(org-notify-start 60)
 
 
 ;;; 2.
