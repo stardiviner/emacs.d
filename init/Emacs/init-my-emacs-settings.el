@@ -35,7 +35,7 @@
 
 
 ;; [ Bell ]
-(setq visible-bell t)
+(setq visible-bell nil)                   ; use bell beep instead of flash frame.
 
 
 ;;; [ User Information ]
