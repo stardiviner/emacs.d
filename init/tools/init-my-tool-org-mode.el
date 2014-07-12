@@ -787,7 +787,7 @@ This is especially for create Org files."
       ;; org-clock-task-overrun-text
       org-clock-persist-query-save t
       org-clock-persist-query-resume t
-      org-clock-clocked-in-display 'both ; 'mode-line, 'frame-title, 'both, nil.
+      org-clock-clocked-in-display 'frame-title ; 'mode-line, 'frame-title, 'both, nil.
       ;; TODO: add clock in display into my custom mode-line.
       ;; org-clock-clocktable-default-properties '(:maxlevel 2 :scope file)
       org-clock-report-include-clocking-task t
@@ -1078,7 +1078,7 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
                          "~/Org/Projects/Projects.org"
                          "~/Org/Capture/"
                          "~/Org/Wiki/Learning/Learning.org"
-                         ;; "~/Org/Wiki/Learning/MyLearningPlan/Learn Programming.org"
+                         "~/Org/Wiki/Learning/MyLearningPlan/Learn Programming.org"
                          "~/Org/Wiki/Wiki.org"
                          "~/Org/Wiki/Kung Fu/Kung Fu.org"
                          ))
@@ -1166,7 +1166,7 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 (setq org-agenda-file-regexp "\\`[^.].*\\.org\\'")
 (setq org-agenda-skip-deadline-if-done t)
 (setq org-agenda-skip-scheduled-if-done t)
-(setq org-agenda-skip-scheduled-delay-if-deadline t) ; nil, t, 'post-deadline.
+(setq org-agenda-skip-scheduled-delay-if-deadline 'post-deadline) ; nil, t, 'post-deadline.
 (setq org-agenda-skip-scheduled-if-deadline-is-shown t)
 (setq org-agenda-scheduled-leaders '("Scheduled: " "%2d days /// "))
 (setq org-agenda-todo-ignore-scheduled 'future)
@@ -1174,13 +1174,20 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 (setq org-agenda-show-outline-path t)
 (setq org-deadline-warning-days 7) ; determines how far in advance items with
                                         ; deadlines will show up in the agenda.
-(setq org-extend-today-until 6) ; I work late at night! Extend my current day past midnight.
+(setq org-extend-today-until 3) ; I work late at night! Extend my current day past midnight.
+;; agenda view
 (setq org-agenda-prefix-format
       '((agenda . " %i %-12:c%?-12t% s")
         (timeline . "  % s")
         (todo . " %i %-12:c")
-        (tags . " %i %-12:c")
-        (search . " %i %-12:c")))
+        (search . " %i %-12:c")
+        (tags . " %i %-12:c")))
+(setq org-agenda-remove-times-when-in-prefix t
+      ;; org-agenda-remove-tags t
+      org-agenda-remove-tags-when-in-prefix t
+      ;; org-agenda-remove-timeranges-from-blocks
+      )
+
 (setq org-agenda-window-setup 'current-window)
 (setq org-agenda-window-frame-fractions '(0.5 . 0.75)) ; the min and max height of the agenda window as a fraction of frame height.
 (setq org-agenda-span 'week)
