@@ -1,5 +1,0 @@
-(:name json-reformat
-       :description "Reformat tool for JSON."
-       :type github
-       :pkgname "gongo/json-reformat"
-       :features json-reformat)
