@@ -96,7 +96,7 @@
 (setq sauron-max-line-length 150)
 
 ;; -- sauron modeline --
-;; (setq sauron-hide-mode-line t)
+(setq sauron-hide-mode-line t)      ; remove the mode-line in the sauron-buffer.
 
 (setq sauron-sticky-frame t) ; make the Sauron window appears on every (virtual) desktop.
 
@@ -105,11 +105,12 @@
 
 ;; -- watching patterns --
 (setq sauron-watch-patterns
-      '("\\bhack\\b" "\\bcrack\\b"))
+      '("\\bhack\\b" "\\bcrack\\b" "\\bSex\\b")
+      )
 
 ;; -- watching nicks --
 (setq sauron-watch-nicks
-      '("Tristan" "thuang"))
+      '("Tristan" "thuang" "yaxin"))
 ;; don’t get swamped by a certain nick
 ;;
 ;; Since you may not want to get too many events from one nick – and, who knows,
@@ -173,7 +174,7 @@
 ;; -- backend modules --
 ;; - erc
 ;; - org-mode
-;; - notifications
+;; - notifications (emacs24+)
 ;; - d-bus
 ;; - identica
 ;; - twittering
