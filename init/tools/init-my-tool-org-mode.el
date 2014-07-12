@@ -1864,6 +1864,46 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
       ;; org-notify-actions '("show" "show" "done" "done" "hour" "one hour later" "day" "one day later" "week" "one week later")
       )
 
+;;; ---------------------------------------------------------
+;; List of possible parameters:
+;;
+;;   :time      Time distance to deadline, when this type of notification shall
+;;              start.  It's a string: an integral value (positive or negative)
+;;              followed by a unit (s, m, h, d, w, M).
+;;   :actions   A function or a list of functions to be called to notify the
+;;              user.  Instead of a function name, you can also supply a suffix
+;;              of one of the various predefined `org-notify-action-xxx'
+;;              functions.
+;;   :period    Optional: can be used to repeat the actions periodically.
+;;              Same format as :time.
+;;   :duration  Some actions use this parameter to specify the duration of the
+;;              notification.  It's an integral number in seconds.
+;;   :audible   Overwrite the value of `org-notify-audible' for this action.
+;;
+;;   :actions -ding, -notify, -window, -notify/window, -message, -email,
+
+(org-notify-add 'default
+                '(:time "1h" :period "10m" :duration 60
+                        :actions (-notify/window -ding)))
+
+;; (org-notify-add 'appt
+;;                 '(:time "-1s" :period "20s" :duration 10
+;;                   :actions (-message -ding))
+;;                 '(:time "15m" :period "2m" :duration 100
+;;                   :actions -notify)
+;;                 '(:time "2h" :period "5m" :actions -message)
+;;                 ;; '(:time "3d" :actions -email)
+;;                 )
+;;
+;; This means for todo-items with `notify' property set to `appt': 3 days
+;; before deadline, send a reminder-email, 2 hours before deadline, start to
+;; send messages every 5 minutes, then 15 minutes before deadline, start to
+;; pop up notification windows every 2 minutes.  The timeout of the window is
+;; set to 100 seconds.  Finally, when deadline is overdue, send messages and
+;; make noise."
+
+
+
 (org-notify-start 60)
 
 
