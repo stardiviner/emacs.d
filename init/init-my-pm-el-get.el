@@ -65,6 +65,7 @@
          ;; apperance
          highlight-symbol
          cursor-chg
+         yascroll
          minimap
          ;; modeline
          diminish pretty-mode page-break-lines
