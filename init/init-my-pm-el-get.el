@@ -60,6 +60,8 @@
          company-mode
          ;; color theme
          color-theme-solarized
+         ;; color-theme-almost-monokai
+         ;; monokai-theme
          ;; apperance
          highlight-symbol
          cursor-chg

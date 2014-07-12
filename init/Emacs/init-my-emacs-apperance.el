@@ -243,15 +243,22 @@
       )
 
 
+;;; color-theme-almost-monokai
+
+;; (color-theme-almost-monokai)
+
+;;; monokai-theme
+;; (load-file "~/.emacs.d/init/color-themes/monokai-theme.el")
+;; ;; (load-file "~/.emacs.d/init/color-themes/molokai-theme.el")
+;; (load-theme 'monokai t)
+
 ;;; [ Faces ]
 ;; italic & bold
 (set-face-attribute 'italic nil
                     :slant 'italic
-                    :underline nil
                     :foreground "white")
 (set-face-attribute 'bold nil
                     :weight 'bold
-                    :underline nil
                     :foreground "white")
 (set-face-attribute 'underline nil
                     :underline "white")
