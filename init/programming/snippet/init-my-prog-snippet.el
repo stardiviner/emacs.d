@@ -95,6 +95,12 @@
 
 ;; (define-key yas-minor-mode (kbd "") 'yas-abort-snippet)
 
+;; (setq yas-prompt-functions
+;;       '(yas-dropdown-prompt             ; work both in minibuffer and X window system.
+;;         yas-completing-prompt           ; minibuffer prompting.
+;;         yas-ido-prompt                  ; minibuffer prompting.
+;;         yas-x-prompt                    ; X window system.
+;;         yas-no-prompt))
 
 
 ;;; indent
@@ -191,6 +197,8 @@ $0"
 ;;            org-mode-hook
 ;;            ))
 ;;   (add-hook hook '(lambda () (yas-minor-mode))))
+
+(setq yas-dont-activate '(minibufferp))
 
 (diminish 'yas-minor-mode)
 
