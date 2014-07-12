@@ -201,6 +201,10 @@
 #     The function yas/verify-value has another neat trick, and makes use of
 #     yas/moving-away-p. Try it and see!
 
+# - ${n:$$(yas-expand-snippet [snippet])}
+#     expand snippet with Emacs Lisp code. So that you can include other snippet
+#     in one snippet instead of rewrite code.
+
 # - ${1:kk${2:bb}} -- nested placeholder fields
 #     By the way, C-d will only clear the field if you cursor is at the
 #     beginning of the field and it hasn't been changed yet. Otherwise, it

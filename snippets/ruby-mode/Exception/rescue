@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: begin .. rescue .. end
+# key: rescue
+# --
+begin
+  ${1:execute code}
+rescue
+  ${2:rescue code}
+end

@@ -2,4 +2,4 @@
 # name: hash
 # key: h
 # --
-${1:hash name} = {${2:key} => ${3:value}, $4}$0
+${1:hash name} = {:${2:key} => ${3:value}, $0}
