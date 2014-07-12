@@ -449,8 +449,14 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;;; [ Align ]
 
 ;;; Usage:
-;; commands prefix with `align-'.
-;; custom variable `align-rules-list'.
+;; - commands prefix with `align-', `sort-',
+;; - custom variable `align-rules-list'.
+;; - `sort-fields', `sort-regexp-fields', `sort-numeric-fields', `sort-columns', `reverse-region',
+;;
+;; - region select text + [C-u M-x align-regexp] (could contains group in regexp pattern)
+
+;; TODO: add more variable to set.
+(setq align-highlight-change-face 'highlight)
 
 (defun align-repeat (start end regexp)
   "Repeat alignment with respect to the given regular expression.
