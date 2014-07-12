@@ -166,6 +166,19 @@
                     :weight 'bold
                     :box '(:color "black" :line-width 1 :style nil)
                     )
+;; time grid: 18:00 ...... ----------------
+(set-face-attribute 'org-time-grid nil
+                    :foreground "cyan")
+;; alread past deadline in agenda
+(set-face-attribute 'org-warning nil
+                    :foreground "red"
+                    :weight 'bold)
+;; comming deadline in agenda
+(set-face-attribute 'org-upcoming-deadline nil
+                    :foreground "orange")
+;; org-habit in agenda
+(set-face-attribute 'org-scheduled-today nil
+                    :foreground "light blue")
 
 ;;; org-verbatim: =org verbatim highlight=
 (set-face-attribute 'org-verbatim nil
@@ -332,6 +345,14 @@
 (set-face-attribute 'org-link nil
                     :foreground "cyan"
                     :underline "dark cyan")
+
+;; set Org clock face.
+;; That is, make the org-mode-line-clock no longer inherit attributes from the
+;; mode-line face. It seems like it gets the attributes from mode-line or
+;; mode-line-inactive as appropriate, when displayed in the mode line.
+(set-face-attribute 'org-mode-line-clock nil
+                    :foreground "cyan"
+                    :inherit nil)
 
 
 ;; FIXME this seems changed in other buffers too. seems globally.
