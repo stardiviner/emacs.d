@@ -2031,10 +2031,10 @@ This function will promote all items in a subtree."
 
 ;;; [ Pairs ]
 
-(add-hook 'org-mode-hook
-          (lambda ()
-            (paredit-mode -1)
-            (autopair-mode +1)))
+;; (add-hook 'org-mode-hook
+;;           (lambda ()
+;;             (paredit-mode -1)
+;;             (autopair-mode -1)))
 
 
 ;;; [ Key Bindings ]

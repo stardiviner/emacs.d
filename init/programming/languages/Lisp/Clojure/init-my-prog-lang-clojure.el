@@ -119,7 +119,7 @@
      
      (add-hook 'cider-repl-mode-hook
                (lambda ()
-                 (paredit-mode +1)
+                 ;; (paredit-mode +1)
                  (rainbow-delimiters-mode +1)))
 
      ;; (run-lisp)
