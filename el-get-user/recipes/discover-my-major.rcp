@@ -1,5 +1,0 @@
-(:name discover-my-major
-       :description "Discover more of emacs with context menus!"
-       :depends makey
-       :type github
-       :pkgname "steckerhalter/discover-my-major")
