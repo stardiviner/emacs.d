@@ -1914,8 +1914,13 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;;   :actions -ding, -notify, -window, -notify/window, -message, -email,
 
 (org-notify-add 'default
-                '(:time "1h" :period "10m" :duration 60
-                        :actions (-notify/window -ding)))
+                '(:time "1h" :period "10m" :duration 100
+                        :actions (-notify/window -ding))
+                ;; '(:time "1d" :period "3h" :duration 30
+                ;;         :actions -notify)
+                ;; '(:time "7d" :period "2d" :duration 20
+                ;;         :actions -notify)
+                )
 
 ;; (org-notify-add 'appt
 ;;                 '(:time "-1s" :period "20s" :duration 10
