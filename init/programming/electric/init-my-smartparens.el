@@ -1,0 +1,74 @@
+;;; init-my-smartparens.el --- init smartparens
+;;; -*- coding: utf-8 -*-
+
+;;; Commentary:
+
+
+
+;;; Code:
+
+;;; [ smartparens ] -- Minor mode for Emacs that deals with parens pairs and tries to be smart about it.
+
+;;; Usage:
+;; https://github.com/Fuco1/smartparens/wiki
+;; https://github.com/Fuco1/smartparens/wiki#what-is-this-package-about?
+
+(require 'smartparens-config)
+
+(setq sp-highlight-wrap-overlay t
+      ;; sp-undo-pairs-separately
+      sp-navigate-consider-sgml-tags '(html-erb-mode
+                                       jinja2-mode
+                                       web-mode
+                                       nxml-mode nxhtml-mode rhtml-mode sgml-mode html-mode)
+      sp-ignore-modes-list '(minibuffer-inactive-mode)
+      sp-autowrap-region t
+      sp-autoinsert-pair t
+      sp-autoinsert-if-followed-by-word t
+      sp-show-pair-delay 0.125
+      sp-navigate-close-if-unbalanced nil
+      sp-paredit-bindings '(("C-M-f" . sp-forward-sexp)
+                            ("C-M-b" . sp-backward-sexp)
+                            ("C-M-u" . sp-backward-up-sexp)
+                            ("C-M-d" . sp-down-sexp)
+                            ("C-M-p" . sp-backward-down-sexp)
+                            ("C-M-n" . sp-up-sexp)
+                            ("M-s" . sp-splice-sexp)
+                            ("M-<up>" . sp-splice-sexp-killing-backward)
+                            ("M-<down>" . sp-splice-sexp-killing-forward)
+                            ("M-r" . sp-splice-sexp-killing-around)
+                            ("C-)" . sp-forward-slurp-sexp)
+                            ("C-<right>" . sp-forward-slurp-sexp)
+                            ("C-}" . sp-forward-barf-sexp)
+                            ("C-<left>" . sp-forward-barf-sexp)
+                            ("C-(" . sp-backward-slurp-sexp)
+                            ("C-M-<left>" . sp-backward-slurp-sexp)
+                            ("C-{" . sp-backward-barf-sexp)
+                            ("C-M-<right>" . sp-backward-barf-sexp)
+                            ("M-S" . sp-split-sexp))
+      sp-pair-list '(("\\\\(" . "\\\\)")
+                     ("\\\"" . "\\\"")
+                     ("\\(" . "\\)")
+                     ("\\{" . "\\}")
+                     ("`" . "'")
+                     ("{" . "}")
+                     ("[" . "]")
+                     ("(" . ")")
+                     ("\"" . "\""))
+      sp-override-key-bindings nil
+      sp-autodelete-opening-pair t
+      sp-autodelete-closing-pair t
+      sp-autodelete-pair t
+      sp-message-width 'frame
+      sp-highlight-pair-overlay t
+      ;; sp-show-pair-overlays t
+      ;; sp-show-pair-enc-overlays
+      )
+
+(smartparens-global-mode t)
+
+
+
+(provide 'init-my-smartparens)
+
+;;; init-my-smartparens.el ends here
