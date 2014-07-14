@@ -137,7 +137,8 @@
          ;; comment
          fic-mode
          ;; electric
-         paredit autopair
+         smartparens
+         ;; paredit autopair
          rainbow-mode rainbow-delimiters
          ;; document
          ;; RFC

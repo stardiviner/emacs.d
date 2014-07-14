@@ -33,8 +33,8 @@
 
 
 
-(require 'init-my-paredit)
-(require 'init-my-autopair)
+;; (require 'init-my-paredit)
+;; (require 'init-my-autopair)
 
 (require 'init-smartparens)
 
