@@ -7,16 +7,48 @@
 
 ;;; Code:
 
-;;; [ allout ]
+
+
+;;; [ outline-mode ]
+
+;;; Usage:
+;; - [C-c @ C-a] -- show all
+;; - [C-c @ C-t] -- show only the headings
+;; - [C-c @ C-s] -- show subtree at cursor location
+;; - [C-c @ C-d] -- hide subtree at cursor location
+
+
+
+;;; [ outline-minor-more ]
+
+;;; Usage:
+;; - [C-c @] -- prefix.
+
+;; - [M-x outline-minor-mode]       --	enable Outline minor mode
+;; - [C-c @ C-t]                    --	hide all of buffer except headings
+;; - [C-c @ C-a]                    --	show all of the text in the buffer
+;; - [C-c @ C-q]                    --	hide everything but top levels headers
+;; - [C-c @ TAB]                    --	show all direct subheadings of this heading
+;; - [C-c @ C-k]                    --	show all subheadings, but not bodies
+;; - [M-x outline-previous-heading] --	go to previous heading
+;; - [M-x outline-next-heading]     --	go to next heading
+;; - [C-c @ C-p]                    --	go to previous visible heading
+;; - [C-c @ C-n]                    --	go to next visible heading
+
+
+;;; [ Outline Magic ] -- it extends outline-mode and outline-minor-mode with a single command to toggle hiding/showing (outline-cycle) which you can bind to something like <C-tab>.
+
+
+;;; [ allout-mode ]
 
 ;;; allout outline mode provides extensive outline formatting and manipulation
 ;;; beyond standard emacs outline mode. It provides for structured editing of
 ;;; outlines, as well as navigation and exposure. It also provides for
 ;;; syntax-sensitive text like programming languages. (For an example, see the
 ;;; allout code itself, which is organized in an allout outline framework.)
-
+;;;
 ;;; In addition to outline navigation and exposure, allout includes:
-
+;;
 ;; - topic-oriented creation, promotion, demotion, cut/paste across depths and
 ;;   locations, etc.
 ;;
@@ -36,25 +68,21 @@
 ;; Help:
 ;; - [C-h f allout-mode] ::
 ;; - [C-c SPC] :: prefix of allout keybindings.
-;; - [C-c SPC C-s] :: show entry.
-;; - [C-c SPC h] :: hide entry.
+;; - [C-h v allout-prefixed-keybindings] + [C-h v allout-unprefixed-keybindings]
 
 (require 'allout)
-
-(setq allout-auto-activation t
-      allout-command-prefix (kbd "C-c SPC")          ; "\C-c "
-      ;; allout-prefixed-keybindings [(control ?a)] ; ?a, ?. [
-      )
 
 ;; To use the allout package in place of the standard outline package, add the
 ;; following bit of code.
 ;; (require 'outline "allout")
 
-;;; variables:
 (setq allout-auto-activation t
+      allout-default-layout '(-2 : 0)
+      ;; [buffer-local] allout-layout '(0 : -1 -1 0)
       allout-widgets-auto-activation t
-      ;; allout-layout '(0 : -1 -1 0)
+      allout-command-prefix (kbd "C-c SPC") ; default "\C-c "
       )
+
 
 
 ;; ;; -------------------------------------------------------------------------------
@@ -77,20 +105,25 @@
 ;;                          font-lock-warning-face)
 ;;                   nil t)))
 ;;   "Additional expressions to highlight in Outline mode.")
-
+;;
 ;; ;; add font-lock to allout mode
 ;; (defun rf-allout-font-lock-hook ()
 ;;   (set (make-local-variable 'font-lock-defaults)
 ;;        '(rf-allout-font-lock-keywords t nil nil outline-back-to-current-heading)))
-
+;;
 ;; (add-hook 'outline-mode-hook 'rf-allout-font-lock-hook)
 ;; ;; -------------------------------------------------------------------------------
 
-(global-set-key (kbd "M-n") 'allout-next-heading)
-(global-set-key (kbd "M-p") 'allout-previous-heading)
+(define-key my-edit-prefix-map (kbd "o") 'allout-minor-mode)
 
 (allout-minor-mode 1)
 (diminish 'allout-mode)
+
+
+
+;;; [ Folding ]
+
+;;; folding-mode --- 
 
 
 (provide 'init-my-emacs-outline)
