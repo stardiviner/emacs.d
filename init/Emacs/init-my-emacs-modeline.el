@@ -313,15 +313,16 @@
                     :inverse-video nil
                     :foreground "#444444"
                     :background "black"
-                    ;; :box '(:color "#444444" :line-width 1 :style nil) :height 90
+                    :box '(:color "slate blue" :line-width 1 :style nil)
                     :family "DejaVu Sans Mono"
+                    :height 80
                     )
 (set-face-attribute 'mode-line-inactive nil
                     :inverse-video nil
                     :foreground "#444444" :background "#242424"
                     :family "DejaVu Sans Mono"
-                    ;; :box '(:color "#444444" :line-width 1 :style nil)
-                    ;; :height 90
+                    :box '(:color "#444444" :line-width 1 :style nil)
+                    :height 80
                     )
 
 
