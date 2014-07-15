@@ -1913,11 +1913,11 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;;   :actions -ding, -notify, -window, -notify/window, -message, -email,
 
 (org-notify-add 'default
-                '(:time "1h" :period "10m" :duration 100
+                '(:time "1h" :period "30m" :duration 100
                         :actions (-notify/window -ding))
-                ;; '(:time "1d" :period "3h" :duration 30
-                ;;         :actions -notify)
-                ;; '(:time "7d" :period "2d" :duration 20
+                ;; '(:time "3d" :period "4h" :duration 40
+                ;;         :actions -notify/window)
+                ;; '(:time "5d" :period "6d" :duration 20
                 ;;         :actions -notify)
                 )
 
@@ -2095,6 +2095,3 @@ In common insert mode or in select region text to press this keybinding \\<C-c k
 (provide 'init-my-tool-org-mode)
 
 ;;; init-my-tool-org-mode.el ends here
-
-
-
