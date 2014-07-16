@@ -43,7 +43,7 @@
                                (wg-mode-line-string)))
                              face (:foreground "cyan"
                                                ;; :underline "green yellow"
-                                               :family "Segoe Print"
+                                               ;; :family "Segoe Print"
                                                ))
 
                 (:propertize "  ")
@@ -132,18 +132,27 @@
                 ;; ERC
                 ;; TODO [#e,i]
 
+                ;;; mmm-mode
+                ;; TODO
+                ;; (:propertize (mmm-format-string))
+
                 ;; the major mode of the current buffer.
-                (:propertize " ("
+                (:propertize " 〖"
                              face (:foreground "orange red"))
-                (:propertize "/:%m:/"
+                (:propertize "%m"
                              face (:foreground "green yellow"
-                                               :family "Segoe Print"
+                                               :weight 'bold
+                                               ;; :family ""
+                                               ;; :height 100
                                                )
+                             ;; FIXME:
+                             ;; help-echo '(minor-mode-alist)
+                             )
                 ;; (:propertize "|")
                 ;; ;; list of minor modes
                 ;; (:propertize minor-mode-alist
                 ;;              face (:foreground "dim gray"))
-                (:propertize ") "
+                (:propertize "〗 "
                              face (:foreground "orange red"))
 
                 ;; --------------------------- right align ----------------------------------
@@ -315,14 +324,14 @@
                     :background "black"
                     :box '(:color "slate blue" :line-width 1 :style nil)
                     :family "DejaVu Sans Mono"
-                    :height 80
+                    ;; :height 80
                     )
 (set-face-attribute 'mode-line-inactive nil
                     :inverse-video nil
                     :foreground "#444444" :background "#242424"
                     :family "DejaVu Sans Mono"
                     :box '(:color "#444444" :line-width 1 :style nil)
-                    :height 80
+                    ;; :height 80
                     )
 
 
