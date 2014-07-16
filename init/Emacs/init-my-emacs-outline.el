@@ -7,8 +7,6 @@
 
 ;;; Code:
 
-
-
 ;;; [ outline-mode ]
 
 ;;; Usage:
@@ -81,8 +79,17 @@
       ;; [buffer-local] allout-layout '(0 : -1 -1 0)
       allout-widgets-auto-activation t
       allout-command-prefix (kbd "C-c SPC") ; default "\C-c "
+      allout-use-mode-specific-leader t
+      ;; allout-header-prefix "."
+      ;; allout-primary-bullet "*"
       )
 
+
+
+;; so that you can active/inactive allout-minor-mode to edit/navigate/folding with it.
+;; (define-key my-edit-prefix-map (kbd "o") 'allout-minor-mode)
+;; activate outline mode for current buffer, and establish a default file-var setting for `allout-layout'.
+(define-key my-edit-prefix-map (kbd "o") 'outlineify-sticky)
 
 
 ;; ;; -------------------------------------------------------------------------------
@@ -114,11 +121,15 @@
 ;; (add-hook 'outline-mode-hook 'rf-allout-font-lock-hook)
 ;; ;; -------------------------------------------------------------------------------
 
-(define-key my-edit-prefix-map (kbd "o") 'allout-minor-mode)
 
 (allout-minor-mode 1)
 (diminish 'allout-mode)
 
+;; (unless (boundp 'my-outline-prefix-map)
+;;   (define-prefix-command 'my-outline-prefix-map))
+;; (define-key my-edit-prefix-map (kbd "o") 'my-outline-prefix-map)
+;;
+;; (define-key my-outline-prefix-map (kbd "n") 'allout-next-heading)
 
 
 ;;; [ Folding ]
