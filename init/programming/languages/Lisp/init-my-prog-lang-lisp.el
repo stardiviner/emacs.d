@@ -20,14 +20,17 @@
 ;;; Usage:
 ;;; - [M-x slime] ::
 
-(load (expand-file-name "~/quicklisp/slime-helper.el"))
-
+;; (load (expand-file-name "~/quicklisp/slime-helper.el"))
 ;; (require 'slime)
+
+;; NOTE: currently using slime from el-get installation.
+
+;;; -----------------------------------
 (require 'slime-autoloads)
 
 (setq inferior-lisp-program "sbcl")
-
-(setq slime-contribs '(slime-fancy))
+;; (setq slime-contribs '(slime-fancy))
+;;; -----------------------------------
 
 ;; a list of alternative Common Lisp implementations that can be
 ;; used with SLIME. Note that their presence render
@@ -67,12 +70,6 @@
      (define-key slime-mode-map (kbd "C-c C-s") 'slime-selector)))
 
 
-
-
-;;; [ Slime Mode ]
-
-
-
 
 ;;; [ ac-slime ] --
 
@@ -101,7 +98,7 @@
 
 
 
-;;; [ Swank ]
+;;; [ Swank ] (cl-swank) --
 
 
 

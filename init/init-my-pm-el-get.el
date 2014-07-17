@@ -176,9 +176,9 @@
          yard-mode
          rhtml-mode projectile-rails
          ;; Lisp
-         ;; slime
+         slime
          elisp-slime-nav elisp-format eldoc-eval
-         ac-slime slime-company
+         ;; ac-slime slime-company
          geiser
          ac-geiser
          ;; Scheme
