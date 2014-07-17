@@ -94,6 +94,7 @@
         "C-x *"                         ; calc
         "C-x a"                         ; abbrev
         "C-x n"                         ; narrow
+        "C-c %"                         ; mmm-mode
         "C-c e"                         ; edit (multiple-cursor, narrow, ...)
         "C-c r"                         ; regexp prefix map
         "C-c s"                         ; visual-regexp-map
