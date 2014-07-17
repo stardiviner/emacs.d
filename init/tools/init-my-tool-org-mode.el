@@ -485,8 +485,11 @@ It can contain any number of symbols, which will be repeated."
 
 (require 'org-ac)
 ;; Make config suit for you. About the config item, eval the following sexp.
-(customize-group "org-ac")
+;; (customize-group "org-ac")
 (org-ac/config-default)
+
+;; (setq org-ac/ac-trigger-command-keys '("\\" "*" "SPC" ":" "[" "+"))
+(setq org-ac/ac-trigger-command-keys '("\\" "+"))
 
 ;; remove heavy auto-complete sources to speed up typing in Org.
 (add-hook 'org-mode-hook
