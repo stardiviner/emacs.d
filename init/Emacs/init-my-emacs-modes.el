@@ -36,7 +36,7 @@
 
 (setq mmm-global-mode 'maybe) ; t, nil, 'maybe (turn itself on in precisely).
 
-(setq mmm-submode-mode-line-format "~M>[~m]"
+(setq mmm-submode-mode-line-format "~M > [~m]"
       mmm-primary-mode-display-name t
       ;; mmm-buffer-mode-display-name t
       )
@@ -44,6 +44,8 @@
 (setq mmm-submode-decoration-level 3)
 
 ;; (mmm-add-mode-ext-class 'html-mode "\\.php\\'" 'html-php)
+
+(define-key my-edit-prefix-map (kbd "m") 'mmm-mode) ; enable mmm-mode on region.
 
 
 ;;; submode classes
