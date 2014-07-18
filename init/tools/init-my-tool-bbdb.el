@@ -76,7 +76,11 @@
       bbdb-new-mails-primary 'query
       )
 
-(add-hook 'message-setup-hook 'bbdb-mail-aliases)
+
+(dolist (hook '(message-setup-hook
+                mu4e-compose-mode-hook
+                ))
+  (add-hook hook 'bbdb-mail-aliases))
 
 
 ;;; [ bbdb- ] -- More easily search/choice than BBDB
