@@ -31,14 +31,23 @@
 ;; (bbdb-initialize)
 (bbdb-initialize 'sendmail 'message 'supercite 'w3 'gnus)
 
+
+(unless (boundp 'my-bbdb-prefix-map)
+  (define-prefix-command 'my-bbdb-prefix-map))
+(define-key my-tools-prefix-map (kbd "b") 'my-bbdb-prefix-map)
+
 (defun my-bbdb ()
   (interactive)
   (if (get-buffer "*BBDB*")
       (switch-to-buffer "*BBDB*")
     (command-execute 'bbdb)
     ))
+(define-key my-bbdb-prefix-map (kbd "b") 'my-bbdb)
 
-(define-key my-tools-prefix-map (kbd "b") 'my-bbdb)
+(define-key my-bbdb-prefix-map (kbd "c") 'bbdb-create)
+(define-key my-bbdb-prefix-map (kbd "a") 'bbdb-snarf)
+(define-key my-bbdb-prefix-map (kbd "h") 'helm-bbdb)
+
 
 (add-hook 'message-setup-hook 'bbdb-mail-aliases)
 
