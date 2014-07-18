@@ -27,8 +27,16 @@
 
 ;;; TODO: BBDBv3
 
-;; (require 'bbdb)
+(require 'bbdb)
+;; (bbdb-initialize)
+(bbdb-initialize 'sendmail 'message 'supercite 'w3 'gnus)
 
+
+
+(add-hook 'message-setup-hook 'bbdb-mail-aliases)
+
+
+;;; [ bbdb- ] -- More easily search/choice than BBDB
 
 
 ;;; [ bbdb-vcard ]

@@ -122,7 +122,7 @@
          ;; Email
          ;; mu mu-cite
          ;; BBDB
-         ;; FIXME: bbdb ; bbdb-vcard
+         bbdb ; bbdb-vcard
          ;; tools
          calfw sauron ; appt
          gist
