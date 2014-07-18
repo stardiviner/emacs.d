@@ -82,6 +82,13 @@
                 ))
   (add-hook hook 'bbdb-mail-aliases))
 
+;;; BBDB [M-TAB] conflicts with ispell.
+(defun my-enable-bbdb-complete-key ()
+  (define-key message-mode-map (kbd "M-TAB") 'bbdb-complete-name))
+(dolist (hook '(message-mode-hook
+                mu4e-compose-mode-hook
+                ))
+  (add-hook hook 'my-enable-bbdb-complete-key))
 
 ;;; [ bbdb- ] -- More easily search/choice than BBDB
 
