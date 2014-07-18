@@ -48,6 +48,33 @@
 (define-key my-bbdb-prefix-map (kbd "a") 'bbdb-snarf)
 (define-key my-bbdb-prefix-map (kbd "h") 'helm-bbdb)
 
+(setq bbdb-file (expand-file-name "~/Org/BBDB/bbdb")
+      bbdb-completion-display-record t
+      bbdb-image t ; display records with an image.
+      bbdb-image-path (expand-file-name "~/Org/BBDB/avatars")
+      ;; bbdb-image-suffixes '(".png" ".jpg" ".gif" ".xpm")
+      ;; bbdb-sound-files
+      bbdb-default-label-list '("personal" "home" "work" "company" "organization" "other")
+      bbdb-default-country "China"
+      bbdb-dial-local-prefix "+86" ; TODO: is this right?
+      bbdb-default-area-code "+86"
+      ;; bbdb-default-xfield 'notes
+      ;; bbdb-init-forms
+      ;; bbdb-mua-pop-up-window-size
+      ;; bbdb-auto-notes-rules
+      ;; bbdb-auto-notes-rules-expanded
+      ;; bbdb-snarf-default-label-alist '((phone . "work") (address . "work"))
+      ;; bbdb-address-format-list
+      bbdb-add-mails 'query
+      ;; bbdb-time-stamp-format "%Y-%m-%d %r %Z"
+      ;; bbdb-address-label-list
+      bbdb-need-to-sort t
+      ;; bbdb-case-fold-search nil
+      bbdb-completion-list t
+      bbdb-complete-mail t
+      bbdb-completion-display-record t
+      bbdb-new-mails-primary 'query
+      )
 
 (add-hook 'message-setup-hook 'bbdb-mail-aliases)
 
