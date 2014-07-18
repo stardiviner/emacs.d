@@ -69,7 +69,6 @@
 (find-file "~/Org/Wiki/Wiki.org")       ; Wiki
 (find-file "~/Org/Wiki/Data/Data.org")  ; Data
 (find-file "~/Org/Wiki/Data/Bookmarks/Bookmarks.org") ; Bookmarks
-(find-file "~/Org/Persons/Persons.org")
 (find-file "~/Org/Wiki/Reading/Reading.org")
 (find-file "~/Org/Wiki/Reading/Aphorisms/Aphorisms.org")
 (find-file "~/Org/Wiki/Reading/Novels/Data/九州.org")
