@@ -10,7 +10,7 @@
 
 (unless (boundp 'blog-map)
   (define-prefix-command 'blog-map))
-(define-key my-tools-prefix-map (kbd "b") 'blog-map)
+(define-key my-tools-prefix-map (kbd "l") 'blog-map)
 
 
 ;;; [ jekyll.el ]

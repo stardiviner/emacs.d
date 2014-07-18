@@ -12,7 +12,7 @@
 
 ;;; Code:
 
-;;; [ BBDB ]
+;;; [ BBDB ] -- The Insidious Big Brother Database (BBDB) is a contact management utility.
 
 ;;; Usage:
 ;; - [M-x bbdb-help]
@@ -31,7 +31,7 @@
 ;; (bbdb-initialize)
 (bbdb-initialize 'sendmail 'message 'supercite 'w3 'gnus)
 
-
+(define-key my-tools-prefix-map (kbd "b") 'bbdb)
 
 (add-hook 'message-setup-hook 'bbdb-mail-aliases)
 
