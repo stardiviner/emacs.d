@@ -93,7 +93,9 @@
 
 
 ;; (global-set-key (kbd "C-x h") 'helm-mini)
-;; (global-set-key (kbd "M-x") 'helm-M-x) ; conflict with {[C-u M-x align-regexp] on select region text.}
+;; this global keybinding [M-x] will conflict with {[C-u M-x align-regexp] on select region text.}
+;; But you can press [M-x C-u align-regexp RET].
+(global-set-key (kbd "M-x") 'helm-M-x)
 ;; If you prefer the helm version of the file finder, you can bind it to C-x C-f
 ;; to replace the standard find-file:
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
