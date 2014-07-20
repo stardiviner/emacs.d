@@ -61,7 +61,7 @@
       org-startup-indented t
       org-startup-truncated t
       ;; FIXME: error: Can't preview LaTeX fragment in a non-file buffer.
-      ;; org-startup-with-inline-images t ; `org-toggle-inline-images'
+      org-startup-with-inline-images t ; `org-toggle-inline-images'
       ;; org-startup-with-latex-preview t
       ;; org-startup-options
       ;; coordinate grid overlays
