@@ -173,6 +173,7 @@
 (require 'yari)
 
 (dolist (hook '(ruby-mode-hook
+                enh-ruby-mode-hook
                 ))
   (add-hook hook (lambda ()
                    (setq yari-ri-program-name "ri")
@@ -489,7 +490,7 @@
 
 ;;; [ Misc Functions ]
 (defun browse-development ()
-  "Browse rails development url."
+  "Browse Rails development url."
   (interactive)
   (browse-url "http://127.0.0.1:3000"))
 
