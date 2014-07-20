@@ -266,6 +266,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
 
 ;; BBDB
 (push '("*BBDB*" :position bottom :height 15) popwin:special-display-config)
+(push '(bbdb-mode :position bottom :height 15) popwin:special-display-config)
 
 ;; Festival
 (push '("*festival*" :position bottom :height 15) popwin:special-display-config)
