@@ -134,7 +134,8 @@
       (switch-to-buffer "*ielm*")
     (let ((default-directory (getenv "HOME")))
       (command-execute 'ielm)
-      (bury-buffer))))
+      (bury-buffer)
+      (switch-to-buffer "*ielm*"))))
 
 (add-hook 'emacs-startup-hook 'my-ielm-start-or-switch)
 
