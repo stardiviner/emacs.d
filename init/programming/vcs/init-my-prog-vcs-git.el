@@ -92,6 +92,7 @@
 (setq magit-stage-all-confirm t
       magit-use-overlays t
       magit-diff-refine-hunk 'all
+      magit-status-buffer-switch-function 'pop-to-buffer-same-window ; open magit status buffer in current window.
       )
 
 ;; TODO change to open magit-status in current window instead of overriding other windows. [default: 'pop-to-buffer].
