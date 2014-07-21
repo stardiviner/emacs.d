@@ -56,8 +56,8 @@
 
 ;;; text
 (dolist (hook
-         '(org-mode-hook
-           text-mode-hook
+         '(text-mode-hook
+           ;; org-mode-hook
            markdown-mode-hook))
   (add-hook hook 'flyspell-mode))
 
@@ -86,6 +86,9 @@
 (set-face-attribute 'flyspell-duplicate nil
                     :background "dark gray" :foreground "black"
                     :underline '(:color "red" :style wave))
+
+(define-key my-edit-prefix-map (kbd "C-s") 'flyspell-mode)
+(define-key my-edit-prefix-map (kbd "s") 'flyspell-buffer)
 
 
 ;;; [ flyguess ] -- guess language/dictionary for a buffer
