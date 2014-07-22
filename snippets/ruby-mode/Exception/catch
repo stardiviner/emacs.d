@@ -3,5 +3,5 @@
 # key: catch
 # --
 catch (${1:label: :Symbol / String}) do
-  $0
+  ${2:use "throw"}
 end

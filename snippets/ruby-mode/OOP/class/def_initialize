@@ -1,5 +1,5 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: def initialize method
+# name: class initialize method
 # key: def_initialize
 # --
 def initialize(${1:parameters})
