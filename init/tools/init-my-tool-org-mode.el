@@ -2048,21 +2048,10 @@ This function will promote all items in a subtree."
 
 (define-key org-mode-map (kbd "C-c o t") 'org-timeline) ; Show a time-sorted view of the entries in the current org file.
 
-
-(defun my-org-agenda-switch-or-build ()
-  "Switch to *Org Agenda* buffer, if not available, then build it."
-  (interactive)
-  (if (get-buffer "*Org Agenda*")
-      (switch-to-buffer "*Org Agenda*")
-    (command-execute 'org-agenda-list)
-    (bury-buffer)
-    (switch-to-buffer "*Org Agenda*")
-    ))
-
-;;; start Org Agenda at Emacs startup, and put in end of buffer list:
-;; (add-hook 'emacs-startup-hook 'my-eshell-start-or-switch)
-(define-key my-org-prefix-map (kbd "o") 'my-org-agenda-switch-or-build)
-
+(define-key my-org-prefix-map (kbd "o")
+  (lambda ()
+    (interactive)
+    (my-func/open-and-switch-to-buffer 'org-agenda-list "*Org Agenda*" t)))
 
 
 ;;; custom functions

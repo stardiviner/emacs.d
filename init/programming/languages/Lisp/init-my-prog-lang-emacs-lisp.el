@@ -130,17 +130,10 @@
 (defun my-ielm-start-or-switch ()
   "Start IELM or switch to its buffer if it already exist."
   (interactive)
-  (if (get-buffer "*ielm*")
-      (switch-to-buffer "*ielm*")
-    (let ((default-directory (getenv "HOME")))
-      (command-execute 'ielm)
-      (bury-buffer)
-      (switch-to-buffer "*ielm*"))))
+  (let ((default-directory (getenv "HOME")))
+    (my-func/open-and-switch-to-buffer 'ielm "*ielm*" t)))
 
 (add-hook 'emacs-startup-hook 'my-ielm-start-or-switch)
-
-;; (define-key emacs-lisp-mode-map (kbd "C-c C-z") 'my-ielm-start-or-switch)
-;; (global-set-key (kbd "C-c C-z") 'my-ielm-start-or-switch)
 
 (define-key inferior-map (kbd "l e") 'my-ielm-start-or-switch)
 

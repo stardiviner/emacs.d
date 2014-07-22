@@ -31,6 +31,27 @@ by creating or altering keymaps stored in buffer-local
                        map))))
     (define-key newmap key def)))
 
+
+;;; [ open and switch to buffer ]
+
+(defun my-func/open-and-switch-to-buffer (the-command the-buffer-name &optional whether-switch-to-buffer)
+  "Open a `COMMAND', and switch to that `BUFFER' depend on `OPTION'.
+
+Usage: 
+
+ (define-key my-org-prefix-map (kbd 'o')
+   (lambda ()
+     (interactive)
+     (my-func/open-and-switch-to-buffer 'org-agenda-list '*Org Agenda*' t)))
+"
+  (interactive)
+  (if (get-buffer the-buffer-name)
+      (switch-to-buffer the-buffer-name)
+    (funcall the-command)
+    (bury-buffer)
+    (when whether-switch-to-buffer
+      (switch-to-buffer the-buffer-name))))
+
 
 
 ;;; notify (notify-send, )
