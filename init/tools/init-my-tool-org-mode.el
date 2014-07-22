@@ -519,7 +519,8 @@ It can contain any number of symbols, which will be repeated."
 ;;; [ Images ]
 
 ;;; inline images [C-c C-x C-v] - `org-toggle-inline-images'.
-;; [C-M-v] - `org-redisplay-inline-images' -- this function will display new added inline images. and also will enable displaying inline images. but can't toggle off.
+;; [C-c C-x C-M-v] - `org-redisplay-inline-images'
+;; -- this function will display new added inline images. and also will enable displaying inline images. but can't toggle off.
 ;; (setq org-startup-with-inline-images t)
 
 (setq org-image-actual-width 450)       ; inline image scale width

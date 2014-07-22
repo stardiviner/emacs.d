@@ -48,14 +48,27 @@
 (setq bbdb-file (expand-file-name "~/Org/BBDB/bbdb")
       bbdb-completion-display-record t
       bbdb-image t ; display records with an image.
-      bbdb-image-path (expand-file-name "~/Org/BBDB/avatars")
+      bbdb-image-path (expand-file-name "~/Org/BBDB/avatars/")
       ;; bbdb-image-suffixes '(".png" ".jpg" ".gif" ".xpm")
       ;; bbdb-sound-files
+      ;; bbdb-xfields-sort-order '((notes . 0)
+      ;;                           (url . 1)
+      ;;                           (ftp . 2)
+      ;;                           (gopher . 3)
+      ;;                           (telnet . 4)
+      ;;                           (mail-alias . 5)
+      ;;                           (mail-folder . 6)
+      ;;                           (lpr . 7)
+      ;;                           (creation-date . 1000)
+      ;;                           (timestamp . 1001))
+      ;; bbdb-default-xfield 'notes
+      ;; bbdb-xfield-label-list
+      ;; bbdb-merge-xfield-function-alist '((creation-date . bbdb-merge-string-least)
+      ;;                                    (timestamp . bbdb-merge-string-most))
       bbdb-default-label-list '("personal" "home" "work" "company" "organization" "other")
       bbdb-default-country "China"
       bbdb-dial-local-prefix "+86" ; TODO: is this right?
       bbdb-default-area-code "+86"
-      ;; bbdb-default-xfield 'notes
       ;; bbdb-init-forms
       ;; bbdb-mua-pop-up-window-size
       ;; bbdb-auto-notes-rules

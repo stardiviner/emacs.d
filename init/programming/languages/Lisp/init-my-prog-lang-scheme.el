@@ -9,11 +9,17 @@
 
 ;;; [ Scheme Mode ]
 
-
 
 ;;; [ Inferior Scheme ]
 
+;;; Usage:
 ;; (run-scheme)
+
+;; (setq scheme-program-name "scheme")
+
+
+
+;;; [ GDS ] -- 
 
 
 

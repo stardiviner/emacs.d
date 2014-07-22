@@ -83,7 +83,6 @@
                    ;; ac-source-imenu
                    ))
 
-;; FIXME: eshell does not run correctly.
 (defun my-eshell-start-or-switch ()
   "Start Emacs Shell or switch to its buffer if it already exist."
   (interactive)
