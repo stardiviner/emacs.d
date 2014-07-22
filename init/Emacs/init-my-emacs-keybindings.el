@@ -132,6 +132,7 @@
         (ruby-mode "C-c") ; Ruby yari mode.
         (rinari-minor-mode "C-c ;" "C-c '") ; Rinari minor mode.
         (web-mode "C-c")                ; web-mode.
+        (artist-mode "C-c C-a")         ; artist-mode
         ))
 
 (setq guide-key/highlight-command-regexp "rectangle\\|register\\|bookmark")
