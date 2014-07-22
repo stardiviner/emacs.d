@@ -87,8 +87,14 @@
                     :background "dark gray" :foreground "black"
                     :underline '(:color "red" :style wave))
 
-(define-key my-edit-prefix-map (kbd "C-s") 'flyspell-mode)
-(define-key my-edit-prefix-map (kbd "s") 'flyspell-buffer)
+(unless (boundp 'my-spell-prefix-map)
+  (define-prefix-command 'my-spell-prefix-map))
+(define-key my-edit-prefix-map (kbd "s") 'my-spell-prefix-map)
+
+(define-key my-spell-prefix-map (kbd "C-s") 'flyspell-mode)
+(define-key my-spell-prefix-map (kbd "m") 'flyspell-mode)
+(define-key my-spell-prefix-map (kbd "b") 'flyspell-buffer)
+(define-key my-spell-prefix-map (kbd "r") 'flyspell-region)
 
 
 ;;; [ flyguess ] -- guess language/dictionary for a buffer
