@@ -45,7 +45,7 @@
 
 
 ;;; [ mode ]
-(setq default-major-mode 'org-mode) ; use org-mode for any unspecified mode.
+;; (setq default-major-mode 'org-mode) ; use org-mode for any unspecified mode.
 
 
 ;;; [ session ]
