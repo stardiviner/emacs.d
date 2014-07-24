@@ -450,11 +450,16 @@
 
 ;; Usage:
 ;; - [M-x git-timemachine ]
+;;
+;; Use the following keys to navigate historic version of the file
+;;
+;; p Visit previous historic version
+;; n Visit next historic version
+;; w Copy the hash of the current historic version
+;; q Exit the time machine.
 
-(if (featurep 'git-timemachine)
-    (lambda ()
-      (require 'git-timemachine)
-      (define-key 'vcs-git-map (kbd "h") 'git-timemachine)))
+(require 'git-timemachine)
+(define-key 'vcs-git-map (kbd "C-h") 'git-timemachine)
 
 
 
