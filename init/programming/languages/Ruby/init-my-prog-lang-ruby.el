@@ -106,6 +106,7 @@
 (add-to-list 'completion-ignored-extensions ".rbc")
 (add-to-list 'completion-ignored-extensions ".rbo")
 
+
 ;; TODO: whether need this?
 ;; Font lock for new hash style
 ;; (font-lock-add-keywords
@@ -247,20 +248,13 @@
 ;; - If you accidentally suspend your process, use comint-continue-subjob to continue it.
 
 
+;; - [C-x C-q] -- rspec / ruby-compilation
+
 (autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
 
-;; integrate with rvm.el
-(defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
-  (rvm-activate-corresponding-ruby))
-
-(add-hook 'after-init-hook 'inf-ruby-switch-setup)
-
-(add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
-
-;; (run-ruby)
-
 (setq inf-ruby-default-implementation "inf-ruby"
-      inf-ruby-implementations '(("inf-ruby" . "irb --inf-ruby-mode --prompt inf-ruby")
+      inf-ruby-implementations '(("inf-ruby" . "irb --inf-ruby-mode --noreadline")
+                                 ;; ("inf-ruby" . "irb --inf-ruby-mode --prompt inf-ruby")
                                  ("ruby" . "irb --prompt default -r irb/completion --noreadline")
                                  ("jruby" . "jruby -S irb --prompt default -r irb/completion")
                                  ("rubinius" . "rbx -r irb/completion")
@@ -276,6 +270,14 @@
       ;; inf-ruby-prompt-format
       ;; inf-ruby-prompt-pattern
       )
+
+;; integrate with rvm.el
+(defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
+  (rvm-activate-corresponding-ruby))
+
+(add-hook 'after-init-hook 'inf-ruby-switch-setup)
+
+(add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
 
 
 ;;; [ ac-inf-ruby ]
@@ -489,10 +491,14 @@
 
 
 ;;; [ Misc Functions ]
-(defun browse-development ()
+(defun rails-open-browse-development ()
   "Browse Rails development url."
   (interactive)
   (browse-url "http://127.0.0.1:3000"))
+
+(add-hook 'rinari-minor-mode-hook
+          (lambda ()
+            (define-key rinari-minor-mode-map (kbd "b") 'rails-open-browse-development)))
 
 
 
