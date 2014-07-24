@@ -1681,6 +1681,13 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
          (:results . "replace")
          ))
 
+(setq org-babel-default-header-args:sqlite
+      '((:db . "temp.db")
+        (:results . "raw")
+        ;; (:echo . t)
+        (:column . t)
+        (:nullvalue . "Null")))
+
 
 ;;; [ Working With Source Code ]
 
