@@ -1,0 +1,11 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: begin
+# key: begin
+# --
+begin
+  ${1:code here}
+rescue ${2:Exception class}
+  $3
+${4:ensure
+  ${5:code here}}
+end

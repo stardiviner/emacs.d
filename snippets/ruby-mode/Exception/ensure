@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: ensure
+# key: ensure
+# --
+ensure
+  ${1:tidying up}

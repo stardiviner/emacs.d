@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: retry
+# key: retry
+# --
+${1:rescue
+  }retry
