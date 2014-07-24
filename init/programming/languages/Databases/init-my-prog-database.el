@@ -19,8 +19,14 @@
 
 ;;; sqlup-mode
 ;;; Usage: The capitalization is triggered when you press 'SPC', ';' or '('.
-(if (featurep 'sqlup-mode)
-    (add-hook 'sql-mode-hook 'sqlup-mode))
+(add-hook 'sql-mode-hook 'sqlup-mode)
+
+(add-hook 'sqlup-mode-hook
+          (lambda ()
+            (setq sqlup-keywords
+                  (append sqlup-keywords
+                          '("text" "glob" "offset")))))
+
 
 
 (provide 'init-my-prog-database)
