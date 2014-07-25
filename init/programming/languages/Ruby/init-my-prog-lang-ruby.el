@@ -209,8 +209,7 @@
             (rvm-activate-corresponding-ruby)))
 
 
-;;; [ inf-ruby / Inferior Ruby ]
-;;; -- inf-ruby provides a REPL buffer connected to a Ruby(irb/pry) subprocess.
+;;; [ inf-ruby / Inferior Ruby ] -- inf-ruby provides a REPL buffer connected to a Ruby(irb/pry) subprocess.
 
 ;;; Usage:
 ;;;
@@ -250,6 +249,8 @@
 
 ;; - [C-x C-q] -- rspec / ruby-compilation
 
+;; (require 'inf-ruby)
+(autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
 (autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
 
 (setq inf-ruby-default-implementation "inf-ruby"
@@ -269,15 +270,18 @@
       ;; inf-ruby-eval-binding
       ;; inf-ruby-prompt-format
       ;; inf-ruby-prompt-pattern
+      ;; ruby-source-modes '(ruby-mode enh-ruby-mode)
       )
 
 ;; integrate with rvm.el
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   (rvm-activate-corresponding-ruby))
 
-(add-hook 'after-init-hook 'inf-ruby-switch-setup)
-
 (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
+;; (dolist (mode ruby-source-modes)
+;;   (add-hook (intern (format "%s-hook" mode)) 'inf-ruby-minor-mode))
+
+(add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
 (define-key inferior-map (kbd "r a") 'inf-ruby-console-auto)
 
