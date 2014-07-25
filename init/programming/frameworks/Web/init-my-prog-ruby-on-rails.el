@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+;;;_
 ;;; [ Rinari ] -- A Ruby on Rails minor mode for Emacs
 
 ;;; Rinari Is Not A Ruby IDE.
@@ -36,9 +36,27 @@
           '(lambda ()
              (setq yas-extra-modes (cons 'rails-mode yas-extra-modes))))
 
-(setq rinari-tags-file-name "TAGS")
+;; (setq rinari-tags-file-name "TAGS")
 
-;; (global-rinari-mode t)
+;; (setq rinari-major-modes
+;;       rinari-minor-mode-prefixes
+;;       rinari-exclude-major-modes
+;;       rinari-minor-mode-keybindings
+;;       )
+
+(global-rinari-mode t)
+
+;;; Misc Functions
+;;; --------------------------------------
+(defun rails-open-browse-development ()
+  "Browse Rails development url."
+  (interactive)
+  (browse-url "http://127.0.0.1:3000"))
+
+(add-hook 'rinari-minor-mode-hook
+          (lambda ()
+            (define-key rinari-minor-mode-map (kbd "b") 'rails-open-browse-development)))
+;;; --------------------------------------
 
 
 ;;; Rhtml setup

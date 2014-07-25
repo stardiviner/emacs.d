@@ -488,7 +488,7 @@
 ;;; [ projectile-rails ]
 
 ;;; Usage:
-;;; - <prefix> -> [C-c p R] + [key] (default: [C-c r])
+;;; - <prefix> -> [C-c p r] + [key] (default: [C-c r])
 
 (require 'projectile-rails)
 
@@ -502,15 +502,6 @@
 ;; (add-hook 'ruby-mode-hook 'projectile-rails-mode)
 
 
-;;; [ Misc Functions ]
-(defun rails-open-browse-development ()
-  "Browse Rails development url."
-  (interactive)
-  (browse-url "http://127.0.0.1:3000"))
-
-(add-hook 'rinari-minor-mode-hook
-          (lambda ()
-            (define-key rinari-minor-mode-map (kbd "b") 'rails-open-browse-development)))
 
 
 
