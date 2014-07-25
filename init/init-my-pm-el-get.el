@@ -151,6 +151,7 @@
          ;; code browser
          sr-speedbar
          neotree
+         project-explorer
          ;; compile
          smart-compile smart-compile+
          ;; vcs
