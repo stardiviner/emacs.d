@@ -73,15 +73,15 @@
       ;;                           ("C-M-]" . sp-select-next-thing)
       ;;                           ("M-F" . sp-forward-symbol)
       ;;                           ("M-B" . sp-backward-symbol))
-      sp-pair-list '(("\\\\(" . "\\\\)")
-                     ("\\\"" . "\\\"")
-                     ("\\(" . "\\)")
-                     ("\\{" . "\\}")
-                     ("`" . "'")
-                     ("{" . "}")
-                     ("[" . "]")
-                     ("(" . ")")
-                     ("\"" . "\""))
+      ;; sp-pair-list '(("\\\\(" . "\\\\)")
+      ;;                ("\\\"" . "\\\"")
+      ;;                ("\\(" . "\\)")
+      ;;                ("\\{" . "\\}")
+      ;;                ("`" . "'")
+      ;;                ("{" . "}")
+      ;;                ("[" . "]")
+      ;;                ("(" . ")")
+      ;;                ("\"" . "\""))
       sp-override-key-bindings nil
       sp-autodelete-opening-pair t
       sp-autodelete-closing-pair t
@@ -102,8 +102,8 @@
                     :inherit 'sp-pair-overlay-face
                     )
 (set-face-attribute 'sp-show-pair-match-face nil
-                    :foreground "green yellow"
-                    :box '(:line-width -1)
+                    :foreground "green yellow" :background " "
+                    :box '(:color "#70A51E" :line-width -1)
                     )
 (set-face-attribute 'sp-wrap-tag-overlay-face nil
                     :inherit 'sp-pair-overlay-face
