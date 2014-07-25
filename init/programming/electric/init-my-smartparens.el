@@ -67,6 +67,23 @@
 
 (smartparens-global-mode t)
 
+(set-face-attribute 'sp-pair-overlay-face nil
+                    :inherit 'highlight
+                    )
+(set-face-attribute 'sp-wrap-overlay-face nil
+                    :inherit 'sp-pair-overlay-face
+                    )
+(set-face-attribute 'sp-show-pair-match-face nil
+                    :foreground "green yellow"
+                    :box '(:line-width -1)
+                    )
+(set-face-attribute 'sp-wrap-tag-overlay-face nil
+                    :inherit 'sp-pair-overlay-face
+                    )
+(set-face-attribute 'sp-show-pair-mismatch-face nil
+                    :foreground "white" :background "purple"
+                    :box '(:color "dark red" :line-width -1)
+                    )
 
 
 (provide 'init-my-smartparens)
