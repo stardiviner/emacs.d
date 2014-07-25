@@ -279,6 +279,8 @@
 
 (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
 
+(define-key inferior-map (kbd "r a") 'inf-ruby-console-auto)
+
 
 ;;; [ ac-inf-ruby ]
 
@@ -337,12 +339,18 @@
 ;;; To see the available commands, type M-x describe-package RET robe RET.
 ;;;
 ;;; Usage:
+;; start Robe server.
+;; 1. [M-x inf-ruby] :: execute this command in a ruby file buffer.
+;; 2. [M-x robe-start]
+;;
 ;; - [C-c C-d] -- robe-doc
 ;; - [C-c C-k] -- robe-rails-refresh
 ;; - [M-,] -- pop tag mark
 ;; - [M-.] -- robe-jump
 
 (require 'robe)
+;; (autoload 'robe-mode "robe" "Code navigation, documentation lookup and completion for Ruby" t nil)
+;; (autoload 'ac-robe-setup "ac-robe" "auto-complete robe" nil nil)
 
 (add-hook 'ruby-mode-hook 'robe-mode)
 
@@ -366,12 +374,16 @@
           (lambda ()
             (ac-robe-setup)
             (add-to-list 'ac-sources 'ac-source-robe)
-            ;; (set-face-attribute 'ac-??? )
             ))
 
 ;; for company-mode
 ;; (eval-after-load 'company
 ;;   (push 'company-robe company-backends))
+
+
+;; start Robe server.
+(inf-ruby)
+(robe-start)
 
 
 ;;; [ ruby-compilation ]
