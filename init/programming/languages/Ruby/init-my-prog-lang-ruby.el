@@ -391,6 +391,9 @@
 ;;; Usage:
 ;; - [C-x t] -- ruby-compilation-this-buffer
 ;; - [C-x T] -- ruby-compilation-this-test
+;; - [ruby-compilation-run]
+;; - [ruby-compilation-rake]
+;;
 ;; - [C-h f ruby-compilation-mode] -- get help.
 ;; - [C-o] -- compilation-display-error
 ;; - [RET] / [C-c C-c] -- compile-goto-error
@@ -400,11 +403,8 @@
 ;; - [C-c C-f] -- next-error-follow-minor-mode
 ;; - [C-c C-k] -- kill compilation
 
-;; FIXME: I require 'ruby-compilation, will lead ruby-compilation bind [p] key to (previous-error-no-select) directly. from Emacs default code `simple.el'.
-(add-hook 'ruby-mode-hook
-          (lambda ()
-            (require 'ruby-compilation)
-            ))
+(autoload 'ruby-compilation-this-buffer "ruby-compilation" "run the ruby buffer" t nil)
+(autoload 'ruby-compilation-this-test "ruby-compilation" "run the ruby test" t nil)
 
 
 ;;; [ rspec-mode ] -- Ruby RSpec
