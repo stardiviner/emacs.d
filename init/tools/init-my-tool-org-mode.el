@@ -697,6 +697,13 @@ This is especially for create Org files."
            (y-or-n-p (format "Create %s" filename)))
       (find-file filename))))
 
+
+;;; Custom Searches
+;; (add-hook 'org-mode-hook
+;;           (lambda ()
+;;             (setq org-create-file-search-functions)
+;;             (setq org-execute-file-search-functions)))
+
 
 ;;; [ TODOs Items ]
 
@@ -1066,9 +1073,20 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
       org-agenda-log-mode-add-notes t
       org-agenda-start-with-log-mode t)
 
-(setq org-agenda-include-diary t)
+(setq org-agenda-include-diary t) ; include in the agenda entries from the Emacs Calendar's diary. `diary-file'.
+;; File to which to add new entries with the `i' key in agenda and calendar.
+;; When this is the symbol `diary-file', the functionality in the Emacs
+;; calendar will be used to add entries to the `diary-file'.  But when this
+;; points to a file, `org-agenda-diary-entry' will be used instead.
 (setq org-agenda-diary-file 'diary-file)
 (setq org-agenda-insert-diary-strategy 'date-tree)
+;; (setq diary-date-forms '((month "/" day "[^/0-9]")
+;;                          (month "/" day "/" year "[^0-9]")
+;;                          (monthname " *" day "[^,0-9]")
+;;                          (monthname " *" day ", *" year "[^0-9]")
+;;                          (dayname "\\W")))
+;; (setq org-support-shift-select nil)
+;; (setq org-agenda-entry-types)
 ;; (org-agenda-diary-entry)
 ;; (org-agenda-diary-entry-in-org-file)
 ;; (org-agenda-get-day-entries)
@@ -1247,6 +1265,9 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 (setq org-agenda-use-time-grid t)
 (setq org-agenda-timegrid-use-ampm nil)
 (setq org-agenda-show-current-time-in-grid t)
+
+;; TODO:
+;; (setq org-agenda-category-icon-alist)
 
 
 ;;; TODOs status
@@ -1487,6 +1508,17 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;; (setq org-export-latex-packages-alist '("" "listings"))
 ;; (setq org-export-latex-packages-alist '("" "color"))
 ;; (setq org-export-latex-listings t)
+
+;;; ------------- Export UTF-8 checkboxes ---------------------
+;;; This snippet turns - [X] into ☑ and - [ ] into ☐.
+(defun sacha/org-html-checkbox (checkbox)
+  "Format CHECKBOX into HTML."
+  (case checkbox (on "<span class=\"check\">&#x2611;</span>") ; checkbox (checked)
+        (off "<span class=\"checkbox\">&#x2610;</span>")
+        (trans "<code>[-]</code>")
+        (t "")))
+(defadvice org-html-checkbox (around sacha activate)
+  (setq ad-return-value (sacha/org-html-checkbox (ad-get-arg 0))))
 
 
 ;;; [ Publishing ]
@@ -1765,7 +1797,10 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 
 
 ;;; [ Diary ]
+
 (setq diary-file "~/Org/Diary/Diary.org")
+
+;;; org-diary
 
 
 ;;; [ Miscellaneous ]
@@ -1902,6 +1937,8 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;;; [ org-notify ]
 
 (setq org-notify-audible t
+      ;; org-notify-parse-file
+      ;; org-notify-window-buffer-name
       ;; org-notify-actions '("show" "show" "done" "done" "hour" "one hour later" "day" "one day later" "week" "one week later")
       )
 
@@ -1991,6 +2028,33 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;;             ;; turn off fill adapt, make org can write long length sentence.
 ;;             ;; (turn-off-filladapt-mode)
 ;;             ))
+
+
+;;; [ org-bbdb ]
+
+;;; Usage:
+;; - [C-c C-l] + `bbdb:'
+
+;; - (org-bbdb-anniversaries)
+;;   put `%%(org-bbdb-anniversaries)' in one of my agenda files. and set headline with property (:CATEGORY: Anniv)
+;;   - [C-c C-x p] to set property
+;;   - select CATEGORY property, value is "`Anniv'".
+;;   - put this line into agenda file below the headline. %%(org-bbdb-anniversaries).
+
+;; TODO:
+;; (setq org-bbdb-anniversary-field 'anniversary)
+;; (setq org-bbdb-default-anniversary-format "birthday")
+;; (setq org-bbdb-anniversary-format-alist
+;;       '(("birthday" lambda
+;;          (name years suffix)
+;;          (concat "Birthday: [[bbdb:" name "][" name " ("
+;;                  (format "%s" years)
+;;                  suffix ")]]"))
+;;         ("wedding" lambda
+;;          (name years suffix)
+;;          (concat "[[bbdb:" name "][" name "'s "
+;;                  (format "%s" years)
+;;                  suffix " wedding anniversary]]"))))
 
 
 ;;; [ Org-contacts ]
