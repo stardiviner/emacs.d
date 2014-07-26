@@ -227,6 +227,7 @@
 ;; keybindings:
 ;; - [C-c C-s] -- inf-ruby
 ;; - [C-c C-z] -- ruby-switch-to-inf
+;; - [C-c C-l] -- ruby-load-file
 ;; - [M-C-x]   -- ruby-send-definition
 ;; - [C-x C-e] -- ruby-send-last-sexp
 ;; - [C-c C-b] -- ruby-send-block
@@ -235,7 +236,6 @@
 ;; - [C-c M-x] -- ruby-send-definition-and-go
 ;; - [C-c C-r] -- ruby-send-region
 ;; - [C-c M-r] -- ruby-send-region-and-go
-;; - [C-c C-l] -- ruby-load-file
 
 ;; - [RET] -- after the end of the process' output sends the text from the end of process to point.
 ;; - [RET] -- before the end of the process' output copies the sexp ending at point
@@ -482,31 +482,19 @@
 
 ;;; [ yard-mode ] --- Minor mode for Ruby YARD comments
 
+
+
+
+
+
+
+
 
 
 ;;; [ motion-mode ] -- RubyMotion
 
 
 ;;; [ Cucumber ]
-
-
-;;; [ projectile-rails ]
-
-;;; Usage:
-;;; - <prefix> -> [C-c p r] + [key] (default: [C-c r])
-
-(require 'projectile-rails)
-
-;; FIXME: this does not work!
-;; (setq projectile-rails-keymap-prefix (kbd "C-c r"))
-
-(setq projectile-rails-add-keywords t)  ; highlight rails keywords.
-(setq projectile-rails-expand-snippet t) ; yasnippet expand skeleton class snippet.
-
-(add-hook 'projectile-mode-hook 'projectile-rails-on)
-;; (add-hook 'ruby-mode-hook 'projectile-rails-mode)
-
-
 
 
 

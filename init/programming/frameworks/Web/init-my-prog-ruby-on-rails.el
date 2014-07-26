@@ -6,6 +6,7 @@
 
 
 ;;; Code:
+
 ;;;_
 ;;; [ Rinari ] -- A Ruby on Rails minor mode for Emacs
 
@@ -89,6 +90,34 @@
 ;;       rng-nxml-auto-validate-flag nil
 ;;       nxml-degraded t)
 ;; (add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . eruby-nxhtml-mumamo))
+
+
+
+
+;;; [ projectile-rails ]
+
+;;; Usage:
+;;; - <prefix> -> [C-c p r] + [key] (default: [C-c r])
+
+(require 'projectile-rails)
+
+;; FIXME: this does not work!
+(setq projectile-rails-keymap-prefix (kbd "C-c p C-r"))
+;; or
+;; (custom-set-variables
+;;  '(projectile-rails-keymap-prefix (kbd "C-c p C-r")))
+;; or
+;; (eval-after-load "projectile-rails"
+;;   '(progn
+;;      (define-key projectile-rails-mode-map (kbd "C-c p C-r") 'projectile-rails-keymap-prefix)
+;;      ;; (setq projectile-rails-keymap-prefix (kbd "C-c p C-r"))
+;;      ))
+
+(setq projectile-rails-add-keywords t)  ; highlight rails keywords.
+(setq projectile-rails-expand-snippet t) ; yasnippet expand skeleton class snippet.
+
+(add-hook 'projectile-mode-hook 'projectile-rails-on)
+
 
 
 (provide 'init-my-prog-ruby-on-rails)
