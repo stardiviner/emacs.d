@@ -18,7 +18,7 @@
 (define-key inferior-map (kbd "l g") 'run-guile)  ; Guile
 (define-key inferior-map (kbd "l m") 'slime)      ; SLIME
 ;; Ruby
-(define-key inferior-map (kbd "r") 'run-ruby)     ; Ruby
+(define-key inferior-map (kbd "r r") 'run-ruby)     ; Ruby
 ;; Python
 (define-key inferior-map (kbd "p") 'run-python)   ; Python
 ;; Prolog

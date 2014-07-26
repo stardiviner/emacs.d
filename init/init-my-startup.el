@@ -122,6 +122,7 @@
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Frameworks/Ruby on Rails/Ruby on Rails.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Frameworks/Ruby on Rails/Data/Manuals/My Ruby on Rails Guides.org")
 (find-file "~/Code/learning/Ruby/test.rb")
+(find-file "~/Code/learning/Ruby/Ruby on Rails/blog/README.rdoc")
 
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Python/Python.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Python/Data/Wiki/The Python Programming Language.org")

@@ -371,7 +371,9 @@
 ;; (eval-after-load 'robe
 ;;   (robe-start))
 
-(setq robe-turn-on-eldoc t)
+(setq robe-turn-on-eldoc t
+      ;; robe-highlight-capf-candidates nil ; 'nil, to disable ac-robe face property in ac-menu.
+      )
 
 ;; for auto-complete
 (add-hook 'robe-mode-hook
@@ -383,7 +385,6 @@
 ;; for company-mode
 ;; (eval-after-load 'company
 ;;   (push 'company-robe company-backends))
-
 
 ;; start Robe server.
 (inf-ruby)

@@ -41,10 +41,10 @@
 ;;; JavaScript subprocess integration
 
 
-;;; [ SwankJS ]
+;;; [ swank-js ] -- Swank backend for Node.JS and in-browser JavaScript.
 
-;; a full-blown SlimeMode backend for node.js and can connect to a running web browser process through the socket.io package.
-;; https://github.com/swank-js/swank-js
+;;; a full-blown SlimeMode backend for node.js and can connect to a running web
+;;; browser process through the socket.io package.
 
 ;;; Usage
 ;;

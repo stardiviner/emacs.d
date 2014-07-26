@@ -265,8 +265,8 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (push '(process-menu-mode :position bottom :height 10) popwin:special-display-config)
 
 ;; BBDB
-(push '("*BBDB*" :position bottom :height 15) popwin:special-display-config)
 (push '(bbdb-mode :position bottom :height 15) popwin:special-display-config)
+(push '("*BBDB*" :position bottom :height 15) popwin:special-display-config)
 
 ;; Festival
 (push '("*festival*" :position bottom :height 15) popwin:special-display-config)
@@ -277,13 +277,21 @@ The `BUFFER' is the popwin catch pop private message buffer."
 ;; ack-and-a-half
 (push '(ack-and-a-half-mode :position bottom :height 15) popwin:special-display-config)
 
-;;; ruby-compilation-mode (RubyComp)
-;; FIXME: popwin can't capture this popup window. dive in ruby-compilation-mode source, it use Emacs built-in function window.el.gz -> `pop-to-buffer'.
-(push '(ruby-compilation-mode :position bottom :height 15) popwin:special-display-config)
+;;; IELM
+;; TODO:
+;; (push '("*ielm*" :position bottom :height 15) popwin:special-display-config)
+;; (push '(inferior-emacs-lisp-mode :position bottom :height 15) popwin:special-display-config)
+
 ;;; yari Ruby document lookup
 (push '(yari-mode :position bottom :height 15) popwin:special-display-config)
 ;;; rub-ruby - inf-ruby
-(push '("*ruby*" :position bottom :height 15) popwin:special-display-config)
+(push '(inf-ruby-mode :position bottom :height 15) popwin:special-display-config)
+;; (push '("*ruby*" :position bottom :height 15) popwin:special-display-config)
+;; (push '("*rails*" :position bottom :height 15) popwin:special-display-config)
+
+;;; ruby-compilation-mode (RubyComp)
+;; FIXME: popwin can't capture this popup window. dive in ruby-compilation-mode source, it use Emacs built-in function window.el.gz -> `pop-to-buffer'.
+(push '(ruby-compilation-mode :position bottom :height 15) popwin:special-display-config)
 
 ;; octave help mode
 (push '(octave-help-mode :position bottom :height 15) popwin:special-display-config)
