@@ -6,8 +6,8 @@
 
 
 ;;; Code:
-
-;;; [ web-mode ]
+
+;;;_ web-mode
 
 ;;; web-mode.el is an autonomous emacs major mode for editing web templates aka
 ;;; HTML files embedding client parts (CSS/JavaScript) and server blocks.
@@ -16,6 +16,88 @@
 ;;; Twig, Jinja(2), ERB, FreeMarker, Velocity, Cheetah, Smarty, CTemplate,
 ;;; Mustache, Blade, ErlyDTL, Go Template, Dust.js, Google Closure (soy), etc.
 
+
+;;;_. Usage:
+
+;;; http://web-mode.org
+
+;;;_ , Shortcuts
+
+;;;_  . General
+;;
+;; C-c C-; comment / uncomment line(s)
+;; C-c C-f toggle folding on a tag/block
+;; C-c C-i indent entire buffer
+;; C-c C-m mark and expand
+;; C-c C-s insert snippet
+;; C-c C-w toggle display of invalid whitespaces
+
+;;;_  . DOM
+;;
+;; C-c C-d d show tag mismatch
+;; C-c C-d e replace HTML entities
+;; C-c C-d n normalize
+;; C-c C-d q replace dumb quotes
+;; C-c C-d t traverse dom tree
+;; C-c C-d x xpath
+
+;;;_  . Block
+;;
+;; C-c C-b c block close
+;; C-c C-b b block beginning
+;; C-c C-b e block end
+;; C-c C-b p previous block
+;; C-c C-b n next block
+;; C-c C-b k block kill
+;; C-c C-b s block select
+
+;;;_  . HTML element
+;;
+;; C-c / element close
+;; C-c C-e b element beginning
+;; C-c C-e c element clone
+;; C-c C-e d child element (down)
+;; C-c C-e e element end
+;; C-c C-e i select element content (inner)
+;; C-c C-e k element kill
+;; C-c C-e n next element
+;; C-c C-e p previous element
+;; C-c C-e r rename element
+;; C-c C-e s select element
+;; C-c C-e u parent element (up)
+;; C-c C-e u element vanish
+
+;;;_  . HTML tag
+;;
+;; C-c C-t a sort attributes
+;; C-c C-t b tag beginning
+;; C-c C-t e tag end
+;; C-c C-t m fetch matching tag (also available for active blocks)
+;; C-c C-t s select tag
+;; C-c C-t p previous tag
+;; C-c C-t n next tag
+
+;;;_  . HTML attribute
+;;
+;; C-c C-a b attribute beginning
+;; C-c C-a e attribute end
+;; C-c C-a s attribute select
+;; C-c C-a t attribute transpose
+;; C-c C-a n attribute next
+
+;;;_ , Helper functions
+
+;; web-mode-apostrophes-replace : replace ' by ’ (only in HTML content)
+;; web-mode-entities-replace : replace html entities (only in HTML content)
+;; web-mode-quotes-replace : replace dumb quotes (only in HTML content)
+
+;;;_ , Engine families
+
+;; Never forget to update the `auto-mode-alist'.
+
+
+
+;;;_. config
 (require 'web-mode)
 
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
@@ -26,14 +108,13 @@
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 ;; Using web-mode for editing plain HTML files can be done this way
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 
 (add-to-list 'auto-mode-alist
              '("/\\(views\\|html\\|theme\\|templates\\)/.*\\.php\\'" . web-mode))
 
-;;; ----------------------------------------------------------
-;;; Associate an engine
+;;;_. Associate an engine
 
 ;;; Using this association list is required as soon as the file extension is
 ;;; unknown (by web-mode) or is too general (e.g. *.html).
@@ -47,13 +128,11 @@
         ("blade" . "\\.blade\\.")
         ))
 
-
-;;; Engine families
+;;;_. Engine families
 
 ;;; Never forget to update the auto-mode-alist.
 
-
-;;; auto-pairs
+;;;_. auto-pairs
 
 ;;; add auto-pair
 ;; (setq web-mode-extra-auto-pairs
@@ -61,7 +140,7 @@
 ;;         ("php" . (("open" "close") ("open" "close")))
 ;;         ))
 
-
+;;;_. web-mode defaults
 (eval-after-load 'web-mode
   '(progn
      (defun my-web-mode-defaults ()
@@ -77,8 +156,7 @@
                (lambda ()
                  (run-hooks 'my-web-mode-hook)))))
 
-
-;;; snippets
+;;;_. snippets
 
 ;;; add a snippet
 ;; (setq web-mode-extra-snippets
@@ -87,11 +165,9 @@
 ;;                   ("name" . ("beg" . "end"))))
 ;;         ))
 
-
+;;;_. Faces
 
-;;; Faces
-
-;; unicode symbols
+;;;_ , unicode symbols
 (setq web-mode-enable-block-face t
       web-mode-enable-part-face t
       web-mode-enable-comment-keywords t
@@ -103,7 +179,16 @@
       ;; web-mode-display-table
       )
 
-;; ;; effects
+;;;_. auto-complete support
+
+;; web-mode-ac-sources-alist
+;; web-mode-before-auto-complete-hooks
+
+(setq web-mode-ac-sources-alist
+      '(("css" . (ac-source-css-property))
+        ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
+
+;;;_. effects
 ;; (set-face-attribute 'web-mode-folded-face nil
 ;;                     :foreground "white" :background "#004A5D"
 ;;                     :box '(:color "cyan" :line-width 1 :style nil))
@@ -218,16 +303,14 @@
 ;;                     :box '(:color "cyan" :line-width 1 :style nil))
 
 
-
-;;; [ multi-web-mode ]
+;;;_ multi-web-mode
 
 
-
-;;; [ web-beautify ] ---
+;;;_ web-beautify
 
 
 
-
+;;;_
 (provide 'init-my-prog-framework-web)
 
 ;;; init-my-prog-framework-web.el ends here
