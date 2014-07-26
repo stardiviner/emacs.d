@@ -844,7 +844,14 @@ This is especially for create Org files."
                              ("days" . 480)
                              ("weeks" . 2400)
                              ("months" . 9600)
-                             ("years" . 96000)))
+                             ("years" . 96000))
+      org-time-clocksum-use-effort-durations nil ; don't use upper `org-effor-durations' as time count unit.
+      ;; org-time-stamp-formats '("<%Y-%m-%d %a>" . "<%Y-%m-%d %a %H:%M>")
+      ;; org-time-stamp-custom-formats '("<%m/%d/%y %a>" . "<%m/%d/%y %a %H:%M>")
+      ;; org-time-clocksum-format '(:days "%dd " :hours "%d" :require-hours t :minutes ":%02d" :require-minutes t)
+      ;; org-time-clocksum-use-fractional nil
+      ;; org-time-clocksum-fractional-format "%.2f"
+      )
 
 
 ;;; [ Org Habit ]
@@ -998,6 +1005,9 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
         ;; thought
         ;; "~/Org/Wiki/Wiki/Thought/Thought.org" "My Thought"
         ))
+
+;; TODO:
+;; (setq org-capture-templates-contexts)
 
 ;; To define special keys to capture to a particular template without
 ;; going through the interactive template selection, you can create your
