@@ -33,16 +33,22 @@
 ;; ;; First day of the week
 (setq calendar-week-start-day 1) ; 0:Sunday, 1:Monday
 (setq calendar-date-style 'american)    ; 'american: month/day/year, 'european: day/month/year, 'iso: year/month/day
-(setq chinese-calendar-celestial-stem
-      ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"]
-      chinese-calendar-terrestrial-branch
-      ["子" "丑" "寅" "卯" "辰" "巳" "午" "未" "申" "酉" "戌" "亥"])
-;;; Localized National Holidays
-;;; cal-china-x.el -- Chinese calendar extras
-(load "~/.emacs.d/init/extensions/cal-china-x.el")
-(require 'cal-china-x)
+
+
+;; (setq chinese-calendar-celestial-stem
+;;       ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"]
+;;       chinese-calendar-terrestrial-branch
+;;       ["子" "丑" "寅" "卯" "辰" "巳" "午" "未" "申" "酉" "戌" "亥"])
+;; ;;; Localized National Holidays
+;; ;;; cal-china-x.el -- Chinese calendar extras
+;; (load "~/.emacs.d/init/extensions/cal-china-x.el")
+;; (require 'cal-china-x)
+
+
 ;; location
 (setq calendar-location-name "Shaoxing")
+
+
 ;; for predicate lunar eclipses.
 ;; Zhejiang, China Area: Latitude: 27° 09' ~ 31° 11' N , Longitude: 118° 02' ~ 122° 57' E
 ;; Shaoxing Area: Latitude: 29° 42' ~ 30° 19' 15" , Longitude: 120° 16' 55" ~ 120° 46' 39"
