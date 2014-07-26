@@ -895,18 +895,36 @@ This is especially for create Org files."
                     :background "dark cyan")
 
 
-;; TODO: create an key binding for all necessary steps for create a habit. (reference in Org-mode.org file)
+;; create an key binding for all necessary steps for create a habit. (reference in Org-mode.org file)
 (defun org-habit-apply ()
   "Apply org-habit on this task."
   (interactive)
+  (beginning-of-line)
   (org-todo "HABIT")
-  (org-set-property "STYLE" "habit")    ; :STYLE: habit
-  (org-schedule nil) ; <2013-12-07 Sat 06:30 .+1d>
+  ;; The format-time-string code is correct.
+  ;; (format-time-string "%Y-%m-%d %H:%M .+1d" (current-time))
+  ;; (org-schedule nil (format-time-string "%Y-%m-%d %H:%M" (current-time))) ; deactive
+  (org-schedule nil) ; interactive
   (save-excursion
     (next-line) (beginning-of-line)
     (when (looking-at "SCHEDULED: [^>]*\\(>\\)")
       (goto-char (match-beginning 1))
-      (insert " .+1d"))))
+      (insert (concat
+               " .+"
+               (read-string "Minimum interval: ")
+               "/"
+               (read-string "Maximum interval: ")))))
+  
+  ;; old way
+  ;; (save-excursion
+  ;;   (next-line) (beginning-of-line)
+  ;;   (when (looking-at "SCHEDULED: [^>]*\\(>\\)")
+  ;;     (goto-char (match-beginning 1))
+  ;;     (insert " .+1d")))
+  
+  (org-set-property "STYLE" "habit")
+  ;; (org-set-property "LOGGING" "TODO DONE(!)")
+  )
 
 (define-key org-mode-map (kbd "C-c C-x h") 'org-habit-apply)
 
