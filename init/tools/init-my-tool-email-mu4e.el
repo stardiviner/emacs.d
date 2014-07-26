@@ -552,7 +552,10 @@
 ;;                                     (length
 ;;                                      (mu4e-message-field msg :cc)))))))
 
+;; TODO: make use of flag: list.
+
 ;;; press [s] -> [:references [regexp]] in search query.
+
 (add-to-list 'mu4e-header-info-custom
              '(:references :name "References: "
                            :shortname "References"
@@ -856,12 +859,13 @@
 ;;; face for things that are ok.
 (set-face-attribute 'mu4e-ok-face nil
                     :foreground "forest green"
-                    :box '(:color "forest green" :line-width 1 :style nil))
+                    :box '(:color "forest green" :line-width 1 :style nil)
+                    )
 ;;; moved
 (set-face-attribute 'mu4e-moved-face nil
                     :foreground "dark gray" :background "dim gray"
                     )
-;;; draft (my draft)
+;;; draft (my draft), my sent mail.
 (set-face-attribute 'mu4e-draft-face nil
                     :foreground "sky blue"
                     )
