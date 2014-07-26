@@ -24,6 +24,9 @@
 ;;; [ visual-regexp-steroids.el ] -- Extends visual-regexp to support other regexp engines.
 (require 'visual-regexp-steroids)
 
+;; 'emacs engine is the native built-in Emacs engine. it is case-sensitive.
+(setq vr/engine 'emacs) ; 'python, 'emacs, 'custom, 'vr/command-python, 'vr/command-custom,
+
 (unless (boundp 'visual-regexp-map)
   (define-prefix-command 'visual-regexp-map))
 (define-key my-regexp-prefix-map (kbd "v") 'visual-regexp-map)
