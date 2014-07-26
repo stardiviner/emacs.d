@@ -248,8 +248,8 @@
  (rear-context-string . "  =精于心, 简于形.=\n\n\n")
  (position . 164))
 ("org-capture-last-stored"
- (filename . "~/Org/Diary/Public/Blog.org")
- (front-context-string . "**** test jekyll")
- (rear-context-string . "4-04-29 Tuesday\n")
- (position . 49))
+ (filename . "~/Org/Tasks.org")
+ (front-context-string . "** TODO test cap")
+ (rear-context-string . "k out its INDEX\n")
+ (position . 72936))
 )
