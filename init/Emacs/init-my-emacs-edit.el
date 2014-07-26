@@ -466,6 +466,22 @@ For example: input regexp like [[:space:]]+ for align several space separated se
                            (modes   . align-text-modes)
                            (repeat  . t)))))
 
+;;;_ Table Editing
+
+;;; http://ergoemacs.org/emacs/emacs_table.html
+
+;;; shows you how to use emacs's “table” feature. This feature will let you
+;;; format tabular data by ASCII drawing. Then you can interactively create and
+;;; edit tables with emacs commands to insert/delete column/row. You can also
+;;; convert it to HTML or LaTeX formats.
+
+;;;_. Usage:
+
+;; - (info "(emacs) Text Based Tables")
+;; - [M-x table-] :: commands prefix with `table-'.
+
+
+;;;_
 (provide 'init-my-emacs-edit)
 
 ;;; init-my-emacs-edit.el ends here
