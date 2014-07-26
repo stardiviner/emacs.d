@@ -74,7 +74,7 @@
 ;; when org-indent-mode is on: sets org-hide-leading-stars to t and org-adapt-indentation to nil.
 (setq org-hide-leading-stars nil ; only show one star *
       ;; org-hide-leading-stars-before-indent-mode
-      org-hide-emphasis-markers t
+      org-hide-emphasis-markers t ; hide markers like =inline code=.
       org-hide-block-startup nil ; don't fold block.
       ;; org-hide-block-overlays t ; overlays hiding blocks.
       )
@@ -586,6 +586,12 @@ It can contain any number of symbols, which will be repeated."
         ("\\.odp'" . "libreoffice %s") ; Presentation
         ("\\.odf'" . "libreoffice %s") ; Database / Formula
         ))
+
+;; TODO: [[mu4e:exporting%20link%20abbreviations][exporting link abbreviations]]
+;; `org-link-types'
+;; `org-add-link-type' + `org-add-link-props'
+;; (org-add-link-type)
+;; (org-add-link-props)
 
 ;; TODO add more link abbrev into this variable.
 (setq org-link-abbrev-alist ; Usage: In [C-c C-l] insert link completion.

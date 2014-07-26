@@ -55,6 +55,10 @@
       bbdb-image-path (expand-file-name "~/Org/BBDB/avatars/")
       ;; bbdb-image-suffixes '(".png" ".jpg" ".gif" ".xpm")
       ;; bbdb-sound-files
+      bbdb-default-label-list '("personal" "home" "work" "company" "organization" "other")
+      bbdb-default-country "China"
+      bbdb-dial-local-prefix "+86" ; TODO: is this right?
+      bbdb-default-area-code "+86"
       ;; bbdb-xfields-sort-order '((notes . 0)
       ;;                           (url . 1)
       ;;                           (ftp . 2)
@@ -69,10 +73,6 @@
       ;; bbdb-xfield-label-list
       ;; bbdb-merge-xfield-function-alist '((creation-date . bbdb-merge-string-least)
       ;;                                    (timestamp . bbdb-merge-string-most))
-      bbdb-default-label-list '("personal" "home" "work" "company" "organization" "other")
-      bbdb-default-country "China"
-      bbdb-dial-local-prefix "+86" ; TODO: is this right?
-      bbdb-default-area-code "+86"
       ;; bbdb-init-forms
       ;; bbdb-mua-pop-up-window-size
       ;; bbdb-auto-notes-rules
@@ -88,7 +88,17 @@
       bbdb-complete-mail t
       bbdb-completion-display-record t
       bbdb-new-mails-primary 'query
+      ;; bbdb-ignore-redundant-mails 'query
+      bbdb-ignore-message-alist '(("From" . "no.?reply\\|DAEMON\\|daemon\\|facebookmail\\|twitter")
+                                  ;; (("To" "CC") . "mailing-list-1\\|mailing-list-2")
+                                  )
       )
+
+;; (bbdb-mua-auto-update-init 'gnus 'message)
+;; (setq bbdb-update-records-p 'create)
+
+;; (setq bbdb-ignore-message-alist '(("From" . "")
+;;                                   (("To" "CC") . "email@home")))
 
 
 (dolist (hook '(message-setup-hook
