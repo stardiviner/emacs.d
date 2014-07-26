@@ -14,6 +14,7 @@
 ;;; re-define upstream default function 'lispdoc key binding.
 (define-key lisp-mode-map (kbd "C-h d") 'lispdoc)
 
+      
 
 
 

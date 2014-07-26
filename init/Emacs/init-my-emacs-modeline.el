@@ -26,8 +26,8 @@
 (setq-default mode-line-format
               (quote
                (
-                (:propertize "%e"
-                             face (:foreground "red" :inverse-video nil))
+                ;; (:propertize "%e"
+                ;;              face (:foreground "red" :inverse-video nil))
 
                 ;; (:propertize " 暗月:> "
                 ;;              face (:foreground "#444444" :background "black")

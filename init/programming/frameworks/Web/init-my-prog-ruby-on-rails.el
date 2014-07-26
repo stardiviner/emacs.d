@@ -38,7 +38,6 @@
              (setq yas-extra-modes (cons 'rails-mode yas-extra-modes))))
 
 ;; (setq rinari-tags-file-name "TAGS")
-
 ;; (setq rinari-major-modes
 ;;       rinari-minor-mode-prefixes
 ;;       rinari-exclude-major-modes
