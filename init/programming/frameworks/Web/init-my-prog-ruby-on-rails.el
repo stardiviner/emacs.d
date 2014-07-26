@@ -47,6 +47,8 @@
 
 (global-rinari-mode t)
 
+
+
 ;;; Misc Functions
 ;;; --------------------------------------
 (defun rails-open-browse-development ()
@@ -75,14 +77,13 @@
 (add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . rhtml-mode))
 (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . rhtml-mode))
 
-;; ;; MuMaMo-Mode
+;;; MuMaMo-Mode
 ;; (require 'mumamo-fun)
 ;; (setq mumamo-chunk-coloring 'submode-colored)
 ;; (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . eruby-html-mumamo))
 ;; (add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . eruby-html-mumamo))
 
-;; ;; nXhtml-Mode
-;; (load "~/path/to/your/elisp/nxml-directory/autostart.el")
+;;; [ nXhtml-Mode ]
 ;; (setq nxhtml-global-minor-mode t
 ;;       mumamo-chunk-coloring 'submode-colored
 ;;       nxhtml-skip-welcome t

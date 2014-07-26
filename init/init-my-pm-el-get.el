@@ -171,11 +171,12 @@
          ruby-block
          yari
          auto-complete-ruby
-         inf-ruby rcodetools ruby-compilation rvm robe-mode
+         inf-ruby rcodetools ruby-compilation rvm
+         robe-mode
          rspec-mode
-         rinari
          yard-mode
-         rhtml-mode projectile-rails
+         projectile-rails ;; rinari
+         rhtml-mode ; nxhtml
          ;; Lisp
          slime
          elisp-slime-nav elisp-format eldoc-eval
