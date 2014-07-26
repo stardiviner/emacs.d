@@ -81,6 +81,12 @@
              '("\\.conkyrc$" . conf-mode)
              '("conkyrc$" . conf-mode))
 
+;;; [ crontab-mode ]
+;; - [C-c C-c] -- finish editing.
+;; (add-to-list 'auto-mode-alist '("\\.cron\\(tab\\)?\\'" . crontab-mode))
+(add-to-list 'auto-mode-alist '("cron\\(tab\\)?\\."    . crontab-mode))
+
+
 
 (provide 'init-my-emacs-modes)
 
