@@ -2,8 +2,8 @@
 ;;; Commentary:
 
 ;;; Code:
-
-;;; [ undo-tree ]
+
+;;;_ undo-tree
 ;; [C-x u] -> undo-tree-visualizer-mode
 ;;    `- [C-p/n]  -- move up/down
 ;;    `- [C-b/f]  -- move left/right
@@ -15,13 +15,11 @@
 (global-undo-tree-mode t)
 (diminish 'undo-tree-mode)
 
-
-;;; [ Edit ]
+;;;_ Edit
 
 (delete-selection-mode t)             ; typed text replaces the active selection
 
-
-;;; [ kill-ring-search ] --
+;;;_ kill-ring-search
 
 ;; Copied something important half an hour ago? Tired of hitting M-y 20 times?
 ;; Now you can search the kill ring incrementally and yank the result!
@@ -35,8 +33,7 @@
 ;;
 ;; (global-set-key (kbd "C-M-y") 'kill-ring-search)
 
-
-;;; [ kill-ring-ido ] --
+;;;_ kill-ring-ido
 
 ;;; Usage:
 ;; - [C-M-y] ::
@@ -45,8 +42,8 @@
     (require 'kill-ring-ido)
   (global-set-key (kbd "C-M-y") 'kill-ring-ido))
 
-
-;;; [ Electric ]
+
+;;;_ Electric
 
 ;; TODO: when electric auto insert ) for (, but when you delete (, electric will not auto delete ) for you.
 
@@ -71,8 +68,7 @@
 ;;            ))
 ;;   (add-hook hook #'(lambda () (electric-pair-mode t))))
 
-
-;;; [ skeleton ]
+;;;_ skeleton
 
 (setq skeleton-pair t
       skeleton-pair-alist
@@ -90,8 +86,8 @@
         )
       )
 
-
-;;; [ Narrowing ]
+;;;_ Narrowing
+
 ;;; Usage:
 ;; - prefix --> [C-x n]
 ;; - [C-x n n] -- narrow to region
@@ -127,8 +123,7 @@
 ;; (global-set-key (kbd "C-x n i") 'narrow-to-region-indirect)
 (define-key my-narrow-prefix-map (kbd "i") 'narrow-to-region-indirect)
 
-
-;;; [ Mark ] --- [C-SPC / C-@] + [C-u C-SPC / C-u C-@] + [C-`] / [M-`]
+;;;_ Mark --- [C-SPC / C-@] + [C-u C-SPC / C-u C-@] + [C-`] / [M-`]
 
 (defun push-mark-no-activate ()
   "Pushes `point' to `mark-ring' and does not activate the region.
@@ -154,15 +149,15 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;;   (deactivate-mark nil))
 ;; (define-key global-map [remap exchange-point-and-mark] 'exchange-point-and-mark-no-activate)
 
-
-;;; [ Multiple Narrowings ]
 
-
-;;; [ capitalized-words-mode ]
+;;;_ Multiple Narrowings
+
+
+;;;_ capitalized-words-mode
+
 ;; (capitalized-words-mode 1)
 
-
-;;; [ auto-capitalize ]
+;;;_ auto-capitalize
 
 ;;; Usage:
 ;; - auto capitalize words of an sentence.
@@ -194,8 +189,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;;   (add-hook hook (lambda ()
 ;;                    (turn-on-auto-capitalize-mode))))
 
-
-;;; [ Iedit ] -- Edit multiple regions simultaneously in a buffer or a region
+;;;_ Iedit -- Edit multiple regions simultaneously in a buffer or a region
 ;;;
 ;;; This package includes Emacs minor modes (iedit-mode and
 ;;; iedit-rectangle-mode) based on a API library (iedit-lib) and allows you to
@@ -287,8 +281,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;;           (iedit-start (current-word) (point-min) (point-max)))))))
 
 
-
-;;; [ multiple-cursors ]
+;;;_ multiple-cursors
 
 ;;; Usage:
 ;;; https://github.com/magnars/multiple-cursors.el
@@ -339,8 +332,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;; (set-face-attribute 'mc/cursor nil
 ;;                     :foreground "cyan")
 
-
-;;; [ Imenu ]
+;;;_ Imenu
 
 ;;; Usage:
 ;; - [M-x imenu-?] :: invoke imenu functions.
@@ -397,8 +389,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 ;; TODO: (global-set-key (kbd "M-i") 'ido-goto-symbol)
 
-
-;; Ace Jump mode
+;;;_ Ace Jump mode
 
 (require 'ace-jump-mode)
 
@@ -406,7 +397,6 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;; FIXME: this does not work, conflict with `flyspell-auto-correct-previous-word'.
 (global-set-key (kbd "C-;") 'ace-jump-mode)
 
-
 ;;----------------------------------------------------------------------------
 ;; TODO: Expand region
 ;;----------------------------------------------------------------------------
@@ -414,8 +404,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;; (global-set-key (kbd "C-=") 'er/expand-region)
 
 
-
-;;; [ predictive-mode ] -- tries to predict the rest of the word, and offers you an appropriate completion.
+;;;_ predictive-mode -- tries to predict the rest of the word, and offers you an appropriate completion.
 
 ;; (require 'predictive)
 
@@ -445,8 +434,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;;  completion-map
 ;;  )
 
-
-;;; [ Align ]
+;;;_ Align
 
 ;;; Usage:
 ;; - commands prefix with `align-', `sort-',
@@ -478,7 +466,6 @@ For example: input regexp like [[:space:]]+ for align several space separated se
                            (modes   . align-text-modes)
                            (repeat  . t)))))
 
-
 (provide 'init-my-emacs-edit)
 
 ;;; init-my-emacs-edit.el ends here
