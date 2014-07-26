@@ -229,6 +229,9 @@
          ;; Verilog
          verilog-mode
          auto-complete-verilog
+         ;; Java
+         javadoc-lookup ; javadoc-help
+         ;; java-complete
          ;; R
          ess
          ;; gnuplot
