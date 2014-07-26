@@ -74,7 +74,7 @@
 
 (require 'guide-key)
 
-(setq guide-key/idle-delay 1.5 ; longer time can delay guide-key popup to speed up Emacs.
+(setq guide-key/idle-delay 1.0 ; longer time can delay guide-key popup to speed up Emacs.
       guide-key/idle-timer nil ; Idle timer to wait before popping up guide buffer.
       guide-key/polling-time 0.1  ; Polling time to check an input key sequence.
       guide-key/recursive-key-sequence-flag t ; guide-key checks an input key sequence recursively. the guide buffer is popped up when you input “C-x r”, “C-x 8” and any other prefixes following “C-x”.
