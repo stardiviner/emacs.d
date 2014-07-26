@@ -477,17 +477,19 @@
 ;;                      (t "numbchild@gmail.com")))
 ;;               )))
 
-(add-hook 'mu4e-compose-pre-hook
-          (defun my-mu4e-compose-setting ()
-            "My settings for message composition."
-            (set-fill-column 72)
-            (flyspell-mode)
-            ;; TODO: test whether work.
-            (auto-complete-mode)
-            ))
+(defun my-mu4e-compose-setting ()
+  "My settings for message composition."
+  (set-fill-column 72)
+  (flyspell-mode)
+  (auto-complete-mode)
+  ;; (mml-secure-sign)
+  )
+
+;; (add-hook 'mu4e-compose-pre-hook 'my-mu4e-compose-setting)
+(add-hook 'mu4e-compose-mode-hook 'my-mu4e-compose-setting)
 
 ;; include in message with C-c C-w
-(setq mu4e-compose-signature-auto-include t
+(setq mu4e-compose-signature-auto-include nil
       mu4e-compose-signature
       "[ stardiviner ] I want to save myself from this world.
        IRC(freenode): stardiviner     \\ Google+:  numbchild \\
@@ -495,11 +497,14 @@
       "
       )
 
-;;; compose address complete
+;;; compose address complete with [M-Tab].
+;; FIXME: [M-Tab] is very slow for completion.
 (setq mu4e-compose-complete-addresses t ; e-mail address auto completion
       ;; to limit completion pool, filter mailing list addresses and like.
       mu4e-compose-complete-only-personal nil
       mu4e-compose-complete-ignore-address-regexp "no-?reply"
+      mu4e-compose-keep-self-cc t ; keep myself on the Cc: list.
+      ;; mu4e-compose-complete-only-after
       )
 
 ;; don't keep message buffers around
@@ -634,7 +639,9 @@
 ;; (setq mu4e-split-view 'horizontal)
 
 (setq mu4e-view-fields '(:from :to :cc
-                               :subject :flags :date
+                               :subject
+                               :date
+                               :flags
                                :maildir
                                :attachments
                                ;; FIXME:
@@ -919,9 +926,11 @@
 
 ;;; header field keys: e.g. From:, To:, Subject:,
 (set-face-attribute 'mu4e-header-key-face nil
-                    :foreground "dim gray"
+                    :foreground "orange"
                     ;; :box '(:color "dark gray" :line-width 1)
                     )
+;; TODO: how to set headers fields with different colors.
+;; TODO: re-enable those faces.
 ;;; url number
 ;; (set-face-attribute 'mu4e-view-url-number-face nil
 ;;                     :foreground "green")
