@@ -29,8 +29,12 @@
 
 (require 'bbdb)
 ;; (bbdb-initialize)
-(bbdb-initialize 'sendmail 'message 'supercite 'w3 'gnus)
+(bbdb-initialize 'message 'sendmail 'supercite 'w3 'gnus)
 
+;; If t then BBDB will not modify `bbdb-file'.
+;; If you have more than one Emacs running at the same time, you might want to
+;; set this to t in all but one of them.
+;; (setq bbdb-read-only t )
 
 (unless (boundp 'my-bbdb-prefix-map)
   (define-prefix-command 'my-bbdb-prefix-map))
@@ -42,7 +46,7 @@
     (my-func/open-and-switch-to-buffer 'bbdb "*BBDB*")))
 
 (define-key my-bbdb-prefix-map (kbd "c") 'bbdb-create)
-(define-key my-bbdb-prefix-map (kbd "a") 'bbdb-snarf)
+(define-key my-bbdb-prefix-map (kbd "a") 'bbdb-snarf) ; usage: region select name and email part in To: field. then press this keybinding.
 (define-key my-bbdb-prefix-map (kbd "h") 'helm-bbdb)
 
 (setq bbdb-file (expand-file-name "~/Org/BBDB/bbdb")
