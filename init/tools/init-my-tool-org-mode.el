@@ -136,10 +136,11 @@
                     :bold nil)
 ;; Diary entry (holidays)
 (set-face-attribute 'org-agenda-diary nil
-                    :foreground "green"
-                    :background nil
-                    :bold 'normal
-                    :box '(:color "green" :line-width 2 :style nil))
+                    :foreground "light blue" ; :background " "
+                    :slant 'italic
+                    ;; :box '(:line-width -1 :style nil)
+                    :underline t
+                    )
 ;; clocking
 (set-face-attribute 'org-agenda-clocking nil
                     :foreground "white" :background "#004A5D"
