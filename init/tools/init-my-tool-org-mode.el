@@ -45,8 +45,7 @@
                     org-timer org-clock org-habit org-notify
                     org-info org-bibtex org-docview
                     org-plot
-                    ;; TODO wait for BBDBv3
-                    ;; org-bbdb
+                    org-bbdb
                     org-irc org-gnus org-mhe org-rmail
                     ;; org-w3m
                     ))
