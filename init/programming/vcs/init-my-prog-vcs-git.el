@@ -254,14 +254,18 @@
                     :weight 'bold
                     )
 
+;; (add-to-list 'git-gutter:update-hooks '(after-save-hook
+;;                                         after-revert-hook
+;;                                         find-file-hook
+;;                                         after-change-major-mode-hook
+;;                                         text-scale-mode-hook))
+
+(add-hook 'linum-mode-hook 'git-gutter:linum-setup)
 
 (global-git-gutter-mode +1)
-;; or
-;; (add-hook 'ruby-mode-hook 'git-gutter-mode)
 
-;; (setq git-gutter:lighter " GitGutter") ; minor mode name in modeline.
-(diminish 'git-gutter-mode)
-
+(setq git-gutter:lighter " GitGutter") ; minor mode name in modeline.
+;; (diminish 'git-gutter-mode)
 
 
 ;; ---------------------------
