@@ -47,6 +47,14 @@
 ;;       -- open a new empty buffer when editing a snippet, sets it to the
 ;;          appropriate major mode and inserts the snippet there, so you can
 ;;          see what it looks like.
+;;
+;;; The `.yas-parents' file.
+;;
+;; It's very useful to have certain modes share snippets between themselves. To
+;; do this, choose a mode subdirectory and place a .yas-parents containing a
+;; whitespace-separated list of other mode names. When you reload those modes
+;; become parents of the original mode.
+;;
 ;; Structure:
 ;; .
 ;; |-- cc-mode
