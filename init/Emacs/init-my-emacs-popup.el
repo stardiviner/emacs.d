@@ -49,7 +49,16 @@
                     :underline '(:color "dim gray" :style line)
                     )
 (set-face-attribute 'popup-menu-face nil
-                    :foreground "green")
+                    :inherit 'ac-candidate-face
+                    :foreground "green yellow" :background "black")
+
+;; add some shotcuts in popup menu mode
+(define-key popup-menu-keymap (kbd "M-n") 'popup-next)
+(define-key popup-menu-keymap (kbd "M-p") 'popup-previous)
+(define-key popup-menu-keymap (kbd "M-j") 'popup-select)
+;; (define-key popup-menu-keymap (kbd "TAB") 'popup-next)
+;; (define-key popup-menu-keymap (kbd "<tab>") 'popup-next)
+;; (define-key popup-menu-keymap (kbd "<backtab>") 'popup-previous)
 
 
 
