@@ -205,14 +205,16 @@
 
 ;;; keybindings
 (define-key vcs-map (kbd "m t") 'git-gutter:toggle)
-(define-key vcs-map (kbd "m p") 'git-gutter:popup-hunk)
 ;; Jump to next/previous hunk
 (define-key vcs-map (kbd "m n") 'git-gutter:next-hunk)
 (define-key vcs-map (kbd "m p") 'git-gutter:previous-hunk)
 ;; Stage current hunk
 (define-key vcs-map (kbd "m s") 'git-gutter:stage-hunk)
+;; show diff of current hunk
+(define-key vcs-map (kbd "m p") 'git-gutter:popup-hunk)
 ;; Revert current hunk
 (define-key vcs-map (kbd "m r") 'git-gutter:revert-hunk)
+;; commit staged changes with [C-c v g c] which custom keybinding from magit function `magit-commit'.
 
 ;; multiple character is OK
 (setq git-gutter:window-width 1
