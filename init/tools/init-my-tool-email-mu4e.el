@@ -427,7 +427,30 @@
 ;;; View
 
 (setq mu4e-headers-visible-lines 13
-      mu4e-headers-show-threads t)
+      mu4e-headers-visible-columns 30
+      mu4e-headers-show-threads t
+      mu4e-headers-auto-update t
+      mu4e-use-fancy-chars t
+      ;; ⚓  ⭑  ✔  ☐  ❯ ❮  ⚑  ♻
+      ;; email prefix marks
+      mu4e-headers-new-mark '("N" . "•")
+      mu4e-headers-unread-mark '("u" . "·")
+      mu4e-headers-seen-mark '("S" . " ")
+      mu4e-headers-signed-mark '("s" . "★")
+      mu4e-headers-encrypted-mark '("x" . "⚴")
+      mu4e-headers-draft-mark '("D" . "⚒")
+      mu4e-headers-attach-mark '("a" . "▢")
+      mu4e-headers-passed-mark '("P" . "❯")
+      mu4e-headers-flagged-mark '("F" . "⚑")
+      mu4e-headers-replied-mark '("R" . "✔")
+      mu4e-headers-trashed-mark '("T" . "✗✖")
+      ;; thread prefix marks
+      mu4e-headers-default-prefix '("|" . "┊┝")
+      mu4e-headers-has-child-prefix '("+" . "Ϟ")
+      mu4e-headers-empty-parent-prefix '("-" . "∘")
+      mu4e-headers-first-child-prefix '("\\" . "┗▶")
+      mu4e-headers-duplicate-prefix '("=" . "‡")
+      )
 
 
 ;;; Message
@@ -950,22 +973,6 @@
 ;;                     :box '(:color "yellow green" :line-width 1))
 
 
-
-(setq mu4e-use-fancy-chars t)
-
-;; ⚓  ⭑  ✔  ☐  ❯ ❮  ⚑  ♻
-
-(setq mu4e-headers-new-mark '("N" . " "))
-(setq mu4e-headers-unread-mark '("u" . " "))
-(setq mu4e-headers-seen-mark '("S" . " "))
-(setq mu4e-headers-signed-mark '("s" . "☡"))
-(setq mu4e-headers-encrypted-mark '("x" . "⚴"))
-(setq mu4e-headers-draft-mark '("D" . "⚒"))
-(setq mu4e-headers-attach-mark '("a" . "☐"))
-(setq mu4e-headers-passed-mark '("P" . "❯"))
-(setq mu4e-headers-flagged-mark '("F" . "⚑"))
-(setq mu4e-headers-replied-mark '("R" . "✔"))
-(setq mu4e-headers-trashed-mark '("T" . "♻"))
 
 
 ;;; Marking
