@@ -52,6 +52,53 @@
 (which-function-mode 1)
 
 
+;;; [ API docsets ]
+
+;;; [ helm-dash ] -- Browse Dash docsets inside emacs.
+
+;;; Usage:
+;; - [M-x helm-dash]
+;; - [M-x helm-dash-at-point]
+;; - The command helm-dash-reset-connections will clear the connections to all sqlite db's.
+;;   Use it in case of errors when adding new docsets. The next call to helm-dash will recreate them.
+
+(require 'helm-dash)
+
+(setq helm-dash-docsets-path (expand-file-name "~/.docsets")
+      helm-dash-min-length 3
+      ;; helm-dash-completing-read-func 'completing-read ; 'completing-read, 'ido-completing-read
+      helm-dash-browser-func 'browse-url ; 'browse-url, 'eww
+      ;; helm-dash-connections
+      helm-dash-common-docsets '("Ruby" "Ruby on Rails"
+                                 "HTML" "CSS" "JavaScript" "CoffeeScript"
+                                 "Common_Lisp" "Clojure"
+                                 "C" "Go"
+                                 "SQLite" "MySQL" "Redis" "MongoDB"
+                                 "Qt"
+                                 "Vagrant" "Nginx"
+                                 )
+      ;; helm-dash-docsets
+      )
+
+;;; buffer local docsets
+;; (defun go-doc ()
+;;   (interactive)
+;;   (setq-local helm-dash-docsets '("Go")))
+;; (add-hook 'go-mode-hook 'go-doc)
+
+;;; Only one docset
+;; To narrow the search to just one docset, type its name in the beginning of the search followed by a space.
+;; If the docset contains spaces, no problemo, we handle it :D.
+
+
+;; (eval-after-load "helm-dash"
+;;   '(defun helm-dash-actions (actions doc-item) `(("Go to doc" . eww))))
+
+
+(define-key help-document-map (kbd "C-d") 'helm-dash-at-point)
+
+
+
 ;;; [ RFC ]
 
 (require 'init-my-prog-document-rfc)

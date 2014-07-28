@@ -140,7 +140,8 @@
          smartparens
          ;; paredit autopair
          rainbow-mode rainbow-delimiters
-         ;; document
+         ;; document, API, docsets
+         helm-dash
          ;; RFC
          irfc
          ;; snippet
