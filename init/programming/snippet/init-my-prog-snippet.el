@@ -88,19 +88,15 @@
 
 
 ;;; keybindings
+;; - [Tab]
+;; - or [C-Tab]
+
 (setq yas-trigger-key "TAB")
 (setq yas-next-field-key '("<tab>"))
 (setq yas-prev-field-key '("<S-tab>" "<backtab>"))
 (setq yas-skip-and-clear-key '("C-d"))
 
 ;; (define-key yas-minor-mode (kbd "") 'yas-abort-snippet)
-
-;; (setq yas-prompt-functions
-;;       '(yas-dropdown-prompt             ; work both in minibuffer and X window system.
-;;         yas-completing-prompt           ; minibuffer prompting.
-;;         yas-ido-prompt                  ; minibuffer prompting.
-;;         yas-x-prompt                    ; X window system.
-;;         yas-no-prompt))
 
 
 ;;; indent
@@ -128,11 +124,54 @@
       )
 
 ;; for `yas-choose-value'.
-(setq yas-prompt-functions '(yas-dropdown-prompt
-                             yas-completing-prompt
-                             yas-ido-prompt
-                             yas-x-prompt
-                             yas-no-prompt))
+(setq yas-prompt-functions
+      '(yas-dropdown-prompt       ; work both in minibuffer and X window system.
+        yas-completing-prompt     ; minibuffer prompting.
+        yas-ido-prompt            ; minibuffer prompting.
+        yas-x-prompt              ; X window system.
+        yas-no-prompt))
+
+;; (defun yas-popup-isearch-prompt (prompt choices &optional display-fn)
+;;   (when (featurep 'popup)
+;;     (popup-menu*
+;;      (mapcar
+;;       (lambda (choice)
+;;         (popup-make-item
+;;          (or (and display-fn (funcall display-fn choice))
+;;              choice)
+;;          :value choice))
+;;       choices)
+;;      :prompt prompt
+;;      ;; start isearch mode immediately
+;;      :isearch t
+;;      )))
+
+(defun yas-popup-isearch-prompt (prompt choices &optional display-fn)
+  (popup-menu*
+   (mapcar
+    (lambda (choice)
+      (popup-make-item
+       (if (yas--template-p choice)
+           (format "%10.10s %-10.10s  %s"
+                   (if (yas--template-group choice)
+                       (s-join "/" (yas--template-group choice))
+                     "")
+                   (if (yas--template-key choice)
+                       (yas--template-key choice)
+                     "")
+                   (if (yas--template-name choice)
+                       (yas--template-name choice)
+                     ""))
+         choice)
+       :value choice))
+    choices)
+   :prompt prompt
+   :max-width 80
+   :isearch t))
+
+(add-to-list 'yas-prompt-functions 'yas-popup-isearch-prompt)
+
+
 
 (setq yas-new-snippet-default "\
 # -*- mode: snippet; require-final-newline: nil -*-
@@ -169,6 +208,7 @@ $0"
 
 ;;; set function `yas-new-snippet' default template
 ;; (setq yas-new-snippet-default "# -*- mode: snippet -*-\n# name: $1\n# key: ${2:${1:$(yas--key-from-desc yas-text)}}${3:\n# binding: ${4:direct-keybinding}}${5:\n# expand-env: ((${6:some-var} ${7:some-value}))}${8:\n# type: command}\n# --\n$0")
+
 
 
 ;;; Faces
