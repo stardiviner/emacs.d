@@ -40,10 +40,15 @@
   (define-prefix-command 'my-bbdb-prefix-map))
 (define-key my-tools-prefix-map (kbd "b") 'my-bbdb-prefix-map)
 
-(define-key my-bbdb-prefix-map (kbd "b")
-  (lambda ()
-    (interactive)
-    (my-func/open-and-switch-to-buffer 'bbdb "*BBDB*")))
+(defun my-bbdb-open-or-switch ()
+  (interactive)
+  (if (get-buffer "*BBDB*")
+      (switch-to-buffer "*BBDB*")
+    (bbdb "")
+    (bury-buffer)
+    (switch-to-buffer "*BBDB*")))
+
+(define-key my-bbdb-prefix-map (kbd "b") 'my-bbdb-open-or-switch)
 
 (define-key my-bbdb-prefix-map (kbd "c") 'bbdb-create)
 (define-key my-bbdb-prefix-map (kbd "a") 'bbdb-snarf) ; usage: region select name and email part in To: field. then press this keybinding.
@@ -99,6 +104,7 @@
 
 ;; (setq bbdb-ignore-message-alist '(("From" . "")
 ;;                                   (("To" "CC") . "email@home")))
+
 
 
 (dolist (hook '(message-setup-hook
