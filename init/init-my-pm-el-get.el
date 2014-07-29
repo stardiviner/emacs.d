@@ -137,8 +137,9 @@
          ;; comment
          fic-mode
          ;; electric
+         paredit
          smartparens
-         ;; paredit autopair
+         ;; autopair
          rainbow-mode rainbow-delimiters
          ;; document, API, docsets
          helm-dash
