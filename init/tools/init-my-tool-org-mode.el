@@ -7,7 +7,10 @@
 ;; - orgstruct-mode :: easy list editing.
 
 ;;; Code:
-
+
+;;;_ Org-mode
+
+;;;_. require & load modules
 (require 'org)
 
 (require 'org-faces)
@@ -36,7 +39,6 @@
 ;; use Org-mode as the default mode for all README files.
 (add-to-list 'auto-mode-alist '("README$" . org-mode))
 
-
 ;;; [ Org Modules ]
 ;; Modules that should always be loaded together with org.el.
 (setq org-modules '(org-pcomplete
@@ -50,8 +52,7 @@
                     ;; org-w3m
                     ))
 
-
-;;; [ View ]
+;;;_. View
 
 ;; (load "preview-latex.el" nil t) ; for option `org-startup-with-latex-preview'
 
@@ -88,8 +89,8 @@
 (setq org-display-internal-link-with-indirect-buffer nil)
 
 
-
-;;; indentation
+;;;_. indentation
+
 ;; Usage:
 ;; * List Indent Editing
 ;;   - [M-S-RET]
@@ -104,8 +105,7 @@
 
 (org-indent-mode t)
 
-
-;;; [ Faces ]
+;;;_. Faces
 
 ;; TODO
 ;; set font for all rest font, then override by other face settings.
@@ -354,7 +354,9 @@
                     :foreground "cyan"
                     :inherit nil)
 
-
+
+;;;_. pretty entities
+
 ;; FIXME this seems changed in other buffers too. seems globally.
 ;; ;;; change Org-Agenda hl-line-mode current line face attribute *buffer locally*.
 ;; ;; first create new face which is a copy of hl-line-face
@@ -396,8 +398,7 @@
 (setq org-ascii-headline-spacing '(1 . 2))
 
 
-
-;;; Org-bullets
+;;;_. org-bullets
 
 ;; (load-file "~/.emacs.d/my-init/extensions/org-bullets.el")
 
@@ -425,8 +426,7 @@ It can contain any number of symbols, which will be repeated."
             ;;                     :foreground "white" :background "black")
             ))
 
-
-;;; [ Editing ]
+;;;_. Editing
 
 (setq org-special-ctrl-a/e t)
 
@@ -463,8 +463,7 @@ It can contain any number of symbols, which will be repeated."
   "-----"
   )
 
-
-;;; Complete
+;;;_. Complete
 
 ;; - in buffer + [M-TAB]
 ;; - in minibuffer
@@ -476,10 +475,9 @@ It can contain any number of symbols, which will be repeated."
   (setq org-completion-use-iswitchb t)
   (setq org-completion-fallback-command 'hippie-expand))
 
+;;;_ , org-pcomplete
 
-;;; [ org-pcomplete ]
-
-;;; [ org-ac ]
+;;;_ , org-ac
 
 ;;; [o] -- annotation.
 
@@ -497,26 +495,22 @@ It can contain any number of symbols, which will be repeated."
             (setq ac-sources (delq '(ac-source-dictionary ac-source-words-in-same-mode-buffers) ac-sources))))
 
 
-
-;;; [ Document Structure ]
 
+;;;_. Document Structure
 
-
-;;; [ Plain List ]
+;;;_ , plain list
 
 (setq org-support-shift-select nil) ; - nil to support: [S-up/down] to jump to previous/next item in list.
 
-
-;;; [ Drawer ]
+;;;_ , drawer
+
 (setq org-export-with-drawers t) ; t, nil, '(not "LOGBOOK")
 
-
-;;; [ Tables ]
+;;;_ , tables
 
 ;; (setq org-enable-table-editor t)
 
-
-;;; [ Images ]
+;;;_ , images
 
 ;;; inline images [C-c C-x C-v] - `org-toggle-inline-images'.
 ;; [C-c C-x C-M-v] - `org-redisplay-inline-images'
@@ -545,14 +539,11 @@ It can contain any number of symbols, which will be repeated."
 ;; (define-key org-mode-map (kbd "C-c C-x C-v") 'org-toggle-iimage-in-org)
 ;; -----------------------------------------------------------------------------
 
+;;;_ , footnote
 
-
-
-;;; Footnote
 (setq org-footnote-auto-label 'confirm)
 
-
-;;; [ Hyperlinks ]
+;;;_ , hyperlinks
 
 (setcdr (assq 'system org-file-apps-defaults-gnu) "xdg-open %s") ; xdg-open, kde-open, gnome-open.
 
@@ -710,8 +701,7 @@ This is especially for create Org files."
 ;;             (setq org-create-file-search-functions)
 ;;             (setq org-execute-file-search-functions)))
 
-
-;;; [ TODOs Items ]
+;;;_. GTD
 
 (setq org-open-directory-means-index-dot-org t)
 
@@ -734,8 +724,7 @@ This is especially for create Org files."
       org-agenda-repeating-timestamp-show-all t
       )
 
-
-;;; [ org-linkany ]
+;;;_. org-linkany
 
 ;; Make config suit for you. About the config item, eval the following sexp.
 ;; (customize-group "org-linkany")
@@ -757,8 +746,9 @@ This is especially for create Org files."
 
 ;; (setq org-linkany/browse-function 'browse-url-firefox)
 
-
-;;; [ Properties and Columns ]
+;;;_. org-annotate-file
+
+;;;_. properties and columns
 
 ;;; properties
 (setq org-global-properties ; will be combined with constant `org-global-properties-fixed'
@@ -775,11 +765,10 @@ This is especially for create Org files."
 (setq org-columns-default-format "%25ITEM %TODO %3PRIORITY %TAGS %6effort(EFFORT){:}") ; default: "%25ITEM %TODO %3PRIORITY %TAGS"
 
 
-
-;;; [ Dates and Times ]
+;;;_. Dates and Times
 
-
-;;; [ Clock ]
+
+;;;_. Clock
 
 (require 'org-clock)
 
@@ -824,8 +813,7 @@ This is especially for create Org files."
 (define-key org-clock-mode-line-map [header-line mouse-1] 'org-clock-menu)
 
 
-
-;;; org-timer
+;;;_. org-timer
 
 ;; (require 'org-timer)
 ;; (add-to-list 'org-modules 'org-timer)
@@ -840,9 +828,8 @@ This is especially for create Org files."
              (if (not org-timer-current-timer)
                  (org-timer-set-timer '(16)))))
 
+;;;_ , effort estiname
 
-
-;;; Effort estimate
 (setq org-effort-property "Effort"
       ;; conversion factor to minutes for an effort modifier.
       ;; (MODIFIER . MINUTES)
@@ -859,8 +846,7 @@ This is especially for create Org files."
       ;; org-time-clocksum-fractional-format "%.2f"
       )
 
-
-;;; [ Org Habit ]
+;;;_. org habit
 
 ;; (require 'org-habit)
 
@@ -885,8 +871,8 @@ This is especially for create Org files."
       org-habit-completed-glyph ?-
       )
 
-;; -----------------------------------------------------------------------------------------
-;;; org-habit faces
+;;;_ , org-habit faces
+
 (set-face-attribute 'org-habit-clear-future-face nil ; for future days on which a task shouldn't be done yet.
                     :background " ")
 (set-face-attribute 'org-habit-alert-future-face nil ; for days on which a task is due.
@@ -907,6 +893,7 @@ This is especially for create Org files."
 (set-face-attribute 'org-habit-overdue-future-face nil ; for days on which a task is overdue.
                     :background "dark cyan")
 
+;;;_ , org-habit keybindings
 
 ;; create an key binding for all necessary steps for create a habit. (reference in Org-mode.org file)
 (defun org-habit-apply ()
@@ -955,8 +942,7 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 
 (define-key org-mode-map (kbd "C-c C-x r") 'org-time-interval)
 
-
-;;; [ Capture - Refile - Archive ]
+;;;_. Capture - Refile - Archive
 
 ;;; Capture:
 ;; - [C-c o c] :: org-capture
@@ -1050,9 +1036,7 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;; :NOTE:
 ;; :END:")
 
-
-
-;;; Refile
+;;;_. Refile
 
 ;; - [C-c C-w] :: org-capture-refile finalize
 ;; - [C-u C-c C-w] :: use the refile interface to jump to a heading.
@@ -1077,9 +1061,7 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
       org-refile-active-region-within-subtree t ; allow refile region, first line of region as headline.
       )
 
-
-
-;;; [ Archive ]
+;;;_. Archive
 
 ;; - [C-c C-x C-a] -- org-archive-subtree-default. (archive current entry)
 ;; - [C-c C-x C-s] -- org-archive-subtree. (archive subtree).
@@ -1091,14 +1073,11 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
       org-archive-reversed-order nil
       )
 
-
-;;; [ Attachments ]
+;;;_. Attachment
 
 ;; - [C-c C-a] :: `org-attach'.
 
-
-
-;;; [ Agenda Views ]
+;;;_. Agenda Views
 
 (require 'org-agenda)
 
@@ -1141,9 +1120,7 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
                          "~/Org/Wiki/Kung Fu/Kung Fu.org"
                          ))
 
-;; 2.
 ;; (setq org-agenda-files (file-expand-wildcards "~/Org/*.org")) ; Including all org files from a directory into the agenda
-;; 3.
 ;;; Sync with Dropbox
 ;; (autoload 'find-lisp-find-files "find-lisp")
 ;; (setq org-agenda-files
@@ -1303,7 +1280,8 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;; TODO:
 ;; (setq org-agenda-category-icon-alist)
 
-
+;;;_. about TODO tasks
+
 ;;; TODOs status
 ;; `|` separate finished and unfinished two statuses, will add timestamp when finished.
 ;; `(t)` set shortcut
@@ -1391,8 +1369,7 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
                :underline "green yellow")
               )))
 
-
-;;; ------ custom functions ------------
+;;;_ , custom functions
 
 ;;; bind key [C-l] to locate to current time now ----- in Org-Agenda buffer.
 (defun my-org-agenda-jump-to-current-time ()
@@ -1404,8 +1381,7 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 (define-key org-agenda-mode-map (kbd "C-l") 'my-org-agenda-jump-to-current-time)
 
 
-
-;;; [ Tags ]
+;;;_. Tags
 
 (setq org-auto-align-tags t
       org-export-with-tags t
@@ -1515,12 +1491,10 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
               )))
 
 
-
-;;; [ Markup ]
+;;;_. Markup
 
 
-
-;;; [ Exporting ]
+;;;_. Exporting
 
 ;; TODO how to set Org export directory.
 ;; (setq org-export-html-link-home "~/Org/")
@@ -1554,8 +1528,8 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 (defadvice org-html-checkbox (around sacha activate)
   (setq ad-return-value (sacha/org-html-checkbox (ad-get-arg 0))))
 
-
-;;; [ Publishing ]
+
+;;;_. Publishing
 
 ;; - [C-c C-e P x] -- (org-publish)
 ;; - [C-c C-e P p] -- (org-publish-current-project)
@@ -1657,8 +1631,8 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;; might include with #+INCLUDE:. The timestamp mechanism in Org is not smart
 ;; enough to detect if included files have been modified.
 
-
-;;; HTML: HTML5
+
+;;;_. org-html5
 
 (setq org-html-doctype "html5"
       ;; org-html-doctype-alist
@@ -1666,8 +1640,7 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 
 (setq org-html-html5-fancy t)
 
-
-;;; Babel
+;;;_. Babel
 
 ;; (unless (package-installed-p 'ob-mongo)
 ;;   (package-install 'ob-mongo))
@@ -1754,8 +1727,7 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
         (:column . t)
         (:nullvalue . "Null")))
 
-
-;;; [ Working With Source Code ]
+;;;_. working with source code
 
 ;;; - [C-c C-v] --- prefix map.
 
@@ -1809,8 +1781,8 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
       org-export-babel-evaluate t
       )
 
-
-;;; LaTeX
+;;;_. Org LaTeX
+
 (setq org-babel-latex-htlatex t)
 
 ;;; preview LaTeX fragments [C-c C-x C-l] + [C-c C-c]
@@ -1829,22 +1801,20 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 
 (setq org-latex-create-formula-image-program 'dvipng)
 
-
-;;; [ Diary ]
+
+;;;_. Org Diary
 
 (setq diary-file "~/Org/Diary/Diary.org")
 
-;;; org-diary
 
-
-;;; [ Miscellaneous ]
+;;;_. Miscellaneous
 
-
-;;;; [ Hacking ]
 
-
-;;; [ Mobile Org ]
-;; TODO
+;;;_. Hacking
+
+;;;_. Mobile Org
+
+;; TODO:
 ;; (add-hook 'after-init-hook 'org-mobile-pull)
 ;; (add-hook 'kill-emacs-hook 'org-mobile-push)
 ;; ;; mobile sync
@@ -1867,8 +1837,8 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;; (org-mobile-sync-enable)
 
 
-
-;;; Sparse Tree
+;;;_. Sparse Tree
+
 (setq org-highlight-sparse-tree-matches t)
 (setq org-sparse-tree-open-archived-trees nil)
 (set-face-attribute 'secondary-selection nil
@@ -1877,9 +1847,10 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
                     )
 
 
-
-;;; variables
-;; TODO
+
+;;;_. variables
+
+;; TODO:
 ;; (setq org-todo-state-tags-triggers
 ;;       '(state-change (TAG . FLAG)))
 (setq org-tags-match-list-sublevels t)
@@ -1896,8 +1867,8 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;; (setq org-html-head)
 ;; (setq org-html-head-extra)
 
-
-;;; org templates (skeleton)
+;;;_. org skeleton/template
+
 ;; <s, <e, <q, ...
 
 ;; avoid competing with org-mode templates.
@@ -1909,8 +1880,8 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 
 (add-hook 'org-mode-hook 'org-stop-auto-complete-for-structure-templates)
 
-
-;; deft
+;;;_. deft
+
 (when (require 'deft nil 'noerror)
   (setq
    deft-extension "org" ; "txt"
@@ -1919,22 +1890,24 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
   ;; (global-set-key (kbd "<f3>") 'deft)
   )
 
-
-;; finance: ledger
+;;;_. finance: ledger
 
 
-
-;; gnuplot
+
+;;;_. plot: gnuplot
+
 ;; (require 'org-plot)
 
-
-;;; HTML & CSS
-;;; TODO
+
+;;;_. HTML & CSS
+
+;;; TODO:
 ;; (setq org-html-head
 ;;       org-html-head-extra)
 
-
-;; disable line-number-mode in Org.
+
+
+;;;_. disable line-number-mode in Org.
 (dolist (hook
          '(org-mode-hook
            org-agenda-mode-hook))
@@ -1944,13 +1917,12 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
               (linum-mode -1)
               )))
 
-
-;;; iCalendar
+;;;_. iCalendar
+
 (setq org-combined-agenda-icalendar-file "~/Org/Calendar/iCalendar.ics")
 
 
-
-;;; notify
+;;;_. Notify
 
 ;; TODO
 ;;; 1.
@@ -1968,7 +1940,8 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;; use function `my-func-notify-send'.
 ;; (my-func-notify-send "Warning" "the end is near" "/usr/share/icons/test.png" "/usr/share/sounds/beep.ogg")
 
-;;; [ org-notify ]
+
+;;;_ , org-notify
 
 (setq org-notify-audible t
       ;; org-notify-parse-file
@@ -1995,7 +1968,7 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;;   :actions -ding, -notify, -window, -notify/window, -message, -email,
 
 (org-notify-add 'default
-                '(:time "1h" :period "30m" :duration 100
+                '(:time "1h" :period "45m" :duration 100
                         :actions (-notify/window -ding))
                 ;; '(:time "3d" :period "4h" :duration 40
                 ;;         :actions -notify/window)
@@ -2023,8 +1996,8 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 
 (org-notify-start 60)
 
-
-;;; 2.
+;;;_ , appt
+
 ;; (require 'appt) ; appointment
 
 ;; (setq appt-audible t
@@ -2055,7 +2028,7 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 
 ;; (setq appt-disp-window-function 'sr-org-handler-func) ; for Sauron.
 
-
+
 ;; (add-hook 'org-mode-hook
 ;;           (lambda ()
 ;;             ;; (turn-on-font-lock)
@@ -2063,8 +2036,8 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;;             ;; (turn-off-filladapt-mode)
 ;;             ))
 
-
-;;; [ org-bbdb ]
+
+;;;_. org-bbdb
 
 ;;; Usage:
 ;; - [C-c C-l] + `bbdb:'
@@ -2090,18 +2063,19 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;;                  (format "%s" years)
 ;;                  suffix " wedding anniversary]]"))))
 
-
-;;; [ Org-contacts ]
+
+;;;_. org-contacts
 
 ;; FIXME:
 
-
-;;; [ Org-magit]
+
+;;;_. org-magit
 
 (require 'org-magit)
 
-
-;;; [ Custom Functions ]
+
+
+;;;_. Custom Functions
 
 ;;; Promote all items in subtree
 ;; This function will promote all items in a subtree. Since I use subtrees
@@ -2132,20 +2106,20 @@ This function will promote all items in a subtree."
                  (org-link-escape hl-text '((?\] . "%5D") (?\[ . "%5B"))))
          nil (- (point) (length hl-text)) (point))))))
 
-
+;;;_. Org frame settings
 
 ;; (setq org-indirect-dedicated-frame nil)
 
-
-;;; [ Pairs ]
+
+;;;_. Pairs
 
 ;; (add-hook 'org-mode-hook
 ;;           (lambda ()
 ;;             (paredit-mode -1)
 ;;             (autopair-mode -1)))
 
-
-;;; [ Key Bindings ]
+
+;;;_. custom keybindings
 
 (define-key my-org-prefix-map (kbd "a") 'org-agenda)
 (define-key my-org-prefix-map (kbd "c") 'org-capture)
@@ -2159,8 +2133,7 @@ This function will promote all items in a subtree."
     (interactive)
     (my-func/open-and-switch-to-buffer 'org-agenda-list "*Org Agenda*" t)))
 
-
-;;; custom functions
+;;;_. custom functions
 
 (defun my-insert-keybinding-code ()
   "Insert keybinding code in Org with a keybinding quickly.
@@ -2188,8 +2161,7 @@ In common insert mode or in select region text to press this keybinding \\<C-c k
 ;;
 ;; (define-key org-mode-map (kbd "C-c k s") 'my-wrap-source-code-with-org-src)
 
-
-
+;;;_ 
 (provide 'init-my-tool-org-mode)
 
 ;;; init-my-tool-org-mode.el ends here
