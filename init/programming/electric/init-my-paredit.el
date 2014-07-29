@@ -50,12 +50,13 @@
 
 ;;; enable some handy paredit functions in all prog modes
 ;; (add-hook 'prog-mode-hook 'paredit-everywhere-mode)
-  
-;;; FIXME how to only enable paredit in those programming language modes.
+
+;;; Only enable paredit in those programming language modes.
 (dolist (hook
          '(;; Lisp dialects
            emacs-lisp-mode-hook
            eval-expression-minibuffer-setup-hook
+           ;; inferior-emacs-lisp-mode-hook
            ielm-mode-hook
            lisp-mode-hook
            lisp-interaction-mode-hook

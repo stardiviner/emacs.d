@@ -21,7 +21,14 @@
                                        jinja2-mode
                                        web-mode
                                        nxml-mode nxhtml-mode rhtml-mode sgml-mode html-mode)
-      sp-ignore-modes-list '(minibuffer-inactive-mode)
+      sp-ignore-modes-list '(minibuffer-inactive-mode
+                             ;; Lisp dialects modes which will use paredit.
+                             emacs-lisp-mode
+                             inferior-emacs-lisp-mode ; -> ielm-mode
+                             lisp-mode lisp-interaction-mode
+                             scheme-mode
+                             clojure-mode cider-repl-mode
+                             )
       sp-autowrap-region t
       sp-autoinsert-pair t
       sp-autoinsert-if-followed-by-word t
