@@ -490,12 +490,12 @@ It can contain any number of symbols, which will be repeated."
 (setq org-ac/ac-trigger-command-keys '("\\" "+"))
 
 ;; remove heavy auto-complete sources to speed up typing in Org.
-;; FIXME: this seems does not work. `delq' and `delete' does not delete a list from another list.
+;; Ask Org-mode Mailing list.
 (add-hook 'org-mode-hook
           (lambda ()
-            ;; use `delq' in a loop.
-            (mapcar (lambda (x) (setq ac-sources (delq x ac-sources)))
-                    '(ac-source-dictionary ac-source-words-in-same-mode-buffers))))
+            ;; use `remq' in a loop. instead of `delq' which will remove element in global default `ac-sources' too.
+            (mapc (lambda (x) (setq-local ac-sources (remq x ac-sources)))
+                  '(ac-source-dictionary ac-source-words-in-same-mode-buffers))))
 
 ;;;_. Document Structure
 
