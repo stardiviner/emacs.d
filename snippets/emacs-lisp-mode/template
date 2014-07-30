@@ -2,7 +2,7 @@
 # name: template
 # key: template
 # --
-;;; ${1:$$(buffer-name)} --- $2
+;;; ${1:$$(file-name-base)}.el --- $2
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -11,10 +11,11 @@ $3
 
 ;;; Code:
 
-$0
+$4
+
 
 
 
 (provide '$1)
 
-;;; $1 ends here
+;;; $1.el ends here
