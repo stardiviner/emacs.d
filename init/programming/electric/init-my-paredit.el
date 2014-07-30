@@ -40,6 +40,7 @@
 
 (after 'paredit
   (diminish 'paredit-mode " Par")
+  ;; remove following keybindings
   (dolist (binding (list (kbd "C-<left>") (kbd "C-<right>")
                          (kbd "C-M-<left>") (kbd "C-M-<right>")))
     (define-key paredit-mode-map binding nil))

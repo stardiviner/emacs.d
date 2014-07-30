@@ -37,7 +37,7 @@
                     :background "#00232C" :foreground nil
                     :inherit nil)
 (set-face-attribute 'highlight-indentation-current-column-face nil
-                    :background "#929200" :foreground nil
+                    :background "slate blue" :foreground nil
                     :inherit nil)
 
 (dolist (hook '(ruby-mode-hook
