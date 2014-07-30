@@ -18,6 +18,7 @@
 ;; - [M-x bbdb-help]
 ;; - [M-x bbdb-info]
 ;; - [M-x bbdb] :: start BBDB
+;; - BBDB email alias work like Emacs abbreviation.
 ;; - [M-x bbdb-merge-file] :: merge databases
 ;;        If you want to merge two very different databases (one from your girlfriend, one from yourself), your best bet is to just concatenate the two. Then start the BBDB, and use M-x bbdb-show-duplicates. For every record that appears twice, put point on the second record, and use ‘r’ to merge it into the first record.
 ;; - Export
@@ -56,7 +57,7 @@
 
 (setq bbdb-file (expand-file-name "~/Org/BBDB/bbdb")
       bbdb-completion-display-record t
-      bbdb-image t ; display records with an image.
+      bbdb-image 'name ; display records with an image.
       bbdb-image-path (expand-file-name "~/Org/BBDB/avatars/")
       ;; bbdb-image-suffixes '(".png" ".jpg" ".gif" ".xpm")
       ;; bbdb-sound-files
