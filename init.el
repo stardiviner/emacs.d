@@ -180,7 +180,7 @@
 (require 'init-my-prog-document)
 (require 'init-my-prog-compile)
 (require 'init-my-prog-project)
-(require 'init-my-prog-vcs-git)
+(require 'init-my-prog-vcs)
 (require 'init-my-prog-regexp)
 
 
