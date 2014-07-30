@@ -75,14 +75,20 @@
 ;; (require 'outline "allout")
 
 (setq allout-auto-activation t
-      allout-default-layout '(-2 : 0)
+      ;; allout-layout
+      allout-default-layout '(-2 : -1 *)
       ;; [buffer-local] allout-layout '(0 : -1 -1 0)
       allout-widgets-auto-activation t
-      allout-command-prefix (kbd "C-c SPC") ; default "\C-c "
-      allout-use-mode-specific-leader t
-      ;; allout-header-prefix "."
-      ;; allout-primary-bullet "*"
+      allout-command-prefix (kbd "C-c SPC")
       )
+(setq-default allout-use-mode-specific-leader nil
+              allout-stylish-prefixes t
+              allout-primary-bullet "*" ; used by level-1
+              allout-header-prefix "."
+              allout-distinctive-bullets-string "*+-=>()[{}&!?#%\"X@$~_\\:;^"
+              allout-plain-bullets-string-len 5
+              allout-plain-bullets-string "*+#>." ; + -> #N -> > -> *
+              )
 
 
 
