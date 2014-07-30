@@ -426,14 +426,15 @@
 
 ;;; View
 
-(setq mu4e-headers-visible-lines 13
-      mu4e-headers-visible-columns 30
+(setq mu4e-split-view 'horizontal ; 'vertical, 'horizontal
+      mu4e-headers-visible-lines 13
+      mu4e-headers-visible-columns 115
       mu4e-headers-show-threads t
       mu4e-headers-auto-update t
       mu4e-use-fancy-chars t
       ;; ⚓  ⭑  ✔  ☐  ❯ ❮  ⚑  ♻
       ;; email prefix marks
-      mu4e-headers-new-mark '("N" . "•")
+      mu4e-headers-new-mark '("N" . " ") ; •
       mu4e-headers-unread-mark '("u" . "·")
       mu4e-headers-seen-mark '("S" . " ")
       mu4e-headers-signed-mark '("s" . "★")
@@ -443,9 +444,9 @@
       mu4e-headers-passed-mark '("P" . "❯")
       mu4e-headers-flagged-mark '("F" . "⚑")
       mu4e-headers-replied-mark '("R" . "✔")
-      mu4e-headers-trashed-mark '("T" . "✗✖")
+      mu4e-headers-trashed-mark '("T" . "✗")
       ;; thread prefix marks
-      mu4e-headers-default-prefix '("|" . "┊┝")
+      mu4e-headers-default-prefix '("|" . "┝")
       mu4e-headers-has-child-prefix '("+" . "Ϟ")
       mu4e-headers-empty-parent-prefix '("-" . "∘")
       mu4e-headers-first-child-prefix '("\\" . "┗▶")
@@ -474,6 +475,8 @@
       user-mail-address "numbchild@gmail.com"
       user-full-name  "stardiviner")
 
+
+;;; Compose
 ;;; Compose hooks [mu4e-compose-pre-hook, mu4e-compose-mode-hook]
 ;;;
 ;;; When replying to an email I want to use the address I received this message
