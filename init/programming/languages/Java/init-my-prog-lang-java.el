@@ -32,6 +32,6 @@
 
 
 
-(provide 'init-my-prog-lang-java.el)
+(provide 'init-my-prog-lang-java)
 
 ;;; init-my-prog-lang-java.el.el ends here
