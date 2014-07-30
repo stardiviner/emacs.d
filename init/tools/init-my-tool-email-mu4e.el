@@ -508,7 +508,6 @@
   (set-fill-column 72)
   (flyspell-mode)
   (auto-complete-mode)
-  ;; (mml-secure-sign)
   )
 
 ;; (add-hook 'mu4e-compose-pre-hook 'my-mu4e-compose-setting)
@@ -551,10 +550,10 @@
 ;; counterparts, decrypting and signature verification. Even if your mu4e does
 ;; have support for the latter two, you can still sign/encrypt messages.
 
-;;; Disable message inline pgp sign.
-;; (add-hook 'mu4e-compose-mode-hook
-;;           (lambda ()
-;;             (mml-secure-message-sign-pgp)))
+;;; message inline pgp sign.
+;; `message-send-hook' or `mu4e-compose-mode-hook'
+;; `mml-secure-message-sign-pgpauto' or `mml-secure-message-sign-pgpmime'
+(add-hook 'message-send-hook 'mml-secure-message-sign-pgpauto)
 
 
 ;;; Headers
