@@ -52,7 +52,8 @@
 (define-key my-bbdb-prefix-map (kbd "b") 'my-bbdb-open-or-switch)
 
 (define-key my-bbdb-prefix-map (kbd "c") 'bbdb-create)
-(define-key my-bbdb-prefix-map (kbd "a") 'bbdb-snarf) ; usage: region select name and email part in To: field. then press this keybinding.
+;; usage: region select name and email part in To: field. then press this keybinding.
+(define-key my-bbdb-prefix-map (kbd "a") 'bbdb-snarf)
 (define-key my-bbdb-prefix-map (kbd "h") 'helm-bbdb)
 
 (setq bbdb-file (expand-file-name "~/Org/BBDB/bbdb")
@@ -83,7 +84,18 @@
       ;; bbdb-mua-pop-up-window-size
       ;; bbdb-auto-notes-rules
       ;; bbdb-auto-notes-rules-expanded
-      ;; bbdb-snarf-default-label-alist '((phone . "work") (address . "work"))
+      ;; bbdb-snarf-rule-alist '((us
+      ;;                          bbdb-snarf-surrounding-space
+      ;;                          bbdb-snarf-phone-nanp bbdb-snarf-url bbdb-snarf-mail
+      ;;                          bbdb-snarf-empty-lines
+      ;;                          bbdb-snarf-name bbdb-snarf-address-us
+      ;;                          bbdb-snarf-empty-lines
+      ;;                          bbdb-snarf-notes bbdb-snarf-name-mail)
+      ;;                         (mail
+      ;;                          bbdb-snarf-mail-address))
+      bbdb-snarf-default-label-alist '((phone . "work") (address . "work") (company . "company"))
+      bbdb-snarf-rule-default 'mail
+      ;; bbdb-snarf-url 'url
       ;; bbdb-address-format-list
       bbdb-add-mails 'query
       ;; bbdb-time-stamp-format "%Y-%m-%d %r %Z"
