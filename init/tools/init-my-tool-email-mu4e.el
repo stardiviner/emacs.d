@@ -940,7 +940,7 @@
 ;;; replied email
 (set-face-attribute 'mu4e-replied-face nil
                     :foreground "orange"
-                    :strike-through "black")
+                    :overline "slate blue")
 ;;; link
 (set-face-attribute 'mu4e-link-face nil
                     :underline '(:style line))
