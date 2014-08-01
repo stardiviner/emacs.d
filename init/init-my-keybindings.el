@@ -7,6 +7,8 @@
 
 ;;; Emacs
 
+(global-set-key [remap toggle-frame-maximized] 'toggle-frame-fullscreen)
+
 ;;; edit
 (unless (boundp 'my-edit-prefix-map)
   (define-prefix-command 'my-edit-prefix-map))
