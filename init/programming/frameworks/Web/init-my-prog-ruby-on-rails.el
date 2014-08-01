@@ -116,6 +116,18 @@
 (add-hook 'projectile-mode-hook 'projectile-rails-on)
 (add-hook 'rails-minor-mode-hook 'projectile-rails-mode)
 
+
+;;; [ helm-rails ]
+
+(require 'helm-rails-loaddefs)
+
+;; TODO: test whether has keybinding set by default.
+;; (define-key global-map (kbd "s-t") 'helm-rails-controllers)
+;; (define-key global-map (kbd "s-y") 'helm-rails-models)
+;; (define-key global-map (kbd "s-u") 'helm-rails-views)
+;; (define-key global-map (kbd "s-o") 'helm-rails-specs)
+;; (define-key global-map (kbd "s-r") 'helm-rails-all)
+
 
 
 (provide 'init-my-prog-ruby-on-rails)
