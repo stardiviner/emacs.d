@@ -97,15 +97,15 @@
 ;;; [ projectile-rails ]
 
 ;;; Usage:
-;;; - <prefix> -> [C-c p r] + [key] (default: [C-c r])
+;; - <prefix> -> [C-c p r] + [key] (default: [C-c r])
+;; - [M-x projectile-rails-mode]
 
 (require 'projectile-rails)
 
-;; FIXME: this does not work!
+(setq projectile-rails-add-keywords t)  ; highlight rails keywords.
+(setq projectile-rails-expand-snippet t) ; yasnippet expand skeleton class snippet.
+
 (setq projectile-rails-keymap-prefix (kbd "C-c p C-r"))
-;; or
-;; (custom-set-variables
-;;  '(projectile-rails-keymap-prefix (kbd "C-c p C-r")))
 ;; or
 ;; (eval-after-load "projectile-rails"
 ;;   '(progn
@@ -113,10 +113,8 @@
 ;;      ;; (setq projectile-rails-keymap-prefix (kbd "C-c p C-r"))
 ;;      ))
 
-(setq projectile-rails-add-keywords t)  ; highlight rails keywords.
-(setq projectile-rails-expand-snippet t) ; yasnippet expand skeleton class snippet.
-
 (add-hook 'projectile-mode-hook 'projectile-rails-on)
+(add-hook 'rails-minor-mode-hook 'projectile-rails-mode)
 
 
 
