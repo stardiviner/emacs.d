@@ -432,7 +432,6 @@
       mu4e-headers-show-threads t
       mu4e-headers-auto-update t
       mu4e-use-fancy-chars t
-      ;; ⚓  ⭑  ✔  ☐  ❯ ❮  ⚑  ♻
       ;; email prefix marks
       mu4e-headers-new-mark '("N" . " ") ; •
       mu4e-headers-unread-mark '("u" . "·")
@@ -443,15 +442,17 @@
       mu4e-headers-attach-mark '("a" . "▢")
       mu4e-headers-passed-mark '("P" . "❯")
       mu4e-headers-flagged-mark '("F" . "⚑")
-      mu4e-headers-replied-mark '("R" . "✔")
+      mu4e-headers-replied-mark '("R" . "⇦")
       mu4e-headers-trashed-mark '("T" . "✗")
       ;; thread prefix marks
       mu4e-headers-default-prefix '("|" . "┝")
-      mu4e-headers-has-child-prefix '("+" . "Ϟ")
+      mu4e-headers-has-child-prefix '("+" . "»")
       mu4e-headers-empty-parent-prefix '("-" . "∘")
       mu4e-headers-first-child-prefix '("\\" . "┗▶")
       mu4e-headers-duplicate-prefix '("=" . "‡")
       )
+
+;; (mu4e-headers-change-sorting 't 'descending)
 
 
 ;;; Message
