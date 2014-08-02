@@ -84,15 +84,18 @@
       ;; bbdb-mua-pop-up-window-size
       ;; bbdb-auto-notes-rules
       ;; bbdb-auto-notes-rules-expanded
-      ;; bbdb-snarf-rule-alist '((us
-      ;;                          bbdb-snarf-surrounding-space
-      ;;                          bbdb-snarf-phone-nanp bbdb-snarf-url bbdb-snarf-mail
-      ;;                          bbdb-snarf-empty-lines
-      ;;                          bbdb-snarf-name bbdb-snarf-address-us
-      ;;                          bbdb-snarf-empty-lines
-      ;;                          bbdb-snarf-notes bbdb-snarf-name-mail)
-      ;;                         (mail
-      ;;                          bbdb-snarf-mail-address))
+      bbdb-snarf-rule-alist '((us
+                               bbdb-snarf-surrounding-space
+                               ;; bbdb-snarf-phone-nanp bbdb-snarf-url
+                               bbdb-snarf-mail
+                               bbdb-snarf-empty-lines
+                               bbdb-snarf-name
+                               ;; bbdb-snarf-address-us
+                               bbdb-snarf-empty-lines
+                               ;; bbdb-snarf-notes
+                               bbdb-snarf-name-mail)
+                              (mail
+                               bbdb-snarf-mail-address))
       bbdb-snarf-default-label-alist '((phone . "work") (address . "work") (company . "company"))
       bbdb-snarf-rule-default 'mail
       ;; bbdb-snarf-url 'url
