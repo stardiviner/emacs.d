@@ -11,7 +11,7 @@
 ;;; [ EasyPG ] --- setup for transparent, automatic encryption and decryption.
 (require 'epa)
 
-;; (require 'epa-file)
+(require 'epa-file)
 (epa-file-enable)
 
 (setq epa-file-encrypt-to "numbchild@gmail.com"

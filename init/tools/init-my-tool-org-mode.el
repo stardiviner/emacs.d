@@ -281,11 +281,13 @@
                     :height 1.5 :weight 'bold
                     :foreground "#FF3870"
                     ;; :box '(:color "black" :line-width 1 :style nil)
+                    :overline t
                     )
 (set-face-attribute 'org-level-2 nil
                     :foreground "#C8C800"
                     :height 1.2 :weight 'bold
                     ;; :box '(:color "black" :line-width 1 :style nil)
+                    :overline t
                     )
 (set-face-attribute 'org-level-3 nil
                     :foreground "#009E00"

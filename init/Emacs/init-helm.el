@@ -119,6 +119,7 @@
                     :foreground "black" :background "green yellow")
 
 (setq helm-case-fold-search t
+      helm-buffers-fuzzy-matching nil
       ;; helm popup window position.
       helm-full-frame nil ; use current window as popup.
       helm-always-two-windows t

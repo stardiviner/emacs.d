@@ -288,6 +288,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (push '(inf-ruby-mode :position bottom :height 15) popwin:special-display-config)
 ;; (push '("*ruby*" :position bottom :height 15) popwin:special-display-config)
 ;; (push '("*rails*" :position bottom :height 15) popwin:special-display-config)
+(push '(projectile-rails-generate-mode :position bottom :height 15) popwin:special-display-config)
 
 ;;; ruby-compilation-mode (RubyComp)
 ;; FIXME: popwin can't capture this popup window. dive in ruby-compilation-mode source, it use Emacs built-in function window.el.gz -> `pop-to-buffer'.
