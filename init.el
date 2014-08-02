@@ -21,6 +21,11 @@
 (defconst *is-cocoa-emacs* (and *is-mac* (eq window-system 'ns)))
 
 
+;;; TEMP: some settings need to be set before required or loaded.
+
+(setq projectile-rails-keymap-prefix (kbd "C-c p C-r"))
+
+
 ;;; [ Benchmark ]
 ;; (let ((benchmark-init.el (expand-file-name  "el-get/benchmark-init/benchmark-init.el" user-emacs-directory)))
 ;;   (when (file-exists-p benchmark-init.el)
@@ -31,7 +36,6 @@
 ;; - [benchmark-init/show-durations-tree] ::
 ;; - [benchmark-init/activate]
 ;; - [benchmark-init/deactivate]
-
 
 
 ;;; [ package manager ]

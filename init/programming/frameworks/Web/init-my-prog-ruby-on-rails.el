@@ -98,6 +98,7 @@
 
 ;;; Usage:
 ;; - <prefix> -> [C-c p r] + [key] (default: [C-c r])
+;; - [M-x projectile-rails-on] -- depend on whether is a Rails project root.
 ;; - [M-x projectile-rails-mode]
 
 (require 'projectile-rails)
@@ -114,7 +115,6 @@
 ;;      ))
 
 (add-hook 'projectile-mode-hook 'projectile-rails-on)
-(add-hook 'rails-minor-mode-hook 'projectile-rails-mode)
 
 
 ;;; [ helm-rails ]
