@@ -31,11 +31,14 @@
 ;;   rails applications.
 ;;   (setq rinari-tags-file-name "TAGS")
 
-(require 'rinari)
+;; (require 'rinari)
+;; TODO: try this, because (require 'rinari) will load old submodule inf-ruby.
+;; (autoload 'global-rinari-mode "rinari" "global rinari mode" nil nil)
+;; (autoload 'rinari-minor-mode "rinari" "rinari minor mode" nil nil)
 
-(add-hook 'rinari-minor-mode-hook
-          '(lambda ()
-             (setq yas-extra-modes (cons 'rails-mode yas-extra-modes))))
+;; (add-hook 'rinari-minor-mode-hook
+;;           '(lambda ()
+;;              (setq yas-extra-modes (cons 'rails-mode yas-extra-modes))))
 
 ;; (setq rinari-tags-file-name "TAGS")
 ;; (setq rinari-major-modes
@@ -44,7 +47,7 @@
 ;;       rinari-minor-mode-keybindings
 ;;       )
 
-(global-rinari-mode t)
+;; (global-rinari-mode t)
 
 
 
