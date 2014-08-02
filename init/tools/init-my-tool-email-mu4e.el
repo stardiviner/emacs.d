@@ -408,7 +408,8 @@
 
 
 ;;; two: [sendmail]
-(setq message-send-mail-function 'message-send-mail-with-sendmail)
+;; (setq message-send-mail-function 'message-send-mail-with-sendmail)
+(setq message-send-mail-function 'smtpmail-send-queued-mail)
 ;; 1: msmtp
 ;; (setq sendmail-program "/usr/bin/msmtp")
 ;; $ msmtp -C $HOME/.mutt/msmtprc
@@ -419,8 +420,10 @@
 
 ;;; Queuing mail
 ;; you can queue the mail, and send it when you have restored your internet connection.
-(setq smtpmail-queue-mail nil  ;; start in non-queuing mode
+(setq smtpmail-queue-mail t  ;; start in non-queuing mode
       smtpmail-queue-dir  "~/Mails/queue/cur" ; send with `smtpmail-send-queued-mail'
+      smtpmail-queue-index "~/Mails/queue/index"
+      smtpmail-queue-index-file "index"
       )
 
 
