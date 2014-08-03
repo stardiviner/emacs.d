@@ -186,7 +186,7 @@
                    (unless (boundp 'ruby-help-doc-map)
                      (define-prefix-command 'ruby-help-doc-map))
                    (local-set-key (kbd "C-h d") 'ruby-help-doc-map)
-                   (define-key ruby-help-doc-map (kbd "d") 'yari) ; seems minibuffer use ido if ido is enabled.
+                   (define-key ruby-help-doc-map (kbd "k") 'yari) ; seems minibuffer use ido if ido is enabled.
                    (define-key ruby-help-doc-map (kbd "C-d") 'yari-helm) ; interactive with Helm.
                    )))
 
@@ -389,6 +389,15 @@
 ;; start Robe server.
 (inf-ruby)
 (robe-start)
+
+
+(add-hook 'ruby-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-h d d") 'robe-doc)
+            ;; FIXME: it is not local to ruby-mode only.
+            ;; (local-set-key (kbd "C-h d") 'help-document-map)
+            ;; (define-key help-document-map (kbd "d") 'robe-doc)
+            ))
 
 
 ;;; [ ruby-compilation ]
