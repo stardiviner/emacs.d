@@ -50,7 +50,7 @@
 ;; (global-rinari-mode t)
 
 
-
+
 ;;; Misc Functions
 ;;; --------------------------------------
 (defun rails-open-browser-development ()

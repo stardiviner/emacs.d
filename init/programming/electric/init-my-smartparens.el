@@ -13,6 +13,16 @@
 ;; https://github.com/Fuco1/smartparens/wiki
 ;; https://github.com/Fuco1/smartparens/wiki#what-is-this-package-about?
 
+;;; add pairs
+;; (sp-with-modes '(rhtml-mode)
+;;   ;; (sp-local-pair "<" ">")
+;;   (sp-local-pair "<%" "%>"))
+;;
+;;; disable pair
+;; (sp-local-pair '(web-mode)
+;;                     "<" nil
+;;                     :actions '(:rem insert))
+
 (require 'smartparens-config)
 
 (setq sp-highlight-wrap-overlay t
@@ -28,6 +38,8 @@
                              lisp-mode lisp-interaction-mode
                              scheme-mode
                              clojure-mode cider-repl-mode
+                             ;; other modes which built-in already
+                             ;; web-mode
                              )
       sp-autowrap-region t
       sp-autoinsert-pair t
@@ -124,8 +136,9 @@
 
 ;; (sp-local-pair)
 (sp-with-modes '(rhtml-mode)
-  (sp-local-pair "<" ">")
+  ;; (sp-local-pair "<" ">")
   (sp-local-pair "<%" "%>"))
+
 
 (require 'smartparens-html)
 
