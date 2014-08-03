@@ -372,14 +372,19 @@
 ;;   (robe-start))
 
 (setq robe-turn-on-eldoc t
-      ;; robe-highlight-capf-candidates nil ; 'nil, to disable ac-robe face property in ac-menu.
+      ;; - t, `completion-at-point' candidates buffer will have constants,
+      ;; - methods and arguments highlighted in color.
+      ;;
+      ;; - 'nil, to disable ac-robe face property in ac-menu.
+      robe-highlight-capf-candidates t
       )
 
 ;; for auto-complete
 (add-hook 'robe-mode-hook
           (lambda ()
             (ac-robe-setup)
-            (add-to-list 'ac-sources 'ac-source-robe)
+            ;; (push 'ac-source-robe ac-sources)
+            ;; (add-to-list 'ac-sources 'ac-source-robe) ; `ac-robe-setup' did this already.
             ))
 
 ;; for company-mode
