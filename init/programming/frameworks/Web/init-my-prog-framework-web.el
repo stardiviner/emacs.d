@@ -304,6 +304,13 @@
 ;;                     :box '(:color "cyan" :line-width 1 :style nil))
 
 
+;;;_* disable "<" pair from smartparens.
+(sp-local-pair '(web-mode)
+                    "<" nil
+                    :actions '(:rem insert))
+
+
+
 ;;;_ multi-web-mode
 
 
