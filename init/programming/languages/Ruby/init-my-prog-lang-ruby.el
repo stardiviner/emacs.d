@@ -99,6 +99,8 @@
             ;; add into auto-complete enable modes.
             (add-to-list 'ac-modes 'enh-ruby-mode)))
 
+(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
 
 
 ;; We never want to edit Rubinius bytecode or MacRuby binaries
@@ -430,7 +432,7 @@
 ;;; Usage:
 ;; - If rspec-mode is installed properly, it will be started automatically when
 ;;   ruby-mode is started.
-;; - See rspec-mode.el for further usage.
+;; - [M-x rspec-.*] :: commands
 
 (require 'rspec-mode)
 
@@ -455,12 +457,6 @@
 
 (ad-activate 'rspec-compile)
 
-
-
-;;; [ ruby-dev ]
-
-
-;;; [ ruby-interpolation ]
 
 
 ;;; [ ruby-refactor ]
