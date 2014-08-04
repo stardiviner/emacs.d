@@ -174,6 +174,7 @@
          yari
          auto-complete-ruby
          inf-ruby rcodetools ruby-compilation rvm
+         pry
          robe-mode
          rspec-mode
          yard-mode
