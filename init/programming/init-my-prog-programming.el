@@ -9,6 +9,11 @@
 
 ;;; [ Multiple Inferior buffers ]
 
+;;; Shell
+(unless (boundp 'my-inferior-shell-map)
+  (define-prefix-command 'my-inferior-shell-map))
+(define-key inferior-map (kbd "s") 'my-inferior-shell-map)
+
 ;;; Lisp
 (unless (boundp 'my-inferior-lisp-map)
   (define-prefix-command 'my-inferior-lisp-map))
