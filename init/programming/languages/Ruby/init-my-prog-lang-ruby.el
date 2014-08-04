@@ -155,15 +155,15 @@
 
 ;;; [ yard-mode ] -- for Ruby YARD comments
 
-;; (require 'yard-mode)
+(require 'yard-mode)
 
-;; (add-hook 'ruby-mode-hook 'yard-mode)
+(add-hook 'ruby-mode-hook 'yard-mode)
 
 ;; If you would also like eldoc support, so that the expected syntax for the tag
 ;; beneath your cursor is displayed in the minibuffer, add that hook too:
-;; (add-hook 'ruby-mode-hook 'eldoc-mode)
+(add-hook 'ruby-mode-hook 'eldoc-mode)
 
-(add-hook 'enh-ruby-mode-hook 'yard-mode)
+;; (add-hook 'enh-ruby-mode-hook 'yard-mode)
 
 
 ;;; [ yari ] -- Yet Another Ri Interface
