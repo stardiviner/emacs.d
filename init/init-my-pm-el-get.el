@@ -178,8 +178,6 @@
          robe-mode
          rspec-mode
          yard-mode
-         projectile-rails ;; rinari
-         rhtml-mode ; nxhtml
          ruby-refactor
          ruby-hash-syntax
          ;; Lisp
@@ -246,6 +244,9 @@
          ac-octave
          ;; Frameworks
          ;; Ruby on Rails
+         projectile-rails ;; rinari
+         rhtml-mode ; nxhtml
+         ;; emacs-rails ; https://github.com/tomtt/emacs-rails
          ;; Arduino
          arduino-mode
          ;; Android
