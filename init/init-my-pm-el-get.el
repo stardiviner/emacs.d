@@ -242,8 +242,12 @@
          ;; Octave
          ac-octave
          ;; Frameworks
+         ;; Ruby on Rails
          ;; Arduino
          arduino-mode
+         ;; Android
+         ;; android-mode
+         ;; Nginx
          nginx-mode
          ;; Linux
          crontab-mode
