@@ -15,7 +15,6 @@
   (delete-horizontal-space t)
   (insert " => "))
 
-
 
 ;;; [ ruby-mode ]
 
@@ -466,6 +465,7 @@
 
 ;;; [ ruby-refactor ]
 
+;;; Usage:
 ;;; Implemented 5 refactorings:
 ;;
 ;; - Extract to Method (C-c C-r e)
@@ -473,6 +473,13 @@
 ;; - Extract Constant (C-c C-r c)
 ;; - Add Parameter (C-c C-r p)
 ;; - Extract to Let (C-c C-r l)
+
+(require 'ruby-refactor)
+
+(add-hook 'ruby-mode-hook 'ruby-refactor-mode-launch)
+
+
+
 ;;; Usage
 ;;
 ;; Extract to Method:

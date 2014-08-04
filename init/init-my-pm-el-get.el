@@ -179,6 +179,7 @@
          yard-mode
          projectile-rails ;; rinari
          rhtml-mode ; nxhtml
+         ruby-refactor
          ;; Lisp
          slime
          elisp-slime-nav elisp-format eldoc-eval
