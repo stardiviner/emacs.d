@@ -135,13 +135,33 @@
 ;; TODO: open magit window in current window, and without override other windows layout.
 
 
+;;; Magit Faces
+;; cursor select
 (set-face-attribute 'magit-item-highlight nil
                     :background "black"
-                    ;; :box '(:color "deep pink" :line-width 2 :style nil)
                     )
+;; mark region
 (set-face-attribute 'magit-item-mark nil
                     :foreground "black"
                     :background "gray")
+;; branch
+(set-face-attribute 'magit-branch nil
+                    :foreground "cyan" :background "black"
+                    :weight 'bold
+                    :box '(:line-width -1)
+                    )
+;; log
+(set-face-attribute 'magit-log-sha1 nil
+                    :foreground "#FF80FF" :background " "
+                    :weight 'bold
+                    )
+;; section
+(set-face-attribute 'magit-section-title nil
+                    :foreground "sky blue" :background "#222222"
+                    :reverse-video nil
+                    :weight 'bold
+                    :box '(:color "cyan" :line-width 1)
+                    )
 ;; diff colors
 (set-face-attribute 'magit-diff-none nil
                     :inherit 'diff-context
