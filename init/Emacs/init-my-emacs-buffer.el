@@ -21,12 +21,11 @@
 
 (require 'uniquify)
 
-(after 'uniquify
-  (setq uniquify-buffer-name-style 'post-forward-angle-brackets
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets
         uniquify-separator " • "
         uniquify-after-kill-buffer-p t
         uniquify-ignore-buffers-re "^\\*" ; don't muck with special buffers
-        ))
+        )
 
 
 ;;; [ recentf ]
@@ -35,8 +34,7 @@
 
 (recentf-mode)
 
-(after 'recentf
-  (setq recentf-max-menu-items 25
+(setq recentf-max-menu-items 25
         recentf-max-saved-items 1000
         recentf-exclude '("/tmp/" "/ssh:")
         ;; recentf-keep
@@ -44,7 +42,7 @@
         recentf-auto-cleanup 'never ; 'mode
         recentf-max-saved-items 100
         recentf-case-fold-search t
-        ))
+        )
 
 
 
