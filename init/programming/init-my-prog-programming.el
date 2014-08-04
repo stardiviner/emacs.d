@@ -9,17 +9,30 @@
 
 ;;; [ Multiple Inferior buffers ]
 
+;;; Lisp
+(unless (boundp 'my-inferior-lisp-map)
+  (define-prefix-command 'my-inferior-lisp-map))
+(define-key inferior-map (kbd "l") 'my-inferior-lisp-map)
+
 ;; Emacs Lisp
-(define-key inferior-map (kbd "e") 'my-ielm-start-or-switch)
+(define-key my-inferior-lisp-map (kbd "e") 'my-ielm-start-or-switch)
 ;; Lisp dialects
-(define-key inferior-map (kbd "l l") 'run-geiser) ; Common Lisp
-(define-key inferior-map (kbd "l c") 'run-lisp)   ; Clojure cider.
-(define-key inferior-map (kbd "l s") 'run-scheme) ; Scheme
-(define-key inferior-map (kbd "l g") 'run-guile)  ; Guile
-(define-key inferior-map (kbd "l m") 'slime)      ; SLIME
+(define-key my-inferior-lisp-map (kbd "l") 'run-geiser) ; Common Lisp
+(define-key my-inferior-lisp-map (kbd "c") 'run-lisp)   ; Clojure cider.
+(define-key my-inferior-lisp-map (kbd "s") 'run-scheme) ; Scheme
+(define-key my-inferior-lisp-map (kbd "g") 'run-guile)  ; Guile
+(define-key my-inferior-lisp-map (kbd "m") 'slime)      ; SLIME
 ;; Ruby
-(define-key inferior-map (kbd "r r") 'run-ruby)     ; Ruby
+(unless (boundp 'my-inferior-ruby-map)
+  (define-prefix-command 'my-inferior-ruby-map))
+(define-key inferior-map (kbd "r") 'my-inferior-ruby-map)
+
+(define-key my-inferior-ruby-map (kbd "r") 'run-ruby) ; Ruby
 ;; Python
+;; (unless (boundp 'my-inferior-python-map)
+;;   (define-prefix-command 'my-inferior-python-map))
+;; (define-key inferior-map (kbd "p") 'my-inferior-python-map)
+
 (define-key inferior-map (kbd "p") 'run-python)   ; Python
 ;; Prolog
 (define-key inferior-map (kbd "g") 'run-prolog)   ; Prolog
