@@ -180,6 +180,7 @@
          projectile-rails ;; rinari
          rhtml-mode ; nxhtml
          ruby-refactor
+         ruby-hash-syntax
          ;; Lisp
          slime
          elisp-slime-nav elisp-format eldoc-eval
