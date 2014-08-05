@@ -93,9 +93,11 @@
 ;; - company-tooltip-mouse
 ;; - company-tooltip-common
 ;; - company-tooltip-common-selection
+;; - company-tooltip-search
 ;; - company-tooltip-annotation
 ;; - company-scrollbar-fg
 ;; - company-scrollbar-bg
+;; company-prefix is for "inline" displayed first matched candidate.
 ;; - company-preview
 ;; - company-preview-common
 ;; - company-preview-search

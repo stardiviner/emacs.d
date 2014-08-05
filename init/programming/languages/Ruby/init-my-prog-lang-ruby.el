@@ -595,7 +595,7 @@
 
 
 
-;;; [ rubocop ]
+;;; [ rubocop ] -- based on Ruby Coding Style Guides
 
 ;;; $ gem install rubocop
 

@@ -15,6 +15,11 @@
 ;;     (when (and (<= frame-alpha-lower-limit newalpha) (>= 100 newalpha))
 ;;       (modify-frame-parameters frame (list (cons 'alpha newalpha))))))
 
+
+;;; [ desktop-save-mode ]
+
+;;; Usage:
+;; - commands prefix with `desktop-'.
 
 
 (provide 'init-my-emacs-frame)
