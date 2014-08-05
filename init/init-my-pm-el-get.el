@@ -169,7 +169,6 @@
          ;; Ruby
          ruby-mode
          enh-ruby-mode
-         ;; ruby-electric (merged into Ruby)
          ruby-block
          yari
          auto-complete-ruby

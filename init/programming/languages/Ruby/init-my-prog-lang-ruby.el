@@ -134,7 +134,7 @@
 
 
 
-;;; [ ruby-electric ]
+;;; [ ruby-electric ] -- NOTE: this has been merged into `ruby-mode'.
 
 ;; (require 'ruby-electric)
 
