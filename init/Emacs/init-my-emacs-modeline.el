@@ -202,6 +202,9 @@
 ;;             ))
 
 
+;;; change minor mode name
+;; (cl-pushnew '(workgroups-mode " wg") minor-mode-alist :test 'equal)
+
 (defvar mode-line-cleaner-alist
   '((auto-complete-mode . " ac") ; AC (auto-complete)
     (yas-minor-mode . "") ; yas (yasnippet)
