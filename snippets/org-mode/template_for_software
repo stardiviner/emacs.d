@@ -1,0 +1,21 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: template_for_software
+# key: template_for_software
+# --
+* Intro
+
+$0
+
+* Data
+
+** Help
+
+$1
+
+** Wiki
+
+*** Installation
+
+*** Configuration
+
+*** Usage
