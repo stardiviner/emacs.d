@@ -205,13 +205,9 @@
 ;;                     :box '(:color "cyan" :line-width -1)
 ;;                     :bold nil :height 80
 ;;                     )
-;; (set-face-attribute 'org-block-background nil
+;; (set-face-attribute 'org-block nil
 ;;                     :background "#004A5d"
 ;;                     :foreground nil
-;;                     )
-;; (set-face-attribute 'org-block nil
-;;                     :background "#004A5D"
-;;                     :foreground "white"
 ;;                     )
 ;; ;; code face => ~code~,  #+RESULTS: : result.
 ;; (set-face-attribute 'org-code nil
@@ -233,13 +229,14 @@
                     :box '(:color "#444444" :line-width 1)
                     :bold t :slant 'normal
                     )
-(set-face-attribute 'org-block-background nil
+(set-face-attribute 'org-block nil
                     :background "black"
                     :foreground nil
                     )
-(set-face-attribute 'org-block nil        ; selected line color in code block begin/end line.
-                    :foreground "white" :background "#004A5D"
-                    )
+;; TODO:
+;; (set-face-attribute 'org-block nil        ; selected line color in code block begin/end line.
+;;                     :foreground "white" :background "#004A5D"
+;;                     )
 ;; code face => ~code~,  #+RESULTS: : result.
 (set-face-attribute 'org-code nil
                     :background "#222222" :foreground "orange"
