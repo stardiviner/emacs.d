@@ -154,8 +154,8 @@
          ascope
          ;; code browser
          sr-speedbar
-         neotree
-         project-explorer
+         ;; neotree
+         ;; project-explorer
          ;; compile
          smart-compile smart-compile+
          ;; vcs

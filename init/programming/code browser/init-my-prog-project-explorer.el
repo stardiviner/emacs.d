@@ -1,4 +1,4 @@
-;;; init-my-emacs-sidebar.el --- init sidebar utilities
+;;; init-my-prog-project-explorer.el --- 
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -6,46 +6,6 @@
 
 
 ;;; Code:
-
-;;; [ speedbar ]
-
-
-
-;;; [ sr-speedbar ]
-
-
-
-;;; [ emacs-neotree ]
-
-;;; Usage
-
-;; [F8] -- toggle.
-
-;; Buffer shortcuts
-
-;;     n - next line
-;;     p - previous line
-;;     SPC or RET or TAB - open file / toggle expand folder
-;;     g - refresh tree
-;;     A - stretch neotree window
-;;     C-c C-n - create file or directory
-;;     C-c C-d - delete file or directory
-;;     C-c C-c - change root directory
-
-;; Commands
-
-;;     M-x neotree-dir RET
-;;     M-x neotree-show RET or M-x neotree RET
-;;     M-x neotree-hide RET
-;;     M-x neotree-toggle
-
-
-(require 'neotree)
-
-(setq neo-persist-show nil
-      neo-window-width 25
-      neo-show-header t)
-
 
 ;;; [ project-explorer ] -- A project explorer sidebar.
 
@@ -116,16 +76,9 @@
 ;; (setq pe/project-root-function 'pe/project-root-function-sample)
 ;;; ---------------------------------------------------------------------
 
-
-;;; start sidebar at startup
 
-;; - neotree-toggle
-;; - project-explorer-open
-
-;; (add-hook 'after-init-hook 'neotree-show)
-(global-set-key [f6] 'neotree-toggle) ; open or switch to project-explorer sidebar.
 
 
-(provide 'init-my-emacs-sidebar)
+(provide 'init-my-prog-project-explorer)
 
-;;; init-my-emacs-sidebar.el ends here
+;;; init-my-prog-project-explorer.el ends here

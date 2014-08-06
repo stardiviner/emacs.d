@@ -7,6 +7,7 @@
 ;;; Code:
 
 ;;; [ speedbar ]
+
 (require 'speedbar)
 
 ;; (speedbar 1)
@@ -43,7 +44,7 @@
 ;;   (setq window-size-fixed 'width))
 
 
-(global-set-key (kbd "<f10>") 'sr-speedbar-toggle)
+(global-set-key [f9] 'sr-speedbar-toggle)
 
 
 
