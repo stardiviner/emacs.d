@@ -140,29 +140,25 @@
       cursor-in-non-selected-windows t)
 
 
-;;; [ curchg ] -- change cursor color dynamically
+;;; [ cursor-chg ] -- change cursor color dynamically
 
-;; cursor-chg.el looks nifty but just FYI I have this simple (and by comparison,
-;; probably primitive) snippet in my .emacs. I don’t remember where I got it
-;; from but works great for me. Note, the hardwired colors are meant for dark
-;; backgrounds.
+;; (require 'cursor-chg)                   ; load the library
 
-(setq curchg-change-cursor-on-input-method-flag t
-      curchg-change-cursor-on-overwrite/read-only-flag t
-      curchg-default-cursor-color "cyan"
-      curchg-default-cursor-type 'hbar
-      curchg-idle-cursor-type 'box
-      curchg-input-method-cursor-color "orange"
-      curchg-overwrite/read-only-cursor-type 'box)
+;; ;; cursor-chg.el looks nifty but just FYI I have this simple (and by comparison,
+;; ;; probably primitive) snippet in my .emacs. I don’t remember where I got it
+;; ;; from but works great for me. Note, the hardwired colors are meant for dark
+;; ;; backgrounds.
 
+;; (setq curchg-change-cursor-on-input-method-flag t
+;;       curchg-change-cursor-on-overwrite/read-only-flag t
+;;       curchg-default-cursor-color "cyan"
+;;       curchg-default-cursor-type 'hbar
+;;       curchg-idle-cursor-type 'box
+;;       curchg-input-method-cursor-color "orange"
+;;       curchg-overwrite/read-only-cursor-type 'box)
 
-
-;;; [ cursor-chg ]
-(require 'cursor-chg)                   ; load the library
-
-(toggle-cursor-type-when-idle 1) ; Turn on cursor change when Emacs is idle
-(change-cursor-mode 1) ; Turn on change for overwrite, read-only, and input mode
-
+;; (toggle-cursor-type-when-idle 1) ; Turn on cursor change when Emacs is idle
+;; (change-cursor-mode 1) ; Turn on change for overwrite, read-only, and input mode
 
 
 ;;; [ Selection ]

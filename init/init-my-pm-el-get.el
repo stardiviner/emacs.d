@@ -64,8 +64,8 @@
          ;; monokai-theme
          ;; apperance
          highlight-symbol
-         cursor-chg
          minimap
+         ;; cursor-chg
          ;; yascroll
          ;; modeline
          diminish pretty-mode page-break-lines
