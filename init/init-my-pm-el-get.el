@@ -65,8 +65,8 @@
          ;; apperance
          highlight-symbol
          cursor-chg
-         yascroll
          minimap
+         ;; yascroll
          ;; modeline
          diminish pretty-mode page-break-lines
          ;; input method

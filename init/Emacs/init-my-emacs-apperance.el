@@ -46,16 +46,17 @@
 ;; * 'right-fringe' for rendering scroll bar in right-fringe.
 ;; * 'left-fringe' for rendering scroll bar in left-fringe.
 ;; * 'text-area' for rendering scroll bar in text area.
-(setq yascroll:scroll-bar 'right-fringe ; 'right-fringe, 'left-fringe, 'text-area.
-      ;; yascroll:disabled-modes
-      yascroll:delay-to-hide nil ; nil, 0.5
-      ;; yascroll:enabled-window-systems '(nil x w32 ns pc)
-      )
 
-(set-face-attribute 'yascroll:thumb-text-area nil
-                    :foreground "slate blue")
+;; (setq yascroll:scroll-bar 'right-fringe ; 'right-fringe, 'left-fringe, 'text-area.
+;;       ;; yascroll:disabled-modes
+;;       yascroll:delay-to-hide nil ; nil, 0.5
+;;       ;; yascroll:enabled-window-systems '(nil x w32 ns pc)
+;;       )
 
-(global-yascroll-bar-mode t)
+;; (set-face-attribute 'yascroll:thumb-text-area nil
+;;                     :foreground "slate blue")
+
+;; (global-yascroll-bar-mode t)
 
 
 ;;; [ modeline ]
