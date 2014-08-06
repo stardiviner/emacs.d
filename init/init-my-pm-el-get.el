@@ -70,7 +70,7 @@
          ;; modeline
          diminish pretty-mode page-break-lines
          ;; input method
-         eim
+         ;; eim
          ;; Info & help & documentation
          info+
          discover-my-major
