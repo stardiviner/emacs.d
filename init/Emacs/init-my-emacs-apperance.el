@@ -541,35 +541,35 @@
 ;; - [mimimap-create] :: create minimap.
 ;; - [minimap-kill] :: kill minimap.
 
-(require 'minimap)
+;; (require 'minimap)
 
-(setq minimap-tag-only nil
-      ;; minimap-numlines 200
-      minimap-update-delay 0.1
-      minimap-always-recenter nil
-      minimap-recenter-type 'relative
-      minimap-minimum-width 20
-      minimap-highlight-line nil          ; highlight current line in minimap.
-      minimap-width-fraction 0.08       ; percent of current width.
-      minimap-hide-fringes nil
-      minimap-hide-scroll-bar t
-      minimap-window-location 'right
-      minimap-dedicated-window t        ; whether create a dedicated window.
-      minimap-recreate-window t
-      ;; TODO: dive into minimap source code to debug this issue.
-      minimap-automatically-delete-window t ; disable auto delete minimap window will avoid weird window jumping problem. (which auto weird jump to next window after re-switch back to source code window instead of Org-mode buffer.) So set this option to `nil' will preserve the minimap window.
-      minimap-major-modes '(prog-mode
-                            ;; org-mode
-                            markdown-mode Man-mode
-                            magit-mode)
-      minimap-normal-height-faces '(font-lock-function-name-face)
-      minimap-enlarge-certain-faces 'as-fallback
-      )
+;; (setq minimap-tag-only nil
+;;       ;; minimap-numlines 200
+;;       minimap-update-delay 0.1
+;;       minimap-always-recenter nil
+;;       minimap-recenter-type 'relative
+;;       minimap-minimum-width 20
+;;       minimap-highlight-line nil          ; highlight current line in minimap.
+;;       minimap-width-fraction 0.08       ; percent of current width.
+;;       minimap-hide-fringes nil
+;;       minimap-hide-scroll-bar t
+;;       minimap-window-location 'right
+;;       minimap-dedicated-window t        ; whether create a dedicated window.
+;;       minimap-recreate-window t
+;;       ;; TODO: dive into minimap source code to debug this issue.
+;;       minimap-automatically-delete-window t ; disable auto delete minimap window will avoid weird window jumping problem. (which auto weird jump to next window after re-switch back to source code window instead of Org-mode buffer.) So set this option to `nil' will preserve the minimap window.
+;;       minimap-major-modes '(prog-mode
+;;                             ;; org-mode
+;;                             markdown-mode Man-mode
+;;                             magit-mode)
+;;       minimap-normal-height-faces '(font-lock-function-name-face)
+;;       minimap-enlarge-certain-faces 'as-fallback
+;;       )
 
-;; TODO: enable some weeks later.
-;; (add-hook 'emacs-startup-hook 'minimap-create)
+;; ;; TODO: enable some weeks later.
+;; ;; (add-hook 'emacs-startup-hook 'minimap-create)
 
-(diminish 'minimap-mode)
+;; (diminish 'minimap-mode)
 
 
 ;;; [ stripe-buffer ] -- add stripes to "list" buffers
