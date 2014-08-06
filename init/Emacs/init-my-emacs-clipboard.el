@@ -9,7 +9,7 @@
 
 ;;; [ xclip ] --- 
 
-
+;; (require 'xclip)
 
 
 (provide 'init-my-emacs-clipboard)

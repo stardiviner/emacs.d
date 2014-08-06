@@ -71,6 +71,8 @@
          diminish pretty-mode page-break-lines
          ;; input method
          ;; eim
+         ;; clipboard
+         ;; xclip
          ;; Info & help & documentation
          info+
          discover-my-major
