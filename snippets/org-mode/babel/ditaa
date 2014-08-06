@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: babel ditaa
+# key: babel-ditaa
+# --
+#+BEGIN_SRC ditaa :file ${1:filename}.png :cmdline --round-corners --overwrite --s 0.8
+$2
+#+END_SRC
+
+$0

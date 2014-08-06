@@ -1863,8 +1863,56 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;; (global-set-key "\C-cs" 'org-gtd-summary)
 
 
-;; TODO append templates into this list variable.
-;; (setq org-structure-template-alist)
+;;; append templates into this list variable.
+;;
+;; default structure easy template alist
+;;
+;; (setq org-structure-template-alist
+;;       '(("s" "#+BEGIN_SRC ?\n\n#+END_SRC")
+;;         ("e" "#+BEGIN_EXAMPLE\n?\n#+END_EXAMPLE")
+;;         ("q" "#+BEGIN_QUOTE\n?\n#+END_QUOTE")
+;;         ("v" "#+BEGIN_VERSE\n?\n#+END_VERSE")
+;;         ("V" "#+BEGIN_VERBATIM\n?\n#+END_VERBATIM")
+;;         ("c" "#+BEGIN_CENTER\n?\n#+END_CENTER")
+;;         ("l" "#+BEGIN_LaTeX\n?\n#+END_LaTeX")
+;;         ("L" "#+LaTeX: ")
+;;         ("h" "#+BEGIN_HTML\n?\n#+END_HTML")
+;;         ("H" "#+HTML: ")
+;;         ("a" "#+BEGIN_ASCII\n?\n#+END_ASCII")
+;;         ("A" "#+ASCII: ")
+;;         ("i" "#+INDEX: ?")
+;;         ("I" "#+INCLUDE: %file ?")))
+
+
+;;; ditaa & PlantUML
+
+;; Org-babel makes it easy to generate decent graphics using external packages
+;; like ditaa, graphviz, PlantUML, and others.
+;;
+;; The setup is really easy. ditaa is provided with the org-mode source. You'll
+;; have to install the `graphviz' and `PlantUML' packages on your system.
+
+;; ditaa & PlantUML setup
+(setq org-ditaa-jar-path "~/.emacs.d/init/extra/ditaa0_9.jar")
+(setq org-plantuml-jar-path "~/.emacs.d/init/extra/plantuml.jar")
+
+(add-hook 'org-babel-after-execute-hook 'bh/display-inline-images 'append)
+(defun bh/display-inline-images ()
+  (condition-case nil
+      (org-display-inline-images)
+    (error nil)))
+
+;; disable this: because already has Babel `ditaa'. in `org-babel-load-languages'.
+;; (add-to-list 'org-structure-template-alist
+;;              '("d" "#+BEGIN_DITAA output-?.png --overwrite --round-corners\n\n#+END_DITAA"))
+
+;;; PlantUML language reference
+;; [[file:~/.emacs.d/init/extra/PlantUML%20Language%20Reference%20Guide.pdf][PlantUML Language Reference Guide]]
+
+;; Use fundamental mode when editing plantuml blocks with C-c '
+(add-to-list 'org-src-lang-modes (quote ("plantuml" . fundamental)))
+
+
 
 ;; TODO store default style sheet .css file in HTML header link.
 ;; (setq org-html-head)
