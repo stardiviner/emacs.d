@@ -880,7 +880,7 @@
 (set-face-attribute 'mu4e-header-highlight-face nil ; current select line
                     :background "#004A5D" :foreground "white"
                     :box '(:color "cyan" :line-width 1)
-                    :underline nil
+                    :weight 'normal :underline nil
                     )
 ;;; highlighted email, main view key color like "[q]uit mu4e".
 (set-face-attribute 'mu4e-highlight-face nil
@@ -944,41 +944,41 @@
 (set-face-attribute 'mu4e-replied-face nil
                     :foreground "orange"
                     :overline "slate blue")
+;; forwarded email
+(set-face-attribute 'mu4e-forwarded-face nil
+                    :foreground "dark orange"
+                    :overline "magenta")
+;; compose
+(set-face-attribute 'mu4e-compose-header-face nil
+                    :foreground "cyan"
+                    :weight 'bold)
+(set-face-attribute 'mu4e-compose-separator-face nil
+                    :foreground "blue")
 ;;; link
 (set-face-attribute 'mu4e-link-face nil
                     :underline '(:style line))
-;; (set-face-attribute 'mu4e-view-link-face nil
-;;                     :underline '(:style line))
-(set-face-attribute 'mu4e-header-title-face nil
-                    :foreground "white")
-(set-face-attribute 'mu4e-header-marks-face nil
-                    :background "white" :foreground "black")
 ;;; contact: e.g. Christopher Miles, help-gnu-emacs@gnu.org
-;; (set-face-attribute 'mu4e-view-contact-face nil
-;;                     :foreground "wheat")
-
+(set-face-attribute 'mu4e-contact-face nil
+                    :foreground "yellow")
+;;; header-
 ;;; header field keys: e.g. From:, To:, Subject:,
+;; some keys.
 (set-face-attribute 'mu4e-header-key-face nil
-                    :foreground "orange"
-                    ;; :box '(:color "dark gray" :line-width 1)
+                    :foreground "magenta"
                     )
-;; TODO: how to set headers fields with different colors.
-;; TODO: re-enable those faces.
-;;; url number
-;; (set-face-attribute 'mu4e-view-url-number-face nil
-;;                     :foreground "green")
-;;; attachment
-;; (set-face-attribute 'mu4e-view-attach-number-face nil
-;;                     :foreground "green")
-;;; header
-;; (set-face-attribute 'mu4e-view-header-value-face nil
-;;                     :foreground "dark slate gray")
-;; (set-face-attribute 'mu4e-view-special-header-value-face nil
-;;                     :foreground "green"
-;;                     :background "dark green"
-;;                     :box '(:color "yellow green" :line-width 1))
+(set-face-attribute 'mu4e-header-marks-face nil
+                    :foreground "light blue"
+                    )
+(set-face-attribute 'mu4e-header-title-face nil
+                    :foreground "white"
+                    )
+(set-face-attribute 'mu4e-header-value-face nil
+                    :foreground "#444444"
+                    )
+(set-face-attribute 'mu4e-special-header-value-face nil
+                    :foreground "magenta"
+                    )
 
-
 
 
 ;;; Marking
