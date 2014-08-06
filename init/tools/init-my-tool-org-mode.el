@@ -1662,8 +1662,6 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
    (R . t)                              ; R
    (sql . t)                            ; SQL
    (sqlite . t)                         ; SQLite
-   (matlab . t)                         ; MATLAB
-   (octave . t)                         ; Octave
    (calc . t)                           ; calc
    (awk . t)                            ; Awk
    (lisp . t)                           ; Lisp
@@ -1677,10 +1675,13 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
    (js . t)                             ; JavaScript
    (css . t)                            ; CSS
    (latex . t)                          ; LaTeX
-   (ditaa . t)                          ; ditaa
-   (ledger . t)                         ; ledger support in Babel
+   (matlab . t)                         ; MATLAB
+   (octave . t)                         ; Octave
    (gnuplot . t)                        ; gnuplot
-   (dot . t)                            ; Dot
+   (ditaa . t)                          ; ditaa
+   (dot . t)                            ; Graphviz, Dot
+   (plantuml . t)                       ; PlantUML
+   (ledger . t)                         ; ledger support in Babel
    ;; (sml . t)                            ; from extension ob-sml
    (sass . t)                           ; Sass
    ;;; extras
@@ -1881,7 +1882,7 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;;         ("I" "#+INCLUDE: %file ?")))
 
 
-;;; ditaa & PlantUML
+;;; ditaa & PlantUML & Graphviz
 
 ;; Org-babel makes it easy to generate decent graphics using external packages
 ;; like ditaa, graphviz, PlantUML, and others.
@@ -1908,6 +1909,13 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 
 ;; Use fundamental mode when editing plantuml blocks with C-c '
 (add-to-list 'org-src-lang-modes (quote ("plantuml" . fundamental)))
+
+;;; Graphviz
+
+;;; Example
+;; #+BEGIN_SRC dot :file some_filename.png :cmdline -Kdot -Tpng
+;;   <context of graphviz source goes here>
+;; #+END_SRC
 
 
 
