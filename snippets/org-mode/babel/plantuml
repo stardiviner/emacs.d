@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: babel plantuml
+# key: babel-plantuml
+# --
+#+BEGIN_SRC plantuml :file ${1:output-}.png
+$0
+#+END_SRC

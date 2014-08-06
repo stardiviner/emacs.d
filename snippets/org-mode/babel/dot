@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: babel dot
+# key: babel-dot
+# --
+#+BEGIN_SRC dot :file ${1:output-}.png :cmdline -Kdot -Tpng
+$0
+#+END_SRC
