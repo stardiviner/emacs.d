@@ -120,7 +120,8 @@
          org-magit ; org-linkany
          org-publish org-jekyll jekyll-el
          ;; SpeedReading - OpenSpritz
-         speedread spray
+         spray
+         ;; speedread
          ;; help
          ;; discover
          ;; Email
