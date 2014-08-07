@@ -143,7 +143,7 @@
          ;; comment
          fic-mode
          ;; electric
-         ;; paredit
+         paredit
          smartparens
          ;; autopair
          rainbow-mode rainbow-delimiters
