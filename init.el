@@ -149,6 +149,7 @@
 (require 'init-my-tool-dict)
 (require 'init-my-tool-calculator)
 (require 'init-my-tool-bbdb)
+(require 'init-my-tool-OpenSpritz)
 ;;; Email
 (require 'init-my-tool-email-message-mode)
 (require 'init-my-tool-email-mu4e)
