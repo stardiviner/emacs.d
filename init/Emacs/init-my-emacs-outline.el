@@ -127,9 +127,17 @@
 ;; so that you can active/inactive allout-minor-mode to edit/navigate/folding with it.
 ;; (define-key my-edit-prefix-map (kbd "o") 'allout-minor-mode)
 ;; activate outline mode for current buffer, and establish a default file-var setting for `allout-layout'.
-(define-key my-edit-prefix-map (kbd "o") 'outlineify-sticky)
+(defun my-allout-toggle ()
+  "Toggle allout for current buffer."
+  (interactive)
+  (if (allout-mode-p)
+      (allout-mode -1)
+    (outlineify-sticky)
+    (allout-hide-bodies)
+    (define-key allout-mode-map (kbd "C-c SPC C-l") 'allout-hide-bodies)))
 
-(define-key allout-mode-map (kbd "C-c SPC C-l") 'allout-hide-bodies)
+;; (define-key my-edit-prefix-map (kbd "o") 'outlineify-sticky)
+(define-key my-edit-prefix-map (kbd "o") 'my-allout-toggle)
 
 ;; (unless (boundp 'my-outline-prefix-map)
 ;;   (define-prefix-command 'my-outline-prefix-map))
