@@ -39,7 +39,7 @@
       neo-show-header t)
 
 (add-hook 'after-init-hook 'neotree-show)
-(global-set-key [f6] 'neotree-toggle) ; open or switch to project-explorer sidebar.
+(global-set-key [f9] 'neotree-toggle) ; open or switch to project-explorer sidebar.
 
 
 

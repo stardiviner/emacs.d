@@ -65,7 +65,7 @@
 
             (define-key ruby-mode-map (kbd "C-,") 'insert-arrow)
 
-            ;; hs-minor-mode
+            ;; hs-minor-mode (hide-show)
             (add-to-list 'hs-special-modes-alist
                          '(ruby-mode
                            "\\(class\\|def\\|do\\|if\\)" "\\(end\\)" "#"
@@ -243,6 +243,7 @@
 ;;           to the end of the process' output, and sends it.
 ;; - [DEL] -- converts tabs to spaces as it moves back.
 ;; - [TAB] -- completes the input at point. IRB, Pry and Bond completion is supported.
+;;            Helm is supported at here.
 ;; - [C-M-q] -- does TAB on each line starting within following expression.
 ;; - Paragraphs are separated only by blank lines. # start comments.
 ;; - If you accidentally suspend your process, use comint-continue-subjob to continue it.

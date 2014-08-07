@@ -91,13 +91,6 @@
               )
 
 
-
-;; so that you can active/inactive allout-minor-mode to edit/navigate/folding with it.
-;; (define-key my-edit-prefix-map (kbd "o") 'allout-minor-mode)
-;; activate outline mode for current buffer, and establish a default file-var setting for `allout-layout'.
-(define-key my-edit-prefix-map (kbd "o") 'outlineify-sticky)
-
-
 ;; ;; -------------------------------------------------------------------------------
 ;; ;; By default, allout mode does not fontify the buffer. To get Font Lock to work
 ;; ;; put the following into your initialization file (adapted from the standard
@@ -130,6 +123,13 @@
 
 (allout-minor-mode 1)
 (diminish 'allout-mode)
+
+;; so that you can active/inactive allout-minor-mode to edit/navigate/folding with it.
+;; (define-key my-edit-prefix-map (kbd "o") 'allout-minor-mode)
+;; activate outline mode for current buffer, and establish a default file-var setting for `allout-layout'.
+(define-key my-edit-prefix-map (kbd "o") 'outlineify-sticky)
+
+(define-key allout-mode-map (kbd "C-c SPC C-l") 'allout-hide-bodies)
 
 ;; (unless (boundp 'my-outline-prefix-map)
 ;;   (define-prefix-command 'my-outline-prefix-map))
