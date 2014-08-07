@@ -971,8 +971,9 @@
 (set-face-attribute 'mu4e-compose-header-face nil
                     :foreground "cyan"
                     :weight 'bold)
+;; -- text follows this line -- where following Org-mode message body.
 (set-face-attribute 'mu4e-compose-separator-face nil
-                    :foreground "blue")
+                    :foreground "red")
 ;;; link
 (set-face-attribute 'mu4e-link-face nil
                     :underline '(:style line))
@@ -997,6 +998,23 @@
 (set-face-attribute 'mu4e-special-header-value-face nil
                     :foreground "magenta"
                     )
+
+;; header names: like From: Subject: etc.
+(set-face-attribute 'message-header-name nil
+                    :foreground "cyan" :background "black"
+                    :box '(:color "#333333" :line-width -1)
+                    :weight 'bold)
+;; Subject: value
+(set-face-attribute 'message-header-subject nil
+                    :foreground "cyan"
+                    :weight 'bold
+                    :underline t)
+;; To: value
+(set-face-attribute 'message-header-to nil
+                    :foreground "white")
+;; other header values
+(set-face-attribute 'message-header-other nil
+                    :foreground "#888888")
 
 
 
