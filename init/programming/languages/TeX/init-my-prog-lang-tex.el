@@ -34,6 +34,8 @@
 
 ;;; [ auto-complete-latex ]
 
+(require 'auto-complete-latex)
+
 
 
 (provide 'init-my-prog-lang-tex)
