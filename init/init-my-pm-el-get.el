@@ -125,7 +125,8 @@
          ;; help
          ;; discover
          ;; Email
-         ;; mu mu-cite
+         ;; mu
+         mu-cite
          ;; BBDB
          bbdb ; bbdb-vcard
          ;; tools

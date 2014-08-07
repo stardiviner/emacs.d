@@ -691,7 +691,7 @@
 
 ;;; mu-cite
 
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/my-init/extensions/mu-cite/"))
+;; (add-to-list 'load-path (expand-file-name "~/.emacs.d/init/extensions/mu-cite/"))
 (require 'mu-cite)
 
 (setq message-cite-function 'mu-cite-original
@@ -699,6 +699,25 @@
       mu-cite-prefix-format '(" > "))
 ;; (add-hook 'mu4e-view-mode-hook 'mu4e-view-toggle-hide-cited) ; [C-c h] to toggle hide cited.
 ;; (define-key mu4e-view-mode-map (kbd "C-c h") 'mu4e-view-toggle-hide-cited)
+
+
+;;; message-cite
+
+;; (setq message-cite-style
+;;       '((posting-from-work-p)
+;;         (eval
+;;          (set (make-local-variable 'message-cite-style) message-cite-style-thunderbird))))
+
+(setq message-cite-style message-cite-style-thunderbird)
+
+;; (setq message-cite-style-gmail
+;;       '((message-cite-function 'message-cite-original)
+;;         (message-citation-line-function 'message-insert-formatted-citation-line)
+;;         (message-cite-reply-position 'above)
+;;         (message-yank-prefix "    ")
+;;         (message-yank-cited-prefix "    ")
+;;         (message-yank-empty-prefix "    ")
+;;         (message-citation-line-format "On %e %B %Y %R, %f wrote:\n")))
 
 
 ;; viewing images inline
