@@ -27,12 +27,9 @@
 (require 'org-pcomplete)
 
 ;;; org-protocol need server start.
-;; FIXME:
-;; (unless (server-running-p)
-;;   (server-start))
-;; (require 'org-protocol)
-
-;; FIXME: (require 'org-contacts)
+(unless (server-running-p)
+  (server-start))
+(require 'org-protocol)
 
 (require 'org-plot)
 
@@ -2134,6 +2131,19 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 (require 'org-magit)
 
 ;;;_* org-protocol
+
+;; (setq org-protocol-project-alist ; (module-name :property value property: value ...)
+;;       '(("http://orgmode.org/worg/"
+;;           :online-suffix ".php"
+;;           :working-suffix ".org"
+;;           :base-url "http://orgmode.org/worg/"
+;;           :working-directory "/home/stardiviner/Org/Worg/")
+;;          ("http://localhost/org-notes/"
+;;           :online-suffix ".html"
+;;           :working-suffix ".org"
+;;           :base-url "http://localhost/org/"
+;;           :working-directory "/home/user/org/"
+;;           :rewrites (("org/?$" . "index.php")))))
 
 
 ;;;_* Custom Functions
