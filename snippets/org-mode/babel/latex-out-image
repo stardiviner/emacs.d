@@ -1,0 +1,12 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: babel latex
+# key: babel-latex-output-image
+# --
+#+NAME: ${1:plot_1}
+#+HEADERS: :exports results :file ${2:plot_1.png}
+#+HEADERS: :imagemagick yes ${3::iminoptions -density 600 :imoutoptions -geometry 400}
+#+HEADERS: :fit yes :noweb yes ${4::headers '("\\usepackage{tikz}")}
+#+BEGIN_SRC latex
+$0
+#+END_SRC
+

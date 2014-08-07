@@ -1,11 +1,11 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: code source
+# name: babel source code
 # key: code
 # binding: C-c j
 #comment-here `(org-babel-insert-header-arg)` will raise a completion list if "Helm" is used.
 #comment-here yas-choose-value will raise a gui style candidate select.
 # --
-#+NAME: $2
+#+NAME: ${2:filename.rb}
 #+HEADERS: `(org-babel-insert-header-arg)`
 #+BEGIN_SRC ${1:$$(yas-choose-value (mapcar 'car org-babel-load-languages))}
 $0
