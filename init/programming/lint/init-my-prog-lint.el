@@ -106,6 +106,17 @@
       ;; flycheck-error-list-mode-line-map
       )
 
+
+;;; list errors only when has lint errors
+(defun flycheck-list-errors-only-when-errors ()
+  (if flycheck-current-errors
+      (flycheck-list-errors)
+    (-when-let (buffer (get-buffer flycheck-error-list-buffer))
+      (dolist (window (get-buffer-window-list buffer))
+        (quit-window nil window)))))
+
+;; (add-hook 'before-save-hook #'flycheck-list-errors-only-when-errors)
+
 
 
 
