@@ -218,13 +218,13 @@
 ;;; babel faces (source code block) => #+BEGIN_SRC ... #+END_SRC
 (set-face-attribute 'org-block-begin-line nil
                     :foreground "cyan" :background "black"
-                    :box '(:color "#444444" :line-width 1)
                     :bold t :slant 'normal
+                    :box '(:color "#444444" :line-width 1)
                     )
 (set-face-attribute 'org-block-end-line nil
                     :foreground "cyan" :background "black"
-                    :box '(:color "#444444" :line-width 1)
                     :bold t :slant 'normal
+                    :box '(:color "#444444" :line-width 1)
                     )
 (set-face-attribute 'org-block nil
                     :background "black"
@@ -1117,7 +1117,9 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
                          "~/Org/Wiki/Kung Fu/Kung Fu.org"
                          ))
 
+;; 2. use `file-expand-wildcards'
 ;; (setq org-agenda-files (file-expand-wildcards "~/Org/*.org")) ; Including all org files from a directory into the agenda
+;; 3. use `find-lisp-find-files'
 ;;; Sync with Dropbox
 ;; (autoload 'find-lisp-find-files "find-lisp")
 ;; (setq org-agenda-files
@@ -2122,6 +2124,7 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 
 ;;;_* org-contacts
 
+;; FIXME: (require 'org-contacts)
 
 ;; FIXME:
 
