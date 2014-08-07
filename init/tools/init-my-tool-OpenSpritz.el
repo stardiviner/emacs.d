@@ -1,4 +1,4 @@
-;;; init-my-tool-spray.el --- init Spray for Emacs OpenSpritz implement.
+;;; init-my-tool-OpenSpritz.el --- init Spray for Emacs OpenSpritz implement.
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -141,6 +141,6 @@
 (global-set-key (kbd "<f6>") 'spray-mode)
 
 
-(provide 'init-my-tool-spray)
+(provide 'init-my-tool-OpenSpritz)
 
-;;; init-my-tool-spray.el ends here
+;;; init-my-tool-OpenSpritz.el ends here
