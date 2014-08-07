@@ -1896,10 +1896,10 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 (setq org-ditaa-jar-path "~/.emacs.d/init/extra/ditaa0_9.jar")
 (setq org-plantuml-jar-path "~/.emacs.d/init/extra/plantuml.jar")
 
-(add-hook 'org-babel-after-execute-hook 'bh/display-inline-images 'append)
-(defun bh/display-inline-images ()
+(add-hook 'org-babel-after-execute-hook 'my/redisplay-inline-images 'append)
+(defun my/redisplay-inline-images ()
   (condition-case nil
-      (org-display-inline-images)
+      (org-redisplay-inline-images)
     (error nil)))
 
 ;; disable this: because already has Babel `ditaa'. in `org-babel-load-languages'.
@@ -1920,6 +1920,13 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;; #+END_SRC
 
 
+;;; LaTeX formula block generate output graph, then insert to current buffer just like upper ditaa.
+
+;; - use Babel <s latex.
+
+;; - re-display inline image after execute babel.
+;;   -- already have upper hook: `my/redisplay-inline-images' in `org-babel-after-execute-hook'.
+
 
 ;; TODO store default style sheet .css file in HTML header link.
 ;; (setq org-html-head)
