@@ -123,17 +123,17 @@
 ;; of reading material will require different speed settings! You can read a
 ;; scifi novel faster than you can read existential philosophy.
 
-(require 'speedread)
+;; (require 'speedread)
 
-(setq speedread-chars 20 ; Minimum characters per flash group
-      speedread-delay-milliseconds 300 ; Milliseconds of delay between flashes
-      speedread-end-sentence-delay-milliseconds 500 ; Pause between sentences in milliseconds
-      speedread-final-delay-milliseconds 2000 ; Milliseconds to wait before exiting after reaching end of buffer
-      speedread-top-window-size 5 ; size of frame to use for displaying the original buffer whilst speedreading.
-      speedread-font-size-scale-factor 2.0 ; Scale factor for size of font
-      ;; speedread-text-justification = ; Justification of text in speedread buffer. default = (quote center)
-      ;; speedread-end-sentence-regexp  ; Regular expression to match with end of sentence words.
-      )
+;; (setq speedread-chars 20 ; Minimum characters per flash group
+;;       speedread-delay-milliseconds 300 ; Milliseconds of delay between flashes
+;;       speedread-end-sentence-delay-milliseconds 500 ; Pause between sentences in milliseconds
+;;       speedread-final-delay-milliseconds 2000 ; Milliseconds to wait before exiting after reaching end of buffer
+;;       speedread-top-window-size 5 ; size of frame to use for displaying the original buffer whilst speedreading.
+;;       speedread-font-size-scale-factor 2.0 ; Scale factor for size of font
+;;       ;; speedread-text-justification = ; Justification of text in speedread buffer. default = (quote center)
+;;       ;; speedread-end-sentence-regexp  ; Regular expression to match with end of sentence words.
+;;       )
 
 
 
