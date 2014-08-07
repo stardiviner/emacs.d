@@ -132,6 +132,20 @@
                     :box '(:color "dark red" :line-width -1)
                     )
 
+;;; use `smartparens-strict-mode' to replace `paredit-mode'.
+(dolist (hook
+         '(emacs-lisp-mode-hook
+           eval-expression-minibuffer-setup-hook
+           ielm-mode-hook ; inferior-emacs-lisp-mode-hook
+           lisp-mode-hook
+           lisp-interaction-mode-hook
+           scheme-mode-hook
+           clojure-mode-hook
+           cider-repl-mode-hook
+           ))
+  (add-hook hook 'smartparens-strict-mode))
+
+
 (require 'smartparens-ruby)
 
 ;; (sp-local-pair)
