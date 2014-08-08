@@ -5,11 +5,11 @@
 
 
 
-;;; Code:
 
+;;;_ Code:
 ;;; [ smartparens ] -- Minor mode for Emacs that deals with parens pairs and tries to be smart about it.
 
-;;; Usage:
+;;;_* Usage:
 ;; https://github.com/Fuco1/smartparens/wiki
 ;; https://github.com/Fuco1/smartparens/wiki#what-is-this-package-about?
 
@@ -23,8 +23,10 @@
 ;;                     "<" nil
 ;;                     :actions '(:rem insert))
 
+;;;_* require
 (require 'smartparens-config)
 
+;;;_* options
 (setq sp-highlight-wrap-overlay t
       ;; sp-undo-pairs-separately
       sp-navigate-consider-sgml-tags '(html-erb-mode
@@ -111,9 +113,11 @@
       ;; sp-show-pair-enc-overlays
       )
 
+;;;_* enable smartparens-mode
 (smartparens-global-mode t)
 (show-smartparens-global-mode t)
 
+;;;_* set smartparens faces.
 (set-face-attribute 'sp-pair-overlay-face nil
                     :inherit 'highlight
                     )
@@ -148,6 +152,7 @@
 ;;;_ + TODO: add paredit like keybindings with smartparens-mode.
 ;; (define-key smartparens-strict-mode-map (kbd "C-M-b") 'sp-backward-sexp)
 
+;;;_* smartparens for other modes.
 (require 'smartparens-ruby)
 
 ;; (sp-local-pair)
@@ -155,10 +160,11 @@
   ;; (sp-local-pair "<" ">")
   (sp-local-pair "<%" "%>"))
 
-
 (require 'smartparens-html)
 
+
 
+;;;_ provide init
 (provide 'init-my-smartparens)
 
 ;;; init-my-smartparens.el ends here
