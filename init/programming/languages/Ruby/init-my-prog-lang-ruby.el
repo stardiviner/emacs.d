@@ -390,21 +390,6 @@
 ;; (autoload 'robe-mode "robe" "Code navigation, documentation lookup and completion for Ruby" t nil)
 ;; (autoload 'ac-robe-setup "ac-robe" "auto-complete robe" nil nil)
 
-(add-hook 'ruby-mode-hook 'robe-mode)
-
-(add-hook 'enh-ruby-mode-hook 'robe-mode)
-
-;;; [start robe]
-;; The exceptions are code completion and eldoc, which only work if the server
-;; is already running. To launch it, type M-x robe-start.
-;;; Both of the bellowing work only when the connection to the Ruby subprocess
-;;; has been established. To do that, either use one of the core Robe commands,
-;;; or type M-x robe-start.
-;;
-;; FIXME: (error "No matching directory found")
-;; (eval-after-load 'robe
-;;   (robe-start))
-
 (setq robe-turn-on-eldoc t
       ;; - t, `completion-at-point' candidates buffer will have constants,
       ;; - methods and arguments highlighted in color.
@@ -413,6 +398,20 @@
       robe-highlight-capf-candidates t
       )
 
+;; start Robe server.
+(eval-after-load 'robe
+  (progn
+    (inf-ruby)
+    (robe-start)))
+
+
+(dolist (hook '(ruby-mode-hook
+                enh-ruby-mode-hook
+                inf-ruby-mode-hook ; FIXME: robe-mode is not enabled in inf-ruby-mode. seems this hook is not valid.
+                ))
+  (add-hook hook 'robe-mode))
+
+
 ;; for auto-complete
 (add-hook 'robe-mode-hook
           (lambda ()
@@ -420,23 +419,21 @@
             ;; (push 'ac-source-robe ac-sources)
             ;; (add-to-list 'ac-sources 'ac-source-robe) ; `ac-robe-setup' did this already.
             ))
-
 ;; for company-mode
 ;; (eval-after-load 'company
 ;;   (push 'company-robe company-backends))
 
-;; start Robe server.
-(inf-ruby)
-(robe-start)
+(dolist (hook '(robe-mode-hook
+                ;; ruby-mode-hook ; because upper robe-mode is enabled in ruby-mode.
+                ;; inf-ruby-mode-hook
+                ))
+  (add-hook hook (lambda ()
+                   (local-set-key (kbd "C-h d d") 'robe-doc)
+                   ;; FIXME: it is not local to ruby-mode only.
+                   ;; (local-set-key (kbd "C-h d") 'help-document-map)
+                   ;; (define-key help-document-map (kbd "d") 'robe-doc)
+                   )))
 
-
-(add-hook 'ruby-mode-hook
-          (lambda ()
-            (local-set-key (kbd "C-h d d") 'robe-doc)
-            ;; FIXME: it is not local to ruby-mode only.
-            ;; (local-set-key (kbd "C-h d") 'help-document-map)
-            ;; (define-key help-document-map (kbd "d") 'robe-doc)
-            ))
 
 
 ;;; [ ruby-compilation ]
