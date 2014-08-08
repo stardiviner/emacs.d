@@ -319,6 +319,8 @@
 
 (define-key inferior-map (kbd "r a") 'inf-ruby-console-auto)
 
+(add-to-list 'ac-modes 'inf-ruby-mode) ; enable auto-complete (with robe-mode) for inf-ruby completion.
+
 
 ;;; [ ac-inf-ruby ]
 
