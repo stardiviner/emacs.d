@@ -142,33 +142,33 @@
 
 ;;; [ ac-nrepl ] --
 
-(require 'ac-nrepl)
+;; (require 'ac-nrepl)
 
-(add-hook 'cider-mode-hook 'ac-nrepl-setup)
-(add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
-(eval-after-load 'auto-complete
-  '(add-to-list 'ac-modes 'cider-repl-mode))
+;; (add-hook 'cider-mode-hook 'ac-nrepl-setup)
+;; (add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
+;; (eval-after-load 'auto-complete
+;;   '(add-to-list 'ac-modes 'cider-repl-mode))
 
-(add-hook 'clojure-mode-hook
-          (lambda ()
-            (eval-after-load 'auto-complete
-              (add-to-list 'ac-sources 'ac-nrepl))))
+;; (add-hook 'clojure-mode-hook
+;;           (lambda ()
+;;             (eval-after-load 'auto-complete
+;;               (add-to-list 'ac-sources 'ac-nrepl))))
 
-(eval-after-load 'cider
-  '(define-key cider-mode-map (kbd "M-h") 'ac-nrepl-popup-doc)
+;; (eval-after-load 'cider
+;;   '(define-key cider-mode-map (kbd "M-h") 'ac-nrepl-popup-doc)
   
-  ;; (unless (boundp 'clojure-help-doc-map)
-  ;;   (define-prefix-command 'clojure-help-doc-map))
-  ;; (local-set-key (kbd "C-h d") 'clojure-help-doc-map)
-  ;; (define-key clojure-help-doc-map (kbd "d") 'ac-nrepl-popup-doc)
-  )
+;;   ;; (unless (boundp 'clojure-help-doc-map)
+;;   ;;   (define-prefix-command 'clojure-help-doc-map))
+;;   ;; (local-set-key (kbd "C-h d") 'clojure-help-doc-map)
+;;   ;; (define-key clojure-help-doc-map (kbd "d") 'ac-nrepl-popup-doc)
+;;   )
 
-;;; ac-nrepl
-(set-face-attribute 'ac-nrepl-candidate-face nil
-                    :foreground "cyan"
-                    :bold 'normal)
-;; (set-face-attribute 'ac-nrepl-selection-face nil
-;;                     )
+;; ;;; ac-nrepl
+;; (set-face-attribute 'ac-nrepl-candidate-face nil
+;;                     :foreground "cyan"
+;;                     :bold 'normal)
+;; ;; (set-face-attribute 'ac-nrepl-selection-face nil
+;; ;;                     )
 
 
 ;;; [ company-cider ]

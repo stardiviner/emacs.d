@@ -193,7 +193,8 @@
          ac-geiser
          ;; Scheme
          ;; Clojure
-         clojure-mode cider ac-nrepl ; company-cider
+         clojure-mode cider ; ac-nrepl
+         ;; company-cider
          ;; Python
          python ; python-mode
          jedi
