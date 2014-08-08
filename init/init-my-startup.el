@@ -143,7 +143,7 @@
 
 
 ;;; start Sauron at Emacs startup
-(sauron-start)
+;; (sauron-start)
 
 
 ;;; start ERC at Emacs startup
