@@ -37,7 +37,7 @@
 
 (require 'auto-complete-latex)
 
-(setq ac-l-dict-directory "~/.emacs.d/el-get/auto-complete/latex/ac-l-dict/")
+(setq ac-l-dict-directory "~/.emacs.d/el-get/auto-complete-latex/ac-l-dict/")
 
 (add-to-list 'ac-modes 'latex-mode)
 
