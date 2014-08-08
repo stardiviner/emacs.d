@@ -89,6 +89,8 @@
 
 (autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
 
+(setq enh-ruby-program "/home/stardiviner/.rvm/rubies/ruby-head/bin/ruby")
+
 ;;; Enhanced Ruby Mode defines its own specific faces with the hook
 ;;; erm-define-faces. If your theme is already defining those faces, to not
 ;;; overwrite them, just remove the hook with:
