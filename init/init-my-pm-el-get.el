@@ -106,7 +106,7 @@
          bind-key
          guide-key ; guide-key-tip
          ;; dired
-         direx
+         ;; direx
          dired-k ; stripe-buffer
          ;; search
          isearch+
