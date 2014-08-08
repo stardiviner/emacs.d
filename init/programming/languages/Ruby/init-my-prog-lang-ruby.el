@@ -81,26 +81,33 @@
 
 
 
-;;; [ enh-ruby-mode ]
+;;; [ enh-ruby-mode ] --
+
+;;; It uses the Ripper class found in ruby 1.9.2 (and later) to parse and indent
+;;; the source code. As a consquence only ruby 1.9.2 (or later) syntax is parsed
+;;; correctly.
 
 (autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
-(add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
-(add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
 
 ;;; Enhanced Ruby Mode defines its own specific faces with the hook
 ;;; erm-define-faces. If your theme is already defining those faces, to not
 ;;; overwrite them, just remove the hook with:
-(remove-hook 'enh-ruby-mode-hook 'erm-define-faces)
-
+;; (remove-hook 'enh-ruby-mode-hook 'erm-define-faces)
 
 ;;; Others
 (add-hook 'enh-ruby-mode-hook
           (lambda ()
             ;; add into auto-complete enable modes.
-            (add-to-list 'ac-modes 'enh-ruby-mode)))
+            (add-to-list 'ac-modes 'enh-ruby-mode)
+            (define-key enh-ruby-mode-map (kbd "C-,") 'insert-arrow)))
 
-(add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
-(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
+
+
+;; (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+;; (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
+
+(add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
+(add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
 
 
 ;; We never want to edit Rubinius bytecode or MacRuby binaries
@@ -160,12 +167,11 @@
 (require 'yard-mode)
 
 (add-hook 'ruby-mode-hook 'yard-mode)
+(add-hook 'enh-ruby-mode-hook 'yard-mode)
 
 ;; If you would also like eldoc support, so that the expected syntax for the tag
 ;; beneath your cursor is displayed in the minibuffer, add that hook too:
 (add-hook 'ruby-mode-hook 'eldoc-mode)
-
-;; (add-hook 'enh-ruby-mode-hook 'yard-mode)
 
 
 ;;; [ yari ] -- Yet Another Ri Interface
