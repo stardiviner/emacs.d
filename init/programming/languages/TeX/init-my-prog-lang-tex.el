@@ -5,39 +5,54 @@
 
 
 
-;;; Code:
 
+;;;_ Code:
 
-
-;;; [ AUCTeX ] -- Integrated environment for TeX.
+;;;_ [ AUCTeX ] -- Integrated environment for TeX.
 
-;;; Usage
+;;;_* Usage:
 ;;
 ;; [C-c C-p] :: preview prefix.
 
-;;; [ TeX ]
-(require 'tex)
-;;; [ LaTeX ]
-(require 'latex)
+;;;_* [ TeX ]
+
+;;;_* [ LaTeX ]
+
 
 ;; LaTeX/P mode defined in `tex-site.el':
 ;; Major mode in AUCTeX for editing LaTeX files.
 ;; See info under AUCTeX for full documentation.
 
-(require 'tex-site)
+;; (require 'tex-site)
 
-
-;;; [ auto-complete-auctex ]
+;;;_ [ reftex ]
 
-(require 'auto-complete-auctex)
 
-
-;;; [ auto-complete-latex ]
+;;;_ [ auto-complete-auctex ]
+
+;; (require 'auto-complete-auctex)
+
+
+;;;_ [ auto-complete-latex ]
 
 (require 'auto-complete-latex)
 
+(setq ac-l-dict-directory "~/.emacs.d/el-get/auto-complete/latex/ac-l-dict/")
+
+(add-to-list 'ac-modes 'latex-mode)
+
+(dolist (hook '(latex-mode-hook
+                LaTeX-mode-hook
+                ))
+  (add-hook hook 'ac-l-setup))
+
+;;;_* [ ac-math ]
+
+;; (require 'ac-math)
+
 
 
+;;;_ provide
 (provide 'init-my-prog-lang-tex)
 
 ;;; init-my-prog-lang-tex.el ends here
