@@ -103,6 +103,30 @@
             (add-to-list 'ac-modes 'enh-ruby-mode)
             (define-key enh-ruby-mode-map (kbd "C-,") 'insert-arrow)))
 
+;;; Faces
+;; Ruby operators
+(set-face-attribute 'enh-ruby-op-face nil
+                    :foreground "#555555")
+;; Ruby regexp: / or %r{}
+(set-face-attribute 'enh-ruby-regexp-delimiter-face nil
+                    :foreground "deep pink")
+;; Ruby heredoc like <<HERE and HERE.
+(set-face-attribute 'enh-ruby-heredoc-delimiter-face nil
+                    :foreground "sky blue")
+;; Ruby regexp things inside regexp
+(set-face-attribute 'enh-ruby-regexp-face nil
+                    :foreground "green yellow"
+                    :box '(:color "black" :line-width -1)
+                    )
+;; Ruby string delimiter like: " and %Q
+(set-face-attribute 'enh-ruby-string-delimiter-face nil
+                    :foreground "dark gray")
+;;; erm -
+(set-face-attribute 'erm-syn-warnline nil
+                    :box '(:color "orange" :line-width -1))
+(set-face-attribute 'erm-syn-errline nil
+                    :box '(:color "red" :line-width -1))
+
 
 
 ;; (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
