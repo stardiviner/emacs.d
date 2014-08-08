@@ -222,6 +222,8 @@
          auto-complete-css
          ;; css-mode
          css-eldoc
+         ;; CoffeeScript
+         coffee-mode
          ;; XML
          auto-complete-nxml
          ;; JSON
