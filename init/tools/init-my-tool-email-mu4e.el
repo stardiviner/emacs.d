@@ -898,7 +898,7 @@
 ;; (set-face-attribute 'mu4e-faces nil)
 (set-face-attribute 'mu4e-header-highlight-face nil ; current select line
                     :background "#004A5D" :foreground "white"
-                    :box '(:color "cyan" :line-width 1)
+                    :box '(:color "cyan" :line-width -1)
                     :weight 'normal :underline nil
                     )
 ;;; highlighted email, main view key color like "[q]uit mu4e".
@@ -976,7 +976,8 @@
                     :foreground "red")
 ;;; link
 (set-face-attribute 'mu4e-link-face nil
-                    :underline '(:style line))
+                    :underline '(:style line)
+                    )
 ;;; contact: e.g. Christopher Miles, help-gnu-emacs@gnu.org
 (set-face-attribute 'mu4e-contact-face nil
                     :foreground "yellow")
