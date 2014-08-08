@@ -11,6 +11,14 @@
 
 (require 'clojure-mode)
 
+;; provides additional font-locking for built-in methods and macros.
+;;
+;; The font-locking is pretty imprecise, because it doesn't take namespaces into
+;; account and it won't font-lock a functions at all possible positions in a
+;; sexp, but if you don't mind its imperfections you can easily enable it:
+(require 'clojure-mode-extra-font-locking)
+
+
 (eval-after-load 'clojure-mode
   '(progn
      (defun my-clojure-mode-defaults ()
@@ -21,6 +29,12 @@
      (add-hook 'clojure-mode-hook
                (lambda ()
                  (run-hooks 'my-clojure-mode-hook)))))
+
+;; smartparens is an excellent (newer) alternative to paredit. Many Clojure
+;; hackers have adopted it recently and you might want to give it a try as
+;; well. To enable smartparens use the following code:
+;;
+;; (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
 
 
 ;;; [ cider ] -- CIDER is a Clojure IDE and REPL for Emacs
