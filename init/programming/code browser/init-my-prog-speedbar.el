@@ -21,9 +21,9 @@
 
 (require 'sr-speedbar)
 
-(setq sr-speedbar-width 27
-      sr-speedbar-width-x 27
-      sr-speedbar-width-console 27
+(setq sr-speedbar-width 30
+      sr-speedbar-width-x 30
+      sr-speedbar-width-console 30
       sr-speedbar-max-width 30
       sr-speedbar-delete-windows nil ; delete other windows before showing sr-speedbar up
       sr-speedbar-skip-other-window-p nil ; skep sr-speedbar in other-window cycle.
