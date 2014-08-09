@@ -19,7 +19,9 @@
 (load-library "pcomplete")
 
 
-;;; [ Icomplete ]
+;;; [ Icomplete ] -- enhance the default minibuffer completion.
+
+;; (require 'icomplete)
 
 ;; (icomplete-mode 1)
 
