@@ -135,18 +135,18 @@
 (add-hook 'sauron-event-added-functions
           (lambda (origin prio msg &optional props)
             (if (string-match "org" origin)
-                (sauron-fx-aplay "/home/chris/Music/Sounds/Hacking Game/voice-incoming-transmission.wav"))
+                (sauron-fx-aplay "/home/stardiviner/Music/Sounds/Hacking Game/voice-incoming-transmission.wav"))
             (if (string-match "erc" origin)
-                (sauron-fx-aplay "/home/chris/Music/Sounds/Hacking Game/hesfx-newmessage.wav"))
+                (sauron-fx-aplay "/home/stardiviner/Music/Sounds/Hacking Game/hesfx-newmessage.wav"))
             (if (string-match "dbus" origin)
-                (sauron-fx-aplay "/home/chris/Music/Sounds/Hacking Game/hesfx-newmessage.wav"))
+                (sauron-fx-aplay "/home/stardiviner/Music/Sounds/Hacking Game/hesfx-newmessage.wav"))
             (cond
              ((= prio 3)
-              (sauron-fx-aplay "/home/chris/Music/Sounds/Hacking Game/voice-incoming-transmission.wav"))
+              (sauron-fx-aplay "/home/stardiviner/Music/Sounds/Hacking Game/voice-incoming-transmission.wav"))
              ((= prio 4)
-              (sauron-fx-aplay "/home/chris/Music/Sounds/Hacking Game/voice-incoming-transmission.wav"))
+              (sauron-fx-aplay "/home/stardiviner/Music/Sounds/Hacking Game/voice-incoming-transmission.wav"))
              ((= prio 5)
-              (sauron-fx-aplay "/home/chris/Music/Sounds/Hacking Game/voice-please-confirm.wav")
+              (sauron-fx-aplay "/home/stardiviner/Music/Sounds/Hacking Game/voice-please-confirm.wav")
               (sauron-fx-gnome-osd
                (format "%S: %s" origin msg) 5)))))
 
