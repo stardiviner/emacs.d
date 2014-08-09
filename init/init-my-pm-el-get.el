@@ -107,7 +107,7 @@
          guide-key ; guide-key-tip
          ;; dired
          ;; direx
-         dired-k ; stripe-buffer
+         ;; dired-k ; stripe-buffer
          ;; search
          isearch+
          anzu
