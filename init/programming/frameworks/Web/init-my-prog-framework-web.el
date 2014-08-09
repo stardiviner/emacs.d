@@ -200,51 +200,6 @@
 ;; (set-face-attribute 'web-mode-comment-keyword-face nil
 ;;                     :foreground "white" :background "#004A5D"
 ;;                     :box '(:color "cyan" :line-width 1 :style nil))
-;; ;; html
-;; (set-face-attribute 'web-mode-doctype-face nil
-;;                     :foreground "white" :background "#004A5D"
-;;                     :box '(:color "cyan" :line-width 1 :style nil))
-;; (set-face-attribute 'web-mode-html-tag-face nil
-;;                     :foreground "white" :background "#004A5D"
-;;                     :box '(:color "cyan" :line-width 1 :style nil))
-;; (set-face-attribute 'web-mode-html-attr-name-face nil
-;;                     :foreground "white" :background "#004A5D"
-;;                     :box '(:color "cyan" :line-width 1 :style nil))
-;; (set-face-attribute 'web-mode-html-attr-value-face nil
-;;                     :foreground "white" :background "#004A5D"
-;;                     :box '(:color "cyan" :line-width 1 :style nil))
-;; ;; json
-;; (set-face-attribute 'web-mode-json-key-face nil
-;;                     :foreground "white" :background "#004A5D"
-;;                     :box '(:color "cyan" :line-width 1 :style nil))
-;; (set-face-attribute 'web-mode-json-context-face nil
-;;                     :foreground "white" :background "#004A5D"
-;;                     :box '(:color "cyan" :line-width 1 :style nil))
-;; (set-face-attribute 'web-mode-json-string-face nil
-;;                     :foreground "white" :background "#004A5D"
-;;                     :box '(:color "cyan" :line-width 1 :style nil))
-;; ;; css
-;; (set-face-attribute 'web-mode-css-at-rule-face nil
-;;                     :foreground "white" :background "#004A5D"
-;;                     :box '(:color "cyan" :line-width 1 :style nil))
-;; (set-face-attribute 'web-mode-css-property-name-face nil
-;;                     :foreground "white" :background "#004A5D"
-;;                     :box '(:color "cyan" :line-width 1 :style nil))
-;; (set-face-attribute 'web-mode-css-function-face nil
-;;                     :foreground "white" :background "#004A5D"
-;;                     :box '(:color "cyan" :line-width 1 :style nil))
-;; (set-face-attribute 'web-mode-css-priority-face nil
-;;                     :foreground "white" :background "#004A5D"
-;;                     :box '(:color "cyan" :line-width 1 :style nil))
-;; (set-face-attribute 'web-mode-css-pseudo-class-face nil
-;;                     :foreground "white" :background "#004A5D"
-;;                     :box '(:color "cyan" :line-width 1 :style nil))
-;; (set-face-attribute 'web-mode-css-selector-face nil
-;;                     :foreground "white" :background "#004A5D"
-;;                     :box '(:color "cyan" :line-width 1 :style nil))
-;; (set-face-attribute 'web-mode-css-css-string-face nil
-;;                     :foreground "white" :background "#004A5D"
-;;                     :box '(:color "cyan" :line-width 1 :style nil))
 ;; ;; code
 ;; (set-face-attribute 'web-mode-string-face nil
 ;;                     :foreground "white" :background "#004A5D"
@@ -300,6 +255,51 @@
 ;;                     :foreground "white" :background "#004A5D"
 ;;                     :box '(:color "cyan" :line-width 1 :style nil))
 ;; (set-face-attribute 'web-mode-javascript-string-face nil
+;;                     :foreground "white" :background "#004A5D"
+;;                     :box '(:color "cyan" :line-width 1 :style nil))
+;; ;; html
+;; (set-face-attribute 'web-mode-doctype-face nil
+;;                     :foreground "white" :background "#004A5D"
+;;                     :box '(:color "cyan" :line-width 1 :style nil))
+;; (set-face-attribute 'web-mode-html-tag-face nil
+;;                     :foreground "white" :background "#004A5D"
+;;                     :box '(:color "cyan" :line-width 1 :style nil))
+;; (set-face-attribute 'web-mode-html-attr-name-face nil
+;;                     :foreground "white" :background "#004A5D"
+;;                     :box '(:color "cyan" :line-width 1 :style nil))
+;; (set-face-attribute 'web-mode-html-attr-value-face nil
+;;                     :foreground "white" :background "#004A5D"
+;;                     :box '(:color "cyan" :line-width 1 :style nil))
+;; ;; json
+;; (set-face-attribute 'web-mode-json-key-face nil
+;;                     :foreground "white" :background "#004A5D"
+;;                     :box '(:color "cyan" :line-width 1 :style nil))
+;; (set-face-attribute 'web-mode-json-context-face nil
+;;                     :foreground "white" :background "#004A5D"
+;;                     :box '(:color "cyan" :line-width 1 :style nil))
+;; (set-face-attribute 'web-mode-json-string-face nil
+;;                     :foreground "white" :background "#004A5D"
+;;                     :box '(:color "cyan" :line-width 1 :style nil))
+;; ;; css
+;; (set-face-attribute 'web-mode-css-at-rule-face nil
+;;                     :foreground "white" :background "#004A5D"
+;;                     :box '(:color "cyan" :line-width 1 :style nil))
+;; (set-face-attribute 'web-mode-css-property-name-face nil
+;;                     :foreground "white" :background "#004A5D"
+;;                     :box '(:color "cyan" :line-width 1 :style nil))
+;; (set-face-attribute 'web-mode-css-function-face nil
+;;                     :foreground "white" :background "#004A5D"
+;;                     :box '(:color "cyan" :line-width 1 :style nil))
+;; (set-face-attribute 'web-mode-css-priority-face nil
+;;                     :foreground "white" :background "#004A5D"
+;;                     :box '(:color "cyan" :line-width 1 :style nil))
+;; (set-face-attribute 'web-mode-css-pseudo-class-face nil
+;;                     :foreground "white" :background "#004A5D"
+;;                     :box '(:color "cyan" :line-width 1 :style nil))
+;; (set-face-attribute 'web-mode-css-selector-face nil
+;;                     :foreground "white" :background "#004A5D"
+;;                     :box '(:color "cyan" :line-width 1 :style nil))
+;; (set-face-attribute 'web-mode-css-css-string-face nil
 ;;                     :foreground "white" :background "#004A5D"
 ;;                     :box '(:color "cyan" :line-width 1 :style nil))
 
