@@ -108,11 +108,11 @@
 ;; (require 'tls)
 ;;
 ;; (setq tls-program '("openssl s_client -connect %h:%p -no_ssl2 -ign_eof
-;;                                        -CAfile /home/chris/.ssl/certs/CAs.pem
-;;                                        -cert /home/chris/.ssl/certs/nick.pem"
+;;                                        -CAfile /home/stardiviner/.ssl/certs/CAs.pem
+;;                                        -cert /home/stardiviner/.ssl/certs/nick.pem"
 ;;                     "gnutls-cli --priority secure256
-;;                                  --x509cafile /home/chris/.ssl/certs/CAs.pem
-;;                                  --x509certfile /home/chris/.ssl/certs/nick.pem -p %p %h"
+;;                                  --x509cafile /home/stardiviner/.ssl/certs/CAs.pem
+;;                                  --x509certfile /home/stardiviner/.ssl/certs/nick.pem -p %p %h"
 ;;                     "gnutls-cli --priority secure256 -p %p %h"))
 
 
