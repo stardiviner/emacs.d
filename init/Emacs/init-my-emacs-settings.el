@@ -41,7 +41,7 @@
 ;;; [ User Information ]
 (setq user-full-name "stardiviner")
 (setq user-mail-address "numbchild@gmail.com")
-;; (setq user-login-name "chris")
+;; (setq user-login-name "stardiviner")
 
 
 ;;; [ mode ]
