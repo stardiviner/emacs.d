@@ -389,6 +389,18 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 ;; TODO: (global-set-key (kbd "M-i") 'ido-goto-symbol)
 
+;;;_ whitespace-mode
+
+;; (require 'whitespace)
+
+;; ;; automatically clean up bad whitespace
+;; (setq whitespace-action '(auto-cleanup))
+;; ;; only show bad whitespace
+;; (setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab))
+
+;; (whitespace-mode 1)
+;; (global-whitespace-mode)
+
 ;;;_ Ace Jump mode
 
 (require 'ace-jump-mode)
@@ -475,8 +487,8 @@ For example: input regexp like [[:space:]]+ for align several space separated se
 ;;; edit tables with emacs commands to insert/delete column/row. You can also
 ;;; convert it to HTML or LaTeX formats.
 
-;;;_. Usage:
-
+;;;_* Usage:
+;;
 ;; - (info "(emacs) Text Based Tables")
 ;; - [M-x table-] :: commands prefix with `table-'.
 
