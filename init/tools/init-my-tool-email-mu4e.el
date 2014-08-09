@@ -318,7 +318,7 @@
 (setq mu4e-mu-home nil ; nil for default
       ;; mu4e-mu-binary "/usr/bin/mu"
       mu4e-mu-binary "~/compile/Emacs/mu/mu/mu/mu"
-      ;; mu4e-mu-binary "/home/chris/.emacs.d/el-get/mu4e/mu/mu"
+      ;; mu4e-mu-binary "/home/stardiviner/.emacs.d/el-get/mu4e/mu/mu"
       )
 
 ;; a list of user's e-mail addresses
@@ -887,10 +887,10 @@
                ("maildir:/Emacs/help"  "Emacs mailbox" ?e) ; Email mailbox.
                ))
 
-;; (add-hook 'mu4e-index-updated-hook
-;;           (defun mu4e-new-mail-alert ()
-;;             ;; FIXME (shell-command "mplayer /home/chris/Music/Sounds/Hacking Game/voice-complete.wav &>/dev/null")
-;;             ))
+(add-hook 'mu4e-index-updated-hook
+          (defun mu4e-new-mail-alert ()
+            (shell-command "mplayer /home/stardiviner/Music/Sounds/Hacking Game/voice-complete.wav &>/dev/null")
+            ))
 
 
 ;;; Faces
