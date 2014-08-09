@@ -91,14 +91,11 @@
 (require 'sauron)
 
 ;; -- sauron display --
-(setq sauron-separate-frame t) ; default t. nil to embeded in current frame.
-(global-set-key [f8] 'sauron-toggle-hide-show)
-(setq sauron-max-line-length 150)
-
-;; -- sauron modeline --
-(setq sauron-hide-mode-line t)      ; remove the mode-line in the sauron-buffer.
-
-(setq sauron-sticky-frame t) ; make the Sauron window appears on every (virtual) desktop.
+(setq sauron-separate-frame t      ; default t. nil to embeded in current frame.
+      sauron-hide-mode-line t      ; remove the mode-line in the sauron-buffer.
+      sauron-sticky-frame t ; make the Sauron window appears on every (virtual) desktop.
+      sauron-max-line-length 150
+      )
 
 ;; -- priorities --
 (setq sauron-min-priority 3) ; ignore all events which priority is lower than this min-priority.
@@ -110,7 +107,7 @@
 
 ;; -- watching nicks --
 (setq sauron-watch-nicks
-      '("Tristan" "thuang" "yaxin"))
+      '())
 ;; don’t get swamped by a certain nick
 ;;
 ;; Since you may not want to get too many events from one nick – and, who knows,
