@@ -102,7 +102,7 @@
 
 (set-face-attribute 'helm-selection nil
                     :background "#004A5D" :foreground "white"
-                    :box '(:color "cyan" :line-width 1)
+                    :box '(:color "cyan" :line-width -1)
                     :underline nil)
 (set-face-attribute 'helm-action nil
                     :background "orange" :foreground "black")
