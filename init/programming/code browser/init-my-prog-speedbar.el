@@ -44,7 +44,7 @@
 ;;   (setq window-size-fixed 'width))
 
 
-(global-set-key [f9] 'sr-speedbar-toggle)
+(global-set-key [f8] 'sr-speedbar-toggle)
 
 
 
