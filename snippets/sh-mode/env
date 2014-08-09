@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: env
+# key: env
+# --
+#!/usr/bin/env ${1:sh/bash/zsh}
+
+${$$(if (string= $1 "bash") "set -o nounset")}
+
+$0
