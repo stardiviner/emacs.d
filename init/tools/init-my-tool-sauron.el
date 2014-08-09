@@ -156,6 +156,45 @@
             (or
              (string-match "^*** Users" msg)))) ;; filter out IRC spam
 
+;;; Faces
+;; Orig column
+(set-face-attribute 'sauron-origin-face nil
+                    :foreground "white"
+                    )
+;; Headers: Time, Orig, Prio, Message
+(set-face-attribute 'sauron-header-face nil
+                    :foreground "cyan"
+                    :weight 'bold
+                    )
+(set-face-attribute 'sauron-event-handled-face nil
+                    :strike-through t
+                    :foreground "dark gray"
+                    )
+;; Prio
+(set-face-attribute 'sauron-priority-face nil
+                    :foreground "magenta"
+                    )
+;; Time
+(set-face-attribute 'sauron-timestamp-face nil
+                    :foreground "slate blue"
+                    )
+;; Message
+(set-face-attribute 'sauron-message-face nil
+                    :foreground "gray"
+                    )
+(set-face-attribute 'sauron-highlight1-face nil
+                    :foreground "cyan"
+                    )
+(set-face-attribute 'sauron-highlight2-face nil
+                    :foreground "light cyan"
+                    )
+(set-face-attribute 'sauron-highlight3-face nil
+                    :foreground "deep pink"
+                    )
+
+
+(global-set-key [f9] 'sauron-toggle-hide-show)
+
 
 
 ;;; [ alert.el ]
