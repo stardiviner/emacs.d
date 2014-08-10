@@ -303,16 +303,6 @@
 ;; (require 'mu4e-speedbar)
 (require 'mu4e-contrib)
 
-(if (featurep 'mu4e)
-    (progn
-      (define-key my-tools-prefix-map (kbd "m") 'mu4e)
-      ;; FIXME: let (setq mail-user-agent 'mu4e-user-agent)
-      (if (eq 'mail-user-agent 'mu4e-user-agent)
-          ;; there is upper set default mail-user-agent, so default [C-x m] will be change for mu4e
-          (global-set-key (kbd "C-x m") 'mu4e-compose-new)
-        )
-      )
-  )
 
 
 (setq mu4e-mu-home nil ; nil for default
@@ -1064,6 +1054,34 @@
 ;;       smtpmail-default-smtp-server "smtp.gmail.com"
 ;;       smtpmail-smtp-server "smtp.gmail.com"
 ;;       smtpmail-smtp-service 587)
+
+
+
+(defun my-mu4e-jump-to-index ()
+    ""
+  (interactive)
+  (if (not (mu4e-running-p))
+      (mu4e)
+    (mu4e-headers-search "maildir:/INBOX"))
+  )
+
+(unless (boundp 'my-mu4e-map)
+  (define-prefix-command 'my-mu4e-map))
+(define-key my-tools-prefix-map (kbd "m") 'my-mu4e-map)
+
+(if (featurep 'mu4e)
+    (progn
+      (define-key my-mu4e-map (kbd "m") 'mu4e)
+      ;; FIXME: let (setq mail-user-agent 'mu4e-user-agent)
+      (if (eq 'mail-user-agent 'mu4e-user-agent)
+          ;; there is upper set default mail-user-agent, so default [C-x m] will be change for mu4e
+          (global-set-key (kbd "C-x m") 'mu4e-compose-new)
+        )
+      (define-key my-mu4e-map (kbd "i") 'my-mu4e-jump-to-index)
+      (define-key my-mu4e-map (kbd "c") 'mu4e-compose-new)
+      )
+  )
+
 
 
 
