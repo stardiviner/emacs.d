@@ -46,6 +46,7 @@
 ;; flyspell-prog-mode : enable flyspell for comments in source code
 (dolist (hook
          '(prog-mode-hook
+           enh-ruby-mode-hook
            ))
   (add-hook hook 'flyspell-prog-mode))
 
