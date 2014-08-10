@@ -34,7 +34,7 @@
 (setq calc-complex-format 'i            ; complex number style: x + yi.
       )
 
-(define-key my-tools-prefix-map (kbd "c") 'calc)
+(define-key my-tools-prefix-map (kbd "x") 'calc)
 
 
 (provide 'init-my-tool-calculator)

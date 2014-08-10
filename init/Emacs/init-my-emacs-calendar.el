@@ -254,8 +254,13 @@
    ))
 
 ;;; Global Keybinding
-;; (global-set-key (kbd "C-x c") 'cfw:open-calendar-buffer)
-;; (global-set-key (kbd "C-x c") 'my-open-calfw) ; FIXME wrong type argument: commandp, (my-open-calfw).
+(unless (boundp 'my-calendar-prefix-map)
+  (define-prefix-command 'my-calendar-prefix-map))
+(define-key my-tools-prefix-map (kbd "c") 'my-calendar-prefix-map)
+
+(define-key my-calendar-prefix-map (kbd "c") 'my-open-calfw)
+(define-key my-calendar-prefix-map (kbd "x") 'cfw:open-calendar-buffer)
+
 
 ;;; Faces
 ;;; TODO change those faces colors.
