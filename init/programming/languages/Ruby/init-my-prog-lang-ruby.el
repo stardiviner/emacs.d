@@ -322,6 +322,24 @@
 (add-to-list 'ac-modes 'inf-ruby-mode) ; enable auto-complete (with robe-mode) for inf-ruby completion.
 
 
+;;; [ pry (emacs-pry) ] -- Pry support within Emacs
+
+;;; Usage:
+;;
+;; -`run-pry' :: starts a Pry REPL inside a modified term-mode buffer.
+;; - `pry-intercept' :: command allows for quick debuging into a test without
+;;   needing to write the binding.pry into the file.
+;; - Automatically shows source in emacs buffer.
+;; - You can use the pointer or other emacs commands to move the cursor on the
+;;   command line and Pry will be aligned with the new position.
+
+(require 'pry)
+
+(define-key my-inferior-ruby-map (kbd "p") 'pry-intercept)
+(define-key my-inferior-ruby-map (kbd "C-p") 'pry-intercept-rerun)
+
+
+
 ;;; [ ac-inf-ruby ]
 
 ;; (require 'ac-inf-ruby)
@@ -663,22 +681,6 @@
 
 (require 'ruby-hash-syntax)
 
-
-;;; [ pry (emacs-pry) ] -- Pry support within Emacs
-
-;;; Usage:
-;;
-;; -`run-pry' :: starts a Pry REPL inside a modified term-mode buffer.
-;; - `pry-intercept' :: command allows for quick debuging into a test without
-;;   needing to write the binding.pry into the file.
-;; - Automatically shows source in emacs buffer.
-;; - You can use the pointer or other emacs commands to move the cursor on the
-;;   command line and Pry will be aligned with the new position.
-
-(require 'pry)
-
-(define-key my-inferior-ruby-map (kbd "p") 'pry-intercept)
-(define-key my-inferior-ruby-map (kbd "C-p") 'pry-intercept-rerun)
 
 
 ;;; [ motion-mode ] -- RubyMotion
