@@ -1,4 +1,4 @@
-;;; init-my-prog-lang-octave.el ---
+;;; init-my-prog-lang-octave.el --- init for Octave
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -9,14 +9,21 @@
 
 ;;; [ octave-mode ]
 
+;;; Usage:
+;; - octave-mode
+;; - run-octave
+
+(require 'octave)
+
 
-;;; [ EOS: Emacs Octave Support ]
-;;; {consists of the three files `octave-mod.el', `octave-inf.el', and `octave-hlp.el'.}
+;;; [ EOS: Emacs Octave Support ] -- {consists of the three files `octave-mod.el', `octave-inf.el', and `octave-hlp.el'.}
+
+;;; https://www.gnu.org/software/octave/doc/interpreter/
+
 
 
 ;;; [ octave-mod ]
 
-(require 'octave)
 (autoload 'octave-mode "octave-mod" nil t)
 
 
@@ -74,8 +81,9 @@
               'comint-next-input)))
 
 
-;;; Using the Emacs Info Reader for Octave
-;; If `gnuserv' is installed, add the lines
+;;; [ octave-hlp ] -- octave help, Using the Emacs Info Reader for Octave
+
+;; TODO: If `gnuserv' is installed, add the lines
 ;; (autoload 'octave-help "octave-hlp" nil t)
 ;; (require 'gnuserv)
 ;; (gnuserv-start)
