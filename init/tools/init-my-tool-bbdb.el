@@ -37,9 +37,9 @@
 ;; set this to t in all but one of them.
 ;; (setq bbdb-read-only t )
 
-(unless (boundp 'my-bbdb-prefix-map)
-  (define-prefix-command 'my-bbdb-prefix-map))
-(define-key my-tools-prefix-map (kbd "b") 'my-bbdb-prefix-map)
+(unless (boundp 'my-bbdb-map)
+  (define-prefix-command 'my-bbdb-map))
+(define-key my-tools-prefix-map (kbd "b") 'my-bbdb-map)
 
 (defun my-bbdb-open-or-switch ()
   (interactive)
@@ -49,12 +49,12 @@
     (bury-buffer)
     (switch-to-buffer "*BBDB*")))
 
-(define-key my-bbdb-prefix-map (kbd "b") 'my-bbdb-open-or-switch)
+(define-key my-bbdb-map (kbd "b") 'my-bbdb-open-or-switch)
 
-(define-key my-bbdb-prefix-map (kbd "c") 'bbdb-create)
+(define-key my-bbdb-map (kbd "c") 'bbdb-create)
 ;; usage: region select name and email part in To: field. then press this keybinding.
-(define-key my-bbdb-prefix-map (kbd "a") 'bbdb-snarf)
-(define-key my-bbdb-prefix-map (kbd "h") 'helm-bbdb)
+(define-key my-bbdb-map (kbd "a") 'bbdb-snarf)
+(define-key my-bbdb-map (kbd "h") 'helm-bbdb)
 
 (setq bbdb-file (expand-file-name "~/Org/BBDB/bbdb")
       bbdb-completion-display-record t
