@@ -145,9 +145,9 @@
   '(progn
      (defun my-web-mode-defaults ()
        ;; Customizations
-       (setq web-mode-markup-indent-offset 4
+       (setq web-mode-markup-indent-offset 2
              web-mode-css-indent-offset 2
-             web-mode-code-indent-offset 4
+             web-mode-code-indent-offset 2
              web-mode-disable-autocompletion t)
        (local-set-key (kbd "RET") 'newline-and-indent))
      (setq my-web-mode-hook 'my-web-mode-defaults)
