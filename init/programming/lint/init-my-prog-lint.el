@@ -89,14 +89,14 @@
                     :background nil :foreground nil
                     :underline '(:color "dark red" :style wave))
 (set-face-attribute 'flycheck-fringe-warning nil
-                    :background " " :foreground "blue"
-                    :bold 'normal)
+                    :background " " :foreground "orange"
+                    :weight 'normal)
 (set-face-attribute 'flycheck-error nil
                     :background nil :foreground nil
                     :underline '(:color "red" :style wave))
 (set-face-attribute 'flycheck-fringe-error nil
                     :background " " :foreground "dark red"
-                    :bold 'normal)
+                    :weight 'normal)
 
 ;; determine how to highlight errors:
 (setq flycheck-highlighting-mode 'symbols ; 'symbols, 'columns, 'sexps, 'lines, nil
