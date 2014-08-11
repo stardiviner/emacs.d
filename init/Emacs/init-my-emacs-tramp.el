@@ -1,3 +1,13 @@
+;;; init-my-emacs-tramp.el --- init for tramp
+;;; -*- coding: utf-8 -*-
+
+;;; Commentary:
+
+
+
+;;; Code:
+
+
 ;;; [ Tramp ]
 ;; Usage:
 ;; - [C-x C-f /sudo::/path/to/file]
@@ -19,4 +29,8 @@
 ;; (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
 
 
+
+
 (provide 'init-my-emacs-tramp)
+
+;;; init-my-emacs-tramp.el ends here

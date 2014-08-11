@@ -69,7 +69,7 @@
 ;;; Usage:
 ;; - [C-c c] :: compile
 ;; - [C-c p] :: preview graph
-;; - [M-;] :: 注释或者取消注释
+;; - [M-;] :: toggle comment
 
 ;; (unless (package-installed-p 'graphviz-dot-mode)
 ;;   (package-install 'graphviz-dot-mode))

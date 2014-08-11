@@ -1,3 +1,13 @@
+;;; init-my-emacs-calculator.el --- init calculator
+;;; -*- coding: utf-8 -*-
+
+;;; Commentary:
+
+
+
+;;; Code:
+
+
 ;;; calculator ---
 ;;; Commentary:
 ;;; Usage:
@@ -15,4 +25,9 @@
 
 (autoload 'calc "calc :: a calculator" t)
 
+
+
+
 (provide 'init-my-emacs-calculator)
+
+;;; init-my-emacs-calculator.el ends here
