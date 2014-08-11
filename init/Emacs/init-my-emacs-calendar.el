@@ -265,24 +265,80 @@
 ;;; Faces
 ;;; TODO change those faces colors.
 ;; (custom-set-faces
-;;  '(cfw:face-title ((t (:foreground "#f0dfaf" :weight bold :height 2.0 :inherit variable-pitch))))
-;;  '(cfw:face-header ((t (:foreground "#d0bf8f" :weight bold))))
-;;  '(cfw:face-sunday ((t :foreground "#cc9393" :background "grey10" :weight bold)))
-;;  '(cfw:face-saturday ((t :foreground "#8cd0d3" :background "grey10" :weight bold)))
-;;  '(cfw:face-holiday ((t :background "grey10" :foreground "#8c5353" :weight bold)))
-;;  '(cfw:face-grid ((t :foreground "DarkGrey")))
-;;  '(cfw:face-default-content ((t :foreground "#bfebbf")))
-;;  '(cfw:face-periods ((t :foreground "cyan")))
-;;  '(cfw:face-day-title ((t :background "grey10")))
-;;  '(cfw:face-default-day ((t :weight bold :inherit cfw:face-day-title)))
-;;  '(cfw:face-annotation ((t :foreground "RosyBrown" :inherit cfw:face-day-title)))
-;;  '(cfw:face-disable ((t :foreground "DarkGray" :inherit cfw:face-day-title)))
-;;  '(cfw:face-today-title ((t :background "#7f9f7f" :weight bold)))
-;;  '(cfw:face-today ((t :background: "grey10" :weight bold)))
-;;  '(cfw:face-select ((t :background "#2f2f2f")))
-;;  '(cfw:face-toolbar ((t :foreground "Steelblue4" :background "Steelblue4")))
-;;  '(cfw:face-toolbar-button-off ((t :foreground "Gray10" :weight bold)))
-;;  '(cfw:face-toolbar-button-on ((t :foreground "Gray50" :weight bold))))
+(set-face-attribute 'cfw:face-title nil
+                    :foreground "#f0dfaf"
+                    :weight 'bold :height 2.5)
+;; week (1-5)
+(set-face-attribute 'cfw:face-header nil
+                    :foreground "sky blue"
+                    :weight 'bold)
+;; saturday
+(set-face-attribute 'cfw:face-saturday nil
+                    :foreground "orange" :background "#333333"
+                    :weight 'bold
+                    ;; :box '(:color "orange" :line-width -1)
+                    )
+;; sunday
+(set-face-attribute 'cfw:face-sunday nil
+                    :foreground "orange" :background "#333333"
+                    :weight 'bold
+                    ;; :box '(:color "yellow" :line-width -1)
+                    )
+;; holidays
+(set-face-attribute 'cfw:face-holiday nil
+                    :foreground "yellow"
+                    :weight 'bold
+                    :box '(:color "yellow" :line-width -1))
+;; grid
+(set-face-attribute 'cfw:face-grid nil
+                    :foreground "#444444"
+                    )
+;; ??
+(set-face-attribute 'cfw:face-default-content nil
+                    :foreground "gray")
+;; ??
+(set-face-attribute 'cfw:face-periods nil
+                    :foreground "cyan")
+;; ??
+(set-face-attribute 'cfw:face-annotation nil
+                    :foreground "dark green")
+;; ??
+(set-face-attribute 'cfw:face-disable nil
+                    :foreground "#333333"
+                    :strike-through t)
+;; 1-31 (N)
+(set-face-attribute 'cfw:face-day-title nil
+                    :foreground "dark gray")
+;; 1-31
+(set-face-attribute 'cfw:face-default-day nil
+                    :inherit 'cfw:face-day-title
+                    :foreground "gray"
+                    :weight 'bold
+                    )
+;; today (N)
+(set-face-attribute 'cfw:face-today-title nil
+                    :foreground "cyan" :background "black"
+                    :weight 'bold
+                    :box '(:color "dark cyan" :line-width -1))
+;; events at today.
+(set-face-attribute 'cfw:face-today nil
+                    :foreground "dark cyan" :background " "
+                    :weight 'normal
+                    ;; :underline '(:color "#333333")
+                    )
+;; current select
+(set-face-attribute 'cfw:face-select nil
+                    :foreground "white" :background "dark cyan"
+                    :box '(:color "cyan" :line-width -1))
+;; toolbar [ < ] [ > ] [Today ]                      [Day] [Week] [Two Weeks] [Month]
+(set-face-attribute 'cfw:face-toolbar nil
+                    :background " ")
+(set-face-attribute 'cfw:face-toolbar-button-on nil
+                    :foreground "white"
+                    :weight 'bold)
+(set-face-attribute 'cfw:face-toolbar-button-off nil
+                    :foreground "dark gray"
+                    :weight 'normal)
 
 
 ;; Grid frame
