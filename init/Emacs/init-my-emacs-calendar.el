@@ -393,6 +393,18 @@
 (provide 'init-calendar-calfw)
 
 
+;;; keybindings
+;; ;; Vim style navigation around
+;; (define-key cfw:calendar-mode-map (kbd "k") 'cfw:navi-previous-week-command)
+;; (define-key cfw:calendar-mode-map (kbd "j") 'cfw:navi-next-week-command)
+;; (define-key cfw:calendar-mode-map (kbd "h") 'cfw:navi-previous-day-command)
+;; (define-key cfw:calendar-mode-map (kbd "l") 'cfw:navi-next-day-command)
+;; ;; 
+;; (define-key cfw:calendar-mode-map (kbd "p") 'cfw:navi-previous-week-command)
+;; (define-key cfw:calendar-mode-map (kbd "n") 'cfw:navi-next-week-command)
+;; (define-key cfw:calendar-mode-map (kbd "b") 'cfw:navi-previous-day-command)
+;; (define-key cfw:calendar-mode-map (kbd "f") 'cfw:navi-next-day-command)
+
 
 ;; [ Appointment & Remind ]
 ;; (require 'appt)
