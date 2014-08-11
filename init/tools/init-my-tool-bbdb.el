@@ -64,8 +64,8 @@
       ;; bbdb-sound-files
       bbdb-default-label-list '("personal" "home" "work" "company" "organization" "other")
       bbdb-default-country "China"
-      bbdb-dial-local-prefix "+86" ; TODO: is this right?
-      bbdb-default-area-code "+86"
+      bbdb-dial-local-prefix "86" ; "+86" TODO: is this right?
+      bbdb-default-area-code "86"
       ;; bbdb-xfields-sort-order '((notes . 0)
       ;;                           (url . 1)
       ;;                           (ftp . 2)
@@ -141,6 +141,21 @@
 
 
 
+;;; define variant faces for variant xfields
+
+;; TODO: improve it
+(setq bbdb-name-face-alist '((mail . bbdb-field-mail)
+                             (mail-alias . bbdb-field-mail-alias)))
+
+(defface bbdb-field-mail
+  '((t (:inherit bbdb-field-name :foreground "green yellow")))
+  "Face used for BBDB fields."
+  :group 'bbdb-faces)
+
+(defface bbdb-field-mail-alias
+  '((t (:inherit bbdb-field-name :foreground "yellow")))
+  "Face used for BBDB fields."
+  :group 'bbdb-faces)
 
 
 
@@ -158,6 +173,61 @@
                 mu4e-compose-mode-hook
                 ))
   (add-hook hook 'my-enable-bbdb-complete-key))
+
+
+;;; --- Auto-creation of all messages addressed to me ---
+;;
+;; (setq bbdb/mail-auto-create-p 'bbdb-prune-not-to-me)
+;; (setq bbdb/news-auto-create-p 'bbdb-prune-not-to-me)
+;; (defun bbdb-prune-not-to-me ()
+;;   "defun called when bbdb is trying to automatically create a record.  Filters out
+;; anything not actually adressed to me then passes control to 'bbdb-ignore-some-messages-hook'.
+;; Also filters out anything that is precedense 'junk' or 'bulk'  This code is from
+;; Ronan Waide < waider @ waider . ie >."
+;;   (let ((case-fold-search t)
+;;         (done nil)
+;;         (b (current-buffer))
+;;         (marker (bbdb-header-start))
+;;         field regexp fieldval)
+;;     (set-buffer (marker-buffer marker))
+;;     (save-excursion
+;;       ;; Hey ho. The buffer we're in is the mail file, narrowed to the
+;;       ;; current message.
+;;       (let (to cc precedence)
+;;         (goto-char marker)
+;;         (setq to (bbdb-extract-field-value "To"))
+;;         (goto-char marker)
+;;         (setq cc (bbdb-extract-field-value "Cc"))
+;;         (goto-char marker)
+;;         (setq precedence (bbdb-extract-field-value "Precedence"))
+;;         ;; Here's where you put your email information.
+;;         ;; Basically, you just add all the regexps you want for
+;;         ;; both the 'to' field and the 'cc' field.
+;;         (if (and (not (string-match "doug@" (or to "")))
+;;                  (not (string-match "doug@" (or cc ""))))
+;;             (progn
+;;               (message "BBDB unfiling; message to: %s cc: %s"
+;;                        (or to "noone") (or cc "noone"))
+;;               ;; Return nil so that the record isn't added.
+;;               nil)
+;;
+;;           (if (string-match "junk" (or precedence ""))
+;;               (progn
+;;                 (message "precedence set to junk, bbdb ignoring.")
+;;                 nil)
+;;
+;;             ;; Otherwise add, subject to filtering
+;;             (bbdb-ignore-some-messages-hook)))))))
+
+
+;;; -- Dial --
+;; (setq bbdb-dial-function
+;;       '(lambda (phone-number)
+;;          (do-applescript
+;;           (concat
+;;            "tell application \"Skype\"\n"
+;;            "send command \"CALL +" phone-number "\" script name \"Call from BBDB\"\n"
+;;            "end tell"))))
 
 ;;; [ bbdb- ] -- More easily search/choice than BBDB
 

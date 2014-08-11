@@ -100,9 +100,9 @@
 
 ;;; [ flyguess ] -- guess language/dictionary for a buffer
 
-(require 'flyguess)
+;; (require 'flyguess)
 
-(setq flyguess-dictionary-list '("english" "american" "francais"))
+;; (setq flyguess-dictionary-list '("english" "american" "francais"))
 
 
 ;;; [ flyspell-guess ] -- flyspell dictionary guesser

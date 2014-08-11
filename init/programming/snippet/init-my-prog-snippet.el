@@ -36,8 +36,8 @@
 ;;     - use auto-complete
 ;; Snippet development:
 ;; - quickly finding snippets
-;;   - [M-x yas-new-snippet]
-;;   - [M-x yas-visit-snippet-file]
+;;   - [C-c & C-n] / [M-x yas-new-snippet]
+;;   - [C-c & C-v] / [M-x yas-visit-snippet-file]
 ;; - Using the "snippet-mode" major mode
 ;;   - [M-x snippet-mode]
 ;;       -- provide syntax highlighting.
@@ -47,6 +47,11 @@
 ;;       -- open a new empty buffer when editing a snippet, sets it to the
 ;;          appropriate major mode and inserts the snippet there, so you can
 ;;          see what it looks like.
+;;; In (yas-new-snippet) buffer
+;;
+;; - =[C-c C-c]= :: =(yas-load-snippet-buffer-and-close)=
+;; - =[C-c C-l]= :: =(yas-load-snippet-buffer)=
+;; - =[C-c C-t]= :: =(yas-tryout-snippet)=
 ;;
 ;;; The `.yas-parents' file.
 ;;
@@ -79,12 +84,6 @@
 ;;
 ;; File names starting with a period are not template definition but provide
 ;; information purposes. For example: [.readme].
-
-;;; In (yas-new-snippet) buffer
-;;
-;; - =[C-c C-c]= :: =(yas-load-snippet-buffer-and-close)=
-;; - =[C-c C-l]= :: =(yas-load-snippet-buffer)=
-;; - =[C-c C-t]= :: =(yas-tryout-snippet)=
 
 
 (require 'yasnippet)
@@ -154,6 +153,8 @@
 ;;      :isearch t
 ;;      )))
 
+;;; TODO: https://github.com/capitaomorte/yasnippet/issues/488
+;; improve this two functions.
 (defun yas-popup-isearch-prompt (prompt choices &optional display-fn)
   (popup-menu*
    (mapcar
@@ -176,6 +177,53 @@
    :prompt prompt
    :max-width 80
    :isearch t))
+
+;; FIXME: this should be niced up and contributed back.
+;; (defun yas-popup-isearch-prompt (prompt choices &optional display-fn)
+;;   (let ((group-max-len 0)
+;;         (key-max-len 0)
+;;         (fmt "")
+;;         (popup-items))
+;;
+;;     (mapcar #'(lambda (choice)
+;;                 (when (yas--template-p choice)
+;;                   (setq group-max-len (max group-max-len
+;;                                            (+ (length (yas--template-group choice) )
+;;                                               (apply '+ (mapcar 'length (yas--template-group choice))))))
+;;                   (setq key-max-len (max key-max-len (length (yas--template-key choice))))))
+;;             choices)
+;;
+;;     (setq fmt (format "%s%%%d.%ds%s%%-%d.%ds  %%s"
+;;                       (if (> group-max-len 0 ) "" " ")
+;;                       group-max-len group-max-len
+;;                       (if (> group-max-len 0 ) " > " "")
+;;                       key-max-len key-max-len))
+;;
+;;     (setq popup-items
+;;           (mapcar
+;;            #'(lambda (choice)
+;;                (popup-make-item
+;;                 (if (yas--template-p choice)
+;;                     (format fmt
+;;                             (if (yas--template-group choice)
+;;                                 (s-join "/" (yas--template-group choice))
+;;                               "")
+;;                             (if (yas--template-key choice)
+;;                                 (yas--template-key choice)
+;;                               "")
+;;                             (if (yas--template-name choice)
+;;                                 (yas--template-name choice)
+;;                               ""))
+;;                   (format " %s" choice))
+;;                 :value choice))
+;;            choices))
+;;
+;;     (popup-menu*
+;;      popup-items
+;;      :prompt prompt
+;;      :max-width 80
+;;      :isearch t)))
+
 
 (add-to-list 'yas-prompt-functions 'yas-popup-isearch-prompt)
 

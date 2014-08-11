@@ -1,5 +1,13 @@
+;;; init-my-emacs-calendar.el --- init for Calendar
+;;; -*- coding: utf-8 -*-
+
+;;; Commentary:
+
 ;;; http://www.emacswiki.org/emacs/CategoryCalendar
 
+
+;;; Code:
+
 ;;; Calendar Mode
 ;;; Usage:
 ;;; - [M-x calendar]
@@ -390,9 +398,6 @@
 ;;; cfw:source-data
 
 
-(provide 'init-calendar-calfw)
-
-
 ;;; keybindings
 ;; ;; Vim style navigation around
 ;; (define-key cfw:calendar-mode-map (kbd "k") 'cfw:navi-previous-week-command)
@@ -414,5 +419,7 @@
 
 
 
-
+
 (provide 'init-my-emacs-calendar)
+
+;;; init-my-emacs-calendar.el ends here

@@ -133,7 +133,7 @@
   (let ((default-directory (getenv "HOME")))
     (my-func/open-and-switch-to-buffer 'ielm "*ielm*" t)))
 
-(add-hook 'emacs-startup-hook 'my-ielm-start-or-switch)
+;; (add-hook 'emacs-startup-hook 'my-ielm-start-or-switch)
 
 (define-key inferior-map (kbd "l e") 'my-ielm-start-or-switch)
 

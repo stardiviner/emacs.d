@@ -745,6 +745,36 @@ This is especially for create Org files."
 
 ;;;_* org-annotate-file
 
+;; This is yet another implementation to allow the annotation of a
+;; file without modification of the file itself. The annotation is in
+;; org syntax so you can use all of the org features you are used to.
+
+;; (require 'org-annotate-file)
+
+;; (global-set-key (kbd "C-c C-l") 'org-annotate-file)
+
+;; ;; To change the location of the annotation file:
+;; (setq org-annotate-file-storage-file "~/.emacs.d/.org-annotated.org")
+
+;; ;; Then when you visit any file and hit C-c C-l you will find yourself
+;; ;; in an org buffer on a headline which links to the file you were
+;; ;; visiting, e.g:
+;; ;; * ~/org-annotate-file.el
+
+;; ;; Under here you can put anything you like, save the file
+;; ;; and next time you hit C-c C-l you will hit those notes again.
+;; ;;
+;; ;; To put a subheading with a text search for the current line set
+;; ;; `org-annotate-file-add-search` to non-nil value. Then when you hit
+;; ;; C-c C-l (on the above line for example) you will get:
+;; (setq org-annotate-file-add-search t)
+
+;; * ~/org-annotate-file.el
+;; ** `org-annotate-file-add-search` to non-nil value. Then whe...
+
+;; Note that both of the above will be links.
+
+
 ;;;_* properties and columns
 
 ;;; properties
@@ -1197,7 +1227,14 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;; (setq org-agenda-files (my-org-files))
 ;; 6
 ;; (setq org-agenda-text-search-extra-files) ; [C-c a s]
-(setq org-agenda-file-regexp "\\`[^.].*\\.org\\'")
+;; (setq org-agenda-file-regexp "\\`[^.].*\\.org\\'")
+;; Note that these files will only be searched for text search commands, In
+;; fact, if the first element in the list is the symbol `agenda-archives', then
+;; all archive files of all agenda files will be added to the search scope.
+;; [C-c a s]
+;; TODO: test this setting.
+;; (setq org-agenda-text-search-extra-files '(agenda-archives "~/Org/Journal.org" "~/Org/Diary/"))
+(setq org-agenda-text-search-extra-files '("~/Org/Journal.org" "~/Org/Diary/"))
 (setq org-agenda-skip-deadline-if-done t)
 (setq org-agenda-skip-scheduled-if-done t)
 (setq org-agenda-skip-scheduled-delay-if-deadline 'post-deadline) ; nil, t, 'post-deadline.
@@ -1313,7 +1350,7 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
       (quote (;;; todos
               ("TODO" :foreground "white" :weight bold)
               ("Urgent" :foreground "red" :background "black"
-               :weight bold :overline "green yellow"
+               :weight bold :overline "red"
                ;; :box '(:color "red" :line-width 2 :style nil)
                )
               ("STARTED" :foreground "green" :weight bold :overline "yellow")
@@ -1717,6 +1754,15 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;; `org-babel-default-header-args:<lang>' where `<lang>' is the name of the
 ;; language.  See the language-specific documentation available online at
 ;; `http://orgmode.org/worg/org-contrib/babel'.
+;; TODO:
+(setq org-babel-default-header-args:latex
+      '(;; generate results as #+BEGIN_LaTeX ... #+END_LaTeX block.
+        ;; (:results . "latex")
+        ;; (:exports . "results")
+        ;; generate result as a (bitmap) image or pdf.
+        ;; (:file . "temp.png")
+        ))
+
 (setq org-babel-default-header-args:R
       '((:session . "no")
         (:exports . "both")
@@ -1883,8 +1929,7 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;;         ("i" "#+INDEX: ?")
 ;;         ("I" "#+INCLUDE: %file ?")))
 
-
-;;; ditaa & PlantUML & Graphviz
+;;;_ + ditaa & PlantUML & Graphviz
 
 ;; Org-babel makes it easy to generate decent graphics using external packages
 ;; like ditaa, graphviz, PlantUML, and others.
@@ -1919,14 +1964,21 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;;   <context of graphviz source goes here>
 ;; #+END_SRC
 
-
-;;; LaTeX formula block generate output graph, then insert to current buffer just like upper ditaa.
+;;;_* LaTeX formula block generate output graph, then insert to current buffer just like upper ditaa.
 
 ;; - use Babel <s latex.
 
 ;; - re-display inline image after execute babel.
 ;;   -- already have upper hook: `my/redisplay-inline-images' in `org-babel-after-execute-hook'.
 
+;; TODO:
+;; (setq org-babel-header-args:latex
+;;       '((:exports . "")
+;;         ))
+
+;; TODO: Add an babel headers arguments example here:
+
+;;;_* Easy Template
 
 ;; TODO store default style sheet .css file in HTML header link.
 ;; (setq org-html-head)
@@ -2033,7 +2085,7 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;;   :actions -ding, -notify, -window, -notify/window, -message, -email,
 
 (org-notify-add 'default
-                '(:time "1h" :period "45m" :duration 100
+                '(:time "1h" :period "50m" :duration 100
                         :actions (-notify/window -ding))
                 ;; '(:time "3d" :period "4h" :duration 40
                 ;;         :actions -notify/window)
@@ -2210,9 +2262,16 @@ This function will promote all items in a subtree."
 (define-key org-mode-map (kbd "C-c o t") 'org-timeline) ; Show a time-sorted view of the entries in the current org file.
 
 (define-key my-org-prefix-map (kbd "o")
-  (lambda ()
+  (defun my-open-org-agenda ()
     (interactive)
     (my-func/open-and-switch-to-buffer 'org-agenda-list "*Org Agenda*" t)))
+
+(define-key my-org-prefix-map (kbd "e")
+  (defun my-org-element-at-point ()
+    (interactive)
+    ;; FIXME: minibuffer does not show result.
+    (org-element-at-point)))
+
 
 ;;;_* custom functions
 

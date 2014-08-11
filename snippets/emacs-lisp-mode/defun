@@ -5,5 +5,5 @@
 (defun $1 (${2:arguments})
   "${3:DOCSTRINGS}"
   (interactive)
-  ${4:body}
+  $0
 )

@@ -99,33 +99,42 @@
 ;;; Others
 (add-hook 'enh-ruby-mode-hook
           (lambda ()
+            (unless (derived-mode-p 'prog-mode)
+              (run-hooks 'prog-mode-hook))
+
             ;; add into auto-complete enable modes.
             (add-to-list 'ac-modes 'enh-ruby-mode)
-            (define-key enh-ruby-mode-map (kbd "C-,") 'insert-arrow)))
+            (define-key enh-ruby-mode-map (kbd "C-,") 'insert-arrow)
+            ))
 
-;;; Faces
-;; Ruby operators
-(set-face-attribute 'enh-ruby-op-face nil
-                    :foreground "#555555")
-;; Ruby regexp: / or %r{}
-(set-face-attribute 'enh-ruby-regexp-delimiter-face nil
-                    :foreground "deep pink")
-;; Ruby heredoc like <<HERE and HERE.
-(set-face-attribute 'enh-ruby-heredoc-delimiter-face nil
-                    :foreground "sky blue")
-;; Ruby regexp things inside regexp
-(set-face-attribute 'enh-ruby-regexp-face nil
-                    :foreground "green yellow"
-                    :box '(:color "black" :line-width -1)
-                    )
-;; Ruby string delimiter like: " and %Q
-(set-face-attribute 'enh-ruby-string-delimiter-face nil
-                    :foreground "dark gray")
-;;; erm -
-(set-face-attribute 'erm-syn-warnline nil
-                    :box '(:color "orange" :line-width -1))
-(set-face-attribute 'erm-syn-errline nil
-                    :box '(:color "red" :line-width -1))
+
+;; FIXME: invalid face.
+;; (eval-after-load "enh-ruby-mode"
+;;   '(progn
+;;      ;; Faces
+;;      ;; Ruby operators
+;;      (set-face-attribute 'enh-ruby-op-face nil
+;;                          :foreground "deep pink")
+;;      ;; Ruby regexp: / or %r{}
+;;      (set-face-attribute 'enh-ruby-regexp-delimiter-face nil
+;;                          :foreground "cyan")
+;;      ;; Ruby heredoc like <<HERE and HERE.
+;;      (set-face-attribute 'enh-ruby-heredoc-delimiter-face nil
+;;                          :foreground "sky blue")
+;;      ;; Ruby regexp things inside regexp
+;;      (set-face-attribute 'enh-ruby-regexp-face nil
+;;                          :foreground "green yellow"
+;;                          :box '(:color "black" :line-width -1)
+;;                          )
+;;      ;; Ruby string delimiter like: " and %Q
+;;      (set-face-attribute 'enh-ruby-string-delimiter-face nil
+;;                          :foreground "dark gray")
+;;      ;; erm -
+;;      (set-face-attribute 'erm-syn-warnline nil
+;;                          :box '(:color "orange" :line-width -1))
+;;      (set-face-attribute 'erm-syn-errline nil
+;;                          :box '(:color "red" :line-width -1))
+;;      ))
 
 
 
@@ -135,7 +144,6 @@
 (add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
 (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
 
-
 ;; We never want to edit Rubinius bytecode or MacRuby binaries
 (add-to-list 'completion-ignored-extensions ".rbc")
 (add-to-list 'completion-ignored-extensions ".rbo")
@@ -147,6 +155,31 @@
 ;;  'ruby-mode
 ;;  '(("\\(\\b\\sw[_a-zA-Z0-9]*:\\)\\(?:\\s-\\|$\\)" (1 font-lock-constant-face))))
 
+
+;; inline code face => src_ruby{require 'something'}
+;;
+;; (REGEXP . FACE)
+;;     Highlight REGEXP with FACE
+;; (REGEXP N FACE)
+;;     Highlight group N in REGEXP with FACE
+;; (REGEXP (N1 FACE1) (N2 FACE2) (N3 FACE3) …)
+;;     Highlight group Ni in REGEXP with FACEi
+;;
+;; src_lang[:header arguments]{code...}
+
+;; (font-lock-add-keywords 'org-mode
+;;                         '(("src_\\([^[{]+\\)\\(\\[:.*\\]\\){\\([^}]*\\)}"
+;;                            (1 '(:foreground "cyan" :weight 'bold :height 75)) ; "lang" part.
+;;                            (2 '(:foreground "gray" :height 70)) ; [:header arguments] part.
+;;                            (3 'org-code) ; "code..." part.
+;;                            )))
+
+;; ;;; @<kbd>C-h h@</kbd> inline key codes highlight
+;; (font-lock-add-keywords 'org-mode
+;;                         '(("@<kbd>\\([^@]*\\)@</kbd>" 1 'org-code)))
+
+;; (font-lock-add-keywords 'ruby-mode
+;;                         '(("")))
 
 
 ;;; ruby-hash-syntax
@@ -332,11 +365,15 @@
 ;; - Automatically shows source in emacs buffer.
 ;; - You can use the pointer or other emacs commands to move the cursor on the
 ;;   command line and Pry will be aligned with the new position.
+;; Optional
+;;
+;; - $ gem install pry-nav pry-stack_explorer
+;; - $ gem install termios # replaces the running of: stty sane
 
 (require 'pry)
 
-(define-key my-inferior-ruby-map (kbd "p") 'pry-intercept)
-(define-key my-inferior-ruby-map (kbd "C-p") 'pry-intercept-rerun)
+(define-key my-inferior-ruby-map (kbd "p") 'run-pry)
+(define-key my-inferior-ruby-map (kbd "C-p") 'pry-intercept)
 
 
 
@@ -420,9 +457,9 @@
 
 ;; start Robe server.
 (eval-after-load 'robe
-  (progn
-    (inf-ruby)
-    (robe-start)))
+  '(progn
+     (inf-ruby)
+     (robe-start)))
 
 
 (dolist (hook '(ruby-mode-hook

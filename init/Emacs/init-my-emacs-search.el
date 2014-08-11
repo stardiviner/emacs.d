@@ -51,6 +51,7 @@
 
 ;;; Usage:
 
+;; FIXME: caused eshell startup key prefix map C-c error.
 ;; (eval-after-load "isearch" '(require 'isearch+))
 
 ;; (setq isearchp-set-region-flag nil

@@ -168,11 +168,11 @@
                     )
 (set-face-attribute 'sauron-event-handled-face nil
                     :strike-through t
-                    :foreground "dark gray"
+                    :foreground "#444444"
                     )
 ;; Prio
 (set-face-attribute 'sauron-priority-face nil
-                    :foreground "magenta"
+                    :foreground "deep pink"
                     )
 ;; Time
 (set-face-attribute 'sauron-timestamp-face nil
@@ -254,6 +254,24 @@
 (setq sauron-dbus-cookie t)
 
 
+
+;; some sound/light effects for certain events
+;; (add-hook 'sauron-event-added-functions
+;;   (lambda (origin prio msg &optional props)
+;;     (if (string-match "ping" msg)
+;;       (sauron-fx-sox "/usr/share/sounds/ping.wav"))
+;;     (cond
+;;       ((= prio 3) (sauron-fx-sox "/usr/share/sounds/pling.wav"))
+;;       ((= prio 4) (sauron-fx-sox "/usr/share/sounds/plong.wav"))
+;;       ((= prio 5)
+;; 	(sauron-fx-sox "/usr/share/sounds/alarm.wav")
+;; 	(sauron-fx-gnome-osd(format "%S: %s" origin msg) 5)))))
+
+:;; events to ignore
+;; (add-hook 'sauron-event-block-functions
+;;   (lambda (origin prio msg &optional props)
+;;     (or
+;;       (string-match "^*** Users" msg)))) ;; filter out IRC spam
 
 
 

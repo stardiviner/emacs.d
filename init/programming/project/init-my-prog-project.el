@@ -85,8 +85,51 @@
     (global-set-key (kbd "C-c p h") 'helm-projectile))
 
 
+;;; [ redefine projectile keybindings ]
 
+;; FIXME: this does not work!
+;; (unless (boundp 'my-projectile-keymap-prefix)
+;;   (define-prefix-command 'my-projectile-keymap-prefix))
+;; (global-set-key (kbd "C-c p") 'my-projectile-keymap-prefix)
 ;;
+;; ;; commander
+;; (define-key my-projectile-keymap-prefix (kbd "m") 'projectile-commander)
+;; ;; TAGS
+;; ;; (define-prefix-command 'TAGS-)
+;; ;; (global-set-key (kbd "C-c p T") 'TAGS-)
+;; ;; (define-key TAGS- (kbd "r") 'projectile-regenerate-tags)
+;; (define-key my-projectile-keymap-prefix (kbd "j r") 'projectile-regenerate-tags)
+;; (define-key my-projectile-keymap-prefix (kbd "j j") 'projectile-find-tag)
+;; ;; search: ack, ag
+;; (define-key my-projectile-keymap-prefix (kbd "s a") 'projectile-ack)
+;; (define-key my-projectile-keymap-prefix (kbd "s A") 'projectile-ag)
+;; (define-key my-projectile-keymap-prefix (kbd "s g") 'projectile-grep)
+;; (define-key my-projectile-keymap-prefix (kbd "s o") 'projectile-multi-occur)
+;; (define-key my-projectile-keymap-prefix (kbd "s r") 'projectile-replace)
+;; ;; buffer, file, dired, project ...
+;; (define-key my-projectile-keymap-prefix (kbd "f b") 'projectile-switch-to-buffer)
+;; (define-key my-projectile-keymap-prefix (kbd "f f") 'projectile-find-file)
+;; (define-key my-projectile-keymap-prefix (kbd "f d") 'projectile-find-dir)
+;; (define-key my-projectile-keymap-prefix (kbd "f l") 'projectile-find-file-in-directory)
+;; (define-key my-projectile-keymap-prefix (kbd "f D") 'projectile-dired)
+;; (define-key my-projectile-keymap-prefix (kbd "f S") 'projectile-save-project-buffers)
+;; (define-key my-projectile-keymap-prefix (kbd "f k") 'projectile-kill-buffers)
+;; (define-key my-projectile-keymap-prefix (kbd "f z") 'projectile-cache-current-file)
+;; (define-key my-projectile-keymap-prefix (kbd "f F") 'projectile-find-file-in-known-projects)
+;; (define-key my-projectile-keymap-prefix (kbd "f I") 'projectile-ibuffer)
+;; (define-key my-projectile-keymap-prefix (kbd "f r") 'projectile-recentf)
+;; (define-key my-projectile-keymap-prefix (kbd "f i") 'projectile-invalidate-cache)
+;; (define-key my-projectile-keymap-prefix (kbd "s") 'projectile-switch-project)
+;; ;; Test
+;; (define-key my-projectile-keymap-prefix (kbd "t t") 'projectile-toggle-between-implementation-and-test)
+;; (define-key my-projectile-keymap-prefix (kbd "t p") 'projectile-test-project)
+;; ;; Shell
+;; (define-key my-projectile-keymap-prefix (kbd "!") 'projectile-run-shell-command-in-root)
+;; (define-key my-projectile-keymap-prefix (kbd "&") 'projectile-run-async-shell-command-in-root)
+;; ;; Compile & Run
+;; (define-key my-projectile-keymap-prefix (kbd "c") 'projectile-compile-project)
+;; ;; Version Control (vc)
+;; (define-key my-projectile-keymap-prefix (kbd "v") 'projectile-vc)
 
 
 ;;; [ vagrant ]

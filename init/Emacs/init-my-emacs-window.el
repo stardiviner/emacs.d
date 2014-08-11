@@ -30,10 +30,10 @@
 ;; (push (cons 'my-window-number-meta-mode my-window-number-mode-map) minor-mode-map-alist)
 
 ;;; window-number face
-(set-face-attribute 'window-number-face nil
-                    :background "red" :foreground "black"
-                    :box '(:color "dark red" :line-width 1 :style nil)
-                    :bold 'normal)
+;; (set-face-attribute 'window-number-face nil
+;;                     :background "red" :foreground "black"
+;;                     :box '(:color "dark red" :line-width 1 :style nil)
+;;                     :bold 'normal)
 
 
 ;;; [ window-numbering ] --
@@ -227,6 +227,9 @@
 
 ;;; Man/Women
 (push '(Man-mode :position bottom :height 15) popwin:special-display-config)
+
+;;; Ediff
+(push '("*Ediff Control Panel*" :position bottom :height 15) popwin:special-display-config)
 
 ;;; Magit
 ;; TODO: create one for commit message buffer.

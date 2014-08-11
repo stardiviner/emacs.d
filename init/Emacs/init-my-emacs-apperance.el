@@ -342,6 +342,9 @@
 
 (require 'pretty-mode)
 
+;; FIXME:
+;; (add-to-list pretty-patterns '((ruby-mode ("->" . ?λ))))
+
 ;; (setq-default pretty-patterns
 ;;               '(let* ((lispy '(scheme emacs-lisp lisp))
 ;;                       (mley '(tuareg haskell sml))

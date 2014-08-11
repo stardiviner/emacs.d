@@ -48,15 +48,15 @@
      (define-key coffee-mode-map (kbd "C-j") 'coffee-newline-and-indent)))
 
 ;;; Move to corresponding point in JavaScript file after compiling
-;; You can archive this with sourcemap and following configuration.
-(setq coffee-args-compile '("-c" "-m")) ;; generating sourcemap
-(add-hook 'coffee-after-compile-hook 'sourcemap-goto-corresponding-point)
+;; You can archive this with `sourcemap' and following configuration.
+;; (setq coffee-args-compile '("-c" "-m")) ;; generating sourcemap
+;; (add-hook 'coffee-after-compile-hook 'sourcemap-goto-corresponding-point)
 
-;; If you want to remove sourcemap file after jumping corresponding point
-(defun my/coffee-after-compile-hook (props)
-  (sourcemap-goto-corresponding-point props)
-  (delete-file (plist-get props :sourcemap)))
-(add-hook 'coffee-after-compile-hook 'my/coffee-after-compile-hook)
+;; ;; If you want to remove sourcemap file after jumping corresponding point
+;; (defun my/coffee-after-compile-hook (props)
+;;   (sourcemap-goto-corresponding-point props)
+;;   (delete-file (plist-get props :sourcemap)))
+;; (add-hook 'coffee-after-compile-hook 'my/coffee-after-compile-hook)
 
 
 (provide 'init-my-prog-lang-coffeescript)

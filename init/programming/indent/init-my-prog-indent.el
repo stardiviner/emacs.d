@@ -58,6 +58,8 @@
                     (highlight-indentation-current-column-mode)
                     )))
 
+;; TODO: ignore first 1, (or and 2) level indent guide line?
+
 ;;; [ indent-hints ] -- Get some hints about whether your buffer is space- or tab-loving
 ;; Usage:
 ;; 1.

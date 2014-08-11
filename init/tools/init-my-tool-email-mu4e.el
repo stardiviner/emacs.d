@@ -334,7 +334,8 @@
                                  ("/Emacs/help"  . ?e)
                                  ("/Emacs/Org-mode" . ?a)
                                  ("/Emacs/mu"       . ?m)
-                                 ("/Lisp/comp-lang" . ?l)
+                                 ;; ("/Lisp/comp-lang" . ?l)
+                                 ("/Lisp/Clojure" . ?l)
                                  ("/Ruby/talk"      . ?r)
                                  ("/Ruby/Rails"     . ?R)
                                  ("/Python/help"    . ?p)
@@ -463,14 +464,41 @@
                             (:date    . 20))
       )
 
+;; (defun my-set-mu4e-headers-fields-smart
+;;   "Set mu4e headers fields: flag, subject, from, date length depend on window width."
+;;
+;;   ;; solid length
+;;   (setq i_flag 5
+;;         i_date 20)
+;;
+;;   (if (< (window-width) 120)
+;;       (setq subject_percent (/ 5.0 6.0))
+;;     (setq i_subject (* (- (window-width) (+ i_flag i_date)) subject_percent)
+;;           i_from (- (window-width) (+ i_flag i_subject i_date)))
+;;       )
+;;
+;;   (setq mu4e-headers-fields '((:flags   . i_flag)
+;;                               (:subject . i_subject)
+;;                               (:from    . i_from)
+;;                               (:date    . i_date))
+;;         )
+;;   )
+;;
+;; (add-hook 'mu4e-headers-mode-hook 'my-set-mu4e-headers-fields-smart)
+
+
 ;; general emacs mail settings; used when composing e-mail
 ;; the non-mu4e-* stuff is inherited from emacs/message-mode
 (setq mu4e-reply-to-address "numbchild@gmail.com"
       user-mail-address "numbchild@gmail.com"
       user-full-name  "stardiviner")
 
+;; (setq mu4e-html2text-command "html2text -utf8 -width 72")
+(setq mu4e-html2text-command "pandoc -f html -t org")
+
 
 ;;; Compose
+
 ;;; Compose hooks [mu4e-compose-pre-hook, mu4e-compose-mode-hook]
 ;;;
 ;;; When replying to an email I want to use the address I received this message
@@ -547,7 +575,7 @@
 ;;; message inline pgp sign.
 ;; `message-send-hook' or `mu4e-compose-mode-hook'
 ;; `mml-secure-message-sign-pgpauto' or `mml-secure-message-sign-pgpmime'
-(add-hook 'message-send-hook 'mml-secure-message-sign-pgpauto)
+;; (add-hook 'message-send-hook 'mml-secure-message-sign-pgpauto)
 
 
 ;;; Headers
@@ -575,6 +603,7 @@
 
 ;;; press [s] -> [:references [regexp]] in search query.
 
+;; FIXME: result is:   -> :References : nil
 (add-to-list 'mu4e-header-info-custom
              '(:references :name "References: "
                            :shortname "References"

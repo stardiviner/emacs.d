@@ -94,6 +94,16 @@
 ;; (eval-after-load "helm-dash"
 ;;   '(defun helm-dash-actions (actions doc-item) `(("Go to doc" . eww))))
 
+;;; open doc as you type
+;;
+;; This works kinda ok, but it's super slow. makes everything sluggish.  We
+;; should investigate on that, There's also helm-idle-delay worth investigating.
+;;
+;; (add-hook 'helm-update-hook 'helm-dash-update t)
+;; (defun helm-dash-update ()
+;;   (interactive)
+;;   (with-selected-window
+;;     (eww (helm-get-selection))))
 
 (define-key help-document-map (kbd "C-d") 'helm-dash-at-point)
 
