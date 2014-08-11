@@ -11,6 +11,90 @@
 
 (require 'markdown-mode)
 
+;;; Faces
+;; header text
+(set-face-attribute 'markdown-header-face nil
+                    :foreground "cyan"
+                    :weight 'bold
+                    ;; :box '(:color "cyan" :line-width 1)
+                    :overline t
+                    )
+;; # header #
+(set-face-attribute 'markdown-header-delimiter-face nil
+                    :foreground "#444444"
+                    ;; :box '(:color "cyan" :line-width 1)
+                    )
+;; header
+;; ======
+(set-face-attribute 'markdown-header-rule-face nil
+                    :foreground "#444444"
+                    )
+;; header (1-6)
+(set-face-attribute 'markdown-header-face-1 nil
+                    :inherit 'markdown-header-face
+                    :foreground "cyan")
+(set-face-attribute 'markdown-header-face-2 nil
+                    :foreground "deep pink")
+(set-face-attribute 'markdown-header-face-3 nil
+                    :foreground "green yellow")
+(set-face-attribute 'markdown-header-face-4 nil
+                    :foreground "yellow")
+(set-face-attribute 'markdown-header-face-5 nil
+                    :foreground "slate blue")
+(set-face-attribute 'markdown-header-face-6 nil
+                    :foreground "sky blue")
+;; line break
+(set-face-attribute 'markdown-line-break-face nil
+                    :foreground "slate blue")
+;; italic
+(set-face-attribute 'markdown-italic-face nil
+                    :slant 'italic
+                    :foreground "white")
+;; bold
+(set-face-attribute 'markdown-bold-face nil
+                    :weight 'bold
+                    :foreground "white")
+;; list
+(set-face-attribute 'markdown-list-face nil
+                    :foreground "red")
+;; comment
+(set-face-attribute 'markdown-comment-face nil
+                    :foreground "dark gray")
+;; link
+(set-face-attribute 'markdown-link-face nil
+                    :foreground "#888888"
+                    :underline '(:color "dark cyan"))
+(set-face-attribute 'markdown-url-face nil
+                    :foreground "cyan")
+(set-face-attribute 'markdown-link-title-face nil
+                    :foreground "cyan")
+(set-face-attribute 'markdown-missing-link-face nil
+                    :foreground "#888888" :background "dark red"
+                    :underline '(:color "dark cyan"))
+;; meta-data
+(set-face-attribute 'markdown-metadata-key-face nil
+                    :foreground "slate blue")
+(set-face-attribute 'markdown-metadata-value-face nil
+                    :foreground "yellow")
+;; footnote & reference
+(set-face-attribute 'markdown-footnote-face nil
+                    :foreground "light blue" :background "black")
+(set-face-attribute 'markdown-reference-face nil
+                    :foreground "green" :background "black")
+;; block, quote, pre, code
+(set-face-attribute 'markdown-pre-face nil
+                    :foreground "#888888" :background "black")
+;; programming language identifier
+(set-face-attribute 'markdown-language-keyword-face nil
+                    :foreground "cyan")
+(set-face-attribute 'markdown-blockquote-face nil
+                    :foreground "cyan" :background "black")
+(set-face-attribute 'markdown-inline-code-face nil
+                    :foreground "white" :background "dark cyan"
+                    :box '(:color "cyan" :line-width -1))
+(set-face-attribute 'markdown-math-face nil
+                    :foreground "orange")
+
 
 
 ;;; for Stack Overflow {It's All Text} (Firefox Addon)
