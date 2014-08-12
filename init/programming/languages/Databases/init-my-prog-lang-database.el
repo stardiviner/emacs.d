@@ -27,11 +27,12 @@
 (add-hook 'sql-mode-hook 'sqlup-mode)
 (add-hook 'sql-inretactive-mode-hook 'sqlup-mode)
 
-(add-hook 'sqlup-mode-hook
-          (lambda ()
-            (setq sqlup-keywords
-                  (append sqlup-keywords
-                          '("text" "glob" "offset")))))
+;; (add-hook 'sqlup-mode-hook
+;;           (lambda ()
+;;             (setq sqlup-keywords
+;;                   (append sqlup-keywords
+;;                           '("text" "glob" "offset")))))
+
 
 
 
