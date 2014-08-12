@@ -98,12 +98,22 @@
 ;; - [Tab]
 ;; - or [C-Tab]
 
-(setq yas-trigger-key "TAB")
+;;; source code implement
+;; (defvar yas-keymap  (let ((map (make-sparse-keymap)))
+;;                       (define-key map [(tab)]       'yas-next-field-or-maybe-expand)
+;;                       (define-key map (kbd "TAB")   'yas-next-field-or-maybe-expand)
+;;                       (define-key map [(shift tab)] 'yas-prev-field)
+;;                       (define-key map [backtab]     'yas-prev-field)
+;;                       (define-key map (kbd "C-g")   'yas-abort-snippet)
+;;                       (define-key map (kbd "C-d")   'yas-skip-and-clear-or-delete-char)
+;;                       map)
+;;   "The active keymap while a snippet expansion is in progress.")
+
+(setq yas-trigger-key "<tab>") ; old value: "TAB"
 (setq yas-next-field-key '("<tab>"))
 (setq yas-prev-field-key '("<S-tab>" "<backtab>"))
 (setq yas-skip-and-clear-key '("C-d"))
 
-;; (define-key yas-minor-mode (kbd "") 'yas-abort-snippet)
 
 
 ;;; indent

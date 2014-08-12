@@ -69,7 +69,7 @@
 (diminish 'auto-complete-mode)
 
 
-(setq ac-auto-start 2) ; auto start auto-complete when has N characters.
+(setq ac-auto-start 4) ; auto start auto-complete when has N characters.
 
 
 ;;; dirty fix for having AC everywhere
@@ -83,9 +83,9 @@
 
 
 ;; auto raise popup menu
-(setq ac-delay 0.6) ; delay time to start completion in real number seconds
+(setq ac-delay 0.5) ; delay time to start completion in real number seconds
 ;; (setq ac-show-menu-immediately-on-auto-complete t) ; it is a trade off of responsibility and performance
-(setq ac-auto-show-menu 0.8) ;; show popup menu after how many seconds
+(setq ac-auto-show-menu 0.7) ;; show popup menu after how many seconds
 (setq ac-menu-height 10) ; smaller ac-menu is more cute. big ac-menu is not necessary.
 ;; NOTE: small menu is helpful for small computer screen, because split window
 ;; has small height, this cause quick help popup is shown in hidden position.
@@ -95,9 +95,12 @@
 (setq-default ac-dwim nil) ; to get pop-ups with docs even if a word is uniquely completed.
 
 
+(setq ac-delete-dups nil) ; t: auto delete duplicate candidates. nil: different type but same candidates.
+
+
 ;; trigger key [TAB]
-;; (ac-set-trigger-key "TAB") ; usualy this, <tab> has higher priority than TAB.
-;; (ac-set-trigger-key "<tab>")
+(ac-set-trigger-key "TAB") ; usualy this, <tab> has higher priority than TAB.
+;; (ac-set-trigger-key "<tab>") ; <tab> is used for yasnippet.
 ;;
 ;; (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
 (define-key global-map (kbd "M-TAB") 'ac-fuzzy-complete) ; fuzzy complete.
