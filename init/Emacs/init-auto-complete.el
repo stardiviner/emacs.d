@@ -113,10 +113,11 @@
 (define-key ac-menu-map [tab] nil)
 (define-key ac-menu-map (kbd "<tab>") nil)
 (define-key ac-menu-map (kbd "<S-tab>") nil) ; "S-TAB". "?\\s-\\t"
-(define-key ac-menu-map (kbd "C-n") nil)
-(define-key ac-menu-map (kbd "C-p") nil)
+(define-key ac-menu-map (kbd "C-n") 'ac-next)
+(define-key ac-menu-map (kbd "C-p") 'ac-previous)
 (define-key ac-menu-map "\r" nil)
 (define-key ac-menu-map [return] nil)
+(define-key ac-menu-map (kbd "C-j") 'ac-complete)
 
 (define-key ac-menu-map (kbd "M-j") 'ac-complete) ; select current candidate.
 (define-key ac-menu-map (kbd "M-n") 'ac-next) ; next candidate.
