@@ -99,11 +99,12 @@
 
 
 ;; trigger key [TAB]
-(ac-set-trigger-key "TAB") ; usualy this, <tab> has higher priority than TAB.
+
 ;; (ac-set-trigger-key "<tab>") ; <tab> is used for yasnippet.
-;;
-;; (define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
-(define-key global-map (kbd "M-TAB") 'ac-fuzzy-complete) ; fuzzy complete.
+(ac-set-trigger-key "TAB") ; usualy this, <tab> has higher priority than TAB.
+(define-key ac-mode-map (kbd "C-i") 'auto-complete)
+(define-key ac-mode-map (kbd "M-TAB") 'auto-complete)
+;; (define-key global-map (kbd "M-TAB") 'ac-fuzzy-complete) ; fuzzy complete.
 
 ;;; ac-menu-map keymap only map for menu is available, not break default.
 (setq ac-use-menu-map t)       ; nil: to disable default ac-menu-map key bindings.
