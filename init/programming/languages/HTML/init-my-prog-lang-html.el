@@ -8,7 +8,7 @@
 ;;; Code:
 
 
-
+(require 'init-my-prog-lang-html5)
 
 
 (provide 'init-my-prog-lang-html)
