@@ -58,6 +58,7 @@
          auto-complete-emacs-lisp
          auto-complete-pcmp
          company-mode
+         ac-helm
          ;; color theme
          color-theme-solarized
          ;; color-theme-almost-monokai
