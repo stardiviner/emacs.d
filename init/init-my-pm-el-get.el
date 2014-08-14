@@ -70,7 +70,7 @@
          ;; minimap
          ;; modeline
          diminish pretty-mode page-break-lines
-         mode-icons
+         ;; mode-icons
          ;; input method
          ;; eim
          ;; clipboard

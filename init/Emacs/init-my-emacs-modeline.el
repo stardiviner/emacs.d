@@ -370,9 +370,9 @@
 
 ;;; [ mode-icons ]
 
-(require 'mode-icons)
-
-(mode-icons-mode)
+;; (require 'mode-icons)
+;;
+;; (mode-icons-mode)
 
 
 
