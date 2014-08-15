@@ -59,7 +59,7 @@
 ;; If you want Projectile to be usable in every directory (even without the presence of project file):
 (setq projectile-require-project-root nil)
 ;; Completion Options
-(setq projectile-completion-system 'default ; 'ido, 'grizzl, 'default
+(setq projectile-completion-system 'helm ; 'helm, 'ido, 'grizzl, 'default
       projectile-use-git-grep nil)
 
 ;; (setq projectile-tags-command "ctags -Re %s")
