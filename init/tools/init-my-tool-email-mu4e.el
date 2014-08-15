@@ -908,9 +908,12 @@
 
 ;; (set-face-attribute 'mu4e-faces nil)
 (set-face-attribute 'mu4e-header-highlight-face nil ; current select line
+                    ;; 1
+                    ;; :background "#004A5D" :foreground "white"
+                    ;; :box '(:color "cyan" :line-width -1)
+                    ;; :weight 'normal :underline nil
                     :background "#004A5D" :foreground "white"
-                    :box '(:color "cyan" :line-width -1)
-                    :weight 'normal :underline nil
+                    :box '(:color "#005D5E" :line-width -1)
                     )
 ;;; highlighted email, main view key color like "[q]uit mu4e".
 (set-face-attribute 'mu4e-highlight-face nil
