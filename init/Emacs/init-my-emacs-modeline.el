@@ -45,6 +45,11 @@
                                                ;; :underline "green yellow"
                                                ;; :family "Segoe Print"
                                                ))
+                
+                ;; projectile
+                (:propertize projectile-mode-line
+                             face (:foreground "slate blue"))
+
 
                 (:propertize "  ")
 

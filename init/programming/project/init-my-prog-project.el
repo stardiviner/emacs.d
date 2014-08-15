@@ -64,6 +64,10 @@
 (setq projectile-tags-command "ctags -Re %s"
       projectile-use-git-grep nil)
 
+(setq projectile-mode-line '(:eval
+                             (format " § [%s]" ; " Projectile/>[%s]"
+                                     (projectile-project-name))))
+
 (projectile-global-mode)
 ;; OR
 ;; (dolist (hook
