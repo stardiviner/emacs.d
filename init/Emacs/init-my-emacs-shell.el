@@ -35,7 +35,7 @@
 (require 'eshell)
 
 (setq eshell-save-histroy-on-exit t
-      eshell-history-size 512
+      eshell-history-size 128
       eshell-hist-ignoredups t
       eshell-compl-ignore-case t
       eshell-cp-interactive-query t
@@ -44,14 +44,14 @@
       eshell-rm-interactive-query t
       eshell-mv-overwrite-files nil
       eshell-highlight-prompt t
-      eshell-prompt-regexp "^[^#$\n]* [#>]+"
-      eshell-prompt-function (lambda nil
-                               (concat
-                                (abbreviate-file-name
-                                 (eshell/pwd))
-                                (if
-                                    (= (user-uid) 0)
-                                    " # " " > ")))
+      ;; eshell-prompt-regexp "^[^#$\n]* [#>]+"
+      ;; eshell-prompt-function (lambda nil
+      ;;                          (concat
+      ;;                           (abbreviate-file-name
+      ;;                            (eshell/pwd))
+      ;;                           (if
+      ;;                               (= (user-uid) 0)
+      ;;                               " # " " > ")))
       )
 
 ;;; count how much time the command used.
