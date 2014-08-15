@@ -95,12 +95,11 @@
 
 ;;; [ redefine projectile keybindings ]
 
-;; FIXME: this does not work!
-;; (unless (boundp 'my-projectile-keymap-prefix)
-;;   (define-prefix-command 'my-projectile-keymap-prefix))
-;; (global-set-key (kbd "C-c p") 'my-projectile-keymap-prefix)
-;;
-;; ;; commander
+(unless (boundp 'my-projectile-keymap-prefix)
+  (define-prefix-command 'my-projectile-keymap-prefix))
+(global-set-key (kbd "C-c p") 'my-projectile-keymap-prefix)
+
+;; commander
 ;; (define-key my-projectile-keymap-prefix (kbd "m") 'projectile-commander)
 ;; ;; TAGS
 ;; ;; (define-prefix-command 'TAGS-)
