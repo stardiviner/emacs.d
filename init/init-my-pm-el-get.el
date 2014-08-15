@@ -9,6 +9,10 @@
 
 ;;; el-get
 
+;;; Usage:
+;;
+;; - auto remove disabled packages. `(el-get-cleanup my:el-get-packages)'
+
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
 (unless (require 'el-get nil 'noerror)
@@ -33,7 +37,7 @@
 	))
 
 ;;; my packages which will be installed.
-(setq my-el-get-packages
+(setq my:el-get-packages
       (append
        '(;; debug
          edebug-x
@@ -271,7 +275,7 @@
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
 
-(el-get 'sync my-el-get-packages)
+(el-get 'sync my:el-get-packages)
 
 
 
