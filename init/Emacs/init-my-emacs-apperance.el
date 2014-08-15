@@ -118,9 +118,13 @@
 ;; disable soft wrap lines for windows which has smaller width than 80.
 (global-visual-line-mode -1) ; soft wrap lines at word boundary
 (set-face-attribute 'hl-line nil
+                    ;; 1
                     ;; :foreground nil :background nil
                     ;; :weight 'bold :foreground " " :background " "
+                    ;; 2
                     :foreground nil :background "#004A5D"
+                    :box '(:color "#005D5E" :line-width -1)
+                    ;; 3
                     ;; :foreground " " :background "#004A5D"
                     ;; :box '(:color "cyan" :line-width 1 :style nil) :underline nil
                     ;; :underline "yellow" :foreground nil :background nil
@@ -263,8 +267,10 @@
 ;; (color-theme-almost-monokai)
 
 ;;; monokai-theme
+
 ;; (load-file "~/.emacs.d/init/color-themes/monokai-theme.el")
 ;; ;; (load-file "~/.emacs.d/init/color-themes/molokai-theme.el")
+
 ;; (load-theme 'monokai t)
 
 ;;; [ Faces ]
