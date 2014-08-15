@@ -525,15 +525,6 @@
 ;;                      (t "numbchild@gmail.com")))
 ;;               )))
 
-(defun my-mu4e-compose-setting ()
-  "My settings for message composition."
-  (set-fill-column 72)
-  (flyspell-mode)
-  (auto-complete-mode)
-  )
-
-;; (add-hook 'mu4e-compose-pre-hook 'my-mu4e-compose-setting)
-(add-hook 'mu4e-compose-mode-hook 'my-mu4e-compose-setting)
 
 ;; include in message with C-c C-w
 (setq mu4e-compose-signature-auto-include nil
@@ -557,11 +548,12 @@
 ;; don't keep message buffers around
 (setq message-kill-buffer-on-exit t)
 
-
+;; `mu4e-compose-mode-hook', `mu4e-compose-pre-hook'.
 (add-hook 'mu4e-compose-mode-hook
           (lambda ()
             (set-fill-column 80)
-            (flyspell-mode-on))
+            ;; (flyspell-mode-on)
+            )
           )
 
 
