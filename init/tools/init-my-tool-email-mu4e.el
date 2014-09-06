@@ -620,6 +620,7 @@
 
 ;;; `mu4e-headers-custom-markers'
 
+;;; example
 ;; (add-to-list 'mu4e-headers-custom-markers
 ;;              '("More than n recipients"
 ;;                (lambda (msg n)
@@ -629,6 +630,7 @@
 ;;                  (read-number "Match messages with more recipients than: ")))
 ;;              t)
 
+;; reply to my thread
 (add-to-list 'mu4e-headers-custom-markers
              '("Reply to my thread"
                (lambda (msg reply2mythread)
@@ -638,6 +640,19 @@
                  (message "Messages replied to your thread.")))
              t)
 
+;;; spam
+;; TODO: test this
+;; (defun my-mu4e-mark-spam (msg ignore)
+;;   "Mark messages flagged as spam."
+;;   (with-temp-buffer
+;;     (insert-file-contents (mu4e-message-field msg :path))
+;;     (goto-char (point-min))
+;;     (if (re-search-forward "^X-Spam-Flag: \\(.*\\)" nil t 1)
+;;         (string= (downcase (match-string 1)) "yes")
+;;       nil)))
+;;
+;; (add-to-list 'mu4e-headers-custom-markers
+;;              '("Spam" my-mu4e-mark-spam))
 
 
 ;; creating org-mode links
