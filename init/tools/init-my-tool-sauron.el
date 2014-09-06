@@ -98,7 +98,12 @@
       )
 
 ;; -- priorities --
-(setq sauron-min-priority 3) ; ignore all events which priority is lower than this min-priority.
+(setq sauron-min-priority 3 ; ignore all events which priority is lower than this min-priority.
+      sauron-prio-erc-default 2
+      sauron-prio-erc-privmsg-root 3
+      sauron-prio-erc-privmsg-for-me 3
+      sauron-prio-erc-privmsg-default 2
+      )
 
 ;; -- watching patterns --
 (setq sauron-watch-patterns
