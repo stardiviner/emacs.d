@@ -85,9 +85,8 @@
 ;; (setq projectile-tags-command "ctags -Re %s")
 
 (setq projectile-mode-line '(:eval
-                             (format " § [%s]" ; " Projectile/>[%s]"
+                             (format " §[%s]" ; " Projectile/>[%s]"
                                      (projectile-project-name))))
-
 
 
 
