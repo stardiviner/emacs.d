@@ -104,12 +104,13 @@
 (column-number-mode 1)
 
 ;; display line numbers in margin
-;; (global-linum-mode 1) ; disable linum-mode because I display line number in mode line.
 ;; Linum: separating line numbers from text
 ;; (setq linum-format "%d ") ; 'dynamic
 (setq linum-format "%4d \u2502") ; a solid line separator
-;; TODO combine 'dynamic result with \u2502
+;; TODO: combine 'dynamic result with \u2502
 ;; (setq linum-format '(combine 'dynamic "\u2502"))
+
+;; (global-linum-mode 1) ; disable linum-mode because I display line number in mode line.
 
 
 ;;; [ current line & column ]
@@ -565,7 +566,7 @@
 ;;       minimap-window-location 'right
 ;;       minimap-dedicated-window t        ; whether create a dedicated window.
 ;;       minimap-recreate-window t
-;;       ;; TODO: dive into minimap source code to debug this issue.
+;;       ;; BUG: dive into minimap source code to debug this issue.
 ;;       minimap-automatically-delete-window t ; disable auto delete minimap window will avoid weird window jumping problem. (which auto weird jump to next window after re-switch back to source code window instead of Org-mode buffer.) So set this option to `nil' will preserve the minimap window.
 ;;       minimap-major-modes '(prog-mode
 ;;                             ;; org-mode
@@ -575,8 +576,7 @@
 ;;       minimap-enlarge-certain-faces 'as-fallback
 ;;       )
 
-;; ;; TODO: enable some weeks later.
-;; ;; (add-hook 'emacs-startup-hook 'minimap-create)
+;; (add-hook 'emacs-startup-hook 'minimap-create)
 
 ;; (diminish 'minimap-mode)
 

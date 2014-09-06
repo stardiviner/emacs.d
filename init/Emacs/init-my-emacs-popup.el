@@ -65,7 +65,7 @@
 ;;; [ pos-tip ]
 (require 'pos-tip)
 
-;; TODO set popup items properties.
+;; TODO: set popup items properties.
 ;; - face: popup-face
 ;; - selection-face: popup-selection-face
 ;; - document:

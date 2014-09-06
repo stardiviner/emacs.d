@@ -210,7 +210,7 @@
 (push '("*Shell Command Output*" :position bottom :height 15) popwin:special-display-config)
 
 ;;; Org-mode
-;; TODO: this does not work.
+;; FIXME: this does not work.
 ;; (push '("*Org todo" :position bottom) popwin:special-display-config)
 ;; (push '("*Org Note" :position bottom :height 15) popwin:special-display-config)
 ;; (push '("*Org tags*" :position bottom) popwin:special-display-config)

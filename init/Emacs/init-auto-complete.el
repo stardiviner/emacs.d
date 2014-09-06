@@ -59,7 +59,6 @@
 (require 'auto-complete)
 (require 'auto-complete-config)
 (require 'popup)
-;; TODO: remove this if not needed any more.
 ;; (require 'showtip)
 
 ;; (ac-config-default)
@@ -173,16 +172,6 @@
 ;; (define-key ac-menu-map (kbd "SPC") 'ac-complete-with-space)
 ;; (define-key ac-menu-map (kbd "M-SPC") 'ac-complete-with-space)
 
-
-;; TODO:
-;; (defun ac-complete-with-expand ()
-;;   (case 'candidate
-;;     ((yas-expand-snippet 'candidate)
-;;      (yas-expand))
-;;     (nil
-;;      (ac-expand))
-;;     ))
-;; (define-key ac-menu-map (kbd "M-i") 'ac-complete-with-expand)
 
 
 ;;; [ Help ]
@@ -421,7 +410,7 @@
 
 
 
-;; TODO set auto-complete source priority.
+;; TODO: set auto-complete source priority.
 ;; (defadvice ac-common-setup (after give-yasnippet-highest-priority activate)
 ;;   (setq ac-sources (delq 'ac-source-yasnippet ac-sources))
 ;;   (add-to-list 'ac-sources 'ac-source-yasnippet))

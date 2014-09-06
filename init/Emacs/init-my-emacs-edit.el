@@ -45,7 +45,7 @@
 
 ;;;_ Electric
 
-;; TODO: when electric auto insert ) for (, but when you delete (, electric will not auto delete ) for you.
+;; NOTE: when electric auto insert ) for (, but when you delete (, electric will not auto delete ) for you.
 
 ;; NOTICE: this conflict with ParEdit and auto-pair.
 ;; (when (fboundp 'electric-pair-mode)
@@ -55,7 +55,7 @@
 
 (show-paren-mode)      ; show matching parenthesis
 
-;; TODO: (electric-indent-mode t)
+;; (electric-indent-mode t)
 
 ;; (dolist (hook
 ;;          '(org-mode-hook
@@ -173,7 +173,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;; (setq auto-capitalize-yank nil
 ;;       auto-capitalize-words '("\\<Emacs\\>" "\\<Linux\\>"
 ;;                               "\\<Android\>>" "\\<iOS\\>" "\\<Mac\\>")
-;;       ;; TODO auto-capitalize-predicate
+;;       ;; TODO: auto-capitalize-predicate
 ;;       )
 
 ;;; To turn on (unconditional) capitalization in all Text modes.
@@ -290,7 +290,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 (require 'multiple-cursors)
 
-;; TODO: (setq mc/keymap "C-c c")
+;; (setq mc/keymap "C-c c")
 
 ;; multiple-cursors
 ;; (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
@@ -387,7 +387,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
           (add-to-list 'symbol-names name)
           (add-to-list 'name-and-pos (cons name position))))))))
 
-;; TODO: (global-set-key (kbd "M-i") 'ido-goto-symbol)
+;; (global-set-key (kbd "M-i") 'ido-goto-symbol)
 
 ;;;_ whitespace-mode
 
@@ -410,10 +410,11 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 (global-set-key (kbd "C-;") 'ace-jump-mode)
 
 ;;----------------------------------------------------------------------------
-;; TODO: Expand region
+;; Expand region
 ;;----------------------------------------------------------------------------
 ;; (require 'expand-region)
 ;; (global-set-key (kbd "C-=") 'er/expand-region)
+;; original [M-/]
 
 
 ;;;_ predictive-mode -- tries to predict the rest of the word, and offers you an appropriate completion.
@@ -455,7 +456,6 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;;
 ;; - region select text + [C-u M-x align-regexp] (could contains group in regexp pattern)
 
-;; TODO: add more variable to set.
 (setq align-highlight-change-face 'highlight)
 
 (defun align-repeat (start end regexp)

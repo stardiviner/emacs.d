@@ -34,8 +34,9 @@
                                             ("myemail" "numbchild@gmail.com")
                                             ("mygmail" "numbchild@gmail.com")
                                             ("mygmailformat" "numbchild[@]{gmail}.com")
-                                            ;; TODO: ("myhomepage" "")
+                                            ("myhomepage" "http://stardiviner.github.io")
                                             ("mytwitter" "@numbchild")
+                                            ("myqq" "348284894")
                                             ))
 
 

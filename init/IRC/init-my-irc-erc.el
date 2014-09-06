@@ -55,9 +55,9 @@
 ;; load password
 (setq erc-password "chrisM.sprite324")
 
-;; TODO use GPG encrypted file to decrypt to get password.
+;; TODO: use GPG encrypted file to decrypt to get password.
 
-;; TODO read-lines function is not available
+;; TODO: read-lines function is not available
 ;; (let ((acc (read-lines "~/.emacs.d/my-init/.my-erc-account")))
 ;;   (setq erc-nick (car acc))
 ;;   (setq erc-password (nth 1 acc)))
@@ -104,7 +104,7 @@
 
 ;;; SSL connections
 
-;;; TODO after fix this, change freenode connect port to SSL port
+;;; TODO: after fix this, change freenode connect port to SSL port
 ;; (require 'tls)
 ;;
 ;; (setq tls-program '("openssl s_client -connect %h:%p -no_ssl2 -ign_eof
@@ -453,8 +453,8 @@
 (setq erc-input-line-position -2)
 
 ;;; [ Spelling ]
-;; TODO this will slow down ERC typing in Emacs.
-;; (erc-spelling-mode 1)
+;; NOTE: this will slow down ERC typing in Emacs.
+(erc-spelling-mode -1)
 
 ;; (setq erc-spelling-dictionaries '(("irc.tu-ilmenau.de" "german-new8")))
 
@@ -514,7 +514,7 @@
 (define-key erc-mode-map (kbd "C-c C-a")
   '(lambda (arg)
      (interactive "sThe away reason: ")
-     ;; TODO
+     ;; TODO:
      ;; (if (arg == "")
      ;;     (let arg "No sex, no code!"))
      (erc-cmd-AWAY "arg")

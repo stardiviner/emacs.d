@@ -63,7 +63,6 @@
   )
 
 ;; keybindings
-;; TODO:
 (define-key company-active-map (kbd "M-n") 'company-select-next)
 (define-key company-active-map (kbd "M-p") 'company-select-previous)
 (define-key company-active-map [return] nil)
@@ -86,7 +85,7 @@
 (define-key company-search-map (kbd "C-r") 'company-search-repeat-backward)
 (define-key company-search-map (kbd "C-o") 'company-search-kill-others)
 
-;; TODO:
+
 ;; faces
 ;; - company-tooltip
 ;; - company-tooltip-selection
