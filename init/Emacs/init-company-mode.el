@@ -87,15 +87,35 @@
 
 
 ;; faces
-;; - company-tooltip
-;; - company-tooltip-selection
-;; - company-tooltip-mouse
-;; - company-tooltip-common
-;; - company-tooltip-common-selection
-;; - company-tooltip-search
-;; - company-tooltip-annotation
-;; - company-scrollbar-fg
-;; - company-scrollbar-bg
+(set-face-attribute 'company-tooltip nil
+                    :foreground "black" :background "white"
+                    :weight 'normal :slant 'normal)
+(set-face-attribute 'company-tooltip-selection nil
+                    :inherit 'company-tooltip
+                    :foreground "white" :background "#212121")
+(set-face-attribute 'company-tooltip-mouse nil
+                    :inherit 'company-tooltip
+                    :foreground "cyan" :background "black"
+                    :weight 'bold)
+(set-face-attribute 'company-tooltip-common nil
+                    :inherit 'company-tooltip
+                    :foreground "dark gray")
+(set-face-attribute 'company-tooltip-common-selection nil
+                    :inherit 'company-tooltip-common
+                    :inverse-video nil
+                    :foreground "white" :background " ")
+(set-face-attribute 'company-tooltip-search nil
+                    :inherit 'company-tooltip
+                    :foreground "red")
+(set-face-attribute 'company-tooltip-annotation nil
+                    :inherit 'company-tooltip
+                    :foreground "dark red" :background " ")
+(set-face-attribute 'company-scrollbar-fg nil
+                    :foreground "black" :background "black")
+(set-face-attribute 'company-scrollbar-bg nil
+                    :foreground " " :background "gray")
+
+;; TODO:
 ;; company-prefix is for "inline" displayed first matched candidate.
 ;; - company-preview
 ;; - company-preview-common
