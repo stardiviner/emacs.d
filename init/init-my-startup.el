@@ -110,6 +110,7 @@
 (find-file "~/Org/Wiki/Science/Science.org")
 (find-file "~/Org/Wiki/Life/Life.org")
 (find-file "~/Org/Revenge/Revenge.org")
+(find-file "~/Org/Wiki/Myself/LifeExperience/LifeExperience.org")
 (find-file "~/Org/Projects/Projects.org")
 (find-file "~/Org/Work/Work.org")
 (find-file "~/Org/Tasks.org")

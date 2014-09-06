@@ -137,10 +137,6 @@
 (setq sentence-end "\\([。！？]\\|……\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*")
 ;; (setq sentence-end-double-space nil)
 
-;; always keep cursor in center of buffer.
-;; TODO http://www.emacswiki.org/emacs/HighlightCurrentLine
-(setq scroll-preserve-screen-position nil)
-
 (setq track-eol t) ; always track end of line when moving at end of line.
 
 

@@ -180,12 +180,10 @@
       ;; ack-and-a-half-prompt-for-directory 'unless-guessed
       ;; ack-and-a-half-root-directory-functions '(ack-and-a-half-guess-project-root)
       ack-and-a-half-prompt-for-directory t
-      ;; TODO add more project root file patterns.
-      ack-and-a-half-project-root-file-patterns '(".project\\'"
-                                                  "\\`.git\\'" "\\`.bzr\\'" "\\`_darcs\\'" "\\`.hg\\'"
-                                                  ".xcodeproj\\'" ".sln\\'" "\\`Project.ede\\'"
-                                                  )
       )
+
+;; add more project root file patterns.
+;; (add-to-list 'ack-and-a-half-project-root-file-patterns "\\.kk")
 
 ;; (unless (boundp 'ack-map)
 ;;   (define-prefix-command 'ack-map))

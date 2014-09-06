@@ -20,16 +20,6 @@
 
 (require 'info+)
 
-;; TODO:
-;;  Faces defined here:
-;;
-;;    `info-command-ref-item', `info-constant-ref-item', `info-file',
-;;    `info-function-ref-item',`info-macro-ref-item', `info-menu',
-;;    `info-node', `info-quoted-name', `info-reference-item',
-;;    `info-single-quote', `info-special-form-ref-item',
-;;    `info-string', `info-syntax-class-item',
-;;    `info-user-option-ref-item', `info-variable-ref-item',
-;;    `info-xref'.
 
 (setq Info-breadcrumbs-in-header-flag t
       ;; Info-display-node-header-fn
@@ -44,6 +34,15 @@
       )
 
 ;;; ----------------- Faces -----------------------
+;;  Faces defined here:
+;;
+;;    `info-command-ref-item', `info-constant-ref-item', `info-file',
+;;    `info-function-ref-item',`info-macro-ref-item', `info-menu',
+;;    `info-node', `info-quoted-name', `info-reference-item',
+;;    `info-single-quote', `info-special-form-ref-item',
+;;    `info-string', `info-syntax-class-item',
+;;    `info-user-option-ref-item', `info-variable-ref-item',
+;;    `info-xref'.
 (set-face-attribute 'info-quoted-name nil
                     :background "#004A5D" :foreground "white"
                     :box '(:color "cyan" :line-width 1 :style nil)
