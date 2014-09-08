@@ -456,7 +456,7 @@
 ;;; 2. if you want to set it only for a specific mode
 (dolist (hook '(prog-mode-hook
                 lisp-mode-hook emacs-lisp-mode-hook scheme-mode-hook
-                ruby-mode-hook
+                ruby-mode-hook enh-ruby-mode-hook
                 org-mode-hook markdown-mode-hook))
   (add-hook hook 'turn-on-pretty-mode))
 
