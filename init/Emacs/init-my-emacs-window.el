@@ -173,7 +173,6 @@
 ;;;
 ;;; (push '(my/popwin-func :height 15 :position bottom) popwin:special-display-config)
 
-
 ;;; Usage:
 ;; - [C-g] :: close popup window.
 ;;
@@ -197,11 +196,28 @@
 
 
 (require 'popwin)
+
 (popwin-mode 1)
 
 (global-set-key (kbd "C-z") popwin:keymap)
 
+(setq popwin:close-popup-window-timer-interval 0.1
+      popwin:reuse-window t ; t, 'current,
+      )
+
 ;;; `popwin:special-display-config'
+;;; push popwin:special-display-config `flags': [C-h v popwin:special-display-config]
+;;; - :position [bottom|top]
+;;; - :height 10
+;;; - :width 100
+;;; - :noselect t
+;;; - :stick t
+;;; - :regexp t
+;;; - :dedicated t
+;;; - :tail t
+
+;; TODO:
+(push '("*scratch*" :height 30 :position bottom) popwin:special-display-config)
 
 ;;; Debugger mode, *Backtrace*
 (push '("*Backtrace*" :position bottom :height 15) popwin:special-display-config)
@@ -233,6 +249,8 @@
 
 ;;; Magit
 ;; TODO: create one for commit message buffer.
+;; git-modes
+(push '("\\*git-" :regexp t :position top) popwin:special-display-config)
 
 ;;; ERC
 ;; TODO: This does not work. Because ERC does not use `pop-to-buffer' for private message buffer.
@@ -274,6 +292,9 @@ The `BUFFER' is the popwin catch pop private message buffer."
 ;; Festival
 (push '("*festival*" :position bottom :height 15) popwin:special-display-config)
 
+;; Helm (all helm complete candidates popup)
+; (push '("^\\*helm.*\\*$" :regexp t :position bottom :height 10) popwin:special-display-config)
+
 ;; TeX/LaTeX (AUCTeX)
 ;; (push '(TeX-output-mode :position bottom :height 15) popwin:special-display-config)
 
@@ -282,8 +303,8 @@ The `BUFFER' is the popwin catch pop private message buffer."
 
 ;;; IELM
 ;; TODO:
-;; (push '("*ielm*" :position bottom :height 15) popwin:special-display-config)
-;; (push '(inferior-emacs-lisp-mode :position bottom :height 15) popwin:special-display-config)
+(push '("*ielm*" :position bottom :height 15) popwin:special-display-config)
+(push '(inferior-emacs-lisp-mode :position bottom :height 15) popwin:special-display-config)
 
 ;;; yari Ruby document lookup
 (push '(yari-mode :position bottom :height 15) popwin:special-display-config)
@@ -292,6 +313,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
 ;; (push '("*ruby*" :position bottom :height 15) popwin:special-display-config)
 ;; (push '("*rails*" :position bottom :height 15) popwin:special-display-config)
 (push '(projectile-rails-generate-mode :position bottom :height 15) popwin:special-display-config)
+(push '(projectile-rails-compilation-mode :position bottom :height 15) popwin:special-display-config)
 
 ;;; ruby-compilation-mode (RubyComp)
 ;; FIXME: popwin can't capture this popup window. dive in ruby-compilation-mode source, it use Emacs built-in function window.el.gz -> `pop-to-buffer'.
