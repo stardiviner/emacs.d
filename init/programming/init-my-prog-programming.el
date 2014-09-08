@@ -20,6 +20,22 @@
 (define-key inferior-map (kbd "l") 'my-inferior-lisp-map)
 
 ;; Emacs Lisp
+(define-key my-inferior-lisp-map (kbd "s")
+  (lambda ()
+    (interactive)
+    (if (get-buffer "*scratch*")
+        (switch-to-buffer "*scratch*")
+      (funcall the-command)
+      (bury-buffer)
+      (when whether-switch-to-buffer
+        (switch-to-buffer "*scratch*")))))
+
+(defun my-ielm-start-or-switch ()
+  "Start IELM or switch to its buffer if it already exist."
+  (interactive)
+  (let ((default-directory (getenv "HOME")))
+    (my-func/open-and-switch-to-buffer 'ielm "*ielm*" t)))
+
 (define-key my-inferior-lisp-map (kbd "e") 'my-ielm-start-or-switch)
 ;; Lisp dialects
 (define-key my-inferior-lisp-map (kbd "l") 'run-geiser) ; Common Lisp
