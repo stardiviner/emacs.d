@@ -38,7 +38,10 @@
 ;; smooth scroll
 (setq scroll-margin 10
       scroll-conservatively 100000
-      scroll-preserve-screen-position 1)
+      scroll-preserve-screen-position 1
+      ;; always keep cursor in center of buffer.
+      ;; scroll-preserve-screen-position nil
+      )
 
 
 ;;; [ yascroll ] -- Yet Another Scroll Bar Mode
@@ -137,7 +140,7 @@
 (setq mouse-avoidance-mode 'animate) ;; auto move mouse away when cursor is at mouse position
 (blink-cursor-mode 1)
 (set-cursor-color "cyan")
-(setq-default cursor-type '(hbar . 2) ; '(hbar. 3), '(bar . 3), '(box . 2). '(hollow . 2)
+(setq-default cursor-type '(hbar . 3) ; '(hbar. 3), '(bar . 3), '(box . 2). '(hollow . 2)
               cursor-in-non-selected-windows t)
 (setq mouse-yank-at-point t) ; yank at point position instead of mouse position
 
