@@ -82,12 +82,30 @@
 
 
 
-;;; [ emacs-anzu ] -- Emacs Port of anzu.vim.
+;;; [ anzu ] -- Emacs Port of anzu.vim.
 
 ;;; provides a minor mode which displays current match and total matches
 ;;; information in the mode-line in various search mode.
 
+;;; Usage:
+;;; - [C-s] -- search
+;;; - [M-%] -- query-replace
+;;; - specified lines replacement :: [C-u 3 M-x anzu-query-replace]
+
 (require 'anzu)
+
+(setq anzu-regexp-search-commands '(vr/isearch-forward
+                                    vr/isearch-backward
+                                    isearch-forward-regexp
+                                    isearch-backward-regexp)
+      anzu--mode-line-format '(:eval (anzu--update-mode-line))
+      ;; anzu-cons-mode-line-p
+      ;; anzu-input-idle-delay 0.05
+      anzu-deactivate-region nil
+      anzu-use-migemo nil
+      anzu-replace-to-string-separator " ⇨ "
+      ;; anzu-minimum-input-length 1
+      )
 
 (global-anzu-mode +1)
 ;; (anzu-mode +1)
@@ -102,7 +120,6 @@
                     :weight 'bold)
 (set-face-attribute 'anzu-replace-highlight nil
                     )
-(setq anzu-replace-to-string-separator " ⇨ ")
 
 ;;; Function which constructs mode-line string. If you color mode-line string, you propertize string by yourself.
 ;; (defun my/anzu-update-func (here total)
