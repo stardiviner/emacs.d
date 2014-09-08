@@ -285,7 +285,7 @@
 (global-git-gutter-mode +1)
 
 (setq git-gutter:lighter " GitGutter") ; minor mode name in modeline.
-;; (diminish 'git-gutter-mode)
+(diminish 'git-gutter-mode)
 
 
 ;; ---------------------------
@@ -354,77 +354,79 @@
 
 
 
-;; (require 'git-gutter+)
+(require 'git-gutter+)
 
-;; (global-git-gutter+-mode t)
 
-;; ;;; keybindings
-;; (define-key vcs-map (kbd "m t") 'git-gutter+-mode) ; Turn on/off in the current buffer
-;; (define-key vcs-map (kbd "m T") 'global-git-gutter+-mode) ; Turn on/off globally
+;;; keybindings
+(define-key vcs-map (kbd "m t") 'git-gutter+-mode) ; Turn on/off in the current buffer
+(define-key vcs-map (kbd "m T") 'global-git-gutter+-mode) ; Turn on/off globally
 
-;; ;; NOTE: those keybindings conflict with `narrow' etc.
-;; ;; (eval-after-load 'git-gutter+
-;; ;;   '(progn
-;; ;;      ;;; Jump between hunks
-;; ;;      (define-key git-gutter+-mode-map (kbd "C-x n") 'git-gutter+-next-hunk)
-;; ;;      (define-key git-gutter+-mode-map (kbd "C-x p") 'git-gutter+-previous-hunk)
-;; ;;      ;;; Act on hunks
-;; ;;      (define-key git-gutter+-mode-map (kbd "C-x v =") 'git-gutter+-show-hunk)
-;; ;;      (define-key git-gutter+-mode-map (kbd "C-x r") 'git-gutter+-revert-hunks)
-;; ;;      ;; Stage hunk at point.
-;; ;;      ;; If region is active, stage all hunk lines within the region.
-;; ;;      (define-key git-gutter+-mode-map (kbd "C-x t") 'git-gutter+-stage-hunks)
-;; ;;      (define-key git-gutter+-mode-map (kbd "C-x c") 'git-gutter+-commit)
-;; ;;      (define-key git-gutter+-mode-map (kbd "C-x C") 'git-gutter+-stage-and-commit)))
-
+;; NOTE: those keybindings conflict with `narrow' etc.
 ;; (eval-after-load 'git-gutter+
 ;;   '(progn
-;;      ;; jump between hunks
-;;      (define-key vcs-map (kbd "m n") 'git-gutter+-next-hunk)
-;;      (define-key vcs-map (kbd "m p") 'git-gutter+-previous-hunk)
-;;      ;; actions on hunks
-;;      (define-key vcs-map (kbd "m =") 'git-gutter+-show-hunk)
-;;      (define-key vcs-map (kbd "m r") 'git-gutter+-revert-hunk)
-;;      ;; stage hunk at point
-;;      ;; if region is active, stage all hunk lines within the region.
-;;      (define-key vcs-map (kbd "m s") 'git-gutter+-stage-hunks)
-;;      (define-key vcs-map (kbd "m c") 'git-gutter+-commit)
-;;      (define-key vcs-map (kbd "m C") 'git-gutter+-stage-and-commit)
-;;      ))
+;;      ;;; Jump between hunks
+;;      (define-key git-gutter+-mode-map (kbd "C-x n") 'git-gutter+-next-hunk)
+;;      (define-key git-gutter+-mode-map (kbd "C-x p") 'git-gutter+-previous-hunk)
+;;      ;;; Act on hunks
+;;      (define-key git-gutter+-mode-map (kbd "C-x v =") 'git-gutter+-show-hunk)
+;;      (define-key git-gutter+-mode-map (kbd "C-x r") 'git-gutter+-revert-hunks)
+;;      ;; Stage hunk at point.
+;;      ;; If region is active, stage all hunk lines within the region.
+;;      (define-key git-gutter+-mode-map (kbd "C-x t") 'git-gutter+-stage-hunks)
+;;      (define-key git-gutter+-mode-map (kbd "C-x c") 'git-gutter+-commit)
+;;      (define-key git-gutter+-mode-map (kbd "C-x C") 'git-gutter+-stage-and-commit)))
 
-;; (setq git-gutter+-disabled-modes '(asm-mode image-mode))
+(eval-after-load 'git-gutter+
+  '(progn
+     ;; jump between hunks
+     (define-key vcs-map (kbd "m n") 'git-gutter+-next-hunk)
+     (define-key vcs-map (kbd "m p") 'git-gutter+-previous-hunk)
+     ;; actions on hunks
+     (define-key vcs-map (kbd "m =") 'git-gutter+-show-hunk)
+     (define-key vcs-map (kbd "m r") 'git-gutter+-revert-hunk)
+     ;; stage hunk at point
+     ;; if region is active, stage all hunk lines within the region.
+     (define-key vcs-map (kbd "m s") 'git-gutter+-stage-hunks)
+     (define-key vcs-map (kbd "m c") 'git-gutter+-commit)
+     (define-key vcs-map (kbd "m C") 'git-gutter+-stage-and-commit)
+     ))
 
-;; (setq git-gutter+-hide-gutter t)         ; Hide gutter if there are no changes
-;; (setq git-gutter+-diff-option "-w") ; Pass option to 'git diff' command: -w: ignore all spaces
+(setq git-gutter+-disabled-modes '(asm-mode image-mode))
 
-;; ;; GitGutter signs
-;; (set-face-attribute 'git-gutter+-modified nil
-;;                     :foreground "yellow"
-;;                     :weight 'bold
-;;                     )
-;; (set-face-attribute 'git-gutter+-added nil
-;;                     :foreground "green"
-;;                     :weight 'bold
-;;                     )
-;; (set-face-attribute 'git-gutter+-deleted nil
-;;                     :foreground "red"
-;;                     :weight 'bold
-;;                     )
-;; ;; FIXME: this does not work at Emacs initially.
-;; (set-face-attribute 'git-gutter+-unchanged nil
-;;                     :foreground nil :background nil
-;;                     :weight 'bold
-;;                     )
-;; (set-face-foreground 'git-gutter+-separator "cyan")
+(setq git-gutter+-hide-gutter t)         ; Hide gutter if there are no changes
+(setq git-gutter+-diff-option "-w") ; Pass option to 'git diff' command: -w: ignore all spaces
 
-;; (setq git-gutter+-added-sign "✚"
-;;       git-gutter+-deleted-sign "✖"
-;;       git-gutter+-modified-sign "Ϟ"
-;;       git-gutter+-unchanged-sign nil
-;;       ;; git-gutter+-window-width 2 ; multiple characters is ok.
-;;       ;; |, ┇, ┋ ⋮ ¦ ┊ ┆ │ ┃ ‡ † ‖
-;;       ;; git-gutter+-separator-sign "│"
-;;       )
+;; GitGutter signs
+(set-face-attribute 'git-gutter+-modified nil
+                    :foreground "dark orange"
+                    :weight 'bold
+                    )
+(set-face-attribute 'git-gutter+-added nil
+                    :foreground "green"
+                    :weight 'bold
+                    )
+(set-face-attribute 'git-gutter+-deleted nil
+                    :foreground "red"
+                    :weight 'bold
+                    )
+;; FIXME: this does not work at Emacs initially.
+(set-face-attribute 'git-gutter+-unchanged nil
+                    :foreground nil :background nil
+                    :weight 'bold
+                    )
+(set-face-foreground 'git-gutter+-separator "cyan")
+
+(setq git-gutter+-added-sign "✚"
+      git-gutter+-deleted-sign "✖"
+      git-gutter+-modified-sign "Ϟ"
+      git-gutter+-unchanged-sign nil
+      ;; git-gutter+-window-width 2 ; multiple characters is ok.
+      ;; |, ┇, ┋ ⋮ ¦ ┊ ┆ │ ┃ ‡ † ‖
+      ;; git-gutter+-separator-sign "│"
+      )
+
+
+(global-git-gutter+-mode t)
 
 
 
