@@ -304,6 +304,29 @@ $0"
 
 (setq yas-dont-activate '(minibufferp))
 
+
+;; It will test whether it can expand, if yes, cursor color -> green.
+
+(defun yasnippet-can-fire-p (&optional field)
+  (interactive)
+  (setq yas--condition-cache-timestamp (current-time))
+  (let (templates-and-pos)
+    (unless (and yas-expand-only-for-last-commands
+                 (not (member last-command yas-expand-only-for-last-commands)))
+      (setq templates-and-pos (if field
+                                  (save-restriction
+                                    (narrow-to-region (yas--field-start field)
+                                                      (yas--field-end field))
+                                    (yas--templates-for-key-at-point))
+                                (yas--templates-for-key-at-point))))
+
+    (set-cursor-color (if (and templates-and-pos (first templates-and-pos)) 
+                          "yellow" "cyan"))
+    (curchg-set-cursor-type (if (and templates-and-pos (first templates-and-pos))
+                                "bar" "hbar"))))
+
+;; As pointed out by Dmitri, this will make sure it will update color when needed.
+(add-hook 'post-command-hook 'yasnippet-can-fire-p)
 (diminish 'yas-minor-mode)
 
 
