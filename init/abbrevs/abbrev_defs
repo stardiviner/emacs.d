@@ -1,4 +1,6 @@
 ;;-*-coding: utf-8;-*-
+(define-abbrev-table '5x5-mode-abbrev-table '())
+
 (define-abbrev-table 'Buffer-menu-mode-abbrev-table '())
 
 (define-abbrev-table 'Custom-mode-abbrev-table '())
@@ -121,6 +123,10 @@
 
 (define-abbrev-table 'erc-mode-abbrev-table '())
 
+(define-abbrev-table 'ert-results-mode-abbrev-table '())
+
+(define-abbrev-table 'ert-simple-view-mode-abbrev-table '())
+
 (define-abbrev-table 'eshell-mode-abbrev-table '())
 
 (define-abbrev-table 'flycheck-error-list-mode-abbrev-table '())
@@ -152,10 +158,12 @@
     ("myemail" "numbchild@gmail.com" nil 0)
     ("mygmail" "numbchild@gmail.com" nil 0)
     ("mygmailformat" "numbchild[@]{gmail}.com" nil 0)
+    ("myhomepage" "http://stardiviner.github.io" nil 0)
     ("mynick" "stardiviner" nil 0)
+    ("myqq" "348284894" nil 0)
     ("mytwitter" "@numbchild" nil 0)
     ("stackexchange" "Stack Exchange" nil 3)
-    ("stackoverflow" "Stack Overflow" nil 0)
+    ("stackoverflow" "Stack Overflow" nil 1)
     ("uncomment" "un-comment" nil 2)
     ("wifi" "Wi-Fi" nil 2)
    ))
@@ -252,6 +260,10 @@
 
 (define-abbrev-table 'magit-wazzup-mode-abbrev-table '())
 
+(define-abbrev-table 'mail-abbrevs
+  '(
+   ))
+
 (define-abbrev-table 'markdown-mode-abbrev-table '())
 
 (define-abbrev-table 'mercury-mode-abbrev-table '())
@@ -286,6 +298,7 @@
   '(
     ("257]
 " "youtube" nil 0)
+    ("mailinglist" "Mailing List" nil 1)
     ("sis" "sister-bitch" nil 1)
     ("youtube" "YouTube" nil 9)
    ))
