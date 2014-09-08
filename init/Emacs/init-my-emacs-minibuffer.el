@@ -26,32 +26,32 @@
 
 
 
-;; eldoc-eval --- Enable eldoc support when minibuffer is in use. [M-:]
+;;; eldoc-eval --- Enable eldoc support when minibuffer is in use. [M-:]
 
-;; Eldoc info is shown by default in mode-line, but you can have eldoc info
-;; somewhere else by setting eldoc-in-minibuffer-show-fn to another function
-;; (e.g tooltip-show).
-(setq eldoc-in-minibuffer-show-fn 'tooltip-show) ; 'eldoc-show-in-mode-line.
+;;; Eldoc info is shown by default in mode-line, but you can have eldoc info
+;;; somewhere else by setting eldoc-in-minibuffer-show-fn to another function
+;;; (e.g tooltip-show).
+;; (setq eldoc-in-minibuffer-show-fn 'eldoc-show-in-mode-line) ; 'eldoc-show-in-mode-line, 'tooltip-show.
 
-;; It also provides a convenient macro to enable eldoc support in your own
-;; functions using minibuffer or in your defadvices, that is
-;; with-eldoc-in-minibuffer, e.g:
-;;
-;; (defadvice edebug-eval-expression (around with-eldoc activate)
-;;   "This advice enable eldoc support."
-;;   (interactive (list (with-eldoc-in-minibuffer
-;;                        (read-from-minibuffer
-;;                         "Eval: " nil read-expression-map t
-;;                         'read-expression-history))))
-;;   ad-do-it)
+;;; It also provides a convenient macro to enable eldoc support in your own
+;;; functions using minibuffer or in your defadvices, that is
+;;; with-eldoc-in-minibuffer, e.g:
+;;;
+;;; (defadvice edebug-eval-expression (around with-eldoc activate)
+;;;   "This advice enable eldoc support."
+;;;   (interactive (list (with-eldoc-in-minibuffer
+;;;                        (read-from-minibuffer
+;;;                         "Eval: " nil read-expression-map t
+;;;                         'read-expression-history))))
+;;;   ad-do-it)
 
-;; Users of own minibuffer frame will have to set
-;; `eldoc-in-minibuffer-own-frame-p' to non-nil.
+;;; Users of own minibuffer frame will have to set
+;;; `eldoc-in-minibuffer-own-frame-p' to non-nil.
 
-;; You can turn On/Off eldoc support in minibuffer at any time with
-;; `eldoc-in-minibuffer-mode'.
+;;; You can turn On/Off eldoc support in minibuffer at any time with
+;;; `eldoc-in-minibuffer-mode'.
 
-;; TODO: this eldoc-eval does not looks great.
+;;; this eldoc-eval does not looks great.
 ;; (autoload 'eldoc-in-minibuffer-mode "eldoc-eval")
 ;; (eldoc-in-minibuffer-mode 1)
 
