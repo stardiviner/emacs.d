@@ -33,6 +33,10 @@
                 ;;              face (:foreground "#444444" :background "black")
                 ;;              help-echo "九州 ❯ 羽传说 ❯ 向异翅")
 
+                ;; dynamic update indicators
+                (:propertize (:eval (anzu--update-mode-line))
+                             face (:foreground "green yellow" :slant 'italic :weight 'normal))
+                
                 ;; window-number
                 (:propertize (:eval (window-number-string))
                              face (:foreground "orange"))
