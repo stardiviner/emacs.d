@@ -226,7 +226,6 @@
 
 (require 'init-my-startup)
 
-(set-cursor-color "cyan")
 
 ;; Nil initial/scratch buffer
 (setq initial-buffer-choice nil) ; a dirty workaround for which initial buffer open replace one buffer in workgroups.
