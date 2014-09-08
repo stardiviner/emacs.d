@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: %text_field
+# key: %text_field
+# --
+<%= text_field("${object_name} ", "${method}"$0) %>

@@ -24,6 +24,23 @@
 #     will only be expanded when the condition code evaluate to some non-nil
 #     value.
 #     See also yas-buffer-local-condition in Expanding snippets
+#
+#     e.g.
+#
+#     # -*- mode: snippet -*-
+#     # name: each
+#     # key: each
+#     # condition: (one-check-function)
+#     # --
+#     each {|x| $0 }
+#     
+#     (defun word-p ()
+#       "must a word, exclude _ or -."
+#     (and
+#              (looking-back "\\<[^0-9]?[a-zA-Z0-9]+[=?!]?")
+#              (not (looking-back "[_-]\\<[^0-9]?[a-zA-Z0-9]+[=?!]?")))
+#        )
+
 
 # - [# group: snippet menu grouping]
 #     When expanding/visiting snippets from the menu-bar menu, snippets for a

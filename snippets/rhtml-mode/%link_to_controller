@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: %link_to_controller
+# key: %link_to_controller
+# --
+<%= link_to "${title}", :controller => "${items}" %>$0

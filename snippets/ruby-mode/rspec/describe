@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: describe (String)
+# key: describe
+# --
+describe '${1:description}' do
+  it 'should ${2:description}' do
+    $0
+  end
+end

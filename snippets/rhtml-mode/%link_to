@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: %link_to
+# key: %link_to
+# --
+<%= link_to "${title}", :action => "${index}" %>$0

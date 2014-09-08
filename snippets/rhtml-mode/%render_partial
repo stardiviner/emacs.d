@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: %render_partial
+# key: %render_partial
+# --
+<%= render(:partial => "${action}"$0 ) %>

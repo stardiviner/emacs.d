@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: %form_tag
+# key: %form_tag
+# --
+<% form_tag(:action => "${update}") do %>
+$0
+<% end %>
