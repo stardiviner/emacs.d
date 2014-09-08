@@ -136,9 +136,7 @@
 (setq yas-trigger-symbol " =>") ; the text used in menu to represent the trigger.
 
 
-(setq yas-key-syntaxes
-      '("w" "w_" "w_." "w_.()" "^ ") ; default
-      )
+;; (setq yas-key-syntaxes '("w" "w_" "w_." "w_.()" "^ "))
 
 ;; for `yas-choose-value'.
 (setq yas-prompt-functions
