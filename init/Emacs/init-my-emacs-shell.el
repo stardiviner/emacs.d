@@ -9,7 +9,7 @@
 
 
 ;;; variables
-;; (setq shell-file-name "/bin/sh")        ; TODO "$SHELL", "/bin/sh", "usr/bin/zsh"
+(setq shell-file-name (getenv "SHELL"))      ; "$SHELL", "/bin/sh", "/bin/bash", "usr/bin/zsh"
 
 
 ;;; [ Cominit ]
