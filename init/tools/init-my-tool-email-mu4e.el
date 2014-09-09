@@ -929,6 +929,7 @@
                     ;; :weight 'normal :underline nil
                     :background "#004A5D" :foreground "white"
                     :box '(:color "#005D5E" :line-width -1)
+                    :weight 'normal
                     )
 ;;; highlighted email, main view key color like "[q]uit mu4e".
 (set-face-attribute 'mu4e-highlight-face nil
@@ -957,7 +958,8 @@
                     :foreground "deep sky blue")
 ;;; unread email
 (set-face-attribute 'mu4e-unread-face nil
-                    :foreground "forest green")
+                    :foreground "forest green"
+                    :weight 'normal)
 (set-face-attribute 'mu4e-system-face nil
                     :foreground "white")
 ;;; trash email
