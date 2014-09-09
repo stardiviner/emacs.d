@@ -40,3 +40,6 @@ projectile-bookmarks.eld
 /url/
 /irony/
 /javadoc-cache/
+/request/
+/init/.#init-my-pm-el-get.el
+/.org-annotated.org
