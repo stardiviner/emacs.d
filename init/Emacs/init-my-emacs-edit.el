@@ -43,6 +43,13 @@
   (global-set-key (kbd "C-M-y") 'kill-ring-ido))
 
 
+
+;;;_ edit-server
+
+;; (load "~/.emacs.d/init/extensions/edit-server.el")
+;; (require 'edit-server)
+;; (edit-server-start)
+
 ;;;_ Electric
 
 ;; NOTE: when electric auto insert ) for (, but when you delete (, electric will not auto delete ) for you.
