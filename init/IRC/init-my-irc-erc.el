@@ -156,7 +156,9 @@
 (setq erc-autojoin-channels-alist
       '((".*\\.freenode.net"
          "#emacs"
-         "#ruby"
+         "#lisp"
+         ;; "#clojure"
+         "#ruby-lang"
          "#ubuntu-cn"
          ;; TODO: add startup command join #dc5.
          ;; "#dc5" ; BaseHTTPRequestHandler (in ~/.authinfo)
