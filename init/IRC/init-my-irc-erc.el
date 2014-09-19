@@ -85,8 +85,7 @@
   "Connect to ERC, or switch to last active buffer."
   (interactive)
   (if (get-buffer "irc.freenode.net:6667") ;; ERC already active?
-
-    (erc-track-switch-buffer 1) ;; yes: switch to last active
+      (erc-track-switch-buffer 1) ;; yes: switch to last active
     ;; (when (y-or-n-p "Start ERC? ") ;; no: maybe start ERC
     ;;   )
     ;;
@@ -579,9 +578,12 @@
 ;; (define-key erc-mode-map (kbd "C-c C-S-o") 'erc-babel-include-orig-toggle)
 
 
-;;; Using ido select with ERC
+;;; switch erc buffers
 
-(defun stardiviner/ido-erc-buffer()
+;;; default [C-c C-b] erc-iswitchb.
+
+;;; Using ido select with ERC
+(defun stardiviner/erc-buffer-switch-with-ido ()
   (interactive)
   (switch-to-buffer
    (ido-completing-read "Channel:"
@@ -595,7 +597,23 @@
                                             (buffer-name buf)))))
                                    (buffer-list)))))))
 
-(define-key erc-mode-map (kbd "C-c b") 'stardiviner/ido-erc-buffer)
+;;; select with helm
+(defun stardiviner/erc-buffer-switch-with-helm ()
+    ""
+  (interactive)
+  (switch-to-buffer
+   (helm-comp-read "Channel:"
+                   (save-excursion
+                     (delq
+                      nil
+                      (mapcar (lambda (buf)
+                                (when (buffer-live-p buf)
+                                  (with-current-buffer buf
+                                    (and (eq major-mode 'erc-mode)
+                                         (buffer-name buf)))))
+                              (buffer-list)))))))
+
+(define-key erc-mode-map (kbd "C-c b") 'stardiviner/erc-buffer-switch-with-helm)
 
 
 ;;; Morse Code
