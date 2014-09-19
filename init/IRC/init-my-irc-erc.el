@@ -99,7 +99,7 @@
     ))
 
 ;; switch to ERC (c: chat)
-;; (global-set-key (kbd "C-x c") 'my-erc-start-or-switch)
+(define-key my-tools-prefix-map (kbd "i") 'my-erc-start-or-switch)
 
 
 ;;; SSL connections
