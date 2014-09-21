@@ -1,4 +1,4 @@
-;;; init-my-irc-erc.el --- init ERC for Emacs
+;;; init-my-tool-irc-erc.el --- init ERC for Emacs
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -97,8 +97,12 @@
     ;; (erc :server "irc.gimp.org" :port 6667 :nick "stardiviner" :full-name "christopher M. miles")
     ))
 
-;; switch to ERC (c: chat)
-(define-key my-tools-prefix-map (kbd "i") 'my-erc-start-or-switch)
+;; switch to ERC (i: IRC)
+(unless (boundp 'my-irc-map)
+  (define-prefix-command 'my-irc-map))
+(define-key my-tools-prefix-map (kbd "i") 'my-irc-map)
+
+(define-key my-irc-map (kbd "i") 'my-erc-start-or-switch)
 
 
 ;;; SSL connections
@@ -624,6 +628,6 @@
 
 
 
-(provide 'init-my-irc-erc)
+(provide 'init-my-tool-irc-erc)
 
-;;; init-my-irc-erc.el ends here
+;;; init-my-tool-irc-erc.el ends here

@@ -161,11 +161,8 @@
 (require 'init-my-tool-emms)
 (require 'init-my-tool-speak)
 ;; (require 'init-my-tool-newsticker)
-
-
 ;;; IRC
-(require 'init-my-irc-erc)
-
+(require 'init-my-tool-irc-erc)
 
 
 ;;; Programming
