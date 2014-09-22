@@ -227,8 +227,7 @@
                     :box '(:color "#444444" :line-width 1)
                     )
 (set-face-attribute 'org-block nil
-                    :background "black"
-                    :foreground nil
+                    :foreground nil :background "black"
                     )
 ;; TODO:
 ;; (set-face-attribute 'org-block nil        ; selected line color in code block begin/end line.
@@ -254,7 +253,7 @@
 ;; (REGEXP (N1 FACE1) (N2 FACE2) (N3 FACE3) …)
 ;;     Highlight group Ni in REGEXP with FACEi
 ;;
-;; src_lang[:header arguments]{code...}
+;; src_lang[:header arguments]{code...} / NOTE: override by org-verbatim.
 (font-lock-add-keywords 'org-mode
                         '(("src_\\([^[{]+\\)\\(\\[:.*\\]\\){\\([^}]*\\)}"
                            (1 '(:foreground "cyan" :weight 'bold :height 75)) ; "lang" part.
