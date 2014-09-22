@@ -1,4 +1,4 @@
-;;; init-my-emacs-modeline.el --- init modeline for Emacs
+;;; init-my-emacs-mode-line.el --- init modeline for Emacs
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -33,9 +33,10 @@
                 ;;              face (:foreground "#444444" :background "black")
                 ;;              help-echo "九州 ❯ 羽传说 ❯ 向异翅")
 
-                ;; dynamic update indicators
-                (:propertize (:eval (anzu--update-mode-line))
-                             face (:foreground "green yellow" :slant 'italic :weight 'normal))
+                ;; dynamic update indicators (it is a buffer local - only active in current buffer)
+                ;; but this is global (show on all buffers mode line)
+                ;; (:propertize (:eval (anzu--update-mode-line))
+                ;;              face (:foreground "green yellow" :slant 'italic :weight 'normal))
                 
                 ;; window-number
                 (:propertize (:eval (window-number-string))
@@ -54,6 +55,11 @@
                 (:propertize projectile-mode-line
                              face (:foreground "slate blue"))
 
+                ;; TODO: mu4e maildir
+                (:propertize (:eval
+                              (let ((my-mu4e-maildir-name (file-name-base mu4e-maildir)))
+                                (if (string-match "mu4e-.*" "%b")
+                                  (format "[%s]" my-mu4e-maildir-name)))))
 
                 (:propertize "  ")
 
@@ -385,6 +391,6 @@
 
 
 
-(provide 'init-my-emacs-modeline)
+(provide 'init-my-emacs-mode-line)
 
-;;; init-my-emacs-modeline.el ends here
+;;; init-my-emacs-mode-line.el ends here

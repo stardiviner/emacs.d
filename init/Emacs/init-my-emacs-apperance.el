@@ -64,7 +64,7 @@
 
 ;;; [ modeline ]
 
-(require 'init-my-emacs-modeline)
+(require 'init-my-emacs-mode-line)
 
 ;; (require 'init-my-emacs-powerline)
 
