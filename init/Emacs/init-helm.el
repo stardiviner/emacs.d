@@ -242,6 +242,11 @@
 
 (global-set-key (kbd "C-c & C-c") 'helm-yas-complete) ; integrate helm with yasnippet.
 
+
+;;; [ helm-c-moccur ]
+
+;; - [C-x c M-s o] :: `helm-occur'
+(define-key helm-command-map (kbd "M-s m") 'helm-multi-occur)
 
 
 ;;; [ helm-gist ]
