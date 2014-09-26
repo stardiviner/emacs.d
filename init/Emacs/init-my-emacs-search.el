@@ -161,10 +161,6 @@
 ;; - ack-find-file and ack-find-same-file use ack to list the files in the current
 ;;   project. It's a convenient, though slow, way of finding files.
 
-;; TODO:
-
-;; (unless (package-installed-p 'full-ack)
-;;   (package-install 'full-ack))
 ;; (require 'full-ack)
 
 ;; (autoload 'ack-same "full-ack" nil t)
@@ -202,13 +198,16 @@
 ;; add more project root file patterns.
 ;; (add-to-list 'ack-and-a-half-project-root-file-patterns "\\.kk")
 
-;; (unless (boundp 'ack-map)
-;;   (define-prefix-command 'ack-map))
-;; (define-key my-search-prefix-map (kbd "a") 'ack-map)
+(unless (boundp 'ack-map)
+  (define-prefix-command 'ack-map))
+(define-key my-search-prefix-map (kbd "a") 'ack-map)
 
-;; (define-key ack-map (kbd "a") 'ack-and-a-half)
+(define-key my-search-prefix-map (kbd "a") 'ack-map)
 
-(define-key my-search-prefix-map (kbd "a") 'ack-and-a-half)
+(define-key ack-map (kbd "a") 'ack)
+(define-key ack-map (kbd "s") 'ack-same)
+(define-key ack-map (kbd "f") 'ack-find-file)
+(define-key ack-map (kbd "F") 'ack-find-file-same)
 
 
 ;;; [ Ace Jump Mode ]

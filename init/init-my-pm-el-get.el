@@ -118,7 +118,7 @@
          isearch+
          anzu
          visual-regexp visual-regexp-steroids ace-jump-mode
-         ack-and-a-half
+         ack-and-a-half ; full-ack 
          ;; Org-mode
          org-mode
          org-fstree org-bullets
