@@ -43,14 +43,16 @@
                              face (:foreground "orange"))
 
                 ;; workgroups2
-                (:propertize (wg-mode-line-display-on
-                              (:eval
-                               (wg-mode-line-string)))
+                ;; (:propertize (wg-mode-line-display-on
+                ;;               (:eval
+                ;;                (wg-mode-line-string)))))
+                (:propertize (:eval
+                              (wg-mode-line-string))
                              face (:foreground "cyan"
                                                ;; :underline "green yellow"
                                                ;; :family "Segoe Print"
                                                ))
-                
+
                 ;; projectile
                 (:propertize projectile-mode-line
                              face (:foreground "slate blue"))
