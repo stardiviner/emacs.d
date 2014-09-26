@@ -53,7 +53,10 @@
          ;; completion
          ;; ido-vertical-mode ido-ubiquitous smex
          helm
-         helm-descbinds helm-project helm-ls-git helm-c-yasnippet
+         helm-helm-commands helm-descbinds
+         helm-project
+         helm-ls-git
+         helm-c-yasnippet
          helm-rails helm-pydoc
          helm-gist
          helm-mu
