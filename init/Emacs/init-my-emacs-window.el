@@ -74,11 +74,23 @@
 (setq wg-default-session-file "~/.emacs.d/.emacs_workgroups")
 
 (setq wg-mode-line-display-on t         ; toggle workgroups' mode-line display.
-      wg-mode-line-disable t      ; do not modify mode-line.
-      wg-mode-line-only-name t    ; only show workgroup name.
+      wg-mode-line-disable t            ; do not modify mode-line.
+      wg-mode-line-only-name t          ; only show workgroup name.
       wg-mode-line-decor-divider ":"
-      wg-mode-line-decor-left-brace "("
-      wg-mode-line-decor-right-brace ")"
+      wg-mode-line-decor-left-brace "{"
+      wg-mode-line-decor-right-brace "}"
+      wg-mode-line-decor-workgroup-unmodified #("-" 0 1
+                                                (help-echo "The current workgroup is unmodified"))
+      wg-mode-line-decor-workgroup-modified #("*" 0 1
+                                              (help-echo "The current workgroup is modified"))
+      wg-mode-line-decor-session-modified #("*" 0 1
+                                            (help-echo "The session is modified"))
+      wg-mode-line-decor-session-unmodified #("-" 0 1
+                                              (help-echo "The session is unmodified"))
+      wg-mode-line-decor-window-dedicated #("#" 0 1
+                                            (help-echo "This window is dedicated to its buffer."))
+      wg-mode-line-decor-window-undedicated #("-" 0 1
+                                              (help-echo "This window is not dedicated to its buffer."))
       )
 
 ;; (set-face-attribute 'wg-mode-line-face nil
