@@ -1119,7 +1119,7 @@
           (global-set-key (kbd "C-x m") 'mu4e-compose-new)
         )
       (define-key my-mu4e-map (kbd "i") 'my-mu4e-jump-to-index)
-      (define-key my-mu4e-map (kbd "c") 'mu4e-compose-new)
+      (define-key my-mu4e-map (kbd "C") 'mu4e-compose-new)
       )
   )
 
