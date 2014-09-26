@@ -56,6 +56,7 @@
          helm-descbinds helm-project helm-ls-git helm-c-yasnippet
          helm-rails helm-pydoc
          helm-gist
+         helm-mu
          auto-complete
          auto-complete-yasnippet auto-complete-chunk
          auto-complete-etags

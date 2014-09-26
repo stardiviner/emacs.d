@@ -257,6 +257,35 @@
 
 (require 'helm-gist)
 
+
+;;; [ helm-mu ] -- Helm sources for searching emails and contacts using mu.
+
+;;; Usage:
+;;
+;; e.g.
+;;   from:Peter to:Anne flag:attach search term
+
+;;; To search for emails use helm-mu. When you would like to read an email
+;;; without finishing the helm session, you can select the email and press
+;;; Ctrl-z. This will split the screen horizontally and show the email in the
+;;; new window while keeping the search results in the other. Alternatively, you
+;;; can open the email using the enter key and return to the helm session using
+;;; the command helm-resume.
+
+;; (require 'helm-mu)
+;;; Alternatively, you can use the autoload facility:
+(autoload 'helm-mu "helm-mu" "" t)
+(autoload 'helm-mu-contacts "helm-mu" "" t)
+
+(setq helm-mu-default-search-string "stardiviner"
+      helm-mu-contacts-name-colwidth 22
+      helm-mu-contacts-name-replace '("[\"']" "")
+      ;; helm-mu-contacts-after "01-Jan-1970 00:00:00"
+      helm-mu-contacts-personal nil
+      )
+
+(define-key my-mu4e-map (kbd "s") 'helm-mu)
+(define-key my-mu4e-map (kbd "c") 'helm-mu-contacts)
 
 
 (provide 'init-helm)
