@@ -60,7 +60,7 @@
          helm-rails helm-pydoc
          helm-gist
          helm-mu
-         helm-delicious
+         ;; helm-delicious
          auto-complete
          auto-complete-yasnippet auto-complete-chunk
          auto-complete-etags

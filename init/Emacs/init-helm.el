@@ -258,44 +258,44 @@
 (require 'helm-gist)
 
 
-;;; [ helm-delicious ]
+;; ;;; [ helm-delicious ]
 
-;; Use:
-;; ===
-;;
-;; M-x helm-delicious
-;; That should create a "~/.delicious-cache" file.
-;; (you can set that to another value with `helm-c-delicious-cache-file')
-;; You can also add `helm-c-source-delicious-tv' to the `helm-sources'.
-;;
+;; ;; Use:
+;; ;; ===
+;; ;;
+;; ;; M-x helm-delicious
+;; ;; That should create a "~/.delicious-cache" file.
+;; ;; (you can set that to another value with `helm-c-delicious-cache-file')
+;; ;; You can also add `helm-c-source-delicious-tv' to the `helm-sources'.
+;; ;;
 
-(require 'helm-delicious)
+;; (require 'helm-delicious)
 
-;; after subscribing to http://delicious.com/
-;; Setup your login and delicious password:
-;;
-;; You can set it up in your init file with
-;;
-;; `helm-delicious-user' and `helm-delicious-password'
-;; (use setq)
-;;
-;; or better:
-;;
-;; Add a line like this in your .authinfo file:
-;;
-;; machine api.del.icio.us:443 port https login xxxxx password xxxxx
-;;
-;; and add to you init file (.emacs):
-(require 'auth-source)
+;; ;; after subscribing to http://delicious.com/
+;; ;; Setup your login and delicious password:
+;; ;;
+;; ;; You can set it up in your init file with
+;; ;;
+;; ;; `helm-delicious-user' and `helm-delicious-password'
+;; ;; (use setq)
+;; ;;
+;; ;; or better:
+;; ;;
+;; ;; Add a line like this in your .authinfo file:
+;; ;;
+;; ;; machine api.del.icio.us:443 port https login xxxxx password xxxxx
+;; ;;
+;; ;; and add to you init file (.emacs):
+;; (require 'auth-source)
 
-(if (file-exists-p "~/.authinfo.gpg")
-    (setq auth-sources '((:source "~/.authinfo.gpg" :host t :protocol t)))
-  (setq auth-sources '((:source "~/.authinfo" :host t :protocol t))))
+;; (if (file-exists-p "~/.authinfo.gpg")
+;;     (setq auth-sources '((:source "~/.authinfo.gpg" :host t :protocol t)))
+;;   (setq auth-sources '((:source "~/.authinfo" :host t :protocol t))))
 
-;; Warning:
-;;
-;; DON'T CALL `helm-delicious-authentify', this will set your login and password
-;; globally.
+;; ;; Warning:
+;; ;;
+;; ;; DON'T CALL `helm-delicious-authentify', this will set your login and password
+;; ;; globally.
 
 
 
