@@ -38,9 +38,9 @@
 ;;; Usage:
 ;; - [C-M-y] ::
 
-(if (featurep 'ido)
-    (require 'kill-ring-ido)
-  (global-set-key (kbd "C-M-y") 'kill-ring-ido))
+;; (if (featurep 'ido)
+;;     (require 'kill-ring-ido)
+;;   (global-set-key (kbd "C-M-y") 'kill-ring-ido))
 
 
 

@@ -103,7 +103,7 @@
          undo-tree
          multiple-cursors
          ;; kill-ring-search
-         kill-ring-ido
+         ; kill-ring-ido
          ;; predictive
          ;; spell
          flyspell flyguess ; flyspell-guess inflections
