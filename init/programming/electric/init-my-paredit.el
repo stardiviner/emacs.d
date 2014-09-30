@@ -66,6 +66,7 @@
            ;; NOTICE do not enable paredit-mode in all programming modes.
            ;; prog-mode-hook               ; programming languages source code mode hook.
            ))
+  ;; `paredit-mode', or `enable-paredit-mode'.
   (add-hook hook 'paredit-mode))
 
 ;;; ParEdit inside mini-buffer
