@@ -274,7 +274,6 @@
          ;; Nginx
          nginx-mode
          ;; Linux
-         crontab-mode
          ;; Database
          ;; SQL
          sqlup-mode
