@@ -57,7 +57,7 @@
          helm-project
          helm-ls-git
          helm-c-yasnippet
-         helm-gtags
+         helm-gtags helm-yaetags ; helm-c-moccur
          helm-rails helm-pydoc
          helm-gist
          helm-mu
