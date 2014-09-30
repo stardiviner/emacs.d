@@ -15,9 +15,9 @@
 ;;; applications. Thus, all bindings are auto documented.
 ;;
 ;; So when helm starts, you have to remember:
-;; - [TAB] -- Access to action menu with.
-;; - [C-z] -- Use persistent actions with
-;; - [M-<space>] -- Mark candidate with
+;; - [TAB] -- Access to action menu.
+;; - [C-j/z] -- Use persistent actions with (open document/and execute persistent action).
+;; - [M-<space>] -- Mark candidate.
 ;;
 ;; Helm prefix key
 ;; - [C-x c] :: for "helm version" of other functions.
