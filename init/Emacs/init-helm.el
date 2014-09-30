@@ -58,9 +58,10 @@
 ;; Take advantage of the second, third and 4th actions in helm. Instead of opening action menu with TAB, just hit:
 ;; C-e for 2th action, C-j for 3th action
 
-(require 'helm)
+; (require 'helm)
 (require 'helm-config)
 
+; (require 'helm-grep)
 (require 'helm-misc)
 
 (helm-mode 1) ; enable Helm mode initially.
