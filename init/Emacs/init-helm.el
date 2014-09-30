@@ -93,13 +93,27 @@
         ))
 
 
-;; (global-set-key (kbd "C-x h") 'helm-mini)
 ;; this global keybinding [M-x] will conflict with {[C-u M-x align-regexp] on select region text.}
 ;; But you can press [M-x C-u align-regexp RET].
 (global-set-key (kbd "M-x") 'helm-M-x)
 ;; If you prefer the helm version of the file finder, you can bind it to C-x C-f
 ;; to replace the standard find-file:
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+
+(define-key helm-map (kbd "<tab>") 'helm-select-action)
+(define-key helm-map (kbd "C-z") 'helm-select-action)
+(define-key helm-map (kbd "C-i")   'helm-execute-persistent-action) ; make TAB works in terminal.
+(define-key helm-map (kbd "C-j")   'helm-execute-persistent-action)
+(define-key helm-map (kbd "<return>") 'helm-confirm-and-exit-minibuffer)
+
+(when (executable-find "ack-grep")
+  (setq helm-grep-default-command "ack-grep -Hn --no-group --no-color %e %p %f"
+        helm-grep-default-recurse-command "ack-grep -H --no-group --no-color %e %p %f"))
+(define-key helm-grep-mode-map (kbd "<return>")  'helm-grep-mode-jump-other-window)
+(define-key helm-grep-mode-map (kbd "n")  'helm-grep-mode-jump-other-window-forward)
+(define-key helm-grep-mode-map (kbd "p")  'helm-grep-mode-jump-other-window-backward)
 
 (set-face-attribute 'helm-selection nil
                     :background "#004A5D" :foreground "white"
