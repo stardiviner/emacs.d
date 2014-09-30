@@ -67,6 +67,9 @@
 (helm-mode 1) ; enable Helm mode initially.
 (diminish 'helm-mode)
 
+(setq helm-command-prefix-key "C-x c" ; for `helm-command-prefix'.
+      )
+
 ;;; work with ido and helm together.
 ;; If you like ido for some commands and helm for other commands, you should not
 ;; enable ido-mode, instead customize helm-completing-read-handlers-alist; For
@@ -100,7 +103,12 @@
 ;; to replace the standard find-file:
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x b") 'helm-mini)
+(define-key helm-command-prefix (kbd "o") 'helm-occur)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(define-key helm-command-prefix (kbd "M-:") 'helm-eval-expression-with-eldoc)
+;; Similar to helm-eshell-history, but is used for [M-x shell].
+(define-key shell-mode-map (kbd "C-c C-l") 'helm-comint-input-ring)
+(define-key minibuffer-local-map (kbd "C-c C-l") 'helm-minibuffer-history)
 
 (define-key helm-map (kbd "<tab>") 'helm-select-action)
 (define-key helm-map (kbd "C-z") 'helm-select-action)
@@ -133,14 +141,33 @@
 (set-face-attribute 'helm-visible-mark nil
                     :foreground "black" :background "green yellow")
 
-(setq helm-case-fold-search t
-      helm-buffers-fuzzy-matching nil
-      ;; helm popup window position.
-      helm-full-frame nil ; use current window as popup.
+(setq helm-full-frame nil ; use current window as popup. helm popup window position.
       helm-always-two-windows t
+      helm-quick-update t ; do not display invisible candidates
+      ;; helm-scroll-amount 8 ; scroll 8 lines other window using M-<next>/M-<prior>
+      helm-case-fold-search t
+      helm-buffers-fuzzy-matching t
+      helm-move-to-line-cycle-in-source nil ; nil: not just cycling current limited candicates section.
+      ;; split
       helm-split-window-in-side-p t ; force split inside selected window.
       helm-split-window-default-side 'below
+      ;; helm-split-window-preferred-function 'helm-split-window-default-fn
+      ;; find-file
+      helm-ff-search-library-in-sexp t ; search for library in `require' and `declare-function' sexp.
+      helm-ff-file-name-history-use-recentf t ; use recentf
+      ;; helm-sources-using-default-as-input
       )
+
+(when (executable-find "curl")
+  (setq helm-google-suggest-use-curl-p t
+        ;; helm-google-suggest-default-browser-function
+        ;; helm-google-suggest-default-function 'helm-google-suggest-set-candidates
+        ;; helm-google-suggest-search-url "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
+        ;; helm-google-suggest-url "http://google.com/complete/search?output=toolbar&q="
+        ))
+
+
+(add-to-list 'helm-sources-using-default-as-input 'helm-source-man-pages)
 
 ;; Bookmark
 ;; Helm bookmarks [C-x C-x r b]

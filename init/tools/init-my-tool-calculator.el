@@ -36,6 +36,9 @@
 
 (define-key my-tools-prefix-map (kbd "x") 'calc)
 
+(if (featurep 'helm)
+    (define-key my-tools-prefix-map (kbd "x") 'helm-calcul-expression))
+
 
 (provide 'init-my-tool-calculator)
 

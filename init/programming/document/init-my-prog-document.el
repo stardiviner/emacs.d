@@ -52,6 +52,11 @@
 (which-function-mode 1)
 
 
+;;; [ Info ]
+
+(define-key help-document-map (kbd "i") 'helm-info-at-point)
+
+
 ;;; [ API docsets ]
 
 ;;; [ helm-dash ] -- Browse Dash docsets inside emacs.
