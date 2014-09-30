@@ -21,6 +21,14 @@
 (defconst *is-cocoa-emacs* (and *is-mac* (eq window-system 'ns)))
 
 
+
+(require 'server)
+
+(unless (server-running-p)
+  (server-start))
+
+
+
 ;;; TEMP: some settings need to be set before required or loaded.
 
 (setq projectile-rails-keymap-prefix (kbd "C-c p C-r"))
