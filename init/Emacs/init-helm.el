@@ -200,6 +200,14 @@
 (helm-descbinds-mode 1)
 
 
+;;; [ helm-gtags ]
+
+(require 'helm-gtags)
+
+(define-key helm-command-prefix (kbd "t") 'helm-gtags-dwim)
+(define-key helm-command-prefix (kbd "T") 'helm-top)
+
+
 ;; [ helm-projectile ]
 
 (require 'helm-projectile)

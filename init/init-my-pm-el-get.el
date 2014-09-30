@@ -57,6 +57,7 @@
          helm-project
          helm-ls-git
          helm-c-yasnippet
+         helm-gtags
          helm-rails helm-pydoc
          helm-gist
          helm-mu
@@ -171,6 +172,7 @@
          ;; Tags
          cscope ; xcscope
          ascope
+         gtags ; use program global
          ;; code browser
          sr-speedbar
          ;; neotree
