@@ -158,7 +158,10 @@
          paredit
          smartparens
          ;; autopair
-         rainbow-mode rainbow-delimiters
+         ; rainbow-mode
+         ; rainbow-delimiters
+         ; rainbow-block
+         ;; rainbow-identifiers
          ;; document, API, docsets
          helm-dash
          ;; RFC
