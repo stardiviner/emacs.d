@@ -208,7 +208,7 @@
          ac-geiser
          ;; Scheme
          ;; Clojure
-         clojure-mode cider ; ac-nrepl
+         clojure-mode ; cider (depends: queue [package not available]) ; ac-nrepl
          ;; company-cider
          ;; Python
          python ; python-mode
