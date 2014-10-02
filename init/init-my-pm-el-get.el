@@ -103,6 +103,8 @@
          ;; edit
          undo-tree
          multiple-cursors
+         ;; large file
+         vlf
          ;; kill-ring-search
          ; kill-ring-ido
          ;; predictive
