@@ -405,7 +405,7 @@
 ;; (setq sendmail-program "/usr/bin/msmtp")
 ;; $ msmtp -C $HOME/.mutt/msmtprc
 ;; 2: sendmail
-;; (setq sendmail-program "/usr/sbin/sendmail")
+;; (setq sendmail-program "/usr/sbin/sendmail") ; sendmail -q
 ;; $ sendmail -oem -oi
 
 
