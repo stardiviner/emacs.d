@@ -80,7 +80,8 @@
 (setq projectile-require-project-root nil)
 ;; Completion Options
 (setq projectile-completion-system 'helm ; 'helm, 'ido, 'grizzl, 'default
-      projectile-use-git-grep nil)
+      projectile-use-git-grep nil
+      )
 
 ;; (setq projectile-tags-command "ctags -Re %s")
 

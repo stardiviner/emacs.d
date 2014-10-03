@@ -725,6 +725,10 @@
 
 ;;; [ Cucumber ]
 
+
+;;; [ feature-mode ] -- Major mode for Cucumber feature files
+
+
 
 
 (provide 'init-my-prog-lang-ruby)

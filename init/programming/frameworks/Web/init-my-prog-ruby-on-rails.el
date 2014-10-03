@@ -115,6 +115,13 @@
 ;;      ;; (setq projectile-rails-keymap-prefix (kbd "C-c p C-r"))
 ;;      ))
 
+
+;; Keep in mind that helm-rails is quite old and not updated since a long time.
+;; But if you want to incorporate helm as a completion system to
+;; projectile-rails or projectile itself you can do this:
+; (setq projectile-completion-system 'helm-comp-read)
+
+
 (add-hook 'projectile-mode-hook 'projectile-rails-on)
 
 
