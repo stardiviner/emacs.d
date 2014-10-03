@@ -43,3 +43,7 @@ projectile-bookmarks.eld
 /request/
 /init/.#init-my-pm-el-get.el
 /.org-annotated.org
+/GPATH
+/GRTAGS
+/GSYMS
+/GTAGS
