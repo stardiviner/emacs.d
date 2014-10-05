@@ -56,7 +56,7 @@
          helm-helm-commands helm-descbinds
          helm-project
          helm-ls-git
-         helm-c-yasnippet
+         helm-c-yasnippet helm-c-flycheck
          helm-gtags helm-yaetags ; helm-c-moccur
          helm-rails helm-pydoc
          helm-gist
