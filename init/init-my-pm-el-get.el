@@ -53,7 +53,7 @@
          ;; completion
          ;; ido-vertical-mode ido-ubiquitous smex
          helm
-         helm-helm-commands helm-descbinds
+         helm-helm-commands helm-descbinds ; helm-themes
          helm-project
          helm-ls-git
          helm-c-yasnippet helm-c-flycheck

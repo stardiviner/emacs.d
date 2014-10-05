@@ -200,6 +200,16 @@
 (helm-descbinds-mode 1)
 
 
+;;; [ helm-themes ]
+
+;;; Usage:
+;;
+;; [M-x helm-themes]
+
+;;; Config
+;; (require 'helm-themes)
+
+
 ;;; [ helm-gtags ]
 
 (require 'helm-gtags)
