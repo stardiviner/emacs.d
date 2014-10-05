@@ -142,8 +142,10 @@
 ;;; [ flycheck-pos-tip ] -- This extension to display errors under point using popup.el.
 
 (eval-after-load 'flycheck
-  '(custom-set-variables
-    '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages))
+  (lambda ()
+      (setq flycheck-display-errors-function 'flycheck-pos-tip-error-messages))
+  ;; '(custom-set-variables
+  ;;   '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages))
   )
 
 
