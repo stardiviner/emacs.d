@@ -155,6 +155,7 @@
          highlight-indentation
          ;; lint
          flycheck
+         flycheck-tip flycheck-pos-tip
          ;; comment
          fic-mode
          ;; electric

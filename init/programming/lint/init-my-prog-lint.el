@@ -123,6 +123,28 @@
 ;; (add-hook 'before-save-hook #'flycheck-list-errors-only-when-errors)
 
 
+;;; [ flycheck-tip ] -- show you error by popup-tip.
+
+;; (require 'flycheck-tip)
+
+;; (define-key YOUR-PROG-MODE (kbd "C-c C-n") 'flycheck-tip-cycle)
+
+;;; If you want to show current line errors by popup instead of flycheck's echo
+;;; area function, then configure like this:
+;; (flycheck-tip-use-timer 'verbose)
+
+;;; note: This program avoid flycheck-show-error-at-point function to avoid
+;;; duplicated error message(i.e., minibuffer and popup-tip). But if you want to
+;;; regain this behavior, set following configuration to your .emacs:
+;; (setq flycheck-tip-avoid-show-func nil)
+
+
+;;; [ flycheck-pos-tip ] -- This extension to display errors under point using popup.el.
+
+(eval-after-load 'flycheck
+  '(custom-set-variables
+    '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages))
+  )
 
 
 ;;; [ helm-c-flycheck ]
