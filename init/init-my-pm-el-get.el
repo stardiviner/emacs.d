@@ -236,6 +236,7 @@
          ;; js2-mode
          js3-mode
          swank-js
+         ac-js2
          ;; HTML
          ;; CSS
          auto-complete-css
