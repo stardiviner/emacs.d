@@ -2379,7 +2379,7 @@ In common insert mode or in select region text to press this keybinding \\<C-c k
 
 ;; TODO: enable org-trello-mode on `org-agenda-files'.
 
-(define-key my-org-prefix-map (kbd "t") 'org-trello-mode)
+;; (define-key my-org-prefix-map (kbd "t") 'org-trello-mode)
 
 ;; (add-hook 'org-trello-mode-hook
 ;;           (lambda ()
@@ -2387,7 +2387,7 @@ In common insert mode or in select region text to press this keybinding \\<C-c k
 ;;             (org-trello/install-local-prefix-mode-keybinding! "C-c o t")
 ;;             ))
 
-(org-trello/install-local-prefix-mode-keybinding! "C-c o t")
+;; (org-trello/install-local-prefix-mode-keybinding! "C-c o t")
 
 ;; 2. my custom prefix map
 ;; (unless (boundp 'my-org-trello-map)

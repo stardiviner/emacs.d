@@ -248,7 +248,7 @@
                    ;; (local-set-key (kbd "C-h d") 'yari)
                    ;; (define-key 'help-command (kbd "R") 'yari)
                    
-                   ;; or with help-document-map prefix.
+                   ;; or with my-prog-help-document-map prefix.
                    (unless (boundp 'ruby-help-doc-map)
                      (define-prefix-command 'ruby-help-doc-map))
                    (local-set-key (kbd "C-h d") 'ruby-help-doc-map)
@@ -350,7 +350,7 @@
 
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
-(define-key inferior-map (kbd "r a") 'inf-ruby-console-auto)
+(define-key my-prog-inferior-map (kbd "r a") 'inf-ruby-console-auto)
 
 (add-to-list 'ac-modes 'inf-ruby-mode) ; enable auto-complete (with robe-mode) for inf-ruby completion.
 
@@ -487,8 +487,8 @@
   (add-hook hook (lambda ()
                    (local-set-key (kbd "C-h d d") 'robe-doc)
                    ;; FIXME: it is not local to ruby-mode only.
-                   ;; (local-set-key (kbd "C-h d") 'help-document-map)
-                   ;; (define-key help-document-map (kbd "d") 'robe-doc)
+                   ;; (local-set-key (kbd "C-h d") 'my-prog-help-document-map)
+                   ;; (define-key my-prog-help-document-map (kbd "d") 'robe-doc)
                    )))
 
 

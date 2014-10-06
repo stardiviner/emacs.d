@@ -112,24 +112,24 @@
 
 ;; status -- "s" for status.
 ;; [C-x v-] original is prefix for vc-.
-(define-key vcs-map (kbd "v") 'magit-status)
-(define-key vcs-git-map (kbd "s") 'magit-status)
+(define-key my-prog-vcs-map (kbd "v") 'magit-status)
+(define-key my-prog-vcs-git-map (kbd "s") 'magit-status)
 ;; add to stage -- "s"
 ;; FIXME this stage item, but can not stage file in current buffer.
-;; (define-key vcs-git-map (kbd "a") 'magit-stage-item)
+;; (define-key my-prog-vcs-git-map (kbd "a") 'magit-stage-item)
 ;; commit -- "c"
-(define-key vcs-git-map (kbd "c") 'magit-commit)
+(define-key my-prog-vcs-git-map (kbd "c") 'magit-commit)
 ;; diff - "d"
-(define-key vcs-git-map (kbd "d") 'magit-diff)
+(define-key my-prog-vcs-git-map (kbd "d") 'magit-diff)
 ;; file log - "l"
-(define-key vcs-git-map (kbd "l") 'magit-log)
+(define-key my-prog-vcs-git-map (kbd "l") 'magit-log)
 ;; repository log - "L"
 ;; [M-n/p] to navigate.
-(define-key vcs-git-map (kbd "L") 'magit-log-long)
+(define-key my-prog-vcs-git-map (kbd "L") 'magit-log-long)
 ;; grep - "g"
-(define-key vcs-git-map (kbd "g") 'magit-grep)
+(define-key my-prog-vcs-git-map (kbd "g") 'magit-grep)
 ;; checkout - "o"
-(define-key vcs-git-map (kbd "o") 'magit-checkout) ; magit-checkout-branch-at-point
+(define-key my-prog-vcs-git-map (kbd "o") 'magit-checkout) ; magit-checkout-branch-at-point
 
 
 ;; TODO: open magit window in current window, and without override other windows layout.
@@ -224,16 +224,16 @@
 ;; ;; 'git-gutter-toggle :: Toggle git-gutter
 
 ;; ;;; keybindings
-;; (define-key vcs-map (kbd "m t") 'git-gutter:toggle)
+;; (define-key my-prog-vcs-map (kbd "m t") 'git-gutter:toggle)
 ;; ;; Jump to next/previous hunk
-;; (define-key vcs-map (kbd "m n") 'git-gutter:next-hunk)
-;; (define-key vcs-map (kbd "m p") 'git-gutter:previous-hunk)
+;; (define-key my-prog-vcs-map (kbd "m n") 'git-gutter:next-hunk)
+;; (define-key my-prog-vcs-map (kbd "m p") 'git-gutter:previous-hunk)
 ;; ;; Stage current hunk
-;; (define-key vcs-map (kbd "m s") 'git-gutter:stage-hunk)
+;; (define-key my-prog-vcs-map (kbd "m s") 'git-gutter:stage-hunk)
 ;; ;; show diff of current hunk
-;; (define-key vcs-map (kbd "m p") 'git-gutter:popup-hunk)
+;; (define-key my-prog-vcs-map (kbd "m p") 'git-gutter:popup-hunk)
 ;; ;; Revert current hunk
-;; (define-key vcs-map (kbd "m r") 'git-gutter:revert-hunk)
+;; (define-key my-prog-vcs-map (kbd "m r") 'git-gutter:revert-hunk)
 ;; ;; commit staged changes with [C-c v g c] which custom keybinding from magit function `magit-commit'.
 
 ;; ;; multiple character is OK
@@ -358,8 +358,8 @@
 
 
 ;;; keybindings
-(define-key vcs-map (kbd "m t") 'git-gutter+-mode) ; Turn on/off in the current buffer
-(define-key vcs-map (kbd "m T") 'global-git-gutter+-mode) ; Turn on/off globally
+(define-key my-prog-vcs-map (kbd "m t") 'git-gutter+-mode) ; Turn on/off in the current buffer
+(define-key my-prog-vcs-map (kbd "m T") 'global-git-gutter+-mode) ; Turn on/off globally
 
 ;; NOTE: those keybindings conflict with `narrow' etc.
 ;; (eval-after-load 'git-gutter+
@@ -379,16 +379,16 @@
 (eval-after-load 'git-gutter+
   '(progn
      ;; jump between hunks
-     (define-key vcs-map (kbd "m n") 'git-gutter+-next-hunk)
-     (define-key vcs-map (kbd "m p") 'git-gutter+-previous-hunk)
+     (define-key my-prog-vcs-map (kbd "m n") 'git-gutter+-next-hunk)
+     (define-key my-prog-vcs-map (kbd "m p") 'git-gutter+-previous-hunk)
      ;; actions on hunks
-     (define-key vcs-map (kbd "m =") 'git-gutter+-show-hunk)
-     (define-key vcs-map (kbd "m r") 'git-gutter+-revert-hunk)
+     (define-key my-prog-vcs-map (kbd "m =") 'git-gutter+-show-hunk)
+     (define-key my-prog-vcs-map (kbd "m r") 'git-gutter+-revert-hunk)
      ;; stage hunk at point
      ;; if region is active, stage all hunk lines within the region.
-     (define-key vcs-map (kbd "m s") 'git-gutter+-stage-hunks)
-     (define-key vcs-map (kbd "m c") 'git-gutter+-commit)
-     (define-key vcs-map (kbd "m C") 'git-gutter+-stage-and-commit)
+     (define-key my-prog-vcs-map (kbd "m s") 'git-gutter+-stage-hunks)
+     (define-key my-prog-vcs-map (kbd "m c") 'git-gutter+-commit)
+     (define-key my-prog-vcs-map (kbd "m C") 'git-gutter+-stage-and-commit)
      ))
 
 (setq git-gutter+-disabled-modes '(asm-mode image-mode))
@@ -487,7 +487,7 @@
 ;; q Exit the time machine.
 
 (require 'git-timemachine)
-(define-key 'vcs-git-map (kbd "C-h") 'git-timemachine)
+(define-key 'my-prog-vcs-git-map (kbd "C-h") 'git-timemachine)
 
 
 

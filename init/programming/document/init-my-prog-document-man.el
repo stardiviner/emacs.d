@@ -9,7 +9,7 @@
 
 (unless (boundp 'man-lookup-prefix)
   (define-prefix-command 'man-lookup-prefix))
-;; (define-key help-document-map (kbd "m") 'man-lookup-prefix)
+;; (define-key my-prog-help-document-map (kbd "m") 'man-lookup-prefix)
 
 
 ;;; [ Man ]
@@ -19,7 +19,7 @@
 
 
 (if (featurep 'helm)
-    (define-key help-document-map (kbd "m") 'helm-man-woman))
+    (define-key my-prog-help-document-map (kbd "m") 'helm-man-woman))
 
 
 

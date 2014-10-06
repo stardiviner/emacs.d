@@ -135,7 +135,7 @@
 
 ;; (add-hook 'emacs-startup-hook 'my-ielm-start-or-switch)
 
-(define-key inferior-map (kbd "l e") 'my-ielm-start-or-switch)
+(define-key my-prog-inferior-map (kbd "l e") 'my-ielm-start-or-switch)
 
 
 

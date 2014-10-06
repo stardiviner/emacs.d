@@ -12,12 +12,12 @@
 ;;; Shell
 (unless (boundp 'my-inferior-shell-map)
   (define-prefix-command 'my-inferior-shell-map))
-(define-key inferior-map (kbd "s") 'my-inferior-shell-map)
+(define-key my-prog-inferior-map (kbd "s") 'my-inferior-shell-map)
 
 ;;; Lisp
 (unless (boundp 'my-inferior-lisp-map)
   (define-prefix-command 'my-inferior-lisp-map))
-(define-key inferior-map (kbd "l") 'my-inferior-lisp-map)
+(define-key my-prog-inferior-map (kbd "l") 'my-inferior-lisp-map)
 
 ;; Emacs Lisp
 (define-key my-inferior-lisp-map (kbd "s")
@@ -46,25 +46,25 @@
 ;; Ruby
 (unless (boundp 'my-inferior-ruby-map)
   (define-prefix-command 'my-inferior-ruby-map))
-(define-key inferior-map (kbd "r") 'my-inferior-ruby-map)
+(define-key my-prog-inferior-map (kbd "r") 'my-inferior-ruby-map)
 
 (define-key my-inferior-ruby-map (kbd "r") 'run-ruby) ; Ruby
 ;; Python
 ;; (unless (boundp 'my-inferior-python-map)
 ;;   (define-prefix-command 'my-inferior-python-map))
-;; (define-key inferior-map (kbd "p") 'my-inferior-python-map)
+;; (define-key my-prog-inferior-map (kbd "p") 'my-inferior-python-map)
 
-(define-key inferior-map (kbd "p") 'run-python)   ; Python
+(define-key my-prog-inferior-map (kbd "p") 'run-python)   ; Python
 ;; Prolog
-(define-key inferior-map (kbd "g") 'run-prolog)   ; Prolog
+(define-key my-prog-inferior-map (kbd "g") 'run-prolog)   ; Prolog
 ;; Octave
-(define-key inferior-map (kbd "o") 'run-octave)   ; Octave
+(define-key my-prog-inferior-map (kbd "o") 'run-octave)   ; Octave
 ;; Haskell
-(define-key inferior-map (kbd "h") 'run-haskell)  ; Haskell
+(define-key my-prog-inferior-map (kbd "h") 'run-haskell)  ; Haskell
 ;; Erlang
-(define-key inferior-map (kbd "e") 'run-erlang)   ; Erlang
+(define-key my-prog-inferior-map (kbd "e") 'run-erlang)   ; Erlang
 ;; Festival
-(define-key inferior-map (kbd "f") 'run-festival) ; Festival
+(define-key my-prog-inferior-map (kbd "f") 'run-festival) ; Festival
 
 
 (provide 'init-my-prog-programming)

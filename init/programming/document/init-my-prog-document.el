@@ -1,4 +1,4 @@
-;;; init-my-prog-document.el ---
+;;; init-my-prog-document.el --- init for Programming Document Look Up.
 
 ;;; Commentary:
 
@@ -54,7 +54,7 @@
 
 ;;; [ Info ]
 
-(define-key help-document-map (kbd "i") 'helm-info-at-point)
+(define-key my-prog-help-document-map (kbd "i") 'helm-info-at-point)
 
 
 ;;; [ API docsets ]
@@ -110,7 +110,7 @@
 ;;   (with-selected-window
 ;;     (eww (helm-get-selection))))
 
-(define-key help-document-map (kbd "C-d") 'helm-dash-at-point)
+(define-key my-prog-help-document-map (kbd "C-d") 'helm-dash-at-point)
 
 
 

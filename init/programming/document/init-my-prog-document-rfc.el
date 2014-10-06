@@ -100,7 +100,7 @@
       irfc-requirement-keyword-overlay nil
       irfc-highlight-references t)
 
-(define-key help-document-map (kbd "r") 'irfc-visit)
+(define-key my-prog-help-document-map (kbd "r") 'irfc-visit)
 
 
 

@@ -449,7 +449,7 @@ want to insert a newline in multiple-cursors-mode, use =[C-j]=.
 
 ** Documentation
 
-- =[C-h d]= :: help-document-map prefix.
+- =[C-h d]= :: my-prog-help-document-map prefix.
   - =[C-h d d]= :: document reference help lookup with current point string as
                  default input query.
   - =[C-h d D]= :: document reference help lookup with manually input as query.
