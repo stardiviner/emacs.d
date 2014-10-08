@@ -210,6 +210,81 @@
 (define-key ack-map (kbd "F") 'ack-find-file-same)
 
 
+;;; [ silver search (ag) ] -- like ack, but faster.
+
+;;; Usage:
+;;
+;;; Running a search:
+;;
+;; - ag
+;; - ag-files
+;; - ag-regexp
+;; - ag-project
+;; - ag-project-files
+;; - ag-project-regexp
+;;
+;; - *-project :: commands automatically choose the directory to search, automatically
+;;                detecting git, Subversion and Mercurial project roots.
+;;
+;; - *-regexp :: commands allow you to specify a PCRE pattern for your search term.
+;;
+;; - *-files :: commands allow you to specify a PCRE pattern for file names to
+;;              search in. By default, ag searches in all files. Note that in both cases, ag
+;;              ignores files that are ignored by your VCS (e.g. things mentioned in
+;;              .gitignore).
+;;
+;;; Search for files:
+;;
+;; ag supports an option -g that lets you to list file names matching PCRE
+;; patterns. It is analogical to find, but comes with all the nice features of
+;; ag such as automatically ignoring all the vcs files. You can search for files
+;; matching a pattern using functions
+;; 
+;; - ag-dired
+;; - ag-dired-regexp
+;; - ag-project-dired
+;; - ag-project-dired-regexp
+
+(require 'ag)
+
+(setq ag-highlight-search t
+      ag-reuse-buffers 't
+      ag-reuse-window nil ; nil, or 't. (I use value `nil' for popwin to capture)
+      ;; ag-arguments
+      )
+
+(define-key my-search-prefix-map (kbd "s") 'ag-regexp-project-at-point) ; 'ag, 'ag-regexp, 
+
+
+;;; [ helm-ag ]
+
+;;; Usage:
+;;
+;; - helm-ag :: Input search word with ag command. You can change search directory with C-u prefix.
+;; - helm-ag-this-file :: Same as helm-ag except to search only current file
+;; - helm-do-ag :: Search with ag like helm-do-grep.
+;; - helm-ag-pop-stack :: Move to point before jump
+;; - helm-ag-clear-stack :: Clear context stack
+;; - Helm persistent action :: You can see file content temporarily by persistent action(C-z) at helm-ag and helm-ag-this-file.
+
+(require 'helm-ag)
+
+(setq helm-ag-insert-at-point 'word ; same thing as `thing-at-point' such ash: 'word, symbol,
+      helm-ag-base-command "ag --nocolor --nogroup" ; helm use color match, so use option `--nocolor' here.
+      ;; helm-ag-command-option
+      helm-ag-source-type 'one-line ; 'one-line, 'file-line
+      )
+
+;; You can use helm-ag with projectile by following command.
+(defun projectile-helm-ag ()
+  "Use helm-ag to be more better ag search with helm."
+  (interactive)
+  (helm-ag (projectile-project-root)))
+(define-key projectile-command-map (kbd "s h") 'projectile-helm-ag)
+
+(define-key my-search-prefix-map (kbd "h") 'helm-ag)
+
+
 ;;; [ Ace Jump Mode ]
 
 ;;; Usage:

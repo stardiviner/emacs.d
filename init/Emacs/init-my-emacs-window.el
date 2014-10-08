@@ -314,6 +314,9 @@ The `BUFFER' is the popwin catch pop private message buffer."
 ;; ack-and-a-half
 (push '(ack-and-a-half-mode :position bottom :height 15) popwin:special-display-config)
 
+;; ag
+(push '(ag-mode :position bottom :height 15) popwin:special-display-config)
+
 ;;; IELM
 ;; TODO:
 (push '("*ielm*" :position bottom :height 15) popwin:special-display-config)
