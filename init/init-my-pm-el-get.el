@@ -192,6 +192,7 @@
          mo-git-blame
          ;; project
          projectile
+         vagrant vagrant-tramp
          ;; languages
          ;; Ruby
          ruby-mode
