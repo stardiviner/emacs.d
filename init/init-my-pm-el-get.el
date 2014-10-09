@@ -54,7 +54,7 @@
          ;; ido-vertical-mode ido-ubiquitous smex
          helm
          helm-helm-commands helm-descbinds ; helm-themes
-         helm-ls-git
+         helm-ls-git helm-cmd-t
          helm-c-yasnippet helm-c-flycheck
          helm-gtags helm-yaetags ; helm-c-moccur
          helm-rails helm-pydoc

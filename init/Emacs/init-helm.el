@@ -294,6 +294,11 @@
 (require 'helm-ls-git)
 
 
+;;; [ helm-cmd-t ]
+
+(require 'helm-cmd-t)
+
+
 ;;; [ helm-c-yasnippet ] -- helm source for yasnippet.el
 
 ;;; Usage:
