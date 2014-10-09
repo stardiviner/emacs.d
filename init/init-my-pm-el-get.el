@@ -164,7 +164,7 @@
          smartparens
          ;; autopair
          ; rainbow-mode
-         ; rainbow-delimiters
+         rainbow-delimiters
          ; rainbow-block
          ;; rainbow-identifiers
          ;; document, API, docsets

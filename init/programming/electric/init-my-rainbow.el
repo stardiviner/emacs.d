@@ -21,16 +21,16 @@
 ;;   (add-hook hook (lambda () (rainbow-mode 1))))
 
 
-;;; rainbow-delimiters
+;;; [ rainbow-delimiters ] -- rainbow color parenthesis
 
-;; (when (require 'rainbow-delimiters nil 'noerror)
-;;   (rainbow-delimiters-mode t)
-;;   ;; (global-rainbow-delimiters-mode) ; global
-;;   ;; enable in all programming-related modes
-;;   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-;;   ;; enable in specific modes
-;;   ;; (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
-;;   )
+(when (require 'rainbow-delimiters nil 'noerror)
+  (rainbow-delimiters-mode t)
+  ;; (global-rainbow-delimiters-mode) ; global
+  ;; enable in all programming-related modes
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+  ;; enable in specific modes
+  ;; (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+  )
 
 
 ;;; rainbow-identifiers
