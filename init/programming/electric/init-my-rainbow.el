@@ -7,18 +7,20 @@
 
 ;;; Code:
 
-;;; rainbow-mode -- colorize color names in buffers
+;;; [ rainbow-mode ] -- colorize color names in buffers
 
-;; (require 'rainbow-mode)
+(load "~/.emacs.d/init/extensions/rainbow-mode-0.10.el")
 
-;; (eval-after-load 'rainbow-mode
-;;   '(diminish 'rainbow-mode))
+(require 'rainbow-mode)
 
-;; (dolist (hook
-;;          '(emacs-lisp-mode-hook
-;;            css-mode-hook
-;;            html-mode-hook))
-;;   (add-hook hook (lambda () (rainbow-mode 1))))
+(eval-after-load 'rainbow-mode
+  '(diminish 'rainbow-mode))
+
+(dolist (hook
+         '(emacs-lisp-mode-hook
+           css-mode-hook
+           html-mode-hook))
+  (add-hook hook (lambda () (rainbow-mode 1))))
 
 
 ;;; [ rainbow-delimiters ] -- rainbow color parenthesis
