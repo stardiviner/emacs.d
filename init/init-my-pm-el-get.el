@@ -61,6 +61,7 @@
          helm-gist
          helm-mu
          ;; helm-delicious
+         helm-dictionary
          auto-complete
          auto-complete-yasnippet auto-complete-chunk
          auto-complete-etags

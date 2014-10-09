@@ -326,6 +326,37 @@
 (require 'helm-gist)
 
 
+;;; [ helm-dictionary ]
+
+;;; Usage:
+;;
+;; - [M-x helm-dictionary] :: start search.
+
+;; (require 'helm-dictionary)
+;; alternatively
+(autoload 'helm-dictionary "helm-dictionary" "" t)
+
+;; (setq
+;;  ;; local dictionary
+;;  helm-dictionary-database ""
+;;  ;; online dictionary
+;;  helm-dictionary-online-dicts '(("translate.reference.com de->eng"
+;;                                  . "http://translate.reference.com/translate?query=%s&src=de&dst=en")
+;;                                 ("translate.reference.com eng->de"
+;;                                  . "http://translate.reference.com/translate?query=%s&src=en&dst=de")
+;;                                 ("leo eng<->de"
+;;                                  . "http://dict.leo.org/ende?lp=ende&lang=de&search=%s")
+;;                                 ("en.wiktionary.org"
+;;                                  . "http://en.wiktionary.org/wiki/%s")
+;;                                 ("de.wiktionary.org"
+;;                                  . "http://de.wiktionary.org/wiki/%s")
+;;                                 ("linguee-eng<->de"
+;;                                  . "http://www.linguee.de/deutsch-englisch/search?sourceoverride=none&source=auto&query=%s"))
+
+;;  ;; helm-dictionary-browser-function nil
+;;  )
+
+
 ;; ;;; [ helm-delicious ]
 
 ;; ;; Use:
