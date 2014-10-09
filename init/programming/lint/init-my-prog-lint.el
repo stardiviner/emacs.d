@@ -44,7 +44,11 @@
 ;; - FlyC:3/4 -- There are three errors and four warnings in the current buffer.
 ;; - FlyC-    -- Automatic syntax checker selection did not find a suitable syntax checker. See Selection, for more information.
 ;; - FlyC!    -- The syntax check failed. Inspect the *Messages* buffer for details.
-;; - FlyC?    -- The syntax check had a dubious result. The definition of the syntax checker may be flawed. Inspect the *Messages* buffer for details. This indicator should never be displayed for built-in syntax checkers. If it is, please report this issue to the Flycheck developers.
+
+;; - FlyC?    -- The syntax check had a dubious result. The definition of the syntax checker
+;;               may be flawed. Inspect the *Messages* buffer for details. This indicator
+;;              should never be displayed for built-in syntax checkers. If it is, please
+;;              report this issue to the Flycheck developers.
 
 
 (require 'flycheck)

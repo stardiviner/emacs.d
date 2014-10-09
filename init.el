@@ -106,11 +106,6 @@
 ;;; my custom functions
 (require 'init-my-functions)
 
-;;; run Emacs server
-(require 'server)
-(unless (server-running-p)
-    (server-start))
-
 
 ;;; key bindings
 (require 'init-my-keybindings)

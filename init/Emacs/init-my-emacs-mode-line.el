@@ -66,7 +66,7 @@
                 (:propertize "  ")
 
                 ;; mule info
-                (:propertize mode-line-mule-info) ; U:
+                (:propertize mode-line-mule-info) ; U:[*--]
                 
                 ;; Buffer status
                 ;; insert vs overwrite mode, input-method in a tool-tip ("Ovr", "Ins")
@@ -201,8 +201,9 @@
                  ;; (t org-mode-line-string org-timer-mode-line-string)
                  (t org-timer-mode-line-string) ; org-timer default time 25, (Pomodoro time management technique)
                  face (:foreground "cyan"))
-                
+
                 (:propertize mode-line-end-spaces)
+
                 )))
 
 ;;; mode-line right align (which replace `mode-line-end-spaces' to implement the right alignment.)

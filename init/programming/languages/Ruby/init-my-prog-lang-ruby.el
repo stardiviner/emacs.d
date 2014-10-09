@@ -473,6 +473,7 @@
 (add-hook 'robe-mode-hook
           (lambda ()
             (ac-robe-setup)
+            ;; old way
             ;; (push 'ac-source-robe ac-sources)
             ;; (add-to-list 'ac-sources 'ac-source-robe) ; `ac-robe-setup' did this already.
             ))

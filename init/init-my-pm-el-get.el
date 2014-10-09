@@ -54,7 +54,6 @@
          ;; ido-vertical-mode ido-ubiquitous smex
          helm
          helm-helm-commands helm-descbinds ; helm-themes
-         helm-project
          helm-ls-git
          helm-c-yasnippet helm-c-flycheck
          helm-gtags helm-yaetags ; helm-c-moccur
@@ -174,8 +173,7 @@
          ;; snippet
          yasnippet
          ;; Tags
-         cscope ; xcscope
-         ascope
+         cscope
          gtags ; use program global
          ;; code browser
          sr-speedbar
@@ -192,6 +190,7 @@
          mo-git-blame
          ;; project
          projectile
+         helm-project
          vagrant vagrant-tramp
          ;; languages
          ;; Ruby
