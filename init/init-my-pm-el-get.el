@@ -290,6 +290,9 @@
          ;; Database
          ;; SQL
          sqlup-mode
+         ;; English
+         ;; Japanese
+         ; migemo helm-migemo
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
 
