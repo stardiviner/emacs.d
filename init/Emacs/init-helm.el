@@ -294,9 +294,33 @@
 (require 'helm-ls-git)
 
 
-;;; [ helm-cmd-t ]
+;;; [ helm-cmd-t ] -- Helm functions to package directories (SCM controlled or not) as sources.
 
 (require 'helm-cmd-t)
+
+;; (setq helm-cmd-t-repo-types '(("git" ".git" "cd %d && git --no-pager ls-files --full-name")
+;;                               ("hg" ".hg" "cd %d && hg manifest")
+;;                               ("bzr" ".bzr" "cd %d && bzr ls --versioned")
+;;                               ("dir-locals" ".dir-locals.el" helm-cmd-t-get-find)
+;;                               ("" "" helm-cmd-t-get-find))
+;;       )
+
+(global-set-key (kbd "M-t") 'helm-cmd-t)
+
+;;; additional optional helm settings to make helm more responsive.
+;; (setq helm-ff-lynx-style-map nil helm-input-idle-delay 0.1 helm-idle-delay 0.1)
+
+;;; Creating an ad-hoc source
+;;; It’s easy to convert any file system directory into a source
+;;
+;; (setq downloads-source (helm-cmd-t-get-create-source-dir "~/Downloads"))
+;; (setq docs-source (helm-cmd-t-get-create-source-dir "~/Documents"))
+;;
+;; (defun helm-cmd-t-ad-hoc-example ()
+;;   "Choose file from test folder."
+;;   (interactive)
+;;   (helm :sources (list downloads-source docs-source)))
+
 
 
 ;;; [ helm-c-yasnippet ] -- helm source for yasnippet.el
