@@ -40,7 +40,8 @@
                 
                 ;; window-number
                 (:propertize (:eval (window-number-string))
-                             face (:foreground "orange"))
+                             face (:foreground "cyan" :weight 'bold
+                                               :box (:color "dark red")))
 
                 ;; workgroups2
                 ;; (:propertize (wg-mode-line-display-on
@@ -48,25 +49,20 @@
                 ;;                (wg-mode-line-string)))))
                 (:propertize (:eval
                               (wg-mode-line-string))
-                             face (:foreground "cyan"
+                             face (:foreground "dark gray"
                                                ;; :underline "green yellow"
-                                               ;; :family "Segoe Print"
+                                               :family "Comic Sans Mono"
                                                ))
 
                 ;; projectile
                 (:propertize projectile-mode-line
-                             face (:foreground "slate blue"))
+                             face (:foreground "green yellow"))
 
-                ;; TODO: mu4e maildir
-                (:propertize (:eval
-                              (let ((my-mu4e-maildir-name (file-name-base mu4e-maildir)))
-                                (if (string-match "mu4e-.*" "%b")
-                                  (format "[%s]" my-mu4e-maildir-name)))))
-
-                (:propertize "  ")
+                (:propertize " ")
 
                 ;; mule info
-                (:propertize mode-line-mule-info) ; U:[*--]
+                (:propertize mode-line-mule-info
+                             face (:foreground "dark gray"))   ; U:[*--]
                 
                 ;; Buffer status
                 ;; insert vs overwrite mode, input-method in a tool-tip ("Ovr", "Ins")
@@ -83,7 +79,7 @@
                 (:propertize (:eval (when buffer-read-only ", ⚑"))
                              face (:foreground "red")
                              help-echo "Buffer is read-only!!!")
-                (:propertize "]")
+                (:propertize "] ")
 
                 ;; VCS - Git, SVN, CVS,
 
@@ -102,7 +98,9 @@
 
                 ;; vc indicator
                 (:propertize (vc-mode vc-mode)
-                             face (:foreground "#C05800")
+                             face (:foreground "sky blue"
+                                               :weight 'bold
+                                               :family "Comic Sans MS")
                              help-echo (vc-mode))
 
                 ;; (vc-mode (:eval (propertize vc-mode
@@ -122,25 +120,15 @@
                 ;; mode-line-remote
                 ;; mode-line-frame-identification
                 ;; mode-line-buffer-identification
-                (:propertize " [")
+                (:propertize " ["
+                             face (:foreground "cyan"))
                 (:propertize "%b"
-                             face (:foreground "dark gray")
+                             face (:foreground "white")
                              help-echo (buffer-file-name))
-                (:propertize "] ")
+                (:propertize "]"
+                             face (:foreground "cyan"))
 
                 ;; git-emacs (magit)
-
-                ;; line and column number, relative position
-                ;; mode-line-position
-                ;; '%02' to set to 2 chars at least; prevents flicking
-                (:propertize "(%02l,%02c),%03p"
-                             face (:foreground "#444444")
-                             ;; (:eval (if (>= (current-column) 80)
-                             ;;            face (:foreground "red" :weight 'bold)))
-                             )
-
-                ;; relative position, size of file
-                ;; (:propertize " [%p,%I] ")
 
                 ;; process
                 ;; mode-line-process
@@ -153,24 +141,22 @@
                 ;; TODO
                 ;; (:propertize (mmm-format-string))
 
-                ;; the major mode of the current buffer.
-                (:propertize " 〖"
-                             face (:foreground "orange red"))
-                (:propertize "%m"
-                             face (:foreground "green yellow"
-                                               :weight 'bold
-                                               ;; :family ""
-                                               ;; :height 100
-                                               )
-                             ;; FIXME:
-                             ;; help-echo '(minor-mode-alist)
-                             )
-                ;; (:propertize "|")
-                ;; ;; list of minor modes
-                ;; (:propertize minor-mode-alist
-                ;;              face (:foreground "dim gray"))
-                (:propertize "〗 "
-                             face (:foreground "orange red"))
+                ;; ;; the major mode of the current buffer.
+                ;; (:propertize " 〖"
+                ;;              face (:foreground "orange red"))
+                ;; (:propertize "%m"
+                ;;              face (:foreground "green yellow"
+                ;;                                :family "Comic Sans MS" :weight 'bold ; :height 100
+                ;;                                )
+                ;;              ;; FIXME:
+                ;;              help-echo (minor-mode-alist)
+                ;;              )
+                ;; ;; ;; list of minor modes
+                ;; ;; (:propertize "|")
+                ;; ;; (:propertize minor-mode-alist
+                ;; ;;              face (:foreground "dim gray"))
+                ;; (:propertize "〗 "
+                ;;              face (:foreground "orange"))
 
                 ;; --------------------------- right align ----------------------------------
                 
@@ -208,16 +194,54 @@
 
 ;;; mode-line right align (which replace `mode-line-end-spaces' to implement the right alignment.)
 ;;
-;; (display-time)
-;; (setq global-mode-string (remove 'display-time-string global-mode-string))
-;; (setq mode-line-end-spaces
-;;       (list (propertize " " 'display '(space :align-to (- right 10)))
-;;             ;; you can custom here (add right aligned things here)
-;;             ;; '(:propertize " /铁甲依然在 !/ "
-;;             ;;               face (:foreground "cyan")
-;;             ;;               help-echo "我不要这样生，也不要那样死！\n\n 人的一生是如此的的短暂，而你还有很多的事情,很多的梦想 需要曲实现。\n我不想那样生存，也不想就 这样死去，所以，我要拼命去实现我的想法。")
-;;             'display-time-string
-;;             ))
+(display-time)
+(setq global-mode-string (remove 'display-time-string global-mode-string))
+(setq mode-line-end-spaces
+      (list (propertize " " 'display '(space :align-to (- right 24)))
+            ;;; you can custom here (add right aligned things here)
+
+            ;; TODO: mu4e maildir
+            '(:propertize (:eval
+			   (let ((my-mu4e-maildir-name (file-name-base mu4e-maildir)))
+			     (if (string-match "mu4e-.*" "%b")
+				 (format "[%s]" my-mu4e-maildir-name))))
+			  face (:foreground "white" :weight 'bold))
+            
+            ;; line and column number, relative position
+            ;; mode-line-position
+            ;; '%02' to set to 2 chars at least; prevents flicking
+            '(:propertize " (%02l,%02c),%03p "
+                         face (:foreground "dark gray")
+                         ;; (:eval (if (>= (current-column) 80)
+                         ;;            face (:foreground "red" :weight 'bold)))
+                         )
+
+            ;; relative position, size of file
+            ;; '(:propertize " [%p,%I] ")
+
+            ;; the major mode of the current buffer.
+            '(:propertize " ✣ "
+                         face (:foreground "cyan"))
+            '(:propertize "%m"
+                         face (:foreground "lemon chiffon"
+                                           :family "Comic Sans MS" :weight 'bold ; :height 100
+                                           )
+                         ;; FIXME:
+                         ;; help-echo (minor-mode-alist)
+                         )
+            '(:propertize " ✣ "
+                         face (:foreground "cyan"))
+            
+            ;; '(:propertize "{/Emacs/}"
+            ;;               face (:foreground "yellow")
+            ;;               help-echo "神之编辑器")
+            
+            ;; '(:propertize " /铁甲依然在 !/ "
+            ;;               face (:foreground "cyan")
+            ;;               help-echo "我不要这样生，也不要那样死！\n\n 人的一生是如此的的短暂，而你还有很多的事情,很多的梦想 需要曲实现。\n我不想那样生存，也不想就 这样死去，所以，我要拼命去实现我的想法。")
+            
+            ;; 'display-time-string
+            ))
 
 
 ;;; change minor mode name
@@ -341,18 +365,17 @@
 ;; modeline colors
 (set-face-attribute 'mode-line nil
                     :inverse-video nil
-                    :foreground "#444444"
-                    :background "black"
-                    :box '(:color "slate blue" :line-width 1 :style nil)
+                    :foreground "white" :background "#004A5D"
+                    :box '(:color "cyan" :line-width -1 :style nil)
                     :family "DejaVu Sans Mono"
-                    ;; :height 80
+                    :height 80
                     )
 (set-face-attribute 'mode-line-inactive nil
                     :inverse-video nil
-                    :foreground "#444444" :background "#242424"
+                    :foreground "#444444" :background "black" ; :background "#242424"
                     :family "DejaVu Sans Mono"
-                    :box '(:color "#444444" :line-width 1 :style nil)
-                    ;; :height 80
+                    :box '(:color "slate blue" :line-width -1 :style nil)
+                    :height 80
                     )
 
 
