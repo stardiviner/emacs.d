@@ -289,7 +289,7 @@
 
 
 
-;;; [ helm-ls-git ]
+;;; [ helm-ls-git ] -- Yet another helm to list git file.
 
 (require 'helm-ls-git)
 
