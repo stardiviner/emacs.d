@@ -179,8 +179,8 @@
 (defalias 'ack-find-file 'ack-and-a-half-find-file)
 (defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
 
-(setq ack-and-a-half-executable "ack-grep"
-      ack-and-a-half-use-ido t               ; use ido to provide completions
+(setq ack-and-a-half-use-ido t               ; use ido to provide completions
+      ;; ack-and-a-half-executable "ack-grep"
       ;; ack-and-a-half-arguments ; extra arguments passed to ack
       ack-and-a-half-ignore-case 'smart
       ack-and-a-half-regexp-search t
