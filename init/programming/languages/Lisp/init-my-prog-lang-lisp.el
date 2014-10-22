@@ -128,16 +128,15 @@
 
 ;;; [ ac-geiser ]
 
-(require 'ac-geiser)
+;; (require 'ac-geiser)
 
-
-(dolist (hook '(lisp-mode-hook
-                lisp-interaction-mode-hook
-                scheme-mode-hook
-                ))
-  (add-hook hook (lambda ()
-                   (ac-geiser-setup)
-                   (add-to-list 'ac-sources 'ac-source-geiser))))
+;; (dolist (hook '(lisp-mode-hook
+;;                 lisp-interaction-mode-hook
+;;                 scheme-mode-hook
+;;                 ))
+;;   (add-hook hook (lambda ()
+;;                    (ac-geiser-setup)
+;;                    (add-to-list 'ac-sources 'ac-source-geiser))))
 
 
 ;;; [ Quack ] -- enhanced Emacs Support for Editing and Running Scheme Code

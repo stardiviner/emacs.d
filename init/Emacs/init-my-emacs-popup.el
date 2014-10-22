@@ -43,13 +43,11 @@
 (set-face-attribute 'popup-tip-face nil
                     :foreground "black" :background "#EDED00")
 (set-face-attribute 'popup-isearch-match nil
-                    :inherit 'ac-candidate-face
                     :inverse-video nil
                     :foreground "#209FC9" :background "white"
                     :underline '(:color "dim gray" :style line)
                     )
 (set-face-attribute 'popup-menu-face nil
-                    :inherit 'ac-candidate-face
                     :foreground "green yellow" :background "black")
 
 ;; add some shotcuts in popup menu mode

@@ -47,7 +47,7 @@
 
 ;; (require 'init-ido)
 (require 'init-helm)
-(require 'init-auto-complete)
+;; (require 'init-auto-complete)
 (require 'init-company-mode)
 
 

@@ -476,21 +476,21 @@ It can contain any number of symbols, which will be repeated."
 
 ;;; [o] -- annotation.
 
-(require 'org-ac)
-;; Make config suit for you. About the config item, eval the following sexp.
-;; (customize-group "org-ac")
-(org-ac/config-default)
-
-;; (setq org-ac/ac-trigger-command-keys '("\\" "*" "SPC" ":" "[" "+"))
-(setq org-ac/ac-trigger-command-keys '("\\" "+"))
-
-;; remove heavy auto-complete sources to speed up typing in Org.
-;; Ask Org-mode Mailing list.
-(add-hook 'org-mode-hook
-          (lambda ()
-            ;; use `remq' in a loop. instead of `delq' which will remove element in global default `ac-sources' too.
-            (mapc (lambda (x) (setq-local ac-sources (remq x ac-sources)))
-                  '(ac-source-dictionary ac-source-words-in-same-mode-buffers))))
+;; (require 'org-ac)
+;; ;; Make config suit for you. About the config item, eval the following sexp.
+;; ;; (customize-group "org-ac")
+;; (org-ac/config-default)
+;;
+;; ;; (setq org-ac/ac-trigger-command-keys '("\\" "*" "SPC" ":" "[" "+"))
+;; (setq org-ac/ac-trigger-command-keys '("\\" "+"))
+;;
+;; ;; remove heavy auto-complete sources to speed up typing in Org.
+;; ;; Ask Org-mode Mailing list.
+;; (add-hook 'org-mode-hook
+;;           (lambda ()
+;;             ;; use `remq' in a loop. instead of `delq' which will remove element in global default `ac-sources' too.
+;;             (mapc (lambda (x) (setq-local ac-sources (remq x ac-sources)))
+;;                   '(ac-source-dictionary ac-source-words-in-same-mode-buffers))))
 
 ;;;_* Document Structure
 
@@ -1990,14 +1990,14 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 
 ;; <s, <e, <q, ...
 
-;; avoid competing with org-mode templates.
-(defun org-stop-auto-complete-for-structure-templates ()
-  "Avoid competing with ORG-MODE templates like <s, <e, <q etc."
-  (make-local-variable 'ac-stop-words)
-  (loop for template in org-structure-template-alist do
-        (add-to-list 'ac-stop-words (concat "<" (car template)))))
-
-(add-hook 'org-mode-hook 'org-stop-auto-complete-for-structure-templates)
+;;; avoid competing with org-mode templates.
+;; (defun org-stop-auto-complete-for-structure-templates ()
+;;   "Avoid competing with ORG-MODE templates like <s, <e, <q etc."
+;;   (make-local-variable 'ac-stop-words)
+;;   (loop for template in org-structure-template-alist do
+;;         (add-to-list 'ac-stop-words (concat "<" (car template)))))
+;;
+;; (add-hook 'org-mode-hook 'org-stop-auto-complete-for-structure-templates)
 
 ;;;_* deft
 

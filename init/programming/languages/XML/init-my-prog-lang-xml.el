@@ -27,16 +27,16 @@
 
 ;;; https://github.com/aki2o/auto-complete-nxml
 
-(require 'auto-complete-nxml)
+;; (require 'auto-complete-nxml)
 
-;; If you want to start completion manually from the beginning
-(setq auto-complete-nxml-automatic-p nil)
+;; ;; If you want to start completion manually from the beginning
+;; (setq auto-complete-nxml-automatic-p nil)
 
-;; Keystroke for popup help about something at point.
-(setq auto-complete-nxml-popup-help-key "M-h")
+;; ;; Keystroke for popup help about something at point.
+;; (setq auto-complete-nxml-popup-help-key "M-h")
 
-;; Keystroke for toggle on/off automatic completion.
-;; (setq auto-complete-nxml-toggle-automatic-key "C-c C-t")
+;; ;; Keystroke for toggle on/off automatic completion.
+;; ;; (setq auto-complete-nxml-toggle-automatic-key "C-c C-t")
 
 
 
