@@ -65,23 +65,23 @@
 ;;                      (- (time-to-seconds) last-command-start-time))))
 
 ;;; auto-complete settings
-;; (autoload 'auto-complete "auto-complete" t)
-;; (defvar ac-source-eshell-pcomplete
-;;   '((candidates . (pcomplete-completions))))
-;; (defun ac-complete-eshell-pcomplete ()
-;;   (interactive)
-;;   (auto-complete '(ac-source-eshell-pcomplete)))
-;;
-;; ;;; auto enable ac-mode
-;; (global-auto-complete-mode 1)
-;; (add-to-list 'ac-modes 'eshell-mode)
-;; (setq ac-sources '(ac-source-eshell-pcomplete
-;;                    ;; ac-source-files-in-current-dir
-;;                    ac-source-filename
-;;                    ;; ac-source-abbrev
-;;                    ;; ac-source-words-in-buffer
-;;                    ;; ac-source-imenu
-;;                    ))
+(autoload 'auto-complete "auto-complete" t)
+(defvar ac-source-eshell-pcomplete
+  '((candidates . (pcomplete-completions))))
+(defun ac-complete-eshell-pcomplete ()
+  (interactive)
+  (auto-complete '(ac-source-eshell-pcomplete)))
+
+;;; auto enable ac-mode
+(global-auto-complete-mode 1)
+(add-to-list 'ac-modes 'eshell-mode)
+(setq ac-sources '(ac-source-eshell-pcomplete
+                   ;; ac-source-files-in-current-dir
+                   ac-source-filename
+                   ;; ac-source-abbrev
+                   ;; ac-source-words-in-buffer
+                   ;; ac-source-imenu
+                   ))
 
 (defun my-eshell-start-or-switch ()
   "Start Emacs Shell or switch to its buffer if it already exist."

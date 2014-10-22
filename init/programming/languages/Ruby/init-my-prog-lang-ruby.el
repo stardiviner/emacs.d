@@ -103,7 +103,7 @@
               (run-hooks 'prog-mode-hook))
 
             ;; add into auto-complete enable modes.
-            ;; (add-to-list 'ac-modes 'enh-ruby-mode)
+            (add-to-list 'ac-modes 'enh-ruby-mode)
             (define-key enh-ruby-mode-map (kbd "C-,") 'insert-arrow)
             ))
 
@@ -352,7 +352,7 @@
 
 (define-key my-prog-inferior-map (kbd "r a") 'inf-ruby-console-auto)
 
-;; (add-to-list 'ac-modes 'inf-ruby-mode) ; enable auto-complete (with robe-mode) for inf-ruby completion.
+(add-to-list 'ac-modes 'inf-ruby-mode) ; enable auto-complete (with robe-mode) for inf-ruby completion.
 
 
 ;;; [ pry (emacs-pry) ] -- Pry support within Emacs
@@ -399,7 +399,7 @@
 
 ;;; [ auto-complete-ruby ]
 
-;; (require 'auto-complete-ruby)
+(require 'auto-complete-ruby)
 
 
 ;;; [ rcodetools ]
@@ -470,13 +470,13 @@
 
 
 ;; for auto-complete
-;; (add-hook 'robe-mode-hook
-;;           (lambda ()
-;;             (ac-robe-setup)
-;;             ;; old way
-;;             ;; (push 'ac-source-robe ac-sources)
-;;             ;; (add-to-list 'ac-sources 'ac-source-robe) ; `ac-robe-setup' did this already.
-;;             ))
+(add-hook 'robe-mode-hook
+          (lambda ()
+            (ac-robe-setup)
+            ;; old way
+            ;; (push 'ac-source-robe ac-sources)
+            ;; (add-to-list 'ac-sources 'ac-source-robe) ; `ac-robe-setup' did this already.
+            ))
 ;; for company-mode
 ;; (eval-after-load 'company
 ;;   (push 'company-robe company-backends))

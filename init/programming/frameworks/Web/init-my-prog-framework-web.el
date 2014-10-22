@@ -184,9 +184,9 @@
 ;; web-mode-ac-sources-alist
 ;; web-mode-before-auto-complete-hooks
 
-;; (setq web-mode-ac-sources-alist
-;;       '(("css" . (ac-source-css-property))
-;;         ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
+(setq web-mode-ac-sources-alist
+      '(("css" . (ac-source-css-property))
+        ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
 
 ;;;_. Faces
 
