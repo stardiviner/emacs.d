@@ -165,7 +165,7 @@
          paredit
          smartparens
          ;; autopair
-         ; rainbow-mode
+         rainbow-mode
          rainbow-delimiters
          ; rainbow-block
          ;; rainbow-identifiers

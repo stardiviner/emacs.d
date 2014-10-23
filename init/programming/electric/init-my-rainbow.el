@@ -9,7 +9,7 @@
 
 ;;; [ rainbow-mode ] -- colorize color names in buffers
 
-(load "~/.emacs.d/init/extensions/rainbow-mode-0.10.el")
+;; (load "~/.emacs.d/init/extensions/rainbow-mode-0.10.el")
 
 (require 'rainbow-mode)
 
