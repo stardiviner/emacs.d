@@ -106,22 +106,22 @@
 
 ;;; [ rfcview ]
 
-(require 'rfcview)
+;; (require 'rfcview)
 
-(setq rfcview-index-location (concat user-emacs-directory "documentations/RFC/rfc-index.txt")
-      rfcview-rfc-location-pattern (concat user-emacs-directory "documentations/RFC/rfc%s.txt")
-      rfcview-std-location-pattern (concat user-emacs-directory "documentations/RFC/std%s.txt")
-      )
+;; (setq rfcview-index-location (concat user-emacs-directory "documentations/RFC/rfc-index.txt")
+;;       rfcview-rfc-location-pattern (concat user-emacs-directory "documentations/RFC/rfc%s.txt")
+;;       rfcview-std-location-pattern (concat user-emacs-directory "documentations/RFC/std%s.txt")
+;;       )
 
-(define-key rfcview-mode-map (kbd "q") 'rfcview-quit)
-(define-key rfcview-mode-map (kbd "j") 'rfcview-find-rfc)
-(define-key rfcview-mode-map (kbd "i") 'rfcview-textmode)
-(define-key rfcview-mode-map (kbd "g") 'rfcview-goto-link)
-(define-key rfcview-mode-map (kbd "I") 'rfcview-find-index)
-(define-key rfcview-mode-map (kbd "TAB") 'rfcview-next-button)
-(define-key rfcview-mode-map (kbd "t") 'rfcview-hyperlink-contents)
-(define-key rfcview-mode-map (kbd "s") 'rfcview-find-location-of-rfc)
-(define-key rfcview-mode-map (kbd "d") 'rfcview-imenu-index-function)
+;; (define-key rfcview-mode-map (kbd "q") 'rfcview-quit)
+;; (define-key rfcview-mode-map (kbd "j") 'rfcview-find-rfc)
+;; (define-key rfcview-mode-map (kbd "i") 'rfcview-textmode)
+;; (define-key rfcview-mode-map (kbd "g") 'rfcview-goto-link)
+;; (define-key rfcview-mode-map (kbd "I") 'rfcview-find-index)
+;; (define-key rfcview-mode-map (kbd "TAB") 'rfcview-next-button)
+;; (define-key rfcview-mode-map (kbd "t") 'rfcview-hyperlink-contents)
+;; (define-key rfcview-mode-map (kbd "s") 'rfcview-find-location-of-rfc)
+;; (define-key rfcview-mode-map (kbd "d") 'rfcview-imenu-index-function)
 
 
 (provide 'init-my-prog-document-rfc)
