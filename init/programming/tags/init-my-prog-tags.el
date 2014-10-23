@@ -88,6 +88,7 @@ For project directory with Projectile root."
 
 ;; Usage:
 ;; $ cscope -bR
+;; - `cscope-minor-mode' ::
 
 (require 'cscope)
 
@@ -171,6 +172,53 @@ For project directory with Projectile root."
   (let ((tags-file (concat (eproject-root) "TAGS")))
     (visit-tags-table tags-file)
     (message (concat "Loaded " tags-file))))
+
+
+;;; [ helm-cscope ] -- cscope with Helm interface.
+
+;;; Usage:
+;;
+;; interactive functions
+;;
+;;     - helm-cscope-find-symbol
+;;     - helm-cscope-find-global-definition
+;;     - helm-cscope-find-called-function
+;;     - helm-cscope-find-calling-this-funtcion
+;;     - helm-cscope-select (uses all of above sources)
+
+(require 'helm-cscope)
+
+(dolist (hook '(prog-mode-hook
+                c-mode-hook
+                c++-mode-hook
+                ))
+  (add-hook hook 'helm-cscope-mode))
+
+;; ;;; set key-bindings
+;; ;; 1. better then 2.
+;; (add-hook 'helm-cscope-mode-hook
+;;           (lambda ()
+;;             (local-set-key (kbd (concat my-prog-help-document-map " M-t")) 'helm-cscope-find-symbol)))
+
+
+;; ;; 2.
+;; (eval-after-load "helm-cscope"
+;;   '(progn
+;;      ;; use "C-h d l" as prefix. so use "C-h d" prefix map.
+;;      (define-key helm-cscope-mode-map (kbd (concat my-prog-help-document-map "M-t"))
+;;        'helm-cscope-find-symbol)
+;;      (define-key helm-cscope-mode-map (kbd (concat my-prog-help-document-map "M-r"))
+;;        'helm-cscope-find-global-definition)
+;;      (define-key helm-cscope-mode-map (kbd (concat my-prog-help-document-map "M-g M-c"))
+;;        'helm-cscope-find-called-function)
+;;      (define-key helm-cscope-mode-map (kbd (concat my-prog-help-document-map "M-g M-p"))
+;;        'helm-cscope-find-calling-this-funtcion)
+;;      (define-key helm-cscope-mode-map (kbd (concat my-prog-help-document-map "M-s"))
+;;        'helm-cscope-select)
+;;      ))
+
+;; (define-key global-map (kbd (concat my-prog-help-document-map "C-h d M-t")) 'helm-cscope-find-symbol)
+
 
 ;;; [ ido-find-tag ] --- custom function.
 
@@ -305,6 +353,15 @@ For project directory with Projectile root."
 ;;   (add-hook hook '(lambda ()
 ;;                     (etags-u-mode t))))
 
+
+;;; [ gtags ] -- (global)
+
+
+
+
+;;; [ helm-gtags ]
+
+; (require ''setup-helm-gtags)
 
 
 

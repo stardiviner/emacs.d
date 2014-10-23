@@ -28,6 +28,7 @@
 
 
 ;;; [ popup ]
+
 ;; Features:
 ;;  - Tooltip
 ;;      (popup-tip)
@@ -63,6 +64,7 @@
 
 
 ;;; [ pos-tip ]
+
 (require 'pos-tip)
 
 ;; TODO: set popup items properties.
@@ -74,7 +76,7 @@
 ;; - sublist:
 
 
-;;; popup-pos-tip
+;;; [ popup-pos-tip ]
 
 (require 'popup-pos-tip)
 

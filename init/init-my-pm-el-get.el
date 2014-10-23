@@ -135,6 +135,7 @@
          org-magit ; org-linkany
          org-publish org-jekyll jekyll-el
          ;; org-trello
+         ;; Wiki
          ;; SpeedReading - OpenSpritz
          spray
          ;; speedread
@@ -175,9 +176,9 @@
          ;; snippet
          yasnippet
          ;; Tags
-         cscope
-         ascope
-         gtags ; use program global
+         cscope ascope
+         helm-cscope ; xcscope ascope
+         gtags helm-gtags ggtags xgtags ; use program global
          ;; code browser
          sr-speedbar
          ;; neotree
@@ -222,8 +223,8 @@
          ;; Python
          python ; python-mode
          jedi
-         ;; C family languages
          auto-complete-clang auto-complete-c-headers
+         ;; C family languages (C, C++, Go, D, F, Rust)
          c-eldoc eassist
          irony-mode ac-irony company-irony
          ;; Go
@@ -232,6 +233,7 @@
          ;; D
          d-mode
          ;; C++
+         ;; Rust
          ;; Lua
          lua-mode
          ;; Web
@@ -292,6 +294,9 @@
          ;; Database
          ;; SQL
          sqlup-mode
+         ;; NoSQL
+         ;; MongoDB
+         ;; Redis
          ;; English
          ;; Japanese
          ;; migemo helm-migemo

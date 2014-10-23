@@ -1,4 +1,4 @@
-;;; init-my-emacs-powerline.el ---
+;;; init-my-emacs-powerline.el --- init for Powerline
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -7,7 +7,7 @@
 
 ;;; Code:
 
-;;; [ powerline ]
+;;; [ powerline (emacs-powerline) ]
 
 (require 'powerline)
 
