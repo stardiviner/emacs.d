@@ -75,6 +75,16 @@
 ;; - symbol:
 ;; - sublist:
 
+(setq pos-tip-background-color "dim gray" ; "light yellow",
+      pos-tip-foreground-color "black"
+      ;; pos-tip-frame-offset
+      ;; pos-tip-frame-offset-array
+      pos-tip-use-relative-coordinates nil
+      pos-tip-border-width 2
+      pos-tip-internal-border-width 2
+      ;; pos-tip-tab-width
+      )
+
 
 ;;; [ popup-pos-tip ]
 
