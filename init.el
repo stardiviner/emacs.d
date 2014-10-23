@@ -163,7 +163,7 @@
 (require 'init-my-tool-w3m)
 (require 'init-my-tool-diagram)
 (require 'init-my-tool-emms)
-(require 'init-my-tool-speak)
+;; (require 'init-my-tool-speak)
 ;; (require 'init-my-tool-newsticker)
 ;;; IRC
 (require 'init-my-tool-irc-erc)
