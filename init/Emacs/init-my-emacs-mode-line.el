@@ -207,20 +207,20 @@
 
             ;; workgroups2
             '(:propertize (:eval ; `wg-mode-line-display-on'
-			   (wg-mode-line-string))
-			  face (:foreground "dark gray"
-					    :family "Comic Sans Mono"
-					    ))
+                           (wg-mode-line-string))
+                          face (:foreground "dodger blue"
+                                ;; :family ""
+                                ))
 
             ;; projectile
             '(:propertize projectile-mode-line
-			  face (:foreground "green yellow"))
+                          face (:foreground "orange"))
             
             ;; the major mode of the current buffer.
             '(:propertize " ✣ "
                          face (:foreground "cyan"))
             '(:propertize "%m"
-                         face (:foreground "lemon chiffon"
+                         face (:foreground "red"
                                            :family "Comic Sans MS" :weight 'bold ; :height 100
                                            )
                          ;; FIXME:
