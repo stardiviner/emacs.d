@@ -27,6 +27,23 @@
 ;; (setq-default buffer-file-coding-system 'utf-8-unix)
 ;; (setq-default default-buffer-file-coding-system 'utf-8-unix)
 
+
+;;; Proxy
+
+;; (setenv "no_proxy" "127.0.0.1,localhost"
+;; 	"http_proxy" "")
+
+(setq url-proxy-services
+      '(("no_proxy" . "127.0.0.1") ; don't use `localhost', avoid robe server (For Ruby) can't response.
+        ("http" . "112.124.9.128:44433")
+        ;; ("https" . "")
+        ))
+
+;;; AUTHORITY
+;; (setq url-http-proxy-basic-auth-storage
+;;       (list (list "proxy.com:8080"
+;; 		  (cons "Input your LDAP UID !"
+;; 			(base64-encode-string "LOGIN:PASSWORD")))))
 
 
 (provide 'init-my-emacs-environment)
