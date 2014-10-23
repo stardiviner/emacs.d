@@ -142,6 +142,8 @@
 ;;; regain this behavior, set following configuration to your .emacs:
 ;; (setq flycheck-tip-avoid-show-func nil)
 
+;; (define-key flycheck-mode-map (kbd "C-c ! c") 'flycheck-tip-cycle)
+
 
 ;;; [ flycheck-pos-tip ] -- This extension to display errors under point using popup.el.
 
