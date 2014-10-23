@@ -40,23 +40,9 @@
                 
                 ;; window-number
                 (:propertize (:eval (window-number-string))
-                             face (:foreground "cyan" :weight 'bold
-                                               :box (:color "dark red")))
-
-                ;; workgroups2
-                ;; (:propertize (wg-mode-line-display-on
-                ;;               (:eval
-                ;;                (wg-mode-line-string)))))
-                (:propertize (:eval
-                              (wg-mode-line-string))
-                             face (:foreground "dark gray"
-                                               ;; :underline "green yellow"
-                                               :family "Comic Sans Mono"
+                             face (:foreground "orange red" :weight 'bold
+                                               ;; :box (:color "cyan")
                                                ))
-
-                ;; projectile
-                (:propertize projectile-mode-line
-                             face (:foreground "green yellow"))
 
                 (:propertize " ")
 
@@ -197,7 +183,7 @@
 (display-time)
 (setq global-mode-string (remove 'display-time-string global-mode-string))
 (setq mode-line-end-spaces
-      (list (propertize " " 'display '(space :align-to (- right 24)))
+      (list (propertize " " 'display '(space :align-to (- right 45)))
             ;;; you can custom here (add right aligned things here)
 
             ;; TODO: mu4e maildir
@@ -219,6 +205,17 @@
             ;; relative position, size of file
             ;; '(:propertize " [%p,%I] ")
 
+            ;; workgroups2
+            '(:propertize (:eval ; `wg-mode-line-display-on'
+			   (wg-mode-line-string))
+			  face (:foreground "dark gray"
+					    :family "Comic Sans Mono"
+					    ))
+
+            ;; projectile
+            '(:propertize projectile-mode-line
+			  face (:foreground "green yellow"))
+            
             ;; the major mode of the current buffer.
             '(:propertize " ✣ "
                          face (:foreground "cyan"))
@@ -368,14 +365,14 @@
                     :foreground "white" :background "#004A5D"
                     :box '(:color "cyan" :line-width -1 :style nil)
                     :family "DejaVu Sans Mono"
-                    :height 80
+                    :height 90
                     )
 (set-face-attribute 'mode-line-inactive nil
                     :inverse-video nil
                     :foreground "#444444" :background "black" ; :background "#242424"
                     :family "DejaVu Sans Mono"
                     :box '(:color "slate blue" :line-width -1 :style nil)
-                    :height 80
+                    :height 90
                     )
 
 
