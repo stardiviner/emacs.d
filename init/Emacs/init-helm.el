@@ -291,7 +291,7 @@
 
 ;;; [ helm-ls-git ] -- Yet another helm to list git file.
 
-(require 'helm-ls-git)
+;; (require 'helm-ls-git)
 
 
 ;;; [ helm-cmd-t ] -- Helm functions to package directories (SCM controlled or not) as sources.
