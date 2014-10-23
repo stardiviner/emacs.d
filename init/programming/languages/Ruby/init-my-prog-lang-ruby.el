@@ -442,6 +442,9 @@
 ;; - [C-c C-k] -- robe-rails-refresh
 ;; - [M-,] -- pop tag mark
 ;; - [M-.] -- robe-jump
+;;
+;; input code in `inf-ruby' buffer.
+;;   > Robe.stop # => nil :: stop Robe server.
 
 (require 'robe)
 ;; (autoload 'robe-mode "robe" "Code navigation, documentation lookup and completion for Ruby" t nil)
