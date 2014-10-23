@@ -271,7 +271,7 @@
          javadoc-lookup ; javadoc-help
          ;; java-complete
          ;; R
-         ess
+         ;; ess
          ;; gnuplot
          gnuplot-mode
          ;; Octave
