@@ -68,7 +68,7 @@
 (diminish 'auto-complete-mode)
 
 
-(setq ac-auto-start 4) ; auto start auto-complete when has N characters.
+(setq ac-auto-start 3) ; auto start auto-complete when has N characters.
 
 
 ;;; dirty fix for having AC everywhere
@@ -82,9 +82,9 @@
 
 
 ;; auto raise popup menu
-(setq ac-delay 0.5) ; delay time to start completion in real number seconds
+(setq ac-delay 0.4) ; delay time to start completion in real number seconds
 ;; (setq ac-show-menu-immediately-on-auto-complete t) ; it is a trade off of responsibility and performance
-(setq ac-auto-show-menu 0.7) ;; show popup menu after how many seconds
+(setq ac-auto-show-menu 0.6) ;; show popup menu after how many seconds
 (setq ac-menu-height 10) ; smaller ac-menu is more cute. big ac-menu is not necessary.
 ;; NOTE: small menu is helpful for small computer screen, because split window
 ;; has small height, this cause quick help popup is shown in hidden position.
@@ -193,7 +193,7 @@
 (setq ac-use-quick-help t) ; nil to disable auto popup quick help.
 ;; Prefer native tooltip with pos-tip than overlay popup for displaying quick help.
 (setq ac-quick-help-prefer-pos-tip t)
-(setq ac-quick-help-delay 1.0)
+(setq ac-quick-help-delay 0.6)
 (setq ac-quick-help-timer nil)     ; quick help idle timer. (nil: never disappear)
 (setq ac-quick-help-height 20)
 
