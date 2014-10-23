@@ -20,6 +20,7 @@
       '(("marmalade" . "http://marmalade-repo.org/packages/")
         ("org"       . "http://orgmode.org/elpa/")
         ;; ("melpa"     . "http://melpa.milkbox.net/packages/")
+        ("gnu" . "http://elpa.gnu.org/packages/")
         ))
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t) ; t: higher priority source.
@@ -48,20 +49,6 @@ ARCHIVE is the string name of the package archive.")
 
 
 
-;;; Standard package repositories
-
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-
-;; We include the org repository for completeness, but don't normally
-;; use it.
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
-
-(when (< emacs-major-version 24)
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-
-;;; Also use Melpa for most packages
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
-
 ;; But don't take Melpa versions of certain packages
 (setq package-filter-function
       (lambda (package version archive)
