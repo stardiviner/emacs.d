@@ -171,7 +171,7 @@
          ;; document, API, docsets
          helm-dash
          ;; RFC
-         irfc
+         rfc irfc
          ;; snippet
          yasnippet
          ;; Tags
