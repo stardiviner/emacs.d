@@ -2371,7 +2371,7 @@ In common insert mode or in select region text to press this keybinding \\<C-c k
 ;;   (setenv "no_proxy" "localhost,127.0.0.0/8")
 
 
-(require 'org-trello)
+;; (require 'org-trello)
 
 ;; to have org-trello activated for each org file, uncomment this
 ;; (add-hook 'org-mode-hook 'org-trello-mode)
