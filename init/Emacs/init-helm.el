@@ -126,7 +126,11 @@
 (set-face-attribute 'helm-selection nil
                     :background "#004A5D" :foreground "white"
                     :box '(:color "cyan" :line-width -1)
-                    :underline nil)
+                    :underline nil
+                    :weight 'normal
+                    ;; :background "yellow" :foreground "orange red"
+                    ;; :weight 'bold
+                    )
 (set-face-attribute 'helm-action nil
                     :background "orange" :foreground "black")
 (set-face-attribute 'helm-header nil
@@ -292,6 +296,7 @@
 ;;; [ helm-ls-git ] -- Yet another helm to list git file.
 
 ;; (require 'helm-ls-git)
+
 
 
 ;;; [ helm-cmd-t ] -- Helm functions to package directories (SCM controlled or not) as sources.
