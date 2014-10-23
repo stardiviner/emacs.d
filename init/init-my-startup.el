@@ -62,6 +62,7 @@
 
 ;; [ Auto opened files ]
 (find-file "~/Git/Ubuntu/install.sh")
+(find-file "~/Git/Arch/install.sh")
 ;; (find-file "~/Git/Ubuntu/init.pp")
 (find-file "~/Git/Puppet/init.pp")
 (find-file "~/.emacs.d/init.el")
