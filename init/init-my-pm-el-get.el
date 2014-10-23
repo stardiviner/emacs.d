@@ -176,6 +176,7 @@
          yasnippet
          ;; Tags
          cscope
+         ascope
          gtags ; use program global
          ;; code browser
          sr-speedbar
