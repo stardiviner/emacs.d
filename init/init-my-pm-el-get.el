@@ -291,6 +291,8 @@
          ;; Nginx
          nginx-mode
          ;; Linux
+         ;; Arch
+         pkgbuild-mode
          ;; Database
          ;; SQL
          sqlup-mode
