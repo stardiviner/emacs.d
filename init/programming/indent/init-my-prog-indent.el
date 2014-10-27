@@ -27,39 +27,42 @@
 
 ;; (auto-indent-global-mode 1)
 
-;;; [ highlight-indentation ]
-(require 'highlight-indentation)
+
+;; ;;; [ highlight-indentation ]
 
-(setq highlight-indentation-offset 4) ; default offset if have not found offset in major mode.
-;; (highlight-indentation-set-offset) ; set offset buffer locally.
+;; (require 'highlight-indentation)
 
-(set-face-attribute 'highlight-indentation-face nil
-                    :background "#00232C" :foreground nil
-                    :inherit nil)
-(set-face-attribute 'highlight-indentation-current-column-face nil
-                    :background "slate blue" :foreground nil
-                    :inherit nil)
+;; (setq highlight-indentation-offset 4) ; default offset if have not found offset in major mode.
+;; ;; (highlight-indentation-set-offset) ; set offset buffer locally.
 
-(dolist (hook '(ruby-mode-hook
-                python-mode-hook
-                shell-mode-hook
-                html-mode-hook
-                css-mode-hook
-                c-mode-hook
-                c++-mode-hook
-                go-mode-hook
-                lua-mode-hook
-                php-mode-hook
-                ))
-  (add-hook hook '(lambda ()
-                    ;; displays guidelines indentation (space indentation only)
-                    (highlight-indentation-mode t)
-                    ;; displays guidelines for the current-point indentation (space indentation only)
-                    (highlight-indentation-current-column-mode)
-                    )))
+;; (set-face-attribute 'highlight-indentation-face nil
+;;                     :background "#00232C" :foreground nil
+;;                     :inherit nil)
+;; (set-face-attribute 'highlight-indentation-current-column-face nil
+;;                     :background "slate blue" :foreground nil
+;;                     :inherit nil)
+
+;; (dolist (hook '(ruby-mode-hook
+;;                 python-mode-hook
+;;                 shell-mode-hook
+;;                 html-mode-hook
+;;                 css-mode-hook
+;;                 c-mode-hook
+;;                 c++-mode-hook
+;;                 go-mode-hook
+;;                 lua-mode-hook
+;;                 php-mode-hook
+;;                 ))
+;;   (add-hook hook '(lambda ()
+;;                     ;; displays guidelines indentation (space indentation only)
+;;                     (highlight-indentation-mode t)
+;;                     ;; displays guidelines for the current-point indentation (space indentation only)
+;;                     (highlight-indentation-current-column-mode)
+;;                     )))
 
 ;; TODO: ignore first 1, (or and 2) level indent guide line?
 
+
 ;;; [ indent-hints ] -- Get some hints about whether your buffer is space- or tab-loving
 ;; Usage:
 ;; 1.
