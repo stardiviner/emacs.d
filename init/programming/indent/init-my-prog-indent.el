@@ -77,14 +77,15 @@
 ;; - (indent-hints-global-activate)     --> Sets up the minor-mode-alist and buffer-local variable for indentation hints.
 ;; - (indent-hints-mode-on)             --> Turns on indent-hints-mode, if appropriate. This function is intended to be used with define-globalized-minor-mode.
 
-;; (require 'indent-hints)
 
-(setq indent-hints-tab-loving-modeline-indicator " \\t")
-;; You can set up some "whitespace profiles" that get selected automatically
-;; when a buffer is detected to be tab-loving or space-loving.
-(setq indent-hints-profile-switching-enabled t)
+;; ;; (require 'indent-hints)
 
-;; (indent-hints-global-mode t)
+;; (setq indent-hints-tab-loving-modeline-indicator " \\t")
+;; ;; You can set up some "whitespace profiles" that get selected automatically
+;; ;; when a buffer is detected to be tab-loving or space-loving.
+;; (setq indent-hints-profile-switching-enabled t)
+
+;; ;; (indent-hints-global-mode t)
 
 
 ;;; [ indent-hint.el ]
