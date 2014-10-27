@@ -19,11 +19,11 @@
 (setq package-archives
       '(("marmalade" . "http://marmalade-repo.org/packages/")
         ("org"       . "http://orgmode.org/elpa/")
-        ;; ("melpa"     . "http://melpa.milkbox.net/packages/")
+        ("melpa" . "http://melpa.org/packages/")
         ("gnu" . "http://elpa.gnu.org/packages/")
         ))
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t) ; t: higher priority source.
+             '("melpa" . "http://melpa.org/packages/") t) ; t: higher priority source.
 
 
 ;;; Add support to package.el for pre-filtering available packages
