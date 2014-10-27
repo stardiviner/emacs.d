@@ -34,6 +34,47 @@
   ;; (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
   )
 
+
+;; you have two styles:
+;; 1. :box t
+;; 2. :inverse-video t
+(set-face-attribute 'rainbow-delimiters-depth-1-face nil
+                    ;; :box t
+                    ;; :inverse-video t
+                    :foreground "#2aa198")
+(set-face-attribute 'rainbow-delimiters-depth-2-face nil
+                    ;; :box t
+                    ;; :inverse-video t
+                    :foreground "#b58900")
+(set-face-attribute 'rainbow-delimiters-depth-3-face nil
+                    ;; :box t
+                    ;; :inverse-video t
+                    :foreground "#268bd2")
+(set-face-attribute 'rainbow-delimiters-depth-4-face nil
+                    ;; :box t
+                    ;; :inverse-video t
+                    :foreground "#dc322f")
+(set-face-attribute 'rainbow-delimiters-depth-5-face nil
+                    ;; :box t
+                    ;; :inverse-video t
+                    :foreground "#859900")
+(set-face-attribute 'rainbow-delimiters-depth-6-face nil
+                    ;; :box t
+                    ;; :inverse-video t
+                    :foreground "#268bd2")
+(set-face-attribute 'rainbow-delimiters-depth-7-face nil
+                    ;; :box t
+                    ;; :inverse-video t
+                    :foreground "#cb4b16")
+(set-face-attribute 'rainbow-delimiters-depth-8-face nil
+                    ;; :box t
+                    ;; :inverse-video t
+                    :foreground "#d33682")
+(set-face-attribute 'rainbow-delimiters-depth-9-face nil
+                    ;; :box t
+                    ;; :inverse-video t
+                    :foreground "#839496")
+
 
 ;;; rainbow-identifiers
 
