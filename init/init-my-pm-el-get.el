@@ -155,6 +155,7 @@
          ;; glasses-mode
          ;; indent
          ;; highlight-indentation
+         indent-guide
          ;; lint
          flycheck
          ; flycheck-tip

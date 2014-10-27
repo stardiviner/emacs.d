@@ -100,6 +100,42 @@
 ;;                 ))
 ;;   (add-hook hook 'indent-hint-lisp))
 
+
+;;; [ indent-guide ]
 
+;;; Comparison with highlight-indentation
+;;;
+;;;     look and feel
+;;;     better indentation handling for LISP-like languages
+;;;
+;;;     (foo                  (foo
+;;;     |(foobar baz          |(foobar baz
+;;;     ||       (foobar      |   |   |(foobar
+;;;     ||       |(qux))))    |   |   | (qux))))
+;;;
+;;;        indent-guide     highlight-indentation
+;;;        
+;;;
+;;;     indent-guide works fine even when the code is indented with TABs
+;;;     indent-guide is slower than highlight-indentation especially in very large blocks
+
+
+(require 'indent-guide)
+
+(set-face-attribute 'indent-guide-face nil
+                    :foreground "red")
+
+(setq indent-guide-delay 0.1
+      indent-guide-recursive t ; To show not only one guide line but all guide
+                               ; lines recursively, set “indent-guide-recursive”
+                                        ; non-nil.
+      indent-guide-char "¦" ; ┇, ┋, ¦, ┆, ┊, │, ┃
+      )
+
+(indent-guide-global-mode)
+
+
 
 (provide 'init-my-prog-indent)
+
+;;; init-my-prog-indent.el ends here
