@@ -938,8 +938,10 @@ This is especially for create Org files."
       (insert (concat
                " .+"
                (read-string "Minimum interval: ")
+               "d"
                "/"
-               (read-string "Maximum interval: ")))))
+               (read-string "Maximum interval: ")
+               "d"))))
   
   ;; old way
   ;; (save-excursion
