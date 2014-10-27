@@ -123,9 +123,9 @@
 (require 'indent-guide)
 
 (set-face-attribute 'indent-guide-face nil
-                    :foreground "red")
+                    :foreground "cyan")
 
-(setq indent-guide-delay 0.1
+(setq indent-guide-delay nil ; nil, 0.1
       indent-guide-recursive t ; To show not only one guide line but all guide
                                ; lines recursively, set “indent-guide-recursive”
                                         ; non-nil.
@@ -133,6 +133,8 @@
       )
 
 (indent-guide-global-mode)
+
+;; (lambda nil (unless (memq major-mode indent-guide-inhibit-modes) (indent-guide-mode 1)))
 
 
 
