@@ -132,7 +132,12 @@
       indent-guide-char "¦" ; ┇, ┋, ¦, ┆, ┊, │, ┃
       )
 
-(indent-guide-global-mode)
+;; (indent-guide-global-mode)
+
+(dolist (hook '(prog-mode-hook
+                ;; emacs-lisp-mode-hook
+                ))
+  (add-hook hook 'indent-guide-mode))
 
 ;; (lambda nil (unless (memq major-mode indent-guide-inhibit-modes) (indent-guide-mode 1)))
 
