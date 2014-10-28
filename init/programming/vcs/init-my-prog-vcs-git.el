@@ -229,6 +229,7 @@
 ;; ;; 'git-gutter:revert-hunk :: Revert current hunk
 ;; ;; 'git-gutter :: Show changes from last commit or Update change information.
 ;; ;; 'git-gutter-toggle :: Toggle git-gutter
+;; ;; 'git-gutter:update-all-windows :: update info in all visible windows.
 
 ;; ;;; keybindings
 ;; (define-key my-prog-vcs-map (kbd "m t") 'git-gutter:toggle)
@@ -396,6 +397,7 @@
      (define-key my-prog-vcs-map (kbd "m s") 'git-gutter+-stage-hunks)
      (define-key my-prog-vcs-map (kbd "m c") 'git-gutter+-commit)
      (define-key my-prog-vcs-map (kbd "m C") 'git-gutter+-stage-and-commit)
+     (define-key my-prog-vcs-map (kbd "m u") 'git-gutter:update-all-windows)
      ))
 
 (setq git-gutter+-disabled-modes '(asm-mode image-mode))
