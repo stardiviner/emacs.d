@@ -346,6 +346,13 @@
 (setq show-paren-style 'mixed) ; 'parenthesis, 'expression, 'mixed
 
 
+;;; [ prettify-symbols-mode ]
+
+;; (setq prettify-symbols-alist '(("lambda" . 955)))
+
+(global-prettify-symbols-mode 1)
+
+
 ;;; [ pretty-mode ] -- Redisplay parts of the Emacs buffer as pretty symbols.
 
 ;; https://github.com/akatov/pretty-mode
