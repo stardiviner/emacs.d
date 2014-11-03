@@ -27,8 +27,10 @@
 
 (require 'helm-migeomo)
 
-(define-key global-map [(control ?:)] 'helm-migemo)
+
+;;; [ oniisama ]
 
+;; (require 'oniisama)
 
 
 (provide 'init-my-emacs-japanese)

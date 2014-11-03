@@ -303,6 +303,8 @@
          ;; English
          ;; Japanese
          ;; migemo helm-migemo
+         ;; Toy
+         ;; oniisama
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
 
