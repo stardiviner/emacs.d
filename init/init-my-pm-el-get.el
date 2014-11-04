@@ -136,6 +136,7 @@
          org-publish org-jekyll jekyll-el
          ;; org-trello
          org-passwords
+         poporg
          ;; Wiki
          ;; SpeedReading - OpenSpritz
          spray

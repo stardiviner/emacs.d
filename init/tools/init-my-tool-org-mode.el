@@ -2156,7 +2156,19 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;;             ;; turn off fill adapt, make org can write long length sentence.
 ;;             ;; (turn-off-filladapt-mode)
 ;;             ))
+;;
+;;_* [ poporg ] -- Editing program comments or strings in text mode.
+;;
+;;; Usage:
+;; - [poporg-dwim] :: [C-c ;]
+;; - [poporg-edit-and-exit] :: [C-x C-s] in opened buffer.
 
+(require 'poporg)
+
+(setq poporg-adjust-fill-column t
+      poporg-delete-trailing-whitespace t)
+
+(global-set-key (kbd "C-c ;") 'poporg-dwim)
 
 ;;;_* org-bbdb
 
