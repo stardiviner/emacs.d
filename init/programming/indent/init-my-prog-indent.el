@@ -148,6 +148,20 @@
 ;; (lambda nil (unless (memq major-mode indent-guide-inhibit-modes) (indent-guide-mode 1)))
 
 
+;;; [ aggressive-indent-mode ]
+
+;;; Usage:
+
+;; (require 'aggressive-indent-mode)
+
+;; (global-aggressive-indent-mode)
+;; (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
+
+;;; or
+;; (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
+
+
+
 
 (provide 'init-my-prog-indent)
 
