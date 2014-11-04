@@ -2453,6 +2453,7 @@ In common insert mode or in select region text to press this keybinding \\<C-c k
 
 ;;; Usage:
 ;; - [M-x org-passwords] ::
+;;   - [C-x C-q] :: switch read-only mode. for editing file.
 ;; - [M-x org-passwords-copy-password] ::
 ;; - [M-x org-passwords-open-url] ::
 ;; - [M-x org-passwords-generate-password] ::
@@ -2492,7 +2493,17 @@ In common insert mode or in select region text to press this keybinding \\<C-c k
 ;; Be sure to enable recursive minibuffers to call those functions from the minibuffer:
 (setq enable-recursive-minibuffers t)
 
-(define-key my-org-prefix-map (kbd "p") 'org-passwords)
+(defun my-org-passwords-search ()
+    "Search entry in org-passwords."
+  (interactive)
+  (org-passwords)
+  (switch-to-buffer "passwords.gpg")
+  (if (boundp 'vr/isearch-forward)
+      (vr/isearch-forward)
+    (isearch-forward-regexp)))
+
+;; (define-key my-org-prefix-map (kbd "p") 'org-passwords)
+(define-key my-org-prefix-map (kbd "p") 'my-org-passwords-search)
 
 
 
