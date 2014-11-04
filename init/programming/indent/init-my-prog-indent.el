@@ -133,18 +133,24 @@
 
 (setq indent-guide-delay nil ; nil, 0.1
       indent-guide-recursive t ; To show not only one guide line but all guide
-                               ; lines recursively, set “indent-guide-recursive”
+                                        ; lines recursively, set “indent-guide-recursive”
                                         ; non-nil.
       indent-guide-char "¦" ; ┇, ┋, ¦, ┆, ┊, │, ┃
+      indent-guide-inhibit-modes '(dired-mode Info-mode Man-mode)
       )
+
 
 ;; (indent-guide-global-mode)
 
 (dolist (hook '(prog-mode-hook
-                ;; emacs-lisp-mode-hook
+                emacs-lisp-mode-hook
+                lisp-mode-hook
+                clojure-mode-hook
+                ruby-mode-hook
                 ))
   (add-hook hook 'indent-guide-mode))
 
+;; or
 ;; (lambda nil (unless (memq major-mode indent-guide-inhibit-modes) (indent-guide-mode 1)))
 
 
