@@ -152,13 +152,16 @@
 
 ;;; Usage:
 
-;; (require 'aggressive-indent-mode)
+(require 'aggressive-indent)
+
+(add-to-list 'aggressive-indent-excluded-modes 'html-mode)
 
 ;; (global-aggressive-indent-mode)
-;; (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
-
 ;;; or
-;; (add-hook 'emacs-lisp-mode-hook #'aggressive-indent-mode)
+(dolist (hook '(prog-mode-hook
+                emacs-lisp-mode-hook
+                lisp-mode-hook))
+  (add-hook hook #'aggressive-indent-mode))
 
 
 
