@@ -135,6 +135,7 @@
          org-magit ; org-linkany
          org-publish org-jekyll jekyll-el
          ;; org-trello
+         org-passwords
          ;; Wiki
          ;; SpeedReading - OpenSpritz
          spray

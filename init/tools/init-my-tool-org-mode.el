@@ -2436,8 +2436,53 @@ In common insert mode or in select region text to press this keybinding \\<C-c k
 ;; ;; This help message
 ;; (define-key my-org-trello-map (kbd "h") 'org-trello/help-describing-bindings)
 
+
+;;; [ org-passwords ]
 
+;;; Usage:
+;; - [M-x org-passwords] ::
+;; - [M-x org-passwords-copy-password] ::
+;; - [M-x org-passwords-open-url] ::
+;; - [M-x org-passwords-generate-password] ::
 
+(require 'org-passwords)
+
+(setq org-passwords-file "~/Git/dotfiles/passwords.gpg"
+      ;; org-passwords-default-password-size "20"
+      ;; org-passwords-random-words-dictionary "/etc/dictionaries-common/words"
+      ;; org-passwords-random-words-substitutions '(("for" . "4") ("s" . "5"))
+      ;; org-passwords-password-property "PASSWORD"
+      ;; org-passwords-username-property "USERNAME"
+      ;; org-passwords-url-property "URL"
+      org-passwords-time-opened "1 min"
+      )
+
+(eval-after-load "org-passwords"
+  '(progn
+     (define-key org-passwords-mode-map
+       (kbd "C-c u")
+       'org-passwords-copy-username)
+     (define-key org-passwords-mode-map
+       (kbd "C-c p")
+       'org-passwords-copy-password)
+     (define-key org-passwords-mode-map
+       (kbd "C-c o")
+       'org-passwords-open-url)))
+
+;;; Making new entries in the database
+;;; To enter new passwords, you can use 'org-capture' and a minimal template like:
+;;
+;; ("p" "password" entry (file "~/documents/passwords.gpg")
+;;  "* %^{Title}\n  %^{URL}p %^{USERNAME}p %^{PASSWORD}p %^{TAGS}p")
+
+;; When asked for the password you can then call either
+;; 'org-passwords-generate-password' or 'org-passwords-random-words'.
+;; Be sure to enable recursive minibuffers to call those functions from the minibuffer:
+(setq enable-recursive-minibuffers t)
+
+(define-key my-org-prefix-map (kbd "p") 'org-passwords)
+
+
 
 ;;;_*
 (provide 'init-my-tool-org-mode)
