@@ -653,7 +653,26 @@ It can contain any number of symbols, which will be repeated."
   (let ((list (split-string uri "#")))
     (org-open-file (car list) t)
     (occur (mapconcat 'identity (cdr list) "#"))))
+
 (org-add-link-type "occur" 'org-occur-open)
+
+;;; [[grep:regexp][regexp (grep)]]
+(defun follow-grep-link (regexp)
+  "Run `rgrep' with REGEXP as argument."
+  (grep-compute-defaults)
+  (rgrep regexp "*" (expand-file-name "./")))
+
+(org-add-link-type "grep" 'follow-grep-link)
+
+;;; [[tag:]]
+;; e.g. [[tag:work+phonenumber-boss][Optional Description]]
+(defun follow-tag-link (tag)
+  "Display a list of TODO headlines with tag TAG.
+With prefix argument, also display headlines without a TODO keyword."
+  (org-tags-view (null current-prefix-arg) tag))
+
+(org-add-link-type "tag" 'follow-tag-link)
+
 
 ;; change [C-c C-o] to open [[file://filename.org]] in current window instead of default in other window.
 ;; (append) (setq org-link-protocols) ; TODO append custom link protocols into this list.
