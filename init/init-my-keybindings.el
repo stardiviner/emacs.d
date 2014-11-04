@@ -96,6 +96,14 @@
   (define-prefix-command 'my-org-prefix-map))
 (global-set-key (kbd "C-c o") 'my-org-prefix-map)
 
+;;; Launcher
+(define-prefix-command 'launcher-map)
+;; C-x l is `count-lines-page' by default. If you
+;; use that, you can try s-l or <C-return>.
+;; (define-key ctl-x-map "l" 'launcher-map)
+;; (global-set-key (kbd "s-l") 'launcher-map)
+;; (define-key launcher-map "c" #'calc)
+
 
 ;;; Others
 
