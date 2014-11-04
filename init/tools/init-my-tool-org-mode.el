@@ -2163,7 +2163,8 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;; - [poporg-dwim] :: [C-c ;]
 ;; - [poporg-edit-and-exit] :: [C-x C-s] in opened buffer.
 
-(require 'poporg)
+;; (require 'poporg)
+(autoload 'poporg-dwim "poporg" nil t)
 
 (setq poporg-adjust-fill-column t
       poporg-delete-trailing-whitespace t)
