@@ -28,6 +28,12 @@
 ;; (auto-indent-global-mode 1)
 
 
+;;; [ clean-aindent-mode ] -- clean auto-indent and backspace unindent
+
+;; https://github.com/pmarinov/clean-aindent-mode
+
+
+
 ;; ;;; [ highlight-indentation ]
 
 ;; (require 'highlight-indentation)

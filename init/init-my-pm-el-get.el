@@ -158,6 +158,7 @@
          ;; indent
          ;; highlight-indentation
          indent-guide
+         ;; auto-indent-mode clean-aindent
          ;; lint
          flycheck
          ; flycheck-tip
