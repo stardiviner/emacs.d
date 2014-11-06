@@ -135,7 +135,7 @@
       indent-guide-recursive t ; To show not only one guide line but all guide
                                         ; lines recursively, set “indent-guide-recursive”
                                         ; non-nil.
-      indent-guide-char "¦" ; ┇, ┋, ¦, ┆, ┊, │, ┃
+      indent-guide-char "|" ; |, :
       indent-guide-inhibit-modes '(dired-mode Info-mode Man-mode)
       )
 
