@@ -141,6 +141,8 @@
 
 
 ;; (indent-guide-global-mode)
+;; or
+;; (lambda nil (unless (memq major-mode indent-guide-inhibit-modes) (indent-guide-mode 1)))
 
 (dolist (hook '(prog-mode-hook
                 emacs-lisp-mode-hook
@@ -148,10 +150,8 @@
                 clojure-mode-hook
                 ruby-mode-hook
                 ))
-  (add-hook hook 'indent-guide-mode))
+  (add-hook hook #'indent-guide-mode))
 
-;; or
-;; (lambda nil (unless (memq major-mode indent-guide-inhibit-modes) (indent-guide-mode 1)))
 
 
 ;;; [ aggressive-indent-mode ]
