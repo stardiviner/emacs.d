@@ -342,7 +342,8 @@
 
 ;;; [ show-paren-mode ]
 
-(show-paren-mode) ; highlight matched parentheses
+(show-paren-mode 1) ; highlight matched parentheses
+
 (setq show-paren-style 'mixed) ; 'parenthesis, 'expression, 'mixed
 
 (set-face-attribute 'show-paren-match-face nil
@@ -351,14 +352,6 @@
                     :box nil)
 (set-face-attribute 'show-paren-mismatch-face nil
                     :foreground "black" :background "brown"
-                    :box nil)
-(set-face-attribute 'sp-show-pair-match-face nil
-                    :foreground "cyan" :background "#555555"
-                    :weight 'bold
-                    :box nil)
-(set-face-attribute 'sp-show-pair-mismatch-face nil
-                    :foreground "black" :background "brown"
-                    :weight 'bold
                     :box nil)
 
 
