@@ -342,7 +342,7 @@
 
 ;;; [ show-paren-mode ]
 
-(show-paren-mode 1) ; highlight matched parentheses
+(show-paren-mode) ; highlight matched parentheses
 (setq show-paren-style 'mixed) ; 'parenthesis, 'expression, 'mixed
 
 

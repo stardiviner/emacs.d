@@ -60,8 +60,6 @@
 ;; ------------------------------------------
 ;; (electric-pair-mode t) ; automatically insert delimiter pairs.
 
-(show-paren-mode)      ; show matching parenthesis
-
 ;; (electric-indent-mode t)
 
 ;; (dolist (hook
