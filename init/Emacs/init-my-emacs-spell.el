@@ -8,7 +8,7 @@
 
 ;; - [C-;] ::
 
-(require 'ispell)
+;; (require 'ispell)
 (autoload 'ispell "ispell" t)
 
 (setq ispell-dictionary "english")
@@ -33,10 +33,11 @@
 ;; - [M-x flyspell-region] -- checks all words inside a region
 ;; - [M-x flyspell-buffer] -- checks the whole buffer
 
-(require 'flyspell)
+;; (require 'flyspell)
 ;; (when (executable-find ispell-program-name)
 ;;   (require 'flyspell))
 (autoload 'flyspell-mode "flyspell" "on-the-fly spelling checks" t)
+(autoload 'flyspell-prog-mode "flyspell" "on-the-fly spelling checks for programming modes" t)
 
 (setq flyspell-default-dictionary "en")
 
