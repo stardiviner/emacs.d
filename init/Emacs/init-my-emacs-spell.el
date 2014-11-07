@@ -94,6 +94,7 @@
 
 (define-key my-spell-prefix-map (kbd "C-s") 'flyspell-mode)
 (define-key my-spell-prefix-map (kbd "m") 'flyspell-mode)
+(define-key my-spell-prefix-map (kbd "p") 'flyspell-prog-mode)
 (define-key my-spell-prefix-map (kbd "b") 'flyspell-buffer)
 (define-key my-spell-prefix-map (kbd "r") 'flyspell-region)
 
