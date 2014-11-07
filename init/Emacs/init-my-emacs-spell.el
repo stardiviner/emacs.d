@@ -82,11 +82,11 @@
 ;; (setq ispell-highlight-face 'flyspell-incorrect)
 
 (set-face-attribute 'flyspell-incorrect nil
-                    :background "dark gray" :foreground "dark red"
-                    :underline '(:color "red" :style wave))
+                    :background "#444444" :foreground "red"
+                    :underline '(:color "dark red" :style wave))
 (set-face-attribute 'flyspell-duplicate nil
-                    :background "dark gray" :foreground "black"
-                    :underline '(:color "red" :style wave))
+                    :background "#555555" :foreground "orange"
+                    :underline '(:color "dark red" :style line))
 
 (unless (boundp 'my-spell-prefix-map)
   (define-prefix-command 'my-spell-prefix-map))
