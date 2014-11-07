@@ -493,7 +493,7 @@
       user-mail-address "numbchild@gmail.com"
       user-full-name  "stardiviner")
 
-;; (setq mu4e-html2text-command "html2text -utf8 -width 72")
+;; (setq mu4e-html2text-command "html2text -width 72")
 (setq mu4e-html2text-command "pandoc -f html -t org")
 
 
@@ -769,7 +769,7 @@
 ;; both a plain-text and html (rich-text) versions of the body-text. You change
 ;; this by setting mu4e-view-prefer-html to t.
 (setq mu4e-view-prefer-html t)
-(setq mu4e-html2text-command "html2text -utf8 -width 72")
+(setq mu4e-html2text-command "html2text -width 72")
 
 
 ;;; Attachments
