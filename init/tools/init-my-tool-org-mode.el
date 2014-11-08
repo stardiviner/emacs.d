@@ -1043,7 +1043,12 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
         ;; knowledge
         ;; thought
         ;; "~/Org/Wiki/Wiki/Thought/Thought.org" "My Thought"
+        ;; org-passwords
+        ("p" "password" entry (file "~/Git/dotfiles/passwords.gpg")
+         "* %^{Title}\n  %^{URL}p %^{USERNAME}p %^{PASSWORD}p %^{EMAIL}p")
         ))
+
+
 
 ;; TODO:
 ;; (setq org-capture-templates-contexts)
