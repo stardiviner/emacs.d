@@ -20,6 +20,24 @@
             (if (string-match "\\.zsh$" buffer-file-name)
                 (sh-set-shell "zsh"))))
 
+
+;;; [ insert-shebang ]
+
+(require 'insert-shebang)
+
+;; enable it globally
+(add-hook 'find-file-hook 'insert-shebang)
+
+(setq insert-shebang-env-path "/usr/bin/env"
+      insert-shebang-file-types '(("sh" . "bash")
+                                  ("rb" . "ruby") ("py" . "python") ("pl" . "perl")
+                                  ("c" . "C") ("cpp" . "C++"))
+      insert-shebang-custom-headers '(("c" . "#include <stdio.h>"))
+      insert-shebang-ignore-extensions '("txt" "org" "markdown" "md")
+      insert-shebang-track-ignored-filename "~/.insert-shebang.log"
+      ;; insert-shebang-header-scan-limit 6
+      )
+
 
 
 (provide 'init-prog-lang-shell)

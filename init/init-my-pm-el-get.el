@@ -92,6 +92,7 @@
          mmm-mode ; mumamo-noweb
          ;; shell
          eshell-manual
+         insert-shebang
          ;; others
          ;; guru-mode
          ;; buffer & window, frame
