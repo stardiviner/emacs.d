@@ -324,22 +324,22 @@
 ;; seconds specified by ace-isearch-input-idle-delay, ace-jump-mode will be
 ;; invoked. Of course you can customize the above behaviour.
 
-(require 'ace-isearch)
-
-(setq ace-isearch-use-ace-jump t
-      ;; ace-isearch-input-idle-delay 0.5
-      ;; ace-isearch-input-length 6
-      ;; ace-isearch-function-from-isearch 'helm-swoop-from-isearch ; 'swoop-from-isearch
-      ;; ace-isearch-use-function-from-isearch t
-      ;; ace-isearch-set-ace-jump-after-isearch-exit t
-      ;; ace-isearch-use-fallback-function 
-      )
-
-;; (define-key swoop-map (kbd "C-s") 'swoop-action-goto-line-next)
-;; (define-key swoop-map (kbd "C-r") 'swoop-action-goto-line-prev)
-
-;; (ace-isearch-mode +1)
-(global-ace-isearch-mode +1)
+;; (require 'ace-isearch)
+;;
+;; (setq ace-isearch-use-ace-jump t
+;;       ;; ace-isearch-input-idle-delay 0.5
+;;       ;; ace-isearch-input-length 6
+;;       ;; ace-isearch-function-from-isearch 'helm-swoop-from-isearch ; 'swoop-from-isearch
+;;       ;; ace-isearch-use-function-from-isearch t
+;;       ;; ace-isearch-set-ace-jump-after-isearch-exit t
+;;       ;; ace-isearch-use-fallback-function 
+;;       )
+;;
+;; ;; (define-key swoop-map (kbd "C-s") 'swoop-action-goto-line-next)
+;; ;; (define-key swoop-map (kbd "C-r") 'swoop-action-goto-line-prev)
+;;
+;; ;; (ace-isearch-mode +1)
+;; (global-ace-isearch-mode +1)
 
 
 ;;; Search Keybind
