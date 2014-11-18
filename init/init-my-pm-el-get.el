@@ -114,7 +114,7 @@
          ;; auto-dictionnary
          ;; imenu
          ;; jump
-         ace-jump-mode
+         ace-jump-mode ace-isearch
          ;; bookmark, register, macro,
          bm
          ;; keybinding
