@@ -104,6 +104,7 @@
 ;; (require 'init-my-emacs-benchmark)
 
 ;;; my custom functions
+(require 'init-my-library)
 (require 'init-my-functions)
 
 
