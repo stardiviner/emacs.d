@@ -50,6 +50,13 @@
 ;; (require 'edit-server)
 ;; (edit-server-start)
 
+;;;_ Macro
+
+;;; Usage:
+;; - [C-x C-k] -- macro prefix.
+;; - [C-x (/)] -- start/end macro.
+;; - [F3/F4] -- start/end macro or insert counter/repeat.
+
 ;;;_ Electric
 
 ;; NOTE: when electric auto insert ) for (, but when you delete (, electric will not auto delete ) for you.
