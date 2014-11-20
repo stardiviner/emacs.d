@@ -88,6 +88,7 @@
         "C-x r"                         ; register, bookmark, etc
         "C-x 4"                         ; other window
         "C-x 5"                         ; other frame
+        "C-x C-k"                       ; macro/kmacro
         "C-x RET"                       ; coding system
         "C-x C-a"                       ; edebug
         "C-c C-x"                       ; edebug-x
