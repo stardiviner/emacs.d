@@ -39,6 +39,28 @@
 (define-key dictionary-map (kbd "d") 'sdcv-search-pointer+)
 (define-key dictionary-map (kbd "C-d") 'sdcv-search-input)
 
+
+;;; [ babel ] -- An Emacs interface to different translation services available on the Internet.
+
+(autoload 'babel "babel"
+  "Use a web translation service to translate the message MSG." t)
+(autoload 'babel-region "babel"
+  "Use a web translation service to translate the current region." t)
+(autoload 'babel-as-string "babel"
+  "Use a web translation service to translate MSG, returning a string." t)
+(autoload 'babel-buffer "babel"
+  "Use a web translation service to translate the current buffer." t)
+
+(setq babel-preferred-from-language "English"
+      babel-preferred-to-language "Chinese"
+      babel-remember-window-configuration t
+      babel-max-window-height 30
+      babel-echo-area t
+      babel-select-output-window t
+      )
+
+
+
 (defun my-translate-dwim (func-region func-string func-buffer)
   "My custom function to use translate functions depend on situations."
   (interactive)

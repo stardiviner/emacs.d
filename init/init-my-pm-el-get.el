@@ -112,6 +112,8 @@
          ;; spell
          flyspell flyguess ; flyspell-guess inflections
          ;; auto-dictionnary
+         ;; dictionary & translation
+         babel
          ;; imenu
          ;; jump
          ace-jump-mode ; ace-isearch
