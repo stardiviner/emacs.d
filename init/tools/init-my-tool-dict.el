@@ -39,6 +39,30 @@
 (define-key dictionary-map (kbd "d") 'sdcv-search-pointer+)
 (define-key dictionary-map (kbd "C-d") 'sdcv-search-input)
 
+(defun my-translate-dwim (func-region func-string func-buffer)
+  "My custom function to use translate functions depend on situations."
+  (interactive)
+
+  (defalias-maybe 'translate-dwim-region func-region)
+  (defalias-maybe 'translate-dwim-string func-string)
+  (defalias-maybe 'translate-dwim-buffer func-buffer)
+  
+  ;; region
+  (if (region-active-p)
+      (translate-dwim-region (region-content)))
+  (if (yes-or-no-p "buffer(n) / interactive input (y)")
+      ;; interactive input
+      (let ((msg (read-string "Translate phrase: ")))
+        (translate-dwim-string msg))
+    ;; buffer
+    (translate-dwim-buffer)
+    )
+  )
+
+(define-key dictionary-map (kbd "t")
+  (lambda ()
+    (interactive)
+    (my-translate-dwim 'babel-region 'babel-as-string 'babel-buffer)))
 
 
 (provide 'init-my-tool-dict)
