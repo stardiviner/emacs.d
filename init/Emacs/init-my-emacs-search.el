@@ -358,6 +358,18 @@
 (define-key my-search-prefix-map (kbd "k") 'search-keybind)
 
 
+;;; [ awk-it ] -- run AWK interactively on region!
+
+;;; Usage:
+;;
+;; - `awk-it-' prefix
+;; - [M-x awk-it]
+
+(require 'awk-it)
+
+(define-key my-search-prefix-map (kbd "w") 'awk-it)
+
+
 ;;; [ migemo ] -- provides Japanese increment search with 'Romanization of Japanese'(ローマ字).
 
 ;; https://github.com/emacs-jp/migemo
