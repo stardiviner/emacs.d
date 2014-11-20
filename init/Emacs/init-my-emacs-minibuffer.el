@@ -6,7 +6,29 @@
 
 ;;; [ minibuffer ]
 
+;; recursive minibuffers
 (setq enable-recursive-minibuffers t)   ; enable to use minibuffer recursively.
+(if (booleanp enable-recursive-minibuffers)
+    (minibuffer-depth-indicate-mode t))
+
+;; minibuffer prompt face properties
+(setq minibuffer-prompt-properties '(read-only t face minibuffer-prompt))
+(set-face-attribute 'minibuffer-prompt nil
+                    :weight 'normal :slant 'normal :underline nil :inverse-video nil
+                    :foreground "green" :background "dark green"
+                    :box '(:color "black" :line-width -1)
+                    )
+
+(minibuffer-electric-default-mode t)
+
+(setq minibuffer-completion-confirm nil
+      minibuffer-auto-raise t
+      minibuffer-allow-text-properties t
+      ;; minibuffer-frame-alist
+      ;; minibuffer-history-position t
+      )
+
+
 
 
 ;;; [ icomplete-mode ] -- incremental minibuffer completion.
