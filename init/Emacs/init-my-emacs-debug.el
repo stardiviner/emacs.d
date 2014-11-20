@@ -12,9 +12,22 @@
 
 ;;; [ debug ] -- Emacs built-in debugger.
 
+;;; Usage:
+;;
+;;   M-x debug-on-entry FUNCTION
+;;   M-x cancel-debug-on-entry &optional FUNCTION
+;;   M-x toggle-debug-on-quit
+;;   (debug &rest DEBUGGER-ARGS)
+
+;; [C-h i g (elisp) Debugging RET]
+
 (setq debug-on-error t
       debug-on-quit nil
-      debug-on-signal nil)
+      debug-on-signal nil
+      debug-on-next-call nil
+      ;; debug-on-event
+      debug-on-message nil ; REGEXP
+      )
 
 ;; If your init file sets debug-on-error, the effect may not last past the end
 ;; of loading the init file. (This is an undesirable byproduct of the code that
