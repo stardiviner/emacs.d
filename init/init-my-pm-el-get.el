@@ -131,7 +131,7 @@
          visual-regexp visual-regexp-steroids ace-jump-mode
          ack-and-a-half ; full-ack
          ag helm-ag
-         awk-it
+         ;; awk-it
          ;; Org-mode
          org-mode
          org-fstree org-bullets

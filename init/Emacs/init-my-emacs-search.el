@@ -365,9 +365,9 @@
 ;; - `awk-it-' prefix
 ;; - [M-x awk-it]
 
-(require 'awk-it)
+;; (require 'awk-it)
 
-(define-key my-search-prefix-map (kbd "w") 'awk-it)
+;; (define-key my-search-prefix-map (kbd "w") 'awk-it)
 
 
 ;;; [ migemo ] -- provides Japanese increment search with 'Romanization of Japanese'(ローマ字).
