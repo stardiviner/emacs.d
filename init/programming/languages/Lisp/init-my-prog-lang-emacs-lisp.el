@@ -81,12 +81,12 @@
 
 ;;; [ auto-complete-emacs-lisp ]
 
-(require 'auto-complete-emacs-lisp)
-
-;; this add emacs lisp source into AC, and support show popup help doc.
-(dolist (hook '(emacs-lisp-mode-hook
-                eval-expression-minibuffer-setup-hook))
-  (add-hook hook 'ac-emacs-lisp-mode-setup))
+;; (require 'auto-complete-emacs-lisp)
+;;
+;; ;; this add emacs lisp source into AC, and support show popup help doc.
+;; (dolist (hook '(emacs-lisp-mode-hook
+;;                 eval-expression-minibuffer-setup-hook))
+;;   (add-hook hook 'ac-emacs-lisp-mode-setup))
 
 
 ;;; [ IELM (ELISP interactive) ] -- an REPL for emacs. (Read-Eval-Print-Loop)
@@ -108,8 +108,6 @@
 
 (add-hook 'ielm-mode-hook
           (lambda ()
-            (auto-complete-mode 1)
-            (ac-emacs-lisp-mode-setup)
             (elisp-slime-nav-mode 1)))
 
 ;; ---------------------------------------------------------------
@@ -125,6 +123,13 @@
 ;;   (auto-complete-mode 1))
 ;;
 ;; (add-hook 'ielm-mode-hook 'ielm-auto-complete)
+
+;; or
+;; (add-hook 'ielm-mode-hook
+;;           (lambda ()
+;;             (auto-complete-mode 1)
+;;             (ac-emacs-lisp-mode-setup)))
+
 ;; ---------------------------------------------------------------
 
 (defun my-ielm-start-or-switch ()

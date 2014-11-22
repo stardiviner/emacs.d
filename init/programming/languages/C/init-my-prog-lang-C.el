@@ -20,17 +20,17 @@
 
 ;;; https://github.com/mikeandmore/auto-complete-clang
 
-(require 'auto-complete-clang)
-(require 'auto-complete-c-headers)
-
-(dolist (hook '(c-mode-hook
-                c++-mode-hook
-                ))
-  (add-hook hook (lambda ()
-                   (eval-after-load 'auto-complete
-                     (lambda ()
-                       (add-to-list 'ac-sources 'ac-source-clang)
-                       (add-to-list 'ac-sources 'ac-source-c-headers))))))
+;; (require 'auto-complete-clang)
+;; (require 'auto-complete-c-headers)
+;;
+;; (dolist (hook '(c-mode-hook
+;;                 c++-mode-hook
+;;                 ))
+;;   (add-hook hook (lambda ()
+;;                    (eval-after-load 'auto-complete
+;;                      (lambda ()
+;;                        (add-to-list 'ac-sources 'ac-source-clang)
+;;                        (add-to-list 'ac-sources 'ac-source-c-headers))))))
 
 
 ;;; [ auto-complete-c-headers ]
@@ -83,17 +83,17 @@
 
 ;;; [ ac-irony ]
 
-(defun my-ac-irony-setup ()
-  ;; be cautious, if yas is not enabled before (auto-complete-mode 1), overlays
-  ;; *may* persist after an expansion.
-  (yas-minor-mode 1)
-  (auto-complete-mode 1)
-
-  (add-to-list 'ac-sources 'ac-source-irony)
-  ;; (define-key irony-mode-map (kbd "M-RET") 'ac-complete-irony-async)
-  )
-
-(add-hook 'irony-mode-hook 'my-ac-irony-setup)
+;; (defun my-ac-irony-setup ()
+;;   ;; be cautious, if yas is not enabled before (auto-complete-mode 1), overlays
+;;   ;; *may* persist after an expansion.
+;;   (yas-minor-mode 1)
+;;   (auto-complete-mode 1)
+;;
+;;   (add-to-list 'ac-sources 'ac-source-irony)
+;;   ;; (define-key irony-mode-map (kbd "M-RET") 'ac-complete-irony-async)
+;;   )
+;;
+;; (add-hook 'irony-mode-hook 'my-ac-irony-setup)
 
 
 ;;; [ company-irony ]

@@ -103,7 +103,7 @@
               (run-hooks 'prog-mode-hook))
 
             ;; add into auto-complete enable modes.
-            (add-to-list 'ac-modes 'enh-ruby-mode)
+            ;; (add-to-list 'ac-modes 'enh-ruby-mode)
             (define-key enh-ruby-mode-map (kbd "C-,") 'insert-arrow)
             ))
 
@@ -353,6 +353,7 @@
 (define-key my-prog-inferior-map (kbd "r a") 'inf-ruby-console-auto)
 
 (add-to-list 'ac-modes 'inf-ruby-mode) ; enable auto-complete (with robe-mode) for inf-ruby completion.
+;; (add-to-list 'ac-modes 'inf-ruby-mode) ; enable auto-complete (with robe-mode) for inf-ruby completion.
 
 
 ;;; [ pry (emacs-pry) ] -- Pry support within Emacs
