@@ -214,7 +214,7 @@
          auto-complete-ruby
          inf-ruby rcodetools ruby-compilation rvm
          pry
-         robe-mode
+         robe-mode helm-robe
          rspec-mode
          yard-mode
          ruby-refactor

@@ -495,6 +495,11 @@
                    ;; (define-key my-prog-help-document-map (kbd "d") 'robe-doc)
                    )))
 
+
+;;; [ helm-robe ]
+
+(custom-set-variables
+ '(robe-completing-read-func 'helm-robe-completing-read))
 
 
 ;;; [ ruby-compilation ]
