@@ -77,28 +77,28 @@
 ;; Since, this is one huge file, it is often hard to debug where a particular
 ;; error has occurred, and therefore, I need some visual clue of some type,
 ;; a.k.a. checkpoints. The following functions, together, help me with that. I
-;; can, simply, make a call to the stardiviner/checkpoint function, in order to
+;; can, simply, make a call to the my/checkpoint function, in order to
 ;; echo something inside my *Messages* buffer, and immediately, know nearby
 ;; location of where Emacs has stopped loading this configuration. Not to
 ;; mention, these checkpoints, further, help me by acting as indirect comments.
 
 ;; subtract two time entities
-(defun stardiviner/time-subtract-millis (b a)
+(defun my/time-subtract-millis (b a)
   "Function that can subtract time string A from time string B."
   (* 1000.0 (float-time (time-subtract b a))))
 
 ;; convenient function to measure load-time since initialization
-(defun stardiviner/load-time()
+(defun my/load-time()
   "Return total load-time from the initialization."
-  (stardiviner/time-subtract-millis (current-time) before-init-time))
+  (my/time-subtract-millis (current-time) before-init-time))
 
 ;; function to display which section is being loaded..
-(defun stardiviner/checkpoint (msg)
+(defun my/checkpoint (msg)
   "Echo MSG to *Messages*, thereby, making it act as a checkpoint."
-  (if debug-on-error (message "- At =%.2fms=, I %s.." (stardiviner/load-time) msg)))
+  (if debug-on-error (message "- At =%.2fms=, I %s.." (my/load-time) msg)))
 
 ;; an example of above
-(stardiviner/checkpoint "initialized benchmarking")
+(my/checkpoint "initialized benchmarking")
 
 
 ;;; [ Edebug ] -- Edebug is a source level debugger.
@@ -173,32 +173,32 @@
 ;; debugging which module is making our Emacs start-up, so slow.
 
 ;; function to display how much time a particular feature took to require..
-(defun stardiviner/require-time-message(package time)
+(defun my/require-time-message(package time)
   (if debug-on-error ( message
                        "- At =%.2fms=, I required a feature: =%s=, which took me =%0.2fms=."
-                       (stardiviner/load-time) package time)))
+                       (my/load-time) package time)))
 
 (defvar feature-required-time nil "Require time for a specific feature.")
 
-(defvar stardiviner/require-times nil
+(defvar my/require-times nil
   "A list of (FEATURE . LOAD-DURATION).
 LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
 
 (defadvice require
     (around build-require-times (feature &optional filename noerror) activate)
-  "Note in `stardiviner/require-times' the time taken to require each feature."
+  "Note in `my/require-times' the time taken to require each feature."
   (let* ((already-loaded (memq feature features))
          (require-start-time (and (not already-loaded) (current-time))))
     (prog1
         ad-do-it
       (when (and (not already-loaded) (memq feature features) debug-on-error)
         (setq feature-required-time
-              (stardiviner/time-subtract-millis (current-time) require-start-time))
-        (stardiviner/require-time-message feature feature-required-time)
-        (add-to-list 'stardiviner/require-times
+              (my/time-subtract-millis (current-time) require-start-time))
+        (my/require-time-message feature feature-required-time)
+        (add-to-list 'my/require-times
                      (cons feature
-                           (stardiviner/time-subtract-millis (current-time)
-                                                          require-start-time))
+                           (my/time-subtract-millis (current-time)
+                                                    require-start-time))
                      t)))))
 
 
