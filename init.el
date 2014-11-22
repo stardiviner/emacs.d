@@ -89,11 +89,11 @@
 (let ((default-directory "~/.emacs.d/init/"))
   (setq load-path
         (append
-          (let ((load-path (copy-sequence load-path))) ; shadow
-            (append
-              (copy-sequence (normal-top-level-add-to-load-path '(".")))
-              (normal-top-level-add-subdirs-to-load-path)))
-          load-path)))
+         (let ((load-path (copy-sequence load-path))) ; shadow
+           (append
+            (copy-sequence (normal-top-level-add-to-load-path '(".")))
+            (normal-top-level-add-subdirs-to-load-path)))
+         load-path)))
 
 
 
