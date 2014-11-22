@@ -493,8 +493,8 @@
       user-mail-address "numbchild@gmail.com"
       user-full-name  "stardiviner")
 
-;; (setq mu4e-html2text-command "html2text -utf8 -width 72")
-(setq mu4e-html2text-command "pandoc -f html -t org")
+(setq mu4e-html2text-command "html2text -utf8 -width 72 | iconv -t utf-8")
+;; (setq mu4e-html2text-command "pandoc -f html -t org | iconv -t utf-8") ; add utf-8 option.
 
 
 ;;; Compose
