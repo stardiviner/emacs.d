@@ -50,6 +50,11 @@
 ;; (require 'gccsense)
 
 
+;;; [ company-c-headers ]
+
+(add-to-list 'company-backends 'company-c-headers)
+
+
 ;;; [ Irony-mode ] --- A C/C++ minor mode for Emacs powered by libclang.
 
 

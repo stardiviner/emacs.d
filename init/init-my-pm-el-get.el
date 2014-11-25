@@ -235,6 +235,7 @@
          ;; C family languages (C, C++, Go, D, F, Rust)
          c-eldoc eassist
          irony-mode company-irony ; ac-irony
+         company-c-headers
          ;; auto-complete-clang auto-complete-c-headers
          ;; auto-complete-clang-objc
          ;; Go
