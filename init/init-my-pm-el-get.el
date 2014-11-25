@@ -91,6 +91,7 @@
          ;;; multiple major modes
          mmm-mode ; mumamo-noweb
          ;; shell
+         readline-complete
          eshell-manual
          insert-shebang
          ;; others

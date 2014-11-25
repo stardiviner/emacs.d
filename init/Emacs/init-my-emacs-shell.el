@@ -104,6 +104,27 @@
 ;;; TODO: use this extension
 ;; readline-complete.el (with auto-complete.el)
 
+;;; Usage:
+;;
+;; - [M-x shell] :: start.
+
+(setq explicit-shell-file-name "bash")
+(setq explicit-bash-args '("-c" "export EMACS=; stty echo; bash"))
+(setq comint-process-echoes t)
+
+;; (setq rlc-timeout 0.03
+;;       rlc-attempts 30
+;;       ;; ac-rlc-prompts
+;;       )
+
+;;; for auto-complete
+(add-to-list 'ac-modes 'shell-mode)
+(add-hook 'shell-mode-hook 'ac-rlc-setup-sources)
+
+;;; for company-mode backend.
+(push 'company-readline company-backends)
+(add-hook 'rlc-no-readline-hook
+          (lambda () (company-mode -1)))
 
 
 
