@@ -13,7 +13,7 @@
 (setq completion-at-point-functions '(company-complete
                                       auto-complete
                                       semantic-completion-at-point-function
-                                      lisp-completion-at-point))
+                                      elisp-completion-at-point))
 
 
 ;;; [ pcomplete ] --- Programmable, Context-Sensitive Completion Library
