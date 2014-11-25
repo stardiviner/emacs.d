@@ -64,8 +64,8 @@
 ;;   )
 
 (add-hook 'after-init-hook 'global-company-mode)
-(after 'global-company-mode
-  (diminish company-mode))
+(eval-after-load 'company-mode
+  (diminish 'company-mode))
 
 
 ;; keybindings
