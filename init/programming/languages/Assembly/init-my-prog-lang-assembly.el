@@ -7,7 +7,17 @@
 
 ;;; Code:
 
+;;; [ iasm-mode ]
 
+(require 'iasm-mode)
+
+;; (global-set-key (kbd "C-c C-d") 'iasm-disasm)
+;; (global-set-key (kbd "C-c C-l") 'iasm-ldd)
+
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (local-set-key (kbd "C-c d") 'iasm-goto-disasm-buffer)
+            (local-set-key (kbd "C-c l") 'iasm-disasm-link-buffer)))
 
 
 

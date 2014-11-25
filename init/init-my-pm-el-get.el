@@ -313,6 +313,8 @@
          ;; NoSQL
          ;; MongoDB
          ;; Redis
+         ;; Assembly
+         iasm-mode
          ;; English
          ;; Japanese
          ;; migemo helm-migemo
