@@ -63,10 +63,29 @@
 ;;     (diminish company-mode))
 ;;   )
 
-(add-hook 'after-init-hook 'global-company-mode)
-(eval-after-load 'company-mode
-  (diminish 'company-mode))
+;; (add-hook 'after-init-hook 'global-company-mode)
 
+(dolist (hook '(emacs-lisp-mode-hook
+                lisp-mode-hook
+                lisp-interaction-mode-hook
+                scheme-mode-hook
+                clojure-mode-hook
+                ruby-mode-hook
+                enh-ruby-mode-hook
+                python-mode-hook
+                sh-mode-hook
+                c-mode-hook
+                c++-mode-hook
+                java-mode-hook
+                asm-mode-hook
+                haskell-mode-hook
+                web-mode-hook
+                js2-mode-hook
+                js3-mode-hook
+                html-mode-hook
+                css-mode-hook
+                ))
+  (add-hook hook 'company-mode))
 
 ;;; help document preview & popup
 (require 'company-quickhelp)
