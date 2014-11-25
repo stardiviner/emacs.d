@@ -74,32 +74,40 @@
 (setq company-quickhelp--delay 0.2)
 
 ;; keybindings
+;; (global-set-key (kbd "<tab>") 'company-complete)
+
 (define-key company-active-map (kbd "C-n") 'company-select-next)
 (define-key company-active-map (kbd "C-p") 'company-select-previous)
 (define-key company-active-map (kbd "C-j") 'company-complete-selection)
 
 (define-key company-active-map (kbd "M-n") 'company-select-next)
 (define-key company-active-map (kbd "M-p") 'company-select-previous)
-(define-key company-active-map [return] nil)
+(define-key company-active-map [return] 'company-complete-selection)
 (define-key company-active-map (kbd "M-j") 'company-complete-selection)
-(define-key company-active-map (kbd "<tab>") 'company-complete)
+(define-key company-active-map (kbd "<tab>") 'company-complete-common)
+(define-key company-active-map [tab] 'company-complete-common)
+(define-key company-active-map (kbd "M-i") 'company-complete-common)
 (define-key company-active-map [mouse-1] 'company-complete-mouse)
 (define-key company-active-map [mouse-3] 'company-select-mouse)
 (define-key company-active-map (kbd "C-g") '(lambda ()
                                               (interactive)
                                               (company-abort)))
-(define-key company-active-map [tab] 'company-complete-common)
-(define-key company-active-map (kbd "M-i") 'company-complete-common)
 (define-key company-active-map (kbd "<f1>") 'company-show-doc-buffer)
 (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
 (define-key company-active-map (kbd "C-v") 'company-show-location)
-(define-key company-active-map (kbd "C-s") 'company-search-candidates)
-(define-key company-active-map (kbd "C-M-s") 'company-filter-candidates)
+(define-key company-active-map (kbd "C-w") 'company-show-location)
+(define-key company-active-map (kbd "C-s") 'company-filter-candidates)
+(define-key company-active-map (kbd "C-M-s") 'company-search-candidates)
 (define-key company-search-map (kbd "C-g") 'company-search-abort)
 (define-key company-search-map (kbd "C-s") 'company-search-repeat-forward)
 (define-key company-search-map (kbd "C-r") 'company-search-repeat-backward)
 (define-key company-search-map (kbd "C-o") 'company-search-kill-others)
 
+(define-key company-active-map (kbd "SPC")
+  (lambda ()
+    (interactive)
+    (company-abort)
+    (insert " ")))
 
 ;; faces
 (set-face-attribute 'company-tooltip nil
