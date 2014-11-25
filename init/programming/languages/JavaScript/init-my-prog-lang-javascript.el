@@ -210,6 +210,60 @@
 ;; provides an Emacs interface to the browser’s debugger and javascript engine.
 
 
+;;; [ tern ] -- code-analysis engine for JavaScript
+
+;;; Tern is a stand-alone code-analysis engine for JavaScript. It is intended to
+;;; be used with a code editor plugin to enhance the editor's support for
+;;; intelligent JavaScript editing.
+
+;;; Usage:
+
+;; The Emacs mode uses the bin/tern server, and project configuration is done with a .tern-project file.
+;;
+;; Buffers in tern-mode add a completion-at-point function that activates Tern’s completion. So, unless you rebound the key, M-tab (or C-M-i) will trigger completion.
+;;
+;; When the point is in an argument list, Tern will show argument names and types at the bottom of the screen.
+;;
+;; The following additional keys are bound:
+;;
+;; M-.
+;;
+;;     Jump to the definition of the thing under the cursor.
+;; M-,
+;;
+;;     Brings you back to last place you were when you pressed M-..
+;; C-c C-r
+;;
+;;     Rename the variable under the cursor.
+;; C-c C-c
+;;
+;;     Find the type of the thing under the cursor.
+;; C-c C-d
+;;
+;;     Find docs of the thing under the cursor. Press again to open the associated URL (if any).
+
+
+(autoload 'tern-mode "tern.el" nil t)
+
+;; optionally, set tern-mode to be automatically enabled for your JavaScript mode of choice.
+(add-hook 'js-mode-hook (lambda () (tern-mode t)))
+
+;;; for auto-complete.
+;; (eval-after-load 'tern
+;;   '(progn
+;;      (require 'tern-auto-complete)
+;;      (tern-ac-setup)))
+
+
+;;; [ company-tern ] -- Tern backend for company-mode.
+
+(add-to-list 'company-backends 'company-tern)
+
+;; (setq company-tern-property-marker "" ; remove circles after object's own properties.
+;;       company-tern-meta-as-single-line t ; trim too long function signatures to the frame width.
+;;       )
+
+
 
 (provide 'init-my-prog-lang-javascript)
 

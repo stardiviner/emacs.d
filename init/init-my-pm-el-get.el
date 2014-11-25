@@ -254,6 +254,7 @@
          js3-mode
          swank-js
          ;; ac-js2
+         tern company-tern
          ;; HTML
          ;; CSS
          ;; auto-complete-css
