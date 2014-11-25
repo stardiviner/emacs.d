@@ -46,9 +46,14 @@
 ;;                 ))
 ;;   (add-hook hook 'ac-l-setup))
 
-;;;_* [ ac-math ]
+;;;_ [ ac-math ]
 
 ;; (require 'ac-math)
+
+;;;_ [ company-auctex ]
+
+(require 'company-auctex)
+(company-auctex-init)
 
 
 

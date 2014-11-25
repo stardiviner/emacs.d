@@ -272,6 +272,7 @@
          ;; TeX
          ;; auctex
          ;; reftex
+         company-auctex
          ;; auto-complete-auctex
          ;; auto-complete-latex
          ;; ac-math
