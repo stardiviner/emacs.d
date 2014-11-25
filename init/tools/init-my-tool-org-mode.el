@@ -265,6 +265,52 @@
 (font-lock-add-keywords 'org-mode
                         '(("@<kbd>\\([^@]*\\)@</kbd>" 1 'org-code)))
 
+(defun my/org-insert-key ()
+  "Insert keybinding code in Org with a keybinding quickly.
+
+In common insert mode or in select region text to press this keybinding \\<C-c k>.
+to insert <kbd>..</kbd> (HTML) org =[..]= (Org-mode)."
+  (interactive)
+  (if (region-active-p)
+      (let ((where (cons (region-beginning) (region-end))))
+        (insert-pair where "=[" "]="))
+    ;; (insert-pair nil "=[" "]=")
+    (progn
+      (insert "=[]= ")
+      (backward-char 3)))
+  )
+
+(defun my/org-insert-kbd ()
+  "Insert literal HTML tag <kbd></kbd>."
+  (interactive)
+  (if (region-active-p)
+      (let ((where (cons (region-beginning) (region-end))))
+        (insert-pair where "@@html:<kbd>" "</kbd>@@"))
+    (progn
+      (insert "@@html:<kbd></kbd>@@ ")
+      (backward-char 9)))
+  )
+
+
+;; (defun my/org-insert-kbd (key)
+;;   "Ask for a KEY then insert its description.
+;; Will work on both `org-mode' and any mode that accepts plain html."
+;;   (interactive "kType key sequence: ")
+;;   (let* ((is-org-mode (derived-mode-p 'org-mode))
+;;          (tag (if is-org-mode
+;;                   "@@html:<kbd>@@%s@@html:</kbd>@@"
+;;                 "<kbd>%s</kbd>")))
+;;     (if (null (equal key "
+;; "))
+;;         (insert
+;;          (format tag (help-key-description key nil)))
+;;       (insert (format tag ""))
+;;       (forward-char (if is-org-mode -15 -6)))))
+
+
+(define-key org-mode-map (kbd "C-c k") 'my/org-insert-kbd)
+(define-key org-mode-map (kbd "C-c K") 'my/org-insert-key)
+
 ;;; headline faces
 ;;; the ahead stars face when org indentation. (org-hide)
 (set-face-attribute 'org-hide nil
