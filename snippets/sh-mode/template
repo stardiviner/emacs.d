@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: template
+# key: temp
+# --
+#!/usr/bin/env ${1:bash/zsh/...}
+
+${2}

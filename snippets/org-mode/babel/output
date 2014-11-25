@@ -1,0 +1,10 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: output
+# key: output
+# --
+#+RESULTS:
+#+begin_example
+$1
+#+end_example
+
+$0

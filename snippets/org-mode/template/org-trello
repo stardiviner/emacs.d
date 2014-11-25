@@ -1,0 +1,13 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: template-org-trello
+# key: template-org-trello
+# --
+* TODO list1
+
+- [ ] step one
+- [ ] step two
+
+* IN-PROGRESS list2
+
+
+* DONE list3

@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: kbd2
+# key: kbd2
+# --
+@<kbd>${1:C-h h}@</kbd>$0
