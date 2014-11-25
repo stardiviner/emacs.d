@@ -20,20 +20,21 @@
 
 (require 'company)
 
-(setq company-minimum-prefix-length 2   ; minimum prefix character number for auto complete.
-      company-idle-delay 0.2
-      company-tooltip-align-annotations t ; align annotations to the right tooltip border.
-      company-tooltip-limit 10          ; tooltip candidates max limit.
-      company-tooltip-minimum 6         ; minimum candidates limit.
-      company-tooltip-minimum-width 0   ; The minimum width of the tooltip's inner area.
+(setq-default company-minimum-prefix-length 2   ; minimum prefix character number for auto complete.
+              company-idle-delay 0.2
+              company-tooltip-align-annotations t ; align annotations to the right tooltip border.
+              company-tooltip-limit 10          ; tooltip candidates max limit.
+              company-tooltip-minimum 2         ; minimum candidates limit.
+              company-tooltip-minimum-width 0   ; The minimum width of the tooltip's inner area.
                                         ; This doesn't include the margins and the scroll bar.
-      company-tooltip-margin 1          ; width of margin columns to show around the tooltip
-      company-tooltip-offset-display 'scrollbar ; 'lines - how to show tooltip unshown candidates number.
-      ;; company-show-numbers nil ; t: show quick-access numbers for the first ten candidates.
-      ;; company-selection-wrap-around nil
-      ;; company-async-wait 0.03
-      ;; company-async-timeout 2
-      )
+              company-tooltip-margin 1          ; width of margin columns to show around the tooltip
+              company-tooltip-offset-display 'scrollbar ; 'lines - how to show tooltip unshown candidates number.
+              ;; company-show-numbers nil ; t: show quick-access numbers for the first ten candidates.
+              ;; company-selection-wrap-around nil
+              ;; company-async-wait 0.03
+              ;; company-async-timeout 2
+              )
+
 
 (setq company-frontends '(company-pseudo-tooltip-unless-just-one-frontend
                           company-echo-metadata-frontend
