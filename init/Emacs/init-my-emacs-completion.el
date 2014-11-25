@@ -11,9 +11,10 @@
 ;; (add-to-list 'completion-styles 'initials t)
 ;; (setq completion-cycle-threshold 5)
 (setq completion-at-point-functions '(company-complete
-                                      auto-complete
-                                      semantic-completion-at-point-function
-                                      elisp-completion-at-point))
+                                      ;; auto-complete
+                                      ;; semantic-completion-at-point-function ; NOTE: require `semantic'.
+                                      elisp-completion-at-point)
+      )
 
 
 ;;; [ pcomplete ] --- Programmable, Context-Sensitive Completion Library
