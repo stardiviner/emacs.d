@@ -242,11 +242,9 @@
 ;;
 ;;     Find docs of the thing under the cursor. Press again to open the associated URL (if any).
 
+(require 'tern)
 
 (autoload 'tern-mode "tern.el" nil t)
-
-;; optionally, set tern-mode to be automatically enabled for your JavaScript mode of choice.
-(add-hook 'js-mode-hook (lambda () (tern-mode t)))
 
 ;;; for auto-complete.
 ;; (eval-after-load 'tern
@@ -257,7 +255,22 @@
 
 ;;; [ company-tern ] -- Tern backend for company-mode.
 
-(add-to-list 'company-backends 'company-tern)
+;; (require 'company-tern)
+
+(dolist (hook '(js-mode-hook
+                js2-mode-hook
+                js3-mode-hook
+                ))
+  (add-hook hook
+            (lambda ()
+              ;; enable `tern-mode'.
+              (tern-mode t)
+              
+              ;;; mode locally for company-mode backend.
+              ;; (make-local-variable 'company-backends)
+              ;; (add-to-list 'company-backends 'company-tern)
+              )))
+
 
 ;; (setq company-tern-property-marker "" ; remove circles after object's own properties.
 ;;       company-tern-meta-as-single-line t ; trim too long function signatures to the frame width.

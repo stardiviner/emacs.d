@@ -69,28 +69,33 @@
      (define-key slime-mode-map (kbd "C-c i") 'slime-inspect)
      (define-key slime-mode-map (kbd "C-c C-s") 'slime-selector)))
 
+
+;;; [ slime-company ]
+
 
 
 ;;; [ ac-slime ] --
 
-;; (require 'ac-slime)
-;;
-;; (dolist (hook '(lisp-mode-hook
-;;                 lisp-interaction-mode-hook
-;;                 scheme-mode-hook
-;;                 ))
-;;   (add-hook hook (lambda ()
-;;                    (add-to-list 'ac-sources 'ac-slime))))
-;;
-;;
-;; (set-face-attribute 'ac-slime-menu-face nil
-;;                     :foreground "yellow"
-;;                     :bold 'normal)
-;; (set-face-attribute 'ac-slime-selection-face nil
-;;                     )
+(require 'ac-slime)
+
+(dolist (hook '(lisp-mode-hook
+                lisp-interaction-mode-hook
+                scheme-mode-hook
+                ))
+  (add-hook hook (lambda ()
+                   (add-to-list 'ac-sources 'ac-slime))))
+
+
+(set-face-attribute 'ac-slime-menu-face nil
+                    :foreground "yellow"
+                    :bold 'normal)
+(set-face-attribute 'ac-slime-selection-face nil
+                    )
 
 
 ;;; [ slime-company ] -- slime backend for Company mode.
+
+
 
 
 ;; A quick way to jump to the definition of a function given its key binding
@@ -128,15 +133,15 @@
 
 ;;; [ ac-geiser ]
 
-;; (require 'ac-geiser)
-;;
-;; (dolist (hook '(lisp-mode-hook
-;;                 lisp-interaction-mode-hook
-;;                 scheme-mode-hook
-;;                 ))
-;;   (add-hook hook (lambda ()
-;;                    (ac-geiser-setup)
-;;                    (add-to-list 'ac-sources 'ac-source-geiser))))
+(require 'ac-geiser)
+
+(dolist (hook '(lisp-mode-hook
+                lisp-interaction-mode-hook
+                scheme-mode-hook
+                ))
+  (add-hook hook (lambda ()
+                   (ac-geiser-setup)
+                   (add-to-list 'ac-sources 'ac-source-geiser))))
 
 
 ;;; [ Quack ] -- enhanced Emacs Support for Editing and Running Scheme Code

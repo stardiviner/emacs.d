@@ -50,8 +50,8 @@
 
 ;; (require 'init-ido)
 (require 'init-helm)
-;; (require 'init-auto-complete)
-(require 'init-company-mode)
+(require 'init-auto-complete)
+;; (require 'init-company-mode)
 
 
 

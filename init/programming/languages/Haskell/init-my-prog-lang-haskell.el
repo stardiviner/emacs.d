@@ -22,6 +22,23 @@
                  ))))
 
 
+;;; [ company-ghc ]
+
+(dolist (hook '(haskell-mode-hook
+                ))
+  (add-hook hook
+            (lambda ()
+              ;; mode locally for company backends
+              ;; (make-local-variable 'company-backends)
+              ;; (add-to-list 'company-backends 'company-ghc)
+              ;; (add-to-list 'company-backends 'company-cabal)
+              )))
+
+
+;;; [ company-cabal ]
+
+
+
 (provide 'init-my-prog-lang-haskell)
 
 ;;; init-my-prog-lang-haskell.el ends here

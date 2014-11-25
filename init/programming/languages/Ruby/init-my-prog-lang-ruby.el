@@ -103,7 +103,7 @@
               (run-hooks 'prog-mode-hook))
 
             ;; add into auto-complete enable modes.
-            ;; (add-to-list 'ac-modes 'enh-ruby-mode)
+            (add-to-list 'ac-modes 'enh-ruby-mode)
             (define-key enh-ruby-mode-map (kbd "C-,") 'insert-arrow)
             ))
 
@@ -352,7 +352,9 @@
 
 (define-key my-prog-inferior-map (kbd "r a") 'inf-ruby-console-auto)
 
-(add-to-list 'ac-modes 'inf-ruby-mode) ; enable auto-complete (with robe-mode) for inf-ruby completion.
+(eval-after-load 'inf-ruby
+  '(define-key inf-ruby-minor-mode-map (kbd "C-c C-s") 'inf-ruby-console-auto))
+
 ;; (add-to-list 'ac-modes 'inf-ruby-mode) ; enable auto-complete (with robe-mode) for inf-ruby completion.
 
 
@@ -375,6 +377,17 @@
 
 (define-key my-inferior-ruby-map (kbd "p") 'run-pry)
 (define-key my-inferior-ruby-map (kbd "C-p") 'pry-intercept)
+
+
+;;; [ company-inf-ruby ]
+
+;;; NOTE: Now that inf-ruby 2.4.0 supports `completion-at-point', this backend is deprecated.
+;;; You don't need to install anything extra, `company-capf' will work with inf-ruby.
+
+;; (require 'company-inf-ruby)
+;;
+;; (eval-after-load 'company
+;;   (add-to-list 'company-backends 'company-inf-ruby))
 
 
 
@@ -468,12 +481,14 @@
 
 (dolist (hook '(ruby-mode-hook
                 enh-ruby-mode-hook
-                inf-ruby-mode-hook ; FIXME: robe-mode is not enabled in inf-ruby-mode. seems this hook is not valid.
+                ;; FIXED: company-inf-ruby enable completing in inf-ruby buffers, with `company-robe' support.
+                ;; inf-ruby-mode-hook ; FIXME: robe-mode is not enabled in inf-ruby-mode. seems this hook is not valid.
+                                        ; maybe because inf-ruby-mode is loaded before robe.
                 ))
   (add-hook hook 'robe-mode))
 
 
-;; for auto-complete
+;;; for auto-complete
 (add-hook 'robe-mode-hook
           (lambda ()
             (ac-robe-setup)
@@ -481,9 +496,10 @@
             ;; (push 'ac-source-robe ac-sources)
             ;; (add-to-list 'ac-sources 'ac-source-robe) ; `ac-robe-setup' did this already.
             ))
-;; for company-mode
+
+;;; for company-mode
 ;; (eval-after-load 'company
-;;   (push 'company-robe company-backends))
+;;   (add-to-list 'company-backends 'company-robe))
 
 (dolist (hook '(robe-mode-hook
                 ;; ruby-mode-hook ; because upper robe-mode is enabled in ruby-mode.
@@ -494,6 +510,10 @@
                    ;; FIXME: it is not local to ruby-mode only.
                    ;; (local-set-key (kbd "C-h d") 'my-prog-help-document-map)
                    ;; (define-key my-prog-help-document-map (kbd "d") 'robe-doc)
+
+                   ;; for company-robe backend mode locally.
+                   ;; (make-local-variable 'company-backends)
+                   ;; (add-to-list 'company-backends 'company-robe)
                    )))
 
 
