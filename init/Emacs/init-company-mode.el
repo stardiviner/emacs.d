@@ -68,6 +68,11 @@
   (diminish 'company-mode))
 
 
+;;; help document preview & popup
+(require 'company-quickhelp)
+(company-quickhelp-mode t)
+(setq company-quickhelp--delay 0.2)
+
 ;; keybindings
 (define-key company-active-map (kbd "C-n") 'company-select-next)
 (define-key company-active-map (kbd "C-p") 'company-select-previous)
