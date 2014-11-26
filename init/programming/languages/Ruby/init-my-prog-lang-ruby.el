@@ -422,43 +422,46 @@
 
 
 ;;; [ Robe ] -- Code navigation, documentation lookup and completion for Ruby.
-;;;
-;;; Robe is a code assistance tool that uses a Ruby REPL subprocess with your
-;;; application or gem code loaded, to provide information about loaded classes
-;;; and modules, and where each method is defined.
-;;;
-;;; Generally, you'll want to start with `M-x inf-ruby-console-auto'. If there's
-;;; no Ruby console running, most interactive commands provided by Robe will
-;;; offer to launch it automatically.
-;;;
-;;; As you change the code in your project, you'll want to update the running
-;;; process. To load the current file, type `C-c C-l (ruby-load-file)', see
-;;; inf-ruby for more commands. When you're developing a Rails project, you can
-;;; type `C-c C-k' instead, to reload the whole environment at once.
-;;;
-;;; Features:
-;;;
-;;; Jump to method definition
-;;; Jump to super or a constructor called at point
-;;; Jump to a module or class (provided it has at least one method defined)
-;;; Display method documentation
-;;; Display information about method called at point using ElDoc
-;;; Method and constant name completion
-;;;
-;;; To see the available commands, type M-x describe-package RET robe RET.
-;;;
+;;
+;; Robe is a code assistance tool that uses a Ruby REPL subprocess with your
+;; application or gem code loaded, to provide information about loaded classes
+;; and modules, and where each method is defined.
+;;
+;; Generally, you'll want to start with `M-x inf-ruby-console-auto'. If there's
+;; no Ruby console running, most interactive commands provided by Robe will
+;; offer to launch it automatically.
+;;
+;; As you change the code in your project, you'll want to update the running
+;; process. To load the current file, type `C-c C-l (ruby-load-file)', see
+;; inf-ruby for more commands. When you're developing a Rails project, you can
+;; type `C-c C-k' instead, to reload the whole environment at once.
+;;
+;; Features:
+;;
+;; - Jump to method definition
+;; - Jump to `super' or a constructor called at point
+;; - Jump to a module or class (provided it has at least one method defined)
+;; - Display method documentation
+;; - Display information about method called at point using ElDoc
+;; - Method and constant name completion
+;;
+;; To see the available commands, type M-x describe-package RET robe RET.
+;;
 ;;; Usage:
 ;; start Robe server.
 ;; 1. [M-x inf-ruby] :: execute this command in a ruby file buffer.
 ;; 2. [M-x robe-start]
 ;;
 ;; - [C-c C-d] -- robe-doc
+;; - [C-c C-l] -- ruby-load-file
 ;; - [C-c C-k] -- robe-rails-refresh
+;; - [M-.] -- robe-jump (jump to definition)
 ;; - [M-,] -- pop tag mark
-;; - [M-.] -- robe-jump
 ;;
 ;; input code in `inf-ruby' buffer.
 ;;   > Robe.stop # => nil :: stop Robe server.
+;; debug Robe log file
+;; $ tailf /tmp/robe-access.log
 
 (require 'robe)
 ;; (autoload 'robe-mode "robe" "Code navigation, documentation lookup and completion for Ruby" t nil)
