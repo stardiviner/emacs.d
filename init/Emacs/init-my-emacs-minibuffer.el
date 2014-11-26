@@ -46,6 +46,10 @@
 
 ;;; find file at point (ffap)
 
+
+
+;; this enable eldoc in minibuffer, and show eldoc in mode-line.
+(add-hook 'eval-expression-minibuffer-setup-hook #'eldoc-mode)
 
 
 ;;; eldoc-eval --- Enable eldoc support when minibuffer is in use. [M-:]
