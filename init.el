@@ -48,6 +48,9 @@
 
 ;;; [ package manager ]
 
+;; Non-nil means `load' prefers the newest version of a file.
+(setq load-prefer-newer t)
+
 ;; (load "~/.emacs.d/init/Emacs/init-my-emacs-package-management.el")
 ;; (require 'init-my-emacs-package-management)
 
