@@ -2178,8 +2178,10 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;;   :actions -ding, -notify, -window, -notify/window, -message, -email,
 
 (org-notify-add 'default
-                '(:time "1h" :period "50m" :duration 100
+                '(:time "1h" :period "2h" :duration 80
                         :actions (-notify/window -ding))
+                ;; '(:time "1h" :period "50m" :duration 100
+                ;;         :actions (-notify/window -ding))
                 ;; '(:time "3d" :period "4h" :duration 40
                 ;;         :actions -notify/window)
                 ;; '(:time "5d" :period "6d" :duration 20
@@ -2207,9 +2209,9 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 (org-notify-start 60)
 
 ;;;_*, appt
-
+;;
 ;; (require 'appt) ; appointment
-
+;;
 ;; (setq appt-audible t
 ;;       appt-display-diary t
 ;;       appt-display-interval 3 ; interval in minutes.
@@ -2218,14 +2220,14 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;;       appt-display-format 'window  ;; use our func
 ;;       appt-display-duration 10 ; the number of seconds an appointment message is displayed.
 ;;       )
-
+;;
 ;; (appt-activate 1)                  ;; active appt (appointment notification)
 ;; (display-time)                     ;; time display is required for this...
-
+;;
 ;; update appt each time agenda opened
 ;; FIXME after fix the problem of repeated timestamp caused over size of 'appt-check'.
 ;; (add-hook 'org-finalize-agenda-hook 'org-agenda-to-appt)
-
+;;
 ;; our little façade-function for djcb-popup
 ;; TODO
 ;; (defun my-appt-display (min-to-app new-time msg)
@@ -2235,10 +2237,10 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
 ;;                        "~/Music/Sounds/Hacking\ Game/voice-please-confirm.wav"))
 ;; ;; TODO remove this old format setting ?
 ;; (setq appt-disp-window-function 'my-appt-display) ; 'org-notify,
-
+;;
 ;; (setq appt-disp-window-function 'sr-org-handler-func) ; for Sauron.
-
-
+;;
+;;
 ;; (add-hook 'org-mode-hook
 ;;           (lambda ()
 ;;             ;; (turn-on-font-lock)
