@@ -60,8 +60,12 @@
 (require 'auto-complete-config)
 (require 'popup)
 ;; (require 'showtip)
+(diminish 'auto-complete-mode)
 
 ;; (ac-config-default)
+
+;; require other auto-complete sources
+(require 'ac-capf)
 
 (global-auto-complete-mode 1) ; use auto-complete globally
 
@@ -355,6 +359,7 @@
                 ac-source-filename
                 ac-source-files-in-current-dir
                 ;; programming
+                ac-source-capf
                 ;; ac-source-semantic
                 ;; ac-source-semantic-raw
                 ;; tags
@@ -444,6 +449,21 @@
 ;; check out here. https://github.com/auto-complete/auto-complete/issues/199
 ;; (ac-linum-workaround)
 
+
+;;; [ ac-capf ] -- auto-complete source of completion-at-point
+
+(require 'ac-capf)
+
+;; global
+;; (ac-capf-setup)
+;; (add-to-list 'ac-sources 'ac-source-capf)
+;; or enable in some modes
+;; (dolist (hook '(ruby-mode-hook
+;;                 enh-ruby-mode-hook
+;;                 inf-ruby-mode-hook
+;;                 inferior-python-mode-hook
+;;                 ))
+;;   (add-hook hook 'ac-capf-setup))
 
 
 ;;; [ ac-helm ]

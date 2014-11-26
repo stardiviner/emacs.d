@@ -67,6 +67,7 @@
          ;; auto-complete-etags
          ;; auto-complete-emacs-lisp
          ;; auto-complete-pcmp
+         ac-capf
          company-mode
          ;; ac-helm
          ac-company
