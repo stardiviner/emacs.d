@@ -255,11 +255,28 @@
 ;;
 ;; src_lang[:header arguments]{code...} / NOTE: override by org-verbatim.
 (font-lock-add-keywords 'org-mode
-                        '(("src_\\([^[{]+\\)\\(\\[:.*\\]\\){\\([^}]*\\)}"
-                           (1 '(:foreground "cyan" :weight 'bold :height 75)) ; "lang" part.
-                           (2 '(:foreground "gray" :height 70)) ; [:header arguments] part.
-                           (3 'org-code) ; "code..." part.
+                        '(("\\(src_\\)\\([^[{]+\\)\\(\\[:.*\\]\\){\\([^}]*\\)}"
+                           (1 '(:foreground "black" :weight 'normal :height 10)) ; src_ part
+                           (2 '(:foreground "cyan" :weight 'bold :height 75)) ; "lang" part.
+                           (3 '(:foreground "gray" :height 70)) ; [:header arguments] part.
+                           (4 'org-code) ; "code..." part.
                            )))
+
+;; TODO:
+;; emabedded latex (inline formula)
+;; (font-lock-add-keywords 'org-mode
+;;                         '(("$\\([^$\ ]*\\)$" 1 'org-code) ; $a=2$
+;;                           ))
+;; (font-lock-add-keywords 'org-mode
+;;                         '(("\\(\ \\([^\ ]*\\)\ )\\" 1 'org-code) ; \( a=2 \)
+;;                           ))
+;; (font-lock-add-keywords 'org-mode
+;;                         '(("\$\$\ \\([^\ ]*\\)\ \$\$" 1 'org-code) ; $$ a=2 $$
+;;                           ))
+;; (font-lock-add-keywords 'org-mode
+;;                         '(("\\\[\ \\([^\ ]*\\)\ \\\]" 1 'org-code) ; \[ a=2 \]
+;;                           ))
+
 
 ;;; @<kbd>C-h h@</kbd> inline key codes highlight
 (font-lock-add-keywords 'org-mode
@@ -445,9 +462,10 @@ to insert <kbd>..</kbd> (HTML) org =[..]= (Org-mode)."
 
 (require 'org-bullets nil t)
 
-;;; 希腊/罗马数字: Ⅰ、Ⅱ、Ⅲ、Ⅳ、Ⅴ、Ⅵ、Ⅶ、Ⅷ、Ⅸ、Ⅹ、Ⅺ、Ⅻ
-;;; 繁体中文:      壹，貳，叄，肆，伍，陸，柒，捌，玖，拾
-;;; ⒈ ⒉ ⒊ ⒋ ⒌
+;;; You Can copy symbols from Desktop Utils "Character Maps".
+;; ("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
+;; ("⒈" "⒉" "⒊" "⒋" "⒌" "⒍" "⒎" "⒏" "⒐" "⒑" "⒒" "⒓" "⒔" "⒕" "⒖" "⒗" "⒘" "⒙" "⒚" "⒛")
+;; ("⑴" "⑵" "⑶" "⑷" "⑸" "⑹" "⑺")
 
 (add-hook 'org-mode-hook
           (lambda ()
@@ -466,6 +484,7 @@ It can contain any number of symbols, which will be repeated."
             ;; (set-face-attribute 'org-bullet-face nil
             ;;                     :foreground "white" :background "black")
             ))
+
 
 ;;;_* Editing
 
