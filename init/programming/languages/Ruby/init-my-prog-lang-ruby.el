@@ -43,10 +43,10 @@
 ;;                "\\.irbrc\\'" "\\.pryrc\\'"
 ;;                )
 
-;; Stupidly the non-bundled ruby-mode isn't a derived mode of
-;; prog-mode: we run the latter's hooks anyway in that case.
 (add-hook 'ruby-mode-hook
           (lambda ()
+            ;; Stupidly the non-bundled ruby-mode isn't a derived mode of
+            ;; prog-mode: we run the latter's hooks anyway in that case.
             (unless (derived-mode-p 'prog-mode)
               (run-hooks 'prog-mode-hook))
 
@@ -247,7 +247,7 @@
 
                    ;; (local-set-key (kbd "C-h d") 'yari)
                    ;; (define-key 'help-command (kbd "R") 'yari)
-                   
+
                    ;; or with my-prog-help-document-map prefix.
                    (unless (boundp 'ruby-help-doc-map)
                      (define-prefix-command 'ruby-help-doc-map))
@@ -316,9 +316,9 @@
 
 ;; - [C-x C-q] -- rspec / ruby-compilation
 
-;; (require 'inf-ruby)
-(autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
-(autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
+(require 'inf-ruby)
+;; (autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
+;; (autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
 
 (setq inf-ruby-default-implementation "inf-ruby"
       inf-ruby-implementations '(("inf-ruby" . "irb --inf-ruby-mode --noreadline")
@@ -413,7 +413,7 @@
 
 ;;; [ auto-complete-ruby ]
 
-(require 'auto-complete-ruby)
+;; (require 'auto-complete-ruby)
 
 
 ;;; [ rcodetools ]
@@ -488,22 +488,8 @@
   (add-hook hook 'robe-mode))
 
 
-;;; for auto-complete
-(add-hook 'robe-mode-hook
-          (lambda ()
-            (ac-robe-setup)
-            ;; old way
-            ;; (push 'ac-source-robe ac-sources)
-            ;; (add-to-list 'ac-sources 'ac-source-robe) ; `ac-robe-setup' did this already.
-            ))
-
-;;; for company-mode
-;; (eval-after-load 'company
-;;   (add-to-list 'company-backends 'company-robe))
-
 (dolist (hook '(robe-mode-hook
-                ;; ruby-mode-hook ; because upper robe-mode is enabled in ruby-mode.
-                ;; inf-ruby-mode-hook
+                inf-ruby-mode-hook
                 ))
   (add-hook hook (lambda ()
                    (local-set-key (kbd "C-h d d") 'robe-doc)
@@ -511,9 +497,22 @@
                    ;; (local-set-key (kbd "C-h d") 'my-prog-help-document-map)
                    ;; (define-key my-prog-help-document-map (kbd "d") 'robe-doc)
 
+                   ;; for auto-complete
+                   ;; (ac-robe-setup)
+                   ;; old way
+                   ;; (push 'ac-source-robe ac-sources)
+                   ;; (add-to-list 'ac-sources 'ac-source-robe) ; `ac-robe-setup' did this already.
+
                    ;; for company-robe backend mode locally.
+                   ;; NOTE: `robe-mode' already support for capf. and
+                   ;; company-mode support capf native. so don't need following
+                   ;; setting.
                    ;; (make-local-variable 'company-backends)
                    ;; (add-to-list 'company-backends 'company-robe)
+
+                   ;; for company-mode
+                   ;; (eval-after-load 'company
+                   ;;   (add-to-list 'company-backends 'company-robe))
                    )))
 
 

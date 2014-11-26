@@ -62,14 +62,15 @@
          helm-mu
          ;; helm-delicious
          helm-dictionary
-         ;; auto-complete
-         ;; auto-complete-yasnippet auto-complete-chunk
-         ;; auto-complete-etags
-         ;; auto-complete-emacs-lisp
-         ;; auto-complete-pcmp
+         ;; helm-dictionary
+         auto-complete
+         auto-complete-yasnippet auto-complete-chunk
+         auto-complete-etags
+         auto-complete-emacs-lisp
+         auto-complete-pcmp
          ac-capf
          company-mode
-         ;; ac-helm
+         ac-helm
          ;; ac-company
          ;; color theme
          color-theme-solarized
@@ -93,7 +94,7 @@
          ;;; multiple major modes
          mmm-mode ; mumamo-noweb
          ;; shell
-         readline-complete
+         ;; readline-complete
          eshell-manual
          insert-shebang
          ;; others
@@ -225,9 +226,10 @@
          ;; Lisp
          slime
          elisp-slime-nav elisp-format eldoc-eval
-         ;; ac-slime ; slime-company
+         ;; slime-company
+         ac-slime
          geiser
-         ;; ac-geiser
+         ac-geiser
          ;; Scheme
          ;; Clojure
          clojure-mode ; cider (depends: queue [package not available]) ; ac-nrepl
@@ -237,10 +239,10 @@
          ;; jedi
          ;; C family languages (C, C++, Go, D, F, Rust)
          c-eldoc eassist
-         irony-mode company-irony ; ac-irony
-         company-c-headers
-         ;; auto-complete-clang auto-complete-c-headers
-         ;; auto-complete-clang-objc
+         irony-mode ac-irony ; company-irony
+         ;; company-c-headers
+         auto-complete-clang auto-complete-c-headers
+         auto-complete-clang-objc
          ;; Go
          go-mode go-eldoc
          ;; go-autocomplete ; gocode
@@ -257,17 +259,17 @@
          ;; js2-mode
          js3-mode
          swank-js
-         ;; ac-js2
-         tern company-tern
+         ac-js2
+         tern ; company-tern
          ;; HTML
          ;; CSS
-         ;; auto-complete-css
+         auto-complete-css
          ;; css-mode
          css-eldoc
          ;; CoffeeScript
          coffee-mode
          ;; XML
-         ;; auto-complete-nxml
+         auto-complete-nxml
          ;; JSON
          json-mode json-reformat json-snatcher
          ;; Markdown
@@ -277,15 +279,15 @@
          ;; TeX
          ;; auctex
          ;; reftex
-         company-auctex
-         ;; auto-complete-auctex
-         ;; auto-complete-latex
+         ;; company-auctex
+         auto-complete-auctex
+         auto-complete-latex
          ;; ac-math
          ;;; Haskell
          haskell-mode
          ;; Verilog
          verilog-mode
-         ;; auto-complete-verilog
+         auto-complete-verilog
          ;; Java
          javadoc-lookup ; javadoc-help
          ;; java-complete
@@ -295,7 +297,7 @@
          ;; gnuplot
          gnuplot-mode
          ;; Octave
-         ;; ac-octave
+         ac-octave
          ;; Frameworks
          ;; Ruby on Rails
          projectile-rails ;; rinari
