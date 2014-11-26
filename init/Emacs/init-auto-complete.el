@@ -68,8 +68,21 @@
 (require 'ac-capf)
 
 (global-auto-complete-mode 1) ; use auto-complete globally
+;;; or enable for specific modes.
+(if (null global-auto-complete-mode)
+    (setq ac-modes
+          (append ac-modes
+                  '(prog-mode               ; programming modes
+                    web-mode
+                    text-mode markdown-mode
+                    change-log-mode
+                    ;; org-mode ; speed up org-mode typing by disabling auto-complete.
+                    ;; objc-mode
+                    ;; sql-mode js3-mode
+                    makefile-mode makefile-gmake-mode makefile-automake-mode
+                    autoconf-mode
+                    snippet-mode))))
 
-(diminish 'auto-complete-mode)
 
 
 (setq ac-auto-start 3) ; auto start auto-complete when has N characters.
@@ -95,7 +108,7 @@
 
 
 (setq-default ac-expand-on-auto-complete t) ; Non-nil means expand whole common part on first time `auto-complete'.
-(setq-default ac-dwim nil) ; to get pop-ups with docs even if a word is uniquely completed.
+(setq-default ac-dwim t) ; to get pop-ups with docs even if a word is uniquely completed.
 
 
 (setq ac-delete-dups nil) ; t: auto delete duplicate candidates. nil: different type but same candidates.
@@ -426,20 +439,6 @@
 ;;   (setq ac-sources (delq 'ac-source-yasnippet ac-sources))
 ;;   (add-to-list 'ac-sources 'ac-source-yasnippet))
 
-
-;;; add other modes into ac modes
-(setq ac-modes
-      (append ac-modes
-              '(prog-mode               ; programming modes
-                web-mode
-                text-mode markdown-mode
-                change-log-mode
-                org-mode ; speed up org-mode typing by disabling auto-complete.
-                ;; objc-mode
-                ;; sql-mode js3-mode
-                makefile-mode makefile-gmake-mode makefile-automake-mode
-                autoconf-mode
-                snippet-mode)))
 
 
 (ac-flyspell-workaround) ; known bug, a way of delaying process of flyspell-mode disables auto-complete.
