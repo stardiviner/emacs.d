@@ -347,9 +347,9 @@
 (setq show-paren-style 'mixed) ; 'parenthesis, 'expression, 'mixed
 
 (set-face-attribute 'show-paren-match-face nil
-                    :foreground "cyan" :background "#555555"
-                    :weight 'bold
-                    :box nil)
+                    :foreground "black" :background "lawn green"
+                    :weight 'normal
+                    )
 (set-face-attribute 'show-paren-mismatch-face nil
                     :foreground "black" :background "brown"
                     :box nil)
