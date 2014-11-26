@@ -86,18 +86,18 @@
 ;; - flycheck-fringe-warning
 (set-face-attribute 'flycheck-info nil
                     :background nil
-                    :underline '(:color "green" :style wave))
+                    :underline '(:color "#777777" :style wave))
 (set-face-attribute 'flycheck-fringe-info nil
-                    :foreground "sky blue")
+                    :foreground "dark gray")
 (set-face-attribute 'flycheck-warning nil
                     :background nil :foreground nil
-                    :underline '(:color "dark red" :style wave))
+                    :underline '(:color "orange" :style wave))
 (set-face-attribute 'flycheck-fringe-warning nil
                     :background " " :foreground "orange"
                     :weight 'normal)
 (set-face-attribute 'flycheck-error nil
                     :background nil :foreground nil
-                    :underline '(:color "red" :style wave))
+                    :underline '(:color "dark red" :style wave))
 (set-face-attribute 'flycheck-fringe-error nil
                     :background " " :foreground "dark red"
                     :weight 'normal)
