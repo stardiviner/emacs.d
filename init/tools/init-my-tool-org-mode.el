@@ -1093,13 +1093,13 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
         ;;
         ;; Issues, Bugs, Features
         ("b" "record a bug to list"
-         entry (file+olp "~/Org/Projects/Projects.org" "Computer (电子科技)" "Bugs")
+         entry (file+olp "~/Org/Projects/Projects.org" "Computer" "Bugs")
          "\n* BUG %^{prompt}\n\n%i\n\n%?\n\n")
         ("i" "record an issue to list"
-         entry (file+olp "~/Org/Projects/Projects.org" "Computer (电子科技)" "Issues")
+         entry (file+olp "~/Org/Projects/Projects.org" "Computer" "Issues")
          "\n* ISSUE %^{prompt}\n\n%i\n\n%?\n\n")
         ("f" "record a feature to list"
-         entry (file+olp "~/Org/Projects/Projects.org" "Computer (电子科技)" "Features")
+         entry (file+olp "~/Org/Projects/Projects.org" "Computer" "Features")
          "\n* FEATURE %^{prompt}\n\n%i\n\n%?\n\n")
         ;; bookmark
         ("m" "Add an URL to bookmark database"
