@@ -69,6 +69,7 @@
          ;; auto-complete-pcmp
          company-mode
          ;; ac-helm
+         ac-company
          ;; color theme
          color-theme-solarized
          ;; color-theme-almost-monokai

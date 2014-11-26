@@ -452,6 +452,26 @@
 (global-set-key (kbd "C-:") 'ac-complete-with-helm)
 (define-key ac-complete-mode-map (kbd "C-:") 'ac-complete-with-helm)
 
+
+;;; [ ac-company ] -- company-mode source
+
+(require 'ac-company)
+
+(ac-company-define-source ac-source-capf company-capf)
+(add-to-list 'ac-sources 'ac-source-capf)
+
+;;; Example:
+;;
+;; (ac-company-define-source ac-source-company-elisp company-elisp)
+;; (add-hook 'emacs-lisp-mode-hook
+;;           (lambda ()
+;;             (add-to-list 'ac-sources 'ac-source-company-elisp)))
+;;
+;; You can overrides attributes. For example, if you want to add symbol to
+;; ac-source-company-elisp, put following:
+;;
+;; (ac-company-define-source ac-source-company-elisp company-elisp
+;;                           (symbol . "s"))
 
 
 (provide 'init-auto-complete)
