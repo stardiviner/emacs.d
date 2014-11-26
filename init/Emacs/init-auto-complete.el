@@ -474,10 +474,15 @@
 
 ;;; [ ac-company ] -- company-mode source
 
-(require 'ac-company)
+;; (require 'ac-company)
 
-(ac-company-define-source ac-source-capf company-capf)
-(add-to-list 'ac-sources 'ac-source-capf)
+;; (ac-company-define-source ac-source-capf company-capf
+;;                           (symbol . "r") ; "r" or "s"
+;;                           ;; FIXME: ac-quick-help error: wrong-type-argument stringp nil.
+;;                           ;; check out auto-complete define source.
+;;                           (document . company-quickhelp)
+;;                           )
+;; (add-to-list 'ac-sources 'ac-source-capf)
 
 ;;; Example:
 ;;

@@ -70,7 +70,7 @@
          ac-capf
          company-mode
          ;; ac-helm
-         ac-company
+         ;; ac-company
          ;; color theme
          color-theme-solarized
          ;; color-theme-almost-monokai
