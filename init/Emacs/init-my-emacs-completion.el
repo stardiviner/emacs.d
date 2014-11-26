@@ -22,7 +22,7 @@
 (load-library "pcomplete")
 
 
-;;; [ Icomplete ] -- enhance the default minibuffer completion.
+;;; [ Icomplete (icomplete/ido/iswitchb) ] -- enhance the default minibuffer completion.
 
 ;; (require 'icomplete)
 

@@ -123,6 +123,7 @@
 (define-key helm-grep-mode-map (kbd "n")  'helm-grep-mode-jump-other-window-forward)
 (define-key helm-grep-mode-map (kbd "p")  'helm-grep-mode-jump-other-window-backward)
 
+;;; `customize-group helm'
 (set-face-attribute 'helm-selection nil
                     :background "#004A5D" :foreground "white"
                     :box '(:color "cyan" :line-width -1)

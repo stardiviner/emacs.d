@@ -12,6 +12,7 @@
 ;;; Usage:
 ;;
 ;; - auto remove disabled packages. `(el-get-cleanup my:el-get-packages)'
+;; - `el-get-list-packages' :: list out all packages.
 
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
@@ -170,7 +171,7 @@
          ;; auto-indent-mode clean-aindent
          ;; lint
          flycheck
-         ; flycheck-tip
+         ;; flycheck-tip
          flycheck-pos-tip
          ;; comment
          fic-mode
@@ -180,7 +181,7 @@
          ;; autopair
          rainbow-mode
          rainbow-delimiters
-         ; rainbow-block
+         ;; rainbow-block
          ;; rainbow-identifiers
          ;; document, API, docsets
          helm-dash
@@ -198,6 +199,7 @@
          ;; project-explorer
          ;; compile
          smart-compile smart-compile+
+         ;; sourcemap -- https://github.com/syohex/emacs-sourcemap
          ;; vcs
          git-modes git-emacs ; git-status
          magit ; magithub

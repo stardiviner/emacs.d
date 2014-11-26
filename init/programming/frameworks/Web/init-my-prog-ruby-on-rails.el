@@ -60,7 +60,7 @@
 
 
 
-;;; [ Rhtml ]
+;;; [ Rhtml (.html.erb, .rhtml) ]
 
 ;;; There are three options for editing .rhtml files in Emacs. They are presented here in order of decreasing functionality.
 ;; - nXhtml-Mode: a package for web development
@@ -107,7 +107,17 @@
 (setq projectile-rails-add-keywords t)  ; highlight rails keywords.
 (setq projectile-rails-expand-snippet t) ; yasnippet expand skeleton class snippet.
 
-(setq projectile-rails-keymap-prefix (kbd "C-c p C-r"))
+;; (if (boundp 'my-projectile-keymap-prefix)
+;;     (define-key my-projectile-keymap-prefix (kbd "")))
+
+;; (eval-after-load "projectile-rails"
+;;   ;; FIXME:
+;;   ;; '(define-key projectile-rails-keymap-prefix "\C-c p C-r" projectile-rails-mode-map)
+;;   ;; '(define-key projectile-keymap-prefix "\C-r" projectile-rails-mode-map)
+;;   )
+;; or
+;; (setq projectile-rails-keymap-prefix (kbd "C-c p C-r"))
+
 ;; or
 ;; (eval-after-load "projectile-rails"
 ;;   '(progn
@@ -137,6 +147,17 @@
 ;; (define-key global-map (kbd "s-o") 'helm-rails-specs)
 ;; (define-key global-map (kbd "s-r") 'helm-rails-all)
 
+
+;;; [ yasnippet-rails ]
+
+
+;;; [ sass-mode ]
+
+
+;;; [ slim-mode ]
+
+
+;;; [ haml-mode ]
 
 
 (provide 'init-my-prog-ruby-on-rails)

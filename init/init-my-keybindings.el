@@ -3,6 +3,26 @@
 ;;; Commentary:
 
 ;;; Code:
+
+;;; Fn[1~12]
+
+;; "<f1>" "<f2>" "<f3>" "<f12>"
+
+;; (-each '()
+;;   (lambda (fn-key)
+;;     ()))
+
+
+;;; C-c [a-z]
+
+;; TODO: improve it.
+;; (-each '("a" "b" "c" "d" "z")
+;;   (lambda (ctrl-c-command-key)
+;;     (let ((ctrl-c-key (concat "C-c " ctrl-c-command-key)))
+;;       (global-unset-key (read-kbd-macro ctrl-c-key))
+;;       (define-prefix-command (intern (concat ctrl-c-key "-map")))
+;;       (global-set-key (read-kbd-macro ctrl-c-key) (intern (concat ctrl-c-key "-map"))))))
+
 
 
 ;;; Emacs

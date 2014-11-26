@@ -16,6 +16,7 @@
 
 
 ;; format (Unix, DOS) & encoding
+;; [C-h v current-language-environment]
 (set-default-coding-systems 'utf-8)
 (setq locale-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)

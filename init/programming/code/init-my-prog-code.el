@@ -4,7 +4,6 @@
 ;;; Commentary:
 
 
-
 ;;; Code:
 
 ;;; [ subword-mode ] -- editing code WithCamelCaseWritingLikeThis

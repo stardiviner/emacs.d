@@ -98,6 +98,7 @@
 (define-key my-spell-prefix-map (kbd "p") 'flyspell-prog-mode)
 (define-key my-spell-prefix-map (kbd "b") 'flyspell-buffer)
 (define-key my-spell-prefix-map (kbd "r") 'flyspell-region)
+(define-key my-spell-prefix-map (kbd "c") 'ispell-word) ; default keybinding [M-$].
 
 
 ;;; [ flyguess ] -- guess language/dictionary for a buffer

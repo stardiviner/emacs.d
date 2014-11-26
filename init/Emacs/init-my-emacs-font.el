@@ -1,7 +1,13 @@
 ;;; init-my-emacs-font.el --- my Emacs font settings
 ;;
+;;; Usage:
+;;
+;; - [M-x set-frame-font]
+;;
 ;;; Commentary:
+;;
 ;; from command: $ fc-list
+;;
 ;; Comic Sans MS
 ;; Gabriola
 ;; Old London

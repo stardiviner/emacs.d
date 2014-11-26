@@ -7,6 +7,7 @@
 
 ;;; Code:
 
+;;; [ sdcv.el ]
 
 (load "~/.emacs.d/init/extensions/sdcv.el")
 

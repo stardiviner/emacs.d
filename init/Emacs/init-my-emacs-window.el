@@ -251,6 +251,10 @@
 ;; FIXME: popwin can't capture this popup window.
 (push '(completion-list-mode :position bottom :height 15) popwin:special-display-config)
 
+;;; Eshell
+(push '(eshell-mode :position bottom :height 15) popwin:special-display-config)
+(push '("*eshell*" :position bottom :height 15) popwin:special-display-config)
+
 ;;; Occur Mode
 (push '("*Occur*" :position bottom :height 10) popwin:special-display-config)
 
@@ -341,6 +345,10 @@ The `BUFFER' is the popwin catch pop private message buffer."
 ;; calc -- Calculator
 (push '(calc-mode :position bottom :height 10) popwin:special-display-config)
 ;; (push '("*Calculator*" :position bottom :height 10) popwin:special-display-config)
+
+;;; checkdoc
+;; FIXME:
+(push '("*Checkdoc Status*" :position bottom :height 7) popwin:special-display-config)
 
 
 (provide 'init-my-emacs-window)

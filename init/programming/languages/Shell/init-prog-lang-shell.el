@@ -8,6 +8,9 @@
 ;;; Code:
 
 
+
+
+;;; [ Zsh ]
 (add-to-list 'auto-mode-alist '("\\.zsh\\'" . sh-mode))
 
 ;; A programmatic way of selecting a flavor when you don't want to use the

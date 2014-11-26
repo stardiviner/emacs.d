@@ -600,6 +600,13 @@ It can contain any number of symbols, which will be repeated."
 ;; (define-key org-mode-map (kbd "C-c C-x C-v") 'org-toggle-iimage-in-org)
 ;; -----------------------------------------------------------------------------
 
+;;;_* embedded latex
+
+;; (org-toggle-latex-fragment)
+;; (setq org-export-filter-latex-fragment-functions nil)
+
+;; (add-hook 'org-mode-hook 'org-toggle-latex-fragment)
+
 ;;;_*, footnote
 
 (setq org-footnote-auto-label 'confirm)
@@ -1043,7 +1050,7 @@ This is especially for create Org files."
 (defun org-time-interval (&optional arg)
   "Set schedule and deadline time interval for headline.
 
-Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadline'."
+Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
   (interactive "P")
   ;; C-u is '(4) and C-u C-u is '(16)
   ;; (equal arg '(4))
@@ -1230,12 +1237,16 @@ Accepts universal argument [C-u] and [C-u C-u] for `org-schedule' and `org-deadl
                          "~/Org/Daily.org"
                          "~/Org/Work/Work.org"
                          "~/Org/Projects/Projects.org"
-                         "~/Org/Capture/"
+                         "~/Org/Capture/" ; FIXME: "~/Org/Capture/*.org" add with (file-expand-wildcards "~/Org/Capture/*.org")
                          "~/Org/Wiki/Learning/Learning.org"
                          "~/Org/Wiki/Learning/MyLearningPlan/Learn Programming.org"
                          "~/Org/Wiki/Wiki.org"
                          "~/Org/Wiki/Kung Fu/Kung Fu.org"
                          ))
+
+;;; FIXME: use some function like `find-lisp-find-files'
+;; use `add-to-list' to remove duplicates.
+
 
 ;; 2. use `file-expand-wildcards'
 ;; (setq org-agenda-files (file-expand-wildcards "~/Org/*.org")) ; Including all org files from a directory into the agenda
@@ -2383,22 +2394,6 @@ This function will promote all items in a subtree."
 
 ;;;_* custom functions
 
-(defun my-insert-keybinding-code ()
-  "Insert keybinding code in Org with a keybinding quickly.
-
-In common insert mode or in select region text to press this keybinding \\<C-c k> , \\[my-insert-keybinding-code]."
-  (interactive)
-  (if (region-active-p)
-      (let ((where (cons (region-beginning) (region-end))))
-        (insert-pair where "=[" "]="))
-      ;; (insert-pair nil "=[" "]=")
-    (progn
-      (insert "=[]= ")
-      (backward-char 3)))
-  )
-
-(define-key org-mode-map (kbd "C-c k") 'my-insert-keybinding-code)
-
 ;; TODO:
 ;; (defun my-wrap-source-code-with-org-src ()
 ;;   "Wrap source code with Org-mode source code format."
@@ -2586,11 +2581,11 @@ In common insert mode or in select region text to press this keybinding \\<C-c k
 (setq enable-recursive-minibuffers t)
 
 (defun my-org-passwords-search ()
-    "Search entry in org-passwords."
+  "Search entry in org-passwords."
   (interactive)
   (org-passwords)
   (switch-to-buffer "passwords.gpg")
-  (if (boundp 'vr/isearch-forward)
+  (if (boundp 'vr/isearch-forward) ; TODO: add thing-at-point support here.
       (vr/isearch-forward)
     (isearch-forward-regexp)))
 

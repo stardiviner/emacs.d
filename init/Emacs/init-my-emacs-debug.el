@@ -23,10 +23,10 @@
 
 (setq debug-on-error t
       debug-on-quit nil
-      debug-on-signal nil
-      debug-on-next-call nil
+      ;; debug-on-signal nil
+      ;; debug-on-next-call nil
       ;; debug-on-event
-      debug-on-message nil ; REGEXP
+      ;; debug-on-message nil ; REGEXP
       )
 
 ;; If your init file sets debug-on-error, the effect may not last past the end

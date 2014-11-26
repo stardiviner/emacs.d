@@ -70,7 +70,7 @@
 
 
 ;;; [ echo area ]
-(setq echo-keystrokes 0.1)
+(setq echo-keystrokes 0.1) ; faster echo key strokes
 
 
 ;;; [ Frame ]
@@ -99,7 +99,7 @@
 ;; above or below the display line.
 
 ;; additional space to put between lines.
-(setq-default line-spacing 0.1)         ; 0.1, 1, nil.
+(setq-default line-spacing 0.1)         ; 0.1, 1, 0, nil.
 
 
 ;;; [ line number ]

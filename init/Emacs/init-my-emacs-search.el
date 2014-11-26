@@ -285,7 +285,7 @@
 (define-key my-search-prefix-map (kbd "h") 'helm-ag)
 
 
-;;; [ Ace Jump Mode ]
+;;; [ ace-jump-mode -- Ace Jump Mode ]
 
 ;;; Usage:
 ;; "C-;" ==> ace-jump-word-mode

@@ -12,7 +12,7 @@
 (defun region-content ()
   "Get the region content if region is active."
   (interactive)
-  (if (use-region-p)
+  (if (use-region-p) ; `region-active-p', `mark-active'
       (buffer-substring-no-properties (region-beginning) (region-end))
     ))
 

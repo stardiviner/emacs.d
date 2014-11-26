@@ -10,6 +10,9 @@
 ;;; [ migemo ] -- provides Japanese increment search with 'Romanization of Japanese'(ローマ字).
 
 (require 'migemo)
+;;; Usage:
+;;
+;; -
 
 (setq migemo-command "cmigemo"
       migemo-options '("-q" "--emacs")

@@ -98,6 +98,7 @@
 (find-file "~/Org/Wiki/Computer/Softwares/Softwares.org")
 (find-file "~/Org/Wiki/Computer/Systems/Linux/Command Line/Command Line.org")
 (find-file "~/Org/Wiki/Computer/Systems/Linux/Command Line/Commands/Commands.org")
+(find-file "~/Org/Wiki/Computer/Systems/Linux/Configurations/Configurations.org")
 (find-file "~/Org/Wiki/Computer/Hardware/Hardware.org")
 (find-file "~/Org/Wiki/Computer/Systems/Android/Android.org")
 (find-file "~/Org/Wiki/Computer/Systems/Android/Apps/Apps.org")
