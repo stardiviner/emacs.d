@@ -26,9 +26,9 @@
   "Read current word that at point by Festival."
   (interactive)
   (if (use-region-p)
-      (let ((region (cons (region-beginning) (region-end)))
-            (festival-say-region region)
-            (message "Festival reading (region) ...")))
+      (let ((region (buffer-substring-no-properties (region-beginning) (region-end))))
+        (festival-say-region region)
+        (message "Festival reading (region) ..."))
     (let ((word (thing-at-point 'word)))
       (festival-say-string word)
       (message "Festival reading (word): %s" word))
