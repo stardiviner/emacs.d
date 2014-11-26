@@ -125,8 +125,8 @@
                     :inherit 'sp-pair-overlay-face
                     )
 (set-face-attribute 'sp-show-pair-match-face nil
-                    :foreground "cyan" :background "#444444"
-                    :weight 'bold :box nil
+                    :foreground "black" :background "lawn green"
+                    :weight 'normal
                     )
 (set-face-attribute 'sp-wrap-tag-overlay-face nil
                     :inherit 'sp-pair-overlay-face
