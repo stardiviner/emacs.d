@@ -58,43 +58,139 @@ Usage:
 ;;; edit file as root
 
 ;;; Option A
-(defun sudo-edit (&optional arg)
-  "edit currently visited file as root.
+;; (defun sudo-edit (&optional arg)
+;;   "edit currently visited file as root.
 
-with a prefix arg prompt for a file to visit.
-will also prompt for a file to visit if current
-buffer is not visiting a file."
-  (interactive "p")
-  (if (or arg (not buffer-file-name))
-      (find-file (concat "/sudo:root@localhost:"
-                         ;; TODO: don't use ido here.?
-                         (ido-read-file-name "find file(as root): ")))
-    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
-
-;; (global-set-key (kbd "C-x C-r") 'sudo-edit)
-
-;;; Option B: better
+;; with a prefix arg prompt for a file to visit.
+;; will also prompt for a file to visit if current
+;; buffer is not visiting a file."
+;;   (interactive "p")
+;;   (if (or arg (not buffer-file-name))
+;;       (find-file (concat "/sudo:root@localhost:"
+;;                          ;; TODO: don't use ido here.?
+;;                          (ido-read-file-name "find file(as root): ")))
+;;     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
 ;;
-;; Lately I’ve decided that such a command is a bit of an overhead, since we can
-;; check the file permissions automatically anyways. While I’m not quite fond of
-;; advising commands (debugging advised commands is no fun) this was an
-;; excellent opportunity to exploit them (for great good):
-
+;; ;; (global-set-key (kbd "C-x C-r") 'sudo-edit)
+;;
+;; ;;; Option B: better
+;; ;;
+;; ;; Lately I’ve decided that such a command is a bit of an overhead, since we can
+;; ;; check the file permissions automatically anyways. While I’m not quite fond of
+;; ;; advising commands (debugging advised commands is no fun) this was an
+;; ;; excellent opportunity to exploit them (for great good):
+;;
 ;; FIXME: the tramp seems does not work correctly here.
-(defadvice find-file (after find-file-sudo activate)
-  "Find file as root if necessary."
-  (unless (and buffer-file-name
-               (file-writable-p buffer-file-name))
-    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
+;; (defadvice find-file (after find-file-sudo activate)
+;;   "Find file as root if necessary."
+;;   (unless (and buffer-file-name
+;;                (file-writable-p buffer-file-name))
+;;     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
+;;
+;; (if (featurep 'ido)
+;;     (defadvice ido-find-file (after find-file-sudo activate)
+;;       "Find file as root if necessary."
+;;       (unless (and buffer-file-name
+;;                    (file-writable-p buffer-file-name))
+;;         (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name)))))
 
-(if (featurep 'ido)
-    (defadvice ido-find-file (after find-file-sudo activate)
-      "Find file as root if necessary."
-      (unless (and buffer-file-name
-                   (file-writable-p buffer-file-name))
-        (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name)))))
+
+;;; [ keybindings ]
 
+;;; keybinding lookup
+(defun bunch-of-keybinds (key)
+  "Look up where is the KEY in key-maps."
+  (interactive)
+  (list
+   (minor-mode-key-binding key)
+   (local-key-binding key)
+   (global-key-binding key)
+   (overlay-key-binding key)
+   )
+  )
 
+(defun overlay-key-binding (key)
+  "Look up KEY in which key-map."
+  (mapcar (lambda (keymap) (lookup-key keymap key))
+          (cl-remove-if-not
+           #'keymapp
+           (mapcar (lambda (overlay)
+                     (overlay-get overlay 'keymap))
+                   (overlays-at (point))))))
+
+;;; Keys can be bound in 4 ways. By order of precedence, they are:
+;;;
+;;;     at point (overlays or text-propeties),
+;;;     in minor-modes,
+;;;     in buffers (where major-mode or buffer-local keybinds go),
+;;;     and globally.
+;;;
+;;; The following function queries each one of these possibilities, and returns or prints the result.
+;;
+;; (defun locate-key-binding (key)
+;;   "Determine in which keymap KEY is defined."
+;;   (interactive "kPress key: ")
+;;   (let ((ret
+;;          (list
+;;           (key-binding-at-point key)
+;;           (minor-mode-key-binding key)
+;;           (local-key-binding key)
+;;           (global-key-binding key))))
+;;     (when (called-interactively-p 'any)
+;;       (message "At Point: %s\nMinor-mode: %s\nLocal: %s\nGlobal: %s"
+;;                (or (nth 0 ret) "") 
+;;                (or (mapconcat (lambda (x) (format "%s: %s" (car x) (cdr x)))
+;;                               (nth 1 ret) "\n             ")
+;;                    "")
+;;                (or (nth 2 ret) "")
+;;                (or (nth 3 ret) "")))
+;;     ret))
+
+;;; improved version function:
+(defun key-binding-at-point (key)
+  "Lookup the KEY at point in which key-map."
+  (mapcar (lambda (keymap) (lookup-key keymap key))
+          (cl-remove-if-not
+           #'keymapp
+           (append
+            (mapcar (lambda (overlay)
+                      (overlay-get overlay 'keymap))
+                    (overlays-at (point)))
+            (get-text-property (point) 'keymap)
+            (get-text-property (point) 'local-map)))))
+
+
+;;; require and install
+
+;;; this will lead company-mode complete string from (require into (rrequire.
+;; (defun require-x (feature &optional filename noerror package refresh)
+;;   "A replacement for `require' which also installs the feature if it is absent.
+;; - If FEATURE is present, `require' it and return t.
+;;
+;; - If FEATURE is not present, install PACKAGE with `package-install'.
+;; If PACKAGE is nil, assume FEATURE is the package name.
+;; After installation, `require' FEATURE.
+;;
+;; FILENAME is passed to `require'.
+;;
+;; If NOERROR is non-nil, don't complain if the feature couldn't be
+;; installed, just return nil.
+;;
+;; By default, the current package database (stored in
+;; `package-archive-contents') is only updated if it is empty.
+;; Passing a non-nil REFRESH argument forces this update."
+;;   (or (require feature filename t)
+;;       (let ((package (or package
+;;                          (if (stringp feature)
+;;                              (intern feature)
+;;                            feature))))
+;;         (require 'package)
+;;         (unless (and package-archive-contents (null refresh))
+;;           (package-refresh-contents))
+;;         (and (condition-case e
+;;                  (package-install package)
+;;                (error (if noerror nil (error (cadr e)))))
+;;              (require feature filename noerror)))))
 
 
 ;;; notify (notify-send, )
