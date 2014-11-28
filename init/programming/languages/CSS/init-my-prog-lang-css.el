@@ -46,7 +46,35 @@
 ;;                 (local-set-key [remap isearch-backward] 'isearch-backward-noeldoc)))
 ;;; ------------------------------------------------------------------------------------
 
+
+;;; [ showcss-mode ] -- Show the css of the html attribute the cursor is on.
 
+;;; Features
+;;
+;; - Displays a breadcrumb of the current elements parents
+;; - Displays the css for the current element grouped by file
+;; - Each field that shows the css is editable, and any changes are sent back to the source file
+;; - ctrl-x ctrl-s in the display buffer, saves the source buffers
+;; - The default mode showcss uses is css-mode, but it can be set to any other
+;;   mode such as sass-mode if your working with sass files
+
+(autoload 'showcss-mode "show_css"
+  "Display the css of the class or id the cursor is at" t)
+
+;;; Personally, I find this mode to distracting to use all the time, so I use
+;;; this function to quickly toggle the mode on and off.
+(defun my/toggle-showcss()
+  "Toggle showcss-mode"
+  (interactive)
+  (if (derived-mode-p
+       'html-mode
+       'nxml-mode
+       'nxhtml-mode
+       'web-mode
+       'handlebars-mode)
+      (showcss-mode 'toggle)
+    (message "Not in an html mode")))
+(global-set-key (kbd "C-c C-k") 'my/toggle-showcss)
 
 
 (provide 'init-my-prog-lang-css)

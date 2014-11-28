@@ -268,9 +268,10 @@
          tern ; company-tern
          ;; HTML
          ;; CSS
+         css-mode
          auto-complete-css
-         ;; css-mode
          css-eldoc
+         showcss-mode
          ;; CoffeeScript
          coffee-mode
          ;; XML
