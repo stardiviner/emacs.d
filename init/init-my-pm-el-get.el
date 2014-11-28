@@ -211,6 +211,8 @@
          projectile
          helm-project
          vagrant vagrant-tramp
+         ;; code assistant
+         howdoi
          ;; languages
          ;; Ruby
          ruby-mode

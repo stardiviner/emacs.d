@@ -124,6 +124,11 @@
 (require 'init-my-prog-document-man)
 
 
+;;; [ Assistant ]
+
+(require 'init-my-prog-document-assistant)
+
+
 
 (provide 'init-my-prog-document)
 
