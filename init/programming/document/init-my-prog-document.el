@@ -59,6 +59,17 @@
 
 ;;; [ API docsets ]
 
+
+;;; [ dash ] -- A modern list api for Emacs. No 'cl required.
+
+;;; Usage:
+
+(require 'dash)
+
+;; Syntax highlighting of dash functions
+(eval-after-load "dash" '(dash-enable-font-lock))
+
+
 ;;; [ helm-dash ] -- Browse Dash docsets inside emacs.
 
 ;;; Usage:

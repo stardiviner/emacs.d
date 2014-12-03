@@ -184,7 +184,7 @@
          ;; rainbow-block
          ;; rainbow-identifiers
          ;; document, API, docsets
-         helm-dash
+         dash helm-dash
          ;; RFC
          rfc irfc
          ;; snippet
