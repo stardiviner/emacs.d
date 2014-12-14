@@ -77,6 +77,7 @@
                     text-mode markdown-mode
                     change-log-mode
                     ;; org-mode ; speed up org-mode typing by disabling auto-complete.
+                    mail-mode mu4e-compose-mode
                     ;; objc-mode
                     ;; sql-mode js3-mode
                     makefile-mode makefile-gmake-mode makefile-automake-mode
