@@ -89,7 +89,17 @@
                              (format " §[%s]" ; " Projectile/>[%s]"
                                      (projectile-project-name))))
 
+;;; TODO: use append mode to change those variables instead of setting them.
+;; (setq
+;;  projectile-globally-ignored-modes '("erc-mode" "help-mode" "completion-list-mode"
+;;                                      "Buffer-menu-mode" "gnus-.*-mode" "occur-mode")
+;;  projectile-globally-ignored-directories '(".idea" ".eunit" ".git" ".hg" ".fslckout" ".bzr" "_darcs" ".tox" ".svn" "build")
+;;  projectile-globally-ignored-files '("TAGS")
+;;  projectile-globally-ignored-buffers '("TAGS.*" "\*.*\*")
+;;  )
 
+
+;; (setq helm-source-projectile-files-list)
 
 
 (projectile-global-mode)
