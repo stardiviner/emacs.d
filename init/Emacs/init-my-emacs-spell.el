@@ -58,8 +58,9 @@
 ;;; text
 (dolist (hook
          '(text-mode-hook
+           markdown-mode-hook
            ;; org-mode-hook
-           markdown-mode-hook))
+           ))
   (add-hook hook 'flyspell-mode))
 
 ;;; performance
