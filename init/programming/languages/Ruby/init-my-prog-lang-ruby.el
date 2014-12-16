@@ -502,6 +502,11 @@
                    ;; (define-key my-prog-help-document-map (kbd "d") 'robe-doc)
 
                    ;; for auto-complete
+
+                   ;; ac-capf
+                   (add-to-list 'ac-sources 'ac-source-capf)
+                   
+                   ;; ac-robe
                    ;; (ac-robe-setup)
                    ;; old way
                    ;; (push 'ac-source-robe ac-sources)
