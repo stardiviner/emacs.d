@@ -11,10 +11,10 @@
 ;; (require 'ispell)
 (autoload 'ispell "ispell" t)
 
-(setq ispell-dictionary "english")
-(setq ispell-program-name "aspell"
+(setq ispell-dictionary "english"
+      ispell-program-name "aspell"
       ispell-extra-args '("--sug-mode=ultra")
-      ispell-personal-dictionary nil      ; personal spell dictionary.
+      ispell-personal-dictionary nil ; If nil, the default (~/.ispell_LANGUAGE) will be used
       ispell-silently-savep t ; save silently. stop confirm when saving personal dictionary.
       )
 
@@ -47,7 +47,6 @@
 ;; flyspell-prog-mode : enable flyspell for comments in source code
 (dolist (hook
          '(prog-mode-hook
-           enh-ruby-mode-hook
            ))
   (add-hook hook 'flyspell-prog-mode))
 
@@ -74,7 +73,7 @@
       flyspell-highlight-flag t
       flyspell-consider-dash-as-word-delimiter-flag t
       flyspell-persistent-highlight t
-      flyspell-mode-line-string " FlySpell"
+      ;; flyspell-mode-line-string " FlySpell"
       )
 
 ;; (define-key flyspell-mode-map (kbd "C-.") 'flyspell-correct-word-before-point)

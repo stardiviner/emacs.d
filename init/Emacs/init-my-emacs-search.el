@@ -275,7 +275,8 @@
       helm-ag-source-type 'one-line ; 'one-line, 'file-line
       )
 
-;; You can use helm-ag with projectile by following command.
+;; You can use `helm-ag' with projectile by following command.
+(require 'projectile)
 (defun projectile-helm-ag ()
   "Use helm-ag to be more better ag search with helm."
   (interactive)

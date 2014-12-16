@@ -332,7 +332,9 @@
       ;; inf-ruby-orig-compilation-mode nil
       ;; inf-ruby-console-patterns-alist '(("config/application.rb" . rails)
       ;;                                   ("*.gemspec" . gem)
-      ;;                                   ("Gemfile" . default))
+      ;;                                   ("Gemfile" . default)
+      ;;                                   ;; (nil . default)
+      ;;                                   )
       inf-ruby-prompt-read-only t
       ;; inf-ruby-eval-binding
       ;; inf-ruby-prompt-format
@@ -484,8 +486,7 @@
 
 (dolist (hook '(ruby-mode-hook
                 enh-ruby-mode-hook
-                ;; FIXED: company-inf-ruby enable completing in inf-ruby buffers, with `company-robe' support.
-                ;; inf-ruby-mode-hook ; FIXME: robe-mode is not enabled in inf-ruby-mode. seems this hook is not valid.
+                inf-ruby-mode-hook ; FIXME: robe-mode is not enabled in inf-ruby-mode. seems this hook is not valid.
                                         ; maybe because inf-ruby-mode is loaded before robe.
                 ))
   (add-hook hook 'robe-mode))

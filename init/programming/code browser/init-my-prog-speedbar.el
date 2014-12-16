@@ -26,7 +26,7 @@
       sr-speedbar-width-console 30
       sr-speedbar-max-width 30
       sr-speedbar-delete-windows nil ; delete other windows before showing sr-speedbar up
-      sr-speedbar-skip-other-window-p nil ; skep sr-speedbar in other-window cycle.
+      sr-speedbar-skip-other-window-p nil ; skip sr-speedbar in other-window cycle.
       sr-speedbar-auto-refresh t
       sr-speedbar-right-side nil ; nil for left. t for righ.t
       )

@@ -157,8 +157,7 @@
   '(
     ("deathcode" "0xDEADCODE" nil 1)
     ("eg" "e.g." nil 3)
-    ("my-nick" "stardiviner" nil 0)
-    ("my.nick" "stardiviner" nil 0)
+    ("mynick" "stardiviner" nil 0)
     ("myemail" "numbchild@gmail.com" nil 0)
     ("mygmail" "numbchild@gmail.com" nil 0)
     ("mygmailformat" "numbchild[@]{gmail}.com" nil 0)

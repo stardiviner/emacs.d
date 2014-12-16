@@ -56,7 +56,7 @@
                 (:propertize (:eval (if overwrite-mode "♜, " ""))
                              face (:foreground "dark green")
                              help-echo (concat "Buffer is in "
-                                                 (if overwrite-mode "overwrite" "insert")))
+                                               (if overwrite-mode "overwrite" "insert")))
                 ;; was this buffer modified since the last save? ("☡" "Mod")
                 (:propertize (:eval (if (buffer-modified-p) "☡"))
                              face (:foreground "deep pink")
@@ -101,6 +101,8 @@
                 ;;     (`edited                      nil)
                 ;;     (_             'mode-line-warning)))))
 
+                ;; TODO: Magit
+                
                 ;; the buffer name; the filename as a tool tip
                 ;; mode-line-client
                 ;; mode-line-remote

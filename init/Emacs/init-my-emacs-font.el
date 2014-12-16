@@ -40,6 +40,7 @@
 (defun my-set-font-default (font size height)
   "combine multiple set font together for easy change once."
   (interactive)
+  (set-default-font (concat font "-" (number-to-string size)))
   (set-frame-font (concat font "-" (number-to-string size)) t)
   (set-face-attribute 'default nil :font font :height height)
   (set-face-font 'default font)

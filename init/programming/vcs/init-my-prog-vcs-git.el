@@ -286,7 +286,9 @@
 ;; ;;                                         after-revert-hook
 ;; ;;                                         find-file-hook
 ;; ;;                                         after-change-major-mode-hook
-;; ;;                                         text-scale-mode-hook))
+;; ;;                                         text-scale-mode-hook
+;; ;;                                         magit-revert-buffer-hook
+;; ;;                                         ))
 
 ;; (add-hook 'linum-mode-hook 'git-gutter:linum-setup)
 
