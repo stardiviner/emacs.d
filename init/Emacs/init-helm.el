@@ -112,9 +112,8 @@
 
 (define-key helm-map (kbd "<tab>") 'helm-select-action)
 (define-key helm-map (kbd "C-z") 'helm-select-action)
-(define-key helm-map (kbd "C-i")   'helm-execute-persistent-action) ; make TAB works in terminal.
-(define-key helm-map (kbd "C-j")   'helm-execute-persistent-action)
-(define-key helm-map (kbd "<return>") 'helm-confirm-and-exit-minibuffer)
+(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal.
+(define-key helm-map (kbd "C-j") 'helm-execute-persistent-action)
 (define-key helm-map (kbd "<RET>") 'helm-maybe-exit-minibuffer)
 
 ;; NOTE: this cause helm-dash open menu candidate error.
