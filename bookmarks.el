@@ -252,4 +252,5 @@
  (front-context-string . "** TODO test cap")
  (rear-context-string . "k out its INDEX\n")
  (position . 72936))
+ (filename . "~/Git/dotfiles/passwords.gpg")
 )
