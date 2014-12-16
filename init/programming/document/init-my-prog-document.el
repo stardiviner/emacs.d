@@ -86,12 +86,15 @@
       helm-dash-browser-func 'browse-url ; 'browse-url, 'eww
       ;; helm-dash-connections
       helm-dash-common-docsets '("Ruby" "Ruby on Rails"
+                                 "Python 3"
                                  "HTML" "CSS" "JavaScript" "CoffeeScript"
                                  "Common_Lisp" "Clojure"
                                  "C" "Go"
                                  "SQLite" "MySQL" "Redis" "MongoDB"
                                  "Qt"
                                  "Vagrant" "Nginx"
+                                 "Android"
+                                 "RubyMotion" "AngularJS"
                                  )
       ;; helm-dash-docsets
       )
