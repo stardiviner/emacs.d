@@ -91,6 +91,7 @@
          ;; xclip
          ;; Info & help & documentation
          info+
+         apropos+
          discover-my-major
          ;;; multiple major modes
          mmm-mode ; mumamo-noweb

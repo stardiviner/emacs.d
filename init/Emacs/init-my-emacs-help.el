@@ -84,6 +84,21 @@
 (define-key global-map (kbd "C-h u") 'manual-entry) ; Unix
 
 
+;;; [ apropos+ ]
+
+;; (require 'apropos)
+
+;; ;;;###autoload
+;; (defun apropos-user-options (regexp)
+;;   "Show user variables that match REGEXP."
+;;   (interactive
+;;    (list (if (fboundp 'helm-comp-read)
+;;              (helm-comp-read "Apropos user options (regexp): ")
+;;            (read-string "Apropos user options (regexp): "))))
+;;   (let ((apropos-do-all nil))
+;;     (apropos-variable regexp)))
+
+
 ;;; [ Discover.el ]
 
 ;;; https://github.com/mickeynp/discover.el
