@@ -169,7 +169,21 @@
       ;; find-file
       helm-ff-search-library-in-sexp t ; search for library in `require' and `declare-function' sexp.
       helm-ff-file-name-history-use-recentf t ; use recentf
+      helm-ff-transformer-show-only-basename t ; show basename in find file candidates. toggled by C-].
       ;; helm-sources-using-default-as-input
+      ;; helm-browse-url-default-browser-alist '(("/usr/bin/w3m" . w3m-browse-url)
+      ;;                                         ("firefox" . browse-url-firefox)
+      ;;                                         ("uzbl-browser" . helm-browse-url-uzbl)
+      ;;                                         ("chromium-browser" . helm-browse-url-chromium)
+      ;;                                         ("conkeror" . helm-browse-url-conkeror)
+      ;;                                         ("kfmclient" . browse-url-kde)
+      ;;                                         ("gnome-moz-remote" . browse-url-gnome-moz)
+      ;;                                         ("mozilla" . browse-url-mozilla)
+      ;;                                         ("galeon" . browse-url-galeon)
+      ;;                                         ("netscape" . browse-url-netscape)
+      ;;                                         ("xmosaic" . browse-url-mosaic)
+      ;;                                         ("xterm" . browse-url-text-xterm)
+      ;;                                         ("emacs" . eww-browse-url))
       )
 
 (when (executable-find "curl")
