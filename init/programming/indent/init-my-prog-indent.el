@@ -159,8 +159,11 @@
                 lisp-mode-hook
                 clojure-mode-hook
                 ruby-mode-hook
+                python-mode-hook
                 ))
   (add-hook hook #'indent-guide-mode))
+
+;; (indent-guide-post-command-hook)
 
 
 
