@@ -167,7 +167,6 @@
     ("mytwitter" "@numbchild" nil 0)
     ("stackexchange" "Stack Exchange" nil 3)
     ("stackoverflow" "Stack Overflow" nil 1)
-    ("uncomment" "un-comment" nil 2)
     ("wifi" "Wi-Fi" nil 2)
    ))
 
@@ -419,4 +418,3 @@
 (define-abbrev-table 'web-mode-abbrev-table '())
 
 (define-abbrev-table 'yaml-mode-abbrev-table '())
-
