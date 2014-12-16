@@ -128,17 +128,27 @@
 
 (require 'indent-guide)
 
-(set-face-attribute 'indent-guide-face nil
-                    :foreground "cyan")
-
 (setq indent-guide-delay nil ; nil, 0.1
       indent-guide-recursive t ; To show not only one guide line but all guide
                                         ; lines recursively, set “indent-guide-recursive”
                                         ; non-nil.
-      indent-guide-char "|" ; |, :
       indent-guide-inhibit-modes '(dired-mode Info-mode Man-mode)
       )
 
+;;; custom indent line char
+;; 1: use `indent-guide-char'.
+(setq indent-guide-char "|")
+(set-face-attribute 'indent-guide-face nil
+                    :foreground "cyan"
+                    :stipple nil)
+
+;; 2: use face-attribute stipple pixmap data.
+;; (setq indent-guide-char " ")
+;; (if (equal indent-guide-char " ")
+;;     (set-face-attribute 'indent-guide-face nil
+;;                         :foreground "cyan"
+;;                         :inherit nil
+;;                         :stipple (list 7 4 (string 16 0 0 0))))
 
 ;; (indent-guide-global-mode)
 ;; or
