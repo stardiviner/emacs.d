@@ -135,15 +135,21 @@
                     ;; :background "yellow" :foreground "orange red"
                     ;; :weight 'bold
                     )
+(set-face-attribute 'helm-header nil
+                    :foreground "cyan" :background "black"
+                    :weight 'bold)
+(set-face-attribute 'helm-source-header nil
+                    :foreground "light blue" :background "black"
+                    :weight 'bold
+                    :height 1.3)
+(set-face-attribute 'helm-prefarg nil
+                    :foreground "cyan")
 (set-face-attribute 'helm-action nil
                     :background "orange" :foreground "black")
 (set-face-attribute 'helm-header nil
                     :reverse-video nil
                     :foreground "deep pink" :background "black"
                     :weight 'bold)
-(set-face-attribute 'helm-source-header nil
-                    :foreground "white" :background "#22083397778B"
-                    :height 1.3 :weight 'bold)
 (set-face-attribute 'helm-separator nil
                     :foreground "cyan")
 (set-face-attribute 'helm-visible-mark nil
