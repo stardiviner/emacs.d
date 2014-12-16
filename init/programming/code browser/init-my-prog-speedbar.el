@@ -44,6 +44,23 @@
 ;;   (setq window-size-fixed 'width))
 
 
+(defun my-sr-speedbar-toggle-and-switch ()
+  "Toggle sr-speedbar or switch to sr-speedbar window if already opened."
+  (interactive)
+  ;; (if (get-buffer "*SPEEDBAR*")
+  ;;     (switch-to-buffer "*SPEEDBAR*")
+  ;;   (sr-speedbar-toggle)
+  ;;   (bury-buffer)
+  ;;   (switch-to-buffer "*SPEEDBAR*"))
+  (if (sr-speedbar-exist-p)
+      ;; (sr-speedbar-close)
+      (sr-speedbar-select-window)
+    (sr-speedbar-open)
+    (other-window 1) ; switch back to previous window.
+    )
+  )
+
+;; (global-set-key [f8] 'my-sr-speedbar-toggle-and-switch)
 (global-set-key [f8] 'sr-speedbar-toggle)
 
 
