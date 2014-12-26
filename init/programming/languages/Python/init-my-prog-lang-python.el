@@ -107,6 +107,13 @@
 ;; ;;       jedi:environment-virtualenv '("--python" "/PATH/TO/python3")
 ;; ;;       )
 
+
+
+;;; [ IPython ]
+
+;;; helm-ipython
+;; (require 'helm-ipython)
+
 
 
 (provide 'init-my-prog-lang-python)

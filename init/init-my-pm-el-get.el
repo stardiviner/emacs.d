@@ -245,6 +245,7 @@
          ;; Python
          python python-mode
          ;; jedi
+         helm-ipython
          ;; C family languages (C, C++, Go, D, F, Rust)
          c-eldoc eassist
          irony-mode ac-irony ; company-irony
