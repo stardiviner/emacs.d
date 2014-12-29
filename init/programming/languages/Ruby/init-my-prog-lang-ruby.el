@@ -16,6 +16,19 @@
   (insert " => "))
 
 
+
+(if (featurep 'enh-ruby-mode)
+    (lambda ()
+      (add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
+      (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
+      )
+  (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+  (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
+  )
+
+
+
+
 ;;; [ ruby-mode ]
 
 ;; - [C-M-n] -- end of block
@@ -89,23 +102,23 @@
 
 (autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
 
-(setq enh-ruby-program "/home/stardiviner/.rvm/rubies/ruby-head/bin/ruby")
+(if (featurep 'enh-ruby-mode)
+    (lambda ()
+      (unless (derived-mode-p 'prog-mode)
+        (run-hooks 'prog-mode-hook))
+
+      (define-key enh-ruby-mode-map (kbd "C-,") 'insert-arrow)
+
+      ;; add into auto-complete enable modes.
+      (add-to-list 'ac-modes 'enh-ruby-mode)
+      ))
+
+;; (setq enh-ruby-program "/home/stardiviner/.rvm/rubies/ruby-head/bin/ruby")
 
 ;;; Enhanced Ruby Mode defines its own specific faces with the hook
 ;;; erm-define-faces. If your theme is already defining those faces, to not
 ;;; overwrite them, just remove the hook with:
 ;; (remove-hook 'enh-ruby-mode-hook 'erm-define-faces)
-
-;;; Others
-(add-hook 'enh-ruby-mode-hook
-          (lambda ()
-            (unless (derived-mode-p 'prog-mode)
-              (run-hooks 'prog-mode-hook))
-
-            ;; add into auto-complete enable modes.
-            (add-to-list 'ac-modes 'enh-ruby-mode)
-            (define-key enh-ruby-mode-map (kbd "C-,") 'insert-arrow)
-            ))
 
 
 ;; FIXME: invalid face.
@@ -138,11 +151,6 @@
 
 
 
-;; (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
-;; (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
-
-(add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
-(add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
 
 ;; We never want to edit Rubinius bytecode or MacRuby binaries
 (add-to-list 'completion-ignored-extensions ".rbc")
@@ -551,13 +559,14 @@
 (autoload 'ruby-compilation-this-buffer "ruby-compilation" "run the ruby buffer" t nil)
 (autoload 'ruby-compilation-this-test "ruby-compilation" "run the ruby test" t nil)
 
-(define-key ruby-mode-map (kbd "C-x t") 'ruby-compilation-this-buffer)
-(define-key ruby-mode-map (kbd "C-x T") 'ruby-compilation-this-test)
-
 (if (boundp 'enh-ruby-mode-map)
-    (define-key enh-ruby-mode-map (kbd "C-x t") 'ruby-compilation-this-buffer)
-    (define-key enh-ruby-mode-map (kbd "C-x T") 'ruby-compilation-this-test)
-    )
+    (lambda ()
+      (define-key enh-ruby-mode-map (kbd "C-x t") 'ruby-compilation-this-buffer)
+      (define-key enh-ruby-mode-map (kbd "C-x T") 'ruby-compilation-this-test)
+      )
+  (define-key ruby-mode-map (kbd "C-x t") 'ruby-compilation-this-buffer)
+  (define-key ruby-mode-map (kbd "C-x T") 'ruby-compilation-this-test)
+  )
 
 
 
