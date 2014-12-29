@@ -219,7 +219,7 @@
          ;; languages
          ;; Ruby
          ruby-mode
-         enh-ruby-mode
+         ;; enh-ruby-mode
          ruby-block
          yari
          ;; auto-complete-ruby ; (conflict with robe-mode?)
