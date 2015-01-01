@@ -26,6 +26,12 @@
   (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
   )
 
+
+
+
+;; We never want to edit Rubinius bytecode or MacRuby binaries
+(add-to-list 'completion-ignored-extensions ".rbc")
+(add-to-list 'completion-ignored-extensions ".rbo")
 
 
 
@@ -149,12 +155,6 @@
 ;;                          :box '(:color "red" :line-width -1))
 ;;      ))
 
-
-
-
-;; We never want to edit Rubinius bytecode or MacRuby binaries
-(add-to-list 'completion-ignored-extensions ".rbc")
-(add-to-list 'completion-ignored-extensions ".rbo")
 
 
 ;; TODO: whether need this?
