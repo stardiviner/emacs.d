@@ -299,8 +299,8 @@
          ;;; Haskell
          haskell-mode
          ;; Verilog
-         verilog-mode
-         auto-complete-verilog
+         ;; verilog-mode
+         ;; auto-complete-verilog
          ;; Java
          javadoc-lookup ; javadoc-help
          ;; java-complete

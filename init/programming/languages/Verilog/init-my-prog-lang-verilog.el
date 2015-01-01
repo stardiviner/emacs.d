@@ -7,7 +7,11 @@
 
 ;;; Code:
 
+;;; [ verilog-mode ]
 
+
+
+;;; [ auto-complete-verilog ]
 
 
 

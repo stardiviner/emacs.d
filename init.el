@@ -218,8 +218,7 @@
 ;; (require 'init-my-prog-lang-matlab)
 (require 'init-my-prog-lang-tex)
 ;; (require 'init-my-prog-lang-R)
-(require 'init-my-prog-lang-prolog)
-(require 'init-my-prog-lang-assembly)
+;; (require 'init-my-prog-lang-verilog)
 
 
 ;;; Frameworks
