@@ -30,7 +30,8 @@
 
 (require 'bbdb)
 ;; (bbdb-initialize)
-(bbdb-initialize 'message 'sendmail 'supercite 'w3 'gnus)
+;; (bbdb-initialize 'message 'sendmail 'supercite 'w3 'gnus)
+(bbdb-initialize 'message 'sendmail 'supercite)
 
 ;; If t then BBDB will not modify `bbdb-file'.
 ;; If you have more than one Emacs running at the same time, you might want to
