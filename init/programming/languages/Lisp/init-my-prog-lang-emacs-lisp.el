@@ -47,11 +47,12 @@
 (require 'eldoc-eval)
 
 
-;;; elisp-format
-(require 'elisp-format)
+;;; [ elisp-format ]
 
-(setq elisp-format-indent-comment t
-      elisp-format-dired-mark-files-confirm t)
+;; (require 'elisp-format)
+;;
+;; (setq elisp-format-indent-comment t
+;;       elisp-format-dired-mark-files-confirm t)
 
 ;; FIXME:
 ;; (define-key emacs-lisp-mode-map (kbd "M-q")

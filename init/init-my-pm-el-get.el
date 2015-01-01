@@ -234,11 +234,12 @@
          ;; ruby-hash-syntax
          ;; Lisp
          slime
-         elisp-slime-nav elisp-format eldoc-eval
+         elisp-slime-nav eldoc-eval
          ;; slime-company
          ac-slime
          geiser
          ac-geiser
+         ;; elisp-format
          ;; Scheme
          ;; Clojure
          clojure-mode cider ; ac-nrepl
