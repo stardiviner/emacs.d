@@ -519,6 +519,8 @@
 
 (add-hook 'prog-mode-hook 'highlight-symbol-mode)
 
+(define-key my-search-prefix-map (kbd "h") 'highlight-symbol-at-point)
+
 
 ;;; [ page-break-lines-mode ] --- page breaks (^L characters) are displayed as a horizontal line of a character.
 
