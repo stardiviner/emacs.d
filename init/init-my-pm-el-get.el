@@ -228,8 +228,8 @@
          robe-mode helm-robe
          rspec-mode
          yard-mode
-         ruby-refactor
-         ruby-hash-syntax
+         ;; ruby-refactor
+         ;; ruby-hash-syntax
          ;; Lisp
          slime
          elisp-slime-nav elisp-format eldoc-eval
