@@ -606,6 +606,28 @@
 (ad-activate 'rspec-compile)
 
 
+
+
+;;; [ ruby-test ] -- test runner for ruby unit test.
+
+;;; Usage:
+;; - [C-x t] -- ruby test: run file.
+;; - [C-x SPC] -- ruby test: run file.
+;; - [C-x C-SPC] -- ruby test: run test at point.
+;; - [C-c t] -- ruby test: toggle implementation and specification.
+
+
+;;; [ ruby-test-mode ] -- Emacs minor mode for Behaviour and Test Driven Development in Ruby.
+
+;;; Usage:
+;;
+;; C-c C-,   - Runs the current buffer's file as an unit test or an
+;;             rspec example.
+;; C-c M-,   - Runs the unit test or rspec example at the current buffer's
+;;             buffer's point.
+;; C-c C-s   - Toggle between implementation and test/example files.
+
+
 
 ;;; [ ruby-refactor ]
 
@@ -690,27 +712,6 @@
 ;; (require 'ruby-refactor)
 
 ;; (add-hook 'ruby-mode-hook 'ruby-refactor-mode-launch)
-
-
-
-;;; [ ruby-test ] -- test runner for ruby unit test.
-
-;;; Usage:
-;; - [C-x t] -- ruby test: run file.
-;; - [C-x SPC] -- ruby test: run file.
-;; - [C-x C-SPC] -- ruby test: run test at point.
-;; - [C-c t] -- ruby test: toggle implementation and specification.
-
-
-;;; [ ruby-test-mode ] -- Emacs minor mode for Behaviour and Test Driven Development in Ruby.
-
-;;; Usage:
-;;
-;; C-c C-,   - Runs the current buffer's file as an unit test or an
-;;             rspec example.
-;; C-c M-,   - Runs the unit test or rspec example at the current buffer's
-;;             buffer's point.
-;; C-c C-s   - Toggle between implementation and test/example files.
 
 
 
