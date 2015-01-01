@@ -309,6 +309,7 @@
          gnuplot-mode
          ;; Octave
          ac-octave
+         edbi ; company-edbi
          ;; Frameworks
          ;; Ruby on Rails
          projectile-rails ;; rinari

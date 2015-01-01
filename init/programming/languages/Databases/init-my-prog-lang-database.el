@@ -33,6 +33,28 @@
 ;;                   (append sqlup-keywords
 ;;                           '("text" "glob" "offset")))))
 
+
+;;; [ edbi ]
+
+;;; Usage:
+;;
+;; - M-x `edbi:open-db-viewer' opens a dialog for DB connection.
+;;
+;; Check the key-bind `edbi:dbview-keymap'.
+;;
+;;     j,k, n,p : navigation for rows
+;;     c : switch to query editor buffer
+;;     RET : show table data
+;;     SPC : show table definition
+;;     q : quit and disconnect
+
+
+(require 'edbi)
+
+
+;;; [ company-edbi ]
+
+;; (add-to-list 'company-backends 'company-edbi)
 
 
 
