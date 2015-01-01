@@ -220,7 +220,7 @@
          ;; Ruby
          ruby-mode
          ;; enh-ruby-mode
-         ruby-block
+         ;; ruby-block
          yari
          ;; auto-complete-ruby ; (conflict with robe-mode?)
          inf-ruby rcodetools ruby-compilation rvm

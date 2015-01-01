@@ -202,11 +202,11 @@
 
 ;;; [ ruby-block ]
 
-(require 'ruby-block)
-
-(setq ruby-block-delay 0)
-(setq ruby-block-highlight-toggle t)
-(ruby-block-mode t)
+;; (require 'ruby-block)
+;;
+;; (setq ruby-block-delay 0)
+;; (setq ruby-block-highlight-toggle t)
+;; (ruby-block-mode t)
 
 
 ;;; [ ruby-end ]
