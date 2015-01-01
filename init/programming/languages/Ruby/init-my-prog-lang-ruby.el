@@ -388,10 +388,10 @@
 ;; - $ gem install pry-nav pry-stack_explorer
 ;; - $ gem install termios # replaces the running of: stty sane
 
-(require 'pry)
-
-(define-key my-inferior-ruby-map (kbd "p") 'run-pry)
-(define-key my-inferior-ruby-map (kbd "C-p") 'pry-intercept)
+;; (require 'pry)
+;;
+;; (define-key my-inferior-ruby-map (kbd "p") 'run-pry)
+;; (define-key my-inferior-ruby-map (kbd "C-p") 'pry-intercept)
 
 
 ;;; [ company-inf-ruby ]

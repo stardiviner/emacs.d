@@ -225,6 +225,7 @@
          ;; auto-complete-ruby ; (conflict with robe-mode?)
          inf-ruby rcodetools ruby-compilation rvm
          pry
+         ;; pry
          robe-mode helm-robe
          rspec-mode
          yard-mode
