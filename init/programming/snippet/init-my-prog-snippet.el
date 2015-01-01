@@ -330,6 +330,14 @@ $0"
 ;; ;; As pointed out by Dmitri, this will make sure it will update color when needed.
 ;; (add-hook 'post-command-hook 'yasnippet-can-fire-p)
 
+
+;;; Python indent issue
+
+(add-hook 'python-mode-hook
+          '(lambda () (set (make-local-variable 'yas-indent-line) 'fixed)))
+
+
+
 (diminish 'yas-minor-mode)
 
 
