@@ -265,8 +265,10 @@
                    (unless (boundp 'ruby-help-doc-map)
                      (define-prefix-command 'ruby-help-doc-map))
                    (local-set-key (kbd "C-h d") 'ruby-help-doc-map)
-                   (define-key ruby-help-doc-map (kbd "k") 'yari) ; seems minibuffer use ido if ido is enabled.
-                   (define-key ruby-help-doc-map (kbd "C-d") 'yari-helm) ; interactive with Helm.
+                   (if (featurep 'helm)
+                       (define-key ruby-help-doc-map (kbd "k") 'yari-helm) ; interactive with Helm.
+                     (define-key ruby-help-doc-map (kbd "k") 'yari) ; seems minibuffer use ido if ido is enabled.
+                     )
                    )))
 
 
