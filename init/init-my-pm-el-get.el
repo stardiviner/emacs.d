@@ -239,7 +239,6 @@
          ac-slime
          geiser
          ac-geiser
-         ;; elisp-format
          ;; Scheme
          ;; Clojure
          clojure-mode cider ; ac-nrepl
