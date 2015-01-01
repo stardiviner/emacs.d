@@ -190,7 +190,12 @@
 ;;                         '(("")))
 
 
-;;; ruby-hash-syntax
+;;; [ ruby-hash-syntax ] -- automatically convert the selected region of ruby code between 1.8 and 1.9 hash styles.
+
+;;; Usage:
+;;
+;; Then select a block of ruby code containing a hash literal (perhaps using
+;; mark-sexp), and run the `ruby-toggle-hash-syntax' command:
 
 ;; (require 'ruby-hash-syntax)
 
@@ -760,16 +765,6 @@
 ;;   :modes (ruby-mode
 ;;           ;; enh-ruby-mode motion-mode
 ;;           ))
-
-
-;;; [ ruby-hash-syntax ] -- automatically convert the selected region of ruby code between 1.8 and 1.9 hash styles.
-
-;;; Usage:
-;;
-;; Then select a block of ruby code containing a hash literal (perhaps using
-;; mark-sexp), and run the `ruby-toggle-hash-syntax' command:
-
-(require 'ruby-hash-syntax)
 
 
 
