@@ -44,11 +44,29 @@
 
 (defun nonempty-string-p (x)
   (and (stringp x)
-     (plusp (length x))))
+       (plusp (length x))))
 
 ;;; decide which location for TAGS file. (smart finding)
-; TODO
-; (setq my-tags-file-location (concat (projectile-project-p) "TAGS"))
+;; TODO
+;; (setq my-tags-file-location (concat (projectile-project-p) "TAGS"))
+
+
+;; Find root (replace eproject-root): cd "$(git rev-parse –show-toplevel)"
+
+(defun stardiviner/build-ctags ()
+  (interactive)
+  (message "building project tags")
+  (let ((root (eproject-root)))
+    (shell-command (concat "ctags -e -R --extra=+fq --exclude=db --exclude=test --exclude=.git --exclude=public -f " root "TAGS " root)))
+  (visit-project-tags)
+  (message "tags built successfully"))
+
+(defun stardiviner/visit-project-tags ()
+  (interactive)
+  (let ((tags-file (concat (eproject-root) "TAGS")))
+    (visit-tags-table tags-file)
+    (message (concat "Loaded " tags-file))))
+
 
 (defun create-tags (dir-name)
   "Create TAGS file in DIR-NAME recursively.
@@ -156,22 +174,6 @@ For project directory with Projectile root."
 ;;; than ascope because it copes with multiple cscope databases (and hence
 ;;; spawns one cscope process per database once).
 
-
-;; Find root (replace eproject-root): cd "$(git rev-parse –show-toplevel)"
-
-(defun stardiviner/build-ctags ()
-  (interactive)
-  (message "building project tags")
-  (let ((root (eproject-root)))
-    (shell-command (concat "ctags -e -R --extra=+fq --exclude=db --exclude=test --exclude=.git --exclude=public -f " root "TAGS " root)))
-  (visit-project-tags)
-  (message "tags built successfully"))
-
-(defun stardiviner/visit-project-tags ()
-  (interactive)
-  (let ((tags-file (concat (eproject-root) "TAGS")))
-    (visit-tags-table tags-file)
-    (message (concat "Loaded " tags-file))))
 
 
 ;;; [ helm-cscope ] -- cscope with Helm interface.
