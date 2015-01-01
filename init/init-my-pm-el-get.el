@@ -226,6 +226,7 @@
          inf-ruby rcodetools ruby-compilation rvm
          pry
          ;; pry
+         ;; rcodetools
          robe-mode helm-robe
          rspec-mode
          yard-mode
