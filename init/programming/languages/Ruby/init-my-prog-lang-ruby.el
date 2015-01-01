@@ -618,14 +618,6 @@
 ;; - Add Parameter (C-c C-r p)
 ;; - Extract to Let (C-c C-r l)
 
-(require 'ruby-refactor)
-
-(add-hook 'ruby-mode-hook 'ruby-refactor-mode-launch)
-
-
-
-;;; Usage
-;;
 ;; Extract to Method:
 ;;
 ;; Select a region of text and invoke ruby-refactor-extract-to-method. You'll be
@@ -693,6 +685,12 @@
 ;; Oh, if you invoke with a prefix arg (C-u, etc.), it'll swap the placement of
 ;; the let. If you have location as top, a prefix argument will place it
 ;; closest. I kinda got nutty with this one.
+
+
+;; (require 'ruby-refactor)
+
+;; (add-hook 'ruby-mode-hook 'ruby-refactor-mode-launch)
+
 
 
 ;;; [ ruby-test ] -- test runner for ruby unit test.
