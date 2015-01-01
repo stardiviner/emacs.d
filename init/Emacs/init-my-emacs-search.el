@@ -202,7 +202,7 @@
   (define-prefix-command 'ack-map))
 (define-key my-search-prefix-map (kbd "k") 'ack-map)
 
-(define-key ack-map (kbd "a") 'ack)
+(define-key ack-map (kbd "k") 'ack)
 (define-key ack-map (kbd "s") 'ack-same)
 (define-key ack-map (kbd "f") 'ack-find-file)
 (define-key ack-map (kbd "F") 'ack-find-file-same)
