@@ -510,15 +510,14 @@
 ;; (global-set-key [(shift f3)] 'highlight-symbol-prev)
 ;; (global-set-key [(meta f3)] 'highlight-symbol-query-replace)
 
-(highlight-symbol-mode 1)
-(diminish 'highlight-symbol-mode)
-
 (setq highlight-symbol-idle-delay 1.3
       highlight-symbol-border-pattern '("\\_<" . "\\_>")
       )
 
 (set-face-attribute 'highlight-symbol-face nil
                     :foreground " " :background "green yellow")
+
+(add-hook 'prog-mode-hook 'highlight-symbol-mode)
 
 
 ;;; [ page-break-lines-mode ] --- page breaks (^L characters) are displayed as a horizontal line of a character.
