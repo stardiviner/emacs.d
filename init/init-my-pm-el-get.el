@@ -271,6 +271,7 @@
          ac-js2
          tern ; company-tern
          ;; HTML
+         ac-html
          ;; CSS
          css-mode
          auto-complete-css
