@@ -163,28 +163,28 @@
 
 ;;; TODO: https://github.com/capitaomorte/yasnippet/issues/488
 ;; improve this two functions.
-(defun yas-popup-isearch-prompt (prompt choices &optional display-fn)
-  (popup-menu*
-   (mapcar
-    (lambda (choice)
-      (popup-make-item
-       (if (yas--template-p choice)
-           (format "%10.10s %-10.10s  %s"
-                   (if (yas--template-group choice)
-                       (s-join "/" (yas--template-group choice))
-                     "")
-                   (if (yas--template-key choice)
-                       (yas--template-key choice)
-                     "")
-                   (if (yas--template-name choice)
-                       (yas--template-name choice)
-                     ""))
-         choice)
-       :value choice))
-    choices)
-   :prompt prompt
-   :max-width 80
-   :isearch t))
+;; (defun yas-popup-isearch-prompt (prompt choices &optional display-fn)
+;;   (popup-menu*
+;;    (mapcar
+;;     (lambda (choice)
+;;       (popup-make-item
+;;        (if (yas--template-p choice)
+;;            (format "%10.10s %-10.10s  %s"
+;;                    (if (yas--template-group choice)
+;;                        (s-join "/" (yas--template-group choice))
+;;                      "")
+;;                    (if (yas--template-key choice)
+;;                        (yas--template-key choice)
+;;                      "")
+;;                    (if (yas--template-name choice)
+;;                        (yas--template-name choice)
+;;                      ""))
+;;          choice)
+;;        :value choice))
+;;     choices)
+;;    :prompt prompt
+;;    :max-width 80
+;;    :isearch t))
 
 ;; FIXME: this should be niced up and contributed back.
 ;; (defun yas-popup-isearch-prompt (prompt choices &optional display-fn)
@@ -233,7 +233,7 @@
 ;;      :isearch t)))
 
 
-(add-to-list 'yas-prompt-functions 'yas-popup-isearch-prompt)
+;; (add-to-list 'yas-prompt-functions 'yas-popup-isearch-prompt)
 
 
 
