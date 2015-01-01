@@ -200,9 +200,7 @@
 
 (unless (boundp 'ack-map)
   (define-prefix-command 'ack-map))
-(define-key my-search-prefix-map (kbd "a") 'ack-map)
-
-(define-key my-search-prefix-map (kbd "a") 'ack-map)
+(define-key my-search-prefix-map (kbd "k") 'ack-map)
 
 (define-key ack-map (kbd "a") 'ack)
 (define-key ack-map (kbd "s") 'ack-same)
@@ -283,7 +281,7 @@
   (helm-ag (projectile-project-root)))
 (define-key projectile-command-map (kbd "s h") 'projectile-helm-ag)
 
-(define-key my-search-prefix-map (kbd "h") 'helm-ag)
+(define-key my-search-prefix-map (kbd "a") 'helm-ag)
 
 
 ;;; [ ace-jump-mode -- Ace Jump Mode ]
