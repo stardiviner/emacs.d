@@ -72,6 +72,7 @@
          ac-capf
          company-mode
          ac-helm
+         ;; ac-helm
          ;; ac-company
          ;; color theme
          color-theme-solarized
