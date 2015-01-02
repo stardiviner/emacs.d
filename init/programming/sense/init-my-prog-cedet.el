@@ -1,13 +1,17 @@
-;;; [ CEDET ] --- a Collection of Emacs Development Environment Tools
-;;
+;;; init-my-prog-cedet.el --- a Collection of Emacs Development Environment Tools.
+;;; -*- coding: utf-8 -*-
+
 ;;; Commentary:
 
 ;; which written with the end goal of creating an advanced development environment in Emacs.
 ;; http://cedet.sourceforge.net/
 ;;
 
+
 ;;; Code:
 
+;;; [ CEDET ] --- a Collection of Emacs Development Environment Tools
+
 ;; (load-file "~/Libraries/Emacs/cedet/common/cedet.el")
 
 (require 'cedet)
