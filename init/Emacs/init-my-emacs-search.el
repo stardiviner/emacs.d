@@ -139,8 +139,16 @@
 ;; (require 'lazy-search)
 
 
-;;; [ Occur Mode ]
+;;; [ occur ]
 
+(if (featurep 'helm)
+    (define-key my-search-prefix-map (kbd "o") 'helm-occur))
+
+
+;;; [ multi-occur ]
+
+(if (featurep 'helm)
+    (define-key my-search-prefix-map (kbd "O") 'helm-multi-occur))
 
 
 ;;; [ replace+.el ]
