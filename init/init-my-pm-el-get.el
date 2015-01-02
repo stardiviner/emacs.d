@@ -202,6 +202,8 @@
          ;; project-explorer
          ;; compile
          smart-compile smart-compile+
+         ;; refactor
+         emacs-refactor
          ;; sourcemap -- https://github.com/syohex/emacs-sourcemap
          ;; vcs
          git-modes git-emacs ; git-status
