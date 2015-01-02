@@ -2309,7 +2309,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 ;;;_* org-magit
 
-(require 'org-magit)
+;; (require 'org-magit)
 
 ;;;_* org-protocol
 

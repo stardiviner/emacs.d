@@ -143,7 +143,7 @@
          org-mode
          org-fstree org-bullets
          org-ac
-         org-magit ; org-linkany
+         ;; org-magit ; org-linkany
          org-publish org-jekyll jekyll-el
          ;; org-trello
          org-passwords
