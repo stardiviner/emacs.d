@@ -354,7 +354,7 @@
     (occur regexp nlines)
     (delete-windows-on "*Help*")))
 
-(define-key my-search-prefix-map (kbd "k") 'search-keybind)
+(define-key my-search-prefix-map (kbd "K") 'search-keybind)
 
 
 ;;; [ awk-it ] -- run AWK interactively on region!
