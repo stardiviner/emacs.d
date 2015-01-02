@@ -119,7 +119,9 @@
 (add-hook 'irony-mode-hook 'my-ac-irony-setup)
 
 
+;;; [ rtags ]
 
+;;; https://github.com/Andersbakken/rtags
 
 
 

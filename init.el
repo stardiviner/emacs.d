@@ -122,36 +122,6 @@
 ;; (setq el-get-verbose t)
 ;; (sync-packages)))))
 
-
-;;; add my init files directory
-(let ((default-directory "~/.emacs.d/init/"))
-  (setq load-path
-        (append
-         (let ((load-path (copy-sequence load-path))) ; shadow
-           (append
-            (copy-sequence (normal-top-level-add-to-load-path '(".")))
-            (normal-top-level-add-subdirs-to-load-path)))
-         load-path)))
-
-
-;;; [ auto-compile ]
-
-;;; This package provides two minor modes which automatically recompile Emacs
-;;; Lisp source files. Together these modes guarantee that Emacs never loads
-;;; outdated byte code files.
-
-;;; Usage:
-;;
-;; [M-x auto-compile-display-log]
-
-(setq load-prefer-newer t)
-(require 'auto-compile)
-(auto-compile-on-load-mode 1)
-(auto-compile-on-save-mode 1)
-
-(setq auto-compile-display-buffer nil)
-(setq auto-compile-mode-line-counter t)
-
 
 
 ;;; debug, profiling etc

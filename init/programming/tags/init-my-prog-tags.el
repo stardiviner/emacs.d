@@ -77,7 +77,7 @@ For project directory with Projectile root."
   (interactive (if (nonempty-string-p (projectile-project-p))
                    (read-from-minibuffer (projectile-project-root))
                  "DDirectory: "
-                ))
+                 ))
   (shell-command
    (format "ctags -f %s -e -R %s"
            my-tags-file-location (directory-file-name dir-name)))

@@ -23,6 +23,8 @@
   '(
    ))
 
+(define-abbrev-table 'bat-mode-abbrev-table '())
+
 (define-abbrev-table 'bbdb-mode-abbrev-table '())
 
 (define-abbrev-table 'bibtex-mode-abbrev-table '())
@@ -97,6 +99,8 @@
 
 (define-abbrev-table 'eassist-mode-abbrev-table '())
 
+(define-abbrev-table 'edbi:dbview-query-result-quicklook-mode-abbrev-table '())
+
 (define-abbrev-table 'edebug-eval-mode-abbrev-table '())
 
 (define-abbrev-table 'edebug-x-breakpoint-list-mode-abbrev-table '())
@@ -106,6 +110,8 @@
 (define-abbrev-table 'edit-abbrevs-mode-abbrev-table '())
 
 (define-abbrev-table 'el-get-check-mode-abbrev-table '())
+
+(define-abbrev-table 'elisp-byte-code-mode-abbrev-table '())
 
 (define-abbrev-table 'emacs-lisp-byte-code-mode-abbrev-table '())
 
@@ -157,7 +163,6 @@
   '(
     ("deathcode" "0xDEADCODE" nil 1)
     ("eg" "e.g." nil 3)
-    ("mynick" "stardiviner" nil 0)
     ("myemail" "numbchild@gmail.com" nil 0)
     ("mygmail" "numbchild@gmail.com" nil 0)
     ("mygmailformat" "numbchild[@]{gmail}.com" nil 0)
@@ -224,6 +229,8 @@
 
 (define-abbrev-table 'js-mode-abbrev-table '())
 
+(define-abbrev-table 'js2-mode-abbrev-table '())
+
 (define-abbrev-table 'js3-mode-abbrev-table '())
 
 (define-abbrev-table 'json-mode-abbrev-table '())
@@ -282,6 +289,8 @@
 
 (define-abbrev-table 'nrepl-connections-buffer-mode-abbrev-table '())
 
+(define-abbrev-table 'nrepl-messages-mode-abbrev-table '())
+
 (define-abbrev-table 'nxml-mode-abbrev-table '())
 
 (define-abbrev-table 'nxml-web-mode-abbrev-table '())
@@ -300,12 +309,15 @@
   '(
     ("257]
 " "youtube" nil 0)
+    ("aka" "a.k.a" nil 1)
     ("fontend" "Graphical " nil 0)
     ("frontend" "front-end" nil 0)
     ("mailinglist" "Mailing List" nil 1)
     ("sis" "sister-bitch" nil 1)
     ("youtube" "YouTube" nil 9)
    ))
+
+(define-abbrev-table 'org-passwords-mode-abbrev-table '())
 
 (define-abbrev-table 'outline-mode-abbrev-table '())
 
@@ -314,6 +326,8 @@
 (define-abbrev-table 'pike-mode-abbrev-table
   '(
    ))
+
+(define-abbrev-table 'pkgbuild-mode-abbrev-table '())
 
 (define-abbrev-table 'plain-tex-mode-abbrev-table '())
 
@@ -367,6 +381,10 @@
 
 (define-abbrev-table 'shell-mode-abbrev-table '())
 
+(define-abbrev-table 'skewer-clients-mode-abbrev-table '())
+
+(define-abbrev-table 'skewer-error-mode-abbrev-table '())
+
 (define-abbrev-table 'sldb-mode-abbrev-table '())
 
 (define-abbrev-table 'slime-connection-list-mode-abbrev-table '())
@@ -393,7 +411,9 @@
 
 (define-abbrev-table 'speedbar-mode-abbrev-table '())
 
-(define-abbrev-table 'sql-mode-abbrev-table '())
+(define-abbrev-table 'sql-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'tabulated-list-mode-abbrev-table '())
 
@@ -418,3 +438,4 @@
 (define-abbrev-table 'web-mode-abbrev-table '())
 
 (define-abbrev-table 'yaml-mode-abbrev-table '())
+
