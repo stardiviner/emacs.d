@@ -89,6 +89,11 @@
 
 
 
+;;; [ password ]
+
+(setq password-cache-expiry nil) ; don't expire password cache.
+
+
 ;;; [ register ]
 ;; Usage:
 ;; - [C-x r] -- `r' means register prefix.
