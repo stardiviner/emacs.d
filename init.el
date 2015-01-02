@@ -60,6 +60,8 @@
 ;; package manager.
 (add-to-list 'load-path (concat user-emacs-directory "el-get/packed/packed.el"))
 (add-to-list 'load-path (concat user-emacs-directory "el-get/auto-compile/auto-compile.el"))
+(load (concat user-emacs-directory "el-get/packed/packed.el"))
+(load (concat user-emacs-directory "el-get/auto-compile/auto-compile.el"))
 
 (setq load-prefer-newer t)
 (require 'auto-compile)
