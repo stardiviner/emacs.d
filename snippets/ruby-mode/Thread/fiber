@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: fiber
+# key: fiber
+# --
+${1:N's} = Fiber.new do
+  ${2:Fiber.yield}
+end
+
+${3:$1.resume}
