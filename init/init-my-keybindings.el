@@ -62,7 +62,7 @@
 ;; (define-key my-programming-prefix-map (kbd "h") 'my-prog-help-document-map)
 (global-set-key (kbd "C-h d") 'my-prog-help-document-map)
 
-;; like function, variable, class, scope etc lookup.
+;; like tags: function, variable, class, scope etc lookup.
 (unless (boundp 'my-prog-lookup-map)
   (define-prefix-command 'my-prog-lookup-map))
 (global-set-key (kbd "C-c l") 'my-prog-lookup-map)

@@ -117,9 +117,7 @@
 ;;        'helm-cscope-select)
 ;;      ))
 
-;; (define-key global-map (kbd (concat my-prog-help-document-map "C-h d M-t")) 'helm-cscope-find-symbol)
-
-
+(define-key my-prog-lookup-tags-map (kbd "c") 'helm-cscope-find-symbol)
 
 
 (provide 'init-my-prog-tags-ctags)

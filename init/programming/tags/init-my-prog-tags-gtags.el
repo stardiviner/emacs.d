@@ -53,6 +53,9 @@
 
 ;; (require 'helm-gtags)
 
+(define-key my-prog-lookup-map (kbd "g") 'helm-gtags-dwim)
+(define-key my-prog-lookup-tags-map (kbd "g") 'helm-gtags-dwim)
+
 
 ;;; [ ggtags ] -- use gtags in Emacs. Emacs frontend to GNU Global source code tagging system.
 

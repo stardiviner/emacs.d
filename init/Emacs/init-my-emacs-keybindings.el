@@ -99,6 +99,7 @@
         "C-c e"                         ; edit (multiple-cursor, narrow, ...)
         "C-c r"                         ; regexp prefix map
         "C-c s"                         ; visual-regexp-map
+        "C-c l"                         ; tags lookup
         (dired-mode "C-h"
                     "*" ":" "%"
                     "T" "T >" "T m" "T u"
