@@ -298,6 +298,9 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (push '("*bm-bookmarks*" :position bottom :height 15) popwin:special-display-config)
 (push '(bm-show-mode :position bottom :height 15) popwin:special-display-config)
 
+;; display-time-world
+(push '("*wclock*" :position bottom :height 10) popwin:special-display-config)
+
 ;; process list
 (push '("*Process List*" :position bottom :height 10) popwin:special-display-config)
 (push '(process-menu-mode :position bottom :height 10) popwin:special-display-config)
