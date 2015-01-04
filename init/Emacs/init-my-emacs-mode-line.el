@@ -182,7 +182,7 @@
 
 ;;; mode-line right align (which replace `mode-line-end-spaces' to implement the right alignment.)
 ;;
-(display-time)
+(display-time-mode t)
 (setq global-mode-string (remove 'display-time-string global-mode-string))
 (setq mode-line-end-spaces
       (list (propertize " " 'display '(space :align-to (- right 45)))
