@@ -12,16 +12,14 @@
 
 ;;; [ tags settings ]
 
-(setq 
- ;; List of file names of tags tables to search.
- tags-add-tables t ; always add new tags to tables
- ;; tags-included-tables
- ;; tags-table-list (list
- ;;                  (expand-file-name "/usr/share/lib/TAGS"))
- tags-revert-without-query t
- ;; tags-completion-table
- tags-apropos-verbose t
- )
+(setq tags-add-tables t ; always add new tags to tables
+      ;; tags-included-tables
+      ;; tags-table-list (list
+      ;;                  (expand-file-name "/usr/share/lib/TAGS"))
+      tags-revert-without-query t
+      ;; tags-completion-table
+      tags-apropos-verbose t
+      )
 
 
 ;;; Build Tags
@@ -77,9 +75,9 @@ For project directory with Projectile root."
     (condition-case err
         ad-do-it
       (error (and (buffer-modified-p)
-                (not (ding))
-                (y-or-n-p "Buffer is modified, save it? ")
-                (save-buffer))
+                  (not (ding))
+                  (y-or-n-p "Buffer is modified, save it? ")
+                  (save-buffer))
              (er-refresh-etags extension)
              ad-do-it))))
 

@@ -1,4 +1,4 @@
-;;; init-my-prog-tags-ctags.el --- 
+;;; init-my-prog-tags-ctags.el --- init ctags
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
