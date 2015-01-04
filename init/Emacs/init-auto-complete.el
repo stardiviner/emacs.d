@@ -76,10 +76,10 @@
                     web-mode
                     text-mode markdown-mode
                     change-log-mode
-                    ;; org-mode ; speed up org-mode typing by disabling auto-complete.
+                    org-mode ; speed up org-mode typing by disabling auto-complete.
                     mail-mode mu4e-compose-mode
                     ;; objc-mode
-                    ;; sql-mode js3-mode
+                    sql-mode js3-mode
                     makefile-mode makefile-gmake-mode makefile-automake-mode
                     autoconf-mode
                     snippet-mode))))
@@ -98,9 +98,9 @@
 
 ;; auto raise popup menu
 (setq ac-auto-start 3) ; auto start auto-complete when has N characters.
-(setq ac-delay 0.3) ; delay time to start completion in real number seconds
-(setq ac-show-menu-immediately-on-auto-complete t) ; it is a trade off of responsibility and performance
+(setq ac-delay 0.2) ; delay time to start completion in real number seconds
 (setq ac-auto-show-menu 0.4) ;; show popup menu after how many seconds
+(setq ac-show-menu-immediately-on-auto-complete t) ; it is a trade off of responsibility and performance
 (setq ac-menu-height 10) ; smaller ac-menu is more cute. big ac-menu is not necessary.
 ;; NOTE: small menu is helpful for small computer screen, because split window
 ;; has small height, this cause quick help popup is shown in hidden position.
@@ -372,14 +372,16 @@
                 ac-source-filename
                 ac-source-files-in-current-dir
                 ;; programming
+                ;; complete-at-point-function (capf)
                 ac-source-capf
+                ;; semantic
                 ;; ac-source-semantic
                 ;; ac-source-semantic-raw
                 ;; tags
                 ;; ac-source-etags ; NOTE: by default require a TAGS file.
-                ;; ac-source-gtags
+                ac-source-gtags
                 ;; dictionary
-                ac-source-dictionary
+                ;; ac-source-dictionary
                 ;; chunk
                 ;; ac-source-chunk-list
                 ;; buffer
