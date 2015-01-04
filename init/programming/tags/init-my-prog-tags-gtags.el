@@ -49,11 +49,29 @@
 
 ;;; [ helm-gtags ]
 
+;;; Usage:
+;;
+;; - [C-x c t] :: helm-gtags-dwim
+;; - [C-c l t g] :: helm-gtags-dwim
+
 ;; (require ''setup-helm-gtags)
 
 ;; (require 'helm-gtags)
 
-(define-key my-prog-lookup-map (kbd "g") 'helm-gtags-dwim)
+(helm-gtags-mode t)
+
+(setq helm-gtags-ignore-case t
+      helm-gtags-auto-update t
+      helm-gtags-use-input-at-cursor t
+      helm-gtags-pulse-at-cursor t
+      ;; helm-gtags-prefix-key "\C-c"
+      ;; helm-gtags-suggested-key-mapping t
+      )
+
+(define-key helm-gtags-mode-map (kbd "M-s") 'helm-gtags-select)
+(define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
+(define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
+
 (define-key my-prog-lookup-tags-map (kbd "g") 'helm-gtags-dwim)
 
 
