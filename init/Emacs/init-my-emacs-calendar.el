@@ -98,7 +98,8 @@
 (add-hook 'calendar-initial-window-hook (lambda ()
                                           (calendar-mark-today)
                                           (calendar-mark-holidays)
-                                          (mark-diary-entries)))
+                                          ;; (mark-diary-entries) ; FIXME: void function.
+                                          ))
 
 ;; [ Diary ]
 ;; Diary Mode
