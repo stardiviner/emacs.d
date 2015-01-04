@@ -61,18 +61,16 @@
 
 
 ;; [ Auto opened files ]
-(find-file "~/Git/Ubuntu/install.sh")
 (find-file "~/Git/Arch/install.sh")
+;; (find-file "~/Git/Ubuntu/install.sh")
 ;; (find-file "~/Git/Ubuntu/init.pp")
-(find-file "~/Git/Puppet/init.pp")
+;; (find-file "~/Git/Puppet/init.pp")
 (find-file "~/.emacs.d/init.el")
 (find-file "~/Org/INDEX.org")           ; index
 (find-file "~/Org/Wiki/Wiki.org")       ; Wiki
-(find-file "~/Org/Wiki/Data/Data.org")  ; Data
-(find-file "~/Org/Wiki/Data/Bookmarks/Bookmarks.org") ; Bookmarks
 (find-file "~/Org/Wiki/Reading/Reading.org")
 (find-file "~/Org/Wiki/Reading/Aphorisms/Aphorisms.org")
-(find-file "~/Org/Wiki/Reading/Novels/Data/九州.org")
+;; (find-file "~/Org/Wiki/Reading/Novels/Data/九州.org")
 (find-file "~/Org/Wiki/Computer/Computer.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming.org")
 (find-file "~/Org/Wiki/Computer/Programming/Implements/Implements.org")
@@ -123,18 +121,16 @@
 
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Ruby.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Wiki/The Ruby Programming Language.org")
-(find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Practice/Practice.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Frameworks/Ruby on Rails/Ruby on Rails.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Frameworks/Ruby on Rails/Data/Manuals/My Ruby on Rails Reference.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Frameworks/Ruby on Rails/Data/Manuals/My Ruby on Rails Guides.org")
 (find-file "~/Code/learning/Ruby/test.rb")
 (find-file "~/Code/learning/Ruby/Ruby on Rails/blog/README.rdoc")
 (find-file "~/Code/learning/Ruby/Ruby on Rails/campo/README.md")
-(find-file "~/Code/learning/Ruby/Ruby on Rails/coolxueyuan/README.md")
 
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Python/Python.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Python/Data/Wiki/The Python Programming Language.org")
-(find-file "~/Code/learning/Python/test.py")
+;; (find-file "~/Code/learning/Python/test.py")
 
 
 
