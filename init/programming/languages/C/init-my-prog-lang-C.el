@@ -8,7 +8,9 @@
 ;;; Code:
 
 ;; [ C-mode ]
-
+(setq c-default-style "linux"
+      tab-width 4
+      )
 
 
 ;;; [ c-eldoc ]
