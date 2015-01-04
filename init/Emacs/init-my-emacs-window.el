@@ -353,6 +353,10 @@ The `BUFFER' is the popwin catch pop private message buffer."
 ;; FIXME:
 (push '("*Checkdoc Status*" :position bottom :height 7) popwin:special-display-config)
 
+;;; howdoi
+(push '(howdoi-mode :position bottom :height 7) popwin:special-display-config)
+(push '("*How do I*" :position bottom :height 7) popwin:special-display-config)
+
 
 (provide 'init-my-emacs-window)
 
