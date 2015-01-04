@@ -57,6 +57,13 @@
 ;; - [C-x (/)] -- start/end macro.
 ;; - [F3/F4] -- start/end macro or insert counter/repeat.
 
+;;;_ query & replace
+
+(setq query-replace-highlight t
+      query-replace-lazy-highlight t
+      query-replace-show-replacement t
+      )
+
 ;;;_ Electric
 
 ;; NOTE: when electric auto insert ) for (, but when you delete (, electric will not auto delete ) for you.
