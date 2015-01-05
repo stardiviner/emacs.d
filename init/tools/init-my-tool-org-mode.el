@@ -169,13 +169,17 @@
 ;; alread past deadline in agenda
 (set-face-attribute 'org-warning nil
                     :foreground "red"
-                    :weight 'bold)
+                    :weight 'normal)
 ;; comming deadline in agenda
 (set-face-attribute 'org-upcoming-deadline nil
                     :foreground "orange")
-;; org-habit in agenda
-(set-face-attribute 'org-scheduled-today nil
-                    :foreground "light blue")
+;; scheduled in agenda
+(set-face-attribute 'org-scheduled-today nil ; scheduled today, & org-habit
+                    :foreground "green")
+(set-face-attribute 'org-scheduled nil
+                    :foreground "forest green")
+(set-face-attribute 'org-scheduled-previously nil
+                    :foreground "orange red")
 
 ;;; org-verbatim: =org verbatim highlight=
 (set-face-attribute 'org-verbatim nil
