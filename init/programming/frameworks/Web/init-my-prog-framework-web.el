@@ -189,6 +189,9 @@
         ("html" . (ac-source-words-in-buffer ac-source-abbrev))))
 
 ;;;_. Faces
+(set-face-attribute 'web-mode-block-face nil
+                    :background "black")
+
 
 ;; (set-face-attribute 'web-mode-folded-face nil
 ;;                     :foreground "white" :background "#004A5D"
