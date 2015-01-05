@@ -126,7 +126,11 @@
 (define-key helm-grep-mode-map (kbd "n")  'helm-grep-mode-jump-other-window-forward)
 (define-key helm-grep-mode-map (kbd "p")  'helm-grep-mode-jump-other-window-backward)
 
-;;; `customize-group helm'
+;;; `customize-group helm' & `custom-apropos-faces helm'
+(set-face-attribute 'helm-match nil
+                    :foreground "cyan"
+                    :underline t
+                    :weight 'normal)
 (set-face-attribute 'helm-selection nil
                     :background "#004A5D" :foreground "white"
                     :box '(:color "cyan" :line-width -1)
@@ -154,6 +158,8 @@
                     :foreground "cyan")
 (set-face-attribute 'helm-visible-mark nil
                     :foreground "black" :background "green yellow")
+(set-face-attribute 'helm-lisp-completion-info nil
+                    :foreground "cyan")
 
 (setq helm-full-frame nil ; use current window as popup. helm popup window position.
       helm-always-two-windows t
