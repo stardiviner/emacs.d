@@ -31,7 +31,7 @@ This functions should be added to the hooks of major modes for programming."
   (font-lock-add-keywords nil
                           '(("\\<\\(FIXME\\|TODO\\|ISSUE\\|BUG\\|ERROR\\|HACK\\|OPTIMIZE\\|REFACTOR\\|NOTE\\|NOTICE\\):" 1
                              '(:foreground "dark red" :background "black"
-                                           :box '(:color "red" :line-width 1 :style nil)
+                                           :box '(:color "red" :line-width -1 :style nil)
                                            :weight 'bold) t))))
 
 (add-hook 'prog-mode-hook 'font-lock-comment-annotations)
@@ -55,11 +55,11 @@ This functions should be added to the hooks of major modes for programming."
 (set-face-attribute 'fic-face nil
                     :foreground "red" :background "black"
                     :weight 'normal
-                    :box '(:color "dark red" :line-width 1 :style nil))
+                    :box '(:color "dark red" :line-width -1 :style nil))
 (set-face-attribute 'fic-author-face nil
                     :foreground "yellow" :background "black"
                     :weight 'bold
-                    :box '(:color "yellow" :line-width 1 :style nil))
+                    :box '(:color "yellow" :line-width -1 :style nil))
 
 (dolist (hook
          '(prog-mode-hook
