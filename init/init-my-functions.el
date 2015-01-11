@@ -16,6 +16,48 @@
      '(progn ,@body)))
 
 
+;;; [ defadvice + macro ]
+
+;;; Advise Multiple Commands in the Same Manner.
+
+(defmacro advice-commands (advice-name commands &rest body)
+  "Apply advice named ADVICE-NAME to multiple COMMANDS. The body of the advice is in BODY."
+  `(progn
+     ,@(mapcar (lambda (command)
+                 `(defadvice ,command (before ,(intern (concat (symbol-name command) "-" advice-name)) activate)
+                    ,@body))
+               commands)))
+
+;;; usage examples:
+
+;;; redundant way,
+;; (defadvice switch-to-buffer
+;;     (before switch-to-buffer-auto-save activate)
+;;   (prelude-auto-save))
+;; (defadvice other-window
+;;     (before other-window-auto-save activate)
+;;   (prelude-auto-save))
+
+;;; reduce code way,
+;; advice all window switching functions
+(advice-commands "auto-save"
+                 (switch-to-buffer other-window windmove-up windmove-down windmove-left windmove-right)
+                 (save-buffer)
+                 ;; (prelude-auto-save)
+                 )
+
+;;; `macroexpand' can show us how the macro gets expanded:
+;; (macroexpand '(advice-commands "auto-save"
+;;                                (switch-to-buffer other-window windmove-up windmove-down windmove-left windmove-right)
+;;                                (prelude-auto-save)))
+;;
+;; (progn
+;;   (defadvice switch-to-buffer
+;;       (before switch-to-buffer-auto-save activate) (prelude-auto-save))
+;;   (defadvice other-window
+;;       (before other-window-auto-save activate) (prelude-auto-save)))
+
+
 ;;; keybindings
 
 ;;; Usage: (local-set-minor-mode-key '<minor-mode> (kbd "key-to-hide") nil).
@@ -77,7 +119,7 @@ Usage:
 ;; ;;
 ;; ;; Lately I’ve decided that such a command is a bit of an overhead, since we can
 ;; ;; check the file permissions automatically anyways. While I’m not quite fond of
-;; ;; advising commands (debugging advised commands is no fun) this was an
+;; ;; advising commands (debugging adviced commands is no fun) this was an
 ;; ;; excellent opportunity to exploit them (for great good):
 ;;
 ;; FIXME: the tramp seems does not work correctly here.
