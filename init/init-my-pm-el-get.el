@@ -163,6 +163,8 @@
          calfw sauron ; appt
          gist
          emms ; emms-get-lyrics
+         ;; subprocess
+         dizzee
          ;; Programming
          ;; code
          ;; glasses-mode
