@@ -6,11 +6,13 @@
 ;;; Code:
 
 ;;; [ switch-window ] -- show a number on window instead of modeline.
+
 ;; (require 'switch-window)
 ;; (global-set-key (kbd "C-x o") 'switch-window)
 
 
 ;;; [ window-number ] --
+
 (require 'window-number)
 
 (window-number-mode)
@@ -40,6 +42,20 @@
 ;; (unless (package-installed-p 'window-numbering)
 ;;   (package-install 'window-numbering))
 ;; (require 'window-numbering)
+
+
+;; popup current window to another new frame.
+
+(defun my-turn-current-window-into-new-frame ()
+  (interactive)
+  (let ((buffer (current-buffer)))
+    (unless (one-window-p)
+      (delete-window))
+    (display-buffer-pop-up-frame buffer nil)))
+
+(if (boundp 'window-number-mode-map)
+    (define-key window-number-mode-map (kbd "C-x C-j p") 'my-turn-current-window-into-new-frame)
+  (global-set-key (kbd "C-x C-j p") 'my-turn-current-window-into-new-frame))
 
 
 ;;; [ workgroups2 ] --
