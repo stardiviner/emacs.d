@@ -114,6 +114,10 @@
 
 
 ;; Date: Saturday   27 July 2013
+(set-face-attribute 'org-date nil
+                    :foreground "gray" :background "#333333"
+                    :box '(:color "black" :line-width 2 :style nil)
+                    :underline nil)
 (set-face-attribute 'org-agenda-date nil
                     :foreground "white" :background "#004A5D"
                     :box '(:color "cyan" :line-width -1 :style nil)
