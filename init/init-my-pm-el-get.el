@@ -111,6 +111,8 @@
          ;; edit
          undo-tree
          multiple-cursors
+         ;; unicode
+         ucs-utils
          ;; large file
          vlf
          ;; kill-ring-search
