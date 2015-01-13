@@ -2325,7 +2325,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 (require 'org-screenshot)
 
-(setq org-screenshot-command-line "scrot -d 5 %f" ; "import %f",
+(setq org-screenshot-command-line "scrot -d 5 -s %f" ; "import %f",
       org-screenshot-relative-links t
       org-screenshot-image-directory "./images/"
       org-screenshot-file-name-format "screenshot-%2.2d.png"
