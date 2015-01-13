@@ -145,6 +145,7 @@
          org-mode
          org-fstree org-bullets
          org-ac
+         org-pomodoro
          ;; org-magit ; org-linkany
          org-publish org-jekyll jekyll-el
          ;; org-trello

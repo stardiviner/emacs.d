@@ -2314,6 +2314,24 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 ;; FIXME:
 
+;;;_* org-pomodoro
+
+;;; This adds very basic support for Pomodoro technique in Emacs' org-mode.
+
+;;; Usage:
+;;
+;; - Move point to a task as you would do with `org-clock-in'. Call `org-pomodoro' the task will be clocked-in.
+;; - When there's time for break, the task will be org-clock-out'ed.
+;; - If you call `org-pomodoro' during a pomodoro, you'll be asked to reset a pomodoro.
+;; - If you call `org-pomodoro' outside org-mode, you'll be presented with list of recent tasks, as C-u org-clock-in would.
+
+
+(require 'alert)
+(require 'org-pomodoro)
+
+(define-key my-org-prefix-map (kbd "g") 'org-pomodoro)
+
+
 
 ;;;_* org-magit
 
