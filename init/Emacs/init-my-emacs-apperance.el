@@ -62,6 +62,57 @@
 ;; (global-yascroll-bar-mode t)
 
 
+;;; [ Color Theme ]
+;; Usage:
+;; - [M-x customize-face] -- to custom current point face color/style.
+;; - [C-u M-x list-faces-display RET org] -- overview of all the faces in org-mode.
+;; - [M-x customize-group org-font-lock] -- custom org-faces and other aspects of org-apperance.
+;; - [C-u C-x =] -- verbose information about the properties of the text under the point.
+;; - [M-x load-theme RET (theme)] -- load a color-theme.
+
+;;; initialize color-theme
+(require 'color-theme)
+(eval-after-load 'color-theme
+  '(progn
+     (color-theme-initialize)))
+(setq color-theme-is-global t)
+
+;; load theme way
+(add-to-list 'custom-theme-load-path "~/.emacs.d/color-themes/")
+;; (load-theme 'color-theme-midnight)
+
+
+;;; color-theme-solarized
+
+(require 'color-theme-solarized)
+
+(color-theme-solarized-dark)
+;; (color-theme-solarized-light)
+
+(setq solarized-termcolors 256
+      ;; solarized-degrade t
+      solarized-bold t
+      solarized-underline t
+      solarized-italic t
+      solarized-contrast 'normal ; 'normal, 'hight, 'low
+      solarized-visibility 'high ; 'normal, 'high, 'low
+      ;; solarized-broken-srgb nil    ; nil, t
+      )
+
+
+;;; color-theme-almost-monokai
+
+;; (color-theme-almost-monokai)
+
+;;; monokai-theme
+
+;; (load-file "~/.emacs.d/init/color-themes/monokai-theme.el")
+;; ;; (load-file "~/.emacs.d/init/color-themes/molokai-theme.el")
+
+;; (load-theme 'monokai t)
+
+
+
 ;;; [ modeline ]
 
 (require 'init-my-emacs-mode-line)
@@ -227,55 +278,6 @@
 ;; - [M-x set-justification-right]
 ;; - [M-x set-justification-none]
 
-
-;;; [ Color Theme ]
-;; Usage:
-;; - [M-x customize-face] -- to custom current point face color/style.
-;; - [C-u M-x list-faces-display RET org] -- overview of all the faces in org-mode.
-;; - [M-x customize-group org-font-lock] -- custom org-faces and other aspects of org-apperance.
-;; - [C-u C-x =] -- verbose information about the properties of the text under the point.
-;; - [M-x load-theme RET (theme)] -- load a color-theme.
-
-;;; initialize color-theme
-(require 'color-theme)
-(eval-after-load 'color-theme
-  '(progn
-     (color-theme-initialize)))
-(setq color-theme-is-global t)
-
-;; load theme way
-(add-to-list 'custom-theme-load-path "~/.emacs.d/color-themes/")
-;; (load-theme 'color-theme-midnight)
-
-
-;;; color-theme-solarized
-
-(require 'color-theme-solarized)
-
-(color-theme-solarized-dark)
-;; (color-theme-solarized-light)
-
-(setq solarized-termcolors 256
-      ;; solarized-degrade t
-      solarized-bold t
-      solarized-underline t
-      solarized-italic t
-      solarized-contrast 'normal ; 'normal, 'hight, 'low
-      solarized-visibility 'high ; 'normal, 'high, 'low
-      ;; solarized-broken-srgb nil    ; nil, t
-      )
-
-
-;;; color-theme-almost-monokai
-
-;; (color-theme-almost-monokai)
-
-;;; monokai-theme
-
-;; (load-file "~/.emacs.d/init/color-themes/monokai-theme.el")
-;; ;; (load-file "~/.emacs.d/init/color-themes/molokai-theme.el")
-
-;; (load-theme 'monokai t)
 
 ;;; [ Faces ]
 ;; italic & bold
