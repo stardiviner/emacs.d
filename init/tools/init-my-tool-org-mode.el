@@ -2350,7 +2350,20 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 (define-key my-org-prefix-map (kbd "g") 'org-pomodoro)
 
+;;;_* org-doing
 
+;;; Inspired by doing, a set of functions for keeping track of what you're doing right now.
+
+;;; Usage:
+;;
+;; - [M-x org-doing-log] :: Log what you're doing now.
+;; - [C-u M-x org-doing-log] :: Log what you're doing later.
+;; - [M-x org-doing-done] :: Log something you've already done.
+;; - [M-x org-doing-done (don't enter anything and press Enter)] :: Mark your most recent TODO as DONE.
+;; - Org-Doing Omni Function
+;;   - The omni function lets you enter short-hands at the beginning, making it very quick to use org-doing:
+;;     [M-x org-doing]
+;;     (now reviewing email, getting ready for a nap. seriously)
 
 ;;;_* org-magit
 

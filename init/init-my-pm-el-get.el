@@ -147,6 +147,7 @@
          org-ac
          org-screenshot
          org-pomodoro
+         ;; org-doing
          ;; org-magit ; org-linkany
          org-publish org-jekyll jekyll-el
          ;; org-trello
