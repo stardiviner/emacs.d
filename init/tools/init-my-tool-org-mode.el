@@ -2314,6 +2314,25 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 ;; FIXME:
 
+;;;_* org-screenshot
+
+;;; screenshots integrated with emacs org mode attachments.
+
+;;; Usage:
+;;
+;; - While in an org mode buffer, use the org-screenshot command to take a
+;;   screenshot and have it inserted at the current point.
+
+(require 'org-screenshot)
+
+(setq org-screenshot-command-line "scrot -d 5 %f" ; "import %f",
+      org-screenshot-relative-links t
+      org-screenshot-image-directory "./images/"
+      org-screenshot-file-name-format "screenshot-%2.2d.png"
+      )
+
+(define-key my-org-prefix-map (kbd "s") 'org-screenshot-take)
+
 ;;;_* org-pomodoro
 
 ;;; This adds very basic support for Pomodoro technique in Emacs' org-mode.
