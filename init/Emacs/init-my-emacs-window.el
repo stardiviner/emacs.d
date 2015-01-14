@@ -280,6 +280,10 @@
 ;;; Ediff
 (push '("*Ediff Control Panel*" :position bottom :height 15) popwin:special-display-config)
 
+;;; Compilation
+(push '(compilation-mode :position bottom :height 15) popwin:special-display-config)
+;; (push '("*compilation*" :position bottom :height 15) popwin:special-display-config)
+
 ;;; Magit
 ;; TODO: create one for commit message buffer.
 ;; git-modes
