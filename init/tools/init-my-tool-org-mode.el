@@ -96,11 +96,21 @@
 
 (require 'org-indent)
 
-(setq org-indent-mode t)
-(setq org-adapt-indentation t) ; means adapt indentation to outline node level.
-(setq org-indent-indentation-per-level 2)
+(setq org-indent-mode t
+      org-adapt-indentation t   ; means adapt indentation to outline node level.
+      org-indent-mode-turns-on-hiding-stars t
+      org-indent-indentation-per-level 2
+      ;; org-indent-max-levels 20
+      org-indent-stars
+      org-indent-strings
+      ;; org-indent-boundary-char 32
+      )
 
 (org-indent-mode t)
+
+(set-face-attribute 'org-indent nil
+                    :foreground "deep pink"
+                    )
 
 ;;;_* Faces
 
