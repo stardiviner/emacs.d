@@ -72,6 +72,13 @@ re-downloaded in order to locate PACKAGE."
         (require-package package min-version t)))))
 
 
+
+;; The packages that you install with package.el are activated by default after
+;; your .emacs is loaded. To be able to use them before the end of your .emacs
+;; you need to activate them by using the commands:
+;;
+;; (setq package-enable-at-startup t) ; 
+
 (package-initialize)
 
 
