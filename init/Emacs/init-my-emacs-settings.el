@@ -170,7 +170,7 @@
 ;;; [ Search ]
 (setq-default  case-fold-search t ; whether toggle case sensitive search depend on your input has mixture of upcase and downcase.
                case-replace t ; preserve case in replacements.
-	       )
+               )
 
 
 ;;; [ guru-mode ] --- Learn to use Emacs the way it was meant to be used (the Emacs guru way)
