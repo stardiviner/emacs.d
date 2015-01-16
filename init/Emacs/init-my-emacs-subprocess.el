@@ -82,6 +82,10 @@
 
 (require 'dizzee)
 
+(dz-defservice dizzee-python-SimpleHTTPServer "python"
+               :args ("-m" "SimpleHTTPServer" "7878")
+               ;; :cd ""
+               )
 
 
 (provide 'init-my-emacs-subprocess)
