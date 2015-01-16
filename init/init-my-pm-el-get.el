@@ -56,14 +56,15 @@
          ;; ido-vertical-mode ido-ubiquitous smex
          helm
          helm-helm-commands helm-descbinds ; helm-themes
-         helm-cmd-t ; helm-ls-git
+         ;; FIXME helm-c-moccur
+         helm-cmd-t
          helm-c-yasnippet helm-c-flycheck
-         helm-gtags helm-yaetags ; helm-c-moccur
-         helm-rails helm-pydoc
+         helm-gtags helm-yaetags
+         helm-rails ; helm-pydoc
+         ;; helm-ls-git
          helm-gist
          helm-mu
          ;; helm-delicious
-         helm-dictionary
          ;; helm-dictionary
          auto-complete
          auto-complete-yasnippet auto-complete-chunk
@@ -71,8 +72,7 @@
          auto-complete-emacs-lisp
          auto-complete-pcmp
          ac-capf
-         company-mode
-         ac-helm
+         ;; company-mode
          ;; ac-helm
          ;; ac-company
          ;; color theme
@@ -80,6 +80,7 @@
          ;; color-theme-almost-monokai
          ;; monokai-theme
          ;; apperance
+         ;; emacs-powerline
          highlight-symbol
          ;; cursor-chg
          ;; yascroll
@@ -99,7 +100,7 @@
          ;; shell
          ;; readline-complete
          eshell-manual
-         insert-shebang
+         ;; insert-shebang
          ;; others
          ;; guru-mode
          ;; buffer & window, frame
@@ -116,13 +117,13 @@
          ;; large file
          vlf
          ;; kill-ring-search
-         ; kill-ring-ido
+         ;; kill-ring-ido
          ;; predictive
          ;; spell
-         flyspell flyguess ; flyspell-guess inflections
+         ;; flyspell flyguess ; flyspell-guess inflections
          ;; auto-dictionnary
          ;; dictionary & translation
-         babel
+         ;; babel
          ;; imenu
          ;; jump
          ace-jump-mode ; ace-isearch
@@ -148,12 +149,14 @@
          org-screenshot
          org-pomodoro
          ;; org-doing
-         ;; org-magit ; org-linkany
-         org-publish org-jekyll jekyll-el
          ;; org-trello
+         ;; orgit ; org-magit ; org-linkany
+         org-publish org-jekyll jekyll-el ;; org-blog org-website
+         ;; org-present org-tree-slide org-html5presentation org-impress-js
          org-passwords
-         poporg
+         ;; outorg
          ;; Wiki
+         ;; oddmuse yaoddmuse org-oddmuse oddmuse-curl
          ;; SpeedReading - OpenSpritz
          spray
          ;; speedread
@@ -161,13 +164,14 @@
          ;; discover
          ;; Email
          ;; mu
-         mu-cite
+         mu4e mu-cite
          ;; BBDB
-         bbdb ; bbdb-vcard
+         bbdb bbdb2erc ; FIXME: bbdb-vcard
          ;; tools
-         calfw sauron ; appt
+         ;; calfw sauron ; appt
          gist
-         emms ; emms-get-lyrics
+         ;; emms ; emms-get-lyrics
+         ;; ampc
          ;; subprocess
          dizzee
          ;; Programming
@@ -179,13 +183,14 @@
          aggressive-indent-mode
          ;; auto-indent-mode clean-aindent
          ;; complete
-         emacs-ycmd
+         ;; emacs-ycmd
          ;; lint
          flycheck
          ;; flycheck-tip
          flycheck-pos-tip
          ;; comment
          fic-mode
+         poporg
          ;; electric
          paredit
          smartparens
@@ -197,7 +202,7 @@
          ;; document, API, docsets
          dash helm-dash
          ;; RFC
-         rfc irfc
+         ;; rfc irfc
          ;; snippet
          yasnippet
          ;; Tags
@@ -233,22 +238,23 @@
          ;; ruby-block
          yari
          ;; auto-complete-ruby ; (conflict with robe-mode?)
-         inf-ruby rcodetools ruby-compilation rvm
-         pry
+         inf-ruby ruby-compilation rvm
+         ;; company-inf-ruby
          ;; pry
          ;; rcodetools
          robe-mode helm-robe
          rspec-mode
          yard-mode
          ;; ruby-refactor
+         ;; ruby-test ruby-test-mode
          ;; ruby-hash-syntax
+         ;; cucumber feature-mode
          ;; Lisp
          slime
          elisp-slime-nav eldoc-eval
          ;; slime-company
          ac-slime
-         geiser
-         ac-geiser
+         geiser ac-geiser
          ;; Scheme
          ;; Clojure
          clojure-mode cider ; ac-nrepl
@@ -263,18 +269,22 @@
          irony-mode ac-irony ; company-irony
          ;; company-c-headers
          auto-complete-clang auto-complete-c-headers
-         auto-complete-clang-objc
+         ;; auto-complete-clang-objc
          ;; Go
          go-mode go-eldoc
+         ;; go-company
          ;; go-autocomplete ; gocode
          ;; D
-         d-mode
+         ;; d-mode
          ;; C++
          ;; Rust
+         ;; rust-mode
          ;; Lua
-         lua-mode
+         ;; lua-mode
          ;; Web
          web-mode
+         skewer-mode ; live web development in Emacs (HTML, CSS, JavaScript)
+         emacs-moz-controller ; moz-repl
          ;; JavaScript
          ;; js-mode
          ;; js2-mode
@@ -283,6 +293,7 @@
          ac-js2
          tern ; company-tern
          ;; HTML
+         htmlize html5
          ac-html
          ;; CSS
          css-mode
@@ -290,60 +301,72 @@
          css-eldoc
          showcss-mode
          ;; CoffeeScript
-         coffee-mode
+         ;; coffee-mode
          ;; XML
          auto-complete-nxml
          ;; JSON
          json-mode json-reformat json-snatcher
          ;; Markdown
-         markdown-mode
+         markdown-mode markdown-preview-mode
          ;; YAML
          yaml-mode
          ;; TeX
          ;; auctex
          ;; reftex
          ;; company-auctex
-         auto-complete-auctex
-         auto-complete-latex
+         ;; auto-complete-auctex
+         ;; auto-complete-latex
          ;; ac-math
          ;;; Haskell
-         haskell-mode
+         ;; haskell-mode
          ;; Verilog
          ;; verilog-mode
          ;; auto-complete-verilog
          ;; Java
          javadoc-lookup ; javadoc-help
+         ;; eclim
          ;; java-complete
          ;; R
          ess
          ac-R
          ;; gnuplot
-         gnuplot-mode
+         ;; gnuplot-mode
          ;; Octave
-         ac-octave
+         ;; ac-octave
+         ;; Database
+         ;; SQL
+         sqlup-mode
          edbi ; company-edbi
+         ;; NoSQL
+         ;; MongoDB
+         ;; inf-mongo
+         ;; Redis
+         ;; eredis
+         ;; Assembly
+         ;; iasm-mode
+         ;; Hex
          ;; Frameworks
          ;; Ruby on Rails
          projectile-rails ;; rinari
          rhtml-mode ; nxhtml
+         ;; yasnippet-rails
+         ;; sass-mode haml-mode slim-mode
          ;; emacs-rails ; https://github.com/tomtt/emacs-rails
          ;; Arduino
-         arduino-mode
+         ;; arduino-mode
          ;; Android
          ;; android-mode
          ;; Nginx
          nginx-mode
          ;; Linux
+         ;; vimrc-mode
+         ;; crontab-mode
          ;; Arch
          pkgbuild-mode
-         ;; Database
-         ;; SQL
-         sqlup-mode
-         ;; NoSQL
-         ;; MongoDB
-         ;; Redis
-         ;; Assembly
-         iasm-mode
+         ;; fvwm-mode glsl-mode
+         ;; Windows
+         ;; batch-mode
+         ;; PowerShell-Mode
          ;; English
          ;; Japanese
          ;; migemo helm-migemo
