@@ -57,6 +57,12 @@
 (define-key my-prog-inferior-map (kbd "p") 'run-python)   ; Python
 ;; Prolog
 (define-key my-prog-inferior-map (kbd "g") 'run-prolog)   ; Prolog
+;; ESS
+;; Julia
+;; R
+(unless (boundp 'my-inferior-ess-map)
+  (define-prefix-command 'my-inferior-ess-map))
+(define-key my-prog-inferior-map (kbd "e") 'my-inferior-ess-map)
 ;; Octave
 (define-key my-prog-inferior-map (kbd "o") 'run-octave)   ; Octave
 ;; Haskell
