@@ -87,7 +87,7 @@
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Lisp/Lisp.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Lisp/Common Lisp/Common Lisp.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Ruby.org")
-(find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Frameworks/Ruby on Rails/Ruby on Rails.org")
+(find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Frameworks/Ruby on Rails/Ruby on Rails.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Wiki/The Ruby Programming Language.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Tools/RubyGems/RubyGems.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Python/Python.org")
@@ -105,7 +105,7 @@
 (find-file "~/Org/Wiki/Computer/Programming/Emacs/modes/Org/Org-mode.org")
 (find-file "~/Org/Wiki/Learning/Learning.org")
 (find-file "~/Org/Wiki/Learning/MyLearningPlan/Learn Programming.org")
-(find-file "~/Org/Writing/Writing.org")
+(find-file "~/Org/Wiki/Writing/Writing.org")
 (find-file "~/Org/Wiki/Kung Fu/Kung Fu.org")
 (find-file "~/Org/Wiki/Science/Science.org")
 (find-file "~/Org/Wiki/Life/Life.org")
@@ -155,7 +155,7 @@
 (org-agenda-list)
 ;; (org-todo-list)
 
-(setq initial-buffer-choice "*Org Agenda*")
+;; (setq initial-buffer-choice "*Org Agenda*")
 
 
 ;;; Email - mu4e
