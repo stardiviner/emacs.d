@@ -55,7 +55,7 @@
 
 ;; startup & default view
 (setq org-startup-folded t ; t, 'overview, 'content, 'showall.
-      org-startup-indented t
+      org-startup-indented t ; use org indent-mode for all org buffers.
       org-startup-truncated t
       ;; FIXME: error: Can't preview LaTeX fragment in a non-file buffer.
       org-startup-with-inline-images t ; `org-toggle-inline-images'
@@ -70,7 +70,7 @@
 
 ;; TODO write a if statement for this.
 ;; when org-indent-mode is on: sets org-hide-leading-stars to t and org-adapt-indentation to nil.
-(setq org-hide-leading-stars nil ; only show one star *
+(setq org-hide-leading-stars t ; only show one star *
       ;; org-hide-leading-stars-before-indent-mode
       org-hide-emphasis-markers t ; hide markers like =inline code=.
       org-hide-block-startup nil ; don't fold block.
@@ -391,8 +391,8 @@ to insert <kbd>..</kbd> (HTML) org =[..]= (Org-mode)."
 (set-face-attribute 'org-tag nil
                     :foreground "cyan"
                     :underline nil :weight 'normal :slant 'normal
-                    :box '(:color "cyan")
-                    :height 90)
+                    :box '(:color "dark green" :line-width 2)
+                    :height 80)
 ;;; checkbox faces
 (set-face-attribute 'org-checkbox nil
                     :bold 'normal
@@ -565,7 +565,7 @@ It can contain any number of symbols, which will be repeated."
 (org-ac/config-default)
 
 ;; (setq org-ac/ac-trigger-command-keys '("\\" "*" "SPC" ":" "[" "+"))
-(setq org-ac/ac-trigger-command-keys '("\\" "+"))
+(setq org-ac/ac-trigger-command-keys '("\\" "+" ":" "[" "*"))
 
 ;; remove heavy auto-complete sources to speed up typing in Org.
 ;; Ask Org-mode Mailing list.
