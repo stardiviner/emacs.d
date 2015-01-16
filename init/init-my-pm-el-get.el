@@ -319,6 +319,8 @@
          ;; ac-math
          ;;; Haskell
          ;; haskell-mode
+         ;; Prolog
+         prolog-el
          ;; Verilog
          ;; verilog-mode
          ;; auto-complete-verilog
