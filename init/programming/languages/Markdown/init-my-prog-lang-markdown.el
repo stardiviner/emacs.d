@@ -113,7 +113,7 @@
 ;;; and websocket.el to deliver html to browser.
 
 ;;; Usage:
-;;; - [M-x markdown-preview-mode]
+;;; - [M-x markdown-preview-mode] :: open preview in a browse.
 ;;;
 ;;; [M-x markdown-preview-mode] will open preview in a browser and will start
 ;;; markdown-mode if it's not yet running for current buffer. If you'v closed
