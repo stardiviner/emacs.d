@@ -40,11 +40,11 @@
 
 ;;; reduce code way,
 ;; advice all window switching functions
-(advice-commands "auto-save"
-                 (switch-to-buffer other-window windmove-up windmove-down windmove-left windmove-right)
-                 (save-buffer)
-                 ;; (prelude-auto-save)
-                 )
+;; (advice-commands "auto-save"
+;;                  (switch-to-buffer other-window windmove-up windmove-down windmove-left windmove-right)
+;;                  (save-buffer)
+;;                  ;; (prelude-auto-save)
+;;                  )
 
 ;;; `macroexpand' can show us how the macro gets expanded:
 ;; (macroexpand '(advice-commands "auto-save"
@@ -56,6 +56,7 @@
 ;;       (before switch-to-buffer-auto-save activate) (prelude-auto-save))
 ;;   (defadvice other-window
 ;;       (before other-window-auto-save activate) (prelude-auto-save)))
+
 
 
 ;;; keybindings
