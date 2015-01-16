@@ -315,8 +315,8 @@
          javadoc-lookup ; javadoc-help
          ;; java-complete
          ;; R
-         ;; ac-R
-         ;; ess
+         ess
+         ac-R
          ;; gnuplot
          gnuplot-mode
          ;; Octave
