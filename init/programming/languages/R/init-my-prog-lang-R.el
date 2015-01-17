@@ -43,6 +43,7 @@
       ess-use-eldoc t
       ess-eldoc-show-on-symbol t
       ess-eldoc-abbreviation-style 'aggressive ; t or 'aggressive,
+      ess-describe-at-point-method 'tooltip  ; display in a tooltip. (need to press [C-c C-d C-e]
       ;; ess-use-tracebug t
       ;; ESS Help
       ;; alist of frame parameters used to create help frames.
