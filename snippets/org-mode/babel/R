@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: babel R
+# key: babel-R
+# --
+#+NAME: R plot: ${1:babel name}
+#+BEGIN_SRC R :session *my-R* :dir "." :results output graphics :file ${2:filename}.svg :width 18 :height 9
+${3:plot()}
+#+END_SRC

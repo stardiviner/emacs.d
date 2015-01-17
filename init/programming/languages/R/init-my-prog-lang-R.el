@@ -82,7 +82,7 @@
 
 ;; automatically get the correct mode
 (add-to-list 'auto-mode-alist '("\\.[rR]$" . R-mode))
-(add-to-list 'auto-mode-alist '("\\.Rd\\" . Rd-mode)) ; R documentation
+(add-to-list 'auto-mode-alist '("\\.Rd$" . Rd-mode)) ; R documentation
 (add-to-list 'auto-mode-alist '("\\.S$" . S-mode))
 
 ;; comment out the following if you are not using R/S-Plus on ACPUB
