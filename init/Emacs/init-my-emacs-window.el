@@ -94,8 +94,8 @@
       wg-mode-line-only-name nil          ; only show workgroup name.
       wg-mode-line-use-faces t          ;
       wg-mode-line-decor-divider ":"
-      wg-mode-line-decor-left-brace "{"
-      wg-mode-line-decor-right-brace "}"
+      wg-mode-line-decor-left-brace "("
+      wg-mode-line-decor-right-brace ")"
       wg-mode-line-decor-workgroup-unmodified #("-" 0 1
                                                 (help-echo "The current workgroup is unmodified"))
       wg-mode-line-decor-workgroup-modified #("*" 0 1

@@ -86,7 +86,7 @@
 ;; (setq projectile-tags-command "ctags -Re %s")
 
 (setq projectile-mode-line '(:eval
-                             (format " §[%s]" ; " Projectile/>[%s]"
+                             (format "(%s)" ; " Projectile/>[%s]"
                                      (projectile-project-name))))
 
 ;;; TODO: use append mode to change those variables instead of setting them.

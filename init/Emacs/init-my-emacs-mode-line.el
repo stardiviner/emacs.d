@@ -185,7 +185,7 @@
 (display-time-mode t)
 (setq global-mode-string (remove 'display-time-string global-mode-string))
 (setq mode-line-end-spaces
-      (list (propertize " " 'display '(space :align-to (- right 45)))
+      (list (propertize " " 'display '(space :align-to (- right 50)))
             ;;; you can custom here (add right aligned things here)
 
             ;; TODO: mu4e maildir
@@ -199,37 +199,39 @@
             ;; mode-line-position
             ;; '%02' to set to 2 chars at least; prevents flicking
             '(:propertize " (%02l,%02c),%03p "
-                         face (:foreground "dark gray")
-                         ;; (:eval (if (>= (current-column) 80)
-                         ;;            face (:foreground "red" :weight 'bold)))
-                         )
+                          face (:foreground "dark gray")
+                          ;; (:eval (if (>= (current-column) 80)
+                          ;;            face (:foreground "red" :weight 'bold)))
+                          )
 
             ;; relative position, size of file
             ;; '(:propertize " [%p,%I] ")
 
+
+            '(:propertize " ["
+                          face (:foreground "red" :weight 'bold))
+            '(:propertize "wg:")
             ;; workgroups2
             '(:propertize (:eval ; `wg-mode-line-display-on'
                            (wg-mode-line-string))
-                          face (:foreground "dodger blue"
-                                ;; :family ""
-                                ))
-
+                          face (:foreground "yellow"))
+            '(:propertize " § "
+                          face (:foreground "red"))
+            '(:propertize "P:")
             ;; projectile
             '(:propertize projectile-mode-line
-                          face (:foreground "orange"))
+                          face (:foreground "cyan"))
             
+            '(:propertize "] "
+                          face (:foreground "red" :weight 'bold))
+
             ;; the major mode of the current buffer.
-            '(:propertize " ✣ "
-                         face (:foreground "cyan"))
             '(:propertize "%m"
-                         face (:foreground "red"
-                                           :family "Comic Sans MS" :weight 'bold ; :height 100
-                                           )
-                         ;; FIXME:
-                         ;; help-echo (minor-mode-alist)
-                         )
-            '(:propertize " ✣ "
-                         face (:foreground "cyan"))
+                          face (:foreground "light green"
+                                            :family "Comic Sans MS" :weight 'bold ; :height 100
+                                            )
+                          ;; help-echo (minor-mode-alist)
+                          )
             
             ;; '(:propertize "{/Emacs/}"
             ;;               face (:foreground "yellow")
@@ -365,7 +367,7 @@
 (set-face-attribute 'mode-line nil
                     :inverse-video nil
                     :foreground "white" :background "#004A5D"
-                    :box '(:color "cyan" :line-width -1 :style nil)
+                    :box '(:color "cyan" :line-width 1 :style nil)
                     :family "DejaVu Sans Mono"
                     :height 90
                     )
