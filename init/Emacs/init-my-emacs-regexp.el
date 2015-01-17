@@ -15,10 +15,7 @@
 (require 're-builder)
 (autoload 're-builder "re-builder" t)
 
-(define-key my-regexp-prefix-map (kbd "B") 're-builder)
-
-(if (featurep 'helm)
-    (define-key my-regexp-prefix-map (kbd "b") 'helm-regexp))
+(define-key my-regexp-prefix-map (kbd "b") 're-builder)
 
 
 ;;; [ visual-regexp ] -- visual-regexp for Emacs is like `replace-regexp' (or `query-replace-regexp'), but with live visual feedback directly in the buffer.
