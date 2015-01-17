@@ -151,6 +151,26 @@ For project directory with Projectile root."
 
 ;; Finding file *in* TAGS
 
+
+;;; [ Imenu ]
+
+;;; Imenu produces menus for accessing locations in documents, typically in the
+;;; current buffer. You can access the locations using an ordinary menu (menu
+;;; bar or other) or using minibuffer completion.
+
+;;; [ imenu-anywhere ]
+
+;;; imenu-anywhere command pops an IDO interface with all the imenu tags across
+;;; all buffers with the same mode as the current one. In a sense it is similar
+;;; to etag selection, but works only for the open buffers. This is often more
+;;; convenient as you don't have to explicitly build the etags table.
+
+(if (featurep 'imenu-anywhere)
+    (if (featurep 'helm)
+        (global-set-key (kbd "C-.") 'helm-imenu-anywhere)
+      (global-set-key (kbd "C-.") 'imenu-anywhere)))
+
+
 
 
 (require 'init-my-prog-tags-etags)

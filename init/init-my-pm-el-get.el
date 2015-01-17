@@ -126,6 +126,7 @@
          ;; dictionary & translation
          ;; babel
          ;; imenu
+         imenu-anywhere
          ;; jump
          ace-jump-mode ; ace-isearch
          ;; bookmark, register, macro,
