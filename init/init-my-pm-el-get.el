@@ -319,6 +319,8 @@
          ;; ac-math
          ;;; Haskell
          ;; haskell-mode
+         ;; Erlang
+         erlang-mode
          ;; Prolog
          prolog-el
          ;; Verilog

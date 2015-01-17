@@ -7,9 +7,13 @@
 
 ;;; Code:
 
+;;; [ erlang-mode ]
 
+;;; Usage:
+;;
+;; - [M-x run-erlang]
 
-;; (run-erlang)
+(require 'erlang)
 
 
 
