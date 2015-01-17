@@ -241,8 +241,7 @@
 (require 'init-my-prog-lang-gnuplot)
 (require 'init-my-prog-lang-octave)
 ;; (require 'init-my-prog-lang-matlab)
-(require 'init-my-prog-lang-tex)
-;; (require 'init-my-prog-lang-R)
+(require 'init-my-prog-lang-R)
 ;; (require 'init-my-prog-lang-verilog)
 
 
