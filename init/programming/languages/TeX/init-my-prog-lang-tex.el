@@ -5,34 +5,32 @@
 
 
 
-
 ;;;_ Code:
-
+
 ;;;_ [ AUCTeX ] -- Integrated environment for TeX.
 
 ;;;_* Usage:
 ;;
 ;; [C-c C-p] :: preview prefix.
 
-;;;_* [ TeX ]
-
-;;;_* [ LaTeX ]
-
-
 ;; LaTeX/P mode defined in `tex-site.el':
 ;; Major mode in AUCTeX for editing LaTeX files.
 ;; See info under AUCTeX for full documentation.
 
-;; (require 'tex-site)
+(require 'tex-site)
 
-;;;_ [ reftex ]
-
-
+
 ;;;_ [ auto-complete-auctex ]
 
-;; (require 'auto-complete-auctex)
+(require 'auto-complete-auctex)
 
+
+;;;_ [ company-auctex ]
 
+;; (require 'company-auctex)
+;; (company-auctex-init)
+
+
 ;;;_ [ auto-complete-latex ]
 
 (require 'auto-complete-latex)
@@ -46,14 +44,15 @@
                 ))
   (add-hook hook 'ac-l-setup))
 
+
 ;;;_ [ ac-math ]
 
 ;; (require 'ac-math)
 
-;;;_ [ company-auctex ]
+
+;;;_ [ reftex ]
 
-;; (require 'company-auctex)
-;; (company-auctex-init)
+
 
 
 ;;;_ provide

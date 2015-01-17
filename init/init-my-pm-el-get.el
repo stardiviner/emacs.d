@@ -311,12 +311,11 @@
          ;; YAML
          yaml-mode
          ;; TeX
-         ;; auctex
-         ;; reftex
-         ;; company-auctex
-         ;; auto-complete-auctex
+         auctex
+         auto-complete-auctex ; company-auctex
          ;; auto-complete-latex
          ;; ac-math
+         ;; reftex
          ;;; Haskell
          ;; haskell-mode
          ;; Erlang
