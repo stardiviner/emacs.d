@@ -112,6 +112,7 @@
          ;; edit
          undo-tree
          multiple-cursors
+         expand-region
          ;; unicode
          ucs-utils
          ;; large file

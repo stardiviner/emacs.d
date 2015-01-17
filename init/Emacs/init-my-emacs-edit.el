@@ -200,6 +200,15 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;; (define-key global-map [remap exchange-point-and-mark] 'exchange-point-and-mark-no-activate)
 
 
+;;;_ expand-region
+
+;;; Expand region increases the selected region by semantic units. Just keep
+;;; pressing the key until it selects what you want.
+
+(require 'expand-region)
+
+(global-set-key (kbd "C-=") 'er/expand-region)
+
 ;;;_ Multiple Narrowings
 
 
