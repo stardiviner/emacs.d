@@ -257,8 +257,8 @@
          geiser ac-geiser
          ;; Scheme
          ;; Clojure
-         clojure-mode cider ; ac-nrepl
-         ac-cider
+         clojure-mode cider
+         ac-cider  ; ac-nrepl
          ;; company-cider
          ;; Python
          python python-mode
