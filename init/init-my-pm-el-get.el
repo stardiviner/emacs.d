@@ -345,7 +345,7 @@
          ;; Redis
          ;; eredis
          ;; Assembly
-         ;; iasm-mode
+         iasm-mode
          ;; Hex
          ;; Frameworks
          ;; Ruby on Rails
