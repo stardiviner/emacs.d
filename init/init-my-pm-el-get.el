@@ -328,8 +328,10 @@
          javadoc-lookup ; javadoc-help
          ;; eclim
          ;; java-complete
-         ;; R
          ess
+         ;; Julia
+         ;; julia-mode
+         ;; R
          ac-R
          ;; gnuplot
          ;; gnuplot-mode
