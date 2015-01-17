@@ -81,11 +81,10 @@
 (autoload 'R-mode "ess-site" "R-mode" t)
 
 ;; automatically get the correct mode
-(add-to-list 'auto-mode-alist
-             '("\\.R$" . R-mode)
-             '("\\.S$" . S-mode)
-             '("\\.Rd\\" . Rd-mode) ; R documentation
-             )
+(add-to-list 'auto-mode-alist '("\\.[rR]$" . R-mode))
+(add-to-list 'auto-mode-alist '("\\.Rd\\" . Rd-mode)) ; R documentation
+(add-to-list 'auto-mode-alist '("\\.S$" . S-mode))
+
 ;; comment out the following if you are not using R/S-Plus on ACPUB
 ;; add a ";" in front of each line
 ;; (load "/usr/pkg/ess/lisp/ess-site")
