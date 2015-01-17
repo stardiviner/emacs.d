@@ -242,6 +242,7 @@
 (require 'init-my-prog-lang-octave)
 ;; (require 'init-my-prog-lang-matlab)
 (require 'init-my-prog-lang-R)
+(require 'init-my-prog-lang-prolog)
 ;; (require 'init-my-prog-lang-verilog)
 
 
