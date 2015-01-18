@@ -231,6 +231,8 @@
          projectile
          helm-project
          vagrant vagrant-tramp
+         ;; bug track system
+         bts bts-github
          ;; code assistant
          howdoi
          ;; languages
