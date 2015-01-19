@@ -73,6 +73,18 @@
 
 (require 'bts)
 
+(setq bts:preferred-selection-method 'helm
+      bts:project-cache-file "~/.emacs.d/.bts/project"
+      bts:query-cache-file "~/.emacs.d/.bts/query"
+      bts:ticket-fetch-check-interval 3 ; seconds
+      bts:ticket-multi-view-preferred t
+      ;; widget label
+      bts:widget-label-format " %s "
+      bts:widget-label-prefix " "
+      bts:widget-label-suffix " "
+      bts:widget-require-mark "*"
+      )
+
 ;; Key Binding
 (define-key my-prog-bug-bts-map (kbd "b") 'bts:summary-open)
 (define-key my-prog-bug-bts-map (kbd "t") 'bts:ticket-new)
@@ -100,6 +112,14 @@
 ;; -
 
 (require 'bts-github)
+
+(setq bts-github:ignore-labels '("duplicate" "invalid" "wontfix")
+      ;; bts-github:max-lisp-eval-depth 6000
+      ;; bts-github:max-specpdl-size 13000
+      bts-github:summary-id-width 4
+      bts-github:summary-label-decorating t ; Whether to decorate issue labels column.
+      bts-github:summary-label-width 15
+      )
 
 ;; TODO:
 ;; About config item, see Customization or eval the following sexp.
