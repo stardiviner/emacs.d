@@ -232,6 +232,64 @@
 
 ;;; [ bbdb- ] -- More easily search/choice than BBDB
 
+;;; Usage:
+;;
+;; - Start
+;;
+;; Execute `bbdb-:open' or `bbdb-:start-completion'.
+;; `bbdb-:start-completion' is better in the buffer that you write mail on.
+;; In default, you can execute `bbdb-:start-completion' by pushing the key that is bound for `bbdb-complete-mail'.
+;; Alternatively, set `bbdb-:start-completion-key'.
+;; Otherwise, do key binding by yourself.
+;;
+;; - Keymap of bbdb-
+;;
+;; The bbdb- buffer, which is named *bbdb-* and shown at the start, have the following keymap.
+;;
+;; j ... Go to next record
+;; k ... Go to previous record
+;; h ... Go to previous char
+;; l ... Go to next char
+;; J ... Scroll down
+;; K ... Scroll up
+;; s ... Start incremental search
+;; S ... Start incremental search with the reverse configuration about using migemo
+;; a ... Show all record
+;; t ... Mark current record as To
+;; c ... Mark current record as Cc
+;; b ... Mark current record as Bcc
+;; u ... Unmark current record
+;; * t ... Mark all listed record as To
+;; * c ... Mark all listed record as Cc
+;; * b ... Mark all listed record as Bcc
+;; * u ... Unmark all listed record
+;; R ... Reload the latest record of BBDB
+;; q ... Finish with doing nothing
+;; RET ... Finish with the update of To/Cc/Bcc header (if necessary, open the mail buffer)
+
+(require 'bbdb-)
+
+(setq bbdb-:mail-modes '(message-mode mu4e-compose-mode)
+      ;; bbdb-:rcpt-header-format 'multi-line
+      bbdb-:replace-complete-mail-command t ; Whether substitute `bbdb-:start-completion' for `bbdb-complete-mail'.
+      bbdb-:start-completion-key nil
+      bbdb-:use-migemo nil ; TODO: set to t
+      )
+
+(set-face-attribute 'bbdb-:bcc-face nil
+                    :foreground "red"
+                    :weight 'bold
+                    )
+(set-face-attribute 'bbdb-:cc-face nil
+                    :foreground "gray"
+                    )
+(set-face-attribute 'bbdb-:to-face nil
+                    :foreground "cyan"
+                    )
+
+(bbdb-:setup)
+
+
 
 ;;; [ bbdb-vcard ]
 

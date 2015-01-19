@@ -168,7 +168,7 @@
          ;; mu
          mu4e mu-cite
          ;; BBDB
-         bbdb bbdb2erc ; FIXME: bbdb-vcard
+         bbdb bbdb- bbdb2erc ; FIXME: bbdb-vcard
          ;; tools
          ;; calfw sauron ; appt
          gist
