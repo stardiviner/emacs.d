@@ -98,7 +98,11 @@
 
 (global-set-key (kbd "C-x !") 'my-eshell-start-or-switch)
 
-(define-key my-prog-inferior-map (kbd "s") 'my-eshell-start-or-switch)
+(unless (boundp 'my-inferior-shell-map)
+  (define-prefix-command 'my-inferior-shell-map))
+(define-key my-prog-inferior-map (kbd "s") 'my-inferior-shell-map)
+
+(define-key my-inferior-shell-map (kbd "s") 'my-eshell-start-or-switch)
 
 
 ;; [ readline-complete ] -- autocomplete in shell mode buffers
