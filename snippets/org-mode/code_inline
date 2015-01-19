@@ -2,4 +2,4 @@
 # name: inline code
 # key: code_inline
 # --
-=src_${1:language}${3: [header args]}{${2:inline code block}}= $0
+src_${1:language}${3:[:switch flag]}{${2:inline code block}} $0
