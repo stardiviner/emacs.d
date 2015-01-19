@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: class initialize method
-# key: def_initialize
+# name: initialize
+# key: initialize
 # --
 def initialize(${1:parameters})
   ${2:@instance_variables}
