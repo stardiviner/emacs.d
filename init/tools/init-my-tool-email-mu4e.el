@@ -1124,6 +1124,13 @@
   )
 
 
+
+;;; use 'completing-read will make mu4e use `helm' interface. (because Helm
+;;; replace Emacs default `completing-read' by default).
+(setq mu4e-completing-read-function 'completing-read ; 'completing-read , 'ido-completing-read
+      )
+
+
 ;;; [ helm-mu ] -- Helm sources for searching emails and contacts using mu.
 
 ;;; Usage:
