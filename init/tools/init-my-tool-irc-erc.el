@@ -448,9 +448,22 @@
 (erc-netsplit-mode t)
 
 
-;;; BBDB
+;;; BBDB -- [ bbdb2erc ]
 
-;; TODO http://www.emacswiki.org/emacs/ErcBbdb
+;;; Makes BBDB show if a pal is online with ERC, lets you click i to chat.
+
+;;; Usage:
+;;
+;; - When the BBDB window pops up, the minibuffer should tell you if the person is online (otherwise it’s silent).
+;; - You can make it tell you again by pressing I in the bbdb window.
+;; - You specify the nick(s) of the person in the `irc-nick’ field in BBDB, as in the erc-bbdb.el package.
+;;
+;; This package also overrides the default binding of [i] in BBDB to start an
+;; ERC chat with the record at point. You can read the BBDB info manual by
+;; typing [M-x bbdb-info] instead, or return to the default binding with
+;; (define-key bbdb-mode-map (kbd "i") 'bbdb-info).
+
+(require 'bbdb2erc)
 
 
 ;;; [ Input ]
