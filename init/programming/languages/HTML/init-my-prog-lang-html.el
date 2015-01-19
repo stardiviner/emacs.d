@@ -15,6 +15,8 @@
 (add-hook 'html-mode-hook 'ac-html-enable)
 ;;; If you are using web-mode:
 ;;; Additionally you need to add these lines:
+(unless (featurep 'web-mode)
+  (require 'web-mode))
 (add-to-list 'web-mode-ac-sources-alist
              '("html" . (ac-source-html-attribute-value
                          ac-source-html-tag

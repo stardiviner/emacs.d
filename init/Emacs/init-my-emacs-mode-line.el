@@ -190,10 +190,10 @@
 
             ;; TODO: mu4e maildir
             '(:propertize (:eval
-			   (let ((my-mu4e-maildir-name (file-name-base mu4e-maildir)))
-			     (if (string-match "mu4e-.*" "%b")
-				 (format "[%s]" my-mu4e-maildir-name))))
-			  face (:foreground "white" :weight 'bold))
+                           (let ((my-mu4e-maildir-name (file-name-base mu4e-maildir)))
+                             (if (string-match "mu4e-.*" "%b")
+                                 (format "[%s]" my-mu4e-maildir-name))))
+                          face (:foreground "white" :weight 'bold))
             
             ;; line and column number, relative position
             ;; mode-line-position

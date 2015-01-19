@@ -1536,7 +1536,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 ;;; bind key [C-l] to locate to current time now ----- in Org-Agenda buffer.
 (defun my-org-agenda-jump-to-current-time ()
-    "Jump to current time now."
+  "Jump to current time now."
   (interactive)
   (goto-char (text-property-any (point-min) (point-max) 'face 'org-agenda-current-time))
   )
@@ -2068,6 +2068,8 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;;         ("i" "#+INDEX: ?")
 ;;         ("I" "#+INCLUDE: %file ?")))
 
+
+
 ;;;_ + ditaa & PlantUML & Graphviz
 
 ;; Org-babel makes it easy to generate decent graphics using external packages
@@ -2433,7 +2435,7 @@ This function will promote all items in a subtree."
   (when (org-at-heading-p)
     (let ((hl-text (nth 4 (org-heading-components))))
       (unless (or (null hl-text)
-                 (org-string-match-p "^[ \t]*:[^:]+:$" hl-text))
+                  (org-string-match-p "^[ \t]*:[^:]+:$" hl-text))
         (beginning-of-line)
         (search-forward hl-text (point-at-eol))
         (replace-string

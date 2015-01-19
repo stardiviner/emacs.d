@@ -121,9 +121,9 @@
 
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Ruby.org")
 (find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Wiki/The Ruby Programming Language.org")
-(find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Frameworks/Ruby on Rails/Ruby on Rails.org")
-(find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Frameworks/Ruby on Rails/Data/Manuals/My Ruby on Rails Reference.org")
-(find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Frameworks/Ruby on Rails/Data/Manuals/My Ruby on Rails Guides.org")
+(find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Frameworks/Ruby on Rails/Ruby on Rails.org")
+(find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Frameworks/Ruby on Rails/Data/Manuals/My Ruby on Rails Reference.org")
+(find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Frameworks/Ruby on Rails/Data/Manuals/My Ruby on Rails Guides.org")
 (find-file "~/Code/learning/Ruby/test.rb")
 (find-file "~/Code/learning/Ruby/Ruby on Rails/blog/README.rdoc")
 (find-file "~/Code/learning/Ruby/Ruby on Rails/campo/README.md")

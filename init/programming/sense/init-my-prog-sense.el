@@ -7,10 +7,9 @@
 
 ;;; Code:
 
+;;; [ CEDET ]
 
-;;; CEDET
-
-(require 'init-my-prog-cedet)
+;; (require 'init-my-prog-cedet)
 
 
 
