@@ -42,6 +42,8 @@
   (define-prefix-command 'my-bbdb-map))
 (define-key my-tools-prefix-map (kbd "b") 'my-bbdb-map)
 
+(define-key my-bbdb-map (kbd "b") 'bbdb-:open)
+
 (defun my-bbdb-open-or-switch ()
   (interactive)
   (if (get-buffer "*BBDB*")
@@ -49,8 +51,7 @@
     (bbdb "")
     (bury-buffer)
     (switch-to-buffer "*BBDB*")))
-
-(define-key my-bbdb-map (kbd "b") 'my-bbdb-open-or-switch)
+(define-key my-bbdb-map (kbd "B") 'my-bbdb-open-or-switch)
 
 (define-key my-bbdb-map (kbd "c") 'bbdb-create)
 ;; usage: region select name and email part in To: field. then press this keybinding.
