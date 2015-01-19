@@ -1,0 +1,10 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: derived from prog-mode
+# key: derived-prog-mode
+# --
+(add-hook '${1:ruby}-mode-hook
+          (lambda ()
+            (unless (derived-mode-p 'prog-mode))
+            (run-hooks 'prog-mode-hook)))
+
+$0
