@@ -2082,6 +2082,9 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 (setq org-ditaa-jar-path "~/.emacs.d/init/extra/ditaa0_9.jar")
 (setq org-plantuml-jar-path "~/.emacs.d/init/extra/plantuml.jar")
 
+;; (add-hook 'org-mode-hook 'org-display-inline-images)
+(add-hook 'org-babel-after-execute-hook 'org-display-inline-images)
+
 (add-hook 'org-babel-after-execute-hook 'my/redisplay-inline-images 'append)
 (defun my/redisplay-inline-images ()
   (condition-case nil
