@@ -15,10 +15,22 @@
 
 (require 'festival)
 
+(setq festival-auto-start t ; should festival start when any of the functions are called.
+      festival-buffer "*festival*"
+      festival-default-audio-mode 'async
+      festival-default-voice 'festival-voice-english-male
+      festival-program "/usr/bin/festival"
+      festival-voices-alist '(("english-fair" . festival-voice-english-fair)
+                              ("english-male" . festival-voice-english-male)
+                              ("us-male" . festival-voice-US-male))
+      )
+
 ;; (run-festival)              ; FIXME: (void-variable inferior-festivalr-mode-map)
-(festival-start-process)                ; start process at background of Emacs.
+;; (festival-start-process)                ; start process at background of Emacs.
 
 
+;;; festival extension
+
 (require 'thingatpt)
 
 ;; FIXME: this function seems does not work.
@@ -30,7 +42,7 @@
         (festival-say-region region)
         (message "Festival reading (region) ..."))
     (let ((word (thing-at-point 'word)))
-      (festival-say-string word)
+      (festival-say word)
       (message "Festival reading (word): %s" word))
     )
   )

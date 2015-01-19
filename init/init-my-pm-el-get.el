@@ -380,6 +380,8 @@
          ;; English
          ;; Japanese
          ;; migemo helm-migemo
+         ;; Speak
+         festival
          ;; Toy
          ;; oniisama
          )

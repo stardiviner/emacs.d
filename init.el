@@ -180,7 +180,7 @@
 (require 'init-my-tool-org-mode)
 (require 'init-my-tool-dict)
 (require 'init-my-tool-clock)
-;; (require 'init-my-tool-speak)
+(require 'init-my-tool-speak)
 (require 'init-my-tool-calculator)
 (require 'init-my-tool-diagram)
 (require 'init-my-tool-bbdb)
