@@ -12,6 +12,9 @@
 (add-hook 'c-mode-common-hook
           (lambda ()
             (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+
+              ;; auto-complete
+              (add-to-list 'ac-sources 'ac-source-irony)
               ;; irony locally for company-mode
               ;; (make-local-variable 'company-backends)
               ;; (add-to-list 'company-backends 'company-c-headers)
@@ -61,17 +64,17 @@
 
 ;;; [ ac-irony ]
 
-(defun my-ac-irony-setup ()
-  ;; be cautious, if yas is not enabled before (auto-complete-mode 1), overlays
-  ;; *may* persist after an expansion.
-  (yas-minor-mode 1)
-  (auto-complete-mode 1)
-
-  (add-to-list 'ac-sources 'ac-source-irony)
-  ;; (define-key irony-mode-map (kbd "M-RET") 'ac-complete-irony-async)
-  )
-
-(add-hook 'irony-mode-hook 'my-ac-irony-setup)
+;; (defun my-ac-irony-setup ()
+;;   ;; be cautious, if yas is not enabled before (auto-complete-mode 1), overlays
+;;   ;; *may* persist after an expansion.
+;;   (yas-minor-mode 1)
+;;   (auto-complete-mode 1)
+;;
+;;   (add-to-list 'ac-sources 'ac-source-irony)
+;;   ;; (define-key irony-mode-map (kbd "M-RET") 'ac-complete-irony-async)
+;;   )
+;;
+;; (add-hook 'irony-mode-hook 'my-ac-irony-setup)
 
 
 
