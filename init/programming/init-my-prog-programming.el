@@ -62,7 +62,7 @@
 ;; R
 (unless (boundp 'my-inferior-ess-map)
   (define-prefix-command 'my-inferior-ess-map))
-(define-key my-prog-inferior-map (kbd "e") 'my-inferior-ess-map)
+(define-key my-prog-inferior-map (kbd "j") 'my-inferior-ess-map)
 ;; Octave
 (define-key my-prog-inferior-map (kbd "o") 'run-octave)   ; Octave
 ;; Haskell
