@@ -69,20 +69,22 @@
 
 (global-auto-complete-mode 1) ; use auto-complete globally
 ;;; or enable for specific modes.
-(if (null global-auto-complete-mode)
-    (setq ac-modes
-          (append ac-modes
-                  '(prog-mode               ; programming modes
-                    web-mode
-                    text-mode markdown-mode
-                    change-log-mode
-                    org-mode ; speed up org-mode typing by disabling auto-complete.
-                    mail-mode mu4e-compose-mode
-                    ;; objc-mode
-                    sql-mode js3-mode
-                    makefile-mode makefile-gmake-mode makefile-automake-mode
-                    autoconf-mode
-                    snippet-mode))))
+;; (if (null global-auto-complete-mode)
+;;     )
+(setq ac-modes
+      (append ac-modes
+              '(prog-mode               ; programming modes
+                web-mode
+                text-mode markdown-mode
+                change-log-mode
+                org-mode ; speed up org-mode typing by disabling auto-complete.
+                mail-mode mu4e-compose-mode
+                ;; objc-mode
+                sql-mode js3-mode
+                makefile-mode makefile-gmake-mode makefile-automake-mode
+                autoconf-mode
+                snippet-mode)))
+
 
 
 
