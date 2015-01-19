@@ -20,18 +20,21 @@
 
 ;;; Usage:
 ;;
-;; Setup project
+;; - Setup project
 ;;
 ;; Project means a access configuration for the system stores target tickets data.
 ;; Create and update project using bts:project-new / bts:project-update.
-;; Setup query
+;;
+;; - Setup query
 ;;
 ;; Query means a configuration detects the fetched tickets in the tickets belongs to the project.
 ;; Create and update query using bts:query-new / bts:query-update.
-;; Create new ticket
+;;
+;; - Create new ticket
 ;;
 ;; Create a ticket of the system using bts:ticket-new.
-;; Keymap of widget buffer
+;;
+;; - Keymap of widget buffer
 ;;
 ;; Widget buffer is opened for editing project/query/ticket.
 ;; The following keymap is defined in the buffer inherits the standard widget keymap (*1).
@@ -45,6 +48,7 @@
 ;; *1 For checking that, see document of widget-keymap / widget-field-keymap / widget-text-keymap
 ;; *2 If possible, use pophint.el
 ;; *3 pophint.el is required
+;;
 ;; List up tickets
 ;;
 ;; The system tickets are listed up by bts:summary-open.
