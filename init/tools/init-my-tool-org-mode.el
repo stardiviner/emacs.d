@@ -1851,6 +1851,18 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
    ;; (mongo . t)                          ; MongoDB
    ))
 
+;;; ob-julia (require ESS)
+;;
+;; TODO: read https://github.com/gjkerns/ob-julia/blob/master/ob-julia-doc.org
+;;
+;; 1.
+;; (load "/path/to/ob-julia.el")
+;; 2.
+(add-to-list 'load-path "~/.emacs.d/el-get/ob-julia/ob-julia.el")
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((julia . t)))
+
 (setq org-confirm-babel-evaluate t)     ; org-babel-evaluate confirm.
 (setq org-babel-no-eval-on-ctrl-c-ctrl-c nil)
 (setq org-confirm-shell-link-function 'yes-or-no-p)

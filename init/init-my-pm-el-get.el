@@ -147,6 +147,7 @@
          ;; Org-mode
          org-mode
          org-fstree org-bullets
+         ob-julia
          org-ac
          org-screenshot
          org-pomodoro
