@@ -89,6 +89,53 @@
       bts:widget-require-mark "*"
       )
 
+
+;; ;;; Faces
+;; ;; summary
+;; (set-face-attribute 'bts:summary-closed-ticket-face nil
+;;                     )
+;; (set-face-attribute 'bts:summary-condition-fetch-part-face nil
+;;                     )
+;; (set-face-attribute 'bts:summary-condition-grep-part-face nil
+;;                     )
+;; (set-face-attribute 'bts:summary-condition-marked-part-face nil
+;;                     )
+;; (set-face-attribute 'bts:summary-condition-query-part-face nil
+;;                     )
+;; (set-face-attribute 'bts:summary-condition-warn-part-face nil
+;;                     )
+;; (set-face-attribute 'bts:summary-ignored-ticket-face nil
+;;                     )
+;; (set-face-attribute 'bts:summary-mark-face nil
+;;                     )
+;; ;; ticket
+;; (set-face-attribute 'bts:ticket-regist-message-failed-face nil
+;;                     )
+;; (set-face-attribute 'bts:ticket-regist-message-skipped-face nil
+;;                     )
+;; (set-face-attribute 'bts:ticket-regist-message-succeed-face nil
+;;                     )
+;; ;; widget
+;; (set-face-attribute 'bts:widget-button-face nil
+;;                     )
+;; (set-face-attribute 'bts:widget-button-pressed-face nil
+;;                     )
+;; (set-face-attribute 'bts:widget-const-face nil
+;;                     )
+;; (set-face-attribute 'bts:widget-documentation-face nil
+;;                     )
+;; (set-face-attribute 'bts:widget-label-face nil
+;;                     )
+;; (set-face-attribute 'bts:widget-link-face nil
+;;                     )
+;; (set-face-attribute 'bts:widget-mouse-face nil
+;;                     )
+;; (set-face-attribute 'bts:widget-require-face nil
+;;                     )
+;; (set-face-attribute 'bts:widget-tip-face nil
+;;                     )
+
+
 ;; Key Binding
 (define-key my-prog-bug-bts-map (kbd "b") 'bts:summary-open)
 (define-key my-prog-bug-bts-map (kbd "t") 'bts:ticket-new)
@@ -124,6 +171,14 @@
       bts-github:summary-label-decorating t ; Whether to decorate issue labels column.
       bts-github:summary-label-width 15
       )
+
+;;; Faces
+(set-face-attribute 'bts-github:issue-comment-header-face nil
+                    )
+(set-face-attribute 'bts-github:summary-label-decorating nil
+                    )
+(set-face-attribute 'bts-github:summary-label-face nil
+                    )
 
 ;; TODO:
 ;; About config item, see Customization or eval the following sexp.
