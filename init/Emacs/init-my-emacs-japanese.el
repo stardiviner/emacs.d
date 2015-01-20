@@ -14,8 +14,7 @@
 ;; -
 
 
-;; (require 'migemo)
-;;
+(require 'migemo)
 (autoload 'migemo "migemo" "" t)
 
 (setq migemo-command "cmigemo"
@@ -32,7 +31,7 @@
 
 ;;; [ helm-migemo ] --
 
-(require 'helm-migeomo)
+;; (define-key global-map [(control ?:)] 'helm-migemo)
 
 
 ;;; [ oniisama ]

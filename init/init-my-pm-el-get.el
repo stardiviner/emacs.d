@@ -381,7 +381,7 @@
          ;; PowerShell-Mode
          ;; English
          ;; Japanese
-         ;; migemo helm-migemo
+         migemo helm-migemo
          ;; Speak
          festival
          ;; Toy

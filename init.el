@@ -173,7 +173,7 @@
 (require 'init-my-emacs-encrypt)
 (require 'init-my-emacs-customize)
 (require 'init-my-emacs-tabulate)
-;; (require 'init-my-emacs-japanese)
+(require 'init-my-emacs-japanese)
 
 
 ;;; Tools
