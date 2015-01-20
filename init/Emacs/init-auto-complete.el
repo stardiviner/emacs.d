@@ -356,10 +356,13 @@
 
 ;;; [ semantic ]
 
-;; (semantic-mode 1)
-;; (add-hook 'c-mode-common-hook
-;;           (lambda ()
-;;             (add-to-list 'ac-sources 'ac-source-semantic)))
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+              (add-to-list 'ac-sources 'ac-source-semantic)
+              (add-to-list 'ac-sources 'ac-source-gtags)
+              )))
+
 
 
 ;;; set default auto-complete source
