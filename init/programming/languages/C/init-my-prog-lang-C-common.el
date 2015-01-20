@@ -22,6 +22,11 @@
               )))
 
 
+;;; [ Semantic ]
+
+;; (semantic-mode t)
+
+
 ;;; [ Irony-mode ] --- A C/C++ minor mode for Emacs powered by libclang.
 
 ;;; irony-mode is an Emacs minor-mode that aims at improving the editing
