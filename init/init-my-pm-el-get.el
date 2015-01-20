@@ -153,12 +153,14 @@
          org-screenshot
          org-pomodoro
          ;; org-doing
-         ;; org-trello
          ;; orgit ; org-magit ; org-linkany
          org-publish org-jekyll jekyll-el ;; org-blog org-website
          ;; org-present org-tree-slide org-html5presentation org-impress-js
          org-passwords
-         ;; outorg
+         ;; org-magit ; org-linkany
+         org-publish org-jekyll jekyll-el
+         ;; org-trello
+         outorg
          ;; Wiki
          ;; oddmuse yaoddmuse org-oddmuse oddmuse-curl
          ;; SpeedReading - OpenSpritz
@@ -380,6 +382,7 @@
          ;; Windows
          ;; batch-mode
          ;; PowerShell-Mode
+         ;; fvwm-mode glsl-mode
          ;; English
          ;; Japanese
          migemo helm-migemo
