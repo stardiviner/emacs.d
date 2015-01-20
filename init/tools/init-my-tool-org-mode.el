@@ -1106,41 +1106,68 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 (setq org-capture-templates
       '(("c" "Capture"
          entry (file+headline "~/Org/Capture/Capture.org" "Capture")
-         "\n* TODO %^{prompt}\n\n%i\n\n%a\n\n%?")
-        ("t" "Capture a task into Tasks"
+         "\n* TODO %^{prompt}\n\n%i\n\n%a\n\n%?"
+         :prepend t
+         :empty-lines 1
+         )
+
+        ;; Tasks
+        ("t" "Add a task into Tasks"
          entry (file+headline "~/Org/Tasks.org" "Tasks")
-         "\n* TODO %^{prompt} [/]\n\n%?\n\n")
-        ("u" "Capture an entry into Buy list"
+         "\n* TODO %^{prompt} [/]\n\n%?\n\n"
+         :empty-lines 1
+         )
+        ("u" "Add an entry into Buy list"
          entry (file+headline "~/Org/Tasks.org" "Buy")
-         "\n* TODO %^{prompt}\n\n%i\n\n%?\n\n")
+         "\n* TODO %^{prompt}\n\n%i\n\n%?\n\n"
+         :empty-lines 1
+         )
+        ;; TODO: add an capture template which use :clock property
+        ;; (:clock-in t :clock-resume t)
+
+        ;; Blog
         ("b" "Blog (jekyll)"
          entry (file+datetree+prompt "~/Org/Diary/Public/Blog.org")
-         "* %^{Title}  :blog:\n  :PROPERTIES:\n  :on: %T\n  :END:\n  %?")
+         "* %^{Title}  :blog:\n  :PROPERTIES:\n  :on: %T\n  :END:\n  %?"
+         :empty-lines 1
+         )
         ;; ("j" "Journal"
         ;;  entry (file+datetree "~/Org/Journal.org" "Journal")
-        ;;  "\n* %^{prompt}\nEntered on %U\n %i\n %?\n\n")
+        ;;  "\n* %^{prompt}\nEntered on %U\n %i\n %?\n\n"
+        ;; :empty-lines 1
+        ;; )
+        
         ;; TODO Contacts
-        ;;
-        ;; Issues, Bugs, Features
-        ("b" "record a bug to list"
-         entry (file+olp "~/Org/Projects/Projects.org" "Computer" "Bugs")
-         "\n* BUG %^{prompt}\n\n%i\n\n%?\n\n")
-        ("i" "record an issue to list"
-         entry (file+olp "~/Org/Projects/Projects.org" "Computer" "Issues")
-         "\n* ISSUE %^{prompt}\n\n%i\n\n%?\n\n")
-        ("f" "record a feature to list"
-         entry (file+olp "~/Org/Projects/Projects.org" "Computer" "Features")
-         "\n* FEATURE %^{prompt}\n\n%i\n\n%?\n\n")
+        
         ;; bookmark
-        ("m" "Add an URL to bookmark database"
-         entry (file+headline "~/Org/Wiki/Data/Bookmarks/Bookmarks.org" "Others")
-         "\n* %^{prompt}\n\n%A\n\n%?\n\n")
+        ("m" "Add an URL to bookmarks database"
+         entry (file+headline "~/Org/Wiki/Data/Bookmarks/Bookmarks.org" "Capture")
+         "\n* %^{prompt}\n\n%A\n\n%?\n\n"
+         :empty-lines 1)
+        
+        ;; org-passwords
+        ("p" "password"
+         entry (file "~/Git/dotfiles/passwords.gpg")
+         "* %^{Title}\n  %^{URL}p %^{USERNAME}p %^{PASSWORD}p %^{EMAIL}p"
+         :empty-lines 1)
+
+        ;; Issues, Bugs, Features
+        ("b" "record a Bug to list"
+         entry (file+olp "~/Org/Projects/Projects.org" "Computer" "Bugs")
+         "\n* BUG %^{prompt}\n\n%i\n\n%?\n\n"
+         :empty-lines 1)
+        ("i" "record an Issue to list"
+         entry (file+olp "~/Org/Projects/Projects.org" "Computer" "Issues")
+         "\n* ISSUE %^{prompt}\n\n%i\n\n%?\n\n"
+         :empty-lines 1)
+        ("f" "record a Feature to list"
+         entry (file+olp "~/Org/Projects/Projects.org" "Computer" "Features")
+         "\n* FEATURE %^{prompt}\n\n%i\n\n%?\n\n"
+         :empty-lines 1)
+        
         ;; knowledge
         ;; thought
         ;; "~/Org/Wiki/Wiki/Thought/Thought.org" "My Thought"
-        ;; org-passwords
-        ("p" "password" entry (file "~/Git/dotfiles/passwords.gpg")
-         "* %^{Title}\n  %^{URL}p %^{USERNAME}p %^{PASSWORD}p %^{EMAIL}p")
         ))
 
 
