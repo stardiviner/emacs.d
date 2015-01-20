@@ -158,6 +158,7 @@
 (define-key ac-menu-map (kbd "<return>") 'my-ac-return) ; go to new line.
 (define-key ac-menu-map [return] 'my-ac-return)
 (define-key ac-menu-map "\r" 'my-ac-return)
+(define-key ac-menu-map (kbd "RET") 'my-ac-return)
 
 
 ;;; complete(select ac-candidate and insert "SPACE")
