@@ -140,6 +140,13 @@
 ;; (require 'ac-R)
 
 
+
+
+;;; [ Julia ]
+
+(autoload 'julia-mode "ess-site" "Julia mode" t)
+
+
 
 
 (provide 'init-my-prog-lang-R)
