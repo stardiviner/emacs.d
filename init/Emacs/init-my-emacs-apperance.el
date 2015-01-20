@@ -359,6 +359,7 @@
 
 ;;; [ prettify-symbols-mode ]
 
+;; TODO:
 ;; (setq prettify-symbols-alist '(("lambda" . 955)))
 
 (global-prettify-symbols-mode 1)
@@ -472,11 +473,11 @@
 ;;; 1. if you want to set it globally
 (global-pretty-mode t)
 ;;; 2. if you want to set it only for a specific mode
-(dolist (hook '(prog-mode-hook
-                lisp-mode-hook emacs-lisp-mode-hook scheme-mode-hook
-                ruby-mode-hook enh-ruby-mode-hook
-                org-mode-hook markdown-mode-hook))
-  (add-hook hook 'turn-on-pretty-mode))
+;; (dolist (hook '(prog-mode-hook
+;;                 lisp-mode-hook emacs-lisp-mode-hook scheme-mode-hook
+;;                 ruby-mode-hook enh-ruby-mode-hook
+;;                 org-mode-hook markdown-mode-hook))
+;;   (add-hook hook 'turn-on-pretty-mode))
 
 
 
