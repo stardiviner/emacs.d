@@ -190,9 +190,10 @@
 
 (define-key js3-mode-map [f5] 'slime-js-reload)
 
-(add-hook 'js3-mode-hook
-          (lambda ()
-            (slime-js-minor-mode 1)))
+;; (add-hook 'js3-mode-hook
+;;           (lambda ()
+;;             ; (slime-js-minor-mode 1)
+;;             ))
 
 (add-hook 'css-mode-hook
           (lambda ()
