@@ -52,6 +52,11 @@
 (define-key my-tools-prefix-map (kbd "s") 'speak-map)
 
 (define-key speak-map (kbd "s") 'festival-read)
+(define-key speak-map (kbd "r") 'festival-read-region)
+(define-key speak-map (kbd "b") 'festival-read-buffer)
+(define-key speak-map (kbd "f") 'festival-read-file)
+(define-key speak-map (kbd "i") 'festival-say)
+
 
 
 
