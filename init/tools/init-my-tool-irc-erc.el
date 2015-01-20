@@ -465,6 +465,9 @@
 
 (require 'bbdb2erc)
 
+(define-key bbdb-mode-map (kbd "i") 'bbdb-insert-field)
+(define-key bbdb-mode-map (kbd "I") 'bbdb2erc-online-status)
+
 
 ;;; [ Input ]
 
