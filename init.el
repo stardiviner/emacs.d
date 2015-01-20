@@ -208,6 +208,7 @@
 (require 'init-my-prog-lint)
 (require 'init-my-prog-comment)
 (require 'init-my-prog-electric)
+(require 'init-my-prog-regexp)
 (require 'init-my-prog-tags)
 (require 'init-my-prog-sidebar)
 (require 'init-my-prog-snippet)
@@ -215,7 +216,7 @@
 (require 'init-my-prog-compile)
 (require 'init-my-prog-project)
 (require 'init-my-prog-vcs)
-(require 'init-my-prog-regexp)
+(require 'init-my-prog-bug-track-system)
 
 
 
