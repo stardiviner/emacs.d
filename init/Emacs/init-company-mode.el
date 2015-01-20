@@ -49,6 +49,20 @@
                                                 company-keywords)
                                  company-files))
 
+;; (setq company-backends '(company-elisp
+;;                          company-eclim
+;;                          company-semantic company-clang  company-cmake
+;;                          company-capf
+;;                          company-ropemacs
+;;                          company-nxml company-css
+;;                          company-xcode
+;;                          company-bbdb
+;;                          (company-dabbrev-code company-yasnippet company-gtags company-etags company-keywords)
+;;                          company-files company-dabbrev company-abbrev
+;;                          company-oddmuse
+;;                          ;; company-ispell
+;;                          ))
+
 ;;; mode local backends example:
 ;; (add-hook 'js-mode-hook
 ;;           (lambda ()
@@ -60,7 +74,13 @@
 ;;                                c-scope-operator c-electric-colon c-electric-lt-gt c-electric-slash
 ;;                                ))
 
-;; To use company-mode in all buffers, add the following line to your init file:
+(setq company-frontends '(company-pseudo-tooltip-unless-just-one-frontend
+                          company-preview-if-just-one-frontend
+                          company-echo-metadata-frontend
+                          ))
+
+
+;;; To use company-mode in all buffers, add the following line to your init file:
 ;; (unless (featurep 'auto-complete)
 ;;   (message "auto-complete isn't enabled, active company-mode instead.")
 ;;   (add-hook 'after-init-hook 'global-company-mode)
@@ -109,6 +129,17 @@
 (define-key company-active-map [tab] 'yas-expand)
 
 ;; navigation
+(add-hook 'after-init-hook 'global-company-mode)
+(diminish 'company-mode)
+
+;;; help document preview & popup
+;; https://gist.github.com/dgutov/6dd7669697c5c0cd7e8f
+(require 'company-quickhelp)
+(setq company-quickhelp--delay 0.2)
+
+;; keybindings
+;; (global-set-key (kbd "<tab>") 'company-complete)
+
 (define-key company-active-map (kbd "C-n") 'company-select-next)
 (define-key company-active-map (kbd "C-p") 'company-select-previous)
 (define-key company-active-map (kbd "C-j") 'company-complete-selection)
@@ -188,6 +219,48 @@
 ;;    `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
 ;;    `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
 
+;; faces
+(set-face-attribute 'company-tooltip nil
+                    :foreground "black" :background "white"
+                    :weight 'normal :slant 'normal)
+(set-face-attribute 'company-tooltip-selection nil
+                    :inherit 'company-tooltip
+                    :foreground "white" :background "#212121")
+(set-face-attribute 'company-tooltip-mouse nil
+                    :inherit 'company-tooltip
+                    :foreground "cyan" :background "black"
+                    :weight 'bold)
+(set-face-attribute 'company-tooltip-common nil
+                    :inherit 'company-tooltip
+                    :foreground "dark gray")
+(set-face-attribute 'company-tooltip-common-selection nil
+                    :inherit 'company-tooltip-common
+                    :inverse-video nil
+                    :foreground "white" :background " ")
+(set-face-attribute 'company-tooltip-search nil
+                    :inherit 'company-tooltip
+                    :foreground "red")
+(set-face-attribute 'company-tooltip-annotation nil
+                    :inherit 'company-tooltip
+                    :foreground "dark red")
+(set-face-attribute 'company-scrollbar-fg nil
+                    :foreground "black" :background "black")
+(set-face-attribute 'company-scrollbar-bg nil
+                    :foreground " " :background "gray")
+(set-face-attribute 'company-preview nil
+                    :foreground "black" :background "dark gray"
+                    )
+
+;; color quick hack
+;; (require 'color)
+;; (let ((bg (face-attribute 'default :background)))
+;;   (custom-set-faces
+;;    `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 2)))))
+;;    `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 10)))))
+;;    `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 5)))))
+;;    `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
+;;    `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
+
 
 ;; TODO:
 ;; company-prefix is for "inline" displayed first matched candidate.
@@ -212,6 +285,7 @@
 
 
 ;;; 2. Another code for solving conflicts in Company and Yasnippet.
+;;; Another code for solving conflicts in Company and Yasnippet.
 ;;
 ;; (defun check-expansion ()
 ;;   (save-excursion
