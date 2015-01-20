@@ -47,8 +47,10 @@
 
 
 
-;; (require 'init-ido)
-(require 'init-helm)
+(if (featurep 'helm)
+    (require 'init-helm)
+  (require 'init-ido))
+
 (require 'init-auto-complete)
 ;; (require 'init-company-mode)
 
