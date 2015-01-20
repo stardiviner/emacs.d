@@ -363,6 +363,12 @@
 
 
 ;;; set default auto-complete source
+
+;;; If you want to enable yasnippet completion in all modes, please add
+;;; yasnippet source to `ac-sources' with `setq-default'.
+;;
+;; (setq-default ac-sources (push 'ac-source-yasnippet ac-sources))
+
 (setq-default ac-sources
               '(;; snippet
                 ac-source-yasnippet
