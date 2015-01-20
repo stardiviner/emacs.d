@@ -70,6 +70,9 @@
 
 ;;; [ mumamo-noweb ] -- multiple major modes
 
+
+;;; [ polymode ] -- Object oriented framework for multiple emacs modes based on indirect buffers.
+
 
 
 

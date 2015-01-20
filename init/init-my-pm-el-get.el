@@ -97,6 +97,7 @@
          apropos+
          ;;; multiple major modes
          mmm-mode ; mumamo-noweb
+         ;; polymode ; https://github.com/vspinu/polymode
          ;; shell
          ;; readline-complete
          eshell-manual
