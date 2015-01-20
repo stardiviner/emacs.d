@@ -44,6 +44,18 @@
 
 ;;; TODO: add un-included programming modes into `prog-mode' alist variable.
 
+
+;;; Turn a non prog-mode derived major-mode into a prog-mode derived major-mode.
+;;;
+;;; You should place this after anything else you add to erlang-mode-hook to make
+;;; sure prog-mode-hook gets called before anything else. That way erlang-mode
+;;; can clobber any settings in prog-mode that it doesn't like.
+;;
+;; (add-hook 'ruby-mode-hook
+;;           (lambda ()
+;;             (unless (derived-mode-p 'prog-mode))
+;;             (run-hooks 'prog-mode-hook)))
+
 
 ;;; [ subword-mode ] -- editing code WithCamelCaseWritingLikeThis
 

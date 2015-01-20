@@ -1882,8 +1882,9 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;;
 ;; TODO: read https://github.com/gjkerns/ob-julia/blob/master/ob-julia-doc.org
 ;;
+(setq inferior-julia-program-name "julia")
 ;; 1.
-;; (load "/path/to/ob-julia.el")
+;; (load "~/.emacs.d/el-get/ob-julia/ob-julia.el")
 ;; 2.
 (add-to-list 'load-path "~/.emacs.d/el-get/ob-julia/ob-julia.el")
 (org-babel-do-load-languages
@@ -2391,6 +2392,10 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
       )
 
 (define-key my-org-prefix-map (kbd "s") 'org-screenshot-take)
+
+;; TODO: Emacs need to prompt user to get the screenshot filename to describe this screenshot.
+;; 1. improve org-screenshot source code.
+;; 2. add custom function. or defadvice.
 
 ;;;_* org-pomodoro
 

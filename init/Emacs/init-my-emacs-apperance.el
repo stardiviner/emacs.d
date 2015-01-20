@@ -135,6 +135,13 @@
 
 ;; - (info "(elisp) Layout Parameters")
 
+;; (let ((display-table (or standard-display-table (make-display-table))))
+;;   (set-display-table-slot display-table 'vertical-border (make-glyph-code ?┃))
+;;   (setq standard-display-table display-table))
+
+;; (set-face-attribute 'vertical-border nil
+;;                     :width 1)
+
 
 ;;; [ Window ]
 (setq window-min-height 4

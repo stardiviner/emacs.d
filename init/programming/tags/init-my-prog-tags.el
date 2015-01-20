@@ -165,10 +165,11 @@ For project directory with Projectile root."
 ;;; to etag selection, but works only for the open buffers. This is often more
 ;;; convenient as you don't have to explicitly build the etags table.
 
-(if (featurep 'imenu-anywhere)
-    (if (featurep 'helm)
-        (global-set-key (kbd "C-.") 'helm-imenu-anywhere)
-      (global-set-key (kbd "C-.") 'imenu-anywhere)))
+;; FIXME: keybinding [C-.] is still token by flyspell.
+;; (if (featurep 'imenu-anywhere)
+;;     (if (featurep 'helm)
+;;         (global-set-key (kbd "C-.") 'helm-imenu-anywhere)
+;;       (global-set-key (kbd "C-.") 'imenu-anywhere)))
 
 
 

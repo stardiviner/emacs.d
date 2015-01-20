@@ -59,7 +59,6 @@
 (define-key my-bbdb-map (kbd "h") 'helm-bbdb)
 
 (setq bbdb-file (expand-file-name "~/Org/BBDB/bbdb")
-      bbdb-completion-display-record t
       bbdb-image 'name ; display records with an image.
       bbdb-image-path (expand-file-name "~/Org/BBDB/avatars/")
       ;; bbdb-image-suffixes '(".png" ".jpg" ".gif" ".xpm")

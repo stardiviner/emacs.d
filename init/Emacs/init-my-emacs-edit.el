@@ -62,6 +62,8 @@
 (setq query-replace-highlight t
       query-replace-lazy-highlight t
       query-replace-show-replacement t
+      ;; TODO: added in Emacs 25.
+      ;; query-replace-from-to-separator
       )
 
 ;;;_ Electric
