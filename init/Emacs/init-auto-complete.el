@@ -374,9 +374,9 @@
                 ;; filename
                 ac-source-filename
                 ac-source-files-in-current-dir
-                ;; programming
                 ;; complete-at-point-function (capf)
                 ac-source-capf
+                ;; programming
                 ;; semantic
                 ;; ac-source-semantic
                 ;; ac-source-semantic-raw
