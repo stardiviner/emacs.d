@@ -1146,8 +1146,9 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
          :empty-lines 1)
         
         ;; org-passwords
+        ;; FIXME:
         ("p" "password"
-         entry (file "~/Git/dotfiles/passwords.gpg")
+         entry (file+headline "~/Git/dotfiles/passwords.gpg" "Accounts")
          "* %^{Title}\n  %^{URL}p %^{USERNAME}p %^{PASSWORD}p %^{EMAIL}p"
          :empty-lines 1)
 
@@ -1165,7 +1166,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
          "\n* FEATURE %^{prompt}\n\n%i\n\n%?\n\n"
          :empty-lines 1)
         
-        ;; knowledge
+        ;; knowledge & Wiki
         ;; thought
         ;; "~/Org/Wiki/Wiki/Thought/Thought.org" "My Thought"
         ))
