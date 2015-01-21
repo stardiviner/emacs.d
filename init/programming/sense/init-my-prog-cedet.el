@@ -12,7 +12,8 @@
 
 ;;; [ CEDET ] --- a Collection of Emacs Development Environment Tools
 
-;; (load-file "~/Libraries/Emacs/cedet/common/cedet.el")
+;; load latest user CEDET instead of Emacs default built-in CEDET.
+;; (load-file (concat user-emacs-directory "el-get/cedet/cedet-devel-load.el"))
 
 (require 'cedet)
 
@@ -21,21 +22,22 @@
 
 (require 'semantic)
 
-;; (semantic-mode t) ; this should be placed *BEFORE* the statements which activate ECB.
-(autoload 'semantic-mode "semantic mode" nil t)
+
+;;; minimum setup
+;; (global-semantic-idle-scheduler-mode 1)
+;; (global-semanticdb-minor-mode 1)
+
+;; or
+;; (add-hook 'semantic-init-hooks 'semantic-idle-completions-mode)
+
+
+(global-semantic-idle-scheduler-mode 1)
+(global-semanticdb-minor-mode 1)
 
 ;; I already put this in init-my-prog-ecb.el
 ;; alternative: This is a smarter way when you need semantic only if ECB is active.
 ;; (add-hook 'ecb-before-activate-hook
 ;;           (lambda () (semantic-mode 1)))
-
-
-;;; minimum setup
-(global-semantic-idle-scheduler-mode 1)
-(global-semanticdb-minor-mode 1)
-
-;; or
-(add-hook 'semantic-init-hooks 'semantic-idle-completions-mode)
 
 
 ;;; [ Non-semantic files ]
