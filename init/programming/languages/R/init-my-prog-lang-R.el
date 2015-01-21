@@ -17,6 +17,7 @@
 ;;
 ;; - [M-x ess-version] :: check out ESS version.
 ;; - Start an ESS process.
+;;   - [M-x ESS RET] :: start ESS session.
 ;;   - [M-x S RET] :: start S session.
 
 ;; (add-to-list 'load-path "~/.emacs.d/el-get/ess/lisp/")
@@ -133,6 +134,10 @@
 ;; (add-hook 'after-init-hook 'R)
 
 (define-key my-inferior-ess-map (kbd "r") 'R)
+
+
+;;; TODO: startup start ESS process
+
 
 
 ;;; [ ac-R ]
