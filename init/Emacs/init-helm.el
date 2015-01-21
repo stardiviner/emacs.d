@@ -69,9 +69,21 @@
 
 (setq helm-command-prefix-key "C-x c" ; for `helm-command-prefix'.
       helm-mini-default-sources '(helm-source-buffers-list
-                                  helm-source-recentf
-                                  helm-source-bookmarks
                                   helm-source-buffer-not-found
+                                  helm-source-recentf
+                                  ;; helm-source-filter
+                                  ;; helm-source-bookmarks
+                                  helm-source-pp-bookmarks
+                                  helm-source-session
+                                  helm-source-projectile-projects
+                                  helm-source-occur
+                                  ;; helm-source-grep
+                                  ;; helm-source-regexp
+                                  ;; helm-source-gtags-tags
+                                  ;; helm-source-time-world
+                                  ;; helm-source-tracker-search
+                                  ;; helm-source-wikipedia-suggest
+                                  ;; helm-source-google-suggest
                                   )
       )
 
