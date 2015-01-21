@@ -315,8 +315,9 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (push '("*SDCV*" :position bottom :height 15) popwin:special-display-config)
 
 ;; bm.el
-(push '("*bm-bookmarks*" :position bottom :height 15) popwin:special-display-config)
+;;; TODO:
 (push '(bm-show-mode :position bottom :height 15) popwin:special-display-config)
+(push '("*bm-bookmarks*" :position bottom :height 15) popwin:special-display-config)
 
 ;; display-time-world
 (push '("*wclock*" :position bottom :height 10) popwin:special-display-config)

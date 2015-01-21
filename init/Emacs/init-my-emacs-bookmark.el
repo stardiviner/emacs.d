@@ -7,14 +7,29 @@
 
 ;;; Code:
 
+;; [ Bookmark ]
 ;;; Emacs built-in bookmark
 
 ;;; Usage
 ;;; - [C-x r m] :: mark bookmark.
 ;;; - [C-x r b] :: jump to bookmark.
 ;;; - [C-x r l] :: list bookmarks.
+;;   - a -- show annotation for current bookmark
+;;   - A -- show all annotations
+;;   - d -- mark as delete
+;;   - e -- edit the annotation for current bookmark
+;;   - m -- mark various entries for display and other operations
+;;   - o -- visit the current bookmark in another window, keeping the bookmark list open
+;;   - C-o -- switch to the current bookmark in another window
+;;   - r -- rename the current bookmark
+;;   - x -- execute marked status actions
+;; - [M-x bookmark-set] -- add current page into bookmark
 
+;; (require 'bookmark)
 (setq-default bookmark-default-file (expand-file-name "bookmarks.el" user-emacs-directory))
+
+(setq bookmark-save-flag 1)
+
 
 
 ;;; [ bm.el ]

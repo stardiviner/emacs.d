@@ -68,6 +68,11 @@
 (diminish 'helm-mode)
 
 (setq helm-command-prefix-key "C-x c" ; for `helm-command-prefix'.
+      helm-mini-default-sources '(helm-source-buffers-list
+                                  helm-source-recentf
+                                  helm-source-bookmarks
+                                  helm-source-buffer-not-found
+                                  )
       )
 
 ;;; work with ido and helm together.
@@ -206,6 +211,8 @@
 ;; Bookmark
 ;; Helm bookmarks [C-x C-x r b]
 ;; (helm-highlight-bookmark)
+
+(setq helm-bookmark-show-location t)
 
 ;; Firefox bookmarks [C-x C-x]
 ;; NOTE config your firefox `about:config' to enable:

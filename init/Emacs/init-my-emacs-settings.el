@@ -109,25 +109,6 @@
 ;; - [M-x append-to-register RET r]
 ;; - [M-x prepend-to-register RET r]
 
-
-;; [ Bookmark ]
-;; Usage:
-;; - [C-x r m] -- mark as a bookmark
-;; - [C-x r b] -- jump to a bookmark
-;; - [C-x r l] -- list your bookmarks
-;;   - a -- show annotation for current bookmark
-;;   - A -- show all annotations
-;;   - d -- mark as delete
-;;   - e -- edit the annotation for current bookmark
-;;   - m -- mark various entries for display and other operations
-;;   - o -- visit the current bookmark in another window, keeping the bookmark list open
-;;   - C-o -- switch to the current bookmark in another window
-;;   - r -- rename the current bookmark
-;;   - x -- execute marked status actions
-;; - [M-x bookmark-set] -- add current page into bookmark
-(require 'bookmark)
-(setq bookmark-default-file "~/.emacs.d/my-init/bookmarks.bmk")
-(setq bookmark-save-flag 1)
 
 
 ;;; [ macro ]
