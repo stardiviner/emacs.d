@@ -36,12 +36,6 @@
             (linum-mode -1)))
 
 
-
-;;; startup in Emacs
-;; (sr-speedbar-open)
-;; ;; called after `sr-speedbar-open'
-;; (with-current-buffer sr-speedbar-buffer-name
-;;   (setq window-size-fixed 'width))
 
 
 (defun my-sr-speedbar-toggle-and-switch ()
