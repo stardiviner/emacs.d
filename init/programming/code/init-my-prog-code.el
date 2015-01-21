@@ -86,6 +86,16 @@
 
 ;; (require 'glasses-mode)
 
+
+;;; [ Hexadecimal ]
+
+
+
+
+;;; [ hexl-mode ]
+
+;; (setq hexl-follow-ascii t
+;;       )
 
 
 (provide 'init-my-prog-code)
