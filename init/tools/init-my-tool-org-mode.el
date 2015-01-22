@@ -1897,6 +1897,11 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
  'org-babel-load-languages
  '((julia . t)))
 
+;; (setq org-babel-julia-eoe-indicator "print(\"org_babel_julia_eoe\")")
+(setq org-babel-default-header-args:julia
+      '((:results . "replace output")
+        (:padnewline . "yes")))
+
 (setq org-confirm-babel-evaluate t)     ; org-babel-evaluate confirm.
 (setq org-babel-no-eval-on-ctrl-c-ctrl-c nil)
 (setq org-confirm-shell-link-function 'yes-or-no-p)
