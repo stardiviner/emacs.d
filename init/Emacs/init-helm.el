@@ -74,9 +74,9 @@
                                   ;; helm-source-filter
                                   ;; helm-source-bookmarks
                                   helm-source-pp-bookmarks
-                                  helm-source-session
-                                  helm-source-projectile-projects
-                                  helm-source-occur
+                                  ;; helm-source-session
+                                  ;; helm-source-projectile-projects
+                                  ;; helm-source-occur
                                   ;; helm-source-grep
                                   ;; helm-source-regexp
                                   ;; helm-source-gtags-tags
