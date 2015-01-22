@@ -10,6 +10,16 @@
 ;;; [ Calc ]
 
 ;;; Usage:
+;;;
+;;; - [M-x calc] --run calc.
+;;; - [C-x * c] -- start calculator.
+;;;     - press ' to start Algebra input. e.g. ' sqrt(2+3) <RET>
+;;; Standard user interface
+;;; Quick mode interface
+;;; Keypad mode interface
+;;; - [C-x * k] -- keypad mode.
+;;;     - click on those keypad buttons.
+;;; Embedded mode
 ;;
 ;; - [' 1+1 RET] :: Algebraic style.
 ;; - [1 RET 3 +] :: RPN style.
@@ -30,6 +40,8 @@
 ;;
 ;; - Plot
 ;;   - [g p] :: graph-plot.
+
+(autoload 'calc "calc :: a calculator" t)
 
 (setq calc-complex-format 'i            ; complex number style: x + yi.
       )

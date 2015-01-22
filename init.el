@@ -169,7 +169,6 @@
 ;; (require 'init-my-emacs-calendar)
 (require 'init-my-emacs-vcs)
 (require 'init-my-emacs-shell)
-(require 'init-my-emacs-calculator)
 (require 'init-my-emacs-encrypt)
 (require 'init-my-emacs-customize)
 (require 'init-my-emacs-tabulate)
