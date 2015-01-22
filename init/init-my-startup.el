@@ -160,13 +160,13 @@
 
 ;;; startup sr-speedbar in Emacs
 
-(add-hook 'after-init-hook 'sr-speedbar-toggle) ; `sr-speedbar-open'
-
-;;; called after `sr-speedbar-open'
-(with-current-buffer sr-speedbar-buffer-name
-  (setq window-size-fixed 'width))
-;;; FIXME: how to make it use the whole height of Emacs fixed height, instead of
-;;; current window height. just as a dock window type.
+;; (add-hook 'after-init-hook 'sr-speedbar-toggle) ; `sr-speedbar-open'
+;;
+;; ;;; called after `sr-speedbar-open'
+;; (with-current-buffer sr-speedbar-buffer-name
+;;   (setq window-size-fixed 'width))
+;; ;;; FIXME: how to make it use the whole height of Emacs fixed height, instead of
+;; ;;; current window height. just as a dock window type.
 
 
 ;;; Email - mu4e
