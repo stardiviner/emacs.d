@@ -905,13 +905,13 @@
 ;;         ("date:7d..now" "Last 7 days" ?w)
 ;;         ("mime:image/*" "Messages with images" ?p)))
 (setq mu4e-bookmarks
-             '(("size:5M..500M"       "Big messages"       ?b) ; big
-               ("date:today..now"     "Today's messages"     ?d) ; today
-               ("date:today..now flag:unread" "Today's unread messages" ?n) ; new messages.
-               ("date:1w..now"        "This week's messages" ?w) ; week
-               ;; TODO: ("references:.*@stardiviner" "The mail reply to my thread" ?m) ; reply to my thread.
-               ("maildir:/Emacs/help"  "Emacs mailbox" ?e) ; Email mailbox.
-               ))
+      '(("size:5M..500M"                 "Big messages"       ?b)
+        ("date:today..now"               "Today's messages"     ?d)
+        ("date:today..now flag:unread"   "Today's unread messages" ?n)
+        ("date:1w..now"                  "This week's messages" ?w)
+        ;; FIXME: ("references:.*@stardiviner"     "The mail reply to my thread" ?m)
+        ("maildir:/Emacs/help"           "Emacs mailbox" ?e)
+        ))
 
 (add-hook 'mu4e-index-updated-hook
           (defun mu4e-new-mail-alert ()
