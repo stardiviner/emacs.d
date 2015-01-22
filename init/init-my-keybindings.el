@@ -2,6 +2,16 @@
 ;;
 ;;; Commentary:
 
+;; A key binding is a mapping (relation) between an Emacs command and a key
+;; sequence. The same command can be bound to more than one key sequence. A
+;; given key sequence is the binding of at most one command in any given context
+;; (e.g. any given buffer). The same key sequence can be bound to different
+;; commands in different contexts and different keymaps.
+
+;; A keymap is a collection of key bindings, so it is a mapping (relation)
+;; between Emacs commands and key sequences. A keymap can be global, local, or
+;; applicable only to a minor mode.
+
 ;;; Code:
 
 ;;; Fn[1~12]

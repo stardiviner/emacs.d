@@ -686,18 +686,23 @@ It can contain any number of symbols, which will be repeated."
         ;; Wiki
         ("Wikipedia" . "http://en.wikipedia.org/w/index.php?search=%s")
         ("Wikia" . "http://www.wikia.com/index.php?search=%s")
-        ("Baidu Baike" . "http://baike.baidu.com/search/none?word=%s")
+        ("Baidu Wiki 百度百科" . "http://baike.baidu.com/search/none?word=%s")
         ;; Q & A
         ("Quora" . "https://www.quora.com/search?q=%s")
-        ("Stack Overflow" . "http://stackoverflow.com/search?q=%s")
-        ("知乎" . "http://www.zhihu.com/search?q=%s&type=question")
-        ("Baidu 知道" . "http://zhidao.baidu.com/search?word=%s")
-        ("Baidu 经验" . "http://jingyan.baidu.com/search?word=%s")
+        ("ZhiHu 知乎" . "http://www.zhihu.com/search?q=%s&type=question")
+        ("Baidu Know 知道" . "http://zhidao.baidu.com/search?word=%s")
+        ("Baidu Experience 百度经验" . "http://jingyan.baidu.com/search?word=%s")
         ;; Maps
         ("Google Maps" . "http://maps.google.com/maps?q=%s")
-        ;; Emacs
-        ("Emacs Wiki" . "https://duckduckgo.com/?q=%s+site%3Aemacswiki.org")
         ;; Programming
+        ("Stack Exchange - Stack Overflow" . "http://stackoverflow.com/search?q=%s")
+        ("Stack Exchange - Programmers" . "http://programmers.stackexchange.com/search?q=%s")
+        ;; Emacs
+        ("Emacs Wiki" . "www.emacswiki.org/emacs?search=%s")
+        ("Stack Exchange - Emacs" . "http://emacs.stackexchange.com/search?q=%s")
+        ;; Document Search
+        ;; API Search
+        ("{API}Search apis.io" . "http://apis.io/?search=%s")
         ;; Code Search
         ("search code" . "http://searchcode.com/?q=%s")
         ("GitHub" . "https://github.com/search?q=%s")
@@ -727,15 +732,15 @@ It can contain any number of symbols, which will be repeated."
         ;; PHP
         ("PHP online documentation" . "http://cn2.php.net/results.php?q=%s&p=manual")
         ;; Bug
-        ("bug" . "http://bugzilla/show_bug.cgi?id=%s")
+        ("Bugzilla" . "http://bugzilla/show_bug.cgi?id=%s")
         ;; Book
-        ("豆瓣读书" . "http://book.douban.com/subject_search?search_text=%s")
+        ("DouBan Books 豆瓣读书" . "http://book.douban.com/subject_search?search_text=%s")
         ;; Movie
-        ("豆瓣电影" . "http://movie.douban.com/subject_search?search_text=%s")
+        ("DouBan Movies 豆瓣电影" . "http://movie.douban.com/subject_search?search_text=%s")
         ;; The Pirate Bay
         ("The Pirate Bay (海盗湾)" . "http://thepiratebay.se/search/%s")
         ;; Shopping
-        ("TaoBao" . "http://s.taobao.com/search?q=%s")
+        ("TaoBao 淘宝" . "http://s.taobao.com/search?q=%s")
         ))
 
 ;; Add the following bit of code to your startup (after loading org),
