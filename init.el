@@ -197,7 +197,7 @@
 (require 'init-my-tool-paste)
 (require 'init-my-tool-blog)
 ;;; IRC
-(require 'init-my-tool-irc-erc)
+;; (require 'init-my-tool-irc-erc)
 (require 'init-my-tool-diagram)
 (require 'init-my-tool-speak)
 ;; (require 'init-my-tool-w3m)
@@ -231,7 +231,7 @@
 (require 'init-my-prog-lang-emacs-lisp)
 (require 'init-my-prog-lang-common-lisp)
 ;; (require 'init-my-prog-lang-guile)
-(require 'init-my-prog-lang-clojure)
+;; (require 'init-my-prog-lang-clojure)
 (require 'init-my-prog-lang-ruby)
 ;; (require 'init-my-prog-lang-python)
 ;; (require 'init-my-prog-lang-C-common)
@@ -245,15 +245,15 @@
 (require 'init-my-prog-lang-xml)
 (require 'init-my-prog-lang-json)
 ;; (require 'init-my-prog-lang-haskell)
-(require 'init-my-prog-lang-erlang)
+;; (require 'init-my-prog-lang-erlang)
 (require 'init-my-prog-lang-R)
 (require 'init-my-prog-lang-gnuplot)
 ;; (require 'init-my-prog-lang-octave)
 ;; (require 'init-my-prog-lang-matlab)
-(require 'init-my-prog-lang-tex)
-(require 'init-my-prog-lang-prolog)
+;; (require 'init-my-prog-lang-tex)
+;; (require 'init-my-prog-lang-prolog)
 ;; (require 'init-my-prog-lang-verilog)
-(require 'init-my-prog-lang-assembly)
+;; (require 'init-my-prog-lang-assembly)
 
 
 ;;; Frameworks
