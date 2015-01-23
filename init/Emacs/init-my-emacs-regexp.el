@@ -12,13 +12,33 @@
 ;;; Usage:
 ;; - [M-x regexp-builder] -- start regexp-builder
 ;; - [C-c C-q] -- quit regexp-builder window.
+
 (require 're-builder)
 (autoload 're-builder "re-builder" t)
 
 (define-key my-regexp-prefix-map (kbd "b") 're-builder)
 
 
-;;; [ visual-regexp ] -- visual-regexp for Emacs is like `replace-regexp' (or `query-replace-regexp'), but with live visual feedback directly in the buffer.
+;;; [ re-builder+ ]
+;; (unless (package-installed-p 're-builder+)
+;;   (package-install 're-builder+))
+;; (require 're-builder+)
+;; TODO what's the difference for 'read, 'string and 'rx.
+;; (setq reb-re-syntax 'read) ; 'read, 'string, 'rx
+
+
+;;; [ rx ]
+
+;;; regex-tool
+;; https://github.com/jwiegley/regex-tool
+
+
+
+;;; [ visual-regexp ] --
+
+;;; visual-regexp for Emacs is like `replace-regexp' (or
+;;; `query-replace-regexp'), but with live visual feedback directly in the
+;;; buffer.
 
 (require 'visual-regexp)
 ;;; [ visual-regexp-steroids.el ] -- Extends visual-regexp to support other regexp engines.
