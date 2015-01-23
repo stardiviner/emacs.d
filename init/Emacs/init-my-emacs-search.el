@@ -38,6 +38,7 @@
 ;; - [C-M-%] – Start a regular-expression query replace using the current search
 ;;   string.
 
+;; (setq isearch-lazy-highlight-??)
 
 ;;; swap isearch with isearch-regexp.
 ;; replace [C-s] default (isearch-forward), press [M-r] to toggle isearch-regexp.
@@ -56,7 +57,6 @@
 
 ;; (setq isearchp-set-region-flag nil
 ;;       isearchp-restrict-to-region-flag t
-;;       ;; isearchp-restrict-to-region-flag
 ;;       )
 
 
@@ -72,6 +72,7 @@
 
 (global-set-key (kbd "C-s") 'vr/isearch-forward)
 (global-set-key (kbd "C-r") 'vr/isearch-backward)
+(global-set-key (kbd "M-%") 'vr/replace)
 
 (define-key my-search-prefix-map (kbd "r") 'vr/replace)
 (define-key my-search-prefix-map (kbd "q") 'vr/query-replace)
