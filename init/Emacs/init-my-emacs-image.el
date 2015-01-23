@@ -7,8 +7,10 @@
 
 ;;; Code:
 
-
 ;;; [ auto-image-file-mode ]
+
+;; (setq image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "pbm" "pgm" "ppm" "pnm" "svg"))
+
 (auto-image-file-mode t) ;; auto display image
 
 
