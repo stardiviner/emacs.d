@@ -40,8 +40,8 @@
                 
                 ;; window-number
                 (:propertize (:eval (window-number-string))
-                             face (:foreground "orange red" :weight 'bold
-                                               ;; :box (:color "cyan")
+                             face (:foreground "red" :weight 'bold
+                                               :box (:color "green yellow")
                                                ))
 
                 (:propertize " ")
@@ -210,14 +210,16 @@
 
             '(:propertize " ["
                           face (:foreground "red" :weight 'bold))
-            '(:propertize "wg:")
+            '(:propertize "wg:"
+                          face (:foreground "black"))
             ;; workgroups2
             '(:propertize (:eval ; `wg-mode-line-display-on'
                            (wg-mode-line-string))
                           face (:foreground "yellow"))
             '(:propertize " § "
                           face (:foreground "red"))
-            '(:propertize "P:")
+            '(:propertize "P:"
+                          face (:foreground "black"))
             ;; projectile
             '(:propertize projectile-mode-line
                           face (:foreground "cyan"))
