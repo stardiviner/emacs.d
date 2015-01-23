@@ -551,12 +551,12 @@ It can contain any number of symbols, which will be repeated."
 ;; - in buffer + [M-TAB]
 ;; - in minibuffer
 
-;; more smart org completion option.
-(if (featurep 'ido-vertical-mode)
-    (setq org-completion-use-ido t)
-  (setq org-completion-use-ido nil)
-  (setq org-completion-use-iswitchb t)
-  (setq org-completion-fallback-command 'hippie-expand))
+;;; more smart org completion option.
+;; (if (featurep 'ido-vertical-mode)
+;;     (setq org-completion-use-ido t)
+;;   (setq org-completion-use-ido nil)
+;;   (setq org-completion-use-iswitchb t)
+;;   (setq org-completion-fallback-command 'hippie-expand))
 
 ;;;_*, org-pcomplete
 
