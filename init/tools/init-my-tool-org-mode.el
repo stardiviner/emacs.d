@@ -677,7 +677,8 @@ It can contain any number of symbols, which will be repeated."
 
 ;; TODO add more link abbrev into this variable.
 (setq org-link-abbrev-alist ; Usage: In [C-c C-l] insert link completion.
-      '(;; search engines
+      '(("RFC" . "https://www.rfc-editor.org/search/rfc_search_detail.php?rfc=%s")
+        ;; search engines
         ("Google" . "http://www.google.com/search?q=%s")
         ("google" . "http://www.google.com/search?q=%s")
         ("DuckDuckGo" . "https://duckduckgo.com/?q=%s")
