@@ -355,21 +355,6 @@
 ;; ;; (ace-isearch-mode +1)
 ;; (global-ace-isearch-mode +1)
 
-
-;;; Search Keybind
-
-;; Occur search the full list of keybinds & their commands. Very helpful for
-;; learning and remembering forgotten binds.
-
-(defun search-keybind (regexp &optional nlines)
-  (interactive (occur-read-primary-args))
-  (save-excursion
-    (describe-bindings)
-    (set-buffer "*Help*")
-    (occur regexp nlines)
-    (delete-windows-on "*Help*")))
-
-(define-key my-search-prefix-map (kbd "K") 'search-keybind)
 
 
 ;;; [ awk-it ] -- run AWK interactively on region!

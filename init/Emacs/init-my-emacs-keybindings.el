@@ -7,6 +7,22 @@
 
 ;;; Code:
 
+;;; Search Keybindings
+
+;; Occur search the full list of keybinds & their commands. Very helpful for
+;; learning and remembering forgotten binds.
+
+(defun search-keybind (regexp &optional nlines)
+  (interactive (occur-read-primary-args))
+  (save-excursion
+    (describe-bindings)
+    (set-buffer "*Help*")
+    (occur regexp nlines)
+    (delete-windows-on "*Help*")))
+
+(define-key my-search-prefix-map (kbd "K") 'search-keybind)
+
+
 ;;; stop using the arrow keys
 (global-unset-key [left])
 (global-unset-key [right])
