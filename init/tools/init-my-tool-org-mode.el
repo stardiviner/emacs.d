@@ -348,8 +348,8 @@ to insert <kbd>..</kbd> (HTML) org =[..]= (Org-mode)."
 ;;       (forward-char (if is-org-mode -15 -6)))))
 
 
-(define-key org-mode-map (kbd "C-c k") 'my/org-insert-kbd)
-(define-key org-mode-map (kbd "C-c K") 'my/org-insert-key)
+(define-key org-mode-map (kbd "C-c K") 'my/org-insert-kbd)
+(define-key org-mode-map (kbd "C-c k") 'my/org-insert-key)
 
 ;;; headline faces
 ;;; the ahead stars face when org indentation. (org-hide)
