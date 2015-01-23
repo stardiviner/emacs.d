@@ -41,9 +41,16 @@
                 ;; window-number
                 (:propertize (:eval (window-number-string))
                              face (:foreground "red" :weight 'bold
-                                               :box (:color "green yellow")
+                                               :box '(:color "green yellow")
                                                ))
 
+                (:propertize " ")
+                
+                ;; anzu
+                (:propertize (:eval (anzu--update-mode-line))
+                             face (:foreground "cyan" :weight 'bold
+                                               :box '(:color "deep pink")))
+                
                 (:propertize " ")
 
                 ;; mule info

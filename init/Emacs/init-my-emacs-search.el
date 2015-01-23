@@ -99,7 +99,8 @@
                                     vr/isearch-backward
                                     isearch-forward-regexp
                                     isearch-backward-regexp)
-      anzu--mode-line-format '(:eval (anzu--update-mode-line))
+      ;; anzu--mode-line-format '(:eval (anzu--update-mode-line)) ; add into my custom mode-line
+      anzu--mode-line-format ""
       ;; anzu-cons-mode-line-p
       ;; anzu-input-idle-delay 0.05
       anzu-deactivate-region nil
