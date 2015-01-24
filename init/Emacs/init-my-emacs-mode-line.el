@@ -218,7 +218,7 @@
             '(:propertize " ["
                           face (:foreground "red" :weight 'bold))
             '(:propertize "wg:"
-                          face (:foreground "black"))
+                          face (:foreground "dim gray"))
             ;; workgroups2
             '(:propertize (:eval ; `wg-mode-line-display-on'
                            (wg-mode-line-string))
@@ -226,7 +226,7 @@
             '(:propertize " § "
                           face (:foreground "red"))
             '(:propertize "P:"
-                          face (:foreground "black"))
+                          face (:foreground "dim gray"))
             ;; projectile
             '(:propertize projectile-mode-line
                           face (:foreground "cyan"))
