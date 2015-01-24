@@ -426,6 +426,11 @@ to insert <kbd>..</kbd> (HTML) org =[..]= (Org-mode)."
 (set-face-attribute 'org-link nil
                     :foreground "cyan"
                     :underline "dark cyan")
+;; <<target link>>
+(set-face-attribute 'org-target nil
+                    :foreground "orange" :background "black"
+                    :underline "red"
+                    :weight 'bold)
 
 ;; set Org clock face.
 ;; That is, make the org-mode-line-clock no longer inherit attributes from the
