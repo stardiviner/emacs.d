@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: target link
+# key: link_target
+# --
+[[file:::${1:target link string}][${2:link title}]]
+
+<<$1>>
