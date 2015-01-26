@@ -432,8 +432,8 @@
       git-gutter+-modified-sign "Ϟ"
       git-gutter+-unchanged-sign nil
       ;; git-gutter+-window-width 2 ; multiple characters is ok.
-      ;; |, ┇, ┋ ⋮ ¦ ┊ ┆ │ ┃ ‡ † ‖
-      ;; git-gutter+-separator-sign "│"
+      ;; | |, ┇, ┋ ⋮ ¦ ┊ ┆ │ │ ┃
+      git-gutter+-separator-sign ""
       )
 
 
