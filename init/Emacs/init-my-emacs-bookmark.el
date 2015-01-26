@@ -30,6 +30,19 @@
 
 (setq bookmark-save-flag 1)
 
+(unless (boundp 'my-bookmark-map)
+  (define-prefix-command 'my-bookmark-map))
+(global-set-key (kbd "C-x r b") 'my-bookmark-map)
+
+(global-unset-key (kbd "C-x r l"))
+(global-unset-key (kbd "C-x r m"))
+
+(define-key my-bookmark-map (kbd "b") 'bookmark-jump)
+(define-key my-bookmark-map (kbd "l") 'bookmark-bmenu-list)
+(define-key my-bookmark-map (kbd "a") 'bookmark-set)
+(define-key my-bookmark-map (kbd "M") 'bookmark-set)
+
+
 
 
 ;;; [ bm.el ]
@@ -45,7 +58,7 @@
 (global-set-key (kbd "<left-margin> <mouse-1>") 'bm-toggle-mouse)
 
 ;;; extend upper Emacs built-in bookmark mechanism.
-(global-set-key (kbd "C-x r h") 'bm-toggle)
+(define-key my-bookmark-map (kbd "m") 'bm-toggle)
 
 ;;; the markers on the right fringe instead of the left
 ;; (setq bm-marker 'bm-marker-right)
