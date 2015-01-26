@@ -66,12 +66,12 @@
 ;;       right-fringe-width nil)
 
 (set-face-attribute 'fringe nil
-                    :foreground "forest green" :background "#073642"
+                    :foreground "cyan" :background "#073642"
                     )
 
 (setq-default indicate-buffer-boundaries 'left
               indicate-empty-lines t
-              indicate-unused-lines t)
+              indicate-unused-lines nil)
 
 
 ;;; [ Scroll Bar ]
