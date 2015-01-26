@@ -95,7 +95,10 @@
 
 
 ;;; [ register ]
+
 ;; Usage:
+;;
+;; Default keybinds
 ;; - [C-x r] -- `r' means register prefix.
 ;;   - [C-x r SPC] -- `SPC' means mark
 ;;     - [C-x r SPC + register_name] -- save current position to register
@@ -108,6 +111,39 @@
 ;; - [M-x list-registers] -- list out all registers
 ;; - [M-x append-to-register RET r]
 ;; - [M-x prepend-to-register RET r]
+
+(unless (boundp 'my-register-map)
+  (define-prefix-command 'my-register-map))
+(global-set-key (kbd "C-x r x") 'my-register-map)
+
+(global-unset-key (kbd "C-x r j"))
+(global-unset-key (kbd "C-x r +"))
+(global-unset-key (kbd "C-x r c"))
+(global-unset-key (kbd "C-x r i"))
+(global-unset-key (kbd "C-x r u"))
+(global-unset-key (kbd "C-x r U"))
+(global-unset-key (kbd "C-x r s"))
+(global-unset-key (kbd "C-x r b"))
+(global-unset-key (kbd "C-x r f"))
+(global-unset-key (kbd "C-x r g"))
+(global-unset-key (kbd "C-x r w"))
+(global-unset-key (kbd "C-x r f"))
+(global-unset-key (kbd "C-x r SPC"))
+(global-unset-key (kbd "C-x r C-SPC"))
+(global-unset-key (kbd "C-x r C-@"))
+
+
+(define-key my-register-map (kbd "j") 'jump-to-register)
+(define-key my-register-map (kbd "+") 'increment-register)
+(define-key my-register-map (kbd "c") 'copy-to-register)
+(define-key my-register-map (kbd "i") 'insert-register)
+(define-key my-register-map (kbd "SPC") 'point-to-register)
+(define-key my-register-map (kbd "C-SPC") 'point-to-register)
+(define-key my-register-map (kbd "C-@") 'point-to-register)
+(define-key my-register-map (kbd "p") 'point-to-register)
+(define-key my-register-map (kbd "f") 'frameset-to-register)
+(define-key my-register-map (kbd "w") 'window-configuration-to-register)
+
 
 
 
