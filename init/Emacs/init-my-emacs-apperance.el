@@ -31,6 +31,10 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 
 
+;;; [ border ]
+
+(set-frame-parameter (selected-frame) 'internal-border-width 10)
+
 
 ;;; [ fringe ]
 
