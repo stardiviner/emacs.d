@@ -61,7 +61,7 @@
 ;;       right-fringe-width nil)
 
 (set-face-attribute 'fringe nil
-                    :foreground "dark red" :background "#073642"
+                    :foreground "forest green" :background "#073642"
                     )
 
 (setq-default indicate-buffer-boundaries 'left
