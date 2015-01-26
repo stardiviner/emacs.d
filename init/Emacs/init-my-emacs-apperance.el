@@ -31,6 +31,40 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 
 
+
+;;; [ fringe ]
+
+;; (setq fringe-styles '(("default")
+;;                       ("no-fringes" . 0)
+;;                       ("right-only" 0)
+;;                       ("left-only" nil . 0)
+;;                       ("half-width" 4 . 4)
+;;                       ("minimal" 1 . 1))
+;;       ;; fringe-bitmaps
+;;       fringe-indicator-alist '((truncation left-arrow right-arrow)
+;;                                (continuation left-curly-arrow right-curly-arrow)
+;;                                (overlay-arrow . right-triangle)
+;;                                (up . up-arrow)
+;;                                (down . down-arrow)
+;;                                (top top-left-angle top-right-angle)
+;;                                (bottom bottom-left-angle bottom-right-angle top-right-angle top-left-angle)
+;;                                (top-bottom left-bracket right-bracket top-right-angle top-left-angle)
+;;                                (empty-line . empty-line)
+;;                                (unknown . question-mark))
+;;       )
+
+;; (setq left-fringe-width nil
+;;       right-fringe-width nil)
+
+(set-face-attribute 'fringe nil
+                    :foreground "dark red" :background "#073642"
+                    )
+
+(setq-default indicate-buffer-boundaries 'left
+              indicate-empty-lines t
+              indicate-unused-lines t)
+
+
 ;;; [ Scroll Bar ]
 (if (fboundp 'scroll-bar-mode)
     (scroll-bar-mode -1))
