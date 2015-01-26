@@ -38,6 +38,11 @@
 
 ;;; [ fringe ]
 
+;; make left fringe 10 pixels wide, and right fringe disappear.
+(fringe-mode '(10 . 0))
+;; or
+;; (set-fringe-style '(10 . 0))
+
 ;; (setq fringe-styles '(("default")
 ;;                       ("no-fringes" . 0)
 ;;                       ("right-only" 0)
