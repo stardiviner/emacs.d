@@ -65,12 +65,18 @@
 
 ;;; [ auto-complete-emacs-lisp ]
 
-;; (require 'auto-complete-emacs-lisp)
-;;
-;; ;; this add emacs lisp source into AC, and support show popup help doc.
-;; (dolist (hook '(emacs-lisp-mode-hook
-;;                 eval-expression-minibuffer-setup-hook))
-;;   (add-hook hook 'ac-emacs-lisp-mode-setup))
+(require 'auto-complete-emacs-lisp)
+
+;; (setq ac-sources (append ac-emacs-lisp-sources ac-sources))
+
+;; this add emacs lisp source into AC, and support show popup help doc.
+(add-hook 'eval-expression-minibuffer-setup-hook 'ac-emacs-lisp-setup)
+
+;; (add-hook 'emacs-lisp-mode-hook
+;;           (lambda ()
+;;             ;; use `remq' in a loop. instead of `delq' which will remove element in global default `ac-sources' too.
+;;             (mapc (lambda (x) (setq-local ac-sources (remq x ac-sources)))
+;;                   '(ac-source-capf))))
 
 
 ;;; [ IELM (ELISP interactive) ] -- an REPL for emacs. (Read-Eval-Print-Loop)
