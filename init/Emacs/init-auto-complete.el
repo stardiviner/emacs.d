@@ -99,7 +99,7 @@
 
 
 ;; auto raise popup menu
-(setq ac-auto-start 3) ; auto start auto-complete when has N characters.
+(setq ac-auto-start 2) ; auto start auto-complete when has N characters.
 (setq ac-delay 0.2) ; delay time to start completion in real number seconds
 (setq ac-auto-show-menu 0.4) ;; show popup menu after how many seconds
 (setq ac-show-menu-immediately-on-auto-complete t) ; it is a trade off of responsibility and performance
@@ -485,7 +485,10 @@ Example:
 
 ;; global
 ;; (ac-capf-setup)
-;; (add-to-list 'ac-sources 'ac-source-capf)
+;; or
+;; complete-at-point-function (capf)
+;; ac-source-capf
+(add-to-list 'ac-sources 'ac-source-capf)
 ;; or enable in some modes
 ;; (dolist (hook '(ruby-mode-hook
 ;;                 enh-ruby-mode-hook

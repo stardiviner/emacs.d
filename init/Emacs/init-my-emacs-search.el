@@ -11,6 +11,8 @@
 
 ;;; Usage:
 ;;
+;;   - `register-mark-mode' -- mark rectangle.
+;;
 ;; - Quitting Isearch – Many KeySequences quit Isearch. One that many people use is
 ;;   [RET]. You cannot use [RET] to search for the end of a line – use [C-q C-j]
 ;;   for that. The cursor is left on the last match.

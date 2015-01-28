@@ -591,15 +591,15 @@ It can contain any number of symbols, which will be repeated."
 
 (setq org-support-shift-select nil) ; - nil to support: [S-up/down] to jump to previous/next item in list.
 
-;;;_*, drawer
+;;;_*, Drawer
 
 (setq org-export-with-drawers t) ; t, nil, '(not "LOGBOOK")
 
-;;;_*, tables
+;;;_*, Tables
 
 ;; (setq org-enable-table-editor t)
 
-;;;_*, images
+;;;_*, Images
 
 ;;; inline images [C-c C-x C-v] - `org-toggle-inline-images'.
 ;; [C-c C-x C-M-v] - `org-redisplay-inline-images'
@@ -1837,10 +1837,9 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;;;_* org-html5
 
 (setq org-html-doctype "html5"
+      org-html-html5-fancy t
       ;; org-html-doctype-alist
       )
-
-(setq org-html-html5-fancy t)
 
 ;;;_* Babel
 
