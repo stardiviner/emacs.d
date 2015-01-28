@@ -91,7 +91,7 @@
                     :foreground "dark gray")
 (set-face-attribute 'flycheck-warning nil
                     :background nil :foreground nil
-                    :underline '(:color "orange" :style wave))
+                    :underline '(:color "dim gray" :style wave))
 (set-face-attribute 'flycheck-fringe-warning nil
                     :background " " :foreground "orange"
                     :weight 'normal)
