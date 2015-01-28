@@ -2,6 +2,6 @@
 # name: template
 # key: temp
 # --
-#!/usr/bin/env ${1:bash/zsh/...}
+#!/usr/bin/env ${1:sh/bash/zsh/...}
 
-${2}
+$0
