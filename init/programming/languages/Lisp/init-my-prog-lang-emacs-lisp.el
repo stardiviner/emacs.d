@@ -69,14 +69,12 @@
 
 ;; (setq ac-sources (append ac-emacs-lisp-sources ac-sources))
 
+(add-hook 'emacs-lisp-mode-hook
+          (lambda ()
+            (ac-source-remove '(ac-source-capf ac-source-symbols))))
+
 ;; this add emacs lisp source into AC, and support show popup help doc.
 (add-hook 'eval-expression-minibuffer-setup-hook 'ac-emacs-lisp-setup)
-
-;; (add-hook 'emacs-lisp-mode-hook
-;;           (lambda ()
-;;             ;; use `remq' in a loop. instead of `delq' which will remove element in global default `ac-sources' too.
-;;             (mapc (lambda (x) (setq-local ac-sources (remq x ac-sources)))
-;;                   '(ac-source-capf))))
 
 
 ;;; [ IELM (ELISP interactive) ] -- an REPL for emacs. (Read-Eval-Print-Loop)

@@ -404,6 +404,22 @@
                 ;; ac-source-ispell
                 ))
 
+
+(defun ac-source-remove (source-removed-list)
+  "remove some ac-source from ac-sources.
+Example:
+(add-hook 'emacs-lisp-mode-hook
+          (lambda ()
+            (ac-source-remove '(ac-source-capf ac-source-symbols))))
+"
+  ;; use `remq' in a loop. instead of `delq' which will remove element in global default `ac-sources' too.
+  (interactive)
+  ;; (mapc (lambda (x) (setq-local ac-sources (remq x ac-sources)))
+  ;;       '(ac-source-capf ac-source-symbols))
+  (mapc (lambda (x) (setq-local ac-sources (remq x ac-sources)))
+        source-removed-list)
+  )
+
 
 ;;; other sources faces
 
