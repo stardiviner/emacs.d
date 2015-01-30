@@ -1132,6 +1132,11 @@
       )
 
 
+;;; [ mu4e-speedbar ]
+
+(add-hook 'mu4e-main-mode-hook 'sr-speedbar-open)
+
+
 ;;; [ helm-mu ] -- Helm sources for searching emails and contacts using mu.
 
 ;;; Usage:
