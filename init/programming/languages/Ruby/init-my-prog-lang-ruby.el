@@ -767,6 +767,37 @@
 ;;           ;; enh-ruby-mode motion-mode
 ;;           ))
 
+
+;;; [ Rake ]
+
+;;; Usage:
+;;
+;; `rake' command
+;;
+;; - [M-x rake] :: to run a rake task.
+;; - [C-u M-x rake] :: to amend the command to run. Useful if you want to add arguments.
+;; - [C-u C-u M-x rake] :: to bypass the cache (when enabled).
+;;
+;; `rake-find-task' command
+;;
+;; - [M-x rake-find-task] :: to find a rake task.
+;;
+;; Setting up keybinding
+;;
+;; By default rake command is not bound to any key. You might want to do something like this:
+;;
+;; (define-key ruby-mode-map (kbd "C-!") 'rake)
+;;
+;; Replace (kbd "C-!") with a key of your liking.
+
+;;; Caching, By default the caching is enabled. To disable it:
+;; (setq rake-enable-caching nil)
+
+;;; Completion, By default ido is used for completion. You can customize it with:
+(if (featurep 'projectile)
+    (eval-after-load 'projectile
+      '(setq rake-completion-system projectile-completion-system))
+  (setq rake-completion-system 'helm))
 
 
 ;;; [ motion-mode ] -- RubyMotion
