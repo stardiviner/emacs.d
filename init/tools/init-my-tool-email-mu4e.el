@@ -720,9 +720,10 @@
 ;; (add-to-list 'load-path (expand-file-name "~/.emacs.d/init/extensions/mu-cite/"))
 (require 'mu-cite)
 
-(setq message-cite-function 'mu-cite-original
-      mu-cite-top-format '("On " date ", " from " wrote:\n\n")
-      mu-cite-prefix-format '(" > "))
+(setq message-cite-function 'mu-cite-original ; message-cite-original-without-signature
+      mu-cite-top-format '(in-id ">>>>>	" from " wrote:\n")
+      mu-cite-prefix-format '(prefix-register-verbose "> ") ;  '(" > ")
+      )
 ;; (add-hook 'mu4e-view-mode-hook 'mu4e-view-toggle-hide-cited) ; [C-c h] to toggle hide cited.
 ;; (define-key mu4e-view-mode-map (kbd "C-c h") 'mu4e-view-toggle-hide-cited)
 
