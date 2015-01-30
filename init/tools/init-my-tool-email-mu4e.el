@@ -300,7 +300,7 @@
 (require 'mu4e-vars)
 (require 'mu4e-view)
 (require 'mu4e-proc)
-;; (require 'mu4e-speedbar)
+(require 'mu4e-speedbar)
 (require 'mu4e-contrib)
 
 
