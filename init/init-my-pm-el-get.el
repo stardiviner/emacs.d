@@ -60,7 +60,7 @@
          helm-cmd-t
          helm-c-yasnippet helm-c-flycheck
          helm-gtags helm-yaetags
-         helm-rails ; helm-pydoc
+         ;; helm-pydoc
          ;; helm-ls-git
          helm-gist
          helm-mu
@@ -248,11 +248,11 @@
          ;; ruby-block
          yari
          ;; auto-complete-ruby ; (conflict with robe-mode?)
-         inf-ruby ruby-compilation rvm
+         inf-ruby ruby-compilation rvm ;; pry
          ;; company-inf-ruby
-         ;; pry
          ;; rcodetools
          robe-mode helm-robe
+         rake
          rspec-mode
          yard-mode
          ;; ruby-refactor
@@ -363,6 +363,7 @@
          ;; Frameworks
          ;; Ruby on Rails
          projectile-rails ;; rinari
+         helm-rails
          rhtml-mode ; nxhtml
          ;; yasnippet-rails
          ;; sass-mode haml-mode slim-mode
