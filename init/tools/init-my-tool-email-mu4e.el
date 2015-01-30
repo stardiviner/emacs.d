@@ -768,8 +768,9 @@
 ;; mu4e normally prefers the plain-text version for messages that consist of
 ;; both a plain-text and html (rich-text) versions of the body-text. You change
 ;; this by setting mu4e-view-prefer-html to t.
-(setq mu4e-view-prefer-html t)
-(setq mu4e-html2text-command "html2text -utf8 -width 72")
+(setq mu4e-view-prefer-html nil
+      mu4e-html2text-command 'html2text ; 'html2text, "html2text -utf8 -width 72"
+      )
 
 
 ;;; Attachments
