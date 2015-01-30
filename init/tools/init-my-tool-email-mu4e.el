@@ -694,8 +694,6 @@
 
 ;;; Message view
 
-;; (setq mu4e-split-view 'horizontal)
-
 (setq mu4e-view-fields '(:from :to :cc
                                :subject
                                :date
@@ -708,7 +706,8 @@
                                ;; :tags
                                :signature
                                )
-      mu4e-view-show-addresses t ; show e-mail address after names of contacts From: field. or press [M-RET] to view.
+      ;; show e-mail address after names of contacts From: field. or press [M-RET] to view.
+      mu4e-view-show-addresses t
       )
 (setq mu4e-view-scroll-to-next nil
       mu4e-split-view 'horizontal ; split view
