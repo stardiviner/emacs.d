@@ -357,14 +357,15 @@ to insert <kbd>..</kbd> (HTML) org =[..]= (Org-mode)."
                     :foreground "#002B36" :background "#002B36")
 (set-face-attribute 'org-level-1 nil
                     :family "DejaVu Sans Mono"
-                    :height 1.5 :weight 'bold
-                    :foreground "#FF3870"
+                    :height 1.2 :weight 'bold
+                    :foreground "#FF3870" :background "#222222"
                     ;; :box '(:color "black" :line-width 1 :style nil)
                     :overline t
                     )
 (set-face-attribute 'org-level-2 nil
-                    :foreground "#C8C800"
-                    :height 1.2 :weight 'bold
+                    :foreground "#C8C800" :background "#222222"
+                    :weight 'bold
+                    :height 1.1
                     ;; :box '(:color "black" :line-width 1 :style nil)
                     :overline t
                     )
