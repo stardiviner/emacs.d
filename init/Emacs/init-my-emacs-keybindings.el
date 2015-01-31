@@ -129,7 +129,7 @@
         "C-c SPC"                       ; allout (outline)
         "C-c &"                         ; yasnippet (global)
         "C-c p"                         ; projectile (global)
-        "C-c p 4"                       ; projectile (4: buffer or window)
+        "C-c p C-r"                     ; projectile-rails
         "C-c d"                         ; Debug
         "C-c v"                         ; Magit (global)
         "C-c g"                         ; Git
@@ -147,10 +147,10 @@
         (outline-minor-mode "C-c @")    ; outline minor mode.
         (markdown-mode "C-c" "C-c C-c" "C-c C-s" "C-c C-t" "C-c TAB" "C-c C-a")
         (latex-mode "C-c" "C-c C-p")    ; LaTeX mode.
+        (artist-mode "C-c C-a")         ; artist-mode
+        (web-mode "C-c")                ; web-mode.
         (ruby-mode "C-c") ; Ruby yari mode.
         (rinari-minor-mode "C-c ;" "C-c '") ; Rinari minor mode.
-        (web-mode "C-c")                ; web-mode.
-        (artist-mode "C-c C-a")         ; artist-mode
         ))
 
 (setq guide-key/highlight-command-regexp "rectangle\\|register\\|bookmark")
