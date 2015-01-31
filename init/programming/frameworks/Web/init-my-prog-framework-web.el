@@ -184,6 +184,7 @@
 (setq web-mode-enable-auto-expanding t)
 (add-to-list 'web-mode-expanders '("r/" . "<%= | %>")) ; ruby erb: <%= | %>.
 (add-to-list 'web-mode-expanders '("%/" . "<%= | %>")) ; ruby erb: <%= | %>.
+(add-to-list 'web-mode-expanders '("R/" . "<% | %>")) ; ruby erb: <% | %>.
 
 
 ;;;_. auto-complete support
