@@ -16,8 +16,12 @@
 
 (setq epa-file-encrypt-to "numbchild@gmail.com"
       ;; epa-gpg-program "/usr/bin/gpg"
-      epa-file-select-keys t ; use public key
-      epa-file-cache-passphrase-for-symmetric-encryption nil
+      epa-file-select-keys t       ; use public key
+      ;; cache passphrase for symmetric encryption.
+      ;; For security reasons, this option is turned off by default and
+      ;; not recommended to use.  Instead, consider using gpg-agent which
+      ;; does the same job in a safer way.
+      epa-file-cache-passphrase-for-symmetric-encryption t
       epa-file-inhibit-auto-save t)
 
 ;;; FAQ
