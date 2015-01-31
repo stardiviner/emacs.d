@@ -564,6 +564,14 @@
 ;; counterparts, decrypting and signature verification. Even if your mu4e does
 ;; have support for the latter two, you can still sign/encrypt messages.
 
+;;; - [C-c C-m C-e] :: (mml-secure-message-sign-encrypt)
+;;;    This will add a tag at the beginning of the mail.
+;;;    <#secure method=pgpmime mode=signencrypt>
+;;;    the `mode=signencrypt' means:
+;;;      - `sign'
+;;;      - `encrypt'
+
+
 ;;; message inline pgp sign.
 ;; `message-send-hook' or `mu4e-compose-mode-hook'
 ;; `mml-secure-message-sign-pgpauto' or `mml-secure-message-sign-pgpmime'
