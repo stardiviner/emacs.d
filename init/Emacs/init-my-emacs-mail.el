@@ -8,11 +8,10 @@
 ;;; Code:
 
 
-(setq
- ;; mail-setup-hook '(bbdb-insinuate-mail)
- mail-user-agent 'message-user-agent ; message-user-agent, 'mail-user-agent, ...
- compose-mail-user-agent-warnings nil
- )
+(setq mail-user-agent 'message-user-agent ; message-user-agent, 'mail-user-agent, ...
+      compose-mail-user-agent-warnings nil
+      ;; mail-setup-hook '(bbdb-insinuate-mail)
+      )
 
 
 
