@@ -179,6 +179,13 @@
       ;; web-mode-display-table
       )
 
+;; expanding
+;; auto expand s/ into <span></span>
+(setq web-mode-enable-auto-expanding t)
+(add-to-list 'web-mode-expanders '("r/" . "<%= | %>")) ; ruby erb: <%= | %>.
+(add-to-list 'web-mode-expanders '("%/" . "<%= | %>")) ; ruby erb: <%= | %>.
+
+
 ;;;_. auto-complete support
 
 ;; - web-mode-ac-sources-alist
