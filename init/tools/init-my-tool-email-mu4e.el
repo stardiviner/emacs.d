@@ -954,6 +954,9 @@
 ;;; readed mail line in index.
 (set-face-attribute 'mu4e-header-face nil
                     :foreground "dim gray")
+;; modeline face
+(set-face-attribute 'mu4e-modeline-face nil
+                    :weight 'bold)
 ;;; footer
 (set-face-attribute 'mu4e-footer-face nil
                     :foreground "deep sky blue")
@@ -1031,7 +1034,6 @@
 (set-face-attribute 'mu4e-special-header-value-face nil
                     :foreground "magenta"
                     )
-
 ;; header names: like From: Subject: etc.
 (set-face-attribute 'message-header-name nil
                     :foreground "cyan" :background "black"
@@ -1048,7 +1050,6 @@
 ;; other header values
 (set-face-attribute 'message-header-other nil
                     :foreground "#888888")
-
 
 
 ;;; Marking
