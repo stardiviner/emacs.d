@@ -179,10 +179,12 @@
 (set-face-attribute 'helm-lisp-completion-info nil
                     :foreground "cyan")
 
+(helm-autoresize-mode t)
+
 (setq helm-full-frame nil ; use current window as popup. helm popup window position.
       helm-always-two-windows t
-      helm-autoresize-max-height 10
-      helm-autoresize-min-height 5
+      helm-autoresize-max-height 25
+      helm-autoresize-min-height 10
       ;; split
       helm-split-window-in-side-p t ; force split inside selected window.
       helm-split-window-default-side 'below
