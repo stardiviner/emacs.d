@@ -360,6 +360,7 @@
          ;; Assembly
          iasm-mode
          ;; Hex
+         hexview-mode
          ;; Frameworks
          ;; Ruby on Rails
          projectile-rails ;; rinari
