@@ -480,6 +480,14 @@
 ;; ;; DON'T CALL `helm-delicious-authentify', this will set your login and password
 ;; ;; globally.
 
+
+;;; [ helm-source-time-world ]
+
+;; use the Emacs built-in variable: `display-time-world-list'.
+
+(setq helm-time-zone-home-location "Shanghai")
+
+(define-key my-tools-prefix-map (kbd "t") 'helm-world-time)
 
 
 

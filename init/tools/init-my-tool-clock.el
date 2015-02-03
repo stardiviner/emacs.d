@@ -19,6 +19,10 @@
                                 ("Europe/London" "London")
                                 ))
 
+(if (featurep 'helm)
+    (define-key my-tools-prefix-map (kbd "t") 'helm-world-time)
+  (define-key my-tools-prefix-map (kbd "t") 'display-time-world))
+
 
 (provide 'init-my-tool-clock)
 
