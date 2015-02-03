@@ -181,15 +181,17 @@
 
 (setq helm-full-frame nil ; use current window as popup. helm popup window position.
       helm-always-two-windows t
+      helm-autoresize-max-height 10
+      helm-autoresize-min-height 5
+      ;; split
+      helm-split-window-in-side-p t ; force split inside selected window.
+      helm-split-window-default-side 'below
+      ;; helm-split-window-preferred-function 'helm-split-window-default-fn
       helm-quick-update t ; do not display invisible candidates
       ;; helm-scroll-amount 8 ; scroll 8 lines other window using M-<next>/M-<prior>
       helm-case-fold-search t
       helm-buffers-fuzzy-matching t
       helm-move-to-line-cycle-in-source nil ; nil: not just cycling current limited candicates section.
-      ;; split
-      helm-split-window-in-side-p t ; force split inside selected window.
-      helm-split-window-default-side 'below
-      ;; helm-split-window-preferred-function 'helm-split-window-default-fn
       ;; find-file
       helm-ff-search-library-in-sexp t ; search for library in `require' and `declare-function' sexp.
       helm-ff-file-name-history-use-recentf t ; use recentf
