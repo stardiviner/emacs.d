@@ -112,7 +112,7 @@
 (setq-default ac-dwim t) ; to get pop-ups with docs even if a word is uniquely completed.
 
 
-(setq ac-delete-dups t) ; t: auto delete duplicate candidates. nil: different type but same candidates.
+(setq ac-delete-dups nil) ; t: auto delete duplicate candidates. nil: same candidates from different sources and with different property.
 
 
 ;; trigger key [TAB]
