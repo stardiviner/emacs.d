@@ -135,6 +135,7 @@
          ;; keybinding
          bind-key
          guide-key ; guide-key-tip
+         hydra
          ;; dired
          ;; direx
          ;; dired-k ; stripe-buffer

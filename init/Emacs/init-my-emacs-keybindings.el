@@ -189,6 +189,18 @@
 ;; (require 'guide-key-tip)
 ;; (setq guide-key-tip/enabled t)
 
+
+;;; [ hydra ] -- be used to tie related commands into a family of short bindings with a common prefix - a Hydra.
+
+;;; Usage:
+;;
+;; - https://github.com/abo-abo/hydra
+
+(require 'hydra)
+
+(setq hydra-is-helpful t ; display a hint with possible bindings in the echo area.
+      )
+
 
 
 ;;; [ Buffer-locally overriding minor-mode key bindings in Emacs ]
