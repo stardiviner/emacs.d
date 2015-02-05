@@ -233,6 +233,7 @@
          git-timemachine
          ;; egg
          mo-git-blame
+         diffview
          ;; project
          projectile
          helm-project
