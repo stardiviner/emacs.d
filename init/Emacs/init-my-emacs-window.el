@@ -379,6 +379,21 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (push '("*How do I*" :position bottom :height 7) popwin:special-display-config)
 
 
+;;; [ zoom-window ] -- zoom/un-zoom window like tmux.
+
+;;; Usage:
+;;
+;; - `zoom-window' :: Toggle between zooming current window and unzooming.
+
+(require 'zoom-window)
+
+(setq zoom-window-mode-line-color "dark red"
+      zoom-window-use-elscreen nil ; whether use extension elscreen.
+      )
+
+(global-set-key (kbd "C-x C-z") 'zoom-window-zoom)
+
+
 (provide 'init-my-emacs-window)
 
 ;;; init-my-emacs-window.el ends here

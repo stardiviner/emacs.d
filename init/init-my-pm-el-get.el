@@ -108,6 +108,7 @@
          window-number ; switch-window
          workgroups2 ; e2wm
          popwin
+         zoom-window
          ;; minibuffer
          eldoc-eval
          ;; edit
