@@ -481,8 +481,8 @@
 ;; w Copy the hash of the current historic version
 ;; q Exit the time machine.
 
-(require 'git-timemachine)
-(define-key 'my-prog-vcs-git-map (kbd "C-h") 'git-timemachine)
+;; (require 'git-timemachine)
+;; (define-key 'my-prog-vcs-git-map (kbd "C-h") 'git-timemachine)
 
 
 

@@ -232,7 +232,7 @@
          git-modes git-emacs ; git-status
          magit ; magithub
          git-gutter git-gutter+ ; git-gutter-fringe
-         git-timemachine
+         ; git-timemachine
          ;; egg
          mo-git-blame
          diffview
