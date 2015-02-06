@@ -371,6 +371,9 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (push '(calc-mode :position bottom :height 10) popwin:special-display-config)
 ;; (push '("*Calculator*" :position bottom :height 10) popwin:special-display-config)
 
+;; eww
+(push '(eww-bookmark-mode :position bottom :height 15) popwin:special-display-config)
+
 ;;; checkdoc
 ;; FIXME:
 (push '("*Checkdoc Status*" :position bottom :height 7) popwin:special-display-config)
