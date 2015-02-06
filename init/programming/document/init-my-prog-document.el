@@ -56,6 +56,23 @@
 
 (define-key my-prog-help-document-map (kbd "i") 'helm-info-at-point)
 
+
+(defun info-display-manual-in-buffer (topic)
+  "Display Info TOPIC in its own buffer."
+  (interactive
+   (list
+    (progn
+      (info-initialize)
+      (completing-read "Info Manual name: "
+                       (info--manual-names)
+                       nil t))))
+  (let ((bufname (format "*info: %s*" topic)))
+    (if (get-buffer bufname)
+        (switch-to-buffer bufname)
+      (info topic bufname))))
+
+(global-set-key (kbd "C-h i") 'info-display-manual-in-buffer) ; replace default `info'.
+
 
 ;;; [ API docsets ]
 
