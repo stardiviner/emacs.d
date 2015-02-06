@@ -28,6 +28,9 @@
                     :foreground "gray" :background "black"
                     )
 
+(define-key eww-mode-map (kbd "B") 'eww-list-bookmarks)
+(define-key eww-mode-map (kbd "b") 'eww-add-bookmark)
+
 (define-key my-tools-prefix-map (kbd "b") 'eww)
 
 
