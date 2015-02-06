@@ -2519,7 +2519,12 @@ This function will promote all items in a subtree."
 (define-key my-org-prefix-map (kbd "o")
   (defun my-open-org-agenda ()
     (interactive)
-    (my-func/open-and-switch-to-buffer 'org-agenda-list "*Org Agenda*" t)))
+    ;; TODO:
+    ;; (if (memq (current-buffer) (frame-bufs-buffer-list (selected-frame)))
+    ;;     (switch to that window)
+    ;;   (my-func/open-and-switch-to-buffer 'org-agenda-list "*Org Agenda*" t))
+    (my-func/open-and-switch-to-buffer 'org-agenda-list "*Org Agenda*" t)
+    ))
 
 (define-key my-org-prefix-map (kbd "e")
   (defun my-org-element-at-point ()
