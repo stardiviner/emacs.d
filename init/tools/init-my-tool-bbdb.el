@@ -40,9 +40,11 @@
 
 (unless (boundp 'my-bbdb-map)
   (define-prefix-command 'my-bbdb-map))
-(define-key my-tools-prefix-map (kbd "b") 'my-bbdb-map)
+(define-key my-tools-prefix-map (kbd "c") 'my-bbdb-map)
 
-(define-key my-bbdb-map (kbd "b") 'bbdb-:open)
+(if (featurep 'bbdb-)
+    (define-key my-bbdb-map (kbd "b") 'bbdb-:open)
+  (define-key my-bbdb-map (kbd "b") 'bbdb))
 
 (defun my-bbdb-open-or-switch ()
   (interactive)

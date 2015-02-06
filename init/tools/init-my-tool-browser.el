@@ -28,6 +28,7 @@
                     :foreground "gray" :background "black"
                     )
 
+(define-key my-tools-prefix-map (kbd "b") 'eww)
 
 
 (provide 'init-my-tool-browser)
