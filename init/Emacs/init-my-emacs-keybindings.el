@@ -195,6 +195,121 @@
 ;;; Usage:
 ;;
 ;; - https://github.com/abo-abo/hydra
+;;
+
+;;; simple usages
+;;
+;; (require 'hydra-examples)
+;; (hydra-create "C-M-y" hydra-example-move-window-splitter)
+;; (hydra-create "M-g" hydra-example-goto-error)
+;; (hydra-create "<f2>" hydra-example-text-scale)
+
+;;; for global bindings
+;; (defhydra hydra-zoom (global-map "<f2>")
+;;   "zoom"
+;;   ("g" text-scale-increase "in")
+;;   ("l" text-scale-decrease "out"))
+
+;;; Using Hydra for major-mode or minor-mode bindings
+;; (defhydra lispy-vi (lispy-mode-map "C-z")
+;;   "vi"
+;;   ("l" forward-char)
+;;   ("h" backward-char)
+;;   ("j" next-line)
+;;   ("k" previous-line))
+
+;;; Colorful Hydras
+;; Hydra's heads all have a color associated with them:
+;;
+;; red (default) means the calling this head will not vanquish the Hydra
+;; blue means that the Hydra will be vanquished after calling this head
+;;
+;; (global-set-key
+;;  (kbd "C-c C-v")
+;;  (defhydra toggle ()
+;;    "toggle"
+;;    ("a" abbrev-mode "abbrev" :color blue)
+;;    ("d" toggle-debug-on-error "debug" :color blue)
+;;    ("f" auto-fill-mode "fill" :color blue)
+;;    ("t" toggle-truncate-lines "truncate" :color blue)
+;;    ("w" whitespace-mode "whitespace" :color blue)
+;;    ("q" nil "cancel")))
+;; or
+;; (global-set-key
+;;  (kbd "C-c C-v")
+;;  (defhydra toggle (:color blue)
+;;    "toggle"
+;;    ("a" abbrev-mode "abbrev")
+;;    ("d" toggle-debug-on-error "debug")
+;;    ("f" auto-fill-mode "fill")
+;;    ("t" toggle-truncate-lines "truncate")
+;;    ("w" whitespace-mode "whitespace")
+;;    ("q" nil "cancel")))
+
+;;; Hydras and numeric arguments
+;;
+;; - `digit-argment' can be called with 0-9
+;; - `negative-argument' can be called with -
+;; - `universal-argument' can be called with C-u
+
+;;; Hydras can have `:pre' and `:post' statements
+;;
+;; (global-set-key
+;;  (kbd "C-z")
+;;  (defhydra hydra-vi
+;;    (:pre
+;;     (set-cursor-color "#40e0d0")
+;;     :post
+;;     (progn
+;;       (set-cursor-color "#ffffff")
+;;       (message
+;;        "Thank you, come again.")))
+;;    "vi"
+;;    ("l" forward-char)
+;;    ("h" backward-char)
+;;    ("j" next-line)
+;;    ("k" previous-line)
+;;    ("q" nil "quit")))
+
+;;; New Hydra color: `amaranth'
+;;
+;; a new color - amaranth, in addition to the previous red and blue, is
+;; available for the Hydra body.
+;;
+;; According to Wikipedia:
+;;
+;; The word amaranth comes from the Greek word amaranton, meaning "unwilting"
+;; (from the verb marainesthai, meaning "wilt").  The word was applied to
+;; amaranth because it did not soon fade and so symbolized immortality.
+;;
+;; Hydras with amaranth body are impossible to quit with any binding except a
+;; blue head. A check for at least one blue head exists in defhydra, so that you
+;; don't get stuck by accident.
+;;
+;; (global-set-key
+;;  (kbd "C-z")
+;;  (defhydra hydra-vi
+;;    (:pre
+;;     (set-cursor-color "#40e0d0")
+;;     :post
+;;     (set-cursor-color "#ffffff")
+;;     :color amaranth)
+;;    "vi"
+;;    ("l" forward-char)
+;;    ("h" backward-char)
+;;    ("j" next-line)
+;;    ("k" previous-line)
+;;    ("q" nil "quit")))
+;;
+;; The only way to exit it, is to press q. No other methods will work. You can
+;; use an amaranth Hydra instead of a red one, if for you the cost of being able
+;; to exit only though certain bindings is less than the cost of accidentally
+;; exiting a red Hydra by pressing the wrong prefix.
+;;
+;; Note that it does not make sense to define a singe amaranth head, so this
+;; color can only be assigned to the body. An amaranth body will always have
+;; some amaranth heads and some blue heads (otherwise, it's impossible to exit),
+;; no reds.
 
 (require 'hydra)
 
