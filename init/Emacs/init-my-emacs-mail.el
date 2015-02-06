@@ -1,4 +1,4 @@
-;;; init-my-emacs-mail.el --- 
+;;; init-my-emacs-mail.el --- init for Email
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:

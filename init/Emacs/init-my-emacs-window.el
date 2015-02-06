@@ -276,6 +276,7 @@
 
 ;;; Man/Women
 (push '(Man-mode :position bottom :height 15) popwin:special-display-config)
+(push '("*Man *" :position bottom :height 15) popwin:special-display-config)
 
 ;;; Ediff
 (push '("*Ediff Control Panel*" :position bottom :height 15) popwin:special-display-config)

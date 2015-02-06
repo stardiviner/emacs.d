@@ -363,31 +363,15 @@
 ;; git-commit-ack is re-bound to C-c C-b.
 
 
-
+;; (load "~/.emacs.d/el-get/git-gutter+/git-gutter+.el")
 (require 'git-gutter+)
 
 
-;;; keybindings
-(define-key my-prog-vcs-map (kbd "m t") 'git-gutter+-mode) ; Turn on/off in the current buffer
-(define-key my-prog-vcs-map (kbd "m T") 'global-git-gutter+-mode) ; Turn on/off globally
-
-;; NOTE: those keybindings conflict with `narrow' etc.
-;; (eval-after-load 'git-gutter+
-;;   '(progn
-;;      ;;; Jump between hunks
-;;      (define-key git-gutter+-mode-map (kbd "C-x n") 'git-gutter+-next-hunk)
-;;      (define-key git-gutter+-mode-map (kbd "C-x p") 'git-gutter+-previous-hunk)
-;;      ;;; Act on hunks
-;;      (define-key git-gutter+-mode-map (kbd "C-x v =") 'git-gutter+-show-hunk)
-;;      (define-key git-gutter+-mode-map (kbd "C-x r") 'git-gutter+-revert-hunks)
-;;      ;; Stage hunk at point.
-;;      ;; If region is active, stage all hunk lines within the region.
-;;      (define-key git-gutter+-mode-map (kbd "C-x t") 'git-gutter+-stage-hunks)
-;;      (define-key git-gutter+-mode-map (kbd "C-x c") 'git-gutter+-commit)
-;;      (define-key git-gutter+-mode-map (kbd "C-x C") 'git-gutter+-stage-and-commit)))
-
 (eval-after-load 'git-gutter+
   '(progn
+     ;;; keybindings
+     (define-key my-prog-vcs-map (kbd "m t") 'git-gutter+-mode) ; Turn on/off in the current buffer
+     (define-key my-prog-vcs-map (kbd "m T") 'global-git-gutter+-mode) ; Turn on/off globally
      ;; jump between hunks
      (define-key my-prog-vcs-map (kbd "m n") 'git-gutter+-next-hunk)
      (define-key my-prog-vcs-map (kbd "m p") 'git-gutter+-previous-hunk)
@@ -405,7 +389,7 @@
 (setq git-gutter+-disabled-modes '(asm-mode image-mode))
 
 (setq git-gutter+-hide-gutter t)         ; Hide gutter if there are no changes
-(setq git-gutter+-diff-option "-w") ; Pass option to 'git diff' command: -w: ignore all spaces
+;; (setq git-gutter+-diff-option "-w") ; Pass option to 'git diff' command: -w: ignore all spaces
 
 ;; GitGutter signs
 (set-face-attribute 'git-gutter+-modified nil

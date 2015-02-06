@@ -557,6 +557,13 @@
           )
 
 
+;;;  Reply
+
+;; don't include self (that is, any member of `mu4e-user-mail-address-list') in
+;; replies.
+(setq mu4e-compose-dont-reply-to-self nil)
+
+
 ;; Signing and encrypting It's possible using emacs-mime, most easily accessed
 ;; through the Attachments-menu while composing a message, or with M-x
 ;; mml-secure-message-encrypt-pgp, M-x mml-secure-message-sign-pgp.  The support
@@ -713,6 +720,7 @@
                                :references
                                ;; :tags
                                :signature
+                               :decryption
                                )
       ;; show e-mail address after names of contacts From: field. or press [M-RET] to view.
       mu4e-view-show-addresses t
@@ -791,7 +799,10 @@
 ;; for opening attachments. If you want to use another program, you do so by
 ;; setting the MU_PLAY_PROGRAM environment variable to the program to be used.
 
-(setq mu4e-attachment-dir "~/Downloads")
+(setq mu4e-attachment-dir "~/Downloads"
+      mu4e-view-attachment-actions '(("wopen-with" . mu4e-view-open-attachment-with)
+                                     ("ein-emacs" . mu4e-view-open-attachment-emacs)
+                                     ("|pipe" . mu4e-view-pipe-attachment)))
 
 
 ;;; Actions
@@ -1143,7 +1154,7 @@
 
 ;;; [ mu4e-speedbar ]
 
-(add-hook 'mu4e-main-mode-hook 'sr-speedbar-open)
+;; (add-hook 'mu4e-main-mode-hook 'sr-speedbar-open)
 
 
 ;;; [ helm-mu ] -- Helm sources for searching emails and contacts using mu.

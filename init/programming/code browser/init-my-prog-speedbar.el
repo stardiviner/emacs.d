@@ -52,6 +52,8 @@
 ;; (global-set-key [f8] 'sr-speedbar-toggle)
 (global-set-key [f8] 'my-sr-speedbar-toggle-and-switch)
 
+;; (setq sr-speedbar-skip-other-window-p t)
+
 
 
 (provide 'init-my-prog-speedbar)
