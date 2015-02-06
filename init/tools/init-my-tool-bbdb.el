@@ -267,27 +267,27 @@
 ;; q ... Finish with doing nothing
 ;; RET ... Finish with the update of To/Cc/Bcc header (if necessary, open the mail buffer)
 
-(require 'bbdb-)
-
-(setq bbdb-:mail-modes '(message-mode mu4e-compose-mode)
-      ;; bbdb-:rcpt-header-format 'multi-line
-      bbdb-:replace-complete-mail-command t ; Whether substitute `bbdb-:start-completion' for `bbdb-complete-mail'.
-      bbdb-:start-completion-key nil
-      bbdb-:use-migemo nil ; TODO: set to t
-      )
-
-(set-face-attribute 'bbdb-:bcc-face nil
-                    :foreground "red"
-                    :weight 'bold
-                    )
-(set-face-attribute 'bbdb-:cc-face nil
-                    :foreground "gray"
-                    )
-(set-face-attribute 'bbdb-:to-face nil
-                    :foreground "cyan"
-                    )
-
-(bbdb-:setup)
+;; (require 'bbdb-)
+;;
+;; (setq bbdb-:mail-modes '(message-mode mu4e-compose-mode)
+;;       ;; bbdb-:rcpt-header-format 'multi-line
+;;       bbdb-:replace-complete-mail-command t ; Whether substitute `bbdb-:start-completion' for `bbdb-complete-mail'.
+;;       bbdb-:start-completion-key nil
+;;       bbdb-:use-migemo nil ; TODO: set to t
+;;       )
+;;
+;; (set-face-attribute 'bbdb-:bcc-face nil
+;;                     :foreground "red"
+;;                     :weight 'bold
+;;                     )
+;; (set-face-attribute 'bbdb-:cc-face nil
+;;                     :foreground "gray"
+;;                     )
+;; (set-face-attribute 'bbdb-:to-face nil
+;;                     :foreground "cyan"
+;;                     )
+;;
+;; (bbdb-:setup)
 
 
 

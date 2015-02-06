@@ -174,7 +174,7 @@
          ;; mu
          mu4e mu-cite
          ;; BBDB
-         bbdb bbdb- ; FIXME: bbdb-vcard
+         bbdb ; bbdb- ; FIXME: bbdb-vcard
          ;; IRC
          erc erc-highlight-nicknames erc-nick-notify bbdb2erc
          ;; tools
