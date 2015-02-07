@@ -84,7 +84,7 @@
          highlight-symbol
          ;; cursor-chg
          ;; yascroll
-         ;; minimap
+         ;; minimap sublimity
          ;; modeline
          diminish pretty-mode page-break-lines
          ;; mode-icons
@@ -141,7 +141,7 @@
          ;; direx
          ;; dired-k ; stripe-buffer
          ;; search
-         isearch+
+         ;; isearch+
          anzu
          visual-regexp visual-regexp-steroids ace-jump-mode
          ack-and-a-half ; full-ack
@@ -265,6 +265,7 @@
          ;; Lisp
          slime
          elisp-slime-nav eldoc-eval
+         profile-lisp
          ;; slime-company
          ac-slime
          geiser ac-geiser
@@ -283,6 +284,7 @@
          ;; company-c-headers
          auto-complete-clang auto-complete-c-headers
          ;; auto-complete-clang-objc
+         ;; bison-mode
          ;; Go
          go-mode go-eldoc
          ;; go-company
@@ -395,6 +397,8 @@
          festival
          ;; Toy
          ;; oniisama
+         ;; Integrate into Emacs
+         sx ; Stack Exchange
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
 
