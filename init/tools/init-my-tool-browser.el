@@ -28,6 +28,7 @@
                     :foreground "gray" :background "black"
                     )
 
+(define-key eww-mode-map (kbd "o") 'eww) ; prompt for a URL.
 (define-key eww-mode-map (kbd "b") 'eww-list-bookmarks)
 (define-key eww-mode-map (kbd "B") 'eww-add-bookmark)
 
