@@ -686,6 +686,7 @@ It can contain any number of symbols, which will be repeated."
         ("google" . "http://www.google.com/search?q=%s")
         ("DuckDuckGo" . "https://duckduckgo.com/?q=%s")
         ("blekko" . "https://blekko.com/#?q=%s")
+        ("Bing" . "http://cn.bing.com/search?q=")
         ("Baidu" . "http://www.baidu.com/s?wd=%s")
         ;; Wiki
         ("Wikipedia" . "http://en.wikipedia.org/w/index.php?search=%s")
