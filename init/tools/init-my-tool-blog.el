@@ -56,6 +56,10 @@
       (define-key jekyll-map (kbd "D") (defun jekyll-drafts-files ()
                                          (interactive)
                                          (find-file (concat jekyll-directory "_drafts/"))))
+      (define-key jekyll-map (kbd "b")
+        (defun jekyll-build ()
+          (interactive)
+          (shell-command "jekyll build")))
       )
   )
 
