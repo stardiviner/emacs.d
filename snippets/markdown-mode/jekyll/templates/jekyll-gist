@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: jekyll gist
+# key: jekyll-gist
+# --
+{% gist ${1:e.g. stardiviner/5555008898} ${2:specify filename} %}
+
+$0

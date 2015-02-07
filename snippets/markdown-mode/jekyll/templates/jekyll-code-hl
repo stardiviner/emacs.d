@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: jekyll template code snippet highlight
+# key: jekyll-code-hl
+# --
+{% highlight ${1:lang} ${3:linenos} %}
+$2
+{% endhighlight %}
+
+$0

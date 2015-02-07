@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: jekyll template post-url
+# key: jekyll-post-url
+# --
+[${1:name of link}]({% post_url ${2:${3:/subdir/}name-of-post} %}) $0

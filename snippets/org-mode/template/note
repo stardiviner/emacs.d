@@ -1,7 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: gist
-# key: gist
+# name: bold note
+# key: note
 # --
-{% gist ${1:e.g. 5555008898} %}
-
+*NOTE*:
 $0
