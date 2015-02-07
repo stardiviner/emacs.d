@@ -93,6 +93,8 @@
       magit-use-overlays t
       magit-diff-refine-hunk 'all
       magit-status-buffer-switch-function 'pop-to-buffer-same-window ; open magit status buffer in current window.
+      ;; diff
+      magit-diff-options "-w" ; -w or -b to ignore whitespace in diff, for ignore whitespace in vertical aligned code change.
       )
 
 ;; TODO change to open magit-status in current window instead of overriding other windows. [default: 'pop-to-buffer].
@@ -389,7 +391,7 @@
 (setq git-gutter+-disabled-modes '(asm-mode image-mode))
 
 (setq git-gutter+-hide-gutter t)         ; Hide gutter if there are no changes
-;; (setq git-gutter+-diff-option "-w") ; Pass option to 'git diff' command: -w: ignore all spaces
+(setq git-gutter+-diff-option "-w") ; Pass option to 'git diff' command: -w: ignore all spaces
 
 ;; GitGutter signs
 (set-face-attribute 'git-gutter+-modified nil
