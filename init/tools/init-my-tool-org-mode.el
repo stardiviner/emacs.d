@@ -1397,12 +1397,18 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;; TODO: test this setting.
 ;; (setq org-agenda-text-search-extra-files '(agenda-archives "~/Org/Journal.org" "~/Org/Diary/"))
 (setq org-agenda-text-search-extra-files '("~/Org/Journal.org" "~/Org/Diary/"))
-(setq org-agenda-skip-deadline-if-done t)
-(setq org-agenda-skip-scheduled-if-done t)
-(setq org-agenda-skip-scheduled-delay-if-deadline 'post-deadline) ; nil, t, 'post-deadline.
-(setq org-agenda-skip-scheduled-if-deadline-is-shown t)
+(setq org-agenda-skip-timestamp-if-done t
+      org-agenda-skip-deadline-if-done t
+      org-agenda-skip-scheduled-if-done t
+      org-agenda-skip-scheduled-delay-if-deadline 'post-deadline
+      org-agenda-skip-scheduled-if-deadline-is-shown t
+      ;; NOTE: org-agenda-ignore-properties '(effort appt stats category)
+      org-agenda-tags-todo-honor-ignore-options t
+      org-agenda-todo-ignore-timestamp nil ; 'all
+      org-agenda-todo-ignore-with-date nil
+      org-agenda-todo-ignore-scheduled 'future
+      )
 (setq org-agenda-scheduled-leaders '("Scheduled: " "%2d days /// "))
-(setq org-agenda-todo-ignore-scheduled 'future)
 (setq org-agenda-show-all-dates t)
 (setq org-agenda-show-outline-path t)
 (setq org-deadline-warning-days 7) ; determines how far in advance items with
