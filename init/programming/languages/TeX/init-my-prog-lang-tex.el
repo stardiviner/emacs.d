@@ -27,8 +27,8 @@
 
 ;;;_ [ company-auctex ]
 
-;; (require 'company-auctex)
-;; (company-auctex-init)
+(require 'company-auctex)
+(company-auctex-init)
 
 
 ;;;_ [ auto-complete-latex ]
@@ -56,6 +56,8 @@
 ;;; [ company-math ]
 
 ;; TODO: https://github.com/vspinu/company-math
+
+(require 'company-math)
 
 
 ;;;_ [ reftex ]

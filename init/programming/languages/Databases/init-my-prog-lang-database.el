@@ -54,7 +54,7 @@
 
 ;;; [ company-edbi ]
 
-;; (add-to-list 'company-backends 'company-edbi)
+(add-to-list 'company-backends 'company-edbi)
 
 
 

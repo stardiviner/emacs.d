@@ -51,9 +51,8 @@
     (require 'init-helm)
   (require 'init-ido))
 
-(if (functionp 'company-mode)
-    (require 'init-company-mode)
-  (require 'init-auto-complete))
+(require 'init-company-mode)
+;; (require 'init-auto-complete)
 
 ;;; make auto-complete work with company-mode
 ;; (add-hook 'c-mode-common-hook

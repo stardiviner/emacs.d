@@ -151,7 +151,7 @@
          org-mode
          org-fstree org-bullets
          ob-julia
-         org-ac
+         ;; org-ac
          org-screenshot
          org-pomodoro
          ;; org-doing
@@ -271,7 +271,7 @@
          ;; Scheme
          ;; Clojure
          clojure-mode cider
-         company-cider ac-cider
+         ;; ac-cider ; company-cider
          ;; Python
          python python-mode
          ;; jedi
@@ -286,7 +286,7 @@
          ;; bison-mode
          ;; Go
          go-mode go-eldoc
-         ;; go-company
+         go-company
          ;; go-autocomplete ; gocode
          ;; D
          ;; d-mode

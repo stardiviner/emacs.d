@@ -372,7 +372,7 @@
 (eval-after-load 'inf-ruby
   '(define-key inf-ruby-minor-mode-map (kbd "C-c C-s") 'inf-ruby-console-auto))
 
-(add-to-list 'ac-modes 'inf-ruby-mode) ; enable auto-complete (with robe-mode) for inf-ruby completion.
+;; (add-to-list 'ac-modes 'inf-ruby-mode) ; enable auto-complete (with robe-mode) for inf-ruby completion.
 
 
 ;;; [ pry (emacs-pry) ] -- Pry support within Emacs
@@ -519,7 +519,7 @@
                    ;; for auto-complete
 
                    ;; ac-capf
-                   (add-to-list 'ac-sources 'ac-source-capf)
+                   ;; (add-to-list 'ac-sources 'ac-source-capf)
                    
                    ;; ac-robe
                    ;; (ac-robe-setup)
@@ -533,10 +533,6 @@
                    ;; setting.
                    ;; (make-local-variable 'company-backends)
                    ;; (add-to-list 'company-backends 'company-robe)
-
-                   ;; for company-mode
-                   ;; (eval-after-load 'company
-                   ;;   (add-to-list 'company-backends 'company-robe))
                    )))
 
 

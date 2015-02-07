@@ -116,7 +116,7 @@
 (setq comint-process-echoes t)
 
 ;;; for auto-complete
-(add-to-list 'ac-modes 'shell-mode)
+;; (add-to-list 'ac-modes 'shell-mode)
 ;; (add-hook 'shell-mode-hook 'ac-rlc-setup-sources)
 
 ;;; for company-mode backend.
