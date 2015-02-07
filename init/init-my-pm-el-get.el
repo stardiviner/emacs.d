@@ -66,12 +66,12 @@
          helm-mu
          ;; helm-delicious
          ;; helm-dictionary
-         auto-complete
-         auto-complete-yasnippet auto-complete-chunk
-         auto-complete-etags
-         auto-complete-emacs-lisp
-         auto-complete-pcmp
-         ac-capf
+         ;; auto-complete
+         ;; auto-complete-yasnippet auto-complete-chunk
+         ;; auto-complete-etags
+         ;; auto-complete-emacs-lisp
+         ;; auto-complete-pcmp
+         ;; ac-capf
          company-mode
          ;; ac-helm
          ;; ac-company
@@ -266,9 +266,8 @@
          slime
          elisp-slime-nav eldoc-eval
          profile-lisp
-         ;; slime-company
-         ac-slime
-         geiser ac-geiser
+         slime-company ; ac-slime
+         geiser ; ac-geiser
          ;; Scheme
          ;; Clojure
          clojure-mode cider
@@ -280,9 +279,9 @@
          ;; C family languages (C, C++, Go, D, F, Rust)
          c-eldoc eassist
          irony-mode
-         company-irony ac-irony
+         company-irony ; ac-irony
          company-c-headers
-         auto-complete-clang auto-complete-c-headers
+         ;; auto-complete-clang auto-complete-c-headers
          ;; auto-complete-clang-objc
          ;; bison-mode
          ;; Go
@@ -305,20 +304,20 @@
          ;; js2-mode
          js3-mode
          swank-js
-         ac-js2
+         ;; ac-js2
          tern ; company-tern
          ;; HTML
          htmlize html5
-         ac-html
+         ;; ac-html
          ;; CSS
          css-mode
-         auto-complete-css
+         ;; auto-complete-css
          css-eldoc
          showcss-mode
          ;; CoffeeScript
          ;; coffee-mode
          ;; XML
-         auto-complete-nxml
+         ;; auto-complete-nxml
          ;; JSON
          json-mode json-reformat json-snatcher
          ;; Markdown
@@ -327,9 +326,9 @@
          yaml-mode
          ;; TeX
          auctex
-         company-auctex auto-complete-auctex
+         company-auctex ; auto-complete-auctex
          ;; auto-complete-latex
-         company-math ac-math
+         company-math ; ac-math
          ;; reftex
          ;;; Haskell
          ;; haskell-mode
@@ -348,7 +347,7 @@
          ;; Julia
          ;; julia-mode
          ;; R
-         ac-R
+         ;; ac-R
          ;; gnuplot
          ;; gnuplot-mode
          ;; Octave

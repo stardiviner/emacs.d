@@ -20,17 +20,17 @@
 
 ;;; [ auto-complete-clang ]
 
-(require 'auto-complete-clang)
-(require 'auto-complete-c-headers)
-
-(dolist (hook '(c-mode-hook
-                c++-mode-hook
-                ))
-  (add-hook hook (lambda ()
-                   (eval-after-load 'auto-complete
-                     (lambda ()
-                       (add-to-list 'ac-sources 'ac-source-clang)
-                       (add-to-list 'ac-sources 'ac-source-c-headers))))))
+;; (require 'auto-complete-clang)
+;; (require 'auto-complete-c-headers)
+;;
+;; (dolist (hook '(c-mode-hook
+;;                 c++-mode-hook
+;;                 ))
+;;   (add-hook hook (lambda ()
+;;                    (eval-after-load 'auto-complete
+;;                      (lambda ()
+;;                        (add-to-list 'ac-sources 'ac-source-clang)
+;;                        (add-to-list 'ac-sources 'ac-source-c-headers))))))
 
 
 ;;; [ auto-complete-c-headers ]

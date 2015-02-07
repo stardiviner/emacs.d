@@ -22,7 +22,7 @@
 
 ;;;_ [ auto-complete-auctex ]
 
-(require 'auto-complete-auctex)
+;; (require 'auto-complete-auctex)
 
 
 ;;;_ [ company-auctex ]
