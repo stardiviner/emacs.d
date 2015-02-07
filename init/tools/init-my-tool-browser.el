@@ -19,7 +19,11 @@
       eww-form-checkbox-symbol "[ ]"
       eww-form-checkbox-selected-symbol "[X]"
       eww-header-line-format "%t: %u"   ; title: url.
-      eww-search-prefix "https://duckduckgo.com/html/?q=" ; search engine
+      ;; - DuckDuckGo :: "https://duckduckgo.com/html/?q="
+      ;; - Google :: "http://www.google.com/search?q=%s"
+      ;; - Bing :: "http://bing.com/search?q="
+      ;; search engine
+      eww-search-prefix "http://bing.com/search?q="
       eww-use-external-browser-for-content-type "\\`\\(video/\\|audio/\\|application/ogg\\)"
       )
 
