@@ -19,8 +19,6 @@
 ;;;
 
 (require 'company)
-(eval-after-load 'company-mode
-  (diminish 'company-mode))
 
 (setq-default company-minimum-prefix-length 2   ; minimum prefix character number for auto complete.
               company-idle-delay 0.2
@@ -31,37 +29,40 @@
                                         ; This doesn't include the margins and the scroll bar.
               company-tooltip-margin 1          ; width of margin columns to show around the tooltip
               company-tooltip-offset-display 'scrollbar ; 'lines - how to show tooltip unshown candidates number.
-              ;; company-show-numbers nil ; t: show quick-access numbers for the first ten candidates.
-              ;; company-selection-wrap-around nil
+              company-show-numbers nil ; t: show quick-access numbers for the first ten candidates.
+              company-selection-wrap-around t ; loop over candidates
               ;; company-async-wait 0.03
               ;; company-async-timeout 2
               )
 
 
-;; (setq company-frontends '(company-pseudo-tooltip-unless-just-one-frontend
-;;                           company-preview-if-just-one-frontend
-;;                           company-echo-metadata-frontend
-;;                           ))
+;;; help document preview & popup
+(require 'company-quickhelp)
+(company-quickhelp-mode t)
+(setq company-quickhelp--delay 0.1)
 
-(setq-default company-backends '(company-capf
-                                 company-semantic
-                                 (company-gtags company-etags
-                                                company-keywords)
-                                 company-files))
+(setq-default company-frontends '(company-pseudo-tooltip-unless-just-one-frontend
+                                  company-preview-if-just-one-frontend
+                                  company-echo-metadata-frontend
+                                  company-quickhelp-frontend
+                                  ))
 
-;; (setq company-backends '(company-elisp
-;;                          company-eclim
-;;                          company-semantic company-clang  company-cmake
-;;                          company-capf
-;;                          company-ropemacs
-;;                          company-nxml company-css
-;;                          company-xcode
-;;                          company-bbdb
-;;                          (company-dabbrev-code company-yasnippet company-gtags company-etags company-keywords)
-;;                          company-files company-dabbrev company-abbrev
-;;                          company-oddmuse
-;;                          ;; company-ispell
-;;                          ))
+
+(setq-default company-backends '(company-elisp
+                                 company-eclim
+                                 company-semantic company-clang  company-cmake
+                                 company-capf
+                                 company-ropemacs
+                                 company-nxml company-css
+                                 company-xcode
+                                 company-bbdb
+                                 company-yasnippet
+                                 (company-dabbrev-code company-yasnippet company-gtags company-etags company-keywords)
+                                 company-files company-dabbrev company-abbrev
+                                 company-oddmuse
+                                 ;; company-ispell
+                                 ))
+
 
 ;;; mode local backends example:
 ;; (add-hook 'js-mode-hook
@@ -74,22 +75,19 @@
 ;;                                c-scope-operator c-electric-colon c-electric-lt-gt c-electric-slash
 ;;                                ))
 
-(setq company-frontends '(company-pseudo-tooltip-unless-just-one-frontend
-                          company-preview-if-just-one-frontend
-                          company-echo-metadata-frontend
-                          ))
 
-
+;;; globally
+(add-hook 'after-init-hook 'global-company-mode)
+(diminish 'company-mode)
+;;
 ;;; To use company-mode in all buffers, add the following line to your init file:
 ;; (unless (featurep 'auto-complete)
 ;;   (message "auto-complete isn't enabled, active company-mode instead.")
 ;;   (add-hook 'after-init-hook 'global-company-mode)
 ;;   (after 'global-company-mode
-;;     (diminish company-mode))
+;;     (diminish 'company-mode))
 ;;   )
-
-;;; globally
-;; (add-hook 'after-init-hook 'global-company-mode)
+;;
 ;;; or enabled only in specific modes
 ;; (dolist (hook '(emacs-lisp-mode-hook
 ;;                 lisp-mode-hook
@@ -114,10 +112,11 @@
 ;;                 ))
 ;;   (add-hook hook 'company-mode))
 
-;;; help document preview & popup
-(require 'company-quickhelp)
-(company-quickhelp-mode t)
-(setq company-quickhelp--delay 0.2)
+(setq company-global-modes t)
+;; (setq company-global-modes '(emacs-lisp-mode
+;;                              org-mode
+;;                              ruby-mode
+;;                              prog-mode))
 
 ;; keybindings
 ;; (global-set-key (kbd "<tab>") 'company-complete)
@@ -129,20 +128,9 @@
 (define-key company-active-map [tab] 'yas-expand)
 
 ;; navigation
-(add-hook 'after-init-hook 'global-company-mode)
-(diminish 'company-mode)
-
-;;; help document preview & popup
-;; https://gist.github.com/dgutov/6dd7669697c5c0cd7e8f
-(require 'company-quickhelp)
-(setq company-quickhelp--delay 0.2)
-
-;; keybindings
-;; (global-set-key (kbd "<tab>") 'company-complete)
-
-(define-key company-active-map (kbd "C-n") 'company-select-next)
-(define-key company-active-map (kbd "C-p") 'company-select-previous)
-(define-key company-active-map (kbd "C-j") 'company-complete-selection)
+;; (define-key company-active-map (kbd "C-n") 'company-select-next)
+;; (define-key company-active-map (kbd "C-p") 'company-select-previous)
+;; (define-key company-active-map (kbd "C-j") 'company-complete-selection)
 (define-key company-active-map (kbd "M-n") 'company-select-next)
 (define-key company-active-map (kbd "M-p") 'company-select-previous)
 (define-key company-active-map [return] 'company-complete-selection)
@@ -154,16 +142,19 @@
 ;; help
 (define-key company-active-map (kbd "<f1>") 'company-show-doc-buffer)
 (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
-(define-key company-active-map (kbd "C-v") 'company-show-location)
-(define-key company-active-map (kbd "C-w") 'company-show-location)
+(define-key company-active-map (kbd "M-l") 'company-show-location)
 
 ;; search
-(define-key company-active-map (kbd "C-s") 'company-filter-candidates)
+(define-key company-active-map (kbd "M-s") 'company-filter-candidates)
 (define-key company-active-map (kbd "C-M-s") 'company-search-candidates)
 (define-key company-search-map (kbd "C-g") 'company-search-abort)
-(define-key company-search-map (kbd "C-s") 'company-search-repeat-forward)
-(define-key company-search-map (kbd "C-r") 'company-search-repeat-backward)
-(define-key company-search-map (kbd "C-o") 'company-search-kill-others)
+(define-key company-search-map (kbd "M-s") 'company-search-repeat-forward)
+(define-key company-search-map (kbd "M-r") 'company-search-repeat-backward)
+(define-key company-search-map (kbd "M-n") 'company-search-repeat-forward)
+(define-key company-search-map (kbd "M-p") 'company-search-repeat-backward)
+(define-key company-search-map (kbd "M-o") 'company-search-kill-others)
+(define-key company-search-map (kbd "M-j") 'company-complete-selection)
+
 
 (define-key company-active-map (kbd "SPC")
   '(lambda ()
@@ -176,48 +167,6 @@
      (interactive)
      (company-abort)))
 
-
-;;; faces
-;; (set-face-attribute 'company-tooltip nil
-;;                     :foreground "black" :background "white"
-;;                     :weight 'normal :slant 'normal)
-;; (set-face-attribute 'company-tooltip-selection nil
-;;                     :inherit 'company-tooltip
-;;                     :foreground "white" :background "#212121")
-;; (set-face-attribute 'company-tooltip-mouse nil
-;;                     :inherit 'company-tooltip
-;;                     :foreground "cyan" :background "black"
-;;                     :weight 'bold)
-;; (set-face-attribute 'company-tooltip-common nil
-;;                     :inherit 'company-tooltip
-;;                     :foreground "dark gray")
-;; (set-face-attribute 'company-tooltip-common-selection nil
-;;                     :inherit 'company-tooltip-common
-;;                     :inverse-video nil
-;;                     :foreground "white" :background " ")
-;; (set-face-attribute 'company-tooltip-search nil
-;;                     :inherit 'company-tooltip
-;;                     :foreground "red")
-;; (set-face-attribute 'company-tooltip-annotation nil
-;;                     :inherit 'company-tooltip
-;;                     :foreground "dark red")
-;; (set-face-attribute 'company-scrollbar-fg nil
-;;                     :foreground "black" :background "black")
-;; (set-face-attribute 'company-scrollbar-bg nil
-;;                     :foreground " " :background "gray")
-;; (set-face-attribute 'company-preview nil
-;;                     :foreground "black" :background "dark gray"
-;;                     )
-
-;; color quick hack
-;; (require 'color)
-;; (let ((bg (face-attribute 'default :background)))
-;;   (custom-set-faces
-;;    `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 2)))))
-;;    `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 10)))))
-;;    `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 5)))))
-;;    `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
-;;    `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
 
 ;; faces
 (set-face-attribute 'company-tooltip nil

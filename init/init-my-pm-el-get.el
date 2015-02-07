@@ -72,7 +72,7 @@
          auto-complete-emacs-lisp
          auto-complete-pcmp
          ac-capf
-         ;; company-mode
+         company-mode
          ;; ac-helm
          ;; ac-company
          ;; color theme
@@ -272,16 +272,16 @@
          ;; Scheme
          ;; Clojure
          clojure-mode cider
-         ac-cider  ; ac-nrepl
-         ;; company-cider
+         company-cider ac-cider
          ;; Python
          python python-mode
          ;; jedi
          helm-ipython
          ;; C family languages (C, C++, Go, D, F, Rust)
          c-eldoc eassist
-         irony-mode ac-irony ; company-irony
-         ;; company-c-headers
+         irony-mode
+         company-irony ac-irony
+         company-c-headers
          auto-complete-clang auto-complete-c-headers
          ;; auto-complete-clang-objc
          ;; bison-mode
@@ -327,9 +327,9 @@
          yaml-mode
          ;; TeX
          auctex
-         auto-complete-auctex ; company-auctex
+         company-auctex auto-complete-auctex
          ;; auto-complete-latex
-         ;; ac-math
+         company-math ac-math
          ;; reftex
          ;;; Haskell
          ;; haskell-mode
@@ -356,7 +356,7 @@
          ;; Database
          ;; SQL
          sqlup-mode
-         edbi ; company-edbi
+         edbi company-edbi
          ;; NoSQL
          ;; MongoDB
          ;; inf-mongo
