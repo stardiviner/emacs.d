@@ -36,10 +36,19 @@
 
 (require 'jekyll)
 
-(setq jekyll-directory "~/Servers/Websites/Blogs/org-publish-jekyll/"
+(setq jekyll-directory "~/Servers/Websites/Blogs/jekyll.github.io/"
       ;; jekyll-post-ext ".markdown"
       )
 
+;; (setq jekyll-post-template "---
+;; title: %s
+;; ---
+;;
+;; ")
+
+;; (require 'jekyll-mumamo)
+;;; You can add other modes for highlighting in your configuration.
+;;; Integrated support for ruby and javascript.
 ;; (add-to-list 'jekyll-modes-list '("erlang" 'erlang-mode))
 
 (if (featurep 'jekyll)
