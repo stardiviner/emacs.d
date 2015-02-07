@@ -201,6 +201,31 @@ LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
                                                     require-start-time))
                      t)))))
 
+
+;;; [ profiler ]
+
+;;; Usage:
+;;
+;; - `profiler-start' ::
+;; - `profiler-stop' ::
+;; - `profiler-report' ::
+
+(unless (boundp 'my-emacs-profiler-prefix)
+  (define-prefix-command 'my-emacs-profiler-prefix))
+
+(define-key my-prog-debug-prefix (kbd "p") 'my-emacs-profiler-prefix)
+
+(define-key my-emacs-profiler-prefix (kbd "p") 'profiler-start)
+(define-key my-emacs-profiler-prefix (kbd "s") 'profiler-stop)
+(define-key my-emacs-profiler-prefix (kbd "r") 'profiler-report)
+
+(add-hook 'emacs-lisp-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-c d") 'my-prog-debug-prefix)
+            (define-key my-prog-debug-prefix (kbd "p") 'profiler-start)
+            (define-key my-prog-debug-prefix (kbd "s") 'profiler-stop)
+            (define-key my-prog-debug-prefix (kbd "r") 'profiler-report)
+            ))
 
 
 
