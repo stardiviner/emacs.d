@@ -2,6 +2,6 @@
 # name: insert jekyll root resource image
 # key: jekyll-image
 # --
-![${1:description}]({{ site.url }}/resources/${2:path to image})
+![${1:description}]({{ site.url }}/assets/images/${2:path to image})
 
 $0

@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: link
+# key: link
+# --
+[${2:link description}]({{ site.url }}/assets/${1:filename.pdf}) $0

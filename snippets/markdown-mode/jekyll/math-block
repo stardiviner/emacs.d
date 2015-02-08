@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: math block
+# key: math
+# --
+$$ ${1:math block (can be multiple lines)} $$
