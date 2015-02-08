@@ -77,6 +77,11 @@
 (global-set-key (kbd "C-c C-k") 'my/toggle-showcss)
 
 
+;;; [ SCSS ]
+
+(require 'init-my-prog-lang-css-scss)
+
+
 (provide 'init-my-prog-lang-css)
 
 ;;; init-my-prog-lang-css.el ends here
