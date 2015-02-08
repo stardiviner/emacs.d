@@ -57,6 +57,13 @@
 ;;             (unless (derived-mode-p 'prog-mode))
 ;;             (run-hooks 'prog-mode-hook)))
 
+(dolist (hook '(ruby-mode-hook
+                html-mode-hook
+                css-mode-hook
+                ))
+  (add-hook hook (lambda ()
+                   (unless (derived-mode-p 'prog-mode))
+                   (run-hooks 'prog-mode-hook))))
 
 
 ;;; [ Multiple Inferior buffers ]
