@@ -291,25 +291,24 @@
 
 
 ;;; [ auto-fill-mode ] -- auto fill paragraphs like hitting [M-q].
+
 ;; (auto-fill-mode t)
 ;;; enable only for text writing modes.
 (dolist (hook
          '(text-mode-hook
-           org-mode-hook))
+           org-mode-hook
+           markdown-mode-hook))
   (add-hook hook 'turn-on-auto-fill))
 ;;; auto fill comments but not code in programming modes:
-(dolist (hook
-         '(prog-mode-hook))
-  (add-hook hook (lambda ()
-                   ;; fill-mode default implement
-                   (setq comment-auto-fill-only-comments t)
-                   ;; -- manually --
-                   ;; (auto-fill-mode 1)
-                   ;; (set (make-local-variable 'fill-nobreak-predicate)
-                   ;;      (lambda ()
-                   ;;        (not (eq (get-text-property (point) 'face)
-                   ;;               'font-lock-comment-face))))
-                   )))
+(add-hook 'prog-mode-hook (lambda ()
+                            (setq-local comment-auto-fill-only-comments t)
+                            ;; -- manually --
+                            ;; (auto-fill-mode 1)
+                            ;; (set (make-local-variable 'fill-nobreak-predicate)
+                            ;;      (lambda ()
+                            ;;        (not (eq (get-text-property (point) 'face)
+                            ;;               'font-lock-comment-face))))
+                            ))
 
 
 ;;; { refill mode }
