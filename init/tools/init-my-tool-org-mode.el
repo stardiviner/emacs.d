@@ -1712,6 +1712,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 (setq org-export-backends '(ascii html icalendar latex md)
       org-export-babel-evaluate t ; code evaluation during export.
       ;; org-export-headline-levels 6
+      org-export-with-smart-quotes t
       )
 
 
@@ -1724,6 +1725,11 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;; (setq org-export-latex-packages-alist '("" "listings"))
 ;; (setq org-export-latex-packages-alist '("" "color"))
 ;; (setq org-export-latex-listings t)
+
+;;; PDF exporting
+;;
+;; (setq org-latex-to-pdf-process 
+;;       '("pdflatex %f" "biber %b" "pdflatex %f" "pdflatex %f"))
 
 ;;; ------------- Export UTF-8 checkboxes ---------------------
 ;;; This snippet turns - [X] into ☑ and - [ ] into ☐.
