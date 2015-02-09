@@ -587,7 +587,8 @@ It can contain any number of symbols, which will be repeated."
 
 ;;;_*, plain list
 
-(setq org-support-shift-select nil) ; - nil to support: [S-up/down] to jump to previous/next item in list.
+(setq org-support-shift-select nil
+      org-list-allow-alphabetical t) ; - nil to support: [S-up/down] to jump to previous/next item in list.
 
 ;;;_*, Drawer
 
