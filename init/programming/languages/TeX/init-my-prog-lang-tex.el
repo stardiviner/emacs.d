@@ -11,7 +11,11 @@
 
 ;;;_* Usage:
 ;;
-;; [C-c C-p] :: preview prefix.
+;; - [C-c C-p] :: preview prefix.
+;; - [C-c C-c] :: compile.
+;; - [C-c C-v] :: view the paper.
+;; - [C-c `] :: popup compile error.
+;; - [C-c C-e] :: easy to enter environments \begin{...}  ...  \end{...}
 
 ;; LaTeX/P mode defined in `tex-site.el':
 ;; Major mode in AUCTeX for editing LaTeX files.
