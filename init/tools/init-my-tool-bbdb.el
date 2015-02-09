@@ -44,16 +44,18 @@
 
 (if (featurep 'bbdb-)
     (define-key my-bbdb-map (kbd "b") 'bbdb-:open)
-  (define-key my-bbdb-map (kbd "b") 'bbdb))
+  (define-key my-bbdb-map (kbd "b") 'my-bbdb-open-or-switch) ; or 'bbdb.
+  )
 
 (defun my-bbdb-open-or-switch ()
   (interactive)
   (if (get-buffer "*BBDB*")
       (switch-to-buffer "*BBDB*")
     (bbdb "")
-    (bury-buffer)
-    (switch-to-buffer "*BBDB*")))
-(define-key my-bbdb-map (kbd "B") 'my-bbdb-open-or-switch)
+    ;; (bury-buffer)
+    ;; (switch-to-buffer "*BBDB*")
+    ))
+(define-key my-bbdb-map (kbd "B") 'bbdb)
 
 (define-key my-bbdb-map (kbd "c") 'bbdb-create)
 ;; usage: region select name and email part in To: field. then press this keybinding.
