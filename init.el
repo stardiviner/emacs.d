@@ -187,18 +187,17 @@
 (require 'init-my-tool-calculator)
 (require 'init-my-tool-diagram)
 (require 'init-my-tool-bbdb)
+(require 'init-my-tool-browser)
 (require 'init-my-tool-OpenSpritz)
 ;;; Email
 (require 'init-my-tool-email-message-mode)
 (require 'init-my-tool-email-mu4e)
 ;; (require 'init-my-tool-newsticker)
-;; (require 'init-my-tool-sauron)
-(require 'init-my-tool-paste)
 (require 'init-my-tool-blog)
+(require 'init-my-tool-paste)
+;; (require 'init-my-tool-sauron)
 ;;; IRC
 ;; (require 'init-my-tool-irc-erc)
-(require 'init-my-tool-diagram)
-(require 'init-my-tool-speak)
 ;; (require 'init-my-tool-w3m)
 ;; (require 'init-my-tool-emms)
 
