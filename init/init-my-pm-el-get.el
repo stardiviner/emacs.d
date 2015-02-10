@@ -396,6 +396,8 @@
          festival
          ;; Toy
          ;; oniisama
+         ;; Emacs keyboard commands log
+         command-log-mode
          ;; Integrate into Emacs
          sx ; Stack Exchange
          )
