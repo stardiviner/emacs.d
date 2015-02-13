@@ -586,7 +586,13 @@
   '(rspec-install-snippets))
 
 ;;; [ Gotchas ]
-;; ZSH and RVM
+;;; Debugging
+;;
+;; To use `binding.pry' or `byebug', install `inf-ruby' and add this to your init file:
+(add-hook 'after-init-hook 'inf-ruby-switch-setup)
+;; When you've hit the breakpoint, hit [C-x C-q] to enable inf-ruby.
+
+;;; ZSH and RVM
 ;;
 ;; If you use ZSH and RVM, you may encounter problems running the specs. It may
 ;; be so that an older version of Ruby, than the one you specified in .rvmrc, is
