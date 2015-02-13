@@ -199,20 +199,22 @@
       helm-ff-file-name-history-use-recentf t ; use recentf
       helm-ff-transformer-show-only-basename t ; show basename in find file candidates. toggled by C-].
       ;; helm-sources-using-default-as-input
-      ;; helm-browse-url-default-browser-alist '(("/usr/bin/w3m" . w3m-browse-url)
-      ;;                                         ("firefox" . browse-url-firefox)
-      ;;                                         ("uzbl-browser" . helm-browse-url-uzbl)
-      ;;                                         ("chromium-browser" . helm-browse-url-chromium)
-      ;;                                         ("conkeror" . helm-browse-url-conkeror)
-      ;;                                         ("kfmclient" . browse-url-kde)
-      ;;                                         ("gnome-moz-remote" . browse-url-gnome-moz)
-      ;;                                         ("mozilla" . browse-url-mozilla)
-      ;;                                         ("galeon" . browse-url-galeon)
-      ;;                                         ("netscape" . browse-url-netscape)
-      ;;                                         ("xmosaic" . browse-url-mosaic)
-      ;;                                         ("xterm" . browse-url-text-xterm)
-      ;;                                         ("emacs" . eww-browse-url))
       )
+
+(setq helm-browse-url-default-browser-alist '(("conkeror" . helm-browse-url-conkeror) ; Conkeror
+                                              ("uzbl-browser" . helm-browse-url-uzbl) ; uzbl
+                                              ("firefox" . browse-url-firefox) ; Firefox
+                                              ("chromium-browser" . helm-browse-url-chromium) ; chromium
+                                              ("emacs" . eww-browse-url) ; eww
+                                              ("/usr/bin/w3m" . w3m-browse-url) ; w3m
+                                              ("gnome-moz-remote" . browse-url-gnome-moz) ; Gnome
+                                              ("mozilla" . browse-url-mozilla) ; Mozilla
+                                              ("kfmclient" . browse-url-kde) ; KDE
+                                              ("galeon" . browse-url-galeon)
+                                              ("netscape" . browse-url-netscape) ; netscape
+                                              ("xmosaic" . browse-url-mosaic)
+                                              ("xterm" . browse-url-text-xterm) ; XTerm
+                                              ))
 
 (when (executable-find "curl")
   (setq helm-google-suggest-use-curl-p t

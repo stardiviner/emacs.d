@@ -179,8 +179,8 @@
 ;;; [ Browser ]
 
 (setq browse-url-browser-function 'browse-url-generic ; 'browse-url-generic, 'browse-url-default-browser, 'eww-browse-url (EWW)
-      ;; "firefox", "chromium-browser", "uzbl-tabbed", "luakit", "jumanji", "elinks",
-      browse-url-generic-program (executable-find "firefox")
+      ;; "conkeror" "firefox", "chromium-browser", "uzbl-tabbed", "luakit", "jumanji", "elinks",
+      browse-url-generic-program (executable-find "conkeror")
       )
 
 

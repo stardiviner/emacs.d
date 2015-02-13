@@ -100,7 +100,7 @@
 (setq helm-dash-docsets-path (expand-file-name "~/.docsets")
       helm-dash-min-length 3
       ;; helm-dash-completing-read-func 'completing-read ; 'completing-read, 'ido-completing-read
-      helm-dash-browser-func 'browse-url ; 'browse-url, 'eww
+      helm-dash-browser-func 'browse-url ; 'browse-url, 'eww, 'helm-browse-url
       ;; helm-dash-connections
       helm-dash-common-docsets '("Ruby" "Ruby on Rails"
                                  "Python 3"
