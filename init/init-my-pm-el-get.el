@@ -107,6 +107,7 @@
          ;; buffer & window, frame
          window-number ; switch-window
          workgroups2 ; e2wm
+         perspective
          popwin
          zoom-window
          ;; minibuffer

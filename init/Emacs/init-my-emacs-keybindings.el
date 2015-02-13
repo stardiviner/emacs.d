@@ -138,6 +138,7 @@
         "C-x d"                         ; Dictionary
         "C-c ;"                         ; E2WM
         "C-c w"                         ; workgroups2
+        "C-x x"                         ; perspective
         "C-c @"                         ; hs-minor-mode [Fold] (global)
         "C-c t"                         ; tools: paste(gist), ... etc.
         "C-x c"                         ; Helm
