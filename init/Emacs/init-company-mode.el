@@ -48,18 +48,18 @@
                                   ))
 
 
-(setq-default company-backends '(company-elisp
-                                 company-eclim
-                                 company-semantic company-clang  company-cmake
+(setq-default company-backends '(company-elisp ; Emacs Lisp
                                  company-capf
-                                 company-ropemacs
-                                 company-nxml company-css
+                                 company-yasnippet
+                                 company-semantic company-clang  company-cmake ; C/C++
+                                 company-eclim ; Java
+                                 company-ropemacs ; Python
+                                 company-nxml company-css ; HTML, CSS, XML
                                  company-xcode
                                  company-bbdb
-                                 company-yasnippet
                                  (company-dabbrev-code company-yasnippet company-gtags company-etags company-keywords)
                                  company-files company-dabbrev company-abbrev
-                                 company-oddmuse
+                                 company-oddmuse ; wiki
                                  ;; company-ispell
                                  ))
 
