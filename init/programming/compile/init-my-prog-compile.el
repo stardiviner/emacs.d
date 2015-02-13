@@ -4,6 +4,11 @@
 
 ;;; Code:
 
+;;; [ compile ]
+
+(setq compilation-scroll-output t)
+
+
 ;;; [ smart-compile ]
 
 ;;; Usage:
