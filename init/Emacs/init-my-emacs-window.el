@@ -128,11 +128,10 @@
 ;; * array     : selecting buffers like expose in Mac OSX
 
 ;; (require 'e2wm)
-
+;;
 ;; (global-set-key (kbd "C-c +") 'e2wm:start-management)
 ;; (global-set-key (kbd "C-c -") 'e2wm:stop-management)
-
-;;; Customization
+;;
 ;; (setq e2wm:c-my-org-repice
 ;;       '(| (:left-max-size 35)
 ;;           (- (:upper-size-ratio 0.7)
@@ -141,14 +140,20 @@
 ;;              (| (:right-max-size 30)
 ;;                 main imenu)
 ;;              sub)))
-
+;;
 ;; (setq e2wm:c-my-org-winfo
-;;   '((:name main)
-;;     (:name files :plugin files)
-;;     (:name history :plugin history-list)
-;;     (:name sub :buffer "*info*" :default-hide t)
-;;     (:name imenu :plugin imenu :default-hide nil))
-;;   )
+;;       '((:name main)
+;;         (:name files :plugin files)
+;;         (:name history :plugin history-list)
+;;         (:name sub :buffer "*info*" :default-hide t)
+;;         (:name imenu :plugin imenu :default-hide nil))
+;;       )
+
+
+;;; [ ne2wm ]
+
+;; (require 'ne2wm-setup)
+
 
 ;;; [ perspective ] -- Perspectives for Emacs.
 

@@ -35,7 +35,7 @@
         ;;        :type github
         ;;        :pkgname "kbkbkbkb1/guide-key"
         ;;        :features guide-key)
-	))
+        ))
 
 ;;; my packages which will be installed.
 (setq my:el-get-packages
@@ -105,9 +105,10 @@
          ;; others
          ;; guru-mode
          ;; buffer & window, frame
-         window-number ; switch-window
-         workgroups2 ; e2wm
-         perspective
+         window-number window-layout ; switch-window
+         workgroups2
+         ;; e2wm ne2wm
+         ;; perspective
          popwin
          zoom-window
          ;; minibuffer
