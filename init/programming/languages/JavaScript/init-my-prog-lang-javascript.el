@@ -46,13 +46,13 @@
 ;; call completion-at-point or if you have auto-complete installed wait for the
 ;; popup.
 
-(add-hook 'js2-mode-hook 'ac-js2-mode)
-
-(setq ac-js2-evaluate-calls t ; if you want to evaluate your Javascript code for
-                              ; candidates. Not setting this value will still
-                                        ; provide you with basic completion.
-      ;; ac-js2-external-libraries '("full/path/to/a-library.js")
-      )
+;; (add-hook 'js2-mode-hook 'ac-js2-mode)
+;;
+;; (setq ac-js2-evaluate-calls t ; if you want to evaluate your Javascript code for
+;;                               ; candidates. Not setting this value will still
+;;                                         ; provide you with basic completion.
+;;       ;; ac-js2-external-libraries '("full/path/to/a-library.js")
+;;       )
 
 
 ;;; JavaScript subprocess integration
