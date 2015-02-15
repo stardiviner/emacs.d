@@ -28,7 +28,13 @@
       ;; minibuffer-history-position t
       )
 
+
+;;; [ echo area ]
 
+;; (setq help-at-pt-display-when-idle t
+;;       ;; help-at-pt-timer-delay 0.1
+;;       )
+;; (help-at-pt-set-timer)
 
 
 ;;; [ icomplete-mode ] -- incremental minibuffer completion.
