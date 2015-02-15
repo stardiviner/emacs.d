@@ -33,6 +33,16 @@
 
 (require 'org-plot)
 
+(require 'ox-latex)
+;; (require 'ox-bibtex)
+(require 'ox-beamer)
+(require 'ox-odt)
+(require 'ox-html)
+;; (require 'ox-deck)
+;; (require 'ox-publish)
+;; (require 'ox-koma-letter)
+;; (require 'org-notmuch)
+
 ;; use Org-mode as the default mode for all README files.
 (add-to-list 'auto-mode-alist '("README$" . org-mode))
 
