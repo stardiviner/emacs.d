@@ -3,5 +3,5 @@
 # key: babel-ditaa
 # --
 #+BEGIN_SRC ditaa :file ${1:filename}.png :cmdline --round-corners --overwrite --s 0.8
-$0
+${2:# ditaa}
 #+END_SRC
