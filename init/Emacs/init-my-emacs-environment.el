@@ -26,6 +26,8 @@
 (set-keyboard-coding-system 'utf-8)
 
 (prefer-coding-system 'utf-8-unix)
+(set-charset-priority 'unicode)
+(setq default-process-coding-system '(utf-8-unix . utf-8-unix))
 
 ;; (setq-default buffer-file-coding-system 'utf-8-unix)
 ;; (setq-default default-buffer-file-coding-system 'utf-8-unix)
