@@ -52,13 +52,14 @@
                                  company-capf
                                  company-yasnippet
                                  company-semantic company-clang  company-cmake ; C/C++
-                                 company-eclim ; Java
+                                 ;; company-eclim ; Java
                                  company-ropemacs ; Python
                                  company-nxml company-css ; HTML, CSS, XML
                                  company-xcode
-                                 company-bbdb
+                                 company-bbdb ; BBDB
                                  (company-dabbrev-code company-yasnippet company-gtags company-etags company-keywords)
-                                 company-files company-dabbrev company-abbrev
+                                 company-files ; files & directory
+                                 company-dabbrev company-abbrev ; abbrev
                                  company-oddmuse ; wiki
                                  ;; company-ispell
                                  ))
