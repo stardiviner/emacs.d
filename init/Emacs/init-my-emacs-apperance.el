@@ -414,7 +414,7 @@
 (global-prettify-symbols-mode 1)
 
 
-;;; [ pretty-mode ] -- Redisplay parts of the Emacs buffer as pretty symbols.
+;;; [ pretty-mode (pretty-mode-plus) ] -- Redisplay parts of the Emacs buffer as pretty symbols.
 
 ;; https://github.com/akatov/pretty-mode
 

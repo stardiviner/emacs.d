@@ -85,8 +85,9 @@
          ;; cursor-chg
          ;; yascroll
          ;; minimap sublimity
+         pretty-mode-plus page-break-lines
          ;; modeline
-         diminish pretty-mode page-break-lines
+         diminish
          ;; mode-icons
          ;; input method
          ;; eim
