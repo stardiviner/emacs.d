@@ -144,10 +144,16 @@
 ;;; overwrite them, just remove the hook with:
 ;; (remove-hook 'enh-ruby-mode-hook 'erm-define-faces)
 
-
-;; (set-face-attribute 'enh-ruby-op nil
-;;                     :foreground "dim gray"
-;;                     )
+(eval-after-load 'enh-ruby-mode
+  (lambda ()
+    (erm-define-faces)
+    
+    (set-face-attribute 'enh-ruby-op-face nil
+                        :foreground "red"
+                        )
+    (set-face-attribute 'enh-ruby-string-delimiter-face nil
+                        :foreground "orange")
+    ))
 
 ;; FIXME: invalid face.
 ;; (eval-after-load "enh-ruby-mode"
