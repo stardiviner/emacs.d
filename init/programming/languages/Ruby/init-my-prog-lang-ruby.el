@@ -106,26 +106,48 @@
 ;;; the source code. As a consquence only ruby 1.9.2 (or later) syntax is parsed
 ;;; correctly.
 
+(require 'enh-ruby-mode)
 (autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
 
-(if (featurep 'enh-ruby-mode)
-    (lambda ()
-      (unless (derived-mode-p 'prog-mode)
-        (run-hooks 'prog-mode-hook))
+(add-hook 'enh-ruby-mode-hook (lambda ()
+                                (unless (derived-mode-p 'prog-mode)
+                                  (run-hooks 'prog-mode-hook))
 
-      (define-key enh-ruby-mode-map (kbd "C-,") 'insert-arrow)
+                                (define-key enh-ruby-mode-map (kbd "C-,") 'insert-arrow)
 
-      ;; add into auto-complete enable modes.
-      (add-to-list 'ac-modes 'enh-ruby-mode)
-      ))
+                                ;; add into auto-complete enable modes
+                                ;; (add-to-list 'ac-modes 'enh-ruby-mode)
+                                ))
 
 ;; (setq enh-ruby-program "/home/stardiviner/.rvm/rubies/ruby-head/bin/ruby")
+
+(setq enh-ruby-bounce-deep-indent t
+      enh-ruby-check-syntax 'errors-and-warnings
+      enh-ruby-comment-column 32
+      enh-ruby-deep-arglist t
+      enh-ruby-deep-indent-paren t
+      ;; enh-ruby-deep-indent-paren-style
+      ;; enh-ruby-extra-keywords
+      enh-ruby-indent-level 2
+      ;; enh-ruby-indent-tabs-mode nil
+      enh-ruby-hanging-indent-level 2
+      enh-ruby-hanging-brace-indent-level 2
+      enh-ruby-hanging-brace-deep-indent-level 0
+      enh-ruby-hanging-paren-indent-level 2
+      enh-ruby-hanging-paren-deep-indent-level 0
+      enh-ruby-use-encoding-map t
+      enh-ruby-use-ruby-mode-show-parens-config t
+      )
 
 ;;; Enhanced Ruby Mode defines its own specific faces with the hook
 ;;; erm-define-faces. If your theme is already defining those faces, to not
 ;;; overwrite them, just remove the hook with:
 ;; (remove-hook 'enh-ruby-mode-hook 'erm-define-faces)
 
+
+;; (set-face-attribute 'enh-ruby-op nil
+;;                     :foreground "dim gray"
+;;                     )
 
 ;; FIXME: invalid face.
 ;; (eval-after-load "enh-ruby-mode"
@@ -538,8 +560,9 @@
 
 ;;; [ helm-robe ]
 
-(custom-set-variables
- '(robe-completing-read-func 'helm-robe-completing-read))
+(setq robe-completing-read-func 'helm-robe-completing-read)
+;; (custom-set-variables
+;;  '(robe-completing-read-func 'helm-robe-completing-read))
 
 
 ;;; [ ruby-compilation ]
