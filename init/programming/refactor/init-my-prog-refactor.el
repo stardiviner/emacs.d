@@ -14,6 +14,8 @@
 ;; Most EMR commands are context-sensitive and are available through the
 ;; refactor menu. Some actions affect the whole buffer and are available in the
 ;; menu bar.
+;;
+;; - [M-RET] :: `emr-show-refactor-menu' show popup menu.
 
 (autoload 'emr-show-refactor-menu "emr")
 (define-key prog-mode-map (kbd "M-RET") 'emr-show-refactor-menu)

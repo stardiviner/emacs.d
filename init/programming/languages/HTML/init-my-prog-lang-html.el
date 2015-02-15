@@ -7,8 +7,6 @@
 
 ;;; Code:
 
-
-
 ;;; [ ac-html ] -- Provide accurate and intelligent auto completion to HTML and CSS.
 
 ;; ;;; If you are using html-mode:

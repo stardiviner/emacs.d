@@ -95,7 +95,7 @@
 
 ;;; [ slime-company ] -- slime backend for Company mode.
 
-
+;; FIXME: (slime-setup '(slime-company))
 
 
 ;; A quick way to jump to the definition of a function given its key binding
