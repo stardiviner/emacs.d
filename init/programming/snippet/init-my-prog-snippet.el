@@ -241,9 +241,10 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: $1
 # key: ${2:${1:$(yas--key-from-desc yas-text)}}${3:
-# binding: ${4:direct-keybinding}}${5:
-# expand-env: ((${6:some-var} ${7:some-value}))}${8:
-# type: command}
+# group: ${4:group.subgroup}
+# binding: ${5:direct-keybinding}}${6:
+# expand-env: ((${7:some-var} ${8:some-value}))}${9:
+# type: snippet/command}
 # --
 $0"
       )
