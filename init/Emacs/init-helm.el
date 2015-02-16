@@ -70,10 +70,12 @@
 (setq helm-command-prefix-key "C-x c" ; for `helm-command-prefix'.
       helm-mini-default-sources '(helm-source-buffers-list
                                   helm-source-buffer-not-found
-                                  helm-source-recentf
-                                  ;; helm-source-filter
                                   ;; helm-source-bookmarks
                                   helm-source-pp-bookmarks
+                                  helm-source-my-apps ; my custom source
+                                  ;; helm-source-my-locations ; my custom source
+                                  helm-source-recentf
+                                  ;; helm-source-filter
                                   ;; helm-source-session
                                   ;; helm-source-projectile-projects
                                   ;; helm-source-occur
@@ -86,6 +88,29 @@
                                   ;; helm-source-google-suggest
                                   )
       )
+
+(defvar helm-source-my-apps
+  '((name . "My Daily Apps")
+    (candidates . (("Agenda" . my-open-org-agenda)
+                   ("Mail" . mu4e)
+                   ("Blog" . jekyll-draft-post)
+                   ("Calendar" . (lambda () (browse-url "https://www.google.com/calendar/render")))
+                   ("RSS" . elfeed)
+                   ("Web Browser" . eww)))
+    (action . (("Open" . (lambda (x) (funcall x)))))
+    ))
+
+(defvar helm-source-my-locations
+  '((name . "My Frequently File Locations")
+    (candidates . (("Linux" . "~/Org/Wiki/Computer/Systems/Linux/Linux.org")
+                   ("Emacs" . "~/Org/Wiki/Computer/Programming/Emacs/Emacs.org")
+                   ("Programming" . "~/Org/Wiki/Computer/Programming/Programming.org")
+                   ("Implement" . "~/Org/Wiki/Computer/Programming/Implements/Implements.org")
+                   ("Languages" . "~/Org/Wiki/Computer/Programming/Programming Languages/Programming Languages.org")
+                   ("Ruby" . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Ruby.org")
+                   ("Lisp" . "~/Org/Wiki/Computer/Programming/Programming Languages/Lisp/Lisp.org")))
+    (action . (("Open" . (lambda (x) (find-file x)))))))
+
 
 ;;; work with ido and helm together.
 ;; If you like ido for some commands and helm for other commands, you should not
