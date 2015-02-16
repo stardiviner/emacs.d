@@ -40,7 +40,10 @@
     ;; 3.. enable in all programming-related modes
     ;; (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
     ;; 4. enable in specific modes
-    ;; (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+    (dolist (hook '(ruby-mode-hook
+                    enh-ruby-mode-hook
+                    ))
+      (add-hook hook 'rainbow-delimiters-mode-enable))
     ))
 
 ;; you have two styles:
