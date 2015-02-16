@@ -15,11 +15,9 @@
 
 (set-face-attribute 'show-paren-match-face nil
                     :foreground nil :background "black"
-                    :weight 'bold
                     )
 (set-face-attribute 'show-paren-mismatch-face nil
                     :foreground nil :background "brown"
-                    :weight 'bold :box nil
                     :strike-through t
                     )
 
