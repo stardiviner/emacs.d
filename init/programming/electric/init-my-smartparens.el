@@ -18,8 +18,10 @@
                     :weight 'bold
                     )
 (set-face-attribute 'show-paren-mismatch-face nil
-                    :foreground "black" :background "brown"
-                    :weight 'bold :box nil)
+                    :foreground nil :background "brown"
+                    :weight 'bold :box nil
+                    :strike-through t
+                    )
 
 
 
