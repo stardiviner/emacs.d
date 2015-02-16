@@ -264,8 +264,7 @@
          rake
          rspec-mode
          yard-mode
-         ;; ruby-refactor
-         ;; ruby-test ruby-test-mode
+         ruby-test-mode ruby-test
          ;; ruby-hash-syntax
          ;; cucumber feature-mode
          ;; Lisp
