@@ -207,6 +207,18 @@
 (add-hook 'magit-status-mode-hook 'magit-filenotify-mode)
 
 
+;;; [ magit-workflow ] -- Git Flow plugin for magit
+
+;;; Usage:
+;;
+;; - [C-f] in magit status buffer and you will be presented with gitflow popup menu.
+;; - All gitflow commands are also accessible through the Magit/Extensions/GitFlow pop-down menu.
+
+(require 'magit-gitflow)
+
+(add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
+
+
 ;;; [ Egg ] (Emacs Got Git)
 ;;
 ;; The egg package is the fork of the magit package, described above. Main
