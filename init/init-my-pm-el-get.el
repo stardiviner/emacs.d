@@ -234,6 +234,7 @@
          ;; vcs
          git-modes git-emacs ; git-status
          magit ; magithub
+         magit-filenotify
          git-gutter git-gutter+ ; git-gutter-fringe
          ; git-timemachine
          ;; egg
