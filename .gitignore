@@ -54,3 +54,4 @@ emms/
 /init/init-my-startup.fas
 /init/init-my-startup.lib
 /rake.cache
+/.elfeed/
