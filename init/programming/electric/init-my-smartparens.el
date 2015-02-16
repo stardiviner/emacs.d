@@ -140,16 +140,14 @@
 (set-face-attribute 'sp-wrap-overlay-face nil
                     :inherit 'sp-pair-overlay-face
                     )
-(set-face-attribute 'sp-show-pair-match-face nil
-                    :foreground "black" :background "lawn green"
-                    :weight 'normal
-                    )
 (set-face-attribute 'sp-wrap-tag-overlay-face nil
                     :inherit 'sp-pair-overlay-face
                     )
+(set-face-attribute 'sp-show-pair-match-face nil
+                    :inherit 'show-paren-match-face
+                    )
 (set-face-attribute 'sp-show-pair-mismatch-face nil
-                    :foreground "black" :background "red"
-                    :weight 'bold :box nil
+                    :inherit 'show-paren-mismatch-face
                     )
 
 ;;;_* use `smartparens-strict-mode' to replace `paredit-mode'.
