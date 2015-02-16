@@ -66,6 +66,15 @@
                    (run-hooks 'prog-mode-hook))))
 
 
+(setq lisp-dialects-mode-hook '(lisp-mode-hook
+                                lisp-interaction-mode-hook
+                                ;; common-lisp-mode-hook
+                                scheme-mode-hook
+                                ;; clojure-mode-hook
+                                cider-repl-mode-hook
+                                ))
+
+
 ;;; [ Multiple Inferior buffers ]
 
 ;;; Shell
