@@ -203,7 +203,9 @@
 ;; (require 'init-my-tool-w3m)
 ;; (require 'init-my-tool-emms)
 
-(require 'init-my-tool-stack-exchange)
+(require 'init-my-tool-screenshot)
+(require 'init-my-tool-screencast)
+
 
 
 ;;; Programming

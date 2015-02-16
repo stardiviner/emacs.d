@@ -403,6 +403,9 @@
          migemo helm-migemo
          ;; Speak
          festival
+         ;; Screenshot & Screencast
+         screenshot
+         capture camcorder
          ;; Toy
          ;; oniisama
          ;; Emacs keyboard commands log

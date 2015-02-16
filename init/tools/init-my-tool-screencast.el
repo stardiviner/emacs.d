@@ -38,6 +38,52 @@
 ;;; [ mwe-log-commands ]
 
 
+;;; [ capture ] -- record video from desktop (use FFmpeg or aconv as backend)
+
+;;; Usage:
+;;
+;; - [M-x capture-mode] ::
+;; - `capture-run-mode' ::
+;;
+;; keybindings
+;; - g :: update buffer
+;; - When on audio string:
+;;   - w :: copy device title (Built-in Audio Analog Stereo)
+;;   - W :: copy device name (alsa_input.pci-0000_00_1b.0.analog-stereo)
+
+(require 'capture)
+
+(setq capture-video-dest-dir "~/screencasts/SORT/")
+(global-set-key (kbd "<s-f12>") 'capture-run-mode)
+
+;; (defun my-capture-presets ()
+;;   "Make my presets for capturing."
+;;   (interactive)
+;;   (capture-presets-clear)
+;;   ;; - 454, 74               - x and y offset
+;;   ;; - 1280, 720             - width and height of the video
+;;   ;; - 15                    - frames per second
+;;   ;; - "webm"                - extension for a filename
+;;   ;; - ""                    - additional arguments for ffmpeg (avconv)
+;;   ;; - "1280px (no audio)"   - preset title
+;;   (capture-add-preset 454 74 1280 720 15 "webm"
+;;                       ""
+;;                       "1280px (no audio)"))
+;; (my-capture-presets)
+
+
+;;; [ camcorder ] -- Tool for capturing screencasts directly from Emacs (use FFmpeg as backend)
+
+;;; Usage:
+;;
+;; - [M-x camcorder-record] :: A new smaller frame will popup and recording starts.
+;; - [F12] :: When you’re finished, hit F12 and wait for the conversion to finish.
+;; - [F11] :: You can even pause the recording with F11!
+;; - [M-x camcorder-mode] :: If you want to record without a popup frame.
+
+
+
+
 (provide 'init-my-tool-screencast)
 
 ;;; init-my-tool-screencast.el ends here
