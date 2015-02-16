@@ -665,21 +665,21 @@
 ;; - [C-x C-SPC] -- ruby test: run test at point.
 ;; - [C-c t] -- ruby test: toggle implementation and specification.
 
-(require 'ruby-test)
-
-
-(dolist (hook '(ruby-mode-hook
-                enh-ruby-mode-hook
-                ))
-  (add-hook hook (lambda ()
-                   (and (boundp 'my-prog-test-map)
-                      (local-set-key (kbd "C-c t") 'my-prog-test-map))
-                   (define-key my-prog-test-map (kbd "t") 'ruby-test-run-file)
-                   (define-key my-prog-test-map (kbd "f") 'ruby-test-run-file)
-                   (define-key my-prog-test-map (kbd "p") 'ruby-test-run-test-at-point)
-                   (define-key my-prog-test-map (kbd "SPC") 'ruby-test-run-test-at-point)
-                   (define-key my-prog-test-map (kbd "i") 'ruby-test-toggle-implementation-and-specification)
-                   )))
+;; (require 'ruby-test)
+;;
+;;
+;; (dolist (hook '(ruby-mode-hook
+;;                 enh-ruby-mode-hook
+;;                 ))
+;;   (add-hook hook (lambda ()
+;;                    (and (boundp 'my-prog-test-map)
+;;                       (local-set-key (kbd "C-c t") 'my-prog-test-map))
+;;                    (define-key my-prog-test-map (kbd "t") 'ruby-test-run-file)
+;;                    (define-key my-prog-test-map (kbd "f") 'ruby-test-run-file)
+;;                    (define-key my-prog-test-map (kbd "p") 'ruby-test-run-test-at-point)
+;;                    (define-key my-prog-test-map (kbd "SPC") 'ruby-test-run-test-at-point)
+;;                    (define-key my-prog-test-map (kbd "i") 'ruby-test-toggle-implementation-and-specification)
+;;                    )))
 
 
 ;;; [ ruby-test-mode ] -- Emacs minor mode for Behaviour and Test Driven Development in Ruby.
