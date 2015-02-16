@@ -387,13 +387,7 @@
       query-replace-highlight t)
 
 
-;;; [ highlight ]
-(global-font-lock-mode t)
-
-
-;;; [ show-paren-mode ]
-
-(show-paren-mode 1) ; highlight matched parentheses
+;;; [ syntax highlighting ]
 
 (global-font-lock-mode t)
 

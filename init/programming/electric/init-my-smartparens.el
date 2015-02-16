@@ -5,7 +5,7 @@
 
 
 
-;;;_ Code:
+;;; Code:
 
 ;;; [ show-paren-mode ]
 
