@@ -7,9 +7,10 @@
 ;;; [ Lisp ]
 (setq lisp-dialects-mode-hook '(lisp-mode-hook
                                 lisp-interaction-mode-hook
+                                emacs-lisp-mode-hook
                                 ;; common-lisp-mode-hook
                                 scheme-mode-hook
-                                ;; clojure-mode-hook
+                                clojure-mode-hook
                                 cider-repl-mode-hook
                                 ))
 
