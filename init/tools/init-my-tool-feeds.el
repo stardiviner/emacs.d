@@ -283,7 +283,12 @@
                      "http://xkcd.com/rss.xml"
                      ))
 
-(setq elfeed-max-connections 4)
+(setq elfeed-max-connections 4
+      elfeed-sort-order 'descending ; by time
+      elfeed-search-title-min-width 16
+      elfeed-search-title-max-width 45
+      elfeed-search-trailing-width 30
+      )
 (setq-default elfeed-search-filter "@1-week-ago +unread") ; "@1-week-ago +unread", "@6-months-ago +unread"
 
 (define-key my-tools-prefix-map (kbd "f") 'elfeed)
