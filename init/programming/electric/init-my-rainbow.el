@@ -25,18 +25,22 @@
 
 ;;; [ rainbow-delimiters ] -- rainbow color parenthesis
 
-(when (require 'rainbow-delimiters nil 'noerror)
-  (rainbow-delimiters-mode t)
-  ;; 1. global
-  ;; (global-rainbow-delimiters-mode)
-  ;; 2. enable in all Lisp dialects modes
-  (add-hook 'lisp-dialects-mode-hook 'rainbow-delimiters-mode)
-  ;; 3.. enable in all programming-related modes
-  ;; (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-  ;; 4. enable in specific modes
-  ;; (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
-  )
+(require 'rainbow-delimiters nil 'noerror)
+;; (when (require 'rainbow-delimiters nil 'noerror)
+;;   )
 
+(eval-after-load 'rainbow-delimiters
+  (lambda ()
+    (rainbow-delimiters-mode t)
+    ;; 1. global
+    (global-rainbow-delimiters-mode)
+    ;; 2. enable in all Lisp dialects modes
+    ;; (add-hook 'lisp-dialects-mode-hook 'rainbow-delimiters-mode)
+    ;; 3.. enable in all programming-related modes
+    ;; (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+    ;; 4. enable in specific modes
+    ;; (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+    ))
 
 ;; you have two styles:
 ;; 1. :box t
