@@ -1,4 +1,4 @@
-;;; init-my-prog-lang-scheme.el --- init for Scheme
+;;; init-my-prog-lang-lisp-scheme.el --- init for Scheme
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -25,4 +25,4 @@
 
 (provide 'init-my-prog-lang-scheme)
 
-;;; init-my-prog-lang-scheme.el ends here
+;;; init-my-prog-lang-lisp-scheme.el ends here
