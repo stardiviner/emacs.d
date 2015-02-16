@@ -44,6 +44,8 @@
          edebug-x
          ;; benchmark
          ;; benchmark-init
+         ;; package
+         ;; paradox
          ;; popup
          popup
          pos-tip

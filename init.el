@@ -126,6 +126,8 @@
 ;; (setq el-get-verbose t)
 ;; (sync-packages)))))
 
+
+;; (require 'init-my-pm-paradox)
 
 
 ;;; debug, profiling etc
