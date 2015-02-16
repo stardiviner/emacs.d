@@ -283,6 +283,12 @@
                      "http://xkcd.com/rss.xml"
                      ))
 
+(setq elfeed-initial-tags '(unread
+                            Linux Emacs
+                            Programming Lisp Ruby Python Go Web HTML5 CSS3 JavaScript
+                            Org
+                            Geek))
+
 (setq elfeed-max-connections 4
       elfeed-sort-order 'descending ; by time
       elfeed-search-title-min-width 16
