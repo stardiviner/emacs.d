@@ -672,7 +672,7 @@
 ;;                 enh-ruby-mode-hook
 ;;                 ))
 ;;   (add-hook hook (lambda ()
-;;                    (and (boundp 'my-prog-test-map)
+;;                    (and (local-variable-p 'my-prog-test-map)
 ;;                       (local-set-key (kbd "C-c t") 'my-prog-test-map))
 ;;                    (define-key my-prog-test-map (kbd "t") 'ruby-test-run-file)
 ;;                    (define-key my-prog-test-map (kbd "f") 'ruby-test-run-file)
@@ -698,7 +698,7 @@
                 enh-ruby-mode-hook)
               )
   (add-hook hook (lambda ()
-                   (and (boundp 'my-prog-test-map)
+                   (or (local-variable-p 'my-prog-test-map)
                       (local-set-key (kbd "C-c t") 'my-prog-test-map))
                    (define-key my-prog-test-map (kbd "m") 'ruby-test-mode)
                    (define-key my-prog-test-map (kbd "t") 'ruby-test-run)
