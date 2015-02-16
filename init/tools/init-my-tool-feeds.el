@@ -295,6 +295,15 @@
 
 (define-key elfeed-search-mode-map (kbd "#") 'elfeed-search-set-filter)
 
+(set-face-attribute 'elfeed-search-date-face nil
+                    :foreground "#444444")
+(set-face-attribute 'elfeed-search-title-face nil
+                    :foreground "white")
+(set-face-attribute 'elfeed-search-feed-face nil
+                    :foreground "orange")
+(set-face-attribute 'elfeed-search-tag-face nil
+                    :foreground "yellow")
+
 
 ;; (require 'init-my-tool-feeds-newsticker)
 
