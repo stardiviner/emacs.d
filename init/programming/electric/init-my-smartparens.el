@@ -14,12 +14,12 @@
 (setq show-paren-style 'mixed) ; 'parenthesis, 'expression, 'mixed
 
 (set-face-attribute 'show-paren-match-face nil
-                    :foreground "black" :background "lawn green"
-                    :weight 'normal
+                    :foreground nil :background "black"
+                    :weight 'bold
                     )
 (set-face-attribute 'show-paren-mismatch-face nil
                     :foreground "black" :background "brown"
-                    :box nil)
+                    :weight 'bold :box nil)
 
 
 
