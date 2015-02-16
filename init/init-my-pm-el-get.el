@@ -182,6 +182,8 @@
          bbdb ; bbdb- ; FIXME: bbdb-vcard
          ;; IRC
          erc erc-highlight-nicknames erc-nick-notify bbdb2erc
+         ;; RSS
+         elfeed
          ;; tools
          ;; calfw sauron ; appt
          gist

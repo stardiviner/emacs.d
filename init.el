@@ -194,7 +194,7 @@
 ;;; Email
 (require 'init-my-tool-email-message-mode)
 (require 'init-my-tool-email-mu4e)
-;; (require 'init-my-tool-newsticker)
+(require 'init-my-tool-feeds)
 (require 'init-my-tool-blog)
 (require 'init-my-tool-paste)
 ;; (require 'init-my-tool-sauron)

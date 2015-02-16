@@ -1,4 +1,4 @@
-;;; init-my-tool-newsticker.el ---
+;;; init-my-tool-feeds-newsticker.el --- init for newssticker
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -95,6 +95,6 @@
 
 
 
-(provide 'init-my-tool-newsticker)
+(provide 'init-my-tool-feeds-newsticker)
 
-;;; init-my-tool-newsticker.el ends here
+;;; init-my-tool-feeds-newsticker.el ends here
