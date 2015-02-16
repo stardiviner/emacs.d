@@ -110,6 +110,8 @@
 ;; and the regularly-changing entry content could be tossed to save time and
 ;; storage.
 
+(require 'elfeed)
+
 (setq elfeed-db-directory "~/.emacs.d/.elfeed")
 
 (setq elfeed-feeds '("https://github.com/blog/all.atom"
@@ -282,11 +284,11 @@
                      ))
 
 (setq elfeed-max-connections 4)
-(setq-default elfeed-search-filter "@1-week-ago +unread ")
+(setq-default elfeed-search-filter "@1-week-ago +unread") ; "@1-week-ago +unread", "@6-months-ago +unread"
 
 (define-key my-tools-prefix-map (kbd "f") 'elfeed)
 
-(define-key elfeed-show-mode-map (kbd "#") 'elfeed-search-set-filter)
+(define-key elfeed-search-mode-map (kbd "#") 'elfeed-search-set-filter)
 
 
 ;; (require 'init-my-tool-feeds-newsticker)
