@@ -25,6 +25,11 @@
     cider-repl-mode
     ))
 
+
+;; - 'lisp-indent-function
+;; - 'common-lisp-indent-function
+(setq lisp-indent-function 'lisp-indent-function)
+
 
 ;;; [ SLIME ]
 
