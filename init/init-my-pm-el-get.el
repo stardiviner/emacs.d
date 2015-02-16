@@ -236,6 +236,7 @@
          magit ; magithub
          magit-filenotify magit-gitflow
          magit-gh-pulls
+         magit-gerrit
          git-gutter git-gutter+ ; git-gutter-fringe
          ; git-timemachine
          ;; egg
