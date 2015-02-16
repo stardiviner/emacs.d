@@ -27,10 +27,13 @@
 
 (when (require 'rainbow-delimiters nil 'noerror)
   (rainbow-delimiters-mode t)
-  ;; (global-rainbow-delimiters-mode) ; global
-  ;; enable in all programming-related modes
-  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-  ;; enable in specific modes
+  ;; 1. global
+  ;; (global-rainbow-delimiters-mode)
+  ;; 2. enable in all Lisp dialects modes
+  (add-hook 'lisp-dialects-mode-hook 'rainbow-delimiters-mode)
+  ;; 3.. enable in all programming-related modes
+  ;; (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+  ;; 4. enable in specific modes
   ;; (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
   )
 
