@@ -262,10 +262,9 @@
                      "http://linuxtoy.org/feed/"
                      "http://linux.cn/rss.xml"
                      "http://blog.jobbole.com/feed/"
-                     "http://feeds.geekpark.net/rss"
-                     "http://www.guokr.com/rss/"
-                     "http://songshuhui.net/feed"
-                     "http://zhidemofang.com/feed"
+                     ;; "http://feeds.geekpark.net/rss"
+                     ;; "http://www.guokr.com/rss/"
+                     ;; "http://songshuhui.net/feed"
 
                      ;; Subscribe
                      "http://feeds.feedburner.com/emule-fans"
@@ -276,7 +275,6 @@
                      "http://blog.gitcafe.com/feed"
                      "http://www.kali.org/feed/"
                      "http://www.backbox.org/blog/feed"
-                     "http://project-byzantium.org/feed/"
                      "http://blog.getfirebug.com/feed/"
                      "http://www.weechat.org/feeds/news/"
                      "http://dev.weechat.org/feed/atom"
