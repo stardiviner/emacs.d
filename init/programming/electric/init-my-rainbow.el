@@ -67,6 +67,10 @@
                     :foreground "#839496"
                     :weight 'bold)
 
+(set-face-attribute 'rainbow-delimiters-mismatched-face nil
+                    :foreground "red"
+                    :weight 'bold)
+
 
 ;;; rainbow-identifiers
 
