@@ -5,8 +5,24 @@
 
 
 
-
 ;;;_ Code:
+
+;;; [ show-paren-mode ]
+
+(show-paren-mode 1) ; highlight matched parentheses
+
+(setq show-paren-style 'mixed) ; 'parenthesis, 'expression, 'mixed
+
+(set-face-attribute 'show-paren-match-face nil
+                    :foreground "black" :background "lawn green"
+                    :weight 'normal
+                    )
+(set-face-attribute 'show-paren-mismatch-face nil
+                    :foreground "black" :background "brown"
+                    :box nil)
+
+
+
 ;;; [ smartparens ] -- Minor mode for Emacs that deals with parens pairs and tries to be smart about it.
 
 ;;;_* Usage:
