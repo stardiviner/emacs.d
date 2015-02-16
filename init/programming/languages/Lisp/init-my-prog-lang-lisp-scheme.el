@@ -23,6 +23,6 @@
 
 
 
-(provide 'init-my-prog-lang-scheme)
+(provide 'init-my-prog-lang-lisp-scheme)
 
 ;;; init-my-prog-lang-lisp-scheme.el ends here
