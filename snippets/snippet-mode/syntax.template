@@ -43,6 +43,9 @@
 
 
 # - [# group: snippet menu grouping]
+#
+#     e.g. # group: control structure.loops
+#
 #     When expanding/visiting snippets from the menu-bar menu, snippets for a
 #     given mode can be grouped into sub-menus . This is useful if one has too
 #     many snippets for a mode which will make the menu too long.
@@ -94,6 +97,13 @@
 #     This binding will be recorded in the keymap html-mode-map. To expand a
 #     paragraph tag newlines, just press C-u C-c C-c C-m. Omitting the C-u will
 #     expand the paragraph tag without newlines.
+#
+#     e.g. expand (     {single key (}
+#
+#       # name: (
+#       # binding: (
+#       # --
+#       ($1)$0
 
 # - [# contributor: snippet author]
 #     This is optional and has no effect whatsoever on snippet functionality,
@@ -163,6 +173,8 @@
 #
 #     $0
 
+# - yas-text
+#
 # - ${n:mydefine$(upcase yas-text)} -- fields with transformations
 #     From version 0.6 on, you can also have lisp transformation inside
 #     fields. These work mostly mirror transformations but are evaluated when
@@ -217,6 +229,17 @@
 #
 #     The function yas/verify-value has another neat trick, and makes use of
 #     yas/moving-away-p. Try it and see!
+
+# - yas-modified-p
+#
+#     \section{${1:"Titel der Tour"}}%
+#     \index{$1}%
+#     \label{{2:"waiting for reftex-label call..."$(unless yas-modified-p (reftex-label nil 'dont-
+#     insert))}}%'))}}
+
+# - yas-moving-away-p
+
+# - yas-verify-value
 
 # - ${n:$$(yas-expand-snippet [snippet])}
 #     expand snippet with Emacs Lisp code. So that you can include other snippet
