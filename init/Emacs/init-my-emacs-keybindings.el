@@ -126,6 +126,7 @@
         "C-z"                           ; popwin (global)
         ;; "C-c"                           ; extension functional prefix (global)
         "C-c !"                         ; flycheck (global)
+        "C-c t"                         ; programming test (global)
         "C-c SPC"                       ; allout (outline)
         "C-c &"                         ; yasnippet (global)
         "C-c p"                         ; projectile (global)
@@ -140,7 +141,7 @@
         "C-c w"                         ; workgroups2
         "C-x x"                         ; perspective
         "C-c @"                         ; hs-minor-mode [Fold] (global)
-        "C-c t"                         ; tools: paste(gist), ... etc.
+        "C-c T"                         ; tools: paste(gist), ... etc.
         "C-x c"                         ; Helm
         "C-x 8"                         ; insert unicode IDE symbols
         ;; "C-c '"                         ; ???

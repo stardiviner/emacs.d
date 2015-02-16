@@ -113,8 +113,13 @@
 (add-hook 'prog-mode-hook
           (lambda ()
             (local-set-key (kbd "C-c !") 'my-prog-lint-map)
+            (define-key my-prog-lint-map (kbd "!") 'flycheck-buffer)
             (define-key my-prog-lint-map (kbd "b") 'flycheck-buffer)
             ))
+
+(unless (boundp 'my-prog-test-map)
+  (define-prefix-command 'my-prog-test-map))
+(global-set-key (kbd "C-c t") 'my-prog-test-map)
 
 
 ;;; Programming Languages
@@ -124,7 +129,7 @@
 
 (unless (boundp 'my-tools-prefix-map)
   (define-prefix-command 'my-tools-prefix-map))
-(global-set-key (kbd "C-c t") 'my-tools-prefix-map)
+(global-set-key (kbd "C-c T") 'my-tools-prefix-map)
 
 (unless (boundp 'my-org-prefix-map)
   (define-prefix-command 'my-org-prefix-map))
