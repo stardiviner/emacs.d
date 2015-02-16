@@ -33,9 +33,10 @@
   (lambda ()
     (rainbow-delimiters-mode t)
     ;; 1. global
-    (global-rainbow-delimiters-mode)
+    ;; (global-rainbow-delimiters-mode)
     ;; 2. enable in all Lisp dialects modes
     ;; (add-hook 'lisp-dialects-mode-hook 'rainbow-delimiters-mode)
+    (hook-modes lisp-dialects-mode (rainbow-delimiters-mode-enable))
     ;; 3.. enable in all programming-related modes
     ;; (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
     ;; 4. enable in specific modes

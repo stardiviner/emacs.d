@@ -57,6 +57,32 @@
 ;;   (defadvice other-window
 ;;       (before other-window-auto-save activate) (prelude-auto-save)))
 
+
+;;; Group hooks into one new hook.
+
+(defmacro hook-modes (modes &rest body)
+  (declare (indent 1))
+  `(--each ,modes
+     (add-hook (intern (format "%s-hook" it))
+               (lambda () ,@body))))
+
+;;; Usage:
+;;
+;; (defvar progish-modes
+;;   '(prog-mode css-mode sgml-mode))
+;;
+;; (hook-modes progish-modes
+;;             (highlight-symbol-mode)
+;;             (highlight-symbol-nav-mode))
+;; instead of:
+;; (hook-modes progish-modes 'highlight-symbol-mode)
+
+;;; It is same as:
+;; (defun my-non-special-mode-setup ()
+;;   (setq show-trailing-whitespace t)
+;;   ...)
+;; (dolist (hook '(prog-mode-hook text-mode-hook css-mode-hook ...))
+;;   (add-hook hook 'my-non-special-mode-setup))
 
 
 ;;; keybindings
