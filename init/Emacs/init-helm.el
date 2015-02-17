@@ -171,25 +171,32 @@
 
 ;;; `customize-group helm' & `custom-apropos-faces helm'
 (set-face-attribute 'helm-match nil
-                    :foreground "cyan"
-                    :underline t
+                    ;; 1. dim already matched, leave eye on the un-matched strings.
+                    :foreground "dim gray" :background "black"
+                    ;; 2. highlight/underline already matched
+                    ;; :foreground "white"
+                    ;; :underline t
                     :weight 'normal)
 (set-face-attribute 'helm-selection nil
+                    ;; 1. different font
+                    ;; :family "Comic Sans MS" :weight 'normal :height 1.0 :slant 'italic
+                    ;; :box nil
+                    ;; 2. box selected
                     :background "#004A5D" :foreground "white"
                     :box '(:color "cyan" :line-width -1)
                     :underline nil
-                    :weight 'normal
+                    ;; 3. different highlight color.
                     ;; :background "yellow" :foreground "orange red"
                     ;; :weight 'bold
                     )
 (set-face-attribute 'helm-header nil
                     :reverse-video nil
-                    :foreground "white" :background "dark cyan"
+                    :foreground "gray" :background "black"
                     :weight 'bold)
 (set-face-attribute 'helm-source-header nil
-                    :foreground "green" :background "black"
-                    :weight 'bold
-                    :overline "dark green")
+                    :foreground "gray" :background "dark red"
+                    :family "DejaVu Sans Mono" :weight 'bold :height 1.0
+                    )
 (set-face-attribute 'helm-prefarg nil
                     :foreground "cyan")
 (set-face-attribute 'helm-action nil
