@@ -1986,6 +1986,13 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
         (:column . t)
         (:nullvalue . "Null")))
 
+;;; how to correctly enable flycheck in babel source blocks
+(defadvice org-edit-src-code (around set-buffer-file-name activate compile)
+  (let ((file-name (buffer-file-name)))
+    ad-do-it
+    (setq buffer-file-name file-name)))
+
+
 ;;;_* working with source code
 
 ;;; - [C-c C-v] --- prefix map.
