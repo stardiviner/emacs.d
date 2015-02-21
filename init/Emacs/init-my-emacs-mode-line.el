@@ -20,6 +20,17 @@
 (require 'vc)
 (require 'vc-git)
 
+;; Nyan Mode is an analog indicator of your position in the buffer. The Cat
+;; should go from left to right in your mode-line, as you move your point from
+;; 0% to 100%.
+(require 'nyan-mode)
+(setq nyan-animate-nyancat t
+      nyan-wavy-trail nil
+      nyan-animation-frame-interval 0.2
+      nyan-bar-length 15
+      nyan-cat-face-number 1
+      )
+
 ;; (default-value mode-line-format)
 ;; setq-default
 
@@ -192,7 +203,7 @@
 (display-time-mode t)
 (setq global-mode-string (remove 'display-time-string global-mode-string))
 (setq mode-line-end-spaces
-      (list (propertize " " 'display '(space :align-to (- right 50)))
+      (list (propertize " " 'display '(space :align-to (- right 65)))
             ;;; you can custom here (add right aligned things here)
 
             ;; TODO: mu4e maildir
@@ -201,6 +212,9 @@
                              (if (string-match "mu4e-.*" "%b")
                                  (format "[%s]" my-mu4e-maildir-name))))
                           face (:foreground "white" :weight 'bold))
+
+            ;; nyan-mode
+            '(:eval (list (nyan-create)))
             
             ;; line and column number, relative position
             ;; mode-line-position
@@ -213,8 +227,7 @@
 
             ;; relative position, size of file
             ;; '(:propertize " [%p,%I] ")
-
-
+            
             '(:propertize " ["
                           face (:foreground "red" :weight 'bold))
             '(:propertize "wg:"

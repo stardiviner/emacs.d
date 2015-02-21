@@ -88,8 +88,8 @@
          ;; yascroll
          ;; minimap sublimity
          pretty-mode-plus page-break-lines
-         ;; modeline
-         diminish
+         ;; mode-line
+         diminish nyan-mode
          ;; mode-icons
          ;; input method
          ;; eim
