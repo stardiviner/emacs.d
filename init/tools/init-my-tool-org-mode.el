@@ -2003,9 +2003,9 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
  ;; FIXME (slow-down/suspend on Emacs startup)
  org-src-fontify-natively t
  ;; preserve leading whitespace characters on export, for tangling languages such as Python.
- org-src-preserve-indentation t
+ org-src-preserve-indentation nil
  ;; default org-mode src indentation when `org-src-preserve-indentation' is non-nil.
- org-edit-src-content-indentation 2
+ org-edit-src-content-indentation 0
  ;; the effect of TAB in a code block is as if it were issued in the language major mode buffer.
  org-src-tab-acts-natively t
  ;; controls the way Emacs windows are rearranged when the edit buffer is created.
