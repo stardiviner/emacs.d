@@ -145,9 +145,11 @@
                     )
 (set-face-attribute 'sp-show-pair-match-face nil
                     :inherit 'show-paren-match-face
+                    :foreground nil :background "black"
                     )
 (set-face-attribute 'sp-show-pair-mismatch-face nil
                     :inherit 'show-paren-mismatch-face
+                    :foreground nil :background "brown"
                     )
 
 ;;;_* use `smartparens-strict-mode' to replace `paredit-mode'.
