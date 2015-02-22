@@ -86,12 +86,12 @@
 ;; - flycheck-fringe-warning
 (set-face-attribute 'flycheck-info nil
                     :background nil
-                    :underline '(:color "#777777" :style wave))
+                    :underline '(:color "forest green" :style wave))
 (set-face-attribute 'flycheck-fringe-info nil
-                    :foreground "dark gray")
+                    :foreground "forest green")
 (set-face-attribute 'flycheck-warning nil
                     :background nil :foreground nil
-                    :underline '(:color "dim gray" :style wave))
+                    :underline '(:color "orange" :style wave))
 (set-face-attribute 'flycheck-fringe-warning nil
                     :background " " :foreground "orange"
                     :weight 'normal)
