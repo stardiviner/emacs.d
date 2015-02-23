@@ -558,6 +558,7 @@
 
 
 (dolist (hook '(robe-mode-hook
+                enh-ruby-mode-hook
                 inf-ruby-mode-hook
                 ))
   (add-hook hook (lambda ()
@@ -581,8 +582,8 @@
                    ;; NOTE: `robe-mode' already support for capf. and
                    ;; company-mode support capf native. so don't need following
                    ;; setting.
-                   ;; (make-local-variable 'company-backends)
-                   ;; (add-to-list 'company-backends 'company-robe)
+                   (make-local-variable 'company-backends)
+                   (add-to-list 'company-backends 'company-robe)
                    )))
 
 
