@@ -15,6 +15,16 @@
   (delete-horizontal-space t)
   (insert " => "))
 
+(defun insert-ruby-interpolate ()
+  "In a double quoted string, interpolate."
+  (interactive)
+  (insert "#")
+  (when (and
+         (looking-back "\".*")
+         (looking-at ".*\""))
+    (insert "{}")
+    (backward-char 1)))
+
 
 
 (if (featurep 'enh-ruby-mode)
@@ -83,6 +93,7 @@
             ;; (define-key ruby-mode-map (kbd "TAB") 'indent-for-tab-command)
 
             (define-key ruby-mode-map (kbd "C-,") 'insert-arrow)
+            (define-key ruby-mode-map (kbd "#") 'insert-ruby-interpolate)
 
             ;; hs-minor-mode (hide-show)
             (add-to-list 'hs-special-modes-alist
@@ -114,6 +125,7 @@
                                   (run-hooks 'prog-mode-hook))
 
                                 (define-key enh-ruby-mode-map (kbd "C-,") 'insert-arrow)
+                                (define-key enh-ruby-mode-map (kbd "#") 'insert-ruby-interpolate)
 
                                 ;; add into auto-complete enable modes
                                 ;; (add-to-list 'ac-modes 'enh-ruby-mode)
