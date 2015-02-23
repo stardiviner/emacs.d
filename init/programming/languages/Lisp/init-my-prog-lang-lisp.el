@@ -28,7 +28,7 @@
 
 ;; - 'lisp-indent-function
 ;; - 'common-lisp-indent-function
-(setq lisp-indent-function 'lisp-indent-function)
+;; (setq lisp-indent-function 'lisp-indent-function)
 
 
 ;;; [ SLIME ]
@@ -57,10 +57,35 @@
 ;;         (cmucl ("cmucl" "-quiet"))
 ;;         (sbcl ("sbcl" "--noinform") :coding-system utf-8-unix)))
 
+;; NOTE: currently using slime from el-get installation.
+;; (require 'slime-autoloads)
+;;; -----------------------------------
+;;; Quicklisp SLIME
+;; (load (expand-file-name "~/quicklisp/slime-helper.el"))
+;; (require 'slime)
+;;; -----------------------------------
 
-
-;;; [ slime-company ]
+;; (setq slime-contribs '(slime-fancy))
 
+;;; FIXME: can't connect with SLIME.
+;; (defun my-start-slime ()
+;;   "Start SLIME unless it's already running."
+;;   (unless (slime-connected-p)
+;;     (save-excursion (slime))))
+;;
+;; ;; start slime automatically when we open a lisp file
+;; (add-hook 'slime-mode-hook 'my-start-slime)
+;;
+;; (eval-after-load 'slime
+;;   '(progn
+;;      (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol ; 'slime-simple-complete-symbol.
+;;            slime-fuzzy-completion-in-place t
+;;            slime-enable-evaluate-in-emacs t
+;;            slime-autodoc-use-multiline-p t)
+;;
+;;      (define-key slime-mode-map (kbd "TAB") 'slime-indent-and-complete-symbol)
+;;      (define-key slime-mode-map (kbd "C-c i") 'slime-inspect)
+;;      (define-key slime-mode-map (kbd "C-c C-s") 'slime-selector)))
 
 
 ;;; [ ac-slime ] --

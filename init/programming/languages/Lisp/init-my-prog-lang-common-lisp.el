@@ -28,10 +28,11 @@
 
 ;;; [ Quick Lisp ]
 
-;; Common Lisp support depends on SLIME being installed with Quicklisp
-(if (file-exists-p (expand-file-name "~/quicklisp/slime-helper.el"))
-    (load (expand-file-name "~/quicklisp/slime-helper.el"))
-  (message "%s" "SLIME is not installed. Use Quicklisp to install it."))
+;;; Common Lisp support depends on SLIME being installed with Quicklisp
+;;
+;; (if (file-exists-p (expand-file-name "~/quicklisp/slime-helper.el"))
+;;     (load (expand-file-name "~/quicklisp/slime-helper.el"))
+;;   (message "%s" "SLIME is not installed. Use Quicklisp to install it."))
 
 
 
