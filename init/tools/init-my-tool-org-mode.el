@@ -1757,6 +1757,10 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 (defadvice org-html-checkbox (around sacha activate)
   (setq ad-return-value (sacha/org-html-checkbox (ad-get-arg 0))))
 
+;;;_* htmlize
+
+;; (setq org-html-htmlize-font-prefix "org-"
+;;       org-html-htmlize-output-type 'inline-css)
 
 ;;;_* Publishing
 
