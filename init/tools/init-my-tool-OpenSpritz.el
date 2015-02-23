@@ -138,7 +138,7 @@
 
 
 ;; 'spray-mode, 'speedread
-(global-set-key (kbd "<f6>") 'spray-mode)
+(global-set-key (kbd "<f9>") 'spray-mode)
 
 
 (provide 'init-my-tool-OpenSpritz)
