@@ -2,7 +2,92 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Commands"
+(("Ruby Gems"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Tools/RubyGems/RubyGems.org")
+ (front-context-string . "* Intro\n\nThe Rub")
+ (rear-context-string)
+ (position . 1))
+("Ruby Tools"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Tools/Tools.org")
+ (front-context-string . "* Ruby Implement")
+ (rear-context-string)
+ (position . 1))
+("Programmer"
+ (filename . "~/Org/Wiki/Computer/Programming/Programmer/Programmer.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Revenge"
+ (filename . "~/Org/Revenge/Revenge.org")
+ (front-context-string . "* I Swear\n\n- 当初说")
+ (rear-context-string)
+ (position . 1))
+("Life"
+ (filename . "~/Org/Wiki/Life/Life.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Science"
+ (filename . "~/Org/Wiki/Science/Science.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Kung Fu"
+ (filename . "~/Org/Wiki/Kung Fu/Kung Fu.org")
+ (front-context-string . "* Intro\n\n* Data\n")
+ (rear-context-string)
+ (position . 1))
+("Writing"
+ (filename . "~/Org/Wiki/Writing/Writing.org")
+ (front-context-string . "* Words (文字)\n\n[[")
+ (rear-context-string)
+ (position . 1))
+("censorship"
+ (filename . "~/Org/Wiki/Computer/censorship/censorship.org")
+ (front-context-string . "* censorship & m")
+ (rear-context-string)
+ (position . 1))
+("Myself"
+ (filename . "~/Org/Wiki/Myself/Myself.org")
+ (front-context-string . "* My Internet In")
+ (rear-context-string)
+ (position . 1))
+("Aphorisms"
+ (filename . "~/Org/Wiki/Reading/Aphorisms/Aphorisms.org")
+ (front-context-string . "* References\n- 佛")
+ (rear-context-string)
+ (position . 1))
+("Common Lisp"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Lisp/Common Lisp/Common Lisp.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Lisp"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Lisp/Lisp.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Git"
+ (filename . "~/Org/Wiki/Computer/Programming/Tools/Version Control System/Git/Git.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Emacs modes"
+ (filename . "~/Org/Wiki/Computer/Programming/Emacs/modes/modes.org")
+ (front-context-string . "* Help\n\n\n\n* Emac")
+ (rear-context-string)
+ (position . 1))
+("accounts.org"
+ (filename . "~/Git/Accounts/accounts.org")
+ (front-context-string . "* Nick\n\nstardivi")
+ (rear-context-string)
+ (position . 1))
+("update_things.sh"
+ (filename . "~/scripts/update_things.sh")
+ (front-context-string . "#!/usr/bin/env s")
+ (rear-context-string)
+ (position . 1))
+("Commands"
  (filename . "~/Org/Wiki/Computer/Systems/Linux/Command Line/Commands/Commands.org")
  (front-context-string . "* NOTE\n\n- [ ] ge")
  (rear-context-string)
