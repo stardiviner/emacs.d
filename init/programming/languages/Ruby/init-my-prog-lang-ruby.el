@@ -331,13 +331,14 @@
 ;;;   [M-x rvm-open-gem]
 
 (require 'rvm)
-(autoload 'rvm "rvm" "RVM" t)
 
 (rvm-use-default)        ; use rvm's default ruby for the current Emacs session.
+(setq rvm-verbose t)     ; print rvm switching Ruby version message.
 
-(add-hook 'ruby-mode-hook
-          (lambda ()
-            (rvm-activate-corresponding-ruby)))
+(dolist (hook '(ruby-mode-hook
+                enh-ruby-mode-hook
+                ))
+  (add-hook hook 'rvm-activate-corresponding-ruby))
 
 
 ;;; [ inf-ruby / Inferior Ruby ] -- inf-ruby provides a REPL buffer connected to a Ruby(irb/pry) subprocess.
