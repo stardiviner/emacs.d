@@ -140,6 +140,7 @@
 
 ;; this global keybinding [M-x] will conflict with {[C-u M-x align-regexp] on select region text.}
 ;; But you can press [M-x C-u align-regexp RET].
+(setq helm-M-x-fuzzy-match t)
 (global-set-key (kbd "M-x") 'helm-M-x)
 ;; If you prefer the helm version of the file finder, you can bind it to C-x C-f
 ;; to replace the standard find-file:
@@ -225,6 +226,7 @@
       ;; helm-scroll-amount 8 ; scroll 8 lines other window using M-<next>/M-<prior>
       helm-case-fold-search t
       helm-buffers-fuzzy-matching t
+      helm-recentf-fuzzy-match t
       helm-move-to-line-cycle-in-source nil ; nil: not just cycling current limited candicates section.
       ;; find-file
       helm-ff-search-library-in-sexp t ; search for library in `require' and `declare-function' sexp.
