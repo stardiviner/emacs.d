@@ -41,7 +41,10 @@
 (define-key paste-map (kbd "l") 'gist-list)
 ;;; --------------------------------------------------
 
+
 
+;;; htmlize-buffer (convert current buffer into HTML output)
+(define-key paste-map (kbd "h") 'htmlize-buffer)
 
 
 
