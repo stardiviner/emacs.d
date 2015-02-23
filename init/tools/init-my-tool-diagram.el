@@ -15,6 +15,8 @@
 ;; - [C-c C-a C-o] :: select operation.
 ;; - [C-c C-a C-c] :: select setting.
 
+(require 'artist)
+
 (define-key my-tools-prefix-map (kbd "a") 'artist-mode)
 (define-key artist-mode-map (kbd "C-c C-o") 'artist-select-operation)
 
