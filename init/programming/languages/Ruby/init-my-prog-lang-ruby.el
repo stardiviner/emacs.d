@@ -565,32 +565,33 @@
      (robe-start)))
 
 
-(dolist (hook '(ruby-mode-hook
-                enh-ruby-mode-hook
-                inf-ruby-mode-hook ; FIXME: robe-mode is not enabled in inf-ruby-mode. seems this hook is not valid.
-                                        ; maybe because inf-ruby-mode is loaded before robe.
-                ))
-  (add-hook hook 'robe-mode))
-
-
 (dolist (hook '(robe-mode-hook
                 enh-ruby-mode-hook
                 inf-ruby-mode-hook
                 ))
   (add-hook hook (lambda ()
-                   (local-set-key (kbd "C-h d d") 'robe-doc)
-                   ;; FIXME: it is not local to ruby-mode only.
-                   ;; (local-set-key (kbd "C-h d") 'my-prog-help-document-map)
-                   ;; (define-key my-prog-help-document-map (kbd "d") 'robe-doc)
+                   (robe-mode 1)
+
+                   ;; 1. (local-set-key (kbd "C-h d d") 'robe-doc)
+                   ;; 2.
+                   (make-local-variable 'my-prog-help-document-map)
+                   (define-key my-prog-help-document-map (kbd "d") 'robe-doc)
+
+                   (make-local-variable 'my-inferior-ruby-map)
+                   (define-key my-inferior-ruby-map (kbd "s d") 'ruby-send-definition)
+                   (define-key my-inferior-ruby-map (kbd "s D") 'ruby-send-definition-and-go)
+                   (define-key my-inferior-ruby-map (kbd "s b") 'ruby-send-block)
+                   (define-key my-inferior-ruby-map (kbd "s B") 'ruby-send-block-and-go)
+                   (define-key my-inferior-ruby-map (kbd "s s") 'ruby-send-region)
+                   (define-key my-inferior-ruby-map (kbd "s S") 'ruby-send-region-and-go)
+                   (define-key my-inferior-ruby-map (kbd "s R") 'ruby-send-region-and-go)
 
                    ;; for auto-complete
-
-                   ;; ac-capf
+                   ;; 1. ac-capf
                    ;; (add-to-list 'ac-sources 'ac-source-capf)
-                   
-                   ;; ac-robe
+                   ;; 2.1. ac-robe
                    ;; (ac-robe-setup)
-                   ;; old way
+                   ;; 2.2. old way
                    ;; (push 'ac-source-robe ac-sources)
                    ;; (add-to-list 'ac-sources 'ac-source-robe) ; `ac-robe-setup' did this already.
 
