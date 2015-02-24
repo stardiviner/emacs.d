@@ -115,7 +115,7 @@
 
 ;;; [ helm-rails ]
 
-(require 'helm-rails-loaddefs)
+;; (require 'helm-rails-loaddefs)
 
 ;; TODO: test whether has keybinding set by default.
 ;; (define-key global-map (kbd "s-t") 'helm-rails-controllers)

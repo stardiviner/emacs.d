@@ -376,7 +376,7 @@
          hexview-mode
          ;; Frameworks
          ;; Ruby on Rails
-         projectile-rails helm-rails rails-new
+         projectile-rails rails-new ; helm-rails
          rhtml-mode ; nxhtml
          ;; yasnippet-rails
          ;; sass-mode haml-mode slim-mode
