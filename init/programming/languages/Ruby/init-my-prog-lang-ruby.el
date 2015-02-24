@@ -4,6 +4,27 @@
 
 
 ;;; Code:
+
+
+(add-to-list 'auto-mode-alist '("Capfile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\.rake\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\.rb\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\.ru\'" . ruby-mode))
+
+(if (featurep 'enh-ruby-mode)
+    (lambda ()
+      (add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
+      (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
+      )
+  (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+  (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
+  )
+
+;; We never want to edit Rubinius bytecode or MacRuby binaries
+(add-to-list 'completion-ignored-extensions ".rbc")
+(add-to-list 'completion-ignored-extensions ".rbo")
 
 
 ;;; custom functions
@@ -24,25 +45,6 @@
          (looking-at ".*\""))
     (insert "{}")
     (backward-char 1)))
-
-
-
-(if (featurep 'enh-ruby-mode)
-    (lambda ()
-      (add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
-      (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
-      )
-  (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
-  (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
-  )
-
-
-
-
-;; We never want to edit Rubinius bytecode or MacRuby binaries
-(add-to-list 'completion-ignored-extensions ".rbc")
-(add-to-list 'completion-ignored-extensions ".rbo")
-
 
 
 ;;; [ ruby-mode ]
