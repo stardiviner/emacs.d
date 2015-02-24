@@ -493,12 +493,26 @@
 ;; start Robe server.
 ;; 1. [M-x inf-ruby] :: execute this command in a ruby file buffer.
 ;; 2. [M-x robe-start]
+;; 3. Project
+;;
+;;    To launch a REPL with project-specific console instead, type M-x
+;;    `inf-ruby-console-auto'. It recognizes several project types, including
+;;    Rails, gems and anything with racksh in their Gemfile.
 ;;
 ;; - [C-c C-d] -- `robe-doc',
 ;; - [C-c C-l] -- `ruby-load-file', to load the current file in your project.
 ;; - [C-c C-k] -- `robe-rails-refresh', if you're developing a Rails project.
 ;; - [M-.] -- robe-jump (jump to definition)
 ;; - [M-,] -- pop tag mark
+;;
+;; Commands:
+;;
+;; - `ruby-switch-to-inf' :: switches the current buffer to the ruby process buffer.
+;; - `ruby-send-definition' :: sends the current definition to the ruby process.
+;; - `ruby-send-region' :: sends the current region to the ruby process.
+;; - `ruby-send-definition-and-go' :: and ruby-send-region-and-go switch to the ruby
+;;   process buffer after sending their text.
+;;
 ;;
 ;; input code in `inf-ruby' buffer.
 ;;   > Robe.stop # => nil :: stop Robe server.
