@@ -283,8 +283,7 @@
   (add-hook hook (lambda ()
                    (setq yari-ri-program-name "ri")
 
-                   ;; (local-set-key (kbd "C-h d") 'yari)
-                   ;; (define-key 'help-command (kbd "R") 'yari)
+                   ;; (local-set-key (kbd "C-h d k") 'yari)
 
                    ;; or with my-prog-help-document-map prefix.
                    (unless (boundp 'ruby-help-doc-map)
@@ -398,6 +397,13 @@
 
 (eval-after-load 'inf-ruby
   '(define-key inf-ruby-minor-mode-map (kbd "C-c C-s") 'inf-ruby-console-auto))
+
+(add-hook 'inf-ruby-mode-hook
+          (lambda ()
+            ;; company-robe
+            (make-local-variable 'company-backends)
+            (add-to-list 'company-backends 'company-robe)
+            ))
 
 ;; (add-to-list 'ac-modes 'inf-ruby-mode) ; enable auto-complete (with robe-mode) for inf-ruby completion.
 
@@ -571,6 +577,20 @@
   (add-hook hook 'robe-mode))
 
 (add-hook 'robe-mode-hook (lambda ()
+                            (local-set-key (kbd "C-h d d") 'robe-doc)
+
+                            (unless (boundp 'ruby-send-to-inferior-map)
+                              (define-prefix-command 'ruby-send-to-inferior-map))
+                            (local-set-key (kbd "C-c i r s") 'ruby-send-to-inferior-map)
+
+                            (define-key ruby-send-to-inferior-map (kbd "d") 'ruby-send-definition)
+                            (define-key ruby-send-to-inferior-map (kbd "D") 'ruby-send-definition-and-go)
+                            (define-key ruby-send-to-inferior-map (kbd "b") 'ruby-send-block)
+                            (define-key ruby-send-to-inferior-map (kbd "B") 'ruby-send-block-and-go)
+                            (define-key ruby-send-to-inferior-map (kbd "s") 'ruby-send-region)
+                            (define-key ruby-send-to-inferior-map (kbd "S") 'ruby-send-region-and-go)
+                            (define-key ruby-send-to-inferior-map (kbd "R") 'ruby-send-region-and-go)
+
                             ;; for auto-complete
                             ;; 1. ac-capf
                             ;; (add-to-list 'ac-sources 'ac-source-capf)
@@ -721,15 +741,16 @@
 (require 'ruby-test-mode)
 
 (dolist (hook '(ruby-mode-hook
-                enh-ruby-mode-hook)
-              )
+                enh-ruby-mode-hook))
   (add-hook hook (lambda ()
-                   (or (local-variable-p 'my-prog-test-map)
-                      (local-set-key (kbd "C-c t") 'my-prog-test-map))
-                   (define-key my-prog-test-map (kbd "m") 'ruby-test-mode)
-                   (define-key my-prog-test-map (kbd "t") 'ruby-test-run)
-                   (define-key my-prog-test-map (kbd "p") 'ruby-test-run-at-point)
-                   (define-key my-prog-test-map (kbd "l") 'ruby-test-goto-location)
+                   (unless (boundp 'my-ruby-test-map)
+                     (define-prefix-command 'my-ruby-test-map))
+                   (local-set-key (kbd "C-c t") 'my-ruby-test-map)
+
+                   (define-key my-ruby-test-map (kbd "m") 'ruby-test-mode)
+                   (define-key my-ruby-test-map (kbd "t") 'ruby-test-run)
+                   (define-key my-ruby-test-map (kbd "p") 'ruby-test-run-at-point)
+                   (define-key my-ruby-test-map (kbd "l") 'ruby-test-goto-location)
                    )))
 
 
