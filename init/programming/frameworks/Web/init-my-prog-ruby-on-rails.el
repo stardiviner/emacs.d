@@ -125,6 +125,17 @@
 ;; (define-key global-map (kbd "s-r") 'helm-rails-all)
 
 
+;;; [ rails-new ] -- Emacs version of command $ rails new ...
+
+;;; Handy emacs command for generating rails application.
+
+;;; Usage:
+;;
+;; - [M-x rails-new] :: create a new Rails project.
+
+(autoload 'rails-new "rails-new" "Handy emacs command for generating rails application." nil nil)
+
+
 ;;; [ yasnippet-rails ]
 
 
