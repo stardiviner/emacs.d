@@ -8,49 +8,6 @@
 ;;; Code:
 
 ;;;_
-;;; [ Rinari ] -- A Ruby on Rails minor mode for Emacs
-
-;;; Rinari Is Not A Ruby IDE.
-;;;
-;;; Well, OK it kind of is. Rinari is a set of Emacs Lisp functions aimed
-;;; towards making Emacs (or XEmacs) into a top-notch Ruby on Rails development
-;;; environment.
-;;;
-;;; Currently Rinari focuses on the core functionality most everyone would use when working on a Rails applications including...
-;; - Navigation between files in your Rails project (see Navigation)
-;; - Facilitation of Test/Behavior Driven Development (see Test/Behavior Driven Development)
-;; - Execution of tests, consoles, and web-servers (see Execution)
-;;
-;;; Usage:
-;; - [C-h b] :: show all key bindings of Rinari.
-;; - [M-x rinari-<tab>] :: all rinari functions.
-;; - TAGS
-;;   To have Rinari automatically update your tags-file-name variable to point
-;;   to the tags of your current rails project, set rinari-tags-file-name (see
-;;   Navigation) to the path to your tags file relative to the root of your
-;;   rails applications.
-;;   (setq rinari-tags-file-name "TAGS")
-
-;; (require 'rinari)
-;; TODO: try this, because (require 'rinari) will load old submodule inf-ruby.
-;; (autoload 'global-rinari-mode "rinari" "global rinari mode" nil nil)
-;; (autoload 'rinari-minor-mode "rinari" "rinari minor mode" nil nil)
-
-;; (add-hook 'rinari-minor-mode-hook
-;;           '(lambda ()
-;;              (setq yas-extra-modes (cons 'rails-mode yas-extra-modes))))
-
-;; (setq rinari-tags-file-name "TAGS")
-;; (setq rinari-major-modes
-;;       rinari-minor-mode-prefixes
-;;       rinari-exclude-major-modes
-;;       rinari-minor-mode-keybindings
-;;       )
-
-;; (global-rinari-mode t)
-
-
-
 ;;; Misc Functions
 ;;; --------------------------------------
 (defun rails-open-browser-development ()
