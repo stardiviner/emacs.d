@@ -564,44 +564,30 @@
      (inf-ruby)
      (robe-start)))
 
-
-(dolist (hook '(robe-mode-hook
+(dolist (hook '(ruby-mode-hook
                 enh-ruby-mode-hook
                 inf-ruby-mode-hook
                 ))
-  (add-hook hook (lambda ()
-                   (robe-mode 1)
+  (add-hook hook 'robe-mode))
 
-                   ;; 1. (local-set-key (kbd "C-h d d") 'robe-doc)
-                   ;; 2.
-                   (make-local-variable 'my-prog-help-document-map)
-                   (define-key my-prog-help-document-map (kbd "d") 'robe-doc)
+(add-hook 'robe-mode-hook (lambda ()
+                            ;; for auto-complete
+                            ;; 1. ac-capf
+                            ;; (add-to-list 'ac-sources 'ac-source-capf)
+                            ;; 2.1. ac-robe
+                            ;; (ac-robe-setup)
+                            ;; 2.2. old way
+                            ;; (push 'ac-source-robe ac-sources)
+                            ;; (add-to-list 'ac-sources 'ac-source-robe) ; `ac-robe-setup' did this already.
 
-                   (make-local-variable 'my-inferior-ruby-map)
-                   (define-key my-inferior-ruby-map (kbd "s d") 'ruby-send-definition)
-                   (define-key my-inferior-ruby-map (kbd "s D") 'ruby-send-definition-and-go)
-                   (define-key my-inferior-ruby-map (kbd "s b") 'ruby-send-block)
-                   (define-key my-inferior-ruby-map (kbd "s B") 'ruby-send-block-and-go)
-                   (define-key my-inferior-ruby-map (kbd "s s") 'ruby-send-region)
-                   (define-key my-inferior-ruby-map (kbd "s S") 'ruby-send-region-and-go)
-                   (define-key my-inferior-ruby-map (kbd "s R") 'ruby-send-region-and-go)
+                            ;; NOTE: `robe-mode' already support for capf. and
+                            ;; company-mode support capf native. so don't need following
+                            ;; setting.
+                            ;; for company-robe backend mode locally.
+                            (make-local-variable 'company-backends)
+                            (add-to-list 'company-backends 'company-robe)
+                            ))
 
-                   ;; for auto-complete
-                   ;; 1. ac-capf
-                   ;; (add-to-list 'ac-sources 'ac-source-capf)
-                   ;; 2.1. ac-robe
-                   ;; (ac-robe-setup)
-                   ;; 2.2. old way
-                   ;; (push 'ac-source-robe ac-sources)
-                   ;; (add-to-list 'ac-sources 'ac-source-robe) ; `ac-robe-setup' did this already.
-
-                   ;; for company-robe backend mode locally.
-                   ;; NOTE: `robe-mode' already support for capf. and
-                   ;; company-mode support capf native. so don't need following
-                   ;; setting.
-                   (make-local-variable 'company-backends)
-                   (add-to-list 'company-backends 'company-robe)
-                   )))
 
 
 ;;; [ helm-robe ]
