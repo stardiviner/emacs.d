@@ -559,7 +559,8 @@
       )
 
 (set-face-attribute 'highlight-symbol-face nil
-                    :foreground " " :background "green yellow")
+                    :foreground nil :background "midnight blue"
+                    :slant 'italic)
 
 (add-hook 'prog-mode-hook 'highlight-symbol-mode)
 
