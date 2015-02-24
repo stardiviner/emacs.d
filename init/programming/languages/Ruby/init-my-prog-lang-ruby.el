@@ -356,8 +356,8 @@
 ;; - [C-x C-q] -- rspec / ruby-compilation
 
 (require 'inf-ruby)
-;; (autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
-;; (autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
+(autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
+(autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
 
 (setq inf-ruby-default-implementation "inf-ruby"
       inf-ruby-implementations '(("inf-ruby" . "irb --inf-ruby-mode --noreadline")
@@ -385,9 +385,10 @@
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   (rvm-activate-corresponding-ruby))
 
-(add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
-;; (dolist (mode ruby-source-modes)
-;;   (add-hook (intern (format "%s-hook" mode)) 'inf-ruby-minor-mode))
+(dolist (hook '(ruby-mode-hook
+                enh-ruby-mode-hook
+                ))
+  (add-hook hook 'inf-ruby-minor-mode))
 
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
@@ -493,9 +494,9 @@
 ;; 1. [M-x inf-ruby] :: execute this command in a ruby file buffer.
 ;; 2. [M-x robe-start]
 ;;
-;; - [C-c C-d] -- robe-doc
-;; - [C-c C-l] -- ruby-load-file
-;; - [C-c C-k] -- robe-rails-refresh
+;; - [C-c C-d] -- `robe-doc',
+;; - [C-c C-l] -- `ruby-load-file', to load the current file in your project.
+;; - [C-c C-k] -- `robe-rails-refresh', if you're developing a Rails project.
 ;; - [M-.] -- robe-jump (jump to definition)
 ;; - [M-,] -- pop tag mark
 ;;
