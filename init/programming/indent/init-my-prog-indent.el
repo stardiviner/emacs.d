@@ -132,11 +132,12 @@
       indent-guide-recursive t ; To show not only one guide line but all guide
                                         ; lines recursively, set “indent-guide-recursive”
                                         ; non-nil.
-      indent-guide-inhibit-modes '(dired-mode Info-mode Man-mode)
+      indent-guide-inhibit-modes '(dired-mode Info-mode Man-mode org-mode)
       )
 
 ;;; custom indent line char
 ;; 1: use `indent-guide-char'.
+;; │ : |
 (setq indent-guide-char "│")
 (set-face-attribute 'indent-guide-face nil
                     :foreground "cyan"
