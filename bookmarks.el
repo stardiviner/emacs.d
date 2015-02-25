@@ -2,7 +2,82 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Ruby Gems"
+(("Ruby on Rails"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Frameworks/Ruby on Rails/Ruby on Rails.org")
+ (front-context-string . "* Intro\n\n** Intr")
+ (rear-context-string)
+ (position . 1))
+("Ruby language"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Ruby.org")
+ (front-context-string . "* Intro\n\n[[file:")
+ (rear-context-string)
+ (position . 1))
+("Arch"
+ (filename . "~/Org/Wiki/Computer/Systems/Linux/Arch/Arch.org")
+ (front-context-string . "* Intro\n\n** Arch")
+ (rear-context-string)
+ (position . 1))
+("Linux"
+ (filename . "~/Org/Wiki/Computer/Systems/Linux/Linux.org")
+ (front-context-string . "* Intro\n\n- [[htt")
+ (rear-context-string)
+ (position . 1))
+("Hack"
+ (filename . "~/Org/Wiki/Computer/Hack/Hack.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Code"
+ (filename . "~/Org/Wiki/Computer/Programming/Code/Code.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Programming Languages"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Programming Languages.org")
+ (front-context-string . "* Intro\n\n- [[htt")
+ (rear-context-string)
+ (position . 1))
+("Data Structure"
+ (filename . "~/Org/Wiki/Computer/Programming/Data Structure/Data Structure.org")
+ (front-context-string . "* Data\n\n** Sites")
+ (rear-context-string)
+ (position . 11))
+("Algorithm"
+ (filename . "~/Org/Wiki/Computer/Programming/Algorithm/Algorithm.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Implements"
+ (filename . "~/Org/Wiki/Computer/Programming/Implements/Implements.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Programming"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Computer"
+ (filename . "~/Org/Wiki/Computer/Computer.org")
+ (front-context-string . "- Simplicity is ")
+ (rear-context-string)
+ (position . 1))
+("Org Index"
+ (filename . "~/Org/INDEX.org")
+ (front-context-string . "- =Simplicity is")
+ (rear-context-string)
+ (position . 1))
+("Arch install.sh"
+ (filename . "~/Git/Arch/install.sh")
+ (front-context-string . "#!/usr/bin/env b")
+ (rear-context-string)
+ (position . 1))
+("Porn collections"
+ (filename . "~/Org/Porn/Porn.org")
+ (front-context-string . "* Porn Keywords\n")
+ (rear-context-string . "ories Archive\n\n\n")
+ (position . 1015))
+("Ruby Gems"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Tools/RubyGems/RubyGems.org")
  (front-context-string . "* Intro\n\nThe Rub")
  (rear-context-string)
