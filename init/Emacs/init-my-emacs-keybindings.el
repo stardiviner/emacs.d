@@ -131,6 +131,7 @@
         "C-c &"                         ; yasnippet (global)
         "C-c p"                         ; projectile (global)
         "C-c p C-r"                     ; projectile-rails
+        "C-c C-r"                       ; projectile-rails
         "C-c d"                         ; Debug
         "C-c v"                         ; Magit (global)
         "C-c g"                         ; Git

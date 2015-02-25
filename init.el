@@ -29,9 +29,9 @@
 
 
 
-;;; TEMP: some settings need to be set before required or loaded.
+;;; :NOTE: some settings need to be set before required or loaded.
 
-(setq projectile-rails-keymap-prefix (kbd "C-c p C-r"))
+(setq projectile-rails-keymap-prefix (kbd "C-c C-r")) ; or [C-c C-p]
 
 
 ;;; add my init files directory
