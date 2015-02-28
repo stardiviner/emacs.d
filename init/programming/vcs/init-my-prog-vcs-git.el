@@ -249,9 +249,24 @@
 ;;   nice benefit of this approach over merging from Github interface is that in
 ;;   case of FF no merge commit is produced, so history stays nice and linear.
 
-(require 'magit-gh-pulls)
+;; 1. auto turn on magit-gh-pulls
+;; (require 'magit-gh-pulls)
+;; (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
 
-(add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
+;; 2. manually turn on magit-gh-pulls
+;; (unless (fboundp 'magit-gh-pulls-mode)
+;;   (package-install 'magit-gh-pulls))
+;;
+(eval-after-load 'magit
+  '(define-key magit-mode-map (kbd "# g g") 'my-enable-gh-pulls-mode))
+
+(defun my-enable-gh-pulls-mode ()
+  "Enable `magit-gh-pulls-mode' only after a manually request."
+  (interactive)
+  (require 'magit-gh-pulls)
+  (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
+  (magit-gh-pulls-mode 1)
+  (magit-gh-pulls-reload))
 
 
 ;;; [ magit-gerrit ] -- Magit plugin for Gerrit Code Review
