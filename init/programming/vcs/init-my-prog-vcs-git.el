@@ -94,7 +94,7 @@
       magit-diff-refine-hunk 'all
       magit-status-buffer-switch-function 'pop-to-buffer-same-window ; open magit status buffer in current window.
       ;; diff
-      magit-diff-options "-w" ; -w or -b to ignore whitespace in diff, for ignore whitespace in vertical aligned code change.
+      ;; FIXME: magit-diff-options "-w" ; -w or -b to ignore whitespace in diff, for ignore whitespace in vertical aligned code change.
       )
 
 ;; TODO change to open magit-status in current window instead of overriding other windows. [default: 'pop-to-buffer].
