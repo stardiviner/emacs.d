@@ -9,7 +9,19 @@
 
 ;;; [ doc-view ]
 
+;;; Usage:
+;;
+;; - [] ::
 
+(require 'doc-view)
+
+(setq doc-view-continuous t
+      ;; doc-view--image-type ; 'png, 'tiff
+      ;; doc-view-doc-type ; Can be `dvi', `pdf', or `ps'.
+      ;; doc-view-cache-directory "/tmp/docview1000"
+      doc-view-scale-internally t
+      doc-view-image-width 850
+      )
 
 
 
