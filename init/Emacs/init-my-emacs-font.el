@@ -48,6 +48,13 @@
 
 (my-set-font-default "DejaVu Sans Mono" 10 100)
 
+;; -------
+;; Unicode
+;; -------
+;;
+;; set unicode symbol fallback font to "Symbola".
+(set-fontset-font "fontset-default" nil
+                  (font-spec :size 20 :name "Symbola"))
 
 ;; Averia-12
 ;; Averia Serif-12
