@@ -5,6 +5,11 @@
 
 ;;; Code:
 
+;;; [ profiler ]
+
+;; (profiler-start 'cpu+mem)
+
+
 ;;; [ version check ]
 
 (when (version< emacs-version "24")
@@ -29,9 +34,9 @@
 
 
 
-;;; TEMP: some settings need to be set before required or loaded.
+;;; :NOTE: some settings need to be set before required or loaded.
 
-(setq projectile-rails-keymap-prefix (kbd "C-c p C-r"))
+(setq projectile-rails-keymap-prefix (kbd "C-c C-r")) ; or [C-c C-p]
 
 
 ;;; add my init files directory
@@ -105,7 +110,7 @@
 
 ;; (setq el-get-sources
 ;; '((:name package-name)))
- 
+
 ;; (defun sync-packages ()
 ;; "Synchronize packages"
 ;; (interactive)
@@ -114,7 +119,7 @@
 ;; (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 ;; (setq my-packages (mapcar 'el-get-source-name el-get-sources))
 ;; (el-get 'sync my-packages))
- 
+
 ;; (if (require 'el-get nil t)
 ;; (sync-packages)
 ;; (url-retrieve
@@ -167,6 +172,7 @@
 (require 'init-my-emacs-file)
 (require 'init-my-emacs-tramp)
 (require 'init-my-emacs-image)
+(require 'init-my-emacs-doc-view)
 (require 'init-my-emacs-dired)
 (require 'init-my-emacs-modes)
 (require 'init-my-emacs-abbrev)
@@ -178,23 +184,23 @@
 (require 'init-my-emacs-encrypt)
 (require 'init-my-emacs-customize)
 (require 'init-my-emacs-tabulate)
-(require 'init-my-emacs-japanese)
+;; (require 'init-my-emacs-japanese)
 
 
 ;;; Tools
 (require 'init-my-tool-org-mode)
 (require 'init-my-tool-dict)
 (require 'init-my-tool-clock)
-(require 'init-my-tool-speak)
+;; (require 'init-my-tool-speak)
 (require 'init-my-tool-calculator)
 (require 'init-my-tool-diagram)
 (require 'init-my-tool-bbdb)
-(require 'init-my-tool-browser)
+;; (require 'init-my-tool-browser)
 (require 'init-my-tool-OpenSpritz)
 ;;; Email
 (require 'init-my-tool-email-message-mode)
 (require 'init-my-tool-email-mu4e)
-(require 'init-my-tool-feeds)
+;; (require 'init-my-tool-feeds)
 (require 'init-my-tool-blog)
 (require 'init-my-tool-paste)
 ;; (require 'init-my-tool-sauron)
@@ -206,6 +212,7 @@
 (require 'init-my-tool-screenshot)
 (require 'init-my-tool-screencast)
 
+;; (require 'init-my-tool-stack-exchange)
 
 
 ;;; Programming
@@ -218,14 +225,14 @@
 (require 'init-my-prog-comment)
 (require 'init-my-prog-electric)
 (require 'init-my-prog-tags)
-(require 'init-my-prog-sidebar)
+;; (require 'init-my-prog-sidebar)
 (require 'init-my-prog-snippet)
 (require 'init-my-prog-document)
 (require 'init-my-prog-compile)
 (require 'init-my-prog-project)
 (require 'init-my-prog-vcs)
-(require 'init-my-prog-bug-track-system)
-(require 'init-my-prog-refactor)
+;; (require 'init-my-prog-bug-track-system)
+;; (require 'init-my-prog-refactor)
 
 
 
@@ -249,8 +256,8 @@
 (require 'init-my-prog-lang-json)
 ;; (require 'init-my-prog-lang-haskell)
 ;; (require 'init-my-prog-lang-erlang)
-(require 'init-my-prog-lang-R)
-(require 'init-my-prog-lang-gnuplot)
+;; (require 'init-my-prog-lang-R)
+;; (require 'init-my-prog-lang-gnuplot)
 ;; (require 'init-my-prog-lang-octave)
 ;; (require 'init-my-prog-lang-matlab)
 ;; (require 'init-my-prog-lang-tex)

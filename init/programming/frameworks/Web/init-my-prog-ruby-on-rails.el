@@ -64,7 +64,7 @@
 (setq projectile-rails-add-keywords t)  ; highlight rails keywords.
 (setq projectile-rails-expand-snippet t) ; yasnippet expand skeleton class snippet.
 
-(setq projectile-rails-keymap-prefix (kbd "C-c p C-r"))
+(setq projectile-rails-keymap-prefix (kbd "C-c C-r"))
 
 (add-hook 'projectile-mode-hook 'projectile-rails-on)
 

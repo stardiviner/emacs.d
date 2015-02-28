@@ -131,8 +131,10 @@
         "C-c &"                         ; yasnippet (global)
         "C-c p"                         ; projectile (global)
         "C-c p C-r"                     ; projectile-rails
+        "C-c C-r"                       ; projectile-rails
         "C-c d"                         ; Debug
         "C-c v"                         ; Magit (global)
+        (magit-status-mode "#")         ; magit-gh-pulls
         "C-c g"                         ; Git
         "C-c i"                         ; Inferior
         "C-c o"                         ; Org-mode (global)
