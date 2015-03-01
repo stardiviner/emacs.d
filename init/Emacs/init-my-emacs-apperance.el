@@ -154,6 +154,16 @@
 
 ;; (load-theme 'monokai t)
 
+
+;;; custom faces
+
+(set-face-attribute 'font-lock-function-name-face nil
+                    :box '(:color "dark green" :line-width -1)
+                    :background "black")
+(set-face-attribute 'font-lock-type-face nil
+                    :box '(:color "dark red" :line-width -1)
+                    :background "black"
+                    :weight 'bold)
 
 
 ;;; [ modeline ]
