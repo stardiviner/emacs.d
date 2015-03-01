@@ -197,7 +197,7 @@
 
 ;;; [ RFC ]
 
-(require 'init-my-prog-document-rfc)
+;; (require 'init-my-prog-document-rfc)
 
 
 ;;; [ Man/Women ]

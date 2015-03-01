@@ -179,7 +179,7 @@
 ;; p, <left> -- persp-prev: Switch to previous perspective
 
 
-(require 'perspective)
+;; (require 'perspective)
 
 
 

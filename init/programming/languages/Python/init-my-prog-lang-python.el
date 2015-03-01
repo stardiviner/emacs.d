@@ -115,6 +115,16 @@
 ;; (require 'helm-ipython)
 
 
+;;; [ helm-ipython ]
+
+
+
+
+;;; [ ein ] -- IPython notebook client in Emacs
+
+
+
+
 
 (provide 'init-my-prog-lang-python)
 

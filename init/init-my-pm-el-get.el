@@ -102,8 +102,8 @@
          mmm-mode ; mumamo-noweb
          ;; polymode ; https://github.com/vspinu/polymode
          ;; shell
-         ;; readline-complete
-         eshell-manual
+         ;; readline-complete (FIXME: depends on auto-complete)
+         ;; eshell-manual
          ;; insert-shebang
          ;; others
          ;; guru-mode
@@ -133,7 +133,7 @@
          ;; dictionary & translation
          ;; babel
          ;; imenu
-         imenu-anywhere
+         ;; imenu-anywhere
          ;; jump
          ace-jump-mode ; ace-isearch
          ;; bookmark, register, macro,
@@ -178,19 +178,20 @@
          ;; Email
          ;; mu
          mu4e mu-cite
+         ;; notmuch
          ;; BBDB
          bbdb ; bbdb- ; FIXME: bbdb-vcard
          ;; IRC
-         erc erc-highlight-nicknames erc-nick-notify bbdb2erc
+         ;; erc erc-highlight-nicknames erc-nick-notify bbdb2erc
          ;; RSS
-         elfeed
+         ;; elfeed
          ;; tools
          ;; calfw sauron ; appt
          gist
          ;; emms ; emms-get-lyrics
          ;; ampc
          ;; subprocess
-         dizzee
+         ;; dizzee
          ;; Programming
          ;; code
          ;; glasses-mode
@@ -225,15 +226,15 @@
          ;; Tags
          cscope ascope
          helm-cscope ; xcscope ascope
-         gtags helm-gtags ggtags xgtags ; use program global
+         gtags helm-gtags ggtags xgtags
          ;; code browser
-         sr-speedbar
+         ;; sr-speedbar
          ;; neotree
          ;; project-explorer
          ;; compile
          smart-compile smart-compile+
          ;; refactor
-         emacs-refactor
+         ;; emacs-refactor
          ;; sourcemap -- https://github.com/syohex/emacs-sourcemap
          ;; vcs
          git-modes git-emacs ; git-status
@@ -242,7 +243,7 @@
          magit-gh-pulls
          magit-gerrit
          git-gutter git-gutter+ ; git-gutter-fringe
-         ; git-timemachine
+         ;; git-timemachine
          ;; egg
          mo-git-blame
          diffview
@@ -251,13 +252,13 @@
          helm-project
          vagrant vagrant-tramp
          ;; bug track system
-         bts bts-github
+         ;; bts bts-github
          ;; code assistant
          howdoi
          ;; languages
          ;; Ruby
          ruby-mode
-         ;; enh-ruby-mode
+         enh-ruby-mode
          ;; ruby-block
          yari
          ;; auto-complete-ruby ; (conflict with robe-mode?)
@@ -279,23 +280,24 @@
          geiser ; ac-geiser
          ;; Scheme
          ;; Clojure
-         clojure-mode cider
+         ;; clojure-mode cider
          ;; ac-cider ; company-cider
          ;; Python
-         python python-mode
-         ;; jedi
-         helm-ipython
+         ;; python python-mode
+         ;; jedi (FIXME: depends on auto-complete)
+         ;; elpy
+         ;; helm-ipython
          ;; C family languages (C, C++, Go, D, F, Rust)
-         c-eldoc eassist
-         irony-mode
-         company-irony ; ac-irony
-         company-c-headers
+         ;; c-eldoc eassist
+         ;; irony-mode
+         ;; company-irony ; ac-irony
+         ;; company-c-headers
          ;; auto-complete-clang auto-complete-c-headers
          ;; auto-complete-clang-objc
          ;; bison-mode
          ;; Go
-         go-mode go-eldoc
-         go-company
+         ;; go-mode go-eldoc
+         ;; go-company
          ;; go-autocomplete ; gocode
          ;; D
          ;; d-mode
@@ -307,7 +309,7 @@
          ;; Web
          web-mode
          skewer-mode ; live web development in Emacs (HTML, CSS, JavaScript)
-         emacs-moz-controller ; moz-repl
+         ;; emacs-moz-controller ; moz-repl
          ;; JavaScript
          ;; js-mode
          ;; js2-mode
@@ -334,25 +336,25 @@
          ;; YAML
          yaml-mode
          ;; TeX
-         auctex
-         company-auctex ; auto-complete-auctex
+         ;; auctex
+         ;; company-auctex ; auto-complete-auctex
          ;; auto-complete-latex
-         company-math ; ac-math
+         ;; company-math ; ac-math
          ;; reftex
          ;;; Haskell
          ;; haskell-mode
          ;; Erlang
-         erlang-mode
+         ;; erlang-mode
          ;; Prolog
-         prolog-el
+         ;; prolog-el
          ;; Verilog
          ;; verilog-mode
          ;; auto-complete-verilog
          ;; Java
-         javadoc-lookup ; javadoc-help
-         eclim
+         ;; javadoc-lookup ; javadoc-help
+         ;; eclim
          ;; java-complete
-         ess
+         ;; ess
          ;; Julia
          ;; julia-mode
          ;; R
@@ -364,14 +366,15 @@
          ;; Database
          ;; SQL
          sqlup-mode
-         edbi company-edbi
+         ;; FIXME: depend on auto-complete.
+         ;; edbi company-edbi
          ;; NoSQL
          ;; MongoDB
          ;; inf-mongo
          ;; Redis
          ;; eredis
          ;; Assembly
-         iasm-mode
+         ;; iasm-mode
          ;; Hex
          ;; hexview-mode
          ;; Frameworks
@@ -392,6 +395,7 @@
          ;; crontab-mode
          ;; Arch
          pkgbuild-mode
+         ;; aurel
          ;; fvwm-mode glsl-mode
          ;; Windows
          ;; batch-mode
@@ -399,9 +403,9 @@
          ;; fvwm-mode glsl-mode
          ;; English
          ;; Japanese
-         migemo helm-migemo
+         ;; migemo helm-migemo
          ;; Speak
-         festival
+         ;; festival
          ;; Screenshot & Screencast
          screenshot
          capture camcorder
@@ -410,7 +414,7 @@
          ;; Emacs keyboard commands log
          command-log-mode
          ;; Integrate into Emacs
-         sx ; Stack Exchange
+         ;; sx ; Stack Exchange
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
 

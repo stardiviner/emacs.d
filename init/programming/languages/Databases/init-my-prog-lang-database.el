@@ -34,6 +34,9 @@
 ;;                           '("text" "glob" "offset")))))
 
 
+;;; [ sqled-mode ]
+
+
 ;;; [ edbi ]
 
 ;;; Usage:
@@ -49,7 +52,7 @@
 ;;     q : quit and disconnect
 
 
-(require 'edbi)
+;; (require 'edbi)
 
 
 ;;; [ company-edbi ]

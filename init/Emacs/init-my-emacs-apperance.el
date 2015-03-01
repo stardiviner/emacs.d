@@ -397,7 +397,7 @@
 ;; TODO:
 ;; (setq prettify-symbols-alist '(("lambda" . 955)))
 
-(global-prettify-symbols-mode 1)
+;; (global-prettify-symbols-mode 1)
 
 
 ;;; [ pretty-mode (pretty-mode-plus) ] -- Redisplay parts of the Emacs buffer as pretty symbols.

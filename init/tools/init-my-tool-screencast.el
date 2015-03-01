@@ -51,10 +51,11 @@
 ;;   - w :: copy device title (Built-in Audio Analog Stereo)
 ;;   - W :: copy device name (alsa_input.pci-0000_00_1b.0.analog-stereo)
 
-(require 'capture)
+;; FIXME:
+;; (require 'capture)
 
-(setq capture-video-dest-dir "~/screencasts/SORT/")
-(global-set-key (kbd "<s-f12>") 'capture-run-mode)
+;; (setq capture-video-dest-dir "~/screencasts/SORT/")
+;; (global-set-key (kbd "<s-f12>") 'capture-run-mode)
 
 ;; (defun my-capture-presets ()
 ;;   "Make my presets for capturing."

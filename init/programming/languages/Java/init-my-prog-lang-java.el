@@ -46,16 +46,16 @@
 ;; It is also possible to start and stop the eclim daemon from emacs using the
 ;; eclimd package.
 
-(require 'eclim)
-;; If you want to control eclimd from emacs, also add:
-(require 'eclimd)
-
-(setq eclim-eclipse-dirs '("/Applications/eclipse"
-                           "/usr/lib/eclipse"
-                           "/usr/local/lib/eclipse"
-                           "/usr/share/eclipse")
-      ;; eclim-executable "~/nonStandard/eclipse/eclim"
-      )
+;; (require 'eclim)
+;; ;; If you want to control eclimd from emacs, also add:
+;; (require 'eclimd)
+;;
+;; (setq eclim-eclipse-dirs '("/Applications/eclipse"
+;;                            "/usr/lib/eclipse"
+;;                            "/usr/local/lib/eclipse"
+;;                            "/usr/share/eclipse")
+;;       ;; eclim-executable "~/nonStandard/eclipse/eclim"
+;;       )
 
 ;; for auto-complete, add the emacs-eclim source
 ;; (require 'ac-emacs-eclim-source)
@@ -65,7 +65,7 @@
 ;; (require 'company-emacs-eclim)
 ;; (company-emacs-eclim-setup)
 
-(global-eclim-mode t)
+;; (global-eclim-mode t)
 
 
 (provide 'init-my-prog-lang-java)
