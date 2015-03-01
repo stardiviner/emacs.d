@@ -65,6 +65,56 @@
     (define-key my-regexp-prefix-map (kbd "h") 'helm-regexp))
 
 
+
+;;; Making Elisp regex look nicer
+;;
+;; This is just a small improvement to make e.g. \\( show up in regular
+;; expressions without the escape chars, but instead fontified with
+;; font-lock-keyword-face. It doesn't affect the underlying code at all, just
+;; makes it look nicer. For the \\| I chose ∨ - the logical or character.
+
+(defun fontify-glyph (item glyph)
+  `((,item
+     (0 font-lock-keyword-face t)
+     (0 (prog1
+            (compose-region (match-beginning 0)
+                            (match-end 0)
+                            ,glyph) nil)))))
+
+(font-lock-add-keywords 'emacs-lisp-mode
+                        (fontify-glyph "\\\\\\\\|" "∨"))
+(font-lock-add-keywords 'emacs-lisp-mode
+                        (fontify-glyph "\\\\\\\\(" "("))
+(font-lock-add-keywords 'emacs-lisp-mode
+                        (fontify-glyph "\\\\\\\\)" ")"))
+
+
+;;; At first, I wanted to just inline a picture, but then I thought that
+;;; htmlize-buffer would be able to handle it. It didn't, so I just edited a
+;;; small snippet by hand:
+;;
+;; (or (string-match "^([^\n%|]*?)|(([^\n]*)?$" str)
+;;    (string-match "^([^\n%|]*?)(%[^\n]*)?$" str))
+
+;;; It's really satisfying to see those escape chars vanish as I type in a
+;;; capture group in the regex, especially with the help of lispy-mode. Here are
+;;; some relevant tests for the regex support:
+
+(if (featurep 'lispy-mode) ; (functionp 'lispy-with)
+    '(progn
+       (should (string= (lispy-with "\"a regex \\\\|\"" "(")
+                        "\"a regex \\\\(|\\\\)\""))
+       (should (string= (lispy-with "\"\\\\(|foo\\\\)\"" "\C-?")
+                        "\"|foo\""))
+       (should (string= (lispy-with "\"\\\\(foo\\\\)|\"" "\C-?")
+                        "\"foo|\""))
+       (should (string= (lispy-with "\"|\\\\(foo\\\\)\"" "\C-d")
+                        "\"|foo\""))
+       (should (string= (lispy-with "\"\\\\(foo|\\\\)\"" "\C-d")
+                        "\"foo|\""))
+       ))
+
+
 (provide 'init-my-emacs-regexp)
 
 ;;; init-my-emacs-regexp.el ends here
