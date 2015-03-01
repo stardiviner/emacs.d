@@ -386,12 +386,12 @@
 (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   (rvm-activate-corresponding-ruby))
 
+(add-hook 'after-init-hook 'inf-ruby-switch-setup)
+
 (dolist (hook '(ruby-mode-hook
                 enh-ruby-mode-hook
                 ))
   (add-hook hook 'inf-ruby-minor-mode))
-
-(add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
 (define-key my-prog-inferior-map (kbd "r a") 'inf-ruby-console-auto)
 
@@ -555,7 +555,6 @@
 
 (require 'robe)
 ;; (autoload 'robe-mode "robe" "Code navigation, documentation lookup and completion for Ruby" t nil)
-;; (autoload 'ac-robe-setup "ac-robe" "auto-complete robe" nil nil)
 
 (setq robe-turn-on-eldoc t
       ;; - t, `completion-at-point' candidates buffer will have constants,
@@ -612,7 +611,9 @@
 
 ;;; [ helm-robe ]
 
-(setq robe-completing-read-func 'helm-robe-completing-read)
+;; TODO: (require 'helm-robe)
+
+;; (setq robe-completing-read-func 'helm-robe-completing-read)
 ;; (custom-set-variables
 ;;  '(robe-completing-read-func 'helm-robe-completing-read))
 

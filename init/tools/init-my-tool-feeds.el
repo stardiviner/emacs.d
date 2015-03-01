@@ -263,7 +263,6 @@
                      ("https://github.com/blog.atom" subscribe)
                      ;; ("https://github.com/blog/all.atom" subscribe)
                      ;; ("https://github.com/blog/broadcasts.atom" subscribe)
-                     ("http://blog.gitcafe.com/feed" subscribe)
                      ("http://www.kali.org/feed/" subscribe)
                      ("http://www.backbox.org/blog/feed" subscribe)
                      ("http://blog.getfirebug.com/feed/" subscribe)
@@ -276,9 +275,9 @@
 
 (setq elfeed-max-connections 4
       elfeed-sort-order 'descending ; by time
-      elfeed-search-title-min-width 16
-      elfeed-search-title-max-width 45
-      elfeed-search-trailing-width 30
+      elfeed-search-title-min-width 60
+      elfeed-search-title-max-width 60
+      elfeed-search-trailing-width 20
       )
 (setq-default elfeed-search-filter "@1-week-ago +unread") ; "@1-week-ago +unread", "@6-months-ago +unread"
 

@@ -6,7 +6,7 @@
 ;;; Code:
 
 
-;;; Emacs default comment [C-;]
+;;; Emacs default comment [M-;]
 
 ;; Usage:
 ;; - [M-;] -- indent-for-comment

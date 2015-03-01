@@ -22,7 +22,7 @@
 ;; [C-h i g (elisp) Debugging RET]
 
 (setq debug-on-error t
-      debug-on-quit nil
+      ;; debug-on-quit t
       ;; debug-on-signal nil
       ;; debug-on-next-call nil
       ;; debug-on-event

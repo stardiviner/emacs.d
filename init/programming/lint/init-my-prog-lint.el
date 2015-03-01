@@ -91,13 +91,17 @@
                     :foreground "forest green")
 (set-face-attribute 'flycheck-warning nil
                     :background nil :foreground nil
-                    :underline '(:color "orange" :style wave))
+                    :underline '(:color "orange" :style wave)
+                    ;; :box '(:color "orange" :line-width -1)
+                    )
 (set-face-attribute 'flycheck-fringe-warning nil
                     :background " " :foreground "orange"
                     :weight 'normal)
 (set-face-attribute 'flycheck-error nil
                     :background nil :foreground nil
-                    :underline '(:color "dark red" :style wave))
+                    :underline '(:color "dark red" :style wave)
+                    ;; :box '(:color "dark red" :line-width -1)
+                    )
 (set-face-attribute 'flycheck-fringe-error nil
                     :background " " :foreground "dark red"
                     :weight 'normal)

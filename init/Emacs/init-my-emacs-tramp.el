@@ -10,7 +10,7 @@
 ;;; [ Tramp ]
 
 ;; Usage:
-;; - [C-x C-f /sudo::/path/to/file]
+;; - [C-x C-f /sudo::/path/to/file] -- edit stuff with sudo.
 ;; - [C-x C-f /su::/path/to/file] -- edit stuff as root.
 ;; - [ssh]
 ;; - [telnet]
