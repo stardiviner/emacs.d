@@ -55,3 +55,4 @@ emms/
 /init/init-my-startup.lib
 /rake.cache
 /.elfeed/
+/ido.last
