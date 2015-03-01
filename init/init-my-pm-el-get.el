@@ -373,7 +373,7 @@
          ;; Assembly
          iasm-mode
          ;; Hex
-         hexview-mode
+         ;; hexview-mode
          ;; Frameworks
          ;; Ruby on Rails
          projectile-rails rails-new ; helm-rails
