@@ -170,48 +170,10 @@
 ;;   (add-hook hook 'ac-cider-setup))
 
 
-;;; [ ac-nrepl ] --
-
-;; (require 'ac-nrepl)
-;;
-;; (add-hook 'cider-mode-hook 'ac-nrepl-setup)
-;; (add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
-;; (eval-after-load 'auto-complete
-;;   '(add-to-list 'ac-modes 'cider-repl-mode))
-;;
-;; (add-hook 'clojure-mode-hook
-;;           (lambda ()
-;;             (eval-after-load 'auto-complete
-;;               (add-to-list 'ac-sources 'ac-nrepl))))
-;;
-;; (eval-after-load 'cider
-;;   '(define-key cider-mode-map (kbd "M-h") 'ac-nrepl-popup-doc)
-;;
-;;   ;; (unless (boundp 'clojure-help-doc-map)
-;;   ;;   (define-prefix-command 'clojure-help-doc-map))
-;;   ;; (local-set-key (kbd "C-h d") 'clojure-help-doc-map)
-;;   ;; (define-key clojure-help-doc-map (kbd "d") 'ac-nrepl-popup-doc)
-;;   )
-;;
-;; ;;; ac-nrepl
-;; (set-face-attribute 'ac-nrepl-candidate-face nil
-;;                     :foreground "cyan"
-;;                     :bold 'normal)
-;; ;; (set-face-attribute 'ac-nrepl-selection-face nil
-;; ;;                     )
-
-
 ;;; [ company-cider ]
 
 (add-hook 'cider-repl-mode-hook 'company-mode)
 (add-hook 'cider-mode-hook 'company-mode)
-
-
-;;; [ Swank Clojure ] -- Swank Clojure is a server that allows SLIME (the Superior Lisp Interaction Mode for Emacs) to connect to Clojure projects.
-
-;; Deprecated
-;; This project is no longer under active development.
-;; New users are strongly encouraged to try out nrepl.el instead. If you need an advanced debugger, Ritz might be a better fit.
 
 
 ;;; [ clojure-cheatsheet ]
