@@ -195,8 +195,9 @@
                     :foreground "gray" :background "black"
                     :weight 'bold)
 (set-face-attribute 'helm-source-header nil
-                    :foreground "gray" :background "dark red"
-                    :family "DejaVu Sans Mono" :weight 'bold :height 1.0
+                    :foreground "green" :background "#222222"
+                    :overline "yellow" :weight 'bold
+                    ;; :family "DejaVu Sans Mono" :height 1.0
                     )
 (set-face-attribute 'helm-prefarg nil
                     :foreground "cyan")
