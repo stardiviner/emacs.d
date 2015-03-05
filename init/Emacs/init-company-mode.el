@@ -20,11 +20,11 @@
 
 (require 'company)
 
-(setq-default company-minimum-prefix-length 2   ; minimum prefix character number for auto complete.
-              company-idle-delay 0.2
+(setq-default company-minimum-prefix-length 3   ; minimum prefix character number for auto complete.
+              company-idle-delay 0.5
               company-tooltip-align-annotations t ; align annotations to the right tooltip border.
               company-tooltip-limit 10          ; tooltip candidates max limit.
-              company-tooltip-minimum 2         ; minimum candidates limit.
+              company-tooltip-minimum 6         ; minimum candidates limit.
               company-tooltip-minimum-width 0   ; The minimum width of the tooltip's inner area.
                                         ; This doesn't include the margins and the scroll bar.
               company-tooltip-margin 1          ; width of margin columns to show around the tooltip
@@ -37,14 +37,14 @@
 
 
 ;;; help document preview & popup
-(require 'company-quickhelp)
-(company-quickhelp-mode t)
-(setq company-quickhelp--delay 0.1)
+;; (require 'company-quickhelp)
+;; (company-quickhelp-mode t)
+;; (setq company-quickhelp--delay 0.1)
 
 (setq-default company-frontends '(company-pseudo-tooltip-unless-just-one-frontend
                                   company-preview-if-just-one-frontend
                                   company-echo-metadata-frontend
-                                  company-quickhelp-frontend
+                                  ;; company-quickhelp-frontend
                                   ))
 
 
@@ -53,7 +53,7 @@
                                  company-yasnippet
                                  company-semantic company-clang  company-cmake ; C/C++
                                  ;; company-eclim ; Java
-                                 company-ropemacs ; Python
+                                 ;; company-ropemacs ; Python
                                  company-nxml company-css ; HTML, CSS, XML
                                  company-xcode
                                  company-bbdb ; BBDB
