@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Ruby on Rails"
+(("Linux Configurations (Org)"
+ (filename . "~/Org/Wiki/Computer/Systems/Linux/Configurations/Configurations.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Ruby on Rails"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Frameworks/Ruby on Rails/Ruby on Rails.org")
  (front-context-string . "* Intro\n\n** Intr")
  (rear-context-string)
@@ -15,16 +20,6 @@
 ("Arch"
  (filename . "~/Org/Wiki/Computer/Systems/Linux/Arch/Arch.org")
  (front-context-string . "* Intro\n\n** Arch")
- (rear-context-string)
- (position . 1))
-("Linux"
- (filename . "~/Org/Wiki/Computer/Systems/Linux/Linux.org")
- (front-context-string . "* Intro\n\n- [[htt")
- (rear-context-string)
- (position . 1))
-("Hack"
- (filename . "~/Org/Wiki/Computer/Hack/Hack.org")
- (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
  (position . 1))
 ("Code"
@@ -55,16 +50,6 @@
 ("Programming"
  (filename . "~/Org/Wiki/Computer/Programming/Programming.org")
  (front-context-string . "* Intro\n\n\n* Data")
- (rear-context-string)
- (position . 1))
-("Computer"
- (filename . "~/Org/Wiki/Computer/Computer.org")
- (front-context-string . "- Simplicity is ")
- (rear-context-string)
- (position . 1))
-("Org Index"
- (filename . "~/Org/INDEX.org")
- (front-context-string . "- =Simplicity is")
  (rear-context-string)
  (position . 1))
 ("Arch install.sh"
@@ -102,29 +87,9 @@
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
-("Science"
- (filename . "~/Org/Wiki/Science/Science.org")
- (front-context-string . "* Intro\n\n\n\n* Dat")
- (rear-context-string)
- (position . 1))
-("Kung Fu"
- (filename . "~/Org/Wiki/Kung Fu/Kung Fu.org")
- (front-context-string . "* Intro\n\n* Data\n")
- (rear-context-string)
- (position . 1))
 ("Writing"
  (filename . "~/Org/Wiki/Writing/Writing.org")
  (front-context-string . "* Words (文字)\n\n[[")
- (rear-context-string)
- (position . 1))
-("censorship"
- (filename . "~/Org/Wiki/Computer/censorship/censorship.org")
- (front-context-string . "* censorship & m")
- (rear-context-string)
- (position . 1))
-("Myself"
- (filename . "~/Org/Wiki/Myself/Myself.org")
- (front-context-string . "* My Internet In")
  (rear-context-string)
  (position . 1))
 ("Aphorisms"
