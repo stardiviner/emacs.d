@@ -284,6 +284,7 @@
          ;; Clojure
          ;; clojure-mode cider
          ;; ac-cider ; company-cider
+         typed-clojure-mode
          ;; Python
          ;; python python-mode
          ;; jedi (FIXME: depends on auto-complete)

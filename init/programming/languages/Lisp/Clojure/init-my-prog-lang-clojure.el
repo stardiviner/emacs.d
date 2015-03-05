@@ -74,7 +74,7 @@
       ;; When using switch-to-buffer, pressing SPC after the command will make
       ;; the hidden buffers visible. They'll always be visible in list-buffers
       ;; (C-x C-b).
-     
+      
       ;; You can control the TAB key behavior in the REPL via the
       ;; cider-repl-tab-command variable. While the default command
       ;; cider-repl-indent-and-complete-symbol should be an adequate choice for
@@ -147,6 +147,18 @@
 
 
 ;;; [ ac-cider ]
+;;; [ typed-clojure-mode ] -- 
+;;
+;;; Usage:
+;;
+;;| Keyboard Shortcut | Description                                 | Command                  |
+;;|-------------------+---------------------------------------------+--------------------------|
+;;| C-c C-x n         | Print errors in the namespace               | typed-clojure-check-ns   |
+;;| C-c C-x f         | Check the preceding form or symbol          | typed-clojure-check-form |
+;;| C-c C-a v         | Insert (ann ... ) above the top expression  | typed-clojure-ann-var    |
+;;| C-c C-a f         | Wrap the current form with (ann-form ... t) | typed-clojure-ann-form   |
+
+(add-hook 'clojure-mode-hook 'typed-clojure-mode)
 
 (require 'ac-cider)
 
