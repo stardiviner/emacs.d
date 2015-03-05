@@ -241,7 +241,7 @@
 (require 'init-my-prog-lang-emacs-lisp)
 (require 'init-my-prog-lang-common-lisp)
 ;; (require 'init-my-prog-lang-guile)
-;; (require 'init-my-prog-lang-clojure)
+(require 'init-my-prog-lang-clojure)
 (require 'init-my-prog-lang-ruby)
 ;; (require 'init-my-prog-lang-python)
 ;; (require 'init-my-prog-lang-C-common)

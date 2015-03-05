@@ -282,8 +282,8 @@
          geiser ; ac-geiser
          ;; Scheme
          ;; Clojure
-         ;; clojure-mode cider
-         ;; ac-cider ; company-cider
+         clojure-mode cider
+         company-cider ; ac-cider
          typed-clojure-mode
          ;; Python
          ;; python python-mode
