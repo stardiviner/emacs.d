@@ -969,7 +969,8 @@
                     )
 ;;; Emacs mu4e window top title.
 (set-face-attribute 'mu4e-title-face nil
-                    :foreground "yellow")
+                    :foreground "yellow"
+                    :inherit nil)
 ;;; readed mail line in index.
 (set-face-attribute 'mu4e-header-face nil
                     :foreground "dim gray")
