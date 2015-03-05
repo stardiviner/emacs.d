@@ -262,7 +262,9 @@
          ;; ruby-block
          yari
          ;; auto-complete-ruby ; (conflict with robe-mode?)
-         inf-ruby ruby-compilation rvm ;; pry
+         ruby-compilation
+         inf-ruby  ; pry
+         rbenv ; rvm
          ;; company-inf-ruby
          ;; rcodetools
          robe-mode helm-robe

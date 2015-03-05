@@ -304,15 +304,51 @@
 ;;; - open the source of any rubygem in your current gemset.
 ;;;   [M-x rvm-open-gem]
 
-(require 'rvm)
+;; (require 'rvm)
+;;
+;; (rvm-use-default)        ; use rvm's default ruby for the current Emacs session.
+;; (setq rvm-verbose t)     ; print rvm switching Ruby version message.
+;;
+;; (dolist (hook '(ruby-mode-hook
+;;                 enh-ruby-mode-hook
+;;                 ))
+;;   (add-hook hook 'rvm-activate-corresponding-ruby))
 
-(rvm-use-default)        ; use rvm's default ruby for the current Emacs session.
-(setq rvm-verbose t)     ; print rvm switching Ruby version message.
+
+;;; [ rbenv ] -- use rbenv to manage your Ruby versions within Emacs
 
-(dolist (hook '(ruby-mode-hook
-                enh-ruby-mode-hook
-                ))
-  (add-hook hook 'rvm-activate-corresponding-ruby))
+;;; Usage:
+;;
+;; - `global-rbenv-mode' :: activate / deactivate rbenv.el (The current Ruby version is shown in the modeline).
+;; - `rbenv-use-global' :: will activate your global Ruby.
+;; - `rbenv-use-corresponding' :: will activate your corresponding Ruby.
+;; - `rbenv-use' :: allows you to choose what ruby version you want to use.
+
+;;; NOTE: that rbenv.el always configures the complete Emacs session. There is
+;;; no way to set the Ruby version on a per buffer basis.
+
+;;; IMPORTANT:: Currently you need to set this variable before you load rbenv.el
+(setq rbenv-installation-dir "/usr/local/rbenv")
+
+(require 'rbenv)
+
+(setq rbenv-show-active-ruby-in-modeline t
+      rbenv-modeline-function 'rbenv--modeline-plain ; 'rbenv--modeline-with-face
+      )
+
+;; (defun rbenv--modeline-with-face (current-ruby)
+;;   (append '(" [")
+;;           (list (propertize current-ruby 'face 'rbenv-active-ruby-face))
+;;           '("]")))
+
+;; (defun rbenv--modeline-plain (current-ruby)
+;;   (list " [" current-ruby "]"))
+
+;;; Setting rbenv path
+;; (setenv "PATH" (concat (getenv "HOME") "/.rbenv/shims:" (getenv "HOME") "/.rbenv/bin:" (getenv "PATH")))
+;; (setq exec-path (cons (concat (getenv "HOME") "/.rbenv/shims") (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path)))
+
+(global-rbenv-mode)
 
 
 ;;; [ inf-ruby / Inferior Ruby ] -- inf-ruby provides a REPL buffer connected to a Ruby(irb/pry) subprocess.
@@ -383,8 +419,8 @@
       )
 
 ;; integrate with rvm.el
-(defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
-  (rvm-activate-corresponding-ruby))
+;; (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
+;;   (rvm-activate-corresponding-ruby))
 
 (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
@@ -842,9 +878,6 @@
 
 
 ;;; [ ruby-tools ]
-
-
-;;; [ rbenv ] -- integrating rbenv with Emacs
 
 
 ;;; [ yard-mode ] --- Minor mode for Ruby YARD comments

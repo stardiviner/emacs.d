@@ -120,6 +120,12 @@
                 ;;     (_             'mode-line-warning)))))
 
                 ;; TODO: Magit
+
+                ;; rvm
+
+                ;; rbenv
+                (:propertize (:eval (rbenv--modeline-plain))
+                             face (:foreground "red"))
                 
                 ;; the buffer name; the filename as a tool tip
                 ;; mode-line-client
