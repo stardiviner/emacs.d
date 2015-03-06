@@ -63,6 +63,7 @@
            lisp-interaction-mode-hook
            scheme-mode-hook
            clojure-mode-hook
+           cider-repl-mode-hook
            ;; NOTICE do not enable paredit-mode in all programming modes.
            ;; prog-mode-hook               ; programming languages source code mode hook.
            ))

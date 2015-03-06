@@ -159,21 +159,19 @@
 
 (add-hook 'clojure-mode-hook 'typed-clojure-mode)
 
-
 
-;;; [ ac-cider ]
-
-;; (require 'ac-cider)
+;;; [ Auto Completion ]
 ;;
-;; (dolist (hook '(clojure-mode-hook
-;;                 ))
-;;   (add-hook hook 'ac-cider-setup))
+;; `cider-complete-at-point'
+;; integrate with company-mode
+
+(setq cider-annotate-completion-candidates t)
+
+(add-hook 'cider-repl-mode-hook #'company-mode)
+(add-hook 'cider-mode-hook #'company-mode)
 
 
-;;; [ company-cider ]
 
-(add-hook 'cider-repl-mode-hook 'company-mode)
-(add-hook 'cider-mode-hook 'company-mode)
 
 
 ;;; [ clojure-cheatsheet ]
