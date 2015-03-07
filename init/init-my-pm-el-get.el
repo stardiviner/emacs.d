@@ -265,7 +265,6 @@
          ruby-compilation
          inf-ruby  ; pry
          rbenv ; rvm
-         ;; company-inf-ruby
          ;; rcodetools
          robe-mode helm-robe
          rake
