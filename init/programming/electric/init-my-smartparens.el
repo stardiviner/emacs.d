@@ -153,17 +153,17 @@
                     )
 
 ;;;_* use `smartparens-strict-mode' to replace `paredit-mode'.
-;; (dolist (hook
-;;          '(emacs-lisp-mode-hook
-;;            eval-expression-minibuffer-setup-hook
-;;            ielm-mode-hook ; inferior-emacs-lisp-mode-hook
-;;            lisp-mode-hook
-;;            lisp-interaction-mode-hook
-;;            scheme-mode-hook
-;;            clojure-mode-hook
-;;            cider-repl-mode-hook
-;;            ))
-;;   (add-hook hook 'smartparens-strict-mode))
+(dolist (hook
+         '(clojure-mode-hook
+           cider-repl-mode-hook
+           emacs-lisp-mode-hook
+           eval-expression-minibuffer-setup-hook
+           ielm-mode-hook ; inferior-emacs-lisp-mode-hook
+           lisp-mode-hook
+           lisp-interaction-mode-hook
+           scheme-mode-hook
+           ))
+  (add-hook hook 'turn-on-smartparens-strict-mode))
 
 ;;;_ + TODO: add paredit like keybindings with smartparens-mode.
 ;; (define-key smartparens-strict-mode-map (kbd "C-M-b") 'sp-backward-sexp)
