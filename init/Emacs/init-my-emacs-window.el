@@ -410,9 +410,18 @@ The `BUFFER' is the popwin catch pop private message buffer."
 ;; FIXME:
 (push '("*Checkdoc Status*" :position bottom :height 7) popwin:special-display-config)
 
+
+;; TeX & AUCTeX
+;; (push '(special-mode :position bottom :height 15) popwin:special-display-config)
+(push '("*TeX Help*" :position bottom :height 15) popwin:special-display-config)
+
 ;;; howdoi
 (push '(howdoi-mode :position bottom :height 7) popwin:special-display-config)
 (push '("*How do I*" :position bottom :height 7) popwin:special-display-config)
+
+;; elfeed
+(push '(elfeed-search-mode :position top :height 20) popwin:special-display-config)
+(push '("*elfeed-search*" :position top :height 20) popwin:special-display-config)
 
 
 ;;; [ zoom-window ] -- zoom/un-zoom window like tmux.

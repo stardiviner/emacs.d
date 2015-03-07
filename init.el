@@ -272,13 +272,15 @@
 (require 'init-my-prog-ruby-on-rails)
 (require 'init-my-prog-nginx)
 
-;;; at the end!!!
 
+;;; at the end!!!
+
 (require 'init-my-startup)
 
 
 ;; Nil initial/scratch buffer
 (setq initial-buffer-choice nil) ; a dirty workaround for which initial buffer open replace one buffer in workgroups.
 (workgroups-mode 1)
+
 
 ;;; init.el ends here
