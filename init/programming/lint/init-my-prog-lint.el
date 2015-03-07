@@ -85,7 +85,7 @@
 ;; - flycheck-fringe-error
 ;; - flycheck-fringe-warning
 (set-face-attribute 'flycheck-info nil
-                    :background nil
+                    :background nil :foreground nil
                     :underline '(:color "forest green" :style wave))
 (set-face-attribute 'flycheck-fringe-info nil
                     :foreground "forest green")
@@ -95,15 +95,15 @@
                     ;; :box '(:color "orange" :line-width -1)
                     )
 (set-face-attribute 'flycheck-fringe-warning nil
-                    :background " " :foreground "orange"
+                    :background nil :foreground "orange"
                     :weight 'normal)
 (set-face-attribute 'flycheck-error nil
-                    :background nil :foreground nil
-                    :underline '(:color "dark red" :style wave)
+                    :background "dark red" :foreground nil
+                    ;; :underline '(:color "dark red" :style wave)
                     ;; :box '(:color "dark red" :line-width -1)
                     )
 (set-face-attribute 'flycheck-fringe-error nil
-                    :background " " :foreground "dark red"
+                    :background nil :foreground "dark red"
                     :weight 'normal)
 
 ;; determine how to highlight errors:
