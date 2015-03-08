@@ -231,8 +231,6 @@
 
 ;; highlight current line
 (global-hl-line-mode 1) ; highlight current line
-;; disable soft wrap lines for windows which has smaller width than 80.
-(global-visual-line-mode -1) ; soft wrap lines at word boundary
 
 (set-face-attribute 'hl-line nil
                     ;; 1
@@ -259,6 +257,12 @@
                       :background (color-darken-name (face-background 'default) 5)))
 
 (add-hook 'global-hl-line-mode-hook 'set-hl-line-color-based-on-theme)
+
+
+
+;; disable soft wrap lines for windows which has smaller width than 80.
+(global-visual-line-mode -1) ; soft wrap lines at word boundary
+
 
 
 ;;; [ point & cursor ]
