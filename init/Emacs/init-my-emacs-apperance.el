@@ -228,10 +228,12 @@
 
 
 ;;; [ current line & column ]
+
 ;; highlight current line
 (global-hl-line-mode 1) ; highlight current line
 ;; disable soft wrap lines for windows which has smaller width than 80.
 (global-visual-line-mode -1) ; soft wrap lines at word boundary
+
 (set-face-attribute 'hl-line nil
                     ;; 1
                     ;; :foreground nil :background nil
@@ -244,7 +246,19 @@
                     ;; :box '(:color "cyan" :line-width 1 :style nil) :underline nil
                     ;; :underline "yellow" :foreground nil :background nil
                     )
+
 (setq hl-line-face 'hl-line)
+
+
+;;; 
+(defun set-hl-line-color-based-on-theme ()
+  "Sets the hl-line face to have no foregorund and a background
+    that is 10% darker than the default face's background."
+  (set-face-attribute 'hl-line nil
+                      :foreground nil
+                      :background (color-darken-name (face-background 'default) 5)))
+
+(add-hook 'global-hl-line-mode-hook 'set-hl-line-color-based-on-theme)
 
 
 ;;; [ point & cursor ]
