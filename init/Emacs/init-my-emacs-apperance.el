@@ -237,26 +237,18 @@
                     ;; :foreground nil :background nil
                     ;; :weight 'bold :foreground " " :background " "
                     ;; 2
-                    :foreground nil :background "#004A5D"
-                    :box '(:color "#005D5E" :line-width -1)
+                    ;; :foreground nil :background "#004A5D"
+                    ;; :box '(:color "#005D5E" :line-width -1)
                     ;; 3
                     ;; :foreground " " :background "#004A5D"
                     ;; :box '(:color "cyan" :line-width 1 :style nil) :underline nil
                     ;; :underline "yellow" :foreground nil :background nil
+                    ;; 4. darker percent 5%
+                    :foreground nil :background (color-darken-name (face-background 'default) 5)
                     )
 
 (setq hl-line-face 'hl-line)
 
-
-;;; 
-(defun set-hl-line-color-based-on-theme ()
-  "Sets the hl-line face to have no foregorund and a background
-    that is 10% darker than the default face's background."
-  (set-face-attribute 'hl-line nil
-                      :foreground nil
-                      :background (color-darken-name (face-background 'default) 5)))
-
-(add-hook 'global-hl-line-mode-hook 'set-hl-line-color-based-on-theme)
 
 
 
