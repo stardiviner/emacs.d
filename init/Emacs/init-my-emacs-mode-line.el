@@ -85,6 +85,14 @@
                              help-echo "Buffer is read-only!!!")
                 (:propertize "] ")
 
+                ;; rvm
+
+                ;; rbenv
+                (:propertize (:eval (concat "(" (rbenv--active-ruby-version) ") "))
+                             face (:foreground "yellow" :family "Comic Sans MS")
+                             help-echo "rbenv active ruby version")
+
+                
                 ;; VCS - Git, SVN, CVS,
 
                 ;; FIXME:
@@ -121,12 +129,6 @@
 
                 ;; TODO: Magit
 
-                ;; rvm
-
-                ;; rbenv
-                (:propertize (:eval (rbenv--modeline-plain))
-                             face (:foreground "red"))
-                
                 ;; the buffer name; the filename as a tool tip
                 ;; mode-line-client
                 ;; mode-line-remote
