@@ -366,31 +366,42 @@
                     )
 ;; search
 (set-face-attribute 'isearch nil
-                    :background "gray"
-                    :foreground "black"
+                    :inherit nil
+                    :inverse-video nil
+                    :background (color-darken-name (face-background 'default) 5)
+                    :foreground "yellow"
+                    :box '(:color "green" :line-width 1)
+                    :slant 'italic
+                    :weight 'normal)
+(set-face-attribute 'isearch-fail nil
+                    :inherit nil
+                    :inverse-video nil
+                    :background (color-darken-name (face-background 'default) 5)
+                    :foreground "dark red"
                     :weight 'bold
-                    :box '(:color "yellow" :line-width 1 :style nil)
-                    )
+                    :slant 'italic)
+;; match
 (set-face-attribute 'lazy-highlight nil
-                    :background "yellow"
-                    :foreground "black"
+                    :inherit nil
+                    :inverse-video nil
+                    :background (color-darken-name (face-background 'default) 5)
+                    :foreground "cyan"
                     :weight 'bold
                     )
 (set-face-attribute 'match nil
-                    :background "yellow"
-                    :foreground "black"
-                    )
-(set-face-attribute 'isearch-fail nil
-                    :background "red"
-                    :foreground "black"
-                    :weight 'bold
+                    :inherit nil
+                    :inverse-video nil
+                    :background (color-darken-name (face-background 'default) 5)
+                    :foreground "yellow"
                     )
 ;; replace
 (set-face-attribute 'query-replace nil
-                    :background "cornsilk"
-                    :foreground "black"
+                    :inherit nil
+                    :inverse-video nil
+                    :background (color-darken-name (face-background 'default) 5)
+                    :foreground "orange"
                     :weight 'bold
-                    :box '(:color "deep pink" :line-width 1 :style nil))
+                    :box '(:color "black" :line-width 1 :style nil))
 
 ;; comment
 ;; family: DejaVu Serif,  Droid Serif, Gabriola, Gentium, GFS Didot, Latin Modern Mono, Segoe Print,
