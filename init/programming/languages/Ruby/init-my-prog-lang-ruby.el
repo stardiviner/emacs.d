@@ -352,7 +352,7 @@
 ;; (setenv "PATH" (concat (getenv "HOME") "/.rbenv/shims:" (getenv "HOME") "/.rbenv/bin:" (getenv "PATH")))
 ;; (setq exec-path (cons (concat (getenv "HOME") "/.rbenv/shims") (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path)))
 
-(global-rbenv-mode)
+(global-rbenv-mode 1)
 
 
 ;;; [ inf-ruby / Inferior Ruby ] -- inf-ruby provides a REPL buffer connected to a Ruby(irb/pry) subprocess.
