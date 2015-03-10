@@ -88,8 +88,8 @@
                 ;; rvm
 
                 ;; rbenv
-                (:propertize (:eval (concat "(" (rbenv--active-ruby-version) ") "))
-                             face (:foreground "yellow" :family "Comic Sans MS")
+                (:propertize (:eval (concat "(Ruby: " (rbenv--active-ruby-version) ") "))
+                             face (:foreground "deep pink" :family "Comic Sans MS")
                              help-echo "rbenv active ruby version")
 
                 
