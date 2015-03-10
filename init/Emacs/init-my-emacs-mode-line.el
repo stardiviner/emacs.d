@@ -85,12 +85,22 @@
                              help-echo "Buffer is read-only!!!")
                 (:propertize "] ")
 
+                (:propertize "("
+                             face (:foreground "turquoise"))
+                (:propertize "Ruby: "
+                             face (:family "Segoe Print"
+                                           :height 80
+                                           :foreground "turquoise"))
                 ;; rvm
 
                 ;; rbenv
-                (:propertize (:eval (concat "(Ruby: " (rbenv--active-ruby-version) ") "))
-                             face (:foreground "deep pink" :family "Comic Sans MS")
+                ;; (:eval (concat "(Ruby: " (rbenv--active-ruby-version) ") "))
+                (:propertize (:eval (rbenv--active-ruby-version))
+                             face (:foreground "cyan" :family "DejaVu Sans Mono")
                              help-echo "rbenv active ruby version")
+
+                (:propertize ")"
+                             face (:foreground "turquoise"))
 
                 
                 ;; VCS - Git, SVN, CVS,
