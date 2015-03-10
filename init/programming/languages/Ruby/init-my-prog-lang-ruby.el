@@ -328,11 +328,15 @@
 ;;; no way to set the Ruby version on a per buffer basis.
 
 ;;; IMPORTANT:: Currently you need to set this variable before you load rbenv.el
-(setq rbenv-installation-dir "/usr/local/rbenv")
+(setq rbenv-installation-dir "~/.rbenv/") ; "/usr/local/rbenv"
 
 (require 'rbenv)
 
 (setq rbenv-show-active-ruby-in-modeline t
+      ;; rbenv-executable "~/.rbenv/bin/rbenv"
+      ;; rbenv-binary-paths '((shims-path . "~/.rbenv/shims")
+      ;;                      (bin-path . "~/.rbenv/bin"))
+      ;; rbenv-ruby-shim "~/.rbenv/shims/ruby"
       rbenv-modeline-function 'rbenv--modeline-plain ; 'rbenv--modeline-with-face
       )
 
