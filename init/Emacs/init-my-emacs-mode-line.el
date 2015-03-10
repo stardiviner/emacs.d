@@ -52,11 +52,9 @@
                 ;; window-number
                 (:propertize (:eval (window-number-string))
                              face (:foreground "red" :weight 'bold
-                                               :box '(:color "green yellow")
+                                               ;; :box '(:color "green yellow")
                                                ))
 
-                (:propertize " ")
-                
                 ;; anzu
                 (:propertize (:eval (anzu--update-mode-line))
                              face (:foreground "cyan" :weight 'bold
@@ -147,7 +145,8 @@
                 (:propertize " ["
                              face (:foreground "cyan"))
                 (:propertize "%b"
-                             face (:foreground "white")
+                             face (:foreground "white"
+                                               :height 72)
                              help-echo (buffer-file-name))
                 (:propertize "]"
                              face (:foreground "cyan"))
@@ -237,7 +236,7 @@
             ;; line and column number, relative position
             ;; mode-line-position
             ;; '%02' to set to 2 chars at least; prevents flicking
-            '(:propertize " (%02l,%02c),%03p "
+            '(:propertize "(%02l,%02c)_%03p"
                           face (:foreground "dark gray")
                           ;; (:eval (if (>= (current-column) 80)
                           ;;            face (:foreground "red" :weight 'bold)))
