@@ -2,7 +2,37 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Linux Configurations (Org)"
+(("JavaScript.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/JavaScript/JavaScript.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("CSS3.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/CSS/CSS3/CSS3.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("CSS.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/CSS/CSS.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("HTML5.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/HTML/HTML5/HTML5.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Clojure.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Clojure/Clojure.org")
+ (front-context-string . "* Intro\n\nClojure")
+ (rear-context-string)
+ (position . 1))
+("HTML.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/HTML/HTML.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Linux Configurations (Org)"
  (filename . "~/Org/Wiki/Computer/Systems/Linux/Configurations/Configurations.org")
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
