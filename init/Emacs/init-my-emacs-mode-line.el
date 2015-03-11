@@ -50,7 +50,7 @@
                 ;;              face (:foreground "green yellow" :slant 'italic :weight 'normal))
                 
                 ;; window-number
-                (:propertize (:eval (window-number-string))
+                (:propertize (:eval (concat "[" (number-to-string (window-number)) "]"))
                              face (:foreground "red" :weight 'bold
                                                ;; :box '(:color "green yellow")
                                                ))
@@ -68,20 +68,20 @@
                 
                 ;; Buffer status
                 ;; insert vs overwrite mode, input-method in a tool-tip ("Ovr", "Ins")
-                (:propertize "[")
+                (:propertize " {")
                 (:propertize (:eval (if overwrite-mode "♜, " ""))
-                             face (:foreground "dark green")
+                             face (:foreground "yellow")
                              help-echo (concat "Buffer is in "
                                                (if overwrite-mode "overwrite" "insert")))
                 ;; was this buffer modified since the last save? ("☡" "Mod")
                 (:propertize (:eval (if (buffer-modified-p) "☡"))
-                             face (:foreground "deep pink")
+                             face (:foreground "white")
                              help-echo "Buffer has been modified")
                 ;; is this buffer read-only? ("RO")
                 (:propertize (:eval (when buffer-read-only ", ⚑"))
                              face (:foreground "red")
                              help-echo "Buffer is read-only!!!")
-                (:propertize "] ")
+                (:propertize "} ")
 
                 (:propertize "("
                              face (:foreground "turquoise"))
@@ -266,7 +266,7 @@
 
             ;; the major mode of the current buffer.
             '(:propertize "%m"
-                          face (:foreground "light green"
+                          face (:foreground "green yellow"
                                             :family "Comic Sans MS" :weight 'bold ; :height 100
                                             )
                           ;; help-echo (minor-mode-alist)
