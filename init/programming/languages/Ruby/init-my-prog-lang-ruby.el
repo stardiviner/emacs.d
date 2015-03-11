@@ -401,9 +401,9 @@
 (autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
 
 (setq inf-ruby-default-implementation "inf-ruby"
-      inf-ruby-implementations '(("inf-ruby" . "irb --inf-ruby-mode --noreadline")
+      inf-ruby-implementations '(("inf-ruby" . "irb --inf-ruby-mode --noreadline -EUTF-8")
                                  ;; ("inf-ruby" . "irb --inf-ruby-mode --prompt inf-ruby")
-                                 ("ruby" . "irb --prompt default -r irb/completion --noreadline")
+                                 ("ruby" . "irb --prompt default --noreadline -r irb/completion -EUTF-8")
                                  ("pry" . "pry")
                                  ("jruby" . "jruby -S irb --prompt default -r irb/completion")
                                  ("rubinius" . "rbx -r irb/completion")
