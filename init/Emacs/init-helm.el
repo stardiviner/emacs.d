@@ -72,9 +72,9 @@
                                   helm-source-buffer-not-found
                                   ;; helm-source-bookmarks
                                   helm-source-pp-bookmarks
-                                  helm-source-my-apps ; my custom source
+                                  ;; helm-source-my-apps ; my custom source
                                   ;; helm-source-my-locations ; my custom source
-                                  helm-source-recentf
+                                  ;; helm-source-recentf
                                   ;; helm-source-filter
                                   ;; helm-source-session
                                   ;; helm-source-projectile-projects
