@@ -137,10 +137,10 @@
 
 ;;; custom indent line char
 ;; 1: use `indent-guide-char'.
-;; │ : |
-(setq indent-guide-char "│")
+;; : | │ ┃ ▍ ┇ ┋ ┊ ┆
+(setq indent-guide-char "┃")
 (set-face-attribute 'indent-guide-face nil
-                    :foreground "cyan"
+                    :foreground "dark red"
                     :stipple nil)
 
 ;; 2: use face-attribute stipple pixmap data.
