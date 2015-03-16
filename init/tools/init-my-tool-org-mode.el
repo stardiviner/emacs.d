@@ -1475,13 +1475,6 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
           (todo "BUG")
           (todo "ISSUE")
           (todo "Features")))
-        ("v" "Version Control System"
-         ((todo "commit")
-          (todo "pull")
-          (todo "pull-request")
-          (todo "push")
-          (todo "fork")
-          (todo "merge")))
         ;; ("i" tags-todo "CATEGORY=\"Task\"")
         ;; ("w" tags-todo "CATEGORY=\"Work\"")
         ))
@@ -1517,9 +1510,6 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
         (sequence "TODO(t@/!)" "Urgent(u!)" "SOMEDAY(s!)" "FAILED(X@/!)" "CANCELLED(C@/!)" "|" "DONE(d@/!)")
         ;; Code
         (sequence "BUG(b!)" "ISSUE(i!)" "ERROR(e!)" "FEATURE(f!)" "|" "DONE(d@/!)")
-        ;; Version Control System: Git
-        (sequence "commit(!)" "pull(!)" "push(!)" "pull-request(!)"
-                  "fork(!)" "merge(!)" "|" "DONE(d@/!)")
         ;; Types
         ;; use (@/!) to record/log info reference source link URL and timestamp.
         (type "Org(o@/!)" "code(c@/!)" "project(p@/!)" "|" "DONE(d@/!)")
@@ -1558,14 +1548,6 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
                :box '(:color "dark red" :line-width 1 :style nil))
               ("FEATURE" :foreground "cyan" :weight bold
                :box '(:color "cyan" :line-width 1 :style nil))
-              ;;; version control
-              ("commit" :foreground "sky blue")
-              ("pull" :foreground "orange")
-              ("push" :foreground "deep pink")
-              ("pull-request" :foreground "lawn green")
-              ("fork" :foreground "dark slate blue")
-              ("merge" :foreground "cornflower blue")
-              ("accept" :foreground "light blue")
               ;;; types
               ("Org" :foreground "cyan" :backgrund "#004A5D" :weight bold
                :box '(:color "cyan" :line-width 1 :style nil))
