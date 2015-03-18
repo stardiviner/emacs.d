@@ -2523,7 +2523,9 @@ This function will promote all items in a subtree."
 (define-key my-org-prefix-map (kbd "a") 'org-agenda)
 ;; [C-u C-c o t] -- prompt for a keyword for todo list.
 (define-key my-org-prefix-map (kbd "t") 'org-todo-list)
-(define-key my-org-prefix-map (kbd "c") 'org-capture)
+(if (featurep 'helm)
+    (define-key my-org-prefix-map (kbd "c") 'helm-org-capture-templates)
+  (define-key my-org-prefix-map (kbd "c") 'org-capture))
 (define-key my-org-prefix-map (kbd "l") 'org-insert-link-global)
 (define-key my-org-prefix-map (kbd "u") 'org-open-at-point-global)
 
