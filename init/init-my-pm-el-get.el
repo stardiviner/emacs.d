@@ -152,6 +152,9 @@
          swiper
          ack-and-a-half ; full-ack
          ag helm-ag
+         ;; (m)occur
+         ;; ioccur joccur occur-x
+         ;; color-moccur moccur-edit
          ;; awk-it
          ;; Org-mode
          org-mode
