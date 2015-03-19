@@ -160,10 +160,9 @@
 (set-face-attribute 'font-lock-function-name-face nil
                     :background (color-darken-name (face-background 'default) 5))
 (set-face-attribute 'font-lock-type-face nil
-                    :box '(:color "black" :line-width 2)
-                    :background (color-lighten-name (face-background 'default) 7)
-                    :foreground "red"
-                    :weight 'bold)
+                    :box '(:color "dark green" :line-width -1)
+                    :background (color-lighten-name (face-background 'default) 5)
+                    :foreground "green")
 
 
 ;;; [ modeline ]
