@@ -393,6 +393,7 @@
          ;; Nginx
          nginx-mode
          ;; Linux
+         systemd-mode
          ;; vimrc-mode
          ;; crontab-mode
          ;; Arch
