@@ -149,6 +149,7 @@
          ;; isearch+
          anzu
          visual-regexp visual-regexp-steroids ace-jump-mode
+         swiper
          ack-and-a-half ; full-ack
          ag helm-ag
          ;; awk-it

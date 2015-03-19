@@ -65,6 +65,14 @@
     (define-key my-regexp-prefix-map (kbd "h") 'helm-regexp))
 
 
+;;; [ Swiper ] -- gives you an overview as you search for a regex.
+
+(if (not (functionp 'swiper))
+    (require 'swiper))
+
+(define-key my-regexp-prefix-map (kbd "s") 'swiper)
+
+
 
 ;;; Making Elisp regex look nicer
 ;;

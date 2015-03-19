@@ -170,6 +170,37 @@
 ;; (setq anzu-deactivate-region nil)
 
 
+;;; [ Swpier ] -- gives you an overview as you search for a regex.
+
+(require 'swiper)
+
+;; 'helm, 'ivy.
+;; FIXME: helm error.
+;; (if (featurep 'helm)
+;;     (setq swiper-completion-method 'helm)
+;;   (setq swiper-completion-method 'ivy)
+;;   )
+
+(eval-after-load 'ivy
+  (setq ivy-height 10)
+  ;; (defcustom ivy-height 10
+  ;;   "Number of lines for the minibuffer window."
+  ;;   :type 'integer)
+
+  (set-face-attribute 'ivy-current-match nil
+                      :foreground nil
+                      :background (color-darken-name (face-background 'default) 5)
+                      )
+  )
+
+
+(define-key my-search-prefix-map (kbd "C-s") 'swiper)
+
+;; if swiper is available, then replace `vr/isearch' with `swiper'.
+(if (functionp 'swiper)
+    (global-set-key (kbd "C-s") 'swiper))
+
+
 ;;; [ Lazy Search ]
 
 ;; (require 'lazy-search)
