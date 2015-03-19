@@ -51,6 +51,8 @@
 ;;     SPC : show table definition
 ;;     q : quit and disconnect
 
+;; install Perl packages:
+;; $ cpan RPC::EPC::Service DBI DBD::SQLite DBD::Pg DBD::mysql
 
 ;; (require 'edbi)
 
