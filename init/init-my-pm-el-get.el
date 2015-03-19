@@ -369,7 +369,7 @@
          ;; SQL
          sqlup-mode
          ;; FIXME: depend on auto-complete.
-         ;; edbi company-edbi
+         edbi company-edbi edbi-sqlite edbi-database-url
          ;; NoSQL
          ;; MongoDB
          ;; inf-mongo

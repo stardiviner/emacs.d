@@ -55,6 +55,35 @@
 ;; (require 'edbi)
 
 
+;;; [ edbi-sqlite ] -- edbi helper application
+
+;;; Usage:
+;;
+;; Run `edbi-sqlite' interactive command. Select appropriate sqlite database
+;; file. Type `RET' and you'll be connected to specified database with edbi
+;; tool.
+
+(require 'edbi-sqlite)
+
+
+;;; [ edbi-database-url ] -- run edbi with database url.
+
+;;; Usage:
+;;
+;; Specify database url with environment variable
+;;
+;;   M-x setenv RET DATABASE_URL RET pgsql://me:secret@localhost:5678/test
+;;
+;; Connect to you database
+;;
+;;   M-x edbi-database-url
+;;
+;; Optionally you can specify database url by marking region or type it
+;; interactively.
+
+(require 'edbi-database-url)
+
+
 ;;; [ company-edbi ]
 
 (add-to-list 'company-backends 'company-edbi)
