@@ -125,6 +125,10 @@
   (define-prefix-command 'my-prog-database-map))
 (global-set-key (kbd "C-c D") 'my-prog-database-map)
 
+(unless (boundp 'my-prog-tools-map)
+  (define-prefix-command 'my-prog-tools-map))
+(global-set-key (kbd "C-c T") 'my-prog-tools-map)
+
 
 
 ;;; Programming Languages

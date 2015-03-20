@@ -138,6 +138,7 @@
         "C-c g"                         ; Git
         "C-c i"                         ; Inferior
         "C-c D"                         ; Database
+        "C-c T"                         ; Programming Tools
         "C-c o"                         ; Org-mode (global)
         "C-x d"                         ; Dictionary
         "C-c ;"                         ; E2WM
