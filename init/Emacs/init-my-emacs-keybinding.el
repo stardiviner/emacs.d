@@ -143,7 +143,7 @@
         "C-c w"                         ; workgroups2
         "C-x x"                         ; perspective
         "C-c @"                         ; hs-minor-mode [Fold] (global)
-        "C-c T"                         ; tools: paste(gist), ... etc.
+        "C-x t"                         ; tools: paste(gist), ... etc.
         "C-x c"                         ; Helm
         "C-x 8"                         ; insert unicode IDE symbols
         ;; "C-c '"                         ; ???

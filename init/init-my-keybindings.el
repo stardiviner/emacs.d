@@ -129,7 +129,7 @@
 
 (unless (boundp 'my-tools-prefix-map)
   (define-prefix-command 'my-tools-prefix-map))
-(global-set-key (kbd "C-c T") 'my-tools-prefix-map)
+(global-set-key (kbd "C-x t") 'my-tools-prefix-map)
 
 (unless (boundp 'my-org-prefix-map)
   (define-prefix-command 'my-org-prefix-map))
