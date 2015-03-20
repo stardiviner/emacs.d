@@ -15,6 +15,7 @@
   (interactive)
   (browse-url "http://127.0.0.1:3000"))
 
+(define-key projectile-rails-command-map (kbd "O") 'rails-open-browser-development)
 
 
 ;;; [ Rhtml (.html.erb, .rhtml) ]
