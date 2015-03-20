@@ -43,6 +43,11 @@
 ;;
 ;; - M-x `edbi:open-db-viewer' opens a dialog for DB connection.
 ;;
+;;     - Data Source : URI string for DBI::connect (Ex. dbi:SQLite:dbname=/path/db.sqlite )
+;;     - User Name, Auth : user name and password for DBI::connect
+;;     - History button : you can choose a data source from your connection history.
+;;     - OK button : connect DB and open the database view
+;;
 ;; Check the key-bind `edbi:dbview-keymap'.
 ;;
 ;;     j,k, n,p : navigation for rows
