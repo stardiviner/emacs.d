@@ -54,7 +54,9 @@
 ;; install Perl packages:
 ;; $ cpan RPC::EPC::Service DBI DBD::SQLite DBD::Pg DBD::mysql
 
-;; (require 'edbi)
+(require 'edbi)
+
+(define-key my-prog-database-map (kbd "d") 'edbi:open-db-viewer)
 
 
 ;;; [ edbi-sqlite ] -- edbi helper application
