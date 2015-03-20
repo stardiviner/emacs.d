@@ -1,4 +1,4 @@
-;;; init-my-emacs-keybindings.el --- init Emacs' key bindings.
+;;; init-my-emacs-keybinding.el --- init Emacs' keybinding.
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -315,11 +315,104 @@
 ;; some amaranth heads and some blue heads (otherwise, it's impossible to exit),
 ;; no reds.
 
+;;; Embedding sexps in Hydra docstrings
+;;
+;; (defhydra hydra-marked-items (dired-mode-map "")
+;;   "
+;; Number of marked items: %(length (dired-get-marked-files))
+;; "
+;;   ("m" dired-mark "mark"))
+;;
+;; (define-key dired-mode-map
+;;   "m" 'hydra-marked-items/dired-mark)
+;;
+;;
+;;; There's no need for a quitting key, it will auto-vanish when you press
+;;; anything other than [m].
+
+;;; Embed variable values into the docstring, among other things.
+;;
+;; (defhydra hydra-buffer-menu (:color pink)
+;;   "
+;;   Mark               Unmark             Actions            Search
+;; -------------------------------------------------------------------------
+;; _m_: mark          _u_: unmark        _x_: execute       _R_: re-isearch
+;; _s_: save          _U_: unmark up     _b_: bury          _I_: isearch
+;; _d_: delete                           _g_: refresh       _O_: multi-occur
+;; _D_: delete up                        _T_: files only: %`Buffer-menu-files-only
+;; _~_: modified
+;; "
+;;   ("m" Buffer-menu-mark nil)
+;;   ("u" Buffer-menu-unmark nil)
+;;   ("U" Buffer-menu-backup-unmark nil)
+;;   ("d" Buffer-menu-delete nil)
+;;   ("D" Buffer-menu-delete-backwards nil)
+;;   ("s" Buffer-menu-save nil)
+;;   ("~" Buffer-menu-not-modified nil)
+;;   ("x" Buffer-menu-execute nil)
+;;   ("b" Buffer-menu-bury nil)
+;;   ("g" revert-buffer nil)
+;;   ("T" Buffer-menu-toggle-files-only nil)
+;;   ("O" Buffer-menu-multi-occur nil :color blue)
+;;   ("I" Buffer-menu-isearch-buffers nil :color blue)
+;;   ("R" Buffer-menu-isearch-buffers-regexp nil :color blue)
+;;   ("c" nil "cancel")
+;;   ("v" Buffer-menu-select "select" :color blue)
+;;   ("o" Buffer-menu-other-window "other-window" :color blue)
+;;   ("q" quit-window "quit" :color blue))
+;;
+;; (define-key Buffer-menu-mode-map "." 'hydra-buffer-menu/body)
+
+
+
 (require 'hydra)
 
-(setq hydra-is-helpful t ; display a hint with possible bindings in the echo area.
-      )
+;; display a hint with possible bindings in the echo area.
+(setq hydra-is-helpful t)
 
+;;; examples
+(require 'hydra-examples)
+
+
+;;; my defined hydras
+
+;; This means that when I press < from the start of the line, a Hydra will be
+;; called instead of inserting <, otherwise < will be inserted.
+
+;; (defhydra hydra-org-template (:color red :hint nil)
+;;   "
+;; _c_enter  _q_uote    _L_aTeX:
+;; _l_atex   _e_xample  _i_ndex:
+;; _a_scii   _v_erse    _I_NCLUDE:
+;; _s_rc     ^ ^        _H_TML:
+;; _h_tml    ^ ^        _A_SCII:
+;; "
+;;   ("s" (hot-expand "<s"))
+;;   ("e" (hot-expand "<e"))
+;;   ("q" (hot-expand "<q"))
+;;   ("v" (hot-expand "<v"))
+;;   ("c" (hot-expand "<c"))
+;;   ("l" (hot-expand "<l"))
+;;   ("h" (hot-expand "<h"))
+;;   ("a" (hot-expand "<a"))
+;;   ("L" (hot-expand "<L"))
+;;   ("i" (hot-expand "<i"))
+;;   ("I" (hot-expand "<I"))
+;;   ("H" (hot-expand "<H"))
+;;   ("A" (hot-expand "<A"))
+;;   ("<" self-insert-command "ins")
+;;   ("o" nil "quit"))
+;;
+;; (defun hot-expand (str)
+;;   "Expand org template."
+;;   (insert str)
+;;   (org-try-structure-completion))
+;;
+;; (define-key org-mode-map "<"
+;;   (lambda () (interactive)
+;;     (if (looking-back "^")
+;;         (hydra-org-template/body)
+;;       (self-insert-command 1))))
 
 
 ;;; [ Buffer-locally overriding minor-mode key bindings in Emacs ]
@@ -372,6 +465,6 @@
 
 
 
-(provide 'init-my-emacs-keybindings)
+(provide 'init-my-emacs-keybinding)
 
-;;; init-my-emacs-keybindings.el ends here
+;;; init-my-emacs-keybinding.el ends here
