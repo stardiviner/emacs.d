@@ -7,17 +7,6 @@
 
 ;;; Code:
 
-;;;_
-;;; Misc Functions
-;;; --------------------------------------
-(defun rails-open-browser-development ()
-  "Browse Rails development url."
-  (interactive)
-  (browse-url "http://127.0.0.1:3000"))
-
-(define-key projectile-rails-command-map (kbd "O") 'rails-open-browser-development)
-
-
 ;;; [ Rhtml (.html.erb, .rhtml) ]
 
 ;;; There are three options for editing .rhtml files in Emacs. They are presented here in order of decreasing functionality.
@@ -68,6 +57,13 @@
 (setq projectile-rails-keymap-prefix (kbd "C-c C-r"))
 
 (add-hook 'projectile-mode-hook 'projectile-rails-on)
+
+(defun rails-open-browser-development ()
+  "Browse Rails development url."
+  (interactive)
+  (browse-url "http://127.0.0.1:3000"))
+
+(define-key projectile-rails-command-map (kbd "O") 'rails-open-browser-development)
 
 
 
