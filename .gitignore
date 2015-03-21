@@ -5,6 +5,7 @@
 # ignored directories
 el-get/
 elpa/
+el-get-user/
 ac-comphist.dat
 auto-save-list/
 *~
@@ -56,3 +57,5 @@ emms/
 /rake.cache
 /.elfeed/
 /ido.last
+/org-clock-save.el
+/.edbi-ds-history
