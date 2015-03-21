@@ -79,7 +79,6 @@
                                   ;; helm-source-recentf
                                   ;; helm-source-filter
                                   ;; helm-source-session
-                                  ;; helm-source-projectile-projects
                                   ;; helm-source-occur
                                   ;; helm-source-grep
                                   ;; helm-source-regexp
@@ -88,6 +87,14 @@
                                   ;; helm-source-tracker-search
                                   ;; helm-source-wikipedia-suggest
                                   ;; helm-source-google-suggest
+                                  ;; projectile
+                                  ;; helm-source-projectile-buffer
+                                  ;; helm-source-projectile-recentf-list
+                                  ;; helm-source-projectile-projects
+                                  ;; TODO: Org-mode
+                                  ;; helm-org-agenda-files-headings
+                                  ;; helm-org-in-buffer-headings
+                                  ;; helm-source-org-headings-for-files
                                   )
       )
 
