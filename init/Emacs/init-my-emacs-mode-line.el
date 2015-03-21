@@ -44,6 +44,10 @@
                 ;;              face (:foreground "#444444" :background "black")
                 ;;              help-echo "九州 ❯ 羽传说 ❯ 向异翅")
 
+                (:propertize " ㊛ "
+                             face (:foreground "pink" :height 120)
+                             help-echo "Female & Lesbian")
+                
                 ;; dynamic update indicators (it is a buffer local - only active in current buffer)
                 ;; but this is global (show on all buffers mode line)
                 ;; (:propertize (:eval (anzu--update-mode-line))
