@@ -20,6 +20,7 @@
 (require 'vc)
 (require 'vc-git)
 
+;; nyan-mode
 ;; Nyan Mode is an analog indicator of your position in the buffer. The Cat
 ;; should go from left to right in your mode-line, as you move your point from
 ;; 0% to 100%.
@@ -98,7 +99,9 @@
                 ;; rbenv
                 ;; (:eval (concat "(Ruby: " (rbenv--active-ruby-version) ") "))
                 (:propertize (:eval (rbenv--active-ruby-version))
-                             face (:foreground "cyan" :family "DejaVu Sans Mono")
+                             face (:foreground "cyan"
+                                               :family "DejaVu Sans Mono"
+                                               :height 70)
                              help-echo "rbenv active ruby version")
 
                 (:propertize ")"
@@ -124,6 +127,7 @@
                 (:propertize (vc-mode vc-mode)
                              face (:foreground "sky blue"
                                                :weight 'bold
+                                               :height 75
                                                :family "Comic Sans MS")
                              help-echo (vc-mode))
 
@@ -150,7 +154,7 @@
                              face (:foreground "cyan"))
                 (:propertize "%b"
                              face (:foreground "white"
-                                               :height 72)
+                                               :height 75)
                              help-echo (buffer-file-name))
                 (:propertize "]"
                              face (:foreground "cyan"))
@@ -241,7 +245,7 @@
             ;; mode-line-position
             ;; '%02' to set to 2 chars at least; prevents flicking
             '(:propertize "(%02l,%02c)_%03p"
-                          face (:foreground "dark gray")
+                          face (:foreground "dark gray" :height 80)
                           ;; (:eval (if (>= (current-column) 80)
                           ;;            face (:foreground "red" :weight 'bold)))
                           )
@@ -256,14 +260,14 @@
             ;; workgroups2
             '(:propertize (:eval ; `wg-mode-line-display-on'
                            (wg-mode-line-string))
-                          face (:foreground "yellow"))
+                          face (:foreground "yellow" :height 75))
             '(:propertize " § "
                           face (:foreground "red"))
             '(:propertize "P:"
                           face (:foreground "dim gray"))
             ;; projectile
             '(:propertize projectile-mode-line
-                          face (:foreground "cyan"))
+                          face (:foreground "cyan" :height 75))
             
             '(:propertize "] "
                           face (:foreground "red" :weight 'bold))
@@ -271,7 +275,7 @@
             ;; the major mode of the current buffer.
             '(:propertize "%m"
                           face (:foreground "green yellow"
-                                            :family "Comic Sans MS" :weight 'bold ; :height 100
+                                            :family "Comic Sans MS" :weight 'bold :height 80
                                             )
                           ;; help-echo (minor-mode-alist)
                           )
