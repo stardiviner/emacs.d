@@ -180,17 +180,18 @@
 (define-key helm-grep-mode-map (kbd "p")  'helm-grep-mode-jump-other-window-backward)
 
 ;;; `customize-group helm' & `custom-apropos-faces helm'
-(set-face-attribute 'helm-match nil
-                    ;; 1. dim already matched, leave eye on the un-matched strings.
-                    :foreground "dim gray" :background (color-darken-name (face-background 'default) 10)
-                    ;; 2. highlight/underline already matched
-                    ;; :foreground "white"
-                    ;; :underline t
-                    ;; :weight 'normal
-                    )
+
 ;;; FIXME: remove this temp fix of using `after-init-hook'.
 (add-hook 'after-init-hook
           (lambda ()
+            (set-face-attribute 'helm-match nil
+                                ;; 1. dim already matched, leave eye on the un-matched strings.
+                                :foreground "dim gray" :background (color-darken-name (face-background 'default) 5)
+                                ;; 2. highlight/underline already matched
+                                ;; :foreground "white"
+                                ;; :underline t
+                                ;; :weight 'normal
+                                )
             (set-face-attribute 'helm-selection nil
                                 ;; 1. different font
                                 ;; :family "Comic Sans MS" :weight 'normal :height 1.0 :slant 'italic
@@ -231,8 +232,9 @@
                     :foreground "cyan")
 (set-face-attribute 'helm-visible-mark nil
                     :foreground "black" :background "green yellow")
-(set-face-attribute 'helm-lisp-completion-info nil
-                    :foreground "cyan")
+;; FIXME:
+;; (set-face-attribute 'helm-lisp-completion-info nil
+;;                     :foreground "cyan")
 
 (helm-autoresize-mode t)
 
