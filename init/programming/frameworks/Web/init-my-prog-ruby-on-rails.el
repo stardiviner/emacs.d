@@ -48,6 +48,7 @@
 ;; - <prefix> -> [C-c p C-r] + [key] (default: [C-c r])
 ;; - [M-x projectile-rails-on] -- depend on whether is a Rails project root.
 ;; - [M-x projectile-rails-mode]
+;; - [TAB] support for projectile-rails-generate.
 
 (require 'projectile-rails)
 
