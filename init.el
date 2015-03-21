@@ -172,7 +172,7 @@
 (require 'init-my-emacs-file)
 (require 'init-my-emacs-tramp)
 (require 'init-my-emacs-image)
-(require 'init-my-emacs-doc-view)
+(require 'init-my-emacs-pdf)
 (require 'init-my-emacs-dired)
 (require 'init-my-emacs-modes)
 (require 'init-my-emacs-abbrev)
