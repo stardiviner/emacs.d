@@ -145,6 +145,10 @@
          ;; dired
          ;; direx
          ;; dired-k ; stripe-buffer
+         ;; Image
+         ;; image+ image-dired+
+         ;; PDF
+         pdf-tools
          ;; search
          ;; isearch+
          anzu
