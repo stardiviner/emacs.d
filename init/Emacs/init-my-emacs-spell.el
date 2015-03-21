@@ -18,6 +18,15 @@
       ispell-silently-savep t ; save silently. stop confirm when saving personal dictionary.
       )
 
+;; On OS X/Darwin, make sure we add the path to the homebrew installs
+;; brew install hunspell
+(when (string-equal system-type "darwin")
+  (setq exec-path (append exec-path '("/usr/local/bin"))))
+
+(when (executable-find "hunspell")
+  (setq-default ispell-program-name "hunspell")
+  (setq ispell-really-hunspell t))
+
 ;;; [M-x ispell-complete-word]
 ;; (setq ispell-alternate-dictionary "/usr/share/dict/words")
 
