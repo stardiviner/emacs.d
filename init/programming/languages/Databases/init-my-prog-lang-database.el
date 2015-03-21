@@ -57,7 +57,7 @@
 ;;     q : quit and disconnect
 
 ;; install Perl packages:
-;; $ cpan RPC::EPC::Service DBI DBD::SQLite DBD::Pg DBD::mysql
+;; $ [cpanp -i / cpan] RPC::EPC::Service DBI DBD::SQLite DBD::Pg DBD::mysql
 
 (require 'edbi)
 
