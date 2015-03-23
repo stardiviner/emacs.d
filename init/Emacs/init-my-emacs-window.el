@@ -286,6 +286,9 @@
 ;; M-! shell command output
 (push '("*Shell Command Output*" :position bottom :height 15) popwin:special-display-config)
 
+;;; Info
+(push '(apropos-mode :position bottom :height 15) popwin:special-display-config)
+
 ;;; Org-mode
 ;; FIXME: this does not work.
 ;; (push '("*Org todo" :position bottom) popwin:special-display-config)
