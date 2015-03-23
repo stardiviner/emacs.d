@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("JavaScript.org"
+(("Websites (Org>Softwares)"
+ (filename . "~/Org/Wiki/Computer/Softwares/Softwares.org")
+ (front-context-string . "* Websites\n\n** S")
+ (rear-context-string . " Linux & OS X.\n\n")
+ (position . 84345))
+("JavaScript.org"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/JavaScript/JavaScript.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
