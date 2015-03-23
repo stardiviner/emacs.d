@@ -182,16 +182,17 @@
 ;;   )
 
 (eval-after-load 'ivy
-  (setq ivy-height 10)
-  ;; (defcustom ivy-height 10
-  ;;   "Number of lines for the minibuffer window."
-  ;;   :type 'integer)
+  (lambda ()
+    (setq ivy-height 10)
+    ;; (defcustom ivy-height 10
+    ;;   "Number of lines for the minibuffer window."
+    ;;   :type 'integer)
 
-  (set-face-attribute 'ivy-current-match nil
-                      :foreground nil
-                      :background (color-darken-name (face-background 'default) 5)
-                      )
-  )
+    (set-face-attribute 'ivy-current-match nil
+                        :foreground nil
+                        :background (color-darken-name (face-background 'default) 5)
+                        )
+    ))
 
 
 (define-key my-search-prefix-map (kbd "C-s") 'swiper)
