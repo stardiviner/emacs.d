@@ -208,8 +208,8 @@
          indent-guide
          aggressive-indent-mode
          ;; auto-indent-mode clean-aindent
-         ;; complete
-         ;; emacs-ycmd
+         ;; completion & comprehension
+         emacs-ycmd
          ;; lint
          flycheck
          ;; flycheck-tip
