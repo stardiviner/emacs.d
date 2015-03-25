@@ -243,7 +243,7 @@
                     ;; :box '(:color "cyan" :line-width 1 :style nil) :underline nil
                     ;; :underline "yellow" :foreground nil :background nil
                     ;; 4. darker percent 5%
-                    :foreground nil :background (color-darken-name (face-background 'default) 5)
+                    :foreground nil :background (color-darken-name (face-background 'default) 3)
                     )
 
 (setq hl-line-face 'hl-line)
