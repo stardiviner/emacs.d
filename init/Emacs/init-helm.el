@@ -206,10 +206,9 @@
                                 ;; 4. darker background percent 5%
                                 :inherit nil
                                 :inverse-video nil
+                                :foreground nil
                                 :background (color-darken-name (face-background 'default) 5)
-                                :foreground "cyan"
                                 :underline '(:color "dark red")
-                                :weight 'bold
                                 )))
 
 (set-face-attribute 'helm-header nil
