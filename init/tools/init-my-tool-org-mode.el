@@ -2326,7 +2326,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;;   :actions -ding, -notify, -window, -notify/window, -message, -email,
 
 (org-notify-add 'default
-                '(:time "1h" :period "2h" :duration 80
+                '(:time "1h" :period "2h" :duration 30
                         :actions (-notify/window -ding))
                 ;; '(:time "1h" :period "50m" :duration 100
                 ;;         :actions (-notify/window -ding))
