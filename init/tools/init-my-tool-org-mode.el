@@ -135,8 +135,8 @@
 
 ;; Date: Saturday   27 July 2013
 (set-face-attribute 'org-date nil
-                    :foreground "gray" :background "#333333"
-                    :box '(:color "black" :line-width 2 :style nil)
+                    :foreground "gray" :background (color-darken-name (face-background 'default) 5)
+                    :box '(:color "black" :line-width 1 :style nil)
                     :underline nil)
 (set-face-attribute 'org-agenda-date nil
                     :foreground "white" :background "#004A5D"
@@ -183,10 +183,15 @@
                     :background "black")
 ;; Priority
 (set-face-attribute 'org-priority nil
-                    :foreground "black" :background "green yellow"
-                    :weight 'bold
-                    :box '(:color "black" :line-width 1 :style nil)
-                    )
+                    :foreground "black"
+                    :background "white"
+                    :box '(:color "black" :line-width -1))
+;; (setq org-priority-faces '(:foreground "cyan"
+;;                                        :background nil
+;;                                        :box t
+;;                                        :inverse-video nil
+;;                                        :inherit nil))
+
 ;; time grid: 18:00 ...... ----------------
 (set-face-attribute 'org-time-grid nil
                     :foreground "cyan")
@@ -377,7 +382,7 @@ to insert <kbd>..</kbd> (HTML) org =[..]= (Org-mode)."
 (set-face-attribute 'org-level-1 nil
                     :family "DejaVu Sans Mono"
                     :height 1.2 :weight 'bold
-                    :foreground "#FF3870" :background "#222222"
+                    :foreground "#FF3870" :background (color-darken-name (face-background 'default) 4)
                     ;; :box '(:color "black" :line-width 1 :style nil)
                     :overline t
                     )
@@ -418,34 +423,38 @@ to insert <kbd>..</kbd> (HTML) org =[..]= (Org-mode)."
                     :underline nil :weight 'normal :slant 'normal
                     :box '(:color "dark green" :line-width 2)
                     :height 80)
+;; meta lines
+(set-face-attribute 'org-meta-line nil
+                    :foreground "dark gray"
+                    :background (color-darken-name (face-background 'default) 5)
+                    )
 ;;; checkbox faces
+;; - [ ], - [X]
 (set-face-attribute 'org-checkbox nil
                     :bold 'normal
-                    :box '(:line-width 1 :color "dim gray" :style nil)
-                    :foreground "gray"
+                    :box '(:line-width 1 :color "black" :style nil)
+                    :foreground "dark gray"
                     :background nil)
 ;; * headline [7%] -> checkbox statistics face.
 (set-face-attribute 'org-checkbox-statistics-todo nil
-                    ;; :height 0.9
-                    :box '(:color "cyan" :line-width 1)
-                    :background "#002B36" :foreground "green yellow"
-                    :weight 'bold
+                    :box '(:color "black" :line-width -1)
+                    :foreground "green yellow"
+                    :background (color-darken-name (face-background 'default) 5)
                     )
 (set-face-attribute 'org-checkbox-statistics-done nil
-                    :background "#222222" :foreground "black"
-                    :box '(:color "cyan" :line-width 1)
+                    :background "#444444" :foreground "black"
+                    :box '(:color "black" :line-width -1)
                     :strike-through t)
 ;;; list definition terms
-;; (set-face-attribute 'org-list-dt nil
-;;                     :foreground "green yellow")
-;;; priority faces
-(setq org-priority-faces '(:foreground "cyan" :background nil
-                                       :bold 'normal
-                                       :box t))
+(set-face-attribute 'org-list-dt nil
+                    :foreground "green yellow")
 ;;; link face
 (set-face-attribute 'org-link nil
                     :foreground "cyan"
-                    :underline "dark cyan")
+                    :background (color-darken-name (face-background 'default) 5)
+                    :underline "dark cyan"
+                    ;; :box '(:color "black")
+                    )
 ;; <<target link>>
 (set-face-attribute 'org-target nil
                     :foreground "orange" :background "black"
@@ -465,6 +474,11 @@ to insert <kbd>..</kbd> (HTML) org =[..]= (Org-mode)."
                     :foreground "cyan"
                     :inherit nil)
 
+;; special keywords
+(set-face-attribute 'org-special-keyword nil
+                    :foreground "dark orange"
+                    :background (color-darken-name (face-background 'default) 5)
+                    )
 
 ;;;_* pretty entities
 
@@ -1533,54 +1547,62 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
         ))
 (setq org-todo-keyword-faces
       (quote (;;; todos
-              ("TODO" :foreground "white" :weight bold)
+              ("TODO" :foreground "orange" :weight bold
+               :box '(:color "black" :line-width -1))
               ("Urgent" :foreground "red" :background "black"
-               :weight bold :overline "red"
-               ;; :box '(:color "red" :line-width 2 :style nil)
+               :weight bold
+               ;; :overline "red"
+               :box '(:color "black" :line-width -1 :style nil)
                )
-              ("STARTED" :foreground "green" :weight bold :overline "yellow")
+              ("STARTED" :foreground "green" :weight bold
+               :box '(:color "red" :line-width -1))
               ("HABIT" :foreground "cyan" :background "black" :weight bold
-               :box '(:color "cyan" :line-width 1 :style nil))
-              ("SOMEDAY" :foreground "dim gray" :weight bold)
-              ("Doing" :foreground "cyan" :weight bold)
-              ("DONE" :foreground "black" :background " " :weight bold :strike-through t)
-              ("FAILED" :foreground "#444444" :background "orange" :weight bold :underline "dark red")
-              ("CANCELLED" :foreground "#444444" :background "orange" :weight bold :strike-through t)
+               :box '(:color "green" :line-width -1))
+              ("SOMEDAY" :foreground "dim gray" :weight bold
+               :box '(:color "black" :line-width -1))
+              ("Doing" :foreground "cyan" :weight bold
+               :box '(:color "black" :line-width -1))
+              ("DONE" :foreground "black" :background nil :weight bold :strike-through t
+               :box '(:color "black" :line-width -1))
+              ("FAILED" :foreground "#444444" :background "orange" :weight bold :underline "dark red"
+               :box '(:color "black" :line-width -1))
+              ("CANCELLED" :foreground "#444444" :background "orange" :weight bold :strike-through t
+               :box '(:color "black" :line-width -1))
               ;;; fixme
-              ("BUG" :foreground "red" :background " " :weight bold
-               :box '(:color "red" :line-width 1 :style nil))
-              ("ISSUE" :foreground "red" :background " " :weight bold
-               :box '(:color "dark red" :line-width 1 :style nil))
+              ("BUG" :foreground "red" :background nil :weight bold
+               :box '(:color "red" :line-width -1 :style nil))
+              ("ISSUE" :foreground "red" :background nil :weight bold
+               :box '(:color "dark red" :line-width -1 :style nil))
               ("ERROR" :foreground "red" :weight bold
-               :box '(:color "red" :line-width 1 :style nil))
+               :box '(:color "red" :line-width -1 :style nil))
               ("FIXME" :foreground "black" :background "red" :weight bold
-               :box '(:color "dark red" :line-width 1 :style nil))
+               :box '(:color "dark red" :line-width -1 :style nil))
               ("FEATURE" :foreground "cyan" :weight bold
-               :box '(:color "cyan" :line-width 1 :style nil))
+               :box '(:color "cyan" :line-width -1 :style nil))
               ;;; types
               ("Org" :foreground "cyan" :backgrund "#004A5D" :weight bold
-               :box '(:color "cyan" :line-width 1 :style nil))
+               :box '(:color "cyan" :line-width -1 :style nil))
               ("code" :foreground "white" :background "#004A5D"
-               :box '(:color "cyan" :line-width 1 :style nil))
+               :box '(:color "cyan" :line-width -1 :style nil))
               ("project" :foreground "white" :background "#004A5D"
-               :box '(:color "cyan" :line-width 1 :style nil))
+               :box '(:color "cyan" :line-width -1 :style nil))
               ;; life
               ("SEX" :foreground "deep pink" :weight bold
-               :box '(:color "deep pink" :line-width  1 :style nil))
+               :box '(:color "deep pink" :line-width -1 :style nil))
               ("Outside" :foreground "yellow"
-               :box '(:color "yellow" :line-width 1 :style nil))
+               :box '(:color "yellow" :line-width -1 :style nil))
               ;; work
               ("Work" :foreground "orange"
-               :box '(:color "black" :line-width 1 :style nil))
+               :box '(:color "black" :line-width -1 :style nil))
               ("Meeting" :foreground "cornflower blue"
-               :box '(:color "cyan" :line-width 1 :style nil))
+               :box '(:color "cyan" :line-width -1 :style nil))
               ;; learn
-              ("Learn" :foreground "dark orange" :background " "
-               :overline "orange")
-              ("Learning" :foreground "green yellow" :background " "
-               :overline "lawn green")
-              ("Review" :foreground "yellow" :background " "
-               :underline "green yellow")
+              ("Learn" :foreground "dark orange" :background nil
+               :box '(:color "black" :line-width -1))
+              ("Learning" :foreground "green yellow" :background nil
+               :box '(:color "black" :line-width -1))
+              ("Review" :foreground "yellow" :background nil
+               :box '(:color "black" :line-width -1))
               )))
 
 ;;;_*, custom functions

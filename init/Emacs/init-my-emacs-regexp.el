@@ -47,6 +47,9 @@
 ;; 'emacs engine is the native built-in Emacs engine. it is case-sensitive.
 (setq vr/engine 'emacs) ; 'python, 'emacs, 'custom, 'vr/command-python, 'vr/command-custom,
 
+(setq vr/match-separator-use-custom-face t
+      vr/match-separator-string " ⇨ ")
+
 (unless (boundp 'visual-regexp-map)
   (define-prefix-command 'visual-regexp-map))
 (define-key my-regexp-prefix-map (kbd "v") 'visual-regexp-map)
@@ -63,6 +66,41 @@
 ;;; integrate with Helm version regexp
 (if (featurep 'helm)
     (define-key my-regexp-prefix-map (kbd "h") 'helm-regexp))
+
+;; TODO:
+;; (set-face-attribute 'vr/match-separator-face nil
+;;                     :foreground "red"
+;;                     :background nil
+;;                     :inverse-video nil
+;;                     :weight 'bold)
+;; (set-face-attribute 'vr/match-0 nil
+;;                     :foreground nil
+;;                     :background (color-darken-name (face-background 'default) 3)
+;;                     :box '(:color "red" :line-width -1)
+;;                     :inverse-video nil :weight 'normal
+;;                     )
+;; (set-face-attribute 'vr/match-1 nil
+;;                     :foreground nil
+;;                     :background (color-darken-name (face-background 'default) 3)
+;;                     :box '(:color "dark red" :line-width -1)
+;;                     :inverse-video nil :weight 'normal
+;;                     )
+;; (set-face-attribute 'vr/group-0 nil
+;;                     :foreground nil
+;;                     :background (color-darken-name (face-background 'default) 3)
+;;                     :inverse-video nil :weight 'normal
+;;                     )
+;; (set-face-attribute 'vr/group-1 nil
+;;                     :foreground nil
+;;                     :background (color-darken-name (face-background 'default) 3)
+;;                     :inverse-video nil :weight 'normal
+;;                     )
+;; (set-face-attribute 'vr/group-2 nil
+;;                     :foreground nil
+;;                     :background (color-darken-name (face-background 'default) 3)
+;;                     :inverse-video nil :weight 'normal
+;;                     )
+
 
 
 ;;; [ Swiper ] -- gives you an overview as you search for a regex.
