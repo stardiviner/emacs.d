@@ -240,11 +240,15 @@
 
             ;; nyan-mode
             '(:eval (list (nyan-create)))
+            ;; flycheck
+            '(:propertize (:eval (flycheck-mode-line-status-text))
+                          face (:foreground "orange" :background nil
+                                            :height 80))
             
             ;; line and column number, relative position
             ;; mode-line-position
             ;; '%02' to set to 2 chars at least; prevents flicking
-            '(:propertize "(%02l,%02c)_%03p"
+            '(:propertize " (%02l,%02c)_%03p"
                           face (:foreground "dark gray" :height 80)
                           ;; (:eval (if (>= (current-column) 80)
                           ;;            face (:foreground "red" :weight 'bold)))
