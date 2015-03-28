@@ -49,6 +49,16 @@
 ;;
 ;; On the first run, irony-mode will ask you to build and install
 ;; irony-server. To do so, type M-x `irony-install-server' RET.
+;;
+;;
+;;; Compilation Database
+;;
+;; In order to work correctly, irony-mode needs to know the compile
+;; flags. irony-cdb aims to provide as automatic as possible compile flags
+;; discovery, with minimal user input.
+;;
+;; Please refer to `irony-cdb-autosetup-compile-options' and
+;; `irony-cdb-compilation-databases'.
 
 (add-hook 'c++-mode-hook 'irony-mode)
 (add-hook 'c-mode-hook 'irony-mode)

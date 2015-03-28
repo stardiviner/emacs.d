@@ -228,7 +228,7 @@
 (display-time-mode t)
 (setq global-mode-string (remove 'display-time-string global-mode-string))
 (setq mode-line-end-spaces
-      (list (propertize " " 'display '(space :align-to (- right 65)))
+      (list (propertize " " 'display '(space :align-to (- right 55)))
             ;;; you can custom here (add right aligned things here)
 
             ;; TODO: mu4e maildir
