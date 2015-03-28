@@ -300,6 +300,7 @@
          ;; c-eldoc eassist
          irony-mode
          company-irony ; ac-irony
+         irony-eldoc flycheck-irony
          ;; company-c-headers
          ;; auto-complete-clang auto-complete-c-headers
          ;; auto-complete-clang-objc

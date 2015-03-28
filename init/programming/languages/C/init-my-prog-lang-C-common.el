@@ -101,7 +101,17 @@
 ;;
 ;; (add-hook 'irony-mode-hook 'my-ac-irony-setup)
 
+
+;;; [ irony-eldoc ]
 
+(eval-after-load 'irony
+  '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+
+
+;;; [ flycheck-irony ]
+
+(eval-after-load 'irony
+  '(add-hook 'irony-mode-hook #'irony-eldoc))
 
 
 (provide 'init-my-prog-lang-C-common)
