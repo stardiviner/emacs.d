@@ -68,7 +68,8 @@
 
 ;;; [ gocode ]
 
-
+;; (setenv "GOPATH" "/home/stardiviner/compile/Go")
+;; (setenv "PATH" (concat (getenv "PATH") ":" (getenv "GOPATH") "/bin"))
 
 
 ;;; [ go-autocomplete ]
