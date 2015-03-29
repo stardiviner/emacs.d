@@ -74,7 +74,23 @@
 ;;; [ go-autocomplete ]
 
 
-;;; [ go-company ]
+;;; [ company-go ]
+
+(load (concat (getenv "GOPATH") "/src/github.com/nsf/gocode/emacs-company/company-go.el"))
+
+(require 'company-go)
+
+(add-hook 'go-mode-hook
+          (lambda ()
+            (set (make-local-variable 'company-backends) (add-to-list 'company-backends 'company-go))
+            (company-mode t)))
+
+(eval-after-load 'company-go
+  '(setq company-go-show-annotation t
+         company-go-begin-after-member-access t
+         company-go-insert-arguments t
+         ;; company-go-gocode-command "gocode"
+         ))
 
 
 ;;; [ go-play ]
