@@ -88,7 +88,8 @@
 ;;; [ company-irony ]
 
 (eval-after-load 'company
-  '(add-to-list 'company-backends 'company-irony))
+  '(progn
+     (add-to-list 'company-backends 'company-irony)))
 
 ;;; (optional) adds CC special commands to `company-begin-commands' in order to
 ;;; trigger completion at interesting places, such as after scope operator
@@ -115,13 +116,15 @@
 ;;; [ irony-eldoc ]
 
 (eval-after-load 'irony
-  '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+  '(progn
+     (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
 
 
 ;;; [ flycheck-irony ]
 
 (eval-after-load 'irony
-  '(add-hook 'irony-mode-hook #'irony-eldoc))
+  '(progn
+     (add-hook 'irony-mode-hook #'irony-eldoc)))
 
 
 
@@ -135,7 +138,7 @@
 ;;                 ))
 ;;   (add-hook hook (lambda ()
 ;;                    (eval-after-load 'auto-complete
-;;                      (lambda ()
+;;                      '(lambda ()
 ;;                        (add-to-list 'ac-sources 'ac-source-clang)
 ;;                        (add-to-list 'ac-sources 'ac-source-c-headers))))))
 
