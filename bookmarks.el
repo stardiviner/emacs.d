@@ -2,7 +2,17 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Websites (Org>Softwares)"
+(("Crack.org"
+ (filename . "~/Org/Wiki/Computer/Hack/Crack/Crack.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Go Programming Language"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Go/Go.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Websites (Org>Softwares)"
  (filename . "~/Org/Wiki/Computer/Softwares/Softwares.org")
  (front-context-string . "* Websites\n\n** S")
  (rear-context-string . " Linux & OS X.\n\n")
