@@ -35,6 +35,9 @@
               ;; company-async-timeout 2
               )
 
+;; (setq company-begin-commands '(self-insert-command
+;;                                org-self-insert-command orgtbl-self-insert-command
+;;                                c-scope-operator c-electric-colon c-electric-lt-gt c-electric-slash))
 
 ;;; help document preview & popup
 ;; (require 'company-quickhelp)
