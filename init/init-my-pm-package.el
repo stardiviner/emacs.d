@@ -20,7 +20,7 @@
       '(("marmalade" . "http://marmalade-repo.org/packages/")
         ("org"       . "http://orgmode.org/elpa/")
         ("melpa" . "http://melpa.org/packages/")
-        ("gnu" . "http://elpa.gnu.org/packages/")
+        ;; ("gnu" . "http://elpa.gnu.org/packages/")
         ))
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t) ; t: higher priority source.
