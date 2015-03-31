@@ -282,6 +282,14 @@
 
 ;; (setq company-dabbrev-downcase 'case-replace) ; disable the down-case feature of the dabbrev back-end?
 
+(setq company-tooltip-align-annotations t
+      company-tooltip-flip-when-above t
+      company-tooltip-limit 10
+      company-tooltip-margin 2
+      company-tooltip-minimum 6
+      company-tooltip-minimum-width 0
+      company-tooltip-offset-display 'scrollbar)
+
 
 (provide 'init-company-mode)
 
