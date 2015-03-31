@@ -22,6 +22,7 @@
 
 (setq-default company-minimum-prefix-length 3   ; minimum prefix character number for auto complete.
               company-idle-delay 0.5
+              company-echo-delay 0      ; avoid annoying blinking
               company-tooltip-align-annotations t ; align annotations to the right tooltip border.
               company-tooltip-limit 10          ; tooltip candidates max limit.
               company-tooltip-minimum 6         ; minimum candidates limit.
