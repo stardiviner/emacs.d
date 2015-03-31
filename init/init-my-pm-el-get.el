@@ -287,6 +287,7 @@
          profile-lisp
          slime-company ; ac-slime
          geiser ; ac-geiser
+         sly sly-company ; ac-sly
          ;; Scheme
          ;; Clojure
          clojure-mode cider

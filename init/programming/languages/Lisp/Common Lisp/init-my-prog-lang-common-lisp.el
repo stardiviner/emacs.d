@@ -31,8 +31,25 @@
         ;; library categories
         "cl-lookup-ppcre"          ; e.g. cl-ppcre:parse-tree-synonym
         ))
-      
 
+
+;;; [ sly ] --- Common Lisp IDE
+
+;;; Usage:
+;;
+;; - `sly-connect' ::
+
+(require 'sly-autoloads)
+
+;; (setq inferior-lisp-program "/usr/bin/sbcl")
+
+
+;;; [ sly-company ]
+
+
+
+
+;;; [ ac-sly ]
 
 
 (provide 'init-my-prog-lang-common-lisp)
