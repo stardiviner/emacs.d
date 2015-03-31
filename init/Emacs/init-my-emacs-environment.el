@@ -40,8 +40,8 @@
 
 (setq url-proxy-services
       '(("no_proxy" . "127.0.0.1") ; don't use `localhost', avoid robe server (For Ruby) can't response.
-        ("http" . "112.124.9.128:44433")
-        ;; ("https" . "")
+        ;; ("http" . "112.124.9.128:44433")
+        ;; ("https" . "112.124.9.128:44433")
         ))
 
 ;;; AUTHORITY

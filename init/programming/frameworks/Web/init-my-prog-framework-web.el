@@ -320,9 +320,14 @@
 
 ;;;_* disable "<" pair from smartparens.
 (sp-local-pair '(web-mode)
-                    "<" nil
-                    :actions '(:rem insert))
+               "<" nil
+               :actions '(:rem insert))
 
+;;;_* comment
+
+;; (("java" . "/*") ("javascript" . "/*") ("php" . "/*"))
+;; TODO: for js lines region un-comment.
+;; (add-to-list 'web-mode-comment-formats '("javascript" . "//"))
 
 
 ;;;_ multi-web-mode

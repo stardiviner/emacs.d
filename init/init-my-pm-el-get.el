@@ -142,13 +142,13 @@
          bind-key
          guide-key ; guide-key-tip
          hydra
-         ;; dired
+         ;; Dired
          ;; direx
          ;; dired-k ; stripe-buffer
          ;; Image
          ;; image+ image-dired+
          ;; PDF
-         pdf-tools
+                                        ; pdf-tools
          ;; search
          ;; isearch+
          anzu
@@ -307,7 +307,7 @@
          ;; auto-complete-clang-objc
          ;; bison-mode
          ;; Go
-         ;; go-mode go-eldoc
+         go-mode ; go-eldoc
          ;; go-company
          ;; go-autocomplete ; gocode
          ;; D

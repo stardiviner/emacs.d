@@ -646,9 +646,10 @@ It can contain any number of symbols, which will be repeated."
 (setq org-image-actual-width 350)       ; inline image scale width
 
 
-;; iimage-minor-mode.
+;; TODO: iimage-mode.
 ;; -----------------------------------------------------------------------------
-;; (require 'iimage)
+;; (if (not (featurep 'iimage))
+;;     (require 'iimage))
 ;;
 ;; (add-to-list 'iimage-mode-image-regex-alist
 ;;              (cons (concat "\\[\\[file:\\(~?" iimage-mode-image-filename-regex
@@ -961,6 +962,7 @@ This is especially for create Org files."
 
 (require 'org-clock)
 
+;; (org-clock-persistence-insinuate)
 ;; to save the clock history across Emacs sessions.
 (setq org-clock-persist t
       org-clock-persistence-insinuate t

@@ -102,7 +102,7 @@
       ;; helm-dash-completing-read-func 'completing-read ; 'completing-read, 'ido-completing-read
       helm-dash-browser-func 'browse-url ; 'browse-url, 'eww, 'helm-browse-url
       ;; helm-dash-connections
-      helm-dash-common-docsets '("Ruby" "Ruby on Rails"
+      helm-dash-common-docsets '("Ruby" "Ruby on Rails" "ror"
                                  "Python 3"
                                  "HTML" "CSS" "JavaScript" "CoffeeScript"
                                  "Common_Lisp" "Clojure"
@@ -113,7 +113,6 @@
                                  "Android"
                                  "RubyMotion" "AngularJS"
                                  )
-      ;; helm-dash-docsets
       )
 
 ;;; buffer local docsets

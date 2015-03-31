@@ -17,6 +17,11 @@
 ;;   - [C-u M-x [un]comment-region] -- uncomments the region, no matter how many `;` have.
 ;; - bind [C-x C-;] to `comment-region` is very handy.
 
+;; TODO: http://endlessparentheses.com/new-in-emacs-25-1-comment-line.html
+;; Emacs 25.1
+;; (global-set-key (kbd "M-;") #'comment-line)
+;; (global-set-key (kbd "C-;") #'comment-line)
+
 ;;; comment annotations keywords list.
 
 (setq comment-annotation-keyword-list

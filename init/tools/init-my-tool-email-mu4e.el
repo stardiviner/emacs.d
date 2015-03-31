@@ -188,6 +188,8 @@
 
 ;;; URL
 ;; - g -- go to URL, you also can specify a range of URL like: 1 3-6 8, and "a" is a shortcut for all.
+;; - k -- save the numbered URL into the kill-ring.
+;; - [C-u k] -- save all URLs into the kill-ring.
 
 ;;; Marking messages
 ;; - x -- mu4e-mark-execute-all
@@ -268,6 +270,9 @@
 ;; mime:image/*
 ;; # note: the '*' wildcard can only appear as the term's @emph{rightmost}
 ;; # character
+;;
+;; # combining maildirs in query
+;; use `OR' in queries.
 
 
 ;;; Usage:
@@ -802,7 +807,11 @@
 (setq mu4e-attachment-dir "~/Downloads"
       mu4e-view-attachment-actions '(("wopen-with" . mu4e-view-open-attachment-with)
                                      ("ein-emacs" . mu4e-view-open-attachment-emacs)
-                                     ("|pipe" . mu4e-view-pipe-attachment)))
+                                     ("|pipe" . mu4e-view-pipe-attachment))
+      ;; saving multiple attachments asks once for a directory and saves all
+      ;; attachments in the chosen directory.
+      mu4e-save-multiple-attachments-without-asking t
+      )
 
 
 ;;; Actions

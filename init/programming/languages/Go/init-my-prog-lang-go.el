@@ -20,10 +20,12 @@
 
 
 (require 'go-mode)
+(require 'go-mode-autoloads)
 
 ;; godoc -- `go doc [QUERY]`
-(add-hook 'go-mode-hook (lambda ()
-                          (local-set-key (kbd "C-h d") 'godoc)))
+(add-hook 'go-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-h d d") 'godoc)))
 
 ;; gofmt
 (add-hook 'before-save-hook #'gofmt-before-save)
@@ -35,7 +37,8 @@
 
 
 
-;;; customizations
+;;; customization
+
 ;; (defun go-run-buffer()
 ;;   (interactive)
 ;;   (shell-command (concat "go run " (buffer-name))))
@@ -62,8 +65,8 @@
 
 ;;; [ go-eldoc ]
 
-(require 'go-eldoc) ; Don't need to require, if you install by package.el
-(add-hook 'go-mode-hook 'go-eldoc-setup)
+;; (require 'go-eldoc) ; Don't need to require, if you install by package.el
+;; (add-hook 'go-mode-hook 'go-eldoc-setup)
 
 
 ;;; [ gocode ]

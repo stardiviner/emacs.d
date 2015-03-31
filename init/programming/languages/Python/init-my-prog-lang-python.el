@@ -111,13 +111,11 @@
 
 ;;; [ IPython ]
 
-;;; helm-ipython
-;; (require 'helm-ipython)
 
 
 ;;; [ helm-ipython ]
 
-
+;; (require 'helm-ipython)
 
 
 ;;; [ ein ] -- IPython notebook client in Emacs

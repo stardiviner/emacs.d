@@ -64,7 +64,12 @@
 ;; ;; (ace-isearch-mode +1)
 ;; (global-ace-isearch-mode +1)
 
+
+;; recenter
 
+;; (setq recenter-positions '(top middle bottom)) ; default '(middle top bottom)
+;;
+;; (global-set-key (kbd "C-l") 'recenter-top-bottom)
 
 
 (provide 'init-my-emacs-navigation)
