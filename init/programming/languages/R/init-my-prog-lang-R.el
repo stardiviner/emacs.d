@@ -104,6 +104,16 @@
               ;; ess-R-font-lock-keywords
               )
 
+;;; set prompt
+;;
+;; .Rprofile 
+;; Make the ℝ prompt stand out (be sure to tell ESS how to handle this): 
+;; options(prompt="ℝ> ")
+;;
+(setq inferior-ess-primary-prompt "ℝ> ")
+;; Handle the custom ℝ prompt in ess. Don’t use custom here.
+(setq inferior-S-prompt "[]a-zA-Z0-9.[]*\\(?:[>+.] \\)*ℝ+> ")
+
 ;; TODO: test whether ESS by default already set this. if not, enable this configuration.
 ;; and check out the prettify result in R source file.
 ;; (setq prettify-symbols-alist '(("->" . 8594)
