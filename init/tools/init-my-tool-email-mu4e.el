@@ -687,7 +687,9 @@
 ;; in your org-mode files. mu4e supports this with the org-mu4e module; you can
 ;; set it up by adding it to your configuration:
 ;;
+
 (require 'org-mu4e)
+
 (add-hook 'mu4e-compose-mode-hook
           (lambda ()
             (org-mu4e-compose-org-mode) ; edit with org-mode in e-mail body.

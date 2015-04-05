@@ -2489,6 +2489,24 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;;     [M-x org-doing]
 ;;     (now reviewing email, getting ready for a nap. seriously)
 
+;;;_* org-mu4e
+
+;;; Usage:
+;;
+;; - `org-mu4e-open' :: open the mu4e message (for paths starting with 'msgid:')
+;;                      or run the query (for paths starting with 'query:').
+
+(if (not (fboundp 'org-mu4e-compose-org-mode))
+    (require 'org-mu4e)                 ; this will setup org links.
+  )
+
+;; when mail is sent, automatically convert org body to HTML
+(setq org-mu4e-convert-to-html t)
+
+;; (org-add-link-type "msgid" 'org-email-open)
+;; (org-add-link-type "query" 'org-email-open)
+
+
 ;;;_* org-magit
 
 ;; (require 'org-magit)
