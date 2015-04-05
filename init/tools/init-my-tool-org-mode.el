@@ -720,6 +720,7 @@ It can contain any number of symbols, which will be repeated."
 ;; (org-add-link-type)
 ;; (org-add-link-props)
 
+;;; [ Link abbreviations ]
 ;; TODO add more link abbrev into this variable.
 (setq org-link-abbrev-alist ; Usage: In [C-c C-l] insert link completion.
       '(("RFC" . "https://www.rfc-editor.org/search/rfc_search_detail.php?rfc=%s")
@@ -2579,18 +2580,19 @@ This function will promote all items in a subtree."
 
 ;;;_* custom keybindings
 
-(define-key my-org-prefix-map (kbd "a") 'org-agenda)
+(define-key my-org-prefix-map (kbd "A") 'org-agenda)
 ;; [C-u C-c o t] -- prompt for a keyword for todo list.
 (define-key my-org-prefix-map (kbd "t") 'org-todo-list)
 (if (featurep 'helm)
     (define-key my-org-prefix-map (kbd "c") 'helm-org-capture-templates)
   (define-key my-org-prefix-map (kbd "c") 'org-capture))
-(define-key my-org-prefix-map (kbd "l") 'org-insert-link-global)
-(define-key my-org-prefix-map (kbd "u") 'org-open-at-point-global)
+(define-key my-org-prefix-map (kbd "l") 'org-store-link)
+(define-key my-org-prefix-map (kbd "L") 'org-insert-link-global)
+(define-key my-org-prefix-map (kbd "o") 'org-open-at-point-global)
 
 (define-key org-mode-map (kbd "C-c o T") 'org-timeline) ; Show a time-sorted view of the entries in the current org file.
 
-(define-key my-org-prefix-map (kbd "o")
+(define-key my-org-prefix-map (kbd "a")
   (defun my-open-org-agenda ()
     (interactive)
     ;; TODO:
