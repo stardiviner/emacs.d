@@ -130,6 +130,12 @@
 
 ;; (add-hook 'before-save-hook #'flycheck-list-errors-only-when-errors)
 
+;;; For Ruby
+(setq flycheck-ruby-executable "rubocop"
+      ;; flycheck-rubocop-lint-only t
+      )
+
+
 
 ;;; [ flycheck-tip ] -- show you error by popup-tip.
 
