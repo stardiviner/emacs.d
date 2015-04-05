@@ -1474,7 +1474,10 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 (setq org-agenda-window-setup 'current-window)
 (setq org-agenda-window-frame-fractions '(0.5 . 0.75)) ; the min and max height of the agenda window as a fraction of frame height.
 (setq org-agenda-span 'week)
-(setq org-agenda-dim-blocked-tasks t)
+;; speedup Org Agenda
+(setq org-agenda-dim-blocked-tasks nil
+      org-agenda-inhibit-startup nil
+      org-agenda-use-tag-inheritance nil)
 
 
 ;; toggle log mode in agenda buffer. show all possible log items.
