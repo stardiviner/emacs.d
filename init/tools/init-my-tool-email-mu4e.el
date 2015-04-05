@@ -196,17 +196,20 @@
 ;; - % -- mark all messages that matches a certain pattern.
 ;; - T -- mark whole thread
 ;; - t -- mark sub-thread
-;; - <insert> -- mark 'something' now, decide later
-;; - D, <delete> -- delete
 ;; - + -- mark as 'flagged' (``starred'')
 ;; - m -- move to some maildir
 ;; - ! -- mark as read
 ;; - ? -- mark as unread
 ;; - r -- mark for refiling
+;; - A -- mark for archive
+;; - g -- mark for tag
 ;; - d -- move to the trash folder
 ;; - - -- remove 'flagged' mark
 ;; - u -- remove mark at the point
 ;; - U -- remove all marks
+;; - <insert> -- mark 'something' now, decide later
+;; - D, <delete> -- delete
+
 
 
 ;;; [ Queries ]
