@@ -2430,7 +2430,13 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 ;;;_* org-contacts
 
-;; FIXME: (require 'org-contacts)
+(require 'org-contacts)
+
+(setq org-contacts-files "~/Org/Contacts/Contacts.org"
+      ;; org-contacts-db
+      )
+
+;; (setq org-contacts-address-property "ADDRESS")
 
 ;; FIXME:
 

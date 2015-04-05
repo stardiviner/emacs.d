@@ -1201,6 +1201,17 @@
 (define-key my-mu4e-map (kbd "s") 'helm-mu)
 (define-key my-mu4e-map (kbd "c") 'helm-mu-contacts)
 
+;;; maintaining an address-book with org-contacts
+;;; Usage:
+;; - <a o> in headers view & message view :: using the org-capture mechanism.
+
+(setq mu4e-org-contacts-file "~/Org/Contacts/Contacts.org") ; <full-path-to-your-org-contacts-file>
+(add-to-list 'mu4e-headers-actions
+             '("org-contact-add" . mu4e-action-add-org-contact) t)
+(add-to-list 'mu4e-view-actions
+             '("org-contact-add" . mu4e-action-add-org-contact) t)
+
+
 
 
 
