@@ -7,7 +7,8 @@
 
 ;;; Code:
 
-(require 'init-my-prog-complete-ycmd)
+
+;; (require 'init-my-prog-complete-ycmd)
 
 
 (provide 'init-my-prog-complete)
