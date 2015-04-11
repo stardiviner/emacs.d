@@ -1620,6 +1620,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
   "Jump to current time now."
   (interactive)
   (goto-char (text-property-any (point-min) (point-max) 'face 'org-agenda-current-time))
+  (recenter-top-bottom)
   )
 
 (define-key org-agenda-mode-map (kbd "C-l") 'my-org-agenda-jump-to-current-time)
