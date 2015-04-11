@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: babel call inline
+# key: babel-call-inline
+# --
+call_${1:name}${4:[${6::header arguments}]}${2:(${3:header arguments})} $0
