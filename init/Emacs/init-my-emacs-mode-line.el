@@ -45,9 +45,9 @@
                 ;;              face (:foreground "#444444" :background "black")
                 ;;              help-echo "九州 ❯ 羽传说 ❯ 向异翅")
 
-                (:propertize " ㊛ "
-                             face (:foreground "pink" :height 120)
-                             help-echo "Female & Lesbian")
+                ;; (:propertize " ㊛ "
+                ;;              face (:foreground "deep pink" :height 120)
+                ;;              help-echo "Female & Lesbian")
                 
                 ;; dynamic update indicators (it is a buffer local - only active in current buffer)
                 ;; but this is global (show on all buffers mode line)
@@ -73,7 +73,7 @@
                 
                 ;; Buffer status
                 ;; insert vs overwrite mode, input-method in a tool-tip ("Ovr", "Ins")
-                (:propertize " {")
+                ;; (:propertize " {")
                 (:propertize (:eval (if overwrite-mode "♜, " ""))
                              face (:foreground "yellow")
                              help-echo (concat "Buffer is in "
@@ -86,17 +86,16 @@
                 (:propertize (:eval (when buffer-read-only ", ⚑"))
                              face (:foreground "red")
                              help-echo "Buffer is read-only!!!")
-                (:propertize "} ")
+                ;; (:propertize "} ")
 
-                (:propertize "("
-                             face (:foreground "turquoise"))
+                ;; rbenv & rvm
+                (:propertize " ("
+                             face (:foreground "#444444"))
                 (:propertize "Ruby: "
                              face (:family "Segoe Print"
                                            :height 80
-                                           :foreground "turquoise"))
-                ;; rvm
+                                           :foreground "red"))
 
-                ;; rbenv
                 ;; (:eval (concat "(Ruby: " (rbenv--active-ruby-version) ") "))
                 (:propertize (:eval (rbenv--active-ruby-version))
                              face (:foreground "cyan"
@@ -105,7 +104,7 @@
                              help-echo "rbenv active ruby version")
 
                 (:propertize ")"
-                             face (:foreground "turquoise"))
+                             face (:foreground "#444444"))
 
                 
                 ;; VCS - Git, SVN, CVS,
@@ -125,11 +124,10 @@
 
                 ;; vc indicator
                 (:propertize (vc-mode vc-mode)
-                             face (:foreground "sky blue"
+                             face (:foreground "yellow"
                                                :weight 'bold
-                                               :height 75
-                                               :family "Comic Sans MS")
-                             help-echo (vc-mode))
+                                               :height 80)
+                             help-echo (vc-mode vc-mode))
 
                 ;; (vc-mode (:eval (propertize vc-mode
                 ;;                             'face (pcase (vc-state buffer-file-truename)
@@ -434,7 +432,8 @@
 (set-face-attribute 'mode-line nil
                     :inverse-video nil
                     :foreground "white" :background (color-darken-name (face-background 'default) 3)
-                    :box '(:color "slate blue" :line-width 1 :style nil)
+                    ;; :box '(:color "slate blue" :line-width 1 :style nil)
+                    :box '(:color "forest green" :line-width 1 :style nil)
                     :family "DejaVu Sans Mono"
                     :height 90
                     )
