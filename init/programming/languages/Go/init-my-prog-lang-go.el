@@ -80,9 +80,11 @@
 
 ;;; [ company-go ]
 
-(load (concat (getenv "GOPATH") "/src/github.com/nsf/gocode/emacs-company/company-go.el"))
-
-(require 'company-go)
+(if (getenv "GOPATH")
+    (progn
+      (load (concat (getenv "GOPATH") "/src/github.com/nsf/gocode/emacs-company/company-go.el"))
+      (require 'company-go))
+  (error "SHELL env $GOATH not available. set it in your SHELL"))
 
 (add-hook 'go-mode-hook
           (lambda ()
