@@ -1538,20 +1538,20 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
         ;; habits
         (sequence "HABIT(h)" "|" "DONE(d)")
         ;; Status
-        (sequence "TODO(t@/!)" "Urgent(u!)" "SOMEDAY(s!)" "FAILED(X@/!)" "CANCELLED(C@/!)" "|" "DONE(d@/!)")
+        (sequence "TODO(t@/!)" "Urgent(u!)" "Doing(g!)" "Later(l!)" "SOMEDAY(s!)" "FAILED(x@/!)" "CANCELLED(C@/!)" "|" "DONE(d@/!)")
         ;; Code
         (sequence "BUG(b!)" "ISSUE(i!)" "ERROR(e!)" "FEATURE(f!)" "|" "DONE(d@/!)")
         ;; Types
         ;; use (@/!) to record/log info reference source link URL and timestamp.
         (type "Org(o@/!)" "code(c@/!)" "project(p@/!)" "|" "DONE(d@/!)")
         ;; Life
-        (type "SEX(x@/!)" "|" "DONE(d@/!)")
+        (type "SEX(X@/!)" "|" "DONE(d@/!)")
         ;; Work
         (type "Work(w@/!)" "Meeting(m@/!)" "|" "DONE(d@/!)")
         ;; Learn
-        (type "Learn(l!)" "Learning(n!)" "Review(r!)" "|" "DONE(d@/!)")
+        (type "Learn(n!)" "Review(r!)" "|" "DONE(d@/!)")
         ;; org-trello
-        (type "TODO" "Doing" "|" "DONE")
+        ;; (type "TODO" "Doing" "|" "DONE")
         ))
 (setq org-todo-keyword-faces
       (quote (;;; todos
