@@ -742,6 +742,9 @@ It can contain any number of symbols, which will be repeated."
         ("Baidu Experience 百度经验" . "http://jingyan.baidu.com/search?word=%s")
         ;; Maps
         ("Google Maps" . "http://maps.google.com/maps?q=%s")
+        ;; Social Networkings
+        ("Twitter" . "https://twitter.com/%s")
+        ("Facebook" . "https://www.facebook.com/%s")
         ;; Programming
         ("Stack Exchange - Stack Overflow" . "http://stackoverflow.com/search?q=%s")
         ("Stack Exchange - Programmers" . "http://programmers.stackexchange.com/search?q=%s")
