@@ -363,12 +363,16 @@
                     :foreground nil
                     :background "#222222"
                     )
+;; highlight
+(set-face-attribute 'highlight nil
+                    :background (color-darken-name (face-background 'default) 5)
+                    )
 ;; search
 (set-face-attribute 'isearch nil
                     :inherit nil
                     :inverse-video nil
                     :background (color-darken-name (face-background 'default) 5)
-                    :foreground "yellow"
+                    :foreground "pink"
                     :box '(:color "green" :line-width 1)
                     :slant 'italic
                     :weight 'normal)
@@ -390,8 +394,8 @@
 (set-face-attribute 'match nil
                     :inherit nil
                     :inverse-video nil
-                    :background (color-darken-name (face-background 'default) 5)
-                    :foreground "yellow"
+                    :background (color-darken-name (face-background 'default) 3)
+                    :foreground "red"
                     )
 ;; replace
 (set-face-attribute 'query-replace nil
