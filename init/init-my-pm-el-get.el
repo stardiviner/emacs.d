@@ -120,6 +120,7 @@
          undo-tree
          multiple-cursors
          expand-region
+         edit-server ; edit-server-htmlize
          ;; unicode
          ucs-utils
          ;; large file

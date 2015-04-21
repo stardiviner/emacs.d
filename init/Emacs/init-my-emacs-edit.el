@@ -44,11 +44,23 @@
 
 
 
-;;;_ edit-server
+;;;_ [ edit-server ]
 
-;; (load "~/.emacs.d/init/extensions/edit-server.el")
-;; (require 'edit-server)
-;; (edit-server-start)
+;;; Usage:
+;;
+;; edit browser text-area.
+
+(require 'edit-server)
+
+(when (require 'edit-server nil t)
+  (setq edit-server-new-frame t)
+  (edit-server-start))
+
+(setq edit-server-url-major-mode-alist
+      '(("github\\.com" . markdown-mode)
+        ("stackoverflow\\.com" . markdown-mode)
+        ("segmentfault\\.com" . markdown-mode)
+        ))
 
 ;;;_ Macro
 
