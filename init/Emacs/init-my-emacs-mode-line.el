@@ -80,7 +80,7 @@
                                                (if overwrite-mode "overwrite" "insert")))
                 ;; was this buffer modified since the last save? ("☡" "Mod")
                 (:propertize (:eval (if (buffer-modified-p) "☡"))
-                             face (:foreground "white")
+                             face (:foreground "orange")
                              help-echo "Buffer has been modified")
                 ;; is this buffer read-only? ("RO")
                 (:propertize (:eval (when buffer-read-only ", ⚑"))
@@ -94,7 +94,7 @@
                 (:propertize "Ruby: "
                              face (:family "Segoe Print"
                                            :height 80
-                                           :foreground "red"))
+                                           :foreground "pink"))
 
                 ;; (:eval (concat "(Ruby: " (rbenv--active-ruby-version) ") "))
                 (:propertize (:eval (rbenv--active-ruby-version))
