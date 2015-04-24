@@ -134,7 +134,7 @@
         "C-c C-r"                       ; projectile-rails
         "C-c d"                         ; Debug
         "C-c v"                         ; Magit (global)
-        (magit-status-mode "#")         ; magit-gh-pulls
+        (magit-status-mode "#" "j")     ; magit-gh-pulls
         "C-c g"                         ; Git
         "C-c i"                         ; Inferior
         "C-c D"                         ; Database
