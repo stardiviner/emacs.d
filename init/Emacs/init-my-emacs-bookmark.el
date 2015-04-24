@@ -38,6 +38,7 @@
 (global-unset-key (kbd "C-x r m"))
 
 (define-key my-bookmark-map (kbd "b") 'bookmark-jump)
+(define-key my-bookmark-map (kbd "j") 'bookmark-jump)
 (define-key my-bookmark-map (kbd "l") 'bookmark-bmenu-list)
 (define-key my-bookmark-map (kbd "a") 'bookmark-set)
 (define-key my-bookmark-map (kbd "M") 'bookmark-set)
