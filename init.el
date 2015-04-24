@@ -195,7 +195,7 @@
 (require 'init-my-tool-calculator)
 (require 'init-my-tool-diagram)
 (require 'init-my-tool-bbdb)
-;; (require 'init-my-tool-browser)
+(require 'init-my-tool-browser)
 (require 'init-my-tool-OpenSpritz)
 ;;; Email
 (require 'init-my-tool-email-message-mode)
