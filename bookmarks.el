@@ -2,7 +2,17 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Look (Org)"
+(("Commands.org"
+ (filename . "~/Org/Wiki/Computer/Softwares/Commands.org")
+ (front-context-string . "rt]] ::\n- [[file")
+ (rear-context-string . "yaourt.org][yaou")
+ (position . 473))
+("Configurations.org"
+ (filename . "~/Org/Wiki/Computer/Softwares/Configurations.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Look (Org)"
  (filename . "~/Org/Wiki/Look/Look.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
@@ -54,11 +64,6 @@
  (position . 1))
 ("HTML.org"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/HTML/HTML.org")
- (front-context-string . "* Intro\n\n\n* Data")
- (rear-context-string)
- (position . 1))
-("Linux Configurations (Org)"
- (filename . "~/Org/Wiki/Computer/Systems/Linux/Configurations/Configurations.org")
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
@@ -180,11 +185,6 @@
 ("update_things.sh"
  (filename . "~/scripts/update_things.sh")
  (front-context-string . "#!/usr/bin/env s")
- (rear-context-string)
- (position . 1))
-("Commands"
- (filename . "~/Org/Wiki/Computer/Systems/Linux/Command Line/Commands/Commands.org")
- (front-context-string . "* NOTE\n\n- [ ] ge")
  (rear-context-string)
  (position . 1))
 ("ascii unicode symbols"
