@@ -61,6 +61,7 @@
          ;; FIXME helm-c-moccur
          helm-cmd-t
          helm-c-yasnippet helm-c-flycheck
+         helm-c-moccur
          helm-gtags helm-yaetags
          ;; helm-pydoc
          ;; helm-ls-git
