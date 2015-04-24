@@ -17,6 +17,10 @@
 
 ;;; [ EWW ] -- The Emacs Web Wowser
 
+;;; Usage:
+;;
+;; - [M-x eww Enter URL] ::
+
 (require 'eww)
 
 ;;; set to "internal" Emacs Web Wowser
