@@ -31,7 +31,7 @@
       ;; - Google :: "http://www.google.com/search?q=%s"
       ;; - Bing :: "http://bing.com/search?q="
       ;; search engine
-      eww-search-prefix "http://bing.com/search?q="
+      eww-search-prefix "https://www.duckduckgo.com/?q="
       eww-use-external-browser-for-content-type "\\`\\(video/\\|audio/\\|application/ogg\\)"
       )
 
