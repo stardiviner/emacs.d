@@ -90,6 +90,7 @@
          pretty-mode-plus page-break-lines
          ;; mode-line
          diminish nyan-mode
+         ;; spinner
          ;; mode-icons
          ;; input method
          ;; eim

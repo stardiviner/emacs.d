@@ -32,6 +32,13 @@
       nyan-cat-face-number 1
       )
 
+;; spinner
+;; (spinner-start 'vertical-breathing 10)
+;; (spinner-start 'minibox)
+;; (spinner-start 'moon)
+;; (spinner-start 'triangle)
+
+
 ;; (default-value mode-line-format)
 ;; setq-default
 
@@ -238,6 +245,12 @@
 
             ;; nyan-mode
             '(:eval (list (nyan-create)))
+            ;; Let spinner support to be used in custom mode-line as a function.
+            ;; '(:eval (spinner-start 'minibox))
+            ;;
+            ;; '(:propertize  (:eval (spinner-start 'minibox))   ; 'spinner--mode-line-construct
+            ;;                :face (:foreground "dark gray"))
+
             ;; flycheck
             '(:propertize (:eval (flycheck-mode-line-status-text))
                           face (:foreground "orange" :background nil
