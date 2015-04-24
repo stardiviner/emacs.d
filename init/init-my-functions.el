@@ -150,17 +150,17 @@ Usage:
 ;; ;; excellent opportunity to exploit them (for great good):
 ;;
 ;; FIXME: the tramp seems does not work correctly here.
-;; (defadvice find-file (after find-file-sudo activate)
-;;   "Find file as root if necessary."
-;;   (unless (and buffer-file-name
-;;                (file-writable-p buffer-file-name))
-;;     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
-;;
+(defadvice find-file (after find-file-sudo activate)
+  "Find file as root if necessary."
+  (unless (and buffer-file-name
+             (file-writable-p buffer-file-name))
+    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
+
 ;; (if (featurep 'ido)
 ;;     (defadvice ido-find-file (after find-file-sudo activate)
 ;;       "Find file as root if necessary."
 ;;       (unless (and buffer-file-name
-;;                    (file-writable-p buffer-file-name))
+;;                  (file-writable-p buffer-file-name))
 ;;         (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name)))))
 
 
