@@ -2651,6 +2651,7 @@ This function will promote all items in a subtree."
 ;; - [poporg-dwim] :: [C-c ']
 ;; - [poporg-edit-and-exit] :: [C-c '], [C-x C-s] in opened buffer.
 
+(require 'poporg)
 (autoload 'poporg-dwim "poporg" nil t)
 
 (setq poporg-adjust-fill-column t
