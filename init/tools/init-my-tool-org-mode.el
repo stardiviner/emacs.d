@@ -2632,7 +2632,7 @@ This function will promote all items in a subtree."
 
 ;;; Usage:
 ;;
-;; - [C-c '] (outorg-edit-as-org) :: main command
+;; - [prefix] + [C-c '] (outorg-edit-as-org) :: main command
 ;; - [M-# #] (or M-x outorg-edit-as-org) ::
 ;; - [M-#] (outorg-copy-edits-and-exit) ::
 ;; - [C-x C-s] (outorg-save-edits-to-tmp-file) ::
@@ -2648,15 +2648,19 @@ This function will promote all items in a subtree."
 ;;_* [ poporg ] -- Editing program comments or strings in text mode.
 ;;
 ;;; Usage:
-;; - [poporg-dwim] :: [C-c ;]
-;; - [poporg-edit-and-exit] :: [C-x C-s] in opened buffer.
+;; - [poporg-dwim] :: [C-c ']
+;; - [poporg-edit-and-exit] :: [C-c '], [C-x C-s] in opened buffer.
 
 (autoload 'poporg-dwim "poporg" nil t)
 
 (setq poporg-adjust-fill-column t
       poporg-delete-trailing-whitespace t)
 
-(global-set-key (kbd "C-c ;") 'poporg-dwim)
+;; Org-mode Babel like keybindings.
+(if (featurep 'poporg)
+    (progn
+      (global-set-key (kbd "C-c '") 'poporg-dwim)
+      (define-key poporg-mode-map (kbd "C-c '") 'poporg-edit-exit)))
 
 ;;;_* org-trello
 
