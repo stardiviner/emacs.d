@@ -191,6 +191,7 @@
 
 
 ;; faces
+;; tooltip
 (set-face-attribute 'company-tooltip nil
                     :foreground "black" :background "white"
                     :weight 'normal :slant 'normal)
@@ -200,22 +201,36 @@
                     :foreground "cyan" :background "black"
                     :weight 'bold)
 (set-face-attribute 'company-tooltip-common nil
-                    :foreground "dark gray"
-                    :background nil)
+                    :foreground "dark gray" :background nil)
 (set-face-attribute 'company-tooltip-common-selection nil
                     :inverse-video nil
-                    :foreground "white" :background " ")
+                    :foreground "white" :background nil)
 (set-face-attribute 'company-tooltip-search nil
                     :foreground "red" :background nil)
 (set-face-attribute 'company-tooltip-annotation nil
                     :foreground "dark red" :background nil)
+;; scroll-bar
 (set-face-attribute 'company-scrollbar-fg nil
                     :foreground "black" :background "black")
 (set-face-attribute 'company-scrollbar-bg nil
                     :foreground nil :background "gray")
+;; preview
 (set-face-attribute 'company-preview nil
-                    :foreground "black" :background "dark gray"
-                    )
+                    :foreground "black" :background "dark gray")
+(set-face-attribute 'company-preview-common nil
+                    :foreground "light yellow" :background nil)
+(set-face-attribute 'company-preview-search nil
+                    :foreground "cyan" :background nil)
+;; echo area
+(set-face-attribute 'company-echo nil
+                    :foreground "gray" :background nil)
+(set-face-attribute 'company-echo-common nil
+                    :foreground "dark gray" :background nil)
+;; template
+;; (set-face-attribute 'company-template-field nil
+;;                     :foreground "orange" :background nil
+;;                     :weight 'bold)
+
 
 ;; color quick hack
 ;; (require 'color)
