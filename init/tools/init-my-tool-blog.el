@@ -17,11 +17,18 @@
 
 ;;; Usage:
 ;;
+;; commands usage workflow
+;;
+;; 1. create a new draft
+;; 2. publish current draft in draft buffer
+;; 3. build
+;;
 ;; Here are the default key bindings:
-;; C-c j d - Show all drafts
-;; C-c j p - Show all posts
-;; C-c j n - Create new draft
-;; C-c j P - Publish current draft
+;; C-x t l j D - Show all drafts
+;; C-x t l j P - Show all posts
+;; C-x t l j d - Create new draft
+;; C-x t l j p - Publish current draft
+;; C-x t l j b - Build
 ;;
 ;; To load them just do:
 ;; (jekyll-init-keybindings)
