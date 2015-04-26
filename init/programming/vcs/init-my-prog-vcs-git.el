@@ -497,7 +497,8 @@
      (define-key my-prog-vcs-map (kbd "m n") 'git-gutter+-next-hunk)
      (define-key my-prog-vcs-map (kbd "m p") 'git-gutter+-previous-hunk)
      ;; actions on hunks
-     (define-key my-prog-vcs-map (kbd "m =") 'git-gutter+-show-hunk)
+     (define-key my-prog-vcs-map (kbd "m =") 'git-gutter+-show-hunk) ; diff
+     (define-key my-prog-vcs-map (kbd "m d") 'git-gutter+-show-hunk) ; diff
      (define-key my-prog-vcs-map (kbd "m r") 'git-gutter+-revert-hunk)
      ;; stage hunk at point
      ;; if region is active, stage all hunk lines within the region.
