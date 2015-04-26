@@ -90,6 +90,11 @@
 (autoload 'magit-status "magit" nil t)
 
 (setq magit-stage-all-confirm t
+      ;; Before running Git, Magit by default reverts all unmodified buffers
+      ;; that visit files tracked in the current repository.  This can
+      ;; potentially lead to data loss, so you might want to disable this by
+      ;; adding the following line to your init file:
+      magit-auto-revert-mode nil
       magit-use-overlays t
       magit-diff-refine-hunk 'all
       magit-status-buffer-switch-function 'pop-to-buffer-same-window ; open magit status buffer in current window.
