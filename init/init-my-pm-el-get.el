@@ -53,7 +53,7 @@
          showtip
          tooltip-help
          ;; Emacs
-         auto-compile
+         ;; auto-compile
          ;; completion
          ;; ido-vertical-mode ido-ubiquitous smex
          helm
