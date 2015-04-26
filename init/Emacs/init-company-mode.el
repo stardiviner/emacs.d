@@ -195,29 +195,24 @@
                     :foreground "black" :background "white"
                     :weight 'normal :slant 'normal)
 (set-face-attribute 'company-tooltip-selection nil
-                    :inherit 'company-tooltip
                     :foreground "white" :background "#212121")
 (set-face-attribute 'company-tooltip-mouse nil
-                    :inherit 'company-tooltip
                     :foreground "cyan" :background "black"
                     :weight 'bold)
 (set-face-attribute 'company-tooltip-common nil
-                    :inherit 'company-tooltip
-                    :foreground "dark gray")
+                    :foreground "dark gray"
+                    :background nil)
 (set-face-attribute 'company-tooltip-common-selection nil
-                    :inherit 'company-tooltip-common
                     :inverse-video nil
                     :foreground "white" :background " ")
 (set-face-attribute 'company-tooltip-search nil
-                    :inherit 'company-tooltip
-                    :foreground "red")
+                    :foreground "red" :background nil)
 (set-face-attribute 'company-tooltip-annotation nil
-                    :inherit 'company-tooltip
-                    :foreground "dark red")
+                    :foreground "dark red" :background nil)
 (set-face-attribute 'company-scrollbar-fg nil
                     :foreground "black" :background "black")
 (set-face-attribute 'company-scrollbar-bg nil
-                    :foreground " " :background "gray")
+                    :foreground nil :background "gray")
 (set-face-attribute 'company-preview nil
                     :foreground "black" :background "dark gray"
                     )
