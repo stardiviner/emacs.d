@@ -369,23 +369,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 (setq mc/list-file (expand-file-name ".mc-lists.el" user-emacs-directory))
 
-;; multiple-cursors
-;; (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-;; (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-;; (global-set-key (kbd "C-+") 'mc/mark-next-like-this)
-;; (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-
-;; ---------------------------------------------------------
-;; From active region to multiple cursors:
-;; (global-set-key (kbd "C-c c c") 'mc/mark-all-dwim) ; try to be smart.
-;; (global-set-key (kbd "C-c c r") 'set-rectangular-region-anchor)
-;; (global-set-key (kbd "C-c c l") 'mc/edit-lines)
-;; (global-set-key (kbd "C-c c a") 'mc/edit-beginnings-of-lines)
-;; (global-set-key (kbd "C-c c e") 'mc/edit-ends-of-lines)
-;; (if (featurep 'visual-regexp)
-;;     (global-set-key (kbd "C-c c m") 'vr/mc-mark))
-;; TODO: `vr/select-mc-mark', `vr/select-replace', `vr/select-query-replace' etc.
-;; ---------------------------------------------------------
+;; (setq mc/keymap "C-c c")
 
 (unless (boundp 'my-mc-prefix-map)
   (define-prefix-command 'my-mc-prefix-map))
