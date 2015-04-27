@@ -396,8 +396,33 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 (define-key my-mc-prefix-map (kbd "l") 'mc/edit-lines)
 (define-key my-mc-prefix-map (kbd "a") 'mc/edit-beginnings-of-lines)
 (define-key my-mc-prefix-map (kbd "e") 'mc/edit-ends-of-lines)
+(define-key my-mc-prefix-map (kbd "n") 'mc/insert-numbers)
+(define-key my-mc-prefix-map (kbd "s") 'mc/sort-regions)
+(define-key my-mc-prefix-map (kbd "R") 'mc/reverse-regions)
+
+(unless (boundp 'my-mc/mark-prefix-map)
+  (define-prefix-command 'my-mc/mark-prefix-map))
+(define-key my-mc-prefix-map (kbd "m") 'my-mc/mark-prefix-map)
+
+(define-key my-mc/mark-prefix-map (kbd "a a") 'mc/mark-all-like-this-dwim)
+(define-key my-mc/mark-prefix-map (kbd "a l") 'mc/mark-all-like-this)
+(define-key my-mc/mark-prefix-map (kbd "a w") 'mc/mark-all-words-like-this)
+(define-key my-mc/mark-prefix-map (kbd "a s") 'mc/mark-all-symbols-like-this)
+(define-key my-mc/mark-prefix-map (kbd "a r") 'mc/mark-all-in-region)
+(define-key my-mc/mark-prefix-map (kbd "a f") 'mc/mark-all-like-this-in-defun)
+(define-key my-mc/mark-prefix-map (kbd "a F") 'mc/mark-all-words-like-this-in-defun)
+(define-key my-mc/mark-prefix-map (kbd "a S") 'mc/mark-all-symbols-like-this-in-defun)
+(define-key my-mc/mark-prefix-map (kbd "t") 'mc/mark-sgml-tag-pair)
+
+(define-key my-mc/mark-prefix-map (kbd "n n") 'mc/mark-next-like-this)
+(define-key my-mc/mark-prefix-map (kbd "n w") 'mc/mark-next-word-like-this)
+(define-key my-mc/mark-prefix-map (kbd "n s") 'mc/mark-next-symbol-like-this)
+(define-key my-mc/mark-prefix-map (kbd "p p") 'mc/mark-previous-like-this)
+(define-key my-mc/mark-prefix-map (kbd "p w") 'mc/mark-previous-word-like-this)
+(define-key my-mc/mark-prefix-map (kbd "p s") 'mc/mark-previous-symbol-like-this)
+
 (if (featurep 'visual-regexp)
-    (define-key my-mc-prefix-map (kbd "m") 'vr/mc-mark))
+    (define-key my-mc/mark-prefix-map (kbd "v") 'vr/mc-mark))
 ;; TODO: `vr/select-mc-mark', `vr/select-replace', `vr/select-query-replace' etc.
 
 ;; First mark the word, then add more cursors.
