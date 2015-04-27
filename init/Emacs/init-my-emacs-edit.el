@@ -367,7 +367,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 (require 'multiple-cursors)
 
-;; (setq mc/keymap "C-c c")
+(setq mc/list-file (expand-file-name ".mc-lists.el" user-emacs-directory))
 
 ;; multiple-cursors
 ;; (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
