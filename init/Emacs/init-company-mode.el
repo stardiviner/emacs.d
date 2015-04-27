@@ -203,11 +203,11 @@
                     :weight 'bold)
 (set-face-attribute 'company-tooltip-common nil
                     :inherit 'company-tooltip
-                    :foreground "dark gray" :background nil)
+                    :foreground "dim gray" :background nil)
 (set-face-attribute 'company-tooltip-common-selection nil
                     :inverse-video nil
                     :inherit 'company-tooltip-selection
-                    :foreground "white" :background nil)
+                    :foreground "orange" :background nil)
 (set-face-attribute 'company-tooltip-search nil
                     :inherit 'company-tooltip
                     :foreground "red" :background nil)
@@ -221,10 +221,11 @@
                     :foreground "gray" :background "gray")
 ;; preview
 (set-face-attribute 'company-preview nil
-                    :foreground "black" :background "dark gray")
+                    :foreground "black" :background "dim gray"
+                    :weight 'normal)
 (set-face-attribute 'company-preview-common nil
                     :inherit 'company-preview
-                    :foreground "light yellow" :background nil)
+                    :foreground "dark gray" :background nil)
 (set-face-attribute 'company-preview-search nil
                     :inherit 'company-preview
                     :foreground "cyan" :background nil)
