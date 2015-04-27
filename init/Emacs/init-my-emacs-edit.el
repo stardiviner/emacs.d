@@ -357,9 +357,13 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;;;_ multiple-cursors
 
 ;;; Usage:
-;;; https://github.com/magnars/multiple-cursors.el
-;;; - [C-c c] -- prefix of mc.
-;;; - [C-c c c] / [C-S-c C-S-c] -- edit-lines
+;;
+;; https://github.com/magnars/multiple-cursors.el
+;; - [C-c c] -- prefix of mc.
+;; - <return> / [C-g] -- get out of multiple-cursors
+;; - [C-c e c c] -- `mc/mark-next-like-this'
+;; - [C-c e c r] -- `set-rectangular-region-anchor'
+;; - [region] + [C-c e c m] -- mark variants (region is used to limit mark area)
 
 (require 'multiple-cursors)
 
