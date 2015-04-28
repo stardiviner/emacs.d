@@ -364,6 +364,16 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;; - [C-c e c c] -- `mc/mark-next-like-this'
 ;; - [C-c e c r] -- `set-rectangular-region-anchor'
 ;; - [region] + [C-c e c m] -- mark variants (region is used to limit mark area)
+;;
+;; Unknown commands
+;;
+;; Multiple-cursors uses two lists of commands to know what to do: the run-once
+;; list and the run-for-all list. It comes with a set of defaults, but it would
+;; be beyond silly to try and include all the known Emacs commands.
+;;
+;; So that's why multiple-cursors occasionally asks what to do about a
+;; command. It will then remember your choice by saving it in
+;; ~/.emacs.d/.mc-lists.el. You can change the location with:
 
 (require 'multiple-cursors)
 
