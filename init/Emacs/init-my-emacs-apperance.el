@@ -129,9 +129,6 @@
 
 (require 'color-theme-solarized)
 
-(color-theme-solarized-dark)
-;; (color-theme-solarized-light)
-
 (setq solarized-termcolors 256
       ;; solarized-degrade t
       solarized-bold t
@@ -141,6 +138,16 @@
       solarized-visibility 'high ; 'normal, 'high, 'low
       ;; solarized-broken-srgb nil    ; nil, t
       )
+
+(color-theme-solarized-dark)
+;; (color-theme-solarized-light)
+
+
+;;; color-theme-monokai
+
+;; (require 'color-theme-monokai)
+;;
+;; (color-theme-monokai)
 
 
 ;;; color-theme-almost-monokai
