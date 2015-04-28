@@ -69,7 +69,7 @@
       org-startup-truncated t
       ;; FIXME: error: Can't preview LaTeX fragment in a non-file buffer.
       org-startup-with-inline-images t ; `org-toggle-inline-images'
-      ;; org-startup-with-latex-preview t
+      org-startup-with-latex-preview t ; `org-toggle-latex-fragment'
       ;; org-startup-options
       ;; coordinate grid overlays
       ;; org-table-overlay-coordinates t
