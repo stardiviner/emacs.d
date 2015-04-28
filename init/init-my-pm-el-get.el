@@ -42,10 +42,14 @@
       (append
        '(;; debug
          edebug-x
+         ;; debuggs
          ;; benchmark
          ;; benchmark-init
          ;; package
          ;; paradox
+         ;; Emacs self
+         ;; macro
+         ;; elmacro macrostep
          ;; popup
          popup
          pos-tip
@@ -55,36 +59,51 @@
          ;; Emacs
          ;; auto-compile
          ;; completion
-         ;; ido-vertical-mode ido-ubiquitous smex
+         ;; ido-vertical-mode ido-ubiquitous ido-better-flex smex ido-hacks
          helm
-         helm-helm-commands helm-descbinds ; helm-themes
+         helm-helm-commands helm-descbinds ; helm-bind-key helm-themes
+         ;; helm-package
          ;; FIXME helm-c-moccur
          helm-cmd-t
-         helm-c-yasnippet helm-c-flycheck
-         helm-c-moccur
+         helm-c-yasnippet helm-c-flycheck ; helm-flycheck helm-flyspell
+         helm-c-moccur ; helm-ack
+         ;; helm-shell helm-shell-history
          helm-gtags helm-yaetags
          ;; helm-pydoc
-         ;; helm-ls-git
-         helm-gist
          helm-mu
+         ;; helm-mode-manager
+         helm-bm helm-chrome helm-firefox
+         ;; helm-w3m helm-webkit
          ;; helm-delicious
          ;; helm-dictionary
+         ;; helm-google
+         ;; helm-make
+         ;; helm-go-package
+         ;; helm-css-scss
+         ;; helm-R
+         ;; helm-perldoc
+         ;; helm-proc
+         ;; helm-ls-git
+         helm-git helm-git-files ; helm-git-grep
+         helm-gist helm-gitlab
+         ;; Auto Complete
          ;; auto-complete
          ;; auto-complete-yasnippet auto-complete-chunk
          ;; auto-complete-etags
          ;; auto-complete-emacs-lisp
          ;; auto-complete-pcmp
          ;; ac-capf
-         company-mode
          ;; ac-helm
          ;; ac-company
+         company-mode
          ;; color theme
          color-theme-solarized
-         ;; color-theme-almost-monokai
-         ;; monokai-theme
+         ;; color-theme-monokai ; color-theme-almost-monokai monokai-theme
          ;; apperance
          ;; emacs-powerline
-         highlight-symbol
+         ;; highlight-cl highlight-fns highlight-defined
+         ;; highlight-sexp highlight-blocks highlight-quoted ; highlight-stages
+         ;; highlight-escape-sequences ; highlight-numbers highlight-parentheses
          ;; cursor-chg
          ;; yascroll
          ;; minimap sublimity
@@ -151,10 +170,11 @@
          ;; Image
          ;; image+ image-dired+
          ;; PDF
-                                        ; pdf-tools
+         ;; pdf-tools
          ;; search
          ;; isearch+
          anzu
+         highlight-symbol
          visual-regexp visual-regexp-steroids ace-jump-mode
          swiper
          ack-and-a-half ; full-ack
@@ -177,9 +197,8 @@
          ;; org-present org-tree-slide org-html5presentation org-impress-js
          org-passwords
          ;; org-magit ; org-linkany
-         org-publish org-jekyll jekyll-el
          ;; org-trello
-         outorg
+         org-projectile
          ;; Wiki
          ;; oddmuse yaoddmuse org-oddmuse oddmuse-curl
          ;; SpeedReading - OpenSpritz
@@ -187,6 +206,8 @@
          ;; speedread
          ;; help
          ;; discover
+         ;; Browser
+         ;; eww ; webkit ; w3m
          ;; Email
          ;; mu
          mu4e mu-cite
@@ -195,11 +216,12 @@
          bbdb ; bbdb- ; FIXME: bbdb-vcard
          ;; IRC
          ;; erc erc-highlight-nicknames erc-nick-notify bbdb2erc
+         ;; weechat
          ;; RSS
          ;; elfeed
          ;; tools
          ;; calfw sauron ; appt
-         gist
+         gist ; yagist
          ;; emms ; emms-get-lyrics
          ;; ampc
          ;; subprocess
@@ -213,14 +235,16 @@
          aggressive-indent-mode
          ;; auto-indent-mode clean-aindent
          ;; completion & comprehension
-         emacs-ycmd
+         ;; emacs-ycmd
          ;; lint
          flycheck
          ;; flycheck-tip
          flycheck-pos-tip
          ;; comment
          fic-mode
-         poporg
+         outorg poporg
+         ;; License
+         xlicense
          ;; electric
          paredit
          smartparens
@@ -233,8 +257,12 @@
          dash helm-dash
          ;; RFC
          ;; rfc irfc
-         ;; snippet
+         ;; Snippet
          yasnippet
+         yasnippet-snippets
+         ;; Template
+         ;; template file-template
+         yatemplate
          ;; Tags
          cscope ascope
          helm-cscope ; xcscope ascope
@@ -261,9 +289,9 @@
          diffview
          ;; project
          projectile
-         helm-project
+         helm-projectile ; helm-project
          vagrant vagrant-tramp
-         ;; bug track system
+         ;; Bug Track System
          ;; bts bts-github
          ;; code assistant
          howdoi
@@ -276,22 +304,25 @@
          ;; auto-complete-ruby ; (conflict with robe-mode?)
          ruby-compilation
          inf-ruby  ; pry
-         rbenv ; rvm
+         rbenv ; chruby ; rvm
          ;; rcodetools
-         robe-mode helm-robe
-         rake
-         rspec-mode
-         yard-mode
-         ruby-test-mode ; ruby-test
+         robe-mode helm-robe company-inf-ruby
+         rake rdoc-mode
+         yard-mode ; omniref ; helm-rb
          ;; ruby-hash-syntax
+         ruby-test-mode ; ruby-test
+         rspec-mode ; minitest
          ;; cucumber feature-mode
+         ;; rcov-overlay
+         rdebug
+         motion-mode
          ;; Lisp
          slime
          elisp-slime-nav eldoc-eval
          profile-lisp
          slime-company ; ac-slime
          geiser ; ac-geiser
-         sly sly-company ; ac-sly
+         ;; sly sly-company ; ac-sly
          ;; Scheme
          ;; Clojure
          clojure-mode cider
@@ -335,14 +366,17 @@
          ;; HTML
          htmlize html5
          ;; ac-html
+         zencoding-mode
          ;; CSS
-         css-mode
+         ;; FIXME: can't install css-mode
+         ;; css-mode
          ;; auto-complete-css
          css-eldoc
          showcss-mode
          ;; CoffeeScript
          ;; coffee-mode
          ;; XML
+         ;; xml-parse xml-rpc xml-gen
          ;; auto-complete-nxml
          ;; JSON
          json-mode json-reformat json-snatcher
@@ -407,6 +441,7 @@
          nginx-mode
          ;; Linux
          systemd-mode
+         xrdb-mode
          ;; vimrc-mode
          ;; crontab-mode
          ;; Arch
@@ -425,6 +460,14 @@
          ;; Screenshot & Screencast
          screenshot
          capture camcorder
+         ;; Libraries
+         ;; ibus
+         ;; http httpcode httprepl web ; web-beautify
+         ;; xpath xpath-parser
+         ;; web-server
+         ;; Platforms
+         ;; heroku
+         ;; wolfram-mode
          ;; Toy
          ;; oniisama
          ;; Emacs keyboard commands log
