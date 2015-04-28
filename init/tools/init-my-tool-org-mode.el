@@ -758,6 +758,7 @@ It can contain any number of symbols, which will be repeated."
 
 ;;; [ Link abbreviations ]
 ;; TODO add more link abbrev into this variable.
+;; NOTE: you can not contain chinese string in "link name". Org-mode does not support it.
 (setq org-link-abbrev-alist ; Usage: In [C-c C-l] insert link completion.
       '(("RFC" . "https://www.rfc-editor.org/search/rfc_search_detail.php?rfc=%s")
         ;; search engines
@@ -770,12 +771,12 @@ It can contain any number of symbols, which will be repeated."
         ;; Wiki
         ("Wikipedia" . "http://en.wikipedia.org/w/index.php?search=%s")
         ("Wikia" . "http://www.wikia.com/index.php?search=%s")
-        ("Baidu Wiki 百度百科" . "http://baike.baidu.com/search/none?word=%s")
+        ("Baidu BaiKe" . "http://baike.baidu.com/search/none?word=%s")
         ;; Q & A
         ("Quora" . "https://www.quora.com/search?q=%s")
-        ("ZhiHu 知乎" . "http://www.zhihu.com/search?q=%s&type=question")
-        ("Baidu Know 知道" . "http://zhidao.baidu.com/search?word=%s")
-        ("Baidu Experience 百度经验" . "http://jingyan.baidu.com/search?word=%s")
+        ("ZhiHu" . "http://www.zhihu.com/search?q=%s&type=question")
+        ("Baidu ZhiDao" . "http://zhidao.baidu.com/search?word=%s")
+        ("Baidu JingYan" . "http://jingyan.baidu.com/search?word=%s")
         ;; Maps
         ("Google Maps" . "http://maps.google.com/maps?q=%s")
         ;; Social Networkings
@@ -807,7 +808,7 @@ It can contain any number of symbols, which will be repeated."
         ;; chinese code search
         ("GitCafe" . "https://gitcafe.com/search?keyword=%s")
         ("Geakit" . "https://geakit.com/search?q=%s")
-        ("Git OSC (开源中国)" . "https://git.oschina.net/search?search=%s")
+        ("Git OSC (Open Source China)" . "https://git.oschina.net/search?search=%s")
         ;; Lisp
         ("lispdoc" . "http://lispdoc.com/?q=%s")
         ;; Ruby
@@ -821,13 +822,13 @@ It can contain any number of symbols, which will be repeated."
         ;; Bug
         ("Bugzilla" . "http://bugzilla/show_bug.cgi?id=%s")
         ;; Book
-        ("DouBan Books 豆瓣读书" . "http://book.douban.com/subject_search?search_text=%s")
+        ("DouBan Books" . "http://book.douban.com/subject_search?search_text=%s")
         ;; Movie
-        ("DouBan Movies 豆瓣电影" . "http://movie.douban.com/subject_search?search_text=%s")
+        ("DouBan Movies" . "http://movie.douban.com/subject_search?search_text=%s")
         ;; The Pirate Bay
-        ("The Pirate Bay (海盗湾)" . "http://thepiratebay.se/search/%s")
+        ("The Pirate Bay" . "http://thepiratebay.se/search/%s")
         ;; Shopping
-        ("TaoBao 淘宝" . "http://s.taobao.com/search?q=%s")
+        ("TaoBao" . "http://s.taobao.com/search?q=%s")
         ))
 
 ;; Add the following bit of code to your startup (after loading org),
