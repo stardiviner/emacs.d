@@ -515,16 +515,19 @@
 
 ;; GitGutter signs
 (set-face-attribute 'git-gutter+-modified nil
-                    :foreground "dark orange"
-                    :weight 'bold
+                    :foreground "yellow"
+                    :weight 'normal
+                    :height 90
                     )
 (set-face-attribute 'git-gutter+-added nil
                     :foreground "green"
-                    :weight 'bold
+                    :weight 'normal
+                    :height 90
                     )
 (set-face-attribute 'git-gutter+-deleted nil
                     :foreground "red"
-                    :weight 'bold
+                    :weight 'normal
+                    :height 90
                     )
 ;; FIXME: this does not work at Emacs initially.
 (set-face-attribute 'git-gutter+-unchanged nil
