@@ -276,7 +276,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;;
 ;; - Edit one of the occurrences The change is applied to other occurrences simultaneously.
 ;; - Finish - by pressing C-; again
-;
+;;
 ;; You can also use Iedit mode as a quick way to temporarily show only the
 ;; buffer lines that match the current text being edited. This gives you the
 ;; effect of a temporary `keep-lines’ or `occur’. To get this effect, hit C-’

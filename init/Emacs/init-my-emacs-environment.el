@@ -14,7 +14,15 @@
 ;;   (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH"))))
 ;; (add-hook 'eshell-mode-hook 'eshell-mode-hook-func)
 
+
+;;; Systems
 
+;; TODO: add to this init file.
+;; https://www.gnu.org/software/emacs/manual/html_node/elisp/System-Environment.html
+
+
+
+
 ;; format (Unix, DOS) & encoding
 ;; [C-h v current-language-environment]
 (set-default-coding-systems 'utf-8)

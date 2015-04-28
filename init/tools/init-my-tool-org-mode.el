@@ -215,7 +215,8 @@
                     :background "#004A5D" :foreground "white"
                     :box '(:color "cyan" :line-width 1 :style nil)
                     :family "DejaVu Sans Mono"
-                    :bold nil)
+                    :bold nil
+                    :underline nil)
 ;;; Formula face
 (set-face-attribute 'org-formula nil
                     :background "green yellow"
@@ -1802,10 +1803,6 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 (require 'org-publish)
 
-;; (require 'org-blog)
-;; (require 'org-jekyll)
-
-
 ;; Each element of the list configures one project, and may be in one of the two following forms:
 ;; In both cases, projects are configured by specifying property values. A
 ;; project defines the set of files that will be published, as well as the
@@ -1894,6 +1891,15 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;; re-including any changed external files such as source example files you
 ;; might include with #+INCLUDE:. The timestamp mechanism in Org is not smart
 ;; enough to detect if included files have been modified.
+
+
+;; (require 'org-blog)
+
+
+
+;; (require 'org-jekyll)
+
+
 
 
 ;;;_* org-html5

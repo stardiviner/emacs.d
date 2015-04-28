@@ -102,7 +102,7 @@
 ;; (setq helm-source-projectile-files-list)
 
 
-(projectile-global-mode)
+(projectile-global-mode +1)
 ;; OR
 ;; (dolist (hook
 ;;          '(prog-mode-hook
