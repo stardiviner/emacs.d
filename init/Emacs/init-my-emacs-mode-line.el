@@ -74,6 +74,20 @@
                 
                 (:propertize " ")
 
+                ;; multiple-cursors (mc/)
+                (:propertize (:eval
+                              (if (> (mc/num-cursors) 1)
+                                  mc/mode-line
+                                ;; TODO: check out `format' & `propertize' function
+                                ;; ("mc: "
+                                ;;  (format #("%d" 0 2
+                                ;;            (face font-lock-warning-face))
+                                ;;          (mc/mc-cursors)))
+                                ))
+                             face (:foreground "red" :background "black"))
+
+                (:propertize " ")
+
                 ;; mule info
                 (:propertize mode-line-mule-info
                              face (:foreground "dark gray"))   ; U:[*--]
