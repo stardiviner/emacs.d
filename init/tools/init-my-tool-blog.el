@@ -80,6 +80,14 @@
   )
 
 
+;;; [ jekyll-modes ]
+
+;;; Usage:
+;;
+;; - [jekyll-markdown-mode]
+;; - [jekyll-html-mode]
+
+
 ;;; [ org-jekyll ] -- export jekyll blog posts from org-mode.
 
 ;; Extracts subtrees from your org-publish project files that have a :blog:
