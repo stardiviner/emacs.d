@@ -325,6 +325,35 @@
 ;;                         '(("\\\[\ \\([^\ ]*\\)\ \\\]" 1 'org-code) ; \[ a=2 \]
 ;;                           ))
 
+(setq org-latex-create-formula-image-program 'dvipng
+      org-latex-preview-ltxpng-directory "ltxpng/"
+      org-format-latex-options (plist-put
+                                org-format-latex-options :scale 3.0)
+      org-format-latex-options (plist-put
+                                org-format-latex-options :html-scale 2.0))
+
+;; (setq org-latex-default-packages-alist
+;;       org-latex-packages-alist)
+;;
+;; So, let's assume that you like minted over listings and have decided to use
+;; it for latex export. You read the documentation for the relevant variable,
+;; org-latex-listings, and set up things as the documentation suggests:
+;;
+;; (add-to-list 'org-latex-packages-alist '("" "minted"))
+;;
+;; To exclude minted from latex preview then, all we have to do is change what
+;; we add to org-latex-packages-alist:
+;;
+;; (add-to-list 'org-latex-packages-alist '("" "minted" nil))
+
+;; The same problem as you describe in the original-post exists for
+;; latex-preview. But, for that case there is a better solution:
+;;
+;; (require 'face-remap)
+;; (defadvice preview-inherited-face-attribute (after preview-inherit-local-face nil activate)
+;;   "Scale preview images with respect to buffer-local face"
+;;   (when (and text-scale-mode (eq attribute :height))
+;;     (setq ad-return-value (* (expt text-scale-mode-step text-scale-mode-amount) ad-return-value))))
 
 ;;; @<kbd>C-h h@</kbd> inline key codes highlight
 (font-lock-add-keywords 'org-mode
