@@ -235,6 +235,11 @@
 ;; (set-face-attribute 'helm-lisp-completion-info nil
 ;;                     :foreground "cyan")
 
+;; key in Helm candidate for M-x commands.
+(set-face-attribute 'helm-M-x-key nil
+                    :foreground "cyan"
+                    :weight 'bold)
+
 (helm-autoresize-mode t)
 
 (setq helm-full-frame nil ; use current window as popup. helm popup window position.
