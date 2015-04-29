@@ -1940,11 +1940,9 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
       )
 
 ;;;_* Babel
+;;
+;; - [C-c C-v] :: keymap prefix for babel. `org-babel-map'
 
-;; (unless (package-installed-p 'ob-mongo)
-;;   (package-install 'ob-mongo))
-
-;; (require 'ob-mongo)
 
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -1980,12 +1978,14 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
    (ditaa . t)                          ; ditaa
    (dot . t)                            ; Graphviz, Dot
    (plantuml . t)                       ; PlantUML
+   (processing . t)                     ; Processing
    (ledger . t)                         ; ledger support in Babel
    ;; (sml . t)                            ; from extension ob-sml
    (sass . t)                           ; Sass
-   ;;; extras
-   ;; (mongo . t)                          ; MongoDB
    ))
+
+;; Or by using `require' to load.
+(require 'ob-processing)
 
 ;;; ob-julia (require ESS)
 ;;
@@ -2004,6 +2004,15 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 (setq org-babel-default-header-args:julia
       '((:results . "replace output")
         (:padnewline . "yes")))
+
+;; ob-mongo
+;;
+;; (unless (package-installed-p 'ob-mongo)
+;;   (package-install 'ob-mongo))
+;;
+;; (require 'ob-mongo)
+
+
 
 (setq org-confirm-babel-evaluate t)     ; org-babel-evaluate confirm.
 (setq org-babel-no-eval-on-ctrl-c-ctrl-c nil)
