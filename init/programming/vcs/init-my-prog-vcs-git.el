@@ -96,6 +96,7 @@
       ;; adding the following line to your init file:
       magit-auto-revert-mode nil
       magit-use-overlays t
+      magit-diff-context-lines 7
       magit-diff-refine-hunk 'all
       magit-status-buffer-switch-function 'pop-to-buffer-same-window ; open magit status buffer in current window.
       ;; diff
