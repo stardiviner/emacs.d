@@ -121,8 +121,7 @@
 
 ;; (define-key flyspell-mode-map (kbd "C-.") 'flyspell-correct-word-before-point)
 (define-key flyspell-mode-map (kbd "C-.") 'flyspell-auto-correct-previous-word)
-
-;; (setq ispell-highlight-face 'flyspell-incorrect)
+(define-key flyspell-mode-map (kbd "C-,") 'flyspell-goto-next-error)
 
 (set-face-attribute 'flyspell-incorrect nil
                     :background "#444444" :foreground "red"
