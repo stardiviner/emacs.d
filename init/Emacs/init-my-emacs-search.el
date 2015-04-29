@@ -155,6 +155,30 @@
                     :foreground "cyan"
                     :weight 'bold)
 (set-face-attribute 'anzu-replace-highlight nil
+                    :foreground "orange"
+                    :background (color-darken-name (face-background 'default) 5)
+                    :box '(:color "black" :line-width -1)
+                    :weight 'normal
+                    )
+(set-face-attribute 'anzu-replace-to nil
+                    :foreground "yellow"
+                    :background (color-darken-name (face-background 'default) 5)
+                    :weight 'bold
+                    )
+;; anzu regexp matched groups
+(set-face-attribute 'anzu-match-1 nil
+                    :foreground "white"
+                    :background "dark red"
+                    ;; use box style?
+                    ;; :box '(:color "green")
+                    )
+(set-face-attribute 'anzu-match-2 nil
+                    :foreground "white"
+                    :background "dark green"
+                    )
+(set-face-attribute 'anzu-match-3 nil
+                    :foreground "#222222"
+                    :background "tomato"
                     )
 
 ;;; Function which constructs mode-line string. If you color mode-line string, you propertize string by yourself.
