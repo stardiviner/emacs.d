@@ -139,8 +139,10 @@
       ;; anzu-input-idle-delay 0.05
       anzu-deactivate-region nil
       anzu-use-migemo nil
+      anzu-cons-mode-line-p nil
       anzu-replace-to-string-separator " ⇨ "
       ;; anzu-minimum-input-length 1
+      anzu-search-threshold nil ; limit of search number.
       )
 
 (global-anzu-mode +1)
