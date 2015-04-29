@@ -2140,6 +2140,10 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 (setq org-latex-create-formula-image-program 'dvipng)
 
+;; CDLaTeX minor mode to speed up math input.
+(autoload 'cdlatex-mode "cdlatex" nil)
+;; enable `org-cdlatex-mode' for all org files
+(add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 
 ;;;_* Org Diary
 

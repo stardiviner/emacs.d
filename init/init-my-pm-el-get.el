@@ -187,6 +187,7 @@
          org-mode
          org-fstree org-bullets
          ob-julia
+         cdlatex-mode
          ;; org-ac
          org-screenshot
          org-pomodoro
