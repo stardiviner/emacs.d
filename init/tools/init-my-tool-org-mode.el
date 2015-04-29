@@ -771,62 +771,62 @@ It can contain any number of symbols, which will be repeated."
         ;; Wiki
         ("Wikipedia" . "http://en.wikipedia.org/w/index.php?search=%s")
         ("Wikia" . "http://www.wikia.com/index.php?search=%s")
-        ("Baidu BaiKe" . "http://baike.baidu.com/search/none?word=%s")
+        ("Baidu_BaiKe" . "http://baike.baidu.com/search/none?word=%s")
         ;; Q & A
         ("Quora" . "https://www.quora.com/search?q=%s")
         ("ZhiHu" . "http://www.zhihu.com/search?q=%s&type=question")
-        ("Baidu ZhiDao" . "http://zhidao.baidu.com/search?word=%s")
-        ("Baidu JingYan" . "http://jingyan.baidu.com/search?word=%s")
+        ("Baidu_ZhiDao" . "http://zhidao.baidu.com/search?word=%s")
+        ("Baidu_JingYan" . "http://jingyan.baidu.com/search?word=%s")
         ;; Maps
-        ("Google Maps" . "http://maps.google.com/maps?q=%s")
+        ("Google_Maps" . "http://maps.google.com/maps?q=%s")
         ;; Social Networkings
         ("Twitter" . "https://twitter.com/%s")
         ("Facebook" . "https://www.facebook.com/%s")
         ;; Programming
-        ("Stack Exchange - Stack Overflow" . "http://stackoverflow.com/search?q=%s")
-        ("Stack Exchange - Programmers" . "http://programmers.stackexchange.com/search?q=%s")
+        ("Stack_Exchange_Stack_Overflow" . "http://stackoverflow.com/search?q=%s")
+        ("Stack_Exchange_Programmers" . "http://programmers.stackexchange.com/search?q=%s")
         ;; Emacs
-        ("Emacs Wiki" . "www.emacswiki.org/emacs?search=%s")
-        ("Stack Exchange - Emacs" . "http://emacs.stackexchange.com/search?q=%s")
+        ("Emacs_Wiki" . "www.emacswiki.org/emacs?search=%s")
+        ("Stack_Exchange_Emacs" . "http://emacs.stackexchange.com/search?q=%s")
         ;; Document Search
         ;; API Search
-        ("{API}Search apis.io" . "http://apis.io/?search=%s")
+        ("{API}Search_apis.io" . "http://apis.io/?search=%s")
         ;; Code Search
-        ("search code" . "http://searchcode.com/?q=%s")
+        ("search_code" . "http://searchcode.com/?q=%s")
         ("GitHub" . "https://github.com/search?q=%s")
         ("Bitbucket" . "https://bitbucket.org/repo/all?name=%s")
-        ("Google Code" . "https://code.google.com/query/#q=%s")
+        ("Google_Code" . "https://code.google.com/query/#q=%s")
         ("Launchpad" . "https://launchpad.net/+search?field.text=%s")
-        ("Code Project" . "http://www.codeproject.com/search.aspx?q=%s")
+        ("Code_Project" . "http://www.codeproject.com/search.aspx?q=%s")
         ("CodePlex" . "https://www.codeplex.com/site/search?query=%s")
         ("Gitorious" . "https://gitorious.org/search?q=%s")
         ("SourceForge" . "https://sourceforge.net/directory/?q=%s")
         ("Freecode" . "http://freecode.com/search?q=%s")
-        ("Active State" . "http://code.activestate.com/search/#q=%s")
-        ("Ohloh Code" . "http://code.ohloh.net/search?s=%s")
+        ("Active_State" . "http://code.activestate.com/search/#q=%s")
+        ("Ohloh_Code" . "http://code.ohloh.net/search?s=%s")
         ("Snipplr" . "http://snipplr.com/search.php?q=%s")
         ;; chinese code search
         ("GitCafe" . "https://gitcafe.com/search?keyword=%s")
         ("Geakit" . "https://geakit.com/search?q=%s")
-        ("Git OSC (Open Source China)" . "https://git.oschina.net/search?search=%s")
+        ("Git_OSC_Open_Source_China" . "https://git.oschina.net/search?search=%s")
         ;; Lisp
         ("lispdoc" . "http://lispdoc.com/?q=%s")
         ;; Ruby
         ("Ruby-Doc" . "http://ruby-doc.com/search.html?q=%s")
         ;; Python
-        ("Python 3 Documentation" . "http://docs.python.org/3/search.html?q=%s")
+        ("Python_3_Documentation" . "http://docs.python.org/3/search.html?q=%s")
         ;; Perl
-        ("Perl CPAN" . "http://search.cpan.org/search?mode=all&query=%s")
+        ("Perl_CPAN" . "http://search.cpan.org/search?mode=all&query=%s")
         ;; PHP
-        ("PHP online documentation" . "http://cn2.php.net/results.php?q=%s&p=manual")
+        ("PHP_online_documentation" . "http://cn2.php.net/results.php?q=%s&p=manual")
         ;; Bug
         ("Bugzilla" . "http://bugzilla/show_bug.cgi?id=%s")
         ;; Book
-        ("DouBan Books" . "http://book.douban.com/subject_search?search_text=%s")
+        ("DouBan_Books" . "http://book.douban.com/subject_search?search_text=%s")
         ;; Movie
-        ("DouBan Movies" . "http://movie.douban.com/subject_search?search_text=%s")
+        ("DouBan_Movies" . "http://movie.douban.com/subject_search?search_text=%s")
         ;; The Pirate Bay
-        ("The Pirate Bay" . "http://thepiratebay.se/search/%s")
+        ("The_Pirate_Bay" . "http://thepiratebay.se/search/%s")
         ;; Shopping
         ("TaoBao" . "http://s.taobao.com/search?q=%s")
         ))
