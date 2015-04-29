@@ -260,13 +260,13 @@
                     :bold t :slant 'normal
                     :box '(:color "#444444" :line-width 1)
                     )
-(set-face-attribute 'org-block nil
-                    :foreground nil :background "black"
-                    )
-;; TODO:
-;; (set-face-attribute 'org-block nil        ; selected line color in code block begin/end line.
-;;                     :foreground "white" :background "#004A5D"
+;; seems face `org-block-background' is removed from commit: f8b42e8ebeeecdef59a8a7cbc4324264a5162197 , because it is slower for fontify.
+;; (set-face-attribute 'org-block-background nil
+;;                     :foreground nil :background "#222222"
+;;                     :foreground nil :background "#004A5D"
 ;;                     )
+
+
 ;; code face => ~code~,  #+RESULTS: : result.
 (set-face-attribute 'org-code nil
                     :background "#222222" :foreground "orange"
