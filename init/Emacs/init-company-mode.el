@@ -20,9 +20,10 @@
 
 (require 'company)
 
-(setq-default company-minimum-prefix-length 3   ; minimum prefix character number for auto complete.
-              company-idle-delay 0.5
-              company-echo-delay 0      ; avoid annoying blinking
+(setq-default company-minimum-prefix-length 2   ; minimum prefix character number for auto complete.
+              company-idle-delay 0.3
+              company-echo-delay 0
+              ;; company-show-numbers t
               company-tooltip-align-annotations t ; align annotations to the right tooltip border.
               company-tooltip-limit 10          ; tooltip candidates max limit.
               company-tooltip-minimum 6         ; minimum candidates limit.
