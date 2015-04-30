@@ -314,6 +314,53 @@
       company-tooltip-minimum-width 0
       company-tooltip-offset-display 'scrollbar)
 
+
+
+;;; company-elisp
+
+(setq company-elisp-detect-function-context t ; offer Lisp functions only in appropriate contexts.
+      company-elisp-show-locals-first t
+      )
+
+
+;;; company-dabbrev
+
+(setq company-dabbrev-minimum-length 2)
+
+
+;;; company-etags
+
+
+;;; company-gtags
+
+;; (setq company-gtags-modes '(prog-mode jde-mode))
+
+
+;;; company-bbdb
+
+(setq company-bbdb-modes '(message-mode
+                           mu4e-compose-mode org-mu4e-compose-org-mode
+                           org-mode))
+
+
+;;; company-clang
+
+;; (setq company-clang-arguments
+;;       company-clang-prefix-guesser 'company-clang-guess-prefix
+;;       )
+
+(setq company-clang-begin-after-member-access t)
+
+
+;;; company-irony
+
+
+
+;;; company-go
+
+(setq company-go-begin-after-member-access t
+      company-go-show-annotation t)
+
 
 (provide 'init-company-mode)
 
