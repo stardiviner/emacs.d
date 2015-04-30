@@ -67,23 +67,16 @@
 
 (require 'pos-tip)
 
-;; TODO: set popup items properties.
-;; - face: popup-face
-;; - selection-face: popup-selection-face
-;; - document:
-;; - summary:
-;; - symbol:
-;; - sublist:
-
-(setq pos-tip-background-color "dim gray" ; "light yellow",
-      pos-tip-foreground-color "black"
+(setq pos-tip-use-relative-coordinates t
       ;; pos-tip-frame-offset
       ;; pos-tip-frame-offset-array
-      pos-tip-use-relative-coordinates nil
       pos-tip-border-width 2
       pos-tip-internal-border-width 2
       ;; pos-tip-tab-width
       )
+
+(setq pos-tip-background-color "dim gray" ; "light yellow"
+      pos-tip-foreground-color "black")
 
 
 ;;; [ popup-pos-tip ]
