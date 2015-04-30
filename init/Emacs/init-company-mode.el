@@ -42,14 +42,14 @@
 ;;                                c-scope-operator c-electric-colon c-electric-lt-gt c-electric-slash))
 
 ;;; help document preview & popup
-;; (require 'company-quickhelp)
-;; (company-quickhelp-mode t)
-;; (setq company-quickhelp--delay 0.1)
+(require 'company-quickhelp)
+(company-quickhelp-mode t)
+(setq company-quickhelp--delay 0.1)
 
 (setq-default company-frontends '(company-pseudo-tooltip-unless-just-one-frontend
                                   company-preview-if-just-one-frontend
                                   company-echo-metadata-frontend
-                                  ;; company-quickhelp-frontend
+                                  company-quickhelp-frontend
                                   ))
 
 (setq-default company-backends '(company-capf
