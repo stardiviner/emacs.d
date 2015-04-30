@@ -307,7 +307,7 @@
          inf-ruby  ; pry
          rbenv ; chruby ; rvm
          ;; rcodetools
-         robe-mode helm-robe company-inf-ruby
+         robe-mode helm-robe
          rake rdoc-mode
          yard-mode ; omniref ; helm-rb
          ;; ruby-hash-syntax

@@ -470,18 +470,6 @@
 ;; (define-key my-inferior-ruby-map (kbd "C-p") 'pry-intercept)
 
 
-;;; [ company-inf-ruby ]
-
-;;; NOTE: Now that inf-ruby 2.4.0 supports `completion-at-point', this backend is deprecated.
-;;; You don't need to install anything extra, `company-capf' will work with inf-ruby.
-
-;; (require 'company-inf-ruby)
-;;
-;; (eval-after-load 'company
-;;   (add-to-list 'company-backends 'company-inf-ruby))
-
-
-
 ;;; [ ac-inf-ruby ]
 
 ;; (require 'ac-inf-ruby)
