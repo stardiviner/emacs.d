@@ -12,7 +12,21 @@
 ;; - [C-x d] -- dired (cond 'helm-mode (helm-mode-dired))
 ;; - [C-x C-d] -- simple entry list.
 ;; - [C-u C-x C-d] -- detail entry list.
+
 (require 'dired)
+
+;; `dired-do-shell-command' does not know (by default) how to handle some
+;; filetypes.
+(setq dired-guess-shell-alist-user
+      '(("\\.pdf\\'" (if (exec-installed-p "okular")
+                         "okular"
+                       "evince"))       ; PDF
+        ("\\.mm\\'" (if (exec-installed-p "freeplane")
+                        "freeplane"
+                      "freemind"))      ; Mind Maps
+        ("\\.tex\\'" "pdflatex")        ; TeX
+        ("\\.ods\\'\\|\\.xlsx?\\'\\|\\.docx?\\'\\|\\.csv\\'" "libreoffice") ; Office
+        ))
 
 
 ;;; [ direx ] --- direx.el is a simple directory explorer. It also works as a generic tree explore library.
