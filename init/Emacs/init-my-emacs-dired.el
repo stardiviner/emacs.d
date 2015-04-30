@@ -38,6 +38,16 @@
 (put 'dired-find-alternate-file 'disabled nil) ; key [a] in Dired.
 
 
+;; allow dired to be able to delete or copy a whole dir.
+(setq dired-recursive-copies 'always)
+(setq dired-recursive-deletes 'top) ; 'top means ask once
+
+;; Dired tries to guess a default target directory.
+;;
+;; This means: if there is a Dired buffer displayed in the next window, use its
+;; current directory, instead of this Dired buffer's current directory.
+;;
+(setq dired-dwim-target t)
 
 ;; How to make dired use the same buffer for viewing directory?
 (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file) ; was dired-advertised-find-file
