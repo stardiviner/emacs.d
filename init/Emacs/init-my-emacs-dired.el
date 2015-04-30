@@ -14,6 +14,9 @@
 ;; - [C-u C-x C-d] -- detail entry list.
 
 (require 'dired)
+(require 'dired-x)
+(require 'wdired)
+
 
 ;; `dired-do-shell-command' does not know (by default) how to handle some
 ;; filetypes.
