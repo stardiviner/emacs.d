@@ -85,6 +85,12 @@
 
 
 ;;; globally
+(setq company-global-modes t)
+;; (setq company-global-modes '(emacs-lisp-mode
+;;                              org-mode
+;;                              ruby-mode
+;;                              prog-mode))
+
 (add-hook 'after-init-hook 'global-company-mode)
 (diminish 'company-mode)
 ;;
@@ -119,12 +125,6 @@
 ;;                 css-mode-hook
 ;;                 ))
 ;;   (add-hook hook 'company-mode))
-
-(setq company-global-modes t)
-;; (setq company-global-modes '(emacs-lisp-mode
-;;                              org-mode
-;;                              ruby-mode
-;;                              prog-mode))
 
 ;; keybindings
 ;; (global-set-key (kbd "<tab>") 'company-complete)
