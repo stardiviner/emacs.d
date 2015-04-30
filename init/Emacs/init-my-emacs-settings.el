@@ -55,7 +55,7 @@
 ;; (auto-save-mode t)
 (setq auto-save-default t               ; create #autosave# files
       auto-save-list-file-prefix "~/.emacs.d/auto-save-list/.saves-"
-      auto-save-interval 200)
+      auto-save-interval 1000)
 
 
 ;; places
