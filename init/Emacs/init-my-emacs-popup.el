@@ -75,8 +75,8 @@
       ;; pos-tip-tab-width
       )
 
-(setq pos-tip-background-color "dim gray" ; "light yellow"
-      pos-tip-foreground-color "black")
+(setq pos-tip-background-color "#002630" ; '(color-darken-name (face-background 'default) 1)
+      pos-tip-foreground-color "dim gray")
 
 
 ;;; [ popup-pos-tip ]
