@@ -43,8 +43,8 @@
 
 ;;; help document preview & popup
 (require 'company-quickhelp)
-(company-quickhelp-mode 1)
 (setq company-quickhelp--delay 0.1)
+(company-quickhelp-mode 1)
 
 (setq-default company-frontends '(company-pseudo-tooltip-unless-just-one-frontend
                                   company-preview-if-just-one-frontend
@@ -165,7 +165,7 @@
 ;; help
 (define-key company-active-map (kbd "<f1>") 'company-show-doc-buffer)
 (if (functionp 'company-quickhelp--show)
-    (define-key company-active-map (kbd "M-h") 'company-quickhelp--show)
+    (define-key company-active-map (kbd "M-h") 'company-quickhelp--doc)
   (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
   )
 (define-key company-active-map (kbd "M-l") 'company-show-location)
