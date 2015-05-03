@@ -228,6 +228,32 @@ LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
             ))
 
 
+;;; [ bug-hunter ] -- Hunt down errors in elisp files.
+
+;;; The Bug Hunter is an Emacs library that finds the source of an error or
+;;; unexpected behavior inside an elisp configuration file (typically init.el or
+;;; .emacs).
+
+;;; Usage:
+;;
+;; - [M-x bug-hunter-init-file RET RET]
+;;     If your Emacs init file signals an error during startup, but you don’t know why, simply issue.
+;;
+;;
+;; For example, let’s say there’s something in your init file that’s loading the
+;; cl library, and you don’t want that. You know you’re not loading it yourself,
+;; but how can you figure out which external package is responsible for this
+;; outrage?
+;;
+;;   [M-x bug-hunter-init-file RET (featurep 'cl) RET]
+;;
+;; Finally, you can also use `bug-hunter-file' to hunt in other files.
+
+(require 'bug-hunter)
+
+
+
+
 
 (provide 'init-my-emacs-debug)
 

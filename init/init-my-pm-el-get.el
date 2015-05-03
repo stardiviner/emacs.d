@@ -43,6 +43,7 @@
        '(;; debug
          edebug-x
          ;; debuggs
+         bug-hunter
          ;; benchmark
          ;; benchmark-init
          ;; package
