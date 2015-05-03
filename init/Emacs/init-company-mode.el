@@ -186,7 +186,7 @@
 ;; help
 (define-key company-active-map (kbd "<f1>") 'company-show-doc-buffer)
 (if (functionp 'company-quickhelp--show)
-    (define-key company-active-map (kbd "M-h") 'company-quickhelp--doc)
+    (define-key company-active-map (kbd "M-h") 'company-quickhelp--show)
   (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
   )
 (define-key company-active-map (kbd "M-l") 'company-show-location)
