@@ -350,6 +350,9 @@ The `BUFFER' is the popwin catch pop private message buffer."
 ;;; sdcv
 (push '("*SDCV*" :position bottom :height 15) popwin:special-display-config)
 
+;;; shelldoc
+(push '("*Shelldoc*" :position top :height 15) popwin:special-display-config)
+
 ;; bm.el
 ;;; TODO:
 (push '(bm-show-mode :position bottom :height 15) popwin:special-display-config)

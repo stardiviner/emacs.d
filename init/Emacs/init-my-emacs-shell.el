@@ -125,6 +125,44 @@
 ;;           (lambda () (company-mode -1)))
 
 
+;;; [ shelldoc ] -- Improve edit shell command in minibuffer.
+
+;;; Usage:
+;;
+;; Now you can see man page when read-shell-command is invoked. e.g. M-x
+;; shell-command C-v / M-v to scroll the man page window. C-c C-s / C-c C-r to
+;; search the page.
+;;
+;; You can complete - (hyphen) option at point. Try to type C-i after insert -.
+;;
+;; - You may install new man page after shelldoc:
+;;     M-x shelldoc-clear-cache
+;; - shelldoc is working as a minor mode if you desire.
+;;   - eshell
+;;     (add-hook 'eshell-mode-hook 'shelldoc-minor-mode-on)
+;;   - sh-mode (editing shell script)
+;;     (add-hook 'sh-mode-hook 'shelldoc-minor-mode-on)
+;;   - M-x shell
+;;     (add-hook 'shell-mode-hook 'shelldoc-minor-mode-on)
+;; - To toggle shelldoc feature.
+;;   M-x shelldoc
+
+(require 'shelldoc)
+
+(setq shelldoc-keep-man-locale nil ; To show original man page initially. (probably english)
+      shelldoc-idle-delay 0.2
+      shelldoc-fuzzy-match-requires 2
+      )
+
+;; minor mode for eshell
+(add-hook 'eshell-mode-hook 'shelldoc-minor-mode-on)
+;; minor mode for sh-mode (editing shell script)
+(add-hook 'sh-mode-hook 'shelldoc-minor-mode-on)
+;; M-x shell -> shell-mode (inferior)
+(add-hook 'shell-mode-hook 'shelldoc-minor-mode-on)
+
+
+
 
 (provide 'init-my-emacs-shell)
 

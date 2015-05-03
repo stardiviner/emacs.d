@@ -125,6 +125,7 @@
          ;; shell
          ;; readline-complete (FIXME: depends on auto-complete)
          ;; eshell-manual
+         shelldoc
          ;; insert-shebang
          ;; others
          ;; guru-mode
