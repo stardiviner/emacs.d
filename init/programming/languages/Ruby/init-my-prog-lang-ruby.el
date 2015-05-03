@@ -440,26 +440,6 @@
   '(define-key inf-ruby-minor-mode-map (kbd "C-c C-s") 'inf-ruby-console-auto))
 
 
-;; (add-hook 'inf-ruby-mode-hook
-;;           (lambda ()
-;;             ;; company-robe
-;;             (make-local-variable 'company-backends)
-;;             (add-to-list 'company-backends 'company-robe)
-;;             ))
-
-;;; remove `company-robe' from `company-backends'
-;; (add-hook 'inf-ruby-mode-hook
-;;           (lambda ()
-;;             (set (make-local-variable 'company-backends)
-;;                  (remq 'company-capf company-backends))))
-;; or
-;; (add-hook 'robe-mode-on-hook
-;;           (lambda ()
-;;             (remove-hook 'completion-at-point-functions
-;;                          'robe-complete-at-point t)))
-
-;; (add-to-list 'ac-modes 'inf-ruby-mode) ; enable auto-complete (with robe-mode) for inf-ruby completion.
-
 
 ;;; [ pry (emacs-pry) ] -- Pry support within Emacs
 
