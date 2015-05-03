@@ -289,6 +289,7 @@
          ;; egg
          mo-git-blame
          diffview
+         helm-open-github
          ;; project
          projectile
          helm-projectile ; helm-project
