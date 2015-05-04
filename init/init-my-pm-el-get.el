@@ -135,6 +135,7 @@
          workgroups2
          ;; e2wm ne2wm
          ;; perspective
+         golden-ratio
          popwin
          zoom-window
          ;; minibuffer
