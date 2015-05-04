@@ -201,39 +201,8 @@
 
 (golden-ratio-mode 1)
 
-;;; Wide Screens
-;;
-;; If you use a large screen and have very wide frames golden-ratio makes very
-;; wide windows. This can be handled automatically by setting
-;; golden-ratio-auto-scale to true. This does a good job of keeping windows at a
-;; reasonable width regardless of how wide or narrow your frame size is. This
-;; works well on my laptop regardless of which monitor or LCD I happen to be
-;; using.
-
-(setq golden-ratio-auto-scale t)
-
-;; For those who wish for manual control, If golden-ratio-auto-scale is false,
-;; manual control can be exercised through the golden-ratio-adjust-factor
-;; variable. setting it to something less than 1 will cause the windows to be
-;; less wide. The golden-ratio-adjust function allows for experimentation with
-;; this value.
-;;
-;; [M-x golden-ratio-adjust]
-
-;; It is also possible to toggle between widescreen and regular width window
-;; sizing with
-;;
-;; [M-x golden-ratio-toggle-widescreen]
-
-;; The variable `golden-ratio-wide-adjust-factor' can be set to the adjustment
-;; value you desire the widescreen toggle to use.
-
-;; The following code will set up golden-ratio to adjust for a moderately wide
-;; screen and also allow toggling between normal, with an adjustment factor of
-;; 1, and wide with an adjustment factor of .8. For a very wide screen/frame of
-;; ~3400 px, .4 works well giving screens with a width ~100 columns wide.
-;;
-(setq golden-ratio-adjust-factor .8
+(setq golden-ratio-auto-scale t ; for wide screens
+      golden-ratio-adjust-factor .8 ; adjust factor
       golden-ratio-wide-adjust-factor .8)
 
 
