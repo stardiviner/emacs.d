@@ -67,6 +67,10 @@
 ;; (define-key my-programming-prefix-map (kbd "c") 'my-prog-code-map)
 (global-set-key (kbd "C-c c") 'my-prog-code-map)
 
+(unless (boundp 'my-prog-comment-map)
+  (define-prefix-command 'my-prog-comment-map))
+(global-set-key (kbd "M-;") 'my-prog-comment-map)
+
 (unless (boundp 'my-prog-help-document-map)
   (define-prefix-command 'my-prog-help-document-map))
 ;; (define-key my-programming-prefix-map (kbd "h") 'my-prog-help-document-map)

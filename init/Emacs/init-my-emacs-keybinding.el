@@ -137,6 +137,7 @@
         (magit-status-mode "#" "j")     ; magit-gh-pulls
         "C-c g"                         ; Git
         "C-c i"                         ; Inferior
+        "M-;"                           ; programming comment prefix
         "C-c D"                         ; Database
         "C-c T"                         ; Programming Tools
         "C-c o"                         ; Org-mode (global)

@@ -4,6 +4,9 @@
 
 
 ;;; Code:
+
+
+(define-key my-prog-comment-map (kbd "M-;") 'comment-dwim)
 
 
 ;;; Emacs default comment [M-;]
@@ -27,6 +30,27 @@
 (setq comment-annotation-keyword-list
       '("FIXME" "TODO" "BUG" "ISSUE" "ERROR" "OPTIMIZE" "HACK" "REFACTOR" "REVIEW"
         "NOTE" "NOTICE" "README"))
+
+
+;;; [ `comment-box' ]
+
+(define-key my-prog-comment-map (kbd "b") 'comment-box)
+
+(define-key my-prog-comment-map (kbd "f") 'comment-box-with-fill-column)
+
+(defun comment-box-with-fill-column (b e) ; begin, end
+  "Draw a box comment around the region of B and E.
+
+But arrange for the region to extend to at least the fill
+column. Place the point after the comment box."
+  (interactive "r")
+  (let ((e (copy-marker e t)))
+    (goto-char b)
+    (end-of-line)
+    (insert-char ? (- fill-column (current-column)))
+    (comment-box b e 1)
+    (goto-char e)
+    (set-marker e nil)))
 
 
 
