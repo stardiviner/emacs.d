@@ -189,31 +189,6 @@
 ;;  '(("\\(\\b\\sw[_a-zA-Z0-9]*:\\)\\(?:\\s-\\|$\\)" (1 font-lock-constant-face))))
 
 
-;; inline code face => src_ruby{require 'something'}
-;;
-;; (REGEXP . FACE)
-;;     Highlight REGEXP with FACE
-;; (REGEXP N FACE)
-;;     Highlight group N in REGEXP with FACE
-;; (REGEXP (N1 FACE1) (N2 FACE2) (N3 FACE3) …)
-;;     Highlight group Ni in REGEXP with FACEi
-;;
-;; src_lang[:header arguments]{code...}
-
-;; (font-lock-add-keywords 'org-mode
-;;                         '(("src_\\([^[{]+\\)\\(\\[:.*\\]\\){\\([^}]*\\)}"
-;;                            (1 '(:foreground "cyan" :weight 'bold :height 75)) ; "lang" part.
-;;                            (2 '(:foreground "gray" :height 70)) ; [:header arguments] part.
-;;                            (3 'org-code) ; "code..." part.
-;;                            )))
-
-;; ;;; @<kbd>C-h h@</kbd> inline key codes highlight
-;; (font-lock-add-keywords 'org-mode
-;;                         '(("@<kbd>\\([^@]*\\)@</kbd>" 1 'org-code)))
-
-;; (font-lock-add-keywords 'ruby-mode
-;;                         '(("")))
-
 
 ;;; [ ruby-hash-syntax ] -- automatically convert the selected region of ruby code between 1.8 and 1.9 hash styles.
 
@@ -226,7 +201,7 @@
 (define-key my-prog-code-map (kbd "c") 'ruby-toggle-hash-syntax) ; convert
 
 
-;;; [ ruby-block ]
+;;; [ ruby-block ] -- highlight matching block
 
 ;; (require 'ruby-block)
 ;;
@@ -237,23 +212,6 @@
 
 ;;; [ ruby-end ]
 
-
-
-;;; [ ruby-electric ] -- NOTE: this has been merged into `ruby-mode'.
-
-;; (require 'ruby-electric)
-
-;; (add-hook 'ruby-mode-hook 'ruby-electric-mode)
-
-;; FIXME:
-;; (remove-hook 'ruby-mode-hook 'ruby-electric-mode)
-;;
-;; (add-hook 'ruby-mode-hook
-;;           (lambda ()
-;;             (require 'ruby-electric)
-;;             (autopair-mode -1) ; conflict with ruby-electric.
-;;             (ruby-electric-mode t) ; already autoload by el-get?
-;;             ))
 
 
 
@@ -461,36 +419,6 @@
 ;;
 ;; (define-key my-inferior-ruby-map (kbd "p") 'run-pry)
 ;; (define-key my-inferior-ruby-map (kbd "C-p") 'pry-intercept)
-
-
-;;; [ ac-inf-ruby ]
-
-;; (require 'ac-inf-ruby)
-
-;; ;;; for Ruby buffers. {Ruby}
-;; (add-hook 'ruby-mode-hook
-;;           (lambda ()
-;;             (eval-after-load 'auto-complete
-;;               (add-to-list 'ac-sources 'ac-source-inf-ruby))
-;;             (add-hook 'inf-ruby-minor-mode-hook 'ac-inf-ruby-enable)
-;;             ))
-
-;; ;;; for inf-ruby buffer. (Inf-Ruby)
-;; (eval-after-load 'auto-complete
-;;   (add-to-list 'ac-modes 'inf-ruby-mode))
-;; (add-hook 'inf-ruby-mode-hook 'ac-inf-ruby-enable)
-;; (eval-after-load 'inf-ruby
-;;   (define-key inf-ruby-mode-map (kbd "TAB") 'auto-complete))
-
-
-;;; [ auto-complete-ruby ]
-
-;; (require 'auto-complete-ruby)
-
-
-;;; [ rcodetools ]
-
-;; (require 'rcodetools)
 
 
 ;;; [ Robe ] -- Code navigation, documentation lookup and completion for Ruby.
