@@ -219,10 +219,11 @@
 
 ;;; Usage:
 ;;
-;; Then select a block of ruby code containing a hash literal (perhaps using
-;; mark-sexp), and run the `ruby-toggle-hash-syntax' command:
+;; - region + `ruby-toggle-hash-syntax'
 
-;; (require 'ruby-hash-syntax)
+(require 'ruby-hash-syntax)
+
+(define-key my-prog-code-map (kbd "c") 'ruby-toggle-hash-syntax) ; convert
 
 
 ;;; [ ruby-block ]

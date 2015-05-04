@@ -304,6 +304,7 @@
          ruby-mode
          enh-ruby-mode
          ;; ruby-block
+         ruby-hash-syntax
          yari
          ;; auto-complete-ruby ; (conflict with robe-mode?)
          ruby-compilation
