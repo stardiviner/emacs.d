@@ -810,10 +810,17 @@
 
 
 
-;;; [ ruby-tools ]
+;;; [ yard-mode ] --- Minor mode for Ruby YARD comments
+
+(add-hook 'ruby-mode-hook 'yard-mode)
+(add-hook 'enh-ruby-mode-hook 'yard-mode)
+
+;;; If you would also like eldoc support, so that the expected syntax for the
+;;; tag beneath your cursor is displayed in the minibuffer, add that hook too:
+(add-hook 'ruby-mode-hook 'eldoc-mode)
 
 
-;;; [ yard-mode ] --- Minor mode for Ruby YARD comments
+;;; [ doxymacs-yard ]
 
 
 ;;; [ ruby-lint ]
