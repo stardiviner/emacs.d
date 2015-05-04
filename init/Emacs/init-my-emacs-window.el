@@ -197,13 +197,13 @@
 ;; - [M-x golden-ratio-mode] :: toggle `golden-ratio-mode'.
 ;; - [M-x golden-ratio-toggle-widescreen] :: toggle between widescreen and regular width window.
 
-(require 'golden-ratio)
-
-(golden-ratio-mode 1)
-
-(setq golden-ratio-auto-scale t ; for wide screens
-      golden-ratio-adjust-factor .8 ; adjust factor
-      golden-ratio-wide-adjust-factor .8)
+;; (require 'golden-ratio)
+;;
+;; (golden-ratio-mode 1)
+;;
+;; (setq golden-ratio-auto-scale t ; for wide screens
+;;       golden-ratio-adjust-factor .8 ; adjust factor
+;;       golden-ratio-wide-adjust-factor .8)
 
 
 ;;; [ popwin ] -- Popup Window Manager for Emacs (*always* shows upon minibuffer)
