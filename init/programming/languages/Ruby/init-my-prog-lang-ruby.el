@@ -201,6 +201,25 @@
 (define-key my-prog-code-map (kbd "c") 'ruby-toggle-hash-syntax) ; convert
 
 
+;;; [ ruby-tools ] -- Ruby tools is a collection of handy functions for Emacs ruby-mode.
+
+;;; Ruby tools is a collection of handy functions for Emacs ruby-mode. You can
+;;; turn a string to symbol, symbol to string, single to double quote string,
+;;; double to single quote string, clear string, interpolate and more...
+
+;;; Usage:
+;;
+;; (the | represents the point position)
+;; - [C-'] :: convert symbol -> string, e.g. foo(|:bar)
+;; - [C-:] :: convert string -> symbol, e.g. foo(|'bar')
+;; - [C-"] :: convert single quote string to double quote string.
+;; - [C-'] :: convert double quote string to single quote string.
+;; - [C-;] :: clear string content
+;; - [#]   :: string interpolation
+
+(require 'ruby-tools)
+
+
 ;;; [ ruby-block ] -- highlight matching block
 
 ;; (require 'ruby-block)
