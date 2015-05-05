@@ -45,7 +45,20 @@
 
 (add-hook 'prog-mode-hook 'highlight-symbol-mode)
 
-(define-key my-search-prefix-map (kbd "h") 'highlight-symbol-at-point)
+;; setting up keybindings
+(unless (boundp 'my-highlight-symbol-prefix)
+  (define-prefix-command 'my-highlight-symbol-prefix))
+(define-key my-search-prefix-map (kbd "h") 'my-highlight-symbol-prefix)
+
+(define-key my-highlight-symbol-prefix (kbd "h") 'highlight-symbol-at-point)
+(define-key my-highlight-symbol-prefix (kbd "n") 'highlight-symbol-next)
+(define-key my-highlight-symbol-prefix (kbd "p") 'highlight-symbol-prev)
+(define-key my-highlight-symbol-prefix (kbd "l") 'highlight-symbol-list-all)
+(define-key my-highlight-symbol-prefix (kbd "o") 'highlight-symbol-occur)
+(define-key my-highlight-symbol-prefix (kbd "C") 'highlight-symbol-count)
+(define-key my-highlight-symbol-prefix (kbd "r") 'highlight-symbol-query-replace)
+(define-key my-highlight-symbol-prefix (kbd "u") 'highlight-symbol-remove-all)
+(define-key my-highlight-symbol-prefix (kbd "m") 'highlight-symbol-nav-mode)
 
 
 ;;; highlight-quoted
