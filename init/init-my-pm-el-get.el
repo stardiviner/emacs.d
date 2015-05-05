@@ -142,7 +142,7 @@
          eldoc-eval
          ;; edit
          undo-tree
-         multiple-cursors
+         multiple-cursors iedit
          expand-region
          edit-server ; edit-server-htmlize
          ;; unicode

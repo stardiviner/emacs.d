@@ -262,7 +262,8 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;;   (add-hook hook (lambda ()
 ;;                    (turn-on-auto-capitalize-mode))))
 
-;;;_ Iedit -- Edit multiple regions simultaneously in a buffer or a region
+
+;;;_ [ iedit ] -- Edit multiple regions simultaneously in a buffer or a region
 ;;;
 ;;; This package includes Emacs minor modes (iedit-mode and
 ;;; iedit-rectangle-mode) based on a API library (iedit-lib) and allows you to
@@ -272,10 +273,15 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;;
 ;; Normal scenario of Iedit mode is like:
 ;;
-;; - Highlight certain contents - by press C-; All occurrences of a symbol, string or a rectangle in the buffer or a region may be highlighted corresponding to current mark, point and prefix argument. Refer to the document of `iedit-mode’ for details.
+;; 1. Highlight certain contents - by press [C-;] All occurrences of a symbol,
+;;    string or a rectangle in the buffer or a region may be highlighted
+;;    corresponding to current mark, point and prefix argument. Refer to the
+;;    document of `iedit-mode’ for details.
 ;;
-;; - Edit one of the occurrences The change is applied to other occurrences simultaneously.
-;; - Finish - by pressing C-; again
+;; 2. Edit one of the occurrences The change is applied to other occurrences
+;;    simultaneously.
+;;
+;; 3. Finish - by pressing [C-;] again
 ;;
 ;; You can also use Iedit mode as a quick way to temporarily show only the
 ;; buffer lines that match the current text being edited. This gives you the
@@ -288,7 +294,10 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;; - Restricting symbols in current region can be done by pressing C-; again
 ;; - Last renaming refactoring is remembered and can be applied to other buffers later
 ;; - Restricting the search area to just the current line can be done by pressing M-I.
-;; - Restricting the search area to the lines near the current line can be done by pressing M-{ and M-}. These will expand the search region one line at a time from the top and bottom. Add a prefix argument to go the opposite direction.
+;; - Restricting the search area to the lines near the current line can be done
+;;   by pressing M-{ and M-}. These will expand the search region one line at a
+;;   time from the top and bottom. Add a prefix argument to go the opposite
+;;   direction.
 
 ;;; Iedit-rectangle-mode provides rectangle support with visible rectangle
 ;;; highlighting, which is similar with cua mode rectangle support. But it’s
@@ -298,6 +307,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;;; document of function `iedit-mode’ (C-h f iedit-mode RET) for more details.
 
 ;;; Usage:
+;;
 ;; - [C-h iedit-mode RET] -- to get help of iedit-mode
 ;; - [M-x iedit-mode]
 ;;
@@ -330,31 +340,34 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;; - mark a rectangle like Emacs rectangle with [C-@ / C-SPC].
 ;; - after marked the rectangle, then press [C-c C-;] to enable iedit rectangle mode, and highlight the rectangle.
 
-;; (require 'iedit)
+(require 'iedit)
 
-;; (autoload 'iedit-mode "Iedit" "Edit multiple regions with the same content simultaneously." t)
-;; (autoload 'iedit-rectangle-mode "Iedit rectangle" "Edit narrowed text." t)
+(autoload 'iedit-mode "Iedit" "Edit multiple regions with the same content simultaneously." t)
+(autoload 'iedit-rectangle-mode "Iedit rectangle" "Edit narrowed text." t)
 
-;; ;; (setq iedit-occurrence-face 'isearch)
+(setq iedit-occurrence-face 'isearch) ; 'highlight
 
-;; (defun iedit-dwim (arg)
-;;   "If ARG, start iedit but use \\[narrow-to-defun] to limit its scope."
-;;   (interactive "P")
-;;   (if arg
-;;       (iedit-mode)
-;;     (save-excursion
-;;       (save-restriction
-;;         (widen)
-;;         ;; this function determines the scope of `iedit-start'.
-;;         (if iedit-mode
-;;             (iedit-done)
-;;           ;; `current-word' can of course be replaced by other
-;;           ;; functions.
-;;           (narrow-to-defun)
-;;           (iedit-start (current-word) (point-min) (point-max)))))))
+(defun iedit-dwim (arg)
+  "If ARG, start iedit but use \\[narrow-to-defun] to limit its scope."
+  (interactive "P")
+  (if arg
+      (iedit-mode)
+    (save-excursion
+      (save-restriction
+        (widen)
+        ;; this function determines the scope of `iedit-start'.
+        (if iedit-mode
+            (iedit-done)
+          ;; `current-word' can of course be replaced by other
+          ;; functions.
+          (narrow-to-defun)
+          (iedit-start (current-word) (point-min) (point-max)))))))
+
+;; (global-set-key (kbd "C-;") 'iedit-mode)
+(define-key my-edit-prefix-map (kbd "e") 'iedit-dwim)
 
 
-;;;_ multiple-cursors
+;;;_ [ multiple-cursors ]
 
 ;;; Usage:
 ;;
