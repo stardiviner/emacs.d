@@ -70,10 +70,10 @@
 
 ;;; [ pydoc ]
 
-(eval-after-load 'python
-  '(if (featurep 'helm)
-       (define-key my-prog-help-document-map (kbd "d") 'helm-pydoc)
-     (define-key my-prog-help-document-map (kbd "d") 'pydoc)))
+;; (eval-after-load 'python
+;;   '(if (featurep 'helm)
+;;        (define-key my-prog-help-document-map (kbd "d") 'helm-pydoc)
+;;      (define-key my-prog-help-document-map (kbd "d") 'pydoc)))
 
 
 ;;; [ Inferior Python ]
@@ -108,7 +108,14 @@
 ;; ;;       )
 
 
-;;; [ company-jedi + jedi-core ]
+
+(eval-after-load 'jedi
+  '(if (functionp 'jedi:show-doc)
+       (define-key my-prog-help-document-map (kbd "d") 'jedi:show-doc)
+     (if (featurep 'helm)
+         (define-key my-prog-help-document-map (kbd "d") 'helm-pydoc)
+       (define-key my-prog-help-document-map (kbd "d") 'pydoc))))
+
 
 (require 'jedi-core)
 (require 'company-jedi)
