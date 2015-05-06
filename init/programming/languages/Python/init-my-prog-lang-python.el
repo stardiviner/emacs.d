@@ -73,7 +73,7 @@
 (if (featurep 'helm)
     (eval-after-load 'python-mode ; "python"
       '(progn
-         (define-key pythom-mode-map (kbd "C-h d") 'helm-pydoc))))
+         (define-key python-mode-map (kbd "C-h d") 'helm-pydoc))))
 
 
 ;;; [ Inferior Python ]
