@@ -122,6 +122,8 @@
 (require 'jedi-core)
 (require 'company-jedi)
 
+(jedi:start-server)
+
 (add-hook 'python-mode-hook 'company-jedi--setup)
 ;; (add-to-list 'company-backends 'company-jedi)
 
