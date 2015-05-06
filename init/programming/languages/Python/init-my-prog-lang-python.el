@@ -82,7 +82,7 @@
 ;; (run-python)
 
 
-;;; [ jedi ] --- a python auto-completion library.
+;;; [ jedi.el ] --- a python auto-completion library.
 
 ;; (require 'jedi)
 ;;
@@ -107,6 +107,14 @@
 ;; ;;       jedi:environment-virtualenv '("--python" "/PATH/TO/python3")
 ;; ;;       )
 
+
+;;; [ company-jedi + jedi-core ]
+
+(require 'jedi-core)
+(require 'company-jedi)
+
+(add-hook 'python-mode-hook 'company-jedi--setup)
+;; (add-to-list 'company-backends 'company-jedi)
 
 
 ;;; [ IPython ]
