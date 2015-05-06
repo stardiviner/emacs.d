@@ -71,7 +71,10 @@
         (switch-to-buffer bufname)
       (info topic bufname))))
 
-(global-set-key (kbd "C-h i") 'info-display-manual-in-buffer) ; replace default `info'.
+(if (featurep 'helm)
+    (global-set-key (kbd "C-h i") 'helm-info-at-point)
+  (global-set-key (kbd "C-h i") 'info-display-manual-in-buffer) ; replace default `info'.
+  )
 
 
 ;;; [ API docsets ]
