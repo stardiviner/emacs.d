@@ -337,7 +337,7 @@
          ;; python python-mode
          ;; jedi (FIXME: depends on auto-complete)
          ;; elpy
-         ;; helm-ipython
+         pydoc helm-pydoc
          ;; C family languages (C, C++, Go, D, F, Rust)
          ;; c-eldoc eassist
          irony-mode
