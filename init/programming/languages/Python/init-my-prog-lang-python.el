@@ -108,15 +108,6 @@
 ;; ;;       )
 
 
-
-(eval-after-load 'jedi
-  '(if (functionp 'jedi:show-doc)
-       (define-key my-prog-help-document-map (kbd "d") 'jedi:show-doc)
-     (if (featurep 'helm)
-         (define-key my-prog-help-document-map (kbd "d") 'helm-pydoc)
-       (define-key my-prog-help-document-map (kbd "d") 'pydoc))))
-
-
 ;;; [ company-jedi ]
 
 (require 'jedi-core)
@@ -130,6 +121,15 @@
             ))
 
 ;; (setq jedi:install-server--command '("pip" "install" "--upgrade" "/home/stardiviner/.emacs.d/el-get/jedi/" "--no-cache-dir"))
+
+
+
+(eval-after-load 'jedi-core
+  '(if (functionp 'jedi:show-doc)
+       (define-key my-prog-help-document-map (kbd "d") 'jedi:show-doc)
+     (if (featurep 'helm)
+         (define-key my-prog-help-document-map (kbd "d") 'helm-pydoc)
+       (define-key my-prog-help-document-map (kbd "d") 'pydoc))))
 
 
 ;;; [ IPython ]
