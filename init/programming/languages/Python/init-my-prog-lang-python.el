@@ -122,10 +122,12 @@
 (require 'jedi-core)
 (require 'company-jedi)
 
-(jedi:start-server)
-
-(add-hook 'python-mode-hook 'company-jedi--setup)
-;; (add-to-list 'company-backends 'company-jedi)
+(add-hook 'python-mode-hook
+          (lambda ()
+            (jedi:start-server)
+            (company-jedi--setup)
+            ;; (add-to-list 'company-backends 'company-jedi)
+            ))
 
 ;; (setq jedi:install-server--command '("pip" "install" "--upgrade" "/home/stardiviner/.emacs.d/el-get/jedi/" "--no-cache-dir"))
 
