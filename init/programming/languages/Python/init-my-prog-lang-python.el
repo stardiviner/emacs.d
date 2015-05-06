@@ -70,10 +70,10 @@
 
 ;;; [ pydoc ]
 
-(if (featurep 'helm)
-    (eval-after-load 'python-mode ; "python"
-      '(progn
-         (define-key python-mode-map (kbd "C-h d") 'helm-pydoc))))
+(eval-after-load 'python
+  '(if (featurep 'helm)
+       (define-key python-mode-map (kbd "C-h d") 'helm-pydoc)
+     (define-key python-mode-map (kbd "C-h d") 'pydoc)))
 
 
 ;;; [ Inferior Python ]
