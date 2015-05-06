@@ -116,12 +116,16 @@
          (define-key my-prog-help-document-map (kbd "d") 'helm-pydoc)
        (define-key my-prog-help-document-map (kbd "d") 'pydoc))))
 
+
+;;; [ company-jedi ]
 
 (require 'jedi-core)
 (require 'company-jedi)
 
 (add-hook 'python-mode-hook 'company-jedi--setup)
 ;; (add-to-list 'company-backends 'company-jedi)
+
+;; (setq jedi:install-server--command '("pip" "install" "--upgrade" "/home/stardiviner/.emacs.d/el-get/jedi/" "--no-cache-dir"))
 
 
 ;;; [ IPython ]

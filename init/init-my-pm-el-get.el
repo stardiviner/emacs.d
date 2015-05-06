@@ -335,8 +335,9 @@
          typed-clojure-mode
          ;; Python
          ;; python python-mode
-         jedi-core company-jedi
-         ;; jedi (depends on auto-complete)
+         jedi ; (depends on auto-complete)
+         ;; jedi-core
+         company-jedi
          ;; elpy
          pydoc helm-pydoc
          ;; C family languages (C, C++, Go, D, F, Rust)
