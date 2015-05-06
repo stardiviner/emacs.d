@@ -84,6 +84,11 @@
 
 ;;; [ jedi.el ] --- a python auto-completion library.
 
+;;; Usage:
+;;
+;; - (jedi:start-server)
+;; - (jedi:stop-server)
+
 ;; (require 'jedi)
 ;;
 ;; (add-hook 'python-mode-hook 'jedi:setup)
