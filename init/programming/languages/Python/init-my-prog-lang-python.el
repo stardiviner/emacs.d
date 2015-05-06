@@ -53,7 +53,7 @@
 
 ;;; [ python-mode ]
 
-;; (require 'python-mode)
+(autoload 'python-mode "python" "" t)
 
 ;; (add-hook 'python-mode-hook
 ;;           (lambda ()
