@@ -46,7 +46,7 @@
 (require 'python)
 
 (setq python-indent-offset 4
-      python-indent-guess-indent-offset t
+      ;; python-indent-guess-indent-offset t
       ;; python-shell-interpreter "python" ; "ipython", "bpython"
       )
 
