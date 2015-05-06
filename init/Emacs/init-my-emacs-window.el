@@ -424,6 +424,10 @@ The `BUFFER' is the popwin catch pop private message buffer."
 ;; FIXME: popwin can't capture this popup window. dive in ruby-compilation-mode source, it use Emacs built-in function window.el.gz -> `pop-to-buffer'.
 (push '(ruby-compilation-mode :position bottom :height 15) popwin:special-display-config)
 
+;;; jedi doc help
+(push '("*jedi:doc" :position bottom :height 15) popwin:special-display-config)
+(push '(rst-mode :position bottom :height 15) popwin:special-display-config)
+
 ;; octave help mode
 (push '(octave-help-mode :position bottom :height 15) popwin:special-display-config)
 
