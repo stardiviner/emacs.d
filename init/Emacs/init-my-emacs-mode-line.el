@@ -236,7 +236,7 @@
                  ;; global-mode-string
                  ;; (t org-mode-line-string org-timer-mode-line-string)
                  (t org-timer-mode-line-string) ; org-timer default time 25, (Pomodoro time management technique)
-                 face (:foreground "cyan"))
+                 face (:foreground "white"))
 
                 (:propertize mode-line-end-spaces)
 
