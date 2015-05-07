@@ -165,7 +165,140 @@
 ;;                   ("name" . ("beg" . "end"))))
 ;;         ))
 
-;;;_. Faces
+;;;_. Syntax Highlight: Faces
+
+;;;_ + effects
+;; web-mode-folded-face, web-mode-warning-face, web-mode-whitespace-face, web-mode-comment-keyword-face
+(set-face-attribute 'web-mode-folded-face nil
+                    :weight 'bold :slant 'italic)
+(set-face-attribute 'web-mode-warning-face nil
+                    :foreground "red")
+(set-face-attribute 'web-mode-whitespace-face nil
+                    :background "dark magenta")
+(set-face-attribute 'web-mode-comment-keyword-face nil
+                    :foreground "dark gray"
+                    :box '(:line-width 1))
+
+;;;_ + html
+;; web-mode-doctype-face, web-mode-html-tag-face, web-mode-html-tag-bracket-face, web-mode-html-attr-name-face, web-mode-html-attr-value-face, web-mode-html-attr-equal-face, web-mode-html-tag-custom-face, web-mode-attr-tag-custom-face
+(set-face-attribute 'web-mode-doctype-face nil
+                    :foreground "red" :background "dark red")
+(set-face-attribute 'web-mode-html-tag-face nil ; html tag
+                    :foreground "dark cyan"
+                    :background (color-darken-name (face-background 'default) 5)
+                    :box '(:color "black" :line-width -1)
+                    )
+(set-face-attribute 'web-mode-html-tag-bracket-face nil ; html tag bracket
+                    :inherit 'web-mode-html-tag-face
+                    :foreground "dim gray"
+                    )
+(set-face-attribute 'web-mode-html-tag-custom-face nil ; custom tags, e.g. <span-custom>
+                    :foreground "cyan")
+(set-face-attribute 'web-mode-html-attr-name-face nil ; attribute name
+                    :foreground "light cyan")
+(set-face-attribute 'web-mode-html-attr-equal-face nil ; attribute =
+                    :foreground "red")
+(set-face-attribute 'web-mode-html-attr-value-face nil ; attribute value
+                    :foreground "orange")
+(set-face-attribute 'web-mode-html-attr-custom-face nil ; custom attributes, e.g. data-content="".
+                    :foreground "green")
+
+;;;_ + json
+;; web-mode-json-key-face, web-mode-json-context-face, web-mode-json-string-face
+;; TODO:
+(set-face-attribute 'web-mode-json-key-face nil
+                    :foreground "dark red")
+(set-face-attribute 'web-mode-json-context-face nil
+                    :foreground "gray")
+(set-face-attribute 'web-mode-json-string-face nil
+                    :foreground "yellow3")
+
+;;;_ + css
+;; web-mode-css-at-rule-face, web-mode-css-property-name-face, web-mode-css-function-face, web-mode-css-priority-face, web-mode-css-pseudo-class-face, web-mode-css-selector-face, web-mode-css-string-face
+;; TODO:
+(set-face-attribute 'web-mode-css-selector-face nil ; e.g. .dialog
+                    :foreground "sky blue")
+(set-face-attribute 'web-mode-css-at-rule-face nil ; @media
+                    :foreground "turquoise")
+(set-face-attribute 'web-mode-css-property-name-face nil ; property: value
+                    :foreground "white")
+(set-face-attribute 'web-mode-css-function-face nil
+                    :foreground "yellow")
+(set-face-attribute 'web-mode-css-priority-face nil
+                    :foreground "red")
+(set-face-attribute 'web-mode-css-pseudo-class-face nil ; e.g. :hover
+                    :foreground "chocolate")
+(set-face-attribute 'web-mode-css-string-face nil
+                    :foreground "midnight blue")
+
+;;;_ + code
+;; web-mode-builtin-face, web-mode-comment-face, web-mode-constant-face, web-mode-filter-face, web-mode-function-call-face, web-mode-function-name-face, web-mode-keyword-face, web-mode-preprocessor-face, web-mode-string-face, web-mode-symbol-face, web-mode-type-face, web-mode-variable-name-face
+;; TODO:
+(set-face-attribute 'web-mode-keyword-face nil ; keywords: e.g. var, function
+                    :foreground "red3")
+(set-face-attribute 'web-mode-builtin-face nil
+                    :foreground "green")
+(set-face-attribute 'web-mode-comment-face nil ; /* comment */
+                    :foreground "dim gray")
+(set-face-attribute 'web-mode-constant-face nil ; constant
+                    :foreground "orange")
+(set-face-attribute 'web-mode-filter-face nil
+                    :foreground "blue")
+(set-face-attribute 'web-mode-function-call-face nil ; function call
+                    :foreground "cyan")
+(set-face-attribute 'web-mode-function-name-face nil ; function name
+                    :foreground "cyan3")
+(set-face-attribute 'web-mode-preprocessor-face nil
+                    :foreground "yellow")
+(set-face-attribute 'web-mode-string-face nil ; string. e.g. "hello"
+                    :foreground "yellow3")
+(set-face-attribute 'web-mode-symbol-face nil ; symbol.
+                    :foreground "deep pink")
+(set-face-attribute 'web-mode-type-face nil ; type.
+                    :foreground "sandy brown")
+(set-face-attribute 'web-mode-variable-name-face nil ; e.g. var name = "chris"
+                    :foreground "green yellow")
+
+;;;_ + block
+(setq web-mode-enable-block-face t)
+;; web-mode-block-control-face, web-mode-block-delimiter-face, web-mode-block-face (see web-mode-enable-block-face), web-mode-block-string-face, web-mode-block-comment-face
+;; TODO:
+(set-face-attribute 'web-mode-block-control-face nil
+                    :foreground "green")
+(set-face-attribute 'web-mode-block-delimiter-face nil
+                    :foreground "dark red")
+(set-face-attribute 'web-mode-block-face nil ; block. e.g. { color: #0aa; }
+                    :background (color-darken-name (face-background 'default) 4))
+(set-face-attribute 'web-mode-block-string-face nil ; block string
+                    :foreground "red")
+(set-face-attribute 'web-mode-block-comment-face nil ; block comment
+                    :foreground "dim gray")
+
+;;;_ + part
+;; web-mode-part-face (see web-mode-enable-part-face), web-mode-script-face, web-mode-style-face, web-mode-part-string-face, web-mode-part-comment-face, web-mode-javascript-string-face
+(setq web-mode-enable-part-face t)
+(set-face-attribute 'web-mode-part-face nil ; other parts in block
+                    :inherit 'web-mode-block-face
+                    :foreground "dark gray")
+(set-face-attribute 'web-mode-script-face nil ; <script> block
+                    :background "black")
+(set-face-attribute 'web-mode-style-face nil ; <style> block
+                    :background "#222222")
+(set-face-attribute 'web-mode-part-string-face nil ; part string
+                    :foreground "midnight blue")
+(set-face-attribute 'web-mode-part-comment-face nil ; part comment
+                    :foreground "dim gray")
+(set-face-attribute 'web-mode-javascript-string-face nil ; JavaScript string: "hello"
+                    :foreground "yellow3")
+
+;;;_ + content fontification
+;; web-mode-bold-face, web-mode-italic-face, web-mode-underline-face
+(set-face-attribute 'web-mode-bold-face nil
+                    :weight 'bold)
+(set-face-attribute 'web-mode-italic-face nil
+                    :slant 'italic)
+(set-face-attribute 'web-mode-underline-face nil
+                    :underline "#222222")
 
 ;;;_ , unicode symbols
 (setq web-mode-enable-block-face t
