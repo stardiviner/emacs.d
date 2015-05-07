@@ -566,20 +566,15 @@ to insert <kbd>..</kbd> (HTML) org =[..]= (Org-mode)."
 
 (add-hook 'org-mode-hook
           (lambda ()
-            (org-bullets-mode 1)
-            (defcustom org-bullets-bullet-list
-              '("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
-              "This variable contains the list of bullets.
-It can contain any number of symbols, which will be repeated."
-              :group 'org-bullets
-              :type '(repeat (string :tag "Bullet character")))
-
             (setq org-bullets-bullet-list
-                  '("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ"))
+                  '("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
+                  ;; '("❶" "❷" "❸" "❹" "❺" "❻" "❼" "❽" "❾" "❿")
+                  ;; '("①" "②" "③" "④" "⑤" "⑥" "⑦" "⑧" "⑨" "⑩")
+                  ;; '("㊀" "㊁" "㊂" "㊃" "㊄" "㊅" "㊆" "㊇" "㊈" "㊉")
+                  ;; '("㈠" "㈡" "㈢" "㈣" "㈤" "㈥" "㈦" "㈧" "㈨" "㈩")
+                  )
 
-            ;; (setq org-bullets-face-name "org-bullet-face")
-            ;; (set-face-attribute 'org-bullet-face nil
-            ;;                     :foreground "white" :background "black")
+            (org-bullets-mode 1)
             ))
 
 
