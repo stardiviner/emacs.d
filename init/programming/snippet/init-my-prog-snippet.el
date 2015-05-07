@@ -7,6 +7,7 @@
 
 
 ;;; [ YASnippet ] --- (template/snippet engine)
+
 ;; Usage:
 ;; - [TAB] -- \t, to expand and jump to next field.
 ;; - [<tab>] -- [tab],
@@ -289,24 +290,6 @@ $0"
                     )
 
 
-;;; enable YASnippet
-
-(yas-global-mode 1) ; or [M-x yas-reload-all] if you've started YASnippet already.
-
-;;
-;; use yas-minor-mode on a pre-buffer basis To use YASnippet as a non-global
-;; minor mode, replace (yas-global-mode 1) with (yas-reload-all) to load the
-;; snippet tables. Then add a call to (yas-minor-mode) to the major-modes where
-;; you to enable YASnippet.
-;; (dolist (hook
-;;          '(prog-mode-hook
-;;            org-mode-hook
-;;            ))
-;;   (add-hook hook '(lambda () (yas-minor-mode))))
-
-(setq yas-dont-activate '(minibufferp))
-
-
 ;; It will test whether it can expand, if yes, cursor color -> green.
 
 ;; (require 'cursor-chg)
@@ -336,9 +319,26 @@ $0"
 ;;; Python indent issue
 
 (add-hook 'python-mode-hook
-          '(lambda () (set (make-local-variable 'yas-indent-line) 'fixed)))
+          '(lambda ()
+             (set (make-local-variable 'yas-indent-line) 'fixed)))
 
+
+;;; enable YASnippet
 
+(setq yas-dont-activate '(minibufferp))
+
+(yas-global-mode 1) ; or [M-x yas-reload-all] if you've started YASnippet already.
+
+;;
+;; use yas-minor-mode on a pre-buffer basis To use YASnippet as a non-global
+;; minor mode, replace (yas-global-mode 1) with (yas-reload-all) to load the
+;; snippet tables. Then add a call to (yas-minor-mode) to the major-modes where
+;; you to enable YASnippet.
+;; (dolist (hook
+;;          '(prog-mode-hook
+;;            org-mode-hook
+;;            ))
+;;   (add-hook hook #'yas-minor-mode))
 
 (diminish 'yas-minor-mode)
 
