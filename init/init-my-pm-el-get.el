@@ -225,7 +225,8 @@
          ;; elfeed
          ;; tools
          ;; calfw sauron ; appt
-         gist ; yagist
+         ;; gist helm-gist
+         yagist
          ;; emms ; emms-get-lyrics
          ;; ampc
          ;; subprocess

@@ -25,21 +25,54 @@
 ;;      - gist-region-or-buffer-private
 
 
-(require 'gist)
+;; (require 'gist)
+;;
+;; (setq gist-view-gist t) ; view your Gist using `browse-url` after it is created.
+;;
+;; ;;; TODO: enable gist-mode in Org-mode.
+;; ;; FIXME: gist-mode enable will lead to Org-mode [C-x C-s] error.
+;;
+;; ;;; --------------------------------------------------
+;; (define-key paste-map (kbd "p") 'gist-region-or-buffer)
+;; (define-key paste-map (kbd "v") 'gist-region-or-buffer-private)
+;; (define-key paste-map (kbd "r") 'gist-region)
+;; (define-key paste-map (kbd "b") 'gist-buffer)
+;; (define-key paste-map (kbd "l") 'gist-list)
+;; ;;; --------------------------------------------------
 
-(setq gist-view-gist t) ; view your Gist using `browse-url` after it is created.
+
+;;; [ yagist ] -- Yet Another gist
 
-;;; TODO: enable gist-mode in Org-mode.
-;; FIXME: gist-mode enable will lead to Org-mode [C-x C-s] error.
+;;; Usage:
+;;
+;; - `yagist-list' :: list your gists in a new buffer.
+;; - `yagist-region' :: Copies Gist URL into the kill ring.
+;; - `yagist-region-private' :: Explicitly create a private gist.
+;; - `yagist-buffer' :: Copies Gist URL into the kill ring.
+;; - `yagist-buffer-private' :: Explicitly create a private gist.
+;; - `yagist-region-or-buffer' :: Post either the current region, or if mark is not set,
+;;                                the current buffer as a new paste at gist.github.com .
+;;                                Copies the URL into the kill ring.
+;;                                With a prefix argument, makes a private paste.
+;; - `yagist-region-or-buffer-private' :: Explicitly create a gist from the region or buffer.
+;; - `yagist-minor-mode' :: Automated POST current buffer contents to gist after saving.
+;; - `yagist-global-minor-mode' :: Open the file that under gist repository automatically activate `yagist-minor-mode'.
 
-;;; --------------------------------------------------
+(require 'yagist)
 
-(define-key paste-map (kbd "p") 'gist-region-or-buffer)
-(define-key paste-map (kbd "v") 'gist-region-or-buffer-private)
-(define-key paste-map (kbd "r") 'gist-region)
-(define-key paste-map (kbd "b") 'gist-buffer)
-(define-key paste-map (kbd "l") 'gist-list)
-;;; --------------------------------------------------
+;; *Encrypt your token by using `kaesar' package with AES encryption algorithm.
+;; (setq yagist-encrypt-risky-config t)
+
+(setq yagist-view-gist t ; view gist URL after posted.
+      yagist-working-directory "~/.gist"
+      ;; yagist-working-directory-alist
+      )
+
+(define-key paste-map (kbd "p") 'yagist-region-or-buffer)
+(define-key paste-map (kbd "v") 'yagist-region-or-buffer-private)
+(define-key paste-map (kbd "r") 'yagist-region)
+(define-key paste-map (kbd "b") 'yagist-buffer)
+(define-key paste-map (kbd "l") 'yagist-list)
 
 
 
