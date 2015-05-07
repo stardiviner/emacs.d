@@ -1041,6 +1041,13 @@ This is especially for create Org files."
 (define-key org-clock-mode-line-map [header-line mouse-2] 'org-clock-goto)
 (define-key org-clock-mode-line-map [header-line mouse-1] 'org-clock-menu)
 
+;; Modify the org-clock-in so that a timer is started with the default value
+;; except if a timer is already started:
+;;
+;; (add-hook 'org-clock-in-hook
+;;           '(lambda ()
+;;              (if (not org-timer-current-timer) ; FIXME: this variable seems not part of `org-timer'.
+;;                  (org-timer-set-timer '(16)))))
 
 ;;;_* org-timer
 
@@ -1049,13 +1056,6 @@ This is especially for create Org files."
 
 (setq org-timer-default-timer 25)       ; Pomodoro time management technique.
 (setq org-timer-display 'mode-line)
-
-;; Modify the org-clock-in so that a timer is started with the default value
-;; except if a timer is already started :
-(add-hook 'org-clock-in-hook
-          '(lambda ()
-             (if (not org-timer-current-timer)
-                 (org-timer-set-timer '(16)))))
 
 ;;;_*, effort estiname
 
