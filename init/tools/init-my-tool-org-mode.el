@@ -2129,6 +2129,12 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
       org-export-babel-evaluate t
       )
 
+;;;_ * Library of Babel
+
+;;; Usage:
+;;
+;; - `org-babel-lob-ingest' [C-c C-v i]
+
 ;;;_* Org LaTeX
 
 (setq org-babel-latex-htlatex t)
