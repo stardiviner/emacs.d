@@ -338,6 +338,39 @@
       company-tooltip-minimum-width 0
       company-tooltip-offset-display 'scrollbar)
 
+
+;;; [ company-statistics ] -- Sort completion candidates by previous completion choices.
+
+;;; Company-statistics is a global minor mode built on top of the in-buffer
+;;; completion system company-mode. The idea is to keep a log of a certain
+;;; number of completions you choose, along with some context information, and
+;;; use that to rank candidates the next time you have to choose — hopefully
+;;; showing you likelier candidates at the top of the list.
+
+;;; Design
+;;;
+;;; Company-statistics is an add-on for company-mode, but is only loosely
+;;; coupled to it (it works by adding a sorting function to
+;;; `company-transformers' as well as a handler to
+;;; `company-completion-finished-hook'). It is designed with some flexibility in
+;;; mind as for the recorded context information and the way candidates are
+;;; scored: the default pair of functions are only examples! The stats are
+;;; automatically persistent between sessions.
+
+;;; Usage:
+
+(require 'company-statistics)
+(company-statistics-mode)
+
+;; (add-hook 'after-init-hook 'company-statistics-mode)
+
+(setq company-statistics-auto-restore t
+      company-statistics-auto-save t
+      company-statistics-file "~/.emacs.d/.company-statistics-cache.el"
+      ;; company-statistics-score-calc 'company-statistics-score-calc-default
+      ;; company-statistics-score-change 'company-statistics-score-change-default
+      company-statistics-size 500
+      )
 
 
 ;;; company-elisp

@@ -96,7 +96,7 @@
          ;; ac-capf
          ;; ac-helm
          ;; ac-company
-         company-mode company-quickhelp
+         company-mode company-quickhelp company-statistics
          ;; color theme
          color-theme-solarized
          ;; color-theme-monokai ; color-theme-almost-monokai monokai-theme
