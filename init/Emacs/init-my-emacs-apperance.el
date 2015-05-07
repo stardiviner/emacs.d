@@ -220,17 +220,19 @@
 
 
 ;;; [ line number ]
-(line-number-mode 1)
-(column-number-mode 1)
 
 ;; display line numbers in margin
 ;; Linum: separating line numbers from text
 ;; (setq linum-format "%d ") ; 'dynamic
-(setq linum-format "%4d \u2502") ; a solid line separator
+;; (setq linum-format "%4d \u2502") ; a solid line separator
 ;; TODO: combine 'dynamic result with \u2502
 ;; (setq linum-format '(combine 'dynamic "\u2502"))
 
-;; (global-linum-mode 1) ; disable linum-mode because I display line number in mode line.
+;; (line-number-mode -1)
+;; (column-number-mode -1)
+
+;; disable linum-mode because I display line number in mode line.
+;; (global-linum-mode -1)
 
 
 ;;; [ current line & column ]
