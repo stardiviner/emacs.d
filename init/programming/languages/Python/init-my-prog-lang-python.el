@@ -129,12 +129,13 @@
 
 
 
-(eval-after-load 'jedi-core
-  '(if (functionp 'jedi:show-doc)
-       (define-key my-prog-help-document-map (kbd "d") 'jedi:show-doc)
-     (if (featurep 'helm)
-         (define-key my-prog-help-document-map (kbd "d") 'helm-pydoc)
-       (define-key my-prog-help-document-map (kbd "d") 'pydoc))))
+(add-hook 'python-mode-hook
+          (lambda ()
+            (if (functionp 'jedi:show-doc)
+                (local-set-key (kbd "C-h d d") 'jedi:show-doc)
+              (if (featurep 'helm)
+                  (local-set-key (kbd "C-h d d") 'helm-pydoc)
+                (local-set-key (kbd "d") 'pydoc)))))
 
 
 ;;; [ IPython ]
