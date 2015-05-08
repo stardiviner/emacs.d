@@ -995,48 +995,57 @@ This is especially for create Org files."
 
 ;;;_* Dates and Times
 
+;;;_* org-timer
+
+(eval-after-load "org"
+  (lambda ()
+    (require 'org-timer)
+    (add-to-list 'org-modules 'org-timer)
+    ))
+
+(setq org-timer-default-timer 25)       ; Pomodoro time management technique.
+(setq org-timer-display 'mode-line)
 
 ;;;_* Clock
 
 (require 'org-clock)
 
-;; (org-clock-persistence-insinuate)
-;; to save the clock history across Emacs sessions.
-(setq org-clock-persist t
-      org-clock-persistence-insinuate t
-      org-clock-in-resume t    ; resume when clock in.
-      org-clock-into-drawer t  ; Save clock data and notes in the LOGBOOK drawer
-      org-clock-out-remove-zero-time-clocks t ; Removes clocked tasks with 0:00 duration
-      )
-
-;; Change task state to STARTED when clocking in
-(setq org-clock-in-switch-to-state "STARTED"
-      ;; TODO: org-clock-heading ""
-      ;; TODO: use a sound file.
-      org-clock-sound t
-      ;; org-clock-task-overrun
-      org-clock-continuously nil ; don't continue on last clock out.
-      ;; org-clock-persist-file
-      ;; org-clock-leftover-time
-      org-clock-out-when-done t
-      org-clock-mode-line-total 'auto
-      org-clock-mode-line-entry t
-      ;; org-clock-task-overrun-text
+(setq org-clock-persist t ; nil, t, 'clock, 'history
       org-clock-persist-query-save t
       org-clock-persist-query-resume t
-      org-clock-clocked-in-display 'frame-title ; 'mode-line, 'frame-title, 'both, nil.
-      ;; TODO: add clock in display into my custom mode-line.
+      org-clock-persist-file "~/.emacs.d/org-clock-save.el"
+      org-clock-in-resume t    ; resume when clock in.
+      org-clock-continuously nil ; don't continue on last clock out.
+      org-clock-in-switch-to-state "STARTED"
+      org-clock-out-when-done t         ; clock will stop when task marked DONE.
+      org-clock-into-drawer t  ; Save clock data and notes in the :LOGBOOK: drawer
+      org-clock-out-remove-zero-time-clocks t ; Removes clocked tasks with 0:00 duration
+      org-clock-sound "~/.emacs.d/resources/audio/Ingress/Speech/speech_hacking.ogg"
+      org-clock-clocked-in-display 'mode-line ; 'mode-line, 'frame-title, 'both, nil.
+      ;; org-clock-mode-line-entry t
+      org-clock-mode-line-total 'auto
+      ;; org-clock-clocktable-language-setup
+      ;; org-clock-leftover-time
+      ;; org-clock-task-overrun
+      ;; org-clock-task-overrun-text
       ;; org-clock-clocktable-default-properties '(:maxlevel 2 :scope file)
       org-clock-report-include-clocking-task t
       ;; org-agenda-clockreport-mode
       ;; org-agenda-start-with-clockreport-mode t
       org-clock-goto-may-find-recent-task t
       ;; org-clock-total-time-cell-format "*%s*"
+      org-clock-idle-time nil             ; t
+      ;; org-clock-auto-clock-resolution 'when-no-clock-is-running
+      ;; org-clock-resolve-expert t
       )
+
+;;; To save the clock history across Emacs sessions, use
+;; (setq org-clock-persist 'history)
+(org-clock-persistence-insinuate)
 
 ;; to add an effort estimate "on the fly".
 (add-hook 'org-clock-in-prepare-hook 'org-clock-modify-effort-estimate)
-(add-hook 'org-clock-out-hook 'org-clock-remove-empty-clock-drawer)
+;; (add-hook 'org-clock-out-hook 'org-clock-remove-empty-clock-drawer) ; `org-clock-out-remove-zero-time-clocks'
 
 (define-key org-clock-mode-line-map [header-line mouse-2] 'org-clock-goto)
 (define-key org-clock-mode-line-map [header-line mouse-1] 'org-clock-menu)
@@ -1048,14 +1057,6 @@ This is especially for create Org files."
 ;;           '(lambda ()
 ;;              (if (not org-timer-current-timer) ; FIXME: this variable seems not part of `org-timer'.
 ;;                  (org-timer-set-timer '(16)))))
-
-;;;_* org-timer
-
-;; (require 'org-timer)
-;; (add-to-list 'org-modules 'org-timer)
-
-(setq org-timer-default-timer 25)       ; Pomodoro time management technique.
-(setq org-timer-display 'mode-line)
 
 ;;;_*, effort estiname
 
