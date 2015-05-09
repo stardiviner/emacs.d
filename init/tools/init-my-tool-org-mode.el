@@ -2561,7 +2561,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 (require 'alert)
 (require 'org-pomodoro)
 
-(define-key my-org-prefix-map (kbd "g") 'org-pomodoro)
+(define-key my-org-prefix-map (kbd "p") 'org-pomodoro)
 
 ;;;_* org-doing
 
@@ -2922,8 +2922,8 @@ This function will promote all items in a subtree."
       (vr/isearch-forward)
     (isearch-forward-regexp)))
 
-;; (define-key my-org-prefix-map (kbd "p") 'org-passwords)
-(define-key my-org-prefix-map (kbd "p") 'my-org-passwords-search)
+;; (define-key my-org-prefix-map (kbd "P") 'org-passwords)
+(define-key my-org-prefix-map (kbd "P") 'my-org-passwords-search)
 
 
 
