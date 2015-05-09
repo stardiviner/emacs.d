@@ -2561,6 +2561,15 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 (require 'alert)
 (require 'org-pomodoro)
 
+(setq org-pomodoro-audio-player "/usr/bin/mplayer"
+      org-pomodoro-play-sounds t
+      org-pomodoro-play-start-sound t
+      org-pomodoro-play-ticking-sounds t
+      ;; org-pomodoro-ticking-sound
+      org-pomodoro-ticking-sound-args "-volume 50" ; adjust ticking sound volume
+      org-pomodoro-format "Pomodoro~%s" ; mode-line string
+      )
+
 (define-key my-org-prefix-map (kbd "p") 'org-pomodoro)
 
 ;;;_* org-doing
