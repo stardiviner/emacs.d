@@ -179,11 +179,27 @@
 
 ;;; Faces
 (set-face-attribute 'guide-key/key-face nil
-                    :foreground "red")
+                    :foreground "dark red")
 (set-face-attribute 'guide-key/prefix-command-face nil
-                    :foreground "cyan")
+                    :foreground "forest green")
 (set-face-attribute 'guide-key/highlight-command-face nil
-                    :foreground "white")
+                    :foreground "cyan")
+
+;; ("regexp" . face), ("regexp", "color")
+;; 
+(setq guide-key/highlight-prefix-regexp "prefix")
+(setq guide-key/highlight-command-regexp '(("rectangle\\|register\\|bookmark" . "white")
+                                           ("^bm-" . "white")
+                                           ("my-prog-" . "cyan"
+                                            ("my-" . "yellow"))))
+
+;; If mode specific setting, use `guide-key/add-local-highlight-command-regexp'.
+;;
+;; (add-hook 'c-mode-common-hook
+;;           (lambda ()
+;;             (guide-key/add-local-highlight-command-regexp '("^helm-" . warning))
+;;             (guide-key/add-local-highlight-command-regexp '("^projectile-" . error))
+;;             ))
 
 ;;; enable guide-key mode.
 (guide-key-mode 1)
