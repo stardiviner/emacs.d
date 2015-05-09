@@ -319,7 +319,7 @@
 ;;   - press [C-z], selected command is described without quiting.
 
 (require 'helm-descbinds)
-(helm-descbinds-mode 1)
+(helm-descbinds-mode)
 
 
 ;;; [ helm-themes ]
