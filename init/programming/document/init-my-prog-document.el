@@ -54,8 +54,11 @@
 
 ;;; [ Info ]
 
-(define-key my-prog-help-document-map (kbd "i") 'helm-info-at-point)
+(global-set-key (kbd "C-h i") 'info-display-manual)
 
+(if (featurep 'helm)
+    (define-key my-prog-help-document-map (kbd "i") 'helm-info-at-point)
+  )
 
 (defun info-display-manual-in-buffer (topic)
   "Display Info TOPIC in its own buffer."
@@ -71,10 +74,7 @@
         (switch-to-buffer bufname)
       (info topic bufname))))
 
-(if (featurep 'helm)
-    (global-set-key (kbd "C-h i") 'helm-info-at-point)
-  (global-set-key (kbd "C-h i") 'info-display-manual-in-buffer) ; replace default `info'.
-  )
+;; (global-set-key (kbd "C-h i") 'info-display-manual-in-buffer) ; FIXME: replace default `info'.
 
 
 ;;; [ API docsets ]

@@ -1346,6 +1346,19 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 (require 'org-agenda)
 
+;; agenda view
+(setq org-agenda-prefix-format
+      '((agenda . " %i %-12:c%?-12t% s")
+        (timeline . "  % s")
+        (todo . " %i %-12:c")
+        (search . " %i %-12:c")
+        (tags . " %i %-12:c")))
+(setq org-agenda-remove-times-when-in-prefix t
+      ;; org-agenda-remove-tags t
+      org-agenda-remove-tags-when-in-prefix t
+      ;; org-agenda-remove-timeranges-from-blocks
+      )
+
 (setq org-agenda-include-deadline t)
 (setq org-agenda-log-mode-items '(closed clock)
       org-agenda-log-mode-add-notes t
@@ -1494,18 +1507,6 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 (setq org-deadline-warning-days 7) ; determines how far in advance items with
                                         ; deadlines will show up in the agenda.
 (setq org-extend-today-until 3) ; I work late at night! Extend my current day past midnight.
-;; agenda view
-(setq org-agenda-prefix-format
-      '((agenda . " %i %-12:c%?-12t% s")
-        (timeline . "  % s")
-        (todo . " %i %-12:c")
-        (search . " %i %-12:c")
-        (tags . " %i %-12:c")))
-(setq org-agenda-remove-times-when-in-prefix t
-      ;; org-agenda-remove-tags t
-      org-agenda-remove-tags-when-in-prefix t
-      ;; org-agenda-remove-timeranges-from-blocks
-      )
 
 (setq org-agenda-window-setup 'current-window)
 (setq org-agenda-window-frame-fractions '(0.5 . 0.75)) ; the min and max height of the agenda window as a fraction of frame height.
