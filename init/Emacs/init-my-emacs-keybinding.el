@@ -98,8 +98,11 @@
 ;;; In respect of guide-key/guide-key-sequence, you can add mode specific key
 ;;; sequences without guide-key/add-local-guide-key-sequence. For example,
 ;;; configure as below.
+;; Enable setting `guide-key/guide-key-sequence' to `t' so that any key sequence will pop up bindings.
 (setq guide-key/guide-key-sequence
       '("C-h"                           ; document help lookup
+        "C-c"
+        "C-x"
         "C-x r"                         ; register, bookmark, etc
         "C-x 4"                         ; other window
         "C-x 5"                         ; other frame
@@ -110,6 +113,8 @@
         "C-x *"                         ; calc
         "C-x a"                         ; abbrev
         "C-x n"                         ; narrow
+        "M-s"                           ; some search utilities
+        "M-s h"                         ; highlight
         "C-c %"                         ; mmm-mode
         "C-c e"                         ; edit (multiple-cursor, narrow, ...)
         "C-c r"                         ; regexp prefix map
@@ -158,8 +163,6 @@
         (ruby-mode "C-c") ; Ruby yari mode.
         (rinari-minor-mode "C-c ;" "C-c '") ; Rinari minor mode.
         ))
-
-(setq guide-key/highlight-command-regexp "rectangle\\|register\\|bookmark")
 
 ;;; change guide-key popup style in popwin.el
 (setq guide-key/popup-window-position 'bottom
