@@ -60,3 +60,4 @@ emms/
 /org-clock-save.el
 /.edbi-ds-history
 image-dired/
+/.company-statistics-cache.el
