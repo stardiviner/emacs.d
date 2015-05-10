@@ -1,0 +1,13 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: add face
+# key: face_add
+# --
+(defface ${1:face name}
+  '((nil (${2:face attributes})))
+  "${3:docstring for face}"
+  :group '${4:face group})
+
+(font-lock-add-keywords
+ '${5:mode}
+ '(("${6:face match regexp}"
+    (${7:match part, e.g. 1} '$1))))
