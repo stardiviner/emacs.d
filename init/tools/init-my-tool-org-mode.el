@@ -1586,8 +1586,30 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 (setq org-agenda-timegrid-use-ampm nil)
 (setq org-agenda-show-current-time-in-grid t)
 
-;; TODO:
-;; (setq org-agenda-category-icon-alist)
+;; How to make icon with GIMP?
+;;
+;; 1. "scale" image to [16x16] pixels.
+;; 2. export to .xpm format. (or .png)
+(setq org-agenda-category-icon-alist '(("Org" "~/.emacs.d/resources/icon/Org.xpm" nil nil :ascent center)
+                                       ("Emacs" "~/.emacs.d/resources/icon/Emacs.xpm" nil nil :ascent center)
+                                       ("Daily" '(space . (:width (16)))) ; to display a 16px horizontal space
+                                       ("Learning"  "~/.emacs.d/resources/icon/Org.xpm" nil nil :ascent center)
+                                       ("Linux" "~/.emacs.d/resources/icon/Linux.xpm" nil nil :ascent center)
+                                       ("GNU" "~/.emacs.d/resources/icon/GNU.xpm" nil nil :ascent center)
+                                       ("Arch" "~/.emacs.d/resources/icon/Arch.xpm" nil nil :ascent center)
+                                       ("Ubuntu" "~/.emacs.d/resources/icon/Ubuntu.xpm" nil nil :ascent center)
+                                       ("Android" "~/.emacs.d/resources/icon/Android.xpm" nil nil :ascent center)
+                                       ("Lisp" "~/.emacs.d/resources/icon/common-lisp.xpm" nil nil :ascent center)
+                                       ("Scheme" "~/.emacs.d/resources/icon/Scheme.xpm" nil nil :ascent center)
+                                       ("Ruby" "~/.emacs.d/resources/icon/Ruby.xpm" nil nil :ascent center)
+                                       ("Rails" "~/.emacs.d/resources/icon/Rails.xpm" nil nil :ascent center)
+                                       ("Python" "~/.emacs.d/resources/icon/Python.xpm" nil nil :ascent center)
+                                       ("HTML5" "~/.emacs.d/resources/icon/HTML5.xpm" nil nil :ascent center)
+                                       ("PHP" "~/.emacs.d/resources/icon/PHP.xpm" nil nil :ascent center)
+                                       ("GitHub" "~/.emacs.d/resources/icon/GitHub Logo.xpm" nil nil :ascent center)
+                                       ("GFW" "~/.emacs.d/resources/icon/GFW.xpm" nil nil :ascent center)
+                                       (".*" '(space . (:width (16))))
+                                       ))
 
 ;;;_* about TODO tasks
 
