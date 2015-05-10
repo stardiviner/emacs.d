@@ -52,10 +52,10 @@
                                   company-quickhelp-frontend
                                   ))
 
-(setq-default company-backends '(company-capf
-                                 company-yasnippet
+(setq-default company-backends '((company-yasnippet company-capf company-keywords)
+                                 company-template ; ???
+                                 ;; company-tempo ; ???
                                  (company-gtags company-etags)
-                                 company-keywords
                                  company-elisp ; Emacs Lisp
                                  ;; company-semantic ; C/C++
                                  (company-clang  company-cmake) ; C/C++
@@ -66,11 +66,9 @@
                                  company-bbdb ; BBDB
                                  (company-dabbrev-code company-dabbrev company-abbrev) ; abbrev
                                  company-files ; files & directory
+                                 ;; company-ispell ; Ispell
                                  ;; company-oddmuse ; wiki
-                                 ;; company-ispell
                                  ))
-
-
 
 ;;; mode local backends example:
 ;; (add-hook 'js-mode-hook
