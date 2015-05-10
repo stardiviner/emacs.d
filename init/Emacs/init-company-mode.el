@@ -52,24 +52,37 @@
                                   company-quickhelp-frontend
                                   ))
 
-(setq-default company-backends '((company-yasnippet company-capf company-keywords)
-                                 company-tempo ; flexible template insertion
+(setq-default company-backends '((company-yasnippet
+                                  company-capf company-keywords
+                                  company-tempo ; flexible template insertion
+                                  )
                                  (company-gtags company-etags)
                                  company-elisp ; Emacs Lisp
                                  ;; company-semantic ; C/C++
-                                 ;; (company-clang  company-cmake) ; C/C++
+                                 (company-clang  company-cmake) ; C/C++
                                  ;; company-eclim ; Java
                                  ;; company-ropemacs ; Python
-                                 ;; company-nxml company-css ; HTML, CSS, XML
+                                 company-nxml company-css ; HTML, CSS, XML
                                  ;; company-xcode ; for Xcode projects
                                  company-bbdb ; BBDB
                                  (company-dabbrev-code company-dabbrev company-abbrev) ; abbrev
                                  company-files ; files & directory
-                                 ;; company-ispell ; Ispell
+                                 company-ispell ; Ispell
                                  ;; company-oddmuse ; wiki
                                  ))
 
+;; (add-hook 'emacs-lisp-mode-hook
+;;           (lambda ()
+;;             (add-to-list (make-local-variable 'company-backends)
+;;                          'company-elisp)))
+
 ;;; mode local backends example:
+
+;; (add-hook 'c-mode-common-hook
+;;           (lambda ()
+;;             (add-to-list (make-local-variable 'company-backends)
+;;                          '(company-clang company-cmake))))
+
 ;; (add-hook 'js-mode-hook
 ;;           (lambda ()
 ;;             (set (make-local-variable 'company-backends)
