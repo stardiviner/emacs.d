@@ -135,6 +135,7 @@
          workgroups2
          ;; e2wm ne2wm
          ;; perspective
+         window-purpose
          golden-ratio
          popwin
          zoom-window
