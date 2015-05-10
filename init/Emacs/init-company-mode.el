@@ -53,7 +53,7 @@
                                   ))
 
 (setq-default company-backends '((company-yasnippet company-capf company-keywords)
-                                 company-tempo ; ???
+                                 company-tempo ; flexible template insertion
                                  (company-gtags company-etags)
                                  company-elisp ; Emacs Lisp
                                  ;; company-semantic ; C/C++
