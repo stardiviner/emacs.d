@@ -193,8 +193,8 @@
 (setq guide-key/highlight-prefix-regexp "prefix")
 (setq guide-key/highlight-command-regexp '(("rectangle\\|register\\|bookmark" . "white")
                                            ("^bm-" . "white")
-                                           ("my-prog-" . "cyan"
-                                            ("my-" . "yellow"))))
+                                           ("my-prog-" . "cyan")
+					   ("my-" . "yellow")))
 
 ;; If mode specific setting, use `guide-key/add-local-highlight-command-regexp'.
 ;;
