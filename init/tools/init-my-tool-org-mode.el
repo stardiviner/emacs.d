@@ -14,34 +14,25 @@
 (require 'org)
 
 (require 'org-faces)
-(require 'org-fstree)
 (require 'org-compat)
-;; (require 'org-structure)
 (require 'org-table)
-
+(require 'org-habit)
 (require 'org-timer)
 (require 'org-clock)
-(require 'org-habit)
-(require 'org-notify)
-
 (require 'org-pcomplete)
 
+(require 'org-plot)
 ;;; org-protocol need server start.
 (unless (server-running-p)
   (server-start))
 (require 'org-protocol)
 
-(require 'org-plot)
-
+(require 'ox-beamer)
 (require 'ox-latex)
 ;; (require 'ox-bibtex)
-(require 'ox-beamer)
 (require 'ox-odt)
 (require 'ox-html)
-;; (require 'ox-deck)
-;; (require 'ox-publish)
-;; (require 'ox-koma-letter)
-;; (require 'org-notmuch)
+(require 'ox-publish)
 
 ;; use Org-mode as the default mode for all README files.
 (add-to-list 'auto-mode-alist '("README$" . org-mode))
