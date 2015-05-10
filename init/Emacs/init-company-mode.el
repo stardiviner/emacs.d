@@ -53,8 +53,7 @@
                                   ))
 
 (setq-default company-backends '((company-yasnippet company-capf company-keywords)
-                                 company-template ; ???
-                                 ;; company-tempo ; ???
+                                 company-tempo ; ???
                                  (company-gtags company-etags)
                                  company-elisp ; Emacs Lisp
                                  ;; company-semantic ; C/C++
