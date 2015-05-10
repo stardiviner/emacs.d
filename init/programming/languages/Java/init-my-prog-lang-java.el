@@ -68,6 +68,14 @@
 ;; (global-eclim-mode t)
 
 
+;;; [ company-eclim ]
+
+(add-hook 'java-mode-hook
+          (lambda ()
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-eclim)))
+
+
 (provide 'init-my-prog-lang-java)
 
 ;;; init-my-prog-lang-java.el.el ends here

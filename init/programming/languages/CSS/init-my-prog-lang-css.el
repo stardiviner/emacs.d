@@ -16,6 +16,13 @@
               auto-mode-alist))
 
 
+
+(add-hook 'css-mode-hook
+          (lambda ()
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-css)))
+
+
 ;;; [ css-eldoc ]
 
 (require 'css-eldoc)

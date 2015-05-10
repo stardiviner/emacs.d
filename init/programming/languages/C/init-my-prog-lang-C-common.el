@@ -7,29 +7,23 @@
 
 ;;; Code:
 
+;;; [ C-mode-common ]
+
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (add-to-list (make-local-variable 'company-backends)
+                         '(company-clang company-cmake))))
+
+
 ;; [ C-mode ]
 (setq c-default-style "linux"
       tab-width 4
       )
 
-
-(add-hook 'c-mode-common-hook
-          (lambda ()
-            (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-
-              ;; auto-complete
-              (add-to-list 'ac-sources 'ac-source-irony)
-              ;; irony locally for company-mode
-              ;; (make-local-variable 'company-backends)
-              ;; (add-to-list 'company-backends 'company-c-headers)
-              ;; (add-to-list 'company-backends 'company-irony)
-              )))
-
 
 ;;; [ c-eldoc ]
 
-(add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
-
+(add-hook 'c-mode-common-hook 'c-turn-on-eldoc-mode)
 
 
 ;;; [ Semantic ]
@@ -87,9 +81,10 @@
 
 ;;; [ company-irony ]
 
-(eval-after-load 'company
-  '(progn
-     (add-to-list 'company-backends 'company-irony)))
+(add-hook 'irony-mode-hook
+          (lambda ()
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-irony)))
 
 ;;; (optional) adds CC special commands to `company-begin-commands' in order to
 ;;; trigger completion at interesting places, such as after scope operator
