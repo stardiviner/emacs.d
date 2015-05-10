@@ -196,6 +196,22 @@
 ;;   (add-to-list 'purpose-user-mode-purposes '(inferior-python-mode . py-repl))
 ;;   (purpose-compile-user-configuration)
 ;;
+;;   - configurations
+;;    
+;;     Manually: M-x customize-group purpose. Look at:
+;;    
+;;     - "Purpose User Mode Purposes": recognize purpose according to major mode
+;;     - "Purpose User Name Purposes": recognize purpose according to buffer name (for exact names)
+;;     - "Purpose User Regexp Purposes": recognize purpose according to buffer name (for name patterns)
+;;     - "Purpose Use Default Configuration": toggle default configuration on/off
+;;    
+;;     (add-to-list 'purpose-user-mode-purposes '(<major-mode> . <purpose>))
+;;     (add-to-list 'purpose-user-name-purposes '(<name> . <purpose>))
+;;     (add-to-list 'purpose-user-regexp-purposes '(<pattern> . <purpose>))
+;;     (setq purpose-use-default-configuration t) ; not really necessary, default is t
+;;     (purpose-compile-user-configuration) ; activates your changes
+;;
+;;
 ;; 2. change window layout
 ;;
 ;; If you have a previously saved layout, you can load it with
@@ -214,37 +230,24 @@
 ;;
 ;;   [M-x purpose-save-window-layout]
 
-(require 'window-purpose)
 
-(setq purpose-preferred-prompt 'helm
-      ;; purpose-x-*
-      purpose-x-popwin-position 'bottom
-      purpose-x-popwin-height 0.5
-      purpose-x-popwin-width 0.5)
-
-;;; configurations
+;; (require 'window-purpose)
 ;;
-;; Manually: M-x customize-group purpose. Look at:
+;; (setq purpose-preferred-prompt 'helm
+;;       ;; purpose-x-*
+;;       purpose-x-popwin-position 'bottom
+;;       purpose-x-popwin-height 0.5
+;;       purpose-x-popwin-width 0.5)
 ;;
-;; - "Purpose User Mode Purposes": recognize purpose according to major mode
-;; - "Purpose User Name Purposes": recognize purpose according to buffer name (for exact names)
-;; - "Purpose User Regexp Purposes": recognize purpose according to buffer name (for name patterns)
-;; - "Purpose Use Default Configuration": toggle default configuration on/off
+;; (add-to-list 'purpose-user-mode-purposes '(popwin-mode . popup-window))
+;; (add-to-list 'purpose-user-mode-purposes '(compilation-mode . popup-window))
+;; (add-to-list 'purpose-user-mode-purposes '(help-mode . popup-window))
+;; (add-to-list 'purpose-user-mode-purposes '(ack-and-a-half-mode . popup-window))
+;; (add-to-list 'purpose-user-mode-purposes '(dired-mode . sidebar-window))
 ;;
-;; (add-to-list 'purpose-user-mode-purposes '(<major-mode> . <purpose>))
-;; (add-to-list 'purpose-user-name-purposes '(<name> . <purpose>))
-;; (add-to-list 'purpose-user-regexp-purposes '(<pattern> . <purpose>))
-;; (setq purpose-use-default-configuration t) ; not really necessary, default is t
-;; (purpose-compile-user-configuration) ; activates your changes
-
-
-(add-to-list 'purpose-user-mode-purposes '(popwin-mode . popup-window))
-(add-to-list 'purpose-user-mode-purposes '(compilation-mode . popup-window))
-(add-to-list 'purpose-user-mode-purposes '(dired-mode . sidebar-window))
-
-(purpose-compile-user-configuration)
-
-(purpose-mode)
+;; (purpose-compile-user-configuration)
+;;
+;; (purpose-mode)
 
 
 ;;; [ golden-ratio ] -- Automatic resizing of Emacs windows to the golden ratio.
