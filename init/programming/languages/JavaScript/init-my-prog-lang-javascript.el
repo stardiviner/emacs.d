@@ -213,6 +213,8 @@
 
 ;;; [ tern ] -- code-analysis engine for JavaScript
 
+;;; http://ternjs.net/
+
 ;;; Tern is a stand-alone code-analysis engine for JavaScript. It is intended to
 ;;; be used with a code editor plugin to enhance the editor's support for
 ;;; intelligent JavaScript editing.
@@ -227,24 +229,18 @@
 ;;
 ;; The following additional keys are bound:
 ;;
-;; M-.
-;;
+;; - [M-.]
 ;;     Jump to the definition of the thing under the cursor.
-;; M-,
-;;
+;; - [M-,]
 ;;     Brings you back to last place you were when you pressed M-..
-;; C-c C-r
-;;
+;; - [C-c C-r]
 ;;     Rename the variable under the cursor.
-;; C-c C-c
-;;
+;; - [C-c C-c]
 ;;     Find the type of the thing under the cursor.
-;; C-c C-d
-;;
+;; - [C-c C-d]
 ;;     Find docs of the thing under the cursor. Press again to open the associated URL (if any).
 
-(require 'tern)
-
+;; (require 'tern)
 (autoload 'tern-mode "tern.el" nil t)
 
 ;;; for auto-complete.
@@ -256,7 +252,7 @@
 
 ;;; [ company-tern ] -- Tern backend for company-mode.
 
-;; (require 'company-tern)
+(require 'company-tern)
 
 (dolist (hook '(js-mode-hook
                 js2-mode-hook
@@ -266,6 +262,9 @@
             (lambda ()
               ;; enable `tern-mode'.
               (tern-mode t)
+
+              (add-to-list (make-local-variable 'company-backends)
+                           'company-tern)
               
               ;;; mode locally for company-mode backend.
               ;; (make-local-variable 'company-backends)
@@ -275,6 +274,10 @@
 
 ;; (setq company-tern-property-marker "" ; remove circles after object's own properties.
 ;;       company-tern-meta-as-single-line t ; trim too long function signatures to the frame width.
+;;       ;; If you doesn't like inline argument annotations appear with
+;;       ;; corresponding identifiers, then you can to set up the company align
+;;       ;; option.
+;;       company-tooltip-align-annotations t
 ;;       )
 
 
