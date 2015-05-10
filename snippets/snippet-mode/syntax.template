@@ -261,3 +261,16 @@
 # Escape
 # use \ to escape $ and ` .
 # The \ itself may also needed to be escaped as \\ sometimes.
+
+# use type: command
+# example here:
+#
+#   # -*- mode: snippet -*-
+#   # name: long comment
+#   # key: cc
+#   # type: command
+#   # --
+#   (yas-expand-snippet
+#    (format
+#     "// ——— $1 ${1:$(repeat-char (- 74 %d (length yas-text)) \"—\")}$0"
+#     (current-column))) 
