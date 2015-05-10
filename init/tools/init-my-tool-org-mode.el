@@ -356,8 +356,25 @@
 ;;     (setq ad-return-value (* (expt text-scale-mode-step text-scale-mode-amount) ad-return-value))))
 
 ;;; @<kbd>C-h h@</kbd> inline key codes highlight
-(font-lock-add-keywords 'org-mode
-                        '(("@<kbd>\\([^@]*\\)@</kbd>" 1 'org-code)))
+(defface org-html-kbd-tag
+  '((nil (:foreground "cyan" :background "#004A5D"
+                    :box '(:color "cyan" :line-width 1)
+                    ;; :weight 'bold
+                    )))
+  "Face for highlight Org-mode html tag @<kbd>...@</kbd> or @@html:<kbd>...</kbd>@@."
+  :group 'org-faces)
+
+;; @<kbd>C-h h@</kbd>
+(font-lock-add-keywords
+ 'org-mode
+ '(("@<kbd>\\([^@]*\\)@</kbd>"
+    (1 'org-html-kbd-tag))))
+;; @@html:<kbd>C-h h</kbd>@@
+(font-lock-add-keywords
+ 'org-mode
+ '(("@@html:<kbd>\\([^<]*\\)</kbd>@@"
+    (1 'org-html-kbd-tag))))
+
 
 (defun my/org-insert-key ()
   "Insert keybinding code in Org with a keybinding quickly.
@@ -412,7 +429,8 @@ to insert <kbd>..</kbd> (HTML) org =[..]= (Org-mode)."
 (set-face-attribute 'org-level-1 nil
                     :family "DejaVu Sans Mono"
                     :height 1.2 :weight 'bold
-                    :foreground "#FF3870" :background (color-darken-name (face-background 'default) 4)
+                    :foreground "#FF3870"
+                    :background (color-darken-name (face-background 'default) 4)
                     ;; :box '(:color "black" :line-width 1 :style nil)
                     :overline t
                     )
