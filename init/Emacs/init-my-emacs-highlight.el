@@ -1,4 +1,4 @@
-;;; init-my-emacs-highlight.el ---
+;;; init-my-emacs-highlight.el --- init for highlight
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -26,24 +26,20 @@
 
 (require 'highlight-symbol)
 
-;; (global-set-key [(control f3)] 'highlight-symbol-at-point)
-;; (global-set-key [f3] 'highlight-symbol-next)
-;; (global-set-key [(shift f3)] 'highlight-symbol-prev)
-;; (global-set-key [(meta f3)] 'highlight-symbol-query-replace)
-
-(setq highlight-symbol-idle-delay 1.5
+(setq highlight-symbol-idle-delay 3
       highlight-symbol-border-pattern '("\\_<" . "\\_>")
       highlight-symbol-colors '("yellow" "DeepPink" "cyan"
                                 "MediumPurple1" "SpringGreen1" "DarkOrange" "HotPink1"
                                 "RoyalBlue1" "OliveDrab")
       ;; highlight-symbol-foreground-color
+      ;; highlight-symbol-border-pattern '("\\_<" . "\\_>")
       )
 
 (set-face-attribute 'highlight-symbol-face nil
                     :foreground nil :background "midnight blue"
                     :slant 'italic)
 
-(add-hook 'prog-mode-hook 'highlight-symbol-mode)
+;; (add-hook 'prog-mode-hook 'highlight-symbol-mode)
 
 ;; setting up keybindings
 (unless (boundp 'my-highlight-symbol-prefix)
