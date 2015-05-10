@@ -92,9 +92,9 @@
       '((heading . auto)
         (plain-list-item . auto)))
 (setq org-list-empty-line-terminates-plain-lists t)
-(setq org-indirect-buffer-display 'other-window)
+;; internal link (in same file) open style
 (setq org-display-internal-link-with-indirect-buffer nil)
-
+(setq org-indirect-buffer-display 'current-window)
 
 ;;;_* indentation
 
@@ -473,7 +473,7 @@ to insert <kbd>..</kbd> (HTML) org =[..]= (Org-mode)."
                     :height 80)
 ;; meta lines
 (set-face-attribute 'org-meta-line nil
-                    :foreground "dark gray"
+                    :foreground "yellow"
                     :background (color-darken-name (face-background 'default) 5)
                     )
 ;;; checkbox faces
@@ -527,6 +527,9 @@ to insert <kbd>..</kbd> (HTML) org =[..]= (Org-mode)."
                     :foreground "dark orange"
                     :background (color-darken-name (face-background 'default) 5)
                     )
+(set-face-attribute 'org-property-value nil
+                    :foreground "orange"
+                    :slant 'italic)
 
 ;;;_* pretty entities
 
@@ -1360,6 +1363,13 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 ;; - [C-c C-a] :: `org-attach'.
 
+;;;_* time-stamps
+
+;; (setq org-time-stamp-formats '("<%Y-%m-%d %a>" . "<%Y-%m-%d %a %H:%M>")
+;;       org-time-stamp-custom-formats '("<%m/%d/%y %a>" . "<%m/%d/%y %a %H:%M>") ; toggle by `org-toggle-time-stamp-overlays' [C-c C-x C-t].
+;;       ;; org-time-stamp-rounding-minutes '(0 5)
+;;       )
+
 ;;;_* Agenda Views
 
 (require 'org-agenda)
@@ -1371,10 +1381,10 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
         (todo . " %i %-12:c")
         (search . " %i %-12:c")
         (tags . " %i %-12:c")))
-(setq org-agenda-remove-times-when-in-prefix t
+(setq org-agenda-remove-times-when-in-prefix t ; remove duplicate time specifications in agenda items.
       ;; org-agenda-remove-tags t
-      org-agenda-remove-tags-when-in-prefix t
-      ;; org-agenda-remove-timeranges-from-blocks
+      org-agenda-remove-tags-when-in-prefix t ; remove tags when prefix contains a `%T' specifier.
+      ;; org-agenda-remove-timeranges-from-blocks ; remove time ranges specifications in agenda
       )
 
 (setq org-agenda-include-deadline t)
@@ -1802,7 +1812,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 ;; The last level which is still exported as a headline. Inferior levels will produce itemize lists when exported.
 (setq org-export-backends '(ascii html icalendar latex md)
-      org-export-babel-evaluate t ; code evaluation during export.
+      org-export-babel-evaluate t ; code evaluation during export. nil, 'inline-only,
       ;; org-export-headline-levels 6
       org-export-with-smart-quotes t
       )
