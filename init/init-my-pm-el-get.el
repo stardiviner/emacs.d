@@ -124,7 +124,7 @@
          mmm-mode ; mumamo-noweb
          ;; polymode ; https://github.com/vspinu/polymode
          ;; shell
-         ;; readline-complete (FIXME: depends on auto-complete)
+         readline-complete
          ;; eshell-manual
          shelldoc
          ;; insert-shebang

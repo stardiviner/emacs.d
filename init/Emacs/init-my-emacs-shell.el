@@ -119,8 +119,15 @@
 ;; (add-to-list 'ac-modes 'shell-mode)
 ;; (add-hook 'shell-mode-hook 'ac-rlc-setup-sources)
 
-;;; for company-mode backend.
-;; FIXME: (push 'company-readline company-backends)
+;;; for company-mode
+(dolist (hook '(shell-mode-hook
+                eshell-mode-hook
+                ))
+  (add-hook hook
+            (lambda ()
+              (add-to-list (make-local-variable 'company-backends)
+                           'company-readline))))
+
 ;; (add-hook 'rlc-no-readline-hook
 ;;           (lambda () (company-mode -1)))
 
