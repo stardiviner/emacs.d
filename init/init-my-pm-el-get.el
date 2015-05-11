@@ -340,6 +340,7 @@
          jedi ; (depends on auto-complete)
          ;; jedi-core
          company-jedi
+         anaconda-mode company-anaconda
          ;; elpy
          pydoc helm-pydoc
          ;; C family languages (C, C++, Go, D, F, Rust)

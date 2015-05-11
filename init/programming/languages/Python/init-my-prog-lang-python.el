@@ -139,6 +139,62 @@
                 (local-set-key (kbd "d") 'pydoc)))))
 
 
+;;; [ anaconda-mode ]
+
+;;; Usage:
+;;
+;; - context-sensitive code completion
+;; - jump to definitions
+;; - find references
+;; - view documentation
+;; - virtual environment
+;; - eldoc mode
+
+;;; Keybindings
+;;
+;; - [M-.] :: anaconda-mode-goto-definitions
+;; - [M-*] :: anaconda-nav-pop-marker
+;; - [M-?] :: anaconda-mode-view-doc
+;; - [M-r] :: anaconda-mode-usages
+
+;;; Implementation details
+;;
+;; Anaconda mode comes with anaconda_mode.py server. This server allow you to
+;; use jedi python library over jsonrpc api. Server choice first available port
+;; starting from 24970. Anaconda mode will run this server automatically on
+;; first call of any anaconda-mode command.
+;;
+;; This mean that completion results and reference search depends on your
+;; project installation. To make it available for anaconda-mode you have few
+;; options.
+
+(require 'anaconda-mode)
+
+;; virtualenv
+;; (setq python-shell-virtualenv-root "~/.virtualenvs/python3/bin/virtualenv")
+
+(add-hook 'python-mode-hook 'anaconda-mode)
+
+(add-hook 'python-mode-hook 'eldoc-mode)
+
+(define-key anaconda-mode-map (kbd "M-.") 'anaconda-mode-goto)
+;; (define-key anaconda-mode-map (kbd "M-.") 'anaconda-mode-goto-definitions)
+;; (define-key anaconda-mode-map (kbd "M-,") 'anaconda-mode-goto-assignments)
+(define-key anaconda-mode-map (kbd "M-?") 'anaconda-mode-view-doc)
+(define-key anaconda-mode-map (kbd "M-r") 'anaconda-mode-usages)
+(define-key anaconda-mode-map (kbd "M-*") 'anaconda-nav-pop-marker)
+
+
+;;; [ company-anaconda ]
+
+(require 'company-anaconda)
+
+(add-hook 'python-mode-hook
+          (lambda ()
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-anaconda)))
+
+
 ;;; [ IPython ]
 
 
