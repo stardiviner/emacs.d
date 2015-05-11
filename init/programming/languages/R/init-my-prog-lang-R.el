@@ -122,6 +122,20 @@
 ;;                                ("<<-" . 8606)))
 
 
+;;; [ ESS + company-mode ]
+
+(require 'company-ess)
+
+;; global
+;; (add-to-list 'company-backends 'company-ess)
+
+;; local to ESS mode
+(add-hook 'ess-mode-hook
+          (lambda ()
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-ess)))
+
+
 ;;; [ ESS + auto-complete ]
 
 ;;; From version 12.03 ESS integrates out of the box with auto-complete package.
@@ -130,16 +144,19 @@
 ;;; are included in ESS distribution. The latest combines previous two and makes
 ;;; them play nicely together.
 
-(setq ess-use-auto-complete t ; use auto-complete.
-      ess-tab-complete-in-script nil ; not just complete in ESS buffers.
-      )
+;; (setq ess-use-auto-complete t ; use auto-complete.
+;;       ess-tab-complete-in-script nil ; not just complete in ESS buffers.
+;;       )
 
-(add-hook 'R-mode-hook
-          (lambda ()
-            ;; setup for auto-complete
-            (setq ac-sources '(ac-source-R ac-source-R-objects ac-source-R-args))
-            ))
+(eval-after-load 'auto-complete
+  (progn
+    (add-hook 'R-mode-hook
+              (lambda ()
+                ;; setup for auto-complete
+                (setq ac-sources '(ac-source-R ac-source-R-objects ac-source-R-args))
+                ))))
 
+
 ;; start the ESS process if not started when open ESS buffers.
 ;; (add-hook 'after-init-hook 'R)
 

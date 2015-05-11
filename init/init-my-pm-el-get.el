@@ -414,7 +414,7 @@
          ;; javadoc-lookup ; javadoc-help
          ;; eclim
          ;; java-complete
-         ;; ess
+         ess company-ess
          ;; Julia
          ;; julia-mode
          ;; R
