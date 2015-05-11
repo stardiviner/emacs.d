@@ -70,6 +70,8 @@
 
 ;;; [ company-eclim ]
 
+(require 'company-emacs-eclim)
+
 (add-hook 'java-mode-hook
           (lambda ()
             (add-to-list (make-local-variable 'company-backends)
