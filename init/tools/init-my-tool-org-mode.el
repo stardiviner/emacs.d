@@ -301,6 +301,25 @@
                            (3 'org-code) ; "code..." part.
                            )))
 
+;; inline babel call
+;; ... call_<name>[<inside header arguments>](<arguments>)[<end header arguments>] ...
+(font-lock-add-keywords
+ 'org-mode
+ '(("\\(call_\\)\\([^[(]*\\)\\(\\[.*\\]\\)\\((.*)\\)\\(\\[.*\\]\\)?"
+    (1 '(:foreground "dim gray" :height 60)) ; call_
+    (2 '(:foreground "yellow" :weight 'bold :slant 'italic)) ; <name>
+    (3 '(:foreground "gray" :height 60)) ; [<inside header arguments>]
+    (4 '(:foreground "cyan" :weight 'bold)) ; (<arguments>)
+    (5 '(:foreground "gray" :height 60)) ; [<end header arguments>]
+    )))
+(font-lock-add-keywords
+ 'org-mode
+ '(("\\(call_\\)\\([^[(]*\\)\\((.*)\\)"
+    (1 '(:foreground "dim gray" :height 60)) ; call_
+    (2 '(:foreground "yellow" :weight 'bold :slant 'italic)) ; <name>
+    (3 '(:foreground "cyan" :weight 'bold)) ; (<arguments>)
+    )))
+
 ;; TODO:
 ;; emabedded latex (inline formula)
 ;; (font-lock-add-keywords 'org-mode
@@ -346,7 +365,7 @@
 ;;   (when (and text-scale-mode (eq attribute :height))
 ;;     (setq ad-return-value (* (expt text-scale-mode-step text-scale-mode-amount) ad-return-value))))
 
-;;; @<kbd>C-h h@</kbd> inline key codes highlight
+;; @@html:<kbd>...</kbd>@@, <kbd> </kbd>
 (defface org-html-kbd-tag
   '((nil (:foreground "cyan" :background "#004A5D"
                     :box '(:color "cyan" :line-width 1)
@@ -355,15 +374,16 @@
   "Face for highlight Org-mode html tag @<kbd>...@</kbd> or @@html:<kbd>...</kbd>@@."
   :group 'org-faces)
 
-;; @<kbd>C-h h@</kbd>
-(font-lock-add-keywords
- 'org-mode
- '(("@<kbd>\\([^@]*\\)@</kbd>"
-    (1 'org-html-kbd-tag))))
 ;; @@html:<kbd>C-h h</kbd>@@
 (font-lock-add-keywords
  'org-mode
  '(("@@html:<kbd>\\([^<]*\\)</kbd>@@"
+    (1 'org-html-kbd-tag))))
+
+;; @<kbd>C-h h@</kbd>
+(font-lock-add-keywords
+ 'org-mode
+ '(("@<kbd>\\([^@]*\\)@</kbd>"
     (1 'org-html-kbd-tag))))
 
 
