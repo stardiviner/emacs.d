@@ -468,7 +468,42 @@
 
 ;;;_ web-beautify
 
+;;;_ restclient
 
+;;; This is a tool to manually explore and test HTTP REST webservices. Runs
+;;; queries from a plain-text query sheet, displays results as a pretty-printed
+;;; XML, JSON and even images.
+
+;;; Usage:
+;;
+;; restclient-mode is a major mode which does a bit of highlighting and supports
+;; a few additional keypresses:
+;;
+;; - [C-c C-c] :: runs the query under the cursor, tries to pretty-print the response (if possible)
+;; - [C-c C-r] :: same, but doesn't do anything with the response, just shows the buffer
+;; - [C-c C-v] :: same as C-c C-c, but doesn't switch focus to other window
+;; - [C-c C-p] :: jump to the previous query
+;; - [C-c C-n] :: jump to the next query
+;; - [C-c C-.] :: mark the query under the cursor
+
+(require 'restclient)
+
+;;;_ know-your-http-well
+
+(require 'know-your-http-well)
+
+;;;_ company-restclient
+
+;; Features
+;;
+;; - HTTP method name completion
+;; - HTTP header name completion
+;; - If header name starts with uppercase character, the completion result is capitalized (e.g. "Content-Type").
+;; - Otherwise, the completion result contains lowercase characters only (e.g. "content-type").
+;; - Description about HTTP method and header is shown in minibuffer
+;; - Variable name completion
+
+(add-to-list 'company-backends 'company-restclient)
 
 ;;;_
 (provide 'init-my-prog-framework-web)

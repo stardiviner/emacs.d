@@ -475,6 +475,7 @@
          ;; http httpcode httprepl web ; web-beautify
          ;; xpath xpath-parser
          ;; web-server
+         restclient know-your-http-well company-restclient
          ;; Platforms
          ;; heroku
          ;; wolfram-mode
