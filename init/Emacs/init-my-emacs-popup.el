@@ -22,7 +22,7 @@
               )
 
 (set-face-attribute 'tooltip nil
-                    :foreground "black" :background "light yellow")
+                    :foreground "dark gray" :background "#002630")
 
 (require 'tooltip-help)
 
@@ -76,7 +76,7 @@
       )
 
 (setq pos-tip-background-color "#002630" ; '(color-darken-name (face-background 'default) 1)
-      pos-tip-foreground-color "dim gray")
+      pos-tip-foreground-color "dark gray")
 
 
 ;;; [ popup-pos-tip ]
@@ -93,9 +93,10 @@
 (require 'showtip)
 
 (set-face-attribute 'showtip-face nil
-                    :foreground "black" :background "light yellow"
-                    :family "WenQuanYi Zen Hei Mono")
-
+                    :inherit 'tooltip
+                    :family "Monospace"
+                    ;; :family "WenQuanYi Zen Hei Mono"
+                    )
 
 
 (provide 'init-my-emacs-popup)
