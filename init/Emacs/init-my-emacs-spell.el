@@ -15,6 +15,8 @@
       ispell-program-name "aspell"
       ispell-extra-args '("--sug-mode=ultra")
       ispell-personal-dictionary nil ; If nil, the default (~/.ispell_LANGUAGE) will be used
+      ;; ispell-complete-word-dict "/usr/share/dict/words"
+      ;; ispell-alternate-dictionary "/usr/share/dict/words"
       ispell-silently-savep t ; save silently. stop confirm when saving personal dictionary.
       ispell-parser 'use-mode-name
       )
