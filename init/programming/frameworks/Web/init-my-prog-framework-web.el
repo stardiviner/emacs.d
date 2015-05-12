@@ -503,7 +503,11 @@
 ;; - Description about HTTP method and header is shown in minibuffer
 ;; - Variable name completion
 
-(add-to-list 'company-backends 'company-restclient)
+(add-hook 'restclient-mode-hook
+          (lambda ()
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-restclient)))
+
 
 ;;;_
 (provide 'init-my-prog-framework-web)

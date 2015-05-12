@@ -95,7 +95,14 @@
 
 ;;; [ company-edbi ]
 
-(add-to-list 'company-backends 'company-edbi)
+(dolist (hook '(sql-mode-hook
+                sql-interactive-mode-hook
+                ;; TODO:
+                ))
+  (add-hook hook
+            (lambda ()
+              (add-to-list (make-local-variable 'company-backends)
+                           'company-edbi))))
 
 
 
