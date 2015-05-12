@@ -294,7 +294,27 @@
 ;; - company-echo-common
 
 ;;; Yasnippet integration
-;;; 1. Company interferes with Yasnippet’s native behaviour. Here’s a quick fix: http://gist.github.com/265010
+;;
+;; - [C-h f company-yasnippet]
+
+;; 1. * In a buffer-local value of `company-backends', grouped with a back-end or
+;; several that provide actual text completions.
+;;
+;; (add-hook 'js-mode-hook
+;;           (lambda ()
+;;             (set (make-local-variable 'company-backends)
+;;                  '((company-dabbrev-code company-yasnippet)))))
+
+;; 2. * After keyword `:with', grouped with other back-ends.
+;;
+;; (push '(company-semantic :with company-yasnippet) company-backends)
+
+;; 3. * Not in `company-backends', just bound to a key.
+;; 
+;; (global-set-key (kbd "C-c y") 'company-yasnippet)
+
+;;
+;; 1. Company interferes with Yasnippet’s native behaviour. Here’s a quick fix: http://gist.github.com/265010
 
 ;; (define-key company-active-map "\t" 'company-yasnippet-or-completion)
 ;; (define-key company-active-map [tab] 'company-yasnippet-or-completion)
