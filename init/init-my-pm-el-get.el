@@ -352,6 +352,7 @@
          ;; auto-complete-clang auto-complete-c-headers
          ;; auto-complete-clang-objc
          ;; bison-mode
+         function-args
          ;; Go
          go-mode ; go-eldoc
          ;; go-company

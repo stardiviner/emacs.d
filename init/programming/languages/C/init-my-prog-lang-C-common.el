@@ -164,6 +164,77 @@
 
 
 
+;;; [ function-args ] -- showing an inline arguments hint for the C/C++ function at point.
+
+;; The traditional way of showing function arguments in Emacs is to show them in
+;; the minibuffer. This approach isn't optimal, since I have to traverse the
+;; whole screen just to see the hint. After that traverse the whole screen back
+;; to find the cursor.
+;;
+;; Other environments such as Qt Creator and Eclipse implement the hint as a
+;; popup located exactly where the function call is. This is the behavior that
+;; function-args implements for Emacs.
+;;
+;; Along the way, it fixes the problem of hints for overridden functions by
+;; offering to cycle though the available hints.
+;;
+;; Cursor tracking, i.e. highlighting the current argument in bold and disposing
+;; the popup when the point has left the arguments list, is implemented for
+;; change hooks only at the moment. This means that you have to type a char in
+;; order for the current argument to update.
+
+;;; Usage:
+;;
+;; - `fa-show' :: Show an overlay hint with current function arguments.
+;;
+;;    The point position is tracked and the current hint argument is updated
+;;    accordingly. After you've called it with M-i, you can cycle the overloaded
+;;    functions with M-n/M-h. You can dismiss the hint with M-u or by editing
+;;    anywhere outside the function arguments.
+;;
+;; - `fa-jump'
+;;
+;;    While the overlay hint is active, jump to the current function. The
+;;    default shortcut is M-j. If the overlay isn't active, call whatever was
+;;    bound to M-j before (usually it's c-indent-new-comment-line).
+;;
+;; - `moo-complete'
+;; - `moo-propose-virtual'
+;; - `moo-propose-override'
+;; - `moo-jump-local'
+;;
+;; - `semantic-force-refresh'
+
+
+;; (require 'function-args)
+;; or
+(autoload 'fa-config-default "function-args" nil t)
+(autoload 'turn-on-function-args-mode "function-args" nil t)
+
+
+;;; Put c++-mode as default for *.h files (improves parsing):
+;; (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+;;
+;;; Enable case-insensitive searching:
+;; (set-default 'semantic-case-fold t)
+;;
+;;; If your includes aren't located in default dirs e.g. /usr/include/ etc, then
+;;; you have to do something like this:
+;; (semantic-add-system-include "~/Software/deal.II/include/" 'c++-mode)
+;; (semantic-add-system-include "/usr/local/boost_1_54_0/" 'c++-mode)
+;;
+;;; You can add this to improve the parse of macro-heavy code:
+;; (require 'semantic/bovine/c)
+;; (add-to-list 'semantic-lex-c-preprocessor-symbol-file
+;;              "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h")
+
+
+(fa-config-default)
+;; (add-hook 'c++-mode-hook 'turn-on-function-args-mode)
+;; (add-hook 'c-mode-hook 'turn-on-function-args-mode)
+
+
+
 (provide 'init-my-prog-lang-C-common)
 
 ;;; init-my-prog-lang-C-common.el ends here
