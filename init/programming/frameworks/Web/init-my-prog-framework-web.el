@@ -9,6 +9,8 @@
 
 ;;;_ web-mode
 
+;;; http://web-mode.org/
+
 ;;; web-mode.el is an autonomous emacs major mode for editing web templates aka
 ;;; HTML files embedding client parts (CSS/JavaScript) and server blocks.
 
@@ -100,16 +102,18 @@
 ;;;_. config
 (require 'web-mode)
 
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.blade\\.php\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+
 ;; Using web-mode for editing plain HTML files can be done this way
-;; (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-;; (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
+;; You can also edit plain js, jsx, css, scss, xml files.
 
 (add-to-list 'auto-mode-alist
              '("/\\(views\\|html\\|theme\\|templates\\)/.*\\.php\\'" . web-mode))
@@ -128,6 +132,24 @@
         ("blade" . "\\.blade\\.")
         ))
 
+;;;_. Associate a content type
+
+;; web-mode.el can deal with many content types: html, xml, javascript, jsx,
+;; json, css. This was needed to edit *.js.erb files for example: js files that
+;; embed ruby blocks.
+;;
+;; Sometimes, web-mode.el can not guess the content type with the file
+;; extension.  e.g. you want to associate *.api files with web-mode.
+;;
+;; (add-to-list 'auto-mode-alist '("\\.api\\'" . web-mode))
+;; (add-to-list 'auto-mode-alist '("/some/react/path/*\\.js[x]?\\'" . web-mode))
+;; (setq web-mode-content-types-alist
+;;       '(("json" . "/some/path/*\\.api\\'")
+;;         ("xml"  . "/other/path/*\\.api\\'")
+;;         ("jsx"  . "/some/react/path/*\\.js[x]?\\'")))
+
+
+
 ;;;_. Engine families
 
 ;;; Never forget to update the auto-mode-alist.
@@ -145,11 +167,22 @@
   '(progn
      (defun my-web-mode-defaults ()
        ;; Customizations
-       (setq web-mode-markup-indent-offset 2
-             web-mode-css-indent-offset 2
-             web-mode-code-indent-offset 2
+       ;; indent
+       (setq web-mode-markup-indent-offset 2 ; HTML indent
+             web-mode-css-indent-offset 2    ; CSS indent
+             web-mode-code-indent-offset 2   ; Script (JavaScript, Ruby, PHP, etc) indent
+             web-mode-attr-indent-offset 2   ; HTML attribute offset
              web-mode-disable-autocompletion t)
-       (local-set-key (kbd "RET") 'newline-and-indent))
+       (local-set-key (kbd "RET") 'newline-and-indent)
+       ;; padding (inner indent)
+       (setq web-mode-style-padding 1   ; for <style>
+             web-mode-script-padding 1  ; for <script>
+             web-mode-block-padding 0   ; for multi-line blocks
+             )
+       ;; comment: 1, server (block) side comment, 2, client (HTML, CSS, JS) side comment
+       (setq web-mode-comment-style 1)
+
+       )
      (setq my-web-mode-hook 'my-web-mode-defaults)
 
      (add-hook 'web-mode-hook
