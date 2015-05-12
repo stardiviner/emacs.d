@@ -246,7 +246,7 @@
                     :weight 'bold)
 (set-face-attribute 'company-tooltip-common nil
                     :inherit 'company-tooltip
-                    :foreground "dim gray" :background nil)
+                    :foreground nil :background "light gray")
 (set-face-attribute 'company-tooltip-common-selection nil
                     :inverse-video nil
                     :inherit 'company-tooltip-selection
@@ -268,7 +268,7 @@
                     :weight 'normal)
 (set-face-attribute 'company-preview-common nil
                     :inherit 'company-preview
-                    :foreground "dark gray" :background nil)
+                    :foreground "steel blue" :background nil)
 (set-face-attribute 'company-preview-search nil
                     :inherit 'company-preview
                     :foreground "cyan" :background nil)
