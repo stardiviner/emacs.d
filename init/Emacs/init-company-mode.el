@@ -37,6 +37,10 @@
               ;; company-async-timeout 2
               )
 
+;; (setq company-auto-complete t
+;;       company-auto-complete-chars
+;;       )
+
 ;; (setq company-begin-commands '(self-insert-command
 ;;                                org-self-insert-command orgtbl-self-insert-command
 ;;                                c-scope-operator c-electric-colon c-electric-lt-gt c-electric-slash))
@@ -164,7 +168,9 @@
 ;; (global-set-key (kbd "TAB") 'company-complete)
 
 ;; snippet
-(define-key company-active-map [tab] 'yas-expand)
+;; TODO: `yas-expand', `yas-expand-from-trigger-key'
+(define-key company-active-map [tab] 'yas-expand-from-trigger-key)
+
 
 ;; navigation
 (defun company-new-line ()
@@ -188,6 +194,7 @@
 (define-key company-active-map (kbd "M-p") 'company-select-previous)
 (define-key company-active-map (kbd "M-j") 'company-complete-selection)
 (define-key company-active-map (kbd "M-i") 'company-complete-common)
+;; (define-key company-active-map (kbd "M-i") 'company-complete-common-or-cycle)
 (define-key company-active-map [mouse-1] 'company-complete-mouse)
 (define-key company-active-map [mouse-3] 'company-select-mouse)
 
@@ -200,6 +207,7 @@
 (define-key company-active-map (kbd "M-l") 'company-show-location)
 
 ;; search
+;; (define-key company-active-map (kbd "<tab>") 'company-complete-common-or-cycle)
 (define-key company-active-map (kbd "M-s") 'company-filter-candidates)
 (define-key company-active-map (kbd "C-M-s") 'company-search-candidates)
 (define-key company-search-map (kbd "C-g") 'company-search-abort)
@@ -264,11 +272,12 @@
                     :foreground "cyan" :background nil)
 ;; echo area
 (set-face-attribute 'company-echo nil
-                    :foreground "gray" :background nil)
+                    :foreground "light blue" :background nil)
 (set-face-attribute 'company-echo-common nil
                     :inherit 'company-echo
-                    :foreground "dark gray" :background nil)
+                    :foreground "cyan" :background nil)
 ;; template
+;; TODO:
 ;; (set-face-attribute 'company-template-field nil
 ;;                     :foreground "orange" :background nil
 ;;                     :weight 'bold)

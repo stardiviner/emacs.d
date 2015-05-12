@@ -19,6 +19,10 @@
 
 (delete-selection-mode t)             ; typed text replaces the active selection
 
+;;;_ Markers
+
+
+
 ;;;_ kill-ring-search
 
 ;; Copied something important half an hour ago? Tired of hitting M-y 20 times?
@@ -437,6 +441,13 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;; To get out of multiple-cursors-mode, press <return> or C-g. The latter will
 ;; first disable multiple regions before disabling multiple cursors. If you want
 ;; to insert a newline in multiple-cursors-mode, use [C-j].
+
+;; (setq mc/mode-line '("mc:"
+;;                      (:eval
+;;                       (format
+;;                        #("%d" 0 2
+;;                          (face font-lock-warning-face))
+;;                        (mc/num-cursors)))))
 
 ;; (set-face-attribute 'mc/cursor nil
 ;;                     :foreground "cyan")

@@ -77,9 +77,11 @@
 (set-face-attribute 'rainbow-delimiters-depth-9-face nil
                     :foreground "#839496"
                     :weight 'bold)
-
+(set-face-attribute 'rainbow-delimiters-unmatched-face nil
+                    :foreground "orange" :background "black"
+                    )
 (set-face-attribute 'rainbow-delimiters-mismatched-face nil
-                    :inherit 'show-paren-mismatch-face
+                    :foreground "red" :background "black"
                     )
 
 

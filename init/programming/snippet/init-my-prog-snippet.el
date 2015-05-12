@@ -94,11 +94,15 @@
         ;; "~/.emacs.d/el-get/yasnippet/snippets/" YASnippet bundled snippets
         ))
 
+;; (setq yas-verbosity 0)
+
 
 ;;; keybindings
 ;;
 ;; - [Tab]
 ;; - or [C-Tab]
+
+(define-key yas-minor-mode-map [tab] 'yas-expand)
 
 ;;; source code implement
 ;; (defvar yas-keymap  (let ((map (make-sparse-keymap)))

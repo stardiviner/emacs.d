@@ -476,7 +476,7 @@
 ;; - `helm-for-gist'
 ;; - Helm defined source: `helm-c-source-gist'
 
-(require 'helm-gist)
+;; (require 'helm-gist)
 
 
 ;;; [ helm-dictionary ]

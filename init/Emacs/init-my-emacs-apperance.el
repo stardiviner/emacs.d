@@ -98,16 +98,17 @@
 ;;       yascroll:delay-to-hide nil ; nil, 0.5
 ;;       ;; yascroll:enabled-window-systems '(nil x w32 ns pc)
 ;;       )
-
+;;
 ;; (set-face-attribute 'yascroll:thumb-text-area nil
 ;;                     :foreground "slate blue")
-
-;; (global-yascroll-bar-mode t)
+;;
+;; (global-yascroll-bar-mode 1)
 
 
 ;;; [ Color Theme ]
 ;; Usage:
 ;; - [M-x customize-face] -- to custom current point face color/style.
+;; - [M-x list-colors-display] / [helm-colors]/[C-x c c] -- list out all basic colors.
 ;; - [C-u M-x list-faces-display RET org] -- overview of all the faces in org-mode.
 ;; - [M-x customize-group org-font-lock] -- custom org-faces and other aspects of org-apperance.
 ;; - [C-u C-x =] -- verbose information about the properties of the text under the point.
@@ -223,6 +224,7 @@
 
 ;; display line numbers in margin
 ;; Linum: separating line numbers from text
+;; (setq linum-format 'dynamic)
 ;; (setq linum-format "%d ") ; 'dynamic
 ;; (setq linum-format "%4d \u2502") ; a solid line separator
 ;; TODO: combine 'dynamic result with \u2502
@@ -233,6 +235,9 @@
 
 ;; disable linum-mode because I display line number in mode line.
 ;; (global-linum-mode -1)
+
+;; but show line numbers in source code files
+;; (add-hook 'prog-mode-hook 'linum-mode)
 
 
 ;;; [ current line & column ]

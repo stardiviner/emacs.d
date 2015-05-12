@@ -148,13 +148,13 @@
 ;;       ess-tab-complete-in-script nil ; not just complete in ESS buffers.
 ;;       )
 
-(eval-after-load 'auto-complete
-  (progn
-    (add-hook 'R-mode-hook
-              (lambda ()
-                ;; setup for auto-complete
-                (setq ac-sources '(ac-source-R ac-source-R-objects ac-source-R-args))
-                ))))
+;; (eval-after-load 'auto-complete
+;;   '(progn
+;;      (add-hook 'R-mode-hook
+;;                (lambda ()
+;;                  ;; setup for auto-complete
+;;                  (setq ac-sources '(ac-source-R ac-source-R-objects ac-source-R-args))
+;;                  ))))
 
 
 ;; start the ESS process if not started when open ESS buffers.

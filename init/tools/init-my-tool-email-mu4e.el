@@ -315,6 +315,8 @@
 
 (setq mu4e-mu-home nil ; nil for default
       ;; mu4e-mu-binary "/usr/bin/mu"
+      ;; TODO: find a better solution to solve this bin path variable issue.
+      ;; mu4e-mu-binary "~/bin/mu"
       mu4e-mu-binary "~/compile/Emacs/mu/mu/mu/mu"
       ;; mu4e-mu-binary "/home/stardiviner/.emacs.d/el-get/mu4e/mu/mu"
       )

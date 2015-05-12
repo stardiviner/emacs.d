@@ -8,11 +8,9 @@
 
 (setq compilation-scroll-output t)
 
-(set-face-attribute 'compilation-info nil
-                    :background (color-darken-name (face-background 'default) 5)
-                    :underline nil
-                    :weight 'normal
-                    )
+(setq compilation-window-height nil ; use Emacs default.
+      )
+
 (set-face-attribute 'compilation-line-number nil
                     :background (color-darken-name (face-background 'default) 10)
                     :foreground "cyan"

@@ -509,7 +509,7 @@
 
 ;;; Usage:
 ;;
-;; restclient-mode is a major mode which does a bit of highlighting and supports
+;; `restclient-mode' is a major mode which does a bit of highlighting and supports
 ;; a few additional keypresses:
 ;;
 ;; - [C-c C-c] :: runs the query under the cursor, tries to pretty-print the response (if possible)

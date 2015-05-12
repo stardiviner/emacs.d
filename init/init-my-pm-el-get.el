@@ -70,7 +70,6 @@
          helm-c-moccur ; helm-ack
          ;; helm-shell helm-shell-history
          helm-gtags helm-yaetags
-         ;; helm-pydoc
          helm-mu
          ;; helm-mode-manager
          helm-bm helm-chrome helm-firefox
@@ -86,7 +85,7 @@
          ;; helm-proc
          ;; helm-ls-git
          helm-git helm-git-files ; helm-git-grep
-         helm-gist helm-gitlab
+         helm-gitlab
          ;; Auto Complete
          ;; auto-complete
          ;; auto-complete-yasnippet auto-complete-chunk
@@ -198,7 +197,7 @@
          ;; org-doing
          ;; orgit ; org-magit ; org-linkany
          org-publish ; org2blog ; org-blog org-website
-         jekyll-el ; jekyll-modes ; org2jekyll org-jekyll org-protocol-jekyll
+         jekyll-el org2jekyll ; org-jekyll jekyll-modes org-protocol-jekyll
          ;; org-present org-tree-slide org-html5presentation org-impress-js
          org-passwords
          ;; org-magit ; org-linkany
@@ -343,6 +342,7 @@
          anaconda-mode company-anaconda
          ;; elpy
          pydoc helm-pydoc
+         helm-ipython
          ;; C family languages (C, C++, Go, D, F, Rust)
          ;; c-eldoc eassist
          irony-mode
@@ -476,7 +476,7 @@
          ;; http httpcode httprepl web ; web-beautify
          ;; xpath xpath-parser
          ;; web-server
-         restclient know-your-http-well company-restclient
+         restclient company-restclient ; know-your-http-well
          ;; Platforms
          ;; heroku
          ;; wolfram-mode

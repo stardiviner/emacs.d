@@ -180,6 +180,12 @@
                         :box '(:color "red" :line-width -1))
     ))
 
+;;; TODO: feature
+;; (defface enh-ruby-dot-face
+;;   `((t :foreground ,(erm-darken-color font-lock-string-face)))
+;;   "Face used to highlight dot like object.method."
+;;   :group 'enh-ruby)
+
 
 
 
@@ -586,10 +592,6 @@
 
 ;; TODO: (require 'helm-robe)
 
-;; (setq robe-completing-read-func 'helm-robe-completing-read)
-;; (custom-set-variables
-;;  '(robe-completing-read-func 'helm-robe-completing-read))
-
 
 ;;; [ ruby-compilation ]
 
@@ -709,6 +711,7 @@
 ;; - [C-x C-SPC] -- ruby test: run test at point.
 ;; - [C-c t] -- ruby test: toggle implementation and specification.
 
+;; TODO: compare ruby-test & ruby-test-mode.
 ;; (require 'ruby-test)
 ;;
 ;;

@@ -542,8 +542,3 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (provide 'init-my-emacs-window)
 
 ;;; init-my-emacs-window.el ends here
-
-
-
-
-

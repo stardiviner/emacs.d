@@ -5,6 +5,10 @@
 
 ;;; Code:
 
+
+(setq standard-indent 4)
+
+
 ;;; electric-indent-mode
 
 ;; (electric-indent-mode t)

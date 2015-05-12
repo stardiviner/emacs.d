@@ -19,6 +19,7 @@
 (require 'org-habit)
 (require 'org-timer)
 (require 'org-clock)
+(require 'org-notify)
 (require 'org-pcomplete)
 
 (require 'org-plot)
@@ -335,6 +336,7 @@
 ;;                         '(("\\\[\ \\([^\ ]*\\)\ \\\]" 1 'org-code) ; \[ a=2 \]
 ;;                           ))
 
+;; TODO: configure org latex preview style
 (setq org-latex-create-formula-image-program 'dvipng
       org-latex-preview-ltxpng-directory "ltxpng/"
       org-format-latex-options (plist-put
@@ -905,11 +907,24 @@ With prefix argument, also display headlines without a TODO keyword."
 
 ;; (setq org-open-at-point-functions) ; a hook
 
-;; TODO:
+;; TODO: auto create link to filename smartly when not link on word/region.
+;; [C-c C-o] :: auto create filename on word or region if no link.
 ;; (defadvice org-open-at-point (before create-file-when-org-link-invalid activate)
 ;;   ())
+;;
 
-(setq org-return-follows-link nil) ; to follow links with [RET], rather 2 key combo.
+;; NOTE: Seems Org-mode's link detect is smart now, whether deprecated this function?
+;; [C-u C-c C-o] :: open in external browser
+;; (defun my-org-open-at-point (&optional arg)
+;;   (interactive)
+;;   (if (not arg)
+;;       (org-open-at-point)
+;;     (let ((browse-url-browser-function #'browse-url-firefox))
+;;       (org-open-at-point))))
+;; (if (functionp 'my-org-open-at-point)
+;;     (define-key org-mode-map (kbd "C-c C-o") 'my-org-open-at-point))
+;;
+;; (setq org-return-follows-link nil) ; to follow links with [RET], rather 2 key combo.
 
 (defun find-file-at-point-ex ()
   "Open link, if does not exist, then create a file which filename with word at current point.
@@ -1971,7 +1986,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
         )
       )
 
-(setq org-publish-use-timestamps-flag nil)
+;; (setq org-publish-use-timestamps-flag nil)
 
 ;; Publishing to a local directory is also much faster than to a remote one, so
 ;; that you can afford more easily to republish entire projects. If you set
@@ -1983,8 +1998,12 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 ;; (require 'org-blog)
 
+
+;;; [ org2jekyll ]
 
 
+;;; [ org-jekyll ]
+
 ;; (require 'org-jekyll)
 
 
