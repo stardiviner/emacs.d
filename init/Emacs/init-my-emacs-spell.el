@@ -124,8 +124,8 @@
 ;; (define-key flyspell-mode-map (kbd "C-.") 'flyspell-correct-word-before-point)
 (define-key flyspell-mode-map (kbd "C-.") 'flyspell-auto-correct-previous-word)
 (define-key flyspell-mode-map (kbd "C-,") 'flyspell-goto-next-error)
-(add-hook 'flyspell-mode-hook
-          (unbind-key "C-;" flyspell-mode-map)) ; conflict with iedit-mode toggle keybinding.
+;; (add-hook 'flyspell-mode-hook
+;;           (unbind-key "C-;" flyspell-mode-map)) ; conflict with iedit-mode toggle keybinding.
 (define-key flyspell-mode-map (kbd "C-M-i") nil) ; fix Org-mode abbreviations expand keybinding [M-Tab].
 
 (set-face-attribute 'flyspell-incorrect nil
