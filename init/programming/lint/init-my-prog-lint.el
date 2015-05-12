@@ -80,10 +80,12 @@
 ;;; < Error reporting >
 
 ;;; Faces
+;;
 ;; - flycheck-error
 ;; - flycheck-warning
 ;; - flycheck-fringe-error
 ;; - flycheck-fringe-warning
+
 (set-face-attribute 'flycheck-info nil
                     :background nil :foreground nil
                     :underline '(:color "forest green" :style wave))
@@ -109,12 +111,11 @@
 ;; determine how to highlight errors:
 (setq flycheck-highlighting-mode 'symbols ; 'symbols, 'columns, 'sexps, 'lines, nil
       flycheck-indication-mode 'left-fringe ; 'left-fringe, 'right-fringe, nil
-      flycheck-display-errors-delay 0.9
-      ;; flycheck-mode-line
-      ;; flycheck-mode-line-lighter
+      flycheck-display-errors-delay 1.0
+      ;; flycheck-deferred-syntax-check
+      ;; flycheck-mode-line '(:eval (flycheck-mode-line-status-text))
       flycheck-completion-system nil ; 'ido, 'grizzl, nil
       ;; flycheck-display-error-at-point-timer
-      ;; flycheck-deferred-syntax-check
       flycheck-error-list-highlight-overlays t
       ;; flycheck-error-list-mode-line-map
       )
@@ -122,12 +123,14 @@
 
 ;;; list errors only when has lint errors
 (defun flycheck-list-errors-only-when-errors ()
+  "List errors only when has lint errors."
   (if flycheck-current-errors
       (flycheck-list-errors)
     (-when-let (buffer (get-buffer flycheck-error-list-buffer))
       (dolist (window (get-buffer-window-list buffer))
         (quit-window nil window)))))
 
+;; TODO: only show when has error:
 ;; (add-hook 'before-save-hook #'flycheck-list-errors-only-when-errors)
 
 ;;; For Ruby
@@ -135,6 +138,26 @@
       ;; flycheck-rubocop-lint-only t
       )
 
+
+;;; Flycheck hooks
+;;
+;; (add-hook 'flycheck-before-syntax-check-hook
+;;           'flycheck-after-syntax-check-hook
+;;           )
+;;
+;; (setq flycheck-status-changed-functions
+;;       flycheck-process-error-functions '(flycheck-add-overlay)
+;;       ;; 'flycheck-pos-tip-error-messages, 'flycheck-display-error-messages
+;;       ;; flycheck-display-errors-function 'flycheck-pos-tip-error-messages
+;;       )
+
+
+;;; add more modes
+
+;;; add Django-mode
+;; (with-eval-after-load 'flycheck
+;;   (dolist (checker '(python-pylint python-flake8 python-pycompile))
+;;     (flycheck-add-mode checker 'django-mode)))
 
 
 ;;; [ flycheck-tip ] -- show you error by popup-tip.
@@ -159,9 +182,7 @@
 
 (eval-after-load 'flycheck
   (lambda ()
-      (setq flycheck-display-errors-function 'flycheck-pos-tip-error-messages))
-  ;; '(custom-set-variables
-  ;;   '(flycheck-display-errors-function #'flycheck-pos-tip-error-messages))
+    (setq flycheck-display-errors-function 'flycheck-pos-tip-error-messages))
   )
 
 
