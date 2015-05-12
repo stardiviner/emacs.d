@@ -371,9 +371,9 @@
          ;; js-mode
          ;; js2-mode
          js3-mode
+         tern company-tern ; tern-auto-complete
          swank-js
          ;; ac-js2
-         tern ; company-tern
          ;; HTML
          htmlize html5
          ;; ac-html
