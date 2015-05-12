@@ -56,11 +56,13 @@
                                   company-quickhelp-frontend
                                   ))
 
-(setq-default company-backends '((company-capf company-keywords
-                                               company-yasnippet
-                                               company-tempo ; flexible template insertion
-                                               )
-                                 (company-gtags company-etags)
+(setq-default company-backends '((company-capf
+                                  company-yasnippet
+                                  company-tempo ; flexible template insertion
+                                  )
+                                 (company-dabbrev-code
+                                  company-gtags company-etags
+                                  company-keywords)
                                  company-elisp ; Emacs Lisp
                                  ;; company-semantic ; C/C++
                                  (company-clang  company-cmake) ; C/C++
@@ -69,7 +71,7 @@
                                  company-nxml company-css ; HTML, CSS, XML
                                  ;; company-xcode ; for Xcode projects
                                  company-bbdb ; BBDB
-                                 (company-dabbrev-code company-dabbrev company-abbrev) ; abbrev
+                                 (company-dabbrev company-abbrev) ; abbrev
                                  company-files ; files & directory
                                  company-ispell ; Ispell
                                  ;; company-oddmuse ; wiki
