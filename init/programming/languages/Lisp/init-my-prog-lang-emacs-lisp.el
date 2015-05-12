@@ -132,6 +132,7 @@
 (define-key my-prog-inferior-map (kbd "l e") 'my-ielm-start-or-switch)
 (define-key my-prog-inferior-map (kbd "l k")
   '(lambda ()
+     (interactive)
      (switch-to-buffer "*scratch*")))
 
 
