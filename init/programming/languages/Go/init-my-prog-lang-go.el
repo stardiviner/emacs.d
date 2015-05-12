@@ -18,9 +18,13 @@
 ;; - [C-c C-d] -- `godef-describe' and [C-c C-j] -- `godef-jump'
 ;; - `go-coverage'
 
-
-(require 'go-mode)
 (require 'go-mode-autoloads)
+
+;; (setq go-command "go"
+;;       gofmt-command "gofmt"
+;;       gofmt-show-errors 'buffer         ; 'buffer, 'echo, nil
+;;       godef-command "godef"
+;;       )
 
 ;; godoc -- `go doc [QUERY]`
 (add-hook 'go-mode-hook
