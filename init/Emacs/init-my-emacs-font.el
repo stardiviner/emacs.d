@@ -12,8 +12,6 @@
 ;; Gabriola
 ;; Old London
 ;; Segoe (Print/Script)
-;; Evanescent
-;; Century Schoolbook L
 ;; Death Note
 ;; --------
 ;; Anonymous Pro
