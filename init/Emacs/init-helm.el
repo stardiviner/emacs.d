@@ -155,6 +155,7 @@
 ;; to replace the standard find-file:
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "C-x C-b") 'helm-mini)
 ;; (define-key helm-command-prefix (kbd "o") 'helm-occur)
 (global-set-key (kbd "C-h a") 'helm-apropos) ; replace default `apropos-command'.
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
