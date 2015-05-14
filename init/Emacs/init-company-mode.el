@@ -16,7 +16,9 @@
 ;; - ->  :: snippet (yasnippet)
 
 ;;; Usage:
-;;;
+;;
+;; - [M-x global-company-mode] ::
+;; - [M-:] -> [M-x company-mode] :: enable company-mode in minibuffer.
 
 (require 'company)
 
