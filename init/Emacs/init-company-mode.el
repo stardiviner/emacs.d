@@ -50,11 +50,12 @@
 (setq company-quickhelp--delay 0.1)
 (company-quickhelp-mode 1)
 
-(setq-default company-frontends '(company-pseudo-tooltip-unless-just-one-frontend
-                                  company-preview-if-just-one-frontend
-                                  company-echo-metadata-frontend
-                                  company-quickhelp-frontend
-                                  ))
+(add-to-list 'company-frontends 'company-quickhelp-frontend)
+;; (setq-default company-frontends '(company-pseudo-tooltip-unless-just-one-frontend
+;;                                   company-preview-if-just-one-frontend
+;;                                   company-echo-metadata-frontend
+;;                                   company-quickhelp-frontend
+;;                                   ))
 
 (setq-default company-backends '((company-capf
                                   company-yasnippet
