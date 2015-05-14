@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("TeX.org"
+(("Ruby Manuals"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Manuals/Manuals.org")
+ (front-context-string . "* Learn Data [0/")
+ (rear-context-string)
+ (position . 1))
+("TeX.org"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/TeX/TeX.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
@@ -138,8 +143,8 @@
  (rear-context-string . "ories Archive\n\n\n")
  (position . 1015))
 ("Ruby Gems"
- (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Tools/RubyGems/RubyGems.org")
- (front-context-string . "* Intro\n\nThe Rub")
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Gems/Gems.org")
+ (front-context-string . "* About Gem\n\nThe")
  (rear-context-string)
  (position . 1))
 ("Ruby Tools"
