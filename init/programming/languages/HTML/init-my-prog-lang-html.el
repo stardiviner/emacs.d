@@ -7,6 +7,13 @@
 
 ;;; Code:
 
+;;; [ sgml-mode ] -- major mode for editing SGML documents.
+
+;; Makes > match <.
+;; Keys <, &, SPC within <>, ", / and ' can be electric depending on
+;; `sgml-quick-keys'.
+
+
 ;;; [ ac-html ] -- Provide accurate and intelligent auto completion to HTML and CSS.
 
 ;; ;;; If you are using html-mode:
