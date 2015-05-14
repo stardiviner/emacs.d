@@ -29,7 +29,7 @@
 
 (require 'spray)
 
-(setq spray-wpm 400 ; words per minute
+(setq spray-wpm 300 ; words per minute
       spray-height 400 ; Height of characters
       spray-margin-top 5 ; Character margin at top of buffer. Characters are as big as spray text characters.
       spray-margin-left 4
