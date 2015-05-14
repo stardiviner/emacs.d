@@ -414,6 +414,7 @@
          ;; auto-complete-verilog
          ;; Java
          eclim
+         javadoc-lookup ; javadoc-help
          ;; java-complete
          ess company-ess
          ;; Julia
