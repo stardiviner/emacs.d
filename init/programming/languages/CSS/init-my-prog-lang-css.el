@@ -86,7 +86,11 @@
       (showcss-mode 'toggle)
     (message "Not in an html mode")))
 
+(if (not (featurep 'sgml-mode))
+    (require 'sgml-mode))
 (define-key html-mode-map (kbd "C-c C-k") 'my/toggle-showcss)
+(if (not (featurep 'web-mode))
+    (require 'web-mode))
 (define-key web-mode-map (kbd "C-c C-k") 'my/toggle-showcss)
 
 
