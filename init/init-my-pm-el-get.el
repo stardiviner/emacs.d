@@ -310,7 +310,7 @@
          yari
          ;; auto-complete-ruby ; (conflict with robe-mode?)
          ruby-compilation
-         inf-ruby  ; pry
+         inf-ruby pry
          rbenv ; chruby ; rvm
          ;; rcodetools
          robe-mode helm-robe
