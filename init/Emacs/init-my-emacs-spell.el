@@ -4,9 +4,7 @@
 ;;; Code:
 
 
-;;; aspell & ispell
-
-;; - [C-;] ::
+;;; [ aspell & ispell ]
 
 ;; (require 'ispell)
 (autoload 'ispell "ispell" t)
@@ -70,10 +68,9 @@
 
 ;;; Usage:
 ;;
-;; - [M-$] / [M-TAB] -- correct word
+;; - [M-$] -- correct word
 ;;   - press [i] and answer "yes" to add word into personal dictionary.
-;; - [C-.] -- automatically correct word
-;; - [C-;] -- automatically correct last misspelled word
+;; - [C-.] / [C-;] -- automatically correct last misspelled word, cycle through suggestions.
 ;; - [M-x flyspell-region] -- checks all words inside a region
 ;; - [M-x flyspell-buffer] -- checks the whole buffer
 
