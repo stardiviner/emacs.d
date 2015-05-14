@@ -68,9 +68,9 @@
 
 
 
-(if (featurep 'helm)
-    (require 'init-helm)
-  (require 'init-ido))
+
+(require 'init-helm)
+;; (require 'init-ido)
 
 (require 'init-company-mode)
 ;; (require 'init-auto-complete)
