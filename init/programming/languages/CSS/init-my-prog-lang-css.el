@@ -65,6 +65,10 @@
 ;; - The default mode showcss uses is css-mode, but it can be set to any other
 ;;   mode such as sass-mode if your working with sass files
 
+;;; Usage:
+;;
+;; - `my/toggle-showcss' / [C-c C-k] ::
+
 (autoload 'showcss-mode "show_css"
   "Display the css of the class or id the cursor is at" t)
 
@@ -81,7 +85,9 @@
        'handlebars-mode)
       (showcss-mode 'toggle)
     (message "Not in an html mode")))
-(global-set-key (kbd "C-c C-k") 'my/toggle-showcss)
+
+(define-key html-mode-map (kbd "C-c C-k") 'my/toggle-showcss)
+(define-key web-mode-map (kbd "C-c C-k") 'my/toggle-showcss)
 
 
 ;;; [ SCSS ]
