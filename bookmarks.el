@@ -2,7 +2,17 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Python.org"
+(("TeX.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/TeX/TeX.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("LaTeX.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/TeX/LaTeX/LaTeX.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Python.org"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Python/Python.org")
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
