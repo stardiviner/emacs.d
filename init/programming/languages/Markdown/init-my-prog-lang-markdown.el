@@ -122,9 +122,23 @@
 ;;; termination. If you'd like to perform cleanup manually run [M-x
 ;;; markdown-preview-cleanup].
 
+;; (require 'markdown-preview-mode)
 (autoload 'markdown-preview-mode "markdown-preview-mode.el" nil t)
 
-;; (setq markdown-preview-style "???.css")
+;; enable MultiMarkdown support
+;; (setq markdown-command "multimarkdown")
+
+;; custom css theme
+(setq markdown-preview-style ""http://thomasf.github.io/solarized-css/solarized-dark.min.css"")
+
+;; websocket.el port
+;; (setq markdown-preview-port 7379)
+
+;; (set-face-attribute 'markdown-pre-face nil
+;;                     :inherit 'font-lock-constant-face
+;;                     )
+
+(define-key markdown-mode-map (kbd "C-c C-k") 'markdown-preview-mode)
 
 
 
