@@ -49,12 +49,13 @@
 ;; (require 'eclim)
 ;; ;; If you want to control eclimd from emacs, also add:
 ;; (require 'eclimd)
-;;
+(autoload 'eclim "eclim" nil t)
+
 ;; (setq eclim-eclipse-dirs '("/Applications/eclipse"
 ;;                            "/usr/lib/eclipse"
 ;;                            "/usr/local/lib/eclipse"
 ;;                            "/usr/share/eclipse")
-;;       ;; eclim-executable "~/nonStandard/eclipse/eclim"
+;;       ;; eclim-executable "~/Libraries/Emacs/eclim"
 ;;       )
 
 ;; for auto-complete, add the emacs-eclim source
@@ -63,7 +64,18 @@
 
 ;; for company-mode
 ;; (require 'company-emacs-eclim)
+
 ;; (company-emacs-eclim-setup)
+(add-hook 'java-mode-hook
+          (lambda ()
+            (eclim-mode)
+            (setq-local company-backends
+                        (cons 'company-emacs-eclim
+                              (remove-if (lambda (b) (find b '(company-nxml company-eclim)))
+                                         company-backends)))
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-emacs-eclim)))
+
 
 ;; (global-eclim-mode t)
 

@@ -413,8 +413,7 @@
          ;; verilog-mode
          ;; auto-complete-verilog
          ;; Java
-         ;; javadoc-lookup ; javadoc-help
-         ;; eclim
+         eclim
          ;; java-complete
          ess company-ess
          ;; Julia
