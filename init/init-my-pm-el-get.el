@@ -385,6 +385,7 @@
          ;; auto-complete-css
          css-eldoc
          showcss-mode
+         less-css-mode skewer-less
          ;; CoffeeScript
          ;; coffee-mode
          ;; XML

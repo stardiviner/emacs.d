@@ -87,6 +87,7 @@
 ;;; [ SCSS ]
 
 (require 'init-my-prog-lang-css-scss)
+(require 'init-my-prog-lang-css-less)
 
 
 (provide 'init-my-prog-lang-css)
