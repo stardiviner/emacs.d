@@ -18,7 +18,11 @@
 ;; `sort-java-imports'. The former integrates with the javadoc-lookup index to
 ;; provide completions.
 
-(define-key java-mode-map (kbd "C-h d") 'javadoc-lookup)
+(add-hook 'java-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-h d") 'my-prog-help-document-map)
+            (define-key my-prog-help-document-map (kbd "d") 'javadoc-lookup)
+            ))
 
 (javadoc-add-roots "/usr/share/doc/openjdk-7-doc/api"
                    ;; "~/src/project/doc"
