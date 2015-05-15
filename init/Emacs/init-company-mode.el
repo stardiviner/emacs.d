@@ -241,21 +241,30 @@
                     :foreground "white" :background "#212121")
 (set-face-attribute 'company-tooltip-mouse nil
                     :inherit 'company-tooltip
-                    :foreground "cyan" :background "black"
+                    :foreground "sky blue" :background "#333333"
                     :weight 'bold)
+;; common
 (set-face-attribute 'company-tooltip-common nil
                     :inherit 'company-tooltip
                     :foreground nil :background "light gray")
 (set-face-attribute 'company-tooltip-common-selection nil
                     :inverse-video nil
                     :inherit 'company-tooltip-selection
-                    :foreground "orange" :background nil)
+                    :foreground "green" :background nil)
+;; search
 (set-face-attribute 'company-tooltip-search nil
                     :inherit 'company-tooltip
-                    :foreground "red" :background nil)
+                    :foreground "red" :background nil
+                    :weight 'bold
+                    :underline "dim gray")
+;; annotation
 (set-face-attribute 'company-tooltip-annotation nil
                     :inherit 'company-tooltip
-                    :foreground "dark red" :background nil)
+                    :foreground "tomato" :background nil
+                    ;; :weight 'bold
+                    :slant 'italic
+                    ;; :box '(:color "dim gray" :line-width -1)
+                    )
 ;; scroll-bar
 (set-face-attribute 'company-scrollbar-fg nil
                     :foreground "black" :background "black")
@@ -263,11 +272,11 @@
                     :foreground "gray" :background "gray")
 ;; preview
 (set-face-attribute 'company-preview nil
-                    :foreground "black" :background "dim gray"
+                    :foreground "dim gray" :background "black"
                     :weight 'normal)
 (set-face-attribute 'company-preview-common nil
                     :inherit 'company-preview
-                    :foreground "steel blue" :background nil)
+                    :foreground "green yellow" :background "#444444")
 (set-face-attribute 'company-preview-search nil
                     :inherit 'company-preview
                     :foreground "cyan" :background nil)
