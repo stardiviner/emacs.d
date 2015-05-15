@@ -449,16 +449,12 @@ to insert <kbd>..</kbd> (HTML) org =[..]= (Org-mode)."
                     :height 1.2 :weight 'bold
                     :foreground "#FF3870"
                     :background (color-darken-name (face-background 'default) 4)
-                    ;; :box '(:color "black" :line-width 1 :style nil)
-                    :overline t
+                    :box '(:color "black" :line-width 1 :style nil)
+                    ;; :overline "#555555"
                     )
 (set-face-attribute 'org-level-2 nil
                     :inherit 'org-level-1
                     :foreground "#C8C800"
-                    :weight 'bold
-                    :height 1.1
-                    ;; :box '(:color "black" :line-width 1 :style nil)
-                    :overline t
                     )
 (set-face-attribute 'org-level-3 nil
                     :foreground "#009E00"
