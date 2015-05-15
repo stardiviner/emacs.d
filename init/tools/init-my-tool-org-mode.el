@@ -79,7 +79,10 @@
       ;; org-hide-block-overlays t ; overlays hiding blocks.
       )
 
-(setq org-fontify-whole-heading-line t)
+(setq org-fontify-emphasized-text t
+      org-fontify-done-headline t
+      org-fontify-quote-and-verse-blocks t
+      org-fontify-whole-heading-line t)
 
 ;; 'auto, t, nil. ((heading . auto) (plain-list-item . auto))
 (setq org-blank-before-new-entry
