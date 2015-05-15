@@ -93,6 +93,33 @@
 (setq org-display-internal-link-with-indirect-buffer nil)
 (setq org-indirect-buffer-display 'current-window)
 
+
+;;;_* org-bullets
+
+;; (load-file "~/.emacs.d/my-init/extensions/org-bullets.el")
+
+(require 'org-bullets nil t)
+
+;;; You Can copy symbols from Desktop Utils "Character Maps".
+;; ("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
+;; ("⒈" "⒉" "⒊" "⒋" "⒌" "⒍" "⒎" "⒏" "⒐" "⒑" "⒒" "⒓" "⒔" "⒕" "⒖" "⒗" "⒘" "⒙" "⒚" "⒛")
+;; ("⑴" "⑵" "⑶" "⑷" "⑸" "⑹" "⑺")
+
+(add-hook 'org-mode-hook
+          (lambda ()
+            (setq org-bullets-bullet-list
+                  '("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
+                  ;; '("❶" "❷" "❸" "❹" "❺" "❻" "❼" "❽" "❾" "❿")
+                  ;; '("①" "②" "③" "④" "⑤" "⑥" "⑦" "⑧" "⑨" "⑩")
+                  ;; '("㊀" "㊁" "㊂" "㊃" "㊄" "㊅" "㊆" "㊇" "㊈" "㊉")
+                  ;; '("㈠" "㈡" "㈢" "㈣" "㈤" "㈥" "㈦" "㈧" "㈨" "㈩")
+                  )
+
+            ;; TODO: (setq org-bullets-face-name 'org-level-1)
+            
+            (org-bullets-mode 1)
+            ))
+
 ;;;_* indentation
 
 ;; Usage:
@@ -113,7 +140,11 @@
       ;; org-indent-boundary-char 32
       )
 
-(org-indent-mode t)
+(add-hook 'org-mode-hook
+          (lambda ()
+            (when (org-bullets-mode)
+              (org-indent-mode 1))
+            ))
 
 (set-face-attribute 'org-indent nil
                     :foreground "deep pink"
@@ -587,31 +618,6 @@ to insert <kbd>..</kbd> (HTML) org =[..]= (Org-mode)."
 
 
 (setq org-ascii-headline-spacing '(1 . 2))
-
-
-;;;_* org-bullets
-
-;; (load-file "~/.emacs.d/my-init/extensions/org-bullets.el")
-
-(require 'org-bullets nil t)
-
-;;; You Can copy symbols from Desktop Utils "Character Maps".
-;; ("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
-;; ("⒈" "⒉" "⒊" "⒋" "⒌" "⒍" "⒎" "⒏" "⒐" "⒑" "⒒" "⒓" "⒔" "⒕" "⒖" "⒗" "⒘" "⒙" "⒚" "⒛")
-;; ("⑴" "⑵" "⑶" "⑷" "⑸" "⑹" "⑺")
-
-(add-hook 'org-mode-hook
-          (lambda ()
-            (setq org-bullets-bullet-list
-                  '("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
-                  ;; '("❶" "❷" "❸" "❹" "❺" "❻" "❼" "❽" "❾" "❿")
-                  ;; '("①" "②" "③" "④" "⑤" "⑥" "⑦" "⑧" "⑨" "⑩")
-                  ;; '("㊀" "㊁" "㊂" "㊃" "㊄" "㊅" "㊆" "㊇" "㊈" "㊉")
-                  ;; '("㈠" "㈡" "㈢" "㈣" "㈤" "㈥" "㈦" "㈧" "㈨" "㈩")
-                  )
-
-            (org-bullets-mode 1)
-            ))
 
 
 ;;;_* Editing
