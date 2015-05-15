@@ -13,6 +13,29 @@
       auto-revert-verbose nil)
 
 
+;;; [ ibuffer ]
+
+;;; Usage:
+;;
+;; - (M-x ibuffer-mode)
+
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;;; [ ibuffer-vc ]
+
+;; - Group your buffers by their parent vc root directory
+;; - See the VC status of the associated files
+;; - Sort buffers by their VC status
+
+;;; Usage:
+;;
+;; - [M-x ibuffer-vc]
+
+(require 'ibuffer-vc)
+
+
+
+
 
 (setq buffers-menu-max-size 30)
 
