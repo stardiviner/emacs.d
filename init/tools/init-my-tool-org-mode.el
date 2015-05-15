@@ -511,6 +511,9 @@ to insert <kbd>..</kbd> (HTML) org =[..]= (Org-mode)."
                     :foreground "white"
                     :inherit 'org-level-7
                     )
+(set-face-attribute 'org-headline-done nil
+                    :foreground "#444444"
+                    :background nil)
 ;;; tags
 (set-face-attribute 'org-tag nil
                     :foreground "cyan"
