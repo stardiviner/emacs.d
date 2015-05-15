@@ -79,6 +79,8 @@
       ;; org-hide-block-overlays t ; overlays hiding blocks.
       )
 
+(setq org-fontify-whole-heading-line t)
+
 ;; 'auto, t, nil. ((heading . auto) (plain-list-item . auto))
 (setq org-blank-before-new-entry
       '((heading . auto)
@@ -448,6 +450,7 @@ to insert <kbd>..</kbd> (HTML) org =[..]= (Org-mode)."
                     :overline t
                     )
 (set-face-attribute 'org-level-2 nil
+                    :inherit 'org-level-1
                     :foreground "#C8C800"
                     :weight 'bold
                     :height 1.1
