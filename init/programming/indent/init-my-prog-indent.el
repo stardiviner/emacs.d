@@ -177,7 +177,7 @@
 
 (require 'aggressive-indent)
 
-;; (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
+(add-to-list 'aggressive-indent-excluded-modes 'enh-ruby-mode)
 
 ;; (global-aggressive-indent-mode)
 ;;; or
