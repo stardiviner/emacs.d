@@ -161,9 +161,9 @@
 ;;; Emacs
 (require 'init-my-emacs-apperance)
 (require 'init-my-emacs-font)
-(require 'init-my-emacs-popup)
 (require 'init-my-emacs-highlight)
 (require 'init-my-emacs-completion)
+(require 'init-my-emacs-popup)
 (require 'init-my-emacs-environment)
 (require 'init-my-emacs-settings)
 (require 'init-my-emacs-help)
