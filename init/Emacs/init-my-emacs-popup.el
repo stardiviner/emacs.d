@@ -9,22 +9,29 @@
 (require 'tooltip)
 (tooltip-mode t)
 
-(setq-default tooltip-delay 0.5         ; default 0.7
-              tooltip-hide-delay 10
-              tooltip-short-delay 0.1
+(setq-default tooltip-delay 0.3         ; default 0.7
+              tooltip-hide-delay 10     ; default 10
+              tooltip-short-delay 0.1   ; default 0.1
               tooltip-x-offset 5
               tooltip-y-offset 20
               ;; tooltip-functions '(tooltip-help-tips)
               ;; tooltip-hide-time nil
               tooltip-frame-parameters '((name . "tooltip")
                                          (internal-border-width . 2)
-                                         (border-width . 1))
+                                         (border-width . 2))
               )
 
 (set-face-attribute 'tooltip nil
-                    :foreground "dark gray" :background "#002630")
+                    :foreground "black" :background "khaki"
+                    :family "DejaVu Sans Mono")
+
+;; (set-face-attribute 'tooltip nil
+;;                     :foreground "dark gray" :background "#002630")
 
 (require 'tooltip-help)
+
+;; (setq th-max-tooltip-lines 30
+;;       th-titlebar-height 0)
 
 
 ;;; [ popup ]
@@ -42,7 +49,8 @@
 (require 'popup)
 
 (set-face-attribute 'popup-tip-face nil
-                    :foreground "black" :background "#EDED00")
+                    :foreground "black" :background "#EDED00"
+                    :family "DejaVu Sans Mono")
 (set-face-attribute 'popup-isearch-match nil
                     :inherit 'ac-candidate-face
                     :inverse-video nil
@@ -67,16 +75,19 @@
 
 (require 'pos-tip)
 
-(setq pos-tip-use-relative-coordinates t
+(setq pos-tip-use-relative-coordinates nil
       ;; pos-tip-frame-offset
       ;; pos-tip-frame-offset-array
-      pos-tip-border-width 2
-      pos-tip-internal-border-width 2
+      pos-tip-border-width 1
+      pos-tip-internal-border-width 10
       ;; pos-tip-tab-width
       )
 
-(setq pos-tip-background-color "#002630" ; '(color-darken-name (face-background 'default) 1)
-      pos-tip-foreground-color "dark gray")
+(setq pos-tip-foreground-color "white"
+      pos-tip-background-color "khaki")
+
+;; (setq pos-tip-background-color "#002630" ; '(color-darken-name (face-background 'default) 1)
+;;       pos-tip-foreground-color "dark gray")
 
 
 ;;; [ popup-pos-tip ]
@@ -92,11 +103,11 @@
 
 (require 'showtip)
 
-(set-face-attribute 'showtip-face nil
-                    :inherit 'tooltip
-                    :family "Monospace"
-                    ;; :family "WenQuanYi Zen Hei Mono"
-                    )
+;; (set-face-attribute 'showtip-face nil
+;;                     :inherit 'tooltip
+;;                     :family "DejaVu Sans Mono"
+;;                     ;; :family "WenQuanYi Zen Hei Mono"
+;;                     )
 
 
 (provide 'init-my-emacs-popup)
