@@ -12,8 +12,8 @@
 (setq-default tooltip-delay 0.5         ; default 0.7
               tooltip-hide-delay 10
               tooltip-short-delay 0.1
-              tooltip-x-offset 1
-              tooltip-y-offset 1
+              tooltip-x-offset 5
+              tooltip-y-offset 20
               ;; tooltip-functions '(tooltip-help-tips)
               ;; tooltip-hide-time nil
               tooltip-frame-parameters '((name . "tooltip")
