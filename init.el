@@ -235,6 +235,7 @@
 (require 'init-my-prog-tags)
 ;; (require 'init-my-prog-sidebar)
 (require 'init-my-prog-snippet)
+(require 'init-my-prog-template)
 (require 'init-my-prog-document)
 (require 'init-my-prog-compile)
 (require 'init-my-prog-project)

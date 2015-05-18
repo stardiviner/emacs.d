@@ -120,13 +120,14 @@
 ;; (add-hook 'shell-mode-hook 'ac-rlc-setup-sources)
 
 ;;; for company-mode
-(dolist (hook '(shell-mode-hook
-                eshell-mode-hook
-                ))
-  (add-hook hook
-            (lambda ()
-              (add-to-list (make-local-variable 'company-backends)
-                           'company-readline))))
+;; NOTE: deprecated, readline-complete support `completion-at-point-functions' (`capf') now.
+;; (dolist (hook '(shell-mode-hook
+;;                 eshell-mode-hook
+;;                 ))
+;;   (add-hook hook
+;;             (lambda ()
+;;               (add-to-list (make-local-variable 'company-backends)
+;;                            'company-readline))))
 
 ;; (add-hook 'rlc-no-readline-hook
 ;;           (lambda () (company-mode -1)))
