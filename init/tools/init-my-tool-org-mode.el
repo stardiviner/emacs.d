@@ -342,7 +342,7 @@
 ;; ... call_<name>[<inside header arguments>](<arguments>)[<end header arguments>] ...
 (font-lock-add-keywords
  'org-mode
- '(("\\(call_\\)\\([^[(]*\\)\\(\\[.*\\]\\)\\((.*)\\)\\(\\[.*\\]\\)?"
+ '(("\\(call_\\)\\([^[(]*\\)\\(\\[.*\\]\\)\\((.*)\\)\\(\\[.*\\]\\)"
     (1 '(:foreground "dim gray" :height 60)) ; call_
     (2 '(:foreground "yellow" :weight 'bold :slant 'italic)) ; <name>
     (3 '(:foreground "gray" :height 60)) ; [<inside header arguments>]
