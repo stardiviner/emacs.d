@@ -375,7 +375,8 @@
 (set-face-attribute 'region nil
                     :inverse-video nil
                     :foreground nil
-                    :background "#222222"
+                    ;; :background "#222222"
+                    :background (color-darken-name (face-background 'default) 7)
                     )
 ;; highlight
 (set-face-attribute 'highlight nil
