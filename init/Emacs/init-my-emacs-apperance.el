@@ -43,6 +43,13 @@
 ;; or
 ;; (set-fringe-style '(10 . 0))
 
+(setq-default indicate-buffer-boundaries 'left
+              indicate-empty-lines t
+              indicate-unused-lines nil)
+
+;; (setq left-fringe-width nil
+;;       right-fringe-width nil)
+
 ;; (setq fringe-styles '(("default")
 ;;                       ("no-fringes" . 0)
 ;;                       ("right-only" 0)
@@ -62,16 +69,9 @@
 ;;                                (unknown . question-mark))
 ;;       )
 
-;; (setq left-fringe-width nil
-;;       right-fringe-width nil)
-
 (set-face-attribute 'fringe nil
                     :foreground "cyan" :background "#073642"
                     )
-
-(setq-default indicate-buffer-boundaries 'left
-              indicate-empty-lines t
-              indicate-unused-lines nil)
 
 
 ;;; [ Scroll Bar ]
