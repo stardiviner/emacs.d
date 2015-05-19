@@ -81,9 +81,7 @@
 ;; smooth scroll
 (setq scroll-margin 10
       scroll-conservatively 100000
-      scroll-preserve-screen-position 1
-      ;; always keep cursor in center of buffer.
-      ;; scroll-preserve-screen-position nil
+      scroll-preserve-screen-position 'always ; 1, screen offset, nil, always keep in center of window. 'always, keep [M-v] undo [C-v].
       )
 
 
