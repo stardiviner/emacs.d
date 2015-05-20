@@ -61,23 +61,45 @@
 ;;                                   company-quickhelp-frontend
 ;;                                   ))
 
-(setq-default company-backends '((company-capf
-                                  company-yasnippet
-                                  company-tempo ; flexible template insertion
+;; (setq-default company-backends '((company-capf
+;;                                   company-yasnippet
+;;                                   company-tempo ; flexible template insertion
+;;                                   )
+;;                                  (company-dabbrev-code
+;;                                   company-gtags company-etags
+;;                                   company-keywords)
+;;                                  company-elisp ; Emacs Lisp
+;;                                  ;; company-semantic ; C/C++
+;;                                  (company-clang company-cmake) ; C/C++
+;;                                  ;; company-eclim ; Java
+;;                                  ;; company-ropemacs ; Python
+;;                                  company-nxml company-css ; HTML, CSS, XML
+;;                                  ;; company-xcode ; for Xcode projects
+;;                                  company-bbdb ; BBDB
+;;                                  (company-abbrev company-dabbrev) ; abbrev
+;;                                  company-files ; files & directory
+;;                                  company-ispell ; Ispell
+;;                                  ;; company-oddmuse ; wiki
+;;                                  ))
+
+(setq-default company-backends '((company-yasnippet ; yasnippet
+                                  company-tempo ; tempo: flexible template insertion
+                                  company-keywords ; keywords
+                                  company-bbdb ; BBDB
+                                  company-files ; files & directory
+                                  company-capf ; completion-at-point-functions
                                   )
                                  (company-dabbrev-code
                                   company-gtags company-etags
-                                  company-keywords)
+                                  )
                                  company-elisp ; Emacs Lisp
                                  ;; company-semantic ; C/C++
-                                 (company-clang  company-cmake) ; C/C++
+                                 (company-clang company-cmake) ; C/C++
                                  ;; company-eclim ; Java
                                  ;; company-ropemacs ; Python
                                  company-nxml company-css ; HTML, CSS, XML
                                  ;; company-xcode ; for Xcode projects
-                                 company-bbdb ; BBDB
-                                 (company-dabbrev company-abbrev) ; abbrev
-                                 company-files ; files & directory
+                                 (company-abbrev company-dabbrev)
                                  company-ispell ; Ispell
                                  ;; company-oddmuse ; wiki
                                  ))
