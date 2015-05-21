@@ -364,6 +364,8 @@
          ;; rust-mode
          ;; Lua
          ;; lua-mode
+         ;; Swift
+         swift-mode
          ;; Web
          web-mode
          skewer-mode ; live web development in Emacs (HTML, CSS, JavaScript)
