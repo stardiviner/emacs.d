@@ -38,36 +38,48 @@
 
 ;;; [ fringe ]
 
-;; make left fringe 10 pixels wide, and right fringe disappear.
-(fringe-mode '(10 . 0))
-;; or
-;; (set-fringe-style '(10 . 0))
+;; (defconst fringe-styles
+;;   '(("default" . nil)
+;;     ("no-fringes" . 0)
+;;     ("right-only" . (0 . nil))
+;;     ("left-only" . (nil . 0))
+;;     ("half-width" . (4 . 4))
+;;     ("minimal" . (1 . 1)))
+;;   "Alist mapping fringe mode names to fringe widths.
+;; Each list element has the form (NAME . WIDTH), where NAME is a
+;; mnemonic fringe mode name and WIDTH is one of the following:
+;; - nil, which means the default width (8 pixels).
+;; - a cons cell (LEFT . RIGHT), where LEFT and RIGHT are
+;;   respectively the left and right fringe widths in pixels, or
+;;   nil (meaning the default width).
+;; - a single integer, which specifies the pixel widths of both
+;; fringes.")
+
+;; (setq fringe-indicator-alist
+;;       '((truncation left-arrow right-arrow)
+;;         (continuation left-curly-arrow right-curly-arrow)
+;;         (overlay-arrow . right-triangle)
+;;         (up . up-arrow)
+;;         (down . down-arrow)
+;;         (top top-left-angle top-right-angle)
+;;         (bottom bottom-left-angle bottom-right-angle top-right-angle top-left-angle)
+;;         (top-bottom left-bracket right-bracket top-right-angle top-left-angle)
+;;         (empty-line . empty-line)
+;;         (unknown . question-mark)))
 
 (setq-default indicate-buffer-boundaries 'left
               indicate-empty-lines t
               indicate-unused-lines nil)
 
-;; (setq left-fringe-width nil
-;;       right-fringe-width nil)
 
-;; (setq fringe-styles '(("default")
-;;                       ("no-fringes" . 0)
-;;                       ("right-only" 0)
-;;                       ("left-only" nil . 0)
-;;                       ("half-width" 4 . 4)
-;;                       ("minimal" 1 . 1))
-;;       ;; fringe-bitmaps
-;;       fringe-indicator-alist '((truncation left-arrow right-arrow)
-;;                                (continuation left-curly-arrow right-curly-arrow)
-;;                                (overlay-arrow . right-triangle)
-;;                                (up . up-arrow)
-;;                                (down . down-arrow)
-;;                                (top top-left-angle top-right-angle)
-;;                                (bottom bottom-left-angle bottom-right-angle top-right-angle top-left-angle)
-;;                                (top-bottom left-bracket right-bracket top-right-angle top-left-angle)
-;;                                (empty-line . empty-line)
-;;                                (unknown . question-mark))
-;;       )
+;; both side fringe 10 pixels wide.
+;; (fringe-mode 10)
+;; make left fringe 10 pixels wide, and right fringe disappear.
+;; (fringe-mode '(10 . 0))
+;; or
+;; (set-fringe-style '(10 . 0))
+;; restore the default size
+(fringe-mode nil)
 
 (set-face-attribute 'fringe nil
                     :foreground "cyan" :background "#073642"
