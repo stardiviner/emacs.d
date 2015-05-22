@@ -27,6 +27,7 @@
 ;;
 ;;; Appointment in calendar
 
+(require 'calendar)
 
 ;; ;; Month
 ;; (setq calendar-month-name-array
@@ -101,12 +102,13 @@
                                           ;; (mark-diary-entries) ; FIXME: void function.
                                           ))
 
+
 ;; [ Diary ]
 ;; Diary Mode
 ;; Usage:
 ;; - [M-x calendar RET d]
 ;; - [M-x diary]
-;;
+
 ;; fancy display
 (setq view-diary-entries-initially t
       mark-diary-entries-in-calendar t
@@ -176,11 +178,11 @@
 ;;   "Highlight freedays as well."
 ;;   (mycal-mark-freedays))
 
-
+
 ;;; [ icalendar ]
 
 
-
+
 ;;; [ calfw ] -- Calendar framework for Emacs
 ;;; https://github.com/kiwanami/emacs-calfw
 ;; Features:
@@ -265,7 +267,7 @@
 ;;; Global Keybinding
 (unless (boundp 'my-calendar-prefix-map)
   (define-prefix-command 'my-calendar-prefix-map))
-(define-key my-tools-prefix-map (kbd "c") 'my-calendar-prefix-map)
+(define-key my-org-prefix-map (kbd "C") 'my-calendar-prefix-map)
 
 (define-key my-calendar-prefix-map (kbd "c") 'my-open-calfw)
 (define-key my-calendar-prefix-map (kbd "x") 'cfw:open-calendar-buffer)
