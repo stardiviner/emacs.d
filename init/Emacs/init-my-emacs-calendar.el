@@ -250,7 +250,7 @@
   (interactive)
   (cfw:open-calendar-buffer
    :contents-sources (list
-                      (cfw:org-create-source "CadetBlue4") ; Org-mode source
+                      (cfw:org-create-source "dark gray") ; Org-mode source
                       (cfw:cal-create-source "orange") ; Diary source
                       ;; TODO
                       ;; (cfw:ical-create-source "Moon" "~/moon.ics" "Gray") ; iCalendar source1
@@ -274,35 +274,48 @@
 
 
 ;;; Faces
-;;; TODO change those faces colors.
-;; (custom-set-faces
+;; Year / Month
 (set-face-attribute 'cfw:face-title nil
-                    :foreground "#f0dfaf"
-                    :weight 'bold :height 2.5)
-;; week (1-5)
+                    :foreground "forest green"
+                    :weight 'bold
+                    :height 2.3)
+;; 1-31
+(set-face-attribute 'cfw:face-default-day nil
+                    :foreground "white" :background "black"
+                    )
+;; 1-31 (N)
+(set-face-attribute 'cfw:face-day-title nil
+                    :foreground "dim gray"
+                    :background "black")
+;; Week (1-5)
 (set-face-attribute 'cfw:face-header nil
                     :foreground "sky blue"
                     :weight 'bold)
-;; saturday
+;; Saturday
 (set-face-attribute 'cfw:face-saturday nil
-                    :foreground "orange" :background "#333333"
+                    :inherit 'cfw:face-day-title
+                    :foreground "deep pink"
                     :weight 'bold
                     ;; :box '(:color "orange" :line-width -1)
                     )
-;; sunday
+;; Sunday
 (set-face-attribute 'cfw:face-sunday nil
-                    :foreground "orange" :background "#333333"
+                    :inherit 'cfw:face-day-title
+                    :foreground "deep pink"
                     :weight 'bold
                     ;; :box '(:color "yellow" :line-width -1)
                     )
-;; holidays
+;; Holidays
 (set-face-attribute 'cfw:face-holiday nil
-                    :foreground "yellow"
-                    :weight 'bold
-                    :box '(:color "yellow" :line-width -1))
-;; grid
+                    :inherit 'cfw:face-day-title
+                    :foreground "yellow" :background "black"
+                    ;; :weight 'normal
+                    :overline t
+                    ;; :box '(:color "yellow" :line-width -1)
+                    )
+;; Grid
 (set-face-attribute 'cfw:face-grid nil
-                    :foreground "#444444"
+                    :foreground "#333333"
                     )
 ;; ??
 (set-face-attribute 'cfw:face-default-content nil
@@ -312,43 +325,41 @@
                     :foreground "cyan")
 ;; ??
 (set-face-attribute 'cfw:face-annotation nil
-                    :foreground "dark green")
-;; ??
+                    :foreground "dark green"
+                    ;; :background "#121212"
+                    )
+;; past days
 (set-face-attribute 'cfw:face-disable nil
                     :foreground "#333333"
                     :strike-through t)
-;; 1-31 (N)
-(set-face-attribute 'cfw:face-day-title nil
-                    :foreground "dark gray")
-;; 1-31
-(set-face-attribute 'cfw:face-default-day nil
-                    :inherit 'cfw:face-day-title
-                    :foreground "gray"
-                    :weight 'bold
-                    )
 ;; today (N)
 (set-face-attribute 'cfw:face-today-title nil
-                    :foreground "cyan" :background "black"
+                    :inherit 'cfw:face-day-title
+                    :foreground "cyan"
                     :weight 'bold
-                    :box '(:color "dark cyan" :line-width -1))
-;; events at today.
+                    ;; :box '(:color "dark cyan" :line-width -1)
+                    )
+;; today events grid
 (set-face-attribute 'cfw:face-today nil
-                    :foreground "dark cyan" :background " "
+                    :inherit 'cfw:face-day-title
+                    :foreground "dark gray"
+                    :background "#121212"
                     :weight 'normal
-                    ;; :underline '(:color "#333333")
                     )
 ;; current select
 (set-face-attribute 'cfw:face-select nil
-                    :foreground "white" :background "dark cyan"
-                    :box '(:color "cyan" :line-width -1))
+                    :foreground "black" :background "cyan"
+                    ;; :box '(:color "cyan" :line-width -1)
+                    )
 ;; toolbar [ < ] [ > ] [Today ]                      [Day] [Week] [Two Weeks] [Month]
 (set-face-attribute 'cfw:face-toolbar nil
-                    :background " ")
+                    :foreground "gray" :background nil)
 (set-face-attribute 'cfw:face-toolbar-button-on nil
                     :foreground "white"
-                    :weight 'bold)
+                    :weight 'bold
+                    :box '(:color "yellow" :line-width 1))
 (set-face-attribute 'cfw:face-toolbar-button-off nil
-                    :foreground "dark gray"
+                    :foreground "dim gray"
                     :weight 'normal)
 
 
