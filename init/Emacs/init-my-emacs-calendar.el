@@ -184,23 +184,25 @@
 
 
 ;;; [ calfw ] -- Calendar framework for Emacs
-;;; https://github.com/kiwanami/emacs-calfw
+
 ;; Features:
 ;; * holidays
 ;;    get the holidays using the function `calendar-holiday-list`. see `holidays.el`
+
 ;; Usage:
 ;; - [SPC] -- Pushing SPC key, the detail buffer pops up. Pushing SPC key again, the buffer is closed.
 ;; - command `cfw:open-calendar-buffer`
+
 ;; Key bindings (in calfw buffer):
-;; - [TAB] -- navigate to next item.
+;; - [h/j/k/l] / [b/f/n/p] -- navigate [back/forward/up/down]
 ;; - [SPC] -- show details.
+;; - [TAB] -- navigate to next item.
 ;; - [RET] -- Jump (howm, orgmode)
 ;; - [.]   -- goto today.
 ;; - [D]   -- day view.
 ;; - [W]   -- week view.
 ;; - [T]   -- two weeks view.
 ;; - [M]   -- month view.
-;; - [h/j/k/l] / [b/f/n/p] -- navigate [back/forward/up/down]
 ;; - [^/$] -- navigate to week [begin/end]
 ;; - [q]   -- quit
 ;; - [r]   -- refresh
@@ -224,27 +226,32 @@
 ;;; Annotations
 ;;; variable -> :annotation-sources
 
+
 ;;; for Org-mode
 ;;; Usage:
 ;;; - [M-x cfw:open-org-calendar]
 (require 'calfw-org)
 
+
 ;;; for iCalendar (Google Calendar) users:
 (require 'calfw-ical)
 ;; TODO (cfw:open-ical-calendar "http://www.google.com/calendar/ical/.../basic.ics")
 
+
 ;;; for Diary users:
 ;;; Usage:
 ;;; - [M-x cfw:open-diary-calendar]
 (require 'calfw-cal)
 
+
 ;;; calfw-gcal.el -- edit Google Calendar for calfw.
 ;; (require 'calfw-gcal)
 
+
 ;;; for Howm users:
 ;; (require 'calfw-howm)
 
-
+
 ;;; General setting
 (defun my-open-calfw ()
   (interactive)
