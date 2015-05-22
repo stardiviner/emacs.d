@@ -1,4 +1,4 @@
-;;; init-my-emacs-calendar.el --- init for Calendar
+;;; init-my-tool-calendar.el --- init for Calendar
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -444,6 +444,6 @@
 
 
 
-(provide 'init-my-emacs-calendar)
+(provide 'init-my-tool-calendar)
 
-;;; init-my-emacs-calendar.el ends here
+;;; init-my-tool-calendar.el ends here
