@@ -269,7 +269,10 @@
   (define-prefix-command 'my-calendar-prefix-map))
 (define-key my-org-prefix-map (kbd "C") 'my-calendar-prefix-map)
 
-(define-key my-calendar-prefix-map (kbd "c") 'my-open-calfw)
+(define-key my-calendar-prefix-map (kbd "c") 'my-open-calfw-week)
+(define-key my-calendar-prefix-map (kbd "w") 'my-open-calfw-week)
+(define-key my-calendar-prefix-map (kbd "d") 'my-open-calfw-day)
+(define-key my-calendar-prefix-map (kbd "m") 'my-open-calfw-month)
 (define-key my-calendar-prefix-map (kbd "x") 'cfw:open-calendar-buffer)
 
 
