@@ -189,7 +189,7 @@
          ;; Org-mode
          org-mode
          org-fstree org-bullets
-         ob-julia
+         ob-julia ob-go ob-prolog ob-mongo ob-http ob-browser
          cdlatex-mode
          ;; org-ac
          org-screenshot

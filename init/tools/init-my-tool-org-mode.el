@@ -2075,10 +2075,12 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;; Or by using `require' to load.
 (require 'ob-processing)
 
-;;; ob-julia (require ESS)
+;;; [ ob-julia ]  (require ESS)
 ;;
 ;; TODO: read https://github.com/gjkerns/ob-julia/blob/master/ob-julia-doc.org
-;;
+
+(my-el-get-require 'ob-julia)
+
 (setq inferior-julia-program-name "julia")
 ;; 1.
 ;; (load "~/.emacs.d/el-get/ob-julia/ob-julia.el")
@@ -2093,13 +2095,25 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
       '((:results . "replace output")
         (:padnewline . "yes")))
 
-;; ob-mongo
-;;
-;; (unless (package-installed-p 'ob-mongo)
-;;   (package-install 'ob-mongo))
-;;
-;; (require 'ob-mongo)
+;; [ ob-mongo ] -- babel for MongoDB
 
+(my-el-get-require 'ob-mongo)
+
+;; [ ob-go ] -- babel for Go
+
+(my-el-get-require 'ob-go)
+
+;; [ ob-prolog ] -- babel for Prolog
+
+(my-el-get-require 'ob-prolog)
+
+;; [ ob-http ] -- http request in org-mode babel
+
+(my-el-get-require 'ob-http)
+
+;; [ ob-browser ] -- render HTML in org babel
+
+(my-el-get-require 'ob-browser)
 
 
 (setq org-confirm-babel-evaluate t)     ; org-babel-evaluate confirm.
