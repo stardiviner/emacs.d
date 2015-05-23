@@ -301,6 +301,17 @@ Example:
   )
 
 
+;;; el-get
+
+(defun my-el-get-require (package)
+  "Require `PACKAGE' if it is installed, if not installed, then el-get install it."
+  (interactive)
+  (if (el-get-package-installed-p package)
+      (require package)
+    (el-get-install package))
+  )
+
+
 
 (provide 'init-my-functions)
 
