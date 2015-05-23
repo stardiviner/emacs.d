@@ -159,6 +159,7 @@
 
 
 ;;; Emacs
+(require 'init-my-emacs-color-theme)
 (require 'init-my-emacs-apperance)
 (require 'init-my-emacs-font)
 (require 'init-my-emacs-highlight)
