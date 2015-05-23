@@ -139,8 +139,10 @@ This functions should be added to the hooks of major modes for programming."
 ;;_* [ poporg ] -- Editing program comments or strings in text mode.
 ;;
 ;;; Usage:
+;;
 ;; - [poporg-dwim] :: [C-c ']
 ;; - [poporg-edit-and-exit] :: [C-c '], [C-x C-s] in opened buffer.
+;; - `poporg-edit-hook'
 
 (require 'poporg)
 (autoload 'poporg-dwim "poporg" nil t)
@@ -152,7 +154,8 @@ This functions should be added to the hooks of major modes for programming."
 (if (featurep 'poporg)
     (progn
       (global-set-key (kbd "C-c '") 'poporg-dwim)
-      (define-key poporg-mode-map (kbd "C-c '") 'poporg-edit-exit)))
+      (define-key poporg-mode-map [remap save-buffer] 'poporg-edit-exit)
+      ))
 
 
 
