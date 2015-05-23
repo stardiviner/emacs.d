@@ -73,10 +73,11 @@
 ;; (add-hook 'go-mode-hook 'go-eldoc-setup)
 
 
-;;; [ gocode ]
+;;; [ gocode ] -- An autocompletion daemon for the Go programming language.
 
 ;; (setenv "GOPATH" "/home/stardiviner/compile/Go")
 ;; (setenv "PATH" (concat (getenv "PATH") ":" (getenv "GOPATH") "/bin"))
+;; (setenv "GOBIN" (concat (getenv "PATH") ":" (getenv "GOPATH") "/bin/go"))
 
 
 ;;; [ go-autocomplete ]
@@ -88,9 +89,6 @@
 ;;; [ company-go ]
 
 (my-el-get-require 'company-go)
-
-(setq company-go-begin-after-member-access t
-      company-go-show-annotation t)
 
 (if (getenv "GOPATH")
     (progn
