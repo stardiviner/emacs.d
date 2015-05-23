@@ -187,7 +187,6 @@
 (require 'init-my-emacs-abbrev)
 (require 'init-my-emacs-search)
 (require 'init-my-emacs-regexp)
-;; (require 'init-my-emacs-calendar)
 (require 'init-my-emacs-vcs)
 (require 'init-my-emacs-shell)
 (require 'init-my-emacs-encrypt)
@@ -198,6 +197,7 @@
 
 ;;; Tools
 (require 'init-my-tool-org-mode)
+(require 'init-my-tool-calendar)
 (require 'init-my-tool-dict)
 (require 'init-my-tool-clock)
 ;; (require 'init-my-tool-speak)
