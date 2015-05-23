@@ -467,25 +467,6 @@
                            org-mode))
 
 
-;;; company-clang
-
-;; (setq company-clang-arguments
-;;       company-clang-prefix-guesser 'company-clang-guess-prefix
-;;       )
-
-(setq company-clang-begin-after-member-access t)
-
-
-;;; company-irony
-
-
-
-;;; company-go
-
-(setq company-go-begin-after-member-access t
-      company-go-show-annotation t)
-
-
 (provide 'init-company-mode)
 
 ;;; init-company-mode.el ends here

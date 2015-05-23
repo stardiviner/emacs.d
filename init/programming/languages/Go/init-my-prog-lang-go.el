@@ -82,7 +82,15 @@
 ;;; [ go-autocomplete ]
 
 
+;;; [ go-company ]
+
+
 ;;; [ company-go ]
+
+(my-el-get-require 'company-go)
+
+(setq company-go-begin-after-member-access t
+      company-go-show-annotation t)
 
 (if (getenv "GOPATH")
     (progn

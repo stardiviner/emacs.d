@@ -9,10 +9,7 @@
 
 ;;; [ C-mode-common ]
 
-(add-hook 'c-mode-common-hook
-          (lambda ()
-            (add-to-list (make-local-variable 'company-backends)
-                         '(company-clang company-cmake))))
+
 
 
 ;; [ C-mode ]
@@ -146,6 +143,22 @@
 ;; (unless (package-installed-p 'auto-complete-clang-async)
 ;;   (package-install 'auto-complete-clang-async))
 ;; (require 'auto-complete-clang-async)
+
+
+;;; [ company-clang ]
+
+;; (setq company-clang-arguments
+;;       company-clang-prefix-guesser 'company-clang-guess-prefix
+;;       )
+
+(setq company-clang-begin-after-member-access t)
+
+
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (add-to-list (make-local-variable 'company-backends)
+                         '(company-clang company-cmake))))
+
 
 
 ;;; [ gccsense ]
