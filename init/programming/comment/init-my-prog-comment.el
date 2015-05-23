@@ -126,13 +126,13 @@ This functions should be added to the hooks of major modes for programming."
 ;; - [M-#] (outorg-copy-edits-and-exit) ::
 ;; - [C-x C-s] (outorg-save-edits-to-tmp-file) ::
 
-(require 'outorg)
-
-;; Outorg (like outshine) assumes that you set `outline-minor-mode-prefix' in your init-file to 'M-#':
-;; NOTE: must be set before outline is loaded
-(defvar outline-minor-mode-prefix "\M-#")
-
-(global-set-key (kbd "C-c '") 'outorg-edit-as-org)
+;; (require 'outorg)
+;;
+;; ;; Outorg (like outshine) assumes that you set `outline-minor-mode-prefix' in your init-file to 'M-#':
+;; ;; NOTE: must be set before outline is loaded
+;; (defvar outline-minor-mode-prefix "\M-#")
+;;
+;; (global-set-key (kbd "C-c '") 'outorg-edit-as-org)
 
 
 

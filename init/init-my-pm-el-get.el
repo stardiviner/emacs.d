@@ -247,7 +247,7 @@
          flycheck-pos-tip
          ;; comment
          fic-mode
-         outorg poporg
+         poporg ; outorg
          ;; License
          xlicense
          ;; electric
