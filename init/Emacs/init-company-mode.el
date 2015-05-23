@@ -264,6 +264,7 @@
                     :underline nil)
 ;; selection
 (set-face-attribute 'company-tooltip-selection nil
+                    :inherit 'company-tooltip
                     :foreground "white" :background "#212121"
                     :underline nil)
 (set-face-attribute 'company-tooltip-mouse nil
@@ -273,18 +274,20 @@
 ;; common
 (set-face-attribute 'company-tooltip-common nil
                     :inherit 'company-tooltip
-                    :foreground nil :background "light gray")
+                    :foreground nil :background "light gray"
+                    :underline nil)
+;; common selection
 (set-face-attribute 'company-tooltip-common-selection nil
                     :inverse-video nil
-                    :inherit 'company-tooltip-selection
-                    :foreground "green" :background nil
+                    :inherit 'company-common
+                    :foreground "cyan1" :background "#212121"
                     :underline nil)
 ;; search
 (set-face-attribute 'company-tooltip-search nil
                     :inherit 'company-tooltip
                     :foreground "red" :background nil
                     :weight 'bold
-                    :underline "dim gray")
+                    :underline "#222222")
 ;; annotation
 (set-face-attribute 'company-tooltip-annotation nil
                     :inherit 'company-tooltip
