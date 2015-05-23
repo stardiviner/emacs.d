@@ -2100,6 +2100,82 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 (my-el-get-require 'ob-mongo)
 
 ;; [ ob-go ] -- babel for Go
+;;
+;; Usage:
+;;
+;; * simple example:
+;;
+;; #+BEGIN_SRC go :imports "fmt"
+;; fmt.Println("Hello, World")
+;; #+END_SRC
+;;
+;; #+results:
+;; : Hello, World
+;;
+;; * multiple imports
+;;
+;; #+BEGIN_SRC go :imports '("fmt" "time")
+;; fmt.Println("Current Time:", time.Now())
+;; #+END_SRC
+;;
+;; #+RESULTS:
+;; : Current Time: 2015-05-23 13:02:50.87256801 +0800 CST
+;;
+;; * concurrent prime sieve
+;;
+;; #+begin_src go
+;;   // A concurrent prime sieve
+;;   package main
+;;
+;;   import "fmt"
+;;
+;;   // Send the sequence 2, 3, 4, ... to channel 'ch'.
+;;   func Generate(ch chan<- int) {
+;;           for i := 2; ; i++ {
+;;                   ch <- i // Send 'i' to channel 'ch'.
+;;           }
+;;   }
+;;
+;;   // Copy the values from channel 'in' to channel 'out',
+;;   // removing those divisible by 'prime'.
+;;   func Filter(in <-chan int, out chan<- int, prime int) {
+;;           for {
+;;                   i := <-in // Receive value from 'in'.
+;;                   if i%prime != 0 {
+;;                           out <- i // Send 'i' to 'out'.
+;;                   }
+;;           }
+;;   }
+;;
+;;   // The prime sieve: Daisy-chain Filter processes.
+;;   func main() {
+;;           ch := make(chan int) // Create a new channel.
+;;           go Generate(ch)      // Launch Generate goroutine.
+;;           for i := 0; i < 10; i++ {
+;;                   prime := <-ch
+;;                   fmt.Println(prime)
+;;                   ch1 := make(chan int)
+;;                   go Filter(ch, ch1, prime)
+;;                   ch = ch1
+;;           }
+;;   }
+;; #+end_src
+;;
+;; #+RESULTS:
+;; #+begin_example
+;;   2
+;;   3
+;;   5
+;;   7
+;;   11
+;;   13
+;;   17
+;;   19
+;;   23
+;;   29
+;; #+end_example
+;;
+
 
 (my-el-get-require 'ob-go)
 
