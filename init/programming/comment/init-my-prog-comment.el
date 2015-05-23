@@ -115,9 +115,47 @@ This functions should be added to the hooks of major modes for programming."
 
 ;; force re-fontification initially (if you manually turn on fic-mode)
 ;; (font-lock-fontify-buffer)
+
 
+;;;_* outorg -- Convert source-code buffers temporarily to Org-mode for comment editing.
+
+;;; Usage:
+;;
+;; - [prefix] + [C-c '] (outorg-edit-as-org) :: main command
+;; - [M-# #] (or M-x outorg-edit-as-org) ::
+;; - [M-#] (outorg-copy-edits-and-exit) ::
+;; - [C-x C-s] (outorg-save-edits-to-tmp-file) ::
+
+(require 'outorg)
+
+;; Outorg (like outshine) assumes that you set `outline-minor-mode-prefix' in your init-file to 'M-#':
+;; NOTE: must be set before outline is loaded
+(defvar outline-minor-mode-prefix "\M-#")
+
+(global-set-key (kbd "C-c '") 'outorg-edit-as-org)
 
 
+
+;;_* [ poporg ] -- Editing program comments or strings in text mode.
+;;
+;;; Usage:
+;; - [poporg-dwim] :: [C-c ']
+;; - [poporg-edit-and-exit] :: [C-c '], [C-x C-s] in opened buffer.
+
+(require 'poporg)
+(autoload 'poporg-dwim "poporg" nil t)
+
+(setq poporg-adjust-fill-column t
+      poporg-delete-trailing-whitespace t)
+
+;; Org-mode Babel like keybindings.
+(if (featurep 'poporg)
+    (progn
+      (global-set-key (kbd "C-c '") 'poporg-dwim)
+      (define-key poporg-mode-map (kbd "C-c '") 'poporg-edit-exit)))
+
+
+
 (provide 'init-my-prog-comment)
 
 ;;; init-my-prog-comment.el ends here

@@ -2817,40 +2817,6 @@ This function will promote all items in a subtree."
 ;;
 ;; (define-key org-mode-map (kbd "C-c k s") 'my-wrap-source-code-with-org-src)
 
-;;;_* outorg -- Convert source-code buffers temporarily to Org-mode for comment editing.
-
-;;; Usage:
-;;
-;; - [prefix] + [C-c '] (outorg-edit-as-org) :: main command
-;; - [M-# #] (or M-x outorg-edit-as-org) ::
-;; - [M-#] (outorg-copy-edits-and-exit) ::
-;; - [C-x C-s] (outorg-save-edits-to-tmp-file) ::
-
-(require 'outorg)
-
-;; Outorg (like outshine) assumes that you set `outline-minor-mode-prefix' in your init-file to 'M-#':
-;; NOTE: must be set before outline is loaded
-(defvar outline-minor-mode-prefix "\M-#")
-
-(global-set-key (kbd "C-c '") 'outorg-edit-as-org)
-
-;;_* [ poporg ] -- Editing program comments or strings in text mode.
-;;
-;;; Usage:
-;; - [poporg-dwim] :: [C-c ']
-;; - [poporg-edit-and-exit] :: [C-c '], [C-x C-s] in opened buffer.
-
-(require 'poporg)
-(autoload 'poporg-dwim "poporg" nil t)
-
-(setq poporg-adjust-fill-column t
-      poporg-delete-trailing-whitespace t)
-
-;; Org-mode Babel like keybindings.
-(if (featurep 'poporg)
-    (progn
-      (global-set-key (kbd "C-c '") 'poporg-dwim)
-      (define-key poporg-mode-map (kbd "C-c '") 'poporg-edit-exit)))
 
 ;;;_* org-trello
 
