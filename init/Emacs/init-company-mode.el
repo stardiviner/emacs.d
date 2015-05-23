@@ -260,9 +260,12 @@
 ;; tooltip
 (set-face-attribute 'company-tooltip nil
                     :foreground "black" :background "white"
-                    :weight 'normal :slant 'normal)
+                    :weight 'normal :slant 'normal
+                    :underline nil)
+;; selection
 (set-face-attribute 'company-tooltip-selection nil
-                    :foreground "white" :background "#212121")
+                    :foreground "white" :background "#212121"
+                    :underline nil)
 (set-face-attribute 'company-tooltip-mouse nil
                     :inherit 'company-tooltip
                     :foreground "sky blue" :background "#333333"
@@ -274,7 +277,8 @@
 (set-face-attribute 'company-tooltip-common-selection nil
                     :inverse-video nil
                     :inherit 'company-tooltip-selection
-                    :foreground "green" :background nil)
+                    :foreground "green" :background nil
+                    :underline nil)
 ;; search
 (set-face-attribute 'company-tooltip-search nil
                     :inherit 'company-tooltip
