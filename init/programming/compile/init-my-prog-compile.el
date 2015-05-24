@@ -12,16 +12,16 @@
       )
 
 (set-face-attribute 'compilation-line-number nil
-                    :background (color-darken-name (face-background 'default) 10)
+                    :background (color-darken-name (face-background 'default) 5)
                     :foreground "cyan"
                     :underline nil
-                    :weight 'bold
+                    :weight 'normal
                     :box '(:color "black" :line-width -1))
 (set-face-attribute 'compilation-column-number nil
-                    :background (color-darken-name (face-background 'default) 10)
+                    :background (color-darken-name (face-background 'default) 5)
                     :foreground "orange"
                     :underline nil
-                    :weight 'bold :slant 'normal
+                    :weight 'normal :slant 'normal
                     :box '(:color "black" :line-width -1))
 (set-face-attribute 'compilation-info nil
                     :background (color-darken-name (face-background 'default) 5)
