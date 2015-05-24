@@ -384,7 +384,14 @@
       ;; ag-arguments
       )
 
-(define-key my-search-prefix-map (kbd "s") 'ag-regexp-project-at-point) ; 'ag, 'ag-regexp, 
+
+(unless (boundp 'ag-map)
+  (define-prefix-command 'ag-map))
+(define-key my-search-prefix-map (kbd "a") 'ag-map)
+
+(define-key ag-map (kbd "a") 'ag)
+(define-key ag-map (kbd "r") 'ag-regexp)
+(define-key ag-map (kbd "p") 'ag-regexp-project-at-point) ; 'ag, 'ag-regexp,
 
 
 ;;; [ helm-ag ]
@@ -414,7 +421,7 @@
   (helm-ag (projectile-project-root)))
 (define-key projectile-command-map (kbd "s h") 'projectile-helm-ag)
 
-(define-key my-search-prefix-map (kbd "a") 'helm-ag)
+(define-key ag-map (kbd "a") 'helm-ag)
 
 
 
