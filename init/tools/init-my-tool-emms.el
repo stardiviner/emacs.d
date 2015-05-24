@@ -67,6 +67,20 @@
 (setq emms-player-mpd-server-name "127.0.0.1"
       emms-player-mpd-server-port "6600")
 
+;; TODO capture the key code of [Fn + <F10>] to apply. also include next [F11] etc.
+;; (global-set-key (kbd "Fn + <F10>") 'emms-player-mpd-pause)
+
+(unless (boundp 'my-emms-mpd-prefix-map)
+  (define-prefix-command 'my-emms-mpd-prefix-map))
+(define-key my-emms-prefix-map (kbd "m") 'my-emms-mpd-prefix-map)
+
+(define-key my-emms-mpd-prefix-map (kbd "c") 'emms-player-mpd-connect)
+(define-key my-emms-mpd-prefix-map (kbd "p") 'emms-player-mpd-pause) ; toggle pause
+(define-key my-emms-mpd-prefix-map (kbd "P")
+  '(lambda ()
+     (emms-player-mpd-play nil)))
+(define-key my-emms-mpd-prefix-map (kbd "s") 'emms-player-mpd-stop)
+
 
 ;;; [ Playlist ]
 
