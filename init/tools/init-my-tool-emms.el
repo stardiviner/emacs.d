@@ -61,6 +61,37 @@
       emms-cache-file-coding-system 'utf-8)
 
 
+;;; [ Playlist ]
+
+;; Switch to either the radio buffer or the current EMMS playlist
+(defun my-emms-switch-to-current-playlist ()
+  "Switch current playlist or start playlist."
+  (interactive)
+  (if (and (boundp 'emms-stream-playlist-buffer)
+         (eq emms-stream-playlist-buffer emms-playlist-buffer))
+      (switch-to-buffer emms-stream-buffer-name)
+    (if (or (null emms-playlist-buffer)
+           (not (buffer-live-p emms-playlist-buffer)))
+        (error "No current Emms buffer")
+      (switch-to-buffer emms-playlist-buffer))))
+
+
+;;; [ Streams: Radio, Podcasts ]
+
+;; Switch to the radio buffer
+(defun my-emms-streams ()
+  "Switch to streams buffer, if does not exists, then start emms-streams."
+  (interactive)
+  (let ((buf (get-buffer emms-stream-buffer-name)))
+    (if buf
+        (switch-to-buffer buf)
+      (emms-streams))))
+
+
+;;; [ Key Bindings ]
+
+
+
 ;;; [ MPD ]
 
 ;;; Usage:
@@ -91,39 +122,6 @@
   '(lambda ()
      (emms-player-mpd-play nil)))
 (define-key my-emms-mpd-prefix-map (kbd "s") 'emms-player-mpd-stop)
-
-
-;;; [ Playlist ]
-
-;; Switch to either the radio buffer or the current EMMS playlist
-(defun my-emms-switch-to-current-playlist ()
-  "Switch current playlist or start playlist."
-  (interactive)
-  (if (and (boundp 'emms-stream-playlist-buffer)
-         (eq emms-stream-playlist-buffer emms-playlist-buffer))
-      (switch-to-buffer emms-stream-buffer-name)
-    (if (or (null emms-playlist-buffer)
-           (not (buffer-live-p emms-playlist-buffer)))
-        (error "No current Emms buffer")
-      (switch-to-buffer emms-playlist-buffer))))
-
-
-;;; [ Streams: Radio, Podcasts ]
-
-;; Switch to the radio buffer
-(defun my-emms-streams ()
-  "Switch to streams buffer, if does not exists, then start emms-streams."
-  (interactive)
-  (let ((buf (get-buffer emms-stream-buffer-name)))
-    (if buf
-        (switch-to-buffer buf)
-      (emms-streams))))
-
-
-;;; [ Key Bindings ]
-
-;; TODO capture the key code of [Fn + <F10>] to apply. also include next [F11] etc.
-;; (global-set-key (kbd "Fn + <F10>") 'emms-player-mpd-pause)
 
 
 
