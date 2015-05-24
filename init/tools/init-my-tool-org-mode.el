@@ -211,9 +211,10 @@
                     :background "black")
 ;; Priority
 (set-face-attribute 'org-priority nil
-                    :foreground "black"
-                    :background "white"
-                    :box '(:color "black" :line-width -1))
+                    :foreground "white"
+                    :background "dark red"
+                    :box '(:color "red" :line-width -1)
+                    :bold nil)
 ;; (setq org-priority-faces '(:foreground "cyan"
 ;;                                        :background nil
 ;;                                        :box t
