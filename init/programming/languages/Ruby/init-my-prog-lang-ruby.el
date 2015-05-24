@@ -6,13 +6,9 @@
 ;;; Code:
 
 
-(add-to-list 'auto-mode-alist '("Capfile" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\.rake\'" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\.rb\'" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\.ru\'" . ruby-mode))
-
+;; Ruby files
+;; (add-to-list 'auto-mode-alist
+;;              '("\\.rb\\'" . ruby-mode))
 (if (featurep 'enh-ruby-mode)
     (lambda ()
       (add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
@@ -21,6 +17,14 @@
   (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
   (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
   )
+
+;; irb(irbrc), pry(pryrc), gem(gemspec, gemrc), rackup(ru), Thor(thor),
+(add-to-list 'auto-mode-alist
+             '("\\.\\(?:gemspec\\|irbrc\\|pryrc\\|gemrc\\|rake\\|ru\\|thor\\)\\'" . ruby-mode))
+
+;; Gemfile, Capfile, Rakefile
+(add-to-list 'auto-mode-alist
+             '("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . ruby-mode))
 
 ;; We never want to edit Rubinius bytecode or MacRuby binaries
 (add-to-list 'completion-ignored-extensions ".rbc")
