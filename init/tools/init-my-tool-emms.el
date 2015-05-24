@@ -62,6 +62,11 @@
 
 
 ;;; [ MPD ]
+
+;;; Usage:
+;;
+;; - [M-x emms-player-mpd-connect]
+
 (require 'emms-player-mpd)
 
 (setq emms-player-mpd-server-name "127.0.0.1"
