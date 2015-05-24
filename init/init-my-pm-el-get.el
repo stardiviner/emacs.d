@@ -223,6 +223,9 @@
          ;; weechat
          ;; RSS
          ;; elfeed
+         ;; Podcast & Screencast
+         emms helm-emms
+         emms-netease emms-player-mpv emms-info-mediainfo
          ;; tools
          ;; calfw sauron ; appt
          ;; gist helm-gist
