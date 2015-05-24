@@ -384,6 +384,13 @@
       ;; ag-arguments
       )
 
+(set-face-attribute 'ag-hit-face nil
+                    :foreground "gray" :background "black")
+(set-face-attribute 'ag-match-face nil
+                    :inverse-video nil
+                    :foreground "red"
+                    :background (color-darken-name (face-background 'default) 5)
+                    )
 
 (unless (boundp 'ag-map)
   (define-prefix-command 'ag-map))
