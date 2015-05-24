@@ -26,6 +26,13 @@
 ;; (require 'emms-streams)
 
 
+;; emms prefix keybinding map
+(unless (boundp 'my-emms-prefix-map)
+  (define-prefix-command 'my-emms-prefix-map))
+(define-key my-tools-prefix-map (kbd "e") 'my-emms-prefix-map)
+
+
+
 (emms-standard)
 
 ;; (setq emms-player-list
