@@ -14,7 +14,7 @@
 (setq show-paren-style 'mixed) ; 'parenthesis, 'expression, 'mixed
 
 (set-face-attribute 'show-paren-match-face nil
-                    :foreground nil :background "black"
+                    :foreground "green" :background "black"
                     )
 (set-face-attribute 'show-paren-mismatch-face nil
                     :foreground nil :background "brown"
@@ -150,7 +150,7 @@
                     )
 (set-face-attribute 'sp-show-pair-match-face nil
                     :inherit 'show-paren-match-face
-                    :foreground nil :background "black"
+                    :foreground "green" :background "black"
                     )
 (set-face-attribute 'sp-show-pair-mismatch-face nil
                     :inherit 'show-paren-mismatch-face
