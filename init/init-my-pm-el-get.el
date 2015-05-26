@@ -156,6 +156,7 @@
          ;; flyspell flyguess ; flyspell-guess inflections
          ;; auto-dictionnary
          ;; dictionary & translation
+         define-word
          ;; babel
          ;; imenu
          ;; imenu-anywhere
