@@ -2727,6 +2727,84 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;; TODO: Emacs need to prompt user to get the screenshot filename to describe this screenshot.
 ;; 1. improve org-screenshot source code.
 ;; 2. add custom function. or defadvice.
+;;
+;;
+;;;_* org-download -- Drag and drop images to Emacs org-mode.
+;;
+;;; Usage:
+;;
+;;*This extension facilitates moving images from point A to point B.*
+;;
+;;* Point A (the source) can be:
+;;
+;;- An image inside your browser that you can drag to Emacs.
+;;- An image on your file system that you can drag to Emacs.
+;;- A local or remote image address in ~kill-ring~. Use the ~org-download-yank~ command for this. Remember that you can use "=[0 w]=" in dired to get an address.
+;;- An screenshot taken using /gnome-screenshot/ or /scrot/ or /gm/. Use the ~org-download-screenshot~ command for this. Customize the backend with ~org-download-screenshot-method~.
+;;
+;;* Point B (the target) is an Emacs org-mode buffer where the inline link will be inserted. Several customization options will determine where exactly on the file system the file will be stored.
+;;
+;;They are: ~org-download-method~:
+;;
+;;1) 'attach => use org-mode attachment machinery
+;;
+;;2) 'directory => construct the directory in two stages:
+;;
+;;   1. first part of the folder name is:
+;;      - either "." (current folder)
+;;
+;;      - or org-download-image-dir (if it's not nil).
+;;
+;;      - ~org-download-image-dir~ becomes buffer-local when set, so each file can customize this value, e.g with:
+;;
+;;        #+BEGIN_EXAMPLE
+;;        -*- mode: Org; org-download-image-dir: "~/Pictures/foo"; -*-
+;;        #+END_EXAMPLE
+;;
+;;        To set it for all files at once, use this:
+;;        
+;;        #+BEGIN_SRC emacs-lisp
+;;        (setq-default org-download-image-dir "~/Pictures/foo")
+;;        #+END_SRC
+;;
+;;   2. second part is:
+;;
+;;       - ~org-download-heading-lvl~ is ~nil~ => ""
+;;
+;;       - ~org-download-heading-lvl~ is ~n~ => the name of current heading with level n.
+;;
+;;         Level count starts with 0, i.e. * is 0, ** is 1, *** is 2
+;;         etc. org-download-heading-lvl becomes buffer-local when set, so each
+;;         file can customize this value, e.g with:
+;;
+;;         #+BEGIN_EXAMPLE
+;;         -*- mode: Org; org-download-heading-lvl: nil; -*-
+;;         #+END_EXAMPLE
+;;
+;;
+;;
+;;~org-download-timestamp~: optionally add a timestamp to the file name.
+;;
+;;Customize ~org-download-backend~ to choose between ~url-retrieve~ (the /default/) or ~wget~ or ~curl~.
+;;
+
+(require 'org-download)
+
+(setq org-download-screenshot-method "scrot -s %s"
+      org-download-method 'dictionary ; 'attach, 'dictionary,
+      org-download-backend t ; url-retrieve, wget, curl.
+      ;; org-download-heading-lvl
+      ;; org-download-timestamp "_%Y-%m-%d_%H:%M:%S"
+      )
+
+(unless (boundp 'my-org-download-map)
+  (define-prefix-command 'my-org-download-map))
+(define-key my-org-prefix-map (kbd "d") 'my-org-download-map)
+
+(define-key my-org-download-map (kbd "i") 'org-download-image)
+(define-key my-org-download-map (kbd "s") 'org-download-screenshot)
+(define-key my-org-download-map (kbd "y") 'org-download-yank)
+(define-key my-org-download-map (kbd "d") 'org-download-delete)
 
 ;;;_* org-pomodoro
 

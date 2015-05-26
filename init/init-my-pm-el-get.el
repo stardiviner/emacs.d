@@ -193,7 +193,7 @@
          ob-julia ob-go ob-prolog ob-mongo ob-http ob-browser
          cdlatex-mode
          ;; org-ac
-         org-screenshot
+         org-screenshot org-download
          org-pomodoro
          ;; org-doing
          ;; orgit ; org-magit ; org-linkany
