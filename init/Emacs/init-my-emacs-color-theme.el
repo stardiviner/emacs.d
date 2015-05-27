@@ -153,6 +153,13 @@
 (set-face-attribute 'font-lock-builtin-face nil
                     :slant 'italic)
 
+;; redifine diff
+(set-face-attribute 'diff-refine-added nil
+                    :foreground " " :background "dark green")
+(set-face-attribute 'diff-refine-removed nil
+                    :foreground " " :background "dark red")
+(set-face-attribute 'diff-refine-change nil
+                    :foreground " " :background "white")
 
 
 (provide 'init-my-emacs-color-theme)

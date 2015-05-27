@@ -186,13 +186,6 @@
 (set-face-attribute 'magit-diff-file-header nil
                     :inherit 'diff-file-header
                     )
-;; redifine diff
-(set-face-attribute 'diff-refine-added nil
-                    :foreground " " :background "dark green")
-(set-face-attribute 'diff-refine-removed nil
-                    :foreground " " :background "dark red")
-(set-face-attribute 'diff-refine-change nil
-                    :foreground " " :background "white")
 
 
 ;;; [ magit-filenotify ] -- Refresh status buffer when git tree changes
