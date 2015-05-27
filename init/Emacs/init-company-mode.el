@@ -48,9 +48,9 @@
 ;;                                c-scope-operator c-electric-colon c-electric-lt-gt c-electric-slash))
 
 ;;; help document preview & popup
-(require 'company-quickhelp)
-(setq company-quickhelp-delay 0.3)
-(company-quickhelp-mode 1)
+;; (require 'company-quickhelp)
+;; (setq company-quickhelp-delay 0.5)
+;; (company-quickhelp-mode 1)
 
 ;; (add-to-list 'company-frontends 'company-quickhelp-frontend)
 ;; (setq-default company-frontends (remq 'company-echo-metadata-frontend company-frontends))
