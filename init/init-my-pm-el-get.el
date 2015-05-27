@@ -104,7 +104,7 @@
          ;; highlight-cl highlight-fns highlight-defined
          ;; highlight-sexp highlight-blocks highlight-quoted ; highlight-stages
          ;; highlight-escape-sequences ; highlight-numbers highlight-parentheses
-         ;; cursor-chg
+         ;; cursor-chg col-highlight
          ;; yascroll
          ;; minimap sublimity
          pretty-mode-plus page-break-lines

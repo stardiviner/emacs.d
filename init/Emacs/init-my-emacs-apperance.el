@@ -205,6 +205,17 @@
 
 (setq hl-line-face 'hl-line)
 
+;;; [ col-highlight ]
+
+;; (my-el-get-require 'col-highlight)
+;;
+;; (column-highlight-mode 1)
+;;
+;; (col-highlight-toggle-when-idle 1)
+;; (col-highlight-set-interval 6)
+;;
+;; (set-face-attribute 'col-highlight nil
+;;                     :background "dodger blue")
 
 
 
