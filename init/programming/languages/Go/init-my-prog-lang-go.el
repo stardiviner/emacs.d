@@ -75,9 +75,9 @@
 
 ;;; [ gocode ] -- An autocompletion daemon for the Go programming language.
 
-;; (setenv "GOPATH" "/home/stardiviner/compile/Go")
-;; (setenv "PATH" (concat (getenv "PATH") ":" (getenv "GOPATH") "/bin"))
-;; (setenv "GOBIN" (concat (getenv "PATH") ":" (getenv "GOPATH") "/bin/go"))
+;; (setenv "GOROOT" "/home/stardiviner/compile/Go")
+;; (setenv "PATH" (concat (getenv "PATH") ":" (getenv "GOROOT") "/bin"))
+;; (setenv "GOBIN" (concat (getenv "PATH") ":" (getenv "GOROOT") "/bin/go"))
 
 
 ;;; [ go-autocomplete ]
@@ -90,11 +90,11 @@
 
 (my-el-get-require 'company-go)
 
-(if (getenv "GOPATH")
+(if (getenv "GOROOT")
     (progn
-      (load (concat (getenv "GOPATH") "/src/github.com/nsf/gocode/emacs-company/company-go.el"))
+      (load (concat (getenv "GOROOT") "/src/github.com/nsf/gocode/emacs-company/company-go.el"))
       (require 'company-go))
-  (error "SHELL env $GOATH not available. set it in your SHELL"))
+  (error "SHELL env $GOROOT not available. set it in your SHELL"))
 
 (add-hook 'go-mode-hook
           (lambda ()
