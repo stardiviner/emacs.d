@@ -24,9 +24,10 @@
 
 (setq-default company-minimum-prefix-length 2   ; minimum prefix character number for auto complete.
               company-idle-delay 0.3
-              company-auto-complete t ; 'company-explicit-action-p, t, nil, 'function
+              ;; determines when to auto-complete.
+              company-auto-complete 'company-explicit-action-p ; 'company-explicit-action-p, t, nil, 'function
               ;; company-auto-complete-chars
-              company-require-match 'company-explicit-action-p ; 'company-explicit-action-p, t, nil, 'function
+              ;; company-require-match 'company-explicit-action-p ; 'company-explicit-action-p, t, nil, 'function
               company-echo-delay 0
               ;; company-show-numbers t
               company-tooltip-align-annotations t ; align annotations to the right tooltip border.
