@@ -253,12 +253,14 @@
 ;; common
 (set-face-attribute 'company-tooltip-common nil
                     :inherit 'company-tooltip
-                    :foreground nil :background "light gray")
+                    :foreground nil :background "light gray"
+                    :underline nil)
 ;; common selection
 (set-face-attribute 'company-tooltip-common-selection nil
                     :inverse-video nil
                     :inherit 'company-common
-                    :foreground "cyan1" :background "#212121")
+                    :foreground "cyan1" :background "#212121"
+                    :underline nil)
 ;; search
 (set-face-attribute 'company-tooltip-search nil
                     :inherit 'company-tooltip
