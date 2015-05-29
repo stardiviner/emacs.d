@@ -29,7 +29,11 @@
           (lambda ()
             (turn-on-eldoc-mode)
             (my-recompile-elc-on-save)
-            (rainbow-mode +1)))
+            (rainbow-mode +1)
+            ;; for company-mode
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-elisp)
+            ))
 
 
 (add-to-list 'auto-mode-alist '("Cask\\'" . emacs-lisp-mode))
@@ -97,7 +101,9 @@
 
 (add-hook 'ielm-mode-hook
           (lambda ()
-            (elisp-slime-nav-mode 1)))
+            (elisp-slime-nav-mode 1)
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-elisp)))
 
 ;; ---------------------------------------------------------------
 ;;; enable auto-complete support in ielm.

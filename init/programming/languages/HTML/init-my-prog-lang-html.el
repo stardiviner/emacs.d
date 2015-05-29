@@ -33,6 +33,17 @@
 ;; (add-hook 'slim-mode-hook 'ac-slim-enable)
 
 
+(add-hook 'web-mode-hook
+          (lambda ()
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-nxml)
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-web-html)
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-css)
+            ))
+
+
 
 (require 'init-my-prog-lang-html5)
 

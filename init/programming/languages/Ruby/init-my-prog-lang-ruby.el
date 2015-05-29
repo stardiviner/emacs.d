@@ -590,8 +590,8 @@
                             ;; company-mode support capf native. so don't need following
                             ;; setting.
                             ;; for company-robe backend mode locally.
-                            (make-local-variable 'company-backends)
-                            (add-to-list 'company-backends 'company-robe)
+                            (add-to-list (make-local-variable 'company-backends)
+                                         'company-robe)
                             ))
 
 
