@@ -75,9 +75,10 @@
 
 ;;; [ gocode ] -- An autocompletion daemon for the Go programming language.
 
-;; (setenv "GOROOT" "/home/stardiviner/compile/Go")
-;; (setenv "PATH" (concat (getenv "PATH") ":" (getenv "GOROOT") "/bin"))
-;; (setenv "GOBIN" (concat (getenv "PATH") ":" (getenv "GOROOT") "/bin/go"))
+;; (setenv "GOPATH" "/home/stardiviner/compile/Go")
+;; (setenv "GOROOT" "/home/stardiviner/Code/Go")
+;; (setenv "PATH" (concat (getenv "PATH") ":" (getenv "GOPATH") "/bin"))
+;; (setenv "GOBIN" (concat (getenv "PATH") ":" (getenv "GOPATH") "/bin/go"))
 
 
 ;;; [ go-autocomplete ]
