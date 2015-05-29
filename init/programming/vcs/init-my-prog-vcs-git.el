@@ -129,8 +129,10 @@
 (define-key my-prog-vcs-git-map (kbd "c") 'magit-commit)
 ;; diff - "d"
 (define-key my-prog-vcs-git-map (kbd "d") 'magit-diff)
-;; file log - "l"
+;; log - "l"
 (define-key my-prog-vcs-git-map (kbd "l") 'magit-log)
+;; file log
+(define-key my-prog-vcs-git-map (kbd "f") 'magit-file-log)
 ;; repository log - "L"
 ;; [M-n/p] to navigate.
 (define-key my-prog-vcs-git-map (kbd "L") 'magit-log-long)
