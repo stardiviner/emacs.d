@@ -228,15 +228,15 @@
 
 (blink-cursor-mode 1)
 
-(set-cursor-color "cyan")
+(set-cursor-color "red")
 
-(setq mouse-avoidance-mode 'animate ; auto move mouse away when cursor is at mouse position
-      cursor-type '(hbar . 3) ; '(hbar. 3), '(bar . 3), '(box . 2). '(hollow . 2)
-      cursor-in-echo-area nil
-      cursor-in-non-selected-windows t
-      mouse-yank-at-point t ; yank at point position instead of mouse position
-      blink-cursor-blinks 10 ; how many times to blink before using a solid cursor on NS, X, and MS-Windows.
-      )
+(setq-default mouse-avoidance-mode 'animate ; auto move mouse away when cursor is at mouse position
+              cursor-type '(hbar . 3) ; '(hbar. 3), '(bar . 3), '(box . 2). '(hollow . 2)
+              cursor-in-echo-area nil
+              cursor-in-non-selected-windows t
+              mouse-yank-at-point t ; yank at point position instead of mouse position
+              blink-cursor-blinks 10 ; how many times to blink before using a solid cursor on NS, X, and MS-Windows.
+              )
 
 
 ;;; [ cursor-chg ] -- change cursor color dynamically
