@@ -468,9 +468,32 @@ to insert <kbd>..</kbd> (HTML) org =[..]= (Org-mode)."
 ;;       (insert (format tag ""))
 ;;       (forward-char (if is-org-mode -15 -6)))))
 
+;;; Inserting the kbd tag in interactively
+(eval-after-load 'ox-html
+  ;; If you prefer to use ~ for <code> tags. Replace "code" with
+  ;; "verbatim" here, and replace "~" with "=" below.
+  '(push '(code . "<kbd>%s</kbd>") org-html-text-markup-alist))
+
+(defun my/insert-key (key)
+  "Ask for a KEY then insert its description.
+Will work on both `org-mode' and any mode that accepts plain html."
+  (interactive "kType key sequence: ")
+  (let* ((orgp (derived-mode-p 'org-mode))
+         (tag (if orgp
+                  ;; "~%s~"
+                  "=[%s]="
+                ;; "@@html:<kbd>%s</kbd>@@"
+                "<kbd>%s</kbd>")))
+    (if (null (equal key "\C-m"))
+        (insert
+         (format tag (help-key-description key nil)))
+      ;; If you just hit RET.
+      (insert (format tag ""))
+      (forward-char (if orgp -2 -6)))))
 
 (define-key org-mode-map (kbd "C-c K") 'my/org-insert-kbd)
-(define-key org-mode-map (kbd "C-c k") 'my/org-insert-key)
+(define-key org-mode-map (kbd "C-c k") 'my/insert-key)
+(define-key html-mode-map (kbd "C-c k") 'my/insert-key)
 
 ;;; headline faces
 ;;; the ahead stars face when org indentation. (org-hide)
