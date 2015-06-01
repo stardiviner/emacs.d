@@ -533,8 +533,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
 ;;; you prefer less rough edges, a sensible default configuration and having
 ;;; more options for customizing, give popwin a try.
 
-(require 'shackle)
-
+;;; `shackle-rules'
 ;; The condition can be either a symbol, a string, a list of either or t. A
 ;; symbol is interpreted as the major mode of the buffer to match, a string as
 ;; the name of the buffer (which can be turned into regexp matching by using the
@@ -544,31 +543,33 @@ The `BUFFER' is the popwin catch pop private message buffer."
 ;; succeeds. If you set up a fallback rule, make sure it's the last rule in
 ;; shackle-rules, otherwise it will always be used.
 
-(setq shackle-default-alignment 'below
-      shackle-default-ratio 0.4
-      shackle-lighter " ⛓")
-
-(setq shackle-rules '((t :same t)
-                      ;; enables the rather radical behaviour of always reusing
-                      ;; the current window in order to avoid unwanted window
-                      ;; splitting.
-
-                      ;; use popup for all buffers
-                      (t :popup t)
-                      
-                      ;; provides a less intrusive user experience to select all
-                      ;; windows by default unless they are spawned by
-                      ;; compilation-mode and demonstrates how to use
-                      ;; exceptions.
-                      (compilation-mode :noselect t)
-                      (t :select t)
-
-                      ;; tames helm windows by aligning them at the bottom with
-                      ;; a ratio of 40%
-                      ("\\`\\*helm.*?\\*\\'" :regexp t :align t :ratio 0.4)
-                      ))
-
-(shackle-mode)
+;; (require 'shackle)
+;;
+;; (setq shackle-default-alignment 'below
+;;       shackle-default-ratio 0.4
+;;       shackle-lighter " ⛓")
+;;
+;; (setq shackle-rules '((t :same t)
+;;                       ;; enables the rather radical behaviour of always reusing
+;;                       ;; the current window in order to avoid unwanted window
+;;                       ;; splitting.
+;;
+;;                       ;; use popup for all buffers
+;;                       (t :popup t)
+;;                      
+;;                       ;; provides a less intrusive user experience to select all
+;;                       ;; windows by default unless they are spawned by
+;;                       ;; compilation-mode and demonstrates how to use
+;;                       ;; exceptions.
+;;                       (compilation-mode :noselect t)
+;;                       (t :select t)
+;;
+;;                       ;; tames helm windows by aligning them at the bottom with
+;;                       ;; a ratio of 40%
+;;                       ("\\`\\*helm.*?\\*\\'" :regexp t :align t :ratio 0.4)
+;;                       ))
+;;
+;; (shackle-mode)
 
 
 ;;; [ zoom-window ] -- zoom/un-zoom window like tmux.
