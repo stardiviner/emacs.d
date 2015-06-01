@@ -218,7 +218,7 @@
          mu4e mu-cite
          ;; notmuch
          ;; BBDB
-         bbdb ; bbdb- ; FIXME: bbdb-vcard
+         bbdb bbdb-vcard
          ;; IRC
          ;; erc erc-highlight-nicknames erc-nick-notify bbdb2erc
          ;; weechat

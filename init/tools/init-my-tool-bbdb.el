@@ -329,7 +329,10 @@
 ;; locate images when displaying records.
 
 
-;; (require 'bbdb-vcard)
+(require 'bbdb-vcard)
+
+(setq bbdb-vcard-directory "~/Org/BBDB/vCards")
+
 
 
 ;;; [ helm-bbdb ]
