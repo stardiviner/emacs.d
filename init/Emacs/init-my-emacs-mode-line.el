@@ -144,6 +144,13 @@
                 
 
                 ;; vc indicator
+                (:propertize (unless (null vc-mode) " ⛓")
+                             face (:foreground "cyan"
+                                               :weight 'bold
+                                               :height 120
+                                               )
+                             help-echo (vc-mode vc-mode))
+                
                 (:propertize (vc-mode vc-mode)
                              face (:foreground "yellow"
                                                :weight 'bold
