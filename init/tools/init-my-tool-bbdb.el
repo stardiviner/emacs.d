@@ -297,6 +297,38 @@
 
 ;;; [ bbdb-vcard ]
 
+;;; Usage:
+;;
+;;; import:
+;;
+;; - `bbdb-vcard-import-file'
+;; - `bbdb-vcard-import-buffer'
+;; - `bbdb-vcard-import-region'
+;;
+;; export: (in bbdb buffer)
+;;
+;; - [v]  :: to export the record under the point.
+;; - [* v] :: to export all records in buffer into one vCard file.
+;; - [* C-u v] :: to export them into one file each.
+;;
+;; - [V] or [* V] :: to put one or all vCard(s) into the kill ring.
+;;
+;;; vCard Media Objects
+;;
+;; The importer stores inline base46-encoded images, sounds, and cryptographic
+;; keys to the local disk under the `bbdb-vcard-directory' directory. The
+;; relative filenames for these objects are stored in the following BBDB
+;; xfields, respectively:
+;;
+;; - image-filename: "media/image-<sha1sum>.<suffix>"
+;; - sound-filename: "media/sound-<sha1sum>.<suffix>"
+;; - gpg-key-filename: "media/key-<sha1sum>.<suffix>"
+;;
+;; if the variable `bbdb-image' is uncustomized when bbdb-vcard is initialized,
+;; it will be set to `bbdb-vcard-image-basename'. This will allow to BBDB to
+;; locate images when displaying records.
+
+
 ;; (require 'bbdb-vcard)
 
 
