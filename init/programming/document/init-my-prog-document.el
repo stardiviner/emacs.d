@@ -82,12 +82,6 @@
 
 ;;; [ dash ] -- A modern list api for Emacs. No 'cl required.
 
-;;; Usage:
-;;
-;; - `helm-dash-install-docset' :: install official docset.
-;; - `helm-dash-install-user-docset' :: install user contributed docset.
-;; - `helm-dash-install-docset-from-file' :: install docset from file.
-
 (require 'dash)
 
 ;; Syntax highlighting of dash functions
@@ -97,8 +91,14 @@
 ;;; [ helm-dash ] -- Browse Dash docsets inside emacs.
 
 ;;; Usage:
+;;
 ;; - [M-x helm-dash]
 ;; - [M-x helm-dash-at-point]
+;;
+;; - `helm-dash-install-docset' :: install official docset.
+;; - `helm-dash-install-user-docset' :: install user contributed docset.
+;; - `helm-dash-install-docset-from-file' :: install docset from file.
+;;
 ;; - The command helm-dash-reset-connections will clear the connections to all sqlite db's.
 ;;   Use it in case of errors when adding new docsets. The next call to helm-dash will recreate them.
 
