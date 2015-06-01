@@ -136,7 +136,7 @@
          ;; perspective
          window-purpose
          golden-ratio
-         popwin
+         popwin shackle
          zoom-window
          ;; minibuffer
          eldoc-eval
