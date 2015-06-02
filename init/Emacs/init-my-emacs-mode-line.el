@@ -239,8 +239,7 @@
 
                 ;; Org-mode clock
                 (:propertize
-                 ;; TODO: concatenate the long string.
-                 ;; global-mode-string
+                 (t org-mode-line-string)
                  ;; (t org-mode-line-string org-timer-mode-line-string)
                  (t org-timer-mode-line-string) ; org-timer default time 25, (Pomodoro time management technique)
                  face (:foreground "white"))
