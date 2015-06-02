@@ -248,6 +248,13 @@
 
                 )))
 
+;; update org-clock timer in mode-line after `org-clock-out-hook'.
+;; fix org-clock timer does not disappear after clock out.
+(add-hook 'org-clock-out-hook
+          '(lambda ()
+             (setq org-mode-line-string nil)
+             (force-mode-line-update)))
+
 ;;; mode-line right align (which replace `mode-line-end-spaces' to implement the right alignment.)
 ;;
 (display-time-mode t)
