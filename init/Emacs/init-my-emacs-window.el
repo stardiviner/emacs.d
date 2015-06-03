@@ -110,6 +110,12 @@
                                               (help-echo "This window is not dedicated to its buffer."))
       )
 
+;; save/restore frame positions
+(setq wg-control-frames t
+      wg-restore-frame-position t
+      wg-remember-frame-for-each-wg t
+      )
+
 ;; (set-face-attribute 'wg-mode-line-face nil
 ;;                     :foreground "dark cyan")
 
