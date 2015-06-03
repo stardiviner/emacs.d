@@ -9,6 +9,18 @@
 
 ;;; [ markdown-mode ]
 
+;;; Usage:
+;;
+;; - [C-h m] :: check out major mode keybindings.
+;; - [C-c C-t] :: header
+;; - [C-c C-s] :: insert
+;; - [C-c C-x] :: change header
+;; - [C-c C-c] :: function
+;; - [C-c C-a] :: insert links
+;; - [C-c C-]] :: complete
+;;
+;; note: some keybindings work on text also can work on region.
+
 (require 'markdown-mode)
 
 ;;; Faces
