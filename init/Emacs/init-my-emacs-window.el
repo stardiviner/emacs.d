@@ -11,6 +11,17 @@
 ;; (global-set-key (kbd "C-x o") 'switch-window)
 
 
+;;; [ display-buffer-alist ]
+
+;;; Example:
+;; save/restore window configuration when creating/killing poporg buffer.
+;;
+;; (add-to-list 'display-buffer-alist
+;;              '("\\*poporg.*?\\*" . ((display-buffer-reuse-window
+;;                                      display-buffer-pop-up-window)
+;;                                     . ((inhibit-same-window . t)))))
+
+
 ;;; [ window-number ] --
 
 (require 'window-number)
