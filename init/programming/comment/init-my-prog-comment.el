@@ -157,6 +157,10 @@ This functions should be added to the hooks of major modes for programming."
       (define-key poporg-mode-map [remap save-buffer] 'poporg-edit-exit)
       ))
 
+(set-face-attribute 'poporg-edited-face nil
+                    :foreground "green yellow"
+                    :background (color-darken-name (face-background 'default) 5)
+                    :slant 'italic)
 
 
 (provide 'init-my-prog-comment)
