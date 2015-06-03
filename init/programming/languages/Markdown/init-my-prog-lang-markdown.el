@@ -44,16 +44,22 @@
 ;; header (1-6)
 (set-face-attribute 'markdown-header-face-1 nil
                     :inherit 'markdown-header-face
-                    :foreground "cyan")
+                    :foreground "cyan"
+                    :overline t)
 (set-face-attribute 'markdown-header-face-2 nil
+                    :inherit 'markdown-header-face-1
                     :foreground "deep pink")
 (set-face-attribute 'markdown-header-face-3 nil
+                    :inherit 'markdown-header-face-1
                     :foreground "green yellow")
 (set-face-attribute 'markdown-header-face-4 nil
+                    :inherit 'markdown-header-face-1
                     :foreground "yellow")
 (set-face-attribute 'markdown-header-face-5 nil
+                    :inherit 'markdown-header-face-1
                     :foreground "slate blue")
 (set-face-attribute 'markdown-header-face-6 nil
+                    :inherit 'markdown-header-face-1
                     :foreground "sky blue")
 ;; line break
 (set-face-attribute 'markdown-line-break-face nil
