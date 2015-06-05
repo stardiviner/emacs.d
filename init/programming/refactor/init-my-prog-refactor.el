@@ -3,7 +3,7 @@
 
 ;;; Commentary:
 
-
+;;; Prefix: [C-c RET]
 
 ;;; Code:
 
@@ -20,6 +20,8 @@
 (autoload 'emr-show-refactor-menu "emr")
 
 (define-key prog-mode-map (kbd "M-RET") 'emr-show-refactor-menu)
+(define-key prog-mode-map (kbd "C-c RET") 'emr-show-refactor-menu)
+
 (eval-after-load "emr" '(emr-initialize))
 
 
