@@ -146,6 +146,13 @@
      ))
 
 
+;;; [ clj-refactor ]
+
+;;; Usage:
+;;
+;; - [C-c RET] :: prefix.
+
+
 ;;; [ typed-clojure-mode ] -- 
 ;;
 ;;; Usage:

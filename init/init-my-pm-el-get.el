@@ -336,7 +336,7 @@
          ;; sly sly-company ; ac-sly
          ;; Scheme
          ;; Clojure
-         clojure-mode cider
+         clojure-mode cider clj-refactor
          typed-clojure-mode
          ;; Python
          ;; python python-mode

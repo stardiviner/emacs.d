@@ -14,6 +14,17 @@
 ;;; Usage:
 ;; - [M-x package-list-packages] :: list out packages.
 ;; - [M-x package-install RET] :: install package.
+;;
+;; Keep in mind that MELPA packages are built automatically from the master
+;; branch, meaning bugs might creep in there from time to time. Never-the-less,
+;; installing from MELPA is the recommended way of obtaining CIDER, as the
+;; master branch is normally quite stable and "stable" (tagged) builds are
+;; released somewhat infrequently.
+;;
+;; With the most recent builds of Emacs, you can pin CIDER to always use MELPA
+;; Stable (or Marmalade) by adding this to your Emacs initialization:
+;;
+;;   (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
 
 (require 'package)
 (setq package-archives
