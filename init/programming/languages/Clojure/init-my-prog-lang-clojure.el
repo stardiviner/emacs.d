@@ -196,6 +196,17 @@
 (require 'cider-decompile)
 
 
+;;; [ inf-clojure ] -- Basic interaction with a Clojure subprocess
+
+;;; Usage:
+;;
+;; - [M-x inf-clojure] / [C-c C-z]
+
+(require 'inf-clojure)
+
+(add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
+
+
 ;;; [ flycheck-clojure, squiggly-clojure ] --
 
 (eval-after-load 'flycheck
