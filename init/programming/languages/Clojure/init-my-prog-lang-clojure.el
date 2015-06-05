@@ -126,6 +126,8 @@
       ;; optional label is helpful for identifying each host.
       ;; cider-known-endpoints '(("host-a" "10.10.10.1" "7888") ("host-b" "7888"))
 
+      cider-repl-use-pretty-printing t
+      
       ;; REPL History
       cider-repl-wrap-history t
       cider-repl-history-size 1000
@@ -145,9 +147,7 @@
      (add-hook 'cider-repl-mode-hook
                (lambda ()
                  (paredit-mode 1)
-                 (rainbow-delimiters-mode 1)
-                 ;; Pretty printing in the REPL
-                 (cider-repl-toggle-pretty-printing)))
+                 (rainbow-delimiters-mode 1)))
      ))
 
 ;;; auto completion
