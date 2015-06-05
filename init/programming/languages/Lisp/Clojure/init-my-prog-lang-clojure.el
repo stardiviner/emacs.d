@@ -279,6 +279,11 @@
 (require 'cider-eval-sexp-fu)
 
 
+;;; [ align-cljlet ]
+
+(require 'align-cljlet)
+
+
 ;;; [ typed-clojure-mode ] -- 
 ;;
 ;;; Usage:
