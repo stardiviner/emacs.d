@@ -208,6 +208,12 @@
 
 (define-key my-prog-inferior-map (kbd "c") 'inf-clojure)
 
+(add-hook inf-clojure-mode-hook
+          '(lambda ()
+             (paredit-mode 1)
+             (rainbow-delemiters-mode 1)
+             (eldoc-mode 1)))
+
 
 ;;; [ flycheck-clojure, squiggly-clojure ] --
 
