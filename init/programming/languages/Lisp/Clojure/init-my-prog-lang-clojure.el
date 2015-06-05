@@ -273,6 +273,10 @@
                                (cljr-add-keybindings-with-prefix "C-c RET")
                                ))
 
+
+;;; [ cider-eval-sexp-fu ]
+
+(require 'cider-eval-sexp-fu)
 
 
 ;;; [ typed-clojure-mode ] -- 

@@ -338,6 +338,7 @@
          ;; Scheme
          ;; Clojure
          clojure-mode cider clj-refactor
+         cider-eval-sexp-fu
          typed-clojure-mode
          ;; Python
          ;; python python-mode
