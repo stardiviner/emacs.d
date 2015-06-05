@@ -186,6 +186,16 @@
 (define-key my-prog-inferior-map (kbd "c") 'cider-scratch)
 
 
+;;; [ cider-decompile ]
+
+;;; Usage:
+;;
+;; - [M-x cider-decompile-func [RET] main [RET]]
+;; - [M-x cider-decompile-ns-func [RET] myotherns.core/other-main [RET]]
+
+(require 'cider-decompile)
+
+
 ;;; [ flycheck-clojure, squiggly-clojure ] --
 
 (eval-after-load 'flycheck
