@@ -18,7 +18,11 @@
 ;; sexp, but if you don't mind its imperfections you can easily enable it:
 (require 'clojure-mode-extra-font-locking)
 
-(add-hook 'clojure-mode-hook #'paredit-mode)
+(add-hook 'clojure-mode-hook
+          '(lambda ()
+             (paredit-mode 1)
+             (hl-sexp-mode)))
+
 
 ;; smartparens is an excellent (newer) alternative to paredit. Many Clojure
 ;; hackers have adopted it recently and you might want to give it a try as

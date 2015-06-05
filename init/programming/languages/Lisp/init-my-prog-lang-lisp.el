@@ -236,6 +236,18 @@
 ;;; http://www.neilvandyke.org/quack/
 
 
+;;; [ hl-sexp ]
+
+(dolist (hook '(lisp-mode-hook
+                emacs-lisp-mode-hook
+                ))
+  (add-hook hook #'hl-sexp-mode))
+
+(set-face-attribute 'hl-sexp-face nil
+                    :background (color-darken-name (face-background 'default) 7)
+                    )
+
+
 ;;; [ eval-sexp-fu ] -- You can see highlighting the sexps during evaluation in action.
 
 ;;; Usage:
