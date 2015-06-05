@@ -130,8 +130,11 @@
       
       ;; REPL History
       cider-repl-wrap-history t
-      cider-repl-history-size 1000
+      cider-repl-history-size 3000
       cider-repl-history-file '(expand-file-name ".temp/cider-repl-history.hist" user-emacs-directory)
+
+      ;; error buffer popup
+      ;; cider-show-error-buffer nil
       )
 
 (add-hook 'clojure-mode-hook 'cider-mode)
