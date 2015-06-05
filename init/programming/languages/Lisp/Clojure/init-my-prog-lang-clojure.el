@@ -156,6 +156,41 @@
                  (cider-repl-toggle-pretty-printing)))
      ))
 
+;;; auto completion
+;;
+;; `cider-complete-at-point'
+;; integrate with company-mode
+
+(setq cider-annotate-completion-candidates t
+      ;; cider-annotate-completion-function
+      cider-completion-annotations-include-ns 'always
+      ;; TODO: change those symbols.
+      cider-completion-annotations-alist '(("class" "c")
+                                           ("field" "fi")
+                                           ("function" "f")
+                                           ("import" "i")
+                                           ("keyword" "k")
+                                           ("local" "l")
+                                           ("macro" "m")
+                                           ("method" "me")
+                                           ("namespace" "n")
+                                           ("protocol" "p")
+                                           ("protocol-function" "pf")
+                                           ("record" "r")
+                                           ("special-form" "s")
+                                           ("static-field" "sf")
+                                           ("static-method" "sm")
+                                           ("type" "t")
+                                           ("var" "v"))
+      cider-completion-use-context t
+      )
+
+
+;;; [ flycheck-clojure, squiggly-clojure ] --
+
+(eval-after-load 'flycheck
+  '(flycheck-clojure-setup))
+
 
 ;;; [ clj-refactor ]
 
