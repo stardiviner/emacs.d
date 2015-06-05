@@ -339,6 +339,7 @@
          ;; Clojure
          clojure-mode cider clj-refactor
          cider-eval-sexp-fu align-cljlet
+         flycheck-clojure
          typed-clojure-mode
          ;; Python
          ;; python python-mode
