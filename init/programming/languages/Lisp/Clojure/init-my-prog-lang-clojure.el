@@ -135,7 +135,7 @@
       ;; REPL History
       cider-repl-wrap-history t
       cider-repl-history-size 1000
-      cider-repl-history-file '(expand-file-name "temp/cider-repl-history.hist" user-emacs-directory)
+      cider-repl-history-file '(expand-file-name ".temp/cider-repl-history.hist" user-emacs-directory)
       )
 
 (eval-after-load 'cider
