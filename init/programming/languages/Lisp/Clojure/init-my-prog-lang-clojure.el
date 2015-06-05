@@ -59,10 +59,15 @@
 ;; Typing there [M-x cider-connect] will allow you to connect to the running
 ;; nREPL server.
 
-;; - [M-x cider-jack-in] :: Launch an nREPL server and a REPL client. Prompts
-;;                          for a project root if given a prefix argument.
-;; - [M-x cider] :: Connect to an already-running nREPL server.
+;; - [M-x cider-jack-in] / [C-c M-j] :: Launch an nREPL server and a REPL client. Prompts
+;;                                      for a project root if given a prefix argument.
+;; - [M-x cider-connect] / [C-c M-c] :: Connect to an already-running nREPL server.
 
+;; For Debug
+;;
+;; Log communication with the nREPL server (extremely useful for debugging CIDER problems):
+;;
+;; (setq nrepl-log-messages t)
 
 (require 'cider)
 
