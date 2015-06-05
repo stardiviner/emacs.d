@@ -183,7 +183,7 @@
       )
 
 
-(define-key my-prog-inferior-map (kbd "c") 'cider-scratch)
+(define-key my-prog-inferior-map (kbd "C") 'cider-scratch)
 
 
 ;;; [ cider-decompile ]
@@ -205,6 +205,8 @@
 (require 'inf-clojure)
 
 (add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
+
+(define-key my-prog-inferior-map (kbd "c") 'inf-clojure)
 
 
 ;;; [ flycheck-clojure, squiggly-clojure ] --
