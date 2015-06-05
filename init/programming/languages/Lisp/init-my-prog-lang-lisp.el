@@ -236,6 +236,39 @@
 ;;; http://www.neilvandyke.org/quack/
 
 
+;;; [ eval-sexp-fu ] -- You can see highlighting the sexps during evaluation in action.
+
+;;; Usage:
+;;
+;;  `eval-sexp-fu-flash-mode'
+;;    Toggle EvalSexpFuFlash mode on or off.
+;;    If this mode is on, some `eval-last-sexp'-ish commands will highlight the sexps during evaluation.
+;;  `turn-on-eval-sexp-fu-flash-mode'
+;;    Unequivocally turn on EvalSexpFuFlash mode
+;;  `eval-sexp-fu-eval-sexp-inner-list'
+;;    Evaluate the list _currently_ pointed at as sexp; print value in minibuffer.
+;;  `eval-sexp-fu-eval-sexp-inner-sexp'
+;;    Evaluate the sexp _currently_ pointed; print value in minibuffer.
+
+(require 'eval-sexp-fu)
+
+(set-face-attribute 'eval-sexp-fu-flash nil
+                    :foreground nil
+                    :background "dark red"
+                    )
+(set-face-attribute 'eval-sexp-fu-flash-error nil
+                    :foreground "red"
+                    :weight 'bold)
+
+(setq eval-sexp-fu-flash-duration 0.5
+      eval-sexp-fu-flash-error-duration 1.5
+      ;; eval-sexp-fu-flash-function
+      ;; eval-sexp-fu-flash-doit-function
+      )
+
+(eval-sexp-fu-flash-mode)
+
+
 (provide 'init-my-prog-lang-lisp)
 
 ;;; init-my-prog-lang-lisp.el ends here

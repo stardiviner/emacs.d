@@ -334,6 +334,7 @@
          slime-company ; ac-slime
          geiser ; ac-geiser
          ;; sly sly-company ; ac-sly
+         eval-sexp-fu
          ;; Scheme
          ;; Clojure
          clojure-mode cider clj-refactor
