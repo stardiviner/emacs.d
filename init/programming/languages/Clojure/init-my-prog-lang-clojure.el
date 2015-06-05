@@ -182,6 +182,9 @@
       cider-completion-use-context t
       )
 
+
+(define-key my-prog-inferior-map (kbd "c") 'cider-scratch)
+
 
 ;;; [ flycheck-clojure, squiggly-clojure ] --
 
