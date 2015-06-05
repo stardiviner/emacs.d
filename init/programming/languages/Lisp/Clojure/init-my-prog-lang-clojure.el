@@ -197,6 +197,82 @@
 ;;; Usage:
 ;;
 ;; - [C-c RET] :: prefix.
+;; - [C-c RET C-h] :: check the list of functions.
+;;
+;; All functions in clj-refactor have a two-letter mnemonic shortcut. For
+;; instance, rename-file-or-dir is `rf'. You get to choose how those are bound.
+;; e.g. [C-c RET rf] -- rename-file
+;;
+;;  
+;;  ad :: add declaration for current top-level form
+;;  ai :: add import to namespace declaration, then jump back
+;;  ar :: add require to namespace declaration, then jump back (see optional setup)
+;;  au :: add "use" (ie require refer all) to namespace declaration, then jump back
+;;  cc :: cycle surrounding collection type
+;;  ci :: cycle between if and if-not
+;;  cp :: cycle privacy of defns and defs
+;;  dk :: destructure keys
+;;  el :: expand let
+;;  fe :: create function stub from example usage
+;;  il :: introduce let
+;;  mf :: move one or more forms to another namespace, :refer any functions
+;;  ml :: move to let
+;;  pc :: run project cleaner functions on the whole project
+;;  pf :: promote function literal or fn, or fn to defn
+;;  rf :: rename file or directory and update all affected files
+;;  rl :: remove-let, inline all variables and remove the let form
+;;  rr :: remove unused requires
+;;  ru :: replace all :use in namespace with :refer :all
+;;  sc :: show the project's changelog to learn about recent changes
+;;  sn :: sort :use, :require and :import in the ns form
+;;  sp :: Sort all dependency vectors in project.clj
+;;  sr :: stop referring (removes :refer [] from current require, fixing references)
+;;  tf :: wrap in thread-first (->) and fully thread
+;;  th :: thread another expression
+;;  tl :: wrap in thread-last (->>) and fully thread
+;;  ua :: fully unwind a threaded expression
+;;  uw :: unwind a threaded expression
+;;
+;;
+;; The following functions are available, and supported, but used rarely enough
+;; that they're not given a keybinding:
+;;
+;; `cljr-reify-to-record' change a call to reify with a call to a defrecord constructor.
+;;
+;; Using `refactor-nrepl', you also get:
+;;
+;;  am :: add a missing libspec
+;;  as :: add implementation stubs for an interface or protocol
+;;  ap :: add a dependency to your project
+;;  cn :: Perform various cleanups on the ns form
+;;  ef :: Extract function
+;;  fu :: Find usages
+;;  hd :: Hotload dependency
+;;  is :: Inline symbol
+;;  rd :: Remove (debug) function invocations
+;;  rs :: Rename symbol
+;;  
+;;  Combine with your keybinding prefix/modifier.
+;;
+;; Custom
+;;
+;; - [customize-group cljr]
+;;
+;; Reload config
+;;
+;; You can use `cljr-reload-config' to resubmit configuration settings to
+;; `refactor-nrepl' after changing them in emacs. This is a good alternative to
+;; restarting the repl whenever you change settings affecting the middleware.
+
+
+(require 'clj-refactor)
+
+(add-hook 'clojure-mode-hook (lambda ()
+                               (clj-refactor-mode 1)
+                               ;; insert keybinding setup here
+                               (cljr-add-keybindings-with-prefix "C-c RET")
+                               ))
+
 
 
 ;;; [ typed-clojure-mode ] -- 
