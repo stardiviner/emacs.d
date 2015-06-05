@@ -151,9 +151,9 @@
      (add-hook 'cider-repl-mode-hook
                (lambda ()
                  (paredit-mode 1)
-                 (rainbow-delimiters-mode 1)))
-
-     ;; (run-lisp)
+                 (rainbow-delimiters-mode 1)
+                 ;; Pretty printing in the REPL
+                 (cider-repl-toggle-pretty-printing)))
      ))
 
 
