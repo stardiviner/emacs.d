@@ -1898,6 +1898,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
       org-export-babel-evaluate t ; code evaluation during export. nil, 'inline-only,
       ;; org-export-headline-levels 6
       org-export-with-smart-quotes t
+      org-export-with-emphasize t
       )
 
 
