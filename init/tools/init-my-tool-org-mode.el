@@ -1686,18 +1686,18 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
         ;; habits
         (sequence "HABIT(h)" "|" "DONE(d)")
         ;; Status
-        (sequence "TODO(t@/!)" "Urgent(u!)" "Doing(g!)" "Later(l!)" "SOMEDAY(s!)" "FAILED(x@/!)" "CANCELLED(C@/!)" "|" "DONE(d@/!)")
-        ;; Code
-        (sequence "BUG(b!)" "ISSUE(i!)" "ERROR(e!)" "FEATURE(f!)" "|" "DONE(d@/!)")
+        (sequence "Urgent(u!)" "Doing(g!)" "TODO(t@/!)" "Later(l!)" "SOMEDAY(s!)" "FAILED(x@/!)" "CANCELLED(C@/!)" "|" "DONE(d@/!)")
         ;; Types
         ;; use (@/!) to record/log info reference source link URL and timestamp.
-        (type "Org(o@/!)" "code(c@/!)" "project(p@/!)" "|" "DONE(d@/!)")
-        ;; Life
-        (type "SEX(X@/!)" "|" "DONE(d@/!)")
+        (type "code(c@/!)" "project(p@/!)" "Org(o@/!)" "|" "DONE(d@/!)")
+        ;; Code
+        (sequence "BUG(b!)" "ISSUE(i!)" "ERROR(e!)" "FEATURE(f!)" "|" "DONE(d@/!)")
         ;; Work
         (type "Work(w@/!)" "Meeting(m@/!)" "|" "DONE(d@/!)")
         ;; Learn
         (type "Learn(n!)" "Review(r!)" "|" "DONE(d@/!)")
+        ;; Life
+        (type "SEX(X@/!)" "|" "DONE(d@/!)")
         ;; org-trello
         ;; (type "TODO" "Doing" "|" "DONE")
         ))
