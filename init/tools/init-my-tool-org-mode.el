@@ -59,8 +59,8 @@
 (setq org-startup-folded t ; t, 'overview, 'content, 'showall.
       org-startup-indented t ; use org indent-mode for all org buffers.
       org-startup-truncated t
-      ;; FIXME: error: Can't preview LaTeX fragment in a non-file buffer.
       org-startup-with-inline-images t ; `org-toggle-inline-images'
+      ;; FIXME: error: Can't preview LaTeX fragment in a non-file buffer.
       org-startup-with-latex-preview t ; `org-toggle-latex-fragment'
       ;; org-startup-options
       ;; coordinate grid overlays
@@ -491,9 +491,11 @@ Will work on both `org-mode' and any mode that accepts plain html."
       (insert (format tag ""))
       (forward-char (if orgp -2 -6)))))
 
-(define-key org-mode-map (kbd "C-c K") 'my/org-insert-kbd)
-(define-key org-mode-map (kbd "C-c k") 'my/insert-key)
-(define-key html-mode-map (kbd "C-c k") 'my/insert-key)
+(define-key org-mode-map (kbd "C-c K") 'my/insert-kbd)
+(define-key org-mode-map (kbd "C-c k") 'my/org-insert-key)
+;; TODO:
+;; (eval-after-load 'web-mode
+;;   (define-key web-mode-map (kbd "C-c k") 'my/insert-key))
 
 ;;; headline faces
 ;;; the ahead stars face when org indentation. (org-hide)
