@@ -121,6 +121,11 @@
 
 
 ;; Helm Integration
+
+(require 'helm-projectile)
+
+(helm-projectile-on)
+
 (if (featurep 'helm)
     (global-set-key (kbd "C-c p h") 'helm-projectile))
 
