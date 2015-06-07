@@ -414,10 +414,11 @@
 
 (require 'helm-ag)
 
-(setq helm-ag-insert-at-point 'word ; same thing as `thing-at-point' such ash: 'word, symbol,
-      helm-ag-base-command "ag --nocolor --nogroup" ; helm use color match, so use option `--nocolor' here.
-      ;; helm-ag-command-option
+(setq helm-ag-insert-at-point 'symbol ; same thing as `thing-at-point' such ash: 'word, symbol,
+      helm-ag-base-command "ag --nocolor --nogroup --ignore-case" ; helm use color match, so use option `--nocolor' here.
+      helm-ag-command-option "--all-text"
       helm-ag-source-type 'one-line ; 'one-line, 'file-line
+      helm-ag-edit-save t ; save buffers you edit at editing completed.
       )
 
 ;; You can use `helm-ag' with projectile by following command.
