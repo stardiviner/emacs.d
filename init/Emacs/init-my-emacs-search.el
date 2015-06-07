@@ -428,16 +428,7 @@
       helm-ag-edit-save t ; save buffers you edit at editing completed.
       )
 
-;; You can use `helm-ag' with projectile by following command.
-(require 'projectile)
-(defun projectile-helm-ag ()
-  "Use helm-ag to be more better ag search with helm."
-  (interactive)
-  (helm-ag (projectile-project-root)))
-(define-key projectile-command-map (kbd "s h") 'projectile-helm-ag)
-
 (define-key ag-map (kbd "a") 'helm-ag)
-
 
 
 ;;; [ awk-it ] -- run AWK interactively on region!

@@ -129,6 +129,13 @@
 (if (featurep 'helm)
     (global-set-key (kbd "C-c p h") 'helm-projectile))
 
+;; You can use `helm-ag' with `projectile' by following command.
+(defun projectile-helm-ag ()
+  (interactive)
+  (helm-ag (projectile-project-root)))
+
+(define-key projectile-command-map (kbd "s h") 'projectile-helm-ag)
+
 
 ;;; [ redefine projectile keybindings ]
 
