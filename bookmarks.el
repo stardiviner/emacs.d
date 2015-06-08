@@ -2,7 +2,17 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Ruby Manuals"
+(("R Programming Language"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/R/R.org")
+ (front-context-string . "* Intro\n\nR can b")
+ (rear-context-string)
+ (position . 1))
+("Julia Programming Language"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Julia/Julia.org")
+ (front-context-string . "* Intro\n\nJulia i")
+ (rear-context-string)
+ (position . 1))
+("Ruby Manuals"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Manuals/Manuals.org")
  (front-context-string . "* Learn Data [0/")
  (rear-context-string)
