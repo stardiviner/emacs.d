@@ -2034,6 +2034,22 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;; enough to detect if included files have been modified.
 
 
+;;; [ Blog ]
+
+
+;;; [ o-blog ] -- A stand-alone blog and publication tool for Org-mode.
+
+;;; Usage:
+;;
+;; Publish:
+;;   - Open the ~/.emacs.d/o-blog/example/sample.org file
+;;   - type M-x org-publish-blog
+;;   - The result site would be published by default in ~/.emacs.d/o-blog/out.
+
+;; (require 'o-blog)
+
+
+
 ;; (require 'org-blog)
 
 

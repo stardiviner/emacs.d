@@ -197,8 +197,10 @@
          org-pomodoro
          ;; org-doing
          ;; orgit ; org-magit ; org-linkany
-         org-publish ; org2blog ; org-blog org-website
-         jekyll-el org2jekyll ; org-jekyll jekyll-modes org-protocol-jekyll
+         org-publish
+         o-blog
+         ;; org2blog ; org-blog org-website
+         ;; jekyll-el org2jekyll ; org-jekyll jekyll-modes org-protocol-jekyll
          ;; org-present org-tree-slide org-html5presentation org-impress-js
          org-passwords
          ;; org-magit ; org-linkany
