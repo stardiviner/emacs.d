@@ -219,6 +219,7 @@
          ;; mu
          mu4e mu-cite
          ;; notmuch
+         boxquote
          ;; BBDB
          bbdb bbdb-vcard
          ;; IRC
