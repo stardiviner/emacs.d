@@ -84,6 +84,11 @@ re-downloaded in order to locate PACKAGE."
 
 
 
+;; (when (null package-archive-contents)
+;;   (package-refresh-contents))
+
+
+
 ;; The packages that you install with package.el are activated by default after
 ;; your .emacs is loaded. To be able to use them before the end of your .emacs
 ;; you need to activate them by using the commands:
