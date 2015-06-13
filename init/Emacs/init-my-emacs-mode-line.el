@@ -52,14 +52,19 @@
                 ;;              face (:foreground "#444444" :background "black")
                 ;;              help-echo "九州 ❯ 羽传说 ❯ 向异翅")
 
-                ;; (:propertize " ㊛ "
+                ;; (:propertize " ㊊㊛ "
                 ;;              face (:foreground "deep pink" :height 120)
                 ;;              help-echo "Female & Lesbian")
-                
-                ;; dynamic update indicators (it is a buffer local - only active in current buffer)
-                ;; but this is global (show on all buffers mode line)
-                ;; (:propertize (:eval (anzu--update-mode-line))
-                ;;              face (:foreground "green yellow" :slant 'italic :weight 'normal))
+
+                ;; emacsclient indicator
+                (:propertize
+                 (:eval
+                  (if (frame-parameter nil 'client)
+                      "あ" ""))
+                 face (:foreground "#333333" :background "yellow1"
+                                   :weight 'bold
+                                   :height 120)
+                 help-echo "emacsclient frame")
                 
                 ;; window-number
                 (:propertize (:eval (concat "[" (number-to-string (window-number)) "]"))
@@ -72,21 +77,19 @@
                              face (:foreground "cyan" :weight 'bold
                                                :box '(:color "deep pink")))
                 
-                (:propertize " ")
-
                 ;; multiple-cursors (mc/)
-                (:propertize (:eval
-                              (if (> (mc/num-cursors) 1)
-                                  mc/mode-line
-                                ;; TODO: check out `format' & `propertize' function
-                                ;; ("mc: "
-                                ;;  (format #("%d" 0 2
-                                ;;            (face font-lock-warning-face))
-                                ;;          (mc/mc-cursors)))
-                                ))
+                (:propertize (""
+                              (:eval
+                               (if (> (mc/num-cursors) 1)
+                                   mc/mode-line
+                                 ;; TODO: check out `format' & `propertize' function
+                                 ;; ("mc: "
+                                 ;;  (format #("%d" 0 2
+                                 ;;            (face font-lock-warning-face))
+                                 ;;          (mc/mc-cursors)))
+                                 ))
+                              "")
                              face (:foreground "red" :background "black"))
-
-                (:propertize " ")
 
                 ;; mule info
                 (:propertize mode-line-mule-info
@@ -109,15 +112,26 @@
                              help-echo "Buffer is read-only!!!")
                 ;; (:propertize "} ")
 
+                ;; TODO: remote buffer? `default-directory'
+                ;; (:propertize
+                ;;  (:eval
+                ;;   (if mode-line-remote
+                ;;       "#" ""))
+                ;;  face (:foreground "#333333" :background "yellow1"
+                ;;                    :weight 'bold
+                ;;                    :height 100)
+                ;;  help-echo "remote buffer")
+
                 ;; rbenv & rvm
+                ;; TODO: if ruby env not available, then don't show this indicator.
                 (:propertize " ("
                              face (:foreground "#444444"))
                 (:propertize "Ruby: "
                              face (:family "Segoe Print"
                                            :height 80
-                                           :foreground "pink"))
+                                           :foreground "red2"))
 
-                ;; (:eval (concat "(Ruby: " (rbenv--active-ruby-version) ") "))
+                ;; `rbenv--modestring'
                 (:propertize (:eval (rbenv--active-ruby-version))
                              face (:foreground "cyan"
                                                :family "DejaVu Sans Mono"
@@ -130,33 +144,32 @@
                 
                 ;; VCS - Git, SVN, CVS,
 
-                ;; FIXME:
-                ;; (:propertize (:eval (git--state-mark-modeline)))
-
-                ;; (:propertize (:eval
-                ;;               (git--state-mark-modeline
-                ;;                #("    " 0 4
-                ;;                  (display
-                ;;                   (image :type xpm
-                ;;                          :data "/* XPM */\nstatic char * data[] = {\n\"18 13 3 1\",\n\" 	c None\",\n\"+	c #000000\",\n\".	c GreenYellow\",\n\"                  \",\n\"       +++++      \",\n\"      +.....+     \",\n\"     +.......+    \",\n\"    +.........+   \",\n\"    +.........+   \",\n\"    +.........+   \",\n\"    +.........+   \",\n\"    +.........+   \",\n\"     +.......+    \",\n\"      +.....+     \",\n\"       +++++      \",\n\"                  \"};"
-                ;;                          :ascent center)
-                ;;                   help-echo "File status in git: uptodate")))))
-                
-
                 ;; vc indicator
-                (:propertize (unless (null vc-mode) " ⛓")
-                             face (:foreground "cyan"
-                                               :weight 'bold
-                                               :height 120
-                                               )
-                             help-echo (vc-mode vc-mode))
-                
+                ;; (:propertize (unless (null vc-mode) "⭠") ; FIXME: indicator enable also in non-git buffer.
+                ;;              face (:foreground "cyan"
+                ;;                                :weight 'bold
+                ;;                                :height 90
+                ;;                                )
+                ;;              help-echo (vc-mode vc-mode))
+
+                ;; branch
                 (:propertize (vc-mode vc-mode)
                              face (:foreground "yellow"
                                                :weight 'bold
                                                :height 80)
                              help-echo (vc-mode vc-mode))
 
+                ;; TODO: git repo file status
+
+                ;; - added :: ✚
+                ;; - modified :: ∓
+                ;; - deleted :: ✖
+                ;; - renamed :: ➜
+                ;; - unmerged :: ⭠ ⌥
+                ;; - untracked :: ⚡
+                ;; - branch :: ⭠
+
+                
                 ;; (vc-mode (:eval (propertize vc-mode
                 ;;                             'face (pcase (vc-state buffer-file-truename)
                 ;;                                     (`up-to-date '(:foreground "green"))
@@ -169,7 +182,33 @@
                 ;;     (`edited                      nil)
                 ;;     (_             'mode-line-warning)))))
 
-                ;; TODO: Magit
+                ;; FIXME:
+                ;; git state mark (from `git-emacs')
+                ;; (:propertize (:eval (git--state-mark-modeline)))
+
+                ;;                 (:propertize (:eval
+                ;;                               (git--state-mark-modeline
+                ;;                                #("    " 0 4
+                ;;                                  (display
+                ;;                                   (image :type xpm
+                ;;                                          :data
+                ;;                                          "/* XPM */
+                ;; static char * data[] = {
+                ;; \"14 7 3 1\",
+                ;; \" 	c None\",
+                ;; \"+	c #202020\",
+                ;; \".	c %s\",
+                ;; \"      +++     \",
+                ;; \"     +...+    \",
+                ;; \"    +.....+   \",
+                ;; \"    +.....+   \",
+                ;; \"    +.....+   \",
+                ;; \"     +...+    \",
+                ;; \"      +++     \"};"
+                ;;                                          :ascent center)
+                ;;                                   ;; FIXME: help-echo (git--state-mark-tooltip stat)
+                ;;                                   )))))
+                
 
                 ;; the buffer name; the filename as a tool tip
                 ;; mode-line-client
@@ -185,10 +224,10 @@
                 (:propertize "]"
                              face (:foreground "cyan"))
 
-                ;; git-emacs (magit)
-
-                ;; process
-                ;; mode-line-process
+                ;; TODO: process
+                (:propertize mode-line-process
+                             face (:foreground "green"))
+                
 
                 ;; notifications
                 ;; ERC
@@ -196,7 +235,7 @@
 
                 ;;; mmm-mode
                 ;; TODO
-                ;; (:propertize (mmm-format-string))
+                ;; (:propertize (:eval (mmm-format-string))
 
                 ;; ;; the major mode of the current buffer.
                 ;; (:propertize " 〖"
@@ -271,7 +310,9 @@
                           face (:foreground "white" :weight 'bold))
 
             ;; nyan-mode
-            '(:eval (list (nyan-create)))
+            ;; '(:eval (list (nyan-create)))
+
+            ;; FIXME: spinner
             ;; Let spinner support to be used in custom mode-line as a function.
             ;; '(:eval (spinner-start 'minibox))
             ;;
@@ -315,6 +356,7 @@
                           face (:foreground "red" :weight 'bold))
 
             ;; the major mode of the current buffer.
+            ;; `mode-name', `mode-line-modes', `minor-mode-alist'
             '(:propertize "%m"
                           face (:foreground "green yellow"
                                             :family "Comic Sans MS" :weight 'bold :height 80
@@ -338,27 +380,31 @@
 ;; (cl-pushnew '(workgroups-mode " wg") minor-mode-alist :test 'equal)
 
 (defvar mode-line-cleaner-alist
-  '((auto-complete-mode . " ac") ; AC (auto-complete)
-    (yas-minor-mode . "") ; yas (yasnippet)
+  '((auto-complete-mode . " ⓐ") ; AC (auto-complete)
+    (company-mode . "ⓐ") ; company-mode
+    (yas-minor-mode . "ⓨ") ; yas (yasnippet)
     (helm-mode . "") ; Helm (helm),
-    (paredit-mode . "") ; Paredit (paredit)
-    (paredit-everywhere-mode . "") ; Par-
+    (paredit-mode . "ⓟ") ; Paredit (paredit)
+    (paredit-everywhere-mode . "ⓟ") ; Par-
     (eldoc-mode . "") ; ElDoc (ElDoc)
     ;; minor modes
     (autopair-mode . "") ; pair (auto-pair)
     (auto-indent-mode . "")
     (auto-indent-minor-mode . "") ; AI (auto-indent)
+    (indent-guide-mode . "ⓘ")
+    (aggressive-indent-mode . "Ⓘ")
     (highlight-indentation-mode . "") ; ||, ▸
     (highlight-indentation-current-column-mode . "") ; |
     (visual-line-mode . "") ; vl (visual-line)
     (global-visual-line-mode . "") ; vl (visual-line)
+    (smartparens-mode . "")
     (hs-minor-mode . "") ; hs (hideshow)
     (abbrev-mode . "") ; (abbrev)
     (defining-kbd-macro . " Def:macro") ; Def
     (undo-tree-mode . "") ; Undo-tree (undo-tree)
     (outline-minor-mode . "") ; Outl (outline)
-    (global-whitespace-mode . "") ; WS (global-whitespace-mode)
-    (whitespace-mode . "") ; ws (whitespace-mode)
+    (global-whitespace-mode . "ⓦ") ; WS (global-whitespace-mode)
+    (whitespace-mode . "ⓦ") ; ws (whitespace-mode)
     (global-whitespace-newline-mode . "") ; NL (global-whitespace-newline-mode)
     (whitespace-newline-mode . "") ; nl (whitespace-newline-mode)
     (whitespace-cleanup-mode . "") ; WSC
@@ -369,7 +415,7 @@
     (rainbow-delimiters-mode . "") ; (rainbow-delimiters-mode)
     (auto-capitalize . "") ; Cap, (auto-capitalize), A/Cap
     (ispell-minor-mode . "") ; Spell (ispell-minor-mode)
-    (flyspell-mode . "") ; Fly (flyspell)
+    (flyspell-mode . "ⓢ") ; Fly (flyspell)
     (flycheck-mode . flycheck-mode-line) ; FlyC
     (flymake-mode . 'flymake-mode-line) ; FlyM
     (hi-lock-mode . "") ; syntax highlight
@@ -418,7 +464,7 @@
     (lua-mode . "Lua")
     (rust-mode . "Rust")
     (clojure-mode . "Clojure")
-    (ocaml-mode . "OCaml")
+    (ocaml-mode . "OCaml") ; 🐪
     (scala-mode . "Scala")
     (ess-transcript-minor-mode . "") ; ESStr
     (ess-listing-minor-mode . "") ; ESSlst
