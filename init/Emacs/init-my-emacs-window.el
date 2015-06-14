@@ -10,9 +10,26 @@
 ;; (require 'switch-window)
 ;; (global-set-key (kbd "C-x o") 'switch-window)
 
-(defadvice split-window-below (after switch-to-new-split-below-window activate)
-  "Switch to new splitted window."
-  (other-window 1))
+;;; switch to new splitted window after split.
+;;
+;; 1. this will break the default action, and affect other window behaviors.
+;;
+;; (defadvice split-window-below (after switch-to-new-split-below-window activate)
+;;   "Switch to new splitted window."
+;;   (other-window 1))
+;; 2. bind to a function is a better solution.
+;;
+(define-key global-map (kbd "C-x 2")
+  '(lambda ()
+     (interactive)
+     (split-window-vertically)
+     (other-window 1)))
+
+(define-key global-map (kbd "C-x 3")
+  '(lambda ()
+     (interactive)
+     (split-window-horizontally)
+     (other-window 1)))
 
 
 ;;; [ display-buffer-alist ]
