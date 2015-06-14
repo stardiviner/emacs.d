@@ -10,6 +10,10 @@
 ;; (require 'switch-window)
 ;; (global-set-key (kbd "C-x o") 'switch-window)
 
+(defadvice split-window-below (after switch-to-new-split-below-window activate)
+  "Switch to new splitted window."
+  (other-window 1))
+
 
 ;;; [ display-buffer-alist ]
 
