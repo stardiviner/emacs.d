@@ -274,6 +274,7 @@
 ;;; Global Keybinding
 (unless (boundp 'my-calendar-prefix-map)
   (define-prefix-command 'my-calendar-prefix-map))
+(define-key my-tools-prefix-map (kbd "c") 'my-calendar-prefix-map)
 (define-key my-org-prefix-map (kbd "C") 'my-calendar-prefix-map)
 
 (define-key my-calendar-prefix-map (kbd "c") 'my-open-calfw-week)
