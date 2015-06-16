@@ -43,6 +43,17 @@
 ;;                                     . ((inhibit-same-window . t)))))
 
 
+;;; [ winner ]
+
+;;; Usage
+;;
+;; - [C-c] :: prefix
+;; - [C-c Left] :: undo
+;; - [C-c Right] :: redo
+
+(winner-mode)
+
+
 ;;; [ window-number ] --
 
 (require 'window-number)
