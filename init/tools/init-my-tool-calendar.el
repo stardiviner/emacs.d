@@ -246,6 +246,12 @@
 
 (define-key my-calendar-prefix-map (kbd "o") 'cfw:open-org-calendar)
 
+;;; org-capture template
+(setq cfw:org-capture-template
+      '("c" "calfw2org" entry
+        (file nil)
+        "* %?\n %(cfw:org-capture-day)"))
+
 
 ;;; for iCalendar (Google Calendar) users:
 
