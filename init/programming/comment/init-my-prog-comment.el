@@ -5,8 +5,13 @@
 
 ;;; Code:
 
+;;; prefix: [M-;], `my-prog-comment-map'
 
 (define-key my-prog-comment-map (kbd "M-;") 'comment-dwim)
+
+;; or with [C-u N]
+(global-set-key (kbd "C-x C-;") #'comment-line)
+(define-key my-prog-comment-map (kbd "l") #'comment-line)
 
 
 ;;; Emacs default comment [M-;]
