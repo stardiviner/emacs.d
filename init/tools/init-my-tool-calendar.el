@@ -227,13 +227,28 @@
 ;;; variable -> :annotation-sources
 
 
+;;; Keybindings
+
+;;; Global Keybinding
+(unless (boundp 'my-calendar-prefix-map)
+  (define-prefix-command 'my-calendar-prefix-map))
+(define-key my-tools-prefix-map (kbd "c") 'my-calendar-prefix-map)
+(define-key my-org-prefix-map (kbd "C") 'my-calendar-prefix-map)
+
+
+
 ;;; for Org-mode
+
 ;;; Usage:
 ;;; - [M-x cfw:open-org-calendar]
+
 (require 'calfw-org)
+
+(define-key my-calendar-prefix-map (kbd "o") 'cfw:open-org-calendar)
 
 
 ;;; for iCalendar (Google Calendar) users:
+
 (require 'calfw-ical)
 ;; TODO (cfw:open-ical-calendar "http://www.google.com/calendar/ical/.../basic.ics")
 
@@ -253,7 +268,7 @@
 
 
 ;;; General setting
-(defun my-open-calfw ()
+(defun my-open-calfw-week ()
   (interactive)
   (cfw:open-calendar-buffer
    :contents-sources (list
@@ -265,17 +280,46 @@
                       ;; (cfw:howm-create-source "blue") ; howm source
                       )
    ;; TODO add annotation-sources
-   :annotation-sources (list
-                        (cfw:ical-create-source "Moon" "~/moon.ics" "Gray") ; Moon annotations
-                        )
-   :view 'month                         ; 'month, 'week, 'day
-   ))
+   ;; :annotation-sources (list
+   ;;                      (cfw:ical-create-source "Moon" "~/moon.ics" "Gray") ; Moon annotations
+   ;;                      )
+   :view 'week                         ; 'month, 'week, 'day
+   )
+  (bury-buffer)
+  (when whether-switch-to-buffer
+    (switch-to-buffer-other-frame "*cfw-calendar*")
+    ;; (toggle-frame-maximized)
+    ;; (cfw:refresh-calendar-buffer t)
+    )
+  )
 
-;;; Global Keybinding
-(unless (boundp 'my-calendar-prefix-map)
-  (define-prefix-command 'my-calendar-prefix-map))
-(define-key my-tools-prefix-map (kbd "c") 'my-calendar-prefix-map)
-(define-key my-org-prefix-map (kbd "C") 'my-calendar-prefix-map)
+(defun my-open-calfw-day ()
+  (interactive)
+  (cfw:open-calendar-buffer
+   :contents-sources (list
+                      (cfw:org-create-source "dark gray") ; Org-mode source
+                      (cfw:cal-create-source "orange") ; Diary source
+                      )
+   :view 'day                         ; 'month, 'week, 'day
+   )
+  (bury-buffer)
+  (when whether-switch-to-buffer
+    (switch-to-buffer-other-frame "*cfw-calendar*"))
+  )
+
+(defun my-open-calfw-month ()
+  (interactive)
+  (cfw:open-calendar-buffer
+   :contents-sources (list
+                      (cfw:org-create-source "dark gray") ; Org-mode source
+                      (cfw:cal-create-source "orange") ; Diary source
+                      )
+   :view 'month                         ; 'month, 'week, 'day
+   )
+  (bury-buffer)
+  (when whether-switch-to-buffer
+    (switch-to-buffer-other-frame "*cfw-calendar*"))
+  )
 
 (define-key my-calendar-prefix-map (kbd "c") 'my-open-calfw-week)
 (define-key my-calendar-prefix-map (kbd "w") 'my-open-calfw-week)
