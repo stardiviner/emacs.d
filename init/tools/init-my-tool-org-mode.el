@@ -3203,6 +3203,21 @@ This function will promote all items in a subtree."
 (define-key my-org-prefix-map (kbd "P") 'my-org-passwords-search)
 
 
+;;; [ org-password-manager ]
+
+;;; Usage
+;;
+;; - [C-u] [C-c C-p u] :: get/query username.
+;; - [C-u] [C-c C-p p] :: get/query password.
+;; - [C-u] [C-c C-p g] :: generate password.
+
+(require 'org-password-manager)
+
+(add-hook 'org-mode-hook 'org-password-manager-key-bindings)
+
+;; (setq org-password-manager-default-pwgen-command "pwgen --secure --symbols --capitalize --numerals 25 1")
+
+
 
 ;;;_*
 (provide 'init-my-tool-org-mode)

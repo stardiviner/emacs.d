@@ -202,7 +202,7 @@
          ;; org2blog ; org-blog org-website
          ;; jekyll-el org2jekyll ; org-jekyll jekyll-modes org-protocol-jekyll
          ;; org-present org-tree-slide org-html5presentation org-impress-js
-         org-passwords
+         org-password-manager ; org-passwords
          ;; org-magit ; org-linkany
          ;; org-trello
          org-projectile
