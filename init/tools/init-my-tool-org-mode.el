@@ -3144,6 +3144,11 @@ This function will promote all items in a subtree."
 ;; (define-key my-org-trello-map (kbd "u") 'org-trello/update-board-metadata)
 ;; ;; This help message
 ;; (define-key my-org-trello-map (kbd "h") 'org-trello/help-describing-bindings)
+
+
+(unless (boundp 'org-password-prefix)
+  (define-prefix-command 'org-password-prefix))
+(define-key my-org-prefix-map (kbd "P") 'org-password-prefix)
 
 
 ;;; [ org-passwords ]
