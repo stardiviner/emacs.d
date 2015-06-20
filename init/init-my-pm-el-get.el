@@ -171,6 +171,7 @@
          ;; Dired
          ;; direx
          ;; dired-k ; stripe-buffer
+         peep-dired
          ;; Image
          ;; image+ image-dired+
          ;; PDF
