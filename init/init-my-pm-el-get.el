@@ -389,8 +389,7 @@
          ;; ac-js2
          ;; HTML
          htmlize html5
-         ;; ac-html
-         zencoding-mode
+         emmet-mode ; zencoding-mode
          ;; CSS
          ;; FIXME: can't install css-mode
          ;; css-mode

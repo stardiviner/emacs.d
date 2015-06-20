@@ -14,6 +14,50 @@
 ;; `sgml-quick-keys'.
 
 
+;;; [ zencoding-mode ] -- renamed to emmet-mode
+
+
+;;; [ emmet-mode ]
+
+;;; Usage
+;;
+;; - [C-j] :: preview.
+;; - [C-u C-j] :: expand emmet line `emmet-expand-line'.
+;;
+;; Place point in a emmet snippet and press [C-j] to expand it (or
+;; alternatively, alias your preferred keystroke to [M-x emmet-expand-line]) and
+;; you'll transform your snippet into the appropriate tag structure.
+
+(require 'emmet-mode)
+
+(setq emmet-preview-default t ; set preview as the default action.
+      )
+
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+(add-hook 'web-mode-hook  'emmet-mode)
+
+;; use company-mode with `company-web-html' in web-mode
+;; annotation string: `html'.
+(add-hook 'web-mode-hook (lambda ()
+                           (add-to-list 'company-backends 'company-web-html)
+                           (company-mode t)))
+
+;; By default, inserted markup will be indented with indent-region, according to
+;; the buffer's mode. To disable this, do:
+;; (add-hook 'emmet-mode-hook (lambda () (setq emmet-indent-after-insert nil)))
+
+;; If you disable indent-region, you can set the default indent level thusly:
+;; (add-hook 'emmet-mode-hook (lambda () (setq emmet-indentation 2))) ;; indent 2 spaces.
+
+;; If you want the cursor to be positioned between first empty quotes after expanding:
+;; (setq emmet-move-cursor-between-quotes t) ;; default nil
+
+;; Or if you don't want to move cursor after expanding:
+;; (setq emmet-move-cursor-after-expanding nil) ;; default t
+
+
+
 ;;; [ ac-html ] -- Provide accurate and intelligent auto completion to HTML and CSS.
 
 ;; ;;; If you are using html-mode:
