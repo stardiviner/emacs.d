@@ -11,21 +11,20 @@
 
 ;;; Usage:
 ;;
-;; Commands
 ;; In spray-mode buffers, following commands are available.
 ;;
-;; spray-start/stop (SPC)
+;; `spray-start/stop' (SPC)
 ;;     pause or resume spraying
-;; spray-backward-word (h, )
+;; `spray-backward-word' (h, )
 ;;     pause and back to the last word
-;; spray-forward-word (l, )
-;;     inverse of spray-backward-word 
-;; spray-faster (f)
+;; `spray-forward-word' (l, )
+;;     inverse of spray-backward-word
+;; `spray-faster' (f)
 ;;     increases speed
-;; spray-slower (s)
+;; `spray-slower' (s)
 ;;     decreases speed
-;; spray-quit (q, )
-;;     quit spray-mode 
+;; `spray-quit' (q, )
+;;     quit spray-mode
 
 (require 'spray)
 
