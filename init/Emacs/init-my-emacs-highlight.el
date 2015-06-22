@@ -53,7 +53,8 @@
 (define-key my-highlight-symbol-prefix (kbd "o") 'highlight-symbol-occur)
 (define-key my-highlight-symbol-prefix (kbd "C") 'highlight-symbol-count)
 (define-key my-highlight-symbol-prefix (kbd "r") 'highlight-symbol-query-replace)
-(define-key my-highlight-symbol-prefix (kbd "u") 'highlight-symbol-remove-all)
+(define-key my-highlight-symbol-prefix (kbd "U") 'highlight-symbol-remove-all)
+(define-key my-highlight-symbol-prefix (kbd "u") 'highlight-symbol-at-point)
 (define-key my-highlight-symbol-prefix (kbd "m") 'highlight-symbol-nav-mode)
 
 
