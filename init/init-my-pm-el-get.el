@@ -249,6 +249,8 @@
          ;; auto-indent-mode clean-aindent
          ;; completion & comprehension
          ;; emacs-ycmd
+         ;; code sense
+         sourcegraph ; sourcegraph-mode
          ;; lint
          flycheck
          ;; flycheck-tip
