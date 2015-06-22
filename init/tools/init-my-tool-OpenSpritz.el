@@ -36,8 +36,13 @@
       )
 
 (set-face-attribute 'spray-base-face nil
+                    :inherit 'default
+                    :foreground "black"
+                    :background "white"
+                    :family "DejaVu Sans"
                     )
 (set-face-attribute 'spray-accent-face nil
+                    :inherit 'spray-base-face
                     :foreground "red"
                     )
 
