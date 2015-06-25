@@ -416,14 +416,17 @@
 ;;; - :dedicated t
 ;;; - :tail t
 
+;; (push `(,special-buffer-regexp :regexp t :noselect nil)
+;;       popwin:special-display-config)
+
 ;; TODO:
 (push '("*scratch*" :height 30 :position bottom) popwin:special-display-config)
 
 ;;; Debugger mode, *Backtrace*
-(push '("*Backtrace*" :position bottom :height 15) popwin:special-display-config)
+(push '("*Backtrace*" :position bottom :height 15 :noselect t) popwin:special-display-config)
 
 ;; M-! shell command output
-(push '("*Shell Command Output*" :position bottom :height 15) popwin:special-display-config)
+(push '("*Shell Command Output*" :position bottom :height 15 :noselect t) popwin:special-display-config)
 
 ;;; Info
 (push '(apropos-mode :position bottom :height 15) popwin:special-display-config)
@@ -435,7 +438,7 @@
 ;; (push '("*Org tags*" :position bottom) popwin:special-display-config)
 ;; (push '("*Agenda Commands*" :position bottom) popwin:special-display-config)
 ;; (push '("*Org Agenda*" :position bottom :height 20) popwin:special-display-config)
-(push '("*Org-Babel Error Output*" :position bottom :height 10) popwin:special-display-config)
+(push '("*Org-Babel Error Output*" :position bottom :height 10 :noselect t) popwin:special-display-config)
 
 ;;; Completion List (completion-list-mode)
 ;; FIXME: popwin can't capture this popup window.
@@ -487,7 +490,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (push '("*Pp Eval Output*" :position bottom :height 15) popwin:special-display-config)
 
 ;;; sdcv
-(push '("*SDCV*" :position bottom :height 15) popwin:special-display-config)
+(push '("*SDCV*" :position bottom :height 15 :noselect t) popwin:special-display-config)
 
 ;;; shelldoc
 (push '("*Shelldoc*" :position top :height 15) popwin:special-display-config)
@@ -498,7 +501,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (push '("*bm-bookmarks*" :position bottom :height 15) popwin:special-display-config)
 
 ;; display-time-world
-(push '("*wclock*" :position bottom :height 10) popwin:special-display-config)
+(push '("*wclock*" :position bottom :height 10 :noselect t) popwin:special-display-config)
 
 ;; process list
 (push '("*Process List*" :position bottom :height 10) popwin:special-display-config)
