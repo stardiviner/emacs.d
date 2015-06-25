@@ -549,6 +549,17 @@
 ;; ;; globally.
 
 
+;;; [ Emacs internal functions/commands ] -- [C-x c]
+
+(define-key helm-command-map (kbd "M-t") 'helm-timers)
+
+(define-key helm-command-map (kbd "M-s g") 'helm-do-grep)
+(define-key helm-command-map (kbd "M-s p") 'helm-do-pdfgrep)
+(define-key helm-command-map (kbd "M-s z") 'helm-do-zgrep)
+(define-key helm-command-map (kbd "M-s o") 'helm-occur)
+(define-key helm-command-map (kbd "M-s m") 'helm-multi-occur)
+
+
 ;;; [ helm-source-time-world ]
 
 ;; use the Emacs built-in variable: `display-time-world-list'.
