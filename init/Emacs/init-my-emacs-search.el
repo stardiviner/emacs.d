@@ -260,13 +260,20 @@
 ;;; [ occur ]
 
 (if (featurep 'helm)
-    (define-key my-search-prefix-map (kbd "o") 'helm-occur))
+    (define-key my-search-prefix-map (kbd "o") 'helm-occur)
+  (define-key my-search-prefix-map (kbd "o") 'occur))
 
 
 ;;; [ multi-occur ]
 
 (if (featurep 'helm)
-    (define-key my-search-prefix-map (kbd "O") 'helm-multi-occur))
+    (define-key my-search-prefix-map (kbd "O") 'helm-multi-occur)
+  (define-key my-search-prefix-map (kbd "O") 'multi-occur))
+
+(define-key my-search-prefix-map (kbd "M-o") 'multi-occur-in-matching-buffers)
+
+(define-key my-highlight-symbol-prefix (kbd "M-r") 'highlight-lines-matching-regexp)
+(define-key my-search-prefix-map (kbd "M-h") 'how-many)
 
 
 ;;; [ replace+.el ]
