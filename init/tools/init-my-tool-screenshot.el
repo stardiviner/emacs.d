@@ -11,7 +11,7 @@
 
 ;; Take a screenshot by ImageMagick in Emacs easily. Then send the image to
 ;; remote host by scp (optional). Finally the URL or filename is in the
-;; kill-ring. Execute:
+;; kill-ring. The screenshot file format is PostScript. Use PDF viewer to open it.
 ;;
 ;; - [M-x screenshot]
 ;; - [M-x screenshot-take]
