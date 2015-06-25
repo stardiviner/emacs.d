@@ -2764,7 +2764,9 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
       org-screenshot-file-name-format "screenshot-%2.2d.png"
       )
 
-(define-key my-org-prefix-map (kbd "s") 'org-screenshot-take)
+(add-hook 'org-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-c o s") 'org-screenshot-take)))
 
 ;; TODO: Emacs need to prompt user to get the screenshot filename to describe this screenshot.
 ;; 1. improve org-screenshot source code.
