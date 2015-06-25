@@ -2973,17 +2973,30 @@ This function will promote all items in a subtree."
 
 ;;;_* custom keybindings
 
-(define-key my-org-prefix-map (kbd "A") 'org-agenda)
-;; [C-u C-c o t] -- prompt for a keyword for todo list.
-(define-key my-org-prefix-map (kbd "t") 'org-todo-list)
 (if (featurep 'helm)
     (define-key my-org-prefix-map (kbd "c") 'helm-org-capture-templates)
-  (define-key my-org-prefix-map (kbd "c") 'org-capture))
-(define-key my-org-prefix-map (kbd "l") 'org-store-link)
-(define-key my-org-prefix-map (kbd "L") 'org-insert-link-global)
-(define-key my-org-prefix-map (kbd "o") 'org-open-at-point-global)
+  (define-key my-org-prefix-map (kbd "c") 'org-capture)
+  (define-key org-mode-map (kbd "C-c c") 'org-capture))
 
-(define-key org-mode-map (kbd "C-c o T") 'org-timeline) ; Show a time-sorted view of the entries in the current org file.
+(define-key my-org-prefix-map (kbd "e")
+  (defun my-org-element-at-point ()
+    (interactive)
+    ;; FIXME: minibuffer does not show result.
+    (org-element-at-point)))
+
+(unless (boundp 'my-org-heading-prefix-map)
+  (define-prefix-command 'my-org-heading-prefix-map))
+
+(add-hook 'org-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-c h") 'my-org-heading-prefix-map)
+            (define-key my-org-heading-prefix-map (kbd "h") 'helm-org-in-buffer-headings)
+            (define-key my-org-heading-prefix-map (kbd "a") 'helm-org-agenda-files-headings)
+            ))
+
+(unless (boundp 'my-org-agenda-prefix-map)
+  (define-prefix-command 'my-org-agenda-prefix-map))
+(define-key my-org-prefix-map (kbd "M-a") 'my-org-agenda-prefix-map)
 
 (define-key my-org-prefix-map (kbd "a")
   (defun my-open-org-agenda ()
@@ -2995,11 +3008,18 @@ This function will promote all items in a subtree."
     (my-func/open-and-switch-to-buffer 'org-agenda-list "*Org Agenda*" t)
     ))
 
-(define-key my-org-prefix-map (kbd "e")
-  (defun my-org-element-at-point ()
-    (interactive)
-    ;; FIXME: minibuffer does not show result.
-    (org-element-at-point)))
+(define-key my-org-agenda-prefix-map (kbd "a") 'my-open-org-agenda)
+(define-key my-org-agenda-prefix-map (kbd "A") 'org-agenda)
+(define-key my-org-agenda-prefix-map (kbd "t") 'org-todo-list) ; prefix [C-u] to prompt keyword for todo list
+(define-key org-mode-map (kbd "C-c o M-a T") 'org-timeline) ; Show a time-sorted view of the entries in the current org file.
+
+(unless (boundp 'my-org-link-prefix-map)
+  (define-prefix-command 'my-org-link-prefix-map))
+(define-key my-org-prefix-map (kbd "M-l") 'my-org-link-prefix-map)
+
+(define-key my-org-link-prefix-map (kbd "L") 'org-insert-link-global)
+(define-key my-org-link-prefix-map (kbd "l") 'org-store-link)
+(define-key my-org-link-prefix-map (kbd "o") 'org-open-at-point-global)
 
 
 ;;;_* custom functions
