@@ -44,6 +44,8 @@
 
 (setq screenshot-take-delay 0.5)
 
+(define-key my-tools-prefix-map (kbd "s") 'screenshot-take)
+(define-key my-tools-prefix-map (kbd "S") 'screenshot)
 
 
 (provide 'init-my-tool-screenshot)
