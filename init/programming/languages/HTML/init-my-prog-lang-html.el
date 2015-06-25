@@ -37,7 +37,14 @@
 (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
 (add-hook 'web-mode-hook  'emmet-mode)
 
-;; use company-mode with `company-web-html' in web-mode
+;; use company-mode with `company-web-html' in web-mode.
+;; now support company completion for emmet.
+;;
+;; - tags after >+^ symbols
+;; - attribute completion after [
+;; - Dot . - complete div's class
+;; - # - id (div's id if no tag)
+;;
 ;; annotation string: `html'.
 (add-hook 'web-mode-hook (lambda ()
                            (add-to-list 'company-backends 'company-web-html)
