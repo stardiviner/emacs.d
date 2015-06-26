@@ -33,6 +33,7 @@
       spray-margin-top 2 ; Character margin at top of buffer. Characters are as big as spray text characters.
       spray-margin-left 4
       spray-ramp 2 ; Initial words before ramping up to full speed.
+      spray-save-point t
       )
 
 (set-face-attribute 'spray-base-face nil
