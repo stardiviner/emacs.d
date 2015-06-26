@@ -2,7 +2,57 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("R Programming Language"
+(("init.el"
+ (filename . "~/.emacs.d/init.el")
+ (front-context-string . ";; Added by Pack")
+ (rear-context-string)
+ (position . 1))
+("Zsh Keybindings"
+ (filename . "~/Org/Wiki/Computer/Softwares/Zsh.org")
+ (front-context-string . "**** Zsh Keybind")
+ (rear-context-string . "ion\n\n*** Usage\n\n")
+ (position . 201))
+("KDE Keybindings"
+ (filename . "~/Org/Wiki/Computer/Softwares/KDE/KDE.org")
+ (front-context-string . "**** KDE Keybind")
+ (rear-context-string . "ig --version=\n\n\n")
+ (position . 5810))
+("Zsh"
+ (filename . "~/Org/Wiki/Computer/Softwares/Zsh.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("KDE"
+ (filename . "~/Org/Wiki/Computer/Softwares/KDE/KDE.org")
+ (front-context-string . "* Intro\n\nhttp://")
+ (rear-context-string)
+ (position . 1))
+("Vim (Org)"
+ (filename . "~/Org/Wiki/Computer/Programming/Vim/Vim.org")
+ (front-context-string . "* Intro\n\n神之编辑器.\n")
+ (rear-context-string)
+ (position . 1))
+("Programming Terms"
+ (filename . "~/Org/Wiki/Computer/Programming/Data/terms/terms.org")
+ (front-context-string . "* Programming La")
+ (rear-context-string)
+ (position . 1))
+("Programming Tools"
+ (filename . "~/Org/Wiki/Computer/Programming/Tools/Tools.org")
+ (front-context-string . "* Intro\n\n\n* Tool")
+ (rear-context-string)
+ (position . 1))
+("Hacking.org"
+ (filename . "~/Org/Wiki/Computer/Hack/Hacking/Hacking.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("My Blog"
+ (filename . "~/Org/Blog/README.org")
+ (front-context-string . "** structure des")
+ (rear-context-string)
+ (position . 10))
+("R Programming Language"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/R/R.org")
  (front-context-string . "* Intro\n\nR can b")
  (rear-context-string)
@@ -134,11 +184,6 @@
  (position . 1))
 ("Implements"
  (filename . "~/Org/Wiki/Computer/Programming/Implements/Implements.org")
- (front-context-string . "* Intro\n\n\n* Data")
- (rear-context-string)
- (position . 1))
-("Programming"
- (filename . "~/Org/Wiki/Computer/Programming/Programming.org")
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
@@ -342,7 +387,7 @@
  (front-context-string . "** Get Help\n\n***")
  (rear-context-string . "nux Community.\n\n")
  (position . 521))
-("Programing (Org)"
+("Programming (Org)"
  (filename . "~/Org/Wiki/Computer/Programming/Programming.org")
  (front-context-string . "Implements]]\n\n* ")
  (rear-context-string . "Implements.org][")
