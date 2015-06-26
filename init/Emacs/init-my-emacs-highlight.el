@@ -100,7 +100,16 @@
 
 (require 'highlight-stages)
 
-(highlight-stages-global-mode 1)
+(dolist (hook '(lisp-mode-hook
+                lisp-interaction-mode-hook
+                emacs-lisp-mode-hook
+                scheme-mode-hook
+                clojure-mode-hook
+                cider-repl-mode-hook
+                ))
+  (add-hook hook 'highlight-stages-mode))
+
+;; (highlight-stages-global-mode 1)
 
 (set-face-attribute 'highlight-stages-negative-level-face nil
                     :background "#003745")
