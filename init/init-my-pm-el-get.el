@@ -182,7 +182,7 @@
          anzu
          highlight-symbol
          visual-regexp visual-regexp-steroids ace-jump-mode
-         swiper
+         swiper ; swiper-helm
          ack-and-a-half ; full-ack
          ag helm-ag
          ;; (m)occur
