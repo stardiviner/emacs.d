@@ -431,6 +431,9 @@
 ;;; Info
 (push '(apropos-mode :position bottom :height 15) popwin:special-display-config)
 
+;;; help-mode, *Help*, *Metahelp* (from mode C-h ?)
+(push '(help-mode :position bottom :height 15) popwin:special-display-config)
+
 ;;; Org-mode
 ;; FIXME: this does not work.
 ;; (push '("*Org todo" :position bottom) popwin:special-display-config)
