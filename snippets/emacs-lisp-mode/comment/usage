@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: usage comment
+# key: usage
+# group: comment.usage
+# --
+;;; Usage
+;;
+;; - $0
