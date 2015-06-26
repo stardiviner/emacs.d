@@ -489,6 +489,10 @@ The `BUFFER' is the popwin catch pop private message buffer."
 
 (push '(my/popwin-func-for-erc-private-message :height 15 :position bottom) popwin:special-display-config)
 
+;;; comint-mode
+(push '(comint-mode :position bottom :height 15) popwin:special-display-config)
+;; (push '("*compilation*" :position bottom :height 15) popwin:special-display-config)
+
 ;;; Flycheck
 (push '("*Flycheck errors*" :position bottom :height 10) popwin:special-display-config)
 (push '("*Compile-Log*" :position bottom :height 15) popwin:special-display-config)
