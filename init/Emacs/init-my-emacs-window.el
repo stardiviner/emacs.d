@@ -465,10 +465,15 @@
 (push '(compilation-mode :position bottom :height 15) popwin:special-display-config)
 ;; (push '("*compilation*" :position bottom :height 15) popwin:special-display-config)
 
-;;; Magit
-;; TODO: create one for commit message buffer.
-;; git-modes
+;;; Git
+;;; git-modes
 (push '("\\*git-" :regexp t :position top) popwin:special-display-config)
+;;; Magit
+(push '(magit-commit-mode :position bottom :height 15) popwin:special-display-config)
+;; (push '("*magit-commit" :position bottom :height 15) popwin:special-display-config)
+(push '(magit-process-mode :position bottom :height 15 :noselect t) popwin:special-display-config)
+;; (push '("*magit-process*" :position bottom :height 15) popwin:special-display-config)
+
 
 ;;; ERC
 ;; TODO: This does not work. Because ERC does not use `pop-to-buffer' for private message buffer.
