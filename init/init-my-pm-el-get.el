@@ -102,8 +102,8 @@
          ;; apperance
          ;; emacs-powerline
          ;; highlight-cl highlight-fns highlight-defined
-         ;; highlight-sexp highlight-blocks highlight-quoted ; highlight-stages
-         ;; highlight-escape-sequences ; highlight-numbers highlight-parentheses
+         ;; highlight-sexp highlight-blocks
+         highlight-quoted highlight-stages
          ;; cursor-chg col-highlight
          ;; yascroll
          ;; minimap sublimity

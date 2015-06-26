@@ -87,6 +87,24 @@
 ;;   (set-face-attribute 'highlight-numbers-number nil
 ;;                       :inherit 'font-lock-constant-face))
 
+
+;;; [ highlight-stages ]
+
+(require 'highlight-stages)
+
+(highlight-stages-global-mode 1)
+
+(set-face-attribute 'highlight-stages-negative-level-face nil
+                    :background "#003745")
+(set-face-attribute 'highlight-stages-level-1-face nil
+                    :background "#001e26")
+(set-face-attribute 'highlight-stages-level-2-face nil
+                    :background "#001217")
+(set-face-attribute 'highlight-stages-level-3-face nil
+                    :background "#000608")
+(set-face-attribute 'highlight-stages-higher-level-face nil
+                    :background "#000000")
+
 
 
 
