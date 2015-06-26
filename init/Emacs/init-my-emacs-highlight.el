@@ -88,6 +88,14 @@
 ;;                       :inherit 'font-lock-constant-face))
 
 
+;;; [ highlight-escape-sequences ]
+
+(require 'highlight-escape-sequences)
+
+;; NOTE: add the following line to the theme.
+;; (put 'font-lock-regexp-grouping-backslash 'face-alias 'font-lock-builtin-face)
+
+
 ;;; [ highlight-stages ]
 
 (require 'highlight-stages)
