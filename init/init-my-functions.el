@@ -100,6 +100,13 @@ by creating or altering keymaps stored in buffer-local
                       map))))
     (define-key newmap key def)))
 
+;;; magical insert kbd for key.
+(defun insert-kbd-for-key (key)
+  (interactive "kKey: ")
+  (insert (format "(kbd \"%s\")" (key-description key))))
+
+;; (global-set-key "C-c k" 'insert-kbd-for-key)
+
 
 ;;; [ open and switch to buffer ]
 
