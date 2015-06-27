@@ -342,7 +342,7 @@
 
 ;; FIXME: result is:   -> :References : nil
 (add-to-list 'mu4e-header-info-custom
-             '(:references :name "References: "
+             '(:references :name "References"
                            :shortname "References"
                            :help "Reference of this thread"
                            :function
@@ -483,6 +483,14 @@
 ;;          (set (make-local-variable 'message-cite-style) message-cite-style-thunderbird))))
 
 (setq message-cite-style message-cite-style-thunderbird)
+;; ((posting-from-work-p) (eval (set (make-local-variable 'message-cite-style) message-cite-style-outlook)))
+;; (setq message-cite-style '((message-cite-function 'message-cite-original)
+;;                            (message-citation-line-function 'message-insert-formatted-citation-line)
+;;                            (message-cite-reply-position 'above)
+;;                            (message-yank-prefix "> ")
+;;                            (message-yank-cited-prefix ">")
+;;                            (message-yank-empty-prefix ">")
+;;                            (message-citation-line-format "On %D %R %p, %N wrote:")))
 
 ;; (setq message-cite-style-gmail
 ;;       '((message-cite-function 'message-cite-original)
@@ -608,8 +616,7 @@
 ;; results, just like e.g. Gmail does it. You can enable this behavior by
 ;; setting mu4e-headers-include-related to t, and you can toggle between
 ;; including/not-including with <W>.
-(setq mu4e-headers-include-related t
-      mu4e-headers-skip-duplicates t) ; skip duplicates
+(setq mu4e-headers-include-related t)
 
 
 ;;; Compose
