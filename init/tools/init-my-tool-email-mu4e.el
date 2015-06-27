@@ -676,7 +676,6 @@
 
 ;;; Faces
 
-;; (set-face-attribute 'mu4e-faces nil)
 (set-face-attribute 'mu4e-header-highlight-face nil ; current select line
                     ;; 1
                     ;; :background "#004A5D" :foreground "white"
@@ -756,7 +755,7 @@
 ;; forwarded email
 (set-face-attribute 'mu4e-forwarded-face nil
                     :foreground "dark orange"
-                    :overline "magenta")
+                    :overline "dark magenta")
 ;; compose
 (set-face-attribute 'mu4e-compose-header-face nil
                     :foreground "cyan"
@@ -770,12 +769,14 @@
                     )
 ;;; contact: e.g. Christopher Miles, help-gnu-emacs@gnu.org
 (set-face-attribute 'mu4e-contact-face nil
-                    :foreground "yellow")
+                    :foreground "yellow green"
+                    ;; :underline "dim gray"
+                    )
 ;;; header-
 ;;; header field keys: e.g. From:, To:, Subject:,
 ;; some keys.
 (set-face-attribute 'mu4e-header-key-face nil
-                    :foreground "magenta"
+                    :foreground "chocolate"
                     )
 (set-face-attribute 'mu4e-header-marks-face nil
                     :foreground "light blue"
@@ -784,10 +785,11 @@
                     :foreground "white"
                     )
 (set-face-attribute 'mu4e-header-value-face nil
-                    :foreground "#444444"
+                    :foreground "dark gray"
                     )
 (set-face-attribute 'mu4e-special-header-value-face nil
-                    :foreground "magenta"
+                    :foreground "brown"
+                    :weight 'bold
                     )
 ;; header names: like From: Subject: etc.
 (set-face-attribute 'message-header-name nil
