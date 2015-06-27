@@ -93,7 +93,37 @@
 ;; - `message-send-mail-with-mailclient'
 ;; - `message-send-mail-with-sendmail'
 
-;;; one: [smtp] for Gmail
+
+
+;;; one: [sendmail]
+;; (setq message-send-mail-function 'message-send-mail-with-sendmail)
+
+;; 0: smtpmail
+(setq message-send-mail-function 'smtpmail-send-queued-mail)
+;; (setq message-send-mail-function 'smtpmail-send-it)
+
+;; (setq smtpmail-default-smtp-server "smtp.example.com"
+;;       smtpmail-smtp-server         "smtp.example.com"
+;;       smtpmail-local-domain        "example.com")
+
+;; Queuing mail
+;; you can queue the mail, and send it when you have restored your internet connection.
+(setq smtpmail-queue-mail t  ;; start in non-queuing mode
+      smtpmail-queue-dir  "~/Mails/queue/cur" ; send with `smtpmail-send-queued-mail'
+      smtpmail-queue-index "~/Mails/queue/index"
+      smtpmail-queue-index-file "index"
+      )
+
+;; 1: msmtp
+;; (setq sendmail-program "/usr/bin/msmtp")
+;; $ msmtp -C $HOME/.mutt/msmtprc
+
+;; 2: sendmail
+;; (setq sendmail-program "/usr/sbin/sendmail") ; sendmail -q
+;; $ sendmail -oem -oi
+
+
+;;; two: [smtp] for Gmail
 ;; (require 'smtpmail)
 
 ;;; 1.
@@ -115,26 +145,6 @@
 ;;       smtpmail-default-smtp-server "smtp.gmail.com"
 ;;       smtpmail-smtp-server "smtp.gmail.com"
 ;;       smtpmail-smtp-service 587)
-
-
-;;; two: [sendmail]
-;; (setq message-send-mail-function 'message-send-mail-with-sendmail)
-(setq message-send-mail-function 'smtpmail-send-queued-mail)
-;; 1: msmtp
-;; (setq sendmail-program "/usr/bin/msmtp")
-;; $ msmtp -C $HOME/.mutt/msmtprc
-;; 2: sendmail
-;; (setq sendmail-program "/usr/sbin/sendmail") ; sendmail -q
-;; $ sendmail -oem -oi
-
-
-;;; Queuing mail
-;; you can queue the mail, and send it when you have restored your internet connection.
-(setq smtpmail-queue-mail t  ;; start in non-queuing mode
-      smtpmail-queue-dir  "~/Mails/queue/cur" ; send with `smtpmail-send-queued-mail'
-      smtpmail-queue-index "~/Mails/queue/index"
-      smtpmail-queue-index-file "index"
-      )
 
 
 ;;; View
