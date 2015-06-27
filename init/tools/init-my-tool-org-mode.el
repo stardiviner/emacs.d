@@ -855,6 +855,7 @@ Will work on both `org-mode' and any mode that accepts plain html."
         ("Emacs_Wiki" . "www.emacswiki.org/emacs?search=%s")
         ("Stack_Exchange_Emacs" . "http://emacs.stackexchange.com/search?q=%s")
         ;; Document Search
+        ("Mozilla_Developer" . "https://developer.mozilla.org/en-US/search?q=%s")
         ;; API Search
         ("{API}Search_apis.io" . "http://apis.io/?search=%s")
         ;; Code Search
@@ -873,6 +874,7 @@ Will work on both `org-mode' and any mode that accepts plain html."
         ("Snipplr" . "http://snipplr.com/search.php?q=%s")
         ;; chinese code search
         ("GitCafe" . "https://gitcafe.com/search?keyword=%s")
+        ("Coding" . "https://coding.net/search?q=%s")
         ("Geakit" . "https://geakit.com/search?q=%s")
         ("Git_OSC_Open_Source_China" . "https://git.oschina.net/search?search=%s")
         ;; Lisp
@@ -885,6 +887,10 @@ Will work on both `org-mode' and any mode that accepts plain html."
         ("Perl_CPAN" . "http://search.cpan.org/search?mode=all&query=%s")
         ;; PHP
         ("PHP_online_documentation" . "http://cn2.php.net/results.php?q=%s&p=manual")
+        ;; JavaScript
+        ("JavaScript_Mozilla" . "https://developer.mozilla.org/en-US/search?q=%s")
+        ;; HTML
+        ;; CSS
         ;; Bug
         ("Bugzilla" . "http://bugzilla/show_bug.cgi?id=%s")
         ;; Book
