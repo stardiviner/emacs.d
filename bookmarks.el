@@ -2,7 +2,27 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("init.el"
+(("GNU operating systems"
+ (filename . "~/Org/Wiki/Computer/Systems/GNU/GNU.org")
+ (front-context-string . "* Intro\n\n\n\n* Pro")
+ (rear-context-string)
+ (position . 1))
+("Mac OS X"
+ (filename . "~/Org/Wiki/Computer/Systems/Mac/Mac.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("BSD"
+ (filename . "~/Org/Wiki/Computer/Systems/BSD/BSD.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Systems"
+ (filename . "~/Org/Wiki/Computer/Systems/Systems.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("init.el"
  (filename . "~/.emacs.d/init.el")
  (front-context-string . ";; Added by Pack")
  (rear-context-string)
