@@ -59,9 +59,9 @@
 (setq org-startup-folded t ; t, 'overview, 'content, 'showall.
       org-startup-indented t ; use org indent-mode for all org buffers.
       org-startup-truncated t
-      org-startup-with-inline-images t ; `org-toggle-inline-images'
+      org-startup-with-inline-images nil ; `org-toggle-inline-images' [C-c C-x C-v]
       ;; FIXME: error: Can't preview LaTeX fragment in a non-file buffer.
-      org-startup-with-latex-preview t ; `org-toggle-latex-fragment'
+      org-startup-with-latex-preview nil ; `org-toggle-latex-fragment' [C-c C-x C-l]
       ;; org-startup-options
       ;; coordinate grid overlays
       ;; org-table-overlay-coordinates t
