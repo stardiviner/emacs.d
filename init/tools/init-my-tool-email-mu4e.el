@@ -626,7 +626,9 @@
 ;;; - v -- see the details of the signature verification by activating the Details.
 ;; start gpg-agent manually:
 ;; $ eval $(gpg-agent --daemon)
-(setq mu4e-decryption-policy t) ; auto decrypt.
+(setq mu4e-auto-retrieve-keys t
+      mu4e-decryption-policy t          ; auto decrypt.
+      )
 
 
 ;;; Refiling
