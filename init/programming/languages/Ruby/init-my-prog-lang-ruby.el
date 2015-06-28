@@ -348,10 +348,10 @@
 
 (rbenv-use-global)
 ;; (rbenv-use "2.2.0")
-
-
+;;
+;;
 ;;; [ inf-ruby / Inferior Ruby ] -- inf-ruby provides a REPL buffer connected to a Ruby(irb/pry) subprocess.
-
+;;
 ;;; Usage:
 ;;;
 ;;; - [M-x inf-ruby] :: A simple IRB process can be fired up with M-x inf-ruby.
@@ -363,7 +363,7 @@
 ;;;
 ;;; - To see the list of the keybindings defined by inf-ruby-minor-mode, type
 ;;;   M-x describe-function [RET] inf-ruby-minor-mode [RET].
-
+;;
 ;; - [M-x run-ruby] -- which runs IRB in an Emacs buffer
 ;; keybindings:
 ;; - [C-c C-s] -- inf-ruby
@@ -377,7 +377,7 @@
 ;; - [C-c M-x] -- ruby-send-definition-and-go
 ;; - [C-c C-r] -- ruby-send-region
 ;; - [C-c M-r] -- ruby-send-region-and-go
-
+;;
 ;; - [RET] -- after the end of the process' output sends the text from the end of process to point.
 ;; - [RET] -- before the end of the process' output copies the sexp ending at point
 ;;           to the end of the process' output, and sends it.
@@ -387,8 +387,18 @@
 ;; - [C-M-q] -- does TAB on each line starting within following expression.
 ;; - Paragraphs are separated only by blank lines. # start comments.
 ;; - If you accidentally suspend your process, use comint-continue-subjob to continue it.
-
-
+;;
+;;; setup Pry
+;;
+;;#+NAME: ~/.pryrc
+;;#+BEGIN_SRC ruby
+;;if ENV['TERM'] == 'emacs'
+;;  Pry.config.color = false
+;;  Pry.config.pager = false
+;;  Pry.config.auto_indent = false
+;;end
+;;#+END_SRC
+;;
 ;; - [C-x C-q] -- rspec / ruby-compilation
 
 (require 'inf-ruby)
@@ -453,6 +463,8 @@
 
 (require 'pry)
 
+;; (setq pry-program-name "pry")           ; program invoked by the `run-pry' command.
+
 (define-key my-inferior-ruby-map (kbd "p") 'run-pry)
 (define-key my-inferior-ruby-map (kbd "C-p") 'pry-intercept)
 (define-key my-inferior-ruby-map (kbd "C-r") 'pry-intercept-rerun)
@@ -498,7 +510,7 @@
 ;; - [C-c C-d] -- `robe-doc',
 ;; - [C-c C-l] -- `ruby-load-file', to load the current file in your project.
 ;; - [C-c C-k] -- `robe-rails-refresh', if you're developing a Rails project.
-;; - [M-.] -- robe-jump (jump to definition)
+;; - [M-.] -- `robe-jump' (jump to definition)
 ;; - [M-,] -- pop tag mark
 ;;
 ;;; Commands:

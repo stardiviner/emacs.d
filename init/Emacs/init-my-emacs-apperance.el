@@ -217,11 +217,6 @@
 ;; (set-face-attribute 'col-highlight nil
 ;;                     :background "dodger blue")
 
-
-
-;; disable soft wrap lines for windows which has smaller width than 80.
-(global-visual-line-mode -1) ; soft wrap lines at word boundary
-
 
 
 ;;; [ point & cursor ]
@@ -270,6 +265,9 @@
 
 ;; default column length (80)
 (setq-default fill-column 80)
+
+;; disable soft wrap lines for windows which has smaller width than 80.
+(global-visual-line-mode -1) ; soft wrap lines at word boundary
 
 ;;; [ fci -- Fill Column Indicator ]
 

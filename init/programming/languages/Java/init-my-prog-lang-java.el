@@ -73,6 +73,7 @@
 (add-hook 'java-mode-hook
           (lambda ()
             (eclim-mode)
+            
             (setq-local company-backends
                         (cons 'company-emacs-eclim
                               (remove-if (lambda (b) (find b '(company-nxml company-eclim)))

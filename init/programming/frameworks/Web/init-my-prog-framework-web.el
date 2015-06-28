@@ -98,9 +98,11 @@
 ;; Never forget to update the `auto-mode-alist'.
 
 
-
 ;;;_. config
 (require 'web-mode)
+
+;; Using web-mode for editing plain HTML files can be done this way
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
@@ -109,9 +111,6 @@
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-
-;; Using web-mode for editing plain HTML files can be done this way
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
 ;; You can also edit plain js, jsx, css, scss, xml files.
 
@@ -303,6 +302,7 @@
 (set-face-attribute 'web-mode-block-face nil ; block. e.g. { color: #0aa; }
                     :background (color-darken-name (face-background 'default) 4))
 (set-face-attribute 'web-mode-block-string-face nil ; block string
+                    :inherit 'web-mode-block-face
                     :foreground "red")
 (set-face-attribute 'web-mode-block-comment-face nil ; block comment
                     :foreground "dim gray")
@@ -346,9 +346,9 @@
       )
 
 ;; expanding
-;; auto expand s/ into <span></span>
-;;; Ruby
+;; e.g. auto expand s/ into <span></span>
 (setq web-mode-enable-auto-expanding t)
+;;; Ruby
 (add-to-list 'web-mode-expanders '("r/" . "<%= | %>")) ; ruby erb: <%= | %>.
 (add-to-list 'web-mode-expanders '("%/" . "<%= | %>")) ; ruby erb: <%= | %>.
 (add-to-list 'web-mode-expanders '("R/" . "<% | %>")) ; ruby erb: <% | %>.

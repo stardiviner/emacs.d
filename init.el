@@ -220,7 +220,6 @@
 (require 'init-my-tool-emms)
 (require 'init-my-tool-screenshot)
 (require 'init-my-tool-screencast)
-
 ;; (require 'init-my-tool-stack-exchange)
 
 

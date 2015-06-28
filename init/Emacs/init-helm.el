@@ -58,7 +58,7 @@
 ;; Take advantage of the second, third and 4th actions in helm. Instead of opening action menu with TAB, just hit:
 ;; C-e for 2th action, C-j for 3th action
 
-; (require 'helm)
+(require 'helm)
 (require 'helm-config)
 
 ;; (require 'helm-grep)
@@ -70,6 +70,7 @@
 (diminish 'helm-mode)
 
 (setq helm-command-prefix-key "C-x c" ; for `helm-command-prefix'.
+      helm-minibuffer-history-key "C-r" ; used in [M-:] minibuffer eval.
       helm-mini-default-sources '(helm-source-buffers-list
                                   helm-source-buffer-not-found
                                   ;; helm-source-bookmarks
@@ -319,7 +320,10 @@
 ;;   - press [C-z], selected command is described without quiting.
 
 (require 'helm-descbinds)
-(helm-descbinds-mode)
+
+(setq helm-descbinds-window-style 'split-window) ; 'split-window, 'one-window, 'same-window.
+
+(helm-descbinds-mode 1)
 
 
 ;;; [ helm-themes ]

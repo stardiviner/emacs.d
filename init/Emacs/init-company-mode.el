@@ -240,6 +240,7 @@
 ;; faces
 ;; tooltip
 (set-face-attribute 'company-tooltip nil
+                    :inverse-video nil
                     :foreground "black" :background "white"
                     :weight 'normal :slant 'normal
                     :underline nil)
@@ -274,7 +275,6 @@
                     :inherit 'company-tooltip
                     :foreground "tomato" :background nil
                     ;; :weight 'bold
-                    :slant 'italic
                     ;; :box '(:color "dim gray" :line-width -1)
                     )
 ;; scroll-bar

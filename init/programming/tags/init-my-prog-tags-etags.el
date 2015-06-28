@@ -7,7 +7,6 @@
 
 ;;; Code:
 
-
 ;;; Emacs Tags -- etags
 
 ;; Usage:

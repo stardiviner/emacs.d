@@ -9,6 +9,10 @@
 
 ;;; [ clojure-mode ]
 
+;;; Usage:
+;;
+;; -
+
 (require 'clojure-mode)
 
 ;; provides additional font-locking for built-in methods and macros.
@@ -56,6 +60,10 @@
 ;; - [M-x cider-jack-in] / [C-c M-j] :: Launch an nREPL server and a REPL client. Prompts
 ;;                                      for a project root if given a prefix argument.
 ;; - [M-x cider-connect] / [C-c M-c] :: Connect to an already-running nREPL server.
+;;
+;; - [M-x cider-scratch] ::
+;;
+;; - `cider-doc' ::
 
 ;; For Debug
 ;;

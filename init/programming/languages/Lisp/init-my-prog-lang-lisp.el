@@ -278,7 +278,7 @@
       ;; eval-sexp-fu-flash-doit-function
       )
 
-(eval-sexp-fu-flash-mode)
+(eval-sexp-fu-flash-mode 1)
 
 
 (provide 'init-my-prog-lang-lisp)
