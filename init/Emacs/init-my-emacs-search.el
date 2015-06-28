@@ -263,9 +263,12 @@
 ;; It can double as a quick `regex-builder', although only single
 ;; lines will be matched.
 
-(require 'swiper-helm)
-
-;; (setq swiper-helm-display-function 'swiper-helm-default-display-buffer)
+;; (require 'swiper-helm)
+;;
+;; ;; (setq swiper-helm-display-function 'swiper-helm-default-display-buffer)
+;;
+;; (if (and (featurep 'swiper-helm) (featurep 'helm))
+;;     (global-set-key (kbd "C-s") 'swiper-helm))
 
 
 ;;; [ Lazy Search ]
