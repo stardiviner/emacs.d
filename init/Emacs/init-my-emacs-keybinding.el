@@ -384,8 +384,6 @@
 ;;
 ;; (define-key Buffer-menu-mode-map "." 'hydra-buffer-menu/body)
 
-
-
 (require 'hydra)
 
 ;; display a hint with possible bindings in the echo area.
@@ -394,7 +392,6 @@
 ;;; examples
 (require 'hydra-examples)
 
-
 ;;; my defined hydras
 
 ;; This means that when I press < from the start of the line, a Hydra will be
