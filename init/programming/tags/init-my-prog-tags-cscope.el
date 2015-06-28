@@ -10,8 +10,10 @@
 ;;; [ cscope ] -- This is an interface from GNUemacs to Joe Steffen's "cscope" C browser.
 
 ;; Usage:
-;; $ cscope -bR
-;; - `cscope-minor-mode' ::
+;;
+;; - $ cscope -bR :: normal usage command.
+;; - $ cscope -b -R -q -k ::
+;; - `cscope-minor-mode' :: enable minor mode will enable keybindings.
 
 (require 'cscope)
 
@@ -62,22 +64,26 @@
 ;;; for each query.
 
 ;; Usage:
-;;load this script using (require 'ascope.el) in you .emacs
-;; M-x ascope-init load the cscope database. This command must be issue prior to issue any other command below, the directory feed to this command must be the directory include the cscope.out file
-;; M-x ascope-find-global-definition
-;; M-x ascope-find-this-symbol
-;; M-x ascope-find-this-text-string
-;; M-x ascope-find-functions-calling-this-function
-;; M-x ascope-find-called-functions
-;; M-x ascope-find-files-including-file
-;; M-x ascope-all-symbol-assignments
-;; M-x ascope-clear-overlay-arrow
-;; M-x ascope-pop-mark
 ;;
-;;run next commands in the search result buffer (*Result)
-;;ascope-next-symbol this command is bind to key "n"
-;;ascope-prev-symbol this command is bind to key "p"
-;;ascope-select-entry-other-window-delete-window this command is bind to key "enter"
+;; - `ascope-init' :: load the cscope database.
+;;   This command must be issue prior to issue any other command below,
+;;   the directory feed to this command must be the directory include
+;;   the cscope.out file.
+;; - `ascope-find-global-definition'
+;; - `ascope-find-this-symbol'
+;; - `ascope-find-this-text-string'
+;; - `ascope-find-functions-calling-this-function'
+;; - `ascope-find-called-functions'
+;; - `ascope-find-files-including-file'
+;; - `ascope-all-symbol-assignments'
+;; - `ascope-clear-overlay-arrow'
+;; - `ascope-pop-mark'
+;;
+;; run next commands in the search result buffer (*Result)
+;;
+;; - [n] :: `ascope-next-symbol'
+;; - [p] :: `ascope-prev-symbol'
+;; - [Enter] :: `ascope-select-entry-other-window-delete-window'
 
 ;; (require 'ascope)
 
@@ -103,11 +109,11 @@
 ;;
 ;; interactive functions
 ;;
-;;     - helm-cscope-find-symbol
-;;     - helm-cscope-find-global-definition
-;;     - helm-cscope-find-called-function
-;;     - helm-cscope-find-calling-this-funtcion
-;;     - helm-cscope-select (uses all of above sources)
+;; - `helm-cscope-find-symbol'
+;; - `helm-cscope-find-global-definition'
+;; - `helm-cscope-find-called-function'
+;; - `helm-cscope-find-calling-this-funtcion'
+;; - `helm-cscope-select' (uses all of above sources)
 
 (require 'helm-cscope)
 
