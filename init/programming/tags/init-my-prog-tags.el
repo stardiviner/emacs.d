@@ -177,7 +177,7 @@ For project directory with Projectile root."
 (require 'init-my-prog-tags-etags)
 (require 'init-my-prog-tags-ctags)
 (require 'init-my-prog-tags-gtags)
-
+(require 'init-my-prog-tags-cscope)
 
 
 (provide 'init-my-prog-tags)
