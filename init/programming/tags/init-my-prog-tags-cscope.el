@@ -93,14 +93,17 @@
 ;;      (kill-buffer "*Result*")))
 
 
-;;; [ rscope ]
+;;; [ bscope ]
+
+
+;;; [ rscope ] -- It is born to challenge its cousins : xscope, ascope, bscope
 
 ;;; rscope is a new implementation taking its roots from ascope, thus running a
 ;;; single cscope process for each cscope database. It’s a bit more versatile
 ;;; than ascope because it copes with multiple cscope databases (and hence
 ;;; spawns one cscope process per database once).
 
-;; (require 'rscope)
+(require 'rscope)
 
 
 ;;; [ helm-cscope ] -- cscope with Helm interface.

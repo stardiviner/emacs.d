@@ -285,8 +285,9 @@
          ;; template file-template
          yatemplate
          ;; Tags
-         cscope ascope
-         helm-cscope ; xcscope ascope
+         ;; cscope
+         cscope rscope ; bscope ascope xcscope
+         helm-cscope
          gtags helm-gtags ggtags xgtags
          ;; code browser
          ;; sr-speedbar
