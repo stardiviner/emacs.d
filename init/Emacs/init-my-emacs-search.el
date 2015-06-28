@@ -471,6 +471,10 @@
 ;; https://github.com/emacs-jp/migemo
 
 
+
+(define-key my-search-prefix-map (kbd "s") 'ag-regexp)
+
+
 (provide 'init-my-emacs-search)
 
 ;;; init-my-emacs-search.el ends here
