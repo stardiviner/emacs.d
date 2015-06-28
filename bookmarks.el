@@ -2,7 +2,22 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("GNU operating systems"
+(("CSS styles collections"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/CSS/Data/Style Collections/Style Collections.org")
+ (front-context-string . "\nCreate a functi")
+ (rear-context-string)
+ (position . 1))
+("UserScript examples"
+ (filename . "~/Org/Wiki/Computer/Softwares/UserScript/examples/examples.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("HTML Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/HTML/Data/References/HTML Reference.org")
+ (front-context-string . "* Tags\n\n** ~<!DO")
+ (rear-context-string)
+ (position . 1))
+("GNU operating systems"
  (filename . "~/Org/Wiki/Computer/Systems/GNU/GNU.org")
  (front-context-string . "* Intro\n\n\n\n* Pro")
  (rear-context-string)
