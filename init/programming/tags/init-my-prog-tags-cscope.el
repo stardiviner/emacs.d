@@ -7,6 +7,32 @@
 
 ;;; Code:
 
+
+(defun cscope-build (dir)
+  "My custom function to execute shell command: $ cscope -bR."
+  (interactive "Dcscope build database directory: ")
+  (let* ((dir (expand-file-name dir))
+         (buffer-name (format "*cscope-build-%s" dir))
+         (cscope-buffer (get-buffer-create buffer-name))
+         process)
+    (with-current-buffer cscope-buffer
+      (if (get-buffer-process buffer-name)
+          (kill-process (get-buffer-process buffer-name)))
+      (setq default-directory dir)
+      (setq process (start-file-process buffer-name buffer-name
+                                        "cscope" "-bR"))
+      (set-process-query-on-exit-flag process nil)
+      (accept-process-output process 3)
+      (if (looking-at "TODO: REGEXP about cscope build error")
+          (progn
+            (when cscope-buffer (kill-buffer cscope-buffer))
+            (message "cscope build database failed"))
+        (progn
+          (message "cscope: database build %s : OK" dir))
+        ))
+    cscope-buffer))
+
+
 ;;; [ cscope ] -- This is an interface from GNUemacs to Joe Steffen's "cscope" C browser.
 
 ;; Usage:
@@ -158,6 +184,8 @@
 (unless (boundp 'my-prog-lookup-tags-cscope-map)
   (define-prefix-command 'my-prog-lookup-tags-cscope-map))
 (define-key my-prog-lookup-tags-map (kbd "c") 'my-prog-lookup-tags-cscope-map)
+
+(define-key my-prog-lookup-tags-cscope-map (kbd "b") 'cscope-build)
 
 (if (and (featurep 'helm) (featurep 'helm-cscope))
     (progn
