@@ -21,7 +21,9 @@
 
 ;;;_ Markers
 
+;;;_ Rectangle
 
+;;; - [C-x SPC] / [C-x r r m] (custom keybinding) :: `rectangle-mark-mode'
 
 ;;;_ kill-ring-search
 
