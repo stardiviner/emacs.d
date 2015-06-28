@@ -327,6 +327,8 @@
 
 ;;; https://github.com/m2ym/popwin-el
 
+;; popup window which from `display-buffer'.
+
 ;; popwin is a popup window manager for Emacs which makes you free from the hell
 ;; of annoying buffers such like *Help*, *Completions*, *compilation*, and etc.
 ;;
@@ -474,6 +476,11 @@
 (push '(magit-process-mode :position bottom :height 15 :noselect t) popwin:special-display-config)
 ;; (push '("*magit-process*" :position bottom :height 15) popwin:special-display-config)
 
+;;; git-gutter[+]
+;; FIXME:
+;; (push '("*git-gutter+-diff*" :position bottom) popwin:special-display-config)
+;; (push '(git-gutter+-commit-mode :position bottom) popwin:special-display-config)
+
 
 ;;; ERC
 ;; TODO: This does not work. Because ERC does not use `pop-to-buffer' for private message buffer.
@@ -508,7 +515,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (push '("*Shelldoc*" :position top :height 15) popwin:special-display-config)
 
 ;; bm.el
-;;; TODO:
+;;; TODO: modify source code.
 (push '(bm-show-mode :position bottom :height 15) popwin:special-display-config)
 (push '("*bm-bookmarks*" :position bottom :height 15) popwin:special-display-config)
 
@@ -527,7 +534,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (push '("*festival*" :position bottom :height 15) popwin:special-display-config)
 
 ;; Helm (all helm complete candidates popup)
-; (push '("^\\*helm.*\\*$" :regexp t :position bottom :height 10) popwin:special-display-config)
+;; (push '("^\\*helm.*\\*$" :regexp t :position bottom :height 10) popwin:special-display-config)
 
 ;; TeX/LaTeX (AUCTeX)
 ;; (push '(TeX-output-mode :position bottom :height 15) popwin:special-display-config)
@@ -553,8 +560,11 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (push '(inf-ruby-mode :position bottom :height 15) popwin:special-display-config)
 ;; (push '("*ruby*" :position bottom :height 15) popwin:special-display-config)
 ;; (push '("*rails*" :position bottom :height 15) popwin:special-display-config)
+
+;; projectile-rails
 (push '(projectile-rails-generate-mode :position bottom :height 15) popwin:special-display-config)
 (push '(projectile-rails-compilation-mode :position bottom :height 15) popwin:special-display-config)
+(push '(projectile-rails-server-mode :position bottom :height 10) popwin:special-display-config)
 
 ;;; ruby-compilation-mode (RubyComp)
 ;; FIXME: popwin can't capture this popup window. dive in ruby-compilation-mode source, it use Emacs built-in function window.el.gz -> `pop-to-buffer'.
@@ -590,6 +600,21 @@ The `BUFFER' is the popwin catch pop private message buffer."
 ;; elfeed
 (push '(elfeed-search-mode :position top :height 20) popwin:special-display-config)
 (push '("*elfeed-search*" :position top :height 20) popwin:special-display-config)
+
+;; poporg
+;; FIXME: not work
+;; (push '("*poporg:*" :position bottom :height 20) popwin:special-display-config)
+
+(defun my/popwin-func-for-poporg-edit-window (buffer)
+  "Match poporg popup edit buffer.
+
+The `BUFFER' is the popwin catch poporg edit popup buffer"
+  (let ((mode (with-current-buffer buffer
+                major-mode)))
+    (and (string-match "\*poporg:\ .*\*" (buffer-name buffer))
+       (eq mode 'org-mode))))
+
+(push '(my/popwin-func-for-erc-private-message :height 15 :position bottom) popwin:special-display-config)
 
 
 ;;; [ shackle ] -- Enforce rules for popup windows.
