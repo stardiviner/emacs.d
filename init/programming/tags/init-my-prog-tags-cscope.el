@@ -15,11 +15,39 @@
 
 (require 'cscope)
 
+;; (setq cscope-command-args)
+(setq cscope-option-do-not-update-database t
+      ;; cscope-option-include-directories ; -I
+      ;; cscope-option-disable-compression
+      cscope-option-kernel-mode nil ; -k
+      cscope-option-use-inverted-index t ; -q
+      ;; cscope-option-other
+      )
+
+;; need to execute `cscope-minor-mode'.
 (setq cscope-bindings-2deep nil
       cscope-bindings-3deep t
       cscope-blurb nil
       )
 
+
+
+;;; a possibly handy hack:
+;; (defun my-find-tag(&optional prefix)
+;;   "union of `find-tag' alternatives. decides upon major-mode"
+;;   (interactive "P")
+;;   (if (and (boundp 'cscope-minor-mode)
+;;          cscope-minor-mode)
+;;       (progn
+;;         (ring-insert find-tag-marker-ring (point-marker))
+;;         (call-interactively
+;;          (if prefix
+;;              'cscope-find-this-symbol
+;;            'cscope-find-global-definition-no-prompting
+;;            )))
+;;     (call-interactively 'find-tag)))
+;;
+;; (substitute-key-definition 'find-tag 'my-find-tag global-map)
 
 
 ;;; [ xcscope ] -- interface of cscope.
@@ -51,7 +79,12 @@
 ;;ascope-prev-symbol this command is bind to key "p"
 ;;ascope-select-entry-other-window-delete-window this command is bind to key "enter"
 
-(require 'ascope)
+;; (require 'ascope)
+
+;; TODO:
+;; (define-key ascope-list-entry-mode-map (kbd "q")
+;;   '(lambda ()
+;;      (kill-buffer "*Result*")))
 
 
 ;;; [ rscope ]
@@ -61,6 +94,7 @@
 ;;; than ascope because it copes with multiple cscope databases (and hence
 ;;; spawns one cscope process per database once).
 
+;; (require 'rscope)
 
 
 ;;; [ helm-cscope ] -- cscope with Helm interface.
@@ -106,10 +140,11 @@
 ;;        'helm-cscope-select)
 ;;      ))
 
-(define-key my-prog-lookup-tags-map (kbd "c") 'helm-cscope-find-symbol)
+
 
-
-
+(if (and (featurep 'helm) (featurep 'helm-cscope))
+    (define-key my-prog-lookup-tags-map (kbd "c") 'helm-cscope-find-symbol)
+  (define-key my-prog-lookup-tags-map (kbd "c") 'cscope-find-this-symbol))
 
 
 (provide 'init-my-prog-tags-cscope)
