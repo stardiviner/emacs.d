@@ -269,7 +269,7 @@
          ;; autopair
          rainbow-mode
          rainbow-delimiters
-         ;; rainbow-block
+         ;; rainbow-blocks
          ;; rainbow-identifiers
          ;; document, API, docsets
          dash helm-dash
