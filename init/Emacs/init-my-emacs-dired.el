@@ -104,13 +104,13 @@
 
 ;;; When disabling the mode you can choose to kill the buffers that were opened
 ;;; while browsing the directories.
-;; (setq peep-dired-cleanup-on-disable t)
+(setq peep-dired-cleanup-on-disable t)
 ;;; Or you can choose to kill the buffer just after you move to another entry in
 ;;; the dired buffer.
 (setq peep-dired-cleanup-eagerly t)
 ;; If you want the dired buffers that were peeped to have the mode enabled set
 ;; it to true.
-(setq peep-dired-enable-on-directories t)
+(setq peep-dired-enable-on-directories nil)
 
 ;;; Evil integration
 ;;
