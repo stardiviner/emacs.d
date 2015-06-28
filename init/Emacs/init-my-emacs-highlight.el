@@ -22,7 +22,9 @@
 ;; navigation. When highlight-symbol-on-navigation-p is set, highlighting is
 ;; triggered regardless of highlight-symbol-idle-delay.
 ;;
-;; highlight-symbol-query-replace can be used to replace the symbol.
+;; - [C-c s h] :: prefix
+;; - [M-s h] :: highlight with isearch.
+;; - `highlight-symbol-query-replace' can be used to replace the symbol.
 
 (require 'highlight-symbol)
 
