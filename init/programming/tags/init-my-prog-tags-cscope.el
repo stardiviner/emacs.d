@@ -148,9 +148,19 @@
 
 
 
+(unless (boundp 'my-prog-lookup-tags-cscope-map)
+  (define-prefix-command 'my-prog-lookup-tags-cscope-map))
+(define-key my-prog-lookup-tags-map (kbd "c") 'my-prog-lookup-tags-cscope-map)
+
 (if (and (featurep 'helm) (featurep 'helm-cscope))
-    (define-key my-prog-lookup-tags-map (kbd "c") 'helm-cscope-find-symbol)
-  (define-key my-prog-lookup-tags-map (kbd "c") 'cscope-find-this-symbol))
+    (progn
+      (define-key my-prog-lookup-tags-cscope-map (kbd "s") 'helm-cscope-select)
+      (define-key my-prog-lookup-tags-cscope-map (kbd "c") 'helm-cscope-find-symbol)
+      (define-key my-prog-lookup-tags-cscope-map (kbd "q") 'helm-cscope-find-called-function)
+      (define-key my-prog-lookup-tags-cscope-map (kbd "r") 'helm-cscope-find-calling-this-funtcion)
+      )
+  ;; FIXME: (define-key my-prog-lookup-tags-cscope-map (kbd "s") 'cscope-select-entry-one-window)
+  (define-key my-prog-lookup-tags-cscope-map (kbd "c") 'cscope-find-this-symbol))
 
 
 (provide 'init-my-prog-tags-cscope)
