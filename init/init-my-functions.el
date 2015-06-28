@@ -118,7 +118,7 @@ Usage:
  (define-key my-org-prefix-map (kbd 'o')
    (lambda ()
      (interactive)
-     (my-func/open-and-switch-to-buffer 'org-agenda-list '*Org Agenda*' t)))
+     (my-func/open-and-switch-to-buffer 'org-agenda-list \"*Org Agenda*\" t)))
 "
   (interactive)
   (if (get-buffer the-buffer-name)
