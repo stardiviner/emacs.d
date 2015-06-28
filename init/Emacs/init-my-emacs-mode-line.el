@@ -154,7 +154,7 @@
 
                 ;; branch
                 (:propertize (vc-mode vc-mode)
-                             face (:foreground "yellow"
+                             face (:foreground "dodger blue"
                                                :weight 'bold
                                                :height 80)
                              help-echo (vc-mode vc-mode))
