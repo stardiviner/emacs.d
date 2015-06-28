@@ -88,7 +88,7 @@
       ;; pos-tip-tab-width
       )
 
-(setq pos-tip-foreground-color "white"
+(setq pos-tip-foreground-color "black"
       pos-tip-background-color "khaki")
 
 ;; (setq pos-tip-background-color "#002630" ; '(color-darken-name (face-background 'default) 1)
