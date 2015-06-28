@@ -7,6 +7,50 @@
 
 ;;; Code:
 
+;;; [ ediff ]
+
+;;; Usage:
+;;
+;; 1. ediff-files
+;; 2. |
+;; 3. n/p, a/b.
+;; 4. q
+
+(require 'ediff)
+
+;; (setq ediff-use-faces t)
+
+;;; Even numbered
+(set-face-attribute 'ediff-even-diff-Ancestor nil
+                    :background "#222222")
+(set-face-attribute 'ediff-even-diff-A nil
+                    :background (color-darken-name (face-background 'default) 7))
+(set-face-attribute 'ediff-even-diff-B nil
+                    :background (color-darken-name (face-background 'default) 7))
+(set-face-attribute 'ediff-even-diff-C nil
+                    :background (color-darken-name (face-background 'default) 7))
+
+;;; Odd numbered
+(set-face-attribute 'ediff-odd-diff-Ancestor nil
+                    :background "#444444")
+(set-face-attribute 'ediff-odd-diff-A nil
+                    :background (color-darken-name (face-background 'default) 3))
+(set-face-attribute 'ediff-odd-diff-B nil
+                    :background (color-darken-name (face-background 'default) 3))
+(set-face-attribute 'ediff-odd-diff-C nil
+                    :background (color-darken-name (face-background 'default) 3))
+
+
+
+;;; change default ediff style
+;; don't start another frame
+(setq ediff-window-setup-function 'ediff-setup-windows-plain) ; 'ediff-setup-windows-default
+;; put windows side by side
+(setq ediff-split-window-function 'split-window-horizontally)
+;; revert windows on exit (needs winner mode)
+(winner-mode)
+(add-hook 'ediff-after-quit-hook-internal 'winner-undo)
+
 
 ;;; [ diff ]
 
