@@ -40,7 +40,9 @@
 ;;; my packages which will be installed.
 (setq my:el-get-packages
       (append
-       '(;; debug
+       '(names
+         namespaces
+         ;; debug
          edebug-x
          ;; debuggs
          bug-hunter
