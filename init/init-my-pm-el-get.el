@@ -481,6 +481,8 @@
          ;; Arch
          pkgbuild-mode
          ;; aurel
+         ;; Docker
+         dockerfile-mode
          ;; fvwm-mode glsl-mode
          ;; Windows
          ;; batch-mode
