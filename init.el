@@ -285,6 +285,10 @@
 (require 'init-my-prog-nginx)
 
 
+;;; programming related tools
+(require 'init-my-prog-container)
+
+
 ;;; at the end!!!
 
 (require 'init-my-startup)
