@@ -483,6 +483,7 @@
          ;; aurel
          ;; Docker
          dockerfile-mode
+         docker-tramp
          ;; fvwm-mode glsl-mode
          ;; Windows
          ;; batch-mode

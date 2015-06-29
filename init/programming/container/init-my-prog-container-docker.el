@@ -24,6 +24,15 @@
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
 
+;;; [ docker-tramp ]
+
+;;; Usage:
+;;
+;; -
+
+(require 'docker-tramp)
+
+
 (provide 'init-my-prog-container-docker)
 
 ;;; init-my-prog-container-docker.el ends here
