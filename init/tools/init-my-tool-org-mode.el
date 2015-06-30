@@ -1640,6 +1640,9 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
           (todo "BUG")
           (todo "ISSUE")
           (todo "Features")))
+        ;; used to filter out fragment time tasks.
+        ("f" "Fragment time tasks"
+         ((tags "fragment")))
         ;; ("i" tags-todo "CATEGORY=\"Task\"")
         ;; ("w" tags-todo "CATEGORY=\"Work\"")
         ))
@@ -1857,6 +1860,10 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
         (:grouptags . nil)
         ;; Green Town
         ("Company" . nil)
+        (:endgroup . nil)
+        ;; fragment time tasks
+        (:startgroup . nil)
+        ("fragment" . nil)
         (:endgroup . nil)
         ))
 
