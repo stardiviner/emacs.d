@@ -273,8 +273,9 @@ And display complete translations in other buffer."
 And show information use tooltip.
 But this function use a simple dictionary list."
   (interactive)
-  ;; Display simple translate result.
-  (sdcv-search-simple))
+  (let ((word (sdcv-region-or-word)))
+    ;; Display simple translate result.
+    (sdcv-search-simple word)))
 
 (defun sdcv-search-input (&optional word)
   "Translate current input WORD.
@@ -377,11 +378,9 @@ The result will be displayed in buffer named with
   "Search WORD simple translate result."
   (showtip ; showtip, popup-tip, tooltip-show
    (sdcv-search-witch-dictionary word sdcv-dictionary-simple-list))
-  ;; (popup-tip
-  ;;  (sdcv-search-witch-dictionary word sdcv-dictionary-simple-list))
 
   ;; pronounce the word (Add by me)
-  (sdcv-pronounce-word (sdcv-region-or-word))
+  (sdcv-pronounce-word word)
   )
 
 (defun sdcv-search-witch-dictionary (word dictionary-list)
