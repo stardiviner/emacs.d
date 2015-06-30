@@ -13,9 +13,25 @@
 
 
 ;; [ C-mode ]
-(setq c-default-style "linux"
-      tab-width 4
-      )
+
+(setq-default c-syntactic-indentation t
+              c-basic-offset 4
+              tab-width 4
+              indent-tabs-mode nil ; never use tab, always use space only.
+              tab-always-indent t ; make tab key always call a indent command.
+              c-default-style "linux"
+              )
+
+(add-hook 'c-mode-common-hook
+          '(lambda ()
+             (c-toggle-auto-newline 1)
+             ;; (c-toggle-auto-hungry-state 1)
+
+             (electric-indent-mode 1)
+             ))
+
+;; How to convert tabs to space in source code?
+;; Select a region first, then call `untabify' or `tabify'.
 
 
 ;;; [ c-eldoc ]
