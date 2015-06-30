@@ -2312,49 +2312,47 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;;; - [C-c C-v] --- prefix map.
 
 ;;; source code (src)
-(setq
- ;; fontify code in code blocks. (highlight code in exported HTML)
- ;; FIXME (slow-down/suspend on Emacs startup)
- org-src-fontify-natively t
- ;; preserve leading whitespace characters on export, for tangling languages such as Python.
- org-src-preserve-indentation nil
- ;; default org-mode src indentation when `org-src-preserve-indentation' is non-nil.
- org-edit-src-content-indentation 0
- ;; the effect of TAB in a code block is as if it were issued in the language major mode buffer.
- org-src-tab-acts-natively t
- ;; controls the way Emacs windows are rearranged when the edit buffer is created.
- org-src-window-setup 'current-window
- ;; switch to open edit buffer without asking.
- org-src-ask-before-returning-to-edit-buffer nil
- org-edit-src-auto-save-idle-delay 0 ; 0: don't auto save.
- ;; org-edit-src-picture
- ;; org-edit-src-overlay
- ;; org-tab-first-hook '(org-hide-block-toggle-maybe
- ;;                      org-src-native-tab-command-maybe
- ;;                      org-babel-hide-result-toggle-maybe
- ;;                      org-babel-header-arg-expand)
- ;; org-babel-pre-tangle-hook '(save-buffer)
- org-babel-tangle-lang-exts '(("latex" . "tex")
-                              ("emacs-lisp" . "el")
-                              ("lisp" . "lisp")
-                              ("ruby" . "rb")
-                              ("python" . "py")
-                              ("R" . "R")
-                              ("sql" . "sql")
-                              ("sh" . "sh")
-                              ("ocaml" . "ml")
-                              ("haskell" . "hs")
-                              ("clojure" . "clj")
-                              ("awk" . "awk")
-                              ("C" . "c")
-                              ("Go" . "go")
-                              ("C++" . "cpp")
-                              ("perl" . "pl")
-                              ("js" . "js")
-                              ("css" . "css")
-                              ("java" . "java")
-                              )
- )
+(setq org-src-fontify-natively t ; fontify code in code blocks. (highlight code in exported HTML)
+      ;; NOTE: fontify-natively (slow-down/suspend on Emacs)
+      ;; preserve leading whitespace characters on export, for tangling languages such as Python.
+      org-src-preserve-indentation nil
+      ;; default org-mode src indentation when `org-src-preserve-indentation' is non-nil.
+      org-edit-src-content-indentation 0
+      ;; the effect of TAB in a code block is as if it were issued in the language major mode buffer.
+      org-src-tab-acts-natively t
+      ;; controls the way Emacs windows are rearranged when the edit buffer is created.
+      org-src-window-setup 'current-window
+      ;; switch to open edit buffer without asking.
+      org-src-ask-before-returning-to-edit-buffer nil
+      org-edit-src-auto-save-idle-delay 0 ; 0: don't auto save.
+      ;; org-edit-src-picture
+      ;; org-edit-src-overlay
+      ;; org-tab-first-hook '(org-hide-block-toggle-maybe
+      ;;                      org-src-native-tab-command-maybe
+      ;;                      org-babel-hide-result-toggle-maybe
+      ;;                      org-babel-header-arg-expand)
+      ;; org-babel-pre-tangle-hook '(save-buffer)
+      org-babel-tangle-lang-exts '(("latex" . "tex")
+                                   ("emacs-lisp" . "el")
+                                   ("lisp" . "lisp")
+                                   ("ruby" . "rb")
+                                   ("python" . "py")
+                                   ("R" . "R")
+                                   ("sql" . "sql")
+                                   ("sh" . "sh")
+                                   ;; ("ocaml" . "ml")
+                                   ("haskell" . "hs")
+                                   ("clojure" . "clj")
+                                   ("awk" . "awk")
+                                   ("C" . "c")
+                                   ("Go" . "go")
+                                   ("C++" . "cpp")
+                                   ("perl" . "pl")
+                                   ("js" . "js")
+                                   ("css" . "css")
+                                   ("java" . "java")
+                                   )
+      )
 
 ;;; babel eval result
 (setq org-babel-inline-result-wrap "=%s="
