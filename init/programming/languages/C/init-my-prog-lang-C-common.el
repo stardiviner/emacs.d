@@ -78,6 +78,8 @@
 
 ;;; [ company-irony ]
 
+(require 'company-irony)
+
 (add-hook 'irony-mode-hook
           (lambda ()
             (add-to-list (make-local-variable 'company-backends)
