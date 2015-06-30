@@ -7,8 +7,9 @@
 
 ;;; Code:
 
-;;; [ C-mode-common ]
+;;; [ CC-mode ]
 
+(require 'cc-mode)
 
 
 
