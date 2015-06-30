@@ -380,6 +380,8 @@ The result will be displayed in buffer named with
    (sdcv-search-witch-dictionary word sdcv-dictionary-simple-list))
 
   ;; pronounce the word (Add by me)
+  ;; `sleep-for', `sit-for'.
+  (sleep-for 2)
   (sdcv-pronounce-word word)
   )
 
@@ -457,7 +459,7 @@ Otherwise return word around point."
 ;;; I add this function to pronounce
 (defun sdcv-pronounce-word (&optional word)
   (shell-command-to-string
-   (format "sleep 1; espeak -v en %s &" word))
+   (format "espeak -v en %s &" word))
   )
 
 (provide 'sdcv)
