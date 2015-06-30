@@ -75,6 +75,15 @@
 (setq org-hide-leading-stars t ; only show one star *
       ;; org-hide-leading-stars-before-indent-mode
       org-hide-emphasis-markers t ; hide markers like =inline code=.
+      org-emphasis-alist '(("*" bold)
+                           ("/" italic)
+                           ("_" underline)
+                           ("=" org-verbatim verbatim)
+                           ("~" org-code verbatim)
+                           ("+" (:strike-through t))
+                           ;; FIXME: this does not work, seems function only take one character.
+                           ;; ("<kbd>" org-code verbatim)
+                           )
       org-hide-block-startup nil ; don't fold block.
       ;; org-hide-block-overlays t ; overlays hiding blocks.
       )
