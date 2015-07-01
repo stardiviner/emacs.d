@@ -521,6 +521,8 @@
 
 (require 'restclient)
 
+(add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
+
 ;;;_ know-your-http-well
 
 (require 'know-your-http-well)
