@@ -512,6 +512,14 @@
 ;; `restclient-mode' is a major mode which does a bit of highlighting and supports
 ;; a few additional keypresses:
 ;;
+;; buffer example:
+;;
+;;   GET http://www.example.com
+;;   # use comment as separator for queries.
+;;   :username = chris
+;;   :password := (read (file "filename.txt"))
+;;   POST http://www.example.com/?action=login&:username&:password
+;;
 ;; - [C-c C-c] :: runs the query under the cursor, tries to pretty-print the response (if possible)
 ;; - [C-c C-r] :: same, but doesn't do anything with the response, just shows the buffer
 ;; - [C-c C-v] :: same as C-c C-c, but doesn't switch focus to other window
