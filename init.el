@@ -267,7 +267,7 @@
 ;; (require 'init-my-prog-lang-haskell)
 ;; (require 'init-my-prog-lang-erlang)
 (require 'init-my-prog-lang-R)
-;; (require 'init-my-prog-lang-julia)
+(require 'init-my-prog-lang-julia)
 ;; (require 'init-my-prog-lang-gnuplot)
 ;; (require 'init-my-prog-lang-octave)
 ;; (require 'init-my-prog-lang-matlab)
