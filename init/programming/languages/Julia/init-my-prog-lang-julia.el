@@ -7,8 +7,18 @@
 
 ;;; Code:
 
+;;; [ ESS - Julia ]
 
+
+;;; [ julia-mode ]
 
+;;; Usage:
+;;
+;; - `julia-mode'
+;; - `julia-eldoc-function'
+;; - `julia-manual-lookup-function'
+
+(require 'julia-mode)
 
 
 

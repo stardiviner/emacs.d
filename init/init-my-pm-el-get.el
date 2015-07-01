@@ -439,7 +439,7 @@
          ;; java-complete
          ess company-ess
          ;; Julia
-         ;; julia-mode
+         julia-mode
          ;; R
          ;; ac-R
          ;; gnuplot
