@@ -601,6 +601,9 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (push '(elfeed-search-mode :position top :height 20) popwin:special-display-config)
 (push '("*elfeed-search*" :position top :height 20) popwin:special-display-config)
 
+;; restclient
+(push '("*HTTP Response*" :position bottom :height 20) popwin:special-display-config)
+
 ;; poporg
 ;; FIXME: not work
 ;; (push '("*poporg:*" :position bottom :height 20) popwin:special-display-config)
