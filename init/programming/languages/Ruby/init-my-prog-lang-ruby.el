@@ -156,6 +156,7 @@
       enh-ruby-hanging-paren-deep-indent-level 0
       enh-ruby-use-encoding-map t
       enh-ruby-use-ruby-mode-show-parens-config t
+      enh-ruby-add-encoding-comment-on-save t ; add ruby magic encoding comment on save.
       )
 
 ;;; Enhanced Ruby Mode defines its own specific faces with the hook
