@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: auto-mode-alist
+# key: auto-mode-alist
+# --
+(add-to-list 'auto-mode-alist '("${1:regexp}" . ${2:MODE}-mode))$0
