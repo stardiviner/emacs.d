@@ -189,10 +189,22 @@
 
 (setq mu4e-headers-date-format "%x %X")
 
-(setq mu4e-headers-fields '((:flags   .  5)
-                            (:subject . 65)
-                            (:from    . 15)
-                            (:date    . 20))
+;;; normal fields
+;; (setq mu4e-headers-fields
+;;       '((:flags   .  6)
+;;         (:subject . 65)
+;;         (:from    . 15)
+;;         (:date    . 20))
+;;       )
+
+;; only show thread subject once
+(setq mu4e-headers-fields
+      '((:flags .  6)
+        (:human-date  . 18)
+        (:from  . 18)
+        (:thread-subject . nil)
+        ;; (:subject . nil)
+        )
       )
 
 ;; (defun my-set-mu4e-headers-fields-smart
