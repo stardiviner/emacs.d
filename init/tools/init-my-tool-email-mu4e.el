@@ -706,7 +706,7 @@
                     ;; :weight 'normal :underline nil
                     :background "#004A5D" :foreground "white"
                     :box '(:color "#005D5E" :line-width -1)
-                    :weight 'normal
+                    :weight 'normal :underline nil
                     )
 ;;; highlighted email, main view key color like "[q]uit mu4e".
 (set-face-attribute 'mu4e-highlight-face nil
@@ -768,8 +768,7 @@
                     :foreground "white")
 ;;; flagged email
 (set-face-attribute 'mu4e-flagged-face nil
-                    :foreground "green yellow" :background "black"
-                    :weight 'bold
+                    :foreground "dodger blue" :background "black"
                     )
 ;;; replied email
 (set-face-attribute 'mu4e-replied-face nil
