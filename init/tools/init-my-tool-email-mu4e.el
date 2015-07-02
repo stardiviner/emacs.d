@@ -833,6 +833,7 @@
 
 ;;; Marking
 
+(define-key mu4e-headers-mode-map (kbd "f") 'mu4e-headers-mark-for-flag)
 (define-key mu4e-headers-mode-map (kbd "m") 'mu4e-headers-mark-for-something)
 (define-key mu4e-headers-mode-map (kbd "M") 'mu4e-headers-mark-for-move)
 
