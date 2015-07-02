@@ -21,7 +21,7 @@
 ;; - Start an ESS process.
 ;;   - [M-x ESS RET] :: start ESS session.
 ;;   - [M-x S RET] :: start S session.
-;; - [C-c C-s] :: `ess-switch-process'
+;; - [C-c C-s] :: `ess-switch-process', switch to inferior process, create if not exist.
 
 ;; (add-to-list 'load-path "~/.emacs.d/el-get/ess/lisp/")
 ;; (load "ess-site")
