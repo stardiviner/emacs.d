@@ -244,7 +244,7 @@
          ;; emms ; emms-get-lyrics
          ;; ampc
          ;; subprocess
-         ;; dizzee
+         dizzee
          ;; Programming
          ;; code
          ;; glasses-mode
