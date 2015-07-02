@@ -67,11 +67,14 @@
 
 ;;; TODO: startup start ESS process
 
-
 
-;;; [ ac-R ]
+;;; completing support
 
-;; (require 'ac-R)
+;; - `ess-company-backends' :: for company-mode.
+;; - `ess-ac-sources' :: for auto-complete.
+
+;; R
+;;   (ess-company-backends . '((company-R-args company-R-objects)))
 
 
 

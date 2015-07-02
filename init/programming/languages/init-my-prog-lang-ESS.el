@@ -76,6 +76,18 @@
 (define-key my-inferior-ess-map (kbd "j") 'julia)
 
 
+;;; completing support
+
+;; - `ess-company-backends' :: for company-mode.
+;; - `ess-ac-sources' :: for auto-complete.
+
+;; ESS use this sexp to modify company-backends.
+;;   (copy-list (append ess-company-backends company-backends))
+
+;; Julia
+;;   (ess-company-backends . '(company-julia-objects))
+
+
 (provide 'init-my-prog-lang-ESS)
 
 ;;; init-my-prog-lang-ESS.el ends here
