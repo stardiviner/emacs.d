@@ -266,6 +266,7 @@
 (require 'init-my-prog-lang-json)
 ;; (require 'init-my-prog-lang-haskell)
 ;; (require 'init-my-prog-lang-erlang)
+(require 'init-my-prog-lang-ESS)
 (require 'init-my-prog-lang-R)
 (require 'init-my-prog-lang-julia)
 ;; (require 'init-my-prog-lang-gnuplot)
