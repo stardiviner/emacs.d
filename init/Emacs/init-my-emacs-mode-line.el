@@ -224,9 +224,11 @@
                 (:propertize "]"
                              face (:foreground "cyan"))
 
-                ;; TODO: process
-                (:propertize mode-line-process
-                             face (:foreground "green"))
+                ;; process
+                (:propertize (:eval (if mode-line-process "  ◌"))
+                             face (:foreground "cyan"))
+                (:propertize (:eval (if mode-line-process mode-line-process))
+                             face (:foreground "tomato"))
                 
 
                 ;; notifications
