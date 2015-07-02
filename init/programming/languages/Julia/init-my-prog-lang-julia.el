@@ -23,7 +23,18 @@
 (require 'ess-julia)
 (autoload 'julia-mode "ess-julia" "Julia mode" t)
 
-(define-key my-inferior-ess-map (kbd "j") 'julia)
+;; (define-key my-inferior-ess-map (kbd "j") 'julia)
+(define-key my-inferior-ess-map (kbd "j")
+  '(lambda ()
+     (interactive)
+     (if (get-buffer-process "*julia*")
+         ;; the inferior julia process exist
+         (switch-to-buffer "*julia*")
+       ;; create a new inferior julia process
+       (julia)
+       ;; kill old process
+       ;; (kill-process (get-buffer-process "*julia*"))
+       )))
 
 ;; FIXME:
 ;; (add-hook 'julia-mode-hook
