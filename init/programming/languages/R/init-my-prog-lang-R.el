@@ -92,6 +92,9 @@
 (add-to-list 'auto-mode-alist '("\\.Rd$" . Rd-mode)) ; R documentation
 (add-to-list 'auto-mode-alist '("\\.S$" . S-mode))
 
+(add-to-list 'auto-mode-alist '("\\.Rprofile$" . R-mode))
+(add-to-list 'auto-mode-alist '("\\.Renviron$" . R-mode))
+
 ;; comment out the following if you are not using R/S-Plus on ACPUB
 ;; add a ";" in front of each line
 ;; (load "/usr/pkg/ess/lisp/ess-site")
