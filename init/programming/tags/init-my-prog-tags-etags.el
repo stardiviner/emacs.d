@@ -7,9 +7,12 @@
 
 ;;; Code:
 
-;;; Emacs Tags -- etags
+;;; [etags ] -- Emacs Tags
 
 ;; Usage:
+;;
+;; - [$ find . | grep ".*\.\(hh\|hxx\|cc\)" | xargs etags -f TAGS]
+;;
 ;; - [M-.] -- (find-tag)
 ;; - [C-u M-.] -- go to the next match.
 ;; - [M-*] -- (pop-tag-mark) -- jump back.
@@ -19,18 +22,13 @@
 ;; - [M-x tags-apropos] -- list all tags in a tags file that match a regexp.
 ;; - [M-x list-tags] -- list all tags defined in a source file.
 
-;; - [$ find . | grep ".*\.\(hh\|hxx\|cc\)" | xargs etags -f TAGS]
-
-
-;;; [ etags ]
 (require 'etags)
 
 
 ;;; [ etags-update ] --- a Emacs global minor mode that updates your TAGS when saving a file.
-;;; https://github.com/mattkeller/etags-update
-;;; Usage:
-;; -
 
+;;; Usage:
+;;
 ;;;  Installing
 ;; Put etags-update.pl in your shell's PATH, making sure it is executable. For instance:
 ;; $ mv etags-update.pl ~/bin
