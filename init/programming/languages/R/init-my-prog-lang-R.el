@@ -5,12 +5,6 @@
 
 ;;; Code:
 
-;;; To make speedbar show an R buffer’s functions, variables, etc, you need to
-;;; add R to the set of supported extensions;
-;;; This also work with sr-speedbar.
-(speedbar-add-supported-extension ".R")
-
-
 ;;; [ R-mode ]
 
 ;;; Usage:
@@ -76,6 +70,12 @@
 ;; R
 ;;   (ess-company-backends . '((company-R-args company-R-objects)))
 
+
+
+;;; To make speedbar show an R buffer’s functions, variables, etc, you need to
+;;; add R to the set of supported extensions;
+;;; This also work with sr-speedbar.
+(speedbar-add-supported-extension ".R")
 
 
 
