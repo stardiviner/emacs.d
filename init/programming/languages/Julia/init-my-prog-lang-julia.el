@@ -36,6 +36,13 @@
        ;; (kill-process (get-buffer-process "*julia*"))
        )))
 
+(add-hook 'julia-mode-hook
+          (lambda ()
+            ;; add julia-mode to prog-mode.
+            (unless (derived-mode-p 'prog-mode)
+              (run-hooks 'prog-mode-hook))
+            ))
+
 ;; FIXME:
 ;; (add-hook 'julia-mode-hook
 ;;           (lambda ()
