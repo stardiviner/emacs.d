@@ -576,6 +576,7 @@
   (add-hook hook 'robe-mode))
 
 (add-hook 'robe-mode-hook (lambda ()
+                            (local-set-key (kbd "M-.") 'robe-doc)
                             (local-set-key (kbd "C-h d d") 'robe-doc)
 
                             (unless (boundp 'ruby-send-to-inferior-map)
