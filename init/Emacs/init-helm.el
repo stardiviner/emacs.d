@@ -150,7 +150,9 @@
 
 ;; this global keybinding [M-x] will conflict with {[C-u M-x align-regexp] on select region text.}
 ;; But you can press [M-x C-u align-regexp RET].
-(setq helm-M-x-fuzzy-match nil)
+(setq helm-M-x-fuzzy-match nil
+      helm-M-x-requires-pattern 2 ; t, N,
+      helm-M-x-reverse-history nil)
 (global-set-key (kbd "M-x") 'helm-M-x)
 ;; If you prefer the helm version of the file finder, you can bind it to C-x C-f
 ;; to replace the standard find-file:
