@@ -79,10 +79,11 @@
 
 
 
-;;; [ Julia ]
+;;; TODO: temporally fix lintr missing for flycheck issue.
 
-(autoload 'julia-mode "ess-site" "Julia mode" t)
-
+(add-hook 'R-mode-hook
+          (lambda ()
+            (flycheck-mode -1)))
 
 
 
