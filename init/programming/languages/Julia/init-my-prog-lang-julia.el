@@ -7,10 +7,12 @@
 
 ;;; Code:
 
-;;; [ ESS - Julia ]
+
+(add-to-list 'auto-mode-alist '("\\.jl\\'" . julia-mode))
+
 
 
-;;; [ julia-mode ]
+;;; [ ESS - Julia ]
 
 ;;; Usage:
 ;;
@@ -18,7 +20,19 @@
 ;; - `julia-eldoc-function'
 ;; - `julia-manual-lookup-function'
 
-(require 'julia-mode)
+(require 'ess-julia)
+(autoload 'julia-mode "ess-julia" "Julia mode" t)
+
+(define-key my-inferior-ess-map (kbd "j") 'julia)
+
+;; FIXME:
+;; (add-hook 'julia-mode-hook
+;;           (lambda ()
+;;             (add-to-list (make-local-variable 'company-backends)
+;;                          'company-julia-objects)))
+
+
+;; (unload-feature 'ess-julia)
 
 
 ;;; fix "flycheck + lintr" error

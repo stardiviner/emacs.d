@@ -73,8 +73,6 @@
       ;; inferior-ess-r-help-command ".ess.help(\"%s\", help.type=\"text\")"
       )
 
-(define-key my-inferior-ess-map (kbd "j") 'julia)
-
 
 ;;; completing support
 

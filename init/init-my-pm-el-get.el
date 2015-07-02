@@ -437,11 +437,9 @@
          eclim
          javadoc-lookup ; javadoc-help
          ;; java-complete
-         ess company-ess
-         ;; Julia
-         julia-mode
+         ess
          ;; R
-         ;; ac-R
+         ;; Julia
          ;; gnuplot
          ;; gnuplot-mode
          ;; Octave
