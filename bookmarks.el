@@ -2,7 +2,22 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("CSS styles collections"
+(("Emacs Lisp"
+ (filename . "~/Org/Wiki/Computer/Programming/Emacs/Emacs Lisp/Emacs Lisp.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("My Life Experience"
+ (filename . "~/Org/Wiki/Myself/LifeExperience/LifeExperience.org")
+ (front-context-string . "* My Family\n\n** ")
+ (rear-context-string)
+ (position . 1))
+("ASCII & Unicode symbols"
+ (filename . "~/Org/Wiki/Computer/Softwares/ASCII/ASCII.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("CSS styles collections"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/CSS/Data/Style Collections/Style Collections.org")
  (front-context-string . "\nCreate a functi")
  (rear-context-string)
@@ -297,11 +312,6 @@
  (front-context-string . "#!/usr/bin/env s")
  (rear-context-string)
  (position . 1))
-("ascii unicode symbols"
- (filename . "~/Org/Wiki/Computer/Softwares/Softwares.org")
- (front-context-string . "* Symbols: ASCII")
- (rear-context-string . "akup Project]]\n\n")
- (position . 18251))
 ("Features"
  (filename . "~/Org/Projects/Projects.org")
  (front-context-string . "* TODO Features ")
