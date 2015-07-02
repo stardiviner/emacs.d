@@ -20,6 +20,12 @@
 
 (require 'julia-mode)
 
+
+;;; fix "flycheck + lintr" error
+
+(add-hook 'julia-mode-hook
+          (lambda ()
+            (flycheck-mode -1)))
 
 
 (provide 'init-my-prog-lang-julia)
