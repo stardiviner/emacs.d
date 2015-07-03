@@ -181,7 +181,8 @@
          ;; Image
          ;; image+ image-dired+
          ;; PDF
-         ;; pdf-tools
+         pdf-tools
+         org-pdfview
          ;; search
          ;; isearch+
          anzu

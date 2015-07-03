@@ -26,64 +26,95 @@
 
 ;;; [ pdf-tools ] -- Emacs support library for PDF files.
 
-;;; About
+;;; Usage:
 ;;
-;; PDF Tools is, among other things, a replacement of DocView for PDF files. The
-;; key difference is, that pages are not prerendered by e.g. ghostscript and
-;; stored in the file-system, but rather created on-demand and stored in memory.
-;;
-;; This rendering is performed by a special library named, for whatever reason,
-;; poppler, running inside a server programm. This programm is called epdfinfo
-;; and it’s job is it to successively read requests from Emacs and produce the
-;; proper results, i.e. the PNG image of a PDF page.
-;;
-;; Actually, displaying PDF files is just one part of PDF Tools. Since poppler
-;; can provide us with all kinds of informations about a document and is also
-;; able to modify it, there is a lot more we can do with it. Watch
+;; - `pdf-view-mode'
+;;   - `pdf-view-auto-slice-minor-mode'
+;; - `pdf-outline-minor-mode'
+;; - `pdf-annot-minor-mode'
+;; - `pdf-cache-prefetch-minor-mode'
+;; - `pdf-history-minor-mode'
+;; - `pdf-isearch-minor-mode'
+;; - `pdf-links-minor-mode'
+;; - `pdf-misc-minor-mode'
+;;   - `pdf-misc-context-menu-minor-mode'
 
-;;; Features
-;;
-;; View
-;;
-;; View PDF documents in a buffer with DocView-like bindings.
-;;
-;; Isearch
-;;
-;; Interactively search PDF documents like any other buffer. (Though there is currently no regexp support.)
-;;
-;; Follow links
-;;
-;; Click on highlighted links, moving to some part of a different page, some
-;; external file, a website or any other URI. Links may also be followed by
-;; keyboard commands.
-;;
-;; Annotations
-;;
-;; Display and list text and markup annotations (like underline), edit their
-;; contents and attributes (e.g. color), move them around, delete them or create
-;; new ones and then save the modifications back to the PDF file.
-;;
-;; Attachments
-;;
-;; Save files attached to the PDF-file or list them in a dired buffer.
-;;
-;; Outline
-;;
-;; Use imenu or a special buffer to examine and navigate the PDF’s outline.
-;;
-;; SyncTeX
-;;
-;; Jump from a position on a page directly to the TeX source and vice-versa.
-;;
-;; Misc
+
+(require 'pdf-tools)
+
 (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
-;;
-;;   - Display PDF’s metadata.
-;;   - Mark a region and kill the text from the PDF.
-;;   - Search for occurrences of a string.
-;;   - Keep track of visited pages via a history.
 
-;; (require 'pdf-tools)
+;;; PDF View
+
+(setq pdf-view-display-size 'fit-width
+      pdf-view-continuous t
+      pdf-cache-image-limit 64
+      pdf-cache-prefetch-delay 0.5
+      pdf-view-image-relief 5
+      pdf-view-bounding-box-margin 0.05
+      ;; pdf-view-use-imagemagick nil
+      pdf-view-use-scaling t
+      )
+
+(set-face-attribute 'pdf-view-rectangle nil
+                    :background (color-darken-name (face-background 'default) 5)
+                    )
+(set-face-attribute 'pdf-view-region nil
+                    :background (color-darken-name (face-background 'default) 3)
+                    )
+
+;;; PDF Tools - isearch
+
+(setq pdf-isearch-hyphenation-character "--")
+
+;; (set-face-attribute 'pdf-isearch-batch nil
+;;                     )
+;; (set-face-attribute 'pdf-isearch-lazy nil
+;;                     )
+;; (set-face-attribute 'pdf-isearch-match nil
+;;                     )
+
+;;; PDF Tools -- outline
+
+(setq pdf-outline-buffer-indent 2
+      pdf-outline-display-labels t ; the outline should display labels instead of page numbers.
+      pdf-outline-enable-imenu t
+      pdf-outline-imenu-use-flat-menus nil ; Imenu should be a tree or flatted.
+      )
+
+;;; PDF Tools - annotation
+
+(setq pdf-annot-activate-created-annotations t
+      ;; pdf-annot-activate-handler-functions nil
+      ;; pdf-annot-attachment-display-buffer-action nil
+      pdf-annot-default-markup-annotation-properties '((label . "stardiviner") (popup-is-open))
+      pdf-annot-default-text-annotation-properties '((icon . "Note")
+                                                     (color . "#ff0000")
+                                                     (label . "stardiviner")
+                                                     (popup-is-open))
+      ;; pdf-annot-edit-contents-display-buffer-action '((display-buffer-reuse-window display-buffer-split-below-and-attach)
+      ;;                                                 (inhibit-same-window . t)
+      ;;                                                 (window-height . 0.25))
+      ;; pdf-annot-list-display-buffer-action '((display-buffer-reuse-window display-buffer-pop-up-window)
+      ;;                                        (inhibit-same-window . t))
+      pdf-annot-list-listed-types '(text file squiggly highlight underline strike-out
+                                         3d circle square free-text ink line link poly-line polygon popup
+                                         stamp printer-mark watermark widget
+                                         sound movie)
+      pdf-annot-minor-mode-map-prefix (kbd "C-c C-a")
+      ;; pdf-annot-print-annotation-functions '(pdf-annot-print-annotation-latex-maybe)
+      pdf-annot-tweak-tooltips t
+      )
+
+
+;;; [ org-pdfview ] -- org-link support for pdf-view-mode
+
+;;; Usage:
+;;
+;; [[file:filename.pdf::(page-number)]]
+
+(eval-after-load 'org
+  '(require 'org-pdfview))
 
 
 (provide 'init-my-emacs-pdf)
