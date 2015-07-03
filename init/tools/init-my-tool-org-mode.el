@@ -805,8 +805,11 @@ Will work on both `org-mode' and any mode that accepts plain html."
         ;; ("\\.x?html?\\'" . default)
         ("\.x?html\'" . "firefox %s")
         ;; PDF
-        ("\\.pdf\\'" . default)
-        ("\\.pdf::\\([[:digit:]]+\\)\\'" . "okular -p %1 %s")
+        ("\\.pdf\\'" . auto-mode)
+        ("\\.pdf::\\([[:digit:]]+\\)\\'" . auto-mode)
+        ;; NOTE: disable this, to use `doc-view' for PDF.
+        ;; ("\\.pdf\\'" . "okular %s")
+        ;; ("\\.pdf::\\([[:digit:]]+\\)\\'" . "okular -p %1 %s")
         ;; CHM
         ("\\.chm\\'" . "kchmviewer %s")
         ;; EPUB

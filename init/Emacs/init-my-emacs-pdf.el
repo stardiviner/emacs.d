@@ -76,6 +76,7 @@
 ;; Jump from a position on a page directly to the TeX source and vice-versa.
 ;;
 ;; Misc
+(add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
 ;;
 ;;   - Display PDF’s metadata.
 ;;   - Mark a region and kill the text from the PDF.
