@@ -234,7 +234,7 @@
 (require 'init-my-prog-comment)
 (require 'init-my-prog-electric)
 (require 'init-my-prog-tags)
-;; (require 'init-my-prog-sidebar)
+(require 'init-my-prog-sidebar)
 (require 'init-my-prog-snippet)
 (require 'init-my-prog-template)
 (require 'init-my-prog-document)
