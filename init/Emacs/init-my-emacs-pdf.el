@@ -38,6 +38,7 @@
 ;; - `pdf-links-minor-mode'
 ;; - `pdf-misc-minor-mode'
 ;;   - `pdf-misc-context-menu-minor-mode'
+;; - use bookmark.el to remember PDF position.
 
 
 (require 'pdf-tools)
@@ -112,9 +113,17 @@
 ;;; Usage:
 ;;
 ;; [[file:filename.pdf::(page-number)]]
+;; org-pdfview will remember file reading position.
+;; - `org-pdfview-open'
+;; - `org-pdfview-store-link'
+;; - `org-pdfview-export'
 
 (eval-after-load 'org
   '(require 'org-pdfview))
+
+;; change Org-mode default open PDF file function.
+(add-to-list 'org-file-apps '("\\.pdf\\'" . org-pdfview-open))
+(add-to-list 'org-file-apps '("\\.pdf::\\([[:digit:]]+\\)\\'" . org-pdfview-open))
 
 
 (provide 'init-my-emacs-pdf)
