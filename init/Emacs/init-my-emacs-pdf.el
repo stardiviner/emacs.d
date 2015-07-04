@@ -112,15 +112,17 @@
 
 ;;; Usage:
 ;;
-;; [[file:filename.pdf::(page-number)]]
-;; org-pdfview will remember file reading position.
+;; - [[file:filename.pdf::(page-number)]]
+;; - org-pdfview will remember file reading position with `org-pdfview-store-link'.
+;;   But it will disappear after close Emacs session.
 ;; - `org-pdfview-open'
-;; - `org-pdfview-store-link'
 ;; - `org-pdfview-export'
 
 (eval-after-load 'org
   '(require 'org-pdfview))
 
+;; integrate it into Org-mode seamlessly.
+;; (org-add-link-type "pdfview" 'org-pdfview-open 'org-pdfview-export)
 ;; change Org-mode default open PDF file function.
 (add-to-list 'org-file-apps '("\\.pdf\\'" . org-pdfview-open))
 (add-to-list 'org-file-apps '("\\.pdf::\\([[:digit:]]+\\)\\'" . org-pdfview-open))
