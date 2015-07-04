@@ -47,6 +47,9 @@
 
 ;;; PDF View
 
+;; - [SPC] :: scroll continuous
+;; - [n/p] :: scroll to next/previous page
+
 (setq pdf-view-display-size 'fit-width
       pdf-view-continuous t
       pdf-cache-image-limit 64
@@ -63,6 +66,23 @@
 (set-face-attribute 'pdf-view-region nil
                     :background (color-darken-name (face-background 'default) 3)
                     )
+
+;;; PDF Tools
+
+(setq
+ pdf-tools-enabled-modes
+ '(pdf-history-minor-mode
+   pdf-outline-minor-mode
+   pdf-isearch-minor-mode
+   pdf-links-minor-mode
+   pdf-annot-minor-mode
+   pdf-misc-minor-mode
+   pdf-misc-size-indication-minor-mode
+   pdf-misc-menu-bar-minor-mode
+   pdf-misc-context-menu-minor-mode
+   pdf-sync-minor-mode
+   pdf-cache-prefetch-minor-mode
+   pdf-occur-global-minor-mode))
 
 ;;; PDF Tools - isearch
 
