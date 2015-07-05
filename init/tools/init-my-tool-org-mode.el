@@ -125,7 +125,7 @@
                   )
 
             ;; TODO: (setq org-bullets-face-name 'org-level-1)
-            
+
             (org-bullets-mode 1)
             ))
 
@@ -192,7 +192,7 @@
                     :foreground "cyan" :background "#004A5D"
                     :box '(:color "cyan" :line-width 1 :style nil)
                     :bold nil)
-;; Diary entry (holidays)
+;; Daily entry (holidays)
 (set-face-attribute 'org-agenda-diary nil
                     :foreground "light blue" ; :background " "
                     :slant 'italic
@@ -1248,14 +1248,14 @@ This is especially for create Org files."
                "/"
                (read-string "Maximum interval: ")
                "d"))))
-  
+
   ;; old way
   ;; (save-excursion
   ;;   (next-line) (beginning-of-line)
   ;;   (when (looking-at "SCHEDULED: [^>]*\\(>\\)")
   ;;     (goto-char (match-beginning 1))
   ;;     (insert " .+1d")))
-  
+
   (org-set-property "STYLE" "habit")
   ;; (org-set-property "LOGGING" "TODO DONE(!)")
   )
@@ -1328,15 +1328,15 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
         ;;  "\n* %^{prompt}\nEntered on %U\n %i\n %?\n\n"
         ;; :empty-lines 1
         ;; )
-        
+
         ;; TODO Contacts
-        
+
         ;; bookmark
         ("m" "Add an URL to bookmarks database"
          entry (file+headline "~/Org/Wiki/Data/Bookmarks/Bookmarks.org" "Capture")
          "\n* %^{prompt}\n\n%A\n\n%?\n\n"
          :empty-lines 1)
-        
+
         ;; org-passwords
         ;; FIXME:
         ("p" "password"
@@ -1357,7 +1357,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
          entry (file+olp "~/Org/Projects/Projects.org" "Computer" "Features")
          "\n* FEATURE %^{prompt}\n\n%i\n\n%?\n\n"
          :empty-lines 1)
-        
+
         ;; knowledge & Wiki
         ;; thought
         ;; "~/Org/Wiki/Wiki/Thought/Thought.org" "My Thought"
@@ -1742,7 +1742,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;; `(d@/!)` add timestamp and note
 (setq org-todo-keywords
       '(;; Clock
-        (sequence "STARTED(@/@)" "|" "DONE(d@/!)")
+        (sequence "STARTED(!)" "|" "DONE(d@/!)")
         ;; habits
         (sequence "HABIT(h)" "|" "DONE(d)")
         ;; Status
