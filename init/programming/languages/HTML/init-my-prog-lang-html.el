@@ -36,11 +36,27 @@
       emmet-use-style-tag-and-attr-detection t
       )
 
+(add-hook 'web-mode-hook
+          (lambda ()
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-web-html)
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-web-jade)
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-web-slim)
+            ))
+
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
 (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
 (add-hook 'web-mode-hook  'emmet-mode)
 (add-hook 'rhtml-mode-hook  'emmet-mode)
 
+
+;;; [ company-web ] --
+
+;; company-web is an alternative emacs plugin for autocompletion in html-mode,
+;; web-mode, jade-mode, slim-mode and use data of ac-html. It uses company-mode.
+;;
 ;; use company-mode with `company-web-html' in web-mode.
 ;; now support company completion for emmet.
 ;;
@@ -50,9 +66,6 @@
 ;; - # - id (div's id if no tag)
 ;;
 ;; annotation string: `html'.
-(add-hook 'web-mode-hook (lambda ()
-                           (add-to-list 'company-backends 'company-web-html)
-                           (company-mode t)))
 
 ;; By default, inserted markup will be indented with indent-region, according to
 ;; the buffer's mode. To disable this, do:
@@ -60,6 +73,10 @@
 
 ;; If you disable indent-region, you can set the default indent level thusly:
 ;; (add-hook 'emmet-mode-hook (lambda () (setq emmet-indentation 2))) ;; indent 2 spaces.
+(require 'company-web-html)                          ; load company mode html backend
+;; and/or
+(require 'company-web-jade)                          ; load company mode jade backend
+(require 'company-web-slim)                          ; load company mode slim backend
 
 ;; If you want the cursor to be positioned between first empty quotes after expanding:
 ;; (setq emmet-move-cursor-between-quotes t) ;; default nil
@@ -88,15 +105,6 @@
 ;; (add-hook 'slim-mode-hook 'ac-slim-enable)
 
 
-(add-hook 'web-mode-hook
-          (lambda ()
-            (add-to-list (make-local-variable 'company-backends)
-                         'company-nxml)
-            (add-to-list (make-local-variable 'company-backends)
-                         'company-web-html)
-            (add-to-list (make-local-variable 'company-backends)
-                         'company-css)
-            ))
 
 
 
