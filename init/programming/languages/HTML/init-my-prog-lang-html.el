@@ -51,6 +51,20 @@
 (add-hook 'web-mode-hook  'emmet-mode)
 (add-hook 'rhtml-mode-hook  'emmet-mode)
 
+;; By default, inserted markup will be indented with indent-region, according to
+;; the buffer's mode. To disable this, do:
+;; (add-hook 'emmet-mode-hook (lambda () (setq emmet-indent-after-insert nil)))
+
+;; If you disable indent-region, you can set the default indent level thusly:
+;; (add-hook 'emmet-mode-hook (lambda () (setq emmet-indentation 2))) ;; indent 2 spaces.
+
+;; If you want the cursor to be positioned between first empty quotes after expanding:
+;; (setq emmet-move-cursor-between-quotes t) ;; default nil
+
+;; Or if you don't want to move cursor after expanding:
+;; (setq emmet-move-cursor-after-expanding nil) ;; default t
+
+
 
 ;;; [ company-web ] --
 
@@ -67,23 +81,28 @@
 ;;
 ;; annotation string: `html'.
 
-;; By default, inserted markup will be indented with indent-region, according to
-;; the buffer's mode. To disable this, do:
-;; (add-hook 'emmet-mode-hook (lambda () (setq emmet-indent-after-insert nil)))
+(unless (featurep 'web-mode)
+  (require 'web-mode))
 
-;; If you disable indent-region, you can set the default indent level thusly:
-;; (add-hook 'emmet-mode-hook (lambda () (setq emmet-indentation 2))) ;; indent 2 spaces.
 (require 'company-web-html)                          ; load company mode html backend
 ;; and/or
 (require 'company-web-jade)                          ; load company mode jade backend
 (require 'company-web-slim)                          ; load company mode slim backend
 
-;; If you want the cursor to be positioned between first empty quotes after expanding:
-;; (setq emmet-move-cursor-between-quotes t) ;; default nil
+(add-hook 'web-mode-hook
+          (lambda ()
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-nxml)
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-web-html)
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-css)
+            ))
 
-;; Or if you don't want to move cursor after expanding:
-;; (setq emmet-move-cursor-after-expanding nil) ;; default t
 
+;; you may key bind, for example for web-mode:
+
+(define-key web-mode-map (kbd "C-'") 'company-web-html)
 
 
 ;;; [ ac-html ] -- Provide accurate and intelligent auto completion to HTML and CSS.
