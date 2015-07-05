@@ -337,19 +337,6 @@
 
 (add-hook 'clojure-mode-hook 'typed-clojure-mode)
 
-
-;;; [ Auto Completion ]
-;;
-;; `cider-complete-at-point'
-;; integrate with company-mode
-
-(setq cider-annotate-completion-candidates t)
-
-(add-hook 'cider-repl-mode-hook #'company-mode)
-(add-hook 'cider-mode-hook #'company-mode)
-
-
-
 
 
 ;;; [ clojure-cheatsheet ]
