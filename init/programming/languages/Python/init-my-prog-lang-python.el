@@ -80,6 +80,20 @@
 ;; (run-python)
 
 
+;;; [ pyvenv ] -- Python virtual environment interface for Emacs.
+
+;;; This is a simple global minor mode which will replicate the changes done by
+;;; virtualenv activation inside Emacs.
+
+;;; Usage:
+;;
+;; - `pyvenv-activate' :: queries the user for a virtual environment directory to activate.
+;; - `pyvenv-workon' :: queries for a virtual environment in $WORKON_HOME (from virtualenvwrapper.sh).
+;; - `pyvenv-mode-line-indicator' :: an indicator for mode-line.
+
+(require 'pyvenv)
+
+
 ;;; [ jedi.el ] --- a python auto-completion library.
 
 ;;; Usage:

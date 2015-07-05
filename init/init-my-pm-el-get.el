@@ -357,6 +357,7 @@
          typed-clojure-mode
          ;; Python
          ;; python python-mode
+         pyvenv
          ;; jedi ; (depends on auto-complete)
          ;; jedi-core
          ;; company-jedi
