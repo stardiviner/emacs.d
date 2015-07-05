@@ -172,12 +172,12 @@
       ;; TODO: change those symbols.
       cider-completion-annotations-alist '(("class" "c")
                                            ("field" "fi")
-                                           ("function" "f")
+                                           ("function" "λ") ; f,
                                            ("import" "i")
                                            ("keyword" "k")
                                            ("local" "l")
                                            ("macro" "m")
-                                           ("method" "me")
+                                           ("method" "♩") ; me,
                                            ("namespace" "n")
                                            ("protocol" "p")
                                            ("protocol-function" "pf")
