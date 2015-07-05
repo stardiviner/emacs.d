@@ -133,12 +133,6 @@
 ;; TODO: only show when has error:
 ;; (add-hook 'before-save-hook #'flycheck-list-errors-only-when-errors)
 
-;;; For Ruby
-(setq flycheck-ruby-executable "rubocop"
-      ;; flycheck-rubocop-lint-only t
-      )
-
-
 ;;; Flycheck hooks
 ;;
 ;; (add-hook 'flycheck-before-syntax-check-hook
@@ -151,13 +145,21 @@
 ;;       ;; flycheck-display-errors-function 'flycheck-pos-tip-error-messages
 ;;       )
 
-
 ;;; add more modes
 
 ;;; add Django-mode
 ;; (with-eval-after-load 'flycheck
 ;;   (dolist (checker '(python-pylint python-flake8 python-pycompile))
 ;;     (flycheck-add-mode checker 'django-mode)))
+
+;;; Emacs Lisp
+
+(setq flycheck-emacs-lisp-load-path 'inherit)
+
+;;; Ruby
+(setq flycheck-ruby-executable "rubocop"
+      ;; flycheck-rubocop-lint-only t
+      )
 
 
 ;;; [ flycheck-tip ] -- show you error by popup-tip.
