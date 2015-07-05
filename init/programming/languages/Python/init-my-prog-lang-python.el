@@ -79,6 +79,21 @@
 ;; Usage:
 ;; (run-python)
 
+(defun inferior-python (&optional process-buffer-name)
+  "My function to start or switch to inferior-python process buffer `PROCESS-BUFFER-NAME'."
+  (interactive)
+  (if (get-buffer-process (or process-buffer-name "*Python*"))
+      ;; the inferior Python process exist
+      (switch-to-buffer (or process-buffer-name "*Python*"))
+    ;; create a new inferior Python process
+    (run-python)
+    ;; kill old process
+    ;; (kill-process (get-buffer-process (or process-buffer-name "*Python*"))
+    )
+  )
+
+(define-key my-prog-inferior-map (kbd "p") 'inferior-python)
+
 
 ;;; [ pyvenv ] -- Python virtual environment interface for Emacs.
 
