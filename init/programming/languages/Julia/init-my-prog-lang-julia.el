@@ -19,22 +19,28 @@
 ;; - `julia-mode'
 ;; - `julia-eldoc-function'
 ;; - `julia-manual-lookup-function'
+;; - `inferior-julia'
 
 (require 'ess-julia)
 (autoload 'julia-mode "ess-julia" "Julia mode" t)
 
-;; (define-key my-inferior-ess-map (kbd "j") 'julia)
-(define-key my-inferior-ess-map (kbd "j")
-  '(lambda ()
-     (interactive)
-     (if (get-buffer-process "*julia*")
-         ;; the inferior julia process exist
-         (switch-to-buffer "*julia*")
-       ;; create a new inferior julia process
-       (julia)
-       ;; kill old process
-       ;; (kill-process (get-buffer-process "*julia*"))
-       )))
+;; (setq inferior-julia-args)
+
+(defun my-inferior-julia (&optional process-buffer-name)
+  "Start or switch to inferior-julia process buffer PROCESS-BUFFER-NAME."
+  (interactive)
+  (if (get-buffer-process (or process-buffer-name "*Julia*"))
+      ;; the inferior julia process exist
+      (switch-to-buffer (or process-buffer-name "*Julia*"))
+    ;; create a new inferior julia process
+    (inferior-julia)
+    ;; (julia)
+    ;; kill old process
+    ;; (kill-process (get-buffer-process (or process-buffer-name "*julia*"))
+    )
+  )
+
+(define-key my-inferior-ess-map (kbd "j") 'my-inferior-julia) ; 'julia, 'inferior-julia,
 
 (add-hook 'julia-mode-hook
           (lambda ()
@@ -49,8 +55,6 @@
 ;;             (add-to-list (make-local-variable 'company-backends)
 ;;                          'company-julia-objects)))
 
-
-;; (unload-feature 'ess-julia)
 
 
 ;;; fix "flycheck + lintr" error
