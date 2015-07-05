@@ -31,6 +31,9 @@
 (require 'emmet-mode)
 
 (setq emmet-preview-default t ; set preview as the default action.
+      emmet-indentation 4
+      emmet-indent-after-insert t
+      emmet-use-style-tag-and-attr-detection t
       )
 
 (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
