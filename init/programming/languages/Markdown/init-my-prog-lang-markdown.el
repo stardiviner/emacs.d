@@ -101,7 +101,7 @@
                     :foreground "green" :background "black")
 ;; block, quote, pre, code
 (set-face-attribute 'markdown-pre-face nil
-                    :foreground "#888888" :background "black")
+                    :foreground "cyan" :background "black")
 ;; programming language identifier
 (set-face-attribute 'markdown-language-keyword-face nil
                     :foreground "cyan")
