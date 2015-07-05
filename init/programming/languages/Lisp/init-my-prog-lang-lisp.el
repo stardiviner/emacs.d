@@ -244,7 +244,7 @@
   (add-hook hook #'hl-sexp-mode))
 
 (set-face-attribute 'hl-sexp-face nil
-                    :background (color-darken-name (face-background 'default) 7)
+                    :background (color-darken-name (face-background 'default) 3)
                     )
 
 
