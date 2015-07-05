@@ -39,9 +39,6 @@
 ;; (spinner-start 'triangle)
 
 
-;; (default-value mode-line-format)
-;; setq-default
-
 (setq-default mode-line-format
               (quote
                (
