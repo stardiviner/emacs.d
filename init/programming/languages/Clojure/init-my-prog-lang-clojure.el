@@ -153,12 +153,15 @@
 
 (eval-after-load 'cider
   '(progn
-     (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
-     
-     (add-hook 'cider-repl-mode-hook
-               (lambda ()
-                 (paredit-mode 1)
-                 (rainbow-delimiters-mode 1)))
+     (add-hook 'cider-mode-hook #'eldoc-mode)
+
+     (dolist (hook '(cider-repl-mode-hook
+                     cider-interaction-mode-hook
+                     ))
+       (add-hook hook '(lambda ()
+                         (paredit-mode 1)
+                         (rainbow-delemiters-mode 1)
+                         (eldoc-mode 1))))
      ))
 
 ;;; auto completion
