@@ -187,41 +187,42 @@
 
 (define-key my-prog-lookup-tags-cscope-map (kbd "b") 'cscope-build)
 
-(if (and (featurep 'helm) (featurep 'helm-cscope))
-    (progn
-      ;; [ helm-cscope ]
-      (define-key my-prog-lookup-tags-cscope-map (kbd "s") 'helm-cscope-select)
-      (define-key my-prog-lookup-tags-cscope-map (kbd "c") 'helm-cscope-find-symbol)
-      (define-key my-prog-lookup-tags-cscope-map (kbd "q") 'helm-cscope-find-called-function)
-      (define-key my-prog-lookup-tags-cscope-map (kbd "r") 'helm-cscope-find-calling-this-funtcion)
-      
-      (define-key my-prog-lookup-tags-cscope-map (kbd "n") 'cscope-history-backward-line-current-result)
-      (define-key my-prog-lookup-tags-cscope-map (kbd "N") 'cscope-history-forward-file-current-result)
-      )
-
-  (if (featurep 'rscope)
-      (progn
-        ;; [ rscope ]
-        (define-key my-prog-lookup-tags-cscope-map (kbd "s") 'rscope-find-this-symbol)
-        (define-key my-prog-lookup-tags-cscope-map (kbd "=") 'rscope-all-symbol-assignments)
-        (define-key my-prog-lookup-tags-cscope-map (kbd "d") 'rscope-find-global-definition)
-        (define-key my-prog-lookup-tags-cscope-map (kbd "c") 'rscope-find-functions-calling-this-function)
-        (define-key my-prog-lookup-tags-cscope-map (kbd "C") 'rscope-find-called-functions)
-        (define-key my-prog-lookup-tags-cscope-map (kbd "t") 'rscope-find-this-text-string)
-        (define-key my-prog-lookup-tags-cscope-map (kbd "i") 'rscope-find-files-including-file)
-        (define-key my-prog-lookup-tags-cscope-map (kbd "h") 'rscope-find-calling-hierarchy)
-        
-        (define-key my-prog-lookup-tags-cscope-map (kbd "n") 'cscope-history-backward-line-current-result)
-        (define-key my-prog-lookup-tags-cscope-map (kbd "N") 'cscope-history-forward-file-current-result)
-        )
-    ;; [ cscope ]
-    ;; FIXME: (define-key my-prog-lookup-tags-cscope-map (kbd "s") 'cscope-select-entry-one-window)
-    (define-key my-prog-lookup-tags-cscope-map (kbd "c") 'cscope-find-this-symbol)
-    
-    (define-key my-prog-lookup-tags-cscope-map (kbd "n") 'cscope-history-backward-line-current-result)
-    (define-key my-prog-lookup-tags-cscope-map (kbd "N") 'cscope-history-forward-file-current-result)
-    )
+(cond
+ ;; [ rscope ]
+ ((featurep 'rscope)
+  (define-key my-prog-lookup-tags-cscope-map (kbd "s") 'rscope-find-this-symbol)
+  (define-key my-prog-lookup-tags-cscope-map (kbd "=") 'rscope-all-symbol-assignments)
+  (define-key my-prog-lookup-tags-cscope-map (kbd "d") 'rscope-find-global-definition)
+  (define-key my-prog-lookup-tags-cscope-map (kbd "c") 'rscope-find-functions-calling-this-function)
+  (define-key my-prog-lookup-tags-cscope-map (kbd "C") 'rscope-find-called-functions)
+  (define-key my-prog-lookup-tags-cscope-map (kbd "t") 'rscope-find-this-text-string)
+  (define-key my-prog-lookup-tags-cscope-map (kbd "i") 'rscope-find-files-including-file)
+  (define-key my-prog-lookup-tags-cscope-map (kbd "h") 'rscope-find-calling-hierarchy)
+  
+  (define-key my-prog-lookup-tags-cscope-map (kbd "n") 'cscope-history-backward-line-current-result)
+  (define-key my-prog-lookup-tags-cscope-map (kbd "N") 'cscope-history-forward-file-current-result)
   )
+ 
+ ;; [ helm-cscope ]
+ ((and (featurep 'helm) (featurep 'helm-cscope))
+  (define-key my-prog-lookup-tags-cscope-map (kbd "s") 'helm-cscope-select)
+  (define-key my-prog-lookup-tags-cscope-map (kbd "c") 'helm-cscope-find-symbol)
+  (define-key my-prog-lookup-tags-cscope-map (kbd "q") 'helm-cscope-find-called-function)
+  (define-key my-prog-lookup-tags-cscope-map (kbd "r") 'helm-cscope-find-calling-this-funtcion)
+  
+  (define-key my-prog-lookup-tags-cscope-map (kbd "n") 'cscope-history-backward-line-current-result)
+  (define-key my-prog-lookup-tags-cscope-map (kbd "N") 'cscope-history-forward-file-current-result)
+  )
+
+ ;; [ cscope ]
+ (t
+  ;; FIXME: (define-key my-prog-lookup-tags-cscope-map (kbd "s") 'cscope-select-entry-one-window)
+  (define-key my-prog-lookup-tags-cscope-map (kbd "c") 'cscope-find-this-symbol)
+  
+  (define-key my-prog-lookup-tags-cscope-map (kbd "n") 'cscope-history-backward-line-current-result)
+  (define-key my-prog-lookup-tags-cscope-map (kbd "N") 'cscope-history-forward-file-current-result)
+  )
+ )
 
 
 (provide 'init-my-prog-tags-cscope)
