@@ -357,9 +357,9 @@
          typed-clojure-mode
          ;; Python
          ;; python python-mode
-         jedi ; (depends on auto-complete)
+         ;; jedi ; (depends on auto-complete)
          ;; jedi-core
-         company-jedi
+         ;; company-jedi
          anaconda-mode company-anaconda
          ;; elpy
          pydoc helm-pydoc

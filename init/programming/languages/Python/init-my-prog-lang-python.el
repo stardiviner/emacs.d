@@ -113,28 +113,20 @@
 
 ;;; [ company-jedi ]
 
-(require 'jedi-core)
-(require 'company-jedi)
+;; (require 'jedi-core)
+;; (require 'company-jedi)
 
-(add-hook 'python-mode-hook
-          (lambda ()
-            (jedi:start-server)
-            ;; (company-jedi--setup)
-            (add-to-list (make-local-variable 'company-backends)
-                         '(company-jedi company-ropemacs))
-            ))
+;; (add-hook 'python-mode-hook
+;;           (lambda ()
+;;             (jedi:start-server)
+;;             ;; (company-jedi--setup)
+;;             (add-to-list (make-local-variable 'company-backends)
+;;                          '(company-jedi
+;;                            ;; company-ropemacs
+;;                            ))
+;;             ))
 
 ;; (setq jedi:install-server--command '("pip" "install" "--upgrade" "/home/stardiviner/.emacs.d/el-get/jedi/" "--no-cache-dir"))
-
-
-
-(add-hook 'python-mode-hook
-          (lambda ()
-            (if (functionp 'jedi:show-doc)
-                (local-set-key (kbd "C-h d d") 'jedi:show-doc)
-              (if (featurep 'helm)
-                  (local-set-key (kbd "C-h d d") 'helm-pydoc)
-                (local-set-key (kbd "d") 'pydoc)))))
 
 
 ;;; [ anaconda-mode ]
@@ -166,21 +158,21 @@
 ;; project installation. To make it available for anaconda-mode you have few
 ;; options.
 
+
 (require 'anaconda-mode)
 
 ;; virtualenv
 ;; (setq python-shell-virtualenv-root "~/.virtualenvs/python3/bin/virtualenv")
 
 (add-hook 'python-mode-hook 'anaconda-mode)
-
 (add-hook 'python-mode-hook 'eldoc-mode)
 
-(define-key anaconda-mode-map (kbd "M-.") 'anaconda-mode-goto)
-;; (define-key anaconda-mode-map (kbd "M-.") 'anaconda-mode-goto-definitions)
-;; (define-key anaconda-mode-map (kbd "M-,") 'anaconda-mode-goto-assignments)
-(define-key anaconda-mode-map (kbd "M-?") 'anaconda-mode-view-doc)
-(define-key anaconda-mode-map (kbd "M-r") 'anaconda-mode-usages)
-(define-key anaconda-mode-map (kbd "M-*") 'anaconda-nav-pop-marker)
+;; (define-key anaconda-mode-map (kbd "M-.") 'anaconda-mode-goto)
+;; ;; (define-key anaconda-mode-map (kbd "M-.") 'anaconda-mode-goto-definitions)
+;; ;; (define-key anaconda-mode-map (kbd "M-,") 'anaconda-mode-goto-assignments)
+;; (define-key anaconda-mode-map (kbd "M-?") 'anaconda-mode-view-doc)
+;; (define-key anaconda-mode-map (kbd "M-r") 'anaconda-mode-usages)
+;; (define-key anaconda-mode-map (kbd "M-*") 'anaconda-nav-pop-marker)
 
 
 ;;; [ company-anaconda ]
@@ -191,6 +183,25 @@
           (lambda ()
             (add-to-list (make-local-variable 'company-backends)
                          'company-anaconda)))
+
+
+
+(add-hook 'python-mode-hook
+          (lambda ()
+            (cond
+             ((featurep 'anaconda-mode)
+              (local-set-key (kbd "C-h d d") 'anaconda-mode-view-doc)
+              (local-set-key (kbd "M-.") 'anaconda-mode-goto))
+             ((featurep 'helm)
+              (local-set-key (kbd "C-h d d") 'helm-pydoc))
+             ((functionp 'jedi:show-doc)
+              (local-set-key (kbd "C-h d d") 'jedi:show-doc)
+              (local-set-key (kbd "M-.") 'jedi:goto-definition))
+             (t
+              (local-set-key (kbd "d") 'pydoc)
+              (local-set-key (kbd "M-.") 'xref-find-definitions))
+             )
+            ))
 
 
 ;;; [ IPython ]
