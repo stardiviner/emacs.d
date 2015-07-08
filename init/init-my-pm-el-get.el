@@ -467,6 +467,8 @@
          ;; yasnippet-rails
          ;; sass-mode haml-mode slim-mode
          ;; emacs-rails ; https://github.com/tomtt/emacs-rails
+         ;; Make
+         cmake-mode cmake-font-lock ; cmake-project
          ;; Arduino
          ;; arduino-mode
          ;; Android
