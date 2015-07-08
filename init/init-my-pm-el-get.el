@@ -289,6 +289,8 @@
          ;; cscope
          cscope rscope ; bscope ascope xcscope
          helm-cscope
+         ;; rtags
+         rtags
          gtags helm-gtags ggtags xgtags
          ;; code browser
          ;; sr-speedbar
