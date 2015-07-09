@@ -297,7 +297,7 @@
 
 
 
-;; (require 'init-my-prog-vcs-git-gutter)
+(require 'init-my-prog-vcs-git-gutter)
 
 
 
