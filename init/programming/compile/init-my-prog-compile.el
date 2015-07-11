@@ -63,6 +63,9 @@
 (require 'smart-compile+)
 
 
+(add-to-list 'smart-run-alist '("\\.py$" . "python %n"))
+(add-to-list 'smart-run-alist '("\\.rb$" . "ruby %n"))
+
 
 
 (global-set-key [f5] 'smart-compile)
