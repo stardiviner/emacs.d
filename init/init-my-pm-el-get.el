@@ -304,10 +304,9 @@
          ;; sourcemap -- https://github.com/syohex/emacs-sourcemap
          ;; vcs
          git-modes git-emacs ; git-status
-         magit ; magithub
+         magit
          magit-filenotify magit-gitflow
-         magit-gh-pulls
-         magit-gerrit
+         magit-gh-pulls magithub
          git-gutter git-gutter+ ; git-gutter-fringe
          ;; git-timemachine
          git-messenger
