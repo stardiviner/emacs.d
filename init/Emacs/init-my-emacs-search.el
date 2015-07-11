@@ -475,7 +475,7 @@
 
 
 
-(define-key my-search-prefix-map (kbd "s") 'ag-regexp)
+(define-key my-search-prefix-map (kbd "s") 'helm-ag) ; 'helm-ag. 'ag-regexp.
 
 
 (provide 'init-my-emacs-search)
