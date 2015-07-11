@@ -139,6 +139,35 @@
 ;; (setq magit-popup-use-prefix-argument 'disabled)
 
 
+
+;;; with-editor
+
+;; The commands with-editor-async-shell-command and with-editor-shell-command
+;; are intended as drop in replacements for async-shell-command and
+;; shell-command. They automatically export $EDITOR making sure the executed
+;; command uses the current Emacs instance as "the editor". With a prefix
+;; argument these commands prompt for an alternative environment variable such
+;; as $GIT_EDITOR.
+
+(define-key (current-global-map)
+  [remap async-shell-command] 'with-editor-async-shell-command)
+(define-key (current-global-map)
+  [remap shell-command] 'with-editor-shell-command)
+
+;; The command with-editor-export-editor exports $EDITOR or another such
+;; environment variable in shell-mode, term-mode and eshell-mode buffers. Use
+;; this Emacs command before executing a shell command which needs the editor
+;; set, or always arrange for the current Emacs instance to be used as editor by
+;; adding it to the appropriate mode hooks:
+
+(add-hook 'shell-mode-hook  'with-editor-export-editor)
+(add-hook 'term-mode-hook   'with-editor-export-editor)
+(add-hook 'eshell-mode-hook 'with-editor-export-editor)
+
+(add-hook 'shell-mode-hook
+          (apply-partially 'with-editor-export-editor "GIT_EDITOR"))
+(add-hook 'shell-mode-hook 'with-editor-export-git-editor)
+
 
 ;; status -- "s" for status.
 ;; [C-x v-] original is prefix for vc-.
