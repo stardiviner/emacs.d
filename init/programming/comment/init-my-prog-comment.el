@@ -159,7 +159,8 @@ This functions should be added to the hooks of major modes for programming."
 (if (featurep 'poporg)
     (progn
       (global-set-key (kbd "C-c '") 'poporg-dwim)
-      (define-key poporg-mode-map [remap save-buffer] 'poporg-edit-exit)
+      ;; (define-key my-prog-comment-map (kbd "'") 'poporg-dwim)
+      ;; (define-key poporg-mode-map [remap save-buffer] 'poporg-edit-exit)
       ))
 
 (set-face-attribute 'poporg-edited-face nil
