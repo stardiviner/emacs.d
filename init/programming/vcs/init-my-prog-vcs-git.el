@@ -33,6 +33,7 @@
 
 ;;; Usage:
 ;; - [M-x git-help] -- get help of git.el
+
 (require 'git)
 
 
@@ -46,8 +47,6 @@
 ;; - gitconfig-mode     -- .gitconfig
 ;; - gitignore-mode     -- .gitignore
 ;; - gitattributes-mode -- .gitattributes
-;; - git-commit-mode    -- git commit
-;; - git-rebase-mode    -- git rebase -i (git-rebase-todo files)
 ;;
 ;;; Keybindings:
 ;; - [C-x g] -- prefix for global git-emacs keybindings.
@@ -65,25 +64,26 @@
 
 (require 'git-emacs)
 
+;; git-modeline
 
-
-;;; git-status
+;;; Usage:
+;; (git--install-state-mark-modeline 'modified)
+;; (git--uninstall-state-mark-modeline)
+;; (git--update-all-state-marks)
 
-;; (setq git-status-modeline-decoration 'git-state-decoration-large-dot)
-
+;; (setq git-status-modeline-decoration 'git-state-decoration-small-dot)
 
 
 ;;; [ Magit ]
 
 ;; Usage:
+;;
 ;; - [M-x magit-status] -- put you in Magit's status buffer.
 ;;   - press [?] in `magit-status'. press [q] in [?]help to exit.
 ;; - (C-h m in the status buffer) -- Read the short help for magit-mode.
 ;; - [C-h f magit RET] -- get Magit help.
-
-(eval-after-load 'info
-  '(progn (info-initialize)
-          (add-to-list 'Info-directory-list "~/.emacs.d/el-get/magit/")))
+;; - info magit & magit-popup
+;; - [$] :: `magit-process-buffer' :: show git commands output.
 
 (require 'magit)
 
@@ -208,7 +208,7 @@
 
 ;; To always enable the mode when opening the magit-status buffer.
 ;; add magit-filenotify-mode to the magit-status-mode-hook.
-(add-hook 'magit-status-mode-hook 'magit-filenotify-mode)
+;;
 
 
 ;;; [ magit-workflow ] -- Git Flow plugin for magit
