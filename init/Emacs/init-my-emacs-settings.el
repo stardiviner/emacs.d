@@ -50,6 +50,9 @@
 
 ;;; [ session ]
 
+;;; save-desktop
+;;; save-place
+
 
 ;;; [ auto save ]
 ;; (auto-save-mode t)
@@ -83,10 +86,6 @@
       `(("." . ,(expand-file-name "~/.emacs.d/.backups")))
       ;; `((".*" . ,temporary-file-directory)) ; put all under directory /tmp.
       )
-
-
-;;; [ version control ] (vc)
-
 
 
 ;;; [ password ]

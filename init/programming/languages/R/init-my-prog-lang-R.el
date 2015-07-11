@@ -59,9 +59,6 @@
 (define-key my-inferior-ess-map (kbd "r") 'R)
 
 
-;;; TODO: startup start ESS process
-
-
 ;;; completing support
 
 ;; - `ess-company-backends' :: for company-mode.

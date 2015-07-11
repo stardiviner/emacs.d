@@ -129,6 +129,15 @@
 ;;; than ascope because it copes with multiple cscope databases (and hence
 ;;; spawns one cscope process per database once).
 
+;; - where is this variable used?
+;; - what is the value of this preprocessor symbol?
+;; - where is this function in the source files?
+;; - what functions call this function?
+;; - what functions are called by this function?
+;; - where does the message "out of space" come from?
+;; - where is this source file in the directory structure?
+;; - what files include this header file?
+
 ;;; Usage:
 ;;
 ;; - [C-c s] :: prefix.

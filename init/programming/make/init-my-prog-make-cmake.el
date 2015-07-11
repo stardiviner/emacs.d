@@ -3,7 +3,7 @@
 
 ;;; Commentary:
 
-
+;;; http://www.itk.org/Wiki/CMake/Editors/Emacs
 
 ;;; Code:
 

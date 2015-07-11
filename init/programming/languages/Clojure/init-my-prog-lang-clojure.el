@@ -212,6 +212,7 @@
 ;;; Usage:
 ;;
 ;; - [M-x inf-clojure] / [C-c C-z]
+;; - [M-j] :: new line in sexp.
 
 (require 'inf-clojure)
 

@@ -86,6 +86,10 @@
 ;;   (ess-company-backends . '(company-julia-objects))
 
 
+
+;;; TODO: startup start ESS process
+
+
 (provide 'init-my-prog-lang-ESS)
 
 ;;; init-my-prog-lang-ESS.el ends here

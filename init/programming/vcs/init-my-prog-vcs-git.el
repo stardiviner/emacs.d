@@ -209,6 +209,8 @@
           (apply-partially 'with-editor-export-editor "GIT_EDITOR"))
 (add-hook 'shell-mode-hook 'with-editor-export-git-editor)
 
+
+;;; Keybindings
 
 ;; status -- "s" for status.
 ;; [C-x v-] original is prefix for vc-.

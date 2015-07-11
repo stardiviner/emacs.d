@@ -97,6 +97,7 @@
 
 ;; Never forget to update the `auto-mode-alist'.
 
+;; (string= (web-mode-language-at-pos) "html")
 
 ;;;_. config
 (require 'web-mode)

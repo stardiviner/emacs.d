@@ -21,7 +21,11 @@
 
 (require 'vc)
 
+;; (setq vc-follow-symlinks 'ask)
+
+
 ;;; Git
+
 (require 'vc-git)
 
 
