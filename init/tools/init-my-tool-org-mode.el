@@ -2190,13 +2190,15 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;;
 ;; TODO: read https://github.com/gjkerns/ob-julia/blob/master/ob-julia-doc.org
 
-(my-el-get-require 'ob-julia)
-
 (setq inferior-julia-program-name "julia")
+
 ;; 1.
 ;; (load "~/.emacs.d/el-get/ob-julia/ob-julia.el")
 ;; 2.
-(add-to-list 'load-path "~/.emacs.d/el-get/ob-julia/ob-julia.el")
+;; (add-to-list 'load-path "~/.emacs.d/el-get/ob-julia/ob-julia.el")
+;; 3.
+(my-el-get-require 'ob-julia)
+
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((julia . t)))
