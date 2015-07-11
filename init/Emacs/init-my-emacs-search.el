@@ -282,9 +282,6 @@
     (define-key my-search-prefix-map (kbd "o") 'helm-occur)
   (define-key my-search-prefix-map (kbd "o") 'occur))
 
-(define-key my-search-prefix-map (kbd "M-s n") 'occur-next)
-(define-key my-search-prefix-map (kbd "M-s p") 'occur-prev)
-
 
 ;;; [ multi-occur ]
 
