@@ -54,7 +54,7 @@
       pdf-view-continuous t
       pdf-cache-image-limit 64
       pdf-cache-prefetch-delay 0.5
-      pdf-view-image-relief 5
+      pdf-view-image-relief 0
       pdf-view-bounding-box-margin 0.05
       ;; pdf-view-use-imagemagick nil
       pdf-view-use-scaling t
