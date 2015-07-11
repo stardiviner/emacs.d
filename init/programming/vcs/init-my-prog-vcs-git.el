@@ -114,6 +114,9 @@
 ;;
 ;; (add-to-list 'magit-no-confirm 'safe-with-wip)
 
+(define-key magit-status-mode-map (kbd "H") 'magit-blame-popup)
+(define-key my-prog-vcs-git-map (kbd "b") 'magit-blame-popup)
+(define-key my-prog-vcs-map (kbd "F") 'magit-log-buffer-file) ; show log for current buffer visiting file.
 
 (setq magit-diff-auto-show '(commit stage-all log-oneline log-select blame-follow)
       magit-diff-highlight-hunk-body t
