@@ -95,20 +95,50 @@
 ;; `magit-builtin-completing-read', `magit-ido-completing-read'
 ;; (setq magit-completing-read-function 'magit-builtin-completing-read)
 
-;; TODO change to open magit-status in current window instead of overriding other windows. [default: 'pop-to-buffer].
-(setq magit-status-buffer-switch-function 'pop-to-buffer)
+(setq magit-delete-by-moving-to-trash t)
 
-;; add an extra newline to separate commit message from git commentary
-(defun magit-commit-mode-init ()
-  (when (looking-at "\n")
-    (open-line 1)))
-(add-hook 'magit-commit-mode-hook 'magit-commit-mode-init)
-;; close popup when commiting
-(defadvice git-commit-commit (after delete-window activate)
-  (delete-window))
+;; auto refresh & revert
+(setq magit-revert-buffers 'usage)
 
-;; TODO add more common git action keybindings.
-;; "g" for Git
+;;; wip (work-in-process) modes
+;; - [M-x magit-wip-commit]
+;; NOTE: These modes are not enabled by default because of performance concerns.
+;;
+;; (setq magit-wip-after-save-mode t
+;;       magit-wip-after-apply-mode t
+;;       ;; magit-wip-after-save-local-mode-lighter
+;;       ;; magit-wip-after-apply-mode-lighter
+;;       ;; magit-wip-before-change-mode-lighter
+;;       magit-wip-namespace "refs/wip/"
+;;       )
+;;
+;; (add-to-list 'magit-no-confirm 'safe-with-wip)
+
+
+(setq magit-diff-auto-show '(commit stage-all log-oneline log-select blame-follow)
+      magit-diff-highlight-hunk-body t
+      magit-diff-highlight-indentation nil
+      magit-diff-highlight-trailing t
+      magit-diff-paint-whitespace t
+      magit-diff-refine-hunk 'all)
+
+
+;;; Magit Git
+
+;; (setq magit-git-global-arguments)
+
+
+;;; Magit Popup
+
+;; This option controls whether the section which lists the commands that are
+;; common to all popups is initially show. We recommend you set this to nil -
+;; after you have memorized that it can be shown on demand using [C-t].
+;;
+(setq magit-popup-show-common-commands nil) ; [C-t] to toggle
+
+;; (setq magit-popup-use-prefix-argument 'disabled)
+
+
 
 ;; status -- "s" for status.
 ;; [C-x v-] original is prefix for vc-.
