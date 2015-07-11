@@ -91,6 +91,9 @@
   (info-initialize)
   (add-to-list 'Info-directory-list "~/.emacs.d/el-get/magit/Documentation/"))
 
+;;; completion
+;; `magit-builtin-completing-read', `magit-ido-completing-read'
+;; (setq magit-completing-read-function 'magit-builtin-completing-read)
 
 ;; TODO change to open magit-status in current window instead of overriding other windows. [default: 'pop-to-buffer].
 (setq magit-status-buffer-switch-function 'pop-to-buffer)
