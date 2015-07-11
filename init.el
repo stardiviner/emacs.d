@@ -38,6 +38,19 @@
 (unless (server-running-p)
   (server-start))
 
+
+
+;; 1.
+(setq confirm-kill-emacs 'yes-or-no-p)
+
+;; 2.
+;; `save-buffers-kill-emacs'
+;; `save-buffers-kill-terminal'
+
+;; 3.
+;; (add-hook 'kill-emacs-query-functions
+;;           (lambda () (y-or-n-p "Do you really want to exit Emacs? "))
+;;           'append)
 
 
 ;;; :NOTE: some settings need to be set before required or loaded.
