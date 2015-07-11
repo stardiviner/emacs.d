@@ -1782,6 +1782,8 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
                :box '(:color "black" :line-width -1))
               ("Doing" :foreground "cyan" :weight bold
                :box '(:color "black" :line-width -1))
+              ("Later" :foreground "orange" :background "black" :weight bold
+               :box '(:color "dark red" :line-width -1))
               ("DONE" :foreground "black" :background nil :weight bold :strike-through t
                :box '(:color "black" :line-width -1))
               ("FAILED" :foreground "#444444" :background "orange" :weight bold :underline "dark red"
