@@ -408,6 +408,28 @@
 ;; (define-key 'my-prog-vcs-git-map (kbd "C-h") 'git-timemachine)
 
 
+;;; [ magit-gerrit ] -- code review tool Gerrit for Magit.
+
+;;; Usage:
+;;
+;; Workflow
+;;
+;;     - Check out branch, make changes, and commit...
+;;     - Gerrit Push Commit for Code Review => T P
+;;     - Gerrit Add Reviewer => T A (optional)
+;;     - Wait for code review and verification (approvals updated in magit-status)
+;;     - Gerrit Submit Review => T S
+
+
+;; (require 'magit-gerrit)
+;;
+;; ;; if remote url is not using the default gerrit port and
+;; ;; ssh scheme, need to manually set this variable
+;; (setq-default magit-gerrit-ssh-creds "myid@gerrithost.org")
+;;
+;; ;; if necessary, use an alternative remote instead of 'origin'
+;; (setq-default magit-gerrit-remote "gerrit")
+
 
 ;;; [ git-messenger ] -- popup commit message at current line.
 

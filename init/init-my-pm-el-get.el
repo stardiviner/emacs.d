@@ -307,6 +307,7 @@
          magit
          magit-filenotify magit-gitflow
          magit-gh-pulls magithub
+         ;; magit-gerrit
          git-gutter git-gutter+ ; git-gutter-fringe
          ;; git-timemachine
          git-messenger
