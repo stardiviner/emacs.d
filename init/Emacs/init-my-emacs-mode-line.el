@@ -39,252 +39,296 @@
 ;; (spinner-start 'triangle)
 
 
-(setq-default mode-line-format
-              (quote
-               (
-                ;; (:propertize "%e"
-                ;;              face (:foreground "red" :inverse-video nil))
+;;; Tips:
+;;
+;; - (:eval (propertize 'face '(:foreground "green")))
+;;
+;;   You need to quote those symbols because `:eval' will try to evaluate them.
+;;
+;; - [C-x C-e] :: evaluate the sexp which in (:eval ...), toggle `debug-on-error' to show errors.
 
-                ;; (:propertize " 暗月:> "
-                ;;              face (:foreground "#444444" :background "black")
-                ;;              help-echo "九州 ❯ 羽传说 ❯ 向异翅")
+(setq-default
+ mode-line-format
+ (quote
+  (
+   ;; (:propertize "%e"
+   ;;              face (:foreground "red" :inverse-video nil))
 
-                ;; (:propertize " ㊊㊛ "
-                ;;              face (:foreground "deep pink" :height 120)
-                ;;              help-echo "Female & Lesbian")
+   ;; (:propertize " 暗月:> "
+   ;;              face (:foreground "#444444" :background "black")
+   ;;              help-echo "九州 ❯ 羽传说 ❯ 向异翅")
 
-                ;; emacsclient indicator
-                (:propertize
-                 (:eval
-                  (if (frame-parameter nil 'client)
-                      "あ" ""))
-                 face (:foreground "#333333" :background "yellow1"
-                                   :weight 'bold
-                                   :height 120)
-                 help-echo "emacsclient frame")
-                
-                ;; window-number
-                (:propertize (:eval (concat "[" (number-to-string (window-number)) "]"))
-                             face (:foreground "red" :weight 'bold
-                                               ;; :box '(:color "green yellow")
-                                               ))
+   ;; (:propertize " ㊊㊛ "
+   ;;              face (:foreground "deep pink" :height 120)
+   ;;              help-echo "Female & Lesbian")
 
-                ;; anzu
-                (:propertize (:eval (anzu--update-mode-line))
-                             face (:foreground "cyan" :weight 'bold
-                                               :box '(:color "deep pink")))
-                
-                ;; multiple-cursors (mc/)
-                (:propertize (""
-                              (:eval
-                               (if (> (mc/num-cursors) 1)
-                                   mc/mode-line
-                                 ;; TODO: check out `format' & `propertize' function
-                                 ;; ("mc: "
-                                 ;;  (format #("%d" 0 2
-                                 ;;            (face font-lock-warning-face))
-                                 ;;          (mc/mc-cursors)))
-                                 ))
-                              "")
-                             face (:foreground "red" :background "black"))
+   ;; emacsclient indicator
+   (:eval (if (frame-parameter nil 'client)
+              (propertize "あ"
+                          'face '(:foreground "#333333" :background "yellow" :weight 'bold :height 120)
+                          'help-echo "emacsclient frame")))
+   
+   ;; window-number
+   (:propertize (:eval (concat "[" (number-to-string (window-number)) "]"))
+                face (:foreground "red" :weight 'bold
+                                  ))
 
-                ;; mule info
-                (:propertize mode-line-mule-info
-                             face (:foreground "dark gray"))   ; U:[*--]
-                
-                ;; Buffer status
-                ;; insert vs overwrite mode, input-method in a tool-tip ("Ovr", "Ins")
-                ;; (:propertize " {")
-                (:propertize (:eval (if overwrite-mode "♜, " ""))
-                             face (:foreground "yellow")
-                             help-echo (concat "Buffer is in "
-                                               (if overwrite-mode "overwrite" "insert")))
-                ;; was this buffer modified since the last save? ("☡" "Mod")
-                (:propertize (:eval (if (buffer-modified-p) "☡"))
-                             face (:foreground "orange")
-                             help-echo "Buffer has been modified")
-                ;; is this buffer read-only? ("RO")
-                (:propertize (:eval (when buffer-read-only ", ⚑"))
-                             face (:foreground "red")
-                             help-echo "Buffer is read-only!!!")
-                ;; (:propertize "} ")
+   ;; anzu
+   (:propertize (:eval (anzu--update-mode-line))
+                face (:foreground "cyan" :weight 'bold
+                                  :box '(:color "deep pink")))
+   
+   ;; multiple-cursors (mc/)
+   (:eval (if (and 'mc/fake-cursor-p (> (mc/num-cursors) 1)) ; (if 'mc/fake-cursor-p ...)
+              (propertize (format "[%d]" (mc/num-cursors)) ; `mc/mode-line'
+                          'face '(:foreground "firebrick" :background "black")
+                          'help-echo "multiple-cursors")))
 
-                ;; TODO: remote buffer? `default-directory'
-                ;; (:propertize
-                ;;  (:eval
-                ;;   (if mode-line-remote
-                ;;       "#" ""))
-                ;;  face (:foreground "#333333" :background "yellow1"
-                ;;                    :weight 'bold
-                ;;                    :height 100)
-                ;;  help-echo "remote buffer")
+   ;; mule info
+   (:propertize mode-line-mule-info
+                face (:foreground "dark gray"))   ; U:[*--]
+   
+   ;; Buffer status
+   (:eval
+    (cond
+     (buffer-read-only
+      (propertize " ⚑ "
+                  'face '(:foreground "red" :weight 'bold)
+                  'help-echo "buffer is read-only!!!"))
+     ;; (overwrite-mode
+     ;;  (propertize "??"))
+     ((buffer-modified-p)
+      (propertize " ☡ "
+                  'face '(:foreground "orange")
+                  'help-echo "buffer modified."))
+     ;; FIXME:
+     ;; (mode-line-remote
+     ;;  (propertize " R "
+     ;;              'face '(:foreground "dark red")
+     ;;              'help-echo "remote buffer")
+     ;;  )
+     ))
 
-                ;; rbenv & rvm
-                ;; TODO: if ruby env not available, then don't show this indicator.
-                (:propertize " ("
-                             face (:foreground "#444444"))
-                (:propertize "Ruby: "
-                             face (:family "Segoe Print"
-                                           :height 80
-                                           :foreground "red2"))
+   ;; eldoc
+   ;; `eldoc-show-in-mode-line'
+   ;; FIXME:
+   ;; (:eval (unless eldoc-mode-line-string
+   ;;          (propertize eldoc-mode-line-string
+   ;;                      ;; 'face '(:foreground "cyan")
+   ;;                      )))
+   
+   ;; rbenv & rvm
+   (:eval
+    (if (memq (buffer-local-value 'major-mode (current-buffer))
+              '(ruby-mode enh-ruby-mode))
+        (progn
+          (list
+           (propertize " ("
+                       'face '(:foreground "#444444"))
+           (propertize "Ruby: "
+                       'face '(:family "Segoe Print"
+                                       :height 80
+                                       :foreground "red2"))
+           (propertize (rbenv--active-ruby-version) ; `rbenv--modestring'
+                       'face '(:foreground "cyan" :height 70)
+                       'help-echo '(concat "\nCurrent Ruby version: " (rbenv--active-ruby-version)
+                                           "\nmouse-1: switch Ruby version menu")
+                       ;; TODO: 'local-map
+                       )
+           (propertize ")"
+                       'face '(:foreground "#444444"))
+           )
+          )
+      ))
+   
 
-                ;; `rbenv--modestring'
-                (:propertize (:eval (rbenv--active-ruby-version))
-                             face (:foreground "cyan"
-                                               :family "DejaVu Sans Mono"
-                                               :height 70)
-                             help-echo "rbenv active ruby version")
+   ;; pyvenv `pyvenv-mode-line-indicator' -> `pyvenv-virtual-env-name'
+   (:eval
+    (if (memq (buffer-local-value 'major-mode (current-buffer))
+              '(python-mode))
+        (progn
+          (list
+           (propertize pyvenv-virtual-env-name ; FIXME:
+                       'face '(:foreground "orange" :height 70))))
+      ;; (propertize "Not Python"
+      ;;             'face '(:foreground "orange"))
+      ))
+   
+   ;; VCS - Git, SVN, CVS,
+   
+   ;; branch
+   (:eval
+    (if (vc-mode vc-mode)
+        (progn
+          (list
+           (propertize " ⭠"
+                       'face '(:foreground "sky blue"))
+           (propertize vc-mode
+                       'face '(:foreground "dodger blue" :weight 'bold :height 80)
+                       'mouse-face '(:foreground "cyan" :weight 'bold :height 100)
+                       ;; 'help-echo '(concat )
+                       ;; TODO: check out `magit-refresh-vc-mode-line'
+                       ;; 'help-echo '(concat "\nCurrent revision: " (symbol-function #'vc-working-revision)
+                       ;;                     "\nMagit   revision: " (magit-rev-parse "--short" "HEAD")
+                       ;;                     "\nmouse-1: Version Control menu")
+                       ;; 'local-map 'vc-mode-line-map
+                       'local-map '(keymap
+                                    (mode-line keymap
+                                               (down-mouse-1 menu-item "Version Control" vc-menu-map :filter vc-menu-map-filter)))
 
-                (:propertize ")"
-                             face (:foreground "#444444"))
+                       ;; (mouse-face mode-line-highlight local-map
+                       ;;             (keymap
+                       ;;              (mode-line keymap
+                       ;;                         (down-mouse-1 menu-item "Version Control" vc-menu-map :filter vc-menu-map-filter)))
+                       ;;             face vc-edited-state help-echo "Locally modified file under the Git version control system\nCurrent revision: develop\nmouse-1: Version Control menu")
+                       )
+           )
+          )
+      ))
 
-                
-                ;; VCS - Git, SVN, CVS,
+   ;; TODO: git repo file status
+   ;; - added :: ✚
+   ;; - modified :: ∓
+   ;; - deleted :: ✖
+   ;; - renamed :: ➜
+   ;; - unmerged :: ⭠ ⌥
+   ;; - untracked :: ⚡
+   ;; - branch :: ⭠
+   ;;
+   ;; (vc-mode (:eval (propertize vc-mode
+   ;;                             'face (pcase (vc-state buffer-file-truename)
+   ;;                                     (`up-to-date '(:foreground "green"))
+   ;;                                     (`edited nil)
+   ;;                                     (_ '(:foreground "red"))))))
+   ;;
+   ;; (vc-mode (:eval (propertize vc-mode 'face
+   ;;   (pcase (vc-state buffer-file-truename)
+   ;;     (`up-to-date 'mode-line-important)
+   ;;     (`edited                      nil)
+   ;;     (_             'mode-line-warning)))))
 
-                ;; vc indicator
-                ;; (:propertize (unless (null vc-mode) "⭠") ; FIXME: indicator enable also in non-git buffer.
-                ;;              face (:foreground "cyan"
-                ;;                                :weight 'bold
-                ;;                                :height 90
-                ;;                                )
-                ;;              help-echo (vc-mode vc-mode))
+   ;; FIXME:
+   ;; git state mark (from `git-emacs')
+   ;; (:propertize (:eval (git--state-mark-modeline)))
+   ;;
+   ;;                 (:propertize (:eval
+   ;;                               (git--state-mark-modeline
+   ;;                                #("    " 0 4
+   ;;                                  (display
+   ;;                                   (image :type xpm
+   ;;                                          :data
+   ;;                                          "/* XPM */
+   ;; static char * data[] = {
+   ;; \"14 7 3 1\",
+   ;; \" 	c None\",
+   ;; \"+	c #202020\",
+   ;; \".	c %s\",
+   ;; \"      +++     \",
+   ;; \"     +...+    \",
+   ;; \"    +.....+   \",
+   ;; \"    +.....+   \",
+   ;; \"    +.....+   \",
+   ;; \"     +...+    \",
+   ;; \"      +++     \"};"
+   ;;                                          :ascent center)
+   ;;                                   ;; FIXME: help-echo (git--state-mark-tooltip stat)
+   ;;                                   )))))
+   
 
-                ;; branch
-                (:propertize (vc-mode vc-mode)
-                             face (:foreground "dodger blue"
-                                               :weight 'bold
-                                               :height 80)
-                             help-echo (vc-mode vc-mode))
+   ;; the buffer name; the filename as a tool tip
+   ;; mode-line-client
+   ;; mode-line-remote
+   ;; mode-line-frame-identification
+   ;; mode-line-buffer-identification
+   (:propertize " ["
+                face (:foreground "cyan"))
+   (:propertize "%b"
+                face (:foreground "white"
+                                  :height 75)
+                help-echo (buffer-file-name))
+   (:propertize "]"
+                face (:foreground "cyan"))
 
-                ;; TODO: git repo file status
+   ;; process
+   (:eval
+    (if mode-line-process
+        (progn
+          (list
+           (propertize "  ◌"
+                       'face '(:foreground "cyan" :weight 'bold :height 120)
+                       'help-echo "buffer-process")
+           ;; (propertize mode-line-process ; FIXME: this does not work, it is a symbol.
+           ;;             'face '(:foreground "tomato")
+           ;;             'help-echo "buffer-process")
+           )
+          )
+      ))
 
-                ;; - added :: ✚
-                ;; - modified :: ∓
-                ;; - deleted :: ✖
-                ;; - renamed :: ➜
-                ;; - unmerged :: ⭠ ⌥
-                ;; - untracked :: ⚡
-                ;; - branch :: ⭠
+   ;; (:propertize (:eval (if mode-line-process "  ◌"))
+   ;;              face (:foreground "cyan"))
+   ;; (:propertize (:eval (if mode-line-process mode-line-process))
+   ;;              face (:foreground "tomato"))
+   
 
-                
-                ;; (vc-mode (:eval (propertize vc-mode
-                ;;                             'face (pcase (vc-state buffer-file-truename)
-                ;;                                     (`up-to-date '(:foreground "green"))
-                ;;                                     (`edited nil)
-                ;;                                     (_ '(:foreground "red"))))))
+   ;; notifications
+   ;; ERC
+   ;; TODO [#e,i]
 
-                ;; (vc-mode (:eval (propertize vc-mode 'face
-                ;;   (pcase (vc-state buffer-file-truename)
-                ;;     (`up-to-date 'mode-line-important)
-                ;;     (`edited                      nil)
-                ;;     (_             'mode-line-warning)))))
+   ;; mmm-mode
+   ;; FIXME:
+   ;; (:propertize (:eval (mmm-format-string))
 
-                ;; FIXME:
-                ;; git state mark (from `git-emacs')
-                ;; (:propertize (:eval (git--state-mark-modeline)))
+   ;; ;; the major mode of the current buffer.
+   ;; (:propertize " 〖"
+   ;;              face (:foreground "orange red"))
+   ;; (:propertize "%m"
+   ;;              face (:foreground "green yellow"
+   ;;                                :family "Comic Sans MS" :weight 'bold ; :height 100
+   ;;                                )
+   ;;              ;; FIXME:
+   ;;              help-echo (minor-mode-alist)
+   ;;              )
+   ;; ;; ;; list of minor modes
+   ;; ;; (:propertize "|")
+   ;; ;; (:propertize minor-mode-alist
+   ;; ;;              face (:foreground "dim gray"))
+   ;; (:propertize "〗 "
+   ;;              face (:foreground "orange"))
 
-                ;;                 (:propertize (:eval
-                ;;                               (git--state-mark-modeline
-                ;;                                #("    " 0 4
-                ;;                                  (display
-                ;;                                   (image :type xpm
-                ;;                                          :data
-                ;;                                          "/* XPM */
-                ;; static char * data[] = {
-                ;; \"14 7 3 1\",
-                ;; \" 	c None\",
-                ;; \"+	c #202020\",
-                ;; \".	c %s\",
-                ;; \"      +++     \",
-                ;; \"     +...+    \",
-                ;; \"    +.....+   \",
-                ;; \"    +.....+   \",
-                ;; \"    +.....+   \",
-                ;; \"     +...+    \",
-                ;; \"      +++     \"};"
-                ;;                                          :ascent center)
-                ;;                                   ;; FIXME: help-echo (git--state-mark-tooltip stat)
-                ;;                                   )))))
-                
+   ;; --------------------------- right align ----------------------------------
+   
+   ;; Email
 
-                ;; the buffer name; the filename as a tool tip
-                ;; mode-line-client
-                ;; mode-line-remote
-                ;; mode-line-frame-identification
-                ;; mode-line-buffer-identification
-                (:propertize " ["
-                             face (:foreground "cyan"))
-                (:propertize "%b"
-                             face (:foreground "white"
-                                               :height 75)
-                             help-echo (buffer-file-name))
-                (:propertize "]"
-                             face (:foreground "cyan"))
+   ;; newsticker RSS new feeds.
+   ;; (:propertize (:eval (let ((unread (or (newsticker--stat-num-items-total 'new) 0)))
+   ;;                       (when (> unread 0)
+   ;;                         (format "RSS: %d" unread)
+   ;;                         )))
+   ;;              face (:foreground "green")
+   ;;              help-echo (format "You have %d unread RSS items! [C-c r]" unread)
+   ;;              mouse-face 'mode-line-highlight)
 
-                ;; process
-                (:propertize (:eval (if mode-line-process "  ◌"))
-                             face (:foreground "cyan"))
-                (:propertize (:eval (if mode-line-process mode-line-process))
-                             face (:foreground "tomato"))
-                
+   ;; ;; add the time, with the date and the emacs uptime in the tool-tip
+   ;; (:propertize (:eval (format-time-string "%H:%M"))
+   ;;              face (:foreground "white")
+   ;;              help-echo (concat (format-time-string "%c; ")
+   ;;                                (emacs-uptime "Uptime: %D, %z%2h:%.2m")))
+   
+   ;; fill with ' '.
+   ;; (:propertize "% ")
 
-                ;; notifications
-                ;; ERC
-                ;; TODO [#e,i]
+   ;; Org-mode clock
+   ;; TODO: change into (:eval ...)
+   (:eval
+    (if '(t org-mode-line-string) ; FIXME:
+        (propertize (t org-mode-line-string)
+                    'face '(:foreground "cyan" :weight 'bold)
+                    'help-echo "Org-mode clock"))
+    )
 
-                ;;; mmm-mode
-                ;; TODO
-                ;; (:propertize (:eval (mmm-format-string))
-
-                ;; ;; the major mode of the current buffer.
-                ;; (:propertize " 〖"
-                ;;              face (:foreground "orange red"))
-                ;; (:propertize "%m"
-                ;;              face (:foreground "green yellow"
-                ;;                                :family "Comic Sans MS" :weight 'bold ; :height 100
-                ;;                                )
-                ;;              ;; FIXME:
-                ;;              help-echo (minor-mode-alist)
-                ;;              )
-                ;; ;; ;; list of minor modes
-                ;; ;; (:propertize "|")
-                ;; ;; (:propertize minor-mode-alist
-                ;; ;;              face (:foreground "dim gray"))
-                ;; (:propertize "〗 "
-                ;;              face (:foreground "orange"))
-
-                ;; --------------------------- right align ----------------------------------
-                
-                ;; Email
-
-                ;; newsticker RSS new feeds.
-                ;; (:propertize (:eval (let ((unread (or (newsticker--stat-num-items-total 'new) 0)))
-                ;;                       (when (> unread 0)
-                ;;                         (format "RSS: %d" unread)
-                ;;                         )))
-                ;;              face (:foreground "green")
-                ;;              help-echo (format "You have %d unread RSS items! [C-c r]" unread)
-                ;;              mouse-face 'mode-line-highlight)
-
-                ;; ;; add the time, with the date and the emacs uptime in the tool-tip
-                ;; (:propertize (:eval (format-time-string "%H:%M"))
-                ;;              face (:foreground "white")
-                ;;              help-echo (concat (format-time-string "%c; ")
-                ;;                                (emacs-uptime "Uptime: %D, %z%2h:%.2m")))
-                
-                ;; fill with ' '.
-                ;; (:propertize "% ")
-
-                ;; Org-mode clock
-                (:propertize
-                 (t org-mode-line-string)
-                 ;; (t org-mode-line-string org-timer-mode-line-string)
-                 face (:foreground "cyan" :weight 'bold)
-                 )
-
-                (:propertize mode-line-end-spaces)
-
-                )))
+   
+   (:propertize mode-line-end-spaces)
+   )))
 
 ;; update org-clock timer in mode-line after `org-clock-out-hook'.
 ;; fix org-clock timer does not disappear after clock out.
@@ -309,7 +353,7 @@
                           face (:foreground "white" :weight 'bold))
 
             ;; nyan-mode
-            ;; '(:eval (list (nyan-create)))
+            '(:eval (when nyan-mode (list (nyan-create))))
 
             ;; FIXME: spinner
             ;; Let spinner support to be used in custom mode-line as a function.
@@ -516,18 +560,22 @@
 ;;; 2. darker style
 (set-face-attribute 'mode-line nil
                     :inverse-video nil
-                    :foreground "white" :background (color-darken-name (face-background 'default) 3)
+                    :foreground "white"
+                    ;; :background (color-darken-name (face-background 'default) 3)
+                    :background "#333333"
+                    :box '(:color "tomato" :line-width 1 :style nil)
                     ;; :box '(:color "slate blue" :line-width 1 :style nil)
-                    :box '(:color "forest green" :line-width 1 :style nil)
+                    ;; :box '(:color "forest green" :line-width 1 :style nil)
                     :family "DejaVu Sans Mono"
-                    :height 90
+                    :height 100
                     )
 (set-face-attribute 'mode-line-inactive nil
                     :inverse-video nil
-                    :foreground "#444444" :background (color-darken-name (face-background 'default) 3)
+                    :foreground "#222222"
+                    :background (color-darken-name (face-background 'default) 3)
                     :family "DejaVu Sans Mono"
-                    :box '(:color "black" :line-width -1 :style nil)
-                    :height 90
+                    :box '(:color "black" :line-width 1 :style nil)
+                    :height 100
                     )
 
 
