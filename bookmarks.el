@@ -2,7 +2,17 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Emacs Lisp"
+(("Java Programming Language"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Java/Java.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("PHP Programming Language"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/PHP/PHP.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Emacs Lisp"
  (filename . "~/Org/Wiki/Computer/Programming/Emacs/Emacs Lisp/Emacs Lisp.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
@@ -202,7 +212,7 @@
  (front-context-string . "* Intro\n\n** Intr")
  (rear-context-string)
  (position . 1))
-("Ruby language"
+("Ruby Programming Language"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Ruby.org")
  (front-context-string . "* Intro\n\n[[file:")
  (rear-context-string)
