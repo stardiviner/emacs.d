@@ -800,10 +800,10 @@ Will work on both `org-mode' and any mode that accepts plain html."
 
 (setq org-file-apps
       '(;; default
-        (auto-mode . emacs)
-        ("\\.mm\\'" . default)
-        ;; ("\\.x?html?\\'" . default)
-        ("\.x?html\'" . "firefox %s")
+        ;; (auto-mode . emacs)
+        ;; Web Pages
+        ("\.x?html\'" . default)
+        ("\(?:xhtml\|html\)" . "firefox %s")
         ;; PDF
         ("\\.pdf\\'" . auto-mode)
         ("\\.pdf::\\([[:digit:]]+\\)\\'" . auto-mode)
@@ -813,7 +813,11 @@ Will work on both `org-mode' and any mode that accepts plain html."
         ;; CHM
         ("\\.chm\\'" . "kchmviewer %s")
         ;; EPUB
-        ("\\.epub" . "ebook-viewer %s")
+        ("\\.epub\\'" . "ebook-viewer %s")
+        ;; AZW3
+        ("\\.azw3\\'" . "ebook-viewer %s")
+        ;; mobi
+        ("\\.mobi\\'" . "ebook-viewer %s")
         ;; Image
         ("\\.png\\'" . "sxiv %s")
         ("\\.jpg\\'" . "sxiv %s")
