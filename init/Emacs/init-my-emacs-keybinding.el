@@ -83,16 +83,22 @@
 ;;;   is no interference with `describe-key' and `describe-bindings'.
 
 ;;; Usage:
-;;; - Just like [C-x r ] + [C-h] ::
-;;;        to show a list of key bindings which start with [C-x r].
-;;; - When you press these prefix keys, key bindings are automatically popped up after a short delay (1 second by default).
-;;; - [any key sequence prefix] ::
+;; - Just like [C-x r ] + [C-h] ::
+;;        to show a list of key bindings which start with [C-x r].
+;;
+;; - When you press these prefix keys, key bindings are automatically popped up
+;;   after a short delay (1 second by default).
+;;
+;; - [any key sequence prefix] ::
 
 (require 'guide-key)
 
 (setq guide-key/idle-delay 1.0 ; longer time can delay guide-key popup to speed up Emacs.
       guide-key/idle-timer nil ; Idle timer to wait before popping up guide buffer.
-      guide-key/recursive-key-sequence-flag t ; guide-key checks an input key sequence recursively. the guide buffer is popped up when you input “C-x r”, “C-x 8” and any other prefixes following “C-x”.
+      ;; guide-key checks an input key sequence recursively. the guide buffer is
+      ;; popped up when you input “C-x r”, “C-x 8” and any other prefixes
+      ;; following “C-x”.
+      guide-key/recursive-key-sequence-flag t
       )
 
 ;;; In respect of guide-key/guide-key-sequence, you can add mode specific key
@@ -119,7 +125,7 @@
         "C-c e"                         ; edit (multiple-cursor, narrow, ...)
         "C-c r"                         ; regexp prefix map
         "C-c s"                         ; visual-regexp-map
-        "C-c l"                         ; tags lookup
+        "C-c l"                         ; lookup
         (dired-mode "C-h"
                     "*" ":" "%"
                     "T" "T >" "T m" "T u"
