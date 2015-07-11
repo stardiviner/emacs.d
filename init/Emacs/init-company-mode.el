@@ -136,15 +136,7 @@
 
 (add-hook 'after-init-hook 'global-company-mode)
 (diminish 'company-mode)
-;;
-;;; To use company-mode in all buffers, add the following line to your init file:
-;; (unless (featurep 'auto-complete)
-;;   (message "auto-complete isn't enabled, active company-mode instead.")
-;;   (add-hook 'after-init-hook 'global-company-mode)
-;;   (after 'global-company-mode
-;;     (diminish 'company-mode))
-;;   )
-;;
+
 ;;; or enabled only in specific modes
 ;; (dolist (hook '(emacs-lisp-mode-hook
 ;;                 lisp-mode-hook
