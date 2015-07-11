@@ -279,7 +279,16 @@
                                               ("netscape" . browse-url-netscape) ; netscape
                                               ("xmosaic" . browse-url-mosaic)
                                               ("xterm" . browse-url-text-xterm) ; XTerm
-                                              ))
+                                              )
+      helm-default-external-file-browser "dolphin"
+      ;; helm-c-default-external-file-browser
+      helm-external-programs-associations '(("jpg" . "sxiv")
+                                            ("png" . "sxiv")
+                                            ("gif" . "gwenview")
+                                            ("pdf" . "okular")
+                                            ("chm" . "kchmviewer")
+                                            ("epub" . "ebook-viewer"))
+      )
 
 (when (executable-find "curl")
   (setq helm-google-suggest-use-curl-p t
