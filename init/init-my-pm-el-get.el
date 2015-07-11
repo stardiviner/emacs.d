@@ -105,7 +105,7 @@
          ;; emacs-powerline
          ;; highlight-cl highlight-fns highlight-defined
          ;; highlight-sexp highlight-blocks
-         highlight-quoted highlight-stages
+         highlight-quoted ; highlight-stages
          highlight-escape-sequences ; highlight-numbers highlight-parentheses
          ;; cursor-chg col-highlight
          ;; yascroll
