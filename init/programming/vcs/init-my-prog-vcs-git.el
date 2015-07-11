@@ -87,21 +87,10 @@
 
 (require 'magit)
 
-(autoload 'magit-status "magit" nil t)
+(with-eval-after-load 'info
+  (info-initialize)
+  (add-to-list 'Info-directory-list "~/.emacs.d/el-get/magit/Documentation/"))
 
-(setq magit-stage-all-confirm t
-      ;; Before running Git, Magit by default reverts all unmodified buffers
-      ;; that visit files tracked in the current repository.  This can
-      ;; potentially lead to data loss, so you might want to disable this by
-      ;; adding the following line to your init file:
-      magit-auto-revert-mode nil
-      magit-use-overlays t
-      magit-diff-context-lines 7
-      magit-diff-refine-hunk 'all
-      magit-status-buffer-switch-function 'pop-to-buffer-same-window ; open magit status buffer in current window.
-      ;; diff
-      ;; FIXME: magit-diff-options "-w" ; -w or -b to ignore whitespace in diff, for ignore whitespace in vertical aligned code change.
-      )
 
 ;; TODO change to open magit-status in current window instead of overriding other windows. [default: 'pop-to-buffer].
 (setq magit-status-buffer-switch-function 'pop-to-buffer)
