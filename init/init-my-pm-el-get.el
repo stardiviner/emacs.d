@@ -159,8 +159,7 @@
          ;; kill-ring-ido
          ;; predictive
          ;; spell
-         ;; flyspell flyguess ; flyspell-guess inflections
-         ;; auto-dictionnary
+         flyspell flyspell-popup
          ;; dictionary & translation
          define-word
          ;; babel

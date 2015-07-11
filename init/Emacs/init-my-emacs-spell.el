@@ -144,6 +144,15 @@
 (define-key my-spell-prefix-map (kbd "c") 'ispell-word) ; default keybinding [M-$].
 
 
+;;; [ flyspell-popup ] -- Correct the misspelled word with flyspell in popup menu.
+
+;;; Usage:
+;;
+;; `flyspell-popup-correct'
+
+(define-key flyspell-mode-map (kbd "C-;") #'flyspell-popup-correct)
+
+
 ;;; [ flyguess ] -- guess language/dictionary for a buffer
 
 ;; (require 'flyguess)
