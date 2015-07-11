@@ -121,10 +121,9 @@
 ;; status -- "s" for status.
 ;; [C-x v-] original is prefix for vc-.
 (define-key my-prog-vcs-map (kbd "v") 'magit-status)
-(define-key my-prog-vcs-git-map (kbd "s") 'magit-status)
+(define-key my-prog-vcs-git-map (kbd "v") 'magit-status)
 ;; add to stage -- "s"
-;; FIXME this stage item, but can not stage file in current buffer.
-;; (define-key my-prog-vcs-git-map (kbd "a") 'magit-stage-item)
+(define-key my-prog-vcs-git-map (kbd "s") 'magit-stage)
 ;; commit -- "c"
 (define-key my-prog-vcs-git-map (kbd "c") 'magit-commit)
 ;; diff - "d"
