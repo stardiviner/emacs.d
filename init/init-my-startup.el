@@ -117,6 +117,11 @@
 ;; (add-hook 'emacs-startup-hook 'mu4e)
 
 
+;;; Temporary solution for disable auto-complete
+
+(global-auto-complete-mode -1)
+
+
 
 (provide 'init-my-startup)
 
