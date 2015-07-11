@@ -151,6 +151,7 @@
 ;;     (eww (helm-get-selection))))
 
 (define-key my-prog-help-document-map (kbd "C-d") 'helm-dash-at-point)
+(define-key my-prog-help-document-map (kbd "M-d") 'helm-dash)
 
 ;;; show short doc of helm-dash entry in `helm-M-x' persistent action.
 ;;
