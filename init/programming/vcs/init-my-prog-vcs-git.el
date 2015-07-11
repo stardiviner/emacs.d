@@ -139,6 +139,47 @@
 ;; (setq magit-popup-use-prefix-argument 'disabled)
 
 
+;;; Magit Faces
+
+;; file
+(set-face-attribute 'magit-diff-file-heading nil
+                    :weight 'normal)
+(set-face-attribute 'magit-diff-file-heading-highlight nil ; current diff file headings.
+                    :weight 'normal)
+(set-face-attribute 'magit-diff-file-heading-selection nil ; current select region
+                    :weight 'normal)
+
+;; section
+(set-face-attribute 'magit-section-heading nil
+                    :foreground "sky blue" :background "#222222"
+                    :box '(:color "cyan" :line-width 1)
+                    :weight 'bold)
+(set-face-attribute 'magit-section-highlight nil ; current section (current selected thing)
+                    :background (color-darken-name (face-background 'default) 3)
+                    ;; :box '(:color "black" :line-width -1)
+                    )
+
+;; branch
+(set-face-attribute 'magit-branch-local nil
+                    :foreground "#8BEEFF" :background "#1B8194"
+                    :box '(:color "#8BEEFF" :line-width -1)
+                    :weight 'normal)
+(set-face-attribute 'magit-branch-remote nil
+                    :foreground "deep pink" :background "dark red"
+                    :box '(:color "deep pink" :line-width -1)
+                    :weight 'normal)
+
+;; hash
+(set-face-attribute 'magit-hash nil
+                    :foreground "orange")
+
+;; signature
+(set-face-attribute 'magit-signature-untrusted nil
+                    :foreground "dark green")
+
+;; diff colors
+
+
 
 ;;; with-editor
 
