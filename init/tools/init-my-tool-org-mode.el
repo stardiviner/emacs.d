@@ -3236,9 +3236,9 @@ This function will promote all items in a subtree."
 ;; (define-key my-org-trello-map (kbd "h") 'org-trello/help-describing-bindings)
 
 
-(unless (boundp 'org-password-prefix)
-  (define-prefix-command 'org-password-prefix))
-(define-key my-org-prefix-map (kbd "P") 'org-password-prefix)
+(unless (boundp 'my-org-password-prefix)
+  (define-prefix-command 'my-org-password-prefix))
+(define-key my-org-prefix-map (kbd "P") 'my-org-password-prefix)
 
 
 ;;; [ org-passwords ]
@@ -3294,7 +3294,6 @@ This function will promote all items in a subtree."
       (vr/isearch-forward)
     (isearch-forward-regexp)))
 
-;; (define-key my-org-prefix-map (kbd "P") 'org-passwords)
 (define-key my-org-prefix-map (kbd "P") 'my-org-passwords-search)
 
 
@@ -3308,9 +3307,14 @@ This function will promote all items in a subtree."
 
 (require 'org-password-manager)
 
-(add-hook 'org-mode-hook 'org-password-manager-key-bindings)
+;; (add-hook 'org-mode-hook 'org-password-manager-key-bindings)
 
 ;; (setq org-password-manager-default-pwgen-command "pwgen --secure --symbols --capitalize --numerals 25 1")
+
+(define-key my-org-password-prefix (kbd "u") 'org-password-manager-get-username)
+(define-key my-org-password-prefix (kbd "p") 'org-password-manager-get-password)
+(define-key my-org-password-prefix (kbd "s") 'org-password-manager-get-property)
+(define-key my-org-password-prefix (kbd "g") 'org-password-manager-generate-password)
 
 
 
