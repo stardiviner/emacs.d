@@ -310,6 +310,7 @@
          magit-gerrit
          git-gutter git-gutter+ ; git-gutter-fringe
          ;; git-timemachine
+         git-messenger
          ;; egg
          mo-git-blame
          diffview
