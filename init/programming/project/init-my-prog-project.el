@@ -129,6 +129,14 @@
 (if (featurep 'helm)
     (global-set-key (kbd "C-c p h") 'helm-projectile))
 
+(setq helm-for-files-preferred-list
+      (append
+       '(helm-source-projectile-files-list
+         helm-source-projectile-recentf-list
+         helm-source-projectile-directories-list
+         helm-source-projectile-projects)
+       helm-for-files-preferred-list))
+
 ;; You can use `helm-ag' with `projectile' by following command.
 (defun projectile-helm-ag ()
   (interactive)

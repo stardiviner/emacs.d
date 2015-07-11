@@ -298,6 +298,20 @@
         ;; helm-google-suggest-url "http://google.com/complete/search?output=toolbar&q="
         ))
 
+;; `helm-for-files' :: your preferred sources to find files.
+;; FIXME: (define-key ??? (kbd "C-c C-j") 'helm-for-files)
+;; (setq helm-for-files-preferred-list
+;;       '(helm-source-buffers-list
+;;         helm-source-recentf
+;;         helm-source-bookmarks
+;;         helm-source-file-cache
+;;         helm-source-files-in-current-dir
+;;         helm-source-locate)
+;;       )
+(setq helm-for-files-preferred-list
+      (append
+       '(helm-source-moccur)
+       helm-for-files-preferred-list))
 
 (add-to-list 'helm-sources-using-default-as-input 'helm-source-man-pages)
 
