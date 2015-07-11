@@ -159,6 +159,18 @@
 (define-key markdown-mode-map (kbd "C-c C-k") 'markdown-preview-mode)
 
 
+;;; [ realtime-preview ] -- realtime preview markdown by EWW.
+
+;;; Usage:
+;;
+;; 1. open markdown file
+;; 2. [M-x realtime-preview]
+
+(require 'realtime-preview)
+
+(add-hook 'markdown-mode-hook 'realtime-preview)
+
+
 
 (provide 'init-my-prog-lang-markdown)
 

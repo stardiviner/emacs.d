@@ -421,7 +421,7 @@
          ;; JSON
          json-mode json-reformat json-snatcher
          ;; Markdown
-         markdown-mode markdown-preview-mode
+         markdown-mode markdown-preview-mode realtime-preview
          ;; YAML
          yaml-mode
          ;; TeX
