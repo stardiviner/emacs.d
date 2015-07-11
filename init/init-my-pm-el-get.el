@@ -257,6 +257,7 @@
          ;; completion & comprehension
          ;; emacs-ycmd
          ;; code sense
+         ;; cedet
          sourcegraph ; sourcegraph-mode
          ;; lint
          flycheck
