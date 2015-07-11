@@ -467,6 +467,11 @@
 (push '(compilation-mode :position bottom :height 15) popwin:special-display-config)
 ;; (push '("*compilation*" :position bottom :height 15) popwin:special-display-config)
 
+;;; Tags
+;; cscope
+;; ascope
+(push '(ascope-list-entry-mode :position bottom :height 15) popwin:special-display-config)
+
 ;;; Git
 ;;; git-modes
 (push '("\\*git-" :regexp t :position top) popwin:special-display-config)
@@ -543,7 +548,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (push '(ack-and-a-half-mode :position bottom :height 15) popwin:special-display-config)
 
 ;; ag
-(push '(ag-mode :position bottom :height 15) popwin:special-display-config)
+(push '(ag-mode :position bottom :height 20) popwin:special-display-config)
 
 ;;; IELM
 ;; TODO:
@@ -556,7 +561,9 @@ The `BUFFER' is the popwin catch pop private message buffer."
 
 ;;; ESS
 ;; *julia*
-(push '(inferior-ess-mode :position bottom :height 15) popwin:special-display-config)
+;; (push '(inferior-ess-mode :position bottom :height 15) popwin:special-display-config)
+;; *Julia*
+;; (push '(inferior-julia-mode :position bottom :height 15) popwin:special-display-config)
 
 ;;; yari Ruby document lookup
 (push '(yari-mode :position bottom :height 15) popwin:special-display-config)
@@ -564,6 +571,10 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (push '(inf-ruby-mode :position bottom :height 15) popwin:special-display-config)
 ;; (push '("*ruby*" :position bottom :height 15) popwin:special-display-config)
 ;; (push '("*rails*" :position bottom :height 15) popwin:special-display-config)
+
+;;; Python
+;; *Python*
+;; (push '(inferior-python-mode :position bottom :height 15) popwin:special-display-config)
 
 ;; projectile-rails
 (push '(projectile-rails-generate-mode :position bottom :height 15) popwin:special-display-config)
