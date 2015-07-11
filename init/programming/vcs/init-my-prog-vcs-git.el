@@ -243,48 +243,9 @@
 
 
 ;;; Magit Faces
-;; cursor select
-(set-face-attribute 'magit-item-highlight nil
-                    :background "black"
-                    )
-;; mark region
-(set-face-attribute 'magit-item-mark nil
-                    :foreground "black"
-                    :background "gray")
-;; branch
-(set-face-attribute 'magit-branch nil
-                    :foreground "cyan" :background "black"
-                    :weight 'bold
-                    :box '(:line-width -1)
-                    )
-;; log
-(set-face-attribute 'magit-log-sha1 nil
-                    :foreground "#FF80FF" :background " "
-                    :weight 'bold
-                    )
-;; section
-(set-face-attribute 'magit-section-title nil
-                    :foreground "sky blue" :background "#222222"
-                    :reverse-video nil
-                    :weight 'bold
-                    :box '(:color "cyan" :line-width 1)
-                    )
-;; diff colors
-(set-face-attribute 'magit-diff-none nil
-                    :inherit 'diff-context
-                    )
-(set-face-attribute 'magit-diff-del nil
-                    :inherit 'diff-removed
-                    )
-(set-face-attribute 'magit-diff-add nil
-                    :inherit 'diff-added
-                    )
-(set-face-attribute 'magit-diff-hunk-header nil
-                    :inherit 'diff-hunk-header
-                    )
-(set-face-attribute 'magit-diff-file-header nil
-                    :inherit 'diff-file-header
-                    )
+;;
+;; - [M-x customize-group magit-faces]
+
 
 
 ;;; [ magit-filenotify ] -- Refresh status buffer when git tree changes
