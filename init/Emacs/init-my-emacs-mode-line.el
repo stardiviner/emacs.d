@@ -51,27 +51,30 @@
  mode-line-format
  (quote
   (
+   ;; window-number
+   (:propertize (:eval (concat "[" (number-to-string (window-number)) "]"))
+                face (:foreground "red" :weight 'bold))
+
    ;; (:propertize "%e"
    ;;              face (:foreground "red" :inverse-video nil))
 
-   ;; (:propertize " 暗月:> "
-   ;;              face (:foreground "#444444" :background "black")
-   ;;              help-echo "九州 ❯ 羽传说 ❯ 向异翅")
+   (:propertize " 暗月 "
+                face (:foreground "#444444" :background "black")
+                help-echo "九州 ❯ \n 《羽传说》 ❯ 向异翅 \n 《海上牧云记》 ❯ 牧云笙")
 
-   ;; (:propertize " ㊊㊛ "
-   ;;              face (:foreground "deep pink" :height 120)
-   ;;              help-echo "Female & Lesbian")
-
+   ;; (:propertize "{/Emacs/}"
+   ;;              face (:foreground "yellow")
+   ;;              help-echo "神之编辑器")
+   
+   ;; (:propertize " /铁甲依然在 !/ "
+   ;;              face (:foreground "cyan")
+   ;;              help-echo "我不要这样生，也不要那样死！\n\n 人的一生是如此的的短暂，而你还有很多的事情,很多的梦想 需要曲实现。\n我不想那样生存，也不想就 这样死去，所以，我要拼命去实现我的想法。")
+   
    ;; emacsclient indicator
    (:eval (if (frame-parameter nil 'client)
-              (propertize "あ"
+              (propertize " あ "
                           'face '(:foreground "#333333" :background "yellow" :weight 'bold :height 120)
                           'help-echo "emacsclient frame")))
-   
-   ;; window-number
-   (:propertize (:eval (concat "[" (number-to-string (window-number)) "]"))
-                face (:foreground "red" :weight 'bold
-                                  ))
 
    ;; anzu
    (:propertize (:eval (anzu--update-mode-line))
@@ -90,7 +93,7 @@
                           'face '(:foreground "dodger blue"))))
 
    ;; mule info
-   (:propertize mode-line-mule-info
+   (:propertize (" " mode-line-mule-info)
                 face (:foreground "dark gray"))   ; U:[*--]
    
    ;; Buffer status
@@ -125,7 +128,7 @@
    ;; rbenv & rvm
    (:eval
     (if (memq (buffer-local-value 'major-mode (current-buffer))
-              '(ruby-mode enh-ruby-mode))
+              '(ruby-mode enh-ruby-mode rhtml-mode))
         (progn
           (list
            (propertize " ("
@@ -245,9 +248,7 @@
            ;; (propertize mode-line-process ; FIXME: this does not work, it is a symbol.
            ;;             'face '(:foreground "tomato")
            ;;             'help-echo "buffer-process")
-           )
-          )
-      ))
+           ))))
 
    ;; (:propertize (:eval (if mode-line-process "  ◌"))
    ;;              face (:foreground "cyan"))
@@ -319,6 +320,7 @@
 ;; fix org-clock timer does not disappear after clock out.
 (add-hook 'org-clock-out-hook
           '(lambda ()
+             ;; (org-clock-update-mode-line)
              (setq org-mode-line-string nil)
              (force-mode-line-update)))
 
@@ -326,82 +328,122 @@
 ;;
 (display-time-mode t)
 (setq global-mode-string (remove 'display-time-string global-mode-string))
-(setq mode-line-end-spaces
-      (list (propertize " " 'display '(space :align-to (- right 55)))
-            ;;; you can custom here (add right aligned things here)
+(setq
+ mode-line-end-spaces
+ (quote
+  (
+   (:propertize " "
+                display (space :align-to (- right 55)))
+   
+   ;; you can custom here (add right aligned things here)
 
-            ;; TODO: mu4e maildir
-            '(:propertize (:eval
-                           (let ((my-mu4e-maildir-name (file-name-base mu4e-maildir)))
-                             (if (string-match "mu4e-.*" "%b")
-                                 (format "[%s]" my-mu4e-maildir-name))))
-                          face (:foreground "white" :weight 'bold))
+   ;; Mail
+   ;; display-time-mail
+   ;; FIXME:
+   ;; (:eval
+   ;;  (propertize (let ((mail-files (directory-files display-time-mail-directory t))
+   ;;                    (size 0))
+   ;;                (while (and mail-files (= size 0))
+   ;;                  ;; Count size of regular files only.
+   ;;                  (setq size (+ size (or (and (file-regular-p (car mail-files))
+   ;;                                           (nth 7 (file-attributes (car mail-files))))
+   ;;                                        0)))
+   ;;                  (setq mail-files (cdr mail-files)))
+   ;;                (if (> size 0)
+   ;;                    size
+   ;;                  nil))
+   ;;              'face '(:foreground "deep pink"))
+   ;;  )
 
-            ;; nyan-mode
-            '(:eval (when nyan-mode (list (nyan-create))))
+   ;; nyan-mode
+   (:eval
+    (when nyan-mode (list (nyan-create))))
 
-            ;; FIXME: spinner
-            ;; Let spinner support to be used in custom mode-line as a function.
-            ;; '(:eval (spinner-start 'minibox))
-            ;;
-            ;; '(:propertize  (:eval (spinner-start 'minibox))   ; 'spinner--mode-line-construct
-            ;;                :face (:foreground "dark gray"))
+   ;; FIXME: spinner
+   ;; Let spinner support to be used in custom mode-line as a function.
+   ;; '(:eval (spinner-start 'minibox))
+   ;;
+   ;; '(:propertize  (:eval (spinner-start 'minibox))   ; 'spinner--mode-line-construct
+   ;;                :face (:foreground "dark gray"))
 
-            ;; flycheck
-            '(:propertize (:eval (flycheck-mode-line-status-text))
-                          face (:foreground "orange" :background nil
-                                            :height 80))
-            
-            ;; line and column number, relative position
-            ;; mode-line-position
-            ;; '%02' to set to 2 chars at least; prevents flicking
-            '(:propertize " (%02l,%02c)_%03p"
-                          face (:foreground "dark gray" :height 80)
-                          ;; (:eval (if (>= (current-column) 80)
-                          ;;            face (:foreground "red" :weight 'bold)))
-                          )
+   ;; flycheck
+   (:eval
+    (if flycheck-current-errors ; FIXME: this condition does not work.
+        (propertize (flycheck-mode-line-status-text)
+                    'face '(:foreground "orange" :background nil :height 80))))
+   
+   (:eval
+    (if mode-line-process
+        (progn
+          (list
+           (propertize "  ◌"
+                       'face '(:foreground "cyan" :weight 'bold :height 120)
+                       'help-echo "buffer-process")
+           ;; (propertize mode-line-process ; FIXME: this does not work, it is a symbol.
+           ;;             'face '(:foreground "tomato")
+           ;;             'help-echo "buffer-process")
+           ))))
 
-            ;; relative position, size of file
-            ;; '(:propertize " [%p,%I] ")
-            
-            '(:propertize " ["
-                          face (:foreground "red" :weight 'bold))
-            '(:propertize "wg:"
-                          face (:foreground "dim gray"))
-            ;; workgroups2
-            '(:propertize (:eval ; `wg-mode-line-display-on'
-                           (wg-mode-line-string))
-                          face (:foreground "yellow" :height 75))
-            '(:propertize " § "
-                          face (:foreground "red"))
-            '(:propertize "P:"
-                          face (:foreground "dim gray"))
-            ;; projectile
-            '(:propertize projectile-mode-line
-                          face (:foreground "cyan" :height 75))
-            
-            '(:propertize "] "
-                          face (:foreground "red" :weight 'bold))
+   ;; line and column number, relative position
+   ;; mode-line-position
+   ;; '%02' to set to 2 chars at least; prevents flicking
+   (:eval
+    (list
+     (propertize " ("
+                 'face '(:foreground "dark gray"))
+     (propertize "%02l"
+                 'face '(:foreground "dark gray"))
+     (propertize ","
+                 'face '(:foreground "dark gray"))
+     (propertize "%02c"
+                 'face
+                 (if (>= (current-column) 80)
+                     '(:foreground "red")
+                   '(:foreground "dark gray")))
+     (propertize ")"
+                 'face '(:foreground "dark gray"))
+     (propertize "_%03p"
+                 'face '(:foreground "dark gray" :height 80))
+     )
+    )
 
-            ;; the major mode of the current buffer.
-            ;; `mode-name', `mode-line-modes', `minor-mode-alist'
-            '(:propertize "%m"
-                          face (:foreground "green yellow"
-                                            :family "Comic Sans MS" :weight 'bold :height 80
-                                            )
-                          ;; help-echo (minor-mode-alist)
-                          )
-            
-            ;; '(:propertize "{/Emacs/}"
-            ;;               face (:foreground "yellow")
-            ;;               help-echo "神之编辑器")
-            
-            ;; '(:propertize " /铁甲依然在 !/ "
-            ;;               face (:foreground "cyan")
-            ;;               help-echo "我不要这样生，也不要那样死！\n\n 人的一生是如此的的短暂，而你还有很多的事情,很多的梦想 需要曲实现。\n我不想那样生存，也不想就 这样死去，所以，我要拼命去实现我的想法。")
-            
-            ;; 'display-time-string
-            ))
+   ;; relative position, size of file
+   ;; '(:propertize " [%p,%I] ")
+
+   (:propertize " ["
+                face (:foreground "red" :weight 'bold))
+   ;; workgroups2
+   (:eval (list
+           (propertize "wg:"
+                       'face '(:foreground "dim gray" :height 75))
+           (propertize (wg-mode-line-string) ; `wg-mode-line-display-on'
+                       'face '(:foreground "yellow" :height 75))
+           ))
+   (:propertize " § "
+                face (:foreground "red"))
+   ;; projectile
+   ;; FIXME:
+   (:eval (list
+           (propertize "P: "
+                       'face '(:foreground "dim gray" :height 75))
+           (propertize (projectile-project-name) ; `projectile-mode-line'
+                       'face '(:foreground "cyan" :height 75))
+           ))
+   (:propertize "] "
+                face (:foreground "red" :weight 'bold))
+
+   ;; the major mode of the current buffer.
+   ;; `mode-name', `mode-line-modes', `minor-mode-alist'
+   (:propertize "%m"
+                face (:foreground "green yellow"
+                                  :family "Comic Sans MS" :weight 'bold :height 80
+                                  )
+                ;; help-echo (minor-mode-alist)
+                )
+   
+   ;; 'display-time-string
+   )
+  ))
 
 
 ;;; change minor mode name
@@ -556,7 +598,7 @@
                     )
 (set-face-attribute 'mode-line-inactive nil
                     :inverse-video nil
-                    :foreground "#222222"
+                    :foreground "gray"
                     :background (color-darken-name (face-background 'default) 3)
                     :family "DejaVu Sans Mono"
                     :box '(:color "black" :line-width 1 :style nil)
@@ -572,15 +614,17 @@
 ;; (setq display-time-24hr-format nil)
 ;; (setq display-time-format nil)
 ;; (setq display-time-day-and-date nil)
+
 ;; ;;; event
 ;; (display-time-event-handler)
-;; ;;; Mail
-;; (setq display-time-use-mail-icon t)
+
+;;; Mail
+(setq display-time-use-mail-icon t)
 ;; (setq display-time-mail-function nil)
 ;; (setq display-time-mail-file nil)
-;; (setq display-time-mail-directory "~/Mails/INBOX/new/")
-;; (display-time-mail-check-directory)
-;; ;; (display-time-mail-check-directory)
+(setq display-time-mail-directory "~/Mails/INBOX/new/")
+(display-time-mail-check-directory)
+
 ;; ;;; load-average
 ;; (setq display-time-default-load-average 0)
 ;; (setq display-time-load-average-threshold 0.5)
