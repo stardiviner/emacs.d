@@ -163,25 +163,7 @@
           (list
            (propertize " ⭠"
                        'face '(:foreground "sky blue"))
-           (propertize vc-mode
-                       'face '(:foreground "dodger blue" :weight 'bold :height 80)
-                       'mouse-face '(:foreground "cyan" :weight 'bold :height 100)
-                       ;; 'help-echo '(concat )
-                       ;; TODO: check out `magit-refresh-vc-mode-line'
-                       ;; 'help-echo '(concat "\nCurrent revision: " (symbol-function #'vc-working-revision)
-                       ;;                     "\nMagit   revision: " (magit-rev-parse "--short" "HEAD")
-                       ;;                     "\nmouse-1: Version Control menu")
-                       ;; 'local-map 'vc-mode-line-map
-                       'local-map '(keymap
-                                    (mode-line keymap
-                                               (down-mouse-1 menu-item "Version Control" vc-menu-map :filter vc-menu-map-filter)))
-
-                       ;; (mouse-face mode-line-highlight local-map
-                       ;;             (keymap
-                       ;;              (mode-line keymap
-                       ;;                         (down-mouse-1 menu-item "Version Control" vc-menu-map :filter vc-menu-map-filter)))
-                       ;;             face vc-edited-state help-echo "Locally modified file under the Git version control system\nCurrent revision: develop\nmouse-1: Version Control menu")
-                       )
+           `(vc-mode vc-mode)
            )
           )
       ))
