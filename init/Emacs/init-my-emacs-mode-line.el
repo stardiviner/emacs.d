@@ -158,15 +158,13 @@
    
    ;; branch
    (:eval
-    (if (vc-mode vc-mode)
+    (if vc-mode
         (progn
           (list
            (propertize " ⭠"
                        'face '(:foreground "sky blue"))
            `(vc-mode vc-mode)
-           )
-          )
-      ))
+           ))))
 
    ;; TODO: git repo file status
    ;; - added :: ✚
