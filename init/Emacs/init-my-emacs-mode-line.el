@@ -84,6 +84,11 @@
                           'face '(:foreground "firebrick" :background "black")
                           'help-echo "multiple-cursors")))
 
+   ;; input method
+   (:eval (if current-input-method-title ; `set-input-method'
+              (propertize current-input-method-title
+                          'face '(:foreground "dodger blue"))))
+
    ;; mule info
    (:propertize mode-line-mule-info
                 face (:foreground "dark gray"))   ; U:[*--]
