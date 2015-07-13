@@ -361,6 +361,7 @@
          typed-clojure-mode
          ;; Elixir
          elixir
+         alchemist
          ;; Python
          ;; python python-mode
          pyvenv
