@@ -359,6 +359,8 @@
          cider-eval-sexp-fu align-cljlet
          flycheck-clojure
          typed-clojure-mode
+         ;; Elixir
+         elixir
          ;; Python
          ;; python python-mode
          pyvenv
