@@ -450,7 +450,7 @@
          ;; R
          ;; Julia
          ;; gnuplot
-         ;; gnuplot-mode
+         gnuplot-mode gnuplot
          ;; Octave
          ;; ac-octave
          ;; Database
