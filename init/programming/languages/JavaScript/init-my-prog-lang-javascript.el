@@ -240,10 +240,43 @@
 ;; - [C-c C-d]
 ;;     Find docs of the thing under the cursor. Press again to open the associated URL (if any).
 
-;; (require 'tern)
+;;; .tern-project file example:
+;; {
+;;   "libs": [
+;;     "browser",
+;;     "jquery"
+;;   ],
+;;   "loadEagerly": [
+;;     "importantfile.js"
+;;   ],
+;;   "plugins": {
+;;     "requirejs": {
+;;       "baseURL": "./",
+;;       "paths": {}
+;;     }
+;;   }
+;; }
+
+(require 'tern)
 (autoload 'tern-mode "tern.el" nil t)
 
-;;; for auto-complete.
+;; (dolist (hook '(js-mode-hook
+;;                 js2-mode-hook
+;;                 js3-mode-hook
+;;                 ))
+;;   (add-hook hook
+;;             (lambda ()
+;;               (tern-mode t))))
+
+;; (setq tern-known-port
+;;       tern-server
+;;       tern-explicit-port
+;;       tern-project-dir
+;;       )
+
+
+;;; for auto-complete
+
 ;; (eval-after-load 'tern
 ;;   '(progn
 ;;      (require 'tern-auto-complete)
