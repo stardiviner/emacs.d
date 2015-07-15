@@ -132,13 +132,15 @@
 ;; R
 (unless (boundp 'my-inferior-ess-map)
   (define-prefix-command 'my-inferior-ess-map))
-(define-key my-prog-inferior-map (kbd "j") 'my-inferior-ess-map)
+(define-key my-prog-inferior-map (kbd "e") 'my-inferior-ess-map)
 ;; Octave
 (define-key my-prog-inferior-map (kbd "o") 'run-octave)   ; Octave
+;; JavaScript
+(define-key my-prog-inferior-map (kbd "j") 'run-js)
 ;; Haskell
 (define-key my-prog-inferior-map (kbd "h") 'run-haskell)  ; Haskell
 ;; Erlang
-(define-key my-prog-inferior-map (kbd "e") 'run-erlang)   ; Erlang
+(define-key my-prog-inferior-map (kbd "E") 'run-erlang)   ; Erlang
 ;; Festival
 (define-key my-prog-inferior-map (kbd "f") 'run-festival) ; Festival
 

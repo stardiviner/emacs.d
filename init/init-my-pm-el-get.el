@@ -406,6 +406,7 @@
          js3-mode
          tern company-tern ; tern-auto-complete
          swank-js
+         js-comint
          ;; ac-js2
          ;; HTML
          htmlize html5

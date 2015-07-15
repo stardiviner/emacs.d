@@ -201,14 +201,33 @@
             (define-key css-mode-map (kbd "C-c C-r") 'slime-js-embed-css)))
 
 
-;; js-comint.el
-;; is a lightweight comint integration package, that also seems to integrate with org-mode nicely.
+;; [ js-comint ] -- a lightweight comint integration package, that also seems to integrate with org-mode nicely.
 
 ;; ElnodeIJS, NicFerrier
-;; having a go at writing an Emacs to JavaScript shell. It uses comet for communication. Currently here and in the Elnode source tree.
+;; having a go at writing an Emacs to JavaScript shell. It uses comet for
+;; communication. Currently here and in the Elnode source tree.
 
 ;; jsSlime
 ;; provides an Emacs interface to the browser’s debugger and javascript engine.
+
+;;; Usage:
+;;
+;; - `run-js'
+
+(require 'js-comint)
+
+(setq inferior-js-program-command "node --interactive")
+
+(add-hook 'js2-mode-hook '(lambda ()
+             (local-set-key "\C-x\C-e" 'js-send-last-sexp)
+             (local-set-key "\C-\M-x" 'js-send-last-sexp-and-go)
+             (local-set-key "\C-cb" 'js-send-buffer)
+             (local-set-key "\C-c\C-b" 'js-send-buffer-and-go)
+             (local-set-key "\C-cl" 'js-load-file-and-go)
+             ))
+
+;; if use node.js, we need nice output
+(setenv "NODE_NO_READLINE" "1")
 
 
 ;;; [ tern ] -- code-analysis engine for JavaScript
