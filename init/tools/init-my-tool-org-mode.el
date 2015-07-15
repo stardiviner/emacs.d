@@ -2811,9 +2811,26 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
       ;; org-contacts-db
       )
 
-;; (setq org-contacts-address-property "ADDRESS")
+(setq org-contacts-enable-completion t
+      ;; org-contacts-complete-functions '(org-contacts-complete-group
+      ;;                                   org-contacts-complete-tags-props
+      ;;                                   org-contacts-complete-name)
+      )
 
-;; FIXME:
+;; (setq org-contacts-matcher "EMAIL<>\"\"|ALIAS<>\"\"|PHONE<>\"\"|ADDRESS<>\"\"|BIRTHDAY")
+
+;; <icon>
+(setq org-contacts-icon-size 32
+      org-contacts-icon-property "ICON"
+      org-contacts-icon-use-gravatar t
+      )
+
+(unless (boundp 'my-org-contacts-prefix-map)
+  (define-prefix-command 'my-org-contacts-prefix-map))
+(define-key my-org-prefix-map (kbd "b") 'my-org-contacts-prefix-map)
+
+(define-key my-org-contacts-prefix-map (kbd "b") 'org-contacts)
+(define-key my-org-contacts-prefix-map (kbd "p") 'org-contacts-at-point)
 
 ;;;_* org-screenshot
 
