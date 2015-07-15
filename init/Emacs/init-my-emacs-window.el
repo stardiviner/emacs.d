@@ -509,6 +509,10 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (push '("*Flycheck errors*" :position bottom :height 10) popwin:special-display-config)
 (push '("*Compile-Log*" :position bottom :height 15) popwin:special-display-config)
 
+;;; quickrun "*quickrun*"
+(push '(quickrun/mode :position bottom :height 10) popwin:special-display-config)
+(push '("*quickrun*" :position bottom :height 10) popwin:special-display-config)
+
 ;;; *Pp Eval Output*
 ;; TODO: this will make this buffer does not show up.
 (push '("*Pp Eval Output*" :position bottom :height 15) popwin:special-display-config)

@@ -299,6 +299,7 @@
          ;; project-explorer
          ;; compile
          smart-compile smart-compile+
+         quickrun
          ;; refactor
          ;; emacs-refactor
          ;; sourcemap -- https://github.com/syohex/emacs-sourcemap

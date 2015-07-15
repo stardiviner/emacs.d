@@ -65,10 +65,27 @@
 
 (add-to-list 'smart-run-alist '("\\.py$" . "python %n"))
 (add-to-list 'smart-run-alist '("\\.rb$" . "ruby %n"))
+
+;;; [ quickrun ] -- Run command quickly.
+
+;; quickrun.el is a extension to execute editing buffer. quickrun.el is similar
+;; to executable-interpret, but quickrun.el provides more convenient
+;; commands. quickrun.el execute not only script languages(Perl, Ruby, Python
+;; etc), but also compiling languages(C, C++, Go, Java etc) and markup language.
+
+;;; Usage:
+;;
+;; - `quickrun' ::
+
+(require 'quickrun)
+
+;; (setq quickrun/support-languages)
 
 
 
-(global-set-key [f5] 'smart-compile)
+(if (featurep 'quickrun)
+    (global-set-key [f5] 'quickrun)
+  (global-set-key [f5] 'smart-compile))
 
 
 (provide 'init-my-prog-compile)
