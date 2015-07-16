@@ -60,10 +60,7 @@
 
 ;;; [ swank-js ] -- Swank backend for Node.JS and in-browser JavaScript.
 
-;;; a full-blown SlimeMode backend for node.js and can connect to a running web
-;;; browser process through the socket.io package.
-
-;;; Usage
+;;; Usage:
 ;;
 ;; If you want to use swank from the node project just add following to your package.json file:
 ;;
@@ -213,10 +210,12 @@
 ;;; Usage:
 ;;
 ;; - `run-js'
+;; - `send-region'
 
 (require 'js-comint)
 
 (setq inferior-js-program-command "node --interactive")
+;; (setq inferior-js-program-command "/usr/bin/java org.mozilla.javascript.tools.shell.Main")
 
 (add-hook 'js2-mode-hook '(lambda ()
              (local-set-key "\C-x\C-e" 'js-send-last-sexp)
@@ -230,6 +229,14 @@
 (setenv "NODE_NO_READLINE" "1")
 
 
+;;; Node.js
+
+;; (defun node-repl ()
+;;   (interactive)
+;;   (pop-to-buffer
+;;    (make-comint "node-repl" "node" nil "--interactive")))
+
+
 ;;; [ tern ] -- code-analysis engine for JavaScript
 
 ;;; http://ternjs.net/
@@ -237,6 +244,8 @@
 ;;; Tern is a stand-alone code-analysis engine for JavaScript. It is intended to
 ;;; be used with a code editor plugin to enhance the editor's support for
 ;;; intelligent JavaScript editing.
+
+;; $ npm install tern
 
 ;;; Usage:
 
@@ -247,6 +256,9 @@
 ;; When the point is in an argument list, Tern will show argument names and types at the bottom of the screen.
 ;;
 ;; The following additional keys are bound:
+;;
+;; - [M-tab / C-M-i]
+;;     trigger completion.
 ;;
 ;; - [M-.]
 ;;     Jump to the definition of the thing under the cursor.
