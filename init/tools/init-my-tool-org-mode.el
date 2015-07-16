@@ -2807,7 +2807,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 (require 'org-contacts)
 
-(setq org-contacts-files "~/Org/Contacts/Contacts.org"
+(setq org-contacts-files '("~/Org/Contacts/Contacts.org")
       ;; org-contacts-db
       )
 
