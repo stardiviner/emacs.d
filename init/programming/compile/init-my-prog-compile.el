@@ -65,6 +65,8 @@
 
 (add-to-list 'smart-run-alist '("\\.py$" . "python %n"))
 (add-to-list 'smart-run-alist '("\\.rb$" . "ruby %n"))
+(add-to-list 'smart-run-alist '("\\.js\\'" . "node %n"))
+
 
 ;;; [ quickrun ] -- Run command quickly.
 
