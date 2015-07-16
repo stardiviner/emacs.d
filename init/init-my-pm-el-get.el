@@ -111,6 +111,7 @@
          ;; yascroll
          ;; minimap sublimity
          pretty-mode-plus page-break-lines
+         on-screen
          ;; mode-line
          diminish nyan-mode
          ;; spinner
