@@ -521,6 +521,9 @@
 ;;   :password := (read (file "filename.txt"))
 ;;   POST http://www.example.com/?action=login&:username&:password
 ;;
+;; for localhost
+;; GET http://127.0.0.1:3000
+;;
 ;; - [C-c C-c] :: runs the query under the cursor, tries to pretty-print the response (if possible)
 ;; - [C-c C-r] :: same, but doesn't do anything with the response, just shows the buffer
 ;; - [C-c C-v] :: same as C-c C-c, but doesn't switch focus to other window
