@@ -171,6 +171,19 @@
 ;; TODO: `yas-expand', `yas-expand-from-trigger-key'
 (define-key company-active-map [tab] 'yas-expand-from-trigger-key)
 
+;; (defun company-yasnippet-or-completion ()
+;;   (interactive)
+;;   (let ((yas-fallback-behavior nil))
+;;     (unless (yas-expand)
+;;       (call-interactively #'company-complete-common))))
+;;
+;; ;; To make sure that this is called instead of `company-complete-common', use
+;; (add-hook 'company-mode-hook
+;;           (lambda ()
+;;             (substitute-key-definition 'company-complete-common
+;;                                        'company-yasnippet-or-completion
+;;                                        company-active-map)))
+
 
 ;; navigation
 (define-key company-active-map "\t" nil)
