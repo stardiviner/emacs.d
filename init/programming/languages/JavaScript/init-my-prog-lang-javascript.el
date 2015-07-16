@@ -321,6 +321,7 @@
 (dolist (hook '(js-mode-hook
                 js2-mode-hook
                 js3-mode-hook
+                inferior-js-mode-hook
                 ))
   (add-hook hook
             (lambda ()
