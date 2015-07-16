@@ -438,7 +438,14 @@
 (dolist (hook '(ruby-mode-hook
                 enh-ruby-mode-hook
                 ))
-  (add-hook hook 'inf-ruby-minor-mode))
+  (add-hook hook
+            (lambda ()
+              (inf-ruby-minor-mode)
+              
+              ;; for `company-capf'
+              (add-to-list 'completion-at-point-functions 'inf-ruby-completion-at-point)
+              ;; (add-to-list 'completion-at-point-functions 'inf-ruby-completion-expr-at-point)
+              )))
 
 (define-key my-prog-inferior-map (kbd "r a") 'inf-ruby-console-auto)
 
