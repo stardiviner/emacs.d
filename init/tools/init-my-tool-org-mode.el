@@ -289,14 +289,16 @@
 ;;; black style code block colorscheme
 ;;; babel faces (source code block) => #+BEGIN_SRC ... #+END_SRC
 (set-face-attribute 'org-block-begin-line nil
-                    :foreground "cyan" :background "black"
-                    :bold t :slant 'normal
-                    :box '(:color "#444444" :line-width 1)
+                    :foreground "dark cyan"
+                    :background (color-darken-name (face-background 'default) 3)
+                    :weight 'normal :slant 'normal
+                    :box '(:color "black" :line-width 1)
                     )
 (set-face-attribute 'org-block-end-line nil
-                    :foreground "cyan" :background "black"
-                    :bold t :slant 'normal
-                    :box '(:color "#444444" :line-width 1)
+                    :foreground "dark cyan"
+                    :background (color-darken-name (face-background 'default) 3)
+                    :weight 'normal :slant 'normal
+                    :box '(:color "black" :line-width 1)
                     )
 ;; seems face `org-block-background' is removed from commit: f8b42e8ebeeecdef59a8a7cbc4324264a5162197 , because it is slower for fontify.
 ;; (set-face-attribute 'org-block-background nil
