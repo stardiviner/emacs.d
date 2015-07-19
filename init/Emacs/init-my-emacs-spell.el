@@ -150,6 +150,8 @@
 ;;
 ;; `flyspell-popup-correct'
 
+(require 'flyspell-popup)
+
 (define-key flyspell-mode-map (kbd "C-;") #'flyspell-popup-correct)
 
 
