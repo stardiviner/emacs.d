@@ -445,9 +445,10 @@
               ;; for `company-capf'
               (add-to-list (make-local-variable 'completion-at-point-functions)
                            'inf-ruby-completion-at-point)
-              (add-to-list (make-local-variable 'completion-at-point-functions)
-                           'robe-complete-at-point)
-
+              ;; put `robe-complete-at-point' ahead of `inf-ruby-completion-at-point', higher priority.
+              (remq 'robe-complete-at-point completion-at-point-functions)
+              (setq-local completion-at-point-functions
+                          (append '(robe-complete-at-point) completion-at-point-functions))
               )))
 
 (define-key my-prog-inferior-map (kbd "r a") 'inf-ruby-console-auto)
