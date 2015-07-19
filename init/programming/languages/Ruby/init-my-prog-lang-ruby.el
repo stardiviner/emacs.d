@@ -606,13 +606,6 @@
                             ;; 2.2. old way
                             ;; (push 'ac-source-robe ac-sources)
                             ;; (add-to-list 'ac-sources 'ac-source-robe) ; `ac-robe-setup' did this already.
-
-                            ;; NOTE: `robe-mode' already support for capf. and
-                            ;; company-mode support capf native. so don't need following
-                            ;; setting.
-                            ;; for company-robe backend mode locally.
-                            (add-to-list (make-local-variable 'company-backends)
-                                         'company-robe)
                             ))
 
 
