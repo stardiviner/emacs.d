@@ -443,8 +443,11 @@
               (inf-ruby-minor-mode)
               
               ;; for `company-capf'
-              (add-to-list 'completion-at-point-functions 'inf-ruby-completion-at-point)
-              ;; (add-to-list 'completion-at-point-functions 'inf-ruby-completion-expr-at-point)
+              (add-to-list (make-local-variable 'completion-at-point-functions)
+                           'inf-ruby-completion-at-point)
+              (add-to-list (make-local-variable 'completion-at-point-functions)
+                           'robe-complete-at-point)
+
               )))
 
 (define-key my-prog-inferior-map (kbd "r a") 'inf-ruby-console-auto)
