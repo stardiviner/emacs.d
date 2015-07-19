@@ -7,6 +7,18 @@
 
 ;;; Code:
 
+
+
+;; (require 'init-auto-complete)
+(require 'init-company-mode)
+
+;;; make auto-complete work with company-mode
+;; (add-hook 'c-mode-common-hook
+;;           (lambda ()
+;;             (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+;;               (company-mode -1)
+;;               (auto-complete-mode 1)
+;;               )))
 
 ;; (require 'init-my-prog-complete-ycmd)
 
