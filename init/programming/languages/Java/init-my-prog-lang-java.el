@@ -32,7 +32,18 @@
 ;;; [ javadoc-help ]
 
 
-;;; [ java-complete ]
+;;; [ jdee ] -- Java Development Environment for Emacs
+
+;; (require 'jde-autoload)
+
+;; (autoload 'jde-mode "jde" "JDE mode" t)
+;; (setq auto-mode-alist
+;;       (append '(("\\.java\\'" . jde-mode)) auto-mode-alist))
+
+
+;;; [ malabar-mode ] -- EMCS JVM Integration for Java and other JVM based languages.
+
+
 
 
 
@@ -93,6 +104,10 @@
           (lambda ()
             (add-to-list (make-local-variable 'company-backends)
                          'company-eclim)))
+
+
+;;; [ java-complete ]
+
 
 
 (provide 'init-my-prog-lang-java)

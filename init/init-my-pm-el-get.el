@@ -446,9 +446,10 @@
          ;; verilog-mode
          ;; auto-complete-verilog
          ;; Java
-         eclim
          javadoc-lookup ; javadoc-help
          ;; java-complete
+         eclim jdee malabar-mode
+         ;; Statistics
          ess
          ;; R
          ;; Julia
