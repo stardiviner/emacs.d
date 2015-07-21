@@ -156,6 +156,12 @@
 ;; (require 'init-my-pm-paradox)
 
 
+;;; namespace
+
+;; NOTE: fix package "names" not available for package upgrade like aggressive-indent-mode.
+(require 'names)
+
+
 ;;; debug, profiling etc
 (require 'init-my-emacs-debug)
 
