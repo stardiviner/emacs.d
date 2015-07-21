@@ -392,14 +392,14 @@
      (propertize " ("
                  'face '(:foreground "dark gray"))
      (propertize "%02l"
-                 'face '(:foreground "dark gray"))
+                 'face '(:foreground "dark gray" :height 80))
      (propertize ","
                  'face '(:foreground "dark gray"))
      (propertize "%02c"
                  'face
                  (if (>= (current-column) 80)
-                     '(:foreground "red")
-                   '(:foreground "dark gray")))
+                     '(:foreground "red" :height 80)
+                   '(:foreground "dark gray" :height 80)))
      (propertize ")"
                  'face '(:foreground "dark gray"))
      (propertize "_%03p"
