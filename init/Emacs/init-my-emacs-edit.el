@@ -392,7 +392,8 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;;
 ;; So that's why multiple-cursors occasionally asks what to do about a
 ;; command. It will then remember your choice by saving it in
-;; ~/.emacs.d/.mc-lists.el. You can change the location with:
+;;
+;;     `~/.emacs.d/.mc-lists.el' You can change the location with:
 
 (require 'multiple-cursors)
 
@@ -451,8 +452,14 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;;                          (face font-lock-warning-face))
 ;;                        (mc/num-cursors)))))
 
-;; (set-face-attribute 'mc/cursor nil
-;;                     :foreground "cyan")
+(set-face-attribute 'mc/cursor-face nil
+                    :inverse-video nil
+                    :foreground nil
+                    :background "dark red")
+(set-face-attribute 'mc/region-face nil
+                    :inverse-video nil
+                    :foreground nil
+                    :background (color-darken-name (face-background 'default) 4))
 
 ;;;_ Imenu
 
