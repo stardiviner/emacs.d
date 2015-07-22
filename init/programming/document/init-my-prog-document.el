@@ -112,17 +112,25 @@
       ;; helm-dash-completing-read-func 'completing-read ; 'completing-read, 'ido-completing-read
       helm-dash-browser-func 'helm-browse-url ; 'eww, 'browse-url, 'browse-url-generic, 'helm-browse-url
       ;; helm-dash-connections
-      helm-dash-common-docsets '("Ruby" "Ruby on Rails" "ror"
-                                 "Python 3"
-                                 "HTML" "CSS" "JavaScript" "CoffeeScript"
-                                 "Common_Lisp" "Clojure"
-                                 "C" "Go"
-                                 "SQLite" "MySQL" "Redis" "MongoDB"
-                                 "Qt"
-                                 "Vagrant" "Nginx"
-                                 "Android"
-                                 "RubyMotion" "AngularJS"
-                                 )
+      helm-dash-common-docsets
+      '("Ruby" "Ruby on Rails" "ror"
+        "Python 3"
+        "HTML" "CSS" "Emmet"
+        "JavaScript" "CoffeeScript"
+        ;; "NodeJS" "AngularJS" "D3JS" "EmberJS" "ExtJS" "BackboneJS" "KnockoutJS" "MomentJS" "PrototypeJS" "RequireJS" "UnderscoreJS"
+        "Common_Lisp" "Clojure"
+        "C" "C++" "Go"
+        "SQLite" "MySQL" "Redis" "MongoDB"
+        "Qt"
+        "Bash"
+        "LaTeX"
+        ;; "Processing"
+        ;; "Unity_3D" "Cocos3D" "Cocos2D"
+        ;; "OpenGL_4" "OpenCV_C"
+        "Vagrant" "Nginx"
+        "Android"
+        "RubyMotion"
+        )
       )
 
 ;;; buffer local docsets
