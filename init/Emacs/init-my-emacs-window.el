@@ -621,6 +621,9 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (push '(howdoi-mode :position bottom :height 7) popwin:special-display-config)
 (push '("*How do I*" :position bottom :height 7) popwin:special-display-config)
 
+;;; restclient
+(push '("*rest-client*" :position bottom :height 10) popwin:special-display-config)
+
 ;; elfeed
 (push '(elfeed-search-mode :position top :height 20) popwin:special-display-config)
 (push '("*elfeed-search*" :position top :height 20) popwin:special-display-config)
