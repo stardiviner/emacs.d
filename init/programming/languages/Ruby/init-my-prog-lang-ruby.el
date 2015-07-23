@@ -127,16 +127,17 @@
 (require 'enh-ruby-mode)
 (autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
 
-(add-hook 'enh-ruby-mode-hook (lambda ()
-                                (unless (derived-mode-p 'prog-mode)
-                                  (run-hooks 'prog-mode-hook))
+(add-hook 'enh-ruby-mode-hook
+          (lambda ()
+            ;; (unless (derived-mode-p 'prog-mode)
+            ;;   (run-hooks 'prog-mode-hook))
 
-                                (define-key enh-ruby-mode-map (kbd "C-'") 'insert-arrow)
-                                ;; (define-key enh-ruby-mode-map (kbd "#") 'insert-ruby-interpolate)
+            (define-key enh-ruby-mode-map (kbd "C-'") 'insert-arrow)
+            ;; (define-key enh-ruby-mode-map (kbd "#") 'insert-ruby-interpolate)
 
-                                ;; add into auto-complete enable modes
-                                ;; (add-to-list 'ac-modes 'enh-ruby-mode)
-                                ))
+            ;; add into auto-complete enable modes
+            ;; (add-to-list 'ac-modes 'enh-ruby-mode)
+            ))
 
 ;; (setq enh-ruby-program "/home/stardiviner/.rvm/rubies/ruby-head/bin/ruby")
 
