@@ -53,18 +53,42 @@
 
 (require 'popup)
 
-(set-face-attribute 'popup-tip-face nil
-                    :foreground "black" :background "#EDED00"
+(set-face-attribute 'popup-face nil
+                    :foreground "black" :background "gray"
                     :family "DejaVu Sans Mono")
+(set-face-attribute 'popup-menu-face nil
+                    :inherit 'popup-face
+                    :foreground "black" :background "white")
+(set-face-attribute 'popup-menu-selection-face nil
+                    :inherit 'popup-face
+                    :foreground "white" :background "black"
+                    :box '(:color "dark gray" :line-width -1))
+(set-face-attribute 'popup-menu-mouse-face nil
+                    :inherit 'popup-face
+                    :foreground "black"
+                    :background "orange"
+                    )
+(set-face-attribute 'popup-tip-face nil
+                    :inherit 'popup-face
+                    :background "yellow"
+                    )
+(set-face-attribute 'popup-summary-face nil
+                    :inherit 'popup-face
+                    :foreground "dim gray")
+(set-face-attribute 'popup-menu-summary-face nil
+                    :inherit 'popup-face
+                    :background "purple")
 (set-face-attribute 'popup-isearch-match nil
-                    :inherit 'ac-candidate-face
+                    :inherit 'popup-face
                     :inverse-video nil
-                    :foreground "#209FC9" :background "white"
+                    :foreground "deep pink"
+                    :weight 'bold
                     :underline '(:color "dim gray" :style line)
                     )
-(set-face-attribute 'popup-menu-face nil
-                    :inherit 'ac-candidate-face
-                    :foreground "green yellow" :background "black")
+(set-face-attribute 'popup-scroll-bar-background-face nil
+                    :background "gray")
+(set-face-attribute 'popup-scroll-bar-foreground-face nil
+                    :foreground "black")
 
 ;; add some shotcuts in popup menu mode
 (define-key popup-menu-keymap (kbd "M-n") 'popup-next)
