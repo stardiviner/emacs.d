@@ -76,6 +76,11 @@
                     :background (color-darken-name (face-background 'default) 3)
                     )
 
+;; enable slice from bounding-box (trim white border space) at view startup.
+(advice-add #'pdf-view-display-page :after
+            (lambda (&rest _ignore)
+              (pdf-view-set-slice-from-bounding-box)))
+
 ;; use midnight view
 ;; (add-hook 'pdf-view-mode-hook 'pdf-view-midnight-minor-mode)
 
