@@ -67,6 +67,14 @@
                     :background (color-darken-name (face-background 'default) 3)
                     )
 
+(add-hook 'pdf-view-mode-hook
+          (lambda ()
+            ;; change key [k] to [K] to avoid mis-press.
+            ;; (define-key pdf-view-mode-map [remap image-kill-buffer] 'quit-window)
+            (define-key pdf-view-mode-map (kbd "k") nil)
+            (define-key pdf-view-mode-map (kbd "K") 'image-kill-buffer)
+            ))
+
 ;;; PDF Tools
 
 (setq
