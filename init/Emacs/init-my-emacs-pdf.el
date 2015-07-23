@@ -107,6 +107,11 @@
 ;; (set-face-attribute 'pdf-isearch-match nil
 ;;                     )
 
+(add-hook 'pdf-isearch-minor-mode-hook
+          (lambda ()
+            ;; revert to emacs default isearch from custom global search utility.
+            (define-key pdf-isearch-minor-mode-map (kbd "C-s") 'isearch-forward)))
+
 ;;; PDF Tools -- outline
 
 (setq pdf-outline-buffer-indent 2
