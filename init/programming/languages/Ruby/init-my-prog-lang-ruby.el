@@ -132,7 +132,7 @@
             ;; (unless (derived-mode-p 'prog-mode)
             ;;   (run-hooks 'prog-mode-hook))
 
-            (define-key enh-ruby-mode-map (kbd "C-'") 'insert-arrow)
+            (define-key enh-ruby-mode-map (kbd "C-c C-'") 'insert-arrow)
             ;; (define-key enh-ruby-mode-map (kbd "#") 'insert-ruby-interpolate)
 
             ;; add into auto-complete enable modes
