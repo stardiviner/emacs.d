@@ -152,6 +152,17 @@
       pdf-annot-tweak-tooltips t
       )
 
+;;; export annotations at once
+;;
+;; 1. Try M-x pp-eval-expression (pdf-annot-getannots nil '(text)) RET
+;;
+;; 2.
+;; (mapconcat
+;;  (lambda (x)
+;;    (alist-get 'contents x))
+;;  (pdf-annot-getannots nil nil)
+;;  "\n\n\nNext note:\n")
+
 
 ;;; [ org-pdfview ] -- org-link support for pdf-view-mode
 
