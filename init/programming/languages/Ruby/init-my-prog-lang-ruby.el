@@ -99,7 +99,7 @@
             (define-key ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
             ;; (define-key ruby-mode-map (kbd "TAB") 'indent-for-tab-command)
 
-            (define-key ruby-mode-map (kbd "C-'") 'insert-arrow)
+            (define-key ruby-mode-map (kbd "C-c C-'") 'insert-arrow)
             ;; (define-key ruby-mode-map (kbd "#") 'insert-ruby-interpolate)
 
             ;; hs-minor-mode (hide-show)
