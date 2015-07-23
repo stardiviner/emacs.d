@@ -67,6 +67,9 @@
                     :background (color-darken-name (face-background 'default) 3)
                     )
 
+;; use midnight view
+;; (add-hook 'pdf-view-mode-hook 'pdf-view-midnight-minor-mode)
+
 (add-hook 'pdf-view-mode-hook
           (lambda ()
             ;; change key [k] to [K] to avoid mis-press.
