@@ -121,6 +121,13 @@
             (define-key my-prog-debug-prefix (kbd "e") 'debug-on-entry)
             ))
 
+(set-face-attribute 'hi-edebug-x-stop nil
+                    :foreground nil
+                    :background "plum1")
+(set-face-attribute 'hi-edebug-x-debug-line nil
+                    :foreground nil
+                    :background "light green")
+
 (defun edebug-clear-global-break-condition ()
   "Clear `edebug-global-break-condition'."
   (interactive)
