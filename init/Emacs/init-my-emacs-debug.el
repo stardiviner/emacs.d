@@ -108,6 +108,9 @@
 ;;   '(progn
 ;;      (define-key edebug-mode-map (kbd "C-c C-d") nil)))
 
+(require 'edebug)
+(require 'edebug-x)
+
 (setq edebug-global-prefix (kbd "C-c d"))
 
 (unless (boundp 'my-prog-debug-prefix)
