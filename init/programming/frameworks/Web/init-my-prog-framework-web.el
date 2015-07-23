@@ -535,6 +535,12 @@
 
 (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
 
+(defun restclient-add-separator ()
+  (interactive)
+  (insert "# separator\n\n"))
+
+(define-key restclient-mode-map (kbd "C-c C-'") 'restclient-add-separator)
+
 (defun restclient-new-buffer ()
   (interactive)
   (let ((buffer (generate-new-buffer "*rest-client*")))
