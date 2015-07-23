@@ -46,6 +46,14 @@
 
 (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
 
+(add-hook 'pdf-tools-enabled-hook
+          (lambda ()
+            ;; Recolor
+            (pdf-info-setoptions :render/usecolors t
+                                 :render/background "white"
+                                 :render/foreground "black"
+                                 )))
+
 ;;; PDF View
 
 ;; - [SPC] :: scroll continuous
