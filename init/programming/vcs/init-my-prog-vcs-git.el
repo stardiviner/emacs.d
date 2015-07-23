@@ -276,7 +276,12 @@
 ;; - [C-f] in magit status buffer and you will be presented with gitflow popup menu.
 ;; - All gitflow commands are also accessible through the Magit/Extensions/GitFlow pop-down menu.
 
-(require 'magit-gitflow)
+(add-hook 'magit-mode-hook
+          (lambda ()
+            (require 'magit-gitflow)
+            (when (fboundp 'turn-on-magit-gitflow)
+              (turn-on-magit-gitflow))))
+
 
 (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
 
