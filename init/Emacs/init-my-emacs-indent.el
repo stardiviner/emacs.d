@@ -17,7 +17,7 @@
 ;;       (number-sequence 4 120 4)         ; 4 tab-stops
 ;;       )
 
-(define-key text-mode-map (kbd "<tab>") 'indent-relative) ; 'indent-relative, 'tab-to-tab-stop,
+;; (define-key text-mode-map (kbd "<tab>") 'indent-relative) ; 'indent-relative, 'tab-to-tab-stop,
 
 
 
