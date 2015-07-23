@@ -36,7 +36,7 @@
               company-tooltip-minimum 6         ; minimum candidates height limit.
               company-tooltip-minimum-width 0   ; The minimum width of the tooltip's inner area.
                                         ; This doesn't include the margins and the scroll bar.
-              company-tooltip-margin 2          ; width of margin columns to show around the tooltip
+              company-tooltip-margin 1          ; width of margin columns to show around the tooltip
               company-tooltip-offset-display 'scrollbar ; 'lines - how to show tooltip unshown candidates number.
               company-show-numbers nil ; t: show quick-access numbers for the first ten candidates.
               company-selection-wrap-around t ; loop over candidates
