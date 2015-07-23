@@ -76,11 +76,6 @@
                     :background (color-darken-name (face-background 'default) 3)
                     )
 
-;; enable slice from bounding-box (trim white border space) at view startup.
-(advice-add #'pdf-view-display-page :after
-            (lambda (&rest _ignore)
-              (pdf-view-set-slice-from-bounding-box)))
-
 ;; use midnight view
 ;; (add-hook 'pdf-view-mode-hook 'pdf-view-midnight-minor-mode)
 
@@ -90,6 +85,9 @@
             ;; (define-key pdf-view-mode-map [remap image-kill-buffer] 'quit-window)
             (define-key pdf-view-mode-map (kbd "k") nil)
             (define-key pdf-view-mode-map (kbd "K") 'image-kill-buffer)
+
+            ;; "auto" slice from bounding box
+            (pdf-view-auto-slice-minor-mode)
             ))
 
 ;;; PDF Tools
