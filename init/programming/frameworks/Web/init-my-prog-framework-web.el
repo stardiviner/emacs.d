@@ -535,6 +535,16 @@
 
 (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
 
+(defun restclient-new-buffer ()
+  (interactive)
+  (let ((buffer (generate-new-buffer "*rest-client*")))
+    (with-current-buffer buffer
+      (insert "# -*- restclient -*- \n\n")
+      (restclient-mode)
+      (pop-to-buffer buffer))))
+
+(define-key my-prog-inferior-map (kbd "R") 'restclient-new-buffer)
+
 ;;;_ know-your-http-well
 
 (require 'know-your-http-well)
