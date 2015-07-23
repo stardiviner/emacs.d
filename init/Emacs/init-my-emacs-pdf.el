@@ -30,14 +30,15 @@
 ;;
 ;; - `pdf-view-mode'
 ;;   - `pdf-view-auto-slice-minor-mode'
-;; - `pdf-outline-minor-mode'
-;; - `pdf-annot-minor-mode'
-;; - `pdf-cache-prefetch-minor-mode'
-;; - `pdf-history-minor-mode'
-;; - `pdf-isearch-minor-mode'
-;; - `pdf-links-minor-mode'
-;; - `pdf-misc-minor-mode'
-;;   - `pdf-misc-context-menu-minor-mode'
+;; - `pdf-tools-enable-minor-modes'
+;;   - `pdf-outline-minor-mode'
+;;   - `pdf-annot-minor-mode'
+;;   - `pdf-cache-prefetch-minor-mode'
+;;   - `pdf-history-minor-mode'
+;;   - `pdf-isearch-minor-mode'
+;;   - `pdf-links-minor-mode'
+;;   - `pdf-misc-minor-mode'
+;;     - `pdf-misc-context-menu-minor-mode'
 ;; - use bookmark.el to remember PDF position.
 
 
