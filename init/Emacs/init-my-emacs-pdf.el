@@ -76,9 +76,6 @@
                     :background (color-darken-name (face-background 'default) 3)
                     )
 
-;; use midnight view
-;; (add-hook 'pdf-view-mode-hook 'pdf-view-midnight-minor-mode)
-
 (add-hook 'pdf-view-mode-hook
           (lambda ()
             ;; change key [k] to [K] to avoid mis-press.
@@ -88,6 +85,9 @@
 
             ;; "auto" slice from bounding box
             (pdf-view-auto-slice-minor-mode)
+
+            ;; use midnight mode theme
+            ;; (pdf-view-midnight-minor-mode)
             ))
 
 ;;; PDF Tools
