@@ -48,12 +48,11 @@
 ;;                                org-self-insert-command orgtbl-self-insert-command
 ;;                                c-scope-operator c-electric-colon c-electric-lt-gt c-electric-slash))
 
-;;; help document preview & popup
-;; (require 'company-quickhelp)
-;; (setq company-quickhelp-delay 0.5)
-;; (company-quickhelp-mode 1)
-
-;; (add-to-list 'company-frontends 'company-quickhelp-frontend)
+;;; quick help document preview & popup
+(require 'company-quickhelp)
+(setq company-quickhelp-delay 0.5)
+(company-quickhelp-mode 1)
+(add-to-list 'company-frontends 'company-quickhelp-frontend)
 ;; (setq-default company-frontends (remq 'company-echo-metadata-frontend company-frontends))
 
 ;; (setq-default company-frontends '(company-pseudo-tooltip-unless-just-one-frontend
