@@ -542,6 +542,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
 ;; pdf-tools
 (push '(pdf-occur-buffer-mode :position bottom :height 10) popwin:special-display-config)
 (push '(pdf-outline-buffer-mode :position bottom :height 10) popwin:special-display-config)
+(push '("*PDF-Metadata*" :position bottom :height 15) popwin:special-display-config)
 
 ;; Festival
 (push '("*festival*" :position bottom :height 15) popwin:special-display-config)
