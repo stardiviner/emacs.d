@@ -331,18 +331,20 @@ $0"
 
 (setq yas-dont-activate '(minibufferp))
 
-(yas-global-mode 1) ; or [M-x yas-reload-all] if you've started YASnippet already.
+;; (yas-global-mode 1) ; or [M-x yas-reload-all] if you've started YASnippet already.
 
-;;
 ;; use yas-minor-mode on a pre-buffer basis To use YASnippet as a non-global
 ;; minor mode, replace (yas-global-mode 1) with (yas-reload-all) to load the
 ;; snippet tables. Then add a call to (yas-minor-mode) to the major-modes where
 ;; you to enable YASnippet.
-;; (dolist (hook
-;;          '(prog-mode-hook
-;;            org-mode-hook
-;;            ))
-;;   (add-hook hook #'yas-minor-mode))
+;;
+;; NOTE: don't active globally, can avoid enable `yas-minor-mode' on useless modes,
+;; avoid override other mode key [Tab] utility.
+(dolist (hook
+         '(prog-mode-hook
+           org-mode-hook
+           ))
+  (add-hook hook #'yas-minor-mode))
 
 (diminish 'yas-minor-mode)
 
