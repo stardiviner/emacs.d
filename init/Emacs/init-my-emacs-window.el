@@ -539,6 +539,9 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (push '(bbdb-mode :position bottom :height 15) popwin:special-display-config)
 (push '("*BBDB*" :position bottom :height 15) popwin:special-display-config)
 
+;; pdf-tools
+(push '(pdf-occur-buffer-mode :position bottom :height 10) popwin:special-display-config)
+
 ;; Festival
 (push '("*festival*" :position bottom :height 15) popwin:special-display-config)
 
