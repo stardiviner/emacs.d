@@ -196,6 +196,8 @@
          ;; ioccur joccur occur-x
          ;; color-moccur moccur-edit
          ;; awk-it
+         ;; regexp
+         pcre2el
          ;; Org-mode
          org-mode
          org-fstree org-bullets
