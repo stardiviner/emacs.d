@@ -7,7 +7,13 @@
 ;;; [ mongo ]
 
 
-;;; [ inf-mongo ]
+;;; [ inf-mongo ] -- Run a MongoDB shell process in a buffer.
+
+;;; Usage:
+;;
+;; - [M-x inf-mongo]
+
+(require 'inf-mongo)
 
 
 ;;; [ mongo-elnode ]

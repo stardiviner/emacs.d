@@ -468,7 +468,7 @@
          db
          db-pg
          ;; MongoDB
-         ;; inf-mongo
+         inf-mongo ob-mongo
          ;; Redis
          ;; eredis
          ;; Assembly
