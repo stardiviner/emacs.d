@@ -107,6 +107,7 @@
 
 
 (require 'init-my-prog-lang-database-sqlite)
+(require 'init-my-prog-lang-database-postgresql)
 (require 'init-my-prog-lang-database-mongodb)
 (require 'init-my-prog-lang-database-redis)
 
