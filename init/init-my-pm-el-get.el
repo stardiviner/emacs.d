@@ -519,6 +519,7 @@
          ;; http httpcode httprepl web ; web-beautify
          ;; xpath xpath-parser
          ;; web-server
+         elnode ; elnode-org mongo-elnode
          restclient company-restclient ; know-your-http-well
          ;; Platforms
          ;; heroku
