@@ -76,21 +76,23 @@
 ;;; [ emacs-dired-k ] -- highlights dired buffer like "k".
 
 ;; Usage:
+;;
 ;; - `dired-k'
 ;;
 ;; Highlight dired buffer by following parameters.
 ;;
-;;     File size
-;;     Modified time
-;;     Git status(if here is in git repository)
+;;  - File size
+;;  - Modified time
+;;  - Git status(if here is in git repository)
 
-;; (require 'dired-k)
+(require 'dired-k)
 
-;; (define-key dired-mode-map (kbd "K") 'dired-k)
-;; ;; You can use dired-k alternative to revert-buffer
-;; (define-key dired-mode-map (kbd "g") 'dired-k)
-;; ;; always execute dired-k when dired buffer is opened
-;; (add-hook 'dired-initial-position-hook 'dired-k)
+(setq dired-k-style 'k.zsh) ; nil, 'k.zsh, 'git
+(setq dired-k-human-readable t)
+
+(define-key dired-mode-map (kbd "K") 'dired-k)
+;; always execute dired-k when dired buffer is opened
+(add-hook 'dired-initial-position-hook 'dired-k)
 
 
 ;;; [ dired-efap ] -- Edit Filename At Point in an Emacs' dired buffer
