@@ -59,18 +59,25 @@
 
 ;;; [ direx ] --- direx.el is a simple directory explorer. It also works as a generic tree explore library.
 
-;; (require 'direx)
-;;
-;; ;; (global-set-key (kbd "C-c C-j") 'direx:jump-to-directory)
-;;
+(require 'direx)
+
+;; direx-project -- (bundled with direx.el) -- project tree explorer.
+(require 'direx-project)
+
+
+(defun my-direx:jump-to-directory ()
+  (interactive)
+  (if (projectile-project-root)
+      ;; (direx-project:jump-to-project-root-other-window)
+      (direx-project:jump-to-project-root)
+    (direx:jump-to-directory-other-window)
+    ))
+
+(global-set-key (kbd "C-c C-j") 'my-direx:jump-to-directory)
+
+;;; put direx under popwin management.
 ;; (push '(direx:direx-mode :position left :width 35 :dedicated t)
 ;;       popwin:special-display-config)
-;; (global-set-key (kbd "C-c C-j") 'direx:jump-to-directory-other-window)
-;;
-;; ;;; [ direx-project ] --- (bundled with direx.el) -- project tree explorer.
-;; (require 'direx-project)
-;;
-;; ;; (global-set-key (kbd "C-c C-p") 'direx-project:jump-to-project-root)
 
 
 ;;; [ emacs-dired-k ] -- highlights dired buffer like "k".

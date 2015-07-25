@@ -175,7 +175,7 @@
          guide-key ; guide-key-tip
          hydra
          ;; Dired
-         ;; direx
+         direx
          dired-rainbow dired-efap dired-k ; stripe-buffer
          peep-dired
          ;; Image
