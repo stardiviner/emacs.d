@@ -9,9 +9,13 @@
 ;;; Code:
 
 ;;; [ re-builder ] -- instant regexp builder
+
 ;;; Usage:
+;;
 ;; - [M-x regexp-builder] -- start regexp-builder
 ;; - [C-c C-q] -- quit regexp-builder window.
+;; - `reb-change-syntax' :: change default regexp syntax.
+;; - `reb-mode'
 
 (require 're-builder)
 (autoload 're-builder "re-builder" t)
