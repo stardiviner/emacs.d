@@ -176,7 +176,7 @@
          hydra
          ;; Dired
          ;; direx
-         dired-rainbow ;; dired-k ; stripe-buffer
+         dired-rainbow dired-efap ; dired-k ; stripe-buffer
          peep-dired
          ;; Image
          ;; image+ image-dired+

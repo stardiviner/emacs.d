@@ -93,6 +93,26 @@
 ;; (add-hook 'dired-initial-position-hook 'dired-k)
 
 
+;;; [ dired-efap ] -- Edit Filename At Point in an Emacs' dired buffer
+
+;;; Usage:
+;;
+;; - [F2] / double clicking => rename => [RET] :: edit filename.
+;; - [C-g] :: abort
+
+(require 'dired-efap)
+
+(setq dired-efap-use-mouse t)
+
+;; (setq dired-efap-initial-filename-selection 'no-extension)
+
+(set-face-attribute 'dired-efap-face nil
+                    :box '(:color "orange" :line-width 2))
+
+(define-key dired-mode-map [f2] 'dired-efap)
+(define-key dired-mode-map [down-mouse-1] 'dired-efap-click)
+
+
 ;;; [ peep-dired ] -- A convienent way to look up file contents in other window while browsing directory in dired
 
 ;;; Usage:
