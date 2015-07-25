@@ -15,6 +15,8 @@
 
 (require 'inf-mongo)
 
+(define-key my-inferior-db-nosql-map (kbd "m") 'inf-mongo)
+
 
 ;;; [ mongo-elnode ]
 
