@@ -280,7 +280,7 @@
          ;; rainbow-blocks
          ;; rainbow-identifiers
          ;; document, API, docsets
-         dash helm-dash
+         dash helm-dash dash-at-point
          ;; RFC
          ;; rfc irfc
          ;; Snippet

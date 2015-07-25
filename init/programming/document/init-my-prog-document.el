@@ -211,6 +211,25 @@
 ;;     (persistent-action . helm-mu-persistent-action)
 ;;     (action . (("Display message in mu4e" . helm-mu-display-email)))))
 
+
+;;; [ dash-at-point ] -- Search the word at point with Dash.
+
+;;; Usage:
+;;
+;; - `dash-at-point'
+;; - `dash-at-point-with-docset'
+
+;; (require 'dash-at-point)
+(autoload 'dash-at-point "dash-at-point"
+  "Search the word at point with Dash." t nil)
+
+(define-key my-prog-help-document-map (kbd "M-d") 'dash-at-point)
+(define-key my-prog-help-document-map (kbd "M-e") 'dash-at-point-with-docset)
+
+;; (add-to-list 'dash-at-point-mode-alist '(perl-mode . "perl"))
+(add-hook 'projectile-rails-mode-hook
+          (lambda () (setq dash-at-point-docset "rails")))
+
 
 
 ;;; [ RFC ]
