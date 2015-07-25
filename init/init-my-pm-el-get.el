@@ -465,6 +465,8 @@
          ;; FIXME: depend on auto-complete.
          edbi company-edbi edbi-sqlite edbi-database-url
          ;; NoSQL
+         db
+         db-pg
          ;; MongoDB
          ;; inf-mongo
          ;; Redis
