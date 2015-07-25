@@ -469,6 +469,20 @@
 ;; (define-key my-search-prefix-map (kbd "w") 'awk-it)
 
 
+(unless (boundp 'my-search-language-prefix)
+  (define-prefix-command 'my-search-language-prefix))
+
+(define-key my-search-prefix-map (kbd "l") 'my-search-language-prefix)
+
+
+;;; [ pinyin-search ] --
+
+(require 'pinyin-search)
+
+(define-key my-search-language-prefix (kbd "c") 'pinyin-search)
+(define-key my-search-language-prefix (kbd "C") 'pinyin-search-backward)
+
+
 ;;; [ migemo ] -- provides Japanese increment search with 'Romanization of Japanese'(ローマ字).
 
 ;; https://github.com/emacs-jp/migemo

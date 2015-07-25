@@ -507,6 +507,8 @@
          ;; PowerShell-Mode
          ;; fvwm-mode glsl-mode
          ;; English
+         ;; Chinese
+         pinyin-search
          ;; Japanese
          ;; migemo helm-migemo
          ;; Speak
