@@ -59,6 +59,11 @@
 
 ;;; [ direx ] --- direx.el is a simple directory explorer. It also works as a generic tree explore library.
 
+;;; Usage:
+;;
+;; - [C-c C-j]
+;; - [TAB], [Enter]
+
 (require 'direx)
 
 ;; direx-project -- (bundled with direx.el) -- project tree explorer.
@@ -100,6 +105,11 @@
 (define-key dired-mode-map (kbd "K") 'dired-k)
 ;; always execute dired-k when dired buffer is opened
 (add-hook 'dired-initial-position-hook 'dired-k)
+
+;;; for "direx-k"
+(require 'direx-k)
+
+(define-key direx:direx-mode-map (kbd "K") 'direx-k)
 
 
 ;;; [ dired-efap ] -- Edit Filename At Point in an Emacs' dired buffer
