@@ -7,6 +7,12 @@
 
 ;;; Code:
 
+
+(unless (boundp 'my-web-server-prefix)
+  (define-prefix-command 'my-web-server-prefix))
+(define-key my-tools-prefix-map (kbd "w") 'my-web-server-prefix)
+
+
 ;;; [ elnode ] -- Asynchronous (non-blocking evented IO) HttpServer framework written in Emacs Lisp.
 
 ;;; Usage:
@@ -25,6 +31,7 @@
       elnode-init-port "8000"
       )
 
+(define-key my-web-server-prefix (kbd "e") 'elnode-make-webserver)
 
 
 (provide 'init-my-prog-web-server)
