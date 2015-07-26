@@ -64,6 +64,15 @@
 (require 'company-math)
 
 
+;;; [ latex-preview-pane ]
+
+;; Usage:
+;;
+;; - [M-x latex-preview-mode]
+
+(latex-preview-pane-enable)
+
+
 ;;;_ [ reftex ]
 
 

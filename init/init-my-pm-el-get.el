@@ -437,6 +437,7 @@
          ;; company-auctex ; auto-complete-auctex
          ;; auto-complete-latex
          ;; company-math ; ac-math
+         latex-preview-pane
          ;; reftex
          ;;; Haskell
          ;; haskell-mode
