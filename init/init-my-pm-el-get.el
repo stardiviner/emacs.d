@@ -462,11 +462,13 @@
          ;; Database
          ;; SQL
          sqlup-mode
+         ;; PostgreSQL
+         pg
          ;; FIXME: depend on auto-complete.
          edbi company-edbi edbi-sqlite edbi-database-url
          ;; NoSQL
          db
-         db-pg
+         db-sql db-pg
          ;; MongoDB
          inf-mongo ob-mongo
          ;; Redis

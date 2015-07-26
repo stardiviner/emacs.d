@@ -107,6 +107,10 @@
               (add-to-list (make-local-variable 'company-backends)
                            'company-edbi))))
 
+
+;;; [ db-sql ] -- Connect to SQL server using tramp syntax.
+
+(require 'db-sql)
 
 
 (provide 'init-my-prog-lang-database-sql)
