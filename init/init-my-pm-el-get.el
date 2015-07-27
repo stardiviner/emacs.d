@@ -173,6 +173,7 @@
          ;; keybinding
          bind-key
          guide-key ; guide-key-tip
+         which-key
          hydra
          ;; Dired
          direx

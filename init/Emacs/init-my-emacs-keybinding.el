@@ -91,137 +91,182 @@
 ;;
 ;; - [any key sequence prefix] ::
 
-(require 'guide-key)
-
-(setq guide-key/idle-delay 0.5 ; longer time can delay guide-key popup to speed up Emacs.
-      guide-key/polling-time 0.1
-      guide-key/popup-window-position 'bottom
-      guide-key/text-scale-amount -0.2
-      ;; guide-key/align-command-by-space-flag nil
-      ;; guide-key checks an input key sequence recursively. the guide buffer is
-      ;; popped up when you input “C-x r”, “C-x 8” and any other prefixes
-      ;; following “C-x”.
-      guide-key/recursive-key-sequence-flag t
-      )
-
-;;; In respect of guide-key/guide-key-sequence, you can add mode specific key
-;;; sequences without guide-key/add-local-guide-key-sequence. For example,
-;;; configure as below.
-;; Enable setting `guide-key/guide-key-sequence' to `t' so that any key sequence will pop up bindings.
-(setq guide-key/guide-key-sequence
-      '("C-h"                           ; document help lookup
-        "C-c"
-        "C-x"
-        "C-x r"                         ; register, bookmark, etc
-        "C-x 4"                         ; other window
-        "C-x 5"                         ; other frame
-        "C-x C-k"                       ; macro/kmacro
-        "C-x RET"                       ; coding system
-        "C-x C-a"                       ; edebug
-        "C-c C-x"                       ; edebug-x
-        "C-x *"                         ; calc
-        "C-x a"                         ; abbrev
-        "C-x n"                         ; narrow
-        "M-s"                           ; some search utilities
-        "M-s h"                         ; highlight
-        "C-c %"                         ; mmm-mode
-        "C-c e"                         ; edit (multiple-cursor, narrow, ...)
-        "C-c r"                         ; regexp prefix map
-        "C-c s"                         ; visual-regexp-map
-        "C-c l"                         ; lookup
-        (dired-mode "C-h"
-                    "*" ":" "%"
-                    "T" "T >" "T m" "T u"
-                    "M-+"
-                    "C-t"
-                    "M-s"
-                    )
-        "C-z"                           ; popwin (global)
-        ;; "C-c"                           ; extension functional prefix (global)
-        "C-c !"                         ; flycheck (global)
-        "C-c t"                         ; programming test (global)
-        "C-c SPC"                       ; allout (outline)
-        "C-c &"                         ; yasnippet (global)
-        "C-c p"                         ; projectile (global)
-        "C-c p C-r"                     ; projectile-rails
-        "C-c C-r"                       ; projectile-rails
-        "C-c d"                         ; Debug
-        "C-c v"                         ; Magit (global)
-        (magit-status-mode "#" "j")     ; magit-gh-pulls
-        "C-c g"                         ; Git
-        "C-c i"                         ; Inferior
-        "M-;"                           ; programming comment prefix
-        "C-c D"                         ; Database
-        "C-c T"                         ; Programming Tools
-        "C-c o"                         ; Org-mode (global)
-        "C-x d"                         ; Dictionary
-        "C-c ;"                         ; E2WM
-        "C-c w"                         ; workgroups2
-        "C-x x"                         ; perspective
-        "C-c @"                         ; hs-minor-mode [Fold] (global)
-        "C-x t"                         ; tools: paste(gist), ... etc.
-        "C-x c"                         ; Helm
-        "C-x 8"                         ; insert unicode IDE symbols
-        ;; "C-c '"                         ; ???
-        (org-mode "C-c C-x" "C-c C-v")  ; Org-mode.
-        (outline-minor-mode "C-c @")    ; outline minor mode.
-        (markdown-mode "C-c" "C-c C-c" "C-c C-s" "C-c C-t" "C-c TAB" "C-c C-a")
-        (latex-mode "C-c" "C-c C-p")    ; LaTeX mode.
-        (artist-mode "C-c C-a")         ; artist-mode
-        (web-mode "C-c")                ; web-mode.
-        (ruby-mode "C-c") ; Ruby yari mode.
-        (rinari-minor-mode "C-c ;" "C-c '") ; Rinari minor mode.
-        ))
-
-;;; change guide-key popup style in popwin.el
-(setq guide-key/popup-window-position 'bottom
-      ;; This variable controls the size of text in guide buffer. The default
-      ;; value is 0 (it means default size in Emacs). If you want to enlarge
-      ;; text, set positive number. Otherwise, set negative number.
-      ;; guide-key/text-scale-amount 0
-      )
-
-;;; Add settings in a particular mode
-(defun guide-key/my-hook-function-for-org-mode ()
-  ;; (guide-key/add-local-guide-key-sequence "C-c")
-  (guide-key/add-local-guide-key-sequence "C-c C-x")
-  (guide-key/add-local-guide-key-sequence "C-c C-v")
-  (guide-key/add-local-highlight-command-regexp "org-"))
-(add-hook 'org-mode-hook 'guide-key/my-hook-function-for-org-mode)
-
-;;; Faces
-(set-face-attribute 'guide-key/key-face nil
-                    :foreground "dark red")
-(set-face-attribute 'guide-key/prefix-command-face nil
-                    :foreground "forest green")
-(set-face-attribute 'guide-key/highlight-command-face nil
-                    :foreground "cyan")
-
-;; ("regexp" . face), ("regexp", "color")
-;; 
-(setq guide-key/highlight-prefix-regexp "prefix")
-(setq guide-key/highlight-command-regexp '(("rectangle\\|register\\|bookmark" . "white")
-                                           ("^bm-" . "white")
-                                           ("my-prog-" . "cyan")
-					   ("my-" . "yellow")))
-
-;; If mode specific setting, use `guide-key/add-local-highlight-command-regexp'.
+;; (require 'guide-key)
 ;;
-;; (add-hook 'c-mode-common-hook
-;;           (lambda ()
-;;             (guide-key/add-local-highlight-command-regexp '("^helm-" . warning))
-;;             (guide-key/add-local-highlight-command-regexp '("^projectile-" . error))
-;;             ))
-
-;;; enable guide-key mode.
-(guide-key-mode 1)
-(diminish 'guide-key-mode)
+;; (setq guide-key/idle-delay 0.5 ; longer time can delay guide-key popup to speed up Emacs.
+;;       guide-key/polling-time 0.1
+;;       guide-key/popup-window-position 'bottom
+;;       guide-key/text-scale-amount -0.2
+;;       ;; guide-key/align-command-by-space-flag nil
+;;       ;; guide-key checks an input key sequence recursively. the guide buffer is
+;;       ;; popped up when you input “C-x r”, “C-x 8” and any other prefixes
+;;       ;; following “C-x”.
+;;       guide-key/recursive-key-sequence-flag t
+;;       )
+;;
+;; ;;; In respect of guide-key/guide-key-sequence, you can add mode specific key
+;; ;;; sequences without guide-key/add-local-guide-key-sequence. For example,
+;; ;;; configure as below.
+;; ;; Enable setting `guide-key/guide-key-sequence' to `t' so that any key sequence will pop up bindings.
+;; (setq guide-key/guide-key-sequence
+;;       '("C-h"                           ; document help lookup
+;;         "C-c"
+;;         "C-x"
+;;         "C-x r"                         ; register, bookmark, etc
+;;         "C-x 4"                         ; other window
+;;         "C-x 5"                         ; other frame
+;;         "C-x C-k"                       ; macro/kmacro
+;;         "C-x RET"                       ; coding system
+;;         "C-x C-a"                       ; edebug
+;;         "C-c C-x"                       ; edebug-x
+;;         "C-x *"                         ; calc
+;;         "C-x a"                         ; abbrev
+;;         "C-x n"                         ; narrow
+;;         "M-s"                           ; some search utilities
+;;         "M-s h"                         ; highlight
+;;         "C-c %"                         ; mmm-mode
+;;         "C-c e"                         ; edit (multiple-cursor, narrow, ...)
+;;         "C-c r"                         ; regexp prefix map
+;;         "C-c /"                         ; regexp
+;;         "C-c s"                         ; visual-regexp-map
+;;         "C-c l"                         ; lookup
+;;         (dired-mode "C-h"
+;;                     "*" ":" "%"
+;;                     "T" "T >" "T m" "T u"
+;;                     "M-+"
+;;                     "C-t"
+;;                     "M-s"
+;;                     )
+;;         "C-z"                           ; popwin (global)
+;;         ;; "C-c"                           ; extension functional prefix (global)
+;;         "C-c !"                         ; flycheck (global)
+;;         "C-c t"                         ; programming test (global)
+;;         "C-c SPC"                       ; allout (outline)
+;;         "C-c &"                         ; yasnippet (global)
+;;         "C-c p"                         ; projectile (global)
+;;         "C-c p C-r"                     ; projectile-rails
+;;         "C-c C-r"                       ; projectile-rails
+;;         "C-c d"                         ; Debug
+;;         "C-c v"                         ; Magit (global)
+;;         (magit-status-mode "#" "j")     ; magit-gh-pulls
+;;         "C-c g"                         ; Git
+;;         "C-c i"                         ; Inferior
+;;         "M-;"                           ; programming comment prefix
+;;         "C-c D"                         ; Database
+;;         "C-c T"                         ; Programming Tools
+;;         "C-c o"                         ; Org-mode (global)
+;;         "C-x d"                         ; Dictionary
+;;         "C-c ;"                         ; E2WM
+;;         "C-c w"                         ; workgroups2
+;;         "C-x x"                         ; perspective
+;;         "C-c @"                         ; hs-minor-mode [Fold] (global)
+;;         "C-x t"                         ; tools: paste(gist), ... etc.
+;;         "C-x c"                         ; Helm
+;;         "C-x 8"                         ; insert unicode IDE symbols
+;;         ;; "C-c '"                         ; ???
+;;         (org-mode "C-c C-x" "C-c C-v")  ; Org-mode.
+;;         (outline-minor-mode "C-c @")    ; outline minor mode.
+;;         (markdown-mode "C-c" "C-c C-c" "C-c C-s" "C-c C-t" "C-c TAB" "C-c C-a")
+;;         (latex-mode "C-c" "C-c C-p")    ; LaTeX mode.
+;;         (artist-mode "C-c C-a")         ; artist-mode
+;;         (web-mode "C-c")                ; web-mode.
+;;         (ruby-mode "C-c") ; Ruby yari mode.
+;;         (rinari-minor-mode "C-c ;" "C-c '") ; Rinari minor mode.
+;;         ))
+;;
+;; ;;; change guide-key popup style in popwin.el
+;; (setq guide-key/popup-window-position 'bottom
+;;       ;; This variable controls the size of text in guide buffer. The default
+;;       ;; value is 0 (it means default size in Emacs). If you want to enlarge
+;;       ;; text, set positive number. Otherwise, set negative number.
+;;       ;; guide-key/text-scale-amount 0
+;;       )
+;;
+;; ;;; Add settings in a particular mode
+;; (defun guide-key/my-hook-function-for-org-mode ()
+;;   ;; (guide-key/add-local-guide-key-sequence "C-c")
+;;   (guide-key/add-local-guide-key-sequence "C-c C-x")
+;;   (guide-key/add-local-guide-key-sequence "C-c C-v")
+;;   (guide-key/add-local-highlight-command-regexp "org-"))
+;; (add-hook 'org-mode-hook 'guide-key/my-hook-function-for-org-mode)
+;;
+;; ;;; Faces
+;; (set-face-attribute 'guide-key/key-face nil
+;;                     :foreground "dark red")
+;; (set-face-attribute 'guide-key/prefix-command-face nil
+;;                     :foreground "forest green")
+;; (set-face-attribute 'guide-key/highlight-command-face nil
+;;                     :foreground "cyan")
+;;
+;; ;; ("regexp" . face), ("regexp", "color")
+;; ;; 
+;; (setq guide-key/highlight-prefix-regexp "prefix")
+;; (setq guide-key/highlight-command-regexp '(("rectangle\\|register\\|bookmark" . "white")
+;;                                            ("^bm-" . "white")
+;;                                            ("my-prog-" . "cyan")
+;;                                            ("my-" . "yellow")))
+;;
+;; ;; If mode specific setting, use `guide-key/add-local-highlight-command-regexp'.
+;; ;;
+;; ;; (add-hook 'c-mode-common-hook
+;; ;;           (lambda ()
+;; ;;             (guide-key/add-local-highlight-command-regexp '("^helm-" . warning))
+;; ;;             (guide-key/add-local-highlight-command-regexp '("^projectile-" . error))
+;; ;;             ))
+;;
+;; ;;; enable guide-key mode.
+;; (guide-key-mode 1)
+;; (diminish 'guide-key-mode)
 
 
 ;;; [ guide-key-tip ] -- Interface of guide-key.el using pos-tip.el in Emacs
 
 ;; (require 'guide-key-tip)
 ;; (setq guide-key-tip/enabled t)
+
+
+;;; [ which-key ] -- displays available keybindings in popup.
+
+;; which-key is a minor mode for Emacs that displays the keybindings following
+;; your currently entered incomplete command (a prefix) in a popup. For example,
+;; after enabling the minor mode if you enter C-x and wait for the default of 1
+;; second the minibuffer will expand with all of the available keybindings that
+;; follow C-x (or as many as space allows given your settings). This includes
+;; prefixes like C-x 8 which are shown in a different face. Screenshots of what
+;; the popup will look like are included below. which-key started as a rewrite
+;; of guide-key-mode, but the feature sets have diverged to a certain extent.
+;;
+;; With respect to guide-key, the intention is to provide the following features:
+;;
+;; - A different polling mechanism to make it lighter on resources than guide-key.
+;;
+;; - An improved display of keys with more keys being shown by default and a nicer presentation.
+;;
+;; - Customization options that allow for the rewriting of command names on the
+;;   fly through easily modifiable alists.
+;;
+;; - Good default configurations that work well with most themes.
+;;
+;; - A well configured back-end for displaying keys (removing the popwin
+;;   dependency) that can be easily customized by writing new display functions.
+;;
+;; Many of these have been implemented and are described below.
+
+;;; Usage:
+;;
+;; -
+
+(require 'which-key)
+
+
+
+(which-key-mode)
+
+
+
+(if (featurep 'which-key)
+    (which-key-mode)
+  (guide-key-mode 1))
 
 
 ;;; [ hydra ] -- be used to tie related commands into a family of short bindings with a common prefix - a Hydra.
