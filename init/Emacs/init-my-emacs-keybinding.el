@@ -258,7 +258,42 @@
 
 (require 'which-key)
 
+(setq which-key-idle-delay 1.0)
 
+;; (which-key-setup-minibuffer)
+;; (which-key-setup-side-window-bottom) ; default
+;; (which-key-setup-side-window-right)
+;; (which-key-setup-side-window-right-bottom)
+
+;; (setq which-key-popup-type 'side-window ; 'side-window, 'minibuffer, 'frame
+;;       which-key-side-window-location 'bottom
+;;       which-key-side-window-max-height 0.33
+;;       which-key-side-window-max-width 0.25)
+
+;; (setq max-mini-window-height 0.25)
+
+(setq which-key-max-description-length 27
+      which-key-separator " → "
+      ;; which-key-unicode-correction 3
+      which-key-special-keys '("SPC" "TAB" "RET" "ESC" "DEL")
+      which-key-show-prefix 'echo ; 'left 'echo
+      which-key-show-remaining-keys t
+      )
+
+;; (setq which-key-key-based-description-replacement-alist
+;;       '(("C-x C-f" . "find files")
+;;         (org-mode . (("C-c C-c" . "Org C-c C-c")
+;;                      ("C-c C-a" . "Org Attach")))
+;;         ))
+;;
+;; (setq which-key-sort-order 'which-key-key-order)
+;;
+;; `which-key-show-next-page'
+;; (setq which-key-use-C-h-for-paging nil)
+;; (define-key which-key-mode-map (kbd "C-x <f5>") 'which-key-show-next-page) ; custom
+;; equivalent to =
+;; (setq which-key-paging-prefixes '("C-x"))
+;; (setq which-key-paging-key "<f5>")
 
 (which-key-mode)
 
