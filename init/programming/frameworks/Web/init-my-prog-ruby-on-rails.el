@@ -14,14 +14,12 @@
 ;; - MuMaMo-Mode: allows multiple major modes in a single buffer
 ;; - rhtml-Mode: edit rhtml files without using multiple major modes
 
+
 ;;; [ rhtml-mode ]
 
-;; (require 'rhtml-mode)
+(require 'rhtml-mode)
 
-;; (add-hook 'rhtml-mode-hook
-;;           (lambda () (rinari-launch)))
-
-;; (add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . rhtml-mode))
+;; (add-to-list 'auto-mode-alist '("\\.html.erb$" . rhtml-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . rhtml-mode))
 
 (set-face-attribute 'erb-face nil ; ruby code
