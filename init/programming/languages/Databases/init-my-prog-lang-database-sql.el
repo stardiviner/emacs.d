@@ -7,7 +7,22 @@
 
 ;;; Code:
 
+;;; [ sql.el ] -- specialized comint.el for SQL interpreters.
+
+;;; Usage:
+;;
+;; - `sql-mode' / `sql-interactive-mode' in SQLi buffer "*SQL*"
+;; - [M-x sql-help] ::
+;; - [M-x sql-set-sqli-buffer RET *SQL* RET] :: To interact with the interpreter from a window already in SQL mode.
+
+(require 'sql)
+
+;; If you don’t like window splittings related to the SQL buffer, try the following, per Force Same Window.
+;; (add-to-list 'same-window-buffer-names "*SQL*")
+
+
 ;;; [ sql-indent]
+
 ;; (require 'sql-indent)
 
 
@@ -25,6 +40,8 @@
 ;; - The capitalization is triggered when you press 'SPC', ';', ',', or '(', '\r' (Enter),
 ;; - [C-c u] region :: `sqlup-capitalize-keywords-in-region'
 
+(autoload 'sqlup-mode "sqlup-mode")
+
 (add-hook 'sql-mode-hook 'sqlup-mode)
 (add-hook 'sql-inretactive-mode-hook 'sqlup-mode)
 
@@ -35,7 +52,45 @@
 ;;                           '("text" "glob" "offset")))))
 
 
-;;; [ sqled-mode ]
+;;; [ sqled-mode ] -- major mode for editing sql, sqlplus, and pl/sql code.
+
+(require 'sqled-mode)
+
+
+;;; [ sqlplus ] -- user friendly interface to SQL*Plus and support for PL/SQL compilation.
+
+;;; Usage:
+;;
+;; - [M-x sqlplus] :: start new SQL*Plus session.
+;;
+;;   - [C-RET]   :: execute command under point.
+;;   - [S-C-RET] :: execute command under point, and show result table in HTML buffer.
+;;   - [M-RET]   :: explain execution plan for command under point.
+;;   - [M-.] / [C-mouse-1] :: find database object definition (table, view index, synonym, trigger, procedure,
+;;                            function, package) in filesystem.
+;;   - [C-c C-s] :: show database object definition (retrieved from database).
+;;
+;; TODO: customize sqlplus group.
+
+;; (require 'sqlplus)
+;; (add-to-list 'auto-mode-alist '("\\.sqp\\'" . sqlplus-mode))
+
+;;  If you want PL/SQL support also, try something like this:
+;;
+;;  (require 'plsql)
+;;  (setq auto-mode-alist
+;;    (append '(("\\.pls\\'" . plsql-mode) ("\\.pkg\\'" . plsql-mode)
+;; 		("\\.pks\\'" . plsql-mode) ("\\.pkb\\'" . plsql-mode)
+;; 		("\\.sql\\'" . plsql-mode) ("\\.PLS\\'" . plsql-mode) 
+;; 		("\\.PKG\\'" . plsql-mode) ("\\.PKS\\'" . plsql-mode)
+;; 		("\\.PKB\\'" . plsql-mode) ("\\.SQL\\'" . plsql-mode)
+;; 		("\\.prc\\'" . plsql-mode) ("\\.fnc\\'" . plsql-mode)
+;; 		("\\.trg\\'" . plsql-mode) ("\\.vw\\'" . plsql-mode)
+;; 		("\\.PRC\\'" . plsql-mode) ("\\.FNC\\'" . plsql-mode)
+;; 		("\\.TRG\\'" . plsql-mode) ("\\.VW\\'" . plsql-mode))
+;; 	      auto-mode-alist ))
+
+
 
 
 ;;; [ edbi ]
@@ -63,6 +118,16 @@
 (require 'edbi)
 
 (define-key my-prog-database-map (kbd "d") 'edbi:open-db-viewer)
+
+
+;;; [ edbi-minor-mode ] -- use edbi with regular SQL files.
+
+;;; Usage:
+;;
+;; -
+
+(require 'edbi-minor-mode)
+
 
 
 ;;; [ edbi-sqlite ] -- edbi helper application
@@ -111,6 +176,12 @@
 ;;; [ db-sql ] -- Connect to SQL server using tramp syntax.
 
 (require 'db-sql)
+
+
+;;; [ sql-complete ] -- support Oracle
+
+
+;;; [ sql-completion ] -- support MySQL
 
 
 (provide 'init-my-prog-lang-database-sql)

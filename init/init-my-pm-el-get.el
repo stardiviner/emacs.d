@@ -463,11 +463,16 @@
          ;; ac-octave
          ;; Database
          ;; SQL
-         sqlup-mode
+         sql sqlup-mode sql-transform sqled-mode sqlplus ; sql-complete sql-completion
+         ;; SQL comprehensive complete
+         edbi edbi-minor-mode company-edbi edbi-database-url
+         ede-compdb
+         ;; SQLite
+         ;; sqlite
+         edbi-sqlite
+         esqlite
          ;; PostgreSQL
-         pg
-         ;; FIXME: depend on auto-complete.
-         edbi company-edbi edbi-sqlite edbi-database-url
+         pg ; pgdevenv pgdevenv-el pgsrc-el
          ;; NoSQL
          db
          db-sql db-pg
