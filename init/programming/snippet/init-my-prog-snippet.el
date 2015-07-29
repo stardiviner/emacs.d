@@ -348,6 +348,7 @@ $0"
 ;;            mu4e-compose-mode-hook
 ;;            ))
 ;;   (add-hook hook #'yas-minor-mode))
+;; (yas-reload-all)
 
 (diminish 'yas-minor-mode)
 
