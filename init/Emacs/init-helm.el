@@ -203,15 +203,16 @@
                                 ;; :background "#004A5D" :foreground "white"
                                 ;; :box '(:color "cyan" :line-width -1)
                                 ;; :underline nil
-                                ;; 3. different highlight color.
-                                ;; :background "yellow" :foreground "orange red"
-                                ;; :weight 'bold
+                                ;; 3. tomato color box
+                                :background "#333333" :foreground "white"
+                                :box '(:color "tomato" :line-width -1 :style nil)
+                                :underline nil :weight 'normal
                                 ;; 4. darker background percent 5%
-                                :inherit nil
-                                :inverse-video nil
-                                :foreground nil
-                                :background (color-darken-name (face-background 'default) 5)
-                                :underline '(:color "dark red")
+                                ;; :inherit nil
+                                ;; :inverse-video nil
+                                ;; :foreground nil
+                                ;; :background (color-darken-name (face-background 'default) 5)
+                                ;; :underline '(:color "dark red")
                                 )))
 
 (set-face-attribute 'helm-header nil
