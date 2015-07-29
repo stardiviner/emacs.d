@@ -2,7 +2,27 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Java Programming Language"
+(("Linux"
+ (filename . "~/Org/Wiki/Computer/Systems/Linux/Linux.org")
+ (front-context-string . "* Intro\n\n- [[htt")
+ (rear-context-string)
+ (position . 1))
+("Gems for Rails"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Frameworks/Ruby on Rails/Data/Gems/Gems.org")
+ (front-context-string . "* Authentication")
+ (rear-context-string)
+ (position . 1))
+("Docker.org"
+ (filename . "~/Org/Wiki/Computer/Softwares/Docker/Docker.org")
+ (front-context-string . "* Intro\n\nDocker ")
+ (rear-context-string)
+ (position . 1))
+("Elixir Programming Language"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Elixir/Elixir.org")
+ (front-context-string . "* Intro\n\n*Elixir")
+ (rear-context-string)
+ (position . 1))
+("Java Programming Language"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Java/Java.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
@@ -137,7 +157,7 @@
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
  (position . 1))
-("Python.org"
+("Python Programming Language"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Python/Python.org")
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
@@ -177,7 +197,7 @@
  (front-context-string . "* Websites\n\n** S")
  (rear-context-string . " Linux & OS X.\n\n")
  (position . 84345))
-("JavaScript.org"
+("JavaScript Programming Language"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/JavaScript/JavaScript.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
