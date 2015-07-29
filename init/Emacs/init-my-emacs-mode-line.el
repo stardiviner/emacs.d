@@ -53,7 +53,7 @@
   (
    ;; window-number
    (:propertize (:eval (concat "[" (number-to-string (window-number)) "]"))
-                face (:foreground "red" :weight 'bold))
+                face (:foreground "tomato" :weight 'bold))
 
    ;; (:propertize "%e"
    ;;              face (:foreground "red" :inverse-video nil))
