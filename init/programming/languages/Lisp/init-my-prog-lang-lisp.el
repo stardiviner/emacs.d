@@ -196,7 +196,7 @@
 ;; - [M-x sly] :: fire up SLY and connect to Lisp.
 ;; - `sly-mode'
 
-(require 'sly)
+(require 'sly-autoloads)
 
 
 ;;; [ company-sly ] -- Company-mode completion backend for SLY.
