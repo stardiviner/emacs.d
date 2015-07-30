@@ -6,6 +6,8 @@
 
 ;;; [ Lisp ]
 
+(setq inferior-lisp-program "sbcl")
+
 ;; (setq lisp-dialects-mode-hook '(lisp-mode-hook
 ;;                                 lisp-interaction-mode-hook
 ;;                                 emacs-lisp-mode-hook
