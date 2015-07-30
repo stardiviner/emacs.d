@@ -106,9 +106,15 @@
   (let ((default-directory (getenv "HOME")))
     (my-func/open-and-switch-to-buffer 'ielm "*ielm*" t)))
 
+(defun my-run-sly ()
+  "Start SLY or switch to its buffer if it already exist."
+  (interactive)
+  (my-func/open-and-switch-to-buffer 'sly "*sly-mrepl for sbcl*" t))
+
 (define-key my-inferior-lisp-map (kbd "e") 'my-ielm-start-or-switch)
 ;; Lisp dialects
 (define-key my-inferior-lisp-map (kbd "l") 'run-lisp)   ; Lisp
+(define-key my-inferior-lisp-map (kbd "s") 'my-run-sly) ; SLY
 (define-key my-inferior-lisp-map (kbd "g") 'run-geiser) ; geiser
 (define-key my-inferior-lisp-map (kbd "m") 'slime)      ; SLIME
 (define-key my-inferior-lisp-map (kbd "S") 'run-scheme) ; Scheme
