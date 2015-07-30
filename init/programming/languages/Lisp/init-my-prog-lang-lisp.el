@@ -198,6 +198,15 @@
 
 (require 'sly-autoloads)
 
+(add-hook sly-mode-hook
+          (lambda ()
+            (unless (boundp 'lisp-help-doc-map)
+              (define-prefix-command 'lisp-help-doc-map))
+            
+            (local-set-key (kbd "C-h d") 'lisp-help-doc-map)
+            (define-key lisp-help-doc-map (kbd "d") 'sly-documentation-lookup)
+            ))
+
 
 ;;; [ company-sly ] -- Company-mode completion backend for SLY.
 
