@@ -108,11 +108,13 @@
 
 (define-key my-inferior-lisp-map (kbd "e") 'my-ielm-start-or-switch)
 ;; Lisp dialects
-(define-key my-inferior-lisp-map (kbd "l") 'run-geiser) ; Common Lisp
-(define-key my-inferior-lisp-map (kbd "c") 'run-lisp)   ; Clojure cider.
-(define-key my-inferior-lisp-map (kbd "s") 'run-scheme) ; Scheme
-(define-key my-inferior-lisp-map (kbd "g") 'run-guile)  ; Guile
+(define-key my-inferior-lisp-map (kbd "l") 'run-lisp)   ; Lisp
+(define-key my-inferior-lisp-map (kbd "g") 'run-geiser) ; geiser
 (define-key my-inferior-lisp-map (kbd "m") 'slime)      ; SLIME
+(define-key my-inferior-lisp-map (kbd "S") 'run-scheme) ; Scheme
+(define-key my-inferior-lisp-map (kbd "G") 'run-guile)  ; Guile
+;; FIXME: not `cider-jack-in'
+;; (define-key my-inferior-lisp-map (kbd "c") 'cider-jack-in) ; Clojure cider
 ;; Ruby
 (unless (boundp 'my-inferior-ruby-map)
   (define-prefix-command 'my-inferior-ruby-map))
