@@ -36,9 +36,9 @@
 ;;; [ SLIME ]
 
 ;;; Usage:
-;;; - [M-x slime] ::
-
-(setq inferior-lisp-program "sbcl")
+;;
+;; - [M-x slime] ::
+;; - `slime-mode'
 
 ;; select the default value from slime-lisp-implementations
 (if (eq system-type 'darwin)
