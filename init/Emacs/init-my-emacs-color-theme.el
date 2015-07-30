@@ -38,13 +38,11 @@
       solarized-underline t
       solarized-italic t
       solarized-contrast 'normal ; 'normal, 'hight, 'low
-      solarized-visibility 'high ; 'normal, 'high, 'low
       ;; solarized-broken-srgb nil    ; nil, t
       )
 
 ;;; This allows you to have a mix of light and dark frames. I tend to use light
-;;; frames in the GUI and dark frames in my terminal, so I use the following
-;;; code:
+;;; frames in the GUI and dark frames in my terminal:
 ;;
 ;; (add-hook 'after-make-frame-functions
 ;;           (lambda (frame)
@@ -53,8 +51,7 @@
 ;;               (set-terminal-parameter frame 'background-mode mode))
 ;;             (enable-theme 'solarized)))
 
-(color-theme-solarized-dark)
-;; (color-theme-solarized-light)
+(color-theme-solarized)
 
 
 ;;; color-theme-monokai
