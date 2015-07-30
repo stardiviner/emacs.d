@@ -188,6 +188,16 @@
 ;;   )
 ;; (add-hook 'slime-mode-hook 'my-slime-mode-hook)
 
+
+;;; [ sly ] -- Sylvester the Cat's Common Lisp IDE
+
+;;; Usage:
+;;
+;; - [M-x sly] :: fire up SLY and connect to Lisp.
+;; - `sly-mode'
+
+(require 'sly)
+
 
 
 ;;; [ Swank ] (cl-swank) --

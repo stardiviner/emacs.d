@@ -350,10 +350,7 @@
          rdebug
          motion-mode
          ;; Lisp
-         slime
-         elisp-slime-nav eldoc-eval
-         profile-lisp
-         slime-company ; ac-slime
+         sly
          geiser ; ac-geiser
          ;; sly sly-company ; ac-sly
          hl-sexp eval-sexp-fu
