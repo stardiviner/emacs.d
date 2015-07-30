@@ -198,6 +198,12 @@
 
 (require 'sly)
 
+
+;;; [ company-sly ] -- Company-mode completion backend for SLY.
+
+(require 'sly-company)
+
+(add-hook 'sly-mode-hook 'sly-company-mode)
 
 
 ;;; [ Swank ] (cl-swank) --

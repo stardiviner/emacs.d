@@ -351,6 +351,7 @@
          motion-mode
          ;; Lisp
          sly
+         sly sly-company ; ac-sly
          geiser ; ac-geiser
          ;; sly sly-company ; ac-sly
          hl-sexp eval-sexp-fu
