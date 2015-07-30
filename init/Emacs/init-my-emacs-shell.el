@@ -104,26 +104,6 @@
 
 (define-key my-inferior-shell-map (kbd "s") 'my-eshell-start-or-switch)
 
-
-;; [ readline-complete ] -- autocomplete in shell mode buffers
-
-;;; Usage:
-;;
-;; - [M-x shell] :: start.
-
-(setq explicit-shell-file-name "bash")
-(setq explicit-bash-args '("-c" "export EMACS=; stty echo; bash"))
-(setq comint-process-echoes t)
-
-;;; for auto-complete
-;; (add-to-list 'ac-modes 'shell-mode)
-;; (add-hook 'shell-mode-hook 'ac-rlc-setup-sources)
-
-;;; for company-mode
-;; readline-complete support `completion-at-point-functions' (`capf') now.
-
-;; (add-hook 'rlc-no-readline-hook
-;;           (lambda () (company-mode -1)))
 
 
 ;;; [ shelldoc ] -- Improve edit shell command in minibuffer.

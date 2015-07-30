@@ -127,7 +127,6 @@
          mmm-mode ; mumamo-noweb
          polymode
          ;; shell
-         readline-complete
          ;; eshell-manual
          shelldoc
          ;; insert-shebang
