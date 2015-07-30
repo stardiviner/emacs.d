@@ -564,6 +564,9 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (push '("*ielm*" :position bottom :height 15) popwin:special-display-config)
 (push '(inferior-emacs-lisp-mode :position bottom :height 15) popwin:special-display-config)
 
+;;; Lisp
+(push '(sly-mrepl-mode :position bottom :height 15) popwin:special-display-config)
+
 ;;; Clojure, CIDER
 (push '(inf-clojure-mode :position bottom :height 15) popwin:special-display-config)
 (push '(cider-clojure-interaction-mode :position bottom :height 15) popwin:special-display-config)
