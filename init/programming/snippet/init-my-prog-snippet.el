@@ -24,7 +24,9 @@
 ;; - (yas-activate-extra-mode (mode))
 ;;    Activates the snippets for the given mode in the buffer.
 ;;    The function can be called in the hook of a minor mode to activate snippets associated with that mode.
-
+;; - (yas-deactivate-extra-mode (mode))
+;;    Deactives the snippets for the given mode in the buffer.
+;; - (yas--modes-to-active) :: show what modes snippet is active in current buffer.
 
 ;; Expanding Snippets:
 ;;   * triggering expansion
