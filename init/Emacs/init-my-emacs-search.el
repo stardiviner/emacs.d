@@ -418,6 +418,8 @@
                     :background (color-darken-name (face-background 'default) 5)
                     )
 
+(add-hook 'ag-mode-hook #'next-error-follow-minor-mode) ; so you can navigate with 'n' & 'p'.
+
 (unless (boundp 'ag-map)
   (define-prefix-command 'ag-map))
 (define-key my-search-prefix-map (kbd "a") 'ag-map)
