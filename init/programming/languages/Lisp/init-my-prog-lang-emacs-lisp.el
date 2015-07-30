@@ -57,13 +57,13 @@
 ;; - [M-. / M-, ] -- go to/out navigation of the function definition.
 ;; - [C-c C-d d] -- slime-describe-symbol.
 
-(require 'elisp-slime-nav)
-(eval-after-load 'elisp-slime-nav
-  '(diminish 'elisp-slime-nav-mode))
-
-(dolist (hook '(emacs-lisp-mode-hook
-                ielm-mode-hook))
-  (add-hook hook 'turn-on-elisp-slime-nav-mode))
+;; (require 'elisp-slime-nav)
+;; (eval-after-load 'elisp-slime-nav
+;;   '(diminish 'elisp-slime-nav-mode))
+;;
+;; (dolist (hook '(emacs-lisp-mode-hook
+;;                 ielm-mode-hook))
+;;   (add-hook hook 'turn-on-elisp-slime-nav-mode))
 
 
 

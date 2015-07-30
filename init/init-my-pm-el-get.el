@@ -350,7 +350,7 @@
          rdebug
          motion-mode
          ;; Lisp
-         sly
+         ;; slime elisp-slime-nav slime-company ; ac-slime
          sly sly-company ; ac-sly
          geiser ; ac-geiser
          ;; sly sly-company ; ac-sly
