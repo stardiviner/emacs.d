@@ -134,10 +134,19 @@
 
 ;;; Usage:
 ;;
-;; 1. $ sqlite3
-;; 2. `edbi-sqlite'
+;; `edbi-sqlite'
 
 (require 'edbi-sqlite)
+
+;; (defun my-edbi-sqlite ()
+;;   (interactive)
+;;   (if (not (process-live-p (get-process "sqlite3 process")))
+;;       (start-process-shell-command "sqlite3 process" "*SQLite process*" "sqlite3")
+;;     (edbi-sqlite)                       ; FIXME: interactive command.
+;;     )
+;;   )
+
+(define-key my-prog-database-map (kbd "l") 'edbi-sqlite)
 
 
 ;;; [ edbi-database-url ] -- run edbi with database url.
