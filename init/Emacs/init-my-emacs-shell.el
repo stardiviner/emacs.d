@@ -104,6 +104,7 @@
 
 (define-key my-inferior-shell-map (kbd "s") 'my-eshell-start-or-switch)
 
+(define-key my-inferior-shell-map (kbd "S") 'shell)
 
 
 ;;; [ shelldoc ] -- Improve edit shell command in minibuffer.
