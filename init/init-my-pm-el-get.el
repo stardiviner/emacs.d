@@ -207,7 +207,7 @@
          org-screenshot org-download
          org-pomodoro
          ;; org-doing
-         org-linkany orgit
+         orgit ; org-linkany
          org-publish
          o-blog
          ;; org2blog ; org-blog org-website

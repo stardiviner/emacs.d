@@ -1036,7 +1036,7 @@ This is especially for create Org files."
 ;;
 ;; - persistent-action in helm to view http/https/ftp links.
 
-(require 'org-linkany)
+;; (require 'org-linkany)
 
 ;; (add-to-list org-linkany/url-source-collection ')
 ;;
