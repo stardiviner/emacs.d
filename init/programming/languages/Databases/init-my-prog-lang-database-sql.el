@@ -106,7 +106,7 @@
 
 (require 'edbi)
 
-(define-key my-prog-database-map (kbd "d") 'edbi:open-db-viewer)
+(define-key my-prog-database-map (kbd "D") 'edbi:open-db-viewer)
 
 
 ;;; [ edbi-minor-mode ] -- use edbi with regular SQL files.
