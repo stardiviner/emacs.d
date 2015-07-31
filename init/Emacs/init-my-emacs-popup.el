@@ -62,7 +62,8 @@
 (set-face-attribute 'popup-menu-selection-face nil
                     :inherit 'popup-face
                     :foreground "white" :background "black"
-                    :box '(:color "dark gray" :line-width -1))
+                    ;; :box '(:color "dark gray" :line-width -1)
+                    )
 (set-face-attribute 'popup-menu-mouse-face nil
                     :inherit 'popup-face
                     :foreground "black"
