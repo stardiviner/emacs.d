@@ -421,7 +421,6 @@
 ;; (push `(,special-buffer-regexp :regexp t :noselect nil)
 ;;       popwin:special-display-config)
 
-;; TODO:
 (push '("*scratch*" :position bottom :height 15) popwin:special-display-config)
 
 ;;; Debugger mode, *Backtrace*

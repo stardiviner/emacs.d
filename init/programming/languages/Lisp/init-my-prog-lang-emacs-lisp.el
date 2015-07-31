@@ -140,7 +140,9 @@
 (defun my-scratch-start-or-switch ()
   "Start IELM or switch to its buffer if it already exist."
   (interactive)
-  (switch-to-buffer "*scratch*"))
+  ;; (switch-to-buffer "*scratch*")
+  (popwin:display-buffer "*scratch*")
+  )
 
 (define-key my-inferior-lisp-map (kbd "k") 'my-scratch-start-or-switch)
 
