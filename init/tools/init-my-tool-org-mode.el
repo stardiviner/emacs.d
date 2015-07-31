@@ -2963,6 +2963,13 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 (define-key my-org-prefix-map (kbd "p") 'org-pomodoro)
 
+;; start another pomodoro automatically upon a break end.
+(add-hook 'org-pomodoro-break-finished-hook
+          (lambda ()
+            (interactive)
+            (org-pomodoro '(16)) ; double prefix [C-u C-u]
+            ))
+
 ;;;_* org-doing
 
 ;;; Inspired by doing, a set of functions for keeping track of what you're doing right now.
