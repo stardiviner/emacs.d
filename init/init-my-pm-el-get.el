@@ -151,6 +151,7 @@
          multiple-cursors iedit
          expand-region
          edit-server ; edit-server-htmlize
+         scratch
          ;; unicode
          ucs-utils
          ;; large file

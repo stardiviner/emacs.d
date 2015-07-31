@@ -462,6 +462,10 @@ This is the same as using \\[set-mark-command] with the prefix argument."
                     :foreground nil
                     :background (color-darken-name (face-background 'default) 4))
 
+;;;_ scratch.el -- launch a scratch buffer for the current mode.
+
+(autoload 'scratch "scratch" nil t)
+
 ;;;_ Imenu
 
 ;;; Usage:
