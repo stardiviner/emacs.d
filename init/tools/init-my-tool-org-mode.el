@@ -1030,15 +1030,16 @@ This is especially for create Org files."
       org-agenda-repeating-timestamp-show-all t
       )
 
-;;;_* org-linkany
-
-;; Make config suit for you. About the config item, eval the following sexp.
-;; (customize-group "org-linkany")
+;;;_* org-linkany -- Insert link using anything.el/helm.el on org-mode.
 
 ;;; Usage:
+;;
+;; - persistent-action in helm to view http/https/ftp links.
 
-;; (require 'org-linkany)
+(require 'org-linkany)
 
+;; (add-to-list org-linkany/url-source-collection ')
+;;
 ;; (setq org-linkany/url-source-collection
 ;;       '((org-linkany/source-link-in-org-buffer . org-linkany/get-candidate-link-value)
 ;;         (org-linkany/source-url-in-other-buffer)
