@@ -135,11 +135,14 @@
 
 ;; (add-hook 'emacs-startup-hook 'my-ielm-start-or-switch)
 
-(define-key my-prog-inferior-map (kbd "l e") 'my-ielm-start-or-switch)
-(define-key my-prog-inferior-map (kbd "l k")
-  '(lambda ()
-     (interactive)
-     (switch-to-buffer "*scratch*")))
+(define-key my-inferior-lisp-map (kbd "e") 'my-ielm-start-or-switch)
+
+(defun my-scratch-start-or-switch ()
+  "Start IELM or switch to its buffer if it already exist."
+  (interactive)
+  (switch-to-buffer "*scratch*"))
+
+(define-key my-inferior-lisp-map (kbd "k") 'my-scratch-start-or-switch)
 
 
 

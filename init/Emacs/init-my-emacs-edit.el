@@ -466,6 +466,8 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 (autoload 'scratch "scratch" nil t)
 
+(define-key my-prog-inferior-map (kbd "C-c") 'scratch)
+
 ;;;_ Imenu
 
 ;;; Usage:
