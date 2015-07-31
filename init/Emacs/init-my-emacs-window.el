@@ -621,6 +621,9 @@ The `BUFFER' is the popwin catch pop private message buffer."
 ;; (push '(special-mode :position bottom :height 15) popwin:special-display-config)
 (push '("*TeX Help*" :position bottom :height 15) popwin:special-display-config)
 
+;;; Database: edbi
+(push '(ctbl:table-mode :position bottom) popwin:special-display-config)
+
 ;;; howdoi
 (push '(howdoi-mode :position bottom :height 7) popwin:special-display-config)
 (push '("*How do I*" :position bottom :height 7) popwin:special-display-config)
