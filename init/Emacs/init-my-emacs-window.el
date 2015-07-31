@@ -422,7 +422,7 @@
 ;;       popwin:special-display-config)
 
 ;; TODO:
-(push '("*scratch*" :height 30 :position bottom) popwin:special-display-config)
+(push '("*scratch*" :position bottom :height 15) popwin:special-display-config)
 
 ;;; Debugger mode, *Backtrace*
 (push '("*Backtrace*" :position bottom :height 15 :noselect t) popwin:special-display-config)
