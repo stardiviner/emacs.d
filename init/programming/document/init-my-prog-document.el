@@ -133,6 +133,8 @@
         )
       )
 
+(setq helm-dash-enable-debugging nil)
+
 ;;; buffer local docsets
 ;; (defun go-doc ()
 ;;   (interactive)
