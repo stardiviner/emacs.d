@@ -103,17 +103,6 @@
 ;;     - User Name, Auth : user name and password for DBI::connect
 ;;     - History button : you can choose a data source from your connection history.
 ;;     - OK button : connect DB and open the database view
-;;
-;; Check the key-bind `edbi:dbview-keymap'.
-;;
-;;     j,k, n,p : navigation for rows
-;;     c : switch to query editor buffer
-;;     RET : show table data
-;;     SPC : show table definition
-;;     q : quit and disconnect
-
-;; install Perl packages:
-;; $ [cpanp -i / cpan] RPC::EPC::Service DBI DBD::SQLite DBD::Pg DBD::mysql
 
 (require 'edbi)
 
