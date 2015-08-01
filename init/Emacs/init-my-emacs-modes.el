@@ -141,22 +141,21 @@
 ;;
 ;; check out polymode/modes/readme.md
 
-(require 'polymode)
-
-;; modes
-(require 'poly-base)
-(require 'poly-org)
-(require 'poly-markdown)
-(require 'poly-noweb)
-(require 'poly-R)
-(require 'poly-erb)
-(require 'poly-slim)
-
-;;; Config
-
-(setq polymode-prefix-key '(kbd "M-n"))
-
-(add-to-list 'auto-mode-alist '("\\.md" . poly-markdown))
+;; (require 'polymode)
+;;
+;; ;; modes
+;; (require 'poly-base)
+;; (require 'poly-org)
+;; (require 'poly-markdown)
+;; (require 'poly-noweb)
+;; (require 'poly-R)
+;; (require 'poly-erb)
+;; (require 'poly-slim)
+;;
+;;
+;; (setq polymode-prefix-key '(kbd "M-n"))
+;;
+;; (add-to-list 'auto-mode-alist '("\\.md" . poly-markdown))
 
 
 ;;; [ auto-mode-alist ]

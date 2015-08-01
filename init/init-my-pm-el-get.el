@@ -125,7 +125,7 @@
          apropos+
          ;;; multiple major modes
          mmm-mode ; mumamo-noweb
-         polymode
+         ;; polymode
          ;; shell
          ;; eshell-manual
          shelldoc
