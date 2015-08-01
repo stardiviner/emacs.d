@@ -108,6 +108,8 @@
 
 (define-key my-prog-database-map (kbd "D") 'edbi:open-db-viewer)
 
+(add-hook 'edbi:sql-mode-hook 'sqlup-mode)
+
 
 ;;; [ edbi-minor-mode ] -- use edbi with regular SQL files.
 
