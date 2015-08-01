@@ -2215,6 +2215,15 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 (my-el-get-require 'ob-mongo)
 
+;; [ ob-sql ] -- babel for SQL
+
+(my-el-get-require 'ob-sql)
+
+;; active Babel SQL
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((sql . t)))
+
 ;; [ ob-go ] -- babel for Go
 ;;
 ;; Usage:
