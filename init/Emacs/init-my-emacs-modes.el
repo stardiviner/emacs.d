@@ -80,6 +80,8 @@
 ;; All polymode keys start with the prefix defined by polymode-prefix-key,
 ;; default is [M-n]. The polymode-mode-map is the parent of all polymodes' maps:
 ;;
+;; - `polymode-minor-mode' :: enable polymode on this buffer.
+;;
 ;; [ prefix ]
 ;;
 ;; - [M-n] -- `polymode-prefix-key'
@@ -120,11 +122,6 @@
 ;;  
 ;;  - M-i polymode-insert-new-chunk
 
-;; TODO:
-;; (require 'poly-markdown-mode)
-;; (require 'poly-org-mode)
-;; (require 'poly-noweb-mode)
-
 ;;; Activation of Polymodes
 ;;
 ;; Polymodes are functions, just like ordinary emacs modes. The can be used in
@@ -140,13 +137,26 @@
 ;;; // -*- mode: poly-C++R -*-
 ;;; ## -*- mode: poly-brew+R; -*-
 
+;;; Developing with Polymode (custom modes)
+;;
+;; check out polymode/modes/readme.md
+
+(require 'polymode)
+
+;; modes
+(require 'poly-base)
+(require 'poly-org)
+(require 'poly-markdown)
+(require 'poly-noweb)
+(require 'poly-R)
+(require 'poly-erb)
+(require 'poly-slim)
 
 ;;; Config
 
-;; (setq polymode-prefix-key "\356")
-;; (setq polymode-prefix-key '(kbd "M-n"))
-;;
-;; (add-to-list 'auto-mode-alist '("\\.md" . poly-markdown-mode))
+(setq polymode-prefix-key '(kbd "M-n"))
+
+(add-to-list 'auto-mode-alist '("\\.md" . poly-markdown))
 
 
 ;;; [ auto-mode-alist ]
