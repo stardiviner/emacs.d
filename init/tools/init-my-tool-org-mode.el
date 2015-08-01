@@ -2850,7 +2850,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 ;;; Usage:
 ;;
-;; - While in an org mode buffer, use the org-screenshot command to take a
+;; - While in an org mode buffer, use the `org-screenshot' command to take a
 ;;   screenshot and have it inserted at the current point.
 
 (require 'org-screenshot)
@@ -2859,11 +2859,12 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
       org-screenshot-relative-links t
       org-screenshot-image-directory "./images/"
       org-screenshot-file-name-format "screenshot-%2.2d.png"
+      org-attach-directory "data/"
       )
 
 (add-hook 'org-mode-hook
           (lambda ()
-            (local-set-key (kbd "C-c o s") 'org-screenshot-take)))
+            (local-set-key (kbd "C-c o s") 'org-screenshot)))
 
 ;; TODO: Emacs need to prompt user to get the screenshot filename to describe this screenshot.
 ;; 1. improve org-screenshot source code.
