@@ -6,62 +6,41 @@
 
 ;;; [ aspell & ispell ]
 
-;; (require 'ispell)
+;;; Usage:
+;;
+;; - [M-$]
+;; - [M-x ispell-complete-word]
+
+(require 'ispell)
 (autoload 'ispell "ispell" t)
 
+;; find aspell and hunspell automatically
+(cond
+ ((executable-find "aspell")
+  (setq ispell-program-name "aspell")
+  (setq ispell-extra-args '("--sug-mode=ultra" "--lang=en_US")))
+ ((executable-find "hunspell")
+  (setq ispell-program-name "hunspell")
+  (setq ispell-extra-args '("-d en_US"))
+  (setq ispell-really-hunspell t)
+  ;; just reset dictionary to the safe one "en_US" for hunspell.
+  ;; if we need use different dictionary, we specify it in command line arguments
+  (setq ispell-local-dictionary "en_US")
+  (setq ispell-local-dictionary-alist
+        '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil nil nil utf-8)))
+  )
+ (t
+  (setq ispell-program-name nil))
+ )
+
 (setq ispell-dictionary "english"
-      ispell-program-name "aspell"
-      ispell-extra-args '("--sug-mode=ultra")
+      ;; ispell-local-dictionary
       ispell-personal-dictionary nil ; If nil, the default (~/.ispell_LANGUAGE) will be used
       ;; ispell-complete-word-dict "/usr/share/dict/words"
       ;; ispell-alternate-dictionary "/usr/share/dict/words"
       ispell-silently-savep t ; save silently. stop confirm when saving personal dictionary.
       ispell-parser 'use-mode-name
       )
-
-;; (setq ispell-local-dictionary-alist
-;;       ispell-dictionary-alist)
-
-;; FIXME: hunspell dictionary for english is not available.
-;; On OS X/Darwin, make sure we add the path to the homebrew installs
-;; brew install hunspell
-;; (when (string-equal system-type "darwin")
-;;   (setq exec-path (append exec-path '("/usr/local/bin"))))
-;;
-;; (when (executable-find "hunspell")
-;;   (setq-default ispell-program-name "hunspell")
-;;   (setq ispell-hunspell-dict-paths-alist '(("american" "/usr/share/myspell/dicts/en_US.aff")
-;;                                            ("british" "/usr/share/myspell/dicts/en_GB.aff")
-;;                                            ("english" "/usr/share/myspell/dicts/en_US.aff")
-;;                                            ("en_NG" "/usr/share/myspell/dicts/en_NG.aff")
-;;                                            ("en_PH" "/usr/share/myspell/dicts/en_PH.aff")
-;;                                            ("en_AU" "/usr/share/myspell/dicts/en_AU.aff")
-;;                                            ("en_HK" "/usr/share/myspell/dicts/en_HK.aff")
-;;                                            ("en_CA" "/usr/share/myspell/dicts/en_CA.aff")
-;;                                            ("en_NZ" "/usr/share/myspell/dicts/en_NZ.aff")
-;;                                            ("en_GH" "/usr/share/myspell/dicts/en_GH.aff")
-;;                                            ("en_ZW" "/usr/share/myspell/dicts/en_ZW.aff")
-;;                                            ("en_DK" "/usr/share/myspell/dicts/en_DK.aff")
-;;                                            ("en_SG" "/usr/share/myspell/dicts/en_SG.aff")
-;;                                            ("en_TT" "/usr/share/myspell/dicts/en_TT.aff")
-;;                                            ("en_IE" "/usr/share/myspell/dicts/en_IE.aff")
-;;                                            ("en_BS" "/usr/share/myspell/dicts/en_BS.aff")
-;;                                            ("en_BW" "/usr/share/myspell/dicts/en_BW.aff")
-;;                                            ("en_BZ" "/usr/share/myspell/dicts/en_BZ.aff")
-;;                                            ("en_GB" "/usr/share/myspell/dicts/en_GB.aff")
-;;                                            ("en_JM" "/usr/share/myspell/dicts/en_JM.aff")
-;;                                            ("en_AG" "/usr/share/myspell/dicts/en_AG.aff")
-;;                                            ("en_ZA" "/usr/share/myspell/dicts/en_ZA.aff")
-;;                                            ("en_US" "/usr/share/myspell/dicts/en_US.aff")
-;;                                            ("en_IN" "/usr/share/myspell/dicts/en_IN.aff")
-;;                                            ("en_NA" "/usr/share/myspell/dicts/en_NA.aff"))
-;;         ;; ispell-hunspell-dictionary-alist
-;;         ;; ispell-hunspell-dictionary-equivs-alist
-;;         )
-;;   (setq ispell-really-hunspell t))
-
-;;; [M-x ispell-complete-word]
-;; (setq ispell-alternate-dictionary "/usr/share/dict/words")
 
 
 ;;; [ Flyspell ]
