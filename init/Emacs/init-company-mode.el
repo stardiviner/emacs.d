@@ -50,7 +50,7 @@
 
 ;;; quick help document preview & popup
 (require 'company-quickhelp)
-(setq company-quickhelp-delay 0.5)
+(setq company-quickhelp-delay 0.1)
 (company-quickhelp-mode 1)
 (add-to-list 'company-frontends 'company-quickhelp-frontend)
 ;; (setq-default company-frontends (remq 'company-echo-metadata-frontend company-frontends))
