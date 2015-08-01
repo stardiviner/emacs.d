@@ -32,7 +32,10 @@
                 sql-interactive-mode-hook
                 edbi:sql-mode-hook
                 ))
-  (add-hook hook 'sql-indent))
+  (add-hook hook
+            (function (lambda ()
+                        (make-local-variable 'indent-line-function)
+                        (setq indent-line-function 'sql-indent-line)))))
 
 
 ;;; Auto Uppercase SQL Keywords
