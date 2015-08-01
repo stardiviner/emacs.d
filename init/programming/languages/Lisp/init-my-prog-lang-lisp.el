@@ -239,6 +239,22 @@
 
 (add-hook 'sly-mode-hook 'sly-company-mode)
 
+
+;; don't add sly-company backend GLOBALLY.
+(setq-default company-backends
+              (remq 'sly-company company-backends))
+
+(dolist (hook '(emacs-lisp-mode-hook
+                common-lisp-lisp-mode-hook
+                lisp-mode-hook
+                lisp-interaction-mode-hook
+                ielm-mode-hook
+                ))
+  (add-hook hook
+            (lambda ()
+              (setq-local company-backends
+                          (append '(sly-company) company-backends)))))
+
 
 ;;; [ Swank ] (cl-swank) --
 
