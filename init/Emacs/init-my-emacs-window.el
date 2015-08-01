@@ -622,6 +622,8 @@ The `BUFFER' is the popwin catch pop private message buffer."
 
 ;;; Database: edbi
 (push '(ctbl:table-mode :position bottom) popwin:special-display-config)
+(push '("*edbi-dialog-ds*" :position bottom) popwin:special-display-config)
+(push '("\\*edbi:query-result .*" :regexp t :position bottom) popwin:special-display-config)
 
 ;;; howdoi
 (push '(howdoi-mode :position bottom :height 7) popwin:special-display-config)

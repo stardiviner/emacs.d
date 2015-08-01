@@ -28,6 +28,12 @@
 (eval-after-load "sql"
   '(load-library "sql-indent"))
 
+(dolist (hook '(sql-mode-hook
+                sql-interactive-mode-hook
+                edbi:sql-mode-hook
+                ))
+  (add-hook hook 'sql-indent))
+
 
 ;;; Auto Uppercase SQL Keywords
 ;; (unless (not (featurep 'sqlup-mode))
