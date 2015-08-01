@@ -115,7 +115,16 @@
 ;;     - History button : you can choose a data source from your connection history.
 ;;     - OK button : connect DB and open the database view
 
+;;; keymaps:
+;;
+;; - `edbi:dbview-keymap'
+;; - `edbi:dbview-table-keymap'
+;; - `ctbl:table-mode-map'
+;; - `edbi:sql-mode-map'
+;; - `edbi:dbview-query-result-keymap'
+
 (require 'edbi)
+(autoload 'edbi:open-db-viewer "edbi")
 
 (define-key my-prog-database-map (kbd "D") 'edbi:open-db-viewer)
 
