@@ -462,7 +462,7 @@
          ;; ac-octave
          ;; Database
          ;; SQL
-         sql sqlup-mode sql-transform sqled-mode sqlplus ; sql-complete sql-completion
+         sql sqlup-mode sql-indent sql-transform sqled-mode sqlplus ; sql-complete sql-completion
          ;; SQL comprehensive complete
          edbi edbi-minor-mode company-edbi edbi-database-url
          ede-compdb
