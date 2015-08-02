@@ -206,7 +206,7 @@
          ;; ob-translate
          cdlatex-mode
          ;; org-ac
-         org-screenshot org-download
+         org-download org-screenshot
          org-pomodoro
          ;; org-doing
          orgit ; org-linkany

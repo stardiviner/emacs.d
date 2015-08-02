@@ -2912,26 +2912,40 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;; 2. add custom function. or defadvice.
 ;;
 ;;
+
+
+
 ;;;_* org-download -- Drag and drop images to Emacs org-mode.
-;;
+
+;;; http://oremacs.com/2015/01/18/sprucing-up-org-download/
+
 ;;; Usage:
 ;;
-;;*This extension facilitates moving images from point A to point B.*
+;; *This extension facilitates moving images from point A to point B.*
 ;;
-;;* Point A (the source) can be:
+;; * Point A (the source) can be:
 ;;
-;;- An image inside your browser that you can drag to Emacs.
-;;- An image on your file system that you can drag to Emacs.
-;;- A local or remote image address in ~kill-ring~. Use the ~org-download-yank~ command for this. Remember that you can use "=[0 w]=" in dired to get an address.
-;;- An screenshot taken using /gnome-screenshot/ or /scrot/ or /gm/. Use the ~org-download-screenshot~ command for this. Customize the backend with ~org-download-screenshot-method~.
+;;   - An image inside your browser that you can drag to Emacs.
 ;;
-;;* Point B (the target) is an Emacs org-mode buffer where the inline link will be inserted. Several customization options will determine where exactly on the file system the file will be stored.
+;;   - An image on your file system that you can drag to Emacs.
 ;;
-;;They are: ~org-download-method~:
+;;   - A local or remote image address in kill-ring. Use the org-download-yank
+;;     command for this. Remember that you can use "=[0 w]=" in dired to get an
+;;     address.
 ;;
-;;1) 'attach => use org-mode attachment machinery
+;;   - An screenshot taken using /gnome-screenshot/ or /scrot/ or /gm/. Use the
+;;     org-download-screenshot command for this. Customize the backend with
+;;     org-download-screenshot-method.
 ;;
-;;2) 'directory => construct the directory in two stages:
+;; * Point B (the target) is an Emacs org-mode buffer where the inline link will
+;;   be inserted. Several customization options will determine where exactly on
+;;   the file system the file will be stored.
+;;
+;;They are: org-download-method:
+;;
+;; 1) 'attach => use org-mode attachment machinery
+;;
+;; 2) 'directory => construct the directory in two stages:
 ;;
 ;;   1. first part of the folder name is:
 ;;      - either "." (current folder)
@@ -2966,9 +2980,9 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;;
 ;;
 ;;
-;;~org-download-timestamp~: optionally add a timestamp to the file name.
+;; ~org-download-timestamp~: optionally add a timestamp to the file name.
 ;;
-;;Customize ~org-download-backend~ to choose between ~url-retrieve~ (the /default/) or ~wget~ or ~curl~.
+;; Customize ~org-download-backend~ to choose between ~url-retrieve~ (the /default/) or ~wget~ or ~curl~.
 ;;
 
 (require 'org-download)
@@ -2978,6 +2992,9 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
       org-download-backend t ; url-retrieve, wget, curl.
       ;; org-download-heading-lvl
       ;; org-download-timestamp "_%Y-%m-%d_%H:%M:%S"
+      org-download-image-dir "data/images" ; nil: default to "."
+      ;; org-download-image-width nil ; use #+attr_html: :width
+      ;; org-download-img-regex-list '("<img +src=\"" "<img +\\(class=\"[^\"]+\"\\)? *src=\"")
       )
 
 (unless (boundp 'my-org-download-map)
