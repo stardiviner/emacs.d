@@ -89,8 +89,8 @@
 
    ;; input method
    (:eval (if current-input-method-title ; `set-input-method'
-              (propertize current-input-method-title
-                          'face '(:foreground "dodger blue"))))
+              (propertize (format " {%s}" current-input-method-title)
+                          'face '(:foreground "cyan" :weight 'bold :slant 'italic))))
 
    ;; mule info
    (:propertize (" " mode-line-mule-info)
