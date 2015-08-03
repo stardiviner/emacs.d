@@ -3006,6 +3006,10 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 (define-key my-org-download-map (kbd "y") 'org-download-yank)
 (define-key my-org-download-map (kbd "d") 'org-download-delete)
 
+(define-key org-mode-map (kbd "<drag-n-drop>") 'org-download-dnd)
+(define-key org-mode-map (kbd "<C-drag-n-drop>") 'org-download-dnd)
+(define-key org-mode-map (kbd "<M-drag-n-drop>") 'org-download-dnd)
+
 ;;;_* org-pomodoro
 
 ;;; This adds very basic support for Pomodoro technique in Emacs' org-mode.
