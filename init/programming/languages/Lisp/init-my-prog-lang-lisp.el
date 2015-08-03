@@ -332,7 +332,8 @@
 
 (set-face-attribute 'eval-sexp-fu-flash nil
                     :foreground nil
-                    :background "dark red"
+                    :background "yellow1"
+                    :weight 'normal
                     )
 (set-face-attribute 'eval-sexp-fu-flash-error nil
                     :foreground "red"
