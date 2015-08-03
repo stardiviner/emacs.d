@@ -202,9 +202,21 @@
 (define-key company-active-map [mouse-3] 'company-select-mouse)
 
 ;; help
+(defun my-company-quickhelp--show ()
+  (company-quickhelp--ensure-compatibility)
+  (let* ((selected (nth company-selection company-candidates))
+         (doc (company-quickhelp--doc selected))
+         (ovl company-pseudo-tooltip-overlay)
+         (overlay-width (* (frame-char-width) (if ovl (overlay-get ovl 'company-width) 0)))
+         (overlay-position (* (frame-char-width) (- (if ovl (overlay-get ovl 'company-column) 1) 1)))
+         (x-gtk-use-system-tooltips nil))
+    (when (and ovl doc)
+      (with-no-warnings
+        (pos-tip-show doc nil (overlay-start ovl) nil 300 80 nil (+ overlay-width overlay-position) 1)))))
+
 (define-key company-active-map (kbd "<f1>") 'company-show-doc-buffer)
 (if (functionp 'company-quickhelp--show)
-    (define-key company-active-map (kbd "M-h") 'company-quickhelp--show)
+    (define-key company-active-map (kbd "M-h") 'my-company-quickhelp--show) ; 'company-quickhelp--show
   (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
   )
 (define-key company-active-map (kbd "M-l") 'company-show-location)
