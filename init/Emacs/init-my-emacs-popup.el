@@ -114,7 +114,7 @@
       )
 
 (setq pos-tip-foreground-color "black"
-      pos-tip-background-color "khaki")
+      pos-tip-background-color "green yellow")
 
 ;; (setq pos-tip-background-color "#002630" ; '(color-darken-name (face-background 'default) 1)
 ;;       pos-tip-foreground-color "dark gray")
