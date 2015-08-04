@@ -56,6 +56,15 @@
 (add-hook 'sql-mode-hook 'sqlup-mode)
 (add-hook 'sql-inretactive-mode-hook 'sqlup-mode)
 
+(define-key sql-mode-map (kbd "C-c u") 'sqlup-capitalize-keywords-in-region)
+(define-key sql-mode-map (kbd "C-c C-u")
+  '(lambda ()
+     (interactive)
+     (backward-word) ; `backward-sexp'
+     (upcase-word 1)
+     ))
+
+;; TODO:
 ;; (add-hook 'sqlup-mode-hook
 ;;           (lambda ()
 ;;             (setq sqlup-keywords
