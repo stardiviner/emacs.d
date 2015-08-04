@@ -432,9 +432,6 @@
 (define-key ag-map (kbd "r") 'ag-regexp)
 (define-key ag-map (kbd "p") 'ag-regexp-project-at-point) ; 'ag, 'ag-regexp,
 
-(add-hook 'ag-search-finished-hook
-          (switch-to-buffer "*ag search*"))
-
 
 ;;; [ helm-ag ]
 
