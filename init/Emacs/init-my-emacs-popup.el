@@ -108,8 +108,8 @@
 (setq pos-tip-use-relative-coordinates nil
       ;; pos-tip-frame-offset
       ;; pos-tip-frame-offset-array
-      pos-tip-border-width 1
-      pos-tip-internal-border-width 10
+      pos-tip-border-width 2
+      pos-tip-internal-border-width 1
       ;; pos-tip-tab-width
       )
 
