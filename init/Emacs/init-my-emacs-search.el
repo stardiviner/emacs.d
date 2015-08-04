@@ -401,6 +401,9 @@
 ;; - ag-dired-regexp
 ;; - ag-project-dired
 ;; - ag-project-dired-regexp
+;;
+;; - `ag-mode-hook' :: before search
+;; - `ag-search-finished-hook' :: when finished search
 
 (require 'ag)
 
@@ -428,6 +431,9 @@
 (define-key ag-map (kbd "a") 'ag)
 (define-key ag-map (kbd "r") 'ag-regexp)
 (define-key ag-map (kbd "p") 'ag-regexp-project-at-point) ; 'ag, 'ag-regexp,
+
+(add-hook 'ag-search-finished-hook
+          (switch-to-buffer "*ag search*"))
 
 
 ;;; [ helm-ag ]
