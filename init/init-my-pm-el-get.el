@@ -360,7 +360,7 @@
          hl-sexp eval-sexp-fu
          ;; Scheme
          ;; Clojure
-         clojure-mode cider cider-decompile inf-clojure clj-refactor
+         clojure-mode cider cider-decompile inf-clojure ; clj-refactor
          cider-eval-sexp-fu align-cljlet
          flycheck-clojure
          typed-clojure-mode
