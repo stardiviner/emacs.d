@@ -1,4 +1,4 @@
 # name: inject(...) { |...| ... }
 # key: inject
 # --
-inject${1:(${2:0/1 etc})} { |${3:injection}, ${4:element}| $0 }
+inject${1:(${2:initial: 0/1 etc})} { |${3:injection}, ${4:element}| $0 }
