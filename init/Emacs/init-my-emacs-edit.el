@@ -399,6 +399,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 ;; (setq mc/list-file (expand-file-name ".mc-lists.el" user-emacs-directory))
 
+;; (add-to-list 'mc/unsupported-minor-modes 'flyspell-mode)
 
 ;; (setq mc/keymap "C-c c")
 
