@@ -29,6 +29,10 @@
 ;; (eval-after-load 'auto-complete
 ;;   (add-to-list 'ac-modes 'js2-mode))
 
+;; (js2-highlight-unused-variables-mode)
+
+(setq js2-pretty-multiline-declarations t) ; 'dynamic
+
 
 ;;; [ js3-mode ]
 
@@ -217,13 +221,18 @@
 (setq inferior-js-program-command "node --interactive")
 ;; (setq inferior-js-program-command "/usr/bin/java org.mozilla.javascript.tools.shell.Main")
 
-(add-hook 'js2-mode-hook '(lambda ()
+(add-hook 'js2-mode-hook
+          '(lambda ()
              (local-set-key "\C-x\C-e" 'js-send-last-sexp)
              (local-set-key "\C-\M-x" 'js-send-last-sexp-and-go)
              (local-set-key "\C-cb" 'js-send-buffer)
              (local-set-key "\C-c\C-b" 'js-send-buffer-and-go)
              (local-set-key "\C-cl" 'js-load-file-and-go)
              ))
+
+(add-hook 'inferior-js-mode-hook
+          (lambda ()
+            (ansi-color-for-comint-mode-on)))
 
 ;; if use node.js, we need nice output
 (setenv "NODE_NO_READLINE" "1")
