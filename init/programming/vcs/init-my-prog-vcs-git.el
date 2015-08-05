@@ -332,15 +332,6 @@
 (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
 
 
-;;; [ egit ]
-;; is an Emacs Git history interface intended to be similar to qgit or gitk.
-;; https://github.com/jimhourihan/egit/tree/master
-
-;; (autoload 'egit "egit" "Emacs git history" t)
-;; (autoload 'egit-file "egit" "Emacs git history file" t)
-;; (autoload 'egit-dir "egit" "Emacs git history directory" t)
-
-
 ;;; [ git-timemachine ] -- Step through historic versions of git controlled file using everyone's favourite editor.
 
 ;; Usage:
