@@ -1,10 +1,10 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: babel sqlite
-# key: babel-sqlite
+# key: babel-sql-sqlite
 # --
 #+NAME: $1
-#+HEADERS: :db ${2:test.db} ${3::dir ~/temp/} ${4::echo} :results raw
-#+HEADER: ${5:$$(yas-choose-value '(":column" ":list" ":line" ":csv" ":html"))}
+#+headers: :db ${2:test.db} ${3::dir ~/temp/} ${4::echo} :results raw
+#+header: ${5:$$(yas-choose-value '(":column" ":list" ":line" ":csv" ":html"))}
 #+BEGIN_SRC sqlite
 $0
 #+END_SRC

@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: babel SQL MySQL
+# key: babel-sql-mysql
+# --
+#+srcname: ${1:source code name}
+#+headers: :cmdline -h ${2:localhost} -u ${3:username} --p${4:password} -D ${5:dbname} -t ${6:table}
+#+BEGIN_SRC sql :engine mysql
+$0
+#+END_SRC
