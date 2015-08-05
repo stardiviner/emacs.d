@@ -453,6 +453,7 @@
          javadoc-lookup ; javadoc-help
          ;; java-complete
          eclim jdee malabar-mode
+         ;; jde-maven
          ;; groovy-mode inf-groovy
          ;; Statistics
          ess
