@@ -226,6 +226,7 @@
 (define-key my-prog-vcs-git-map (kbd "s") 'magit-stage)
 ;; commit -- "c"
 (define-key my-prog-vcs-git-map (kbd "c") 'magit-commit)
+(define-key my-prog-vcs-git-map (kbd "C") 'magit-commit-amend)
 ;; diff - "d"
 (define-key my-prog-vcs-git-map (kbd "d") 'magit-diff)
 ;; log - "l"
