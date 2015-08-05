@@ -193,6 +193,7 @@
          swiper ; swiper-helm
          ack-and-a-half ; full-ack
          ag helm-ag
+         helm-recoll
          ;; (m)occur
          ;; ioccur joccur occur-x
          ;; color-moccur moccur-edit
