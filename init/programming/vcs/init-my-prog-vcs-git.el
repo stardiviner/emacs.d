@@ -241,9 +241,9 @@
 ;; checkout - "o"
 (define-key my-prog-vcs-git-map (kbd "o") 'magit-checkout) ; magit-checkout-branch-at-point
 ;; bisect -- "b"
-(define-key my-prog-vcs-git-map (kbd "b") 'magit-bisect)
+(define-key my-prog-vcs-git-map (kbd "B") 'magit-bisect)
 ;; blame -- "h"
-(define-key my-prog-vcs-git-map (kbd "h") 'magit-blame)
+(define-key my-prog-vcs-git-map (kbd "b") 'magit-blame)
 
 
 ;; TODO: open magit window in current window, and without override other windows layout.
