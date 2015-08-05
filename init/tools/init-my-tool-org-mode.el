@@ -109,11 +109,6 @@
 
 (require 'org-bullets nil t)
 
-;;; You Can copy symbols from Desktop Utils "Character Maps".
-;; ("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
-;; ("⒈" "⒉" "⒊" "⒋" "⒌" "⒍" "⒎" "⒏" "⒐" "⒑" "⒒" "⒓" "⒔" "⒕" "⒖" "⒗" "⒘" "⒙" "⒚" "⒛")
-;; ("⑴" "⑵" "⑶" "⑷" "⑸" "⑹" "⑺")
-
 (add-hook 'org-mode-hook
           (lambda ()
             (setq org-bullets-bullet-list
@@ -122,6 +117,7 @@
                   ;; '("①" "②" "③" "④" "⑤" "⑥" "⑦" "⑧" "⑨" "⑩")
                   ;; '("㊀" "㊁" "㊂" "㊃" "㊄" "㊅" "㊆" "㊇" "㊈" "㊉")
                   ;; '("㈠" "㈡" "㈢" "㈣" "㈤" "㈥" "㈦" "㈧" "㈨" "㈩")
+                  ;; '("◈" "◆" "◊" "✸")
                   )
 
             ;; TODO: (setq org-bullets-face-name 'org-level-1)
