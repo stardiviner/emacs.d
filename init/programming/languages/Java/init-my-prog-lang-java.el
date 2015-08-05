@@ -51,12 +51,14 @@
 ;;       (append '(("\\.java\\'" . jde-mode)) auto-mode-alist))
 
 
-;;; [ malabar-mode ] -- EMCS JVM Integration for Java and other JVM based languages.
 ;;; [ jde-maven ]
 
 ;; (require 'jde-maven)
 
+
+;;; [ malabar-mode ] -- EMCS JVM Integration for Java and other JVM based languages.
 
+;; (require 'malabar-mode)
 
 
 ;;; [ eclim ]
