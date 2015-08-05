@@ -36,6 +36,12 @@
 
 ;;; [ Chinese Input Method ]
 
+;; custom
+;; (let ((quail-current-package (assoc "chinese-py" quail-package-alist)))
+;;   (quail-define-rules ((append . t))
+;;                       ("^han" ?漢)
+;;                       ))
+
 
 ;;; [ TeX Input Method ]
 
