@@ -32,6 +32,16 @@
 ;;; [ javadoc-help ]
 
 
+;;; [ groovy-mode ] -- Groovy mode derived mode.
+
+;; (require 'groovy-mode)
+
+
+;;; [ inf-groovy ] -- minor-mode that adds some Grails project management to a grails project.
+
+;; (require 'inf-groovy)
+
+
 ;;; [ jdee ] -- Java Development Environment for Emacs
 
 ;; (require 'jde-autoload)
