@@ -148,8 +148,6 @@
 
 (define-key wg-prefixed-map (kbd "\\") nil)
 (define-key wg-prefixed-map (kbd "-") 'wg-reverse-frame-vertically)
-(define-key wg-prefixed-map (kbd "|") 'wg-reverse-frame-horizontally)
-(define-key wg-prefixed-map (kbd "/") 'wg-reverse-frame-horizontally-and-vertically)
 
 ;; (workgroups-mode 1)        ; put this one at the bottom of .emacs
 
