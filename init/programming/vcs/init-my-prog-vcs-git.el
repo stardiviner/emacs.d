@@ -338,21 +338,6 @@
 ;; OR
 (autoload 'git-blame-mode "git-blame" "Minor mode for incremental blame for Git." t)
 
-
-;;; [ mo-git-blame ] --- an interactive and iterative major mode for git blame.
-
-;; That’s what ‘mo-git-blame’ tries to solve. It is a standalone mode that can
-;; be used with any of the various Git version control modes. Here are a couple
-;; of its features:
-;;
-;; Shows the output of ‘git blame’ and the file content side-by-side with syntax highlighting for the content
-;; Show the log messages for the current revision or the revision in the current line
-;; Show the diff (via ‘git show’) for the current revision or the revision in the current line
-;; Show the file content for the revision in the current line
-;; Call ‘git blame’ for the same file for the revision in the current line
-
-(autoload 'mo-git-blame-file "mo-git-blame" nil t)
-(autoload 'mo-git-blame-current "mo-git-blame" nil t)
 
 
 ;;; [ gitsum ]

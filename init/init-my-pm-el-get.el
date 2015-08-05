@@ -320,7 +320,6 @@
          ;; git-timemachine
          git-messenger
          ;; egg
-         mo-git-blame
          diffview
          helm-open-github
          ;; project
