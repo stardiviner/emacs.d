@@ -15,6 +15,8 @@
       (append '(("\\.css$" . css-mode))
               auto-mode-alist))
 
+(setq css-indent-offset 2)
+
 
 
 (add-hook 'css-mode-hook
