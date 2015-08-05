@@ -184,8 +184,8 @@
 ;;
 ;; You may edit the function definition and update it using C-M-x any number of times.
 
-
-(define-key js3-mode-map [f5] 'slime-js-reload)
+;; (define-key js2-mode-map [f6] 'slime-js-reload)
+;; (define-key js3-mode-map [f6] 'slime-js-reload)
 
 ;; (add-hook 'js3-mode-hook
 ;;           (lambda ()
