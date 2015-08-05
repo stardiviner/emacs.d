@@ -144,6 +144,8 @@
 
 (require 'rscope)
 
+(setq rscope-keymap-prefix (kbd "C-c l t c"))
+
 
 ;;; [ helm-cscope ] -- cscope with Helm interface.
 
