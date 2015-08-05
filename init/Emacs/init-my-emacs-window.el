@@ -146,9 +146,6 @@
       wg-remember-frame-for-each-wg t
       )
 
-;; (set-face-attribute 'wg-mode-line-face nil
-;;                     :foreground "dark cyan")
-
 ;; (workgroups-mode 1)        ; put this one at the bottom of .emacs
 
 
