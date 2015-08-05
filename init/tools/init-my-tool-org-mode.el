@@ -819,6 +819,7 @@ Will work on both `org-mode' and any mode that accepts plain html."
         ;; Image
         ("\\.png\\'" . "sxiv %s")
         ("\\.jpg\\'" . "sxiv %s")
+        ("\\.gif\\'" . "gwenview %s")
         ;; Mind Maps
         ("\\.mm\\'" . "freeplane %s")
         ;; ("\\.mm\\'" . "freemind %s")
