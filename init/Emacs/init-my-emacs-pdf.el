@@ -94,11 +94,11 @@
 
 (setq
  pdf-tools-enabled-modes
- '(pdf-history-minor-mode
-   pdf-outline-minor-mode
+ '(pdf-outline-minor-mode
    pdf-isearch-minor-mode
    pdf-links-minor-mode
    pdf-annot-minor-mode
+   pdf-history-minor-mode
    pdf-misc-minor-mode
    pdf-misc-size-indication-minor-mode
    pdf-misc-menu-bar-minor-mode
