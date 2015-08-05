@@ -349,6 +349,8 @@
 ;; expanding
 ;; e.g. auto expand s/ into <span></span>
 (setq web-mode-enable-auto-expanding t)
+;;; HTML
+(add-to-list 'web-mode-expanders '("P/" . "<p>\n | \n</p>"))
 ;;; Ruby
 (add-to-list 'web-mode-expanders '("r/" . "<%= | %>")) ; ruby erb: <%= | %>.
 (add-to-list 'web-mode-expanders '("%/" . "<%= | %>")) ; ruby erb: <%= | %>.
