@@ -52,11 +52,11 @@
       ;; cscope-option-other
       )
 
-;; need to execute `cscope-minor-mode'.
-(setq cscope-bindings-2deep nil
-      cscope-bindings-3deep t
-      cscope-blurb nil
-      )
+;;; need to execute `cscope-minor-mode'.
+;; (setq cscope-bindings-2deep nil
+;;       cscope-bindings-3deep t
+;;       cscope-blurb nil
+;;       )
 
 
 
