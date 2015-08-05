@@ -104,26 +104,13 @@
 ;;; [ workgroups2 ] --
 
 ;;; Usage
+;;;
 ;;; Workgroups is a session manager for Emacs.
 ;;;
 ;;;     It saves all your opened buffers, their location and sizes on disk to restore later
 ;;;     You can create several workspaces
 ;;;
 ;;; You can also restore such buffers as: org-agenda, shell, magit-status, help.
-
-;;; Key Bindings
-;; Most commands are bound to both <prefix> <key> and <prefix> C-<key>.
-
-;; By default prefix is: "C-c z" (To change it - see settings below)
-;; Type <prefix> ? (Eval (wg-help)) for more help.
-;; <prefix> <key>
-;; <prefix> c    - create workgroup
-;; <prefix> A    - rename workgroup
-;; <prefix> k    - kill workgroup
-;; <prefix> v    - switch to workgroup
-;; <prefix> C-s  - save session
-;; <prefix> C-f  - load session
-
 
 (require 'workgroups2)
 
