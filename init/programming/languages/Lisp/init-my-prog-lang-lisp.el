@@ -18,10 +18,12 @@
 ;;                                 ))
 
 (defvar lisp-dialects-mode
-  '(lisp-mode
+  '(emacs-lisp-mode
+    lisp-mode
     lisp-interaction-mode
-    emacs-lisp-mode
     ;; common-lisp-mode
+    ;; geiser
+    sly-mrepl-mode
     scheme-mode
     clojure-mode
     cider-repl-mode
