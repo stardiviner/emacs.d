@@ -16,7 +16,7 @@
 (require 'swift-mode)
 
 ;; Swift flycheck is disabled by default because not available under Linux.
-;; (setq flycheck-swift-sdk-path "")
+(setq flycheck-swift-sdk-path "")
 ;; (add-to-list 'flycheck-checkers 'swift)
 
 
