@@ -332,14 +332,6 @@
 (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
 
 
-;;; [ git-blame ]
-
-;; (require 'git-blame)
-;; OR
-(autoload 'git-blame-mode "git-blame" "Minor mode for incremental blame for Git." t)
-
-
-
 ;;; [ gitsum ]
 
 
