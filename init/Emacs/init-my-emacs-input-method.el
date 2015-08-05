@@ -36,6 +36,15 @@
 
 ;;; [ Chinese Input Method ]
 
+
+;;; [ TeX Input Method ]
+
+;; - [C-u C-\ TeX RET]
+
+;; (let ((quail-current-package (assoc "TeX" quail-package-alist)))
+;;   (quail-define-rules ((append . t))
+;;                       ("^\\alpha" ?ᵅ)
+;;                       ))
 
 
 ;;; [ quail ] -- Emacs default input method which use keymap to lookup chinese.
