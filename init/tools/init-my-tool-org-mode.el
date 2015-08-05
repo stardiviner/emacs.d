@@ -512,9 +512,9 @@ Will work on both `org-mode' and any mode that accepts plain html."
                     :family "DejaVu Sans Mono"
                     :weight 'normal :height 105
                     :foreground "#FF3870"
-                    :background (color-darken-name (face-background 'default) 4)
+                    :background (color-darken-name (face-background 'default) 3)
                     :box '(:color "black" :line-width -1 :style nil)
-                    ;; :overline "#555555"
+                    ;; :box nil :overline "forest green"
                     )
 (set-face-attribute 'org-level-2 nil
                     :inherit 'org-level-1
