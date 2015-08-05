@@ -347,6 +347,10 @@
 
 (require 'pretty-mode)
 
+(add-to-list 'pretty-supported-modes 'ruby-mode)
+(add-to-list 'pretty-supported-modes 'enh-ruby-mode)
+
+
 ;; FIXME:
 ;; (add-to-list pretty-patterns '((ruby-mode ("->" . ?λ))))
 
