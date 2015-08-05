@@ -3266,6 +3266,7 @@ This function will promote all items in a subtree."
 ;;;_ + Usage:
 ;;
 ;; - [M-x org-trello-mode] :: activate org-trello
+;; - [C-o h] / `org-trello/help-describing-bindings' :: get org-trello keybindings popup.
 ;;
 ;; - install key and token (~/.trello/config.el)
 ;;
@@ -3293,7 +3294,9 @@ This function will promote all items in a subtree."
 ;;   one you want and hit enter. This will edit your org-mode file to add the
 ;;   properties needed.
 ;;
-;; - Create a board
+;; - Create a board ::
+;;
+;;   C-c o b
 ;;
 ;;   You can avoid the previous step and create directly a board from your
 ;;   org-mode file.
