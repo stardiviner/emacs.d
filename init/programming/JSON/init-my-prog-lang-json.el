@@ -19,6 +19,12 @@
 
 (require 'json-reformat)
 
+(setq json-reformat:indent-width 2
+      json-reformat:pretty-string? t ; decode some special characters. like \u00e4.
+      ;; json-reformat:special-chars-as-pretty-string '((?\" . ?\")
+      ;;                                                (?\\ . ?\\))
+      )
+
 
 ;;; [ json-snatcher ] --
 
