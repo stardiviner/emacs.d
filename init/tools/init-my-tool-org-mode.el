@@ -2474,6 +2474,33 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;;
 ;; - `org-babel-lob-ingest' [C-c C-v i]
 
+;;;_ * source code block check
+
+;; - Report an error if there is a source block without a language specified
+;; - Report an error if there is a source block with a language specified that
+;;   is not present in `org-babel-load-languages’
+;; – “Check as well for the language of inline code blocks,”
+;; – “Report the line number instead of the char position.”
+
+(defun org-src-block-check ()
+  (interactive)
+  (org-element-map (org-element-parse-buffer)
+      '(src-block inline-src-block)
+    (lambda (sb)
+      (let ((language (org-element-property :language sb)))
+        (cond ((null language)
+               (error "Missing language at line %d in %s"
+                      (org-current-line
+                       (org-element-property :post-affiliated sb))
+                      (buffer-name)))
+              ((not (assoc-string language org-babel-load-languages))
+               (error "Unknown language `%s' at line %d in `%s'"
+                      language
+                      (org-current-line
+                       (org-element-property :post-affiliated sb))
+                      (buffer-name)))))))
+  (message "Source blocks checked in %s." (buffer-name (buffer-base-buffer))))
+
 ;;;_* Org LaTeX
 
 (setq org-babel-latex-htlatex t)
