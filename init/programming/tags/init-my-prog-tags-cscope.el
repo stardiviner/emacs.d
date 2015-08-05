@@ -146,6 +146,10 @@
 
 (setq rscope-keymap-prefix (kbd "C-c l t c"))
 
+(setq rscope-allow-arrow-overlays t
+      rscope-overlay-arrow-string "=>"
+      ;; rscope-separator-line "-------------------------------------------------------------------------------\n"
+      rscope-hierarchies-shorten-filename t)
 
 ;;; [ helm-cscope ] -- cscope with Helm interface.
 
