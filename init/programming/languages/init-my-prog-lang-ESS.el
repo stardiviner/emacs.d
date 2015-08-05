@@ -65,7 +65,7 @@
       ess-verbose nil
       ess-use-R-completion t
       inferior-ess-own-frame nil
-      inferior-ess-same-window t
+      inferior-ess-same-window nil
       ;; ESS Command
       ;; inferior-R-objects-command "print(objects(pos=%d, all.names=TRUE), max=1e6)"
       ;; inferior-Splus-objects-command "objects(where=%d)"
