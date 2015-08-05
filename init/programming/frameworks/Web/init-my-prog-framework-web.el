@@ -532,6 +532,9 @@
 ;; - [C-c C-p] :: jump to the previous query
 ;; - [C-c C-n] :: jump to the next query
 ;; - [C-c C-.] :: mark the query under the cursor
+;; - [C-c C-u] :: `restclient-copy-curl-command' :: copy curl command format to clipboard.
+;;
+;; `restclient-http-do-hook'
 
 (require 'restclient)
 
