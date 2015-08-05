@@ -160,7 +160,7 @@
 ;; above or below the display line.
 
 ;; additional space to put between lines.
-(setq-default line-spacing 0.1)         ; 0.1, 1, 0, nil.
+(setq-default line-spacing nil)         ; 0.1, 1, 0, nil.
 
 
 ;;; [ line number ]
