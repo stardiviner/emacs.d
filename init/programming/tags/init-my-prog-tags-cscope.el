@@ -150,6 +150,14 @@
       rscope-overlay-arrow-string "=>"
       ;; rscope-separator-line "-------------------------------------------------------------------------------\n"
       rscope-hierarchies-shorten-filename t)
+
+;; (set-face-attribute 'rscope-function-face nil
+;;                     :foreground "green")
+;; (set-face-attribute 'rscope-line-face nil
+;;                     :foreground "orange")
+;; (set-face-attribute 'rscope-line-number-face nil
+;;                     :foreground "red")
+
 
 ;;; [ helm-cscope ] -- cscope with Helm interface.
 
