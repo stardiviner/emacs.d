@@ -332,9 +332,6 @@
 (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
 
 
-;;; [ gitsum ]
-
-
 ;;; [ egit ]
 ;; is an Emacs Git history interface intended to be similar to qgit or gitk.
 ;; https://github.com/jimhourihan/egit/tree/master
