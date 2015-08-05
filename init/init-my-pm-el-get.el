@@ -219,7 +219,7 @@
          ;; org-present org-tree-slide org-html5presentation org-impress-js
          org-password-manager ; org-passwords
          ;; org-magit ; org-linkany
-         ;; org-trello
+         org-trello
          org-projectile
          ;; Wiki
          ;; oddmuse yaoddmuse org-oddmuse oddmuse-curl

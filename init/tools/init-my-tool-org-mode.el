@@ -3331,7 +3331,7 @@ This function will promote all items in a subtree."
 ;;   (setenv "no_proxy" "localhost,127.0.0.0/8")
 
 
-;; (require 'org-trello)
+(require 'org-trello)
 
 ;; to have org-trello activated for each org file, uncomment this
 ;; (add-hook 'org-mode-hook 'org-trello-mode)
@@ -3339,7 +3339,7 @@ This function will promote all items in a subtree."
 
 ;; TODO: enable org-trello-mode on `org-agenda-files'.
 
-;; (define-key my-org-prefix-map (kbd "t") 'org-trello-mode)
+(define-key my-org-prefix-map (kbd "t") 'org-trello-mode)
 
 ;; (add-hook 'org-trello-mode-hook
 ;;           (lambda ()
