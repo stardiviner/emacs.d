@@ -177,7 +177,17 @@
 
 (require 'aggressive-indent)
 
-(add-to-list 'aggressive-indent-excluded-modes 'enh-ruby-mode)
+(add-to-list 'aggressive-indent-dont-electric-modes 'ruby-mode)
+(add-to-list 'aggressive-indent-dont-electric-modes 'enh-ruby-mode)
+
+;; The variable `aggressive-indent-dont-indent-if' lets you customize when you
+;; **don't** want indentation to happen.  For instance, if you think it's
+;; annoying that lines jump around in `c++-mode' because you haven't typed the
+;; `;' yet, you could add the following clause:
+(add-to-list 'aggressive-indent-dont-indent-if
+             '(and (derived-mode-p 'c++-mode)
+                 (null (string-match "\\([;{}]\\|\\b\\(if\\|for\\|while\\)\\b\\)"
+                                     (thing-at-point 'line)))))
 
 ;; (global-aggressive-indent-mode)
 ;;; or
@@ -186,6 +196,13 @@
                 lisp-mode-hook))
   (add-hook hook #'aggressive-indent-mode))
 
+;; FIXME: seems aggressive-indent-mode does not work well with ruby-mode & enh-ruby-mode.
+;; ruby-mode can't auto complete "end".
+;; (dolist (hook '(ruby-mode-hook
+;;                 enh-ruby-mode-hook
+;;                 ))
+;;   (add-hook hook (lambda ()
+;;                    (aggressive-indent-mode -1))))
 
 
 
