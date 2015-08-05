@@ -125,6 +125,9 @@
       magit-diff-paint-whitespace t
       magit-diff-refine-hunk 'all)
 
+;; push
+;; (setq magit-push-always-verify 'nag)
+
 
 ;;; Magit Git
 
