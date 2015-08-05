@@ -50,10 +50,10 @@
          ;; benchmark-init
          ;; package
          ;; paradox
-         ;; Emacs self
+         ;; Enhance Emacs self
          ;; macro
          ;; elmacro macrostep
-         ;; popup
+         ;; Popup
          popup
          pos-tip
          popup-pos-tip
@@ -88,7 +88,7 @@
          ;; helm-ls-git
          helm-git helm-git-files ; helm-git-grep
          helm-gitlab
-         ;; Auto Complete
+         ;; Auto-Completion
          ;; auto-complete
          ;; auto-complete-yasnippet auto-complete-chunk
          ;; auto-complete-etags
@@ -132,7 +132,8 @@
          ;; insert-shebang
          ;; others
          ;; guru-mode
-         ;; buffer & window, frame
+         ;; frame
+         ;; window
          window-number window-layout ; switch-window
          workgroups2
          ;; e2wm ne2wm
