@@ -332,22 +332,6 @@
 (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
 
 
-;;; [ git-timemachine ] -- Step through historic versions of git controlled file using everyone's favourite editor.
-
-;; Usage:
-;; - [M-x git-timemachine ]
-;;
-;; Use the following keys to navigate historic version of the file
-;;
-;; p Visit previous historic version
-;; n Visit next historic version
-;; w Copy the hash of the current historic version
-;; q Exit the time machine.
-
-;; (require 'git-timemachine)
-;; (define-key 'my-prog-vcs-git-map (kbd "C-h") 'git-timemachine)
-
-
 ;;; [ magit-gerrit ] -- code review tool Gerrit for Magit.
 
 ;;; Usage:
