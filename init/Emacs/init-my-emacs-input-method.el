@@ -27,7 +27,7 @@
 ;; * ucs-insert
 ;; - [C-x 8 RET]
 
-;; (setq default-input-method "chinese-py") ; default: "rfc1345",
+(setq default-input-method "TeX") ; default: "rfc1345", "TeX", "chinese-py",
 
 (setq input-method-verbose-flag t)
 ;; (global-set-key (kbd "C-SPC") 'nil) ; disable [C-SPC] for input method.
