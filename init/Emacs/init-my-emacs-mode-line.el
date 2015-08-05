@@ -70,6 +70,16 @@
    ;;              face (:foreground "cyan")
    ;;              help-echo "我不要这样生，也不要那样死！\n\n 人的一生是如此的的短暂，而你还有很多的事情,很多的梦想 需要曲实现。\n我不想那样生存，也不想就 这样死去，所以，我要拼命去实现我的想法。")
    
+   ;; (:eval
+   ;;  (cond
+   ;;   ((string= evil-state 'visual) (propertize "V" 'face '(foreground-color . "orange")))
+   ;;   ((string= evil-state 'normal) (propertize "N" 'face '(foreground-color . "green")))
+   ;;   ((string= evil-state 'motion) "M")
+   ;;   ((string= evil-state 'insert) (propertize "I" 'face '(foreground-color . "red")))
+   ;;   ((string= evil-state 'replace) (propertize "R" 'face '(foreground-color . "red")))
+   ;;   ((string= evil-state 'emacs) (propertize "E" 'face '(foreground-color . "red")))
+   ;;   ((string= evil-state 'operator) (propertize "O" 'face '(foreground-color . "red")))))
+   
    ;; emacsclient indicator
    (:eval (if (frame-parameter nil 'client)
               (propertize " あ "
