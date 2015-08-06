@@ -134,6 +134,27 @@
 ;; - [M-F10] -- max window.
 
 
+;;; [ Widget ]
+
+(set-face-attribute 'widget-button nil
+                    :weight 'bold)
+(set-face-attribute 'widget-inactive nil
+                    :inherit 'shadow)
+(set-face-attribute 'widget-documentation nil
+                    :foreground "lime green")
+(set-face-attribute 'widget-button-pressed nil
+                    :foreground "red1")
+(set-face-attribute 'widget-field nil
+                    :inherit 'default
+                    :foreground "white"
+                    :background "#666666"
+                    :box '(:color "" :line-width 1))
+(set-face-attribute 'widget-single-line-field nil
+                    :inherit 'widget-field
+                    :background "#333333"
+                    )
+
+
 ;;; [ Layout ]
 
 ;; - (info "(elisp) Layout Parameters")
