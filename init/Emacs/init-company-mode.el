@@ -278,10 +278,8 @@
 ;; annotation
 (set-face-attribute 'company-tooltip-annotation nil
                     :inherit 'company-tooltip
-                    :foreground "tomato" :background nil
-                    ;; :weight 'bold
-                    ;; :box '(:color "dim gray" :line-width -1)
-                    )
+                    :foreground "#777777" :background nil
+                    :slant 'italic)
 ;; scroll-bar
 (set-face-attribute 'company-scrollbar-fg nil
                     :foreground "black" :background "black")
