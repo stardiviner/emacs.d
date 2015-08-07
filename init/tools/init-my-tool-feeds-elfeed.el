@@ -294,6 +294,15 @@
 (set-face-attribute 'elfeed-search-tag-face nil
                     :foreground "yellow")
 
+
+;;; [ elfeed-web ] -- web interface to elfeed.
+
+;;; Usage:
+;;
+;; - `elfeed-web-start'
+;; - `elfeed-web-stop'
+
+(require 'elfeed-web)
 
 
 (provide 'init-my-tool-feeds-elfeed)

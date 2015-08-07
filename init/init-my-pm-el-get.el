@@ -241,7 +241,7 @@
          ;; erc erc-highlight-nicknames erc-nick-notify bbdb2erc
          ;; weechat
          ;; RSS
-         elfeed
+         elfeed elfeed-web
          ;; Podcast & Screencast
          emms helm-emms
          emms-netease emms-player-mpv emms-info-mediainfo
