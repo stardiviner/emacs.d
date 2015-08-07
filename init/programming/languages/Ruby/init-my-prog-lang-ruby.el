@@ -351,8 +351,8 @@
 
 (rbenv-use-global)
 ;; (rbenv-use "2.2.0")
-;;
-;;
+
+
 ;;; [ inf-ruby / Inferior Ruby ] -- inf-ruby provides a REPL buffer connected to a Ruby(irb/pry) subprocess.
 ;;
 ;;; Usage:
@@ -371,7 +371,7 @@
 ;; keybindings:
 ;; - [C-c C-s] -- inf-ruby
 ;; - [C-c C-z] -- ruby-switch-to-inf
-;; - [C-c C-l] -- ruby-load-file
+;; - [C-c C-l] -- ruby-load-file :: load current file source code for completion.
 ;; - [M-C-x]   -- ruby-send-definition
 ;; - [C-x C-e] -- ruby-send-last-sexp
 ;; - [C-c C-b] -- ruby-send-block
@@ -521,9 +521,9 @@
 ;;    `inf-ruby-console-auto'. It recognizes several project types, including
 ;;    Rails, gems and anything with racksh in their Gemfile.
 ;;
-;; - [C-c C-d] -- `robe-doc',
-;; - [C-c C-l] -- `ruby-load-file', to load the current file in your project.
+;; - [C-c C-l] -- `ruby-load-file', to load the current file in your project for completion.
 ;; - [C-c C-k] -- `robe-rails-refresh', if you're developing a Rails project.
+;; - [C-c C-d] -- `robe-doc',
 ;; - [M-.] -- `robe-jump' (jump to definition)
 ;; - [M-,] -- pop tag mark
 ;;
