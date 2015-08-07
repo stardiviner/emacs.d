@@ -275,7 +275,8 @@
                 enh-ruby-mode-hook
                 ))
   (add-hook hook (lambda ()
-                   (setq yari-ri-program-name "ri")
+                   ;; (setq yari-ruby-program-name "ruby"
+                   ;;       yari-ri-program-name "ri")
 
                    ;; (local-set-key (kbd "C-h d k") 'yari)
 
