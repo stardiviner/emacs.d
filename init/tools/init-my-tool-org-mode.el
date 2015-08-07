@@ -1203,8 +1203,8 @@ This is especially for create Org files."
       org-habit-graph-column 70
       org-habit-preceding-days 14
       org-habit-following-days 7
-      org-habit-today-glyph ?>
-      org-habit-completed-glyph ?-
+      org-habit-today-glyph ?⇨
+      org-habit-completed-glyph ?✔
       )
 
 ;;;_*, org-habit faces
