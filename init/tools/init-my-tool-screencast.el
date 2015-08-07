@@ -82,7 +82,7 @@
 ;; - [F11] :: You can even PAUSE the recording with F11!
 ;; - [M-x camcorder-mode] :: If you want to record without a popup frame.
 
-
+(require 'camcorder)
 
 
 (provide 'init-my-tool-screencast)
