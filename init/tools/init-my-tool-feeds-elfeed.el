@@ -294,6 +294,9 @@
 (set-face-attribute 'elfeed-search-tag-face nil
                     :foreground "yellow")
 
+
+(define-key my-tools-prefix-map (kbd "f") 'elfeed)
+
 
 ;;; [ elfeed-web ] -- web interface to elfeed.
 
