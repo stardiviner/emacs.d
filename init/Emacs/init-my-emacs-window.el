@@ -588,6 +588,10 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (push '("*jedi:doc" :position bottom :height 15) popwin:special-display-config)
 (push '(rst-mode :position bottom :height 15) popwin:special-display-config)
 
+;; JavaScript
+;; js-comint: *js*
+(push '(inferior-js-mode :position bottom :height 15) popwin:special-display-config)
+
 ;; octave help mode
 (push '(octave-help-mode :position bottom :height 15) popwin:special-display-config)
 

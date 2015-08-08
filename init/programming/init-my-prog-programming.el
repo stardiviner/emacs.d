@@ -144,7 +144,7 @@
 ;; Octave
 (define-key my-prog-inferior-map (kbd "o") 'run-octave)   ; Octave
 ;; JavaScript
-(define-key my-prog-inferior-map (kbd "j") 'run-js)
+(define-key my-prog-inferior-map (kbd "j") 'run-js) ; JavaScript
 ;; Haskell
 (define-key my-prog-inferior-map (kbd "h") 'run-haskell)  ; Haskell
 ;; Erlang
