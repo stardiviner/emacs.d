@@ -32,7 +32,7 @@
 
 ;; (add-hook 'org-mode-hook 'command-log-mode)
 
-(define-key my-tools-prefix-map (kbd "L") 'command-log-mode)
+(define-key my-screenshot-map (kbd "L") 'command-log-mode)
 
 
 ;;; [ mwe-log-commands ]
@@ -83,6 +83,8 @@
 ;; - [M-x camcorder-mode] :: If you want to record without a popup frame.
 
 (require 'camcorder)
+
+(define-key my-screenshot-map (kbd "r") 'camcorder-record)
 
 
 (provide 'init-my-tool-screencast)
