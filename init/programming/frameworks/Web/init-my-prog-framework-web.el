@@ -540,6 +540,11 @@
 
 (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
 
+(setq restclient-log-request t
+      restclient-same-buffer-response t
+      ;; restclient-same-buffer-response-name "*HTTP Response*"
+      restclient-inhibit-cookies nil)
+
 (defun restclient-add-separator ()
   (interactive)
   (insert "# separator\n\n"))
