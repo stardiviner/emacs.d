@@ -175,7 +175,10 @@
 (add-hook 'c-mode-common-hook
           (lambda ()
             (add-to-list (make-local-variable 'company-backends)
-                         '(company-clang company-cmake))))
+                         'company-clang)
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-cmake)
+            ))
 
 
 
