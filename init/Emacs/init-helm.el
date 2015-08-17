@@ -73,8 +73,8 @@
       helm-minibuffer-history-key "C-r" ; used in [M-:] minibuffer eval.
       helm-mini-default-sources '(helm-source-buffers-list
                                   helm-source-buffer-not-found
-                                  ;; helm-source-bookmarks
-                                  helm-source-pp-bookmarks
+                                  helm-source-bookmarks
+                                  ;; helm-source-pp-bookmarks
                                   ;; helm-source-my-apps ; my custom source
                                   ;; helm-source-my-locations ; my custom source
                                   helm-source-recentf
