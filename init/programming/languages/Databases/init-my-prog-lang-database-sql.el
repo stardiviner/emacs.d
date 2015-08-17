@@ -28,6 +28,8 @@
 (eval-after-load "sql"
   '(load-library "sql-indent"))
 
+(load "~/.emacs.d/init/extensions/sql-indent.el")
+
 (dolist (hook '(sql-mode-hook
                 sql-interactive-mode-hook
                 edbi:sql-mode-hook
