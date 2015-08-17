@@ -559,7 +559,7 @@
       (restclient-mode)
       (pop-to-buffer buffer))))
 
-(define-key my-prog-inferior-map (kbd "R") 'restclient-new-buffer)
+(define-key my-prog-inferior-map (kbd "H") 'restclient-new-buffer)
 
 ;;;_ know-your-http-well
 
