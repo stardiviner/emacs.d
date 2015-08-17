@@ -212,10 +212,12 @@
          org-pomodoro
          ;; org-doing
          orgit ; org-linkany
+         ;; Blog
          org-publish
          o-blog
          ;; org2blog ; org-blog org-website
          ;; jekyll-el org2jekyll ; org-jekyll jekyll-modes org-protocol-jekyll
+         octopress org-octopress
          ;; org-present org-tree-slide org-html5presentation org-impress-js
          org-password-manager ; org-passwords
          ;; org-magit ; org-linkany

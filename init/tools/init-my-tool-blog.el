@@ -149,6 +149,9 @@
 ;; (define-key org-jekyll-map (kbd "p") 'org-jekyll-export-project)
 ;; (define-key org-jekyll-map (kbd "e") 'org-jekyll-export-current-entry)
 
+
+
+(require 'init-my-tool-blog-octopress)
 
 
 (provide 'init-my-tool-blog)
