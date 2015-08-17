@@ -3055,6 +3055,8 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
       org-pomodoro-play-ticking-sounds nil
       ;; org-pomodoro-ticking-sound
       org-pomodoro-ticking-sound-args "-volume 50" ; adjust ticking sound volume
+      ;; org-pomodoro-start-sound-args "-volume 0.3"
+      ;; org-pomodoro-long-break-sound-args "-volume 0.3"
       org-pomodoro-format "Pomodoro~%s" ; mode-line string
       )
 
