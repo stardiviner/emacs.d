@@ -143,7 +143,7 @@
          popwin ; shackle
          zoom-window
          ;; buffer
-         ibuffer-vc ibuffer-git
+         ;; ibuffer-vc ibuffer-git
          ;; ibuffer-projectile ibuffer-tramp
          ;; minibuffer
          eldoc-eval

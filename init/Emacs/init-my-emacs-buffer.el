@@ -31,7 +31,7 @@
 ;;
 ;; - [M-x ibuffer-vc]
 
-(require 'ibuffer-vc)
+;; (require 'ibuffer-vc)
 
 
 ;;; [ ibuffer-git ]
