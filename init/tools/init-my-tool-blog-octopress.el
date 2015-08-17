@@ -23,6 +23,7 @@
       ;; octopress-default-server-flags ; flags to pass to `jekyll serve'
       )
 
+(define-key blog-map (kbd "l") 'octopress-status)
 (define-key blog-map (kbd "s") 'octopress-status)
 (define-key blog-map (kbd "n") 'octopress-create-thing)
 
