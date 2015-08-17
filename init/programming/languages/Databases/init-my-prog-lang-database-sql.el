@@ -63,6 +63,7 @@
   (interactive)
   (backward-word) ; `backward-sexp'
   (upcase-word 1)
+  (forward-char 1)
   )
 
 (define-key sql-mode-map (kbd "C-c C-u") 'my-sqlup-backward)
