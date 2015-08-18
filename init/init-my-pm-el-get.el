@@ -348,7 +348,7 @@
          yard-mode ; omniref ; helm-rb
          ;; ruby-hash-syntax
          ruby-test-mode ; ruby-test
-         rspec-mode ; minitest
+         rspec-mode minitest
          ;; cucumber feature-mode
          ;; rcov-overlay
          rdebug
