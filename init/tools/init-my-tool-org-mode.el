@@ -2299,6 +2299,18 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 (my-el-get-require 'ob-prolog)
 
 ;; [ ob-http ] -- http request in org-mode babel
+;;
+;; | option      | curl         | example                                                                               |
+;; |-------------+--------------+---------------------------------------------------------------------------------------|
+;; | :proxy      | -x           | :proxy localhost:8118                                                                 |
+;; | :cookie-jar | --cookie-jar | :cookie-jar username                                                                  |
+;; | :cookie     | --cookie     | :cookie username                                                                      |
+;; | :max-time   | --max-time   | default is 10                                                                         |
+;; | :pretty     | N/A          | :pretty use Content-Type, currently only json is supported, to overwrite :pretty json |
+;; | :select     | N/A          | :select .path path will be passed to jq                                               |
+;; | :get-header | N/A          | :get-header X-Subject-Token                                                           |
+
+
 
 (my-el-get-require 'ob-http)
 
