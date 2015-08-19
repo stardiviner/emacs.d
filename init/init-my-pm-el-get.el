@@ -204,7 +204,10 @@
          ;; Org-mode
          org-mode
          org-fstree org-bullets
-         ob-julia ob-go ob-prolog ob-sql ob-mongo ob-http ; ob-browser
+         ob-go ob-prolog
+         ob-julia ; ob-ipython
+         ob-sql ob-mongo
+         ob-http ob-browser
          ;; ob-translate
          cdlatex-mode
          ;; org-ac
