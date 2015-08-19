@@ -90,6 +90,13 @@
 ;;; TODO: startup start ESS process
 
 
+;;; [ ess-smarter-underscore ]
+
+(eval-after-load "ess-site"
+  '(progn
+     (require 'ess-smarter-underscore)))
+
+
 (provide 'init-my-prog-lang-ESS)
 
 ;;; init-my-prog-lang-ESS.el ends here

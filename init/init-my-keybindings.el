@@ -92,6 +92,10 @@
   (define-prefix-command 'my-prog-debug-prefix))
 (global-set-key (kbd "C-c d") 'my-prog-debug-prefix)
 
+(unless (boundp 'my-prog-test-prefix)
+  (define-prefix-command 'my-prog-test-prefix))
+(global-set-key (kbd "C-c t") 'my-prog-test-prefix)
+
 (unless (boundp 'my-prog-vcs-map)
   (define-prefix-command 'my-prog-vcs-map))
 ;; (define-key my-programming-prefix-map (kbd "v") 'my-prog-vcs-map)

@@ -9,6 +9,8 @@
 
 ;;; [ JavaScript ]
 
+(require 'js)
+
 (add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
 
 

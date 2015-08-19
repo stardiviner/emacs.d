@@ -143,7 +143,7 @@
          popwin ; shackle
          zoom-window
          ;; buffer
-         ibuffer-vc ibuffer-git
+         ;; ibuffer-vc ibuffer-git
          ;; ibuffer-projectile ibuffer-tramp
          ;; minibuffer
          eldoc-eval
@@ -204,7 +204,10 @@
          ;; Org-mode
          org-mode
          org-fstree org-bullets
-         ob-julia ob-go ob-prolog ob-sql ob-mongo ob-http ; ob-browser
+         ob-go ob-prolog
+         ob-julia ; ob-ipython
+         ob-sql ob-mongo
+         ob-http ob-browser
          ;; ob-translate
          cdlatex-mode
          ;; org-ac
@@ -212,10 +215,12 @@
          org-pomodoro
          ;; org-doing
          orgit ; org-linkany
+         ;; Blog
          org-publish
          o-blog
          ;; org2blog ; org-blog org-website
          ;; jekyll-el org2jekyll ; org-jekyll jekyll-modes org-protocol-jekyll
+         octopress org-octopress
          ;; org-present org-tree-slide org-html5presentation org-impress-js
          org-password-manager ; org-passwords
          ;; org-magit ; org-linkany
@@ -346,13 +351,13 @@
          yard-mode ; omniref ; helm-rb
          ;; ruby-hash-syntax
          ruby-test-mode ; ruby-test
-         rspec-mode ; minitest
+         rspec-mode minitest
          ;; cucumber feature-mode
          ;; rcov-overlay
          rdebug
          motion-mode
          ;; Lisp
-         ;; slime elisp-slime-nav slime-company ; ac-slime
+         slime elisp-slime-nav slime-company ; ac-slime
          sly sly-company ; ac-sly
          geiser ; ac-geiser
          ;; sly sly-company ; ac-sly
@@ -375,7 +380,7 @@
          anaconda-mode company-anaconda
          ;; elpy
          pydoc helm-pydoc
-         helm-ipython
+         ;; helm-ipython
          ;; C family languages (C, C++, Go, D, F, Rust)
          ;; c-eldoc eassist
          irony-mode
@@ -401,6 +406,8 @@
          swift-mode
          ;; Web
          web-mode
+         company-web
+         web-completion-data
          skewer-mode ; live web development in Emacs (HTML, CSS, JavaScript)
          ;; emacs-moz-controller ; moz-repl
          ;; JavaScript
@@ -421,6 +428,7 @@
          css-eldoc
          showcss-mode
          less-css-mode skewer-less
+         scss-mode
          ;; CoffeeScript
          ;; coffee-mode
          ;; XML
@@ -455,7 +463,7 @@
          ;; jde-maven
          ;; groovy-mode inf-groovy
          ;; Statistics
-         ess
+         ess ess-smart-underscore
          ;; R
          ;; Julia
          ;; gnuplot
@@ -466,7 +474,7 @@
          ;; SQL
          sql sqlup-mode sql-indent sql-transform sqled-mode sqlplus ; sql-complete sql-completion
          ;; SQL comprehensive complete
-         edbi edbi-minor-mode company-edbi edbi-database-url
+         edbi company-edbi edbi-database-url edbi-minor-mode
          ede-compdb
          ;; SQLite
          ;; sqlite

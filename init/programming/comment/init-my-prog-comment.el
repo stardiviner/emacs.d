@@ -33,7 +33,8 @@
 ;;; comment annotations keywords list.
 
 (setq comment-annotation-keyword-list
-      '("FIXME" "TODO" "BUG" "ISSUE" "ERROR" "OPTIMIZE" "HACK" "REFACTOR" "REVIEW"
+      '("FIXME" "TODO" "BUG" "ISSUE" "ERROR"
+        "OPTIMIZE" "HACK" "REFACTOR" "REVIEW" "TEST"
         "NOTE" "NOTICE" "README"))
 
 
@@ -65,7 +66,7 @@ column. Place the point after the comment box."
 
 This functions should be added to the hooks of major modes for programming."
   (font-lock-add-keywords nil
-                          '(("\\<\\(FIXME\\|TODO\\|ISSUE\\|BUG\\|ERROR\\|HACK\\|OPTIMIZE\\|REFACTOR\\|REVIEW\\|NOTE\\|NOTICE\\|README\\):" 1
+                          '(("\\<\\(FIXME\\|TODO\\|ISSUE\\|BUG\\|ERROR\\|HACK\\|OPTIMIZE\\|REFACTOR\\|REVIEW\\|TEST\\|NOTE\\|NOTICE\\|README\\):" 1
                              '(:foreground "dark red" :background "black"
                                            :box '(:color "red" :line-width -1 :style nil)
                                            :weight 'bold) t))))
@@ -82,8 +83,10 @@ This functions should be added to the hooks of major modes for programming."
 
 (require 'fic-mode)
 
-(setq fic-highlighted-words '("FIXME" "TODO" "BUG" "ISSUE" "ERROR" "OPTIMIZE" "HACK" "REFACTOR" "REVIEW"
-                              "NOTE" "NOTICE" "README"))
+(setq fic-highlighted-words
+      '("FIXME" "TODO" "BUG" "ISSUE" "ERROR"
+        "OPTIMIZE" "HACK" "REFACTOR" "REVIEW" "TEST"
+        "NOTE" "NOTICE" "README"))
 
 ;; (setq fic-foreground-color "red")
 ;; (setq fic-background-color "yellow")

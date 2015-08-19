@@ -689,6 +689,29 @@
 (ad-activate 'rspec-compile)
 
 
+;;; [ minitest ]
+
+;;; Usage:
+;;
+;; - [C-c ,] -- minitest prefix
+
+(require 'minitest)
+
+(setq minitest-default-env nil
+      minitest-keymap-prefix (kbd "C-c t") ; [C-c ,]
+      minitest-use-bundler t
+      minitest-use-spring nil
+      minitest-use-zeus-when-possible t
+      )
+
+(add-hook 'ruby-mode-hook 'minitest-mode)
+(add-hook 'enh-ruby-mode-hook 'minitest-mode)
+
+;; if you want snippets loaded
+(eval-after-load 'minitest
+  '(minitest-install-snippets))
+
+
 ;;; [ ruby-test-mode ] -- Emacs minor mode for Behaviour and Test Driven Development in Ruby.
 
 ;;; Usage:

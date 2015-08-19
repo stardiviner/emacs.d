@@ -540,6 +540,11 @@
 
 (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
 
+(setq restclient-log-request t
+      restclient-same-buffer-response t
+      ;; restclient-same-buffer-response-name "*HTTP Response*"
+      restclient-inhibit-cookies nil)
+
 (defun restclient-add-separator ()
   (interactive)
   (insert "# separator\n\n"))
@@ -554,7 +559,17 @@
       (restclient-mode)
       (pop-to-buffer buffer))))
 
-(define-key my-prog-inferior-map (kbd "R") 'restclient-new-buffer)
+(define-key my-prog-inferior-map (kbd "H") 'restclient-new-buffer)
+
+;;; Org-mode Babel integration
+;; TODO: (load "~/.emacs.d/init/extensions/ob-rest.el")
+
+;; TEST: indent json in restclient-mode
+(add-hook 'restclient-mode-hook
+          (lambda ()
+            (require 'js)
+            (setq-local indent-line-function 'js-indent-line)))
+
 
 ;;;_ know-your-http-well
 

@@ -315,12 +315,12 @@
 
    ;; Org-mode clock
    ;; TODO: change into (:eval ...)
-   (:eval
-    (if '(t org-mode-line-string) ; FIXME:
-        (propertize (t org-mode-line-string)
-                    'face '(:foreground "cyan" :weight 'bold)
-                    'help-echo "Org-mode clock"))
-    )
+   ;; (:eval
+   ;;  (if '(t org-mode-line-string) ; FIXME:
+   ;;      (propertize (t org-mode-line-string)
+   ;;                  'face '(:foreground "cyan" :weight 'bold)
+   ;;                  'help-echo "Org-mode clock"))
+   ;;  )
 
    
    (:propertize mode-line-end-spaces)

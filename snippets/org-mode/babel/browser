@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: babel-browser
+# key: babel-browser
+# group: Babel
+# --
+#+BEGIN_SRC browser :out ${1:output.png}
+$0
+#+END_SRC
