@@ -561,6 +561,16 @@
 
 (define-key my-prog-inferior-map (kbd "H") 'restclient-new-buffer)
 
+;;; Org-mode Babel integration
+;; TODO: (load "~/.emacs.d/init/extensions/ob-rest.el")
+
+;; TEST: indent json in restclient-mode
+(add-hook 'restclient-mode-hook
+          (lambda ()
+            (require 'js)
+            (setq-local indent-line-function 'js-indent-line)))
+
+
 ;;;_ know-your-http-well
 
 (require 'know-your-http-well)
