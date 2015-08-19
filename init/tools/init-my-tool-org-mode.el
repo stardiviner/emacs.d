@@ -2304,6 +2304,15 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 ;; [ ob-browser ] -- render HTML in org babel
 
+;; #+BEGIN_SRC browser :out output.png
+;; <!DOCTYPE html>
+;; <html>
+;;   <body>
+;;     <p>hello, world</p>
+;;   </body>
+;; </html>
+;; #+END_SRC
+
 (my-el-get-require 'ob-browser)
 
 
@@ -2358,7 +2367,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
    (mongo . t)                          ; ob-mongo
    ;; (sml . t)                            ; from extension ob-sml
    (http . t)                           ; ob-http
-   ;; TODO: (browser . t ) (html . t)                           ; ob-browser
+   (browser . t )                       ; ob-browser
    ))
 
 (setq org-confirm-babel-evaluate t)     ; org-babel-evaluate confirm.
