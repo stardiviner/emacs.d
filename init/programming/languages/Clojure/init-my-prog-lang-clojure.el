@@ -207,6 +207,16 @@
 (require 'cider-decompile)
 
 
+;;; [ cider-spy ] -- Spy on CIDER to get Info.
+
+(require 'cider-spy)
+
+
+;;; [ cider-profile ]
+
+(require 'cider-profile)
+
+
 ;;; [ inf-clojure ] -- Basic interaction with a Clojure subprocess
 
 ;;; Usage:
