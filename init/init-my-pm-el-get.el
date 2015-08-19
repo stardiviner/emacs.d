@@ -380,7 +380,7 @@
          anaconda-mode company-anaconda
          ;; elpy
          pydoc helm-pydoc
-         helm-ipython
+         ;; helm-ipython
          ;; C family languages (C, C++, Go, D, F, Rust)
          ;; c-eldoc eassist
          irony-mode
@@ -406,6 +406,8 @@
          swift-mode
          ;; Web
          web-mode
+         company-web
+         web-completion-data
          skewer-mode ; live web development in Emacs (HTML, CSS, JavaScript)
          ;; emacs-moz-controller ; moz-repl
          ;; JavaScript
@@ -426,6 +428,7 @@
          css-eldoc
          showcss-mode
          less-css-mode skewer-less
+         scss-mode
          ;; CoffeeScript
          ;; coffee-mode
          ;; XML
@@ -460,7 +463,7 @@
          ;; jde-maven
          ;; groovy-mode inf-groovy
          ;; Statistics
-         ess
+         ess ess-smart-underscore
          ;; R
          ;; Julia
          ;; gnuplot
@@ -471,7 +474,7 @@
          ;; SQL
          sql sqlup-mode sql-indent sql-transform sqled-mode sqlplus ; sql-complete sql-completion
          ;; SQL comprehensive complete
-         edbi edbi-minor-mode company-edbi edbi-database-url
+         edbi company-edbi edbi-database-url edbi-minor-mode
          ede-compdb
          ;; SQLite
          ;; sqlite
