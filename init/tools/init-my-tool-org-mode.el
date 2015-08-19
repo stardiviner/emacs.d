@@ -2370,6 +2370,13 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
    (browser . t )                       ; ob-browser
    ))
 
+;; open those babels with `web-mode'.
+(eval-after-load "web-mode"
+  (add-to-list 'org-src-lang-modes '("html" . web)))
+(eval-after-load "web-mode"
+  (add-to-list 'org-src-lang-modes '("browser" . web)))
+
+
 (setq org-confirm-babel-evaluate t)     ; org-babel-evaluate confirm.
 (setq org-babel-no-eval-on-ctrl-c-ctrl-c nil)
 (setq org-confirm-shell-link-function 'yes-or-no-p)
