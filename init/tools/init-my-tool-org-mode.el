@@ -2179,50 +2179,11 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
       ;; org-html-doctype-alist
       )
 
+
 ;;;_* Babel
 ;;
 ;; - [C-c C-v] :: keymap prefix for babel. `org-babel-map'
 
-
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((emacs-lisp . t)                     ; Emacs Lisp
-   (org . t)                            ; Org-mode
-   (sh . t)                             ; Shell
-   ;; TODO (makefile . t)                       ; Make
-   (ruby . t)                           ; Ruby
-   (python . t)                         ; Python
-   (perl . t)                           ; Perl
-   (C . t)                              ; C
-   ;; (C++ . t)                            ; C++
-   (java . t)                           ; Java
-   (R . t)                              ; R
-   (sql . t)                            ; SQL
-   (sqlite . t)                         ; SQLite
-   (calc . t)                           ; calc
-   (awk . t)                            ; Awk
-   (lisp . t)                           ; Lisp
-   (scheme . t)                         ; Scheme
-   ;; (arc . t)                            ; Arc
-   (clojure . t)                        ; Clojure
-   (haskell . t)                        ; Haskell
-   (ocaml . t)                          ; Objective Caml
-   ;; TODO (prolog . t)                         ; Prolog
-   ;; TODO (datalog . t)                        ; Datalog
-   (js . t)                             ; JavaScript
-   (css . t)                            ; CSS
-   (latex . t)                          ; LaTeX
-   (matlab . t)                         ; MATLAB
-   (octave . t)                         ; Octave
-   (gnuplot . t)                        ; gnuplot
-   (ditaa . t)                          ; ditaa
-   (dot . t)                            ; Graphviz, Dot
-   (plantuml . t)                       ; PlantUML
-   (processing . t)                     ; Processing
-   (ledger . t)                         ; ledger support in Babel
-   ;; (sml . t)                            ; from extension ob-sml
-   (sass . t)                           ; Sass
-   ))
 
 ;; Or by using `require' to load.
 (require 'ob-processing)
@@ -2240,10 +2201,6 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;; 3.
 (my-el-get-require 'ob-julia)
 
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((julia . t)))
-
 ;; (setq org-babel-julia-eoe-indicator "print(\"org_babel_julia_eoe\")")
 (setq org-babel-default-header-args:julia
       '((:results . "replace output")
@@ -2256,11 +2213,6 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;; [ ob-sql ] -- babel for SQL
 
 (my-el-get-require 'ob-sql)
-
-;; active Babel SQL
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((sql . t)))
 
 ;; [ ob-go ] -- babel for Go
 ;;
@@ -2354,6 +2306,60 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 (my-el-get-require 'ob-browser)
 
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)                     ; Emacs Lisp
+   (org . t)                            ; Org-mode
+   (shell . t)                          ; Shell Script
+   (sh . t)                             ; Shell
+   (makefile . t)                       ; Make
+   (ruby . t)                           ; Ruby
+   (python . t)                         ; Python
+   (perl . t)                           ; Perl
+   (C . t)                              ; C
+   ;; (C++ . t)                            ; C++
+   (java . t)                           ; Java
+   (awk . t)                            ; Awk
+   (screen . t)                         ; Screen
+   (lisp . t)                           ; Lisp
+   (scheme . t)                         ; Scheme
+   (picolisp . t)                       ; Pico Lisp
+   (clojure . t)                        ; Clojure
+   (haskell . t)                        ; Haskell
+   (scala . t)                          ; Scala
+   ;; (io . t)                             ; IO
+   ;; (J . t)                              ; J
+   (ocaml . t)                          ; Objective Caml
+   (js . t)                             ; JavaScript
+   (css . t)                            ; CSS
+   (latex . t)                          ; LaTeX
+   (R . t)                              ; R
+   (sql . t)                            ; SQL
+   (sqlite . t)                         ; SQLite
+   (matlab . t)                         ; MATLAB
+   (octave . t)                         ; Octave
+   (gnuplot . t)                        ; gnuplot
+   ;; (fortran . t)                        ; Fortran
+   (ditaa . t)                          ; ditaa
+   (dot . t)                            ; Graphviz, Dot
+   (plantuml . t)                       ; PlantUML
+   ;; (ebnf2ps . t)                        ; ebnf2ps
+   (calc . t)                           ; Calc
+   (ledger . t)                         ; ledger support in Babel
+   (asymptote . t)                      ; Asymptote
+   (sass . t)                           ; Sass
+   
+   ;; extra babel support
+   (go . t)                             ; ob-go
+   (prolog . t)                         ; ob-prolog
+   (julia . t)                          ; ob-julia
+   (processing . t)                     ; Processing
+   (mongo . t)                          ; ob-mongo
+   ;; (sml . t)                            ; from extension ob-sml
+   (http . t)                           ; ob-http
+   ;; TODO: (browser . t ) (html . t)                           ; ob-browser
+   ))
 
 (setq org-confirm-babel-evaluate t)     ; org-babel-evaluate confirm.
 (setq org-babel-no-eval-on-ctrl-c-ctrl-c nil)
