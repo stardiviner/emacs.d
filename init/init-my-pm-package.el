@@ -137,6 +137,7 @@ re-downloaded in order to locate PACKAGE."
     show-marks
     ;; Debug
     edebug-x
+    bug-hunter
     ;; Server & Client
     edit-server
     ;; Edit
@@ -173,7 +174,7 @@ re-downloaded in order to locate PACKAGE."
     workgroups2
     ;; Mode
     diminish
-    mmm-mode
+    mmm-mode ; polymode
     helm-mode-manager
     ;; Unicode
     helm-unicode
@@ -193,7 +194,7 @@ re-downloaded in order to locate PACKAGE."
     shelldoc
 
     ;; Org-mode
-    org
+    org org-plus-contrib
     org-bullets
     org-beautify-theme
     org-agenda-property
@@ -259,7 +260,7 @@ re-downloaded in order to locate PACKAGE."
     helm-c-moccur color-moccur
     ;; Regexp
     visual-regexp visual-regexp-steroids
-    ample-regexps
+    ample-regexps pcre2el
     ;; wgrep wgrep-ack wgrep-helm
     ack
     ag helm-ag
@@ -276,7 +277,7 @@ re-downloaded in order to locate PACKAGE."
     ;; License
                                         ; xlicense
     ;; Code Paste
-    yagist
+    yagist helm-gist
     ;; Bug Track System
     bts bts-github
 
@@ -290,8 +291,7 @@ re-downloaded in order to locate PACKAGE."
     ;; Emacs Lisp
     elisp-slime-nav
     eldoc-eval
-    hl-sexp
-    highlight-symbol ; highlight-escape-sequences
+    hl-sexp highlight-symbol highlight-escape-sequences
     ;; C & C++
     irony irony-eldoc flycheck-irony
     company-irony company-irony-c-headers
@@ -304,7 +304,7 @@ re-downloaded in order to locate PACKAGE."
     ruby-mode enh-ruby-mode
     inf-ruby ruby-compilation ; pry
     rbenv rvm  ; ruby-dev  ; chruby
-    robe yari yard-mode
+    robe yari yard-mode helm-rb
     ruby-tools
     rspec-mode minitest ruby-test-mode
     ruby-block ruby-hash-syntax ruby-interpolation
@@ -312,6 +312,7 @@ re-downloaded in order to locate PACKAGE."
     motion-mode
     ;; Python
     pyenv-mode pyvenv
+    virtualenv virtualenvwrapper
     ;; jedi company-jedi
     anaconda-mode company-anaconda
     ;; Clojure
@@ -335,8 +336,7 @@ re-downloaded in order to locate PACKAGE."
     gnuplot
     ;; Database
     ;; SQL
-    sqlup-mode
-    sql-indent
+    sqlup-mode format-sql sql-indent
     emacsql
     edbi edbi-sqlite edbi-database-url company-edbi edbi-minor-mode
     ;; db db-sql
@@ -344,6 +344,8 @@ re-downloaded in order to locate PACKAGE."
     ;; sqlplus
     ;; SQLite
     sqlite
+    ;; PostgreSQL
+    pg pgdevenv
     ;; NoSQL
     mongo inf-mongo ; mongo-elnode
     ;; HTML
@@ -382,26 +384,32 @@ re-downloaded in order to locate PACKAGE."
     latex-math-preview latex-preview-pane
     ;; Markdown
     markdown-mode
+    pandoc-mode
     ;; Sass
     sass-mode
     
 
     ;; Frameworks
     ;; Ruby on Rails
-    projectile-rails rails-new
+    projectile-rails rails-new ; helm-rails
     rhtml-mode
     ;; Arduino
     arduino-mode company-arduino
 
     ;; Linux
     nginx-mode
+    pkgbuild-mode
     ;; Container
     docker dockerfile-mode
     docker-tramp
+    vagrant vagrant-tramp
+    ;; Heroku
+    heroku
     
     ;; Tools
     ;; Bookmarks
     helm-bm
+    helm-firefox ; helm-chrome
     ;; PDF
     pdf-tools
     ;; Ascii Graphic
@@ -413,7 +421,7 @@ re-downloaded in order to locate PACKAGE."
     ;; Email
     gnus
     ;; mu4e
-    mu4e-maildirs-extension
+    mu4e-maildirs-extension helm-mu
     ;; Contacts
     bbdb bbdb-vcard
     ;; Feeds: RSS & Atom
