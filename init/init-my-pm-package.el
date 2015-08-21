@@ -37,12 +37,13 @@
 (require 'package)
 
 (setq-default package-archives
-	      '(("melpa" . "http://melpa.org/packages/")
-		;; ("melpa-stable" . "http://stable.melpa.org/packages/")
-		;; ("marmalade" . "http://marmalade-repo.org/packages/")
-		("org"       . "http://orgmode.org/elpa/")
-		("gnu" . "http://elpa.gnu.org/packages/")
-		))
+              '(
+                ("org"   . "http://orgmode.org/elpa/")
+                ("melpa" . "http://melpa.org/packages/")
+                ;; ("melpa-stable" . "http://stable.melpa.org/packages/")
+                ;; ("marmalade" . "http://marmalade-repo.org/packages/")
+                ("gnu" . "http://elpa.gnu.org/packages/")
+                ))
 
 ;; (setq package-user-dir "~/.emacs.d/elpa"
 ;;       ;; package-directory-list
