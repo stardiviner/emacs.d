@@ -42,6 +42,8 @@
 ;; - [M-x slime] ::
 ;; - `slime-mode'
 
+(require 'slime)
+
 ;; select the default value from slime-lisp-implementations
 (if (eq system-type 'darwin)
     ;; default to Clozure CL on OS X
@@ -281,7 +283,7 @@
 ;;; interpreter, Emacs and, ultimately, the schemer, giving her access to live
 ;;; metadata. Here’s how.
 
-(require 'geiser-install)
+(require 'geiser)
 
 ;; (run-geiser)
 
@@ -305,6 +307,8 @@
 
 
 ;;; [ hl-sexp ]
+
+(require 'hl-sexp)
 
 (dolist (hook '(lisp-mode-hook
                 emacs-lisp-mode-hook
