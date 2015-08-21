@@ -60,9 +60,11 @@ column. Place the point after the comment box."
 
 
 
+;;; highlight FIXME:
+
 ;;; comment annotations function
 (defun font-lock-comment-annotations ()
-  "Highlight a bunch of well known comment annotations.
+  "Highlight a bunch of well known comment annotations like FIXME:.
 
 This functions should be added to the hooks of major modes for programming."
   (font-lock-add-keywords nil
@@ -81,6 +83,8 @@ This functions should be added to the hooks of major modes for programming."
 
 ;;; [ fic-mode ] --- "fixme in comments (and strings)"
 
+;; highlight "FIXME"
+
 (require 'fic-mode)
 
 (setq fic-highlighted-words
@@ -88,17 +92,8 @@ This functions should be added to the hooks of major modes for programming."
         "OPTIMIZE" "HACK" "REFACTOR" "REVIEW" "TEST"
         "NOTE" "NOTICE" "README"))
 
-;; (setq fic-foreground-color "red")
-;; (setq fic-background-color "yellow")
-
-(set-face-attribute 'fic-face nil
-                    :foreground "red" :background "black"
-                    :weight 'normal
-                    :box '(:color "dark red" :line-width -1 :style nil))
-(set-face-attribute 'fic-author-face nil
-                    :foreground "yellow" :background "black"
-                    :weight 'bold
-                    :box '(:color "yellow" :line-width -1 :style nil))
+(setq fic-foreground-color "red")
+(setq fic-background-color "yellow")
 
 (dolist (hook
          '(prog-mode-hook
