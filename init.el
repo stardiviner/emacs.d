@@ -242,7 +242,6 @@
 ;; (require 'init-my-tool-sauron)
 ;;; IRC
 ;; (require 'init-my-tool-irc-erc)
-(require 'init-my-tool-w3m)
 (require 'init-my-tool-emms)
 (require 'init-my-tool-screenshot)
 (require 'init-my-tool-screencast)
