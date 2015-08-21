@@ -38,6 +38,14 @@
 
 (add-to-list 'auto-mode-alist '("Cask\\'" . emacs-lisp-mode))
 
+
+;; Emacs Lisp highlights
+
+;; `let-alist' . symbols
+(font-lock-add-keywords
+ 'emacs-lisp-mode
+ '(("\\_<\\.\\(?:\\sw\\|\\s_\\)+\\_>" 0
+    font-lock-builtin-face)))
 
 
 ;;; [ ElDoc ]
