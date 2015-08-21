@@ -14,7 +14,8 @@
 
 
 
-(require 'init-my-tool-blog-jekyll)
+;; (require 'init-my-tool-blog-org)
+;; (require 'init-my-tool-blog-jekyll)
 (require 'init-my-tool-blog-octopress)
 
 
