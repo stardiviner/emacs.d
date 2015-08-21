@@ -227,12 +227,6 @@
 (define-key ac-mode-map (kbd "C-c H") 'ac-last-help)
 
 
-;; show help beautifully with extension "pos-tip.el"
-
-(require 'pos-tip)
-(require 'popup-pos-tip)
-
-
 ;;; [ fuzzy completion ]
 ;; (setq ac-use-fuzzy t)
 
