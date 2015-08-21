@@ -54,6 +54,7 @@
          ;; Enhance Emacs self
          ;; macro
          ;; elmacro macrostep
+         ;; eieio
          ;; Popup
          popup
          pos-tip
@@ -75,7 +76,7 @@
          helm-gtags helm-yaetags
          helm-mu
          ;; helm-mode-manager
-         helm-bm helm-chrome helm-firefox
+         helm-bm ; helm-chrome helm-firefox
          ;; helm-w3m helm-webkit
          ;; helm-delicious
          ;; helm-dictionary
@@ -99,7 +100,7 @@
          ;; ac-helm
          ;; ac-company
          company-mode company-quickhelp company-statistics
-         ;; color theme
+         color-theme
          color-theme-solarized
          ;; color-theme-monokai ; color-theme-almost-monokai monokai-theme
          ;; apperance
@@ -114,11 +115,15 @@
          pretty-mode-plus page-break-lines
          on-screen
          ;; mode-line
-         diminish nyan-mode
+         diminish
+         nyan-mode
          ;; spinner
          ;; mode-icons
          ;; input method
          ;; eim
+         ;; TODO: chinese-pyim
+         ;; TODO: chinese-remote-input
+         ;; TODO: chinese-word-at-point
          ;; clipboard
          ;; xclip
          ;; Info & help & documentation
@@ -128,7 +133,7 @@
          mmm-mode ; mumamo-noweb
          ;; polymode
          ;; shell
-         ;; eshell-manual
+         ;; eshell-manual eshell-prompt-extras eshell-fringe-status
          shelldoc
          ;; insert-shebang
          ;; others
@@ -153,7 +158,9 @@
          multiple-cursors iedit
          expand-region
          edit-server ; edit-server-htmlize
-         scratch
+         scratch ; omni-scratch
+         ;; fill
+         ;; aggressive-fill-paragraph
          ;; unicode
          ucs-utils
          ;; large file
@@ -163,6 +170,7 @@
          ;; predictive
          ;; spell
          flyspell flyspell-popup
+         ;; flyguess ; flyspell-guess inflections ; auto-dictionnary
          ;; dictionary & translation
          define-word
          ;; babel
@@ -174,12 +182,12 @@
          bm
          ;; keybinding
          bind-key
-         guide-key ; guide-key-tip
+         ;; guide-key ; guide-key-tip
          which-key
          hydra
          ;; Dired
          direx
-         dired-rainbow dired-efap dired-k ; stripe-buffer
+         dired-efap dired-rainbow dired-k ; stripe-buffer
          peep-dired
          ;; Image
          ;; image+ image-dired+
@@ -190,7 +198,7 @@
          ;; isearch+
          anzu
          highlight-symbol
-         visual-regexp visual-regexp-steroids ace-jump-mode
+         visual-regexp visual-regexp-steroids
          ample-regexps
          swiper ; swiper-helm
          ack-and-a-half ; full-ack
@@ -211,6 +219,7 @@
          ob-http ob-browser
          ;; ob-translate
          cdlatex-mode
+         orgtbl-ascii-plot ; orgtbl-aggregate orgtbl-join orgtbl-show-header
          ;; org-ac
          org-download org-screenshot
          org-pomodoro
@@ -218,7 +227,7 @@
          orgit ; org-linkany
          ;; Blog
          org-publish
-         o-blog
+         ;; o-blog
          ;; org2blog ; org-blog org-website
          ;; jekyll-el org2jekyll ; org-jekyll jekyll-modes org-protocol-jekyll
          octopress org-octopress
@@ -227,6 +236,8 @@
          ;; org-magit ; org-linkany
          org-trello
          org-projectile
+         ;; org-contacts org-vcard
+         ;; org-gnome org-mac-iCal org-mac-link
          ;; Wiki
          ;; oddmuse yaoddmuse org-oddmuse oddmuse-curl
          ;; SpeedReading - OpenSpritz
@@ -252,7 +263,7 @@
          emms helm-emms
          emms-netease emms-player-mpv emms-info-mediainfo
          ;; tools
-         ;; calfw sauron ; appt
+         calfw sauron ; appt
          ;; gist helm-gist
          yagist
          ;; emms ; emms-get-lyrics
@@ -270,8 +281,8 @@
          ;; completion & comprehension
          ;; emacs-ycmd
          ;; code sense
-         ;; cedet
-         sourcegraph ; sourcegraph-mode
+         cedet
+         sourcegraph sourcegraph-mode
          ;; lint
          flycheck
          ;; flycheck-tip
@@ -295,7 +306,7 @@
          ;; rfc irfc
          ;; Snippet
          yasnippet
-         yasnippet-snippets
+         yasnippet-snippets ; yasnippets
          ;; Template
          ;; template file-template
          yatemplate
@@ -304,17 +315,20 @@
          cscope rscope ; bscope ascope xcscope
          helm-cscope
          ;; rtags
-         rtags
+         ;; rtags
+         ;; gtags
          gtags helm-gtags ggtags xgtags
+         ;; ctags
+         ;; etags
          ;; code browser
-         ;; sr-speedbar
+         sr-speedbar
          ;; neotree
-         ;; project-explorer
+         project-explorer
          ;; compile
          smart-compile smart-compile+
          quickrun
          ;; refactor
-         ;; emacs-refactor
+         emacs-refactor
          ;; sourcemap -- https://github.com/syohex/emacs-sourcemap
          ;; vcs
          git-modes git-emacs ; git-status
@@ -352,7 +366,7 @@
          yard-mode ; omniref ; helm-rb
          ;; ruby-hash-syntax
          ruby-test-mode ; ruby-test
-         rspec-mode minitest
+         rspec-mode ; minitest
          ;; cucumber feature-mode
          ;; rcov-overlay
          rdebug
@@ -361,17 +375,20 @@
          slime elisp-slime-nav slime-company ; ac-slime
          sly sly-company ; ac-sly
          geiser ; ac-geiser
-         ;; sly sly-company ; ac-sly
-         hl-sexp eval-sexp-fu
+         eldoc-eval
+         profile-lisp
+         hl-sexp
+         eval-sexp-fu
          ;; Scheme
          ;; Clojure
-         clojure-mode cider cider-decompile inf-clojure ; clj-refactor
-         cider-eval-sexp-fu align-cljlet
+         clojure-mode cider inf-clojure
+         ;; cider-decompile ; clj-refactor
+         ;; cider-eval-sexp-fu align-cljlet
          flycheck-clojure
          typed-clojure-mode
          ;; Elixir
-         elixir
-         alchemist
+         ;; elixir
+         ;; alchemist
          ;; Python
          ;; python python-mode
          pyvenv
@@ -381,7 +398,8 @@
          anaconda-mode company-anaconda
          ;; elpy
          pydoc helm-pydoc
-         ;; helm-ipython
+         ;; ipython helm-ipython
+         ;; ipython-notebook
          ;; C family languages (C, C++, Go, D, F, Rust)
          ;; c-eldoc eassist
          irony-mode
@@ -394,15 +412,14 @@
          function-args
          ;; Go
          go-mode ; go-eldoc
-         ;; go-company
-         ;; go-autocomplete ; gocode
+         company-go ; go-autocomplete
          ;; D
          ;; d-mode
          ;; C++
          ;; Rust
          ;; rust-mode
          ;; Lua
-         ;; lua-mode
+         lua-mode
          ;; Swift
          swift-mode
          ;; Web
@@ -413,7 +430,7 @@
          ;; emacs-moz-controller ; moz-repl
          ;; JavaScript
          ;; js-mode
-         ;; js2-mode
+         js2-mode
          js3-mode
          tern company-tern ; tern-auto-complete
          swank-js
@@ -422,18 +439,20 @@
          ;; HTML
          htmlize html5
          emmet-mode ; zencoding-mode
+         company-web ; ac-html
+         web-completion-data
          ;; CSS
          ;; FIXME: can't install css-mode
-         ;; css-mode
+         css-mode
          ;; auto-complete-css
          css-eldoc
          showcss-mode
          less-css-mode skewer-less
          scss-mode
          ;; CoffeeScript
-         ;; coffee-mode
+         coffee-mode
          ;; XML
-         ;; xml-parse xml-rpc xml-gen
+         xml-parse xml-rpc xml-gen
          ;; auto-complete-nxml
          ;; JSON
          json-mode json-reformat json-snatcher
@@ -443,19 +462,19 @@
          yaml-mode
          ;; TeX
          ;; auctex
-         ;; company-auctex ; auto-complete-auctex
+         company-auctex ; auto-complete-auctex
          ;; auto-complete-latex
-         ;; company-math ; ac-math
+         company-math ; ac-math
          latex-preview-pane
          ;; reftex
          ;;; Haskell
-         ;; haskell-mode
+         haskell-mode
          ;; Erlang
-         ;; erlang-mode
+         erlang-mode
          ;; Prolog
          ;; prolog-el
          ;; Verilog
-         ;; verilog-mode
+         verilog-mode
          ;; auto-complete-verilog
          ;; Java
          javadoc-lookup ; javadoc-help
@@ -464,7 +483,8 @@
          ;; jde-maven
          ;; groovy-mode inf-groovy
          ;; Statistics
-         ess ess-smart-underscore
+         ess
+         ess-R-data-view ess-R-object-popup ess-edit ess-smart-equals ess-smart-underscore
          ;; R
          ;; Julia
          ;; gnuplot
@@ -476,13 +496,13 @@
          sql sqlup-mode sql-indent sql-transform sqled-mode sqlplus ; sql-complete sql-completion
          ;; SQL comprehensive complete
          edbi company-edbi edbi-database-url edbi-minor-mode
-         ede-compdb
+         ;; ede-compdb
          ;; SQLite
          ;; sqlite
          edbi-sqlite
-         esqlite
+         ;; esqlite
          ;; PostgreSQL
-         pg ; pgdevenv pgdevenv-el pgsrc-el
+         pg pgdevenv
          ;; NoSQL
          db
          db-sql db-pg
@@ -491,7 +511,7 @@
          ;; Redis
          ;; eredis
          ;; Assembly
-         ;; iasm-mode
+         iasm-mode nasm-mode
          ;; Hex
          ;; hexview-mode
          ;; Frameworks
@@ -499,14 +519,15 @@
          projectile-rails rails-new ; helm-rails
          rhtml-mode ; nxhtml
          ;; yasnippet-rails
-         ;; sass-mode haml-mode slim-mode
+         haml-mode sass-mode scss-mode slim-mode
          ;; emacs-rails ; https://github.com/tomtt/emacs-rails
          ;; Make
-         cmake-mode cmake-font-lock ; cmake-project
+         cmake-mode ; cmake-font-lock cmake-ide ; cmake-project
          ;; Arduino
-         ;; arduino-mode
+         arduino-mode
          ;; Android
-         ;; android-mode
+         android-mode
+         ;; emacs-droid emdroid
          ;; Nginx
          nginx-mode
          ;; Linux
@@ -518,7 +539,7 @@
          pkgbuild-mode
          ;; aurel
          ;; Docker
-         dockerfile-mode
+         docker-mode dockerfile-mode
          docker-tramp
          ;; fvwm-mode glsl-mode
          ;; Windows
