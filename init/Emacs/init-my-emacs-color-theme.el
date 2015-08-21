@@ -16,9 +16,11 @@
 ;; - [C-u C-x =] -- verbose information about the properties of the text under the point.
 ;; - [M-x load-theme RET (theme)] -- load a color-theme.
 
+(require 'color) ; for function `color-darken-name'
+
 ;;; initialize color-theme
 (require 'color-theme)
-(eval-after-load 'color-theme
+(eval-after-load "color-theme"
   '(progn
      (color-theme-initialize)))
 (setq color-theme-is-global t)
