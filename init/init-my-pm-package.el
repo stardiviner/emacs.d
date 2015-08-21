@@ -118,6 +118,8 @@ re-downloaded in order to locate PACKAGE."
   '(names
     namespaces
     let-alist ; (from GNU ELPA)
+    paradox
+    
     ;; Emacs
     ;; Apperance
     color-theme
@@ -459,7 +461,15 @@ re-downloaded in order to locate PACKAGE."
     (when (not (package-installed-p p))
       (package-install p)))
   )
+
 
+;;; [ paradox ]
+
+;;; Usage:
+;;
+;; - [M-x paradox-list-packages]
+
+(require 'paradox)
 
 
 

@@ -41,7 +41,8 @@
 (setq my:el-get-packages
       (append
        '(names
-         namespaces
+         ;; namespaces
+         seq
          ;; debug
          edebug-x
          ;; debuggs
