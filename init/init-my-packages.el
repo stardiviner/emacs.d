@@ -60,9 +60,9 @@
     ;; Popup
     popup pos-tip
     showtip
-    ;; Window & Session Management
+    ;; Frame, Window & Session Management
     window-number
-    popwin zoom-window zoom-frm
+    popwin zoom-window ; zoom-frm
     window-purpose
     workgroups2
     ;; Mode
