@@ -195,6 +195,8 @@
 (require 'init-my-emacs-minibuffer)
 (require 'init-my-emacs-buffer)
 (require 'init-my-emacs-window)
+(require 'init-my-emacs-frame)
+(require 'init-my-emacs-session)
 (require 'init-my-emacs-edit)
 (require 'init-my-emacs-bookmark)
 (require 'init-my-emacs-keybinding)
