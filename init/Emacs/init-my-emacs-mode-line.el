@@ -641,13 +641,6 @@
 
 
 
-;;; [ diminish ]
-
-;;; Usage:
-;; Diminishing Major Modes
-;; (add-hook 'emacs-lisp-mode-hook (lambda() (setq mode-name "Emacs Lisp"))) ; emacs lisp
-
-
 ;;; [ mode-icons ]
 
 ;; (require 'mode-icons)

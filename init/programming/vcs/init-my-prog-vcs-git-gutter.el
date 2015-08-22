@@ -105,7 +105,6 @@
 ;; (global-git-gutter-mode +1)
 
 ;; (setq git-gutter:lighter " GitGutter") ; minor mode name in modeline.
-;; (diminish 'git-gutter-mode)
 
 
 ;; ;; ---------------------------

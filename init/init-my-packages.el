@@ -66,7 +66,6 @@
     window-purpose
     workgroups2
     ;; Mode
-    diminish
     mmm-mode ; polymode
     helm-mode-manager
     ;; Unicode

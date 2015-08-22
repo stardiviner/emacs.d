@@ -216,7 +216,6 @@
 ;;
 ;; ;;; enable guide-key mode.
 ;; (guide-key-mode 1)
-;; (diminish 'guide-key-mode)
 
 
 ;;; [ guide-key-tip ] -- Interface of guide-key.el using pos-tip.el in Emacs

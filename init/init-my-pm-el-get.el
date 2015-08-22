@@ -115,7 +115,6 @@
          pretty-mode-plus page-break-lines
          on-screen
          ;; mode-line
-         diminish
          nyan-mode
          ;; spinner
          ;; mode-icons

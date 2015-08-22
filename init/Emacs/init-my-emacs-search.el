@@ -169,7 +169,6 @@
 
 (global-anzu-mode +1)
 ;; (anzu-mode +1)
-(diminish 'anzu-mode)
 
 ;; (global-set-key (kbd "M-%") 'anzu-query-replace)
 (global-set-key (kbd "M-%") 'anzu-query-replace-regexp)

@@ -13,9 +13,6 @@
 
 (require 'rainbow-mode)
 
-(eval-after-load 'rainbow-mode
-  '(diminish 'rainbow-mode))
-
 (dolist (hook
          '(emacs-lisp-mode-hook
            css-mode-hook

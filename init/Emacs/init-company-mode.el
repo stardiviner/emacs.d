@@ -146,7 +146,6 @@
 ;;                              prog-mode))
 
 (add-hook 'after-init-hook 'global-company-mode)
-(diminish 'company-mode)
 
 ;;; or enabled only in specific modes
 ;; (dolist (hook '(emacs-lisp-mode-hook

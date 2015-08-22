@@ -67,7 +67,6 @@
 (require 'helm-misc)
 
 (helm-mode 1) ; enable Helm mode initially.
-(diminish 'helm-mode)
 
 (setq helm-command-prefix-key "C-x c" ; for `helm-command-prefix'.
       helm-minibuffer-history-key "C-r" ; used in [M-:] minibuffer eval.

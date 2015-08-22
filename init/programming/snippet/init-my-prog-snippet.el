@@ -352,7 +352,6 @@ $0"
 ;;   (add-hook hook #'yas-minor-mode))
 ;; (yas-reload-all)
 
-(diminish 'yas-minor-mode)
 
 
 

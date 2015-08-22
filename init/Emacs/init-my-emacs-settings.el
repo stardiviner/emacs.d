@@ -198,8 +198,6 @@
 
 ;; (guru-global-mode +1)
 ;; ;; (add-hook 'prog-mode-hook 'turn-on-guru-mode)
-;; (diminish 'guru-mode)
-
 
 
 

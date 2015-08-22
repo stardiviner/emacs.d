@@ -405,7 +405,6 @@
 (require 'page-break-lines)
 
 (global-page-break-lines-mode t)
-(diminish 'page-break-lines-mode)
 
 (setq page-break-lines-char ?─)
 
@@ -500,8 +499,6 @@
 ;;       )
 
 ;; (add-hook 'emacs-startup-hook 'minimap-create)
-
-;; (diminish 'minimap-mode)
 
 
 ;;; [ stripe-buffer ] -- add stripes to "list" buffers

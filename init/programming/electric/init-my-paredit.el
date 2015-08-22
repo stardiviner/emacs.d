@@ -39,7 +39,6 @@
 ;; (autoload 'paredit-mode "paredit" "minor mode for pseudo-structurally editing Lisp code." t)
 
 (after 'paredit
-  (diminish 'paredit-mode " Par")
   ;; remove following keybindings
   (dolist (binding (list (kbd "C-<left>") (kbd "C-<right>")
                          (kbd "C-M-<left>") (kbd "C-M-<right>")))

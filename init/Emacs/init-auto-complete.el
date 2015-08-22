@@ -60,7 +60,6 @@
 (require 'auto-complete-config)
 (require 'popup)
 ;; (require 'showtip)
-(diminish 'auto-complete-mode)
 
 ;; (ac-config-default)
 

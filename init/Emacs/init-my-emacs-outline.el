@@ -364,7 +364,6 @@
 
 
 (allout-minor-mode 1)
-(diminish 'allout-mode)
 
 ;; so that you can active/inactive allout-minor-mode to edit/navigate/folding with it.
 ;; (define-key my-edit-prefix-map (kbd "o") 'allout-minor-mode)
