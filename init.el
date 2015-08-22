@@ -124,17 +124,6 @@
 (require 'init-my-pm-package)
 
 
-;;; namespace
-
-;; NOTE: fix package "names" not available for package upgrade like aggressive-indent-mode.
-;;
-;; `define-namespace' is autoloaded, so there's no need to require
-;; `names'. However, requiring it here means it will also work for people who
-;; don't install through package.el.
-(eval-when-compile (require 'names))
-(require 'names-dev)
-
-
 ;;; debug, profiling etc
 (require 'init-my-emacs-debug)
 
