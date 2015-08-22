@@ -228,7 +228,7 @@
 
 ;;; [ col-highlight ]
 
-;; (my-el-get-require 'col-highlight)
+;; (require-package 'col-highlight)
 ;;
 ;; (column-highlight-mode 1)
 ;;

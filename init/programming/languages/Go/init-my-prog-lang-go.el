@@ -91,7 +91,7 @@
 
 ;;; [ company-go ]
 
-;; (my-el-get-require 'company-go)
+(require-package 'company-go)
 
 (if (getenv "GOPATH")
     (progn

@@ -2070,12 +2070,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 (setq inferior-julia-program-name "julia")
 
-;; 1.
-;; (load "~/.emacs.d/el-get/ob-julia/ob-julia.el")
-;; 2.
-;; (add-to-list 'load-path "~/.emacs.d/el-get/ob-julia/ob-julia.el")
-;; 3.
-(my-el-get-require 'ob-julia)
+(require 'ob-julia)
 
 ;; (setq org-babel-julia-eoe-indicator "print(\"org_babel_julia_eoe\")")
 (setq org-babel-default-header-args:julia
@@ -2084,11 +2079,11 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 ;; [ ob-mongo ] -- babel for MongoDB
 
-(my-el-get-require 'ob-mongo)
+(require-package 'ob-mongo)
 
 ;; [ ob-sql ] -- babel for SQL
 
-(my-el-get-require 'ob-sql)
+(require 'ob-sql)
 
 ;; [ ob-go ] -- babel for Go
 ;;
@@ -2168,11 +2163,11 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;;
 
 
-(my-el-get-require 'ob-go)
+; (require-package 'ob-go)
 
 ;; [ ob-prolog ] -- babel for Prolog
 
-(my-el-get-require 'ob-prolog)
+(require-package 'ob-prolog)
 
 ;; [ ob-http ] -- http request in org-mode babel
 ;;
@@ -2188,7 +2183,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 
 
-(my-el-get-require 'ob-http)
+; (require-package 'ob-http)
 
 ;; [ ob-browser ] -- render HTML in org babel
 
@@ -2201,7 +2196,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;; </html>
 ;; #+END_SRC
 
-(my-el-get-require 'ob-browser)
+; (require-package 'ob-browser)
 
 
 (org-babel-do-load-languages
