@@ -52,7 +52,8 @@
     ;; Sudo
     sudo-edit
     ;; Spell
-    flyspell flyspell-popup flyspell-lazy helm-flyspell
+    flyspell flyspell-lazy
+    helm-flyspell flyspell-popup
     ;; Completion System
     helm
     helm-helm-commands helm-descbinds

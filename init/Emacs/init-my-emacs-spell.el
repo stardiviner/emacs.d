@@ -123,6 +123,15 @@
 (define-key my-spell-prefix-map (kbd "c") 'ispell-word) ; default keybinding [M-$].
 
 
+;;; [ helm-flyspell ]
+
+;;; Usage:
+;;
+;; `helm-flyspell'
+
+(require 'helm-flyspell)
+
+
 ;;; [ flyspell-popup ] -- Correct the misspelled word with flyspell in popup menu.
 
 ;;; Usage:
@@ -131,7 +140,10 @@
 
 (require 'flyspell-popup)
 
-(define-key flyspell-mode-map (kbd "C-;") #'flyspell-popup-correct)
+(if (featurep 'helm-flyspell)
+    (define-key flyspell-mode-map (kbd "C-;") #'helm-flyspell-correct)
+  (define-key flyspell-mode-map (kbd "C-;") #'flyspell-popup-correct))
+
 
 
 ;;; [ flyguess ] -- guess language/dictionary for a buffer
