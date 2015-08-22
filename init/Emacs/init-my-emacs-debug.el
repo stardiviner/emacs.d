@@ -223,7 +223,7 @@ LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
 (unless (boundp 'my-emacs-profiler-prefix)
   (define-prefix-command 'my-emacs-profiler-prefix))
 
-(define-key my-prog-debug-prefix (kbd "p") 'my-emacs-profiler-prefix)
+(define-key my-prog-debug-map (kbd "p") 'my-emacs-profiler-prefix)
 
 (define-key my-emacs-profiler-prefix (kbd "p") 'profiler-start)
 (define-key my-emacs-profiler-prefix (kbd "s") 'profiler-stop)
@@ -231,10 +231,10 @@ LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
 
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
-            (local-set-key (kbd "C-c d") 'my-prog-debug-prefix)
-            (define-key my-prog-debug-prefix (kbd "p") 'profiler-start)
-            (define-key my-prog-debug-prefix (kbd "s") 'profiler-stop)
-            (define-key my-prog-debug-prefix (kbd "r") 'profiler-report)
+            (local-set-key (kbd "C-c d") 'my-prog-debug-map)
+            (define-key my-prog-debug-map (kbd "p") 'profiler-start)
+            (define-key my-prog-debug-map (kbd "s") 'profiler-stop)
+            (define-key my-prog-debug-map (kbd "r") 'profiler-report)
             ))
 
 

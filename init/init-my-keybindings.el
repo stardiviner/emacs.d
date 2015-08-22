@@ -88,13 +88,13 @@
 ;; (define-key my-programming-prefix-map (kbd "i") 'my-prog-inferior-map)
 (global-set-key (kbd "C-c i") 'my-prog-inferior-map)
 
-(unless (boundp 'my-prog-debug-prefix)
-  (define-prefix-command 'my-prog-debug-prefix))
-(global-set-key (kbd "C-c d") 'my-prog-debug-prefix)
+(unless (boundp 'my-prog-debug-map)
+  (define-prefix-command 'my-prog-debug-map))
+(global-set-key (kbd "C-c d") 'my-prog-debug-map)
 
-(unless (boundp 'my-prog-test-prefix)
-  (define-prefix-command 'my-prog-test-prefix))
-(global-set-key (kbd "C-c t") 'my-prog-test-prefix)
+(unless (boundp 'my-prog-test-map)
+  (define-prefix-command 'my-prog-test-map))
+(global-set-key (kbd "C-c t") 'my-prog-test-map)
 
 (unless (boundp 'my-prog-vcs-map)
   (define-prefix-command 'my-prog-vcs-map))
