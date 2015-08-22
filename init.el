@@ -114,9 +114,7 @@
 
 ;;; [ package manager ]
 
-;; (load "~/.emacs.d/init/Emacs/init-my-emacs-package-management.el")
-;; (require 'init-my-emacs-package-management)
-
+(load "~/.emacs.d/init/init-my-packages.el")
 
 ;; (load "~/.emacs.d/init/init-my-pm-el-get.el")
 ;; (require 'init-my-pm-el-get)
