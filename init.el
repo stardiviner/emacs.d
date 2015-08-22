@@ -292,22 +292,22 @@
 ;; (require 'init-my-prog-lang-haskell)
 ; (require 'init-my-prog-lang-elixir)
 ;; (require 'init-my-prog-lang-erlang)
-(require 'init-my-prog-lang-ESS)
-(require 'init-my-prog-lang-R)
+;; (require 'init-my-prog-lang-ESS)
+;; (require 'init-my-prog-lang-R)
 (require 'init-my-prog-lang-julia)
-(require 'init-my-prog-lang-gnuplot)
+;; (require 'init-my-prog-lang-gnuplot)
 ;; (require 'init-my-prog-lang-octave)
 ;; (require 'init-my-prog-lang-matlab)
-(require 'init-my-prog-lang-tex)
+;; (require 'init-my-prog-lang-tex)
 (require 'init-my-prog-lang-markdown)
-(require 'init-my-prog-lang-prolog)
-(require 'init-my-prog-lang-verilog)
-(require 'init-my-prog-lang-assembly)
+;; (require 'init-my-prog-lang-prolog)
+;; (require 'init-my-prog-lang-verilog)
+;; (require 'init-my-prog-lang-assembly)
 
 
 ;;; Frameworks
 (require 'init-my-prog-framework-web)
-(require 'init-my-prog-framework-arduino)
+;; (require 'init-my-prog-framework-arduino)
 (require 'init-my-prog-ruby-on-rails)
 (require 'init-my-prog-nginx)
 
