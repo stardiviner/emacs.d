@@ -5,7 +5,7 @@
 # ignored directories
 el-get/
 elpa/
-el-get-user/
+# el-get-user/
 ac-comphist.dat
 auto-save-list/
 *~
