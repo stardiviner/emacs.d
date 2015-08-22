@@ -1,4 +1,4 @@
-;;; init-my-prog-container-docker.el --- init for Docker
+;;; init-my-prog-tools-container-docker.el --- init for Docker
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -33,6 +33,6 @@
 (require 'docker-tramp)
 
 
-(provide 'init-my-prog-container-docker)
+(provide 'init-my-prog-tools-container-docker)
 
-;;; init-my-prog-container-docker.el ends here
+;;; init-my-prog-tools-container-docker.el ends here

@@ -313,7 +313,8 @@
 
 
 ;;; programming related tools
-(require 'init-my-prog-container)
+(require 'init-my-prog-tools-container)
+(require 'init-my-prog-tools-heroku)
 
 
 ;;; at the end!!!
