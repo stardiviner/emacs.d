@@ -24,25 +24,26 @@
     ;; Keybinding
     helm-bind-key
     which-key
-    hydra
-    keyfreq
-    showkey
-    show-marks
+    ;; hydra
+    ;; showkey
+    ;; keyfreq
     ;; Debug
     edebug-x
-    bug-hunter
+    ;; bug-hunter
     ;; Server & Client
     edit-server
+    ;; View
+    ;; on-screen
     ;; Edit
     undo-tree
     iedit multiple-cursors
     expand-region
     vlf
     ;; Navigation
-    on-screen
-    ace-jump-mode
+    show-marks
+    ;; ace-jump-mode
     ;; Info, Man,
-    info+ woman
+    info+ ; woman
     ;; Dired
     dired-rainbow
     dired-single dired-efap dired-details dired-narrow dired-open dired-sort dired-k ; dired-hack-utils
@@ -51,7 +52,7 @@
     image-dired
     dired-dups
     ;; Sudo
-    sudo-edit
+    ;; sudo-edit
     ;; Spell
     flyspell flyspell-lazy
     helm-flyspell ; flyspell-popup
@@ -64,14 +65,15 @@
     ;; Frame, Window & Session Management
     window-number
     popwin zoom-window ; zoom-frm
-    window-purpose
+    ;; window-purpose
     workgroups2
     ;; Mode
     mmm-mode ; polymode
-    helm-mode-manager
     ;; Unicode
-    helm-unicode
-    pretty-mode
+    ;; helm-unicode
+    ;; pretty-mode
+    ;; pretty-symbols
+    ;; purty-mode
     ;; Color
     rainbow-mode ansi-color
     ;; Process
@@ -123,10 +125,12 @@
     ;; VCS
     magit
     magit-find-file magit-filenotify magit-popup magit-tramp
-    magit-gitflow magit-annex magit-gerrit magit-gh-pulls magit-stgit magit-topgit
-    helm-git helm-git-files
+    magit-gitflow
+    ;; magit-annex magit-gerrit magit-gh-pulls magit-stgit magit-topgit
+    ;; helm-git helm-git-files
     git-messenger
-    git-gutter git-gutter+ git-gutter-fringe git-gutter-fringe+
+    git-gutter git-gutter+
+    ;; git-gutter-fringe git-gutter-fringe+
     ;; Indent
     aggressive-indent ; auto-indent-mode
     indent-guide
@@ -139,7 +143,7 @@
     ;; Linter
     flycheck flycheck-pos-tip helm-flycheck
     ;; Document
-    dash helm-dash ; dash-at-point dash-functional
+    dash helm-dash dash-at-point dash-functional
     irfc
     ;; Project Sidebar
     project-explorer sr-speedbar
@@ -164,7 +168,7 @@
     smart-compile quickrun
     ;; Make
     helm-make
-    ;; Code Analyze
+    ;; Sense
     cedet
     sourcegraph
     ;; License
@@ -240,7 +244,9 @@
     ;; PostgreSQL
     pg pgdevenv
     ;; NoSQL
+    ;; MongoDB
     mongo inf-mongo ; mongo-elnode
+    ;; Redis
     ;; HTML
     emmet-mode
     ;; CSS
