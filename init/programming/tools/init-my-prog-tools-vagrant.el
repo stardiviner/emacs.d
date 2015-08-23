@@ -1,4 +1,4 @@
-;;; init-my-prog-project-vagrant.el --- init for Vagrant
+;;; init-my-prog-tools-vagrant.el --- init for Vagrant
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -70,6 +70,6 @@
   '(vagrant-tramp-enable))
 
 
-(provide 'init-my-prog-project-vagrant)
+(provide 'init-my-prog-tools-vagrant)
 
-;;; init-my-prog-project-vagrant.el ends here
+;;; init-my-prog-tools-vagrant.el ends here
