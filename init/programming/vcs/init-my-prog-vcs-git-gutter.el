@@ -18,8 +18,6 @@
 ;; ;; More configurable 	    OK 	NG
 ;; ;; ------------------------------------------------
 
-;; (require 'git-gutter)
-
 ;; (setq git-gutter:disabled-modes '(asm-mode image-mode))
 
 ;; ;; update frequency: uncomment this when Emacs/GitGutter slows.
@@ -172,10 +170,6 @@
 ;; git-commit-ack is re-bound to C-c C-b.
 
 
-;; (load "~/.emacs.d/el-get/git-gutter+/git-gutter+.el")
-(require 'git-gutter+)
-
-
 (eval-after-load 'git-gutter+
   '(progn
      ;;; keybindings
@@ -236,28 +230,31 @@
 (setq git-gutter+-hide-gutter t)         ; Hide gutter if there are no changes
 (setq git-gutter+-diff-option "-w") ; Pass option to 'git diff' command: -w: ignore all spaces
 
-;; GitGutter signs
-(set-face-attribute 'git-gutter+-modified nil
-                    :foreground "yellow"
-                    :weight 'normal
-                    :height 90
-                    )
-(set-face-attribute 'git-gutter+-added nil
-                    :foreground "green"
-                    :weight 'normal
-                    :height 90
-                    )
-(set-face-attribute 'git-gutter+-deleted nil
-                    :foreground "red"
-                    :weight 'normal
-                    :height 90
-                    )
-;; FIXME: this does not work at Emacs initially.
-(set-face-attribute 'git-gutter+-unchanged nil
-                    :foreground nil :background nil
-                    :weight 'bold
-                    )
-(set-face-foreground 'git-gutter+-separator "cyan")
+(use-package git-gutter+
+  :config
+  ;; GitGutter signs
+  (set-face-attribute 'git-gutter+-modified nil
+                      :foreground "yellow"
+                      :weight 'normal
+                      :height 90
+                      )
+  (set-face-attribute 'git-gutter+-added nil
+                      :foreground "green"
+                      :weight 'normal
+                      :height 90
+                      )
+  (set-face-attribute 'git-gutter+-deleted nil
+                      :foreground "red"
+                      :weight 'normal
+                      :height 90
+                      )
+  ;; FIXME: this does not work at Emacs initially.
+  (set-face-attribute 'git-gutter+-unchanged nil
+                      :foreground nil :background nil
+                      :weight 'bold
+                      )
+  (set-face-foreground 'git-gutter+-separator "cyan")
+  )
 
 (setq git-gutter+-added-sign "✚"
       git-gutter+-deleted-sign "✖"
