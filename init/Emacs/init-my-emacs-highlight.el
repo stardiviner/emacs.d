@@ -33,7 +33,7 @@
       highlight-symbol-colors '("yellow" "DeepPink" "cyan"
                                 "MediumPurple1" "SpringGreen1" "DarkOrange" "HotPink1"
                                 "RoyalBlue1" "OliveDrab")
-      ;; highlight-symbol-foreground-color
+      highlight-symbol-foreground-color nil ; nil: keep original color.
       ;; highlight-symbol-border-pattern '("\\_<" . "\\_>")
       )
 
