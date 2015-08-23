@@ -20,15 +20,15 @@
 (put 'narrow-to-defun  'disabled nil)
 (put 'narrow-to-page   'disabled nil)
 
-(unless (boundp 'my-narrow-prefix-map)
-  (define-prefix-command 'my-narrow-prefix-map))
-(define-key my-edit-prefix-map (kbd "n") 'my-narrow-prefix-map)
+(unless (boundp 'my-narrow-prefix)
+  (define-prefix-command 'my-narrow-prefix))
+(define-key my-edit-prefix-map (kbd "n") 'my-narrow-prefix)
 
-(define-key my-narrow-prefix-map (kbd "w") 'widen)
-(define-key my-narrow-prefix-map (kbd "n") 'narrow-to-region)
-(define-key my-narrow-prefix-map (kbd "r") 'narrow-to-region)
-(define-key my-narrow-prefix-map (kbd "d") 'narrow-to-defun)
-(define-key my-narrow-prefix-map (kbd "p") 'narrow-to-page)
+(define-key my-narrow-prefix (kbd "w") 'widen)
+(define-key my-narrow-prefix (kbd "n") 'narrow-to-region)
+(define-key my-narrow-prefix (kbd "r") 'narrow-to-region)
+(define-key my-narrow-prefix (kbd "d") 'narrow-to-defun)
+(define-key my-narrow-prefix (kbd "p") 'narrow-to-page)
 
 ;;; custom keybinding for handy (narrow + indirect-buffer)
 ;; Usage: [C-x n i], you can kill narrowed indirect buffer like normal buffer with [C-x k]. the modification will keep.
@@ -43,7 +43,7 @@
     (switch-to-buffer buf)))
 
 ;; (global-set-key (kbd "C-x n i") 'narrow-to-region-indirect)
-(define-key my-narrow-prefix-map (kbd "i") 'narrow-to-region-indirect)
+(define-key my-narrow-prefix (kbd "i") 'narrow-to-region-indirect)
 
 
 (defun narrow-or-widen-dwim (p)
