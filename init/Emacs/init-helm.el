@@ -357,22 +357,6 @@
 ;; (require 'helm-themes)
 
 
-;;; [ helm-gtags ]
-
-(require 'helm-gtags)
-
-(define-key helm-command-prefix (kbd "t") 'helm-gtags-dwim)
-(define-key helm-command-prefix (kbd "T") 'helm-top)
-
-
-;;; [ helm-yaetags ]
-
-(require 'helm-yaetags)
-
-;; (define-key helm-command-prefix (kbd "e") 'helm-etags-select) ; original
-(define-key helm-command-prefix (kbd "e") 'helm-yaetags-find-tag)
-
-
 ;; [ helm-projectile ]
 
 (require 'helm-projectile)
