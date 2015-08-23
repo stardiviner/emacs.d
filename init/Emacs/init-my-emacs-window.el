@@ -51,7 +51,7 @@
 ;; - [C-c Left] :: undo
 ;; - [C-c Right] :: redo
 
-(winner-mode)
+(winner-mode 1)
 
 
 ;;; [ window-number ] --
