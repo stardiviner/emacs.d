@@ -36,6 +36,8 @@
 
 (require 'package)
 
+(setq package-user-dir "~/.emacs.d/elpa")
+
 (setq-default package-archives
               '(
                 ("org"   . "http://orgmode.org/elpa/")
@@ -44,10 +46,6 @@
                 ;; ("marmalade" . "http://marmalade-repo.org/packages/")
                 ("gnu" . "http://elpa.gnu.org/packages/")
                 ))
-
-;; (setq package-user-dir "~/.emacs.d/elpa"
-;;       ;; package-directory-list
-;;       )
 
 
 ;;; Add support to package.el for pre-filtering available packages
@@ -115,6 +113,8 @@ re-downloaded in order to locate PACKAGE."
 (package-initialize)
 
 
+;;; [ install & load my packages ]
+
 
 (defun my-packages-installed-p ()
   (loop for p in my-packages
