@@ -56,9 +56,7 @@
 
 ;;; color-theme-monokai
 
-;; (require 'color-theme-monokai)
-;;
-;; (color-theme-monokai)
+(load-theme 'monokai t)
 
 
 ;;; color-theme-almost-monokai
