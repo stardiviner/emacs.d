@@ -171,6 +171,7 @@
 (require 'init-my-emacs-frame)
 (require 'init-my-emacs-session)
 (require 'init-my-emacs-edit)
+(require 'init-my-emacs-navigation)
 (require 'init-my-emacs-bookmark)
 (require 'init-my-emacs-keybinding)
 (require 'init-my-emacs-indent)
