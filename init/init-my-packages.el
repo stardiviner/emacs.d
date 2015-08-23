@@ -11,7 +11,7 @@
   '(names
     namespaces
     let-alist ; (from GNU ELPA)
-    paradox
+    ;; auto-compile
     use-package
     
     ;; Emacs
@@ -31,10 +31,14 @@
     ;; Debug
     edebug-x
     ;; bug-hunter
+    ;; Profile & Benchmark
+    ;; esup benchmark-init
     ;; Server & Client
     edit-server
     ;; View
     ;; on-screen
+    ;; Macro
+    ;; elmacro macrostep
     ;; Edit
     undo-tree
     iedit multiple-cursors
@@ -59,6 +63,7 @@
     peep-dired
     image-dired
     dired-dups
+    ;; ranger
     ;; Sudo
     ;; sudo-edit
     ;; Spell
@@ -67,13 +72,18 @@
     ;; Completion System
     helm
     helm-helm-commands helm-descbinds
+    ;; ivy counsel
     ;; Popup
     popup pos-tip
     showtip
+    ;; Overlay
+    ;; ov
     ;; Frame, Window & Session Management
     window-number
-    popwin zoom-window ; zoom-frm
+    popwin ; shackle
+    zoom-window ; zoom-frm
     ;; window-purpose
+    ;; e2wm elscreen
     workgroups2
     ;; Mode
     mmm-mode ; polymode
@@ -83,14 +93,11 @@
     ;; pretty-symbols
     ;; purty-mode
     ;; Color
-    rainbow-mode ansi-color
+    ansi-color rainbow-mode kurecolor
     ;; Process
-    async dizzee
+    ;; async ; dizzee ; prodigy
     ;; Server
-    elnode web-server websocket ; httpd
-    ;; Fold
-    allout allout-widgets
-    foldout
+    ;; elnode web-server websocket ; httpd
 
     ;; Shell
     eshell ; shell-here shell-toggle
@@ -112,13 +119,13 @@
     ob-mongo
     ob-http ob-browser
     ob-ipython
-                                        ; ob-translate
+    ;; ob-translate
     org-screenshot
-    org-pomodoro
-    org-trello
-                                        ; org-vcard
-                                        ; org-projectile org-redmine org-readme
-                                        ; org-tree-slide
+    ;; org-pomodoro
+    ;; org-trello
+    ;; org-vcard
+    ;; org-projectile org-redmine org-readme
+    ;; org-tree-slide
     
     ;; Programming
     ;; Auto Complete
@@ -127,9 +134,9 @@
     yasnippet
     helm-c-yasnippet
     ;; Template
-    yatemplate skeletor
+    ;; yatemplate skeletor
     ;; Diff
-                                        ; diffview
+    ;; diffview
     ;; VCS
     magit
     magit-find-file magit-filenotify magit-popup magit-tramp
@@ -154,7 +161,7 @@
     dash helm-dash dash-at-point dash-functional
     irfc
     ;; Project Sidebar
-    project-explorer sr-speedbar
+    project-explorer ; sr-speedbar
     ;; Project
     projectile
     helm-projectile
@@ -165,26 +172,32 @@
     helm-c-moccur color-moccur
     ;; Regexp
     visual-regexp visual-regexp-steroids
-    ample-regexps pcre2el
+    ample-regexps pcre2el regex-tool
     ;; wgrep wgrep-ack wgrep-helm
-    ack
+    ack full-ack helm-ack
     ag helm-ag
-    helm-recoll
+    ;; helm-recoll
     ;; Tags
-    xcscope
+    ;; ctags ctags-update
+    ;; rtags
+    ;; helm-cscope xcscope
     ;; Compile
     smart-compile quickrun
     ;; Make
-    helm-make
+    ;; helm-make
     ;; Sense
-    cedet
+    ;; cedet
     sourcegraph
     ;; License
-                                        ; xlicense
+    ;; xlicense
     ;; Code Paste
     yagist helm-gist
     ;; Bug Track System
-    bts bts-github
+    ;; bts bts-github
+    ;; Test
+    ;; runtests
+    ;; Refactor
+    ;; emr
 
     ;; Languages
     ;; Lisp
@@ -202,18 +215,19 @@
     company-irony company-irony-c-headers
     company-c-headers
     function-args
-                                        ; company-cmake
+    ;; company-cmake
     ;; Lua
-    lua-mode
+    ;; lua-mode
     ;; Ruby
-    ruby-mode enh-ruby-mode
+    ruby-mode enh-ruby-mode ruby-additional
     inf-ruby ruby-compilation ; pry
     rbenv rvm  ; ruby-dev  ; chruby
-    robe yari yard-mode ; helm-rb
+    robe zossima yari yard-mode ; helm-rb
     ruby-tools
     rspec-mode minitest ruby-test-mode
     ruby-block ruby-hash-syntax ruby-interpolation
     ruby-electric ruby-end
+    ;; ruby-guard
     ;; motion-mode
     ;; Python
     pyenv-mode pyvenv
@@ -225,20 +239,27 @@
     inf-clojure ; clojure-env
     cider-eval-sexp-fu
     flycheck-clojure
+    elein
     ;; Go
-    go-mode company-go
+    go-mode company-go go-eldoc
+    ;; Java
+    ;; jdee
     ;; PHP
-    inf-php
+    ;; inf-php
+    ;; Rust
+    ;; rust-mode flycheck-rust
     ;; Julia
     julia-mode
     ;; ESS
     ess
     ess-smart-equals ess-smart-underscore
     ess-R-data-view ess-R-object-popup
-                                        ; company-ess
-    ein ein-mumamo
+    ;; company-ess
+    ;; ein ein-mumamo
+    ;; Processing
+    ;; processing-mode
     ;; Plot
-    gnuplot
+    ;; gnuplot
     ;; Database
     ;; SQL
     sqlup-mode format-sql sql-indent
@@ -255,46 +276,55 @@
     ;; MongoDB
     mongo inf-mongo ; mongo-elnode
     ;; Redis
+    redis eredis
     ;; HTML
     emmet-mode
     ;; CSS
     css-eldoc
     show-css
     ;; Scss & Less
-    scss-mode
-    less-css-mode
-    helm-css-scss
+    ;; scss-mode
+    ;; less-css-mode
+    ;; helm-css-scss
     ;; Slim
-    slim-mode
+    ;; slim-mode
     ;; JavaScript
     js2-mode js3-mode js-doc
     js-comint
-    tern company-tern
+    tern company-tern tj-mode
     jst jss
+    ;; CoffeeScript
+    ;; coffee-mode
     ;; Web
     web-mode
+    ;; multi-web-mode
     skewer-mode
     json-mode ; json-rpc
-    xml xmlunicode ; xmlgen xml-rpc
-
-                                        ; web-beautify
+    ;; xml xmlunicode ; xmlgen xml-rpc
+    ;; web-beautify
     restclient httprepl
     web-completion-data
     know-your-http-well httpcode
     company-web company-restclient
-    dom
+    ;; Browser
+    ;; dom
+    ;; WebKit
+    ;; kite
     ;; Assembly
-    nasm-mode iasm-mode
+    ;; nasm-mode iasm-mode
     ;; TeX
-    company-auctex company-math
-    latex-pretty-symbols
-    latex-math-preview latex-preview-pane
+    ;; company-auctex company-math
+    ;; latex-pretty-symbols
+    ;; latex-math-preview latex-preview-pane
     ;; Markdown
     markdown-mode
-    pandoc-mode
+    ;; YAML
+    yaml-mode
+    ;; pandoc-mode
     ;; Sass
-    sass-mode
-    
+    ;; sass-mode
+    ;; Haml
+    ;; haml-mode
 
     ;; Frameworks
     ;; Ruby on Rails
@@ -304,30 +334,35 @@
     arduino-mode company-arduino
 
     ;; Linux
-    systemd
-    nginx-mode
-    pkgbuild-mode
+    ;; emamux
+    ;; systemd
+    ;; nginx-mode
+    ;; pkgbuild-mode
     ;; Container
     docker dockerfile-mode
     docker-tramp
     vagrant vagrant-tramp
     ;; Heroku
-    heroku
+    ;; heroku
     
     ;; Tools
     ;; Bookmarks
     helm-bm
-    helm-firefox ; helm-chrome
+    helm-w3m helm-firefox ; helm-chrome
     ;; PDF
     pdf-tools
+    ;; Image
+    ;; image+ xpm
     ;; Ascii Graphic
     artist chart
     ;; Notify
-    sauron
+    ;; sauron
+    ;; Speak
+    ;; ess
     ;; Browser
-    w3m
+    ;; w3m
     ;; Email
-    gnus
+    ;; gnus
     ;; mu4e
     mu4e-maildirs-extension helm-mu
     ;; Contacts
@@ -340,25 +375,28 @@
     icalendar calfw calfw-gcal
     ;; Chat
     ;; IRC
-                                        ; erc circe
-                                        ; weechat
+    ;; erc circe
+    ;; weechat
     ;; Music
-    emms ; emms-info-media helm-emms
+    ;; emms ; emms-info-media helm-emms
     ;; Screenshot & Screencast
-    screenshot camcorder
+    screenshot camcorder ; impatient-mode
+    ;; command-log-mode
     ;; Download
     ;; aria2 wget
     ;; Read
     spray
     ;; Typing
-                                        ; speed-type
+    ;; speed-type
     ;; World Time
     world-time-mode
+    ;; Collaborate
+    ;; rudel togetherly
 
     ;; Languages
     ;; Chinese
-    pangu-spacing
-    pinyin-search
+    ;; pangu-spacing
+    ;; pinyin-search
     ;; Japanese
     )
   "A list of packages to ensure are installed at launch.")
