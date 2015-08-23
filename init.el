@@ -136,6 +136,8 @@
 (load "~/.emacs.d/init/init-my-pm-package.el")
 (require 'init-my-pm-package)
 
+(require 'use-package)
+
 
 ;;; debug, profiling etc
 (require 'init-my-emacs-debug)
