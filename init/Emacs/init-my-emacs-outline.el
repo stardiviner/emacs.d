@@ -7,6 +7,13 @@
 
 ;;; Code:
 
+
+(unless (boundp 'my-outline-prefix)
+  (define-prefix-command 'my-outline-prefix))
+(global-set-key (kbd "C-c SPC") 'my-outline-prefix)
+(global-set-key (kbd "C-c @") 'my-outline-prefix)
+
+
 ;;; [ outline-mode ]
 
 ;;; Usage:
@@ -387,9 +394,28 @@
 ;; (define-key my-outline-prefix-map (kbd "n") 'allout-next-heading)
 
 
-;;; [ Folding ]
+;;; [ origami ]
 
-;;; folding-mode --- 
+;;; `global-origami-mode' & `origami-mode'
+
+(use-package origami
+  :config
+  (define-key my-outline-prefix (kbd "m") 'origami-mode)
+  (define-key my-outline-prefix (kbd "SPC") 'origami-toggle-node)
+  (define-key my-outline-prefix (kbd "TAB") 'origami-toggle-all-nodes)
+  (define-key my-outline-prefix (kbd "n") 'origami-next-fold)
+  (define-key my-outline-prefix (kbd "p") 'origami-previous-fold)
+  (define-key my-outline-prefix (kbd "c") 'origami-close-node)
+  (define-key my-outline-prefix (kbd "C") 'origami-close-all-nodes)
+  (define-key my-outline-prefix (kbd "o") 'origami-open-node)
+  (define-key my-outline-prefix (kbd "O") 'origami-open-all-nodes)
+  (define-key my-outline-prefix (kbd ">") 'origami-open-node-recursively)
+  (define-key my-outline-prefix (kbd "<") 'origami-close-node-recursively)
+  (define-key my-outline-prefix (kbd "O") 'origami-show-only-node)
+  (define-key my-outline-prefix (kbd "u") 'origami-undo)
+  (define-key my-outline-prefix (kbd "r") 'origami-redo)
+  (define-key my-outline-prefix (kbd "!") 'origami-reset)
+  )
 
 
 (provide 'init-my-emacs-outline)

@@ -46,6 +46,10 @@
     ;; Navigation
     show-marks
     ;; ace-jump-mode
+    ;; Fold
+    allout allout-widgets
+    foldout
+    origami
     ;; Info, Man,
     info+ ; woman
     ;; Dired
