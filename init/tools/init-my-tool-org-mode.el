@@ -833,6 +833,10 @@ Will work on both `org-mode' and any mode that accepts plain html."
 ;; (org-add-link-type)
 ;; (org-add-link-props)
 
+;; RSS link type
+;; TODO:
+;; (org-add-link-type "rss" 'eww)
+
 ;;; [ Link abbreviations ]
 ;; TODO add more link abbrev into this variable.
 ;; NOTE: you can not contain chinese string in "link name". Org-mode does not support it.
@@ -1661,6 +1665,12 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
                                         ; deadlines will show up in the agenda.
 (setq org-extend-today-until 3) ; I work late at night! Extend my current day past midnight.
 
+;; (setq org-agenda-sorting-strategy '((agenda habit-down time-up priority-down category-keep)
+;;                                     (todo priority-down category-keep)
+;;                                     (tags priority-down category-keep)
+;;                                     (search category-keep))
+;;       org-agenda-sorting-strategy-selected '(priority-down category-keep))
+
 (setq org-agenda-window-setup 'current-window)
 (setq org-agenda-window-frame-fractions '(0.5 . 0.75)) ; the min and max height of the agenda window as a fraction of frame height.
 (setq org-agenda-span 'week)
@@ -2487,6 +2497,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 (setq org-highlight-sparse-tree-matches t)
 (setq org-sparse-tree-open-archived-trees nil)
+
 (set-face-attribute 'secondary-selection nil
                     :background "dark slate gray"
                     ;; :inverse-video t

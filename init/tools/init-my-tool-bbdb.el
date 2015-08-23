@@ -26,8 +26,6 @@
 ;; - Import
 ;;   http://www.emacswiki.org/emacs/BbdbImporters
 
-;;; TODO: BBDBv3
-
 (require 'bbdb)
 ;; (bbdb-initialize)
 ;; (bbdb-initialize 'message 'sendmail 'supercite 'w3 'gnus)
@@ -63,7 +61,7 @@
 (define-key my-bbdb-map (kbd "h") 'helm-bbdb)
 
 (setq bbdb-file (expand-file-name "~/Org/BBDB/bbdb")
-      bbdb-image 'name ; display records with an image.
+      ;; bbdb-image 'name ; display records with an image.
       bbdb-image-path (expand-file-name "~/Org/BBDB/avatars/")
       ;; bbdb-image-suffixes '(".png" ".jpg" ".gif" ".xpm")
       ;; bbdb-sound-files

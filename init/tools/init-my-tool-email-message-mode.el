@@ -31,6 +31,9 @@
 
 ;; (setq boxquote-title-format "[ %s ]")
 
+;; `message-completion-function' (like capf)
+;; (setq message-expand-name-databases '(bbdb eudb))
+
 (define-key narrow-map (kbd "q") 'boxquote-narrow-to-boxquote-content)
 
 (unless (boundp 'my-boxquote-map)

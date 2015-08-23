@@ -10,6 +10,10 @@
 
 ;; http://www.emacswiki.org/emacs/EmacSpeak
 
+;; Usage:
+
+(load "~/compile/Emacs/emacspeak/lisp/emacspeak-setup.el")
+
 
 ;;; [ Festival ]
 

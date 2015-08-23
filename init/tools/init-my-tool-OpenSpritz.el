@@ -47,8 +47,6 @@
                     :foreground "red"
                     )
 
-;; (define-key spray-mode-map (kbd ""))
-
 
 ;;; [ speedread ] -- Aid to speedreading emacs buffers
 

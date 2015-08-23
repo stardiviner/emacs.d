@@ -62,6 +62,9 @@
 ;; - [M-x cider-scratch] ::
 ;;
 ;; - `cider-doc' ::
+;;
+;; - `cider-load-file'  :: [C-c C-l], load source code file for completion.
+;; - `inf-clojure-load-file'
 
 ;; For Debug
 ;;

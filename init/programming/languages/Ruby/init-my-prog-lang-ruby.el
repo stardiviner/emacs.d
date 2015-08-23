@@ -592,6 +592,8 @@
                             ;; (add-to-list 'ac-sources 'ac-source-robe) ; `ac-robe-setup' did this already.
                             ))
 
+
+;;; [ helm-rb ] -- Search Ruby's method by ag and display helm.
 
 
 ;;; [ helm-robe ]

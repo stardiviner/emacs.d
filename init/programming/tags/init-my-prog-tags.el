@@ -75,9 +75,9 @@ For project directory with Projectile root."
     (condition-case err
         ad-do-it
       (error (and (buffer-modified-p)
-                  (not (ding))
-                  (y-or-n-p "Buffer is modified, save it? ")
-                  (save-buffer))
+                (not (ding))
+                (y-or-n-p "Buffer is modified, save it? ")
+                (save-buffer))
              (er-refresh-etags extension)
              ad-do-it))))
 

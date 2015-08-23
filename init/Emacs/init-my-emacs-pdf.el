@@ -47,10 +47,11 @@
 (add-hook 'pdf-tools-enabled-hook
           (lambda ()
             ;; Recolor
-            (pdf-info-setoptions :render/usecolors t
-                                 :render/background "white"
-                                 :render/foreground "black"
-                                 )))
+            ;; (pdf-info-setoptions :render/usecolors t
+            ;;                      :render/background "white"
+            ;;                      :render/foreground "black"
+            ;;                      )
+            ))
 
 ;;; PDF View
 

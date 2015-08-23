@@ -881,7 +881,7 @@
 
 
 (defun my-mu4e-jump-to-index ()
-    ""
+  ""
   (interactive)
   (if (not (mu4e-running-p))
       (mu4e)

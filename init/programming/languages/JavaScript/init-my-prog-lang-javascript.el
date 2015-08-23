@@ -16,6 +16,8 @@
 
 ;;; [ javascript-mode (js-mode) ]
 
+;; - `js-load-file' :: [C-c C-l] load source code for completion.
+
 (eval-after-load 'js-mode
   '(progn
      (add-hook 'js-mode-hook

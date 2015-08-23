@@ -17,6 +17,9 @@
 
 (setq Info-additional-directory-list (list (expand-file-name "info/" user-emacs-directory)))
 
+;; (setq Info-default-directory-list
+;;       (append Info-default-directory-list Info-directory-list))
+
 (setq Info-isearch-search t) ; let `s' search like =isearch= for incremental search.
 
 ;; (Info-mode-hook)

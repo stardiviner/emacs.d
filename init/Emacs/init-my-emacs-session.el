@@ -12,6 +12,8 @@
 ;;; Usage:
 ;; - commands prefix with `desktop-'.
 
+;; (require 'desktop)
+
 
 ;;; [ workgroups2 ] --
 

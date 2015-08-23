@@ -352,6 +352,11 @@ $0"
 ;;   (add-hook hook #'yas-minor-mode))
 ;; (yas-reload-all)
 
+
+;;; [ yasnippet-snippets ]
+
+
+;;; [ yasnippets ]
 
 
 

@@ -22,6 +22,7 @@
 ;;   - [M-x ESS RET] :: start ESS session.
 ;;   - [M-x S RET] :: start S session.
 ;; - [C-c C-s] :: `ess-switch-process', switch to inferior process, create if not exist.
+;; - `ess-load-file' :: [C-c C-l], load source code file for completion.
 
 ;; (add-to-list 'load-path "~/.emacs.d/el-get/ess/lisp/")
 ;; (load "ess-site")
@@ -94,7 +95,7 @@
 
 (eval-after-load "ess-site"
   '(progn
-     (require 'ess-smarter-underscore)))
+     (require 'ess-smart-underscore)))
 
 
 (provide 'init-my-prog-lang-ESS)

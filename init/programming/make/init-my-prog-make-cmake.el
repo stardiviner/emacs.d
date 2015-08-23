@@ -27,6 +27,14 @@
 (add-hook 'cmake-mode-hook 'cmake-font-lock-activate)
 
 
+;;; [ cmake-ide ]
+
+;; (require 'rtags) ; optional
+
+;; (require 'cmake-ide)
+;; (cmake-ide-setup)
+
+
 (provide 'init-my-prog-make-cmake)
 
 ;;; init-my-prog-make-cmake.el ends here

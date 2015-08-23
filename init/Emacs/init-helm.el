@@ -142,6 +142,9 @@
         (org-insert-link . ido)         ; NOTE: temp solution for Helm org-insert-link error.
         ))
 
+(setq helm-candidate-number-limit nil
+      ;; helm-candidate-separator "--------------------"
+      )
 
 ;; this global keybinding [M-x] will conflict with {[C-u M-x align-regexp] on select region text.}
 ;; But you can press [M-x C-u align-regexp RET].

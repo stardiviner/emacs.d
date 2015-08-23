@@ -51,7 +51,6 @@
 ;;   - w :: copy device title (Built-in Audio Analog Stereo)
 ;;   - W :: copy device name (alsa_input.pci-0000_00_1b.0.analog-stereo)
 
-;; FIXME:
 ;; (require 'capture)
 
 ;; (setq capture-video-dest-dir "~/screencasts/SORT/")
@@ -83,6 +82,12 @@
 ;; - [M-x camcorder-mode] :: If you want to record without a popup frame.
 
 (require 'camcorder)
+
+;; (setq camcorder-frame-parameters ; see `make-frame'
+;;       '((name . "camcorder.el Recording - F12 to Stop - F11 to Pause/Resume")
+;;         (height . 20)
+;;         (width . 65)
+;;         (top .  80)))
 
 (define-key my-screenshot-map (kbd "r") 'camcorder-record)
 
