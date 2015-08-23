@@ -7,6 +7,12 @@
 
 ;;; Code:
 
+(unless (boundp 'my-prog-debug-map)
+  (define-prefix-command 'my-prog-debug-map))
+(global-set-key (kbd "C-c d") 'my-prog-debug-map)
+
+
+
 
 
 
