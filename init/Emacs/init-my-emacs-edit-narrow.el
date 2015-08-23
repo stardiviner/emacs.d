@@ -69,8 +69,10 @@ narrowed."
                (t (org-narrow-to-subtree))))
         (t (narrow-to-defun))))
 
-(define-key narrow-map "r" 'narrow-to-region) ; backup `narrow-to-region'.
-(define-key narrow-map "n" #'narrow-or-widen-dwim)
+(define-key narrow-map (kbd "r") 'narrow-to-region) ; backup `narrow-to-region'.
+(define-key narrow-map (kbd "n") #'narrow-or-widen-dwim)
+(define-key my-narrow-prefix (kbd "n") #'narrow-or-widen-dwim)
+
 ;; This line actually replaces Emacs' entire narrowing keymap, that's
 ;; how much I like this command. Only copy it if that's what you want.
 ;; (define-key ctl-x-map "n" #'narrow-or-widen-dwim)
