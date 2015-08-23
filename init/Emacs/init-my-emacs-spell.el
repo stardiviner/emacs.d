@@ -54,6 +54,16 @@
 
 (setq flyspell-default-dictionary "en")
 
+
+
+;;; [ flyspell-lazy ]
+
+(flyspell-lazy-mode 1)
+
+;; (flyspell-mode 1)
+
+
+
 ;; (flyspell-mode 1)
 
 ;;; programming code
