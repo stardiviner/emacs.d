@@ -14,26 +14,59 @@
 
 
 ;;; [ Menu Bar ]
+
 ;; the menu bar is mostly useless as well
 ;; but removing it under OS X doesn't make much sense
-(if (eq system-type 'darwin)
-    ;; (string-match "apple-darwin" system-configuration)
-    (with-selected-frame 'frame
-      (if (display-graphic-p)
-          (modify-frame-parameters 'frame '((menu-bar-lines . 1)))
-        (modify-frame-parameters 'frame '((menu-bar-lines . 0)))))
-  (if (fboundp 'menu-bar-mode) (menu-bar-mode -1)))
 
-(setq-default imenu-auto-rescan t)
+;; (if (eq system-type 'darwin)
+;;     ;; (string-match "apple-darwin" system-configuration)
+;;     (with-selected-frame 'frame
+;;       (if (display-graphic-p)
+;;           (modify-frame-parameters 'frame '((menu-bar-lines . 1)))
+;;         (modify-frame-parameters 'frame '((menu-bar-lines . 0)))))
+;;   (if (fboundp 'menu-bar-mode) (menu-bar-mode -1)))
+;;
+;; (setq-default imenu-auto-rescan t)
 
 
 ;;; [ Tool Bar ]
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+
+;; (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+
+
+;;; [ Scroll Bar ]
+
+;; (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+;;
+;; ;; smooth scroll
+;; (setq scroll-margin 10
+;;       scroll-conservatively 100000
+;;       scroll-preserve-screen-position 'always ; 1, screen offset, nil, always keep in center of window. 'always, keep [M-v] undo [C-v].
+;;       )
+
+
+;;; [ yascroll ] -- Yet Another Scroll Bar Mode
+
+;; * 'right-fringe' for rendering scroll bar in right-fringe.
+;; * 'left-fringe' for rendering scroll bar in left-fringe.
+;; * 'text-area' for rendering scroll bar in text area.
+
+;; (setq yascroll:scroll-bar 'right-fringe ; 'right-fringe, 'left-fringe, 'text-area.
+;;       ;; yascroll:disabled-modes
+;;       yascroll:delay-to-hide nil ; nil, 0.5
+;;       ;; yascroll:enabled-window-systems '(nil x w32 ns pc)
+;;       )
+;;
+;; (set-face-attribute 'yascroll:thumb-text-area nil
+;;                     :foreground "slate blue")
+;;
+;; (global-yascroll-bar-mode 1)
+
 
 
 ;;; [ border ]
 
-(set-frame-parameter (selected-frame) 'internal-border-width 10)
+;; (set-frame-parameter (selected-frame) 'internal-border-width 1)
 
 
 ;;; [ fringe ]
@@ -86,36 +119,6 @@
                     )
 
 
-;;; [ Scroll Bar ]
-(if (fboundp 'scroll-bar-mode)
-    (scroll-bar-mode -1))
-
-;; smooth scroll
-(setq scroll-margin 10
-      scroll-conservatively 100000
-      scroll-preserve-screen-position 'always ; 1, screen offset, nil, always keep in center of window. 'always, keep [M-v] undo [C-v].
-      )
-
-
-;;; [ yascroll ] -- Yet Another Scroll Bar Mode
-
-;; * 'right-fringe' for rendering scroll bar in right-fringe.
-;; * 'left-fringe' for rendering scroll bar in left-fringe.
-;; * 'text-area' for rendering scroll bar in text area.
-
-;; (setq yascroll:scroll-bar 'right-fringe ; 'right-fringe, 'left-fringe, 'text-area.
-;;       ;; yascroll:disabled-modes
-;;       yascroll:delay-to-hide nil ; nil, 0.5
-;;       ;; yascroll:enabled-window-systems '(nil x w32 ns pc)
-;;       )
-;;
-;; (set-face-attribute 'yascroll:thumb-text-area nil
-;;                     :foreground "slate blue")
-;;
-;; (global-yascroll-bar-mode 1)
-
-
-
 ;;; [ modeline ]
 
 (require 'init-my-emacs-mode-line)
@@ -124,6 +127,7 @@
 
 
 ;;; [ echo area ]
+
 (setq echo-keystrokes 0.1) ; faster echo key strokes
 
 
