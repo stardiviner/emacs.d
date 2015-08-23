@@ -32,8 +32,6 @@
 
 ;;; [ Eshell ] (Emacs Shell)
 
-(require 'eshell)
-
 (setq eshell-save-histroy-on-exit t
       eshell-history-size 128
       eshell-hist-ignoredups t

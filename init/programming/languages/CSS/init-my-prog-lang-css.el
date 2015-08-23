@@ -27,8 +27,6 @@
 
 ;;; [ css-eldoc ]
 
-(require 'css-eldoc)
-
 (turn-on-css-eldoc)
 
 ;;; ------------------------------------------------------------------------------------
@@ -70,9 +68,6 @@
 ;;; Usage:
 ;;
 ;; - `my/toggle-showcss' / [C-c C-k] ::
-
-(autoload 'showcss-mode "show_css"
-  "Display the css of the class or id the cursor is at" t)
 
 ;;; Personally, I find this mode to distracting to use all the time, so I use
 ;;; this function to quickly toggle the mode on and off.

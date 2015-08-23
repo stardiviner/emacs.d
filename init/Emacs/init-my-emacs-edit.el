@@ -10,8 +10,6 @@
 ;;    `- t    -- timestamp
 ;;    `- q    -- quit
 
-(require 'undo-tree)
-
 (global-undo-tree-mode t)
 
 ;;;_ Edit
@@ -54,8 +52,6 @@
 ;;; Usage:
 ;;
 ;; edit browser text-area.
-
-(require 'edit-server)
 
 (when (require 'edit-server nil t)
   (setq edit-server-new-frame t)
@@ -224,8 +220,6 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;;; Expand region increases the selected region by semantic units. Just keep
 ;;; pressing the key until it selects what you want.
 
-(require 'expand-region)
-
 (global-set-key (kbd "C-=") 'er/expand-region)
 
 ;;;_ Multiple Narrowings
@@ -345,11 +339,6 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;; - mark a rectangle like Emacs rectangle with [C-@ / C-SPC].
 ;; - after marked the rectangle, then press [C-c C-;] to enable iedit rectangle mode, and highlight the rectangle.
 
-(require 'iedit)
-
-(autoload 'iedit-mode "Iedit" "Edit multiple regions with the same content simultaneously." t)
-(autoload 'iedit-rectangle-mode "Iedit rectangle" "Edit narrowed text." t)
-
 (setq iedit-occurrence-face 'isearch) ; 'highlight
 
 (defun iedit-dwim (arg)
@@ -393,8 +382,6 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;; command. It will then remember your choice by saving it in
 ;;
 ;;     `~/.emacs.d/.mc-lists.el' You can change the location with:
-
-(require 'multiple-cursors)
 
 ;; (setq mc/list-file (expand-file-name ".mc-lists.el" user-emacs-directory))
 
@@ -473,8 +460,6 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;;; Usage:
 ;; - [M-x imenu-?] :: invoke imenu functions.
 
-(require 'imenu)
-
 (defun ido-goto-symbol (&optional symbol-list)
   "Refresh imenu and jump to a SYMBOL-LIST in the buffer using Ido."
   (interactive)
@@ -538,8 +523,6 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;; (global-whitespace-mode)
 
 ;;;_ Ace Jump mode
-
-(require 'ace-jump-mode)
 
 ;; (global-set-key [remap flyspell-auto-correct-previous-word] nil)
 ;; FIXME: this does not work, conflict with `flyspell-auto-correct-previous-word'.

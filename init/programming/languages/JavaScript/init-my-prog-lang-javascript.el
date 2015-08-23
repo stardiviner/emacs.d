@@ -38,8 +38,6 @@
 
 ;;; [ js3-mode ]
 
-(require 'js3-mode)
-
 ;; (eval-after-load 'auto-complete
 ;;   (add-to-list 'ac-modes 'js3-mode))
 
@@ -215,10 +213,12 @@
 
 ;;; Usage:
 ;;
+;; - `inferior-js-mode'
+;; - `js-send-region' & `js-send-buffer'
+;; - `js-load-file' & `js-load-file-and-go'
 ;; - `run-js'
 ;; - `send-region'
-
-(require 'js-comint)
+;; - `switch-to-js'
 
 (setq inferior-js-program-command "node --interactive")
 ;; (setq inferior-js-program-command "/usr/bin/java org.mozilla.javascript.tools.shell.Main")
@@ -299,9 +299,6 @@
 ;;   }
 ;; }
 
-(require 'tern)
-(autoload 'tern-mode "tern.el" nil t)
-
 ;; (dolist (hook '(js-mode-hook
 ;;                 js2-mode-hook
 ;;                 js3-mode-hook
@@ -326,8 +323,6 @@
 
 
 ;;; [ company-tern ] -- Tern backend for company-mode.
-
-(require 'company-tern)
 
 (dolist (hook '(js-mode-hook
                 js2-mode-hook

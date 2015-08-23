@@ -11,29 +11,22 @@
 ;;;_*Org-mode
 
 ;;;_* require & load modules
-(require 'org)
+;; (require 'org)
 
-(require 'org-faces)
-(require 'org-compat)
-(require 'org-table)
-(require 'org-habit)
-(require 'org-timer)
-(require 'org-clock)
-(require 'org-notify)
-(require 'org-pcomplete)
+;; (require 'org-faces)
+;; (require 'org-compat)
+;; (require 'org-table)
+;; (require 'org-habit)
+;; (require 'org-timer)
+;; (require 'org-clock)
+;; (require 'org-notify)
+;; (require 'org-pcomplete)
+;; (require 'org-plot)
 
-(require 'org-plot)
 ;;; org-protocol need server start.
 (unless (server-running-p)
   (server-start))
 (require 'org-protocol)
-
-(require 'ox-beamer)
-(require 'ox-latex)
-;; (require 'ox-bibtex)
-(require 'ox-odt)
-(require 'ox-html)
-(require 'ox-publish)
 
 ;; use Org-mode as the default mode for all README files.
 (add-to-list 'auto-mode-alist '("README$" . org-mode))
@@ -107,7 +100,7 @@
 
 ;; (load-file "~/.emacs.d/my-init/extensions/org-bullets.el")
 
-(require 'org-bullets nil t)
+;; (require 'org-bullets nil t)
 
 (add-hook 'org-mode-hook
           (lambda ()
@@ -133,7 +126,7 @@
 ;;     + [TAB] to indent deeper sub-list.
 ;;     + [S-TAB] to indent out list.
 
-(require 'org-indent)
+;; (require 'org-indent)
 
 (setq org-indent-mode t
       org-adapt-indentation t   ; means adapt indentation to outline node level.
@@ -1295,7 +1288,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;; - [C-3 C-c C-w] :: refile and keep the entry in the place.
 ;; - [C-0 C-c C-w] :: `org-refile-cache-clear'. clear the target cache.
 
-(require 'org-capture)
+;; (require 'org-capture)
 
 (setq org-default-notes-file (concat org-directory "/Capture/notes.org"))
 
@@ -1498,7 +1491,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 ;;;_* Agenda Views
 
-(require 'org-agenda)
+;; (require 'org-agenda)
 
 ;; agenda view
 (setq org-agenda-prefix-format
@@ -2062,7 +2055,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 
 ;; Or by using `require' to load.
-(require 'ob-processing)
+;; (require 'ob-processing)
 
 ;;; [ ob-julia ]  (require ESS)
 ;;
@@ -2788,7 +2781,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 ;;;_* org-contacts
 
-(require 'org-contacts)
+;; (require 'org-contacts)
 
 (setq org-contacts-files '("~/Org/Contacts/Contacts.org")
       ;; org-contacts-db
@@ -2915,7 +2908,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;; Customize ~org-download-backend~ to choose between ~url-retrieve~ (the /default/) or ~wget~ or ~curl~.
 ;;
 
-(require 'org-download)
+;; (require 'org-download)
 
 (setq org-download-screenshot-method "scrot -s %s"
       org-download-method 'dictionary ; 'attach, 'dictionary,
@@ -2952,8 +2945,8 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;; - If you call `org-pomodoro' outside org-mode, you'll be presented with list of recent tasks, as C-u org-clock-in would.
 
 
-(require 'alert)
-(require 'org-pomodoro)
+;; (require 'alert)
+;; (require 'org-pomodoro)
 
 (setq org-pomodoro-audio-player "/usr/bin/mplayer"
       org-pomodoro-play-sounds t
@@ -3239,7 +3232,7 @@ This function will promote all items in a subtree."
 ;;   (setenv "no_proxy" "localhost,127.0.0.0/8")
 
 
-(require 'org-trello)
+;; (require 'org-trello)
 
 ;; to have org-trello activated for each org file, uncomment this
 ;; (add-hook 'org-mode-hook 'org-trello-mode)

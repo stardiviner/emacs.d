@@ -8,8 +8,6 @@
 
 ;;; [ speedbar ]
 
-(require 'speedbar)
-
 ;; (speedbar 1)
 
 
@@ -18,8 +16,6 @@
 ;;; Usage:
 ;; - [sr-speedbar-toggle] :: toggle sr-speedbar window.
 ;; - [sr-speedbar-select-window] :: select sr-speedbar window.
-
-(require 'sr-speedbar)
 
 (setq sr-speedbar-width 30
       sr-speedbar-width-x 30

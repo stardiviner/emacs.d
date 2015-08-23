@@ -28,8 +28,6 @@
 ;; alternatively, alias your preferred keystroke to [M-x emmet-expand-line]) and
 ;; you'll transform your snippet into the appropriate tag structure.
 
-(require 'emmet-mode)
-
 (setq emmet-preview-default t ; set preview as the default action.
       emmet-indentation 4
       emmet-indent-after-insert t
@@ -80,14 +78,6 @@
 ;; - # - id (div's id if no tag)
 ;;
 ;; annotation string: `html'.
-
-(unless (featurep 'web-mode)
-  (require 'web-mode))
-
-(require 'company-web-html)                          ; load company mode html backend
-;; and/or
-(require 'company-web-jade)                          ; load company mode jade backend
-(require 'company-web-slim)                          ; load company mode slim backend
 
 (add-hook 'web-mode-hook
           (lambda ()

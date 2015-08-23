@@ -17,8 +17,6 @@
 
 ;;; [ rhtml-mode ]
 
-(require 'rhtml-mode)
-
 ;; (add-to-list 'auto-mode-alist '("\\.html.erb$" . rhtml-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . rhtml-mode))
 
@@ -70,8 +68,6 @@
 ;; - [M-x projectile-rails-mode]
 ;; - [TAB] support for projectile-rails-generate.
 
-(require 'projectile-rails)
-
 (setq projectile-rails-add-keywords t)  ; highlight rails keywords.
 (setq projectile-rails-expand-snippet t) ; yasnippet expand skeleton class snippet.
 (setq projectile-rails-server-mode-ansi-colors t)
@@ -92,8 +88,6 @@
 
 ;;; [ helm-rails ]
 
-; (require 'helm-rails)
-
 ;; TODO: test whether has keybinding set by default.
 ;; (define-key global-map (kbd "s-t") 'helm-rails-controllers)
 ;; (define-key global-map (kbd "s-y") 'helm-rails-models)
@@ -109,8 +103,6 @@
 ;;; Usage:
 ;;
 ;; - [M-x rails-new] :: create a new Rails project.
-
-(autoload 'rails-new "rails-new" "Handy emacs command for generating rails application." nil nil)
 
 
 ;;; [ yasnippet-rails ]

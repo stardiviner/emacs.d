@@ -139,7 +139,6 @@ re-downloaded in order to locate PACKAGE."
 ;;
 ;; - [M-x paradox-list-packages]
 
-(require 'paradox)
 
 
 

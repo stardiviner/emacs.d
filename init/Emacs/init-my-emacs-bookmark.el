@@ -25,7 +25,6 @@
 ;;   - x -- execute marked status actions
 ;; - [M-x bookmark-set] -- add current page into bookmark
 
-;; (require 'bookmark)
 (setq-default bookmark-default-file (expand-file-name "bookmarks.el" user-emacs-directory))
 
 (setq bookmark-save-flag 1)
@@ -65,12 +64,6 @@
 
 ;; NOTE set this variable before load `bm.el' for repository persistence.
 (setq bm-restore-repository-on-load t)
-
-(require 'bm)
-;; or
-;; (autoload 'bm-toggle   "bm" "Toggle bookmark in current buffer." t)
-;; (autoload 'bm-next     "bm" "Goto bookmark."                     t)
-;; (autoload 'bm-previous "bm" "Goto previous bookmark."            t)
 
 ;;; the markers on the right fringe instead of the left
 ;; (setq bm-marker 'bm-marker-right)

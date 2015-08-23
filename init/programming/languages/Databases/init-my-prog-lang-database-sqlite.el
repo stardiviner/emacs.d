@@ -15,8 +15,6 @@
 
 ;;; [ esqlite ] -- sqlite file manipulate utilities from Emacs.
 
-(require 'esqlite)
-
 
 ;;; [ esqlite-helm ]
 

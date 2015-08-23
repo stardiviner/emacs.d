@@ -190,7 +190,6 @@
 
 ;;; [ helm-c-flycheck ]
 
-(require 'helm-flycheck)                ; not necessary if using ELPA package
 (eval-after-load 'flycheck
   (lambda ()
     (define-key flycheck-mode-map (kbd "C-c ! h") 'helm-flycheck)

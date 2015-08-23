@@ -91,8 +91,6 @@
 
 ;;; [ company-go ]
 
-(require-package 'company-go)
-
 (if (getenv "GOPATH")
     (progn
       (load (concat (getenv "GOPATH") "/src/github.com/nsf/gocode/emacs-company/company-go.el"))

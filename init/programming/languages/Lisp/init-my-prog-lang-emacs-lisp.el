@@ -7,10 +7,6 @@
 
 ;;; Code:
 
-
-(require 'init-my-prog-lang-lisp)
-
-
 ;;; [ Emacs Lisp some setups ]
 
 ;;; custom functions:
@@ -48,14 +44,9 @@
     font-lock-builtin-face)))
 
 
-;;; [ ElDoc ]
-
-(require 'eldoc)
-
-
 ;;; eldoc-eval --- Enable eldoc support when minibuffer is in use.
 
-(require 'eldoc-eval)
+(eldoc-in-minibuffer-mode 1)
 
 
 ;;; elisp-slime-nav
@@ -63,8 +54,6 @@
 ;;; Usage:
 ;; - [M-. / M-, ] -- go to/out navigation of the function definition.
 ;; - [C-c C-d d] -- slime-describe-symbol.
-
-(require 'elisp-slime-nav)
 
 (dolist (hook '(emacs-lisp-mode-hook
                 ielm-mode-hook))
@@ -88,8 +77,6 @@
 
 
 ;;; [ IELM (ELISP interactive) ] -- an REPL for emacs. (Read-Eval-Print-Loop)
-
-(require 'ielm)
 
 ;;; By default, IELM evaluates complete expressions automatically as soon you as
 ;;; you press Enter. So one thing to remember is that if you want to have

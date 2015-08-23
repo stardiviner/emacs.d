@@ -31,7 +31,6 @@
 
 ;;;_ [ company-auctex ]
 
-(require 'company-auctex)
 (company-auctex-init)
 
 
@@ -60,8 +59,6 @@
 ;;; [ company-math ]
 
 ;; TODO: https://github.com/vspinu/company-math
-
-(require 'company-math)
 
 
 ;;; [ latex-preview-pane ]

@@ -51,11 +51,6 @@
 ;; - The capitalization is triggered when you press 'SPC', ';', ',', or '(', '\r' (Enter),
 ;; - [C-c u] region :: `sqlup-capitalize-keywords-in-region'
 
-(autoload 'sqlup-mode "sqlup-mode")
-
-(add-hook 'sql-mode-hook 'sqlup-mode)
-(add-hook 'sql-inretactive-mode-hook 'sqlup-mode)
-
 (define-key sql-mode-map (kbd "C-c u") 'sqlup-capitalize-keywords-in-region)
 
 (defun my-sqlup-backward ()
@@ -136,9 +131,6 @@
 ;; - `edbi:sql-mode-map'
 ;; - `edbi:dbview-query-result-keymap'
 
-(require 'edbi)
-(autoload 'edbi:open-db-viewer "edbi")
-
 (define-key my-prog-database-map (kbd "D") 'edbi:open-db-viewer)
 
 (add-hook 'edbi:sql-mode-hook 'sqlup-mode)
@@ -150,7 +142,6 @@
 ;;
 ;; -
 
-(require 'edbi-minor-mode)
 
 
 
@@ -159,8 +150,6 @@
 ;;; Usage:
 ;;
 ;; `edbi-sqlite'
-
-(require 'edbi-sqlite)
 
 ;; (defun my-edbi-sqlite ()
 ;;   (interactive)
@@ -188,12 +177,10 @@
 ;; Optionally you can specify database url by marking region or type it
 ;; interactively.
 
-(require 'edbi-database-url)
+(define-key my-prog-database-map (kbd "u") 'edbi-database-url)
 
 
 ;;; [ company-edbi ]
-
-(require 'company-edbi)
 
 (dolist (hook '(sql-mode-hook
                 sql-interactive-mode-hook
@@ -206,8 +193,6 @@
 
 
 ;;; [ db-sql ] -- Connect to SQL server using tramp syntax.
-
-(require 'db-sql)
 
 
 ;;; [ sql-complete ] -- support Oracle

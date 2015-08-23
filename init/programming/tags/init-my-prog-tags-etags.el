@@ -22,7 +22,6 @@
 ;; - [M-x tags-apropos] -- list all tags in a tags file that match a regexp.
 ;; - [M-x list-tags] -- list all tags defined in a source file.
 
-(require 'etags)
 
 
 ;;; [ etags-update ] --- a Emacs global minor mode that updates your TAGS when saving a file.
@@ -51,7 +50,6 @@
 ;; happens. The default value, 'prompt, asks if you want to add the
 ;; file. Etags-update remembers your choice for a file.
 
-;; (load-file "~/.emacs.d/my-init/extensions/etags-update.el")
 (require 'etags-update)
 
 ;;; `etu/append-file-action'

@@ -66,8 +66,6 @@
 ;; - [C-c C-s] -- (inf-ruby)
 ;; - [C-c C-z] -- (ruby-switch-to-inf)
 
-(require 'ruby-mode)
-
 ;; (add-auto-mode 'ruby-mode
 ;;                "Gemfile\\'" "\\.gemspec\\'"
 ;;                "Rakefile\\'" "\\.rake\\'"
@@ -123,9 +121,6 @@
 ;;; It uses the Ripper class found in ruby 1.9.2 (and later) to parse and indent
 ;;; the source code. As a consquence only ruby 1.9.2 (or later) syntax is parsed
 ;;; correctly.
-
-(require 'enh-ruby-mode)
-(autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
 
 (add-hook 'enh-ruby-mode-hook
           (lambda ()
@@ -209,8 +204,6 @@
 ;;
 ;; - region + `ruby-toggle-hash-syntax'
 
-(require 'ruby-hash-syntax)
-
 (define-key my-prog-code-map (kbd "c") 'ruby-toggle-hash-syntax) ; convert
 
 
@@ -229,8 +222,6 @@
 ;; - [C-'] :: convert double quote string to single quote string.
 ;; - [C-;] :: clear string content
 ;; - [#]   :: string interpolation
-
-(require 'ruby-tools)
 
 (add-hook 'ruby-mode-hook 'ruby-tools-mode)
 (add-hook 'enh-ruby-mode-hook 'ruby-tools-mode)
@@ -255,8 +246,6 @@
 
 ;;; [ yard-mode ] -- for Ruby YARD comments
 
-(require 'yard-mode)
-
 (add-hook 'ruby-mode-hook 'yard-mode)
 (add-hook 'enh-ruby-mode-hook 'yard-mode)
 
@@ -268,8 +257,6 @@
 ;;; [ yari ] -- Yet Another Ri Interface
 
 ;; yari.el provides an Emacs frontend to Ruby's `ri' documentation tool. It offers lookup and completion.
-
-(require 'yari)
 
 (dolist (hook '(ruby-mode-hook
                 enh-ruby-mode-hook
@@ -324,8 +311,6 @@
 
 ;;; IMPORTANT:: Currently you need to set this variable before you load rbenv.el
 (setq rbenv-installation-dir "~/.rbenv/") ; "/usr/local/rbenv"
-
-(require 'rbenv)
 
 (setq rbenv-show-active-ruby-in-modeline t
       ;; rbenv-executable "~/.rbenv/bin/rbenv"
@@ -403,10 +388,6 @@
 ;;#+END_SRC
 ;;
 ;; - [C-x C-q] -- rspec / ruby-compilation
-
-(require 'inf-ruby)
-(autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
-(autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
 
 (setq inf-ruby-default-implementation "inf-ruby"
       inf-ruby-implementations '(("inf-ruby" . "irb --inf-ruby-mode --noreadline -EUTF-8")
@@ -566,9 +547,6 @@
 ;; 2. then you should only have to change Robe settings to point to the remote machine
 ;;    instead of the localhost. (make sure remote machine port is open)
 
-(require 'robe)
-;; (autoload 'robe-mode "robe" "Code navigation, documentation lookup and completion for Ruby" t nil)
-
 (setq robe-turn-on-eldoc t
       ;; - t, `completion-at-point' candidates buffer will have constants,
       ;;   methods and arguments highlighted in color.
@@ -618,8 +596,6 @@
 
 ;;; [ helm-robe ]
 
-;; TODO: (require 'helm-robe)
-
 
 ;;; [ ruby-compilation ]
 
@@ -638,9 +614,6 @@
 ;; - [C-c C-f] -- next-error-follow-minor-mode
 ;; - [C-c C-k] -- kill compilation
 
-(autoload 'ruby-compilation-this-buffer "ruby-compilation" "run the ruby buffer" t nil)
-(autoload 'ruby-compilation-this-test "ruby-compilation" "run the ruby test" t nil)
-
 (eval-after-load "ruby-compilation"
   '(progn
      (define-key enh-ruby-mode-map (kbd "C-c t") 'ruby-compilation-this-buffer)
@@ -656,8 +629,6 @@
 ;; - If rspec-mode is installed properly, it will be started automatically when
 ;;   ruby-mode is started.
 ;; - [M-x rspec-.*] :: commands
-
-(require 'rspec-mode)
 
 (eval-after-load 'rspec-mode
   '(rspec-install-snippets))
@@ -692,8 +663,7 @@
 ;;; Usage:
 ;;
 ;; - [C-c ,] -- minitest prefix
-
-(require 'minitest)
+;; `minitest-enable-appropriate-mode'
 
 (setq minitest-default-env nil
       minitest-keymap-prefix (kbd "C-c t") ; [C-c ,]
@@ -719,8 +689,6 @@
 ;; C-c M-,   - Runs the unit test or rspec example at the current buffer's
 ;;             buffer's point.
 ;; C-c C-s   - Toggle between implementation and test/example files.
-
-(require 'ruby-test-mode)
 
 (dolist (hook '(ruby-mode-hook
                 enh-ruby-mode-hook))

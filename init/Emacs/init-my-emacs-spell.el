@@ -11,7 +11,6 @@
 ;; - [M-$]
 ;; - [M-x ispell-complete-word]
 
-(require 'ispell)
 (autoload 'ispell "ispell" t)
 
 ;; find aspell and hunspell automatically
@@ -52,12 +51,6 @@
 ;; - [C-.] / [C-;] -- automatically correct last misspelled word, cycle through suggestions.
 ;; - [M-x flyspell-region] -- checks all words inside a region
 ;; - [M-x flyspell-buffer] -- checks the whole buffer
-
-(require 'flyspell)
-;; (when (executable-find ispell-program-name)
-;;   (require 'flyspell))
-(autoload 'flyspell-mode "flyspell" "on-the-fly spelling checks" t)
-(autoload 'flyspell-prog-mode "flyspell" "on-the-fly spelling checks for programming modes" t)
 
 (setq flyspell-default-dictionary "en")
 
@@ -127,9 +120,7 @@
 
 ;;; Usage:
 ;;
-;; `helm-flyspell'
-
-(require 'helm-flyspell)
+;; `helm-flyspell-correct'
 
 
 ;;; [ flyspell-popup ] -- Correct the misspelled word with flyspell in popup menu.
@@ -137,8 +128,6 @@
 ;;; Usage:
 ;;
 ;; `flyspell-popup-correct'
-
-(require 'flyspell-popup)
 
 (if (featurep 'helm-flyspell)
     (define-key flyspell-mode-map (kbd "C-;") #'helm-flyspell-correct)
@@ -148,14 +137,10 @@
 
 ;;; [ flyguess ] -- guess language/dictionary for a buffer
 
-;; (require 'flyguess)
-
 ;; (setq flyguess-dictionary-list '("english" "american" "francais"))
 
 
 ;;; [ flyspell-guess ] -- flyspell dictionary guesser
-
-;; (require 'flyspell-guess)
 
 ;; to load flyspell-guess every time you start Emacs. to activate the guess indicator (in minor-mode-list: "en").
 ;; (eval-after-load 'flyspell-guess
@@ -166,8 +151,6 @@
 
 ;;; [ auto-dictionary ] -- tries to guess the buffer's text language and adjusts flyspell automatically.
 
-;; (require 'auto-dictionary)
-;;
 ;; (add-hook 'flyspell-mode-hook (lambda () (auto-dictionary-mode 1)))
 
 

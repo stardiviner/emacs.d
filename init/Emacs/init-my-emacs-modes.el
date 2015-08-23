@@ -31,7 +31,7 @@
 ;;    (mmm-add-mode-ext-class MODE EXTENSION CLASS)
 
 
-;; (require 'mmm-mode)
+
 (require 'mmm-auto) ; save time during emacs startup.
 
 (setq mmm-global-mode 'maybe) ; t, nil, 'maybe (turn itself on in precisely).

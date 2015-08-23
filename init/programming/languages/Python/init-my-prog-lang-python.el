@@ -7,7 +7,7 @@
 
 ;;; Code:
 
-;;; [ python ] --- Python's flying circus support for Emacs
+;;; [ python-mode ] --- Python's flying circus support for Emacs
 
 ;;  Introduction
 ;;
@@ -43,8 +43,6 @@
 ;;
 ;; The code is well organized in parts with some clean sensitive naming.
 
-(require 'python)
-
 (setq-default python-indent-offset 4
               python-indent-guess-indent-offset t
               ;; python-shell-interpreter "python" ; "python", "ipython", "bpython"
@@ -59,11 +57,6 @@
               ;; python-shell-completion-module-string-code "';'.join(module_completion('''%s'''))\n"
               ;; python-shell-completion-string-code "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
               )
-
-
-;;; [ python-mode ]
-
-;; (autoload 'python-mode "python" nil t)
 
 
 ;;; [ pydoc ]
@@ -106,8 +99,6 @@
 ;; - `pyvenv-workon' :: queries for a virtual environment in $WORKON_HOME (from virtualenvwrapper.sh).
 ;; - `pyvenv-mode-line-indicator' :: an indicator for mode-line.
 
-(require 'pyvenv)
-
 
 ;;; [ jedi.el ] --- a python auto-completion library.
 
@@ -116,8 +107,6 @@
 ;; - (jedi:start-server)
 ;; - (jedi:stop-server)
 
-;; (require 'jedi)
-;;
 ;; (add-hook 'python-mode-hook 'jedi:setup)
 ;; ;; (setq jedi:complete-on-dot t)           ; optional, but you need `jedi:setup' instead of `jedi:ac-setup'.
 ;; ;; or
@@ -143,7 +132,6 @@
 ;;; [ company-jedi ]
 
 ;; (require 'jedi-core)
-;; (require 'company-jedi)
 
 ;; (add-hook 'python-mode-hook
 ;;           (lambda ()
@@ -188,8 +176,6 @@
 ;; options.
 
 
-(require 'anaconda-mode)
-
 ;; virtualenv
 ;; (setq python-shell-virtualenv-root "~/.virtualenvs/python3/bin/virtualenv")
 
@@ -205,8 +191,6 @@
 
 
 ;;; [ company-anaconda ]
-
-(require 'company-anaconda)
 
 (add-hook 'python-mode-hook
           (lambda ()

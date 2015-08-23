@@ -100,7 +100,6 @@
 ;; (string= (web-mode-language-at-pos) "html")
 
 ;;;_. config
-(require 'web-mode)
 
 ;; Using web-mode for editing plain HTML files can be done this way
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
@@ -535,8 +534,6 @@
 ;; - [C-c C-u] :: `restclient-copy-curl-command' :: copy curl command format to clipboard.
 ;;
 ;; `restclient-http-do-hook'
-
-(require 'restclient)
 
 (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
 

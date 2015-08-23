@@ -361,8 +361,6 @@
 
 ;; `git-messenger-map' :: keybinding on git-messenger popup.
 
-(require 'git-messenger)
-
 (setq git-messenger:show-detail t ; always show detail message.
       ;; git-messenger:handled-backends '(git svn)
       )

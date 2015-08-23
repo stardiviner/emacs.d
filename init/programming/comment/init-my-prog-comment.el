@@ -85,8 +85,6 @@ This functions should be added to the hooks of major modes for programming."
 
 ;; highlight "FIXME"
 
-(require 'fic-mode)
-
 (setq fic-highlighted-words
       '("FIXME" "TODO" "BUG" "ISSUE" "ERROR"
         "OPTIMIZE" "HACK" "REFACTOR" "REVIEW" "TEST"
@@ -146,9 +144,6 @@ This functions should be added to the hooks of major modes for programming."
 ;; - [poporg-dwim] :: [C-c ']
 ;; - [poporg-edit-and-exit] :: [C-c '], [C-x C-s] in opened buffer.
 ;; - `poporg-edit-hook'
-
-(require 'poporg)
-(autoload 'poporg-dwim "poporg" nil t)
 
 (setq poporg-adjust-fill-column t
       poporg-delete-trailing-whitespace t)

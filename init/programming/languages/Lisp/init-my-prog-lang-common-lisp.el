@@ -7,10 +7,6 @@
 
 ;;; Code:
 
-
-(require 'init-my-prog-lang-lisp)
-
-
 ;;; [ Common Lisp ]
 
 ;; Open files with .cl extension in lisp-mode

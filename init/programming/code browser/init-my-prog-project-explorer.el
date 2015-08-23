@@ -46,8 +46,6 @@
 ;; - "M-l"      Filter using a regular expression. Call with C-u to disable
 ;; - "M-o"      Toggle omission of hidden and temporary files
 
-(require 'project-explorer)
-
 (setq pe/side 'left
       pe/width 30
       ;; pe/project-root-function

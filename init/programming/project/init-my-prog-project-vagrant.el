@@ -28,7 +28,6 @@
 ;; When vagrant commands are given a prefix, you will be prompted for a box
 ;; name. For example: [C-u M-x vagrant-up]
 
-(require 'vagrant)
 
 
 ;;; [ vagrant-tramp ] --

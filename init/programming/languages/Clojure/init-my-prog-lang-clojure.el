@@ -13,8 +13,6 @@
 ;;
 ;; -
 
-(require 'clojure-mode)
-
 ;; provides additional font-locking for built-in methods and macros.
 ;;
 ;; The font-locking is pretty imprecise, because it doesn't take namespaces into
@@ -70,8 +68,6 @@
 ;; Log communication with the nREPL server (extremely useful for debugging CIDER problems):
 ;;
 ;; (setq nrepl-log-messages t)
-
-(require 'cider)
 
 (setq nrepl-hide-special-buffers t
       ;; You can hide the *nrepl-connection* and *nrepl-server* buffers from
@@ -223,8 +219,6 @@
 ;;
 ;; - [M-x inf-clojure] / [C-c C-z]
 ;; - [M-j] :: new line in sexp.
-
-(require 'inf-clojure)
 
 (add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
 

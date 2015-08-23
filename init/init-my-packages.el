@@ -53,7 +53,7 @@
     sudo-edit
     ;; Spell
     flyspell flyspell-lazy
-    helm-flyspell flyspell-popup
+    helm-flyspell ; flyspell-popup
     ;; Completion System
     helm
     helm-helm-commands helm-descbinds
@@ -289,6 +289,7 @@
     arduino-mode company-arduino
 
     ;; Linux
+    systemd
     nginx-mode
     pkgbuild-mode
     ;; Container

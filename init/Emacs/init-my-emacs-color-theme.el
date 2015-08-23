@@ -32,8 +32,6 @@
 
 ;;; color-theme-solarized
 
-(require 'color-theme-solarized)
-
 (setq solarized-termcolors 256
       ;; solarized-degrade t
       solarized-bold t

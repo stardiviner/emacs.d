@@ -52,15 +52,11 @@
 ;;; Usage:
 ;; - [M-x smart-compile]
 
-(require 'smart-compile)
-
 
 ;;; [ smart-compile+ ]
 
 ;;; Usage:
 ;; - [M-x smart-compile]
-
-(require 'smart-compile+)
 
 
 ;;; [ smart-run ]
@@ -119,8 +115,6 @@
 ;; - `quickrun-autorun-mode'
 ;; - `helm-quickrun'
 ;; - `quickrun-after-run-hook'
-
-(require 'quickrun)
 
 ;; (setq quickrun/support-languages)
 

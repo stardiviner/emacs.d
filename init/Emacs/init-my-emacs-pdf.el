@@ -42,8 +42,6 @@
 ;; - use bookmark.el to remember PDF position.
 
 
-(require 'pdf-tools)
-
 (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
 
 (add-hook 'pdf-tools-enabled-hook

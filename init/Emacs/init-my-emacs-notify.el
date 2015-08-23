@@ -13,7 +13,7 @@
 ;;
 ;; (notifications-notify :title "Title" :body "text")
 
-(require 'notifications)
+;; (require 'notifications)
 
 
 

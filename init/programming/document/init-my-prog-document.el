@@ -44,8 +44,6 @@
 
 ;;; [ which-function-mode (which-func) ]
 
-(require 'which-func)
-
 (setq which-func-modes t)
 (add-to-list 'which-func-modes 'org-mode)
 
@@ -104,8 +102,6 @@
 
 ;; - https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets
 ;; - https://github.com/kidd/dashes-to-dashes
-
-(require 'helm-dash)
 
 (setq helm-dash-docsets-path (expand-file-name "~/.docsets")
       helm-dash-min-length 2
@@ -221,10 +217,6 @@
 ;;
 ;; - `dash-at-point'
 ;; - `dash-at-point-with-docset'
-
-;; (require 'dash-at-point)
-(autoload 'dash-at-point "dash-at-point"
-  "Search the word at point with Dash." t nil)
 
 (define-key my-prog-help-document-map (kbd "M-d") 'dash-at-point)
 (define-key my-prog-help-document-map (kbd "M-e") 'dash-at-point-with-docset)

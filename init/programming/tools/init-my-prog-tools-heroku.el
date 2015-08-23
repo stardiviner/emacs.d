@@ -14,8 +14,6 @@
 ;; - [M-x heroku-run] ::
 ;; - [M-x heroku-sql] ::
 
-(require 'heroku)
-
 
 
 

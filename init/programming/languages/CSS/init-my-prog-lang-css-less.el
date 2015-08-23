@@ -10,8 +10,8 @@
 ;;; [ less-css-mode ] -- Emacs support for LESS CSS (lesscss.org)
 
 ;;; Usage:
-
-(autoload 'less-css-mode "less-css-mode" nil t)
+;;
+;; `less-css-mode'
 
 
 ;;; [ skewer-less ] -- Emacs minor mode allowing LESS stylesheet manipulation via skewer-mode.
@@ -40,9 +40,6 @@
 ;;I may consider providing an option to instead run lessc from Emacs, then send
 ;;the output via skewer-css. Let me know if you want this.
 
-
-;; (require 'skewer-less)
-(autoload 'skewer-less-mode "skewer-less" nil t)
 
 ;; (skewer-less-mode)
 

@@ -121,10 +121,7 @@
 
 ;;; Usage:
 
-(require 'visual-regexp)
-
 ;;; [ visual-regexp-steroids.el ] -- Extends visual-regexp to support other regexp engines.
-(require 'visual-regexp-steroids)
 
 (global-set-key (kbd "C-s") 'vr/isearch-forward)
 (global-set-key (kbd "C-r") 'vr/isearch-backward)
@@ -148,8 +145,6 @@
 ;;; - [C-s] -- search
 ;;; - [M-%] -- query-replace
 ;;; - specified lines replacement :: [C-u 3 M-x anzu-query-replace]
-
-(require 'anzu)
 
 (setq anzu-regexp-search-commands '(vr/isearch-forward
                                     vr/isearch-backward
@@ -218,8 +213,6 @@
 
 
 ;;; [ Swpier ] -- gives you an overview as you search for a regex.
-
-(require 'swiper)
 
 ;; 'helm, 'ivy.
 ;; FIXME: helm error.
@@ -404,8 +397,6 @@
 ;; - `ag-mode-hook' :: before search
 ;; - `ag-search-finished-hook' :: when finished search
 
-(require 'ag)
-
 (setq ag-highlight-search t
       ag-reuse-buffers 't
       ag-reuse-window nil ; nil, or 't. (I use value `nil' for popwin to capture)
@@ -450,8 +441,6 @@
 ;; - Helm persistent action :: You can see file content temporarily by persistent action(C-z) at helm-ag and helm-ag-this-file.
 ;;   - [F3] / [C-x C-s] :: save ag results to buffer
 
-(require 'helm-ag)
-
 (setq helm-ag-insert-at-point 'symbol ; same thing as `thing-at-point' such ash: 'word, symbol,
       helm-ag-base-command "ag --nocolor --nogroup --ignore-case" ; helm use color match, so use option `--nocolor' here.
       helm-ag-command-option "--all-text"
@@ -467,8 +456,6 @@
 ;;; Usage:
 ;;
 ;; -
-
-(require 'helm-recoll)
 
 ;;; You need to create some helm-recoll sources before you can use them. You can
 ;;; create sources using the `helm-recoll-create-source' function, e.g. like
@@ -499,8 +486,6 @@
 
 
 ;;; [ pinyin-search ] --
-
-(require 'pinyin-search)
 
 (define-key my-search-language-prefix (kbd "c") 'pinyin-search)
 (define-key my-search-language-prefix (kbd "C") 'pinyin-search-backward)

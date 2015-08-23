@@ -21,9 +21,6 @@
 ;; - `julia-manual-lookup-function'
 ;; - `inferior-julia'
 
-(require 'ess-julia)
-(autoload 'julia-mode "ess-julia" "Julia mode" t)
-
 ;; (setq inferior-julia-args)
 
 (defun my-inferior-julia (&optional process-buffer-name)

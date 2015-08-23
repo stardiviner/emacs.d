@@ -21,8 +21,6 @@
 ;;
 ;; - [M-x eww Enter URL] ::
 
-(require 'eww)
-
 ;;; set to "internal" Emacs Web Wowser
 ;; (setq browse-url-browser-function 'eww-browse-url)
 

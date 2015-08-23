@@ -29,7 +29,6 @@
 ;; - `sourcegraph-analyze' :: analyze code.
 ;; - `sourcegraph-jump-to-def' :: jump to definition.
 
-(require 'sourcegraph)
 
 
 
