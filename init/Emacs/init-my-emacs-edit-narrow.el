@@ -7,7 +7,7 @@
 
 ;;; Code:
 
-;;;_ Narrowing
+;;; [ Narrowing ]
 
 ;;; Usage:
 ;;
@@ -78,14 +78,35 @@ narrowed."
 ;; (define-key ctl-x-map "n" #'narrow-or-widen-dwim)
 
 
-;;;_ fancy-narrow
+;;; [ fancy-narrow ] -- immitate `narrow-to-region' with more eye-candy.
 
+(use-package fancy-narrow
+  :config
+  (unless (boundp 'fancy-narrow-prefix)
+    (define-prefix-command 'fancy-narrow-prefix))
+  (define-key my-narrow-prefix (kbd "C-f") 'fancy-narrow-prefix)
+
+  (define-key fancy-narrow-prefix (kbd "n") 'fancy-narrow-to-region)
+  (define-key fancy-narrow-prefix (kbd "w") 'fancy-widen)
+  (define-key fancy-narrow-prefix (kbd "r") 'fancy-narrow-to-region)
+  (define-key fancy-narrow-prefix (kbd "d") 'fancy-narrow-to-defun)
+  (define-key fancy-narrow-prefix (kbd "p") 'fancy-narrow-to-page)
+
+  (set-face-attribute 'fancy-narrow-blocked-face nil
+                      :foreground "#222222")
+  )
+
+
 ;;;_ narrow-indirect
 
+
+
 ;;;_ narrow-reindent
 
+
 ;;;_ narrowed-page-navigation
 
+
 ;;;_ recursive-narrow
 
 

@@ -40,8 +40,8 @@
     iedit multiple-cursors
     expand-region
     vlf
-    ;; narrow
-    fancy-narrow narrow-indirect narrow-reindent recursive-narrow
+    ;; Narrow
+    ;; fancy-narrow narrow-indirect narrow-reindent recursive-narrow
     ;; narrowed-page-navigation
     ;; Navigation
     show-marks
