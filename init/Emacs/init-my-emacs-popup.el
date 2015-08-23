@@ -127,17 +127,18 @@
 
 
 ;;; [ showtip ]
-;; (load "~/.emacs.d/my-init/extensions/showtip.el")
-;; (setq showtip-timeout 30)
-;; (setq showtip-top-adjust 40)
 
 (require 'showtip)
 
-;; (set-face-attribute 'showtip-face nil
-;;                     :inherit 'tooltip
-;;                     :family "DejaVu Sans Mono"
-;;                     ;; :family "WenQuanYi Zen Hei Mono"
-;;                     )
+(setq showtip-timeout 20
+      showtip-top-adjust 30)
+
+(set-face-attribute 'showtip-face nil
+                    :inherit 'tooltip
+                    :foreground "black" :background "khaki"
+                    :family "DejaVu Sans Mono"
+                    ;; :family "WenQuanYi Zen Hei Mono"
+                    )
 
 
 (provide 'init-my-emacs-popup)
