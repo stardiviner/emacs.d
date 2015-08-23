@@ -87,10 +87,6 @@
                                   ;; helm-source-tracker-search
                                   ;; helm-source-wikipedia-suggest
                                   ;; helm-source-google-suggest
-                                  ;; projectile
-                                  ;; helm-source-projectile-buffer
-                                  ;; helm-source-projectile-recentf-list
-                                  ;; helm-source-projectile-projects
                                   ;; TODO: Org-mode
                                   ;; helm-org-agenda-files-headings
                                   ;; helm-org-in-buffer-headings
