@@ -526,12 +526,6 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;; (whitespace-mode 1)
 ;; (global-whitespace-mode)
 
-;;;_ Ace Jump mode
-
-;; (global-set-key [remap flyspell-auto-correct-previous-word] nil)
-;; FIXME: this does not work, conflict with `flyspell-auto-correct-previous-word'.
-(global-set-key (kbd "C-;") 'ace-jump-mode)
-
 ;;----------------------------------------------------------------------------
 ;; Expand region
 ;;----------------------------------------------------------------------------
