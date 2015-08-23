@@ -16,8 +16,6 @@
 
 (delete-selection-mode t)             ; typed text replaces the active selection
 
-;;;_ Markers
-
 ;;;_ Rectangle
 
 ;;; - [C-x SPC] / [C-x r r m] (custom keybinding) :: `rectangle-mark-mode'

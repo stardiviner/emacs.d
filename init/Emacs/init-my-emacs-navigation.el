@@ -34,6 +34,15 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;; (define-key global-map [remap exchange-point-and-mark] 'exchange-point-and-mark-no-activate)
 
 
+;;;_ show-marks
+
+(global-set-key (kbd "C-c `") 'show-marks)
+
+
+;;;_ visual-mark
+
+
+
 ;;; [ bm.el ]
 
 ;;; Usage:
