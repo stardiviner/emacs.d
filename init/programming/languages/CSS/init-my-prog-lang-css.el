@@ -83,12 +83,21 @@
       (showcss-mode 'toggle)
     (message "Not in an html mode")))
 
-(unless (featurep 'sgml-mode)
-  (require 'sgml-mode))
-(define-key html-mode-map (kbd "C-c C-k") 'my/toggle-showcss)
-(unless (featurep 'web-mode)
-  (require 'web-mode))
-(define-key web-mode-map (kbd "C-c C-k") 'my/toggle-showcss)
+;; (unless (featurep 'sgml-mode)
+;;   (require 'sgml-mode))
+
+(use-package html-mode
+  :config
+  (define-key html-mode-map (kbd "C-c C-k") 'my/toggle-showcss))
+
+;; FIXME:
+;; (unless (featurep 'web-mode)
+;;   (require 'web-mode))
+;; (use-package showcss-mode
+;;   :config
+;;   (define-key web-mode-map (kbd "C-c C-k") 'my/toggle-showcss)
+;;   )
+
 
 
 ;;; [ SCSS ]

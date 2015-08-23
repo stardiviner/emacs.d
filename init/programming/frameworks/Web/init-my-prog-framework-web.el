@@ -546,7 +546,10 @@
   (interactive)
   (insert "# separator\n\n"))
 
-(define-key restclient-mode-map (kbd "C-c C-'") 'restclient-add-separator)
+(use-package restclient
+  :config
+  (define-key restclient-mode-map (kbd "C-c C-'") 'restclient-add-separator))
+
 
 (defun restclient-new-buffer ()
   (interactive)

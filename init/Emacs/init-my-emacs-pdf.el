@@ -67,12 +67,15 @@
       pdf-view-use-scaling t
       )
 
-(set-face-attribute 'pdf-view-rectangle nil
-                    :background (color-darken-name (face-background 'default) 5)
-                    )
-(set-face-attribute 'pdf-view-region nil
-                    :background (color-darken-name (face-background 'default) 3)
-                    )
+(use-package pdf-tools
+  :config
+  (set-face-attribute 'pdf-view-rectangle nil
+                      :background (color-darken-name (face-background 'default) 5)
+                      )
+  (set-face-attribute 'pdf-view-region nil
+                      :background (color-darken-name (face-background 'default) 3)
+                      )
+  )
 
 (add-hook 'pdf-view-mode-hook
           (lambda ()

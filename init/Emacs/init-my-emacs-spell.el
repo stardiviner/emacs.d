@@ -90,12 +90,15 @@
       ;; flyspell-mode-line-string " FlySpell"
       )
 
-;; (define-key flyspell-mode-map (kbd "C-.") 'flyspell-correct-word-before-point)
-(define-key flyspell-mode-map (kbd "C-.") 'flyspell-auto-correct-previous-word)
-(define-key flyspell-mode-map (kbd "C-,") 'flyspell-goto-next-error)
-;; (add-hook 'flyspell-mode-hook
-;;           (unbind-key "C-;" flyspell-mode-map)) ; conflict with iedit-mode toggle keybinding.
-(define-key flyspell-mode-map (kbd "C-M-i") nil) ; fix Org-mode abbreviations expand keybinding [M-Tab].
+(use-package flyspell
+  :config
+  ;; (define-key flyspell-mode-map (kbd "C-.") 'flyspell-correct-word-before-point)
+  (define-key flyspell-mode-map (kbd "C-.") 'flyspell-auto-correct-previous-word)
+  (define-key flyspell-mode-map (kbd "C-,") 'flyspell-goto-next-error)
+  ;; (add-hook 'flyspell-mode-hook
+  ;;           (unbind-key "C-;" flyspell-mode-map)) ; conflict with iedit-mode toggle keybinding.
+  (define-key flyspell-mode-map (kbd "C-M-i") nil) ; fix Org-mode abbreviations expand keybinding [M-Tab].
+  )
 
 (set-face-attribute 'flyspell-incorrect nil
                     :background "#444444" :foreground "red"
@@ -129,10 +132,12 @@
 ;;
 ;; `flyspell-popup-correct'
 
-(if (featurep 'helm-flyspell)
-    (define-key flyspell-mode-map (kbd "C-;") #'helm-flyspell-correct)
-  (define-key flyspell-mode-map (kbd "C-;") #'flyspell-popup-correct))
-
+(use-package flyspell
+  :config
+  (if (featurep 'helm-flyspell)
+      (define-key flyspell-mode-map (kbd "C-;") #'helm-flyspell-correct)
+    (define-key flyspell-mode-map (kbd "C-;") #'flyspell-popup-correct))
+  )
 
 
 ;;; [ flyguess ] -- guess language/dictionary for a buffer

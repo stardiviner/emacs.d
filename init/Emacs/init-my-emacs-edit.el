@@ -440,14 +440,18 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;;                          (face font-lock-warning-face))
 ;;                        (mc/num-cursors)))))
 
-(set-face-attribute 'mc/cursor-face nil
-                    :inverse-video nil
-                    :foreground nil
-                    :background "dark red")
-(set-face-attribute 'mc/region-face nil
-                    :inverse-video nil
-                    :foreground nil
-                    :background (color-darken-name (face-background 'default) 4))
+(use-package multiple-cursors
+ :config
+ (set-face-attribute 'mc/cursor-face nil
+		     :inverse-video nil
+		     :foreground nil
+		     :background "dark red")
+ (set-face-attribute 'mc/region-face nil
+		     :inverse-video nil
+		     :foreground nil
+		     :background (color-darken-name (face-background 'default) 4))
+ )
+
 
 ;;;_ scratch.el -- launch a scratch buffer for the current mode.
 

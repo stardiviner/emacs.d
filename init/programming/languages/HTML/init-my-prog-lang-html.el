@@ -92,7 +92,10 @@
 
 ;; you may key bind, for example for web-mode:
 
-(define-key web-mode-map (kbd "C-'") 'company-web-html)
+(use-package web-mode
+  :config
+  (define-key web-mode-map (kbd "C-'") 'company-web-html)
+  )
 
 
 ;;; [ ac-html ] -- Provide accurate and intelligent auto completion to HTML and CSS.

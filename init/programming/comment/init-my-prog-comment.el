@@ -156,10 +156,21 @@ This functions should be added to the hooks of major modes for programming."
       ;; (define-key poporg-mode-map [remap save-buffer] 'poporg-edit-exit)
       ))
 
-(set-face-attribute 'poporg-edited-face nil
-                    :foreground "green yellow"
-                    :background (color-darken-name (face-background 'default) 5)
-                    :slant 'italic)
+(use-package poporg
+  :config
+  (set-face-attribute 'poporg-edited-face nil
+                      :foreground "green yellow"
+                      :background (color-darken-name (face-background 'default) 5)
+                      :slant 'italic)
+  )
+
+;; FIXME: this does not work for me.
+;; save/restore window configuration when creating/killing poporg buffer.
+;; TODO: make poporg popup buffer, so that `popwin' can manage it.
+(add-to-list 'display-buffer-alist
+             '("\\*poporg.*?\\*" . ((display-buffer-reuse-window
+                                     display-buffer-pop-up-window)
+                                    . ((inhibit-same-window . t)))))
 
 
 (provide 'init-my-prog-comment)

@@ -20,26 +20,29 @@
 ;; (add-to-list 'auto-mode-alist '("\\.html.erb$" . rhtml-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . rhtml-mode))
 
-(set-face-attribute 'erb-face nil ; ruby code
-                    :background (color-darken-name (face-background 'default) 2)
-                    )
-(set-face-attribute 'erb-exec-face nil ; exec in <% ... %>
-                    :inherit 'erb-face
-                    :background (color-darken-name (face-background 'default) 5)
-                    )
-(set-face-attribute 'erb-out-face nil ; exec in <%= ... %>
-                    :inherit 'erb-face
-                    :background (color-darken-name (face-background 'default) 5)
-                    )
-(set-face-attribute 'erb-exec-delim-face nil ; <% ... %>
-                    :inherit 'erb-face
-                    :foreground "deep pink"
-                    :weight 'bold
-                    )
-(set-face-attribute 'erb-out-delim-face nil ; <%= ... %>
-                    :inherit 'erb-face
-                    :foreground "red"
-                    )
+(use-package rhtml-mode
+  :config
+  (set-face-attribute 'erb-face nil ; ruby code
+                      :background (color-darken-name (face-background 'default) 2)
+                      )
+  (set-face-attribute 'erb-exec-face nil ; exec in <% ... %>
+                      :inherit 'erb-face
+                      :background (color-darken-name (face-background 'default) 5)
+                      )
+  (set-face-attribute 'erb-out-face nil ; exec in <%= ... %>
+                      :inherit 'erb-face
+                      :background (color-darken-name (face-background 'default) 5)
+                      )
+  (set-face-attribute 'erb-exec-delim-face nil ; <% ... %>
+                      :inherit 'erb-face
+                      :foreground "deep pink"
+                      :weight 'bold
+                      )
+  (set-face-attribute 'erb-out-delim-face nil ; <%= ... %>
+                      :inherit 'erb-face
+                      :foreground "red"
+                      )
+  )
 
 
 ;;; MuMaMo-Mode
@@ -82,7 +85,9 @@
   (interactive)
   (browse-url "http://127.0.0.1:3000"))
 
-(define-key projectile-rails-command-map (kbd "O") 'rails-open-browser-development)
+(use-package projectile-rails
+  :config
+  (define-key projectile-rails-command-map (kbd "O") 'rails-open-browser-development))
 
 
 

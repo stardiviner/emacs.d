@@ -12,6 +12,7 @@
     namespaces
     let-alist ; (from GNU ELPA)
     paradox
+    use-package
     
     ;; Emacs
     ;; Apperance

@@ -366,9 +366,12 @@
       )
 
 (define-key my-prog-vcs-map (kbd "p") 'git-messenger:popup-message)
-(define-key git-messenger-map (kbd "m") 'git-messenger:copy-message)
-;; enable `magit-commit-mode' after typing 's', 'S', 'd'
-(add-hook 'git-messenger:popup-buffer-hook 'magit-commit-mode)
+(use-package git-messenger
+  :config
+  (define-key git-messenger-map (kbd "m") 'git-messenger:copy-message)
+  ;; enable `magit-commit-mode' after typing 's', 'S', 'd'
+  (add-hook 'git-messenger:popup-buffer-hook 'magit-commit-mode)
+  )
 
 
 

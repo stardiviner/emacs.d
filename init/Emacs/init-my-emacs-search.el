@@ -403,13 +403,16 @@
       ;; ag-arguments
       )
 
-(set-face-attribute 'ag-hit-face nil
-                    :foreground "gray" :background "black")
-(set-face-attribute 'ag-match-face nil
-                    :inverse-video nil
-                    :foreground "red"
-                    :background (color-darken-name (face-background 'default) 5)
-                    )
+(use-package ag
+  :config
+  (set-face-attribute 'ag-hit-face nil
+                      :foreground "gray" :background "black")
+  (set-face-attribute 'ag-match-face nil
+                      :inverse-video nil
+                      :foreground "red"
+                      :background (color-darken-name (face-background 'default) 5)
+                      )
+  )
 
 ;; This will auto open search results in other window.
 ;; (add-hook 'ag-mode-hook #'next-error-follow-minor-mode) ; so you can navigate with 'n' & 'p'.

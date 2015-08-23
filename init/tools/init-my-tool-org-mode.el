@@ -144,9 +144,12 @@
               (org-indent-mode 1))
             ))
 
-(set-face-attribute 'org-indent nil
-                    :foreground "deep pink"
-                    )
+(use-package org
+  :config
+  (set-face-attribute 'org-indent nil
+                      :foreground "deep pink"
+                      )
+  )
 
 ;;;_* Faces
 
@@ -1202,25 +1205,28 @@ This is especially for create Org files."
 
 ;;;_*, org-habit faces
 
-(set-face-attribute 'org-habit-clear-face nil ; for days that task shouldn't be done yet
-                    :background "dark green"
-                    :foreground "gray")
-(set-face-attribute 'org-habit-clear-future-face nil ; for future days that task shouldn't be done yet
-                    :background "dark gray")
-(set-face-attribute 'org-habit-ready-face nil ; for days that task is done
-                    :background "#333333"
-                    :foreground "gray")
-(set-face-attribute 'org-habit-ready-future-face nil ; task should be start
-                    :background "dodger blue")
-(set-face-attribute 'org-habit-alert-future-face nil ; task is going to be due
-                    :background "dark orange")
-(set-face-attribute 'org-habit-alert-face nil ; task is due
-                    :background "dark red")
-(set-face-attribute 'org-habit-overdue-face nil ; for days that task is overdue before today
-                    :background "saddle brown"
-                    :foreground "white")
-(set-face-attribute 'org-habit-overdue-future-face nil ; task in future
-                    :background "slate gray")
+(use-package org-faces
+  :config
+  (set-face-attribute 'org-habit-clear-face nil ; for days that task shouldn't be done yet
+                      :background "dark green"
+                      :foreground "gray")
+  (set-face-attribute 'org-habit-clear-future-face nil ; for future days that task shouldn't be done yet
+                      :background "dark gray")
+  (set-face-attribute 'org-habit-ready-face nil ; for days that task is done
+                      :background "#333333"
+                      :foreground "gray")
+  (set-face-attribute 'org-habit-ready-future-face nil ; task should be start
+                      :background "dodger blue")
+  (set-face-attribute 'org-habit-alert-future-face nil ; task is going to be due
+                      :background "dark orange")
+  (set-face-attribute 'org-habit-alert-face nil ; task is due
+                      :background "dark red")
+  (set-face-attribute 'org-habit-overdue-face nil ; for days that task is overdue before today
+                      :background "saddle brown"
+                      :foreground "white")
+  (set-face-attribute 'org-habit-overdue-future-face nil ; task in future
+                      :background "slate gray")
+  )
 
 ;;;_*, org-habit keybindings
 
