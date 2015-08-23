@@ -98,7 +98,7 @@
 ;;; open Org-Agenda at startup.
 ;; (org-agenda-list)
 
-(org-todo-list t)
+;; (org-todo-list t)
 ;; FIXME: (org-agenda-redo 5) ; Urgent tasks
 
 ;; (setq initial-buffer-choice "*Org Agenda*")
