@@ -1093,16 +1093,17 @@ This is especially for create Org files."
 ;;;_* properties and columns
 
 ;;; properties
-(setq org-global-properties ; will be combined with constant `org-global-properties-fixed'
-      '(("Effort" . "0:15 0:30 0:45 1:00 2:00 3:00 4:00 5:00 6:00 0:00")
-        ("Title" . nil)
-        ("Writer" . "stardiviner")
-        ("Author" . "stardiviner")
-        ;; ("Time" . ,(format-time-string "[%Y-%m-%d %a %H:%M:%S]")) ; [2013-07-09 Tue 13:69:56]
-        ;;; (current-time-string), (format-time-string "%Y-%m-%d %H:%M:%S")
-        ("Source" . nil)
-        ("Original" . nil)
-        ))
+;; TODO: customize this variable.
+;; (setq org-global-properties ; will be combined with constant `org-global-properties-fixed'
+;;       '(("Effort" . "0:15 0:30 0:45 1:00 2:00 3:00 4:00 5:00 6:00 0:00")
+;;         ("Title" . nil)
+;;         ("Writer" . "stardiviner")
+;;         ("Author" . "stardiviner")
+;;         ;; ("Time" . ,(format-time-string "[%Y-%m-%d %a %H:%M:%S]")) ; [2013-07-09 Tue 13:69:56]
+;;         ;;; (current-time-string), (format-time-string "%Y-%m-%d %H:%M:%S")
+;;         ("Source" . nil)
+;;         ("Original" . nil)
+;;         ))
 
 (setq org-columns-default-format "%25ITEM %TODO %3PRIORITY %TAGS %6effort(EFFORT){:}") ; default: "%25ITEM %TODO %3PRIORITY %TAGS"
 
