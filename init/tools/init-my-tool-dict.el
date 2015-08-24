@@ -47,10 +47,10 @@
 ;;
 ;; - from wordnik.com API
 
-(require 'define-word)
-
-(define-key dictionary-map (kbd "p") 'define-word-at-point)
-(define-key dictionary-map (kbd "w") 'define-word)
+;; (require 'define-word)
+;;
+;; (define-key dictionary-map (kbd "p") 'define-word-at-point)
+;; (define-key dictionary-map (kbd "w") 'define-word)
 
 
 ;;; [ babel ] -- An Emacs interface to different translation services available on the Internet.
