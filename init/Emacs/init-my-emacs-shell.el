@@ -127,19 +127,19 @@
 ;; - To toggle shelldoc feature.
 ;;   M-x shelldoc
 
-(require 'shelldoc)
-
-(setq shelldoc-keep-man-locale nil ; To show original man page initially. (probably english)
-      shelldoc-idle-delay 0.2
-      shelldoc-fuzzy-match-requires 2
-      )
-
-;; minor mode for eshell
-(add-hook 'eshell-mode-hook 'shelldoc-minor-mode-on)
-;; minor mode for sh-mode (editing shell script)
-(add-hook 'sh-mode-hook 'shelldoc-minor-mode-on)
-;; M-x shell -> shell-mode (inferior)
-(add-hook 'shell-mode-hook 'shelldoc-minor-mode-on)
+;; (require 'shelldoc)
+;;
+;; (setq shelldoc-keep-man-locale nil ; To show original man page initially. (probably english)
+;;       shelldoc-idle-delay 0.2
+;;       shelldoc-fuzzy-match-requires 2
+;;       )
+;;
+;; ;; minor mode for eshell
+;; (add-hook 'eshell-mode-hook 'shelldoc-minor-mode-on)
+;; ;; minor mode for sh-mode (editing shell script)
+;; (add-hook 'sh-mode-hook 'shelldoc-minor-mode-on)
+;; ;; M-x shell -> shell-mode (inferior)
+;; (add-hook 'shell-mode-hook 'shelldoc-minor-mode-on)
 
 
 
