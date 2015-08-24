@@ -2243,6 +2243,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
    ;; (C++ . t)                            ; C++
    (java . t)                           ; Java
    (awk . t)                            ; Awk
+   (sed . t)                            ; Sed
    (screen . t)                         ; Screen
    (lisp . t)                           ; Lisp
    (scheme . t)                         ; Scheme
@@ -2250,8 +2251,8 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
    (clojure . t)                        ; Clojure
    (haskell . t)                        ; Haskell
    (scala . t)                          ; Scala
-   ;; (io . t)                             ; IO
-   ;; (J . t)                              ; J
+   (io . t)                             ; IO
+   (J . t)                              ; J
    (ocaml . t)                          ; Objective Caml
    (js . t)                             ; JavaScript
    (css . t)                            ; CSS
@@ -2273,7 +2274,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
    (sass . t)                           ; Sass
    
    ;; extra babel support
-   (go . t)                             ; ob-go
+   ;; (go . t)                             ; ob-go
    (prolog . t)                         ; ob-prolog
    (julia . t)                          ; ob-julia
    (processing . t)                     ; Processing
