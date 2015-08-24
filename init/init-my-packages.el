@@ -44,6 +44,7 @@
     iedit multiple-cursors
     expand-region
     vlf
+    tablist
     ;; Narrow
     ;; fancy-narrow narrow-indirect narrow-reindent recursive-narrow
     ;; narrowed-page-navigation
@@ -76,8 +77,6 @@
     ;; Popup
     popup pos-tip
     showtip
-    ;; Overlay
-    ;; ov
     ;; Frame, Window & Session Management
     window-number
     popwin ; shackle
@@ -95,14 +94,14 @@
     ;; Color
     ansi-color rainbow-mode kurecolor
     ;; Process
-    ;; async ; dizzee ; prodigy
+    ;; dizzee ; prodigy
     ;; Server
     ;; elnode web-server websocket ; httpd
-
+    
     ;; Shell
     eshell ; shell-here shell-toggle
     ;; shelldoc
-
+    
     ;; Org-mode
     org org-plus-contrib
     org-bullets
@@ -112,7 +111,7 @@
     org-projectile
     org-download
     org-password-manager
-                                        ; org-caldav org-gcal org-mac-iCal
+    ;; org-caldav org-gcal org-mac-iCal
     orgtbl-ascii-plot
     orgit
     ob-prolog
@@ -121,10 +120,10 @@
     ob-ipython
     ;; ob-translate
     org-screenshot
+    org-projectile
     ;; org-pomodoro
-    ;; org-trello
     ;; org-vcard
-    ;; org-projectile org-redmine org-readme
+    ;; org-trello org-redmine org-readme
     ;; org-tree-slide
     
     ;; Programming
@@ -195,10 +194,11 @@
     ;; Bug Track System
     ;; bts bts-github
     ;; Test
+    ;; cerbere test-case-mode
     ;; runtests
     ;; Refactor
     ;; emr
-
+    
     ;; Languages
     ;; Lisp
     rainbow-delimiters rainbow-blocks
@@ -210,6 +210,8 @@
     elisp-slime-nav
     eldoc-eval
     hl-sexp highlight-symbol highlight-escape-sequences
+    ;; ert
+    ;; ert-async  ert-runner ert-modeline ert-expectations ; ert-junit
     ;; C & C++
     irony irony-eldoc flycheck-irony
     company-irony company-irony-c-headers
@@ -245,9 +247,15 @@
     ;; Java
     ;; jdee
     ;; PHP
-    ;; inf-php
+    ;; php-mode inf-php
+    ;; Nim
+    ;; nim-mode
     ;; Rust
     ;; rust-mode flycheck-rust
+    ;; Haskell
+    ;; haskell-mode
+    ;; Erlang
+    ;; erlang
     ;; Julia
     julia-mode
     ;; ESS
@@ -293,6 +301,8 @@
     js-comint
     tern company-tern tj-mode
     jst jss
+    ;; Node.js
+    ;; nodejs-repl
     ;; CoffeeScript
     ;; coffee-mode
     ;; Web
@@ -325,11 +335,13 @@
     ;; sass-mode
     ;; Haml
     ;; haml-mode
-
+    
     ;; Frameworks
     ;; Ruby on Rails
     projectile-rails rails-new ; helm-rails
     rhtml-mode
+    ;; Android
+    ;; android-mode
     ;; Arduino
     arduino-mode company-arduino
 
@@ -366,13 +378,13 @@
     ;; mu4e
     mu4e-maildirs-extension helm-mu
     ;; Contacts
-    bbdb bbdb-vcard
+    bbdb bbdb-vcard bbdb-csv-import
     ;; Feeds: RSS & Atom
     elfeed elfeed-web
     ;; Blog
     octopress org-octopress
     ;; Calendar
-    icalendar calfw calfw-gcal
+    calfw ; calfw-gcal
     ;; Chat
     ;; IRC
     ;; erc circe
@@ -392,12 +404,24 @@
     world-time-mode
     ;; Collaborate
     ;; rudel togetherly
-
+    
+    ;; Emacs Libraries
+    ;; Object
+    ;; @
+    ;; Overlay
+    ;; ov
+    ;; Popup
+    ;; Process
+    ;; Widget
+    ;; widget-mvc
+    ;; async deferred concurrent
+    
     ;; Languages
     ;; Chinese
     ;; pangu-spacing
     ;; pinyin-search
     ;; Japanese
+    ;; migemo
     )
   "A list of packages to ensure are installed at launch.")
 
