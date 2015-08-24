@@ -139,8 +139,15 @@
 (define-key my-inferior-lisp-map (kbd "k") 'my-scratch-start-or-switch)
 
 
+;;; [ ERT ] -- Emacs Lisp Regression Testing.
 
-
+;;; Usage:
+;;
+;; - `ert-deftest'
+;; - `ert-run-tests-batch'
+;; - `ert-run-tests-batch-and-exit'
+;; - `ert-run-tests-interactively' => alias `ert'
+;; - `ert-describe-test'
 
 
 
