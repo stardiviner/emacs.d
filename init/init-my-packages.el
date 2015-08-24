@@ -242,6 +242,8 @@
     cider-eval-sexp-fu
     flycheck-clojure
     elein
+    ;; Elixir
+    elixir-mode alchemist
     ;; Go
     go-mode company-go go-eldoc
     ;; Java
