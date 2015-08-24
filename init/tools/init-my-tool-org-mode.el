@@ -294,13 +294,19 @@
                     :weight 'normal :slant 'normal
                     :box '(:color "black" :line-width 1)
                     )
+
 ;; seems face `org-block-background' is removed from commit: f8b42e8ebeeecdef59a8a7cbc4324264a5162197 , because it is slower for fontify.
+;; FIXME: how to detect a face is defined?
+;; (if (boundp 'org-block-background)
+;;     (set-face-attribute 'org-block-background nil
+;;                         :foreground nil :background "#222222"
+;;                         :foreground nil :background "#004A5D"
+;;                         ))
 ;; (set-face-attribute 'org-block-background nil
-;;                     :foreground nil :background "#222222"
-;;                     :foreground nil :background "#004A5D"
+;;                     :foreground nil
+;;                     ;; :background "#073642"
+;;                     :background (color-darken-name (face-background 'default) 5)
 ;;                     )
-
-
 ;; code face => ~code~,  #+RESULTS: : result.
 (set-face-attribute 'org-code nil
                     :background "#222222" :foreground "orange"
