@@ -150,7 +150,7 @@
 (use-package org-indent
   :config
   (set-face-attribute 'org-indent nil
-                      :foreground "deep pink"
+                      :foreground nil :background nil
                       )
   )
 
