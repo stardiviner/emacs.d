@@ -144,7 +144,7 @@
               (org-indent-mode 1))
             ))
 
-(use-package org
+(use-package org-indent
   :config
   (set-face-attribute 'org-indent nil
                       :foreground "deep pink"
@@ -1209,7 +1209,7 @@ This is especially for create Org files."
 
 ;;;_*, org-habit faces
 
-(use-package org-faces
+(use-package org-habit
   :config
   (set-face-attribute 'org-habit-clear-face nil ; for days that task shouldn't be done yet
                       :background "dark green"
@@ -2673,6 +2673,8 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 ;;;_*, org-notify
 
+(require 'org-notify)
+
 (setq org-notify-audible t
       ;; org-notify-parse-file
       ;; org-notify-window-buffer-name
@@ -2925,30 +2927,33 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;; Customize ~org-download-backend~ to choose between ~url-retrieve~ (the /default/) or ~wget~ or ~curl~.
 ;;
 
-;; (require 'org-download)
+(org-download-enable)
 
-(setq org-download-screenshot-method "scrot -s %s"
-      org-download-method 'dictionary ; 'attach, 'dictionary,
-      org-download-backend t ; url-retrieve, wget, curl.
-      ;; org-download-heading-lvl
-      ;; org-download-timestamp "_%Y-%m-%d_%H:%M:%S"
-      org-download-image-dir "data/images" ; nil: default to "."
-      ;; org-download-image-width nil ; use #+attr_html: :width
-      ;; org-download-img-regex-list '("<img +src=\"" "<img +\\(class=\"[^\"]+\"\\)? *src=\"")
-      )
+(use-package org-download
+  :config
+  (setq org-download-screenshot-method "scrot -s %s"
+        org-download-method 'dictionary ; 'attach, 'dictionary,
+        org-download-backend t ; url-retrieve, wget, curl.
+        ;; org-download-heading-lvl
+        ;; org-download-timestamp "_%Y-%m-%d_%H:%M:%S"
+        org-download-image-dir "data/images" ; nil: default to "."
+        ;; org-download-image-width nil ; use #+attr_html: :width
+        ;; org-download-img-regex-list '("<img +src=\"" "<img +\\(class=\"[^\"]+\"\\)? *src=\"")
+        )
 
-(unless (boundp 'my-org-download-map)
-  (define-prefix-command 'my-org-download-map))
-(define-key my-org-prefix-map (kbd "d") 'my-org-download-map)
+  (unless (boundp 'my-org-download-map)
+    (define-prefix-command 'my-org-download-map))
+  (define-key my-org-prefix-map (kbd "d") 'my-org-download-map)
 
-(define-key my-org-download-map (kbd "i") 'org-download-image)
-(define-key my-org-download-map (kbd "s") 'org-download-screenshot)
-(define-key my-org-download-map (kbd "y") 'org-download-yank)
-(define-key my-org-download-map (kbd "d") 'org-download-delete)
+  (define-key my-org-download-map (kbd "i") 'org-download-image)
+  (define-key my-org-download-map (kbd "s") 'org-download-screenshot)
+  (define-key my-org-download-map (kbd "y") 'org-download-yank)
+  (define-key my-org-download-map (kbd "d") 'org-download-delete)
 
-(define-key org-mode-map (kbd "<drag-n-drop>") 'org-download-dnd)
-(define-key org-mode-map (kbd "<C-drag-n-drop>") 'org-download-dnd)
-(define-key org-mode-map (kbd "<M-drag-n-drop>") 'org-download-dnd)
+  (define-key org-mode-map (kbd "<drag-n-drop>") 'org-download-dnd)
+  (define-key org-mode-map (kbd "<C-drag-n-drop>") 'org-download-dnd)
+  (define-key org-mode-map (kbd "<M-drag-n-drop>") 'org-download-dnd)
+  )
 
 ;;;_* org-pomodoro
 

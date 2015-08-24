@@ -415,8 +415,6 @@
 
 ;;; [ on-screen ]
 
-(require 'on-screen)
-
 (setq on-screen-auto-update t
       on-screen-delay 10
       on-screen-drawing-threshold 2
@@ -432,12 +430,15 @@
       on-screen-highlight-method 'narrow-line
       )
 
-(set-face-attribute 'on-screen-fringe nil
-                    :foreground "red")
-(set-face-attribute 'on-screen-narrow-line nil
-                    :underline '(:color "white" :style line))
-(set-face-attribute 'on-screen-shadow nil
-                    :background "dark gray")
+(use-package on-screen
+  :config
+  (set-face-attribute 'on-screen-fringe nil
+		      :foreground "red")
+  (set-face-attribute 'on-screen-narrow-line nil
+		      :underline '(:color "white" :style line))
+  (set-face-attribute 'on-screen-shadow nil
+		      :background "dark gray")
+  )
 
 
 ;;; [ Fold ]

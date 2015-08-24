@@ -60,10 +60,6 @@
 
 (require 'helm)
 (require 'helm-config)
-
-;; (require 'helm-grep)
-(require 'helm-org)
-
 (require 'helm-misc)
 
 (helm-mode 1) ; enable Helm mode initially.
