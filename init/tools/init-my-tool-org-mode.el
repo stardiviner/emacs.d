@@ -1568,7 +1568,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
                          "~/Org/Tasks.org"
                          "~/Org/Daily.org"
                          "~/Org/Work/Work.org"
-                         "~/Org/Projects/Projects.org"
+                         "~/Org/Projects/"
                          "~/Org/Capture/" ; FIXME: "~/Org/Capture/*.org" add with (file-expand-wildcards "~/Org/Capture/*.org")
                          "~/Org/Wiki/Learning/Learning.org"
                          "~/Org/Wiki/Learning/MyLearningPlan/Learn Programming.org"
