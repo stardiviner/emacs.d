@@ -9,15 +9,19 @@
 
 ;;; [ json-mode ] -- Extends the builtin js-mode to add better syntax highlighting for JSON.
 
-(require 'json-mode)
-
-
-;;; [ json-reformat ] -- Reformat tool for JSON
-
 ;;; Usage:
-;; - [M-x json-reformat-region]
+;;
+;; - `json-mode-beautify'
+;;
+;; - `json-reformat'
+;;
+;; - `json-snatcher'
+;;
+;;    Say you're looking through a large JSON file, and see a value that you
+;;    want to extract programmatically. This Emacs extension will allow you to
+;;    snatch the path to this value.
 
-(require 'json-reformat)
+(require 'json-mode)
 
 (setq json-reformat:indent-width 2
       json-reformat:pretty-string? t ; decode some special characters. like \u00e4.
@@ -25,18 +29,8 @@
       ;;                                                (?\\ . ?\\))
       )
 
-
-;;; [ json-snatcher ] --
-
-;; Say you're looking through a large JSON file, and see a value that you want
-;; to extract programmatically. This Emacs extension will allow you to snatch
-;; the path to this value.
-
-(require 'json-snatcher)
-
 ;; Then add the following lines to your .emacs file, which sets a hotkey when
 ;; editing JSON files in either js or js2 mode
-
 (defun js-mode-bindings ()
   "Sets a hotkey for using the json-snatcher plugin"
   (when (string-match  "\\.json$" (buffer-name))
