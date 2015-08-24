@@ -515,6 +515,7 @@ For example: input regexp like [[:space:]]+ for align several space separated se
 
 
 (require 'init-my-emacs-edit-narrow)
+(require 'init-my-emacs-edit-tabulate)
 
 
 
