@@ -56,7 +56,7 @@
 
 ;;; color-theme-monokai
 
-(load-theme 'monokai t)
+;; (load-theme 'monokai t)
 
 
 ;;; color-theme-almost-monokai
@@ -64,9 +64,6 @@
 ;; (color-theme-almost-monokai)
 
 ;;; monokai-theme
-
-;; (load-file "~/.emacs.d/init/color-themes/monokai-theme.el")
-;; ;; (load-file "~/.emacs.d/init/color-themes/molokai-theme.el")
 
 ;; (load-theme 'monokai t)
 
