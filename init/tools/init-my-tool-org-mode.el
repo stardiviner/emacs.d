@@ -34,7 +34,9 @@
 ;;; [ Org Modules ]
 ;; Modules that should always be loaded together with org.el.
 (setq org-modules '(org-pcomplete
-                    org-faces org-fstree org-table org-compat
+                    org-faces
+                    ;; org-fstree
+                    org-table org-compat
                     ;; org-protocol
                     org-timer org-clock org-habit org-notify
                     org-info org-bibtex org-docview
