@@ -409,6 +409,7 @@
   (define-key my-outline-prefix (kbd "C") 'origami-close-all-nodes)
   (define-key my-outline-prefix (kbd "o") 'origami-open-node)
   (define-key my-outline-prefix (kbd "O") 'origami-open-all-nodes)
+  (define-key my-outline-prefix (kbd "T") 'origami-recursively-toggle-node)
   (define-key my-outline-prefix (kbd ">") 'origami-open-node-recursively)
   (define-key my-outline-prefix (kbd "<") 'origami-close-node-recursively)
   (define-key my-outline-prefix (kbd "O") 'origami-show-only-node)

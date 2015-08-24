@@ -194,6 +194,7 @@
 ;;                                        'company-yasnippet-or-completion
 ;;                                        company-active-map)))
 
+;; (global-set-key (kbd "<tab>") 'company-indent-or-complete-common)
 
 ;; navigation
 (define-key company-active-map "\t" nil)

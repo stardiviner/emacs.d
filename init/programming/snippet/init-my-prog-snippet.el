@@ -104,7 +104,8 @@
 ;; - [Tab]
 ;; - or [C-Tab]
 
-(define-key yas-minor-mode-map [tab] 'yas-expand)
+(define-key yas-minor-mode-map (kbd "<tab>") 'yas-expand) ; (kbd "<tab>") is same with [tab]
+(define-key yas-minor-mode-map (kbd "TAB") #'indent-for-tab-command)
 
 ;;; source code implement
 ;; (defvar yas-keymap  (let ((map (make-sparse-keymap)))
