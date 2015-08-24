@@ -599,6 +599,17 @@
 ;;; [ helm-robe ]
 
 
+;;; [ Zossima ] -- Jump to definition in Emacs, driven by a live Ruby subprocess.
+
+;;; Usage:
+;;
+;; - [M-.]
+;; - [M-,]
+
+(add-hook 'ruby-mode-hook 'zossima-mode)
+(add-hook 'enh-ruby-mode-hook 'zossima-mode)
+
+
 ;;; [ ruby-compilation ]
 
 ;;; Usage:
