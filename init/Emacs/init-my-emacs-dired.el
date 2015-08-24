@@ -17,7 +17,6 @@
 (require 'dired-x)
 (require 'wdired)
 
-(setq dired-listing-switches "-alh")
 
 ;; `dired-do-shell-command' does not know (by default) how to handle some
 ;; filetypes.
