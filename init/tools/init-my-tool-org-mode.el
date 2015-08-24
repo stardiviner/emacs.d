@@ -135,8 +135,9 @@
       org-indent-mode-turns-on-hiding-stars t
       org-indent-indentation-per-level 2
       ;; org-indent-max-levels 20
-      org-indent-stars
-      org-indent-strings
+      ;; TODO:
+      ;; org-indent-stars
+      ;; org-indent-strings
       ;; org-indent-boundary-char 32
       )
 
