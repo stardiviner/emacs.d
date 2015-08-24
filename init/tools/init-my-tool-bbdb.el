@@ -127,20 +127,23 @@
 ;;; Faces
 ;; (bbdb-faces)
 
-(set-face-attribute 'bbdb-name nil
-                    :inherit 'font-lock-function-name-face
-                    ;; :foreground "cyan"
-                    :weight 'bold
-                    )
-(set-face-attribute 'bbdb-organization nil
-                    :inherit 'font-lock-comment-face
-                    ;; :foreground ""
-                    :slant 'italic
-                    )
-(set-face-attribute 'bbdb-field-name nil
-                    :inherit 'font-lock-variable-name-face
-                    :foreground "sky blue"
-                    )
+(use-package bbdb
+  :config
+  (set-face-attribute 'bbdb-name nil
+                      :inherit 'font-lock-function-name-face
+                      ;; :foreground "cyan"
+                      :weight 'bold
+                      )
+  (set-face-attribute 'bbdb-organization nil
+                      :inherit 'font-lock-comment-face
+                      ;; :foreground ""
+                      :slant 'italic
+                      )
+  (set-face-attribute 'bbdb-field-name nil
+                      :inherit 'font-lock-variable-name-face
+                      :foreground "sky blue"
+                      )
+  )
 
 
 
