@@ -179,6 +179,7 @@
 
 (add-to-list 'aggressive-indent-dont-electric-modes 'ruby-mode)
 (add-to-list 'aggressive-indent-dont-electric-modes 'enh-ruby-mode)
+(add-to-list 'aggressive-indent-dont-electric-modes 'inf-ruby-mode)
 
 ;; The variable `aggressive-indent-dont-indent-if' lets you customize when you
 ;; **don't** want indentation to happen.  For instance, if you think it's
