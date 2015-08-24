@@ -1174,6 +1174,17 @@ This is especially for create Org files."
 ;;              (if (not org-timer-current-timer) ; FIXME: this variable seems not part of `org-timer'.
 ;;                  (org-timer-set-timer '(16)))))
 
+;; NOTE: make a new helm version of org-clock-select-task and advice an override for org's own version:
+;; https://github.com/emacs-helm/helm/issues/898
+;; https://gist.github.com/andersjohansson/c031dc357cc81537d7c3
+(if (featurep 'helm)
+    (progn
+      (require 'helm-org)
+      (advice-add 'org-clock-select-task :override #'helm-org-clock-select-task)
+      ;; (advice-remove 'org-clock-select-task #'helm-org-clock-select-task)
+      ))
+
+
 ;;;_*, effort estiname
 
 (setq org-effort-property "Effort"
