@@ -143,6 +143,9 @@
 ;; -
 
 
+(add-hook 'sql-mode-hook
+          (lambda ()
+            (edbi-minor-mode)))
 
 
 ;;; [ edbi-sqlite ] -- edbi helper application
