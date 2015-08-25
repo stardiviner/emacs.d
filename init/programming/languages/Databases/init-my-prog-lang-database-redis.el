@@ -7,7 +7,11 @@
 
 ;;; Code:
 
-;;; [ eredis ] -- A simple emacs interface to redis
+;;; [ redis ] -- Redis integration
+
+
+
+;;; [ eredis ] -- a Redis client in emacs lisp
 
 
 
