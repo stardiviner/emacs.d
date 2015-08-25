@@ -180,6 +180,7 @@
 (require 'init-my-emacs-spell)
 (require 'init-my-emacs-file)
 (require 'init-my-emacs-tramp)
+(require 'init-my-emacs-color)
 (require 'init-my-emacs-image)
 (require 'init-my-emacs-pdf)
 (require 'init-my-emacs-dired)
