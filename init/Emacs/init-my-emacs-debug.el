@@ -21,21 +21,21 @@
 
 ;; [C-h i g (elisp) Debugging RET]
 
-(setq debug-on-error t
-      ;; debug-on-quit t
-      ;; debug-on-signal nil
-      ;; debug-on-next-call nil
-      ;; debug-on-event
-      ;; debug-on-message nil ; REGEXP
-      )
+;; - debug-on-error t
+;; - debug-on-quit t
+;; - debug-on-signal nil
+;; - debug-on-next-call nil
+;; - debug-on-event
+;; - debug-on-message nil ; REGEXP
 
 ;; If your init file sets debug-on-error, the effect may not last past the end
 ;; of loading the init file. (This is an undesirable byproduct of the code that
 ;; implements the `--debug-init' command line option.) The best way to make the
 ;; init file set debug-on-error permanently is with after-init-hook, like this:
-(add-hook 'after-init-hook
-          (lambda ()
-            (setq debug-on-error t)))
+;
+;; (add-hook 'after-init-hook
+;;           (lambda ()
+;;             (setq debug-on-error t)))
 
 ;;; Debug: Trace
 (setq stack-trace-on-error t)
