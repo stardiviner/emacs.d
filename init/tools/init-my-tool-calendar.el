@@ -230,10 +230,10 @@
 ;;; Keybindings
 
 ;;; Global Keybinding
-(unless (boundp 'my-calendar-prefix-map)
-  (define-prefix-command 'my-calendar-prefix-map))
-(define-key my-tools-prefix-map (kbd "c") 'my-calendar-prefix-map)
-(define-key my-org-prefix-map (kbd "C") 'my-calendar-prefix-map)
+(unless (boundp 'my-calendar-prefix)
+  (define-prefix-command 'my-calendar-prefix))
+(define-key my-tools-prefix (kbd "c") 'my-calendar-prefix)
+(define-key my-org-prefix (kbd "C") 'my-calendar-prefix)
 
 
 
@@ -244,7 +244,7 @@
 
 (require 'calfw-org)
 
-(define-key my-calendar-prefix-map (kbd "o") 'cfw:open-org-calendar)
+(define-key my-calendar-prefix (kbd "o") 'cfw:open-org-calendar)
 
 ;;; org-capture template
 (setq cfw:org-capture-template
@@ -327,11 +327,11 @@
     (switch-to-buffer-other-frame "*cfw-calendar*"))
   )
 
-(define-key my-calendar-prefix-map (kbd "c") 'my-open-calfw-week)
-(define-key my-calendar-prefix-map (kbd "w") 'my-open-calfw-week)
-(define-key my-calendar-prefix-map (kbd "d") 'my-open-calfw-day)
-(define-key my-calendar-prefix-map (kbd "m") 'my-open-calfw-month)
-(define-key my-calendar-prefix-map (kbd "x") 'cfw:open-calendar-buffer)
+(define-key my-calendar-prefix (kbd "c") 'my-open-calfw-week)
+(define-key my-calendar-prefix (kbd "w") 'my-open-calfw-week)
+(define-key my-calendar-prefix (kbd "d") 'my-open-calfw-day)
+(define-key my-calendar-prefix (kbd "m") 'my-open-calfw-month)
+(define-key my-calendar-prefix (kbd "x") 'cfw:open-calendar-buffer)
 
 
 ;;; Faces

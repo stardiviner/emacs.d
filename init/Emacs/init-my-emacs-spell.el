@@ -117,16 +117,16 @@
                     :background "#555555" :foreground "orange"
                     :underline '(:color "dark red" :style line))
 
-(unless (boundp 'my-spell-prefix-map)
-  (define-prefix-command 'my-spell-prefix-map))
-(define-key my-edit-prefix-map (kbd "s") 'my-spell-prefix-map)
+(unless (boundp 'my-spell-prefix)
+  (define-prefix-command 'my-spell-prefix))
+(define-key my-edit-prefix (kbd "s") 'my-spell-prefix)
 
-(define-key my-spell-prefix-map (kbd "C-s") 'flyspell-mode)
-(define-key my-spell-prefix-map (kbd "m") 'flyspell-mode)
-(define-key my-spell-prefix-map (kbd "p") 'flyspell-prog-mode)
-(define-key my-spell-prefix-map (kbd "b") 'flyspell-buffer)
-(define-key my-spell-prefix-map (kbd "r") 'flyspell-region)
-(define-key my-spell-prefix-map (kbd "c") 'ispell-word) ; default keybinding [M-$].
+(define-key my-spell-prefix (kbd "C-s") 'flyspell-mode)
+(define-key my-spell-prefix (kbd "m") 'flyspell-mode)
+(define-key my-spell-prefix (kbd "p") 'flyspell-prog-mode)
+(define-key my-spell-prefix (kbd "b") 'flyspell-buffer)
+(define-key my-spell-prefix (kbd "r") 'flyspell-region)
+(define-key my-spell-prefix (kbd "c") 'ispell-word) ; default keybinding [M-$].
 
 
 ;;; [ helm-flyspell ]

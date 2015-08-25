@@ -20,7 +20,7 @@
     (occur regexp nlines)
     (delete-windows-on "*Help*")))
 
-(define-key my-search-prefix-map (kbd "K") 'search-keybind)
+(define-key my-search-prefix (kbd "K") 'search-keybind)
 
 
 ;;; stop using the arrow keys

@@ -20,7 +20,7 @@
 (require 're-builder)
 (autoload 're-builder "re-builder" t)
 
-(define-key my-regexp-prefix-map (kbd "b") 're-builder)
+(define-key my-regexp-prefix (kbd "b") 're-builder)
 
 
 ;;; [ re-builder+ ]
@@ -95,7 +95,7 @@
 
 (unless (boundp 'visual-regexp-map)
   (define-prefix-command 'visual-regexp-map))
-(define-key my-regexp-prefix-map (kbd "v") 'visual-regexp-map)
+(define-key my-regexp-prefix (kbd "v") 'visual-regexp-map)
 
 (define-key visual-regexp-map (kbd "s") 'vr/isearch-forward)
 (define-key visual-regexp-map (kbd "b") 'vr/isearch-backward)
@@ -108,7 +108,7 @@
 
 ;;; integrate with Helm version regexp
 (if (featurep 'helm)
-    (define-key my-regexp-prefix-map (kbd "h") 'helm-regexp))
+    (define-key my-regexp-prefix (kbd "h") 'helm-regexp))
 
 ;; TODO:
 ;; (set-face-attribute 'vr/match-separator-face nil
@@ -171,7 +171,7 @@
 (if (not (functionp 'swiper))
     (require 'swiper))
 
-(define-key my-regexp-prefix-map (kbd "s") 'swiper)
+(define-key my-regexp-prefix (kbd "s") 'swiper)
 
 
 

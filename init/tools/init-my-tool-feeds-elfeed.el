@@ -281,7 +281,7 @@
       )
 (setq-default elfeed-search-filter "@1-week-ago +unread") ; "@1-week-ago +unread", "@6-months-ago +unread"
 
-(define-key my-tools-prefix-map (kbd "f") 'elfeed)
+(define-key my-tools-prefix (kbd "f") 'elfeed)
 
 (define-key elfeed-search-mode-map (kbd "#") 'elfeed-search-set-filter)
 
@@ -295,7 +295,7 @@
                     :foreground "yellow")
 
 
-(define-key my-tools-prefix-map (kbd "f") 'elfeed)
+(define-key my-tools-prefix (kbd "f") 'elfeed)
 
 
 ;;; [ elfeed-web ] -- web interface to elfeed.

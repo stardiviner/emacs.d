@@ -17,7 +17,7 @@
 
 (require 'artist)
 
-(define-key my-tools-prefix-map (kbd "a") 'artist-mode)
+(define-key my-tools-prefix (kbd "a") 'artist-mode)
 (define-key artist-mode-map (kbd "C-c C-o") 'artist-select-operation)
 
 

@@ -113,15 +113,15 @@
 
 (setq edebug-global-prefix (kbd "C-c d"))
 
-(unless (boundp 'my-prog-debug-prefix)
-  (define-prefix-command 'my-prog-debug-prefix))
+(unless (boundp 'my-prog-debug-map)
+  (define-prefix-command 'my-prog-debug-map))
 
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
-            (local-set-key (kbd "C-c d") 'my-prog-debug-prefix)
-            (define-key my-prog-debug-prefix (kbd "C-e") 'edebug-mode)
-            (define-key my-prog-debug-prefix (kbd "f") 'edebug-defun)
-            (define-key my-prog-debug-prefix (kbd "e") 'debug-on-entry)
+            (local-set-key (kbd "C-c d") 'my-prog-debug-map)
+            (define-key my-prog-debug-map (kbd "C-e") 'edebug-mode)
+            (define-key my-prog-debug-map (kbd "f") 'edebug-defun)
+            (define-key my-prog-debug-map (kbd "e") 'debug-on-entry)
             ))
 
 (set-face-attribute 'hi-edebug-x-stop nil

@@ -40,31 +40,31 @@
 (global-set-key [remap toggle-frame-maximized] 'toggle-frame-fullscreen)
 
 ;;; edit
-(unless (boundp 'my-edit-prefix-map)
-  (define-prefix-command 'my-edit-prefix-map))
-(global-set-key (kbd "C-c e") 'my-edit-prefix-map)
+(unless (boundp 'my-edit-prefix)
+  (define-prefix-command 'my-edit-prefix))
+(global-set-key (kbd "C-c e") 'my-edit-prefix)
 
 ;;; search
-(unless (boundp 'my-search-prefix-map)
-  (define-prefix-command 'my-search-prefix-map))
-(global-set-key (kbd "C-c s") 'my-search-prefix-map)
+(unless (boundp 'my-search-prefix)
+  (define-prefix-command 'my-search-prefix))
+(global-set-key (kbd "C-c s") 'my-search-prefix)
 
 ;;; regexp
-(unless (boundp 'my-regexp-prefix-map)
-  (define-prefix-command 'my-regexp-prefix-map))
-(global-set-key (kbd "C-c r") 'my-regexp-prefix-map)
+(unless (boundp 'my-regexp-prefix)
+  (define-prefix-command 'my-regexp-prefix))
+(global-set-key (kbd "C-c r") 'my-regexp-prefix)
 
 
 ;;; Programming
 
-(unless (boundp 'my-programming-prefix-map)
-  (define-prefix-command 'my-programming-prefix-map))
-(global-set-key (kbd "C-c p") 'my-programming-prefix-map)
+(unless (boundp 'my-programming-prefix)
+  (define-prefix-command 'my-programming-prefix))
+(global-set-key (kbd "C-c p") 'my-programming-prefix)
 
 
 (unless (boundp 'my-prog-code-map)
   (define-prefix-command 'my-prog-code-map))
-;; (define-key my-programming-prefix-map (kbd "c") 'my-prog-code-map)
+;; (define-key my-programming-prefix (kbd "c") 'my-prog-code-map)
 (global-set-key (kbd "C-c c") 'my-prog-code-map)
 
 (unless (boundp 'my-prog-comment-map)
@@ -73,7 +73,7 @@
 
 (unless (boundp 'my-prog-help-document-map)
   (define-prefix-command 'my-prog-help-document-map))
-;; (define-key my-programming-prefix-map (kbd "h") 'my-prog-help-document-map)
+;; (define-key my-programming-prefix (kbd "h") 'my-prog-help-document-map)
 (global-set-key (kbd "C-h d") 'my-prog-help-document-map)
 
 ;; like tags: function, variable, class, scope etc lookup.
@@ -85,7 +85,7 @@
 
 (unless (boundp 'my-prog-inferior-map)
     (define-prefix-command 'my-prog-inferior-map))
-;; (define-key my-programming-prefix-map (kbd "i") 'my-prog-inferior-map)
+;; (define-key my-programming-prefix (kbd "i") 'my-prog-inferior-map)
 (global-set-key (kbd "C-c i") 'my-prog-inferior-map)
 
 (unless (boundp 'my-prog-debug-map)
@@ -98,7 +98,7 @@
 
 (unless (boundp 'my-prog-vcs-map)
   (define-prefix-command 'my-prog-vcs-map))
-;; (define-key my-programming-prefix-map (kbd "v") 'my-prog-vcs-map)
+;; (define-key my-programming-prefix (kbd "v") 'my-prog-vcs-map)
 (global-set-key (kbd "C-c v") 'my-prog-vcs-map)
 
 (unless (boundp 'my-prog-vcs-git-map)
@@ -111,7 +111,7 @@
 
 (unless (boundp 'my-prog-project-map)
   (define-prefix-command 'my-prog-project-map))
-;; (define-key my-programming-prefix-map (kbd "p") 'my-prog-project-map)
+;; (define-key my-programming-prefix (kbd "p") 'my-prog-project-map)
 (global-set-key (kbd "C-c p") 'my-prog-project-map)
 
 ;; TODO: check where work as my expect.
@@ -148,13 +148,13 @@
 
 ;;; Tools
 
-(unless (boundp 'my-tools-prefix-map)
-  (define-prefix-command 'my-tools-prefix-map))
-(global-set-key (kbd "C-x t") 'my-tools-prefix-map)
+(unless (boundp 'my-tools-prefix)
+  (define-prefix-command 'my-tools-prefix))
+(global-set-key (kbd "C-x t") 'my-tools-prefix)
 
-(unless (boundp 'my-org-prefix-map)
-  (define-prefix-command 'my-org-prefix-map))
-(global-set-key (kbd "C-c o") 'my-org-prefix-map)
+(unless (boundp 'my-org-prefix)
+  (define-prefix-command 'my-org-prefix))
+(global-set-key (kbd "C-c o") 'my-org-prefix)
 
 ;;; Launcher
 (define-prefix-command 'launcher-map)

@@ -127,11 +127,11 @@
 (global-set-key (kbd "C-r") 'vr/isearch-backward)
 (global-set-key (kbd "M-%") 'vr/replace)
 
-(define-key my-search-prefix-map (kbd "r") 'vr/replace)
-(define-key my-search-prefix-map (kbd "q") 'vr/query-replace)
+(define-key my-search-prefix (kbd "r") 'vr/replace)
+(define-key my-search-prefix (kbd "q") 'vr/query-replace)
 ;; if you use multiple-cursors interface, this is for you:
 (if (featurep 'multiple-cursors)
-    (define-key my-search-prefix-map (kbd "m") 'vr/mc-mark))
+    (define-key my-search-prefix (kbd "m") 'vr/mc-mark))
 ;; TODO: `vr/select-mc-mark', `vr/select-replace' etc.
 
 
@@ -234,8 +234,8 @@
 ;;   )
 
 
-(define-key my-search-prefix-map (kbd "C-s") 'swiper)
-(define-key my-search-prefix-map (kbd "C-r") 'swiper)
+(define-key my-search-prefix (kbd "C-s") 'swiper)
+(define-key my-search-prefix (kbd "C-r") 'swiper)
 
 ;; if swiper is available, then replace `vr/isearch' with `swiper'.
 (if (functionp 'swiper)
@@ -271,20 +271,20 @@
 ;;; [ occur ]
 
 (if (featurep 'helm)
-    (define-key my-search-prefix-map (kbd "o") 'helm-occur)
-  (define-key my-search-prefix-map (kbd "o") 'occur))
+    (define-key my-search-prefix (kbd "o") 'helm-occur)
+  (define-key my-search-prefix (kbd "o") 'occur))
 
 
 ;;; [ multi-occur ]
 
 (if (featurep 'helm)
-    (define-key my-search-prefix-map (kbd "O") 'helm-multi-occur)
-  (define-key my-search-prefix-map (kbd "O") 'multi-occur))
+    (define-key my-search-prefix (kbd "O") 'helm-multi-occur)
+  (define-key my-search-prefix (kbd "O") 'multi-occur))
 
-(define-key my-search-prefix-map (kbd "M-o") 'multi-occur-in-matching-buffers)
+(define-key my-search-prefix (kbd "M-o") 'multi-occur-in-matching-buffers)
 
 (define-key my-highlight-symbol-prefix (kbd "M-r") 'highlight-lines-matching-regexp)
-(define-key my-search-prefix-map (kbd "M-h") 'how-many)
+(define-key my-search-prefix (kbd "M-h") 'how-many)
 
 
 ;;; [ replace+.el ]
@@ -297,7 +297,7 @@
 
 ;; (setq helm-grep-default-command "grep -a -d skip %e -n%cH -e %p %f")
 
-(define-key my-search-prefix-map (kbd "g") 'grep)
+(define-key my-search-prefix (kbd "g") 'grep)
 
 
 ;;; [ Ack ]
@@ -421,7 +421,7 @@
 
 (unless (boundp 'ag-map)
   (define-prefix-command 'ag-map))
-(define-key my-search-prefix-map (kbd "a") 'ag-map)
+(define-key my-search-prefix (kbd "a") 'ag-map)
 
 (define-key ag-map (kbd "a") 'ag)
 (define-key ag-map (kbd "r") 'ag-regexp)
@@ -481,13 +481,13 @@
 
 ;; (require 'awk-it)
 
-;; (define-key my-search-prefix-map (kbd "w") 'awk-it)
+;; (define-key my-search-prefix (kbd "w") 'awk-it)
 
 
 (unless (boundp 'my-search-language-prefix)
   (define-prefix-command 'my-search-language-prefix))
 
-(define-key my-search-prefix-map (kbd "l") 'my-search-language-prefix)
+(define-key my-search-prefix (kbd "l") 'my-search-language-prefix)
 
 
 ;;; [ pinyin-search ] --
@@ -502,7 +502,7 @@
 
 
 
-(define-key my-search-prefix-map (kbd "s") 'ag-regexp)
+(define-key my-search-prefix (kbd "s") 'ag-regexp)
 
 
 (provide 'init-my-emacs-search)

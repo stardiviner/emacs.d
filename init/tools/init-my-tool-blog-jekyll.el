@@ -137,7 +137,7 @@
 ;;
 ;; (unless (boundp 'org-jekyll-map)
 ;;   (define-prefix-command 'org-jekyll-map))
-;; (define-key my-org-prefix-map (kbd "j") 'org-jekyll-map)
+;; (define-key my-org-prefix (kbd "j") 'org-jekyll-map)
 ;;
 ;; (define-key org-jekyll-map (kbd "b") 'org-jekyll-export-blog)
 ;; (define-key org-jekyll-map (kbd "p") 'org-jekyll-export-project)

@@ -46,7 +46,7 @@
 ;; setting up keybindings
 (unless (boundp 'my-highlight-symbol-prefix)
   (define-prefix-command 'my-highlight-symbol-prefix))
-(define-key my-search-prefix-map (kbd "h") 'my-highlight-symbol-prefix)
+(define-key my-search-prefix (kbd "h") 'my-highlight-symbol-prefix)
 
 (define-key my-highlight-symbol-prefix (kbd "h") 'highlight-symbol-at-point)
 (define-key my-highlight-symbol-prefix (kbd "n") 'highlight-symbol-next)

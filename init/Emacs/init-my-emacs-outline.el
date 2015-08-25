@@ -373,7 +373,7 @@
 (allout-minor-mode 1)
 
 ;; so that you can active/inactive allout-minor-mode to edit/navigate/folding with it.
-;; (define-key my-edit-prefix-map (kbd "o") 'allout-minor-mode)
+;; (define-key my-edit-prefix (kbd "o") 'allout-minor-mode)
 ;; activate outline mode for current buffer, and establish a default file-var setting for `allout-layout'.
 (defun my-allout-toggle ()
   "Toggle allout for current buffer."
@@ -384,14 +384,14 @@
     (allout-hide-bodies)
     (define-key allout-mode-map (kbd "C-c SPC C-l") 'allout-hide-bodies)))
 
-;; (define-key my-edit-prefix-map (kbd "o") 'outlineify-sticky)
-(define-key my-edit-prefix-map (kbd "o") 'my-allout-toggle)
+;; (define-key my-edit-prefix (kbd "o") 'outlineify-sticky)
+(define-key my-edit-prefix (kbd "o") 'my-allout-toggle)
 
-;; (unless (boundp 'my-outline-prefix-map)
-;;   (define-prefix-command 'my-outline-prefix-map))
-;; (define-key my-edit-prefix-map (kbd "o") 'my-outline-prefix-map)
+;; (unless (boundp 'my-outline-prefix)
+;;   (define-prefix-command 'my-outline-prefix))
+;; (define-key my-edit-prefix (kbd "o") 'my-outline-prefix)
 ;;
-;; (define-key my-outline-prefix-map (kbd "n") 'allout-next-heading)
+;; (define-key my-outline-prefix (kbd "n") 'allout-next-heading)
 
 
 ;;; [ origami ]

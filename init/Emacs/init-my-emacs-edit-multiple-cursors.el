@@ -103,7 +103,7 @@
           (iedit-start (current-word) (point-min) (point-max)))))))
 
 ;; (global-set-key (kbd "C-;") 'iedit-mode)
-(define-key my-edit-prefix-map (kbd "e") 'iedit-dwim)
+(define-key my-edit-prefix (kbd "e") 'iedit-dwim)
 
 
 ;;;_ [ multiple-cursors ]
@@ -134,42 +134,42 @@
 
 ;; (setq mc/keymap "C-c c")
 
-(unless (boundp 'my-mc-prefix-map)
-  (define-prefix-command 'my-mc-prefix-map))
-(define-key my-edit-prefix-map (kbd "c") 'my-mc-prefix-map)
+(unless (boundp 'my-mc-prefix)
+  (define-prefix-command 'my-mc-prefix))
+(define-key my-edit-prefix (kbd "c") 'my-mc-prefix)
 
-(define-key my-mc-prefix-map (kbd "c") 'mc/mark-all-dwim)
-(define-key my-mc-prefix-map (kbd "r") 'set-rectangular-region-anchor)
-(define-key my-mc-prefix-map (kbd "l") 'mc/edit-lines)
-(define-key my-mc-prefix-map (kbd "a") 'mc/edit-beginnings-of-lines)
-(define-key my-mc-prefix-map (kbd "e") 'mc/edit-ends-of-lines)
-(define-key my-mc-prefix-map (kbd "n") 'mc/insert-numbers)
-(define-key my-mc-prefix-map (kbd "s") 'mc/sort-regions)
-(define-key my-mc-prefix-map (kbd "R") 'mc/reverse-regions)
+(define-key my-mc-prefix (kbd "c") 'mc/mark-all-dwim)
+(define-key my-mc-prefix (kbd "r") 'set-rectangular-region-anchor)
+(define-key my-mc-prefix (kbd "l") 'mc/edit-lines)
+(define-key my-mc-prefix (kbd "a") 'mc/edit-beginnings-of-lines)
+(define-key my-mc-prefix (kbd "e") 'mc/edit-ends-of-lines)
+(define-key my-mc-prefix (kbd "n") 'mc/insert-numbers)
+(define-key my-mc-prefix (kbd "s") 'mc/sort-regions)
+(define-key my-mc-prefix (kbd "R") 'mc/reverse-regions)
 
-(unless (boundp 'my-mc/mark-prefix-map)
-  (define-prefix-command 'my-mc/mark-prefix-map))
-(define-key my-mc-prefix-map (kbd "m") 'my-mc/mark-prefix-map)
+(unless (boundp 'my-mc/mark-prefix)
+  (define-prefix-command 'my-mc/mark-prefix))
+(define-key my-mc-prefix (kbd "m") 'my-mc/mark-prefix)
 
-(define-key my-mc/mark-prefix-map (kbd "a a") 'mc/mark-all-like-this-dwim)
-(define-key my-mc/mark-prefix-map (kbd "a l") 'mc/mark-all-like-this)
-(define-key my-mc/mark-prefix-map (kbd "a w") 'mc/mark-all-words-like-this)
-(define-key my-mc/mark-prefix-map (kbd "a s") 'mc/mark-all-symbols-like-this)
-(define-key my-mc/mark-prefix-map (kbd "a r") 'mc/mark-all-in-region)
-(define-key my-mc/mark-prefix-map (kbd "a f") 'mc/mark-all-like-this-in-defun)
-(define-key my-mc/mark-prefix-map (kbd "a F") 'mc/mark-all-words-like-this-in-defun)
-(define-key my-mc/mark-prefix-map (kbd "a S") 'mc/mark-all-symbols-like-this-in-defun)
-(define-key my-mc/mark-prefix-map (kbd "t") 'mc/mark-sgml-tag-pair)
+(define-key my-mc/mark-prefix (kbd "a a") 'mc/mark-all-like-this-dwim)
+(define-key my-mc/mark-prefix (kbd "a l") 'mc/mark-all-like-this)
+(define-key my-mc/mark-prefix (kbd "a w") 'mc/mark-all-words-like-this)
+(define-key my-mc/mark-prefix (kbd "a s") 'mc/mark-all-symbols-like-this)
+(define-key my-mc/mark-prefix (kbd "a r") 'mc/mark-all-in-region)
+(define-key my-mc/mark-prefix (kbd "a f") 'mc/mark-all-like-this-in-defun)
+(define-key my-mc/mark-prefix (kbd "a F") 'mc/mark-all-words-like-this-in-defun)
+(define-key my-mc/mark-prefix (kbd "a S") 'mc/mark-all-symbols-like-this-in-defun)
+(define-key my-mc/mark-prefix (kbd "t") 'mc/mark-sgml-tag-pair)
 
-(define-key my-mc/mark-prefix-map (kbd "n n") 'mc/mark-next-like-this)
-(define-key my-mc/mark-prefix-map (kbd "n w") 'mc/mark-next-word-like-this)
-(define-key my-mc/mark-prefix-map (kbd "n s") 'mc/mark-next-symbol-like-this)
-(define-key my-mc/mark-prefix-map (kbd "p p") 'mc/mark-previous-like-this)
-(define-key my-mc/mark-prefix-map (kbd "p w") 'mc/mark-previous-word-like-this)
-(define-key my-mc/mark-prefix-map (kbd "p s") 'mc/mark-previous-symbol-like-this)
+(define-key my-mc/mark-prefix (kbd "n n") 'mc/mark-next-like-this)
+(define-key my-mc/mark-prefix (kbd "n w") 'mc/mark-next-word-like-this)
+(define-key my-mc/mark-prefix (kbd "n s") 'mc/mark-next-symbol-like-this)
+(define-key my-mc/mark-prefix (kbd "p p") 'mc/mark-previous-like-this)
+(define-key my-mc/mark-prefix (kbd "p w") 'mc/mark-previous-word-like-this)
+(define-key my-mc/mark-prefix (kbd "p s") 'mc/mark-previous-symbol-like-this)
 
 (if (featurep 'visual-regexp)
-    (define-key my-mc/mark-prefix-map (kbd "v") 'vr/mc-mark))
+    (define-key my-mc/mark-prefix (kbd "v") 'vr/mc-mark))
 ;; TODO: `vr/select-mc-mark', `vr/select-replace', `vr/select-query-replace' etc.
 
 ;; First mark the word, then add more cursors.

@@ -574,7 +574,7 @@
 
 (setq helm-time-zone-home-location "Shanghai")
 
-(define-key my-tools-prefix-map (kbd "t") 'helm-world-time)
+(define-key my-tools-prefix (kbd "t") 'helm-world-time)
 
 
 

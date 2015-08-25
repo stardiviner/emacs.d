@@ -74,7 +74,7 @@
     )
   )
 
-(define-key my-tools-prefix-map (kbd "b") 'eww)
+(define-key my-tools-prefix (kbd "b") 'eww)
 
 
 ;;; [ w3m ]

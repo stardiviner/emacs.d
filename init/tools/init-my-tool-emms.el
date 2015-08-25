@@ -27,9 +27,9 @@
 
 
 ;; emms prefix keybinding map
-(unless (boundp 'my-emms-prefix-map)
-  (define-prefix-command 'my-emms-prefix-map))
-(define-key my-tools-prefix-map (kbd "e") 'my-emms-prefix-map)
+(unless (boundp 'my-emms-prefix)
+  (define-prefix-command 'my-emms-prefix))
+(define-key my-tools-prefix (kbd "e") 'my-emms-prefix)
 
 
 
@@ -112,16 +112,16 @@
 ;; TODO capture the key code of [Fn + <F10>] to apply. also include next [F11] etc.
 ;; (global-set-key (kbd "Fn + <F10>") 'emms-player-mpd-pause)
 
-(unless (boundp 'my-emms-mpd-prefix-map)
-  (define-prefix-command 'my-emms-mpd-prefix-map))
-(define-key my-emms-prefix-map (kbd "m") 'my-emms-mpd-prefix-map)
+(unless (boundp 'my-emms-mpd-prefix)
+  (define-prefix-command 'my-emms-mpd-prefix))
+(define-key my-emms-prefix (kbd "m") 'my-emms-mpd-prefix)
 
-(define-key my-emms-mpd-prefix-map (kbd "c") 'emms-player-mpd-connect)
-(define-key my-emms-mpd-prefix-map (kbd "p") 'emms-player-mpd-pause) ; toggle pause
-(define-key my-emms-mpd-prefix-map (kbd "P")
+(define-key my-emms-mpd-prefix (kbd "c") 'emms-player-mpd-connect)
+(define-key my-emms-mpd-prefix (kbd "p") 'emms-player-mpd-pause) ; toggle pause
+(define-key my-emms-mpd-prefix (kbd "P")
   '(lambda ()
      (emms-player-mpd-play nil)))
-(define-key my-emms-mpd-prefix-map (kbd "s") 'emms-player-mpd-stop)
+(define-key my-emms-mpd-prefix (kbd "s") 'emms-player-mpd-stop)
 
 
 

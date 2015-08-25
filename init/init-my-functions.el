@@ -115,7 +115,7 @@ by creating or altering keymaps stored in buffer-local
 
 Usage: 
 
- (define-key my-org-prefix-map (kbd 'o')
+ (define-key my-org-prefix (kbd 'o')
    (lambda ()
      (interactive)
      (my-func/open-and-switch-to-buffer 'org-agenda-list \"*Org Agenda*\" t)))

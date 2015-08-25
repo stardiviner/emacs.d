@@ -45,7 +45,7 @@
 
 ;; (mmm-add-mode-ext-class 'html-mode "\\.php\\'" 'html-php)
 
-(define-key my-edit-prefix-map (kbd "m") 'mmm-mode) ; enable mmm-mode on region.
+(define-key my-edit-prefix (kbd "m") 'mmm-mode) ; enable mmm-mode on region.
 
 
 ;;; submode classes
