@@ -149,7 +149,17 @@
 ;; - `ert-run-tests-interactively' => alias `ert'
 ;; - `ert-describe-test'
 
+
+;;; [ xtest ] -- Simple Testing with Emacs & ERT
 
+
+;;; [ faceup ] -- Regression test system for font-lock
+
+
+;;; [ test-simple ] -- Simple Unit Test Framework for Emacs Lisp
+
+
+;;; [ buttercup ] -- Behavior-Driven Emacs Lisp Testing
 
 
 (provide 'init-my-prog-lang-emacs-lisp)
