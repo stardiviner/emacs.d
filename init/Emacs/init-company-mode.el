@@ -82,7 +82,7 @@
                                   company-dabbrev-code
                                   company-capf ; completion-at-point-functions
                                   )
-                                 ;; company-elisp ; Emacs Lisp
+                                 company-elisp ; Emacs Lisp
                                  ;; company-semantic ; C/C++
                                  ;; (company-clang company-cmake) ; C/C++
                                  ;; company-eclim ; Java
