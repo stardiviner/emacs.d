@@ -80,7 +80,8 @@
 ;; italic & bold
 (set-face-attribute 'italic nil
                     :slant 'italic
-                    :foreground "white")
+                    :foreground "white"
+                    :underline nil)
 (set-face-attribute 'bold nil
                     :weight 'bold
                     :foreground "white")
