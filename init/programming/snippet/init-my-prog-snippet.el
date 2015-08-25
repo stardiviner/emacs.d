@@ -287,8 +287,9 @@ $0"
 
 ;;; Faces
 (set-face-attribute 'yas-field-highlight-face nil
-                    :background "black" :foreground " "
-                    :box '(:color "#009494" :line-width 1 :style nil)
+                    :foreground nil
+                    :background (color-darken-name (face-background 'default) 5)
+                    :box '(:color "cyan" :line-width 1 :style nil)
                     )
 (set-face-attribute 'yas--field-debug-face nil
                     :background " " :foreground " "
