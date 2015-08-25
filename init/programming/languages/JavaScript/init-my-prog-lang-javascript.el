@@ -226,13 +226,13 @@
 ;; (setq inferior-js-program-command "/usr/bin/java org.mozilla.javascript.tools.shell.Main")
 
 (add-hook 'js2-mode-hook
-          '(lambda ()
-             (local-set-key "\C-x\C-e" 'js-send-last-sexp)
-             (local-set-key "\C-\M-x" 'js-send-last-sexp-and-go)
-             (local-set-key "\C-cb" 'js-send-buffer)
-             (local-set-key "\C-c\C-b" 'js-send-buffer-and-go)
-             (local-set-key "\C-cl" 'js-load-file-and-go)
-             ))
+          (lambda ()
+            (local-set-key "\C-x\C-e" 'js-send-last-sexp)
+            (local-set-key "\C-\M-x" 'js-send-last-sexp-and-go)
+            (local-set-key "\C-cb" 'js-send-buffer)
+            (local-set-key "\C-c\C-b" 'js-send-buffer-and-go)
+            (local-set-key "\C-cl" 'js-load-file-and-go)
+            ))
 
 (add-hook 'inferior-js-mode-hook
           (lambda ()
@@ -352,6 +352,13 @@
 ;;       ;; option.
 ;;       company-tooltip-align-annotations t
 ;;       )
+
+
+;;; [ tj-mode ] -- Highlight JavaScript with Tern.
+
+(add-hook 'js3-mode-hook
+          (lambda ()
+            (tj-mode 1)))
 
 
 
