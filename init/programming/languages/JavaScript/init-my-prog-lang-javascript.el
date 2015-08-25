@@ -252,21 +252,14 @@
 
 ;;; [ tern ] -- code-analysis engine for JavaScript
 
-;;; http://ternjs.net/
-
 ;;; Tern is a stand-alone code-analysis engine for JavaScript. It is intended to
 ;;; be used with a code editor plugin to enhance the editor's support for
 ;;; intelligent JavaScript editing.
 
-;; $ npm install tern
-
 ;;; Usage:
 
-;; The Emacs mode uses the bin/tern server, and project configuration is done with a .tern-project file.
-;;
-;; Buffers in tern-mode add a completion-at-point function that activates Tern’s completion. So, unless you rebound the key, M-tab (or C-M-i) will trigger completion.
-;;
-;; When the point is in an argument list, Tern will show argument names and types at the bottom of the screen.
+;; The Emacs mode uses the bin/tern server, and project configuration is done
+;; with a .tern-project file.
 ;;
 ;; The following additional keys are bound:
 ;;
@@ -301,27 +294,11 @@
 ;;   }
 ;; }
 
-;; (dolist (hook '(js-mode-hook
-;;                 js2-mode-hook
-;;                 js3-mode-hook
-;;                 ))
-;;   (add-hook hook
-;;             (lambda ()
-;;               (tern-mode t))))
-
 ;; (setq tern-known-port
 ;;       tern-server
 ;;       tern-explicit-port
 ;;       tern-project-dir
 ;;       )
-
-
-;;; for auto-complete
-
-;; (eval-after-load 'tern
-;;   '(progn
-;;      (require 'tern-auto-complete)
-;;      (tern-ac-setup)))
 
 
 ;;; [ company-tern ] -- Tern backend for company-mode.
@@ -335,23 +312,19 @@
             (lambda ()
               ;; enable `tern-mode'.
               (tern-mode t)
-
+              
               (add-to-list (make-local-variable 'company-backends)
                            'company-tern)
-              
-              ;;; mode locally for company-mode backend.
-              ;; (make-local-variable 'company-backends)
-              ;; (add-to-list 'company-backends 'company-tern)
               )))
 
-
-;; (setq company-tern-property-marker "" ; remove circles after object's own properties.
-;;       company-tern-meta-as-single-line t ; trim too long function signatures to the frame width.
-;;       ;; If you doesn't like inline argument annotations appear with
-;;       ;; corresponding identifiers, then you can to set up the company align
-;;       ;; option.
-;;       company-tooltip-align-annotations t
-;;       )
+(use-package company-tern
+  :config
+  (setq
+   company-tern-property-marker "" ; remove circles after object's own properties.
+   company-tern-meta-as-single-line t ; trim too long function signatures to the frame width.
+   company-tooltip-align-annotations nil ; nil: enable inline annotation.
+   )
+  )
 
 
 ;;; [ tj-mode ] -- Highlight JavaScript with Tern.
