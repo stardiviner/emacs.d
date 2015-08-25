@@ -2,7 +2,22 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("MariaDB"
+(("Redis"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Database/NoSQL/Redis/Redis.org")
+ (front-context-string . "* Intro\n\nRedis i")
+ (rear-context-string)
+ (position . 1))
+("MongoDB"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Database/NoSQL/MongoDB/MongoDB.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Ruby Syntax Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Manuals/The Ruby Programming Language.org")
+ (front-context-string . "* Review The Rub")
+ (rear-context-string)
+ (position . 1))
+("MariaDB"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Database/SQL/MariaDB/MariaDB.org")
  (front-context-string . "* Intro\n\n\n\n\n* Da")
  (rear-context-string)
@@ -25,11 +40,6 @@
 ("Look.org (美容)"
  (filename . "~/Org/Wiki/Look/Look.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
- (rear-context-string)
- (position . 1))
-("Linux"
- (filename . "~/Org/Wiki/Computer/Systems/Linux/Linux.org")
- (front-context-string . "* Intro\n\n- [[htt")
  (rear-context-string)
  (position . 1))
 ("Gems for Rails"
