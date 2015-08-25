@@ -111,22 +111,24 @@
       helm-dash-common-docsets
       '("Ruby" "Ruby on Rails"
         "Python 3"
-        "HTML" "CSS" "Emmet"
-        "JavaScript" "CoffeeScript" "NodeJS"
-        "jQuery" "AngularJS" "D3JS"
+        "HTML" "CSS" "JavaScript"
+        ;; "Emmet"
+        "CoffeeScript" "NodeJS"
+        "jQuery" "AngularJS" "React" "D3JS"
         ;; "EmberJS" "ExtJS" "BackboneJS" "KnockoutJS" "MomentJS" "PrototypeJS" "RequireJS" "UnderscoreJS"
         "Common_Lisp" "Clojure"
         "C" "C++" "Go"
         "SQLite" "PostgreSQL" "MySQL" "Redis" "MongoDB"
-        "Qt"
+        ;; "Qt"
         "Bash"
-        "LaTeX"
+        ;; "LaTeX"
+        "Julia" ; "R"
         ;; "Processing"
         ;; "Unity_3D" "Cocos3D" "Cocos2D"
         ;; "OpenGL_4" "OpenCV_C"
         "Docker" "Vagrant" "Nginx"
-        "Android" "iOS"
-        "RubyMotion"
+        ;; "Android" "iOS"
+        ;; "RubyMotion"
         )
       )
 
@@ -222,8 +224,14 @@
 (define-key my-prog-help-document-map (kbd "M-e") 'dash-at-point-with-docset)
 
 ;; (add-to-list 'dash-at-point-mode-alist '(perl-mode . "perl"))
+
 (add-hook 'projectile-rails-mode-hook
           (lambda () (setq dash-at-point-docset "rails")))
+(add-hook 'rhtml-mode-hook
+          (lambda () (setq dash-at-point-docset "rails")))
+
+(add-hook 'ruby-mode-hook
+          (lambda () (setq dash-at-point-docset "ruby")))
 
 
 
