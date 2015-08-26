@@ -51,23 +51,70 @@
 ;;   (message "%s" "SLIME is not installed. Use Quicklisp to install it."))
 
 
-;;; [ sly ] --- Common Lisp IDE
+;;; [ sly ] -- Sylvester the Cat's Common Lisp IDE
 
 ;;; Usage:
 ;;
+;; - [M-x sly] :: fire up SLY and connect to Lisp.
 ;; - `sly-connect' ::
+;; - `sly-mode'
 
 (require 'sly-autoloads)
 
-;; (setq inferior-lisp-program "/usr/bin/sbcl")
+;; (setq sly-lisp-implementations
+;;       '((cmucl ("cmucl" "-quiet"))
+;;         ;; (cmucl ("/opt/cmucl/bin/lisp" "-quiet") :init sly-init-command)
+;;         (sbcl ("/usr/bin/sbcl") :coding-system utf-8-unix)))
+
+(setq sly-contribs '(sly-fancy sly-retro
+                               sly-scratch
+                               sly-mrepl
+                               sly-autodoc))
+
+(dolist (hook '(sly-mrepl-hook
+                sly-mode-hook
+                common-lisp-lisp-mode-hook
+                lisp-interaction-mode-hook
+                ;; emacs-lisp-mode-hook
+                ))
+  (add-hook hook
+            (lambda ()
+              (unless (boundp 'lisp-help-doc-map)
+                (define-prefix-command 'lisp-help-doc-map))
+              
+              (local-set-key (kbd "C-h d") 'lisp-help-doc-map)
+              (define-key lisp-help-doc-map (kbd "d") 'sly-documentation-lookup)
+              )))
+
+(eval-after-load 'sly
+  `(define-key sly-prefix-map (kbd "M-h") 'sly-documentation-lookup))
+
+(eval-after-load 'sly-mrepl
+  `(define-key sly-mrepl-mode-map (kbd "C-c C-k")
+     'sly-mrepl-clear-recent-output))
 
 
-;;; [ sly-company ]
+;;; [ company-sly ] -- Company-mode completion backend for SLY.
+
+(require 'sly-company)
+
+(add-hook 'sly-mode-hook 'sly-company-mode)
 
 
+;; don't add sly-company backend GLOBALLY.
+(setq-default company-backends
+              (remq 'sly-company company-backends))
 
-
-;;; [ ac-sly ]
+(dolist (hook '(emacs-lisp-mode-hook
+                common-lisp-lisp-mode-hook
+                lisp-mode-hook
+                lisp-interaction-mode-hook
+                ielm-mode-hook
+                ))
+  (add-hook hook
+            (lambda ()
+              (setq-local company-backends
+                          (append '(sly-company) company-backends)))))
 
 
 
