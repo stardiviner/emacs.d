@@ -182,14 +182,16 @@
 ;;   (add-hook hook 'company-mode))
 
 ;; keybindings
-;; (global-set-key (kbd "<tab>") 'company-complete)
 
 ;; manually start completion
+;; (global-set-key (kbd "<tab>") 'company-indent-or-complete-common)
+;; (global-set-key (kbd "<tab>") 'company-complete)
 ;; (global-set-key (kbd "TAB") 'company-complete)
 
 ;; snippet
 ;; TODO: `yas-expand', `yas-expand-from-trigger-key'
 (define-key company-active-map [tab] 'yas-expand-from-trigger-key)
+;; (define-key company-active-map (kbd "<tab>") 'company-complete-common-or-cycle)
 
 ;; (defun company-yasnippet-or-completion ()
 ;;   (interactive)
@@ -203,8 +205,6 @@
 ;;             (substitute-key-definition 'company-complete-common
 ;;                                        'company-yasnippet-or-completion
 ;;                                        company-active-map)))
-
-;; (global-set-key (kbd "<tab>") 'company-indent-or-complete-common)
 
 ;; navigation
 (define-key company-active-map "\t" nil)
