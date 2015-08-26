@@ -79,30 +79,26 @@
 ;; `prefix' command (see below).  But a back-end can also be a \"grouped\"
 ;; one (see below).
 
-(setq-default company-backends
-              '((
-                 company-yasnippet ; yasnippet
-                 company-tempo ; tempo: flexible template insertion
-                 company-bbdb     ; BBDB
-                 company-files    ; files & directory
-                 company-gtags company-etags
-                 company-keywords ; keywords
-                 company-dabbrev-code
-                 company-capf ; completion-at-point-functions
-                 ;; :with
-                 ;; company-yasnippet ; yasnippet                 
-                 )
-                company-elisp ; Emacs Lisp
-                ;; company-semantic ; C/C++
-                ;; (company-clang company-cmake) ; C/C++
-                ;; company-eclim ; Java
-                ;; company-ropemacs ; Python
-                ;; company-nxml company-css ; HTML, CSS, XML
-                ;; company-xcode ; for Xcode projects
-                (company-abbrev company-dabbrev)
-                company-ispell ; Ispell
-                ;; company-oddmuse ; wiki
-                ))
+(setq company-backends
+      '((
+         company-yasnippet
+         company-tempo          ; tempo: flexible template insertion
+         company-bbdb           ; BBDB
+         company-files          ; files & directory
+         company-gtags company-etags
+         company-keywords       ; keywords
+         company-dabbrev-code
+         company-capf           ; completion-at-point-functions
+         )
+        ;; company-elisp ; Emacs Lisp
+        ;; company-semantic ; C/C++
+        ;; (company-clang company-cmake) ; C/C++
+        ;; company-eclim ; Java
+        ;; company-nxml company-css ; HTML, CSS, XML
+        ;; company-xcode ; for Xcode projects
+        (company-abbrev company-dabbrev)
+        ;; company-ispell ; Ispell
+        ))
 
 ;; (add-hook 'emacs-lisp-mode-hook
 ;;           (lambda ()
