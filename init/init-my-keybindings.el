@@ -129,10 +129,6 @@
   (define-prefix-command 'my-prog-refactor-map))
 (global-set-key (kbd "C-c RET") 'my-prog-refactor-map)
 
-(unless (boundp 'my-prog-test-map)
-  (define-prefix-command 'my-prog-test-map))
-(global-set-key (kbd "C-c t") 'my-prog-test-map)
-
 (unless (boundp 'my-prog-database-map)
   (define-prefix-command 'my-prog-database-map))
 (global-set-key (kbd "C-c D") 'my-prog-database-map)
