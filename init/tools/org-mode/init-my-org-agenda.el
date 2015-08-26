@@ -111,12 +111,18 @@
 
 ;; set Org agenda to search in ~/Org directory *recursively*.
 
-(setq org-agenda-files '("~/Org/INDEX.org"
-                         "~/Org/Tasks.org"
-                         "~/Org/Daily.org"
+(setq org-agenda-files '("~/Org/Capture/"
                          "~/Org/Work/Work.org"
-                         "~/Org/Projects/"
-                         "~/Org/Capture/"
+                         ;; "~/Org/Tasks.org"
+                         "~/Org/Projects/Programming.org"
+                         "~/Org/Projects/Computer Todos.org"
+                         ;; "~/Org/Projects/Freelancer.org"
+                         ;; "~/Org/Projects/Finance.org"
+                         "~/Org/Projects/Projects.org"
+                         ;; "~/Org/Projects/Programming Projects.org"
+                         ;; "~/Org/Projects/Maker.org"
+                         ;; "~/Org/Projects/Business Ideas.org"
+                         ;; "~/Org/Projects/Startup.org"
                          "~/Org/Wiki/Learning/Learning.org"
                          "~/Org/Wiki/Learning/MyLearningPlan/Learn Programming.org"
                          "~/Org/Wiki/Wiki.org"
