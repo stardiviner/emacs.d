@@ -24,8 +24,8 @@
 
 (setq-default
  ;; minimum prefix character number for auto complete.
- company-minimum-prefix-length 2
- company-idle-delay 0.3
+ company-minimum-prefix-length 3
+ company-idle-delay 0.5
  ;; determines when to auto-complete.
  ;; 'company-explicit-action-p, t, nil, 'function
  company-auto-complete 'company-explicit-action-p
@@ -40,7 +40,7 @@
  ;; tooltip candidates max limit.
  company-tooltip-limit 10
  ;; minimum candidates height limit.
- company-tooltip-minimum 6
+ company-tooltip-minimum 3
  ;; The minimum width of the tooltip's inner area.
  company-tooltip-minimum-width 0
  ;; This doesn't include the margins and the scroll bar.
