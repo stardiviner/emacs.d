@@ -157,23 +157,6 @@
 ;; (dolist (hook '(emacs-lisp-mode-hook
 ;;                 lisp-mode-hook
 ;;                 lisp-interaction-mode-hook
-;;                 scheme-mode-hook
-;;                 clojure-mode-hook
-;;                 ruby-mode-hook
-;;                 enh-ruby-mode-hook
-;;                 inf-ruby-mode-hook
-;;                 python-mode-hook
-;;                 sh-mode-hook
-;;                 c-mode-hook
-;;                 c++-mode-hook
-;;                 java-mode-hook
-;;                 asm-mode-hook
-;;                 haskell-mode-hook
-;;                 web-mode-hook
-;;                 js2-mode-hook
-;;                 js3-mode-hook
-;;                 html-mode-hook
-;;                 css-mode-hook
 ;;                 ))
 ;;   (add-hook hook 'company-mode))
 
@@ -183,6 +166,7 @@
 ;; (global-set-key (kbd "<tab>") 'company-indent-or-complete-common)
 ;; (global-set-key (kbd "<tab>") 'company-complete)
 ;; (global-set-key (kbd "TAB") 'company-complete)
+;; (global-set-key [tab] 'company-complete)
 
 ;; snippet
 ;; TODO: `yas-expand', `yas-expand-from-trigger-key'
