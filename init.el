@@ -197,8 +197,8 @@
 
 
 ;;; Tools
-(require 'init-my-tool-org-mode)
 (require 'init-my-tool-calendar)
+(require 'init-my-org-mode)
 (require 'init-my-tool-dict)
 (require 'init-my-tool-clock)
 ;; (require 'init-my-tool-speak)

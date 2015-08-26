@@ -1,0 +1,262 @@
+;;; init-my-org-agenda.el --- init for Org Agenda
+;;; -*- coding: utf-8 -*-
+
+;;; Commentary:
+
+
+
+;;; Code:
+
+
+(require 'org-agenda)
+
+;; Agenda Views
+(setq org-agenda-prefix-format
+      '((agenda . " %i %-12:c%?-12t% s")
+        (timeline . "  % s")
+        (todo . " %i %-12:c")
+        (search . " %i %-12:c")
+        (tags . " %i %-12:c")))
+
+(setq
+ org-agenda-entry-types '(:deadline :scheduled :timestamp :sexp)
+ org-agenda-include-deadline t
+ org-agenda-log-mode-items '(closed clock)
+ org-agenda-log-mode-add-notes t
+ org-agenda-start-with-log-mode t)
+
+
+;;; Time Grid
+;; (setq org-agenda-time-grid
+;;       '((daily today require-timed)
+;;         #("----------------" 0 16
+;;           (org-heading t))
+;;         (800 1000 1200 1400 1600 1800 2000)))
+(setq org-agenda-use-time-grid t)
+(setq org-agenda-timegrid-use-ampm nil)
+(setq org-agenda-show-current-time-in-grid t)
+
+
+;; include `diary-file' from `calendar'
+(setq org-agenda-include-diary t
+      diary-file "~/Org/Diary/Diary.org"
+      ;; org-agenda-diary-file 'diary-file
+      ;; org-agenda-insert-diary-strategy 'date-tree
+      )
+
+;;; Icon
+;; How to make icon with GIMP?
+;;
+;; 1. "scale" image to [16x16] pixels.
+;; 2. "select by color" -> "color to alpha"
+;; 3. export to .xpm format. (or .png)
+;;
+;; (setq org-agenda-category-icon-alist
+;;       '(("Org" "~/.emacs.d/resources/icon/Org.xpm" nil nil :ascent center)
+;;         ("Emacs" "~/.emacs.d/resources/icon/Emacs.xpm" nil nil :ascent center)
+;;         ("Code" "~/.emacs.d/resources/icon/Code.xpm" nil nil :ascent center)
+;;         ("Programming" "~/.emacs.d/resources/icon/Code.xpm" nil nil :ascent center)
+;;         ("Bug" "~/.emacs.d/resources/icon/Bug.xpm" nil nil :ascent center)
+;;         ("Issue" "~/.emacs.d/resources/icon/GitHub Octocat.xpm" nil nil :ascent center)
+;;         ("Feature" "~/.emacs.d/resources/icon/GitHub Octocat.xpm" nil nil :ascent center)
+;;         ("Idea" "~/.emacs.d/resources/icon/Idea.xpm" nil nil :ascent center)
+;;         ("Project"  "~/.emacs.d/resources/icon/Code.xpm" nil nil :ascent center)
+;;         ("Startup"  "~/.emacs.d/resources/icon/Startup.xpm" nil nil :ascent center)
+;;         ("Hack"  "~/.emacs.d/resources/icon/Hack.xpm" nil nil :ascent center)
+;;         ("Daily" '(space . (:width (16)))) ; to display a 16px horizontal space
+;;         ("Learning"  "~/.emacs.d/resources/icon/Org.xpm" nil nil :ascent center)
+;;         ("Linux" "~/.emacs.d/resources/icon/Linux.xpm" nil nil :ascent center)
+;;         ("GNU" "~/.emacs.d/resources/icon/GNU.xpm" nil nil :ascent center)
+;;         ("Arch" "~/.emacs.d/resources/icon/Arch.xpm" nil nil :ascent center)
+;;         ("Ubuntu" "~/.emacs.d/resources/icon/Ubuntu.xpm" nil nil :ascent center)
+;;         ("Kali" "~/.emacs.d/resources/icon/Kali.xpm" nil nil :ascent center)
+;;         ("BSD" "~/.emacs.d/resources/icon/BSD.xpm" nil nil :ascent center)
+;;         ("Android" "~/.emacs.d/resources/icon/Android.xpm" nil nil :ascent center)
+;;         ("Lisp" "~/.emacs.d/resources/icon/common-lisp.xpm" nil nil :ascent center)
+;;         ("Scheme" "~/.emacs.d/resources/icon/Scheme.xpm" nil nil :ascent center)
+;;         ("Clojure" "~/.emacs.d/resources/icon/Clojure.xpm" nil nil :ascent center)
+;;         ("Ruby" "~/.emacs.d/resources/icon/Ruby.xpm" nil nil :ascent center)
+;;         ("Rails" "~/.emacs.d/resources/icon/Rails.xpm" nil nil :ascent center)
+;;         ("Python" "~/.emacs.d/resources/icon/Python.xpm" nil nil :ascent center)
+;;         ("Perl" "~/.emacs.d/resources/icon/Perl.xpm" nil nil :ascent center)
+;;         ("Shell" "~/.emacs.d/resources/icon/Shell.xpm" nil nil :ascent center)
+;;         ("PHP" "~/.emacs.d/resources/icon/PHP.xpm" nil nil :ascent center)
+;;         ("Haskell" "~/.emacs.d/resources/icon/Haskell.xpm" nil nil :ascent center)
+;;         ("Erlang" "~/.emacs.d/resources/icon/Erlang.xpm" nil nil :ascent center)
+;;         ("Prolog" "~/.emacs.d/resources/icon/Prolog.xpm" nil nil :ascent center)
+;;         ("Assembly" "~/.emacs.d/resources/icon/Assembly.xpm" nil nil :ascent center)
+;;         ("C" "~/.emacs.d/resources/icon/C.xpm" nil nil :ascent center)
+;;         ("C++" "~/.emacs.d/resources/icon/C++.xpm" nil nil :ascent center)
+;;         ("D" "~/.emacs.d/resources/icon/D.xpm" nil nil :ascent center)
+;;         ("Go" "~/.emacs.d/resources/icon/Go.xpm" nil nil :ascent center)
+;;         ("Swift" "~/.emacs.d/resources/icon/Swift.xpm" nil nil :ascent center)
+;;         ("Rust" "~/.emacs.d/resources/icon/Rust.xpm" nil nil :ascent center)
+;;         ("Scala" "~/.emacs.d/resources/icon/Scala.xpm" nil nil :ascent center)
+;;         ("Java" "~/.emacs.d/resources/icon/Java.xpm" nil nil :ascent center)
+;;         ("HTML5" "~/.emacs.d/resources/icon/HTML5.xpm" nil nil :ascent center)
+;;         ("CSS3" "~/.emacs.d/resources/icon/CSS3.xpm" nil nil :ascent center)
+;;         ("JavaScript" "~/.emacs.d/resources/icon/JavaScript.xpm" nil nil :ascent center)
+;;         ("SQL" "~/.emacs.d/resources/icon/SQL.xpm" nil nil :ascent center)
+;;         ("NoSQL" "~/.emacs.d/resources/icon/NoSQL.xpm" nil nil :ascent center)
+;;         ("NewSQL" "~/.emacs.d/resources/icon/NewSQL.xpm" nil nil :ascent center)
+;;         ("R" "~/.emacs.d/resources/icon/R.xpm" nil nil :ascent center)
+;;         ("Julia" "~/.emacs.d/resources/icon/Julia.xpm" nil nil :ascent center)
+;;         ("Quipper" "~/.emacs.d/resources/icon/Quipper.xpm" nil nil :ascent center)
+;;         ("TeX" "~/.emacs.d/resources/icon/TeX.xpm" nil nil :ascent center)
+;;         ("GitHub" "~/.emacs.d/resources/icon/GitHub Octocat.xpm" nil nil :ascent center)
+;;         ("GFW" "~/.emacs.d/resources/icon/GFW.xpm" nil nil :ascent center)
+;;         (".*" '(space . (:width (16))))
+;;         ))
+
+
+;; set Org agenda to search in ~/Org directory *recursively*.
+
+(setq org-agenda-files '("~/Org/INDEX.org"
+                         "~/Org/Tasks.org"
+                         "~/Org/Daily.org"
+                         "~/Org/Work/Work.org"
+                         "~/Org/Projects/"
+                         "~/Org/Capture/"
+                         "~/Org/Wiki/Learning/Learning.org"
+                         "~/Org/Wiki/Learning/MyLearningPlan/Learn Programming.org"
+                         "~/Org/Wiki/Wiki.org"
+                         "~/Org/Wiki/Kung Fu/Kung Fu.org"
+                         ))
+
+(setq org-agenda-text-search-extra-files '("~/Org/Journal.org" "~/Org/Diary/"))
+
+(setq org-agenda-skip-timestamp-if-done t
+      org-agenda-skip-deadline-if-done t
+      org-agenda-skip-scheduled-if-done t
+      org-agenda-skip-scheduled-delay-if-deadline 'post-deadline
+      org-agenda-skip-scheduled-if-deadline-is-shown t
+      ;; NOTE: org-agenda-ignore-properties '(effort appt stats category)
+      org-agenda-tags-todo-honor-ignore-options t
+      org-agenda-todo-ignore-timestamp nil ; 'all
+      org-agenda-todo-ignore-with-date nil
+      org-agenda-todo-ignore-scheduled 'future
+      )
+
+(setq org-agenda-scheduled-leaders '("Scheduled: " "%2d days /// "))
+(setq org-agenda-show-all-dates t)
+(setq org-agenda-show-outline-path t)
+;; determines how far in advance items with
+;; deadlines will show up in the agenda.
+(setq org-deadline-warning-days 7)
+;; I work late at night! Extend my current day past midnight.
+(setq org-extend-today-until 3)
+
+(setq org-agenda-window-setup 'current-window)
+
+(setq org-agenda-span 'week)
+;; speedup Org Agenda
+(setq org-agenda-dim-blocked-tasks nil
+      org-agenda-inhibit-startup nil
+      org-agenda-use-tag-inheritance nil)
+
+;; toggle log mode in agenda buffer. show all possible log items.
+(setq org-agenda-show-log t)
+(setq org-agenda-log-mode-items '(closed clock state)
+      org-agenda-log-mode-add-notes t)
+
+;;; Custom Agenda Commands
+;; [<]  :: to restrict to current buffer.
+;; [<<] :: to restrict to current sub-tree.
+(setq org-agenda-custom-commands
+      '(("d" "Agenda and all TODO's"
+         ((agenda "")
+          (alltodo "")))
+        ("u" "Urgent tasks"
+         ((search "[#A]")
+          (todo "Urgent")
+          (tags "Prepare-Today")))
+        ("t" "all todo entries"
+         todo ""
+         ((org-agenda-buffer-name "*Todo List*")))
+        ("f" "Tasks to start in the future/someday."
+         todo "SOMEDAY")
+        ("p" "Project process - project, BUG, ISSUE, Features"
+         ((todo "project")
+          (todo "BUG")
+          (todo "ISSUE")
+          (todo "Features")))
+        ;; used to filter out fragment time tasks.
+        ("f" "Fragment time tasks"
+         ((tags "fragment")))
+        ;; ("i" tags-todo "CATEGORY=\"Task\"")
+        ;; ("w" tags-todo "CATEGORY=\"Work\"")
+        ))
+
+
+;;; [ Calendar ]
+
+;;;_* iCalendar
+
+(setq org-combined-agenda-icalendar-file "~/Org/Calendar/iCalendar.ics")
+
+
+;;; [ Notify ]
+
+;; 1.
+;;   - show in modeline
+;; 2.
+;;   - sauron (+alert.el)
+;; 3.
+;;   - org-notify (from org-clock), (notify-send)
+;;     - (org-notify "body")
+;;     - (org-show-notification "body")
+;;   reference org-clock.el function source code.
+;;   - (setq org-show-notification-handler '())
+;; 4.
+;;   - use function `my-func-notify-send'.
+;;     (my-func-notify-send
+;;      "Warning" "the end is near"
+;;      "/usr/share/icons/test.png" "/usr/share/sounds/beep.ogg")
+
+
+;;; [ org-notify ]
+
+(require 'org-notify)
+
+(setq org-notify-audible t)
+
+;;; ---------------------------------------------------------
+;; List of possible parameters:
+;;
+;;   :time      Time distance to deadline, when this type of notification shall
+;;              start.  It's a string: an integral value (positive or negative)
+;;              followed by a unit (s, m, h, d, w, M).
+;;   :actions   A function or a list of functions to be called to notify the
+;;              user.  Instead of a function name, you can also supply a suffix
+;;              of one of the various predefined `org-notify-action-xxx'
+;;              functions.
+;;   :period    Optional: can be used to repeat the actions periodically.
+;;              Same format as :time.
+;;   :duration  Some actions use this parameter to specify the duration of the
+;;              notification.  It's an integral number in seconds.
+;;   :audible   Overwrite the value of `org-notify-audible' for this action.
+;;
+;;   :actions -ding, -notify, -window, -notify/window, -message, -email,
+
+(org-notify-add 'default
+                '(:time "1h" :period "2h" :duration 10
+                        :actions (-notify/window -ding))
+                '(:time "1d" :period "4h" :duration 10
+                        :actions (-notify/window -ding))
+                ;; '(:time "3d" :period "4h" :duration 5
+                ;;         :actions -notify/window)
+                ;; '(:time "5d" :period "6d" :duration 3
+                ;;         :actions -notify)
+                )
+
+(org-notify-start 60)
+
+
+
+
+
+
+
+(provide 'init-my-org-agenda)
+
+;;; init-my-org-agenda.el ends here
