@@ -435,18 +435,18 @@
 
 ;;; Usage:
 
-(require 'company-statistics)
-(company-statistics-mode)
-
-;; (add-hook 'after-init-hook 'company-statistics-mode)
-
-(setq company-statistics-auto-restore t
-      company-statistics-auto-save t
-      company-statistics-file "~/.emacs.d/.company-statistics-cache.el"
-      ;; company-statistics-score-calc 'company-statistics-score-calc-default
-      ;; company-statistics-score-change 'company-statistics-score-change-default
-      company-statistics-size 500
-      )
+;; (require 'company-statistics)
+;; (company-statistics-mode)
+;;
+;; ;; (add-hook 'after-init-hook 'company-statistics-mode)
+;;
+;; (setq company-statistics-auto-restore t
+;;       company-statistics-auto-save t
+;;       company-statistics-file "~/.emacs.d/.company-statistics-cache.el"
+;;       ;; company-statistics-score-calc 'company-statistics-score-calc-default
+;;       ;; company-statistics-score-change 'company-statistics-score-change-default
+;;       company-statistics-size 500
+;;       )
 
 
 ;;; company-elisp
