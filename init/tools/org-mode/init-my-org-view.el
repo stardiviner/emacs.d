@@ -56,30 +56,39 @@
 
 ;; [ org-bullets ]
 
-;; (require 'org-bullets nil t)
+(require 'org-bullets nil t)
 
-(eval-after-load 'org-bullets
-  '(progn
-     (setq org-bullets-bullet-list
-           '("◈" "◆" "◊" "✸")
-           ;; '("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
-           ;; '("❶" "❷" "❸" "❹" "❺" "❻" "❼" "❽" "❾" "❿")
-           ;; '("①" "②" "③" "④" "⑤" "⑥" "⑦" "⑧" "⑨" "⑩")
-           ;; '("㊀" "㊁" "㊂" "㊃" "㊄" "㊅" "㊆" "㊇" "㊈" "㊉")
-           ;; '("㈠" "㈡" "㈢" "㈣" "㈤" "㈥" "㈦" "㈧" "㈨" "㈩")
-           )
+(setq-default org-bullets-bullet-list
+              ;; '("◈" "◆" "◊" "✸" "◉" "○" "✸" "✿")
+              ;; ♥ ● ◇ ✚ ✜ ☯ ◆ ♠ ♣ ♦ ☢ ❀ ◆ ◖ ▶
+              ;; ► • ★ ▸
+              '("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
+              ;; '("❶" "❷" "❸" "❹" "❺" "❻" "❼" "❽" "❾" "❿")
+              ;; '("①" "②" "③" "④" "⑤" "⑥" "⑦" "⑧" "⑨" "⑩")
+              ;; '("㊀" "㊁" "㊂" "㊃" "㊄" "㊅" "㊆" "㊇" "㊈" "㊉")
+              ;; '("㈠" "㈡" "㈢" "㈣" "㈤" "㈥" "㈦" "㈧" "㈨" "㈩")
+              )
 
-     (defface org-bullets-face
-       '((t (:foreground "red"
-                         :height 150
-                         :box '(:color "black" :line-width 2)
-                         )))
-       "My custom face for org-bullets."
-       :group 'org-faces)
-     (setq org-bullets-face-name 'org-bullets-face)
+(defface org-bullets-face
+  '((t (:inherit nil
+                 :foreground "red"
+                 :weight 'bold
+                 :height 150
+                 :box '(:color "black" :line-width 2)
+                 )))
+  "My custom face for org-bullets."
+  :group 'org-faces)
+(setq org-bullets-face-name 'org-bullets-face)
 
-     (org-bullets-mode 1)
-     ))
+(add-hook 'org-mode-hook
+          (lambda ()
+            (org-bullets-mode 1)
+            (set-face-attribute 'org-bullets-face nil
+                                :background "#222222" :foreground "forest green"
+                                :box '(:color "black" :line-width 2)
+                                :weight 'bold
+                                )
+            ))
 
 
 
