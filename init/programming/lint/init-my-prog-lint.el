@@ -6,12 +6,7 @@
 
 ;;; Code:
 
-;;; [ FlyCheck ] --- init FlyCheck
-;;; Commentary:
-;; Modern on-the-fly syntax checking for GNU Emacs 24 (aka “Flymake done right”)
-;; Flycheck is a modern alternative to Flymake that supports many programming languages out of the box.
-
-;; http://flycheck.github.io/
+;;; [ FlyCheck ] --- modern on-the-fly syntax checking
 
 ;;; Features:
 ;;
@@ -32,6 +27,7 @@
 ;; - [C-c ! l] -- list error list.
 ;; - error navigation with 'next-error' and 'previous-error'.
 ;; - [M-x flycheck-buffer] -- check buffer.
+;;
 ;; Error navigation:
 ;; - [M-g n] -- next-error.
 ;; - [M-g p] -- previous-error.
@@ -55,36 +51,40 @@
 
 (add-hook 'after-init-hook #'global-flycheck-mode) ; enable flycheck in all buffers.
 
-(setq flycheck-check-syntax-automatically
-      '(save idle-change new-line mode-enabled)
+(setq flycheck-check-syntax-automatically '(save
+                                            idle-change new-line mode-enabled)
+      flycheck-idle-change-delay 5.0
+      flycheck-display-errors-delay 3.0
+      flycheck-highlighting-mode 'symbols
+      flycheck-indication-mode 'left-fringe
+      flycheck-standard-error-navigation t ; [M-g n/p]
+      flycheck-deferred-syntax-check nil
+      ;; flycheck-mode-line '(:eval (flycheck-mode-line-status-text))
+      flycheck-completion-system nil ; 'ido, 'grizzl, nil
+      ;; flycheck-error-list-highlight-overlays t
       )
 
-(setq flycheck-idle-change-delay 0.5 ; delay seconds
-      ;; flycheck-temporaries nil
-      flycheck-standard-error-navigation t
-      ;;; {clang}
-      ;; flycheck-clang-definitions
-      ;; flycheck-clang-include-path
-      ;; flycheck-clang-includes
-      ;; flycheck-clang-language-standard
-      ;; flycheck-clang-no-rtti
-      ;; flycheck-clang-standard-library
-      ;; flycheck-clang-warnings
-      ;; flycheck-cppcheck-checks
-      ;;; {emacs-lisp}
-      ;; flycheck-emacs-lisp-initialize-packages 'auto
-      ;; flycheck-emacs-lisp-load-path
-      ;; flycheck-emacs-lisp-package-user-dir
-      )
-
-;;; < Error reporting >
-
-;;; Faces
-;;
-;; - flycheck-error
-;; - flycheck-warning
-;; - flycheck-fringe-error
-;; - flycheck-fringe-warning
+;; For Languages
+(setq
+ ;; {clang}
+ ;; flycheck-clang-definitions
+ ;; flycheck-clang-include-path
+ ;; flycheck-clang-includes
+ ;; flycheck-clang-language-standard
+ ;; flycheck-clang-no-rtti
+ ;; flycheck-clang-standard-library
+ ;; flycheck-clang-warnings
+ ;; flycheck-cppcheck-checks
+ ;; {emacs-lisp}
+ ;; To make Flycheck use the current `load-path'.
+ ;; Don't error about "free variable" without (require ??).
+ flycheck-emacs-lisp-initialize-packages t
+ flycheck-emacs-lisp-load-path 'inherit
+ flycheck-emacs-lisp-package-user-dir nil
+ ;; {Ruby}
+ flycheck-ruby-executable "rubocop"
+ ;; flycheck-rubocop-lint-only t
+ )
 
 (set-face-attribute 'flycheck-info nil
                     :background nil :foreground nil
@@ -94,7 +94,6 @@
 (set-face-attribute 'flycheck-warning nil
                     :background nil :foreground nil
                     :underline '(:color "orange" :style wave)
-                    ;; :box '(:color "orange" :line-width -1)
                     )
 (set-face-attribute 'flycheck-fringe-warning nil
                     :background nil :foreground "orange"
@@ -108,18 +107,6 @@
                     :background nil :foreground "dark red"
                     :weight 'normal)
 
-;; determine how to highlight errors:
-(setq flycheck-highlighting-mode 'symbols ; 'symbols, 'columns, 'sexps, 'lines, nil
-      flycheck-indication-mode 'left-fringe ; 'left-fringe, 'right-fringe, nil
-      flycheck-display-errors-delay 1.0
-      ;; flycheck-deferred-syntax-check
-      ;; flycheck-mode-line '(:eval (flycheck-mode-line-status-text))
-      flycheck-completion-system nil ; 'ido, 'grizzl, nil
-      ;; flycheck-display-error-at-point-timer
-      flycheck-error-list-highlight-overlays t
-      ;; flycheck-error-list-mode-line-map
-      )
-
 
 ;;; list errors only when has lint errors
 (defun flycheck-list-errors-only-when-errors ()
@@ -129,42 +116,16 @@
     (-when-let (buffer (get-buffer flycheck-error-list-buffer))
       (dolist (window (get-buffer-window-list buffer))
         (quit-window nil window)))))
-
 ;; TODO: only show when has error:
 ;; (add-hook 'before-save-hook #'flycheck-list-errors-only-when-errors)
-
-;;; Flycheck hooks
-;;
-;; (add-hook 'flycheck-before-syntax-check-hook
-;;           'flycheck-after-syntax-check-hook
-;;           )
-;;
-;; (setq flycheck-status-changed-functions
-;;       flycheck-process-error-functions '(flycheck-add-overlay)
-;;       ;; 'flycheck-pos-tip-error-messages, 'flycheck-display-error-messages
-;;       ;; flycheck-display-errors-function 'flycheck-pos-tip-error-messages
-;;       )
-
-;;; add more modes
 
 ;;; add Django-mode
 ;; (with-eval-after-load 'flycheck
 ;;   (dolist (checker '(python-pylint python-flake8 python-pycompile))
 ;;     (flycheck-add-mode checker 'django-mode)))
 
-;;; Emacs Lisp
-
-(setq flycheck-emacs-lisp-load-path 'inherit)
-
-;;; Ruby
-(setq flycheck-ruby-executable "rubocop"
-      ;; flycheck-rubocop-lint-only t
-      )
-
 
 ;;; [ flycheck-tip ] -- show you error by popup-tip.
-
-;; (require 'flycheck-tip)
 
 ;; (define-key YOUR-PROG-MODE (kbd "C-c C-n") 'flycheck-tip-cycle)
 
@@ -180,7 +141,7 @@
 ;; (define-key flycheck-mode-map (kbd "C-c ! c") 'flycheck-tip-cycle)
 
 
-;;; [ flycheck-pos-tip ] -- This extension to display errors under point using popup.el.
+;;; [ flycheck-pos-tip ] -- display errors under point using popup.el.
 
 (eval-after-load 'flycheck
   (lambda ()

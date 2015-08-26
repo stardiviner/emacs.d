@@ -321,6 +321,16 @@
 ;; user_pref("browser.bookmarks.autoExportHTML", false);
 
 
+;;; [ helm-elisp ]
+
+;; for `helm-lisp-completion-at-point', [C-x c TAB]
+;; 'helm-elisp-show-doc-modeline, 'helm-elisp-showhelp
+(setq helm-elisp-help-function 'helm-elisp-show-doc-modeline
+      helm-apropos-fuzzy-match nil
+      helm-lisp-fuzzy-completion nil
+      )
+
+
 ;; man-women
 
 ;;; - helm-man-women ::
@@ -344,6 +354,11 @@
 (setq helm-descbinds-window-style 'split-window) ; 'split-window, 'one-window, 'same-window.
 
 (helm-descbinds-mode 1)
+
+
+;;; [ helm-documentation ]
+
+(setq helm-documentation-file "~/.emacs.d/helm-doc.org")
 
 
 ;;; [ helm-themes ]
@@ -451,6 +466,11 @@
 ;;   "Choose file from test folder."
 ;;   (interactive)
 ;;   (helm :sources (list downloads-source docs-source)))
+
+;; (setq helm-cmd-t-default-repo "~/Git/dotfiles"
+;;       ;; helm-cmd-t-find-command "find" ; find
+;;       ;; helm-cmd-t-find-ignored-files
+;;       )
 
 
 

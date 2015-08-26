@@ -25,7 +25,8 @@
 ;;   - x -- execute marked status actions
 ;; - [M-x bookmark-set] -- add current page into bookmark
 
-(setq-default bookmark-default-file (expand-file-name "bookmarks.el" user-emacs-directory))
+(setq-default bookmark-default-file
+	      (expand-file-name "bookmarks.el" user-emacs-directory))
 
 (setq bookmark-save-flag 1)
 

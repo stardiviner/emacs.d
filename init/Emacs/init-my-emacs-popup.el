@@ -33,7 +33,7 @@
 ;; (set-face-attribute 'tooltip nil
 ;;                     :foreground "dark gray" :background "#002630")
 
-(require 'tooltip-help)
+; (require 'tooltip-help)
 
 ;; (setq th-max-tooltip-lines 30
 ;;       th-titlebar-height 0)
@@ -122,7 +122,7 @@
 
 ;;; [ popup-pos-tip ]
 
-(require 'popup-pos-tip)
+;; (require 'popup-pos-tip)
 
 
 

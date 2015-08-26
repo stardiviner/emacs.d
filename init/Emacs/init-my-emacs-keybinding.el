@@ -294,13 +294,8 @@
 ;; (setq which-key-paging-prefixes '("C-x"))
 ;; (setq which-key-paging-key "<f5>")
 
+
 (which-key-mode)
-
-
-
-(if (featurep 'which-key)
-    (which-key-mode)
-  (guide-key-mode 1))
 
 
 ;;; [ hydra ] -- be used to tie related commands into a family of short bindings with a common prefix - a Hydra.

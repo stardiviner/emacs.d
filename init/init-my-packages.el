@@ -325,9 +325,9 @@
     ;; Assembly
     ;; nasm-mode iasm-mode
     ;; TeX
-    ;; company-auctex company-math
-    ;; latex-pretty-symbols
-    ;; latex-math-preview latex-preview-pane
+    company-auctex company-math
+    latex-pretty-symbols
+    px latex-preview-pane latex-math-preview
     ;; Markdown
     markdown-mode
     ;; YAML

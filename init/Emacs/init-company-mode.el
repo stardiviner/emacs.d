@@ -432,6 +432,8 @@
 ;; - remove any completion containing numbers.
 ;; - remove any candidate which is no longer than 15 in org-mode.
 
+;; (setq company-transformers '(company-sort-by-backend-importance))
+
 
 ;;; [ company-statistics ] -- Sort completion candidates by previous completion choices.
 

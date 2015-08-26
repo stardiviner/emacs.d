@@ -41,8 +41,8 @@
 (define-key my-tools-prefix (kbd "B") 'my-bbdb-map)
 
 (if (featurep 'bbdb-)
-    (define-key my-bbdb-map (kbd "b") 'bbdb-:open)
-  (define-key my-bbdb-map (kbd "b") 'my-bbdb-open-or-switch) ; or 'bbdb.
+    (define-key my-bbdb-map (kbd "B") 'bbdb-:open)
+  (define-key my-bbdb-map (kbd "B") 'my-bbdb-open-or-switch) ; or 'bbdb.
   )
 
 (defun my-bbdb-open-or-switch ()
@@ -53,7 +53,7 @@
     ;; (bury-buffer)
     ;; (switch-to-buffer "*BBDB*")
     ))
-(define-key my-bbdb-map (kbd "B") 'bbdb)
+(define-key my-bbdb-map (kbd "b") 'bbdb)
 
 (define-key my-bbdb-map (kbd "c") 'bbdb-create)
 ;; usage: region select name and email part in To: field. then press this keybinding.
@@ -332,8 +332,9 @@
 
 (require 'bbdb-vcard)
 
-(setq bbdb-vcard-directory "~/Org/BBDB/vCards")
-
+(setq bbdb-vcard-directory "~/Org/BBDB/vCards"
+      bbdb-vcard-media-directory "media/"
+      )
 
 
 ;;; [ helm-bbdb ]
