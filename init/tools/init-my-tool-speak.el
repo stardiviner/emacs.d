@@ -52,8 +52,8 @@
   )
 
 (unless (boundp 'speak-map)
-  (define-prefix-command 'speak-map))
-(define-key my-tools-prefix (kbd "s") 'speak-map)
+  (define-prefix-command 'speak-map)
+  (define-key my-tools-prefix (kbd "s") 'speak-map))
 
 (define-key speak-map (kbd "s") 'festival-read)
 (define-key speak-map (kbd "r") 'festival-read-region)

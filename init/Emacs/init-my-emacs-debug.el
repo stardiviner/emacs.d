@@ -221,9 +221,8 @@ LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
 ;; - `profiler-report' ::
 
 (unless (boundp 'my-emacs-profiler-prefix)
-  (define-prefix-command 'my-emacs-profiler-prefix))
-
-(define-key my-prog-debug-map (kbd "p") 'my-emacs-profiler-prefix)
+  (define-prefix-command 'my-emacs-profiler-prefix)
+  (define-key my-prog-debug-map (kbd "p") 'my-emacs-profiler-prefix))
 
 (define-key my-emacs-profiler-prefix (kbd "p") 'profiler-start)
 (define-key my-emacs-profiler-prefix (kbd "s") 'profiler-stop)

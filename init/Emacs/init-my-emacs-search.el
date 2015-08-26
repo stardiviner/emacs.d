@@ -49,8 +49,8 @@
 ;; (setq isearch-lazy-highlight-??)
 
 (unless (boundp 'my-rectangle-map)
-  (define-prefix-command 'my-rectangle-map))
-(global-set-key (kbd "C-x r r") 'my-rectangle-map)
+  (define-prefix-command 'my-rectangle-map)
+  (global-set-key (kbd "C-x r r") 'my-rectangle-map))
 
 (global-unset-key (kbd "C-x r N"))
 (global-unset-key (kbd "C-x r t"))
@@ -420,8 +420,8 @@
 ;; (add-hook 'ag-mode-hook #'next-error-follow-minor-mode) ; so you can navigate with 'n' & 'p'.
 
 (unless (boundp 'ag-map)
-  (define-prefix-command 'ag-map))
-(define-key my-search-prefix (kbd "a") 'ag-map)
+  (define-prefix-command 'ag-map)
+  (define-key my-search-prefix (kbd "a") 'ag-map))
 
 (define-key ag-map (kbd "a") 'ag)
 (define-key ag-map (kbd "r") 'ag-regexp)
@@ -485,9 +485,8 @@
 
 
 (unless (boundp 'my-search-language-prefix)
-  (define-prefix-command 'my-search-language-prefix))
-
-(define-key my-search-prefix (kbd "l") 'my-search-language-prefix)
+  (define-prefix-command 'my-search-language-prefix)
+  (define-key my-search-prefix (kbd "l") 'my-search-language-prefix))
 
 
 ;;; [ pinyin-search ] --

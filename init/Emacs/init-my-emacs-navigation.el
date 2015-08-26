@@ -102,12 +102,13 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;; (global-set-key (kbd "<left-fringe> <mouse-4>") 'bm-previous-mouse)
 (global-set-key (kbd "<left-margin> <mouse-1>") 'bm-toggle-mouse)
 
-(unless (boundp 'my-bookmark-map) ; FIXME: `my-bookmark-map' is not void yet. it is in init-my-emacs-bookmark.el
+;; FIXME: `my-bookmark-map' is not void yet. it is in init-my-emacs-bookmark.el
+(unless (boundp 'my-bookmark-map)
   (define-prefix-command 'my-bookmark-map))
 
 (unless (boundp 'my-bookmark-bm-map)
-  (define-prefix-command 'my-bookmark-bm-map))
-(define-key my-bookmark-map (kbd "m") 'my-bookmark-bm-map)
+  (define-prefix-command 'my-bookmark-bm-map)
+  (define-key my-bookmark-map (kbd "m") 'my-bookmark-bm-map))
 
 ;; mark
 (define-key my-bookmark-bm-map (kbd "m") 'bm-toggle)

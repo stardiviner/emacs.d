@@ -94,8 +94,8 @@
       vr/match-separator-string " ⇨ ")
 
 (unless (boundp 'visual-regexp-map)
-  (define-prefix-command 'visual-regexp-map))
-(define-key my-regexp-prefix (kbd "v") 'visual-regexp-map)
+  (define-prefix-command 'visual-regexp-map)
+  (define-key my-regexp-prefix (kbd "v") 'visual-regexp-map))
 
 (define-key visual-regexp-map (kbd "s") 'vr/isearch-forward)
 (define-key visual-regexp-map (kbd "b") 'vr/isearch-backward)

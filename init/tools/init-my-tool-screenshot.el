@@ -11,8 +11,8 @@
 ;; prefix
 
 (unless (boundp 'my-screenshot-map)
-  (define-prefix-command 'my-screenshot-map))
-(define-key my-tools-prefix (kbd "S") 'my-screenshot-map)
+  (define-prefix-command 'my-screenshot-map)
+  (define-key my-tools-prefix (kbd "S") 'my-screenshot-map))
 
 
 ;;; [ screenshot.el ]

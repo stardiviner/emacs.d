@@ -34,8 +34,8 @@
 (define-key sdcv-mode-map (kbd "v") 'hide-entry)
 
 (unless (boundp 'dictionary-map)
-  (define-prefix-command 'dictionary-map))
-(define-key my-tools-prefix (kbd "d") 'dictionary-map)
+  (define-prefix-command 'dictionary-map)
+  (define-key my-tools-prefix (kbd "d") 'dictionary-map))
 
 (define-key dictionary-map (kbd "d") 'sdcv-search-pointer+)
 (define-key dictionary-map (kbd "C-d") 'sdcv-search-input)

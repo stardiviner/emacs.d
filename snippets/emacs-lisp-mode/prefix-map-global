@@ -3,7 +3,7 @@
 # key: prefix-map-global
 # --
 (unless (boundp '$1)
-   (define-prefix-command '${1:my-???-prefix}))
-(global-set-key (kbd "${2:keybinding prefix}") '$1)
+   (define-prefix-command '${1:my-???-prefix})
+   (global-set-key (kbd "${2:keybinding prefix}") '$1))
 
 (define-key $1 (kbd "${3:sub key . key}") '${4:command})

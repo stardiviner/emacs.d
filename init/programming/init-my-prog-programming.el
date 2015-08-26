@@ -81,13 +81,13 @@
 
 ;;; Shell
 (unless (boundp 'my-inferior-shell-map)
-  (define-prefix-command 'my-inferior-shell-map))
-(define-key my-prog-inferior-map (kbd "s") 'my-inferior-shell-map)
+  (define-prefix-command 'my-inferior-shell-map)
+  (define-key my-prog-inferior-map (kbd "s") 'my-inferior-shell-map))
 
 ;;; Lisp
 (unless (boundp 'my-inferior-lisp-map)
-  (define-prefix-command 'my-inferior-lisp-map))
-(define-key my-prog-inferior-map (kbd "l") 'my-inferior-lisp-map)
+  (define-prefix-command 'my-inferior-lisp-map)
+  (define-key my-prog-inferior-map (kbd "l") 'my-inferior-lisp-map))
 
 ;; Emacs Lisp
 (define-key my-inferior-lisp-map (kbd "s")
@@ -121,26 +121,26 @@
 (define-key my-inferior-lisp-map (kbd "G") 'run-guile)  ; Guile
 ;; FIXME: not `cider-jack-in'
 ;; (define-key my-inferior-lisp-map (kbd "c") 'cider-jack-in) ; Clojure cider
+
+
 ;; Ruby
 (unless (boundp 'my-inferior-ruby-map)
-  (define-prefix-command 'my-inferior-ruby-map))
-(define-key my-prog-inferior-map (kbd "r") 'my-inferior-ruby-map)
-
+  (define-prefix-command 'my-inferior-ruby-map)
+  (define-key my-prog-inferior-map (kbd "r") 'my-inferior-ruby-map))
 (define-key my-inferior-ruby-map (kbd "r") 'run-ruby) ; Ruby
 ;; Python
 ;; (unless (boundp 'my-inferior-python-map)
 ;;   (define-prefix-command 'my-inferior-python-map))
 ;; (define-key my-prog-inferior-map (kbd "p") 'my-inferior-python-map)
-
 (define-key my-prog-inferior-map (kbd "p") 'run-python)   ; Python
 ;; Prolog
 (define-key my-prog-inferior-map (kbd "g") 'run-prolog)   ; Prolog
 ;; ESS
-;; Julia
 ;; R
 (unless (boundp 'my-inferior-ess-map)
-  (define-prefix-command 'my-inferior-ess-map))
-(define-key my-prog-inferior-map (kbd "e") 'my-inferior-ess-map)
+  (define-prefix-command 'my-inferior-ess-map)
+  (define-key my-prog-inferior-map (kbd "e") 'my-inferior-ess-map))
+;; Julia
 ;; Octave
 (define-key my-prog-inferior-map (kbd "o") 'run-octave)   ; Octave
 ;; JavaScript

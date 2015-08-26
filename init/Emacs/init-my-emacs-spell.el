@@ -118,8 +118,8 @@
                     :underline '(:color "dark red" :style line))
 
 (unless (boundp 'my-spell-prefix)
-  (define-prefix-command 'my-spell-prefix))
-(define-key my-edit-prefix (kbd "s") 'my-spell-prefix)
+  (define-prefix-command 'my-spell-prefix)
+  (define-key my-edit-prefix (kbd "s") 'my-spell-prefix))
 
 (define-key my-spell-prefix (kbd "C-s") 'flyspell-mode)
 (define-key my-spell-prefix (kbd "m") 'flyspell-mode)

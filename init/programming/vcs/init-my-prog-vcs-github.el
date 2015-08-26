@@ -25,8 +25,8 @@
 ;; (setq helm-open-github-from-commit 100)
 
 (unless (boundp 'my-prog-vcs-github-map)
-  (define-prefix-command 'my-prog-vcs-github-map))
-(define-key my-prog-vcs-map (kbd "h") 'my-prog-vcs-github-map)
+  (define-prefix-command 'my-prog-vcs-github-map)
+  (define-key my-prog-vcs-map (kbd "h") 'my-prog-vcs-github-map))
 
 (define-key my-prog-vcs-github-map (kbd "c") 'helm-open-github-from-commit)
 (define-key my-prog-vcs-github-map (kbd "f") 'helm-open-github-from-file)

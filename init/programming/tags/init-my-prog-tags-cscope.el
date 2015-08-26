@@ -205,8 +205,8 @@
 
 
 (unless (boundp 'my-prog-lookup-tags-cscope-map)
-  (define-prefix-command 'my-prog-lookup-tags-cscope-map))
-(define-key my-prog-lookup-tags-map (kbd "c") 'my-prog-lookup-tags-cscope-map)
+  (define-prefix-command 'my-prog-lookup-tags-cscope-map)
+  (define-key my-prog-lookup-tags-map (kbd "c") 'my-prog-lookup-tags-cscope-map))
 
 (define-key my-prog-lookup-tags-cscope-map (kbd "b") 'cscope-build)
 

@@ -31,8 +31,8 @@
 (setq bookmark-save-flag 1)
 
 (unless (boundp 'my-bookmark-map)
-  (define-prefix-command 'my-bookmark-map))
-(global-set-key (kbd "C-x r b") 'my-bookmark-map)
+  (define-prefix-command 'my-bookmark-map)
+  (global-set-key (kbd "C-x r b") 'my-bookmark-map))
 
 (global-unset-key (kbd "C-x r l"))
 (global-unset-key (kbd "C-x r m"))

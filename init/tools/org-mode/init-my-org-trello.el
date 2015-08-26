@@ -97,8 +97,8 @@
 
 ;; 2. my custom prefix map
 ;; (unless (boundp 'my-org-trello-map)
-;;   (define-prefix-command 'my-org-trello-map))
-;; (define-key my-org-prefix (kbd "t") 'my-org-trello-map)
+;;   (define-prefix-command 'my-org-trello-map)
+;;   (define-key my-org-prefix (kbd "t") 'my-org-trello-map))
 
 ;; ;; enable org-trello
 ;; (define-key my-org-trello-map (kbd "t") 'org-trello-mode)

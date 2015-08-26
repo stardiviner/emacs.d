@@ -135,8 +135,8 @@
 ;; (setq mc/keymap "C-c c")
 
 (unless (boundp 'my-mc-prefix)
-  (define-prefix-command 'my-mc-prefix))
-(define-key my-edit-prefix (kbd "c") 'my-mc-prefix)
+  (define-prefix-command 'my-mc-prefix)
+  (define-key my-edit-prefix (kbd "c") 'my-mc-prefix))
 
 (define-key my-mc-prefix (kbd "c") 'mc/mark-all-dwim)
 (define-key my-mc-prefix (kbd "r") 'set-rectangular-region-anchor)
@@ -148,8 +148,8 @@
 (define-key my-mc-prefix (kbd "R") 'mc/reverse-regions)
 
 (unless (boundp 'my-mc/mark-prefix)
-  (define-prefix-command 'my-mc/mark-prefix))
-(define-key my-mc-prefix (kbd "m") 'my-mc/mark-prefix)
+  (define-prefix-command 'my-mc/mark-prefix)
+  (define-key my-mc-prefix (kbd "m") 'my-mc/mark-prefix))
 
 (define-key my-mc/mark-prefix (kbd "a a") 'mc/mark-all-like-this-dwim)
 (define-key my-mc/mark-prefix (kbd "a l") 'mc/mark-all-like-this)

@@ -50,8 +50,8 @@
 
 
 (unless (boundp 'my-calculator-map)
-  (define-prefix-command 'my-calculator-map))
-(define-key my-tools-prefix (kbd "x") 'my-calculator-map)
+  (define-prefix-command 'my-calculator-map)
+  (define-key my-tools-prefix (kbd "x") 'my-calculator-map))
 
 (if (featurep 'helm)
     (define-key my-calculator-map (kbd "x") 'helm-calcul-expression)

@@ -9,9 +9,10 @@
 
 
 (unless (boundp 'my-outline-prefix)
-  (define-prefix-command 'my-outline-prefix))
-(global-set-key (kbd "C-c SPC") 'my-outline-prefix)
-(global-set-key (kbd "C-c @") 'my-outline-prefix)
+  (define-prefix-command 'my-outline-prefix)
+  (global-set-key (kbd "C-c SPC") 'my-outline-prefix)
+  (global-set-key (kbd "C-c @") 'my-outline-prefix)
+  )
 
 
 ;;; [ outline-mode ]
@@ -388,8 +389,8 @@
 (define-key my-edit-prefix (kbd "o") 'my-allout-toggle)
 
 ;; (unless (boundp 'my-outline-prefix)
-;;   (define-prefix-command 'my-outline-prefix))
-;; (define-key my-edit-prefix (kbd "o") 'my-outline-prefix)
+;;   (define-prefix-command 'my-outline-prefix)
+;;   (define-key my-edit-prefix (kbd "o") 'my-outline-prefix))
 ;;
 ;; (define-key my-outline-prefix (kbd "n") 'allout-next-heading)
 
