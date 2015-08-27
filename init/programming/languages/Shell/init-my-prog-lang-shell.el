@@ -1,4 +1,4 @@
-;;; init-prog-lang-shell.el --- init for Shell Sctips
+;;; init-my-prog-lang-shell.el --- init for Shell Sctips
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -51,6 +51,6 @@
 
 
 
-(provide 'init-prog-lang-shell)
+(provide 'init-my-prog-lang-shell)
 
-;;; init-prog-lang-shell.el ends here
+;;; init-my-prog-lang-shell.el ends here
