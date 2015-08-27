@@ -190,6 +190,7 @@
 (require 'init-my-emacs-regexp)
 (require 'init-my-emacs-vcs)
 (require 'init-my-emacs-shell)
+(require 'init-my-emacs-comint)
 (require 'init-my-emacs-subprocess)
 (require 'init-my-emacs-encrypt)
 (require 'init-my-emacs-customize)

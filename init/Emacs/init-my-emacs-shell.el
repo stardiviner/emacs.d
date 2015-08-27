@@ -11,12 +11,6 @@
 ;;; variables
 (setq shell-file-name (getenv "SHELL"))      ; "$SHELL", "/bin/sh", "/bin/bash", "usr/bin/zsh"
 
-
-;;; [ Cominit ]
-
-(setq comint-prompt-read-only t ; prompt read-only.
-      )
-
 
 
 ;;; [ Shell ]
