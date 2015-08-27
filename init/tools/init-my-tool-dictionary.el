@@ -1,4 +1,4 @@
-;;; init-my-tool-dict.el --- init my Emacs dictionary.
+;;; init-my-tool-dictionary.el --- init my Emacs dictionary.
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -100,6 +100,6 @@
 ;;     (my-translate-dwim 'babel-region 'babel-as-string 'babel-buffer)))
 
 
-(provide 'init-my-tool-dict)
+(provide 'init-my-tool-dictionary)
 
-;;; init-my-tool-dict.el ends here
+;;; init-my-tool-dictionary.el ends here
