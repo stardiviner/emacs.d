@@ -197,8 +197,8 @@
 
 
 ;;; Tools
-(require 'init-my-tool-calendar)
 (require 'init-my-org-mode)
+; (require 'init-my-tool-calendar)
 (require 'init-my-tool-dict)
 (require 'init-my-tool-clock)
 ;; (require 'init-my-tool-speak)
@@ -207,18 +207,17 @@
 (require 'init-my-tool-bbdb)
 (require 'init-my-tool-browser)
 (require 'init-my-tool-bookmark)
-;;; Email
+;; (require 'init-my-tool-OpenSpritz)
 (require 'init-my-tool-email-message-mode)
-(require 'init-my-tool-email-mu4e)
+; (require 'init-my-tool-email-mu4e)
 (require 'init-my-tool-feeds)
 (require 'init-my-tool-blog)
 (require 'init-my-tool-paste)
 ;; (require 'init-my-tool-sauron)
-;;; IRC
 ;; (require 'init-my-tool-irc-erc)
-(require 'init-my-tool-emms)
-(require 'init-my-tool-screenshot)
-(require 'init-my-tool-screencast)
+;; (require 'init-my-tool-emms)
+;; (require 'init-my-tool-screenshot)
+;; (require 'init-my-tool-screencast)
 ;; (require 'init-my-tool-stack-exchange)
 
 
@@ -237,21 +236,26 @@
 (require 'init-my-prog-template)
 (require 'init-my-prog-document)
 (require 'init-my-prog-compile)
+(require 'init-my-prog-make)
 (require 'init-my-prog-project)
 (require 'init-my-prog-vcs)
-(require 'init-my-prog-bug-track-system)
-(require 'init-my-prog-refactor)
-
+;; (require 'init-my-prog-bug-track-system)
+;; (require 'init-my-prog-refactor)
 
 
 ;;; Programming Languages
 (require 'init-my-prog-lang-lisp)
 (require 'init-my-prog-lang-emacs-lisp)
-(require 'init-my-prog-lang-common-lisp)
-(require 'init-my-prog-lang-guile)
+;; (require 'init-my-prog-lang-common-lisp)
+;; (require 'init-my-prog-lang-guile)
 (require 'init-my-prog-lang-clojure)
 (require 'init-my-prog-lang-ruby)
+(require 'init-my-prog-lang-python)
 (require 'init-my-prog-lang-shell)
+(require 'init-my-prog-lang-C-common)
+(require 'init-my-prog-lang-C)
+;; (require 'init-my-prog-lang-go)
+;; (require 'init-my-prog-lang-lua)
 ;; (require 'init-my-prog-lang-swift)
 (require 'init-my-prog-lang-html)
 (require 'init-my-prog-lang-css)
@@ -260,11 +264,12 @@
 (require 'init-my-prog-lang-xml)
 (require 'init-my-prog-lang-json)
 ;; (require 'init-my-prog-lang-haskell)
-(require 'init-my-prog-lang-elixir)
+;; FIXME: achmeist-company can't be initialized.
+;; (require 'init-my-prog-lang-elixir)
 ;; (require 'init-my-prog-lang-erlang)
 ;; (require 'init-my-prog-lang-ESS)
 ;; (require 'init-my-prog-lang-R)
-(require 'init-my-prog-lang-julia)
+;; (require 'init-my-prog-lang-julia)
 ;; (require 'init-my-prog-lang-gnuplot)
 ;; (require 'init-my-prog-lang-octave)
 ;; (require 'init-my-prog-lang-matlab)
@@ -279,13 +284,13 @@
 (require 'init-my-prog-framework-web)
 ;; (require 'init-my-prog-framework-arduino)
 (require 'init-my-prog-ruby-on-rails)
-(require 'init-my-prog-nginx)
+;; (require 'init-my-prog-nginx)
 
 
 ;;; programming related tools
-(require 'init-my-prog-tools-container)
-(require 'init-my-prog-tools-vagrant)
-(require 'init-my-prog-tools-heroku)
+;; (require 'init-my-prog-tools-container)
+;; (require 'init-my-prog-tools-vagrant)
+;; (require 'init-my-prog-tools-heroku)
 
 
 ;;; at the end!!!
