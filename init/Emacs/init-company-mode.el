@@ -75,17 +75,17 @@
 ;; one (see below).
 
 (setq company-backends
-      '((
-         company-yasnippet
-         company-tempo          ; tempo: flexible template insertion
-         company-bbdb           ; BBDB
+      '((company-bbdb           ; BBDB
          company-files          ; files & directory
          company-gtags company-etags
          company-keywords       ; keywords
-         company-dabbrev-code
+         ;; company-dabbrev-code
+         ;; company-tempo          ; tempo: flexible template insertion
          company-capf           ; completion-at-point-functions
+         :with
+         company-yasnippet
          )
-        ;; company-elisp ; Emacs Lisp
+        company-elisp ; Emacs Lisp
         ;; company-semantic ; C/C++
         ;; (company-clang company-cmake) ; C/C++
         ;; company-eclim ; Java
