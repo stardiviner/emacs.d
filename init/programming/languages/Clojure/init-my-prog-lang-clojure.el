@@ -13,6 +13,8 @@
 ;;
 ;; -
 
+(require 'clojure-mode)
+
 ;; provides additional font-locking for built-in methods and macros.
 ;;
 ;; The font-locking is pretty imprecise, because it doesn't take namespaces into
