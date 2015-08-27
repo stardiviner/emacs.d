@@ -27,16 +27,12 @@
               )
 
 (set-face-attribute 'tooltip nil
-                    :foreground "black" :background "khaki"
-                    :family "DejaVu Sans Mono")
-
-;; (set-face-attribute 'tooltip nil
-;;                     :foreground "dark gray" :background "#002630")
-
-; (require 'tooltip-help)
-
-;; (setq th-max-tooltip-lines 30
-;;       th-titlebar-height 0)
+                    :inherit nil
+                    :inverse-video nil
+                    :foreground "black" :background "dim gray"
+                    :distant-foreground "gray"
+                    :family "DejaVu Sans Mono"
+                    )
 
 
 ;;; [ popup ]
