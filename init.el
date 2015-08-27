@@ -206,7 +206,7 @@
 (require 'init-my-tool-diagram)
 (require 'init-my-tool-bbdb)
 (require 'init-my-tool-browser)
-(require 'init-my-tool-OpenSpritz)
+(require 'init-my-tool-bookmark)
 ;;; Email
 (require 'init-my-tool-email-message-mode)
 (require 'init-my-tool-email-mu4e)
