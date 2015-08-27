@@ -9,12 +9,21 @@
 
 ;;; [ helm-firefox ]
 
+;;; `helm-firefox-bookmarks'
 
+(require 'helm-firefox)
+
+(setq helm-firefox-default-directory "~/.moizlla/firefox")
 
 
 ;;; [ helm-chrome ]
 
 
+
+
+(if (featurep 'helm-firefox)
+    (define-key my-tools-prefix (kbd "b") 'helm-firefox-bookmarks)
+  )
 
 
 (provide 'init-my-tool-bookmark)
