@@ -20,12 +20,6 @@
 ;; sexp, but if you don't mind its imperfections you can easily enable it:
 (require 'clojure-mode-extra-font-locking)
 
-(add-hook 'clojure-mode-hook
-          '(lambda ()
-             (paredit-mode 1)
-             (hl-sexp-mode)))
-
-
 ;; smartparens is an excellent (newer) alternative to paredit. Many Clojure
 ;; hackers have adopted it recently and you might want to give it a try as
 ;; well. To enable smartparens use the following code:
@@ -153,14 +147,6 @@
 (eval-after-load 'cider
   '(progn
      (add-hook 'cider-mode-hook #'eldoc-mode)
-
-     (dolist (hook '(cider-repl-mode-hook
-                     cider-interaction-mode-hook
-                     ))
-       (add-hook hook '(lambda ()
-                         (paredit-mode 1)
-                         (rainbow-delemiters-mode 1)
-                         (eldoc-mode 1))))
      ))
 
 ;;; auto completion
@@ -229,9 +215,8 @@
 
 (add-hook 'inf-clojure-mode-hook
           '(lambda ()
-             (paredit-mode 1)
-             (rainbow-delemiters-mode 1)
-             (eldoc-mode 1)))
+             (cider-mode 1)
+             ))
 
 
 ;;; [ flycheck-clojure, squiggly-clojure ] --
