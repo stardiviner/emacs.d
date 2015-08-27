@@ -102,9 +102,10 @@
 
 (hook-modes lisp-dialects-mode
   (rainbow-delimiters-mode-enable)
-  (paredit-mode)
-  (hl-sexp-mode)
-  (eldoc-mode))
+  (paredit-mode 1)
+  (hl-sexp-mode 1)
+  (eldoc-mode 1)
+  )
 
 
 ;;; [ SLIME ]
