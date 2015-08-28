@@ -9,8 +9,29 @@
 
 ;;; [ CC-mode ]
 
-(require 'cc-mode)
+;; cc-mode provides:
+;; - c-mode
+;; - c++-mode
+;; - java-mode
+;; - objc-mode
+;; - idl-mode
+;; - pike-mode
+;; - awk-mode
+;; - and some 3rd part modes.
 
+;; (require 'cc-mode)
+
+;; Hook called by all CC Mode modes for common initializations.
+;; (add-hook 'c-mode-common-hook)
+
+
+;; [ C dialects ]
+
+(defvar c-dialects-mode
+  '(c-mode
+    c++-mode
+    objc-mode
+    ))
 
 
 ;; [ C-mode ]
@@ -23,21 +44,17 @@
               c-default-style "linux"
               )
 
-(add-hook 'c-mode-common-hook
-          '(lambda ()
-             (c-toggle-auto-newline 1)
-             ;; (c-toggle-auto-hungry-state 1)
+
 
-             (electric-indent-mode 1)
-             ))
+(hook-modes c-dialects-mode
+  (c-toggle-auto-newline 1)
+  ;; (c-toggle-auto-hungry-state 1)
+  (electric-indent-mode 1)
+  (turn-on-eldoc-mode)
+  )
 
 ;; How to convert tabs to space in source code?
 ;; Select a region first, then call `untabify' or `tabify'.
-
-
-;;; [ c-eldoc ]
-
-(add-hook 'c-mode-common-hook 'turn-on-eldoc-mode)
 
 
 ;;; [ Semantic ]
@@ -78,9 +95,8 @@
 ;; Please refer to `irony-cdb-autosetup-compile-options' and
 ;; `irony-cdb-compilation-databases'.
 
-(add-hook 'c++-mode-hook 'irony-mode)
-(add-hook 'c-mode-hook 'irony-mode)
-(add-hook 'objc-mode-hook 'irony-mode)
+(hook-modes c-dialects-mode
+  (irony-mode 1))
 
 ;; replace the `completion-at-point' and `complete-symbol' bindings in
 ;; irony-mode's buffers by irony-mode's function
@@ -108,59 +124,18 @@
             ))
 
 
-;;; [ ac-irony ]
-
-;; (defun my-ac-irony-setup ()
-;;   ;; be cautious, if yas is not enabled before (auto-complete-mode 1), overlays
-;;   ;; *may* persist after an expansion.
-;;   (yas-minor-mode 1)
-;;   (auto-complete-mode 1)
-;;
-;;   (add-to-list 'ac-sources 'ac-source-irony)
-;;   ;; (define-key irony-mode-map (kbd "M-RET") 'ac-complete-irony-async)
-;;   )
-;;
-;; (add-hook 'irony-mode-hook 'my-ac-irony-setup)
-
-
 ;;; [ irony-eldoc ]
 
 (eval-after-load 'irony
   '(progn
-     (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
+     (add-hook 'irony-mode-hook #'irony-eldoc)))
 
 
 ;;; [ flycheck-irony ]
 
 (eval-after-load 'irony
   '(progn
-     (add-hook 'irony-mode-hook #'irony-eldoc)))
-
-
-
-;;; [ auto-complete-clang ]
-
-;; (require 'auto-complete-clang)
-;; (require 'auto-complete-c-headers)
-;;
-;; (dolist (hook '(c-mode-hook
-;;                 c++-mode-hook
-;;                 ))
-;;   (add-hook hook (lambda ()
-;;                    (eval-after-load 'auto-complete
-;;                      '(lambda ()
-;;                        (add-to-list 'ac-sources 'ac-source-clang)
-;;                        (add-to-list 'ac-sources 'ac-source-c-headers))))))
-
-
-;;; [ auto-complete-c-headers ]
-
-
-;;; [ auto-complete-clang-async ]
-
-;; (unless (package-installed-p 'auto-complete-clang-async)
-;;   (package-install 'auto-complete-clang-async))
-;; (require 'auto-complete-clang-async)
+     (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
 
 
 ;;; [ company-clang ]
@@ -171,15 +146,15 @@
 
 (setq company-clang-begin-after-member-access t)
 
+(hook-modes c-dialects-mode
+  (add-to-list (make-local-variable 'company-backends)
+               'company-clang)
+  (add-to-list (make-local-variable 'company-backends)
+               'company-cmake)
+  )
 
-(add-hook 'c-mode-common-hook
-          (lambda ()
-            (add-to-list (make-local-variable 'company-backends)
-                         'company-clang)
-            (add-to-list (make-local-variable 'company-backends)
-                         'company-cmake)
-            ))
-
+
+;;; [ company-c-headers ]
 
 
 ;;; [ gccsense ]
@@ -187,14 +162,6 @@
 ;; (unless (package-installed-p 'gccsense)
 ;;   (package-install 'gccsense))
 ;; (require 'gccsense)
-
-
-;;; [ company-c-headers ]
-
-
-;;; [ rtags ]
-
-;;; https://github.com/Andersbakken/rtags
 
 
 
@@ -245,7 +212,6 @@
 (autoload 'fa-config-default "function-args" nil t)
 (autoload 'turn-on-function-args-mode "function-args" nil t)
 
-
 ;;; Put c++-mode as default for *.h files (improves parsing):
 ;; (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 ;;
@@ -264,8 +230,15 @@
 
 
 (fa-config-default)
-;; (add-hook 'c++-mode-hook 'turn-on-function-args-mode)
-;; (add-hook 'c-mode-hook 'turn-on-function-args-mode)
+
+(hook-modes c-dialects-mode
+  (turn-on-function-args-mode))
+
+
+;;; [ rtags ]
+
+;;; https://github.com/Andersbakken/rtags
+
 
 
 
