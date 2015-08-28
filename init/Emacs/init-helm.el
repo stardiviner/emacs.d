@@ -83,35 +83,8 @@
                                   ;; helm-source-tracker-search
                                   ;; helm-source-wikipedia-suggest
                                   ;; helm-source-google-suggest
-                                  ;; TODO: Org-mode
-                                  ;; helm-org-agenda-files-headings
-                                  ;; helm-org-in-buffer-headings
-                                  ;; helm-source-org-headings-for-files
                                   )
       )
-
-(defvar helm-source-my-apps
-  '((name . "My Daily Apps")
-    (candidates . (("Agenda" . my-open-org-agenda)
-                   ("Mail" . mu4e)
-                   ("Blog" . jekyll-draft-post)
-                   ("Calendar" . (lambda () (browse-url "https://www.google.com/calendar/render")))
-                   ("RSS" . elfeed)
-                   ("Web Browser" . eww)))
-    (action . (("Open" . (lambda (x) (funcall x)))))
-    ))
-
-(defvar helm-source-my-locations
-  '((name . "My Frequently File Locations")
-    (candidates . (("Linux" . "~/Org/Wiki/Computer/Systems/Linux/Linux.org")
-                   ("Emacs" . "~/Org/Wiki/Computer/Programming/Emacs/Emacs.org")
-                   ("Programming" . "~/Org/Wiki/Computer/Programming/Programming.org")
-                   ("Implement" . "~/Org/Wiki/Computer/Programming/Implements/Implements.org")
-                   ("Languages" . "~/Org/Wiki/Computer/Programming/Programming Languages/Programming Languages.org")
-                   ("Ruby" . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Ruby.org")
-                   ("Lisp" . "~/Org/Wiki/Computer/Programming/Programming Languages/Lisp/Lisp.org")))
-    (action . (("Open" . (lambda (x) (find-file x)))))))
-
 
 ;;; work with ido and helm together.
 ;; If you like ido for some commands and helm for other commands, you should not
@@ -275,7 +248,7 @@
                                               ("xmosaic" . browse-url-mosaic)
                                               ("xterm" . browse-url-text-xterm) ; XTerm
                                               )
-      helm-default-external-file-browser "dolphin"
+      ;; helm-default-external-file-browser "dolphin"
       ;; helm-c-default-external-file-browser
       helm-external-programs-associations '(("jpg" . "sxiv")
                                             ("png" . "sxiv")
@@ -293,20 +266,7 @@
         ;; helm-google-suggest-url "http://google.com/complete/search?output=toolbar&q="
         ))
 
-;; `helm-for-files' :: your preferred sources to find files.
-;; FIXME: (define-key ??? (kbd "C-c C-j") 'helm-for-files)
-;; (setq helm-for-files-preferred-list
-;;       '(helm-source-buffers-list
-;;         helm-source-recentf
-;;         helm-source-bookmarks
-;;         helm-source-file-cache
-;;         helm-source-files-in-current-dir
-;;         helm-source-locate)
-;;       )
-(setq helm-for-files-preferred-list
-      (append
-       '(helm-source-moccur)
-       helm-for-files-preferred-list))
+(add-to-list 'helm-for-files-preferred-list 'helm-source-moccur)
 
 (add-to-list 'helm-sources-using-default-as-input 'helm-source-man-pages)
 
@@ -321,7 +281,7 @@
 ;; user_pref("browser.bookmarks.autoExportHTML", false);
 
 
-;;; [ helm-elisp ]
+;;; [ helm-elisp / helm-lisp ]
 
 ;; for `helm-lisp-completion-at-point', [C-x c TAB]
 ;; 'helm-elisp-show-doc-modeline, 'helm-elisp-showhelp
@@ -329,13 +289,6 @@
       helm-apropos-fuzzy-match nil
       helm-lisp-fuzzy-completion nil
       )
-
-
-;; man-women
-
-;;; - helm-man-women ::
-
-;; (setq helm-man-or-woman-function 'Man-getpage-in-background)
 
 
 ;; [ helm-descbinds ]
@@ -356,11 +309,6 @@
 (helm-descbinds-mode 1)
 
 
-;;; [ helm-documentation ]
-
-(setq helm-documentation-file "~/.emacs.d/helm-doc.org")
-
-
 ;;; [ helm-themes ]
 
 ;;; Usage:
@@ -374,60 +322,6 @@
 ;; [ helm-projectile ]
 
 (require 'helm-projectile)
-
-
-
-;; (defun my-helm ()
-;;   "My preconfigured `helm'."
-;;   (interactive)
-;;   (condition-case nil
-;;       (if (projectile-project-root)
-;;           (helm-projectile)
-;;         ;; otherwise fallback to `helm-mini'
-;;         (helm-mini))
-;;     ;; fall back to helm mini if an error occurs (usually in `projectile-project-root')
-;;     (error (helm-mini))))
-;;
-;; (global-set-key (kbd "C-x h") 'my-helm)
-
-
-;; This provides a single command `helm-helm-commands' which will present a helm
-;; buffer containing a list of helm commands and short descriptions. You can
-;; press C-z on an item to see a longer description of the command, and RET to
-;; execute the command.
-
-(defvar helm-helm-commands-source-buffer "*helm source select*")
-
-(defvar helm-source-helm-commands
-  `((name . "Helm commands")
-    (candidate-number-limit . 9999)
-    (candidates
-     . (lambda nil
-         (loop for symname in (all-completions "helm-" obarray)
-               for sym = (intern symname)
-               if (commandp sym) collect
-               (cons
-                (concat
-                 (propertize (format "%s" symname)
-                             'face 'font-lock-function-name-face)
-                 (propertize (format " %s"
-                                     (or (and (documentation sym)
-                                              (car (split-string
-                                                    (documentation sym) "\n\\|\\.")))
-                                         "Not documented"))
-                             'face 'font-lock-doc-face))
-                sym))))
-    (action . (("Execute helm command" .
-                (lambda (candidate)
-                  (call-interactively candidate)))
-               ("Describe command" . describe-command)))
-    (persistent-action . describe-command)))
-
-(defun helm-helm-commands nil
-  "Select from helm commands to execute."
-  (interactive)
-  (helm :sources 'helm-source-helm-commands
-        :buffer helm-helm-commands-source-buffer))
 
 
 ;;; [ helm-project ]
@@ -504,77 +398,6 @@
 ;; - Helm defined source: `helm-c-source-gist'
 
 ;; (require 'helm-gist)
-
-
-;;; [ helm-dictionary ]
-
-;;; Usage:
-;;
-;; - [M-x helm-dictionary] :: start search.
-
-;; (require 'helm-dictionary)
-;; alternatively
-(autoload 'helm-dictionary "helm-dictionary" "" t)
-
-;; (setq
-;;  ;; local dictionary
-;;  helm-dictionary-database ""
-;;  ;; online dictionary
-;;  helm-dictionary-online-dicts '(("translate.reference.com de->eng"
-;;                                  . "http://translate.reference.com/translate?query=%s&src=de&dst=en")
-;;                                 ("translate.reference.com eng->de"
-;;                                  . "http://translate.reference.com/translate?query=%s&src=en&dst=de")
-;;                                 ("leo eng<->de"
-;;                                  . "http://dict.leo.org/ende?lp=ende&lang=de&search=%s")
-;;                                 ("en.wiktionary.org"
-;;                                  . "http://en.wiktionary.org/wiki/%s")
-;;                                 ("de.wiktionary.org"
-;;                                  . "http://de.wiktionary.org/wiki/%s")
-;;                                 ("linguee-eng<->de"
-;;                                  . "http://www.linguee.de/deutsch-englisch/search?sourceoverride=none&source=auto&query=%s"))
-
-;;  ;; helm-dictionary-browser-function nil
-;;  )
-
-
-;; ;;; [ helm-delicious ]
-
-;; ;; Use:
-;; ;; ===
-;; ;;
-;; ;; M-x helm-delicious
-;; ;; That should create a "~/.delicious-cache" file.
-;; ;; (you can set that to another value with `helm-c-delicious-cache-file')
-;; ;; You can also add `helm-c-source-delicious-tv' to the `helm-sources'.
-;; ;;
-
-;; (require 'helm-delicious)
-
-;; ;; after subscribing to http://delicious.com/
-;; ;; Setup your login and delicious password:
-;; ;;
-;; ;; You can set it up in your init file with
-;; ;;
-;; ;; `helm-delicious-user' and `helm-delicious-password'
-;; ;; (use setq)
-;; ;;
-;; ;; or better:
-;; ;;
-;; ;; Add a line like this in your .authinfo file:
-;; ;;
-;; ;; machine api.del.icio.us:443 port https login xxxxx password xxxxx
-;; ;;
-;; ;; and add to you init file (.emacs):
-;; (require 'auth-source)
-
-;; (if (file-exists-p "~/.authinfo.gpg")
-;;     (setq auth-sources '((:source "~/.authinfo.gpg" :host t :protocol t)))
-;;   (setq auth-sources '((:source "~/.authinfo" :host t :protocol t))))
-
-;; ;; Warning:
-;; ;;
-;; ;; DON'T CALL `helm-delicious-authentify', this will set your login and password
-;; ;; globally.
 
 
 ;;; [ Emacs internal functions/commands ] -- [C-x c]
