@@ -13,21 +13,11 @@
 
 (autoload 'ispell "ispell" t)
 
-;; find aspell and hunspell automatically
+;; find aspell automatically
 (cond
  ((executable-find "aspell")
   (setq ispell-program-name "aspell")
   (setq ispell-extra-args '("--sug-mode=ultra" "--lang=en_US")))
- ((executable-find "hunspell")
-  (setq ispell-program-name "hunspell")
-  (setq ispell-extra-args '("-d en_US"))
-  (setq ispell-really-hunspell t)
-  ;; just reset dictionary to the safe one "en_US" for hunspell.
-  ;; if we need use different dictionary, we specify it in command line arguments
-  (setq ispell-local-dictionary "en_US")
-  (setq ispell-local-dictionary-alist
-        '(("en_US" "[[:alpha:]]" "[^[:alpha:]]" "[']" nil nil nil utf-8)))
-  )
  (t
   (setq ispell-program-name nil))
  )
