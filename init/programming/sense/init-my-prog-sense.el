@@ -28,9 +28,14 @@
 ;;   - `sourcegraph-describe-show-examples' ::
 ;; - `sourcegraph-analyze' :: analyze code.
 ;; - `sourcegraph-jump-to-def' :: jump to definition.
+;; - `sourcegraph-search-site'
+;;
+;; $ go get github.com/sourcegraph/srclib/cmd/src
 
+;; (require 'sourcegraph)
 
-
+;; enable sourcegraph-mode minor mode in all programming modes repository.
+(add-hook 'prog-mode-hook 'sourcegraph-mode)
 
 
 
