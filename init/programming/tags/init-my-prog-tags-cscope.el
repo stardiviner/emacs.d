@@ -66,7 +66,7 @@
 ;; - `ascope-init' :: load the cscope database.
 ;;   This command must be issue prior to issue any other command below,
 ;;   the directory feed to this command must be the directory include
-;;   the cscope.out file.
+;;   the `cscope.out' file.
 ;; - `ascope-find-global-definition'
 ;; - `ascope-find-this-symbol'
 ;; - `ascope-find-this-text-string'
@@ -188,31 +188,31 @@
   (define-key cscope-prefix (kbd "t") 'rscope-find-this-text-string)
   (define-key cscope-prefix (kbd "i") 'rscope-find-files-including-file)
   (define-key cscope-prefix (kbd "h") 'rscope-find-calling-hierarchy)
-  
-  (define-key cscope-prefix (kbd "n") 'cscope-history-backward-line-current-result)
-  (define-key cscope-prefix (kbd "N") 'cscope-history-forward-file-current-result)
   )
  
  ;; [ helm-cscope ]
  ((and (featurep 'helm) (featurep 'helm-cscope))
-  (define-key cscope-prefix (kbd "s") 'helm-cscope-select)
-  (define-key cscope-prefix (kbd "c") 'helm-cscope-find-symbol)
+  (define-key cscope-prefix (kbd "s") 'helm-cscope-find-this-symbol)
+  (define-key cscope-prefix (kbd "a") 'helm-cscope-find-assignments-to-this-symbol)
   (define-key cscope-prefix (kbd "q") 'helm-cscope-find-called-function)
-  (define-key cscope-prefix (kbd "r") 'helm-cscope-find-calling-this-funtcion)
-  
-  (define-key cscope-prefix (kbd "n") 'cscope-history-backward-line-current-result)
-  (define-key cscope-prefix (kbd "N") 'cscope-history-forward-file-current-result)
+  (define-key cscope-prefix (kbd "d") 'helm-cscope-find-calling-this-funtcion)
+  (define-key cscope-prefix (kbd "p") 'helm-cscope-find-egrep-pattern)
+  (define-key cscope-prefix (kbd "g") 'helm-cscope-find-global-definition)
+  (define-key cscope-prefix (kbd "i") 'helm-cscope-find-files-including-file)
+  (define-key cscope-prefix (kbd "f") 'helm-cscope-find-this-file)
+  (define-key cscope-prefix (kbd "t") 'helm-cscope-find-this-text-string)
   )
 
  ;; [ cscope ]
  (t
   ;; FIXME: (define-key cscope-prefix (kbd "s") 'cscope-select-entry-one-window)
   (define-key cscope-prefix (kbd "c") 'cscope-find-this-symbol)
-  
-  (define-key cscope-prefix (kbd "n") 'cscope-history-backward-line-current-result)
-  (define-key cscope-prefix (kbd "N") 'cscope-history-forward-file-current-result)
   )
  )
+
+(define-key cscope-prefix (kbd "n") 'cscope-history-backward-line-current-result)
+(define-key cscope-prefix (kbd "N") 'cscope-history-forward-file-current-result)
+
 
 
 (provide 'init-my-prog-tags-cscope)
