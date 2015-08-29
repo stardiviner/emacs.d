@@ -66,14 +66,27 @@
                    (run-hooks 'prog-mode-hook))))
 
 
+
 (defvar lisp-dialects-mode
-  '(lisp-mode
+  '(emacs-lisp-mode
+    lisp-mode
     lisp-interaction-mode
-    emacs-lisp-mode
     ;; common-lisp-mode
+    inferior-emacs-lisp-mode
+    ;; geiser
+    sly-mrepl-mode
     scheme-mode
     clojure-mode
+    inferior-clojure-mode
+    ;; cider-mode
     cider-repl-mode
+    cider-interaction-mode
+    ))
+
+(defvar c-dialects-mode
+  '(c-mode
+    c++-mode
+    objc-mode
     ))
 
 

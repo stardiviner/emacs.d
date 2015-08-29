@@ -25,15 +25,6 @@
 ;; (add-hook 'c-mode-common-hook)
 
 
-;; [ C dialects ]
-
-(defvar c-dialects-mode
-  '(c-mode
-    c++-mode
-    objc-mode
-    ))
-
-
 ;; [ C-mode ]
 
 (setq-default c-syntactic-indentation t

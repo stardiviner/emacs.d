@@ -17,17 +17,6 @@
 ;;                                 cider-repl-mode-hook
 ;;                                 ))
 
-(defvar lisp-dialects-mode
-  '(emacs-lisp-mode
-    lisp-mode
-    lisp-interaction-mode
-    ;; common-lisp-mode
-    ;; geiser
-    sly-mrepl-mode
-    scheme-mode
-    clojure-mode
-    cider-repl-mode
-    ))
 
 
 ;; - 'lisp-indent-function
