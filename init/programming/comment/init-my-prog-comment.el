@@ -145,19 +145,14 @@ This functions should be added to the hooks of major modes for programming."
 ;; - [poporg-edit-and-exit] :: [C-c '], [C-x C-s] in opened buffer.
 ;; - `poporg-edit-hook'
 
-(setq poporg-adjust-fill-column t
-      poporg-delete-trailing-whitespace t)
-
-;; Org-mode Babel like keybindings.
-(if (featurep 'poporg)
-    (progn
-      (global-set-key (kbd "C-c '") 'poporg-dwim)
-      ;; (define-key my-prog-comment-map (kbd "'") 'poporg-dwim)
-      ;; (define-key poporg-mode-map [remap save-buffer] 'poporg-edit-exit)
-      ))
-
 (use-package poporg
   :config
+  (global-set-key (kbd "C-c '") 'poporg-dwim)
+  ;; (define-key my-prog-comment-map (kbd "'") 'poporg-dwim)
+  ;; (define-key poporg-mode-map [remap save-buffer] 'poporg-edit-exit)
+  
+  (setq poporg-adjust-fill-column t
+        poporg-delete-trailing-whitespace t)  
   (set-face-attribute 'poporg-edited-face nil
                       :foreground "green yellow"
                       :background (color-darken-name (face-background 'default) 5)
