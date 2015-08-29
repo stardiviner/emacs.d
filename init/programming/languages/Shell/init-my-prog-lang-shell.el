@@ -37,18 +37,20 @@
 (require 'insert-shebang)
 
 ;; enable it globally
-(add-hook 'find-file-hook 'insert-shebang)
+;; (add-hook 'find-file-hook 'insert-shebang)
+;; only enable it on some modes
+(dolist (hook '(sh-mode-hook
+                ))
+  (add-hook hook 'insert-shebang))
 
 (setq insert-shebang-env-path "/usr/bin/env"
-      insert-shebang-file-types '(("sh" . "bash")
-                                  ("rb" . "ruby") ("py" . "python") ("pl" . "perl")
-                                  ("c" . "C") ("cpp" . "C++"))
-      insert-shebang-custom-headers '(("c" . "#include <stdio.h>"))
-      insert-shebang-ignore-extensions '("txt" "org" "markdown" "md")
-      insert-shebang-track-ignored-filename "~/.insert-shebang.log"
+      insert-shebang-file-types '(("sh" . "bash"))
+      insert-shebang-custom-headers '(("c" . "#include <stdio.h>")
+                                      ("R" . "#!/usr/bin/env r"))
+      ;; insert-shebang-ignore-extensions '("txt" "org" "markdown" "md")
+      ;; insert-shebang-track-ignored-filename "~/.insert-shebang.log"
       ;; insert-shebang-header-scan-limit 6
       )
-
 
 
 (provide 'init-my-prog-lang-shell)
