@@ -179,7 +179,8 @@
     ;; Tags
     ;; ctags ctags-update
     ;; rtags
-    ;; helm-cscope xcscope
+    helm-cscope
+    xcscope
     ;; Compile
     smart-compile quickrun
     ;; Make
