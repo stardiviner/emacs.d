@@ -8,6 +8,12 @@
 ;;; Code:
 
 
+(unless (boundp 'cscope-prefix)
+  (define-prefix-command 'cscope-prefix)
+  (define-key my-prog-lookup-tags-map (kbd "c") 'cscope-prefix))
+
+
+
 (defun cscope-build (dir)
   "My custom function to execute shell command: $ cscope -bR."
   (interactive "Dcscope build database directory: ")
