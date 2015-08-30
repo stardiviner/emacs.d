@@ -75,12 +75,13 @@
 
 ;;; [ gocode ] -- An autocompletion daemon for the Go programming language.
 
-;;; ~/.go/src/github.com/nsf/gocode/
+
+;;; [ go-complete ] -- Native Go completion for Emacs.
 
-;; (setenv "GOROOT" "/home/stardiviner/.go/golang")
-;; (setenv "GOPATH" "/home/stardiviner/.go")
-;; (setenv "PATH" (concat (getenv "PATH") ":" (getenv "GOPATH") "/bin"))
-;; (setenv "GOBIN" (concat (getenv "PATH") ":" (getenv "GOPATH") "/bin/go"))
+;; A `gocode' based native completion system for Emacs, can be integrated with
+;; frameworks like ido, company, autocomplete.
+
+(add-hook 'completion-at-point-functions 'go-complete-at-point)
 
 
 ;;; [ go-autocomplete ]

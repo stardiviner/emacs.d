@@ -255,7 +255,7 @@
 (require 'init-my-prog-lang-shell)
 (require 'init-my-prog-lang-C-common)
 (require 'init-my-prog-lang-C)
-;; (require 'init-my-prog-lang-go)
+(require 'init-my-prog-lang-go)
 ;; (require 'init-my-prog-lang-lua)
 ;; (require 'init-my-prog-lang-swift)
 (require 'init-my-prog-lang-java)

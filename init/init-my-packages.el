@@ -246,7 +246,7 @@
     ;; Elixir
     elixir-mode alchemist
     ;; Go
-    go-mode company-go go-eldoc
+    go-mode go-complete company-go go-eldoc
     ;; Java
     ;; jdee
     ;; PHP
