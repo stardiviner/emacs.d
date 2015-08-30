@@ -20,6 +20,7 @@
 ;;; Usage:
 ;;
 ;; - `helm-gtags-dwim'
+;; - `helm--gtags-update-tags' :: update gtags tags.
 
 (setq helm-gtags-ignore-case t
       helm-gtags-auto-update t
@@ -45,9 +46,10 @@
      ;; (define-key helm-gtags-mode-map (kbd "M-g M-p") 'helm-gtags-parse-file)
      ;; (define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
      ;; (define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
-
+     
      
      (define-key my-prog-lookup-tags-map (kbd "g") 'helm-gtags-dwim)
+     (define-key my-prog-lookup-tags-map (kbd "u") 'helm-gtags-update-tags)
      ))
 
 
