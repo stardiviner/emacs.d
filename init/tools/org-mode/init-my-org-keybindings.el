@@ -10,8 +10,8 @@
 ;;; [ Keybindings ]
 
 (unless (boundp 'my-org-prefix)
-  (define-prefix-command 'my-org-prefix)
-  (global-set-key (kbd "C-c o") 'my-org-prefix))
+  (define-prefix-command 'my-org-prefix))
+(global-set-key (kbd "C-c o") 'my-org-prefix)
 
 (define-key my-org-prefix (kbd "e")
   (defun my-org-element-at-point ()
@@ -33,8 +33,8 @@
   )
 
 (unless (boundp 'my-org-agenda-prefix)
-  (define-prefix-command 'my-org-agenda-prefix)
-  (define-key my-org-prefix (kbd "M-a") 'my-org-agenda-prefix))
+  (define-prefix-command 'my-org-agenda-prefix))
+(define-key my-org-prefix (kbd "M-a") 'my-org-agenda-prefix)
 
 (define-key my-org-prefix (kbd "a")
   (defun my-open-org-agenda ()
@@ -52,8 +52,8 @@
 (define-key org-mode-map (kbd "C-c o M-a T") 'org-timeline) ; Show a time-sorted view of the entries in the current org file.
 
 (unless (boundp 'my-org-link-prefix)
-  (define-prefix-command 'my-org-link-prefix)
-  (define-key my-org-prefix (kbd "M-l") 'my-org-link-prefix))
+  (define-prefix-command 'my-org-link-prefix))
+(define-key my-org-prefix (kbd "M-l") 'my-org-link-prefix)
 
 (define-key my-org-link-prefix (kbd "L") 'org-insert-link-global)
 (define-key my-org-link-prefix (kbd "l") 'org-store-link)

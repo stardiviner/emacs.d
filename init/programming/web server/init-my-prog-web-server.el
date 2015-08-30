@@ -9,8 +9,8 @@
 
 
 (unless (boundp 'my-web-server-prefix)
-  (define-prefix-command 'my-web-server-prefix)
-  (define-key my-tools-prefix (kbd "w") 'my-web-server-prefix))
+  (define-prefix-command 'my-web-server-prefix))
+(define-key my-tools-prefix (kbd "w") 'my-web-server-prefix)
 
 
 ;;; [ elnode ] -- Asynchronous (non-blocking evented IO) HttpServer framework written in Emacs Lisp.

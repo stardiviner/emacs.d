@@ -6,8 +6,8 @@
 
 
 (unless (boundp 'paste-map)
-  (define-prefix-command 'paste-map)
-  (define-key my-tools-prefix (kbd "p") 'paste-map))
+  (define-prefix-command 'paste-map))
+(define-key my-tools-prefix (kbd "p") 'paste-map)
 
 
 ;;; [ gist.el ]

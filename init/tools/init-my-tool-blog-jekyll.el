@@ -55,8 +55,8 @@
 ;; (if (featurep 'jekyll)
 ;;     (progn
 ;;       (unless (boundp 'jekyll-map)
-;;         (define-prefix-command 'jekyll-map)
-;;         (define-key blog-map (kbd "j") 'jekyll-map))
+;;         (define-prefix-command 'jekyll-map))
+;;       (define-key blog-map (kbd "j") 'jekyll-map)
 ;;      
 ;;       (define-key jekyll-map (kbd "d") 'jekyll-draft-post)
 ;;       (define-key jekyll-map (kbd "p") 'jekyll-publish-post)
@@ -136,8 +136,8 @@
 ;;
 ;;
 ;; (unless (boundp 'org-jekyll-map)
-;;   (define-prefix-command 'org-jekyll-map)
-;;   (define-key my-org-prefix (kbd "j") 'org-jekyll-map))
+;;   (define-prefix-command 'org-jekyll-map))
+;; (define-key my-org-prefix (kbd "j") 'org-jekyll-map)
 ;;
 ;; (define-key org-jekyll-map (kbd "b") 'org-jekyll-export-blog)
 ;; (define-key org-jekyll-map (kbd "p") 'org-jekyll-export-project)

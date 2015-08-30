@@ -8,8 +8,8 @@
 ;;; Code:
 
 (unless (boundp 'my-org-password-prefix)
-  (define-prefix-command 'my-org-password-prefix)
-  (define-key my-org-prefix (kbd "P") 'my-org-password-prefix))
+  (define-prefix-command 'my-org-password-prefix))
+(define-key my-org-prefix (kbd "P") 'my-org-password-prefix)
 
 
 ;;; [ org-passwords ]

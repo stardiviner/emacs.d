@@ -231,10 +231,9 @@
 
 ;;; Global Keybinding
 (unless (boundp 'my-calendar-prefix)
-  (define-prefix-command 'my-calendar-prefix)
-  (define-key my-tools-prefix (kbd "c") 'my-calendar-prefix)
-  (define-key my-org-prefix (kbd "C") 'my-calendar-prefix)
-  )
+  (define-prefix-command 'my-calendar-prefix))
+(define-key my-tools-prefix (kbd "c") 'my-calendar-prefix)
+(define-key my-org-prefix (kbd "C") 'my-calendar-prefix)
 
 
 ;;; for Org-mode

@@ -68,8 +68,8 @@
       )
 
 (unless (boundp 'my-org-contacts-prefix)
-  (define-prefix-command 'my-org-contacts-prefix)
-  (define-key my-org-prefix (kbd "b") 'my-org-contacts-prefix))
+  (define-prefix-command 'my-org-contacts-prefix))
+(define-key my-org-prefix (kbd "b") 'my-org-contacts-prefix)
 
 (define-key my-org-contacts-prefix (kbd "b") 'org-contacts)
 (define-key my-org-contacts-prefix (kbd "p") 'org-contacts-at-point)
@@ -170,8 +170,8 @@
         )
 
   (unless (boundp 'my-org-download-map)
-    (define-prefix-command 'my-org-download-map)
-    (define-key my-org-prefix (kbd "d") 'my-org-download-map))
+    (define-prefix-command 'my-org-download-map))
+  (define-key my-org-prefix (kbd "d") 'my-org-download-map)
 
   (define-key my-org-download-map (kbd "i") 'org-download-image)
   (define-key my-org-download-map (kbd "s") 'org-download-screenshot)

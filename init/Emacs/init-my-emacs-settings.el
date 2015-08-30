@@ -112,8 +112,8 @@
 ;; - [M-x prepend-to-register RET r]
 
 (unless (boundp 'my-register-map)
-  (define-prefix-command 'my-register-map)
-  (global-set-key (kbd "C-x r x") 'my-register-map))
+  (define-prefix-command 'my-register-map))
+(global-set-key (kbd "C-x r x") 'my-register-map)
 
 (global-unset-key (kbd "C-x r j"))
 (global-unset-key (kbd "C-x r +"))

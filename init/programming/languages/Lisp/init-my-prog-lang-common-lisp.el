@@ -80,10 +80,9 @@
   (add-hook hook
             (lambda ()
               (unless (boundp 'lisp-help-doc-map)
-                (define-prefix-command 'lisp-help-doc-map)
-                (local-set-key (kbd "C-h d") 'lisp-help-doc-map))
-              
+                (define-prefix-command 'lisp-help-doc-map))
               (local-set-key (kbd "C-h d") 'lisp-help-doc-map)
+              
               (define-key lisp-help-doc-map (kbd "d") 'sly-documentation-lookup)
               )))
 

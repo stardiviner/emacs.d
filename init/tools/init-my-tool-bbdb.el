@@ -37,8 +37,8 @@
 ;; (setq bbdb-read-only t )
 
 (unless (boundp 'my-bbdb-map)
-  (define-prefix-command 'my-bbdb-map)
-  (define-key my-tools-prefix (kbd "B") 'my-bbdb-map))
+  (define-prefix-command 'my-bbdb-map))
+(define-key my-tools-prefix (kbd "B") 'my-bbdb-map)
 
 (if (featurep 'bbdb-)
     (define-key my-bbdb-map (kbd "B") 'bbdb-:open)

@@ -28,8 +28,8 @@
 
 ;; emms prefix keybinding map
 (unless (boundp 'my-emms-prefix)
-  (define-prefix-command 'my-emms-prefix)
-  (define-key my-tools-prefix (kbd "e") 'my-emms-prefix))
+  (define-prefix-command 'my-emms-prefix))
+(define-key my-tools-prefix (kbd "e") 'my-emms-prefix)
 
 
 (emms-standard)
@@ -112,8 +112,8 @@
 ;; (global-set-key (kbd "Fn + <F10>") 'emms-player-mpd-pause)
 
 (unless (boundp 'my-emms-mpd-prefix)
-  (define-prefix-command 'my-emms-mpd-prefix)
-  (define-key my-emms-prefix (kbd "m") 'my-emms-mpd-prefix))
+  (define-prefix-command 'my-emms-mpd-prefix))
+(define-key my-emms-prefix (kbd "m") 'my-emms-mpd-prefix)
 
 (define-key my-emms-mpd-prefix (kbd "c") 'emms-player-mpd-connect)
 (define-key my-emms-mpd-prefix (kbd "p") 'emms-player-mpd-pause) ; toggle pause

@@ -123,8 +123,8 @@
 ;;; [ redefine projectile keybindings ]
 
 (unless (boundp 'my-projectile-keymap-prefix)
-  (define-prefix-command 'my-projectile-keymap-prefix)
-  (global-set-key (kbd "C-c p") 'my-projectile-keymap-prefix))
+  (define-prefix-command 'my-projectile-keymap-prefix))
+(global-set-key (kbd "C-c p") 'my-projectile-keymap-prefix)
 
 ;; commander
 ;; (define-key my-projectile-keymap-prefix (kbd "m") 'projectile-commander)

@@ -889,8 +889,8 @@
   )
 
 (unless (boundp 'my-mu4e-map)
-  (define-prefix-command 'my-mu4e-map)
-  (define-key my-tools-prefix (kbd "m") 'my-mu4e-map))
+  (define-prefix-command 'my-mu4e-map))
+(define-key my-tools-prefix (kbd "m") 'my-mu4e-map)
 
 (if (featurep 'mu4e)
     (progn

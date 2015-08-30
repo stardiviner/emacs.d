@@ -107,8 +107,8 @@ This is the same as using \\[set-mark-command] with the prefix argument."
   (define-prefix-command 'my-bookmark-map))
 
 (unless (boundp 'my-bookmark-bm-map)
-  (define-prefix-command 'my-bookmark-bm-map)
-  (define-key my-bookmark-map (kbd "m") 'my-bookmark-bm-map))
+  (define-prefix-command 'my-bookmark-bm-map))
+(define-key my-bookmark-map (kbd "m") 'my-bookmark-bm-map)
 
 ;; mark
 (define-key my-bookmark-bm-map (kbd "m") 'bm-toggle)

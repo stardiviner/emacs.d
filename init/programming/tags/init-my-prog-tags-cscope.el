@@ -9,8 +9,8 @@
 
 
 (unless (boundp 'cscope-prefix)
-  (define-prefix-command 'cscope-prefix)
-  (define-key my-prog-lookup-tags-map (kbd "c") 'cscope-prefix))
+  (define-prefix-command 'cscope-prefix))
+(define-key my-prog-lookup-tags-map (kbd "c") 'cscope-prefix)
 
 
 

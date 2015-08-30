@@ -99,8 +99,8 @@
 
 ;; switch to ERC (i: IRC)
 (unless (boundp 'my-irc-map)
-  (define-prefix-command 'my-irc-map)
-  (define-key my-tools-prefix (kbd "i") 'my-irc-map))
+  (define-prefix-command 'my-irc-map))
+(define-key my-tools-prefix (kbd "i") 'my-irc-map)
 
 (define-key my-irc-map (kbd "i") 'my-erc-start-or-switch)
 

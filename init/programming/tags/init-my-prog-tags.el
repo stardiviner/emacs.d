@@ -6,8 +6,8 @@
 
 
 (unless (boundp 'my-prog-lookup-tags-map)
-  (define-prefix-command 'my-prog-lookup-tags-map)
-  (define-key my-prog-lookup-map (kbd "t") 'my-prog-lookup-tags-map))
+  (define-prefix-command 'my-prog-lookup-tags-map))
+(define-key my-prog-lookup-map (kbd "t") 'my-prog-lookup-tags-map)
 
 
 ;;; [ tags settings ]

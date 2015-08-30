@@ -21,8 +21,8 @@
 (put 'narrow-to-page   'disabled nil)
 
 (unless (boundp 'my-narrow-prefix)
-  (define-prefix-command 'my-narrow-prefix)
-  (define-key my-edit-prefix (kbd "n") 'my-narrow-prefix))
+  (define-prefix-command 'my-narrow-prefix))
+(define-key my-edit-prefix (kbd "n") 'my-narrow-prefix)
 
 (define-key my-narrow-prefix (kbd "w") 'widen)
 (define-key my-narrow-prefix (kbd "n") 'narrow-to-region)
@@ -83,8 +83,8 @@ narrowed."
 (use-package fancy-narrow
   :config
   (unless (boundp 'fancy-narrow-prefix)
-    (define-prefix-command 'fancy-narrow-prefix)
-    (define-key my-narrow-prefix (kbd "C-f") 'fancy-narrow-prefix))
+    (define-prefix-command 'fancy-narrow-prefix))
+  (define-key my-narrow-prefix (kbd "C-f") 'fancy-narrow-prefix)
   
   (define-key fancy-narrow-prefix (kbd "n") 'fancy-narrow-to-region)
   (define-key fancy-narrow-prefix (kbd "w") 'fancy-widen)

@@ -269,8 +269,8 @@
 
                    ;; or with my-prog-help-document-map prefix.
                    (unless (boundp 'ruby-help-doc-map)
-                     (define-prefix-command 'ruby-help-doc-map)
-                     (local-set-key (kbd "C-h d") 'ruby-help-doc-map))
+                     (define-prefix-command 'ruby-help-doc-map))
+                   (local-set-key (kbd "C-h d") 'ruby-help-doc-map)
                    (if (featurep 'helm)
                        (define-key ruby-help-doc-map (kbd "k") 'yari-helm) ; interactive with Helm.
                      (define-key ruby-help-doc-map (kbd "k") 'yari) ; seems minibuffer use ido if ido is enabled.
@@ -571,8 +571,8 @@
                             (local-set-key (kbd "C-h d d") 'robe-doc)
 
                             (unless (boundp 'ruby-send-to-inferior-map)
-                              (define-prefix-command 'ruby-send-to-inferior-map)
-                              (local-set-key (kbd "C-c i r s") 'ruby-send-to-inferior-map))
+                              (define-prefix-command 'ruby-send-to-inferior-map))
+                            (local-set-key (kbd "C-c i r s") 'ruby-send-to-inferior-map)
 
                             (define-key ruby-send-to-inferior-map (kbd "d") 'ruby-send-definition)
                             (define-key ruby-send-to-inferior-map (kbd "D") 'ruby-send-definition-and-go)
@@ -707,8 +707,8 @@
                 enh-ruby-mode-hook))
   (add-hook hook (lambda ()
                    (unless (boundp 'my-ruby-test-map)
-                     (define-prefix-command 'my-ruby-test-map)
-                     (local-set-key (kbd "C-c t") 'my-ruby-test-map))
+                     (define-prefix-command 'my-ruby-test-map))
+                   (local-set-key (kbd "C-c t") 'my-ruby-test-map)
 
                    (define-key my-ruby-test-map (kbd "m") 'ruby-test-mode)
                    (define-key my-ruby-test-map (kbd "t") 'ruby-test-run)
