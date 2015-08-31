@@ -6,6 +6,8 @@
 
 ;;; [ Lisp ]
 
+(setq inferior-lisp-program "sbcl")
+
 ;; (setq lisp-dialects-mode-hook '(lisp-mode-hook
 ;;                                 lisp-interaction-mode-hook
 ;;                                 emacs-lisp-mode-hook
@@ -15,15 +17,6 @@
 ;;                                 cider-repl-mode-hook
 ;;                                 ))
 
-(defvar lisp-dialects-mode
-  '(lisp-mode
-    lisp-interaction-mode
-    emacs-lisp-mode
-    ;; common-lisp-mode
-    scheme-mode
-    clojure-mode
-    cider-repl-mode
-    ))
 
 
 ;; - 'lisp-indent-function
@@ -31,12 +24,87 @@
 ;; (setq lisp-indent-function 'lisp-indent-function)
 
 
+;;; [ rainbow-delimiters ] -- rainbow color parenthesis
+
+(require 'rainbow-delimiters nil 'noerror)
+;; (when (require 'rainbow-delimiters nil 'noerror)
+;;   )
+
+(eval-after-load 'rainbow-delimiters
+  '(progn
+     (rainbow-delimiters-mode t)
+     ;; 1. global
+     ;; (global-rainbow-delimiters-mode)
+     ;; 2. enable in all Lisp dialects modes
+     ;; (hook-modes lisp-dialects-mode
+     ;;   (rainbow-delimiters-mode-enable))
+     ;; 3.. enable in all programming-related modes
+     ;; (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+     ;; 4. enable in specific modes
+     (dolist (hook '(ruby-mode-hook
+                     enh-ruby-mode-hook
+                     ))
+       (add-hook hook 'rainbow-delimiters-mode-enable))
+     )
+  )
+
+;; you have two styles:
+;; 1. :box t
+;; 2. :inverse-video t
+;; 3. :weight 'bold
+(set-face-attribute 'rainbow-delimiters-depth-1-face nil
+                    :foreground "#2aa198"
+                    :weight 'bold)
+(set-face-attribute 'rainbow-delimiters-depth-2-face nil
+                    :foreground "#b58900"
+                    :weight 'bold)
+(set-face-attribute 'rainbow-delimiters-depth-3-face nil
+                    :foreground "#268bd2"
+                    :weight 'bold)
+(set-face-attribute 'rainbow-delimiters-depth-4-face nil
+                    :foreground "#dc322f"
+                    :weight 'bold)
+(set-face-attribute 'rainbow-delimiters-depth-5-face nil
+                    :foreground "#859900"
+                    :weight 'bold)
+(set-face-attribute 'rainbow-delimiters-depth-6-face nil
+                    :foreground "#268bd2"
+                    :weight 'bold)
+(set-face-attribute 'rainbow-delimiters-depth-7-face nil
+                    :foreground "#cb4b16"
+                    :weight 'bold)
+(set-face-attribute 'rainbow-delimiters-depth-8-face nil
+                    :foreground "#d33682"
+                    :weight 'bold)
+(set-face-attribute 'rainbow-delimiters-depth-9-face nil
+                    :foreground "#839496"
+                    :weight 'bold)
+(set-face-attribute 'rainbow-delimiters-unmatched-face nil
+                    :foreground "orange" :background "black"
+                    )
+(set-face-attribute 'rainbow-delimiters-mismatched-face nil
+                    :foreground "red" :background "black"
+                    )
+
+
+;;; Common Settings for All Lisp dialects
+
+(hook-modes lisp-dialects-mode
+  (rainbow-delimiters-mode-enable)
+  (paredit-mode 1)
+  (hl-sexp-mode 1)
+  (eldoc-mode 1)
+  )
+
+
 ;;; [ SLIME ]
 
 ;;; Usage:
-;;; - [M-x slime] ::
+;;
+;; - [M-x slime] ::
+;; - `slime-mode'
 
-(setq inferior-lisp-program "sbcl")
+(require 'slime)
 
 ;; select the default value from slime-lisp-implementations
 (if (eq system-type 'darwin)
@@ -65,7 +133,7 @@
 ;; (require 'slime)
 ;;; -----------------------------------
 
-;; (setq slime-contribs '(slime-fancy))
+(setq slime-contribs '(slime-fancy))
 
 ;;; FIXME: can't connect with SLIME.
 ;; (defun my-start-slime ()
@@ -86,6 +154,11 @@
 ;;      (define-key slime-mode-map (kbd "TAB") 'slime-indent-and-complete-symbol)
 ;;      (define-key slime-mode-map (kbd "C-c i") 'slime-inspect)
 ;;      (define-key slime-mode-map (kbd "C-c C-s") 'slime-selector)))
+
+(add-hook 'slime-inferior-process-start-hook
+          '(lambda ()
+             (add-hook 'completion-at-point-functions 'slime-complete-symbol)
+             ))
 
 
 ;;; [ ac-slime ] --
@@ -188,7 +261,6 @@
 ;;   )
 ;; (add-hook 'slime-mode-hook 'my-slime-mode-hook)
 
-
 
 ;;; [ Swank ] (cl-swank) --
 
@@ -213,7 +285,7 @@
 ;;; interpreter, Emacs and, ultimately, the schemer, giving her access to live
 ;;; metadata. Here’s how.
 
-(require 'geiser-install)
+(require 'geiser)
 
 ;; (run-geiser)
 
@@ -234,6 +306,54 @@
 ;;; [ Quack ] -- enhanced Emacs Support for Editing and Running Scheme Code
 
 ;;; http://www.neilvandyke.org/quack/
+
+
+;;; [ hl-sexp ]
+
+(require 'hl-sexp)
+
+(dolist (hook '(lisp-mode-hook
+                emacs-lisp-mode-hook
+                ))
+  (add-hook hook #'hl-sexp-mode))
+
+(set-face-attribute 'hl-sexp-face nil
+                    :background (color-darken-name (face-background 'default) 3)
+                    )
+
+
+;;; [ eval-sexp-fu ] -- You can see highlighting the sexps during evaluation in action.
+
+;;; Usage:
+;;
+;;  `eval-sexp-fu-flash-mode'
+;;    Toggle EvalSexpFuFlash mode on or off.
+;;    If this mode is on, some `eval-last-sexp'-ish commands will highlight the sexps during evaluation.
+;;  `turn-on-eval-sexp-fu-flash-mode'
+;;    Unequivocally turn on EvalSexpFuFlash mode
+;;  `eval-sexp-fu-eval-sexp-inner-list'
+;;    Evaluate the list _currently_ pointed at as sexp; print value in minibuffer.
+;;  `eval-sexp-fu-eval-sexp-inner-sexp'
+;;    Evaluate the sexp _currently_ pointed; print value in minibuffer.
+
+(require 'eval-sexp-fu)
+
+(set-face-attribute 'eval-sexp-fu-flash nil
+                    :foreground nil
+                    :background "#333333"
+                    :weight 'normal
+                    )
+(set-face-attribute 'eval-sexp-fu-flash-error nil
+                    :foreground "red"
+                    :weight 'bold)
+
+(setq eval-sexp-fu-flash-duration 0.5
+      eval-sexp-fu-flash-error-duration 1.5
+      ;; eval-sexp-fu-flash-function
+      ;; eval-sexp-fu-flash-doit-function
+      )
+
+(eval-sexp-fu-flash-mode 1)
 
 
 (provide 'init-my-prog-lang-lisp)

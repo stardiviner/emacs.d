@@ -9,13 +9,7 @@
 
 
 ;;; variables
-(setq shell-file-name (getenv "SHELL"))      ; "$SHELL", "/bin/sh", "/bin/bash", "usr/bin/zsh"
-
-
-;;; [ Cominit ]
-
-(setq comint-prompt-read-only t ; prompt read-only.
-      )
+;; (setq shell-file-name (getenv "SHELL"))      ; "$SHELL", "/bin/sh", "/bin/bash", "usr/bin/zsh"
 
 
 
@@ -31,8 +25,6 @@
 
 
 ;;; [ Eshell ] (Emacs Shell)
-
-(require 'eshell)
 
 (setq eshell-save-histroy-on-exit t
       eshell-history-size 128
@@ -104,25 +96,45 @@
 
 (define-key my-inferior-shell-map (kbd "s") 'my-eshell-start-or-switch)
 
+(define-key my-inferior-shell-map (kbd "S") 'shell)
+
 
-;; [ readline-complete ] -- autocomplete in shell mode buffers
+;;; [ shelldoc ] -- Improve edit shell command in minibuffer.
 
 ;;; Usage:
 ;;
-;; - [M-x shell] :: start.
+;; Now you can see man page when read-shell-command is invoked. e.g. M-x
+;; shell-command C-v / M-v to scroll the man page window. C-c C-s / C-c C-r to
+;; search the page.
+;;
+;; You can complete - (hyphen) option at point. Try to type C-i after insert -.
+;;
+;; - You may install new man page after shelldoc:
+;;     M-x shelldoc-clear-cache
+;; - shelldoc is working as a minor mode if you desire.
+;;   - eshell
+;;     (add-hook 'eshell-mode-hook 'shelldoc-minor-mode-on)
+;;   - sh-mode (editing shell script)
+;;     (add-hook 'sh-mode-hook 'shelldoc-minor-mode-on)
+;;   - M-x shell
+;;     (add-hook 'shell-mode-hook 'shelldoc-minor-mode-on)
+;; - To toggle shelldoc feature.
+;;   M-x shelldoc
 
-(setq explicit-shell-file-name "bash")
-(setq explicit-bash-args '("-c" "export EMACS=; stty echo; bash"))
-(setq comint-process-echoes t)
+;; (require 'shelldoc)
+;;
+;; (setq shelldoc-keep-man-locale nil ; To show original man page initially. (probably english)
+;;       shelldoc-idle-delay 0.2
+;;       shelldoc-fuzzy-match-requires 2
+;;       )
+;;
+;; ;; minor mode for eshell
+;; (add-hook 'eshell-mode-hook 'shelldoc-minor-mode-on)
+;; ;; minor mode for sh-mode (editing shell script)
+;; (add-hook 'sh-mode-hook 'shelldoc-minor-mode-on)
+;; ;; M-x shell -> shell-mode (inferior)
+;; (add-hook 'shell-mode-hook 'shelldoc-minor-mode-on)
 
-;;; for auto-complete
-;; (add-to-list 'ac-modes 'shell-mode)
-;; (add-hook 'shell-mode-hook 'ac-rlc-setup-sources)
-
-;;; for company-mode backend.
-;; FIXME: (push 'company-readline company-backends)
-;; (add-hook 'rlc-no-readline-hook
-;;           (lambda () (company-mode -1)))
 
 
 

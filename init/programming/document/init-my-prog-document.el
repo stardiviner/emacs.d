@@ -44,9 +44,7 @@
 
 ;;; [ which-function-mode (which-func) ]
 
-(require 'which-func)
-
-;; (setq which-func-modes t)
+(setq which-func-modes t)
 (add-to-list 'which-func-modes 'org-mode)
 
 (which-function-mode 1)
@@ -54,8 +52,11 @@
 
 ;;; [ Info ]
 
-(define-key my-prog-help-document-map (kbd "i") 'helm-info-at-point)
+(global-set-key (kbd "C-h i") 'info-display-manual)
 
+(if (featurep 'helm)
+    (define-key my-prog-help-document-map (kbd "i") 'helm-info-at-point)
+  )
 
 (defun info-display-manual-in-buffer (topic)
   "Display Info TOPIC in its own buffer."
@@ -71,15 +72,13 @@
         (switch-to-buffer bufname)
       (info topic bufname))))
 
-(global-set-key (kbd "C-h i") 'info-display-manual-in-buffer) ; replace default `info'.
+;; (global-set-key (kbd "C-h i") 'info-display-manual-in-buffer) ; FIXME: replace default `info'.
 
 
 ;;; [ API docsets ]
 
 
 ;;; [ dash ] -- A modern list api for Emacs. No 'cl required.
-
-;;; Usage:
 
 (require 'dash)
 
@@ -90,31 +89,50 @@
 ;;; [ helm-dash ] -- Browse Dash docsets inside emacs.
 
 ;;; Usage:
+;;
 ;; - [M-x helm-dash]
 ;; - [M-x helm-dash-at-point]
+;;
+;; - `helm-dash-install-docset' :: install official docset.
+;; - `helm-dash-install-user-docset' :: install user contributed docset.
+;; - `helm-dash-install-docset-from-file' :: install docset from file.
+;;
 ;; - The command helm-dash-reset-connections will clear the connections to all sqlite db's.
 ;;   Use it in case of errors when adding new docsets. The next call to helm-dash will recreate them.
 
-(require 'helm-dash)
+;; - https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets
+;; - https://github.com/kidd/dashes-to-dashes
 
 (setq helm-dash-docsets-path (expand-file-name "~/.docsets")
-      helm-dash-min-length 3
+      helm-dash-min-length 2
       ;; helm-dash-completing-read-func 'completing-read ; 'completing-read, 'ido-completing-read
-      helm-dash-browser-func 'browse-url ; 'browse-url, 'eww, 'helm-browse-url
+      helm-dash-browser-func 'helm-browse-url ; 'eww, 'browse-url, 'browse-url-generic, 'helm-browse-url
       ;; helm-dash-connections
-      helm-dash-common-docsets '("Ruby" "Ruby on Rails"
-                                 "Python 3"
-                                 "HTML" "CSS" "JavaScript" "CoffeeScript"
-                                 "Common_Lisp" "Clojure"
-                                 "C" "Go"
-                                 "SQLite" "MySQL" "Redis" "MongoDB"
-                                 "Qt"
-                                 "Vagrant" "Nginx"
-                                 "Android"
-                                 "RubyMotion" "AngularJS"
-                                 )
-      ;; helm-dash-docsets
+      helm-dash-common-docsets
+      '("Ruby" "Ruby on Rails"
+        "Python 3"
+        "HTML" "CSS" "JavaScript"
+        ;; "Emmet"
+        "CoffeeScript" "NodeJS"
+        "jQuery" "AngularJS" "React" "D3JS"
+        ;; "EmberJS" "ExtJS" "BackboneJS" "KnockoutJS" "MomentJS" "PrototypeJS" "RequireJS" "UnderscoreJS"
+        "Common_Lisp" "Clojure"
+        "C" "C++" "Go"
+        "SQLite" "PostgreSQL" "MySQL" "Redis" "MongoDB"
+        ;; "Qt"
+        "Bash"
+        ;; "LaTeX"
+        "Julia" ; "R"
+        ;; "Processing"
+        ;; "Unity_3D" "Cocos3D" "Cocos2D"
+        ;; "OpenGL_4" "OpenCV_C"
+        "Docker" "Vagrant" "Nginx"
+        ;; "Android" "iOS"
+        ;; "RubyMotion"
+        )
       )
+
+(setq helm-dash-enable-debugging nil)
 
 ;;; buffer local docsets
 ;; (defun go-doc ()
@@ -142,6 +160,7 @@
 ;;     (eww (helm-get-selection))))
 
 (define-key my-prog-help-document-map (kbd "C-d") 'helm-dash-at-point)
+(define-key my-prog-help-document-map (kbd "M-d") 'helm-dash)
 
 ;;; show short doc of helm-dash entry in `helm-M-x' persistent action.
 ;;
@@ -193,11 +212,32 @@
 ;;     (persistent-action . helm-mu-persistent-action)
 ;;     (action . (("Display message in mu4e" . helm-mu-display-email)))))
 
+
+;;; [ dash-at-point ] -- Search the word at point with Dash.
+
+;;; Usage:
+;;
+;; - `dash-at-point'
+;; - `dash-at-point-with-docset'
+
+(define-key my-prog-help-document-map (kbd "M-d") 'dash-at-point)
+(define-key my-prog-help-document-map (kbd "M-e") 'dash-at-point-with-docset)
+
+;; (add-to-list 'dash-at-point-mode-alist '(perl-mode . "perl"))
+
+(add-hook 'projectile-rails-mode-hook
+          (lambda () (setq dash-at-point-docset "rails")))
+(add-hook 'rhtml-mode-hook
+          (lambda () (setq dash-at-point-docset "rails")))
+
+(add-hook 'ruby-mode-hook
+          (lambda () (setq dash-at-point-docset "ruby")))
+
 
 
 ;;; [ RFC ]
 
-(require 'init-my-prog-document-rfc)
+;; (require 'init-my-prog-document-rfc)
 
 
 ;;; [ Man/Women ]

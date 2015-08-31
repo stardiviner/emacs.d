@@ -2,12 +2,292 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Ruby on Rails"
+(("SQL Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Database/SQL/Data/References/Reference of SQL/Reference of SQL.org")
+ (front-context-string . "* Concepts\n\n#+BE")
+ (rear-context-string)
+ (position . 1))
+("Kali Linux"
+ (filename . "~/Org/Wiki/Computer/Systems/Linux/Kali Linux/Kali Linux.org")
+ (front-context-string . "* Intro\n\nKali Li")
+ (rear-context-string)
+ (position . 1))
+("Docker"
+ (filename . "~/Org/Wiki/Computer/Softwares/Docker/Docker.org")
+ (front-context-string . "* Intro\n\nDocker ")
+ (rear-context-string)
+ (position . 1))
+("Emacs Keybindings"
+ (filename . "~/Org/Wiki/Computer/Programming/Emacs/KeyBindings/Key Bindings.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Redis"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Database/NoSQL/Redis/Redis.org")
+ (front-context-string . "* Intro\n\nRedis i")
+ (rear-context-string)
+ (position . 1))
+("MongoDB"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Database/NoSQL/MongoDB/MongoDB.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Ruby Syntax Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Manuals/The Ruby Programming Language.org")
+ (front-context-string . "* Review The Rub")
+ (rear-context-string)
+ (position . 1))
+("MariaDB"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Database/SQL/MariaDB/MariaDB.org")
+ (front-context-string . "* Intro\n\n\n\n\n* Da")
+ (rear-context-string)
+ (position . 1))
+("PostgreSQL"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Database/SQL/PostgresQL/PostgresQL.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("NoSQL"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Database/NoSQL/NoSQL.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("SQL"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Database/SQL/SQL.org")
+ (front-context-string . "* Intro\n\n*Struct")
+ (rear-context-string)
+ (position . 1))
+("Look.org (美容)"
+ (filename . "~/Org/Wiki/Look/Look.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Gems for Rails"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Frameworks/Ruby on Rails/Data/Gems/Gems.org")
+ (front-context-string . "* Authentication")
+ (rear-context-string)
+ (position . 1))
+("Docker.org"
+ (filename . "~/Org/Wiki/Computer/Softwares/Docker/Docker.org")
+ (front-context-string . "* Intro\n\nDocker ")
+ (rear-context-string)
+ (position . 1))
+("Elixir Programming Language"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Elixir/Elixir.org")
+ (front-context-string . "* Intro\n\n*Elixir")
+ (rear-context-string)
+ (position . 1))
+("Java Programming Language"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Java/Java.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("PHP Programming Language"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/PHP/PHP.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Emacs Lisp"
+ (filename . "~/Org/Wiki/Computer/Programming/Emacs/Emacs Lisp/Emacs Lisp.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("My Life Experience"
+ (filename . "~/Org/Wiki/Myself/LifeExperience/LifeExperience.org")
+ (front-context-string . "* My Family\n\n** ")
+ (rear-context-string)
+ (position . 1))
+("ASCII & Unicode symbols"
+ (filename . "~/Org/Wiki/Computer/Softwares/ASCII/ASCII.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("CSS styles collections"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/CSS/Data/Style Collections/Style Collections.org")
+ (front-context-string . "\nCreate a functi")
+ (rear-context-string)
+ (position . 1))
+("UserScript examples"
+ (filename . "~/Org/Wiki/Computer/Softwares/UserScript/examples/examples.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("HTML Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/HTML/Data/References/HTML Reference.org")
+ (front-context-string . "* Tags\n\n** ~<!DO")
+ (rear-context-string)
+ (position . 1))
+("GNU operating systems"
+ (filename . "~/Org/Wiki/Computer/Systems/GNU/GNU.org")
+ (front-context-string . "* Intro\n\n\n\n* Pro")
+ (rear-context-string)
+ (position . 1))
+("Mac OS X"
+ (filename . "~/Org/Wiki/Computer/Systems/Mac/Mac.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("BSD"
+ (filename . "~/Org/Wiki/Computer/Systems/BSD/BSD.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Systems"
+ (filename . "~/Org/Wiki/Computer/Systems/Systems.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("init.el"
+ (filename . "~/.emacs.d/init.el")
+ (front-context-string . ";; Added by Pack")
+ (rear-context-string)
+ (position . 1))
+("Zsh Keybindings"
+ (filename . "~/Org/Wiki/Computer/Softwares/Zsh.org")
+ (front-context-string . "**** Zsh Keybind")
+ (rear-context-string . "ion\n\n*** Usage\n\n")
+ (position . 201))
+("KDE Keybindings"
+ (filename . "~/Org/Wiki/Computer/Softwares/KDE/KDE.org")
+ (front-context-string . "**** KDE Keybind")
+ (rear-context-string . "ig --version=\n\n\n")
+ (position . 5810))
+("Zsh"
+ (filename . "~/Org/Wiki/Computer/Softwares/Zsh.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("KDE"
+ (filename . "~/Org/Wiki/Computer/Softwares/KDE/KDE.org")
+ (front-context-string . "* Intro\n\nhttp://")
+ (rear-context-string)
+ (position . 1))
+("Vim (Org)"
+ (filename . "~/Org/Wiki/Computer/Programming/Vim/Vim.org")
+ (front-context-string . "* Intro\n\n神之编辑器.\n")
+ (rear-context-string)
+ (position . 1))
+("Programming Terms"
+ (filename . "~/Org/Wiki/Computer/Programming/Data/terms/terms.org")
+ (front-context-string . "* Programming La")
+ (rear-context-string)
+ (position . 1))
+("Programming Tools"
+ (filename . "~/Org/Wiki/Computer/Programming/Tools/Tools.org")
+ (front-context-string . "* Intro\n\n\n* Tool")
+ (rear-context-string)
+ (position . 1))
+("Hacking.org"
+ (filename . "~/Org/Wiki/Computer/Hack/Hacking/Hacking.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("My Blog"
+ (filename . "~/Org/Blog/README.org")
+ (front-context-string . "** structure des")
+ (rear-context-string)
+ (position . 10))
+("R Programming Language"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/R/R.org")
+ (front-context-string . "* Intro\n\nR can b")
+ (rear-context-string)
+ (position . 1))
+("Julia Programming Language"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Julia/Julia.org")
+ (front-context-string . "* Intro\n\nJulia i")
+ (rear-context-string)
+ (position . 1))
+("Ruby Manuals"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Manuals/Manuals.org")
+ (front-context-string . "* Learn Data [0/")
+ (rear-context-string)
+ (position . 1))
+("TeX.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/TeX/TeX.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("LaTeX.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/TeX/LaTeX/LaTeX.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Python Programming Language"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Python/Python.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Commands.org"
+ (filename . "~/Org/Wiki/Computer/Softwares/Commands.org")
+ (front-context-string . "rt]] ::\n- [[file")
+ (rear-context-string . "yaourt.org][yaou")
+ (position . 473))
+("Configurations.org"
+ (filename . "~/Org/Wiki/Computer/Softwares/Configurations.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Look (Org)"
+ (filename . "~/Org/Wiki/Look/Look.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Startup (Org)"
+ (filename . "~/Org/Wiki/Business/Startup/Startup.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Crack.org"
+ (filename . "~/Org/Wiki/Computer/Hack/Crack/Crack.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Go Programming Language"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Go/Go.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Websites (Org>Softwares)"
+ (filename . "~/Org/Wiki/Computer/Softwares/Softwares.org")
+ (front-context-string . "* Websites\n\n** S")
+ (rear-context-string . " Linux & OS X.\n\n")
+ (position . 84345))
+("JavaScript Programming Language"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/JavaScript/JavaScript.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("CSS3.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/CSS/CSS3/CSS3.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("CSS.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/CSS/CSS.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("HTML5.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/HTML/HTML5/HTML5.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Clojure.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Clojure/Clojure.org")
+ (front-context-string . "* Intro\n\nClojure")
+ (rear-context-string)
+ (position . 1))
+("HTML.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/HTML/HTML.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Ruby on Rails"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Frameworks/Ruby on Rails/Ruby on Rails.org")
  (front-context-string . "* Intro\n\n** Intr")
  (rear-context-string)
  (position . 1))
-("Ruby language"
+("Ruby Programming Language"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Ruby.org")
  (front-context-string . "* Intro\n\n[[file:")
  (rear-context-string)
@@ -15,16 +295,6 @@
 ("Arch"
  (filename . "~/Org/Wiki/Computer/Systems/Linux/Arch/Arch.org")
  (front-context-string . "* Intro\n\n** Arch")
- (rear-context-string)
- (position . 1))
-("Linux"
- (filename . "~/Org/Wiki/Computer/Systems/Linux/Linux.org")
- (front-context-string . "* Intro\n\n- [[htt")
- (rear-context-string)
- (position . 1))
-("Hack"
- (filename . "~/Org/Wiki/Computer/Hack/Hack.org")
- (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
  (position . 1))
 ("Code"
@@ -52,21 +322,6 @@
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
-("Programming"
- (filename . "~/Org/Wiki/Computer/Programming/Programming.org")
- (front-context-string . "* Intro\n\n\n* Data")
- (rear-context-string)
- (position . 1))
-("Computer"
- (filename . "~/Org/Wiki/Computer/Computer.org")
- (front-context-string . "- Simplicity is ")
- (rear-context-string)
- (position . 1))
-("Org Index"
- (filename . "~/Org/INDEX.org")
- (front-context-string . "- =Simplicity is")
- (rear-context-string)
- (position . 1))
 ("Arch install.sh"
  (filename . "~/Git/Arch/install.sh")
  (front-context-string . "#!/usr/bin/env b")
@@ -78,8 +333,8 @@
  (rear-context-string . "ories Archive\n\n\n")
  (position . 1015))
 ("Ruby Gems"
- (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Tools/RubyGems/RubyGems.org")
- (front-context-string . "* Intro\n\nThe Rub")
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Gems/Gems.org")
+ (front-context-string . "* About Gem\n\nThe")
  (rear-context-string)
  (position . 1))
 ("Ruby Tools"
@@ -102,29 +357,9 @@
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
-("Science"
- (filename . "~/Org/Wiki/Science/Science.org")
- (front-context-string . "* Intro\n\n\n\n* Dat")
- (rear-context-string)
- (position . 1))
-("Kung Fu"
- (filename . "~/Org/Wiki/Kung Fu/Kung Fu.org")
- (front-context-string . "* Intro\n\n* Data\n")
- (rear-context-string)
- (position . 1))
 ("Writing"
  (filename . "~/Org/Wiki/Writing/Writing.org")
  (front-context-string . "* Words (文字)\n\n[[")
- (rear-context-string)
- (position . 1))
-("censorship"
- (filename . "~/Org/Wiki/Computer/censorship/censorship.org")
- (front-context-string . "* censorship & m")
- (rear-context-string)
- (position . 1))
-("Myself"
- (filename . "~/Org/Wiki/Myself/Myself.org")
- (front-context-string . "* My Internet In")
  (rear-context-string)
  (position . 1))
 ("Aphorisms"
@@ -162,16 +397,6 @@
  (front-context-string . "#!/usr/bin/env s")
  (rear-context-string)
  (position . 1))
-("Commands"
- (filename . "~/Org/Wiki/Computer/Systems/Linux/Command Line/Commands/Commands.org")
- (front-context-string . "* NOTE\n\n- [ ] ge")
- (rear-context-string)
- (position . 1))
-("ascii unicode symbols"
- (filename . "~/Org/Wiki/Computer/Softwares/Softwares.org")
- (front-context-string . "* Symbols: ASCII")
- (rear-context-string . "akup Project]]\n\n")
- (position . 18251))
 ("Features"
  (filename . "~/Org/Projects/Projects.org")
  (front-context-string . "* TODO Features ")
@@ -292,7 +517,7 @@
  (front-context-string . "** Get Help\n\n***")
  (rear-context-string . "nux Community.\n\n")
  (position . 521))
-("Programing (Org)"
+("Programming (Org)"
  (filename . "~/Org/Wiki/Computer/Programming/Programming.org")
  (front-context-string . "Implements]]\n\n* ")
  (rear-context-string . "Implements.org][")

@@ -7,16 +7,6 @@
 
 ;;; Code:
 
-;;;_
-;;; Misc Functions
-;;; --------------------------------------
-(defun rails-open-browser-development ()
-  "Browse Rails development url."
-  (interactive)
-  (browse-url "http://127.0.0.1:3000"))
-
-
-
 ;;; [ Rhtml (.html.erb, .rhtml) ]
 
 ;;; There are three options for editing .rhtml files in Emacs. They are presented here in order of decreasing functionality.
@@ -24,21 +14,42 @@
 ;; - MuMaMo-Mode: allows multiple major modes in a single buffer
 ;; - rhtml-Mode: edit rhtml files without using multiple major modes
 
+
 ;;; [ rhtml-mode ]
 
-;; (require 'rhtml-mode)
-
-;; (add-hook 'rhtml-mode-hook
-;;           (lambda () (rinari-launch)))
-
-;; (add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . rhtml-mode))
+;; (add-to-list 'auto-mode-alist '("\\.html.erb$" . rhtml-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . rhtml-mode))
 
+(use-package rhtml-mode
+  :config
+  (set-face-attribute 'erb-face nil ; ruby code
+                      :background (color-darken-name (face-background 'default) 2)
+                      )
+  (set-face-attribute 'erb-exec-face nil ; exec in <% ... %>
+                      :inherit 'erb-face
+                      :background (color-darken-name (face-background 'default) 5)
+                      )
+  (set-face-attribute 'erb-out-face nil ; exec in <%= ... %>
+                      :inherit 'erb-face
+                      :background (color-darken-name (face-background 'default) 5)
+                      )
+  (set-face-attribute 'erb-exec-delim-face nil ; <% ... %>
+                      :inherit 'erb-face
+                      :foreground "deep pink"
+                      :weight 'bold
+                      )
+  (set-face-attribute 'erb-out-delim-face nil ; <%= ... %>
+                      :inherit 'erb-face
+                      :foreground "red"
+                      )
+  )
+
+
 ;;; MuMaMo-Mode
 ;; (require 'mumamo-fun)
 ;; (setq mumamo-chunk-coloring 'submode-colored)
 ;; (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . eruby-html-mumamo))
-;; (add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . eruby-html-mumamo))
+;; (add-to-list 'auto-mode-alist '("\\.html.erb$" . eruby-html-mumamo))
 
 ;;; [ nXhtml-Mode ]
 ;; (setq nxhtml-global-minor-mode t
@@ -58,21 +69,29 @@
 ;; - <prefix> -> [C-c p C-r] + [key] (default: [C-c r])
 ;; - [M-x projectile-rails-on] -- depend on whether is a Rails project root.
 ;; - [M-x projectile-rails-mode]
-
-(require 'projectile-rails)
+;; - [TAB] support for projectile-rails-generate.
 
 (setq projectile-rails-add-keywords t)  ; highlight rails keywords.
 (setq projectile-rails-expand-snippet t) ; yasnippet expand skeleton class snippet.
+(setq projectile-rails-server-mode-ansi-colors t)
 
 (setq projectile-rails-keymap-prefix (kbd "C-c C-r"))
+;; (setq projectile-rails-keymap-prefix (kbd "C-c p C-r"))
 
 (add-hook 'projectile-mode-hook 'projectile-rails-on)
+
+(defun rails-open-browser-development ()
+  "Browse Rails development url."
+  (interactive)
+  (browse-url "http://127.0.0.1:3000"))
+
+(use-package projectile-rails
+  :config
+  (define-key projectile-rails-command-map (kbd "O") 'rails-open-browser-development))
 
 
 
 ;;; [ helm-rails ]
-
-;; (require 'helm-rails-loaddefs)
 
 ;; TODO: test whether has keybinding set by default.
 ;; (define-key global-map (kbd "s-t") 'helm-rails-controllers)
@@ -90,8 +109,6 @@
 ;;
 ;; - [M-x rails-new] :: create a new Rails project.
 
-(autoload 'rails-new "rails-new" "Handy emacs command for generating rails application." nil nil)
-
 
 ;;; [ yasnippet-rails ]
 
@@ -103,6 +120,14 @@
 
 
 ;;; [ haml-mode ]
+
+
+
+;;; load rails environment for completion
+
+;; TODO:
+;; (comint-send-string (inf-ruby-proc) (format "require 'sqlite'"))
+;; (process-send-string (inf-ruby-proc) "require 'rails'")
 
 
 (provide 'init-my-prog-ruby-on-rails)

@@ -5,6 +5,7 @@
 # ignored directories
 el-get/
 elpa/
+# el-get-user/
 ac-comphist.dat
 auto-save-list/
 *~
@@ -58,3 +59,14 @@ emms/
 /init/init-my-startup.lib
 /rake.cache
 /.elfeed/
+/ido.last
+/org-clock-save.el
+/.edbi-ds-history
+image-dired/
+/.company-statistics-cache.el
+/srecode-map.el
+/network-security.data
+/cscope.files
+/cscope.in.out
+/cscope.out
+/cscope.po.out

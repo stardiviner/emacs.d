@@ -7,6 +7,62 @@
 
 ;;; Code:
 
+;;; [ jdee ] -- Java Development Environment for Emacs
+
+;; The JDEE is an add-on software package that turns Emacs into a comprehensive
+;; system for creating, editing, debugging, and documenting Java applications.
+
+;; (require 'jdee)
+
+;; (autoload 'jde-mode "jde" "JDE mode" t)
+;; (setq auto-mode-alist
+;;       (append '(("\\.java\\'" . jde-mode)) auto-mode-alist))
+
+;; (setq jdee-server-dir "~/compile/Emacs/jdee-server/target/")
+
+;; (setq jdee-key-bindings '())
+
+
+;;; [ jde-maven ] -- 
+
+;; (require 'jde-maven)
+
+
+;;; [ eclim ]
+
+(require 'eclim)
+
+;; ;; If you want to control eclimd from emacs, also add:
+(require 'eclimd)
+;; `start-eclimd' & `stop-eclimd'
+
+(setq eclimd-default-workspace "~/Eclipse"
+      ;; eclimd-port 45620
+      eclimd-wait-for-process t)
+
+;; (or (executable-find "eclim") (eclim-homedir-executable-find) (eclim-executable-find))
+;; TODO?: (setq eclim-executable "")
+
+
+;; for company-mode
+(require 'company-emacs-eclim)
+
+;; (company-emacs-eclim-setup)
+(add-hook 'java-mode-hook
+          (lambda ()
+            (eclim-mode)
+            
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-emacs-eclim)
+            ))
+
+
+;; (global-eclim-mode)
+
+
+;;; [ java-complete ]
+
+
 ;;; [ javadoc-lookup ]
 
 ;;; Usage:
@@ -18,54 +74,35 @@
 ;; `sort-java-imports'. The former integrates with the javadoc-lookup index to
 ;; provide completions.
 
-(define-key java-mode-map (kbd "C-h d") 'javadoc-lookup)
-
-(javadoc-add-roots "/usr/share/doc/openjdk-7-doc/api"
-                   ;; "~/src/project/doc"
-                   )
+;; (add-hook 'java-mode-hook
+;;           (lambda ()
+;;             (local-set-key (kbd "C-h d") 'my-prog-help-document-map)
+;;             (define-key my-prog-help-document-map (kbd "d") 'javadoc-lookup)
+;;             ))
+;;
+;; (javadoc-add-roots "/usr/share/doc/openjdk-7-doc/api"
+;;                    ;; "~/src/project/doc"
+;;                    )
 
 
 ;;; [ javadoc-help ]
 
-
-;;; [ java-complete ]
-
 
 
-;;; [ eclim ]
+;;; [ malabar-mode ] -- EMCS JVM Integration for Java and other JVM based languages.
 
-;; Eclim is an Eclipse plugin which exposes Eclipse features through a server
-;; interface. When this server is started, the command line utility eclim can be
-;; used to issue requests to that server.
-;;
-;; Emacs-eclim uses the eclim server to integrate eclipse with emacs. This
-;; project wants to bring some of the invaluable features from eclipse to
-;; emacs. Please note, emacs-eclim is limited to mostly java support at this
-;; time.
-;;
-;; It is also possible to start and stop the eclim daemon from emacs using the
-;; eclimd package.
+;; (require 'malabar-mode)
 
-(require 'eclim)
-;; If you want to control eclimd from emacs, also add:
-(require 'eclimd)
+
+;;; [ groovy-mode ] -- Groovy mode derived mode.
 
-(setq eclim-eclipse-dirs '("/Applications/eclipse"
-                           "/usr/lib/eclipse"
-                           "/usr/local/lib/eclipse"
-                           "/usr/share/eclipse")
-      ;; eclim-executable "~/nonStandard/eclipse/eclim"
-      )
+;; (require 'groovy-mode)
 
-;; for auto-complete, add the emacs-eclim source
-;; (require 'ac-emacs-eclim-source)
-;; (ac-emacs-eclim-config)
+
+;;; [ inf-groovy ] -- minor-mode that adds some Grails project management to a grails project.
 
-;; for company-mode
-;; (require 'company-emacs-eclim)
-;; (company-emacs-eclim-setup)
+;; (require 'inf-groovy)
 
-(global-eclim-mode t)
 
 
 (provide 'init-my-prog-lang-java)

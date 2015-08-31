@@ -1,0 +1,5 @@
+(:name ob-sql
+       :description "org-babel functions for sql evaluation."
+       :website "http://orgmode.org/w/?p=org-mode.git;a=blob_plain;f=lisp/ob-sql.el"
+       :type http
+       :url "http://orgmode.org/w/?p=org-mode.git;a=blob_plain;f=lisp/ob-sql.el")

@@ -24,7 +24,7 @@
 
 (setq command-log-mode-is-global t
       command-log-mode-auto-show t
-      command-log-mode-key-binding-open-log "C-c t L"
+      ;; command-log-mode-key-binding-open-log "C-c t S o"
       command-log-mode-open-log-turns-on-mode t
       command-log-mode-window-size 40
       command-log-mode-window-font-size 2
@@ -32,7 +32,7 @@
 
 ;; (add-hook 'org-mode-hook 'command-log-mode)
 
-(define-key my-tools-prefix-map (kbd "L") 'command-log-mode)
+(define-key my-screenshot-map (kbd "L") 'command-log-mode)
 
 
 ;;; [ mwe-log-commands ]
@@ -51,10 +51,10 @@
 ;;   - w :: copy device title (Built-in Audio Analog Stereo)
 ;;   - W :: copy device name (alsa_input.pci-0000_00_1b.0.analog-stereo)
 
-(require 'capture)
+;; (require 'capture)
 
-(setq capture-video-dest-dir "~/screencasts/SORT/")
-(global-set-key (kbd "<s-f12>") 'capture-run-mode)
+;; (setq capture-video-dest-dir "~/screencasts/SORT/")
+;; (global-set-key (kbd "<s-f12>") 'capture-run-mode)
 
 ;; (defun my-capture-presets ()
 ;;   "Make my presets for capturing."
@@ -77,11 +77,19 @@
 ;;; Usage:
 ;;
 ;; - [M-x camcorder-record] :: A new smaller frame will popup and recording starts.
-;; - [F12] :: When you’re finished, hit F12 and wait for the conversion to finish.
-;; - [F11] :: You can even pause the recording with F11!
+;; - [F12] :: When you’re finished, hit F12 and wait for the conversion to FINISH.
+;; - [F11] :: You can even PAUSE the recording with F11!
 ;; - [M-x camcorder-mode] :: If you want to record without a popup frame.
 
+(require 'camcorder)
 
+;; (setq camcorder-frame-parameters ; see `make-frame'
+;;       '((name . "camcorder.el Recording - F12 to Stop - F11 to Pause/Resume")
+;;         (height . 20)
+;;         (width . 65)
+;;         (top .  80)))
+
+(define-key my-screenshot-map (kbd "r") 'camcorder-record)
 
 
 (provide 'init-my-tool-screencast)

@@ -3,7 +3,7 @@
 # key: prefix-map-mode-local
 # --
 (unless (boundp '$1)
-   (define-prefix-command '${1:my-???-prefix-map}))
+   (define-prefix-command '${1:my-???-prefix}))
 
 (add-hook '${5:mode-hook}
           (lambda ()

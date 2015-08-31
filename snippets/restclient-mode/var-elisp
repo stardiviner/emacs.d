@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: var elisp
+# key: var-elisp
+# --
+:${1:variable} := (${2:elisp expr value, can use "progn .." etc})$0

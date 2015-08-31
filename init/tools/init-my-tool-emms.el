@@ -26,6 +26,12 @@
 ;; (require 'emms-streams)
 
 
+;; emms prefix keybinding map
+(unless (boundp 'my-emms-prefix)
+  (define-prefix-command 'my-emms-prefix))
+(define-key my-tools-prefix (kbd "e") 'my-emms-prefix)
+
+
 (emms-standard)
 
 ;; (setq emms-player-list
@@ -52,13 +58,6 @@
 ;;; Encoding
 (setq emms-info-mp3info-coding-system '(utf-8 gbk)
       emms-cache-file-coding-system 'utf-8)
-
-
-;;; [ MPD ]
-(require 'emms-player-mpd)
-
-(setq emms-player-mpd-server-name "127.0.0.1"
-      emms-player-mpd-server-port "6600")
 
 
 ;;; [ Playlist ]
@@ -90,8 +89,38 @@
 
 ;;; [ Key Bindings ]
 
+
+
+;;; [ MPD ]
+
+;;; Usage:
+;;
+;; - [M-x emms-player-mpd-connect]
+
+(require 'emms-player-mpd)
+
+(setq emms-player-mpd-server-name "127.0.0.1"
+      emms-player-mpd-server-port "6600")
+
+;; (setq emms-player-mpd-music-directory)
+(setq emms-player-mpd-sync-playlist t)
+
+(add-to-list 'emms-info-functions 'emms-info-mpd)
+(add-to-list 'emms-player-list 'emms-player-mpd)
+
 ;; TODO capture the key code of [Fn + <F10>] to apply. also include next [F11] etc.
 ;; (global-set-key (kbd "Fn + <F10>") 'emms-player-mpd-pause)
+
+(unless (boundp 'my-emms-mpd-prefix)
+  (define-prefix-command 'my-emms-mpd-prefix))
+(define-key my-emms-prefix (kbd "m") 'my-emms-mpd-prefix)
+
+(define-key my-emms-mpd-prefix (kbd "c") 'emms-player-mpd-connect)
+(define-key my-emms-mpd-prefix (kbd "p") 'emms-player-mpd-pause) ; toggle pause
+(define-key my-emms-mpd-prefix (kbd "P")
+  '(lambda ()
+     (emms-player-mpd-play nil)))
+(define-key my-emms-mpd-prefix (kbd "s") 'emms-player-mpd-stop)
 
 
 

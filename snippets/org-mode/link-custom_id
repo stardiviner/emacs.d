@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: link - custom_id
+# key: link-custom_id
+# group: link
+# --
+[[#${1custom id}]]

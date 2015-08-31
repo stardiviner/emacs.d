@@ -1,7 +1,0 @@
-# -*- mode: snippet; require-final-newline: nil -*-
-# name: latex fragment block
-# key: latex_fragment_block
-# --
-\begin{equation}
-${1:x=\sqrt{b}}
-\end{equation}

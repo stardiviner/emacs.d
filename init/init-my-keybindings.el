@@ -40,36 +40,33 @@
 (global-set-key [remap toggle-frame-maximized] 'toggle-frame-fullscreen)
 
 ;;; edit
-(unless (boundp 'my-edit-prefix-map)
-  (define-prefix-command 'my-edit-prefix-map))
-(global-set-key (kbd "C-c e") 'my-edit-prefix-map)
+(unless (boundp 'my-edit-prefix)
+  (define-prefix-command 'my-edit-prefix))
+(global-set-key (kbd "C-c e") 'my-edit-prefix)
 
 ;;; search
-(unless (boundp 'my-search-prefix-map)
-  (define-prefix-command 'my-search-prefix-map))
-(global-set-key (kbd "C-c s") 'my-search-prefix-map)
+(unless (boundp 'my-search-prefix)
+  (define-prefix-command 'my-search-prefix))
+(global-set-key (kbd "C-c s") 'my-search-prefix)
 
 ;;; regexp
-(unless (boundp 'my-regexp-prefix-map)
-  (define-prefix-command 'my-regexp-prefix-map))
-(global-set-key (kbd "C-c r") 'my-regexp-prefix-map)
+(unless (boundp 'my-regexp-prefix)
+  (define-prefix-command 'my-regexp-prefix))
+(global-set-key (kbd "C-c r") 'my-regexp-prefix)
 
 
 ;;; Programming
 
-(unless (boundp 'my-programming-prefix-map)
-  (define-prefix-command 'my-programming-prefix-map))
-(global-set-key (kbd "C-c p") 'my-programming-prefix-map)
-
-
 (unless (boundp 'my-prog-code-map)
   (define-prefix-command 'my-prog-code-map))
-;; (define-key my-programming-prefix-map (kbd "c") 'my-prog-code-map)
 (global-set-key (kbd "C-c c") 'my-prog-code-map)
+
+(unless (boundp 'my-prog-comment-map)
+  (define-prefix-command 'my-prog-comment-map))
+(global-set-key (kbd "M-;") 'my-prog-comment-map)
 
 (unless (boundp 'my-prog-help-document-map)
   (define-prefix-command 'my-prog-help-document-map))
-;; (define-key my-programming-prefix-map (kbd "h") 'my-prog-help-document-map)
 (global-set-key (kbd "C-h d") 'my-prog-help-document-map)
 
 ;; like tags: function, variable, class, scope etc lookup.
@@ -77,20 +74,20 @@
   (define-prefix-command 'my-prog-lookup-map))
 (global-set-key (kbd "C-c l") 'my-prog-lookup-map)
 
-;; (define-key my-prog-lookup-map (kbd "l") 'helm-semantic-or-imenu)
-
 (unless (boundp 'my-prog-inferior-map)
-    (define-prefix-command 'my-prog-inferior-map))
-;; (define-key my-programming-prefix-map (kbd "i") 'my-prog-inferior-map)
+  (define-prefix-command 'my-prog-inferior-map))
 (global-set-key (kbd "C-c i") 'my-prog-inferior-map)
 
-(unless (boundp 'my-prog-debug-prefix)
-  (define-prefix-command 'my-prog-debug-prefix))
-(global-set-key (kbd "C-c d") 'my-prog-debug-prefix)
+(unless (boundp 'my-prog-debug-map)
+  (define-prefix-command 'my-prog-debug-map))
+(global-set-key (kbd "C-c d") 'my-prog-debug-map)
+
+(unless (boundp 'my-prog-test-map)
+  (define-prefix-command 'my-prog-test-map))
+(global-set-key (kbd "C-c t") 'my-prog-test-map)
 
 (unless (boundp 'my-prog-vcs-map)
   (define-prefix-command 'my-prog-vcs-map))
-;; (define-key my-programming-prefix-map (kbd "v") 'my-prog-vcs-map)
 (global-set-key (kbd "C-c v") 'my-prog-vcs-map)
 
 (unless (boundp 'my-prog-vcs-git-map)
@@ -103,7 +100,6 @@
 
 (unless (boundp 'my-prog-project-map)
   (define-prefix-command 'my-prog-project-map))
-;; (define-key my-programming-prefix-map (kbd "p") 'my-prog-project-map)
 (global-set-key (kbd "C-c p") 'my-prog-project-map)
 
 ;; TODO: check where work as my expect.
@@ -117,9 +113,17 @@
             (define-key my-prog-lint-map (kbd "b") 'flycheck-buffer)
             ))
 
-(unless (boundp 'my-prog-test-map)
-  (define-prefix-command 'my-prog-test-map))
-(global-set-key (kbd "C-c t") 'my-prog-test-map)
+(unless (boundp 'my-prog-refactor-map)
+  (define-prefix-command 'my-prog-refactor-map))
+(global-set-key (kbd "C-c RET") 'my-prog-refactor-map)
+
+(unless (boundp 'my-prog-database-map)
+  (define-prefix-command 'my-prog-database-map))
+(global-set-key (kbd "C-c D") 'my-prog-database-map)
+
+(unless (boundp 'my-prog-tools-map)
+  (define-prefix-command 'my-prog-tools-map))
+(global-set-key (kbd "C-c T") 'my-prog-tools-map)
 
 
 ;;; Programming Languages
@@ -127,16 +131,16 @@
 
 ;;; Tools
 
-(unless (boundp 'my-tools-prefix-map)
-  (define-prefix-command 'my-tools-prefix-map))
-(global-set-key (kbd "C-c T") 'my-tools-prefix-map)
+(unless (boundp 'my-tools-prefix)
+  (define-prefix-command 'my-tools-prefix))
+(global-set-key (kbd "C-x t") 'my-tools-prefix)
 
-(unless (boundp 'my-org-prefix-map)
-  (define-prefix-command 'my-org-prefix-map))
-(global-set-key (kbd "C-c o") 'my-org-prefix-map)
+(unless (boundp 'my-org-prefix)
+  (define-prefix-command 'my-org-prefix))
+(global-set-key (kbd "C-c o") 'my-org-prefix)
 
 ;;; Launcher
-(define-prefix-command 'launcher-map)
+;; (define-prefix-command 'launcher-map)
 ;; C-x l is `count-lines-page' by default. If you
 ;; use that, you can try s-l or <C-return>.
 ;; (define-key ctl-x-map "l" 'launcher-map)

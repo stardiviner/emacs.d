@@ -53,9 +53,9 @@
 ;;
 ;; - `hexview-find-file' :: to open hex files.
 
-(require 'hexview-mode)
-
-(define-key my-prog-code-map (kbd "h") 'hexview-find-file)
+;; (require 'hexview-mode)
+;;
+;; (define-key my-prog-code-map (kbd "h") 'hexview-find-file)
 
 
 (provide 'init-my-prog-code)

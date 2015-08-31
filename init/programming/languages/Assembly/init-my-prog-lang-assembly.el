@@ -9,8 +9,6 @@
 
 ;;; [ iasm-mode ]
 
-(require 'iasm-mode)
-
 ;; (global-set-key (kbd "C-c C-d") 'iasm-disasm)
 ;; (global-set-key (kbd "C-c C-l") 'iasm-ldd)
 

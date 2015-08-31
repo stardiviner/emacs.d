@@ -9,6 +9,18 @@
 
 ;;; [ markdown-mode ]
 
+;;; Usage:
+;;
+;; - [C-h m] :: check out major mode keybindings.
+;; - [C-c C-t] :: header
+;; - [C-c C-s] :: insert
+;; - [C-c C-x] :: change header
+;; - [C-c C-c] :: function
+;; - [C-c C-a] :: insert links
+;; - [C-c C-]] :: complete
+;;
+;; note: some keybindings work on text also can work on region.
+
 (require 'markdown-mode)
 
 ;;; Faces
@@ -32,16 +44,22 @@
 ;; header (1-6)
 (set-face-attribute 'markdown-header-face-1 nil
                     :inherit 'markdown-header-face
-                    :foreground "cyan")
+                    :foreground "cyan"
+                    :overline t)
 (set-face-attribute 'markdown-header-face-2 nil
+                    :inherit 'markdown-header-face-1
                     :foreground "deep pink")
 (set-face-attribute 'markdown-header-face-3 nil
+                    :inherit 'markdown-header-face-1
                     :foreground "green yellow")
 (set-face-attribute 'markdown-header-face-4 nil
+                    :inherit 'markdown-header-face-1
                     :foreground "yellow")
 (set-face-attribute 'markdown-header-face-5 nil
+                    :inherit 'markdown-header-face-1
                     :foreground "slate blue")
 (set-face-attribute 'markdown-header-face-6 nil
+                    :inherit 'markdown-header-face-1
                     :foreground "sky blue")
 ;; line break
 (set-face-attribute 'markdown-line-break-face nil
@@ -83,7 +101,7 @@
                     :foreground "green" :background "black")
 ;; block, quote, pre, code
 (set-face-attribute 'markdown-pre-face nil
-                    :foreground "#888888" :background "black")
+                    :foreground "cyan" :background "black")
 ;; programming language identifier
 (set-face-attribute 'markdown-language-keyword-face nil
                     :foreground "cyan")
@@ -122,9 +140,35 @@
 ;;; termination. If you'd like to perform cleanup manually run [M-x
 ;;; markdown-preview-cleanup].
 
+;; (require 'markdown-preview-mode)
 (autoload 'markdown-preview-mode "markdown-preview-mode.el" nil t)
 
-;; (setq markdown-preview-style "???.css")
+;; enable MultiMarkdown support
+;; (setq markdown-command "multimarkdown")
+
+;; custom css theme
+(setq markdown-preview-style ""http://thomasf.github.io/solarized-css/solarized-dark.min.css"")
+
+;; websocket.el port
+;; (setq markdown-preview-port 7379)
+
+;; (set-face-attribute 'markdown-pre-face nil
+;;                     :inherit 'font-lock-constant-face
+;;                     )
+
+(define-key markdown-mode-map (kbd "C-c C-k") 'markdown-preview-mode)
+
+
+;;; [ realtime-preview ] -- realtime preview markdown by EWW.
+
+;;; Usage:
+;;
+;; 1. open markdown file
+;; 2. [M-x realtime-preview]
+
+;; (require 'realtime-preview)
+;;
+;; (add-hook 'markdown-mode-hook 'realtime-preview)
 
 
 

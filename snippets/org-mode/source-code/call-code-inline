@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: call code inline: call_<name>
-# key: call_inline
-# --
-call_${1:name}${2:arguments}

@@ -6,13 +6,9 @@
 ;;; Code:
 
 
-(add-to-list 'auto-mode-alist '("Capfile" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
-(add-to-list 'auto-mode-alist '("Rakefile" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\.rake\'" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\.rb\'" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\.ru\'" . ruby-mode))
-
+;; Ruby files
+;; (add-to-list 'auto-mode-alist
+;;              '("\\.rb\\'" . ruby-mode))
 (if (featurep 'enh-ruby-mode)
     (lambda ()
       (add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
@@ -21,6 +17,14 @@
   (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
   (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
   )
+
+;; irb(irbrc), pry(pryrc), gem(gemspec, gemrc), rackup(ru), Thor(thor),
+(add-to-list 'auto-mode-alist
+             '("\\.\\(?:gemspec\\|irbrc\\|pryrc\\|gemrc\\|rake\\|ru\\|thor\\)\\'" . ruby-mode))
+
+;; Gemfile, Capfile, Rakefile
+(add-to-list 'auto-mode-alist
+             '("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . ruby-mode))
 
 ;; We never want to edit Rubinius bytecode or MacRuby binaries
 (add-to-list 'completion-ignored-extensions ".rbc")
@@ -36,15 +40,16 @@
   (delete-horizontal-space t)
   (insert " => "))
 
-(defun insert-ruby-interpolate ()
-  "In a double quoted string, interpolate."
-  (interactive)
-  (insert "#")
-  (when (and
-         (looking-back "\".*")
-         (looking-at ".*\""))
-    (insert "{}")
-    (backward-char 1)))
+;; (deprecated) replaced by package `ruby-tools'.
+;; (defun insert-ruby-interpolate ()
+;;   "In a double quoted string, interpolate."
+;;   (interactive)
+;;   (insert "#")
+;;   (when (and
+;;          (looking-back "\".*" nil)
+;;          (looking-at ".*\""))
+;;     (insert "{}")
+;;     (backward-char 1)))
 
 
 ;;; [ ruby-mode ]
@@ -60,8 +65,6 @@
 ;; - [C-x C-e] -- (ruby-send-last-sexp)
 ;; - [C-c C-s] -- (inf-ruby)
 ;; - [C-c C-z] -- (ruby-switch-to-inf)
-
-(require 'ruby-mode)
 
 ;; (add-auto-mode 'ruby-mode
 ;;                "Gemfile\\'" "\\.gemspec\\'"
@@ -94,8 +97,8 @@
             (define-key ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
             ;; (define-key ruby-mode-map (kbd "TAB") 'indent-for-tab-command)
 
-            (define-key ruby-mode-map (kbd "C-,") 'insert-arrow)
-            (define-key ruby-mode-map (kbd "#") 'insert-ruby-interpolate)
+            (define-key ruby-mode-map (kbd "C-c C-'") 'insert-arrow)
+            ;; (define-key ruby-mode-map (kbd "#") 'insert-ruby-interpolate)
 
             ;; hs-minor-mode (hide-show)
             (add-to-list 'hs-special-modes-alist
@@ -119,19 +122,17 @@
 ;;; the source code. As a consquence only ruby 1.9.2 (or later) syntax is parsed
 ;;; correctly.
 
-(require 'enh-ruby-mode)
-(autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
+(add-hook 'enh-ruby-mode-hook
+          (lambda ()
+            ;; (unless (derived-mode-p 'prog-mode)
+            ;;   (run-hooks 'prog-mode-hook))
 
-(add-hook 'enh-ruby-mode-hook (lambda ()
-                                (unless (derived-mode-p 'prog-mode)
-                                  (run-hooks 'prog-mode-hook))
+            (define-key enh-ruby-mode-map (kbd "C-c C-'") 'insert-arrow)
+            ;; (define-key enh-ruby-mode-map (kbd "#") 'insert-ruby-interpolate)
 
-                                (define-key enh-ruby-mode-map (kbd "C-,") 'insert-arrow)
-                                (define-key enh-ruby-mode-map (kbd "#") 'insert-ruby-interpolate)
-
-                                ;; add into auto-complete enable modes
-                                ;; (add-to-list 'ac-modes 'enh-ruby-mode)
-                                ))
+            ;; add into auto-complete enable modes
+            ;; (add-to-list 'ac-modes 'enh-ruby-mode)
+            ))
 
 ;; (setq enh-ruby-program "/home/stardiviner/.rvm/rubies/ruby-head/bin/ruby")
 
@@ -151,6 +152,7 @@
       enh-ruby-hanging-paren-deep-indent-level 0
       enh-ruby-use-encoding-map t
       enh-ruby-use-ruby-mode-show-parens-config t
+      enh-ruby-add-encoding-comment-on-save t ; add ruby magic encoding comment on save.
       )
 
 ;;; Enhanced Ruby Mode defines its own specific faces with the hook
@@ -179,6 +181,12 @@
                         :box '(:color "red" :line-width -1))
     ))
 
+;;; TODO: feature
+;; (defface enh-ruby-dot-face
+;;   `((t :foreground ,(erm-darken-color font-lock-string-face)))
+;;   "Face used to highlight dot like object.method."
+;;   :group 'enh-ruby)
+
 
 
 
@@ -189,43 +197,37 @@
 ;;  '(("\\(\\b\\sw[_a-zA-Z0-9]*:\\)\\(?:\\s-\\|$\\)" (1 font-lock-constant-face))))
 
 
-;; inline code face => src_ruby{require 'something'}
-;;
-;; (REGEXP . FACE)
-;;     Highlight REGEXP with FACE
-;; (REGEXP N FACE)
-;;     Highlight group N in REGEXP with FACE
-;; (REGEXP (N1 FACE1) (N2 FACE2) (N3 FACE3) …)
-;;     Highlight group Ni in REGEXP with FACEi
-;;
-;; src_lang[:header arguments]{code...}
-
-;; (font-lock-add-keywords 'org-mode
-;;                         '(("src_\\([^[{]+\\)\\(\\[:.*\\]\\){\\([^}]*\\)}"
-;;                            (1 '(:foreground "cyan" :weight 'bold :height 75)) ; "lang" part.
-;;                            (2 '(:foreground "gray" :height 70)) ; [:header arguments] part.
-;;                            (3 'org-code) ; "code..." part.
-;;                            )))
-
-;; ;;; @<kbd>C-h h@</kbd> inline key codes highlight
-;; (font-lock-add-keywords 'org-mode
-;;                         '(("@<kbd>\\([^@]*\\)@</kbd>" 1 'org-code)))
-
-;; (font-lock-add-keywords 'ruby-mode
-;;                         '(("")))
-
 
 ;;; [ ruby-hash-syntax ] -- automatically convert the selected region of ruby code between 1.8 and 1.9 hash styles.
 
 ;;; Usage:
 ;;
-;; Then select a block of ruby code containing a hash literal (perhaps using
-;; mark-sexp), and run the `ruby-toggle-hash-syntax' command:
+;; - region + `ruby-toggle-hash-syntax'
 
-;; (require 'ruby-hash-syntax)
+(define-key my-prog-code-map (kbd "c") 'ruby-toggle-hash-syntax) ; convert
 
 
-;;; [ ruby-block ]
+;;; [ ruby-tools ] -- Ruby tools is a collection of handy functions for Emacs ruby-mode.
+
+;;; Ruby tools is a collection of handy functions for Emacs ruby-mode. You can
+;;; turn a string to symbol, symbol to string, single to double quote string,
+;;; double to single quote string, clear string, interpolate and more...
+
+;;; Usage:
+;;
+;; (the | represents the point position)
+;; - [C-'] :: convert symbol -> string, e.g. foo(|:bar)
+;; - [C-:] :: convert string -> symbol, e.g. foo(|'bar')
+;; - [C-"] :: convert single quote string to double quote string.
+;; - [C-'] :: convert double quote string to single quote string.
+;; - [C-;] :: clear string content
+;; - [#]   :: string interpolation
+
+(add-hook 'ruby-mode-hook 'ruby-tools-mode)
+(add-hook 'enh-ruby-mode-hook 'ruby-tools-mode)
+
+
+;;; [ ruby-block ] -- highlight matching block
 
 ;; (require 'ruby-block)
 ;;
@@ -238,30 +240,11 @@
 
 
 
-;;; [ ruby-electric ] -- NOTE: this has been merged into `ruby-mode'.
-
-;; (require 'ruby-electric)
-
-;; (add-hook 'ruby-mode-hook 'ruby-electric-mode)
-
-;; FIXME:
-;; (remove-hook 'ruby-mode-hook 'ruby-electric-mode)
-;;
-;; (add-hook 'ruby-mode-hook
-;;           (lambda ()
-;;             (require 'ruby-electric)
-;;             (autopair-mode -1) ; conflict with ruby-electric.
-;;             (ruby-electric-mode t) ; already autoload by el-get?
-;;             ))
-
-
 
 (add-to-list 'which-func-modes 'ruby-mode)
 
 
 ;;; [ yard-mode ] -- for Ruby YARD comments
-
-(require 'yard-mode)
 
 (add-hook 'ruby-mode-hook 'yard-mode)
 (add-hook 'enh-ruby-mode-hook 'yard-mode)
@@ -275,13 +258,12 @@
 
 ;; yari.el provides an Emacs frontend to Ruby's `ri' documentation tool. It offers lookup and completion.
 
-(require 'yari)
-
 (dolist (hook '(ruby-mode-hook
                 enh-ruby-mode-hook
                 ))
   (add-hook hook (lambda ()
-                   (setq yari-ri-program-name "ri")
+                   ;; (setq yari-ruby-program-name "ruby"
+                   ;;       yari-ri-program-name "ri")
 
                    ;; (local-set-key (kbd "C-h d k") 'yari)
 
@@ -304,19 +286,60 @@
 ;;; - open the source of any rubygem in your current gemset.
 ;;;   [M-x rvm-open-gem]
 
-(require 'rvm)
-
-(rvm-use-default)        ; use rvm's default ruby for the current Emacs session.
-(setq rvm-verbose t)     ; print rvm switching Ruby version message.
-
-(dolist (hook '(ruby-mode-hook
-                enh-ruby-mode-hook
-                ))
-  (add-hook hook 'rvm-activate-corresponding-ruby))
+;; (require 'rvm)
+;;
+;; (rvm-use-default)        ; use rvm's default ruby for the current Emacs session.
+;; (setq rvm-verbose t)     ; print rvm switching Ruby version message.
+;;
+;; (dolist (hook '(ruby-mode-hook
+;;                 enh-ruby-mode-hook
+;;                 ))
+;;   (add-hook hook 'rvm-activate-corresponding-ruby))
 
 
-;;; [ inf-ruby / Inferior Ruby ] -- inf-ruby provides a REPL buffer connected to a Ruby(irb/pry) subprocess.
+;;; [ rbenv ] -- use rbenv to manage your Ruby versions within Emacs
 
+;;; Usage:
+;;
+;; - `global-rbenv-mode' :: activate / deactivate rbenv.el (The current Ruby version is shown in the modeline).
+;; - `rbenv-use-global' :: will activate your global Ruby.
+;; - `rbenv-use-corresponding' :: will activate your corresponding Ruby.
+;; - `rbenv-use' :: allows you to choose what ruby version you want to use.
+
+;;; NOTE: that rbenv.el always configures the complete Emacs session. There is
+;;; no way to set the Ruby version on a per buffer basis.
+
+;;; IMPORTANT:: Currently you need to set this variable before you load rbenv.el
+(setq rbenv-installation-dir "~/.rbenv/") ; "/usr/local/rbenv"
+
+(setq rbenv-show-active-ruby-in-modeline t
+      ;; rbenv-executable "~/.rbenv/bin/rbenv"
+      ;; rbenv-binary-paths '((shims-path . "~/.rbenv/shims")
+      ;;                      (bin-path . "~/.rbenv/bin"))
+      ;; rbenv-ruby-shim "~/.rbenv/shims/ruby"
+      rbenv-modeline-function 'rbenv--modeline-plain ; 'rbenv--modeline-with-face
+      )
+
+;; (defun rbenv--modeline-with-face (current-ruby)
+;;   (append '(" [")
+;;           (list (propertize current-ruby 'face 'rbenv-active-ruby-face))
+;;           '("]")))
+
+;; (defun rbenv--modeline-plain (current-ruby)
+;;   (list " [" current-ruby "]"))
+
+;;; Setting rbenv path
+;; (setenv "PATH" (concat (getenv "HOME") "/.rbenv/shims:" (getenv "HOME") "/.rbenv/bin:" (getenv "PATH")))
+;; (setq exec-path (cons (concat (getenv "HOME") "/.rbenv/shims") (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path)))
+
+(global-rbenv-mode 1)
+
+(rbenv-use-global)
+;; (rbenv-use "2.2.0")
+
+
+;;; [ inf-ruby / Inferior Ruby ] -- inf-ruby provides a REPL buffer connected to a Ruby(irb/pry) subprocess.
+;;
 ;;; Usage:
 ;;;
 ;;; - [M-x inf-ruby] :: A simple IRB process can be fired up with M-x inf-ruby.
@@ -328,12 +351,12 @@
 ;;;
 ;;; - To see the list of the keybindings defined by inf-ruby-minor-mode, type
 ;;;   M-x describe-function [RET] inf-ruby-minor-mode [RET].
-
+;;
 ;; - [M-x run-ruby] -- which runs IRB in an Emacs buffer
 ;; keybindings:
 ;; - [C-c C-s] -- inf-ruby
 ;; - [C-c C-z] -- ruby-switch-to-inf
-;; - [C-c C-l] -- ruby-load-file
+;; - [C-c C-l] -- ruby-load-file :: load current file source code for completion.
 ;; - [M-C-x]   -- ruby-send-definition
 ;; - [C-x C-e] -- ruby-send-last-sexp
 ;; - [C-c C-b] -- ruby-send-block
@@ -342,7 +365,7 @@
 ;; - [C-c M-x] -- ruby-send-definition-and-go
 ;; - [C-c C-r] -- ruby-send-region
 ;; - [C-c M-r] -- ruby-send-region-and-go
-
+;;
 ;; - [RET] -- after the end of the process' output sends the text from the end of process to point.
 ;; - [RET] -- before the end of the process' output copies the sexp ending at point
 ;;           to the end of the process' output, and sends it.
@@ -352,25 +375,32 @@
 ;; - [C-M-q] -- does TAB on each line starting within following expression.
 ;; - Paragraphs are separated only by blank lines. # start comments.
 ;; - If you accidentally suspend your process, use comint-continue-subjob to continue it.
-
-
+;;
+;;; setup Pry
+;;
+;;#+NAME: ~/.pryrc
+;;#+BEGIN_SRC ruby
+;;if ENV['TERM'] == 'emacs'
+;;  Pry.config.color = false
+;;  Pry.config.pager = false
+;;  Pry.config.auto_indent = false
+;;end
+;;#+END_SRC
+;;
 ;; - [C-x C-q] -- rspec / ruby-compilation
 
-(require 'inf-ruby)
-(autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
-(autoload 'inf-ruby-minor-mode "inf-ruby" "Run an inferior Ruby process" t)
-
 (setq inf-ruby-default-implementation "inf-ruby"
-      inf-ruby-implementations '(("inf-ruby" . "irb --inf-ruby-mode --noreadline")
+      inf-ruby-implementations '(("inf-ruby" . "irb --inf-ruby-mode --noreadline -EUTF-8")
                                  ;; ("inf-ruby" . "irb --inf-ruby-mode --prompt inf-ruby")
-                                 ("ruby" . "irb --prompt default -r irb/completion --noreadline")
+                                 ("ruby" . "irb --prompt default --noreadline -r irb/completion -EUTF-8")
+                                 ("pry" . "pry")
                                  ("jruby" . "jruby -S irb --prompt default -r irb/completion")
                                  ("rubinius" . "rbx -r irb/completion")
                                  ("yarv" . "irb1.9 -r irb/completion")
                                  ("macruby" . "macirb -r irb/completion")
-                                 ("pry" . "pry"))
+                                 )
       ;; inf-ruby-orig-compilation-mode nil
-      ;; inf-ruby-console-patterns-alist '(("config/application.rb" . rails)
+      ;; inf-ruby-console-patterns-alist '((inf-ruby-console-rails-p . rails)
       ;;                                   ("*.gemspec" . gem)
       ;;                                   ("Gemfile" . default)
       ;;                                   ;; (nil . default)
@@ -383,29 +413,32 @@
       )
 
 ;; integrate with rvm.el
-(defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
-  (rvm-activate-corresponding-ruby))
+;; (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
+;;   (rvm-activate-corresponding-ruby))
+
+(add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
 (dolist (hook '(ruby-mode-hook
                 enh-ruby-mode-hook
                 ))
-  (add-hook hook 'inf-ruby-minor-mode))
-
-(add-hook 'after-init-hook 'inf-ruby-switch-setup)
+  (add-hook hook
+            (lambda ()
+              (inf-ruby-minor-mode)
+              
+              ;; for `company-capf'
+              (add-to-list (make-local-variable 'completion-at-point-functions)
+                           'inf-ruby-completion-at-point)
+              ;; put `robe-complete-at-point' ahead of `inf-ruby-completion-at-point', higher priority.
+              (remq 'robe-complete-at-point completion-at-point-functions)
+              (setq-local completion-at-point-functions
+                          (append '(robe-complete-at-point) completion-at-point-functions))
+              )))
 
 (define-key my-prog-inferior-map (kbd "r a") 'inf-ruby-console-auto)
 
 (eval-after-load 'inf-ruby
   '(define-key inf-ruby-minor-mode-map (kbd "C-c C-s") 'inf-ruby-console-auto))
 
-(add-hook 'inf-ruby-mode-hook
-          (lambda ()
-            ;; company-robe
-            (make-local-variable 'company-backends)
-            (add-to-list 'company-backends 'company-robe)
-            ))
-
-;; (add-to-list 'ac-modes 'inf-ruby-mode) ; enable auto-complete (with robe-mode) for inf-ruby completion.
 
 
 ;;; [ pry (emacs-pry) ] -- Pry support within Emacs
@@ -425,50 +458,11 @@
 
 ;; (require 'pry)
 ;;
+;; ;; (setq pry-program-name "pry")           ; program invoked by the `run-pry' command.
+;;
 ;; (define-key my-inferior-ruby-map (kbd "p") 'run-pry)
 ;; (define-key my-inferior-ruby-map (kbd "C-p") 'pry-intercept)
-
-
-;;; [ company-inf-ruby ]
-
-;;; NOTE: Now that inf-ruby 2.4.0 supports `completion-at-point', this backend is deprecated.
-;;; You don't need to install anything extra, `company-capf' will work with inf-ruby.
-
-;; (require 'company-inf-ruby)
-;;
-;; (eval-after-load 'company
-;;   (add-to-list 'company-backends 'company-inf-ruby))
-
-
-
-;;; [ ac-inf-ruby ]
-
-;; (require 'ac-inf-ruby)
-
-;; ;;; for Ruby buffers. {Ruby}
-;; (add-hook 'ruby-mode-hook
-;;           (lambda ()
-;;             (eval-after-load 'auto-complete
-;;               (add-to-list 'ac-sources 'ac-source-inf-ruby))
-;;             (add-hook 'inf-ruby-minor-mode-hook 'ac-inf-ruby-enable)
-;;             ))
-
-;; ;;; for inf-ruby buffer. (Inf-Ruby)
-;; (eval-after-load 'auto-complete
-;;   (add-to-list 'ac-modes 'inf-ruby-mode))
-;; (add-hook 'inf-ruby-mode-hook 'ac-inf-ruby-enable)
-;; (eval-after-load 'inf-ruby
-;;   (define-key inf-ruby-mode-map (kbd "TAB") 'auto-complete))
-
-
-;;; [ auto-complete-ruby ]
-
-;; (require 'auto-complete-ruby)
-
-
-;;; [ rcodetools ]
-
-;; (require 'rcodetools)
+;; (define-key my-inferior-ruby-map (kbd "C-r") 'pry-intercept-rerun)
 
 
 ;;; [ Robe ] -- Code navigation, documentation lookup and completion for Ruby.
@@ -508,10 +502,10 @@
 ;;    `inf-ruby-console-auto'. It recognizes several project types, including
 ;;    Rails, gems and anything with racksh in their Gemfile.
 ;;
-;; - [C-c C-d] -- `robe-doc',
-;; - [C-c C-l] -- `ruby-load-file', to load the current file in your project.
+;; - [C-c C-l] -- `ruby-load-file', to load the current file in your project for completion.
 ;; - [C-c C-k] -- `robe-rails-refresh', if you're developing a Rails project.
-;; - [M-.] -- robe-jump (jump to definition)
+;; - [C-c C-d] -- `robe-doc',
+;; - [M-.] -- `robe-jump' (jump to definition)
 ;; - [M-,] -- pop tag mark
 ;;
 ;;; Commands:
@@ -553,10 +547,6 @@
 ;; 2. then you should only have to change Robe settings to point to the remote machine
 ;;    instead of the localhost. (make sure remote machine port is open)
 
-(require 'robe)
-;; (autoload 'robe-mode "robe" "Code navigation, documentation lookup and completion for Ruby" t nil)
-;; (autoload 'ac-robe-setup "ac-robe" "auto-complete robe" nil nil)
-
 (setq robe-turn-on-eldoc t
       ;; - t, `completion-at-point' candidates buffer will have constants,
       ;;   methods and arguments highlighted in color.
@@ -577,6 +567,7 @@
   (add-hook hook 'robe-mode))
 
 (add-hook 'robe-mode-hook (lambda ()
+                            (local-set-key (kbd "M-.") 'robe-doc)
                             (local-set-key (kbd "C-h d d") 'robe-doc)
 
                             (unless (boundp 'ruby-send-to-inferior-map)
@@ -599,22 +590,24 @@
                             ;; 2.2. old way
                             ;; (push 'ac-source-robe ac-sources)
                             ;; (add-to-list 'ac-sources 'ac-source-robe) ; `ac-robe-setup' did this already.
-
-                            ;; NOTE: `robe-mode' already support for capf. and
-                            ;; company-mode support capf native. so don't need following
-                            ;; setting.
-                            ;; for company-robe backend mode locally.
-                            (make-local-variable 'company-backends)
-                            (add-to-list 'company-backends 'company-robe)
                             ))
 
+
+;;; [ helm-rb ] -- Search Ruby's method by ag and display helm.
 
 
 ;;; [ helm-robe ]
 
-(setq robe-completing-read-func 'helm-robe-completing-read)
-;; (custom-set-variables
-;;  '(robe-completing-read-func 'helm-robe-completing-read))
+
+;;; [ Zossima ] -- Jump to definition in Emacs, driven by a live Ruby subprocess.
+
+;;; Usage:
+;;
+;; - [M-.]
+;; - [M-,]
+
+(add-hook 'ruby-mode-hook 'zossima-mode)
+(add-hook 'enh-ruby-mode-hook 'zossima-mode)
 
 
 ;;; [ ruby-compilation ]
@@ -634,18 +627,13 @@
 ;; - [C-c C-f] -- next-error-follow-minor-mode
 ;; - [C-c C-k] -- kill compilation
 
-(autoload 'ruby-compilation-this-buffer "ruby-compilation" "run the ruby buffer" t nil)
-(autoload 'ruby-compilation-this-test "ruby-compilation" "run the ruby test" t nil)
-
-(if (boundp 'enh-ruby-mode-map)
-    (lambda ()
-      (define-key enh-ruby-mode-map (kbd "C-x t") 'ruby-compilation-this-buffer)
-      (define-key enh-ruby-mode-map (kbd "C-x T") 'ruby-compilation-this-test)
-      )
-  (define-key ruby-mode-map (kbd "C-x t") 'ruby-compilation-this-buffer)
-  (define-key ruby-mode-map (kbd "C-x T") 'ruby-compilation-this-test)
-  )
-
+(eval-after-load "ruby-compilation"
+  '(progn
+     (define-key enh-ruby-mode-map (kbd "C-c t") 'ruby-compilation-this-buffer)
+     (define-key enh-ruby-mode-map (kbd "C-c T") 'ruby-compilation-this-test)
+     (define-key ruby-mode-map (kbd "C-c t") 'ruby-compilation-this-buffer)
+     (define-key ruby-mode-map (kbd "C-c T") 'ruby-compilation-this-test)
+     ))
 
 
 ;;; [ rspec-mode ] -- Ruby RSpec
@@ -654,8 +642,6 @@
 ;; - If rspec-mode is installed properly, it will be started automatically when
 ;;   ruby-mode is started.
 ;; - [M-x rspec-.*] :: commands
-
-(require 'rspec-mode)
 
 (eval-after-load 'rspec-mode
   '(rspec-install-snippets))
@@ -677,14 +663,59 @@
 ;;
 ;; What you can do to solve this is to use BASH for running the specs. This
 ;; piece of code does the job:
-(defadvice rspec-compile (around rspec-compile-around)
-  "Use BASH shell for running the specs because of ZSH issues."
-  (let ((shell-file-name "/bin/bash"))
-    ad-do-it))
 
-(ad-activate 'rspec-compile)
+;; (defadvice rspec-compile (around rspec-compile-around)
+;;   "Use BASH shell for running the specs because of ZSH issues."
+;;   (let ((shell-file-name "/bin/bash"))
+;;     ad-do-it))
+;;
+;; (ad-activate 'rspec-compile)
 
+
+;;; [ minitest ]
 
+;;; Usage:
+;;
+;; - [C-c ,] -- minitest prefix
+;; `minitest-enable-appropriate-mode'
+
+(setq minitest-default-env nil
+      minitest-keymap-prefix (kbd "C-c t") ; [C-c ,]
+      minitest-use-bundler t
+      minitest-use-spring nil
+      minitest-use-zeus-when-possible t
+      )
+
+(add-hook 'ruby-mode-hook 'minitest-mode)
+(add-hook 'enh-ruby-mode-hook 'minitest-mode)
+
+;; if you want snippets loaded
+(eval-after-load 'minitest
+  '(minitest-install-snippets))
+
+
+;;; [ ruby-test-mode ] -- Emacs minor mode for Behaviour and Test Driven Development in Ruby.
+
+;;; Usage:
+;;
+;; C-c C-,   - Runs the current buffer's file as an unit test or an
+;;             rspec example.
+;; C-c M-,   - Runs the unit test or rspec example at the current buffer's
+;;             buffer's point.
+;; C-c C-s   - Toggle between implementation and test/example files.
+
+(dolist (hook '(ruby-mode-hook
+                enh-ruby-mode-hook))
+  (add-hook hook (lambda ()
+                   (unless (boundp 'my-ruby-test-map)
+                     (define-prefix-command 'my-ruby-test-map))
+                   (local-set-key (kbd "C-c t") 'my-ruby-test-map)
+
+                   (define-key my-ruby-test-map (kbd "m") 'ruby-test-mode)
+                   (define-key my-ruby-test-map (kbd "t") 'ruby-test-run)
+                   (define-key my-ruby-test-map (kbd "p") 'ruby-test-run-at-point)
+                   (define-key my-ruby-test-map (kbd "l") 'ruby-test-goto-location)
+                   )))
 
 
 ;;; [ ruby-test ] -- test runner for ruby unit test.
@@ -711,6 +742,7 @@
 ;; - [C-x C-SPC] -- ruby test: run test at point.
 ;; - [C-c t] -- ruby test: toggle implementation and specification.
 
+;; TODO: compare ruby-test & ruby-test-mode.
 ;; (require 'ruby-test)
 ;;
 ;;
@@ -726,32 +758,6 @@
 ;;                    (define-key my-prog-test-map (kbd "SPC") 'ruby-test-run-test-at-point)
 ;;                    (define-key my-prog-test-map (kbd "i") 'ruby-test-toggle-implementation-and-specification)
 ;;                    )))
-
-
-;;; [ ruby-test-mode ] -- Emacs minor mode for Behaviour and Test Driven Development in Ruby.
-
-;;; Usage:
-;;
-;; C-c C-,   - Runs the current buffer's file as an unit test or an
-;;             rspec example.
-;; C-c M-,   - Runs the unit test or rspec example at the current buffer's
-;;             buffer's point.
-;; C-c C-s   - Toggle between implementation and test/example files.
-
-(require 'ruby-test-mode)
-
-(dolist (hook '(ruby-mode-hook
-                enh-ruby-mode-hook))
-  (add-hook hook (lambda ()
-                   (unless (boundp 'my-ruby-test-map)
-                     (define-prefix-command 'my-ruby-test-map))
-                   (local-set-key (kbd "C-c t") 'my-ruby-test-map)
-
-                   (define-key my-ruby-test-map (kbd "m") 'ruby-test-mode)
-                   (define-key my-ruby-test-map (kbd "t") 'ruby-test-run)
-                   (define-key my-ruby-test-map (kbd "p") 'ruby-test-run-at-point)
-                   (define-key my-ruby-test-map (kbd "l") 'ruby-test-goto-location)
-                   )))
 
 
 ;;; [ ruby-refactor ]
@@ -840,13 +846,17 @@
 
 
 
-;;; [ ruby-tools ]
-
-
-;;; [ rbenv ] -- integrating rbenv with Emacs
-
-
 ;;; [ yard-mode ] --- Minor mode for Ruby YARD comments
+
+(add-hook 'ruby-mode-hook 'yard-mode)
+(add-hook 'enh-ruby-mode-hook 'yard-mode)
+
+;;; If you would also like eldoc support, so that the expected syntax for the
+;;; tag beneath your cursor is displayed in the minibuffer, add that hook too:
+(add-hook 'ruby-mode-hook 'eldoc-mode)
+
+
+;;; [ doxymacs-yard ]
 
 
 ;;; [ ruby-lint ]
@@ -924,6 +934,23 @@
 
 
 ;;; [ motion-mode ] -- RubyMotion
+
+;; (require 'motion-mode)
+;;
+;; ;; following add-hook is very important.
+;; (add-hook 'ruby-mode-hook 'motion-recognize-project)
+;; (if (featurep 'auto-complete)
+;;     (progn
+;;       (add-to-list 'ac-modes 'motion-mode)
+;;       (add-to-list 'ac-sources 'ac-source-dictionary)))
+;; ;; set key-binds as you like
+;; (define-key motion-mode-map (kbd "C-c C-c") 'motion-execute-rake)
+;; (define-key motion-mode-map (kbd "C-c C-d") 'motion-dash-at-point)
+;;
+;; ;; (define-key motion-mode-map (kbd "C-c C-c") 'motion-execute-rake)
+;; ;; (define-key motion-mode-map (kbd "C-c C-d") (lambda () (interactive) (motion-execute-rake-command "device")))
+;; ;; (define-key motion-mode-map (kbd "C-c C-o") 'motion-dash-at-point)
+;; ;; (define-key motion-mode-map (kbd "C-c C-p") 'motion-convert-code-region)
 
 
 ;;; [ Cucumber ]

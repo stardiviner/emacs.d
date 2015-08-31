@@ -7,11 +7,19 @@
 
 ;;; Code:
 
+
+;; prefix
+
+(unless (boundp 'my-screenshot-map)
+  (define-prefix-command 'my-screenshot-map))
+(define-key my-tools-prefix (kbd "S") 'my-screenshot-map)
+
+
 ;;; [ screenshot.el ]
 
 ;; Take a screenshot by ImageMagick in Emacs easily. Then send the image to
 ;; remote host by scp (optional). Finally the URL or filename is in the
-;; kill-ring. Execute:
+;; kill-ring. The screenshot file format is PostScript. Use PDF viewer to open it.
 ;;
 ;; - [M-x screenshot]
 ;; - [M-x screenshot-take]
@@ -44,6 +52,9 @@
 
 (setq screenshot-take-delay 0.5)
 
+
+(define-key my-screenshot-map (kbd "S") 'screenshot)
+(define-key my-screenshot-map (kbd "s") 'screenshot-take) ; `screenshot-take-delay'
 
 
 (provide 'init-my-tool-screenshot)

@@ -1,0 +1,10 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: babel SQL PostgreSQL
+# key: babel-sql-postgresql
+# --
+#+srcname: ${1:source code name}
+${6:#+headers: :var table="${7:table name}"
+}#+headers: :cmdline -h ${2:localhost} -U ${3:username: postgres} ${4:-Wpassword or -w} -d ${5:dbname}
+#+BEGIN_SRC sql :engine postgresql
+$0
+#+END_SRC

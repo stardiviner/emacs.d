@@ -3,7 +3,8 @@
 
 ;;; Commentary:
 
-
+;; mail-setup-hook
+;; mail-send-hook
 
 ;;; Code:
 
@@ -11,6 +12,7 @@
 (setq mail-user-agent 'message-user-agent ; message-user-agent, 'mail-user-agent, ...
       compose-mail-user-agent-warnings nil
       ;; mail-setup-hook '(bbdb-insinuate-mail)
+      ;; mail-send-hook '(bbdb-pgp)
       )
 
 

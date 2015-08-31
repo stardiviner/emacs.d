@@ -60,7 +60,6 @@
 (require 'auto-complete-config)
 (require 'popup)
 ;; (require 'showtip)
-(diminish 'auto-complete-mode)
 
 ;; (ac-config-default)
 
@@ -72,18 +71,20 @@
 ;; (if (null global-auto-complete-mode)
 ;;     )
 (setq ac-modes
-      (append ac-modes
-              '(prog-mode               ; programming modes
-                web-mode
-                text-mode markdown-mode
-                change-log-mode
-                org-mode ; speed up org-mode typing by disabling auto-complete.
-                mail-mode mu4e-compose-mode
-                ;; objc-mode
-                sql-mode js3-mode
-                makefile-mode makefile-gmake-mode makefile-automake-mode
-                autoconf-mode
-                snippet-mode)))
+      (delete-dups
+       (append ac-modes
+               '(prog-mode               ; programming modes
+                 web-mode
+                 text-mode markdown-mode
+                 change-log-mode
+                 org-mode ; speed up org-mode typing by disabling auto-complete.
+                 mail-mode mu4e-compose-mode
+                 ;; objc-mode
+                 sql-mode js3-mode
+                 makefile-mode makefile-gmake-mode makefile-automake-mode
+                 autoconf-mode
+                 snippet-mode)))
+      )
 
 
 
@@ -223,12 +224,6 @@
 ;; buffer help
 (define-key ac-mode-map (kbd "C-c h") 'ac-last-quick-help)
 (define-key ac-mode-map (kbd "C-c H") 'ac-last-help)
-
-
-;; show help beautifully with extension "pos-tip.el"
-
-(require 'pos-tip)
-(require 'popup-pos-tip)
 
 
 ;;; [ fuzzy completion ]

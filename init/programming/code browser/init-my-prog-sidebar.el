@@ -9,11 +9,16 @@
 
 
 ;; (require 'init-my-prog-ecb)
-(require 'init-my-prog-speedbar)
+;; (require 'init-my-prog-speedbar)
 ;; (require 'init-my-prog-neotree)
-;; (require 'init-my-prog-project-explorer)
+(require 'init-my-prog-project-explorer)
 
+
 
+;; (global-set-key [f8] 'sr-speedbar-toggle)
+;; (global-set-key [f8] 'my-sr-speedbar-toggle-and-switch)
+
+(global-set-key [f8] 'project-explorer-toggle) ; `project-explorer-helm'
 
 
 (provide 'init-my-prog-sidebar)

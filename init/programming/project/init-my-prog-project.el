@@ -73,14 +73,16 @@
 
 ;; Indexing method
 (setq projectile-use-native-indexing t)
-;; Caching
-(setq projectile-enable-caching t)
+;; Caching: nil, (* 10 60) [10 minutes],
+(setq projectile-enable-caching t
+      projectile-file-exists-remote-cache-expire '(* 30 60) ; remote file exists cache expire to 10 minutes
+      )
 ;; Using Projectile everywhere
 ;; If you want Projectile to be usable in every directory (even without the presence of project file):
-(setq projectile-require-project-root nil)
+(setq projectile-require-project-root t)
 ;; Completion Options
-(setq projectile-completion-system 'helm ; 'helm, 'ido, 'grizzl, 'default
-      projectile-use-git-grep nil
+(setq projectile-completion-system 'helm ; 'helm, 'ivy, 'ido, 'grizzl, 'default
+      projectile-use-git-grep t ; use `vc-git-grep'
       )
 
 ;; (setq projectile-tags-command "ctags -Re %s")
@@ -101,8 +103,10 @@
 
 ;; (setq helm-source-projectile-files-list)
 
+;; https://github.com/bbatsov/projectile/commit/e8b7b54449c645c764c928d7d1cfa29113230f05
+;; (projectile-register-project-type)
 
-(projectile-global-mode)
+(projectile-global-mode +1)
 ;; OR
 ;; (dolist (hook
 ;;          '(prog-mode-hook
@@ -116,11 +120,6 @@
 ;;; Manually create an empty file `.projectile' under that folder which you want
 ;;; make it to be a project root.
 ;;; $ touch dir-root/.projectile
-
-
-;; Helm Integration
-(if (featurep 'helm)
-    (global-set-key (kbd "C-c p h") 'helm-projectile))
 
 
 ;;; [ redefine projectile keybindings ]

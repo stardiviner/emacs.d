@@ -8,8 +8,6 @@
 
 ;;; [ speedbar ]
 
-(require 'speedbar)
-
 ;; (speedbar 1)
 
 
@@ -18,8 +16,6 @@
 ;;; Usage:
 ;; - [sr-speedbar-toggle] :: toggle sr-speedbar window.
 ;; - [sr-speedbar-select-window] :: select sr-speedbar window.
-
-(require 'sr-speedbar)
 
 (setq sr-speedbar-width 30
       sr-speedbar-width-x 30
@@ -48,9 +44,6 @@
     (sr-speedbar-open)
     ;; (other-window 1) ; switch back to previous window.
     ))
-
-;; (global-set-key [f8] 'sr-speedbar-toggle)
-(global-set-key [f8] 'my-sr-speedbar-toggle-and-switch)
 
 ;; (setq sr-speedbar-skip-other-window-p t)
 

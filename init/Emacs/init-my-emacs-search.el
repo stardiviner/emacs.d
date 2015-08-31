@@ -43,6 +43,7 @@
 
 (setq query-replace-show-replacement t
       ;; query-replace-from-to-separator "->"
+      isearch-allow-scroll t
       )
 
 ;; (setq isearch-lazy-highlight-??)
@@ -82,6 +83,35 @@
 (global-set-key (kbd "M-%") 'query-replace-regexp)
 
 
+;;; custom function
+
+;;; custom isearch to start from buffer beginning
+;; TODO: use `advise' for this function.
+;; (defun my-isearch-forward ()
+;;   (interactive)
+;;   (save-excursion
+;;     (goto-char (point-min))
+;;     (isearch-forward)))
+
+;;; smart delete/backspace in isearch
+
+(defun isearch-smart-delete ()
+  "Delete the failed portion of the search string, or the last char if successful."
+  (interactive)
+  (with-isearch-suspended
+   (setq isearch-new-string
+         (substring
+          isearch-string 0 (or (isearch-fail-pos) (1- (length isearch-string))))
+         isearch-new-message
+         (mapconcat 'isearch-text-char-description isearch-new-string ""))))
+
+(define-key isearch-mode-map (kbd "<backspace>") 'isearch-smart-delete)
+(define-key isearch-mode-map (kbd "DEL") 'isearch-smart-delete)
+
+;; or from isearch+ use [M-s e]
+(setq isearchp-drop-mismatch t)
+
+
 ;;; [ Isearch+ ]
 
 ;;; Usage:
@@ -99,20 +129,17 @@
 
 ;;; Usage:
 
-(require 'visual-regexp)
-
 ;;; [ visual-regexp-steroids.el ] -- Extends visual-regexp to support other regexp engines.
-(require 'visual-regexp-steroids)
 
 (global-set-key (kbd "C-s") 'vr/isearch-forward)
 (global-set-key (kbd "C-r") 'vr/isearch-backward)
 (global-set-key (kbd "M-%") 'vr/replace)
 
-(define-key my-search-prefix-map (kbd "r") 'vr/replace)
-(define-key my-search-prefix-map (kbd "q") 'vr/query-replace)
+(define-key my-search-prefix (kbd "r") 'vr/replace)
+(define-key my-search-prefix (kbd "q") 'vr/query-replace)
 ;; if you use multiple-cursors interface, this is for you:
 (if (featurep 'multiple-cursors)
-    (define-key my-search-prefix-map (kbd "m") 'vr/mc-mark))
+    (define-key my-search-prefix (kbd "m") 'vr/mc-mark))
 ;; TODO: `vr/select-mc-mark', `vr/select-replace' etc.
 
 
@@ -127,8 +154,6 @@
 ;;; - [M-%] -- query-replace
 ;;; - specified lines replacement :: [C-u 3 M-x anzu-query-replace]
 
-(require 'anzu)
-
 (setq anzu-regexp-search-commands '(vr/isearch-forward
                                     vr/isearch-backward
                                     isearch-forward-regexp
@@ -139,13 +164,14 @@
       ;; anzu-input-idle-delay 0.05
       anzu-deactivate-region nil
       anzu-use-migemo nil
+      anzu-cons-mode-line-p nil
       anzu-replace-to-string-separator " ⇨ "
       ;; anzu-minimum-input-length 1
+      anzu-search-threshold nil ; limit of search number.
       )
 
 (global-anzu-mode +1)
 ;; (anzu-mode +1)
-(diminish 'anzu-mode)
 
 ;; (global-set-key (kbd "M-%") 'anzu-query-replace)
 (global-set-key (kbd "M-%") 'anzu-query-replace-regexp)
@@ -155,6 +181,30 @@
                     :foreground "cyan"
                     :weight 'bold)
 (set-face-attribute 'anzu-replace-highlight nil
+                    :foreground "orange"
+                    :background (color-darken-name (face-background 'default) 5)
+                    :box '(:color "black" :line-width -1)
+                    :weight 'normal
+                    )
+(set-face-attribute 'anzu-replace-to nil
+                    :foreground "yellow"
+                    :background (color-darken-name (face-background 'default) 5)
+                    :weight 'bold
+                    )
+;; anzu regexp matched groups
+(set-face-attribute 'anzu-match-1 nil
+                    :foreground "white"
+                    :background "dark red"
+                    ;; use box style?
+                    ;; :box '(:color "green")
+                    )
+(set-face-attribute 'anzu-match-2 nil
+                    :foreground "white"
+                    :background "dark green"
+                    )
+(set-face-attribute 'anzu-match-3 nil
+                    :foreground "#222222"
+                    :background "tomato"
                     )
 
 ;;; Function which constructs mode-line string. If you color mode-line string, you propertize string by yourself.
@@ -170,6 +220,57 @@
 ;; (setq anzu-deactivate-region nil)
 
 
+;;; [ Swpier ] -- gives you an overview as you search for a regex.
+
+;; 'helm, 'ivy.
+;; FIXME: helm error.
+;; (if (featurep 'helm)
+;;     (setq swiper-completion-method 'helm)
+;;   (setq swiper-completion-method 'ivy)
+;;   )
+
+;; (eval-after-load 'ivy
+;;   (setq ivy-height 10)
+;;   ;; (defcustom ivy-height 10
+;;   ;;   "Number of lines for the minibuffer window."
+;;   ;;   :type 'integer)
+;;
+;;   (set-face-attribute 'ivy-current-match nil
+;;                       :foreground nil
+;;                       :background (color-darken-name (face-background 'default) 5)
+;;                       )
+;;   )
+
+
+(define-key my-search-prefix (kbd "C-s") 'swiper)
+(define-key my-search-prefix (kbd "C-r") 'swiper)
+
+;; if swiper is available, then replace `vr/isearch' with `swiper'.
+(if (functionp 'swiper)
+    (progn
+      (global-set-key (kbd "C-s") 'swiper)
+      (global-set-key (kbd "C-r") 'swiper)))
+
+
+;;; [ swiper-helm ]
+
+;; This package gives an overview of the current regex search
+;; candidates.  The search regex can be split into groups with a
+;; space.  Each group is highlighted with a different face.
+;;
+;; The overview back end is `helm'.
+;;
+;; It can double as a quick `regex-builder', although only single
+;; lines will be matched.
+
+;; (require 'swiper-helm)
+;;
+;; ;; (setq swiper-helm-display-function 'swiper-helm-default-display-buffer)
+;;
+;; (if (and (featurep 'swiper-helm) (featurep 'helm))
+;;     (global-set-key (kbd "C-s") 'swiper-helm))
+
+
 ;;; [ Lazy Search ]
 
 ;; (require 'lazy-search)
@@ -178,13 +279,20 @@
 ;;; [ occur ]
 
 (if (featurep 'helm)
-    (define-key my-search-prefix-map (kbd "o") 'helm-occur))
+    (define-key my-search-prefix (kbd "o") 'helm-occur)
+  (define-key my-search-prefix (kbd "o") 'occur))
 
 
 ;;; [ multi-occur ]
 
 (if (featurep 'helm)
-    (define-key my-search-prefix-map (kbd "O") 'helm-multi-occur))
+    (define-key my-search-prefix (kbd "O") 'helm-multi-occur)
+  (define-key my-search-prefix (kbd "O") 'multi-occur))
+
+(define-key my-search-prefix (kbd "M-o") 'multi-occur-in-matching-buffers)
+
+(define-key my-highlight-symbol-prefix (kbd "M-r") 'highlight-lines-matching-regexp)
+(define-key my-search-prefix (kbd "M-h") 'how-many)
 
 
 ;;; [ replace+.el ]
@@ -197,10 +305,12 @@
 
 ;; (setq helm-grep-default-command "grep -a -d skip %e -n%cH -e %p %f")
 
-(define-key my-search-prefix-map (kbd "g") 'grep)
+(define-key my-search-prefix (kbd "g") 'grep)
 
 
 ;;; [ Ack ]
+
+(require 'ack)
 
 
 ;;; [ Full Ack ] -- An Emacs front-end for ack
@@ -222,41 +332,41 @@
 
 ;;; [ ack-and-a-half ]
 
-(require 'ack-and-a-half)
-
-;; Create shorter aliases
-(defalias 'ack 'ack-and-a-half)
-(defalias 'ack-same 'ack-and-a-half-same)
-(defalias 'ack-find-file 'ack-and-a-half-find-file)
-(defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
-
-(setq ack-and-a-half-use-ido t               ; use ido to provide completions
-      ;; ack-and-a-half-executable "ack-grep"
-      ;; ack-and-a-half-arguments ; extra arguments passed to ack
-      ack-and-a-half-ignore-case 'smart
-      ack-and-a-half-regexp-search t
-      ack-and-a-half-regexp-history t
-      ack-and-a-half-use-environment t
-      ;; (ack-and-a-half-same)
-      ;; ack-and-a-half-mode-type-default-alist
-      ack-and-a-half-mode-type-alist nil
-      ack-and-a-half-literal-history t
-      ;; ack-and-a-half-prompt-for-directory 'unless-guessed
-      ;; ack-and-a-half-root-directory-functions '(ack-and-a-half-guess-project-root)
-      ack-and-a-half-prompt-for-directory t
-      )
-
-;; add more project root file patterns.
-;; (add-to-list 'ack-and-a-half-project-root-file-patterns "\\.kk")
-
-(unless (boundp 'ack-map)
-  (define-prefix-command 'ack-map))
-(define-key my-search-prefix-map (kbd "k") 'ack-map)
-
-(define-key ack-map (kbd "k") 'ack)
-(define-key ack-map (kbd "s") 'ack-same)
-(define-key ack-map (kbd "f") 'ack-find-file)
-(define-key ack-map (kbd "F") 'ack-find-file-same)
+;; (require 'ack-and-a-half)
+;;
+;; ;; Create shorter aliases
+;; (defalias 'ack 'ack-and-a-half)
+;; (defalias 'ack-same 'ack-and-a-half-same)
+;; (defalias 'ack-find-file 'ack-and-a-half-find-file)
+;; (defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
+;;
+;; (setq ack-and-a-half-use-ido t               ; use ido to provide completions
+;;       ;; ack-and-a-half-executable "ack-grep"
+;;       ;; ack-and-a-half-arguments ; extra arguments passed to ack
+;;       ack-and-a-half-ignore-case 'smart
+;;       ack-and-a-half-regexp-search t
+;;       ack-and-a-half-regexp-history t
+;;       ack-and-a-half-use-environment t
+;;       ;; (ack-and-a-half-same)
+;;       ;; ack-and-a-half-mode-type-default-alist
+;;       ack-and-a-half-mode-type-alist nil
+;;       ack-and-a-half-literal-history t
+;;       ;; ack-and-a-half-prompt-for-directory 'unless-guessed
+;;       ;; ack-and-a-half-root-directory-functions '(ack-and-a-half-guess-project-root)
+;;       ack-and-a-half-prompt-for-directory t
+;;       )
+;;
+;; ;; add more project root file patterns.
+;; ;; (add-to-list 'ack-and-a-half-project-root-file-patterns "\\.kk")
+;;
+;; (unless (boundp 'ack-map)
+;;   (define-prefix-command 'ack-map))
+;; (define-key my-search-prefix (kbd "k") 'ack-map)
+;;
+;; (define-key ack-map (kbd "k") 'ack)
+;; (define-key ack-map (kbd "s") 'ack-same)
+;; (define-key ack-map (kbd "f") 'ack-find-file)
+;; (define-key ack-map (kbd "F") 'ack-find-file-same)
 
 
 ;;; [ silver search (ag) ] -- like ack, but faster.
@@ -293,8 +403,9 @@
 ;; - ag-dired-regexp
 ;; - ag-project-dired
 ;; - ag-project-dired-regexp
-
-(require 'ag)
+;;
+;; - `ag-mode-hook' :: before search
+;; - `ag-search-finished-hook' :: when finished search
 
 (setq ag-highlight-search t
       ag-reuse-buffers 't
@@ -302,38 +413,71 @@
       ;; ag-arguments
       )
 
-(define-key my-search-prefix-map (kbd "s") 'ag-regexp-project-at-point) ; 'ag, 'ag-regexp, 
+(use-package ag
+  :config
+  (set-face-attribute 'ag-hit-face nil
+                      :foreground "gray" :background "black")
+  (set-face-attribute 'ag-match-face nil
+                      :inverse-video nil
+                      :foreground "red"
+                      :background (color-darken-name (face-background 'default) 5)
+                      )
+  )
+
+;; This will auto open search results in other window.
+;; (add-hook 'ag-mode-hook #'next-error-follow-minor-mode) ; so you can navigate with 'n' & 'p'.
+
+(unless (boundp 'ag-map)
+  (define-prefix-command 'ag-map))
+(define-key my-search-prefix (kbd "a") 'ag-map)
+
+(define-key ag-map (kbd "a") 'ag)
+(define-key ag-map (kbd "r") 'ag-regexp)
+(define-key ag-map (kbd "p") 'ag-regexp-project-at-point) ; 'ag, 'ag-regexp,
 
 
 ;;; [ helm-ag ]
 
 ;;; Usage:
 ;;
+;; - [C-c ?] :: show helm message.
 ;; - helm-ag :: Input search word with ag command. You can change search directory with C-u prefix.
 ;; - helm-ag-this-file :: Same as helm-ag except to search only current file
 ;; - helm-do-ag :: Search with ag like helm-do-grep.
+;; - [C-l] :: search in parent directory.
+;; - [C-c o] :: open other window.
+;; - [C-c C-e] :: switch to ag edit mode.
+;;   - [C-c C-c] :: commit changes.
+;;   - [C-c C-k] :: abort.
 ;; - helm-ag-pop-stack :: Move to point before jump
 ;; - helm-ag-clear-stack :: Clear context stack
 ;; - Helm persistent action :: You can see file content temporarily by persistent action(C-z) at helm-ag and helm-ag-this-file.
+;;   - [F3] / [C-x C-s] :: save ag results to buffer
 
-(require 'helm-ag)
-
-(setq helm-ag-insert-at-point 'word ; same thing as `thing-at-point' such ash: 'word, symbol,
-      helm-ag-base-command "ag --nocolor --nogroup" ; helm use color match, so use option `--nocolor' here.
-      ;; helm-ag-command-option
+(setq helm-ag-insert-at-point 'symbol ; same thing as `thing-at-point' such ash: 'word, symbol,
+      helm-ag-base-command "ag --nocolor --nogroup --ignore-case" ; helm use color match, so use option `--nocolor' here.
+      helm-ag-command-option "--all-text"
       helm-ag-source-type 'one-line ; 'one-line, 'file-line
+      helm-ag-edit-save t ; save buffers you edit at editing completed.
       )
 
-;; You can use `helm-ag' with projectile by following command.
-(require 'projectile)
-(defun projectile-helm-ag ()
-  "Use helm-ag to be more better ag search with helm."
-  (interactive)
-  (helm-ag (projectile-project-root)))
-(define-key projectile-command-map (kbd "s h") 'projectile-helm-ag)
+(define-key ag-map (kbd "a") 'helm-ag)
 
-(define-key my-search-prefix-map (kbd "a") 'helm-ag)
+
+;;; [ helm-recoll ] -- full text search tool based on Xapian backend.
 
+;;; Usage:
+;;
+;; -
+
+;;; You need to create some helm-recoll sources before you can use them. You can
+;;; create sources using the `helm-recoll-create-source' function, e.g. like
+;;; this:
+;; (helm-recoll-create-source "docs" "~/.recoll/docs")
+;; (helm-recoll-create-source "progs" "~/.recoll/progs")
+
+;;; Then you can use the sources in helm like this:
+;; (helm :sources '(helm-source-recoll-docs helm-source-recoll-progs :buffer *helm recoll*))
 
 
 ;;; [ awk-it ] -- run AWK interactively on region!
@@ -345,12 +489,27 @@
 
 ;; (require 'awk-it)
 
-;; (define-key my-search-prefix-map (kbd "w") 'awk-it)
+;; (define-key my-search-prefix (kbd "w") 'awk-it)
+
+
+(unless (boundp 'my-search-language-prefix)
+  (define-prefix-command 'my-search-language-prefix))
+(define-key my-search-prefix (kbd "l") 'my-search-language-prefix)
+
+
+;;; [ pinyin-search ] --
+
+(define-key my-search-language-prefix (kbd "c") 'pinyin-search)
+(define-key my-search-language-prefix (kbd "C") 'pinyin-search-backward)
 
 
 ;;; [ migemo ] -- provides Japanese increment search with 'Romanization of Japanese'(ローマ字).
 
 ;; https://github.com/emacs-jp/migemo
+
+
+
+(define-key my-search-prefix (kbd "s") 'ag-regexp)
 
 
 (provide 'init-my-emacs-search)

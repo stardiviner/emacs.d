@@ -7,10 +7,6 @@
 
 ;;; Code:
 
-
-(require 'init-my-prog-lang-lisp)
-
-
 ;;; [ Emacs Lisp some setups ]
 
 ;;; custom functions:
@@ -29,22 +25,28 @@
           (lambda ()
             (turn-on-eldoc-mode)
             (my-recompile-elc-on-save)
-            (rainbow-mode +1)))
+            (rainbow-mode +1)
+            ;; for company-mode
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-elisp)
+            ))
 
 
 (add-to-list 'auto-mode-alist '("Cask\\'" . emacs-lisp-mode))
 
-
 
-;;; [ ElDoc ]
+;; Emacs Lisp highlights
 
-(require 'eldoc)
-(eval-after-load 'eldoc '(diminish 'eldoc-mode))
+;; `let-alist' . symbols
+(font-lock-add-keywords
+ 'emacs-lisp-mode
+ '(("\\_<\\.\\(?:\\sw\\|\\s_\\)+\\_>" 0
+    font-lock-builtin-face)))
 
 
 ;;; eldoc-eval --- Enable eldoc support when minibuffer is in use.
 
-(require 'eldoc-eval)
+(eldoc-in-minibuffer-mode 1)
 
 
 ;;; elisp-slime-nav
@@ -52,10 +54,6 @@
 ;;; Usage:
 ;; - [M-. / M-, ] -- go to/out navigation of the function definition.
 ;; - [C-c C-d d] -- slime-describe-symbol.
-
-(require 'elisp-slime-nav)
-(eval-after-load 'elisp-slime-nav
-  '(diminish 'elisp-slime-nav-mode))
 
 (dolist (hook '(emacs-lisp-mode-hook
                 ielm-mode-hook))
@@ -80,8 +78,6 @@
 
 ;;; [ IELM (ELISP interactive) ] -- an REPL for emacs. (Read-Eval-Print-Loop)
 
-(require 'ielm)
-
 ;;; By default, IELM evaluates complete expressions automatically as soon you as
 ;;; you press Enter. So one thing to remember is that if you want to have
 ;;; multi-line expression (like above), you must make sure that after each line
@@ -97,7 +93,9 @@
 
 (add-hook 'ielm-mode-hook
           (lambda ()
-            (elisp-slime-nav-mode 1)))
+            (elisp-slime-nav-mode 1)
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-elisp)))
 
 ;; ---------------------------------------------------------------
 ;;; enable auto-complete support in ielm.
@@ -129,13 +127,39 @@
 
 ;; (add-hook 'emacs-startup-hook 'my-ielm-start-or-switch)
 
-(define-key my-prog-inferior-map (kbd "l e") 'my-ielm-start-or-switch)
+(define-key my-inferior-lisp-map (kbd "e") 'my-ielm-start-or-switch)
+
+(defun my-scratch-start-or-switch ()
+  "Start IELM or switch to its buffer if it already exist."
+  (interactive)
+  ;; (switch-to-buffer "*scratch*")
+  (popwin:display-buffer "*scratch*")
+  )
+
+(define-key my-inferior-lisp-map (kbd "k") 'my-scratch-start-or-switch)
 
 
+;;; [ ERT ] -- Emacs Lisp Regression Testing.
 
+;;; Usage:
+;;
+;; - `ert-deftest'
+;; - `ert-run-tests-batch'
+;; - `ert-run-tests-batch-and-exit'
+;; - `ert-run-tests-interactively' => alias `ert'
+;; - `ert-describe-test'
 
+
+;;; [ xtest ] -- Simple Testing with Emacs & ERT
 
+
+;;; [ faceup ] -- Regression test system for font-lock
 
+
+;;; [ test-simple ] -- Simple Unit Test Framework for Emacs Lisp
+
+
+;;; [ buttercup ] -- Behavior-Driven Emacs Lisp Testing
 
 
 (provide 'init-my-prog-lang-emacs-lisp)

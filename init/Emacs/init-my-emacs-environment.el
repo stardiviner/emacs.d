@@ -14,7 +14,15 @@
 ;;   (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH"))))
 ;; (add-hook 'eshell-mode-hook 'eshell-mode-hook-func)
 
+
+;;; Systems
 
+;; TODO: add to this init file.
+;; https://www.gnu.org/software/emacs/manual/html_node/elisp/System-Environment.html
+
+
+
+
 ;; format (Unix, DOS) & encoding
 ;; [C-h v current-language-environment]
 (set-default-coding-systems 'utf-8)
@@ -38,11 +46,11 @@
 ;; (setenv "no_proxy" "127.0.0.1,localhost"
 ;; 	"http_proxy" "")
 
-(setq url-proxy-services
-      '(("no_proxy" . "127.0.0.1") ; don't use `localhost', avoid robe server (For Ruby) can't response.
-        ("http" . "112.124.9.128:44433")
-        ;; ("https" . "")
-        ))
+;; (setq url-proxy-services
+;;       '(("no_proxy" . "127.0.0.1") ; don't use `localhost', avoid robe server (For Ruby) can't response.
+;;         ;; ("http" . "112.124.9.128:44433")
+;;         ;; ("https" . "112.124.9.128:44433")
+;;         ))
 
 ;;; AUTHORITY
 ;; (setq url-http-proxy-basic-auth-storage

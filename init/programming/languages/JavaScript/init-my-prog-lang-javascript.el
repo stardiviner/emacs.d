@@ -9,10 +9,14 @@
 
 ;;; [ JavaScript ]
 
+(require 'js)
+
 (add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
 
 
 ;;; [ javascript-mode (js-mode) ]
+
+;; - `js-load-file' :: [C-c C-l] load source code for completion.
 
 (eval-after-load 'js-mode
   '(progn
@@ -29,10 +33,12 @@
 ;; (eval-after-load 'auto-complete
 ;;   (add-to-list 'ac-modes 'js2-mode))
 
+;; (js2-highlight-unused-variables-mode)
+
+(setq js2-pretty-multiline-declarations t) ; 'dynamic
+
 
 ;;; [ js3-mode ]
-
-(require 'js3-mode)
 
 ;; (eval-after-load 'auto-complete
 ;;   (add-to-list 'ac-modes 'js3-mode))
@@ -60,10 +66,7 @@
 
 ;;; [ swank-js ] -- Swank backend for Node.JS and in-browser JavaScript.
 
-;;; a full-blown SlimeMode backend for node.js and can connect to a running web
-;;; browser process through the socket.io package.
-
-;;; Usage
+;;; Usage:
 ;;
 ;; If you want to use swank from the node project just add following to your package.json file:
 ;;
@@ -187,8 +190,8 @@
 ;;
 ;; You may edit the function definition and update it using C-M-x any number of times.
 
-
-(define-key js3-mode-map [f5] 'slime-js-reload)
+;; (define-key js2-mode-map [f6] 'slime-js-reload)
+;; (define-key js3-mode-map [f6] 'slime-js-reload)
 
 ;; (add-hook 'js3-mode-hook
 ;;           (lambda ()
@@ -201,14 +204,50 @@
             (define-key css-mode-map (kbd "C-c C-r") 'slime-js-embed-css)))
 
 
-;; js-comint.el
-;; is a lightweight comint integration package, that also seems to integrate with org-mode nicely.
+;; [ js-comint ] -- a lightweight comint integration package, that also seems to integrate with org-mode nicely.
 
 ;; ElnodeIJS, NicFerrier
-;; having a go at writing an Emacs to JavaScript shell. It uses comet for communication. Currently here and in the Elnode source tree.
+;; having a go at writing an Emacs to JavaScript shell. It uses comet for
+;; communication. Currently here and in the Elnode source tree.
 
 ;; jsSlime
 ;; provides an Emacs interface to the browser’s debugger and javascript engine.
+
+;;; Usage:
+;;
+;; - `inferior-js-mode'
+;; - `js-send-region' & `js-send-buffer'
+;; - `js-load-file' & `js-load-file-and-go'
+;; - `run-js'
+;; - `send-region'
+;; - `switch-to-js'
+
+(setq inferior-js-program-command "node --interactive")
+;; (setq inferior-js-program-command "/usr/bin/java org.mozilla.javascript.tools.shell.Main")
+
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (local-set-key "\C-x\C-e" 'js-send-last-sexp)
+            (local-set-key "\C-\M-x" 'js-send-last-sexp-and-go)
+            (local-set-key "\C-cb" 'js-send-buffer)
+            (local-set-key "\C-c\C-b" 'js-send-buffer-and-go)
+            (local-set-key "\C-cl" 'js-load-file-and-go)
+            ))
+
+(add-hook 'inferior-js-mode-hook
+          (lambda ()
+            (ansi-color-for-comint-mode-on)))
+
+;; if use node.js, we need nice output
+(setenv "NODE_NO_READLINE" "1")
+
+
+;;; Node.js
+
+;; (defun node-repl ()
+;;   (interactive)
+;;   (pop-to-buffer
+;;    (make-comint "node-repl" "node" nil "--interactive")))
 
 
 ;;; [ tern ] -- code-analysis engine for JavaScript
@@ -219,63 +258,82 @@
 
 ;;; Usage:
 
-;; The Emacs mode uses the bin/tern server, and project configuration is done with a .tern-project file.
-;;
-;; Buffers in tern-mode add a completion-at-point function that activates Tern’s completion. So, unless you rebound the key, M-tab (or C-M-i) will trigger completion.
-;;
-;; When the point is in an argument list, Tern will show argument names and types at the bottom of the screen.
+;; The Emacs mode uses the bin/tern server, and project configuration is done
+;; with a .tern-project file.
 ;;
 ;; The following additional keys are bound:
 ;;
-;; M-.
+;; - [M-tab / C-M-i]
+;;     trigger completion.
 ;;
+;; - [M-.]
 ;;     Jump to the definition of the thing under the cursor.
-;; M-,
-;;
+;; - [M-,]
 ;;     Brings you back to last place you were when you pressed M-..
-;; C-c C-r
-;;
+;; - [C-c C-r]
 ;;     Rename the variable under the cursor.
-;; C-c C-c
-;;
+;; - [C-c C-c]
 ;;     Find the type of the thing under the cursor.
-;; C-c C-d
-;;
+;; - [C-c C-d]
 ;;     Find docs of the thing under the cursor. Press again to open the associated URL (if any).
 
-(require 'tern)
+;;; .tern-project file example:
+;; {
+;;   "libs": [
+;;     "browser",
+;;     "jquery"
+;;   ],
+;;   "loadEagerly": [
+;;     "importantfile.js"
+;;   ],
+;;   "plugins": {
+;;     "requirejs": {
+;;       "baseURL": "./",
+;;       "paths": {}
+;;     }
+;;   }
+;; }
 
-(autoload 'tern-mode "tern.el" nil t)
-
-;;; for auto-complete.
-;; (eval-after-load 'tern
-;;   '(progn
-;;      (require 'tern-auto-complete)
-;;      (tern-ac-setup)))
+;; (setq tern-known-port
+;;       tern-server
+;;       tern-explicit-port
+;;       tern-project-dir
+;;       )
 
 
 ;;; [ company-tern ] -- Tern backend for company-mode.
 
-;; (require 'company-tern)
-
 (dolist (hook '(js-mode-hook
                 js2-mode-hook
                 js3-mode-hook
+                inferior-js-mode-hook
                 ))
   (add-hook hook
             (lambda ()
               ;; enable `tern-mode'.
               (tern-mode t)
               
-              ;;; mode locally for company-mode backend.
-              ;; (make-local-variable 'company-backends)
-              ;; (add-to-list 'company-backends 'company-tern)
+              (add-to-list (make-local-variable 'company-backends)
+                           'company-tern)
               )))
 
+(use-package company-tern
+  :config
+  (setq
+   company-tern-property-marker "" ; remove circles after object's own properties.
+   company-tern-meta-as-single-line t ; trim too long function signatures to the frame width.
+   company-tooltip-align-annotations nil ; nil: enable inline annotation.
+   )
+  )
 
-;; (setq company-tern-property-marker "" ; remove circles after object's own properties.
-;;       company-tern-meta-as-single-line t ; trim too long function signatures to the frame width.
-;;       )
+
+;;; [ tj-mode ] -- Highlight JavaScript with Tern.
+
+;; FIXME:
+;; (add-hook 'js3-mode-hook
+;;           (lambda ()
+;;             (tj-mode 1)
+;;             ))
 
 
 

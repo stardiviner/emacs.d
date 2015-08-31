@@ -48,7 +48,7 @@
 ;;; All VLF operations are grouped under the C-c C-v prefix by default. Here’s
 ;;; example how to add another prefix (C-x v):
 ;; (eval-after-load "vlf"
-;;   '(define-key vlf-prefix-map "\C-xv" vlf-mode-map))
+;;   '(define-key vlf-prefix "\C-xv" vlf-mode-map))
 
 
 

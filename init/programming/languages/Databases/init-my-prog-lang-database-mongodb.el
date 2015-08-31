@@ -7,7 +7,15 @@
 ;;; [ mongo ]
 
 
-;;; [ inf-mongo ]
+;;; [ inf-mongo ] -- Run a MongoDB shell process in a buffer.
+
+;;; Usage:
+;;
+;; - [M-x inf-mongo]
+
+(require 'inf-mongo)
+
+(define-key my-inferior-db-nosql-map (kbd "m") 'inf-mongo)
 
 
 ;;; [ mongo-elnode ]

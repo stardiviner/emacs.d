@@ -1,0 +1,374 @@
+;;; init-my-org-obsolete.el --- init for My old org config
+;;; -*- coding: utf-8 -*-
+
+;;; Commentary:
+
+
+
+;;; Code:
+
+
+;; Applying Markup to Strings in org-mode.
+;; Normally, org-mode ignores your attempts to markup text that starts with " or '.
+;; This HAS to come before (require 'org)
+;; (setq org-emphasis-regexp-components
+;;       '("     ('\"{“”"
+;;         "-   .,!?;''“”\")}/\\“”"
+;;         "    \r\n,"
+;;         "."
+;;         1))
+
+
+;;; [ Org Modules ]
+;; Modules that should always be loaded together with org.el.
+(setq org-modules '(org-pcomplete
+                    org-faces
+                    ;; org-fstree
+                    org-table org-compat
+                    ;; org-protocol
+                    org-timer org-clock org-habit org-notify
+                    org-info org-bibtex org-docview
+                    org-plot
+                    org-bbdb
+                    org-irc ; org-gnus org-mhe org-rmail
+                    ;; org-w3m
+                    ))
+
+
+(add-hook 'org-mode-hook
+          (lambda ()
+            (when (org-bullets-mode)
+              (org-indent-mode 1))
+            ))
+
+
+
+;; TODO try this solution
+;; solve the [TAB] key between org-indent-mode with yasnippet.
+;; (add-hook 'org-mode-hook
+;;        (lambda ()
+;;          (org-set-local 'yas/trigger-key [tab])
+;;          (define-key yas/keymap [tab] 'yas/next-field-group)))
+;; TODO try this new version solution.
+;; if above code does not work (which it may not with later versions of yasnippet).  Then try this one:
+;; (defun yas/org-very-saft-expand ()
+;;   (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
+;; (add-hook 'org-mode-hook
+;;        (lambda ()
+;;          ;; yasnippet (using the new org-cycle hooks)
+;;          (make-variable-buffer-local 'yas/trigger-key)
+;;          (setq yas/trigger-key [tab])
+;;          (add-to-list 'org-tab-first-hook 'yas/org-very-saft-expand)
+;;          (define-key yas/keymap [tab] 'yas/next-field)
+;;          ))
+
+
+;; TODO: iimage-mode.
+;; -----------------------------------------------------------------------------
+;; (if (not (featurep 'iimage))
+;;     (require 'iimage))
+;;
+;; (add-to-list 'iimage-mode-image-regex-alist
+;;              (cons (concat "\\[\\[file:\\(~?" iimage-mode-image-filename-regex
+;;                            "\\)\\]")  1))
+;;
+;; (defun org-toggle-iimage-in-org ()
+;;   "Display images in your org file."
+;;   (interactive)
+;;   (if (face-underline-p 'org-link)
+;;       (set-face-underline-p 'org-link nil)
+;;       (set-face-underline-p 'org-link t))
+;;   (iimage-mode 'toggle))
+;;
+;; (define-key org-mode-map (kbd "C-c C-x C-v") 'org-toggle-iimage-in-org)
+;; -----------------------------------------------------------------------------
+
+
+
+;;;_* org-linkany -- Insert link using anything.el/helm.el on org-mode.
+
+;;; Usage:
+;;
+;; - persistent-action in helm to view http/https/ftp links.
+
+;; (require 'org-linkany)
+
+;; (add-to-list org-linkany/url-source-collection ')
+;;
+;; (setq org-linkany/url-source-collection
+;;       '((org-linkany/source-link-in-org-buffer . org-linkany/get-candidate-link-value)
+;;         (org-linkany/source-url-in-other-buffer)
+;;         (helm-source-w3m-bookmarks . helm-w3m-bookmarks-get-value)
+;;         (anything-c-source-w3m-bookmarks . anything-c-w3m-bookmarks-get-value)
+;;         (helm-source-firefox-bookmarks . helm-firefox-bookmarks-get-value)
+;;         (anything-c-source-firefox-bookmarks . anything-c-firefox-bookmarks-get-value)
+;;         (helm-c-source-hatena-bookmark . org-linkany/get-hatena-bookmark-candidate-url)
+;;         (anything-c-source-hatena-bookmark . org-linkany/get-hatena-bookmark-candidate-url))
+;;       )
+
+;; (setq org-linkany/browse-function 'browse-url-firefox)
+
+
+
+;;;_* org-annotate-file
+
+;; This is yet another implementation to allow the annotation of a
+;; file without modification of the file itself. The annotation is in
+;; org syntax so you can use all of the org features you are used to.
+
+;; (require 'org-annotate-file)
+
+;; (global-set-key (kbd "C-c C-l") 'org-annotate-file)
+
+;; ;; To change the location of the annotation file:
+;; (setq org-annotate-file-storage-file "~/.emacs.d/.org-annotated.org")
+
+;; ;; Then when you visit any file and hit C-c C-l you will find yourself
+;; ;; in an org buffer on a headline which links to the file you were
+;; ;; visiting, e.g:
+;; ;; * ~/org-annotate-file.el
+
+;; ;; Under here you can put anything you like, save the file
+;; ;; and next time you hit C-c C-l you will hit those notes again.
+;; ;;
+;; ;; To put a subheading with a text search for the current line set
+;; ;; `org-annotate-file-add-search` to non-nil value. Then when you hit
+;; ;; C-c C-l (on the above line for example) you will get:
+;; (setq org-annotate-file-add-search t)
+
+;; * ~/org-annotate-file.el
+;; ** `org-annotate-file-add-search` to non-nil value. Then whe...
+
+;; Note that both of the above will be links.
+
+
+
+
+;; (defun my-dnd-func (event)
+;;   (interactive "e")
+;;   (goto-char (nth 1 (event-start event)))
+;;   (x-focus-frame nil)
+;;   (let* ((payload (car (last event)))
+;;          (type (car payload))
+;;          (fname (cadr payload))
+;;          (img-regexp "\\(png\\|jp[e]?g\\)\\>"))
+;;     (cond
+;;      ;; insert image link
+;;      ((and  (eq 'drag-n-drop (car event))
+;;           (eq 'file type)
+;;           (string-match img-regexp fname))
+;;       (insert (format "[[%s]]" fname))
+;;       (org-display-inline-images t t))
+;;      ;; insert image link with caption
+;;      ((and  (eq 'C-drag-n-drop (car event))
+;;           (eq 'file type)
+;;           (string-match img-regexp fname))
+;;       (insert "#+ATTR_ORG: :width 300\n")
+;;       (insert (concat  "#+CAPTION: " (read-input "Caption: ") "\n"))
+;;       (insert (format "[[%s]]" fname))
+;;       (org-display-inline-images t t))
+;;      ;; C-drag-n-drop to open a file
+;;      ((and  (eq 'C-drag-n-drop (car event))
+;;           (eq 'file type))
+;;       (find-file fname))
+;;      ((and (eq 'M-drag-n-drop (car event))
+;;          (eq 'file type))
+;;       (insert (format "[[attachfile:%s]]" fname)))
+;;      ;; regular drag and drop on file
+;;      ((eq 'file type)
+;;       (insert (format "[[%s]]\n" fname)))
+;;      (t
+;;       (error "I am not equipped for dnd on %s" payload)))))
+;;
+;; (define-key org-mode-map (kbd "<drag-n-drop>") 'my-dnd-func)
+;; (define-key org-mode-map (kbd "<C-drag-n-drop>") 'my-dnd-func)
+;; (define-key org-mode-map (kbd "<M-drag-n-drop>") 'my-dnd-func)
+
+
+
+;; 2. use `file-expand-wildcards'
+;; (setq org-agenda-files (file-expand-wildcards "~/Org/*.org")) ; Including all org files from a directory into the agenda
+;; 3. use `find-lisp-find-files'
+;;; Sync with Dropbox
+;; (autoload 'find-lisp-find-files "find-lisp")
+;; (setq org-agenda-files
+;;       (append (find-lisp-find-files "~/Sync/Dropbox" "\.org$") org-agenda-files))
+;; (setq org-agenda-files (find-lisp-find-files "~/Org" "\.org$"))
+;; (setq org-agenda-files
+;;       (cl-remove-duplicates (append '("~/Org/GTD/"
+;;                              "~/Org/Work/"
+;;                              "~/Org/Capture/"
+;;                              "~/Org/Projects/"
+;;                              "~/Org/Wiki/Learning/My_Learning_Plan.org"
+;;                              "~/Org/Wiki/Learning/Learn-English.org"
+;;                              )
+;;                            (find-lisp-find-files "~/Org" "\.org$"))))
+
+;;; TODO how to remove duplicated list elements, because there are duplicated
+;;; entries in Org-mode agenda.
+
+;;; ISSUE and seems this (find-lisp-find-files) list in variable
+;;; org-agenda-files can not update when already has new files added.
+
+;; -2
+;; recursively find .org files in provided directory
+;; modified from an Emacs Lisp Intro example
+;; (defun find-org-file-recursively (directory &optional filext)
+;;   "Return .org and .org_archive files recursively from DIRECTORY.
+;; If FILEXT is provided, return files with extension FILEXT instead."
+;;   (interactive "DDirectory name: ")
+;;   (let* (org-file-list
+;;          (case-fold-search t) ; filesystems are case sensitive
+;;          (fileregex (if filext (format "^[^.#].*\\.\\(%s$\\)" filext)
+;;                       "^[^.#].*\\.\\(org$\\|org_archive$\\)"))
+;;          (cur-dir-list (directory-files directory t "^[^.#].*"))) ; exclude .*
+;;     ;; loop over directory listing
+;;     (dolist (file-or-dir cur-dir-list org-file-list) ; returns org-file-list
+;;       (cond
+;;        ((file-regular-p file-or-dir) ; regular files
+;;         (if (string-match fileregex file-or-dir) ; org files
+;;             (add-to-list 'org-file-list file-or-dir)))
+;;        ((file-directory-p file-or-dir)
+;;         (dolist (org-file (find-org-file-recursively file-or-dir filext)
+;;                           org-file-list) ; add files found to result
+;;           (add-to-list 'org-file-list org-file)
+;;           )))
+;;       )
+;;     ))
+;; 0
+;; (split-string (shell-command-to-string "find ~/Org -name '*.org' -print0"))
+;; or
+;; (find-lisp-find-files "~/Org" "\\.org$")
+;; 1
+;; (setq org-agenda-files (directory-files "~/Org/" :full "^[^.]"))
+;; 2
+;; (setq org-agenda-files (list "~/Org/"))
+;; 3
+;; (eval-after-load 'org
+;;   '(progn
+;;      ;; add all org files in the org directory to the agenda.
+;;      (mapcar
+;;       (lambda (file)
+;;         (add-to-list 'org-agenda-files file))
+;;       (directory-file (expand-file-name "~/Org/") t "\\.org"))
+;;      ))
+;; 4
+;; (setq org-agenda-files (file-expand-wildcards "~/Org/*.org"))
+;; 5
+;; (defvar my-org-directories
+;;   (list
+;;    "~/Org/"
+;;    ))
+;; (defun my-org-files ()
+;;   (mappend '(lambda (directory)
+;;               (directory-files directory t "\\.org$"))
+;;            my-org-directories))
+;; (setq org-agenda-files (my-org-files))
+;; 6
+;; (setq org-agenda-text-search-extra-files) ; [C-c a s]
+;; (setq org-agenda-file-regexp "\\`[^.].*\\.org\\'")
+;; Note that these files will only be searched for text search commands, In
+;; fact, if the first element in the list is the symbol `agenda-archives', then
+;; all archive files of all agenda files will be added to the search scope.
+;; [C-c a s]
+;; TODO: test this setting.
+;; (setq org-agenda-text-search-extra-files '(agenda-archives "~/Org/Journal.org" "~/Org/Diary/"))
+
+
+
+
+
+;;;_* org-mu4e
+
+;;; Usage:
+;;
+;; - `org-mu4e-open' :: open the mu4e message (for paths starting with 'msgid:')
+;;                      or run the query (for paths starting with 'query:').
+
+;; (if (not (fboundp 'org-mu4e-compose-org-mode))
+;;     (require 'org-mu4e)                 ; this will setup org links.
+;;   ;; when mail is sent, automatically convert org body to HTML
+;;   (setq org-mu4e-convert-to-html t)
+;;   )
+
+;; (org-add-link-type "msgid" 'org-email-open)
+;; (org-add-link-type "query" 'org-email-open)
+
+;;;_* orgit
+
+;; This package defines several Org link types which can be used to
+;; link to certain Magit buffers.
+;;
+;;    orgit:/path/to/repo/           links to a `magit-status' buffer
+;;    orgit-log:/path/to/repo/::REV  links to a `magit-log' buffer
+;;    orgit-rev:/path/to/repo/::REV  links to a `magit-commit' buffer
+
+;; Such links can be stored from corresponding Magit buffers using
+;; the command `org-store-link'.
+
+;; When an Org file containing such links is exported, then the url of
+;; the remote configured with `orgit-remote' is used to generate a web
+;; url according to `orgit-export-alist'.  That webpage should present
+;; Package-Version: 20150525.1140
+;; approximately the same information as the Magit buffer would.
+
+;; Both the remote to be considered the public remote, as well as the
+;; actual web urls can be defined in individual repositories using Git
+;; variables.
+
+;; To use a remote different from `orgit-remote' but still use
+;; `orgit-export-alist' to generate the web urls, use:
+;;
+;;    git config orgit.remote REMOTE-NAME
+
+;; To explicitly define the web urls, use something like:
+;;
+;;    git config orgit.status http://example.com/repo/overview
+;;    git config orgit.log http://example.com/repo/history/%r
+;;    git config orgit.rev http://example.com/repo/revision/%r
+
+
+;; (require 'orgit)
+
+;; (add-to-list orgit-export-alist ')
+
+
+
+;;;_* Custom Functions
+
+;;; Promote all items in subtree
+;; This function will promote all items in a subtree. Since I use subtrees
+;; primarily to organize projects, the function is somewhat unimaginatively
+;; called my-org-un-project:
+(defun stardiviner/org-prompt-all-items-in-subtree ()
+  "Promote all items in subtree.
+
+This function will promote all items in a subtree."
+  (interactive)
+  (org-map-entries 'org-do-promote "LEVEL>1" 'tree)
+  (org-cycle t))
+
+;;; Turn a heading into an Org link
+(defun stardiviner/turn-word-into-org-mode-link ()
+  "Replace word at point by an Org mode link."
+  (interactive)
+  (when (org-at-heading-p)
+    (let ((hl-text (nth 4 (org-heading-components))))
+      (unless (or (null hl-text)
+                 (org-string-match-p "^[ \t]*:[^:]+:$" hl-text))
+        (beginning-of-line)
+        (search-forward hl-text (point-at-eol))
+        (replace-string
+         hl-text
+         (format "[[file:%s.org][%s]]"
+                 (org-link-escape hl-text)
+                 (org-link-escape hl-text '((?\] . "%5D") (?\[ . "%5B"))))
+         nil (- (point) (length hl-text)) (point))))))
+
+
+
+
+
+(provide 'init-my-org-obsolete)
+
+;;; init-my-org-obsolete.el ends here

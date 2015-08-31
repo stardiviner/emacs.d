@@ -4,7 +4,7 @@
 # --
 * Intro
 
-$0
+$3
 
 * Data
 
@@ -16,6 +16,10 @@ $1
 
 *** Installation
 
+$2
+
 *** Configuration
 
 *** Usage
+
+$0

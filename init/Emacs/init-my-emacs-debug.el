@@ -21,21 +21,21 @@
 
 ;; [C-h i g (elisp) Debugging RET]
 
-(setq debug-on-error t
-      debug-on-quit nil
-      ;; debug-on-signal nil
-      ;; debug-on-next-call nil
-      ;; debug-on-event
-      ;; debug-on-message nil ; REGEXP
-      )
+;; - debug-on-error t
+;; - debug-on-quit t
+;; - debug-on-signal nil
+;; - debug-on-next-call nil
+;; - debug-on-event
+;; - debug-on-message nil ; REGEXP
 
 ;; If your init file sets debug-on-error, the effect may not last past the end
 ;; of loading the init file. (This is an undesirable byproduct of the code that
 ;; implements the `--debug-init' command line option.) The best way to make the
 ;; init file set debug-on-error permanently is with after-init-hook, like this:
-(add-hook 'after-init-hook
-          (lambda ()
-            (setq debug-on-error t)))
+;
+;; (add-hook 'after-init-hook
+;;           (lambda ()
+;;             (setq debug-on-error t)))
 
 ;;; Debug: Trace
 (setq stack-trace-on-error t)
@@ -101,6 +101,54 @@
 (my/checkpoint "initialized benchmarking")
 
 
+;;; test Emacs init files with batch
+
+;;; Usage:
+;;
+;; This function will quietly run a batch Emacs with your current config to see
+;; if it errors out or not.
+;;
+;; in case that there were no start up errors, it will echo "All is well".  when
+;; there's an error, it will pop to a *startup error* buffer with the error
+;; description.
+;;
+;; The nice thing about this is that in case of an error you have a functional
+;; Emacs to fix that error, since fixing errors with emacs -Q is quite painful.
+;;
+;; Another approach could be to just start a new Emacs instance, and close the
+;; window in case there isn't an error. So all that the code above does is
+;; automate closing the window (sort of, since the window never opens). Still, I
+;; think it's pretty cool. And you could attach it to the after-save-hook of
+;; your .emacs, or a timer.
+;;
+;; You could even configure Emacs to send you an email in case it notices that
+;; there will be an error on the next start up. Or add the test to
+;; before-save-hook and abort the save in case it results in an error. That's
+;; some HAL 9000 level stuff right there:
+
+(defun my-test-emacs-init ()
+  (interactive)
+  (require 'async)
+  (async-start
+   (lambda () (shell-command-to-string
+          "emacs --batch --eval \"
+(condition-case e
+    (progn
+      (load \\\"~/.emacs\\\")
+      (message \\\"-OK-\\\"))
+  (error
+   (message \\\"ERROR!\\\")
+   (signal (car e) (cdr e))))\""))
+   `(lambda (output)
+      (if (string-match "-OK-" output)
+          (when ,(called-interactively-p 'any)
+            (message "All is well"))
+        (switch-to-buffer-other-window "*startup error*")
+        (delete-region (point-min) (point-max))
+        (insert output)
+        (search-backward "ERROR!")))))
+
+
 ;;; [ Edebug ] -- Edebug is a source level debugger.
 
 ;; FIXME:
@@ -108,18 +156,28 @@
 ;;   '(progn
 ;;      (define-key edebug-mode-map (kbd "C-c C-d") nil)))
 
+(require 'edebug)
+(require 'edebug-x)
+
 (setq edebug-global-prefix (kbd "C-c d"))
 
-(unless (boundp 'my-prog-debug-prefix)
-  (define-prefix-command 'my-prog-debug-prefix))
+(unless (boundp 'my-prog-debug-map)
+  (define-prefix-command 'my-prog-debug-map))
 
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
-            (local-set-key (kbd "C-c d") 'my-prog-debug-prefix)
-            (define-key my-prog-debug-prefix (kbd "C-e") 'edebug-mode)
-            (define-key my-prog-debug-prefix (kbd "f") 'edebug-defun)
-            (define-key my-prog-debug-prefix (kbd "e") 'debug-on-entry)
+            (local-set-key (kbd "C-c d") 'my-prog-debug-map)
+            (define-key my-prog-debug-map (kbd "C-e") 'edebug-mode)
+            (define-key my-prog-debug-map (kbd "f") 'edebug-defun)
+            (define-key my-prog-debug-map (kbd "e") 'debug-on-entry)
             ))
+
+(set-face-attribute 'hi-edebug-x-stop nil
+                    :foreground nil
+                    :background "plum1")
+(set-face-attribute 'hi-edebug-x-debug-line nil
+                    :foreground nil
+                    :background "light green")
 
 (defun edebug-clear-global-break-condition ()
   "Clear `edebug-global-break-condition'."
@@ -212,8 +270,7 @@ LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
 
 (unless (boundp 'my-emacs-profiler-prefix)
   (define-prefix-command 'my-emacs-profiler-prefix))
-
-(define-key my-prog-debug-prefix (kbd "p") 'my-emacs-profiler-prefix)
+(define-key my-prog-debug-map (kbd "p") 'my-emacs-profiler-prefix)
 
 (define-key my-emacs-profiler-prefix (kbd "p") 'profiler-start)
 (define-key my-emacs-profiler-prefix (kbd "s") 'profiler-stop)
@@ -221,11 +278,37 @@ LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
 
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
-            (local-set-key (kbd "C-c d") 'my-prog-debug-prefix)
-            (define-key my-prog-debug-prefix (kbd "p") 'profiler-start)
-            (define-key my-prog-debug-prefix (kbd "s") 'profiler-stop)
-            (define-key my-prog-debug-prefix (kbd "r") 'profiler-report)
+            (local-set-key (kbd "C-c d") 'my-prog-debug-map)
+            (define-key my-prog-debug-map (kbd "p") 'profiler-start)
+            (define-key my-prog-debug-map (kbd "s") 'profiler-stop)
+            (define-key my-prog-debug-map (kbd "r") 'profiler-report)
             ))
+
+
+;;; [ bug-hunter ] -- Hunt down errors in elisp files.
+
+;;; The Bug Hunter is an Emacs library that finds the source of an error or
+;;; unexpected behavior inside an elisp configuration file (typically init.el or
+;;; .emacs).
+
+;;; Usage:
+;;
+;; - [M-x bug-hunter-init-file RET RET]
+;;     If your Emacs init file signals an error during startup, but you don’t know why, simply issue.
+;;
+;;
+;; For example, let’s say there’s something in your init file that’s loading the
+;; cl library, and you don’t want that. You know you’re not loading it yourself,
+;; but how can you figure out which external package is responsible for this
+;; outrage?
+;;
+;;   [M-x bug-hunter-init-file RET (featurep 'cl) RET]
+;;
+;; Finally, you can also use `bug-hunter-file' to hunt in other files.
+
+(require 'bug-hunter)
+
+
 
 
 

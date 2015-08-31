@@ -15,12 +15,19 @@
       (append '(("\\.css$" . css-mode))
               auto-mode-alist))
 
+(setq css-indent-offset 2)
+
+
+
+(add-hook 'css-mode-hook
+          (lambda ()
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-css)))
+
 
 ;;; [ css-eldoc ]
 
-(require 'css-eldoc)
-
-(turn-on-css-eldoc)
+(css-eldoc-enable)
 
 ;;; ------------------------------------------------------------------------------------
 ;;; Attention!
@@ -58,8 +65,9 @@
 ;; - The default mode showcss uses is css-mode, but it can be set to any other
 ;;   mode such as sass-mode if your working with sass files
 
-(autoload 'showcss-mode "show_css"
-  "Display the css of the class or id the cursor is at" t)
+;;; Usage:
+;;
+;; - `my/toggle-showcss' / [C-c C-k] ::
 
 ;;; Personally, I find this mode to distracting to use all the time, so I use
 ;;; this function to quickly toggle the mode on and off.
@@ -74,12 +82,28 @@
        'handlebars-mode)
       (showcss-mode 'toggle)
     (message "Not in an html mode")))
-(global-set-key (kbd "C-c C-k") 'my/toggle-showcss)
+
+;; (unless (featurep 'sgml-mode)
+;;   (require 'sgml-mode))
+
+(use-package html-mode
+  :config
+  (define-key html-mode-map (kbd "C-c C-k") 'my/toggle-showcss))
+
+;; FIXME:
+;; (unless (featurep 'web-mode)
+;;   (require 'web-mode))
+;; (use-package showcss-mode
+;;   :config
+;;   (define-key web-mode-map (kbd "C-c C-k") 'my/toggle-showcss)
+;;   )
+
 
 
 ;;; [ SCSS ]
 
 (require 'init-my-prog-lang-css-scss)
+(require 'init-my-prog-lang-css-less)
 
 
 (provide 'init-my-prog-lang-css)

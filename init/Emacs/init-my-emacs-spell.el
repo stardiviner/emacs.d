@@ -4,42 +4,69 @@
 ;;; Code:
 
 
-;;; aspell & ispell
+;;; [ aspell & ispell ]
 
-;; - [C-;] ::
+;;; Usage:
+;;
+;; - [M-$]
+;; - [M-x ispell-complete-word]
 
-;; (require 'ispell)
 (autoload 'ispell "ispell" t)
 
-(setq ispell-dictionary "english"
-      ispell-program-name "aspell"
-      ispell-extra-args '("--sug-mode=ultra")
-      ispell-personal-dictionary nil ; If nil, the default (~/.ispell_LANGUAGE) will be used
-      ispell-silently-savep t ; save silently. stop confirm when saving personal dictionary.
-      )
+;; find aspell automatically
+(cond
+ ((executable-find "aspell")
+  (setq ispell-program-name "aspell")
+  (setq ispell-extra-args '("--sug-mode=ultra" "--lang=en_US")))
+ (t
+  (setq ispell-program-name nil))
+ )
 
-;;; [M-x ispell-complete-word]
-;; (setq ispell-alternate-dictionary "/usr/share/dict/words")
+(setq ispell-dictionary "english"
+      ;; ispell-local-dictionary
+      ispell-personal-dictionary nil ; If nil, the default (~/.ispell_LANGUAGE) will be used
+      ;; ispell-complete-word-dict "/usr/share/dict/words"
+      ;; ispell-alternate-dictionary "/usr/share/dict/words"
+      ispell-silently-savep t ; save silently. stop confirm when saving personal dictionary.
+      ispell-parser 'use-mode-name
+      )
 
 
 ;;; [ Flyspell ]
 
 ;;; Usage:
 ;;
-;; - [M-$] / [M-TAB] -- correct word
+;; - [M-$] -- correct word
 ;;   - press [i] and answer "yes" to add word into personal dictionary.
-;; - [C-.] -- automatically correct word
-;; - [C-;] -- automatically correct last misspelled word
+;; - [C-.] / [C-;] -- automatically correct last misspelled word, cycle through suggestions.
 ;; - [M-x flyspell-region] -- checks all words inside a region
 ;; - [M-x flyspell-buffer] -- checks the whole buffer
 
-(require 'flyspell)
-;; (when (executable-find ispell-program-name)
-;;   (require 'flyspell))
-(autoload 'flyspell-mode "flyspell" "on-the-fly spelling checks" t)
-(autoload 'flyspell-prog-mode "flyspell" "on-the-fly spelling checks for programming modes" t)
+(setq flyspell-default-dictionary "en"
+      flyspell-delay 5
+      ;; flyspell-before-incorrect-word-string
+      ;; flyspell-after-incorrect-word-string
+      )
 
-(setq flyspell-default-dictionary "en")
+
+
+;;; [ flyspell-lazy ]
+
+;; (flyspell-lazy-mode 1)
+
+;; (flyspell-mode 1)
+
+
+
+
+
+;;; [ flyspell-lazy ]
+
+(flyspell-lazy-mode 1)
+
+;; (flyspell-mode 1)
+
+
 
 ;; (flyspell-mode 1)
 
@@ -77,10 +104,15 @@
       ;; flyspell-mode-line-string " FlySpell"
       )
 
-;; (define-key flyspell-mode-map (kbd "C-.") 'flyspell-correct-word-before-point)
-(define-key flyspell-mode-map (kbd "C-.") 'flyspell-auto-correct-previous-word)
-
-;; (setq ispell-highlight-face 'flyspell-incorrect)
+(use-package flyspell
+  :config
+  ;; (define-key flyspell-mode-map (kbd "C-.") 'flyspell-correct-word-before-point)
+  (define-key flyspell-mode-map (kbd "C-.") 'flyspell-auto-correct-previous-word)
+  (define-key flyspell-mode-map (kbd "C-,") 'flyspell-goto-next-error)
+  ;; (add-hook 'flyspell-mode-hook
+  ;;           (unbind-key "C-;" flyspell-mode-map)) ; conflict with iedit-mode toggle keybinding.
+  (define-key flyspell-mode-map (kbd "C-M-i") nil) ; fix Org-mode abbreviations expand keybinding [M-Tab].
+  )
 
 (set-face-attribute 'flyspell-incorrect nil
                     :background "#444444" :foreground "red"
@@ -89,28 +121,45 @@
                     :background "#555555" :foreground "orange"
                     :underline '(:color "dark red" :style line))
 
-(unless (boundp 'my-spell-prefix-map)
-  (define-prefix-command 'my-spell-prefix-map))
-(define-key my-edit-prefix-map (kbd "s") 'my-spell-prefix-map)
+(unless (boundp 'my-spell-prefix)
+  (define-prefix-command 'my-spell-prefix))
+(define-key my-edit-prefix (kbd "s") 'my-spell-prefix)
 
-(define-key my-spell-prefix-map (kbd "C-s") 'flyspell-mode)
-(define-key my-spell-prefix-map (kbd "m") 'flyspell-mode)
-(define-key my-spell-prefix-map (kbd "p") 'flyspell-prog-mode)
-(define-key my-spell-prefix-map (kbd "b") 'flyspell-buffer)
-(define-key my-spell-prefix-map (kbd "r") 'flyspell-region)
-(define-key my-spell-prefix-map (kbd "c") 'ispell-word) ; default keybinding [M-$].
+(define-key my-spell-prefix (kbd "C-s") 'flyspell-mode)
+(define-key my-spell-prefix (kbd "m") 'flyspell-mode)
+(define-key my-spell-prefix (kbd "p") 'flyspell-prog-mode)
+(define-key my-spell-prefix (kbd "b") 'flyspell-buffer)
+(define-key my-spell-prefix (kbd "r") 'flyspell-region)
+(define-key my-spell-prefix (kbd "c") 'ispell-word) ; default keybinding [M-$].
+
+
+;;; [ helm-flyspell ]
+
+;;; Usage:
+;;
+;; `helm-flyspell-correct'
+
+
+;;; [ flyspell-popup ] -- Correct the misspelled word with flyspell in popup menu.
+
+;;; Usage:
+;;
+;; `flyspell-popup-correct'
+
+(use-package flyspell
+  :config
+  (if (featurep 'helm-flyspell)
+      (define-key flyspell-mode-map (kbd "C-;") #'helm-flyspell-correct)
+    (define-key flyspell-mode-map (kbd "C-;") #'flyspell-popup-correct))
+  )
 
 
 ;;; [ flyguess ] -- guess language/dictionary for a buffer
-
-;; (require 'flyguess)
 
 ;; (setq flyguess-dictionary-list '("english" "american" "francais"))
 
 
 ;;; [ flyspell-guess ] -- flyspell dictionary guesser
-
-;; (require 'flyspell-guess)
 
 ;; to load flyspell-guess every time you start Emacs. to activate the guess indicator (in minor-mode-list: "en").
 ;; (eval-after-load 'flyspell-guess
@@ -121,8 +170,6 @@
 
 ;;; [ auto-dictionary ] -- tries to guess the buffer's text language and adjusts flyspell automatically.
 
-;; (require 'auto-dictionary)
-;;
 ;; (add-hook 'flyspell-mode-hook (lambda () (auto-dictionary-mode 1)))
 
 

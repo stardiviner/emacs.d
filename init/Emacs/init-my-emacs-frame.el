@@ -16,10 +16,8 @@
 ;;       (modify-frame-parameters frame (list (cons 'alpha newalpha))))))
 
 
-;;; [ desktop-save-mode ]
+;;; [ zoom-frm ]
 
-;;; Usage:
-;; - commands prefix with `desktop-'.
 
 
 (provide 'init-my-emacs-frame)

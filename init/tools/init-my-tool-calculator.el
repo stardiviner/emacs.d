@@ -46,10 +46,17 @@
 (setq calc-complex-format 'i            ; complex number style: x + yi.
       )
 
-(define-key my-tools-prefix-map (kbd "x") 'calc)
+;; TODO: set Calc default to normal calculator mode.
+
+
+(unless (boundp 'my-calculator-map)
+  (define-prefix-command 'my-calculator-map))
+(define-key my-tools-prefix (kbd "x") 'my-calculator-map)
 
 (if (featurep 'helm)
-    (define-key my-tools-prefix-map (kbd "x") 'helm-calcul-expression))
+    (define-key my-calculator-map (kbd "x") 'helm-calcul-expression)
+  (define-key my-calculator-map (kbd "x") 'calc) ; 'calc-keypad
+  )
 
 
 (provide 'init-my-tool-calculator)

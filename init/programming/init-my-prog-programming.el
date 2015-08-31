@@ -66,14 +66,27 @@
                    (run-hooks 'prog-mode-hook))))
 
 
+
 (defvar lisp-dialects-mode
-  '(lisp-mode
+  '(emacs-lisp-mode
+    lisp-mode
     lisp-interaction-mode
-    emacs-lisp-mode
     ;; common-lisp-mode
+    inferior-emacs-lisp-mode
+    ;; geiser
+    sly-mrepl-mode
     scheme-mode
     clojure-mode
+    inferior-clojure-mode
+    ;; cider-mode
     cider-repl-mode
+    cider-interaction-mode
+    ))
+
+(defvar c-dialects-mode
+  '(c-mode
+    c++-mode
+    objc-mode
     ))
 
 
@@ -106,39 +119,49 @@
   (let ((default-directory (getenv "HOME")))
     (my-func/open-and-switch-to-buffer 'ielm "*ielm*" t)))
 
+(defun my-run-sly ()
+  "Start SLY or switch to its buffer if it already exist."
+  (interactive)
+  (my-func/open-and-switch-to-buffer 'sly "*sly-mrepl for sbcl*" t))
+
 (define-key my-inferior-lisp-map (kbd "e") 'my-ielm-start-or-switch)
 ;; Lisp dialects
-(define-key my-inferior-lisp-map (kbd "l") 'run-geiser) ; Common Lisp
-(define-key my-inferior-lisp-map (kbd "c") 'run-lisp)   ; Clojure cider.
-(define-key my-inferior-lisp-map (kbd "s") 'run-scheme) ; Scheme
-(define-key my-inferior-lisp-map (kbd "g") 'run-guile)  ; Guile
+(define-key my-inferior-lisp-map (kbd "l") 'run-lisp)   ; Lisp
+(define-key my-inferior-lisp-map (kbd "s") 'my-run-sly) ; SLY
+(define-key my-inferior-lisp-map (kbd "g") 'run-geiser) ; geiser
 (define-key my-inferior-lisp-map (kbd "m") 'slime)      ; SLIME
+(define-key my-inferior-lisp-map (kbd "S") 'run-scheme) ; Scheme
+(define-key my-inferior-lisp-map (kbd "G") 'run-guile)  ; Guile
+;; FIXME: not `cider-jack-in'
+;; (define-key my-inferior-lisp-map (kbd "c") 'cider-jack-in) ; Clojure cider
+
+
 ;; Ruby
 (unless (boundp 'my-inferior-ruby-map)
   (define-prefix-command 'my-inferior-ruby-map))
 (define-key my-prog-inferior-map (kbd "r") 'my-inferior-ruby-map)
-
 (define-key my-inferior-ruby-map (kbd "r") 'run-ruby) ; Ruby
 ;; Python
 ;; (unless (boundp 'my-inferior-python-map)
 ;;   (define-prefix-command 'my-inferior-python-map))
 ;; (define-key my-prog-inferior-map (kbd "p") 'my-inferior-python-map)
-
 (define-key my-prog-inferior-map (kbd "p") 'run-python)   ; Python
 ;; Prolog
 (define-key my-prog-inferior-map (kbd "g") 'run-prolog)   ; Prolog
 ;; ESS
-;; Julia
 ;; R
 (unless (boundp 'my-inferior-ess-map)
   (define-prefix-command 'my-inferior-ess-map))
-(define-key my-prog-inferior-map (kbd "j") 'my-inferior-ess-map)
+(define-key my-prog-inferior-map (kbd "e") 'my-inferior-ess-map)
+;; Julia
 ;; Octave
 (define-key my-prog-inferior-map (kbd "o") 'run-octave)   ; Octave
+;; JavaScript
+(define-key my-prog-inferior-map (kbd "j") 'run-js) ; JavaScript
 ;; Haskell
 (define-key my-prog-inferior-map (kbd "h") 'run-haskell)  ; Haskell
 ;; Erlang
-(define-key my-prog-inferior-map (kbd "e") 'run-erlang)   ; Erlang
+(define-key my-prog-inferior-map (kbd "E") 'run-erlang)   ; Erlang
 ;; Festival
 (define-key my-prog-inferior-map (kbd "f") 'run-festival) ; Festival
 

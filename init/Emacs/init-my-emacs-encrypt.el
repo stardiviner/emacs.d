@@ -14,15 +14,16 @@
 (require 'epa-file)
 (epa-file-enable)
 
-(setq epa-file-encrypt-to "numbchild@gmail.com"
+(setq epa-file-encrypt-to "numbchild@gmail.com" ; nil, "numbchild@gmail.com"
       ;; epa-gpg-program "/usr/bin/gpg"
-      epa-file-select-keys t       ; use public key
+      epa-file-select-keys t       ; ask user to select recipient with public key
       ;; cache passphrase for symmetric encryption.
       ;; For security reasons, this option is turned off by default and
       ;; not recommended to use.  Instead, consider using gpg-agent which
       ;; does the same job in a safer way.
       epa-file-cache-passphrase-for-symmetric-encryption t
-      epa-file-inhibit-auto-save t)
+      epa-file-inhibit-auto-save t
+      )
 
 ;;; FAQ
 ;; How to use a non-graphical password prompt for gpg?

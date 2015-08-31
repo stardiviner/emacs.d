@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: list append list
+# key: list-append-list
+# --
+(setq ${1:list}
+      (append
+       '(${2:element})
+       '(${3:element})
+       $1))

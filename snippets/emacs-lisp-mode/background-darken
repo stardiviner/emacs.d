@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: darken background color
+# key: background-darken
+# --
+:background (color-darken-name (face-background '${2:default}) ${1:percent 1-100})$0

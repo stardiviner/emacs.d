@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: var
+# key: var
+# --
+:${1:variable} = ${2:value}$0

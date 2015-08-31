@@ -8,6 +8,7 @@
 ;;; Code:
 
 
+(require 'init-my-prog-debug-profiler)
 
 
 (provide 'init-my-prog-debug)

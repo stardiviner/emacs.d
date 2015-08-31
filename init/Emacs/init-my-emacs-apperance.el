@@ -14,77 +14,35 @@
 
 
 ;;; [ Menu Bar ]
+
 ;; the menu bar is mostly useless as well
 ;; but removing it under OS X doesn't make much sense
-(if (eq system-type 'darwin)
-    ;; (string-match "apple-darwin" system-configuration)
-    (with-selected-frame 'frame
-      (if (display-graphic-p)
-          (modify-frame-parameters 'frame '((menu-bar-lines . 1)))
-        (modify-frame-parameters 'frame '((menu-bar-lines . 0)))))
-  (if (fboundp 'menu-bar-mode) (menu-bar-mode -1)))
 
-(setq-default imenu-auto-rescan t)
+;; (if (eq system-type 'darwin)
+;;     ;; (string-match "apple-darwin" system-configuration)
+;;     (with-selected-frame 'frame
+;;       (if (display-graphic-p)
+;;           (modify-frame-parameters 'frame '((menu-bar-lines . 1)))
+;;         (modify-frame-parameters 'frame '((menu-bar-lines . 0)))))
+;;   (if (fboundp 'menu-bar-mode) (menu-bar-mode -1)))
+;;
+;; (setq-default imenu-auto-rescan t)
 
 
 ;;; [ Tool Bar ]
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 
-
-;;; [ border ]
-
-(set-frame-parameter (selected-frame) 'internal-border-width 10)
-
-
-;;; [ fringe ]
-
-;; make left fringe 10 pixels wide, and right fringe disappear.
-(fringe-mode '(10 . 0))
-;; or
-;; (set-fringe-style '(10 . 0))
-
-;; (setq fringe-styles '(("default")
-;;                       ("no-fringes" . 0)
-;;                       ("right-only" 0)
-;;                       ("left-only" nil . 0)
-;;                       ("half-width" 4 . 4)
-;;                       ("minimal" 1 . 1))
-;;       ;; fringe-bitmaps
-;;       fringe-indicator-alist '((truncation left-arrow right-arrow)
-;;                                (continuation left-curly-arrow right-curly-arrow)
-;;                                (overlay-arrow . right-triangle)
-;;                                (up . up-arrow)
-;;                                (down . down-arrow)
-;;                                (top top-left-angle top-right-angle)
-;;                                (bottom bottom-left-angle bottom-right-angle top-right-angle top-left-angle)
-;;                                (top-bottom left-bracket right-bracket top-right-angle top-left-angle)
-;;                                (empty-line . empty-line)
-;;                                (unknown . question-mark))
-;;       )
-
-;; (setq left-fringe-width nil
-;;       right-fringe-width nil)
-
-(set-face-attribute 'fringe nil
-                    :foreground "cyan" :background "#073642"
-                    )
-
-(setq-default indicate-buffer-boundaries 'left
-              indicate-empty-lines t
-              indicate-unused-lines nil)
+;; (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 
 
 ;;; [ Scroll Bar ]
-(if (fboundp 'scroll-bar-mode)
-    (scroll-bar-mode -1))
 
-;; smooth scroll
-(setq scroll-margin 10
-      scroll-conservatively 100000
-      scroll-preserve-screen-position 1
-      ;; always keep cursor in center of buffer.
-      ;; scroll-preserve-screen-position nil
-      )
+;; (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+;;
+;; ;; smooth scroll
+;; (setq scroll-margin 10
+;;       scroll-conservatively 100000
+;;       scroll-preserve-screen-position 'always ; 1, screen offset, nil, always keep in center of window. 'always, keep [M-v] undo [C-v].
+;;       )
 
 
 ;;; [ yascroll ] -- Yet Another Scroll Bar Mode
@@ -98,62 +56,67 @@
 ;;       yascroll:delay-to-hide nil ; nil, 0.5
 ;;       ;; yascroll:enabled-window-systems '(nil x w32 ns pc)
 ;;       )
-
+;;
 ;; (set-face-attribute 'yascroll:thumb-text-area nil
 ;;                     :foreground "slate blue")
+;;
+;; (global-yascroll-bar-mode 1)
 
-;; (global-yascroll-bar-mode t)
-
-
-;;; [ Color Theme ]
-;; Usage:
-;; - [M-x customize-face] -- to custom current point face color/style.
-;; - [C-u M-x list-faces-display RET org] -- overview of all the faces in org-mode.
-;; - [M-x customize-group org-font-lock] -- custom org-faces and other aspects of org-apperance.
-;; - [C-u C-x =] -- verbose information about the properties of the text under the point.
-;; - [M-x load-theme RET (theme)] -- load a color-theme.
-
-;;; initialize color-theme
-(require 'color-theme)
-(eval-after-load 'color-theme
-  '(progn
-     (color-theme-initialize)))
-(setq color-theme-is-global t)
-
-;; load theme way
-(add-to-list 'custom-theme-load-path "~/.emacs.d/color-themes/")
-;; (load-theme 'color-theme-midnight)
 
 
-;;; color-theme-solarized
+;;; [ border ]
 
-(require 'color-theme-solarized)
-
-(color-theme-solarized-dark)
-;; (color-theme-solarized-light)
-
-(setq solarized-termcolors 256
-      ;; solarized-degrade t
-      solarized-bold t
-      solarized-underline t
-      solarized-italic t
-      solarized-contrast 'normal ; 'normal, 'hight, 'low
-      solarized-visibility 'high ; 'normal, 'high, 'low
-      ;; solarized-broken-srgb nil    ; nil, t
-      )
+;; (set-frame-parameter (selected-frame) 'internal-border-width 1)
 
 
-;;; color-theme-almost-monokai
+;;; [ fringe ]
 
-;; (color-theme-almost-monokai)
-
-;;; monokai-theme
+;; (defconst fringe-styles
+;;   '(("default" . nil)
+;;     ("no-fringes" . 0)
+;;     ("right-only" . (0 . nil))
+;;     ("left-only" . (nil . 0))
+;;     ("half-width" . (4 . 4))
+;;     ("minimal" . (1 . 1)))
+;;   "Alist mapping fringe mode names to fringe widths.
+;; Each list element has the form (NAME . WIDTH), where NAME is a
+;; mnemonic fringe mode name and WIDTH is one of the following:
+;; - nil, which means the default width (8 pixels).
+;; - a cons cell (LEFT . RIGHT), where LEFT and RIGHT are
+;;   respectively the left and right fringe widths in pixels, or
+;;   nil (meaning the default width).
+;; - a single integer, which specifies the pixel widths of both
+;; fringes.")
 
-;; (load-file "~/.emacs.d/init/color-themes/monokai-theme.el")
-;; ;; (load-file "~/.emacs.d/init/color-themes/molokai-theme.el")
+;; (setq fringe-indicator-alist
+;;       '((truncation left-arrow right-arrow)
+;;         (continuation left-curly-arrow right-curly-arrow)
+;;         (overlay-arrow . right-triangle)
+;;         (up . up-arrow)
+;;         (down . down-arrow)
+;;         (top top-left-angle top-right-angle)
+;;         (bottom bottom-left-angle bottom-right-angle top-right-angle top-left-angle)
+;;         (top-bottom left-bracket right-bracket top-right-angle top-left-angle)
+;;         (empty-line . empty-line)
+;;         (unknown . question-mark)))
 
-;; (load-theme 'monokai t)
+(setq-default indicate-buffer-boundaries 'left
+              indicate-empty-lines t
+              indicate-unused-lines nil)
 
+
+;; both side fringe 10 pixels wide.
+;; (fringe-mode 10)
+;; make left fringe 10 pixels wide, and right fringe disappear.
+;; (fringe-mode '(10 . 0))
+;; or
+;; (set-fringe-style '(10 . 0))
+;; restore the default size
+(fringe-mode nil)
+
+(set-face-attribute 'fringe nil
+                    :foreground "cyan" :background "#073642"
+                    )
 
 
 ;;; [ modeline ]
@@ -164,6 +127,7 @@
 
 
 ;;; [ echo area ]
+
 (setq echo-keystrokes 0.1) ; faster echo key strokes
 
 
@@ -172,6 +136,27 @@
 ;;; full screen
 ;; - [F11] -- fullscreen.
 ;; - [M-F10] -- max window.
+
+
+;;; [ Widget ]
+
+(set-face-attribute 'widget-button nil
+                    :weight 'bold)
+(set-face-attribute 'widget-inactive nil
+                    :inherit 'shadow)
+(set-face-attribute 'widget-documentation nil
+                    :foreground "lime green")
+(set-face-attribute 'widget-button-pressed nil
+                    :foreground "red1")
+(set-face-attribute 'widget-field nil
+                    :inherit 'default
+                    :foreground "white"
+                    :background "#666666"
+                    :box '(:color "white" :line-width 1))
+(set-face-attribute 'widget-single-line-field nil
+                    :inherit 'widget-field
+                    :background "#333333"
+                    )
 
 
 ;;; [ Layout ]
@@ -200,53 +185,85 @@
 ;; above or below the display line.
 
 ;; additional space to put between lines.
-(setq-default line-spacing 0.1)         ; 0.1, 1, 0, nil.
+(setq-default line-spacing nil)         ; 0.1, 1, 0, nil.
 
 
 ;;; [ line number ]
-(line-number-mode 1)
-(column-number-mode 1)
 
 ;; display line numbers in margin
 ;; Linum: separating line numbers from text
+;; (setq linum-format 'dynamic)
 ;; (setq linum-format "%d ") ; 'dynamic
-(setq linum-format "%4d \u2502") ; a solid line separator
+;; (setq linum-format "%4d \u2502") ; a solid line separator
 ;; TODO: combine 'dynamic result with \u2502
 ;; (setq linum-format '(combine 'dynamic "\u2502"))
 
-;; (global-linum-mode 1) ; disable linum-mode because I display line number in mode line.
+;; (line-number-mode -1)
+;; (column-number-mode -1)
+
+;; disable linum-mode because I display line number in mode line.
+;; (global-linum-mode -1)
+
+;; but show line numbers in source code files
+;; (add-hook 'prog-mode-hook 'linum-mode)
 
 
 ;;; [ current line & column ]
+
 ;; highlight current line
 (global-hl-line-mode 1) ; highlight current line
-;; disable soft wrap lines for windows which has smaller width than 80.
-(global-visual-line-mode -1) ; soft wrap lines at word boundary
+
 (set-face-attribute 'hl-line nil
                     ;; 1
                     ;; :foreground nil :background nil
                     ;; :weight 'bold :foreground " " :background " "
                     ;; 2
-                    :foreground nil :background "#004A5D"
-                    :box '(:color "#005D5E" :line-width -1)
+                    ;; :foreground nil :background "#004A5D"
+                    ;; :box '(:color "#005D5E" :line-width -1)
                     ;; 3
                     ;; :foreground " " :background "#004A5D"
                     ;; :box '(:color "cyan" :line-width 1 :style nil) :underline nil
                     ;; :underline "yellow" :foreground nil :background nil
+                    ;; 4. darker percent 5%
+                    :foreground nil :background (color-darken-name (face-background 'default) 3)
                     )
+
 (setq hl-line-face 'hl-line)
+
+;;; [ col-highlight ]
+
+;; (require-package 'col-highlight)
+;;
+;; (column-highlight-mode 1)
+;;
+;; (col-highlight-toggle-when-idle 1)
+;; (col-highlight-set-interval 6)
+;;
+;; (set-face-attribute 'col-highlight nil
+;;                     :background "dodger blue")
+
 
 
 ;;; [ point & cursor ]
-(setq mouse-avoidance-mode 'animate) ;; auto move mouse away when cursor is at mouse position
-(blink-cursor-mode 1)
-(set-cursor-color "cyan")
-(setq-default cursor-type '(hbar . 3) ; '(hbar. 3), '(bar . 3), '(box . 2). '(hollow . 2)
-              cursor-in-non-selected-windows t)
-(setq mouse-yank-at-point t) ; yank at point position instead of mouse position
 
-(setq cursor-in-echo-area nil
-      cursor-in-non-selected-windows t)
+(blink-cursor-mode 1)
+
+(setq-default mouse-avoidance-mode 'animate ; auto move mouse away when cursor is at mouse position
+              cursor-in-echo-area nil
+              cursor-in-non-selected-windows t
+              mouse-yank-at-point t ; yank at point position instead of mouse position
+              blink-cursor-blinks 10 ; how many times to blink before using a solid cursor on NS, X, and MS-Windows.
+              )
+
+;;; red horizontal bar
+(setq-default cursor-type '(hbar . 3))
+(set-cursor-color "red")
+
+;;; transparent hollow
+;; (setq-default cursor-type 'hollow)
+;; (set-cursor-color "green")
+;; (set-face-attribute 'cursor nil
+;;                     :foreground "red" :background "green")
 
 
 ;;; [ cursor-chg ] -- change cursor color dynamically
@@ -280,6 +297,9 @@
 
 ;; default column length (80)
 (setq-default fill-column 80)
+
+;; disable soft wrap lines for windows which has smaller width than 80.
+(global-visual-line-mode -1) ; soft wrap lines at word boundary
 
 ;;; [ fci -- Fill Column Indicator ]
 
@@ -328,60 +348,6 @@
 ;; - [M-x set-justification-none]
 
 
-;;; [ Faces ]
-;; italic & bold
-(set-face-attribute 'italic nil
-                    :slant 'italic
-                    :foreground "white")
-(set-face-attribute 'bold nil
-                    :weight 'bold
-                    :foreground "white")
-(set-face-attribute 'underline nil
-                    :underline "white")
-;; region
-(set-face-attribute 'region nil
-                    :inverse-video nil
-                    :foreground nil
-                    :background "#222222"
-                    )
-;; search
-(set-face-attribute 'isearch nil
-                    :background "gray"
-                    :foreground "black"
-                    :weight 'bold
-                    :box '(:color "yellow" :line-width 1 :style nil)
-                    )
-(set-face-attribute 'lazy-highlight nil
-                    :background "yellow"
-                    :foreground "black"
-                    :weight 'bold
-                    )
-(set-face-attribute 'match nil
-                    :background "yellow"
-                    :foreground "black"
-                    )
-(set-face-attribute 'isearch-fail nil
-                    :background "red"
-                    :foreground "black"
-                    :weight 'bold
-                    )
-;; replace
-(set-face-attribute 'query-replace nil
-                    :background "cornsilk"
-                    :foreground "black"
-                    :weight 'bold
-                    :box '(:color "deep pink" :line-width 1 :style nil))
-
-;; comment
-;; family: DejaVu Serif,  Droid Serif, Gabriola, Gentium, GFS Didot, Latin Modern Mono, Segoe Print,
-(set-face-attribute 'font-lock-comment-face nil
-                    :slant 'italic
-                    )
-;; built-in function.
-(set-face-attribute 'font-lock-builtin-face nil
-                    :slant 'italic)
-
-
 ;;; highlight search
 (setq search-highlight t
       query-replace-highlight t)
@@ -397,7 +363,7 @@
 ;; TODO:
 ;; (setq prettify-symbols-alist '(("lambda" . 955)))
 
-(global-prettify-symbols-mode 1)
+;; (global-prettify-symbols-mode 1)
 
 
 ;;; [ pretty-mode (pretty-mode-plus) ] -- Redisplay parts of the Emacs buffer as pretty symbols.
@@ -406,106 +372,16 @@
 
 (require 'pretty-mode)
 
-;; FIXME:
-;; (add-to-list pretty-patterns '((ruby-mode ("->" . ?λ))))
+(add-to-list 'pretty-supported-modes 'ruby-mode)
+(add-to-list 'pretty-supported-modes 'enh-ruby-mode)
 
-;; (setq-default pretty-patterns
-;;               '(let* ((lispy '(scheme emacs-lisp lisp))
-;;                       (mley '(tuareg haskell sml))
-;;                       (c-like '(c c++ java))
-;;                       (Org '(org markdown))
-;;                       (TeX '(tex latex))
-;;                       (languages '(ruby python perl sh ess))
-;;                       (all (append lispy languages mley c-like Org TeX (list '(octave)))))
-;;                  (pretty-compile-patterns
-;;                   `(
-;;                     (?≠ ("!=" ,@c-like scheme octave Org)
-;;                         ("<>" tuareg octave)
-;;                         ("~=" octave)
-;;                         ("/=" haskell emacs-lisp))
-;;                     (?≤ ("<=" ,@all))
-;;                     (?≥ (">=" ,@all))
-;;                     ;; ⇨ ⇦, ← →
-;;                     (?⇦ ("<-" ,@mley ess Org))
-;;                     (?⇨ ("->" ,@mley ess c c++ perl Org))
-;;                     (?↑ ("\\^" tuareg))
-;;                     (?⇨ ("=>" sml perl ruby haskell))
-;;                     (?∅ ("nil" emacs-lisp ruby)
-;;                         ("null" scheme java)
-;;                         ("NULL" c c++)
-;;                         ("None" python)
-;;                         ("()" ,@mley))
-;;                     (?… ("\\.\\.\\." scheme))
-;;                     (?∀ ("List.for_all" tuareg))
-;;                     (?∃ ("List.exists" tuareg))
-;;                     (?∈ ("List.mem" tuareg)
-;;                         ("member" ,@lispy))
-;;                     (?∉ ())
-;;                     (?√ ("sqrt" ,@all))
-;;                     (?∑ ("sum" python ruby))
-;;                     (?α ("alpha" ,@all)
-;;                         ("'a" ,@mley))
-;;                     (?β ("beta" ,@all)
-;;                         ("'b" ,@mley))
-;;                     (?γ ("gamma" ,@all)
-;;                         ("'c" ,@mley))
-;;                     (?Δ ("delta" ,@all)
-;;                         ("'d" ,@mley))
-;;                     (?ε ("epsilon" ,@all))
-;;                     (?θ ("theta" ,@all))
-;;                     (?λ ("lambda" ,@all)
-;;                         ;; ("case-\\(lambda\\)" scheme)
-;;                         ("fn" sml)
-;;                         ("fun" tuareg)
-;;                         ("\\" haskell)
-;;                         ("->" ruby))
-;;                     (?π ("pi" ,@all)
-;;                         ("M_PI" c c++))
-;;                     (?φ ("psi" ,@all))
-;;                     (?² ("**2" python tuareg octave)
-;;                         ("^2" octave haskell))
-;;                     (?³ ("**3" python tuareg octave)
-;;                         ("^3" octave haskell))
-;;                     (?ⁿ ("**n" python tuareg octave)
-;;                         ("^n" octave haskell))
-;;                     ;; (?₀ ("[0]" ,@c-like)
-;;                     ;;     ("(0)" octave)
-;;                     ;;     (".(0)" tuareg))
-;;                     ;; (?₁ ("[1]" ,@c-like)
-;;                     ;;     ("(1)" octave)
-;;                     ;;     (".(1)" tuareg))
-;;                     ;; (?₂ ("[2]" ,@c-like)
-;;                     ;;     ("(2)" octave)
-;;                     ;;     (".(2)" tuareg))
-;;                     ;; (?₃ ("[3]" ,@c-like)
-;;                     ;;     ("(3)" octave)
-;;                     ;;     (".(3)" tuareg))
-;;                     ;; (?₄ ("[4]" ,@c-like)
-;;                     ;;     ("(4)" octave)
-;;                     ;;     (".(4)" tuareg))
-;;                     ;;    (?₅ ("[5]") ,@c-like)
-;;                     ;;    (?₆ ("[6]") ,@c-like)
-;;                     ;;    (?₇ ("[7]") ,@c-like)
-;;                     ;;    (?₈ ("[8]") ,@c-like)
-;;                     ;;    (?₉ ("[9]") ,@c-like)
-;;                     (?∞ ("HUGE_VAL" c c++))
-;;                     ;;    (?∙ ())
-;;                     ;;    (?× ())
-;;                     ;;    (?ₐ ("[a]" ,@c-like)
-;;                     ;;        ("(a)" octave))
-;;                     ;;    (?ₓ ("[x]" ,@c-like)
-;;                     ;;        ("(x)" octave))
-;;                     (?⋂ "\\<intersection\\>"   (,@lispen))
-;;                     (?⋃ "\\<union\\>"          (,@lispen))
-;;                     (?∧ ("\\<And\\>"     emacs-lisp lisp python)
-;;                         ("\\<andalso\\>" sml)
-;;                         ("&&"            c c++ perl haskell))
-;;                     (?∨ ("\\<or\\>"      emacs-lisp lisp)
-;;                         ("\\<orelse\\>"  sml)
-;;                         ("||"            c c++ perl haskell))
-;;                     (?¬ ("\\<!\\>"       c c++ perl sh)
-;;                         ("\\<not\\>"     lisp emacs-lisp scheme haskell sml))
-;;                     ))))
+;; (setq pretty-default-groups '(:function :greek-capitals :greek-lowercase :equality :ordering :ordering-double :ordering-triple :logic :nil :sets :sets-operations :sets-relations :arrows :arrows-twoheaded :arithmetic :arithmetic-double :punctuation :subscripts :superscripts))
+;; (setq pretty-active-groups)
+;; (add-to-list 'pretty-active-patterns '(ruby-mode))
+;; (add-to-list 'pretty-deactivated-patterns '(ruby-mode))
+
+;; FIXME:
+;; (add-to-list 'pretty-patterns '((ruby-mode ("->" . ?λ))))
 
 ;;; 1. if you want to set it globally
 (global-pretty-mode t)
@@ -526,47 +402,6 @@
 ;;       pretty-symbol-patterns '())
 
 
-;;; [ highlight-symbol ] -- automatic and manual symbol highlighting for Emacs
-
-;;; Usage:
-;;
-;; Use highlight-symbol-at-point to toggle highlighting of the symbol at point
-;; throughout the current buffer. Use highlight-symbol-mode to keep the symbol
-;; at point highlighted.
-;;
-;; The functions highlight-symbol-next, highlight-symbol-prev,
-;; highlight-symbol-next-in-defun and highlight-symbol-prev-in-defun allow for
-;; cycling through the locations of any symbol at point. Use
-;; highlight-symbol-nav-mode to enable key bindings (M-p and M-p) for
-;; navigation. When highlight-symbol-on-navigation-p is set, highlighting is
-;; triggered regardless of highlight-symbol-idle-delay.
-;;
-;; highlight-symbol-query-replace can be used to replace the symbol.
-
-(require 'highlight-symbol)
-
-;; (global-set-key [(control f3)] 'highlight-symbol-at-point)
-;; (global-set-key [f3] 'highlight-symbol-next)
-;; (global-set-key [(shift f3)] 'highlight-symbol-prev)
-;; (global-set-key [(meta f3)] 'highlight-symbol-query-replace)
-
-(setq highlight-symbol-idle-delay 1.5
-      highlight-symbol-border-pattern '("\\_<" . "\\_>")
-      highlight-symbol-colors '("yellow" "DeepPink" "cyan"
-                                "MediumPurple1" "SpringGreen1" "DarkOrange" "HotPink1"
-                                "RoyalBlue1" "OliveDrab")
-      ;; highlight-symbol-foreground-color
-      )
-
-(set-face-attribute 'highlight-symbol-face nil
-                    :foreground nil :background "midnight blue"
-                    :slant 'italic)
-
-(add-hook 'prog-mode-hook 'highlight-symbol-mode)
-
-(define-key my-search-prefix-map (kbd "h") 'highlight-symbol-at-point)
-
-
 ;;; [ page-break-lines-mode ] --- page breaks (^L characters) are displayed as a horizontal line of a character.
 
 ;;; In Page Break mode, page breaks (^L characters) are displayed as a horizontal line of `page-break-string-char' characters.
@@ -574,17 +409,44 @@
 (require 'page-break-lines)
 
 (global-page-break-lines-mode t)
-(diminish 'page-break-lines-mode)
 
 (setq page-break-lines-char ?─)
 
 
+;;; [ on-screen ]
+
+(setq on-screen-auto-update t
+      on-screen-delay 10
+      on-screen-drawing-threshold 2
+      on-screen-fringe-marker-position t
+      on-screen-highlighting-to-background-delta 0.05
+      on-screen-inverse-flag nil
+      on-screen-remove-when-edit t
+      on-screen-treat-cut-lines t
+      ;; fringe       - graphical markers in the fringe
+      ;; shadow       - transparent overlay on the text
+      ;; line         - transparent overlay on the confining text lines
+      ;; narrow-line  - narrow horizontal lines
+      on-screen-highlight-method 'narrow-line
+      )
+
+(use-package on-screen
+  :config
+  (set-face-attribute 'on-screen-fringe nil
+		      :foreground "red")
+  (set-face-attribute 'on-screen-narrow-line nil
+		      :underline '(:color "white" :style line))
+  (set-face-attribute 'on-screen-shadow nil
+		      :background "dark gray")
+  )
+
+
 ;;; [ Fold ]
 
-;;; hs-minor-mode --
+;;; [ hs-minor-mode ] -- hide/show
 
 ;; FIXME: *ERROR*: Web Mode doesn't support Hideshow Minor Mode.
-;; (add-hook 'prog-mode-hook 'hs-minor-mode)
+(add-hook 'prog-mode-hook 'hs-minor-mode)
 
 
 ;;; Disable GUI dialog boxes
@@ -642,8 +504,6 @@
 ;;       )
 
 ;; (add-hook 'emacs-startup-hook 'minimap-create)
-
-;; (diminish 'minimap-mode)
 
 
 ;;; [ stripe-buffer ] -- add stripes to "list" buffers

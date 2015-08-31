@@ -39,7 +39,6 @@
 ;; (autoload 'paredit-mode "paredit" "minor mode for pseudo-structurally editing Lisp code." t)
 
 (after 'paredit
-  (diminish 'paredit-mode " Par")
   ;; remove following keybindings
   (dolist (binding (list (kbd "C-<left>") (kbd "C-<right>")
                          (kbd "C-M-<left>") (kbd "C-M-<right>")))
@@ -62,12 +61,11 @@
            lisp-mode-hook
            lisp-interaction-mode-hook
            scheme-mode-hook
-           clojure-mode-hook
            ;; NOTICE do not enable paredit-mode in all programming modes.
            ;; prog-mode-hook               ; programming languages source code mode hook.
            ))
   ;; `paredit-mode', or `enable-paredit-mode'.
-  (add-hook hook 'paredit-mode))
+  (add-hook hook 'enable-paredit-mode))
 
 ;;; ParEdit inside mini-buffer
 ;;

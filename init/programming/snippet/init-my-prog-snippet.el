@@ -7,6 +7,7 @@
 
 
 ;;; [ YASnippet ] --- (template/snippet engine)
+
 ;; Usage:
 ;; - [TAB] -- \t, to expand and jump to next field.
 ;; - [<tab>] -- [tab],
@@ -23,7 +24,9 @@
 ;; - (yas-activate-extra-mode (mode))
 ;;    Activates the snippets for the given mode in the buffer.
 ;;    The function can be called in the hook of a minor mode to activate snippets associated with that mode.
-
+;; - (yas-deactivate-extra-mode (mode))
+;;    Deactives the snippets for the given mode in the buffer.
+;; - (yas--modes-to-active) :: show what modes snippet is active in current buffer.
 
 ;; Expanding Snippets:
 ;;   * triggering expansion
@@ -93,10 +96,16 @@
         ;; "~/.emacs.d/el-get/yasnippet/snippets/" YASnippet bundled snippets
         ))
 
+;; (setq yas-verbosity 0)
+
 
 ;;; keybindings
+;;
 ;; - [Tab]
 ;; - or [C-Tab]
+
+(define-key yas-minor-mode-map (kbd "<tab>") 'yas-expand) ; (kbd "<tab>") is same with [tab]
+(define-key yas-minor-mode-map (kbd "TAB") #'indent-for-tab-command)
 
 ;;; source code implement
 ;; (defvar yas-keymap  (let ((map (make-sparse-keymap)))
@@ -136,7 +145,7 @@
 (setq yas-trigger-symbol " =>") ; the text used in menu to represent the trigger.
 
 
-;; (setq yas-key-syntaxes '("w" "w_" "w_." "w_.()" "^ "))
+;; (setq yas-key-syntaxes '("w" "w_" "w_." "w_.()" yas-try-key-from-whitespace))
 
 ;; for `yas-choose-value'.
 (setq yas-prompt-functions
@@ -278,32 +287,15 @@ $0"
 
 ;;; Faces
 (set-face-attribute 'yas-field-highlight-face nil
-                    :background "black" :foreground " "
-                    :box '(:color "#009494" :line-width 1 :style nil)
+                    :foreground nil
+                    :background (color-darken-name (face-background 'default) 5)
+                    :box '(:color "cyan" :line-width 1 :style nil)
                     )
 (set-face-attribute 'yas--field-debug-face nil
                     :background " " :foreground " "
                     :box nil
                     ;; :box '(:color "cyan")
                     )
-
-
-;;; enable YASnippet
-
-(yas-global-mode 1) ; or [M-x yas-reload-all] if you've started YASnippet already.
-
-;;
-;; use yas-minor-mode on a pre-buffer basis To use YASnippet as a non-global
-;; minor mode, replace (yas-global-mode 1) with (yas-reload-all) to load the
-;; snippet tables. Then add a call to (yas-minor-mode) to the major-modes where
-;; you to enable YASnippet.
-;; (dolist (hook
-;;          '(prog-mode-hook
-;;            org-mode-hook
-;;            ))
-;;   (add-hook hook '(lambda () (yas-minor-mode))))
-
-(setq yas-dont-activate '(minibufferp))
 
 
 ;; It will test whether it can expand, if yes, cursor color -> green.
@@ -335,11 +327,38 @@ $0"
 ;;; Python indent issue
 
 (add-hook 'python-mode-hook
-          '(lambda () (set (make-local-variable 'yas-indent-line) 'fixed)))
+          '(lambda ()
+             (set (make-local-variable 'yas-indent-line) 'fixed)))
 
+
+;;; enable YASnippet
 
+(setq yas-dont-activate '(minibufferp))
 
-(diminish 'yas-minor-mode)
+(yas-global-mode 1) ; or [M-x yas-reload-all] if you've started YASnippet already.
+
+;; use yas-minor-mode on a pre-buffer basis To use YASnippet as a non-global
+;; minor mode, replace (yas-global-mode 1) with (yas-reload-all) to load the
+;; snippet tables. Then add a call to (yas-minor-mode) to the major-modes where
+;; you to enable YASnippet.
+;;
+;; NOTE: don't active globally, can avoid enable `yas-minor-mode' on useless modes,
+;; avoid override other mode key [Tab] utility.
+
+;; (dolist (hook
+;;          '(prog-mode-hook
+;;            org-mode-hook
+;;            message-mode-hook
+;;            mu4e-compose-mode-hook
+;;            ))
+;;   (add-hook hook #'yas-minor-mode))
+;; (yas-reload-all)
+
+
+;;; [ yasnippet-snippets ]
+
+
+;;; [ yasnippets ]
 
 
 

@@ -40,59 +40,89 @@
 ;;; my packages which will be installed.
 (setq my:el-get-packages
       (append
-       '(;; debug
+       '(names
+         ;; namespaces
+         seq
+         ;; debug
          edebug-x
+         ;; debuggs
+         bug-hunter
          ;; benchmark
          ;; benchmark-init
          ;; package
          ;; paradox
-         ;; popup
+         ;; Enhance Emacs self
+         ;; macro
+         ;; elmacro macrostep
+         ;; eieio
+         ;; Popup
          popup
          pos-tip
          popup-pos-tip
          showtip
          tooltip-help
          ;; Emacs
-         auto-compile
+         ;; auto-compile
          ;; completion
-         ;; ido-vertical-mode ido-ubiquitous smex
+         ;; ido-vertical-mode ido-ubiquitous ido-better-flex smex ido-hacks
          helm
-         helm-helm-commands helm-descbinds ; helm-themes
+         helm-helm-commands helm-descbinds ; helm-bind-key helm-themes
+         ;; helm-package
          ;; FIXME helm-c-moccur
          helm-cmd-t
-         helm-c-yasnippet helm-c-flycheck
+         helm-c-yasnippet helm-c-flycheck ; helm-flycheck helm-flyspell
+         helm-c-moccur ; helm-ack
+         ;; helm-shell helm-shell-history
          helm-gtags helm-yaetags
-         ;; helm-pydoc
-         ;; helm-ls-git
-         helm-gist
          helm-mu
+         ;; helm-mode-manager
+         helm-bm ; helm-chrome helm-firefox
+         ;; helm-w3m helm-webkit
          ;; helm-delicious
          ;; helm-dictionary
+         ;; helm-google
+         ;; helm-make
+         ;; helm-go-package
+         ;; helm-css-scss
+         ;; helm-R
+         ;; helm-perldoc
+         ;; helm-proc
+         ;; helm-ls-git
+         helm-git helm-git-files ; helm-git-grep
+         helm-gitlab
+         ;; Auto-Completion
          ;; auto-complete
          ;; auto-complete-yasnippet auto-complete-chunk
          ;; auto-complete-etags
          ;; auto-complete-emacs-lisp
          ;; auto-complete-pcmp
          ;; ac-capf
-         company-mode
          ;; ac-helm
          ;; ac-company
-         ;; color theme
+         company-mode company-quickhelp company-statistics
+         color-theme
          color-theme-solarized
-         ;; color-theme-almost-monokai
-         ;; monokai-theme
+         ;; color-theme-monokai ; color-theme-almost-monokai monokai-theme
          ;; apperance
          ;; emacs-powerline
-         highlight-symbol
-         ;; cursor-chg
+         ;; highlight-cl highlight-fns highlight-defined
+         ;; highlight-sexp highlight-blocks
+         highlight-quoted ; highlight-stages
+         highlight-escape-sequences ; highlight-numbers highlight-parentheses
+         ;; cursor-chg col-highlight
          ;; yascroll
          ;; minimap sublimity
          pretty-mode-plus page-break-lines
+         on-screen
          ;; mode-line
-         diminish nyan-mode
+         nyan-mode
+         ;; spinner
          ;; mode-icons
          ;; input method
          ;; eim
+         ;; TODO: chinese-pyim
+         ;; TODO: chinese-remote-input
+         ;; TODO: chinese-word-at-point
          ;; clipboard
          ;; xclip
          ;; Info & help & documentation
@@ -100,26 +130,36 @@
          apropos+
          ;;; multiple major modes
          mmm-mode ; mumamo-noweb
-         ;; polymode ; https://github.com/vspinu/polymode
+         ;; polymode
          ;; shell
-         ;; readline-complete
-         eshell-manual
+         ;; eshell-manual eshell-prompt-extras eshell-fringe-status
+         shelldoc
          ;; insert-shebang
          ;; others
          ;; guru-mode
-         ;; buffer & window, frame
+         ;; frame
+         ;; window
          window-number window-layout ; switch-window
          workgroups2
          ;; e2wm ne2wm
          ;; perspective
-         popwin
+         window-purpose
+         golden-ratio
+         popwin ; shackle
          zoom-window
+         ;; buffer
+         ;; ibuffer-vc ibuffer-git
+         ;; ibuffer-projectile ibuffer-tramp
          ;; minibuffer
          eldoc-eval
          ;; edit
          undo-tree
-         multiple-cursors
+         multiple-cursors iedit
          expand-region
+         edit-server ; edit-server-htmlize
+         scratch ; omni-scratch
+         ;; fill
+         ;; aggressive-fill-paragraph
          ;; unicode
          ucs-utils
          ;; large file
@@ -128,46 +168,75 @@
          ;; kill-ring-ido
          ;; predictive
          ;; spell
-         ;; flyspell flyguess ; flyspell-guess inflections
-         ;; auto-dictionnary
+         flyspell flyspell-popup
+         ;; flyguess ; flyspell-guess inflections ; auto-dictionnary
          ;; dictionary & translation
+         define-word
          ;; babel
          ;; imenu
-         imenu-anywhere
+         ;; imenu-anywhere
          ;; jump
          ace-jump-mode ; ace-isearch
          ;; bookmark, register, macro,
          bm
          ;; keybinding
          bind-key
-         guide-key ; guide-key-tip
+         ;; guide-key ; guide-key-tip
+         which-key
          hydra
-         ;; dired
-         ;; direx
-         ;; dired-k ; stripe-buffer
+         ;; Dired
+         direx
+         dired-efap dired-rainbow dired-k ; stripe-buffer
+         peep-dired
+         ;; Image
+         ;; image+ image-dired+
+         ;; PDF
+         pdf-tools
+         org-pdfview
          ;; search
          ;; isearch+
          anzu
-         visual-regexp visual-regexp-steroids ace-jump-mode
+         highlight-symbol
+         visual-regexp visual-regexp-steroids
+         ample-regexps
+         swiper ; swiper-helm
          ack-and-a-half ; full-ack
          ag helm-ag
+         helm-recoll
+         ;; (m)occur
+         ;; ioccur joccur occur-x
+         ;; color-moccur moccur-edit
          ;; awk-it
+         ;; regexp
+         pcre2el
          ;; Org-mode
          org-mode
          org-fstree org-bullets
-         ob-julia
+         ob-go ob-prolog
+         ob-julia ; ob-ipython
+         ob-sql ob-mongo
+         ob-http ob-browser
+         ;; ob-translate
+         cdlatex-mode
+         orgtbl-ascii-plot ; orgtbl-aggregate orgtbl-join orgtbl-show-header
          ;; org-ac
-         org-screenshot
+         org-download org-screenshot
          org-pomodoro
          ;; org-doing
-         ;; orgit ; org-magit ; org-linkany
-         org-publish org-jekyll jekyll-el ;; org-blog org-website
+         orgit ; org-linkany
+         ;; Blog
+         org-publish
+         ;; o-blog
+         ;; org2blog ; org-blog org-website
+         ;; jekyll-el org2jekyll ; org-jekyll jekyll-modes org-protocol-jekyll
+         octopress org-octopress
          ;; org-present org-tree-slide org-html5presentation org-impress-js
-         org-passwords
+         org-password-manager ; org-passwords
          ;; org-magit ; org-linkany
-         org-publish org-jekyll jekyll-el
-         ;; org-trello
-         outorg
+         org-trello
+         org-projectile
+         ;; org-contacts org-vcard
+         ;; org-gnome org-mac-iCal org-mac-link
          ;; Wiki
          ;; oddmuse yaoddmuse org-oddmuse oddmuse-curl
          ;; SpeedReading - OpenSpritz
@@ -175,18 +244,27 @@
          ;; speedread
          ;; help
          ;; discover
+         ;; Browser
+         ;; eww ; webkit ; w3m
          ;; Email
          ;; mu
          mu4e mu-cite
+         ;; notmuch
+         boxquote
          ;; BBDB
-         bbdb ; bbdb- ; FIXME: bbdb-vcard
+         bbdb bbdb-vcard
          ;; IRC
-         erc erc-highlight-nicknames erc-nick-notify bbdb2erc
+         ;; erc erc-highlight-nicknames erc-nick-notify bbdb2erc
+         ;; weechat
          ;; RSS
-         elfeed
+         elfeed elfeed-web
+         ;; Podcast & Screencast
+         emms helm-emms
+         emms-netease emms-player-mpv emms-info-mediainfo
          ;; tools
-         ;; calfw sauron ; appt
-         gist
+         calfw sauron ; appt
+         ;; gist helm-gist
+         yagist
          ;; emms ; emms-get-lyrics
          ;; ampc
          ;; subprocess
@@ -199,218 +277,300 @@
          indent-guide
          aggressive-indent-mode
          ;; auto-indent-mode clean-aindent
-         ;; complete
+         ;; completion & comprehension
          ;; emacs-ycmd
+         ;; code sense
+         cedet
+         sourcegraph sourcegraph-mode
          ;; lint
          flycheck
          ;; flycheck-tip
          flycheck-pos-tip
          ;; comment
          fic-mode
-         poporg
+         poporg ; outorg
+         ;; License
+         xlicense
          ;; electric
          paredit
          smartparens
          ;; autopair
          rainbow-mode
          rainbow-delimiters
-         ;; rainbow-block
+         ;; rainbow-blocks
          ;; rainbow-identifiers
          ;; document, API, docsets
-         dash helm-dash
+         dash helm-dash dash-at-point
          ;; RFC
          ;; rfc irfc
-         ;; snippet
+         ;; Snippet
          yasnippet
+         yasnippet-snippets ; yasnippets
+         ;; Template
+         ;; template file-template
+         yatemplate
          ;; Tags
-         cscope ascope
-         helm-cscope ; xcscope ascope
-         gtags helm-gtags ggtags xgtags ; use program global
+         ;; cscope
+         cscope rscope ; bscope ascope xcscope
+         helm-cscope
+         ;; rtags
+         ;; rtags
+         ;; gtags
+         gtags helm-gtags ggtags xgtags
+         ;; ctags
+         ;; etags
          ;; code browser
          sr-speedbar
          ;; neotree
-         ;; project-explorer
+         project-explorer
          ;; compile
          smart-compile smart-compile+
+         quickrun
          ;; refactor
          emacs-refactor
          ;; sourcemap -- https://github.com/syohex/emacs-sourcemap
          ;; vcs
          git-modes git-emacs ; git-status
-         magit ; magithub
+         magit
          magit-filenotify magit-gitflow
-         magit-gh-pulls
-         magit-gerrit
+         magit-gh-pulls magithub
+         ;; magit-gerrit
          git-gutter git-gutter+ ; git-gutter-fringe
-         ; git-timemachine
+         git-messenger
          ;; egg
-         mo-git-blame
          diffview
+         helm-open-github
          ;; project
          projectile
-         helm-project
+         helm-projectile ; helm-project
          vagrant vagrant-tramp
-         ;; bug track system
-         bts bts-github
+         ;; Bug Track System
+         ;; bts bts-github
          ;; code assistant
          howdoi
          ;; languages
          ;; Ruby
          ruby-mode
-         ;; enh-ruby-mode
+         enh-ruby-mode
          ;; ruby-block
+         ruby-hash-syntax ruby-tools
          yari
          ;; auto-complete-ruby ; (conflict with robe-mode?)
-         inf-ruby ruby-compilation rvm ;; pry
-         ;; company-inf-ruby
+         ruby-compilation
+         inf-ruby pry
+         rbenv ; chruby ; rvm
          ;; rcodetools
          robe-mode helm-robe
-         rake
-         rspec-mode
-         yard-mode
-         ruby-test-mode ; ruby-test
+         rake rdoc-mode
+         yard-mode ; omniref ; helm-rb
          ;; ruby-hash-syntax
+         ruby-test-mode ; ruby-test
+         rspec-mode ; minitest
          ;; cucumber feature-mode
+         ;; rcov-overlay
+         rdebug
+         motion-mode
          ;; Lisp
-         slime
-         elisp-slime-nav eldoc-eval
-         profile-lisp
-         slime-company ; ac-slime
+         slime elisp-slime-nav slime-company ; ac-slime
+         sly sly-company ; ac-sly
          geiser ; ac-geiser
+         eldoc-eval
+         profile-lisp
+         hl-sexp
+         eval-sexp-fu
          ;; Scheme
          ;; Clojure
-         clojure-mode cider
-         ;; ac-cider ; company-cider
+         clojure-mode cider inf-clojure
+         ;; cider-decompile ; clj-refactor
+         ;; cider-eval-sexp-fu align-cljlet
+         flycheck-clojure
+         typed-clojure-mode
+         ;; Elixir
+         ;; elixir
+         ;; alchemist
          ;; Python
-         python python-mode
-         ;; jedi
-         helm-ipython
+         ;; python python-mode
+         pyvenv
+         ;; jedi ; (depends on auto-complete)
+         ;; jedi-core
+         ;; company-jedi
+         anaconda-mode company-anaconda
+         ;; elpy
+         pydoc helm-pydoc
+         ;; ipython helm-ipython
+         ;; ipython-notebook
          ;; C family languages (C, C++, Go, D, F, Rust)
-         c-eldoc eassist
+         ;; c-eldoc eassist
          irony-mode
          company-irony ; ac-irony
-         company-c-headers
+         irony-eldoc flycheck-irony
+         ;; company-c-headers
          ;; auto-complete-clang auto-complete-c-headers
          ;; auto-complete-clang-objc
          ;; bison-mode
+         function-args
          ;; Go
-         go-mode go-eldoc
-         go-company
-         ;; go-autocomplete ; gocode
+         go-mode ; go-eldoc
+         company-go ; go-autocomplete
          ;; D
          ;; d-mode
          ;; C++
          ;; Rust
          ;; rust-mode
          ;; Lua
-         ;; lua-mode
+         lua-mode
+         ;; Swift
+         swift-mode
          ;; Web
          web-mode
+         company-web
+         web-completion-data
          skewer-mode ; live web development in Emacs (HTML, CSS, JavaScript)
-         emacs-moz-controller ; moz-repl
+         ;; emacs-moz-controller ; moz-repl
          ;; JavaScript
          ;; js-mode
-         ;; js2-mode
+         js2-mode
          js3-mode
+         tern company-tern ; tern-auto-complete
          swank-js
+         js-comint
          ;; ac-js2
-         tern ; company-tern
          ;; HTML
          htmlize html5
-         ;; ac-html
+         emmet-mode ; zencoding-mode
+         company-web ; ac-html
+         web-completion-data
          ;; CSS
+         ;; FIXME: can't install css-mode
          css-mode
          ;; auto-complete-css
          css-eldoc
          showcss-mode
+         less-css-mode skewer-less
+         scss-mode
          ;; CoffeeScript
-         ;; coffee-mode
+         coffee-mode
          ;; XML
+         xml-parse xml-rpc xml-gen
          ;; auto-complete-nxml
          ;; JSON
          json-mode json-reformat json-snatcher
          ;; Markdown
-         markdown-mode markdown-preview-mode
+         markdown-mode markdown-preview-mode realtime-preview
          ;; YAML
          yaml-mode
          ;; TeX
-         auctex
+         ;; auctex
          company-auctex ; auto-complete-auctex
          ;; auto-complete-latex
          company-math ; ac-math
+         latex-preview-pane
          ;; reftex
          ;;; Haskell
-         ;; haskell-mode
+         haskell-mode
          ;; Erlang
          erlang-mode
          ;; Prolog
-         prolog-el
+         ;; prolog-el
          ;; Verilog
-         ;; verilog-mode
+         verilog-mode
          ;; auto-complete-verilog
          ;; Java
          javadoc-lookup ; javadoc-help
-         eclim
          ;; java-complete
+         eclim jdee malabar-mode
+         ;; jde-maven
+         ;; groovy-mode inf-groovy
+         ;; Statistics
          ess
-         ;; Julia
-         ;; julia-mode
+         ess-R-data-view ess-R-object-popup ess-edit ess-smart-equals ess-smart-underscore
          ;; R
-         ;; ac-R
+         ;; Julia
          ;; gnuplot
-         ;; gnuplot-mode
+         gnuplot-mode
          ;; Octave
          ;; ac-octave
          ;; Database
          ;; SQL
-         sqlup-mode
-         edbi company-edbi
+         sql sqlup-mode sql-indent sql-transform sqled-mode sqlplus ; sql-complete sql-completion
+         ;; SQL comprehensive complete
+         edbi company-edbi edbi-database-url edbi-minor-mode
+         ;; ede-compdb
+         ;; SQLite
+         ;; sqlite
+         edbi-sqlite
+         ;; esqlite
+         ;; PostgreSQL
+         pg pgdevenv
          ;; NoSQL
+         db
+         db-sql db-pg
          ;; MongoDB
-         ;; inf-mongo
+         inf-mongo ob-mongo
          ;; Redis
          ;; eredis
          ;; Assembly
-         iasm-mode
+         iasm-mode nasm-mode
          ;; Hex
-         hexview-mode
+         ;; hexview-mode
          ;; Frameworks
          ;; Ruby on Rails
          projectile-rails rails-new ; helm-rails
          rhtml-mode ; nxhtml
          ;; yasnippet-rails
-         ;; sass-mode haml-mode slim-mode
+         haml-mode sass-mode scss-mode slim-mode
          ;; emacs-rails ; https://github.com/tomtt/emacs-rails
+         ;; Make
+         cmake-mode ; cmake-font-lock cmake-ide ; cmake-project
          ;; Arduino
-         ;; arduino-mode
+         arduino-mode
          ;; Android
-         ;; android-mode
+         android-mode
+         ;; emacs-droid emdroid
          ;; Nginx
          nginx-mode
          ;; Linux
+         systemd-mode
+         xrdb-mode
          ;; vimrc-mode
          ;; crontab-mode
          ;; Arch
          pkgbuild-mode
+         ;; aurel
+         ;; Docker
+         docker-mode dockerfile-mode
+         docker-tramp
          ;; fvwm-mode glsl-mode
          ;; Windows
          ;; batch-mode
          ;; PowerShell-Mode
          ;; fvwm-mode glsl-mode
          ;; English
+         ;; Chinese
+         pinyin-search
          ;; Japanese
-         migemo helm-migemo
+         ;; migemo helm-migemo
          ;; Speak
-         festival
+         ;; festival
          ;; Screenshot & Screencast
          screenshot
          capture camcorder
+         ;; Libraries
+         ;; ibus
+         ;; http httpcode httprepl web ; web-beautify
+         ;; xpath xpath-parser
+         ;; web-server
+         elnode ; elnode-org mongo-elnode
+         restclient company-restclient ; know-your-http-well
+         ;; Platforms
+         ;; heroku
+         ;; wolfram-mode
          ;; Toy
          ;; oniisama
          ;; Emacs keyboard commands log
          command-log-mode
          ;; Integrate into Emacs
-         sx ; Stack Exchange
+         ;; sx ; Stack Exchange
          )
        (mapcar 'el-get-source-name el-get-extra-sources)))
 

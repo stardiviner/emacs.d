@@ -26,8 +26,6 @@
 ;; - Import
 ;;   http://www.emacswiki.org/emacs/BbdbImporters
 
-;;; TODO: BBDBv3
-
 (require 'bbdb)
 ;; (bbdb-initialize)
 ;; (bbdb-initialize 'message 'sendmail 'supercite 'w3 'gnus)
@@ -40,11 +38,11 @@
 
 (unless (boundp 'my-bbdb-map)
   (define-prefix-command 'my-bbdb-map))
-(define-key my-tools-prefix-map (kbd "c") 'my-bbdb-map)
+(define-key my-tools-prefix (kbd "B") 'my-bbdb-map)
 
 (if (featurep 'bbdb-)
-    (define-key my-bbdb-map (kbd "b") 'bbdb-:open)
-  (define-key my-bbdb-map (kbd "b") 'my-bbdb-open-or-switch) ; or 'bbdb.
+    (define-key my-bbdb-map (kbd "B") 'bbdb-:open)
+  (define-key my-bbdb-map (kbd "B") 'my-bbdb-open-or-switch) ; or 'bbdb.
   )
 
 (defun my-bbdb-open-or-switch ()
@@ -55,7 +53,7 @@
     ;; (bury-buffer)
     ;; (switch-to-buffer "*BBDB*")
     ))
-(define-key my-bbdb-map (kbd "B") 'bbdb)
+(define-key my-bbdb-map (kbd "b") 'bbdb)
 
 (define-key my-bbdb-map (kbd "c") 'bbdb-create)
 ;; usage: region select name and email part in To: field. then press this keybinding.
@@ -63,7 +61,7 @@
 (define-key my-bbdb-map (kbd "h") 'helm-bbdb)
 
 (setq bbdb-file (expand-file-name "~/Org/BBDB/bbdb")
-      bbdb-image 'name ; display records with an image.
+      ;; bbdb-image 'name ; display records with an image.
       bbdb-image-path (expand-file-name "~/Org/BBDB/avatars/")
       ;; bbdb-image-suffixes '(".png" ".jpg" ".gif" ".xpm")
       ;; bbdb-sound-files
@@ -129,20 +127,23 @@
 ;;; Faces
 ;; (bbdb-faces)
 
-(set-face-attribute 'bbdb-name nil
-                    :inherit 'font-lock-function-name-face
-                    ;; :foreground "cyan"
-                    :weight 'bold
-                    )
-(set-face-attribute 'bbdb-organization nil
-                    :inherit 'font-lock-comment-face
-                    ;; :foreground ""
-                    :slant 'italic
-                    )
-(set-face-attribute 'bbdb-field-name nil
-                    :inherit 'font-lock-variable-name-face
-                    :foreground "sky blue"
-                    )
+(use-package bbdb
+  :config
+  (set-face-attribute 'bbdb-name nil
+                      :inherit 'font-lock-function-name-face
+                      ;; :foreground "cyan"
+                      :weight 'bold
+                      )
+  (set-face-attribute 'bbdb-organization nil
+                      :inherit 'font-lock-comment-face
+                      ;; :foreground ""
+                      :slant 'italic
+                      )
+  (set-face-attribute 'bbdb-field-name nil
+                      :inherit 'font-lock-variable-name-face
+                      :foreground "sky blue"
+                      )
+  )
 
 
 
@@ -297,8 +298,53 @@
 
 ;;; [ bbdb-vcard ]
 
-;; (require 'bbdb-vcard)
+;;; Usage:
+;;
+;;; import:
+;;
+;; - `bbdb-vcard-import-file'
+;; - `bbdb-vcard-import-buffer'
+;; - `bbdb-vcard-import-region'
+;;
+;; export: (in bbdb buffer)
+;;
+;; - [v]  :: to export the record under the point.
+;; - [* v] :: to export all records in buffer into one vCard file.
+;; - [* C-u v] :: to export them into one file each.
+;;
+;; - [V] or [* V] :: to put one or all vCard(s) into the kill ring.
+;;
+;;; vCard Media Objects
+;;
+;; The importer stores inline base46-encoded images, sounds, and cryptographic
+;; keys to the local disk under the `bbdb-vcard-directory' directory. The
+;; relative filenames for these objects are stored in the following BBDB
+;; xfields, respectively:
+;;
+;; - image-filename: "media/image-<sha1sum>.<suffix>"
+;; - sound-filename: "media/sound-<sha1sum>.<suffix>"
+;; - gpg-key-filename: "media/key-<sha1sum>.<suffix>"
+;;
+;; if the variable `bbdb-image' is uncustomized when bbdb-vcard is initialized,
+;; it will be set to `bbdb-vcard-image-basename'. This will allow to BBDB to
+;; locate images when displaying records.
 
+
+(require 'bbdb-vcard)
+
+(setq bbdb-vcard-directory "~/Org/BBDB/vCards"
+      bbdb-vcard-media-directory "media/"
+      )
+
+;; TODO:
+;; (setq bbdb-vcard-skip-on-import
+;;       bbdb-vcard-skip-on-export
+;;       bbdb-vcard-skip-valueless)
+
+(setq bbdb-vcard-use-fullname t ; use full-name can reduce merge conflicts.
+      ;; bbdb-vcard-name-imported-priority '(first-last formated-name bbdb-vcard-generate-bbdb-name)
+      ;; bbdb-vcard-x-bbdb-candidates
+      )
 
 ;;; [ helm-bbdb ]
 

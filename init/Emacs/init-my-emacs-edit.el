@@ -10,14 +10,15 @@
 ;;    `- t    -- timestamp
 ;;    `- q    -- quit
 
-(require 'undo-tree)
-
 (global-undo-tree-mode t)
-(diminish 'undo-tree-mode)
 
 ;;;_ Edit
 
 (delete-selection-mode t)             ; typed text replaces the active selection
+
+;;;_ Rectangle
+
+;;; - [C-x SPC] / [C-x r r m] (custom keybinding) :: `rectangle-mark-mode'
 
 ;;;_ kill-ring-search
 
@@ -44,11 +45,21 @@
 
 
 
-;;;_ edit-server
+;;;_ [ edit-server ]
 
-;; (load "~/.emacs.d/init/extensions/edit-server.el")
-;; (require 'edit-server)
-;; (edit-server-start)
+;;; Usage:
+;;
+;; edit browser text-area.
+
+(when (require 'edit-server nil t)
+  (setq edit-server-new-frame t)
+  (edit-server-start))
+
+(setq edit-server-url-major-mode-alist
+      '(("github\\.com" . markdown-mode)
+        ("stackoverflow\\.com" . markdown-mode)
+        ("segmentfault\\.com" . markdown-mode)
+        ))
 
 ;;;_ Macro
 
@@ -107,107 +118,10 @@
         )
       )
 
-;;;_ Narrowing
-
-;;; Usage:
-;; - prefix --> [C-x n]
-;; - [C-x n n] -- narrow to region
-;; - [C-x n w] -- widen (undo narrow)
-
-;;; don't disable narrowing functions
-(put 'narrow-to-region 'disabled nil)
-(put 'narrow-to-defun  'disabled nil)
-(put 'narrow-to-page   'disabled nil)
-
-(unless (boundp 'my-narrow-prefix-map)
-  (define-prefix-command 'my-narrow-prefix-map))
-(define-key my-edit-prefix-map (kbd "n") 'my-narrow-prefix-map)
-
-(define-key my-narrow-prefix-map (kbd "w") 'widen)
-(define-key my-narrow-prefix-map (kbd "n") 'narrow-to-region)
-(define-key my-narrow-prefix-map (kbd "r") 'narrow-to-region)
-(define-key my-narrow-prefix-map (kbd "d") 'narrow-to-defun)
-(define-key my-narrow-prefix-map (kbd "p") 'narrow-to-page)
-
-;;; custom keybinding for handy (narrow + indirect-buffer)
-;; Usage: [C-x n i], you can kill narrowed indirect buffer like normal buffer with [C-x k]. the modification will keep.
-;; FIXME: the region highlight doesn't disappear, this is a problem.
-(defun narrow-to-region-indirect (start end)
-  "Restrict editing in this buffer to the current region, indirectly."
-  (interactive "r")
-  (deactivate-mark)
-  (let ((buf (clone-indirect-buffer nil nil)))
-    (with-current-buffer buf
-      (narrow-to-region start end))
-    (switch-to-buffer buf)))
-
-;; (global-set-key (kbd "C-x n i") 'narrow-to-region-indirect)
-(define-key my-narrow-prefix-map (kbd "i") 'narrow-to-region-indirect)
-
-
-(defun narrow-or-widen-dwim (p)
-  "If the buffer is narrowed, it widens. Otherwise, it narrows intelligently.
-Intelligently means: region, org-src-block, org-subtree, or defun,
-whichever applies first.
-Narrowing to org-src-block actually calls `org-edit-src-code'.
-
-With prefix P, don't widen, just narrow even if buffer is already
-narrowed."
-  (interactive "P")
-  (declare (interactive-only))
-  (cond ((and (buffer-narrowed-p) (not p)) (widen))
-        ((region-active-p)
-         (narrow-to-region (region-beginning) (region-end)))
-        ((derived-mode-p 'org-mode)
-         ;; `org-edit-src-code' is not a real narrowing command.
-         ;; Remove this first conditional if you don't want it.
-         (cond ((ignore-errors (org-edit-src-code))
-                (delete-other-windows))
-               ((org-at-block-p)
-                (org-narrow-to-block))
-               (t (org-narrow-to-subtree))))
-        (t (narrow-to-defun))))
-
-(define-key narrow-map "r" 'narrow-to-region) ; backup `narrow-to-region'.
-(define-key narrow-map "n" #'narrow-or-widen-dwim)
-;; This line actually replaces Emacs' entire narrowing keymap, that's
-;; how much I like this command. Only copy it if that's what you want.
-;; (define-key ctl-x-map "n" #'narrow-or-widen-dwim)
-
-
-;;;_ Mark --- [C-SPC / C-@] + [C-u C-SPC / C-u C-@] + [C-`] / [M-`]
-
-(defun push-mark-no-activate ()
-  "Pushes `point' to `mark-ring' and does not activate the region.
-Equivalent to \\[set-mark-command] when \\[transient-mark-mode] is disabled"
-  (interactive)
-  (push-mark (point) t nil)
-  (message "Pushed mark to ring"))
-
-(global-set-key (kbd "C-`") 'push-mark-no-activate)
-
-(defun jump-to-mark ()
-  "Jumps to the local mark, respecting the `mark-ring' order.
-This is the same as using \\[set-mark-command] with the prefix argument."
-  (interactive)
-  (set-mark-command 1))
-
-(global-set-key (kbd "M-`") 'jump-to-mark)
-
-;; (defun exchange-point-and-mark-no-activate ()
-;;   "Identical to \\[exchange-point-and-mark] but will not activate the region."
-;;   (interactive)
-;;   (exchange-point-and-mark)
-;;   (deactivate-mark nil))
-;; (define-key global-map [remap exchange-point-and-mark] 'exchange-point-and-mark-no-activate)
-
-
 ;;;_ expand-region
 
 ;;; Expand region increases the selected region by semantic units. Just keep
 ;;; pressing the key until it selects what you want.
-
-(require 'expand-region)
 
 (global-set-key (kbd "C-=") 'er/expand-region)
 
@@ -250,155 +164,18 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;;   (add-hook hook (lambda ()
 ;;                    (turn-on-auto-capitalize-mode))))
 
-;;;_ Iedit -- Edit multiple regions simultaneously in a buffer or a region
-;;;
-;;; This package includes Emacs minor modes (iedit-mode and
-;;; iedit-rectangle-mode) based on a API library (iedit-lib) and allows you to
-;;; edit one occurrence of some text in a buffer (possibly narrowed) or region,
-;;; and simultaneously have other occurrences edited in the same way, with
-;;; visual feedback as you type.
-;;
-;; Normal scenario of Iedit mode is like:
-;;
-;; - Highlight certain contents - by press C-; All occurrences of a symbol, string or a rectangle in the buffer or a region may be highlighted corresponding to current mark, point and prefix argument. Refer to the document of `iedit-mode’ for details.
-;;
-;; - Edit one of the occurrences The change is applied to other occurrences simultaneously.
-;; - Finish - by pressing C-; again
-;
-;; You can also use Iedit mode as a quick way to temporarily show only the
-;; buffer lines that match the current text being edited. This gives you the
-;; effect of a temporary `keep-lines’ or `occur’. To get this effect, hit C-’
-;; when in Iedit mode - it toggles hiding non-matching lines.
-;;
-;; Renaming refactoring is convinient in Iedit mode
-;; - The symbol under point is selected as occurrence by default and only complete symbols are matched
-;; - With digit prefix argument 0, only occurrences in current function are matched
-;; - Restricting symbols in current region can be done by pressing C-; again
-;; - Last renaming refactoring is remembered and can be applied to other buffers later
-;; - Restricting the search area to just the current line can be done by pressing M-I.
-;; - Restricting the search area to the lines near the current line can be done by pressing M-{ and M-}. These will expand the search region one line at a time from the top and bottom. Add a prefix argument to go the opposite direction.
-
-;;; Iedit-rectangle-mode provides rectangle support with visible rectangle
-;;; highlighting, which is similar with cua mode rectangle support. But it’s
-;;; lighter weight and uses iedit mechanisms.
-
-;;; There are also some other facilities you may never think about. Refer to the
-;;; document of function `iedit-mode’ (C-h f iedit-mode RET) for more details.
-
-;;; Usage:
-;; - [C-h iedit-mode RET] -- to get help of iedit-mode
-;; - [M-x iedit-mode]
-;;
-;; - [C-;] -- highlight certain contents
-;; - [C-'] -- toggle unmatched lines visible
-;; - [M-;] -- apply global modification
-;;
-;; - [Tab] -- next occurrence
-;; - [S-Tab] -- prev occurrence
-;; - [M-<] -- first occurrence
-;; - [M->] -- last  occurrence
-;;
-;; - [M-b] -- toggle buffering
-;; - [M-c] -- toggle case sensitive
-;;
-;; - [M-d] -- restrict function
-;;
-;; - [M-d] -- delete occurrences
-;; - [M-SPC] -- blank occurences
-;; - [M-l] -- downcase occurrences
-;; - [M-u] -- upcase occurrences
-;; - [M-n] -- number occurrences
-;; - [M-r] -- replace occurrences
-;;
-;; --------------------------------
-;;
-;; - [M-x iedit-rectangle-mode] -- visible rectangle.
-;; - [M-k] -- Iedit kill rectangle.
-;; Steps:
-;; - mark a rectangle like Emacs rectangle with [C-@ / C-SPC].
-;; - after marked the rectangle, then press [C-c C-;] to enable iedit rectangle mode, and highlight the rectangle.
-
-;; (require 'iedit)
-
-;; (autoload 'iedit-mode "Iedit" "Edit multiple regions with the same content simultaneously." t)
-;; (autoload 'iedit-rectangle-mode "Iedit rectangle" "Edit narrowed text." t)
-
-;; ;; (setq iedit-occurrence-face 'isearch)
-
-;; (defun iedit-dwim (arg)
-;;   "If ARG, start iedit but use \\[narrow-to-defun] to limit its scope."
-;;   (interactive "P")
-;;   (if arg
-;;       (iedit-mode)
-;;     (save-excursion
-;;       (save-restriction
-;;         (widen)
-;;         ;; this function determines the scope of `iedit-start'.
-;;         (if iedit-mode
-;;             (iedit-done)
-;;           ;; `current-word' can of course be replaced by other
-;;           ;; functions.
-;;           (narrow-to-defun)
-;;           (iedit-start (current-word) (point-min) (point-max)))))))
 
 
-;;;_ multiple-cursors
+;;;_ scratch.el -- launch a scratch buffer for the current mode.
 
-;;; Usage:
-;;; https://github.com/magnars/multiple-cursors.el
-;;; - [C-c c] -- prefix of mc.
-;;; - [C-c c c] / [C-S-c C-S-c] -- edit-lines
+(autoload 'scratch "scratch" nil t)
 
-(require 'multiple-cursors)
-
-;; (setq mc/keymap "C-c c")
-
-;; multiple-cursors
-;; (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-;; (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-;; (global-set-key (kbd "C-+") 'mc/mark-next-like-this)
-;; (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-
-;; ---------------------------------------------------------
-;; From active region to multiple cursors:
-;; (global-set-key (kbd "C-c c c") 'mc/mark-all-dwim) ; try to be smart.
-;; (global-set-key (kbd "C-c c r") 'set-rectangular-region-anchor)
-;; (global-set-key (kbd "C-c c l") 'mc/edit-lines)
-;; (global-set-key (kbd "C-c c a") 'mc/edit-beginnings-of-lines)
-;; (global-set-key (kbd "C-c c e") 'mc/edit-ends-of-lines)
-;; (if (featurep 'visual-regexp)
-;;     (global-set-key (kbd "C-c c m") 'vr/mc-mark))
-;; TODO: `vr/select-mc-mark', `vr/select-replace', `vr/select-query-replace' etc.
-;; ---------------------------------------------------------
-
-(unless (boundp 'my-mc-prefix-map)
-  (define-prefix-command 'my-mc-prefix-map))
-(define-key my-edit-prefix-map (kbd "c") 'my-mc-prefix-map)
-
-(define-key my-mc-prefix-map (kbd "c") 'mc/mark-all-dwim)
-(define-key my-mc-prefix-map (kbd "r") 'set-rectangular-region-anchor)
-(define-key my-mc-prefix-map (kbd "l") 'mc/edit-lines)
-(define-key my-mc-prefix-map (kbd "a") 'mc/edit-beginnings-of-lines)
-(define-key my-mc-prefix-map (kbd "e") 'mc/edit-ends-of-lines)
-(if (featurep 'visual-regexp)
-    (define-key my-mc-prefix-map (kbd "m") 'vr/mc-mark))
-;; TODO: `vr/select-mc-mark', `vr/select-replace', `vr/select-query-replace' etc.
-
-;; First mark the word, then add more cursors.
-
-;; To get out of multiple-cursors-mode, press <return> or C-g. The latter will
-;; first disable multiple regions before disabling multiple cursors. If you want
-;; to insert a newline in multiple-cursors-mode, use [C-j].
-
-;; (set-face-attribute 'mc/cursor nil
-;;                     :foreground "cyan")
+(define-key my-prog-inferior-map (kbd "C-c") 'scratch)
 
 ;;;_ Imenu
 
 ;;; Usage:
 ;; - [M-x imenu-?] :: invoke imenu functions.
-
-(require 'imenu)
 
 (defun ido-goto-symbol (&optional symbol-list)
   "Refresh imenu and jump to a SYMBOL-LIST in the buffer using Ido."
@@ -461,14 +238,6 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 ;; (whitespace-mode 1)
 ;; (global-whitespace-mode)
-
-;;;_ Ace Jump mode
-
-(require 'ace-jump-mode)
-
-;; (global-set-key [remap flyspell-auto-correct-previous-word] nil)
-;; FIXME: this does not work, conflict with `flyspell-auto-correct-previous-word'.
-(global-set-key (kbd "C-;") 'ace-jump-mode)
 
 ;;----------------------------------------------------------------------------
 ;; Expand region
@@ -553,6 +322,20 @@ For example: input regexp like [[:space:]]+ for align several space separated se
 ;; - (info "(emacs) Text Based Tables")
 ;; - [M-x table-] :: commands prefix with `table-'.
 
+
+
+(require 'init-my-emacs-edit-narrow)
+(require 'init-my-emacs-edit-tabulate)
+(require 'init-my-emacs-edit-multiple-cursors)
+
+
+;;;_ Sudo
+
+;;; Usage:
+;;
+;; - [M-x sudo-edit]
+
+;; (require 'sudo-edit)
 
 ;;;_
 (provide 'init-my-emacs-edit)

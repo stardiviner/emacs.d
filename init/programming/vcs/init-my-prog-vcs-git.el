@@ -33,6 +33,7 @@
 
 ;;; Usage:
 ;; - [M-x git-help] -- get help of git.el
+
 (require 'git)
 
 
@@ -46,15 +47,15 @@
 ;; - gitconfig-mode     -- .gitconfig
 ;; - gitignore-mode     -- .gitignore
 ;; - gitattributes-mode -- .gitattributes
-;; - git-commit-mode    -- git commit
-;; - git-rebase-mode    -- git rebase -i (git-rebase-todo files)
 ;;
 ;;; Keybindings:
 ;; - [C-x g] -- prefix for global git-emacs keybindings.
 
 (add-to-list 'auto-mode-alist
              '("\\.gitconfig$" . gitconfig-mode)
-             '("\\.gitignore$" . gitignore-mode))
+             '("\\.gitignore$" . gitignore-mode)
+             ;; FIXME: '("\\.gitattributes$" . gitattributes-mode)
+             )
 
 
 ;;; [ git-emacs ] --- 
@@ -63,68 +64,177 @@
 ;;; git.el package, but it also has some improvements, mostly in the user
 ;;; interface.
 
-(require 'git-emacs)
+; (require 'git-emacs)
 
+;; git-modeline
 
-
-;;; git-status
+;;; Usage:
+;; (git--install-state-mark-modeline 'modified)
+;; (git--uninstall-state-mark-modeline)
+;; (git--update-all-state-marks)
 
-;; (setq git-status-modeline-decoration 'git-state-decoration-large-dot)
-
+;; (setq git-status-modeline-decoration 'git-state-decoration-small-dot)
 
 
 ;;; [ Magit ]
 
 ;; Usage:
+;;
 ;; - [M-x magit-status] -- put you in Magit's status buffer.
 ;;   - press [?] in `magit-status'. press [q] in [?]help to exit.
 ;; - (C-h m in the status buffer) -- Read the short help for magit-mode.
 ;; - [C-h f magit RET] -- get Magit help.
-
-(eval-after-load 'info
-  '(progn (info-initialize)
-          (add-to-list 'Info-directory-list "~/.emacs.d/el-get/magit/")))
+;; - info magit & magit-popup
+;; - [$] :: `magit-process-buffer' :: show git commands output.
 
 (require 'magit)
 
-(autoload 'magit-status "magit" nil t)
+(with-eval-after-load 'info
+  (info-initialize)
+  (add-to-list 'Info-directory-list "~/.emacs.d/el-get/magit/Documentation/"))
 
-(setq magit-stage-all-confirm t
-      magit-use-overlays t
-      magit-diff-refine-hunk 'all
-      magit-status-buffer-switch-function 'pop-to-buffer-same-window ; open magit status buffer in current window.
-      ;; diff
-      ;; FIXME: magit-diff-options "-w" ; -w or -b to ignore whitespace in diff, for ignore whitespace in vertical aligned code change.
-      )
+;;; completion
+;; `magit-builtin-completing-read', `magit-ido-completing-read'
+;; (setq magit-completing-read-function 'magit-builtin-completing-read)
 
-;; TODO change to open magit-status in current window instead of overriding other windows. [default: 'pop-to-buffer].
-(setq magit-status-buffer-switch-function 'pop-to-buffer)
+(setq magit-delete-by-moving-to-trash t)
 
-;; add an extra newline to separate commit message from git commentary
-(defun magit-commit-mode-init ()
-  (when (looking-at "\n")
-    (open-line 1)))
-(add-hook 'magit-commit-mode-hook 'magit-commit-mode-init)
-;; close popup when commiting
-(defadvice git-commit-commit (after delete-window activate)
-  (delete-window))
+;; auto refresh & revert
+(setq magit-revert-buffers 'usage)
 
-;; TODO add more common git action keybindings.
-;; "g" for Git
+;;; wip (work-in-process) modes
+;; - [M-x magit-wip-commit]
+;; NOTE: These modes are not enabled by default because of performance concerns.
+;;
+;; (setq magit-wip-after-save-mode t
+;;       magit-wip-after-apply-mode t
+;;       ;; magit-wip-after-save-local-mode-lighter
+;;       ;; magit-wip-after-apply-mode-lighter
+;;       ;; magit-wip-before-change-mode-lighter
+;;       magit-wip-namespace "refs/wip/"
+;;       )
+;;
+;; (add-to-list 'magit-no-confirm 'safe-with-wip)
+
+(define-key magit-status-mode-map (kbd "H") 'magit-blame-popup)
+(define-key my-prog-vcs-git-map (kbd "b") 'magit-blame-popup)
+(define-key my-prog-vcs-map (kbd "F") 'magit-log-buffer-file) ; show log for current buffer visiting file.
+
+(setq magit-diff-auto-show '(commit stage-all log-oneline log-select blame-follow)
+      magit-diff-highlight-hunk-body t
+      magit-diff-highlight-indentation nil
+      magit-diff-highlight-trailing t
+      magit-diff-paint-whitespace t
+      magit-diff-refine-hunk 'all)
+
+;; push
+;; (setq magit-push-always-verify 'nag)
+
+
+;;; Magit Git
+
+;; (setq magit-git-global-arguments)
+
+
+;;; Magit Popup
+
+;; This option controls whether the section which lists the commands that are
+;; common to all popups is initially show. We recommend you set this to nil -
+;; after you have memorized that it can be shown on demand using [C-t].
+;;
+(setq magit-popup-show-common-commands nil) ; [C-t] to toggle
+
+;; (setq magit-popup-use-prefix-argument 'disabled)
+
+
+;;; Magit Faces
+
+;; file
+(set-face-attribute 'magit-diff-file-heading nil
+                    :weight 'normal)
+(set-face-attribute 'magit-diff-file-heading-highlight nil ; current diff file headings.
+                    :weight 'normal)
+(set-face-attribute 'magit-diff-file-heading-selection nil ; current select region
+                    :weight 'normal)
+
+;; section
+(set-face-attribute 'magit-section-heading nil
+                    :foreground "sky blue" :background "#222222"
+                    :box '(:color "cyan" :line-width 1)
+                    :weight 'bold)
+(set-face-attribute 'magit-section-highlight nil ; current section (current selected thing)
+                    :background (color-darken-name (face-background 'default) 3)
+                    ;; :box '(:color "black" :line-width -1)
+                    )
+
+;; branch
+(set-face-attribute 'magit-branch-local nil
+                    :foreground "#8BEEFF" :background "#1B8194"
+                    :box '(:color "#8BEEFF" :line-width -1)
+                    :weight 'normal)
+(set-face-attribute 'magit-branch-remote nil
+                    :foreground "deep pink" :background "dark red"
+                    :box '(:color "deep pink" :line-width -1)
+                    :weight 'normal)
+
+;; hash
+(set-face-attribute 'magit-hash nil
+                    :foreground "orange")
+
+;; signature
+(set-face-attribute 'magit-signature-untrusted nil
+                    :foreground "dark green")
+
+;; diff colors
+
+
+
+;;; with-editor
+
+;; The commands with-editor-async-shell-command and with-editor-shell-command
+;; are intended as drop in replacements for async-shell-command and
+;; shell-command. They automatically export $EDITOR making sure the executed
+;; command uses the current Emacs instance as "the editor". With a prefix
+;; argument these commands prompt for an alternative environment variable such
+;; as $GIT_EDITOR.
+
+(define-key (current-global-map)
+  [remap async-shell-command] 'with-editor-async-shell-command)
+(define-key (current-global-map)
+  [remap shell-command] 'with-editor-shell-command)
+
+;; The command with-editor-export-editor exports $EDITOR or another such
+;; environment variable in shell-mode, term-mode and eshell-mode buffers. Use
+;; this Emacs command before executing a shell command which needs the editor
+;; set, or always arrange for the current Emacs instance to be used as editor by
+;; adding it to the appropriate mode hooks:
+
+(add-hook 'shell-mode-hook  'with-editor-export-editor)
+(add-hook 'term-mode-hook   'with-editor-export-editor)
+(add-hook 'eshell-mode-hook 'with-editor-export-editor)
+
+(add-hook 'shell-mode-hook
+          (apply-partially 'with-editor-export-editor "GIT_EDITOR"))
+(add-hook 'shell-mode-hook 'with-editor-export-git-editor)
+
+
+;;; Keybindings
 
 ;; status -- "s" for status.
 ;; [C-x v-] original is prefix for vc-.
 (define-key my-prog-vcs-map (kbd "v") 'magit-status)
-(define-key my-prog-vcs-git-map (kbd "s") 'magit-status)
+(define-key my-prog-vcs-git-map (kbd "v") 'magit-status)
 ;; add to stage -- "s"
-;; FIXME this stage item, but can not stage file in current buffer.
-;; (define-key my-prog-vcs-git-map (kbd "a") 'magit-stage-item)
+(define-key my-prog-vcs-git-map (kbd "s") 'magit-stage)
 ;; commit -- "c"
 (define-key my-prog-vcs-git-map (kbd "c") 'magit-commit)
+(define-key my-prog-vcs-git-map (kbd "C") 'magit-commit-amend)
 ;; diff - "d"
 (define-key my-prog-vcs-git-map (kbd "d") 'magit-diff)
-;; file log - "l"
+;; log - "l"
 (define-key my-prog-vcs-git-map (kbd "l") 'magit-log)
+;; file log
+(define-key my-prog-vcs-git-map (kbd "f") 'magit-file-log)
 ;; repository log - "L"
 ;; [M-n/p] to navigate.
 (define-key my-prog-vcs-git-map (kbd "L") 'magit-log-long)
@@ -132,61 +242,28 @@
 (define-key my-prog-vcs-git-map (kbd "g") 'magit-grep)
 ;; checkout - "o"
 (define-key my-prog-vcs-git-map (kbd "o") 'magit-checkout) ; magit-checkout-branch-at-point
+;; bisect -- "b"
+(define-key my-prog-vcs-git-map (kbd "B") 'magit-bisect)
+;; blame -- "h"
+(define-key my-prog-vcs-git-map (kbd "b") 'magit-blame)
 
 
-;; TODO: open magit window in current window, and without override other windows layout.
-
+;; for Magit auto-complete
+;; TODO: how to use this in Magit.
+;; (setq magit-repository-directories '("~/code/" "~/Git/")
+;;       magit-repository-directories-depth 4)
 
 ;;; Magit Faces
-;; cursor select
-(set-face-attribute 'magit-item-highlight nil
-                    :background "black"
-                    )
-;; mark region
-(set-face-attribute 'magit-item-mark nil
-                    :foreground "black"
-                    :background "gray")
-;; branch
-(set-face-attribute 'magit-branch nil
-                    :foreground "cyan" :background "black"
-                    :weight 'bold
-                    :box '(:line-width -1)
-                    )
-;; log
-(set-face-attribute 'magit-log-sha1 nil
-                    :foreground "#FF80FF" :background " "
-                    :weight 'bold
-                    )
-;; section
-(set-face-attribute 'magit-section-title nil
-                    :foreground "sky blue" :background "#222222"
-                    :reverse-video nil
-                    :weight 'bold
-                    :box '(:color "cyan" :line-width 1)
-                    )
-;; diff colors
-(set-face-attribute 'magit-diff-none nil
-                    :inherit 'diff-context
-                    )
-(set-face-attribute 'magit-diff-del nil
-                    :inherit 'diff-removed
-                    )
-(set-face-attribute 'magit-diff-add nil
-                    :inherit 'diff-added
-                    )
-(set-face-attribute 'magit-diff-hunk-header nil
-                    :inherit 'diff-hunk-header
-                    )
-(set-face-attribute 'magit-diff-file-header nil
-                    :inherit 'diff-file-header
-                    )
-;; redifine diff
-(set-face-attribute 'diff-refine-added nil
-                    :foreground " " :background "dark green")
-(set-face-attribute 'diff-refine-removed nil
-                    :foreground " " :background "dark red")
-(set-face-attribute 'diff-refine-change nil
-                    :foreground " " :background "white")
+;;
+;; - [M-x customize-group magit-faces]
+
+;; TODO: set remote branch face like this:
+;; https://emacs.stackexchange.com/questions/10975/customize-face-magit-item-highlight-properly
+
+
+;;; [ magit-find-file ]
+
+
 
 
 ;;; [ magit-filenotify ] -- Refresh status buffer when git tree changes
@@ -204,7 +281,8 @@
 
 ;; To always enable the mode when opening the magit-status buffer.
 ;; add magit-filenotify-mode to the magit-status-mode-hook.
-(add-hook 'magit-status-mode-hook 'magit-filenotify-mode)
+;;
+;; (add-hook 'magit-status-mode-hook 'magit-filenotify-mode)
 
 
 ;;; [ magit-workflow ] -- Git Flow plugin for magit
@@ -214,93 +292,11 @@
 ;; - [C-f] in magit status buffer and you will be presented with gitflow popup menu.
 ;; - All gitflow commands are also accessible through the Magit/Extensions/GitFlow pop-down menu.
 
-(require 'magit-gitflow)
-
-(add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
-
-
-;;; [ magit-gh-pulls ] -- allows you to conveniently manipulate Github’s pull requests from Emacs.
-
-;;; Usage:
-;;
-;; 1. [# g g]
-;;
-;; In magit-status window press [# g g] to refresh the list of pull
-;; requests. magit-gh-pulls automatically infers credentials from the URL of the
-;; repository. If there are some PRs available, a new section will appear called
-;; Pull Requests. Each item in this section has the following form:
-;;
-;;   [pull-request-number@branch-name] Pull request name
-;;
-;; 2. [# g f]
-;;
-;; Highlighting the desired PR and pressing [# g f] will fetch the commits
-;; associated with the PR. These are the real commits that you can view, apply,
-;; cherry-pick etc.
-;;
-;; 3. From this point magit-gh-pulls offers you two options:
-;;
-;; - press [# g b] on the PR to create a topic branch for this PR. After testing
-;;   the PR you can merge it back into your branch using Magit.
-;;
-;; - press [# g m] to merge the PR on top of the currently checked out
-;;   branch. This is convenient if pull request can be merged by fast-forwarding
-;;   and no testing is needed (or you can test from your branch directly). A
-;;   nice benefit of this approach over merging from Github interface is that in
-;;   case of FF no merge commit is produced, so history stays nice and linear.
-
-;; 1. auto turn on magit-gh-pulls
-;; (require 'magit-gh-pulls)
-;; (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
-
-;; 2. manually turn on magit-gh-pulls
-;; (unless (fboundp 'magit-gh-pulls-mode)
-;;   (package-install 'magit-gh-pulls))
-;;
-(eval-after-load 'magit
-  '(define-key magit-mode-map (kbd "# g g") 'my-enable-gh-pulls-mode))
-
-(defun my-enable-gh-pulls-mode ()
-  "Enable `magit-gh-pulls-mode' only after a manually request."
-  (interactive)
-  (require 'magit-gh-pulls)
-  (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
-  (magit-gh-pulls-mode 1)
-  (magit-gh-pulls-reload))
-
-
-;;; [ magit-gerrit ] -- Magit plugin for Gerrit Code Review
-
-;;; Usage:
-;;
-;; -
-
-;;; Workflow
-;;
-;; - Check out branch, make changes, and commit...
-;; - Gerrit Push Commit for Code Review => T P
-;; - Gerrit Add Reviewer => T A (optional)
-;; - Wait for code review and verification (approvals updated in magit-status)
-;; - Gerrit Submit Review => T S
-
-(require 'magit-gerrit)
-
-;;; For simple setups, it should be enough to set the default value for
-;;; `magit-gerrit-ssh-creds' and `magit-gerrit-remote'.
-;;
-;;; if remote url is not using the default gerrit port and
-;;; ssh scheme, need to manually set this variable
-;; (setq-default magit-gerrit-ssh-creds "myid@gerrithost.org")
-;;
-;;; if necessary, use an alternative remote instead of 'origin'
-;; (setq-default magit-gerrit-remote "gerrit")
-
-;;; For per project configurations, consider using buffer local or directory local variables.
-;;
-;; /home/dev/code/prj1/.dir-locals.el:
-;; ((magit-mode .
-;;              ((magit-gerrit-ssh-creds . "dev_a@prj1.server.com")
-;;               (magit-gerrit-remote . "gerrit"))))
+(add-hook 'magit-mode-hook
+          (lambda ()
+            (require 'magit-gitflow)
+            (when (fboundp 'turn-on-magit-gitflow)
+              (turn-on-magit-gitflow))))
 
 
 ;;; [ Egg ] (Emacs Got Git)
@@ -313,292 +309,82 @@
 
 ;; (require 'egg)
 
-
-;; ;; -----------------------------------------------
-;; ;;  git-gutter.el vs git-gutter-fringe.el
-;; ;;
-;; ;; git-gutter.el 	git-gutter-fringe.el
-;; ;; Work in tty frame 	    OK 	NG
-;; ;; Work with linum-mode 	NG 	OK
-;; ;; Show on right side 	    NG 	OK
-;; ;; More configurable 	    OK 	NG
-;; ;; ------------------------------------------------
-
-;; (require 'git-gutter)
-
-;; (setq git-gutter:disabled-modes '(asm-mode image-mode))
-
-;; ;; update frequency: uncomment this when Emacs/GitGutter slows.
-;; ;; (setq git-gutter:update-threshold 1)
-;; ;; (setq git-gutter:update-hooks '(after-save-hook after-revert-hook))
-
-;; (setq git-gutter:hide-gutter t)         ; Hide gutter if there are no changes
-;; (setq git-gutter:diff-option "-w") ; Pass option to 'git diff' command: -w: ignore all spaces
-;; (setq git-gutter:verbosity 0)           ; Log/Message Level
-
-
-;; ;;; Usage:
-;; ;; 'git-gutter:next-hunk :: Jump to next hunk
-;; ;; 'git-gutter:previous-hunk :: Jump to previous hunk
-;; ;; 'git-gutter:popup-hunk :: Popup current diff hunk
-;; ;; 'git-gutter:stage-hunk :: Stage current hunk - `git add -p`
-;; ;; 'git-gutter:revert-hunk :: Revert current hunk
-;; ;; 'git-gutter :: Show changes from last commit or Update change information.
-;; ;; 'git-gutter-toggle :: Toggle git-gutter
-;; ;; 'git-gutter:update-all-windows :: update info in all visible windows.
-
-;; ;;; keybindings
-;; (define-key my-prog-vcs-map (kbd "m t") 'git-gutter:toggle)
-;; ;; Jump to next/previous hunk
-;; (define-key my-prog-vcs-map (kbd "m n") 'git-gutter:next-hunk)
-;; (define-key my-prog-vcs-map (kbd "m p") 'git-gutter:previous-hunk)
-;; ;; Stage current hunk
-;; (define-key my-prog-vcs-map (kbd "m s") 'git-gutter:stage-hunk)
-;; ;; show diff of current hunk
-;; (define-key my-prog-vcs-map (kbd "m p") 'git-gutter:popup-hunk)
-;; ;; Revert current hunk
-;; (define-key my-prog-vcs-map (kbd "m r") 'git-gutter:revert-hunk)
-;; ;; commit staged changes with [C-c v g c] which custom keybinding from magit function `magit-commit'.
-
-;; ;; multiple character is OK
-;; (setq git-gutter:window-width 1
-;;       git-gutter:modified-sign "Ϟ"
-;;       git-gutter:unchanged-sign nil
-;;       git-gutter:added-sign "✚"
-;;       git-gutter:deleted-sign "✖"
-;;       )
-
-;; ;; (setq git-gutter:window-width 2
-;; ;;       git-gutter:modified-sign "☁"
-;; ;;       git-gutter:unchanged-sign " "
-;; ;;       git-gutter:added-sign "☀"
-;; ;;       git-gutter:deleted-sign "☂"
-;; ;;       )
-
-;; ;; |, ┇, ┋ ⋮ ¦ ┊ ┆ │ ┃ ‡ † ‖
-;; ;; (setq git-gutter:separator-sign "│")
-;; ;; (set-face-foreground 'git-gutter:separator "yellow")
-
-;; ;; GitGutter signs
-;; (set-face-attribute 'git-gutter:modified nil
-;;                     :foreground "yellow"
-;;                     :weight 'bold
-;;                     )
-;; (set-face-attribute 'git-gutter:added nil
-;;                     :foreground "green"
-;;                     :weight 'bold
-;;                     )
-;; (set-face-attribute 'git-gutter:deleted nil
-;;                     :foreground "red"
-;;                     :weight 'bold
-;;                     )
-;; ;; FIXME: this does not work at Emacs initially.
-;; (set-face-attribute 'git-gutter:unchanged nil
-;;                     :foreground nil :background nil
-;;                     :weight 'bold
-;;                     )
-
-;; ;; (add-to-list 'git-gutter:update-hooks '(after-save-hook
-;; ;;                                         after-revert-hook
-;; ;;                                         find-file-hook
-;; ;;                                         after-change-major-mode-hook
-;; ;;                                         text-scale-mode-hook
-;; ;;                                         magit-revert-buffer-hook
-;; ;;                                         ))
-
-;; (add-hook 'linum-mode-hook 'git-gutter:linum-setup)
-
-;; (global-git-gutter-mode +1)
-
-;; (setq git-gutter:lighter " GitGutter") ; minor mode name in modeline.
-;; (diminish 'git-gutter-mode)
-
-
-;; ;; ---------------------------
-;; ;;; git-gutter-fringe.el is fringe version of of git-gutter.el.
-
-;; ;; (require 'git-gutter-fringe)
-
-;; ;; (set-face-foreground 'git-gutter-fr:modified "yellow")
-;; ;; (set-face-foreground 'git-gutter-fr:added    "green")
-;; ;; (set-face-foreground 'git-gutter-fr:deleted  "red")
-
-;; ;; Please adjust fringe width if your own sign is too big.
-;; ;; (setq-default left-fringe-width  20)
-;; ;; (setq-default right-fringe-width 20)
-
-;; ;; (fringe-helper-define 'git-gutter-fr:added nil
-;; ;;   "...XX..."
-;; ;;   "..X..X.."
-;; ;;   ".X....X."
-;; ;;   "X......X"
-;; ;;   "X......X"
-;; ;;   "XXXXXXXX"
-;; ;;   "X......X"
-;; ;;   "X......X"
-;; ;;   "X......X")
-;; ;;
-;; ;; (fringe-helper-define 'git-gutter-fr:deleted nil
-;; ;;   "XXXXXX.."
-;; ;;   "XX....X."
-;; ;;   "XX.....X"
-;; ;;   "XX.....X"
-;; ;;   "XX.....X"
-;; ;;   "XX.....X"
-;; ;;   "XX....X."
-;; ;;   "XXXXXX..")
-;; ;;
-;; ;; (fringe-helper-define 'git-gutter-fr:modified nil
-;; ;;   "XXXXXXXX"
-;; ;;   "X..XX..X"
-;; ;;   "X..XX..X"
-;; ;;   "X..XX..X"
-;; ;;   "X..XX..X"
-;; ;;   "X..XX..X"
-;; ;;   "X..XX..X"
-;; ;;   "X..XX..X")
-
-
-;; ;; (setq git-gutter-fr:side 'right-fringe)
 
 
-;; [ git-gutter-plus / git-gutter+]
+;;; [ magithub ] -- working with GitHub
 
-;; https://github.com/nonsequitur/git-gutter-plus
+;; (require 'magithub)
+
+
+;;; [ magit-gh-pulls ] -- Magit plugin for dealing with GitHub pull requests.
 
 ;;; Usage:
 ;;
-;; Committing
-;; The commit message buffer is based on git-commit-mode. Besides the default
-;; git-commit-mode bindings, the following bindings are provided:
-;;     C-c C-a toggles the option to amend the previous commit.
-;;     C-c C-e toggles the option to allow an empty commit that includes no changes.
-;;     C-c C-u toggles the option to edit the commit author.
-;;     C-c C-d toggles the option to edit the commit date.
-;;     M-p/M-n insert previous/next history commit message.
-;; git-commit-ack is re-bound to C-c C-b.
+;; in `magit-status' window.
+;;
+;;   - [# g g] :: refresh the list of pull requests.
+;;
+;;   - [# g f] :: fetch the commits associated with the PR.
+;;
+;;   - [# g b] :: press the key on the PR to create a "topic branch" for this PR.
+;;                After testing the PR you can merge it back into your branch using Magit.
+;;
+;;   - [# g m] :: merge the PR on top of the currently checked out branch.
+;;                This is convenient if pull request can be merged by
+;;                fast-forwarding and no testing is needed (or you can test from
+;;                your branch directly). A nice benefit of this approach over
+;;                merging from Github interface is that in case of FF no merge
+;;                commit is produced, so history stays nice and linear.
+
+;; (require 'magit-gh-pulls)
+;;
+;; (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
+
+
+;;; [ magit-gerrit ] -- code review tool Gerrit for Magit.
+
+;;; Usage:
+;;
+;; Workflow
+;;
+;;     - Check out branch, make changes, and commit...
+;;     - Gerrit Push Commit for Code Review => T P
+;;     - Gerrit Add Reviewer => T A (optional)
+;;     - Wait for code review and verification (approvals updated in magit-status)
+;;     - Gerrit Submit Review => T S
 
 
-;; (load "~/.emacs.d/el-get/git-gutter+/git-gutter+.el")
-(require 'git-gutter+)
+;; (require 'magit-gerrit)
+;;
+;; ;; if remote url is not using the default gerrit port and
+;; ;; ssh scheme, need to manually set this variable
+;; (setq-default magit-gerrit-ssh-creds "myid@gerrithost.org")
+;;
+;; ;; if necessary, use an alternative remote instead of 'origin'
+;; (setq-default magit-gerrit-remote "gerrit")
 
+
+;;; [ git-messenger ] -- popup commit message at current line.
 
-(eval-after-load 'git-gutter+
-  '(progn
-     ;;; keybindings
-     (define-key my-prog-vcs-map (kbd "m t") 'git-gutter+-mode) ; Turn on/off in the current buffer
-     (define-key my-prog-vcs-map (kbd "m T") 'global-git-gutter+-mode) ; Turn on/off globally
-     ;; jump between hunks
-     (define-key my-prog-vcs-map (kbd "m n") 'git-gutter+-next-hunk)
-     (define-key my-prog-vcs-map (kbd "m p") 'git-gutter+-previous-hunk)
-     ;; actions on hunks
-     (define-key my-prog-vcs-map (kbd "m =") 'git-gutter+-show-hunk)
-     (define-key my-prog-vcs-map (kbd "m r") 'git-gutter+-revert-hunk)
-     ;; stage hunk at point
-     ;; if region is active, stage all hunk lines within the region.
-     (define-key my-prog-vcs-map (kbd "m s") 'git-gutter+-stage-hunks)
-     (define-key my-prog-vcs-map (kbd "m c") 'git-gutter+-commit)
-     (define-key my-prog-vcs-map (kbd "m C") 'git-gutter+-stage-and-commit)
-     (define-key my-prog-vcs-map (kbd "m u") 'git-gutter:update-all-windows)
-     ))
+;;; This is useful when you want to know why this line was changed.
 
-(setq git-gutter+-disabled-modes '(asm-mode image-mode))
+;; `git-messenger-map' :: keybinding on git-messenger popup.
 
-(setq git-gutter+-hide-gutter t)         ; Hide gutter if there are no changes
-(setq git-gutter+-diff-option "-w") ; Pass option to 'git diff' command: -w: ignore all spaces
-
-;; GitGutter signs
-(set-face-attribute 'git-gutter+-modified nil
-                    :foreground "dark orange"
-                    :weight 'bold
-                    )
-(set-face-attribute 'git-gutter+-added nil
-                    :foreground "green"
-                    :weight 'bold
-                    )
-(set-face-attribute 'git-gutter+-deleted nil
-                    :foreground "red"
-                    :weight 'bold
-                    )
-;; FIXME: this does not work at Emacs initially.
-(set-face-attribute 'git-gutter+-unchanged nil
-                    :foreground nil :background nil
-                    :weight 'bold
-                    )
-(set-face-foreground 'git-gutter+-separator "cyan")
-
-(setq git-gutter+-added-sign "✚"
-      git-gutter+-deleted-sign "✖"
-      git-gutter+-modified-sign "Ϟ"
-      git-gutter+-unchanged-sign nil
-      ;; git-gutter+-window-width 2 ; multiple characters is ok.
-      ;; | |, ┇, ┋ ⋮ ¦ ┊ ┆ │ │ ┃
-      git-gutter+-separator-sign ""
+(setq git-messenger:show-detail t ; always show detail message.
+      ;; git-messenger:handled-backends '(git svn)
       )
 
-
-(global-git-gutter+-mode t)
-
-
-
-;;; [ diff-hl ]
-
-;; https://github.com/dgutov/diff-hl
-
-
-;;; [ MagitHub ] -- working with GitHub
-;; (require 'magithub nil t)
+(define-key my-prog-vcs-map (kbd "p") 'git-messenger:popup-message)
+(use-package git-messenger
+  :config
+  (define-key git-messenger-map (kbd "m") 'git-messenger:copy-message)
+  ;; enable `magit-commit-mode' after typing 's', 'S', 'd'
+  (add-hook 'git-messenger:popup-buffer-hook 'magit-commit-mode)
+  )
 
 
-;;; [ git-blame ]
 
-;; (require 'git-blame)
-;; OR
-(autoload 'git-blame-mode "git-blame" "Minor mode for incremental blame for Git." t)
-
-
-;;; [ mo-git-blame ] --- an interactive and iterative major mode for git blame.
-
-;; That’s what ‘mo-git-blame’ tries to solve. It is a standalone mode that can
-;; be used with any of the various Git version control modes. Here are a couple
-;; of its features:
-;;
-;; Shows the output of ‘git blame’ and the file content side-by-side with syntax highlighting for the content
-;; Show the log messages for the current revision or the revision in the current line
-;; Show the diff (via ‘git show’) for the current revision or the revision in the current line
-;; Show the file content for the revision in the current line
-;; Call ‘git blame’ for the same file for the revision in the current line
-
-(autoload 'mo-git-blame-file "mo-git-blame" nil t)
-(autoload 'mo-git-blame-current "mo-git-blame" nil t)
-
-
-;;; [ gitsum ]
-
-
-;;; [ egit ]
-;; is an Emacs Git history interface intended to be similar to qgit or gitk.
-;; https://github.com/jimhourihan/egit/tree/master
-
-;; (autoload 'egit "egit" "Emacs git history" t)
-;; (autoload 'egit-file "egit" "Emacs git history file" t)
-;; (autoload 'egit-dir "egit" "Emacs git history directory" t)
-
-
-;;; [ git-timemachine ] -- Step through historic versions of git controlled file using everyone's favourite editor.
-
-;; Usage:
-;; - [M-x git-timemachine ]
-;;
-;; Use the following keys to navigate historic version of the file
-;;
-;; p Visit previous historic version
-;; n Visit next historic version
-;; w Copy the hash of the current historic version
-;; q Exit the time machine.
-
-;; (require 'git-timemachine)
-;; (define-key 'my-prog-vcs-git-map (kbd "C-h") 'git-timemachine)
+(require 'init-my-prog-vcs-git-gutter)
 
 
 

@@ -5,10 +5,64 @@
 
 ;;; Code:
 
+
+(setq standard-indent 4)
+
+
 ;;; electric-indent-mode
 
 ;; (electric-indent-mode t)
 
+
+;;; [ custom indent functions ]
+
+(global-set-key (kbd "C-c >")
+                (lambda (start end)
+                  (interactive "rP")
+                  (indent-rigidly-right-to-tab-stop start end)))
+
+(global-set-key (kbd "C-c <")
+                (lambda (start end)
+                  (interactive "rP")
+                  (indent-rigidly-left-to-tab-stop start end)))
+
+
+
+;; (defun text-shift-region (start end count)
+;;   "Indent lines from START to END by COUNT spaces."
+;;   (save-excursion
+;;     (goto-char end)
+;;     (beginning-of-line)
+;;     (setq end (point))
+;;     (goto-char start)
+;;     (beginning-of-line)
+;;     (setq start (point))
+;;     (indent-rigidly start end count)))
+;;
+;; (defun text-shift-region-right (start end &optional count)
+;;   "Shift region of code to the right
+;;    Stolen from python-mode.
+;;    The lines from the line containing the start of the current region up
+;;    to (but not including) the line containing the end of the region are
+;;    shifted to the right, by `text-indent-offset' columns.
+;;
+;;    If a prefix argument is given, the region is instead shifted by that
+;;    many columns.  With no active region, indent only the current line."
+;;   (interactive
+;;    (let ((p (point))
+;;          (m (mark))
+;;          (arg current-prefix-arg))
+;;      (if m
+;;          (list (min p m) (max p m) arg)
+;;        (list p (save-excursion (forward-line 1) (point)) arg))))
+;;   (text-shift-region start end (prefix-numeric-value
+;;                                 (or count text-indent-offset)))
+;;   )
+;;
+;; ;; Code in StackOverflow must be marked by four spaces at the
+;; ;; beginning of the line
+;; (setq text-indent-offset 4)
+;; (global-set-key "\C-c>" 'text-shift-region-right)
 
 
 ;;; [ auto-indent-mode ]
@@ -133,23 +187,25 @@
                                         ; lines recursively, set “indent-guide-recursive”
                                         ; non-nil.
       indent-guide-inhibit-modes '(dired-mode Info-mode Man-mode org-mode)
+      indent-guide-threshold -1 ; -1, 0
       )
 
 ;;; custom indent line char
 ;; 1: use `indent-guide-char'.
-;; │ : |
-(setq indent-guide-char "│")
+;; : │ ┃ ▏┃ | ❘ │ ┃ ▍ ┇ ┋ ┊ ┆ ╽ ╿ ▏▕ ├ ▯ ∎ ◇ ◈ ◊ ⊡
+(setq indent-guide-char "╿")
 (set-face-attribute 'indent-guide-face nil
-                    :foreground "cyan"
-                    :stipple nil)
+                    :foreground "#535353"
+                    ;; :foreground "dark turquoise"
+                    ;; :stipple nil
+                    )
 
 ;; 2: use face-attribute stipple pixmap data.
 ;; (setq indent-guide-char " ")
-;; (if (equal indent-guide-char " ")
-;;     (set-face-attribute 'indent-guide-face nil
-;;                         :foreground "cyan"
-;;                         :inherit nil
-;;                         :stipple (list 7 4 (string 16 0 0 0))))
+;; (set-face-attribute 'indent-guide-face nil
+;;                     :foreground "cyan"
+;;                     :inherit nil
+;;                     :stipple (list 7 4 (string 16 0 0 0)))
 
 ;; (indent-guide-global-mode)
 ;; or
@@ -174,7 +230,18 @@
 
 (require 'aggressive-indent)
 
-;; (add-to-list 'aggressive-indent-excluded-modes 'html-mode)
+(add-to-list 'aggressive-indent-dont-electric-modes 'ruby-mode)
+(add-to-list 'aggressive-indent-dont-electric-modes 'enh-ruby-mode)
+(add-to-list 'aggressive-indent-dont-electric-modes 'inf-ruby-mode)
+
+;; The variable `aggressive-indent-dont-indent-if' lets you customize when you
+;; **don't** want indentation to happen.  For instance, if you think it's
+;; annoying that lines jump around in `c++-mode' because you haven't typed the
+;; `;' yet, you could add the following clause:
+(add-to-list 'aggressive-indent-dont-indent-if
+             '(and (derived-mode-p 'c++-mode)
+                 (null (string-match "\\([;{}]\\|\\b\\(if\\|for\\|while\\)\\b\\)"
+                                     (thing-at-point 'line)))))
 
 ;; (global-aggressive-indent-mode)
 ;;; or
@@ -183,6 +250,13 @@
                 lisp-mode-hook))
   (add-hook hook #'aggressive-indent-mode))
 
+;; FIXME: seems aggressive-indent-mode does not work well with ruby-mode & enh-ruby-mode.
+;; ruby-mode can't auto complete "end".
+;; (dolist (hook '(ruby-mode-hook
+;;                 enh-ruby-mode-hook
+;;                 ))
+;;   (add-hook hook (lambda ()
+;;                    (aggressive-indent-mode -1))))
 
 
 

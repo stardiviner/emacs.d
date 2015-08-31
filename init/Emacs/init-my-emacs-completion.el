@@ -7,6 +7,12 @@
 
 ;;; [ complete ]
 
+;;; Usage:
+;;
+;; - `completion-at-point-functions' is a special hook.
+;;    (add-hook 'completion-at-point-functions 'completion-function)
+
+
 ;; (setq tab-always-indent 'complete)
 ;; (add-to-list 'completion-styles 'initials t)
 ;; (setq completion-cycle-threshold 5)
@@ -14,6 +20,16 @@
 ;;                                       elisp-completion-at-point)
 ;;       ;; completion-styles
 ;;       )
+
+(set-face-attribute 'completions-common-part nil
+                    :foreground "forest green")
+(set-face-attribute 'completions-first-difference nil
+                    :foreground "salmon"
+                    :weight 'bold)
+(set-face-attribute 'completions-annotations nil
+                    :inherit 'italic
+                    :foreground "dark gray"
+                    )
 
 
 ;;; [ pcomplete ] --- Programmable, Context-Sensitive Completion Library
@@ -23,9 +39,30 @@
 
 ;;; [ Icomplete (icomplete/ido/iswitchb) ] -- enhance the default minibuffer completion.
 
-;; (require 'icomplete)
+;;; Usage:
+;;
+;; - [M-x icomplete-mode] :: toggle `icomplete-mode'.
+;; - See `icomplete-completions' docstring for a description of the icomplete
+;;   display format.
 
+
+;; (require 'icomplete)
+;;
+;; ;; (add-hook 'icomplete-minibuffer-setup-hook
+;; ;;           ())
+;;
 ;; (icomplete-mode 1)
+;;
+;; (setq icomplete-compute-delay 0.3
+;;       icomplete-max-delay-chars 2
+;;       icomplete-in-buffer nil ; also use Icomplete when completing in non-mini buffers.
+;;       icomplete-separator " | "
+;;       icomplete-hide-common-prefix t
+;;       icomplete-show-matches-on-no-input nil
+;;       )
+;;
+;; (set-face-attribute 'icomplete-first-match nil
+;;                     :weight 'bold)
 
 
 ;;; [ Hippie ] --- hippie complete.
@@ -47,20 +84,9 @@
 
 
 
-(if (featurep 'helm)
-    (require 'init-helm)
-  (require 'init-ido))
 
-(require 'init-company-mode)
-;; (require 'init-auto-complete)
-
-;;; make auto-complete work with company-mode
-;; (add-hook 'c-mode-common-hook
-;;           (lambda ()
-;;             (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-;;               (company-mode -1)
-;;               (auto-complete-mode 1)
-;;               )))
+(require 'init-helm)
+;; (require 'init-ido)
 
 
 

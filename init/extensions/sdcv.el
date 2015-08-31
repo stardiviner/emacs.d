@@ -167,6 +167,7 @@
 
 (require 'showtip)
 (require 'popup)
+(require 'pos-tip)
 
 ;;; Code:
 
@@ -273,8 +274,9 @@ And display complete translations in other buffer."
 And show information use tooltip.
 But this function use a simple dictionary list."
   (interactive)
-  ;; Display simple translate result.
-  (sdcv-search-simple))
+  (let ((word (sdcv-region-or-word)))
+    ;; Display simple translate result.
+    (sdcv-search-simple word)))
 
 (defun sdcv-search-input (&optional word)
   "Translate current input WORD.
@@ -375,13 +377,13 @@ The result will be displayed in buffer named with
 
 (defun sdcv-search-simple (&optional word)
   "Search WORD simple translate result."
-  (showtip ; showtip, popup-tip, tooltip-show
+  (pos-tip-show ; showtip, pos-tip-show, popup-tip, tooltip-show
    (sdcv-search-witch-dictionary word sdcv-dictionary-simple-list))
-  ;; (popup-tip
-  ;;  (sdcv-search-witch-dictionary word sdcv-dictionary-simple-list))
 
   ;; pronounce the word (Add by me)
-  (sdcv-pronounce-word (sdcv-region-or-word))
+  ;; `sleep-for', `sit-for'.
+  (sleep-for 2)
+  (sdcv-pronounce-word word)
   )
 
 (defun sdcv-search-witch-dictionary (word dictionary-list)
@@ -458,7 +460,7 @@ Otherwise return word around point."
 ;;; I add this function to pronounce
 (defun sdcv-pronounce-word (&optional word)
   (shell-command-to-string
-   (format "sleep 1; espeak -v en %s &" word))
+   (format "espeak -v en %s &" word))
   )
 
 (provide 'sdcv)

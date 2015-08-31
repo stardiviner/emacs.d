@@ -80,12 +80,13 @@
 ;; to the source. More complete docs to follow. For now C-h f dz-register-reload.
 
 
-(require 'dizzee)
-
-(dz-defservice dizzee-python-SimpleHTTPServer "python"
-               :args ("-m" "SimpleHTTPServer" "7878")
-               ;; :cd ""
-               )
+(use-package dizzee
+  :config
+  (dz-defservice dizzee-python-SimpleHTTPServer "python"
+                 :args ("-m" "SimpleHTTPServer" "7878")
+                 ;; :cd ""
+                 )
+  )
 
 
 (provide 'init-my-emacs-subprocess)

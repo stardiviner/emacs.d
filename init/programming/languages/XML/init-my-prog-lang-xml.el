@@ -23,6 +23,13 @@
       nxml-slash-auto-complete-flag t)
 
 
+
+(add-hook 'nxml-mode-hook
+          (lambda ()
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-nxml)))
+
+
 ;;; [ auto-complete-nxml ]
 
 ;;; https://github.com/aki2o/auto-complete-nxml

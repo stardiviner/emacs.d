@@ -13,6 +13,37 @@
       auto-revert-verbose nil)
 
 
+;;; [ ibuffer ]
+
+;;; Usage:
+;;
+;; - (M-x ibuffer-mode)
+
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;;; [ ibuffer-vc ]
+
+;; - Group your buffers by their parent vc root directory
+;; - See the VC status of the associated files
+;; - Sort buffers by their VC status
+
+;;; Usage:
+;;
+;; - [M-x ibuffer-vc]
+
+;; (require 'ibuffer-vc)
+
+
+;;; [ ibuffer-git ]
+
+
+;;; [ ibuffer-tramp ]
+
+
+;;; [ ibuffer-projectile ]
+
+
+
 
 (setq buffers-menu-max-size 30)
 
@@ -22,10 +53,10 @@
 (require 'uniquify)
 
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets
-        uniquify-separator " • "
-        uniquify-after-kill-buffer-p t
-        uniquify-ignore-buffers-re "^\\*" ; don't muck with special buffers
-        )
+      uniquify-separator " • "
+      uniquify-after-kill-buffer-p t
+      uniquify-ignore-buffers-re "^\\*" ; don't muck with special buffers
+      )
 
 
 ;;; [ recentf ]
@@ -34,15 +65,13 @@
 
 (recentf-mode)
 
-(setq recentf-max-menu-items 25
-        recentf-max-saved-items 1000
-        recentf-exclude '("/tmp/" "/ssh:")
-        ;; recentf-keep
-        recentf-save-file (expand-file-name ".temp/recentf" user-emacs-directory)
-        recentf-auto-cleanup 'never ; 'mode
-        recentf-max-saved-items 100
-        recentf-case-fold-search t
-        )
+(setq recentf-save-file (expand-file-name ".temp/recentf" user-emacs-directory)
+      recentf-exclude '("/tmp/" "/ssh:")
+      recentf-max-menu-items 25
+      recentf-max-saved-items 100
+      recentf-auto-cleanup 'mode ; 'mode, 'never.
+      recentf-case-fold-search t
+      )
 
 
 

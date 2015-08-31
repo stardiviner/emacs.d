@@ -7,6 +7,13 @@
 
 ;;; Code:
 
+
+(unless (boundp 'my-outline-prefix)
+  (define-prefix-command 'my-outline-prefix))
+(global-set-key (kbd "C-c SPC") 'my-outline-prefix)
+(global-set-key (kbd "C-c @") 'my-outline-prefix)
+
+
 ;;; [ outline-mode ]
 
 ;;; Usage:
@@ -364,10 +371,9 @@
 
 
 (allout-minor-mode 1)
-(diminish 'allout-mode)
 
 ;; so that you can active/inactive allout-minor-mode to edit/navigate/folding with it.
-;; (define-key my-edit-prefix-map (kbd "o") 'allout-minor-mode)
+;; (define-key my-edit-prefix (kbd "o") 'allout-minor-mode)
 ;; activate outline mode for current buffer, and establish a default file-var setting for `allout-layout'.
 (defun my-allout-toggle ()
   "Toggle allout for current buffer."
@@ -378,19 +384,39 @@
     (allout-hide-bodies)
     (define-key allout-mode-map (kbd "C-c SPC C-l") 'allout-hide-bodies)))
 
-;; (define-key my-edit-prefix-map (kbd "o") 'outlineify-sticky)
-(define-key my-edit-prefix-map (kbd "o") 'my-allout-toggle)
+;; (define-key my-edit-prefix (kbd "o") 'outlineify-sticky)
+(define-key my-edit-prefix (kbd "o") 'my-allout-toggle)
 
-;; (unless (boundp 'my-outline-prefix-map)
-;;   (define-prefix-command 'my-outline-prefix-map))
-;; (define-key my-edit-prefix-map (kbd "o") 'my-outline-prefix-map)
+;; (unless (boundp 'my-outline-prefix)
+;;   (define-prefix-command 'my-outline-prefix))
+;; (define-key my-edit-prefix (kbd "o") 'my-outline-prefix)
 ;;
-;; (define-key my-outline-prefix-map (kbd "n") 'allout-next-heading)
+;; (define-key my-outline-prefix (kbd "n") 'allout-next-heading)
 
 
-;;; [ Folding ]
+;;; [ origami ]
 
-;;; folding-mode --- 
+;;; `global-origami-mode' & `origami-mode'
+
+(use-package origami
+  :config
+  (define-key my-outline-prefix (kbd "m") 'origami-mode)
+  (define-key my-outline-prefix (kbd "SPC") 'origami-toggle-node)
+  (define-key my-outline-prefix (kbd "TAB") 'origami-toggle-all-nodes)
+  (define-key my-outline-prefix (kbd "n") 'origami-next-fold)
+  (define-key my-outline-prefix (kbd "p") 'origami-previous-fold)
+  (define-key my-outline-prefix (kbd "c") 'origami-close-node)
+  (define-key my-outline-prefix (kbd "C") 'origami-close-all-nodes)
+  (define-key my-outline-prefix (kbd "o") 'origami-open-node)
+  (define-key my-outline-prefix (kbd "O") 'origami-open-all-nodes)
+  (define-key my-outline-prefix (kbd "T") 'origami-recursively-toggle-node)
+  (define-key my-outline-prefix (kbd ">") 'origami-open-node-recursively)
+  (define-key my-outline-prefix (kbd "<") 'origami-close-node-recursively)
+  (define-key my-outline-prefix (kbd "O") 'origami-show-only-node)
+  (define-key my-outline-prefix (kbd "u") 'origami-undo)
+  (define-key my-outline-prefix (kbd "r") 'origami-redo)
+  (define-key my-outline-prefix (kbd "!") 'origami-reset)
+  )
 
 
 (provide 'init-my-emacs-outline)

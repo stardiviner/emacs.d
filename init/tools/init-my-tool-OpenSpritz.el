@@ -11,38 +11,41 @@
 
 ;;; Usage:
 ;;
-;; Commands
 ;; In spray-mode buffers, following commands are available.
 ;;
-;; spray-start/stop (SPC)
+;; `spray-start/stop' (SPC)
 ;;     pause or resume spraying
-;; spray-backward-word (h, )
+;; `spray-backward-word' (h, )
 ;;     pause and back to the last word
-;; spray-forward-word (l, )
-;;     inverse of spray-backward-word 
-;; spray-faster (f)
+;; `spray-forward-word' (l, )
+;;     inverse of spray-backward-word
+;; `spray-faster' (f)
 ;;     increases speed
-;; spray-slower (s)
+;; `spray-slower' (s)
 ;;     decreases speed
-;; spray-quit (q, )
-;;     quit spray-mode 
+;; `spray-quit' (q, )
+;;     quit spray-mode
 
 (require 'spray)
 
-(setq spray-wpm 400 ; words per minute
+(setq spray-wpm 250 ; words per minute
       spray-height 400 ; Height of characters
-      spray-margin-top 5 ; Character margin at top of buffer. Characters are as big as spray text characters.
+      spray-margin-top 2 ; Character margin at top of buffer. Characters are as big as spray text characters.
       spray-margin-left 4
       spray-ramp 2 ; Initial words before ramping up to full speed.
+      spray-save-point t
       )
 
 (set-face-attribute 'spray-base-face nil
+                    :inherit 'default
+                    :foreground "black"
+                    :background "white"
+                    :family "DejaVu Sans"
                     )
 (set-face-attribute 'spray-accent-face nil
+                    :inherit 'spray-base-face
                     :foreground "red"
                     )
-
-;; (define-key spray-mode-map (kbd ""))
 
 
 ;;; [ speedread ] -- Aid to speedreading emacs buffers

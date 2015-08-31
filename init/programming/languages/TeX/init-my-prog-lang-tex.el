@@ -31,7 +31,6 @@
 
 ;;;_ [ company-auctex ]
 
-(require 'company-auctex)
 (company-auctex-init)
 
 
@@ -61,7 +60,27 @@
 
 ;; TODO: https://github.com/vspinu/company-math
 
-(require 'company-math)
+
+;;; [ latex-preview-pane ]
+
+;; Usage:
+;;
+;; - [M-x latex-preview-mode]
+
+;; To use LaTeX Preview Pane, simply open any TeX file and if latex-preview-pane
+;; is set to be automatically enabled, it will open a preview pane and attempt
+;; to generate your TeX preview. Otherwise you can activate it with M-x
+;; latex-preview-pane-mode to open the preview pane. Note that there is also a
+;; menu in this mode which contains the following functions:
+
+;; - Refresh Preview (bound to M-p)
+;; - Open in External Program (Bound to M-P)
+;; - Disable LaTeX Preview Pane (turns the mode off, you can also use M-x
+;;   latex-preview-pane-mode to toggle it off.
+;; - Customize LaTeX Preview Pane (opens a customization buffer where you can
+;;   set the command to use for generating previews)
+
+(latex-preview-pane-enable)
 
 
 ;;;_ [ reftex ]

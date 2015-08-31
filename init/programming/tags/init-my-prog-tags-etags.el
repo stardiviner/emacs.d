@@ -7,10 +7,12 @@
 
 ;;; Code:
 
-
-;;; Emacs Tags -- etags
+;;; [etags ] -- Emacs Tags
 
 ;; Usage:
+;;
+;; - [$ find . | grep ".*\.\(hh\|hxx\|cc\)" | xargs etags -f TAGS]
+;;
 ;; - [M-.] -- (find-tag)
 ;; - [C-u M-.] -- go to the next match.
 ;; - [M-*] -- (pop-tag-mark) -- jump back.
@@ -20,18 +22,12 @@
 ;; - [M-x tags-apropos] -- list all tags in a tags file that match a regexp.
 ;; - [M-x list-tags] -- list all tags defined in a source file.
 
-;; - [$ find . | grep ".*\.\(hh\|hxx\|cc\)" | xargs etags -f TAGS]
-
-
-;;; [ etags ]
-(require 'etags)
 
 
 ;;; [ etags-update ] --- a Emacs global minor mode that updates your TAGS when saving a file.
-;;; https://github.com/mattkeller/etags-update
-;;; Usage:
-;; -
 
+;;; Usage:
+;;
 ;;;  Installing
 ;; Put etags-update.pl in your shell's PATH, making sure it is executable. For instance:
 ;; $ mv etags-update.pl ~/bin
@@ -54,27 +50,26 @@
 ;; happens. The default value, 'prompt, asks if you want to add the
 ;; file. Etags-update remembers your choice for a file.
 
-;; (load-file "~/.emacs.d/my-init/extensions/etags-update.el")
-(require 'etags-update)
-
-;;; `etu/append-file-action'
-;; What action should be taken when a file not already in TAGS is saved?
-(autoload 'projectile-project-p "projectile")
-
-(defun my-etu-append-file-action-p (file)
-  "Determine which value should be used for variable `etu/append-file-action' for current FILE."
-  (cond
-   ((and
-     (nonempty-string-p (projectile-project-p))
-     (file-exists-p my-tags-file-location)) ; for files which in Projectile.
-    'add)
-   ((string= (file-name-extension (buffer-file-name)) "org") ; for org files.
-    nil)
-   (t 'prompt) ; for others
-   )
-  )
-
-(setq etu-append-file-action 'my-etu-append-file-action-p)
+;; (require 'etags-update)
+;;
+;; ;;; `etu/append-file-action'
+;; ;; What action should be taken when a file not already in TAGS is saved?
+;; (autoload 'projectile-project-p "projectile")
+;;
+;; (defun my-etu-append-file-action-p (file)
+;;   "Determine which value should be used for variable `etu/append-file-action' for current FILE."
+;;   (cond
+;;    ((and
+;;      (nonempty-string-p (projectile-project-p))
+;;      (file-exists-p my-tags-file-location)) ; for files which in Projectile.
+;;     'add)
+;;    ((string= (file-name-extension (buffer-file-name)) "org") ; for org files.
+;;     nil)
+;;    (t 'prompt) ; for others
+;;    )
+;;   )
+;;
+;; (setq etu-append-file-action 'my-etu-append-file-action-p)
 
 
 

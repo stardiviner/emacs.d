@@ -2,289 +2,6 @@
 ;;
 ;;; Commentary:
 
-;; # ------ concepts ------
-;; #
-;; #       +---------+
-;; #       | emacs   |
-;; #       |    +------+
-;; #       +----| mu4e | --> send mail (smtpmail)
-;; #            +------+
-;; #            |  A
-;; #            V  |  ---/ search, view, move mail
-;; #       +---------+    \
-;; #       |   mu    |
-;; #       +---------+
-;; #         |    A
-;; #         V    |
-;; #       +---------+
-;; #       | Maildir |  <--- receive mail (fetchmail,
-;; #                 +---------+                     offlineimap, ...)
-;;
-;;
-;; For your orientation, the diagram below shows how the views relate to each
-;; other, and the default key-bindings to navigate between them.
-;; #         [C]     +--------+   [RFCE]
-;; #       --------> | editor | <--------
-;; #      /          +--------+          \
-;; #     /         [RFCE]^                \
-;; #    /                |                 \
-;; # +-------+ [sjbB]+---------+  [RET] +---------+
-;; # | main  | <---> | headers | <----> | message |
-;; # +-------+  [q]  +---------+ [qbBjs]+---------+
-;; #                   [sjbB]                ^
-;; #                                     [.] | [q]
-;; #                                         V
-;; #                                       +-----+
-;; #                                       | raw |
-;; #                                       +-----+
-;;
-;;     Default bindings
-;;     ----------------
-;;     R: Reply      s: search            .: raw view
-;;     F: Forward    j: jump-to-maildir
-;;     C: Compose    b: bookmark-search
-;;     E: Edit       q: quit
-;;
-;; # ----- Main View ----
-;; Basics
-;;
-;;   * [j]ump to some maildir
-;;   * enter a [s]earch query
-;;   * [C]ompose a new message
-;;
-;; Bookmarks
-;;
-;;   * [bu] Unread messages
-;;   * [bt] Today's messages
-;;   * [bw] Last 7 days
-;;   * [bp] Messages with images
-;; Misc
-;;
-;;   * [U]pdate email & database
-;;   * toggle [m]ail sending mode (direct)
-;;   * [f]lush queued mail
-;;
-;;       * [H]elp
-;;   * [q]uit mu4e
-;;
-
-
-;;; Flags:
-
-;; - D -- draft
-;; - F -- flagged (i.e., starred)
-;; - N -- new
-;; - P -- passed (i.e., forwarded)
-;; - R -- replied
-;; - S -- seen
-;; - T -- trashed
-;; - a -- has-attachement
-;; - x -- encrypted
-;; - s -- signed
-;; - u -- unread
-
-
-;;; [ Maildir ]
-
-;; Indexing your messages
-;; $ mu index --maildir=~/Mails ; first time build database.
-;; $ mu index --rebuild --maildir=~/Mails ; rebuild/repair database.
-;; $ mu find hello
-
-
-;;; [ queuing mails ]
-
-;; $ mu mkdir ~/Maildir/queue
-;; $ touch ~/Maildir/queue/.noindex
-
-
-;;; Key bindings
-
-;; # ----- main ----
-;; - [U] -- fetch emails, update email & database.
-;; - [C-S-u] -- update mail & reindex
-;; # ----- mu4e Message mode ----
-;; - [C-c C-c] -- send message
-;; - [C-c C-d] -- save to drafts and leave
-;; - [C-c C-k] -- kill the message
-;; - [C-c C-a] -- attach a file (pro-tip: drag & drop works as well)
-;; # ----- composing -------
-;; # address auto completion
-;; Emacs 24 also supports cycling through the alternatives. When there are more
-;; than 5 matching addresses, they are shown in a *Completions* buffer. Once the
-;; number of matches gets below this number, one is inserted in the address
-;; field and you can cycle through the alternatives using <TAB>.
-;;
-;; # Default bindings
-;; # ----------------
-;; # R: Reply      s: search            .: raw view (toggle)
-;; # F: Forward    j: jump-to-maildir   q: quit
-;; # C: Compose    b: bookmark-search
-;; # E: Edit       B: edit bookmark-search
-;;
-
-
-;;; keybindings
-
-;; Using the below key bindings, you can do various things with these messages; these actions are also listed in the Headers menu in the emacs menu bar.
-
-;; key          description
-;; ===========================================================
-;; n,p          go to next, previous message
-;; y            select the message view (if it's visible)
-;; RET          open the message at point in the message view
-
-;; searching
-;; ---------
-;; s            search
-;; S            edit last query
-;; /            narrow the search
-;; \            takes you back to the previous query
-;; b            search bookmark
-;; B            edit bookmark before search
-;; j            jump to maildir
-;; M-left       previous query in queries
-;; M-right      next query in queries
-
-;; O            change sort order
-;; P            toggle threading
-;; Q            toggle full-search
-;; V            toggle skip-duplicates
-;; W            toggle include-related
-
-;; marking
-;; -------
-;; d            mark for moving to the trash folder
-;; DEL,D        mark for complete deletion
-;; m            mark for moving to another maildir folder
-;; r            mark for refiling
-;; +,-          mark for flagging/unflagging (similar with mark as important)
-;; ?,!          mark message as unread, read
-;;
-;; u            unmark message at point
-;; U            unmark *all* messages
-;;
-;; %            mark based on a regular expression
-;; T,t          mark whole thread, subthread
-;;
-;; <insert>     mark for 'something' (decide later)
-;; #            resolve deferred 'something' marks
-;;
-;; x            execute actions for the marked messages
-
-;; composition
-;; -----------
-;; R,F,C        reply/forward/compose
-;; E            edit (only allowed for draft messages)
-
-;; misc
-;; ----
-;; a            execute some custom action on a header
-;; |            pipe message through shell command
-;; C-+,C--      increase / decrease the number of headers shown
-;; H            get help
-;; C-S-u        update mail & reindex
-;; q,z          leave the headers buffer
-
-;;; URL
-;; - g -- go to URL, you also can specify a range of URL like: 1 3-6 8, and "a" is a shortcut for all.
-
-;;; Marking messages
-;; - x -- mu4e-mark-execute-all
-;; - % -- mark all messages that matches a certain pattern.
-;; - T -- mark whole thread
-;; - t -- mark sub-thread
-;; - <insert> -- mark 'something' now, decide later
-;; - D, <delete> -- delete
-;; - + -- mark as 'flagged' (``starred'')
-;; - m -- move to some maildir
-;; - ! -- mark as read
-;; - ? -- mark as unread
-;; - r -- mark for refiling
-;; - d -- move to the trash folder
-;; - - -- remove 'flagged' mark
-;; - u -- remove mark at the point
-;; - U -- remove all marks
-
-
-;;; [ Queries ]
-
-;; mu4e queries are the same as the ones that mu find understands1. Let's look at some examples here, please refer to the mu-find and mu-easy man pages for details and even more examples.
-;;
-;; # get all messages regarding bananas:
-;; bananas
-;;
-;; # get all messages regarding bananas from John with an attachment:
-;; from:john flag:attach bananas
-;;
-;; # get all messages with subject wombat in June 2009
-;; subject:wombat date:20090601..20090630
-;;
-;; # get all messages with PDF attachments in the /projects folder
-;; maildir:/projects mime:application/pdf
-;;
-;; # get all messages about Rupert in the Sent Items folder
-;; maildir:"/Sent Items" rupert
-;; # note: terms with spaces need quoting
-;;
-;; # get all important messages which are signed:
-;; flag:signed prio:high
-;;
-;; # get all messages from Jim without an attachment:
-;; from:jim AND NOT flag:attach
-;;
-;; # get all message with Alice in one of the contacts fields (to, from, cc,
-;; # bcc):
-;; contact:alice
-;;
-;; # get all unread messages where the subject mentions Angstrom:
-;; # (search is case-insensitive and accent-insensitive)
-;; subject:angstrom flag:unread
-;;
-;; # get all unread messages between Mar-2002 and Aug-2003 about some bird:
-;; date:20020301..20030831 nightingale flag:unread
-;;
-;; # get today's messages:
-;; date:today..now
-;;
-;; # get all messages we got in the last two weeks regarding emacs:
-;; date:2w..now emacs
-;;
-;; # get messages from the the Mu mailing list:
-;; mu find list:mu-discuss.googlegroups.com
-;;
-;; # get messages with a subject soccer, Socrates, society...:
-;; subject:soc*
-;; # note: the '*' wildcard can only appear as the term's rightmost character
-;;
-;; # get all mails with attachment with filenames starting with 'pic':
-;; file:pic*
-;; # note: the '*' wildcard can only appear as the term's rightmost character
-;;
-;; # get all messages with PDF attachments:
-;; mime:application/pdf
-;;
-;; # get all messages with image attachments:
-;; mime:image/*
-;; # note: the '*' wildcard can only appear as the term's @emph{rightmost}
-;; # character
-
-
-;;; Usage:
-;; - [M-x mu4e]
-
-
-;;; Installation
-
-;;; # get from git (alternatively, use a github tarball)
-;;; $ git clone git://github.com/djcb/mu.git
-;;;
-;;; $ cd mu
-;;; $ autoreconf -i && ./configure && make
-;;; # On the BSDs: use gmake instead of make
-;;; $ sudo make install
-
-
 
 ;;; Code:
 
@@ -292,7 +9,7 @@
 ;; (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 ;;
 ;;; compile from git
-(add-to-list 'load-path (expand-file-name "~/compile/Emacs/mu/mu/mu4e"))
+;; (add-to-list 'load-path (expand-file-name "~/compile/Emacs/mu/mu/mu4e"))
 
 (require 'mu4e)
 
@@ -300,6 +17,7 @@
 (require 'mu4e-vars)
 (require 'mu4e-view)
 (require 'mu4e-proc)
+
 (require 'mu4e-speedbar)
 (require 'mu4e-contrib)
 
@@ -307,6 +25,8 @@
 
 (setq mu4e-mu-home nil ; nil for default
       ;; mu4e-mu-binary "/usr/bin/mu"
+      ;; TODO: find a better solution to solve this bin path variable issue.
+      ;; mu4e-mu-binary "~/bin/mu"
       mu4e-mu-binary "~/compile/Emacs/mu/mu/mu/mu"
       ;; mu4e-mu-binary "/home/stardiviner/.emacs.d/el-get/mu4e/mu/mu"
       )
@@ -374,7 +94,37 @@
 ;; - `message-send-mail-with-mailclient'
 ;; - `message-send-mail-with-sendmail'
 
-;;; one: [smtp] for Gmail
+
+
+;;; one: [sendmail]
+;; (setq message-send-mail-function 'message-send-mail-with-sendmail)
+
+;; 0: smtpmail
+(setq message-send-mail-function 'smtpmail-send-queued-mail)
+;; (setq message-send-mail-function 'smtpmail-send-it)
+
+;; (setq smtpmail-default-smtp-server "smtp.example.com"
+;;       smtpmail-smtp-server         "smtp.example.com"
+;;       smtpmail-local-domain        "example.com")
+
+;; Queuing mail
+;; you can queue the mail, and send it when you have restored your internet connection.
+(setq smtpmail-queue-mail t  ;; start in non-queuing mode
+      smtpmail-queue-dir  "~/Mails/queue/cur" ; send with `smtpmail-send-queued-mail'
+      smtpmail-queue-index "~/Mails/queue/index"
+      smtpmail-queue-index-file "index"
+      )
+
+;; 1: msmtp
+;; (setq sendmail-program "/usr/bin/msmtp")
+;; $ msmtp -C $HOME/.mutt/msmtprc
+
+;; 2: sendmail
+;; (setq sendmail-program "/usr/sbin/sendmail") ; sendmail -q
+;; $ sendmail -oem -oi
+
+
+;;; two: [smtp] for Gmail
 ;; (require 'smtpmail)
 
 ;;; 1.
@@ -398,26 +148,6 @@
 ;;       smtpmail-smtp-service 587)
 
 
-;;; two: [sendmail]
-;; (setq message-send-mail-function 'message-send-mail-with-sendmail)
-(setq message-send-mail-function 'smtpmail-send-queued-mail)
-;; 1: msmtp
-;; (setq sendmail-program "/usr/bin/msmtp")
-;; $ msmtp -C $HOME/.mutt/msmtprc
-;; 2: sendmail
-;; (setq sendmail-program "/usr/sbin/sendmail") ; sendmail -q
-;; $ sendmail -oem -oi
-
-
-;;; Queuing mail
-;; you can queue the mail, and send it when you have restored your internet connection.
-(setq smtpmail-queue-mail t  ;; start in non-queuing mode
-      smtpmail-queue-dir  "~/Mails/queue/cur" ; send with `smtpmail-send-queued-mail'
-      smtpmail-queue-index "~/Mails/queue/index"
-      smtpmail-queue-index-file "index"
-      )
-
-
 ;;; View
 
 (setq mu4e-split-view 'horizontal ; 'vertical, 'horizontal
@@ -430,23 +160,26 @@
       mu4e-headers-new-mark '("N" . " ") ; •
       mu4e-headers-unread-mark '("u" . "·")
       mu4e-headers-seen-mark '("S" . " ")
-      mu4e-headers-signed-mark '("s" . "★")
+      mu4e-headers-signed-mark '("s" . "√")
       mu4e-headers-encrypted-mark '("x" . "⚴")
       mu4e-headers-draft-mark '("D" . "⚒")
-      mu4e-headers-attach-mark '("a" . "▢")
+      mu4e-headers-attach-mark '("a" . "▣")
       mu4e-headers-passed-mark '("P" . "❯")
       mu4e-headers-flagged-mark '("F" . "⚑")
       mu4e-headers-replied-mark '("R" . "⇦")
       mu4e-headers-trashed-mark '("T" . "✗")
       ;; thread prefix marks
       mu4e-headers-default-prefix '("|" . "┝")
-      mu4e-headers-has-child-prefix '("+" . "»")
-      mu4e-headers-empty-parent-prefix '("-" . "∘")
-      mu4e-headers-first-child-prefix '("\\" . "┗▶")
+      mu4e-headers-has-child-prefix '("+" . "-")
+      ;; mu4e-headers-has-child-prefix '("+" . " ")
+      mu4e-headers-empty-parent-prefix '("-" . "◯")
+      mu4e-headers-first-child-prefix '("\\" . "∘")
       mu4e-headers-duplicate-prefix '("=" . "‡")
       )
 
 ;; (mu4e-headers-change-sorting 't 'descending)
+
+;; TODO: (setq mu4e- auto-collopase-headers nil)
 
 
 ;;; Message
@@ -458,10 +191,22 @@
 
 (setq mu4e-headers-date-format "%x %X")
 
-(setq mu4e-headers-fields '((:flags   .  5)
-                            (:subject . 65)
-                            (:from    . 15)
-                            (:date    . 20))
+;;; normal fields
+;; (setq mu4e-headers-fields
+;;       '((:flags   .  6)
+;;         (:subject . 65)
+;;         (:from    . 15)
+;;         (:date    . 20))
+;;       )
+
+;; only show thread subject once
+(setq mu4e-headers-fields
+      '((:flags .  6)
+        (:human-date  . 18)
+        (:from  . 18)
+        (:thread-subject . nil)
+        ;; (:subject . nil)
+        )
       )
 
 ;; (defun my-set-mu4e-headers-fields-smart
@@ -612,7 +357,7 @@
 
 ;; FIXME: result is:   -> :References : nil
 (add-to-list 'mu4e-header-info-custom
-             '(:references :name "References: "
+             '(:references :name "References"
                            :shortname "References"
                            :help "Reference of this thread"
                            :function
@@ -679,7 +424,9 @@
 ;; in your org-mode files. mu4e supports this with the org-mu4e module; you can
 ;; set it up by adding it to your configuration:
 ;;
+
 (require 'org-mu4e)
+
 (add-hook 'mu4e-compose-mode-hook
           (lambda ()
             (org-mu4e-compose-org-mode) ; edit with org-mode in e-mail body.
@@ -751,6 +498,14 @@
 ;;          (set (make-local-variable 'message-cite-style) message-cite-style-thunderbird))))
 
 (setq message-cite-style message-cite-style-thunderbird)
+;; ((posting-from-work-p) (eval (set (make-local-variable 'message-cite-style) message-cite-style-outlook)))
+;; (setq message-cite-style '((message-cite-function 'message-cite-original)
+;;                            (message-citation-line-function 'message-insert-formatted-citation-line)
+;;                            (message-cite-reply-position 'above)
+;;                            (message-yank-prefix "> ")
+;;                            (message-yank-cited-prefix ">")
+;;                            (message-yank-empty-prefix ">")
+;;                            (message-citation-line-format "On %D %R %p, %N wrote:")))
 
 ;; (setq message-cite-style-gmail
 ;;       '((message-cite-function 'message-cite-original)
@@ -802,7 +557,11 @@
 (setq mu4e-attachment-dir "~/Downloads"
       mu4e-view-attachment-actions '(("wopen-with" . mu4e-view-open-attachment-with)
                                      ("ein-emacs" . mu4e-view-open-attachment-emacs)
-                                     ("|pipe" . mu4e-view-pipe-attachment)))
+                                     ("|pipe" . mu4e-view-pipe-attachment))
+      ;; saving multiple attachments asks once for a directory and saves all
+      ;; attachments in the chosen directory.
+      mu4e-save-multiple-attachments-without-asking t
+      )
 
 
 ;;; Actions
@@ -872,8 +631,7 @@
 ;; results, just like e.g. Gmail does it. You can enable this behavior by
 ;; setting mu4e-headers-include-related to t, and you can toggle between
 ;; including/not-including with <W>.
-(setq mu4e-headers-include-related t
-      mu4e-headers-skip-duplicates t) ; skip duplicates
+(setq mu4e-headers-include-related t)
 
 
 ;;; Compose
@@ -890,7 +648,9 @@
 ;;; - v -- see the details of the signature verification by activating the Details.
 ;; start gpg-agent manually:
 ;; $ eval $(gpg-agent --daemon)
-(setq mu4e-decryption-policy t) ; auto decrypt.
+(setq mu4e-auto-retrieve-keys t
+      mu4e-decryption-policy t          ; auto decrypt.
+      )
 
 
 ;;; Refiling
@@ -941,7 +701,6 @@
 
 ;;; Faces
 
-;; (set-face-attribute 'mu4e-faces nil)
 (set-face-attribute 'mu4e-header-highlight-face nil ; current select line
                     ;; 1
                     ;; :background "#004A5D" :foreground "white"
@@ -949,7 +708,7 @@
                     ;; :weight 'normal :underline nil
                     :background "#004A5D" :foreground "white"
                     :box '(:color "#005D5E" :line-width -1)
-                    :weight 'normal
+                    :weight 'normal :underline nil
                     )
 ;;; highlighted email, main view key color like "[q]uit mu4e".
 (set-face-attribute 'mu4e-highlight-face nil
@@ -969,7 +728,8 @@
                     )
 ;;; Emacs mu4e window top title.
 (set-face-attribute 'mu4e-title-face nil
-                    :foreground "yellow")
+                    :foreground "yellow"
+                    :inherit nil)
 ;;; readed mail line in index.
 (set-face-attribute 'mu4e-header-face nil
                     :foreground "dim gray")
@@ -1010,8 +770,7 @@
                     :foreground "white")
 ;;; flagged email
 (set-face-attribute 'mu4e-flagged-face nil
-                    :foreground "green yellow" :background "black"
-                    :weight 'bold
+                    :foreground "dodger blue" :background "black"
                     )
 ;;; replied email
 (set-face-attribute 'mu4e-replied-face nil
@@ -1020,7 +779,7 @@
 ;; forwarded email
 (set-face-attribute 'mu4e-forwarded-face nil
                     :foreground "dark orange"
-                    :overline "magenta")
+                    :overline "dark magenta")
 ;; compose
 (set-face-attribute 'mu4e-compose-header-face nil
                     :foreground "cyan"
@@ -1034,12 +793,14 @@
                     )
 ;;; contact: e.g. Christopher Miles, help-gnu-emacs@gnu.org
 (set-face-attribute 'mu4e-contact-face nil
-                    :foreground "yellow")
+                    :foreground "yellow green"
+                    ;; :underline "dim gray"
+                    )
 ;;; header-
 ;;; header field keys: e.g. From:, To:, Subject:,
 ;; some keys.
 (set-face-attribute 'mu4e-header-key-face nil
-                    :foreground "magenta"
+                    :foreground "chocolate"
                     )
 (set-face-attribute 'mu4e-header-marks-face nil
                     :foreground "light blue"
@@ -1048,10 +809,11 @@
                     :foreground "white"
                     )
 (set-face-attribute 'mu4e-header-value-face nil
-                    :foreground "#444444"
+                    :foreground "dark gray"
                     )
 (set-face-attribute 'mu4e-special-header-value-face nil
-                    :foreground "magenta"
+                    :foreground "brown"
+                    :weight 'bold
                     )
 ;; header names: like From: Subject: etc.
 (set-face-attribute 'message-header-name nil
@@ -1073,6 +835,7 @@
 
 ;;; Marking
 
+(define-key mu4e-headers-mode-map (kbd "f") 'mu4e-headers-mark-for-flag)
 (define-key mu4e-headers-mode-map (kbd "m") 'mu4e-headers-mark-for-something)
 (define-key mu4e-headers-mode-map (kbd "M") 'mu4e-headers-mark-for-move)
 
@@ -1118,9 +881,22 @@
 ;;       smtpmail-smtp-service 587)
 
 
+;;; Contacts
+
+(add-hook
+ 'mu4e-compose-mode-hook
+ (lambda ()
+   (setq-local completion-at-point-functions
+               '(org-contacts-message-complete-function
+                 mu4e~compose-complete-contact
+                 message-completion-function t))))
+
+;; (setq mu4e-org-contacts-file)
+
+
 
 (defun my-mu4e-jump-to-index ()
-    ""
+  ""
   (interactive)
   (if (not (mu4e-running-p))
       (mu4e)
@@ -1129,7 +905,7 @@
 
 (unless (boundp 'my-mu4e-map)
   (define-prefix-command 'my-mu4e-map))
-(define-key my-tools-prefix-map (kbd "m") 'my-mu4e-map)
+(define-key my-tools-prefix (kbd "m") 'my-mu4e-map)
 
 (if (featurep 'mu4e)
     (progn
@@ -1150,6 +926,13 @@
 ;;; replace Emacs default `completing-read' by default).
 (setq mu4e-completing-read-function 'completing-read ; 'completing-read , 'ido-completing-read
       )
+
+
+;;; [ mu4e-maildirs-extension ]
+
+(require 'mu4e-maildirs-extension)
+
+(mu4e-maildirs-extension)
 
 
 ;;; [ mu4e-speedbar ]
@@ -1185,6 +968,17 @@
 
 (define-key my-mu4e-map (kbd "s") 'helm-mu)
 (define-key my-mu4e-map (kbd "c") 'helm-mu-contacts)
+
+;;; maintaining an address-book with org-contacts
+;;; Usage:
+;; - <a o> in headers view & message view :: using the org-capture mechanism.
+
+(setq mu4e-org-contacts-file "~/Org/Contacts/Contacts.org") ; <full-path-to-your-org-contacts-file>
+(add-to-list 'mu4e-headers-actions
+             '("org-contact-add" . mu4e-action-add-org-contact) t)
+(add-to-list 'mu4e-view-actions
+             '("org-contact-add" . mu4e-action-add-org-contact) t)
+
 
 
 

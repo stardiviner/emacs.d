@@ -15,10 +15,17 @@
 ;; load latest user CEDET instead of Emacs default built-in CEDET.
 ;; (load-file (concat user-emacs-directory "el-get/cedet/cedet-devel-load.el"))
 
-(require 'cedet)
+;; (require 'cedet)
 
 
 ;;; [ Semantic ]
+
+(require 'semantic/senator)
+(require 'semantic/ia)
+(require 'semantic/analyze/refs)
+(require 'semantic/analyze/complete)
+(require 'semantic/bovine/gcc)
+(require 'semantic/mru-bookmark)
 
 (require 'semantic)
 
@@ -32,7 +39,19 @@
 
 
 (global-semantic-idle-scheduler-mode 1)
+(global-semantic-decoration-mode 1)
+(global-semantic-idle-summary-mode 1)
+(global-semantic-stickyfunc-mode 1)
+(global-semantic-idle-local-symbol-highlight-mode 1)
+(global-semantic-mru-bookmark-mode 1)
 (global-semanticdb-minor-mode 1)
+;; FIXME: (global-cedet-m3-minor-mode 1)
+(semanticdb-enable-gnu-global-databases 'c-mode t)
+(global-semantic-show-unmatched-syntax-mode t)
+
+
+;; (autoload 'semantic-mode "semantic mode" nil t)
+;; (semantic-mode t) ; this should be placed *BEFORE* the statements which activate ECB.
 
 ;; I already put this in init-my-prog-ecb.el
 ;; alternative: This is a smarter way when you need semantic only if ECB is active.

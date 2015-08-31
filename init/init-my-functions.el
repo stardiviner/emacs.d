@@ -100,6 +100,13 @@ by creating or altering keymaps stored in buffer-local
                       map))))
     (define-key newmap key def)))
 
+;;; magical insert kbd for key.
+(defun insert-kbd-for-key (key)
+  (interactive "kKey: ")
+  (insert (format "(kbd \"%s\")" (key-description key))))
+
+;; (global-set-key "C-c k" 'insert-kbd-for-key)
+
 
 ;;; [ open and switch to buffer ]
 
@@ -108,10 +115,10 @@ by creating or altering keymaps stored in buffer-local
 
 Usage: 
 
- (define-key my-org-prefix-map (kbd 'o')
+ (define-key my-org-prefix (kbd 'o')
    (lambda ()
      (interactive)
-     (my-func/open-and-switch-to-buffer 'org-agenda-list '*Org Agenda*' t)))
+     (my-func/open-and-switch-to-buffer 'org-agenda-list \"*Org Agenda*\" t)))
 "
   (interactive)
   (if (get-buffer the-buffer-name)
@@ -153,14 +160,14 @@ Usage:
 ;; (defadvice find-file (after find-file-sudo activate)
 ;;   "Find file as root if necessary."
 ;;   (unless (and buffer-file-name
-;;                (file-writable-p buffer-file-name))
+;;              (file-writable-p buffer-file-name))
 ;;     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
-;;
+
 ;; (if (featurep 'ido)
 ;;     (defadvice ido-find-file (after find-file-sudo activate)
 ;;       "Find file as root if necessary."
 ;;       (unless (and buffer-file-name
-;;                    (file-writable-p buffer-file-name))
+;;                  (file-writable-p buffer-file-name))
 ;;         (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name)))))
 
 
@@ -298,6 +305,17 @@ Example:
   ;;       '(ac-source-capf ac-source-symbols))
   (mapc (lambda (x) (setq-local ac-sources (remq x ac-sources)))
         source-removed-list)
+  )
+
+
+;;; el-get
+
+(defun my-el-get-require (package)
+  "Require `PACKAGE' if it is installed, if not installed, then el-get install it."
+  (interactive)
+  (if (el-get-package-installed-p package)
+      (require package)
+    (el-get-install package))
   )
 
 
