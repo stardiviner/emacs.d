@@ -180,7 +180,8 @@
              )
        ;; comment: 1, server (block) side comment, 2, client (HTML, CSS, JS) side comment
        (setq web-mode-comment-style 1)
-
+       ;; CSS
+       (setq web-mode-enable-css-colorization t)
        )
      (setq my-web-mode-hook 'my-web-mode-defaults)
 
