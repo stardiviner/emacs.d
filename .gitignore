@@ -9,6 +9,9 @@ ac-comphist.dat
 auto-save-list/
 *~
 
+# Org-mode
+org-clock-save.el
+
 # projectile
 projectile.cache
 projectile-bookmarks.eld
