@@ -259,6 +259,7 @@
 ;; (require 'init-my-prog-lang-lua)
 ;; (require 'init-my-prog-lang-swift)
 ;; (require 'init-my-prog-lang-java)
+(require 'init-my-prog-lang-php)
 (require 'init-my-prog-lang-html)
 (require 'init-my-prog-lang-css)
 (require 'init-my-prog-lang-javascript)
