@@ -7,6 +7,12 @@
 
 ;;; [ complete ]
 
+;;; Usage:
+;;
+;; - `completion-at-point-functions' is a special hook.
+;;    (add-hook 'completion-at-point-functions 'completion-function)
+
+
 ;; (setq tab-always-indent 'complete)
 ;; (add-to-list 'completion-styles 'initials t)
 ;; (setq completion-cycle-threshold 5)

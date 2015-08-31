@@ -497,6 +497,25 @@
 ;; TODO: for js lines region un-comment.
 ;; (add-to-list 'web-mode-comment-formats '("javascript" . "//"))
 
+;;;_* completion <- company-mode
+
+;; https://github.com/company-mode/company-mode/commit/75e21f6ddc2a826c6ec74312d2e725a1a827385e
+;; TODO: (add-hook web-mode-before-auto-complete-hooks)
+;; `web-mode-language-at-pos'
+;; `company--begin-new'
+;;
+;; reference this:
+;;
+;; (defadvice ac-start (before web-mode-set-up-ac-sources activate)
+;;   "Set `ac-sources' based on current language before running auto-complete."
+;;   (if (equal major-mode 'web-mode)
+;;       (progn
+;;         (run-hooks 'web-mode-before-auto-complete-hooks)
+;;         (when web-mode-ac-sources-alist
+;;           (let ((new-web-mode-ac-sources
+;;                  (assoc (web-mode-language-at-pos)
+;;                         web-mode-ac-sources-alist)))
+;;             (setq ac-sources (cdr new-web-mode-ac-sources)))))))
 
 ;;;_ multi-web-mode
 

@@ -336,6 +336,15 @@
       bbdb-vcard-media-directory "media/"
       )
 
+;; TODO:
+;; (setq bbdb-vcard-skip-on-import
+;;       bbdb-vcard-skip-on-export
+;;       bbdb-vcard-skip-valueless)
+
+(setq bbdb-vcard-use-fullname t ; use full-name can reduce merge conflicts.
+      ;; bbdb-vcard-name-imported-priority '(first-last formated-name bbdb-vcard-generate-bbdb-name)
+      ;; bbdb-vcard-x-bbdb-candidates
+      )
 
 ;;; [ helm-bbdb ]
 

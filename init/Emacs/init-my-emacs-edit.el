@@ -329,6 +329,13 @@ For example: input regexp like [[:space:]]+ for align several space separated se
 (require 'init-my-emacs-edit-multiple-cursors)
 
 
+;;;_ Sudo
+
+;;; Usage:
+;;
+;; - [M-x sudo-edit]
+
+;; (require 'sudo-edit)
 
 ;;;_
 (provide 'init-my-emacs-edit)

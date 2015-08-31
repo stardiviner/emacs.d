@@ -456,13 +456,13 @@
 ;; - $ gem install pry-nav pry-stack_explorer
 ;; - $ gem install termios # replaces the running of: stty sane
 
-(require 'pry)
-
-;; (setq pry-program-name "pry")           ; program invoked by the `run-pry' command.
-
-(define-key my-inferior-ruby-map (kbd "p") 'run-pry)
-(define-key my-inferior-ruby-map (kbd "C-p") 'pry-intercept)
-(define-key my-inferior-ruby-map (kbd "C-r") 'pry-intercept-rerun)
+;; (require 'pry)
+;;
+;; ;; (setq pry-program-name "pry")           ; program invoked by the `run-pry' command.
+;;
+;; (define-key my-inferior-ruby-map (kbd "p") 'run-pry)
+;; (define-key my-inferior-ruby-map (kbd "C-p") 'pry-intercept)
+;; (define-key my-inferior-ruby-map (kbd "C-r") 'pry-intercept-rerun)
 
 
 ;;; [ Robe ] -- Code navigation, documentation lookup and completion for Ruby.
@@ -663,12 +663,13 @@
 ;;
 ;; What you can do to solve this is to use BASH for running the specs. This
 ;; piece of code does the job:
-(defadvice rspec-compile (around rspec-compile-around)
-  "Use BASH shell for running the specs because of ZSH issues."
-  (let ((shell-file-name "/bin/bash"))
-    ad-do-it))
 
-(ad-activate 'rspec-compile)
+;; (defadvice rspec-compile (around rspec-compile-around)
+;;   "Use BASH shell for running the specs because of ZSH issues."
+;;   (let ((shell-file-name "/bin/bash"))
+;;     ad-do-it))
+;;
+;; (ad-activate 'rspec-compile)
 
 
 ;;; [ minitest ]

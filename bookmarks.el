@@ -2,7 +2,27 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Redis"
+(("SQL Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Database/SQL/Data/References/Reference of SQL/Reference of SQL.org")
+ (front-context-string . "* Concepts\n\n#+BE")
+ (rear-context-string)
+ (position . 1))
+("Kali Linux"
+ (filename . "~/Org/Wiki/Computer/Systems/Linux/Kali Linux/Kali Linux.org")
+ (front-context-string . "* Intro\n\nKali Li")
+ (rear-context-string)
+ (position . 1))
+("Docker"
+ (filename . "~/Org/Wiki/Computer/Softwares/Docker/Docker.org")
+ (front-context-string . "* Intro\n\nDocker ")
+ (rear-context-string)
+ (position . 1))
+("Emacs Keybindings"
+ (filename . "~/Org/Wiki/Computer/Programming/Emacs/KeyBindings/Key Bindings.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Redis"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Database/NoSQL/Redis/Redis.org")
  (front-context-string . "* Intro\n\nRedis i")
  (rear-context-string)

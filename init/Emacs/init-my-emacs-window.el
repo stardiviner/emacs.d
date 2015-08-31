@@ -42,6 +42,18 @@
 ;;                                      display-buffer-pop-up-window)
 ;;                                     . ((inhibit-same-window . t)))))
 
+;; FIXME:
+(add-to-list 'display-buffer-alist
+             '("\\*poporg:\ .*?\\*" ; *poporg: init-my-emacs-window.el*
+               (display-buffer-reuse-window
+                display-buffer-pop-up-window)
+               (reusable-frames . visible)
+               ;; (inhibit-same-window . t)
+               (side . bottom)
+               (window-height . 0.3)
+               ;; (popwin:display-buffer-condition popwin:display-buffer-action)
+               ))
+
 
 ;;; [ winner ]
 
@@ -215,6 +227,47 @@
 ;;
 ;;   [M-x purpose-save-window-layout]
 
+;; (require 'window-purpose)
+;;
+;; (setq purpose-preferred-prompt 'helm
+;;       ;; purpose-x-*
+;;       purpose-x-popwin-position 'bottom
+;;       purpose-x-popwin-height 0.5
+;;       purpose-x-popwin-width 0.5)
+;;
+;; (add-to-list 'purpose-user-mode-purposes '(popwin-mode . popup-window))
+;; (add-to-list 'purpose-user-mode-purposes '(compilation-mode . popup-window))
+;; (add-to-list 'purpose-user-mode-purposes '(help-mode . popup-window))
+;; (add-to-list 'purpose-user-mode-purposes '(ack-and-a-half-mode . popup-window))
+;; (add-to-list 'purpose-user-mode-purposes '(dired-mode . sidebar-window))
+;;
+;; (purpose-compile-user-configuration)
+;;
+;; (purpose-mode)
+
+
+;;; [ golden-ratio ] -- Automatic resizing of Emacs windows to the golden ratio.
+
+;;; golden-ratio helps on this issue by resizing automatically the windows you
+;;; are working on to the size specified in the "Golden Ratio". The window that
+;;; has the main focus will have the perfect size for editing, while the ones
+;;; that are not being actively edited will be re-sized to a smaller size that
+;;; doesn't get in the way, but at the same time will be readable enough to know
+;;; it's content.
+
+;;; Usage:
+;;
+;; - [M-x golden-ratio] :: manually invoke `golden-ratio'.
+;; - [M-x golden-ratio-mode] :: toggle `golden-ratio-mode'.
+;; - [M-x golden-ratio-toggle-widescreen] :: toggle between widescreen and regular width window.
+
+;; (require 'golden-ratio)
+;;
+;; (golden-ratio-mode 1)
+;;
+;; (setq golden-ratio-auto-scale t ; for wide screens
+;;       golden-ratio-adjust-factor .8 ; adjust factor
+;;       golden-ratio-wide-adjust-factor .8)
 
 ;; (require 'window-purpose)
 ;;
@@ -504,8 +557,8 @@ The `BUFFER' is the popwin catch pop private message buffer."
 ;; (push '(sly-mrepl-mode :position bottom :height 15) popwin:special-display-config)
 
 ;;; Clojure, CIDER
-(push '(inf-clojure-mode :position bottom :height 15) popwin:special-display-config)
-(push '(cider-clojure-interaction-mode :position bottom :height 15) popwin:special-display-config)
+;; (push '(inf-clojure-mode :position bottom :height 15) popwin:special-display-config)
+;; (push '(cider-clojure-interaction-mode :position bottom :height 15) popwin:special-display-config)
 
 ;;; ESS
 ;; *julia*

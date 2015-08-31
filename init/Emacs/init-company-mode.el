@@ -23,7 +23,7 @@
 (require 'company)
 
 (setq company-minimum-prefix-length 3
-      company-idle-delay 0.5
+      company-idle-delay 0.4
       ;; determines when to auto-complete.
       ;; 'company-explicit-action-p, t, nil, 'function
       company-auto-complete 'company-explicit-action-p
@@ -95,27 +95,10 @@
         ;; company-bbdb           ; BBDB
         ))
 
-;; (add-hook 'emacs-lisp-mode-hook
-;;           (lambda ()
-;;             (add-to-list (make-local-variable 'company-backends)
-;;                          'company-elisp)))
-
-;;; mode local backends example:
-
 ;; (add-hook 'c-mode-common-hook
 ;;           (lambda ()
 ;;             (add-to-list (make-local-variable 'company-backends)
 ;;                          '(company-clang company-cmake))))
-
-;; (add-hook 'js-mode-hook
-;;           (lambda ()
-;;             (set (make-local-variable 'company-backends)
-;;                  '((company-dabbrev-code company-yasnippet)))))
-
-;; (setq company-begin-commands '(self-insert-command
-;;                                org-self-insert-command orgtbl-self-insert-command
-;;                                c-scope-operator c-electric-colon c-electric-lt-gt c-electric-slash
-;;                                ))
 
 ;;; add `company-robe' backend to `company-backends'
 ;; (add-hook 'inf-ruby-mode-hook

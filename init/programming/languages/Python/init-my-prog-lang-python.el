@@ -7,41 +7,12 @@
 
 ;;; Code:
 
-;;; [ python-mode ] --- Python's flying circus support for Emacs
+;;; FIXME: temporary solve python+semantic stack issue.
+;; TODO: search how to solve this issue?
+(remove-hook 'python-mode-hook 'wisent-python-default-setup)
 
-;;  Introduction
-;;
-;; This is now the official Python major mode for GNU Emacs.
-;;
-;; It aims to provide the stuff you'll expect from a major mode for python editing while keeping it simple.
-;;
-;; Currently it implements Syntax highlighting, Indentation, Movement, Shell
-;; interaction, Shell completion, Shell virtualenv support, Pdb tracking, Symbol
-;; completion, Skeletons, FFAP, Code Check, Eldoc, Imenu.
-;;
-;;     Syntax highlighting
-;;     Solid (auto)indentation support
-;;     auto-detection of indentation levels for current file
-;;     Robust triple quoted strings support
-;;     Fancy variable assignment colorization
-;;     Movement commands you'll expect from a major-mode.
-;;     Sexp-like movement
-;;     Python shell integration (not only for Python 2 but also Python 3!)
-;;     Python shell completion (Same as above!)
-;;     Python shell virtualenv support (as simple as setting a variable!)
-;;     PDB Tracking (it even supports ipdb!)
-;;     Symbol completion that sucks because a running inferior shell process and valid code in the current buffer are needed (Don't blame me, it's like that in every python-mode I know). Notice I don't recommend this thing, use ropemacs instead
-;;     Skeletons with a tight integration with dabbrev out of the box
-;;     FFAP (Find Filename At Point), click on an import statement and go to the module definition.
-;;     Code check via pychecker by default (this is customizable of course)
-;;     Eldoc support (this suffers the same drawbacks as the symbol completion, but it's the only sane way to do it from Elisp)
-;;     imenu support to easily navigate your code
-;;     add-log-current-defun support
-;;     hideshow support
-;;     outline support
-;;     fill paragraph (with customizable docstring formatting)
-;;
-;; The code is well organized in parts with some clean sensitive naming.
+
+;;; [ python-mode ] --- Python's flying circus support for Emacs
 
 (setq-default python-indent-offset 4
               python-indent-guess-indent-offset t
@@ -87,6 +58,10 @@
 
 (define-key my-prog-inferior-map (kbd "p") 'inferior-python)
 
+;; start inferior-python process
+;; FIXME: Making python-shell-interpreter local to *Python* while let-bound!
+;; (inferior-python)
+
 
 ;;; [ pyvenv ] -- Python virtual environment interface for Emacs.
 
@@ -98,6 +73,8 @@
 ;; - `pyvenv-activate' :: queries the user for a virtual environment directory to activate.
 ;; - `pyvenv-workon' :: queries for a virtual environment in $WORKON_HOME (from virtualenvwrapper.sh).
 ;; - `pyvenv-mode-line-indicator' :: an indicator for mode-line.
+
+;; TODO: config it.
 
 
 ;;; [ jedi.el ] --- a python auto-completion library.
@@ -217,6 +194,12 @@
             ))
 
 
+;;; [ virtualenv ]
+
+
+;;; [ virtualenvwrapper ]
+
+
 ;;; [ IPython ]
 
 
@@ -227,7 +210,6 @@
 
 
 ;;; [ ein ] -- IPython notebook client in Emacs
-
 
 
 

@@ -103,6 +103,8 @@
 
 ;; (setq helm-source-projectile-files-list)
 
+;; https://github.com/bbatsov/projectile/commit/e8b7b54449c645c764c928d7d1cfa29113230f05
+;; (projectile-register-project-type)
 
 (projectile-global-mode +1)
 ;; OR

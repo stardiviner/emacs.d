@@ -11,6 +11,7 @@
 
 ;; (require 'init-my-prog-cedet)
 
+;; (global-ede-mode t)
 
 
 ;;; [ Sourcegraph: srclib ] -- A hackable, multi-language code analysis library for building better software tools.
@@ -29,10 +30,6 @@
 ;; - `sourcegraph-analyze' :: analyze code.
 ;; - `sourcegraph-jump-to-def' :: jump to definition.
 ;; - `sourcegraph-search-site'
-;;
-;; $ go get github.com/sourcegraph/srclib/cmd/src
-
-;; (require 'sourcegraph)
 
 ;; enable sourcegraph-mode minor mode in all programming modes repository.
 (add-hook 'prog-mode-hook 'sourcegraph-mode)

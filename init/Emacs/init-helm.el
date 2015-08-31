@@ -99,21 +99,7 @@
 ;; vanilla emacs completion: Add an entry to helm-completing-read-handlers-alist
 ;; like this: (find-alternate-file . nil)
 
-(setq helm-completing-read-handlers-alist
-      '((describe-function . helm-completing-read-symbols)
-        (describe-variable . helm-completing-read-symbols)
-        (debug-on-entry . helm-completing-read-symbols)
-        (find-function . helm-completing-read-symbols)
-        (find-tag . helm-completing-read-with-cands-in-buffer)
-        (ffap-alternate-file)
-        (tmm-menubar)
-        ;; customize
-        (org-insert-link . ido)         ; NOTE: temp solution for Helm org-insert-link error.
-        ))
-
-(setq helm-candidate-number-limit nil
-      ;; helm-candidate-separator "--------------------"
-      )
+;; (setq helm-candidate-number-limit 100)
 
 ;; this global keybinding [M-x] will conflict with {[C-u M-x align-regexp] on select region text.}
 ;; But you can press [M-x C-u align-regexp RET].

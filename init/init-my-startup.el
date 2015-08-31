@@ -65,14 +65,15 @@
 ;; (find-file "~/Git/Ubuntu/install.sh")
 ;; (find-file "~/Git/Ubuntu/init.pp")
 ;; (find-file "~/Git/Puppet/init.pp")
-(find-file "~/Org/Wiki/Learning/Learning.org")
-(find-file "~/Org/Wiki/Learning/MyLearningPlan/Learn Programming.org")
-(find-file "~/Org/Projects/Projects.org")
-(find-file "~/Org/Work/Work.org")
-(find-file "~/Org/Tasks.org")
 
-(find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Frameworks/Ruby on Rails/Data/Manuals/My Ruby on Rails Reference.org")
-(find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Frameworks/Ruby on Rails/Data/Manuals/My Ruby on Rails Guides.org")
+;; (find-file "~/Org/Wiki/Learning/Learning.org")
+;; (find-file "~/Org/Wiki/Learning/MyLearningPlan/Learn Programming.org")
+;; (find-file "~/Org/Projects/Projects.org")
+;; (find-file "~/Org/Work/Work.org")
+;; (find-file "~/Org/Tasks.org")
+
+(find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Frameworks/Ruby on Rails/Data/Manuals/Reference/My Ruby on Rails Reference.org")
+(find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Frameworks/Ruby on Rails/Data/Manuals/Ruby on Rails Guides/Ruby on Rails Guides.org")
 (find-file "~/Code/learning/Ruby/test.rb")
 
 
@@ -98,7 +99,7 @@
 ;;; open Org-Agenda at startup.
 ;; (org-agenda-list)
 
-;; (org-todo-list t)
+(org-todo-list t)
 ;; FIXME: (org-agenda-redo 5) ; Urgent tasks
 
 ;; (setq initial-buffer-choice "*Org Agenda*")
@@ -121,7 +122,7 @@
 
 ;;; Temporary solution for disable auto-complete
 
-(global-auto-complete-mode -1)
+;; (global-auto-complete-mode -1)
 
 
 

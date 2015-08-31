@@ -23,7 +23,10 @@
  org-agenda-include-deadline t
  org-agenda-log-mode-items '(closed clock)
  org-agenda-log-mode-add-notes t
- org-agenda-start-with-log-mode t)
+ org-agenda-start-with-log-mode t
+ org-agenda-block-separator ?=
+ org-agenda-compact-blocks t
+ )
 
 
 ;;; Time Grid
@@ -114,12 +117,12 @@
 (setq org-agenda-files '("~/Org/Capture/"
                          "~/Org/Work/Work.org"
                          ;; "~/Org/Tasks.org"
-                         "~/Org/Projects/Programming.org"
+                         "~/Org/Projects/Code.org"
                          "~/Org/Projects/Computer Todos.org"
                          ;; "~/Org/Projects/Freelancer.org"
                          ;; "~/Org/Projects/Finance.org"
                          "~/Org/Projects/Projects.org"
-                         ;; "~/Org/Projects/Programming Projects.org"
+                         ;; "~/Org/Projects/Programming Projects.org" ; this file is very big!!!
                          ;; "~/Org/Projects/Maker.org"
                          ;; "~/Org/Projects/Business Ideas.org"
                          ;; "~/Org/Projects/Startup.org"

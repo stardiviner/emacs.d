@@ -65,7 +65,7 @@
 (setq yagist-view-gist t ; view gist URL after posted.
       yagist-working-directory "~/.gist"
       ;; yagist-working-directory-alist
-      yagist-github-token ""
+      yagist-github-token "03fdc1142f1eaa170ee1508284513c9ce89cadb0"
       )
 
 (define-key paste-map (kbd "p") 'yagist-region-or-buffer)

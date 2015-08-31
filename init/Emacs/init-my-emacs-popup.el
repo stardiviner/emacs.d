@@ -39,7 +39,7 @@
 
 ;; Features:
 ;;  - Tooltip
-;;      (popup-tip)
+;;      `popup-tip'
 ;;  - Popup Menu
 ;;      (popup-menu*)
 ;;  - Popup Cascade Menu
@@ -130,9 +130,10 @@
       showtip-top-adjust 30)
 
 (set-face-attribute 'showtip-face nil
-                    :inherit 'tooltip
-                    :foreground "black" :background "khaki"
-                    :family "DejaVu Sans Mono"
+                    :inherit nil
+                    :inverse-video nil
+                    :foreground "black" :background "white"
+                    ;; :family "DejaVu Sans Mono"
                     ;; :family "WenQuanYi Zen Hei Mono"
                     )
 

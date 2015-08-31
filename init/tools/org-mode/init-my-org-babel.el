@@ -84,7 +84,7 @@
    (js . t)                             ; JavaScript
    (css . t)                            ; CSS
    (latex . t)                          ; LaTeX
-   (R . t)                              ; R
+   ;; (R . t)                              ; R
    (sql . t)                            ; SQL
    (sqlite . t)                         ; SQLite
    (matlab . t)                         ; MATLAB
@@ -127,80 +127,6 @@
 
 
 
-;;; language-specific header arguments
-
-;; `org-babel-default-header-args:<lang>' where `<lang>' is the name of the
-;; language.  See the language-specific documentation available online at
-;; `http://orgmode.org/worg/org-contrib/babel'.
-;; TODO:
-(setq org-babel-default-header-args:latex
-      '(;; generate results as #+BEGIN_LaTeX ... #+END_LaTeX block.
-        ;; (:results . "latex")
-        ;; (:exports . "results")
-        ;; generate result as a (bitmap) image or pdf.
-        ;; (:file . "temp.png")
-        ))
-
-(setq org-babel-default-header-args:R
-      '((:session . "no")
-        (:exports . "both")
-        (:results . "replace")
-        ))
-
-(setq org-babel-default-header-args:sqlite
-      '((:db . "temp.db")
-        (:results . "raw")
-        ;; (:echo . t)
-        (:column . t)
-        (:nullvalue . "Null")))
-
-
-;;;_ * Library of Babel
-
-;;; Usage:
-;;
-;; - `org-babel-lob-ingest' [C-c C-v i]
-;;    Add all named source blocks defined in FILE to `org-babel-library-of-babel'.
-
-;; Files used to populate the `org-babel-library-of-babel'.
-;; To add files to this list use the `org-babel-lob-ingest' command.
-;; TODO:
-;; (setq org-babel-lob-files
-;;       )
-
-
-;;;_ * source code block check
-;;
-;; - Report an error if there is a source block without a language specified
-;; - Report an error if there is a source block with a language specified that
-;;   is not present in `org-babel-load-languages’
-;; – “Check as well for the language of inline code blocks,”
-;; – “Report the line number instead of the char position.”
-
-(defun org-src-block-check ()
-  (interactive)
-  (org-element-map (org-element-parse-buffer)
-      '(src-block inline-src-block)
-    (lambda (sb)
-      (let ((language (org-element-property :language sb)))
-        (cond ((null language)
-               (error "Missing language at line %d in %s"
-                      (org-current-line
-                       (org-element-property :post-affiliated sb))
-                      (buffer-name)))
-              ((not (assoc-string language org-babel-load-languages))
-               (error "Unknown language `%s' at line %d in `%s'"
-                      language
-                      (org-current-line
-                       (org-element-property :post-affiliated sb))
-                      (buffer-name)))))))
-  (message "Source blocks checked in %s." (buffer-name (buffer-base-buffer))))
-
-;; TODO: add to a hook after edit babel finished.
-;; (add-hook 'org-babel-after-execute-hook)
-
-
-
 ;;; [ ob-processing ]
 
 (require 'ob-processing)
@@ -227,6 +153,86 @@
 ;; [ ob-sql ]
 
 (require 'ob-sql)
+
+;; [ ob-go ]
+;;
+;; Usage:
+;;
+;; * simple example:
+;;
+;; #+BEGIN_SRC go :imports "fmt"
+;; fmt.Println("Hello, World")
+;; #+END_SRC
+;;
+;; #+results:
+;; : Hello, World
+;;
+;; * multiple imports
+;;
+;; #+BEGIN_SRC go :imports '("fmt" "time")
+;; fmt.Println("Current Time:", time.Now())
+;; #+END_SRC
+;;
+;; #+RESULTS:
+;; : Current Time: 2015-05-23 13:02:50.87256801 +0800 CST
+;;
+;; * concurrent prime sieve
+;;
+;; #+begin_src go
+;;   // A concurrent prime sieve
+;;   package main
+;;
+;;   import "fmt"
+;;
+;;   // Send the sequence 2, 3, 4, ... to channel 'ch'.
+;;   func Generate(ch chan<- int) {
+;;           for i := 2; ; i++ {
+;;                   ch <- i // Send 'i' to channel 'ch'.
+;;           }
+;;   }
+;;
+;;   // Copy the values from channel 'in' to channel 'out',
+;;   // removing those divisible by 'prime'.
+;;   func Filter(in <-chan int, out chan<- int, prime int) {
+;;           for {
+;;                   i := <-in // Receive value from 'in'.
+;;                   if i%prime != 0 {
+;;                           out <- i // Send 'i' to 'out'.
+;;                   }
+;;           }
+;;   }
+;;
+;;   // The prime sieve: Daisy-chain Filter processes.
+;;   func main() {
+;;           ch := make(chan int) // Create a new channel.
+;;           go Generate(ch)      // Launch Generate goroutine.
+;;           for i := 0; i < 10; i++ {
+;;                   prime := <-ch
+;;                   fmt.Println(prime)
+;;                   ch1 := make(chan int)
+;;                   go Filter(ch, ch1, prime)
+;;                   ch = ch1
+;;           }
+;;   }
+;; #+end_src
+;;
+;; #+RESULTS:
+;; #+begin_example
+;;   2
+;;   3
+;;   5
+;;   7
+;;   11
+;;   13
+;;   17
+;;   19
+;;   23
+;;   29
+;; #+end_example
+;;
+
+
+;; (require-package 'ob-go)
 
 ;; [ ob-prolog ] -- babel for Prolog
 
@@ -303,6 +309,81 @@
 ;; #+BEGIN_SRC dot :file some_filename.png :cmdline -Kdot -Tpng
 ;;   <context of graphviz source goes here>
 ;; #+END_SRC
+
+
+
+;;; language-specific header arguments
+
+;; `org-babel-default-header-args:<lang>' where `<lang>' is the name of the
+;; language.  See the language-specific documentation available online at
+;; `http://orgmode.org/worg/org-contrib/babel'.
+;; TODO:
+;; (setq org-babel-default-header-args:latex
+;;       '(;; generate results as #+BEGIN_LaTeX ... #+END_LaTeX block.
+;;         ;; (:results . "latex")
+;;         ;; (:exports . "results")
+;;         ;; generate result as a (bitmap) image or pdf.
+;;         ;; (:file . "temp.png")
+;;         ))
+
+
+(setq org-babel-default-header-args:R
+      '((:session . "no")
+        (:exports . "both")
+        (:results . "replace")
+        ))
+
+(setq org-babel-default-header-args:sqlite
+      '((:db . "temp.db")
+        (:results . "raw")
+        ;; (:echo . t)
+        (:column . t)
+        (:nullvalue . "Null")))
+
+
+;;;_ * Library of Babel
+
+;;; Usage:
+;;
+;; - `org-babel-lob-ingest' [C-c C-v i]
+;;    Add all named source blocks defined in FILE to `org-babel-library-of-babel'.
+
+;; Files used to populate the `org-babel-library-of-babel'.
+;; To add files to this list use the `org-babel-lob-ingest' command.
+;; TODO:
+;; (setq org-babel-lob-files
+;;       )
+
+
+;;;_ * source code block check
+;;
+;; - Report an error if there is a source block without a language specified
+;; - Report an error if there is a source block with a language specified that
+;;   is not present in `org-babel-load-languages’
+;; – “Check as well for the language of inline code blocks,”
+;; – “Report the line number instead of the char position.”
+
+(defun org-src-block-check ()
+  (interactive)
+  (org-element-map (org-element-parse-buffer)
+      '(src-block inline-src-block)
+    (lambda (sb)
+      (let ((language (org-element-property :language sb)))
+        (cond ((null language)
+               (error "Missing language at line %d in %s"
+                      (org-current-line
+                       (org-element-property :post-affiliated sb))
+                      (buffer-name)))
+              ((not (assoc-string language org-babel-load-languages))
+               (error "Unknown language `%s' at line %d in `%s'"
+                      language
+                      (org-current-line
+                       (org-element-property :post-affiliated sb))
+                      (buffer-name)))))))
+  (message "Source blocks checked in %s." (buffer-name (buffer-base-buffer))))
+
+;; TODO: add to a hook after edit babel finished.
+;; (add-hook 'org-babel-after-execute-hook)
 
 
 

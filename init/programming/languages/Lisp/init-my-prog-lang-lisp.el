@@ -155,6 +155,11 @@
 ;;      (define-key slime-mode-map (kbd "C-c i") 'slime-inspect)
 ;;      (define-key slime-mode-map (kbd "C-c C-s") 'slime-selector)))
 
+(add-hook 'slime-inferior-process-start-hook
+          '(lambda ()
+             (add-hook 'completion-at-point-functions 'slime-complete-symbol)
+             ))
+
 
 ;;; [ ac-slime ] --
 
@@ -335,7 +340,7 @@
 
 (set-face-attribute 'eval-sexp-fu-flash nil
                     :foreground nil
-                    :background "yellow1"
+                    :background "#333333"
                     :weight 'normal
                     )
 (set-face-attribute 'eval-sexp-fu-flash-error nil

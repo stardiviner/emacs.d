@@ -18,7 +18,7 @@
 
 (require 'ediff)
 
-;; (setq ediff-use-faces t)
+(setq ediff-use-faces t)
 
 ;;; Even numbered
 (set-face-attribute 'ediff-even-diff-Ancestor nil
@@ -95,7 +95,7 @@
 ;; - `diffview-current' : Opens the current buffer with diffview.
 ;; - `diffview-region' : Opens the current region with diffview.
 
-(require 'diffview)
+; (require 'diffview)
 
 
 

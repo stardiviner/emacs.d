@@ -53,7 +53,9 @@
 
 (add-to-list 'auto-mode-alist
              '("\\.gitconfig$" . gitconfig-mode)
-             '("\\.gitignore$" . gitignore-mode))
+             '("\\.gitignore$" . gitignore-mode)
+             ;; FIXME: '("\\.gitattributes$" . gitattributes-mode)
+             )
 
 
 ;;; [ git-emacs ] --- 
@@ -62,7 +64,7 @@
 ;;; git.el package, but it also has some improvements, mostly in the user
 ;;; interface.
 
-(require 'git-emacs)
+; (require 'git-emacs)
 
 ;; git-modeline
 
@@ -246,12 +248,21 @@
 (define-key my-prog-vcs-git-map (kbd "b") 'magit-blame)
 
 
-;; TODO: open magit window in current window, and without override other windows layout.
-
+;; for Magit auto-complete
+;; TODO: how to use this in Magit.
+;; (setq magit-repository-directories '("~/code/" "~/Git/")
+;;       magit-repository-directories-depth 4)
 
 ;;; Magit Faces
 ;;
 ;; - [M-x customize-group magit-faces]
+
+;; TODO: set remote branch face like this:
+;; https://emacs.stackexchange.com/questions/10975/customize-face-magit-item-highlight-properly
+
+
+;;; [ magit-find-file ]
+
 
 
 
@@ -271,6 +282,7 @@
 ;; To always enable the mode when opening the magit-status buffer.
 ;; add magit-filenotify-mode to the magit-status-mode-hook.
 ;;
+;; (add-hook 'magit-status-mode-hook 'magit-filenotify-mode)
 
 
 ;;; [ magit-workflow ] -- Git Flow plugin for magit
@@ -285,9 +297,6 @@
             (require 'magit-gitflow)
             (when (fboundp 'turn-on-magit-gitflow)
               (turn-on-magit-gitflow))))
-
-
-(add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
 
 
 ;;; [ Egg ] (Emacs Got Git)
@@ -304,7 +313,7 @@
 
 ;;; [ magithub ] -- working with GitHub
 
-(require 'magithub)
+;; (require 'magithub)
 
 
 ;;; [ magit-gh-pulls ] -- Magit plugin for dealing with GitHub pull requests.
@@ -327,9 +336,9 @@
 ;;                merging from Github interface is that in case of FF no merge
 ;;                commit is produced, so history stays nice and linear.
 
-(require 'magit-gh-pulls)
-
-(add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
+;; (require 'magit-gh-pulls)
+;;
+;; (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
 
 
 ;;; [ magit-gerrit ] -- code review tool Gerrit for Magit.

@@ -25,12 +25,12 @@
     ;; Keybinding
     helm-bind-key
     which-key
-    ;; hydra
+    hydra
     ;; showkey
     ;; keyfreq
     ;; Debug
     edebug-x
-    ;; bug-hunter
+    bug-hunter
     ;; Profile & Benchmark
     ;; esup benchmark-init
     ;; Server & Client
@@ -88,7 +88,7 @@
     mmm-mode ; polymode
     ;; Unicode
     ;; helm-unicode
-    ;; pretty-mode
+    pretty-mode
     ;; pretty-symbols
     ;; purty-mode
     ;; Color
@@ -145,6 +145,8 @@
     git-messenger
     git-gutter git-gutter+
     ;; git-gutter-fringe git-gutter-fringe+
+    ;; Gitlab
+    gitlab
     ;; Indent
     aggressive-indent ; auto-indent-mode
     indent-guide
@@ -181,6 +183,8 @@
     ;; rtags
     helm-cscope
     xcscope
+    ggtags
+    helm-gtags
     ;; Compile
     smart-compile quickrun
     ;; Make
@@ -193,12 +197,12 @@
     ;; Code Paste
     yagist helm-gist
     ;; Bug Track System
-    ;; bts bts-github
+    bts bts-github
     ;; Test
     ;; cerbere test-case-mode
     ;; runtests
     ;; Refactor
-    ;; emr
+    emr
     
     ;; Languages
     ;; Lisp
@@ -213,6 +217,8 @@
     hl-sexp highlight-symbol highlight-escape-sequences
     ;; ert
     ;; ert-async  ert-runner ert-modeline ert-expectations ; ert-junit
+    ;; Shell
+    insert-shebang
     ;; C & C++
     irony irony-eldoc flycheck-irony
     company-irony company-irony-c-headers
@@ -249,28 +255,30 @@
     go-mode go-complete company-go go-eldoc
     ;; Java
     ;; jdee
+    emacs-eclim
     ;; PHP
-    ;; php-mode inf-php
+    php-mode inf-php
     ;; Nim
     ;; nim-mode
     ;; Rust
     ;; rust-mode flycheck-rust
     ;; Haskell
-    ;; haskell-mode
+    haskell-mode
     ;; Erlang
-    ;; erlang
+    erlang
     ;; Julia
     julia-mode
+    ;; IPython
+    ein ; ein-mumamo
     ;; ESS
     ess
     ess-smart-equals ess-smart-underscore
     ess-R-data-view ess-R-object-popup
     ;; company-ess
-    ;; ein ein-mumamo
     ;; Processing
     ;; processing-mode
     ;; Plot
-    ;; gnuplot
+    gnuplot
     ;; Database
     ;; SQL
     sqlup-mode format-sql sql-indent
@@ -307,7 +315,7 @@
     ;; Node.js
     ;; nodejs-repl
     ;; CoffeeScript
-    ;; coffee-mode
+    coffee-mode
     ;; Web
     web-mode
     ;; multi-web-mode
@@ -323,42 +331,44 @@
     ;; dom
     ;; WebKit
     ;; kite
+    ;; AngularJS
+    angularjs-mode
     ;; Assembly
-    ;; nasm-mode iasm-mode
+    nasm-mode iasm-mode
     ;; TeX
     company-auctex company-math
     latex-pretty-symbols
-    px latex-preview-pane latex-math-preview
+    px latex-preview-pane ; latex-math-preview
     ;; Markdown
     markdown-mode
     ;; YAML
     yaml-mode
     ;; pandoc-mode
     ;; Sass
-    ;; sass-mode
+    sass-mode
     ;; Haml
-    ;; haml-mode
+    haml-mode
     
     ;; Frameworks
     ;; Ruby on Rails
     projectile-rails rails-new ; helm-rails
     rhtml-mode
     ;; Android
-    ;; android-mode
+    android-mode
     ;; Arduino
     arduino-mode company-arduino
 
     ;; Linux
     ;; emamux
-    ;; systemd
-    ;; nginx-mode
-    ;; pkgbuild-mode
+    systemd
+    nginx-mode
+    pkgbuild-mode
     ;; Container
     docker dockerfile-mode
     docker-tramp
     vagrant vagrant-tramp
     ;; Heroku
-    ;; heroku
+    heroku
     
     ;; Tools
     ;; Bookmarks

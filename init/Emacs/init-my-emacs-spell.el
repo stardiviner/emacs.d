@@ -42,7 +42,21 @@
 ;; - [M-x flyspell-region] -- checks all words inside a region
 ;; - [M-x flyspell-buffer] -- checks the whole buffer
 
-(setq flyspell-default-dictionary "en")
+(setq flyspell-default-dictionary "en"
+      flyspell-delay 5
+      ;; flyspell-before-incorrect-word-string
+      ;; flyspell-after-incorrect-word-string
+      )
+
+
+
+;;; [ flyspell-lazy ]
+
+;; (flyspell-lazy-mode 1)
+
+;; (flyspell-mode 1)
+
+
 
 
 

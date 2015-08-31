@@ -72,8 +72,6 @@
 (defface org-bullets-face
   '((t (:inherit nil
                  :foreground "red"
-                 :weight 'bold
-                 :height 150
                  :box '(:color "black" :line-width 2)
                  )))
   "My custom face for org-bullets."
@@ -84,7 +82,7 @@
           (lambda ()
             (org-bullets-mode 1)
             (set-face-attribute 'org-bullets-face nil
-                                :background "#222222" :foreground "forest green"
+                                :background "#222222" :foreground "cyan"
                                 :box '(:color "black" :line-width 2)
                                 :weight 'bold
                                 )

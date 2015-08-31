@@ -7,6 +7,11 @@
 
 ;;; Code:
 
+;;; [ cerbere ] -- Unit testing in Emacs for several programming languages
+
+
+
+;;; [ test-case-mode ] -- unit test front-end
 
 
 

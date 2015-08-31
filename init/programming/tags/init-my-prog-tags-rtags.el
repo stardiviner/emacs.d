@@ -30,6 +30,8 @@
 ;; Sets up a ton of standard keybindings under C-x r (we try to avoid crashing with the register shortcuts).
 ;; (rtags-enable-standard-keybindings)
 
+;; TODO: setup keybindings
+
 
 (provide 'init-my-prog-tags-rtags)
 

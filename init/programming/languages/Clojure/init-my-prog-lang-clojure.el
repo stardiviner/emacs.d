@@ -191,17 +191,17 @@
 ;; - [M-x cider-decompile-func [RET] main [RET]]
 ;; - [M-x cider-decompile-ns-func [RET] myotherns.core/other-main [RET]]
 
-(require 'cider-decompile)
+; (require 'cider-decompile)
 
 
 ;;; [ cider-spy ] -- Spy on CIDER to get Info.
 
-(require 'cider-spy)
+; (require 'cider-spy)
 
 
 ;;; [ cider-profile ]
 
-(require 'cider-profile)
+; (require 'cider-profile)
 
 
 ;;; [ inf-clojure ] -- Basic interaction with a Clojure subprocess
@@ -317,12 +317,12 @@
 
 ;;; [ cider-eval-sexp-fu ]
 
-(require 'cider-eval-sexp-fu)
+; (require 'cider-eval-sexp-fu)
 
 
 ;;; [ align-cljlet ]
 
-(require 'align-cljlet)
+; (require 'align-cljlet)
 
 
 ;;; [ typed-clojure-mode ] -- 
@@ -336,7 +336,7 @@
 ;;| C-c C-a v         | Insert (ann ... ) above the top expression  | typed-clojure-ann-var    |
 ;;| C-c C-a f         | Wrap the current form with (ann-form ... t) | typed-clojure-ann-form   |
 
-(add-hook 'clojure-mode-hook 'typed-clojure-mode)
+;; (add-hook 'clojure-mode-hook 'typed-clojure-mode)
 
 
 

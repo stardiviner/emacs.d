@@ -329,9 +329,11 @@
 
 ;;; [ tj-mode ] -- Highlight JavaScript with Tern.
 
-(add-hook 'js3-mode-hook
-          (lambda ()
-            (tj-mode 1)))
+;; FIXME:
+;; (add-hook 'js3-mode-hook
+;;           (lambda ()
+;;             (tj-mode 1)
+;;             ))
 
 
 

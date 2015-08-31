@@ -167,6 +167,7 @@
 
 (require 'showtip)
 (require 'popup)
+(require 'pos-tip)
 
 ;;; Code:
 
@@ -376,7 +377,7 @@ The result will be displayed in buffer named with
 
 (defun sdcv-search-simple (&optional word)
   "Search WORD simple translate result."
-  (showtip ; showtip, popup-tip, tooltip-show
+  (pos-tip-show ; showtip, pos-tip-show, popup-tip, tooltip-show
    (sdcv-search-witch-dictionary word sdcv-dictionary-simple-list))
 
   ;; pronounce the word (Add by me)

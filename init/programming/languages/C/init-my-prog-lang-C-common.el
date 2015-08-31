@@ -139,6 +139,10 @@
 
 (hook-modes c-dialects-mode
   (add-to-list (make-local-variable 'company-backends)
+               'company-gtags)
+  (add-to-list (make-local-variable 'company-backends)
+               'company-etags)
+  (add-to-list (make-local-variable 'company-backends)
                'company-clang)
   (add-to-list (make-local-variable 'company-backends)
                'company-cmake)

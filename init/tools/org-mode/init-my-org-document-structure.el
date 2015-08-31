@@ -68,6 +68,11 @@
 
 ;; * Drawers::                     Tucking stuff away
 
+;; (setq org-global-properties ; will be combined with constant `org-global-properties-fixed'
+;;       '(("Effort" . "0:15 0:30 0:45 1:00 2:00 3:00 4:00 5:00 6:00 0:00")
+;;         ("Title" . nil)
+;;         ("Author" . "stardiviner")
+;;         ))
 
 
 

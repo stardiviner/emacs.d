@@ -101,6 +101,54 @@
 (my/checkpoint "initialized benchmarking")
 
 
+;;; test Emacs init files with batch
+
+;;; Usage:
+;;
+;; This function will quietly run a batch Emacs with your current config to see
+;; if it errors out or not.
+;;
+;; in case that there were no start up errors, it will echo "All is well".  when
+;; there's an error, it will pop to a *startup error* buffer with the error
+;; description.
+;;
+;; The nice thing about this is that in case of an error you have a functional
+;; Emacs to fix that error, since fixing errors with emacs -Q is quite painful.
+;;
+;; Another approach could be to just start a new Emacs instance, and close the
+;; window in case there isn't an error. So all that the code above does is
+;; automate closing the window (sort of, since the window never opens). Still, I
+;; think it's pretty cool. And you could attach it to the after-save-hook of
+;; your .emacs, or a timer.
+;;
+;; You could even configure Emacs to send you an email in case it notices that
+;; there will be an error on the next start up. Or add the test to
+;; before-save-hook and abort the save in case it results in an error. That's
+;; some HAL 9000 level stuff right there:
+
+(defun my-test-emacs-init ()
+  (interactive)
+  (require 'async)
+  (async-start
+   (lambda () (shell-command-to-string
+          "emacs --batch --eval \"
+(condition-case e
+    (progn
+      (load \\\"~/.emacs\\\")
+      (message \\\"-OK-\\\"))
+  (error
+   (message \\\"ERROR!\\\")
+   (signal (car e) (cdr e))))\""))
+   `(lambda (output)
+      (if (string-match "-OK-" output)
+          (when ,(called-interactively-p 'any)
+            (message "All is well"))
+        (switch-to-buffer-other-window "*startup error*")
+        (delete-region (point-min) (point-max))
+        (insert output)
+        (search-backward "ERROR!")))))
+
+
 ;;; [ Edebug ] -- Edebug is a source level debugger.
 
 ;; FIXME:

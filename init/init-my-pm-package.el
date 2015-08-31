@@ -85,6 +85,7 @@ ARCHIVE is the string name of the package archive.")
   "Install given PACKAGE, optionally requiring MIN-VERSION.
 If NO-REFRESH is non-nil, the available package lists will not be
 re-downloaded in order to locate PACKAGE."
+  ;; TODO: if package is not in `my-packages' list, then ignore. (message "package is not in `my-packages' list")
   (if (package-installed-p package min-version)
       t
     (if (or (assoc package package-archive-contents) no-refresh)

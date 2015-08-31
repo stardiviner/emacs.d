@@ -56,6 +56,36 @@
 (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file) ; was dired-advertised-find-file
 (define-key dired-mode-map (kbd "^") (lambda () (interactive) (find-alternate-file "..")))  ; was dired-up-directory
 
+;; TODO: modify this function to my version.
+(defun xah-open-in-external-app ()
+  "Open the current file or dired marked files in external app.
+The app is chosen from your OS's preference.
+
+Version 2015-01-26
+URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'"
+  (interactive)
+  (let* (
+         (ξfile-list
+          (if (string-equal major-mode "dired-mode")
+              (dired-get-marked-files)
+            (list (buffer-file-name))))
+         (ξdo-it-p (if (<= (length ξfile-list) 5)
+                       t
+                     (y-or-n-p "Open more than 5 files? "))))
+
+    (when ξdo-it-p
+      (cond
+       ((string-equal system-type "windows-nt")
+        (mapc
+         (lambda (fPath)
+           (w32-shell-execute "open" (replace-regexp-in-string "/" "\\" fPath t t))) ξfile-list))
+       ((string-equal system-type "darwin")
+        (mapc
+         (lambda (fPath) (shell-command (format "open \"%s\"" fPath)))  ξfile-list))
+       ((string-equal system-type "gnu/linux")
+        (mapc
+         (lambda (fPath) (let ((process-connection-type nil)) (start-process "" nil "xdg-open" fPath))) ξfile-list))))))
+
 
 ;;; [ direx ] --- direx.el is a simple directory explorer. It also works as a generic tree explore library.
 
@@ -140,6 +170,8 @@
 ;; - [SPC], [C-SPC] / [backspace] :: scroll file content down/up.
 
 (require 'peep-dired)
+
+;; FIXME: (add-hook 'dired-mode-hook 'peep-dired)
 
 ;;; When disabling the mode you can choose to kill the buffers that were opened
 ;;; while browsing the directories.
@@ -289,6 +321,24 @@
   "Data file formats.")
 
 (dired-rainbow-define config-file "cyan3" my/dired-source-code-data-file-extensions)
+
+
+
+;;; The function above will open the current directory in sudo mode. I decided
+;;; to bind it to !, since the default & seems strictly better than !. The
+;;; function will ask you for the password once. Afterwards, you can open other
+;;; directories without having to enter the password.
+
+(defun sudired ()
+  "The sudo privilege to change the owner of a file owned by root."
+  (interactive)
+  (require 'tramp)
+  (let ((dir (expand-file-name default-directory)))
+    (if (string-match "^/sudo:" dir)
+        (user-error "Already in sudo")
+      (dired (concat "/sudo::" dir)))))
+
+(define-key dired-mode-map "!" 'sudired)
 
 
 

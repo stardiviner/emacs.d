@@ -179,6 +179,8 @@
 
 ;; (mu4e-headers-change-sorting 't 'descending)
 
+;; TODO: (setq mu4e- auto-collopase-headers nil)
+
 
 ;;; Message
 ;; the headers to show in the headers list -- a pair of a field
@@ -879,6 +881,19 @@
 ;;       smtpmail-smtp-service 587)
 
 
+;;; Contacts
+
+(add-hook
+ 'mu4e-compose-mode-hook
+ (lambda ()
+   (setq-local completion-at-point-functions
+               '(org-contacts-message-complete-function
+                 mu4e~compose-complete-contact
+                 message-completion-function t))))
+
+;; (setq mu4e-org-contacts-file)
+
+
 
 (defun my-mu4e-jump-to-index ()
   ""
@@ -911,6 +926,13 @@
 ;;; replace Emacs default `completing-read' by default).
 (setq mu4e-completing-read-function 'completing-read ; 'completing-read , 'ido-completing-read
       )
+
+
+;;; [ mu4e-maildirs-extension ]
+
+(require 'mu4e-maildirs-extension)
+
+(mu4e-maildirs-extension)
 
 
 ;;; [ mu4e-speedbar ]

@@ -39,6 +39,72 @@
 
 (require 'sx-load)
 
+;; question mode
+(setq sx-question-mode-display-buffer-function 'pop-to-buffer
+      ;; sx-question-mode-comments-format
+      sx-question-mode-pretty-links t
+      ;; sx-question-mode-separator "________________________________________________________________________________\n"
+      sx-question-mode-recenter-line 2
+      )
+
+;; question list
+(setq sx-question-list-height 12)
+
+;; notify
+;; (setq sx-notify-timer-delay 300)
+;; (sx-notify-mode 1)
+
+
+;; ;; user faces
+;; (set-face-attribute 'sx-user-accept-rate nil
+;;                     )
+;; (set-face-attribute 'sx-user-name nil
+;;                     )
+;; (set-face-attribute 'sx-user-reputation nil
+;;                     )
+;; ;;; question list faces
+;; (set-face-attribute 'sx-question-list-answers nil
+;;                     )
+;; (set-face-attribute 'sx-question-list-answers-accepted nil
+;;                     )
+;; (set-face-attribute 'sx-question-list-bounty nil
+;;                     )
+;; (set-face-attribute 'sx-question-list-date nil
+;;                     )
+;; (set-face-attribute 'sx-question-list-favorite nil
+;;                     )
+;; (set-face-attribute 'sx-question-list-parent nil
+;;                     )
+;; (set-face-attribute 'sx-question-list-read-question nil
+;;                     )
+;; (set-face-attribute 'sx-question-list-score nil
+;;                     )
+;; (set-face-attribute 'sx-question-list-score-upvoted nil
+;;                     )
+;; (set-face-attribute 'sx-question-list-tags nil
+;;                     )
+;; (set-face-attribute 'sx-question-list-unread-question nil
+;;                     )
+;; ;; question mode
+;; (set-face-attribute 'sx-question-mode-content-face nil
+;;                     )
+;; (set-face-attribute 'sx-question-mode-date nil
+;;                     )
+;; (set-face-attribute 'sx-question-mode-header nil
+;;                     )
+;; (set-face-attribute 'sx-question-mode-score nil
+;;                     )
+;; (set-face-attribute 'sx-question-mode-score-upvoted nil
+;;                     )
+;; (set-face-attribute 'sx-question-mode-score-downvoted nil
+;;                     )
+;; (set-face-attribute 'sx-question-mode-tags nil
+;;                     )
+;; (set-face-attribute 'sx-question-mode-title nil
+;;                     )
+;; (set-face-attribute 'sx-question-mode-title-comments nil
+;;                     )
+
 
 
 

@@ -166,9 +166,9 @@
 ;; 1. open markdown file
 ;; 2. [M-x realtime-preview]
 
-(require 'realtime-preview)
-
-(add-hook 'markdown-mode-hook 'realtime-preview)
+;; (require 'realtime-preview)
+;;
+;; (add-hook 'markdown-mode-hook 'realtime-preview)
 
 
 

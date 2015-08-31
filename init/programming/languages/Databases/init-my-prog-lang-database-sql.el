@@ -73,7 +73,7 @@
 
 ;;; [ sqled-mode ] -- major mode for editing sql, sqlplus, and pl/sql code.
 
-(require 'sqled-mode)
+; (require 'sqled-mode)
 
 
 ;;; [ sqlplus ] -- user friendly interface to SQL*Plus and support for PL/SQL compilation.
@@ -193,6 +193,9 @@
             (lambda ()
               (add-to-list (make-local-variable 'company-backends)
                            'company-edbi))))
+
+
+;;; [ EmacSQL ] -- high-level SQL database front-end.
 
 
 ;;; [ db-sql ] -- Connect to SQL server using tramp syntax.

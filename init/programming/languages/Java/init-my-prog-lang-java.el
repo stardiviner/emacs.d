@@ -9,11 +9,18 @@
 
 ;;; [ jdee ] -- Java Development Environment for Emacs
 
-(require 'jdee)
+;; The JDEE is an add-on software package that turns Emacs into a comprehensive
+;; system for creating, editing, debugging, and documenting Java applications.
+
+;; (require 'jdee)
 
 ;; (autoload 'jde-mode "jde" "JDE mode" t)
 ;; (setq auto-mode-alist
 ;;       (append '(("\\.java\\'" . jde-mode)) auto-mode-alist))
+
+;; (setq jdee-server-dir "~/compile/Emacs/jdee-server/target/")
+
+;; (setq jdee-key-bindings '())
 
 
 ;;; [ jde-maven ] -- 
@@ -23,19 +30,19 @@
 
 ;;; [ eclim ]
 
-;; (require 'eclim)
-(autoload 'eclim "eclim" nil t)
+(require 'eclim)
 
 ;; ;; If you want to control eclimd from emacs, also add:
-;; (require 'eclimd)
+(require 'eclimd)
+;; `start-eclimd' & `stop-eclimd'
 
+(setq eclimd-default-workspace "~/Eclipse"
+      ;; eclimd-port 45620
+      eclimd-wait-for-process t)
 
-;; (setq eclim-eclipse-dirs '("/Applications/eclipse"
-;;                            "/usr/lib/eclipse"
-;;                            "/usr/local/lib/eclipse"
-;;                            "/usr/share/eclipse")
-;;       ;; eclim-executable "~/Libraries/Emacs/eclim"
-;;       )
+;; (or (executable-find "eclim") (eclim-homedir-executable-find) (eclim-executable-find))
+;; TODO?: (setq eclim-executable "")
+
 
 ;; for company-mode
 (require 'company-emacs-eclim)
@@ -45,16 +52,12 @@
           (lambda ()
             (eclim-mode)
             
-            ;; (setq-local company-backends
-            ;;             (cons 'company-emacs-eclim
-            ;;                   (remove-if (lambda (b) (find b '(company-nxml company-eclim)))
-            ;;                              company-backends)))
-
             (add-to-list (make-local-variable 'company-backends)
                          'company-emacs-eclim)
             ))
 
-;; (global-eclim-mode t)
+
+;; (global-eclim-mode)
 
 
 ;;; [ java-complete ]

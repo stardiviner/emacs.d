@@ -12,7 +12,7 @@
 
 ;; FIXME: error: Can't preview LaTeX fragment in a non-file buffer.
 ;; `org-toggle-inline-images' [C-c C-x C-v]
-(setq org-startup-with-latex-preview t)
+(setq org-startup-with-latex-preview nil)
 ;; `org-toggle-latex-fragment' [C-c C-x C-l] / [C-c C-c]
 
 ;; config org latex preview style

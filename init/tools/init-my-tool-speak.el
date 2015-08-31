@@ -11,8 +11,10 @@
 ;; http://www.emacswiki.org/emacs/EmacSpeak
 
 ;; Usage:
+;;
+;; - [C-e] :: prefix
 
-(load "~/compile/Emacs/emacspeak/lisp/emacspeak-setup.el")
+;; (load "~/compile/Emacs/emacspeak/lisp/emacspeak-setup.el")
 
 
 ;;; [ Festival ]

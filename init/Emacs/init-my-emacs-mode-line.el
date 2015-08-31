@@ -181,7 +181,7 @@
           (list
            (propertize " ⭠"
                        'face '(:foreground "sky blue"))
-           `(vc-mode vc-mode)
+           `(vc-mode vc-mode)           ; TODO: propertize this.
            ))))
 
    ;; TODO: git repo file status
@@ -260,6 +260,7 @@
            ;;             'help-echo "buffer-process")
            ))))
 
+   ;; TODO:
    ;; (:propertize (:eval (if mode-line-process "  ◌"))
    ;;              face (:foreground "cyan"))
    ;; (:propertize (:eval (if mode-line-process mode-line-process))
@@ -272,7 +273,9 @@
 
    ;; mmm-mode
    ;; FIXME:
-   ;; (:propertize (:eval (mmm-format-string))
+   ;; (:eval (if mmm-buffer-mode-display-name
+   ;;            (propertize mmm-buffer-mode-display-name
+   ;;                        'face '(:foreground "cyan"))))
 
    ;; ;; the major mode of the current buffer.
    ;; (:propertize " 〖"
@@ -377,8 +380,9 @@
    ;;                :face (:foreground "dark gray"))
 
    ;; flycheck
+   ;; FIXME: this condition does not work.
    (:eval
-    (if flycheck-current-errors ; FIXME: this condition does not work.
+    (if flycheck-current-errors
         (propertize (flycheck-mode-line-status-text)
                     'face '(:foreground "orange" :background nil :height 80))))
    
@@ -451,6 +455,7 @@
                 ;; help-echo (minor-mode-alist)
                 )
    
+   ;; TODO: enable this
    ;; 'display-time-string
    )
   ))
