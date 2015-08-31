@@ -173,6 +173,8 @@
              web-mode-attr-indent-offset 2   ; HTML attribute offset
              web-mode-disable-autocompletion t)
        (local-set-key (kbd "RET") 'newline-and-indent)
+       ;; electric
+       (setq web-mode-enable-auto-pairing t)
        ;; padding (inner indent)
        (setq web-mode-style-padding 1   ; for <style>
              web-mode-script-padding 1  ; for <script>
@@ -335,9 +337,7 @@
                     :underline "#222222")
 
 ;;;_ , unicode symbols
-(setq web-mode-enable-block-face t
-      web-mode-enable-part-face t
-      web-mode-enable-comment-keywords t
+(setq web-mode-enable-comment-keywords t
       web-mode-enable-whitespaces nil     ; show whitespace, lineend, etc with unicode symbols.
       web-mode-enable-heredoc-fontification t
       web-mode-enable-current-element-highlight t
