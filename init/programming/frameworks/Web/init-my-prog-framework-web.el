@@ -358,15 +358,16 @@
 
 
 ;;;_. auto-complete support
-
-;; - web-mode-ac-sources-alist
-;; - web-mode-before-auto-complete-hooks
-
-(setq web-mode-ac-sources-alist
-      '(("css" . (ac-source-css-property))
-        ("html" . (ac-source-html-tag ac-source-html-attribute ac-source-html-attribute-value
-                                      ac-source-capf
-                                      ac-source-words-in-buffer))))
+;;
+;; - `web-mode-ac-sources-alist'
+;; - `web-mode-before-auto-complete-hooks'
+;;
+;; (setq web-mode-ac-sources-alist
+;;       '(("css" . (ac-source-css-property))
+;;         ("html" . (ac-source-html-tag
+;;                    ac-source-html-attribute ac-source-html-attribute-value
+;;                    ac-source-capf
+;;                    ac-source-words-in-buffer))))
 
 ;;;_. Faces
 (set-face-attribute 'web-mode-block-face nil
