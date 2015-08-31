@@ -113,6 +113,16 @@
 
 ;;; [ go-play ]
 
+
+;;; [ gore-mode ] -- Simple mode for gore, a command-line evaluator for golang.
+
+
+;;; [ gotest ] -- Launch GO unit tests
+
+
+;;; [ govet ] -- linter/problem finder for the Go source code.
+
+
 
 
 (provide 'init-my-prog-lang-go)

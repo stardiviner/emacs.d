@@ -626,6 +626,8 @@
             (add-to-list (make-local-variable 'company-backends)
                          'company-restclient)))
 
+;;;_ web -- useful HTTP client
+
 
 ;;;_
 (provide 'init-my-prog-framework-web)

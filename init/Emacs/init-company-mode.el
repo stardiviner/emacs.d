@@ -454,6 +454,12 @@
                            org-mode))
 
 
+;;; [ company-try-hard ] -- get all completions from company backends.
+
+;; TODO: dive into source code.
+;; (require 'company-try-hard)
+
+
 (provide 'init-company-mode)
 
 ;;; init-company-mode.el ends here

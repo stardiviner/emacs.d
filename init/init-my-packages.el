@@ -96,7 +96,7 @@
     ;; Process
     ;; dizzee ; prodigy
     ;; Server
-    ;; elnode web-server websocket ; httpd
+    elnode web-server websocket ; httpd
     
     ;; Shell
     eshell ; shell-here shell-toggle
@@ -129,6 +129,7 @@
     ;; Programming
     ;; Auto Complete
     company company-statistics company-quickhelp
+    ;; company-try-hard
     ;; Snippet
     yasnippet
     helm-c-yasnippet
@@ -187,6 +188,9 @@
     helm-gtags
     ;; Compile
     smart-compile quickrun
+    ;; Inferior
+    ;; REPL
+    eval-in-repl
     ;; Make
     ;; helm-make
     ;; Sense
@@ -253,11 +257,14 @@
     elixir-mode alchemist
     ;; Go
     go-mode go-complete company-go go-eldoc
+    gore-mode ; gotest
     ;; Java
     ;; jdee
     emacs-eclim
     ;; PHP
-    php-mode inf-php
+    php-mode inf-php php-eldoc
+    ;; php-boris php-boris-minor-mode
+    ;; phpunit
     ;; Nim
     ;; nim-mode
     ;; Rust
@@ -323,14 +330,15 @@
     json-mode ; json-rpc
     ;; xml xmlunicode ; xmlgen xml-rpc
     ;; web-beautify
-    restclient httprepl
+    restclient httprepl web
     web-completion-data
     know-your-http-well httpcode
     company-web company-restclient
     ;; Browser
     ;; dom
     ;; WebKit
-    ;; kite
+    ;; kite jss
+    livid-mode
     ;; AngularJS
     angularjs-mode
     ;; Assembly
@@ -363,6 +371,7 @@
     systemd
     nginx-mode
     pkgbuild-mode
+    ;; stumpwm-mode
     ;; Container
     docker dockerfile-mode
     docker-tramp
