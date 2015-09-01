@@ -52,6 +52,31 @@
 
 (advice-add 'eshell/cat :around #'my/iimage-mode-refresh--eshell/cat)
 
+
+;;; [ image+ ] -- Emacs image extension
+
+;; - [C-x C-l] :: prefix
+;; - `imagex-sticky-mode'
+;; - `imagex-global-sticky-mode'
+;;   (eval-after-load 'image+ '(imagex-global-sticky-mode 1))
+;; - [M-x imagex-auto-adjust-mode]
+;; - (setq imagex-quiet-error t)
+
+(eval-after-load 'image '(require 'image+))
+
+(eval-after-load 'image+
+  `(when (require 'hydra nil t)
+     (defhydra imagex-sticky-binding (global-map "C-x C-l")
+       "Manipulating Image"
+       ("+" imagex-sticky-zoom-in "zoom in")
+       ("-" imagex-sticky-zoom-out "zoom out")
+       ("M" imagex-sticky-maximize "maximize")
+       ("O" imagex-sticky-restore-original "restore original")
+       ("S" imagex-sticky-save-image "save file")
+       ("r" imagex-sticky-rotate-right "rotate right")
+       ("l" imagex-sticky-rotate-left "rotate left"))))
+
+
 
 
 (provide 'init-my-emacs-image)

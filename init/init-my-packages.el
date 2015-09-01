@@ -386,7 +386,7 @@
     ;; PDF
     pdf-tools
     ;; Image
-    ;; image+ xpm
+    image+ ; xpm
     ;; Ascii Graphic
     artist chart
     ;; Notify
