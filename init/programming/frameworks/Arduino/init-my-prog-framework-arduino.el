@@ -9,7 +9,7 @@
 
 ;;; [ arduino-mode ]
 
-(require 'arduino-mode)
+(setq arduino-font-lock-extra-types t)
 
 
 (provide 'init-my-prog-framework-arduino)
