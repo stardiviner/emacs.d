@@ -6,6 +6,8 @@
 ;;
 ;;; Commentary:
 ;;
+;; the value is in 1/10pt, so 100 will give you 10pt, etc
+;;
 ;; from command: $ fc-list
 ;;
 ;; Comic Sans MS
@@ -14,11 +16,12 @@
 ;; Segoe (Print/Script)
 ;; Death Note
 ;; --------
-;; Anonymous Pro
+;; Hack
 ;; DejaVu (Sans/Serif) (Mono)
 ;; Droid (Sans/Serif) (Mono)
 ;; Monaco
 ;; Source Sans Pro
+;; Anonymous Pro
 ;; Inconsolata
 ;; Ubuntu (Mono/Condensed)
 ;; --------
@@ -30,6 +33,7 @@
 ;; iWaWa
 
 ;;; Code:
+
 ;; set font for all frames
 ;; (set-frame-font "DejaVu Sans Mono-10" t)
 ;; (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 100)
@@ -69,7 +73,7 @@
 (dolist (charset '(kana han symbol cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font)
                     charset
-                    (font-spec :family "WenQuanYi Micro Hei Mono" :size 13) ; 文泉驿 微米黑
+                    (font-spec :family "WenQuanYi Micro Hei Mono" :size 13)
                     )
   )
 ;;; need to modify English font settings to suitable with chinese font.
@@ -93,23 +97,6 @@
 ;;   (set-face-attribute 'default nil :height 100)
 ;;   )
 
-;;; others
-;; choose your own fonts, in a system dependant way
-;; (if (string-match "apple-darwin" system-configuration)
-;;   (set-face-font 'default "Monaco-13")
-;;   (set-face-font 'default "DejaVu Sans Mono-10"))
-;; set Chinese font
-;; (setq chinese-font "FZSuXinShiLiuKaiS-R-GB-24")
-;; (setq chinese-font "DFPShaoNvW5-GB")
-;; (setq cjk-font-size 18)
-;; set English font
-;; (setq ansii-font "DejaVu Sans Mon-10")
-;; (setq ansi-font-size 16)
-
-;;; the value is in 1/10pt, so 100 will give you 10pt, etc
-;; (set-face-attribute 'default nil
-;;                     :family "DejaVu Sans Mono"
-;;                     :height 100)
 
 
 (provide 'init-my-emacs-font)
