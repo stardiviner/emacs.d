@@ -63,6 +63,10 @@
 
 (define-key sql-mode-map (kbd "C-c C-u") 'my-sqlup-backward)
 
+(add-hook 'sql-mode-hook
+          (lambda ()
+            (sqlup-mode 1)))
+
 ;; TODO:
 ;; (add-hook 'sqlup-mode-hook
 ;;           (lambda ()
