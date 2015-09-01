@@ -566,31 +566,23 @@
                 ))
   (add-hook hook 'robe-mode))
 
-(add-hook 'robe-mode-hook (lambda ()
-                            (local-set-key (kbd "M-.") 'robe-doc)
-                            (local-set-key (kbd "C-h d d") 'robe-doc)
+(add-hook 'robe-mode-hook
+          (lambda ()
+            (local-set-key (kbd "M-.") 'robe-jump)
+            (local-set-key (kbd "C-h d d") 'robe-doc)
 
-                            (unless (boundp 'ruby-send-to-inferior-map)
-                              (define-prefix-command 'ruby-send-to-inferior-map))
-                            (local-set-key (kbd "C-c i r s") 'ruby-send-to-inferior-map)
+            (unless (boundp 'ruby-send-to-inferior-map)
+              (define-prefix-command 'ruby-send-to-inferior-map))
+            (local-set-key (kbd "C-c i r s") 'ruby-send-to-inferior-map)
 
-                            (define-key ruby-send-to-inferior-map (kbd "d") 'ruby-send-definition)
-                            (define-key ruby-send-to-inferior-map (kbd "D") 'ruby-send-definition-and-go)
-                            (define-key ruby-send-to-inferior-map (kbd "b") 'ruby-send-block)
-                            (define-key ruby-send-to-inferior-map (kbd "B") 'ruby-send-block-and-go)
-                            (define-key ruby-send-to-inferior-map (kbd "s") 'ruby-send-region)
-                            (define-key ruby-send-to-inferior-map (kbd "S") 'ruby-send-region-and-go)
-                            (define-key ruby-send-to-inferior-map (kbd "R") 'ruby-send-region-and-go)
-
-                            ;; for auto-complete
-                            ;; 1. ac-capf
-                            ;; (add-to-list 'ac-sources 'ac-source-capf)
-                            ;; 2.1. ac-robe
-                            ;; (ac-robe-setup)
-                            ;; 2.2. old way
-                            ;; (push 'ac-source-robe ac-sources)
-                            ;; (add-to-list 'ac-sources 'ac-source-robe) ; `ac-robe-setup' did this already.
-                            ))
+            (define-key ruby-send-to-inferior-map (kbd "d") 'ruby-send-definition)
+            (define-key ruby-send-to-inferior-map (kbd "D") 'ruby-send-definition-and-go)
+            (define-key ruby-send-to-inferior-map (kbd "b") 'ruby-send-block)
+            (define-key ruby-send-to-inferior-map (kbd "B") 'ruby-send-block-and-go)
+            (define-key ruby-send-to-inferior-map (kbd "s") 'ruby-send-region)
+            (define-key ruby-send-to-inferior-map (kbd "S") 'ruby-send-region-and-go)
+            (define-key ruby-send-to-inferior-map (kbd "R") 'ruby-send-region-and-go)
+            ))
 
 
 ;;; [ helm-rb ] -- Search Ruby's method by ag and display helm.
