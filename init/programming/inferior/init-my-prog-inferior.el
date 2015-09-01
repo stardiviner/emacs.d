@@ -78,7 +78,11 @@
 ;; (require 'ess)       ; if not done elsewhere
 (require 'eval-in-repl-ruby)
 (define-key ruby-mode-map (kbd "<C-return>") 'eir-eval-in-ruby)
-(define-key enh-ruby-mode-map (kbd "<C-return>") 'eir-eval-in-ruby)
+(use-package enh-ruby-mode
+  :config
+  (define-key enh-ruby-mode-map (kbd "<C-return>") 'eir-eval-in-ruby)
+  )
+
 
 ;; SML support
 ;; (require 'sml-mode) ; if not done elsewhere
