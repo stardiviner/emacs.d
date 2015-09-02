@@ -494,6 +494,8 @@
 
 ;;; [ platinum searcher (pt) ]
 
+;; (setq pt-arguments "--smart-case")
+
 (unless (boundp 'pt-prefix)
   (define-prefix-command 'pt-prefix))
 (define-key my-search-prefix (kbd "p") 'pt-prefix)
@@ -505,6 +507,10 @@
 
 
 ;;; [ helm-pt ]
+
+;; (setq helm-pt-args "--smart-case"
+;;       helm-pt-insert-at-point t
+;;       )
 
 (if (featurep 'helm-pt)
     (progn
