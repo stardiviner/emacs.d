@@ -464,7 +464,7 @@
 ;;; git-modes
 (push '("\\*git-" :regexp t :position top) popwin:special-display-config)
 ;;; Magit
-(push '(magit-commit-mode :position bottom :height 20) popwin:special-display-config)
+(push '(magit-commit-mode :position bottom :height 15) popwin:special-display-config)
 ;; (push '("*magit-commit" :position bottom :height 15) popwin:special-display-config)
 (push '(magit-process-mode :position bottom :height 15 :noselect t) popwin:special-display-config)
 ;; (push '("*magit-process*" :position bottom :height 15) popwin:special-display-config)
@@ -545,9 +545,9 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (push '(ack-and-a-half-mode :position bottom :height 15) popwin:special-display-config)
 
 ;; ag
-(push '(ag-mode :position bottom :height 20) popwin:special-display-config)
+(push '(ag-mode :position bottom :height 15) popwin:special-display-config)
 ;; pt
-(push '(pt-search-mode :position bottom :height 20) popwin:special-display-config)
+(push '(pt-search-mode :position bottom :height 15) popwin:special-display-config)
 
 ;;; IELM
 ;; TODO:
@@ -628,15 +628,15 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (push '("*rest-client*" :position bottom :height 10) popwin:special-display-config)
 
 ;; elfeed
-(push '(elfeed-search-mode :position top :height 20) popwin:special-display-config)
-(push '("*elfeed-search*" :position top :height 20) popwin:special-display-config)
+(push '(elfeed-search-mode :position top :height 15) popwin:special-display-config)
+(push '("*elfeed-search*" :position top :height 15) popwin:special-display-config)
 
 ;; restclient
-(push '("*HTTP Response*" :position bottom :height 20) popwin:special-display-config)
+(push '("*HTTP Response*" :position bottom :height 15) popwin:special-display-config)
 
 ;; poporg
 ;; FIXME: not work
-;; (push '("*poporg:*" :position bottom :height 20) popwin:special-display-config)
+;; (push '("*poporg:*" :position bottom :height 15) popwin:special-display-config)
 
 (defun my/popwin-func-for-poporg-edit-window (buffer)
   "Match poporg popup edit buffer.
