@@ -46,10 +46,12 @@
     (my-func/open-and-switch-to-buffer 'org-agenda-list "*Org Agenda*" t)
     ))
 
+(define-key my-org-prefix (kbd "t") 'org-todo-list)
+
 (define-key my-org-agenda-prefix (kbd "a") 'my-open-org-agenda)
 (define-key my-org-agenda-prefix (kbd "A") 'org-agenda)
 (define-key my-org-agenda-prefix (kbd "t") 'org-todo-list) ; prefix [C-u] to prompt keyword for todo list
-(define-key org-mode-map (kbd "C-c o M-a T") 'org-timeline) ; Show a time-sorted view of the entries in the current org file.
+(define-key my-org-agenda-prefix (kbd "T") 'org-timeline) ; Show a time-sorted view of the entries in the current org file.
 
 (unless (boundp 'my-org-link-prefix)
   (define-prefix-command 'my-org-link-prefix))

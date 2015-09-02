@@ -85,7 +85,7 @@
 
 ;; TODO: enable org-trello-mode on `org-agenda-files'.
 
-(define-key my-org-prefix (kbd "t") 'org-trello-mode)
+;; (define-key my-org-prefix (kbd "t") 'org-trello-mode)
 
 ;; (add-hook 'org-trello-mode-hook
 ;;           (lambda ()
