@@ -28,18 +28,16 @@
 ;;
 ;; - prefix [C-c a]
 
-(require 'alchemist)
-
-(add-hook 'elixir-mode-hook
-          (lambda ()
-            (add-to-list (make-local-variable 'company-backends)
-                         'alchemist-company)))
-
 (use-package alchemist
   :config
   (setq alchemist-key-command-prefix (kbd "C-c ,")) ; default: (kbd "C-c a")
   ;; run the whole test suite with `alchemist-mix-test' after saving a buffer.
   (setq alchemist-hooks-test-on-save nil)
+
+  (add-hook 'elixir-mode-hook
+            (lambda ()
+              (add-to-list (make-local-variable 'company-backends)
+                           'alchemist-company)))
   )
 
 

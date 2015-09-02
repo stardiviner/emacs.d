@@ -256,7 +256,7 @@
     flycheck-clojure
     elein
     ;; Elixir
-    elixir-mode alchemist
+    elixir-mode ; alchemist
     ;; Go
     go-mode go-complete company-go go-eldoc
     gore-mode ; gotest
