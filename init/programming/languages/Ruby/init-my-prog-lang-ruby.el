@@ -598,8 +598,8 @@
 ;; - [M-.]
 ;; - [M-,]
 
-(add-hook 'ruby-mode-hook 'zossima-mode)
-(add-hook 'enh-ruby-mode-hook 'zossima-mode)
+;; (add-hook 'ruby-mode-hook 'zossima-mode)
+;; (add-hook 'enh-ruby-mode-hook 'zossima-mode)
 
 
 ;;; [ ruby-compilation ]

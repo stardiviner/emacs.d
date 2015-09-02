@@ -235,7 +235,8 @@
     ruby-mode enh-ruby-mode ruby-additional
     inf-ruby ruby-compilation ; pry
     rbenv rvm  ; ruby-dev  ; chruby
-    robe zossima yari yard-mode ; helm-rb
+    robe ; zossima
+    yari yard-mode ; helm-rb
     ruby-tools
     rspec-mode minitest ruby-test-mode
     ruby-block ruby-hash-syntax ruby-interpolation
