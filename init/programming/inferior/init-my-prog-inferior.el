@@ -99,10 +99,10 @@
 
 ;; Shell support
 ;; (require 'essh) ; if not done elsewhere
-(require 'eval-in-repl-shell)
-(add-hook 'sh-mode-hook
-          '(lambda()
-             (local-set-key (kbd "C-<return>") 'eir-eval-in-shell)))
+;; (require 'eval-in-repl-shell)
+;; (add-hook 'sh-mode-hook
+;;           '(lambda()
+;;              (local-set-key (kbd "C-<return>") 'eir-eval-in-shell)))
 
 
 
