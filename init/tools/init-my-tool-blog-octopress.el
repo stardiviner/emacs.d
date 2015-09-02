@@ -27,6 +27,13 @@
 (define-key blog-map (kbd "s") 'octopress-status)
 (define-key blog-map (kbd "n") 'octopress-create-thing)
 
+(set-face-attribute 'octopress-option-on nil
+                    :foreground "cyan")
+(set-face-attribute 'octopress-option-off nil
+                    :foreground "dim gray")
+(set-face-attribute 'octopress-highlight-line-face nil
+                    :background "dark red" :foreground "white")
+
 
 ;;; [ org-octopress ] --
 
