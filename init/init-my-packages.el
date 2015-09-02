@@ -178,6 +178,7 @@
     ;; wgrep wgrep-ack wgrep-helm
     ack full-ack helm-ack
     ag helm-ag
+    pt helm-pt
     ;; helm-recoll
     ;; Tags
     ;; ctags ctags-update

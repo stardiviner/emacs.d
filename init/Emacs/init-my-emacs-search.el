@@ -492,6 +492,28 @@
 ;; (define-key my-search-prefix (kbd "w") 'awk-it)
 
 
+;;; [ platinum searcher (pt) ]
+
+(unless (boundp 'pt-prefix)
+  (define-prefix-command 'pt-prefix))
+(define-key my-search-prefix (kbd "p") 'pt-prefix)
+
+(define-key pt-prefix (kbd "p") 'pt-regexp)
+(define-key pt-prefix (kbd "r") 'pt-regexp)
+(define-key pt-prefix (kbd "f") 'pt-regexp-file-pattern)
+(define-key pt-prefix (kbd "P") 'projectile-pt)
+
+
+;;; [ helm-pt ]
+
+(if (featurep 'helm-pt)
+    (progn
+      (define-key pt-prefix (kbd "h") 'helm-do-pt)
+      (define-key pt-prefix (kbd "o") 'helm-projectile-pt)
+      )
+  )
+
+
 (unless (boundp 'my-search-language-prefix)
   (define-prefix-command 'my-search-language-prefix))
 (define-key my-search-prefix (kbd "l") 'my-search-language-prefix)
