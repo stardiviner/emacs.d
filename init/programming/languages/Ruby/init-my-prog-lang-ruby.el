@@ -236,8 +236,16 @@
 ;; (ruby-block-mode t)
 
 
+;;; [ ruby-electric ]
+
+(add-hook 'ruby-mode-hook 'ruby-electric-mode)
+(add-hook 'enh-ruby-mode-hook 'ruby-electric-mode)
+
+
 ;;; [ ruby-end ]
 
+;; (add-hook 'ruby-mode-hook 'ruby-end-mode)
+;; (add-hook 'enh-ruby-mode-hook 'ruby-end-mode)
 
 
 
