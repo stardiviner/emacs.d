@@ -48,21 +48,10 @@
       ;; flyspell-after-incorrect-word-string
       )
 
-
 
 ;;; [ flyspell-lazy ]
 
 ;; (flyspell-lazy-mode 1)
-
-;; (flyspell-mode 1)
-
-
-
-
-
-;;; [ flyspell-lazy ]
-
-(flyspell-lazy-mode 1)
 
 ;; (flyspell-mode 1)
 
