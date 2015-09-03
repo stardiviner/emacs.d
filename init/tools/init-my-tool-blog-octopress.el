@@ -17,7 +17,8 @@
 
 (require 'octopress)
 
-(setq octopress-posts-directory "_posts"
+(setq octopress-blog-root "~/Org/Blog/octopress"
+      octopress-posts-directory "_posts"
       octopress-drafts-directory "_drafts"
       ;; octopress-default-build-flags ; flags to pass to `jekyll build'
       ;; octopress-default-server-flags ; flags to pass to `jekyll serve'
