@@ -12,14 +12,14 @@
 ;; - `completion-at-point-functions' is a special hook.
 ;;    (add-hook 'completion-at-point-functions 'completion-function)
 
+;; (setq-default completion-at-point-functions
+;;               '(semantic-completion-at-point-function
+;;                 tags-completion-at-point-function))
 
 ;; (setq tab-always-indent 'complete)
 ;; (add-to-list 'completion-styles 'initials t)
 ;; (setq completion-cycle-threshold 5)
-;; (setq completion-at-point-functions '(;; semantic-completion-at-point-function ; NOTE: require `semantic'.
-;;                                       elisp-completion-at-point)
-;;       ;; completion-styles
-;;       )
+
 
 (set-face-attribute 'completions-common-part nil
                     :foreground "forest green")
