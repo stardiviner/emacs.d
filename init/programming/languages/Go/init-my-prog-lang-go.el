@@ -81,7 +81,10 @@
 ;; A `gocode' based native completion system for Emacs, can be integrated with
 ;; frameworks like ido, company, autocomplete.
 
-(add-hook 'completion-at-point-functions 'go-complete-at-point)
+(add-hook 'go-mode-hook
+          '(lambda ()
+             (add-hook (make-local-variable 'completion-at-point-functions)
+                       'go-complete-at-point)))
 
 
 ;;; [ go-autocomplete ]

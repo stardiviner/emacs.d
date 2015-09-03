@@ -157,7 +157,8 @@
 
 (add-hook 'slime-inferior-process-start-hook
           '(lambda ()
-             (add-hook 'completion-at-point-functions 'slime-complete-symbol)
+             (add-hook (make-local-variable 'completion-at-point-functions)
+                       'slime-complete-symbol)
              ))
 
 
