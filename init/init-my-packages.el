@@ -260,6 +260,8 @@
     ;; Go
     go-mode go-complete company-go go-eldoc
     gore-mode ; gotest
+    ;; Nim
+    nim-mode
     ;; Java
     ;; jdee
     emacs-eclim
