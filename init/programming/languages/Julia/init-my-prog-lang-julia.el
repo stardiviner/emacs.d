@@ -74,11 +74,10 @@
               (run-hooks 'prog-mode-hook))
             ))
 
-;; FIXME:
-;; (add-hook 'julia-mode-hook
-;;           (lambda ()
-;;             (add-to-list (make-local-variable 'company-backends)
-;;                          'company-julia-objects)))
+(add-hook 'julia-mode-hook
+          (lambda ()
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-ess-julia-objects)))
 
 
 
