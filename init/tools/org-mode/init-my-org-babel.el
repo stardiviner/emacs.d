@@ -382,8 +382,7 @@
                       (buffer-name)))))))
   (message "Source blocks checked in %s." (buffer-name (buffer-base-buffer))))
 
-;; TODO: add to a hook after edit babel finished.
-;; (add-hook 'org-babel-after-execute-hook)
+(add-hook 'org-src-mode-hook 'org-src-block-check)
 
 
 
