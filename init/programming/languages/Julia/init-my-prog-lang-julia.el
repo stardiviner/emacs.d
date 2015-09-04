@@ -17,10 +17,37 @@
 
 ;;; Usage:
 ;;
+;; - [M-x julia RET] / [C-c C-z] :: switch to julia process buffer.
+;; - [C-c C-s] :: associate a buffer with a different julia process.
+;;
 ;; - `julia-mode'
 ;; - `julia-eldoc-function'
 ;; - `julia-manual-lookup-function'
 ;; - `inferior-julia'
+;;
+;; - Evaluation -- send chunks of code
+;;   - [C-c C-c] :: [C-h k C-c C-c]
+;;   - [C-M-x]
+;;   - [C-c C-l] :: load the whole file.
+;; - Help
+;;   - [C-c C-d C-h] :: `ess-doc-map'
+;;   - [C-c C-d C-d] :: help on any topic or object.
+;;   - [C-c C-d C-a] :: help with apropos.
+;;   - [C-c C-d C-r] :: standard library reference.
+;;   - [C-c C-d m]   :: topic on Julia manual.
+;;   - [C-c C-d C-w] :: search julia website.
+;; - Error Navigation
+;;   - [M-g n/p] :: navigate in error list.
+;;   - Julia conveniently reports the location of its own source files. In order
+;;     to make ESS to understand these links, add the julia’s source folders to
+;;     ess-tracebug-search-path:
+;;     (add-to-list 'ess-tracebug-search-path "/path/to/julia/base/")
+;; - Imenu
+;;   -
+;; - Completion
+;;   - [C-M-i] / [TAB] :: `ess-tab-complete-in-script'
+;; - Eldoc
+
 
 ;; (setq inferior-julia-args)
 
