@@ -298,6 +298,14 @@ $0"
                     )
 
 
+;;; use different way to notify user the snippet exited.
+
+(add-hook 'yas-after-exit-snippet-hook
+          '(lambda ()
+             (popup-tip "snippet exited")
+             ))
+
+
 ;; It will test whether it can expand, if yes, cursor color -> green.
 
 ;; (require 'cursor-chg)
