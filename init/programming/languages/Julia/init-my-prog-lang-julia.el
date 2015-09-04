@@ -10,6 +10,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.jl\\'" . julia-mode))
 
+(setq julia-indent-offset 2)
 
 
 ;;; [ ESS - Julia ]
