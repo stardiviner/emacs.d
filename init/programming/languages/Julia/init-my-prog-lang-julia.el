@@ -79,6 +79,11 @@
             (add-to-list (make-local-variable 'company-backends)
                          'company-ess-julia-objects)))
 
+(add-hook 'inferior-julia-mode-hook
+          (lambda ()
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-ess-julia-objects)))
+
 
 
 (provide 'init-my-prog-lang-julia)
