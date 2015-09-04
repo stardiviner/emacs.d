@@ -42,8 +42,8 @@
 (setq org-src-fontify-natively t
       org-src-preserve-indentation nil
       org-edit-src-content-indentation 0
-      org-src-tab-acts-natively t
-      org-src-window-setup 'current-window
+      org-src-tab-acts-natively t ; make [Tab] work native as in major mode.
+      org-src-window-setup 'reorganize-frame ; 'current-window
       org-src-ask-before-returning-to-edit-buffer nil
       org-edit-src-auto-save-idle-delay 0 ; 0: don't auto save.
       )
