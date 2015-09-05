@@ -109,7 +109,13 @@
 
 ;;; FIXME: temporary solve python+semantic stack issue.
 ;; TODO: search how to solve this issue?
-(remove-hook 'python-mode-hook 'wisent-python-default-setup)
+;; `semantic-python-get-system-include-path'
+(defun wisent-python-default-setup ()
+  )
+(add-hook 'after-init-hook
+          '(lambda ()
+             (remove-hook 'python-mode-hook 'wisent-python-default-setup)
+             ))
 
 
 
