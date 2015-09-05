@@ -9,19 +9,15 @@
 
 ;;; [ python-mode ] --- Python's flying circus support for Emacs
 
-(setq-default python-indent-offset 4
+(setq-default python-indent-offset 2
               python-indent-guess-indent-offset t
               ;; python-shell-interpreter "python" ; "python", "ipython", "bpython"
               ;; python-shell-interpreter-args "-i"
               ;; python-shell-interpreter-interactive-arg "-i"
-              ;; python-shell-prompt-regexp ">>> "
-              ;; python-shell-prompt-block-regexp "\\.\\.\\. "
-              ;; python-shell-prompt-output-regexp ""
-              ;; python-shell-prompt-input-regexps '(">>> " "\\.\\.\\. " "In \\[[0-9]+\\]: " "   \\.\\.\\.: " "In : " "\\.\\.\\.: ")
-              ;; python-shell-prompt-output-regexps '("" "Out\\[[0-9]+\\]: " "Out :")
-              ;; python-shell-completion-setup-code "from IPython.core.completerlib import module_completion"
-              ;; python-shell-completion-module-string-code "';'.join(module_completion('''%s'''))\n"
-              ;; python-shell-completion-string-code "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
+              python-shell-virtualenv-path "~/.virtualenvs/python3/bin/virtualenv"
+              ;; python-ffap-setup-code
+              ;; python-ffap-string-code
+              python-skeleton-autoinsert t
               )
 
 
