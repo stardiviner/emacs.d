@@ -87,7 +87,7 @@
     ;; Mode
     mmm-mode ; polymode
     ;; Unicode
-    ;; helm-unicode
+    helm-unicode
     pretty-mode
     ;; pretty-symbols
     ;; purty-mode
