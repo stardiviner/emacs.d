@@ -105,24 +105,11 @@
 ;; (setq initial-buffer-choice "*Org Agenda*")
 
 
-;;; startup sr-speedbar in Emacs
+;;; Temporary remove semantic in `python-mode-hook'
 
-;; (add-hook 'after-init-hook 'sr-speedbar-toggle) ; `sr-speedbar-open'
-;;
-;; ;;; called after `sr-speedbar-open'
-;; (with-current-buffer sr-speedbar-buffer-name
-;;   (setq window-size-fixed 'width))
-;; ;;; FIXME: how to make it use the whole height of Emacs fixed height, instead of
-;; ;;; current window height. just as a dock window type.
-
-
-;;; Email - mu4e
-;; (add-hook 'emacs-startup-hook 'mu4e)
-
-
-;;; Temporary solution for disable auto-complete
-
-;; (global-auto-complete-mode -1)
+;;; FIXME: temporary solve python+semantic stack issue.
+;; TODO: search how to solve this issue?
+(remove-hook 'python-mode-hook 'wisent-python-default-setup)
 
 
 

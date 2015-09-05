@@ -7,11 +7,6 @@
 
 ;;; Code:
 
-;;; FIXME: temporary solve python+semantic stack issue.
-;; TODO: search how to solve this issue?
-(remove-hook 'python-mode-hook 'wisent-python-default-setup)
-
-
 ;;; [ python-mode ] --- Python's flying circus support for Emacs
 
 (setq-default python-indent-offset 4
