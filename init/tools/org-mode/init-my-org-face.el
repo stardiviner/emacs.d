@@ -215,13 +215,6 @@
                     :slant 'italic)
 
 
-;;; Formula face
-(set-face-attribute 'org-formula nil
-                    :background "green yellow"
-                    :foreground "black"
-                    :inverse-video nil
-                    :box '(:color "green yellow" :line-width 1 :style nil))
-
 ;;; Babel, Source Code, Block
 ;;
 ;; cyan style code block colorscheme
@@ -342,7 +335,16 @@
     (3 '(:foreground "cyan" :weight 'bold)) ; (<arguments>)
     )))
 
-;; TODO:
+
+
+;;; Formula face
+(set-face-attribute 'org-formula nil
+                    :background "green yellow"
+                    :foreground "black"
+                    :inverse-video nil
+                    :box '(:color "green yellow" :line-width 1 :style nil))
+
+;; FIXME: those regexp does not matches.
 ;; emabedded latex (inline formula)
 ;; (font-lock-add-keywords 'org-mode
 ;;                         '(("$\\([^$\ ]*\\)$" 1 'org-code) ; $a=2$
