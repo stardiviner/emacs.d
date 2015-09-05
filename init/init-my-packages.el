@@ -430,6 +430,8 @@
     world-time-mode
     ;; Collaborate
     ;; rudel togetherly
+    ;; Websites Client
+    sx
     
     ;; Emacs Libraries
     ;; Object

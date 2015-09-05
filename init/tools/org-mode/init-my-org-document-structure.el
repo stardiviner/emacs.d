@@ -55,13 +55,6 @@
 (setq org-highlight-sparse-tree-matches t)
 (setq org-sparse-tree-open-archived-trees nil)
 
-(set-face-attribute 'secondary-selection nil
-                    :background "dark slate gray"
-                    ;; :inverse-video t
-                    )
-
-
-
 ;; * Plain lists::                 Additional structure within an entry
 
 

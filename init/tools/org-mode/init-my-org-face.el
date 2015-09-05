@@ -276,6 +276,11 @@
 ;;                     :background (color-darken-name (face-background 'default) 5)
 ;;                     )
 
+(set-face-attribute 'secondary-selection nil
+                    :foreground nil
+                    :background (color-darken-name (face-background 'default) 6)
+                    )
+
 ;; code face => ~code~,  #+RESULTS: : result.
 (set-face-attribute 'org-code nil
                     :background "#222222" :foreground "orange"
