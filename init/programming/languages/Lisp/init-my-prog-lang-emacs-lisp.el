@@ -9,6 +9,13 @@
 
 ;;; [ Emacs Lisp some setups ]
 
+;; - `eval-expression-minibuffer-setup-hook'
+
+;; (setq eval-expression-debug-on-error t
+;;       eval-expression-print-level nil ; 4, nil,
+;;       eval-expression-print-length nil
+;;       )
+
 ;;; custom functions:
 ;;;
 (defun my-recompile-elc-on-save ()
