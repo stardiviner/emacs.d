@@ -16,8 +16,6 @@
 ;;
 ;; -
 
-;; (setq load-path (cons "/usr/lib/xemacs/site-lisp" load-path))
-
 (require 'prolog)
 
 (autoload 'run-prolog "prolog" "Start a Prolog sub-process." t)
@@ -31,7 +29,12 @@
 ;; (add-to-list 'auto-mode-alist '("\\.pl$" . prolog-mode)) ; conflict with Perl extension.
 (add-to-list 'auto-mode-alist '("\\.m$" . mercury-mode))
 
+
+;;; [ ediprolog ] -- Emacs Does Interactive Prolog
 
+(require 'ediprolog)
+
+(global-set-key [f10] 'ediprolog-dwim)
 
 
 (provide 'init-my-prog-lang-prolog)
