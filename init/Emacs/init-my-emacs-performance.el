@@ -11,7 +11,7 @@
 
 ;; - [M-x customize-group RET jit-lock RET]
 
-
+;; (setq-default jit-lock-defer-time nil)
 
 
 

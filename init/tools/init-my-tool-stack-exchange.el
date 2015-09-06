@@ -11,8 +11,11 @@
 
 ;;; Usage:
 ;;
-;; - `sx-tab-' functions ::
+;; TODO:
 ;; - `sx-authenticate' :: authenticate your key. and store in ~/.emacs.d/.sx/auth.el
+;; (setq browse-url-browser-function 'browse-url-firefox)
+;; - `sx-tab-' functions prefix
+;; - `sx-tab-all-questions'
 
 ;; View questions with one of the sx-tab- commands. These translate to the
 ;; different ‘tabs’ that you can view on the official site. Implemented tabs

@@ -21,7 +21,8 @@
       org-format-latex-options (plist-put
                                 org-format-latex-options :scale 3.0)
       org-format-latex-options (plist-put
-                                org-format-latex-options :html-scale 2.0))
+                                org-format-latex-options :html-scale 2.0)
+      )
 
 ;; (setq org-latex-default-packages-alist
 ;;       org-latex-packages-alist)
@@ -49,6 +50,8 @@
 
 
 ;;; [ Math ]
+
+;; `helm-insert-latex-math'
 
 ;;;_* Math formula support
 

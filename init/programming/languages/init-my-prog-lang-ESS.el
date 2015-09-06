@@ -77,15 +77,17 @@
 ;; - `ess-company-backends' :: for company-mode.
 ;; - `ess-ac-sources' :: for auto-complete.
 
-;; ESS use this sexp to modify company-backends.
-;;   (copy-list (append ess-company-backends company-backends))
-
 ;; Julia
+;; TODO:
 ;;   (ess-company-backends . '(company-julia-objects))
 
 
 
 ;;; TODO: startup start ESS process
+
+
+;;; [ ess-julia ]
+
 
 
 ;;; [ ess-smarter-underscore ]

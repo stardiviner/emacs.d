@@ -275,6 +275,7 @@
       which-key-separator " → "
       ;; which-key-unicode-correction 3
       which-key-special-keys '("SPC" "TAB" "RET" "ESC" "DEL")
+      ;; which-key-prefix-title-alist '()
       which-key-show-prefix 'echo ; 'left 'echo
       which-key-show-remaining-keys t
       )

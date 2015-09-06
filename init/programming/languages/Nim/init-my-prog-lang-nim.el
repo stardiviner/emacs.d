@@ -11,10 +11,6 @@
 
 (use-package nim-mode
   :config
-  (setq nim-args-compile '()
-        ;; nim-fill-docstring-style
-        )
-
   (set-face-attribute 'nim-tab-face nil
                       :foreground "dark gray"
                       :background "grey22")

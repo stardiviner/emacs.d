@@ -77,7 +77,7 @@
 
 ;;; [ sqled-mode ] -- major mode for editing sql, sqlplus, and pl/sql code.
 
-; (require 'sqled-mode)
+;; (require 'sqled-mode)
 
 
 ;;; [ sqlplus ] -- user friendly interface to SQL*Plus and support for PL/SQL compilation.
