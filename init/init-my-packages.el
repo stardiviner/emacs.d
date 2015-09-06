@@ -274,7 +274,7 @@
     ;; Rust
     ;; rust-mode flycheck-rust
     ;; Haskell
-    haskell-mode
+    haskell-mode flycheck-haskell
     company-ghc company-ghci company-cabal
     ;; Erlang
     erlang

@@ -22,6 +22,11 @@
                  ))))
 
 
+;;; [ flycheck-haskell ]
+
+
+
+
 ;;; [ company-ghc ]
 
 (dolist (hook '(haskell-mode-hook
