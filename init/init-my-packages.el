@@ -275,6 +275,7 @@
     ;; rust-mode flycheck-rust
     ;; Haskell
     haskell-mode
+    company-ghc company-ghci company-cabal
     ;; Erlang
     erlang
     ;; Julia
