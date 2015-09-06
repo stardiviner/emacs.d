@@ -84,16 +84,8 @@
 ;; (setq initial-buffer-choice (concat my-org-special-directory "/Tasks.org"))
 
 
-;;; sidebar
-;; (neotree-show)
-
-
 ;;; start Sauron at Emacs startup
 ;; (sauron-start)
-
-
-;;; start ERC at Emacs startup
-;; (my-erc-start-or-switch)
 
 
 ;;; open Org-Agenda at startup.
