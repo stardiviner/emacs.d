@@ -249,6 +249,12 @@
     virtualenv virtualenvwrapper
     ;; jedi company-jedi
     anaconda-mode company-anaconda
+    ;; Perl
+    ;; cperl-mode perl6-mode
+    ;; perl-completion plsense
+    ;; helm-perldoc
+    ;; flycheck-perl6
+    ;; plsense-direx
     ;; Clojure
     clojure-mode-extra-font-locking
     inf-clojure ; clojure-env
@@ -260,6 +266,8 @@
     ;; Go
     go-mode go-complete company-go go-eldoc
     gore-mode ; gotest
+    ;; golint
+    ;; go-stacktracer
     ;; Nim
     nim-mode
     ;; Java
@@ -270,14 +278,19 @@
     ;; php-boris php-boris-minor-mode
     ;; phpunit
     ;; Nim
-    ;; nim-mode
+    nim-mode
     ;; Rust
     ;; rust-mode flycheck-rust
+    ;; racer company-racer
     ;; Haskell
     haskell-mode flycheck-haskell
+    ghc ghci-completion
+    ebal
     company-ghc company-ghci company-cabal
     ;; Erlang
     erlang
+    ;; Prolog
+    ediprolog
     ;; Julia
     julia-mode
     ;; IPython
@@ -417,7 +430,7 @@
     ;; erc circe
     ;; weechat
     ;; Music
-    ;; emms ; emms-info-media helm-emms
+    ;; emms ; helm-emms emms-info-media emms-mode-line-cycle
     ;; Screenshot & Screencast
     screenshot camcorder ; impatient-mode
     ;; command-log-mode
@@ -434,7 +447,7 @@
     ;; Websites Client
     sx
     
-    ;; Emacs Libraries
+    ;; Emacs Lisp Libraries
     ;; Object
     ;; @
     ;; Overlay
@@ -444,6 +457,8 @@
     ;; Widget
     ;; widget-mvc
     ;; async deferred concurrent
+    ;; elisp-sandbox subemacs
+    ;; fsm
     
     ;; Languages
     ;; Chinese

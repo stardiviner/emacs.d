@@ -24,7 +24,8 @@
 
 ;;; [ flycheck-haskell ]
 
-
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
 
 
 ;;; [ company-ghc ]
@@ -44,6 +45,10 @@
 
 
 ;;; [ company-ghci ]
+
+
+;;; [ ebal ] -- Emacs interface to Cabal.
+
 
 
 ;;; [ company-cabal ]
