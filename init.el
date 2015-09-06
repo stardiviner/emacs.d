@@ -218,9 +218,8 @@
 ;; (require 'init-my-tool-sauron)
 ;; (require 'init-my-tool-irc-erc)
 ;; (require 'init-my-tool-emms)
-;; (require 'init-my-tool-screenshot)
-;; (require 'init-my-tool-screencast)
-;; (require 'init-my-tool-stack-exchange)
+(require 'init-my-tool-screenshot)
+(require 'init-my-tool-screencast)
 (require 'init-my-tool-stack-exchange)
 
 
@@ -282,7 +281,7 @@
 ;; (require 'init-my-prog-lang-matlab)
 ;; (require 'init-my-prog-lang-tex)
 (require 'init-my-prog-lang-markdown)
-;; (require 'init-my-prog-lang-prolog)
+(require 'init-my-prog-lang-prolog)
 ;; (require 'init-my-prog-lang-verilog)
 ;; (require 'init-my-prog-lang-assembly)
 
