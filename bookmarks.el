@@ -2,9 +2,39 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("SQL Reference"
- (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Database/SQL/Data/References/Reference of SQL/Reference of SQL.org")
+(("Hacking Tools"
+ (filename . "~/Org/Wiki/Computer/Hack/Hacking/data/tools/tools.org")
+ (front-context-string . "* Password Crack")
+ (rear-context-string)
+ (position . 1))
+("HTML5"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/HTML/HTML5/HTML5.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("HTML Programming Language"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/HTML/HTML.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("MySQL Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Database/SQL/MySQL/Data/Manuals/References/MySQL Reference/MySQL Reference.org")
  (front-context-string . "* Concepts\n\n#+BE")
+ (rear-context-string)
+ (position . 1))
+("PostgreSQL Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Database/SQL/PostgresQL/Data/Manuals/References/PostgreSQL Reference/PostgreSQL Reference.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Emacs Lisp code examples"
+ (filename . "~/Org/Wiki/Computer/Programming/Emacs/Emacs Lisp/Note/Note.org")
+ (front-context-string . "\n* Functions\n\n**")
+ (rear-context-string)
+ (position . 1))
+("Open Source"
+ (filename . "~/Org/Wiki/Computer/Programming/Implements/Open Source/Open Source.org")
+ (front-context-string)
  (rear-context-string)
  (position . 1))
 ("Kali Linux"
