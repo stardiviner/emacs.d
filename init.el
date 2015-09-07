@@ -240,6 +240,7 @@
 (require 'init-my-prog-inferior)
 (require 'init-my-prog-compile)
 (require 'init-my-prog-make)
+(require 'init-my-prog-test)
 (require 'init-my-prog-project)
 (require 'init-my-prog-vcs)
 ;; (require 'init-my-prog-bug-track-system)
