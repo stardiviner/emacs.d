@@ -205,7 +205,7 @@
     ;; Bug Track System
     bts bts-github
     ;; Test
-    ;; cerbere test-case-mode
+    cerbere test-case-mode
     ;; runtests
     ;; Refactor
     emr
@@ -232,7 +232,7 @@
     function-args
     ;; company-cmake
     ;; Lua
-    ;; lua-mode
+    lua-mode
     ;; Ruby
     ruby-mode enh-ruby-mode ruby-additional
     inf-ruby ruby-compilation ; pry
@@ -455,6 +455,7 @@
     ;; ov
     ;; Popup
     ;; Process
+    ;; multi
     ;; Widget
     ;; widget-mvc
     ;; async deferred concurrent

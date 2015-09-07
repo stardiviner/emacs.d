@@ -50,7 +50,7 @@ projectile-bookmarks.eld
 /GTAGS
 
 emms/
-/.sx/
+
 /.org-id-locations
 /init/init-my-startup.fas
 /init/init-my-startup.lib
@@ -67,3 +67,6 @@ image-dired/
 /cscope.in.out
 /cscope.out
 /cscope.po.out
+
+.sx/
+.bts/

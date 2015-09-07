@@ -122,7 +122,7 @@
         "C" "C++" "Go" ; "Swift" ; "Rust"
         ;; "Java"
         "Elixir"
-        ;; "Haskell" "Scala"
+        "Haskell" ; "Scala"
         ;; "Erlang"
         "SQLite" "PostgreSQL" "MySQL" "Redis" "MongoDB"
         ;; "Qt"
