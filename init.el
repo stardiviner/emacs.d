@@ -295,9 +295,9 @@
 
 
 ;;; programming related tools
-;; (require 'init-my-prog-tools-container)
-;; (require 'init-my-prog-tools-vagrant)
-;; (require 'init-my-prog-tools-heroku)
+(require 'init-my-prog-tools-container)
+(require 'init-my-prog-tools-vagrant)
+(require 'init-my-prog-tools-heroku)
 
 
 ;;; at the end!!!
