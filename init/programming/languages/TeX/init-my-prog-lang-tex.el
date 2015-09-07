@@ -24,14 +24,21 @@
 (require 'tex-site)
 
 
-;;;_ [ auto-complete-auctex ]
-
-;; (require 'auto-complete-auctex)
-
-
 ;;;_ [ company-auctex ]
 
-(company-auctex-init)
+;; (company-auctex-init)
+;;
+(dolist (hook '(tex-mode-hook
+                latex-mode-hook
+                ))
+  (add-hook hook '(lambda ()
+                    (add-to-list (make-local-variable 'company-backends)
+                                 'company-auctex-labels)
+                    (add-to-list (make-local-variable 'company-backends)
+                                 'company-auctex-bibs)
+                    (add-to-list (make-local-variable 'company-backends)
+                                 '(company-auctex-macros company-auctex-symbols company-auctex-environments))
+                    )))
 
 
 ;;;_ [ auto-complete-latex ]
