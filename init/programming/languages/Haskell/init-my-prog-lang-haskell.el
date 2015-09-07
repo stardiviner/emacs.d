@@ -31,6 +31,7 @@
 ;;; [ company-ghc ]
 
 (dolist (hook '(haskell-mode-hook
+                inferior-haskell-mode
                 ))
   (add-hook hook
             (lambda ()
