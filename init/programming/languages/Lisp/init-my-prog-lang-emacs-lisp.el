@@ -66,22 +66,6 @@
                 ielm-mode-hook))
   (add-hook hook 'turn-on-elisp-slime-nav-mode))
 
-
-
-;;; [ auto-complete-emacs-lisp ]
-
-;; (require 'auto-complete-emacs-lisp)
-;;
-;; ;; (setq ac-sources (append ac-emacs-lisp-sources ac-sources))
-;;
-;; (add-hook 'emacs-lisp-mode-hook
-;;           (lambda ()
-;;             (ac-source-remove '(ac-source-capf ac-source-symbols))))
-;;
-;; ;; this add emacs lisp source into AC, and support show popup help doc.
-;; ;; FIXME: this does not work.
-;; (add-hook 'eval-expression-minibuffer-setup-hook 'ac-emacs-lisp-setup)
-
 
 ;;; [ IELM (ELISP interactive) ] -- an REPL for emacs. (Read-Eval-Print-Loop)
 
