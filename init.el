@@ -276,7 +276,7 @@
 (require 'init-my-prog-lang-ESS)
 ;; (require 'init-my-prog-lang-R)
 (require 'init-my-prog-lang-julia)
-;; (require 'init-my-prog-lang-gnuplot)
+(require 'init-my-prog-lang-gnuplot)
 ;; (require 'init-my-prog-lang-octave)
 ;; (require 'init-my-prog-lang-matlab)
 ;; (require 'init-my-prog-lang-tex)
