@@ -7,11 +7,7 @@
 
 ;;; Code:
 
-;; collapse modeline
-;; variable: `mode-line-format'
-;; use `setq-default` to set it for /all/ modes
-;;
-;; [C-u C-\ greek RET] then [C-\] to write Greek characters.
+
 ;; - [C-h v major-mode] for current buffer major mode.
 ;; - [C-h v minor-mode-alist] for current buffer minor modes list.
 
@@ -38,15 +34,6 @@
 ;; (spinner-start 'moon)
 ;; (spinner-start 'triangle)
 
-
-;;; Tips:
-;;
-;; - (:eval (propertize 'face '(:foreground "green")))
-;;
-;;   You need to quote those symbols because `:eval' will try to evaluate them.
-;;
-;; - [C-x C-e] :: evaluate the sexp which in (:eval ...), toggle `debug-on-error' to show errors.
-
 (setq-default
  mode-line-format
  (quote
@@ -58,13 +45,13 @@
    ;; (:propertize "%e"
    ;;              face (:foreground "red" :inverse-video nil))
 
-   (:propertize " 暗月 "
-                face (:foreground "#444444" :background "black")
-                help-echo "九州 ❯ \n 《羽传说》 ❯ 向异翅 \n 《海上牧云记》 ❯ 牧云笙")
-
    ;; (:propertize "{/Emacs/}"
    ;;              face (:foreground "yellow")
    ;;              help-echo "神之编辑器")
+
+   (:propertize " 牧云笙 "
+                face (:foreground "#444444")
+                help-echo "九州 ❯ \n 《羽传说》 ❯ 暗月 ❯ 向异翅 \n 《海上牧云记》 ❯ 牧云笙")
    
    ;; (:propertize " /铁甲依然在 !/ "
    ;;              face (:foreground "cyan")
@@ -385,7 +372,8 @@
     (if flycheck-current-errors
         (propertize (flycheck-mode-line-status-text)
                     'face '(:foreground "orange" :background nil :height 80))))
-   
+
+   ;; process: inferior,
    (:eval
     (if mode-line-process
         (progn
@@ -399,7 +387,7 @@
            ))))
 
    ;; line and column number, relative position
-   ;; mode-line-position
+   ;; `mode-line-position'
    ;; '%02' to set to 2 chars at least; prevents flicking
    (:eval
     (list
