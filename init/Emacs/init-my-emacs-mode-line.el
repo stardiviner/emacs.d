@@ -24,13 +24,13 @@
 ;; Nyan Mode is an analog indicator of your position in the buffer. The Cat
 ;; should go from left to right in your mode-line, as you move your point from
 ;; 0% to 100%.
-(require 'nyan-mode)
-(setq nyan-animate-nyancat t
-      nyan-wavy-trail nil
-      nyan-animation-frame-interval 0.2
-      nyan-bar-length 15
-      nyan-cat-face-number 1
-      )
+;; (require 'nyan-mode)
+;; (setq nyan-animate-nyancat t
+;;       nyan-wavy-trail nil
+;;       nyan-animation-frame-interval 0.2
+;;       nyan-bar-length 15
+;;       nyan-cat-face-number 1
+;;       )
 
 ;; spinner
 ;; (spinner-start 'vertical-breathing 10)
@@ -369,8 +369,8 @@
    ;;  )
 
    ;; nyan-mode
-   (:eval
-    (when nyan-mode (list (nyan-create))))
+   ;; (:eval
+   ;;  (when nyan-mode (list (nyan-create))))
 
    ;; FIXME: spinner
    ;; Let spinner support to be used in custom mode-line as a function.

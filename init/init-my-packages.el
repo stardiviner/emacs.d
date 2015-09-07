@@ -21,7 +21,7 @@
     monokai-theme
     page-break-lines
     ;; mode-line
-    nyan-mode nyan-prompt
+    ;; nyan-mode nyan-prompt
     ;; Keybinding
     helm-bind-key
     which-key
