@@ -249,7 +249,7 @@
 ;;; Programming Languages
 (require 'init-my-prog-lang-lisp)
 (require 'init-my-prog-lang-emacs-lisp)
-;; (require 'init-my-prog-lang-common-lisp)
+(require 'init-my-prog-lang-common-lisp)
 ;; (require 'init-my-prog-lang-guile)
 (require 'init-my-prog-lang-clojure)
 (require 'init-my-prog-lang-ruby)
