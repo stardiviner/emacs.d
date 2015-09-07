@@ -9,6 +9,9 @@
 
 ;;; [ Emacs Lisp some setups ]
 
+(setq print-quoted t
+      print-circle t)
+
 ;; - `eval-expression-minibuffer-setup-hook'
 
 ;; (setq eval-expression-debug-on-error t
