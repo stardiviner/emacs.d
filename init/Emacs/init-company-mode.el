@@ -95,33 +95,6 @@
         ;; company-bbdb           ; BBDB
         ))
 
-;; (add-hook 'c-mode-common-hook
-;;           (lambda ()
-;;             (add-to-list (make-local-variable 'company-backends)
-;;                          '(company-clang company-cmake))))
-
-;;; add `company-robe' backend to `company-backends'
-;; (add-hook 'inf-ruby-mode-hook
-;;           (lambda ()
-;;             ;; company-robe
-;;             (make-local-variable 'company-backends)
-;;             (add-to-list 'company-backends 'company-robe)
-;;             ))
-;;
-;;; remove `company-robe' from `company-backends'
-;; (add-hook 'inf-ruby-mode-hook
-;;           (lambda ()
-;;             (set (make-local-variable 'company-backends)
-;;                  (remq 'company-capf company-backends))))
-;; or
-;; (add-hook 'robe-mode-on-hook
-;;           (lambda ()
-;;             (remove-hook 'completion-at-point-functions
-;;                          'robe-complete-at-point t)))
-
-;; (add-to-list 'ac-modes 'inf-ruby-mode) ; enable auto-complete (with robe-mode) for inf-ruby completion.
-
-
 ;;; globally
 (setq company-global-modes t)
 ;; (setq company-global-modes '(emacs-lisp-mode
