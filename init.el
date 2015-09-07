@@ -243,8 +243,7 @@
 (require 'init-my-prog-test)
 (require 'init-my-prog-project)
 (require 'init-my-prog-vcs)
-;; (require 'init-my-prog-bug-track-system)
-;; (require 'init-my-prog-refactor)
+(require 'init-my-prog-bug-track-system)
 
 
 ;;; Programming Languages
