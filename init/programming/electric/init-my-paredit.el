@@ -37,6 +37,28 @@
       (enable-paredit-mode)))
 (add-hook 'minibuffer-setup-hook 'conditionally-enable-paredit-mode)
 
+
+;;; patches
+
+;;; fix paredit auto add space before ( in circular list refs. #1= (a b c . #1#)
+(add-to-list 'paredit-space-for-delimiter-predicates 'no-space-for-list-refs)
+
+(defun no-space-for-list-refs (endp delimiter)
+  (or endp
+     (save-excursion
+       (not (and (eq delimiter ?\()
+             (re-search-backward (rx "#" (+ (any "0-9")) "=")
+                                 (line-beginning-position) t))))))
+
+;;; fix paredit auto add space before ( in list splicing. ",@()".
+(add-to-list 'paredit-space-for-delimiter-predicates 'no-space-for-list-splicing)
+
+(defun no-space-for-list-splicing (endp delimiter)
+  (or endp
+     (save-excursion
+       (not (and (eq delimiter ?\()
+             (re-search-backward (rx ",@")
+                                 (line-beginning-position) t))))))
 
 
 (provide 'init-my-paredit)
