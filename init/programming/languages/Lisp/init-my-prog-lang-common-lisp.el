@@ -71,8 +71,8 @@
                                sly-mrepl
                                sly-autodoc))
 
-(dolist (hook '(sly-mrepl-hook
-                sly-mode-hook
+(dolist (hook '(sly-mode-hook
+                sly-mrepl-mode-hook
                 lisp-mode-hook
                 lisp-interaction-mode-hook
                 common-lisp-lisp-mode-hook
@@ -96,23 +96,19 @@
 
 ;;; [ company-sly ] -- Company-mode completion backend for SLY.
 
-(require 'sly-company)
-
 (add-hook 'sly-mode-hook 'sly-company-mode)
 
-
-(dolist (hook '(lisp-mode-hook
+(dolist (hook '(sly-mode-hook
+                sly-mrepl-mode-hook
+                lisp-mode-hook
                 lisp-interaction-mode-hook
                 common-lisp-lisp-mode-hook
                 ))
   (add-hook hook
             (lambda ()
-              ;; don't add sly-company backend GLOBALLY.
-              (setq-local company-backends
-                          (remq 'sly-company company-backends))
-
-              (setq-local company-backends
-                          (append '(sly-company) company-backends)))))
+              (add-to-list (make-local-variable 'company-backends)
+                           'sly-company)
+              )))
 
 
 

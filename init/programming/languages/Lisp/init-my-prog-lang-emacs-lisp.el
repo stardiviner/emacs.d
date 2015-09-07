@@ -32,12 +32,14 @@
           (lambda ()
             (turn-on-eldoc-mode)
             (my-recompile-elc-on-save)
-            (rainbow-mode +1)
+            (rainbow-mode 1)
             ;; for company-mode
+            ;; FIXME: how to add `company-elisp' behind default grouped backends?
             (add-to-list (make-local-variable 'company-backends)
                          'company-elisp)
+            (add-hook (make-local-variable 'completion-at-point-functions)
+                      'slime-complete-symbol)
             ))
-
 
 (add-to-list 'auto-mode-alist '("Cask\\'" . emacs-lisp-mode))
 
