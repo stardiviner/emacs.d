@@ -51,6 +51,7 @@
     ;; Navigation
     show-marks
     ;; ace-jump-mode
+    ;; pophint
     ;; Fold
     allout allout-widgets
     foldout

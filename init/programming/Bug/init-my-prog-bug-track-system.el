@@ -77,6 +77,8 @@
 
 (require 'bts)
 
+;; (require 'pophint)
+
 (setq bts:preferred-selection-method 'helm
       bts:project-cache-file "~/.emacs.d/.bts/project"
       bts:query-cache-file "~/.emacs.d/.bts/query"

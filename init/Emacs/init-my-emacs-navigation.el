@@ -205,6 +205,16 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;; (global-ace-isearch-mode +1)
 
 
+;;; [ pophint ]
+
+;; (require 'pophint)
+
+;; (define-key global-map (kbd "C-;") 'pophint:do-flexibly)
+;; (define-key global-map (kbd "C-+") 'pophint:do)
+;; (define-key global-map (kbd "M-;") 'pophint:redo)
+;; (define-key global-map (kbd "C-M-;") 'pophint:do-interactively)
+
+
 ;; recenter
 
 ;; (setq recenter-positions '(top middle bottom)) ; default '(middle top bottom)
