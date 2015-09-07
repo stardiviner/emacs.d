@@ -195,9 +195,8 @@
 ;; : │ ┃ ▏┃ | ❘ │ ┃ ▍ ┇ ┋ ┊ ┆ ╽ ╿ ▏▕ ├ ▯ ∎ ◇ ◈ ◊ ⊡
 (setq indent-guide-char "╿")
 (set-face-attribute 'indent-guide-face nil
-                    :foreground "#535353"
-                    ;; :foreground "dark turquoise"
-                    ;; :stipple nil
+                    :foreground "olive drab"
+                    ;; :foreground "dark violet"
                     )
 
 ;; 2: use face-attribute stipple pixmap data.
