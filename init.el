@@ -279,7 +279,7 @@
 (require 'init-my-prog-lang-gnuplot)
 ;; (require 'init-my-prog-lang-octave)
 ;; (require 'init-my-prog-lang-matlab)
-;; (require 'init-my-prog-lang-tex)
+(require 'init-my-prog-lang-tex)
 (require 'init-my-prog-lang-markdown)
 (require 'init-my-prog-lang-prolog)
 ;; (require 'init-my-prog-lang-verilog)
