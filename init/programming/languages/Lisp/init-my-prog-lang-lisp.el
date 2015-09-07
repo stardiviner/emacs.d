@@ -162,25 +162,6 @@
              ))
 
 
-;;; [ ac-slime ] --
-
-;; (require 'ac-slime)
-;;
-;; (dolist (hook '(lisp-mode-hook
-;;                 lisp-interaction-mode-hook
-;;                 scheme-mode-hook
-;;                 ))
-;;   (add-hook hook (lambda ()
-;;                    (add-to-list 'ac-sources 'ac-slime))))
-;;
-;;
-;; (set-face-attribute 'ac-slime-menu-face nil
-;;                     :foreground "yellow"
-;;                     :bold 'normal)
-;; (set-face-attribute 'ac-slime-selection-face nil
-;;                     )
-
-
 ;;; [ slime-company ] -- slime backend for Company mode.
 
 ;; FIXME: (slime-setup '(slime-company))
