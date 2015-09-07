@@ -28,7 +28,7 @@
             t))
 
 ;; Emacs Lisp hook
-(add-hook 'emacs-lisp-hook
+(add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (turn-on-eldoc-mode)
             (my-recompile-elc-on-save)
