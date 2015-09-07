@@ -73,9 +73,9 @@
 
 (dolist (hook '(sly-mrepl-hook
                 sly-mode-hook
-                common-lisp-lisp-mode-hook
+                lisp-mode-hook
                 lisp-interaction-mode-hook
-                ;; emacs-lisp-mode-hook
+                common-lisp-lisp-mode-hook
                 ))
   (add-hook hook
             (lambda ()
@@ -101,11 +101,9 @@
 (add-hook 'sly-mode-hook 'sly-company-mode)
 
 
-(dolist (hook '(emacs-lisp-mode-hook
-                common-lisp-lisp-mode-hook
-                lisp-mode-hook
+(dolist (hook '(lisp-mode-hook
                 lisp-interaction-mode-hook
-                ielm-mode-hook
+                common-lisp-lisp-mode-hook
                 ))
   (add-hook hook
             (lambda ()
