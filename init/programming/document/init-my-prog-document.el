@@ -92,50 +92,49 @@
 ;;
 ;; - [M-x helm-dash]
 ;; - [M-x helm-dash-at-point]
+;; - [M-x helm-dash-reset-connections] :: fix/reset sqlite db's error
 ;;
 ;; - `helm-dash-install-docset' :: install official docset.
 ;; - `helm-dash-install-user-docset' :: install user contributed docset.
 ;; - `helm-dash-install-docset-from-file' :: install docset from file.
-;;
-;; - The command helm-dash-reset-connections will clear the connections to all sqlite db's.
-;;   Use it in case of errors when adding new docsets. The next call to helm-dash will recreate them.
-
-;; - https://github.com/Kapeli/Dash-User-Contributions/tree/master/docsets
-;; - https://github.com/kidd/dashes-to-dashes
 
 (setq helm-dash-docsets-path (expand-file-name "~/.docsets")
       helm-dash-min-length 2
-      ;; helm-dash-completing-read-func 'completing-read ; 'completing-read, 'ido-completing-read
-      helm-dash-browser-func 'helm-browse-url ; 'eww, 'browse-url, 'browse-url-generic, 'helm-browse-url
-      ;; helm-dash-connections
+      ;; 'completing-read, 'ido-completing-read
+      ;; helm-dash-completing-read-func 'completing-read
+      ;; 'eww, 'browse-url, 'browse-url-generic, 'helm-browse-url
+      helm-dash-browser-func 'helm-browse-url
+      helm-dash-candidate-format "%d  %n  (%t)"
       helm-dash-common-docsets
-      '("Ruby" "Ruby on Rails"
-        "Python 3"
+      '("Ruby"
+        ;; "Python 3"
         ;; "PHP"
+        "Ruby on Rails"
         "HTML" "CSS" "JavaScript"
-        "Emmet" "Haml" "Less"
-        "CoffeeScript" "NodeJS"
+        ;; "Emmet" "Haml" "Less"
+        ;; "CoffeeScript" "NodeJS"
         "jQuery" "AngularJS" "React" "D3JS"
         ;; "EmberJS" "ExtJS" "BackboneJS" "KnockoutJS" "MomentJS" "PrototypeJS" "RequireJS" "UnderscoreJS"
         "Common_Lisp"
         "Clojure"
         "C" "C++" "Go" ; "Swift" ; "Rust"
         ;; "Java"
-        "Elixir"
-        "Haskell" ; "Scala"
+        ;; "Elixir"
+        ;; "Haskell" ; "Scala"
         ;; "Erlang"
-        "SQLite" "PostgreSQL" "MySQL" "Redis" "MongoDB"
-        ;; "Qt"
-        "Bash"
+        "SQLite" "PostgreSQL" ; "MySQL"
+        ;; "Redis" "MongoDB"
+        ;; "Bash"
         ;; "LaTeX"
         "Julia" ; "R"
         ;; "Processing"
         ;; "Unity_3D" "Cocos3D" "Cocos2D"
         ;; "OpenGL_4" "OpenCV_C"
-        "Docker" "Vagrant" "Nginx"
+        ;; "Docker" "Vagrant" "Nginx"
+        ;; "Qt"
         ;; "Android" "iOS" "OS_X"
-        "RubyMotion"
-        "Arduino"
+        ;; "RubyMotion"
+        ;; "Arduino"
         )
       )
 
