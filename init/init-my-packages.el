@@ -346,7 +346,8 @@
     web-mode
     web-beautify
     ;; multi-web-mode
-    skewer-mode
+    skewer-mode ; skewer-reload-stylesheets skewer-less
+    livid-mode
     json-mode ; json-rpc
     ;; xml xmlunicode ; xmlgen xml-rpc
     ;; web-beautify
