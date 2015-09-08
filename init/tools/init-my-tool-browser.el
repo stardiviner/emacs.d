@@ -19,7 +19,7 @@
 
 ;;; Usage:
 ;;
-;; - [M-x eww Enter URL] ::
+;; - [M-x eww RET URL] ::
 
 ;;; set to "internal" Emacs Web Wowser
 ;; (setq browse-url-browser-function 'eww-browse-url)
@@ -33,8 +33,8 @@
       ;; - Google :: "http://www.google.com/search?q=%s"
       ;; - Bing :: "http://bing.com/search?q="
       ;; search engine
-      eww-search-prefix "https://www.duckduckgo.com/?q="
-      eww-use-external-browser-for-content-type "\\`\\(video/\\|audio/\\|application/ogg\\)"
+      eww-search-prefix "https://www.google.com/search?q=%s"
+      ;; eww-use-external-browser-for-content-type "\\`\\(video/\\|audio/\\|application/ogg\\)"
       )
 
 (eval-after-load "eww"
@@ -43,16 +43,16 @@
                         :box '(:color "cyan" :line-width 2 :style 'released-button)
                         :foreground "gray" :background "black"
                         )
-
+    
     (define-key eww-mode-map (kbd "o") 'eww) ; prompt for a URL.
-
+    
     (define-key eww-mode-map (kbd "f") 'eww-follow-link)
     (define-key eww-mode-map (kbd "d") 'eww-download)
     
     (define-key eww-mode-map (kbd "C-i") 'eww-back-url)
     (define-key eww-mode-map (kbd "C-o") 'eww-forward-url)
     (define-key eww-mode-map (kbd "r") 'eww-reload)
-
+    
     (define-key eww-mode-map (kbd "<C-tab>") 'eww-buffer-select) ; 'eww-buffer-show, 'eww-list-buffers
     ;; (define-key eww-mode-map (kbd "<C-tab>") 'eww-buffer-show-next)
     ;; (define-key eww-mode-map (kbd "<C-S-iso-lefttab>") 'eww-buffer-show-previous)
@@ -63,13 +63,13 @@
     (define-key eww-mode-map (kbd "B") 'eww-add-bookmark)
     (define-key eww-mode-map (kbd "M-n") nil)
     (define-key eww-mode-map (kbd "M-p") nil)
-
+    
     (define-key eww-mode-map (kbd "&") 'eww-browse-with-external-browser)
-
+    
     (define-key eww-mode-map (kbd "v") 'eww-view-source)
     (define-key eww-mode-map (kbd "H") 'eww-parse-headers)
     (define-key eww-mode-map (kbd "R") 'eww-readable)
-
+    
     (define-key eww-mode-map (kbd "<enter>") 'eww-submit)
     )
   )
@@ -83,7 +83,7 @@
 ;;
 ;; - [M-x w3m]
 
-(require 'w3m)
+;; (require 'w3m)
 
 (setq w3m-coding-system 'utf-8
       w3m-file-coding-system 'utf-8

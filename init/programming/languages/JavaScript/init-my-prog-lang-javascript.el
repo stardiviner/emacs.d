@@ -28,14 +28,12 @@
 
 ;;; [ js2-mode ]
 
-;; (autoload 'js2-mode "js2-mode" nil t)
-;;
-;; (eval-after-load 'auto-complete
-;;   (add-to-list 'ac-modes 'js2-mode))
+;; (setq js2-pretty-multiline-declarations t ; 'dynamic
+;;       js2-highlight-level 3
+;;       )
 
 ;; (js2-highlight-unused-variables-mode)
 
-(setq js2-pretty-multiline-declarations t) ; 'dynamic
 
 
 ;;; [ js3-mode ]
@@ -320,8 +318,8 @@
 (use-package company-tern
   :config
   (setq
-   company-tern-property-marker "" ; remove circles after object's own properties.
-   company-tern-meta-as-single-line t ; trim too long function signatures to the frame width.
+   company-tern-property-marker "" ; " ○"
+   company-tern-meta-as-single-line t
    )
   )
 

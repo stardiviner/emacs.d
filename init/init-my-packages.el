@@ -350,7 +350,6 @@
     livid-mode
     json-mode ; json-rpc
     ;; xml xmlunicode ; xmlgen xml-rpc
-    ;; web-beautify
     restclient httprepl web
     web-completion-data
     know-your-http-well httpcode

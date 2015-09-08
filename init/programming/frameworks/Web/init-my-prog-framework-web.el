@@ -20,11 +20,10 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
-;; You can also edit plain js, jsx, css, scss, xml files.
-
 (add-to-list 'auto-mode-alist
              '("/\\(views\\|html\\|theme\\|templates\\)/.*\\.php\\'" . web-mode))
 
+;; You can also edit plain js, jsx, css, scss, xml files.
 ;;;_. Associate an engine
 
 ;;; Using this association list is required as soon as the file extension is
@@ -445,6 +444,8 @@
 
 
 ;;;_ web-beautify
+
+;; ~/.jsbeautifyrc
 
 ;; (eval-after-load 'js2-mode
 ;;   '(define-key js2-mode-map (kbd "C-c b") 'web-beautify-js))
