@@ -116,20 +116,21 @@
 
 (setq org-agenda-files '("~/Org/Capture/"
                          "~/Org/Work/Work.org"
-                         ;; "~/Org/Tasks.org"
+                         "~/Org/Plans.org"
+                         ;; "~/Org/Tasks.org" ; BIG!
+                         "~/Org/Wiki/Kung Fu/Kung Fu.org"
                          "~/Org/Projects/Code.org"
                          "~/Org/Projects/Computer Todos.org"
+                         "~/Org/Projects/Projects.org"
+                         ;; "~/Org/Projects/Programming Projects.org" ; BIG!
                          ;; "~/Org/Projects/Freelancer.org"
                          ;; "~/Org/Projects/Finance.org"
-                         "~/Org/Projects/Projects.org"
-                         ;; "~/Org/Projects/Programming Projects.org" ; this file is very big!!!
                          ;; "~/Org/Projects/Maker.org"
                          ;; "~/Org/Projects/Business Ideas.org"
                          ;; "~/Org/Projects/Startup.org"
                          "~/Org/Wiki/Learning/Learning.org"
                          "~/Org/Wiki/Learning/MyLearningPlan/Learn Programming.org"
-                         "~/Org/Wiki/Wiki.org"
-                         "~/Org/Wiki/Kung Fu/Kung Fu.org"
+                         ;; "~/Org/Wiki/Wiki.org"
                          ))
 
 (setq org-agenda-text-search-extra-files '("~/Org/Journal.org" "~/Org/Diary/"))
