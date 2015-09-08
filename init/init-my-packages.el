@@ -344,6 +344,7 @@
     coffee-mode
     ;; Web
     web-mode
+    web-beautify
     ;; multi-web-mode
     skewer-mode
     json-mode ; json-rpc
