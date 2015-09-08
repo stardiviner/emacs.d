@@ -49,13 +49,9 @@
    ;;              face (:foreground "yellow")
    ;;              help-echo "神之编辑器")
 
-   (:propertize " 牧云笙 "
-                face (:foreground "#444444")
-                help-echo "九州 ❯ \n 《羽传说》 ❯ 暗月 ❯ 向异翅 \n 《海上牧云记》 ❯ 牧云笙")
-   
-   ;; (:propertize " /铁甲依然在 !/ "
-   ;;              face (:foreground "cyan")
-   ;;              help-echo "我不要这样生，也不要那样死！\n\n 人的一生是如此的的短暂，而你还有很多的事情,很多的梦想 需要曲实现。\n我不想那样生存，也不想就 这样死去，所以，我要拼命去实现我的想法。")
+   (:propertize "[牧云笙]"
+                face (:foreground "#555555")
+                help-echo "九州 (铁甲依然在 !) ❯ \n 天驱 辰月 ❯ \n 《海上牧云记》 ❯ 牧云笙 \n 《羽传说》 ❯ 暗月 ❯ 向异翅 \n 《缥缈录》 ❯  阿苏勒·帕苏尔")
    
    ;; (:eval
    ;;  (cond
