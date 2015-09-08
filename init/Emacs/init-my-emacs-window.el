@@ -535,9 +535,6 @@ The `BUFFER' is the popwin catch pop private message buffer."
 ;; Festival
 (push '("*festival*" :position bottom :height 15) popwin:special-display-config)
 
-;; Helm (all helm complete candidates popup)
-;; (push '("^\\*helm.*\\*$" :regexp t :position bottom :height 10) popwin:special-display-config)
-
 ;; TeX/LaTeX (AUCTeX)
 ;; (push '(TeX-output-mode :position bottom :height 15) popwin:special-display-config)
 

@@ -71,7 +71,7 @@
   '(emacs-lisp-mode
     lisp-mode
     lisp-interaction-mode
-    ;; common-lisp-mode
+    ;; common-lisp-lisp-mode(-hook)
     inferior-emacs-lisp-mode
     ;; geiser
     sly-mrepl-mode
