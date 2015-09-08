@@ -322,7 +322,7 @@
   (setq
    company-tern-property-marker "" ; remove circles after object's own properties.
    company-tern-meta-as-single-line t ; trim too long function signatures to the frame width.
-   company-tooltip-align-annotations nil ; nil: enable inline annotation.
+   ;; company-tooltip-align-annotations t ; nil: enable inline annotation.
    )
   )
 
