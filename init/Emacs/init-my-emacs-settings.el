@@ -172,7 +172,17 @@
 
 
 ;;; [ clipboard ]
-(setq x-select-enable-clipboard t)
+
+;; - x-select-enable-primary - default nil; set this to t if you want the Emacs commands C-w and C-y to use the primary selection.
+;; - x-select-enable-clipboard - default t; set this to nil if you want the Emacs commands C-w and C-y to use the clipboard selection.
+;; - Yes, you can have Emacs use both at the same time.
+;; - `x-clipboard-yank'
+;; - `clipboard-kill-ring-save'
+
+(setq x-select-enable-clipboard t
+      x-select-enable-clipboard-manager t
+      x-select-enable-primary t
+      )
 
 
 ;;; [ Browser ]
