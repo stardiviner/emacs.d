@@ -49,10 +49,11 @@
 
 (require 'flycheck)
 
-(add-hook 'after-init-hook #'global-flycheck-mode) ; enable flycheck in all buffers.
+;; enable flycheck in all buffers.
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
-(setq flycheck-check-syntax-automatically '(save
-                                            idle-change new-line mode-enabled)
+;; (save idle-change new-line mode-enabled)
+(setq flycheck-check-syntax-automatically '(save new-line)
       flycheck-idle-change-delay 5.0
       flycheck-display-errors-delay 3.0
       flycheck-highlighting-mode 'symbols
