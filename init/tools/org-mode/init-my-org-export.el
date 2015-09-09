@@ -126,8 +126,20 @@
 ;; (setq org-html-htmlize-font-prefix "org-"
 ;;       org-html-htmlize-output-type 'inline-css)
 
+
+;;; convert selected region to Markdown and copy to clipboard for pasting
+;;; on sites like GitHub, and Stack Overflow.
 
+(define-key paste-map (kbd "m") 'my-org-md-convert-region-to-md)
 
+(defun my-org-md-convert-region-to-md ()
+  "convert selected region to Markdown and copy to clipboard for
+pasting on sites like GitHub, and Stack Overflow."
+  (interactive)
+  (unless (org-region-active-p) (user-error "No active region to replace"))
+  (x-set-selection 'CLIPBOARD
+                   (org-export-string-as
+                    (buffer-substring (region-beginning) (region-end)) 'md t)))
 
 
 (provide 'init-my-org-export)
