@@ -15,6 +15,7 @@
 (require 'window-number)
 (require 'vc)
 (require 'vc-git)
+(require 'flycheck)
 
 ;; nyan-mode
 ;; Nyan Mode is an analog indicator of your position in the buffer. The Cat
