@@ -27,7 +27,7 @@
 ;;; [ Eshell ] (Emacs Shell)
 
 (setq eshell-save-histroy-on-exit t
-      eshell-history-size 128
+      eshell-history-size 500
       eshell-hist-ignoredups t
       eshell-compl-ignore-case t
       eshell-cp-interactive-query t
@@ -36,15 +36,67 @@
       eshell-rm-interactive-query t
       eshell-mv-overwrite-files nil
       eshell-highlight-prompt t
-      ;; eshell-prompt-regexp "^[^#$\n]* [#>]+"
-      ;; eshell-prompt-function (lambda nil
-      ;;                          (concat
-      ;;                           (abbreviate-file-name
-      ;;                            (eshell/pwd))
-      ;;                           (if
-      ;;                               (= (user-uid) 0)
-      ;;                               " # " " > ")))
       )
+
+;; Eshell-banner
+(setq eshell-banner-message (format "%s %s\nwith Emacs %s on %s"
+                                    (propertize
+                                     "Eshell session started on"
+                                     'face '((:foreground "dim gray")))
+                                    (propertize
+                                     (format-time-string "%c")
+                                     'face '((:foreground "gray")))
+                                    (propertize emacs-version
+                                                'face '((:foreground "yellow")))
+                                    (propertize
+                                     (with-temp-buffer
+                                       (call-process "uname" nil t nil "-r")
+                                       (buffer-string))
+                                     'face '((:foreground "orange")))))
+
+;; eshell prompt
+(setq eshell-prompt-function #'(lambda ()
+                                 ;; (concat
+                                 ;;  (abbreviate-file-name (eshell/pwd))
+                                 ;;  ;; (newline)
+                                 ;;  (getenv "USER")
+                                 ;;  "@"
+                                 ;;  (system-name)
+                                 ;;  ":"
+                                 ;;  (if (= (user-uid) 0) " # " " $ "))
+
+                                 (format "{ %s } [ %s ]\n%s %s"
+                                         (propertize
+                                          (getenv "USER")
+                                          'face '((:foreground "sky blue")))
+                                         (propertize
+                                          (abbreviate-file-name (eshell/pwd))
+                                          'face '((:foreground "gray")))
+                                         (propertize ; $ ➜ ⇨ </>
+                                          (if (= (user-uid) 0) "#" "⇨")
+                                          'face '((:foreground "deep pink")))
+                                         ;; set following cmd face
+                                         (propertize
+                                          " "
+                                          'face '((:foreground "light gray"))))
+                                 ))
+
+(set-face-attribute 'eshell-prompt nil
+                    :foreground "deep sky blue")
+
+
+;; helm complete support
+(require 'helm-eshell)
+
+(add-hook 'eshell-mode-hook
+          #'(lambda ()
+              (eshell-cmpl-initialize)
+              (company-mode 1)
+              (define-key eshell-mode-map [remap pcomplete] 'helm-esh-pcomplete)
+              (define-key eshell-mode-map [remap eshell-complete-lisp-symbol] 'helm-lisp-completion-at-point)
+              (define-key eshell-mode-map (kbd "M-p") 'helm-eshell-history)
+              (push-mark)
+              ))
 
 ;;; count how much time the command used.
 ;; (add-hook 'eshell-load-hook
@@ -56,24 +108,6 @@
 ;;             (message "spend %g seconds"
 ;;                      (- (time-to-seconds) last-command-start-time))))
 
-;; ;;; auto-complete settings
-;; (autoload 'auto-complete "auto-complete" t)
-;; (defvar ac-source-eshell-pcomplete
-;;   '((candidates . (pcomplete-completions))))
-;; (defun ac-complete-eshell-pcomplete ()
-;;   (interactive)
-;;   (auto-complete '(ac-source-eshell-pcomplete)))
-;;
-;; ;;; auto enable ac-mode
-;; (global-auto-complete-mode 1)
-;; (add-to-list 'ac-modes 'eshell-mode)
-;; (setq ac-sources '(ac-source-eshell-pcomplete
-;;                    ;; ac-source-files-in-current-dir
-;;                    ac-source-filename
-;;                    ;; ac-source-abbrev
-;;                    ;; ac-source-words-in-buffer
-;;                    ;; ac-source-imenu
-;;                    ))
 
 (defun my-eshell-start-or-switch ()
   "Start Emacs Shell or switch to its buffer if it already exist."
