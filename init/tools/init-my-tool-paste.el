@@ -5,9 +5,9 @@
 ;;; Code:
 
 
-(unless (boundp 'paste-map)
-  (define-prefix-command 'paste-map))
-(define-key my-tools-prefix (kbd "p") 'paste-map)
+(unless (boundp 'paste-prefix)
+  (define-prefix-command 'paste-prefix))
+(define-key my-tools-prefix (kbd "p") 'paste-prefix)
 
 
 ;;; [ gist.el ]
@@ -32,11 +32,11 @@
 ;; ;; FIXME: gist-mode enable will lead to Org-mode [C-x C-s] error.
 ;;
 ;; ;;; --------------------------------------------------
-;; (define-key paste-map (kbd "p") 'gist-region-or-buffer)
-;; (define-key paste-map (kbd "v") 'gist-region-or-buffer-private)
-;; (define-key paste-map (kbd "r") 'gist-region)
-;; (define-key paste-map (kbd "b") 'gist-buffer)
-;; (define-key paste-map (kbd "l") 'gist-list)
+;; (define-key paste-prefix (kbd "p") 'gist-region-or-buffer)
+;; (define-key paste-prefix (kbd "v") 'gist-region-or-buffer-private)
+;; (define-key paste-prefix (kbd "r") 'gist-region)
+;; (define-key paste-prefix (kbd "b") 'gist-buffer)
+;; (define-key paste-prefix (kbd "l") 'gist-list)
 ;; ;;; --------------------------------------------------
 
 
@@ -68,16 +68,16 @@
       yagist-github-token "03fdc1142f1eaa170ee1508284513c9ce89cadb0"
       )
 
-(define-key paste-map (kbd "p") 'yagist-region-or-buffer)
-(define-key paste-map (kbd "v") 'yagist-region-or-buffer-private)
-(define-key paste-map (kbd "r") 'yagist-region)
-(define-key paste-map (kbd "b") 'yagist-buffer)
-(define-key paste-map (kbd "l") 'yagist-list)
+(define-key paste-prefix (kbd "p") 'yagist-region-or-buffer)
+(define-key paste-prefix (kbd "v") 'yagist-region-or-buffer-private)
+(define-key paste-prefix (kbd "r") 'yagist-region)
+(define-key paste-prefix (kbd "b") 'yagist-buffer)
+(define-key paste-prefix (kbd "l") 'yagist-list)
 
 
 
 ;;; htmlize-buffer (convert current buffer into HTML output)
-(define-key paste-map (kbd "h") 'htmlize-buffer)
+(define-key paste-prefix (kbd "h") 'htmlize-buffer)
 
 
 

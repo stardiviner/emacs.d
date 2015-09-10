@@ -130,7 +130,9 @@
 ;;; convert selected region to Markdown and copy to clipboard for pasting
 ;;; on sites like GitHub, and Stack Overflow.
 
-(define-key paste-map (kbd "m") 'my-org-md-convert-region-to-md)
+(unless (boundp 'paste-prefix)
+  (define-prefix-command 'paste-prefix))
+(define-key paste-prefix (kbd "m") 'my-org-md-convert-region-to-md)
 
 (defun my-org-md-convert-region-to-md ()
   "convert selected region to Markdown and copy to clipboard for
