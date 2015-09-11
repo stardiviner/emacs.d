@@ -149,75 +149,71 @@
 ;;; provides a minor mode which displays current match and total matches
 ;;; information in the mode-line in various search mode.
 
-;;; Usage:
-;;; - [C-s] -- search
-;;; - [M-%] -- query-replace
-;;; - specified lines replacement :: [C-u 3 M-x anzu-query-replace]
+(use-package anzu
+  :config
+  (setq anzu-regexp-search-commands '(vr/isearch-forward
+                                      vr/isearch-backward
+                                      isearch-forward-regexp
+                                      isearch-backward-regexp)
+        anzu-cons-mode-line-p nil
+        ;; anzu--mode-line-format '(:eval (anzu--update-mode-line)) ; add into my custom mode-line
+        ;; anzu--mode-line-format ""
+        ;; anzu-input-idle-delay 0.05
+        anzu-deactivate-region nil
+        anzu-use-migemo nil
+        anzu-replace-to-string-separator " ⇨ "
+        ;; anzu-minimum-input-length 1
+        ;; anzu-search-threshold nil ; limit of search number.
+        )
 
-(setq anzu-regexp-search-commands '(vr/isearch-forward
-                                    vr/isearch-backward
-                                    isearch-forward-regexp
-                                    isearch-backward-regexp)
-      ;; anzu--mode-line-format '(:eval (anzu--update-mode-line)) ; add into my custom mode-line
-      anzu--mode-line-format ""
-      ;; anzu-cons-mode-line-p
-      ;; anzu-input-idle-delay 0.05
-      anzu-deactivate-region nil
-      anzu-use-migemo nil
-      anzu-cons-mode-line-p nil
-      anzu-replace-to-string-separator " ⇨ "
-      ;; anzu-minimum-input-length 1
-      anzu-search-threshold nil ; limit of search number.
-      )
+  ;; Function which constructs mode-line string. If you color mode-line string, you propertize string by yourself.
+  ;; (defun my/anzu-update-func (here total)
+  ;;   (propertize (format "<%d/%d>" here total)
+  ;;               'face '((:foreground "yellow" :weight bold))))
+  ;; (setq anzu-mode-line-update-function 'my/update-func)
 
-(global-anzu-mode +1)
-;; (anzu-mode +1)
+  
+  ;; make global variable `anzu--state' to be locale.
+  ;; so that mode-line does not show anzu state in all windows.
+  ;; (add-hook 'anzu-mode-hook (lambda () (make-local-variable 'anzu--state)))
 
-;; (global-set-key (kbd "M-%") 'anzu-query-replace)
-(global-set-key (kbd "M-%") 'anzu-query-replace-regexp)
-(global-set-key (kbd "C-M-%") 'anzu-query-replace-regexp)
+  ;; (global-set-key (kbd "M-%") 'anzu-query-replace)
+  (global-set-key (kbd "M-%") 'anzu-query-replace-regexp)
+  (global-set-key (kbd "C-M-%") 'anzu-query-replace-regexp)
 
-(set-face-attribute 'anzu-mode-line nil
-                    :foreground "cyan"
-                    :weight 'bold)
-(set-face-attribute 'anzu-replace-highlight nil
-                    :foreground "orange"
-                    :background (color-darken-name (face-background 'default) 5)
-                    :box '(:color "black" :line-width -1)
-                    :weight 'normal
-                    )
-(set-face-attribute 'anzu-replace-to nil
-                    :foreground "yellow"
-                    :background (color-darken-name (face-background 'default) 5)
-                    :weight 'bold
-                    )
-;; anzu regexp matched groups
-(set-face-attribute 'anzu-match-1 nil
-                    :foreground "white"
-                    :background "dark red"
-                    ;; use box style?
-                    ;; :box '(:color "green")
-                    )
-(set-face-attribute 'anzu-match-2 nil
-                    :foreground "white"
-                    :background "dark green"
-                    )
-(set-face-attribute 'anzu-match-3 nil
-                    :foreground "#222222"
-                    :background "tomato"
-                    )
+  (set-face-attribute 'anzu-mode-line nil
+                      :foreground "cyan"
+                      :weight 'bold)
+  (set-face-attribute 'anzu-replace-highlight nil
+                      :foreground "orange"
+                      :background (color-darken-name (face-background 'default) 5)
+                      :box '(:color "black" :line-width -1)
+                      :weight 'normal
+                      )
+  (set-face-attribute 'anzu-replace-to nil
+                      :foreground "yellow"
+                      :background (color-darken-name (face-background 'default) 5)
+                      :weight 'bold
+                      )
+  ;; anzu regexp matched groups
+  (set-face-attribute 'anzu-match-1 nil
+                      :foreground "white"
+                      :background "dark red"
+                      ;; use box style?
+                      ;; :box '(:color "green")
+                      )
+  (set-face-attribute 'anzu-match-2 nil
+                      :foreground "white"
+                      :background "dark green"
+                      )
+  (set-face-attribute 'anzu-match-3 nil
+                      :foreground "#222222"
+                      :background "tomato"
+                      )
 
-;;; Function which constructs mode-line string. If you color mode-line string, you propertize string by yourself.
-;; (defun my/anzu-update-func (here total)
-;;   (propertize (format "<%d/%d>" here total)
-;;               'face '((:foreground "yellow" :weight bold))))
-;; (setq anzu-mode-line-update-function 'my/update-func)
-
-;; (setq anzu-input-idle-delay 0.05)
-;; (setq anzu-search-threshold 1000)
-;; (setq anzu-regexp-search-commands '(isearch-forward-regexp isearch-backward-regexp))
-;; (setq anzu-minimum-input-length 1)
-;; (setq anzu-deactivate-region nil)
+  (global-anzu-mode +1)
+  ;; (anzu-mode +1)
+  )
 
 
 ;;; [ Swpier ] -- gives you an overview as you search for a regex.
