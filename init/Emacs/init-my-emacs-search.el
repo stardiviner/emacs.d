@@ -222,34 +222,45 @@
 
 ;;; [ Swpier ] -- gives you an overview as you search for a regex.
 
-;; 'helm, 'ivy.
-;; FIXME: helm error.
-;; (if (featurep 'helm)
-;;     (setq swiper-completion-method 'helm)
-;;   (setq swiper-completion-method 'ivy)
-;;   )
+(use-package swiper
+  :config
+  (setq ivy-height 8)
+  
+  (set-face-attribute 'ivy-current-match nil
+                      :foreground nil
+                      :background (color-darken-name (face-background 'default) 5)
+                      )
 
-;; (eval-after-load 'ivy
-;;   (setq ivy-height 10)
-;;   ;; (defcustom ivy-height 10
-;;   ;;   "Number of lines for the minibuffer window."
-;;   ;;   :type 'integer)
-;;
-;;   (set-face-attribute 'ivy-current-match nil
-;;                       :foreground nil
-;;                       :background (color-darken-name (face-background 'default) 5)
-;;                       )
-;;   )
+  (set-face-attribute 'swiper-line-face nil
+                      :foreground nil
+                      :background (color-darken-name (face-background 'default) 5)
+                      )
+  (set-face-attribute 'swiper-match-face-1 nil
+                      :foreground "white"
+                      :background "dark red"
+                      )
+  (set-face-attribute 'swiper-match-face-2 nil
+                      :foreground "white"
+                      :background "dark green"
+                      )
+  (set-face-attribute 'swiper-match-face-3 nil
+                      :foreground "#222222"
+                      :background "tomato"
+                      )
+  (set-face-attribute 'swiper-match-face-4 nil
+                      :foreground "black"
+                      :background "sky blue"
+                      )
+  
+  (define-key my-search-prefix (kbd "C-s") 'swiper)
+  (define-key my-search-prefix (kbd "C-r") 'swiper)
 
-
-(define-key my-search-prefix (kbd "C-s") 'swiper)
-(define-key my-search-prefix (kbd "C-r") 'swiper)
-
-;; if swiper is available, then replace `vr/isearch' with `swiper'.
-(if (functionp 'swiper)
-    (progn
-      (global-set-key (kbd "C-s") 'swiper)
-      (global-set-key (kbd "C-r") 'swiper)))
+  ;; if swiper is available, then replace `vr/isearch' with `swiper'.
+  (if (functionp 'swiper)
+      (progn
+        (global-set-key (kbd "C-s") 'swiper)
+        (global-set-key (kbd "C-r") 'swiper)))
+  )
 
 
 ;;; [ swiper-helm ]
@@ -262,6 +273,13 @@
 ;;
 ;; It can double as a quick `regex-builder', although only single
 ;; lines will be matched.
+
+;; 'helm, 'ivy.
+;; FIXME: helm error.
+;; (if (featurep 'helm)
+;;     (setq swiper-completion-method 'helm)
+;;   (setq swiper-completion-method 'ivy)
+;;   )
 
 ;; (require 'swiper-helm)
 ;;
