@@ -23,13 +23,16 @@
      (define-key paredit-mode-map [remap kill-sentence] nil)
      (define-key paredit-mode-map [remap backward-kill-sentence] nil)))
 
+
 ;; use paredit in the minibuffer
 ;; http://emacsredux.com/blog/2013/04/18/evaluate-emacs-lisp-in-the-minibuffer/
 (defvar paredit-minibuffer-commands '(eval-expression
                                       pp-eval-expression
                                       eval-expression-with-eldoc
                                       ibuffer-do-eval
-                                      ibuffer-do-view-and-eval)
+                                      ibuffer-do-view-and-eval
+                                      eldoc-eval-expression
+                                      )
   "Interactive commands for which paredit should be enabled in the minibuffer.")
 (defun conditionally-enable-paredit-mode ()
   "Enable paredit during lisp-related minibuffer commands."
