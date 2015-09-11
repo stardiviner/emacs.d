@@ -91,6 +91,7 @@
        (setq web-mode-comment-style 1)
        ;; CSS
        (setq web-mode-enable-css-colorization t)
+       ;; (rainbow-mode 1)
        )
      (setq my-web-mode-hook 'my-web-mode-defaults)
 

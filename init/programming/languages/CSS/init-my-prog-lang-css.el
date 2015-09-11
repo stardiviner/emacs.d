@@ -17,10 +17,10 @@
 
 (setq css-indent-offset 2)
 
-
-
 (add-hook 'css-mode-hook
           (lambda ()
+            (rainbow-mode 1)
+            
             (add-to-list (make-local-variable 'company-backends)
                          'company-css)))
 
