@@ -568,7 +568,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
 ;;; yari Ruby document lookup
 (push '(yari-mode :position bottom :height 15) popwin:special-display-config)
 ;;; rub-ruby - inf-ruby
-(push '(inf-ruby-mode :position bottom :height 15) popwin:special-display-config)
+;; (push '(inf-ruby-mode :position bottom :height 15) popwin:special-display-config)
 ;; (push '("*ruby*" :position bottom :height 15) popwin:special-display-config)
 ;; (push '("*rails*" :position bottom :height 15) popwin:special-display-config)
 
