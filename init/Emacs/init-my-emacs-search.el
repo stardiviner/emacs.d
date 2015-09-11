@@ -172,11 +172,6 @@
   ;;               'face '((:foreground "yellow" :weight bold))))
   ;; (setq anzu-mode-line-update-function 'my/update-func)
 
-  
-  ;; make global variable `anzu--state' to be locale.
-  ;; so that mode-line does not show anzu state in all windows.
-  ;; (add-hook 'anzu-mode-hook (lambda () (make-local-variable 'anzu--state)))
-
   ;; (global-set-key (kbd "M-%") 'anzu-query-replace)
   (global-set-key (kbd "M-%") 'anzu-query-replace-regexp)
   (global-set-key (kbd "C-M-%") 'anzu-query-replace-regexp)
