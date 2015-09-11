@@ -2,25 +2,6 @@
 ;;
 ;;; Commentary:
 
-
-;;; Usage:
-
-;; - [X] help :: =[?]=
-;; - [X] add to stage :: =[s, S, u, U]=
-;; - [X] commit :: =[c]=
-;; - [X] diff :: =[d]=
-;; - [X] log
-;;   - [X] file :: =[l]=
-;;   - [X] repository :: =[L]=
-;;   - [X] range :: =[l + rL]=
-;; - [X] branch :: =[b]=
-;;   - checkout
-;;   - create
-;;   - manage
-;; - [X] pull :: =[F]=
-;; - [X] push :: =[P]=
-
-
 ;;; Code:
 
 ;;; [ vc-git ] -- Git support backend
