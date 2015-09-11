@@ -94,6 +94,7 @@
   (paredit-mode 1)
   (hl-sexp-mode 1)
   (eldoc-mode 1)
+  (company-mode-on)
   )
 
 
