@@ -930,9 +930,19 @@
 
 ;;; [ mu4e-maildirs-extension ]
 
-(require 'mu4e-maildirs-extension)
+;; - u :: update the index
+;; - C-u u :: only clear the cache
+;; - C-u C-u u :: clear the cache and refresh
 
-(mu4e-maildirs-extension)
+(use-package mu4e-maildirs-extension
+  :config
+  (mu4e-maildirs-extension)
+
+  (set-face-attribute 'mu4e-maildirs-extension-maildir-face nil
+                      :foreground "dim gray")
+  (set-face-attribute 'mu4e-maildirs-extension-maildir-unread-face nil
+                      :foreground "lime green")
+  )
 
 
 ;;; [ mu4e-speedbar ]
