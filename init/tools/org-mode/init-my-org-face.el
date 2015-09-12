@@ -47,6 +47,11 @@
                     :underline t
                     )
 ;; clocking
+(set-face-attribute 'org-clock-overlay nil
+                    :inverse-video nil
+                    :foreground "white" :background "#004A5D"
+                    :box '(:color "cyan" :line-width 1 :style nil)
+                    :bold t)
 (set-face-attribute 'org-agenda-clocking nil
                     :foreground "white" :background "#004A5D"
                     :box '(:color "cyan" :line-width 1 :style nil)
