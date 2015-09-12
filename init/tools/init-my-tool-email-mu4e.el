@@ -9,18 +9,20 @@
 ;; (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 ;;
 ;;; compile from git
-;; (add-to-list 'load-path (expand-file-name "~/compile/Emacs/mu/mu/mu4e"))
-
+(add-to-list 'load-path (expand-file-name "~/compile/Emacs/mu/mu/mu4e"))
 (require 'mu4e)
+;; (add-to-list 'load-path (expand-file-name "~/.emacs.d/init/extensions/mu-cite/"))
+;; (require 'mu-cite)
 
-(require 'mu4e-main)
-(require 'mu4e-vars)
-(require 'mu4e-view)
-(require 'mu4e-proc)
 
-(require 'mu4e-speedbar)
-(require 'mu4e-contrib)
-
+;; (require 'mu4e)
+;;
+;; (require 'mu4e-main)
+;; (require 'mu4e-vars)
+;; (require 'mu4e-view)
+;; (require 'mu4e-proc)
+;; (require 'mu4e-speedbar)
+;; (require 'mu4e-contrib)
 
 
 (setq mu4e-mu-home nil ; nil for default
