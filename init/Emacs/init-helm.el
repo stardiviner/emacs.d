@@ -135,38 +135,35 @@
 (define-key helm-grep-mode-map (kbd "n")  'helm-grep-mode-jump-other-window-forward)
 (define-key helm-grep-mode-map (kbd "p")  'helm-grep-mode-jump-other-window-backward)
 
-;;; `customize-group helm' & `custom-apropos-faces helm'
-
-;;; FIXME: remove this temp fix of using `after-init-hook'.
-(add-hook 'after-init-hook
-          (lambda ()
-            (set-face-attribute 'helm-match nil
-                                ;; 1. dim already matched, leave eye on the un-matched strings.
-                                :foreground "dim gray" :background (color-darken-name (face-background 'default) 5)
-                                ;; 2. highlight/underline already matched
-                                ;; :foreground "white"
-                                ;; :underline t
-                                ;; :weight 'normal
-                                )
-            (set-face-attribute 'helm-selection nil
-                                ;; 1. different font
-                                ;; :family "Comic Sans MS" :weight 'normal :height 1.0 :slant 'italic
-                                ;; :box nil
-                                ;; 2. box selected
-                                ;; :background "#004A5D" :foreground "white"
-                                ;; :box '(:color "cyan" :line-width -1)
-                                ;; :underline nil
-                                ;; 3. tomato color box
-                                :background "#333333" :foreground "white"
-                                :box '(:color "tomato" :line-width -1 :style nil)
-                                :underline nil :weight 'normal
-                                ;; 4. darker background percent 5%
-                                ;; :inherit nil
-                                ;; :inverse-video nil
-                                ;; :foreground nil
-                                ;; :background (color-darken-name (face-background 'default) 5)
-                                ;; :underline '(:color "dark red")
-                                )))
+;; FIXME: this does not apply.
+(set-face-attribute 'helm-match nil
+                    ;; 1. dim already matched, leave eye on the un-matched strings.
+                    :foreground "dim gray"
+                    :background (color-darken-name (face-background 'default) 5)
+                    ;; 2. highlight/underline already matched
+                    ;; :foreground "white"
+                    ;; :underline t
+                    ;; :weight 'normal
+                    )
+(set-face-attribute 'helm-selection nil
+                    ;; 1. different font
+                    ;; :family "Comic Sans MS" :weight 'normal :height 1.0 :slant 'italic
+                    ;; :box nil
+                    ;; 2. box selected
+                    ;; :background "#004A5D" :foreground "white"
+                    ;; :box '(:color "cyan" :line-width -1)
+                    ;; :underline nil
+                    ;; 3. tomato color box
+                    :background "#333333" :foreground "white"
+                    :box '(:color "tomato" :line-width -1 :style nil)
+                    :underline nil :weight 'normal
+                    ;; 4. darker background percent 5%
+                    ;; :inherit nil
+                    ;; :inverse-video nil
+                    ;; :foreground nil
+                    ;; :background (color-darken-name (face-background 'default) 5)
+                    ;; :underline '(:color "dark red")
+                    )
 
 (set-face-attribute 'helm-header nil
                     :reverse-video nil
