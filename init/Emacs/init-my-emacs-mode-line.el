@@ -300,15 +300,20 @@
    ;; fill with ' '.
    ;; (:propertize "% ")
 
-   ;; Org-mode clock
-   ;; TODO: change into (:eval ...)
+   ;; Org-clock
+   ;; (:propertize (t org-mode-line-string)
+   ;;              face (:foreground "cyan"))
+   ;; FIXME: this does not work.
    ;; (:eval
-   ;;  (if '(t org-mode-line-string) ; FIXME:
+   ;;  (if (string-empty-p org-mode-line-string)
    ;;      (propertize (t org-mode-line-string)
    ;;                  'face '(:foreground "cyan" :weight 'bold)
    ;;                  'help-echo "Org-mode clock"))
    ;;  )
 
+   
+   ;; `global-mode-string' for many things: org-clock, erc-track,
+   ;; (:eval global-mode-string)
    
    (:propertize mode-line-end-spaces)
    )))
@@ -321,8 +326,7 @@
              (setq org-mode-line-string nil)
              (force-mode-line-update)))
 
-;;; mode-line right align (which replace `mode-line-end-spaces' to implement the right alignment.)
-;;
+;;; mode-line right align (which replace `mode-line-end-spaces')
 (display-time-mode t)
 (setq global-mode-string (remove 'display-time-string global-mode-string))
 (setq

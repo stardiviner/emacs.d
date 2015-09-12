@@ -39,7 +39,8 @@
       org-clock-into-drawer t  ; Save clock data and notes in the :LOGBOOK: drawer
       org-clock-out-remove-zero-time-clocks t ; Removes clocked tasks with 0:00 duration
       org-clock-sound "~/.emacs.d/resources/audio/Ingress/Speech/speech_hacking.wav"
-      org-clock-clocked-in-display 'mode-line ; 'mode-line, 'frame-title, 'both, nil.
+      ;; 'mode-line, 'frame-title, 'both, nil.
+      org-clock-clocked-in-display 'frame-title
       ;; org-clock-mode-line-entry t
       org-clock-mode-line-total 'auto
       ;; org-clock-clocktable-language-setup
