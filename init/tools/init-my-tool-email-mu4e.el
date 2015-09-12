@@ -942,6 +942,9 @@
                       :foreground "dim gray")
   (set-face-attribute 'mu4e-maildirs-extension-maildir-unread-face nil
                       :foreground "lime green")
+
+  ;; (setq mu4e-maildirs-extension-custom-list )
+  (setq mu4e-maildirs-extension-submaildir-separator "┝") ; "|"
   )
 
 
