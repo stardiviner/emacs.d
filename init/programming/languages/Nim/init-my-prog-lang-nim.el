@@ -14,7 +14,20 @@
   (set-face-attribute 'nim-tab-face nil
                       :foreground "dark gray"
                       :background "grey22")
+
+  ;; company-mode support
+  (require 'company-nim)
+  (add-hook 'nim-mode-hook
+            (lambda ()
+              (add-to-list (make-local-variable 'company-backends)
+                           'company-nim)))
   )
+
+
+;;; [ flycheck-nim ]
+
+
+
 
 
 (provide 'init-my-prog-lang-nim)
