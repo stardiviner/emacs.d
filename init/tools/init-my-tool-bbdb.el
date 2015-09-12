@@ -55,7 +55,7 @@
         ;; completion
         bbdb-completion-list t
         bbdb-complete-mail t
-        bbdb-completion-display-record t
+        bbdb-completion-display-record nil
         
         ;; Snarf
         bbdb-snarf-rule-alist '((us
