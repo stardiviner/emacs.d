@@ -269,8 +269,6 @@
     gore-mode ; gotest
     ;; golint
     ;; go-stacktracer
-    ;; Nim
-    nim-mode
     ;; Java
     ;; jdee
     emacs-eclim
@@ -279,7 +277,7 @@
     ;; php-boris php-boris-minor-mode
     ;; phpunit
     ;; Nim
-    nim-mode
+    nim-mode flycheck-nim
     ;; Rust
     ;; rust-mode flycheck-rust
     ;; racer company-racer
