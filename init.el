@@ -211,7 +211,7 @@
 (require 'init-my-tool-bookmark)
 ;; (require 'init-my-tool-OpenSpritz)
 (require 'init-my-tool-email-message-mode)
-; (require 'init-my-tool-email-mu4e)
+(require 'init-my-tool-email-gnus)
 (require 'init-my-tool-email-mu4e)
 (require 'init-my-tool-feeds)
 (require 'init-my-tool-blog)
