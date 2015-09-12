@@ -83,6 +83,8 @@
       (advice-add 'org-clock-select-task :override #'helm-org-clock-select-task)
       ;; (advice-remove 'org-clock-select-task #'helm-org-clock-select-task)
       ))
+;; fix org clock in does not play sound.
+(add-hook 'org-clock-in-hook 'org-clock-play-sound)
 
 
 ;;; [ Time Interval ]
