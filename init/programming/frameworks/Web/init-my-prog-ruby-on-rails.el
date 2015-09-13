@@ -71,23 +71,24 @@
 ;; - [M-x projectile-rails-mode]
 ;; - [TAB] support for projectile-rails-generate.
 
-(setq projectile-rails-add-keywords t)  ; highlight rails keywords.
-(setq projectile-rails-expand-snippet t) ; yasnippet expand skeleton class snippet.
-(setq projectile-rails-server-mode-ansi-colors t)
-
-(setq projectile-rails-keymap-prefix (kbd "C-c C-r"))
-;; (setq projectile-rails-keymap-prefix (kbd "C-c p C-r"))
-
-(add-hook 'projectile-mode-hook 'projectile-rails-on)
-
-(defun rails-open-browser-development ()
-  "Browse Rails development url."
-  (interactive)
-  (browse-url "http://127.0.0.1:3000"))
-
 (use-package projectile-rails
   :config
-  (define-key projectile-rails-command-map (kbd "O") 'rails-open-browser-development))
+  (setq projectile-rails-add-keywords t)
+  (setq projectile-rails-expand-snippet t)
+  (setq projectile-rails-server-mode-ansi-colors nil) ; disable it if it is SLOW.
+
+  (setq projectile-rails-keymap-prefix (kbd "C-c C-r"))
+  ;; (setq projectile-rails-keymap-prefix (kbd "C-c p C-r"))
+
+  (add-hook 'projectile-mode-hook 'projectile-rails-on)
+
+  ;; Custom Keybindings `projectile-rails-mode-map'
+  (defun rails-open-browser-development ()
+    "Browse Rails development url."
+    (interactive)
+    (browse-url "http://127.0.0.1:3000"))
+
+  (define-key projectile-rails-mode-run-map (kbd "O") 'rails-open-browser-development))
 
 
 
