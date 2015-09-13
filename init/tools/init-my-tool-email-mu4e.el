@@ -703,14 +703,17 @@
 
 ;;; Faces
 
-(set-face-attribute 'mu4e-header-highlight-face nil ; current select line
-                    ;; 1
-                    ;; :background "#004A5D" :foreground "white"
-                    ;; :box '(:color "cyan" :line-width -1)
-                    ;; :weight 'normal :underline nil
+;; current select line
+(set-face-attribute 'mu4e-header-highlight-face nil
+                    :inherit nil
+                    ;; 1.
                     :background "#004A5D" :foreground "white"
-                    :box '(:color "#005D5E" :line-width -1)
+                    :box '(:color "cyan" :line-width -1)
                     :weight 'normal :underline nil
+                    ;; 2.
+                    ;; :background "#004A5D" :foreground "white"
+                    ;; :box '(:color "#005D5E" :line-width -1)
+                    ;; :weight 'normal :underline nil
                     )
 ;;; highlighted email, main view key color like "[q]uit mu4e".
 (set-face-attribute 'mu4e-highlight-face nil
