@@ -44,10 +44,10 @@
 
 ;;; [ which-function-mode (which-func) ]
 
-(setq which-func-modes t)
-(add-to-list 'which-func-modes 'org-mode)
-
-(which-function-mode 1)
+;; ;; (add-to-list 'which-func-modes 'org-mode)
+;; (setq which-func-modes t) ; for all modes.
+;;
+;; (which-function-mode 1)
 
 
 ;;; [ Info ]
