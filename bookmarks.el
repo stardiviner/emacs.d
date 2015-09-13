@@ -2,7 +2,22 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Hacking Tools"
+(("SQLite"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Database/SQL/SQLite/SQLite.org")
+ (front-context-string . "* Intro\n\nSQLite ")
+ (rear-context-string)
+ (position . 1))
+("Nim Programming Language"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Nim/Nim.org")
+ (front-context-string . "* Intro\n\n*Nim* (")
+ (rear-context-string)
+ (position . 1))
+("RubyMotion"
+ (filename . "~/Org/Wiki/Computer/Systems/iOS/Data/iOS Development/Data/Platforms/RubyMotion/RubyMotion.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Hacking Tools"
  (filename . "~/Org/Wiki/Computer/Hack/Hacking/data/tools/tools.org")
  (front-context-string . "* Password Crack")
  (rear-context-string)
@@ -449,9 +464,9 @@
  (position . 1))
 ("Org-mode (Org)"
  (filename . "~/Org/Wiki/Computer/Programming/Emacs/modes/Org/Org-mode.org")
- (front-context-string . "priority of curr")
- (rear-context-string . "crease/decrease ")
- (position . 18060))
+ (front-context-string . "* Intro\n\nOrg is ")
+ (rear-context-string)
+ (position . 1))
 ("Emacs (Org)"
  (filename . "~/Org/Wiki/Computer/Programming/Emacs/Emacs.org")
  (front-context-string . "]= :: \n\n\n*** reg")
