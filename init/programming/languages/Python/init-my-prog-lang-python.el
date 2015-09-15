@@ -14,7 +14,7 @@
               ;; python-shell-interpreter "python" ; "python", "ipython", "bpython"
               ;; python-shell-interpreter-args "-i"
               ;; python-shell-interpreter-interactive-arg "-i"
-              python-shell-virtualenv-path "~/.virtualenvs/python3/bin/virtualenv"
+              python-shell-virtualenv-path "~/.virtualenvs/python3/"
               ;; python-ffap-setup-code
               ;; python-ffap-string-code
               python-skeleton-autoinsert t
@@ -145,7 +145,7 @@
 
 
 ;; virtualenv
-;; (setq python-shell-virtualenv-root "~/.virtualenvs/python3/bin/virtualenv")
+;; (setq python-shell-virtualenv-root "~/.virtualenvs/python3/")
 
 (add-hook 'python-mode-hook 'anaconda-mode)
 (add-hook 'python-mode-hook 'eldoc-mode)
