@@ -30,13 +30,18 @@
 ;;; unknown (by web-mode) or is too general (e.g. *.html).
 ;;;
 ;;; The recognized file extensions are listed in the Engine families paragraph.
-;;; In summary, you may have to set both auto-mode-alist and web-mode-engines-alist.
+;;; In summary, you may have to set both `auto-mode-alist' and `web-mode-engines-alist'.
 
-;; (add-to-list 'web-mode-engines '(()))
-(setq web-mode-engines-alist
-      '(("php" . "\\.phtml\\'")
-        ("blade" . "\\.blade\\.")
-        ))
+;; `web-mode-engines'
+
+;; (setq web-mode-enable-element-tag-fontification t
+;;       web-mode-enable-element-content-fontification t)
+
+;; (setq web-mode-enable-engine-detection t)
+
+;; (setq web-mode-engines-alist '())
+;; (add-to-list 'web-mode-engines-alist '("php" . "\\.phtml\\'"))
+;; (add-to-list 'web-mode-engines-alist '("blade" . "\\.blade\\."))
 
 ;;;_. Associate a content type
 
@@ -49,6 +54,7 @@
 ;;
 ;; (add-to-list 'auto-mode-alist '("\\.api\\'" . web-mode))
 ;; (add-to-list 'auto-mode-alist '("/some/react/path/*\\.js[x]?\\'" . web-mode))
+;;
 ;; (setq web-mode-content-types-alist
 ;;       '(("json" . "/some/path/*\\.api\\'")
 ;;         ("xml"  . "/other/path/*\\.api\\'")
@@ -206,12 +212,12 @@
 (setq web-mode-enable-block-face t)
 ;; web-mode-block-control-face, web-mode-block-delimiter-face, web-mode-block-face (see web-mode-enable-block-face), web-mode-block-string-face, web-mode-block-comment-face
 ;; TODO:
+(set-face-attribute 'web-mode-block-face nil ; variant embed template blocks
+                    :background (color-darken-name (face-background 'default) 4))
 (set-face-attribute 'web-mode-block-control-face nil
                     :foreground "green")
 (set-face-attribute 'web-mode-block-delimiter-face nil
                     :foreground "dark red")
-(set-face-attribute 'web-mode-block-face nil ; block. e.g. { color: #0aa; }
-                    :background (color-darken-name (face-background 'default) 4))
 (set-face-attribute 'web-mode-block-string-face nil ; block string
                     :inherit 'web-mode-block-face
                     :foreground "red")
