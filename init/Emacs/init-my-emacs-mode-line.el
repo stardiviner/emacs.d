@@ -605,7 +605,7 @@
                     :foreground "gray"
                     :background (color-darken-name (face-background 'default) 3)
                     :family "DejaVu Sans Mono"
-                    :box '(:color "black" :line-width 1 :style nil)
+                    :box '(:color "dark slate gray" :line-width 1 :style nil)
                     :height 100
                     )
 
