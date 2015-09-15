@@ -270,7 +270,9 @@
 (eval-after-load "web-mode"
   '(progn
      (add-to-list 'org-src-lang-modes '("html" . web))
-     (add-to-list 'org-src-lang-modes '("browser" . web))))
+     (add-to-list 'org-src-lang-modes '("browser" . web))
+     (add-to-list 'org-src-lang-modes '("rhtml" . web))
+     ))
 
 
 
