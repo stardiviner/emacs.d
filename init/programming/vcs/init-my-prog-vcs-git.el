@@ -209,6 +209,13 @@
 (define-key my-prog-vcs-git-map (kbd "s") 'magit-stage)
 ;; commit -- "c"
 (define-key my-prog-vcs-git-map (kbd "c") 'magit-commit)
+
+(defun magit-just-amend ()
+  (interactive)
+  (save-window-excursion
+    (magit-with-refresh
+     (shell-command "git --no-pager commit --amend --reuse-message=HEAD"))))
+;; `magit-commit-amend'
 (define-key my-prog-vcs-git-map (kbd "C") 'magit-commit-amend)
 ;; diff - "d"
 (define-key my-prog-vcs-git-map (kbd "d") 'magit-diff)
