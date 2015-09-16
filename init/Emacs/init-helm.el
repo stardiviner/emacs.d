@@ -351,15 +351,16 @@
 ;; - `helm-yas-complete' :: List of yasnippet snippets using `helm' interface.
 ;; - `helm-yas-create-snippet-on-region' :: Create a snippet from region.
 
-(require 'helm-c-yasnippet)
-
-(setq helm-yas-space-match-any-greedy t ; helm pattern space match anyword greedy.
-      helm-yas-not-display-dups t
-      helm-yas-display-msg-after-complete t
-      helm-yas-display-key-on-candidate t
-      )
-
-(global-set-key (kbd "C-c & C-c") 'helm-yas-complete) ; integrate helm with yasnippet.
+(use-package helm-c-yasnippet
+  :config
+  (setq helm-yas-space-match-any-greedy t
+        helm-yas-not-display-dups t
+        helm-yas-display-msg-after-complete t
+        helm-yas-display-key-on-candidate t
+        )
+  ;; integrate helm with yasnippet.
+  (global-set-key (kbd "C-c & C-c") 'helm-yas-complete)
+  )
 
 
 ;;; [ helm-c-moccur ]
