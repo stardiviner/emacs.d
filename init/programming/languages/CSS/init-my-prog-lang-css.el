@@ -7,6 +7,11 @@
 
 ;;; Code:
 
+(hook-modes css-dialects-mode
+  (css-eldoc-enable)
+  )
+
+
 ;;; [ css-mode ]
 
 (autoload 'css-mode "css-mode" "Mode for editing CSS files" t)

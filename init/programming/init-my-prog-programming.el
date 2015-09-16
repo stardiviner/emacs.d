@@ -89,6 +89,12 @@
     objc-mode
     ))
 
+(defvar css-dialects-mode
+  '(css-mode
+    sass-mode
+    scss-mode
+    less-css-mode))
+
 
 ;;; [ Multiple Inferior buffers ]
 
