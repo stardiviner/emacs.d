@@ -98,125 +98,127 @@
 ;; - `helm-dash-install-user-docset' :: install user contributed docset.
 ;; - `helm-dash-install-docset-from-file' :: install docset from file.
 
-(setq helm-dash-docsets-path (expand-file-name "~/.docsets")
-      helm-dash-min-length 2
-      ;; 'completing-read, 'ido-completing-read
-      ;; helm-dash-completing-read-func 'completing-read
-      ;; 'eww-browse-url, 'browse-url, 'browse-url-generic, 'helm-browse-url
-      helm-dash-browser-func 'helm-browse-url
-      helm-dash-candidate-format "%d  %n  (%t)"
-      helm-dash-common-docsets
-      '("Ruby"
-        ;; "Python 3"
-        ;; "PHP"
-        "Ruby on Rails"
-        "HTML" "CSS" "JavaScript"
-        ;; "Emmet" "Haml" "Less"
-        ;; "CoffeeScript" "NodeJS"
-        "jQuery" "AngularJS" "React" "D3JS"
-        ;; "EmberJS" "ExtJS" "BackboneJS" "KnockoutJS" "MomentJS" "PrototypeJS" "RequireJS" "UnderscoreJS"
-        "Common_Lisp"
-        "Clojure"
-        "C" "C++" "Go" ; "Swift" ; "Rust"
-        ;; "Java"
-        ;; "Elixir"
-        ;; "Haskell" ; "Scala"
-        ;; "Erlang"
-        "SQLite" "PostgreSQL" ; "MySQL"
-        ;; "Redis" "MongoDB"
-        ;; "Bash"
-        ;; "LaTeX"
-        "Julia" ; "R"
-        ;; "Processing"
-        ;; "Unity_3D" "Cocos3D" "Cocos2D"
-        ;; "OpenGL_4" "OpenCV_C"
-        ;; "Docker" "Vagrant" "Nginx"
-        ;; "Qt"
-        ;; "Android" "iOS" "OS_X"
-        ;; "RubyMotion"
-        ;; "Arduino"
+(use-package helm-dash
+  :config
+  (setq helm-dash-docsets-path (expand-file-name "~/.docsets")
+        helm-dash-min-length 2
+        ;; 'completing-read, 'ido-completing-read
+        ;; helm-dash-completing-read-func 'completing-read
+        ;; 'eww-browse-url, 'browse-url, 'browse-url-generic, 'helm-browse-url
+        helm-dash-browser-func 'helm-browse-url
+        helm-dash-candidate-format "%d  %n  (%t)"
+        helm-dash-common-docsets
+        '("Ruby"
+          ;; "Python 3"
+          ;; "PHP"
+          "Ruby on Rails"
+          "HTML" "CSS" "JavaScript"
+          ;; "Emmet" "Haml" "Less"
+          ;; "CoffeeScript" "NodeJS"
+          "jQuery" "AngularJS" "React" "D3JS"
+          ;; "EmberJS" "ExtJS" "BackboneJS" "KnockoutJS" "MomentJS" "PrototypeJS" "RequireJS" "UnderscoreJS"
+          "Common_Lisp"
+          "Clojure"
+          "C" "C++" "Go" ; "Swift" ; "Rust"
+          ;; "Java"
+          ;; "Elixir"
+          ;; "Haskell" ; "Scala"
+          ;; "Erlang"
+          "SQLite" "PostgreSQL" ; "MySQL"
+          ;; "Redis" "MongoDB"
+          ;; "Bash"
+          ;; "LaTeX"
+          "Julia" ; "R"
+          ;; "Processing"
+          ;; "Unity_3D" "Cocos3D" "Cocos2D"
+          ;; "OpenGL_4" "OpenCV_C"
+          ;; "Docker" "Vagrant" "Nginx"
+          ;; "Qt"
+          ;; "Android" "iOS" "OS_X"
+          ;; "RubyMotion"
+          ;; "Arduino"
+          )
         )
-      )
+  
+  (setq helm-dash-enable-debugging nil)
+  
+  ;; buffer local docsets
+  ;; (defun go-doc ()
+  ;;   (interactive)
+  ;;   (setq-local helm-dash-docsets '("Go")))
+  ;; (add-hook 'go-mode-hook 'go-doc)
 
-(setq helm-dash-enable-debugging nil)
-
-;;; buffer local docsets
-;; (defun go-doc ()
-;;   (interactive)
-;;   (setq-local helm-dash-docsets '("Go")))
-;; (add-hook 'go-mode-hook 'go-doc)
-
-;;; Only one docset
-;; To narrow the search to just one docset, type its name in the beginning of the search followed by a space.
-;; If the docset contains spaces, no problemo, we handle it :D.
-
-
-;; (eval-after-load "helm-dash"
-;;   '(defun helm-dash-actions (actions doc-item) `(("Go to doc" . eww))))
-
-;;; open doc as you type
-;;
-;; This works kinda ok, but it's super slow. makes everything sluggish.  We
-;; should investigate on that, There's also helm-idle-delay worth investigating.
-;;
-;; (add-hook 'helm-update-hook 'helm-dash-update t)
-;; (defun helm-dash-update ()
-;;   (interactive)
-;;   (with-selected-window
-;;     (eww (helm-get-selection))))
-
-(define-key my-prog-help-document-map (kbd "C-d") 'helm-dash-at-point)
-(define-key my-prog-help-document-map (kbd "M-d") 'helm-dash)
-
-;;; show short doc of helm-dash entry in `helm-M-x' persistent action.
-;;
-;; (defun helm-dash-actions (actions doc-item)
-;;   "Return an alist with the possible actions to execute with DOC-ITEM."
-;;   `(("Go to doc" . helm-dash-browse-url)
-;;     ("Copy to clipboard" . helm-dash-copy-to-clipboard)))
-
-;; (defun helm-source-dash-search ()
-;;   "Return an alist with configuration options for Helm."
-;;   `((name . "Dash")
-;;     (volatile)
-;;     (delayed)
-;;     (requires-pattern . ,helm-dash-min-length)
-;;     (candidates-process . helm-dash-search)
-;;     (action-transformer . helm-dash-actions)))
+  ;; Only one docset
+  ;; To narrow the search to just one docset, type its name in the beginning of the search followed by a space.
+  ;; If the docset contains spaces, no problemo, we handle it :D.
 
 
-;; (defun helm-dash ()
-;;   "Bring up a Dash search interface in helm."
-;;   (interactive)
-;;   (helm-dash-create-common-connections)
-;;   (helm-dash-create-buffer-connections)
-;;   (helm :sources (list (helm-source-dash-search))
-;; 	:buffer "*helm-dash*"))
+  ;; (eval-after-load "helm-dash"
+  ;;   '(defun helm-dash-actions (actions doc-item) `(("Go to doc" . eww))))
+
+  ;; open doc as you type
+  ;;
+  ;; This works kinda ok, but it's super slow. makes everything sluggish.  We
+  ;; should investigate on that, There's also helm-idle-delay worth investigating.
+  ;;
+  ;; (add-hook 'helm-update-hook 'helm-dash-update t)
+  ;; (defun helm-dash-update ()
+  ;;   (interactive)
+  ;;   (with-selected-window
+  ;;     (eww (helm-get-selection))))
+
+  (define-key my-prog-help-document-map (kbd "C-d") 'helm-dash) ; `helm-dash-at-point'
+
+  ;; show short doc of helm-dash entry in `helm-M-x' persistent action.
+  ;;
+  ;; (defun helm-dash-actions (actions doc-item)
+  ;;   "Return an alist with the possible actions to execute with DOC-ITEM."
+  ;;   `(("Go to doc" . helm-dash-browse-url)
+  ;;     ("Copy to clipboard" . helm-dash-copy-to-clipboard)))
+
+  ;; (defun helm-source-dash-search ()
+  ;;   "Return an alist with configuration options for Helm."
+  ;;   `((name . "Dash")
+  ;;     (volatile)
+  ;;     (delayed)
+  ;;     (requires-pattern . ,helm-dash-min-length)
+  ;;     (candidates-process . helm-dash-search)
+  ;;     (action-transformer . helm-dash-actions)))
 
 
-;; (defun helm-dash-at-point ()
-;;   "Bring up a Dash search interface in helm using the symbol at
-;; point as prefilled search."
-;;   (interactive)
-;;   (helm-dash-create-common-connections)
-;;   (helm-dash-create-buffer-connections)
-;;   (helm :sources (list (helm-source-dash-search))
-;;         :buffer "*helm-dash*"
-;;         :input (thing-at-point 'symbol)))
+  ;; (defun helm-dash ()
+  ;;   "Bring up a Dash search interface in helm."
+  ;;   (interactive)
+  ;;   (helm-dash-create-common-connections)
+  ;;   (helm-dash-create-buffer-connections)
+  ;;   (helm :sources (list (helm-source-dash-search))
+  ;; 	:buffer "*helm-dash*"))
 
-;; ;; reference `helm-find-files'
-;; ;; `helm-source-mu'
-;; (defvar helm-source-mu
-;;   '((name . "Search email with mu")
-;;     (candidates-process . helm-mu-init)
-;;     (candidate-transformer . (helm-mu-candidate-parser
-;;                               helm-mu-candidates-formatter))
-;;     (delayed)
-;;     (no-matchplugin)
-;;     (nohighlight)
-;;     (requires-pattern . 3)
-;;     (persistent-action . helm-mu-persistent-action)
-;;     (action . (("Display message in mu4e" . helm-mu-display-email)))))
+
+  ;; (defun helm-dash-at-point ()
+  ;;   "Bring up a Dash search interface in helm using the symbol at
+  ;; point as prefilled search."
+  ;;   (interactive)
+  ;;   (helm-dash-create-common-connections)
+  ;;   (helm-dash-create-buffer-connections)
+  ;;   (helm :sources (list (helm-source-dash-search))
+  ;;         :buffer "*helm-dash*"
+  ;;         :input (thing-at-point 'symbol)))
+
+  ;; ;; reference `helm-find-files'
+  ;; ;; `helm-source-mu'
+  ;; (defvar helm-source-mu
+  ;;   '((name . "Search email with mu")
+  ;;     (candidates-process . helm-mu-init)
+  ;;     (candidate-transformer . (helm-mu-candidate-parser
+  ;;                               helm-mu-candidates-formatter))
+  ;;     (delayed)
+  ;;     (no-matchplugin)
+  ;;     (nohighlight)
+  ;;     (requires-pattern . 3)
+  ;;     (persistent-action . helm-mu-persistent-action)
+  ;;     (action . (("Display message in mu4e" . helm-mu-display-email)))))
+  )
 
 
 ;;; [ dash-at-point ] -- Search the word at point with Dash.

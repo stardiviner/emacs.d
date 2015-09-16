@@ -47,7 +47,7 @@
 (setq org-todo-keywords
       '(
         ;; Status
-        (sequence "Urgent(u!)" "Doing(g!)" "TODO(t@/!)" "Later(l!)" "SOMEDAY(s!)" "FAILED(x@/!)" "CANCELLED(C@/!)" "|" "DONE(d@/!)")
+        (sequence "Urgent(u!)" "INPROGRESS(g!)" "TODO(t@/!)" "LATER(l!)" "SOMEDAY(s!)" "FAILED(x@/!)" "CANCELLED(C@/!)" "|" "DONE(d@/!)")
         ;; Clock
         (sequence "STARTED(!)" "|" "DONE(d@/!)")
         ;; Habit
@@ -63,7 +63,7 @@
         ;; Life
         (type "SEX(X@/!)" "|" "DONE(d@/!)")
         ;; org-trello
-        ;; (type "TODO" "Doing" "|" "DONE")
+        ;; (type "TODO" "INPROGRESS" "|" "DONE")
         ))
 
 (setq org-todo-keyword-faces
@@ -85,10 +85,10 @@
         ("SOMEDAY" :foreground "dim gray"
          :weight bold
          :box '(:color "black" :line-width -1))
-        ("Doing" :foreground "cyan"
+        ("INPROGRESS" :foreground "cyan"
          :weight bold
          :box '(:color "black" :line-width -1))
-        ("Later" :foreground "dim gray" :background "black"
+        ("LATER" :foreground "dim gray" :background "black"
          :weight bold
          :box '(:color "dark red" :line-width -1))
         ("DONE" :foreground "black" :background nil
