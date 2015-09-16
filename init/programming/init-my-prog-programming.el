@@ -146,7 +146,12 @@
 (unless (boundp 'my-inferior-ruby-map)
   (define-prefix-command 'my-inferior-ruby-map))
 (define-key my-prog-inferior-map (kbd "r") 'my-inferior-ruby-map)
-(define-key my-inferior-ruby-map (kbd "r") 'run-ruby) ; Ruby
+(define-key my-inferior-ruby-map (kbd "r") 'my-run-ruby) ; `run-ruby'
+(defun my-run-ruby ()
+  "Start SLY or switch to its buffer if it already exist."
+  (interactive)
+  (my-func/open-and-switch-to-buffer 'run-ruby "*ruby*" t))
+
 ;; Python
 ;; (unless (boundp 'my-inferior-python-map)
 ;;   (define-prefix-command 'my-inferior-python-map))
