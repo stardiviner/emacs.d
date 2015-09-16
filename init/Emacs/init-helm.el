@@ -285,11 +285,13 @@
 ;;   - press [TAB], you can execute action: "execute", "describe function", "find function".
 ;;   - press [C-z], selected command is described without quiting.
 
-(require 'helm-descbinds)
-
-(setq helm-descbinds-window-style 'split-window) ; 'split-window, 'one-window, 'same-window.
-
-(helm-descbinds-mode 1)
+(use-package helm-descbinds
+  :config
+  ;; 'split-window, 'one-window, 'same-window.
+  (setq helm-descbinds-window-style 'split-window)
+  
+  (helm-descbinds-mode 1)
+  )
 
 
 ;;; [ helm-themes ]
