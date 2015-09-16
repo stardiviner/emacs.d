@@ -217,28 +217,34 @@
       ;; helm-sources-using-default-as-input
       )
 
-(setq helm-browse-url-default-browser-alist '(("conkeror" . helm-browse-url-conkeror) ; Conkeror
-                                              ("uzbl-browser" . helm-browse-url-uzbl) ; uzbl
-                                              ("firefox" . browse-url-firefox) ; Firefox
-                                              ("chromium-browser" . helm-browse-url-chromium) ; chromium
-                                              ("emacs" . eww-browse-url) ; eww
-                                              ("/usr/bin/w3m" . w3m-browse-url) ; w3m
-                                              ("gnome-moz-remote" . browse-url-gnome-moz) ; Gnome
-                                              ("mozilla" . browse-url-mozilla) ; Mozilla
-                                              ("kfmclient" . browse-url-kde) ; KDE
-                                              ("galeon" . browse-url-galeon)
-                                              ("netscape" . browse-url-netscape) ; netscape
-                                              ("xmosaic" . browse-url-mosaic)
-                                              ("xterm" . browse-url-text-xterm) ; XTerm
-                                              )
+(setq helm-browse-url-default-browser-alist
+      '(("conkeror" . helm-browse-url-conkeror) ; Conkeror
+        ("uzbl-browser" . helm-browse-url-uzbl) ; uzbl
+        ("firefox" . browse-url-firefox) ; Firefox
+        ("chromium-browser" . helm-browse-url-chromium) ; chromium
+        ("emacs" . eww-browse-url) ; eww
+        ("/usr/bin/w3m" . w3m-browse-url) ; w3m
+        ("gnome-moz-remote" . browse-url-gnome-moz) ; Gnome
+        ("mozilla" . browse-url-mozilla) ; Mozilla
+        ("kfmclient" . browse-url-kde) ; KDE
+        ("galeon" . browse-url-galeon)
+        ("netscape" . browse-url-netscape) ; netscape
+        ("xmosaic" . browse-url-mosaic)
+        ("xterm" . browse-url-text-xterm) ; XTerm
+        )
       ;; helm-default-external-file-browser "dolphin"
       ;; helm-c-default-external-file-browser
-      helm-external-programs-associations '(("jpg" . "sxiv")
-                                            ("png" . "sxiv")
-                                            ("gif" . "gwenview")
-                                            ("pdf" . "okular")
-                                            ("chm" . "kchmviewer")
-                                            ("epub" . "ebook-viewer"))
+      helm-external-programs-associations
+      '(("jpg" . "sxiv")
+        ("png" . "sxiv")
+        ("gif" . "sxiv -a -f")
+        ("svg" . "feh --magick-timeout 5")
+        ("pdf" . "zathura")
+        ("chm" . "kchmviewer")
+        ("epub" . "ebook-viewer")
+        ("mobi" . "ebook-viewer")
+        ("azw3" . "ebook-viewer")
+        )
       )
 
 (when (executable-find "curl")
