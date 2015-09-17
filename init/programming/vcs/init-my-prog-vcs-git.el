@@ -371,6 +371,37 @@
   )
 
 
+;;; [ smerge-mode ] -- minor mode to simplify editing output from the diff3 program.
+
+;;; Usage:
+;;
+;; 1. open conflict file.
+;; 2. [M-x smerge-mode] :: highlight all conflict regions, add keybindings.
+;;
+;; - `smerge-start-session'
+;;    Turn on `smerge-mode' and move point to first conflict marker.
+;;    If no conflict maker is found, turn off `smerge-mode'.
+;;
+;; - `smerge-ediff'
+;;    - [n/p] :: navigate.
+;;    - [a/b] :: accept version?
+;;    - [/]   :: look at the ancestor.
+;;    - [q]   :: quit the ediff session.
+
+
+;; enable `smerge-mode' automatically
+;; TODO: test current Emacs already support auto enable smerge-mode.
+;;
+;; (defun my-enable-smerge-mode-auto ()
+;;   (when (and buffer-file-name (vc-backend buffer-file-name))
+;;     (save-excursion
+;;       (goto-char (point-min))
+;;       (when (re-search-forward "^<<<<<<< " nil t)
+;;         (smerge-mode +1)))))
+;; (add-hook 'buffer-list-update-hook #'my-enable-smerge-mode-auto)
+;; (add-hook 'find-file-hook #'my-enable-smerge-mode-auto)
+
+
 
 (require 'init-my-prog-vcs-git-gutter)
 
