@@ -347,18 +347,14 @@
 
 ;;; [ git-messenger ] -- popup commit message at current line.
 
-;;; This is useful when you want to know why this line was changed.
-
-;; `git-messenger-map' :: keybinding on git-messenger popup.
-
-(setq git-messenger:show-detail t ; always show detail message.
-      ;; git-messenger:handled-backends '(git svn)
-      )
-
-(define-key my-prog-vcs-map (kbd "p") 'git-messenger:popup-message)
 (use-package git-messenger
   :config
+  (setq git-messenger:show-detail t ; always show detail message.
+        ;; git-messenger:handled-backends '(git svn)
+        )
+  (define-key my-prog-vcs-map (kbd "m p") 'git-messenger:popup-message)
   (define-key git-messenger-map (kbd "m") 'git-messenger:copy-message)
+  (define-key git-messenger-map (kbd "c") 'git-messenger:copy-message)
   ;; enable `magit-commit-mode' after typing 's', 'S', 'd'
   (add-hook 'git-messenger:popup-buffer-hook 'magit-commit-mode)
   )
