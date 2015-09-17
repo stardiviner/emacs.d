@@ -128,6 +128,12 @@
 ;; (setq magit-popup-use-prefix-argument 'disabled)
 
 
+;;; [ revision ]
+
+;; (setq magit-revision-headers-format "")
+;; (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
+
+
 ;;; Magit Faces
 
 ;; file
