@@ -215,7 +215,7 @@
 ;; log - "l"
 (define-key my-prog-vcs-git-map (kbd "l") 'magit-log)
 ;; file log
-(define-key my-prog-vcs-git-map (kbd "f") 'magit-file-log)
+(define-key my-prog-vcs-git-map (kbd "L") 'magit-log-buffer-file)
 ;; repository log - "L"
 ;; [M-n/p] to navigate.
 (define-key my-prog-vcs-git-map (kbd "L") 'magit-log-long)
