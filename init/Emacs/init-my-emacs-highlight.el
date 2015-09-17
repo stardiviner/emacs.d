@@ -60,6 +60,19 @@
 (define-key my-highlight-symbol-prefix (kbd "m") 'highlight-symbol-nav-mode)
 
 
+;;; [ highlight-thing ] -- global minor mode to highlight the thing under point.
+
+(use-package highlight-thing
+  :config
+  ;; (setq highlight-thing-what-thing 'word)
+  ;; (setq highlight-thing-delay-seconds 1.5)
+  ;; (setq highlight-thing-limit-to-defun t)
+  
+  ;; (global-highlight-thing-mode)
+  (add-hook 'prog-mode-hook 'highlight-thing-mode)
+  )
+
+
 ;;; highlight-quoted
 
 ;; (load-file (expand-file-name "init/extensions/highlight-quoted.el" user-emacs-directory))
