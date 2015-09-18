@@ -261,7 +261,8 @@
     ;; Clojure
     clojure-mode-extra-font-locking
     inf-clojure ; clojure-env
-    cider-eval-sexp-fu
+    cider cider-eval-sexp-fu cider-decompile
+    clojure-quick-repls
     flycheck-clojure
     elein
     ;; Elixir

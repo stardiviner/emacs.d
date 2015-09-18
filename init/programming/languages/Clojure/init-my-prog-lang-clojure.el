@@ -191,7 +191,11 @@
 ;; - [M-x cider-decompile-func [RET] main [RET]]
 ;; - [M-x cider-decompile-ns-func [RET] myotherns.core/other-main [RET]]
 
-; (require 'cider-decompile)
+(use-package cider-decompile
+  :config
+  ;; (define-key clojure-mode-map (kbd "??") cider-decompile-func)
+  ;; (define-key clojure-mode-map (kbd "??") cider-decompile-ns-func)
+  )
 
 
 ;;; [ cider-spy ] -- Spy on CIDER to get Info.
