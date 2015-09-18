@@ -326,7 +326,10 @@
 
 ;;; [ align-cljlet ]
 
-; (require 'align-cljlet)
+(use-package align-cljlet
+  :config
+  ;; (define-key clojure-mode-map (kbd "??") 'align-cljlet)
+  )
 
 
 ;;; [ typed-clojure-mode ] -- 

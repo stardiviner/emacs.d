@@ -264,6 +264,7 @@
     cider cider-eval-sexp-fu cider-decompile
     clojure-quick-repls
     flycheck-clojure
+    align-cljlet
     elein
     ;; Elixir
     elixir-mode ; alchemist
