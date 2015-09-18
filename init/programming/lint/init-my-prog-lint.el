@@ -144,10 +144,8 @@
 
 ;;; [ flycheck-pos-tip ] -- display errors under point using popup.el.
 
-(eval-after-load 'flycheck
-  (lambda ()
-    (setq flycheck-display-errors-function 'flycheck-pos-tip-error-messages))
-  )
+(with-eval-after-load 'flycheck
+  (setq flycheck-display-errors-function 'flycheck-pos-tip-error-messages))
 
 
 ;;; [ helm-c-flycheck ]
