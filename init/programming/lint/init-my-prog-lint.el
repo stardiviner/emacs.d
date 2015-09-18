@@ -55,7 +55,7 @@
 ;; (save idle-change new-line mode-enabled)
 (setq flycheck-check-syntax-automatically '(save new-line)
       flycheck-idle-change-delay 5.0
-      flycheck-display-errors-delay 3.0
+      flycheck-display-errors-delay 0.9
       flycheck-highlighting-mode 'symbols
       flycheck-indication-mode 'left-fringe
       flycheck-standard-error-navigation t ; [M-g n/p]
