@@ -174,7 +174,7 @@
     swiper
     helm-c-moccur color-moccur
     ;; highlight
-    highlight-symbol highlight-thing
+    highlight-symbol ; highlight-thing
     ;; Regexp
     visual-regexp visual-regexp-steroids
     ample-regexps pcre2el regex-tool
