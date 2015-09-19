@@ -462,11 +462,12 @@
 
 ;;; Git
 ;;; git-modes
-(push '("\\*git-" :regexp t :position top) popwin:special-display-config)
+;; (push '("\\*git-" :regexp t :position top) popwin:special-display-config)
 ;;; Magit
-(push '(magit-commit-mode :position bottom :height 15) popwin:special-display-config)
+;; (push '(magit-commit-mode :position bottom :height 15) popwin:special-display-config)
 ;; (push '("*magit-commit" :position bottom :height 15) popwin:special-display-config)
-(push '(magit-process-mode :position bottom :height 15 :noselect t) popwin:special-display-config)
+;; cd
+;; (push '(magit-process-mode :position bottom :height 15 :noselect t) popwin:special-display-config)
 ;; (push '("*magit-process*" :position bottom :height 15) popwin:special-display-config)
 
 ;;; git-gutter[+]
