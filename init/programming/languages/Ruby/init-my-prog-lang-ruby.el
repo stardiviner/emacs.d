@@ -6,25 +6,21 @@
 ;;; Code:
 
 
-;; Ruby files
-;; (add-to-list 'auto-mode-alist
-;;              '("\\.rb\\'" . ruby-mode))
 (if (featurep 'enh-ruby-mode)
     (lambda ()
-      (add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
+      (add-to-list 'auto-mode-alist '("\\.rb\'" . enh-ruby-mode))
       (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
       )
-  (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
+  (add-to-list 'auto-mode-alist '("\\.rb\'" . ruby-mode))
   (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
   )
 
-;; irb(irbrc), pry(pryrc), gem(gemspec, gemrc), rackup(ru), Thor(thor),
-(add-to-list 'auto-mode-alist
-             '("\\.\\(?:gemspec\\|irbrc\\|pryrc\\|gemrc\\|rake\\|ru\\|thor\\)\\'" . ruby-mode))
-
 ;; Gemfile, Capfile, Rakefile
 (add-to-list 'auto-mode-alist
-             '("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . ruby-mode))
+             '("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . enh-ruby-mode))
+;; irb(irbrc), pry(pryrc), gem(gemspec, gemrc), rackup(ru), Thor(thor),
+(add-to-list 'auto-mode-alist
+             '("\\.\\(?:gemspec\\|irbrc\\|pryrc\\|gemrc\\|rake\\|ru\\|thor\\)\\'" . enh-ruby-mode))
 
 ;; We never want to edit Rubinius bytecode or MacRuby binaries
 (add-to-list 'completion-ignored-extensions ".rbc")
@@ -72,104 +68,52 @@
 ;; - [C-c C-s] -- (inf-ruby)
 ;; - [C-c C-z] -- (ruby-switch-to-inf)
 
-;; (add-auto-mode 'ruby-mode
-;;                "Gemfile\\'" "\\.gemspec\\'"
-;;                "Rakefile\\'" "\\.rake\\'"
-;;                "\\.erb\\'"
-;;                "Kirkfile\\'" "Capfile\\'" "Guardfile\\'" "Vagrantfile\\'"
-;;                "\\.rxml\\'" "\\.rjs\\'"
-;;                "\\.builder\\'" "\\.jbuilder\\'"
-;;                "\\.ru\\'" "\\.rabl\\'" "\\.thor\\'"
-;;                "\\.irbrc\\'" "\\.pryrc\\'"
-;;                )
 
-(add-hook 'ruby-mode-hook
-          (lambda ()
-            ;; Stupidly the non-bundled ruby-mode isn't a derived mode of
-            ;; prog-mode: we run the latter's hooks anyway in that case.
-            (unless (derived-mode-p 'prog-mode)
-              (run-hooks 'prog-mode-hook))
-
-            ;; TODO: modify those colors.
-            ;; Words prefixed with $ are global variables,
-            ;; prefixed with @ are instance variables.
-            (modify-syntax-entry ?$ "w") ; global variable
-            (modify-syntax-entry ?@ "w") ; instance variable
-            ;; FIXME: (modify-syntax-entry ?@@ "w") ; class variable
-            (modify-syntax-entry ?? "w")
-            (modify-syntax-entry ?! "w")
-            (modify-syntax-entry ?: ".")
-
-            (define-key ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
-            ;; (define-key ruby-mode-map (kbd "TAB") 'indent-for-tab-command)
-
-            (define-key ruby-mode-map (kbd "C-c C-'") 'insert-arrow)
-            ;; (define-key ruby-mode-map (kbd "#") 'insert-ruby-interpolate)
-
-            ;; hs-minor-mode (hide-show)
-            (add-to-list 'hs-special-modes-alist
-                         '(ruby-mode
-                           "\\(class\\|def\\|do\\|if\\)" "\\(end\\)" "#"
-                           (lambda (arg) (ruby-end-of-block)) nil))
-
-            (electric-indent-local-mode 1)
-            (setq ruby-use-smie t       ; use sexp navigation for Ruby
-                  ;; bellowing effect only when `ruby-use-smie' is `nil'.
-                  ruby-deep-indent-paren '(?\( ?\[ ?\] t)
-                  ruby-deep-indent-paren-style 'space)
-            ))
-
-
+(setq ruby-use-smie t       ; use sexp navigation for Ruby
+      ;; bellowing effect only when `ruby-use-smie' is `nil'.
+      ruby-deep-indent-paren '(?\( ?\[ ?\] t)
+      ruby-deep-indent-paren-style 'space)
 
 
 ;;; [ enh-ruby-mode ] --
 
-;;; It uses the Ripper class found in ruby 1.9.2 (and later) to parse and indent
-;;; the source code. As a consquence only ruby 1.9.2 (or later) syntax is parsed
-;;; correctly.
+(use-package enh-ruby-mode
+  :init
+   (setq enh-ruby-bounce-deep-indent t
+         enh-ruby-check-syntax 'errors-and-warnings
+         enh-ruby-comment-column 32
+         enh-ruby-deep-arglist t
+         enh-ruby-deep-indent-paren t
+         ;; enh-ruby-deep-indent-paren-style
+         ;; enh-ruby-extra-keywords
+         enh-ruby-indent-level 2
+         ;; enh-ruby-indent-tabs-mode nil
+         enh-ruby-hanging-indent-level 2
+         enh-ruby-hanging-brace-indent-level 2
+         enh-ruby-hanging-brace-deep-indent-level 0
+         enh-ruby-hanging-paren-indent-level 2
+         enh-ruby-hanging-paren-deep-indent-level 0
+         enh-ruby-use-encoding-map t
+         enh-ruby-use-ruby-mode-show-parens-config t
+         enh-ruby-add-encoding-comment-on-save t ; add ruby magic encoding comment on save.
+         )
 
-(add-hook 'enh-ruby-mode-hook
-          (lambda ()
-            ;; (unless (derived-mode-p 'prog-mode)
-            ;;   (run-hooks 'prog-mode-hook))
+   :config
+    (unless (derived-mode-p 'prog-mode)
+      (run-hooks 'prog-mode-hook))
 
-            (define-key enh-ruby-mode-map (kbd "C-c C-'") 'insert-arrow)
-            ;; (define-key enh-ruby-mode-map (kbd "#") 'insert-ruby-interpolate)
+    ;; TODO: modify those colors.
+    ;; Words prefixed with $ are global variables,
+    ;; prefixed with @ are instance variables.
+    (modify-syntax-entry ?$ "w") ; global variable
+    (modify-syntax-entry ?@ "w") ; instance variable
+    ;; FIXME:
+    ;; (modify-syntax-entry ?@@ "w") ; class variable
+    (modify-syntax-entry ?? "w")
+    (modify-syntax-entry ?! "w")
+    (modify-syntax-entry ?: ".")
 
-            ;; add into auto-complete enable modes
-            ;; (add-to-list 'ac-modes 'enh-ruby-mode)
-            ))
-
-;; (setq enh-ruby-program "/home/stardiviner/.rvm/rubies/ruby-head/bin/ruby")
-
-(setq enh-ruby-bounce-deep-indent t
-      enh-ruby-check-syntax 'errors-and-warnings
-      enh-ruby-comment-column 32
-      enh-ruby-deep-arglist t
-      enh-ruby-deep-indent-paren t
-      ;; enh-ruby-deep-indent-paren-style
-      ;; enh-ruby-extra-keywords
-      enh-ruby-indent-level 2
-      ;; enh-ruby-indent-tabs-mode nil
-      enh-ruby-hanging-indent-level 2
-      enh-ruby-hanging-brace-indent-level 2
-      enh-ruby-hanging-brace-deep-indent-level 0
-      enh-ruby-hanging-paren-indent-level 2
-      enh-ruby-hanging-paren-deep-indent-level 0
-      enh-ruby-use-encoding-map t
-      enh-ruby-use-ruby-mode-show-parens-config t
-      enh-ruby-add-encoding-comment-on-save t ; add ruby magic encoding comment on save.
-      )
-
-;;; Enhanced Ruby Mode defines its own specific faces with the hook
-;;; erm-define-faces. If your theme is already defining those faces, to not
-;;; overwrite them, just remove the hook with:
-;; (remove-hook 'enh-ruby-mode-hook 'erm-define-faces)
-
-(eval-after-load 'enh-ruby-mode
-  (lambda ()
     (erm-define-faces)
-    
     (set-face-attribute 'enh-ruby-op-face nil
                         :foreground "red")
     (set-face-attribute 'enh-ruby-string-delimiter-face nil
@@ -185,23 +129,23 @@
                         :box '(:color "orange" :line-width -1))
     (set-face-attribute 'erm-syn-errline nil
                         :box '(:color "red" :line-width -1))
-    ))
 
-;;; TODO: feature
-;; (defface enh-ruby-dot-face
-;;   `((t :foreground ,(erm-darken-color font-lock-string-face)))
-;;   "Face used to highlight dot like object.method."
-;;   :group 'enh-ruby)
+    
+    (electric-indent-local-mode 1)
+    (define-key ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
+    ;; (define-key ruby-mode-map (kbd "TAB") 'indent-for-tab-command)
+    
 
+    (define-key enh-ruby-mode-map (kbd "C-c C-'") 'insert-arrow)
+    ;; (define-key enh-ruby-mode-map (kbd "#") 'insert-ruby-interpolate)
 
+    ;; hs-minor-mode (hide-show)
+    (add-to-list 'hs-special-modes-alist
+                 '(ruby-mode
+                   "\\(class\\|def\\|do\\|if\\)" "\\(end\\)" "#"
+                   (lambda (arg) (ruby-end-of-block)) nil))
 
-
-;; TODO: whether need this?
-;; Font lock for new hash style
-;; (font-lock-add-keywords
-;;  'ruby-mode
-;;  '(("\\(\\b\\sw[_a-zA-Z0-9]*:\\)\\(?:\\s-\\|$\\)" (1 font-lock-constant-face))))
-
+    )
 
 
 ;;; [ ruby-hash-syntax ] -- automatically convert the selected region of ruby code between 1.8 and 1.9 hash styles.
