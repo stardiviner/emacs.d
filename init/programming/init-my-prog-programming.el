@@ -78,6 +78,7 @@
     scheme-mode
     clojure-mode
     inferior-clojure-mode
+    inf-clojure-mode
     ;; cider-mode
     cider-repl-mode
     cider-interaction-mode
