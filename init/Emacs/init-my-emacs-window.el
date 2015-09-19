@@ -416,7 +416,8 @@
 (push '("*Backtrace*" :position bottom :height 15 :noselect t) popwin:special-display-config)
 
 ;; M-! shell command output
-(push '("*Shell Command Output*" :position bottom :height 15 :noselect t) popwin:special-display-config)
+(push '("*Shell Command Output*" :position bottom :height 10 :noselect t) popwin:special-display-config)
+(push '("*Async Shell Command*" :position bottom :height 10 :noselect t) popwin:special-display-config)
 
 ;;; Info
 (push '(apropos-mode :position bottom :height 15) popwin:special-display-config)
