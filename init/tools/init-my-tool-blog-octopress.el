@@ -15,25 +15,26 @@
 ;;      open a new window to show octopress status like Magit. you can operate
 ;;      in this window.
 
-(require 'octopress)
+(use-package octopress
+  :config
+  (setq octopress-blog-root "~/Org/Blog/octopress"
+        octopress-posts-directory "_posts"
+        octopress-drafts-directory "_drafts"
+        ;; octopress-default-build-flags ; flags to pass to `jekyll build'
+        ;; octopress-default-server-flags ; flags to pass to `jekyll serve'
+        )
 
-(setq octopress-blog-root "~/Org/Blog/octopress"
-      octopress-posts-directory "_posts"
-      octopress-drafts-directory "_drafts"
-      ;; octopress-default-build-flags ; flags to pass to `jekyll build'
-      ;; octopress-default-server-flags ; flags to pass to `jekyll serve'
-      )
+  (define-key blog-map (kbd "l") 'octopress-status)
+  (define-key blog-map (kbd "s") 'octopress-status)
+  (define-key blog-map (kbd "n") 'octopress-create-thing)
 
-(define-key blog-map (kbd "l") 'octopress-status)
-(define-key blog-map (kbd "s") 'octopress-status)
-(define-key blog-map (kbd "n") 'octopress-create-thing)
-
-(set-face-attribute 'octopress-option-on nil
-                    :foreground "cyan")
-(set-face-attribute 'octopress-option-off nil
-                    :foreground "dim gray")
-(set-face-attribute 'octopress-highlight-line-face nil
-                    :background "dark red" :foreground "white")
+  (set-face-attribute 'octopress-option-on nil
+                      :foreground "cyan")
+  (set-face-attribute 'octopress-option-off nil
+                      :foreground "dim gray")
+  (set-face-attribute 'octopress-highlight-line-face nil
+                      :background "dark red" :foreground "white")
+  )
 
 
 ;;; [ org-octopress ] --
