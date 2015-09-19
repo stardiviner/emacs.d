@@ -2,4 +2,4 @@
 # name: link
 # key: link
 # --
-[${2:link description}]({{ site.url }}/assets/${1:filename.pdf}) $0
+[${3:link description}](${1:{{ "/assets/${2:filename.pdf}" | prepend: site.baseurl }}}) $0

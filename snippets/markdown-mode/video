@@ -1,0 +1,12 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: video
+# key: video
+# --
+<video
+src="{{ "/assets/${1:videos/video.webm/ogg}" | prepend: site.baseurl }}"
+autobuffer controls>
+  Sorry, your browser doesn't support embedded videos, 
+  but don't worry, you can <a href="{{ "/assets/$1" | prepend: site.baseurl }}">download it</a>
+  and watch it with your favorite video player!
+</video>
+$0

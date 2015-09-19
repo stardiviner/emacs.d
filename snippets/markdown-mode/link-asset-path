@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: link-asset-path
+# key: link-asset-path
+# --
+{{ "/assets/${1:images/videos/filename.ext}" | prepend: site.baseurl }}$0
