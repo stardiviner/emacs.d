@@ -69,7 +69,7 @@
       )
 
 (define-key paste-prefix (kbd "p") 'yagist-region-or-buffer)
-(define-key paste-prefix (kbd "v") 'yagist-region-or-buffer-private)
+(define-key paste-prefix (kbd "P") 'yagist-region-or-buffer-private)
 (define-key paste-prefix (kbd "r") 'yagist-region)
 (define-key paste-prefix (kbd "b") 'yagist-buffer)
 (define-key paste-prefix (kbd "l") 'yagist-list)
