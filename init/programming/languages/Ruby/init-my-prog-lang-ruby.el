@@ -30,6 +30,12 @@
 (add-to-list 'completion-ignored-extensions ".rbc")
 (add-to-list 'completion-ignored-extensions ".rbo")
 
+;; highlight symbol: dot .
+(font-lock-add-keywords
+ 'enh-ruby-mode
+ '(("[[:alnum:]]\\(\\.\\)[[:alnum:]]"
+    (1 '(:foreground "red" :weight 'bold))
+    )))
 
 ;;; custom functions
 
