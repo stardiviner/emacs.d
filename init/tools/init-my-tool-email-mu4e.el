@@ -427,7 +427,7 @@
 
 ;; creating org-mode links
 ;;
-;; - [M-x org-store-link] -- store link to org-mode.
+;; - [M-x org-store-link] / [C-c C-l] -- store link to org-mode.
 ;; - [C-c C-l] -- in org file, you can insert upper stored link into org file.
 ;;
 ;; It can be useful to include links to e-mail messages or even search queries
@@ -440,7 +440,6 @@
 (add-hook 'mu4e-compose-mode-hook
           (lambda ()
             (org-mu4e-compose-org-mode) ; edit with org-mode in e-mail body.
-            ;; NOTE: you need to exit the email body part, enter mu4e-compose part to exit.
             ))
 ;;
 ;; After this, you can use the normal org-mode mechanisms to store links: M-x
@@ -451,6 +450,21 @@
 ;; can go to the query or message the link points to with either M-x
 ;; org-agenda-open-link in agenda buffers, or M-x org-open-at-point elsewhere -
 ;; both typically bound to C-c C-o.
+
+;;; Usage:
+;;
+;; - `org-mu4e-open' :: open the mu4e message (for paths starting with 'msgid:')
+;;                      or run the query (for paths starting with 'query:').
+
+;; (if (not (fboundp 'org-mu4e-compose-org-mode))
+;;     (require 'org-mu4e)                 ; this will setup org links.
+;;   ;; when mail is sent, automatically convert org body to HTML
+;;   (setq org-mu4e-convert-to-html t)
+;;   )
+
+(org-add-link-type "email-msgid" 'org-email-open)
+(org-add-link-type "email-query" 'org-email-open)
+
 
 
 ;;; Sort order and threading
