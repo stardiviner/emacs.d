@@ -2,7 +2,32 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("SQLite"
+(("Clojure Syntax Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Clojure/Data/Manuals/References/My Clojure Language Syntax Reference.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Clojure Programming Language"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Clojure/Clojure.org")
+ (front-context-string . "* Intro\n\nClojure")
+ (rear-context-string)
+ (position . 1))
+("C Programming Language"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/C/C.org")
+ (front-context-string . "* Intro\n\n** Abou")
+ (rear-context-string)
+ (position . 1))
+("Programming Concepts"
+ (filename . "~/Org/Wiki/Computer/Programming/Data/Concepts/Concepts.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Emacs Debug"
+ (filename . "~/Org/Wiki/Computer/Programming/Emacs/Data/Debug/Debug.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("SQLite"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Database/SQL/SQLite/SQLite.org")
  (front-context-string . "* Intro\n\nSQLite ")
  (rear-context-string)
@@ -264,9 +289,9 @@
  (position . 1))
 ("Commands.org"
  (filename . "~/Org/Wiki/Computer/Softwares/Commands.org")
- (front-context-string . "rt]] ::\n- [[file")
- (rear-context-string . "yaourt.org][yaou")
- (position . 473))
+ (front-context-string . "* NOTE\n\n- [ ] ge")
+ (rear-context-string)
+ (position . 1))
 ("Configurations.org"
  (filename . "~/Org/Wiki/Computer/Softwares/Configurations.org")
  (front-context-string . "* Intro\n\n\n* Data")
@@ -554,9 +579,9 @@
  (position . 1))
 ("Softwares (Org)"
  (filename . "~/Org/Wiki/Computer/Softwares/Softwares.org")
- (front-context-string . "[[file:cmatrix.o")
- (rear-context-string . " \n\n** Matrix\n\n- ")
- (position . 18796))
+ (front-context-string . "#+FILETAGS: :Lin")
+ (rear-context-string)
+ (position . 1))
 ("Linux (Org)"
  (filename . "~/Org/Wiki/Computer/Systems/Linux/Linux.org")
  (front-context-string . "** Get Help\n\n***")
