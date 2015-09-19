@@ -101,6 +101,12 @@
 
 ;; (setq helm-candidate-number-limit 100)
 
+;; additional optional helm settings to make helm more responsive.
+(setq helm-ff-lynx-style-map nil
+      helm-input-idle-delay 0.05 ; default: 0.01
+      helm-idle-delay 0.05 ; default: 0.01
+      )
+
 ;; this global keybinding [M-x] will conflict with {[C-u M-x align-regexp] on select region text.}
 ;; But you can press [M-x C-u align-regexp RET].
 (setq helm-M-x-fuzzy-match nil
