@@ -477,6 +477,17 @@
 
 ;; (mu4e-headers-toggle-threading) ; toggle threading. (P)
 
+;; add find relative on same thread search to mu4e actions. [a/A]
+(defun my/mu4e-view-related-search (msg) 
+  "Search for related messages to the current one" 
+  (let* ((msgid (mu4e-msg-field msg :message-id)))
+    (switch-to-buffer "*mu4e-headers*")
+    (setq mu4e-headers-include-related t)
+    (mu4e-headers-search (concat "\"msgid:" msgid "\""))))
+
+(add-to-list 'mu4e-headers-actions '("related thread" . my/mu4e-view-related-search) t)
+(add-to-list 'mu4e-view-actions '("relative thread" . my/mu4e-view-related-search) t)
+
 
 ;;; Message view
 
