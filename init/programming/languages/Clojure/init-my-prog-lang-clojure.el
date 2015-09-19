@@ -18,20 +18,35 @@
   ;; (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
   )
 
-(require 'clojure-mode)
+
+;;; [ inf-clojure ] -- basic interaction with a Clojure subprocess
 
-;; provides additional font-locking for built-in methods and macros.
+;;; Usage:
 ;;
-;; The font-locking is pretty imprecise, because it doesn't take namespaces into
-;; account and it won't font-lock a functions at all possible positions in a
-;; sexp, but if you don't mind its imperfections you can easily enable it:
-(require 'clojure-mode-extra-font-locking)
+;; - [M-x inf-clojure] / [C-c C-z]
+;; - [M-j] :: new line in sexp.
 
-;; smartparens is an excellent (newer) alternative to paredit. Many Clojure
-;; hackers have adopted it recently and you might want to give it a try as
-;; well. To enable smartparens use the following code:
-;;
-;; (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
+(use-package inf-clojure
+  :config
+  (add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
+  (add-hook 'inf-clojure-mode-hook #'subword-mode)
+  
+  (define-key my-prog-inferior-map (kbd "c") 'inf-clojure)
+
+  (add-hook 'inf-clojure-mode-hook
+            (lambda ()
+              ;; open inf-clojure inferior buffer for capf function completion.
+              (unless (get-buffer-process "*inf-clojure*")
+                (inf-clojure)
+                (bury-buffer))
+              ))
+  
+  ;; TODO: this might lead to `lisp-dialects-mode' hook error.
+  ;; (add-hook 'inf-clojure-mode-hook
+  ;;           '(lambda ()
+  ;;              (cider-mode 1)
+  ;;              ))
+  )
 
 
 ;;; [ cider ] -- CIDER is a Clojure IDE and REPL for Emacs
