@@ -9,9 +9,14 @@
 
 ;;; [ clojure-mode ]
 
-;;; Usage:
-;;
-;; -
+(use-package clojure-mode
+  :config
+  (require 'clojure-mode-extra-font-locking)
+  ;; `subword-mode' is quite useful since we often have to deal with Java class
+  ;; and method names.
+  (add-hook 'clojure-mode-hook #'subword-mode)
+  ;; (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
+  )
 
 (require 'clojure-mode)
 
