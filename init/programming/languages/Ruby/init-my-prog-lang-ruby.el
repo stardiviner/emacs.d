@@ -79,73 +79,73 @@
 
 (use-package enh-ruby-mode
   :init
-   (setq enh-ruby-bounce-deep-indent t
-         enh-ruby-check-syntax 'errors-and-warnings
-         enh-ruby-comment-column 32
-         enh-ruby-deep-arglist t
-         enh-ruby-deep-indent-paren t
-         ;; enh-ruby-deep-indent-paren-style
-         ;; enh-ruby-extra-keywords
-         enh-ruby-indent-level 2
-         ;; enh-ruby-indent-tabs-mode nil
-         enh-ruby-hanging-indent-level 2
-         enh-ruby-hanging-brace-indent-level 2
-         enh-ruby-hanging-brace-deep-indent-level 0
-         enh-ruby-hanging-paren-indent-level 2
-         enh-ruby-hanging-paren-deep-indent-level 0
-         enh-ruby-use-encoding-map t
-         enh-ruby-use-ruby-mode-show-parens-config t
-         enh-ruby-add-encoding-comment-on-save t ; add ruby magic encoding comment on save.
-         )
+  (setq enh-ruby-bounce-deep-indent t
+        enh-ruby-check-syntax 'errors-and-warnings
+        enh-ruby-comment-column 32
+        enh-ruby-deep-arglist t
+        enh-ruby-deep-indent-paren t
+        ;; enh-ruby-deep-indent-paren-style
+        ;; enh-ruby-extra-keywords
+        enh-ruby-indent-level 2
+        ;; enh-ruby-indent-tabs-mode nil
+        enh-ruby-hanging-indent-level 2
+        enh-ruby-hanging-brace-indent-level 2
+        enh-ruby-hanging-brace-deep-indent-level 0
+        enh-ruby-hanging-paren-indent-level 2
+        enh-ruby-hanging-paren-deep-indent-level 0
+        enh-ruby-use-encoding-map t
+        enh-ruby-use-ruby-mode-show-parens-config t
+        enh-ruby-add-encoding-comment-on-save t ; add ruby magic encoding comment on save.
+        )
 
-   :config
-    (unless (derived-mode-p 'prog-mode)
-      (run-hooks 'prog-mode-hook))
+  :config
+  (unless (derived-mode-p 'prog-mode)
+    (run-hooks 'prog-mode-hook))
 
-    ;; TODO: modify those colors.
-    ;; Words prefixed with $ are global variables,
-    ;; prefixed with @ are instance variables.
-    (modify-syntax-entry ?$ "w") ; global variable
-    (modify-syntax-entry ?@ "w") ; instance variable
-    ;; FIXME:
-    ;; (modify-syntax-entry ?@@ "w") ; class variable
-    (modify-syntax-entry ?? "w")
-    (modify-syntax-entry ?! "w")
-    (modify-syntax-entry ?: ".")
+  ;; TODO: modify those colors.
+  ;; Words prefixed with $ are global variables,
+  ;; prefixed with @ are instance variables.
+  (modify-syntax-entry ?$ "w") ; global variable
+  (modify-syntax-entry ?@ "w") ; instance variable
+  ;; FIXME:
+  ;; (modify-syntax-entry ?@@ "w") ; class variable
+  (modify-syntax-entry ?? "w")
+  (modify-syntax-entry ?! "w")
+  (modify-syntax-entry ?: ".")
 
-    (erm-define-faces)
-    (set-face-attribute 'enh-ruby-op-face nil
-                        :foreground "red")
-    (set-face-attribute 'enh-ruby-string-delimiter-face nil
-                        :foreground "orange")
-    (set-face-attribute 'enh-ruby-regexp-delimiter-face nil
-                        :foreground "dark magenta")
-    (set-face-attribute 'enh-ruby-regexp-face nil
-                        :foreground "cyan")
-    (set-face-attribute 'enh-ruby-heredoc-delimiter-face nil
-                        :foreground "dark green")
+  (erm-define-faces)
+  (set-face-attribute 'enh-ruby-op-face nil
+                      :foreground "red")
+  (set-face-attribute 'enh-ruby-string-delimiter-face nil
+                      :foreground "orange")
+  (set-face-attribute 'enh-ruby-regexp-delimiter-face nil
+                      :foreground "dark magenta")
+  (set-face-attribute 'enh-ruby-regexp-face nil
+                      :foreground "cyan")
+  (set-face-attribute 'enh-ruby-heredoc-delimiter-face nil
+                      :foreground "dark green")
 
-    (set-face-attribute 'erm-syn-warnline nil
-                        :box '(:color "orange" :line-width -1))
-    (set-face-attribute 'erm-syn-errline nil
-                        :box '(:color "red" :line-width -1))
+  (set-face-attribute 'erm-syn-warnline nil
+                      :box '(:color "orange" :line-width -1))
+  (set-face-attribute 'erm-syn-errline nil
+                      :box '(:color "red" :line-width -1))
 
-    
-    (electric-indent-local-mode 1)
-    (define-key ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
-    ;; (define-key ruby-mode-map (kbd "TAB") 'indent-for-tab-command)
-    
+  
+  (electric-indent-local-mode 1)
+  (define-key ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
+  ;; (define-key ruby-mode-map (kbd "TAB") 'indent-for-tab-command)
+  
 
-    (define-key enh-ruby-mode-map (kbd "C-c C-'") 'insert-arrow)
-    ;; (define-key enh-ruby-mode-map (kbd "#") 'insert-ruby-interpolate)
+  (define-key enh-ruby-mode-map (kbd "C-c C-'") 'insert-arrow)
+  ;; (define-key enh-ruby-mode-map (kbd "#") 'insert-ruby-interpolate)
 
-    ;; hs-minor-mode (hide-show)
-    (add-to-list 'hs-special-modes-alist
-                 '(ruby-mode
-                   "\\(class\\|def\\|do\\|if\\)" "\\(end\\)" "#"
-                   (lambda (arg) (ruby-end-of-block)) nil))
+  ;; hs-minor-mode (hide-show)
+  ;; (add-to-list 'hs-special-modes-alist
+  ;;              '(ruby-mode
+  ;;                "\\(class\\|def\\|do\\|if\\)" "\\(end\\)" "#"
+  ;;                (lambda (arg) (ruby-end-of-block)) nil))
 
-    )
+  )
 
 
 ;;; [ ruby-hash-syntax ] -- automatically convert the selected region of ruby code between 1.8 and 1.9 hash styles.
