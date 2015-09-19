@@ -126,6 +126,11 @@
  ;; org-babel-pre-tangle-hook '(save-buffer)
  )
 
+
+
+;; open ruby source block with `enh-ruby-mode' major-mode.
+(with-eval-after-load 'enh-ruby-mode
+  (add-to-list 'org-src-lang-modes '("ruby" . enh-ruby)))
 
 
 ;;; [ ob-processing ]
