@@ -11,6 +11,10 @@
 (setq org-display-internal-link-with-indirect-buffer t
       org-indirect-buffer-display 'current-window
       ;; org-open-directory-means-index-dot-org t
+      
+      ;; You can fully-qualify links on a link-by-link basis by passing one
+      ;; universal argument [C-u].
+      org-link-file-path-type 'relative ; default 'adaptive
       )
 
 (setq org-file-apps
