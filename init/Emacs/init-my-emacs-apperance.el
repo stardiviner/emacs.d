@@ -415,29 +415,29 @@
 
 ;;; [ on-screen ]
 
-(setq on-screen-auto-update t
-      on-screen-delay 10
-      on-screen-drawing-threshold 2
-      on-screen-fringe-marker-position t
-      on-screen-highlighting-to-background-delta 0.05
-      on-screen-inverse-flag nil
-      on-screen-remove-when-edit t
-      on-screen-treat-cut-lines t
-      ;; fringe       - graphical markers in the fringe
-      ;; shadow       - transparent overlay on the text
-      ;; line         - transparent overlay on the confining text lines
-      ;; narrow-line  - narrow horizontal lines
-      on-screen-highlight-method 'narrow-line
-      )
-
 (use-package on-screen
   :config
+  (setq on-screen-auto-update t
+        on-screen-delay 10
+        on-screen-drawing-threshold 2
+        on-screen-fringe-marker-position t
+        on-screen-highlighting-to-background-delta 0.05
+        on-screen-inverse-flag nil
+        on-screen-remove-when-edit t
+        on-screen-treat-cut-lines t
+        ;; fringe       - graphical markers in the fringe
+        ;; shadow       - transparent overlay on the text
+        ;; line         - transparent overlay on the confining text lines
+        ;; narrow-line  - narrow horizontal lines
+        on-screen-highlight-method 'narrow-line
+        )
+  
   (set-face-attribute 'on-screen-fringe nil
-		      :foreground "red")
+                      :foreground "red")
   (set-face-attribute 'on-screen-narrow-line nil
-		      :underline '(:color "white" :style line))
+                      :underline '(:color "white" :style line))
   (set-face-attribute 'on-screen-shadow nil
-		      :background "dark gray")
+                      :background "dark gray")
   )
 
 
