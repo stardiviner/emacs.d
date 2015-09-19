@@ -227,22 +227,6 @@
 
 ; (require 'cider-profile)
 
-
-;;; [ inf-clojure ] -- Basic interaction with a Clojure subprocess
-
-;;; Usage:
-;;
-;; - [M-x inf-clojure] / [C-c C-z]
-;; - [M-j] :: new line in sexp.
-
-(add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
-
-(define-key my-prog-inferior-map (kbd "c") 'inf-clojure)
-
-(add-hook 'inf-clojure-mode-hook
-          '(lambda ()
-             (cider-mode 1)
-             ))
 
 
 ;;; [ flycheck-clojure, squiggly-clojure ] --

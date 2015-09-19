@@ -11,7 +11,8 @@
 
 (setq-default python-indent-offset 2
               python-indent-guess-indent-offset t
-              ;; python-shell-interpreter "python" ; "python", "ipython", "bpython"
+              ;; "python", "ipython", "bpython"
+              ;; python-shell-interpreter "python"
               ;; python-shell-interpreter-args "-i"
               ;; python-shell-interpreter-interactive-arg "-i"
               python-shell-virtualenv-path "~/.virtualenvs/python3/"

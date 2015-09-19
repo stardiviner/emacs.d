@@ -300,7 +300,12 @@
    ;; fill with ' '.
    ;; (:propertize "% ")
 
-   ;; Org-clock
+   ;; org-timer
+   ;; TODO:
+   ;; (:propertize (t org-timer-mode-line-timer)
+   ;;              face (:foreground "cyan"))
+   
+   ;; org-clock
    ;; (:propertize (t org-mode-line-string)
    ;;              face (:foreground "cyan"))
    ;; FIXME: this does not work.

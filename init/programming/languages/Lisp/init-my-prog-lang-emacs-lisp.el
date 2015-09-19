@@ -36,10 +36,20 @@
             (turn-on-eldoc-mode)
             (my-recompile-elc-on-save)
             (rainbow-mode 1)
+            
             ;; for company-mode
             ;; FIXME: how to add `company-elisp' behind default grouped backends?
-            (add-to-list (make-local-variable 'company-backends)
-                         'company-elisp)
+            ;; Insert an element at a given position into a list. `cl': `insert'
+            ;; (let ((grouped-backends (car company-backends)))
+            ;;   ;; FIXME:
+            ;;   (delete grouped-backends company-backends)
+            ;;   (add-to-list (make-local-variable 'company-backends)
+            ;;                'company-elisp)
+            ;;   ;; FIXME:
+            ;;   (add-to-list (make-local-variable 'company-backends)
+            ;;                'grouped-backends)
+            ;;   )
+            
             (add-hook (make-local-variable 'completion-at-point-functions)
                       'slime-complete-symbol)
             ))

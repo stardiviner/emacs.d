@@ -104,7 +104,7 @@
 ;;  (setq auto-mode-alist
 ;;    (append '(("\\.pls\\'" . plsql-mode) ("\\.pkg\\'" . plsql-mode)
 ;; 		("\\.pks\\'" . plsql-mode) ("\\.pkb\\'" . plsql-mode)
-;; 		("\\.sql\\'" . plsql-mode) ("\\.PLS\\'" . plsql-mode) 
+;; 		("\\.sql\\'" . plsql-mode) ("\\.PLS\\'" . plsql-mode)
 ;; 		("\\.PKG\\'" . plsql-mode) ("\\.PKS\\'" . plsql-mode)
 ;; 		("\\.PKB\\'" . plsql-mode) ("\\.SQL\\'" . plsql-mode)
 ;; 		("\\.prc\\'" . plsql-mode) ("\\.fnc\\'" . plsql-mode)
@@ -141,11 +141,6 @@
 
 
 ;;; [ edbi-minor-mode ] -- use edbi with regular SQL files.
-
-;;; Usage:
-;;
-;; -
-
 
 (add-hook 'sql-mode-hook
           (lambda ()

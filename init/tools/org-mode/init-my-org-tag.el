@@ -105,8 +105,8 @@
 ;; TODO: search github `org-todo-state-tags-triggers' for examples.
 ;; (setq org-todo-state-tags-triggers
 ;;       '(("" ("Task" . t))
-;;         ('todo . ("Doing" . t))
-;;         ('done . ("Done" . nil))
+;;         ('todo . ("INPROGRESS" . t))
+;;         ('done . ("DONE" . nil))
 ;;         ))
 
 

@@ -40,6 +40,7 @@
 
 
 (setq org-src-fontify-natively t
+      ;; nil: preserve org indent, t: preserve export indent.
       org-src-preserve-indentation nil
       org-edit-src-content-indentation 0
       org-src-tab-acts-natively t ; make [Tab] work native as in major mode.

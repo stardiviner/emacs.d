@@ -378,7 +378,7 @@
   (setq git-messenger:show-detail t ; always show detail message.
         ;; git-messenger:handled-backends '(git svn)
         )
-  (define-key my-prog-vcs-map (kbd "m p") 'git-messenger:popup-message)
+  (define-key my-prog-vcs-map (kbd "m m") 'git-messenger:popup-message)
   (define-key git-messenger-map (kbd "m") 'git-messenger:copy-message)
   (define-key git-messenger-map (kbd "c") 'git-messenger:copy-message)
   ;; enable `magit-commit-mode' after typing 's', 'S', 'd'

@@ -346,7 +346,7 @@
 ;; (rbenv-use "2.2.0")
 
 
-;;; [ inf-ruby / Inferior Ruby ] -- inf-ruby provides a REPL buffer connected to a Ruby(irb/pry) subprocess.
+;;; [ inf-ruby ] -- provides a REPL buffer connected to a Ruby(irb/pry) subprocess
 ;;
 ;;; Usage:
 ;;;

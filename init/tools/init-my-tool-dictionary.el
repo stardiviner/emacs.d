@@ -100,6 +100,12 @@
 ;;     (my-translate-dwim 'babel-region 'babel-as-string 'babel-buffer)))
 
 
+;;; [ synonymous ] -- a thesaurus client that replace with synonym or antonym.
+
+
+;; (require 'synonymous)
+
+
 (provide 'init-my-tool-dictionary)
 
 ;;; init-my-tool-dictionary.el ends here

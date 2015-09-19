@@ -121,10 +121,6 @@
       ;; org-html-todo-kwd-class-prefix ""
       )
 
-;;; htmlize
-;;
-;; (setq org-html-htmlize-font-prefix "org-"
-;;       org-html-htmlize-output-type 'inline-css)
 
 
 ;;; convert selected region to Markdown and copy to clipboard for pasting
