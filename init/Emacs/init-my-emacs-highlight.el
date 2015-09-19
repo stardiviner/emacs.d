@@ -65,9 +65,12 @@
 (use-package highlight-thing
   :config
   ;; (setq highlight-thing-what-thing 'word)
-  ;; (setq highlight-thing-delay-seconds 1.5)
-  ;; (setq highlight-thing-limit-to-defun t)
-  
+  (setq highlight-thing-delay-seconds 1.5)
+  (setq highlight-thing-limit-to-defun t)
+  (set-face-attribute 'highlight-thing nil
+                      :foreground "#00bfff"
+                      :background (color-darken-name (face-background 'default) 3)
+                      )
   ;; (global-highlight-thing-mode)
   (add-hook 'prog-mode-hook 'highlight-thing-mode)
   )
