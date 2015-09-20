@@ -23,22 +23,22 @@
 
 ;;; Usage:
 ;;
-;; - [M-x inf-clojure] / [C-c C-z]
+;; - [M-x inf-clojure/run-clojure] / [C-c C-z]
 ;; - [M-j] :: new line in sexp.
 
 (use-package inf-clojure
   :config
-  (add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
   (add-hook 'inf-clojure-mode-hook #'subword-mode)
-  
   (define-key my-prog-inferior-map (kbd "c") 'inf-clojure)
 
-  (add-hook 'inf-clojure-mode-hook
+  (add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
+  (add-hook 'clojure-mode-hook
             (lambda ()
               ;; open inf-clojure inferior buffer for capf function completion.
-              (unless (get-buffer-process "*inf-clojure*")
-                (inf-clojure)
-                (bury-buffer))
+              (if (not (get-buffer-process "*inf-clojure*"))
+                  (progn
+                    (inf-clojure "clojure")
+                    (bury-buffer)))
               ))
   
   ;; TODO: this might lead to `lisp-dialects-mode' hook error.
