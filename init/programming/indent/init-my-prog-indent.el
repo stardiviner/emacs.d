@@ -180,48 +180,46 @@
 ;;;     indent-guide is slower than highlight-indentation especially in very large blocks
 
 
-(require 'indent-guide)
+(use-package indent-guide
+  :config
+  (setq indent-guide-delay nil
+        indent-guide-recursive t
+        indent-guide-inhibit-modes '(dired-mode Info-mode Man-mode org-mode)
+        indent-guide-threshold -1 ; -1, 0
+        )
 
-(setq indent-guide-delay nil ; nil, 0.1
-      indent-guide-recursive t ; To show not only one guide line but all guide
-                                        ; lines recursively, set “indent-guide-recursive”
-                                        ; non-nil.
-      indent-guide-inhibit-modes '(dired-mode Info-mode Man-mode org-mode)
-      indent-guide-threshold -1 ; -1, 0
-      )
+  ;; custom indent line char
+  ;; 1: use `indent-guide-char'.
+  ;; : │ ┃ ▏┃ | ❘ │ ┃ ▍ ┇ ┋ ┊ ┆ ╽ ╿ ▏▕ ├ ▯ ∎ ◇ ◈ ◊ ⊡
+  (setq indent-guide-char "╿")
+  (set-face-attribute 'indent-guide-face nil
+                      ;; :foreground "olive drab"
+                      ;; :foreground "dark violet"
+                      :foreground (color-lighten-name (face-background 'default) 6)
+                      )
 
-;;; custom indent line char
-;; 1: use `indent-guide-char'.
-;; : │ ┃ ▏┃ | ❘ │ ┃ ▍ ┇ ┋ ┊ ┆ ╽ ╿ ▏▕ ├ ▯ ∎ ◇ ◈ ◊ ⊡
-(setq indent-guide-char "╿")
-(set-face-attribute 'indent-guide-face nil
-                    ;; :foreground "olive drab"
-                    ;; :foreground "dark violet"
-                    :foreground (color-lighten-name (face-background 'default) 6)
-                    )
+  ;; 2: use face-attribute stipple pixmap data.
+  ;; (setq indent-guide-char " ")
+  ;; (set-face-attribute 'indent-guide-face nil
+  ;;                     :foreground "cyan"
+  ;;                     :inherit nil
+  ;;                     :stipple (list 7 4 (string 16 0 0 0)))
 
-;; 2: use face-attribute stipple pixmap data.
-;; (setq indent-guide-char " ")
-;; (set-face-attribute 'indent-guide-face nil
-;;                     :foreground "cyan"
-;;                     :inherit nil
-;;                     :stipple (list 7 4 (string 16 0 0 0)))
+  ;; (indent-guide-global-mode)
+  ;; or
+  ;; (lambda nil (unless (memq major-mode indent-guide-inhibit-modes) (indent-guide-mode 1)))
 
-;; (indent-guide-global-mode)
-;; or
-;; (lambda nil (unless (memq major-mode indent-guide-inhibit-modes) (indent-guide-mode 1)))
+  (dolist (hook '(prog-mode-hook
+                  emacs-lisp-mode-hook
+                  lisp-mode-hook
+                  clojure-mode-hook
+                  ruby-mode-hook
+                  python-mode-hook
+                  ))
+    (add-hook hook #'indent-guide-mode))
 
-(dolist (hook '(prog-mode-hook
-                emacs-lisp-mode-hook
-                lisp-mode-hook
-                clojure-mode-hook
-                ruby-mode-hook
-                python-mode-hook
-                ))
-  (add-hook hook #'indent-guide-mode))
-
-;; (indent-guide-post-command-hook)
-
+  ;; (indent-guide-post-command-hook)
+  )
 
 
 ;;; [ aggressive-indent-mode ]
