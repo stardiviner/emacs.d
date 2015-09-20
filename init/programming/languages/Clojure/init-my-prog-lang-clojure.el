@@ -234,7 +234,7 @@
 
 ;;; [ cider-eval-sexp-fu ]
 
-; (require 'cider-eval-sexp-fu)
+(require 'cider-eval-sexp-fu)
 
 
 ;;; [ align-cljlet ]
