@@ -295,7 +295,7 @@
 (rbenv-use-global)
 ;; (rbenv-use "2.2.0")
 
-
+
 ;;; [ inf-ruby ] -- provides a REPL buffer connected to a Ruby(irb/pry) subprocess
 ;;
 ;;; Usage:
@@ -334,68 +334,42 @@
 ;; - Paragraphs are separated only by blank lines. # start comments.
 ;; - If you accidentally suspend your process, use comint-continue-subjob to continue it.
 ;;
-;;; setup Pry
-;;
-;;#+NAME: ~/.pryrc
-;;#+BEGIN_SRC ruby
-;;if ENV['TERM'] == 'emacs'
-;;  Pry.config.color = false
-;;  Pry.config.pager = false
-;;  Pry.config.auto_indent = false
-;;end
-;;#+END_SRC
-;;
 ;; - [C-x C-q] -- rspec / ruby-compilation
 
-(setq inf-ruby-default-implementation "inf-ruby"
-      inf-ruby-implementations '(("inf-ruby" . "irb --inf-ruby-mode --noreadline -EUTF-8")
-                                 ;; ("inf-ruby" . "irb --inf-ruby-mode --prompt inf-ruby")
-                                 ("ruby" . "irb --prompt default --noreadline -r irb/completion -EUTF-8")
-                                 ("pry" . "pry")
-                                 ("jruby" . "jruby -S irb --prompt default -r irb/completion")
-                                 ("rubinius" . "rbx -r irb/completion")
-                                 ("yarv" . "irb1.9 -r irb/completion")
-                                 ("macruby" . "macirb -r irb/completion")
-                                 )
-      ;; inf-ruby-orig-compilation-mode nil
-      ;; inf-ruby-console-patterns-alist '((inf-ruby-console-rails-p . rails)
-      ;;                                   ("*.gemspec" . gem)
-      ;;                                   ("Gemfile" . default)
-      ;;                                   ;; (nil . default)
-      ;;                                   )
-      inf-ruby-prompt-read-only t
-      ;; inf-ruby-eval-binding
-      ;; inf-ruby-prompt-format
-      ;; inf-ruby-prompt-pattern
-      ;; ruby-source-modes '(ruby-mode enh-ruby-mode)
-      )
+(use-package inf-ruby
+  :config
+  (add-to-list 'inf-ruby-implementations
+               '("inf-ruby" . "irb --inf-ruby-mode --noreadline -EUTF-8"))
+  
+  (setq inf-ruby-default-implementation "ruby"
+        inf-ruby-prompt-read-only t
+        )
 
-;; integrate with rvm.el
-;; (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
-;;   (rvm-activate-corresponding-ruby))
+  ;; integrate with rvm.el
+  ;; (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
+  ;;   (rvm-activate-corresponding-ruby))
 
-(add-hook 'after-init-hook 'inf-ruby-switch-setup)
+  (add-hook 'after-init-hook 'inf-ruby-switch-setup)
 
-(dolist (hook '(ruby-mode-hook
-                enh-ruby-mode-hook
-                ))
-  (add-hook hook
-            (lambda ()
-              (inf-ruby-minor-mode)
-              
-              ;; for `company-capf'
-              (add-to-list (make-local-variable 'completion-at-point-functions)
-                           'inf-ruby-completion-at-point)
-              ;; put `robe-complete-at-point' ahead of `inf-ruby-completion-at-point', higher priority.
-              (remq 'robe-complete-at-point completion-at-point-functions)
-              (setq-local completion-at-point-functions
-                          (append '(robe-complete-at-point) completion-at-point-functions))
-              )))
+  (dolist (hook '(ruby-mode-hook
+                  enh-ruby-mode-hook
+                  ))
+    (add-hook hook
+              (lambda ()
+                (inf-ruby-minor-mode)
+                
+                ;; for `company-capf'
+                (add-to-list (make-local-variable 'completion-at-point-functions)
+                             'inf-ruby-completion-at-point)
+                ;; put `robe-complete-at-point' ahead of `inf-ruby-completion-at-point', higher priority.
+                (remq 'robe-complete-at-point completion-at-point-functions)
+                (setq-local completion-at-point-functions
+                            (append '(robe-complete-at-point) completion-at-point-functions))
+                )))
 
-(define-key my-prog-inferior-map (kbd "r a") 'inf-ruby-console-auto)
-
-(eval-after-load 'inf-ruby
-  '(define-key inf-ruby-minor-mode-map (kbd "C-c C-s") 'inf-ruby-console-auto))
+  (define-key my-prog-inferior-map (kbd "r a") 'inf-ruby-console-auto)
+  (define-key inf-ruby-minor-mode-map (kbd "C-c C-s") 'inf-ruby-console-auto)
+  )
 
 
 
