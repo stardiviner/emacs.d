@@ -479,42 +479,44 @@
 ;; 2. then you should only have to change Robe settings to point to the remote machine
 ;;    instead of the localhost. (make sure remote machine port is open)
 
-(setq robe-turn-on-eldoc t
-      ;; - t, `completion-at-point' candidates buffer will have constants,
-      ;;   methods and arguments highlighted in color.
-      ;; - 'nil, to disable ac-robe face property in ac-menu.
-      robe-highlight-capf-candidates t
-      )
+(use-package robe
+  :config
 
-;; start Robe server.
-(eval-after-load 'robe
-  '(progn
-     (inf-ruby)
-     (robe-start)))
+  (setq robe-turn-on-eldoc t
+        robe-highlight-capf-candidates t
+        )
 
-(dolist (hook '(ruby-mode-hook
-                enh-ruby-mode-hook
-                inf-ruby-mode-hook
-                ))
-  (add-hook hook 'robe-mode))
 
-(add-hook 'robe-mode-hook
-          (lambda ()
-            (local-set-key (kbd "M-.") 'robe-jump)
-            (local-set-key (kbd "C-h d d") 'robe-doc)
+  (add-hook 'robe-mode-hook
+            (lambda ()
+              (local-set-key (kbd "M-.") 'robe-jump)
+              (local-set-key (kbd "C-h d d") 'robe-doc)
 
-            (unless (boundp 'ruby-send-to-inferior-map)
-              (define-prefix-command 'ruby-send-to-inferior-map))
-            (local-set-key (kbd "C-c i r s") 'ruby-send-to-inferior-map)
+              (unless (boundp 'ruby-send-to-inferior-map)
+                (define-prefix-command 'ruby-send-to-inferior-map))
+              (local-set-key (kbd "C-c i r s") 'ruby-send-to-inferior-map)
 
-            (define-key ruby-send-to-inferior-map (kbd "d") 'ruby-send-definition)
-            (define-key ruby-send-to-inferior-map (kbd "D") 'ruby-send-definition-and-go)
-            (define-key ruby-send-to-inferior-map (kbd "b") 'ruby-send-block)
-            (define-key ruby-send-to-inferior-map (kbd "B") 'ruby-send-block-and-go)
-            (define-key ruby-send-to-inferior-map (kbd "s") 'ruby-send-region)
-            (define-key ruby-send-to-inferior-map (kbd "S") 'ruby-send-region-and-go)
-            (define-key ruby-send-to-inferior-map (kbd "R") 'ruby-send-region-and-go)
-            ))
+              (define-key ruby-send-to-inferior-map (kbd "d") 'ruby-send-definition)
+              (define-key ruby-send-to-inferior-map (kbd "D") 'ruby-send-definition-and-go)
+              (define-key ruby-send-to-inferior-map (kbd "b") 'ruby-send-block)
+              (define-key ruby-send-to-inferior-map (kbd "B") 'ruby-send-block-and-go)
+              (define-key ruby-send-to-inferior-map (kbd "s") 'ruby-send-region)
+              (define-key ruby-send-to-inferior-map (kbd "S") 'ruby-send-region-and-go)
+              (define-key ruby-send-to-inferior-map (kbd "R") 'ruby-send-region-and-go)
+              ))
+
+
+  ;; start Robe server.
+  (with-eval-after-load 'robe
+    (inf-ruby)
+    (robe-start))
+
+  (dolist (hook '(ruby-mode-hook
+                  enh-ruby-mode-hook
+                  inf-ruby-mode-hook
+                  ))
+    (add-hook hook 'robe-mode))
+  )
 
 
 ;;; [ helm-rb ] -- Search Ruby's method by ag and display helm.
