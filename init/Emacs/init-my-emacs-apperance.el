@@ -10,7 +10,15 @@
 
 
 ;;; [ Title ]
-(setq frame-title-format "Emacs λ %b")
+
+;; (setq frame-title-format "Emacs λ %b")
+
+(setq frame-title-format
+      '("" invocation-name ": "
+        (:eval
+         (if (buffer-file-name)
+             (abbreviate-file-name (buffer-file-name))
+           "%b"))))
 
 
 ;;; [ Menu Bar ]
