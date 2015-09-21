@@ -251,75 +251,82 @@
 ;;
 ;; Many of these have been implemented and are described below.
 
-;;; Usage:
-;;
-;; -
+(use-package which-key
+  :config
+  (setq which-key-idle-delay 1.0)
 
-(require 'which-key)
+  ;; (setq which-key-popup-type 'side-window ; 'side-window, 'minibuffer, 'frame
+  ;;       which-key-side-window-location 'bottom
+  ;;       which-key-side-window-max-height 0.33
+  ;;       which-key-side-window-max-width 0.25)
 
-(setq which-key-idle-delay 1.0)
+  ;; (setq max-mini-window-height 0.25)
 
-;; (which-key-setup-minibuffer)
-;; (which-key-setup-side-window-bottom) ; default
-;; (which-key-setup-side-window-right)
-;; (which-key-setup-side-window-right-bottom)
+  (setq which-key-max-description-length 27
+        which-key-separator " ➜ " ; ⇢
+        ;; which-key-unicode-correction 3
+        which-key-special-keys '("SPC" "TAB" "RET" "ESC" "DEL")
+        ;; which-key-prefix-title-alist '()
+        which-key-show-prefix 'echo ; 'left 'echo
+        which-key-show-remaining-keys t
+        )
 
-;; (setq which-key-popup-type 'side-window ; 'side-window, 'minibuffer, 'frame
-;;       which-key-side-window-location 'bottom
-;;       which-key-side-window-max-height 0.33
-;;       which-key-side-window-max-width 0.25)
+  (set-face-attribute 'which-key-key-face nil
+                      :foreground "cyan"
+                      )
+  (set-face-attribute 'which-key-special-key-face nil
+                      :inverse-video t
+                      )
+  (set-face-attribute 'which-key-note-face nil
+                      :foreground "white"
+                      )
+  (set-face-attribute 'which-key-separator-face nil
+                      :foreground "#444444"
+                      )
+  (set-face-attribute 'which-key-command-description-face nil
+                      :foreground "dark cyan" :background " "
+                      )
+  (set-face-attribute 'which-key-group-description-face nil
+                      :foreground "orange red" :background "#333333"
+                      ;; :box '(:color "black" :line-width -1)
+                      )
+  (set-face-attribute 'which-key-local-map-description-face nil
+                      :foreground "yellow"
+                      :slant 'italic
+                      )
+  (set-face-attribute 'which-key-highlighted-command-face nil
+                      :inherit 'which-key-command-description-face
+                      :underline "dark red")
 
-;; (setq max-mini-window-height 0.25)
+  (setq which-key-highlighted-command-list
+        '("^helm" "toggle"
+          "register" "bookmark"
+          "rectangle" "iedit"
+          ("emacs" . highlight)
+          ))
+  
+  ;; (setq which-key-key-based-description-replacement-alist
+  ;;       '(("C-x C-f" . "find files")
+  ;;         (org-mode . (("C-c C-c" . "Org C-c C-c")
+  ;;                      ("C-c C-a" . "Org Attach")))
+  ;;         ))
+  ;;
+  ;; (setq which-key-sort-order 'which-key-key-order)
+  ;;
+  ;; `which-key-show-next-page'
+  ;; (setq which-key-use-C-h-for-paging nil)
+  ;; (define-key which-key-mode-map (kbd "C-x <f5>") 'which-key-show-next-page) ; custom
+  ;; equivalent to =
+  ;; (setq which-key-paging-prefixes '("C-x"))
+  ;; (setq which-key-paging-key "<f5>")
+  
+  ;; (which-key-setup-minibuffer)
+  ;; (which-key-setup-side-window-bottom) ; default
+  ;; (which-key-setup-side-window-right)
+  ;; (which-key-setup-side-window-right-bottom)
 
-(setq which-key-max-description-length 27
-      which-key-separator " → "
-      ;; which-key-unicode-correction 3
-      which-key-special-keys '("SPC" "TAB" "RET" "ESC" "DEL")
-      ;; which-key-prefix-title-alist '()
-      which-key-show-prefix 'echo ; 'left 'echo
-      which-key-show-remaining-keys t
-      )
-
-;; (setq which-key-key-based-description-replacement-alist
-;;       '(("C-x C-f" . "find files")
-;;         (org-mode . (("C-c C-c" . "Org C-c C-c")
-;;                      ("C-c C-a" . "Org Attach")))
-;;         ))
-;;
-;; (setq which-key-sort-order 'which-key-key-order)
-;;
-;; `which-key-show-next-page'
-;; (setq which-key-use-C-h-for-paging nil)
-;; (define-key which-key-mode-map (kbd "C-x <f5>") 'which-key-show-next-page) ; custom
-;; equivalent to =
-;; (setq which-key-paging-prefixes '("C-x"))
-;; (setq which-key-paging-key "<f5>")
-
-(set-face-attribute 'which-key-key-face nil
-                    :foreground "cyan"
-                    )
-(set-face-attribute 'which-key-special-key-face nil
-                    :inverse-video t
-                    )
-(set-face-attribute 'which-key-note-face nil
-                    :foreground "white"
-                    )
-(set-face-attribute 'which-key-separator-face nil
-                    :foreground "#444444"
-                    )
-(set-face-attribute 'which-key-command-description-face nil
-                    :foreground "dark cyan" :background " "
-                    )
-(set-face-attribute 'which-key-group-description-face nil
-                    :foreground "orange red" :background "#333333"
-                    ;; :box '(:color "black" :line-width -1)
-                    )
-(set-face-attribute 'which-key-local-map-description-face nil
-                    :foreground "yellow"
-                    :slant 'italic
-                    )
-
-(which-key-mode)
+  (which-key-mode)
+  )
 
 
 ;;; [ hydra ] -- be used to tie related commands into a family of short bindings with a common prefix - a Hydra.
