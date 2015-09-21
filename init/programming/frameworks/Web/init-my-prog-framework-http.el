@@ -110,6 +110,13 @@
   )
 
 
+;;; [ httpcode ] -- explains the meaning of an HTTP status code
+
+;;; Usage:
+;;
+;; - [M-x hc]
+
+
 ;;;_ web -- useful HTTP client
 
 
