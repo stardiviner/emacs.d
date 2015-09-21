@@ -326,17 +326,20 @@
 (font-lock-add-keywords
  'org-mode
  '(("\\(call_\\)\\([^[(]*\\)\\(\\[.*\\]\\)\\((.*)\\)\\(\\[.*\\]\\)"
-    (1 '(:foreground "dim gray" :height 60)) ; call_
-    (2 '(:foreground "yellow" :weight 'bold :slant 'italic)) ; <name>
+    ;; "\\(call_\\)\\([^[(]*\\)\\([([][^)]*]\\)+"
+    (1 '(:foreground "dark red" :height 60)) ; call_
+    (2 '(:foreground "yellow" :weight 'bold :slant 'italic :underline "dark red")) ; <name>
     (3 '(:foreground "gray" :height 60)) ; [<inside header arguments>]
     (4 '(:foreground "cyan" :weight 'bold)) ; (<arguments>)
     (5 '(:foreground "gray" :height 60)) ; [<end header arguments>]
     )))
+
+;; call_<name>(arguments)
 (font-lock-add-keywords
  'org-mode
  '(("\\(call_\\)\\([^[(]*\\)\\((.*)\\)"
-    (1 '(:foreground "dim gray" :height 60)) ; call_
-    (2 '(:foreground "yellow" :weight 'bold :slant 'italic)) ; <name>
+    (1 '(:foreground "dark red" :height 60)) ; call_
+    (2 '(:foreground "yellow" :weight 'bold :slant 'italic :underline "dark red")) ; <name>
     (3 '(:foreground "cyan" :weight 'bold)) ; (<arguments>)
     )))
 
