@@ -8,9 +8,9 @@
 ;;; Code:
 
 
-(unless (boundp 'http-prefix)
-  (define-prefix-command 'http-prefix))
-(define-key my-prog-inferior-map (kbd "H") 'http-prefix)
+(unless (boundp 'HTTP-prefix)
+  (define-prefix-command 'HTTP-prefix))
+(define-key my-prog-inferior-map (kbd "H") 'HTTP-prefix)
 
 
 ;;;_ restclient
@@ -68,7 +68,7 @@
         (restclient-mode)
         (pop-to-buffer buffer))))
 
-  (define-key http-prefix (kbd "r") 'restclient-new-buffer)
+  (define-key HTTP-prefix (kbd "r") 'restclient-new-buffer)
 
   ;; Org-mode Babel integration
   ;; TODO: (load "~/.emacs.d/init/extensions/ob-rest.el")
@@ -106,7 +106,7 @@
 
 (use-package httprepl
   :config
-  (define-key http-prefix (kbd "H") 'httprepl)
+  (define-key HTTP-prefix (kbd "H") 'httprepl)
   )
 
 
