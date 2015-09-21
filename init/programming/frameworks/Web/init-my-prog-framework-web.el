@@ -427,27 +427,38 @@
 
 (use-package restclient
   :config
-  (define-key restclient-mode-map (kbd "C-c C-'") 'restclient-add-separator))
+  ;; (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
 
+  (setq restclient-log-request t
+        restclient-same-buffer-response t
+        ;; restclient-same-buffer-response-name "*HTTP Response*"
+        restclient-inhibit-cookies nil)
+  
+  (defun restclient-add-separator ()
+    (interactive)
+    (insert "# separator\n\n"))
+  
+  (define-key restclient-mode-map (kbd "C-c C-'") 'restclient-add-separator)
+  
+  (defun restclient-new-buffer ()
+    (interactive)
+    (let ((buffer (generate-new-buffer "*rest-client*")))
+      (with-current-buffer buffer
+        (insert "# -*- restclient -*- \n\n")
+        (restclient-mode)
+        (pop-to-buffer buffer))))
 
-(defun restclient-new-buffer ()
-  (interactive)
-  (let ((buffer (generate-new-buffer "*rest-client*")))
-    (with-current-buffer buffer
-      (insert "# -*- restclient -*- \n\n")
-      (restclient-mode)
-      (pop-to-buffer buffer))))
+  (define-key my-prog-inferior-map (kbd "H") 'restclient-new-buffer)
 
-(define-key my-prog-inferior-map (kbd "H") 'restclient-new-buffer)
+  ;; Org-mode Babel integration
+  ;; TODO: (load "~/.emacs.d/init/extensions/ob-rest.el")
 
-;;; Org-mode Babel integration
-;; TODO: (load "~/.emacs.d/init/extensions/ob-rest.el")
-
-;; TEST: indent json in restclient-mode
-(add-hook 'restclient-mode-hook
-          (lambda ()
-            (require 'js)
-            (setq-local indent-line-function 'js-indent-line)))
+  ;; TEST: indent json in restclient-mode
+  (add-hook 'restclient-mode-hook
+            (lambda ()
+              (require 'js)
+              (setq-local indent-line-function 'js-indent-line)))
+  )
 
 
 ;;;_ know-your-http-well
