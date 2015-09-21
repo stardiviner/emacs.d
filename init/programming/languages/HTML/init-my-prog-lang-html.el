@@ -77,66 +77,6 @@
 
 
 
-;;; [ company-web ] --
-
-;; company-web is an alternative emacs plugin for autocompletion in html-mode,
-;; web-mode, jade-mode, slim-mode and use data of ac-html. It uses company-mode.
-;;
-;; use company-mode with `company-web-html' in web-mode.
-;; now support company completion for emmet.
-;;
-;; - tags after >+^ symbols
-;; - attribute completion after [
-;; - Dot . - complete div's class
-;; - # - id (div's id if no tag)
-;;
-;; annotation string: `html'.
-
-(add-hook 'web-mode-hook
-          (lambda ()
-            (add-to-list (make-local-variable 'company-backends)
-                         'company-nxml)
-            (add-to-list (make-local-variable 'company-backends)
-                         'company-web-html)
-            (add-to-list (make-local-variable 'company-backends)
-                         'company-css)
-            ))
-
-
-;; you may key bind, for example for web-mode:
-
-(use-package web-mode
-  :config
-  (define-key web-mode-map (kbd "C-'") 'company-web-html)
-  )
-
-
-;;; [ ac-html ] -- Provide accurate and intelligent auto completion to HTML and CSS.
-
-;; ;;; If you are using html-mode:
-;; (add-hook 'html-mode-hook 'ac-html-enable)
-;; ;;; If you are using web-mode:
-;; ;;; Additionally you need to add these lines:
-;; (unless (featurep 'web-mode)
-;;   (require 'web-mode))
-;; (add-to-list 'web-mode-ac-sources-alist
-;;              '("html" . (ac-source-html-attribute-value
-;;                          ac-source-html-tag
-;;                          ac-source-html-attribute)))
-;;
-;; ;;; Support for template languages:
-;; (add-hook 'haml-mode-hook 'ac-haml-enable)
-;; (add-hook 'jade-mode-hook 'ac-jade-enable)
-;; (add-hook 'slim-mode-hook 'ac-slim-enable)
-
-
-;;; [ ac-html-csswatcher ]
-
-
-;;; [ ac-html-bootstrap ]
-
-
-
 
 (require 'init-my-prog-lang-html5)
 
