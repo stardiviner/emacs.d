@@ -119,6 +119,25 @@
 
 ;;;_ web -- useful HTTP client
 
+;;; Usage:
+;;
+;; (web-http-get
+;;  (lambda (con header data)
+;;    (message "the page returned is: %s" data))
+;;  :url "http://emacswiki.org/wiki/NicFerrier")
+;;
+;; POST-ing to an HTTP app
+;;
+;; (web-http-post
+;;  (lambda (con header data)
+;;    (message "the data is: %S" data))
+;;  :url "http://example.org/postplace/"
+;;  :data '(("parameter1" . "data")
+;;          ("parameter2" . "more data")))
+
+;; (use-package web
+;;   :config
+;;   )
 
 
 (provide 'init-my-prog-framework-http)
