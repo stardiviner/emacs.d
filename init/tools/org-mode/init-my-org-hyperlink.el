@@ -14,7 +14,7 @@
       
       ;; You can fully-qualify links on a link-by-link basis by passing one
       ;; universal argument [C-u].
-      org-link-file-path-type 'relative ; default 'adaptive
+      org-link-file-path-type 'adaptive ; default 'adaptive, 'relative
       )
 
 (setq org-file-apps
@@ -238,6 +238,16 @@ This is especially for create Org files."
 ;;
 ;; (setq org-return-follows-link nil) ; to follow links with [RET], rather 2 key combo.
 
+
+;;;_* orgit -- Support for Org links to Magit buffers.
+
+(require 'orgit)
+
+(setq orgit-remote "origin")
+
+;; Default: github, gitlab, bitbucket, orgmode.org, git.kernel.org
+;;
+;; (add-to-list orgit-export-alist ')
 
 
 
