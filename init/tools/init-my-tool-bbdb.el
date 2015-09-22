@@ -18,8 +18,7 @@
   :config
   ;; initialize
   ;; (bbdb-initialize)
-  ;; (bbdb-initialize 'message 'sendmail 'supercite 'w3 'gnus)
-  (bbdb-initialize 'mail 'message 'sendmail 'supercite 'pgp)
+  (bbdb-initialize 'mail 'message 'gnus 'mu4e 'anniv 'pgp)
 
 
   ;; If t then BBDB will not modify `bbdb-file'.
