@@ -137,7 +137,7 @@
     ;; Template
     ;; yatemplate skeletor
     ;; Diff
-    ;; diffview
+    diffview
     ;; VCS
     magit
     magit-find-file magit-filenotify magit-popup magit-tramp

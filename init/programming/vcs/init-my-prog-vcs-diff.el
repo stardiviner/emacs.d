@@ -88,15 +88,13 @@
                     )
 
 
-;;; [ diffview ] -- view diff side by side
+;;; [ diffview ] -- render a unified diff to side-by-side format.
 
 ;;; Usage:
 ;;
-;; - `diffview-current' : Opens the current buffer with diffview.
-;; - `diffview-region' : Opens the current region with diffview.
-
-; (require 'diffview)
-
+;; - `diffview-current' :: Opens the current buffer with diffview.
+;; - `diffview-region' :: Opens the current region with diffview.
+;; - `diffview-message' :: View the current email message (which presumably contains a patch) side-by-side.
 
 
 (provide 'init-my-prog-vcs-diff)
