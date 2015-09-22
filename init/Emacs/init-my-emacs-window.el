@@ -346,7 +346,7 @@
 ;;; 1. buffer name regexp pattern.
 ;;;
 ;;; M-! shell command output
-;;; (push '("*Shell Command Output*" :position bottom :height 15) popwin:special-display-config)
+;;; (push '("*Shell Command Output*" :position bottom :height 10) popwin:special-display-config)
 ;;;
 ;;; 2. major-mode name.
 ;;;
@@ -362,7 +362,7 @@
 ;;;     (and (string-match "REGEXP" (buffer-name buffer))
 ;;;          (eq mode 'SOME-MODE))))
 ;;;
-;;; (push '(my/popwin-func :height 15 :position bottom) popwin:special-display-config)
+;;; (push '(my/popwin-func :height 10 :position bottom) popwin:special-display-config)
 
 ;;; Usage:
 ;; - [C-g] :: close popup window.
@@ -410,25 +410,25 @@
 ;; (push `(,special-buffer-regexp :regexp t :noselect nil)
 ;;       popwin:special-display-config)
 
-(push '("*scratch*" :position bottom :height 15) popwin:special-display-config)
+(push '("*scratch*" :position bottom :height 10) popwin:special-display-config)
 
 ;;; Debugger mode, *Backtrace*
-(push '("*Backtrace*" :position bottom :height 15 :noselect t) popwin:special-display-config)
+(push '("*Backtrace*" :position bottom :height 10 :noselect t) popwin:special-display-config)
 
 ;; M-! shell command output
 (push '("*Shell Command Output*" :position bottom :height 10 :noselect t) popwin:special-display-config)
 (push '("*Async Shell Command*" :position bottom :height 10 :noselect t) popwin:special-display-config)
 
 ;;; Info
-(push '(apropos-mode :position bottom :height 15) popwin:special-display-config)
+(push '(apropos-mode :position bottom :height 10) popwin:special-display-config)
 
 ;;; help-mode, *Help*, *Metahelp* (from mode C-h ?)
-(push '(help-mode :position bottom :height 15) popwin:special-display-config)
+(push '(help-mode :position bottom :height 10) popwin:special-display-config)
 
 ;;; Org-mode
 ;; FIXME: this does not work.
 ;; (push '("*Org todo" :position bottom) popwin:special-display-config)
-;; (push '("*Org Note" :position bottom :height 15) popwin:special-display-config)
+;; (push '("*Org Note" :position bottom :height 10) popwin:special-display-config)
 ;; (push '("*Org tags*" :position bottom) popwin:special-display-config)
 ;; (push '("*Agenda Commands*" :position bottom) popwin:special-display-config)
 ;; (push '("*Org Agenda*" :position bottom :height 20) popwin:special-display-config)
@@ -436,40 +436,40 @@
 
 ;;; Completion List (completion-list-mode)
 ;; FIXME: popwin can't capture this popup window.
-(push '(completion-list-mode :position bottom :height 15) popwin:special-display-config)
+(push '(completion-list-mode :position bottom :height 10) popwin:special-display-config)
 
 ;;; Eshell
-(push '(eshell-mode :position bottom :height 15) popwin:special-display-config)
-(push '("*eshell*" :position bottom :height 15) popwin:special-display-config)
+(push '(eshell-mode :position bottom :height 10) popwin:special-display-config)
+(push '("*eshell*" :position bottom :height 10) popwin:special-display-config)
 
 ;;; Occur Mode
 (push '("*Occur*" :position bottom :height 10) popwin:special-display-config)
 
 ;;; Man/Women
-(push '(Man-mode :position bottom :height 15) popwin:special-display-config)
-(push '("*Man *" :position bottom :height 15) popwin:special-display-config)
+(push '(Man-mode :position bottom :height 10) popwin:special-display-config)
+(push '("*Man *" :position bottom :height 10) popwin:special-display-config)
 
 ;;; Ediff
-(push '("*Ediff Control Panel*" :position bottom :height 15) popwin:special-display-config)
+(push '("*Ediff Control Panel*" :position bottom :height 10) popwin:special-display-config)
 
 ;;; Compilation
-(push '(compilation-mode :position bottom :height 15) popwin:special-display-config)
-;; (push '("*compilation*" :position bottom :height 15) popwin:special-display-config)
+(push '(compilation-mode :position bottom :height 10) popwin:special-display-config)
+;; (push '("*compilation*" :position bottom :height 10) popwin:special-display-config)
 
 ;;; Tags
 ;; cscope
 ;; ascope
-(push '(ascope-list-entry-mode :position bottom :height 15) popwin:special-display-config)
+(push '(ascope-list-entry-mode :position bottom :height 10) popwin:special-display-config)
 
 ;;; Git
 ;;; git-modes
 ;; (push '("\\*git-" :regexp t :position top) popwin:special-display-config)
 ;;; Magit
-;; (push '(magit-commit-mode :position bottom :height 15) popwin:special-display-config)
-;; (push '("*magit-commit" :position bottom :height 15) popwin:special-display-config)
+;; (push '(magit-commit-mode :position bottom :height 10) popwin:special-display-config)
+;; (push '("*magit-commit" :position bottom :height 10) popwin:special-display-config)
 ;; cd
-;; (push '(magit-process-mode :position bottom :height 15 :noselect t) popwin:special-display-config)
-;; (push '("*magit-process*" :position bottom :height 15) popwin:special-display-config)
+;; (push '(magit-process-mode :position bottom :height 10 :noselect t) popwin:special-display-config)
+;; (push '("*magit-process*" :position bottom :height 10) popwin:special-display-config)
 
 ;;; git-gutter[+]
 ;; FIXME:
@@ -489,15 +489,15 @@ The `BUFFER' is the popwin catch pop private message buffer."
     (and (string-match "^[^#]*" (buffer-name buffer))
        (eq mode 'erc-mode))))
 
-(push '(my/popwin-func-for-erc-private-message :height 15 :position bottom) popwin:special-display-config)
+(push '(my/popwin-func-for-erc-private-message :height 10 :position bottom) popwin:special-display-config)
 
 ;;; comint-mode
-(push '(comint-mode :position bottom :height 15) popwin:special-display-config)
-;; (push '("*compilation*" :position bottom :height 15) popwin:special-display-config)
+(push '(comint-mode :position bottom :height 10) popwin:special-display-config)
+;; (push '("*compilation*" :position bottom :height 10) popwin:special-display-config)
 
 ;;; Flycheck
 (push '("*Flycheck errors*" :position bottom :height 10) popwin:special-display-config)
-(push '("*Compile-Log*" :position bottom :height 15) popwin:special-display-config)
+(push '("*Compile-Log*" :position bottom :height 10) popwin:special-display-config)
 
 ;;; quickrun "*quickrun*"
 (push '(quickrun/mode :position bottom :height 10) popwin:special-display-config)
@@ -505,18 +505,18 @@ The `BUFFER' is the popwin catch pop private message buffer."
 
 ;;; *Pp Eval Output*
 ;; TODO: this will make this buffer does not show up.
-(push '("*Pp Eval Output*" :position bottom :height 15) popwin:special-display-config)
+(push '("*Pp Eval Output*" :position bottom :height 10) popwin:special-display-config)
 
 ;;; sdcv
-(push '("*SDCV*" :position bottom :height 15 :noselect t) popwin:special-display-config)
+(push '("*SDCV*" :position bottom :height 10 :noselect t) popwin:special-display-config)
 
 ;;; shelldoc
-(push '("*Shelldoc*" :position top :height 15) popwin:special-display-config)
+(push '("*Shelldoc*" :position top :height 10) popwin:special-display-config)
 
 ;; bm.el
 ;;; TODO: modify source code.
-(push '(bm-show-mode :position bottom :height 15) popwin:special-display-config)
-(push '("*bm-bookmarks*" :position bottom :height 15) popwin:special-display-config)
+(push '(bm-show-mode :position bottom :height 10) popwin:special-display-config)
+(push '("*bm-bookmarks*" :position bottom :height 10) popwin:special-display-config)
 
 ;; display-time-world
 (push '("*wclock*" :position bottom :height 10 :noselect t) popwin:special-display-config)
@@ -526,84 +526,84 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (push '(process-menu-mode :position bottom :height 10) popwin:special-display-config)
 
 ;; BBDB
-(push '(bbdb-mode :position bottom :height 15) popwin:special-display-config)
-(push '("*BBDB*" :position bottom :height 15) popwin:special-display-config)
+(push '(bbdb-mode :position bottom :height 10) popwin:special-display-config)
+(push '("*BBDB*" :position bottom :height 10) popwin:special-display-config)
 
 ;; pdf-tools
 (push '(pdf-occur-buffer-mode :position bottom :height 10) popwin:special-display-config)
 (push '(pdf-outline-buffer-mode :position bottom :height 10) popwin:special-display-config)
-(push '("*PDF-Metadata*" :position bottom :height 15) popwin:special-display-config)
+(push '("*PDF-Metadata*" :position bottom :height 10) popwin:special-display-config)
 
 ;; Festival
-(push '("*festival*" :position bottom :height 15) popwin:special-display-config)
+(push '("*festival*" :position bottom :height 10) popwin:special-display-config)
 
 ;; TeX/LaTeX (AUCTeX)
-;; (push '(TeX-output-mode :position bottom :height 15) popwin:special-display-config)
+;; (push '(TeX-output-mode :position bottom :height 10) popwin:special-display-config)
 
 ;; ack-and-a-half
-(push '(ack-and-a-half-mode :position bottom :height 15) popwin:special-display-config)
+(push '(ack-and-a-half-mode :position bottom :height 10) popwin:special-display-config)
 
 ;; ag
-(push '(ag-mode :position bottom :height 15) popwin:special-display-config)
+(push '(ag-mode :position bottom :height 10) popwin:special-display-config)
 ;; pt
-(push '(pt-search-mode :position bottom :height 15) popwin:special-display-config)
+(push '(pt-search-mode :position bottom :height 10) popwin:special-display-config)
 
 ;;; IELM
 ;; TODO:
-(push '("*ielm*" :position bottom :height 15) popwin:special-display-config)
-(push '(inferior-emacs-lisp-mode :position bottom :height 15) popwin:special-display-config)
+(push '("*ielm*" :position bottom :height 10) popwin:special-display-config)
+(push '(inferior-emacs-lisp-mode :position bottom :height 10) popwin:special-display-config)
 
 ;;; Lisp
-;; (push '(inferior-lisp-mode :position bottom :height 15) popwin:special-display-config)
-;; (push '(sly-mrepl-mode :position bottom :height 15) popwin:special-display-config)
+;; (push '(inferior-lisp-mode :position bottom :height 10) popwin:special-display-config)
+;; (push '(sly-mrepl-mode :position bottom :height 10) popwin:special-display-config)
 
 ;;; Clojure, CIDER
-;; (push '(inf-clojure-mode :position bottom :height 15) popwin:special-display-config)
-;; (push '(cider-clojure-interaction-mode :position bottom :height 15) popwin:special-display-config)
+;; (push '(inf-clojure-mode :position bottom :height 10) popwin:special-display-config)
+;; (push '(cider-clojure-interaction-mode :position bottom :height 10) popwin:special-display-config)
 
 ;;; ESS
 ;; *julia*
-;; (push '(inferior-ess-mode :position bottom :height 15) popwin:special-display-config)
+;; (push '(inferior-ess-mode :position bottom :height 10) popwin:special-display-config)
 ;; *Julia*
-;; (push '(inferior-julia-mode :position bottom :height 15) popwin:special-display-config)
+;; (push '(inferior-julia-mode :position bottom :height 10) popwin:special-display-config)
 
 ;;; yari Ruby document lookup
-(push '(yari-mode :position bottom :height 15) popwin:special-display-config)
+(push '(yari-mode :position bottom :height 10) popwin:special-display-config)
 ;;; rub-ruby - inf-ruby
-;; (push '(inf-ruby-mode :position bottom :height 15) popwin:special-display-config)
-;; (push '("*ruby*" :position bottom :height 15) popwin:special-display-config)
-;; (push '("*rails*" :position bottom :height 15) popwin:special-display-config)
+;; (push '(inf-ruby-mode :position bottom :height 10) popwin:special-display-config)
+;; (push '("*ruby*" :position bottom :height 10) popwin:special-display-config)
+;; (push '("*rails*" :position bottom :height 10) popwin:special-display-config)
 
 ;; projectile-rails
-(push '(projectile-rails-generate-mode :position bottom :height 15) popwin:special-display-config)
-(push '(projectile-rails-compilation-mode :position bottom :height 15) popwin:special-display-config)
+(push '(projectile-rails-generate-mode :position bottom :height 10) popwin:special-display-config)
+(push '(projectile-rails-compilation-mode :position bottom :height 10) popwin:special-display-config)
 (push '(projectile-rails-server-mode :position bottom :height 10) popwin:special-display-config)
 
 ;;; ruby-compilation-mode (RubyComp)
 ;; FIXME: popwin can't capture this popup window. dive in ruby-compilation-mode source, it use Emacs built-in function window.el.gz -> `pop-to-buffer'.
-(push '(ruby-compilation-mode :position bottom :height 15) popwin:special-display-config)
+(push '(ruby-compilation-mode :position bottom :height 10) popwin:special-display-config)
 
 ;;; Python
 ;; *Python*
-;; (push '(inferior-python-mode :position bottom :height 15) popwin:special-display-config)
+;; (push '(inferior-python-mode :position bottom :height 10) popwin:special-display-config)
 
 ;;; jedi doc help
-(push '("*jedi:doc" :position bottom :height 15) popwin:special-display-config)
-(push '(rst-mode :position bottom :height 15) popwin:special-display-config)
+(push '("*jedi:doc" :position bottom :height 10) popwin:special-display-config)
+(push '(rst-mode :position bottom :height 10) popwin:special-display-config)
 
 ;; JavaScript
 ;; js-comint: *js*
-(push '(inferior-js-mode :position bottom :height 15) popwin:special-display-config)
+(push '(inferior-js-mode :position bottom :height 10) popwin:special-display-config)
 
 ;; octave help mode
-(push '(octave-help-mode :position bottom :height 15) popwin:special-display-config)
+(push '(octave-help-mode :position bottom :height 10) popwin:special-display-config)
 
 ;; calc -- Calculator
 (push '(calc-mode :position bottom :height 10) popwin:special-display-config)
 ;; (push '("*Calculator*" :position bottom :height 10) popwin:special-display-config)
 
 ;; eww
-(push '(eww-bookmark-mode :position bottom :height 15) popwin:special-display-config)
+(push '(eww-bookmark-mode :position bottom :height 10) popwin:special-display-config)
 
 ;;; checkdoc
 ;; FIXME:
@@ -611,8 +611,8 @@ The `BUFFER' is the popwin catch pop private message buffer."
 
 
 ;; TeX & AUCTeX
-;; (push '(special-mode :position bottom :height 15) popwin:special-display-config)
-(push '("*TeX Help*" :position bottom :height 15) popwin:special-display-config)
+;; (push '(special-mode :position bottom :height 10) popwin:special-display-config)
+(push '("*TeX Help*" :position bottom :height 10) popwin:special-display-config)
 
 ;;; Database: edbi
 (push '(ctbl:table-mode :position bottom) popwin:special-display-config)
@@ -627,15 +627,15 @@ The `BUFFER' is the popwin catch pop private message buffer."
 (push '("*rest-client*" :position bottom :height 10) popwin:special-display-config)
 
 ;; elfeed
-(push '(elfeed-search-mode :position top :height 15) popwin:special-display-config)
-(push '("*elfeed-search*" :position top :height 15) popwin:special-display-config)
+(push '(elfeed-search-mode :position top :height 10) popwin:special-display-config)
+(push '("*elfeed-search*" :position top :height 10) popwin:special-display-config)
 
 ;; restclient
-(push '("*HTTP Response*" :position bottom :height 15) popwin:special-display-config)
+(push '("*HTTP Response*" :position bottom :height 10) popwin:special-display-config)
 
 ;; poporg
 ;; FIXME: not work
-;; (push '("*poporg:*" :position bottom :height 15) popwin:special-display-config)
+;; (push '("*poporg:*" :position bottom :height 10) popwin:special-display-config)
 
 (defun my/popwin-func-for-poporg-edit-window (buffer)
   "Match poporg popup edit buffer.
@@ -646,7 +646,7 @@ The `BUFFER' is the popwin catch poporg edit popup buffer"
     (and (string-match "\*poporg:\ .*\*" (buffer-name buffer))
        (eq mode 'org-mode))))
 
-(push '(my/popwin-func-for-erc-private-message :height 15 :position bottom) popwin:special-display-config)
+(push '(my/popwin-func-for-erc-private-message :height 10 :position bottom) popwin:special-display-config)
 
 
 ;;; [ shackle ] -- Enforce rules for popup windows.
