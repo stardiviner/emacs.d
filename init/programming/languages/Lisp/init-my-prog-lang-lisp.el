@@ -293,16 +293,17 @@
 
 ;;; [ hl-sexp ]
 
-(require 'hl-sexp)
+(use-package hl-sexp
+  :config
+  (dolist (hook '(lisp-mode-hook
+                  emacs-lisp-mode-hook
+                  ))
+    (add-hook hook #'hl-sexp-mode))
 
-(dolist (hook '(lisp-mode-hook
-                emacs-lisp-mode-hook
-                ))
-  (add-hook hook #'hl-sexp-mode))
-
-(set-face-attribute 'hl-sexp-face nil
-                    :background (color-darken-name (face-background 'default) 3)
-                    )
+  (set-face-attribute 'hl-sexp-face nil
+                      :background (color-darken-name (face-background 'default) 2)
+                      )
+  )
 
 
 ;;; [ eval-sexp-fu ] -- You can see highlighting the sexps during evaluation in action.
