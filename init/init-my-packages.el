@@ -239,6 +239,7 @@
     ruby-mode enh-ruby-mode ruby-additional
     inf-ruby ruby-compilation ; pry
     rbenv rvm  ; ruby-dev  ; chruby
+    bundler
     robe ; zossima
     yari yard-mode ; helm-rb
     ruby-tools

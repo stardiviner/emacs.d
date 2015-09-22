@@ -859,6 +859,27 @@
   (setq rake-completion-system 'helm))
 
 
+;;; [ bundler ] -- Interact with Bundler from Emacs.
+
+;;; Usage:
+;;
+;; - `bundle-open' :: wraps bundle open which, if the given gem is installed and
+;;   has been required correctly, will open the gem's source directory with
+;;   dired.
+;;
+;; - `bundle-console' :: starts an inferior ruby process in the context of the
+;;   current bundle using 'bundle console' (requires inf-ruby to be installed).
+;;
+;; - `bundle-install', `bundle-update', `bundle-check' :: run the corresponding
+;;   Bundler commands with `async-shell-command' and *Bundler* as the target
+;;   buffer. This exists so the output won't mess with the default buffer used
+;;   by [M-&] and `async-shell-command'.
+
+(use-package bundler
+  :config
+  )
+
+
 ;;; [ motion-mode ] -- RubyMotion
 
 ;; (require 'motion-mode)
