@@ -116,39 +116,39 @@
                     :foreground "#002B36" :background "#002B36")
 (set-face-attribute 'org-level-1 nil
                     :family "DejaVu Sans Mono"
-                    :weight 'normal :height 105
-                    :foreground "#FF3870"
-                    :background (color-darken-name (face-background 'default) 3)
-                    :box '(:color "black" :line-width -1 :style nil)
-                    ;; :box nil :overline "forest green"
+                    :weight 'bold :height 130
+                    :foreground "Steelblue4"
+                    :background (color-darken-name (face-background 'default) 2)
+                    ;; :box '(:color "black" :line-width -1 :style nil)
+                    :overline "dark slate gray"
                     )
 (set-face-attribute 'org-level-2 nil
                     :inherit 'org-level-1
-                    :foreground "#C8C800"
+                    :foreground "yellow4"
                     )
 (set-face-attribute 'org-level-3 nil
-                    :foreground "#009E00"
                     :inherit 'org-level-2
+                    :foreground "#009E00"
                     )
 (set-face-attribute 'org-level-4 nil
-                    :foreground "cyan"
                     :inherit 'org-level-3
+                    :foreground "cyan"
                     )
 (set-face-attribute 'org-level-5 nil
-                    :foreground "#008080"
                     :inherit 'org-level-4
+                    :foreground "#008080"
                     )
 (set-face-attribute 'org-level-6 nil
-                    :foreground "#166DEF"
                     :inherit 'org-level-5
+                    :foreground "#166DEF"
                     )
 (set-face-attribute 'org-level-7 nil
-                    :foreground "deep sky blue"
                     :inherit 'org-level-6
+                    :foreground "deep sky blue"
                     )
 (set-face-attribute 'org-level-8 nil
-                    :foreground "white"
                     :inherit 'org-level-7
+                    :foreground "white"
                     )
 (set-face-attribute 'org-headline-done nil
                     :foreground "#444444"

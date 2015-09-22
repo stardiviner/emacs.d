@@ -59,20 +59,18 @@
 (require 'org-bullets nil t)
 
 (setq-default org-bullets-bullet-list
-              ;; '("◈" "◆" "◊" "✸" "◉" "○" "✸" "✿")
-              ;; ♥ ● ◇ ✚ ✜ ☯ ◆ ♠ ♣ ♦ ☢ ❀ ◆ ◖ ▶
-              ;; ► • ★ ▸
-              '("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
+              ;; '("◉")
+              '("✩" "✡" "✪" "☯" "✜" "◌" "◉" "⍟" "❀" "✿" "☢")
+              ;; '("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
               ;; '("❶" "❷" "❸" "❹" "❺" "❻" "❼" "❽" "❾" "❿")
               ;; '("①" "②" "③" "④" "⑤" "⑥" "⑦" "⑧" "⑨" "⑩")
               ;; '("㊀" "㊁" "㊂" "㊃" "㊄" "㊅" "㊆" "㊇" "㊈" "㊉")
-              ;; '("㈠" "㈡" "㈢" "㈣" "㈤" "㈥" "㈦" "㈧" "㈨" "㈩")
               )
 
 (defface org-bullets-face
   '((t (:inherit nil
                  :foreground "olive drab" :background nil
-                 :box '(:color "dark slate gray" :line-width 2)
+                 ;; :box '(:color "dark slate gray" :line-width 2)
                  )))
   "My custom face for org-bullets."
   :group 'org-faces)
@@ -82,9 +80,10 @@
           (lambda ()
             (org-bullets-mode 1)
             (set-face-attribute 'org-bullets-face nil
-                                :background nil :foreground "OliveDrab"
-                                :box '(:color "DarkSlateGray" :line-width 2)
-                                :weight 'normal
+                                :background nil
+                                :weight 'bold :height 150
+                                :foreground "cyan"
+                                ;; :box '(:color "dark slate gray" :line-width -1)
                                 )
             ))
 
