@@ -49,8 +49,10 @@
 
 (require 'flycheck)
 
-;; enable flycheck in all buffers.
-(add-hook 'after-init-hook #'global-flycheck-mode)
+;; Enable flycheck in all buffers.
+;; (add-hook 'after-init-hook #'global-flycheck-mode)
+
+(add-hook 'prog-mode-hook #'flycheck-mode)
 
 ;; (save idle-change new-line mode-enabled)
 (setq flycheck-check-syntax-automatically '(save new-line)
@@ -58,34 +60,37 @@
       flycheck-display-errors-delay 0.9
       flycheck-highlighting-mode 'symbols
       flycheck-indication-mode 'left-fringe
+      ;; 'flycheck-fringe-bitmap-double-arrow
       flycheck-standard-error-navigation t ; [M-g n/p]
       flycheck-deferred-syntax-check nil
       ;; flycheck-mode-line '(:eval (flycheck-mode-line-status-text))
       flycheck-completion-system nil ; 'ido, 'grizzl, nil
-      ;; flycheck-error-list-highlight-overlays t
       )
 
 ;; For Languages
-(setq
- ;; {clang}
- ;; flycheck-clang-definitions
- ;; flycheck-clang-include-path
- ;; flycheck-clang-includes
- ;; flycheck-clang-language-standard
- ;; flycheck-clang-no-rtti
- ;; flycheck-clang-standard-library
- ;; flycheck-clang-warnings
- ;; flycheck-cppcheck-checks
- ;; {emacs-lisp}
- ;; To make Flycheck use the current `load-path'.
- ;; Don't error about "free variable" without (require ??).
- flycheck-emacs-lisp-initialize-packages t
- flycheck-emacs-lisp-load-path 'inherit
- flycheck-emacs-lisp-package-user-dir nil
- ;; {Ruby}
- flycheck-ruby-executable "rubocop"
- ;; flycheck-rubocop-lint-only t
- )
+
+;; {emacs-lisp}
+;; To make Flycheck use the current `load-path'.
+;; Don't error about "free variable" without (require ??).
+(setq flycheck-emacs-lisp-initialize-packages t
+      flycheck-emacs-lisp-load-path 'inherit
+      flycheck-emacs-lisp-package-user-dir nil
+      )
+
+;; {Ruby}
+(setq flycheck-ruby-executable "rubocop"
+      ;; flycheck-rubocop-lint-only t
+      )
+
+;; {clang}
+;; flycheck-clang-definitions
+;; flycheck-clang-include-path
+;; flycheck-clang-includes
+;; flycheck-clang-language-standard
+;; flycheck-clang-no-rtti
+;; flycheck-clang-standard-library
+;; flycheck-clang-warnings
+;; flycheck-cppcheck-checks
 
 (set-face-attribute 'flycheck-info nil
                     :background nil :foreground nil
