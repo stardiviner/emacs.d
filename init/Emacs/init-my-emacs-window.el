@@ -583,6 +583,9 @@ The `BUFFER' is the popwin catch pop private message buffer."
 ;; FIXME: popwin can't capture this popup window. dive in ruby-compilation-mode source, it use Emacs built-in function window.el.gz -> `pop-to-buffer'.
 (push '(ruby-compilation-mode :position bottom :height 10) popwin:special-display-config)
 
+;;; bundler
+(push '("*Bundler*" :position bottom :height 10) popwin:special-display-config)
+
 ;;; Python
 ;; *Python*
 ;; (push '(inferior-python-mode :position bottom :height 10) popwin:special-display-config)
