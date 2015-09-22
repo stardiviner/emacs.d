@@ -6,32 +6,13 @@
 ;;; Code:
 
 
-(if (featurep 'enh-ruby-mode)
-    (lambda ()
-      (add-to-list 'auto-mode-alist '("\\.rb\'" . enh-ruby-mode))
-      (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
-      )
-  (add-to-list 'auto-mode-alist '("\\.rb\'" . ruby-mode))
-  (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
-  )
-
-;; Gemfile, Capfile, Rakefile
-(add-to-list 'auto-mode-alist
-             '("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . enh-ruby-mode))
-;; irb(irbrc), pry(pryrc), gem(gemspec, gemrc), rackup(ru), Thor(thor),
-(add-to-list 'auto-mode-alist
-             '("\\.\\(?:gemspec\\|irbrc\\|pryrc\\|gemrc\\|rake\\|ru\\|thor\\)\\'" . enh-ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rb\'" . ruby-mode))
+(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
 
 ;; We never want to edit Rubinius bytecode or MacRuby binaries
 (add-to-list 'completion-ignored-extensions ".rbc")
 (add-to-list 'completion-ignored-extensions ".rbo")
 
-;; highlight symbol: dot .
-(font-lock-add-keywords
- 'enh-ruby-mode
- '(("[[:alnum:]]\\(\\.\\)[[:alnum:]]"
-    (1 '(:foreground "red" :weight 'bold))
-    )))
 
 ;;; custom functions
 
@@ -79,6 +60,16 @@
 
 (use-package enh-ruby-mode
   :init
+  (add-to-list 'auto-mode-alist '("\\.rb\'" . enh-ruby-mode))
+  (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
+  ;; Gemfile, Capfile, Rakefile
+  (add-to-list 'auto-mode-alist
+               '("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . enh-ruby-mode))
+  ;; irb(irbrc), pry(pryrc), gem(gemspec, gemrc), rackup(ru), Thor(thor),
+  (add-to-list 'auto-mode-alist
+               '("\\.\\(?:gemspec\\|irbrc\\|pryrc\\|gemrc\\|rake\\|ru\\|thor\\)\\'" . enh-ruby-mode))
+
+  :config
   (setq enh-ruby-bounce-deep-indent t
         enh-ruby-check-syntax 'errors-and-warnings
         enh-ruby-comment-column 32
@@ -98,7 +89,6 @@
         enh-ruby-add-encoding-comment-on-save t ; add ruby magic encoding comment on save.
         )
 
-  :config
   (unless (derived-mode-p 'prog-mode)
     (run-hooks 'prog-mode-hook))
 
@@ -130,11 +120,10 @@
   (set-face-attribute 'erm-syn-errline nil
                       :box '(:color "red" :line-width -1))
 
-  
+
   (electric-indent-local-mode 1)
   (define-key ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
   ;; (define-key ruby-mode-map (kbd "TAB") 'indent-for-tab-command)
-  
 
   (define-key enh-ruby-mode-map (kbd "C-c C-'") 'insert-arrow)
   ;; (define-key enh-ruby-mode-map (kbd "#") 'insert-ruby-interpolate)
@@ -145,6 +134,24 @@
   ;;                "\\(class\\|def\\|do\\|if\\)" "\\(end\\)" "#"
   ;;                (lambda (arg) (ruby-end-of-block)) nil))
 
+  (add-hook 'enh-ruby-mode-hook
+            '(lambda ()
+               ;; highlight symbol: dot .
+               (font-lock-add-keywords
+                'enh-ruby-mode
+                '(("[[:alnum:]]\\(\\.\\)[[:alnum:]]"
+                   (1 '(:foreground "deep pink" :weight 'bold))
+                   )))
+               
+               ;; FIXME: this is override by ruby-mode default syntax highlight.
+               ;; highlight keyword: self
+               ;;
+               ;; (font-lock-add-keywords
+               ;;  'enh-ruby-mode
+               ;;  '(("\s\\(self\\)\\(\\.\s\\)?"
+               ;;     (1 '(:foreground "white" :background "deep pink" :weight 'normal))
+               ;;     )))
+               ))
   )
 
 
