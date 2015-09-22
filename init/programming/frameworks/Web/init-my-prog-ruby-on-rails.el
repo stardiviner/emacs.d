@@ -17,7 +17,7 @@
 
 ;;; [ rhtml-mode ]
 
-;; (add-to-list 'auto-mode-alist '("\\.html.erb$" . rhtml-mode))
+;; (add-to-list 'auto-mode-alist '("\\.html.erb\\'" . rhtml-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . rhtml-mode))
 
 (use-package rhtml-mode
@@ -49,7 +49,7 @@
 ;; (require 'mumamo-fun)
 ;; (setq mumamo-chunk-coloring 'submode-colored)
 ;; (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . eruby-html-mumamo))
-;; (add-to-list 'auto-mode-alist '("\\.html.erb$" . eruby-html-mumamo))
+;; (add-to-list 'auto-mode-alist '("\\.html.erb\\'" . eruby-html-mumamo))
 
 ;;; [ nXhtml-Mode ]
 ;; (setq nxhtml-global-minor-mode t

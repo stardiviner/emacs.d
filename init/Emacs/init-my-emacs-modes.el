@@ -130,8 +130,8 @@
 
 ;; 1. By registering a file extension by adding modes to `auto-mode-alist':
 ;;; MARKDOWN
-;; (add-to-list 'auto-mode-alist '("\\.md" . poly-markdown-mode))
-;; (add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
+;; (add-to-list 'auto-mode-alist '("\\.md\\'" . poly-markdown-mode))
+;; (add-to-list 'auto-mode-alist '("\\.Rmd\\'" . poly-markdown+r-mode))
 
 ;;; 2. By setting local mode variable in you file:
 ;;; // -*- mode: poly-C++R -*-
@@ -155,20 +155,17 @@
 ;;
 ;; (setq polymode-prefix-key '(kbd "M-n"))
 ;;
-;; (add-to-list 'auto-mode-alist '("\\.md" . poly-markdown))
+;; (add-to-list 'auto-mode-alist '("\\.md\\'" . poly-markdown))
 
 
 ;;; [ auto-mode-alist ]
 
-;;; setup some auto-mode-alist
-(add-to-list 'auto-mode-alist
-             ;; Conky
-             '("\\.conkyrc$" . conf-mode)
-             '("conkyrc$" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.conkyrc\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("conkyrc\\'" . conf-mode))
 
 ;;; Arch PKGBUILD (pkgbuild-mode)
 (autoload 'pkgbuild-mode "pkgbuild-mode.el" "PKGBUILD mode." t)
-(setq auto-mode-alist (append '(("/PKGBUILD$" . pkgbuild-mode)) auto-mode-alist))
+(setq auto-mode-alist (append '(("/PKGBUILD\\'" . pkgbuild-mode)) auto-mode-alist))
 
 
 (provide 'init-my-emacs-modes)

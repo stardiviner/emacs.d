@@ -25,9 +25,8 @@
 (setq prolog-system 'swi                ; which Prolog are you using? 'swi, 'gnu,
       )
 
-(add-to-list 'auto-mode-alist '("\\.prolog$" . prolog-mode))
-;; (add-to-list 'auto-mode-alist '("\\.pl$" . prolog-mode)) ; conflict with Perl extension.
-(add-to-list 'auto-mode-alist '("\\.m$" . mercury-mode))
+(add-to-list 'auto-mode-alist '("\\.prolog\\'" . prolog-mode))
+(add-to-list 'auto-mode-alist '("\\.m\\'" . mercury-mode))
 
 
 ;;; [ ediprolog ] -- Emacs Does Interactive Prolog

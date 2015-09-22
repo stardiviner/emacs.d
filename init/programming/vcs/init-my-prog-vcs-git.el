@@ -33,8 +33,8 @@
 ;; - [C-x g] -- prefix for global git-emacs keybindings.
 
 (add-to-list 'auto-mode-alist
-             '("\\.gitconfig$" . gitconfig-mode)
-             '("\\.gitignore$" . gitignore-mode)
+             '("\\.gitconfig\\'" . gitconfig-mode)
+             '("\\.gitignore\\'" . gitignore-mode)
              ;; FIXME: '("\\.gitattributes$" . gitattributes-mode)
              )
 

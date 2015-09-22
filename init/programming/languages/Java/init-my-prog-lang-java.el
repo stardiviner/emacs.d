@@ -15,8 +15,7 @@
 ;; (require 'jdee)
 
 ;; (autoload 'jde-mode "jde" "JDE mode" t)
-;; (setq auto-mode-alist
-;;       (append '(("\\.java\\'" . jde-mode)) auto-mode-alist))
+;; (add-to-list 'auto-mode-alist '("\\.java\\'" . jde-mode))
 
 ;; (setq jdee-server-dir "~/compile/Emacs/jdee-server/target/")
 

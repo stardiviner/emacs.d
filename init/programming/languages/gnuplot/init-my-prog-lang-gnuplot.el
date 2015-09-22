@@ -133,8 +133,8 @@
 ;; this line automatically causes all files with the .gp extension to
 ;; be loaded into gnuplot mode
 (setq auto-mode-alist (append (list
-                               '("\\.gp$" . gnuplot-mode)
-                               '("\\.plt$" . gnuplot-mode)
+                               '("\\.gp\\'" . gnuplot-mode)
+                               '("\\.plt\\'" . gnuplot-mode)
                                '("\\.gnuplot\\'" . gnuplot-mode)
                                )
                               auto-mode-alist))

@@ -24,7 +24,7 @@
              '("/\\(views\\|html\\|theme\\|templates\\)/.*\\.php\\'" . web-mode))
 
 ;; You can also edit plain js, jsx, css, scss, xml files.
-(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
 ;; TODO: test
 ;; (defadvice web-mode-highlight-part (around tweak-jsx activate)
 ;;   (if (equal web-mode-content-type "jsx")

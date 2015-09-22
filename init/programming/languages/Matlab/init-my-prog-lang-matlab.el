@@ -12,7 +12,7 @@
 (require 'matlab)
 
 (autoload 'matlab-mode "matlab" "Matlab Editing Mode" t)
-;; (add-to-list 'auto-mode-alist '("\\.m$" . matlab-mode))
+;; (add-to-list 'auto-mode-alist '("\\.m\\'" . matlab-mode))
 
 
 (setq matlab-indent-function t)

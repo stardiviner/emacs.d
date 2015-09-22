@@ -26,9 +26,7 @@
 
 (autoload 'octave-mode "octave-mod" nil t)
 
-
-(setq auto-mode-alist
-      (cons '("\\.m$" . octave-mode) auto-mode-alist))
+(add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
 
 (setq octave-auto-indent t
       octave-auto-newline t
