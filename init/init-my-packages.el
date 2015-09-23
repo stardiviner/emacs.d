@@ -331,11 +331,11 @@
     css-eldoc
     show-css
     ;; Scss & Less
-    ;; scss-mode
-    ;; less-css-mode
+    sass-mode scss-mode
+    less-css-mode
     ;; helm-css-scss
     ;; Slim
-    ;; slim-mode
+    slim-mode
     ;; JavaScript
     js2-mode js3-mode js-doc
     js-comint
@@ -361,7 +361,6 @@
     ;; dom
     ;; WebKit
     ;; kite jss
-    livid-mode
     ;; AngularJS
     angularjs-mode
     ;; Assembly
