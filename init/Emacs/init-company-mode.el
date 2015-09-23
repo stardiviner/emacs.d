@@ -22,8 +22,8 @@
 
 (require 'company)
 
-(setq company-minimum-prefix-length 3
-      company-idle-delay 0.4
+(setq company-minimum-prefix-length 2
+      company-idle-delay 0.2
       ;; determines when to auto-complete.
       ;; 'company-explicit-action-p, t, nil, 'function
       company-auto-complete 'company-explicit-action-p
