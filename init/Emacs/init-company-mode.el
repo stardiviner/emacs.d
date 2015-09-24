@@ -73,6 +73,15 @@
 ;; the items in this list, and on the values they return in response to the
 ;; `prefix' command (see below).  But a back-end can also be a \"grouped\"
 ;; one (see below).
+;;
+;; - `:with' :: e.g. (company-ghc :with company-dabbrev)
+;;
+;; It affects which backend gets selected for completion: the group in question,
+;; or some after it. If you have a group (company-ghc company-dabbrev-code) in,
+;; say, a ruby-mode buffer, it will be used because company-dabbrev-code doesn't
+;; care about the major mode. If the group was (company-ghc :with
+;; company-dabbrev-code), though, it would be skipped because company-ghc would
+;; always return nil to prefix in that major mode.
 
 (setq company-backends
       '((company-files          ; files & directory
