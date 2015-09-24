@@ -327,6 +327,8 @@
     redis eredis
     ;; HTML
     emmet-mode
+    ;; Haml
+    haml-mode
     ;; CSS
     css-eldoc
     show-css
@@ -374,10 +376,6 @@
     ;; YAML
     yaml-mode
     ;; pandoc-mode
-    ;; Sass
-    sass-mode
-    ;; Haml
-    haml-mode
     
     ;; Frameworks
     ;; Ruby on Rails
