@@ -190,39 +190,20 @@
      (define-key my-prog-vcs-map (kbd "m u") 'git-gutter:update-all-windows)
      ))
 
-(defun git-gutter+-show-hunk-at-point (&optional diffinfo)
-  "Show DIFFINFO hunk at point at point."
+(defun git-gutter+-show-hunk-inline-at-point ()
+  "Show hunk by temporarily expanding it at point"
   (interactive)
-  (--when-let (or diffinfo
-                 (git-gutter+-diffinfo-at-point))
-    (let ((diff-lines "")
-          (face nil))
-      (with-current-buffer (get-buffer-create git-gutter+-popup-buffer)
-        (setq buffer-read-only nil)
-        (erase-buffer)
-        (insert (plist-get it :content))
-        (insert "\n")
-        (goto-char (point-min))
-        (diff-mode)
-        (view-mode)
-        ;; workaround: buffer-substring doesn't returns text-properties (!?)
-        ;; (setq diff-lines (buffer-substring (point-min) (point-max)))
-        (while (not (eobp))
-          (if (looking-at "@") (setq face 'diff-hunk-header))
-          (if (looking-at "\+") (setq face 'diff-indicator-added))
-          (if (looking-at "-") (setq face 'diff-indicator-removed))
-          (setq diff-lines
-                (concat
-                 diff-lines
-                 (propertize (concat (buffer-substring (point) (point-at-eol)) "\n")
-                             'face face)))
-          (forward-line 1)
-          )
-        )
-      (momentary-string-display diff-lines (point-at-bol) 32)
-      (discard-input))))
+  (-when-let (diffinfo (git-gutter+-diffinfo-at-point))
+    (let ((diff (with-temp-buffer
+                  (insert (plist-get diffinfo :content) "\n")
+                  (diff-mode)
+                  ;; Force-fontify the invisible temp buffer
+                  (font-lock-default-function 'diff-mode)
+                  (font-lock-default-fontify-buffer)
+                  (buffer-string))))
+      (momentary-string-display diff (point-at-bol)))))
 
-(define-key my-prog-vcs-map (kbd "m d") 'git-gutter+-show-hunk-at-point)
+(define-key my-prog-vcs-map (kbd "m d") 'git-gutter+-show-hunk-inline-at-point)
 
 
 (setq git-gutter+-disabled-modes '(asm-mode image-mode))
