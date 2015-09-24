@@ -96,6 +96,10 @@
 ;; - `diffview-region' :: Opens the current region with diffview.
 ;; - `diffview-message' :: View the current email message (which presumably contains a patch) side-by-side.
 
+(define-key my-prog-vcs-diff-prefix (kbd "d") 'diffview-current)
+(define-key my-prog-vcs-diff-prefix (kbd "r") 'diffview-region)
+(define-key my-prog-vcs-diff-prefix (kbd "m") 'diffview-message)
+
 
 (provide 'init-my-prog-vcs-diff)
 
