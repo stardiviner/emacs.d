@@ -348,7 +348,7 @@
   (add-to-list 'inf-ruby-implementations
                '("inf-ruby" . "irb --inf-ruby-mode --noreadline -EUTF-8"))
   
-  (setq inf-ruby-default-implementation "ruby"
+  (setq inf-ruby-default-implementation "pry"
         inf-ruby-prompt-read-only t
         )
 
@@ -356,7 +356,9 @@
   ;; (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   ;;   (rvm-activate-corresponding-ruby))
 
-  (add-hook 'after-init-hook 'inf-ruby-switch-setup)
+  (with-eval-after-load 'inf-ruby
+    (unless (get-buffer-process "*ruby*")
+      (run-ruby "pry" "ruby")))
 
   (dolist (hook '(ruby-mode-hook
                   enh-ruby-mode-hook
@@ -515,7 +517,8 @@
 
   ;; start Robe server.
   (with-eval-after-load 'robe
-    (inf-ruby)
+    (unless (get-buffer-process "*ruby*")
+      (run-ruby "pry" "ruby"))
     (robe-start))
 
   (dolist (hook '(ruby-mode-hook
