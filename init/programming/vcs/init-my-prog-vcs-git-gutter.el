@@ -193,8 +193,8 @@
 (defun git-gutter+-show-hunk-at-point (&optional diffinfo)
   "Show DIFFINFO hunk at point at point."
   (interactive)
-  (git-gutter+-awhen (or diffinfo
-                        (git-gutter+-diffinfo-at-point))
+  (--when-let (or diffinfo
+                 (git-gutter+-diffinfo-at-point))
     (let ((diff-lines "")
           (face nil))
       (with-current-buffer (get-buffer-create git-gutter+-popup-buffer)
