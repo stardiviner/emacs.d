@@ -94,6 +94,10 @@
   (define-prefix-command 'my-prog-vcs-git-map))
 (define-key 'my-prog-vcs-map (kbd "g") 'my-prog-vcs-git-map)
 
+(unless (boundp 'my-prog-vcs-diff-prefix)
+  (define-prefix-command 'my-prog-vcs-diff-prefix))
+(define-key my-prog-vcs-map (kbd "d") 'my-prog-vcs-diff-prefix)
+
 (unless (boundp 'my-prog-bug-bts-map)
   (define-prefix-command 'my-prog-bug-bts-map))
 (global-set-key (kbd "C-c b") 'my-prog-bug-bts-map)
