@@ -163,7 +163,7 @@
 
 (setq mu4e-split-view 'horizontal ; 'vertical, 'horizontal
       mu4e-headers-visible-lines 13
-      mu4e-headers-visible-columns 115
+      mu4e-headers-visible-columns 30
       mu4e-headers-show-threads t
       mu4e-headers-auto-update t
       mu4e-use-fancy-chars t
@@ -318,6 +318,9 @@
 ;; replies.
 (setq mu4e-compose-dont-reply-to-self nil)
 
+;;; reply only to thread: header `Reply-to:', `List-Post:'
+;; - `mu4e~draft-reply-construct'
+
 
 ;; Signing and encrypting It's possible using emacs-mime, most easily accessed
 ;; through the Attachments-menu while composing a message, or with M-x
@@ -337,7 +340,9 @@
 ;;; message inline pgp sign.
 ;; `message-send-hook' or `mu4e-compose-mode-hook'
 ;; `mml-secure-message-sign-pgpauto' or `mml-secure-message-sign-pgpmime'
+;; TODO:
 ;; (add-hook 'message-send-hook 'mml-secure-message-sign-pgpauto)
+;; (add-hook 'mu4e-compose-mode-hook 'mml-secure-message-sign-pgpauto)
 
 
 ;;; Headers
@@ -694,10 +699,13 @@
       (lambda (msg)
         (cond
          ;; mu discuss Google Groups
-         ((mu4e-message-contact-field-matches msg :to "mu-discuss@googlegroups.com")
+         ((mu4e-message-contact-field-matches msg
+                                              :to "mu-discuss@googlegroups.com")
           "/Emacs/mu")
-         ;; TODO delete all Cron getmail error messages which is network unavailable error.
-         ((string-match "Cron .* getmail.*" (or (mu4e-message-field msg :subject) ""))
+         ;; TODO delete all Cron getmail error messages which is network
+         ;; unavailable error.
+         ((string-match "Cron .* getmail.*"
+                        (or (mu4e-message-field msg :subject) ""))
           ;; (mu4e-message-contact-field-matches msg :from "Cron Daemon")
           "/Trash")
          ;; everything else goes to /archive
@@ -976,7 +984,7 @@
 
   (set-face-attribute 'mu4e-maildirs-extension-maildir-face nil
                       :foreground "dim gray")
-  (set-face-attribute 'mu4e-maildirs-extension-maildir-unread-face nil
+  (set-face-attribute 'mu4e-maildirs-extension-maildir-hl-face nil
                       :foreground "lime green")
 
   ;; (setq mu4e-maildirs-extension-custom-list )
@@ -1027,7 +1035,6 @@
              '("org-contact-add" . mu4e-action-add-org-contact) t)
 (add-to-list 'mu4e-view-actions
              '("org-contact-add" . mu4e-action-add-org-contact) t)
-
 
 
 
