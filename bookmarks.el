@@ -2,7 +2,32 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Clojure Syntax Reference"
+(("ParEdit keybindings"
+ (filename . "~/Org/Wiki/Computer/Programming/Emacs/modes/paredit.org")
+ (front-context-string . "**** Key Binding")
+ (rear-context-string . " parentheses_.\n\n")
+ (position . 234))
+("RESTful"
+ (filename . "~/Org/Wiki/Computer/Programming/Implements/Web/REST/REST.org")
+ (front-context-string . "* Intro\n\n*Repres")
+ (rear-context-string)
+ (position . 1))
+("JavaScript Language Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/JavaScript/Data/Manuals/My JavaScript Reference/My JavaScript Reference.org")
+ (front-context-string . "* Intro\n\n** How ")
+ (rear-context-string)
+ (position . 1))
+("Org-mode"
+ (filename . "~/Org/Wiki/Computer/Programming/Emacs/modes/Org/Org-mode.org")
+ (front-context-string . "* Intro\n\nOrg is ")
+ (rear-context-string)
+ (position . 1))
+("Emacs Lisp Regexp Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Emacs/Emacs Lisp/Data/Emacs Lisp Regexp Reference.org")
+ (front-context-string . "* special charac")
+ (rear-context-string)
+ (position . 1))
+("Clojure Syntax Reference"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Clojure/Data/Manuals/References/My Clojure Language Syntax Reference.org")
  (front-context-string)
  (rear-context-string)
@@ -68,8 +93,8 @@
  (rear-context-string)
  (position . 1))
 ("Emacs Lisp code examples"
- (filename . "~/Org/Wiki/Computer/Programming/Emacs/Emacs Lisp/Note/Note.org")
- (front-context-string . "\n* Functions\n\n**")
+ (filename . "~/Org/Wiki/Computer/Programming/Emacs/Emacs Lisp/Data/code examples/code examples.org")
+ (front-context-string . "* thing-at-point")
  (rear-context-string)
  (position . 1))
 ("Open Source"
@@ -408,7 +433,7 @@
  (rear-context-string)
  (position . 1))
 ("Ruby Tools"
- (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Tools/Tools.org")
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Tools/Tools.org")
  (front-context-string . "* Ruby Implement")
  (rear-context-string)
  (position . 1))
@@ -485,11 +510,6 @@
 ("Bookmarks (Org)"
  (filename . "~/Org/Wiki/Data/Bookmarks/Bookmarks.org")
  (front-context-string . "* Search\n\n** Sea")
- (rear-context-string)
- (position . 1))
-("Org-mode (Org)"
- (filename . "~/Org/Wiki/Computer/Programming/Emacs/modes/Org/Org-mode.org")
- (front-context-string . "* Intro\n\nOrg is ")
  (rear-context-string)
  (position . 1))
 ("Emacs (Org)"
