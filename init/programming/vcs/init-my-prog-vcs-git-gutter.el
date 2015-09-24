@@ -179,6 +179,7 @@
      (define-key my-prog-vcs-map (kbd "m n") 'git-gutter+-next-hunk)
      (define-key my-prog-vcs-map (kbd "m p") 'git-gutter+-previous-hunk)
      ;; actions on hunks
+     (define-key my-prog-vcs-map (kbd "m d") 'git-gutter+-show-hunk-inline-at-point)
      (define-key my-prog-vcs-map (kbd "m =") 'git-gutter+-show-hunk) ; diff
      (define-key my-prog-vcs-map (kbd "m D") 'git-gutter+-show-hunk) ; diff
      (define-key my-prog-vcs-map (kbd "m r") 'git-gutter+-revert-hunk)
@@ -189,22 +190,6 @@
      (define-key my-prog-vcs-map (kbd "m C") 'git-gutter+-stage-and-commit)
      (define-key my-prog-vcs-map (kbd "m u") 'git-gutter:update-all-windows)
      ))
-
-(defun git-gutter+-show-hunk-inline-at-point ()
-  "Show hunk by temporarily expanding it at point"
-  (interactive)
-  (-when-let (diffinfo (git-gutter+-diffinfo-at-point))
-    (let ((diff (with-temp-buffer
-                  (insert (plist-get diffinfo :content) "\n")
-                  (diff-mode)
-                  ;; Force-fontify the invisible temp buffer
-                  (font-lock-default-function 'diff-mode)
-                  (font-lock-default-fontify-buffer)
-                  (buffer-string))))
-      (momentary-string-display diff (point-at-bol)))))
-
-(define-key my-prog-vcs-map (kbd "m d") 'git-gutter+-show-hunk-inline-at-point)
-
 
 (setq git-gutter+-disabled-modes '(asm-mode image-mode))
 
