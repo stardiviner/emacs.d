@@ -14,6 +14,10 @@
 
 (require 'org-attach)
 
+(setq org-attach-directory "data"
+      org-attach-archive-delete 'query
+      )
+
 
 ;;; [ org-plot ] -- Support for plotting from Org-mode.
 
@@ -160,7 +164,7 @@
 (use-package org-download
   :config
   (setq org-download-screenshot-method "scrot -s %s"
-        org-download-method 'dictionary ; 'attach, 'dictionary,
+        org-download-method 'attach ; 'attach, 'directory,
         org-download-backend t ; url-retrieve, wget, curl.
         ;; org-download-heading-lvl
         ;; org-download-timestamp "_%Y-%m-%d_%H:%M:%S"
