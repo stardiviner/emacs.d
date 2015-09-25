@@ -82,6 +82,20 @@
 ;; replace [M-%] default (query-replace)
 (global-set-key (kbd "M-%") 'query-replace-regexp)
 
+(unless (boundp 'my-isearch-prefix)
+  (define-prefix-command 'my-isearch-prefix))
+(define-key my-search-prefix (kbd "i") 'my-isearch-prefix)
+
+(define-key my-isearch-prefix (kbd "i") 'isearch-forward)
+(define-key my-isearch-prefix (kbd "I") 'isearch-forward-regexp)
+(define-key my-isearch-prefix (kbd "f") 'isearch-forward)
+(define-key my-isearch-prefix (kbd "F") 'isearch-forward-regexp)
+(define-key my-isearch-prefix (kbd "b") 'isearch-backward)
+(define-key my-isearch-prefix (kbd "B") 'isearch-backward-regexp)
+(define-key my-isearch-prefix (kbd "o") 'isearch-occur)
+(define-key my-isearch-prefix (kbd "r") 'vr/isearch-forward)
+(define-key my-isearch-prefix (kbd "R") 'vr/isearch-backward)
+
 
 ;;; custom function
 
