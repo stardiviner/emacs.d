@@ -129,7 +129,7 @@
     
     ;; Programming
     ;; Auto Complete
-    company company-statistics company-quickhelp
+    company company-quickhelp ; company-statistics
     ;; company-try-hard
     ;; Snippet
     yasnippet
