@@ -424,12 +424,13 @@
   :config
   (add-hook 'web-mode-hook
             (lambda ()
-              (add-to-list (make-local-variable 'company-backends)
-                           'company-nxml)
-              (add-to-list (make-local-variable 'company-backends)
-                           'company-web-html)
-              (add-to-list (make-local-variable 'company-backends)
-                           'company-css)
+              (make-local-variable 'company-backends)
+              (setq company-backends (copy-tree company-backends))
+              (setf (car company-backends)
+                    (append '(company-web-html
+                              company-nxml
+                              company-css)
+                            (car company-backends)))
               ))
   )
 

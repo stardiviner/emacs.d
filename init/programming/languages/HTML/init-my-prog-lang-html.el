@@ -37,12 +37,13 @@
         )
   (add-hook 'emmet-mode-hook
             (lambda ()
-              (add-to-list (make-local-variable 'company-backends)
-                           'company-web-html)
-              (add-to-list (make-local-variable 'company-backends)
-                           'company-web-jade)
-              (add-to-list (make-local-variable 'company-backends)
-                           'company-web-slim)
+              (make-local-variable 'company-backends)
+              (setq company-backends (copy-tree company-backends))
+              (setf (car company-backends)
+                    (append '(company-web-html
+                              company-web-jade
+                              company-web-slim)
+                            (car company-backends)))
               ))
 
   (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
