@@ -139,8 +139,6 @@
 
 (add-hook 'edbi:sql-mode-hook 'sqlup-mode)
 
-(define-key edbi:sql-mode-map (kbd "C-c C-q") 'edbi:dbview-query-editor-quit-command)
-
 
 ;;; [ edbi-minor-mode ] -- use edbi with regular SQL files.
 
