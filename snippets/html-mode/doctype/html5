@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: doctype html5
-# key: html5
+# name: doctype-html5
+# key: doctype-html5
 # --
 <!DOCTYPE html>
 <html>

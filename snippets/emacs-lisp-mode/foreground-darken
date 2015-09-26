@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: foreground-darken
+# key: foreground-darken
+# --
+:foreground (color-darken-name (face-foreground '${2:default}) ${1:3})

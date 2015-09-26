@@ -4,11 +4,11 @@
 # group: Babel
 # --
 #+BEGIN_SRC http :pretty ${1:arguments}
-${2:RESTful: GET, POST, PATCH ...}
-${0:Headers:
+RESTful: ${2:GET, POST, PATCH ...}
+${3:Headers:
 User-Agent: ob-http
 Content-Type: application/json
 key=value1&foo=value2
-....
 }
+$0
 #+END_SRC
