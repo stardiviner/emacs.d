@@ -53,6 +53,13 @@
       )
 
 
+;;; disable flycheck in sh-mode to fix suspend in shell script source code file.
+;; TODO: test whether the problem is on `flycheck'. or on `company-backends'.
+(add-hook 'sh-mode-hook
+          (lambda ()
+            (flycheck-mode -1)))
+
+
 (provide 'init-my-prog-lang-shell)
 
 ;;; init-my-prog-lang-shell.el ends here

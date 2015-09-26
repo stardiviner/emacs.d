@@ -29,6 +29,12 @@
 (add-to-list 'auto-mode-alist '("\\.netdev\\'" . systemd-mode))
 (add-to-list 'auto-mode-alist '("\\.network\\'" . systemd-mode))
 
+;; built-in default.
+;; (add-hook 'systemd-mode-hook
+;;           (lambda ()
+;;             (add-to-list (make-local-variable 'company-backends)
+;;                          'systemd-company-backend)))
+
 
 ;;; crontab-mode
 

@@ -32,15 +32,12 @@
 
 ;;; [ Inferior Python ]
 
-;; Usage:
-;; (run-python)
-
-(defun inferior-python (&optional process-buffer-name)
+(defun inferior-python ()
   "My function to start or switch to inferior-python process buffer `PROCESS-BUFFER-NAME'."
   (interactive)
-  (if (get-buffer-process (or process-buffer-name "*Python*"))
+  (if (get-buffer-process "*Python*")
       ;; the inferior Python process exist
-      (switch-to-buffer (or process-buffer-name "*Python*"))
+      (switch-to-buffer "*Python*")
     ;; create a new inferior Python process
     (run-python)
     ;; kill old process
@@ -48,11 +45,17 @@
     )
   )
 
+;; (define-key my-prog-inferior-map (kbd "p") 'run-python)
 (define-key my-prog-inferior-map (kbd "p") 'inferior-python)
 
-;; start inferior-python process
-;; FIXME: Making python-shell-interpreter local to *Python* while let-bound!
-;; (inferior-python)
+
+;; (setq inferior-python-mode-hook '(python-shell-send-setup-code))
+;; (setq inferior-python-mode-hook nil)
+
+(add-hook 'inferior-python-mode-hook
+          (lambda ()
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-anaconda)))
 
 
 ;;; [ pyvenv ] -- Python virtual environment interface for Emacs.

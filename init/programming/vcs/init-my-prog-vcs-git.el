@@ -45,7 +45,7 @@
 ;;; git.el package, but it also has some improvements, mostly in the user
 ;;; interface.
 
-; (require 'git-emacs)
+;; (require 'git-emacs)
 
 ;; git-modeline
 
@@ -244,7 +244,7 @@
 (define-key my-prog-vcs-git-map (kbd "L") 'magit-log-buffer-file)
 ;; repository log - "L"
 ;; [M-n/p] to navigate.
-(define-key my-prog-vcs-git-map (kbd "L") 'magit-log-long)
+;; (define-key my-prog-vcs-git-map (kbd "L") 'magit-log-long)
 ;; grep - "g"
 (define-key my-prog-vcs-git-map (kbd "g") 'magit-grep)
 ;; checkout - "o"
@@ -253,7 +253,8 @@
 (define-key my-prog-vcs-git-map (kbd "B") 'magit-bisect)
 ;; blame -- "h"
 (define-key my-prog-vcs-git-map (kbd "b") 'magit-blame)
-
+;; file popup
+(define-key my-prog-vcs-git-map (kbd "f") 'magit-file-popup)
 
 ;; for Magit auto-complete
 ;; TODO: how to use this in Magit.
@@ -266,6 +267,12 @@
 
 ;; TODO: set remote branch face like this:
 ;; https://emacs.stackexchange.com/questions/10975/customize-face-magit-item-highlight-properly
+
+
+;;; auto display magit help popup
+;; (defadvice magit-status (after my-magit-status-dispatch-popup)
+;;   (magit-dispatch-popup))
+;; (ad-activate 'magit-status)
 
 
 ;;; [ magit-find-file ]

@@ -122,8 +122,9 @@
 
 
   (electric-indent-local-mode 1)
-  (define-key ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
-  ;; (define-key ruby-mode-map (kbd "TAB") 'indent-for-tab-command)
+  ;; TODO: test whether conflict with `ruby-electric'
+  ;; (define-key enh-ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
+  ;; (define-key enh-ruby-mode-map (kbd "TAB") 'indent-for-tab-command)
 
   (define-key enh-ruby-mode-map (kbd "C-c C-'") 'insert-arrow)
   ;; (define-key enh-ruby-mode-map (kbd "#") 'insert-ruby-interpolate)
@@ -195,8 +196,11 @@
 
 ;;; [ ruby-electric ]
 
-(add-hook 'ruby-mode-hook 'ruby-electric-mode)
-(add-hook 'enh-ruby-mode-hook 'ruby-electric-mode)
+(use-package ruby-electric
+  :config
+  (add-hook 'ruby-mode-hook 'ruby-electric-mode)
+  (add-hook 'enh-ruby-mode-hook 'ruby-electric-mode)
+  )
 
 
 ;;; [ ruby-end ]

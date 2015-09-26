@@ -184,8 +184,18 @@
   ;; (defun my/anzu-update-func (here total)
   ;;   (propertize (format "<%d/%d>" here total)
   ;;               'face '((:foreground "yellow" :weight bold))))
+  ;; (defun anzu--update-mode-line-default (here total)
+  ;;   (when anzu--state
+  ;;     (let ((status (cl-case anzu--state
+  ;;                     (search (format "(%s/%d%s)"
+  ;;                                     (anzu--format-here-position here total)
+  ;;                                     total (if anzu--overflow-p "+" "")))
+  ;;                     (replace-query (format "(%d replace)" total))
+  ;;                     (replace (format "(%d/%d)" here total)))))
+  ;;       (propertize status 'face 'anzu-mode-line))))
   ;; (setq anzu-mode-line-update-function 'my/update-func)
 
+  
   ;; (global-set-key (kbd "M-%") 'anzu-query-replace)
   (global-set-key (kbd "M-%") 'anzu-query-replace-regexp)
   (global-set-key (kbd "C-M-%") 'anzu-query-replace-regexp)

@@ -129,13 +129,12 @@
 
 ;;; [ cider-spy ] -- Spy on CIDER to get Info.
 
-; (require 'cider-spy)
+;; (require 'cider-spy)
 
 
 ;;; [ cider-profile ]
 
-; (require 'cider-profile)
-
+;; (require 'cider-profile)
 
 
 ;;; [ flycheck-clojure, squiggly-clojure ] --

@@ -51,8 +51,7 @@
 
 (my-set-font-default "DejaVu Sans Mono" 10 100)
 
-;; (when (eq system-type 'darwin)
-;;   (set-default-font "-*-Hack-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1"))
+;; (set-default-font "-*-Hack-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1")
 
 ;; Averia-12
 ;; Averia Serif-12

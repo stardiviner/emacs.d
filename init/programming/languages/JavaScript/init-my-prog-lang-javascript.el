@@ -334,6 +334,16 @@
 ;;             ))
 
 
+;;; [ JSX-mode ] -- The XML inside of JavaScript.
+
+;; (require 'jsx-mode)
+;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
+;;
+;; (add-hook 'jsx-mode-hook
+;;           (lambda ()
+;;             (tern-mode 1)))
+
+
 
 (provide 'init-my-prog-lang-javascript)
 

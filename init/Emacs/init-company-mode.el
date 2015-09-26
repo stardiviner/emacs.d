@@ -270,26 +270,6 @@
 ;;                     :foreground "orange" :background nil
 ;;                     :weight 'bold)
 
-
-;; color quick hack
-;; (require 'color)
-;; (let ((bg (face-attribute 'default :background)))
-;;   (custom-set-faces
-;;    `(company-tooltip ((t (:inherit default :background ,(color-lighten-name bg 2)))))
-;;    `(company-scrollbar-bg ((t (:background ,(color-lighten-name bg 10)))))
-;;    `(company-scrollbar-fg ((t (:background ,(color-lighten-name bg 5)))))
-;;    `(company-tooltip-selection ((t (:inherit font-lock-function-name-face))))
-;;    `(company-tooltip-common ((t (:inherit font-lock-constant-face))))))
-
-
-;; TODO:
-;; company-prefix is for "inline" displayed first matched candidate.
-;; - company-preview
-;; - company-preview-common
-;; - company-preview-search
-;; - company-echo
-;; - company-echo-common
-
 ;;; Yasnippet integration
 ;;
 ;; - [C-h f company-yasnippet]

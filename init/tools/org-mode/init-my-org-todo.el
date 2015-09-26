@@ -47,7 +47,7 @@
 (setq org-todo-keywords
       '(
         ;; Status
-        (sequence "Urgent(u!)" "INPROGRESS(g!)" "TODO(t@/!)" "LATER(l!)" "SOMEDAY(s!)" "FAILED(x@/!)" "CANCELLED(C@/!)" "|" "DONE(d@/!)")
+        (sequence "Urgent(u!)" "INPROGRESS(g!)" "TODO(t@/!)" "LATER(l!)" "SOMEDAY(s@/!)" "FAILED(x@/!)" "CANCELLED(C@/!)" "|" "DONE(d@/!)")
         ;; Clock
         (sequence "STARTED(!)" "|" "DONE(d@/!)")
         ;; Habit

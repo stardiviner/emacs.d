@@ -87,6 +87,11 @@
                                 )
             ))
 
+
+;;; [ org-beautify-theme ] -- A sub-theme to make org-mode more beautiful.
+
+;; (require 'org-beautify-theme)
+
 
 
 (provide 'init-my-org-view)
