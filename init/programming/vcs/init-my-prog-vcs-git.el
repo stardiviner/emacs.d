@@ -192,10 +192,10 @@
 ;; argument these commands prompt for an alternative environment variable such
 ;; as $GIT_EDITOR. To always use these variants add this to your init file:.
 
-(define-key (current-global-map)
-  [remap async-shell-command] 'with-editor-async-shell-command)
-(define-key (current-global-map)
-  [remap shell-command] 'with-editor-shell-command)
+;; (define-key (current-global-map)
+;;   [remap async-shell-command] 'with-editor-async-shell-command)
+;; (define-key (current-global-map)
+;;   [remap shell-command] 'with-editor-shell-command)
 
 ;; Alternatively use the global `shell-command-with-editor-mode',
 ;; which always sets `$EDITOR' for all Emacs commands which ultimately
@@ -207,9 +207,9 @@
 ;; the editor set, or always arrange for the current Emacs instance to be used
 ;; as editor by adding it to the appropriate mode hooks:
 
-(add-hook 'shell-mode-hook  'with-editor-export-editor)
-(add-hook 'term-mode-hook   'with-editor-export-editor)
-(add-hook 'eshell-mode-hook 'with-editor-export-editor)
+;; (add-hook 'shell-mode-hook  'with-editor-export-editor)
+;; (add-hook 'term-mode-hook   'with-editor-export-editor)
+;; (add-hook 'eshell-mode-hook 'with-editor-export-editor)
 
 ;; Some variants of this function exist, these two forms are
 ;; equivalent:
