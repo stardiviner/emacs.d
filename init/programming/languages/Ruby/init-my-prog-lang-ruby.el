@@ -304,44 +304,11 @@
 
 
 ;;; [ inf-ruby ] -- provides a REPL buffer connected to a Ruby(irb/pry) subprocess
+
+;; Workflow:
 ;;
-;;; Usage:
-;;;
-;;; - [M-x inf-ruby] :: A simple IRB process can be fired up with M-x inf-ruby.
-;;;
-;;; - [M-x inf-ruby-console-auto] :: To launch a REPL with project-specific
-;;;   console instead, type M-x inf-ruby-console-auto. It recognizes several
-;;;   project types, including Rails, gems and anything with racksh in their
-;;;   Gemfile.
-;;;
-;;; - To see the list of the keybindings defined by inf-ruby-minor-mode, type
-;;;   M-x describe-function [RET] inf-ruby-minor-mode [RET].
-;;
-;; - [M-x run-ruby] -- which runs IRB in an Emacs buffer
-;; keybindings:
-;; - [C-c C-s] -- inf-ruby
-;; - [C-c C-z] -- ruby-switch-to-inf
-;; - [C-c C-l] -- ruby-load-file :: load current file source code for completion.
-;; - [M-C-x]   -- ruby-send-definition
-;; - [C-x C-e] -- ruby-send-last-sexp
-;; - [C-c C-b] -- ruby-send-block
-;; - [C-c M-b] -- ruby-send-block-and-go
-;; - [C-c C-x] -- ruby-send-definition
-;; - [C-c M-x] -- ruby-send-definition-and-go
-;; - [C-c C-r] -- ruby-send-region
-;; - [C-c M-r] -- ruby-send-region-and-go
-;;
-;; - [RET] -- after the end of the process' output sends the text from the end of process to point.
-;; - [RET] -- before the end of the process' output copies the sexp ending at point
-;;           to the end of the process' output, and sends it.
-;; - [DEL] -- converts tabs to spaces as it moves back.
-;; - [TAB] -- completes the input at point. IRB, Pry and Bond completion is supported.
-;;            Helm is supported at here.
-;; - [C-M-q] -- does TAB on each line starting within following expression.
-;; - Paragraphs are separated only by blank lines. # start comments.
-;; - If you accidentally suspend your process, use comint-continue-subjob to continue it.
-;;
-;; - [C-x C-q] -- rspec / ruby-compilation
+;; 1. [C-c C-s] / `inf-ruby-console-auto'
+;; 2. [C-c C-l] / [C-c C-k] :: load ruby code / rails code.
 
 (use-package inf-ruby
   :config
@@ -355,10 +322,6 @@
   ;; integrate with rvm.el
   ;; (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   ;;   (rvm-activate-corresponding-ruby))
-
-  (with-eval-after-load 'inf-ruby
-    (unless (get-buffer-process "*ruby*")
-      (run-ruby "pry" "ruby")))
 
   (dolist (hook '(ruby-mode-hook
                   enh-ruby-mode-hook
@@ -513,13 +476,6 @@
               (define-key ruby-send-to-inferior-map (kbd "S") 'ruby-send-region-and-go)
               (define-key ruby-send-to-inferior-map (kbd "R") 'ruby-send-region-and-go)
               ))
-
-
-  ;; start Robe server.
-  (with-eval-after-load 'robe
-    (unless (get-buffer-process "*ruby*")
-      (run-ruby "pry" "ruby"))
-    (robe-start))
 
   (dolist (hook '(ruby-mode-hook
                   enh-ruby-mode-hook
