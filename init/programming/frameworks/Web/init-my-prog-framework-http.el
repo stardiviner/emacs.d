@@ -107,6 +107,11 @@
 (use-package httprepl
   :config
   (define-key HTTP-prefix (kbd "H") 'httprepl)
+
+  (add-hook 'httprepl-mode-hook
+            (lambda ()
+              (add-to-list (make-local-variable 'company-backends)
+                           'company-restclient)))
   )
 
 
