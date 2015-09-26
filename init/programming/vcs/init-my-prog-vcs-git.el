@@ -410,6 +410,19 @@
 ;;    - [/]   :: look at the ancestor.
 ;;    - [q]   :: quit the ediff session.
 
+(setq smerge-command-prefix (kbd "C-c v d"))
+
+(define-key smerge-mode-map (kbd "M-g n") 'smerge-next)
+(define-key smerge-mode-map (kbd "M-g p") 'smerge-prev)
+;; (define-key smerge-mode-map (kbd "M-g k c") 'smerge-keep-current)
+;; (define-key smerge-mode-map (kbd "M-g k m") 'smerge-keep-mine)
+;; (define-key smerge-mode-map (kbd "M-g k o") 'smerge-keep-other)
+;; (define-key smerge-mode-map (kbd "M-g k b") 'smerge-keep-base)
+;; (define-key smerge-mode-map (kbd "M-g k a") 'smerge-keep-all)
+;; (define-key smerge-mode-map (kbd "M-g e") 'smerge-ediff)
+;; (define-key smerge-mode-map (kbd "M-g K") 'smerge-kill-current)
+;; (define-key smerge-mode-map (kbd "M-g m") 'smerge-context-menu)
+;; (define-key smerge-mode-map (kbd "M-g M") 'smerge-popup-context-menu)
 
 ;; enable `smerge-mode' automatically
 ;; TODO: test current Emacs already support auto enable smerge-mode.
