@@ -11,6 +11,17 @@
 
 (require 'js)
 
+(setq js-indent-level 2
+      js-expr-indent-offset 0
+      js-paren-indent-offset 0
+      ;; js-square-indent-offset 0
+      ;; js-curly-indent-offset 0
+      ;; js-switch-indent-offset 0
+      js-flat-functions nil
+      )
+
+;; (add-to-list js-enabled-frameworks 'reat)
+
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js3-mode))
 
 
