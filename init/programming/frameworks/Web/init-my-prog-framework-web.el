@@ -142,22 +142,26 @@
                     :foreground "red" :background "dark red")
 (set-face-attribute 'web-mode-html-tag-face nil ; html tag
                     :foreground "dark cyan"
-                    :background (color-darken-name (face-background 'default) 5)
+                    :background (color-darken-name (face-background 'default) 2)
                     )
 (set-face-attribute 'web-mode-html-tag-bracket-face nil ; html tag bracket
                     :inherit 'web-mode-html-tag-face
-                    :foreground "dim gray"
+                    :foreground "#444444"
                     )
 (set-face-attribute 'web-mode-html-tag-custom-face nil ; custom tags, e.g. <span-custom>
                     :foreground "cyan")
 (set-face-attribute 'web-mode-html-attr-name-face nil ; attribute name
-                    :foreground "light cyan")
+                    :foreground "cyan")
 (set-face-attribute 'web-mode-html-attr-equal-face nil ; attribute =
-                    :foreground "red")
+                    :foreground "#444444")
 (set-face-attribute 'web-mode-html-attr-value-face nil ; attribute value
-                    :foreground "orange")
+                    :foreground "chartreuse")
 (set-face-attribute 'web-mode-html-attr-custom-face nil ; custom attributes, e.g. data-content="".
-                    :foreground "green")
+                    :foreground "white")
+(set-face-attribute 'web-mode-html-attr-engine-face nil ; engine face
+                    :background "#004A5D" :foreground "white"
+                    :box '(:color "cyan" :line-width -1)
+                    )
 
 ;;;_ + json
 ;; web-mode-json-key-face, web-mode-json-context-face, web-mode-json-string-face
@@ -219,15 +223,15 @@
 (setq web-mode-enable-block-face t)
 ;; web-mode-block-control-face, web-mode-block-delimiter-face, web-mode-block-face (see web-mode-enable-block-face), web-mode-block-string-face, web-mode-block-comment-face
 ;; TODO:
+(set-face-attribute 'web-mode-block-delimiter-face nil ; <%= ... =>
+                    :foreground "dark red"
+                    :background "black")
 (set-face-attribute 'web-mode-block-face nil ; variant embed template blocks
-                    :background (color-darken-name (face-background 'default) 4))
+                    :background "black")
 (set-face-attribute 'web-mode-block-control-face nil
                     :foreground "green")
-(set-face-attribute 'web-mode-block-delimiter-face nil
-                    :foreground "dark red")
 (set-face-attribute 'web-mode-block-string-face nil ; block string
-                    :inherit 'web-mode-block-face
-                    :foreground "red")
+                    :inherit 'web-mode-block-face)
 (set-face-attribute 'web-mode-block-comment-face nil ; block comment
                     :foreground "dim gray")
 
@@ -238,7 +242,8 @@
                     :inherit 'web-mode-block-face
                     :foreground "dark gray")
 (set-face-attribute 'web-mode-script-face nil ; <script> block
-                    :background "black")
+                    :background (color-darken-name (face-background 'default) 2)
+                    )
 (set-face-attribute 'web-mode-style-face nil ; <style> block
                     :background "#222222")
 (set-face-attribute 'web-mode-part-string-face nil ; part string
