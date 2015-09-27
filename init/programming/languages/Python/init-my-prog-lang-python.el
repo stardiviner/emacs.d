@@ -180,7 +180,7 @@
           (lambda ()
             (cond
              ((featurep 'anaconda-mode)
-              (local-set-key (kbd "C-h d d") 'anaconda-mode-view-doc)
+              (local-set-key (kbd "C-h d d") 'anaconda-mode-show-doc)
               (local-set-key (kbd "M-.") 'anaconda-mode-goto))
              ((featurep 'helm)
               (local-set-key (kbd "C-h d d") 'helm-pydoc))
