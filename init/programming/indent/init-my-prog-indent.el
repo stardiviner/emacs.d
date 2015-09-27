@@ -184,9 +184,12 @@
   :config
   (setq indent-guide-delay nil
         indent-guide-recursive t
-        indent-guide-inhibit-modes '(dired-mode Info-mode Man-mode org-mode)
         indent-guide-threshold -1 ; -1, 0
         )
+
+  ;; works with `indent-guide-global-mode'
+  (add-to-list 'indent-guide-inhibit-modes 'org-mode)
+  (add-to-list 'indent-guide-inhibit-modes 'web-mode)
 
   ;; custom indent line char
   ;; 1: use `indent-guide-char'.
@@ -206,8 +209,6 @@
   ;;                     :stipple (list 7 4 (string 16 0 0 0)))
 
   ;; (indent-guide-global-mode)
-  ;; or
-  ;; (lambda nil (unless (memq major-mode indent-guide-inhibit-modes) (indent-guide-mode 1)))
 
   (dolist (hook '(prog-mode-hook
                   emacs-lisp-mode-hook
