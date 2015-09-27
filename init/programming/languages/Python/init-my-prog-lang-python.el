@@ -32,6 +32,11 @@
 
 ;;; [ Inferior Python ]
 
+;; - [C-c C-l] :: `python-shell-send-file'
+;; - [C-c C-r] :: `python-shell-send-region'
+;; - [C-c C-c] :: `python-shell-send-buffer'
+;; - [C-M-x]   :: `python-shell-send-defun'
+
 (defun inferior-python ()
   "My function to start or switch to inferior-python process buffer `PROCESS-BUFFER-NAME'."
   (interactive)
