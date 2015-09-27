@@ -23,7 +23,8 @@
 (require 'company)
 
 (setq company-minimum-prefix-length 2
-      company-idle-delay 0.2
+      ;; decrease this delay when you can type code continuously fast.
+      company-idle-delay 0.5
       ;; determines when to auto-complete.
       ;; 'company-explicit-action-p, t, nil, 'function
       company-auto-complete 'company-explicit-action-p
