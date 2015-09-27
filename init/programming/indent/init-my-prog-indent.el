@@ -216,7 +216,11 @@
                   ruby-mode-hook
                   python-mode-hook
                   ))
-    (add-hook hook #'indent-guide-mode))
+    (add-hook hook
+              (lambda ()
+                (unless (member major-mode indent-guide-inhibit-modes)
+                  (indent-guide-mode 1))
+                )))
 
   ;; (indent-guide-post-command-hook)
   )
