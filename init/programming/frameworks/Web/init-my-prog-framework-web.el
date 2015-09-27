@@ -143,7 +143,6 @@
 (set-face-attribute 'web-mode-html-tag-face nil ; html tag
                     :foreground "dark cyan"
                     :background (color-darken-name (face-background 'default) 5)
-                    :box '(:color "black" :line-width -1)
                     )
 (set-face-attribute 'web-mode-html-tag-bracket-face nil ; html tag bracket
                     :inherit 'web-mode-html-tag-face
