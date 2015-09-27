@@ -73,7 +73,7 @@
    ;; anzu
    (:propertize (:eval (anzu--update-mode-line))
                 face (:foreground "cyan" :weight 'bold
-                                  :box '(:color "deep pink")))
+                                  :box '(:color "cyan")))
    
    ;; multiple-cursors (mc/)
    (:eval (if (and 'mc/fake-cursor-p (> (mc/num-cursors) 1)) ; (if 'mc/fake-cursor-p ...)

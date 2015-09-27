@@ -386,14 +386,14 @@
                     )
 ;; matches to keywords you have set with ‘erc-keywords’
 (set-face-attribute 'erc-keyword-face nil
-                    :foreground "cyan" :background "#444444"
+                    :foreground "white" :background "#004A5D"
                     :box '(:color "cyan" :line-width 1 :style nil)
                     :weight 'bold
                     )
 ;; occurrences of your current nickname
 (set-face-attribute 'erc-current-nick-face nil
-                    :foreground "cyan" :background "black"
-                    :box '(:color "cyan" :line-width 1 :style nil)
+                    :foreground "red" :background "#333333"
+                    :box '(:color "black" :line-width 1 :style nil)
                     )
 
 

@@ -116,9 +116,9 @@
                       :foreground "dark green")
 
   (set-face-attribute 'erm-syn-warnline nil
-                      :box '(:color "orange" :line-width -1))
+                      :underline "orange")
   (set-face-attribute 'erm-syn-errline nil
-                      :box '(:color "red" :line-width -1))
+                      :underline "red")
 
 
   (electric-indent-local-mode 1)

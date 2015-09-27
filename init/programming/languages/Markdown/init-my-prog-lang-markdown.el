@@ -28,13 +28,11 @@
 (set-face-attribute 'markdown-header-face nil
                     :foreground "cyan"
                     :weight 'bold
-                    ;; :box '(:color "cyan" :line-width 1)
                     :overline t
                     )
 ;; # header #
 (set-face-attribute 'markdown-header-delimiter-face nil
                     :foreground "#444444"
-                    ;; :box '(:color "cyan" :line-width 1)
                     )
 ;; header
 ;; ======

@@ -71,10 +71,10 @@
 ;;; custom faces
 
 (set-face-attribute 'font-lock-function-name-face nil
-                    :background (color-darken-name (face-background 'default) 5))
+                    :background (color-lighten-name (face-background 'default) 2)
+                    )
 (set-face-attribute 'font-lock-type-face nil
-                    :box '(:color "dark green" :line-width -1)
-                    :background (color-lighten-name (face-background 'default) 5)
+                    :background (color-lighten-name (face-background 'default) 3)
                     :foreground "green")
 
 ;; italic & bold

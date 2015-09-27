@@ -206,7 +206,7 @@
   (set-face-attribute 'anzu-replace-highlight nil
                       :foreground "orange"
                       :background (color-darken-name (face-background 'default) 5)
-                      :box '(:color "black" :line-width -1)
+                      :box '(:color "dark slate gray" :line-width -1)
                       :weight 'normal
                       )
   (set-face-attribute 'anzu-replace-to nil
@@ -218,8 +218,6 @@
   (set-face-attribute 'anzu-match-1 nil
                       :foreground "white"
                       :background "dark red"
-                      ;; use box style?
-                      ;; :box '(:color "green")
                       )
   (set-face-attribute 'anzu-match-2 nil
                       :foreground "white"

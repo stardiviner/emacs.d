@@ -89,7 +89,6 @@
 ;;; window-number face
 ;; (set-face-attribute 'window-number-face nil
 ;;                     :background "red" :foreground "black"
-;;                     :box '(:color "dark red" :line-width 1 :style nil)
 ;;                     :bold 'normal)
 
 

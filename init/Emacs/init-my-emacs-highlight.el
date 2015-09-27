@@ -68,7 +68,7 @@
   (setq highlight-thing-delay-seconds 1.5)
   (setq highlight-thing-limit-to-defun t)
   (set-face-attribute 'highlight-thing nil
-                      :foreground "#00bfff"
+                      :foreground "cyan"
                       :background (color-darken-name (face-background 'default) 3)
                       )
   ;; (global-highlight-thing-mode)

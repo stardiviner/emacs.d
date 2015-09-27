@@ -49,9 +49,6 @@
   )
 
 ;; you have two styles:
-;; 1. :box t
-;; 2. :inverse-video t
-;; 3. :weight 'bold
 (set-face-attribute 'rainbow-delimiters-depth-1-face nil
                     :foreground "#2aa198"
                     :weight 'bold)

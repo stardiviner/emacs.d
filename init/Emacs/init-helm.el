@@ -154,7 +154,6 @@
 (set-face-attribute 'helm-selection nil
                     ;; 1. different font
                     ;; :family "Comic Sans MS" :weight 'normal :height 1.0 :slant 'italic
-                    ;; :box nil
                     ;; 2. box selected
                     ;; :background "#004A5D" :foreground "white"
                     ;; :box '(:color "cyan" :line-width -1)

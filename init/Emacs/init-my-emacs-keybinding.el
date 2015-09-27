@@ -288,7 +288,6 @@
                       )
   (set-face-attribute 'which-key-group-description-face nil
                       :foreground "orange red" :background "#333333"
-                      ;; :box '(:color "black" :line-width -1)
                       )
   (set-face-attribute 'which-key-local-map-description-face nil
                       :foreground "yellow"
