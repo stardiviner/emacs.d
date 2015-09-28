@@ -45,7 +45,7 @@
       ;; the inferior Python process exist
       (switch-to-buffer "*Python*")
     ;; create a new inferior Python process
-    (run-python)
+    (run-python "python")
     ;; kill old process
     ;; (kill-process (get-buffer-process (or process-buffer-name "*Python*"))
     )
