@@ -30,9 +30,10 @@
 ;; (global-set-key (kbd "M-;") #'comment-line)
 ;; (global-set-key (kbd "C-;") #'comment-line)
 
+
 ;;; comment annotations keywords list.
 
-(setq comment-annotation-keyword-list
+(setq comment-fic-keywords-list
       '("FIXME" "TODO" "BUG" "ISSUE" "ERROR"
         "OPTIMIZE" "HACK" "REFACTOR" "REVIEW" "TEST"
         "NOTE" "NOTICE" "README"))
@@ -60,8 +61,6 @@ column. Place the point after the comment box."
 
 
 
-;;; highlight FIXME:
-
 ;;; comment annotations function
 (defun font-lock-comment-annotations ()
   "Highlight a bunch of well known comment annotations like FIXME:.
@@ -83,39 +82,18 @@ This functions should be added to the hooks of major modes for programming."
 
 ;;; [ fic-mode ] --- "fixme in comments (and strings)"
 
-;; highlight "FIXME"
+(setq fic-highlighted-words comment-fic-keywords-list)
 
-(setq fic-highlighted-words
-      '("FIXME" "TODO" "BUG" "ISSUE" "ERROR"
-        "OPTIMIZE" "HACK" "REFACTOR" "REVIEW" "TEST"
-        "NOTE" "NOTICE" "README"))
-
-(setq fic-foreground-color "red")
-(setq fic-background-color "yellow")
+(set-face-attribute 'font-lock-fic-face nil
+                    :foreground "dark orange"
+                    :background "#444444")
 
 (dolist (hook
          '(prog-mode-hook
-           ;; org-mode-hook
            ))
   ;; (add-hook hook 'turn-on-fic-mode)
-  (add-hook hook (lambda () (fic-mode t)))
+  (add-hook hook #'turn-on-fic-mode)
   )
-
-
-;;; fic-ext-mode.el
-;; (require 'fic-ext-mode)
-
-;; (defcustom fic-highlighted-words
-;;   '("FIXME" "TODO" "BUG" "ISSUE" "ERROR")
-;;   "words to highlight"
-;;   :group 'fic-ext-mode)
-
-;; (dolist (hook
-;;       '(prog-mode-hook))
-;;   (add-hook hook (lambda () (fic-ext-mode t))))
-
-;; force re-fontification initially (if you manually turn on fic-mode)
-;; (font-lock-fontify-buffer)
 
 
 ;;;_* outorg -- Convert source-code buffers temporarily to Org-mode for comment editing.
