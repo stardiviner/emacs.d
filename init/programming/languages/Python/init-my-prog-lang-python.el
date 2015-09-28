@@ -36,6 +36,7 @@
 ;; - [C-c C-r] :: `python-shell-send-region'
 ;; - [C-c C-c] :: `python-shell-send-buffer'
 ;; - [C-M-x]   :: `python-shell-send-defun'
+;; - `python-shell-send-string'
 
 (defun inferior-python ()
   "My function to start or switch to inferior-python process buffer `PROCESS-BUFFER-NAME'."
@@ -152,19 +153,8 @@
 ;; project installation. To make it available for anaconda-mode you have few
 ;; options.
 
-
-;; virtualenv
-;; (setq python-shell-virtualenv-root "~/.virtualenvs/python3/")
-
 (add-hook 'python-mode-hook 'anaconda-mode)
 (add-hook 'python-mode-hook 'eldoc-mode)
-
-;; (define-key anaconda-mode-map (kbd "M-.") 'anaconda-mode-goto)
-;; ;; (define-key anaconda-mode-map (kbd "M-.") 'anaconda-mode-goto-definitions)
-;; ;; (define-key anaconda-mode-map (kbd "M-,") 'anaconda-mode-goto-assignments)
-;; (define-key anaconda-mode-map (kbd "M-?") 'anaconda-mode-view-doc)
-;; (define-key anaconda-mode-map (kbd "M-r") 'anaconda-mode-usages)
-;; (define-key anaconda-mode-map (kbd "M-*") 'anaconda-nav-pop-marker)
 
 
 ;;; [ company-anaconda ]
@@ -178,6 +168,7 @@
 
 (add-hook 'python-mode-hook
           (lambda ()
+            ;; doc
             (cond
              ((featurep 'anaconda-mode)
               (local-set-key (kbd "C-h d d") 'anaconda-mode-show-doc)
@@ -191,6 +182,8 @@
               (local-set-key (kbd "d") 'pydoc)
               (local-set-key (kbd "M-.") 'xref-find-definitions))
              )
+            ;; inferior-python
+            (define-key python-mode-map (kbd "C-c C-s") 'run-python)
             ))
 
 
