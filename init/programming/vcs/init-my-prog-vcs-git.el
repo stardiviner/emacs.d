@@ -313,71 +313,6 @@
               (turn-on-magit-gitflow))))
 
 
-;;; [ Egg ] (Emacs Got Git)
-;;
-;; The egg package is the fork of the magit package, described above. Main
-;; difference from magit is an improvements in the users interface (example of
-;; interface to work with history of changes you can see on the picture below)
-;; and correct work on MS Windows, all other functional is almost the same as in
-;; magit.
-
-;; (require 'egg)
-
-
-
-;;; [ magithub ] -- working with GitHub
-
-;; (require 'magithub)
-
-
-;;; [ magit-gh-pulls ] -- Magit plugin for dealing with GitHub pull requests.
-
-;;; Usage:
-;;
-;; in `magit-status' window.
-;;
-;;   - [# g g] :: refresh the list of pull requests.
-;;
-;;   - [# g f] :: fetch the commits associated with the PR.
-;;
-;;   - [# g b] :: press the key on the PR to create a "topic branch" for this PR.
-;;                After testing the PR you can merge it back into your branch using Magit.
-;;
-;;   - [# g m] :: merge the PR on top of the currently checked out branch.
-;;                This is convenient if pull request can be merged by
-;;                fast-forwarding and no testing is needed (or you can test from
-;;                your branch directly). A nice benefit of this approach over
-;;                merging from Github interface is that in case of FF no merge
-;;                commit is produced, so history stays nice and linear.
-
-;; (require 'magit-gh-pulls)
-;;
-;; (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
-
-
-;;; [ magit-gerrit ] -- code review tool Gerrit for Magit.
-
-;;; Usage:
-;;
-;; Workflow
-;;
-;;     - Check out branch, make changes, and commit...
-;;     - Gerrit Push Commit for Code Review => T P
-;;     - Gerrit Add Reviewer => T A (optional)
-;;     - Wait for code review and verification (approvals updated in magit-status)
-;;     - Gerrit Submit Review => T S
-
-
-;; (require 'magit-gerrit)
-;;
-;; ;; if remote url is not using the default gerrit port and
-;; ;; ssh scheme, need to manually set this variable
-;; (setq-default magit-gerrit-ssh-creds "myid@gerrithost.org")
-;;
-;; ;; if necessary, use an alternative remote instead of 'origin'
-;; (setq-default magit-gerrit-remote "gerrit")
-
-
 ;;; [ git-messenger ] -- popup commit message at current line.
 
 (use-package git-messenger

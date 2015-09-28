@@ -117,15 +117,11 @@
   '(define-key magit-mode-map "V"
      #'endless/visit-pull-request-url))
 
-
-
 
 ;;; [ magit-gerrit ] -- Magit plugin for Gerrit Code Review
 
 ;;; Usage:
 ;;
-;; -
-
 ;;; Workflow
 ;;
 ;; - Check out branch, make changes, and commit...
@@ -152,6 +148,12 @@
 ;; ((magit-mode .
 ;;              ((magit-gerrit-ssh-creds . "dev_a@prj1.server.com")
 ;;               (magit-gerrit-remote . "gerrit"))))
+
+
+;;; [ magithub ] -- working with GitHub
+
+;; (require 'magithub)
+
 
 
 (provide 'init-my-prog-vcs-github)
