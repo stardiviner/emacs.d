@@ -153,7 +153,7 @@
 ;;      (define-key slime-mode-map (kbd "C-c i") 'slime-inspect)
 ;;      (define-key slime-mode-map (kbd "C-c C-s") 'slime-selector)))
 
-(add-hook 'slime-inferior-process-start-hook
+(add-hook 'slime-repl-mode-hook
           '(lambda ()
              (add-hook (make-local-variable 'completion-at-point-functions)
                        'slime-complete-symbol)
