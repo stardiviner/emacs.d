@@ -298,7 +298,7 @@
     ;; Prolog
     ediprolog
     ;; Julia
-    julia-mode
+    julia-mode julia-shell
     ;; IPython
     ein ; ein-mumamo
     ;; ESS

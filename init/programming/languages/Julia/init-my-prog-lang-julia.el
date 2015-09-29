@@ -89,6 +89,25 @@
             (add-to-list (make-local-variable 'company-backends)
                          'company-ess-julia-objects)))
 
+
+;;; [ julia-shell ] -- inferior Julia
+
+;;; Usage:
+;;
+;; - [M-x julia-shell] :: to interact with `julia-shell' from `julia-mode'.
+;; - `inferior-julia-shell'
+;; - `run-julia'
+
+(use-package julia-shell
+  :config
+  ;; (require 'julia-shell-mode)
+
+  ;; FIXME:
+  ;; (add-hook 'julia-mode-hook 'julia-shell-mode)
+  
+  (define-key julia-mode-map (kbd "C-c C-c") 'julia-shell-run-region-or-line)
+  (define-key julia-mode-map (kbd "C-c C-s") 'julia-shell-save-and-go)
+  )
 
 
 (provide 'init-my-prog-lang-julia)
