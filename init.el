@@ -216,7 +216,7 @@
 (require 'init-my-tool-paste)
 ;; (require 'init-my-tool-sauron)
 ;; (require 'init-my-tool-irc-erc)
-;; (require 'init-my-tool-emms)
+;; (require 'init-my-tool-music-emms)
 (require 'init-my-tool-screenshot)
 (require 'init-my-tool-screencast)
 (require 'init-my-tool-stack-exchange)

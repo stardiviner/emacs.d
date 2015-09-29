@@ -1,4 +1,4 @@
-;;; init-my-tool-emms.el --- init EMMS
+;;; init-my-tool-music-emms.el --- init EMMS
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -125,6 +125,6 @@
 
 
 
-(provide 'init-my-tool-emms)
+(provide 'init-my-tool-music-emms)
 
-;;; init-my-tool-emms.el ends here
+;;; init-my-tool-music-emms.el ends here
