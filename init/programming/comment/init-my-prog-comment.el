@@ -64,15 +64,17 @@ column. Place the point after the comment box."
 ;;; comment annotations function
 (defun font-lock-comment-annotations ()
   "Highlight a bunch of well known comment annotations like FIXME:.
+
+;;; [ fixmee ] -- Quickly navigate to FIXME notices in Emacs
 
-This functions should be added to the hooks of major modes for programming."
-  (font-lock-add-keywords nil
-                          '(("\\<\\(FIXME\\|TODO\\|ISSUE\\|BUG\\|ERROR\\|HACK\\|OPTIMIZE\\|REFACTOR\\|REVIEW\\|TEST\\|NOTE\\|NOTICE\\|README\\):" 1
-                             '(:foreground "dark red" :background "black"
-                                           :box '(:color "red" :line-width -1 :style nil)
-                                           :weight 'bold) t))))
+;;; Usage:
+;;
+;; - urgency :: e.g. FIXMEEEEEE, use command: `fixmee-goto-nextmost-urgent'.
 
-(add-hook 'prog-mode-hook 'font-lock-comment-annotations)
+(use-package fixmee
+  :config
+  (global-fixmee-mode 1)
+  )
 
 
 ;;; [ fixme-mode ] -- highlight fixme, todo, bug and other warning comments, and jumping to.

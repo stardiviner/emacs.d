@@ -157,7 +157,9 @@
     smartparens ; autopair
     ;; Comment
     poporg ; outorg
-    boxquote fic-mode
+    boxquote
+    ;; Fixme
+    fixmee ; fic-mode
     ;; Linter
     flycheck flycheck-pos-tip helm-flycheck
     ;; Document

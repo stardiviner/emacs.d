@@ -21,11 +21,10 @@
 
 ;;; add Org-mode's default `pcomplete' to `company-mode'.
 
-;; (add-hook 'completion-at-point-functions 'pcomplete-completions-at-point nil t)
 (add-hook 'org-mode-hook
           (lambda ()
-            (add-to-list (make-local-variable 'completion-at-point-functions)
-                         'pcomplete-completions-at-point)))
+            (setq-local completion-at-point-functions 'pcomplete-completions-at-point)
+            ))
 
 
 ;;;_*, org-ac
