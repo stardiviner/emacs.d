@@ -19,6 +19,8 @@
 
 (require 'eval-in-repl)
 
+(setq eval-in-repl-jump-forward-after-eval t)
+
 ;; Emacs Lisp
 (require 'eval-in-repl-ielm)
 ;; for *.el

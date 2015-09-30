@@ -323,6 +323,7 @@
 
 ;; inline babel call
 ;; ... call_<name>[<inside header arguments>](<arguments>)[<end header arguments>] ...
+;; FIXME:
 (font-lock-add-keywords
  'org-mode
  '(("\\(call_\\)\\([^[(]*\\)\\(\\[.*\\]\\)\\((.*)\\)\\(\\[.*\\]\\)"

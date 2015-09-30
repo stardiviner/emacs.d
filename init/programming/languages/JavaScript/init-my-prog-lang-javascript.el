@@ -45,6 +45,7 @@
 
 ;; (js2-highlight-unused-variables-mode)
 
+(add-hook 'js-mode-hook 'js2-minor-mode)
 
 
 ;;; [ js3-mode ]

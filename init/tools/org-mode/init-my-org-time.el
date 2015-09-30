@@ -85,6 +85,7 @@
       ))
 ;; fix org clock in does not play sound.
 (add-hook 'org-clock-in-hook 'org-clock-play-sound)
+;; (add-hook 'org-clock-out-hook 'org-clock-play-sound)
 
 
 ;;; [ Time Interval ]

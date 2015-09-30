@@ -15,6 +15,8 @@
            ielm-mode-hook))
   (add-hook hook 'turn-on-eldoc-mode))
 
+;; (when turn-on-eldoc-mode
+;;   (setq (make-local-variable 'eldoc-documentation-function) 'robe-eldoc))
 
 (set-face-attribute 'eldoc-highlight-function-argument nil
                     :underline t :foreground "cyan"
@@ -101,7 +103,7 @@
 (use-package helm-dash
   :config
   (setq helm-dash-docsets-path (expand-file-name "~/.docsets")
-        helm-dash-min-length 2
+        helm-dash-min-length 1
         ;; 'completing-read, 'ido-completing-read
         ;; helm-dash-completing-read-func 'completing-read
         ;; 'eww-browse-url, 'browse-url, 'browse-url-generic, 'helm-browse-url

@@ -589,6 +589,8 @@ The `BUFFER' is the popwin catch pop private message buffer."
 ;;; Python
 ;; *Python*
 ;; (push '(inferior-python-mode :position bottom :height 10) popwin:special-display-config)
+;; *Anaconda*
+(push '(anaconda-mode-view-mode :position bottom :height 10) popwin:special-display-config)
 
 ;;; jedi doc help
 (push '("*jedi:doc" :position bottom :height 10) popwin:special-display-config)
