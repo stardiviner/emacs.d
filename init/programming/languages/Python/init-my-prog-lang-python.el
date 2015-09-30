@@ -93,14 +93,26 @@ Version must be already installed."
 
 ;;; Usage:
 ;;
-;; - `pyvenv-activate' :: queries the user for a virtual environment directory to activate.
-;; - `pyvenv-workon' :: queries for a virtual environment in $WORKON_HOME (from virtualenvwrapper.sh).
-;; - `pyvenv-mode-line-indicator' :: an indicator for mode-line.
+;; - `pyvenv-activate'
+;;
+;;   queries the user for a virtual environment directory to activate.
+;;
+;; - `pyvenv-workon'
+;;
+;;    queries for a virtual environment in $WORKON_HOME (from
+;;    virtualenvwrapper.sh).
+;;
+;; - `pyvenv-mode-line-indicator'
+;;
+;;   an indicator for mode-line.
 
-;; TODO: config it.
+
 
 
-;;; [ pyenv-mode ]
+;;; [ virtualenv ]
+
+
+;;; [ virtualenvwrapper ]
 
 
 ;;; [ jedi.el ] --- a python auto-completion library.
@@ -160,6 +172,8 @@ Version must be already installed."
 ;; - virtual environment
 ;; - eldoc mode
 
+;; - `pythonic-activate' :: active Python virtualenv.
+
 ;;; Keybindings
 ;;
 ;; - [M-.] :: anaconda-mode-goto-definitions
@@ -216,12 +230,6 @@ Version must be already installed."
             ;; inferior-python
             (define-key python-mode-map (kbd "C-c C-s") 'run-python)
             ))
-
-
-;;; [ virtualenv ]
-
-
-;;; [ virtualenvwrapper ]
 
 
 ;;; [ IPython ]
