@@ -9,6 +9,8 @@
 
 ;;;_ web-mode
 
+(require 'web-mode)
+
 ;; Using web-mode for editing plain HTML files can be done this way
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . web-mode))
@@ -42,10 +44,10 @@
 
 ;; `web-mode-engines'
 
-;; (setq web-mode-enable-element-tag-fontification t
-;;       web-mode-enable-element-content-fontification t)
+(setq web-mode-enable-element-tag-fontification t
+      web-mode-enable-element-content-fontification t)
 
-;; (setq web-mode-enable-engine-detection t)
+(setq web-mode-enable-engine-detection t)
 
 ;; (setq web-mode-engines-alist '())
 ;; (add-to-list 'web-mode-engines-alist '("php" . "\\.phtml\\'"))
@@ -64,9 +66,9 @@
 ;; (add-to-list 'auto-mode-alist '("/some/react/path/*\\.js[x]?\\'" . web-mode))
 ;;
 ;; (setq web-mode-content-types-alist
-;;       '(("json" . "/some/path/*\\.api\\'")
-;;         ("xml"  . "/other/path/*\\.api\\'")
-;;         ("jsx"  . "/some/react/path/*\\.js[x]?\\'")))
+;;       '(("json" . "/some/path/.*\\.api\\'")
+;;         ("xml"  . "/other/path/.*\\.api\\'")
+;;         ("jsx"  . "/some/react/path/.*\\.js[x]?\\'")))
 
 
 
@@ -292,8 +294,7 @@
       (let ((web-mode-cur-language
              (web-mode-language-at-pos)))
         (if (or (string= web-mode-cur-language "javascript")
-               (string= web-mode-cur-language "jsx")
-               )
+               (string= web-mode-cur-language "jsx"))
             (unless tern-mode (tern-mode))
           (if tern-mode (tern-mode))))))
 
