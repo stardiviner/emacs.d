@@ -410,6 +410,25 @@
 ;;       pretty-symbol-patterns '())
 
 
+;;; [ page (^L) ]
+
+;; - <C-x [/]> :: navigate.
+;; "^\014",
+(setq page-delimiter
+      (rx bol ";;;" (not (any "#")) (* not-newline) "\n"
+          (* (* blank) (opt ";" (* not-newline)) "\n")))
+;; Expanded regexp:
+;; "^;;;[^#].*\n\\(?:[[:blank:]]*\\(?:;.*\\)?\n\\)*"
+;;
+;; The regexp above is a bit special. We’re setting the page delimiter to be a
+;; ;;; at the start of a line, plus any number of empty lines or comment lines
+;; that follow it (that # part is to exclude ;;;###autoload cookies).
+
+;;; hello
+(advice-add #'backward-page :after #'recenter)
+(advice-add #'forward-page  :after #'recenter)
+
+
 ;;; [ page-break-lines-mode ] --- page breaks (^L characters) are displayed as a horizontal line of a character.
 
 ;;; In Page Break mode, page breaks (^L characters) are displayed as a horizontal line of `page-break-string-char' characters.
