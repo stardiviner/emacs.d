@@ -6,18 +6,16 @@
 
 ;;; [ Lisp ]
 
+;;; Common Settings for All Lisp dialects
+(hook-modes lisp-dialects-mode
+  (rainbow-delimiters-mode-enable)
+  (paredit-mode 1)
+  (hl-sexp-mode 1)
+  (eldoc-mode 1)
+  (company-mode-on)
+  )
+
 (setq inferior-lisp-program "sbcl")
-
-;; (setq lisp-dialects-mode-hook '(lisp-mode-hook
-;;                                 lisp-interaction-mode-hook
-;;                                 emacs-lisp-mode-hook
-;;                                 ;; common-lisp-mode-hook
-;;                                 scheme-mode-hook
-;;                                 clojure-mode-hook
-;;                                 cider-repl-mode-hook
-;;                                 ))
-
-
 
 ;; - 'lisp-indent-function
 ;; - 'common-lisp-indent-function
@@ -82,17 +80,6 @@
 (set-face-attribute 'rainbow-delimiters-mismatched-face nil
                     :foreground "red" :background "black"
                     )
-
-
-;;; Common Settings for All Lisp dialects
-
-(hook-modes lisp-dialects-mode
-  (rainbow-delimiters-mode-enable)
-  (paredit-mode 1)
-  (hl-sexp-mode 1)
-  (eldoc-mode 1)
-  (company-mode-on)
-  )
 
 
 ;;; [ SLIME ]
