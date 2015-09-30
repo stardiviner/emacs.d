@@ -79,12 +79,20 @@ column. Place the point after the comment box."
 
 ;;; Usage:
 ;;
+;; - patterns:
+;;   - @@@
+;;   - XXX         ; only this one is case-sensitive
+;;   - todo
+;;   - fixme
+;;
 ;; - urgency :: e.g. FIXMEEEEEE, use command: `fixmee-goto-nextmost-urgent'.
+;;
+;; - C-c f 	 :: fixmee-goto-nextmost-urgent
+;; - C-c F 	 :: fixmee-goto-prevmost-urgent
+;; - C-c v 	 :: fixmee-view-listing
+;; - M-n 	 :: fixmee-goto-next-by-position ; only when the point is
+;; - M-p 	 :: fixmee-goto-previous-by-position ; inside a fixme notice
 
-(use-package fixmee
-  :config
-  (global-fixmee-mode 1)
-  )
 
 
 ;;; [ fixme-mode ] -- highlight fixme, todo, bug and other warning comments, and jumping to.
