@@ -26,9 +26,12 @@
         (:cache . "no")
         (:noweb . "no")
         (:hlines . "no")
-        (:tangle . "no")
-        (:comments . "both")
         (:padnewline . "yes")
+        ;; for tangle
+        (:tangle . "no")
+        ;; for tangle jump between org <-> code file
+        (:padline . "true")
+        (:comments . "links")
         ))
 
 ;;; inline source code header arguments
@@ -36,8 +39,8 @@
       '((:session . "none")
         (:results . "replace")
         (:exports . "both")
+        (:hlines . "yes")
         ))
-
 
 (setq org-src-fontify-natively t
       ;; nil: preserve org indent, t: preserve export indent.
