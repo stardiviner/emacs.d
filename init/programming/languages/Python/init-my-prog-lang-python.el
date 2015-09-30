@@ -156,8 +156,11 @@
 ;; project installation. To make it available for anaconda-mode you have few
 ;; options.
 
-(add-hook 'python-mode-hook 'anaconda-mode)
-(add-hook 'python-mode-hook 'eldoc-mode)
+(use-package anaconda-mode
+  :init
+  (add-hook 'python-mode-hook 'anaconda-mode)
+  (add-hook 'python-mode-hook 'eldoc-mode)
+  )
 
 
 ;;; [ company-anaconda ]
