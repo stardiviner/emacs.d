@@ -219,7 +219,6 @@
     rainbow-delimiters rainbow-blocks
     slime slime-annot slime-company ; slime-repl
     sly sly-company
-    geiser
     eval-sexp-fu
     ;; Emacs Lisp
     elisp-slime-nav
@@ -227,6 +226,9 @@
     hl-sexp highlight-escape-sequences
     ;; ert
     ;; ert-async  ert-runner ert-modeline ert-expectations ; ert-junit
+    ;; Common Lisp
+    ;; Scheme
+    ;; geiser
     ;; Shell
     insert-shebang
     ;; C & C++
