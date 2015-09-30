@@ -64,6 +64,28 @@
                          'company-anaconda)))
 
 
+;;; [ pyenv-mode ]
+
+;;; Usage:
+;;
+;; 1. [M-x pyenv-mode-set] :: specify pyenv python version.
+;; 2. [M-x run-python] :: run inferior python.
+;; 3. [M-x pyenv-mode-unset] :: unset
+
+(use-package pyenv-mode
+  :config
+  (pyenv-mode)
+
+  ;; projectile integration
+  (defun projectile-pyenv-mode-set ()
+    "Set pyenv version matching project name.
+Version must be already installed."
+    (pyenv-mode-set (projectile-project-name)))
+
+  (add-hook 'projectile-switch-project-hook 'projectile-pyenv-mode-set)
+  )
+
+
 ;;; [ pyvenv ] -- Python virtual environment interface for Emacs.
 
 ;;; This is a simple global minor mode which will replicate the changes done by
