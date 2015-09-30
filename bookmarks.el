@@ -2,7 +2,27 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("ParEdit keybindings"
+(("Systemd"
+ (filename . "~/Org/Wiki/Computer/Softwares/systemd/systemd.org")
+ (front-context-string . "* Intro\n\n\n[[file")
+ (rear-context-string)
+ (position . 1))
+("Bootstrap"
+ (filename . "~/Org/Wiki/Computer/Programming/Implements/Web/Frameworks/Bootstrap/Bootstrap.org")
+ (front-context-string . "* Intro\n\nBootstr")
+ (rear-context-string)
+ (position . 1))
+("My JavaScript AJAX Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/JavaScript/Data/Manuals/My JavaScript AJAX Reference/My JavaScript AJAX Reference.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("CSS Preprocessor"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/CSS/Data/CSS Preprocessor/CSS Preprocessor.org")
+ (front-context-string . "* Intro\n\nAdd pro")
+ (rear-context-string)
+ (position . 1))
+("ParEdit keybindings"
  (filename . "~/Org/Wiki/Computer/Programming/Emacs/modes/paredit.org")
  (front-context-string . "**** Key Binding")
  (rear-context-string . " parentheses_.\n\n")
@@ -360,11 +380,6 @@
 ("CSS.org"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/CSS/CSS.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
- (rear-context-string)
- (position . 1))
-("HTML5.org"
- (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/HTML/HTML5/HTML5.org")
- (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
 ("Clojure.org"
