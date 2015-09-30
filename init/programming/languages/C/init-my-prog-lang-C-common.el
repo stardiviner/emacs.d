@@ -42,6 +42,11 @@
   ;; (c-toggle-auto-hungry-state 1)
   (electric-indent-mode 1)
   (turn-on-eldoc-mode)
+
+  (make-local-variable 'company-backends)
+  (add-to-list 'company-backends 'company-gtags)
+  (add-to-list 'company-backends 'company-etags)
+  (add-to-list 'company-backends 'company-cmake)
   )
 
 ;; How to convert tabs to space in source code?
@@ -92,13 +97,13 @@
 
 ;; replace the `completion-at-point' and `complete-symbol' bindings in
 ;; irony-mode's buffers by irony-mode's function
-(defun my-irony-mode-hook ()
-  (define-key irony-mode-map [remap completion-at-point]
-    'irony-completion-at-point-async)
-  (define-key irony-mode-map [remap complete-symbol]
-    'irony-completion-at-point-async))
-
-(add-hook 'irony-mode-hook 'my-irony-mode-hook)
+(add-hook 'irony-mode-hook
+          (lambda ()
+            (define-key irony-mode-map [remap completion-at-point]
+              'irony-completion-at-point-async)
+            (define-key irony-mode-map [remap complete-symbol]
+              'irony-completion-at-point-async)
+            ))
 
 
 ;;; [ company-irony ]
@@ -118,16 +123,14 @@
 
 ;;; [ irony-eldoc ]
 
-(eval-after-load 'irony
-  '(progn
-     (add-hook 'irony-mode-hook #'irony-eldoc)))
+(with-eval-after-load 'irony
+  (add-hook 'irony-mode-hook #'irony-eldoc))
 
 
 ;;; [ flycheck-irony ]
 
-(eval-after-load 'irony
-  '(progn
-     (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
+(with-eval-after-load 'irony
+  (add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
 
 
 ;;; [ company-clang ]
@@ -140,14 +143,7 @@
 
 (hook-modes c-dialects-mode
   (add-to-list (make-local-variable 'company-backends)
-               'company-gtags)
-  (add-to-list (make-local-variable 'company-backends)
-               'company-etags)
-  (add-to-list (make-local-variable 'company-backends)
-               'company-clang)
-  (add-to-list (make-local-variable 'company-backends)
-               'company-cmake)
-  )
+               'company-clang))
 
 
 ;;; [ company-c-headers ]
