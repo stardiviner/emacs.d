@@ -118,7 +118,7 @@
 ;; (require 'slime)
 ;;; -----------------------------------
 
-(setq slime-contribs '(slime-fancy))
+(require 'slime-fancy)
 
 ;;; FIXME: can't connect with SLIME.
 ;; (defun my-start-slime ()
