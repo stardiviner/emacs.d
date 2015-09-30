@@ -161,10 +161,12 @@
 ;; Prolog
 (define-key my-prog-inferior-map (kbd "g") 'run-prolog)   ; Prolog
 ;; ESS
-;; R
 (unless (boundp 'my-inferior-ess-map)
   (define-prefix-command 'my-inferior-ess-map))
-(define-key my-prog-inferior-map (kbd "e") 'my-inferior-ess-map)
+(define-key my-prog-inferior-map (kbd "E") 'my-inferior-ess-map)
+
+(define-key my-inferior-ess-map (kbd "E") 'inferior-ess) ; ESS
+;; R
 ;; Julia
 ;; Octave
 (define-key my-prog-inferior-map (kbd "o") 'run-octave)   ; Octave
@@ -173,7 +175,7 @@
 ;; Haskell
 (define-key my-prog-inferior-map (kbd "h") 'run-haskell)  ; Haskell
 ;; Erlang
-(define-key my-prog-inferior-map (kbd "E") 'run-erlang)   ; Erlang
+(define-key my-prog-inferior-map (kbd "e") 'run-erlang)   ; Erlang
 ;; Festival
 (define-key my-prog-inferior-map (kbd "f") 'run-festival) ; Festival
 
