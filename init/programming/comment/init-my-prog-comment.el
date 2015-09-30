@@ -94,17 +94,19 @@ column. Place the point after the comment box."
 
 ;;; [ fic-mode ] --- "fixme in comments (and strings)"
 
-(setq fic-highlighted-words comment-fic-keywords-list)
+(use-package fic-mode
+  :config
+  (setq fic-highlighted-words comment-fic-keywords-list)
 
-(set-face-attribute 'font-lock-fic-face nil
-                    :foreground "dark orange"
-                    :background "#444444")
-
-(dolist (hook
-         '(prog-mode-hook
-           ))
-  ;; (add-hook hook 'turn-on-fic-mode)
-  (add-hook hook #'turn-on-fic-mode)
+  (dolist (hook
+           '(prog-mode-hook
+             ))
+    (add-hook hook #'turn-on-fic-mode)
+    )
+  
+  (set-face-attribute 'font-lock-fic-face nil
+                      :foreground "dark orange"
+                      :background "#444444")
   )
 
 
