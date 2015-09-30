@@ -18,21 +18,18 @@
 ;; - `clm/' :: prefix.
 ;; 2. [M-x clm/toggle-command-log-buffer] :: toggle command log buffer.
 
-;; (require 'command-log-mode)
-(autoload 'command-log-mode "command-log-mode" nil t)
-(autoload 'clm/toggle-command-log-buffer "command-log-mode" nil t)
+(use-package command-log-mode
+  :config
+  (setq command-log-mode-is-global t
+        command-log-mode-auto-show t
+        ;; command-log-mode-key-binding-open-log "C-c t S o"
+        command-log-mode-open-log-turns-on-mode t
+        command-log-mode-window-size 40
+        command-log-mode-window-font-size 2
+        )
 
-(setq command-log-mode-is-global t
-      command-log-mode-auto-show t
-      ;; command-log-mode-key-binding-open-log "C-c t S o"
-      command-log-mode-open-log-turns-on-mode t
-      command-log-mode-window-size 40
-      command-log-mode-window-font-size 2
-      )
-
-;; (add-hook 'org-mode-hook 'command-log-mode)
-
-(define-key my-screenshot-map (kbd "L") 'command-log-mode)
+  (define-key my-screenshot-map (kbd "L") 'command-log-mode)
+  )
 
 
 ;;; [ mwe-log-commands ]
