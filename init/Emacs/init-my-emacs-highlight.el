@@ -30,9 +30,9 @@
 
 (setq highlight-symbol-idle-delay 3
       highlight-symbol-border-pattern '("\\_<" . "\\_>")
-      highlight-symbol-colors '("yellow" "DeepPink" "cyan"
-                                "MediumPurple1" "SpringGreen1" "DarkOrange" "HotPink1"
-                                "RoyalBlue1" "OliveDrab")
+      highlight-symbol-colors '("brown" "tomato" "dark green" "dark slate gray"
+                                "deep pink" "cyan" "yellow"
+                                )
       highlight-symbol-foreground-color nil ; nil: keep original color.
       ;; highlight-symbol-border-pattern '("\\_<" . "\\_>")
       )
@@ -68,8 +68,8 @@
   (setq highlight-thing-delay-seconds 1.5)
   (setq highlight-thing-limit-to-defun t)
   (set-face-attribute 'highlight-thing nil
-                      :foreground "cyan"
-                      :background (color-darken-name (face-background 'default) 3)
+                      :foreground "green yellow"
+                      :background (color-lighten-name (face-background 'default) 3)
                       )
   ;; (global-highlight-thing-mode)
   (add-hook 'prog-mode-hook 'highlight-thing-mode)
