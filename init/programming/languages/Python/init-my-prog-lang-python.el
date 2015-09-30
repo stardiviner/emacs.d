@@ -165,10 +165,13 @@
 
 ;;; [ company-anaconda ]
 
-(add-hook 'python-mode-hook
-          (lambda ()
-            (add-to-list (make-local-variable 'company-backends)
-                         'company-anaconda)))
+(use-package company-anaconda
+  :init
+  (add-hook 'python-mode-hook
+            (lambda ()
+              (add-to-list (make-local-variable 'company-backends)
+                           'company-anaconda)))
+  )
 
 
 
