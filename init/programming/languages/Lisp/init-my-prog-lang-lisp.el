@@ -120,14 +120,14 @@
 
 (require 'slime-fancy)
 
-;;; FIXME: can't connect with SLIME.
-;; (defun my-start-slime ()
-;;   "Start SLIME unless it's already running."
-;;   (unless (slime-connected-p)
-;;     (save-excursion (slime))))
-;;
-;; ;; start slime automatically when we open a lisp file
-;; (add-hook 'slime-mode-hook 'my-start-slime)
+(defun my-start-slime ()
+  "Start SLIME unless it's already running."
+  (interactive)
+  (unless (slime-connected-p)
+    (save-excursion (slime))))
+
+;; start slime automatically when we open a lisp file
+(add-hook 'slime-mode-hook 'my-start-slime)
 ;;
 ;; (eval-after-load 'slime
 ;;   '(progn
