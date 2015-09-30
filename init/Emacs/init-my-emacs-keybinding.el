@@ -68,36 +68,11 @@
 (require 'bind-key)
 
 
-;;; [ which-key ] -- displays available keybindings in popup.
-
-;; which-key is a minor mode for Emacs that displays the keybindings following
-;; your currently entered incomplete command (a prefix) in a popup. For example,
-;; after enabling the minor mode if you enter C-x and wait for the default of 1
-;; second the minibuffer will expand with all of the available keybindings that
-;; follow C-x (or as many as space allows given your settings). This includes
-;; prefixes like C-x 8 which are shown in a different face. Screenshots of what
-;; the popup will look like are included below. which-key started as a rewrite
-;; of guide-key-mode, but the feature sets have diverged to a certain extent.
-;;
-;; With respect to guide-key, the intention is to provide the following features:
-;;
-;; - A different polling mechanism to make it lighter on resources than guide-key.
-;;
-;; - An improved display of keys with more keys being shown by default and a nicer presentation.
-;;
-;; - Customization options that allow for the rewriting of command names on the
-;;   fly through easily modifiable alists.
-;;
-;; - Good default configurations that work well with most themes.
-;;
-;; - A well configured back-end for displaying keys (removing the popwin
-;;   dependency) that can be easily customized by writing new display functions.
-;;
-;; Many of these have been implemented and are described below.
+;;; [ which-key ]
 
 (use-package which-key
   :config
-  (setq which-key-idle-delay 1.0)
+  (setq which-key-idle-delay 1.5)
 
   ;; (setq which-key-popup-type 'side-window ; 'side-window, 'minibuffer, 'frame
   ;;       which-key-side-window-location 'bottom
@@ -142,7 +117,7 @@
                       :underline "dark red")
 
   (setq which-key-highlighted-command-list
-        '("^helm" "toggle"
+        '("toggle"
           "register" "bookmark"
           "rectangle" "iedit"
           ("emacs" . highlight)
