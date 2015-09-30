@@ -146,6 +146,7 @@
         ;; Book
         ("DouBan_Books" . "http://book.douban.com/subject_search?search_text=%s")
         ;; Movie
+        ("IMDb" . "http://www.imdb.com/title/%s")
         ("DouBan_Movies" . "http://movie.douban.com/subject_search?search_text=%s")
         ))
 
