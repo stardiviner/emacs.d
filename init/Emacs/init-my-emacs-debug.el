@@ -310,7 +310,7 @@ LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
 ;;
 ;; Finally, you can also use `bug-hunter-file' to hunt in other files.
 
-(require 'bug-hunter)
+;; (require 'bug-hunter)
 
 
 

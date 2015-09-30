@@ -174,71 +174,72 @@
 
 ;;; [ hydra ] -- tie related commands into a family of short bindings with a common prefix - a Hydra.
 
-(require 'hydra)
+(use-package hydra
+  :config
+  ;; display a hint with possible bindings in the echo area.
+  (setq hydra-is-helpful t)
 
-;; display a hint with possible bindings in the echo area.
-(setq hydra-is-helpful t)
+  ;; examples
+  (require 'hydra-examples)
 
-;;; examples
-(require 'hydra-examples)
+  ;; my defined hydras
 
-;;; my defined hydras
+  ;; This means that when I press < from the start of the line, a Hydra will be
+  ;; called instead of inserting <, otherwise < will be inserted.
 
-;; This means that when I press < from the start of the line, a Hydra will be
-;; called instead of inserting <, otherwise < will be inserted.
-
-;; (defhydra hydra-org-template (:color red :hint nil)
-;;   "
-;; _c_enter  _q_uote    _L_aTeX:
-;; _l_atex   _e_xample  _i_ndex:
-;; _a_scii   _v_erse    _I_NCLUDE:
-;; _s_rc     ^ ^        _H_TML:
-;; _h_tml    ^ ^        _A_SCII:
-;; "
-;;   ("s" (hot-expand "<s"))
-;;   ("e" (hot-expand "<e"))
-;;   ("q" (hot-expand "<q"))
-;;   ("v" (hot-expand "<v"))
-;;   ("c" (hot-expand "<c"))
-;;   ("l" (hot-expand "<l"))
-;;   ("h" (hot-expand "<h"))
-;;   ("a" (hot-expand "<a"))
-;;   ("L" (hot-expand "<L"))
-;;   ("i" (hot-expand "<i"))
-;;   ("I" (hot-expand "<I"))
-;;   ("H" (hot-expand "<H"))
-;;   ("A" (hot-expand "<A"))
-;;   ("<" self-insert-command "ins")
-;;   ("o" nil "quit"))
-;;
-;; (defun hot-expand (str)
-;;   "Expand org template."
-;;   (insert str)
-;;   (org-try-structure-completion))
-;;
-;; (define-key org-mode-map "<"
-;;   (lambda () (interactive)
-;;     (if (looking-back "^")
-;;         (hydra-org-template/body)
-;;       (self-insert-command 1))))
+  ;; (defhydra hydra-org-template (:color red :hint nil)
+  ;;   "
+  ;; _c_enter  _q_uote    _L_aTeX:
+  ;; _l_atex   _e_xample  _i_ndex:
+  ;; _a_scii   _v_erse    _I_NCLUDE:
+  ;; _s_rc     ^ ^        _H_TML:
+  ;; _h_tml    ^ ^        _A_SCII:
+  ;; "
+  ;;   ("s" (hot-expand "<s"))
+  ;;   ("e" (hot-expand "<e"))
+  ;;   ("q" (hot-expand "<q"))
+  ;;   ("v" (hot-expand "<v"))
+  ;;   ("c" (hot-expand "<c"))
+  ;;   ("l" (hot-expand "<l"))
+  ;;   ("h" (hot-expand "<h"))
+  ;;   ("a" (hot-expand "<a"))
+  ;;   ("L" (hot-expand "<L"))
+  ;;   ("i" (hot-expand "<i"))
+  ;;   ("I" (hot-expand "<I"))
+  ;;   ("H" (hot-expand "<H"))
+  ;;   ("A" (hot-expand "<A"))
+  ;;   ("<" self-insert-command "ins")
+  ;;   ("o" nil "quit"))
+  ;;
+  ;; (defun hot-expand (str)
+  ;;   "Expand org template."
+  ;;   (insert str)
+  ;;   (org-try-structure-completion))
+  ;;
+  ;; (define-key org-mode-map "<"
+  ;;   (lambda () (interactive)
+  ;;     (if (looking-back "^")
+  ;;         (hydra-org-template/body)
+  ;;       (self-insert-command 1))))
 
 
-;;; hydra faces
-(set-face-attribute 'hydra-face-red nil
-                    :foreground "red"
-                    :weight 'bold)
-(set-face-attribute 'hydra-face-blue nil
-                    :foreground "blue"
-                    :weight 'bold)
-(set-face-attribute 'hydra-face-amaranth nil
-                    :foreground "orange"
-                    :weight 'bold)
-(set-face-attribute 'hydra-face-pink nil
-                    :foreground "pink"
-                    :weight 'bold)
-(set-face-attribute 'hydra-face-teal nil
-                    :foreground "cyan"
-                    :weight 'bold)
+  ;; hydra faces
+  (set-face-attribute 'hydra-face-red nil
+		      :foreground "red"
+		      :weight 'bold)
+  (set-face-attribute 'hydra-face-blue nil
+		      :foreground "blue"
+		      :weight 'bold)
+  (set-face-attribute 'hydra-face-amaranth nil
+		      :foreground "orange"
+		      :weight 'bold)
+  (set-face-attribute 'hydra-face-pink nil
+		      :foreground "pink"
+		      :weight 'bold)
+  (set-face-attribute 'hydra-face-teal nil
+		      :foreground "cyan"
+		      :weight 'bold)
+  )
 
 
 ;;; [ Buffer-locally overriding minor-mode key bindings in Emacs ]

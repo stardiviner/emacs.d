@@ -31,8 +31,11 @@
 ;; - `sourcegraph-jump-to-def' :: jump to definition.
 ;; - `sourcegraph-search-site'
 
-;; enable sourcegraph-mode minor mode in all programming modes repository.
-(add-hook 'prog-mode-hook 'sourcegraph-mode)
+(use-package sourcegraph
+  :config
+  ;; enable sourcegraph-mode minor mode in all programming modes repository.
+  (add-hook 'prog-mode-hook 'sourcegraph-mode)
+  )
 
 
 

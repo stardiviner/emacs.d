@@ -72,6 +72,13 @@
 ;;   (package-install 'magit-gh-pulls))
 ;;
 
+(use-package magit-gh-pulls
+  :config
+  (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
+  )
+
+;; TODO: clean up those.
+
 ;;; Automatically configure Magit to access Github PRs
 (defun my/add-PR-fetch ()
   "If refs/pull is not defined on a GH repo, define it."
@@ -86,19 +93,7 @@
          "config" "--add" "remote.origin.fetch"
          fetch-address)))))
 
-(add-hook 'magit-mode-hook #'my/add-PR-fetch)
-
-;;; Merging Github Pull Requests from Emacs
-(eval-after-load 'magit
-  '(define-key magit-mode-map (kbd "# g g") 'my-enable-gh-pulls-mode))
-
-(defun my-enable-gh-pulls-mode ()
-  "Enable `magit-gh-pulls-mode' only after a manually request."
-  (interactive)
-  (require 'magit-gh-pulls)
-  (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
-  (magit-gh-pulls-mode 1)
-  (magit-gh-pulls-reload))
+;; (add-hook 'magit-mode-hook #'my/add-PR-fetch)
 
 ;;; Easily Create Github PRs from Magit
 (defun endless/visit-pull-request-url ()
@@ -106,12 +101,12 @@
   (interactive)
   (browse-url
    (format "https://github.com/%s/compare/%s"
-     (replace-regexp-in-string
-      "\\`.+github\\.com:\\(.+\\)\\.git\\'" "\\1"
-      (magit-get "remote"
-                 (magit-get-current-remote)
-                 "url"))
-     (magit-get-current-branch))))
+           (replace-regexp-in-string
+            "\\`.+github\\.com:\\(.+\\)\\.git\\'" "\\1"
+            (magit-get "remote"
+                       (magit-get-current-remote)
+                       "url"))
+           (magit-get-current-branch))))
 
 (eval-after-load 'magit
   '(define-key magit-mode-map "V"
@@ -130,7 +125,7 @@
 ;; - Wait for code review and verification (approvals updated in magit-status)
 ;; - Gerrit Submit Review => T S
 
-(require 'magit-gerrit)
+;; (require 'magit-gerrit)
 
 ;;; For simple setups, it should be enough to set the default value for
 ;;; `magit-gerrit-ssh-creds' and `magit-gerrit-remote'.

@@ -18,19 +18,19 @@
     ;; Apperance
     color-theme
     color-theme-solarized
-    monokai-theme
+    ;; monokai-theme
     page-break-lines
     ;; mode-line
     ;; nyan-mode nyan-prompt
     ;; Keybinding
-    helm-bind-key
+    ;; helm-bind-key
     which-key
-    hydra
+    ;; hydra
     ;; showkey
     ;; keyfreq
     ;; Debug
     edebug-x
-    bug-hunter
+    ;; bug-hunter
     ;; Profile & Benchmark
     ;; esup benchmark-init
     ;; Server & Client
@@ -54,8 +54,7 @@
     ;; pophint
     ;; Fold
     allout allout-widgets
-    foldout
-    origami
+    ;; origami
     ;; Info, Man,
     info+ ; woman
     ;; Dired
@@ -97,7 +96,8 @@
     ;; Process
     ;; dizzee ; prodigy
     ;; Server
-    elnode web-server websocket ; httpd
+    ;; elnode peek-mode
+    ;; web-server websocket ; httpd
     
     ;; Shell
     eshell ; shell-here shell-toggle
@@ -106,7 +106,6 @@
     ;; Org-mode
     org org-plus-contrib
     org-bullets
-    org-beautify-theme
     org-agenda-property
     org-pdfview
     org-projectile
@@ -121,7 +120,6 @@
     ob-ipython
     ;; ob-translate
     org-screenshot
-    org-projectile
     ;; org-pomodoro
     ;; org-vcard
     ;; org-trello org-redmine org-readme
@@ -140,15 +138,18 @@
     diffview
     ;; VCS
     magit
-    magit-find-file magit-filenotify magit-popup magit-tramp
+    magit-find-file magit-filenotify magit-popup ; magit-tramp
     magit-gitflow
+    magit-gh-pulls
     ;; magit-annex magit-gerrit magit-gh-pulls magit-stgit magit-topgit
     ;; helm-git helm-git-files
     git-messenger
     git-gutter git-gutter+
     ;; git-gutter-fringe git-gutter-fringe+
+    ;; GitHub
+    helm-open-github
     ;; Gitlab
-    gitlab
+    ;; gitlab helm-gitlab
     ;; Indent
     aggressive-indent ; auto-indent-mode
     indent-guide
@@ -159,7 +160,8 @@
     poporg ; outorg
     boxquote
     ;; Fixme
-    fixmee ; fic-mode
+    fic-mode
+    ;; fixmee
     ;; Linter
     flycheck flycheck-pos-tip helm-flycheck
     ;; Document
@@ -176,20 +178,20 @@
     swiper
     helm-c-moccur color-moccur
     ;; highlight
-    highlight-symbol ; highlight-thing
+    highlight-symbol highlight-thing
     ;; Regexp
     visual-regexp visual-regexp-steroids
     ample-regexps pcre2el regex-tool
     ;; wgrep wgrep-ack wgrep-helm
     ack full-ack helm-ack
     ag helm-ag
-    pt helm-pt
+    ;; pt helm-pt
     ;; helm-recoll
     ;; Tags
     ;; ctags ctags-update
     ;; rtags
-    helm-cscope
-    xcscope
+    ;; helm-cscope
+    ;; xcscope
     ggtags
     helm-gtags
     ;; Compile
@@ -201,15 +203,15 @@
     ;; helm-make
     ;; Sense
     ;; cedet
-    sourcegraph
+    ;; sourcegraph
     ;; License
     ;; xlicense
     ;; Code Paste
-    yagist helm-gist
+    yagist ; helm-gist
     ;; Bug Track System
-    bts bts-github
+    ;; bts bts-github
     ;; Test
-    cerbere test-case-mode
+    ;; cerbere test-case-mode
     ;; runtests
     ;; Refactor
     emr
@@ -223,7 +225,7 @@
     ;; Emacs Lisp
     elisp-slime-nav
     eldoc-eval
-    hl-sexp highlight-escape-sequences
+    hl-sexp ; highlight-escape-sequences
     ;; ert
     ;; ert-async  ert-runner ert-modeline ert-expectations ; ert-junit
     ;; Common Lisp
@@ -253,8 +255,8 @@
     ;; ruby-guard
     ;; motion-mode
     ;; Python
-    pyenv-mode pyvenv
-    virtualenv virtualenvwrapper
+    ;; pyenv-mode pyvenv
+    ;; virtualenv virtualenvwrapper
     ;; jedi company-jedi
     anaconda-mode company-anaconda
     ;; Perl
@@ -264,6 +266,7 @@
     ;; flycheck-perl6
     ;; plsense-direx
     ;; Clojure
+    clojure-mode
     clojure-mode-extra-font-locking
     inf-clojure ; clojure-env
     cider cider-eval-sexp-fu cider-decompile
@@ -272,7 +275,7 @@
     align-cljlet
     elein
     ;; Elixir
-    elixir-mode ; alchemist
+    ;; elixir-mode ; alchemist
     ;; Go
     go-mode go-complete company-go go-eldoc
     gore-mode ; gotest
@@ -280,25 +283,25 @@
     ;; go-stacktracer
     ;; Java
     ;; jdee
-    emacs-eclim
+    ;; emacs-eclim
     ;; PHP
-    php-mode inf-php php-eldoc
+    ;; php-mode inf-php php-eldoc
     ;; php-boris php-boris-minor-mode
     ;; phpunit
     ;; Nim
-    nim-mode flycheck-nim
+    ;; nim-mode flycheck-nim
     ;; Rust
     ;; rust-mode flycheck-rust
     ;; racer company-racer
     ;; Haskell
-    haskell-mode flycheck-haskell
-    ghc ghci-completion
-    ebal
-    company-ghc company-ghci company-cabal
+    ;; haskell-mode flycheck-haskell
+    ;; ghc ghci-completion
+    ;; ebal
+    ;; company-ghc company-ghci company-cabal
     ;; Erlang
-    erlang
+    ;; erlang
     ;; Prolog
-    ediprolog
+    ;; ediprolog
     ;; Julia
     julia-mode julia-shell
     ;; IPython
@@ -353,7 +356,7 @@
     coffee-mode
     ;; Web
     web-mode
-    web-beautify
+    ;; web-beautify
     ;; multi-web-mode
     skewer-mode ; skewer-reload-stylesheets skewer-less
     livid-mode
@@ -370,11 +373,11 @@
     ;; AngularJS
     angularjs-mode
     ;; Assembly
-    nasm-mode iasm-mode
+    ;; nasm-mode iasm-mode
     ;; TeX
-    company-auctex company-math
-    latex-pretty-symbols
-    px latex-preview-pane ; latex-math-preview
+    ;; company-auctex company-math
+    ;; latex-pretty-symbols
+    ;; px latex-preview-pane ; latex-math-preview
     ;; Markdown
     markdown-mode
     ;; YAML
@@ -388,7 +391,7 @@
     ;; Android
     android-mode
     ;; Arduino
-    arduino-mode company-arduino
+    ;; arduino-mode company-arduino
 
     ;; Linux
     ;; emamux
@@ -427,7 +430,7 @@
     bbdb
     ;; bbdb-vcard bbdb-csv-import gmail2bbdb
     ;; Feeds: RSS & Atom
-    elfeed elfeed-web
+    ;; elfeed elfeed-web
     ;; Blog
     octopress org-octopress
     ;; Calendar
@@ -452,7 +455,7 @@
     ;; Collaborate
     ;; rudel togetherly
     ;; Websites Client
-    sx
+    ;; sx
     
     ;; Emacs Lisp Libraries
     ;; Object

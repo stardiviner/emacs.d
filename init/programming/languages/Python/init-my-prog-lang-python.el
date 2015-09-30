@@ -78,6 +78,9 @@
 ;; TODO: config it.
 
 
+;;; [ pyenv-mode ]
+
+
 ;;; [ jedi.el ] --- a python auto-completion library.
 
 ;;; Usage:

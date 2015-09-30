@@ -192,6 +192,7 @@ For project directory with Projectile root."
 
 
 
+;; NOTE: use etags & gtags, because company-mode support.
 (require 'init-my-prog-tags-etags)
 (require 'init-my-prog-tags-gtags)
 ;; (require 'init-my-prog-tags-ctags)

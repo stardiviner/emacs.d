@@ -211,7 +211,7 @@
 (require 'init-my-tool-bookmark)
 ;; (require 'init-my-tool-OpenSpritz)
 (require 'init-my-tool-email)
-(require 'init-my-tool-feeds)
+;; (require 'init-my-tool-feeds)
 (require 'init-my-tool-blog)
 (require 'init-my-tool-paste)
 ;; (require 'init-my-tool-sauron)
@@ -220,7 +220,7 @@
 ;; (require 'init-my-tool-music-bongo)
 (require 'init-my-tool-screenshot)
 (require 'init-my-tool-screencast)
-(require 'init-my-tool-stack-exchange)
+;; (require 'init-my-tool-stack-exchange)
 
 
 ;;; Programming
@@ -243,8 +243,8 @@
 (require 'init-my-prog-test)
 (require 'init-my-prog-project)
 (require 'init-my-prog-vcs)
-(require 'init-my-prog-bug-track-system)
-(require 'init-my-prog-refactor)
+;; (require 'init-my-prog-bug-track-system)
+;; (require 'init-my-prog-refactor)
 
 
 ;;; Programming Languages
@@ -260,39 +260,39 @@
 (require 'init-my-prog-lang-C-common)
 (require 'init-my-prog-lang-C)
 (require 'init-my-prog-lang-go)
-(require 'init-my-prog-lang-nim)
-(require 'init-my-prog-lang-lua)
+;; (require 'init-my-prog-lang-nim)
+;; (require 'init-my-prog-lang-lua)
 ;; (require 'init-my-prog-lang-swift)
 ;; (require 'init-my-prog-lang-java)
-(require 'init-my-prog-lang-php)
+;; (require 'init-my-prog-lang-php)
 (require 'init-my-prog-lang-html)
 (require 'init-my-prog-lang-css)
 (require 'init-my-prog-lang-javascript)
 (require 'init-my-prog-lang-database)
 (require 'init-my-prog-lang-xml)
 (require 'init-my-prog-lang-json)
-(require 'init-my-prog-lang-haskell)
+;; (require 'init-my-prog-lang-haskell)
 ;; FIXME: achmeist-company can't be initialized.
 ;; (require 'init-my-prog-lang-elixir)
-(require 'init-my-prog-lang-erlang)
+;; (require 'init-my-prog-lang-erlang)
 (require 'init-my-prog-lang-ESS)
 (require 'init-my-prog-lang-R)
 (require 'init-my-prog-lang-julia)
-(require 'init-my-prog-lang-gnuplot)
+;; (require 'init-my-prog-lang-gnuplot)
 ;; (require 'init-my-prog-lang-octave)
 ;; (require 'init-my-prog-lang-matlab)
-(require 'init-my-prog-lang-tex)
+;; (require 'init-my-prog-lang-tex)
 (require 'init-my-prog-lang-markdown)
-(require 'init-my-prog-lang-prolog)
-(require 'init-my-prog-lang-verilog)
-(require 'init-my-prog-lang-assembly)
+;; (require 'init-my-prog-lang-prolog)
+;; (require 'init-my-prog-lang-verilog)
+;; (require 'init-my-prog-lang-assembly)
 
 
 ;;; Frameworks
 (require 'init-my-prog-framework-web)
 (require 'init-my-prog-framework-http)
 (require 'init-my-prog-web-browser)
-(require 'init-my-prog-framework-arduino)
+;; (require 'init-my-prog-framework-arduino)
 (require 'init-my-prog-ruby-on-rails)
 (require 'init-my-prog-nginx)
 

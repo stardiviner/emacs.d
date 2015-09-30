@@ -43,10 +43,10 @@
 ;; Geiser support (for Racket and Guile Scheme)
 ;; When using this, turn off racket-mode and scheme supports
 ;; (require 'geiser) ; if not done elsewhere
-(require 'eval-in-repl-geiser)
-(add-hook 'geiser-mode-hook
-          '(lambda ()
-             (local-set-key (kbd "<C-return>") 'eir-eval-in-geiser)))
+;; (require 'eval-in-repl-geiser)
+;; (add-hook 'geiser-mode-hook
+;;           '(lambda ()
+;;              (local-set-key (kbd "<C-return>") 'eir-eval-in-geiser)))
 
 ;; racket-mode support (for Racket; if not using Geiser)
 ;; (require 'racket-mode) ; if not done elsewhere
