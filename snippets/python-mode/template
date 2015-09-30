@@ -1,8 +1,8 @@
 # -*- mode: snippet -*-
-# name: ruby source code template
+# name: template
 # key: template
 # --
 #!/usr/bin/env python -v
 # -*- coding: utf-8 -*-
 
-$1
+$0
