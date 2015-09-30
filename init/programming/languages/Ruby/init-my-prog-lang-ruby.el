@@ -6,8 +6,8 @@
 ;;; Code:
 
 
-(add-to-list 'auto-mode-alist '("\\.rb\'" . ruby-mode))
-(add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rb\'" . enh-ruby-mode))
+(add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
 
 ;; We never want to edit Rubinius bytecode or MacRuby binaries
 (add-to-list 'completion-ignored-extensions ".rbc")
@@ -59,7 +59,7 @@
 ;;; [ enh-ruby-mode ] --
 
 (use-package enh-ruby-mode
-  :init
+  :config
   (add-to-list 'auto-mode-alist '("\\.rb\'" . enh-ruby-mode))
   (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
   ;; Gemfile, Capfile, Rakefile
@@ -69,7 +69,6 @@
   (add-to-list 'auto-mode-alist
                '("\\.\\(?:gemspec\\|irbrc\\|pryrc\\|gemrc\\|rake\\|ru\\|thor\\)\\'" . enh-ruby-mode))
 
-  :config
   (setq enh-ruby-bounce-deep-indent t
         enh-ruby-check-syntax 'errors-and-warnings
         enh-ruby-comment-column 32
@@ -138,11 +137,11 @@
   (add-hook 'enh-ruby-mode-hook
             '(lambda ()
                ;; highlight symbol: dot .
-               (font-lock-add-keywords
-                'enh-ruby-mode
-                '(("[[:alnum:]]\\(\\.\\)[[:alnum:]]"
-                   (1 '(:foreground "deep pink" :weight 'bold))
-                   )))
+               ;; (font-lock-add-keywords
+               ;;  'enh-ruby-mode
+               ;;  '(("[[:alnum:]]\\(\\.\\)[[:alnum:]]"
+               ;;     (1 '(:foreground "deep pink" :weight 'bold))
+               ;;     )))
                
                ;; FIXME: this is override by ruby-mode default syntax highlight.
                ;; highlight keyword: self
