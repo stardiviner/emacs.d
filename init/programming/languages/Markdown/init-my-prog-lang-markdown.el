@@ -114,8 +114,7 @@
 ;;; FIX: `slime-complete-symbol' is in global `completion-at-point-functions'
 (add-hook 'markdown-mode-hook
           (lambda ()
-            (setq-local completion-at-point-functions
-                        'pcomplete-completions-at-point)))
+            (setq-local completion-at-point-functions nil)))
 
 
 ;;; for Stack Overflow {It's All Text} (Firefox Addon)
