@@ -74,7 +74,7 @@
 
 (use-package pyenv-mode
   :config
-  (pyenv-mode)
+  (add-hook 'python-mode-hook 'pyenv-mode)
 
   ;; projectile integration
   (defun projectile-pyenv-mode-set ()
