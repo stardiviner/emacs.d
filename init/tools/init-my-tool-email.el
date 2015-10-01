@@ -47,7 +47,7 @@
 
 (unless (boundp 'my-boxquote-map)
   (define-prefix-command 'my-boxquote-map))
-(define-key my-tools-prefix (kbd "q") 'my-boxquote-map)
+(define-key my-prog-comment-map (kbd "q") 'my-boxquote-map)
 
 (define-key my-boxquote-map (kbd "q") 'boxquote-boxquote)
 (define-key my-boxquote-map (kbd "u") 'boxquote-unbox)
