@@ -20,15 +20,15 @@
 
 (use-package command-log-mode
   :config
-  (setq command-log-mode-is-global t
-        command-log-mode-auto-show t
-        ;; command-log-mode-key-binding-open-log "C-c t S o"
+  (setq command-log-mode-auto-show t
+        command-log-mode-is-global nil
+        command-log-mode-key-binding-open-log nil
         command-log-mode-open-log-turns-on-mode t
-        command-log-mode-window-size 40
+        ;; command-log-mode-window-size 40
         command-log-mode-window-font-size 2
         )
 
-  (define-key my-screenshot-map (kbd "L") 'command-log-mode)
+  (define-key my-screenshot-map (kbd "k") 'command-log-mode)
   )
 
 
