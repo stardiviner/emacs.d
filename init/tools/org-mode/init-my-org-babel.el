@@ -140,6 +140,10 @@
 
 (require 'ob-processing)
 
+;;; [ ob-elixir ]
+
+(require 'ob-elixir)
+
 ;;; [ ob-julia ]
 ;;
 ;; this require "ESS"

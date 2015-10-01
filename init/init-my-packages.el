@@ -275,7 +275,8 @@
     align-cljlet
     elein
     ;; Elixir
-    ;; elixir-mode ; alchemist
+    elixir-mode ; alchemist
+    ob-elixir
     ;; Go
     go-mode go-complete company-go go-eldoc
     gore-mode ; gotest
