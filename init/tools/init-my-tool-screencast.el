@@ -19,15 +19,18 @@
 ;; 2. [M-x clm/toggle-command-log-buffer] :: toggle command log buffer.
 
 (use-package command-log-mode
+  :init
+  ;; FIX: disable default global keybinding [C-c o]
+  (setq command-log-mode-key-binding-open-log nil)
   :config
   (setq command-log-mode-auto-show t
         command-log-mode-is-global nil
-        command-log-mode-key-binding-open-log nil
         command-log-mode-open-log-turns-on-mode t
         ;; command-log-mode-window-size 40
         command-log-mode-window-font-size 2
         )
 
+  (define-key my-screenshot-map (kbd "M-k") 'clm/toggle-command-log-buffer)
   (define-key my-screenshot-map (kbd "k") 'command-log-mode)
   (define-key my-screenshot-map (kbd "K") 'global-command-log-mode)
   )
