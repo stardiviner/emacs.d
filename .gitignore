@@ -27,7 +27,8 @@ projectile-bookmarks.eld
 /ido.hist
 /var/
 /semanticdb/
-/init/Emacs/flycheck_init-my-emacs-package-management.el
+
+flycheck_
 
 /customize.el
 /.recentf
@@ -70,3 +71,4 @@ image-dired/
 
 .sx/
 .bts/
+/anaconda-mode/

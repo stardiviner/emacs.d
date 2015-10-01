@@ -131,10 +131,12 @@
 ;;
 ;; (eval-after-load 'slime
 ;;   '(progn
-;;      (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol ; 'slime-simple-complete-symbol.
-;;            slime-fuzzy-completion-in-place t
-;;            slime-enable-evaluate-in-emacs t
-;;            slime-autodoc-use-multiline-p t)
+;;      (setq
+;;       slime-completion-at-point-functions '(slime-filename-completion
+;;                                             slime-simple-completion-at-point)
+;;       slime-fuzzy-completion-in-place t
+;;       slime-enable-evaluate-in-emacs t
+;;       slime-autodoc-use-multiline-p t)
 ;;
 ;;      (define-key slime-mode-map (kbd "TAB") 'slime-indent-and-complete-symbol)
 ;;      (define-key slime-mode-map (kbd "C-c i") 'slime-inspect)

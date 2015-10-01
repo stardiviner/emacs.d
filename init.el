@@ -200,7 +200,7 @@
 
 ;;; Tools
 (require 'init-my-org-mode)
-; (require 'init-my-tool-calendar)
+(require 'init-my-tool-calendar)
 (require 'init-my-tool-dictionary)
 (require 'init-my-tool-clock)
 ;; (require 'init-my-tool-speak)
@@ -209,7 +209,7 @@
 (require 'init-my-tool-bbdb)
 (require 'init-my-tool-browser)
 (require 'init-my-tool-bookmark)
-;; (require 'init-my-tool-OpenSpritz)
+(require 'init-my-tool-OpenSpritz)
 (require 'init-my-tool-email)
 ;; (require 'init-my-tool-feeds)
 (require 'init-my-tool-blog)
@@ -237,14 +237,14 @@
 (require 'init-my-prog-snippet)
 (require 'init-my-prog-template)
 (require 'init-my-prog-document)
-(require 'init-my-prog-inferior)
+;; (require 'init-my-prog-inferior)
 (require 'init-my-prog-compile)
 (require 'init-my-prog-make)
 (require 'init-my-prog-test)
 (require 'init-my-prog-project)
 (require 'init-my-prog-vcs)
 ;; (require 'init-my-prog-bug-track-system)
-;; (require 'init-my-prog-refactor)
+(require 'init-my-prog-refactor)
 
 
 ;;; Programming Languages
@@ -276,7 +276,7 @@
 ;; (require 'init-my-prog-lang-elixir)
 ;; (require 'init-my-prog-lang-erlang)
 (require 'init-my-prog-lang-ESS)
-(require 'init-my-prog-lang-R)
+;; (require 'init-my-prog-lang-R)
 (require 'init-my-prog-lang-julia)
 ;; (require 'init-my-prog-lang-gnuplot)
 ;; (require 'init-my-prog-lang-octave)
@@ -292,7 +292,7 @@
 (require 'init-my-prog-framework-web)
 (require 'init-my-prog-framework-http)
 (require 'init-my-prog-web-browser)
-;; (require 'init-my-prog-framework-arduino)
+(require 'init-my-prog-framework-arduino)
 (require 'init-my-prog-ruby-on-rails)
 (require 'init-my-prog-nginx)
 

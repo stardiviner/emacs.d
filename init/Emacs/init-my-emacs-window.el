@@ -524,7 +524,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
   (push '("*wclock*" :position bottom :height 10 :noselect t) popwin:special-display-config)
 
   ;; command-log-mode
-  (push '("*command-log*" :position bottom :height 5 :noselect t :tail t)
+  (push '("*command-log*" :position bottom :height 5 :noselect t :tail t :stick t)
         popwin:special-display-config)
   
   ;; process list

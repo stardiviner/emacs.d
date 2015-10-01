@@ -38,7 +38,7 @@
 ;; - [C-M-x]   :: `python-shell-send-defun'
 ;; - `python-shell-send-string'
 
-(defun inferior-python ()
+(defun my-inferior-python ()
   "My function to start or switch to inferior-python process buffer `PROCESS-BUFFER-NAME'."
   (interactive)
   (if (get-buffer-process "*Python*")
@@ -52,8 +52,7 @@
   )
 
 ;; (define-key my-prog-inferior-map (kbd "p") 'run-python)
-(define-key my-prog-inferior-map (kbd "p") 'inferior-python)
-
+(define-key my-prog-inferior-map (kbd "p") 'my-inferior-python)
 
 ;; (setq inferior-python-mode-hook '(python-shell-send-setup-code))
 ;; (setq inferior-python-mode-hook nil)
@@ -79,9 +78,9 @@
   ;; projectile integration
   (defun projectile-pyenv-mode-set ()
     "Set pyenv version matching project name.
-Version must be already installed."
+  Version must be already installed."
     (pyenv-mode-set (projectile-project-name)))
-
+  
   (add-hook 'projectile-switch-project-hook 'projectile-pyenv-mode-set)
   )
 

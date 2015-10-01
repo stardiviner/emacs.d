@@ -77,16 +77,11 @@
 ;; - `ess-company-backends' :: for company-mode.
 ;; - `ess-ac-sources' :: for auto-complete.
 
-;; Julia
-;; TODO:
-;;   (ess-company-backends . '(company-julia-objects))
+;;; company-ess
 
 
 
 ;;; TODO: startup start ESS process
-
-
-;;; [ ess-julia ]
 
 
 

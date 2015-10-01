@@ -24,10 +24,10 @@
 
 (add-hook 'message-mode-hook
           (lambda ()
-            (turn-on-orgstruct) ; Org-struct minor mode
+            ;; org-mode structure
+            (turn-on-orgstruct)
             (turn-on-orgstruct++)
-            ;; enable Orgtbl minor mode in message-mode.
-            (turn-on-orgtbl)))
+            (turn-on-orgtbl)
 
 
 ;;; Email region

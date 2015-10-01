@@ -85,6 +85,11 @@
   (define-key enh-ruby-mode-map (kbd "<C-return>") 'eir-eval-in-ruby)
   )
 
+;; Prolog support
+;; (require 'eval-in-repl-prolog)
+;; (use-package prolog
+;;   :config
+;;   (define-key prolog-mode-map (kbd "<C-return>") 'eir-eval-in-prolog))
 
 ;; SML support
 ;; (require 'sml-mode) ; if not done elsewhere

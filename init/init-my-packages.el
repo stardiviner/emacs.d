@@ -178,7 +178,7 @@
     swiper
     helm-c-moccur color-moccur
     ;; highlight
-    highlight-symbol highlight-thing
+    highlight-symbol ; highlight-thing
     ;; Regexp
     visual-regexp visual-regexp-steroids
     ample-regexps pcre2el regex-tool
@@ -255,7 +255,7 @@
     ;; ruby-guard
     ;; motion-mode
     ;; Python
-    ;; pyenv-mode pyvenv
+    pyenv-mode ; pyvenv
     ;; virtualenv virtualenvwrapper
     ;; jedi company-jedi
     anaconda-mode company-anaconda
@@ -305,12 +305,11 @@
     ;; Julia
     julia-mode julia-shell
     ;; IPython
-    ein ; ein-mumamo
+    ;; ein ; ein-mumamo
     ;; ESS
-    ess
+    ess ; company-ess
     ess-smart-equals ess-smart-underscore
     ess-R-data-view ess-R-object-popup
-    ;; company-ess
     ;; Processing
     ;; processing-mode
     ;; Plot
@@ -391,7 +390,7 @@
     ;; Android
     android-mode
     ;; Arduino
-    ;; arduino-mode company-arduino
+    arduino-mode company-arduino
 
     ;; Linux
     ;; emamux
