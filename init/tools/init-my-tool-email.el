@@ -41,6 +41,8 @@
     (insert content)
     (message-goto-to)))
 
+(define-key my-email-prefix (kbd "r") 'email-region)
+
 
 ;;; [ boxquote ]
 
