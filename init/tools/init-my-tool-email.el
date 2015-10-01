@@ -6,6 +6,12 @@
 
 ;;; Code:
 
+
+(unless (boundp 'my-email-prefix)
+  (define-prefix-command 'my-email-prefix))
+(define-key my-tools-prefix (kbd "m") 'my-email-prefix)
+
+
 ;;; [ mail-mode ] -- mail-mode is replaced with message-mode.
 
 
@@ -22,6 +28,18 @@
             (turn-on-orgstruct++)
             ;; enable Orgtbl minor mode in message-mode.
             (turn-on-orgtbl)))
+
+
+;;; Email region
+
+(defun email-region (start end)
+  "Send region as the body of an email."
+  (interactive "r")
+  (let ((content (buffer-substring start end)))
+    (compose-mail)
+    (message-goto-body)
+    (insert content)
+    (message-goto-to)))
 
 
 ;;; [ boxquote ]
