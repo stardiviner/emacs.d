@@ -190,6 +190,7 @@
   ;; works with `indent-guide-global-mode'
   (add-to-list 'indent-guide-inhibit-modes 'org-mode)
   (add-to-list 'indent-guide-inhibit-modes 'web-mode)
+  (add-to-list 'indent-guide-inhibit-modes 'emacs-lisp-mode)
 
   ;; custom indent line char
   ;; 1: use `indent-guide-char'.
@@ -211,8 +212,8 @@
   ;; (indent-guide-global-mode)
 
   (dolist (hook '(prog-mode-hook
-                  emacs-lisp-mode-hook
-                  lisp-mode-hook
+                  ;; emacs-lisp-mode-hook
+                  ;; lisp-mode-hook
                   clojure-mode-hook
                   ruby-mode-hook
                   python-mode-hook
