@@ -398,7 +398,7 @@
 
   ;; `popwin:special-display-config'
   ;; push popwin:special-display-config `flags': [C-h v popwin:special-display-config]
-  ;; - :position [bottom|top]
+  ;; - :position [bottom|top|left|right]
   ;; - :height 10
   ;; - :width 100
   ;; - :noselect t
@@ -416,8 +416,8 @@
   (push '("*Backtrace*" :position bottom :height 10 :noselect t) popwin:special-display-config)
 
   ;; M-! shell command output
-  (push '("*Shell Command Output*" :position bottom :height 10 :noselect t) popwin:special-display-config)
-  (push '("*Async Shell Command*" :position bottom :height 10 :noselect t) popwin:special-display-config)
+  (push '("*Shell Command Output*" :position bottom :height 10 :noselect t :tail t) popwin:special-display-config)
+  (push '("*Async Shell Command*" :position bottom :height 10 :noselect t :tail t) popwin:special-display-config)
 
   ;; Info
   (push '(apropos-mode :position bottom :height 10) popwin:special-display-config)
@@ -453,9 +453,20 @@
   (push '("*Ediff Control Panel*" :position bottom :height 10) popwin:special-display-config)
 
   ;; Compilation
-  (push '(compilation-mode :position bottom :height 10) popwin:special-display-config)
-  ;; (push '("*compilation*" :position bottom :height 10) popwin:special-display-config)
+  (push '(compilation-mode :position bottom :height 10 :tail t) popwin:special-display-config)
+  (push '("*Compile-Log*" :position bottom :height 10) popwin:special-display-config)
 
+  ;; quickrun "*quickrun*"
+  (push '(quickrun/mode :position bottom :height 10) popwin:special-display-config)
+  (push '("*quickrun*" :position bottom :height 10) popwin:special-display-config)
+
+  ;; *Pp Eval Output*
+  ;; TODO: this will make this buffer does not show up.
+  (push '("*Pp Eval Output*" :position bottom :height 10) popwin:special-display-config)
+
+  ;; File Explorer
+  (push '(project-explorer-mode :position left :stick yes) popwin:special-display-config)
+  
   ;; Tags
   ;; cscope
   ;; ascope
@@ -497,15 +508,6 @@ The `BUFFER' is the popwin catch pop private message buffer."
 
   ;; Flycheck
   (push '("*Flycheck errors*" :position bottom :height 10) popwin:special-display-config)
-  (push '("*Compile-Log*" :position bottom :height 10) popwin:special-display-config)
-
-  ;; quickrun "*quickrun*"
-  (push '(quickrun/mode :position bottom :height 10) popwin:special-display-config)
-  (push '("*quickrun*" :position bottom :height 10) popwin:special-display-config)
-
-  ;; *Pp Eval Output*
-  ;; TODO: this will make this buffer does not show up.
-  (push '("*Pp Eval Output*" :position bottom :height 10) popwin:special-display-config)
 
   ;; sdcv
   (push '("*SDCV*" :position bottom :height 10 :noselect t) popwin:special-display-config)
