@@ -29,6 +29,7 @@
         )
 
   (define-key my-screenshot-map (kbd "k") 'command-log-mode)
+  (define-key my-screenshot-map (kbd "K") 'global-command-log-mode)
   )
 
 
