@@ -349,6 +349,7 @@
     js2-mode js3-mode js-doc
     js-comint
     tern company-tern tj-mode
+    jscs
     jst jss
     ;; Node.js
     ;; nodejs-repl

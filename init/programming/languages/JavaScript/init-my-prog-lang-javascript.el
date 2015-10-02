@@ -252,6 +252,22 @@
 (setenv "NODE_NO_READLINE" "1")
 
 
+;;; [ JSCS (JavaScript Code Style) ]
+
+;;; Usage:
+;;
+;; - [M-x jscs-fix] :: "$ jscs --fix"
+
+;; to apply JSCS indentation rules to JavaScript modes.
+(add-hook 'js-mode-hook #'jscs-indent-apply)
+(add-hook 'js2-mode-hook #'jscs-indent-apply)
+
+;; to run "jscs --fix" on the current buffer when saving.
+;; (add-hook 'js-mode-hook #'jscs-fix-run-before-save)
+;; (add-hook 'js2-mode-hook #'jscs-fix-run-before-save)
+;; (add-hook 'js3-mode-hook #'jscs-fix-run-before-save)
+
+
 ;;; Node.js
 
 ;; (defun node-repl ()
