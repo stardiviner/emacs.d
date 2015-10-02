@@ -255,6 +255,7 @@
     ;; ruby-guard
     ;; motion-mode
     ;; Python
+    python-mode
     pyenv-mode ; pyvenv
     ;; virtualenv virtualenvwrapper
     ;; jedi company-jedi
