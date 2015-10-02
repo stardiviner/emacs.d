@@ -4,7 +4,6 @@
 
 
 ;;; Code:
-
 
 ;;; [ YASnippet ] --- (template/snippet engine)
 
@@ -14,6 +13,7 @@
 ;; - [C-d]
 ;;     (yas-skip-and-clear-or-delete-char)
 ;;      -- to clear unmodified field if at field start, skips to next tab.
+;; - [M-x yas-reload-all] -- reload all snippets.
 ;; - (yas-next-field-or-maybe-expand)
 ;; - (yas/minor-mode)
 ;; - (yas/global-mode)
@@ -100,23 +100,9 @@
 
 
 ;;; keybindings
-;;
-;; - [Tab]
-;; - or [C-Tab]
 
 (define-key yas-minor-mode-map (kbd "<tab>") 'yas-expand) ; (kbd "<tab>") is same with [tab]
 (define-key yas-minor-mode-map (kbd "TAB") #'indent-for-tab-command)
-
-;;; source code implement
-;; (defvar yas-keymap  (let ((map (make-sparse-keymap)))
-;;                       (define-key map [(tab)]       'yas-next-field-or-maybe-expand)
-;;                       (define-key map (kbd "TAB")   'yas-next-field-or-maybe-expand)
-;;                       (define-key map [(shift tab)] 'yas-prev-field)
-;;                       (define-key map [backtab]     'yas-prev-field)
-;;                       (define-key map (kbd "C-g")   'yas-abort-snippet)
-;;                       (define-key map (kbd "C-d")   'yas-skip-and-clear-or-delete-char)
-;;                       map)
-;;   "The active keymap while a snippet expansion is in progress.")
 
 (setq yas-trigger-key "<tab>") ; old value: "TAB"
 (setq yas-next-field-key '("<tab>"))
@@ -126,9 +112,18 @@
 
 
 ;;; indent
+
 (setq yas-indent-line 'auto) ; 'auto, 'fixed
 (setq yas-also-auto-indent-first-line nil)
 
+;;; Python indent issue
+
+(add-hook 'python-mode-hook
+          (lambda ()
+            (make-local-variable 'yas-indent-line)
+            (setq yas-indent-line 'fixed)))
+
+
 ;;; wrap around region
 (setq yas-wrap-around-region t) ; t: snippet expansion wraps around selected region.
 
@@ -142,8 +137,7 @@
 
 ;;; menu
 (setq yas-use-menu 'abbreviate)
-(setq yas-trigger-symbol " =>") ; the text used in menu to represent the trigger.
-
+(setq yas-trigger-symbol (char-to-string ?\x21E5))
 
 ;; (setq yas-key-syntaxes '("w" "w_" "w_." "w_.()" yas-try-key-from-whitespace))
 
@@ -154,95 +148,6 @@
         yas-ido-prompt            ; minibuffer prompting.
         yas-x-prompt              ; X window system.
         yas-no-prompt))
-
-;; (defun yas-popup-isearch-prompt (prompt choices &optional display-fn)
-;;   (when (featurep 'popup)
-;;     (popup-menu*
-;;      (mapcar
-;;       (lambda (choice)
-;;         (popup-make-item
-;;          (or (and display-fn (funcall display-fn choice))
-;;              choice)
-;;          :value choice))
-;;       choices)
-;;      :prompt prompt
-;;      ;; start isearch mode immediately
-;;      :isearch t
-;;      )))
-
-;;; TODO: https://github.com/capitaomorte/yasnippet/issues/488
-;; improve this two functions.
-;; (defun yas-popup-isearch-prompt (prompt choices &optional display-fn)
-;;   (popup-menu*
-;;    (mapcar
-;;     (lambda (choice)
-;;       (popup-make-item
-;;        (if (yas--template-p choice)
-;;            (format "%10.10s %-10.10s  %s"
-;;                    (if (yas--template-group choice)
-;;                        (s-join "/" (yas--template-group choice))
-;;                      "")
-;;                    (if (yas--template-key choice)
-;;                        (yas--template-key choice)
-;;                      "")
-;;                    (if (yas--template-name choice)
-;;                        (yas--template-name choice)
-;;                      ""))
-;;          choice)
-;;        :value choice))
-;;     choices)
-;;    :prompt prompt
-;;    :max-width 80
-;;    :isearch t))
-
-;; FIXME: this should be niced up and contributed back.
-;; (defun yas-popup-isearch-prompt (prompt choices &optional display-fn)
-;;   (let ((group-max-len 0)
-;;         (key-max-len 0)
-;;         (fmt "")
-;;         (popup-items))
-;;
-;;     (mapcar #'(lambda (choice)
-;;                 (when (yas--template-p choice)
-;;                   (setq group-max-len (max group-max-len
-;;                                            (+ (length (yas--template-group choice) )
-;;                                               (apply '+ (mapcar 'length (yas--template-group choice))))))
-;;                   (setq key-max-len (max key-max-len (length (yas--template-key choice))))))
-;;             choices)
-;;
-;;     (setq fmt (format "%s%%%d.%ds%s%%-%d.%ds  %%s"
-;;                       (if (> group-max-len 0 ) "" " ")
-;;                       group-max-len group-max-len
-;;                       (if (> group-max-len 0 ) " > " "")
-;;                       key-max-len key-max-len))
-;;
-;;     (setq popup-items
-;;           (mapcar
-;;            #'(lambda (choice)
-;;                (popup-make-item
-;;                 (if (yas--template-p choice)
-;;                     (format fmt
-;;                             (if (yas--template-group choice)
-;;                                 (s-join "/" (yas--template-group choice))
-;;                               "")
-;;                             (if (yas--template-key choice)
-;;                                 (yas--template-key choice)
-;;                               "")
-;;                             (if (yas--template-name choice)
-;;                                 (yas--template-name choice)
-;;                               ""))
-;;                   (format " %s" choice))
-;;                 :value choice))
-;;            choices))
-;;
-;;     (popup-menu*
-;;      popup-items
-;;      :prompt prompt
-;;      :max-width 80
-;;      :isearch t)))
-
-
-;; (add-to-list 'yas-prompt-functions 'yas-popup-isearch-prompt)
 
 
 
@@ -262,30 +167,19 @@ $0"
 
 
 ;; auto set major mode: snippet-mode.
+
 (add-to-list 'auto-mode-alist
              '("\\.yasnippet$" . snippet-mode)
              '("\\.snippet$" . snippet-mode))
 
-(add-hook 'snippet-mode (lambda ()
-                          ;; turn of auto-fill for long length code
-                          (turn-off-auto-fill)))
-
-
-;; ???
-;; (yas--document-symbols 2 `("Interactive functions" . ,#'interactive-form)
-;;                        `("Customization variables" . ,#'(lambda (sym)
-;;                                                           (and (boundp sym)
-;;                                                                (get sym 'standard-value))))
-;;                        `("Useful functions" . ,#'fboundp)
-;;                        `("Useful variables" . ,#'boundp))
-
-
-;;; set function `yas-new-snippet' default template
-;; (setq yas-new-snippet-default "# -*- mode: snippet -*-\n# name: $1\n# key: ${2:${1:$(yas--key-from-desc yas-text)}}${3:\n# binding: ${4:direct-keybinding}}${5:\n# expand-env: ((${6:some-var} ${7:some-value}))}${8:\n# type: command}\n# --\n$0")
-
+(add-hook 'snippet-mode
+          (lambda ()
+            ;; turn of auto-fill for long length code
+            (turn-off-auto-fill)))
 
 
 ;;; Faces
+
 (set-face-attribute 'yas-field-highlight-face nil
                     :foreground nil
                     :background (color-darken-name (face-background 'default) 5)
@@ -301,9 +195,9 @@ $0"
 ;;; use different way to notify user the snippet exited.
 
 (add-hook 'yas-after-exit-snippet-hook
-          '(lambda ()
-             (popup-tip "snippet exited")
-             ))
+          (lambda ()
+            (popup-tip "snippet exited")
+            ))
 
 
 ;; It will test whether it can expand, if yes, cursor color -> green.
@@ -332,35 +226,9 @@ $0"
 ;; (add-hook 'post-command-hook 'yasnippet-can-fire-p)
 
 
-;;; Python indent issue
-
-(add-hook 'python-mode-hook
-          '(lambda ()
-             (set (make-local-variable 'yas-indent-line) 'fixed)))
-
-
 ;;; enable YASnippet
 
-(setq yas-dont-activate '(minibufferp))
-
-(yas-global-mode 1) ; or [M-x yas-reload-all] if you've started YASnippet already.
-
-;; use yas-minor-mode on a pre-buffer basis To use YASnippet as a non-global
-;; minor mode, replace (yas-global-mode 1) with (yas-reload-all) to load the
-;; snippet tables. Then add a call to (yas-minor-mode) to the major-modes where
-;; you to enable YASnippet.
-;;
-;; NOTE: don't active globally, can avoid enable `yas-minor-mode' on useless modes,
-;; avoid override other mode key [Tab] utility.
-
-;; (dolist (hook
-;;          '(prog-mode-hook
-;;            org-mode-hook
-;;            message-mode-hook
-;;            mu4e-compose-mode-hook
-;;            ))
-;;   (add-hook hook #'yas-minor-mode))
-;; (yas-reload-all)
+(yas-global-mode 1)
 
 
 ;;; [ yasnippet-snippets ]
