@@ -150,6 +150,9 @@ the mode-line."
         (append golden-ratio-extra-commands
                 '(window-number-select
                   )))
+
+  ;; manually re-fit ratio.
+  (global-set-key (kbd "C-x j") 'golden-ratio)
   
   (golden-ratio-mode 1)
   )
