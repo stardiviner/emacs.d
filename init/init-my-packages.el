@@ -81,7 +81,7 @@
     window-number
     popwin ; shackle
     zoom-window ; zoom-frm
-    golden-ratio
+    ;; golden-ratio
     ;; window-purpose
     ;; e2wm elscreen
     workgroups2
