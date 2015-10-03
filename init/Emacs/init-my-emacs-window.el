@@ -68,9 +68,12 @@
 
 ;;; [ window-number ] --
 
-(require 'window-number)
+;;; Usage:
+;;
+;; - [C-x C-j + N] :: window-number-mode
+;; - [M- + <N>] :: window-number-meta-mode
 
-(window-number-mode)
+;; (require 'window-number)
 
 (autoload 'window-number-mode "window-number"
   "A global minor mode that enables selection of windows according
@@ -78,21 +81,18 @@
   `window-number-meta-mode' enables the use of the M- prefix."
   t)
 
-;; (autoload 'window-number-meta-mode "window-number"
-;; "A global minor mode that enables use of the M- prefix to select
-;; windows, use `window-number-mode' to display the window numbers in
-;; the mode-line."
-;; t)
+(autoload 'window-number-meta-mode "window-number"
+  "A global minor mode that enables use of the M- prefix to select
+windows, use `window-number-mode' to display the window numbers in
+the mode-line."
+  t)
 
-;; (push (cons 'my-window-number-meta-mode my-window-number-mode-map) minor-mode-map-alist)
-
-;;; window-number face
-;; (set-face-attribute 'window-number-face nil
-;;                     :background "red" :foreground "black"
-;;                     :bold 'normal)
+(window-number-mode)
+(window-number-meta-mode)
 
 
 ;;; [ window-numbering ] --
+
 ;; (unless (package-installed-p 'window-numbering)
 ;;   (package-install 'window-numbering))
 ;; (require 'window-numbering)
