@@ -111,6 +111,22 @@
     (define-key window-number-mode-map (kbd "C-x C-j p") 'my-turn-current-window-into-new-frame)
   (global-set-key (kbd "C-x C-j p") 'my-turn-current-window-into-new-frame))
 
+
+;;; [ golden-radio ] -- automatic resizing of Emacs windows to the golden ratio.
+
+(use-package golden-ratio
+  :config
+  (setq golden-ratio-auto-scale t)
+  (setq golden-ratio-adjust-factor 1.0
+        golden-ratio-wide-adjust-factor 0.8)
+
+  ;; exclude
+  (setq golden-ratio-exclude-modes '(mu4e-headers-mode mu4e-compose-mode))
+
+  (setq golden-ratio-exclude-buffer-names '(" *Org todo*" " *Org tags*"))
+  
+  (golden-ratio-mode 1)
+  )
 
 
 ;;; [ E2WM ] --- Equilibrium Emacs Window Manager
