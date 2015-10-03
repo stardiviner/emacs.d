@@ -115,15 +115,41 @@
 ;;; [ golden-radio ] -- automatic resizing of Emacs windows to the golden ratio.
 
 (use-package golden-ratio
+  :init
+  (progn
+    (add-hook 'ediff-before-setup-windows-hook #'(lambda () (golden-ratio-mode -1)))
+    (add-hook 'ediff-quit-hook #'(lambda () (golden-ratio-mode 1))))
   :config
   (setq golden-ratio-auto-scale t)
   (setq golden-ratio-adjust-factor 1.0
         golden-ratio-wide-adjust-factor 0.8)
+  (setq golden-ratio-recenter t)
 
   ;; exclude
-  (setq golden-ratio-exclude-modes '(mu4e-headers-mode mu4e-compose-mode))
+  (setq golden-ratio-exclude-modes
+        (append golden-ratio-exclude-modes
+                '(ediff-mode
+                  calendar-mode calc-mode dired-mode
+                  speedbar-mode project-explorer-mode
+                  gnus-summary-mode gnus-article-mode
+                  mu4e-headers-mode mu4e-compose-mode
+                  restclient-mode
+                  )))
 
+  ;; "\\`\\*[Hh]elm.*\\*\\'"
+  (setq golden-ratio-exclude-buffer-regexp '("\\`\\*.*?\\*\\'")) ; *...* buffers
+  
   (setq golden-ratio-exclude-buffer-names '(" *Org todo*" " *Org tags*"))
+  (add-to-list 'golden-ratio-exclude-buffer-names " *which-key*")
+  
+  ;; for popwin.
+  ;; FIXME:
+  ;; (setq golden-ratio-inhibit-functions '(pop-to-buffer))
+
+  (setq golden-ratio-extra-commands
+        (append golden-ratio-extra-commands
+                '(window-number-select
+                  )))
   
   (golden-ratio-mode 1)
   )
