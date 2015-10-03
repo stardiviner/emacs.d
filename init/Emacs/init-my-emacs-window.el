@@ -682,13 +682,14 @@ The `BUFFER' is the popwin catch pop private message buffer."
 
   ;; restclient
   (push '("*rest-client*" :position bottom :height 10) popwin:special-display-config)
+  (push '("*HTTP Response*" :position bottom :height 10) popwin:special-display-config)
 
   ;; elfeed
   (push '(elfeed-search-mode :position top :height 10) popwin:special-display-config)
   (push '("*elfeed-search*" :position top :height 10) popwin:special-display-config)
 
-  ;; restclient
-  (push '("*HTTP Response*" :position bottom :height 10) popwin:special-display-config)
+  ;; mingus
+  (push '(mingus-playlist-mode :position left) popwin:special-display-config)
 
   ;; poporg
   ;; FIXME: not work
