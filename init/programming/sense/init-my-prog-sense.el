@@ -11,8 +11,6 @@
 
 ;; (require 'init-my-prog-cedet)
 
-;; (global-ede-mode t)
-
 
 ;;; [ Sourcegraph: srclib ] -- A hackable, multi-language code analysis library for building better software tools.
 

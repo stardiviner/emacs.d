@@ -443,7 +443,7 @@
     ;; erc circe
     ;; weechat
     ;; Music
-    ;; emms ; helm-emms emms-info-media emms-mode-line-cycle
+    emms helm-emms emms-player-mpv ; emms-info-media emms-mode-line-cycle
     mingus
     ;; Screenshot & Screencast
     screenshot camcorder ; impatient-mode

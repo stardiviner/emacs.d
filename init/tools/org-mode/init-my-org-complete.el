@@ -10,7 +10,9 @@
 
 (if (featurep 'helm)
     (setq org-completion-fallback-command 'helm)
-  (setq org-completion-fallback-command 'hippie-expand))
+  ;; (setq org-completion-fallback-command 'hippie-expand)
+  (setq org-completion-fallback-command 'completing-read)
+  )
 
 ;; (if (featurep 'ido-vertical-mode)
 ;;     (setq org-completion-use-ido t)

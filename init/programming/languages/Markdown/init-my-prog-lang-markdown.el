@@ -118,6 +118,7 @@
 
 
 ;;; for Stack Overflow {It's All Text} (Firefox Addon)
+
 ;; Integrate Emacs with Stack Exchange http://stackoverflow.com/a/10386560/789593
 (add-to-list 'auto-mode-alist '("stack\\(exchange\\|overflow\\)\\.com\\.[a-z0-9]+\\.txt" . markdown-mode))
 ;; Alternatively, if `as-external-alist' is defined—if M-x describe-variable RET

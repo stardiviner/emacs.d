@@ -49,14 +49,6 @@
   (add-to-list 'company-backends 'company-cmake)
   )
 
-;; How to convert tabs to space in source code?
-;; Select a region first, then call `untabify' or `tabify'.
-
-
-;;; [ Semantic ]
-
-;; (semantic-mode t)
-
 
 ;;; [ Irony-mode ] --- A C/C++ minor mode for Emacs powered by libclang.
 
