@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: backtick code block
+# key: code-block
+# --
+\`\`\`
+$0
+\`\`\`

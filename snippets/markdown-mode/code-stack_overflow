@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Stack Overflow code block
+# key: code-stack_overflow
+# --
+<!-- language: lang-${1:lisp,ruby,js} -->
+
+     ${2:code here}
