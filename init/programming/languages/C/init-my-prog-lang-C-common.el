@@ -198,33 +198,32 @@
 ;;
 ;; - `semantic-force-refresh'
 
-
-;; (require 'function-args)
-;; or
-(autoload 'fa-config-default "function-args" nil t)
-(autoload 'turn-on-function-args-mode "function-args" nil t)
-
-;;; Put c++-mode as default for *.h files (improves parsing):
-;; (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+;; (use-package function-args
+;;   :config
 ;;
-;;; Enable case-insensitive searching:
-;; (set-default 'semantic-case-fold t)
+;;   (autoload 'turn-on-function-args-mode "function-args" nil t)
 ;;
-;;; If your includes aren't located in default dirs e.g. /usr/include/ etc, then
-;;; you have to do something like this:
-;; (semantic-add-system-include "~/Software/deal.II/include/" 'c++-mode)
-;; (semantic-add-system-include "/usr/local/boost_1_54_0/" 'c++-mode)
+;;   ;; FIXME: function-args use semantic-mode, it caused python-interpreter suspend on Emacs startup.
+;;   (add-hook 'c-mode-hook 'turn-on-function-args-mode)
+;;   (add-hook 'c++-mode-hook 'turn-on-function-args-mode)
 ;;
-;;; You can add this to improve the parse of macro-heavy code:
-;; (require 'semantic/bovine/c)
-;; (add-to-list 'semantic-lex-c-preprocessor-symbol-file
-;;              "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h")
-
-
-(fa-config-default)
-
-(hook-modes c-dialects-mode
-  (turn-on-function-args-mode))
+;;
+;;   ;; Put c++-mode as default for *.h files (improves parsing):
+;;   ;; (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+;;   ;;
+;;   ;; Enable case-insensitive searching:
+;;   ;; (set-default 'semantic-case-fold t)
+;;   ;;
+;;   ;; If your includes aren't located in default dirs e.g. /usr/include/ etc, then
+;;   ;; you have to do something like this:
+;;   ;; (semantic-add-system-include "~/Software/deal.II/include/" 'c++-mode)
+;;   ;; (semantic-add-system-include "/usr/local/boost_1_54_0/" 'c++-mode)
+;;   ;;
+;;   ;; You can add this to improve the parse of macro-heavy code:
+;;   ;; (require 'semantic/bovine/c)
+;;   ;; (add-to-list 'semantic-lex-c-preprocessor-symbol-file
+;;   ;;              "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h")
+;;   )
 
 
 ;;; [ rtags ]
