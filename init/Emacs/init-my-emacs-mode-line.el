@@ -150,7 +150,7 @@
               '(python-mode))
         (progn
           (list
-           (propertize pyvenv-virtual-env-name ; FIXME:
+           (propertize (pyvenv-mode-version)
                        'face '(:foreground "orange" :height 70))))
       ;; (propertize "Not Python"
       ;;             'face '(:foreground "orange"))
