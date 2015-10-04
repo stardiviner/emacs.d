@@ -814,7 +814,8 @@
                     :foreground "white")
 ;;; flagged email
 (set-face-attribute 'mu4e-flagged-face nil
-                    :foreground "blue" :background "black"
+                    :foreground "white" :background "deep pink"
+                    :weight 'bold
                     )
 ;;; replied email
 (set-face-attribute 'mu4e-replied-face nil
