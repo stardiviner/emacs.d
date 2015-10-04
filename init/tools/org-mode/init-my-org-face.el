@@ -24,16 +24,16 @@
                     :underline nil)
 (set-face-attribute 'org-agenda-date nil
                     :foreground "white" :background "#004A5D"
-                    :box '(:color "cyan" :line-width -1 :style nil)
-                    :weight 'bold)
-(set-face-attribute 'org-agenda-date-today nil
-                    :foreground "white" :background "#004A5D"
-                    :box '(:color "cyan" :line-width 5 :style nil)
+                    :box '(:color "dark cyan" :line-width 3 :style nil)
                     :weight 'bold)
 (set-face-attribute 'org-agenda-date-weekend nil
                     :foreground "deep pink"
                     :background "#222222"
-                    :box '(:color "cyan" :line-width -1 :style nil)
+                    :box '(:color "dark cyan" :line-width 3 :style nil)
+                    :weight 'bold)
+(set-face-attribute 'org-agenda-date-today nil
+                    :foreground "white" :background "#004A5D"
+                    :box '(:color "cyan" :line-width 5 :style nil)
                     :weight 'bold)
 (set-face-attribute 'org-agenda-current-time nil
                     :foreground "cyan" :background "#004A5D"
