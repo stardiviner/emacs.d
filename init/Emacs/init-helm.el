@@ -237,8 +237,7 @@
         ("xmosaic" . browse-url-mosaic)
         ("xterm" . browse-url-text-xterm) ; XTerm
         )
-      ;; helm-default-external-file-browser "dolphin"
-      ;; helm-c-default-external-file-browser
+      helm-default-external-file-browser "dolphin"
       helm-external-programs-associations
       '(("jpg" . "sxiv")
         ("png" . "sxiv")
