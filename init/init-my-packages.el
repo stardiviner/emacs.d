@@ -319,8 +319,8 @@
     gnuplot
     ;; Database
     ;; SQL
+    ;; emacsql
     sqlup-mode format-sql sql-indent
-    emacsql
     edbi edbi-sqlite edbi-database-url company-edbi edbi-minor-mode
     ;; db db-sql
     db-pg
