@@ -1,0 +1,8 @@
+# -*- mode: snippet require-final-newline: nil -*-
+# name: Gist Import - multifile gist
+# key: octopress-gist-full
+# group: octopress
+# --
+{% gist ${1:gist-id} ${2:filename} %}
+
+$0

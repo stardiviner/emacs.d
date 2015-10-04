@@ -1,0 +1,8 @@
+# -*- mode: snippet require-final-newline: nil -*-
+# name: Octopress blockquote author
+# key: octopress-blockquote-author
+# group: octopress
+# --
+{% blockquote ${1:Author}, ${2:Title} %}
+$0
+{% endblockquote %}

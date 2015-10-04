@@ -1,6 +1,0 @@
-# -*- mode: snippet; require-final-newline: nil -*-
-# name: octopress-image-tag
-# key: octopress-image-tag
-# group: octopress.image
-# --
-{% img ${5:class-name: left, center, right} ${1:/path/to/image} ${2:width} ${3:height} ${4:'title text' '[alt text]'} %}

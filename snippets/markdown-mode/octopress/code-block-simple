@@ -1,0 +1,8 @@
+# -*- mode: snippet require-final-newline: nil -*-
+# name: Octopress code block simple
+# key: octopress-code-block-simple
+# group: octopress
+# --
+{% codeblock %}
+$0
+{% endcodeblock %}

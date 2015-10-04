@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Octopress Image Tag
+# key: octopress-image
+# group: octopress
+# --
+{% img ${5:class-name: left, center, right} ${1:URL:/path/to/image} ${2:width} ${3:height} ${4:'title text' '[alt text]'} %}
+
+$0

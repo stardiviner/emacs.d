@@ -1,0 +1,8 @@
+# -*- mode: snippet require-final-newline: nil -*-
+# name: Octopress codeblock full
+# key: octopress-codeblock
+# group: octopress
+# --
+{% codeblock ${1:Title} lang:${2:Language} ${3:URL} ${4:Link text} %}
+$0
+{% endcodeblock %}

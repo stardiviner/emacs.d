@@ -1,0 +1,8 @@
+# -*- mode: snippet require-final-newline: nil -*-
+# name: Octopress Youtube link
+# key: octopress-link-youtube
+# group: octopress
+# --
+{% youtube  ${1:video id} %}
+
+$0

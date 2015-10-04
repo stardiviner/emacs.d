@@ -1,0 +1,8 @@
+# -*- mode: snippet require-final-newline: nil -*-
+# name: Octopress backtick code block full
+# key: octopress-code-block-backtick
+# group: octopress
+# --
+\`\`\` ${1:Language} ${2:Title} ${3:URL} ${4:Link Text}
+$0
+\`\`\`
