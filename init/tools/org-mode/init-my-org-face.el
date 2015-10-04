@@ -84,7 +84,7 @@
 ;; alread past deadline in agenda
 (set-face-attribute 'org-warning nil
                     :foreground "red"
-                    :weight 'normal)
+                    :weight 'bold)
 ;; comming deadline in agenda
 (set-face-attribute 'org-upcoming-deadline nil
                     :foreground "orange")
