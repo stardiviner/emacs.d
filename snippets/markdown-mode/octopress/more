@@ -1,6 +1,6 @@
 #-*- mode: snippet require-final-newline: nil -*-
-# name: <!-- comment -->
-# key: comment
+# name: <!-- more -->
+# key: octopress-more
 # group: octopress
 # --
 <!-- $0 -->

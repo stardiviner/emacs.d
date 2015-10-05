@@ -32,27 +32,28 @@
 
 ;; Emacs Lisp hook
 (add-hook 'emacs-lisp-mode-hook
-          (lambda ()
-            (turn-on-eldoc-mode)
-            (my-recompile-elc-on-save)
-            (rainbow-mode 1)
-            
-            ;; for company-mode
-            ;; FIXME: how to add `company-elisp' behind default grouped backends?
-            ;; Insert an element at a given position into a list. `cl': `insert'
-            ;; (let ((grouped-backends (car company-backends)))
-            ;;   ;; FIXME:
-            ;;   (delete grouped-backends company-backends)
-            ;;   (add-to-list (make-local-variable 'company-backends)
-            ;;                'company-elisp)
-            ;;   ;; FIXME:
-            ;;   (add-to-list (make-local-variable 'company-backends)
-            ;;                'grouped-backends)
-            ;;   )
+          '(lambda ()
+             (rainbow-mode 1)
+             (turn-on-eldoc-mode)
+             
+             (my-recompile-elc-on-save)
+             
+             ;; for company-mode
+             ;; FIXME: how to add `company-elisp' behind default grouped backends?
+             ;; Insert an element at a given position into a list. `cl': `insert'
+             ;; (let ((grouped-backends (car company-backends)))
+             ;;   ;; FIXME:
+             ;;   (delete grouped-backends company-backends)
+             ;;   (add-to-list (make-local-variable 'company-backends)
+             ;;                'company-elisp)
+             ;;   ;; FIXME:
+             ;;   (add-to-list (make-local-variable 'company-backends)
+             ;;                'grouped-backends)
+             ;;   )
 
-            (add-to-list (make-local-variable 'completion-at-point-functions)
-                         'slime-complete-symbol)
-            ))
+             (add-to-list (make-local-variable 'completion-at-point-functions)
+                          'slime-complete-symbol)
+             ))
 
 (add-to-list 'auto-mode-alist '("Cask\\'" . emacs-lisp-mode))
 

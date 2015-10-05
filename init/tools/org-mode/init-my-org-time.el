@@ -77,15 +77,16 @@
 ;;              (if (not org-timer-current-timer) ; FIXME: this variable seems not part of `org-timer'.
 ;;                  (org-timer-set-timer '(16)))))
 
-(if (featurep 'helm)
-    (progn
-      (require 'helm-org)
-      (advice-add 'org-clock-select-task :override #'helm-org-clock-select-task)
-      ;; (advice-remove 'org-clock-select-task #'helm-org-clock-select-task)
-      ))
-;; fix org clock in does not play sound.
-(add-hook 'org-clock-in-hook 'org-clock-play-sound)
-;; (add-hook 'org-clock-out-hook 'org-clock-play-sound)
+(define-key my-org-prefix (kbd "i") 'org-clock-select-task)
+
+;; FIXME: `helm-org-clock-select-task' is void.
+;; (if (featurep 'helm)
+;;     (progn
+;;       (require 'helm-org)
+;;       (advice-add 'org-clock-select-task :override #'helm-org-clock-select-task)
+;;       ;; (advice-remove 'org-clock-select-task #'helm-org-clock-select-task)
+;;       ))
+
 ;; (add-hook 'org-clock-in-hook 'org-clock-play-sound)
 
 (add-hook 'org-clock-in-hook
