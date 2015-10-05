@@ -35,16 +35,6 @@
         emmet-indent-after-insert t
         emmet-use-style-tag-and-attr-detection t
         )
-  (add-hook 'emmet-mode-hook
-            (lambda ()
-              (make-local-variable 'company-backends)
-              (setq company-backends (copy-tree company-backends))
-              (setf (car company-backends)
-                    (append '(company-web-html
-                              company-web-jade
-                              company-web-slim)
-                            (car company-backends)))
-              ))
 
   (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
   (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
