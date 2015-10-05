@@ -16,7 +16,7 @@
       ;; org-hide-block-startup t
       org-hide-leading-stars t
       org-indent-mode-turns-on-hiding-stars t
-      org-indent-indentation-per-level 2
+      org-indent-indentation-per-level 1
       org-hide-emphasis-markers t
       )
 
