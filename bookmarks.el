@@ -2,7 +2,17 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Systemd"
+(("pacman"
+ (filename . "~/Org/Wiki/Computer/Softwares/pacman.org")
+ (front-context-string . "* Intro\n\nThe pac")
+ (rear-context-string)
+ (position . 1))
+("Yaourt"
+ (filename . "~/Org/Wiki/Computer/Softwares/yaourt.org")
+ (front-context-string . "* Intro\n\nYaourt ")
+ (rear-context-string)
+ (position . 1))
+("Systemd"
  (filename . "~/Org/Wiki/Computer/Softwares/systemd/systemd.org")
  (front-context-string . "* Intro\n\n\n[[file")
  (rear-context-string)
@@ -10,11 +20,6 @@
 ("Bootstrap"
  (filename . "~/Org/Wiki/Computer/Programming/Implements/Web/Frameworks/Bootstrap/Bootstrap.org")
  (front-context-string . "* Intro\n\nBootstr")
- (rear-context-string)
- (position . 1))
-("My JavaScript AJAX Reference"
- (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/JavaScript/Data/Manuals/My JavaScript AJAX Reference/My JavaScript AJAX Reference.org")
- (front-context-string)
  (rear-context-string)
  (position . 1))
 ("CSS Preprocessor"
@@ -180,11 +185,6 @@
 ("Gems for Rails"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Frameworks/Ruby on Rails/Data/Gems/Gems.org")
  (front-context-string . "* Authentication")
- (rear-context-string)
- (position . 1))
-("Docker.org"
- (filename . "~/Org/Wiki/Computer/Softwares/Docker/Docker.org")
- (front-context-string . "* Intro\n\nDocker ")
  (rear-context-string)
  (position . 1))
 ("Elixir Programming Language"
