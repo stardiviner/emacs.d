@@ -49,9 +49,9 @@
             ;;   (add-to-list (make-local-variable 'company-backends)
             ;;                'grouped-backends)
             ;;   )
-            
-            (add-hook (make-local-variable 'completion-at-point-functions)
-                      'slime-complete-symbol)
+
+            (add-to-list (make-local-variable 'completion-at-point-functions)
+                         'slime-complete-symbol)
             ))
 
 (add-to-list 'auto-mode-alist '("Cask\\'" . emacs-lisp-mode))
