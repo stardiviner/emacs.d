@@ -104,11 +104,10 @@
   :config
   (setq helm-dash-docsets-path (expand-file-name "~/.docsets")
         helm-dash-min-length 1
-        ;; 'completing-read, 'ido-completing-read
-        ;; helm-dash-completing-read-func 'completing-read
         ;; 'eww-browse-url, 'browse-url, 'browse-url-generic, 'helm-browse-url
         helm-dash-browser-func 'helm-browse-url-uzbl
         helm-dash-candidate-format "%d  %n  (%t)"
+        
         helm-dash-common-docsets
         '("Ruby"
           ;; "Python 3"
@@ -141,6 +140,7 @@
           ;; "RubyMotion"
           ;; "Arduino"
           )
+
         )
   
   (setq helm-dash-enable-debugging nil)
