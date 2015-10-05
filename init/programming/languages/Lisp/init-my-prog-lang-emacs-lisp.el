@@ -37,6 +37,8 @@
              (turn-on-eldoc-mode)
              
              (my-recompile-elc-on-save)
+
+             (add-to-list (make-local-variable 'company-backends) 'company-elisp)
              
              ;; for company-mode
              ;; FIXME: how to add `company-elisp' behind default grouped backends?
