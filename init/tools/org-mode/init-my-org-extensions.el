@@ -73,7 +73,7 @@
         )
 
   (add-to-list 'org-capture-templates
-               '("g" "Contacts"
+               '("C" "Contacts"
                  entry (file "~/Org/Contacts/Contacts.org")
                  "* %(org-contacts-template-name)
 :PROPERTIES:
