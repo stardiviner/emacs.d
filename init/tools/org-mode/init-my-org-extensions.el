@@ -71,6 +71,34 @@
       org-contacts-enable-completion t ; enable in message-mode.
       )
 
+(add-to-list 'org-capture-templates
+             '("g" "Contacts"
+               entry (file+headline org-contacts-files)
+               "* %(org-contacts-template-name) %^g
+:PROPERTIES:
+:NAME:
+:NICK-NAME:
+:ALIAS:
+:ICON:
+:BIRTHDAY: %:date
+:URL: %:url
+:EMAIL: %(org-contacts-template-email)
+:MOBILE:
+:PHONE:
+:HOME:
+:WORK:
+:COMPANY:
+:ADDRESS:
+:SKILLS:
+:IGNORE:
+:DATE:
+:NOTE:
+:END:"
+               :empty-lines 1
+               :jump-to-captured t
+               ))
+
+
 (unless (boundp 'my-org-contacts-prefix)
   (define-prefix-command 'my-org-contacts-prefix))
 (define-key my-org-prefix (kbd "b") 'my-org-contacts-prefix)

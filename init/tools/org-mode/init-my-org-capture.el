@@ -42,26 +42,6 @@
          :empty-lines 1
          )
 
-        ;; TODO: Contacts
-        ("c" "Contacts"
-         entry (file+headline "~/Org/Contacts/Contacts.org")
-         "* %(org-contacts-template-name) %^g
-%(org-contacts-template-email)
-:PROPERTIES:
-:NAME:
-:NICK-NAME:
-:BIRTHDAY: %:date
-:URL: %:url
-:EMAIL: %?
-:MOBILE:
-:WORK:
-:SKILLS:
-:HOME:
-:COMPANY:
-:ADDRESS:
-:NOTE:
-:END:")
-        
         ;; org-passwords
         ;; FIXME:
         ("p" "password"
