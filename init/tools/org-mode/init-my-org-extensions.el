@@ -74,7 +74,7 @@
 
   (add-to-list 'org-capture-templates
                '("g" "Contacts"
-                 entry (file+headline "~/Org/Contacts/Contacts.org")
+                 entry (file "~/Org/Contacts/Contacts.org")
                  "* %(org-contacts-template-name)
 :PROPERTIES:
 :NAME:
