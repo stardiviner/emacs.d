@@ -107,11 +107,7 @@
                  ))
 
 
-  (unless (boundp 'my-org-contacts-prefix)
-    (define-prefix-command 'my-org-contacts-prefix))
-  (define-key my-org-prefix (kbd "b") 'my-org-contacts-prefix)
-
-  (define-key my-org-contacts-prefix (kbd "b") 'org-contacts)
+  (define-key my-org-prefix (kbd "b") 'org-contacts)
   )
 
 
