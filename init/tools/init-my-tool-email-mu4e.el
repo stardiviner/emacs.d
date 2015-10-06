@@ -933,6 +933,7 @@
  (lambda ()
    (setq-local completion-at-point-functions
                '(org-contacts-message-complete-function
+                 bbdb-complete-name
                  mu4e~compose-complete-contact
                  message-completion-function t))))
 
