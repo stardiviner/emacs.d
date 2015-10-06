@@ -62,19 +62,20 @@
 
 ;;; [ org-contacts ] -- Contacts management in Org-mode.
 
-(require 'org-contacts)
+(use-package org-contacts
+  :config
 
-(setq org-contacts-files '("~/Org/Contacts/Contacts.org")
-      org-contacts-icon-property "ICON"
-      org-contacts-icon-size 32
-      org-contacts-icon-use-gravatar (fboundp 'gravatar-retrieve)
-      org-contacts-enable-completion t ; enable in message-mode.
-      )
+  (setq org-contacts-files '("~/Org/Contacts/Contacts.org")
+        org-contacts-icon-use-gravatar (fboundp 'gravatar-retrieve)
+        org-contacts-icon-property "ICON"
+        org-contacts-icon-size 32
+        org-contacts-enable-completion t ; enable in message-mode.
+        )
 
-(add-to-list 'org-capture-templates
-             '("g" "Contacts"
-               entry (file+headline org-contacts-files)
-               "* %(org-contacts-template-name) %^g
+  (add-to-list 'org-capture-templates
+               '("g" "Contacts"
+                 entry (file+headline "~/Org/Contacts/Contacts.org")
+                 "* %(org-contacts-template-name)
 :PROPERTIES:
 :NAME:
 :NICK-NAME:
@@ -94,17 +95,17 @@
 :DATE:
 :NOTE:
 :END:"
-               :empty-lines 1
-               :jump-to-captured t
-               ))
+                 :empty-lines 1
+                 :jump-to-captured t
+                 ))
 
 
-(unless (boundp 'my-org-contacts-prefix)
-  (define-prefix-command 'my-org-contacts-prefix))
-(define-key my-org-prefix (kbd "b") 'my-org-contacts-prefix)
+  (unless (boundp 'my-org-contacts-prefix)
+    (define-prefix-command 'my-org-contacts-prefix))
+  (define-key my-org-prefix (kbd "b") 'my-org-contacts-prefix)
 
-(define-key my-org-contacts-prefix (kbd "b") 'org-contacts)
-(define-key my-org-contacts-prefix (kbd "p") 'org-contacts-at-point)
+  (define-key my-org-contacts-prefix (kbd "b") 'org-contacts)
+  )
 
 
 ;;; [ org-screenshot ] -- Take and manage screenshots in Org-mode files.
