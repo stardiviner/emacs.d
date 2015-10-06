@@ -281,6 +281,7 @@
     ob-elixir
     ;; Go
     go-mode go-complete company-go go-eldoc
+    go-play go-playground
     gore-mode ; gotest
     ;; golint
     ;; go-stacktracer

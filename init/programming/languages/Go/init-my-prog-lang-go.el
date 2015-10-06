@@ -115,7 +115,26 @@
          ))
 
 
-;;; [ go-play ]
+;;; [ go-play ] -- Paste to play.golang.org
+
+;;; Usage:
+;;
+;; - [M-x go-play-buffer]
+;; - [M-x go-play-region]
+
+
+;;; [ go-playground ]
+
+;;; Usage:
+;;
+;; - [M-x go-playground] :: start playground buffer for new snippet.
+;; - [C-RET] :: compile and run your code.
+;; - [M-x go-playground-remove-current-snippet] :: removing snippet after you done with it.
+
+(use-package go-playground
+  :config
+  (setq go-playground-basedir "~/.go/src/playground")
+  )
 
 
 ;;; [ gore-mode ] -- Simple mode for gore, a command-line evaluator for golang.
