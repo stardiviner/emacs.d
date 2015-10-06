@@ -82,17 +82,24 @@
 :ALIAS:
 :ICON:
 :BIRTHDAY: %:date
+:GENDER:
 :URL: %:url
 :EMAIL: %(org-contacts-template-email)
 :MOBILE:
 :PHONE:
+:QQ:
+:BLOG:
 :HOME:
 :WORK:
 :COMPANY:
 :ADDRESS:
+:INTERESTS:
 :SKILLS:
+:EDUCATION:
+:LANGUAGE:
+:PROJECTS:
 :IGNORE:
-:DATE:
+:DATE: %:type %:date
 :NOTE:
 :END:"
                  :empty-lines 1
