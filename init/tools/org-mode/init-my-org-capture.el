@@ -38,6 +38,7 @@
         ;; Bookmark
         ("m" "Add an URL to bookmarks database"
          entry (file+headline "~/Org/Wiki/Data/Bookmarks/Bookmarks.org" "Capture")
+         entry (file+headline "~/Org/Bookmarks/Bookmarks.org" "Uncategoried")
          "\n* %^{prompt}\n\n%A\n\n%?\n\n"
          :empty-lines 1
          )
@@ -52,15 +53,15 @@
 
         ;; Issues, Bugs, Features
         ("b" "Bug"
-         entry (file+olp "~/Org/Projects/Programming.org" "Computer" "Bugs")
+         entry (file+olp "~/Org/Projects/Code.org" "Computer" "Bugs")
          "\n* BUG %^{prompt}\n\n%i\n\n%?\n\n"
          :empty-lines 1)
         ("i" "Issue"
-         entry (file+olp "~/Org/Projects/Programming.org" "Computer" "Issues")
+         entry (file+olp "~/Org/Projects/Code.org" "Computer" "Issues")
          "\n* ISSUE %^{prompt}\n\n%i\n\n%?\n\n"
          :empty-lines 1)
         ("f" "Feature"
-         entry (file+olp "~/Org/Projects/Programming.org" "Computer" "Features")
+         entry (file+olp "~/Org/Projects/Code.org" "Computer" "Features")
          "\n* FEATURE %^{prompt}\n\n%i\n\n%?\n\n"
          :empty-lines 1)
         ))
