@@ -14,7 +14,8 @@
 (setq show-paren-style 'parenthesis)
 
 (set-face-attribute 'show-paren-match-face nil
-                    :foreground "green" :background "black"
+                    :foreground "white" :background "deep pink"
+                    :weight 'bold
                     )
 (set-face-attribute 'show-paren-mismatch-face nil
                     :foreground nil :background "brown"
