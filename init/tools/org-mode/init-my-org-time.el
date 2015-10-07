@@ -77,8 +77,6 @@
 ;;              (if (not org-timer-current-timer) ; FIXME: this variable seems not part of `org-timer'.
 ;;                  (org-timer-set-timer '(16)))))
 
-(define-key my-org-prefix (kbd "i") 'org-clock-select-task)
-
 ;; FIXME: `helm-org-clock-select-task' is void.
 ;; (if (featurep 'helm)
 ;;     (progn
