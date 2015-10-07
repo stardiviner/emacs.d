@@ -11,7 +11,7 @@
 
 (show-paren-mode 1) ; highlight matched parentheses
 
-(setq show-paren-style 'mixed) ; 'parenthesis, 'expression, 'mixed
+(setq show-paren-style 'parenthesis)
 
 (set-face-attribute 'show-paren-match-face nil
                     :foreground "green" :background "black"
