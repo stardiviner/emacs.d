@@ -316,6 +316,11 @@
 ;; replies.
 (setq mu4e-compose-dont-reply-to-self nil)
 
+(define-key mu4e-headers-mode-map (kbd "r") 'mu4e-compose-reply)
+(define-key mu4e-headers-mode-map (kbd "R") 'mu4e-headers-mark-for-refile)
+(define-key mu4e-view-mode-map (kbd "r") 'mu4e-compose-reply)
+(define-key mu4e-view-mode-map (kbd "R") 'mu4e-view-mark-for-refile)
+
 ;;; reply only to thread: header `Reply-to:', `List-Post:'
 ;; - `mu4e~draft-reply-construct'
 
