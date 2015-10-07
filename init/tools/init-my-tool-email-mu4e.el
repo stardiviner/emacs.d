@@ -935,8 +935,8 @@
                '(org-contacts-message-complete-function
                  bbdb-complete-name
                  mu4e~compose-complete-contact
-                 message-completion-function t))))
-
+                 mail-completion-at-point-function
+                 message-completion-function))))
 
 
 
