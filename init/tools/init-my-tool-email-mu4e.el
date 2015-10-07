@@ -351,6 +351,8 @@
       mu4e-headers-skip-duplicates t
       )
 
+(define-key mu4e-headers-mode-map (kbd "N") 'mu4e-headers-next-unread)
+
 ;;; `mu4e-header-info-custom'
 
 ;; (add-to-list 'mu4e-header-info-custom
