@@ -415,7 +415,20 @@
                  (message "Messages replied to your thread.")))
              t)
 
-;;; spam
+
+;;; [ spam ]
+
+;; from `mu4e-contrib'
+(add-to-list 'mu4e-headers-actions
+             '("sMark as spam" . mu4e-register-msg-as-spam) t)
+(add-to-list 'mu4e-headers-actions
+             '("hMark as ham" . mu4e-register-msg-as-ham) t)
+(add-to-list 'mu4e-headers-actions
+             '("aMark unsure as spam" . mu4e-mark-unsure-as-spam) t)
+(add-to-list 'mu4e-headers-actions
+             '("bMark unsure as ham" . mu4e-mark-unsure-as-ham) t)
+
+
 ;; TODO: test this
 ;; (defun my-mu4e-mark-spam (msg ignore)
 ;;   "Mark messages flagged as spam."
