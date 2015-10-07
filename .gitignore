@@ -9,6 +9,7 @@ elpa/
 ac-comphist.dat
 auto-save-list/
 *~
+tramp
 
 # projectile
 projectile.cache
