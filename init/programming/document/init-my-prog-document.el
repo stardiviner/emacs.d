@@ -118,7 +118,7 @@
           ;; "CoffeeScript" "NodeJS"
           "jQuery" "AngularJS" "React" "D3JS"
           ;; "EmberJS" "ExtJS" "BackboneJS" "KnockoutJS" "MomentJS" "PrototypeJS" "RequireJS" "UnderscoreJS"
-          "Common_Lisp"
+          "Common Lisp"
           "Clojure"
           "C" ; "C++"
           "Go" ; "Swift" ; "Rust"
