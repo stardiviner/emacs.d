@@ -27,6 +27,11 @@
               (concat ";; Happy hacking " (or user-login-name "") "!\n\n"))
 
 
+;;; [ concurrent in Emacs (JIT) ]
+
+(setq jit-lock-stealth-verbose t)
+
+
 ;;; [ Time ]
 (setq system-time-locale "C") ; make timestamps in org-mode appear in English.
 ;;; time-stamp
