@@ -148,7 +148,7 @@
                     )
 (set-face-attribute 'org-level-8 nil
                     :inherit 'org-level-7
-                    :foreground "white"
+                    :foreground "chocolate"
                     )
 (set-face-attribute 'org-headline-done nil
                     :foreground "#444444"
