@@ -107,7 +107,9 @@
 
 ;; table
 (set-face-attribute 'org-table nil
-                    :foreground "light sky blue")
+                    :foreground "dodger blue"
+                    :background (color-darken-name (face-background 'default) 2)
+                    )
 
 
 ;;; headline faces
