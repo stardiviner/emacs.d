@@ -77,23 +77,27 @@
                  entry (file "~/Org/Contacts/Contacts.org")
                  "* %(org-contacts-template-name)
 :PROPERTIES:
-:NAME:
+:NAME: %(org-contacts-template-name)
 :NICK-NAME:
 :ALIAS:
-:ICON:
+:ICON: %(org-contacts-template-name)
 :BIRTHDAY: %:date
 :GENDER:
+:RELATIONSHIP:
+:FIRST-MEET:
 :URL: %:url
 :EMAIL: %(org-contacts-template-email)
 :MOBILE:
 :PHONE:
+:IRC:
 :QQ:
 :BLOG:
 :HOME:
 :WORK:
-:COMPANY:
+:COMPANYS:
 :ADDRESS:
 :INTERESTS:
+:PROGRAMMING-SKILLS:
 :SKILLS:
 :EDUCATION:
 :LANGUAGE:
