@@ -33,51 +33,12 @@
   )
 
 
-;;; [ magit-gh-pulls ] -- allows you to conveniently manipulate Github’s pull requests from Emacs.
-
-;;; Usage:
-;;
-;; 1. [# g g]
-;;
-;; In magit-status window press [# g g] to refresh the list of pull
-;; requests. magit-gh-pulls automatically infers credentials from the URL of the
-;; repository. If there are some PRs available, a new section will appear called
-;; Pull Requests. Each item in this section has the following form:
-;;
-;;   [pull-request-number@branch-name] Pull request name
-;;
-;; 2. [# g f]
-;;
-;; Highlighting the desired PR and pressing [# g f] will fetch the commits
-;; associated with the PR. These are the real commits that you can view, apply,
-;; cherry-pick etc.
-;;
-;; 3. From this point magit-gh-pulls offers you two options:
-;;
-;; - press [# g b] on the PR to create a topic branch for this PR. After testing
-;;   the PR you can merge it back into your branch using Magit.
-;;
-;; - press [# g m] to merge the PR on top of the currently checked out
-;;   branch. This is convenient if pull request can be merged by fast-forwarding
-;;   and no testing is needed (or you can test from your branch directly). A
-;;   nice benefit of this approach over merging from Github interface is that in
-;;   case of FF no merge commit is produced, so history stays nice and linear.
-
-;; 1. auto turn on magit-gh-pulls
-;; (require 'magit-gh-pulls)
-;; (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
-
-;; 2. manually turn on magit-gh-pulls
-;; (unless (fboundp 'magit-gh-pulls-mode)
-;;   (package-install 'magit-gh-pulls))
-;;
+;;; [ magit-gh-pulls ] -- conveniently manipulate Github’s pull requests
 
 (use-package magit-gh-pulls
   :config
   (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
   )
-
-;; TODO: clean up those.
 
 ;;; Automatically configure Magit to access Github PRs
 (defun my/add-PR-fetch ()
