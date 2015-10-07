@@ -36,8 +36,7 @@
          )
 
         ;; Bookmark
-        ("m" "Add an URL to bookmarks database"
-         entry (file+headline "~/Org/Wiki/Data/Bookmarks/Bookmarks.org" "Capture")
+        ("k" "Add an URL to bookmarks database"
          entry (file+headline "~/Org/Bookmarks/Bookmarks.org" "Uncategoried")
          "\n* %^{prompt}\n\n%A\n\n%?\n\n"
          :empty-lines 1
@@ -67,18 +66,12 @@
         ))
 
 
-;; To define special keys to capture to a particular template without
-;; going through the interactive template selection, you can create your
-;; key binding like this:
-;;
-;; (global-set-key (kbd "C-c x")
-;;                 '(lambda () (interactive) (org-capture nil "x")))
+(define-key my-org-prefix (kbd "c") 'org-capture)
 
-
-(if (featurep 'helm)
-    (define-key my-org-prefix (kbd "c") 'helm-org-capture-templates)
-  (define-key my-org-prefix (kbd "c") 'org-capture)
-  (define-key org-mode-map (kbd "C-c c") 'org-capture))
+;; (if (featurep 'helm)
+;;     (define-key my-org-prefix (kbd "c") 'helm-org-capture-templates)
+;;   (define-key my-org-prefix (kbd "c") 'org-capture)
+;;   (define-key org-mode-map (kbd "C-c c") 'org-capture))
 
 
 ;;;_* Refile

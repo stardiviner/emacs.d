@@ -53,9 +53,9 @@
         ;; Habit
         (sequence "HABIT(h)" "|" "DONE(d)")
         ;; Types
-        (type "code(c@/!)" "project(p@/!)" "Org(o@/!)" "|" "DONE(d@/!)")
+        (type "code(c@/!)" "project(P@/!)" "Org(o@/!)" "|" "DONE(d@/!)")
         ;; Code
-        (sequence "BUG(b!)" "ISSUE(i!)" "ERROR(e!)" "FEATURE(f!)" "|" "DONE(d@/!)")
+        (sequence "BUG(b!)" "ISSUE(i!)" "ERROR(e!)" "FEATURE(f!)" "Pull-Request(p!)" "|" "DONE(d@/!)")
         ;; Work
         (type "Work(w@/!)" "Meeting(m@/!)" "|" "DONE(d@/!)")
         ;; Learn
@@ -116,6 +116,9 @@
         ("FEATURE" :foreground "cyan"
          :weight bold
          :box '(:color "cyan" :line-width -1 :style nil))
+        ("Pull-Request" :foreground "yellow"
+         :weight bold
+         :box '(:color "yellow" :line-width -1 :style nil))
               ;;; types
         ("Org" :foreground "cyan" :backgrund "#004A5D"
          :weight bold
