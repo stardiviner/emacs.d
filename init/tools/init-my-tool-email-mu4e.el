@@ -823,7 +823,7 @@
                     :overline "orange red")
 ;; forwarded email
 (set-face-attribute 'mu4e-forwarded-face nil
-                    :foreground "dark orange"
+                    :foreground "saddle brown"
                     :overline "dark magenta")
 ;; compose
 (set-face-attribute 'mu4e-compose-header-face nil
