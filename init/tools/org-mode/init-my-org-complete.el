@@ -21,16 +21,19 @@
 ;;   )
 
 
-;;; add Org-mode's default `pcomplete' to `company-mode'.
+;;; add Org-mode's `capf' default to `pcomplete' for `company-mode'.
 
 (add-hook 'org-mode-hook
           (lambda ()
             (setq-local completion-at-point-functions 'pcomplete-completions-at-point)
 
+            ;; FIXME: improve this code.
+            (make-local-variable 'company-backends)
             (setq company-backends (copy-tree company-backends))
             (setf (car company-backends)
-                  (append (car company-backends)
-                          '(company-ispell)))
+                  (let ((company-backends-first-group (car company-backends)))
+                    (setq temp company-backends-first-group)
+                    (add-to-list 'temp 'company-ispell t)))
             ))
 
 
