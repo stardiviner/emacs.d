@@ -85,22 +85,32 @@
 ;;       ;; (advice-remove 'org-clock-select-task #'helm-org-clock-select-task)
 ;;       ))
 
+;;; Sounds:
+;; "~/.emacs.d/resources/audio/Ingress/Speech/speech_hacking.wav"
+;; "~/.emacs.d/resources/audio/Ingress/SFX/sfx_typing.wav"
+;; "~/.emacs.d/resources/audio/Hacking Game/voice-complete.wav"
+;; "~/.emacs.d/resources/audio/Hacking Game/voice-loading.wav"
+;; "~/.emacs.d/resources/audio/Hacking Game/hesfx_untold_tick2.wav"
+
 ;; (add-hook 'org-clock-in-hook 'org-clock-play-sound)
 
 (add-hook 'org-clock-in-hook
           (lambda ()
             (org-clock-play-sound
              "~/.emacs.d/resources/audio/Ingress/Speech/speech_hacking.wav")))
-
+(add-hook 'org-clock-in-prepare-hook
+          (lambda ()
+            (org-clock-play-sound
+             "~/.emacs.d/resources/audio/Ingress/SFX/sfx_typing.wav")))
 (add-hook 'org-clock-out-hook
           (lambda ()
-            ;; "~/.emacs.d/resources/audio/Ingress/Speech/speech_hacking.wav"
-            ;; "~/.emacs.d/resources/audio/Ingress/SFX/sfx_typing.wav"
-            ;; "~/.emacs.d/resources/audio/Hacking Game/voice-complete.wav"
-            ;; "~/.emacs.d/resources/audio/Hacking Game/voice-loading.wav"
-            ;; "~/.emacs.d/resources/audio/Hacking Game/hesfx_untold_tick2.wav"
             (org-clock-play-sound
              "~/.emacs.d/resources/audio/Hacking Game/voice-complete.wav")))
+(add-hook 'org-clock-cancel-hook
+          (lambda ()
+            (org-clock-play-sound
+             "~/.emacs.d/resources/audio/Hacking Game/hesfx_untold_tick2.wav")))
+
 
 
 ;;; [ Time Interval ]
