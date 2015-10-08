@@ -13,6 +13,8 @@
 
 (autoload 'ispell "ispell" t)
 
+(setq ispell-look-command "/usr/sbin/look")
+
 ;; find aspell automatically
 (cond
  ((executable-find "aspell")
@@ -25,7 +27,7 @@
 (setq ispell-dictionary "english"
       ;; ispell-local-dictionary
       ispell-personal-dictionary nil ; If nil, the default (~/.ispell_LANGUAGE) will be used
-      ;; ispell-complete-word-dict "/usr/share/dict/words"
+      ispell-complete-word-dict "/usr/share/dict/words"
       ;; ispell-alternate-dictionary "/usr/share/dict/words"
       ispell-silently-savep t ; save silently. stop confirm when saving personal dictionary.
       ispell-parser 'use-mode-name
