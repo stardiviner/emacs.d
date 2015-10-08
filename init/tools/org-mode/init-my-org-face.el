@@ -307,20 +307,24 @@
 ;; src_
 (font-lock-add-keywords
  'org-mode
- '(("\\(src_\\)\\([^[{]+\\)\\(\\[:.*\\]\\){\\([^}]*\\)}"
+ '(("\\(src_\\)\\([^[{]+\\)\\(\\[:.*\\]\\)\\({\\)\\([^}]*\\)\\(}\\)"
     (1 '(:foreground "black" :weight 'normal :height 10)) ; src_ part
     (2 '(:foreground "cyan" :weight 'bold :height 75 :underline "red")) ; "lang" part.
     (3 '(:foreground "#555555" :height 70)) ; [:header arguments] part.
-    (4 'org-code) ; "code..." part.
+    (4 '(:foreground "#333333")) ; {
+    (5 'org-code) ; "code..." part.
+    (6 '(:foreground "#333333")) ; }
     )))
 
 ;; src without arguments
 (font-lock-add-keywords
  'org-mode
- '(("\\(src_\\)\\([^[{]+\\){\\([^}]*\\)}"
+ '(("\\(src_\\)\\([^[{]+\\)\\({\\)\\([^}]*\\)\\(}\\)"
     (1 '(:foreground "black" :weight 'normal :height 10)) ; src_ part
     (2 '(:foreground "cyan" :weight 'bold :height 80 :underline "red")) ; "lang" part.
-    (3 'org-code) ; "code..." part.
+    (3 '(:foreground "#333333")) ; {
+    (4 'org-code) ; "code..." part.
+    (5 '(:foreground "#333333")) ; }
     )))
 
 ;; inline babel call
