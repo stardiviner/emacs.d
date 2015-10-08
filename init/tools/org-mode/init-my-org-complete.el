@@ -26,6 +26,11 @@
 (add-hook 'org-mode-hook
           (lambda ()
             (setq-local completion-at-point-functions 'pcomplete-completions-at-point)
+
+            (setq company-backends (copy-tree company-backends))
+            (setf (car company-backends)
+                  (append (car company-backends)
+                          '(company-ispell)))
             ))
 
 
