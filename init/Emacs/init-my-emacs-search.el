@@ -253,7 +253,7 @@
                       )
   (set-face-attribute 'swiper-match-face-1 nil
                       :foreground "white"
-                      :background "dark red"
+                      :background "dark slate blue"
                       )
   (set-face-attribute 'swiper-match-face-2 nil
                       :foreground "white"
@@ -266,6 +266,18 @@
   (set-face-attribute 'swiper-match-face-4 nil
                       :foreground "black"
                       :background "sky blue"
+                      )
+  (set-face-attribute 'swiper-minibuffer-match-face-1 nil
+                      :inherit 'swiper-match-face-1
+                      )
+  (set-face-attribute 'swiper-minibuffer-match-face-2 nil
+                      :inherit 'swiper-match-face-2
+                      )
+  (set-face-attribute 'swiper-minibuffer-match-face-3 nil
+                      :inherit 'swiper-match-face-3
+                      )
+  (set-face-attribute 'swiper-minibuffer-match-face-4 nil
+                      :inherit 'swiper-match-face-4
                       )
   
   (define-key my-search-prefix (kbd "C-s") 'swiper)
