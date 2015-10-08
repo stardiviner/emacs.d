@@ -433,6 +433,15 @@
 (add-to-list 'mu4e-headers-actions
              '("bMark unsure as ham" . mu4e-mark-unsure-as-ham) t)
 
+(add-to-list 'mu4e-view-actions
+             '("sMark as spam" . mu4e-register-msg-as-spam) t)
+(add-to-list 'mu4e-view-actions
+             '("hMark as ham" . mu4e-register-msg-as-ham) t)
+(add-to-list 'mu4e-view-actions
+             '("aMark unsure as spam" . mu4e-mark-unsure-as-spam) t)
+(add-to-list 'mu4e-view-actions
+             '("bMark unsure as ham" . mu4e-mark-unsure-as-ham) t)
+
 
 ;; TODO: test this
 ;; (defun my-mu4e-mark-spam (msg ignore)
