@@ -2,7 +2,37 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("pacman"
+(("Markdown"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Markdown/Markdown.org")
+ (front-context-string . "* Intro\n\nMarkdow")
+ (rear-context-string)
+ (position . 1))
+("Mac OS"
+ (filename . "~/Org/Wiki/Computer/Systems/Mac/Mac.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("OpenWrt"
+ (filename . "~/Org/Wiki/Computer/Systems/OpenWrt/OpenWrt.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Swift Programming Lanaguage"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Swift/Swift.org")
+ (front-context-string . "* Intro\n\n*Swift*")
+ (rear-context-string)
+ (position . 1))
+("Emacs Lisp Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Emacs/Emacs Lisp/Data/Emacs Lisp Reference/Emacs Lisp Reference.org")
+ (front-context-string . "* Intro\n\n** lisp")
+ (rear-context-string)
+ (position . 1))
+("org-capture-last-stored"
+ (filename . "~/Org/Contacts/Contacts.org")
+ (front-context-string . "* Mark Zuckerber")
+ (rear-context-string . "ERED:  t\n:END:\n\n")
+ (position . 2092))
+("pacman"
  (filename . "~/Org/Wiki/Computer/Softwares/pacman.org")
  (front-context-string . "* Intro\n\nThe pac")
  (rear-context-string)
