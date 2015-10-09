@@ -36,20 +36,13 @@
 
 ;; Learn about display actions, see [[info:elisp#Display Action Functions]].
 
-;;; Example:
-;; save/restore window configuration when creating/killing poporg buffer.
-;;
+;; display poporg popup buffer below the selected window with 0.3 height.
 ;; (add-to-list 'display-buffer-alist
-;;              '("\\*poporg.*?\\*" . ((display-buffer-reuse-window
-;;                                      display-buffer-pop-up-window)
-;;                                     . ((inhibit-same-window . t)))))
-
-(add-to-list 'display-buffer-alist
-             '("\\*poporg:\ .*?\\*" ; *poporg: init-my-emacs-window.el*
-               (display-buffer-reuse-window
-                display-buffer-below-selected)
-               (window-height . 0.3)
-               ))
+;;              '("\\*poporg:\ .*?\\*" ; *poporg: init-my-emacs-window.el*
+;;                (display-buffer-reuse-window
+;;                 display-buffer-below-selected)
+;;                (window-height . 0.3)
+;;                ))
 
 
 ;;; [ winner ]

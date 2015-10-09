@@ -159,13 +159,12 @@ column. Place the point after the comment box."
                       :slant 'italic)
   )
 
-;; FIXME: this does not work for me.
-;; save/restore window configuration when creating/killing poporg buffer.
-;; TODO: make poporg popup buffer, so that `popwin' can manage it.
 (add-to-list 'display-buffer-alist
-             '("\\*poporg.*?\\*" . ((display-buffer-reuse-window
-                                     display-buffer-pop-up-window)
-                                    . ((inhibit-same-window . t)))))
+             '("\\*poporg:\ .*?\\*" ; *poporg: init-my-emacs-window.el*
+               (display-buffer-reuse-window
+                display-buffer-below-selected)
+               (window-height . 0.3)
+               ))
 
 
 (provide 'init-my-prog-comment)
