@@ -94,7 +94,8 @@
       ;; window-id-offset -4
       )
 
-(define-key my-screenshot-map (kbd "r") 'camcorder-record)
+(define-key my-screenshot-map (kbd "r") 'camcorder-mode)
+(define-key my-screenshot-map (kbd "R") 'camcorder-record)
 
 
 (provide 'init-my-tool-screencast)
