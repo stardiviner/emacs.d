@@ -116,20 +116,21 @@
 ;; - `helm-quickrun'
 ;; - `quickrun-after-run-hook'
 
-;; (setq quickrun/support-languages)
+(use-package quickrun
+  :config
+  (setq quickrun-focus-p t)
 
-(setq quickrun-focus-p t)
+  ;; (quickrun-set-default "c" "c/clang")
 
-;; (quickrun-set-default "c" "c/clang")
-
-;;; example
-;; Use this parameter as C++ default
-;; (quickrun-add-command "c++/c11"
-;;                       '((:command . "g++")
-;;                         (:exec    . ("%c -std=c++11 %o -o %e %s"
-;;                                      "%e %a"))
-;;                         (:remove  . ("%e")))
-;;                       :default "c++")
+  ;; example
+  ;; Use this parameter as C++ default
+  ;; (quickrun-add-command "c++/c11"
+  ;;                       '((:command . "g++")
+  ;;                         (:exec    . ("%c -std=c++11 %o -o %e %s"
+  ;;                                      "%e %a"))
+  ;;                         (:remove  . ("%e")))
+  ;;                       :default "c++")
+  )
 
 
 
