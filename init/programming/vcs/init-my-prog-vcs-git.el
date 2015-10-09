@@ -136,6 +136,12 @@
 ;; (setq magit-popup-use-prefix-argument 'disabled)
 
 
+;;; Magit Buffers
+
+;; 'magit-display-buffer-traditional, 'display-buffer, 'function.
+(setq magit-display-buffer-function 'display-buffer)
+
+
 ;;; [ revision ]
 
 ;; (setq magit-revision-headers-format "")
