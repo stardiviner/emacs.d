@@ -77,10 +77,10 @@
 
 ;;; Usage:
 ;;
-;; - [M-x camcorder-record] :: A new smaller frame will popup and recording starts.
-;; - [F12] :: When you’re finished, hit F12 and wait for the conversion to FINISH.
-;; - [F11] :: You can even PAUSE the recording with F11!
 ;; - [M-x camcorder-mode] :: If you want to record without a popup frame.
+;; - [M-x camcorder-record] :: A new smaller frame will popup and recording starts.
+;; - [F11] :: You can even PAUSE the recording with F11!
+;; - [F12] :: When you’re finished, hit F12 and wait for the conversion to FINISH.
 
 (require 'camcorder)
 
