@@ -84,11 +84,15 @@
 
 (require 'camcorder)
 
-;; (setq camcorder-frame-parameters ; see `make-frame'
-;;       '((name . "camcorder.el Recording - F12 to Stop - F11 to Pause/Resume")
-;;         (height . 20)
-;;         (width . 65)
-;;         (top .  80)))
+(setq frame-parameters ; see `make-frame', `default-frame-alist'
+      '((name . "camcorder.el Recording - F12 to Stop - F11 to Pause/Resume")
+        (height . 150)
+        (width . 90)
+        ;; (top .  80)
+        (minibuffer . t)
+        )
+      ;; window-id-offset -4
+      )
 
 (define-key my-screenshot-map (kbd "r") 'camcorder-record)
 
