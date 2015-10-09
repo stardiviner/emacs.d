@@ -34,6 +34,8 @@
 
 ;;; [ display-buffer-alist ]
 
+;; Learn about display actions, see [[info:elisp#Display Action Functions]].
+
 ;;; Example:
 ;; save/restore window configuration when creating/killing poporg buffer.
 ;;
@@ -42,16 +44,11 @@
 ;;                                      display-buffer-pop-up-window)
 ;;                                     . ((inhibit-same-window . t)))))
 
-;; FIXME:
 (add-to-list 'display-buffer-alist
              '("\\*poporg:\ .*?\\*" ; *poporg: init-my-emacs-window.el*
                (display-buffer-reuse-window
-                display-buffer-pop-up-window)
-               (reusable-frames . visible)
-               ;; (inhibit-same-window . t)
-               (side . bottom)
+                display-buffer-below-selected)
                (window-height . 0.3)
-               ;; (popwin:display-buffer-condition popwin:display-buffer-action)
                ))
 
 
