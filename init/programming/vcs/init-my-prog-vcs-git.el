@@ -141,6 +141,13 @@
 ;; 'magit-display-buffer-traditional, 'display-buffer, 'function.
 (setq magit-display-buffer-function 'display-buffer)
 
+;; let magit status buffer display in current window.
+(add-to-list 'display-buffer-alist
+             '("\\`\\*magit:.*\\'"
+               (display-buffer-reuse-window
+                display-buffer-same-window)
+               ))
+
 
 ;;; [ revision ]
 
