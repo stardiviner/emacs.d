@@ -263,9 +263,17 @@
 (org-notify-start 60)
 
 
+;;; [ org-alert ] -- System notifications of org agenda items.
 
+;; - `org-alert-check'
+;; - `org-alert-enable' / `org-alert-disable'
 
-
+(use-package org-alert
+  :config
+  (setq alert-default-style 'libnotify)
+  
+  (org-alert-enable)
+  )
 
 
 (provide 'init-my-org-agenda)

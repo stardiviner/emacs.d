@@ -108,6 +108,7 @@
     org org-plus-contrib
     org-bullets
     org-agenda-property
+    org-alert
     org-pdfview
     org-projectile
     org-download
