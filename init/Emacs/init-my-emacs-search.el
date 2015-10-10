@@ -317,6 +317,24 @@
 ;;     (global-set-key (kbd "C-s") 'swiper-helm))
 
 
+;;; [ swoop ] -- Peculiar buffer navigation for Emacs.
+
+(use-package swoop
+  :config
+  (global-set-key (kbd "C-o") 'swoop)
+  (global-set-key (kbd "C-M-o") 'swoop-multi)
+  (global-set-key (kbd "M-o")   'swoop-pcre-regexp)
+  (global-set-key (kbd "C-S-o") 'swoop-back-to-last-position)
+  )
+
+
+;;; [ helm-swoop ]
+
+(use-package helm-swoop
+  :config
+  )
+
+
 ;;; [ Lazy Search ]
 
 ;; (require 'lazy-search)

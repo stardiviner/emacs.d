@@ -177,6 +177,7 @@
     ;; Search
     isearch+ anzu
     swiper
+    swoop helm-swoop
     helm-c-moccur color-moccur
     ;; highlight
     highlight-symbol ; highlight-thing
