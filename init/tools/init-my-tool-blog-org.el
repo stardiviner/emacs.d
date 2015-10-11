@@ -7,23 +7,9 @@
 
 ;;; Code:
 
-;;;_* Publishing
-
-;; - [C-c C-e P x] -- (org-publish)
-;; - [C-c C-e P p] -- (org-publish-current-project)
-;; - [C-c C-e P f] -- (org-publish-current-file)
-;; - [C-c C-e P a] -- (org-publish-all)
+;;; [ ox-publish ]
 
 (require 'ox-publish)
-
-;; Each element of the list configures one project, and may be in one of the two following forms:
-;; In both cases, projects are configured by specifying property values. A
-;; project defines the set of files that will be published, as well as the
-;; publishing configuration to use when publishing those files. When a project
-;; takes the second form listed above, the individual members of the :components
-;; property are taken to be sub-projects, which group together files requiring
-;; different publishing options. When you publish such a “meta-project”, all the
-;; components will also be published, in the sequence given.
 
 ;; (setq org-publish-project-alist
 ;;       '(("Blog"
@@ -104,34 +90,6 @@
 ;; re-including any changed external files such as source example files you
 ;; might include with #+INCLUDE:. The timestamp mechanism in Org is not smart
 ;; enough to detect if included files have been modified.
-
-
-;;; [ Blog ]
-
-
-;;; [ o-blog ] -- A stand-alone blog and publication tool for Org-mode.
-
-;;; Usage:
-;;
-;; Publish:
-;;   - Open the ~/.emacs.d/o-blog/example/sample.org file
-;;   - type M-x org-publish-blog
-;;   - The result site would be published by default in ~/.emacs.d/o-blog/out.
-
-;; (require 'o-blog)
-
-
-
-;; (require 'org-blog)
-
-
-;;; [ org2jekyll ]
-
-
-;;; [ org-jekyll ]
-
-;; (require 'org-jekyll)
-
 
 
 

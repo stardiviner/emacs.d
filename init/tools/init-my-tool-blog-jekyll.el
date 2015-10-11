@@ -7,6 +7,13 @@
 
 ;;; Code:
 
+;;; [ ox-jekyll ] -- Org-mode exporter to Jekyll
+
+
+
+;;; [ ox-jekyll-subtree ]
+
+
 ;;; [ jekyll.el ]
 
 ;;; Usage:
