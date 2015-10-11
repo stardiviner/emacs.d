@@ -406,20 +406,22 @@
               (make-local-variable 'company-backends)
               
               ;; (add-to-list 'company-backends 'company-nxml)
-              (add-to-list 'company-backends 'company-css)
+              ;; (add-to-list 'company-backends 'company-css)
+              ;; (add-to-list 'company-backends 'company-tern)
 
               ;; (add-to-list 'company-backends 'company-web-slim)
               ;; (add-to-list 'company-backends 'company-web-jade)
-              (add-to-list 'company-backends 'company-web-html)
+              ;; (add-to-list 'company-backends 'company-web-html)
               
-              ;; (setq company-backends (copy-tree company-backends))
-              ;; (setf (car company-backends)
-              ;;       (append '(company-web-html
-              ;;                 company-web-jade
-              ;;                 company-web-slim
-              ;;                 ;; company-nxml
-              ;;                 )
-              ;;               (car company-backends)))
+              (setq company-backends (copy-tree company-backends))
+              (setf (car company-backends)
+                    (append '(company-web-html
+                              ;; company-web-jade
+                              ;; company-web-slim
+                              ;; company-nxml
+                              company-css
+                              )
+                            (car company-backends)))
               ))
   )
 
