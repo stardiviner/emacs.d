@@ -14,7 +14,7 @@
 ;; - [C-c C-e P f] -- (org-publish-current-file)
 ;; - [C-c C-e P a] -- (org-publish-all)
 
-(require 'org-publish)
+(require 'ox-publish)
 
 ;; Each element of the list configures one project, and may be in one of the two following forms:
 ;; In both cases, projects are configured by specifying property values. A
