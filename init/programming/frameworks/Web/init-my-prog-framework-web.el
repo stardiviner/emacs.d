@@ -113,7 +113,9 @@
 
      (add-hook 'web-mode-hook
                (lambda ()
-                 (run-hooks 'my-web-mode-hook)))))
+                 (run-hooks 'my-web-mode-hook)
+                 (rainbow-delimiters-mode-enable)
+                 ))))
 
 ;;;_. snippets
 
