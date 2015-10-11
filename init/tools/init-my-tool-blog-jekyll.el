@@ -9,6 +9,11 @@
 
 ;;; [ ox-jekyll ] -- Org-mode exporter to Jekyll
 
+(setq org-jekyll-include-yaml-front-matter t
+      org-jekyll-categories "Linux Emacs Ruby Lisp Rails Julia Web JavaScript HTML CSS"
+      org-jekyll-tags "Linux Emacs Ruby Lisp Rails Web"
+      org-jekyll-use-src-plugin t
+      )
 
 
 ;;; [ ox-jekyll-subtree ]
