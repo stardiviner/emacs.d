@@ -262,15 +262,15 @@
               blink-cursor-blinks 10
               )
 
-;;; red horizontal bar
-;; (setq-default cursor-type '(hbar . 3)
-;;               cursor-in-non-selected-windows t)
-;; (set-cursor-color "red")
+;;; horizontal bar
+(setq-default cursor-type '(hbar . 2)
+              cursor-in-non-selected-windows t)
+(set-cursor-color "green yellow")
 
-;;; green hollow
-(setq-default cursor-type 'hollow
-              cursor-in-non-selected-windows nil)
-(set-cursor-color "green")
+;;; hollow
+;; (setq-default cursor-type 'hollow
+;;               cursor-in-non-selected-windows nil)
+;; (set-cursor-color "green")
 
 
 ;;; [ cursor-chg ] -- change cursor color dynamically
