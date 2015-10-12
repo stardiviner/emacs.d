@@ -58,24 +58,9 @@
 ;;         (height . 55)
 ;;         ))
 
-
 
-;; [ Auto opened files ]
-;; (find-file "~/Git/Arch/install.sh")
-;; (find-file "~/Git/Ubuntu/install.sh")
-;; (find-file "~/Git/Ubuntu/init.pp")
-;; (find-file "~/Git/Puppet/init.pp")
 
-;; (find-file "~/Org/Wiki/Learning/Learning.org")
-;; (find-file "~/Org/Wiki/Learning/MyLearningPlan/Learn Programming.org")
-;; (find-file "~/Org/Projects/Projects.org")
-;; (find-file "~/Org/Work/Work.org")
-;; (find-file "~/Org/Tasks.org")
-
-(find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Frameworks/Ruby on Rails/Data/Manuals/Reference/My Ruby on Rails Reference.org")
-(find-file "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Frameworks/Ruby on Rails/Data/Manuals/Ruby on Rails Guides/Ruby on Rails Guides.org")
 (find-file "~/Code/learning/Ruby/test.rb")
-
 
 
 
