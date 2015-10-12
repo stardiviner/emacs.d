@@ -110,7 +110,7 @@
     org-agenda-property
     ;; org-alert
     org-pdfview
-    org-projectile
+    ;; org-projectile
     org-download
     org-password-manager
     ;; org-caldav org-gcal org-mac-iCal
@@ -146,10 +146,11 @@
     ;; magit-annex magit-gerrit magit-gh-pulls magit-stgit magit-topgit
     ;; helm-git helm-git-files
     git-messenger
-    git-gutter git-gutter+
+    ;; git-gutter
+    git-gutter+
     ;; git-gutter-fringe git-gutter-fringe+
     ;; GitHub
-    helm-open-github
+    ;; helm-open-github
     ;; Gitlab
     ;; gitlab helm-gitlab
     ;; Indent
@@ -198,10 +199,14 @@
     ggtags
     helm-gtags
     ;; Compile
-    smart-compile quickrun
+    smart-compile ; multi-compile
+    ;; Run
+    quickrun
     ;; Inferior
     ;; REPL
     eval-in-repl
+    ;; Scratch
+    ;; scratches
     ;; Make
     ;; helm-make
     ;; Sense
@@ -221,7 +226,7 @@
     
     ;; Languages
     ;; Lisp
-    rainbow-delimiters rainbow-blocks
+    rainbow-delimiters ; rainbow-blocks
     slime slime-annot slime-company ; slime-repl
     sly sly-company
     eval-sexp-fu
@@ -247,7 +252,7 @@
     ;; Ruby
     ruby-mode enh-ruby-mode ruby-additional
     inf-ruby ruby-compilation ; pry
-    rbenv rvm  ; ruby-dev  ; chruby
+    rbenv ; rvm  ; ruby-dev  ; chruby
     bundler
     robe ; zossima
     yari yard-mode ; helm-rb
@@ -277,15 +282,15 @@
     cider cider-eval-sexp-fu cider-decompile
     clojure-quick-repls
     flycheck-clojure
-    align-cljlet
-    elein
+    ;; align-cljlet
+    ;; elein
     ;; Elixir
-    elixir-mode ; alchemist
-    ob-elixir
+    ;; elixir-mode ; alchemist
+    ;; ob-elixir
     ;; Go
     go-mode go-complete company-go go-eldoc
-    go-play go-playground
-    gore-mode ; gotest
+    ;; go-play go-playground
+    ;; gore-mode gotest
     ;; golint
     ;; go-stacktracer
     ;; Java
@@ -316,7 +321,9 @@
     ;; ESS
     ess ; company-ess
     ess-smart-equals ess-smart-underscore
-    ess-R-data-view ess-R-object-popup
+    ;; R
+    ;; ess-R-data-view ess-R-object-popup
+    ;; helm-R
     ;; Processing
     ;; processing-mode
     ;; Plot
@@ -330,7 +337,7 @@
     db-pg
     ;; sqlplus
     ;; SQLite
-    sqlite
+    ;; sqlite
     ;; PostgreSQL
     pg pgdevenv
     ;; NoSQL
@@ -396,9 +403,9 @@
     projectile-rails rails-new ; helm-rails
     rhtml-mode
     ;; Android
-    android-mode
+    ;; android-mode
     ;; Arduino
-    arduino-mode company-arduino
+    ;; arduino-mode company-arduino
 
     ;; Linux
     ;; emamux
@@ -416,17 +423,17 @@
     ;; Tools
     ;; Bookmarks
     helm-bm
-    helm-w3m helm-firefox ; helm-chrome
+    ;; helm-w3m
+    helm-firefox ; helm-chrome
     ;; PDF
-    pdf-tools
+    ;; pdf-tools
     ;; Image
-    image+ ; xpm
+    ;; image+ ; xpm
     ;; Ascii Graphic
     artist chart
     ;; Notify
     ;; sauron
     ;; Speak
-    ;; ess
     ;; Browser
     ;; w3m
     ;; Email
@@ -439,6 +446,7 @@
     ;; Feeds: RSS & Atom
     ;; elfeed elfeed-web
     ;; Blog
+    ;; ox-jekyll-subtree
     octopress org-octopress
     ;; Calendar
     calfw ; calfw-gcal
@@ -447,8 +455,8 @@
     ;; erc circe
     ;; weechat
     ;; Music
-    emms helm-emms emms-player-mpv ; emms-info-media emms-mode-line-cycle
-    mingus
+    ;; emms helm-emms emms-player-mpv ; emms-info-media emms-mode-line-cycle
+    ;; mingus
     ;; Screenshot & Screencast
     screenshot camcorder ; impatient-mode
     ;; command-log-mode
