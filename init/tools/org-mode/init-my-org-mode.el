@@ -7,8 +7,8 @@
 
 ;;; Code:
 
-(require 'init-my-org-face)
-(require 'init-my-org-view)
+(require 'org)
+
 (require 'init-my-org-document-structure)
 (require 'init-my-org-complete)
 (require 'init-my-org-table)
@@ -27,8 +27,11 @@
 (require 'init-my-org-babel)
 (require 'init-my-org-misc)
 (require 'init-my-org-keybindings)
+(require 'init-my-org-view)
+(require 'init-my-org-face)
 (require 'init-my-org-enhance)
 (require 'init-my-org-hacking)
+
 (require 'init-my-org-extensions)
 (require 'init-my-org-trello)
 (require 'init-my-org-password)
