@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: script
+# key: script
+# group: script
+# --
+<script type="text/javascript">
+$0
+</script>

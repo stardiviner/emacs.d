@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: code-block-highlight
+# key: code-block-highlight
+# --
+{% highlight ${1:ruby} linenos %}
+$0
+{% endhighlight %}
