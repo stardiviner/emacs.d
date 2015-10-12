@@ -2,7 +2,7 @@
 ;;; Commentary:
 
 ;;; Code:
-
+
 ;;;_ undo-tree
 ;; [C-x u] -> undo-tree-visualizer-mode
 ;;    `- [C-p/n]  -- move up/down
@@ -337,7 +337,20 @@ For example: input regexp like [[:space:]]+ for align several space separated se
 
 ;; (require 'sudo-edit)
 
-;;;_
+
+;;; [ awk-it ] -- run AWK interactively on region!
+
+;;; Usage:
+;;
+;; - `awk-it-' prefix
+;; - [M-x awk-it]
+
+;; (require 'awk-it)
+
+;; (define-key my-search-prefix (kbd "w") 'awk-it)
+
+
+
 (provide 'init-my-emacs-edit)
 
 ;;; init-my-emacs-edit.el ends here
