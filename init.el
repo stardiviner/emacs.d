@@ -109,9 +109,9 @@
 
 ;;; [ esup ]
 
-(use-package esup
-  :config
-  )
+;;; Usage:
+;;
+;; - [M-x esup]
 
 
 ;;; my custom functions
