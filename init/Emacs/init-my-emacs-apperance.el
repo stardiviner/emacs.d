@@ -219,7 +219,7 @@
 ;;; [ current line & column ]
 
 ;; highlight current line
-(global-hl-line-mode 1) ; highlight current line
+(global-hl-line-mode 1)
 
 (set-face-attribute 'hl-line nil
                     ;; 1
@@ -233,11 +233,11 @@
                     ;; :box '(:color "cyan" :line-width 1 :style nil) :underline nil
                     ;; :underline "yellow" :foreground nil :background nil
                     ;; 4. darker percent 5%
-                    :foreground nil :background (color-darken-name (face-background 'default) 3)
+                    :foreground nil
+                    :background (color-darken-name (face-background 'default) 3)
                     )
 
-(setq hl-line-face 'hl-line)
-
+
 ;;; [ col-highlight ]
 
 ;; (require-package 'col-highlight)
