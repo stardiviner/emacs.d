@@ -60,11 +60,6 @@
 ;; `save-buffers-kill-emacs'
 ;; `save-buffers-kill-terminal'
 
-;; 3.
-;; (add-hook 'kill-emacs-query-functions
-;;           (lambda () (y-or-n-p "Do you really want to exit Emacs? "))
-;;           'append)
-
 
 ;;; :NOTE: some settings need to be set before required or loaded.
 
@@ -82,19 +77,6 @@
          load-path)))
 
 
-;;; [ Benchmark ]
-
-;; (let ((benchmark-init.el (expand-file-name  "el-get/benchmark-init/benchmark-init.el" user-emacs-directory)))
-;;   (when (file-exists-p benchmark-init.el)
-;;     (load benchmark-init.el)))
-
-;;; Usage:
-;; - [benchmark-init/show-durations-tabulated] ::
-;; - [benchmark-init/show-durations-tree] ::
-;; - [benchmark-init/activate]
-;; - [benchmark-init/deactivate]
-
-
 ;;; [ package manager ]
 
 (load "~/.emacs.d/init/init-my-packages.el")
@@ -110,6 +92,28 @@
 ;;; benchmark
 ;; (require 'init-my-emacs-benchmark)
 
+
+;;; [ Benchmark ]
+
+;;; Usage:
+;; - [benchmark-init/activate]
+;; - [benchmark-init/deactivate]
+;; - [benchmark-init/show-durations-tree]
+;; - [benchmark-init/show-durations-tabulated]
+
+;; (use-package benchmark-init
+;;   :config
+;;   (benchmark-init/activate)
+;;   )
+
+
+;;; [ esup ]
+
+(use-package esup
+  :config
+  )
+
+
 ;;; my custom functions
 (require 'init-my-library)
 (require 'init-my-functions)
