@@ -256,6 +256,7 @@
     rspec-mode minitest ruby-test-mode
     ruby-block ruby-hash-syntax ruby-interpolation
     ruby-electric ; ruby-end
+    ruby-factory
     ;; ruby-guard
     ;; motion-mode
     ;; Python

@@ -874,7 +874,24 @@
 
 ;;; [ feature-mode ] -- Major mode for Cucumber feature files
 
+
+;;; [ ruby-factory ] -- minor mode for Ruby test object generation libraries.
 
+;;; Usage:
+;;
+;; - [C-c , j] :: Jump to the current buffer's model or factory
+;; - Snippets
+
+;;; Supports:
+;; - factory_girl
+;; - Fabrication
+;; - only under Rails (for now).
+
+(use-package ruby-factory
+  :config
+  (add-hook 'ruby-mode-hook 'ruby-factory-mode)
+  (add-hook 'enh-ruby-mode-hook 'ruby-factory-mode)
+  )
 
 
 (provide 'init-my-prog-lang-ruby)
