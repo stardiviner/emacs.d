@@ -82,38 +82,8 @@
          load-path)))
 
 
-;;; [ auto-compile ]
-
-;;; This package provides two minor modes which automatically recompile Emacs
-;;; Lisp source files. Together these modes guarantee that Emacs never loads
-;;; outdated byte code files.
-
-;;; Usage:
-;;
-;; [M-x auto-compile-display-log]
-
-;; To reduce the risk of loading outdated byte code files, enable
-;; auto-compile-on-load-mode as early as possible, preferably even before the
-;; package manager.
-
-;; (setq load-prefer-newer t)
-;;
-;; (add-to-list 'load-path (concat user-emacs-directory "el-get/packed/packed.el"))
-;; (add-to-list 'load-path (concat user-emacs-directory "el-get/dash/dash.el"))
-;; (add-to-list 'load-path (concat user-emacs-directory "el-get/auto-compile/auto-compile.el"))
-;; (load (concat user-emacs-directory "el-get/packed/packed.el"))
-;; (load (concat user-emacs-directory "el-get/dash/dash.el"))
-;; (load (concat user-emacs-directory "el-get/auto-compile/auto-compile.el"))
-;;
-;; (require 'auto-compile)
-;; (auto-compile-on-load-mode 1)
-;; (auto-compile-on-save-mode 1)
-;;
-;; (setq auto-compile-display-buffer nil)
-;; (setq auto-compile-mode-line-counter t)
-
-
 ;;; [ Benchmark ]
+
 ;; (let ((benchmark-init.el (expand-file-name  "el-get/benchmark-init/benchmark-init.el" user-emacs-directory)))
 ;;   (when (file-exists-p benchmark-init.el)
 ;;     (load benchmark-init.el)))
