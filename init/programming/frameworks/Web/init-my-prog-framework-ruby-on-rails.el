@@ -1,4 +1,4 @@
-;;; init-my-prog-ruby-on-rails.el --- init Ruby on Rails
+;;; init-my-prog-framework-ruby-on-rails.el --- init Ruby on Rails
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -131,6 +131,6 @@
 ;; (process-send-string (inf-ruby-proc) "require 'rails'")
 
 
-(provide 'init-my-prog-ruby-on-rails)
+(provide 'init-my-prog-framework-ruby-on-rails)
 
-;;; init-my-prog-ruby-on-rails.el ends here
+;;; init-my-prog-framework-ruby-on-rails.el ends here

@@ -258,8 +258,8 @@
 (require 'init-my-prog-framework-http)
 (require 'init-my-prog-web-browser)
 (require 'init-my-prog-framework-arduino)
-(require 'init-my-prog-ruby-on-rails)
 (require 'init-my-prog-nginx)
+(require 'init-my-prog-framework-ruby-on-rails)
 
 
 ;;; programming related tools
