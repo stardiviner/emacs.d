@@ -29,8 +29,11 @@
   (define-key my-outline-prefix (kbd "u") 'origami-undo)
   (define-key my-outline-prefix (kbd "r") 'origami-redo)
   (define-key my-outline-prefix (kbd "!") 'origami-reset)
-  )
 
+  (dolist (hook '(prog-mode-hook
+                  ))
+    (add-hook hook 'origami-mode))
+  )
 
 
 (provide 'init-my-prog-folding)
