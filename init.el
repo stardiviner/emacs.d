@@ -228,6 +228,7 @@
 (require 'init-my-prog-comment)
 (require 'init-my-prog-electric)
 (require 'init-my-prog-indent)
+(require 'init-my-prog-folding)
 (require 'init-my-prog-lint)
 (require 'init-my-prog-complete)
 (require 'init-my-prog-sense)
