@@ -256,22 +256,21 @@
 
 (blink-cursor-mode 1)
 
-(setq mouse-avoidance-mode 'animate ; auto move mouse away when cursor is at mouse position
-      cursor-in-echo-area nil
-      cursor-in-non-selected-windows t
-      mouse-yank-at-point t
-      blink-cursor-blinks 10
-      )
+(setq-default mouse-avoidance-mode 'animate ; auto move mouse away when cursor is at mouse position
+              cursor-in-echo-area nil
+              mouse-yank-at-point t
+              blink-cursor-blinks 10
+              )
 
 ;;; red horizontal bar
-;; (setq-default cursor-type '(hbar . 3))
+;; (setq-default cursor-type '(hbar . 3)
+;;               cursor-in-non-selected-windows t)
 ;; (set-cursor-color "red")
 
-;;; transparent hollow
-(setq-default cursor-type 'hollow)
+;;; green hollow
+(setq-default cursor-type 'hollow
+              cursor-in-non-selected-windows nil)
 (set-cursor-color "green")
-(set-face-attribute 'cursor nil
-                    :background "green")
 
 
 ;;; [ cursor-chg ] -- change cursor color dynamically
