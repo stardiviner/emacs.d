@@ -48,13 +48,14 @@
     ;; Narrow
     ;; fancy-narrow narrow-indirect narrow-reindent recursive-narrow
     ;; narrowed-page-navigation
+    ;; Outline
+    allout allout-widgets
     ;; Navigation
     show-marks
     ;; ace-jump-mode
     ;; pophint
     ;; Fold
-    allout allout-widgets
-    ;; origami
+    origami
     ;; Info, Man,
     info+ ; woman
     ;; Dired
