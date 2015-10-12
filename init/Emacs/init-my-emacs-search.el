@@ -374,7 +374,7 @@
 
 ;;; [ Ack ]
 
-(require 'ack)
+;; (require 'ack)
 
 
 ;;; [ Full Ack ] -- An Emacs front-end for ack

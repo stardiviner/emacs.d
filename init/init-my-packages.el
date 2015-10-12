@@ -186,7 +186,7 @@
     visual-regexp visual-regexp-steroids
     ample-regexps pcre2el regex-tool
     ;; wgrep wgrep-ack wgrep-helm
-    ack full-ack helm-ack
+    ;; ack full-ack helm-ack
     ag helm-ag
     ;; pt helm-pt
     ;; helm-recoll
