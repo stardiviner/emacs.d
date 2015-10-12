@@ -52,6 +52,7 @@
       company-selection-wrap-around t
       )
 
+
 ;; (setq company-begin-commands '(self-insert-command
 ;;                                org-self-insert-command orgtbl-self-insert-command
 ;;                                c-scope-operator c-electric-colon c-electric-lt-gt c-electric-slash))
@@ -116,19 +117,8 @@
 
 ;;; globally
 (setq company-global-modes t)
-;; (setq company-global-modes '(emacs-lisp-mode
-;;                              org-mode
-;;                              ruby-mode
-;;                              prog-mode))
 
 (add-hook 'after-init-hook 'global-company-mode)
-
-;;; or enabled only in specific modes
-;; (dolist (hook '(emacs-lisp-mode-hook
-;;                 lisp-mode-hook
-;;                 lisp-interaction-mode-hook
-;;                 ))
-;;   (add-hook hook 'company-mode))
 
 ;; keybindings
 
