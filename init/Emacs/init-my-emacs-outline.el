@@ -317,27 +317,48 @@
 ;; - [C-c SPC] :: prefix of allout keybindings.
 ;; - [C-h v allout-prefixed-keybindings] + [C-h v allout-unprefixed-keybindings]
 
-(require 'allout)
+(use-package allout
+  :config
+  (setq allout-auto-activation t
+        ;; allout-layout
+        allout-default-layout '(-2 : -1 *)
+        ;; [buffer-local] allout-layout '(0 : -1 -1 0)
+        allout-widgets-auto-activation t
+        allout-command-prefix (kbd "C-c SPC")
+        )
+  (setq-default allout-use-mode-specific-leader nil
+                allout-stylish-prefixes t
+                allout-primary-bullet "*" ; used by level-1
+                allout-header-prefix "."
+                allout-distinctive-bullets-string "*+-=>()[{}&!?#%\"X@$~_\\:;^"
+                allout-plain-bullets-string-len 5
+                allout-plain-bullets-string "*+#>." ; + -> #N -> > -> *
+                )
 
-;; To use the allout package in place of the standard outline package, add the
-;; following bit of code.
-;; (require 'outline "allout")
+  
+  (allout-minor-mode 1)
 
-(setq allout-auto-activation t
-      ;; allout-layout
-      allout-default-layout '(-2 : -1 *)
-      ;; [buffer-local] allout-layout '(0 : -1 -1 0)
-      allout-widgets-auto-activation t
-      allout-command-prefix (kbd "C-c SPC")
-      )
-(setq-default allout-use-mode-specific-leader nil
-              allout-stylish-prefixes t
-              allout-primary-bullet "*" ; used by level-1
-              allout-header-prefix "."
-              allout-distinctive-bullets-string "*+-=>()[{}&!?#%\"X@$~_\\:;^"
-              allout-plain-bullets-string-len 5
-              allout-plain-bullets-string "*+#>." ; + -> #N -> > -> *
-              )
+  ;; so that you can active/inactive allout-minor-mode to edit/navigate/folding with it.
+  ;; (define-key my-edit-prefix (kbd "o") 'allout-minor-mode)
+  ;; activate outline mode for current buffer, and establish a default file-var setting for `allout-layout'.
+  (defun my-allout-toggle ()
+    "Toggle allout for current buffer."
+    (interactive)
+    (if (allout-mode-p)
+        (allout-mode -1)
+      (outlineify-sticky)
+      (allout-hide-bodies)
+      (define-key allout-mode-map (kbd "C-c SPC C-l") 'allout-hide-bodies)))
+
+  ;; (define-key my-edit-prefix (kbd "o") 'outlineify-sticky)
+  (define-key my-edit-prefix (kbd "o") 'my-allout-toggle)
+
+  ;; (unless (boundp 'my-outline-prefix)
+  ;;   (define-prefix-command 'my-outline-prefix))
+  ;; (define-key my-edit-prefix (kbd "o") 'my-outline-prefix)
+  ;;
+  ;; (define-key my-outline-prefix (kbd "n") 'allout-next-heading)
+  )
 
 
 ;; ;; -------------------------------------------------------------------------------
@@ -368,30 +389,6 @@
 ;;
 ;; (add-hook 'outline-mode-hook 'rf-allout-font-lock-hook)
 ;; ;; -------------------------------------------------------------------------------
-
-
-(allout-minor-mode 1)
-
-;; so that you can active/inactive allout-minor-mode to edit/navigate/folding with it.
-;; (define-key my-edit-prefix (kbd "o") 'allout-minor-mode)
-;; activate outline mode for current buffer, and establish a default file-var setting for `allout-layout'.
-(defun my-allout-toggle ()
-  "Toggle allout for current buffer."
-  (interactive)
-  (if (allout-mode-p)
-      (allout-mode -1)
-    (outlineify-sticky)
-    (allout-hide-bodies)
-    (define-key allout-mode-map (kbd "C-c SPC C-l") 'allout-hide-bodies)))
-
-;; (define-key my-edit-prefix (kbd "o") 'outlineify-sticky)
-(define-key my-edit-prefix (kbd "o") 'my-allout-toggle)
-
-;; (unless (boundp 'my-outline-prefix)
-;;   (define-prefix-command 'my-outline-prefix))
-;; (define-key my-edit-prefix (kbd "o") 'my-outline-prefix)
-;;
-;; (define-key my-outline-prefix (kbd "n") 'allout-next-heading)
 
 
 (provide 'init-my-emacs-outline)
