@@ -98,11 +98,6 @@
 ;;; [ package manager ]
 
 (load "~/.emacs.d/init/init-my-packages.el")
-
-;; (load "~/.emacs.d/init/init-my-pm-el-get.el")
-;; (require 'init-my-pm-el-get)
-
-;; (load (expand-file-name "~/.emacs.d/init/init-my-pm-package.el" user-emacs-directory))
 (load "~/.emacs.d/init/init-my-pm-package.el")
 (require 'init-my-pm-package)
 
