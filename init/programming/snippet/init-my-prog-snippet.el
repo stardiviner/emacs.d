@@ -182,13 +182,9 @@ $0"
 
 (set-face-attribute 'yas-field-highlight-face nil
                     :foreground nil
-                    :background (color-darken-name (face-background 'default) 3)
-                    ;; :box '(:color "cyan" :line-width 1 :style nil)
+                    :background "dark slate gray"
                     )
 (set-face-attribute 'yas--field-debug-face nil
-                    :background " " :foreground " "
-                    :box nil
-                    ;; :box '(:color "cyan")
                     )
 
 
