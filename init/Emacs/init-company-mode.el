@@ -105,6 +105,15 @@
         ;; company-bbdb           ; BBDB
         ))
 
+(defun my-company-add-backends-to-mode (backends-list)
+  "Add a list of backends to mode local. integrate with default `company-backends'."
+  (make-local-variable 'company-backends)
+  (setq company-backends (copy-tree company-backends))
+  (setf (car company-backends)
+        (append backends-list
+                (car company-backends)))
+  )
+
 ;;; globally
 (setq company-global-modes t)
 ;; (setq company-global-modes '(emacs-lisp-mode

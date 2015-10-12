@@ -27,13 +27,7 @@
           (lambda ()
             (setq-local completion-at-point-functions 'pcomplete-completions-at-point)
 
-            ;; FIXME: improve this code.
-            (make-local-variable 'company-backends)
-            (setq company-backends (copy-tree company-backends))
-            (setf (car company-backends)
-                  (let ((company-backends-first-group (car company-backends)))
-                    (setq temp company-backends-first-group)
-                    (add-to-list 'temp 'company-ispell t)))
+            (my-company-add-backends-to-mode '(company-ispell))
             ))
 
 

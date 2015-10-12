@@ -38,12 +38,7 @@
              
              (my-recompile-elc-on-save)
 
-             (make-local-variable 'company-backends)
-             (setq company-backends (copy-tree company-backends))
-             (setf (car company-backends)
-                   (append '(company-elisp
-                             )
-                           (car company-backends)))
+             (my-company-add-backends-to-mode '(company-elisp))
              ))
 
 (add-to-list 'auto-mode-alist '("Cask\\'" . emacs-lisp-mode))
