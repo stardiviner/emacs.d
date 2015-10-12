@@ -286,7 +286,7 @@
 ;;; [ Outline Magic ] -- it extends outline-mode and outline-minor-mode with a single command to toggle hiding/showing (outline-cycle) which you can bind to something like <C-tab>.
 
 
-;;; [ allout-mode ]
+;;; [ allout ]
 
 ;;; allout outline mode provides extensive outline formatting and manipulation
 ;;; beyond standard emacs outline mode. It provides for structured editing of
@@ -389,6 +389,9 @@
 ;;
 ;; (add-hook 'outline-mode-hook 'rf-allout-font-lock-hook)
 ;; ;; -------------------------------------------------------------------------------
+
+
+;;; [ allout-widgets ]
 
 
 (provide 'init-my-emacs-outline)
