@@ -103,8 +103,8 @@
 
 ;; additional optional helm settings to make helm more responsive.
 (setq helm-ff-lynx-style-map nil
-      helm-input-idle-delay 0.05 ; default: 0.01
-      helm-idle-delay 0.05 ; default: 0.01
+      helm-input-idle-delay 0.01 ; default: 0.01
+      helm-idle-delay 0.01 ; default: 0.01
       )
 
 ;; this global keybinding [M-x] will conflict with {[C-u M-x align-regexp] on select region text.}
