@@ -27,7 +27,7 @@
           (lambda ()
             (setq-local completion-at-point-functions 'pcomplete-completions-at-point)
 
-            (my-company-add-backends-to-mode '(company-ispell))
+            ;; (my-company-add-backends-to-mode '(company-ispell))
             ))
 
 
