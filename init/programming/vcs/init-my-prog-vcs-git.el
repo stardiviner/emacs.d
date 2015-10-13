@@ -114,11 +114,6 @@
 
 ;;; auto popup error buffer when magit process error.
 
-(advice-add 'magit-process-finish :after
-            (lambda ()
-              (if magit-process-raise-error
-                  (magit-process))))
-
 
 ;;; Magit Git
 
