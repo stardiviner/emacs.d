@@ -41,7 +41,7 @@
   (
    ;; window-number
    (:propertize (:eval (concat "[" (number-to-string (window-number)) "]"))
-                face (:foreground "tomato" :weight 'bold))
+                face (:foreground "tomato" :weight bold))
 
    ;; (:propertize "%e"
    ;;              face (:foreground "red" :inverse-video nil))
@@ -67,12 +67,12 @@
    ;; emacsclient indicator
    (:eval (if (frame-parameter nil 'client)
               (propertize " あ "
-                          'face '(:foreground "#333333" :background "yellow" :weight 'bold :height 120)
+                          'face '(:foreground "#333333" :background "yellow" :weight bold :height 120)
                           'help-echo "emacsclient frame")))
 
    ;; anzu
    (:propertize (:eval (anzu--update-mode-line))
-                face (:foreground "cyan" :weight 'bold
+                face (:foreground "cyan" :weight bold
                                   :box '(:color "cyan")))
    
    ;; multiple-cursors (mc/)
@@ -84,7 +84,7 @@
    ;; input method
    (:eval (if current-input-method-title ; `set-input-method'
               (propertize (format " {%s}" current-input-method-title)
-                          'face '(:foreground "cyan" :weight 'bold :slant 'italic))))
+                          'face '(:foreground "cyan" :weight bold))))
 
    ;; mule info
    (:propertize (" " mode-line-mule-info)
@@ -95,7 +95,7 @@
     (cond
      (buffer-read-only
       (propertize " ⚑ "
-                  'face '(:foreground "red" :weight 'bold)
+                  'face '(:foreground "red" :weight bold)
                   'help-echo "buffer is read-only!!!"))
      ;; (overwrite-mode
      ;;  (propertize "??"))
@@ -237,7 +237,7 @@
         (progn
           (list
            (propertize "  ◌"
-                       'face '(:foreground "cyan" :weight 'bold :height 120)
+                       'face '(:foreground "cyan" :height 120 :weight bold)
                        'help-echo "buffer-process")
            ;; (propertize mode-line-process ; FIXME: this does not work, it is a symbol.
            ;;             'face '(:foreground "tomato")
@@ -266,7 +266,7 @@
    ;;              face (:foreground "orange red"))
    ;; (:propertize "%m"
    ;;              face (:foreground "green yellow"
-   ;;                                :family "Comic Sans MS" :weight 'bold ; :height 100
+   ;;                                :family "Comic Sans MS"
    ;;                                )
    ;;              ;; FIXME:
    ;;              help-echo (minor-mode-alist)
@@ -276,7 +276,7 @@
    ;; ;; (:propertize minor-mode-alist
    ;; ;;              face (:foreground "dim gray"))
    ;; (:propertize "〗 "
-   ;;              face (:foreground "orange"))
+   ;;              face (:foreground "orange red"))
 
    ;; --------------------------- right align ----------------------------------
    
@@ -312,7 +312,7 @@
    ;; (:eval
    ;;  (if (string-empty-p org-mode-line-string)
    ;;      (propertize (t org-mode-line-string)
-   ;;                  'face '(:foreground "cyan" :weight 'bold)
+   ;;                  'face '(:foreground "cyan" :weight bold)
    ;;                  'help-echo "Org-mode clock"))
    ;;  )
 
@@ -340,7 +340,7 @@
   (
    (:propertize " "
                 display (space :align-to (- right 55)))
-   
+
    ;; you can custom here (add right aligned things here)
 
    ;; Mail
@@ -385,7 +385,7 @@
         (progn
           (list
            (propertize "  ◌"
-                       'face '(:foreground "cyan" :weight 'bold :height 120)
+                       'face '(:foreground "cyan" :weight bold :height 120)
                        'help-echo "buffer-process")
            ;; (propertize mode-line-process ; FIXME: this does not work, it is a symbol.
            ;;             'face '(:foreground "tomato")
@@ -419,7 +419,7 @@
    ;; '(:propertize " [%p,%I] ")
 
    (:propertize " ["
-                face (:foreground "red" :weight 'bold))
+                face (:foreground "red" :weight bold))
    ;; workgroups2
    (:eval (list
            (propertize "wg:"
@@ -438,17 +438,17 @@
                        'face '(:foreground "cyan" :height 75))
            ))
    (:propertize "] "
-                face (:foreground "red" :weight 'bold))
+                face (:foreground "red" :weight bold))
 
    ;; the major mode of the current buffer.
    ;; `mode-name', `mode-line-modes', `minor-mode-alist'
    (:propertize "%m"
                 face (:foreground "green yellow"
-                                  :family "Comic Sans MS" :weight 'bold :height 80
+                                  :family "Comic Sans MS" :weight bold :height 80
                                   )
                 ;; help-echo (minor-mode-alist)
                 )
-   
+
    ;; TODO: enable this
    ;; 'display-time-string
    )
