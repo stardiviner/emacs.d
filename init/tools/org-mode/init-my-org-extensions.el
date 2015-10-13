@@ -80,7 +80,7 @@
 :NAME: %(org-contacts-template-name)
 :NICK-NAME:
 :ALIAS:
-:ICON: %(org-contacts-template-name)
+:ICON: %(org-contacts-template-name).jpg
 :BIRTHDAY: %:date
 :GENDER:
 :RELATIONSHIP:
@@ -100,7 +100,7 @@
 :PROGRAMMING-SKILLS:
 :SKILLS:
 :EDUCATION:
-:LANGUAGE:
+:LANGUAGES:
 :PROJECTS:
 :IGNORE:
 :DATE: %:type %:date
