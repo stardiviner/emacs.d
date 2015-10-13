@@ -1,4 +1,4 @@
-;;; init-my-emacs-apperance.el --- my Emacs apperance init
+;;; init-my-emacs-appearance.el --- my Emacs apperance init
 
 ;;; Commentary:
 
@@ -472,7 +472,7 @@
 ;;; [ hs-minor-mode ] -- hide/show
 
 ;; FIXME: *ERROR*: Web Mode doesn't support Hideshow Minor Mode.
-(add-hook 'prog-mode-hook 'hs-minor-mode)
+;; (add-hook 'prog-mode-hook 'hs-minor-mode)
 
 
 ;;; Disable GUI dialog boxes
@@ -566,6 +566,6 @@
 
 
 
-(provide 'init-my-emacs-apperance)
+(provide 'init-my-emacs-appearance)
 
-;;; init-my-emacs-apperance.el ends here
+;;; init-my-emacs-appearance.el ends here
