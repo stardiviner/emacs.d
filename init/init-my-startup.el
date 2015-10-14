@@ -75,7 +75,7 @@
 
 ;;; open Org-Agenda at startup.
 
-(org-agenda-list)
+;; (org-agenda-list)
 ;; or
 ;; (org-todo-list t)
 
