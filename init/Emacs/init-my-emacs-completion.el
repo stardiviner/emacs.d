@@ -12,10 +12,10 @@
 ;; - `completion-at-point-functions' is a special hook.
 ;;    (add-hook 'completion-at-point-functions 'completion-function)
 
-(setq-default completion-at-point-functions
-              '(pcomplete-completions-at-point
-                semantic-completion-at-point-function
-                tags-completion-at-point-function))
+;; (setq-default completion-at-point-functions
+;;               '(pcomplete-completions-at-point
+;;                 semantic-completion-at-point-function
+;;                 tags-completion-at-point-function))
 
 ;; (setq tab-always-indent 'complete)
 ;; (add-to-list 'completion-styles 'initials t)
