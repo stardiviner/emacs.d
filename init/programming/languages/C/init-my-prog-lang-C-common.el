@@ -84,7 +84,7 @@
 ;; `irony-cdb-compilation-databases'.
 
 (hook-modes c-dialects-mode
-  (when (member major-mode irony-known-modes)
+  (when (member major-mode irony-supported-major-modes)
     (irony-mode 1)))
 
 ;; replace the `completion-at-point' and `complete-symbol' bindings in
