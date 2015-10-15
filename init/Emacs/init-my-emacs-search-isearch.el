@@ -41,7 +41,9 @@
 ;;   string.
 
 
-(setq query-replace-show-replacement t
+(setq search-highlight t
+      query-replace-highlight t
+      query-replace-show-replacement t
       ;; query-replace-from-to-separator "->"
       isearch-allow-scroll t
       )
