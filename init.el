@@ -26,6 +26,8 @@
 ;; No splash screen please... jeez
 (setq inhibit-startup-screen t)
 
+(setq confirm-kill-emacs 'yes-or-no-p)
+
 (toggle-frame-maximized)
 
 
@@ -47,18 +49,8 @@
 
 
 (require 'server)
-
 (unless (server-running-p)
   (server-start))
-
-
-
-;; 1.
-(setq confirm-kill-emacs 'yes-or-no-p)
-
-;; 2.
-;; `save-buffers-kill-emacs'
-;; `save-buffers-kill-terminal'
 
 
 ;;; :NOTE: some settings need to be set before required or loaded.
@@ -67,6 +59,7 @@
 
 
 ;;; add my init files directory
+
 (let ((default-directory "~/.emacs.d/init/"))
   (setq load-path
         (append
@@ -87,7 +80,6 @@
 
 
 ;;; debug, profiling etc
-(require 'init-my-emacs-debug)
 
 (require 'init-my-emacs-debug)
 ;; (require 'init-my-emacs-benchmark)
@@ -96,9 +88,6 @@
 ;;; my custom functions
 (require 'init-my-library)
 (require 'init-my-functions)
-
-
-;;; key bindings
 (require 'init-my-keybindings)
 
 
