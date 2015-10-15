@@ -14,27 +14,6 @@
 (add-to-list 'completion-ignored-extensions ".rbo")
 
 
-;;; custom functions
-
-;;; FIXME: key binding always override by flyspell-auto-correct-word.
-(defun insert-arrow ()
-  "Insert => for Ruby old school style hash."
-  (interactive)
-  (delete-horizontal-space t)
-  (insert " => "))
-
-;; (deprecated) replaced by package `ruby-tools'.
-;; (defun insert-ruby-interpolate ()
-;;   "In a double quoted string, interpolate."
-;;   (interactive)
-;;   (insert "#")
-;;   (when (and
-;;          (looking-back "\".*" nil)
-;;          (looking-at ".*\""))
-;;     (insert "{}")
-;;     (backward-char 1)))
-
-
 ;;; [ ruby-mode ]
 
 ;; - [C-M-n] -- end of block
@@ -124,9 +103,6 @@
   ;; TODO: test whether conflict with `ruby-electric'
   ;; (define-key enh-ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
   ;; (define-key enh-ruby-mode-map (kbd "TAB") 'indent-for-tab-command)
-
-  (define-key enh-ruby-mode-map (kbd "C-c C-'") 'insert-arrow)
-  ;; (define-key enh-ruby-mode-map (kbd "#") 'insert-ruby-interpolate)
 
   ;; hs-minor-mode (hide-show)
   ;; (add-to-list 'hs-special-modes-alist
