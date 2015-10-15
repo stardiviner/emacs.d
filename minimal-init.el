@@ -9,28 +9,38 @@
 
 (setq debug-on-error t
       debug-on-signal nil
-      debug-on-quit t)
+      debug-on-quit nil)
+
+
+;;; [ profiler ]
+
+;; (profiler-start 'cpu+mem)
+
+
+;;; benchmark
+
+;; (require 'init-my-emacs-benchmark)
+
+
+;;; [ things before load ]
+
+;; Turn off mouse interface early in startup to avoid momentary display
+(when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+
+;; No splash screen please... jeez
+(setq inhibit-startup-screen t)
+
+(toggle-frame-maximized)
 
 
 ;;; some settings for easy usage
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-;;; [ package manager ]
 
-;;; el-get
 
-(add-to-list 'load-path "~/.emacs.d/el-get")
-
-
-;;; [ package.el ]
-
-;; (require 'package)
-;; (setq package-archives
-;;       '(("marmalade" . "http://marmalade-repo.org/packages/")
-;;         ("org"       . "http://orgmode.org/elpa/")
-;;         ("melpa"     . "http://melpa.milkbox.net/packages/")))
-;; (package-initialize)
+(setq projectile-rails-keymap-prefix (kbd "C-c C-r")) ; or [C-c C-p]
 
 
 ;;; add my init files directory
@@ -44,3 +54,30 @@
          load-path)))
 
 
+;;; [ package.el ]
+
+(load "~/.emacs.d/init/init-my-packages.el")
+(load "~/.emacs.d/init/init-my-pm-package.el")
+(require 'init-my-pm-package)
+
+(require 'use-package)
+
+(require 'color)
+(require 'color-theme)
+
+
+;;; my custom functions
+(require 'init-my-library)
+(require 'init-my-functions)
+
+
+
+(require 'init-my-keybindings)
+(require 'init-my-emacs-keybinding)
+(require 'init-my-prog-programming)
+
+(require 'init-my-emacs-completion)
+(require 'init-my-prog-complete)
+
+(require 'init-my-prog-lang-lisp)
+(require 'init-my-prog-lang-emacs-lisp)
