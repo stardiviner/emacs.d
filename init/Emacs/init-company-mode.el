@@ -391,8 +391,13 @@
 
 ;;; [ company-try-hard ] -- get all completions from company backends.
 
-;; TODO: dive into source code.
-;; (require 'company-try-hard)
+;; Offer completions from the first backend in `company-backends' that offers
+;; candidates. If called again, use the next backend, and so on.
+
+;; (use-package company-try-hard
+;;   :config
+;;   (global-set-key (kbd "<tab>") 'company-try-hard)
+;;   )
 
 
 (provide 'init-company-mode)
