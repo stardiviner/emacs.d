@@ -144,7 +144,7 @@
 
 ;;; [ ob-elixir ]
 
-(require 'ob-elixir)
+;; (require 'ob-elixir)
 
 ;;; [ ob-julia ]
 ;;
