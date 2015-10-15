@@ -21,80 +21,12 @@
            "%b"))))
 
 
-;;; [ Menu Bar ]
-
-;; the menu bar is mostly useless as well
-;; but removing it under OS X doesn't make much sense
-
-;; (if (eq system-type 'darwin)
-;;     ;; (string-match "apple-darwin" system-configuration)
-;;     (with-selected-frame 'frame
-;;       (if (display-graphic-p)
-;;           (modify-frame-parameters 'frame '((menu-bar-lines . 1)))
-;;         (modify-frame-parameters 'frame '((menu-bar-lines . 0)))))
-;;   (if (fboundp 'menu-bar-mode) (menu-bar-mode -1)))
-;;
-;; (setq-default imenu-auto-rescan t)
-
-
-;;; [ Tool Bar ]
-
-;; (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-
-
-;;; [ Scroll Bar ]
-
-;; (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-;;
-;; ;; smooth scroll
-;; (setq scroll-margin 10
-;;       scroll-conservatively 100000
-;;       scroll-preserve-screen-position 'always ; 1, screen offset, nil, always keep in center of window. 'always, keep [M-v] undo [C-v].
-;;       )
-
-
-;;; [ yascroll ] -- Yet Another Scroll Bar Mode
-
-;; * 'right-fringe' for rendering scroll bar in right-fringe.
-;; * 'left-fringe' for rendering scroll bar in left-fringe.
-;; * 'text-area' for rendering scroll bar in text area.
-
-;; (setq yascroll:scroll-bar 'right-fringe ; 'right-fringe, 'left-fringe, 'text-area.
-;;       ;; yascroll:disabled-modes
-;;       yascroll:delay-to-hide nil ; nil, 0.5
-;;       ;; yascroll:enabled-window-systems '(nil x w32 ns pc)
-;;       )
-;;
-;; (set-face-attribute 'yascroll:thumb-text-area nil
-;;                     :foreground "slate blue")
-;;
-;; (global-yascroll-bar-mode 1)
-
-
-
 ;;; [ border ]
 
 ;; (set-frame-parameter (selected-frame) 'internal-border-width 1)
 
 
 ;;; [ fringe ]
-
-;; (defconst fringe-styles
-;;   '(("default" . nil)
-;;     ("no-fringes" . 0)
-;;     ("right-only" . (0 . nil))
-;;     ("left-only" . (nil . 0))
-;;     ("half-width" . (4 . 4))
-;;     ("minimal" . (1 . 1)))
-;;   "Alist mapping fringe mode names to fringe widths.
-;; Each list element has the form (NAME . WIDTH), where NAME is a
-;; mnemonic fringe mode name and WIDTH is one of the following:
-;; - nil, which means the default width (8 pixels).
-;; - a cons cell (LEFT . RIGHT), where LEFT and RIGHT are
-;;   respectively the left and right fringe widths in pixels, or
-;;   nil (meaning the default width).
-;; - a single integer, which specifies the pixel widths of both
-;; fringes.")
 
 ;; (setq fringe-indicator-alist
 ;;       '((truncation left-arrow right-arrow)
@@ -127,23 +59,9 @@
                     )
 
 
-;;; [ modeline ]
-
-(require 'init-my-emacs-mode-line)
-
-;; (require 'init-my-emacs-powerline)
-
-
 ;;; [ echo area ]
 
-(setq echo-keystrokes 0.1) ; faster echo key strokes
-
-
-;;; [ Frame ]
-
-;;; full screen
-;; - [F11] -- fullscreen.
-;; - [M-F10] -- max window.
+(setq echo-keystrokes 0.01) ; faster echo key strokes
 
 
 ;;; [ Widget ]
@@ -165,24 +83,6 @@
                     :inherit 'widget-field
                     :background "#333333"
                     )
-
-
-;;; [ Layout ]
-
-;; - (info "(elisp) Layout Parameters")
-
-;; (let ((display-table (or standard-display-table (make-display-table))))
-;;   (set-display-table-slot display-table 'vertical-border (make-glyph-code ?┃))
-;;   (setq standard-display-table display-table))
-
-;; (set-face-attribute 'vertical-border nil
-;;                     :width 1)
-
-
-;;; [ Window ]
-(setq window-min-height 4
-      window-min-width 10
-      )
 
 
 ;;; [ line space(spacing) / line height ]
@@ -265,7 +165,7 @@
 ;;; horizontal bar
 (setq-default cursor-type '(hbar . 2)
               cursor-in-non-selected-windows t)
-(set-cursor-color "green yellow")
+(set-cursor-color "red")
 
 ;;; hollow
 ;; (setq-default cursor-type 'hollow
@@ -273,30 +173,8 @@
 ;; (set-cursor-color "green")
 
 
-;;; [ cursor-chg ] -- change cursor color dynamically
-
-;; (require 'cursor-chg)                   ; load the library
-
-;; ;; cursor-chg.el looks nifty but just FYI I have this simple (and by comparison,
-;; ;; probably primitive) snippet in my .emacs. I don’t remember where I got it
-;; ;; from but works great for me. Note, the hardwired colors are meant for dark
-;; ;; backgrounds.
-
-;; (setq curchg-change-cursor-on-input-method-flag t
-;;       curchg-change-cursor-on-overwrite/read-only-flag t
-;;       curchg-default-cursor-color "cyan"
-;;       curchg-default-cursor-type 'hbar
-;;       curchg-idle-cursor-type 'box
-;;       curchg-input-method-cursor-color "orange"
-;;       curchg-overwrite/read-only-cursor-type 'box)
-
-;; (toggle-cursor-type-when-idle 1) ; Turn on cursor change when Emacs is idle
-;; (change-cursor-mode 1) ; Turn on change for overwrite, read-only, and input mode
-
-
 ;;; [ Selection ]
 
-;; transpose (for region mark)
 (setq transient-mark-mode t)
 
 
@@ -320,45 +198,21 @@
 
 ;;; [ auto-fill-mode ] -- auto fill paragraphs like hitting [M-q].
 
+;;; global
 ;; (auto-fill-mode t)
+
+;;; auto fill comments but not code in programming modes:
+(add-hook 'prog-mode-hook
+          '(lambda ()
+             (setq-local comment-auto-fill-only-comments t)
+             ))
+
 ;;; enable only for text writing modes.
 (dolist (hook
          '(text-mode-hook
            org-mode-hook
            markdown-mode-hook))
   (add-hook hook 'turn-on-auto-fill))
-;;; auto fill comments but not code in programming modes:
-(add-hook 'prog-mode-hook (lambda ()
-                            (setq-local comment-auto-fill-only-comments t)
-                            ;; -- manually --
-                            ;; (auto-fill-mode 1)
-                            ;; (set (make-local-variable 'fill-nobreak-predicate)
-                            ;;      (lambda ()
-                            ;;        (not (eq (get-text-property (point) 'face)
-                            ;;               'font-lock-comment-face))))
-                            ))
-
-
-;;; { refill mode }
-;; This mode does automatic refilling, all the time.
-;; Basically, it hits M-q automatically after changes to the buffer that might
-;; normally trigger auto-filling. This prevents you from ever writing anything
-;; other than perfectly filled paragraphs in your buffers. If you need to write
-;; a table or anything else non-filled, you need to disable Refill mode
-;; temporarily.
-;; (global-set-key (kbd "C-c q") 'refill-mode)
-;; types of fill
-;; run those commands on paragraphs, buffer, region etc.
-;; - [M-x set-justification-full]
-;; - [M-x set-justification-left]
-;; - [M-x set-justification-center]
-;; - [M-x set-justification-right]
-;; - [M-x set-justification-none]
-
-
-;;; highlight search
-(setq search-highlight t
-      query-replace-highlight t)
 
 
 ;;; [ syntax highlighting ]
@@ -374,30 +228,28 @@
 ;; (global-prettify-symbols-mode 1)
 
 
-;;; [ pretty-mode (pretty-mode-plus) ] -- Redisplay parts of the Emacs buffer as pretty symbols.
-
-;; https://github.com/akatov/pretty-mode
+;;; [ pretty-mode ] -- redisplay parts of the Emacs buffer as pretty symbols.
 
 (require 'pretty-mode)
 
 (add-to-list 'pretty-supported-modes 'ruby-mode)
 (add-to-list 'pretty-supported-modes 'enh-ruby-mode)
 
-;; (setq pretty-default-groups '(:function :greek-capitals :greek-lowercase :equality :ordering :ordering-double :ordering-triple :logic :nil :sets :sets-operations :sets-relations :arrows :arrows-twoheaded :arithmetic :arithmetic-double :punctuation :subscripts :superscripts))
-;; (setq pretty-active-groups)
+;; TODO:
+;; (add-to-list 'pretty-default-groups '(:function))
+;; (add-to-list 'pretty-active-groups '(ruby-mode :function))
 ;; (add-to-list 'pretty-active-patterns '(ruby-mode))
-;; (add-to-list 'pretty-deactivated-patterns '(ruby-mode))
-
-;; FIXME:
 ;; (add-to-list 'pretty-patterns '((ruby-mode ("->" . ?λ))))
 
 ;;; 1. if you want to set it globally
-(global-pretty-mode t)
+;; (global-pretty-mode t)
 ;;; 2. if you want to set it only for a specific mode
 (dolist (hook '(prog-mode-hook
-                lisp-mode-hook emacs-lisp-mode-hook scheme-mode-hook
-                ruby-mode-hook enh-ruby-mode-hook
-                org-mode-hook markdown-mode-hook))
+                ;; TODO: test does this work?
+                ;; lisp-mode-hook emacs-lisp-mode-hook scheme-mode-hook
+                ;; ruby-mode-hook enh-ruby-mode-hook
+                ;; org-mode-hook markdown-mode-hook
+                ))
   (add-hook hook 'turn-on-pretty-mode))
 
 
@@ -440,130 +292,12 @@
 (setq page-break-lines-char ?─)
 
 
-;;; [ on-screen ]
-
-(use-package on-screen
-  :config
-  (setq on-screen-auto-update t
-        on-screen-delay 10
-        on-screen-drawing-threshold 2
-        on-screen-fringe-marker-position t
-        on-screen-highlighting-to-background-delta 0.05
-        on-screen-inverse-flag nil
-        on-screen-remove-when-edit t
-        on-screen-treat-cut-lines t
-        ;; fringe       - graphical markers in the fringe
-        ;; shadow       - transparent overlay on the text
-        ;; line         - transparent overlay on the confining text lines
-        ;; narrow-line  - narrow horizontal lines
-        on-screen-highlight-method 'narrow-line
-        )
-  
-  (set-face-attribute 'on-screen-fringe nil
-                      :foreground "red")
-  (set-face-attribute 'on-screen-narrow-line nil
-                      :underline '(:color "white" :style line))
-  (set-face-attribute 'on-screen-shadow nil
-                      :background "dark gray")
-  )
-
-
-;;; [ Fold ]
-
-;;; [ hs-minor-mode ] -- hide/show
-
-;; FIXME: *ERROR*: Web Mode doesn't support Hideshow Minor Mode.
-;; (add-hook 'prog-mode-hook 'hs-minor-mode)
-
-
 ;;; Disable GUI dialog boxes
 
-(setq use-file-dialog 'nil) ; use mini-buffer for file dialogs
-(setq use-dialog-box  'nil) ; use mini-buffer for everything' else..
+(setq use-dialog-box nil) ; use mini-buffer for everything' else..
 
 
 ;;; trailing whitespace
-
-;;; But don't show trailing whitespace in SQLi, inf-ruby etc.
-(dolist (hook '(special-mode-hook
-                eww-mode
-                term-mode-hook
-                ;; comint-mode-hook
-                compilation-mode-hook
-                ;; twittering-mode-hook
-                minibuffer-setup-hook))
-  (add-hook hook
-            (lambda () (setq show-trailing-whitespace nil))))
-
-;; (require 'whitespace-cleanup-mode)
-;; (global-whitespace-cleanup-mode t)
-
-
-;;; [ minimap ] -- implementation of a minimap sidebar, i.e., a smaller display of the current buffer on the left side.
-
-;;; Usage:
-;; - [mimimap-create] :: create minimap.
-;; - [minimap-kill] :: kill minimap.
-
-;; (require 'minimap)
-
-;; (setq minimap-tag-only nil
-;;       ;; minimap-numlines 200
-;;       minimap-update-delay 0.1
-;;       minimap-always-recenter nil
-;;       minimap-recenter-type 'relative
-;;       minimap-minimum-width 20
-;;       minimap-highlight-line nil          ; highlight current line in minimap.
-;;       minimap-width-fraction 0.08       ; percent of current width.
-;;       minimap-hide-fringes nil
-;;       minimap-hide-scroll-bar t
-;;       minimap-window-location 'right
-;;       minimap-dedicated-window t        ; whether create a dedicated window.
-;;       minimap-recreate-window t
-;;       ;; BUG: dive into minimap source code to debug this issue.
-;;       minimap-automatically-delete-window t ; disable auto delete minimap window will avoid weird window jumping problem. (which auto weird jump to next window after re-switch back to source code window instead of Org-mode buffer.) So set this option to `nil' will preserve the minimap window.
-;;       minimap-major-modes '(prog-mode
-;;                             ;; org-mode
-;;                             markdown-mode Man-mode
-;;                             magit-mode)
-;;       minimap-normal-height-faces '(font-lock-function-name-face)
-;;       minimap-enlarge-certain-faces 'as-fallback
-;;       )
-
-;; (add-hook 'emacs-startup-hook 'minimap-create)
-
-
-;;; [ stripe-buffer ] -- add stripes to "list" buffers
-
-;; Use different background colors for even and odd lines.
-;;
-;; With the help of library hl-line-mode yet another color can be used for the current line.
-
-;; FIXME: project is still in alpha.
-;; (require 'stripe-buffer)
-
-;; (setq stripe-height
-;;       stripe-in-table-regex ; Regex for determining whether a line is part of a
-;;                             ; table. Used in stripe-table-mode
-;;       )
-
-;; (dolist (hook '(dired-mode-hook
-;;                 ))
-;;   (add-hook hook 'turn-on-stripe-buffer-mode))
-
-;; (after 'org-mode
-;;   (if (featurep 'stripe-buffer)
-;;       (add-hook 'org-mode-hook 'turn-on-stripe-table-mode)))
-
-
-;; (set-face-attribute 'stripe-highlight nil
-;;                     :background "Grey7"
-;;                     :foreground "Gold4"
-;;                     )
-;; (set-face-attribute 'stripe-hl-line nil ; color for hl-line, when using stripe-listify-buffer
-;;                     )
-;; (set-face-attribute 'stripe-highlight-overlays nil
-;;                     )
 
 
 
