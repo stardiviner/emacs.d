@@ -89,29 +89,8 @@
 ;;; debug, profiling etc
 (require 'init-my-emacs-debug)
 
-;;; benchmark
+(require 'init-my-emacs-debug)
 ;; (require 'init-my-emacs-benchmark)
-
-
-;;; [ Benchmark ]
-
-;;; Usage:
-;; - [benchmark-init/activate]
-;; - [benchmark-init/deactivate]
-;; - [benchmark-init/show-durations-tree]
-;; - [benchmark-init/show-durations-tabulated]
-
-;; (use-package benchmark-init
-;;   :config
-;;   (benchmark-init/activate)
-;;   )
-
-
-;;; [ esup ]
-
-;;; Usage:
-;;
-;; - [M-x esup]
 
 
 ;;; my custom functions
