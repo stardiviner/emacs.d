@@ -126,8 +126,6 @@
 ;;; Emacs
 (require 'init-my-emacs-performance)
 (require 'init-my-emacs-font)
-(require 'color)
-(require 'color-theme)
 (require 'init-my-emacs-color-theme)
 (require 'init-my-emacs-appearance)
 (require 'init-my-emacs-mode-line)
