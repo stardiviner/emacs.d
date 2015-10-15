@@ -71,18 +71,19 @@
 ;; 2. [M-x run-python] :: run inferior python.
 ;; 3. [M-x pyenv-mode-unset] :: unset
 
-(use-package pyenv-mode
-  :config
-  (add-hook 'python-mode-hook 'pyenv-mode)
-
-  ;; projectile integration
-  (defun projectile-pyenv-mode-set ()
-    "Set pyenv version matching project name.
-  Version must be already installed."
-    (pyenv-mode-set (projectile-project-name)))
-  
-  (add-hook 'projectile-switch-project-hook 'projectile-pyenv-mode-set)
-  )
+;; (use-package pyenv-mode
+;;   :config
+;;   ;; FIXME: this pyven-mode is global. [C-c C-u] [C-c C-s]
+;;   ;; (add-hook 'python-mode-hook 'pyenv-mode)
+;;
+;;   ;; projectile integration
+;;   (defun projectile-pyenv-mode-set ()
+;;     "Set pyenv version matching project name.
+;;   Version must be already installed."
+;;     (pyenv-mode-set (projectile-project-name)))
+;;  
+;;   (add-hook 'projectile-switch-project-hook 'projectile-pyenv-mode-set)
+;;   )
 
 
 ;;; [ pyvenv ] -- Python virtual environment interface for Emacs.
