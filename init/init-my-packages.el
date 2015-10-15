@@ -18,7 +18,7 @@
     ;; Apperance
     color-theme
     color-theme-solarized
-    ;; monokai-theme
+    monokai-theme
     page-break-lines
     ;; mode-line
     ;; nyan-mode nyan-prompt

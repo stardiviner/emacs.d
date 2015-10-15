@@ -47,10 +47,6 @@
 ;;; color-theme-almost-monokai
 
 ;; (color-theme-almost-monokai)
-
-;;; monokai-theme
-
-;; (load-theme 'monokai t)
 
 
 ;;; custom faces
