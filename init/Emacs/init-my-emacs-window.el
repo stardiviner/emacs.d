@@ -492,8 +492,8 @@ the mode-line."
   (push '("*Compile-Log*" :position bottom :height 10) popwin:special-display-config)
 
   ;; quickrun "*quickrun*"
-  (push '(quickrun/mode :position bottom :height 10) popwin:special-display-config)
-  (push '("*quickrun*" :position bottom :height 10) popwin:special-display-config)
+  (push '(quickrun/mode :position bottom :height 10 :noselect t) popwin:special-display-config)
+  (push '("*quickrun*" :position bottom :height 10 :noselect t) popwin:special-display-config)
 
   ;; *Pp Eval Output*
   ;; TODO: this will make this buffer does not show up.
