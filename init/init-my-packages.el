@@ -109,7 +109,6 @@
     org-bullets
     org-agenda-property
     ;; org-alert
-    org-pdfview
     ;; org-projectile
     org-download
     org-password-manager
@@ -426,7 +425,7 @@
     ;; helm-w3m
     helm-firefox ; helm-chrome
     ;; PDF
-    ;; pdf-tools
+    ;; pdf-tools org-pdfview
     ;; Image
     ;; image+ ; xpm
     ;; Ascii Graphic
