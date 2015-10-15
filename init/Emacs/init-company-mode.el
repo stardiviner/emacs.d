@@ -389,33 +389,6 @@
 ;;       )
 
 
-;;; company-elisp
-
-(setq company-elisp-detect-function-context t ; offer Lisp functions only in appropriate contexts.
-      company-elisp-show-locals-first t
-      )
-
-
-;;; company-dabbrev
-
-(setq company-dabbrev-minimum-length 2)
-
-
-;;; company-etags
-
-
-;;; company-gtags
-
-;; (setq company-gtags-modes '(prog-mode jde-mode))
-
-
-;;; company-bbdb
-
-(setq company-bbdb-modes '(message-mode
-                           mu4e-compose-mode org-mu4e-compose-org-mode
-                           org-mode))
-
-
 ;;; [ company-try-hard ] -- get all completions from company backends.
 
 ;; TODO: dive into source code.
