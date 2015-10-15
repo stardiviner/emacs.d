@@ -181,7 +181,6 @@ $0"
 ;;; Faces
 
 (set-face-attribute 'yas-field-highlight-face nil
-                    :foreground nil
                     :background "dark slate gray"
                     )
 (set-face-attribute 'yas--field-debug-face nil

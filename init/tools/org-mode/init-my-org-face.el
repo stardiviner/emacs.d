@@ -153,8 +153,7 @@
                     :foreground "chocolate"
                     )
 (set-face-attribute 'org-headline-done nil
-                    :foreground "#444444"
-                    :background nil)
+                    :foreground "#444444")
 ;;; tags
 (set-face-attribute 'org-tag nil
                     :foreground "cyan"
@@ -171,8 +170,7 @@
 (set-face-attribute 'org-checkbox nil
                     :bold 'normal
                     :box '(:line-width 1 :color "black" :style nil)
-                    :foreground "dark gray"
-                    :background nil)
+                    :foreground "dark gray")
 ;; * headline [7%] -> checkbox statistics face.
 (set-face-attribute 'org-checkbox-statistics-todo nil
                     :box '(:color "black" :line-width -1)
@@ -238,7 +236,6 @@
 ;;                     )
 ;; (set-face-attribute 'org-block nil
 ;;                     :background "#004A5d"
-;;                     :foreground nil
 ;;                     )
 ;; ;; code face => ~code~,  #+RESULTS: : result.
 ;; (set-face-attribute 'org-code nil
@@ -267,17 +264,14 @@
 ;; FIXME: how to detect a face is defined?
 ;; (if (boundp 'org-block-background)
 ;;     (set-face-attribute 'org-block-background nil
-;;                         :foreground nil :background "#222222"
-;;                         :foreground nil :background "#004A5D"
+;;                         :background "#004A5D"
 ;;                         ))
 ;; (set-face-attribute 'org-block-background nil
-;;                     :foreground nil
 ;;                     ;; :background "#073642"
 ;;                     :background (color-darken-name (face-background 'default) 5)
 ;;                     )
 
 (set-face-attribute 'secondary-selection nil
-                    :foreground nil
                     :background (color-darken-name (face-background 'default) 6)
                     )
 

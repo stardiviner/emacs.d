@@ -413,7 +413,7 @@
                     )
 ;; toolbar [ < ] [ > ] [Today ]                      [Day] [Week] [Two Weeks] [Month]
 (set-face-attribute 'cfw:face-toolbar nil
-                    :foreground "gray" :background nil)
+                    :foreground "gray")
 (set-face-attribute 'cfw:face-toolbar-button-on nil
                     :foreground "white"
                     :weight 'bold

@@ -133,14 +133,14 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 (use-package bm
   :config
   (set-face-attribute 'bm-face nil
-		      :foreground nil :background "saddle brown")
+                      :background "saddle brown")
   (set-face-attribute 'bm-fringe-face nil
 		      :inherit 'bm-face
 		      :foreground "white"
 		      :weight 'normal
 		      )
   (set-face-attribute 'bm-persistent-face nil
-		      :foreground nil :background "royal blue")
+                      :background "royal blue")
   (set-face-attribute 'bm-fringe-persistent-face nil
 		      :inherit 'bm-persistent-face
 		      :foreground "dark red"

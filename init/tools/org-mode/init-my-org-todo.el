@@ -91,7 +91,7 @@
         ("LATER" :foreground "dim gray" :background "black"
          :weight bold
          :box '(:color "dark red" :line-width -1))
-        ("DONE" :foreground "black" :background nil
+        ("DONE" :foreground "black"
          :weight bold :strike-through t
          :box '(:color "black" :line-width -1))
         ("FAILED" :foreground "#444444" :background "orange"
@@ -101,10 +101,10 @@
          :weight bold :strike-through t
          :box '(:color "black" :line-width -1))
         ;; FIXME:
-        ("BUG" :foreground "red" :background nil
+        ("BUG" :foreground "red"
          :weight bold
          :box '(:color "red" :line-width -1 :style nil))
-        ("ISSUE" :foreground "red" :background nil
+        ("ISSUE" :foreground "red"
          :weight bold
          :box '(:color "dark red" :line-width -1 :style nil))
         ("ERROR" :foreground "red"
@@ -139,11 +139,11 @@
         ("Meeting" :foreground "cornflower blue"
          :box '(:color "cyan" :line-width -1 :style nil))
         ;; learn
-        ("Learn" :foreground "dark orange" :background nil
+        ("Learn" :foreground "dark orange"
          :box '(:color "black" :line-width -1))
-        ("Learning" :foreground "green yellow" :background nil
+        ("Learning" :foreground "green yellow"
          :box '(:color "black" :line-width -1))
-        ("Review" :foreground "yellow" :background nil
+        ("Review" :foreground "yellow"
          :box '(:color "black" :line-width -1))
         ))
 

@@ -224,7 +224,7 @@
 ;; common
 (set-face-attribute 'company-tooltip-common nil
                     :inherit 'company-tooltip
-                    :foreground nil :background "light gray"
+                    :background "light gray"
                     :underline nil)
 ;; common selection
 (set-face-attribute 'company-tooltip-common-selection nil
@@ -235,13 +235,13 @@
 ;; search
 (set-face-attribute 'company-tooltip-search nil
                     :inherit 'company-tooltip
-                    :foreground "red" :background nil
+                    :foreground "red"
                     :weight 'bold
                     :underline "#222222")
 ;; annotation
 (set-face-attribute 'company-tooltip-annotation nil
                     :inherit 'company-tooltip
-                    :foreground "#777777" :background nil
+                    :foreground "#777777"
                     :slant 'italic)
 ;; scroll-bar
 (set-face-attribute 'company-scrollbar-fg nil
@@ -257,17 +257,17 @@
                     :foreground "green yellow" :background "#444444")
 (set-face-attribute 'company-preview-search nil
                     :inherit 'company-preview
-                    :foreground "cyan" :background nil)
+                    :foreground "cyan")
 ;; echo area
 (set-face-attribute 'company-echo nil
-                    :foreground "light blue" :background nil)
+                    :foreground "light blue")
 (set-face-attribute 'company-echo-common nil
                     :inherit 'company-echo
-                    :foreground "cyan" :background nil)
+                    :foreground "cyan")
 ;; template
 ;; TODO:
 ;; (set-face-attribute 'company-template-field nil
-;;                     :foreground "orange" :background nil
+;;                     :foreground "orange"
 ;;                     :weight 'bold)
 
 ;;; Yasnippet integration

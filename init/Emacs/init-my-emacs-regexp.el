@@ -113,33 +113,27 @@
 ;; TODO:
 ;; (set-face-attribute 'vr/match-separator-face nil
 ;;                     :foreground "red"
-;;                     :background nil
 ;;                     :inverse-video nil
 ;;                     :weight 'bold)
 ;; (set-face-attribute 'vr/match-0 nil
-;;                     :foreground nil
 ;;                     :background (color-darken-name (face-background 'default) 3)
 ;;                     :box '(:color "red" :line-width -1)
 ;;                     :inverse-video nil :weight 'normal
 ;;                     )
 ;; (set-face-attribute 'vr/match-1 nil
-;;                     :foreground nil
 ;;                     :background (color-darken-name (face-background 'default) 3)
 ;;                     :box '(:color "dark red" :line-width -1)
 ;;                     :inverse-video nil :weight 'normal
 ;;                     )
 ;; (set-face-attribute 'vr/group-0 nil
-;;                     :foreground nil
 ;;                     :background (color-darken-name (face-background 'default) 3)
 ;;                     :inverse-video nil :weight 'normal
 ;;                     )
 ;; (set-face-attribute 'vr/group-1 nil
-;;                     :foreground nil
 ;;                     :background (color-darken-name (face-background 'default) 3)
 ;;                     :inverse-video nil :weight 'normal
 ;;                     )
 ;; (set-face-attribute 'vr/group-2 nil
-;;                     :foreground nil
 ;;                     :background (color-darken-name (face-background 'default) 3)
 ;;                     :inverse-video nil :weight 'normal
 ;;                     )

@@ -176,12 +176,10 @@
             ))
 
 (set-face-attribute 'hi-edebug-x-stop nil
-                    :foreground nil
                     :background "SaddleBrown"
                     ;; :background (color-darken-name (face-background 'default) 6)
                     )
 (set-face-attribute 'hi-edebug-x-debug-line nil
-                    :foreground nil
                     :background "dark slate gray"
                     ;; :background (color-darken-name (face-background 'default) 4)
                     )

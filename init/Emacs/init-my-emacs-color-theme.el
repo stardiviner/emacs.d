@@ -71,7 +71,6 @@
 ;; region
 (set-face-attribute 'region nil
                     :inverse-video nil
-                    :foreground nil
                     :background "dark green"
                     ;; :background (color-darken-name (face-background 'default) 10)
                     )
@@ -129,11 +128,11 @@
 
 ;; redifine diff
 (set-face-attribute 'diff-refine-added nil
-                    :foreground nil :background "dark green")
+                    :background "dark green")
 (set-face-attribute 'diff-refine-removed nil
-                    :foreground nil :background "dark red")
+                    :background "dark red")
 (set-face-attribute 'diff-refine-change nil
-                    :foreground nil :background "white")
+                    :background "white")
 
 
 (provide 'init-my-emacs-color-theme)

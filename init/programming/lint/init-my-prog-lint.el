@@ -93,24 +93,22 @@
 ;; flycheck-cppcheck-checks
 
 (set-face-attribute 'flycheck-info nil
-                    :background nil :foreground nil
                     :underline '(:color "forest green" :style wave))
 (set-face-attribute 'flycheck-fringe-info nil
                     :foreground "forest green")
 (set-face-attribute 'flycheck-warning nil
-                    :background nil :foreground nil
                     :underline '(:color "orange" :style wave)
                     )
 (set-face-attribute 'flycheck-fringe-warning nil
-                    :background nil :foreground "orange"
+                    :foreground "orange"
                     :weight 'normal)
 (set-face-attribute 'flycheck-error nil
-                    :background "dark red" :foreground nil
+                    :background "dark red"
                     ;; :underline '(:color "dark red" :style wave)
                     ;; :box '(:color "dark red" :line-width -1)
                     )
 (set-face-attribute 'flycheck-fringe-error nil
-                    :background nil :foreground "dark red"
+                    :foreground "dark red"
                     :weight 'normal)
 
 

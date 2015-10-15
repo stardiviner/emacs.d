@@ -96,10 +96,10 @@
 ;; ;; (highlight-indentation-set-offset) ; set offset buffer locally.
 
 ;; (set-face-attribute 'highlight-indentation-face nil
-;;                     :background "#00232C" :foreground nil
+;;                     :background "#00232C"
 ;;                     :inherit nil)
 ;; (set-face-attribute 'highlight-indentation-current-column-face nil
-;;                     :background "slate blue" :foreground nil
+;;                     :background "slate blue"
 ;;                     :inherit nil)
 
 ;; (dolist (hook '(ruby-mode-hook

@@ -118,7 +118,6 @@
 (require 'eval-sexp-fu)
 
 (set-face-attribute 'eval-sexp-fu-flash nil
-                    :foreground nil
                     :background "#333333"
                     :weight 'normal
                     )

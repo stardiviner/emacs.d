@@ -50,7 +50,6 @@
 (use-package org-indent
   :config
   (set-face-attribute 'org-indent nil
-                      :foreground nil :background nil
                       )
   )
 
@@ -69,7 +68,7 @@
 
 (defface org-bullets-face
   '((t (:inherit nil
-                 :foreground "olive drab" :background nil
+                 :foreground "olive drab"
                  ;; :box '(:color "dark slate gray" :line-width 2)
                  )))
   "My custom face for org-bullets."
@@ -80,7 +79,6 @@
           (lambda ()
             (org-bullets-mode 1)
             (set-face-attribute 'org-bullets-face nil
-                                :background nil
                                 :weight 'bold :height 150
                                 :foreground "cyan"
                                 ;; :box '(:color "dark slate gray" :line-width -1)

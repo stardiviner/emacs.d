@@ -189,11 +189,9 @@
   :config
   (set-face-attribute 'mc/cursor-face nil
                       :inverse-video nil
-                      :foreground nil
                       :background "dark red")
   (set-face-attribute 'mc/region-face nil
                       :inverse-video nil
-                      :foreground nil
                       :background (color-darken-name (face-background 'default) 4))
   )
 

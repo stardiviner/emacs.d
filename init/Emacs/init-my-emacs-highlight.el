@@ -38,7 +38,7 @@
       )
 
 (set-face-attribute 'highlight-symbol-face nil
-                    :foreground nil :background "midnight blue"
+                    :background "midnight blue"
                     :slant 'italic)
 
 ;; (add-hook 'prog-mode-hook 'highlight-symbol-mode)

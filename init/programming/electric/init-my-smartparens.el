@@ -18,7 +18,7 @@
                     :weight 'bold
                     )
 (set-face-attribute 'show-paren-mismatch-face nil
-                    :foreground nil :background "brown"
+                    :background "brown"
                     :strike-through t
                     )
 
@@ -155,7 +155,7 @@
                     )
 (set-face-attribute 'sp-show-pair-mismatch-face nil
                     :inherit 'show-paren-mismatch-face
-                    :foreground nil :background "brown"
+                    :background "brown"
                     )
 
 ;;;_* use `smartparens-strict-mode' to replace `paredit-mode'.

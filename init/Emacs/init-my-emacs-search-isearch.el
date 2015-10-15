@@ -243,14 +243,12 @@
 
   ;; current selection in ivy "in minibuffer"
   (set-face-attribute 'ivy-current-match nil
-                      :foreground nil
                       :background "dark slate gray"
                       ;; :background (color-darken-name (face-background 'default) 5)
                       )
 
   ;; the matched line "in buffer"
   (set-face-attribute 'swiper-line-face nil
-                      :foreground nil
                       :background (color-darken-name (face-background 'default) 5)
                       )
   (set-face-attribute 'swiper-match-face-1 nil

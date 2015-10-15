@@ -86,7 +86,6 @@
 ;;                     )
 ;; ;; FIXME: this does not work at Emacs initially.
 ;; (set-face-attribute 'git-gutter:unchanged nil
-;;                     :foreground nil :background nil
 ;;                     :weight 'bold
 ;;                     )
 
@@ -214,10 +213,7 @@
                       :weight 'normal
                       :height 90
                       )
-  ;; FIXME: this does not work at Emacs initially.
   (set-face-attribute 'git-gutter+-unchanged nil
-                      :foreground nil :background nil
-                      :weight 'bold
                       )
   (set-face-foreground 'git-gutter+-separator "cyan")
   )

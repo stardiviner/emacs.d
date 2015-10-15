@@ -43,7 +43,7 @@
 (set-face-attribute 'compilation-mode-line-fail nil
                     :foreground "black" :background "dark red")
 (set-face-attribute 'compilation-mode-line-run nil
-                    :foreground "black" :background nil)
+                    :foreground "black")
 
 
 

@@ -123,17 +123,13 @@
 
 (set-face-attribute 'hl-line nil
                     ;; 1
-                    ;; :foreground nil :background nil
-                    ;; :weight 'bold
-                    ;; 2
-                    ;; :foreground nil :background "#004A5D"
+                    ;; :background "#004A5D"
                     ;; :box '(:color "#005D5E" :line-width -1)
-                    ;; 3
-                    ;; :foreground " " :background "#004A5D"
+                    ;; 2
+                    ;; :background "#004A5D"
                     ;; :box '(:color "cyan" :line-width 1 :style nil) :underline nil
-                    ;; :underline "yellow" :foreground nil :background nil
-                    ;; 4. darker percent 5%
-                    :foreground nil
+                    ;; :underline "yellow"
+                    ;; 3. darker percent 5%
                     :background (color-darken-name (face-background 'default) 3)
                     )
 
