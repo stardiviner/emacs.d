@@ -16,7 +16,8 @@
 
 (dolist (hook
          '(prog-mode-hook
-           ruby-mode-hook)
+           ruby-mode-hook
+           enh-ruby-mode-hook)
          )
   (add-hook hook (lambda ()
                    (subword-mode +1))))
