@@ -296,7 +296,7 @@
     ;; jdee
     ;; emacs-eclim
     ;; PHP
-    ;; php-mode inf-php php-eldoc
+    php-mode inf-php php-eldoc
     ;; php-boris php-boris-minor-mode
     ;; phpunit
     ;; Nim
