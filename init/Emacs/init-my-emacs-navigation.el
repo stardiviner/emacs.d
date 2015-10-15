@@ -135,17 +135,17 @@ This is the same as using \\[set-mark-command] with the prefix argument."
   (set-face-attribute 'bm-face nil
                       :background "saddle brown")
   (set-face-attribute 'bm-fringe-face nil
-		      :inherit 'bm-face
-		      :foreground "white"
-		      :weight 'normal
-		      )
+                      :inherit 'bm-face
+                      :foreground "white"
+                      :weight 'normal
+                      )
   (set-face-attribute 'bm-persistent-face nil
                       :background "royal blue")
   (set-face-attribute 'bm-fringe-persistent-face nil
-		      :inherit 'bm-persistent-face
-		      :foreground "dark red"
-		      :weight 'bold
-		      )
+                      :inherit 'bm-persistent-face
+                      :foreground "dark red"
+                      :weight 'bold
+                      )
   )
 
 
