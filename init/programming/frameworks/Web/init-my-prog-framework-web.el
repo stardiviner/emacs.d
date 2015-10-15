@@ -329,6 +329,7 @@
 ;;                    ac-source-words-in-buffer))))
 
 ;;;_* disable "<" pair from smartparens.
+(autoload 'sp-local-pair "smartparens" t)
 (sp-local-pair '(web-mode)
                "<" nil
                :actions '(:rem insert))
