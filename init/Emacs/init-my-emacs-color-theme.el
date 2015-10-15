@@ -129,11 +129,11 @@
 
 ;; redifine diff
 (set-face-attribute 'diff-refine-added nil
-                    :foreground " " :background "dark green")
+                    :foreground nil :background "dark green")
 (set-face-attribute 'diff-refine-removed nil
-                    :foreground " " :background "dark red")
+                    :foreground nil :background "dark red")
 (set-face-attribute 'diff-refine-change nil
-                    :foreground " " :background "white")
+                    :foreground nil :background "white")
 
 
 (provide 'init-my-emacs-color-theme)

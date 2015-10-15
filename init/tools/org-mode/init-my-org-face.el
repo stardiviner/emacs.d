@@ -41,7 +41,7 @@
                     :bold nil)
 ;; Daily entry (holidays)
 (set-face-attribute 'org-agenda-diary nil
-                    :foreground "light blue" ; :background " "
+                    :foreground "light blue"
                     :slant 'italic
                     ;; :box '(:line-width -1 :style nil)
                     :underline t

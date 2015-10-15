@@ -124,7 +124,7 @@
 (set-face-attribute 'hl-line nil
                     ;; 1
                     ;; :foreground nil :background nil
-                    ;; :weight 'bold :foreground " " :background " "
+                    ;; :weight 'bold
                     ;; 2
                     ;; :foreground nil :background "#004A5D"
                     ;; :box '(:color "#005D5E" :line-width -1)

@@ -183,7 +183,7 @@
                     :foreground "cyan")
 (set-face-attribute 'helm-action nil
                     :inverse-video nil
-                    :background " " :foreground "orange"
+                    :foreground "orange"
                     :underline nil
                     )
 (set-face-attribute 'helm-separator nil

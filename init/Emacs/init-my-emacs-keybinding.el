@@ -103,7 +103,7 @@
                       :foreground "#444444"
                       )
   (set-face-attribute 'which-key-command-description-face nil
-                      :foreground "dark cyan" :background " "
+                      :foreground "dark cyan"
                       )
   (set-face-attribute 'which-key-group-description-face nil
                       :foreground "orange red" :background "#333333"
