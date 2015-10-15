@@ -100,8 +100,7 @@
 ;;; org-verbatim: =org verbatim highlight=
 (set-face-attribute 'org-verbatim nil
                     :background "#004A5D" :foreground "white"
-                    :box '(:color "cyan" :line-width 1 :style nil)
-                    :family "DejaVu Sans Mono"
+                    :box '(:color "cyan" :line-width 1)
                     :bold nil
                     :underline nil)
 

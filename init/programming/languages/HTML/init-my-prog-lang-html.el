@@ -55,10 +55,8 @@
   ;; (setq emmet-move-cursor-after-expanding nil) ;; default t
 
   (set-face-attribute 'emmet-preview-input nil
-                      ;; :background "#004A5D"
-                      ;; :foreground "white"
-                      :overline "cyan"
-                      :background (color-darken-name (face-background 'default) 2)
+                      :background "#004A5D"
+                      :foreground "white"
                       )
   (set-face-attribute 'emmet-preview-output nil
                       :foreground "dark slate gray"
