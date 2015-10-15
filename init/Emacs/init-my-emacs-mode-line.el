@@ -44,7 +44,7 @@
                 face (:foreground "tomato" :weight bold))
 
    ;; (:propertize "%e"
-   ;;              face (:foreground "red" :inverse-video nil))
+   ;;              face (:foreground "red"))
 
    ;; (:propertize "{/Emacs/}"
    ;;              face (:foreground "yellow")
@@ -377,7 +377,7 @@
    (:eval
     (if flycheck-current-errors
         (propertize (flycheck-mode-line-status-text)
-                    'face '(:foreground "orange" :background nil :height 80))))
+                    'face '(:foreground "orange" :height 80))))
 
    ;; process: inferior,
    (:eval
