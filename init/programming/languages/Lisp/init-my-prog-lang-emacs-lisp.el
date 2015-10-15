@@ -38,7 +38,11 @@
              
              (my-recompile-elc-on-save)
 
+             ;; company-elisp
              (my-company-add-backends-to-mode '(company-elisp))
+             (setq company-elisp-detect-function-context t
+                   company-elisp-show-locals-first t
+                   )
              ))
 
 (add-to-list 'auto-mode-alist '("Cask\\'" . emacs-lisp-mode))
