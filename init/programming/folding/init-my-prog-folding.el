@@ -7,6 +7,14 @@
 
 ;;; Code:
 
+;;; [ Fold ]
+
+;;; [ hs-minor-mode ] -- hide/show
+
+;; FIXME: *ERROR*: Web Mode doesn't support Hideshow Minor Mode.
+;; (add-hook 'prog-mode-hook 'hs-minor-mode)
+
+
 ;;; [ origami ]
 
 ;;; `global-origami-mode' & `origami-mode'
