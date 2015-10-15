@@ -21,8 +21,6 @@
   (add-hook hook (lambda ()
                    (subword-mode +1))))
 
-
-
 
 ;;; [ glasses-mode ] -- make CamelCase identifiers easy look.
 

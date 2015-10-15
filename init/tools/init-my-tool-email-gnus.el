@@ -7,12 +7,12 @@
 
 ;;; Code:
 
-;;; [ Email ]
+;;; [ Gnus: Email ]
 
 
 
 
-;;; [ Newsgroup ]
+;;; [ Gnus: Newsgroup ]
 
 
 

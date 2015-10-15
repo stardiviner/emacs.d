@@ -104,11 +104,10 @@
 
 ;;; [ rails-new ] -- Emacs version of command $ rails new ...
 
-;;; Handy emacs command for generating rails application.
-
 ;;; Usage:
 ;;
 ;; - [M-x rails-new] :: create a new Rails project.
+;; - [M-x rails-plugin-new] :: create a new Rails plugin.
 
 
 ;;; [ yasnippet-rails ]

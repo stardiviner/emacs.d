@@ -30,11 +30,6 @@
 
 
 ;;; Time Grid
-;; (setq org-agenda-time-grid
-;;       '((daily today require-timed)
-;;         #("----------------" 0 16
-;;           (org-heading t))
-;;         (800 1000 1200 1400 1600 1800 2000)))
 (setq org-agenda-use-time-grid t)
 (setq org-agenda-timegrid-use-ampm nil)
 (setq org-agenda-show-current-time-in-grid t)

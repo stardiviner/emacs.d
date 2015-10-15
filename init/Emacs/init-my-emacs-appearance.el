@@ -308,6 +308,7 @@
 ;; disable soft wrap lines for windows which has smaller width than 80.
 (global-visual-line-mode -1) ; soft wrap lines at word boundary
 
+
 ;;; [ fci -- Fill Column Indicator ]
 
 ;; (eval-after-load 'fill-column-indicator

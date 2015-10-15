@@ -201,7 +201,7 @@
   :config
   (setq org-download-screenshot-method "scrot -s %s"
         org-download-method 'attach ; 'attach, 'directory,
-        org-download-backend t ; url-retrieve, wget, curl.
+        org-download-backend t ; url-retrieve (t), wget, curl.
         ;; org-download-heading-lvl
         ;; org-download-timestamp "_%Y-%m-%d_%H:%M:%S"
         org-download-image-dir "data/images" ; nil: default to "."

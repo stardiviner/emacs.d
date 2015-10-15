@@ -22,7 +22,7 @@
 (setq org-timer-default-timer 25)       ; Pomodoro time management technique.
 (setq org-timer-display 'mode-line)
 
-
+
 ;;; [ Clock ]
 (eval-after-load "org"
   '(progn
