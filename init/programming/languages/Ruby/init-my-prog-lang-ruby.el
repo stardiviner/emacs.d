@@ -319,7 +319,6 @@
                 )))
 
   (define-key my-prog-inferior-map (kbd "r a") 'inf-ruby-console-auto)
-  (define-key inf-ruby-minor-mode-map (kbd "C-c C-s") 'inf-ruby-console-auto)
   )
 
 
