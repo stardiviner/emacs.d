@@ -174,6 +174,7 @@
 (require 'init-my-tool-clock)
 ;; (require 'init-my-tool-speak)
 (require 'init-my-tool-calculator)
+(require 'init-my-tool-hex)
 (require 'init-my-tool-diagram)
 (require 'init-my-tool-bbdb)
 (require 'init-my-tool-browser)

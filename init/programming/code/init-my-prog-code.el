@@ -36,28 +36,6 @@
 ;; (require 'glasses-mode)
 
 
-;;; [ Hexadecimal ]
-
-
-
-
-;;; [ hexl-mode ]
-
-;; (setq hexl-follow-ascii t
-;;       )
-
-
-;;; [ hexview-mode ]
-
-;;; Usage:
-;;
-;; - `hexview-find-file' :: to open hex files.
-
-;; (require 'hexview-mode)
-;;
-;; (define-key my-prog-code-map (kbd "h") 'hexview-find-file)
-
-
 (provide 'init-my-prog-code)
 
 ;;; init-my-prog-code.el ends here
