@@ -49,6 +49,11 @@
   (define-prefix-command 'my-search-prefix))
 (global-set-key (kbd "C-c s") 'my-search-prefix)
 
+;;; highlight
+(unless (boundp 'my-highlight-symbol-prefix)
+  (define-prefix-command 'my-highlight-symbol-prefix))
+(define-key my-search-prefix (kbd "h") 'my-highlight-symbol-prefix)
+
 ;;; regexp
 (unless (boundp 'my-regexp-prefix)
   (define-prefix-command 'my-regexp-prefix))
