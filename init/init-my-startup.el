@@ -24,32 +24,32 @@
 ;; Emacs*geometry:  80x24
 
 ;; 4:
-(defun set-frame-size-according-to-resolution ()
-  (interactive)
-  (if (display-graphic-p)
-      (progn
-        ;; use 120 char wide window for largeish displays
-        ;; and smaller 80 columns windows for smaller displays
-        ;; pick whatever number make sense for you
-        (if (> (x-display-pixel-width) 1080)
-            (add-to-list 'default-frame-alist (cons 'width 250))
-          (add-to-list 'default-frame-alist (cons 'width 80)))
-        ;; or:
-        ;; (add-to-list 'default-frame-alist (cons 'width 120))
-        ;; for the height, subtract a couple hundred pixels from the screen
-        ;; height (for panels, menubars and whatnot), then divide by the height
-        ;; of a char to get the height we want.
-        (add-to-list 'default-frame-alist
-                     (cons 'height (/ (- (x-display-pixel-height) 150)
-                                      (frame-char-height))))
-        ;; or:
-        ;; (add-to-list 'default-frame-alist (cons 'height 600))
-        ;; FIXME add parameters for this function. only show one window when
-        ;; startup default frame.
-        ;; (delete-other-windows)
-        )))
-
-(set-frame-size-according-to-resolution)
+;; (defun set-frame-size-according-to-resolution ()
+;;   (interactive)
+;;   (if (display-graphic-p)
+;;       (progn
+;;         ;; use 120 char wide window for largeish displays
+;;         ;; and smaller 80 columns windows for smaller displays
+;;         ;; pick whatever number make sense for you
+;;         (if (> (x-display-pixel-width) 1080)
+;;             (add-to-list 'default-frame-alist (cons 'width 250))
+;;           (add-to-list 'default-frame-alist (cons 'width 80)))
+;;         ;; or:
+;;         ;; (add-to-list 'default-frame-alist (cons 'width 120))
+;;         ;; for the height, subtract a couple hundred pixels from the screen
+;;         ;; height (for panels, menubars and whatnot), then divide by the height
+;;         ;; of a char to get the height we want.
+;;         (add-to-list 'default-frame-alist
+;;                      (cons 'height (/ (- (x-display-pixel-height) 150)
+;;                                       (frame-char-height))))
+;;         ;; or:
+;;         ;; (add-to-list 'default-frame-alist (cons 'height 600))
+;;         ;; FIXME add parameters for this function. only show one window when
+;;         ;; startup default frame.
+;;         ;; (delete-other-windows)
+;;         )))
+;;
+;; (set-frame-size-according-to-resolution)
 
 ;; 5.
 ;; (setq initial-frame-alist
