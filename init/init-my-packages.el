@@ -332,8 +332,7 @@
     ;; emacsql
     sqlup-mode format-sql sql-indent
     edbi edbi-sqlite edbi-database-url company-edbi edbi-minor-mode
-    ;; db db-sql
-    db-pg
+    ;; db db-sql db-pg
     ;; sqlplus
     ;; SQLite
     ;; sqlite

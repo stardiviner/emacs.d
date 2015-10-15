@@ -21,7 +21,7 @@
 ;;
 ;; => '(("a" . 10)("b" . "20"))
 
-(require 'db-pg)
+;; (require 'db-pg)
 
 
 
