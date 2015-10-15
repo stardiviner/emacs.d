@@ -12,9 +12,10 @@
 ;; Usage:
 ;; - (info "(Emacs) Customization")
 (setq custom-file "~/.emacs.d/customize.el")
-(load custom-file)
 
-
+(if (file-exists-p custom-file)
+    (load custom-file)
+  (shell-command (concat "touch " custom-file)))
 
 
 (provide 'init-my-emacs-customize)

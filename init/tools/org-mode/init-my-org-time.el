@@ -59,8 +59,10 @@
       )
 
 ;;; To save the clock history across Emacs sessions, use
-;; (setq org-clock-persist 'history)
-(org-clock-persistence-insinuate)
+(if (file-exists-p org-clock-persist-file)
+    ;; (setq org-clock-persist 'history)
+    (org-clock-persistence-insinuate)
+  (shell-command (concat "touch " org-clock-persist-file)))
 
 ;; to add an effort estimate "on the fly".
 (add-hook 'org-clock-in-prepare-hook 'org-clock-modify-effort-estimate)
