@@ -11,6 +11,9 @@ auto-save-list/
 *~
 tramp
 
+# Org-mode
+org-clock-save.el
+
 # projectile
 projectile.cache
 projectile-bookmarks.eld

@@ -53,6 +53,14 @@
 
 ;; (set-default-font "-*-Hack-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1")
 
+;; -------
+;; Unicode
+;; -------
+;;
+;; set unicode symbol fallback font to "Symbola".
+(set-fontset-font "fontset-default" nil
+                  (font-spec :size 20 :name "Symbola"))
+
 ;; Averia-12
 ;; Averia Serif-12
 ;; Linux Libertine-13
