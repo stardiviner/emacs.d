@@ -294,7 +294,7 @@
   (add-to-list 'inf-ruby-implementations
                '("inf-ruby" . "irb --inf-ruby-mode --noreadline -EUTF-8"))
   
-  (setq inf-ruby-default-implementation "pry"
+  (setq inf-ruby-default-implementation "ruby"
         inf-ruby-prompt-read-only t
         )
 
