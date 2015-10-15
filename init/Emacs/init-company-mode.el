@@ -57,20 +57,20 @@
 ;;                                org-self-insert-command orgtbl-self-insert-command
 ;;                                c-scope-operator c-electric-colon c-electric-lt-gt c-electric-slash))
 
-;;; quick help document preview & popup
+
+;;; [ company-quickhelp ] -- quick help document preview & popup
+
 (require 'company-quickhelp)
-(setq company-quickhelp-delay nil) ; set to `nil' to trigger popup doc manually.
+
+;; set to `nil' to trigger popup doc manually.
+(setq company-quickhelp-delay nil)
+
 (company-quickhelp-mode 1)
-(add-to-list 'company-frontends 'company-quickhelp-frontend)
+
+;; (add-to-list 'company-frontends 'company-quickhelp-frontend)
 ;; (setq-default company-frontends (remq 'company-echo-metadata-frontend company-frontends))
 
-;; (setq-default company-frontends
-;;               '(company-pseudo-tooltip-unless-just-one-frontend
-;;                 company-preview-if-just-one-frontend
-;;                 company-echo-metadata-frontend
-;;                 company-quickhelp-frontend
-;;                 ))
-
+
 ;; Only one back-end is used at a time.  The choice depends on the order of
 ;; the items in this list, and on the values they return in response to the
 ;; `prefix' command (see below).  But a back-end can also be a \"grouped\"
