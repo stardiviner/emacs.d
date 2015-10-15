@@ -280,9 +280,9 @@
 
 (require 'init-my-startup)
 
-
-;; Nil initial/scratch buffer
-(setq initial-buffer-choice nil) ; a dirty workaround for which initial buffer open replace one buffer in workgroups.
+;; a dirty workaround for which initial buffer open replace one buffer in
+;; workgroups.
+(setq initial-buffer-choice nil)
 (workgroups-mode 1)
 
 
