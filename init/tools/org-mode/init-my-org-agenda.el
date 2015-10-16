@@ -23,7 +23,6 @@
  org-agenda-include-deadline t
  org-agenda-log-mode-items '(closed clock)
  org-agenda-log-mode-add-notes t
- org-agenda-start-with-log-mode t
  org-agenda-block-separator ?=
  org-agenda-compact-blocks t
  )
@@ -160,8 +159,8 @@
       org-agenda-use-tag-inheritance nil)
 
 ;; toggle log mode in agenda buffer. show all possible log items.
-(setq org-agenda-show-log t)
-(setq org-agenda-log-mode-items '(closed clock state)
+(setq org-agenda-start-with-log-mode t
+      org-agenda-log-mode-items '(closed clock)
       org-agenda-log-mode-add-notes t)
 
 ;;; Custom Agenda Commands
