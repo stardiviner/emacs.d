@@ -72,12 +72,12 @@
                     :background "black")
 ;; Priority
 (setq org-priority-faces
-      '((65 :foreground "white" :background "dark red"
-            :box '(:color "red" :line-width 3 :style released-button))
-        (66 :foreground "white" :background "dim gray"
-            :box '(:color "dim gray" :line-width 3 :style released-button))
-        (67 :foreground "white" :background "dark slate blue"
-            :box '(:color "white" :line-width 3 :style released-button))
+      '((?A . (:foreground "white" :background "dark red"
+                           :box '(:color "red" :line-width 3 :style released-button)))
+        (?B . (:foreground "white" :background "dim gray"
+                           :box '(:color "dim gray" :line-width 3 :style released-button)))
+        (?C . (:foreground "white" :background "dark slate blue"
+                           :box '(:color "white" :line-width 3 :style released-button)))
         ))
 ;; (set-face-attribute 'org-priority nil
 ;;                     :box '(:color "red" :line-width 3 :style released-button)
