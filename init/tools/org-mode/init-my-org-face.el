@@ -71,11 +71,17 @@
                     :foreground "#444444"
                     :background "black")
 ;; Priority
-(set-face-attribute 'org-priority nil
-                    :foreground "white"
-                    :background "dark red"
-                    :box '(:color "red" :line-width -1)
-                    :bold nil)
+(setq org-priority-faces
+      '((65 :foreground "white" :background "dark red"
+            :box '(:color "red" :line-width 3 :style released-button))
+        (66 :foreground "white" :background "dim gray"
+            :box '(:color "dim gray" :line-width 3 :style released-button))
+        (67 :foreground "white" :background "dark slate blue"
+            :box '(:color "white" :line-width 3 :style released-button))
+        ))
+;; (set-face-attribute 'org-priority nil
+;;                     :box '(:color "red" :line-width 3 :style released-button)
+;;                     :bold nil)
 
 ;;; Agenda Time Grid
 ;; time grid: 18:00 ...... ----------------
