@@ -18,14 +18,9 @@
         (search . " %i %-12:c")
         (tags . " %i %-12:c")))
 
-(setq
- org-agenda-entry-types '(:deadline :scheduled :timestamp :sexp)
- org-agenda-include-deadline t
- org-agenda-log-mode-items '(closed clock)
- org-agenda-log-mode-add-notes t
- org-agenda-block-separator ?=
- org-agenda-compact-blocks t
- )
+(setq org-agenda-block-separator ?=
+      org-agenda-compact-blocks t
+      )
 
 
 ;;; Time Grid
