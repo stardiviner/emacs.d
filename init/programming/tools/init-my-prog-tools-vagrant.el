@@ -66,9 +66,6 @@
 ;;    kafka-broker2:
 
 
-(eval-after-load 'tramp
-  '(vagrant-tramp-enable))
-
 
 (provide 'init-my-prog-tools-vagrant)
 
