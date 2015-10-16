@@ -31,7 +31,7 @@
 
 ;;; Time Grid
 (setq org-agenda-use-time-grid t)
-(setq org-agenda-timegrid-use-ampm nil)
+(setq org-agenda-timegrid-use-ampm t)
 (setq org-agenda-show-current-time-in-grid t)
 
 
