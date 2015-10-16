@@ -36,9 +36,9 @@
 
 
 ;; include `diary-file' from `calendar'
-(setq org-agenda-include-diary t
+(setq org-agenda-include-diary nil
       diary-file "~/Org/Diary/Diary.org"
-      ;; org-agenda-diary-file 'diary-file
+      org-agenda-diary-file 'diary-file
       ;; org-agenda-insert-diary-strategy 'date-tree
       )
 
