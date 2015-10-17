@@ -385,7 +385,7 @@
     ;; AngularJS
     angularjs-mode
     ;; Assembly
-    ;; nasm-mode iasm-mode
+    ;; nasm-mode iasm-mode fasm-mode
     ;; TeX
     ;; company-auctex company-math
     ;; latex-pretty-symbols

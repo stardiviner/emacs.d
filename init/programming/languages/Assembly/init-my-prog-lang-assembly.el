@@ -7,6 +7,15 @@
 
 ;;; Code:
 
+;;; [ asm-mode ]
+
+
+;;; [ nasm-mode ]
+
+
+;;; [ fasm-mode ]
+
+
 ;;; [ iasm-mode ]
 
 ;; (global-set-key (kbd "C-c C-d") 'iasm-disasm)
@@ -17,6 +26,8 @@
             (local-set-key (kbd "C-c d") 'iasm-goto-disasm-buffer)
             (local-set-key (kbd "C-c l") 'iasm-disasm-link-buffer)))
 
+
+;;; [ gas-mode ]
 
 
 (provide 'init-my-prog-lang-assembly)
