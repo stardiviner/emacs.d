@@ -174,6 +174,7 @@
 (use-package beacon
   :config
   (beacon-mode 1)
+  (setq beacon-color "green yellow")
   )
 
 
