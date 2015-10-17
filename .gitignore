@@ -19,14 +19,14 @@ projectile.cache
 projectile-bookmarks.eld
 
 # workgroups2
-.emacs_workgroups
+# .emacs_workgroups
 
 # emacs places
 .emacs-places
 
 # Cask
 .cask/
-/.mc-lists.el
+# /.mc-lists.el
 /.smex-items
 /ido.hist
 /var/
@@ -34,7 +34,7 @@ projectile-bookmarks.eld
 
 flycheck_
 
-/customize.el
+# /customize.el
 /.recentf
 /temp/
 /recentf
@@ -47,8 +47,8 @@ flycheck_
 /irony/
 /javadoc-cache/
 /request/
-/init/.#init-my-pm-el-get.el
 /.org-annotated.org
+
 /GPATH
 /GRTAGS
 /GSYMS
@@ -68,6 +68,7 @@ image-dired/
 /.company-statistics-cache.el
 /srecode-map.el
 /network-security.data
+
 /cscope.files
 /cscope.in.out
 /cscope.out
