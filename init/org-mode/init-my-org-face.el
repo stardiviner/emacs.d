@@ -54,8 +54,7 @@
                     :bold t)
 (set-face-attribute 'org-agenda-clocking nil
                     :foreground "white" :background "#004A5D"
-                    :box '(:color "cyan" :line-width 1 :style nil)
-                    :bold nil)
+                    :box '(:color "cyan" :line-width 1 :style nil))
 ;; Day-agenda (W30) -> Week number
 (set-face-attribute 'org-agenda-structure nil
                     :foreground "blue"
@@ -74,10 +73,10 @@
 (setq org-priority-faces
       '((?A . (:foreground "white" :background "dark red"
                            :box '(:color "red" :line-width 3 :style released-button)))
-        (?B . (:foreground "white" :background "dim gray"
-                           :box '(:color "dim gray" :line-width 3 :style released-button)))
-        (?C . (:foreground "white" :background "dark slate blue"
+        (?B . (:foreground "white" :background "dark slate blue"
                            :box '(:color "white" :line-width 3 :style released-button)))
+        (?C . (:foreground "white" :background "dim gray"
+                           :box '(:color "dim gray" :line-width 3 :style released-button)))
         ))
 ;; (set-face-attribute 'org-priority nil
 ;;                     :box '(:color "red" :line-width 3 :style released-button)
@@ -106,9 +105,7 @@
 ;;; org-verbatim: =org verbatim highlight=
 (set-face-attribute 'org-verbatim nil
                     :background "#004A5D" :foreground "white"
-                    :box '(:color "cyan" :line-width 1)
-                    :bold nil
-                    :underline nil)
+                    :box '(:color "cyan" :line-width 1))
 
 ;; table
 (set-face-attribute 'org-table nil
