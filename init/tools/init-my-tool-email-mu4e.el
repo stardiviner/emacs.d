@@ -780,11 +780,11 @@
                     ;; 1.
                     :background "#004A5D" :foreground "white"
                     :box '(:color "cyan" :line-width -1)
-                    :weight 'normal :underline nil
+                    :weight 'normal
                     ;; 2.
                     ;; :background "#004A5D" :foreground "white"
                     ;; :box '(:color "#005D5E" :line-width -1)
-                    ;; :weight 'normal :underline nil
+                    ;; :weight 'normal
                     )
 ;;; highlighted email, main view key color like "[q]uit mu4e".
 (set-face-attribute 'mu4e-highlight-face nil
@@ -804,8 +804,8 @@
                     )
 ;;; Emacs mu4e window top title.
 (set-face-attribute 'mu4e-title-face nil
-                    :foreground "yellow"
-                    :inherit nil)
+                    :inherit nil
+                    :foreground "yellow")
 ;;; readed mail line in index.
 (set-face-attribute 'mu4e-header-face nil
                     :foreground "dim gray")
