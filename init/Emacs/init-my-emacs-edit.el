@@ -4,13 +4,22 @@
 ;;; Code:
 
 ;;;_ undo-tree
+
+;;; Usage:
+;;
 ;; [C-x u] -> undo-tree-visualizer-mode
 ;;    `- [C-p/n]  -- move up/down
 ;;    `- [C-b/f]  -- move left/right
 ;;    `- t    -- timestamp
 ;;    `- q    -- quit
 
-(global-undo-tree-mode t)
+(use-package undo-tree
+  :config
+  (setq undo-tree-visualizer-diff t
+        undo-tree-visualizer-relative-timestamps t)
+  
+  (global-undo-tree-mode t)
+  )
 
 ;;;_ Edit
 
