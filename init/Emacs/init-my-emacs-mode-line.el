@@ -50,9 +50,9 @@
    ;;              face (:foreground "yellow")
    ;;              help-echo "神之编辑器")
 
-   (:propertize "[牧云笙]"
-                face (:foreground "#555555")
-                help-echo "九州 (铁甲依然在 !) ❯ \n 天驱 辰月 ❯ \n 《海上牧云记》 ❯ 牧云笙 \n 《羽传说》 ❯ 暗月 ❯ 向异翅 \n 《缥缈录》 ❯  阿苏勒·帕苏尔")
+   ;; (:propertize "[牧云笙]"
+   ;;              face (:foreground "#555555")
+   ;;              help-echo "九州 (铁甲依然在 !) ❯ \n 天驱 辰月 ❯ \n 《海上牧云记》 ❯ 牧云笙 \n 《羽传说》 ❯ 暗月 ❯ 向异翅 \n 《缥缈录》 ❯  阿苏勒·帕苏尔")
    
    ;; (:eval
    ;;  (cond
@@ -106,18 +106,10 @@
      ;; FIXME:
      ;; (mode-line-remote
      ;;  (propertize " R "
-     ;;              'face '(:foreground "dark red")
+     ;;              'face '(:foreground "dark magenta")
      ;;              'help-echo "remote buffer")
      ;;  )
      ))
-
-   ;; eldoc
-   ;; `eldoc-show-in-mode-line'
-   ;; FIXME:
-   ;; (:eval (unless eldoc-mode-line-string
-   ;;          (propertize eldoc-mode-line-string
-   ;;                      ;; 'face '(:foreground "cyan")
-   ;;                      )))
    
    ;; rbenv & rvm
    (:eval
@@ -135,7 +127,6 @@
                        'face '(:foreground "cyan" :height 70)
                        'help-echo '(concat "\nCurrent Ruby version: " (rbenv--active-ruby-version)
                                            "\nmouse-1: switch Ruby version menu")
-                       ;; TODO: 'local-map
                        )
            (propertize ")"
                        'face '(:foreground "#444444"))
@@ -152,8 +143,6 @@
           (list
            (propertize (pyvenv-mode-version)
                        'face '(:foreground "orange" :height 70))))
-      ;; (propertize "Not Python"
-      ;;             'face '(:foreground "orange"))
       ))
    
    ;; VCS - Git, SVN, CVS,
@@ -218,10 +207,6 @@
    
 
    ;; the buffer name; the filename as a tool tip
-   ;; mode-line-client
-   ;; mode-line-remote
-   ;; mode-line-frame-identification
-   ;; mode-line-buffer-identification
    (:propertize " ["
                 face (:foreground "cyan"))
    (:propertize "%b"
@@ -231,6 +216,13 @@
    (:propertize "]"
                 face (:foreground "cyan"))
 
+
+   ;; mmm-mode
+   ;; FIXME:
+   ;; (:eval (if mmm-buffer-mode-display-name
+   ;;            (propertize mmm-buffer-mode-display-name
+   ;;                        'face '(:foreground "cyan"))))
+   
    ;; process
    (:eval
     (if mode-line-process
@@ -244,22 +236,26 @@
            ;;             'help-echo "buffer-process")
            ))))
 
-   ;; TODO:
-   ;; (:propertize (:eval (if mode-line-process "  ◌"))
-   ;;              face (:foreground "cyan"))
-   ;; (:propertize (:eval (if mode-line-process mode-line-process))
-   ;;              face (:foreground "tomato"))
-   
 
    ;; notifications
-   ;; ERC
-   ;; TODO [#e,i]
+   ;; IRC
 
-   ;; mmm-mode
-   ;; FIXME:
-   ;; (:eval (if mmm-buffer-mode-display-name
-   ;;            (propertize mmm-buffer-mode-display-name
-   ;;                        'face '(:foreground "cyan"))))
+
+   ;; org-timer
+   ;; TODO:
+   ;; (:propertize (t org-timer-mode-line-timer)
+   ;;              face (:foreground "cyan"))
+   
+   ;; org-clock
+   ;; (:propertize (t org-mode-line-string)
+   ;;              face (:foreground "cyan"))
+   ;; FIXME: this does not work.
+   ;; (:eval
+   ;;  (if (string-empty-p org-mode-line-string)
+   ;;      (propertize (t org-mode-line-string)
+   ;;                  'face '(:foreground "cyan" :weight bold)
+   ;;                  'help-echo "Org-mode clock"))
+   ;;  )
 
    ;; ;; the major mode of the current buffer.
    ;; (:propertize " 〖"
@@ -280,43 +276,6 @@
 
    ;; --------------------------- right align ----------------------------------
    
-   ;; Email
-
-   ;; newsticker RSS new feeds.
-   ;; (:propertize (:eval (let ((unread (or (newsticker--stat-num-items-total 'new) 0)))
-   ;;                       (when (> unread 0)
-   ;;                         (format "RSS: %d" unread)
-   ;;                         )))
-   ;;              face (:foreground "green")
-   ;;              help-echo (format "You have %d unread RSS items! [C-c r]" unread)
-   ;;              mouse-face 'mode-line-highlight)
-
-   ;; ;; add the time, with the date and the emacs uptime in the tool-tip
-   ;; (:propertize (:eval (format-time-string "%H:%M"))
-   ;;              face (:foreground "white")
-   ;;              help-echo (concat (format-time-string "%c; ")
-   ;;                                (emacs-uptime "Uptime: %D, %z%2h:%.2m")))
-   
-   ;; fill with ' '.
-   ;; (:propertize "% ")
-
-   ;; org-timer
-   ;; TODO:
-   ;; (:propertize (t org-timer-mode-line-timer)
-   ;;              face (:foreground "cyan"))
-   
-   ;; org-clock
-   ;; (:propertize (t org-mode-line-string)
-   ;;              face (:foreground "cyan"))
-   ;; FIXME: this does not work.
-   ;; (:eval
-   ;;  (if (string-empty-p org-mode-line-string)
-   ;;      (propertize (t org-mode-line-string)
-   ;;                  'face '(:foreground "cyan" :weight bold)
-   ;;                  'help-echo "Org-mode clock"))
-   ;;  )
-
-   
    ;; `global-mode-string' for many things: org-clock, erc-track,
    ;; (:eval global-mode-string)
    
@@ -332,6 +291,7 @@
              (force-mode-line-update)))
 
 ;;; mode-line right align (which replace `mode-line-end-spaces')
+;;; you can custom here (add right aligned things here)
 (display-time-mode t)
 (setq global-mode-string (remove 'display-time-string global-mode-string))
 (setq
@@ -341,10 +301,7 @@
    (:propertize " "
                 display (space :align-to (- right 55)))
 
-   ;; you can custom here (add right aligned things here)
-
    ;; Mail
-   ;; display-time-mail
    ;; FIXME:
    ;; (:eval
    ;;  (propertize (let ((mail-files (directory-files display-time-mail-directory t))
@@ -373,11 +330,10 @@
    ;;                :face (:foreground "dark gray"))
 
    ;; flycheck
-   ;; FIXME: this condition does not work.
    (:eval
     (if flycheck-current-errors
         (propertize (flycheck-mode-line-status-text)
-                    'face '(:foreground "orange" :height 80))))
+                    'face '(:foreground "orange" :height 75))))
 
    ;; process: inferior,
    (:eval
@@ -394,30 +350,28 @@
 
    ;; line and column number, relative position
    ;; `mode-line-position'
-   ;; '%02' to set to 2 chars at least; prevents flicking
+   ;; '(:propertize " [%p,%I] ")
    (:eval
     (list
      (propertize " ("
                  'face '(:foreground "dark gray"))
      (propertize "%02l"
-                 'face '(:foreground "dark gray" :height 80))
+                 'face '(:foreground "dark gray" :height 75))
      (propertize ","
                  'face '(:foreground "dark gray"))
      (propertize "%02c"
                  'face
-                 (if (>= (current-column) 80)
-                     '(:foreground "red" :height 80)
-                   '(:foreground "dark gray" :height 80)))
+                 (if (>= (current-column) 75)
+                     '(:foreground "red" :height 75)
+                   '(:foreground "dark gray" :height 75)))
      (propertize ")"
                  'face '(:foreground "dark gray"))
      (propertize "_%03p"
-                 'face '(:foreground "dark gray" :height 80))
+                 'face '(:foreground "dark gray" :height 75))
      )
     )
 
-   ;; relative position, size of file
-   ;; '(:propertize " [%p,%I] ")
-
+   
    (:propertize " ["
                 face (:foreground "red" :weight bold))
    ;; workgroups2
@@ -430,7 +384,6 @@
    (:propertize " § "
                 face (:foreground "red"))
    ;; projectile
-   ;; FIXME:
    (:eval (list
            (propertize "P: "
                        'face '(:foreground "dim gray" :height 75))
@@ -446,10 +399,8 @@
                 face (:foreground "green yellow"
                                   :family "Comic Sans MS" :weight bold :height 80
                                   )
-                ;; help-echo (minor-mode-alist)
                 )
 
-   ;; TODO: enable this
    ;; 'display-time-string
    )
   ))
