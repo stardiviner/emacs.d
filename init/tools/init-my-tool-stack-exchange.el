@@ -48,19 +48,19 @@
                     :foreground "red3")
 (set-face-attribute 'sx-question-list-date nil
                     )
-(set-face-attribute 'sx-question-list-favorite nil
-                    )
 (set-face-attribute 'sx-question-list-parent nil
                     )
 (set-face-attribute 'sx-question-list-read-question nil
+                    :foreground "dim gray")
+(set-face-attribute 'sx-question-list-unread-question nil
+                    :foreground "gray")
+(set-face-attribute 'sx-question-list-favorite nil
                     )
 (set-face-attribute 'sx-question-list-score nil
                     :foreground "dark gray")
 (set-face-attribute 'sx-question-list-score-upvoted nil
                     :foreground "blue" :weight 'bold)
 (set-face-attribute 'sx-question-list-tags nil
-                    )
-(set-face-attribute 'sx-question-list-unread-question nil
                     )
 ;; question mode
 (set-face-attribute 'sx-question-mode-content-face nil
