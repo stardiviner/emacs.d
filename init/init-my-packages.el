@@ -95,7 +95,7 @@
     ;; Color
     ansi-color rainbow-mode kurecolor
     ;; Cursor
-    beacon
+    ;; beacon
     ;; Process
     ;; dizzee ; prodigy
     ;; Server
