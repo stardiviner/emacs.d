@@ -439,7 +439,7 @@
     ;; mu4e
     mu4e-maildirs-extension helm-mu
     ;; Contacts
-    bbdb
+    ;; bbdb
     ;; bbdb-vcard bbdb-csv-import gmail2bbdb
     ;; Feeds: RSS & Atom
     ;; elfeed elfeed-web
