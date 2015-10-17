@@ -169,6 +169,14 @@
 ;; (set-cursor-color "green")
 
 
+;;; [ beacon ]
+
+(use-package beacon
+  :config
+  (beacon-mode 1)
+  )
+
+
 ;;; [ Selection ]
 
 (setq transient-mark-mode t)
