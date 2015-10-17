@@ -175,6 +175,7 @@
 (define-key company-active-map (kbd "M-l") 'company-show-location)
 
 ;; search
+;; (setq company-search-regexp-function #regexp-quote)
 ;; (define-key company-active-map (kbd "<tab>") 'company-complete-common-or-cycle)
 (define-key company-active-map (kbd "M-s") 'company-filter-candidates)
 (define-key company-active-map (kbd "C-M-s") 'company-search-candidates)
@@ -232,14 +233,12 @@
 (set-face-attribute 'company-tooltip-common-selection nil
                     :inverse-video nil
                     :inherit 'company-common
-                    :foreground "orange" :background "#212121"
+                    :foreground "cyan" :background "#212121"
                     :underline nil)
 ;; search
 (set-face-attribute 'company-tooltip-search nil
                     :inherit 'company-tooltip
-                    :foreground "red"
-                    :weight 'bold
-                    :underline "#222222")
+                    :foreground "white" :background "deep pink")
 ;; annotation
 (set-face-attribute 'company-tooltip-annotation nil
                     :inherit 'company-tooltip
