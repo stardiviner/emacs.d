@@ -78,7 +78,7 @@
                  "* %(org-contacts-template-name)
 :PROPERTIES:
 :NAME: %(org-contacts-template-name)
-:NICK-NAME:
+:NICK:
 :ALIAS:
 :ICON: %(org-contacts-template-name).jpg
 :BIRTHDAY: %:date
@@ -92,10 +92,9 @@
 :IRC:
 :QQ:
 :BLOG:
-:HOME:
-:WORK:
+:ADDRESS(home):
+:ADDRESS(work):
 :COMPANYS:
-:ADDRESS:
 :INTERESTS:
 :PROGRAMMING-SKILLS:
 :SKILLS:
