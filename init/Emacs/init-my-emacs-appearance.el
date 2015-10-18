@@ -159,9 +159,9 @@
               )
 
 ;;; horizontal bar
-(setq-default cursor-type '(hbar . 2)
+(setq-default cursor-type '(bar . 2)
               cursor-in-non-selected-windows t)
-(set-cursor-color "red")
+(set-cursor-color "cyan")
 
 ;;; hollow
 ;; (setq-default cursor-type 'hollow
