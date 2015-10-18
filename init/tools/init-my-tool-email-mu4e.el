@@ -175,7 +175,7 @@
       mu4e-headers-signed-mark '("s" . "✔")
       mu4e-headers-encrypted-mark '("x" . "⚴")
       mu4e-headers-draft-mark '("D" . "✎")
-      mu4e-headers-attach-mark '("a" . "▣")
+      mu4e-headers-attach-mark '("a" . "◘")
       mu4e-headers-passed-mark '("P" . "❯")
       mu4e-headers-flagged-mark '("F" . "★") ; ⚑ ★ ☆ ✪ ✾ ✿ ❀
       mu4e-headers-replied-mark '("R" . "⏎") ; ⏎
@@ -780,7 +780,7 @@
                     ;; 1.
                     :background "#004A5D" :foreground "white"
                     :box '(:color "cyan" :line-width -1)
-                    :weight 'normal
+                    :weight 'normal :underline nil
                     ;; 2.
                     ;; :background "#004A5D" :foreground "white"
                     ;; :box '(:color "#005D5E" :line-width -1)

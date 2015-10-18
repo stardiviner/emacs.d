@@ -105,7 +105,8 @@
 ;;; org-verbatim: =org verbatim highlight=
 (set-face-attribute 'org-verbatim nil
                     :background "#004A5D" :foreground "white"
-                    :box '(:color "cyan" :line-width 1))
+                    :box '(:color "cyan" :line-width 1)
+                    :underline nil)
 
 ;; table
 (set-face-attribute 'org-table nil
