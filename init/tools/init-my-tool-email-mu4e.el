@@ -1059,7 +1059,7 @@
 ;;; Usage:
 ;; - <a o> in headers view & message view :: using the org-capture mechanism.
 
-(setq mu4e-org-contacts-file org-contacts-files) ; <full-path-to-your-org-contacts-file>
+(setq mu4e-org-contacts-file 'org-contacts-files) ; <full-path-to-your-org-contacts-file>
 (add-to-list 'mu4e-headers-actions
              '("org-contact-add" . mu4e-action-add-org-contact) t)
 (add-to-list 'mu4e-view-actions
