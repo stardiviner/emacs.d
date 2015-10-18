@@ -76,18 +76,14 @@
 
 ;;;_* Refile
 
-(setq org-refile-keep nil
-      org-refile-markers nil
-      ;;; Refile targets include this file and any file contributing to the
-      ;;; agenda - up to 5 levels deep
-      org-refile-targets '((nil :maxlevel . 5)
+;; Refile targets include this file and any file contributing to the
+;; agenda - up to 5 levels deep
+(setq org-refile-targets '((nil :maxlevel . 5)
                            (org-agenda-files :maxlevel . 5))
-      ;;; Targets start with the file name - allows creating level 1 tasks
+      ;; Targets start with the file name - allows creating level 1 tasks
       ;; org-refile-use-outline-path (quote file)
-      org-outline-path-complete-in-steps t
-      ;; org-refile-use-outline-path ; TODO
-      org-refile-target-verify-function t
-      org-refile-use-outline-path nil
+      org-outline-path-complete-in-steps nil
+      ;; org-refile-target-verify-function nil
       org-refile-allow-creating-parent-nodes 'confirm
       org-refile-active-region-within-subtree t
       )
