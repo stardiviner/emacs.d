@@ -28,24 +28,24 @@
 
 ;; - [C-c C-l] + `bbdb:' link.
 
-(require 'org-bbdb)
-
-;; 'anniversary, 'birthday,
-(setq org-bbdb-anniversary-field 'birthday
-      org-bbdb-default-anniversary-format "birthday"
-      ;; TODO: improve this option
-      org-bbdb-anniversary-format-alist
-      '(("birthday" lambda
-         (name years suffix)
-         (concat "Birthday: [[bbdb:" name "][" name " ("
-                 (format "%s" years)
-                 suffix ")]]"))
-        ("wedding" lambda
-         (name years suffix)
-         (concat "[[bbdb:" name "][" name "'s "
-                 (format "%s" years)
-                 suffix " wedding anniversary]]")))
-      )
+;; (require 'org-bbdb)
+;;
+;; ;; 'anniversary, 'birthday,
+;; (setq org-bbdb-anniversary-field 'birthday
+;;       org-bbdb-default-anniversary-format "birthday"
+;;       ;; TODO: improve this option
+;;       org-bbdb-anniversary-format-alist
+;;       '(("birthday" lambda
+;;          (name years suffix)
+;;          (concat "Birthday: [[bbdb:" name "][" name " ("
+;;                  (format "%s" years)
+;;                  suffix ")]]"))
+;;         ("wedding" lambda
+;;          (name years suffix)
+;;          (concat "[[bbdb:" name "][" name "'s "
+;;                  (format "%s" years)
+;;                  suffix " wedding anniversary]]")))
+;;       )
 
 ;; - put `%%(org-bbdb-anniversaries)' in one of my agenda files. and set
 ;;   headline with property (:CATEGORY: Anniv)
