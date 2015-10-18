@@ -78,44 +78,6 @@
 (set-face-attribute 'highlight nil
                     :background (color-darken-name (face-background 'default) 5)
                     )
-;; search
-(set-face-attribute 'isearch nil
-                    :inherit nil
-                    :inverse-video nil
-                    :background (color-darken-name (face-background 'default) 5)
-                    :foreground "pink"
-                    :box '(:color "green" :line-width 1)
-                    :slant 'italic
-                    :weight 'normal)
-(set-face-attribute 'isearch-fail nil
-                    :inherit nil
-                    :inverse-video nil
-                    :background (color-darken-name (face-background 'default) 5)
-                    :foreground "dark red"
-                    :weight 'bold
-                    :slant 'italic)
-;; match
-(set-face-attribute 'lazy-highlight nil
-                    :inherit nil
-                    :inverse-video nil
-                    :background (color-darken-name (face-background 'default) 5)
-                    :foreground "cyan"
-                    :weight 'bold
-                    )
-(set-face-attribute 'match nil
-                    :inherit nil
-                    :inverse-video nil
-                    :background (color-darken-name (face-background 'default) 3)
-                    :foreground "red"
-                    )
-;; replace
-(set-face-attribute 'query-replace nil
-                    :inherit nil
-                    :inverse-video nil
-                    :background (color-darken-name (face-background 'default) 5)
-                    :foreground "orange"
-                    :weight 'bold
-                    :box '(:color "black" :line-width 1 :style nil))
 
 ;; comment
 ;; family: DejaVu Serif,  Droid Serif, Gabriola, Gentium, GFS Didot, Latin Modern Mono, Segoe Print,

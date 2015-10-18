@@ -50,6 +50,46 @@
 
 ;; (setq isearch-lazy-highlight-??)
 
+;; isearch
+(set-face-attribute 'isearch nil
+                    :inherit nil
+                    :inverse-video nil
+                    :background (color-darken-name (face-background 'default) 5)
+                    :foreground "pink"
+                    :box '(:color "green" :line-width 1)
+                    :slant 'italic
+                    :weight 'normal)
+(set-face-attribute 'isearch-fail nil
+                    :inherit nil
+                    :inverse-video nil
+                    :background (color-darken-name (face-background 'default) 5)
+                    :foreground "dark red"
+                    :weight 'bold
+                    :slant 'italic)
+;; match
+(set-face-attribute 'lazy-highlight nil
+                    :inherit nil
+                    :inverse-video nil
+                    :background (color-darken-name (face-background 'default) 5)
+                    :foreground "cyan"
+                    :weight 'bold
+                    )
+(set-face-attribute 'match nil
+                    :inherit nil
+                    :inverse-video nil
+                    :background (color-darken-name (face-background 'default) 3)
+                    :foreground "red"
+                    )
+;; replace
+(set-face-attribute 'query-replace nil
+                    :inherit nil
+                    :inverse-video nil
+                    :background (color-darken-name (face-background 'default) 5)
+                    :foreground "orange"
+                    :weight 'bold
+                    :box '(:color "black" :line-width 1 :style nil))
+
+
 (unless (boundp 'my-rectangle-map)
   (define-prefix-command 'my-rectangle-map))
 (global-set-key (kbd "C-x r r") 'my-rectangle-map)
