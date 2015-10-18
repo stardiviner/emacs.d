@@ -83,6 +83,7 @@
                     )
 
 
+(define-key my-tools-prefix (kbd "s") 'sx-tab-unanswered-my-tags)
 
 
 (provide 'init-my-tool-stack-exchange)
