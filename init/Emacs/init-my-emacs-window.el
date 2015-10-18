@@ -474,8 +474,8 @@ the mode-line."
   (push '(completion-list-mode :position bottom :height 10) popwin:special-display-config)
 
   ;; Eshell
-  (push '(eshell-mode :position bottom :height 10) popwin:special-display-config)
-  (push '("*eshell*" :position bottom :height 10) popwin:special-display-config)
+  ;; (push '(eshell-mode :position bottom :height 10) popwin:special-display-config)
+  ;; (push '("*eshell*" :position bottom :height 10) popwin:special-display-config)
 
   ;; Occur Mode
   (push '("*Occur*" :position bottom :height 10) popwin:special-display-config)
