@@ -79,13 +79,9 @@
                                           'face '((:foreground "deep pink")))
                                          ;; set following cmd face
                                          (propertize
-                                          " "
-                                          'face '((:foreground "light gray"))))
-                                 ))
-
-(set-face-attribute 'eshell-prompt nil
-                    :foreground "deep sky blue")
-
+                                          "· "
+                                          'face '((:foreground "light gray")))
+                                         )))
 
 ;; helm complete support
 (require 'helm-eshell)
