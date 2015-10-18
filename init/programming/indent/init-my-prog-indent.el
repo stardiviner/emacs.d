@@ -238,14 +238,13 @@
   ;; `;' yet, you could add the following clause:
   (add-to-list 'aggressive-indent-dont-indent-if
                '(and (derived-mode-p 'c++-mode)
-                   (null (string-match "\\([;{}]\\|\\b\\(if\\|for\\|while\\)\\b\\)"
-                                       (thing-at-point 'line)))))
+                     (null (string-match "\\([;{}]\\|\\b\\(if\\|for\\|while\\)\\b\\)"
+                                         (thing-at-point 'line)))))
 
   ;; (global-aggressive-indent-mode)
   ;; or
   (dolist (hook '(prog-mode-hook
-                  emacs-lisp-mode-hook
-                  lisp-mode-hook))
+                  ))
     (add-hook hook #'aggressive-indent-mode))
 
   ;; FIXME: seems aggressive-indent-mode does not work well with ruby-mode & enh-ruby-mode.
