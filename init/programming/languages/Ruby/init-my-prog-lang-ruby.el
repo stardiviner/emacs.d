@@ -48,15 +48,15 @@
   (add-to-list 'auto-mode-alist
                '("\\.\\(?:gemspec\\|irbrc\\|pryrc\\|gemrc\\|rake\\|ru\\|thor\\)\\'" . enh-ruby-mode))
 
+  (setq enh-ruby-extra-keywords '("private" "protected" "public" "self"))
+  
   (setq enh-ruby-bounce-deep-indent t
         enh-ruby-check-syntax 'errors-and-warnings
         enh-ruby-comment-column 32
         enh-ruby-deep-arglist t
         enh-ruby-deep-indent-paren t
-        ;; enh-ruby-deep-indent-paren-style
-        ;; enh-ruby-extra-keywords
+        ;; enh-ruby-deep-indent-paren-style nil
         enh-ruby-indent-level 2
-        ;; enh-ruby-indent-tabs-mode nil
         enh-ruby-hanging-indent-level 2
         enh-ruby-hanging-brace-indent-level 2
         enh-ruby-hanging-brace-deep-indent-level 0
