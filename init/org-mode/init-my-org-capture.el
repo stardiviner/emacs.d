@@ -28,7 +28,7 @@
          "\n* TODO %^{prompt} [/]\n\n%?\n\n"
          :empty-lines 1
          )
-        ("i" "Clock in a New Task"
+        ("T" "Clock in a New Task"
          entry (file+headline "~/Org/Tasks.org" "Tasks")
          "\n* TODO %^{prompt} [/]\n\n%?\n\n"
          :empty-lines 1
@@ -52,15 +52,15 @@
 
         ;; Issues, Bugs, Features
         ("b" "Bug"
-         entry (file+olp "~/Org/Projects/Code.org" "Computer" "Bugs")
+         entry (file+olp "~/Org/Projects/Code.org" "Bugs")
          "\n* BUG %^{prompt}\n\n%i\n\n%?\n\n"
          :empty-lines 1)
         ("i" "Issue"
-         entry (file+olp "~/Org/Projects/Code.org" "Computer" "Issues")
+         entry (file+olp "~/Org/Projects/Code.org" "Issues")
          "\n* ISSUE %^{prompt}\n\n%i\n\n%?\n\n"
          :empty-lines 1)
         ("f" "Feature"
-         entry (file+olp "~/Org/Projects/Code.org" "Computer" "Features")
+         entry (file+olp "~/Org/Projects/Code.org" "Features")
          "\n* FEATURE %^{prompt}\n\n%i\n\n%?\n\n"
          :empty-lines 1)
         ))
