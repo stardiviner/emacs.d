@@ -52,10 +52,8 @@
       company-selection-wrap-around t
       )
 
-
-;; (setq company-begin-commands '(self-insert-command
-;;                                org-self-insert-command orgtbl-self-insert-command
-;;                                c-scope-operator c-electric-colon c-electric-lt-gt c-electric-slash))
+;; for completion.el
+(add-to-list 'company-begin-commands 'completion-separator-self-insert-command)
 
 
 ;;; [ company-quickhelp ] -- quick help document preview & popup
