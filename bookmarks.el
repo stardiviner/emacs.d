@@ -2,7 +2,17 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Markdown"
+(("Arduino"
+ (filename . "~/Org/Wiki/Computer/Hardware/Dev Board/Arduino/Arduino.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Emacs Config"
+ (filename . "~/Org/Wiki/Computer/Programming/Emacs/Emacs Config/Emacs Config.org")
+ (front-context-string . "* load emacs lis")
+ (rear-context-string)
+ (position . 1))
+("Markdown"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Markdown/Markdown.org")
  (front-context-string . "* Intro\n\nMarkdow")
  (rear-context-string)
@@ -559,9 +569,9 @@
  (position . 1))
 ("Emacs (Org)"
  (filename . "~/Org/Wiki/Computer/Programming/Emacs/Emacs.org")
- (front-context-string . "]= :: \n\n\n*** reg")
- (rear-context-string . "a bookmark.\n- =[")
- (position . 21631))
+ (front-context-string . "* Intro\n\n*Edit o")
+ (rear-context-string)
+ (position . 1))
 ("Investing & Financing (Org)"
  (filename . "~/Org/Wiki/Investing and Financing/Investing and Financing.org")
  (front-context-string . "* Intro\n\n\n* Data")
