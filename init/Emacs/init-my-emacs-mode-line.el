@@ -91,6 +91,10 @@
                 face (:foreground "dark gray"))   ; U:[*--]
    
    ;; Buffer status
+   ;; mode-line-client
+   ;; mode-line-remote
+   ;; mode-line-frame-identification
+   ;; mode-line-buffer-identification
    (:eval
     (cond
      (buffer-read-only
@@ -276,6 +280,26 @@
 
    ;; --------------------------- right align ----------------------------------
    
+   ;; Email
+
+   ;; newsticker RSS new feeds.
+   ;; (:propertize (:eval (let ((unread (or (newsticker--stat-num-items-total 'new) 0)))
+   ;;                       (when (> unread 0)
+   ;;                         (format "RSS: %d" unread)
+   ;;                         )))
+   ;;              face (:foreground "green")
+   ;;              help-echo (format "You have %d unread RSS items! [C-c r]" unread)
+   ;;              mouse-face 'mode-line-highlight)
+
+   ;; ;; add the time, with the date and the emacs uptime in the tool-tip
+   ;; (:propertize (:eval (format-time-string "%H:%M"))
+   ;;              face (:foreground "white")
+   ;;              help-echo (concat (format-time-string "%c; ")
+   ;;                                (emacs-uptime "Uptime: %D, %z%2h:%.2m")))
+   
+   ;; fill with ' '.
+   ;; (:propertize "% ")
+   
    ;; `global-mode-string' for many things: org-clock, erc-track,
    ;; (:eval global-mode-string)
    
@@ -289,6 +313,8 @@
              ;; (org-clock-update-mode-line)
              (setq org-mode-line-string nil)
              (force-mode-line-update)))
+
+;; --------------------------- right align ----------------------------------
 
 ;;; mode-line right align (which replace `mode-line-end-spaces')
 ;;; you can custom here (add right aligned things here)
@@ -448,8 +474,6 @@
 
 ;;; [ display-time ]
 
-;; (display-time-mode 1)
-
 ;; (setq display-time-interval 60)
 ;; (setq display-time-24hr-format nil)
 ;; (setq display-time-format nil)
@@ -459,24 +483,17 @@
 ;; (display-time-event-handler)
 
 ;;; Mail
-(setq display-time-use-mail-icon t)
-;; (setq display-time-mail-function nil)
-;; (setq display-time-mail-file nil)
 (setq display-time-mail-directory "~/Mails/INBOX/new/")
+(setq display-time-use-mail-icon t)
+;; (setq display-time-mail-file nil)
+;; (setq display-time-mail-function nil)
 (display-time-mail-check-directory)
 
 ;; ;;; load-average
 ;; (setq display-time-default-load-average 0)
 ;; (setq display-time-load-average-threshold 0.5)
 
-
-
-;;; [ mode-icons ]
-
-;; (require 'mode-icons)
-;;
-;; (mode-icons-mode)
-
+(display-time-mode t)
 
 
 (provide 'init-my-emacs-mode-line)
