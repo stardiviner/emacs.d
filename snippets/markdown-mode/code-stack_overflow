@@ -1,6 +1,7 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: Stack Overflow code block
 # key: code-stack_overflow
+# expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
 # --
 <!-- language: lang-${1:lisp,ruby,js} -->
 
