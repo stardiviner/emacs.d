@@ -135,7 +135,7 @@
 ;; - `edbi:sql-mode-map'
 ;; - `edbi:dbview-query-result-keymap'
 
-(define-key my-prog-database-map (kbd "D") 'edbi:open-db-viewer)
+(define-key my-inferior-db-sql-map (kbd "d") 'edbi:open-db-viewer)
 
 (add-hook 'edbi:sql-mode-hook 'sqlup-mode)
 
@@ -161,7 +161,7 @@
 ;;     )
 ;;   )
 
-(define-key my-prog-database-map (kbd "l") 'edbi-sqlite)
+(define-key my-inferior-db-sql-map (kbd "l") 'edbi-sqlite)
 
 
 ;;; [ edbi-database-url ] -- run edbi with database url.
@@ -179,7 +179,7 @@
 ;; Optionally you can specify database url by marking region or type it
 ;; interactively.
 
-(define-key my-prog-database-map (kbd "u") 'edbi-database-url)
+(define-key my-inferior-db-sql-map (kbd "u") 'edbi-database-url)
 
 
 ;;; [ company-edbi ]
