@@ -51,28 +51,34 @@
 ;; - The capitalization is triggered when you press 'SPC', ';', ',', or '(', '\r' (Enter),
 ;; - [C-c u] region :: `sqlup-capitalize-keywords-in-region'
 
-(define-key sql-mode-map (kbd "C-c u") 'sqlup-capitalize-keywords-in-region)
+(use-package sqlup-mode
+  :init
+  (define-key sql-mode-map (kbd "C-c u") 'sqlup-capitalize-keywords-in-region)
+  :config
+  (defun my-sqlup-backward ()
+    "Capitalization the word backward."
+    (interactive)
+    (backward-word) ; `backward-sexp'
+    (upcase-word 1)
+    (forward-char 1)
+    )
 
-(defun my-sqlup-backward ()
-  "Capitalization the word backward."
-  (interactive)
-  (backward-word) ; `backward-sexp'
-  (upcase-word 1)
-  (forward-char 1)
+  (define-key sql-mode-map (kbd "C-c C-u") 'my-sqlup-backward)
+
+  (dolist (hook '(sql-mode-hook
+                  sql-interactive-mode-hook
+                  ))
+    (add-hook hook
+              '(lambda ()
+                 (sqlup-mode 1))))
+
+  ;; TODO:
+  ;; (add-hook 'sqlup-mode-hook
+  ;;           (lambda ()
+  ;;             (setq sqlup-keywords
+  ;;                   (append sqlup-keywords
+  ;;                           '("text" "glob" "offset")))))
   )
-
-(define-key sql-mode-map (kbd "C-c C-u") 'my-sqlup-backward)
-
-(add-hook 'sql-mode-hook
-          (lambda ()
-            (sqlup-mode 1)))
-
-;; TODO:
-;; (add-hook 'sqlup-mode-hook
-;;           (lambda ()
-;;             (setq sqlup-keywords
-;;                   (append sqlup-keywords
-;;                           '("text" "glob" "offset")))))
 
 
 ;;; [ sqled-mode ] -- major mode for editing sql, sqlplus, and pl/sql code.
