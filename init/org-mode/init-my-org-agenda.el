@@ -44,7 +44,8 @@
 ;; 3. export to .xpm format. (or .png)
 
 (setq org-agenda-category-icon-alist
-      '(("Org" "~/.emacs.d/resources/icon/Org.xpm" nil nil :ascent center)
+      '(("Todo" "~/.emacs.d/resources/icon/Todo.xpm" nil nil :ascent center)
+        ("Org" "~/.emacs.d/resources/icon/Org.xpm" nil nil :ascent center)
         ("Emacs" "~/.emacs.d/resources/icon/Emacs.xpm" nil nil :ascent center)
         ("Code" "~/.emacs.d/resources/icon/Code.xpm" nil nil :ascent center)
         ("Programming" "~/.emacs.d/resources/icon/Code.xpm" nil nil :ascent center)
