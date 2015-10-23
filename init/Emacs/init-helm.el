@@ -287,32 +287,6 @@
   )
 
 
-;;; [ helm-cmd-t ] -- Helm functions to package directories (SCM controlled or not) as sources.
-
-(use-package helm-cmd-t
-  :config
-  ;; add-to-list `helm-cmd-t-repo-types'
-  (global-set-key (kbd "M-t") 'helm-cmd-t)
-
-  ;; Creating an ad-hoc source
-  ;; It’s easy to convert any file system directory into a source
-  ;;
-  ;; (setq downloads-source (helm-cmd-t-get-create-source-dir "~/Downloads"))
-  ;; (setq docs-source (helm-cmd-t-get-create-source-dir "~/Documents"))
-  ;;
-  ;; (defun helm-cmd-t-ad-hoc-example ()
-  ;;   "Choose file from test folder."
-  ;;   (interactive)
-  ;;   (helm :sources (list downloads-source docs-source)))
-
-  ;; (setq helm-cmd-t-default-repo "~/Git/dotfiles"
-  ;;       ;; helm-cmd-t-find-command "find" ; find
-  ;;       ;; helm-cmd-t-find-ignored-files
-  ;;       )
-
-  )
-
-
 ;;; [ helm-c-yasnippet ] -- helm source for yasnippet.el
 
 ;;; Usage:
