@@ -11,11 +11,11 @@
 
 ;;; Emacs default `display-time-mode' has this world clock list support.
 
-(setq display-time-world-list '(("America/Los_Angeles" "Silicon Valley")
+(setq display-time-world-list '(("Asia/Shanghai" "Shanghai")
+                                ("Asia/Tokyo" "Tokyo")
+                                ("America/Los_Angeles" "Silicon Valley")
                                 ("America/New_York" "New York")
                                 ("America/Los_Angeles" "Los Angeles")
-                                ("Asia/Tokyo" "Tokyo")
-                                ("Asia/Shanghai" "Shanghai")
                                 ("Europe/Paris" "Paris")
                                 ("Europe/London" "London")
                                 ))
