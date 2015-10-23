@@ -15,6 +15,7 @@
                                 ("America/New_York" "New York")
                                 ("America/Los_Angeles" "Los Angeles")
                                 ("Asia/Tokyo" "Tokyo")
+                                ("Asia/Shanghai" "Shanghai")
                                 ("Europe/Paris" "Paris")
                                 ("Europe/London" "London")
                                 ))
