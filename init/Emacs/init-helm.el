@@ -313,15 +313,6 @@
 (define-key helm-command-map (kbd "M-s m") 'helm-multi-occur)
 
 
-;;; [ helm-gist ]
-
-;;; Usage:
-;; - `helm-for-gist'
-;; - Helm defined source: `helm-c-source-gist'
-
-;; (require 'helm-gist)
-
-
 ;;; [ Emacs internal functions/commands ] -- [C-x c]
 
 (define-key helm-command-map (kbd "M-t") 'helm-timers)

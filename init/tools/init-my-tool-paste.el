@@ -79,6 +79,14 @@
 ;;; htmlize-buffer (convert current buffer into HTML output)
 (define-key paste-prefix (kbd "h") 'htmlize-buffer)
 
+
+;;; [ helm-gist ]
+
+;;; Usage:
+;; - `helm-for-gist'
+;; - Helm defined source: `helm-c-source-gist'
+
+;; (require 'helm-gist)
 
 
 
