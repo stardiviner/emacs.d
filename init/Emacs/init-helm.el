@@ -103,14 +103,13 @@
 
 ;; additional optional helm settings to make helm more responsive.
 (setq helm-ff-lynx-style-map nil
-      helm-input-idle-delay 0.01 ; default: 0.01
-      helm-idle-delay 0.01 ; default: 0.01
+      helm-input-idle-delay 0.01
+      helm-idle-delay 0.01
       )
 
 ;; this global keybinding [M-x] will conflict with {[C-u M-x align-regexp] on select region text.}
 ;; But you can press [M-x C-u align-regexp RET].
 (setq helm-M-x-fuzzy-match nil
-      helm-M-x-requires-pattern 2 ; t, N,
       helm-M-x-reverse-history nil)
 (global-set-key (kbd "M-x") 'helm-M-x)
 ;; If you prefer the helm version of the file finder, you can bind it to C-x C-f
@@ -134,9 +133,6 @@
 ;; NOTE: this cause helm-dash open menu candidate error.
 ;; (define-key helm-map (kbd "<return>") 'helm-confirm-and-exit-minibuffer)
 
-(when (executable-find "ack-grep")
-  (setq helm-grep-default-command "ack-grep -Hn --no-group --no-color %e %p %f"
-        helm-grep-default-recurse-command "ack-grep -H --no-group --no-color %e %p %f"))
 (define-key helm-grep-mode-map (kbd "<return>")  'helm-grep-mode-jump-other-window)
 (define-key helm-grep-mode-map (kbd "n")  'helm-grep-mode-jump-other-window-forward)
 (define-key helm-grep-mode-map (kbd "p")  'helm-grep-mode-jump-other-window-backward)
@@ -246,36 +242,22 @@
       )
 
 (when (executable-find "curl")
-  (setq helm-google-suggest-use-curl-p t
-        ;; helm-google-suggest-default-browser-function
-        ;; helm-google-suggest-default-function 'helm-google-suggest-set-candidates
-        ;; helm-google-suggest-search-url "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
-        ;; helm-google-suggest-url "http://google.com/complete/search?output=toolbar&q="
-        ))
+  (setq helm-net-prefer-curl t))
 
-(add-to-list 'helm-for-files-preferred-list 'helm-source-moccur)
+;; (add-to-list 'helm-for-files-preferred-list 'helm-source-moccur)
 
-(add-to-list 'helm-sources-using-default-as-input 'helm-source-man-pages)
+;; (add-to-list 'helm-sources-using-default-as-input 'helm-source-man-pages)
 
+
 ;; Bookmark
-;; Helm bookmarks [C-x C-x r b]
-;; (helm-highlight-bookmark)
+
+;; Helm bookmarks
 
 (setq helm-bookmark-show-location t)
 
-;; Firefox bookmarks [C-x C-x]
+;; Firefox bookmarks
 ;; NOTE config your firefox `about:config' to enable:
 ;; user_pref("browser.bookmarks.autoExportHTML", false);
-
-
-;;; [ helm-elisp / helm-lisp ]
-
-;; for `helm-lisp-completion-at-point', [C-x c TAB]
-;; 'helm-elisp-show-doc-modeline, 'helm-elisp-showhelp
-(setq helm-elisp-help-function 'helm-elisp-show-doc-modeline
-      helm-apropos-fuzzy-match nil
-      helm-lisp-fuzzy-completion nil
-      )
 
 
 ;; [ helm-descbinds ]
@@ -292,35 +274,17 @@
 (use-package helm-descbinds
   :config
   ;; 'split-window, 'one-window, 'same-window.
-  (setq helm-descbinds-window-style 'split-window)
+  (setq helm-descbinds-window-style 'same-window)
   
   (helm-descbinds-mode 1)
   )
 
 
-;;; [ helm-themes ]
+;; [ helm-projectile ] -- Helm integration for Projectile.
 
-;;; Usage:
-;;
-;; [M-x helm-themes]
-
-;;; Config
-;; (require 'helm-themes)
-
-
-;; [ helm-projectile ]
-
-(require 'helm-projectile)
-
-
-;;; [ helm-project ]
-
-
-
-;;; [ helm-ls-git ] -- Yet another helm to list git file.
-
-;; (require 'helm-ls-git)
-
+(use-package helm-projectile
+  :config
+  )
 
 
 ;;; [ helm-cmd-t ] -- Helm functions to package directories (SCM controlled or not) as sources.
@@ -363,7 +327,9 @@
         helm-yas-display-key-on-candidate t
         )
   ;; integrate helm with yasnippet.
-  (global-set-key (kbd "C-c & C-c") 'helm-yas-complete)
+  (define-key yas-minor-mode-map (kbd "C-c & <tab>") 'helm-yas-complete)
+  (define-key yas-minor-mode-map (kbd "C-c & C-v") 'helm-yas-visit-snippet-file)
+  (define-key yas-minor-mode-map (kbd "C-c & c") 'helm-yas-create-snippet-on-region)
   )
 
 
