@@ -20,7 +20,12 @@
                                 ))
 
 (if (featurep 'helm)
-    (define-key my-tools-prefix (kbd "t") 'helm-world-time)
+    ;; `helm-source-time-world'
+    (progn
+      ;; the time zone of your home
+      (setq helm-time-zone-home-location "Shanghai")
+      (define-key my-tools-prefix (kbd "t") 'helm-world-time)
+      )
   (define-key my-tools-prefix (kbd "t") 'display-time-world))
 
 

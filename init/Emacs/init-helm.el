@@ -307,12 +307,6 @@
   )
 
 
-;;; [ helm-c-moccur ]
-
-;; - [C-x c M-s o] :: `helm-occur'
-(define-key helm-command-map (kbd "M-s m") 'helm-multi-occur)
-
-
 ;;; [ Emacs internal functions/commands ] -- [C-x c]
 
 (define-key helm-command-map (kbd "M-t") 'helm-timers)
@@ -324,14 +318,11 @@
 (define-key helm-command-map (kbd "M-s m") 'helm-multi-occur)
 
 
-;;; [ helm-source-time-world ]
+;;; [ helm-c-moccur ]
 
-;; use the Emacs built-in variable: `display-time-world-list'.
+;; - [C-x c M-s o] :: `helm-occur'
 
-(setq helm-time-zone-home-location "Shanghai")
-
-(define-key my-tools-prefix (kbd "t") 'helm-world-time)
-
+(define-key helm-command-map (kbd "M-s m") 'helm-multi-occur)
 
 
 (provide 'init-helm)
