@@ -26,6 +26,10 @@
 ;; (require 'mu4e-speedbar)
 
 
+
+(setq mail-user-agent 'mu4e-user-agent)
+
+
 (setq mu4e-mu-home nil ; nil for default
       ;; mu4e-mu-binary "/usr/bin/mu"
       ;; TODO: find a better solution to solve this bin path variable issue.

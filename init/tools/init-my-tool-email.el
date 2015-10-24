@@ -17,7 +17,7 @@
 
 ;;; [ message-mode ]
 
-;; message-user-agent, 'mail-user-agent, ...
+;; 'message-user-agent, 'mail-user-agent, 'gnus-user-agent, 'mu4e-user-agent,
 (setq mail-user-agent 'message-user-agent
       compose-mail-user-agent-warnings nil
       )

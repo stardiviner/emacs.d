@@ -60,6 +60,9 @@
 ;; `org-link-types'
 ;; `org-add-link-type' + `org-add-link-props'
 
+;; Email: `mailto:' link open with Emacs internal extension like message-mode, mu4e.
+;; `mail-user-agent'
+(setq browse-url-mailto-function 'browse-url-mail)
 
 ;; IRC
 (if (featurep 'erc)
