@@ -35,6 +35,14 @@
          :clock-in t :clock-resume t
          )
 
+        ;; Diary
+        ("D" "Write Diary"
+         entry (file+datetree "~/Org/Diary/Diary.org")
+         "\n* %^{prompt} \n\nEvent: %?\n\n  %i\n\nFrom: %a\n\nTime: %U"
+         :empty-lines 1
+         :jump-to-captured t
+         )
+        
         ;; Bookmark
         ("k" "Add an URL to bookmarks database"
          entry (file+headline "~/Org/Bookmarks/Bookmarks.org" "Uncategoried")
