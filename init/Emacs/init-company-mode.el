@@ -27,27 +27,27 @@
       company-idle-delay 0.4
       ;; determines when to auto-complete.
       ;; 'company-explicit-action-p, t, nil, 'function
-      company-auto-complete 'company-explicit-action-p
+      ;; company-auto-complete nil
       ;; company-auto-complete-chars
       ;; 'company-explicit-action-p, t, nil, 'function
-      company-require-match 'company-explicit-action-p
-      company-echo-delay 0
+      ;; company-require-match 'company-explicit-action-p
+      ;; company-echo-delay 0
       ;; t: show quick-access numbers for the first ten candidates.
-      company-show-numbers nil
+      ;; company-show-numbers nil
       ;; align annotations to the right tooltip border.
       company-tooltip-align-annotations t
-      company-tooltip-flip-when-above t
+      ;; company-tooltip-flip-when-above t
       ;; tooltip candidates max limit.
       company-tooltip-limit 10
       ;; minimum candidates height limit.
       company-tooltip-minimum 3
       ;; The minimum width of the tooltip's inner area.
-      company-tooltip-minimum-width 0
+      ;; company-tooltip-minimum-width 0
       ;; This doesn't include the margins and the scroll bar.
       ;; width of margin columns to show around the tooltip
-      company-tooltip-margin 1
+      ;; company-tooltip-margin 1
       ;; 'lines - how to show tooltip unshown candidates number.
-      company-tooltip-offset-display 'scrollbar
+      ;; company-tooltip-offset-display 'scrollbar
       ;; loop over candidates
       company-selection-wrap-around t
       )
