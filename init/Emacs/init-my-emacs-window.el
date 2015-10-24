@@ -533,7 +533,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
                   major-mode)))
       ;; TODO or string match `erc-pals' variables list.
       (and (string-match "^[^#]*" (buffer-name buffer))
-         (eq mode 'erc-mode))))
+           (eq mode 'erc-mode))))
 
   (push '(my/popwin-func-for-erc-private-message :height 10 :position bottom) popwin:special-display-config)
 
@@ -663,7 +663,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
 
   ;; Database: edbi
   ;; (push '("*edbi-dialog-ds*" :position bottom) popwin:special-display-config)
-  (push '(ctbl:table-mode :position bottom) popwin:special-display-config)
+  (push '(ctbl:table-mode :position bottom :noselect t) popwin:special-display-config)
   (push '("\\*edbi:query-result .*" :regexp t :position bottom :noselect t) popwin:special-display-config)
 
   ;; howdoi
@@ -692,7 +692,7 @@ The `BUFFER' is the popwin catch poporg edit popup buffer"
     (let ((mode (with-current-buffer buffer
                   major-mode)))
       (and (string-match "\*poporg:\ .*\*" (buffer-name buffer))
-         (eq mode 'org-mode))))
+           (eq mode 'org-mode))))
 
   (push '(my/popwin-func-for-erc-private-message :height 10 :position bottom) popwin:special-display-config)
   )
