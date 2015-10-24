@@ -84,14 +84,15 @@
 :BIRTHDAY: %:date
 :GENDER:
 :RELATIONSHIP:
-:FIRST-MEET:
+:FIRST-MEET: %:date-timestamp-inactive
+:TIME: %:date-timestamp-inactive -
 :URL: %:url
 :EMAIL: %(org-contacts-template-email)
 :MOBILE:
 :PHONE:
 :IRC:
 :QQ:
-:BLOG:
+:BLOG: %:url
 :ADDRESS(home):
 :ADDRESS(work):
 :COMPANYS:
@@ -102,7 +103,7 @@
 :LANGUAGES:
 :PROJECTS:
 :IGNORE:
-:DATE: %:type %:date
+:DATE: %:type %:date-timestamp-inactive
 :NOTE:
 :END:"
                  :empty-lines 1
