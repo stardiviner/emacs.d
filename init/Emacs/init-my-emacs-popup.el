@@ -70,6 +70,9 @@
 (setq showtip-timeout 15
       showtip-top-adjust 30)
 
+(set-face-attribute 'showtip-face nil
+                    :foreground "gray" :background "orange")
+
 
 (provide 'init-my-emacs-popup)
 
