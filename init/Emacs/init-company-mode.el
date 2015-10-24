@@ -90,7 +90,7 @@
          ;; company-gtags company-etags
          company-keywords       ; keywords
          ;; company-dabbrev-code
-         company-tempo          ; tempo: flexible template insertion
+         ;; company-tempo          ; tempo: flexible template insertion
          company-capf                   ; `completion-at-point-functions'
          ;; :with
          company-yasnippet
