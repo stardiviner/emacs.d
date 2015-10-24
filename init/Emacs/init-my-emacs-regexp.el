@@ -157,7 +157,9 @@
 ;; is used underneath, ample-regexps is just a cherry on the pie adding
 ;; customization with a hint of syntactic sugar atop.
 
-(require 'ample-regexps)
+(use-package ample-regexps
+  :config
+  )
 
 
 ;;; [ Swiper ] -- gives you an overview as you search for a regex.
