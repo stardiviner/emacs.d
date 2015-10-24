@@ -69,6 +69,8 @@
             (normal-top-level-add-subdirs-to-load-path)))
          load-path)))
 
+(setq load-prefer-newer t)
+
 
 ;;; [ package manager ]
 
