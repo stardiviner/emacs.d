@@ -120,6 +120,7 @@
                          "~/Org/Wiki/Learning/Learning.org"
                          "~/Org/Wiki/Learning/MyLearningPlan/Learn Programming.org"
                          ;; "~/Org/Wiki/Wiki.org"
+                         "~/Org/Contacts/Contacts.org"
                          ))
 
 (setq org-agenda-text-search-extra-files '("~/Org/Journal.org" "~/Org/Diary/"))
