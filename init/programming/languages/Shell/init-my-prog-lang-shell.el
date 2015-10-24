@@ -1,4 +1,4 @@
-;;; init-my-prog-lang-shell.el --- init for Shell Sctips
+;;; init-my-prog-lang-shell.el --- init for Shell Scripts
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -7,11 +7,27 @@
 
 ;;; Code:
 
-;;; [ Shell Script ]
+;;; [ Shell Script (`sh-mode') ]
 
-;; indent
-;; TODO:
-;; (setq sh-)
+(setq sh-indentation 4)
+
+;; (setq sh-dynamic-complete-functions '(shell-environment-variable-completion
+;;                                       shell-command-completion
+;;                                       comint-filename-completion)
+;;       shell-dynamic-complete-functions '(comint-c-a-p-replace-by-expanded-history
+;;                                          shell-environment-variable-completion
+;;                                          shell-command-completion
+;;                                          shell-c-a-p-replace-by-expanded-directory
+;;                                          pcomplete-completions-at-point
+;;                                          shell-filename-completion
+;;                                          comint-filename-completion)
+;;       )
+;;
+;; (add-hook 'sh-mode-hook
+;;           '(lambda ()
+;;              (remove-hook 'completion-at-point-functions
+;;                           'sh-completion-at-point-function)
+;;              ))
 
 
 ;;; [ Bash ]
