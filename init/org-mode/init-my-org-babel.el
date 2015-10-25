@@ -60,75 +60,6 @@
       )
 
 
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((emacs-lisp . t)                     ; Emacs Lisp
-   (org . t)                            ; Org-mode
-   (shell . t)                          ; Shell Script
-   (sh . t)                             ; Shell
-   (makefile . t)                       ; Make
-   (ruby . t)                           ; Ruby
-   (python . t)                         ; Python
-   ;; (perl . t)                           ; Perl
-   (C . t)                              ; C
-   ;; (C++ . t)                            ; C++
-   (java . t)                           ; Java
-   ;; (awk . t)                            ; Awk
-   ;; (sed . t)                            ; Sed
-   ;; (screen . t)                         ; Screen
-   (lisp . t)                           ; Lisp
-   ;; (scheme . t)                         ; Scheme
-   ;; (picolisp . t)                       ; Pico Lisp
-   (clojure . t)                        ; Clojure
-   (haskell . t)                        ; Haskell
-   ;; (scala . t)                          ; Scala
-   ;; (io . t)                             ; IO
-   ;; (J . t)                              ; J
-   ;; (ocaml . t)                          ; Objective Caml
-   (js . t)                             ; JavaScript
-   (css . t)                            ; CSS
-   (latex . t)                          ; LaTeX
-   ;; (R . t)                              ; R
-   (sql . t)                            ; SQL
-   (sqlite . t)                         ; SQLite
-   (matlab . t)                         ; MATLAB
-   (octave . t)                         ; Octave
-   (gnuplot . t)                        ; gnuplot
-   ;; (fortran . t)                        ; Fortran
-   (ditaa . t)                          ; ditaa
-   (dot . t)                            ; Graphviz, Dot
-   (plantuml . t)                       ; PlantUML
-   ;; (ebnf2ps . t)                        ; ebnf2ps
-   (calc . t)                           ; Calc
-   ;; (ledger . t)                         ; ledger support in Babel
-   ;; (asymptote . t)                      ; Asymptote
-   ;; (sass . t)                           ; Sass
-   ))
-
-(setq
- org-babel-tangle-lang-exts '(("latex" . "tex")
-                              ("elisp" . "el")
-                              ("emacs-lisp" . "el")
-                              ("lisp" . "lisp")
-                              ("ruby" . "rb")
-                              ("python" . "py")
-                              ;; ("R" . "R")
-                              ("sql" . "sql")
-                              ("sh" . "sh")
-                              ;; ("haskell" . "hs")
-                              ("clojure" . "clj")
-                              ;; ("awk" . "awk")
-                              ("C" . "c")
-                              ("Go" . "go")
-                              ("C++" . "cpp")
-                              ("perl" . "pl")
-                              ("js" . "js")
-                              ("css" . "css")
-                              ("java" . "java")
-                              )
- ;; org-babel-pre-tangle-hook '(save-buffer)
- )
-
 
 (add-to-list 'org-src-lang-modes (cons "SQL" 'sql))
 
@@ -147,10 +78,6 @@
 ;; (require 'ob-elixir)
 
 ;;; [ ob-julia ]
-;;
-;; this require "ESS"
-;;
-;; TODO: read https://github.com/gjkerns/ob-julia/blob/master/ob-julia-doc.org
 
 (if (not (boundp 'inferior-julia-program-name))
     (setq inferior-julia-program-name "julia"))
@@ -288,6 +215,78 @@
      (add-to-list 'org-src-lang-modes '("browser" . web))
      (add-to-list 'org-src-lang-modes '("rhtml" . web))
      ))
+
+
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)                     ; Emacs Lisp
+   (org . t)                            ; Org-mode
+   (shell . t)                          ; Shell Script
+   (sh . t)                             ; Shell
+   (makefile . t)                       ; Make
+   (ruby . t)                           ; Ruby
+   (python . t)                         ; Python
+   ;; (perl . t)                           ; Perl
+   (C . t)                              ; C
+   ;; (C++ . t)                            ; C++
+   (java . t)                           ; Java
+   ;; (awk . t)                            ; Awk
+   ;; (sed . t)                            ; Sed
+   ;; (screen . t)                         ; Screen
+   (lisp . t)                           ; Lisp
+   ;; (scheme . t)                         ; Scheme
+   ;; (picolisp . t)                       ; Pico Lisp
+   (clojure . t)                        ; Clojure
+   (haskell . t)                        ; Haskell
+   ;; (scala . t)                          ; Scala
+   ;; (io . t)                             ; IO
+   ;; (J . t)                              ; J
+   ;; (ocaml . t)                          ; Objective Caml
+   (js . t)                             ; JavaScript
+   (css . t)                            ; CSS
+   (latex . t)                          ; LaTeX
+   ;; (R . t)                              ; R
+   (sql . t)                            ; SQL
+   (sqlite . t)                         ; SQLite
+   (matlab . t)                         ; MATLAB
+   (octave . t)                         ; Octave
+   (gnuplot . t)                        ; gnuplot
+   ;; (fortran . t)                        ; Fortran
+   (ditaa . t)                          ; ditaa
+   (dot . t)                            ; Graphviz, Dot
+   (plantuml . t)                       ; PlantUML
+   ;; (ebnf2ps . t)                        ; ebnf2ps
+   (calc . t)                           ; Calc
+   ;; (ledger . t)                         ; ledger support in Babel
+   ;; (asymptote . t)                      ; Asymptote
+   ;; (sass . t)                           ; Sass
+   (julia . t)                          ; Julia
+   ))
+
+;; (setq
+;;  org-babel-tangle-lang-exts '(("latex" . "tex")
+;;                               ("elisp" . "el")
+;;                               ("emacs-lisp" . "el")
+;;                               ("lisp" . "lisp")
+;;                               ("ruby" . "rb")
+;;                               ("python" . "py")
+;;                               ;; ("R" . "R")
+;;                               ("sql" . "sql")
+;;                               ("sh" . "sh")
+;;                               ;; ("haskell" . "hs")
+;;                               ("clojure" . "clj")
+;;                               ;; ("awk" . "awk")
+;;                               ("C" . "c")
+;;                               ("Go" . "go")
+;;                               ("C++" . "cpp")
+;;                               ("perl" . "pl")
+;;                               ("js" . "js")
+;;                               ("css" . "css")
+;;                               ("java" . "java")
+;;                               )
+;;  ;; org-babel-pre-tangle-hook '(save-buffer)
+;;  )
 
 
 
