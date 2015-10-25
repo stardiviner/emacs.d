@@ -316,13 +316,13 @@
     ;; erlang
     ;; Prolog
     ;; ediprolog
-    ;; Julia
-    julia-mode julia-shell
     ;; IPython
     ;; ein ; ein-mumamo
     ;; ESS
     ess ; company-ess
     ess-smart-equals ess-smart-underscore
+    ;; Julia
+    julia-mode julia-shell
     ;; R
     ;; ess-R-data-view ess-R-object-popup
     ;; helm-R

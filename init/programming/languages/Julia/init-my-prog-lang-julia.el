@@ -51,22 +51,6 @@
 
 ;; (setq inferior-julia-args)
 
-(defun my-inferior-julia (&optional process-buffer-name)
-  "Start or switch to inferior-julia process buffer PROCESS-BUFFER-NAME."
-  (interactive)
-  (if (get-buffer-process (or process-buffer-name "*Julia*"))
-      ;; the inferior julia process exist
-      (switch-to-buffer (or process-buffer-name "*Julia*"))
-    ;; create a new inferior julia process
-    (inferior-julia)
-    ;; (julia)
-    ;; kill old process
-    ;; (kill-process (get-buffer-process (or process-buffer-name "*julia*"))
-    )
-  )
-
-(define-key my-inferior-ess-map (kbd "j") 'my-inferior-julia) ; 'julia, 'inferior-julia,
-
 (add-hook 'julia-mode-hook
           (lambda ()
             ;; add julia-mode to prog-mode.
@@ -88,6 +72,24 @@
           (lambda ()
             (add-to-list (make-local-variable 'company-backends)
                          'company-ess-julia-objects)))
+
+
+(defun my-inferior-julia (&optional process-buffer-name)
+  "Start or switch to inferior-julia process buffer PROCESS-BUFFER-NAME."
+  (interactive)
+  (if (get-buffer-process (or process-buffer-name "*Julia*"))
+      ;; the inferior julia process exist
+      (switch-to-buffer (or process-buffer-name "*Julia*"))
+    ;; create a new inferior julia process
+    (inferior-julia)
+    ;; (julia)
+    ;; kill old process
+    ;; (kill-process (get-buffer-process (or process-buffer-name "*julia*"))
+    )
+  )
+
+;; 'julia, 'inferior-julia,
+(define-key my-inferior-ess-map (kbd "j") 'my-inferior-julia)
 
 
 ;;; [ julia-shell ] -- inferior Julia
