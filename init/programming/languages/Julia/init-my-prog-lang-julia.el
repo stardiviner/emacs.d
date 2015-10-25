@@ -18,6 +18,8 @@
 ;;; Usage:
 ;;
 ;; - [M-x julia RET] / [C-c C-z] :: switch to julia process buffer.
+;;         It will show `julia> ESS` represents loaded ESS.
+;;   - julia> quit()  :: to quit process.
 ;; - [C-c C-s] :: associate a buffer with a different julia process.
 ;;
 ;; - `julia-mode'
@@ -81,7 +83,7 @@
       ;; the inferior julia process exist
       (switch-to-buffer (or process-buffer-name "*Julia*"))
     ;; create a new inferior julia process
-    (inferior-julia)
+    (julia)
     ;; (julia)
     ;; kill old process
     ;; (kill-process (get-buffer-process (or process-buffer-name "*julia*"))
