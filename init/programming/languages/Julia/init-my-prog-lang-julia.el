@@ -72,11 +72,6 @@
             (add-to-list (make-local-variable 'company-backends)
                          'company-ess-julia-objects)))
 
-(add-hook 'inferior-ess-mode-hook
-          (lambda ()
-            (add-to-list (make-local-variable 'company-backends)
-                         'company-ess-julia-objects)))
-
 
 (defun my-inferior-julia (&optional process-buffer-name)
   "Start or switch to inferior-julia process buffer PROCESS-BUFFER-NAME."
