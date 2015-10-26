@@ -23,12 +23,11 @@
 ;;   - [M-x S RET] :: start S session.
 ;; - [C-c C-s] :: `ess-switch-process', switch/create inferior process
 ;; - `ess-load-file' :: [C-c C-l], load source code file for completion.
+;; - [C-c C-d e] :: `ess-describe-object-at-point'
 
 (require 'ess-site)
-(require 'ess-eldoc)
 
-
-(setq ess-use-ido t
+(setq ess-use-ido nil
       ess-ido-flex-matching t
       ess-blink-region t
       ess-blink-delay 0.3
@@ -37,52 +36,49 @@
       ess-speedbar-use-p t              ; use speedbar
       ;; ESS Edit
       ess-auto-newline nil
-      ;; ess-default-style
-      ess-fancy-comments t
-      ;; ess-mode-silently-save
+      ;; ess-default-style 'RRR
+      ess-indent-with-fancy-comments t
       ess-tab-always-indent t
+      ;; ess-mode-silently-save t
       ;; ESS Extra
-      ess-use-eldoc t
-      ess-eldoc-show-on-symbol t
-      ess-eldoc-abbreviation-style 'aggressive ; t or 'aggressive,
+      ;; ess-eldoc-show-on-symbol nil
+      ;; ess-eldoc-abbreviation-style 'normal
       ess-describe-at-point-method 'tooltip  ; display in a tooltip. (need to press [C-c C-d C-e]
-      ;; ess-use-tracebug t
+      ess-use-tracebug t
       ;; ESS Help
       ;; alist of frame parameters used to create help frames.
-      ess-help-frame-alist '((height . 14) (width . 80) (unsplittable . t))
+      ;; ess-help-frame-alist '((height . 14) (width . 80) (unsplittable . t))
       ess-help-kill-bogus-buffers t
       ess-help-own-frame nil
       ess-help-pop-to-buffer t
       ess-help-reuse-window t
       ;; ESS Proc
-      ess-eval-deactivate-mark t
       ess-eval-visibly nil ; speedup eval without show the eval commands.
       ess-eval-visibly-at-end t
       ess-execute-in-process-buffer nil
       ess-synchronize-evals nil
       ess-verbose nil
-      ess-use-R-completion t
       inferior-ess-own-frame nil
-      inferior-ess-same-window nil
-      ;; ESS Command
-      ;; inferior-R-objects-command "print(objects(pos=%d, all.names=TRUE), max=1e6)"
-      ;; inferior-Splus-objects-command "objects(where=%d)"
-      ;; inferior-ess-get-prompt-command "options()$prompt"
-      ;; inferior-ess-r-help-command ".ess.help(\"%s\", help.type=\"text\")"
+      inferior-ess-same-window t
       )
+
+
+;;; [ ESS-R ]
+
+(setq ess-use-R-completion t)
+
+;; (setq inferior-R-objects-command
+;;       "print(objects(pos=%d, all.names=TRUE), max=1e6)"
+;;       )
+
+;; (setq inferior-ess-r-help-command ".ess.help(\"%s\", help.type=\"text\")")
 
 
 ;;; completing support
 
+;; ESS built-in:
 ;; - `ess-company-backends' :: for company-mode.
 ;; - `ess-ac-sources' :: for auto-complete.
-
-;;; company-ess
-
-
-
-;;; TODO: startup start ESS process
-
 
 
 ;;; [ ess-smarter-underscore ]
