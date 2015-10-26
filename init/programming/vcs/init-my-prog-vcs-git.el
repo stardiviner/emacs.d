@@ -290,6 +290,12 @@
 ;;   (magit-dispatch-popup))
 ;; (ad-activate 'magit-status)
 
+;; enable ispell words complete in commit message buffer.
+(add-hook 'git-commit-mode-hook
+          '(lambda ()
+             (add-to-list (make-local-variable 'company-backends)
+                          'company-ispell)))
+
 
 ;;; [ magit-find-file ]
 
