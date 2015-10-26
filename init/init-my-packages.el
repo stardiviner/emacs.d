@@ -323,7 +323,8 @@
     ;; ESS
     ess
     ;; Julia
-    julia-mode julia-shell
+    julia-mode
+    julia-shell
     ;; R
     ;; ess-R-data-view ess-R-object-popup
     ;; helm-R

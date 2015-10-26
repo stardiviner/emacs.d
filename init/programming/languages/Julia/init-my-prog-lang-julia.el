@@ -7,10 +7,12 @@
 
 ;;; Code:
 
+;;; [ julia-mode ]
 
-(add-to-list 'auto-mode-alist '("\\.jl\\'" . julia-mode))
-
-(setq julia-indent-offset 2)
+(use-package julia-mode
+  :config
+  (setq julia-indent-offset 4)
+  )
 
 
 ;;; [ ESS - Julia ]
