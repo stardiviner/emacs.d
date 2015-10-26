@@ -97,6 +97,13 @@
              ))
 
 
+;;; launch julia-shell at Emacs startup.
+
+(add-hook 'after-init-hook
+          '(lambda ()
+             (inferior-julia-shell)))
+
+
 
 (provide 'init-my-startup)
 
