@@ -80,12 +80,6 @@
 ;; - `ess-company-backends' :: for company-mode.
 ;; - `ess-ac-sources' :: for auto-complete.
 
-
-;;; [ ess-smarter-underscore ]
-
-(eval-after-load "ess-site"
-  '(progn
-     (require 'ess-smart-underscore)))
 
 
 (provide 'init-my-prog-lang-ESS)

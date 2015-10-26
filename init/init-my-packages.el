@@ -321,8 +321,7 @@
     ;; IPython
     ;; ein ; ein-mumamo
     ;; ESS
-    ess ; company-ess
-    ess-smart-equals ess-smart-underscore
+    ess
     ;; Julia
     julia-mode julia-shell
     ;; R
