@@ -88,7 +88,7 @@
   )
 
 ;; 'julia, 'inferior-julia,
-(define-key my-inferior-ess-map (kbd "j") 'my-inferior-julia)
+(define-key my-inferior-ess-map (kbd "J") 'my-inferior-julia)
 
 
 ;;; [ julia-shell ] -- inferior Julia
@@ -110,7 +110,16 @@
     (define-key julia-mode-map (kbd "C-c C-s") 'julia-shell-save-and-go)
     )
 
-  (define-key my-prog-inferior-map (kbd "j") 'inferior-julia-shell)
+  (defun my-inferior-julia-shell (&optional process-buffer-name)
+    "Start or switch to inferior-julia process buffer PROCESS-BUFFER-NAME."
+    (interactive)
+    (if (get-buffer-process (or process-buffer-name "*Julia*"))
+        (switch-to-buffer (or process-buffer-name "*Julia*"))
+      (inferior-julia-shell)
+      )
+    )
+  
+  (define-key my-prog-inferior-map (kbd "j") 'my-inferior-julia-shell)
   )
 
 
