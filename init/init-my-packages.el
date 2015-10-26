@@ -101,6 +101,8 @@
     ;; Server
     ;; elnode peek-mode
     ;; web-server websocket ; httpd
+    ;; [ Other Enhancement ]
+    describe-number
     
     ;; Shell
     eshell ; shell-here shell-toggle
