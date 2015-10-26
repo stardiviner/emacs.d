@@ -116,9 +116,6 @@
     )
 
   (define-key my-prog-inferior-map (kbd "j") 'inferior-julia-shell)
-
-  ;; FIXME:
-  ;; (add-hook 'julia-mode-hook 'julia-shell-mode)
   )
 
 
