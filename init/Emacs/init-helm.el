@@ -111,6 +111,9 @@
 ;; But you can press [M-x C-u align-regexp RET].
 (setq helm-M-x-fuzzy-match nil
       helm-M-x-reverse-history nil)
+;; [M-x] Emacs keybinding beside command
+(set-face-attribute 'helm-M-x-key nil
+                    :foreground "cyan")
 (global-set-key (kbd "M-x") 'helm-M-x)
 ;; If you prefer the helm version of the file finder, you can bind it to C-x C-f
 ;; to replace the standard find-file:
