@@ -104,7 +104,7 @@
 ;; - `inferior-julia-shell'
 ;; - `run-julia'
 
-(use-package julia-shell
+(use-package julia-shell-mode
   :config
   (if (fboundp 'ess-julia-mode)
       (progn
