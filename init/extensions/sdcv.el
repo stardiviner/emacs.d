@@ -382,7 +382,7 @@ The result will be displayed in buffer named with
 
   ;; pronounce the word (Add by me)
   ;; `sleep-for', `sit-for'.
-  (sleep-for 2)
+  (sleep-for 1)
   (sdcv-pronounce-word word)
   )
 
