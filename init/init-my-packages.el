@@ -96,6 +96,8 @@
     ansi-color rainbow-mode kurecolor
     ;; Cursor
     ;; beacon
+    ;; Idle
+    zone-nyan
     ;; Process
     ;; dizzee ; prodigy
     ;; Server
