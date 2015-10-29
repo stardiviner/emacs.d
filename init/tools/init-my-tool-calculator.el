@@ -10,22 +10,23 @@
 ;;; [ Calc ]
 
 ;;; Usage:
-;;;
-;;; - [M-x calc] --run calc.
-;;; - [C-x * c] -- start calculator.
-;;;     - press ' to start Algebra input. e.g. ' sqrt(2+3) <RET>
-;;; Standard user interface
-;;; Quick mode interface
-;;; Keypad mode interface
-;;; - [C-x * k] -- keypad mode.
-;;;     - click on those keypad buttons.
+;;
+;; - [M-x quick-calc] :: quick simple algebraic (infix operator) calculator.
+;; - [M-x calc] --run calc (default postfix operator)
+;; - [C-x * c] -- start calculator.
+;;     - press ' to start Algebra input. e.g. ' sqrt(2+3) <RET>
+;; Standard user interface
+;; Quick mode interface
+;; Keypad mode interface
+;; - [C-x * k] -- keypad mode.
+;;     - click on those keypad buttons.
 ;;; Embedded mode
 ;;
 ;; - [' 1+1 RET] :: Algebraic style.
 ;; - [1 RET 3 +] :: RPN style.
 ;; - [C-x * 0] :: calc-reset.
 ;;
-;; GET HELP
+;;; GET HELP
 ;; - get help -> [C-h i g (calc)]
 ;; - in Calculator window.
 ;;   - [C-h m] :: mode help.
@@ -38,7 +39,7 @@
 ;; - [C-x * *] ::
 ;; ELISP> (calc-eval "1+2")
 ;;
-;; - Plot
+;;; - Plot
 ;;   - [g p] :: graph-plot.
 
 (autoload 'calc "calc :: a calculator" t)
@@ -55,8 +56,15 @@
 
 (if (featurep 'helm)
     (define-key my-calculator-map (kbd "x") 'helm-calcul-expression)
-  (define-key my-calculator-map (kbd "x") 'calc) ; 'calc-keypad
+  (define-key my-calculator-map (kbd "x") 'quick-calc) ; 'calc-keypad
   )
+
+
+;;; [ calculator-mode ]
+
+;;; Usage:
+;;
+;; - [M-x calculator]
 
 
 (provide 'init-my-tool-calculator)
