@@ -75,6 +75,10 @@
      (font-lock-type-face ((t (:foreground "#b58900")))) ; Type
      (font-lock-variable-name-face ((t (:foreground "#268bd2")))) ; Identifier
      (font-lock-warning-face ((t (:foreground "#dc322f")))) ; Error
+     ;; diff
+     (diff-refine-added ((t (:background "dark green"))))
+     (diff-refine-removed ((t (:background "dark red"))))
+     (diff-refine-change ((t (:background "white"))))
      )))
 
 
