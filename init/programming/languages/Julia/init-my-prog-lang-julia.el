@@ -24,7 +24,6 @@
 ;;   - julia> quit()  :: to quit process.
 ;; - [C-c C-s] :: associate a buffer with a different julia process.
 ;;
-;; - `julia-mode'
 ;; - `julia-eldoc-function'
 ;; - `julia-manual-lookup-function'
 ;; - `inferior-julia'

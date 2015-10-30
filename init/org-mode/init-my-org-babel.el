@@ -147,10 +147,6 @@
 ;; (require 'ob-elixir)
 
 ;;; [ ob-julia ]
-;;
-;; this require "ESS"
-;;
-;; TODO: read https://github.com/gjkerns/ob-julia/blob/master/ob-julia-doc.org
 
 (if (not (boundp 'inferior-julia-program-name))
     (setq inferior-julia-program-name "julia"))
