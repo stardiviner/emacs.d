@@ -298,6 +298,7 @@
             (unless css-mode (css-mode))
           (if css-mode (css-mode -1))
           ))))
+(my-company-add-backends-to-mode '(company-css))
 
 ;; Enable JavaScript completion between <script>...</script> etc.
 (defadvice company-tern (before web-mode-set-up-ac-sources activate)
@@ -309,6 +310,7 @@
             (unless tern-mode (tern-mode))
           (if tern-mode (tern-mode -1))
           ))))
+(my-company-add-backends-to-mode '(company-tern))
 
 ;; Enable Ruby on Rails completion between rhtml tag <% ... %> or <%= ... %>.
 (defadvice company-robe (before web-mode-set-up-ac-sources activate)
@@ -318,6 +320,7 @@
         (if (string= web-mode-cur-language "erb")
             (unless robe-mode (robe-mode))
           (if robe-mode (robe-mode -1))))))
+(my-company-add-backends-to-mode '(company-robe))
 
 ;;;_. auto-complete support
 ;;
