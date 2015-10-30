@@ -17,6 +17,7 @@
 ;; - press any key, like [C-n] to quit Zone.
 ;; - [M-x zone-leave-me-alone] :: quit Zone.
 
+(autoload 'zone-when-idle "zone.el" nil t)
 (zone-when-idle (* 60 5))
 
 
