@@ -26,6 +26,9 @@
 ;;                                          (border-width . 2))
 ;;               )
 
+(set-face-attribute 'tooltip nil
+                    :foreground "black" :background "light yellow")
+
 
 ;;; [ popup ]
 
@@ -40,6 +43,9 @@
 ;;      Navigate between menu candidate and cascade menu with [C-f], [C-b]
 
 (require 'popup)
+
+;; (set-face-attribute 'popup-face nil
+;;                     :inherit 'tooltip)
 
 ;; add some shotcuts in popup menu mode
 (define-key popup-menu-keymap (kbd "M-n") 'popup-next)
@@ -71,7 +77,7 @@
       showtip-top-adjust 30)
 
 (set-face-attribute 'showtip-face nil
-                    :foreground "gray" :background "orange")
+                    :inherit 'tooltip)
 
 
 (provide 'init-my-emacs-popup)
