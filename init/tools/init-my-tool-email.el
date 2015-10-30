@@ -31,10 +31,7 @@
 
             ;; add email name complete support
             (setq-local completion-at-point-functions
-                        '(org-contacts-message-complete-function
-                          ;; bbdb-complete-name
-                          ;; mu4e~compose-complete-contact
-                          mail-completion-at-point-function
+                        '(mail-completion-at-point-function
                           message-completion-function))
             ))
 

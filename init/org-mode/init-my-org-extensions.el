@@ -113,6 +113,11 @@
 
 
   (define-key my-org-prefix (kbd "b") 'org-contacts)
+
+  (dolist (hook '(message-mode-hook
+                  mu4e-compose-mode-hook
+                  ))
+    (add-hook hook 'org-contacts-setup-completion-at-point))
   )
 
 
