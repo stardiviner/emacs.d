@@ -76,9 +76,12 @@
      (font-lock-variable-name-face ((t (:foreground "#268bd2")))) ; Identifier
      (font-lock-warning-face ((t (:foreground "#dc322f")))) ; Error
      ;; diff
-     (diff-refine-added ((t (:background "dark green"))))
-     (diff-refine-removed ((t (:background "dark red"))))
-     (diff-refine-change ((t (:background "white"))))
+     (diff-added ((t (:background "#1F591F"))))
+     (diff-removed ((t (:background "#663333"))))
+     (diff-changed ((t (:background "dark magenta"))))
+     (diff-refine-added ((t (:foreground "green" :inverse-video nil))))
+     (diff-refine-removed ((t (:foreground "red" :inverse-video nil))))
+     (diff-refine-change ((t (:foreground "dark orange" :inverse-video nil))))
      )))
 
 
