@@ -27,14 +27,18 @@
 
 ;; load theme way
 (add-to-list 'custom-theme-load-path "~/.emacs.d/color-themes/")
-;; (load-theme 'color-theme-midnight)
+
+(load-theme 'solarized-dark t)
 
 
 ;;; color-theme-solarized
 
-(require 'color-theme-solarized)
+;; (require 'color-theme-solarized)
 
-(color-theme-solarized)
+;; (color-theme-solarized)
+
+;; switch to light solarized color-theme
+;; (customize-set-variable 'frame-background-mode 'light)
 
 ;; (load-theme 'solarized t)
 
@@ -42,11 +46,6 @@
 ;;; color-theme-monokai
 
 ;; (load-theme 'monokai t)
-
-
-;;; color-theme-almost-monokai
-
-;; (color-theme-almost-monokai)
 
 
 ;;; custom faces

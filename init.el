@@ -79,6 +79,8 @@
 (require 'init-my-pm-package)
 
 (require 'use-package)
+(require 'color)
+(require 'color-theme)
 
 
 ;;; debug, profiling etc
@@ -254,5 +256,6 @@
 (setq initial-buffer-choice nil)
 (workgroups-mode 1)
 
+
 
 ;;; init.el ends here
