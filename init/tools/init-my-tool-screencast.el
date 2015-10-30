@@ -82,20 +82,24 @@
 ;; - [F11] :: You can even PAUSE the recording with F11!
 ;; - [F12] :: When you’re finished, hit F12 and wait for the conversion to FINISH.
 
-(require 'camcorder)
-
-(setq frame-parameters ; see `make-frame', `default-frame-alist'
-      '((name . "camcorder.el Recording - F12 to Stop - F11 to Pause/Resume")
-        (height . 150)
-        (width . 90)
-        ;; (top .  80)
-        (minibuffer . t)
+(use-package camcorder
+  :config
+  ;; (setq camcorder-recording-command
+  ;;       '("recordmydesktop" " --fps 20 --no-sound --windowid " window-id " -o " file))
+  
+  (setq camcorder-frame-parameters ; see `make-frame', `default-frame-alist'
+        '((name . "camcorder.el Recording - F12 to Stop - F11 to Pause/Resume")
+          (height . 150)
+          (width . 90)
+          ;; (top .  80)
+          (minibuffer . t)
+          )
+        ;; window-id-offset -4
         )
-      ;; window-id-offset -4
-      )
 
-(define-key my-screenshot-map (kbd "r") 'camcorder-mode)
-(define-key my-screenshot-map (kbd "R") 'camcorder-record)
+  (define-key my-screenshot-map (kbd "r") 'camcorder-mode)
+  (define-key my-screenshot-map (kbd "R") 'camcorder-record)
+  )
 
 
 (provide 'init-my-tool-screencast)
