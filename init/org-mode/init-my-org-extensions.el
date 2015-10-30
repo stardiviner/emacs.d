@@ -81,29 +81,30 @@
 :NICK:
 :ALIAS:
 :ICON: %(org-contacts-template-name).jpg
-:BIRTHDAY: %:date
-:GENDER:
-:RELATIONSHIP:
-:FIRST-MEET: %:date-timestamp-inactive
-:TIME: %:date-timestamp-inactive -
-:URL: %:url
+:BIRTHDAY: %t
+:GENDER: %^{prompt}
+:RELATIONSHIP: %^{prompt}
+:FIRST-MEET: %^U
+:TIME: %^U
+:URL: %^{prompt}
 :EMAIL: %(org-contacts-template-email)
 :MOBILE:
 :PHONE:
 :IRC:
 :QQ:
-:BLOG: %:url
+:BLOG:
 :ADDRESS(home):
+:ADDRESS(live): %^{prompt}
 :ADDRESS(work):
-:COMPANYS:
+:COMPANYS: %^{prompt}
+:Bio:
 :INTERESTS:
-:PROGRAMMING-SKILLS:
+:PROGRAMMING-SKILLS: %^{prompt}
 :SKILLS:
 :EDUCATION:
 :LANGUAGES:
 :PROJECTS:
-:IGNORE:
-:DATE: %:type %:date-timestamp-inactive
+:DATE: %^t
 :NOTE:
 :END:"
                  :empty-lines 1
