@@ -405,8 +405,8 @@ to insert <kbd>..</kbd> (HTML) org =[..]= (Org-mode)."
         (insert-pair where "=[" "]="))
     ;; (insert-pair nil "=[" "]=")
     (progn
-      (insert "=[]= ")
-      (backward-char 3)))
+      (insert "=[]=")
+      (backward-char 2)))
   )
 
 (defun my/org-insert-kbd ()
