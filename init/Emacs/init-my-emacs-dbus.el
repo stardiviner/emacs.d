@@ -5,13 +5,15 @@
 
 
 
-;;;_ Code:
+;;; Code:
 
-;;;_* D-Bus
+;;; [ D-Bus ]
 
-;;;_ + Usage
+;;; Usage
+;;
 ;; - (dbus-init-bus :system) / (dbus-init-bus :session)
 
+;; (dbus-init-bus :session)
 
 
 (provide 'init-my-emacs-dbus)
