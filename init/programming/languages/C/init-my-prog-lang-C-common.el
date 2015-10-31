@@ -84,11 +84,11 @@
 ;; `irony-cdb-compilation-databases'.
 
 (use-package irony-mode
-  :config
+  :init
   (hook-modes c-dialects-mode
     (when (member major-mode irony-supported-major-modes)
       (irony-mode 1)))
-
+  :config
   ;; replace the `completion-at-point' and `complete-symbol' bindings in
   ;; irony-mode's buffers by irony-mode's function
   (add-hook 'irony-mode-hook
