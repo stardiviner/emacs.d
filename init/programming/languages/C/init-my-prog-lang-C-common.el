@@ -83,19 +83,22 @@
 ;; Please refer to `irony-cdb-autosetup-compile-options' and
 ;; `irony-cdb-compilation-databases'.
 
-(hook-modes c-dialects-mode
-  (when (member major-mode irony-supported-major-modes)
-    (irony-mode 1)))
+(use-package irony-mode
+  :config
+  (hook-modes c-dialects-mode
+    (when (member major-mode irony-supported-major-modes)
+      (irony-mode 1)))
 
-;; replace the `completion-at-point' and `complete-symbol' bindings in
-;; irony-mode's buffers by irony-mode's function
-(add-hook 'irony-mode-hook
-          (lambda ()
-            (define-key irony-mode-map [remap completion-at-point]
-              'irony-completion-at-point-async)
-            (define-key irony-mode-map [remap complete-symbol]
-              'irony-completion-at-point-async)
-            ))
+  ;; replace the `completion-at-point' and `complete-symbol' bindings in
+  ;; irony-mode's buffers by irony-mode's function
+  (add-hook 'irony-mode-hook
+            (lambda ()
+              (define-key irony-mode-map [remap completion-at-point]
+                'irony-completion-at-point-async)
+              (define-key irony-mode-map [remap complete-symbol]
+                'irony-completion-at-point-async)
+              ))
+  )
 
 
 ;;; [ company-irony ]
