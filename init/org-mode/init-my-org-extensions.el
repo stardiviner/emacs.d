@@ -14,8 +14,10 @@
 
 (require 'org-attach)
 
-(setq org-attach-directory "data"
+(setq org-attach-directory "data/"
       org-attach-archive-delete 'query
+      org-attach-allow-inheritance t
+      org-attach-auto-tag nil
       )
 
 
