@@ -40,7 +40,7 @@
 ;; - FlyC:3/4 -- There are three errors and four warnings in the current buffer.
 ;; - FlyC-    -- Automatic syntax checker selection did not find a suitable syntax checker. See Selection, for more information.
 ;; - FlyC!    -- The syntax check failed. Inspect the *Messages* buffer for details.
-
+;;
 ;; - FlyC?    -- The syntax check had a dubious result. The definition of the syntax checker
 ;;               may be flawed. Inspect the *Messages* buffer for details. This indicator
 ;;              should never be displayed for built-in syntax checkers. If it is, please
@@ -64,9 +64,7 @@
         flycheck-completion-system nil ; 'ido, 'grizzl, nil
         )
 
-  ;; For Languages
-
-  ;; {emacs-lisp}
+  ;; {Emacs Lisp}
   ;; To make Flycheck use the current `load-path'.
   ;; Don't error about "free variable" without (require ??).
   (setq flycheck-emacs-lisp-initialize-packages t
@@ -91,22 +89,17 @@
 
   (set-face-attribute 'flycheck-info nil
                       :underline '(:color "forest green" :style wave))
+  (set-face-attribute 'flycheck-warning nil
+                      :underline '(:color "orange" :style wave))
+  (set-face-attribute 'flycheck-error nil
+                      :underline '(:color "dark red" :style wave)
+                      :overline "dark red")
   (set-face-attribute 'flycheck-fringe-info nil
                       :foreground "forest green")
-  (set-face-attribute 'flycheck-warning nil
-                      :underline '(:color "orange" :style wave)
-                      )
   (set-face-attribute 'flycheck-fringe-warning nil
-                      :foreground "orange"
-                      :weight 'normal)
-  (set-face-attribute 'flycheck-error nil
-                      :background "dark red"
-                      ;; :underline '(:color "dark red" :style wave)
-                      ;; :box '(:color "dark red" :line-width -1)
-                      )
+                      :foreground "orange")
   (set-face-attribute 'flycheck-fringe-error nil
-                      :foreground "dark red"
-                      :weight 'normal)
+                      :foreground "dark red")
 
 
   ;; list errors only when has lint errors
