@@ -47,86 +47,84 @@
 ;;              report this issue to the Flycheck developers.
 
 
-(require 'flycheck)
+(use-package flycheck
+  ;; (add-hook 'after-init-hook #'global-flycheck-mode)
+  (add-hook 'prog-mode-hook #'flycheck-mode)
 
-;; Enable flycheck in all buffers.
-;; (add-hook 'after-init-hook #'global-flycheck-mode)
+  ;; (save idle-change new-line mode-enabled)
+  (setq flycheck-check-syntax-automatically '(save new-line)
+        flycheck-idle-change-delay 5.0
+        flycheck-display-errors-delay 0.9
+        flycheck-highlighting-mode 'symbols
+        flycheck-indication-mode 'left-fringe
+        ;; 'flycheck-fringe-bitmap-double-arrow
+        flycheck-standard-error-navigation t ; [M-g n/p]
+        flycheck-deferred-syntax-check nil
+        ;; flycheck-mode-line '(:eval (flycheck-mode-line-status-text))
+        flycheck-completion-system nil ; 'ido, 'grizzl, nil
+        )
 
-(add-hook 'prog-mode-hook #'flycheck-mode)
+  ;; For Languages
 
-;; (save idle-change new-line mode-enabled)
-(setq flycheck-check-syntax-automatically '(save new-line)
-      flycheck-idle-change-delay 5.0
-      flycheck-display-errors-delay 0.9
-      flycheck-highlighting-mode 'symbols
-      flycheck-indication-mode 'left-fringe
-      ;; 'flycheck-fringe-bitmap-double-arrow
-      flycheck-standard-error-navigation t ; [M-g n/p]
-      flycheck-deferred-syntax-check nil
-      ;; flycheck-mode-line '(:eval (flycheck-mode-line-status-text))
-      flycheck-completion-system nil ; 'ido, 'grizzl, nil
-      )
+  ;; {emacs-lisp}
+  ;; To make Flycheck use the current `load-path'.
+  ;; Don't error about "free variable" without (require ??).
+  (setq flycheck-emacs-lisp-initialize-packages t
+        flycheck-emacs-lisp-load-path 'inherit
+        flycheck-emacs-lisp-package-user-dir nil
+        )
 
-;; For Languages
+  ;; {Ruby}
+  (setq flycheck-ruby-executable "rubocop"
+        ;; flycheck-rubocop-lint-only t
+        )
 
-;; {emacs-lisp}
-;; To make Flycheck use the current `load-path'.
-;; Don't error about "free variable" without (require ??).
-(setq flycheck-emacs-lisp-initialize-packages t
-      flycheck-emacs-lisp-load-path 'inherit
-      flycheck-emacs-lisp-package-user-dir nil
-      )
+  ;; {clang}
+  ;; flycheck-clang-definitions
+  ;; flycheck-clang-include-path
+  ;; flycheck-clang-includes
+  ;; flycheck-clang-language-standard
+  ;; flycheck-clang-no-rtti
+  ;; flycheck-clang-standard-library
+  ;; flycheck-clang-warnings
+  ;; flycheck-cppcheck-checks
 
-;; {Ruby}
-(setq flycheck-ruby-executable "rubocop"
-      ;; flycheck-rubocop-lint-only t
-      )
-
-;; {clang}
-;; flycheck-clang-definitions
-;; flycheck-clang-include-path
-;; flycheck-clang-includes
-;; flycheck-clang-language-standard
-;; flycheck-clang-no-rtti
-;; flycheck-clang-standard-library
-;; flycheck-clang-warnings
-;; flycheck-cppcheck-checks
-
-(set-face-attribute 'flycheck-info nil
-                    :underline '(:color "forest green" :style wave))
-(set-face-attribute 'flycheck-fringe-info nil
-                    :foreground "forest green")
-(set-face-attribute 'flycheck-warning nil
-                    :underline '(:color "orange" :style wave)
-                    )
-(set-face-attribute 'flycheck-fringe-warning nil
-                    :foreground "orange"
-                    :weight 'normal)
-(set-face-attribute 'flycheck-error nil
-                    :background "dark red"
-                    ;; :underline '(:color "dark red" :style wave)
-                    ;; :box '(:color "dark red" :line-width -1)
-                    )
-(set-face-attribute 'flycheck-fringe-error nil
-                    :foreground "dark red"
-                    :weight 'normal)
+  (set-face-attribute 'flycheck-info nil
+                      :underline '(:color "forest green" :style wave))
+  (set-face-attribute 'flycheck-fringe-info nil
+                      :foreground "forest green")
+  (set-face-attribute 'flycheck-warning nil
+                      :underline '(:color "orange" :style wave)
+                      )
+  (set-face-attribute 'flycheck-fringe-warning nil
+                      :foreground "orange"
+                      :weight 'normal)
+  (set-face-attribute 'flycheck-error nil
+                      :background "dark red"
+                      ;; :underline '(:color "dark red" :style wave)
+                      ;; :box '(:color "dark red" :line-width -1)
+                      )
+  (set-face-attribute 'flycheck-fringe-error nil
+                      :foreground "dark red"
+                      :weight 'normal)
 
 
-;;; list errors only when has lint errors
-(defun flycheck-list-errors-only-when-errors ()
-  "List errors only when has lint errors."
-  (if flycheck-current-errors
-      (flycheck-list-errors)
-    (-when-let (buffer (get-buffer flycheck-error-list-buffer))
-      (dolist (window (get-buffer-window-list buffer))
-        (quit-window nil window)))))
-;; TODO: only show when has error:
-;; (add-hook 'before-save-hook #'flycheck-list-errors-only-when-errors)
+  ;; list errors only when has lint errors
+  (defun flycheck-list-errors-only-when-errors ()
+    "List errors only when has lint errors."
+    (if flycheck-current-errors
+        (flycheck-list-errors)
+      (-when-let (buffer (get-buffer flycheck-error-list-buffer))
+        (dolist (window (get-buffer-window-list buffer))
+          (quit-window nil window)))))
+  ;; TODO: only show when has error:
+  ;; (add-hook 'before-save-hook #'flycheck-list-errors-only-when-errors)
 
-;;; add Django-mode
-;; (with-eval-after-load 'flycheck
-;;   (dolist (checker '(python-pylint python-flake8 python-pycompile))
-;;     (flycheck-add-mode checker 'django-mode)))
+  ;; add Django-mode
+  ;; (with-eval-after-load 'flycheck
+  ;;   (dolist (checker '(python-pylint python-flake8 python-pycompile))
+  ;;     (flycheck-add-mode checker 'django-mode)))
+  )
 
 
 ;;; [ flycheck-tip ] -- show you error by popup-tip.
