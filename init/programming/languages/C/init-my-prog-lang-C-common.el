@@ -143,6 +143,13 @@
 
 ;;; [ company-c-headers ]
 
+(use-package company-c-headers
+  :config
+  (hook-modes c-dialects-mode
+    (add-to-list (make-local-variable 'company-backends)
+                 'company-c-headers))
+  )
+
 
 ;;; [ gccsense ]
 
