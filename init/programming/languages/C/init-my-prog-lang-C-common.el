@@ -36,20 +36,6 @@
               )
 
 
-
-(hook-modes c-dialects-mode
-  (c-toggle-auto-newline 1)
-  ;; (c-toggle-auto-hungry-state 1)
-  (electric-indent-mode 1)
-  (turn-on-eldoc-mode)
-
-  (make-local-variable 'company-backends)
-  (add-to-list 'company-backends 'company-gtags)
-  (add-to-list 'company-backends 'company-etags)
-  (add-to-list 'company-backends 'company-cmake)
-  )
-
-
 ;;; [ Irony-mode ] --- A C/C++ minor mode for Emacs powered by libclang.
 
 ;;; irony-mode is an Emacs minor-mode that aims at improving the editing
@@ -88,6 +74,18 @@
   (hook-modes c-dialects-mode
     (when (member major-mode irony-supported-major-modes)
       (irony-mode 1)))
+
+  (hook-modes c-dialects-mode
+    (c-toggle-auto-newline 1)
+    ;; (c-toggle-auto-hungry-state 1)
+    (electric-indent-mode 1)
+    (turn-on-eldoc-mode)
+
+    (make-local-variable 'company-backends)
+    (add-to-list 'company-backends 'company-gtags)
+    (add-to-list 'company-backends 'company-etags)
+    (add-to-list 'company-backends 'company-cmake)
+    )
   :config
   ;; replace the `completion-at-point' and `complete-symbol' bindings in
   ;; irony-mode's buffers by irony-mode's function
