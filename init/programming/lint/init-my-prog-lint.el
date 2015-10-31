@@ -151,10 +151,9 @@
 
 ;;; [ helm-c-flycheck ]
 
-(eval-after-load 'flycheck
-  (lambda ()
-    (define-key flycheck-mode-map (kbd "C-c ! h") 'helm-flycheck)
-    (define-key flycheck-mode-map (kbd "C-c ! !") 'helm-flycheck)))
+(with-eval-after-load 'flycheck
+  (define-key flycheck-mode-map (kbd "C-c ! h") 'helm-flycheck)
+  (define-key flycheck-mode-map (kbd "C-c ! !") 'helm-flycheck))
 
 
 (provide 'init-my-prog-lint)
