@@ -134,11 +134,14 @@
 ;;       company-clang-prefix-guesser 'company-clang-guess-prefix
 ;;       )
 
-(setq company-clang-begin-after-member-access t)
+(use-package company-clang
+  :config
+  (setq company-clang-begin-after-member-access t)
 
-(hook-modes c-dialects-mode
-  (add-to-list (make-local-variable 'company-backends)
-               'company-clang))
+  (hook-modes c-dialects-mode
+    (add-to-list (make-local-variable 'company-backends)
+                 'company-clang))
+  )
 
 
 ;;; [ company-c-headers ]
