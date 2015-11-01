@@ -38,7 +38,7 @@
 ;;; [ enh-ruby-mode ] --
 
 (use-package enh-ruby-mode
-  :config
+  :init
   (add-to-list 'auto-mode-alist '("\\.rb\'" . enh-ruby-mode))
   (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
   ;; Gemfile, Capfile, Rakefile
@@ -47,7 +47,7 @@
   ;; irb(irbrc), pry(pryrc), gem(gemspec, gemrc), rackup(ru), Thor(thor),
   (add-to-list 'auto-mode-alist
                '("\\.\\(?:gemspec\\|irbrc\\|pryrc\\|gemrc\\|rake\\|ru\\|thor\\)\\'" . enh-ruby-mode))
-
+  :config
   (setq enh-ruby-extra-keywords '("private" "protected" "public" "self"))
   
   (setq enh-ruby-bounce-deep-indent t
