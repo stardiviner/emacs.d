@@ -120,7 +120,7 @@
          :weight bold
          :box '(:color "yellow" :line-width -1 :style nil))
               ;;; types
-        ("Org" :foreground "cyan" :backgrund "#004A5D"
+        ("Org" :foreground "cyan" :background "#004A5D"
          :weight bold
          :box '(:color "cyan" :line-width -1 :style nil))
         ("code" :foreground "white" :background "#004A5D"
