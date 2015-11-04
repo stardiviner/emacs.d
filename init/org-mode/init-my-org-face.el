@@ -157,6 +157,13 @@
                     )
 (set-face-attribute 'org-headline-done nil
                     :foreground "#444444")
+;; ellipsis
+(setq org-ellipsis "...⤵")
+;; TODO: custom this face does not work.
+(set-face-attribute 'org-ellipsis nil
+                    :foreground "red"
+                    :weight 'bold
+                    :underline nil)
 ;;; tags
 (set-face-attribute 'org-tag nil
                     :foreground "cyan"
