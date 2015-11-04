@@ -28,6 +28,12 @@
 
 ;; [ pretty entities ]
 
+(setq org-ellipsis "...⤵")
+(set-face-attribute 'org-ellipsis nil
+                    :foreground "red"
+                    :weight 'bold
+                    :underline nil)
+
 ;; \pi will display as π
 ;; [C-c C-x \]
 (setq org-pretty-entities t
