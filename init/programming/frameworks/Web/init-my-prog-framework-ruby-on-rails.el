@@ -70,6 +70,8 @@
 ;; - [M-x projectile-rails-on] -- depend on whether is a Rails project root.
 ;; - [M-x projectile-rails-mode]
 ;; - [TAB] support for projectile-rails-generate.
+;; - `projectile-rails-server' -> [C-x C-q] `inf-ruby-switch-from-compilation'
+;;   switch current rails server buffer to inf-ruby buffer.
 
 (use-package projectile-rails
   :config
@@ -91,9 +93,9 @@
   (define-key projectile-rails-mode-run-map (kbd "O") 'rails-open-browser-development)
 
 
+  ;; Enable Ruby on Rails completion between rhtml tag <% ... %> or <%= ... %>.
   (add-hook 'projectile-rails-mode-hook
             '(lambda ()
-               ;; Enable Ruby on Rails completion between rhtml tag <% ... %> or <%= ... %>.
                (defadvice company-robe (before web-mode-set-up-ac-sources activate)
                  "Set `robe-mode' based on current language before running `company-robe'."
                  (if (equal major-mode 'web-mode)
