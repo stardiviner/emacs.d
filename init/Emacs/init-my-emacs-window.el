@@ -102,6 +102,35 @@ the mode-line."
   (global-set-key (kbd "C-x C-j p") 'my-turn-current-window-into-new-frame))
 
 
+;;; [ ace-window ] -- Quickly switch windows in Emacs.
+
+(use-package ace-window
+  :config
+  (global-set-key (kbd "M-p") 'ace-window)
+
+  (set-face-attribute 'aw-leading-char-face nil
+                      :height 200)
+  (set-face-attribute 'aw-background-face nil
+                      :foreground "#333333")
+  (set-face-attribute 'aw-mode-line-face nil
+                      :foreground "orange red")
+
+  (setq aw-background nil)
+
+  ;; TODO: how do this work? what's the keybinding?
+  ;; (defvar aw-dispatch-alist
+  ;;   '((?x aw-delete-window " Ace - Delete Window")
+  ;;     (?m aw-swap-window " Ace - Swap Window")
+  ;;     (?M aw-move-window " Ace - Move Window")
+  ;;     (?n aw-flip-window)
+  ;;     (?v aw-split-window-vert " Ace - Split Vert Window")
+  ;;     (?b aw-split-window-horz " Ace - Split Horz Window")
+  ;;     (?i delete-other-windows " Ace - Maximize Window")
+  ;;     (?o delete-other-windows))
+  ;;   "List of actions for `aw-dispatch-default'.")
+  )
+
+
 ;;; [ golden-radio ] -- automatic resizing of Emacs windows to the golden ratio.
 
 (use-package golden-ratio
