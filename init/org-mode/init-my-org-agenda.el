@@ -12,7 +12,7 @@
 
 ;; Agenda Views
 (setq org-agenda-prefix-format
-      '((agenda . " %i %-12:c%?-12t% s")
+      '((agenda . " ┠ %i %-12:c%?-12t% s")
         (timeline . "  % s")
         (todo . " %i %-12:c")
         (search . " %i %-12:c")
