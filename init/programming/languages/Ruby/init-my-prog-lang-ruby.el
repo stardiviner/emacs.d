@@ -432,7 +432,8 @@
 (use-package robe
   :config
 
-  (setq robe-highlight-capf-candidates t)
+  (setq robe-highlight-capf-candidates t
+        robe-completing-read-func 'completing-read-default)
 
   (add-hook 'robe-mode-hook
             (lambda ()
