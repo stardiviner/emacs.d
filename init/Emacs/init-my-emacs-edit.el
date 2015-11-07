@@ -21,14 +21,6 @@
   (global-undo-tree-mode t)
   )
 
-;;;_ Edit
-
-(delete-selection-mode t)             ; typed text replaces the active selection
-
-;;;_ Rectangle
-
-;;; - [C-x SPC] / [C-x r r m] (custom keybinding) :: `rectangle-mark-mode'
-
 ;;;_ kill-ring-search
 
 ;; Copied something important half an hour ago? Tired of hitting M-y 20 times?
@@ -52,6 +44,14 @@
 ;;     (require 'kill-ring-ido)
 ;;   (global-set-key (kbd "C-M-y") 'kill-ring-ido))
 
+
+;;;_ Edit
+
+(delete-selection-mode t)             ; typed text replaces the active selection
+
+;;;_ Rectangle
+
+;;; - [C-x SPC] / [C-x r r m] (custom keybinding) :: `rectangle-mark-mode'
 
 
 ;;;_ [ edit-server ]
@@ -185,13 +185,6 @@
 
 ;; (whitespace-mode 1)
 ;; (global-whitespace-mode)
-
-;;----------------------------------------------------------------------------
-;; Expand region
-;;----------------------------------------------------------------------------
-;; (require 'expand-region)
-;; (global-set-key (kbd "C-=") 'er/expand-region)
-;; original [M-/]
 
 
 ;;;_ predictive-mode -- tries to predict the rest of the word, and offers you an appropriate completion.
