@@ -1,4 +1,4 @@
-;;; init-my-emacs-japanese.el --- init for Japanese support
+;;; init-my-language-japanese.el --- init for Japanese support
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -39,6 +39,6 @@
 ;; (require 'oniisama)
 
 
-(provide 'init-my-emacs-japanese)
+(provide 'init-my-language-japanese)
 
-;;; init-my-emacs-japanese.el ends here
+;;; init-my-language-japanese.el ends here

@@ -132,7 +132,11 @@
 (require 'init-my-emacs-subprocess)
 (require 'init-my-emacs-encrypt)
 (require 'init-my-emacs-customize)
-;; (require 'init-my-emacs-japanese)
+
+
+;;; Languages
+(require 'init-my-language-english)
+;; (require 'init-my-language-japanese)
 
 
 ;;; Tools

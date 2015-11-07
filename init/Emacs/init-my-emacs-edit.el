@@ -3,48 +3,6 @@
 
 ;;; Code:
 
-;;;_ undo-tree
-
-;;; Usage:
-;;
-;; [C-x u] -> undo-tree-visualizer-mode
-;;    `- [C-p/n]  -- move up/down
-;;    `- [C-b/f]  -- move left/right
-;;    `- t    -- timestamp
-;;    `- q    -- quit
-
-(use-package undo-tree
-  :config
-  (setq undo-tree-visualizer-diff t
-        undo-tree-visualizer-relative-timestamps t)
-  
-  (global-undo-tree-mode t)
-  )
-
-;;;_ kill-ring-search
-
-;; Copied something important half an hour ago? Tired of hitting M-y 20 times?
-;; Now you can search the kill ring incrementally and yank the result!
-;; Just hit M-C-y to start the search. M-y and C-y work as usual.
-
-;; (require 'kill-ring-search)
-;;
-;; (autoload 'kill-ring-search "kill-ring-search"
-;;   "Search the kill ring in the minibuffer."
-;;   (interactive))
-;;
-;; (global-set-key (kbd "C-M-y") 'kill-ring-search)
-
-;;;_ kill-ring-ido
-
-;;; Usage:
-;; - [C-M-y] ::
-
-;; (if (featurep 'ido)
-;;     (require 'kill-ring-ido)
-;;   (global-set-key (kbd "C-M-y") 'kill-ring-ido))
-
-
 ;;;_ Edit
 
 (delete-selection-mode t)             ; typed text replaces the active selection
@@ -70,110 +28,6 @@
         ("segmentfault\\.com" . markdown-mode)
         ))
 
-;;;_ Macro
-
-;;; Usage:
-;; - [C-x C-k] -- macro prefix.
-;; - [C-x (/)] -- start/end macro.
-;; - [F3/F4] -- start/end macro or insert counter/repeat.
-
-;;;_ query & replace
-
-(setq query-replace-highlight t
-      query-replace-lazy-highlight t
-      query-replace-show-replacement t
-      ;; TODO: added in Emacs 25.
-      ;; query-replace-from-to-separator
-      )
-
-;;;_ Electric
-
-;; NOTE: when electric auto insert ) for (, but when you delete (, electric will not auto delete ) for you.
-
-;; NOTICE: this conflict with ParEdit and auto-pair.
-;; (when (fboundp 'electric-pair-mode)
-;;   (setq-default electric-pair-mode 1))
-;; ------------------------------------------
-;; (electric-pair-mode t) ; automatically insert delimiter pairs.
-
-;; (electric-indent-mode t)
-
-;; (dolist (hook
-;;          '(org-mode-hook
-;;            ruby-mode-hook
-;;            python-mode-hook
-;;            html-mode-hook
-;;            css-mode-hook
-;;            c-mode-hook
-;;            ;; ess-mode-hook                ; Emacs Speaks Statistics
-;;            ))
-;;   (add-hook hook #'(lambda () (electric-pair-mode t))))
-
-;;;_ skeleton
-
-(setq skeleton-pair t
-      skeleton-pair-alist
-      '((?\" _ "\"" >)
-        (?\' _ "\'" >)
-        (?\( _ ")" >)
-        (?\[ _ "]" >)
-        (?\{ _ "}" >)
-        ;; chinese pairs
-        (?“ _ "”" >)
-        (?‘ _ "’" >)
-        (?\（ _ "）" >)
-        (?\【 _ "】" >)
-        (?\〖 _ "〗" >)
-        )
-      )
-
-;;;_ expand-region
-
-;;; Expand region increases the selected region by semantic units. Just keep
-;;; pressing the key until it selects what you want.
-
-(global-set-key (kbd "C-=") 'er/expand-region)
-
-;;;_ Multiple Narrowings
-
-
-;;;_ capitalized-words-mode
-
-;; (capitalized-words-mode 1)
-
-;;;_ auto-capitalize
-
-;;; Usage:
-;; - auto capitalize words of an sentence.
-;; - prevent a word in the `auto-capitalize-words' list from being capitalized or upcased in a particular context.
-;;   e.g. ("GNU.emacs.sources"), insert the following whitepsace or punctuation character with:
-;;   `M-x quoted insert' (e.g. `gnu C-q .').
-
-;; (autoload 'auto-capitalize "auto-capitalize" "Autoload function `auto-capitalize'." t)
-;; (autoload 'auto-capitalize-mode "auto-capitalize" "Toggle `auto-capitalize' minor mode in the buffer." t)
-;; (autoload 'turn-on-auto-capitalize-mode "auto-capitalize" "Turn on `auto-capitalize' minor mode in the buffer." t)
-;; (autoload 'enable-auto-capitalize-mode "auto-capitalize" "Enable `auto-capitalize' minor mode in the buffer." t)
-
-;; (setq auto-capitalize-yank nil
-;;       auto-capitalize-words '("\\<Emacs\\>" "\\<Linux\\>"
-;;                               "\\<Android\>>" "\\<iOS\\>" "\\<Mac\\>")
-;;       ;; TODO: auto-capitalize-predicate
-;;       )
-
-;;; To turn on (unconditional) capitalization in all Text modes.
-;; (turn-on-auto-capitalize-mode)
-;;; To enable (interactive) capitalization in all Text modes.
-;; (enable-auto-capitalize-mode)
-
-;; (dolist (hook '(text-mode-hook
-;;                 org-mode-hook
-;;                 markdown-mode-hook
-;;                 ;; latex-mode-hook
-;;                 ))
-;;   (add-hook hook (lambda ()
-;;                    (turn-on-auto-capitalize-mode))))
-
-
 ;;;_ whitespace-mode
 
 ;; (require 'whitespace)
@@ -187,108 +41,21 @@
 ;; (global-whitespace-mode)
 
 
-;;;_ predictive-mode -- tries to predict the rest of the word, and offers you an appropriate completion.
-
-;; (require 'predictive)
-
-;; ;;; ### Predictive ###
-;; ;;; --- 英语助手
-;; (set-default 'predictive-auto-add-to-dict t) ;自动加入词典
-;; (setq predictive-add-to-dict-ask nil)        ;加入词典不询问
-;; (setq predictive-auto-learn t)               ;自动学习
-;; (setq predictive-completion-speed 0.1)       ;查找补全的速度(秒)
-;; (setq completion-auto-show-delay 0.5)        ;弹出补全tooltip的延迟(秒)
-;; (dolist (hook (list
-;;                'erc-mode-hook
-;;                'rcirc-mode-hook
-;;                'message-mode-hook
-;;                'yaoddmuse-mode-hook
-;;                ))
-;;   (add-hook hook '(lambda () (predictive-mode 1))))
-
-;; (lazy-unset-key
-;;  '("TAB")
-;;  completion-dynamic-map)                ;卸载按键
-;; (lazy-set-key
-;;  '(
-;;    ("M-h" . completion-accept)          ;接受辅助补全
-;;    ("M-H" . completion-reject)          ;拒绝辅助补全
-;;    )
-;;  completion-map
-;;  )
-
-;;;_ Align
+;;;_ Macro
 
 ;;; Usage:
-;; - commands prefix with `align-', `sort-',
-;; - custom variable `align-rules-list'.
-;; - `sort-fields', `sort-regexp-fields', `sort-numeric-fields', `sort-columns', `reverse-region',
-;;
-;; - region select text + [C-u M-x align-regexp] (could contains group in regexp pattern)
-
-(setq align-highlight-change-face 'highlight)
-
-(defun align-repeat (start end regexp)
-  "Repeat alignment with respect to the given regular expression.
-
-For example: input regexp like [[:space:]]+ for align several space separated section/region."
-  (interactive "r\nsAlign regexp: ")
-  (align-regexp start end 
-                (concat "\\(\\s-*\\)" regexp) 1 1 t)
-  ;; The final `t' (aka true) is responsible for repeating the task.
-  ;; Call that command with the regular expression `[[:space:]]+'
-  )
-
-(add-hook 'align-load-hook
-          (lambda ()
-            (add-to-list 'align-rules-list
-                         '(text-column-whitespace
-                           (regexp  . "\\(^\\|\\S-\\)\\([ \t]+\\)")
-                           (group   . 2)
-                           (modes   . align-text-modes)
-                           (repeat  . t)))))
-
-;;;_ Table Editing
-
-;;; http://ergoemacs.org/emacs/emacs_table.html
-
-;;; shows you how to use emacs's “table” feature. This feature will let you
-;;; format tabular data by ASCII drawing. Then you can interactively create and
-;;; edit tables with emacs commands to insert/delete column/row. You can also
-;;; convert it to HTML or LaTeX formats.
-
-;;;_* Usage:
-;;
-;; - (info "(emacs) Text Based Tables")
-;; - [M-x table-] :: commands prefix with `table-'.
+;; - [C-x C-k] -- macro prefix.
+;; - [C-x (/)] -- start/end macro.
+;; - [F3/F4] -- start/end macro or insert counter/repeat.
 
 
-
+(require 'init-my-emacs-kill-ring)
+(require 'init-my-emacs-region)
+(require 'init-my-emacs-edit-electric)
 (require 'init-my-emacs-edit-narrow)
 (require 'init-my-emacs-edit-tabulate)
 (require 'init-my-emacs-edit-multiple-cursors)
-
-
-;;;_ Sudo
-
-;;; Usage:
-;;
-;; - [M-x sudo-edit]
-
-;; (require 'sudo-edit)
-
-
-;;; [ awk-it ] -- run AWK interactively on region!
-
-;;; Usage:
-;;
-;; - `awk-it-' prefix
-;; - [M-x awk-it]
-
-;; (require 'awk-it)
-
-;; (define-key my-search-prefix (kbd "w") 'awk-it)
-
+(require 'init-my-emacs-edit-sudo)
 
 
 (provide 'init-my-emacs-edit)

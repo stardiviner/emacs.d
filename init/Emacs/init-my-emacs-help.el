@@ -89,19 +89,11 @@
 
 ;;; [ help.el ]
 
-(use-package help+
-  :config
-  (add-hook 'emacs-lisp-mode-hook
-            '(lambda ()
-               (define-key my-prog-help-document-map (kbd "<f1>")
-                 'help-on-click/key)))
-  )
+(use-package help+)
 
-(use-package help-mode+
-  )
+(use-package help-mode+)
 
-(use-package help-fns+
-  )
+(use-package help-fns+)
 
 
 
