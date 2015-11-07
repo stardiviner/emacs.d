@@ -7,6 +7,14 @@
 
 ;;; Code:
 
+;;;_ scratch.el -- launch a scratch buffer for the current mode.
+
+(autoload 'scratch "scratch" nil t)
+
+(define-key my-prog-inferior-map (kbd "C-c") 'scratch)
+
+
+
 ;;; [ eval-in-repl ] -- Consistent ESS-like eval interface for various REPLs.
 
 ;;; Usage:

@@ -175,12 +175,6 @@
 
 
 
-;;;_ scratch.el -- launch a scratch buffer for the current mode.
-
-(autoload 'scratch "scratch" nil t)
-
-(define-key my-prog-inferior-map (kbd "C-c") 'scratch)
-
 ;;;_ Imenu
 
 ;;; Usage:
