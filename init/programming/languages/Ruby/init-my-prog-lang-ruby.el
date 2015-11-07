@@ -432,10 +432,7 @@
 (use-package robe
   :config
 
-  (setq robe-turn-on-eldoc t
-        robe-highlight-capf-candidates t
-        )
-
+  (setq robe-highlight-capf-candidates t)
 
   (add-hook 'robe-mode-hook
             (lambda ()
