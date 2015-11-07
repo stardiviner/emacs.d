@@ -54,8 +54,10 @@
     ;; pophint
     ;; Fold
     origami
-    ;; Info, Man,
-    info+ ; woman
+    ;; Info, Help, Man,
+    info+
+    help+ help-mode+ help-fns+
+    ;; woman
     ;; Dired
     dired-rainbow
     dired-single dired-efap dired-details dired-narrow dired-open dired-sort dired-k ; dired-hack-utils

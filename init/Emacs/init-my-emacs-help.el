@@ -87,6 +87,23 @@
                     :foreground "cyan")
 
 
+;;; [ help.el ]
+
+(use-package help+
+  :config
+  (add-hook 'emacs-lisp-mode-hook
+            '(lambda ()
+               (define-key my-prog-help-document-map (kbd "<f1>")
+                 'help-on-click/key)))
+  )
+
+(use-package help-mode+
+  )
+
+(use-package help-fns+
+  )
+
+
 
 (setq suggest-key-bindings t) ; show the /equivalent/ key binding when [M-x] command has one.
 
