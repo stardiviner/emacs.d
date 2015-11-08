@@ -77,6 +77,14 @@
 
 ;; (require 'magithub)
 
+
+;;; [ github-notifier ]
+
+(use-package github-notifier
+  :config
+  (setq github-notifier-update-interval (* 60 10))
+  (github-notifier-mode 1)
+  )
 
 
 (provide 'init-my-prog-vcs-github)

@@ -158,6 +158,7 @@
     ;; git-gutter-fringe git-gutter-fringe+
     ;; GitHub
     ;; helm-open-github
+    github-notifier
     ;; Gitlab
     ;; gitlab helm-gitlab
     ;; Indent
