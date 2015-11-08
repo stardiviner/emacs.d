@@ -91,13 +91,13 @@
   (set-face-attribute 'flycheck-info nil
                       :underline '(:color "forest green" :style wave))
   (set-face-attribute 'flycheck-warning nil
-                      :underline '(:color "orange" :style wave))
+                      :underline '(:color "saddle brown" :style wave))
   (set-face-attribute 'flycheck-error nil
                       :underline '(:color "red" :style wave))
   (set-face-attribute 'flycheck-fringe-info nil
                       :foreground "forest green")
   (set-face-attribute 'flycheck-fringe-warning nil
-                      :foreground "orange")
+                      :foreground "saddle brown")
   (set-face-attribute 'flycheck-fringe-error nil
                       :foreground "red")
 
