@@ -9,37 +9,40 @@
 
 ;;; [ Tramp ]
 
-(require 'tramp)
+(use-package tramp
+  :config
 
-;; <default method>
-;; (setq tramp-default-method "ssh") ; default "scpc" (ssh + scp),
-;; (add-to-list 'tramp-default-method-alist '("" ""))
+  ;; <default method>
+  ;; (setq tramp-default-method "ssh") ; default "scpc" (ssh + scp),
+  ;; (add-to-list 'tramp-default-method-alist '("" ""))
 
-;; <default user>
-;; ssh connect: host, user
-;; (add-to-list 'tramp-default-user-alist
-;;              '("ssh" ".*\\.somewhere\\.else\\'" "john"))
+  ;; <default user>
+  ;; ssh connect: host, user
+  ;; (add-to-list 'tramp-default-user-alist
+  ;;              '("ssh" ".*\\.somewhere\\.else\\'" "john"))
 
-;; <default host>
-;; (add-to-list 'tramp-default-host-alist)
+  ;; <default host>
+  ;; (add-to-list 'tramp-default-host-alist)
 
-;; <default proxy>
-;; (add-to-list 'tramp-default-proxies-alist)
+  ;; <default proxy>
+  ;; (add-to-list 'tramp-default-proxies-alist)
 
-;; Tramp completion
-;; (add-to-list 'tramp-completion-function-alist)
+  ;; Tramp completion
+  ;; (add-to-list 'tramp-completion-function-alist)
 
-;; <predefined connection property>
-;; (add-to-list 'tramp-connection-properties
-;;              (list (regexp-quote "/ssh:user@randomhost.your.domain:")
-;;                    "busybox" t))
+  ;; <predefined connection property>
+  ;; (add-to-list 'tramp-connection-properties
+  ;;              (list (regexp-quote "/ssh:user@randomhost.your.domain:")
+  ;;                    "busybox" t))
 
-;; tramp-debug-buffer-name t
-;; tramp-verbose 10
+  ;; tramp-debug-buffer-name t
+  ;; tramp-verbose 10
 
 
-;; change SHELL environment variable to solve Tramp hangs issue.
-;; (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
+  ;; change SHELL environment variable to solve Tramp hangs issue.
+  ;; (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
+  )
+
 
 
 
