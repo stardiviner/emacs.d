@@ -14,6 +14,13 @@
 ;;; [ inf-php ]
 
 
+;;; [ php-eldoc ]
+
+(use-package php-eldoc
+  :config
+  (php-eldoc-enable))
+
+
 ;;; [ php-boris ]
 
 
