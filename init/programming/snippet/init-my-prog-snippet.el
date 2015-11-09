@@ -181,10 +181,8 @@ $0"
 ;;; Faces
 
 (set-face-attribute 'yas-field-highlight-face nil
-                    :background "khaki" :foreground "#444444"
+                    :background "#555555" :foreground "white"
                     :overline "black"
-                    )
-(set-face-attribute 'yas--field-debug-face nil
                     )
 
 
