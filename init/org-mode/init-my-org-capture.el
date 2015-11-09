@@ -38,7 +38,7 @@
         ;; Diary
         ("D" "Write Diary"
          entry (file+datetree "~/Org/Diary/Diary.org")
-         "\n* %^{prompt} \n\nEvent: %?\n\n  %i\n\nFrom: %a\n\nTime: %U"
+         "\n* %^{prompt} \n\n[[file:%<%Y-%m-%d-%R>.org][On %<%Y-%m-%d %R>]]\n\nEvent: %?\n\n  %i\n\nTime: %U"
          :empty-lines 1
          :jump-to-captured t
          )
