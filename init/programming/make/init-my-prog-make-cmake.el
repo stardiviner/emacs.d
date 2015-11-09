@@ -29,10 +29,12 @@
 
 ;;; [ cmake-ide ]
 
-;; (require 'rtags) ; optional
+(use-package cmake-ide
+  :config
+  (require 'rtags)
 
-;; (require 'cmake-ide)
-;; (cmake-ide-setup)
+  (cmake-ide-setup)
+  )
 
 
 (provide 'init-my-prog-make-cmake)
