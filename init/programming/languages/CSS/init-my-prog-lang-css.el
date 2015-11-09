@@ -27,7 +27,9 @@
 
 ;;; [ css-eldoc ]
 
-(css-eldoc-enable)
+(use-package css-eldoc
+  :config
+  (css-eldoc-enable))
 
 ;;; ------------------------------------------------------------------------------------
 ;;; Attention!
