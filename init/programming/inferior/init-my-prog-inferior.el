@@ -30,38 +30,44 @@
 (setq eval-in-repl-jump-forward-after-eval t)
 
 ;; Emacs Lisp
-(require 'eval-in-repl-ielm)
-;; for *.el
-(define-key emacs-lisp-mode-map (kbd "<C-return>") 'eir-eval-in-ielm)
-;; for *scratch*
-(define-key lisp-interaction-mode-map (kbd "<C-return>") 'eir-eval-in-ielm)
-;; for M-x Info
-(define-key Info-mode-map (kbd "<C-return>") 'eir-eval-in-ielm)
+(with-eval-after-load 'ielm
+  (require 'eval-in-repl-ielm)
+  ;; for *.el
+  (define-key emacs-lisp-mode-map (kbd "C-<return>") 'eir-eval-in-ielm)
+  ;; for *scratch*
+  (define-key lisp-interaction-mode-map (kbd "C-<return>") 'eir-eval-in-ielm)
+  ;; for Info Pages
+  (define-key Info-mode-map (kbd "C-<return>") 'eir-eval-in-ielm)
+  )
 
-;; cider support (for Clojure)
-;; (require 'cider) ; if not done elsewhere
-(require 'eval-in-repl-cider)
-(define-key clojure-mode-map (kbd "<C-return>") 'eir-eval-in-cider)
-
-;; SLIME support (for Common Lisp)
+;; Common Lisp
+;; SLIME support
 ;; (require 'slime) ; if not done elsewhere
-(require 'eval-in-repl-slime)
-(add-hook 'lisp-mode-hook
-          '(lambda ()
-             (local-set-key (kbd "<C-return>") 'eir-eval-in-slime)))
+(with-eval-after-load 'slime
+  (require 'eval-in-repl-slime)
+  (add-hook 'lisp-mode-hook
+            '(lambda ()
+               (local-set-key (kbd "C-<return>") 'eir-eval-in-slime))))
 
 ;; Geiser support (for Racket and Guile Scheme)
 ;; When using this, turn off racket-mode and scheme supports
-;; (require 'geiser) ; if not done elsewhere
-;; (require 'eval-in-repl-geiser)
-;; (add-hook 'geiser-mode-hook
-;;           '(lambda ()
-;;              (local-set-key (kbd "<C-return>") 'eir-eval-in-geiser)))
+(with-eval-after-load 'geiser
+  (require 'eval-in-repl-geiser)
+  (add-hook 'geiser-mode-hook
+            '(lambda ()
+               (local-set-key (kbd "C-<return>") 'eir-eval-in-geiser))))
+
+;; Clojure
+;; cider support
+(with-eval-after-load 'cider
+  (require 'eval-in-repl-cider)
+  (define-key clojure-mode-map (kbd "C-<return>") 'eir-eval-in-cider)
+  )
 
 ;; racket-mode support (for Racket; if not using Geiser)
 ;; (require 'racket-mode) ; if not done elsewhere
 ;; (require 'eval-in-repl-racket)
-;; (define-key racket-mode-map (kbd "<C-return>") 'eir-eval-in-racket)
+;; (define-key racket-mode-map (kbd "C-<return>") 'eir-eval-in-racket)
 
 ;; Scheme support (if not using Geiser))
 ;; (require 'scheme)    ; if not done elsewhere
@@ -69,56 +75,50 @@
 ;; (require 'eval-in-repl-scheme)
 ;; (add-hook 'scheme-mode-hook
 ;;    '(lambda ()
-;;       (local-set-key (kbd "<C-return>") 'eir-eval-in-scheme)))
+;;       (local-set-key (kbd "C-<return>") 'eir-eval-in-scheme)))
 
 ;; Hy support
 ;; (require 'hy-mode) ; if not done elsewhere
 ;; (require 'eval-in-repl-hy)
-;; (define-key hy-mode-map (kbd "<C-return>") 'eir-eval-in-hy)
-
+;; (define-key hy-mode-map (kbd "C-<return>") 'eir-eval-in-hy)
 
 ;; Python support
-;; (require 'python) ; if not done elsewhere
-(require 'eval-in-repl-python)
-(define-key python-mode-map (kbd "<C-return>") 'eir-eval-in-python)
+(with-eval-after-load 'python
+  (require 'eval-in-repl-python)
+  (define-key python-mode-map (kbd "C-<return>") 'eir-eval-in-python))
 
 ;; Ruby support
 ;; (require 'ruby-mode) ; if not done elsewhere
 ;; (require 'inf-ruby)  ; if not done elsewhere
-;; (require 'ess)       ; if not done elsewhere
-(require 'eval-in-repl-ruby)
-(define-key ruby-mode-map (kbd "<C-return>") 'eir-eval-in-ruby)
-(use-package enh-ruby-mode
-  :config
-  (define-key enh-ruby-mode-map (kbd "<C-return>") 'eir-eval-in-ruby)
-  )
+(with-eval-after-load 'ruby-mode
+  (require 'eval-in-repl-ruby)
+  (define-key ruby-mode-map (kbd "C-<return>") 'eir-eval-in-ruby))
+(with-eval-after-load 'enh-ruby-mode
+  (define-key enh-ruby-mode-map (kbd "C-<return>") 'eir-eval-in-ruby))
 
 ;; Prolog support
-;; (require 'eval-in-repl-prolog)
-;; (use-package prolog
-;;   :config
-;;   (define-key prolog-mode-map (kbd "<C-return>") 'eir-eval-in-prolog))
+(with-eval-after-load 'prolog-mode
+  (require 'eval-in-repl-prolog)
+  (define-key prolog-mode-map (kbd "C-<return>") 'eir-eval-in-prolog))
 
 ;; SML support
 ;; (require 'sml-mode) ; if not done elsewhere
 ;; (require 'eval-in-repl-sml)
-;; (define-key sml-mode-map (kbd "<C-return>") 'eir-eval-in-sml)
+;; (define-key sml-mode-map (kbd "C-<return>") 'eir-eval-in-sml)
 ;; (define-key sml-mode-map (kbd "C-;") 'eir-send-to-sml-semicolon)
 
 ;; OCaml support
 ;; (require 'tuareg) ; if not done elsewhere
 ;; (require 'eval-in-repl-ocaml)
-;; (define-key tuareg-mode-map (kbd "<C-return>") 'eir-eval-in-ocaml)
+;; (define-key tuareg-mode-map (kbd "C-<return>") 'eir-eval-in-ocaml)
 ;; ;; function to send a semicolon to OCaml REPL
 ;; (define-key tuareg-mode-map (kbd "C-;") 'eir-send-to-ocaml-semicolon)
 
 ;; Shell support
-;; (require 'essh) ; if not done elsewhere
-;; (require 'eval-in-repl-shell)
-;; (add-hook 'sh-mode-hook
-;;           '(lambda()
-;;              (local-set-key (kbd "C-<return>") 'eir-eval-in-shell)))
-
+;; (require 'essh)
+(with-eval-after-load 'sh-mode
+  (require 'eval-in-repl-shell)
+  (define-key sh-mode-map (kbd "C-<return>") 'eir-eval-in-shell))
 
 
 (provide 'init-my-prog-inferior)
