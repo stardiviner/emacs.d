@@ -15,6 +15,7 @@
   ;; `subword-mode' is quite useful since we often have to deal with Java class
   ;; and method names.
   (add-hook 'clojure-mode-hook #'subword-mode)
+  (add-hook 'clojure-mode-hook #'eldoc-mode)
   ;; (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
   )
 
@@ -29,6 +30,7 @@
 (use-package inf-clojure
   :config
   (add-hook 'inf-clojure-mode-hook #'subword-mode)
+  (add-hook 'inf-clojure-mode-hook #'eldoc-mode)
   (define-key my-prog-inferior-map (kbd "c") 'inf-clojure)
 
   (add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
