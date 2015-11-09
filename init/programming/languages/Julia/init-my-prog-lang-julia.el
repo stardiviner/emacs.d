@@ -98,7 +98,7 @@
 ;; - `inferior-julia-shell'
 ;; - `run-julia'
 
-(use-package julia-shell-mode
+(use-package julia-shell
   :config
   (if (fboundp 'ess-julia-mode)
       (progn
@@ -117,7 +117,7 @@
       (inferior-julia-shell)
       )
     )
-  
+
   (define-key my-inferior-ess-map (kbd "j") 'my-inferior-julia-shell)
   )
 
