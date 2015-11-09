@@ -255,6 +255,8 @@
     company-c-headers
     function-args
     ;; company-cmake
+    cmake-ide
+    rtags
     ;; Lua
     lua-mode
     ;; Ruby
