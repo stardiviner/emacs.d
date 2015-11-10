@@ -80,7 +80,7 @@
     showtip
     ;; Frame, Window & Session Management
     window-number
-    ace-window
+    ;; ace-window
     popwin ; shackle
     zoom-window ; zoom-frm
     ;; golden-ratio
