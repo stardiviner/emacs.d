@@ -10,8 +10,6 @@
 (hook-modes css-dialects-mode
   (css-eldoc-enable)
   (rainbow-mode 1)
-
-  (my-company-add-backends-to-mode '(company-css))
   )
 
 
@@ -22,6 +20,12 @@
 (add-to-list 'auto-mode-alist '("\\.css\\'" . css-mode))
 
 (setq css-indent-offset 2)
+
+;; only need to add `company-css' to `css-mode-hook' once,
+;; because `scss-mode' etc are derived from `css-mode'.
+(add-hook 'css-mode-hook
+          '(lambda ()
+             (my-company-add-backends-to-mode '(company-css))))
 
 
 ;;; [ css-eldoc ]
