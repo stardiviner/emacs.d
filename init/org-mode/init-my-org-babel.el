@@ -285,6 +285,8 @@
      (add-to-list 'org-src-lang-modes '("rhtml" . web))
      ))
 
+(with-eval-after-load 'js3-mode
+  (add-to-list 'org-src-lang-modes '("jquery" . js3)))
 
 
 ;;;_ + ditaa & PlantUML & Graphviz
