@@ -87,6 +87,7 @@
 :GENDER: %^{prompt}
 :RELATIONSHIP: %^{prompt}
 :FIRST-MEET: %^U
+:DATE: %^u
 :TIME: %^U
 :URL: %^{prompt}
 :EMAIL: %(org-contacts-template-email)
@@ -106,13 +107,17 @@
 :EDUCATION:
 :LANGUAGES:
 :PROJECTS:
-:DATE: %^t
 :NOTE:
 :END:"
                  :empty-lines 1
                  :jump-to-captured t
                  ))
 
+  ;; TODO: add more custom complete functions.
+  ;; (add-to-list 'org-contacts-complete-functions 'func)
+
+  ;; (add-to-list 'org-property-set-functions-alist
+  ;;              '(".*" . org-completing-read))
 
   (define-key my-org-prefix (kbd "b") 'org-contacts)
 
