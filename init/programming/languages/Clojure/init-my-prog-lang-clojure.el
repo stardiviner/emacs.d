@@ -122,6 +122,8 @@
   ;; `cider-complete-at-point' in `completion-at-point-functions'
   (add-hook 'cider-repl-mode-hook #'company-mode)
   (add-hook 'cider-mode-hook #'company-mode)
+
+  (add-hook 'cider-mode-hook #'eldoc-mode)
   
   (define-key my-prog-inferior-map (kbd "C") 'cider-scratch)
   )
