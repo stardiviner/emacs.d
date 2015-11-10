@@ -189,6 +189,32 @@
                     :foreground "dark green")
 
 ;; diff colors
+(set-face-attribute 'magit-diff-added nil
+                    :background "#ddffdd"
+                    :foreground "#22aa22")
+(set-face-attribute 'magit-diff-removed nil
+                    :background "#ffdddd"
+                    :foreground "#aa2222")
+(set-face-attribute 'magit-diff-our nil
+                    :background "#ffffcc"
+                    :foreground "#aaaa11")
+(set-face-attribute 'magit-diff-base nil
+                    :background "#ffffcc"
+                    :foreground "#aaaa11")
+(set-face-attribute 'magit-diff-their nil
+                    :background "#ffffcc"
+                    :foreground "#aaaa11")
+
+;; (set-face-attribute 'magit-diff-removed-highlight nil
+;;                     )
+;; (set-face-attribute 'magit-diff-added-highlight nil
+;;                     )
+;; (set-face-attribute 'magit-diff-our-highlight nil
+;;                     )
+;; (set-face-attribute 'magit-diff-base-highlight nil
+;;                     )
+;; (set-face-attribute 'magit-diff-their-highlight nil
+;;                     )
 
 
 
