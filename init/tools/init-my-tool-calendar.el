@@ -103,11 +103,20 @@
                                           ))
 
 
-;; [ Diary ]
-;; Diary Mode
+;; [ Diary ] -- Diary Mode
+
 ;; Usage:
+;;
 ;; - [M-x calendar RET d]
 ;; - [M-x diary]
+;;
+;; - `diary-mode-map'
+;;   - m  mark diary entries
+;;   - d  view diary entries
+;;   - s  show all diary entries
+;;   - id insert diary entry
+;;   - iw insert weekly diary entry
+;;   - im insert monthly diary entry
 
 ;; fancy display
 (setq view-diary-entries-initially t
