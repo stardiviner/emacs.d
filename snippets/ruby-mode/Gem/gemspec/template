@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: gemspec-templat
-# key: gemspec
+# name: gemspec template
+# key: template-gemspec
 # --
 Gem::Specification.new do |s|
   s.name        = '${1:NAME}'

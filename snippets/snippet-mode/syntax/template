@@ -6,5 +6,6 @@
 # name: ${1:snippet name}
 # key: ${2:trigger}
 # group: ${3:group.subgroup}
+# condition: ${4:(not (eq major-mode ruby-mode))}
 # --
-${4:snippet}
+${5:snippet}

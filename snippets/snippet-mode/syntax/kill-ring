@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: kill-ring
+# key: kill-ring
+# --
+${1:`(current-kill 0)`}

@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: liquid-output
+# key: liquid-output
+# group: jekyll.liquid
+# --
+{{ $0 }}
