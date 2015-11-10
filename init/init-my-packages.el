@@ -99,7 +99,7 @@
     ;; Cursor
     ;; beacon
     ;; Idle
-    zone-nyan
+    ;; zone-nyan
     ;; Process
     ;; dizzee ; prodigy
     ;; Server
