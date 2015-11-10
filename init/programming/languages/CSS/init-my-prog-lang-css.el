@@ -10,9 +10,8 @@
 (hook-modes css-dialects-mode
   (css-eldoc-enable)
   (rainbow-mode 1)
-  
-  (add-to-list (make-local-variable 'company-backends)
-               'company-css)
+
+  (my-company-add-backends-to-mode '(company-css))
   )
 
 
