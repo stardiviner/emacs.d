@@ -353,7 +353,7 @@
    (:eval
     (if flycheck-current-errors
         (propertize (flycheck-mode-line-status-text)
-                    'face '(:foreground "orange" :height 75))))
+                    'face '(:foreground "orange" :height 70))))
 
    ;; process: inferior,
    (:eval
