@@ -2,7 +2,37 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Arduino"
+(("Gimp Manual"
+ (filename . "~/Org/Wiki/Computer/Softwares/GIMP/Data/Manuals/Manuals.org")
+ (front-context-string . "* Operations\n\n**")
+ (rear-context-string)
+ (position . 1))
+("Gimp"
+ (filename . "~/Org/Wiki/Computer/Softwares/GIMP/GIMP.org")
+ (front-context-string . "* Intro\n\nGNU Ima")
+ (rear-context-string)
+ (position . 1))
+("Julia Packages"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Julia/Data/Packages/Packages.org")
+ (front-context-string . "* Julia Packages")
+ (rear-context-string)
+ (position . 1))
+("iOS"
+ (filename . "~/Org/Wiki/Computer/Systems/iOS/iOS.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Database"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Database/Database.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Programming Puzzles"
+ (filename . "~/Org/Wiki/Computer/Programming/Code/Programming Puzzles/Programming Puzzles.org")
+ (front-context-string . "* Intro\n\n\n* Make")
+ (rear-context-string)
+ (position . 1))
+("Arduino"
  (filename . "~/Org/Wiki/Computer/Hardware/Dev Board/Arduino/Arduino.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
@@ -38,10 +68,10 @@
  (rear-context-string)
  (position . 1))
 ("org-capture-last-stored"
- (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "* Mark Zuckerber")
- (rear-context-string . "ERED:  t\n:END:\n\n")
- (position . 2092))
+ (filename . "~/Org/Projects/Code.org")
+ (front-context-string . "** ISSUE why org")
+ (rear-context-string . "mphist-file]=.\n\n")
+ (position . 92872))
 ("pacman"
  (filename . "~/Org/Wiki/Computer/Softwares/pacman.org")
  (front-context-string . "* Intro\n\nThe pac")
