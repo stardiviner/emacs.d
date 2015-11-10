@@ -214,6 +214,8 @@
   :config
   (setq org-download-screenshot-method "scrot -s %s"
         org-download-method 'attach ; 'attach, 'directory,
+        ;; if you don't want the #+DOWNLOADED: annotation in your Org document
+        ;; org-download-annotate-function (lambda (_) "")
         org-download-backend t ; url-retrieve (t), wget, curl.
         ;; org-download-heading-lvl
         ;; org-download-timestamp "_%Y-%m-%d_%H:%M:%S"
