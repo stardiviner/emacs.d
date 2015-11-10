@@ -607,9 +607,6 @@ The `BUFFER' is the popwin catch pop private message buffer."
   ;; Festival
   (push '("*festival*" :position bottom :height 10) popwin:special-display-config)
 
-  ;; TeX/LaTeX (AUCTeX)
-  ;; (push '(TeX-output-mode :position bottom :height 10) popwin:special-display-config)
-
   ;; ack-and-a-half
   (push '(ack-and-a-half-mode :position bottom :height 10) popwin:special-display-config)
 
@@ -624,25 +621,25 @@ The `BUFFER' is the popwin catch pop private message buffer."
   (push '(inferior-emacs-lisp-mode :position bottom :height 10) popwin:special-display-config)
 
   ;; Lisp
-  ;; (push '(inferior-lisp-mode :position bottom :height 10) popwin:special-display-config)
-  ;; (push '(sly-mrepl-mode :position bottom :height 10) popwin:special-display-config)
+  (push '(inferior-lisp-mode :position bottom :height 10) popwin:special-display-config)
+  (push '(sly-mrepl-mode :position bottom :height 10) popwin:special-display-config)
 
   ;; Clojure, CIDER
-  ;; (push '(inf-clojure-mode :position bottom :height 10) popwin:special-display-config)
-  ;; (push '(cider-clojure-interaction-mode :position bottom :height 10) popwin:special-display-config)
+  (push '(inf-clojure-mode :position bottom :height 10) popwin:special-display-config)
+  (push '(cider-clojure-interaction-mode :position bottom :height 10) popwin:special-display-config)
 
   ;; ESS
   ;; *julia*
-  ;; (push '(inferior-ess-mode :position bottom :height 10) popwin:special-display-config)
+  (push '(inferior-ess-mode :position bottom :height 10) popwin:special-display-config)
   ;; *Julia*
-  ;; (push '(inferior-julia-mode :position bottom :height 10) popwin:special-display-config)
+  (push '(inferior-julia-mode :position bottom :height 10) popwin:special-display-config)
 
   ;; yari Ruby document lookup
   (push '(yari-mode :position bottom :height 10) popwin:special-display-config)
   ;; rub-ruby - inf-ruby
-  ;; (push '(inf-ruby-mode :position bottom :height 10) popwin:special-display-config)
-  ;; (push '("*ruby*" :position bottom :height 10) popwin:special-display-config)
-  ;; (push '("*pry*" :position bottom :height 10) popwin:special-display-config)
+  (push '(inf-ruby-mode :position bottom :height 10) popwin:special-display-config)
+  (push '("*ruby*" :position bottom :height 10) popwin:special-display-config)
+  (push '("*pry*" :position bottom :height 10) popwin:special-display-config)
   (push '("*rails*" :position bottom :height 10 :noselect t) popwin:special-display-config)
 
   ;; projectile-rails
@@ -659,7 +656,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
 
   ;; Python
   ;; *Python*
-  ;; (push '(inferior-python-mode :position bottom :height 10) popwin:special-display-config)
+  (push '(inferior-python-mode :position bottom :height 10) popwin:special-display-config)
   ;; *Anaconda*
   (push '(anaconda-mode-view-mode :position bottom :height 10) popwin:special-display-config)
 
@@ -669,14 +666,14 @@ The `BUFFER' is the popwin catch pop private message buffer."
 
   ;; JavaScript
   ;; js-comint: *js*
-  ;; (push '(inferior-js-mode :position bottom :height 10) popwin:special-display-config)
+  (push '(inferior-js-mode :position bottom :height 10) popwin:special-display-config)
 
   ;; octave help mode
   (push '(octave-help-mode :position bottom :height 10) popwin:special-display-config)
 
   ;; calc -- Calculator
   (push '(calc-mode :position bottom :height 10) popwin:special-display-config)
-  ;; (push '("*Calculator*" :position bottom :height 10) popwin:special-display-config)
+  (push '("*Calculator*" :position bottom :height 10) popwin:special-display-config)
 
   ;; eww
   (push '(eww-bookmark-mode :position bottom :height 10) popwin:special-display-config)
@@ -686,8 +683,9 @@ The `BUFFER' is the popwin catch pop private message buffer."
   (push '("*Checkdoc Status*" :position bottom :height 7) popwin:special-display-config)
 
 
-  ;; TeX & AUCTeX
+  ;; TeX/LaTeX (AUCTeX)
   ;; (push '(special-mode :position bottom :height 10) popwin:special-display-config)
+  (push '(TeX-output-mode :position bottom :height 10) popwin:special-display-config)
   (push '("*TeX Help*" :position bottom :height 10) popwin:special-display-config)
 
   ;; Database: edbi
