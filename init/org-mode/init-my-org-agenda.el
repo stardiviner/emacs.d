@@ -118,8 +118,8 @@
                          "~/Org/Projects/Plans.org"
                          "~/Org/Projects/Code.org"
                          "~/Org/Projects/Computer Todos.org"
-                         ;; "~/Org/Projects/Projects.org"
-                         ;; "~/Org/Projects/Programming Projects.org" ; BIG!
+                         "~/Org/Projects/Projects.org"
+                         "~/Org/Projects/Programming Projects.org" ; BIG!
                          ;; "~/Org/Projects/Maker.org"
                          "~/Org/Wiki/Learning/Learning.org"
                          "~/Org/Wiki/Learning/MyLearningPlan/Learn Programming.org"
