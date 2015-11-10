@@ -91,6 +91,8 @@
         ("Rust" "~/.emacs.d/resources/icon/Rust.xpm" nil nil :ascent center)
         ("Scala" "~/.emacs.d/resources/icon/Scala.xpm" nil nil :ascent center)
         ("Java" "~/.emacs.d/resources/icon/Java.xpm" nil nil :ascent center)
+        ("HTML" "~/.emacs.d/resources/icon/HTML.xpm" nil nil :ascent center)
+        ("CSS" "~/.emacs.d/resources/icon/CSS.xpm" nil nil :ascent center)
         ("HTML5" "~/.emacs.d/resources/icon/HTML5.xpm" nil nil :ascent center)
         ("CSS3" "~/.emacs.d/resources/icon/CSS3.xpm" nil nil :ascent center)
         ("JavaScript" "~/.emacs.d/resources/icon/JavaScript.xpm" nil nil :ascent center)
