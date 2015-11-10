@@ -51,8 +51,14 @@
   )
 
 
-;;; [ cider ] -- CIDER is a Clojure IDE and REPL for Emacs
+;;; [ CIDER ] -- CIDER is a Clojure IDE and REPL for Emacs
 
+;;; Usage:
+;;
+;; - [M-x cider-scratch] :: start CIDER scratch.
+;; - [M-x cider-jack-in] :: jack-in CIDER.
+;; - [M-x cider-reload] :: code reloading.
+;;
 ;; For Debug
 ;;
 ;; Log communication with the nREPL server (extremely useful for debugging CIDER
@@ -71,6 +77,7 @@
         cider-repl-display-in-current-window nil
         cider-prompt-save-file-on-load t
         cider-repl-result-prefix ";; => "
+        cider-interactive-eval-result-prefix ";; => "
         cider-repl-use-clojure-font-lock t
         ;; cider-known-endpoints '(("host-a" "10.10.10.1" "7888") ("host-b" "7888"))
         cider-repl-use-pretty-printing t
@@ -102,6 +109,12 @@
                                              ("var" "v"))
         cider-completion-use-context t
         )
+
+  ;; TODO:
+  ;; You can define Clojure functions to be called before reloading, and after a
+  ;; successful reload, when using `cider-refresh':
+  ;; (setq cider-refresh-before-fn "user/stop-system!"
+  ;;       cider-refresh-after-fn "user/start-system!")
   
   ;; TODO: (add-hook 'clojure-mode-hook 'cider-mode)
   
