@@ -57,6 +57,7 @@
   (set-face-attribute 'emmet-preview-input nil
                       :background "#004A5D"
                       :foreground "white"
+                      :box '(:color "cyan" :line-width 1)
                       )
   (set-face-attribute 'emmet-preview-output nil
                       :foreground "dark slate gray"
