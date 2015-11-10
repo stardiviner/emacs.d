@@ -53,6 +53,7 @@
         ("Issue" "~/.emacs.d/resources/icon/Git.xpm" nil nil :ascent center)
         ("Feature" "~/.emacs.d/resources/icon/Git.xpm" nil nil :ascent center)
         ("Git" "~/.emacs.d/resources/icon/Git.xpm" nil nil :ascent center)
+        ("Email" "~/.emacs.d/resources/icon/Email.xpm" nil nil :ascent center)
         ("Idea" "~/.emacs.d/resources/icon/Idea.xpm" nil nil :ascent center)
         ("Project"  "~/.emacs.d/resources/icon/Code.xpm" nil nil :ascent center)
         ("Startup"  "~/.emacs.d/resources/icon/Startup.xpm" nil nil :ascent center)
