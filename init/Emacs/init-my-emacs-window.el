@@ -669,7 +669,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
 
   ;; JavaScript
   ;; js-comint: *js*
-  (push '(inferior-js-mode :position bottom :height 10) popwin:special-display-config)
+  ;; (push '(inferior-js-mode :position bottom :height 10) popwin:special-display-config)
 
   ;; octave help mode
   (push '(octave-help-mode :position bottom :height 10) popwin:special-display-config)
