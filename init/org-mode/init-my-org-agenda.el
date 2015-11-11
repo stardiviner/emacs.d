@@ -149,9 +149,9 @@
 (setq org-agenda-show-outline-path t)
 ;; determines how far in advance items with
 ;; deadlines will show up in the agenda.
-(setq org-deadline-warning-days 7)
+(setq org-deadline-warning-days 14)
 ;; I work late at night! Extend my current day past midnight.
-(setq org-extend-today-until 3)
+(setq org-extend-today-until 1)
 
 (setq org-agenda-window-setup 'current-window)
 
