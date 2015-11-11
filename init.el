@@ -200,6 +200,7 @@
 (require 'init-my-prog-lang-python)
 (require 'init-my-prog-lang-shell)
 (require 'init-my-prog-lang-C-common)
+(require 'init-my-prog-lang-C++)
 (require 'init-my-prog-lang-go)
 ;; (require 'init-my-prog-lang-nim)
 ;; (require 'init-my-prog-lang-lua)
