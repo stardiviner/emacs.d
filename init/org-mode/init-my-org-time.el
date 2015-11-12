@@ -131,7 +131,33 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 (define-key org-mode-map (kbd "C-c C-x r") 'org-time-interval)
 
+
+;;; [ org-time-budgets ]
 
+(require 'org-time-budgets)
+
+(setq org-time-budgets
+      '((:title "My Learning Plan" :tag "+learn" :budget "35:00" :block 'week)
+        ;; (:title "" :tags "+play" :budget "30:00" :block 'weekend)
+
+        (:title "Emacs" :tag "+learn" :budget "21:00" :block 'week)
+        (:title "Ruby on Rails" :tag "+learn" :budget "21:00" :block 'week)
+        (:title "Ruby" :tag "+learn" :budget "21:00" :block 'week)
+        (:title "Web" :tag "+learn" :budget "21:00" :block 'week)
+        (:title "Julia" :tag "+learn" :budget "15:00" :block 'week)
+        (:title "Lisp" :tag "+learn" :budget "10:00" :block 'week)
+        (:title "Clojure" :tag "+learn" :budget "14:00" :block 'week)
+        ))
+
+;;; adding `org-time-budgets' to your Agenda.
+(add-to-list 'org-agenda-custom-commands
+             '(("a" "Agenda"
+                ((agenda ""
+                         ((org-agenda-sorting-strategy
+                           '(habit-down time-up priority-down category-keep user-defined-up))))
+                 (org-time-budgets-for-agenda)))))
+
+;; TODO: how to add to default agenda?
 
 
 (provide 'init-my-org-time)

@@ -116,6 +116,7 @@
     org org-plus-contrib
     org-bullets
     org-agenda-property
+    org-time-budgets
     ;; org-alert
     ;; org-projectile
     org-download
