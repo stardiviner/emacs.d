@@ -481,6 +481,9 @@
     world-time-mode
     ;; Collaborate
     ;; rudel togetherly
+    ;; Slides
+    org-present
+    ;; doc-present
     ;; Websites Client
     ;; sx
     
