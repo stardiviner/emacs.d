@@ -168,32 +168,37 @@
       org-agenda-log-mode-add-notes t)
 
 ;;; Custom Agenda Commands
-;; [<]  :: to restrict to current buffer.
-;; [<<] :: to restrict to current sub-tree.
-(setq org-agenda-custom-commands
-      '(("d" "Agenda and all TODO's"
-         ((agenda "")
-          (alltodo "")))
-        ("u" "Urgent tasks"
-         ((search "[#A]")
-          (todo "Urgent")
-          (tags "Prepare-Today")))
-        ("t" "all todo entries"
-         todo ""
-         ((org-agenda-buffer-name "*Todo List*")))
-        ("f" "Tasks to start in the future/someday."
-         todo "SOMEDAY")
-        ("p" "Project process - project, BUG, ISSUE, Features"
-         ((todo "project")
-          (todo "BUG")
-          (todo "ISSUE")
-          (todo "Features")))
-        ;; used to filter out fragment time tasks.
-        ("f" "Fragment time tasks"
-         ((tags "fragment")))
-        ;; ("i" tags-todo "CATEGORY=\"Task\"")
-        ;; ("w" tags-todo "CATEGORY=\"Work\"")
-        ))
+(add-to-list 'org-agenda-custom-commands
+             '(("d" "Agenda and all TODO's"
+                ((agenda "")
+                 (alltodo "")))
+               ("u" "Urgent tasks"
+                ((search "[#A]")
+                 (todo "Urgent")
+                 (tags "Prepare-Today")))
+               ("t" "all todo entries"
+                todo ""
+                ((org-agenda-buffer-name "*Todo List*")))
+               ("s" "Tasks to start in the future/someday."
+                todo "SOMEDAY")
+               ;; ("c" "Clock"
+               ;;  ((agenda "" ((org-agenda-sticky nil)
+               ;;               (org-agenda-ndays 1)
+               ;;               (org-agenda-span-1)
+               ;;               (org-agenda-use-time-grid t)
+               ;;               (org-agenda-show-log (quote clockcheck))
+               ;;               (org-agenda-clockreport nil)))))
+               ("p" "Project process - project, BUG, ISSUE, Features"
+                ((todo "project")
+                 (todo "BUG")
+                 (todo "ISSUE")
+                 (todo "Features")))
+               ;; used to filter out fragment time tasks.
+               ("f" "Fragment time tasks"
+                ((tags "fragment")))
+               ;; ("i" tags-todo "CATEGORY=\"Task\"")
+               ;; ("w" tags-todo "CATEGORY=\"Work\"")
+               ))
 
 
 ;;; [ Calendar ]
