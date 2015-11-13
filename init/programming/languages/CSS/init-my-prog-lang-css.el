@@ -61,48 +61,32 @@
 
 ;;; [ showcss-mode ] -- Show the css of the html attribute the cursor is on.
 
-;;; Features
-;;
-;; - Displays a breadcrumb of the current elements parents
-;; - Displays the css for the current element grouped by file
-;; - Each field that shows the css is editable, and any changes are sent back to the source file
-;; - ctrl-x ctrl-s in the display buffer, saves the source buffers
-;; - The default mode showcss uses is css-mode, but it can be set to any other
-;;   mode such as sass-mode if your working with sass files
-
 ;;; Usage:
 ;;
 ;; - `my/toggle-showcss' / [C-c C-k] ::
 
-;;; Personally, I find this mode to distracting to use all the time, so I use
-;;; this function to quickly toggle the mode on and off.
-(defun my/toggle-showcss()
-  "Toggle showcss-mode"
-  (interactive)
-  (if (derived-mode-p
-       'html-mode
-       'nxml-mode
-       'nxhtml-mode
-       'web-mode
-       'handlebars-mode)
-      (showcss-mode 'toggle)
-    (message "Not in an html mode")))
-
-;; (unless (featurep 'sgml-mode)
-;;   (require 'sgml-mode))
-
-(use-package html-mode
+(use-package show-css
   :config
-  (define-key html-mode-map (kbd "C-c C-k") 'my/toggle-showcss))
 
-;; FIXME:
-;; (unless (featurep 'web-mode)
-;;   (require 'web-mode))
-;; (use-package showcss-mode
-;;   :config
-;;   (define-key web-mode-map (kbd "C-c C-k") 'my/toggle-showcss)
-;;   )
+  ;; Personally, I find this mode to distracting to use all the time, so I use
+  ;; this function to quickly toggle the mode on and off.
+  (defun my/toggle-showcss()
+    "Toggle showcss-mode"
+    (interactive)
+    (if (derived-mode-p
+         'html-mode
+         'nxml-mode
+         'nxhtml-mode
+         'web-mode
+         'handlebars-mode)
+        (showcss-mode 'toggle)
+      (message "Not in an html mode")))
 
+  (with-eval-after-load 'html-mode
+    (define-key html-mode-map (kbd "C-c C-k") 'my/toggle-showcss))
+  (with-eval-after-load 'web-mode
+    (define-key web-mode-map (kbd "C-c C-k") 'my/toggle-showcss))
+  )
 
 
 ;;; [ SCSS ]
