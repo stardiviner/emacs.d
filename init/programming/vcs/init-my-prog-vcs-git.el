@@ -347,18 +347,15 @@
 ;; (add-hook 'magit-status-mode-hook 'magit-filenotify-mode)
 
 
-;;; [ magit-workflow ] -- Git Flow plugin for magit
+;;; [ magit-gitflow ] -- Git Flow plugin for magit
 
 ;;; Usage:
 ;;
 ;; - [C-f] in magit status buffer and you will be presented with gitflow popup menu.
 ;; - All gitflow commands are also accessible through the Magit/Extensions/GitFlow pop-down menu.
 
-(add-hook 'magit-mode-hook
-          (lambda ()
-            (require 'magit-gitflow)
-            (when (fboundp 'turn-on-magit-gitflow)
-              (turn-on-magit-gitflow))))
+(require 'magit-gitflow)
+(add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
 
 
 ;;; [ git-messenger ] -- popup commit message at current line.
