@@ -287,30 +287,17 @@
 (add-to-list 'web-mode-expanders '("R/" . "<% | %>")) ; ruby erb: <% | %>.
 (add-to-list 'web-mode-expanders '("#/" . "<%# | %>")) ; ruby erb comment: <%# | %>.
 
-;;;_. company-mode support
+;;;_* disable "<" pair from smartparens.
+(autoload 'sp-local-pair "smartparens" t)
+(sp-local-pair '(web-mode)
+               "<" nil
+               :actions '(:rem insert))
 
-;; Enable CSS completion between <style>...</style>
-(defadvice company-css (before web-mode-set-up-ac-sources activate)
-  "Set CSS completion based on current language before running `company-css'."
-  (if (equal major-mode 'web-mode)
-      (let ((web-mode-cur-language (web-mode-language-at-pos)))
-        (if (string= web-mode-cur-language "css")
-            (unless css-mode (css-mode))
-          (if css-mode (css-mode -1))
-          ))))
-(my-company-add-backends-to-mode '(company-css))
+;;;_* comment
 
-;; Enable JavaScript completion between <script>...</script> etc.
-(defadvice company-tern (before web-mode-set-up-ac-sources activate)
-  "Set `tern-mode' based on current language before running `company-tern'."
-  (if (equal major-mode 'web-mode)
-      (let ((web-mode-cur-language (web-mode-language-at-pos)))
-        (if (or (string= web-mode-cur-language "javascript")
-                (string= web-mode-cur-language "jsx"))
-            (unless tern-mode (tern-mode))
-          (if tern-mode (tern-mode -1))
-          ))))
-(my-company-add-backends-to-mode '(company-tern))
+;; (("java" . "/*") ("javascript" . "/*") ("php" . "/*"))
+;; TODO: for js lines region un-comment.
+;; (add-to-list 'web-mode-comment-formats '("javascript" . "//"))
 
 ;;;_. auto-complete support
 ;;
@@ -324,38 +311,7 @@
 ;;                    ac-source-capf
 ;;                    ac-source-words-in-buffer))))
 
-;;;_* disable "<" pair from smartparens.
-(autoload 'sp-local-pair "smartparens" t)
-(sp-local-pair '(web-mode)
-               "<" nil
-               :actions '(:rem insert))
-
-;;;_* comment
-
-;; (("java" . "/*") ("javascript" . "/*") ("php" . "/*"))
-;; TODO: for js lines region un-comment.
-;; (add-to-list 'web-mode-comment-formats '("javascript" . "//"))
-
-;;;_* completion <- company-mode
-
-;; https://github.com/company-mode/company-mode/commit/75e21f6ddc2a826c6ec74312d2e725a1a827385e
-;; TODO: (add-hook web-mode-before-auto-complete-hooks)
-;; `web-mode-language-at-pos'
-;; `company--begin-new'
-;;
-;; reference this:
-;;
-;; (defadvice ac-start (before web-mode-set-up-ac-sources activate)
-;;   "Set `ac-sources' based on current language before running auto-complete."
-;;   (if (equal major-mode 'web-mode)
-;;       (progn
-;;         (run-hooks 'web-mode-before-auto-complete-hooks)
-;;         (when web-mode-ac-sources-alist
-;;           (let ((new-web-mode-ac-sources
-;;                  (assoc (web-mode-language-at-pos)
-;;                         web-mode-ac-sources-alist)))
-;;             (setq ac-sources (cdr new-web-mode-ac-sources)))))))
-
+
 ;;;_ multi-web-mode
 
 
@@ -404,11 +360,52 @@
                                                  ;; company-web-jade
                                                  ;; company-web-slim
                                                  ;; company-nxml
+                                                 company-tern
                                                  company-css
-                                                 ;; company-tern
                                                  ))
               ))
   )
+
+
+;;;_. company-mode support + company-web support
+;;
+;; TODO: (add-hook web-mode-before-auto-complete-hooks)
+;; `web-mode-language-at-pos'
+;; `company--begin-new'
+;;
+;; reference this:
+;;
+;; (defadvice ac-start (before web-mode-set-up-ac-sources activate)
+;;   "Set `ac-sources' based on current language before running auto-complete."
+;;   (if (equal major-mode 'web-mode)
+;;       (progn
+;;         (run-hooks 'web-mode-before-auto-complete-hooks)
+;;         (when web-mode-ac-sources-alist
+;;           (let ((new-web-mode-ac-sources
+;;                  (assoc (web-mode-language-at-pos)
+;;                         web-mode-ac-sources-alist)))
+;;             (setq ac-sources (cdr new-web-mode-ac-sources)))))))
+
+;; Enable CSS completion between <style>...</style>
+(defadvice company-css (before web-mode-set-up-ac-sources activate)
+  "Set CSS completion based on current language before running `company-css'."
+  (if (equal major-mode 'web-mode)
+      (let ((web-mode-cur-language (web-mode-language-at-pos)))
+        (if (string= web-mode-cur-language "css")
+            (unless css-mode (css-mode))
+          (if css-mode (css-mode -1))
+          ))))
+
+;; Enable JavaScript completion between <script>...</script> etc.
+(defadvice company-tern (before web-mode-set-up-ac-sources activate)
+  "Set `tern-mode' based on current language before running `company-tern'."
+  (if (equal major-mode 'web-mode)
+      (let ((web-mode-cur-language (web-mode-language-at-pos)))
+        (if (or (string= web-mode-cur-language "javascript")
+                (string= web-mode-cur-language "jsx"))
+            (unless tern-mode (tern-mode))
+          (if tern-mode (tern-mode -1))
+          ))))
 
 ;; you may key bind, for example for web-mode:
 
