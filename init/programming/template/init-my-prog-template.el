@@ -7,6 +7,19 @@
 
 ;;; Code:
 
+;;; [ auto-insert ]
+
+(use-package autoinsert
+  :config
+  (setq auto-insert t)
+  (setq auto-insert-directory "~/.emacs.d/templates/")
+
+  (define-auto-insert '("^build\\.xml\\'" . "Java Ant compile file") "build.xml")
+
+  (add-hook 'find-file-hook 'auto-insert)
+  )
+
+
 ;;; [ tempo ]
 
 ;;; Usage:
