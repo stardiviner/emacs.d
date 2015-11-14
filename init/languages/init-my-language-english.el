@@ -46,6 +46,28 @@
 ;;                    (turn-on-auto-capitalize-mode))))
 
 
+;;; [ electric punctuation ]
+
+;;; auto insert space after punctuation.
+(defun my-electric-punctuation ()
+  "Tidy up whitespace around punctuation: delete any preceding
+  whitespace and insert one space afterwards.  Idea stolen from
+  the SwiftKey android keyboard."
+  (interactive)
+  (when (looking-back "\s+" nil t)
+    (delete-region (match-beginning 0) (match-end 0)))
+  (call-interactively 'self-insert-command)
+  (just-one-space))
+
+(dolist (hook '(text-mode-hook
+                org-mode-hook
+                markdown-mode-hook))
+  (add-hook hook
+            '(lambda ()
+               (dolist (punc '(?, ?\; ?.))
+                 (define-key text-mode-map `[,punc] 'my-electric-punctuation)))))
+
+
 ;;; [ predictive-mode ] -- tries to predict the rest of the word, and offers you an appropriate completion.
 
 ;; (require 'predictive)
