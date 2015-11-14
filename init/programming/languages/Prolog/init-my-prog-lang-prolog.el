@@ -29,6 +29,9 @@
 (add-to-list 'auto-mode-alist '("\\.m\\'" . mercury-mode))
 
 
+;;; [ prolog-inferior-mode ]
+
+
 ;;; [ ediprolog ] -- Emacs Does Interactive Prolog
 
 (require 'ediprolog)

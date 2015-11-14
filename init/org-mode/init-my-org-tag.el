@@ -100,6 +100,8 @@
 (set-face-attribute 'org-tag nil
                     :foreground "gray")
 
+;; TODO: complete org tags in minibuffer with ido or helm etc.
+;; (org-tags-completion-function)
 
 ;; tag changes that should be triggered by TODO state changes.
 ;; TODO: search github `org-todo-state-tags-triggers' for examples.

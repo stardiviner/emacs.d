@@ -43,6 +43,8 @@
   ;; (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
   )
 
+
+;;; [ sudo in Tramp ]
 
 
 

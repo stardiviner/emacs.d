@@ -14,6 +14,7 @@
 ;; - `sql-mode' / `sql-interactive-mode' in SQLi buffer "*SQL*"
 ;; - [M-x sql-help] ::
 ;; - [M-x sql-set-sqli-buffer RET *SQL* RET] :: To interact with the interpreter from a window already in SQL mode.
+;; - `sql-magic-semicolon' ::
 
 (require 'sql)
 

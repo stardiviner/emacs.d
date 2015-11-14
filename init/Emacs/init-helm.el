@@ -196,10 +196,14 @@
       helm-always-two-windows t
       helm-autoresize-max-height 25
       helm-autoresize-min-height 10
+      ;; display
+      ;; helm-display-function 'popwin:pop-to-buffer
       ;; split
       helm-split-window-in-side-p t ; force split inside selected window.
       helm-split-window-default-side 'below
-      ;; helm-split-window-preferred-function 'helm-split-window-default-fn
+      ;; helm-split-window-preferred-function
+      ;; 'helm-split-window-default-fn, 'popwin:pop-to-buffer
+      ;; helm-split-window-preferred-function 'popwin:pop-to-buffer
       helm-quick-update t ; do not display invisible candidates
       ;; helm-scroll-amount 8 ; scroll 8 lines other window using M-<next>/M-<prior>
       helm-case-fold-search t

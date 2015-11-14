@@ -332,7 +332,7 @@
 ;; (global-set-key [tab] 'tab-indent-or-complete)
 
 
-
+;; (setq company-dabbrev-ignore-case 'keep-prefix)
 ;; (setq company-dabbrev-downcase 'case-replace) ; disable the down-case feature of the dabbrev back-end?
 
 

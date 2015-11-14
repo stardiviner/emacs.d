@@ -15,6 +15,7 @@
 ;;; [ auto-capitalize ]
 
 ;;; Usage:
+;;
 ;; - auto capitalize words of an sentence.
 ;; - prevent a word in the `auto-capitalize-words' list from being capitalized or upcased in a particular context.
 ;;   e.g. ("GNU.emacs.sources"), insert the following whitepsace or punctuation character with:

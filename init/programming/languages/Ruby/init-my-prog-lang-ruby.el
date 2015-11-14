@@ -200,26 +200,28 @@
 
 ;;; [ yari ] -- Yet Another Ri Interface
 
-;; yari.el provides an Emacs frontend to Ruby's `ri' documentation tool. It offers lookup and completion.
+;; yari.el provides an Emacs frontend to Ruby's `ri' documentation tool. It
+;; offers lookup and completion.
 
 (dolist (hook '(ruby-mode-hook
                 enh-ruby-mode-hook
                 ))
-  (add-hook hook (lambda ()
-                   ;; (setq yari-ruby-program-name "ruby"
-                   ;;       yari-ri-program-name "ri")
+  (add-hook hook
+            '(lambda ()
+               ;; (setq yari-ruby-program-name "ruby"
+               ;;       yari-ri-program-name "ri")
 
-                   ;; (local-set-key (kbd "C-h d k") 'yari)
+               ;; (local-set-key (kbd "C-h d k") 'yari)
 
-                   ;; or with my-prog-help-document-map prefix.
-                   (unless (boundp 'ruby-help-doc-map)
-                     (define-prefix-command 'ruby-help-doc-map))
-                   (local-set-key (kbd "C-h d") 'ruby-help-doc-map)
-                   (if (featurep 'helm)
-                       (define-key ruby-help-doc-map (kbd "k") 'yari-helm) ; interactive with Helm.
-                     (define-key ruby-help-doc-map (kbd "k") 'yari) ; seems minibuffer use ido if ido is enabled.
-                     )
-                   )))
+               ;; or with my-prog-help-document-map prefix.
+               (unless (boundp 'ruby-help-doc-map)
+                 (define-prefix-command 'ruby-help-doc-map))
+               (local-set-key (kbd "C-h d") 'ruby-help-doc-map)
+               (if (featurep 'helm)
+                   (define-key ruby-help-doc-map (kbd "k") 'yari-helm) ; interactive with Helm.
+                 (define-key ruby-help-doc-map (kbd "k") 'yari) ; seems minibuffer use ido if ido is enabled.
+                 )
+               )))
 
 
 ;;; [ rvm ] -- integrates Emacs with the rvm (Ruby Version Manager)

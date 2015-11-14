@@ -29,12 +29,12 @@
 
 ;; notify
 (setq sx-notify-timer-delay (* 60 10))
-(sx-notify-mode 1)
+;; (sx-notify-mode -1)
 
 
 ;; user faces
 (set-face-attribute 'sx-user-accept-rate nil
-                    )
+                    :foreground "green")
 (set-face-attribute 'sx-user-name nil
                     )
 (set-face-attribute 'sx-user-reputation nil
