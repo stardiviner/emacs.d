@@ -276,6 +276,7 @@
     ;; motion-mode
     ;; Python
     python-mode
+    elpy
     pyenv-mode ; pyvenv
     ;; virtualenv virtualenvwrapper
     ;; jedi company-jedi

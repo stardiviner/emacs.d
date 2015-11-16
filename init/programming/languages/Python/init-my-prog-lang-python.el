@@ -22,6 +22,12 @@
               )
 
 
+;;; [ elpy ] -- Emacs Python Development Environment.
+
+(use-package elpy
+  )
+
+
 ;;; [ pydoc ]
 
 ;; (eval-after-load 'python
