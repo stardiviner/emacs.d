@@ -44,10 +44,10 @@
 ;; 3. export to .xpm format. (or .png)
 
 (setq org-agenda-category-icon-alist
-      '(("Todo" "~/.emacs.d/resources/icon/todo.xpm" nil nil :ascent center)
+      '(("Diary" "~/.emacs.d/resources/icon/diary.xpm" nil nil :ascent center)
+        ("Todo" "~/.emacs.d/resources/icon/todo.xpm" nil nil :ascent center)
         ;; ("Todo" "~/.emacs.d/resources/icon/Todo.xpm" nil nil :ascent center)
         ("Star" "~/.emacs.d/resources/icon/star.xpm" nil nil :ascent center)
-        ("Flag" "~/.emacs.d/resources/icon/flag.xpm" nil nil :ascent center)
         ;; ("Org" "~/.emacs.d/resources/icon/Org.xpm" nil nil :ascent center)
         ("Org" "~/.emacs.d/resources/icon/org.xpm" nil nil :ascent center)
         ("Writing" "~/.emacs.d/resources/icon/todo.xpm" nil nil :ascent center)
@@ -62,7 +62,7 @@
         ;; ("Git" "~/.emacs.d/resources/icon/Git.xpm" nil nil :ascent center)
         ("Git" "~/.emacs.d/resources/icon/vcs.xpm" nil nil :ascent center)
         ("Design" "~/.emacs.d/resources/icon/code.xpm" nil nil :ascent center)
-        ("Hardware"  "~/.emacs.d/resources/icon/Hardware.xpm" nil nil :ascent center)
+        ("Hardware"  "~/.emacs.d/resources/icon/hardware.xpm" nil nil :ascent center)
         ("Audio"  "~/.emacs.d/resources/icon/audio.xpm" nil nil :ascent center)
         ("Analysis"  "~/.emacs.d/resources/icon/analysis.xpm" nil nil :ascent center)
         ("Email" "~/.emacs.d/resources/icon/Email.xpm" nil nil :ascent center)
