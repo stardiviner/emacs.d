@@ -54,6 +54,18 @@
 ;;   (add-to-list 'ac-modes 'js3-mode))
 
 
+;;; [ flycheck checker ]
+
+;; disable jshint checker, so eslint will be used.
+;; disable json checking (just my preference to not use it)
+;; add javascript-jshint and json-jsonlist to the flycheck-disabled-checkers list.
+(add-to-list 'flycheck-disabled-checkers 'javascript-jshint)
+(add-to-list 'flycheck-disabled-checkers 'json-jsonlist)
+
+;; use eslint with web-mode for jsx files
+(flycheck-add-mode 'javascript-eslint 'web-mode)
+
+
 ;;; [ ac-js2 ] -- Javascript auto-completion in Emacs using Js2-mode's parser and Skewer-mode.
 
 ;;; Usage:
