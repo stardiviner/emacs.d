@@ -60,6 +60,7 @@
     ;; woman
     ;; Dired
     dired-rainbow
+    diredful
     dired-single dired-efap dired-details dired-narrow dired-open dired-sort dired-k ; dired-hack-utils
     direx
     peep-dired

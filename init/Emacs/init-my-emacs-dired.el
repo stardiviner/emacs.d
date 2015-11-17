@@ -198,129 +198,11 @@ URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'"
 (setq peep-dired-ignored-extensions '("mkv" "iso" "mp4"))
 
 
-;;; [ dired-rainbow ] -- extended file highlighting according to its type
+;;; [ diredful ]
 
-;; This package adds more customizable highlighting for files in dired
-;; listings.  The group `dired-faces' provides only nine faces and
-;; isn't very fine-grained.
-;;
-;; The definitions are added by several macros, currently available
-;; are:
-;;
-;; * `dired-rainbow-define` - add face by file extension
-;; * `dired-rainbow-define-chmod` - add face by file permissions
-;;
-;; You can display their documentation by calling (substituting the
-;; desired macro name):
-;;
-;; M-x describe-function RET dired-rainbow-define RET
-;;
-;; Here are some example uses:
-;;
-;; (defconst my-dired-media-files-extensions
-;;   '("mp3" "mp4" "MP3" "MP4" "avi" "mpg" "flv" "ogg")
-;;   "Media files.")
-;;
-;; (dired-rainbow-define html "#4e9a06" ("htm" "html" "xhtml"))
-;; (dired-rainbow-define media "#ce5c00" my-dired-media-files-extensions)
-;;
-;; ; boring regexp due to lack of imagination
-;; (dired-rainbow-define log (:inherit default
-;;                            :italic t) ".*\\.log")
-;;
-;; ; highlight executable files, but not directories
-;; (dired-rainbow-define-chmod executable-unix "Green" "-.*x.*")
-;;
-;; See https://github.com/Fuco1/dired-hacks for the entire collection.
-
-
-(require 'dired-rainbow)
-
-;; executable: chmod +x
-(dired-rainbow-define-chmod executable-unix "green" "-.*x.*")
-
-;; link file
-(dired-rainbow-define-chmod type-link "orange" "l.*")
-
-;; hidden file
-;; FIXME: (dired-rainbow-define hidden-files (:inherit default :italic t) "\\.*")
-
-;; media file
-(defconst my/dired-media-files-extensions
-  '("mp3" "mp4" "MP3" "MP4" "avi" "mpg" "flv" "ogg")
-  "Media files.")
-
-(dired-rainbow-define media "cyan" my/dired-media-files-extensions)
-
-;; image file
-(defconst my/dired-image-files-extensions
-  '("ping" "jpg" "jpeg" "svg")
-  "Image files.")
-
-(dired-rainbow-define image "orange red" my/dired-image-files-extensions)
-
-;; code: elisp
-(defconst my/dired-source-code-emacs-lisp-extensions
-  '("el" "lisp")
-  "Emacs Lisp source code files.")
-
-(dired-rainbow-define elisp "tomato" my/dired-source-code-emacs-lisp-extensions)
-
-;; code: Ruby
-(defconst my/dired-source-code-ruby-extensions
-  '("rb")
-  "Ruby source code files.")
-
-(dired-rainbow-define ruby "red2" my/dired-source-code-ruby-extensions)
-
-;; code: Python
-(defconst my/dired-source-code-python-extensions
-  '("py")
-  "Python source code files.")
-
-(dired-rainbow-define python "royal blue" my/dired-source-code-python-extensions)
-
-;; code: C & C++, Go, Lua, Swift, C#, Object-C,
-(defconst my/dired-source-code-c-family-extensions
-  '("c" "cpp" "go" "lua")
-  "C family languages source code.")
-
-(dired-rainbow-define c-family "white smoke" my/dired-source-code-c-family-extensions)
-
-;; code: HTML, CSS
-(defconst my/dired-source-code-web-extensions
-  '("html" "css")
-  "Web files extensions.")
-
-(dired-rainbow-define web-files "magenta" my/dired-source-code-web-extensions)
-
-;; code: JavaScript, CoffeeScript,
-(defconst my/dired-source-code-javascript-extensions
-  '("js")
-  "JavaScript source code files.")
-
-(dired-rainbow-define js "orange" my/dired-source-code-javascript-extensions)
-
-;; data file: xml, json,
-(defconst my/dired-source-code-data-file-extensions
-  '("xml" "json" "dat")
-  "Data file formats.")
-
-(dired-rainbow-define data-file "dark orange" my/dired-source-code-data-file-extensions)
-
-;; database files:
-(defconst my/dired-source-code-data-file-extensions
-  '("sql")
-  "Data file formats.")
-
-(dired-rainbow-define data-file "dark magenta" my/dired-source-code-data-file-extensions)
-
-;; config file: yaml,
-(defconst my/dired-source-code-data-file-extensions
-  '("yaml")
-  "Data file formats.")
-
-(dired-rainbow-define config-file "cyan3" my/dired-source-code-data-file-extensions)
+(use-package diredful
+  :config
+  (diredful-mode 1))
 
 
 
