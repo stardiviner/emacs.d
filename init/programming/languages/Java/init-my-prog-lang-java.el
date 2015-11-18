@@ -27,13 +27,17 @@
 ;; (require 'jde-maven)
 
 
-;;; [ eclim ]
+;;; [ Eclim ]
+
+;;; Usage:
+;;
+;; - eclimd
+;;   - `start-eclimd' & `stop-eclimd'
 
 (require 'eclim)
 
-;; ;; If you want to control eclimd from emacs, also add:
+;; ;; If you want to control `eclimd' from emacs, also add:
 (require 'eclimd)
-;; `start-eclimd' & `stop-eclimd'
 
 (setq eclimd-default-workspace "~/Eclipse"
       ;; eclimd-port 45620
@@ -48,15 +52,14 @@
 
 ;; (company-emacs-eclim-setup)
 (add-hook 'java-mode-hook
-          (lambda ()
-            (eclim-mode)
-            
-            (add-to-list (make-local-variable 'company-backends)
-                         'company-emacs-eclim)
-            ))
+          '(lambda ()
+             (eclim-mode)
+             
+             (add-to-list (make-local-variable 'company-backends)
+                          'company-emacs-eclim)
+             ))
 
-
-;; (global-eclim-mode)
+;; (global-eclim-mode t)
 
 
 ;;; [ java-complete ]

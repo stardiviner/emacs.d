@@ -308,8 +308,8 @@
     ;; golint
     ;; go-stacktracer
     ;; Java
+    emacs-eclim
     ;; jdee
-    ;; emacs-eclim
     ;; PHP
     php-mode inf-php php-eldoc
     ;; php-boris php-boris-minor-mode
