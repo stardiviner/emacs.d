@@ -5,10 +5,15 @@
 
 ;;; Code:
 
-;;; [ GnuPG ]
+;;; [ EasyPG Assistant ] --- setup for transparent, automatic encryption and decryption.
 
-
-;;; [ EasyPG ] --- setup for transparent, automatic encryption and decryption.
+;;; Usage:
+;;
+;; - `epa-list-keys'
+;; - `epa-sign-file' / `epa-sign-region'
+;; - `epa-encrypt-file' / `epa-encrypt-region'
+;; - `epa-decrypt-file' / `epa-decrypt-region'
+
 (require 'epa)
 
 (require 'epa-file)
