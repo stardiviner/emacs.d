@@ -350,31 +350,7 @@
 
 
 ;;; [ Robe ] -- Code navigation, documentation lookup and completion for Ruby.
-;;
-;; Robe is a code assistance tool that uses a Ruby REPL subprocess with your
-;; application or gem code loaded, to provide information about loaded classes
-;; and modules, and where each method is defined.
-;;
-;; Generally, you'll want to start with `M-x inf-ruby-console-auto'. If there's
-;; no Ruby console running, most interactive commands provided by Robe will
-;; offer to launch it automatically.
-;;
-;; As you change the code in your project, you'll want to update the running
-;; process. To load the current file, type `C-c C-l (ruby-load-file)', see
-;; inf-ruby for more commands. When you're developing a Rails project, you can
-;; type `C-c C-k' instead, to reload the whole environment at once.
-;;
-;; Features:
-;;
-;; - Jump to method definition
-;; - Jump to `super' or a constructor called at point
-;; - Jump to a module or class (provided it has at least one method defined)
-;; - Display method documentation
-;; - Display information about method called at point using ElDoc
-;; - Method and constant name completion
-;;
-;; To see the available commands, type M-x describe-package RET robe RET.
-;;
+
 ;;; Usage:
 ;;
 ;; start Robe server.
@@ -391,45 +367,6 @@
 ;; - [C-c C-d] -- `robe-doc',
 ;; - [M-.] -- `robe-jump' (jump to definition)
 ;; - [M-,] -- pop tag mark
-;;
-;;; Commands:
-;;
-;; - `ruby-switch-to-inf' :: switches the current buffer to the ruby process buffer.
-;; - `ruby-send-block'[-and-go] :: sends the current block to the ruby process.
-;; - `ruby-send-definition'[-and-go] :: sends the current definition to the ruby process.
-;; - `ruby-send-region'[-and-go] :: sends the current region to the ruby process.
-;;
-;;
-;; input code in `inf-ruby' buffer.
-;;   > Robe.stop # => nil :: stop Robe server.
-;; debug Robe log file
-;; $ tailf /tmp/robe-access.log
-;;
-;;; Notes
-;;
-;; - We can't jump to methods defined in C (such as most of the core
-;;   classes). To read their docs, install pry-doc or add it to your Gemfile.
-;;
-;; - We can't jump to lazily defined methods, such as model.column or find_by_
-;;   ActiveRecord methods, before they've been called. This is treatable, but
-;;   low priority.
-;;
-;; - Jumping to methods defined with Module#delegate just brings us to the place
-;;   where delegate is called, which is accurate, but often less than useful.
-;;
-;; - Having more than one inf-ruby buffer at a time is not supported. If you see
-;;   unexpected "Method not found" errors, check if you have an older one.
-;;
-;; - We may get the context wrong for code inside a block if the method it's
-;;   passed to uses instance_eval or instance_exec.
-;;
-;;
-;;; Robe server work remotely (in other machine: VirtualBox, vagrant, Remote Host, etc)
-;;
-;; 1. make `inf-ruby' and `inf-ruby-console-auto' to launch the REPL process
-;;    on the remote machine when called from a remote buffer.
-;; 2. then you should only have to change Robe settings to point to the remote machine
-;;    instead of the localhost. (make sure remote machine port is open)
 
 (use-package robe
   :config
