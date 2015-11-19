@@ -84,9 +84,10 @@
 :ALIAS:
 :ICON: %(org-contacts-template-name).jpg
 :BIRTHDAY: %t
-:GENDER: %^{prompt}
-:RELATIONSHIP: %^{prompt}
-:FIRST-MEET: %^U
+:GENDER: %^{prompt|Male|Female}
+:Sexual: %^{prompt|Heterosexual|Bisexual|Homosexual}
+:RELATIONSHIP: %^{prompt|Friend|Good Friend|Boy Friend|Girl Friend}
+:FIRST-MEET: %^U  %^{prompt}
 :DATE: %^u
 :TIME: %^U
 :URL: %^{prompt}
@@ -95,6 +96,7 @@
 :PHONE:
 :IRC:
 :QQ:
+:WeChat: %^{prompt}
 :BLOG:
 :ADDRESS(home):
 :ADDRESS(live): %^{prompt}
@@ -104,8 +106,9 @@
 :INTERESTS:
 :PROGRAMMING-SKILLS: %^{prompt}
 :SKILLS:
+:JOBS: %^{prompt}
 :EDUCATION:
-:LANGUAGES:
+:LANGUAGES: %^{prompt|Chinese|English|Japanese|Korean}
 :PROJECTS:
 :NOTE:
 :END:"
