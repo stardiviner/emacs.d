@@ -96,23 +96,24 @@
 
 ;;; [ company-go ]
 
-(if (getenv "GOPATH")
-    (progn
-      (load (concat (getenv "GOPATH") "/src/github.com/nsf/gocode/emacs-company/company-go.el"))
-      (require 'company-go))
-  (error "SHELL env $GOPATH not available, set it in your SHELL"))
+(use-package company-go
+  :config
+  (if (getenv "GOPATH")
+      (progn
+        ;; TODO: do I need to use liteide's `gocode' instead?
+        (load (concat (getenv "GOPATH") "/src/github.com/nsf/gocode/emacs-company/company-go.el"))
+        )
+    (error "SHELL env $GOPATH not available, set it in your SHELL"))
 
-(add-hook 'go-mode-hook
-          (lambda ()
-            (add-to-list (make-local-variable 'company-backends) 'company-go)
-            (company-mode t)))
-
-(eval-after-load 'company-go
-  '(setq company-go-show-annotation t
-         company-go-begin-after-member-access t
-         company-go-insert-arguments t
-         ;; company-go-gocode-command "gocode"
-         ))
+  (setq company-go-show-annotation t
+        company-go-begin-after-member-access t
+        company-go-insert-arguments t
+        )
+  
+  (add-hook 'go-mode-hook
+            '(lambda ()
+               (add-to-list (make-local-variable 'company-backends) 'company-go)))
+  )
 
 
 ;;; [ gorepl-mode ] -- A minor emacs mode for Go REPL
