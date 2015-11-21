@@ -156,8 +156,11 @@
 ;; - [C-;] :: clear string content
 ;; - [#]   :: string interpolation
 
-(add-hook 'ruby-mode-hook 'ruby-tools-mode)
-(add-hook 'enh-ruby-mode-hook 'ruby-tools-mode)
+(use-package ruby-tools
+  :config
+  (add-hook 'ruby-mode-hook 'ruby-tools-mode)
+  (add-hook 'enh-ruby-mode-hook 'ruby-tools-mode)
+  )
 
 
 ;;; [ ruby-block ] -- highlight matching block
