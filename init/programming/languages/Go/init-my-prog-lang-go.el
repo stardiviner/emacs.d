@@ -117,7 +117,9 @@
 
 ;;; [ gorepl-mode ] -- A minor emacs mode for Go REPL
 
-(add-hook 'go-mode-hook 'gorepl-mode)
+(use-package gorepl-mode
+  :config
+  (add-hook 'go-mode-hook #'gorepl-mode))
 
 
 ;;; [ go-play ] -- Paste to play.golang.org
