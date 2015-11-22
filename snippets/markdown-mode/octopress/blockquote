@@ -1,8 +1,0 @@
-# -*- mode: snippet require-final-newline: nil -*-
-# name: Octopress blockquote
-# key: octopress-blockquote
-# group: octopress
-# --
-{% blockquote %}
-$0
-{% endblockquote %}
