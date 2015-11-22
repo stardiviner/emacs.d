@@ -40,10 +40,14 @@
 
 ;;; [ pretty-symbols ]
 
-;; (require 'pretty-symbols)
-;;
-;; (setq pretty-symbol-categories '(lambda relational logical)
-;;       pretty-symbol-patterns '())
+(use-package pretty-symbols
+  :config
+  (setq pretty-symbol-categories '(lambda relational logical)
+        ;; pretty-symbol-patterns '()
+        )
+
+  (global-prettify-symbols-mode 1)
+  )
 
 
 ;;; [ page-break-lines-mode ] --- page breaks (^L characters) are displayed as a horizontal line of a character.
