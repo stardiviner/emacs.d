@@ -94,6 +94,7 @@
 (require 'init-my-emacs-font)
 (require 'init-my-emacs-color-theme)
 (require 'init-my-emacs-appearance)
+(require 'init-my-emacs-prettify)
 (require 'init-my-emacs-mode-line)
 (require 'init-my-emacs-highlight)
 (require 'init-my-emacs-popup)
