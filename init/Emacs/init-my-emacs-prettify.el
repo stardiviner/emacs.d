@@ -18,24 +18,25 @@
 
 ;;; [ pretty-mode ] -- redisplay parts of the Emacs buffer as pretty symbols.
 
-(require 'pretty-mode)
+(use-package pretty-mode
+  :config
+  
+  (add-to-list 'pretty-supported-modes 'ruby-mode)
+  (add-to-list 'pretty-supported-modes 'enh-ruby-mode)
 
-(add-to-list 'pretty-supported-modes 'ruby-mode)
-(add-to-list 'pretty-supported-modes 'enh-ruby-mode)
+  ;; TODO:
+  ;; (add-to-list 'pretty-default-groups '(:function))
+  ;; (add-to-list 'pretty-active-groups '(ruby-mode :function))
+  ;; (add-to-list 'pretty-active-patterns '(ruby-mode))
+  ;; (add-to-list 'pretty-patterns '((ruby-mode ("->" . ?λ))))
 
-;; TODO:
-;; (add-to-list 'pretty-default-groups '(:function))
-;; (add-to-list 'pretty-active-groups '(ruby-mode :function))
-;; (add-to-list 'pretty-active-patterns '(ruby-mode))
-;; (add-to-list 'pretty-patterns '((ruby-mode ("->" . ?λ))))
-
-;;; 1. if you want to set it globally
-;; (global-pretty-mode t)
-;;; 2. if you want to set it only for a specific mode
-;; (dolist (hook '(prog-mode-hook
-;;                 ))
-;;   (add-hook hook 'turn-on-pretty-mode))
-
+  ;; 1. if you want to set it globally
+  ;; (global-pretty-mode t)
+  ;; 2. if you want to set it only for a specific mode
+  ;; (dolist (hook '(prog-mode-hook
+  ;;                 ))
+  ;;   (add-hook hook 'turn-on-pretty-mode))
+  )
 
 
 ;;; [ pretty-symbols ]
