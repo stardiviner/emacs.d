@@ -365,6 +365,7 @@
     ;; CSS
     css-eldoc
     show-css
+    flycheck-css-colorguard
     ;; Scss & Less
     sass-mode scss-mode
     less-css-mode

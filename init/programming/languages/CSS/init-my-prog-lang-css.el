@@ -89,6 +89,16 @@
   )
 
 
+;;; [ flycheck-css-colorguard ]
+
+(use-package flycheck-css-colorguard
+  :config
+  (with-eval-after-load 'flycheck
+    (flycheck-add-next-checker 'css-csslint
+                               'css-colorguard 'append))
+  )
+
+
 ;;; [ SCSS ]
 
 (require 'init-my-prog-lang-css-scss)
