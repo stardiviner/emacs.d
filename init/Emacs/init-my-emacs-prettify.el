@@ -47,6 +47,32 @@
         )
 
   (global-prettify-symbols-mode 1)
+
+  ;; only prettify lambda in Lisp dialects with two spaces without breaking
+  ;; indentation.
+  ;;
+  ;; clojure-mode already defines fn to display as λ,
+  (defvar my/clojure-prettify-alist '())
+  
+  (add-to-list 'my/clojure-prettify-alist
+               '("<=" . (?· (Br . Bl) ?≤)))
+  (add-to-list 'my/clojure-prettify-alist
+               '(">=" . (?· (Br . Bl) ?≥)))
+
+  (add-to-list 'my/clojure-prettify-alist
+               '("->" . (?\s (Br . Bl) ?\s (Bc . Bc) ?⇨)))
+  (add-to-list 'my/clojure-prettify-alist
+               '("->>" . (?\s (Br . Bl) ?\s (Br . Bl) ?\s
+                              (Bc . Br) ?⇨ (Bc . Bl) ?⇨)))
+
+  (eval-after-load 'clojure-mode
+    '(setq clojure--prettify-symbols-alist
+           (append my/clojure-prettify-alist
+                   clojure--prettify-symbols-alist)))
+  (eval-after-load 'lisp-mode
+    '(setq lisp--prettify-symbols-alist
+           (append my/clojure-prettify-alist
+                   lisp--prettify-symbols-alist)))
   )
 
 
