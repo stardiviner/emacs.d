@@ -147,20 +147,7 @@
          :box '(:color "black" :line-width -1))
         ))
 
-
-;;; bind key [C-l] to locate to current time: "now -----" in Org-Agenda buffer.
-(defun my-org-agenda-jump-to-current-time ()
-  "Jump to current time now."
-  (interactive)
-  (goto-char
-   (text-property-any (point-min) (point-max)
-                      'face 'org-agenda-current-time))
-  (recenter-top-bottom)
-  )
-
-(define-key org-agenda-mode-map (kbd "C-l") 'my-org-agenda-jump-to-current-time)
-
-
+
 ;;; [ Habit ]
 
 ;;; Example:
