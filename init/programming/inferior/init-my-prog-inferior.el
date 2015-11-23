@@ -120,6 +120,14 @@
   (require 'eval-in-repl-shell)
   (define-key sh-mode-map (kbd "<C-return>") 'eir-eval-in-shell))
 
+;; JavaScript support
+(with-eval-after-load 'js3-mode
+  (require 'eval-in-repl-javascript)
+  (define-key js3-mode-map (kbd "<C-return>") 'eir-eval-in-javascript))
+(with-eval-after-load 'js2-mode
+  (require 'eval-in-repl-javascript)
+  (define-key js2-mode-map (kbd "<C-return>") 'eir-eval-in-javascript))
+
 
 (provide 'init-my-prog-inferior)
 
