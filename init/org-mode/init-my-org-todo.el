@@ -148,6 +148,14 @@
         ))
 
 
+;;; auto remove priority after mark task done.
+
+(defun my/org-remove-preiority ()
+  (org-priority 'remove))
+
+(add-hook 'org-after-todo-statistics-hook 'my/org-remove-preiority)
+
+
 ;;; [ Habit ]
 
 ;;; Example:
