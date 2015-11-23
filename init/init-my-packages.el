@@ -374,7 +374,7 @@
     slim-mode
     ;; JavaScript
     js2-mode js3-mode js-doc
-    js-comint
+    js-comint nvm
     tern company-tern tj-mode
     jscs
     jst jss

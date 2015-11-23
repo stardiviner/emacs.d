@@ -226,6 +226,19 @@
             (define-key css-mode-map (kbd "C-c C-r") 'slime-js-embed-css)))
 
 
+;;; [ nvm ] -- Manage Node versions within Emacs.
+
+;;; Usage:
+;;
+;; - nvm-use (version &optional callback)
+;; - nvm-use-for (version &optional callback)
+
+(use-package nvm
+  :config
+  ;; (nvm-use )
+  )
+
+
 ;; [ js-comint ] -- a lightweight comint integration package, that also seems to integrate with org-mode nicely.
 
 ;; ElnodeIJS, NicFerrier
