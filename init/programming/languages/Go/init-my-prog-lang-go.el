@@ -7,27 +7,27 @@
 
 ;;; [ go-mode ]
 
-(require 'go-mode-autoloads)
+(use-package go-mode
+  :config
+  ;; (setq go-command "go"
+  ;;       gofmt-command "gofmt"
+  ;;       gofmt-show-errors 'buffer         ; 'buffer, 'echo, nil
+  ;;       godef-command "godef"
+  ;;       )
 
-;; (setq go-command "go"
-;;       gofmt-command "gofmt"
-;;       gofmt-show-errors 'buffer         ; 'buffer, 'echo, nil
-;;       godef-command "godef"
-;;       )
+  ;; godoc -- `go doc [QUERY]`
+  (add-hook 'go-mode-hook
+            (lambda ()
+              (local-set-key (kbd "C-h d d") 'godoc)))
 
-;; godoc -- `go doc [QUERY]`
-(add-hook 'go-mode-hook
-          (lambda ()
-            (local-set-key (kbd "C-h d d") 'godoc)))
+  ;; gofmt
+  (add-hook 'before-save-hook #'gofmt-before-save)
 
-;; gofmt
-(add-hook 'before-save-hook #'gofmt-before-save)
-
-;; use `godef-jump' instead of etags etc tags jumping.
-(add-hook 'go-mode-hook (lambda ()
-                          (local-set-key (kbd "M-.") #'godef-jump)))
-
-
+  ;; godef
+  ;; use `godef-jump' instead of `etags' etc tags jumping.
+  (add-hook 'go-mode-hook (lambda ()
+                            (local-set-key (kbd "M-.") #'godef-jump)))
+  )
 
 
 ;;; customization
