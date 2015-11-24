@@ -34,6 +34,20 @@
 (define-key my-web-server-prefix (kbd "e") 'elnode-make-webserver)
 
 
+;;; [ web-server ]
+
+(use-package web-server
+  :config
+  )
+
+
+;;; [ websocket ] -- Emacs WebSocket Client and Server
+
+(use-package websocket
+  :config
+  )
+
+
 (provide 'init-my-prog-web-server)
 
 ;;; init-my-prog-web-server.el ends here

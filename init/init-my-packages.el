@@ -105,7 +105,7 @@
     ;; dizzee ; prodigy
     ;; Server
     ;; elnode peek-mode
-    ;; web-server websocket ; httpd
+    web-server websocket ; httpd
     ;; [ Other Enhancement ]
     describe-number
     
