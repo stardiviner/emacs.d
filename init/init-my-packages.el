@@ -361,6 +361,7 @@
     redis eredis
     ;; HTML
     emmet-mode
+    impatient-mode
     ;; Haml
     haml-mode
     ;; CSS
@@ -473,7 +474,7 @@
     ;; emms helm-emms emms-player-mpv ; emms-info-media emms-mode-line-cycle
     ;; mingus
     ;; Screenshot & Screencast
-    screenshot camcorder ; impatient-mode
+    screenshot camcorder
     ;; command-log-mode
     ;; Download
     ;; aria2 wget

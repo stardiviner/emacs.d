@@ -65,6 +65,12 @@
                       )
   )
 
+
+;;; [ impatient-mode ] -- see your HTML rendered as you type.
+
+(use-package impatient-mode
+  :config
+  )
 
 
 
