@@ -7,17 +7,6 @@
 
 ;;; [ go-mode ]
 
-;;; Usage:
-;; - `gofmt'
-;; - `godoc'
-;; - [C-c C-a] -- `go-import-add'
-;; - `go-remove-unused-imports'
-;; - `go-goto-imports'
-;; - `go-play-buffer' and `go-play-region'
-;; - `go-download-play'
-;; - [C-c C-d] -- `godef-describe' and [C-c C-j] -- `godef-jump'
-;; - `go-coverage'
-
 (require 'go-mode-autoloads)
 
 ;; (setq go-command "go"
