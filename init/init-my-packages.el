@@ -303,6 +303,7 @@
     ;; Go
     go-mode go-complete company-go go-eldoc
     gorepl-mode
+    go-errcheck
     ;; go-play go-playground
     ;; gore-mode gotest
     ;; golint

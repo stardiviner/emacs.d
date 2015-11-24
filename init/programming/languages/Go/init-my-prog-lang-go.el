@@ -137,6 +137,18 @@
 ;;; [ gore-mode ] -- Simple mode for gore, a command-line evaluator for golang.
 
 
+;;; [ flycheck ]
+
+;; use linter: `go-errcheck'.
+
+
+;;; [ go-errcheck ]
+
+(use-package go-errcheck
+  :config
+  )
+
+
 ;;; [ gotest ] -- Launch GO unit tests
 
 
