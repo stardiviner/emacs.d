@@ -115,10 +115,10 @@
 ;; (define-key tuareg-mode-map (kbd "C-;") 'eir-send-to-ocaml-semicolon)
 
 ;; Shell support
-;; (require 'essh)
-(with-eval-after-load 'sh-mode
-  (require 'eval-in-repl-shell)
-  (define-key sh-mode-map (kbd "<C-return>") 'eir-eval-in-shell))
+(require 'eval-in-repl-shell)
+(add-hook 'sh-mode-hook
+          '(lambda ()
+             (define-key sh-mode-map (kbd "<C-return>") 'eir-eval-in-shell)))
 
 ;; JavaScript support
 (with-eval-after-load 'js3-mode
