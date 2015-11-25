@@ -163,23 +163,6 @@
 
 ;;; [ indent-guide ]
 
-;;; Comparison with highlight-indentation
-;;;
-;;;     look and feel
-;;;     better indentation handling for LISP-like languages
-;;;
-;;;     (foo                  (foo
-;;;     |(foobar baz          |(foobar baz
-;;;     ||       (foobar      |   |   |(foobar
-;;;     ||       |(qux))))    |   |   | (qux))))
-;;;
-;;;        indent-guide     highlight-indentation
-;;;        
-;;;
-;;;     indent-guide works fine even when the code is indented with TABs
-;;;     indent-guide is slower than highlight-indentation especially in very large blocks
-
-
 (use-package indent-guide
   :config
   (setq indent-guide-delay nil
