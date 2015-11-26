@@ -80,12 +80,14 @@
 
 ;;; [ github-notifier ]
 
-(use-package github-notifier
-  :config
-  (setq github-notifier-only-participating t)
-  (setq github-notifier-update-interval (* 60 10))
-  (github-notifier-mode 1)
-  )
+;; (use-package github-notifier
+;;   :config
+;;   ;; (setq github-notifier-token "")
+;;   ;; (setq github-notifier-mode-line)
+;;   (setq github-notifier-only-participating t)
+;;   (setq github-notifier-update-interval (* 60 10))
+;;   (github-notifier-mode 1)
+;;   )
 
 
 (provide 'init-my-prog-vcs-github)
