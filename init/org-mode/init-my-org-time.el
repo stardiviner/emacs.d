@@ -7,11 +7,10 @@
 
 ;;; Code:
 
-
 ;;; [ Time Stamps ]
 
 
-
+
 ;;; [ Timer ]
 (eval-after-load "org"
   '(progn
@@ -158,6 +157,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
                  (org-time-budgets-for-agenda)))))
 
 ;; TODO: how to add to default agenda?
+;; FIXME: org-agenda don't have `org-agenda-custom-commands' dispatch. [C-c a] does not work.
 
 
 (provide 'init-my-org-time)
