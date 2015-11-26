@@ -105,6 +105,10 @@
 
 ;; (require 'inf-groovy)
 
+
+;;; [ gradle-mode ]
+
+
 
 
 (provide 'init-my-prog-lang-java)

@@ -313,6 +313,7 @@
     ;; Java
     emacs-eclim
     ;; jdee
+    ;; gradle-mode
     ;; PHP
     php-mode inf-php php-eldoc
     ;; php-boris php-boris-minor-mode
