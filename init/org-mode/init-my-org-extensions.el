@@ -84,31 +84,31 @@
 :ALIAS:
 :ICON: %(org-contacts-template-name).jpg
 :BIRTHDAY: %t
-:GENDER: %^{prompt|Male|Female}
-:Sexual: %^{prompt|Heterosexual|Bisexual|Homosexual}
-:RELATIONSHIP: %^{prompt|Friend|Good Friend|Boy Friend|Girl Friend}
-:FIRST-MEET: %^U  %^{prompt}
+:GENDER: %^{Gender|Male|Female}
+:Sexual: %^{Sexual|Heterosexual|Bisexual|Homosexual}
+:RELATIONSHIP: %^{Relationship|Friend|Good Friend|Boy Friend|Girl Friend}
+:FIRST-MEET: %^U  %^{first-time meet}
 :DATE: %^u
 :TIME: %^U
-:URL: %^{prompt}
+:URL: %^{URL}
 :EMAIL: %(org-contacts-template-email)
-:MOBILE:
+:MOBILE: %^{Mobile Phone}
 :PHONE:
 :IRC:
 :QQ:
-:WeChat: %^{prompt}
+:WeChat: %^{WeChat}
 :BLOG:
-:ADDRESS(home):
-:ADDRESS(live): %^{prompt}
+:ADDRESS(home): %^{address(home)}
+:ADDRESS(live): %^{address(live)}
 :ADDRESS(work):
-:COMPANYS: %^{prompt}
+:COMPANY: %^{Companies}
 :Bio:
 :INTERESTS:
-:PROGRAMMING-SKILLS: %^{prompt}
-:SKILLS:
-:JOBS: %^{prompt}
+:PROGRAMMING-SKILLS: %^{programming skills}
+:SKILLS: %^{skills}
+:JOBS: %^{jobs}
 :EDUCATION:
-:LANGUAGES: %^{prompt|Chinese|English|Japanese|Korean}
+:LANGUAGES: %^{Languages|Chinese|English|Japanese|Korean}
 :PROJECTS:
 :NOTE:
 :END:"
