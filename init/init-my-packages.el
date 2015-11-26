@@ -69,6 +69,8 @@
     ;; ranger
     ;; Sudo
     ;; sudo-edit
+    ;; File
+    openwith
     ;; Spell
     flyspell flyspell-lazy
     helm-flyspell flyspell-popup
