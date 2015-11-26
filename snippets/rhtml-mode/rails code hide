@@ -1,5 +1,0 @@
-# -*- mode: snippet; require-final-newline: nil -*-
-# name: rails code hide
-# key: R/
-# --
-<% $0 %>
