@@ -97,7 +97,7 @@
     less-css-mode))
 
 
-;;; [ Multiple Inferior buffers ]
+;;; [ Multiple Inferior buffers ] -- [C-c i] / [C-RET]
 
 ;;; Shell
 (unless (boundp 'my-inferior-shell-map)
