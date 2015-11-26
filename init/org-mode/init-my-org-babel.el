@@ -262,7 +262,7 @@
 ;; | :get-header | N/A          | :get-header X-Subject-Token                                                           |
 
 
-(require-package 'ob-http)
+(require 'ob-http)
 
 ;;; [ ob-browser ] -- render HTML in org babel
 
