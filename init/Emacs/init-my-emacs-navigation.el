@@ -161,14 +161,17 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;; "C-u C-u C-c SPC" ==> ace-jump-line-mode
 ;;     each non-empty line will be marked, select the highlighted key to move to it.
 
-;; enable a more powerful jump back function from ace jump mode
-(autoload 'ace-jump-mode-pop-mark "ace-jump-mode" "Ace jump back:-)" t)
-(eval-after-load "ace-jump-mode" '(ace-jump-mode-enable-mark-sync))
+(use-package ace-jump-mode
+  :config
+  ;; enable a more powerful jump back function from ace jump mode
+  (autoload 'ace-jump-mode-pop-mark "ace-jump-mode" "Ace jump back:-)" t)
+  (eval-after-load "ace-jump-mode" '(ace-jump-mode-enable-mark-sync))
 
-;; (global-set-key [remap flyspell-auto-correct-previous-word] nil)
-;; FIXME: this does not work, conflict with `flyspell-auto-correct-previous-word'.
-(global-set-key (kbd "C-'") 'ace-jump-mode)
-;; (define-key global-map (kbd "C-'") 'ace-jump-mode-pop-mark)
+  ;; (global-set-key [remap flyspell-auto-correct-previous-word] nil)
+  ;; FIXME: this does not work, conflict with `flyspell-auto-correct-previous-word'.
+  (global-set-key (kbd "C-'") 'ace-jump-mode)
+  ;; (define-key global-map (kbd "C-'") 'ace-jump-mode-pop-mark)
+  )
 
 
 ;;; [ ace-isearch ] -- A seamless bridge between isearch and ace-jump-mode.
