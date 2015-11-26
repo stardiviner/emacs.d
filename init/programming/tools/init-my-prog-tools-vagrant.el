@@ -65,6 +65,8 @@
 ;;    kafka-broker1:
 ;;    kafka-broker2:
 
+(use-package vagrant-tramp
+  )
 
 
 (provide 'init-my-prog-tools-vagrant)

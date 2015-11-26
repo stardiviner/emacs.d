@@ -24,9 +24,10 @@
 ;;
 ;; If you don't, you'll be prompted for an image each time you build.
 
-(require 'dockerfile-mode)
-
-(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+(use-package dockerfile-mode
+  :config
+  (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+  )
 
 
 ;;; [ docker-tramp ]
@@ -35,7 +36,8 @@
 ;;
 ;; -
 
-(require 'docker-tramp)
+(use-package docker-tramp
+  )
 
 
 (provide 'init-my-prog-tools-container-docker)
