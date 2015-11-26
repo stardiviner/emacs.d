@@ -11,9 +11,11 @@
 
 ;;; Usage:
 ;;
-;; (notifications-notify :title "Title" :body "text")
+;; - (notifications-get-server-information)
+;; - (notifications-notify :title "Title" :body "text")
+;; - (notifications-notify :bus ...)
 
-;; (require 'notifications)
+(require 'notifications)
 
 
 
