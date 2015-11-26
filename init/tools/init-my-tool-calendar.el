@@ -123,7 +123,7 @@
       mark-diary-entries-in-calendar t
       number-of-diary-entries 7)
 (add-hook 'diary-display-hook 'fancy-diary-display)
-;;(add-hook 'today-visible-calendar-hook 'calendar-mark-today)
+(add-hook 'today-visible-calendar-hook 'calendar-mark-today)
 ;;; highlight color free days in calendar
 ;;; TODO This does not work
 ;; (defface my-calendar-free-day-face nil nil)
