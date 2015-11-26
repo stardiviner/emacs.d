@@ -62,10 +62,10 @@
 #     This is another piece of Emacs-lisp code in the form of a let varlist
 #     form, i.e. a list of lists assigning values to variables. It can be used
 #     to override variable values while the snippet is being expanded.
-#     Interesting variables to override are yas-wrap-around-region and
-#     yas-indent-line (see Expanding Snippets).
-#     As an example, you might normally have yas-indent-line set to 'auto and
-#     yas-wrap-around-region set to t, but for this particularly brilliant piece
+#     Interesting variables to override are `yas-wrap-around-region' and
+#     `yas-indent-line' (see Expanding Snippets).
+#     As an example, you might normally have `yas-indent-line' set to 'auto and
+#     `yas-wrap-around-region' set to t, but for this particularly brilliant piece
 #     of ASCII art these values would mess up your hard work. You can then use:
 #     # name : ASCII home
 #     # expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
