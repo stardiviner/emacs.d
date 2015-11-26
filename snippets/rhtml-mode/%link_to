@@ -2,4 +2,4 @@
 # name: %link_to
 # key: %link_to
 # --
-<%= link_to "${title}", :action => "${index}" %>$0
+<%= link_to "${1:title}", :action => "${2:index}" %>$0

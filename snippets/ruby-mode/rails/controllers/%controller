@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: %controller
+# key: %controller
+# --
+class ${1:ControllerName} < ApplicationController
+  $0
+end

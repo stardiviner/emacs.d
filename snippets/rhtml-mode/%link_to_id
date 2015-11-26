@@ -2,4 +2,4 @@
 # name: %link_to_id
 # key: %link_to_id
 # --
-<%= link_to "${title}", :action => "${edit}", :id => ${@item} %>$0
+<%= link_to "${1:title}", :action => "${2:action}", :id => ${3:@id} %>$0

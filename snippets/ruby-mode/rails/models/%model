@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: %model
+# key: %model
+# --
+class ${1:Model} < ActiveRecord::Base
+  $0
+end

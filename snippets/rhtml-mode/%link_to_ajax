@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: %link_to_ajax
+# key: %link_to_ajax
+# --
+<%= link_to "${1:title}", ${2:controller} :method => ${3::method} %>$0
