@@ -17,7 +17,7 @@
 (setq org-capture-templates
       '(("c" "Capture"
          entry (file+headline "~/Org/Capture/Capture.org" "Capture")
-         "\n* TODO %^{prompt}\n\n%i\n\n%a\n\n%?"
+         "\n* TODO %^{Capture}\n\n%i\n\n%a\n\n%?"
          :prepend t
          :empty-lines 1
          )
@@ -25,12 +25,12 @@
         ;; Tasks
         ("t" "Add a task into Tasks"
          entry (file+headline "~/Org/Tasks.org" "Tasks")
-         "\n* TODO %^{prompt} [/]\n\n%?\n\n"
+         "\n* TODO %^{Task} [/]\n\n%?\n\n"
          :empty-lines 1
          )
         ("T" "Clock in a New Task"
          entry (file+headline "~/Org/Tasks.org" "Tasks")
-         "\n* TODO %^{prompt} [/]\n\n%?\n\n"
+         "\n* TODO %^{Clock Task} [/]\n\n%?\n\n"
          :empty-lines 1
          :clock-in t :clock-resume t
          )
@@ -38,7 +38,7 @@
         ;; Diary
         ("D" "Write Diary"
          entry (file+datetree "~/Org/Diary/Diary.org")
-         "\n* %^{prompt} \n\n[[file:%<%Y-%m-%d-%R>.org][On %<%Y-%m-%d %R>]]\n\nEvent: %?\n\n  %i\n\nTime: %U"
+         "\n* %^{Diary Title} \n\n[[file:%<%Y-%m-%d-%R>.org][On %<%Y-%m-%d %R>]]\n\nEvent: %?\n\n  %i\n\nTime: %U"
          :empty-lines 1
          :jump-to-captured t
          )
@@ -46,7 +46,7 @@
         ;; Bookmark
         ("k" "Add an URL to bookmarks database"
          entry (file+headline "~/Org/Bookmarks/Bookmarks.org" "Uncategoried")
-         "\n* %^{prompt}\n\n%A\n\n%?\n\n"
+         "\n* %^{Bookmark URL}\n\n%A\n\n%?\n\n"
          :empty-lines 1
          )
 
@@ -60,15 +60,15 @@
         ;; Issues, Bugs, Features
         ("b" "Bug"
          entry (file+olp "~/Org/Projects/Code.org" "Bugs")
-         "\n* BUG %^{prompt}\n\n%i\n\n%?\n\n"
+         "\n* BUG %^{Bug}\n\n%i\n\n%?\n\n"
          :empty-lines 1)
         ("i" "Issue"
          entry (file+olp "~/Org/Projects/Code.org" "Issues")
-         "\n* ISSUE %^{prompt}\n\n%i\n\n%?\n\n"
+         "\n* ISSUE %^{Issue}\n\n%i\n\n%?\n\n"
          :empty-lines 1)
         ("f" "Feature"
          entry (file+olp "~/Org/Projects/Code.org" "Features")
-         "\n* FEATURE %^{prompt}\n\n%i\n\n%?\n\n"
+         "\n* FEATURE %^{Feature}\n\n%i\n\n%?\n\n"
          :empty-lines 1)
         ))
 
