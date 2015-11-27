@@ -270,70 +270,10 @@
 ;;                     :foreground "orange"
 ;;                     :weight 'bold)
 
-;;; Yasnippet integration
-;;
-;; - [C-h f company-yasnippet]
-;;
-;; 1. * In a buffer-local value of `company-backends', grouped with a back-end or
-;; several that provide actual text completions.
-;;
-;; (add-hook 'js-mode-hook
-;;           (lambda ()
-;;             (set (make-local-variable 'company-backends)
-;;                  '((company-dabbrev-code company-yasnippet)))))
-;;
-;; 2. * After keyword `:with', grouped with other back-ends.
-;;
-;; (push '(company-semantic :with company-yasnippet) company-backends)
-;;
-;; 3. * Not in `company-backends', just bound to a key.
-;; 
-;; (global-set-key (kbd "C-c y") 'company-yasnippet)
-;;
-;;
-;; 1. Company interferes with Yasnippet’s native behaviour. Here’s a quick fix: http://gist.github.com/265010
-;;
-;; (define-key company-active-map "\t" 'company-yasnippet-or-completion)
-;; (define-key company-active-map [tab] 'company-yasnippet-or-completion)
-;; 
-;; (defun company-yasnippet-or-completion ()
-;;   (interactive)
-;;   (if (yas--template-can-expand-p) ; FIXME: yasnippet internal function to check whether candidate expandable.
-;;       (progn (company-abort)
-;;              (yas-expand))
-;;     (company-complete-common)))
-;;
-;;
-;;; 2. Another code for solving conflicts in Company and Yasnippet.
-;;; Another code for solving conflicts in Company and Yasnippet.
-;;
-;; (defun check-expansion ()
-;;   (save-excursion
-;;     (if (looking-at "\\_>") t
-;;       (backward-char 1)
-;;       (if (looking-at "\\.") t
-;;         (backward-char 1)
-;;         (if (looking-at "->") t nil)))))
-;;
-;; (defun do-yas-expand ()
-;;   (let ((yas/fallback-behavior 'return-nil))
-;;     (yas/expand)))
-;;
-;; (defun tab-indent-or-complete ()
-;;   (interactive)
-;;   (if (minibufferp)
-;;       (minibuffer-complete)
-;;     (if (or (not yas/minor-mode)
-;;             (null (do-yas-expand)))
-;;         (if (check-expansion)
-;;             (company-complete-common)
-;;           (indent-for-tab-command)))))
-;;
-;; (global-set-key [tab] 'tab-indent-or-complete)
+
+;;; [ company-yasnippet ]
 
 
-;; (setq company-dabbrev-ignore-case 'keep-prefix)
-;; (setq company-dabbrev-downcase 'case-replace) ; disable the down-case feature of the dabbrev back-end?
 
 
 ;;; company-transformers -- Functions to change the list of candidates received from backends.
