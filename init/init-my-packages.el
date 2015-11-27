@@ -387,6 +387,8 @@
     ;; nodejs-repl
     ;; CoffeeScript
     coffee-mode
+    ;; Dart
+    dart-mode
     ;; Web
     web-mode
     ;; web-beautify
