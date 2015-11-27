@@ -310,6 +310,7 @@
     ;; gore-mode gotest
     ;; golint
     ;; go-stacktracer
+    go-projectile
     ;; Java
     emacs-eclim
     ;; jdee

@@ -154,7 +154,11 @@
 
 ;;; [ govet ] -- linter/problem finder for the Go source code.
 
+
+;;; [ go-projectile ] -- Projectile GOPATH.
 
+(use-package go-projectile
+  )
 
 
 (provide 'init-my-prog-lang-go)
