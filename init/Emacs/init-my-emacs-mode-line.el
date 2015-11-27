@@ -183,25 +183,25 @@
    ;;     (_             'mode-line-warning)))))
 
    ;; GitHub
-   (:eval
-    (let (unread-text help-text)
-      (cond ((null github-notifier-unread-count)
-             (setq unread-text "-?"
-                   help-text "The Github notifications number is unknown."))
-            ((zerop github-notifier-unread-count)
-             (setq unread-text ""
-                   help-text "Good job, you don't have unread notification."))
-            (t
-             (setq unread-text (format "-%d" github-notifier-unread-count)
-                   help-text (if (= github-notifier-unread-count 1)
-                                 "You have 1 unread notification.\nmouse-1 Read it on Github."
-                               (format "You have %d unread notifications.\nmouse-1 Read them on Github."
-                                       github-notifier-unread-count)))))
-      (propertize (concat " GH" unread-text)
-                  'face '(:foreground "red" :height 70)
-                  'help-echo help-text
-                  'local-map github-notifier-mode-line-map
-                  'mouse-face 'mode-line-highlight)))
+   ;; (:eval
+   ;;  (let (unread-text help-text)
+   ;;    (cond ((null github-notifier-unread-count)
+   ;;           (setq unread-text "-?"
+   ;;                 help-text "The Github notifications number is unknown."))
+   ;;          ((zerop github-notifier-unread-count)
+   ;;           (setq unread-text ""
+   ;;                 help-text "Good job, you don't have unread notification."))
+   ;;          (t
+   ;;           (setq unread-text (format "-%d" github-notifier-unread-count)
+   ;;                 help-text (if (= github-notifier-unread-count 1)
+   ;;                               "You have 1 unread notification.\nmouse-1 Read it on Github."
+   ;;                             (format "You have %d unread notifications.\nmouse-1 Read them on Github."
+   ;;                                     github-notifier-unread-count)))))
+   ;;    (propertize (concat " GH" unread-text)
+   ;;                'face '(:foreground "red" :height 70)
+   ;;                'help-echo help-text
+   ;;                'local-map github-notifier-mode-line-map
+   ;;                'mouse-face 'mode-line-highlight)))
    
    
    ;; the buffer name; the filename as a tool tip
