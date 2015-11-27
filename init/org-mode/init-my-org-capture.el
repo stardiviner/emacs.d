@@ -51,9 +51,8 @@
          )
 
         ;; org-passwords
-        ;; FIXME:
         ("p" "password"
-         entry (file+headline "~/Git/dotfiles/passwords.gpg" "Accounts")
+         entry (file "~/Org/Accounts/accounts.org.gpg")
          "* %^{Title}\n  %^{URL}p %^{USERNAME}p %^{PASSWORD}p %^{EMAIL}p"
          :empty-lines 1
          )
