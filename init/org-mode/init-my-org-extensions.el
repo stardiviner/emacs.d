@@ -101,6 +101,7 @@
 :ADDRESS(home): %^{address(home)}
 :ADDRESS(live): %^{address(live)}
 :ADDRESS(work):
+:EDUCATION(college): %^{Education(college)}
 :COMPANY: %^{Companies}
 :Bio:
 :INTERESTS:
