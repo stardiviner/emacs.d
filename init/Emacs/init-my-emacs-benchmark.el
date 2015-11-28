@@ -15,10 +15,10 @@
 ;; - [benchmark-init/show-durations-tree]
 ;; - [benchmark-init/show-durations-tabulated]
 
-;; (use-package benchmark-init
-;;   :config
-;;   (benchmark-init/activate)
-;;   )
+(use-package benchmark-init
+  :config
+  (benchmark-init/activate)
+  )
 
 
 ;;; [ esup ]
