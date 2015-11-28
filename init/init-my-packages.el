@@ -85,6 +85,7 @@
     window-number
     ;; ace-window
     popwin ; shackle
+    resize-window
     zoom-window ; zoom-frm
     ;; golden-ratio
     ;; window-purpose

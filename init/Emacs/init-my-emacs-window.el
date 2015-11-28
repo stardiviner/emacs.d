@@ -177,6 +177,18 @@ the mode-line."
   )
 
 
+;;; [ resize-window ]
+
+(use-package resize-window
+  :config
+  (setq resize-window-allow-backgrounds nil)
+  (global-set-key (kbd "C-x w") 'resize-window)
+
+  ;; new dispatch
+  ;; (push '(?l helm-mini "run helm-mini" nil) resize-window-dispatch-alist)
+  )
+
+
 ;;; [ E2WM ] --- Equilibrium Emacs Window Manager
 
 ;;; Usage:
