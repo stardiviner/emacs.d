@@ -144,9 +144,7 @@
 
 ;;; [ go-errcheck ]
 
-(use-package go-errcheck
-  :config
-  )
+(use-package go-errcheck)
 
 
 ;;; [ gotest ] -- Launch GO unit tests
@@ -157,8 +155,7 @@
 
 ;;; [ go-projectile ] -- Projectile GOPATH.
 
-(use-package go-projectile
-  )
+(use-package go-projectile)
 
 
 (provide 'init-my-prog-lang-go)
