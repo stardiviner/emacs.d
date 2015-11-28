@@ -522,18 +522,22 @@
 ;;             buffer's point.
 ;; C-c C-s   - Toggle between implementation and test/example files.
 
-(dolist (hook '(ruby-mode-hook
-                enh-ruby-mode-hook))
-  (add-hook hook (lambda ()
-                   (unless (boundp 'my-ruby-test-map)
-                     (define-prefix-command 'my-ruby-test-map))
-                   (local-set-key (kbd "C-c t") 'my-ruby-test-map)
+(use-package ruby-test-mode
+  :config
+  (dolist (hook '(ruby-mode-hook
+                  enh-ruby-mode-hook))
+    (add-hook hook
+              '(lambda ()
+                 (unless (boundp 'my-ruby-test-map)
+                   (define-prefix-command 'my-ruby-test-map))
+                 (local-set-key (kbd "C-c t") 'my-ruby-test-map)
 
-                   (define-key my-ruby-test-map (kbd "m") 'ruby-test-mode)
-                   (define-key my-ruby-test-map (kbd "t") 'ruby-test-run)
-                   (define-key my-ruby-test-map (kbd "p") 'ruby-test-run-at-point)
-                   (define-key my-ruby-test-map (kbd "l") 'ruby-test-goto-location)
-                   )))
+                 (define-key my-ruby-test-map (kbd "m") 'ruby-test-mode)
+                 (define-key my-ruby-test-map (kbd "t") 'ruby-test-run)
+                 (define-key my-ruby-test-map (kbd "p") 'ruby-test-run-at-point)
+                 (define-key my-ruby-test-map (kbd "l") 'ruby-test-goto-location)
+                 )))
+  )
 
 
 ;;; [ ruby-test ] -- test runner for ruby unit test.
