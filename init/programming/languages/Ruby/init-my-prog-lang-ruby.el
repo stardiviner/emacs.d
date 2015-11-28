@@ -449,37 +449,41 @@
 ;;; [ rspec-mode ] -- Ruby RSpec
 
 ;;; Usage:
-;; - If rspec-mode is installed properly, it will be started automatically when
-;;   ruby-mode is started.
-;; - [M-x rspec-.*] :: commands
-
-(eval-after-load 'rspec-mode
-  '(rspec-install-snippets))
-
-;;; [ Gotchas ]
-;;; Debugging
 ;;
-;; To use `binding.pry' or `byebug', install `inf-ruby' and add this to your init file:
-(add-hook 'after-init-hook 'inf-ruby-switch-setup)
-;; When you've hit the breakpoint, hit [C-x C-q] to enable inf-ruby.
+;; - [C-c ,] :: keybindings prefix.
 
-;;; ZSH and RVM
-;;
-;; If you use ZSH and RVM, you may encounter problems running the specs. It may
-;; be so that an older version of Ruby, than the one you specified in .rvmrc, is
-;; used. This is because ZSH runs a small script each time a shell is created,
-;; which modifies the $PATH. The problem is that it prepends some default paths,
-;; such as /usr/bin, which contains another ruby binary.
-;;
-;; What you can do to solve this is to use BASH for running the specs. This
-;; piece of code does the job:
+(use-package rspec-mode
+  :config
+  
+  ;; [ Gotchas ]
+  ;; Debugging
+  ;;
+  ;; To use `binding.pry' or `byebug', install `inf-ruby' and add this to your
+  ;; init file:
+  (add-hook 'after-init-hook 'inf-ruby-switch-setup)
+  ;; When you've hit the breakpoint, hit [C-x C-q] to enable inf-ruby.
 
-;; (defadvice rspec-compile (around rspec-compile-around)
-;;   "Use BASH shell for running the specs because of ZSH issues."
-;;   (let ((shell-file-name "/bin/bash"))
-;;     ad-do-it))
-;;
-;; (ad-activate 'rspec-compile)
+  ;; ZSH and RVM
+  ;;
+  ;; If you use ZSH and RVM, you may encounter problems running the specs. It may
+  ;; be so that an older version of Ruby, than the one you specified in .rvmrc, is
+  ;; used. This is because ZSH runs a small script each time a shell is created,
+  ;; which modifies the $PATH. The problem is that it prepends some default paths,
+  ;; such as /usr/bin, which contains another ruby binary.
+  ;;
+  ;; What you can do to solve this is to use BASH for running the specs. This
+  ;; piece of code does the job:
+
+  ;; (defadvice rspec-compile (around rspec-compile-around)
+  ;;   "Use BASH shell for running the specs because of ZSH issues."
+  ;;   (let ((shell-file-name "/bin/bash"))
+  ;;     ad-do-it))
+  ;;
+  ;; (ad-activate 'rspec-compile)
+
+  (eval-after-load 'rspec-mode
+    '(rspec-install-snippets))
+  )
 
 
 ;;; [ minitest ]
