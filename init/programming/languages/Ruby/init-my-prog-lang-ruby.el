@@ -454,7 +454,7 @@
 
 (use-package rspec-mode
   :config
-  (setq rspec-key-command-prefix (kbd "C-c t r"))
+  ;; (setq rspec-key-command-prefix (kbd "C-c t r"))
 
   ;; (dolist (hook '(ruby-mode-hook
   ;;                 enh-ruby-mode-hook
@@ -496,13 +496,13 @@
 
 ;;; Usage:
 ;;
-;; - [C-c ,] -- minitest prefix
+;; - [C-c ,] -- minitest keybindings prefix.
 ;; `minitest-enable-appropriate-mode'
 
 (use-package minitest
   :config
   (setq minitest-default-env nil
-        minitest-keymap-prefix (kbd "C-c t m") ; default [C-c ,]
+        ;; minitest-keymap-prefix (kbd "C-c t m") ; default [C-c ,]
         minitest-use-bundler t
         minitest-use-spring nil
         minitest-use-zeus-when-possible t
