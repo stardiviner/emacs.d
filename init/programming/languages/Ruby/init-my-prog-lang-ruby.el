@@ -533,6 +533,10 @@
                   enh-ruby-mode-hook))
     (add-hook hook
               '(lambda ()
+                 ;; remove default ruby-test-mode in ruby-mode-hook.
+                 ;; [C-c C-s] conflict with inf-ruby.
+                 (remove-hook 'ruby-mode-hook 'ruby-test-enable)
+                 
                  (unless (boundp 'my-ruby-test-map)
                    (define-prefix-command 'my-ruby-test-map))
                  (local-set-key (kbd "C-c t") 'my-ruby-test-map)
