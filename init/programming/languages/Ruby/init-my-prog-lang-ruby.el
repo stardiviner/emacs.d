@@ -437,13 +437,11 @@
 ;; - [C-c C-f] -- next-error-follow-minor-mode
 ;; - [C-c C-k] -- kill compilation
 
-(use-package ruby-compilation
-  :config
+(with-eval-after-load "ruby-compilation"
   (define-key enh-ruby-mode-map (kbd "C-c t C") 'ruby-compilation-this-buffer)
   (define-key enh-ruby-mode-map (kbd "C-c t c") 'ruby-compilation-this-test)
   (define-key ruby-mode-map (kbd "C-c t C") 'ruby-compilation-this-buffer)
-  (define-key ruby-mode-map (kbd "C-c t c") 'ruby-compilation-this-test)
-  )
+  (define-key ruby-mode-map (kbd "C-c t c") 'ruby-compilation-this-test))
 
 
 ;;; [ rspec-mode ] -- Ruby RSpec
