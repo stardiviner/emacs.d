@@ -489,19 +489,22 @@
 ;; - [C-c ,] -- minitest prefix
 ;; `minitest-enable-appropriate-mode'
 
-(setq minitest-default-env nil
-      minitest-keymap-prefix (kbd "C-c t") ; [C-c ,]
-      minitest-use-bundler t
-      minitest-use-spring nil
-      minitest-use-zeus-when-possible t
-      )
+(use-package minitest
+  :config
+  (setq minitest-default-env nil
+        minitest-keymap-prefix (kbd "C-c t m") ; default [C-c ,]
+        minitest-use-bundler t
+        minitest-use-spring nil
+        minitest-use-zeus-when-possible t
+        )
 
-(add-hook 'ruby-mode-hook 'minitest-mode)
-(add-hook 'enh-ruby-mode-hook 'minitest-mode)
+  (add-hook 'ruby-mode-hook 'minitest-mode)
+  (add-hook 'enh-ruby-mode-hook 'minitest-mode)
 
-;; if you want snippets loaded
-(eval-after-load 'minitest
-  '(minitest-install-snippets))
+  ;; if you want snippets loaded
+  (eval-after-load 'minitest
+    '(minitest-install-snippets))
+  )
 
 
 ;;; [ ruby-test-mode ] -- Emacs minor mode for Behaviour and Test Driven Development in Ruby.
