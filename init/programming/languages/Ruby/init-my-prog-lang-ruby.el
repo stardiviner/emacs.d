@@ -439,10 +439,10 @@
 
 (eval-after-load "ruby-compilation"
   '(progn
-     (define-key enh-ruby-mode-map (kbd "C-c t") 'ruby-compilation-this-buffer)
-     (define-key enh-ruby-mode-map (kbd "C-c T") 'ruby-compilation-this-test)
-     (define-key ruby-mode-map (kbd "C-c t") 'ruby-compilation-this-buffer)
-     (define-key ruby-mode-map (kbd "C-c T") 'ruby-compilation-this-test)
+     (define-key enh-ruby-mode-map (kbd "C-c T") 'ruby-compilation-this-buffer)
+     (define-key enh-ruby-mode-map (kbd "C-c t") 'ruby-compilation-this-test)
+     (define-key ruby-mode-map (kbd "C-c T") 'ruby-compilation-this-buffer)
+     (define-key ruby-mode-map (kbd "C-c t") 'ruby-compilation-this-test)
      ))
 
 
