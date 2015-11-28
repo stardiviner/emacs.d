@@ -454,6 +454,7 @@
 
 (use-package rspec-mode
   :config
+  (setq rspec-key-command-prefix (kbd "C-c t r"))
   
   ;; [ Gotchas ]
   ;; Debugging
