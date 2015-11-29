@@ -385,6 +385,10 @@
 ;;                  (assoc (web-mode-language-at-pos)
 ;;                         web-mode-ac-sources-alist)))
 ;;             (setq ac-sources (cdr new-web-mode-ac-sources)))))))
+;;
+;; (or (derived-mode-p 'css-mode)
+;;     (and (derived-mode-p 'web-mode)
+;;          (string= (web-mode-language-at-pos) "css")))
 
 ;;; company-etags
 ;; $ cd ~/myproj/script; ctags -e '*.js'; cd ~/myproj/style; ctags -e '*.css'
