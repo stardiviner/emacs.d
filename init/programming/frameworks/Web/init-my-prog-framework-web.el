@@ -386,6 +386,11 @@
 ;;                         web-mode-ac-sources-alist)))
 ;;             (setq ac-sources (cdr new-web-mode-ac-sources)))))))
 
+;;; company-etags
+;; $ cd ~/myproj/script; ctags -e '*.js'; cd ~/myproj/style; ctags -e '*.css'
+(with-eval-after-load 'company-etags
+  (add-to-list 'company-etags-modes 'web-mode))
+
 ;; Enable CSS completion between <style>...</style>
 (defadvice company-css (before web-mode-set-up-ac-sources activate)
   "Set CSS completion based on current language before running `company-css'."
