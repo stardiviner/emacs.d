@@ -85,7 +85,7 @@
                   )))
 
 ;; (setq eshell-prompt-regexp "^[^#$\n]* [#$] ")
-(setq eshell-prompt-regexp "^[^#$\n]* [#⇨]* ")
+(setq eshell-prompt-regexp "^[^#$\n]*[#⇨]* ")
 
 ;; Eshell modules
 ;; (add-to-list 'eshell-modules-list 'eshell-rebind)
