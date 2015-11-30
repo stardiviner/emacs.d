@@ -121,7 +121,7 @@
 ;;; start Eshell at Emacs startup, and put in end of buffer list:
 (add-hook 'emacs-startup-hook 'my-eshell-start-or-switch)
 
-(global-set-key (kbd "C-x !") 'my-eshell-start-or-switch)
+(global-set-key (kbd "C-x !") 'eshell)
 
 (unless (boundp 'my-inferior-shell-map)
   (define-prefix-command 'my-inferior-shell-map))
