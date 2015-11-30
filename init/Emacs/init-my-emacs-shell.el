@@ -85,20 +85,28 @@
                   )))
 
 ;; (setq eshell-prompt-regexp "^[^#$\n]* [#$] ")
-(setq eshell-prompt-regexp "^[^#$\n]* [#⇨] · ")
+(setq eshell-prompt-regexp "^[^#$\n]* [#⇨]* ")
+
+;; Eshell modules
+;; (add-to-list 'eshell-modules-list 'eshell-rebind)
+
+;; Eshell completion
+(add-hook 'eshell-mode-hook
+          '(lambda ()
+             (eshell-cmpl-initialize)
+             (company-mode 1)
+             ))
 
 ;; helm complete support
+;; NOTE: this spend a lot of time to load. and it advice `tramp-read-passwd'.
 (require 'helm-eshell)
-
 (add-hook 'eshell-mode-hook
-          #'(lambda ()
-              (eshell-cmpl-initialize)
-              (company-mode 1)
-              (define-key eshell-mode-map [remap pcomplete] 'helm-esh-pcomplete)
-              (define-key eshell-mode-map [remap eshell-complete-lisp-symbol] 'helm-lisp-completion-at-point)
-              (define-key eshell-mode-map (kbd "M-p") 'helm-eshell-history)
-              (push-mark)
-              ))
+          '(lambda ()
+             (define-key eshell-mode-map [remap pcomplete] 'helm-esh-pcomplete)
+             (define-key eshell-mode-map [remap eshell-complete-lisp-symbol] 'helm-lisp-completion-at-point)
+             (define-key eshell-mode-map (kbd "M-p") 'helm-eshell-history)
+             (push-mark)
+             ))
 
 ;;; count how much time the command used.
 ;; (add-hook 'eshell-load-hook
