@@ -99,13 +99,13 @@
 
 ;; helm complete support
 ;; NOTE: this spend a lot of time to load. and it advice `tramp-read-passwd'.
-(require 'helm-eshell)
-(add-hook 'eshell-mode-hook
-          '(lambda ()
-             (define-key eshell-mode-map [remap pcomplete] 'helm-esh-pcomplete)
-             (define-key eshell-mode-map [remap eshell-complete-lisp-symbol] 'helm-lisp-completion-at-point)
-             (define-key eshell-mode-map (kbd "M-p") 'helm-eshell-history)
-             ))
+;; (require 'helm-eshell)
+;; (add-hook 'eshell-mode-hook
+;;           '(lambda ()
+;;              (define-key eshell-mode-map [remap pcomplete] 'helm-esh-pcomplete)
+;;              (define-key eshell-mode-map [remap eshell-complete-lisp-symbol] 'helm-lisp-completion-at-point)
+;;              (define-key eshell-mode-map (kbd "M-p") 'helm-eshell-history)
+;;              ))
 
 ;;; count how much time the command used.
 ;; (add-hook 'eshell-load-hook
