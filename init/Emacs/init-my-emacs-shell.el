@@ -91,6 +91,16 @@
 ;; (add-to-list 'eshell-modules-list 'eshell-rebind)
 
 ;; Eshell completion
+;;
+;; - `eshell-cmpl-load-hook'
+
+(setq eshell-show-lisp-completions t
+      ;; eshell-command-completion-function #'function
+      ;; eshell-cmpl-command-name-function #'function
+      ;; eshell-default-completion-function #'function
+      eshell-cmpl-use-paring t
+      )
+
 (add-hook 'eshell-mode-hook
           '(lambda ()
              (eshell-cmpl-initialize)
