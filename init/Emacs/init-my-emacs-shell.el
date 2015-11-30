@@ -145,8 +145,7 @@
   (interactive "P")
   (if arg
       (let ((default-directory (getenv "HOME")))
-        (command-execute 'eshell)
-        (message "%s" arg))
+        (command-execute 'eshell))
     (command-execute 'eshell))
   )
 
