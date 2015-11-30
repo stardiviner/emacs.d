@@ -141,7 +141,11 @@
 
 (with-eval-after-load 'flycheck
   (setq flycheck-display-errors-function 'flycheck-pos-tip-error-messages
-        flycheck-pos-tip-timeout 5))
+        flycheck-pos-tip-timeout 10
+        ;; you change change flycheck-pos-tip to use popup.el library.
+        ;; default use `pos-tip-show'.
+        ;; flycheck-pos-tip-show-function #'flycheck-pos-tip-show
+        ))
 
 
 ;;; [ helm-c-flycheck ]
