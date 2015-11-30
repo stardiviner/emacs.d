@@ -68,7 +68,7 @@
           ;;  ":"
           ;;  (if (= (user-uid) 0) " # " " $ "))
 
-          (format "{ %s } [ %s ]\n%s %s"
+          (format "{ %s } [ %s ]\n%s %s "
                   (propertize
                    (getenv "USER")
                    'face '((:foreground "sky blue")))
@@ -80,7 +80,7 @@
                    'face '((:foreground "deep pink")))
                   ;; set following cmd face
                   (propertize
-                   "· "
+                   "·"
                    'face '((:foreground "light gray")))
                   )))
 
