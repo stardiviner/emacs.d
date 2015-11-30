@@ -41,7 +41,7 @@
       )
 
 ;; Eshell-banner
-(setq eshell-banner-message (format "%s %s\nwith Emacs %s on %s"
+(setq eshell-banner-message (format "%s %s\nwith Emacs %s on Linux: %s"
                                     (propertize
                                      "Eshell session started on"
                                      'face '((:foreground "dim gray")))
