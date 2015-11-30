@@ -108,20 +108,29 @@
 ;;                      (- (time-to-seconds) last-command-start-time))))
 
 
-(defun my-eshell-start-or-switch ()
-  "Start Emacs Shell or switch to its buffer if it already exist."
-  (interactive)
-  (if (get-buffer "*eshell*") ; eshell already active?
-      (switch-to-buffer "*eshell*")
-    (let ((default-directory (getenv "HOME")))
-      (command-execute 'eshell)
-      (bury-buffer))
-    ))
-
+;; (defun my-eshell-start-or-switch ()
+;;   "Start Emacs Shell or switch to its buffer if it already exist."
+;;   (interactive)
+;;   (if (get-buffer "*eshell*") ; eshell already active?
+;;       (switch-to-buffer "*eshell*")
+;;     (let ((default-directory (getenv "HOME")))
+;;       (command-execute 'eshell)
+;;       (bury-buffer))
+;;     ))
 ;;; start Eshell at Emacs startup, and put in end of buffer list:
-(add-hook 'emacs-startup-hook 'my-eshell-start-or-switch)
+;; (add-hook 'emacs-startup-hook 'my-eshell-start-or-switch)
 
-(global-set-key (kbd "C-x !") 'eshell)
+(defun my-smart-eshell (&optional arg)
+  "Smart set directory path."
+  (interactive "P")
+  (if arg
+      (let ((default-directory (getenv "HOME")))
+        (command-execute 'eshell)
+        (message "%s" arg))
+    (command-execute 'eshell))
+  )
+
+(global-set-key (kbd "C-x !") 'my-smart-eshell)
 
 (unless (boundp 'my-inferior-shell-map)
   (define-prefix-command 'my-inferior-shell-map))
