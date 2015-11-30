@@ -84,6 +84,9 @@
                    'face '((:foreground "light gray")))
                   )))
 
+;; (setq eshell-prompt-regexp "^[^#$\n]* [#$] ")
+(setq eshell-prompt-regexp "^[^#$\n]* [#⇨] · ")
+
 ;; helm complete support
 (require 'helm-eshell)
 
