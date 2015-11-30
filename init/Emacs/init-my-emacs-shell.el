@@ -57,31 +57,32 @@
                                      'face '((:foreground "orange")))))
 
 ;; eshell prompt
-(setq eshell-prompt-function #'(lambda ()
-                                 ;; (concat
-                                 ;;  (abbreviate-file-name (eshell/pwd))
-                                 ;;  ;; (newline)
-                                 ;;  (getenv "USER")
-                                 ;;  "@"
-                                 ;;  (system-name)
-                                 ;;  ":"
-                                 ;;  (if (= (user-uid) 0) " # " " $ "))
+(setq eshell-prompt-function
+      #'(lambda ()
+          ;; (concat
+          ;;  (abbreviate-file-name (eshell/pwd))
+          ;;  ;; (newline)
+          ;;  (getenv "USER")
+          ;;  "@"
+          ;;  (system-name)
+          ;;  ":"
+          ;;  (if (= (user-uid) 0) " # " " $ "))
 
-                                 (format "{ %s } [ %s ]\n%s %s"
-                                         (propertize
-                                          (getenv "USER")
-                                          'face '((:foreground "sky blue")))
-                                         (propertize
-                                          (abbreviate-file-name (eshell/pwd))
-                                          'face '((:foreground "gray")))
-                                         (propertize ; $ ➜ ⇨ </>
-                                          (if (= (user-uid) 0) "#" "⇨")
-                                          'face '((:foreground "deep pink")))
-                                         ;; set following cmd face
-                                         (propertize
-                                          "· "
-                                          'face '((:foreground "light gray")))
-                                         )))
+          (format "{ %s } [ %s ]\n%s %s"
+                  (propertize
+                   (getenv "USER")
+                   'face '((:foreground "sky blue")))
+                  (propertize
+                   (abbreviate-file-name (eshell/pwd))
+                   'face '((:foreground "gray")))
+                  (propertize ; $ ➜ ⇨ </>
+                   (if (= (user-uid) 0) "#" "⇨")
+                   'face '((:foreground "deep pink")))
+                  ;; set following cmd face
+                  (propertize
+                   "· "
+                   'face '((:foreground "light gray")))
+                  )))
 
 ;; helm complete support
 (require 'helm-eshell)
