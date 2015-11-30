@@ -105,7 +105,6 @@
              (define-key eshell-mode-map [remap pcomplete] 'helm-esh-pcomplete)
              (define-key eshell-mode-map [remap eshell-complete-lisp-symbol] 'helm-lisp-completion-at-point)
              (define-key eshell-mode-map (kbd "M-p") 'helm-eshell-history)
-             (push-mark)
              ))
 
 ;;; count how much time the command used.
