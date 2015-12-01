@@ -416,7 +416,7 @@
    ;; the major mode of the current buffer.
    ;; `mode-name', `mode-line-modes', `minor-mode-alist'
    (:propertize "%m"
-                face (:foreground "green yellow"
+                face (:foreground "green"
                                   :family "Comic Sans MS" :weight bold :height 80
                                   )
                 )
