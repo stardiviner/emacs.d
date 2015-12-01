@@ -68,7 +68,8 @@
   :config
 
   (setq org-contacts-files '("~/Org/Contacts/Contacts.org")
-        org-contacts-icon-use-gravatar (fboundp 'gravatar-retrieve)
+        ;; org-contacts-icon-use-gravatar (fboundp 'gravatar-retrieve)
+        org-contacts-icon-use-gravatar nil
         org-contacts-icon-property "ICON"
         org-contacts-icon-size 32
         org-contacts-enable-completion t ; enable in message-mode.
