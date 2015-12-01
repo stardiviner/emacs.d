@@ -77,24 +77,40 @@
 
 
 ;;; Calendar Printing
+;;;
 ;;; Usage:
-;;; - press "t m" on the current month in Calendar Mode buffer. This will create a new buffer named 'calendar.tex' containing a latex representation of the current month.
-;;; - then press [C-c C-c] to "compile" the file. You can see it by press [C-c C-c] again.
-;;; - press [C-c C-p] to print the compiled PDF file.
+;;
+;; - press "t m" on the current month in Calendar Mode buffer. This will create
+;;   a new buffer named 'calendar.tex' containing a latex representation of the
+;;   current month.
+;;
+;; - then press [C-c C-c] to "compile" the file. You can see it by press [C-c
+;;   C-c] again.
+;;
+;; - press [C-c C-p] to print the compiled PDF file.
+;;
 ;;; Printing to A4 pages
-;;; If you print A4 pages, the calendars are probably too wide for you. I often print monthly calendars. The default setup prints them 18cm wide; I want them 17cm wide. Here’s how to do it:
-(add-hook 'cal-tex-hook 'my-calendar-print-a4)
-(defun my-calendar-print-a4 ()
-  "Replace all occurences of 18cm with 17cm."
-  (goto-char (point-min))
-  (while (search-forward "18cm" nil t)
-    (replace-match  "17cm")))
+;;
+;; If you print A4 pages, the calendars are probably too wide for you. I often
+;; print monthly calendars. The default setup prints them 18cm wide; I want them
+;; 17cm wide. Here’s how to do it:
+;;
+;; (add-hook 'cal-tex-hook 'my-calendar-print-A4)
+;; (defun my-calendar-print-A4 ()
+;;   "Replace all occurences of 18cm with 17cm."
+;;   (goto-char (point-min))
+;;   (while (search-forward "18cm" nil t)
+;;     (replace-match  "17cm")))
+;;
 ;;; Printing Key bindings
-;;; - [p C-h] -- list out all key bindings
+;;
+;; - [p C-h] -- list out all key bindings
 
 ;;; Key Bindings
-;;; - [C-SPC] + [M-=] -- count the number of days in region (between the mark and the current point).
-;;; - [8 C-n] -- move ahead 8 days.
+;;
+;; - [C-SPC] + [M-=] -- count the number of days in region (between the mark and
+;;                      the current point).
+;; - [8 C-n] -- move ahead 8 days.
 
 (add-hook 'calendar-initial-window-hook (lambda ()
                                           (calendar-mark-today)
