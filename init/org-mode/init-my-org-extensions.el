@@ -80,14 +80,15 @@
                  entry (file "~/Org/Contacts/Contacts.org")
                  "* %(org-contacts-template-name)
 :PROPERTIES:
-:NAME: %(org-contacts-template-name)
+:NAME(English): %^{Name(English)}
+:NAME(Chinese): %^{Name(Chinese)}
 :NICK:
 :ALIAS:
-:ICON: %(org-contacts-template-name).jpg
-:BIRTHDAY: %t
+:ICON: %^{ICON}.jpg
+:BIRTHDAY: %^{Birthday}
 :GENDER: %^{Gender|Male|Female}
 :Sexual: %^{Sexual|Heterosexual|Bisexual|Homosexual}
-:RELATIONSHIP: %^{Relationship|Friend|Good Friend|Boy Friend|Girl Friend}
+:RELATIONSHIP: %^{Relationship|Meet|Friend|Good Friend|Boy Friend|Girl Friend|Classmate|Schoolmate}
 :FIRST-MEET: %^U  %^{first-time meet}
 :DATE: %^u
 :TIME: %^U
