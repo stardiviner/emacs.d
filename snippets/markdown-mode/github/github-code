@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: github-code
+# key: github-code
+# --
+```${1:language}
+$0
+```

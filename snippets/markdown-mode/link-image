@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: link-image
+# key: link-image
+# group: link.image
+# --
+![${2:title}](${1:link})$0
