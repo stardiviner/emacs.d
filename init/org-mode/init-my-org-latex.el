@@ -12,14 +12,15 @@
 
 ;; FIXME: error: Can't preview LaTeX fragment in a non-file buffer.
 ;; `org-toggle-inline-images' [C-c C-x C-v]
-(setq org-startup-with-latex-preview nil)
+(setq org-startup-with-latex-preview t)
 ;; `org-toggle-latex-fragment' [C-c C-x C-l] / [C-c C-c]
+;; `org-toggle-pretty-entities' [C-c C-x \]
 
 ;; config org latex preview style
 (setq org-latex-create-formula-image-program 'dvipng
       org-latex-preview-ltxpng-directory "ltxpng/"
       org-format-latex-options (plist-put
-                                org-format-latex-options :scale 3.0)
+                                org-format-latex-options :scale 1.5)
       org-format-latex-options (plist-put
                                 org-format-latex-options :html-scale 2.0)
       )
