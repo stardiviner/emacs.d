@@ -426,9 +426,9 @@
     projectile-rails rails-new ; helm-rails
     rhtml-mode
     ;; Android
-    ;; android-mode
+    android-mode
     ;; Arduino
-    ;; arduino-mode company-arduino
+    arduino-mode company-arduino
 
     ;; Linux
     ;; emamux
@@ -449,7 +449,7 @@
     ;; helm-w3m
     helm-firefox ; helm-chrome
     ;; PDF
-    ;; pdf-tools org-pdfview
+    pdf-tools org-pdfview
     ;; Image
     ;; image+ ; xpm
     ;; Ascii Graphic
@@ -475,14 +475,14 @@
     calfw ; calfw-gcal
     ;; Chat
     ;; IRC
-    ;; erc circe
+    ;; circe ; erc
     ;; weechat
     ;; Music
     ;; emms helm-emms emms-player-mpv ; emms-info-media emms-mode-line-cycle
     ;; mingus
     ;; Screenshot & Screencast
     screenshot camcorder
-    ;; command-log-mode
+    command-log-mode
     ;; Download
     ;; aria2 wget
     ;; Read
@@ -516,9 +516,10 @@
     ;; Languages
     ;; Chinese
     ;; pangu-spacing
-    ;; pinyin-search
+    pinyin-search
     ;; Japanese
-    ;; migemo
+    migemo
+    helm-migemo avy-migemo ; ido-migemo
     )
   "A list of packages to ensure are installed at launch.")
 
