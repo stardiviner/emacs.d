@@ -62,9 +62,6 @@
 ;; (global-eclim-mode t)
 
 
-;;; [ java-complete ]
-
-
 ;;; [ javadoc-lookup ]
 
 ;;; Usage:
