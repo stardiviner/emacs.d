@@ -53,10 +53,14 @@
 ;; (company-emacs-eclim-setup)
 (add-hook 'java-mode-hook
           '(lambda ()
-             (eclim-mode)
+             ;; (eclim-mode 1)
+             
+             ;; TODO: this backend does not work.
+             ;; (add-to-list (make-local-variable 'company-backends)
+             ;;              'company-emacs-eclim)
              
              (add-to-list (make-local-variable 'company-backends)
-                          'company-emacs-eclim)
+                          'company-eclim)
              ))
 
 ;; (global-eclim-mode t)
