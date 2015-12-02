@@ -115,6 +115,12 @@
                 (car company-backends)))
   )
 
+;; remove company backend from `company-backends'.
+;; (setq company-backends
+;;       (cons 'company-emacs-eclim
+;;             (remove-if (lambda (b) (find b '(company-nxml company-eclim)))
+;;                        company-backends)))
+
 ;;; globally
 (setq company-global-modes t)
 
@@ -265,7 +271,7 @@
                     :inherit 'company-echo
                     :foreground "cyan")
 ;; template
-;; TODO:
+;; FIXME:
 ;; (set-face-attribute 'company-template-field nil
 ;;                     :foreground "orange"
 ;;                     :weight 'bold)
