@@ -43,9 +43,9 @@
 
 (use-package pretty-symbols
   :config
-  (setq pretty-symbol-categories '(lambda relational logical)
-        ;; pretty-symbol-patterns '()
-        )
+  ;; (setq pretty-symbol-categories '(lambda relational logical)
+  ;;       ;; pretty-symbol-patterns '()
+  ;;       )
 
   (global-prettify-symbols-mode 1)
 
