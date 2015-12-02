@@ -2,7 +2,57 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Gimp Manual"
+(("Android"
+ (filename . "~/Org/Wiki/Computer/Systems/Android/Android.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Accounts"
+ (filename . "~/Org/Accounts/accounts.org.gpg")
+ (front-context-string . "* Nick\n\nstardivi")
+ (rear-context-string)
+ (position . 1))
+("Japanese Language"
+ (filename . "~/Org/Wiki/Languages/Japanese/Japanese.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("jQuery"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/JavaScript/Data/Projects/Library/jQuery/jQuery.org")
+ (front-context-string . "* Intro\n\njQuery ")
+ (rear-context-string)
+ (position . 1))
+("Contacts.org"
+ (filename . "~/Org/Contacts/Contacts.org")
+ (front-context-string . "* Intro\n\n** keep")
+ (rear-context-string)
+ (position . 1))
+("LGBTQ (Org)"
+ (filename . "~/Org/Wiki/SEX/Data/LGBTQ/LGBTQ.org")
+ (front-context-string . "* Lesbian\n\n[[fil")
+ (rear-context-string)
+ (position . 1))
+("Ruby Standard Libraries"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Library/stdlib/stdlib.org")
+ (front-context-string . "* Ruby Standard ")
+ (rear-context-string)
+ (position . 1))
+("九州"
+ (filename . "~/Org/Wiki/Reading/Novels/Fantasy/九州/九州.org")
+ (front-context-string . "#+TAGS: 今何在 江南\n\n")
+ (rear-context-string)
+ (position . 1))
+("HTTP"
+ (filename . "~/Org/Wiki/Computer/Programming/Implements/Web/HTTP/HTTP.org")
+ (front-context-string . "* Intro\n\nThe *Hy")
+ (rear-context-string)
+ (position . 1))
+("Arch Linux Package Management"
+ (filename . "~/Org/Wiki/Computer/Systems/Linux/Arch/Wiki/Data/Manuals/Arch Linux Package Management.org")
+ (front-context-string . "* Intro\n\n\n* Help")
+ (rear-context-string)
+ (position . 1))
+("Gimp Manual"
  (filename . "~/Org/Wiki/Computer/Softwares/GIMP/Data/Manuals/Manuals.org")
  (front-context-string . "* Operations\n\n**")
  (rear-context-string)
@@ -567,11 +617,6 @@
  (front-context-string . "* Help\n\n\n\n* Emac")
  (rear-context-string)
  (position . 1))
-("accounts.org"
- (filename . "~/Git/Accounts/accounts.org")
- (front-context-string . "* Nick\n\nstardivi")
- (rear-context-string)
- (position . 1))
 ("update_things.sh"
  (filename . "~/scripts/update_things.sh")
  (front-context-string . "#!/usr/bin/env s")
@@ -694,9 +739,9 @@
  (position . 521))
 ("Programming (Org)"
  (filename . "~/Org/Wiki/Computer/Programming/Programming.org")
- (front-context-string . "Implements]]\n\n* ")
- (rear-context-string . "Implements.org][")
- (position . 4371))
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
 ("Computer (Org)"
  (filename . "~/Org/Wiki/Computer/Computer.org")
  (front-context-string . "* Programming (I")
