@@ -117,13 +117,14 @@
 ;;              (define-key eshell-mode-map (kbd "M-p") 'helm-eshell-history)
 ;;              ))
 
-;;; count how much time the command used.
+
+;; count how much time the command used.
 ;; (add-hook 'eshell-load-hook
-;;           (lambda()(setq last-command-start-time (time-to-seconds))))
+;;           (lambda () (setq last-command-start-time (time-to-seconds))))
 ;; (add-hook 'eshell-pre-command-hook
-;;           (lambda()(setq last-command-start-time (time-to-seconds))))
+;;           (lambda () (setq last-command-start-time (time-to-seconds))))
 ;; (add-hook 'eshell-before-prompt-hook
-;;           (lambda()
+;;           (lambda ()
 ;;             (message "spend %g seconds"
 ;;                      (- (time-to-seconds) last-command-start-time))))
 

@@ -767,9 +767,7 @@
 ;;   buffer. This exists so the output won't mess with the default buffer used
 ;;   by [M-&] and `async-shell-command'.
 
-(use-package bundler
-  :config
-  )
+(use-package bundler)
 
 
 ;;; [ motion-mode ] -- RubyMotion

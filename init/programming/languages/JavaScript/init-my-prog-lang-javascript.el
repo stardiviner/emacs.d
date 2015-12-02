@@ -347,6 +347,7 @@
 ;;     }
 ;;   }
 ;; }
+
 (add-to-list 'auto-mode-alist '("\\.tern-project\\'" . json-mode))
 
 ;; (setq tern-known-port

@@ -12,6 +12,7 @@
 ;; - from command: $ fc-list
 ;;
 ;; Comic Sans MS
+;; Comic Neue
 ;; Gabriola
 ;; Old London
 ;; Segoe (Print/Script)
