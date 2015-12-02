@@ -278,12 +278,14 @@
 (require-package 'ob-browser)
 
 ;; open those babels with `web-mode'.
-(eval-after-load "web-mode"
-  '(progn
-     (add-to-list 'org-src-lang-modes '("html" . web))
-     (add-to-list 'org-src-lang-modes '("browser" . web))
-     (add-to-list 'org-src-lang-modes '("rhtml" . web))
-     ))
+(with-eval-after-load "web-mode"
+  (add-to-list 'org-src-lang-modes '("html" . web))
+  (add-to-list 'org-src-lang-modes '("browser" . web))
+  (add-to-list 'org-src-lang-modes '("rhtml" . web)))
+
+(with-eval-after-load "js2-mode"
+  (add-to-list 'org-src-lang-modes '("js" . js2))
+  (add-to-list 'org-src-lang-modes '("javascript" . js2)))
 
 
 ;;;_ + ditaa & PlantUML & Graphviz
