@@ -33,10 +33,18 @@
 ;;
 ;; - eclimd
 ;;   - `start-eclimd' & `stop-eclimd'
+;; - eclim project
+;;   - `eclim-project-mode'
+;;   - `eclim-project-create'
+;;   - `eclim-project-open'
+;;   - `eclim-project-delete'
+;;   - `eclim-project-refresh'
+;;   - `eclim-project-update'
+;;   - `eclim-project-import'
+;;   - `eclim-manage-projects'
 
 (require 'eclim)
-
-;; ;; If you want to control `eclimd' from emacs, also add:
+;; Control `eclimd' from emacs
 (require 'eclimd)
 
 (setq eclimd-default-workspace "~/Eclipse"
