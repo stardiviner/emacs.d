@@ -220,12 +220,12 @@
 
 ;; special keywords
 (set-face-attribute 'org-special-keyword nil
-                    :foreground "dark green"
+                    :foreground "forest green"
                     :background (color-darken-name (face-background 'default) 3)
                     )
 ;; property
 (set-face-attribute 'org-property-value nil
-                    :foreground "dark slate gray")
+                    :foreground "gray")
 
 
 ;;; Babel, Source Code, Block
