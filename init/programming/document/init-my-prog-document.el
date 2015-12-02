@@ -136,7 +136,7 @@
           ;; "Processing"
           ;; "Unity_3D" "Cocos3D" "Cocos2D"
           ;; "OpenGL_4" "OpenCV_C"
-          "Docker" "Vagrant" "Nginx"
+          "Docker" "Vagrant" ; "Nginx"
           ;; "Qt"
           ;; "Android" "iOS" "OS_X"
           ;; "RubyMotion"
