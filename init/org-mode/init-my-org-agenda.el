@@ -73,7 +73,7 @@
         ("Anonymous"  "~/.emacs.d/resources/icon/Anonymous.xpm" nil nil :ascent center)
         ("Security"  "~/.emacs.d/resources/icon/Security.xpm" nil nil :ascent center)
         ("Daily" '(space . (:width (16)))) ; to display a 16px horizontal space
-        ("Learning"  "~/.emacs.d/resources/icon/Org.xpm" nil nil :ascent center)
+        ("Learning"  "~/.emacs.d/resources/icon/org.xpm" nil nil :ascent center)
         ("Linux" "~/.emacs.d/resources/icon/Linux.xpm" nil nil :ascent center)
         ("Config" "~/.emacs.d/resources/icon/config.xpm" nil nil :ascent center)
         ("Command" "~/.emacs.d/resources/icon/command.xpm" nil nil :ascent center)
