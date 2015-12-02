@@ -9,6 +9,8 @@
 
 ;;; [ Tramp ]
 
+;;; NOTE: don't wrap tramp config with use-package, it will cause Emacs tramp ssh connection error.
+
 (require 'tramp)
 
 ;; <default method>
