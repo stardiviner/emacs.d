@@ -358,21 +358,22 @@
 
 ;;; [ company-tern ] -- Tern backend for company-mode.
 
-(dolist (hook '(js-mode-hook
-                js2-mode-hook
-                js3-mode-hook
-                inferior-js-mode-hook
-                ))
-  (add-hook hook
-            (lambda ()
-              ;; enable `tern-mode'.
-              (tern-mode t)
-              
-              (add-to-list (make-local-variable 'company-backends)
-                           'company-tern)
-              )))
-
 (use-package company-tern
+  :init
+  (dolist (hook '(js-mode-hook
+                  js2-mode-hook
+                  js3-mode-hook
+                  inferior-js-mode-hook
+                  ))
+    (add-hook hook
+              (lambda ()
+                ;; enable `tern-mode'.
+                (tern-mode t)
+                
+                (add-to-list (make-local-variable 'company-backends)
+                             'company-tern)
+                )))
+  
   :config
   (setq
    company-tern-property-marker "" ; " ○"
