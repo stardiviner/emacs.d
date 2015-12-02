@@ -283,9 +283,9 @@
   (add-to-list 'org-src-lang-modes '("browser" . web))
   (add-to-list 'org-src-lang-modes '("rhtml" . web)))
 
-(with-eval-after-load "js2-mode"
-  (add-to-list 'org-src-lang-modes '("js" . js2))
-  (add-to-list 'org-src-lang-modes '("javascript" . js2)))
+;; (with-eval-after-load "js2-mode"
+;;   (add-to-list 'org-src-lang-modes '("js" . js2))
+;;   (add-to-list 'org-src-lang-modes '("javascript" . js2)))
 
 
 ;;;_ + ditaa & PlantUML & Graphviz
