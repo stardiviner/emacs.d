@@ -276,11 +276,11 @@
 ;; TODO: remove this after upstream `company-mode' add this feature.
 ;; use `yas-key-syntaxes-v2' branch of `company-yasnippet'.
 ;; (load-file "~/Code/Emacs/company-mode/company-yasnippet.el")
-(load-file "~/.emacs.d/init/extensions/company-yasnippet.el")
+;; (load-file "~/.emacs.d/init/extensions/company-yasnippet.el")
 
 ;; make `company-yasnippet' work for prefix like `%link_to'.
-(setq-default yas-key-syntaxes (list "w_" "w_." "w_.()"
-                                     #'yas-try-key-from-whitespace))
+;; (setq-default yas-key-syntaxes (list "w_" "w_." "w_.()"
+;;                                      #'yas-try-key-from-whitespace))
 
 
 
