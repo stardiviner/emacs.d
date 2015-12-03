@@ -61,15 +61,15 @@
               (run-hooks 'prog-mode-hook))
             ))
 
-(add-hook 'julia-mode-hook
-          (lambda ()
-            (add-to-list (make-local-variable 'company-backends)
-                         'company-ess-julia-objects)))
-
-(add-hook 'inferior-julia-mode-hook
-          (lambda ()
-            (add-to-list (make-local-variable 'company-backends)
-                         'company-ess-julia-objects)))
+(dolist (hook '(ess-julia-mode-hook
+                inferior-julia-mode-hook
+                julia-mode-hook
+                inferior-julia-shell-mode-hook
+                ))
+  (add-hook hook
+            '(lambda ()
+               (add-to-list (make-local-variable 'company-backends)
+                            'company-ess-julia-objects))))
 
 
 (defun my-ess-inferior-julia (&optional process-buffer-name)
