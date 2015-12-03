@@ -8,15 +8,17 @@
 ;;; Code:
 
 
-;; ;; -----------------------------------------------
-;; ;;  git-gutter.el vs git-gutter-fringe.el
-;; ;;
-;; ;; git-gutter.el 	git-gutter-fringe.el
-;; ;; Work in tty frame 	    OK 	NG
-;; ;; Work with linum-mode 	NG 	OK
-;; ;; Show on right side 	    NG 	OK
-;; ;; More configurable 	    OK 	NG
-;; ;; ------------------------------------------------
+;; ------------------------------------------------
+;;  git-gutter.el vs git-gutter-fringe.el
+;; ------------------------------------------------
+;; |                      | git-gutter.el | git-gutter-fringe.el |
+;; | Work in tty frame    | OK            | NG                   |
+;; | Work with linum-mode | NG            | OK                   |
+;; | Show on right side   | NG            | OK                   |
+;; | More configurable    | OK            | NG                   |
+
+
+;;; [ git-gutter ]
 
 ;; (setq git-gutter:disabled-modes '(asm-mode image-mode))
 
@@ -154,49 +156,57 @@
 
 ;; [ git-gutter-plus / git-gutter+]
 
-;; https://github.com/nonsequitur/git-gutter-plus
-
 ;;; Usage:
 ;;
 ;; Committing
 ;; The commit message buffer is based on git-commit-mode. Besides the default
 ;; git-commit-mode bindings, the following bindings are provided:
-;;     C-c C-a toggles the option to amend the previous commit.
-;;     C-c C-e toggles the option to allow an empty commit that includes no changes.
-;;     C-c C-u toggles the option to edit the commit author.
-;;     C-c C-d toggles the option to edit the commit date.
-;;     M-p/M-n insert previous/next history commit message.
+;;
+;;- [C-c C-a] :: toggles the option to amend the previous commit.
+;;- [C-c C-e] :: toggles the option to allow an empty commit that
+;;               includes no changes.
+;;- [C-c C-u] :: toggles the option to edit the commit author.
+;;- [C-c C-d] :: toggles the option to edit the commit date.
+;;- [M-p/M-n] :: insert previous/next history commit message.
+;;
 ;; git-commit-ack is re-bound to C-c C-b.
 
-
-(eval-after-load 'git-gutter+
-  '(progn
-     ;;; keybindings
-     (define-key my-prog-vcs-map (kbd "m t") 'git-gutter+-mode) ; Turn on/off in the current buffer
-     (define-key my-prog-vcs-map (kbd "m T") 'global-git-gutter+-mode) ; Turn on/off globally
-     ;; jump between hunks
-     (define-key my-prog-vcs-map (kbd "m n") 'git-gutter+-next-hunk)
-     (define-key my-prog-vcs-map (kbd "m p") 'git-gutter+-previous-hunk)
-     ;; actions on hunks
-     (define-key my-prog-vcs-map (kbd "m d") 'git-gutter+-show-hunk-inline-at-point)
-     (define-key my-prog-vcs-map (kbd "m =") 'git-gutter+-show-hunk) ; diff
-     (define-key my-prog-vcs-map (kbd "m D") 'git-gutter+-show-hunk) ; diff
-     (define-key my-prog-vcs-map (kbd "m r") 'git-gutter+-revert-hunk)
-     ;; stage hunk at point
-     ;; if region is active, stage all hunk lines within the region.
-     (define-key my-prog-vcs-map (kbd "m s") 'git-gutter+-stage-hunks)
-     (define-key my-prog-vcs-map (kbd "m c") 'git-gutter+-commit)
-     (define-key my-prog-vcs-map (kbd "m C") 'git-gutter+-stage-and-commit)
-     (define-key my-prog-vcs-map (kbd "m u") 'git-gutter:update-all-windows)
-     ))
-
-(setq git-gutter+-disabled-modes '(asm-mode image-mode))
-
-(setq git-gutter+-hide-gutter t)         ; Hide gutter if there are no changes
-(setq git-gutter+-diff-option "-w") ; Pass option to 'git diff' command: -w: ignore all spaces
-
 (use-package git-gutter+
+  :init
+  ;; keybindings
+  (define-key my-prog-vcs-map (kbd "m t") 'git-gutter+-mode) ; Turn on/off in the current buffer
+  (define-key my-prog-vcs-map (kbd "m T") 'global-git-gutter+-mode) ; Turn on/off globally
+  ;; jump between hunks
+  (define-key my-prog-vcs-map (kbd "m n") 'git-gutter+-next-hunk)
+  (define-key my-prog-vcs-map (kbd "m p") 'git-gutter+-previous-hunk)
+  ;; actions on hunks
+  (define-key my-prog-vcs-map (kbd "m d") 'git-gutter+-show-hunk-inline-at-point)
+  (define-key my-prog-vcs-map (kbd "m =") 'git-gutter+-show-hunk) ; diff
+  (define-key my-prog-vcs-map (kbd "m D") 'git-gutter+-show-hunk) ; diff
+  (define-key my-prog-vcs-map (kbd "m r") 'git-gutter+-revert-hunk)
+  ;; stage hunk at point
+  ;; if region is active, stage all hunk lines within the region.
+  (define-key my-prog-vcs-map (kbd "m s") 'git-gutter+-stage-hunks)
+  (define-key my-prog-vcs-map (kbd "m c") 'git-gutter+-commit)
+  (define-key my-prog-vcs-map (kbd "m C") 'git-gutter+-stage-and-commit)
+  (define-key my-prog-vcs-map (kbd "m u") 'git-gutter:update-all-windows)
+
   :config
+  (setq git-gutter+-disabled-modes '(asm-mode image-mode)
+        ;; hide gutter if there are no changes
+        git-gutter+-hide-gutter t
+        ;; pass option to 'git diff' command: -w: ignore all spaces
+        git-gutter+-diff-option "-w")
+
+  (setq git-gutter+-added-sign "✚"
+        git-gutter+-deleted-sign "✖"
+        git-gutter+-modified-sign "Ϟ"
+        git-gutter+-unchanged-sign nil
+        ;; git-gutter+-window-width 2 ; multiple characters is ok.
+        ;; | |, ┇, ┋ ⋮ ¦ ┊ ┆ │ │ ┃
+        git-gutter+-separator-sign ""
+        )
+  
   ;; GitGutter signs
   (set-face-attribute 'git-gutter+-modified nil
                       :foreground "yellow"
@@ -216,20 +226,9 @@
   (set-face-attribute 'git-gutter+-unchanged nil
                       )
   (set-face-foreground 'git-gutter+-separator "cyan")
+
+  (global-git-gutter+-mode t)
   )
-
-(setq git-gutter+-added-sign "✚"
-      git-gutter+-deleted-sign "✖"
-      git-gutter+-modified-sign "Ϟ"
-      git-gutter+-unchanged-sign nil
-      ;; git-gutter+-window-width 2 ; multiple characters is ok.
-      ;; | |, ┇, ┋ ⋮ ¦ ┊ ┆ │ │ ┃
-      git-gutter+-separator-sign ""
-      )
-
-
-(global-git-gutter+-mode t)
-
 
 
 ;;; [ diff-hl ]
