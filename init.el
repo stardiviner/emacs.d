@@ -73,6 +73,8 @@
 (require 'init-my-pm-package)
 
 (require 'use-package)
+(setq use-package-verbose t)
+
 (require 'color)
 (require 'color-theme)
 
