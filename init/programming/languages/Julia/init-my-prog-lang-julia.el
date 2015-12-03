@@ -9,6 +9,10 @@
 
 ;;; [ julia-mode ]
 
+;;; Usage:
+;;
+;; - `inferior-julia'
+
 (use-package julia-mode
   :config
   (setq julia-indent-offset 4)
@@ -89,7 +93,8 @@
     )
   )
 
-;; 'julia, 'inferior-julia,
+;; - `julia' :: from ess-julia.
+;; - `inferior-julia' :: from julia-mode.
 (define-key my-inferior-ess-map (kbd "j") 'my-ess-inferior-julia)
 
 
