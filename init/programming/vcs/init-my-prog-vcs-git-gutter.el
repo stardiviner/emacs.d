@@ -7,17 +7,6 @@
 
 ;;; Code:
 
-
-;; ------------------------------------------------
-;;  git-gutter.el vs git-gutter-fringe.el
-;; ------------------------------------------------
-;; |                      | git-gutter.el | git-gutter-fringe.el |
-;; | Work in tty frame    | OK            | NG                   |
-;; | Work with linum-mode | NG            | OK                   |
-;; | Show on right side   | NG            | OK                   |
-;; | More configurable    | OK            | NG                   |
-
-
 ;;; [ git-gutter ]
 
 ;; (setq git-gutter:disabled-modes '(asm-mode image-mode))
@@ -29,17 +18,6 @@
 ;; (setq git-gutter:hide-gutter t)         ; Hide gutter if there are no changes
 ;; (setq git-gutter:diff-option "-w") ; Pass option to 'git diff' command: -w: ignore all spaces
 ;; (setq git-gutter:verbosity 0)           ; Log/Message Level
-
-
-;; ;;; Usage:
-;; ;; 'git-gutter:next-hunk :: Jump to next hunk
-;; ;; 'git-gutter:previous-hunk :: Jump to previous hunk
-;; ;; 'git-gutter:popup-hunk :: Popup current diff hunk
-;; ;; 'git-gutter:stage-hunk :: Stage current hunk - `git add -p`
-;; ;; 'git-gutter:revert-hunk :: Revert current hunk
-;; ;; 'git-gutter :: Show changes from last commit or Update change information.
-;; ;; 'git-gutter-toggle :: Toggle git-gutter
-;; ;; 'git-gutter:update-all-windows :: update info in all visible windows.
 
 ;; ;;; keybindings
 ;; (define-key my-prog-vcs-map (kbd "m t") 'git-gutter:toggle)
@@ -105,53 +83,52 @@
 
 ;; (setq git-gutter:lighter " GitGutter") ; minor mode name in modeline.
 
+
+;;; [ git-gutter-fringe.el ] -- fringe version of of git-gutter.el.
 
-;; ;; ---------------------------
-;; ;;; git-gutter-fringe.el is fringe version of of git-gutter.el.
+;; (require 'git-gutter-fringe)
 
-;; ;; (require 'git-gutter-fringe)
+;; (set-face-foreground 'git-gutter-fr:modified "yellow")
+;; (set-face-foreground 'git-gutter-fr:added    "green")
+;; (set-face-foreground 'git-gutter-fr:deleted  "red")
 
-;; ;; (set-face-foreground 'git-gutter-fr:modified "yellow")
-;; ;; (set-face-foreground 'git-gutter-fr:added    "green")
-;; ;; (set-face-foreground 'git-gutter-fr:deleted  "red")
+;; Please adjust fringe width if your own sign is too big.
+;; (setq-default left-fringe-width  20)
+;; (setq-default right-fringe-width 20)
 
-;; ;; Please adjust fringe width if your own sign is too big.
-;; ;; (setq-default left-fringe-width  20)
-;; ;; (setq-default right-fringe-width 20)
-
-;; ;; (fringe-helper-define 'git-gutter-fr:added nil
-;; ;;   "...XX..."
-;; ;;   "..X..X.."
-;; ;;   ".X....X."
-;; ;;   "X......X"
-;; ;;   "X......X"
-;; ;;   "XXXXXXXX"
-;; ;;   "X......X"
-;; ;;   "X......X"
-;; ;;   "X......X")
-;; ;;
-;; ;; (fringe-helper-define 'git-gutter-fr:deleted nil
-;; ;;   "XXXXXX.."
-;; ;;   "XX....X."
-;; ;;   "XX.....X"
-;; ;;   "XX.....X"
-;; ;;   "XX.....X"
-;; ;;   "XX.....X"
-;; ;;   "XX....X."
-;; ;;   "XXXXXX..")
-;; ;;
-;; ;; (fringe-helper-define 'git-gutter-fr:modified nil
-;; ;;   "XXXXXXXX"
-;; ;;   "X..XX..X"
-;; ;;   "X..XX..X"
-;; ;;   "X..XX..X"
-;; ;;   "X..XX..X"
-;; ;;   "X..XX..X"
-;; ;;   "X..XX..X"
-;; ;;   "X..XX..X")
+;; (fringe-helper-define 'git-gutter-fr:added nil
+;;   "...XX..."
+;;   "..X..X.."
+;;   ".X....X."
+;;   "X......X"
+;;   "X......X"
+;;   "XXXXXXXX"
+;;   "X......X"
+;;   "X......X"
+;;   "X......X")
+;;
+;; (fringe-helper-define 'git-gutter-fr:deleted nil
+;;   "XXXXXX.."
+;;   "XX....X."
+;;   "XX.....X"
+;;   "XX.....X"
+;;   "XX.....X"
+;;   "XX.....X"
+;;   "XX....X."
+;;   "XXXXXX..")
+;;
+;; (fringe-helper-define 'git-gutter-fr:modified nil
+;;   "XXXXXXXX"
+;;   "X..XX..X"
+;;   "X..XX..X"
+;;   "X..XX..X"
+;;   "X..XX..X"
+;;   "X..XX..X"
+;;   "X..XX..X"
+;;   "X..XX..X")
 
 
-;; ;; (setq git-gutter-fr:side 'right-fringe)
+;; (setq git-gutter-fr:side 'right-fringe)
 
 
 ;; [ git-gutter-plus / git-gutter+]
