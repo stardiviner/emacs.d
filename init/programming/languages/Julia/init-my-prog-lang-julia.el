@@ -87,7 +87,7 @@
   )
 
 ;; 'julia, 'inferior-julia,
-(define-key my-inferior-ess-map (kbd "J") 'my-ess-inferior-julia)
+(define-key my-inferior-ess-map (kbd "j") 'my-ess-inferior-julia)
 
 
 ;;; [ julia-shell ] -- inferior Julia
@@ -118,7 +118,7 @@
       )
     )
 
-  (define-key my-inferior-ess-map (kbd "j") 'my-inferior-julia-shell)
+  (define-key my-inferior-ess-map (kbd "J") 'my-inferior-julia-shell)
   )
 
 
