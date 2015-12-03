@@ -61,6 +61,9 @@
               (run-hooks 'prog-mode-hook))
             ))
 
+(if (fboundp 'ess-julia-mode)
+    (define-key ess-julia-mode-map (kbd "C-c C-s") 'julia))
+
 (dolist (hook '(ess-julia-mode-hook
                 inferior-julia-mode-hook
                 julia-mode-hook
@@ -100,14 +103,8 @@
 
 (use-package julia-shell
   :config
-  (if (fboundp 'ess-julia-mode)
-      (progn
-        (define-key ess-julia-mode-map (kbd "C-c C-c") 'julia-shell-run-region-or-line)
-        (define-key ess-julia-mode-map (kbd "C-c C-s") 'julia-shell-save-and-go)
-        )
-    (define-key julia-mode-map (kbd "C-c C-c") 'julia-shell-run-region-or-line)
-    (define-key julia-mode-map (kbd "C-c C-s") 'julia-shell-save-and-go)
-    )
+  (define-key julia-mode-map (kbd "C-c C-c") 'julia-shell-run-region-or-line)
+  (define-key julia-mode-map (kbd "C-c C-s") 'julia-shell-save-and-go)
 
   (defun my-inferior-julia-shell (&optional process-buffer-name)
     "Start or switch to inferior-julia process buffer PROCESS-BUFFER-NAME."
