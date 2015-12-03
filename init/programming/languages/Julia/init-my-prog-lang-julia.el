@@ -140,6 +140,14 @@
 
   (define-key julia-mode-map (kbd "C-c C-c") 'julia-shell-run-region-or-line)
   (define-key julia-mode-map (kbd "C-c C-s") 'julia-shell-save-and-go)
+
+  (add-hook 'inferior-julia-shell-mode-hook
+            '(lambda ()
+               (add-hook 'completion-at-point-functions
+                         'ess-julia-object-completion nil 'local)
+               (add-hook 'completion-at-point-functions
+                         'ess-filename-completion nil 'local)
+               ))
   )
 
 
