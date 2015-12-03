@@ -150,25 +150,26 @@
 
 (use-package git-gutter+
   :init
-  ;; keybindings
-  (define-key my-prog-vcs-map (kbd "m t") 'git-gutter+-mode) ; Turn on/off in the current buffer
-  (define-key my-prog-vcs-map (kbd "m T") 'global-git-gutter+-mode) ; Turn on/off globally
-  ;; jump between hunks
-  (define-key my-prog-vcs-map (kbd "m n") 'git-gutter+-next-hunk)
-  (define-key my-prog-vcs-map (kbd "m p") 'git-gutter+-previous-hunk)
-  ;; actions on hunks
-  (define-key my-prog-vcs-map (kbd "m d") 'git-gutter+-show-hunk-inline-at-point)
-  (define-key my-prog-vcs-map (kbd "m =") 'git-gutter+-show-hunk) ; diff
-  (define-key my-prog-vcs-map (kbd "m D") 'git-gutter+-show-hunk) ; diff
-  (define-key my-prog-vcs-map (kbd "m r") 'git-gutter+-revert-hunk)
-  ;; stage hunk at point
-  ;; if region is active, stage all hunk lines within the region.
-  (define-key my-prog-vcs-map (kbd "m s") 'git-gutter+-stage-hunks)
-  (define-key my-prog-vcs-map (kbd "m c") 'git-gutter+-commit)
-  (define-key my-prog-vcs-map (kbd "m C") 'git-gutter+-stage-and-commit)
-  (define-key my-prog-vcs-map (kbd "m u") 'git-gutter:update-all-windows)
-
-  :config
+  (global-git-gutter+-mode t)
+  (progn
+    (define-key my-prog-vcs-map (kbd "m t") 'git-gutter+-mode) ; Turn on/off in the current buffer
+    (define-key my-prog-vcs-map (kbd "m T") 'global-git-gutter+-mode) ; Turn on/off globally
+    ;; jump between hunks
+    (define-key my-prog-vcs-map (kbd "m n") 'git-gutter+-next-hunk)
+    (define-key my-prog-vcs-map (kbd "m p") 'git-gutter+-previous-hunk)
+    ;; actions on hunks
+    (define-key my-prog-vcs-map (kbd "m d") 'git-gutter+-show-hunk-inline-at-point)
+    (define-key my-prog-vcs-map (kbd "m =") 'git-gutter+-show-hunk) ; diff
+    (define-key my-prog-vcs-map (kbd "m D") 'git-gutter+-show-hunk) ; diff
+    (define-key my-prog-vcs-map (kbd "m r") 'git-gutter+-revert-hunk)
+    ;; stage hunk at point
+    ;; if region is active, stage all hunk lines within the region.
+    (define-key my-prog-vcs-map (kbd "m s") 'git-gutter+-stage-hunks)
+    (define-key my-prog-vcs-map (kbd "m c") 'git-gutter+-commit)
+    (define-key my-prog-vcs-map (kbd "m C") 'git-gutter+-stage-and-commit)
+    (define-key my-prog-vcs-map (kbd "m u") 'git-gutter:update-all-windows))
+  
+  :config  
   (setq git-gutter+-disabled-modes '(asm-mode image-mode)
         ;; hide gutter if there are no changes
         git-gutter+-hide-gutter t
@@ -203,8 +204,6 @@
   (set-face-attribute 'git-gutter+-unchanged nil
                       )
   (set-face-foreground 'git-gutter+-separator "cyan")
-
-  (global-git-gutter+-mode t)
   )
 
 
