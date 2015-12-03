@@ -65,15 +65,34 @@
               (run-hooks 'prog-mode-hook))
             ))
 
-(dolist (hook '(ess-julia-mode-hook
+(dolist (hook '(julia-mode-hook
+                ess-julia-mode-hook ; It's derived from `julia-mode'
                 inferior-julia-mode-hook
-                julia-mode-hook
                 inferior-julia-shell-mode-hook
                 ))
   (add-hook hook
             '(lambda ()
-               (add-to-list (make-local-variable 'company-backends)
-                            'company-ess-julia-objects))))
+               ;; by default it add in `ess-julia-mode' setup.
+               ;; default add-hook to `completion-at-point-functions'.
+               ;; remove `company-ess-julia-objects' from `ess-julia-mode-hook'.
+               (setq-local company-backends
+                           (remove-if (lambda (b)
+                                        (find b '(company-ess-julia-objects)))
+                                      company-backends))
+               
+               ;; then add it back again.
+               
+               ;; (my-company-add-backends-to-mode '(company-ess-julia-objects))
+
+               ;; (make-local-variable 'company-backends)
+               ;; (setq company-backends (copy-tree company-backends))
+               ;; (setf (car company-backends)
+               ;;       (append 'company-ess-julia-objects
+               ;;               (car company-backends)))
+
+               ;; (add-to-list (make-local-variable 'company-backends)
+               ;;              'company-ess-julia-objects)
+               )))
 
 
 (defun my-ess-inferior-julia (&optional process-buffer-name)
