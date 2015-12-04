@@ -80,6 +80,7 @@
                  entry (file "~/Org/Contacts/Contacts.org")
                  "* %(org-contacts-template-name)
 :PROPERTIES:
+:NAME: %^{Name}
 :NAME(English): %^{Name(English)}
 :NAME(Chinese): %^{Name(Chinese)}
 :NICK:
@@ -90,28 +91,26 @@
 :Sexual: %^{Sexual|Heterosexual|Bisexual|Homosexual}
 :RELATIONSHIP: %^{Relationship|Meet|Friend|Good Friend|Boy Friend|Girl Friend|Classmate|Schoolmate}
 :FIRST-MEET: %^U  %^{first-time meet}
-:DATE: %^u
-:TIME: %^U
 :URL: %^{URL}
 :EMAIL: %(org-contacts-template-email)
 :MOBILE: %^{Mobile Phone}
 :PHONE:
 :IRC:
-:QQ:
+:QQ: %^{QQ}
 :WeChat: %^{WeChat}
+:Alipay: %^{Alipay}
 :BLOG:
 :ADDRESS(home): %^{address(home)}
 :ADDRESS(live): %^{address(live)}
 :ADDRESS(work):
-:EDUCATION(college): %^{Education(college)}
-:COMPANY: %^{Companies}
 :Bio:
-:INTERESTS:
-:PROGRAMMING-SKILLS: %^{programming skills}
-:SKILLS: %^{skills}
-:JOBS: %^{jobs}
-:EDUCATION:
 :LANGUAGES: %^{Languages|Chinese|English|Japanese|Korean}
+:EDUCATION: %^{Education}
+:PROGRAMMING-SKILLS: %^{Programming Skills}
+:SKILLS: %^{Skills}
+:INTERESTS: %^{Interests}
+:JOBS: %^{Jobs}
+:COMPANY: %^{Companies}
 :PROJECTS:
 :NOTE:
 :END:"
