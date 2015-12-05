@@ -257,27 +257,30 @@
 ;; - `send-region'
 ;; - `switch-to-js'
 
-(setq inferior-js-program-command "node --interactive")
-;; (setq inferior-js-program-command "/usr/bin/java org.mozilla.javascript.tools.shell.Main")
+(use-package js-comint
+  :init
+  (dolist (hook '(js2-mode-hook
+                  js3-mode-hook
+                  ))
+    (add-hook hook '(lambda ()
+                      (local-set-key (kbd "C-x C-e") 'js-send-last-sexp)
+                      (local-set-key (kbd "C-M-x") 'js-send-last-sexp-and-go)
+                      (local-set-key (kbd "C-c C-c") 'js-send-region)
+                      (local-set-key (kbd "C-c b") 'js-send-buffer)
+                      (local-set-key (kbd "C-c C-b") 'js-send-buffer-and-go)
+                      (local-set-key (kbd "C-c C-l") 'js-load-file)
+                      )))
+  :config
+  (setq inferior-js-program-command "node --interactive")
+  ;; (setq inferior-js-program-command "/usr/bin/java org.mozilla.javascript.tools.shell.Main")
 
-(dolist (hook '(js2-mode-hook
-                js3-mode-hook
-                ))
-  (add-hook hook '(lambda ()
-                    (local-set-key (kbd "C-x C-e") 'js-send-last-sexp)
-                    (local-set-key (kbd "C-M-x") 'js-send-last-sexp-and-go)
-                    (local-set-key (kbd "C-c C-c") 'js-send-region)
-                    (local-set-key (kbd "C-c b") 'js-send-buffer)
-                    (local-set-key (kbd "C-c C-b") 'js-send-buffer-and-go)
-                    (local-set-key (kbd "C-c C-l") 'js-load-file)
-                    )))
+  (add-hook 'inferior-js-mode-hook
+            (lambda ()
+              (ansi-color-for-comint-mode-on)))
 
-(add-hook 'inferior-js-mode-hook
-          (lambda ()
-            (ansi-color-for-comint-mode-on)))
-
-;; if use node.js, we need nice output
-(setenv "NODE_NO_READLINE" "1")
+  ;; if use node.js, we need nice output
+  (setenv "NODE_NO_READLINE" "1")
+  )
 
 
 ;;; [ JSCS (JavaScript Code Style) ]
