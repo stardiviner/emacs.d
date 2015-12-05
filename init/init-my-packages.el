@@ -312,6 +312,8 @@
     ;; golint
     ;; go-stacktracer
     go-projectile
+    ;; Swift
+    swift-mode
     ;; Java
     emacs-eclim
     ;; jdee

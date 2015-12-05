@@ -11,13 +11,22 @@
 
 ;;; Usage:
 ;;
-;; -
+;; - [C-c C-z] `swift-mode-run-repl' :: run REPL.
+;; - [C-c C-r] `swift-mode-send-region' :: send region to REPL.
+;; - [C-c C-f] `swift-mode-send-buffer' :: send buffer to REPL.
 
-(require 'swift-mode)
-
-;; Swift flycheck is disabled by default because not available under Linux.
-(setq flycheck-swift-sdk-path "")
-;; (add-to-list 'flycheck-checkers 'swift)
+(use-package swift-mode
+  :config
+  (setq swift-indent-offset 4
+        swift-indent-switch-case-offset 2
+        swift-indent-multiline-statement-offset 2
+        swift-indent-hanging-comma-offset nil)
+  (setq swift-repl-executable "swift")
+  ;; flycheck + swift-mode
+  (add-to-list 'flycheck-checkers 'swift)
+  ;; Swift flycheck is disabled by default because not available under Linux.
+  (setq flycheck-swift-sdk-path "")
+  )
 
 
 (provide 'init-my-prog-lang-swift)

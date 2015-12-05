@@ -207,7 +207,7 @@
 (require 'init-my-prog-lang-go)
 ;; (require 'init-my-prog-lang-nim)
 ;; (require 'init-my-prog-lang-lua)
-;; (require 'init-my-prog-lang-swift)
+(require 'init-my-prog-lang-swift)
 (require 'init-my-prog-lang-java)
 (require 'init-my-prog-lang-php)
 (require 'init-my-prog-lang-html)
