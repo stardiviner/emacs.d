@@ -280,6 +280,9 @@
 
   ;; if use node.js, we need nice output
   (setenv "NODE_NO_READLINE" "1")
+
+  ;; integrate with nvm.
+  (js-do-use-nvm)
   )
 
 
