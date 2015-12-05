@@ -149,6 +149,15 @@
 (define-key my-inferior-shell-map (kbd "S") 'shell)
 
 
+;;; smart Eshell
+
+(require 'em-smart)
+
+(setq eshell-where-to-jump 'begin
+      eshell-review-quick-commands nil
+      eshell-smart-space-goes-to-end t)
+
+
 ;;; [ shelldoc ] -- Improve edit shell command in minibuffer.
 
 ;;; Usage:
