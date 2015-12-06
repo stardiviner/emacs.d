@@ -307,7 +307,14 @@
                (org-present-show-cursor)
                (org-present-read-write)))
 
-  (define-key my-org-prefix (kbd "p") 'org-present)
+  (defun my-org-present ()
+    "Toggle org-present."
+    (interactive)
+    (if org-present-mode
+        (org-present-quit)
+      (org-present)))
+
+  (define-key my-org-prefix (kbd "p") 'my-org-present)
   )
 
 
