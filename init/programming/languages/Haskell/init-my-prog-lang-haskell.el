@@ -36,12 +36,10 @@
                 ))
   (add-hook hook
             '(lambda ()
-               (add-to-list (make-local-variable 'company-backends)
-                            'company-cabal)
-               (add-to-list (make-local-variable 'company-backends)
-                            'company-ghc)
-               (add-to-list (make-local-variable 'company-backends)
-                            'company-ghci)
+               (my-company-add-backends-to-mode
+                '(company-cabal
+                  company-ghc
+                  company-ghci))
                )))
 
 
