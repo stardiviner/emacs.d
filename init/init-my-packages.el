@@ -45,7 +45,7 @@
     vlf
     tablist
     ;; Narrow
-    ;; fancy-narrow narrow-indirect narrow-reindent recursive-narrow
+    fancy-narrow ; narrow-indirect narrow-reindent recursive-narrow
     ;; narrowed-page-navigation
     ;; Outline
     ;; Navigation
