@@ -99,7 +99,10 @@
 :QQ: %^{QQ}
 :WeChat: %^{WeChat}
 :Alipay: %^{Alipay}
-:BLOG:
+:BLOG: %^{BLOG}
+:GitHub: %^{GitHub}
+:Facebook: %^{Facebook}
+:Twitter: %^{Twitter}
 :ADDRESS(home): %^{address(home)}
 :ADDRESS(live): %^{address(live)}
 :ADDRESS(work):
