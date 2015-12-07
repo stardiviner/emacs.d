@@ -199,6 +199,7 @@
 ;; (require 'init-my-prog-lang-scheme)
 ;; (require 'init-my-prog-lang-guile)
 (require 'init-my-prog-lang-clojure)
+(require 'init-my-prog-lang-sibilant)
 (require 'init-my-prog-lang-ruby)
 (require 'init-my-prog-lang-python)
 (require 'init-my-prog-lang-shell)
