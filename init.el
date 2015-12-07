@@ -217,7 +217,7 @@
 (require 'init-my-prog-lang-database)
 (require 'init-my-prog-lang-xml)
 (require 'init-my-prog-lang-json)
-;; (require 'init-my-prog-lang-haskell)
+(require 'init-my-prog-lang-haskell)
 ;; FIXME: achmeist-company can't be initialized.
 ;; (require 'init-my-prog-lang-elixir)
 ;; (require 'init-my-prog-lang-erlang)

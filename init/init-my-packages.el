@@ -330,10 +330,10 @@
     ;; rust-mode flycheck-rust
     ;; racer company-racer
     ;; Haskell
-    ;; haskell-mode flycheck-haskell
-    ;; ghc ghci-completion
-    ;; ebal
-    ;; company-ghc company-ghci company-cabal
+    haskell-mode flycheck-haskell
+    ghc ghci-completion
+    company-ghc company-ghci company-cabal
+    ebal
     ;; Erlang
     ;; erlang
     ;; Prolog
