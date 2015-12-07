@@ -321,6 +321,30 @@
   )
 
 
+;;; [ org-tree-slide ] -- A presentation tool for org-mode based on the visibility of outline trees.
+
+(use-package org-tree-slide
+  :config
+  (setq org-tree-slide-header t
+        org-tree-slide-cursor-init t
+        org-tree-slide-skip-done nil
+        org-tree-slide-slide-in-effect t
+        org-tree-slide-heading-emphasis t
+        org-tree-slide-modeline-display 'outside
+        org-tree-slide-fold-subtrees-skipped t)
+  
+  ;; profiles
+  ;; (org-tree-slide-simple-profile)
+  (org-tree-slide-presentation-profile)
+  ;; (org-tree-slide-narrowing-control-profile)
+
+  (if (featurep 'org-tree-slide-mode)
+      (define-key my-org-prefix (kbd "p") 'org-tree-slide-mode)
+    ;; (global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
+    )
+  )
+
+
 (provide 'init-my-org-extensions)
 
 ;;; init-my-org-extensions.el ends here

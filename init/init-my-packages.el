@@ -496,6 +496,7 @@
     ;; Collaborate
     ;; rudel togetherly
     ;; Slides
+    org-tree-slide
     org-present
     ;; doc-present
     ;; Websites Client
