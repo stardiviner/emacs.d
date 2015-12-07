@@ -25,7 +25,6 @@
 (define-key my-edit-prefix (kbd "n") 'my-narrow-prefix)
 
 (define-key my-narrow-prefix (kbd "w") 'widen)
-(define-key my-narrow-prefix (kbd "n") 'narrow-to-region)
 (define-key my-narrow-prefix (kbd "r") 'narrow-to-region)
 (define-key my-narrow-prefix (kbd "d") 'narrow-to-defun)
 (define-key my-narrow-prefix (kbd "p") 'narrow-to-page)
@@ -82,18 +81,13 @@ narrowed."
 
 (use-package fancy-narrow
   :config
-  (unless (boundp 'fancy-narrow-prefix)
-    (define-prefix-command 'fancy-narrow-prefix))
-  (define-key my-narrow-prefix (kbd "C-f") 'fancy-narrow-prefix)
-  
-  (define-key fancy-narrow-prefix (kbd "n") 'fancy-narrow-to-region)
-  (define-key fancy-narrow-prefix (kbd "w") 'fancy-widen)
-  (define-key fancy-narrow-prefix (kbd "r") 'fancy-narrow-to-region)
-  (define-key fancy-narrow-prefix (kbd "d") 'fancy-narrow-to-defun)
-  (define-key fancy-narrow-prefix (kbd "p") 'fancy-narrow-to-page)
-
   (set-face-attribute 'fancy-narrow-blocked-face nil
                       :foreground "#222222")
+  
+  (define-key narrow-map [remap narrow-to-region] 'fancy-narrow-to-region)
+  (define-key narrow-map [remap narrow-to-defun] 'fancy-narrow-to-defun)
+  (define-key narrow-map [remap narrow-to-page] 'fancy-narrow-to-page)
+  (define-key narrow-map [remap widen] 'fancy-widen)
   )
 
 
