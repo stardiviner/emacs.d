@@ -7,9 +7,9 @@
 
 ;;; Code:
 
+;;; [ sibilant-mode ]
 
-
-
+(use-package sibilant-mode)
 
 
 (provide 'init-my-prog-lang-sibilant)

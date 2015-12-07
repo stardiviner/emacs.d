@@ -300,6 +300,8 @@
     flycheck-clojure
     ;; align-cljlet
     ;; elein
+    ;; Sibilant
+    sibilant-mode
     ;; Elixir
     ;; elixir-mode ; alchemist
     ;; ob-elixir
