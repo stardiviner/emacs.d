@@ -24,48 +24,33 @@
 (require 'tex-site)
 
 
-;;;_ [ company-auctex ]
+;;; [ company-auctex ]
+;;; [ company-math ]
 
 ;; (company-auctex-init)
-;;
+
 (dolist (hook '(tex-mode-hook
                 latex-mode-hook
                 ))
-  (add-hook hook '(lambda ()
-                    (add-to-list (make-local-variable 'company-backends)
-                                 'company-auctex-labels)
-                    (add-to-list (make-local-variable 'company-backends)
-                                 'company-auctex-bibs)
-                    (add-to-list (make-local-variable 'company-backends)
-                                 '(company-auctex-macros company-auctex-symbols company-auctex-environments))
-                    )))
+  (add-hook hook
+            '(lambda ()
+               (my-company-add-backends-to-mode
+                '(company-auctex-labels
+                  company-auctex-bibs
+                  company-auctex-macros
+                  company-auctex-symbols
+                  company-auctex-environments
+                  ;; company-math
+                  company-latex-commands
+                  company-math-symbols-latex
+                  company-math-symbols-unicode
+                  ))
+               )))
 
 
-;;;_ [ auto-complete-latex ]
+;;; [ latex-pretty-symbols ]
 
-;; (require 'auto-complete-latex)
-;;
-;; (setq ac-l-dict-directory "~/.emacs.d/el-get/auto-complete-latex/ac-l-dict/")
-;;
-;; (add-to-list 'ac-modes 'latex-mode)
-;;
-;; (dolist (hook '(latex-mode-hook
-;;                 LaTeX-mode-hook
-;;                 ))
-;;   (add-hook hook 'ac-l-setup))
-
-
-;;; [ ac-math ]
-
-;; (require 'ac-math)
-
-;; TODO: https://github.com/vspinu/ac-math
-;; https://github.com/vspinu/math-symbol-lists
-
-
-;;; [ company-math ]
-
-;; TODO: https://github.com/vspinu/company-math
+(require 'latex-pretty-symbols)
 
 
 ;;; [ latex-preview-pane ]
@@ -87,7 +72,27 @@
 ;; - Customize LaTeX Preview Pane (opens a customization buffer where you can
 ;;   set the command to use for generating previews)
 
-(latex-preview-pane-enable)
+(use-package latex-preview-pane
+  :config
+  (latex-preview-pane-enable))
+
+
+;;; [ px ]
+
+;; Provides functions to preview LaTeX codes like $x^2$ in any
+;; buffer/mode.
+
+;; Use `px-preview-region' to preview LaTeX codes delimited by $ pairs
+;; in the region.
+;; Use `px-preview' to process the whole buffer.
+;; Use `px-remove' to remove all images and restore the text back.
+;; Use `px-toggle' to toggle between images and text on the whole
+;; buffer.
+
+;; Most of this code comes from weechat-latex.el which in turn uses
+;; org-mode previewer.
+
+(use-package px)
 
 
 ;;;_ [ reftex ]
