@@ -1,4 +1,4 @@
 # name: times { |n| ... }
-# key: tim
+# key: times
 # --
 times { |${n}| $0 }

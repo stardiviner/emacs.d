@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: key-value pair
+# key: kv
+# --
+${1:key}: ${2:value}${3:, }$0
