@@ -497,7 +497,7 @@
     ;; rudel togetherly
     ;; Slides
     org-tree-slide
-    org-present
+    ;; org-present
     ;; doc-present
     ;; Websites Client
     ;; sx
