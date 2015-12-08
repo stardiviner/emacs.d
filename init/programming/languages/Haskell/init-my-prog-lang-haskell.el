@@ -37,9 +37,9 @@
   (add-hook hook
             '(lambda ()
                (my-company-add-backends-to-mode
-                '(company-cabal
-                  company-ghc
-                  company-ghci))
+                '(company-ghc
+                  company-ghci
+                  company-cabal))
                )))
 
 
