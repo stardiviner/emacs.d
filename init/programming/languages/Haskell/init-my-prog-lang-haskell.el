@@ -15,9 +15,9 @@
             '(lambda ()
                (turn-on-haskell-doc-mode)
                (turn-on-haskell-indentation)
-
-               (run-haskell)
                ))
+
+  (define-key my-prog-inferior-map (kbd "h") 'run-haskell)
   )
 
 
