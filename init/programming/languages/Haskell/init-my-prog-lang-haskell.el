@@ -15,6 +15,8 @@
             '(lambda ()
                (turn-on-haskell-doc-mode)
                (turn-on-haskell-indentation)
+               ;; disable `aggressive-indent-mode' in `haskell-mode'.
+               (aggressive-indent-mode -1)
                ))
 
   (define-key my-prog-inferior-map (kbd "h") 'run-haskell)
