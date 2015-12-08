@@ -28,9 +28,20 @@
 
 
 ;;; [ company-ghc ]
+
+(use-package company-ghc
+  :config
+  (setq company-ghc-show-info t
+        company-ghc-show-module t
+        ))
+
+
 ;;; [ company-ghci ]
+
+
 ;;; [ company-cabal ]
 
+
 (dolist (hook '(haskell-mode-hook
                 inferior-haskell-mode
                 ))
