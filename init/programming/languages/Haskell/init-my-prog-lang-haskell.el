@@ -14,6 +14,9 @@
   (add-hook 'haskell-mode-hook
             '(lambda ()
                (turn-on-haskell-doc-mode)
+               ;; indent
+               (turn-on-haskell-simple-indent)
+               (turn-on-haskell-indent)
                (turn-on-haskell-indentation)
                ;; disable `aggressive-indent-mode' in `haskell-mode'.
                (aggressive-indent-mode -1)
