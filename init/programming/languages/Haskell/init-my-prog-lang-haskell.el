@@ -72,6 +72,13 @@
                                   "org-mode")))))
   
   (define-key haskell-interactive-mode-map (kbd "C-c C-v") 'haskell-interactive-toggle-print-mode)
+
+  ;; Doc (Haddocks)
+  (require 'w3m-haddock)
+  ;; make haddock pages a little more palatable (and add syntax highlighting to source view)
+  (add-hook 'w3m-display-hook 'w3m-haddock-display)
+  (setq haskell-w3m-haddock-dirs '("~/.cabal/share/doc/"))
+  (define-key haskell-mode-map (kbd "C-c C-d") 'haskell-w3m-open-haddock)
   )
 
 
