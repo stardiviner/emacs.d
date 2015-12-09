@@ -202,8 +202,7 @@
                 ))
   (add-hook hook
             (lambda ()
-              (add-to-list (make-local-variable 'company-backends)
-                           'company-edbi))))
+              (my-company-add-backends-to-mode '(company-edbi)))))
 
 
 ;;; [ EmacSQL ] -- high-level SQL database front-end.
