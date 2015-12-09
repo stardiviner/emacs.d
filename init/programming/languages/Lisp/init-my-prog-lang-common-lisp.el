@@ -259,8 +259,7 @@
                 ))
   (add-hook hook
             (lambda ()
-              (add-to-list (make-local-variable 'company-backends)
-                           'sly-company)
+              (my-company-add-backends-to-mode '(sly-company))
               )))
 
 
