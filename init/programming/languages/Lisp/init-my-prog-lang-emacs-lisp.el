@@ -91,8 +91,7 @@
 (add-hook 'ielm-mode-hook
           (lambda ()
             (elisp-slime-nav-mode 1)
-            (add-to-list (make-local-variable 'company-backends)
-                         'company-elisp)))
+            (my-company-add-backends-to-mode '(company-elisp))))
 
 ;; ---------------------------------------------------------------
 ;;; enable auto-complete support in ielm.
