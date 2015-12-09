@@ -105,9 +105,9 @@
   :config
   (add-hook 'irony-mode-hook
             '(lambda ()
-               (make-local-variable 'company-backends)
-               (add-to-list 'company-backends 'company-irony)
-               (add-to-list 'company-backends 'company-irony-c-headers)
+               (my-company-add-backends-to-mode
+                '(company-irony-c-headers
+                  company-irony))
                
                ;; (optional) adds CC special commands to `company-begin-commands'
                ;; in order to trigger completion at interesting places, such as
