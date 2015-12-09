@@ -419,6 +419,7 @@
     company-auctex company-math
     latex-pretty-symbols
     px latex-preview-pane ; latex-math-preview
+    cdlatex
     ;; Markdown
     markdown-mode
     ;; YAML

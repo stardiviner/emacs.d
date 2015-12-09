@@ -58,6 +58,10 @@
 
 (setq org-latex-create-formula-image-program 'dvipng)
 
+;;; Using CDLaTeX to enter Math
+(add-hook 'org-mode-hook 'turn-on-org-cdlatex)
+
+
 ;;; MathJax
 ;;
 ;; ;; CDLaTeX minor mode to speed up math input.
