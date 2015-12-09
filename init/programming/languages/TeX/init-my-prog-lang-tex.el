@@ -7,6 +7,12 @@
 
 ;;;_ Code:
 
+;;; [ tex-mode ]
+
+
+;;; [ latex-mode ]
+
+
 ;;;_ [ AUCTeX ] -- Integrated environment for TeX.
 
 ;;;_* Usage:
@@ -22,6 +28,11 @@
 ;; See info under AUCTeX for full documentation.
 
 (require 'tex-site)
+
+(dolist (hook '(tex-mode-hook
+                latex-mode-hook
+                          ))
+  (add-hook hook #'aggressive-indent-mode))
 
 
 ;;; [ company-auctex ]
