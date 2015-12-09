@@ -217,6 +217,12 @@
 #       $0
 #     </div>
 #
+#     # key: regexp
+#     # type: command
+#     # --
+#     (yas-expand-snippet (concat "${1:" (yas-choose-value '("/${2:pattern}/" "%r{${2:pattern}}" "Regexp.new(${2:pattern})")) "}"))
+#
+#
 #     See the definition of yas/choose-value to see how it was written using the
 #     two variables.
 #     Here's another use, for LaTeX-mode, which calls reftex-label just as you

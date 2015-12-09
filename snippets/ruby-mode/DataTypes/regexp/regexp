@@ -1,5 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: regexp object
 # key: regexp
+# type: command
 # --
-${1:$$(yas-choose-value '("/pattern/" "%r{pattern}" "Regexp.new(pattern)"))}
+(yas-expand-snippet (concat "${1:" (yas-choose-value '("/${2:pattern}/" "%r{${2:pattern}}" "Regexp.new(${2:pattern})")) "}"))
