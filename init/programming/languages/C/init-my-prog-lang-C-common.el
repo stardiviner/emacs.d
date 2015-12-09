@@ -138,11 +138,13 @@
 
 ;; (use-package company-clang
 ;;   :config
+;;   ;; (setq company-clang-arguments
+;;   ;;       company-clang-prefix-guesser 'company-clang-guess-prefix
+;;   ;;       )
 ;;   (setq company-clang-begin-after-member-access t)
 ;;
 ;;   (hook-modes c-dialects-mode
-;;     (add-to-list (make-local-variable 'company-backends)
-;;                  'company-clang))
+;;     (my-company-add-backends-to-mode '(company-clang)))
 ;;   )
 
 
