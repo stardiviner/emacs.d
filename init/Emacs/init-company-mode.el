@@ -288,7 +288,13 @@
 ;; (setq-default yas-key-syntaxes (list "w_" "w_." "w_.()"
 ;;                                      #'yas-try-key-from-whitespace))
 
+
+;;; [ company-etags ]
 
+(require 'company-etags)
+
+;; enable to offer completions in comment and strings.
+;; (setq company-etags-everywhere t)
 
 
 ;;; company-transformers -- Functions to change the list of candidates received from backends.
