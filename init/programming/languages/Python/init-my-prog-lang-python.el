@@ -64,9 +64,8 @@
 ;; (setq inferior-python-mode-hook nil)
 
 (add-hook 'inferior-python-mode-hook
-          (lambda ()
-            (add-to-list (make-local-variable 'company-backends)
-                         'company-anaconda)))
+          '(lambda ()
+             (my-company-add-backends-to-mode '(company-anaconda))))
 
 
 ;;; [ pyenv-mode ]
@@ -208,11 +207,10 @@
 ;;; [ company-anaconda ]
 
 (use-package company-anaconda
-  :init
+  :config
   (add-hook 'python-mode-hook
-            (lambda ()
-              (add-to-list (make-local-variable 'company-backends)
-                           'company-anaconda)))
+            '(lambda ()
+               (my-company-add-backends-to-mode '(company-anaconda))))
   )
 
 
