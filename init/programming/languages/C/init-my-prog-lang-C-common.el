@@ -81,10 +81,10 @@
     (electric-indent-mode 1)
     (turn-on-eldoc-mode)
 
-    (make-local-variable 'company-backends)
-    (add-to-list 'company-backends 'company-gtags)
-    (add-to-list 'company-backends 'company-etags)
-    (add-to-list 'company-backends 'company-cmake)
+    (my-company-add-backends-to-mode
+     '(company-gtags
+       company-etags
+       company-cmake))
     )
   :config
   ;; replace the `completion-at-point' and `complete-symbol' bindings in

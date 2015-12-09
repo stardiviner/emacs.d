@@ -30,8 +30,10 @@
   (require 'haskell-process)
   
   (setq haskell-process-suggest-remove-import-lines t
+        haskell-process-suggest-hoogle-imports t
         haskell-process-auto-import-loaded-modules t
         haskell-process-log t
+        haskell-interactive-mode-eval-mode 'haskell-mode
         haskell-tags-on-save t)
 
   (add-hook 'haskell-mode-hook
@@ -57,6 +59,19 @@
   ;; (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-tag-find)
   ;; To use GHCi first and then if that fails to fallback to tags for jumping
   (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def-or-tag)
+
+  (defun haskell-interactive-toggle-print-mode ()
+    (interactive)
+    (setq haskell-interactive-mode-eval-mode
+          (intern
+           (ido-completing-read "Eval result mode: "
+                                '("fundamental-mode"
+                                  "haskell-mode"
+                                  "espresso-mode"
+                                  "ghc-core-mode"
+                                  "org-mode")))))
+  
+  (define-key haskell-interactive-mode-map (kbd "C-c C-v") 'haskell-interactive-toggle-print-mode)
   )
 
 
