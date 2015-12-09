@@ -69,7 +69,7 @@
 
 (defvar lisp-dialects-mode
   '(emacs-lisp-mode
-    inferior-emacs-lisp-mode-hook
+    inferior-emacs-lisp-mode
     lisp-mode
     lisp-interaction-mode
     ;; common-lisp-lisp-mode(-hook)
