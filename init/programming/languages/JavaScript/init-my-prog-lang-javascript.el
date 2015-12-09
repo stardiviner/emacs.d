@@ -376,9 +376,8 @@
               (lambda ()
                 ;; enable `tern-mode'.
                 (tern-mode t)
-                
-                (add-to-list (make-local-variable 'company-backends)
-                             'company-tern)
+
+                (my-company-add-backends-to-mode '(company-tern))
                 )))
   
   :config
