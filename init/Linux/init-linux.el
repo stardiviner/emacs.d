@@ -34,8 +34,8 @@
 ;; built-in default.
 ;; (add-hook 'systemd-mode-hook
 ;;           (lambda ()
-;;             (add-to-list (make-local-variable 'company-backends)
-;;                          'systemd-company-backend)))
+;;             (my-company-add-backends-to-mode '(systemd-company-backend))
+;;             ))
 
 
 ;;; crontab-mode
