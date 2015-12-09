@@ -239,6 +239,15 @@
       '("+PROJECT/-MAYBE-DONE" ("NEXT" "TODO") ("@SHOP")
         "\\<IGNORE\\>"))
 
+
+;;; [ inline task ]
+
+(require 'org-inlinetask)
+
+(setq org-inlinetask-default-state "TODO"
+      org-inlinetask-show-first-star nil
+      ;; org-inlinetask-min-level 15
+      )
 
 
 (provide 'init-my-org-todo)
