@@ -29,11 +29,6 @@
 
 (require 'tex-site)
 
-(dolist (hook '(tex-mode-hook
-                latex-mode-hook
-                          ))
-  (add-hook hook #'aggressive-indent-mode))
-
 
 ;;; [ company-auctex ]
 ;;; [ company-math ]
@@ -42,15 +37,23 @@
 
 (dolist (hook '(tex-mode-hook
                 latex-mode-hook
+                LaTeX-mode-hook
+                ;; LaTeX-math-mode-hook
                 ))
   (add-hook hook
             '(lambda ()
+               ;; indent
+               (aggressive-indent-mode)
+
+               ;; complete
                (my-company-add-backends-to-mode
-                '(company-auctex-labels
-                  company-auctex-bibs
-                  company-auctex-macros
+                '(company-auctex-macros
                   company-auctex-symbols
                   company-auctex-environments
+
+                  company-auctex-labels
+                  company-auctex-bibs
+                  
                   ;; company-math
                   company-latex-commands
                   company-math-symbols-latex
