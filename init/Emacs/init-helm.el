@@ -281,7 +281,7 @@
   ;; 'split-window, 'one-window, 'same-window.
   (setq helm-descbinds-window-style 'same-window)
   
-  (helm-descbinds-mode 1)
+  (helm-descbinds-mode)
   )
 
 
