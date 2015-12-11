@@ -29,6 +29,20 @@
   )
 
 
+;;; [ company-sourcekit ]
+
+(use-package company-sourcekit
+  :config
+  (setq company-sourcekit-use-yasnippet t
+        company-sourcekit-verbose nil
+        ;; sourcekit-sourcekitdaemon-executable
+        )
+  (add-hook 'swift-mode-hook
+            '(lambda ()
+               (my-company-add-backends-to-mode '(company-sourcekit))))
+  )
+
+
 (provide 'init-my-prog-lang-swift)
 
 ;;; init-my-prog-lang-swift.el ends here

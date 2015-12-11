@@ -316,6 +316,7 @@
     go-projectile
     ;; Swift
     swift-mode
+    company-sourcekit
     ;; Java
     emacs-eclim
     ;; jdee
