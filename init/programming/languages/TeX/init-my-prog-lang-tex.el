@@ -58,6 +58,9 @@
 
                ;; linter
                (flycheck-mode 1)
+
+               ;; Math
+               (LaTeX-math-mode)
                )))
 
 
