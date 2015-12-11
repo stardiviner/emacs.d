@@ -32,9 +32,7 @@
 ;; (company-auctex-init)
 
 (dolist (hook '(tex-mode-hook
-                latex-mode-hook
                 LaTeX-mode-hook
-                ;; LaTeX-math-mode-hook
                 ))
   (add-hook hook
             '(lambda ()
