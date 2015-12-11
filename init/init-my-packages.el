@@ -417,6 +417,7 @@
     ;; Assembly
     ;; nasm-mode iasm-mode fasm-mode
     ;; TeX
+    auctex
     company-auctex company-math
     latex-pretty-symbols
     px latex-preview-pane ; latex-math-preview
