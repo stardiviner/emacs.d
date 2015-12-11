@@ -43,7 +43,7 @@
   (add-hook hook
             '(lambda ()
                ;; indent
-               (aggressive-indent-mode)
+               (aggressive-indent-mode 1)
 
                ;; complete
                (my-company-add-backends-to-mode
@@ -59,6 +59,9 @@
                   company-math-symbols-latex
                   company-math-symbols-unicode
                   ))
+
+               ;; linter
+               (flycheck-mode 1)
                )))
 
 
