@@ -39,6 +39,9 @@
                ;; indent
                (aggressive-indent-mode 1)
 
+               ;; fold
+               (TeX-fold-mode 1)
+
                ;; complete
                (my-company-add-backends-to-mode
                 '(company-auctex-macros
