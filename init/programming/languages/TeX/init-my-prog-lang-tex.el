@@ -144,6 +144,7 @@
 
 (use-package latex-preview-pane
   :config
+  (setq preview-orientation 'right)
   (latex-preview-pane-enable))
 
 
