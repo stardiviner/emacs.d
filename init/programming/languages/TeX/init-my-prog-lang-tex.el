@@ -59,6 +59,10 @@
                ;; linter
                (flycheck-mode)
 
+
+               ;; block
+               (local-set-key (kbd "C-c C-i") 'tex-latex-block)
+               
                ;; Section
                (setq LaTeX-section-hook
                      '(LaTeX-section-heading
