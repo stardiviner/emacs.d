@@ -68,7 +68,7 @@
                        LaTeX-section-label))
 
                ;; Math
-               (LaTeX-math-mode)
+               ;; (LaTeX-math-mode)
                )))
 
 
