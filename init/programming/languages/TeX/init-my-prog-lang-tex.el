@@ -25,6 +25,10 @@
 
 (require 'tex-site)
 
+;;; AUCTeX config
+(setq TeX-auto-save t
+      TeX-parse-self t)
+
 
 ;;; [ company-auctex ]
 ;;; [ company-math ]
