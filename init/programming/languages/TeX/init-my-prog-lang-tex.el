@@ -24,6 +24,7 @@
 ;; - [C-c `] :: popup compile error.
 
 (require 'tex-site)
+(require 'latex)
 
 ;;; AUCTeX config
 (setq TeX-auto-save t
