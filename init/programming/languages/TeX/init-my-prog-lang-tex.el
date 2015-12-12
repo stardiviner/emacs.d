@@ -37,10 +37,10 @@
   (add-hook hook
             '(lambda ()
                ;; indent
-               (aggressive-indent-mode 1)
+               (aggressive-indent-mode)
 
                ;; fold
-               (TeX-fold-mode 1)
+               (TeX-fold-mode)
 
                ;; complete
                (my-company-add-backends-to-mode
@@ -58,7 +58,7 @@
                   ))
 
                ;; linter
-               (flycheck-mode 1)
+               (flycheck-mode)
 
                ;; Math
                (LaTeX-math-mode)
