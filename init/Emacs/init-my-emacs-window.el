@@ -703,8 +703,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
 
 
   ;; TeX/LaTeX (AUCTeX)
-  ;; (push '(special-mode :position bottom :height 10) popwin:special-display-config)
-  (push '(TeX-output-mode :position bottom :height 10) popwin:special-display-config)
+  ;; (push '(TeX-output-mode :position bottom :height 10) popwin:special-display-config)
   (push '("*TeX Help*" :position bottom :height 10) popwin:special-display-config)
 
   ;; Database: edbi
