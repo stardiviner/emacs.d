@@ -60,6 +60,14 @@
                ;; linter
                (flycheck-mode)
 
+               ;; Section
+               (setq LaTeX-section-hook
+                     '(LaTeX-section-heading
+                       LaTeX-section-title
+                       LaTeX-section-toc
+                       LaTeX-section-section
+                       LaTeX-section-label))
+
                ;; Math
                (LaTeX-math-mode)
                )))
