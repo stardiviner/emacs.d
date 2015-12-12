@@ -29,10 +29,9 @@
 ;;; [ company-auctex ]
 ;;; [ company-math ]
 
-;; (company-auctex-init)
-
 (dolist (hook '(tex-mode-hook
-                LaTeX-mode-hook
+                latex-mode-hook
+                LaTeX-mode-hook ; from AUCTeX
                 ))
   (add-hook hook
             '(lambda ()
