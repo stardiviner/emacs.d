@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: function
+# key: function
+# condition: (equal ess-dialect "julia")
+# --
+function ${1:function-name}
+  $0
+end
