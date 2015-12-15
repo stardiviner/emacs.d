@@ -15,7 +15,7 @@
 
 (use-package julia-mode
   :config
-  (setq julia-indent-offset 4)
+  (setq julia-indent-offset 2)
   )
 
 
