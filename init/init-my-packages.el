@@ -50,6 +50,8 @@
     ;; Outline
     ;; Navigation
     show-marks
+    ;; imenu
+    ;; dmenu
     ;; ace-jump-mode
     ;; pophint
     ;; Fold
@@ -77,6 +79,8 @@
     ;; Completion System
     helm
     helm-helm-commands helm-descbinds
+    ;; ido ido-vertical-mode ; ido-preview
+    ;; smex ido-ubiquitous flx-ido
     ;; ivy counsel
     ;; Popup
     popup pos-tip
@@ -408,7 +412,7 @@
     web-completion-data
     know-your-http-well httpcode
     company-web company-restclient
-    ;; Browser
+    ;; Web Browser Development
     ;; dom
     ;; WebKit
     ;; kite jss
@@ -465,7 +469,7 @@
     ;; sauron
     ;; Speak
     ;; Browser
-    ;; w3m
+    w3m
     ;; Email
     ;; gnus
     ;; mu4e
@@ -474,7 +478,7 @@
     ;; bbdb
     ;; bbdb-vcard bbdb-csv-import gmail2bbdb
     ;; Feeds: RSS & Atom
-    ;; elfeed elfeed-web
+    ;; elfeed elfeed-goodies elfeed-web
     ;; Blog
     ;; ox-jekyll-subtree
     octopress org-octopress
@@ -504,6 +508,7 @@
     org-tree-slide
     ;; org-present
     ;; doc-present
+    ;; cheatsheet
     ;; Websites Client
     ;; sx
     
