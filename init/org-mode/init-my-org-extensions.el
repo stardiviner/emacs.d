@@ -127,6 +127,7 @@
   ;; (add-to-list 'org-property-set-functions-alist
   ;;              '(".*" . org-completing-read))
 
+  ;; Create agenda view for contacts matching NAME.
   (define-key my-org-prefix (kbd "b") 'org-contacts)
 
   (dolist (hook '(message-mode-hook

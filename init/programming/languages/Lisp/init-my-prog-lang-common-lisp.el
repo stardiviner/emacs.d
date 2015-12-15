@@ -118,6 +118,9 @@
                        'slime-complete-symbol)
              ))
 
+;; load quicklisp installed SLIME.
+;; (ql:quickload "quicklisp-slime-helper")
+
 
 ;;; [ slime-company ] -- slime backend for Company mode.
 

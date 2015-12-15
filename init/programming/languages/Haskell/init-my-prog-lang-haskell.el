@@ -134,7 +134,7 @@
 (use-package ghci-completion)
 
 
-;;; [ ebal ] -- Emacs interface to Cabal.
+;;; [ ebal ] -- Emacs interface to Cabal and Stack.
 
 (use-package ebal)
 

@@ -7,10 +7,10 @@
 
 ;;; Code:
 
-
 ;;; variables
-;; (setq shell-file-name (getenv "SHELL"))      ; "$SHELL", "/bin/sh", "/bin/bash", "usr/bin/zsh"
 
+;; "$SHELL", "/bin/sh", "/bin/bash", "usr/bin/zsh"
+;; (setq shell-file-name (getenv "SHELL"))
 
 
 ;;; [ Shell ]
@@ -128,7 +128,7 @@
 (define-key my-inferior-shell-map (kbd "S") 'shell)
 
 
-;;; smart Eshell
+;;; Eshell smart display
 
 (require 'em-smart)
 

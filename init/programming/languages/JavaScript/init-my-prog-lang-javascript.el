@@ -407,6 +407,20 @@
 ;;             (tern-mode 1)))
 
 
+;;; [ skewer-mode ] --
+
+;;; Usage:
+;;
+;; - [M-x ] ::
+
+
+;;; [ livid-mode ] --
+
+;;; Usage:
+;;
+;; - [M-x ] ::
+
+
 
 (provide 'init-my-prog-lang-javascript)
 

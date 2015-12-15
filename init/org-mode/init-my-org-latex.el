@@ -49,7 +49,7 @@
 ;;                     )
 ;;       )
 
-
+
 ;;; [ Math ]
 
 ;; `helm-insert-latex-math'

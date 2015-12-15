@@ -7,7 +7,6 @@
 
 ;;; Code:
 
-
 ;;; [ prettify-symbols-mode ]
 
 ;; TODO:
@@ -51,7 +50,8 @@
 
   ;; only prettify lambda in Lisp dialects with two spaces without breaking
   ;; indentation.
-  ;;
+
+  ;; [ Lisp / Clojure ]
   ;; clojure-mode already defines fn to display as λ,
   (defvar my/clojure-prettify-alist '())
   

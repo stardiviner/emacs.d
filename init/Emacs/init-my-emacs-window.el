@@ -683,6 +683,8 @@ The `BUFFER' is the popwin catch pop private message buffer."
   ;; Go
   (push '(godoc-mode :position bottom :height 10) popwin:special-display-config)
 
+  ;; Swift
+
   ;; Haskell
   (push '(inferior-haskell-mode :position bottom :height 10) popwin:special-display-config)
   (push '(haskell-interactive-mode :position bottom :height 10) popwin:special-display-config)
