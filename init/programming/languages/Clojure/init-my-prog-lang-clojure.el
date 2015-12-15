@@ -41,12 +41,6 @@
                     (inf-clojure "clojure")
                     (bury-buffer)))
               ))
-  
-  ;; TODO: this might lead to `lisp-dialects-mode' hook error.
-  ;; (add-hook 'inf-clojure-mode-hook
-  ;;           '(lambda ()
-  ;;              (cider-mode 1)
-  ;;              ))
   )
 
 
