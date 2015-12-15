@@ -326,6 +326,12 @@
                 (my-company-add-backends-to-mode '(company-robe))
                 )))
 
+  ;; ruby-mode has keybinding [C-c C-s] for `inf-ruby'.
+  ;; auto start robe `robe-start' after start `inf-ruby'.
+  (defadvice inf-ruby (after inf-ruby activate)
+    "Run `robe-start' after `inf-ruby' started."
+    (robe-start))
+  
   (define-key my-prog-inferior-map (kbd "r a") 'inf-ruby-console-auto)
   )
 
