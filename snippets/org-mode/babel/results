@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: result
-# key: result
+# name: results block
+# key: results-block
 # --
 #+RESULTS:
 #+begin_example

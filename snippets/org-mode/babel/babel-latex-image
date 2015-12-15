@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: babel-latex-image
+# key: babel-latex-image
+# --
+#+BEGIN_SRC latex :results ouput raw graphics :file ${1:latex-evaluate}.png
+$0
+#+END_SRC
