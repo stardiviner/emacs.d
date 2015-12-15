@@ -132,10 +132,6 @@
 
 ;;; [ company-clang ]
 
-;; (setq company-clang-arguments
-;;       company-clang-prefix-guesser 'company-clang-guess-prefix
-;;       )
-
 ;; (use-package company-clang
 ;;   :config
 ;;   ;; (setq company-clang-arguments
