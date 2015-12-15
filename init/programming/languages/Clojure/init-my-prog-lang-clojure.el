@@ -31,7 +31,7 @@
   :config
   (add-hook 'inf-clojure-mode-hook #'subword-mode)
   (add-hook 'inf-clojure-mode-hook #'eldoc-mode)
-  (define-key my-prog-inferior-map (kbd "c") 'inf-clojure)
+  (define-key my-prog-inferior-map (kbd "C") 'inf-clojure)
 
   (add-hook 'inf-clojure-mode-hook #'cider-mode)
   
@@ -121,7 +121,7 @@
   (add-hook 'cider-mode-hook #'eldoc-mode)
 
   (define-key clojure-mode-map (kbd "C-c C-s") 'cider-scratch)
-  (define-key my-prog-inferior-map (kbd "C") 'cider-scratch)
+  (define-key my-prog-inferior-map (kbd "c") 'cider-scratch)
   )
 
 
