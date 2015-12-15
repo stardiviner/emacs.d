@@ -29,6 +29,8 @@
 
 (setq eir-jump-after-eval t)
 
+(setq eir-delete-other-windows nil)
+
 ;; Emacs Lisp
 (with-eval-after-load 'ielm
   (require 'eval-in-repl-ielm)
