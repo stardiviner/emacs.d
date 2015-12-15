@@ -34,15 +34,6 @@
   (define-key my-prog-inferior-map (kbd "C") 'inf-clojure)
 
   (add-hook 'inf-clojure-mode-hook #'cider-mode)
-  
-  (add-hook 'clojure-mode-hook
-            (lambda ()
-              ;; open inf-clojure inferior buffer for capf function completion.
-              (if (not (get-buffer-process "*inf-clojure*"))
-                  (progn
-                    (inf-clojure "clojure")
-                    (bury-buffer)))
-              ))
   )
 
 
