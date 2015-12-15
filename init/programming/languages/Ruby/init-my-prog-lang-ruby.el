@@ -506,8 +506,8 @@
         minitest-use-zeus-when-possible t
         )
 
-  (add-hook 'ruby-mode-hook 'minitest-mode)
-  (add-hook 'enh-ruby-mode-hook 'minitest-mode)
+  ;; (add-hook 'ruby-mode-hook 'minitest-mode)
+  ;; (add-hook 'enh-ruby-mode-hook 'minitest-mode)
 
   ;; if you want snippets loaded
   (eval-after-load 'minitest
