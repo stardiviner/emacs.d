@@ -58,6 +58,8 @@
              (setq TeX-master (guess-TeX-master (buffer-file-name)))
              ))
 
+;; enable RefTeX in AUCTeX (LaTeX-mode)
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 
 ;; (setq TeX-macro-global '())
 ;; (setq TeX-outline-extra t)
