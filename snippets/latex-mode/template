@@ -1,0 +1,17 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: template
+# key: template
+# --
+\documentclass${1:[options]}{${2:article}\}
+
+\usepackage{${3:graphicx}\}
+
+\title{${4:Title}\}
+\author{${5:Author}\}
+
+\begin{document\}
+\maketitle
+
+$0
+
+\end{document\}

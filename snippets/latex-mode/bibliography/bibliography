@@ -1,0 +1,11 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: bibliography
+# key: bibliography
+# --
+\cite{${1:bibitem}\} 
+
+
+\begin{thebibliography}{99}
+\bibitem{$1}
+$0
+\end{thebibliography}
