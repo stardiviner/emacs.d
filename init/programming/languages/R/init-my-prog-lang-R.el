@@ -71,10 +71,7 @@
 ;; https://github.com/company-mode/company-mode/pull/402
 (add-hook 'R-mode-hook
           (lambda ()
-            (add-to-list (make-local-variable 'company-backends)
-                         'company-R-args)
-            (add-to-list (make-local-variable 'company-backends)
-                         'company-R-objects)
+            (my-company-add-backends-to-mode '(company-R-args company-R-objects))
             ))
 
 
