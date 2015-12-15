@@ -331,15 +331,17 @@
 ;; `org-babel-default-header-args:<lang>' where `<lang>' is the name of the
 ;; language.  See the language-specific documentation available online at
 ;; `http://orgmode.org/worg/org-contrib/babel'.
-;; TODO:
+
+;; generate results as #+BEGIN_LaTeX ... #+END_LaTeX block.
 ;; (setq org-babel-default-header-args:latex
-;;       '(;; generate results as #+BEGIN_LaTeX ... #+END_LaTeX block.
-;;         ;; (:results . "latex")
-;;         ;; (:exports . "results")
-;;         ;; generate result as a (bitmap) image or pdf.
-;;         ;; (:file . "temp.png")
+;;       '((:results . "latex")
+;;         (:exports . "results")
 ;;         ))
 
+;; let latex babel generate image result
+;; (setq org-babel-default-header-args:latex
+;;       '((:results . "raw graphics")
+;;         (:file . "temp.png")))
 
 (setq org-babel-default-header-args:R
       '((:session . "no")
