@@ -41,9 +41,12 @@
 
 ;;; Usage:
 ;;
-;; - [M-x cider-scratch] :: start CIDER scratch.
-;; - [M-x cider-jack-in] :: jack-in CIDER.
-;; - [M-x cider-reload] :: code reloading.
+;; - workflow:
+;;   1. $ lein repl
+;;   2. [M-x cider-jack-in]
+;;   3. [M-x cider-connect]
+;;   4. [M-x cider-scratch]
+;;   5. [C-c C-l] :: `cider-load-file'
 ;;
 ;; For Debug
 ;;
