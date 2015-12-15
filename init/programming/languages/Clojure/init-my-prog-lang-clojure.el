@@ -124,7 +124,8 @@
   (add-hook 'cider-mode-hook #'company-mode)
 
   (add-hook 'cider-mode-hook #'eldoc-mode)
-  
+
+  (define-key clojure-mode-map (kbd "C-c C-s") 'cider-scratch)
   (define-key my-prog-inferior-map (kbd "C") 'cider-scratch)
   )
 
