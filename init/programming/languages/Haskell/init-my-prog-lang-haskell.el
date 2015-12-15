@@ -104,7 +104,8 @@
 
 
 (dolist (hook '(haskell-mode-hook
-                inferior-haskell-mode
+                haskell-interactive-mode-hook
+                ;; inferior-haskell-mode-hook (deprecated)
                 ))
   (add-hook hook
             '(lambda ()
