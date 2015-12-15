@@ -338,7 +338,7 @@
     haskell-mode flycheck-haskell
     ghc ghci-completion
     company-ghc company-ghci company-cabal
-    ebal
+    ;; ebal
     ;; Erlang
     ;; erlang
     ;; Prolog
