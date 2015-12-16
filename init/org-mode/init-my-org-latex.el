@@ -27,11 +27,24 @@
 ;; (setq org-latex-default-packages-alist
 ;;       org-latex-packages-alist)
 
-;; org -> latex packages
+;;; org -> latex packages
 ;; (source code format, and syntax color highlighting)
+;;
 (require 'ox-latex)
-(add-to-list 'org-latex-packages-alist '("" "listings"))
-(add-to-list 'org-latex-packages-alist '("" "color"))
+
+;; 1. use "listings" + "color"
+;; (add-to-list 'org-latex-packages-alist '("" "listings"))
+;; (add-to-list 'org-latex-packages-alist '("" "color"))
+
+;; 2. use "minted"
+(setq org-latex-listings 'minted)
+(add-to-list 'org-latex-packages-alist '("newfloat" "minted"))
+(setq org-latex-pdf-process
+      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+;; (setq org-latex-minted-options
+;;       '(("bgcolor" "bg") ("frame" "lines")))
 
 ;; (org-toggle-latex-fragment)
 ;; (setq org-export-filter-latex-fragment-functions nil)
