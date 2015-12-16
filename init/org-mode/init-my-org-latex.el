@@ -7,7 +7,6 @@
 
 ;;; Code:
 
-
 ;;; Embedded LaTeX
 
 ;; FIXME: error: Can't preview LaTeX fragment in a non-file buffer.
@@ -27,6 +26,12 @@
 
 ;; (setq org-latex-default-packages-alist
 ;;       org-latex-packages-alist)
+
+;; org -> latex packages
+;; (source code format, and syntax color highlighting)
+(require 'ox-latex)
+(add-to-list 'org-latex-packages-alist '("" "listings"))
+(add-to-list 'org-latex-packages-alist '("" "color"))
 
 ;; (org-toggle-latex-fragment)
 ;; (setq org-export-filter-latex-fragment-functions nil)
