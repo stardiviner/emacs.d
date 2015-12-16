@@ -70,6 +70,24 @@
 ;;       preview-auto-cache-preamble 'ask
 ;;       )
 
+;; LaTeX source code block syntax highlighting.
+;; [ minted ]
+;; toggle shell escape using [C-c C-t x].
+(defun TeX-toggle-escape ()
+  "Toggle Shell Escape"
+  (interactive)
+  (setq-local LaTeX-command
+              (if (string= LaTeX-command "latex") "latex -shell-escape"
+                "latex"))
+  (message (concat "shell escape "
+                   (if (string= LaTeX-command "latex -shell-escape")
+                       "enabled"
+                     "disabled"))
+           ))
+(add-hook 'LaTeX-mode-hook
+          '(lambda ()
+             (local-set-key (kbd "C-c C-t x") 'TeX-toggle-escape)))
+
 
 ;;; [ company-auctex ]
 ;;; [ company-math ]
