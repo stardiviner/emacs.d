@@ -107,12 +107,6 @@
 ;; - `inferior-julia' :: from julia-mode.
 (define-key my-inferior-ess-map (kbd "j") 'my-ess-inferior-julia)
 
-(add-hook 'ess-julia-mode-hook
-          '(lambda ()
-             (define-key ess-julia-mode-map (kbd "C-c C-s") 'my-ess-inferior-julia)
-             ))
-
-
 
 ;;; [ julia-shell ] -- inferior Julia
 
