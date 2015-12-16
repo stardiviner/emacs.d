@@ -60,7 +60,8 @@
 
 ;; enable RefTeX in AUCTeX (LaTeX-mode)
 (setq reftex-plug-into-AUCTeX t)
-(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+(add-hook 'latex-mode-hook 'turn-on-reftex) ; with Emacs latex mode
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex) ; with AUCTeX LaTeX mode
 
 ;; (setq TeX-macro-global '())
 ;; (setq TeX-outline-extra t)
