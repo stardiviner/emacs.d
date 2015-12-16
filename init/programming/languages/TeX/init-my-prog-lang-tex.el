@@ -59,6 +59,7 @@
              ))
 
 ;; enable RefTeX in AUCTeX (LaTeX-mode)
+(setq reftex-plug-into-AUCTeX t)
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 
 ;; (setq TeX-macro-global '())
