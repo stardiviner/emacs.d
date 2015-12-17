@@ -134,6 +134,14 @@
 
   (add-hook 'cider-mode-hook #'eldoc-mode)
 
+  ;; clojure-mode has keybinding [C-c C-s] for `cider-scratch'.
+  ;; auto execute all commands steps when start `cider-scratch'.
+  (defadvice cider-scratch (before cider-scratch activate)
+    "Execute all CIDER commands steps when start `cider-scratch'."
+    (cider-jack-in)
+    (call-interactively 'cider-connect)
+    )
+  
   (define-key clojure-mode-map (kbd "C-c C-s") 'cider-scratch)
   (define-key my-prog-inferior-map (kbd "c") 'cider-scratch)
   )
