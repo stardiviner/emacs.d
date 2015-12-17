@@ -148,6 +148,13 @@
            (propertize (pyvenv-mode-version)
                        'face '(:foreground "orange" :height 70))))
       ))
+
+   ;; Clojure
+   (:eval
+    (unless (equal (cider--modeline-info) "not connected")
+      (propertize (format " cider[%s] " (cider--modeline-info))
+                  'face '(:foreground "#444444")))
+    )
    
    ;; VCS - Git, SVN, CVS,
    
