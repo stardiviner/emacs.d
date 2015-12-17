@@ -7,9 +7,23 @@
 
 ;;; Code:
 
-;;; [ docker ]
+;;; [ docker ] -- Emacs interface to Docker.
 
+;;; Usage:
+;;
+;; - `docker-mode' / `docker-global-mode'
+;; - `docker-*' :: command prefix.
+;; - `docker-images'
+;; - `docker-containers'
+;; - `docker-volumes'
 
+(use-package docker
+  :init
+  (setq docker-keymap-prefix "C-c t c")
+  :config
+
+  ;; (docker-global-mode)
+  )
 
 
 ;;; [ dockerfile-mode ] -- Dockerfile
@@ -26,7 +40,7 @@
 
 (use-package dockerfile-mode
   :config
-  (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+  (setq dockerfile-use-sudo nil)
   )
 
 
@@ -34,9 +48,14 @@
 
 ;;; Usage:
 ;;
-;; -
+;; 1. run a docker image.
+;; 2. [C-x C-f] + /docker:[IMAGE]:/path/to/file
 
 (use-package docker-tramp
+  :config
+  (setq docker-tramp-docker-options nil
+        docker-tramp-use-names nil
+        )
   )
 
 
