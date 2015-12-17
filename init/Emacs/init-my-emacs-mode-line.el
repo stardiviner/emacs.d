@@ -150,11 +150,12 @@
       ))
 
    ;; Clojure
-   (:eval
-    (unless (equal (cider--modeline-info) "not connected")
-      (propertize (format " cider[%s] " (cider--modeline-info))
-                  'face '(:foreground "#444444")))
-    )
+   ;; TODO: how to make it local to Clojure buffers?
+   ;; (:eval
+   ;;  (unless (equal (cider--modeline-info) "not connected")
+   ;;    (propertize (format " cider[%s] " (cider--modeline-info))
+   ;;                'face '(:foreground "#444444")))
+   ;;  )
    
    ;; VCS - Git, SVN, CVS,
    
