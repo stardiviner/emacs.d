@@ -57,23 +57,43 @@
 
 (use-package cider
   :config
-  (setq nrepl-hide-special-buffers t
-        ;; cider-repl-tab-command 'cider-repl-indent-and-complete-symbol
-        cider-repl-pop-to-buffer-on-connect nil
+  (setq cider-auto-mode t
+        nrepl-hide-special-buffers t
         cider-auto-select-error-buffer t
         nrepl-buffer-name-separator " "
         nrepl-buffer-name-show-port nil
+
+        ;; REPL
         cider-repl-display-in-current-window nil
+        cider-repl-pop-to-buffer-on-connect nil
         cider-prompt-save-file-on-load t
         cider-repl-result-prefix ";; => "
         cider-interactive-eval-result-prefix ";; => "
         cider-repl-use-clojure-font-lock t
+        ;; cider-repl-tab-command 'cider-repl-indent-and-complete-symbol
         ;; cider-known-endpoints '(("host-a" "10.10.10.1" "7888") ("host-b" "7888"))
         cider-repl-use-pretty-printing t
         cider-repl-wrap-history t
         cider-repl-history-size 500
         cider-repl-history-file nil
         cider-show-error-buffer 'only-in-repl
+        cider-overlays-use-font-lock t ; use overlay for results.
+        cider-result-use-clojure-font-lock t
+
+        ;; Complete
+        cider-annotate-completion-candidates t
+        cider-completion-use-context t
+
+        ;; Eval
+        cider-show-eval-spinner t
+        cider-use-overlays 'both
+
+        ;; Compilation
+        cider-auto-jump-to-error 'errors-only
+        cider-auto-select-error-buffer t
+
+        ;; Mode Line
+        cider-mode-line-show-connection t
         )
   
   (setq cider-annotate-completion-candidates t
