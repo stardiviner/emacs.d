@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: hyperref
+# key: hyperref
+# --
+\ref{${1:LINK}\}{${2:LINK TEXT}\} $0

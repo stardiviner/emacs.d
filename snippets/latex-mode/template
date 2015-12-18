@@ -4,10 +4,14 @@
 # --
 \documentclass${1:[options]}{${2:article}\}
 
-\usepackage{${3:graphicx}\}
+\usepackage[utf8]{inputenc\}
+\usepackage[english]{babel\}
 
-\title{${4:Title}\}
-\author{${5:Author}\}
+\usepackage{graphicx\}
+\usepackage{minted\}
+
+\title{${3:Title}\}
+\author{${4:Author}\}
 
 \begin{document\}
 \maketitle

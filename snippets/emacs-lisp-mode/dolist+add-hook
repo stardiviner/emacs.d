@@ -4,4 +4,4 @@
 # --
 (dolist (hook '(${1:mode-hook list}
                 ))
-  (add-hook hook ${2:'function / (lambda () (exp1) (exp2))}))
+  (add-hook hook $0))
