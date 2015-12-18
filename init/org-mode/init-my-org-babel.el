@@ -59,6 +59,7 @@
       org-export-babel-evaluate t
       )
 
+(use-package ob-restclient)
 
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -103,6 +104,8 @@
    ;; (ledger . t)                         ; ledger support in Babel
    ;; (asymptote . t)                      ; Asymptote
    ;; (sass . t)                           ; Sass
+   ;; -- Extra --
+   (restclient . t)                     ; ob-restclient
    ))
 
 (setq org-babel-tangle-lang-exts

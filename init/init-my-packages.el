@@ -408,7 +408,8 @@
     livid-mode
     json-mode ; json-rpc
     ;; xml xmlunicode ; xmlgen xml-rpc
-    restclient httprepl web
+    restclient ob-restclient
+    httprepl web
     web-completion-data
     know-your-http-well httpcode
     company-web company-restclient
