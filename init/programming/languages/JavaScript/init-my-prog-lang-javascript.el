@@ -273,7 +273,7 @@
                       (local-set-key (kbd "C-c C-l") 'js-load-file)
                       )))
   :config
-  (setq inferior-js-program-command "node --interactive")
+  ;; (setq inferior-js-program-command "node")
   ;; (setq inferior-js-program-command "/usr/bin/java org.mozilla.javascript.tools.shell.Main")
 
   (add-hook 'inferior-js-mode-hook
