@@ -31,12 +31,12 @@
       ;; company-auto-complete-chars
       ;; 'company-explicit-action-p, t, nil, 'function
       ;; company-require-match 'company-explicit-action-p
-      ;; company-echo-delay 0
+      company-echo-delay .01
       ;; t: show quick-access numbers for the first ten candidates.
       ;; company-show-numbers nil
       ;; align annotations to the right tooltip border.
       company-tooltip-align-annotations t
-      ;; company-tooltip-flip-when-above t
+      company-tooltip-flip-when-above t
       ;; tooltip candidates max limit.
       company-tooltip-limit 10
       ;; minimum candidates height limit.
@@ -50,6 +50,7 @@
       ;; company-tooltip-offset-display 'scrollbar
       ;; loop over candidates
       company-selection-wrap-around t
+      ;; company-search-regexp-function #'regexp-quote
       )
 
 ;; for completion.el
