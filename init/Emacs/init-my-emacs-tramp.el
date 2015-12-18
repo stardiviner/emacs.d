@@ -14,7 +14,7 @@
 (require 'tramp)
 
 ;; <default method>
-;; (setq tramp-default-method "scp") ; default "scp" (ssh + scp),
+(setq tramp-default-method "ssh") ; default "scp" (ssh + scp),
 ;; (add-to-list 'tramp-default-method-alist '("" ""))
 
 ;; <default user>
