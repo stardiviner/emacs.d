@@ -107,6 +107,10 @@
 :ADDRESS(live): %^{address(live)}
 :ADDRESS(work):
 :Bio:
+:CHARACTER: %^{Character}
+:FEELING: %^{Feeling}
+:World-Views: %^{World Views}
+:EXPERIENCE: %^{Main Experience Summary}
 :LANGUAGES: %^{Languages|Chinese|English|Japanese|Korean}
 :EDUCATION: %^{Education}
 :PROGRAMMING-SKILLS: %^{Programming Skills}
