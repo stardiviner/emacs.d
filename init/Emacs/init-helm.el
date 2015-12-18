@@ -287,9 +287,8 @@
 
 ;; [ helm-projectile ] -- Helm integration for Projectile.
 
-(use-package helm-projectile
-  :config
-  )
+(with-eval-after-load 'projectile
+  (require 'helm-projectile))
 
 
 ;;; [ helm-c-yasnippet ] -- helm source for yasnippet.el
