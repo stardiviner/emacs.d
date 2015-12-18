@@ -11,7 +11,6 @@
 
 ;; FIXME: error: Can't preview LaTeX fragment in a non-file buffer.
 ;; `org-toggle-inline-images' [C-c C-x C-v]
-(setq org-startup-with-latex-preview t)
 ;; `org-toggle-latex-fragment' [C-c C-x C-l] / [C-c C-c]
 ;; `org-toggle-pretty-entities' [C-c C-x \]
 
@@ -49,6 +48,7 @@
 ;; (org-toggle-latex-fragment)
 ;; (setq org-export-filter-latex-fragment-functions nil)
 
+(setq org-startup-with-latex-preview t)
 ;; (add-hook 'org-mode-hook 'org-toggle-latex-fragment)
 
 
