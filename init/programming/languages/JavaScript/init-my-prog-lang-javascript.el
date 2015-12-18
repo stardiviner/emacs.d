@@ -263,6 +263,8 @@
                   js3-mode-hook
                   ))
     (add-hook hook '(lambda ()
+                      (local-set-key (kbd "C-c C-s") 'run-js)
+                      
                       (local-set-key (kbd "C-x C-e") 'js-send-last-sexp)
                       (local-set-key (kbd "C-M-x") 'js-send-last-sexp-and-go)
                       (local-set-key (kbd "C-c C-c") 'js-send-region)
