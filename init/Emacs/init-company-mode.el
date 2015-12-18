@@ -66,10 +66,13 @@
 
 (company-quickhelp-mode 1)
 
-(setq-default company-frontends
-              (remq 'company-echo-metadata-frontend company-frontends))
+;; remove echo-area short doc display
+;; (setq-default company-frontends
+;;               (remq 'company-echo-metadata-frontend company-frontends))
 
-;; (add-to-list 'company-frontends 'company-quickhelp-frontend)
+(add-to-list 'company-frontends 'company-quickhelp-frontend)
+
+;; (add-to-list 'company-frontends 'company-preview-frontend)
 
 
 ;; Only one back-end is used at a time.  The choice depends on the order of
