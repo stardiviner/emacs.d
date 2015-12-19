@@ -431,7 +431,6 @@
     markdown-mode
     ;; YAML
     yaml-mode
-    ;; pandoc-mode
     
     ;; Frameworks
     ;; Ruby on Rails
@@ -462,6 +461,9 @@
     helm-firefox ; helm-chrome
     ;; PDF
     pdf-tools org-pdfview
+    ;; Files
+    pandoc-mode
+
     ;; Image
     ;; image+ ; xpm
     ;; Ascii Graphic
