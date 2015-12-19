@@ -296,6 +296,11 @@
 ;;                                      #'yas-try-key-from-whitespace))
 
 
+;;; [ company-abbrev / company-dabbrev ]
+
+(setq company-dabbrev-other-buffers t)
+
+
 ;;; [ company-etags ]
 
 (require 'company-etags)
