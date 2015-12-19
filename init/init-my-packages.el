@@ -139,6 +139,7 @@
     ;; ob-translate
     org-screenshot
     ;; org-pomodoro
+    ox-pandoc
     ;; org-vcard
     ;; org-trello org-redmine org-readme
     ;; org-tree-slide

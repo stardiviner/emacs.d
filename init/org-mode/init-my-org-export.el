@@ -121,6 +121,11 @@
       ;; org-html-todo-kwd-class-prefix ""
       )
 
+
+;;; [ ox-pandoc ] -- another org-mode exporter via pandoc.
+
+(use-package ox-pandoc)
+
 
 
 ;;; convert selected region to Markdown and copy to clipboard for pasting
