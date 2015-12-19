@@ -177,6 +177,10 @@
 
 (mouse-avoidance-mode 'animation)
 
+;; make pointer invisible while typing.
+;; The pointer becomes visible again when the mouse is moved.
+(setq make-pointer-invisible t)
+
 
 ;;; [ clipboard ]
 
