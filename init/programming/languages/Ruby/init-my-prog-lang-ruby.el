@@ -390,18 +390,6 @@
             (lambda ()
               (local-set-key (kbd "M-.") 'robe-jump)
               (local-set-key (kbd "C-h d d") 'robe-doc)
-
-              (unless (boundp 'ruby-send-to-inferior-map)
-                (define-prefix-command 'ruby-send-to-inferior-map))
-              (local-set-key (kbd "C-c i r s") 'ruby-send-to-inferior-map)
-
-              (define-key ruby-send-to-inferior-map (kbd "d") 'ruby-send-definition)
-              (define-key ruby-send-to-inferior-map (kbd "D") 'ruby-send-definition-and-go)
-              (define-key ruby-send-to-inferior-map (kbd "b") 'ruby-send-block)
-              (define-key ruby-send-to-inferior-map (kbd "B") 'ruby-send-block-and-go)
-              (define-key ruby-send-to-inferior-map (kbd "s") 'ruby-send-region)
-              (define-key ruby-send-to-inferior-map (kbd "S") 'ruby-send-region-and-go)
-              (define-key ruby-send-to-inferior-map (kbd "R") 'ruby-send-region-and-go)
               ))
 
   (dolist (hook '(ruby-mode-hook
