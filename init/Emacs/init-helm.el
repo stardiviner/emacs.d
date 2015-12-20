@@ -112,7 +112,7 @@
 (setq helm-M-x-fuzzy-match nil
       helm-M-x-reverse-history nil)
 ;; [M-x] Emacs keybinding beside command
-(global-set-key (kbd "M-x") 'helm-M-x)
+;; (global-set-key (kbd "M-x") 'helm-M-x)
 ;; If you prefer the helm version of the file finder, you can bind it to C-x C-f
 ;; to replace the standard find-file:
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
@@ -122,8 +122,8 @@
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (define-key helm-command-prefix (kbd "M-:") 'helm-eval-expression-with-eldoc)
 ;; Similar to helm-eshell-history, but is used for [M-x shell].
-(define-key shell-mode-map (kbd "C-c C-l") 'helm-comint-input-ring)
-(define-key minibuffer-local-map (kbd "C-c C-l") 'helm-minibuffer-history)
+;; (define-key shell-mode-map (kbd "C-c C-l") 'helm-comint-input-ring)
+;; (define-key minibuffer-local-map (kbd "C-c C-l") 'helm-minibuffer-history)
 
 (define-key helm-map (kbd "<tab>") 'helm-select-action)
 (define-key helm-map (kbd "C-z") 'helm-select-action)
