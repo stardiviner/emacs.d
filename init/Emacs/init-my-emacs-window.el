@@ -632,9 +632,8 @@ The `BUFFER' is the popwin catch pop private message buffer."
   (push '(cider-clojure-interaction-mode :position bottom :height 10) popwin:special-display-config)
 
   ;; ESS
-  ;; *julia*
   (push '(inferior-ess-mode :position bottom :height 10) popwin:special-display-config)
-  ;; *Julia*
+  ;; *julia*
   (push '(inferior-julia-mode :position bottom :height 10) popwin:special-display-config)
 
   ;; yari Ruby document lookup

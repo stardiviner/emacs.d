@@ -196,7 +196,7 @@
     helm-cmd-t
     ;; Search
     isearch+ anzu
-    ; swiper ; swiper-helm
+    ;; swiper ; swiper-helm
     ;; swoop helm-swoop
     helm-c-moccur color-moccur
     ;; highlight
