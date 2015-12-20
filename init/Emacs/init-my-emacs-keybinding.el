@@ -233,7 +233,8 @@
     ("A" (hot-expand "<A"))
     ("<" self-insert-command "ins")
     ("o" nil "quit"))
-  
+
+  (require 'org)
   (defun hot-expand (str)
     "Expand org template."
     (insert str)
