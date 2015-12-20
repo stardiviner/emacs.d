@@ -88,10 +88,6 @@
       (delete-window))
     (display-buffer-pop-up-frame buffer nil)))
 
-(if (boundp 'window-number-mode-map)
-    (define-key window-number-mode-map (kbd "C-x C-j p") 'my-turn-current-window-into-new-frame)
-  (global-set-key (kbd "C-x C-j p") 'my-turn-current-window-into-new-frame))
-
 
 ;;; [ ace-window ] -- Quickly switch windows in Emacs.
 
