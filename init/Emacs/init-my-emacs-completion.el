@@ -72,8 +72,8 @@
 
 
 (require 'init-helm)
-(require 'init-ivy)
 ;; (require 'init-ido)
+(require 'init-ivy)
 
 
 
