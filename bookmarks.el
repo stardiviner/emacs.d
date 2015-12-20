@@ -2,7 +2,42 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Android"
+(("TeX Macro Packages"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/TeX/Data/Macro Packages/Macro Packages.org")
+ (front-context-string . "* Image\n\n- [[fil")
+ (rear-context-string)
+ (position . 1))
+("Practical RUby"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Manuals/Practical Ruby/Practical Ruby.org")
+ (front-context-string . "* Intro\n\n\n\n* Ben")
+ (rear-context-string)
+ (position . 1))
+("My TeX Syntax Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/TeX/Data/Manuals/My TeX Syntax Reference/My TeX Syntax Reference.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("LaTeX (Org)"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/TeX/LaTeX/LaTeX.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("TeX (Org)"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/TeX/TeX.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Eshell"
+ (filename . "~/Org/Wiki/Computer/Programming/Emacs/modes/Eshell.org")
+ (front-context-string . "* Intro\n\nThere a")
+ (rear-context-string)
+ (position . 1))
+("My Swift Language Syntax Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Swift/Data/Manuals/My Swift Programming Language Syntax Reference/My Swift Programming Language Syntax Reference.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Android"
  (filename . "~/Org/Wiki/Computer/Systems/Android/Android.org")
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
@@ -435,16 +470,6 @@
 ("Ruby Manuals"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Manuals/Manuals.org")
  (front-context-string . "* Learn Data [0/")
- (rear-context-string)
- (position . 1))
-("TeX.org"
- (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/TeX/TeX.org")
- (front-context-string . "* Intro\n\n\n\n* Dat")
- (rear-context-string)
- (position . 1))
-("LaTeX.org"
- (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/TeX/LaTeX/LaTeX.org")
- (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
  (position . 1))
 ("Python Programming Language"
