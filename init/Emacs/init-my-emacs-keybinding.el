@@ -157,63 +157,94 @@
   ;; examples
   (require 'hydra-examples)
 
+  ;; hydra faces
+  (set-face-attribute 'hydra-face-red nil
+                      :foreground "red"
+                      :weight 'bold)
+  (set-face-attribute 'hydra-face-blue nil
+                      :foreground "blue"
+                      :weight 'bold)
+  (set-face-attribute 'hydra-face-amaranth nil
+                      :foreground "orange"
+                      :weight 'bold)
+  (set-face-attribute 'hydra-face-pink nil
+                      :foreground "pink"
+                      :weight 'bold)
+  (set-face-attribute 'hydra-face-teal nil
+                      :foreground "cyan"
+                      :weight 'bold)
+  
   ;; my defined hydras
+
+  ;; ace-window + hydra
+  (global-set-key
+   (kbd "C-x C-j")
+   (defhydra hydra-window ()
+     "window"
+     ("h" windmove-left)
+     ("j" windmove-down)
+     ("k" windmove-up)
+     ("l" windmove-right)
+     ("s" (lambda ()
+            (interactive)
+            (split-window-right)
+            (windmove-right))
+      "split hor")
+     ("v" (lambda ()
+            (interactive)
+            (split-window-below)
+            (windmove-down))
+      "split vert")
+     ("t" transpose-frame "'" :color blue)
+     ("o" delete-other-windows "one" :color red)
+     ("a" ace-window "ace" :color cyan)
+     ("s" ace-swap-window "swap" :color yellow)
+     ("d" delete-window "del" :color red)
+     ("m" ace-maximize-window "max" :color orange)
+     ("b" helm-mini "buffer" :color orange)
+     ("B" bookmark-jump "bookmark" :color blue)
+     ("q" nil "cancel")
+     )
+   )
 
   ;; This means that when I press < from the start of the line, a Hydra will be
   ;; called instead of inserting <, otherwise < will be inserted.
 
-  ;; (defhydra hydra-org-template (:color red :hint nil)
-  ;;   "
-  ;; _c_enter  _q_uote    _L_aTeX:
-  ;; _l_atex   _e_xample  _i_ndex:
-  ;; _a_scii   _v_erse    _I_NCLUDE:
-  ;; _s_rc     ^ ^        _H_TML:
-  ;; _h_tml    ^ ^        _A_SCII:
-  ;; "
-  ;;   ("s" (hot-expand "<s"))
-  ;;   ("e" (hot-expand "<e"))
-  ;;   ("q" (hot-expand "<q"))
-  ;;   ("v" (hot-expand "<v"))
-  ;;   ("c" (hot-expand "<c"))
-  ;;   ("l" (hot-expand "<l"))
-  ;;   ("h" (hot-expand "<h"))
-  ;;   ("a" (hot-expand "<a"))
-  ;;   ("L" (hot-expand "<L"))
-  ;;   ("i" (hot-expand "<i"))
-  ;;   ("I" (hot-expand "<I"))
-  ;;   ("H" (hot-expand "<H"))
-  ;;   ("A" (hot-expand "<A"))
-  ;;   ("<" self-insert-command "ins")
-  ;;   ("o" nil "quit"))
-  ;;
-  ;; (defun hot-expand (str)
-  ;;   "Expand org template."
-  ;;   (insert str)
-  ;;   (org-try-structure-completion))
-  ;;
-  ;; (define-key org-mode-map "<"
-  ;;   (lambda () (interactive)
-  ;;     (if (looking-back "^")
-  ;;         (hydra-org-template/body)
-  ;;       (self-insert-command 1))))
-
-
-  ;; hydra faces
-  (set-face-attribute 'hydra-face-red nil
-		      :foreground "red"
-		      :weight 'bold)
-  (set-face-attribute 'hydra-face-blue nil
-		      :foreground "blue"
-		      :weight 'bold)
-  (set-face-attribute 'hydra-face-amaranth nil
-		      :foreground "orange"
-		      :weight 'bold)
-  (set-face-attribute 'hydra-face-pink nil
-		      :foreground "pink"
-		      :weight 'bold)
-  (set-face-attribute 'hydra-face-teal nil
-		      :foreground "cyan"
-		      :weight 'bold)
+  (defhydra hydra-org-template (:color red :hint nil)
+    "
+  _c_enter  _q_uote    _L_aTeX:
+  _l_atex   _e_xample  _i_ndex:
+  _a_scii   _v_erse    _I_NCLUDE:
+  _s_rc     ^ ^        _H_TML:
+  _h_tml    ^ ^        _A_SCII:
+  "
+    ("s" (hot-expand "<s"))
+    ("e" (hot-expand "<e"))
+    ("q" (hot-expand "<q"))
+    ("v" (hot-expand "<v"))
+    ("c" (hot-expand "<c"))
+    ("l" (hot-expand "<l"))
+    ("h" (hot-expand "<h"))
+    ("a" (hot-expand "<a"))
+    ("L" (hot-expand "<L"))
+    ("i" (hot-expand "<i"))
+    ("I" (hot-expand "<I"))
+    ("H" (hot-expand "<H"))
+    ("A" (hot-expand "<A"))
+    ("<" self-insert-command "ins")
+    ("o" nil "quit"))
+  
+  (defun hot-expand (str)
+    "Expand org template."
+    (insert str)
+    (org-try-structure-completion))
+  
+  (define-key org-mode-map "<"
+    (lambda () (interactive)
+      (if (looking-back "^")
+          (hydra-org-template/body)
+        (self-insert-command 1))))
+  
   )
 
 
