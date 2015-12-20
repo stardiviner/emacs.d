@@ -126,6 +126,11 @@
 
 (use-package ox-pandoc)
 
+
+;;; export to LaTeX
+
+;; syntax highlight in LaTeX output (Minted)
+(require 'ox-latex)
 
 
 ;;; convert selected region to Markdown and copy to clipboard for pasting
