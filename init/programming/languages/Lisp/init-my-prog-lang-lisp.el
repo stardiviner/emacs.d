@@ -9,7 +9,7 @@
 ;;; Common Settings for All Lisp dialects
 (hook-modes lisp-dialects-mode
   (rainbow-delimiters-mode-enable)
-  (paredit-mode 1)
+  (enable-paredit-mode)
   (hl-sexp-mode 1)
   (eldoc-mode 1)
   (company-mode-on)
