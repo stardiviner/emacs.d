@@ -81,7 +81,7 @@
     helm-helm-commands helm-descbinds
     ;; ido ido-vertical-mode ; ido-preview
     ;; smex ido-ubiquitous flx-ido
-    ;; ivy counsel
+    swiper counsel
     ;; Popup
     popup pos-tip
     showtip
@@ -196,7 +196,7 @@
     helm-cmd-t
     ;; Search
     isearch+ anzu
-    swiper
+    ; swiper ; swiper-helm
     ;; swoop helm-swoop
     helm-c-moccur color-moccur
     ;; highlight
