@@ -132,7 +132,7 @@
   ;;              '(".*" . org-completing-read))
 
   ;; Create agenda view for contacts matching NAME.
-  (define-key my-org-prefix (kbd "b") 'org-contacts)
+  ;; (define-key my-org-prefix (kbd "b") 'org-contacts)
 
   (dolist (hook '(message-mode-hook
                   mu4e-compose-mode-hook
