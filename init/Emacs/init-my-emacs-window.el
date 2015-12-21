@@ -63,13 +63,11 @@
 ;; - [C-x C-j + N] :: window-number-mode
 ;; - [M- + <N>] :: window-number-meta-mode
 
-;; (require 'window-number)
-;;
-;; (autoload 'window-number-mode "window-number" nil t)
-;; (autoload 'window-number-meta-mode "window-number" nil t)
-;;
-;; (window-number-mode)
-;; (window-number-meta-mode)
+(autoload 'window-number-mode "window-number" nil t)
+(autoload 'window-number-meta-mode "window-number" nil t)
+
+(window-number-mode)
+(window-number-meta-mode)
 
 
 ;;; [ window-numbering ] --
@@ -91,31 +89,31 @@
 
 ;;; [ ace-window ] -- Quickly switch windows in Emacs.
 
-(use-package ace-window
-  :config
-  (global-set-key (kbd "C-x C-j") 'ace-window)
+;; (use-package ace-window
+;;   :config
+;;   (global-set-key (kbd "C-x C-j") 'ace-window)
 
-  (set-face-attribute 'aw-leading-char-face nil
-                      :height 200)
-  (set-face-attribute 'aw-background-face nil
-                      :foreground "#333333")
-  (set-face-attribute 'aw-mode-line-face nil
-                      :foreground "orange red")
+;;   (set-face-attribute 'aw-leading-char-face nil
+;;                       :height 200)
+;;   (set-face-attribute 'aw-background-face nil
+;;                       :foreground "#333333")
+;;   (set-face-attribute 'aw-mode-line-face nil
+;;                       :foreground "orange red")
 
-  (setq aw-background nil)
+;;   (setq aw-background nil)
 
-  ;; TODO: how do this work? what's the keybinding?
-  ;; (defvar aw-dispatch-alist
-  ;;   '((?x aw-delete-window " Ace - Delete Window")
-  ;;     (?m aw-swap-window " Ace - Swap Window")
-  ;;     (?M aw-move-window " Ace - Move Window")
-  ;;     (?n aw-flip-window)
-  ;;     (?v aw-split-window-vert " Ace - Split Vert Window")
-  ;;     (?b aw-split-window-horz " Ace - Split Horz Window")
-  ;;     (?i delete-other-windows " Ace - Maximize Window")
-  ;;     (?o delete-other-windows))
-  ;;   "List of actions for `aw-dispatch-default'.")
-  )
+;;   ;; TODO: how do this work? what's the keybinding?
+;;   ;; (defvar aw-dispatch-alist
+;;   ;;   '((?x aw-delete-window " Ace - Delete Window")
+;;   ;;     (?m aw-swap-window " Ace - Swap Window")
+;;   ;;     (?M aw-move-window " Ace - Move Window")
+;;   ;;     (?n aw-flip-window)
+;;   ;;     (?v aw-split-window-vert " Ace - Split Vert Window")
+;;   ;;     (?b aw-split-window-horz " Ace - Split Horz Window")
+;;   ;;     (?i delete-other-windows " Ace - Maximize Window")
+;;   ;;     (?o delete-other-windows))
+;;   ;;   "List of actions for `aw-dispatch-default'.")
+;;   )
 
 
 ;;; [ golden-radio ] -- automatic resizing of Emacs windows to the golden ratio.

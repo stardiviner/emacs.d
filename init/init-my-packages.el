@@ -86,8 +86,8 @@
     popup pos-tip
     showtip
     ;; Frame, Window & Session Management
-    ;; window-number
-    ace-window
+    window-number
+    ;; ace-window
     popwin ; shackle
     resize-window
     zoom-window ; zoom-frm

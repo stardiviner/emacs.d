@@ -12,7 +12,7 @@
 ;; - [C-h v minor-mode-alist] for current buffer minor modes list.
 
 ;; load necessary package which will be used later.
-;; (require 'window-number)
+(require 'window-number)
 (require 'vc)
 (require 'vc-git)
 (require 'flycheck)
@@ -40,9 +40,9 @@
  (quote
   (
    ;; window-number
-   ;; (:eval (if (fboundp 'window-number-mode)
-   ;;            (propertize (concat "[" (number-to-string (window-number)) "]")
-   ;;                        'face '(:foreground "tomato" :weight bold))))
+   (:eval (if (fboundp 'window-number-mode)
+              (propertize (concat "[" (number-to-string (window-number)) "]")
+                          'face '(:foreground "tomato" :weight bold))))
 
    ;; (:propertize "%e"
    ;;              face (:foreground "red"))
