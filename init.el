@@ -203,6 +203,7 @@
 (require 'init-my-prog-lang-sibilant)
 (require 'init-my-prog-lang-ruby)
 (require 'init-my-prog-lang-python)
+(require 'init-my-prog-lang-perl)
 (require 'init-my-prog-lang-shell)
 (require 'init-my-prog-lang-C-common)
 (require 'init-my-prog-lang-C++)
