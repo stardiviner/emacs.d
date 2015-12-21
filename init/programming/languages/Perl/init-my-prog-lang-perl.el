@@ -10,7 +10,13 @@
 ;;; [ perl-mode ]
 
 
+
+;;; [ perl6-mode ]
 
+(use-package perl6-mode
+  ;; :ensure t
+  ;; :defer t
+  )
 
 
 
