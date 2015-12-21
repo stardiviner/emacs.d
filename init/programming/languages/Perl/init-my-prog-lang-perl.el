@@ -19,8 +19,12 @@
   )
 
 
+;;; [ plsense ] -- interface for PlSense that is a development tool for Perl.
 
-
+(use-package plsense
+  ;; :ensure t
+  ;; :defer t
+  )
 
 
 (provide 'init-my-prog-lang-perl)
