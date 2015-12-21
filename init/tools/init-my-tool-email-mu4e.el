@@ -461,7 +461,7 @@
 ;;              '("Spam" my-mu4e-mark-spam))
 
 
-;; creating org-mode links
+;;; creating org-mode links from mu4e messages.
 ;;
 ;; - [M-x org-store-link] / [C-c C-l] -- store link to org-mode.
 ;; - [C-c C-l] -- in org file, you can insert upper stored link into org file.
@@ -472,6 +472,18 @@
 ;;
 
 (require 'org-mu4e)
+
+;; store link to message if in "header view", not to "header query"
+(setq org-mu4e-link-query-in-headers-mode nil)
+
+;; integrate to org-capture.
+;;
+;; (setq org-capture-templates
+;;       '(("t" "todo" entry (file+headline "~/todo.org" "Tasks")
+;;          "* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n")))
+;;
+;; This looks like the version we had before, but the extra %a adds a link to
+;; the file you are visiting when you invoke the capture template.
 
 (add-hook 'mu4e-compose-mode-hook
           (lambda ()
