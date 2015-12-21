@@ -142,6 +142,7 @@
       number-of-diary-entries 7)
 (add-hook 'diary-display-hook 'fancy-diary-display)
 (add-hook 'today-visible-calendar-hook 'calendar-mark-today)
+
 ;;; highlight color free days in calendar
 ;;; TODO This does not work
 ;; (defface my-calendar-free-day-face nil nil)
@@ -318,7 +319,7 @@
    :view 'week                         ; 'month, 'week, 'day
    )
   (bury-buffer)
-  (switch-to-buffer-other-frame "*cfw-calendar*")
+  (switch-to-buffer "*cfw-calendar*")
   ;; (toggle-frame-maximized)
   ;; (cfw:refresh-calendar-buffer t)
   )
@@ -333,7 +334,7 @@
    :view 'day                         ; 'month, 'week, 'day
    )
   (bury-buffer)
-  (switch-to-buffer-other-frame "*cfw-calendar*")
+  (switch-to-buffer "*cfw-calendar*")
   )
 
 (defun my-open-calfw-month ()
@@ -346,7 +347,7 @@
    :view 'month                         ; 'month, 'week, 'day
    )
   (bury-buffer)
-  (switch-to-buffer-other-frame "*cfw-calendar*")
+  (switch-to-buffer "*cfw-calendar*")
   )
 
 (define-key my-calendar-prefix (kbd "c") 'my-open-calfw-week)
