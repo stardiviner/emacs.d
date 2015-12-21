@@ -20,25 +20,42 @@
         )
   
   (set-face-attribute 'ivy-confirm-face nil
-                      :inherit 'minibuffer-prompt
-                      :foreground "green")
-  (set-face-attribute 'ivy-current-match nil
-                      :background "#004A5D" :foreground "white"
-                      :box '(:color "cyan" :line-width -1)
-                      )
+                      :inherit nil
+                      :foreground "white" :background "khaki")
   (set-face-attribute 'ivy-match-required-face nil
                       :inherit 'minibuffer-prompt
-                      :foreground "red" :background "#004A5D"
+                      :foreground "dark red" :background nil
+                      :weight 'bold :box nil 
                       )
+  ;; the string between matches
   (set-face-attribute 'ivy-minibuffer-match-face-1 nil
-                      :inherit 'swiper-match-face-1)
+                      :inherit nil
+                      :foreground nil :background nil
+                      :weight 'normal :box nil
+                      )
   (set-face-attribute 'ivy-minibuffer-match-face-2 nil
-                      :inherit 'swiper-match-face-2)
+                      :inherit nil
+                      :foreground "green" :background nil
+                      :weight 'normal :box nil
+                      )
   (set-face-attribute 'ivy-minibuffer-match-face-3 nil
-                      :inherit 'swiper-match-face-3)
+                      :inherit nil
+                      :foreground "orange" :background nil
+                      :weight 'normal :box nil
+                      )
   (set-face-attribute 'ivy-minibuffer-match-face-4 nil
-                      :inherit 'swiper-match-face-4)
-
+                      :inherit nil
+                      :foreground "dodger blue" :background nil
+                      :weight 'normal :box nil
+                      )
+  (set-face-attribute 'ivy-current-match nil
+                      :foreground "white" :background "#004A5D"
+                      ;; Sci-Fi style
+                      ;; :foreground "white" :background "#004A5D"
+                      ;; :box '(:color "cyan" :line-width -1)
+                      :weight 'normal :box nil
+                      )
+  
   ;; Custom Functions
 
   ;; {Imenu}
