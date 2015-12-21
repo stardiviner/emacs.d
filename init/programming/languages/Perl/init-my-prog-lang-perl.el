@@ -14,8 +14,8 @@
 ;;; [ perl6-mode ]
 
 (use-package perl6-mode
-  ;; :ensure t
-  ;; :defer t
+  :ensure t
+  :defer t
   )
 
 
