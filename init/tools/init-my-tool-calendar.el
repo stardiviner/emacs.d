@@ -316,11 +316,9 @@
    :view 'week                         ; 'month, 'week, 'day
    )
   (bury-buffer)
-  (when whether-switch-to-buffer
-    (switch-to-buffer-other-frame "*cfw-calendar*")
-    ;; (toggle-frame-maximized)
-    ;; (cfw:refresh-calendar-buffer t)
-    )
+  (switch-to-buffer-other-frame "*cfw-calendar*")
+  ;; (toggle-frame-maximized)
+  ;; (cfw:refresh-calendar-buffer t)
   )
 
 (defun my-open-calfw-day ()
@@ -333,8 +331,7 @@
    :view 'day                         ; 'month, 'week, 'day
    )
   (bury-buffer)
-  (when whether-switch-to-buffer
-    (switch-to-buffer-other-frame "*cfw-calendar*"))
+  (switch-to-buffer-other-frame "*cfw-calendar*")
   )
 
 (defun my-open-calfw-month ()
@@ -347,8 +344,7 @@
    :view 'month                         ; 'month, 'week, 'day
    )
   (bury-buffer)
-  (when whether-switch-to-buffer
-    (switch-to-buffer-other-frame "*cfw-calendar*"))
+  (switch-to-buffer-other-frame "*cfw-calendar*")
   )
 
 (define-key my-calendar-prefix (kbd "c") 'my-open-calfw-week)
