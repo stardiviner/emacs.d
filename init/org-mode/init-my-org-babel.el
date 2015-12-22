@@ -105,6 +105,7 @@
    ;; (asymptote . t)                      ; Asymptote
    ;; (sass . t)                           ; Sass
    ;; -- Extra --
+   (ipython . t)
    (restclient . t)                     ; ob-restclient
    ))
 
