@@ -144,16 +144,11 @@
 
 ;;; [ ob-processing ]
 
-(use-package ob-processing
-  :ensure t
-  :defer t)
+(require 'ob-processing)
 
 ;;; [ ob-elixir ]
 
-(use-package ob-elixir
-  ;; :ensure t
-  ;; :defer t
-  )
+(use-package ob-elixir)
 
 ;; [ ob-ipython ]
 
@@ -164,17 +159,14 @@
 
 ;;; [ ob-julia ]
 
-(use-package ob-julia
-  :ensure t
-  :defer t
-  :init
-  (if (not (boundp 'inferior-julia-program-name))
-      (setq inferior-julia-program-name "julia"))
-  :config
-  (setq org-babel-default-header-args:julia
-        '((:results . "replace output")
-          (:padnewline . "yes")))  
-  )
+(if (not (boundp 'inferior-julia-program-name))
+    (setq inferior-julia-program-name "julia"))
+
+(require 'ob-julia)
+
+(setq org-babel-default-header-args:julia
+      '((:results . "replace output")
+        (:padnewline . "yes")))
 
 ;; [ ob-mongo ] -- babel for MongoDB
 
@@ -185,10 +177,7 @@
 
 ;; [ ob-sql ]
 
-(use-package ob-sql
-  :ensure t
-  :defer t
-  )
+(require 'ob-sql)
 
 ;; [ ob-go ]
 ;;
