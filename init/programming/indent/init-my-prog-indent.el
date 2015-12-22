@@ -226,6 +226,12 @@
                      (null (string-match "\\([;{}]\\|\\b\\(if\\|for\\|while\\)\\b\\)"
                                          (thing-at-point 'line)))))
 
+
+  (add-to-list 'aggressive-indent-dont-electric-modes 'ruby-mode)
+  (add-to-list 'aggressive-indent-dont-electric-modes 'enh-ruby-mode)
+  (add-to-list 'aggressive-indent-dont-electric-modes 'inf-ruby-mode)
+  (add-to-list 'aggressive-indent-dont-electric-modes 'haskell-mode)
+  
   ;; (global-aggressive-indent-mode)
   ;; or
   (dolist (hook '(prog-mode-hook
@@ -239,11 +245,6 @@
   ;;                 ))
   ;;   (add-hook hook (lambda ()
   ;;                    (aggressive-indent-mode -1))))
-
-  (add-to-list 'aggressive-indent-dont-electric-modes 'ruby-mode)
-  (add-to-list 'aggressive-indent-dont-electric-modes 'enh-ruby-mode)
-  (add-to-list 'aggressive-indent-dont-electric-modes 'inf-ruby-mode)
-  (add-to-list 'aggressive-indent-dont-electric-modes 'haskell-mode)
   )
 
 
