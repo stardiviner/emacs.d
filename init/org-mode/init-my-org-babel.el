@@ -312,12 +312,14 @@
 
 ;; (add-hook 'org-mode-hook 'org-display-inline-images)
 (add-hook 'org-babel-after-execute-hook 'org-display-inline-images)
+(add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
+(add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images 'append)
 
-(add-hook 'org-babel-after-execute-hook 'my/redisplay-inline-images 'append)
-(defun my/redisplay-inline-images ()
-  (condition-case nil
-      (org-redisplay-inline-images)
-    (error nil)))
+;; (add-hook 'org-babel-after-execute-hook 'my/redisplay-inline-images 'append)
+;; (defun my/redisplay-inline-images ()
+;;   (condition-case nil
+;;       (org-redisplay-inline-images)
+;;     (error nil)))
 
 ;;; PlantUML language reference
 ;;
