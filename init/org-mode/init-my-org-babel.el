@@ -149,6 +149,13 @@
 
 ;; (require 'ob-elixir)
 
+;; [ ob-ipython ]
+
+(use-package ob-ipython
+  :ensure t
+  :defer t
+  )
+
 ;;; [ ob-julia ]
 
 (if (not (boundp 'inferior-julia-program-name))
