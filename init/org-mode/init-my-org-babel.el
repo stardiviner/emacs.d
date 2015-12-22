@@ -144,11 +144,16 @@
 
 ;;; [ ob-processing ]
 
-(require 'ob-processing)
+(use-package ob-processing
+  :ensure t
+  :defer t)
 
 ;;; [ ob-elixir ]
 
-;; (require 'ob-elixir)
+(use-package ob-elixir
+  ;; :ensure t
+  ;; :defer t
+  )
 
 ;; [ ob-ipython ]
 
@@ -159,22 +164,31 @@
 
 ;;; [ ob-julia ]
 
-(if (not (boundp 'inferior-julia-program-name))
-    (setq inferior-julia-program-name "julia"))
-
-(require 'ob-julia)
-
-(setq org-babel-default-header-args:julia
-      '((:results . "replace output")
-        (:padnewline . "yes")))
+(use-package ob-julia
+  :ensure t
+  :defer t
+  :init
+  (if (not (boundp 'inferior-julia-program-name))
+      (setq inferior-julia-program-name "julia"))
+  :config
+  (setq org-babel-default-header-args:julia
+        '((:results . "replace output")
+          (:padnewline . "yes")))  
+  )
 
 ;; [ ob-mongo ] -- babel for MongoDB
 
-(require-package 'ob-mongo)
+(use-package ob-mongo
+  :ensure t
+  :defer t
+  )
 
 ;; [ ob-sql ]
 
-(require 'ob-sql)
+(use-package ob-sql
+  :ensure t
+  :defer t
+  )
 
 ;; [ ob-go ]
 ;;
@@ -253,12 +267,17 @@
 ;; #+end_example
 ;;
 
-
-;; (require-package 'ob-go)
+(use-package ob-go
+  :ensure t
+  :defer t
+  )
 
 ;; [ ob-prolog ] -- babel for Prolog
 
-(require-package 'ob-prolog)
+(use-package ob-prolog
+  :ensure t
+  :defer t
+  )
 
 ;; [ ob-http ] -- http request in org-mode babel
 ;;
@@ -273,7 +292,10 @@
 ;; | :get-header | N/A          | :get-header X-Subject-Token                                                           |
 
 
-(require 'ob-http)
+(use-package ob-http
+  :ensure t
+  :defer t
+  )
 
 ;;; [ ob-browser ] -- render HTML in org babel
 
@@ -286,17 +308,20 @@
 ;; </html>
 ;; #+END_SRC
 
-(require-package 'ob-browser)
+(use-package ob-browser
+  :ensure t
+  :defer t
+  :config
+  ;; open those babels with `web-mode'.
+  (with-eval-after-load "web-mode"
+    (add-to-list 'org-src-lang-modes '("html" . web))
+    (add-to-list 'org-src-lang-modes '("browser" . web))
+    (add-to-list 'org-src-lang-modes '("rhtml" . web)))
 
-;; open those babels with `web-mode'.
-(with-eval-after-load "web-mode"
-  (add-to-list 'org-src-lang-modes '("html" . web))
-  (add-to-list 'org-src-lang-modes '("browser" . web))
-  (add-to-list 'org-src-lang-modes '("rhtml" . web)))
-
-;; (with-eval-after-load "js2-mode"
-;;   (add-to-list 'org-src-lang-modes '("js" . js2))
-;;   (add-to-list 'org-src-lang-modes '("javascript" . js2)))
+  ;; (with-eval-after-load "js2-mode"
+  ;;   (add-to-list 'org-src-lang-modes '("js" . js2))
+  ;;   (add-to-list 'org-src-lang-modes '("javascript" . js2)))
+  )
 
 
 ;;;_ + ditaa & PlantUML & Graphviz
