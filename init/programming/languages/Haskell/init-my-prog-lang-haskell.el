@@ -15,13 +15,13 @@
   
   (add-hook 'haskell-mode-hook
             '(lambda ()
-               (turn-on-haskell-doc-mode)
                ;; indent
-               ;; (turn-on-haskell-simple-indent)
-               (turn-on-haskell-indent)
-               ;; (turn-on-haskell-indentation)
+               (turn-on-haskell-indent) ; `intelligent' Haskell indentation mode
+               ;; (turn-on-haskell-indentation) ; haskell-indentation minor mode
                ;; disable `aggressive-indent-mode' in `haskell-mode'.
                (aggressive-indent-mode -1)
+               ;; doc
+               (turn-on-haskell-doc-mode)
                ))
 
   
@@ -94,7 +94,13 @@
   :config
   (setq company-ghc-show-info t
         company-ghc-show-module t
-        ))
+        )
+  
+  (add-hook 'haskell-mode-hook
+            '(lambda ()
+               (my-company-add-backends-to-mode
+                '(company-ghc company-ghci company-cabal))))
+  )
 
 
 ;;; [ company-ghci ]
