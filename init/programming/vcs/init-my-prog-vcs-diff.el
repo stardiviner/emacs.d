@@ -48,7 +48,8 @@
 ;; put windows side by side
 (setq ediff-split-window-function 'split-window-horizontally)
 ;; revert windows on exit (needs winner mode)
-(winner-mode)
+(winner-mode 1)
+;; (add-hook 'ediff-before-setup-windows-hook #'winner-mode)
 (add-hook 'ediff-after-quit-hook-internal 'winner-undo)
 
 
