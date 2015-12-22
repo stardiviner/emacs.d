@@ -119,10 +119,6 @@
 ;;; [ golden-radio ] -- automatic resizing of Emacs windows to the golden ratio.
 
 (use-package golden-ratio
-  :init
-  (progn
-    (add-hook 'ediff-before-setup-windows-hook #'(lambda () (golden-ratio-mode -1)))
-    (add-hook 'ediff-quit-hook #'(lambda () (golden-ratio-mode 1))))
   :config
   (setq golden-ratio-auto-scale t)
   (setq golden-ratio-adjust-factor 1.0
@@ -157,6 +153,10 @@
 
   ;; manually re-fit ratio.
   (global-set-key (kbd "C-x j") 'golden-ratio)
+
+  ;; (progn
+  ;;   (add-hook 'ediff-before-setup-windows-hook #'(lambda () (golden-ratio-mode -1)))
+  ;;   (add-hook 'ediff-quit-hook #'(lambda () (golden-ratio-mode 1))))
   
   (golden-ratio-mode 1)
   )
