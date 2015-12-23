@@ -160,6 +160,7 @@
         magic-latex-enable-inline-image    t)
   
   (add-hook 'latex-mode-hook 'magic-latex-buffer)
+  (add-hook 'LaTeX-mode-hook 'magic-latex-buffer)
   )
 
 
