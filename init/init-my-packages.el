@@ -217,7 +217,7 @@
     ggtags
     helm-gtags
     ;; Compile
-    smart-compile ; multi-compile
+    smart-compile multi-compile
     ;; Run
     quickrun
     ;; Inferior

@@ -139,6 +139,20 @@
   (global-set-key [f5] 'smart-compile))
 
 
+;;; [ multi-compile ] -- multiple targets compile
+
+;;; Usage:
+;;
+;; - `multi-compile-run' ::
+
+(use-package multi-compile
+  :ensure t
+  :defer t
+  :config
+  (setq multi-compile-completion-system 'ivy-read)
+  )
+
+
 (provide 'init-my-prog-compile)
 
 ;;; init-my-prog-compile.el ends here
