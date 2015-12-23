@@ -7,9 +7,14 @@
 
 ;;; Code:
 
+;;; [ selectric-mode ] -- Make your Emacs sound like a proper typewriter.
 
-
-
+(use-package selectric-mode
+  :ensure t
+  :defer t
+  :config
+  (selectric-mode 1)
+  )
 
 
 (provide 'init-my-tool-keyboard)

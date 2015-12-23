@@ -472,6 +472,9 @@
     ;; Notify
     ;; sauron
     ;; Speak
+    ;; emacspeak
+    ;; Keyboard
+    selectric-mode
     ;; Browser
     w3m
     ;; Email
