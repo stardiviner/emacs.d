@@ -494,6 +494,7 @@
   ;; (push '("*Agenda Commands*" :position bottom) popwin:special-display-config)
   ;; (push '("*Org Agenda*" :position bottom :height 20) popwin:special-display-config)
   (push '("*Org-Babel Error Output*" :position bottom :height 10 :noselect t) popwin:special-display-config)
+  (push '("*Org-Babel Results*" :position bottom :height 10 :noselect t) popwin:special-display-config)
 
   ;; Completion List (completion-list-mode)
   ;; FIXME: popwin can't capture this popup window.
