@@ -152,7 +152,7 @@
     yasnippet
     helm-c-yasnippet
     ;; Template
-    ;; yatemplate skeletor
+    yatemplate ; skeletor
     ;; Diff
     diffview
     ;; VCS
