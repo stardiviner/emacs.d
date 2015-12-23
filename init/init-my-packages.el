@@ -425,7 +425,7 @@
     ;; TeX
     auctex
     company-auctex company-math
-    latex-pretty-symbols
+    latex-pretty-symbols magic-latex-buffer
     px latex-preview-pane ; latex-math-preview
     cdlatex
     ;; Markdown

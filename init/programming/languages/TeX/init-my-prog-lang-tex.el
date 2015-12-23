@@ -146,6 +146,23 @@
 (require 'latex-pretty-symbols)
 
 
+;;; [ magic-latex-buffer ] -- magical syntax highlighting for LaTeX-mode buffers.
+
+(use-package magic-latex-buffer
+  :ensure t
+  :defer t
+  :config
+  ;; You can disable some features independently, if they’re too fancy.
+  (setq magic-latex-enable-block-highlight nil
+        magic-latex-enable-suscript        t
+        magic-latex-enable-pretty-symbols  t
+        magic-latex-enable-block-align     t
+        magic-latex-enable-inline-image    t)
+  
+  (add-hook 'latex-mode-hook 'magic-latex-buffer)
+  )
+
+
 ;;; [ latex-preview-pane ]
 
 ;; Usage:
