@@ -134,8 +134,8 @@
                          ;; "~/Org/Projects/Finance.org"
                          ;; "~/Org/Projects/Business Ideas.org"
                          "~/Org/Projects/Startup/Startup.org"
-                         ;; "~/Org/Capture/"
-                         ;; "~/Org/Tasks.org" ; BIG!
+                         "~/Org/Capture/Capture.org"
+                         "~/Org/Tasks.org"
                          "~/Org/Projects/Plans.org"
                          "~/Org/Projects/Code.org"
                          "~/Org/Projects/Computer Todos.org"
