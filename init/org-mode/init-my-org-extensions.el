@@ -291,6 +291,11 @@
 ;;             ))
 
 
+;;; [ org-ref ] -- citations, cross-references, indexes, glossaries and bibtex utilities for org-mode
+
+;; (use-package org-ref)
+
+
 (provide 'init-my-org-extensions)
 
 ;;; init-my-org-extensions.el ends here

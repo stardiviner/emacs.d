@@ -122,6 +122,7 @@
     
     ;; Org-mode
     org org-plus-contrib
+    ;; org-ref
     org-bullets
     org-agenda-property
     org-time-budgets
