@@ -7,6 +7,12 @@
 
 ;;; Code:
 
+
+(unless (boundp 'my-prog-tools-container-map)
+  (define-prefix-command 'my-prog-tools-container-map))
+(define-key my-prog-tools-map (kbd "c") 'my-prog-tools-container-map)
+
+
 ;;; [ docker ] -- Emacs interface to Docker.
 
 ;;; Usage:
