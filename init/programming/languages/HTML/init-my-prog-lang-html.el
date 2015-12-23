@@ -66,6 +66,19 @@
   )
 
 
+;;; [ tagedit ] -- A collection of paredit-like functions for editing in html-mode.
+
+(use-package tagedit
+  :ensure t
+  :defer t
+  :config
+  (tagedit-add-paredit-like-keybindings)
+  ;; auto insert <></> when you type <, and auto expand to <div></div> as you type.
+  (tagedit-add-experimental-features)
+  (add-hook 'html-mode-hook 'tagedit-mode)
+  )
+
+
 ;;; [ impatient-mode ] -- see your HTML rendered as you type.
 
 (use-package impatient-mode

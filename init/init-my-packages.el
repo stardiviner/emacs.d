@@ -376,6 +376,7 @@
     redis eredis
     ;; HTML
     emmet-mode
+    tagedit
     impatient-mode
     ;; Haml
     haml-mode
