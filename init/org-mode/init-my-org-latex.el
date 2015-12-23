@@ -50,7 +50,8 @@
 
 (setq org-startup-with-latex-preview t)
 ;; (add-hook 'org-mode-hook 'org-toggle-latex-fragment)
-
+(remove-hook 'mu4e-org-mode-hook 'org-toggle-latex-fragment)
+(remove-hook 'mu4e-view-mode-hook 'org-toggle-latex-fragment)
 
 (setq org-babel-latex-htlatex t)
 
