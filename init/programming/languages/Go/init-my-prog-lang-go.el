@@ -154,6 +154,12 @@
 (use-package go-errcheck)
 
 
+;;; [ go-oracle ]
+
+(load "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
+(add-hook 'go-mode-hook 'go-oracle-mode)
+
+
 ;;; [ gotest ] -- Launch GO unit tests
 
 
