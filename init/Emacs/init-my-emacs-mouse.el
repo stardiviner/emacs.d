@@ -24,6 +24,11 @@
 (setq make-pointer-invisible t)
 
 
+;;; [ Drag & Drop (dnd protocol) ]
+
+
+
+
 (provide 'init-my-emacs-mouse)
 
 ;;; init-my-emacs-mouse.el ends here
