@@ -258,8 +258,9 @@
     ;; Common Lisp
     ;; Scheme
     ;; geiser
-    ;; Shell
+    ;; Shell Script
     insert-shebang
+    bash-completion
     ;; C & C++
     irony irony-eldoc flycheck-irony
     company-irony company-irony-c-headers
