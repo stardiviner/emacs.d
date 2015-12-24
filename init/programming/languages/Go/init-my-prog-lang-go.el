@@ -15,18 +15,25 @@
   ;;       godef-command "godef"
   ;;       )
 
-  ;; godoc -- `go doc [QUERY]`
   (add-hook 'go-mode-hook
-            (lambda ()
-              (local-set-key (kbd "C-h d d") 'godoc)))
+            '(lambda ()
+               ;; go-import [C-u] + [C-c C-a]
+               (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)
+               (local-set-key (kbd "C-c C-g") 'go-goto-imports)
+               
+               ;; gofmt
+               (local-set-key (kbd "C-c C-f") 'gofmt)
 
-  ;; gofmt
+               ;; godoc -- `go doc [QUERY]`
+               (local-set-key (kbd "C-h d d") 'godoc)
+               ;; (local-set-key (kbd "C-c C-k") 'godoc)
+
+               ;; godef
+               ;; use `godef-jump' instead of `etags' etc tags jumping.
+               (local-set-key (kbd "M-.") #'godef-jump)
+               ))
+  
   (add-hook 'before-save-hook #'gofmt-before-save)
-
-  ;; godef
-  ;; use `godef-jump' instead of `etags' etc tags jumping.
-  (add-hook 'go-mode-hook (lambda ()
-                            (local-set-key (kbd "M-.") #'godef-jump)))
   )
 
 
