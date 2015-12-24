@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: squiggly heredoc
+# key: heredoc-squiggly
+# --
+<<~${1:HEREDOC}
+$0
+$1
