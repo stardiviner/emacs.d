@@ -9,17 +9,7 @@
 
 ;;; [ sql.el ] -- specialized comint.el for SQL interpreters.
 
-;;; Usage:
-;;
-;; - `sql-mode' / `sql-interactive-mode' in SQLi buffer "*SQL*"
-;; - [M-x sql-help] ::
-;; - [M-x sql-set-sqli-buffer RET *SQL* RET] :: To interact with the interpreter from a window already in SQL mode.
-;; - `sql-magic-semicolon' ::
-
 (require 'sql)
-
-;; If you don’t like window splittings related to the SQL buffer, try the following, per Force Same Window.
-;; (add-to-list 'same-window-buffer-names "*SQL*")
 
 
 ;;; [ sql-indent]
