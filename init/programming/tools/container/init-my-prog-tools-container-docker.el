@@ -19,15 +19,20 @@
 ;;
 ;; - `docker-mode' / `docker-global-mode'
 ;; - `docker-*' :: command prefix.
-;; - `docker-images'
-;; - `docker-containers'
-;; - `docker-volumes'
+;;   - `docker-images'
+;;   - `docker-containers'
+;;   - `docker-volumes'
 
 (use-package docker
   :init
-  (setq docker-keymap-prefix "C-c t c")
+  ;; FIXME: this does not work.
+  ;; (setq docker-keymap-prefix "C-c t c")
   :config
-
+  (define-key my-prog-tools-container-map (kbd "m") 'docker-mode)
+  (define-key my-prog-tools-container-map (kbd "i") 'docker-images)
+  (define-key my-prog-tools-container-map (kbd "c") 'docker-containers)
+  (define-key my-prog-tools-container-map (kbd "v") 'docker-volumes)
+  
   ;; (docker-global-mode)
   )
 
