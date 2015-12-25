@@ -7,7 +7,7 @@
 ;;; [ compile ]
 
 (setq compilation-ask-about-save nil ; save without asking.
-      compilation-scroll-output 'next-error ; stop on first error.
+      compilation-scroll-output 'first-error ; stop on first error.
       compilation-skip-threshold 2 ; don't stop on info or warnings.
       )
 
