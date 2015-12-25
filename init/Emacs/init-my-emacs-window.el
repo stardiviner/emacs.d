@@ -613,6 +613,9 @@ The `BUFFER' is the popwin catch pop private message buffer."
   ;; pt
   (push '(pt-search-mode :position bottom :height 10) popwin:special-display-config)
 
+  ;; pcre2el
+  (push '(rxt-help-mode :position bottom :height 6) popwin:special-display-config)
+ 
   ;; IELM
   ;; TODO:
   (push '("*ielm*" :position bottom :height 10) popwin:special-display-config)
