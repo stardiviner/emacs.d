@@ -70,6 +70,7 @@
 (use-package pcre2el
   :config
   (define-key my-regexp-prefix (kbd "t") 'rxt-mode)
+  (define-key my-regexp-prefix (kbd "T") 'rxt-global-mode)
   )
 
 
