@@ -67,6 +67,10 @@
 ;; what I mean” commands. The complete list of key bindings is given here and
 ;; explained in more detail below:
 
+(use-package pcre2el
+  :config
+  (define-key my-regexp-prefix (kbd "t") 'rxt-mode)
+  )
 
 
 ;;; [ rx ] -- A regular expression IDE for Emacs, to help with the creation and testing of regular expressions.
