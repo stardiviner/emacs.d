@@ -352,6 +352,20 @@
 ;; (add-hook 'mu4e-compose-mode-hook 'mml-secure-message-sign-pgpauto)
 
 
+;;; [ Encrypt ]
+
+;;; encrypt outgoing message.
+(require 'epg-config)
+(setq mml2015-use 'epg
+      epg-user-id "5AE89AC3"
+      mml2015-encrypt-to-self t
+      mml2015-sign-with-sender t
+      )
+
+(add-hook 'message-send-hook 'mml-secure-message-encrypt-pgpauto)
+(add-hook 'mu4e-compose-mode-hook 'mml-secure-message-encrypt-pgpauto)
+
+
 ;;; Headers
 
 ;;; `mu4e-header-info'.
