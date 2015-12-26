@@ -87,6 +87,19 @@ URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'"
          (lambda (fPath) (let ((process-connection-type nil)) (start-process "" nil "xdg-open" fPath))) ξfile-list))))))
 
 
+;;; [ Dired+ ]
+
+(use-package dired+
+  :ensure t
+  :defer t
+  :config
+  ;; The effect is that when you hit [RET] (or click the mouse) on a directory in
+  ;; Dired, find-alternate-file is used, so the original Dired buffer is replaced
+  ;; (deleted) by the new one.
+  (diredp-toggle-find-file-reuse-dir 1)
+  )
+
+
 ;;; [ direx ] --- direx.el is a simple directory explorer. It also works as a generic tree explore library.
 
 ;;; Usage:
