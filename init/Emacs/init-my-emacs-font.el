@@ -66,6 +66,9 @@
 ;; (set-fontset-font t 'unicode
 ;;                   (font-spec :name "Symbola") nil 'prepend)
 
+;; override font for cyrillic characters
+(set-fontset-font t 'cyrillic "Droid Sans Mono")
+
 ;; Averia-12
 ;; Averia Serif-12
 ;; Linux Libertine-13
