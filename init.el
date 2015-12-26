@@ -255,6 +255,10 @@
 (require 'init-my-prog-tools-heroku)
 
 
+;;; Math
+(require 'init-my-math)
+
+
 ;;; at the end!!!
 
 (require 'init-my-startup)
