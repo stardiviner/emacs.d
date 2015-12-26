@@ -52,6 +52,10 @@
 
 (advice-add 'eshell/cat :around #'my/iimage-mode-refresh--eshell/cat)
 
+;; enable iimage-mode in some modes
+(add-hook 'info-mode-hook #'iimage-mode)
+(add-hook 'wiki-mode-hook #'iimage-mode)
+
 
 ;;; [ image+ ] -- Emacs image extension
 
