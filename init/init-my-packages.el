@@ -457,6 +457,10 @@
     vagrant vagrant-tramp
     ;; Heroku
     heroku
+
+    ;; Mathematics
+    ;; Proof General
+    company-coq
     
     ;; Tools
     ;; Bookmarks
