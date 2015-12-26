@@ -66,6 +66,9 @@
 ;; (set-fontset-font t 'unicode
 ;;                   (font-spec :name "Symbola") nil 'prepend)
 
+;; greek characters
+(set-fontset-font t 'greek (font-spec :name "DejaVu Sans Mono") nil)
+
 ;; override font for cyrillic characters
 (set-fontset-font t 'cyrillic "Droid Sans Mono")
 
