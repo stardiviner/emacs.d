@@ -303,6 +303,7 @@
         helm-yas-not-display-dups t
         helm-yas-display-msg-after-complete t
         helm-yas-display-key-on-candidate t
+        helm-yas-space-match-any-greedy t
         )
   ;; integrate helm with yasnippet.
   (define-key yas-minor-mode-map (kbd "C-c & <tab>") 'helm-yas-complete)
