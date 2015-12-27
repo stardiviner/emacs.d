@@ -134,6 +134,7 @@
                          ;; "~/Org/Projects/Finance.org"
                          ;; "~/Org/Projects/Business Ideas.org"
                          "~/Org/Projects/Startup/Startup.org"
+                         "~/Org/Daily.org"
                          "~/Org/Capture/Capture.org"
                          "~/Org/Tasks.org"
                          "~/Org/Projects/Plans.org"
