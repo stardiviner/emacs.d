@@ -63,7 +63,8 @@
   (interactive)
   (clear-image-cache nil)
   (iimage-mode nil)
-  (iimage-mode t))
+  (iimage-mode t)
+  (message "Refreshed images."))
 
 ;; update images (which is not done on the fly) in a hook after compilation.
 ;; e.g. you can see the image in the compilation buffer like Python code compilation.
