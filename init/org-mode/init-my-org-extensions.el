@@ -162,8 +162,6 @@
 
 ;;; [ org-download ] -- drag and drop images to Emacs org-mode.
 
-(org-download-enable)
-
 (use-package org-download
   :config
   (setq org-download-screenshot-method "scrot -s %s"
@@ -190,6 +188,8 @@
   (define-key org-mode-map (kbd "<drag-n-drop>") 'org-download-dnd)
   (define-key org-mode-map (kbd "<C-drag-n-drop>") 'org-download-dnd)
   (define-key org-mode-map (kbd "<M-drag-n-drop>") 'org-download-dnd)
+
+  (org-download-enable)
   )
 
 
