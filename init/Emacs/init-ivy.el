@@ -115,7 +115,7 @@
                           (bookmark-jump bookmark)))
       ))
   
-  (ivy-mode 1)
+  ;; (ivy-mode 1)
   )
 
 
