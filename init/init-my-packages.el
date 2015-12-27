@@ -334,7 +334,7 @@
     ;; php-boris php-boris-minor-mode
     ;; phpunit
     ;; Nim
-    ;; nim-mode flycheck-nim
+    nim-mode flycheck-nim
     ;; Rust
     ;; rust-mode flycheck-rust
     ;; racer company-racer
