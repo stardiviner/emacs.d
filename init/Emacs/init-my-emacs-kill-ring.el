@@ -18,11 +18,11 @@
 ;;    `- q    -- quit
 
 (use-package undo-tree
+  :ensure t
+  :idle (global-undo-tree-mode 1)
   :config
   (setq undo-tree-visualizer-diff t
         undo-tree-visualizer-relative-timestamps t)
-  
-  (global-undo-tree-mode t)
   )
 
 
