@@ -56,6 +56,21 @@
 (add-hook 'info-mode-hook #'iimage-mode)
 (add-hook 'wiki-mode-hook #'iimage-mode)
 
+(defun refresh-iimages ()
+  "Only way I've found to refresh iimages (without also recentering)"
+  (interactive)
+  (clear-image-cache nil)
+  (iimage-mode nil)
+  (iimage-mode t))
+
+;; update images (which is not done on the fly) in a hook after compilation.
+;; e.g. you can see the image in the compilation buffer like Python code compilation.
+(add-to-list 'compilation-finish-functions 
+             (lambda (buffer msg)
+               (save-excursion
+                 (set-buffer buffer)
+                 (refresh-iimages))))
+
 
 ;;; [ image+ ] -- Emacs image extension
 
