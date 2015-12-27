@@ -19,6 +19,8 @@
 (if (not (featurep 'iimage))
     (require 'iimage))
 
+(iimage-mode 1)
+
 ;;; for eshell,
 ;; auto display image in eshell for links after command `cat'.
 ;; https://emacs.stackexchange.com/questions/3432/display-images-in-eshell-with-iimage-mode
