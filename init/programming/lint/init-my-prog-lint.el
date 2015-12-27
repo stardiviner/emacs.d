@@ -139,13 +139,17 @@
 
 ;;; [ flycheck-pos-tip ] -- display errors under point using popup.el.
 
-(with-eval-after-load 'flycheck
-  (setq flycheck-display-errors-function 'flycheck-pos-tip-error-messages
-        flycheck-pos-tip-timeout 10
-        ;; you change change flycheck-pos-tip to use popup.el library.
-        ;; default use `pos-tip-show'.
-        ;; flycheck-pos-tip-show-function #'flycheck-pos-tip-show
-        ))
+(use-package flycheck-pos-tip
+  :config
+  (with-eval-after-load 'flycheck
+    (setq flycheck-display-errors-function 'flycheck-pos-tip-error-messages
+          flycheck-pos-tip-timeout 10
+          ;; you change change flycheck-pos-tip to use popup.el library.
+          ;; default use `pos-tip-show'.
+          ;; flycheck-pos-tip-show-function #'flycheck-pos-tip-show
+          ))
+  )
+
 
 
 ;;; [ helm-c-flycheck ]
