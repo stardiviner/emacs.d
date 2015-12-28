@@ -354,16 +354,19 @@
 
 (use-package company-web
   :config
-  (add-hook 'web-mode-hook
-            (lambda ()
-              (my-company-add-backends-to-mode '(company-web-html
-                                                 ;; company-web-jade
-                                                 ;; company-web-slim
-                                                 ;; company-nxml
-                                                 company-tern
-                                                 company-css
-                                                 ))
-              ))
+  (dolist (hook '(web-mode-hook
+                  html-mode-hook
+                  ))
+    (add-hook hook
+              '(lambda ()
+                 (my-company-add-backends-to-mode '(company-web-html
+                                                    ;; company-web-jade
+                                                    ;; company-web-slim
+                                                    ;; company-nxml
+                                                    company-tern
+                                                    company-css
+                                                    ))
+                 )))
   )
 
 
