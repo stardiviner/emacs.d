@@ -11,44 +11,54 @@
 
 ;;; NOTE: don't wrap tramp config with use-package, it will cause Emacs tramp ssh connection error.
 
-(require 'tramp)
+(use-package tramp
+  :init
+  ;; TODO: remove after upgrade Emacs to 25.
+  ;; https://debbugs.gnu.org/cgi/bugreport.cgi?bug=20015
+  ;; fix Tramp looong hang at startup, try to connect on ssh.
+  ;; (setq tramp-use-ssh-controlmaster-options t)
+  (setq tramp-ssh-controlmaster-options
+        "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
+  ;; (setq tramp-ssh-controlmaster-options
+  ;;       "-o ControlMaster=auto -o ControlPath='ssh_%C' -o ControlPersist=no")
 
-;; <default method>
-(setq tramp-default-method "ssh") ; default "scp" (ssh + scp),
-;; (add-to-list 'tramp-default-method-alist '("" ""))
+  :config
 
-;; <default user>
-;; ssh connect: host, user
-;; (add-to-list 'tramp-default-user-alist
-;;              '("ssh" ".*\\.somewhere\\.else\\'" "john"))
+  ;; <default method>
+  (setq tramp-default-method "ssh") ; default "scp" (ssh + scp),
+  ;; (add-to-list 'tramp-default-method-alist '("" ""))
 
-;; <default host>
-;; (add-to-list 'tramp-default-host-alist)
+  ;; <default user>
+  ;; ssh connect: host, user
+  ;; (add-to-list 'tramp-default-user-alist
+  ;;              '("ssh" ".*\\.somewhere\\.else\\'" "john"))
 
-;; <default proxy>
-;; (add-to-list 'tramp-default-proxies-alist)
+  ;; <default host>
+  ;; (add-to-list 'tramp-default-host-alist)
 
-;; Tramp completion
-;; (add-to-list 'tramp-completion-function-alist)
+  ;; <default proxy>
+  ;; (add-to-list 'tramp-default-proxies-alist)
 
-;; <predefined connection property>
-;; (add-to-list 'tramp-connection-properties
-;;              (list (regexp-quote "/ssh:user@randomhost.your.domain:")
-;;                    "busybox" t))
+  ;; Tramp completion
+  ;; (add-to-list 'tramp-completion-function-alist)
 
-(setq tramp-auto-save-directory "/tmp")
+  ;; <predefined connection property>
+  ;; (add-to-list 'tramp-connection-properties
+  ;;              (list (regexp-quote "/ssh:user@randomhost.your.domain:")
+  ;;                    "busybox" t))
 
-;; tramp-debug-buffer-name t
-;; tramp-verbose 10
+  (setq tramp-auto-save-directory "/tmp")
 
-
-;; change SHELL environment variable to solve Tramp hangs issue.
-;; (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
-
-
-;;; [ sudo in Tramp ]
+  ;; tramp-debug-buffer-name t
+  ;; tramp-verbose 10
 
 
+  ;; change SHELL environment variable to solve Tramp hangs issue.
+  ;; (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
+
+  ;; [ sudo in Tramp ]
+
+  )
 
 
 (provide 'init-my-emacs-tramp)
