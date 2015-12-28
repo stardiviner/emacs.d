@@ -70,32 +70,32 @@
    (makefile . t)                       ; Make
    (ruby . t)                           ; Ruby
    (python . t)                         ; Python
-   ;; (perl . t)                           ; Perl
+   (perl . t)                           ; Perl
    (C . t)                              ; C
    ;; (C++ . t)                            ; C++
    (java . t)                           ; Java
-   ;; (awk . t)                            ; Awk
-   ;; (sed . t)                            ; Sed
-   ;; (screen . t)                         ; Screen
+   (awk . t)                            ; Awk
+   (sed . t)                            ; Sed
+   (screen . t)                         ; Screen
    (lisp . t)                           ; Lisp
-   ;; (scheme . t)                         ; Scheme
-   ;; (picolisp . t)                       ; Pico Lisp
+   (scheme . t)                         ; Scheme
+   (picolisp . t)                       ; Pico Lisp
    (clojure . t)                        ; Clojure
    (haskell . t)                        ; Haskell
-   ;; (scala . t)                          ; Scala
-   ;; (io . t)                             ; IO
-   ;; (J . t)                              ; J
-   ;; (ocaml . t)                          ; Objective Caml
+   (scala . t)                          ; Scala
+   (io . t)                             ; IO
+   (J . t)                              ; J
+   (ocaml . t)                          ; Objective Caml
    (js . t)                             ; JavaScript
    (css . t)                            ; CSS
    (latex . t)                          ; LaTeX
-   ;; (R . t)                              ; R
+   (R . t)                              ; R
    (sql . t)                            ; SQL
    (sqlite . t)                         ; SQLite
    (matlab . t)                         ; MATLAB
    (octave . t)                         ; Octave
    (gnuplot . t)                        ; gnuplot
-   ;; (fortran . t)                        ; Fortran
+   (fortran . t)                        ; Fortran
    (ditaa . t)                          ; ditaa
    (dot . t)                            ; Graphviz, Dot
    (plantuml . t)                       ; PlantUML
@@ -103,7 +103,7 @@
    (calc . t)                           ; Calc
    ;; (ledger . t)                         ; ledger support in Babel
    ;; (asymptote . t)                      ; Asymptote
-   ;; (sass . t)                           ; Sass
+   (sass . t)                           ; Sass
    ;; -- Extra --
    (ipython . t)
    (restclient . t)                     ; ob-restclient
