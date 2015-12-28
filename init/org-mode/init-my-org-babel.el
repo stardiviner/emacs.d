@@ -27,7 +27,6 @@
         (:noweb . "no")
         (:hlines . "no")
         (:padnewline . "yes")
-        ;; for tangle
         (:tangle . "no")
         ;; for tangle jump between org <-> code file
         (:padline . "true")
@@ -116,12 +115,12 @@
         ("lisp" . "lisp")
         ("ruby" . "rb")
         ("python" . "py")
-        ;; ("R" . "R")
+        ("R" . "R")
         ("sql" . "sql")
         ("sh" . "sh")
-        ;; ("haskell" . "hs")
+        ("haskell" . "hs")
         ("clojure" . "clj")
-        ;; ("awk" . "awk")
+        ("awk" . "awk")
         ("C" . "c")
         ("Go" . "go")
         ("C++" . "cpp")
@@ -130,6 +129,7 @@
         ("css" . "css")
         ("java" . "java")
         )
+      org-babel-tangle-use-relative-file-links t
       ;; org-babel-pre-tangle-hook '(save-buffer)
       )
 
