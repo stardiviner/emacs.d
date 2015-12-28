@@ -56,7 +56,11 @@
 ;; start the ESS process if not started when open ESS buffers.
 ;; (add-hook 'after-init-hook 'R)
 
-(define-key my-inferior-ess-map (kbd "r") 'R)
+;; (define-key my-inferior-ess-map (kbd "R") 'R)
+
+(define-key my-inferior-ess-map (kbd "R")
+  '(lambda ()
+     (my-func/open-and-switch-to-buffer 'R "*R*" t)))
 
 
 ;;; completing support
