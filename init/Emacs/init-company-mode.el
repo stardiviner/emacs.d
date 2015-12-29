@@ -45,7 +45,7 @@
       ;; company-tooltip-minimum-width 0
       ;; This doesn't include the margins and the scroll bar.
       ;; width of margin columns to show around the tooltip
-      ;; company-tooltip-margin 1
+      company-tooltip-margin 1
       ;; 'lines - how to show tooltip unshown candidates number.
       ;; company-tooltip-offset-display 'scrollbar
       ;; loop over candidates
