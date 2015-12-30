@@ -90,14 +90,14 @@
 
 ;;; [ ac-octave ]
 
-(eval-after-load 'octave-inf
-  (require 'ac-octave))
-
-;; FIXME:
-;; (defun ac-octave-mode-setup ()
-;;   (add-to-list 'ac-sources 'ac-source-octave))
-;; (add-hook 'octave-mode-hook
-;;           '(lambda () (ac-octave-mode-setup)))
+(use-package ac-octave
+  :config
+  ;; FIXME:
+  ;; (defun ac-octave-mode-setup ()
+  ;;   (add-to-list 'ac-sources 'ac-source-octave))
+  ;; (add-hook 'octave-mode-hook
+  ;;           '(lambda () (ac-octave-mode-setup)))
+  )
 
 
 (provide 'init-my-prog-lang-octave)
