@@ -27,6 +27,9 @@
 
   (add-hook 'gnuplot-mode-hook
             '(lambda ()
+               ;; context sensitive for gnuplot completion & eldoc-mode.
+               (gnuplot-context-sensitive-mode 1)
+               
                (define-key gnuplot-mode-map (kbd "<f5>") 'gnuplot-make-buffer)
                (define-key gnuplot-mode-map (kbd "C-h d d") 'gnuplot-info-lookup-symbol)
                ))
