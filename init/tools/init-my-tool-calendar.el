@@ -3,8 +3,6 @@
 
 ;;; Commentary:
 
-;;; http://www.emacswiki.org/emacs/CategoryCalendar
-
 
 ;;; Code:
 
@@ -21,31 +19,31 @@
 ;;       ["Sunday" "Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday"])
 
 ;;; Calendar Localization
-;;; display the ‘celestial-stem’ (天干) and the ‘terrestrial-branch’ (地支) in Chinese:
-;; ;; First day of the week
+
+;; First day of the week
 (setq calendar-week-start-day 1) ; 0:Sunday, 1:Monday
 (setq calendar-date-style 'american)    ; 'american: month/day/year, 'european: day/month/year, 'iso: year/month/day
 
 
 ;;; Localized National Holidays
-;;; cal-china-x.el -- Chinese calendar extras
 
-(setq chinese-calendar-celestial-stem
-      ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"]
-      chinese-calendar-terrestrial-branch
-      ["子" "丑" "寅" "卯" "辰" "巳" "午" "未" "申" "酉" "戌" "亥"])
+;;; cal-china-x.el -- Chinese calendar extras
+;;; display the ‘celestial-stem’ (天干) and the ‘terrestrial-branch’ (地支) in Chinese:
 
 (load "~/.emacs.d/init/extensions/cal-china-x.el")
 (require 'cal-china-x)
 
 
-;; location
+;; Location
+
 (setq calendar-location-name "Shaoxing")
 
 
 ;; for predicate lunar eclipses.
+
 ;; Zhejiang, China Area: Latitude: 27° 09' ~ 31° 11' N , Longitude: 118° 02' ~ 122° 57' E
 ;; Shaoxing Area: Latitude: 29° 42' ~ 30° 19' 15" , Longitude: 120° 16' 55" ~ 120° 46' 39"
+
 (setq calendar-latitude +30.10)
 (setq calendar-longitude +120.40)
 
@@ -61,6 +59,7 @@
       mark-diary-entries-in-calendar t) ; 'calendar-today, "=", face
 
 
+
 ;;; Calendar Printing
 ;;;
 ;;; Usage:
@@ -91,6 +90,7 @@
 ;;
 ;; - [p C-h] -- list out all key bindings
 
+
 ;;; Key Bindings
 ;;
 ;; - [C-SPC] + [M-=] -- count the number of days in region (between the mark and
