@@ -9,6 +9,8 @@
 
 ;;; [ Mark ] --- [C-SPC / C-@] + [C-u C-SPC / C-u C-@] + [C-`] / [M-`]
 
+(setq set-mark-command-repeat-pop t)
+
 (defun push-mark-no-activate ()
   "Pushes `point' to `mark-ring' and does not activate the region.
 Equivalent to \\[set-mark-command] when \\[transient-mark-mode] is disabled"
@@ -32,6 +34,13 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;;   (exchange-point-and-mark)
 ;;   (deactivate-mark nil))
 ;; (define-key global-map [remap exchange-point-and-mark] 'exchange-point-and-mark-no-activate)
+
+;; When popping the mark, continue popping until the cursor
+;; actually moves
+(defadvice pop-to-mark-command (around ensure-new-position activate)
+  (let ((p (point)))
+    (dotimes (i 10)
+      (when (= p (point)) ad-do-it))))
 
 
 ;;;_ show-marks
