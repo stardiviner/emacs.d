@@ -9,23 +9,6 @@
 ;;; Code:
 
 ;;; Calendar Mode
-;;; Usage:
-;;; - [M-x calendar]
-;; - holidays: [a]
-;; - diary: [i d]
-;; - anniversary: [i a]
-;;
-;;; Diary in calendar
-;; Usage:
-;; - [M-x calendar]
-;;   - "d" -- view diary entries
-;;   - "m" -- mark diary entries
-;;   - "s" -- show all diary entries
-;;   - "id" -- insert diary entry
-;;   - "iw" -- insert weekly diary entry
-;;   - "im" -- insert monthly diary entry
-;;
-;;; Appointment in calendar
 
 (require 'calendar)
 
@@ -114,11 +97,12 @@
 ;;                      the current point).
 ;; - [8 C-n] -- move ahead 8 days.
 
-(add-hook 'calendar-initial-window-hook (lambda ()
-                                          (calendar-mark-today)
-                                          (calendar-mark-holidays)
-                                          ;; (mark-diary-entries) ; FIXME: void function.
-                                          ))
+(add-hook 'calendar-initial-window-hook
+          '(lambda ()
+             (calendar-mark-today)
+             (calendar-mark-holidays)
+             ;; (mark-diary-entries) ; FIXME: void function.
+             ))
 
 
 ;; [ Diary ] -- Diary Mode
@@ -213,35 +197,9 @@
 
 ;;; [ calfw ] -- Calendar framework for Emacs
 
-;; Features:
-;; * holidays
-;;    get the holidays using the function `calendar-holiday-list`. see `holidays.el`
-
-;; Usage:
-;; - [SPC] -- Pushing SPC key, the detail buffer pops up. Pushing SPC key again, the buffer is closed.
-;; - command `cfw:open-calendar-buffer`
-
-;; Key bindings (in calfw buffer):
-;; - [h/j/k/l] / [b/f/n/p] -- navigate [back/forward/up/down]
-;; - [SPC] -- show details.
-;; - [TAB] -- navigate to next item.
-;; - [RET] -- Jump (howm, orgmode)
-;; - [.]   -- goto today.
-;; - [D]   -- day view.
-;; - [W]   -- week view.
-;; - [T]   -- two weeks view.
-;; - [M]   -- month view.
-;; - [^/$] -- navigate to week [begin/end]
-;; - [q]   -- quit
-;; - [r]   -- refresh
-;; - [t]   -- to to a day.
-;; - [C-v] -- next month.
-;; - [M-v] -- previous month.
-
 (require 'calfw)
 
 ;;; Holidays
-;;; holidays.el
 ;; calfw collects holidays from the customize variable `calendar-holidays` which belongs to `holidays.el` in Emacs.
 ;; calfw gets the holidays using the function (calendar-holiday-list).
 (require 'holidays)
@@ -250,23 +208,16 @@
 (setq christian-holidays nil) ; get rid of christan holidays
 (setq view-calendar-holidays-initially t)
 
-
 ;;; Annotations
 ;;; variable -> :annotation-sources
 
-
 ;;; Keybindings
-
-;;; Global Keybinding
 (unless (boundp 'my-calendar-prefix)
   (define-prefix-command 'my-calendar-prefix))
 (define-key my-tools-prefix (kbd "c") 'my-calendar-prefix)
 (define-key my-org-prefix (kbd "C") 'my-calendar-prefix)
 
-
 ;;; for Org-mode
-
-;;; Usage:
 ;;; - [M-x cfw:open-org-calendar]
 
 (require 'calfw-org)
@@ -279,27 +230,20 @@
         (file nil)
         "* %?\n %(cfw:org-capture-day)"))
 
-
 ;;; for iCalendar (Google Calendar) users:
-
 (require 'calfw-ical)
 ;; TODO (cfw:open-ical-calendar "http://www.google.com/calendar/ical/.../basic.ics")
 
-
 ;;; for Diary users:
-;;; Usage:
 ;;; - [M-x cfw:open-diary-calendar]
 (require 'calfw-cal)
 
-
 ;;; calfw-gcal.el -- edit Google Calendar for calfw.
 ;; (require 'calfw-gcal)
 
-
 ;;; for Howm users:
 ;; (require 'calfw-howm)
 
-
 ;;; General setting
 (defun my-open-calfw-week ()
   (interactive)
