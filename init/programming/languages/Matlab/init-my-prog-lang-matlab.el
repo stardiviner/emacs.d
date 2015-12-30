@@ -9,17 +9,17 @@
 
 ;;; [ matlab-mode ]
 
-(require 'matlab)
+(use-package matlab-mode
+  :ensure t
+  :defer t
+  :config
+  ;; (add-to-list 'auto-mode-alist '("\\.m\\'" . matlab-mode))
 
-(autoload 'matlab-mode "matlab" "Matlab Editing Mode" t)
-;; (add-to-list 'auto-mode-alist '("\\.m\\'" . matlab-mode))
-
-
-(setq matlab-indent-function t)
-(setq matlab-shell-command "octave")
-(setq matlab-shell-command-switches '())
-(setq matlab-shell-echoes nil)
-
+  (setq matlab-indent-function t)
+  (setq matlab-shell-command "octave")
+  (setq matlab-shell-command-switches '())
+  (setq matlab-shell-echoes nil)
+  )
 
 
 (provide 'init-my-prog-lang-matlab)
