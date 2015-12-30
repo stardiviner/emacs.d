@@ -7,8 +7,6 @@
 ;;; [ gnuplot-mode ]
 
 (use-package gnuplot-mode
-  :ensure t
-  :defer t
   :config
   ;; add gnuplot info file.
   ;; FIXME: this does not work for `gnuplot-info-lookup-symbol'
