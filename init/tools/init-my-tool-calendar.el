@@ -236,7 +236,7 @@
 
 ;;; for Diary users:
 ;;; - [M-x cfw:open-diary-calendar]
-(require 'calfw-cal)
+;; (require 'calfw-cal)
 
 ;;; calfw-gcal.el -- edit Google Calendar for calfw.
 ;; (require 'calfw-gcal)
@@ -251,7 +251,7 @@
    :contents-sources
    (list
     (cfw:org-create-source "dark gray") ; Org-mode source
-    (cfw:cal-create-source "orange") ; Diary source
+    ;; (cfw:cal-create-source "orange") ; Diary source
     ;; TODO
     ;; (cfw:ical-create-source "Moon" "~/moon.ics" "Gray") ; iCalendar source1
     ;; (cfw:ical-create-source "gcal" "https://..../basic.ics" "IndianRed") ; Google Calendar ICS
