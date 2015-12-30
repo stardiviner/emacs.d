@@ -22,7 +22,7 @@
 
 ;; First day of the week
 (setq calendar-week-start-day 1) ; 0:Sunday, 1:Monday
-(setq calendar-date-style 'american)    ; 'american: month/day/year, 'european: day/month/year, 'iso: year/month/day
+(setq calendar-date-style 'american) ; 'american: month/day/year, 'european: day/month/year, 'iso: year/month/day
 
 
 ;;; Localized National Holidays
@@ -36,28 +36,19 @@
 
 ;; Location
 
-(setq calendar-location-name "Shaoxing")
-
-
 ;; for predicate lunar eclipses.
 
 ;; Zhejiang, China Area: Latitude: 27° 09' ~ 31° 11' N , Longitude: 118° 02' ~ 122° 57' E
 ;; Shaoxing Area: Latitude: 29° 42' ~ 30° 19' 15" , Longitude: 120° 16' 55" ~ 120° 46' 39"
 
+(setq calendar-location-name "Shaoxing")
 (setq calendar-latitude +30.10)
 (setq calendar-longitude +120.40)
 
 (setq calendar-mark-holidays-flag nil
-      calendar-mark-diary-entries-flag t
-      calendar-view-diary-initially-flag t)
-
-;; TODO how to mark a diary date entry in calendar ?
-;; - different font
-;; - different color
-;; - append + at the day entry in calendar
-(setq calendar-today-marker 'calendar-today
-      mark-diary-entries-in-calendar t) ; 'calendar-today, "=", face
-
+      calendar-mark-diary-entries-flag nil ; 'calendar-today, "=", face
+      calendar-view-diary-initially-flag t
+      calendar-today-marker 'calendar-today)
 
 
 ;;; Calendar Printing
@@ -121,77 +112,15 @@
 ;;   - im insert monthly diary entry
 
 ;; fancy display
-(setq view-diary-entries-initially t
-      mark-diary-entries-in-calendar t
-      number-of-diary-entries 7)
-(add-hook 'diary-display-hook 'fancy-diary-display)
-(add-hook 'today-visible-calendar-hook 'calendar-mark-today)
+(setq calendar-view-diary-initially-flag t
+      calendar-mark-diary-entries-flag t
+      diary-number-of-entries 7)
 
-;;; highlight color free days in calendar
-;;; TODO This does not work
-;; (defface my-calendar-free-day-face nil nil)
-;; (set-face-background 'my-calendar-free-day-face "green")
-
-;; (defun mycal-hightlight-free-day (date &optional face)
-;;   "Highlight DATE with FACE if DATE is free-day.
-;;     Default face is `mycal-freeday-face'."
-;;   (when (and (calendar-date-is-visible-p date)
-;;              (member (calendar-day-of-week date) '(0 6)))
-;;     (save-excursion
-;;       (calendar-goto-date date)
-;;       (if (fboundp 'set-extent-properties)
-;;           (set-extent-properties (make-extent (1- (point)) (1+ (point)))
-;;                                  (list 'face (or face 'mycal-freeday-face)
-;;                                        'priority -1))
-;;         (set-text-properties (1- (point)) (1+ (point))
-;;                              (list 'face (or face 'mycal-freeday-face)
-;;                                    'priority -1))))
-;;     ))
-
-;; (defun mycal-mark-freedays ()
-;;   "Scan Calendar buffer and highlight freedays.
-;;     Prefix ARG specifies number of weeks to highlight."
-;;   (interactive)
-
-;;   (save-excursion
-;;     (beginning-of-buffer)
-
-;;     ;; Process first week
-;;     (calendar-end-of-week 1)
-;;     (let* ((date (calendar-cursor-to-nearest-date))
-;;            (day (car (cdr date))))
-;;       (when (> day 7)
-;;         (calendar-backward-week 1))
-;;       ;; Refresh date and day
-;;       (setq date (calendar-cursor-to-nearest-date))
-;;       (setq day (car (cdr date)))
-;;       (mycal-hightlight-free-day date)
-
-;;       (unless (= day 1)
-;;         (calendar-backward-day 1)
-;;         (mycal-hightlight-free-day (calendar-cursor-to-nearest-date))
-;;         (calendar-end-of-week 1)))
-
-;;     ;; Process other monthes
-;;     (let* ((date (calendar-cursor-to-nearest-date))
-;;            (absdate (+ 6 (calendar-absolute-from-gregorian date)))
-;;            (gregd (calendar-gregorian-from-absolute absdate)))
-;;       (while (calendar-date-is-visible-p gregd)
-;;         (mycal-hightlight-free-day gregd)
-
-;;         (setq gregd (calendar-gregorian-from-absolute (+ absdate 1)))
-;;         (mycal-hightlight-free-day gregd)
-
-;;         (setq absdate (+ 7 absdate))
-;;         (setq gregd (calendar-gregorian-from-absolute absdate))))
-;;     ))
-
-;; (defadvice mark-calendar-holidays (after highlight-free-days activate)
-;;   "Highlight freedays as well."
-;;   (mycal-mark-freedays))
+(add-hook 'diary-display-function 'diary-fancy-display)
+(add-hook 'calendar-today-visible-hook 'calendar-mark-today)
 
 
-;;; [ icalendar ]
+;;; [ iCalendar ]
 
 
 
@@ -204,23 +133,30 @@
 ;; calfw gets the holidays using the function (calendar-holiday-list).
 (require 'holidays)
 
-(setq general-holidays nil) ; get rid of U.S. holidays
-(setq christian-holidays nil) ; get rid of christan holidays
+(setq holiday-general-holidays nil) ; get rid of U.S. holidays
+(setq holiday-christian-holidays nil) ; get rid of christan holidays
 (setq calendar-view-holidays-initially-flag t)
 
 ;;; Annotations
 ;;; variable -> :annotation-sources
 
+
 ;;; Keybindings
+
 (unless (boundp 'my-calendar-prefix)
   (define-prefix-command 'my-calendar-prefix))
 (define-key my-tools-prefix (kbd "c") 'my-calendar-prefix)
 (define-key my-org-prefix (kbd "C") 'my-calendar-prefix)
 
+
 ;;; for Org-mode
+
 ;;; - [M-x cfw:open-org-calendar]
 
 (require 'calfw-org)
+
+;; (setq cfw:org-agenda-schedule-args '(:timestamp))
+;; (setq cfw:org-overwrite-default-keybinding nil)
 
 (define-key my-calendar-prefix (kbd "o") 'cfw:open-org-calendar)
 
@@ -231,7 +167,7 @@
         "* %?\n %(cfw:org-capture-day)"))
 
 ;;; for iCalendar (Google Calendar) users:
-(require 'calfw-ical)
+;; (require 'calfw-ical)
 ;; TODO (cfw:open-ical-calendar "http://www.google.com/calendar/ical/.../basic.ics")
 
 ;;; for Diary users:
@@ -244,7 +180,9 @@
 ;;; for Howm users:
 ;; (require 'calfw-howm)
 
+
 ;;; General setting
+
 (defun my-open-calfw-week ()
   (interactive)
   (cfw:open-calendar-buffer
@@ -258,9 +196,10 @@
     ;; (cfw:howm-create-source "blue") ; howm source
     )
    ;; TODO add annotation-sources
-   ;; :annotation-sources (list
-   ;;                      (cfw:ical-create-source "Moon" "~/moon.ics" "Gray") ; Moon annotations
-   ;;                      )
+   ;; :annotation-sources
+   ;; (list
+   ;;  (cfw:ical-create-source "Moon" "~/moon.ics" "Gray") ; Moon annotations
+   ;;  )
    :view 'week                         ; 'month, 'week, 'day
    )
   (bury-buffer)
@@ -305,6 +244,7 @@
 
 
 ;;; Faces
+
 ;; Year / Month
 (set-face-attribute 'cfw:face-title nil
                     :foreground "forest green"
@@ -395,6 +335,7 @@
 
 
 ;; Grid frame
+
 ;; Default setting
 (setq cfw:fchar-junction ?+
       cfw:fchar-vertical-line ?|
@@ -403,7 +344,7 @@
       cfw:fchar-right-junction ?+
       cfw:fchar-top-junction ?+
       cfw:fchar-top-left-corner ?+
-      cfw:fchar-top-right-corner ?+ )
+      cfw:fchar-top-right-corner ?+)
 
 ;; Unicode characters
 (setq cfw:fchar-junction ?╋
@@ -425,8 +366,11 @@
       cfw:fchar-top-left-corner ?╔
       cfw:fchar-top-right-corner ?╗)
 
+
 ;;; Line breaking
+
 (setq cfw:render-line-breaker 'cfw:render-line-breaker-wordwrap)
+
 ;;; 'cfw:render-line-breaker-none
 ;;;     Never breaks lines. Longer contents are truncated.
 ;;; 'cfw:render-line-breaker-simple (default)
@@ -434,14 +378,14 @@
 ;;; 'cfw:render-line-breaker-wordwrap
 ;;;     This strategy breaks lines with the emacs function 'fill-region'. Although, the line breaking algorithm of the Emacs is not so smart as more complicated ones, such as Knuth/Plass algorithm, this strategy is better than the simple one.
 
+
 ;;; Calfw framework details
+
 ;;; How to add a new calendar source?
 ;;; Defining the 'cfw:source' object, one can extend calfw calendar source.
 ;;; 'cfw:source-data' details
 
-
 ;;; cfw:source-data
-
 
 ;;; keybindings
 ;; ;; Vim style navigation around
@@ -455,13 +399,12 @@
 ;; (define-key cfw:calendar-mode-map (kbd "b") 'cfw:navi-previous-day-command)
 ;; (define-key cfw:calendar-mode-map (kbd "f") 'cfw:navi-next-day-command)
 
-
+
 ;; [ Appointment & Remind ]
 ;; (require 'appt)
 ;; (setq appt-issue-message t) ; raise issue message for appointment
 
 ;; planner
-
 
 
 
