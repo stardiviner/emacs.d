@@ -206,7 +206,7 @@
 
 (setq general-holidays nil) ; get rid of U.S. holidays
 (setq christian-holidays nil) ; get rid of christan holidays
-(setq view-calendar-holidays-initially t)
+(setq calendar-view-holidays-initially-flag t)
 
 ;;; Annotations
 ;;; variable -> :annotation-sources
@@ -248,14 +248,15 @@
 (defun my-open-calfw-week ()
   (interactive)
   (cfw:open-calendar-buffer
-   :contents-sources (list
-                      (cfw:org-create-source "dark gray") ; Org-mode source
-                      (cfw:cal-create-source "orange") ; Diary source
-                      ;; TODO
-                      ;; (cfw:ical-create-source "Moon" "~/moon.ics" "Gray") ; iCalendar source1
-                      ;; (cfw:ical-create-source "gcal" "https://..../basic.ics" "IndianRed") ; Google Calendar ICS
-                      ;; (cfw:howm-create-source "blue") ; howm source
-                      )
+   :contents-sources
+   (list
+    (cfw:org-create-source "dark gray") ; Org-mode source
+    (cfw:cal-create-source "orange") ; Diary source
+    ;; TODO
+    ;; (cfw:ical-create-source "Moon" "~/moon.ics" "Gray") ; iCalendar source1
+    ;; (cfw:ical-create-source "gcal" "https://..../basic.ics" "IndianRed") ; Google Calendar ICS
+    ;; (cfw:howm-create-source "blue") ; howm source
+    )
    ;; TODO add annotation-sources
    ;; :annotation-sources (list
    ;;                      (cfw:ical-create-source "Moon" "~/moon.ics" "Gray") ; Moon annotations
@@ -271,11 +272,12 @@
 (defun my-open-calfw-day ()
   (interactive)
   (cfw:open-calendar-buffer
-   :contents-sources (list
-                      (cfw:org-create-source "dark gray") ; Org-mode source
-                      (cfw:cal-create-source "orange") ; Diary source
-                      )
-   :view 'day                         ; 'month, 'week, 'day
+   :contents-sources
+   (list
+    (cfw:org-create-source "dark gray") ; Org-mode source
+    (cfw:cal-create-source "orange") ; Diary source
+    )
+   :view 'day                           ; 'month, 'week, 'day
    )
   (bury-buffer)
   (switch-to-buffer "*cfw-calendar*")
@@ -284,10 +286,11 @@
 (defun my-open-calfw-month ()
   (interactive)
   (cfw:open-calendar-buffer
-   :contents-sources (list
-                      (cfw:org-create-source "dark gray") ; Org-mode source
-                      (cfw:cal-create-source "orange") ; Diary source
-                      )
+   :contents-sources
+   (list
+    (cfw:org-create-source "dark gray") ; Org-mode source
+    (cfw:cal-create-source "orange") ; Diary source
+    )
    :view 'month                         ; 'month, 'week, 'day
    )
   (bury-buffer)
@@ -300,7 +303,7 @@
 (define-key my-calendar-prefix (kbd "m") 'my-open-calfw-month)
 (define-key my-calendar-prefix (kbd "x") 'cfw:open-calendar-buffer)
 
-
+
 ;;; Faces
 ;; Year / Month
 (set-face-attribute 'cfw:face-title nil
@@ -390,7 +393,7 @@
                     :foreground "dim gray"
                     :weight 'normal)
 
-
+
 ;; Grid frame
 ;; Default setting
 (setq cfw:fchar-junction ?+
