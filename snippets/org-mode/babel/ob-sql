@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: ob-sql
+# key: ob-sql
+# --
+#+BEGIN_SRC sql :engine ${1:engine:postgresql} :exports results :cmdline -p 5443 -h ${2:HOST} -U ${3:username} -d ${4:password}
+$0
+#+END_SRC
