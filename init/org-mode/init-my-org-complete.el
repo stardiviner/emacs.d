@@ -25,7 +25,8 @@
 
 (add-hook 'org-mode-hook
           (lambda ()
-            (setq-local completion-at-point-functions 'pcomplete-completions-at-point)
+            (setq-local completion-at-point-functions
+                        '(pcomplete-completions-at-point t))
 
             ;; (my-company-add-backends-to-mode '(company-ispell))
             ))
