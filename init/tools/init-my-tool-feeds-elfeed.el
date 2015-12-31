@@ -307,7 +307,7 @@
 ;; - `elfeed-web-start'
 ;; - `elfeed-web-stop'
 
-(require 'elfeed-web)
+(use-package elfeed-web)
 
 
 (provide 'init-my-tool-feeds-elfeed)
