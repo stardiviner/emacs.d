@@ -156,9 +156,12 @@
         magic-latex-enable-pretty-symbols  t
         magic-latex-enable-block-align     t
         magic-latex-enable-inline-image    t)
-  
-  (add-hook 'latex-mode-hook 'magic-latex-buffer)
-  (add-hook 'LaTeX-mode-hook 'magic-latex-buffer)
+
+  ;; disable this, because `iimage-mode' auto open image in external program
+  ;; caused `LaTeX-mode-hook' break.
+  ;;
+  ;; (add-hook 'latex-mode-hook 'magic-latex-buffer)
+  ;; (add-hook 'LaTeX-mode-hook 'magic-latex-buffer)
   )
 
 
