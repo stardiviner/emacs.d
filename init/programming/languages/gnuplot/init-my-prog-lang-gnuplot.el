@@ -8,11 +8,14 @@
 
 (use-package gnuplot-mode
   :config
+  (require 'gnuplot)
+  
   ;; add gnuplot info file.
   ;; FIXME: this does not work for `gnuplot-info-lookup-symbol'
   ;; (with-eval-after-load 'info
   ;;   (info-initialize)
   ;;   (add-to-list 'Info-directory-list "~/.emacs.d/elpa/gnuplot-*/"))
+  (setq gnuplot-info-display 'window)
 
   (setq auto-mode-alist (append (list
                                  '("\\.gp\\'" . gnuplot-mode)
@@ -21,8 +24,8 @@
                                  )
                                 auto-mode-alist))
 
-  (setq gnuplot-info-display 'window)
-
+  (setq gnuplot-tab-completion t)
+  
   (add-hook 'gnuplot-mode-hook
             '(lambda ()
                ;; context sensitive for gnuplot completion & eldoc-mode.
@@ -34,7 +37,9 @@
                ))
 
   ;; auto enable `gnuplot-inline-display-mode' in gnuplot comint process buffer.
-  ((add-hook 'gnuplot-comint-mode-hook 'gnuplot-inline-display-mode))
+  (add-hook 'gnuplot-comint-mode-hook 'gnuplot-inline-display-mode)
+
+  (define-key gnuplot-mode-map (kbd "C-c C-c") 'gnuplot-show-gnuplot-buffer)
   )
 
 
