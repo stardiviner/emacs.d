@@ -8,16 +8,12 @@
 ;;; Code:
 
 
-(if (featurep 'helm)
-    (setq org-completion-fallback-command 'helm)
-  ;; (setq org-completion-fallback-command 'hippie-expand)
-  (setq org-completion-fallback-command 'completing-read)
-  )
+(setq org-completion-use-ido t)
 
-;; (if (featurep 'ido-vertical-mode)
-;;     (setq org-completion-use-ido t)
-;;   (setq org-completion-use-ido nil)
-;;   (setq org-completion-use-iswitchb nil)
+;; (if (featurep 'helm)
+;;     (setq org-completion-fallback-command 'helm)
+;;   ;; `completing-read', `ido', `ivy-read', `hippie-expand',
+;;   (setq org-completion-fallback-command 'completing-read)
 ;;   )
 
 
