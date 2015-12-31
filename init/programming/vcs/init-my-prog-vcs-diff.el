@@ -119,6 +119,14 @@
   (define-key smerge-mode-map (kbd "M-g K") 'smerge-kill-current)
   (define-key smerge-mode-map (kbd "M-g m") 'smerge-context-menu)
   (define-key smerge-mode-map (kbd "M-g M") 'smerge-popup-context-menu)
+
+  ;; have it turned on automatically:
+  (defun smart-try-smerge ()
+    (save-excursion
+      (goto-char (point-min))
+      (when (re-search-forward "^<<<<<<< " nil t)
+        (smerge-mode 1))))
+  (add-hook 'find-file-hook 'smart-try-smerge t)
   )
 
 
