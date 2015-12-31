@@ -260,6 +260,8 @@
     ;; Common Lisp
     ;; Scheme
     ;; geiser
+    ;; newLisp
+    newlisp-mode
     ;; Shell Script
     insert-shebang
     bash-completion
