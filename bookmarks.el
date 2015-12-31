@@ -2,12 +2,42 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("TeX Macro Packages"
+(("JavaScript Packages"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/JavaScript/Data/Packages/Packages.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Web (Org)"
+ (filename . "~/Org/Wiki/Computer/Programming/Implements/Web/Web.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("org-capture-last-stored"
+ (filename . "~/Org/Contacts/Contacts.org")
+ (front-context-string . "* 王垠\n:PROPERTIES")
+ (rear-context-string . "lassmate\n:END:\n\n")
+ (position . 57089))
+("My R Language Syntax Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/R/Data/Manuals/My R Language Syntax Reference/My R Language Syntax Reference.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Hack Methods"
+ (filename . "~/Org/Wiki/Computer/Hack/Crack/Data/Methods/Methods.org")
+ (front-context-string . "* Linux\n\n** GRUB")
+ (rear-context-string)
+ (position . 1))
+("Ubuntu (Org)"
+ (filename . "~/Org/Wiki/Computer/Systems/Linux/Ubuntu/Ubuntu.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("TeX Macro Packages"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/TeX/Data/Macro Packages/Macro Packages.org")
  (front-context-string . "* Image\n\n- [[fil")
  (rear-context-string)
  (position . 1))
-("Practical RUby"
+("Ruby Practical"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Manuals/Practical Ruby/Practical Ruby.org")
  (front-context-string . "* Intro\n\n\n\n* Ben")
  (rear-context-string)
@@ -132,11 +162,6 @@
  (front-context-string . "* Intro\n\nMarkdow")
  (rear-context-string)
  (position . 1))
-("Mac OS"
- (filename . "~/Org/Wiki/Computer/Systems/Mac/Mac.org")
- (front-context-string . "* Intro\n\n\n\n* Dat")
- (rear-context-string)
- (position . 1))
 ("OpenWrt"
  (filename . "~/Org/Wiki/Computer/Systems/OpenWrt/OpenWrt.org")
  (front-context-string)
@@ -152,11 +177,6 @@
  (front-context-string . "* Intro\n\n** lisp")
  (rear-context-string)
  (position . 1))
-("org-capture-last-stored"
- (filename . "~/Org/Projects/Code.org")
- (front-context-string . "** ISSUE why org")
- (rear-context-string . "mphist-file]=.\n\n")
- (position . 92872))
 ("pacman"
  (filename . "~/Org/Wiki/Computer/Softwares/pacman.org")
  (front-context-string . "* Intro\n\nThe pac")
@@ -182,11 +202,6 @@
  (front-context-string . "* Intro\n\nAdd pro")
  (rear-context-string)
  (position . 1))
-("ParEdit keybindings"
- (filename . "~/Org/Wiki/Computer/Programming/Emacs/modes/paredit.org")
- (front-context-string . "**** Key Binding")
- (rear-context-string . " parentheses_.\n\n")
- (position . 234))
 ("RESTful"
  (filename . "~/Org/Wiki/Computer/Programming/Implements/Web/REST/REST.org")
  (front-context-string . "* Intro\n\n*Repres")
@@ -248,7 +263,7 @@
  (rear-context-string)
  (position . 1))
 ("Hacking Tools"
- (filename . "~/Org/Wiki/Computer/Hack/Hacking/data/tools/tools.org")
+ (filename . "~/Org/Wiki/Computer/Hack/Crack/Data/Tools/Tools.org")
  (front-context-string . "* Password Crack")
  (rear-context-string)
  (position . 1))
@@ -332,11 +347,6 @@
  (front-context-string . "* Intro\n\n*Struct")
  (rear-context-string)
  (position . 1))
-("Look.org (美容)"
- (filename . "~/Org/Wiki/Look/Look.org")
- (front-context-string . "* Intro\n\n\n\n* Dat")
- (rear-context-string)
- (position . 1))
 ("Gems for Rails"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Frameworks/Ruby on Rails/Data/Gems/Gems.org")
  (front-context-string . "* Authentication")
@@ -375,11 +385,6 @@
 ("CSS styles collections"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/CSS/Data/Style Collections/Style Collections.org")
  (front-context-string . "\nCreate a functi")
- (rear-context-string)
- (position . 1))
-("UserScript examples"
- (filename . "~/Org/Wiki/Computer/Softwares/UserScript/examples/examples.org")
- (front-context-string)
  (rear-context-string)
  (position . 1))
 ("HTML Reference"
@@ -447,16 +452,6 @@
  (front-context-string . "* Intro\n\n\n* Tool")
  (rear-context-string)
  (position . 1))
-("Hacking.org"
- (filename . "~/Org/Wiki/Computer/Hack/Hacking/Hacking.org")
- (front-context-string . "* Intro\n\n\n* Data")
- (rear-context-string)
- (position . 1))
-("My Blog"
- (filename . "~/Org/Blog/README.org")
- (front-context-string . "** structure des")
- (rear-context-string)
- (position . 10))
 ("R Programming Language"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/R/R.org")
  (front-context-string . "* Intro\n\nR can b")
@@ -477,12 +472,12 @@
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
-("Commands.org"
+("Commands (Org)"
  (filename . "~/Org/Wiki/Computer/Softwares/Commands.org")
  (front-context-string . "* NOTE\n\n- [ ] ge")
  (rear-context-string)
  (position . 1))
-("Configurations.org"
+("Linux Configurations (Org)"
  (filename . "~/Org/Wiki/Computer/Softwares/Configurations.org")
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
@@ -497,7 +492,7 @@
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
  (position . 1))
-("Crack.org"
+("Crack (Org)"
  (filename . "~/Org/Wiki/Computer/Hack/Crack/Crack.org")
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
@@ -522,7 +517,7 @@
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
-("CSS.org"
+("CSS Programming Language"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/CSS/CSS.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
@@ -530,11 +525,6 @@
 ("Clojure.org"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Clojure/Clojure.org")
  (front-context-string . "* Intro\n\nClojure")
- (rear-context-string)
- (position . 1))
-("HTML.org"
- (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/HTML/HTML.org")
- (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
 ("Ruby on Rails"
@@ -640,11 +630,6 @@
 ("Emacs modes"
  (filename . "~/Org/Wiki/Computer/Programming/Emacs/modes/modes.org")
  (front-context-string . "* Help\n\n\n\n* Emac")
- (rear-context-string)
- (position . 1))
-("update_things.sh"
- (filename . "~/scripts/update_things.sh")
- (front-context-string . "#!/usr/bin/env s")
  (rear-context-string)
  (position . 1))
 ("Features"
@@ -759,9 +744,9 @@
  (position . 1))
 ("Linux (Org)"
  (filename . "~/Org/Wiki/Computer/Systems/Linux/Linux.org")
- (front-context-string . "** Get Help\n\n***")
- (rear-context-string . "nux Community.\n\n")
- (position . 521))
+ (front-context-string . "* Intro\n\n- [[htt")
+ (rear-context-string)
+ (position . 1))
 ("Programming (Org)"
  (filename . "~/Org/Wiki/Computer/Programming/Programming.org")
  (front-context-string . "* Intro\n\n\n* Data")
