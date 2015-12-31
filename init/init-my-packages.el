@@ -77,6 +77,7 @@
     ;; Spell
     flyspell flyspell-lazy
     helm-flyspell flyspell-popup
+    helm-ispell
     ;; Completion System
     helm
     helm-helm-commands helm-descbinds

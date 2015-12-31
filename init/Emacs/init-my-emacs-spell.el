@@ -34,6 +34,11 @@
       )
 
 
+;;; [ helm-ispell ]
+
+(use-package helm-ispell)
+
+
 ;;; [ Flyspell ]
 
 ;;; Usage:
