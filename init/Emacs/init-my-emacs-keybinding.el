@@ -143,6 +143,8 @@
   ;; (which-key-setup-side-window-right)
   ;; (which-key-setup-side-window-right-bottom)
 
+  (global-set-key (kbd "C-x C-t") 'which-key-show-top-level)
+
   (which-key-mode)
   )
 
