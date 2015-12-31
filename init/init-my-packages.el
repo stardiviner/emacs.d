@@ -496,7 +496,7 @@
     ;; bbdb
     ;; bbdb-vcard bbdb-csv-import gmail2bbdb
     ;; Feeds: RSS & Atom
-    ;; elfeed elfeed-goodies elfeed-web
+    elfeed elfeed-goodies ; elfeed-web
     ;; Blog
     ;; ox-jekyll-subtree
     octopress org-octopress
