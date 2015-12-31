@@ -52,6 +52,7 @@
       )
 
 (use-package ag
+  :commands ag
   :config
   (set-face-attribute 'ag-hit-face nil
                       :foreground "gray" :background "black")
