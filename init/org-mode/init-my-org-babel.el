@@ -58,7 +58,11 @@
       org-export-babel-evaluate t
       )
 
-(use-package ob-restclient)
+(use-package ob-restclient
+  :ensure t
+  :defer t)
+
+(require 'ob-gnuplot)
 
 (org-babel-do-load-languages
  'org-babel-load-languages
