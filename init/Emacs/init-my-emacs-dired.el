@@ -90,8 +90,6 @@ URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'"
 ;;; [ Dired+ ]
 
 (use-package dired+
-  :ensure t
-  :defer t
   :config
   ;; The effect is that when you hit [RET] (or click the mouse) on a directory in
   ;; Dired, find-alternate-file is used, so the original Dired buffer is replaced

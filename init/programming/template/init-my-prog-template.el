@@ -53,8 +53,6 @@
 ;;; [ yatemplate ] -- with YASnippet + auto-insert-mode.
 
 (use-package yatemplate
-  :ensure t
-  :defer t
   :config
   (setq yatemplate-dir (locate-user-emacs-file "templates"))
   )

@@ -10,8 +10,6 @@
 ;;; [ nim-mode ]
 
 (use-package nim-mode
-  :ensure t
-  :defer t
   :config
   (set-face-attribute 'nim-tab-face nil
                       :foreground "dark gray"
@@ -27,9 +25,7 @@
 
 ;;; [ flycheck-nim ]
 
-(use-package flycheck-nim
-  :ensure t
-  :defer t)
+(use-package flycheck-nim)
 
 
 

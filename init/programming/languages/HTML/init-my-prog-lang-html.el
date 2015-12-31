@@ -69,8 +69,6 @@
 ;;; [ tagedit ] -- A collection of paredit-like functions for editing in html-mode.
 
 (use-package tagedit
-  :ensure t
-  :defer t
   :config
   (tagedit-add-paredit-like-keybindings)
   ;; auto insert <></> when you type <, and auto expand to <div></div> as you type.

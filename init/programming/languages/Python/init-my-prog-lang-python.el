@@ -10,8 +10,6 @@
 ;;; [ python-mode ] --- Python's flying circus support for Emacs
 
 (use-package python-mode
-  :ensure t
-  :defer t
   :config
 
   (setq-default python-indent-offset 2

@@ -149,8 +149,6 @@
 ;;; [ magic-latex-buffer ] -- magical syntax highlighting for LaTeX-mode buffers.
 
 (use-package magic-latex-buffer
-  :ensure t
-  :defer t
   :config
   ;; You can disable some features independently, if they’re too fancy.
   (setq magic-latex-enable-block-highlight nil

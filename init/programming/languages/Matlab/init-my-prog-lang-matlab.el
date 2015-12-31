@@ -10,8 +10,6 @@
 ;;; [ matlab-mode ]
 
 (use-package matlab-mode
-  :ensure t
-  :defer t
   :config
   ;; (add-to-list 'auto-mode-alist '("\\.m\\'" . matlab-mode))
 

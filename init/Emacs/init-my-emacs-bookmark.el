@@ -67,8 +67,6 @@
 (setq bm-restore-repository-on-load t)
 
 (use-package bm
-  :ensure t
-  :defer t
   :config
   (setq bm-in-lifo-order t)
   (setq bm-cycle-all-buffers nil)

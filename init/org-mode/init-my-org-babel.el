@@ -298,8 +298,6 @@
 ;; #+END_SRC
 
 (use-package ob-browser
-  :ensure t
-  :defer t
   :config
   ;; open those babels with `web-mode'.
   (with-eval-after-load "web-mode"
