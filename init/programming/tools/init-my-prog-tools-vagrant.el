@@ -28,7 +28,24 @@
 ;; When vagrant commands are given a prefix, you will be prompted for a box
 ;; name. For example: [C-u M-x vagrant-up]
 
-(use-package vagrant)
+(use-package vagrant
+  :config
+  (unless (boundp 'my-vagrant-map)
+    (define-prefix-command 'my-vagrant-map))
+  (define-key my-prog-tools-map (kbd "v") 'my-vagrant-map)
+  
+  (define-key my-vagrant-map (kbd "v") 'vagrant-box-list)
+  (define-key my-vagrant-map (kbd "l") 'vagrant-box-list)
+  (define-key my-vagrant-map (kbd "u") 'vagrant-up)
+  (define-key my-vagrant-map (kbd "s") 'vagrant-ssh)
+  (define-key my-vagrant-map (kbd "t") 'vagrant-tramp-term)
+  (define-key my-vagrant-map (kbd "S") 'vagrant-status)
+  (define-key my-vagrant-map (kbd "r") 'vagrant-resume)
+  (define-key my-vagrant-map (kbd "R") 'vagrant-reload)
+  (define-key my-vagrant-map (kbd "h") 'vagrant-halt)
+  (define-key my-vagrant-map (kbd "D") 'vagrant-destroy)
+  (define-key my-vagrant-map (kbd "p") 'vagrant-provision)
+  )
 
 
 ;;; [ vagrant-tramp ] --
