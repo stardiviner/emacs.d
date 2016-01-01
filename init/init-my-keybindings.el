@@ -128,7 +128,7 @@
 
 (unless (boundp 'my-prog-tools-map)
   (define-prefix-command 'my-prog-tools-map))
-(global-set-key (kbd "C-c t") 'my-prog-tools-map)
+(global-set-key (kbd "C-c C-t") 'my-prog-tools-map)
 
 
 ;;; Programming Languages
