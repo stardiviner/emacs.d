@@ -8,9 +8,9 @@
 ;;; Code:
 
 
-(unless (boundp 'my-prog-tools-container-map)
-  (define-prefix-command 'my-prog-tools-container-map))
-(define-key my-prog-tools-map (kbd "c") 'my-prog-tools-container-map)
+(unless (boundp 'my-container-map)
+  (define-prefix-command 'my-container-map))
+(define-key my-prog-tools-map (kbd "c") 'my-container-map)
 
 
 ;;; [ docker ] -- Emacs interface to Docker.
@@ -28,10 +28,10 @@
   ;; FIXME: this does not work.
   ;; (setq docker-keymap-prefix "C-c t c")
   :config
-  (define-key my-prog-tools-container-map (kbd "m") 'docker-mode)
-  (define-key my-prog-tools-container-map (kbd "i") 'docker-images)
-  (define-key my-prog-tools-container-map (kbd "c") 'docker-containers)
-  (define-key my-prog-tools-container-map (kbd "v") 'docker-volumes)
+  (define-key my-container-map (kbd "m") 'docker-mode)
+  (define-key my-container-map (kbd "i") 'docker-images)
+  (define-key my-container-map (kbd "c") 'docker-containers)
+  (define-key my-container-map (kbd "v") 'docker-volumes)
   
   ;; (docker-global-mode)
   )
