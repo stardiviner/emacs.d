@@ -74,15 +74,16 @@
 ;;   switch current rails server buffer to inf-ruby buffer.
 
 (use-package projectile-rails
-  :config
-  (setq projectile-rails-add-keywords t)
-  (setq projectile-rails-expand-snippet t)
-  (setq projectile-rails-server-mode-ansi-colors nil) ; disable it if it is SLOW.
-
+  :init
   (setq projectile-rails-keymap-prefix (kbd "C-c C-r"))
   ;; (setq projectile-rails-keymap-prefix (kbd "C-c p C-r"))
 
   (add-hook 'projectile-mode-hook 'projectile-rails-on)
+  
+  :config
+  (setq projectile-rails-add-keywords t)
+  (setq projectile-rails-expand-snippet t)
+  (setq projectile-rails-server-mode-ansi-colors nil) ; disable it if it is SLOW.
 
   ;; Custom Keybindings `projectile-rails-mode-map'
   (defun rails-open-browser-development ()
