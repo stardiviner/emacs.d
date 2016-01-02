@@ -26,9 +26,11 @@
 
   ;; temporary solution to fix python-mode completion suspend for long time.
   ;; `completion-at-point-functions': (python-completion-complete-at-point t)
-  (add-hook 'python-mode-hook
-            '(lambda ()
-               (setq-local completion-at-point-functions nil)) t)
+  (dolist (hook '(python-mode-hook
+                  inferior-python-mode-hook
+                  ))
+    (add-hook hook '(lambda ()
+                      (setq-local completion-at-point-functions nil))))
   )
 
 
