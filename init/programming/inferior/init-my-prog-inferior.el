@@ -24,7 +24,8 @@
 (use-package eval-in-repl
   :config
   (setq eir-jump-after-eval t)
-  (setq eir-delete-other-windows nil)
+  (setq eir-delete-other-windows nil
+        eir-repl-placement 'right)
 
   ;; Emacs Lisp
   (with-eval-after-load 'ielm
