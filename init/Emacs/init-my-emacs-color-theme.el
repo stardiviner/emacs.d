@@ -70,7 +70,8 @@
 ;; region
 (set-face-attribute 'region nil
                     :inverse-video nil
-                    :background "dark green"
+                    ;; "dark green", "forest green", "khaki",
+                    :background "khaki"
                     ;; :background (color-darken-name (face-background 'default) 10)
                     )
 ;; highlight

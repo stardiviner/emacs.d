@@ -84,8 +84,6 @@
 
   (add-hook 'projectile-mode-hook 'projectile-rails-on)
 
-  (setq projectile-completion-system 'ivy-read)
-  
   ;; Custom Keybindings `projectile-rails-mode-map'
   (defun rails-open-browser-development ()
     "Browse Rails development url."
