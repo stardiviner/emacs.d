@@ -179,6 +179,7 @@
     indent-guide
     ;; Electric
     paredit
+    paxedit
     smartparens ; autopair
     ;; Comment
     poporg ; outorg
