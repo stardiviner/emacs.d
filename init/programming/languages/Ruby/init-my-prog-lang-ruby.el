@@ -397,6 +397,14 @@
                   inf-ruby-mode-hook
                   ))
     (add-hook hook 'robe-mode))
+
+  ;; lazily load Ruby source code when saving file.
+  (defun my-robe-lazily-load ()
+    (if (or (equal major-mode 'enh-ruby-mode)
+            (equal major-mode 'ruby-mode))
+        (ruby-load-file (buffer-file-name))))
+
+  (add-hook 'after-save-hook 'my-robe-lazily-load 'append)
   )
 
 
