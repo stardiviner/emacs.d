@@ -50,21 +50,13 @@
   :config
   (setq enh-ruby-extra-keywords '("private" "protected" "public" "self"))
   
-  (setq enh-ruby-bounce-deep-indent t
-        enh-ruby-check-syntax 'errors-and-warnings
-        enh-ruby-comment-column 32
+  (setq enh-ruby-bounce-deep-indent nil
         enh-ruby-deep-arglist t
         enh-ruby-deep-indent-paren t
-        ;; enh-ruby-deep-indent-paren-style nil
         enh-ruby-indent-level 2
-        enh-ruby-hanging-indent-level 2
-        enh-ruby-hanging-brace-indent-level 2
-        enh-ruby-hanging-brace-deep-indent-level 0
-        enh-ruby-hanging-paren-indent-level 2
-        enh-ruby-hanging-paren-deep-indent-level 0
         enh-ruby-use-encoding-map t
         enh-ruby-use-ruby-mode-show-parens-config t
-        enh-ruby-add-encoding-comment-on-save t ; add ruby magic encoding comment on save.
+        enh-ruby-add-encoding-comment-on-save t
         )
 
   (unless (derived-mode-p 'prog-mode)
