@@ -256,6 +256,9 @@
 (set-face-attribute 'company-tooltip-annotation nil
                     :inherit 'company-tooltip
                     :foreground "#777777" :background "white")
+(set-face-attribute 'company-tooltip-annotation-selection nil
+                    :inherit 'company-tooltip-selection
+                    :foreground "orange")
 ;; scroll-bar
 (set-face-attribute 'company-scrollbar-fg nil
                     :foreground "black" :background "black")
