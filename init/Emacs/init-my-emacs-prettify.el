@@ -12,7 +12,12 @@
 ;; TODO:
 ;; (setq prettify-symbols-alist '(("lambda" . 955)))
 
-;; (global-prettify-symbols-mode 1)
+;; If you set it to t, prettify-symbols will “unprettify” a symbol as long as
+;; the cursor is inside it. So you can easily (and temporarily) reveal a symbol
+;; by just moving over to it.
+(setq prettify-symbols-unprettify-at-point 'right-edge)
+
+(global-prettify-symbols-mode 1)
 
 
 ;;; [ pretty-mode ] -- redisplay parts of the Emacs buffer as pretty symbols.
