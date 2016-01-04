@@ -394,8 +394,10 @@
   (defun my-robe-lazily-load ()
     (if (or (equal major-mode 'enh-ruby-mode)
             (equal major-mode 'ruby-mode))
-        (ruby-load-file (buffer-file-name))))
-
+        (progn
+          (ruby-load-file (buffer-file-name))
+          (message "Robe loaded current file code."))
+      ))
   (add-hook 'after-save-hook 'my-robe-lazily-load 'append)
   )
 
