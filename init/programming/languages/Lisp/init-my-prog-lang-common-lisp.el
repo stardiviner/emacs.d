@@ -59,67 +59,66 @@
 ;; - [M-x slime] ::
 ;; - `slime-mode'
 
-;; select the default value from slime-lisp-implementations
-(if (eq system-type 'darwin)
-    ;; default to Clozure CL on OS X
-    (setq slime-default-lisp 'ccl)
-  ;; default to SBCL on Linux and Windows
-  (setq slime-default-lisp 'sbcl))
+(use-package slime
+  :config
+  ;; select the default value from slime-lisp-implementations
+  (if (eq system-type 'darwin)
+      ;; default to Clozure CL on OS X
+      (setq slime-default-lisp 'ccl)
+    ;; default to SBCL on Linux and Windows
+    (setq slime-default-lisp 'sbcl))
 
-(require 'slime)
+  ;; (require 'slime-autoloads)
+  ;; (require 'slime)
+  
+  (add-to-list 'slime-contribs 'slime-fancy)
 
-;; a list of alternative Common Lisp implementations that can be
-;; used with SLIME. Note that their presence render
-;; inferior-lisp-program useless. This variable holds a list of
-;; programs and if you invoke SLIME with a negative prefix
-;; argument, M-- M-x slime, you can select a program from that list.
-;;
-;; (setq slime-lisp-implementations
-;;       '((ccl ("ccl"))
-;;         (clisp ("clisp" "-q"))
-;;         (cmucl ("cmucl" "-quiet"))
-;;         (sbcl ("sbcl" "--noinform") :coding-system utf-8-unix)))
+  ;; a list of alternative Common Lisp implementations that can be
+  ;; used with SLIME. Note that their presence render
+  ;; inferior-lisp-program useless. This variable holds a list of
+  ;; programs and if you invoke SLIME with a negative prefix
+  ;; argument, M-- M-x slime, you can select a program from that list.
+  ;;
+  (setq slime-lisp-implementations
+        '((ccl ("ccl"))
+          (clisp ("clisp" "-q"))
+          (cmucl ("cmucl" "-quiet"))
+          (sbcl ("sbcl" "--noinform") :coding-system utf-8-unix)))
+  
+  ;; NOTE: currently using slime from el-get installation.
+  ;; (require 'slime-autoloads)
+  ;; -----------------------------------
+  ;; Quicklisp SLIME
+  ;; (load (expand-file-name "~/quicklisp/slime-helper.el"))
+  ;; (require 'slime)
+  ;; -----------------------------------
 
-;; NOTE: currently using slime from el-get installation.
-;; (require 'slime-autoloads)
-;;; -----------------------------------
-;;; Quicklisp SLIME
-;; (load (expand-file-name "~/quicklisp/slime-helper.el"))
-;; (require 'slime)
-;;; -----------------------------------
+  (setq slime-completion-at-point-functions '(slime-filename-completion
+                                              slime-simple-completion-at-point)
+        slime-fuzzy-completion-in-place t
+        slime-enable-evaluate-in-emacs t)
 
-(require 'slime-fancy)
 
-(defun my-start-slime ()
-  "Start SLIME unless it's already running."
-  (interactive)
-  (unless (slime-connected-p)
-    (save-excursion (slime))))
+  ;; start slime automatically when we open a lisp file
+  (defun my-start-slime ()
+    "Start SLIME unless it's already running."
+    (interactive)
+    (unless (slime-connected-p)
+      (save-excursion (slime))))
 
-;; start slime automatically when we open a lisp file
-(add-hook 'slime-mode-hook 'my-start-slime)
-;;
-;; (eval-after-load 'slime
-;;   '(progn
-;;      (setq
-;;       slime-completion-at-point-functions '(slime-filename-completion
-;;                                             slime-simple-completion-at-point)
-;;       slime-fuzzy-completion-in-place t
-;;       slime-enable-evaluate-in-emacs t
-;;       slime-autodoc-use-multiline-p t)
-;;
-;;      (define-key slime-mode-map (kbd "TAB") 'slime-indent-and-complete-symbol)
-;;      (define-key slime-mode-map (kbd "C-c i") 'slime-inspect)
-;;      (define-key slime-mode-map (kbd "C-c C-s") 'slime-selector)))
+  (add-hook 'slime-mode-hook 'my-start-slime)
 
-(add-hook 'slime-repl-mode-hook
-          '(lambda ()
-             (add-hook (make-local-variable 'completion-at-point-functions)
-                       'slime-complete-symbol)
-             ))
+  
+  (add-hook 'slime-repl-mode-hook
+            '(lambda ()
+               (add-hook (make-local-variable 'completion-at-point-functions)
+                         'slime-complete-symbol)
+               (setq-local tab-always-indent 'complete)
+               ))
 
-;; load quicklisp installed SLIME.
-;; (ql:quickload "quicklisp-slime-helper")
+  ;; load quicklisp installed SLIME.
+  ;; (ql:quickload "quicklisp-slime-helper")
+  )
 
 
 ;;; [ slime-company ] -- slime backend for Company mode.
