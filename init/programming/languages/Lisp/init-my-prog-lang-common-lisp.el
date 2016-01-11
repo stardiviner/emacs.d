@@ -122,6 +122,12 @@
                (setq-local tab-always-indent 'complete)
                ))
 
+  ;; notify user after SLIME connected
+  (add-hook 'slime-connected-hook
+            (lambda ()
+              (notifications-notify :title "SLIME subprocess"
+                                    :body "SLIME connected.")))
+  
   ;; load quicklisp installed SLIME.
   ;; (ql:quickload "quicklisp-slime-helper")
   )
