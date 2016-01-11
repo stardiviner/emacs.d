@@ -218,10 +218,11 @@
   :init
   ;; (require 'sly-autoloads)
   :config
-  ;; (setq sly-lisp-implementations
-  ;;       '((cmucl ("cmucl" "-quiet"))
-  ;;         ;; (cmucl ("/opt/cmucl/bin/lisp" "-quiet") :init sly-init-command)
-  ;;         (sbcl ("/usr/bin/sbcl") :coding-system utf-8-unix)))
+  (setq sly-lisp-implementations
+        '((cmucl ("cmucl" "-quiet"))
+          ;; (cmucl ("/opt/cmucl/bin/lisp" "-quiet") :init sly-init-command)
+          (acl (\"acl7\") :coding-system emacs-mule)
+          (sbcl ("/usr/bin/sbcl") :coding-system utf-8-unix)))
 
   (setq sly-contribs '(sly-fancy sly-retro
                                  sly-scratch
