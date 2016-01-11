@@ -132,10 +132,11 @@
 
 ;;; [ slime-company ] -- slime backend for Company mode.
 
-(require 'slime-company)
-
-(slime-setup '(slime-company))
-
+(use-package slime-company
+  :config
+  (with-eval-after-load 'slime
+    (slime-setup '(slime-company)))
+  )
 
 
 ;;; Fontify *SLIME Description* buffer for SBCL
