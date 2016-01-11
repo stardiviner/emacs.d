@@ -64,8 +64,8 @@
 
 (use-package docker-tramp
   :config
-  (setq docker-tramp-docker-options nil
-        docker-tramp-use-names nil
+  (setq docker-tramp-use-names t
+        docker-tramp-docker-options nil
         )
   )
 
