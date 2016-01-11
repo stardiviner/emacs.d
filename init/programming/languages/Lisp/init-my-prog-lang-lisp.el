@@ -115,23 +115,24 @@
 ;;  `eval-sexp-fu-eval-sexp-inner-sexp'
 ;;    Evaluate the sexp _currently_ pointed; print value in minibuffer.
 
-(require 'eval-sexp-fu)
+(use-package eval-sexp-fu
+  :config
+  (set-face-attribute 'eval-sexp-fu-flash nil
+                      :background "#333333"
+                      :weight 'normal
+                      )
+  (set-face-attribute 'eval-sexp-fu-flash-error nil
+                      :foreground "red"
+                      :weight 'bold)
 
-(set-face-attribute 'eval-sexp-fu-flash nil
-                    :background "#333333"
-                    :weight 'normal
-                    )
-(set-face-attribute 'eval-sexp-fu-flash-error nil
-                    :foreground "red"
-                    :weight 'bold)
+  (setq eval-sexp-fu-flash-duration 0.5
+        eval-sexp-fu-flash-error-duration 1.5
+        ;; eval-sexp-fu-flash-function
+        ;; eval-sexp-fu-flash-doit-function
+        )
 
-(setq eval-sexp-fu-flash-duration 0.5
-      eval-sexp-fu-flash-error-duration 1.5
-      ;; eval-sexp-fu-flash-function
-      ;; eval-sexp-fu-flash-doit-function
-      )
-
-(eval-sexp-fu-flash-mode 1)
+  (eval-sexp-fu-flash-mode 1)
+  )
 
 
 (provide 'init-my-prog-lang-lisp)
