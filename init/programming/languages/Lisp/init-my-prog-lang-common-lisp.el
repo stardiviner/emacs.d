@@ -249,6 +249,11 @@
                 (define-key my-prog-help-document-map (kbd "d") 'sly-documentation-lookup)
                 )))
 
+  (add-hook 'sly-connected-hook
+            (lambda ()
+              (notifications-notify :title "SLY subprocess"
+                                    :body "SLY connected")))
+  
   (eval-after-load 'sly
     `(define-key sly-prefix-map (kbd "M-h") 'sly-documentation-lookup))
 
