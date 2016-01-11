@@ -234,6 +234,8 @@
           (acl (\"acl7\") :coding-system emacs-mule)
           (sbcl ("/usr/bin/sbcl") :coding-system utf-8-unix)))
 
+  (setq sly-default-lisp 'sbcl)
+
   (setq sly-contribs '(sly-fancy sly-retro
                                  sly-scratch
                                  sly-mrepl
