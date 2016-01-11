@@ -250,33 +250,36 @@
 ;;; NOTE: that rbenv.el always configures the complete Emacs session. There is
 ;;; no way to set the Ruby version on a per buffer basis.
 
-;;; IMPORTANT:: Currently you need to set this variable before you load rbenv.el
-(setq rbenv-installation-dir "~/.rbenv/") ; "/usr/local/rbenv"
+(use-package rbenv
+  :init
+  ;; IMPORTANT:: Currently you need to set this variable before you load rbenv.el
+  (setq rbenv-installation-dir "~/.rbenv/") ; "/usr/local/rbenv"
+  :config
+  (setq rbenv-show-active-ruby-in-modeline t
+        ;; rbenv-executable "~/.rbenv/bin/rbenv"
+        ;; rbenv-binary-paths '((shims-path . "~/.rbenv/shims")
+        ;;                      (bin-path . "~/.rbenv/bin"))
+        ;; rbenv-ruby-shim "~/.rbenv/shims/ruby"
+        rbenv-modeline-function 'rbenv--modeline-plain ; 'rbenv--modeline-with-face
+        )
 
-(setq rbenv-show-active-ruby-in-modeline t
-      ;; rbenv-executable "~/.rbenv/bin/rbenv"
-      ;; rbenv-binary-paths '((shims-path . "~/.rbenv/shims")
-      ;;                      (bin-path . "~/.rbenv/bin"))
-      ;; rbenv-ruby-shim "~/.rbenv/shims/ruby"
-      rbenv-modeline-function 'rbenv--modeline-plain ; 'rbenv--modeline-with-face
-      )
+  ;; (defun rbenv--modeline-with-face (current-ruby)
+  ;;   (append '(" [")
+  ;;           (list (propertize current-ruby 'face 'rbenv-active-ruby-face))
+  ;;           '("]")))
 
-;; (defun rbenv--modeline-with-face (current-ruby)
-;;   (append '(" [")
-;;           (list (propertize current-ruby 'face 'rbenv-active-ruby-face))
-;;           '("]")))
+  ;; (defun rbenv--modeline-plain (current-ruby)
+  ;;   (list " [" current-ruby "]"))
 
-;; (defun rbenv--modeline-plain (current-ruby)
-;;   (list " [" current-ruby "]"))
+  ;; Setting rbenv path
+  ;; (setenv "PATH" (concat (getenv "HOME") "/.rbenv/shims:" (getenv "HOME") "/.rbenv/bin:" (getenv "PATH")))
+  ;; (setq exec-path (cons (concat (getenv "HOME") "/.rbenv/shims") (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path)))
 
-;;; Setting rbenv path
-;; (setenv "PATH" (concat (getenv "HOME") "/.rbenv/shims:" (getenv "HOME") "/.rbenv/bin:" (getenv "PATH")))
-;; (setq exec-path (cons (concat (getenv "HOME") "/.rbenv/shims") (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path)))
+  (global-rbenv-mode 1)
 
-(global-rbenv-mode 1)
-
-(rbenv-use-global)
-;; (rbenv-use "2.2.0")
+  (rbenv-use-global)
+  ;; (rbenv-use "2.2.0")
+  )
 
 
 ;;; [ inf-ruby ] -- provides a REPL buffer connected to a Ruby(irb/pry) subprocess
