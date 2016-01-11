@@ -249,7 +249,7 @@
     ;; Languages
     ;; Lisp
     rainbow-delimiters ; rainbow-blocks
-    slime slime-annot slime-company ; slime-repl
+    ;; slime slime-annot slime-company ; slime-repl
     sly sly-company
     eval-sexp-fu
     ;; Emacs Lisp
