@@ -214,35 +214,38 @@
 ;; - `sly-connect' ::
 ;; - `sly-mode'
 
-(require 'sly-autoloads)
+(use-package sly
+  :init
+  ;; (require 'sly-autoloads)
+  :config
+  ;; (setq sly-lisp-implementations
+  ;;       '((cmucl ("cmucl" "-quiet"))
+  ;;         ;; (cmucl ("/opt/cmucl/bin/lisp" "-quiet") :init sly-init-command)
+  ;;         (sbcl ("/usr/bin/sbcl") :coding-system utf-8-unix)))
 
-;; (setq sly-lisp-implementations
-;;       '((cmucl ("cmucl" "-quiet"))
-;;         ;; (cmucl ("/opt/cmucl/bin/lisp" "-quiet") :init sly-init-command)
-;;         (sbcl ("/usr/bin/sbcl") :coding-system utf-8-unix)))
+  (setq sly-contribs '(sly-fancy sly-retro
+                                 sly-scratch
+                                 sly-mrepl
+                                 sly-autodoc))
 
-(setq sly-contribs '(sly-fancy sly-retro
-                               sly-scratch
-                               sly-mrepl
-                               sly-autodoc))
+  (dolist (hook '(sly-mode-hook
+                  sly-mrepl-mode-hook
+                  lisp-mode-hook
+                  lisp-interaction-mode-hook
+                  common-lisp-lisp-mode-hook
+                  ))
+    (add-hook hook
+              (lambda ()
+                (define-key my-prog-help-document-map (kbd "d") 'sly-documentation-lookup)
+                )))
 
-(dolist (hook '(sly-mode-hook
-                sly-mrepl-mode-hook
-                lisp-mode-hook
-                lisp-interaction-mode-hook
-                common-lisp-lisp-mode-hook
-                ))
-  (add-hook hook
-            (lambda ()
-              (define-key my-prog-help-document-map (kbd "d") 'sly-documentation-lookup)
-              )))
+  (eval-after-load 'sly
+    `(define-key sly-prefix-map (kbd "M-h") 'sly-documentation-lookup))
 
-(eval-after-load 'sly
-  `(define-key sly-prefix-map (kbd "M-h") 'sly-documentation-lookup))
-
-(eval-after-load 'sly-mrepl
-  `(define-key sly-mrepl-mode-map (kbd "C-c C-k")
-     'sly-mrepl-clear-recent-output))
+  (eval-after-load 'sly-mrepl
+    `(define-key sly-mrepl-mode-map (kbd "C-c C-k")
+       'sly-mrepl-clear-recent-output))
+  )
 
 
 ;;; [ company-sly ] -- Company-mode completion backend for SLY.
