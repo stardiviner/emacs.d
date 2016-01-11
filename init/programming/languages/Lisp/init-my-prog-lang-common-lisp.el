@@ -99,14 +99,11 @@
         slime-enable-evaluate-in-emacs t)
 
 
-  ;; start slime automatically when we open a lisp file
-  (defun my-start-slime ()
-    "Start SLIME unless it's already running."
-    (interactive)
-    (unless (slime-connected-p)
-      (save-excursion (slime))))
-
-  (add-hook 'slime-mode-hook 'my-start-slime)
+  ;; auto start SLIME unless it's already running.
+  (add-hook 'slime-mode-hook
+            (lambda ()
+              (unless (slime-connected-p)
+                (save-excursion (slime)))))
 
   (add-hook 'slime-load-hook
             #'(lambda ()
