@@ -260,6 +260,12 @@
   (eval-after-load 'sly-mrepl
     `(define-key sly-mrepl-mode-map (kbd "C-c C-k")
        'sly-mrepl-clear-recent-output))
+
+  ;; auto connect SLY.
+  (add-hook 'sly-mode-hook
+            (lambda ()
+              (unless (sly-connected-p)
+                (save-excursion (sly)))))
   )
 
 
