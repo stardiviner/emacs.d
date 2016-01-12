@@ -86,9 +86,11 @@
                       :foreground "dark green")
 
   (set-face-attribute 'erm-syn-warnline nil
-                      :underline "orange")
+                      :inherit 'flycheck-warning
+                      :box nil)
   (set-face-attribute 'erm-syn-errline nil
-                      :underline "red")
+                      :inherit 'flycheck-error
+                      :box nil)
 
 
   (electric-indent-local-mode 1)
