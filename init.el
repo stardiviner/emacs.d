@@ -78,7 +78,8 @@
 (eval-when-compile
   (require 'use-package))
 (require 'use-package)
-(setq use-package-verbose t)
+(setq use-package-verbose t
+      use-package-always-ensure nil)
 
 (require 'color)
 (require 'color-theme)
