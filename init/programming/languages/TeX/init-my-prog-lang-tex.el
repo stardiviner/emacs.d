@@ -71,6 +71,11 @@
 ;;       preview-auto-reveal
 ;;       preview-auto-cache-preamble 'ask
 ;;       )
+;;
+;; fix iimage-mode auto open preview inline image with external program.
+(add-hook 'latex-mode-hook 'turn-off-iimage-mode)
+(add-hook 'LaTeX-mode-hook 'turn-off-iimage-mode)
+
 
 ;; LaTeX source code block syntax highlighting.
 ;; [ minted ]
