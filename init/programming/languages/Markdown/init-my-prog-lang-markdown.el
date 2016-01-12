@@ -123,6 +123,11 @@
 ;; (add-to-list 'as-external-alist '("stack\\(exchange\\|overflow\\)\\.com\\.[a-z0-9]+\\.txt" markdown-mode))
 
 
+;;; [ markdown-preview-eww ]
+
+(use-package markdown-preview-eww)
+
+
 ;;; [ markdown-preview-mode ]
 
 ;;; Makes use of markdown-mode, which already can transform markdown into html

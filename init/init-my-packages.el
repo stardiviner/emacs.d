@@ -438,6 +438,7 @@
     cdlatex
     ;; Markdown
     markdown-mode
+    markdown-preview-eww
     ;; YAML
     yaml-mode
     
