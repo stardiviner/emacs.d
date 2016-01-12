@@ -30,6 +30,14 @@
 ;;; [ gas-mode ]
 
 
+;;; [ haxor-mode ] -- Major mode for editing Haxor Assembly Files.
+
+(use-package haxor-mode
+  :defer t
+  :mode ("\\.hax\\'" . haxor-mode)
+  )
+
+
 (provide 'init-my-prog-lang-assembly)
 
 ;;; init-my-prog-lang-assembly.el ends here

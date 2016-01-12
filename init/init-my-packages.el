@@ -430,6 +430,7 @@
     angularjs-mode
     ;; Assembly
     ;; nasm-mode iasm-mode fasm-mode
+    haxor-mode
     ;; TeX
     auctex
     company-auctex company-math
