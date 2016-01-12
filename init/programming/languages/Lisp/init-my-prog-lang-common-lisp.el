@@ -54,11 +54,6 @@
 
 ;;; [ SLIME ]
 
-;;; Usage:
-;;
-;; - [M-x slime] ::
-;; - `slime-mode'
-
 (use-package slime
   :config
   ;; select the default value from slime-lisp-implementations
@@ -220,12 +215,6 @@
 
 
 ;;; [ sly ] -- Sylvester the Cat's Common Lisp IDE
-
-;;; Usage:
-;;
-;; - [M-x sly] :: fire up SLY and connect to Lisp.
-;; - `sly-connect' ::
-;; - `sly-mode'
 
 (use-package sly
   :init
