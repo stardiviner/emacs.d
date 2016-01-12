@@ -72,6 +72,11 @@
 (load "~/.emacs.d/init/init-my-pm-package.el")
 (require 'init-my-pm-package)
 
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(eval-when-compile
+  (require 'use-package))
 (require 'use-package)
 (setq use-package-verbose t)
 
