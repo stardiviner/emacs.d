@@ -230,6 +230,7 @@
 (use-package sly
   :init
   ;; (require 'sly-autoloads)
+  :commands (sly)
   :config
   (setq sly-lisp-implementations
         '((cmucl ("cmucl" "-quiet"))
