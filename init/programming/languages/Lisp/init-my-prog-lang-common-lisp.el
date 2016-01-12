@@ -101,12 +101,12 @@
               (unless (slime-connected-p)
                 (save-excursion (slime)))))
 
-  (add-hook 'slime-load-hook
-            #'(lambda ()
-                (define-key slime-prefix-map (kbd "M-h")
-                  'slime-documentation-lookup)))
-  ;; (eval-after-load 'slime
-  ;;   `(define-key slime-prefix-map (kbd "M-h") 'slime-documentation-lookup))
+  ;; (add-hook 'slime-load-hook
+  ;;           #'(lambda ()
+  ;;               (define-key slime-prefix-map (kbd "M-h")
+  ;;                 'slime-documentation-lookup)))
+  (eval-after-load 'slime
+    `(define-key slime-prefix-map (kbd "M-h") 'slime-documentation-lookup))
   
   (add-hook 'slime-repl-mode-hook
             '(lambda ()
