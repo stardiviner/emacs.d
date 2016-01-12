@@ -55,6 +55,7 @@
 ;;; [ SLIME ]
 
 (use-package slime
+  :commands (slime)
   :config
   ;; select the default value from slime-lisp-implementations
   (if (eq system-type 'darwin)
