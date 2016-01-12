@@ -255,11 +255,6 @@
               (lambda ()
                 (define-key my-prog-help-document-map (kbd "d") 'sly-documentation-lookup)
                 )))
-
-  (add-hook 'sly-connected-hook
-            (lambda ()
-              (notifications-notify :title "SLY subprocess"
-                                    :body "SLY connected")))
   
   (eval-after-load 'sly
     `(define-key sly-prefix-map (kbd "M-h") 'sly-documentation-lookup))
@@ -267,6 +262,12 @@
   (eval-after-load 'sly-mrepl
     `(define-key sly-mrepl-mode-map (kbd "C-c C-k")
        'sly-mrepl-clear-recent-output))
+
+  ;; notify user after SLY connected.
+  (add-hook 'sly-connected-hook
+            (lambda ()
+              (notifications-notify :title "SLY subprocess"
+                                    :body "SLY connected")))
 
   ;; auto connect SLY.
   (add-hook 'sly-mode-hook
