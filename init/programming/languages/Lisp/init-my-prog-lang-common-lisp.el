@@ -96,10 +96,10 @@
 
 
   ;; auto start SLIME unless it's already running.
-  ;; (add-hook 'slime-mode-hook
-  ;;           (lambda ()
-  ;;             (unless (slime-connected-p)
-  ;;               (save-excursion (slime)))))
+  (add-hook 'slime-mode-hook
+            (lambda ()
+              (unless (slime-connected-p)
+                (save-excursion (slime)))))
 
   (add-hook 'slime-load-hook
             #'(lambda ()
