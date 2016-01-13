@@ -136,11 +136,16 @@
 
   ;; clojure-mode has keybinding [C-c C-s] for `cider-scratch'.
   ;; auto execute all commands steps when start `cider-scratch'.
-  (defadvice cider-scratch (before cider-scratch activate)
+  (defun my-cider-scratch-start ()
     "Execute all CIDER commands steps when start `cider-scratch'."
     (cider-jack-in)
+    ;; (sleep )
+    ;; TODO: until `cider-jack-in' finished, and server is available.
+    ;; - check out source code to find out detect function.
     (call-interactively 'cider-connect)
     )
+  (advice-add 'cider-scratch :before #'my-cider-scratch-start)
+
   
   (define-key clojure-mode-map (kbd "C-c C-s") 'cider-scratch)
   (define-key my-prog-inferior-map (kbd "c") 'cider-scratch)

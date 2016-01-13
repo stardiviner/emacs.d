@@ -16,48 +16,6 @@
      '(progn ,@body)))
 
 
-;;; [ defadvice + macro ]
-
-;;; Advise Multiple Commands in the Same Manner.
-
-(defmacro advice-commands (advice-name commands &rest body)
-  "Apply advice named ADVICE-NAME to multiple COMMANDS. The body of the advice is in BODY."
-  `(progn
-     ,@(mapcar (lambda (command)
-                 `(defadvice ,command (before ,(intern (concat (symbol-name command) "-" advice-name)) activate)
-                    ,@body))
-               commands)))
-
-;;; usage examples:
-
-;;; redundant way,
-;; (defadvice switch-to-buffer
-;;     (before switch-to-buffer-auto-save activate)
-;;   (prelude-auto-save))
-;; (defadvice other-window
-;;     (before other-window-auto-save activate)
-;;   (prelude-auto-save))
-
-;;; reduce code way,
-;; advice all window switching functions
-;; (advice-commands "auto-save"
-;;                  (switch-to-buffer other-window windmove-up windmove-down windmove-left windmove-right)
-;;                  (save-buffer)
-;;                  ;; (prelude-auto-save)
-;;                  )
-
-;;; `macroexpand' can show us how the macro gets expanded:
-;; (macroexpand '(advice-commands "auto-save"
-;;                                (switch-to-buffer other-window windmove-up windmove-down windmove-left windmove-right)
-;;                                (prelude-auto-save)))
-;;
-;; (progn
-;;   (defadvice switch-to-buffer
-;;       (before switch-to-buffer-auto-save activate) (prelude-auto-save))
-;;   (defadvice other-window
-;;       (before other-window-auto-save activate) (prelude-auto-save)))
-
-
 ;;; Group hooks into one new hook.
 
 (defmacro hook-modes (modes &rest body)

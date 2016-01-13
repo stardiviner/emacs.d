@@ -108,9 +108,7 @@
              "^On.+it was compiled from:$")
      'hi-green-b)))
 
-(defadvice slime-show-description (after slime-description-fontify activate)
-  "Fontify sections of SLIME Description."
-  (slime-description-fontify))
+(advice-add 'slime-show-description :after #'slime-description-fontify)
 
 
 ;;; Improve usability of slime-apropos: slime-apropos-minor-mode
@@ -139,11 +137,6 @@
 ;; (define-key slime-apropos-minor-mode-map "j" 'slime-apropos-next-anchor)
 ;; (define-key slime-apropos-minor-mode-map "k" 'slime-apropos-prev-anchor)
 ;; (define-minor-mode slime-apropos-minor-mode "")
-
-;; (defadvice slime-show-apropos (after slime-apropos-minor-mode activate)
-;;   ""
-;;   (when (get-buffer "*SLIME Apropos*")
-;;     (with-current-buffer "*SLIME Apropos*" (slime-apropos-minor-mode 1))))
 
 
 ;;; Integrate yas/expend to TAB key
