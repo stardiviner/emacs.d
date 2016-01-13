@@ -424,6 +424,12 @@
 (use-package web-mode
   :config
   (define-key web-mode-map (kbd "C-'") 'company-web-html)
+  (define-key web-mode-map (kbd "C-o")
+    '(lambda ()
+       (interactive)
+       (previous-line)
+       (end-of-line)
+       (newline-and-indent)))
   )
 
 
