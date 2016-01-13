@@ -242,16 +242,6 @@
 
 ;;; [ rbenv ] -- use rbenv to manage your Ruby versions within Emacs
 
-;;; Usage:
-;;
-;; - `global-rbenv-mode' :: activate / deactivate rbenv.el (The current Ruby version is shown in the modeline).
-;; - `rbenv-use-global' :: will activate your global Ruby.
-;; - `rbenv-use-corresponding' :: will activate your corresponding Ruby.
-;; - `rbenv-use' :: allows you to choose what ruby version you want to use.
-
-;;; NOTE: that rbenv.el always configures the complete Emacs session. There is
-;;; no way to set the Ruby version on a per buffer basis.
-
 (use-package rbenv
   :init
   ;; IMPORTANT:: Currently you need to set this variable before you load rbenv.el
