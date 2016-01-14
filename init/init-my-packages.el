@@ -76,11 +76,12 @@
     openwith
     ;; Spell
     flyspell flyspell-lazy
-    helm-flyspell flyspell-popup
-    helm-ispell
+    flyspell-popup
+    ;; helm-flyspell
+    ;; helm-ispell
     ;; Completion System
-    helm
-    helm-helm-commands helm-descbinds
+    ;; helm
+    ;; helm-helm-commands helm-descbinds
     swiper counsel
     ;; Popup
     popup pos-tip
@@ -98,7 +99,7 @@
     ;; Mode
     mmm-mode ; polymode
     ;; Unicode
-    helm-unicode
+    ;; helm-unicode
     pretty-mode
     ;; pretty-symbols
     ;; purty-mode
@@ -151,7 +152,7 @@
     ;; company-try-hard
     ;; Snippet
     yasnippet
-    helm-c-yasnippet
+    ;; helm-c-yasnippet
     ;; Template
     yatemplate ; skeletor
     ;; Diff
@@ -186,7 +187,8 @@
     fic-mode
     ;; fixmee
     ;; Linter
-    flycheck flycheck-pos-tip helm-flycheck
+    flycheck flycheck-pos-tip
+    ;; helm-flycheck
     ;; Document
     dash helm-dash dash-at-point dash-functional
     irfc
@@ -194,12 +196,13 @@
     project-explorer ; sr-speedbar
     ;; Project
     projectile
-    helm-projectile
+    ;; helm-projectile
     ;; Search
     isearch+ anzu
     ;; swiper ; swiper-helm
     ;; swoop helm-swoop
-    helm-c-moccur color-moccur
+    color-moccur
+    ;; helm-c-moccur
     ;; highlight
     highlight-symbol ; highlight-thing
     ;; Regexp
@@ -207,7 +210,7 @@
     ample-regexps pcre2el regex-tool
     ;; wgrep wgrep-ack wgrep-helm
     ;; ack full-ack helm-ack
-    ag helm-ag
+    ag ;; helm-ag
     ;; pt helm-pt
     ;; helm-recoll
     ;; Tags
@@ -216,7 +219,7 @@
     ;; helm-cscope
     ;; xcscope
     ggtags
-    helm-gtags
+    ;; helm-gtags
     ;; Compile
     smart-compile multi-compile
     ;; Run
@@ -469,9 +472,9 @@
     
     ;; Tools
     ;; Bookmarks
-    helm-bm
+    ;; helm-bm
     ;; helm-w3m
-    helm-firefox ; helm-chrome
+    ;; helm-firefox ; helm-chrome
     ;; PDF
     pdf-tools org-pdfview
     ;; Files
@@ -492,7 +495,7 @@
     ;; Email
     ;; gnus
     ;; mu4e
-    mu4e-maildirs-extension helm-mu
+    mu4e-maildirs-extension ; helm-mu
     ;; Contacts
     ;; bbdb
     ;; bbdb-vcard bbdb-csv-import gmail2bbdb
