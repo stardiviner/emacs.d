@@ -195,7 +195,6 @@
     ;; Project
     projectile
     helm-projectile
-    helm-cmd-t
     ;; Search
     isearch+ anzu
     ;; swiper ; swiper-helm
