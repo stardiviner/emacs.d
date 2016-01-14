@@ -130,36 +130,23 @@
 
 ;;; [ markdown-preview-mode ]
 
-;;; Makes use of markdown-mode, which already can transform markdown into html
-;;; and websocket.el to deliver html to browser.
+(use-package markdown-preview-moe
+  :config
+  ;; enable MultiMarkdown support
+  ;; (setq markdown-command "multimarkdown")
 
-;;; Usage:
-;;; - [M-x markdown-preview-mode] :: open preview in a browse.
-;;;
-;;; [M-x markdown-preview-mode] will open preview in a browser and will start
-;;; markdown-mode if it's not yet running for current buffer. If you'v closed
-;;; the preview window, you can start it over with [M-x
-;;; markdown-preview-open-browser]. All websockets will be cleaned up on emacs
-;;; termination. If you'd like to perform cleanup manually run [M-x
-;;; markdown-preview-cleanup].
+  ;; custom css theme
+  (setq markdown-preview-style ""http://thomasf.github.io/solarized-css/solarized-dark.min.css"")
 
-;; (require 'markdown-preview-mode)
-(autoload 'markdown-preview-mode "markdown-preview-mode.el" nil t)
+  ;; websocket.el port
+  ;; (setq markdown-preview-port 7379)
 
-;; enable MultiMarkdown support
-;; (setq markdown-command "multimarkdown")
+  ;; (set-face-attribute 'markdown-pre-face nil
+  ;;                     :inherit 'font-lock-constant-face
+  ;;                     )
 
-;; custom css theme
-(setq markdown-preview-style ""http://thomasf.github.io/solarized-css/solarized-dark.min.css"")
-
-;; websocket.el port
-;; (setq markdown-preview-port 7379)
-
-;; (set-face-attribute 'markdown-pre-face nil
-;;                     :inherit 'font-lock-constant-face
-;;                     )
-
-(define-key markdown-mode-map (kbd "C-c C-k") 'markdown-preview-mode)
+  (define-key markdown-mode-map (kbd "C-c C-k") 'markdown-preview-mode)
+  )
 
 
 ;;; [ realtime-preview ] -- realtime preview markdown by EWW.

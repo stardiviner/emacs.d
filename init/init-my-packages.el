@@ -440,6 +440,7 @@
     ;; Markdown
     markdown-mode
     markdown-preview-eww
+    ;; markdown-preview-mode
     ;; YAML
     yaml-mode
     
