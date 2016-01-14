@@ -107,15 +107,33 @@
       helm-idle-delay 0.01
       )
 
+
+(setq helm-completing-read-handlers-alist
+      '((describe-function . helm-completing-read-symbols)
+        (describe-variable . helm-completing-read-symbols)
+        (describe-symbol . helm-completing-read-symbols)
+        (debug-on-entry . helm-completing-read-symbols)
+        (find-function . helm-completing-read-symbols)
+        (disassemble . helm-completing-read-symbols)
+        (trace-function . helm-completing-read-symbols)
+        (trace-function-foreground . helm-completing-read-symbols)
+        (trace-function-background . helm-completing-read-symbols)
+        (find-tag . helm-completing-read-with-cands-in-buffer)
+        (ffap-alternate-file . nil)
+        (tmm-menubar . nil)
+        (find-file . ido)
+        (execute-extended-command . nil)))
+
 ;; this global keybinding [M-x] will conflict with {[C-u M-x align-regexp] on select region text.}
 ;; But you can press [M-x C-u align-regexp RET].
 (setq helm-M-x-fuzzy-match nil
       helm-M-x-reverse-history nil)
+
 ;; [M-x] Emacs keybinding beside command
-;; (global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "M-x") 'helm-M-x)
 ;; If you prefer the helm version of the file finder, you can bind it to C-x C-f
 ;; to replace the standard find-file:
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
+;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x b") 'helm-mini)
 ;; (define-key helm-command-prefix (kbd "o") 'helm-occur)
 (global-set-key (kbd "C-h a") 'helm-apropos) ; replace default `apropos-command'.
