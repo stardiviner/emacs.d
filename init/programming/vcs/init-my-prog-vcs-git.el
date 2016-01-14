@@ -286,8 +286,6 @@
 ;; repository log - "L"
 ;; [M-n/p] to navigate.
 ;; (define-key my-prog-vcs-git-map (kbd "L") 'magit-log-long)
-;; grep - "g"
-(define-key my-prog-vcs-git-map (kbd "g") 'magit-grep)
 ;; checkout - "o"
 (define-key my-prog-vcs-git-map (kbd "o") 'magit-checkout) ; magit-checkout-branch-at-point
 ;; bisect -- "b"

@@ -45,15 +45,15 @@
 ;; - `ag-mode-hook' :: before search
 ;; - `ag-search-finished-hook' :: when finished search
 
-(setq ag-highlight-search t
-      ag-reuse-buffers 't
-      ag-reuse-window nil ; nil, or 't. (I use value `nil' for popwin to capture)
-      ;; ag-arguments
-      )
-
 (use-package ag
   :commands ag
   :config
+  (setq ag-highlight-search t
+        ag-reuse-buffers 't
+        ag-reuse-window nil ; nil, or 't. (I use value `nil' for popwin to capture)
+        ;; ag-arguments
+        )
+  
   (set-face-attribute 'ag-hit-face nil
                       :foreground "gray" :background "black")
   (set-face-attribute 'ag-match-face nil
@@ -61,18 +61,18 @@
                       :foreground "red"
                       :background (color-darken-name (face-background 'default) 5)
                       )
+  
+  ;; This will auto open search results in other window.
+  ;; (add-hook 'ag-mode-hook #'next-error-follow-minor-mode) ; so you can navigate with 'n' & 'p'.
+
+  (unless (boundp 'ag-map)
+    (define-prefix-command 'ag-map))
+  (define-key my-search-prefix (kbd "a") 'ag-map)
+
+  (define-key ag-map (kbd "a") 'ag)
+  (define-key ag-map (kbd "r") 'ag-regexp)
+  (define-key ag-map (kbd "p") 'ag-regexp-project-at-point) ; 'ag, 'ag-regexp,
   )
-
-;; This will auto open search results in other window.
-;; (add-hook 'ag-mode-hook #'next-error-follow-minor-mode) ; so you can navigate with 'n' & 'p'.
-
-(unless (boundp 'ag-map)
-  (define-prefix-command 'ag-map))
-(define-key my-search-prefix (kbd "a") 'ag-map)
-
-(define-key ag-map (kbd "a") 'ag)
-(define-key ag-map (kbd "r") 'ag-regexp)
-(define-key ag-map (kbd "p") 'ag-regexp-project-at-point) ; 'ag, 'ag-regexp,
 
 
 ;;; [ helm-ag ]
