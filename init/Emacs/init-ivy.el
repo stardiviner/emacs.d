@@ -21,38 +21,41 @@
   
   (set-face-attribute 'ivy-confirm-face nil
                       :inherit nil
-                      :foreground "white" :background "khaki")
+                      :foreground "black" :background "khaki"
+                      :weight 'bold)
+  (set-face-attribute 'ivy-current-match nil
+                      ;; :foreground "white" :background "#004A5D"
+                      ;; :weight 'normal :box nil
+                      ;; Sci-Fi style
+                      :foreground "white" :background "#004A5D"
+                      :box '(:color "cyan" :line-width -1)
+                      )
   (set-face-attribute 'ivy-match-required-face nil
                       :inherit 'minibuffer-prompt
-                      :foreground "dark red" :background nil
-                      :weight 'bold :box nil 
+                      :foreground "dark red" :background " "
+                      :weight 'bold :box nil
                       )
   ;; the string between matches
   (set-face-attribute 'ivy-minibuffer-match-face-1 nil
                       :inherit nil
-                      :foreground nil :background nil
+                      :foreground " " :background " "
                       :weight 'normal :box nil
                       )
+  ;; first match part.
   (set-face-attribute 'ivy-minibuffer-match-face-2 nil
-                      :inherit nil
-                      :foreground "green" :background nil
+                      :inherit 'ivy-minibuffer-match-face-1
+                      :foreground "green"
                       :weight 'normal :box nil
                       )
+  ;; second match part.
   (set-face-attribute 'ivy-minibuffer-match-face-3 nil
-                      :inherit nil
-                      :foreground "orange" :background nil
+                      :inherit 'ivy-minibuffer-match-face-1
+                      :foreground "orange"
                       :weight 'normal :box nil
                       )
   (set-face-attribute 'ivy-minibuffer-match-face-4 nil
-                      :inherit nil
-                      :foreground "dodger blue" :background nil
-                      :weight 'normal :box nil
-                      )
-  (set-face-attribute 'ivy-current-match nil
-                      :foreground "white" :background "#004A5D"
-                      ;; Sci-Fi style
-                      ;; :foreground "white" :background "#004A5D"
-                      ;; :box '(:color "cyan" :line-width -1)
+                      :inherit 'ivy-minibuffer-match-face-1
+                      :foreground "dodger blue"
                       :weight 'normal :box nil
                       )
   
