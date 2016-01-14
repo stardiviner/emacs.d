@@ -75,35 +75,6 @@
   )
 
 
-;;; [ helm-ag ]
-
-;;; Usage:
-;;
-;; - [C-c ?] :: show helm message.
-;; - helm-ag :: Input search word with ag command. You can change search directory with C-u prefix.
-;; - helm-ag-this-file :: Same as helm-ag except to search only current file
-;; - helm-do-ag :: Search with ag like helm-do-grep.
-;; - [C-l] :: search in parent directory.
-;; - [C-c o] :: open other window.
-;; - [C-c C-e] :: switch to ag edit mode.
-;;   - [C-c C-c] :: commit changes.
-;;   - [C-c C-k] :: abort.
-;; - helm-ag-pop-stack :: Move to point before jump
-;; - helm-ag-clear-stack :: Clear context stack
-;; - Helm persistent action :: You can see file content temporarily by persistent action(C-z) at helm-ag and helm-ag-this-file.
-;;   - [F3] / [C-x C-s] :: save ag results to buffer
-
-(setq helm-ag-insert-at-point 'symbol ; same thing as `thing-at-point' such ash: 'word, symbol,
-      helm-ag-base-command "ag --nocolor --nogroup --ignore-case" ; helm use color match, so use option `--nocolor' here.
-      helm-ag-command-option "--all-text"
-      helm-ag-source-type 'one-line ; 'one-line, 'file-line
-      helm-ag-edit-save t ; save buffers you edit at editing completed.
-      )
-
-(define-key ag-map (kbd "a") 'helm-ag)
-
-
-
 (provide 'init-my-emacs-search-ag)
 
 ;;; init-my-emacs-search-ag.el ends here

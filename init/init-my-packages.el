@@ -210,7 +210,7 @@
     ample-regexps pcre2el regex-tool
     ;; wgrep wgrep-ack wgrep-helm
     ;; ack full-ack helm-ack
-    ag ;; helm-ag
+    ag
     ;; pt helm-pt
     ;; helm-recoll
     ;; Tags
