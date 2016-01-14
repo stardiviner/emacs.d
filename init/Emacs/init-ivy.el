@@ -120,6 +120,8 @@
                 :action (lambda (bookmark)
                           (bookmark-jump bookmark)))
       ))
+
+  (global-set-key [remap bookmark-jump] 'ivy-bookmark-goto)
   
   ;; (ivy-mode 1)
   )
