@@ -132,13 +132,12 @@
 (use-package counsel
   :config
   (global-set-key [remap execute-extended-command] 'counsel-M-x) ; [M-x]
-  ;; TODO: (global-set-key [remap ])
   (global-set-key [remap describe-variable] 'counsel-describe-variable) ; [C-h v]
   (global-set-key [remap describe-function] 'counsel-describe-function) ; [C-h f]
   (global-set-key [remap describe-bindings] 'counsel-descbinds) ; [C-h b]
   (global-set-key [remap info-lookup-symbol] 'counsel-info-lookup-symbol) ; [C-h i]
   (global-set-key (kbd "C-x RET u") 'counsel-unicode-char)
-  ;; TODO: (global-set-key [remap switch-to-buffer] 'counsel-switch-to-buffer) ; [C-x b]
+  (global-set-key [remap switch-to-buffer] 'ivy-switch-buffer) ; [C-x b]
   (global-set-key [remap find-file] 'counsel-find-file) ; [C-x C-f]
   (global-set-key (kbd "M-t") 'counsel-git) ; [M-t]
   (global-set-key (kbd "C-c v g g") 'counsel-git-grep)
@@ -148,9 +147,9 @@
   (global-set-key [remap imenu] 'counsel-imenu)
   (global-set-key [remap org-set-tags-command] 'counsel-org-tag) ; [C-c C-q]
   (global-set-key [remap org-agenda-set-tags] 'counsel-org-tag-agenda) ; [:]
-  ;; (global-set-key (kbd " ") 'counsel-load-library)
-  ;; (global-set-key (kbd " ") 'counsel-load-theme)
-  ;; (global-set-key (kbd " ") 'counsel-locate)
+  (global-set-key [remap load-library] 'counsel-load-library)
+  (global-set-key [remap load-theme] 'counsel-load-theme)
+  (global-set-key [remap locate] 'counsel-locate)
   )
 
 
