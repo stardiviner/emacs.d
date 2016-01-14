@@ -81,8 +81,6 @@
     ;; Completion System
     helm
     helm-helm-commands helm-descbinds
-    ;; ido ido-vertical-mode ; ido-preview
-    ;; smex ido-ubiquitous flx-ido
     swiper counsel
     ;; Popup
     popup pos-tip

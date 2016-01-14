@@ -147,7 +147,7 @@
 
 (use-package multi-compile
   :config
-  (setq multi-compile-completion-system 'ivy-read)
+  (setq multi-compile-completion-system 'helm)
   )
 
 

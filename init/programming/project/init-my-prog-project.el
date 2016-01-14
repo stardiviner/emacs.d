@@ -82,7 +82,7 @@
   ;; using Projectile everywhere
   (setq projectile-require-project-root t)
   ;; Completion Options
-  (setq projectile-completion-system 'ivy ; 'helm, 'ivy, 'ido, 'grizzl, 'default
+  (setq projectile-completion-system 'ivy
         projectile-use-git-grep t ; use `vc-git-grep'
         )
 

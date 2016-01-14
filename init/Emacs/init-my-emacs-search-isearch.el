@@ -289,7 +289,7 @@
 
 (use-package swiper
   :config
-  (setq ivy-height 8)
+  (setq ivy-height 5)
 
   ;; current selection in ivy "in minibuffer"
   (set-face-attribute 'ivy-current-match nil
@@ -339,34 +339,6 @@
         (global-set-key (kbd "C-s") 'swiper)
         (global-set-key (kbd "C-r") 'swiper)))
   )
-
-
-;;; [ swiper-helm ]
-
-;; This package gives an overview of the current regex search
-;; candidates.  The search regex can be split into groups with a
-;; space.  Each group is highlighted with a different face.
-;;
-;; The overview back end is `helm'.
-;;
-;; It can double as a quick `regex-builder', although only single
-;; lines will be matched.
-
-;; 'helm, 'ivy.
-;; FIXME: helm error.
-;; (if (featurep 'helm)
-;;     (setq swiper-completion-method 'helm)
-;;   (setq swiper-completion-method 'ivy)
-;;   )
-
-;; (require 'swiper-helm)
-;;
-;; ;; (setq swiper-helm-display-function 'swiper-helm-default-display-buffer)
-;;
-;; (if (and (featurep 'swiper-helm) (featurep 'helm))
-;;     (global-set-key (kbd "C-s") 'swiper-helm))
-
-
 
 
 (provide 'init-my-emacs-search-isearch)

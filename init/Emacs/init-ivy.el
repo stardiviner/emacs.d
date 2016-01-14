@@ -14,7 +14,7 @@
   (global-set-key (kbd "C-s") 'swiper)
   ;; Ivy-mode
   (setq ivy-use-virtual-buffers t
-        ivy-height 6
+        ivy-height 5
         ivy-count-format "(%d/%d) "
         ivy-wrap nil
         )
