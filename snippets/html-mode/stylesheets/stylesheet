@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: stylesheet
+# key: stylesheet
+# group: css.stylesheet.link
+# --
+<link rel="stylesheet" type="text/css" href="${1:styles/tasks.css}" ${2:media="screen"} />
