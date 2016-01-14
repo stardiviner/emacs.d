@@ -75,7 +75,6 @@
   (add-to-list 'Info-directory-list "~/.emacs.d/el-get/magit/Documentation/"))
 
 ;;; completion
-;; `magit-builtin-completing-read', `magit-ido-completing-read'
 ;; (setq magit-completing-read-function 'magit-builtin-completing-read)
 
 (setq magit-delete-by-moving-to-trash t)

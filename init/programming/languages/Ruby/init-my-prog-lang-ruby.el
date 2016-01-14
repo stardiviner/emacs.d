@@ -215,8 +215,8 @@
                  (define-prefix-command 'ruby-help-doc-map))
                (local-set-key (kbd "C-h d") 'ruby-help-doc-map)
                (if (featurep 'helm)
-                   (define-key ruby-help-doc-map (kbd "k") 'yari-helm) ; interactive with Helm.
-                 (define-key ruby-help-doc-map (kbd "k") 'yari) ; seems minibuffer use ido if ido is enabled.
+                   (define-key ruby-help-doc-map (kbd "k") 'yari-helm)
+                 (define-key ruby-help-doc-map (kbd "k") 'yari)
                  )
                )))
 
@@ -352,7 +352,7 @@
   :config
 
   (setq robe-highlight-capf-candidates t
-        robe-completing-read-func 'completing-read-default)
+        robe-completing-read-func 'ivy-read)
 
   (add-hook 'robe-mode-hook
             (lambda ()
@@ -719,11 +719,10 @@
 ;;; Caching, By default the caching is enabled. To disable it:
 ;; (setq rake-enable-caching nil)
 
-;;; Completion, By default ido is used for completion. You can customize it with:
 (if (featurep 'projectile)
     (eval-after-load 'projectile
       '(setq rake-completion-system projectile-completion-system))
-  (setq rake-completion-system 'helm))
+  (setq rake-completion-system 'ivy-read))
 
 
 ;;; [ bundler ] -- Interact with Bundler from Emacs.

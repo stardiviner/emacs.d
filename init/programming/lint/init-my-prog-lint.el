@@ -63,7 +63,7 @@
         flycheck-standard-error-navigation t ; [M-g n/p]
         flycheck-deferred-syntax-check nil
         ;; flycheck-mode-line '(:eval (flycheck-mode-line-status-text))
-        flycheck-completion-system nil ; 'ido, 'grizzl, nil
+        flycheck-completion-system nil
         )
 
   ;; {Emacs Lisp}

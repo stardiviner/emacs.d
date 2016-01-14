@@ -38,7 +38,7 @@
 (load-library "pcomplete")
 
 
-;;; [ Icomplete (icomplete/ido/iswitchb) ] -- enhance the default minibuffer completion.
+;;; [ Icomplete ] -- enhance the default minibuffer completion.
 
 ;;; Usage:
 ;;
@@ -71,7 +71,7 @@
 
 
 
-(require 'init-helm)
+;; (require 'init-helm)
 ;; (require 'init-ido)
 (require 'init-ivy)
 

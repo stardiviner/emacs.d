@@ -552,7 +552,7 @@
     pinyin-search
     ;; Japanese
     migemo
-    helm-migemo avy-migemo ; ido-migemo
+    ;; avy-migemo
     )
   "A list of packages to ensure are installed at launch.")
 

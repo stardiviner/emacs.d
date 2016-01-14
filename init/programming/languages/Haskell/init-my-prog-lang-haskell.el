@@ -65,12 +65,12 @@
     (interactive)
     (setq haskell-interactive-mode-eval-mode
           (intern
-           (ido-completing-read "Eval result mode: "
-                                '("fundamental-mode"
-                                  "haskell-mode"
-                                  "espresso-mode"
-                                  "ghc-core-mode"
-                                  "org-mode")))))
+           (completing-read "Eval result mode: "
+                            '("fundamental-mode"
+                              "haskell-mode"
+                              "espresso-mode"
+                              "ghc-core-mode"
+                              "org-mode")))))
   
   (define-key haskell-interactive-mode-map (kbd "C-c C-v") 'haskell-interactive-toggle-print-mode)
 

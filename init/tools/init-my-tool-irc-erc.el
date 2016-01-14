@@ -588,38 +588,21 @@
 
 ;;; default [C-c C-b] erc-iswitchb.
 
-;;; Using ido select with ERC
-(defun stardiviner/erc-buffer-switch-with-ido ()
+(defun stardiviner/erc-buffer-switch ()
   (interactive)
   (switch-to-buffer
-   (ido-completing-read "Channel:"
-                        (save-excursion
-                          (delq
-                           nil
-                           (mapcar (lambda (buf)
-                                     (when (buffer-live-p buf)
-                                       (with-current-buffer buf
-                                         (and (eq major-mode 'erc-mode)
-                                            (buffer-name buf)))))
-                                   (buffer-list)))))))
+   (completing-read "Channel:"
+                    (save-excursion
+                      (delq
+                       nil
+                       (mapcar (lambda (buf)
+                                 (when (buffer-live-p buf)
+                                   (with-current-buffer buf
+                                     (and (eq major-mode 'erc-mode)
+                                          (buffer-name buf)))))
+                               (buffer-list)))))))
 
-;;; select with helm
-(defun stardiviner/erc-buffer-switch-with-helm ()
-    ""
-  (interactive)
-  (switch-to-buffer
-   (helm-comp-read "Channel:"
-                   (save-excursion
-                     (delq
-                      nil
-                      (mapcar (lambda (buf)
-                                (when (buffer-live-p buf)
-                                  (with-current-buffer buf
-                                    (and (eq major-mode 'erc-mode)
-                                         (buffer-name buf)))))
-                              (buffer-list)))))))
-
-(define-key erc-mode-map (kbd "C-c b") 'stardiviner/erc-buffer-switch-with-helm)
+(define-key erc-mode-map (kbd "C-c b") 'stardiviner/erc-buffer-switch)
 
 
 ;;; Morse Code

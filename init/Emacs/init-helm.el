@@ -86,19 +86,6 @@
                                   )
       )
 
-;;; work with ido and helm together.
-;; If you like ido for some commands and helm for other commands, you should not
-;; enable ido-mode, instead customize helm-completing-read-handlers-alist; For
-;; example, you want ido-mode for find-file-read-only and helm-mode for
-;; find-file: 1) In your config you turn on helm-mode. 2) In customize-group
-;; helm-mode add to helm-completing-read-handlers-alist find-file-read-only as
-;; key and ido as value. In elisp it looks like this:
-;; (find-file-read-only . ido)
-;;
-;; Now you want find-alternate-file to not use ido and to not use helm, only the
-;; vanilla emacs completion: Add an entry to helm-completing-read-handlers-alist
-;; like this: (find-alternate-file . nil)
-
 ;; (setq helm-candidate-number-limit 100)
 
 ;; additional optional helm settings to make helm more responsive.

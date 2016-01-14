@@ -8,13 +8,11 @@
 ;;; Code:
 
 
-(setq org-completion-use-ido t)
-
-;; (if (featurep 'helm)
-;;     (setq org-completion-fallback-command 'helm)
-;;   ;; `completing-read', `ido', `ivy-read', `hippie-expand',
-;;   (setq org-completion-fallback-command 'completing-read)
-;;   )
+(if (featurep 'ivy)
+    (setq org-completion-fallback-command 'ivy-read)
+  ;; `completing-read', `ido', `ivy-read', `hippie-expand',
+  (setq org-completion-fallback-command 'completing-read)
+  )
 
 
 ;;; add Org-mode's `capf' default to `pcomplete' for `company-mode'.

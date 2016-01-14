@@ -75,9 +75,6 @@
 
 ;;; [ go-complete ] -- Native Go completion for Emacs.
 
-;; A `gocode' based native completion system for Emacs, can be integrated with
-;; frameworks like ido, company, autocomplete.
-
 (add-hook 'go-mode-hook
           '(lambda ()
              (add-hook (make-local-variable 'completion-at-point-functions)
