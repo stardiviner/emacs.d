@@ -10,6 +10,7 @@
 ;;; [ ido ]
 
 ;;; Usage:
+;;
 ;; - [TAB] --
 ;; - [M-n/p] / [C-n/p] / [C-,/.] / [C-s/r] -- next/previous candidate
 ;; - [C-j] -- select inputted text.
@@ -97,14 +98,15 @@
 ;; - [C-n/p]
 
 (eval-after-load 'ido
-  (require 'ido-vertical-mode)
-  (ido-vertical-mode 1))
+  (progn
+    (require 'ido-vertical-mode)
+    (ido-vertical-mode 1)))
 
 (setq ido-vertical-define-keys 'C-n-and-C-p-only
       ido-vertical-decorations '("\n⇨ " "" "\n · " "\n   ......"
                                  "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]"
                                  "\n〇 " "")
-      ido-max-window-height 7 ; ido-vertical-mode height.
+      ido-max-window-height 5 ; ido-vertical-mode height.
       )
 
 (add-hook 'ido-minibuffer-setup-hook
