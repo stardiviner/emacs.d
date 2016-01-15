@@ -53,6 +53,7 @@
   ;; (add-hook 'after-init-hook #'global-flycheck-mode)
   (add-hook 'prog-mode-hook #'flycheck-mode)
   :config
+  (setq-default flycheck-temp-prefix ".flycheck")
   ;; (save idle-change new-line mode-enabled)
   (setq flycheck-check-syntax-automatically '(save new-line)
         flycheck-idle-change-delay 5.0
