@@ -18,6 +18,8 @@
         ivy-count-format "(%d/%d) "
         ivy-wrap nil
         )
+
+  (global-set-key (kbd "C-c C-r") 'ivy-resume)
   
   (set-face-attribute 'ivy-confirm-face nil
                       :inherit nil
