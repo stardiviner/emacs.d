@@ -311,6 +311,15 @@
 ;;                    ac-source-capf
 ;;                    ac-source-words-in-buffer))))
 
+;;; improving the JSX syntax-hightlighting in web-mode
+;; for better jsx syntax-highlighting in web-mode
+;; - courtesy of Patrick @halbtuerke
+(defadvice web-mode-highlight-part (around tweak-jsx activate)
+  (if (equal web-mode-content-type "jsx")
+    (let ((web-mode-enable-part-face nil))
+      ad-do-it)
+    ad-do-it))
+
 
 ;;;_ multi-web-mode
 
