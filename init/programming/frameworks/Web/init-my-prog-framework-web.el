@@ -45,7 +45,8 @@
 ;; `web-mode-engines'
 
 (setq web-mode-enable-element-tag-fontification t
-      web-mode-enable-element-content-fontification t)
+      web-mode-enable-element-content-fontification t
+      web-mode-enable-current-column-highlight t)
 
 (setq web-mode-enable-engine-detection t)
 
@@ -130,8 +131,15 @@
 
 ;;;_ + effects
 ;; web-mode-folded-face, web-mode-warning-face, web-mode-whitespace-face, web-mode-comment-keyword-face
+(set-face-attribute 'web-mode-current-element-highlight-face nil
+                    :background "forest green" :foreground "white"
+                    )
+(set-face-attribute 'web-mode-current-column-highlight-face nil
+                    :background "#444444" :foreground " "
+                    )
 (set-face-attribute 'web-mode-folded-face nil
-                    :weight 'bold :slant 'italic)
+                    :weight 'bold :slant 'italic
+                    :box '(:color "dark gray" :line-width -1))
 (set-face-attribute 'web-mode-warning-face nil
                     :foreground "red")
 (set-face-attribute 'web-mode-whitespace-face nil
