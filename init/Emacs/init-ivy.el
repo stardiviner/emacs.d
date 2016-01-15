@@ -16,6 +16,7 @@
   (setq ivy-use-virtual-buffers t
         ivy-height 5
         ivy-count-format "(%d/%d) "
+        ivy-initial-inputs-alist nil ; remove initial ^ input.
         ivy-wrap nil
         )
 
