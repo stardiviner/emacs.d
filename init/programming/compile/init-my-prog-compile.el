@@ -122,7 +122,9 @@
 
   ;; (quickrun-set-default "c" "c/clang")
 
-  ;; example
+  ;; Examples:
+  ;; check out `quickrun/template-place-holders' for description of `%?'.
+  
   ;; Use this parameter as C++ default
   ;; (quickrun-add-command "c++/c11"
   ;;                       '((:command . "g++")
@@ -130,6 +132,12 @@
   ;;                                      "%e %a"))
   ;;                         (:remove  . ("%e")))
   ;;                       :default "c++")
+
+  (quickrun-add-command "browser/firefox"
+                        '((:command . "firefox")
+                          (:exec    . ("%c %s"))
+                          :default "browser"))
+  (quickrun-set-default "html" "browser/firefox")
   )
 
 
