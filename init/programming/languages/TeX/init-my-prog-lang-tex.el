@@ -96,8 +96,7 @@
              (local-set-key (kbd "C-c C-t x") 'TeX-toggle-escape)))
 
 
-;;; [ company-auctex ]
-;;; [ company-math ]
+;;; [ company-auctex ] & [ company-math ]
 
 (dolist (hook '(tex-mode-hook
                 latex-mode-hook
@@ -167,6 +166,8 @@
   ;;
   ;; (add-hook 'latex-mode-hook 'magic-latex-buffer)
   ;; (add-hook 'LaTeX-mode-hook 'magic-latex-buffer)
+  ;; (add-hook 'latex-mode-hook 'turn-off-iimage-mode)
+  ;; (add-hook 'LaTeX-mode-hook 'turn-off-iimage-mode)
   )
 
 
