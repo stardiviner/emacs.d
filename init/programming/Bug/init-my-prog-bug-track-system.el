@@ -75,87 +75,81 @@
 ;; *3 If target is multiple and the system has the function, open multi view (*4)
 ;; *4 Multi view is able to edit multiple tickets at one time
 
-(require 'bts)
+(use-package bts
+  :config
+  (require 'pophint)
 
-;; (require 'pophint)
-
-(setq bts:preferred-selection-method 'default
-      bts:project-cache-file "~/.emacs.d/.bts/project"
-      bts:query-cache-file "~/.emacs.d/.bts/query"
-      bts:ticket-fetch-check-interval 3 ; seconds
-      bts:ticket-multi-view-preferred t
-      ;; widget label
-      bts:widget-label-format " %s "
-      bts:widget-label-prefix " "
-      bts:widget-label-suffix " "
-      bts:widget-require-mark "*"
-      )
-
-
-;; ;;; Faces
-;; ;; summary
-;; (set-face-attribute 'bts:summary-closed-ticket-face nil
-;;                     )
-;; (set-face-attribute 'bts:summary-condition-fetch-part-face nil
-;;                     )
-;; (set-face-attribute 'bts:summary-condition-grep-part-face nil
-;;                     )
-;; (set-face-attribute 'bts:summary-condition-marked-part-face nil
-;;                     )
-;; (set-face-attribute 'bts:summary-condition-query-part-face nil
-;;                     )
-;; (set-face-attribute 'bts:summary-condition-warn-part-face nil
-;;                     )
-;; (set-face-attribute 'bts:summary-ignored-ticket-face nil
-;;                     )
-;; (set-face-attribute 'bts:summary-mark-face nil
-;;                     )
-;; ;; ticket
-;; (set-face-attribute 'bts:ticket-regist-message-failed-face nil
-;;                     )
-;; (set-face-attribute 'bts:ticket-regist-message-skipped-face nil
-;;                     )
-;; (set-face-attribute 'bts:ticket-regist-message-succeed-face nil
-;;                     )
-;; ;; widget
-;; (set-face-attribute 'bts:widget-button-face nil
-;;                     )
-;; (set-face-attribute 'bts:widget-button-pressed-face nil
-;;                     )
-;; (set-face-attribute 'bts:widget-const-face nil
-;;                     )
-;; (set-face-attribute 'bts:widget-documentation-face nil
-;;                     )
-;; (set-face-attribute 'bts:widget-label-face nil
-;;                     )
-;; (set-face-attribute 'bts:widget-link-face nil
-;;                     )
-;; (set-face-attribute 'bts:widget-mouse-face nil
-;;                     )
-;; (set-face-attribute 'bts:widget-require-face nil
-;;                     )
-;; (set-face-attribute 'bts:widget-tip-face nil
-;;                     )
+  (setq bts:preferred-selection-method 'default
+        bts:project-cache-file "~/.emacs.d/.bts/project"
+        bts:query-cache-file "~/.emacs.d/.bts/query"
+        bts:ticket-fetch-check-interval 3 ; seconds
+        bts:ticket-multi-view-preferred t
+        ;; widget label
+        bts:widget-label-format " %s "
+        bts:widget-label-prefix " "
+        bts:widget-label-suffix " "
+        bts:widget-require-mark "*"
+        )
 
 
-;; Key Binding
-(define-key my-prog-bug-bts-map (kbd "b") 'bts:summary-open)
-(define-key my-prog-bug-bts-map (kbd "t") 'bts:ticket-new)
-(define-key my-prog-bug-bts-map (kbd "P") 'bts:project-new)
-(define-key my-prog-bug-bts-map (kbd "p") 'bts:project-update)
-(define-key my-prog-bug-bts-map (kbd "r") 'bts:project-remove)
-(define-key my-prog-bug-bts-map (kbd "R") 'bts:project-remove-all)
-(define-key my-prog-bug-bts-map (kbd "q") 'bts:query-new)
-(define-key my-prog-bug-bts-map (kbd "Q") 'bts:query-update)
-(define-key my-prog-bug-bts-map (kbd "d") 'bts:query-remove)
-(define-key my-prog-bug-bts-map (kbd "D") 'bts:query-remove-all)
+  ;; ;;; Faces
+  ;; ;; summary
+  ;; (set-face-attribute 'bts:summary-closed-ticket-face nil
+  ;;                     )
+  ;; (set-face-attribute 'bts:summary-condition-fetch-part-face nil
+  ;;                     )
+  ;; (set-face-attribute 'bts:summary-condition-grep-part-face nil
+  ;;                     )
+  ;; (set-face-attribute 'bts:summary-condition-marked-part-face nil
+  ;;                     )
+  ;; (set-face-attribute 'bts:summary-condition-query-part-face nil
+  ;;                     )
+  ;; (set-face-attribute 'bts:summary-condition-warn-part-face nil
+  ;;                     )
+  ;; (set-face-attribute 'bts:summary-ignored-ticket-face nil
+  ;;                     )
+  ;; (set-face-attribute 'bts:summary-mark-face nil
+  ;;                     )
+  ;; ;; ticket
+  ;; (set-face-attribute 'bts:ticket-regist-message-failed-face nil
+  ;;                     )
+  ;; (set-face-attribute 'bts:ticket-regist-message-skipped-face nil
+  ;;                     )
+  ;; (set-face-attribute 'bts:ticket-regist-message-succeed-face nil
+  ;;                     )
+  ;; ;; widget
+  ;; (set-face-attribute 'bts:widget-button-face nil
+  ;;                     )
+  ;; (set-face-attribute 'bts:widget-button-pressed-face nil
+  ;;                     )
+  ;; (set-face-attribute 'bts:widget-const-face nil
+  ;;                     )
+  ;; (set-face-attribute 'bts:widget-documentation-face nil
+  ;;                     )
+  ;; (set-face-attribute 'bts:widget-label-face nil
+  ;;                     )
+  ;; (set-face-attribute 'bts:widget-link-face nil
+  ;;                     )
+  ;; (set-face-attribute 'bts:widget-mouse-face nil
+  ;;                     )
+  ;; (set-face-attribute 'bts:widget-require-face nil
+  ;;                     )
+  ;; (set-face-attribute 'bts:widget-tip-face nil
+  ;;                     )
 
 
-;; TODO:
-;; About other config item, see Customization or eval the following sexp.
-;; (customize-group "bts")
-
-
+  ;; Key Binding
+  (define-key my-prog-bug-bts-map (kbd "b") 'bts:summary-open)
+  (define-key my-prog-bug-bts-map (kbd "t") 'bts:ticket-new)
+  (define-key my-prog-bug-bts-map (kbd "P") 'bts:project-new)
+  (define-key my-prog-bug-bts-map (kbd "p") 'bts:project-update)
+  (define-key my-prog-bug-bts-map (kbd "r") 'bts:project-remove)
+  (define-key my-prog-bug-bts-map (kbd "R") 'bts:project-remove-all)
+  (define-key my-prog-bug-bts-map (kbd "q") 'bts:query-new)
+  (define-key my-prog-bug-bts-map (kbd "Q") 'bts:query-update)
+  (define-key my-prog-bug-bts-map (kbd "d") 'bts:query-remove)
+  (define-key my-prog-bug-bts-map (kbd "D") 'bts:query-remove-all)
+  )
 
 
 ;; [ bts-github ] -- bts for GitHub
