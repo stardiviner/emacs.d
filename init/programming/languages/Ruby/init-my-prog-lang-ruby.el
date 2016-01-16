@@ -239,9 +239,6 @@
 ;;; [ rbenv ] -- use rbenv to manage your Ruby versions within Emacs
 
 (use-package rbenv
-  :init
-  ;; IMPORTANT:: Currently you need to set this variable before you load rbenv.el
-  (setq rbenv-installation-dir "~/.rbenv/") ; "/usr/local/rbenv"
   :config
   (setq rbenv-show-active-ruby-in-modeline t
         rbenv-modeline-function 'rbenv--modeline-plain
