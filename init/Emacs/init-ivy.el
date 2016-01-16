@@ -140,12 +140,15 @@
   (global-set-key [remap describe-bindings] 'counsel-descbinds) ; [C-h b]
   (global-set-key [remap info-lookup-symbol] 'counsel-info-lookup-symbol) ; [C-h i]
   (global-set-key (kbd "C-x RET u") 'counsel-unicode-char)
+  ;; (setq ivy-switch-buffer-show-info '("%s" "buffer-name"))
   (global-set-key [remap switch-to-buffer] 'ivy-switch-buffer) ; [C-x b]
+  ;; (global-set-key (kbd "C-x C-b") 'ivy-recentf)
   (global-set-key [remap find-file] 'counsel-find-file) ; [C-x C-f]
   (global-set-key (kbd "M-t") 'counsel-git) ; [M-t]
   (global-set-key (kbd "C-c v g g") 'counsel-git-grep)
-  (global-set-key [remap ag] 'counsel-ag) ; [C-s a a]
+  (global-set-key [remap ag] 'counsel-ag) ; [C-s s s] [C-s a a]
   (global-set-key [remap grep] 'counsel-grep) ; [C-s g]
+  (setq counsel-yank-pop-truncate t)
   (global-set-key [remap yank-pop] 'counsel-yank-pop) ; [M-y]
   (global-set-key [remap imenu] 'counsel-imenu)
   (global-set-key [remap org-set-tags-command] 'counsel-org-tag) ; [C-c C-q]
