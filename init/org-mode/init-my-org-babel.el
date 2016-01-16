@@ -133,8 +133,11 @@
         ("css" . "css")
         ("java" . "java")
         )
-      org-babel-tangle-use-relative-file-links t
+      )
+
+(setq org-babel-tangle-use-relative-file-links t
       ;; org-babel-pre-tangle-hook '(save-buffer)
+      ;; org-babel-post-tangle-hook
       )
 
 
