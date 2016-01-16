@@ -154,27 +154,24 @@
 
 ;; [ bts-github ] -- bts for GitHub
 
-(require 'bts-github)
-
-(setq bts-github:ignore-labels '("duplicate" "invalid" "wontfix")
-      ;; bts-github:max-lisp-eval-depth 6000
-      ;; bts-github:max-specpdl-size 13000
-      bts-github:summary-id-width 4
-      bts-github:summary-label-decorating t
-      bts-github:summary-label-width 15
-      )
+(use-package bts-github
+  :config
+  (setq bts-github:ignore-labels '("duplicate" "invalid" "wontfix")
+        ;; bts-github:max-lisp-eval-depth 6000
+        ;; bts-github:max-specpdl-size 13000
+        bts-github:summary-id-width 4
+        bts-github:summary-label-decorating t
+        bts-github:summary-label-width 15
+        )
 
 ;;; Faces
-(set-face-attribute 'bts-github:issue-comment-header-face nil
-                    )
-(set-face-attribute 'bts-github:summary-label-decorating nil
-                    )
-(set-face-attribute 'bts-github:summary-label-face nil
-                    )
-
-;; TODO:
-;; About config item, see Customization or eval the following sexp.
-;; (customize-group "bts-github")
+  (set-face-attribute 'bts-github:issue-comment-header-face nil
+                      )
+  (set-face-attribute 'bts-github:summary-label-decorating nil
+                      )
+  (set-face-attribute 'bts-github:summary-label-face nil
+                      )
+  )
 
 
 
