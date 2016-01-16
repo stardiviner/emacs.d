@@ -25,7 +25,7 @@
                (local-set-key (kbd "C-c C-f") 'gofmt)
 
                ;; godoc -- `go doc [QUERY]`
-               (local-set-key (kbd "C-h d d") 'godoc)
+               (local-set-key (kbd "C-h d d") 'godoc-at-point) ; `godoc', `godoc-at-point'
                ;; (local-set-key (kbd "C-c C-k") 'godoc)
 
                ;; godef
