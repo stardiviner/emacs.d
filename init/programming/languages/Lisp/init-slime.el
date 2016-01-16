@@ -88,8 +88,28 @@
 
 (use-package slime-company
   :config
-  (with-eval-after-load 'slime
-    (slime-setup '(slime-company)))
+  (setq slime-company-after-completion nil
+        slime-company-completion 'fuzzy
+        slime-company-complete-in-comments-and-strings t
+        slime-company-major-modes '(lisp-mode slime-repl-mode scheme-mode)
+        )
+
+  ;; [ enable ]
+
+  ;; (with-eval-after-load 'slime
+  ;;   (slime-setup '(slime-company)))
+
+  (dolist (h '(slime-mode-hook slime-repl-mode-hook sldb-mode-hook))
+    (add-hook h 'my-slime-company-maybe-enable))
+
+  (defun my-slime-company-maybe-enable ()
+    (when (slime-company-active-p)
+      ;; mainly change to my own company-backends adding style.
+      (my-company-add-backends-to-mode 'company-slime)
+      (unless (slime-find-contrib 'slime-fuzzy)
+        (setq slime-company-completion 'simple)))
+    )
+  
   )
 
 
