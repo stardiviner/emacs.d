@@ -149,7 +149,7 @@
                          ;; "~/Org/Contacts/Contacts.org"
                          ))
 
-(setq org-agenda-text-search-extra-files '("~/Org/Journal.org" "~/Org/Diary/"))
+;; (setq org-agenda-text-search-extra-files '("~/Org/Journal.org" "~/Org/Diary/"))
 
 (setq org-agenda-skip-timestamp-if-done t
       org-agenda-skip-deadline-if-done t
