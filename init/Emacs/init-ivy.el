@@ -17,6 +17,7 @@
         ivy-height 5
         ivy-count-format "(%d/%d) "
         ivy-initial-inputs-alist nil ; remove initial ^ input.
+        ivy-extra-directories nil ; remove . and .. directory.
         ivy-wrap nil
         )
 
