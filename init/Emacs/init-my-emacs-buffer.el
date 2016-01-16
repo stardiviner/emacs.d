@@ -13,6 +13,12 @@
       auto-revert-verbose nil)
 
 
+;;; auto-save visited files
+
+;; Non-nil says auto-save a buffer in the file it is visiting, when practical.
+(setq auto-save-visited-file-name t)
+
+
 ;;; [ ibuffer ]
 
 ;;; Usage:
