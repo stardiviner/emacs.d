@@ -132,32 +132,6 @@ NO-TEMPLATE is non-nil."
   )
 
 
-;; auto set major mode: snippet-mode.
-
-(add-to-list 'auto-mode-alist
-             '("\\.yasnippet$" . snippet-mode)
-             '("\\.snippet$" . snippet-mode))
-
-(add-hook 'snippet-mode
-          (lambda ()
-            ;; turn of auto-fill for long length code
-            (turn-off-auto-fill)))
-
-
-;;; Faces
-
-(set-face-attribute 'yas-field-highlight-face nil
-                    :background "#555555" :foreground "white"
-                    :overline "black"
-                    )
-
-
-;;; use different way to notify user the snippet exited.
-
-(add-hook 'yas-after-exit-snippet-hook
-          (lambda ()
-            (popup-tip "snippet exited")
-            ))
 
 
 ;; It will test whether it can expand, if yes, cursor color -> green.
