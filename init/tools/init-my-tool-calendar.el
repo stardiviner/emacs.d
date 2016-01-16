@@ -30,8 +30,13 @@
 ;;; cal-china-x.el -- Chinese calendar extras
 ;;; display the ‘celestial-stem’ (天干) and the ‘terrestrial-branch’ (地支) in Chinese:
 
-(load "~/.emacs.d/init/extensions/cal-china-x.el")
-(require 'cal-china-x)
+;; (setq chinese-calendar-celestial-stem
+;;       ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"]
+;;       chinese-calendar-terrestrial-branch
+;;       ["子" "丑" "寅" "卯" "辰" "巳" "午" "未" "申" "酉" "戌" "亥"])
+;;
+;; (load "~/.emacs.d/init/extensions/cal-china-x.el")
+;; (require 'cal-china-x)
 
 
 ;; Location
