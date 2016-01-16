@@ -197,8 +197,6 @@
 
 ;;; [ yari ] -- Yet Another Ri Interface
 
-;; yari.el provides an Emacs frontend to Ruby's `ri' documentation tool. It
-;; offers lookup and completion.
 
 (dolist (hook '(ruby-mode-hook
                 enh-ruby-mode-hook
