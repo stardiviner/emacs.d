@@ -218,7 +218,7 @@
      (insert " ")))
 
 ;; some keybinding for company backends
-(global-set-key (kbd "C-c /") 'company-files)
+;; (global-set-key (kbd "C-c /") 'company-files)
 
 ;; faces
 ;; tooltip

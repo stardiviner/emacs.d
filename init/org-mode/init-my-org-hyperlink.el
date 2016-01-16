@@ -203,10 +203,7 @@ With prefix argument, also display headlines without a TODO keyword."
 ;; (setq org-open-at-point-functions) ; a hook
 
 ;; TODO: auto create link to filename smartly when not link on word/region.
-;; [C-c C-o] :: auto create filename on word or region if no link.
-;; (defadvice org-open-at-point (before create-file-when-org-link-invalid activate)
-;;   ())
-;;
+
 (defun find-file-at-point-ex ()
   "Open link, if does not exist, then create a file which filename with word at current point.
 
