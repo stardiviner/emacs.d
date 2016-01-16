@@ -60,7 +60,7 @@
 ;;; Usage:
 ;;
 ;; 1. run a docker image.
-;; 2. [C-x C-f] + /docker:[IMAGE]:/path/to/file
+;; 2. [C-x C-f] + /docker:user@container:/path/to/file
 
 (use-package docker-tramp
   :config
