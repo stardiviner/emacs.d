@@ -76,11 +76,6 @@
 
 (define-key my-org-prefix (kbd "c") 'org-capture)
 
-;; (if (featurep 'helm)
-;;     (define-key my-org-prefix (kbd "c") 'helm-org-capture-templates)
-;;   (define-key my-org-prefix (kbd "c") 'org-capture)
-;;   (define-key org-mode-map (kbd "C-c c") 'org-capture))
-
 
 ;;;_* Refile
 

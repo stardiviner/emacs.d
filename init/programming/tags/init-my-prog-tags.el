@@ -137,20 +137,6 @@ For project directory with Projectile root."
 ;; (global-set-key [remap find-tag] 'ido-find-tag)
 ;; (global-set-key (kbd "M-.") 'ido-find-file-in-tag-files)
 
-
-
-;;; Select Tags
-
-;; [ Icicles ] -- Emacs Tags Enhancements
-;; (require 'icicles)
-;; (icy-mode 1)
-;; EtagsSelect
-;; VTags
-;; (helm-c-etags-select)
-;; (helm-etags-plus)
-
-;; Finding file *in* TAGS
-
 
 ;;; [ Imenu ]
 
@@ -164,32 +150,6 @@ For project directory with Projectile root."
 ;;; all buffers with the same mode as the current one. In a sense it is similar
 ;;; to etag selection, but works only for the open buffers. This is often more
 ;;; convenient as you don't have to explicitly build the etags table.
-
-;; FIXME: keybinding [C-.] is still token by flyspell.
-;; (if (featurep 'imenu-anywhere)
-;;     (if (featurep 'helm)
-;;         (global-set-key (kbd "C-.") 'helm-imenu-anywhere)
-;;       (global-set-key (kbd "C-.") 'imenu-anywhere)))
-
-
-
-
-
-;;; [ helm-gtags ]
-
-;; (require 'helm-gtags)
-
-;; (define-key helm-command-prefix (kbd "t") 'helm-gtags-dwim)
-;; (define-key helm-command-prefix (kbd "T") 'helm-top)
-
-
-;;; [ helm-yaetags ]
-
-;; (require 'helm-yaetags)
-
-;; ;; (define-key helm-command-prefix (kbd "e") 'helm-etags-select) ; original
-;; (define-key helm-command-prefix (kbd "e") 'helm-yaetags-find-tag)
-
 
 
 ;; NOTE: use etags & gtags, because company-mode support.

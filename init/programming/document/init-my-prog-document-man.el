@@ -18,23 +18,14 @@
 ;; - Man-?? :: command prefix.
 
 
-(if (featurep 'helm)
-    (define-key my-prog-help-document-map (kbd "m") 'helm-man-woman))
-
-
 
 ;;; [ women ]
-
-
 
 
 ;;; [ iman ]
 
-
-
 
 ;;; [ man-preview ]
-
 
 
 (provide 'init-my-prog-document-man)

@@ -42,10 +42,8 @@
 
 ;;; [ pydoc ]
 
-;; (eval-after-load 'python
-;;   '(if (featurep 'helm)
-;;        (define-key my-prog-help-document-map (kbd "d") 'helm-pydoc)
-;;      (define-key my-prog-help-document-map (kbd "d") 'pydoc)))
+;; (with-eval-after-load 'python
+;;   (define-key my-prog-help-document-map (kbd "d") 'pydoc))
 
 
 ;;; [ Inferior Python ]
@@ -234,8 +232,6 @@
              ((featurep 'anaconda-mode)
               (local-set-key (kbd "C-h d d") 'anaconda-mode-show-doc)
               (local-set-key (kbd "M-.") 'anaconda-mode-goto))
-             ((featurep 'helm)
-              (local-set-key (kbd "C-h d d") 'helm-pydoc))
              ((functionp 'jedi:show-doc)
               (local-set-key (kbd "C-h d d") 'jedi:show-doc)
               (local-set-key (kbd "M-.") 'jedi:goto-definition))
@@ -250,11 +246,6 @@
 
 ;;; [ IPython ]
 
-
-
-;;; [ helm-ipython ]
-
-;; (require 'helm-ipython)
 
 
 ;;; [ ein ] -- IPython notebook client in Emacs

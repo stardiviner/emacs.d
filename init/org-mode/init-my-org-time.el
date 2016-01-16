@@ -78,13 +78,6 @@
 ;;              (if (not org-timer-current-timer) ; FIXME: this variable seems not part of `org-timer'.
 ;;                  (org-timer-set-timer '(16)))))
 
-;; FIXME: `helm-org-clock-select-task' is void.
-;; (if (featurep 'helm)
-;;     (progn
-;;       (require 'helm-org)
-;;       (advice-add 'org-clock-select-task :override #'helm-org-clock-select-task)
-;;       ;; (advice-remove 'org-clock-select-task #'helm-org-clock-select-task)
-;;       ))
 
 ;;; Sounds:
 ;; "~/.emacs.d/resources/audio/Ingress/Speech/speech_hacking.wav"

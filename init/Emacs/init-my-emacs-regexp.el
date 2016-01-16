@@ -111,9 +111,6 @@
     (define-key visual-regexp-map (kbd "m") 'vr/mc-mark))
 ;; TODO: `vr/select-mc-mark', `vr/select-replace' etc.
 
-;;; integrate with Helm version regexp
-(if (featurep 'helm)
-    (define-key my-regexp-prefix (kbd "h") 'helm-regexp))
 
 ;; TODO:
 ;; (set-face-attribute 'vr/match-separator-face nil

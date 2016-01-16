@@ -100,11 +100,6 @@
 ;;   (add-hook hook '(lambda ()
 ;;                     (etags-u-mode t))))
 
-
-
-(define-key my-prog-lookup-tags-map (kbd "e") 'helm-etags-select)
-
-
 
 
 (provide 'init-my-prog-tags-etags)

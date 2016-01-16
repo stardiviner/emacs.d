@@ -16,10 +16,6 @@
 ;;; [ esqlite ] -- sqlite file manipulate utilities from Emacs.
 
 
-;;; [ esqlite-helm ]
-
-
-
 (provide 'init-my-prog-lang-database-sqlite)
 
 ;;; init-my-prog-lang-database-sqlite.el ends here

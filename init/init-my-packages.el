@@ -22,7 +22,6 @@
     ;; mode-line
     ;; nyan-mode nyan-prompt
     ;; Keybinding
-    ;; helm-bind-key
     which-key
     hydra
     ;; showkey
@@ -77,11 +76,7 @@
     ;; Spell
     flyspell flyspell-lazy
     flyspell-popup
-    ;; helm-flyspell
-    ;; helm-ispell
     ;; Completion System
-    ;; helm
-    ;; helm-helm-commands helm-descbinds
     swiper counsel
     ;; Popup
     popup pos-tip
@@ -99,7 +94,6 @@
     ;; Mode
     mmm-mode ; polymode
     ;; Unicode
-    ;; helm-unicode
     pretty-mode
     ;; pretty-symbols
     ;; purty-mode
@@ -152,7 +146,6 @@
     ;; company-try-hard
     ;; Snippet
     yasnippet
-    ;; helm-c-yasnippet
     ;; Template
     yatemplate ; skeletor
     ;; Diff
@@ -163,16 +156,14 @@
     magit-gitflow
     magit-gh-pulls
     ;; magit-annex magit-gerrit magit-gh-pulls magit-stgit magit-topgit
-    ;; helm-git helm-git-files
     git-messenger
     ;; git-gutter
     git-gutter+
     ;; git-gutter-fringe git-gutter-fringe+
     ;; GitHub
-    ;; helm-open-github
     github-notifier
     ;; Gitlab
-    ;; gitlab helm-gitlab
+    ;; gitlab
     ;; Indent
     aggressive-indent ; auto-indent-mode
     indent-guide
@@ -188,7 +179,6 @@
     ;; fixmee
     ;; Linter
     flycheck flycheck-pos-tip
-    ;; helm-flycheck
     ;; Document
     dash helm-dash dash-at-point dash-functional
     irfc
@@ -196,30 +186,25 @@
     project-explorer ; sr-speedbar
     ;; Project
     projectile
-    ;; helm-projectile
     ;; Search
     isearch+ anzu
-    ;; swiper ; swiper-helm
-    ;; swoop helm-swoop
+    swiper
+    ;; swoop
     color-moccur
-    ;; helm-c-moccur
     ;; highlight
     highlight-symbol ; highlight-thing
     ;; Regexp
     visual-regexp visual-regexp-steroids
     ample-regexps pcre2el regex-tool
-    ;; wgrep wgrep-ack wgrep-helm
-    ;; ack full-ack helm-ack
+    ;; wgrep wgrep-ack
+    ;; ack full-ack
     ag
-    ;; pt helm-pt
-    ;; helm-recoll
+    ;; pt
     ;; Tags
     ;; ctags ctags-update
     ;; rtags
-    ;; helm-cscope
     ;; xcscope
     ggtags
-    ;; helm-gtags
     ;; Compile
     smart-compile multi-compile
     ;; Run
@@ -230,14 +215,13 @@
     ;; Scratch
     ;; scratches
     ;; Make
-    ;; helm-make
     ;; Sense
     ;; cedet
     ;; sourcegraph
     ;; License
     ;; xlicense
     ;; Code Paste
-    yagist ; helm-gist
+    yagist
     ;; Bug Track System
     ;; bts bts-github
     ;; Test
@@ -282,7 +266,7 @@
     rbenv ; rvm  ; ruby-dev  ; chruby
     bundler
     robe ; zossima
-    yari yard-mode ; helm-rb
+    yari yard-mode
     ruby-tools
     rspec-mode minitest ruby-test-mode
     ruby-block ruby-hash-syntax ruby-interpolation
@@ -300,7 +284,6 @@
     ;; Perl
     ;; cperl-mode perl6-mode
     ;; perl-completion plsense
-    ;; helm-perldoc
     ;; flycheck-perl6
     ;; plsense-direx
     ;; Clojure
@@ -360,7 +343,6 @@
     julia-shell
     ;; R
     ;; ess-R-data-view ess-R-object-popup
-    ;; helm-R
     ;; Processing
     ;; processing-mode
     ;; Plot
@@ -394,7 +376,6 @@
     ;; Scss & Less
     sass-mode scss-mode
     less-css-mode
-    ;; helm-css-scss
     ;; Slim
     slim-mode
     ;; JavaScript
@@ -446,7 +427,7 @@
     
     ;; Frameworks
     ;; Ruby on Rails
-    projectile-rails rails-new ; helm-rails
+    projectile-rails rails-new
     rhtml-mode
     ;; Android
     android-mode
@@ -472,9 +453,6 @@
     
     ;; Tools
     ;; Bookmarks
-    ;; helm-bm
-    ;; helm-w3m
-    ;; helm-firefox ; helm-chrome
     ;; PDF
     pdf-tools org-pdfview
     ;; Files
@@ -495,7 +473,7 @@
     ;; Email
     ;; gnus
     ;; mu4e
-    mu4e-maildirs-extension ; helm-mu
+    mu4e-maildirs-extension
     ;; Contacts
     ;; bbdb
     ;; bbdb-vcard bbdb-csv-import gmail2bbdb
@@ -511,7 +489,7 @@
     ;; circe ; erc
     ;; weechat
     ;; Music
-    ;; emms helm-emms emms-player-mpv ; emms-info-media emms-mode-line-cycle
+    ;; emms emms-player-mpv ; emms-info-media emms-mode-line-cycle
     ;; mingus
     ;; Screenshot & Screencast
     screenshot camcorder

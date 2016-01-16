@@ -133,28 +133,6 @@
   )
 
 
-;;; [ helm-cscope ] -- cscope with Helm interface.
-
-;;; Usage:
-;;
-;; - `helm-cscope-' :: prefix
-
-(dolist (hook '(c-mode-hook
-                c++-mode-hook
-                objc-mode-hook
-                ;; prog-mode-hook
-                ))
-  (add-hook hook 'helm-cscope-mode))
-
-(use-package helm-cscope
-  :config
-  (define-key cscope-prefix (kbd "s") 'helm-cscope-find-this-symbol)
-  (define-key cscope-prefix (kbd "d") 'helm-cscope-find-global-definition)
-  (define-key cscope-prefix (kbd "f") 'helm-cscope-find-called-function)
-  (define-key cscope-prefix (kbd "c") 'helm-cscope-find-calling-this-funtcion)
-  )
-
-
 
 ;;; a possibly handy hack:
 ;; (defun my-find-tag(&optional prefix)
@@ -188,19 +166,6 @@
   (define-key cscope-prefix (kbd "t") 'rscope-find-this-text-string)
   (define-key cscope-prefix (kbd "i") 'rscope-find-files-including-file)
   (define-key cscope-prefix (kbd "h") 'rscope-find-calling-hierarchy)
-  )
- 
- ;; [ helm-cscope ]
- ((and (featurep 'helm) (featurep 'helm-cscope))
-  (define-key cscope-prefix (kbd "s") 'helm-cscope-find-this-symbol)
-  (define-key cscope-prefix (kbd "a") 'helm-cscope-find-assignments-to-this-symbol)
-  (define-key cscope-prefix (kbd "q") 'helm-cscope-find-called-function)
-  (define-key cscope-prefix (kbd "d") 'helm-cscope-find-calling-this-funtcion)
-  (define-key cscope-prefix (kbd "p") 'helm-cscope-find-egrep-pattern)
-  (define-key cscope-prefix (kbd "g") 'helm-cscope-find-global-definition)
-  (define-key cscope-prefix (kbd "i") 'helm-cscope-find-files-including-file)
-  (define-key cscope-prefix (kbd "f") 'helm-cscope-find-this-file)
-  (define-key cscope-prefix (kbd "t") 'helm-cscope-find-this-text-string)
   )
 
  ;; [ cscope ]

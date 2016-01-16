@@ -34,12 +34,6 @@
 
 (define-key global-map [remap insert-char] 'ucs-utils-ucs-insert) ; [C-x 8 RET]
 
-
-;;; [ helm-unicode ]
-
-;;; Usage:
-;;
-;; - `helm-unicode'
 
 
 (provide 'init-my-emacs-unicode)

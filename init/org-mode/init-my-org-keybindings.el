@@ -18,20 +18,6 @@
     (interactive)
     (org-element-at-point)))
 
-(use-package helm
-  :config
-  (unless (boundp 'my-org-heading-prefix)
-    (define-prefix-command 'my-org-heading-prefix))
-
-  (add-hook
-   'org-mode-hook
-   (lambda ()
-     (local-set-key (kbd "C-c h") 'my-org-heading-prefix)
-     (define-key my-org-heading-prefix (kbd "h") 'helm-org-in-buffer-headings)
-     (define-key my-org-heading-prefix (kbd "a") 'helm-org-agenda-files-headings)
-     ))
-  )
-
 (unless (boundp 'my-org-agenda-prefix)
   (define-prefix-command 'my-org-agenda-prefix))
 (define-key my-org-prefix (kbd "M-a") 'my-org-agenda-prefix)

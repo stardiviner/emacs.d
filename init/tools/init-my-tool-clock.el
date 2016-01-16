@@ -20,14 +20,7 @@
                                 ("Europe/London" "London")
                                 ))
 
-(if (featurep 'helm)
-    ;; `helm-source-time-world'
-    (progn
-      ;; the time zone of your home
-      (setq helm-time-zone-home-location "Shanghai")
-      (define-key my-tools-prefix (kbd "t") 'helm-world-time)
-      )
-  (define-key my-tools-prefix (kbd "t") 'display-time-world))
+(define-key my-tools-prefix (kbd "t") 'display-time-world)
 
 
 (provide 'init-my-tool-clock)

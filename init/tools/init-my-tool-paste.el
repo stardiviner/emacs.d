@@ -80,15 +80,6 @@
 (define-key paste-prefix (kbd "h") 'htmlize-buffer)
 
 
-;;; [ helm-gist ]
-
-;;; Usage:
-;; - `helm-for-gist'
-;; - Helm defined source: `helm-c-source-gist'
-
-;; (require 'helm-gist)
-
-
 
 (provide 'init-my-tool-paste)
 

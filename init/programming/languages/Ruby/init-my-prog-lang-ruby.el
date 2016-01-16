@@ -214,10 +214,8 @@
                (unless (boundp 'ruby-help-doc-map)
                  (define-prefix-command 'ruby-help-doc-map))
                (local-set-key (kbd "C-h d") 'ruby-help-doc-map)
-               (if (featurep 'helm)
-                   (define-key ruby-help-doc-map (kbd "k") 'yari-helm)
-                 (define-key ruby-help-doc-map (kbd "k") 'yari)
-                 )
+               
+               (define-key ruby-help-doc-map (kbd "k") 'yari)
                )))
 
 
@@ -376,12 +374,6 @@
       ))
   (add-hook 'after-save-hook 'my-robe-lazily-load 'append)
   )
-
-
-;;; [ helm-rb ] -- Search Ruby's method by ag and display helm.
-
-
-;;; [ helm-robe ]
 
 
 ;;; [ Zossima ] -- Jump to definition in Emacs, driven by a live Ruby subprocess.

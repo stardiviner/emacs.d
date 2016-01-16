@@ -56,10 +56,6 @@
 
 (global-set-key (kbd "C-h i") 'info-display-manual)
 
-(if (featurep 'helm)
-    (define-key my-prog-help-document-map (kbd "i") 'helm-info-at-point)
-  )
-
 (defun info-display-manual-in-buffer (topic)
   "Display Info TOPIC in its own buffer."
   (interactive

@@ -11,7 +11,6 @@
 
 ;; - 'browse-url
 ;; - 'browse-url-default-browser
-;; - 'helm-browse-url
 (setq browse-url-browser-function 'browse-url-default-browser)
 
 

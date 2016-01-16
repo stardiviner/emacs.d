@@ -168,9 +168,6 @@
   :config
   (setq resize-window-allow-backgrounds nil)
   (global-set-key (kbd "C-x w") 'resize-window)
-
-  ;; new dispatch
-  ;; (push '(?l helm-mini "run helm-mini" nil) resize-window-dispatch-alist)
   )
 
 
@@ -289,7 +286,7 @@
 
 ;; (require 'window-purpose)
 ;;
-;; (setq purpose-preferred-prompt 'helm
+;; (setq purpose-preferred-prompt 'ivy
 ;;       ;; purpose-x-*
 ;;       purpose-x-popwin-position 'bottom
 ;;       purpose-x-popwin-height 0.5
@@ -331,7 +328,7 @@
 
 ;; (require 'window-purpose)
 ;;
-;; (setq purpose-preferred-prompt 'helm
+;; (setq purpose-preferred-prompt 'ivy
 ;;       ;; purpose-x-*
 ;;       purpose-x-popwin-position 'bottom
 ;;       purpose-x-popwin-height 0.5

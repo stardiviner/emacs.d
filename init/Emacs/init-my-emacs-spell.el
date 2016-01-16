@@ -34,11 +34,6 @@
       )
 
 
-;;; [ helm-ispell ]
-
-(use-package helm-ispell)
-
-
 ;;; [ Flyspell ]
 
 ;;; Usage:
@@ -129,13 +124,6 @@
 (define-key my-spell-prefix (kbd "c") 'ispell-word) ; default keybinding [M-$].
 
 
-;;; [ helm-flyspell ]
-
-;;; Usage:
-;;
-;; `helm-flyspell-correct'
-
-
 ;;; [ flyspell-popup ] -- Correct the misspelled word with flyspell in popup menu.
 
 ;;; Usage:
@@ -144,9 +132,7 @@
 
 (use-package flyspell
   :config
-  (if (featurep 'helm-flyspell)
-      (define-key flyspell-mode-map (kbd "C-;") #'helm-flyspell-correct)
-    (define-key flyspell-mode-map (kbd "C-;") #'flyspell-popup-correct))
+  (define-key flyspell-mode-map (kbd "C-;") #'flyspell-popup-correct)
   )
 
 

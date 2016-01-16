@@ -93,7 +93,6 @@
   (define-key my-bbdb-map (kbd "c") 'bbdb-create)
   ;; usage: region select name and email part in To: field. then press this keybinding.
   (define-key my-bbdb-map (kbd "a") 'bbdb-snarf)
-  (define-key my-bbdb-map (kbd "h") 'helm-bbdb)
 
 
   ;; (bbdb-mua-auto-update-init 'gnus 'message)
@@ -321,9 +320,6 @@
 
 
 ;;; [ bbdb-csv-import ]
-
-
-;;; [ helm-bbdb ]
 
 
 ;;; [ gmail2bbdb ]

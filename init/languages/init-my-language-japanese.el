@@ -29,11 +29,6 @@
 (migemo-init)
 
 
-;;; [ helm-migemo ] --
-
-;; (define-key global-map [(control ?:)] 'helm-migemo)
-
-
 ;;; [ oniisama ]
 
 ;; (require 'oniisama)

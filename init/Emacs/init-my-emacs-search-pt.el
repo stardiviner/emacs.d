@@ -21,21 +21,6 @@
 (define-key pt-prefix (kbd "P") 'projectile-pt)
 
 
-;;; [ helm-pt ]
-
-;; (setq helm-pt-args "--smart-case"
-;;       helm-pt-insert-at-point t
-;;       )
-
-(if (featurep 'helm-pt)
-    (progn
-      (define-key pt-prefix (kbd "h") 'helm-do-pt)
-      (define-key pt-prefix (kbd "o") 'helm-projectile-pt)
-      )
-  )
-
-
-
 (provide 'init-my-emacs-search-pt)
 
 ;;; init-my-emacs-search-pt.el ends here

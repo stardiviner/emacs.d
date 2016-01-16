@@ -97,7 +97,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;; (setq ace-isearch-use-ace-jump t
 ;;       ;; ace-isearch-input-idle-delay 0.5
 ;;       ;; ace-isearch-input-length 6
-;;       ;; ace-isearch-function-from-isearch 'helm-swoop-from-isearch ; 'swoop-from-isearch
+;;       ;; ace-isearch-function-from-isearch 'swoop-from-isearch
 ;;       ;; ace-isearch-use-function-from-isearch t
 ;;       ;; ace-isearch-set-ace-jump-after-isearch-exit t
 ;;       ;; ace-isearch-use-fallback-function 

@@ -79,7 +79,7 @@
 
 ;; (require 'pophint)
 
-(setq bts:preferred-selection-method 'helm
+(setq bts:preferred-selection-method 'default
       bts:project-cache-file "~/.emacs.d/.bts/project"
       bts:query-cache-file "~/.emacs.d/.bts/query"
       bts:ticket-fetch-check-interval 3 ; seconds

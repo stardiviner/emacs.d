@@ -9,16 +9,12 @@
 
 ;;; [ occur ]
 
-(if (featurep 'helm)
-    (define-key my-search-prefix (kbd "o") 'helm-occur)
-  (define-key my-search-prefix (kbd "o") 'occur))
+(define-key my-search-prefix (kbd "o") 'occur)
 
 
 ;;; [ multi-occur ]
 
-(if (featurep 'helm)
-    (define-key my-search-prefix (kbd "O") 'helm-multi-occur)
-  (define-key my-search-prefix (kbd "O") 'multi-occur))
+(define-key my-search-prefix (kbd "O") 'multi-occur)
 
 (define-key my-search-prefix (kbd "M-o") 'multi-occur-in-matching-buffers)
 
@@ -34,13 +30,6 @@
   (global-set-key (kbd "C-M-o") 'swoop-multi)
   (global-set-key (kbd "M-o")   'swoop-pcre-regexp)
   (global-set-key (kbd "C-S-o") 'swoop-back-to-last-position)
-  )
-
-
-;;; [ helm-swoop ]
-
-(use-package helm-swoop
-  :config
   )
 
 
