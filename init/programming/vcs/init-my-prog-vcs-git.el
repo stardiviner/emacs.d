@@ -308,11 +308,6 @@
 ;; https://emacs.stackexchange.com/questions/10975/customize-face-magit-item-highlight-properly
 
 
-;;; auto display magit help popup
-;; (defadvice magit-status (after my-magit-status-dispatch-popup)
-;;   (magit-dispatch-popup))
-;; (ad-activate 'magit-status)
-
 ;; enable ispell words complete in commit message buffer.
 (add-hook 'git-commit-mode-hook
           '(lambda ()
