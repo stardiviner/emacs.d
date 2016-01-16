@@ -121,7 +121,7 @@
 ;;
 ;;   an indicator for mode-line.
 
-
+(pyvenv-workon "python3")
 
 
 ;;; [ virtualenv ]
