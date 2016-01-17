@@ -423,10 +423,10 @@
   :config
   ;; (setq rspec-key-command-prefix (kbd "C-c t r"))
 
-  ;; (dolist (hook '(ruby-mode-hook
-  ;;                 enh-ruby-mode-hook
-  ;;                 ))
-  ;;   (add-hook hook 'rspec-mode))
+  (dolist (hook '(ruby-mode-hook
+                  enh-ruby-mode-hook
+                  ))
+    (add-hook hook 'rspec-mode))
   
   ;; [ Gotchas ]
   ;; Debugging
