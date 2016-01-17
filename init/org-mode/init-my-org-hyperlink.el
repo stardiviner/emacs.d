@@ -43,8 +43,7 @@
         ("\\.gif\\'" . "sxiv -a -f %s")
         ("\\.svg\\'" . "feh --magick-timeout 5 %s")
         ;; Mind Maps
-        ("\\.mm\\'" . "freeplane %s")
-        ;; ("\\.mm\\'" . "freemind %s")
+        ("\\.mm\\'" . "freemind %s") ; freeplane
         ;; Office
         ;; Open Text Document
         ("\\.odt'" . "libreoffice %s") ; Text Documentation
