@@ -15,7 +15,7 @@
 (require 'init-my-emacs-search-ag)
 (require 'init-my-emacs-search-pt)
 
-(define-key my-search-prefix (kbd "s") 'ag-regexp)
+(define-key my-search-prefix (kbd "s") 'ag)
 
 
 (unless (boundp 'my-search-language-prefix)
