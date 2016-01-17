@@ -2,25 +2,10 @@
 
 ;;; Commentary:
 
-;;; [ abbrev-mode ]
-;;; Usage:
-;;; - type abbrev string, then press [Tab] to expand.
-;;; - or select in candidates menu framework like auto-complete, then press [Tab] to expand.
-;;; - define abbrev
-;;;   type the word you want to use as expansion, then type [C-x a g] and the abbreviation for it.
-;;; - save abbrevs
-;;;   [M-x write-abbrev-file]
-;;; - restore abbrevs
-;;;   [M-x read-abbrev-file]
-;;; - Abbrev-mode
-;;;   [M-x abbrev-mode]
 
 ;;; Code:
 
 ;;; [ abbrev-mode ]
-
-;;; Usage:
-;; -
 
 (require 'abbrev)
 
