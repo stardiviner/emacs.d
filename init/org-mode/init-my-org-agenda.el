@@ -262,23 +262,18 @@
 ;;              user.  Instead of a function name, you can also supply a suffix
 ;;              of one of the various predefined `org-notify-action-xxx'
 ;;              functions.
+;;
+;;   :actions -ding, -notify, -window, -notify/window, -message, -email,
+;;
 ;;   :period    Optional: can be used to repeat the actions periodically.
 ;;              Same format as :time.
 ;;   :duration  Some actions use this parameter to specify the duration of the
 ;;              notification.  It's an integral number in seconds.
 ;;   :audible   Overwrite the value of `org-notify-audible' for this action.
-;;
-;;   :actions -ding, -notify, -window, -notify/window, -message, -email,
 
 (org-notify-add 'default
-                '(:time "1h" :period "2h" :duration 10
-                        :actions (-notify/window -ding))
-                '(:time "1d" :period "4h" :duration 10
-                        :actions (-notify/window -ding))
-                ;; '(:time "3d" :period "4h" :duration 5
-                ;;         :actions -notify/window)
-                ;; '(:time "5d" :period "6d" :duration 3
-                ;;         :actions -notify)
+                '(:time "1h" :period "2h" :duration 8
+                        :actions (-notify -ding))
                 )
 
 (org-notify-start 60)
