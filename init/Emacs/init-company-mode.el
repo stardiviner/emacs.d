@@ -98,6 +98,7 @@
          company-capf                   ; `completion-at-point-functions'
          ;; :with
          company-yasnippet
+         company-abbrev company-dabbrev
          )
         ;; company-elisp ; Emacs Lisp
         ;; company-semantic ; C/C++
@@ -105,7 +106,7 @@
         ;; company-eclim ; Java
         ;; company-nxml company-css ; HTML, CSS, XML
         ;; company-xcode ; for Xcode projects
-        (company-abbrev company-dabbrev)
+        ;; (company-abbrev company-dabbrev)
         ;; company-ispell ; Ispell
         ;; company-bbdb           ; BBDB
         ))
