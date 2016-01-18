@@ -65,12 +65,15 @@
 ;;   the key was rebound after your binding it with bind-key, and what it was
 ;;   rebound it to.
 
-(require 'bind-key)
+(use-package bind-key
+  ;; :ensure t
+  )
 
 
 ;;; [ which-key ]
 
 (use-package which-key
+  :ensure t
   :config
   (setq which-key-idle-delay 1.5)
 
@@ -152,6 +155,7 @@
 ;;; [ hydra ] -- tie related commands into a family of short bindings with a common prefix - a Hydra.
 
 (use-package hydra
+  :ensure t
   :config
   ;; display a hint with possible bindings in the echo area.
   (setq hydra-is-helpful t)

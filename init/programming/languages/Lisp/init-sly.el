@@ -10,6 +10,7 @@
 ;;; [ sly ] -- Sylvester the Cat's Common Lisp IDE
 
 (use-package sly
+  :ensure t
   :init
   ;; (require 'sly-autoloads)
   :commands (sly)
@@ -71,18 +72,22 @@
 
 ;;; [ company-sly ] -- Company-mode completion backend for SLY.
 
-(add-hook 'sly-mode-hook 'sly-company-mode)
+(use-package company-sly
+  :ensure t
+  :config
+  (add-hook 'sly-mode-hook 'sly-company-mode)
 
-(dolist (hook '(sly-mode-hook
-                sly-mrepl-mode-hook
-                lisp-mode-hook
-                lisp-interaction-mode-hook
-                common-lisp-lisp-mode-hook
-                ))
-  (add-hook hook
-            (lambda ()
-              (my-company-add-backends-to-mode '(sly-company))
-              )))
+  (dolist (hook '(sly-mode-hook
+                  sly-mrepl-mode-hook
+                  lisp-mode-hook
+                  lisp-interaction-mode-hook
+                  common-lisp-lisp-mode-hook
+                  ))
+    (add-hook hook
+              (lambda ()
+                (my-company-add-backends-to-mode '(sly-company))
+                )))
+  )
 
 
 

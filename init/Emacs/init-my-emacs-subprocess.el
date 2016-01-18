@@ -81,6 +81,7 @@
 
 
 (use-package dizzee
+  ;; :ensure t
   :config
   (dz-defservice dizzee-python-SimpleHTTPServer "python"
                  :args ("-m" "SimpleHTTPServer" "7878")

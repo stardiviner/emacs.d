@@ -9,7 +9,11 @@
 
 ;;; [ arduino-mode ]
 
-(setq arduino-font-lock-extra-types t)
+(use-package arduino-mode
+  :ensure t
+  :config
+  (setq arduino-font-lock-extra-types t)
+  )
 
 
 (provide 'init-my-prog-framework-arduino)

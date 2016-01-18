@@ -9,7 +9,9 @@
 
 ;;; [ paxedit ] -- Structured, Context-Driven, LISP Editing and Refactoring.
 
-(use-package paxedit)
+(use-package paxedit
+  :ensure t
+  )
 
 
 (provide 'init-my-paxedit)

@@ -43,35 +43,38 @@
 ;;   - `eclim-project-import'
 ;;   - `eclim-manage-projects'
 
-(require 'eclim)
-;; Control `eclimd' from emacs
-(require 'eclimd)
+(use-package emacs-eclim
+  :ensure t
+  :config
+  ;; Control `eclimd' from emacs
+  (require 'eclimd)
 
-(setq eclimd-default-workspace "~/Eclipse"
-      eclim-executable (or (executable-find "eclim") (eclim-homedir-executable-find) (eclim-executable-find))
-      eclimd-executable "~/.eclipse/org.eclipse.platform_4.5.1_155965261_linux_gtk_x86_64/eclimd"
-      ;; eclimd-port 45620
-      eclimd-wait-for-process t)
+  (setq eclimd-default-workspace "~/Eclipse"
+        eclim-executable (or (executable-find "eclim") (eclim-homedir-executable-find) (eclim-executable-find))
+        eclimd-executable "~/.eclipse/org.eclipse.platform_4.5.1_155965261_linux_gtk_x86_64/eclimd"
+        ;; eclimd-port 45620
+        eclimd-wait-for-process t)
 
-;; (or (executable-find "eclim") (eclim-homedir-executable-find) (eclim-executable-find))
-;; TODO?: (setq eclim-executable "")
+  ;; (or (executable-find "eclim") (eclim-homedir-executable-find) (eclim-executable-find))
+  ;; TODO?: (setq eclim-executable "")
 
 
-;; for company-mode
-(require 'company-emacs-eclim)
+  ;; for company-mode
+  (require 'company-emacs-eclim)
 
-;; (company-emacs-eclim-setup)
-(add-hook 'java-mode-hook
-          '(lambda ()
-             ;; (eclim-mode 1)
-             
-             ;; TODO: this backend does not work.
-             ;; (my-company-add-backends-to-mode '(company-emacs-eclim))
+  ;; (company-emacs-eclim-setup)
+  (add-hook 'java-mode-hook
+            '(lambda ()
+               ;; (eclim-mode 1)
+               
+               ;; TODO: this backend does not work.
+               ;; (my-company-add-backends-to-mode '(company-emacs-eclim))
 
-             (my-company-add-backends-to-mode '(company-eclim))
-             ))
+               (my-company-add-backends-to-mode '(company-eclim))
+               ))
 
-;; (global-eclim-mode t)
+  ;; (global-eclim-mode t)
+  )
 
 
 ;;; [ javadoc-lookup ]

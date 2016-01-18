@@ -25,6 +25,7 @@
 ;;; [ swoop ] -- Peculiar buffer navigation for Emacs.
 
 (use-package swoop
+  ;; :ensure t
   :config
   (global-set-key (kbd "C-o") 'swoop)
   (global-set-key (kbd "C-M-o") 'swoop-multi)

@@ -31,8 +31,11 @@
 
 ;;; [ ack-and-a-half ]
 
-;; (require 'ack-and-a-half)
-;;
+;; (use-package ack-and-a-half
+;;   :ensure t
+;;   :config
+;;   )
+
 ;; ;; Create shorter aliases
 ;; (defalias 'ack 'ack-and-a-half)
 ;; (defalias 'ack-same 'ack-and-a-half-same)

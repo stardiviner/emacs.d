@@ -14,6 +14,7 @@
 ;; - [C-c /] :: the main keybindings dispatcher.
 
 (use-package pandoc-mode
+  :ensure t
   :config
   ;; (add-hook 'markdown-mode-hook 'pandoc-mode)
   ;;

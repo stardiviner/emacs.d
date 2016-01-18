@@ -13,8 +13,14 @@
 ;;
 ;; - [M-x run-erlang]
 
-(require 'erlang)
+(use-package erlang
+  :ensure t)
 
+
+;;; [ edts ] -- Erlang Development Tool Suite
+
+(use-package edts
+  :ensure t)
 
 
 (provide 'init-my-prog-lang-erlang)

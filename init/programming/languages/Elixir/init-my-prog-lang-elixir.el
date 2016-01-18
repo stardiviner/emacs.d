@@ -9,17 +9,20 @@
 
 ;;; [ elixir-mode ] -- Emacs major mode for Elixir
 
-;; if you use smartparens you can piggyback on some of its functionality for
-;; dealing with Ruby's do .. end blocks. A sample configuration would be:
-(sp-with-modes '(elixir-mode)
-  (sp-local-pair "fn" "end"
-                 :when '(("SPC" "RET"))
-                 :actions '(insert navigate))
-  (sp-local-pair "do" "end"
-                 :when '(("SPC" "RET"))
-                 :post-handlers '(sp-ruby-def-post-handler)
-                 :actions '(insert navigate)))
-
+(use-package elixir-mode
+  :ensure t
+  :config
+  ;; if you use smartparens you can piggyback on some of its functionality for
+  ;; dealing with Ruby's do .. end blocks. A sample configuration would be:
+  (sp-with-modes '(elixir-mode)
+    (sp-local-pair "fn" "end"
+                   :when '(("SPC" "RET"))
+                   :actions '(insert navigate))
+    (sp-local-pair "do" "end"
+                   :when '(("SPC" "RET"))
+                   :post-handlers '(sp-ruby-def-post-handler)
+                   :actions '(insert navigate)))
+  )
 
 
 ;;; [ alchemist ] -- Elixir Tooling Integration into Emacs
@@ -29,6 +32,7 @@
 ;; - prefix [C-c a]
 
 (use-package alchemist
+  :ensure t
   :config
   (setq alchemist-key-command-prefix (kbd "C-c ,")) ; default: (kbd "C-c a")
   ;; run the whole test suite with `alchemist-mix-test' after saving a buffer.

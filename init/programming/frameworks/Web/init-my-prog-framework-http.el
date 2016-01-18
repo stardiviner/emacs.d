@@ -46,6 +46,7 @@
 ;; `restclient-http-do-hook'
 
 (use-package restclient
+  :ensure t
   :config
   ;; (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
 
@@ -83,7 +84,8 @@
 
 ;;;_ know-your-http-well
 
-(require 'know-your-http-well)
+(use-package know-your-http-well
+  :ensure t)
 
 ;;;_ company-restclient
 
@@ -96,15 +98,20 @@
 ;; - Description about HTTP method and header is shown in minibuffer
 ;; - Variable name completion
 
-(add-hook 'restclient-mode-hook
-          (lambda ()
-            (add-to-list (make-local-variable 'company-backends)
-                         'company-restclient)))
+(use-package company-restclient
+  :ensure t
+  :config
+  (add-hook 'restclient-mode-hook
+            (lambda ()
+              (add-to-list (make-local-variable 'company-backends)
+                           'company-restclient)))
+  )
 
 
 ;;;_ httprepl
 
 (use-package httprepl
+  :ensure t
   :config
   (define-key HTTP-prefix (kbd "H") 'httprepl)
 

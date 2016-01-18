@@ -22,6 +22,7 @@
 ;; - [C-RET] :: rules all!
 
 (use-package eval-in-repl
+  :ensure t
   :config
   (setq eir-jump-after-eval t)
   (setq eir-delete-other-windows nil

@@ -32,7 +32,9 @@
 ;;; style as Emacs will automagically insert the virtual separator, as needed,
 ;;; when you type a capitalized character.
 
-;; (require 'glasses-mode)
+(use-package glasses-mode
+  ;; :ensure t
+  )
 
 
 (provide 'init-my-prog-code)

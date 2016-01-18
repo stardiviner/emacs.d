@@ -19,6 +19,7 @@
 ;; 2. [M-x clm/toggle-command-log-buffer] :: toggle command log buffer.
 
 (use-package command-log-mode
+  :ensure t
   :init
   ;; FIX: disable default global keybinding [C-c o]
   (setq command-log-mode-key-binding-open-log nil)
@@ -52,25 +53,27 @@
 ;;   - w :: copy device title (Built-in Audio Analog Stereo)
 ;;   - W :: copy device name (alsa_input.pci-0000_00_1b.0.analog-stereo)
 
-;; (require 'capture)
+(use-package capture
+  ;; :ensure t
+  ;; :config
+  ;; (setq capture-video-dest-dir "~/screencasts/SORT/")
+  ;; (global-set-key (kbd "<s-f12>") 'capture-run-mode)
 
-;; (setq capture-video-dest-dir "~/screencasts/SORT/")
-;; (global-set-key (kbd "<s-f12>") 'capture-run-mode)
-
-;; (defun my-capture-presets ()
-;;   "Make my presets for capturing."
-;;   (interactive)
-;;   (capture-presets-clear)
-;;   ;; - 454, 74               - x and y offset
-;;   ;; - 1280, 720             - width and height of the video
-;;   ;; - 15                    - frames per second
-;;   ;; - "webm"                - extension for a filename
-;;   ;; - ""                    - additional arguments for ffmpeg (avconv)
-;;   ;; - "1280px (no audio)"   - preset title
-;;   (capture-add-preset 454 74 1280 720 15 "webm"
-;;                       ""
-;;                       "1280px (no audio)"))
-;; (my-capture-presets)
+  ;; (defun my-capture-presets ()
+  ;;   "Make my presets for capturing."
+  ;;   (interactive)
+  ;;   (capture-presets-clear)
+  ;;   ;; - 454, 74               - x and y offset
+  ;;   ;; - 1280, 720             - width and height of the video
+  ;;   ;; - 15                    - frames per second
+  ;;   ;; - "webm"                - extension for a filename
+  ;;   ;; - ""                    - additional arguments for ffmpeg (avconv)
+  ;;   ;; - "1280px (no audio)"   - preset title
+  ;;   (capture-add-preset 454 74 1280 720 15 "webm"
+  ;;                       ""
+  ;;                       "1280px (no audio)"))
+  ;; (my-capture-presets)
+  )
 
 
 ;;; [ camcorder ] -- Tool for capturing screencasts directly from Emacs (use FFmpeg as backend)
@@ -83,6 +86,7 @@
 ;; - [F12] :: When you’re finished, hit F12 and wait for the conversion to FINISH.
 
 (use-package camcorder
+  :ensure t
   :config
   ;; (setq camcorder-recording-command
   ;;       '("recordmydesktop" " --fps 20 --no-sound --windowid " window-id " -o " file))

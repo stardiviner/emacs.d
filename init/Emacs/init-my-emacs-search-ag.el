@@ -46,6 +46,7 @@
 ;; - `ag-search-finished-hook' :: when finished search
 
 (use-package ag
+  :ensure t
   :commands ag
   :config
   (setq ag-highlight-search t

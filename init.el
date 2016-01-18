@@ -68,7 +68,6 @@
 
 ;;; [ package manager ]
 
-(load "~/.emacs.d/init/init-my-packages.el")
 (load "~/.emacs.d/init/init-my-pm-package.el")
 (require 'init-my-pm-package)
 
@@ -144,8 +143,14 @@
 
 
 ;;; Languages
+
+(unless (boundp 'my-search-language-prefix)
+  (define-prefix-command 'my-search-language-prefix))
+(define-key my-search-prefix (kbd "l") 'my-search-language-prefix)
+
 (require 'init-my-language-english)
-;; (require 'init-my-language-japanese)
+(require 'init-my-language-chinese)
+(require 'init-my-language-japanese)
 
 
 ;;; Tools
@@ -161,7 +166,7 @@
 (require 'init-my-tool-diagram)
 ;; (require 'init-my-tool-bbdb)
 (require 'init-my-tool-browser)
-(require 'init-my-tool-bookmark)
+(require 'init-my-tool-browser-bookmark)
 (require 'init-my-tool-OpenSpritz)
 (require 'init-my-tool-email)
 (require 'init-my-tool-feeds)
@@ -205,8 +210,7 @@
 (require 'init-my-prog-lang-lisp)
 (require 'init-my-prog-lang-emacs-lisp)
 (require 'init-my-prog-lang-common-lisp)
-;; (require 'init-my-prog-lang-scheme)
-;; (require 'init-my-prog-lang-guile)
+(require 'init-my-prog-lang-lisp-scheme)
 (require 'init-my-prog-lang-clojure)
 (require 'init-my-prog-lang-sibilant)
 (require 'init-my-prog-lang-ruby)
@@ -236,7 +240,7 @@
 (require 'init-my-prog-lang-R)
 (require 'init-my-prog-lang-gnuplot)
 (require 'init-my-prog-lang-octave)
-(require 'init-my-prog-lang-matlab)
+;; (require 'init-my-prog-lang-matlab)
 (require 'init-my-prog-lang-tex)
 (require 'init-my-prog-lang-markdown)
 ;; (require 'init-my-prog-lang-prolog)

@@ -49,7 +49,11 @@
 ;;     C-c C-o l - howdoi-query-line-at-point
 ;;     C-c C-o r - howdoi-query-line-at-point-replace-by-code-snippet
 
-(define-key my-prog-help-document-map (kbd "h") 'howdoi-query)
+(use-package howdoi
+  ;; :ensure t
+  :config
+  (define-key my-prog-help-document-map (kbd "h") 'howdoi-query)
+  )
 
 
 (provide 'init-my-prog-document-assistant)

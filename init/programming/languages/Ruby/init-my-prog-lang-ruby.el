@@ -38,6 +38,7 @@
 ;;; [ enh-ruby-mode ] --
 
 (use-package enh-ruby-mode
+  :ensure t
   :init
   (add-to-list 'auto-mode-alist '("\\.rb\'" . enh-ruby-mode))
   (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
@@ -131,7 +132,11 @@
 ;;
 ;; - region + `ruby-toggle-hash-syntax'
 
-(define-key my-prog-code-map (kbd "c") 'ruby-toggle-hash-syntax) ; convert
+(use-package ruby-hash-syntax
+  :ensure t
+  :config
+  (define-key my-prog-code-map (kbd "c") 'ruby-toggle-hash-syntax) ; convert
+  )
 
 
 ;;; [ ruby-tools ] -- Ruby tools is a collection of handy functions for Emacs ruby-mode.
@@ -151,6 +156,7 @@
 ;; - [#]   :: string interpolation
 
 (use-package ruby-tools
+  :ensure t
   :config
   (add-hook 'ruby-mode-hook 'ruby-tools-mode)
   (add-hook 'enh-ruby-mode-hook 'ruby-tools-mode)
@@ -159,16 +165,19 @@
 
 ;;; [ ruby-block ] -- highlight matching block
 
-;; (require 'ruby-block)
-;;
-;; (setq ruby-block-delay 0)
-;; (setq ruby-block-highlight-toggle t)
-;; (ruby-block-mode t)
+;; (use-package ruby-block
+;;   :ensure t
+;;   :config
+;;   (setq ruby-block-delay 0)
+;;   (setq ruby-block-highlight-toggle t)
+;;   (ruby-block-mode t)
+;;   )
 
 
 ;;; [ ruby-electric ]
 
 (use-package ruby-electric
+  :ensure t
   :config
   (add-hook 'ruby-mode-hook 'ruby-electric-mode)
   (add-hook 'enh-ruby-mode-hook 'ruby-electric-mode)
@@ -177,8 +186,12 @@
 
 ;;; [ ruby-end ]
 
-;; (add-hook 'ruby-mode-hook 'ruby-end-mode)
-;; (add-hook 'enh-ruby-mode-hook 'ruby-end-mode)
+(use-package ruby-end
+  ;; :ensure t
+  ;; :config
+  ;; (add-hook 'ruby-mode-hook 'ruby-end-mode)
+  ;; (add-hook 'enh-ruby-mode-hook 'ruby-end-mode)
+  )
 
 
 
@@ -187,34 +200,41 @@
 
 ;;; [ yard-mode ] -- for Ruby YARD comments
 
-(add-hook 'ruby-mode-hook 'yard-mode)
-(add-hook 'enh-ruby-mode-hook 'yard-mode)
+(use-package yard-mode
+  :ensure t
+  :config
+  (add-hook 'ruby-mode-hook 'yard-mode)
+  (add-hook 'enh-ruby-mode-hook 'yard-mode)
 
-;; If you would also like eldoc support, so that the expected syntax for the tag
-;; beneath your cursor is displayed in the minibuffer, add that hook too:
-(add-hook 'ruby-mode-hook 'eldoc-mode)
+  ;; If you would also like eldoc support, so that the expected syntax for the tag
+  ;; beneath your cursor is displayed in the minibuffer, add that hook too:
+  (add-hook 'ruby-mode-hook 'eldoc-mode)
+  )
 
 
 ;;; [ yari ] -- Yet Another Ri Interface
 
+(use-package yari
+  :ensure t
+  :config
+  (dolist (hook '(ruby-mode-hook
+                  enh-ruby-mode-hook
+                  ))
+    (add-hook hook
+              '(lambda ()
+                 ;; (setq yari-ruby-program-name "ruby"
+                 ;;       yari-ri-program-name "ri")
 
-(dolist (hook '(ruby-mode-hook
-                enh-ruby-mode-hook
-                ))
-  (add-hook hook
-            '(lambda ()
-               ;; (setq yari-ruby-program-name "ruby"
-               ;;       yari-ri-program-name "ri")
+                 ;; (local-set-key (kbd "C-h d k") 'yari)
 
-               ;; (local-set-key (kbd "C-h d k") 'yari)
-
-               ;; or with my-prog-help-document-map prefix.
-               (unless (boundp 'ruby-help-doc-map)
-                 (define-prefix-command 'ruby-help-doc-map))
-               (local-set-key (kbd "C-h d") 'ruby-help-doc-map)
-               
-               (define-key ruby-help-doc-map (kbd "k") 'yari)
-               )))
+                 ;; or with my-prog-help-document-map prefix.
+                 (unless (boundp 'ruby-help-doc-map)
+                   (define-prefix-command 'ruby-help-doc-map))
+                 (local-set-key (kbd "C-h d") 'ruby-help-doc-map)
+                 
+                 (define-key ruby-help-doc-map (kbd "k") 'yari)
+                 )))
+  )
 
 
 ;;; [ rvm ] -- integrates Emacs with the rvm (Ruby Version Manager)
@@ -225,20 +245,23 @@
 ;;; - open the source of any rubygem in your current gemset.
 ;;;   [M-x rvm-open-gem]
 
-;; (require 'rvm)
+;; (use-package rvm
+;;   :ensure t
+;;   :config
+;;   (rvm-use-default)        ; use rvm's default ruby for the current Emacs session.
+;;   (setq rvm-verbose t)     ; print rvm switching Ruby version message.
 ;;
-;; (rvm-use-default)        ; use rvm's default ruby for the current Emacs session.
-;; (setq rvm-verbose t)     ; print rvm switching Ruby version message.
-;;
-;; (dolist (hook '(ruby-mode-hook
-;;                 enh-ruby-mode-hook
-;;                 ))
-;;   (add-hook hook 'rvm-activate-corresponding-ruby))
+;;   (dolist (hook '(ruby-mode-hook
+;;                   enh-ruby-mode-hook
+;;                   ))
+;;     (add-hook hook 'rvm-activate-corresponding-ruby))
+;;   )
 
 
 ;;; [ rbenv ] -- use rbenv to manage your Ruby versions within Emacs
 
 (use-package rbenv
+  :ensure t
   :config
   (setq rbenv-show-active-ruby-in-modeline t
         rbenv-modeline-function 'rbenv--modeline-plain
@@ -258,6 +281,7 @@
 ;; 2. [C-c C-l] / [C-c C-k] :: load ruby code / rails code.
 
 (use-package inf-ruby
+  :ensure t
   :config
   (add-to-list 'inf-ruby-implementations
                '("inf-ruby" . "irb --inf-ruby-mode --noreadline -EUTF-8"))
@@ -320,13 +344,15 @@
 ;; - $ gem install pry-nav pry-stack_explorer
 ;; - $ gem install termios # replaces the running of: stty sane
 
-;; (require 'pry)
+;; (use-package pry
+;;   :ensure t
+;;   :config
+;;   ;; (setq pry-program-name "pry")           ; program invoked by the `run-pry' command.
 ;;
-;; ;; (setq pry-program-name "pry")           ; program invoked by the `run-pry' command.
-;;
-;; (define-key my-inferior-ruby-map (kbd "p") 'run-pry)
-;; (define-key my-inferior-ruby-map (kbd "C-p") 'pry-intercept)
-;; (define-key my-inferior-ruby-map (kbd "C-r") 'pry-intercept-rerun)
+;;   (define-key my-inferior-ruby-map (kbd "p") 'run-pry)
+;;   (define-key my-inferior-ruby-map (kbd "C-p") 'pry-intercept)
+;;   (define-key my-inferior-ruby-map (kbd "C-r") 'pry-intercept-rerun)
+;;   )
 
 
 ;;; [ Robe ] -- Code navigation, documentation lookup and completion for Ruby.
@@ -349,6 +375,7 @@
 ;; - [M-,] -- pop tag mark
 
 (use-package robe
+  :ensure t
   :config
 
   (setq robe-highlight-capf-candidates t
@@ -378,17 +405,6 @@
   )
 
 
-;;; [ Zossima ] -- Jump to definition in Emacs, driven by a live Ruby subprocess.
-
-;;; Usage:
-;;
-;; - [M-.]
-;; - [M-,]
-
-;; (add-hook 'ruby-mode-hook 'zossima-mode)
-;; (add-hook 'enh-ruby-mode-hook 'zossima-mode)
-
-
 ;;; [ ruby-compilation ]
 
 ;;; Usage:
@@ -406,11 +422,14 @@
 ;; - [C-c C-f] -- next-error-follow-minor-mode
 ;; - [C-c C-k] -- kill compilation
 
-(with-eval-after-load "ruby-compilation"
+(use-package ruby-compilation
+  :ensure t
+  :config
   (define-key enh-ruby-mode-map (kbd "C-c t C") 'ruby-compilation-this-buffer)
   (define-key enh-ruby-mode-map (kbd "C-c t c") 'ruby-compilation-this-test)
   (define-key ruby-mode-map (kbd "C-c t C") 'ruby-compilation-this-buffer)
-  (define-key ruby-mode-map (kbd "C-c t c") 'ruby-compilation-this-test))
+  (define-key ruby-mode-map (kbd "C-c t c") 'ruby-compilation-this-test)
+  )
 
 
 ;;; [ rspec-mode ] -- Ruby RSpec
@@ -420,6 +439,7 @@
 ;; - [C-c ,] :: keybindings prefix.
 
 (use-package rspec-mode
+  :ensure t
   :config
   ;; (setq rspec-key-command-prefix (kbd "C-c t r"))
 
@@ -446,7 +466,7 @@
   ;;
   ;; What you can do to solve this is to use BASH for running the specs. This
   ;; piece of code does the job:
-
+  ;;
   ;; (defadvice rspec-compile (around rspec-compile-around)
   ;;   "Use BASH shell for running the specs because of ZSH issues."
   ;;   (let ((shell-file-name "/bin/bash"))
@@ -454,8 +474,8 @@
   ;;
   ;; (ad-activate 'rspec-compile)
 
-  (eval-after-load 'rspec-mode
-    '(rspec-install-snippets))
+  ;; (eval-after-load 'rspec-mode
+  ;;   '(rspec-install-snippets))
   )
 
 
@@ -467,6 +487,7 @@
 ;; `minitest-enable-appropriate-mode'
 
 (use-package minitest
+  :ensure t
   :config
   (setq minitest-default-env nil
         ;; minitest-keymap-prefix (kbd "C-c t m") ; default [C-c ,]
@@ -495,6 +516,7 @@
 ;; C-c C-s   - Toggle between implementation and test/example files.
 
 (use-package ruby-test-mode
+  :ensure t
   :config
   (dolist (hook '(ruby-mode-hook
                   enh-ruby-mode-hook))
@@ -638,9 +660,11 @@
 ;; closest. I kinda got nutty with this one.
 
 
-;; (require 'ruby-refactor)
-
-;; (add-hook 'ruby-mode-hook 'ruby-refactor-mode-launch)
+(use-package ruby-refactor
+  ;; :ensure t
+  :config
+  (add-hook 'ruby-mode-hook 'ruby-refactor-mode-launch)
+  )
 
 
 ;;; [ doxymacs-yard ]
@@ -713,10 +737,14 @@
 ;;; Caching, By default the caching is enabled. To disable it:
 ;; (setq rake-enable-caching nil)
 
-(if (featurep 'projectile)
-    (eval-after-load 'projectile
-      '(setq rake-completion-system projectile-completion-system))
-  (setq rake-completion-system 'ivy-read))
+(use-package rake
+  :ensure t
+  :config
+  (if (featurep 'projectile)
+      (eval-after-load 'projectile
+        '(setq rake-completion-system projectile-completion-system))
+    (setq rake-completion-system 'ivy-read))
+  )
 
 
 ;;; [ bundler ] -- Interact with Bundler from Emacs.
@@ -735,27 +763,30 @@
 ;;   buffer. This exists so the output won't mess with the default buffer used
 ;;   by [M-&] and `async-shell-command'.
 
-(use-package bundler)
+(use-package bundler
+  :ensure t)
 
 
 ;;; [ motion-mode ] -- RubyMotion
 
-;; (require 'motion-mode)
-;;
-;; ;; following add-hook is very important.
-;; (add-hook 'ruby-mode-hook 'motion-recognize-project)
-;; (if (featurep 'auto-complete)
-;;     (progn
-;;       (add-to-list 'ac-modes 'motion-mode)
-;;       (add-to-list 'ac-sources 'ac-source-dictionary)))
-;; ;; set key-binds as you like
-;; (define-key motion-mode-map (kbd "C-c C-c") 'motion-execute-rake)
-;; (define-key motion-mode-map (kbd "C-c C-d") 'motion-dash-at-point)
-;;
-;; ;; (define-key motion-mode-map (kbd "C-c C-c") 'motion-execute-rake)
-;; ;; (define-key motion-mode-map (kbd "C-c C-d") (lambda () (interactive) (motion-execute-rake-command "device")))
-;; ;; (define-key motion-mode-map (kbd "C-c C-o") 'motion-dash-at-point)
-;; ;; (define-key motion-mode-map (kbd "C-c C-p") 'motion-convert-code-region)
+(use-package motion-mode
+  :ensure t
+  :config
+  ;; following add-hook is very important.
+  (add-hook 'ruby-mode-hook 'motion-recognize-project)
+  (if (featurep 'auto-complete)
+      (progn
+        (add-to-list 'ac-modes 'motion-mode)
+        (add-to-list 'ac-sources 'ac-source-dictionary)))
+  ;; set key-binds as you like
+  (define-key motion-mode-map (kbd "C-c C-c") 'motion-execute-rake)
+  (define-key motion-mode-map (kbd "C-c C-d") 'motion-dash-at-point)
+
+  ;; (define-key motion-mode-map (kbd "C-c C-c") 'motion-execute-rake)
+  ;; (define-key motion-mode-map (kbd "C-c C-d") (lambda () (interactive) (motion-execute-rake-command "device")))
+  ;; (define-key motion-mode-map (kbd "C-c C-o") 'motion-dash-at-point)
+  ;; (define-key motion-mode-map (kbd "C-c C-p") 'motion-convert-code-region)
+  )
 
 
 ;;; [ Cucumber ]
@@ -777,6 +808,7 @@
 ;; - only under Rails (for now).
 
 (use-package ruby-factory
+  :ensure t
   :config
   (add-hook 'ruby-mode-hook 'ruby-factory-mode)
   (add-hook 'enh-ruby-mode-hook 'ruby-factory-mode)

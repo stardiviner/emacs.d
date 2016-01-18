@@ -14,7 +14,8 @@
 ;; - [M-x heroku-run] ::
 ;; - [M-x heroku-sql] ::
 
-
+(use-package heroku
+  :ensure t)
 
 
 (provide 'init-my-prog-tools-heroku)

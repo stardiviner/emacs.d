@@ -154,13 +154,7 @@
 
 ;;; [ Edebug ] -- Edebug is a source level debugger.
 
-;; FIXME:
-;; (eval-after-load "edebug"
-;;   '(progn
-;;      (define-key edebug-mode-map (kbd "C-c C-d") nil)))
-
 (require 'edebug)
-(require 'edebug-x)
 
 (setq edebug-global-prefix (kbd "C-c d"))
 
@@ -175,15 +169,6 @@
             (define-key my-prog-debug-map (kbd "e") 'debug-on-entry)
             ))
 
-(set-face-attribute 'hi-edebug-x-stop nil
-                    :background "SaddleBrown"
-                    ;; :background (color-darken-name (face-background 'default) 6)
-                    )
-(set-face-attribute 'hi-edebug-x-debug-line nil
-                    :background "dark slate gray"
-                    ;; :background (color-darken-name (face-background 'default) 4)
-                    )
-
 (defun edebug-clear-global-break-condition ()
   "Clear `edebug-global-break-condition'."
   (interactive)
@@ -192,36 +177,21 @@
 
 ;;; [ edebug-x ]
 
-;;; Extensions to Edebug to make it a little nicer to work with. Provides
-;;; highlighting for breakpoints, instrumented functions and current line of
-;;; debugger. Also provides a couple of commands to list current breakpoints and
-;;; instrumented functions.
 
-;;; Usage:
-;;
-;; --------------- [C-x SPC] ---------------------------
-;;
-;;; This package provides the following functions:
-;;
-;; edebug-x-modify-breakpoint-wrapper     - toggle breakpoints in Elisp buffer, [C-x SPC]
-;;                                          When called with a prefix argument a conditional breakpoint is set
-;; edebug-x-show-breakpoints              - show a tabulated list of all breakpoints, [C-c C-x b]
-;; edebug-x-show-instrumented             - show a tabulated list of instrumented functions, [C-c C-x i]
-;; edebug-x-show-data                     - show both the breakpoints and instrumented functions buffer, [C-c C-x s]
-;;
-;;; From the tabulated list buffer the following commands are available:
-;;
-;; edebug-x-kill-breakpoint               - bound to [K], clear breakpoint
-;; edebug-x-visit-breakpoint              - bound to [RET], visit breakpoint location
-;;
-;;; The instrumented functions buffer has these commands:
-;;
-;; edebug-x-evaluate-function             - bound to [E], evaluate function, clearing breakpoints within it
-;; edebug-x-find-function bound to        - bound to [RET], jump to function
+(use-package edebug-x
+  :ensure t
+  :config
+  ;; (setq edebug-x-stop-point-overlay nil)
 
-(require 'edebug-x)
-
-;; (setq edebug-x-stop-point-overlay nil)
+  (set-face-attribute 'hi-edebug-x-stop nil
+		      :background "SaddleBrown"
+		      ;; :background (color-darken-name (face-background 'default) 6)
+		      )
+  (set-face-attribute 'hi-edebug-x-debug-line nil
+		      :background "dark slate gray"
+		      ;; :background (color-darken-name (face-background 'default) 4)
+		      )
+  )
 
 
 ;;; [ Benchmarking ]
@@ -292,28 +262,7 @@ LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
 
 ;;; [ bug-hunter ] -- Hunt down errors in elisp files.
 
-;;; The Bug Hunter is an Emacs library that finds the source of an error or
-;;; unexpected behavior inside an elisp configuration file (typically init.el or
-;;; .emacs).
-
-;;; Usage:
-;;
-;; - [M-x bug-hunter-init-file RET RET]
-;;     If your Emacs init file signals an error during startup, but you don’t know why, simply issue.
-;;
-;;
-;; For example, let’s say there’s something in your init file that’s loading the
-;; cl library, and you don’t want that. You know you’re not loading it yourself,
-;; but how can you figure out which external package is responsible for this
-;; outrage?
-;;
-;;   [M-x bug-hunter-init-file RET (featurep 'cl) RET]
-;;
-;; Finally, you can also use `bug-hunter-file' to hunt in other files.
-
-;; (require 'bug-hunter)
-
-
+(use-package bug-hunter)
 
 
 

@@ -74,6 +74,7 @@
 ;;   switch current rails server buffer to inf-ruby buffer.
 
 (use-package projectile-rails
+  :ensure t
   :init
   (setq projectile-rails-keymap-prefix (kbd "C-c C-r"))
   ;; (setq projectile-rails-keymap-prefix (kbd "C-c p C-r"))
@@ -116,6 +117,9 @@
 ;;
 ;; - [M-x rails-new] :: create a new Rails project.
 ;; - [M-x rails-plugin-new] :: create a new Rails plugin.
+
+(use-package rails-new
+  :ensure t)
 
 
 ;;; [ yasnippet-rails ]

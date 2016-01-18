@@ -12,7 +12,11 @@
 ;;; Expand region increases the selected region by semantic units. Just keep
 ;;; pressing the key until it selects what you want.
 
-(global-set-key (kbd "C-=") 'er/expand-region)
+(use-package expand-region
+  :ensure t
+  :config
+  (global-set-key (kbd "C-=") 'er/expand-region)  
+  )
 
 
 ;;; [ awk-it ] -- run AWK interactively on region!
@@ -22,9 +26,10 @@
 ;; - `awk-it-' prefix
 ;; - [M-x awk-it]
 
-;; (require 'awk-it)
-
-;; (define-key my-search-prefix (kbd "w") 'awk-it)
+(use-package awk-it
+  :config
+  (define-key my-search-prefix (kbd "w") 'awk-it)
+  )
 
 
 (provide 'init-my-emacs-region)

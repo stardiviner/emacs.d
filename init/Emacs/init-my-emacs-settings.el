@@ -200,10 +200,11 @@
 ;;; Guru mode disables some common keybindings and suggests the use of the
 ;;; established Emacs alternatives instead.
 
-;; (require 'guru-mode)
-
-;; (guru-global-mode +1)
-;; ;; (add-hook 'prog-mode-hook 'turn-on-guru-mode)
+(use-package guru-mode
+  :config
+  (add-hook 'prog-mode-hook 'turn-on-guru-mode)
+  (guru-global-mode +1)
+  )
 
 
 

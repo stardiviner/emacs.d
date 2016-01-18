@@ -16,6 +16,7 @@
 ;;; [ company-coq ]
 
 (use-package company-coq
+  :ensure t
   :config
   (require 'proof-site)
   (add-hook 'coq-mode-hook #'company-coq-initialize)

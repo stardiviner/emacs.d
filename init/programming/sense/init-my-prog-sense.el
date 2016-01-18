@@ -30,6 +30,7 @@
 ;; - `sourcegraph-search-site'
 
 (use-package sourcegraph
+  ;; :ensure t
   :config
   ;; enable sourcegraph-mode minor mode in all programming modes repository.
   (add-hook 'prog-mode-hook 'sourcegraph-mode)

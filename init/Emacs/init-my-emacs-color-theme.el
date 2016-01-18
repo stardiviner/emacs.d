@@ -33,14 +33,13 @@
 
 ;;; color-theme-solarized
 
-;; (require 'color-theme-solarized)
-
-;; (color-theme-solarized)
-
-;; switch to light solarized color-theme
-;; (customize-set-variable 'frame-background-mode 'light)
-
-;; (load-theme 'solarized t)
+(use-package color-theme-solarized
+  :init
+  (customize-set-variable 'frame-background-mode 'light)
+  :config
+  (color-theme-solarized)
+  (load-theme 'solarized t)
+  )
 
 
 ;;; color-theme-monokai

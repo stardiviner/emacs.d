@@ -66,9 +66,13 @@
 ;; - `ggtags-query-replace'
 ;;    Do a query replace in all files found in a search.
 
-(hook-modes c-dialects-mode
-  (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-    (and (featurep 'ggtags-mode) (ggtags-mode 1)))
+(use-package ggtags
+  :ensure t
+  :config
+  (hook-modes c-dialects-mode
+    (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+      (and (featurep 'ggtags-mode) (ggtags-mode 1)))
+    )
   )
 
 

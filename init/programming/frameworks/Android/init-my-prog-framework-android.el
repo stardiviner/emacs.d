@@ -15,7 +15,9 @@
 ;; added to automatically enable `android-mode' when opening a file or directory
 ;; in an android project.
 
-;; (autoload 'android-mode "android-mode" nil nil)
+(use-package android-mode
+  :ensure t
+  )
 
 
 (provide 'init-my-prog-framework-android)

@@ -21,23 +21,24 @@
 ;;    want to extract programmatically. This Emacs extension will allow you to
 ;;    snatch the path to this value.
 
-(require 'json-mode)
+(use-package json-mode
+  :ensure t
+  :config
+  (setq json-reformat:indent-width 2
+        json-reformat:pretty-string? t ; decode some special characters. like \u00e4.
+        ;; json-reformat:special-chars-as-pretty-string '((?\" . ?\")
+        ;;                                                (?\\ . ?\\))
+        )
 
-(setq json-reformat:indent-width 2
-      json-reformat:pretty-string? t ; decode some special characters. like \u00e4.
-      ;; json-reformat:special-chars-as-pretty-string '((?\" . ?\")
-      ;;                                                (?\\ . ?\\))
-      )
-
-;; Then add the following lines to your .emacs file, which sets a hotkey when
-;; editing JSON files in either js or js2 mode
-(defun js-mode-bindings ()
-  "Sets a hotkey for using the json-snatcher plugin"
-  (when (string-match  "\\.json$" (buffer-name))
-    (local-set-key (kbd "C-c C-g") 'jsons-print-path)))
-(add-hook 'js-mode-hook 'js-mode-bindings)
-(add-hook 'js2-mode-hook 'js-mode-bindings)
-
+  ;; Then add the following lines to your .emacs file, which sets a hotkey when
+  ;; editing JSON files in either js or js2 mode
+  (defun js-mode-bindings ()
+    "Sets a hotkey for using the json-snatcher plugin"
+    (when (string-match  "\\.json$" (buffer-name))
+      (local-set-key (kbd "C-c C-g") 'jsons-print-path)))
+  (add-hook 'js-mode-hook 'js-mode-bindings)
+  (add-hook 'js2-mode-hook 'js-mode-bindings)
+  )
 
 
 (provide 'init-my-prog-lang-json)

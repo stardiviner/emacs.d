@@ -27,6 +27,8 @@
 ;; - `rtags-reparse-file-if-needed' & `rtags-reparse-file'
 ;; - `rtags-show-rtags-buffer'
 
+(use-package rtags)
+
 ;; Sets up a ton of standard keybindings under C-x r (we try to avoid crashing with the register shortcuts).
 ;; (rtags-enable-standard-keybindings)
 

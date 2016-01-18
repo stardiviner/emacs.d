@@ -14,6 +14,7 @@
 ;; - `inferior-julia'
 
 (use-package julia-mode
+  :ensure t
   :config
   (setq julia-indent-offset 2)
   )
@@ -117,6 +118,7 @@
 ;; - `run-julia'
 
 (use-package julia-shell
+  :ensure t
   :config
   (defun my-inferior-julia-shell (&optional process-buffer-name)
     "Start or switch to inferior-julia process buffer PROCESS-BUFFER-NAME."

@@ -16,6 +16,7 @@
 ;; - [C-c C-f] `swift-mode-send-buffer' :: send buffer to REPL.
 
 (use-package swift-mode
+  :ensure t
   :config
   (setq swift-indent-offset 4
         swift-indent-switch-case-offset 2
@@ -32,6 +33,7 @@
 ;;; [ company-sourcekit ]
 
 (use-package company-sourcekit
+  :ensure t
   :config
   (setq company-sourcekit-use-yasnippet t
         company-sourcekit-verbose nil

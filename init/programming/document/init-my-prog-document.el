@@ -78,10 +78,12 @@
 
 ;;; [ dash ] -- A modern list api for Emacs. No 'cl required.
 
-(require 'dash)
-
-;; Syntax highlighting of dash functions
-(eval-after-load "dash" '(dash-enable-font-lock))
+(use-package dash
+  :ensure t
+  :config
+  ;; Syntax highlighting of dash functions
+  (eval-after-load "dash" '(dash-enable-font-lock))
+  )
 
 
 ;;; [ helm-dash ] -- Browse Dash docsets inside emacs.
@@ -97,6 +99,7 @@
 ;; - `helm-dash-install-docset-from-file' :: install docset from file.
 
 (use-package helm-dash
+  :ensure t
   :config
   (setq helm-dash-docsets-path (expand-file-name "~/.docsets")
         helm-dash-min-length 1
@@ -175,19 +178,22 @@
 ;; - `dash-at-point'
 ;; - `dash-at-point-with-docset'
 
-(define-key my-prog-help-document-map (kbd "M-d") 'dash-at-point)
-(define-key my-prog-help-document-map (kbd "M-e") 'dash-at-point-with-docset)
+(use-package dash-at-point
+  :ensure t
+  :config
+  (define-key my-prog-help-document-map (kbd "M-d") 'dash-at-point)
+  (define-key my-prog-help-document-map (kbd "M-e") 'dash-at-point-with-docset)
 
-;; (add-to-list 'dash-at-point-mode-alist '(perl-mode . "perl"))
+  ;; (add-to-list 'dash-at-point-mode-alist '(perl-mode . "perl"))
 
-(add-hook 'projectile-rails-mode-hook
-          (lambda () (setq dash-at-point-docset "rails")))
-(add-hook 'rhtml-mode-hook
-          (lambda () (setq dash-at-point-docset "rails")))
+  (add-hook 'projectile-rails-mode-hook
+            (lambda () (setq dash-at-point-docset "rails")))
+  (add-hook 'rhtml-mode-hook
+            (lambda () (setq dash-at-point-docset "rails")))
 
-(add-hook 'ruby-mode-hook
-          (lambda () (setq dash-at-point-docset "ruby")))
-
+  (add-hook 'ruby-mode-hook
+            (lambda () (setq dash-at-point-docset "ruby")))
+  )
 
 
 ;;; [ RFC ]

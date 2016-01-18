@@ -111,6 +111,7 @@
 ;; storage.
 
 (use-package elfeed
+  :ensure t
   :config
   (setq elfeed-db-directory "~/.emacs.d/.elfeed")
 

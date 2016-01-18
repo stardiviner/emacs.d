@@ -23,8 +23,8 @@
 ;;; [ pretty-mode ] -- redisplay parts of the Emacs buffer as pretty symbols.
 
 (use-package pretty-mode
+  :ensure t
   :config
-  
   (add-to-list 'pretty-supported-modes 'ruby-mode)
   (add-to-list 'pretty-supported-modes 'enh-ruby-mode)
 
@@ -46,6 +46,7 @@
 ;;; [ pretty-symbols ]
 
 (use-package pretty-symbols
+  :ensure t
   :config
   ;; (setq pretty-symbol-categories '(lambda relational logical)
   ;;       ;; pretty-symbol-patterns '()
@@ -86,11 +87,12 @@
 
 ;;; In Page Break mode, page breaks (^L characters) are displayed as a horizontal line of `page-break-string-char' characters.
 
-(require 'page-break-lines)
-
-(global-page-break-lines-mode t)
-
-(setq page-break-lines-char ?─)
+(use-package page-break-lines
+  :ensure t
+  :config
+  (setq page-break-lines-char ?─)
+  (global-page-break-lines-mode t)
+  )
 
 
 (provide 'init-my-emacs-prettify)

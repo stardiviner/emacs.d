@@ -98,61 +98,78 @@
 
 ;;; [ company-auctex ] & [ company-math ]
 
-(dolist (hook '(tex-mode-hook
-                latex-mode-hook
-                LaTeX-mode-hook ; from AUCTeX
-                ))
-  (add-hook hook
-            '(lambda ()
-               ;; indent
-               (aggressive-indent-mode)
+(use-package company-math
+  :ensure t)
 
-               ;; fold
-               (TeX-fold-mode)
-
-               ;; complete
-               (my-company-add-backends-to-mode
-                '(company-auctex-macros
-                  company-auctex-symbols
-                  company-auctex-environments
-
-                  company-auctex-labels
-                  company-auctex-bibs
-                  
-                  ;; company-math
-                  company-latex-commands
-                  company-math-symbols-latex
-                  company-math-symbols-unicode
+(use-package company-auctex
+  :ensure t
+  :config
+  (dolist (hook '(tex-mode-hook
+                  latex-mode-hook
+                  LaTeX-mode-hook ; from AUCTeX
                   ))
+    (add-hook hook
+              '(lambda ()
+                 ;; indent
+                 (aggressive-indent-mode)
 
-               ;; linter
-               (flycheck-mode)
+                 ;; fold
+                 (TeX-fold-mode)
 
+                 ;; complete
+                 (my-company-add-backends-to-mode
+                  '(company-auctex-macros
+                    company-auctex-symbols
+                    company-auctex-environments
 
-               ;; block
-               (local-set-key (kbd "C-c C-i") 'tex-latex-block)
-               
-               ;; Section
-               (setq LaTeX-section-hook
-                     '(LaTeX-section-heading
-                       LaTeX-section-title
-                       LaTeX-section-toc
-                       LaTeX-section-section
-                       LaTeX-section-label))
+                    company-auctex-labels
+                    company-auctex-bibs
+                    
+                    ;; company-math
+                    company-latex-commands
+                    company-math-symbols-latex
+                    company-math-symbols-unicode
+                    ))
 
-               ;; Math
-               ;; (LaTeX-math-mode)
-               )))
+                 ;; linter
+                 (flycheck-mode)
+
+                 ;; Doc
+                 ;; (info-lookup-add-help
+                 ;;  :mode 'latex-mode
+                 ;;  :regexp ".*"
+                 ;;  :parse-rule "\\\\?[a-zA-Z]+\\|\\\\[^a-zA-Z]"
+                 ;;  :doc-spec '(("(latex2e)Concept Index" )
+                 ;;              ("(latex2e)Command Index")))
+
+                 ;; block
+                 (local-set-key (kbd "C-c C-i") 'tex-latex-block)
+                 
+                 ;; Section
+                 (setq LaTeX-section-hook
+                       '(LaTeX-section-heading
+                         LaTeX-section-title
+                         LaTeX-section-toc
+                         LaTeX-section-section
+                         LaTeX-section-label))
+
+                 ;; Math
+                 ;; (LaTeX-math-mode)
+                 )))
+  )
 
 
 ;;; [ latex-pretty-symbols ]
 
-(require 'latex-pretty-symbols)
+(use-package latex-pretty-symbols
+  :ensure t
+  )
 
 
 ;;; [ magic-latex-buffer ] -- magical syntax highlighting for LaTeX-mode buffers.
 
 (use-package magic-latex-buffer
+  :ensure t
   :config
   ;; You can disable some features independently, if they’re too fancy.
   (setq magic-latex-enable-block-highlight nil
@@ -191,6 +208,7 @@
 ;;   set the command to use for generating previews)
 
 (use-package latex-preview-pane
+  :ensure t
   :config
   (setq preview-orientation 'right)
   (latex-preview-pane-enable))
@@ -211,7 +229,8 @@
 ;; Most of this code comes from weechat-latex.el which in turn uses
 ;; org-mode previewer.
 
-(use-package px)
+(use-package px
+  :ensure t)
 
 
 (provide 'init-my-prog-lang-tex)

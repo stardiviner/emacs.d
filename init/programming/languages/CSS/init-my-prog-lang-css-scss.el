@@ -16,10 +16,14 @@
 ;; Indentation and highlighting (Derived from CSS-mode)
 ;; Syntax highlighting for variables and inline comments.
 
-(add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
-
-;; (setq exec-path (cons (expand-file-name "~/.gem/ruby/1.8/bin") exec-path))
-;; (setq scss-sass-command "sass")
+(use-package scss-mode
+  :ensure t
+  :init
+  (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
+  :config
+  ;; (setq exec-path (cons (expand-file-name "~/.gem/ruby/1.8/bin") exec-path))
+  ;; (setq scss-sass-command "sass")
+  )
 
 
 (provide 'init-my-prog-lang-css-scss)

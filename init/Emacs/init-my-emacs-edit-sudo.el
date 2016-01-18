@@ -13,7 +13,7 @@
 ;;
 ;; - [M-x sudo-edit]
 
-;; (require 'sudo-edit)
+;; (use-package sudo-edit)
 
 
 

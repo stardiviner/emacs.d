@@ -136,16 +136,16 @@
 
 ;;; [ col-highlight ]
 
-;; (require-package 'col-highlight)
-;;
-;; (column-highlight-mode 1)
-;;
-;; (col-highlight-toggle-when-idle 1)
-;; (col-highlight-set-interval 6)
-;;
-;; (set-face-attribute 'col-highlight nil
-;;                     :background "dodger blue")
+(use-package col-highlight
+  :config
+  (col-highlight-toggle-when-idle 1)
+  (col-highlight-set-interval 6)
 
+  (set-face-attribute 'col-highlight nil
+                      :background "dodger blue")
+  
+  (column-highlight-mode 1)
+  )
 
 
 ;;; [ point & cursor ]

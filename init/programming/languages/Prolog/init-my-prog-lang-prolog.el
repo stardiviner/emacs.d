@@ -34,9 +34,11 @@
 
 ;;; [ ediprolog ] -- Emacs Does Interactive Prolog
 
-(require 'ediprolog)
-
-(global-set-key [f10] 'ediprolog-dwim)
+(use-package ediprolog
+  ;; :ensure t
+  :config
+  (global-set-key [f10] 'ediprolog-dwim)
+  )
 
 
 (provide 'init-my-prog-lang-prolog)

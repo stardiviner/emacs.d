@@ -77,7 +77,9 @@
 ;;   (setenv "no_proxy" "localhost,127.0.0.0/8")
 
 
-;; (require 'org-trello)
+(use-package org-trello
+  ;; :ensure t
+  )
 
 ;; to have org-trello activated for each org file, uncomment this
 ;; (add-hook 'org-mode-hook 'org-trello-mode)

@@ -42,7 +42,9 @@
 ;; - `db-map' [func db & optional query filter]
 ;; - `db-query' [db query]
 
-;; (require 'db)
+(use-package db
+  ;; :ensure t
+  )
 
 
 (provide 'init-my-prog-lang-database-nosql)

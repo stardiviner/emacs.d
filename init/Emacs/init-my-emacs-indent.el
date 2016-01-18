@@ -1,3 +1,12 @@
+;;; init-my-emacs-indent.el --- init for Indent.
+;;; -*- coding: utf-8 -*-
+
+;;; Commentary:
+
+
+
+;;; Code:
+
 ;;; [ Tab ]
 
 (setq-default indent-tabs-mode nil)
@@ -20,5 +29,7 @@
 ;; (define-key text-mode-map (kbd "<tab>") 'indent-relative) ; 'indent-relative, 'tab-to-tab-stop,
 
 
-
+
 (provide 'init-my-emacs-indent)
+
+;;; init-my-emacs-indent.el ends here

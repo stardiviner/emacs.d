@@ -36,15 +36,14 @@
 
 ;;; [ auto-insert ]
 
-(use-package autoinsert
-  :config
-  (setq auto-insert t)
-  (setq auto-insert-directory "~/.emacs.d/templates/")
+(require 'auto-insert)
 
-  (define-auto-insert '("^build\\.xml\\'" . "Java Ant compile file") "build.xml")
+(setq auto-insert t)
+(setq auto-insert-directory "~/.emacs.d/templates/")
 
-  (add-hook 'find-file-hook 'auto-insert)
-  )
+(define-auto-insert '("^build\\.xml\\'" . "Java Ant compile file") "build.xml")
+
+(add-hook 'find-file-hook 'auto-insert)
 
 
 ;;; [ skeleton ]
@@ -53,6 +52,7 @@
 ;;; [ yatemplate ] -- with YASnippet + auto-insert-mode.
 
 (use-package yatemplate
+  :ensure t
   :config
   (setq yatemplate-dir (locate-user-emacs-file "templates"))
   )

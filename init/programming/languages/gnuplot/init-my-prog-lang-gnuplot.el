@@ -7,6 +7,7 @@
 ;;; [ gnuplot-mode ]
 
 (use-package gnuplot-mode
+  :ensure t
   :config
   (require 'gnuplot)
   

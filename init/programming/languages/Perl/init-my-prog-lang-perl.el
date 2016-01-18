@@ -13,12 +13,14 @@
 
 ;;; [ perl6-mode ]
 
-(use-package perl6-mode)
+(use-package perl6-mode
+  :ensure t)
 
 
 ;;; [ plsense ] -- interface for PlSense that is a development tool for Perl.
 
-(use-package plsense)
+(use-package plsense
+  :ensure t)
 
 
 (provide 'init-my-prog-lang-perl)

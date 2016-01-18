@@ -17,10 +17,14 @@
 ;;
 ;; - [M-RET] :: `emr-show-refactor-menu' show popup menu.
 
-(define-key prog-mode-map (kbd "M-RET") 'emr-show-refactor-menu)
-(define-key prog-mode-map (kbd "C-c RET") 'emr-show-refactor-menu)
+(use-package emr
+  :ensure t
+  :config
+  (eval-after-load "emr" '(emr-initialize))
 
-(eval-after-load "emr" '(emr-initialize))
+  (define-key prog-mode-map (kbd "M-RET") 'emr-show-refactor-menu)
+  (define-key prog-mode-map (kbd "C-c RET") 'emr-show-refactor-menu)
+  )
 
 
 (provide 'init-my-prog-refactor)

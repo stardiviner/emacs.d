@@ -9,16 +9,20 @@
 
 ;;; rainbow-identifiers
 
-;; (require 'rainbow-identifiers)
-
-;; (add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
+(use-package rainbow-identifiers
+  ;; :ensure t
+  ;; :config
+  ;; (add-hook 'prog-mode-hook 'rainbow-identifiers-mode)
+  )
 
 
 ;;; rainbow-block
 
-;; (require 'rainbow-blocks)
-
-;; (add-hook 'clojure-mode-hook 'rainbow-blocks-mode)
+(use-package rainbow-blocks
+  ;; :ensure t
+  ;; :config
+  ;; (add-hook 'clojure-mode-hook 'rainbow-blocks-mode)
+  )
 
 
 (provide 'init-my-rainbow)

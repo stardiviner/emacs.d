@@ -43,6 +43,7 @@
 ;; - [C-c u] region :: `sqlup-capitalize-keywords-in-region'
 
 (use-package sqlup-mode
+  :ensure t
   :init
   (define-key sql-mode-map (kbd "C-c u") 'sqlup-capitalize-keywords-in-region)
   :config
@@ -74,7 +75,7 @@
 
 ;;; [ sqled-mode ] -- major mode for editing sql, sqlplus, and pl/sql code.
 
-;; (require 'sqled-mode)
+;; (use-package sqled-mode)
 
 
 ;;; [ sqlplus ] -- user friendly interface to SQL*Plus and support for PL/SQL compilation.
@@ -132,21 +133,29 @@
 ;; - `edbi:sql-mode-map'
 ;; - `edbi:dbview-query-result-keymap'
 
-(define-key my-inferior-db-sql-map (kbd "d") 'edbi:open-db-viewer)
+(use-package edbi
+  :ensure t
+  :config
+  (define-key my-inferior-db-sql-map (kbd "d") 'edbi:open-db-viewer)
 
-(add-hook 'edbi:sql-mode-hook
-          '(lambda ()
-             (define-key edbi:sql-mode-map (kbd "C-c C-q") 'edbi:dbview-query-editor-quit-command)
-             
-             (sqlup-mode 1)
-             ))
+  (add-hook 'edbi:sql-mode-hook
+            '(lambda ()
+               (define-key edbi:sql-mode-map (kbd "C-c C-q") 'edbi:dbview-query-editor-quit-command)
+               
+               (sqlup-mode 1)
+               ))
+  )
 
 
 ;;; [ edbi-minor-mode ] -- use edbi with regular SQL files.
 
-(add-hook 'sql-mode-hook
-          (lambda ()
-            (edbi-minor-mode)))
+(use-package edbi-minor-mode
+  :ensure t
+  :config
+  (add-hook 'sql-mode-hook
+            (lambda ()
+              (edbi-minor-mode)))
+  )
 
 
 ;;; [ edbi-sqlite ] -- edbi helper application
@@ -163,7 +172,11 @@
 ;;     )
 ;;   )
 
-(define-key my-inferior-db-sql-map (kbd "l") 'edbi-sqlite)
+(use-package edbi-sqlite
+  :ensure t
+  :config
+  (define-key my-inferior-db-sql-map (kbd "l") 'edbi-sqlite)
+  )
 
 
 ;;; [ edbi-database-url ] -- run edbi with database url.
@@ -181,18 +194,26 @@
 ;; Optionally you can specify database url by marking region or type it
 ;; interactively.
 
-(define-key my-inferior-db-sql-map (kbd "u") 'edbi-database-url)
+(use-package edbi-database-url
+  :ensure t
+  :config
+  (define-key my-inferior-db-sql-map (kbd "u") 'edbi-database-url)
+  )
 
 
 ;;; [ company-edbi ]
 
-(dolist (hook '(sql-mode-hook
-                sql-interactive-mode-hook
-                edbi:sql-mode-hook
-                ))
-  (add-hook hook
-            (lambda ()
-              (my-company-add-backends-to-mode '(company-edbi)))))
+(use-package company-edbi
+  :ensure t
+  :config
+  (dolist (hook '(sql-mode-hook
+                  sql-interactive-mode-hook
+                  edbi:sql-mode-hook
+                  ))
+    (add-hook hook
+              (lambda ()
+                (my-company-add-backends-to-mode '(company-edbi)))))
+  )
 
 
 ;;; [ EmacSQL ] -- high-level SQL database front-end.

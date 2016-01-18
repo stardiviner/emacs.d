@@ -180,34 +180,40 @@
 
 ;;; [ Isearch+ ]
 
-;;; Usage:
+(use-package isearch+
+  ;; :ensure t
+  ;; :config
+  ;; FIXME: caused eshell startup key prefix map C-c error.
+  ;; (eval-after-load "isearch" '(require 'isearch+))
 
-;; FIXME: caused eshell startup key prefix map C-c error.
-;; (eval-after-load "isearch" '(require 'isearch+))
-
-;; (setq isearchp-set-region-flag nil
-;;       isearchp-restrict-to-region-flag t
-;;       )
-
+  ;; (setq isearchp-set-region-flag nil
+  ;;       isearchp-restrict-to-region-flag t
+  ;;       )
+  )
 
 
 ;;; [ visual-regexp ] -- A regexp/replace command for Emacs with interactive visual feedback.
 
-;;; Usage:
+;; [ visual-regexp-steroids.el ] -- Extends visual-regexp to support other regexp engines.
 
-;;; [ visual-regexp-steroids.el ] -- Extends visual-regexp to support other regexp engines.
+(use-package visual-regexp
+  :ensure t
+  :config
+  (global-set-key (kbd "C-s") 'vr/isearch-forward)
+  (global-set-key (kbd "C-r") 'vr/isearch-backward)
+  (global-set-key (kbd "M-%") 'vr/replace)
 
-(global-set-key (kbd "C-s") 'vr/isearch-forward)
-(global-set-key (kbd "C-r") 'vr/isearch-backward)
-(global-set-key (kbd "M-%") 'vr/replace)
+  (define-key my-search-prefix (kbd "r") 'vr/replace)
+  (define-key my-search-prefix (kbd "q") 'vr/query-replace)
+  ;; if you use multiple-cursors interface, this is for you:
+  (if (featurep 'multiple-cursors)
+      (define-key my-search-prefix (kbd "m") 'vr/mc-mark))
+  ;; TODO: `vr/select-mc-mark', `vr/select-replace' etc.
+  )
 
-(define-key my-search-prefix (kbd "r") 'vr/replace)
-(define-key my-search-prefix (kbd "q") 'vr/query-replace)
-;; if you use multiple-cursors interface, this is for you:
-(if (featurep 'multiple-cursors)
-    (define-key my-search-prefix (kbd "m") 'vr/mc-mark))
-;; TODO: `vr/select-mc-mark', `vr/select-replace' etc.
-
+(use-package visual-regexp-steroids
+  :ensure t
+  )
 
 
 ;;; [ anzu ] -- Emacs Port of anzu.vim.
@@ -216,6 +222,7 @@
 ;;; information in the mode-line in various search mode.
 
 (use-package anzu
+  :ensure t
   :config
   (setq anzu-regexp-search-commands '(vr/isearch-forward
                                       vr/isearch-backward
@@ -288,47 +295,9 @@
 ;;; [ Swpier ] -- gives you an overview as you search for a regex.
 
 (use-package swiper
+  :ensure t
   :config
   (setq ivy-height 5)
-
-  ;; current selection in ivy "in minibuffer"
-  (set-face-attribute 'ivy-current-match nil
-                      :background "dark slate gray"
-                      ;; :background (color-darken-name (face-background 'default) 5)
-                      )
-
-  ;; the matched line "in buffer"
-  (set-face-attribute 'swiper-line-face nil
-                      :background (color-darken-name (face-background 'default) 5)
-                      )
-  (set-face-attribute 'swiper-match-face-1 nil
-                      :foreground "white"
-                      :background "dark slate blue"
-                      )
-  (set-face-attribute 'swiper-match-face-2 nil
-                      :foreground "white"
-                      :background "dark green"
-                      )
-  (set-face-attribute 'swiper-match-face-3 nil
-                      :foreground "#222222"
-                      :background "tomato"
-                      )
-  (set-face-attribute 'swiper-match-face-4 nil
-                      :foreground "black"
-                      :background "sky blue"
-                      )
-  (set-face-attribute 'swiper-minibuffer-match-face-1 nil
-                      :inherit 'swiper-match-face-1
-                      )
-  (set-face-attribute 'swiper-minibuffer-match-face-2 nil
-                      :inherit 'swiper-match-face-2
-                      )
-  (set-face-attribute 'swiper-minibuffer-match-face-3 nil
-                      :inherit 'swiper-match-face-3
-                      )
-  (set-face-attribute 'swiper-minibuffer-match-face-4 nil
-                      :inherit 'swiper-match-face-4
-                      )
   
   (define-key my-search-prefix (kbd "C-s") 'swiper)
   (define-key my-search-prefix (kbd "C-r") 'swiper)

@@ -15,6 +15,7 @@
 ;;; [ BBDB ] -- The Insidious Big Brother Database (BBDB) is a contact management utility.
 
 (use-package bbdb
+  ;; :ensure t
   :config
   ;; initialize
   ;; (bbdb-initialize)

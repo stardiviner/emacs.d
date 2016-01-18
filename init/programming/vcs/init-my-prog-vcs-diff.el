@@ -97,37 +97,57 @@
 ;; - `diffview-region' :: Opens the current region with diffview.
 ;; - `diffview-message' :: View the current email message (which presumably contains a patch) side-by-side.
 
-(define-key my-prog-vcs-diff-prefix (kbd "d") 'diffview-current)
-(define-key my-prog-vcs-diff-prefix (kbd "r") 'diffview-region)
-(define-key my-prog-vcs-diff-prefix (kbd "m") 'diffview-message)
+(use-package diffview
+  :ensure t
+  :config
+  (define-key my-prog-vcs-diff-prefix (kbd "d") 'diffview-current)
+  (define-key my-prog-vcs-diff-prefix (kbd "r") 'diffview-region)
+  (define-key my-prog-vcs-diff-prefix (kbd "m") 'diffview-message)
+  )
 
 
-;;; [ smerge-mode ]
+;;; [ smerge-mode ] -- simplify editing output from the diff3 program.
 
-(use-package smerge-mode
-  :config
-  ;; (setq smerge-command-prefix (kbd "C-c v d"))
+;;; Usage:
+;;
+;; 1. open conflict file.
+;; 2. [M-x smerge-mode] :: highlight all conflict regions, add keybindings.
+;;
+;; - `smerge-start-session'
+;;    Turn on `smerge-mode' and move point to first conflict marker.
+;;    If no conflict maker is found, turn off `smerge-mode'.
+;;
+;; - `smerge-ediff'
+;;    - [n/p] :: navigate.
+;;    - [a/b] :: accept version?
+;;    - [/]   :: look at the ancestor.
+;;    - [q]   :: quit the ediff session.
 
-  (define-key smerge-mode-map (kbd "M-g n") 'smerge-next)
-  (define-key smerge-mode-map (kbd "M-g p") 'smerge-prev)
-  (define-key smerge-mode-map (kbd "M-g k c") 'smerge-keep-current)
-  (define-key smerge-mode-map (kbd "M-g k m") 'smerge-keep-mine)
-  (define-key smerge-mode-map (kbd "M-g k o") 'smerge-keep-other)
-  (define-key smerge-mode-map (kbd "M-g k b") 'smerge-keep-base)
-  (define-key smerge-mode-map (kbd "M-g k a") 'smerge-keep-all)
-  (define-key smerge-mode-map (kbd "M-g e") 'smerge-ediff)
-  (define-key smerge-mode-map (kbd "M-g K") 'smerge-kill-current)
-  (define-key smerge-mode-map (kbd "M-g m") 'smerge-context-menu)
-  (define-key smerge-mode-map (kbd "M-g M") 'smerge-popup-context-menu)
+(require 'smerge-mode)
 
-  ;; have it turned on automatically:
-  (defun smart-try-smerge ()
-    (save-excursion
-      (goto-char (point-min))
-      (when (re-search-forward "^<<<<<<< " nil t)
-        (smerge-mode 1))))
-  (add-hook 'find-file-hook 'smart-try-smerge t)
-  )
+;; (setq smerge-command-prefix (kbd "C-c v d"))
+
+(define-key smerge-mode-map (kbd "M-g n") 'smerge-next)
+(define-key smerge-mode-map (kbd "M-g p") 'smerge-prev)
+(define-key smerge-mode-map (kbd "M-g k c") 'smerge-keep-current)
+(define-key smerge-mode-map (kbd "M-g k m") 'smerge-keep-mine)
+(define-key smerge-mode-map (kbd "M-g k o") 'smerge-keep-other)
+(define-key smerge-mode-map (kbd "M-g k b") 'smerge-keep-base)
+(define-key smerge-mode-map (kbd "M-g k a") 'smerge-keep-all)
+(define-key smerge-mode-map (kbd "M-g e") 'smerge-ediff)
+(define-key smerge-mode-map (kbd "M-g K") 'smerge-kill-current)
+(define-key smerge-mode-map (kbd "M-g m") 'smerge-context-menu)
+(define-key smerge-mode-map (kbd "M-g M") 'smerge-popup-context-menu)
+
+;; enable `smerge-mode' automatically
+(defun smart-try-smerge ()
+  (save-excursion
+    (goto-char (point-min))
+    (when (re-search-forward "^<<<<<<< " nil t)
+      (smerge-mode 1))))
+
+(add-hook 'find-file-hook 'smart-try-smerge t)
+;; (add-hook 'buffer-list-update-hook #'my-enable-smerge-mode-auto)
 
 
 (provide 'init-my-prog-vcs-diff)

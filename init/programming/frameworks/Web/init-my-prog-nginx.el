@@ -12,14 +12,14 @@
 ;; https://github.com/ajc/nginx-mode
 ;; https://github.com/zev/nginx-mode
 
-(require 'nginx-mode)
+(use-package nginx-mode
+  :ensure t
+  :init
+  (add-to-list 'auto-mode-alist
+               '("nginx\\.conf\\'" . nginx-mode)
+               '("/etc/nginx/.*" . nginx-mode))
+  )
 
-(autoload 'nginx-mode "nginx-mode")
-;; (require 'nginx-mode)
-
-(add-to-list 'auto-mode-alist
-             '("nginx\\.conf\\'" . nginx-mode)
-             '("/etc/nginx/.*" . nginx-mode))
 
 
 

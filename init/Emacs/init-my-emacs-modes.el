@@ -30,22 +30,22 @@
 ;; 4. apply submode class to all files which matches conditions.
 ;;    (mmm-add-mode-ext-class MODE EXTENSION CLASS)
 
-
+(use-package mmm-auto
+  :ensure t
+  :config
+  (setq mmm-global-mode 'maybe) ; t, nil, 'maybe (turn itself on in precisely).
 
-(require 'mmm-auto) ; save time during emacs startup.
+  (setq mmm-submode-mode-line-format "~M > [~m]"
+        mmm-primary-mode-display-name t
+        ;; mmm-buffer-mode-display-name t
+        )
 
-(setq mmm-global-mode 'maybe) ; t, nil, 'maybe (turn itself on in precisely).
+  (setq mmm-submode-decoration-level 3)
 
-(setq mmm-submode-mode-line-format "~M > [~m]"
-      mmm-primary-mode-display-name t
-      ;; mmm-buffer-mode-display-name t
-      )
+  ;; (mmm-add-mode-ext-class 'html-mode "\\.php\\'" 'html-php)
 
-(setq mmm-submode-decoration-level 3)
-
-;; (mmm-add-mode-ext-class 'html-mode "\\.php\\'" 'html-php)
-
-(define-key my-edit-prefix (kbd "m") 'mmm-mode) ; enable mmm-mode on region.
+  (define-key my-edit-prefix (kbd "m") 'mmm-mode) ; enable mmm-mode on region.
+  )
 
 
 ;;; submode classes

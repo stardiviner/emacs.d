@@ -25,6 +25,7 @@
 ;;; [ rainbow-delimiters ] -- rainbow color parenthesis
 
 (use-package rainbow-delimiters
+  :ensure t
   :config
   ;; you have two styles:
   (set-face-attribute 'rainbow-delimiters-depth-1-face nil
@@ -84,6 +85,7 @@
 ;;; [ hl-sexp ]
 
 (use-package hl-sexp
+  :ensure t
   :config
   (dolist (hook '(lisp-mode-hook
                   emacs-lisp-mode-hook
@@ -111,6 +113,7 @@
 ;;    Evaluate the sexp _currently_ pointed; print value in minibuffer.
 
 (use-package eval-sexp-fu
+  :ensure t
   :config
   (set-face-attribute 'eval-sexp-fu-flash nil
                       :background "#333333"

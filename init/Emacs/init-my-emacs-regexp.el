@@ -17,13 +17,11 @@
 ;; - `reb-change-syntax' :: change default regexp syntax.
 ;; - `reb-mode'
 
-(require 're-builder)
-(autoload 're-builder "re-builder" t)
-
 (define-key my-regexp-prefix (kbd "b") 're-builder)
 
 
 ;;; [ re-builder+ ]
+
 ;; (unless (package-installed-p 're-builder+)
 ;;   (package-install 're-builder+))
 ;; (require 're-builder+)
@@ -68,6 +66,7 @@
 ;; explained in more detail below:
 
 (use-package pcre2el
+  :ensure t
   :config
   (define-key my-regexp-prefix (kbd "t") 'rxt-mode)
   (define-key my-regexp-prefix (kbd "T") 'rxt-global-mode)
@@ -88,57 +87,60 @@
 ;;; `query-replace-regexp'), but with live visual feedback directly in the
 ;;; buffer.
 
-(require 'visual-regexp)
-;;; [ visual-regexp-steroids.el ] -- Extends visual-regexp to support other regexp engines.
-(require 'visual-regexp-steroids)
+(use-package visual-regexp
+  :ensure t
+  :config
+  ;; 'emacs engine is the native built-in Emacs engine. it is case-sensitive.
+  (setq vr/engine 'emacs) ; 'python, 'emacs, 'custom, 'vr/command-python, 'vr/command-custom,
 
-;; 'emacs engine is the native built-in Emacs engine. it is case-sensitive.
-(setq vr/engine 'emacs) ; 'python, 'emacs, 'custom, 'vr/command-python, 'vr/command-custom,
+  (setq vr/match-separator-use-custom-face t
+        vr/match-separator-string " ⇨ ")
 
-(setq vr/match-separator-use-custom-face t
-      vr/match-separator-string " ⇨ ")
+  (unless (boundp 'visual-regexp-map)
+    (define-prefix-command 'visual-regexp-map))
+  (define-key my-regexp-prefix (kbd "v") 'visual-regexp-map)
 
-(unless (boundp 'visual-regexp-map)
-  (define-prefix-command 'visual-regexp-map))
-(define-key my-regexp-prefix (kbd "v") 'visual-regexp-map)
+  (define-key visual-regexp-map (kbd "s") 'vr/isearch-forward)
+  (define-key visual-regexp-map (kbd "b") 'vr/isearch-backward)
+  (define-key visual-regexp-map (kbd "r") 'vr/replace)
+  (define-key visual-regexp-map (kbd "q") 'vr/query-replace)
+  ;; if you use multiple-cursors, this is for you:
+  (if (featurep 'multiple-cursors)
+      (define-key visual-regexp-map (kbd "m") 'vr/mc-mark))
+  ;; TODO: `vr/select-mc-mark', `vr/select-replace' etc.
 
-(define-key visual-regexp-map (kbd "s") 'vr/isearch-forward)
-(define-key visual-regexp-map (kbd "b") 'vr/isearch-backward)
-(define-key visual-regexp-map (kbd "r") 'vr/replace)
-(define-key visual-regexp-map (kbd "q") 'vr/query-replace)
-;; if you use multiple-cursors, this is for you:
-(if (featurep 'multiple-cursors)
-    (define-key visual-regexp-map (kbd "m") 'vr/mc-mark))
-;; TODO: `vr/select-mc-mark', `vr/select-replace' etc.
+  
+  ;; TODO:
+  ;; (set-face-attribute 'vr/match-separator-face nil
+  ;;                     :foreground "red"
+  ;;                     :inverse-video nil
+  ;;                     :weight 'bold)
+  ;; (set-face-attribute 'vr/match-0 nil
+  ;;                     :background (color-darken-name (face-background 'default) 3)
+  ;;                     :box '(:color "red" :line-width -1)
+  ;;                     :inverse-video nil :weight 'normal
+  ;;                     )
+  ;; (set-face-attribute 'vr/match-1 nil
+  ;;                     :background (color-darken-name (face-background 'default) 3)
+  ;;                     :box '(:color "dark red" :line-width -1)
+  ;;                     :inverse-video nil :weight 'normal
+  ;;                     )
+  ;; (set-face-attribute 'vr/group-0 nil
+  ;;                     :background (color-darken-name (face-background 'default) 3)
+  ;;                     :inverse-video nil :weight 'normal
+  ;;                     )
+  ;; (set-face-attribute 'vr/group-1 nil
+  ;;                     :background (color-darken-name (face-background 'default) 3)
+  ;;                     :inverse-video nil :weight 'normal
+  ;;                     )
+  ;; (set-face-attribute 'vr/group-2 nil
+  ;;                     :background (color-darken-name (face-background 'default) 3)
+  ;;                     :inverse-video nil :weight 'normal
+  ;;                     )
+  )
 
-
-;; TODO:
-;; (set-face-attribute 'vr/match-separator-face nil
-;;                     :foreground "red"
-;;                     :inverse-video nil
-;;                     :weight 'bold)
-;; (set-face-attribute 'vr/match-0 nil
-;;                     :background (color-darken-name (face-background 'default) 3)
-;;                     :box '(:color "red" :line-width -1)
-;;                     :inverse-video nil :weight 'normal
-;;                     )
-;; (set-face-attribute 'vr/match-1 nil
-;;                     :background (color-darken-name (face-background 'default) 3)
-;;                     :box '(:color "dark red" :line-width -1)
-;;                     :inverse-video nil :weight 'normal
-;;                     )
-;; (set-face-attribute 'vr/group-0 nil
-;;                     :background (color-darken-name (face-background 'default) 3)
-;;                     :inverse-video nil :weight 'normal
-;;                     )
-;; (set-face-attribute 'vr/group-1 nil
-;;                     :background (color-darken-name (face-background 'default) 3)
-;;                     :inverse-video nil :weight 'normal
-;;                     )
-;; (set-face-attribute 'vr/group-2 nil
-;;                     :background (color-darken-name (face-background 'default) 3)
-;;                     :inverse-video nil :weight 'normal
-;;                     )
+(use-package visual-regexp-steroids
+  :ensure t)
 
 
 ;;; [ ample-regexp ] -- Compose and reuse Emacs regular expressions with ease.
@@ -160,19 +162,19 @@
 ;; customization with a hint of syntactic sugar atop.
 
 (use-package ample-regexps
-  :config
+  :ensure t
   )
 
 
 ;;; [ Swiper ] -- gives you an overview as you search for a regex.
 
-(if (not (functionp 'swiper))
-    (require 'swiper))
-
-(define-key my-regexp-prefix (kbd "s") 'swiper)
+(use-package swiper
+  :ensure t
+  :config  
+  (define-key my-regexp-prefix (kbd "s") 'swiper)
+  )
 
 
-
 ;;; Making Elisp regex look nicer
 ;;
 ;; This is just a small improvement to make e.g. \\( show up in regular

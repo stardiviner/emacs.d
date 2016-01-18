@@ -62,11 +62,11 @@
 ;; - `bm-remove-all-all-buffer' :: remove all bookmarks in *all buffer.
 ;; - `bm-bookmark-annotate' :: annotate bookmark (displayed in message area when navigating)
 
-
-;; NOTE set this variable before load `bm.el' for repository persistence.
-(setq bm-restore-repository-on-load t)
-
 (use-package bm
+  :ensure t
+  :init
+  ;; NOTE set this variable before load `bm.el' for repository persistence.
+  (setq bm-restore-repository-on-load t)
   :config
   (setq bm-in-lifo-order t)
   (setq bm-cycle-all-buffers nil)

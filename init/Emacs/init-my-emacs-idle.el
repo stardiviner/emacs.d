@@ -28,6 +28,7 @@
 ;; - [M-x zone-nyan-preview] :: preview zone-nyan.
 
 (use-package zone-nyan
+  ;; :ensure t
   :config
   (setq zone-programs [zone-nyan])
   )

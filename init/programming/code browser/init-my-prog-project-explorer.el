@@ -46,37 +46,39 @@
 ;; - "M-l"      Filter using a regular expression. Call with C-u to disable
 ;; - "M-o"      Toggle omission of hidden and temporary files
 
-(setq pe/side 'left
-      pe/width 30
-      ;; pe/project-root-function
-      ;; pe/directory-tree-function
-      ;; pe/cache-enabled
-      ;; pe/omit-regexp
-      )
+(use-package project-explorer
+  :ensure t
+  :config
+  (setq pe/side 'left
+        pe/width 30
+        ;; pe/project-root-function
+        ;; pe/directory-tree-function
+        ;; pe/cache-enabled
+        ;; pe/omit-regexp
+        )
 
-;;; ---------------------------------------------------------------------
-;; Tailor-fitting pe/project-root-function
-;;
-;; The default pe/project-root-function assumes that the project root will be
-;; the closest directory containing .git, or the current directory. If you have
-;; projectile installed, it will simply use projectile-project-root
-;; instead. Should you need something more specific, it's not hard to make your
-;; own project-finding function.
-;;
-;; (defun pe/project-root-function-sample ()
-;;   (expand-file-name
-;;    (or
-;;     ;; A specific directory
-;;     (when (string-prefix-p "/path/to/my/project/" default-directory)
-;;       "/path/to/my/project/")
-;;     ;; A directory containg a file
-;;     (locate-dominating-file default-directory "Web.config")
-;;     default-directory)))
-;;
-;; (setq pe/project-root-function 'pe/project-root-function-sample)
-;;; ---------------------------------------------------------------------
-
-
+  ;; ---------------------------------------------------------------------
+  ;; Tailor-fitting pe/project-root-function
+  ;;
+  ;; The default pe/project-root-function assumes that the project root will be
+  ;; the closest directory containing .git, or the current directory. If you have
+  ;; projectile installed, it will simply use projectile-project-root
+  ;; instead. Should you need something more specific, it's not hard to make your
+  ;; own project-finding function.
+  ;;
+  ;; (defun pe/project-root-function-sample ()
+  ;;   (expand-file-name
+  ;;    (or
+  ;;     ;; A specific directory
+  ;;     (when (string-prefix-p "/path/to/my/project/" default-directory)
+  ;;       "/path/to/my/project/")
+  ;;     ;; A directory containg a file
+  ;;     (locate-dominating-file default-directory "Web.config")
+  ;;     default-directory)))
+  ;;
+  ;; (setq pe/project-root-function 'pe/project-root-function-sample)
+  ;; ---------------------------------------------------------------------
+  )
 
 
 (provide 'init-my-prog-project-explorer)

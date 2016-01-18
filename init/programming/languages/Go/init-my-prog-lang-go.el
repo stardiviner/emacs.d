@@ -8,6 +8,7 @@
 ;;; [ go-mode ]
 
 (use-package go-mode
+  :ensure t
   :config
   ;; (setq go-command "go"
   ;;       gofmt-command "gofmt"
@@ -66,6 +67,7 @@
 ;;; [ go-eldoc ]
 
 (use-package go-eldoc
+  :ensure t
   :config
   (add-hook 'go-mode-hook 'go-eldoc-setup))
 
@@ -90,6 +92,7 @@
 ;;; [ company-go ]
 
 (use-package company-go
+  :ensure t
   :config
   (if (getenv "GOPATH")
       (progn
@@ -112,6 +115,7 @@
 ;;; [ gorepl-mode ] -- A minor emacs mode for Go REPL
 
 (use-package gorepl-mode
+  :ensure t
   :config
   (add-hook 'go-mode-hook #'gorepl-mode))
 
@@ -133,9 +137,15 @@
 ;; - [M-x go-playground-remove-current-snippet] :: removing snippet after you done with it.
 
 (use-package go-playground
+  :ensure t
   :config
   (setq go-playground-basedir "~/.go/src/playground")
   )
+
+
+;;; [ go-playground-cli ]
+
+;; (use-package go-playground-cli)
 
 
 ;;; [ gore-mode ] -- Simple mode for gore, a command-line evaluator for golang.
@@ -148,7 +158,8 @@
 
 ;;; [ go-errcheck ]
 
-(use-package go-errcheck)
+(use-package go-errcheck
+  :ensure t)
 
 
 ;;; [ go-oracle ]
@@ -165,7 +176,8 @@
 
 ;;; [ go-projectile ] -- Projectile GOPATH.
 
-(use-package go-projectile)
+(use-package go-projectile
+  :ensure t)
 
 
 (provide 'init-my-prog-lang-go)

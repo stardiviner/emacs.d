@@ -88,128 +88,129 @@
 (if (featurep 'erc)
     (require 'erc))
 
-(require 'sauron)
+(use-package sauron
+  ;; :ensure t
+  :config
+  ;; -- sauron display --
+  (setq sauron-separate-frame t      ; default t. nil to embeded in current frame.
+        sauron-hide-mode-line t      ; remove the mode-line in the sauron-buffer.
+        sauron-sticky-frame t ; make the Sauron window appears on every (virtual) desktop.
+        sauron-max-line-length 150
+        )
 
-;; -- sauron display --
-(setq sauron-separate-frame t      ; default t. nil to embeded in current frame.
-      sauron-hide-mode-line t      ; remove the mode-line in the sauron-buffer.
-      sauron-sticky-frame t ; make the Sauron window appears on every (virtual) desktop.
-      sauron-max-line-length 150
-      )
+  ;; -- priorities --
+  (setq sauron-min-priority 3 ; ignore all events which priority is lower than this min-priority.
+        sauron-prio-erc-default 2
+        sauron-prio-erc-privmsg-root 3
+        sauron-prio-erc-privmsg-for-me 3
+        sauron-prio-erc-privmsg-default 2
+        )
 
-;; -- priorities --
-(setq sauron-min-priority 3 ; ignore all events which priority is lower than this min-priority.
-      sauron-prio-erc-default 2
-      sauron-prio-erc-privmsg-root 3
-      sauron-prio-erc-privmsg-for-me 3
-      sauron-prio-erc-privmsg-default 2
-      )
+  ;; -- watching patterns --
+  (setq sauron-watch-patterns
+        '("\\bhack\\b" "\\bcrack\\b" "\\bSex\\b")
+        )
 
-;; -- watching patterns --
-(setq sauron-watch-patterns
-      '("\\bhack\\b" "\\bcrack\\b" "\\bSex\\b")
-      )
+  ;; -- watching nicks --
+  (setq sauron-watch-nicks
+        '())
+  ;; don’t get swamped by a certain nick
+  ;;
+  ;; Since you may not want to get too many events from one nick – and, who knows,
+  ;; accompanying sound effects, pop-ups and what have you, you can set some
+  ;; insensitivity time; events from the same nick during this time will be
+  ;; lowered in priority by one point.
+  (setq sauron-nick-insensitivity 60)
 
-;; -- watching nicks --
-(setq sauron-watch-nicks
-      '())
-;; don’t get swamped by a certain nick
-;;
-;; Since you may not want to get too many events from one nick – and, who knows,
-;; accompanying sound effects, pop-ups and what have you, you can set some
-;; insensitivity time; events from the same nick during this time will be
-;; lowered in priority by one point.
-(setq sauron-nick-insensitivity 60)
+  ;; -- blocking events from showing up --
+  ;; (add-hook 'sauron-event-block-functions
+  ;;           (lambda (origin priority msg &optional props)
+  ;;             (or
+  ;;              (string-match "foo" msg) ; ignore events that match 'foo'.
+  ;;              ;; other matchers
+  ;;              )))
 
-;; -- blocking events from showing up --
-;; (add-hook 'sauron-event-block-functions
-;;           (lambda (origin priority msg &optional props)
-;;             (or
-;;              (string-match "foo" msg) ; ignore events that match 'foo'.
-;;              ;; other matchers
-;;              )))
+  ;; -- doing stuff based on events --
 
-;; -- doing stuff based on events --
-
-;; -- seeing all events --
-(setq sauron-log-events t) ; log all events in *Sauron Log* buffer.
-(setq sauron-log-buffer-max-lines 500)
+  ;; -- seeing all events --
+  (setq sauron-log-events t) ; log all events in *Sauron Log* buffer.
+  (setq sauron-log-buffer-max-lines 500)
 
 ;;; some sound/light effects for certain events
-;; TODO use some voice sound in Ingress game.
-(add-hook 'sauron-event-added-functions
-          (lambda (origin prio msg &optional props)
-            (if (string-match "org" origin)
+  ;; TODO use some voice sound in Ingress game.
+  (add-hook 'sauron-event-added-functions
+            (lambda (origin prio msg &optional props)
+              (if (string-match "org" origin)
+                  (sauron-fx-aplay "/home/stardiviner/Music/Sounds/Hacking Game/voice-incoming-transmission.wav"))
+              (if (string-match "erc" origin)
+                  (sauron-fx-aplay "/home/stardiviner/Music/Sounds/Hacking Game/hesfx-newmessage.wav"))
+              (if (string-match "dbus" origin)
+                  (sauron-fx-aplay "/home/stardiviner/Music/Sounds/Hacking Game/hesfx-newmessage.wav"))
+              (cond
+               ((= prio 3)
                 (sauron-fx-aplay "/home/stardiviner/Music/Sounds/Hacking Game/voice-incoming-transmission.wav"))
-            (if (string-match "erc" origin)
-                (sauron-fx-aplay "/home/stardiviner/Music/Sounds/Hacking Game/hesfx-newmessage.wav"))
-            (if (string-match "dbus" origin)
-                (sauron-fx-aplay "/home/stardiviner/Music/Sounds/Hacking Game/hesfx-newmessage.wav"))
-            (cond
-             ((= prio 3)
-              (sauron-fx-aplay "/home/stardiviner/Music/Sounds/Hacking Game/voice-incoming-transmission.wav"))
-             ((= prio 4)
-              (sauron-fx-aplay "/home/stardiviner/Music/Sounds/Hacking Game/voice-incoming-transmission.wav"))
-             ((= prio 5)
-              (sauron-fx-aplay "/home/stardiviner/Music/Sounds/Hacking Game/voice-please-confirm.wav")
-              (sauron-fx-gnome-osd
-               (format "%S: %s" origin msg) 5)))))
+               ((= prio 4)
+                (sauron-fx-aplay "/home/stardiviner/Music/Sounds/Hacking Game/voice-incoming-transmission.wav"))
+               ((= prio 5)
+                (sauron-fx-aplay "/home/stardiviner/Music/Sounds/Hacking Game/voice-please-confirm.wav")
+                (sauron-fx-gnome-osd
+                 (format "%S: %s" origin msg) 5)))))
 
 ;;; events to ignore
-(add-hook 'sauron-event-block-functions
-          (lambda (origin prio msg &optional props)
-            (or
-             (string-match "^*** Users" msg)))) ;; filter out IRC spam
+  (add-hook 'sauron-event-block-functions
+            (lambda (origin prio msg &optional props)
+              (or
+               (string-match "^*** Users" msg)))) ;; filter out IRC spam
 
 ;;; Faces
-;; Orig column
-(set-face-attribute 'sauron-origin-face nil
-                    :foreground "white"
-                    )
-;; Headers: Time, Orig, Prio, Message
-(set-face-attribute 'sauron-header-face nil
-                    :foreground "cyan"
-                    :weight 'bold
-                    )
-(set-face-attribute 'sauron-event-handled-face nil
-                    :strike-through t
-                    :foreground "#444444"
-                    )
-;; Prio
-(set-face-attribute 'sauron-priority-face nil
-                    :foreground "deep pink"
-                    )
-;; Time
-(set-face-attribute 'sauron-timestamp-face nil
-                    :foreground "slate blue"
-                    )
-;; Message
-(set-face-attribute 'sauron-message-face nil
-                    :foreground "gray"
-                    )
-(set-face-attribute 'sauron-highlight1-face nil
-                    :foreground "cyan"
-                    )
-(set-face-attribute 'sauron-highlight2-face nil
-                    :foreground "light cyan"
-                    )
-(set-face-attribute 'sauron-highlight3-face nil
-                    :foreground "deep pink"
-                    )
+  ;; Orig column
+  (set-face-attribute 'sauron-origin-face nil
+                      :foreground "white"
+                      )
+  ;; Headers: Time, Orig, Prio, Message
+  (set-face-attribute 'sauron-header-face nil
+                      :foreground "cyan"
+                      :weight 'bold
+                      )
+  (set-face-attribute 'sauron-event-handled-face nil
+                      :strike-through t
+                      :foreground "#444444"
+                      )
+  ;; Prio
+  (set-face-attribute 'sauron-priority-face nil
+                      :foreground "deep pink"
+                      )
+  ;; Time
+  (set-face-attribute 'sauron-timestamp-face nil
+                      :foreground "slate blue"
+                      )
+  ;; Message
+  (set-face-attribute 'sauron-message-face nil
+                      :foreground "gray"
+                      )
+  (set-face-attribute 'sauron-highlight1-face nil
+                      :foreground "cyan"
+                      )
+  (set-face-attribute 'sauron-highlight2-face nil
+                      :foreground "light cyan"
+                      )
+  (set-face-attribute 'sauron-highlight3-face nil
+                      :foreground "deep pink"
+                      )
 
 
-(global-set-key [f9] 'sauron-toggle-hide-show)
-
+  (global-set-key [f9] 'sauron-toggle-hide-show)
+  )
 
 
 ;;; [ alert.el ]
 ;; https://github.com/jwiegley/alert
 
-;; TODO
-;; (unless (package-installed-p 'altert)
-;;   (package-install 'altert))
-;; (require 'alert)
-;; (add-hook ‘sauron-event-added-functions ‘sauron-alert-el-adapter)
+(use-package alert
+  ;; :ensure t
+  ;; :config
+  ;; (add-hook ‘sauron-event-added-functions ‘sauron-alert-el-adapter)
+  )
 
 
 ;; -- backend modules --

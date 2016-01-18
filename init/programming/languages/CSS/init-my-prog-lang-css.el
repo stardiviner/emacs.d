@@ -31,6 +31,7 @@
 ;;; [ css-eldoc ]
 
 (use-package css-eldoc
+  :ensure t
   :config
   (css-eldoc-enable))
 
@@ -66,6 +67,7 @@
 ;; - `my/toggle-showcss' / [C-c C-k] ::
 
 (use-package show-css
+  :ensure t
   :config
 
   ;; Personally, I find this mode to distracting to use all the time, so I use
@@ -92,6 +94,7 @@
 ;;; [ flycheck-css-colorguard ]
 
 (use-package flycheck-css-colorguard
+  :ensure t
   :config
   (with-eval-after-load 'flycheck
     (flycheck-add-next-checker 'css-csslint

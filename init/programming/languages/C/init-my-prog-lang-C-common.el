@@ -69,7 +69,8 @@
 ;; Please refer to `irony-cdb-autosetup-compile-options' and
 ;; `irony-cdb-compilation-databases'.
 
-(use-package irony-mode
+(use-package irony
+  :ensure t
   :init
   (hook-modes c-dialects-mode
     (when (member major-mode irony-supported-major-modes)
@@ -102,6 +103,7 @@
 ;;; [ company-irony ]
 
 (use-package company-irony
+  :ensure t
   :config
   (add-hook 'irony-mode-hook
             '(lambda ()
@@ -120,19 +122,28 @@
 
 ;;; [ irony-eldoc ]
 
-(with-eval-after-load 'irony
-  (add-hook 'irony-mode-hook #'irony-eldoc))
+(use-package irony-eldoc
+  :ensure t
+  :config
+  (with-eval-after-load 'irony
+    (add-hook 'irony-mode-hook #'irony-eldoc))  
+  )
 
 
 ;;; [ flycheck-irony ]
 
-(with-eval-after-load 'irony
-  (add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+(use-package flycheck-irony
+  :ensure t
+  :config
+  (with-eval-after-load 'irony
+    (add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+  )
 
 
 ;;; [ company-clang ]
 
 ;; (use-package company-clang
+;;   :ensure t
 ;;   :config
 ;;   ;; (setq company-clang-arguments
 ;;   ;;       company-clang-prefix-guesser 'company-clang-guess-prefix
@@ -147,6 +158,7 @@
 ;;; [ company-c-headers ]
 
 ;; (use-package company-c-headers
+;;   :ensure t
 ;;   :config
 ;;   (hook-modes c-dialects-mode
 ;;     (add-to-list (make-local-variable 'company-backends)
@@ -165,6 +177,7 @@
 ;;; [ function-args ] -- showing an inline arguments hint for the C/C++ function at point.
 
 ;; (use-package function-args
+;;   :ensure t
 ;;   :config
 ;;
 ;;   (autoload 'turn-on-function-args-mode "function-args" nil t)

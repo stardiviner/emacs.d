@@ -10,8 +10,9 @@
 ;;; [ selectric-mode ] -- Make your Emacs sound like a proper typewriter.
 
 (use-package selectric-mode
+  :ensure t
   :commands selectric-mode
-  :config
+  ;; :config
   ;; (selectric-mode 1)
   )
 

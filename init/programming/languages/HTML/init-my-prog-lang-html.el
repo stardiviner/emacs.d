@@ -29,6 +29,7 @@
 ;; you'll transform your snippet into the appropriate tag structure.
 
 (use-package emmet-mode
+  :ensure t
   :config
   (setq emmet-preview-default t ; set preview as the default action.
         emmet-indentation 4
@@ -69,6 +70,7 @@
 ;;; [ tagedit ] -- A collection of paredit-like functions for editing in html-mode.
 
 (use-package tagedit
+  :ensure t
   :config
   (tagedit-add-paredit-like-keybindings)
   ;; auto insert <></> when you type <, and auto expand to <div></div> as you type.

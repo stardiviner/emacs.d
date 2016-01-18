@@ -36,7 +36,8 @@
 ;;; metadata. Here’s how.
 
 (use-package geiser
-  :config
+  ;; :ensure t
+  ;; :config
   ;; (run-geiser)
   )
 
@@ -58,7 +59,10 @@
 
 ;;; http://www.neilvandyke.org/quack/
 
+
+;;; [ Guile Mode ]
 
+;; (run-guile)
 
 
 ;;; [ GDS ] -- 

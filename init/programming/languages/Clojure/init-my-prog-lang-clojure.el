@@ -10,6 +10,7 @@
 ;;; [ clojure-mode ]
 
 (use-package clojure-mode
+  :ensure t
   :config
   (require 'clojure-mode-extra-font-locking)
   ;; `subword-mode' is quite useful since we often have to deal with Java class
@@ -28,6 +29,7 @@
 ;; - [M-j] :: new line in sexp.
 
 (use-package inf-clojure
+  :ensure t
   :config
   (add-hook 'inf-clojure-mode-hook #'subword-mode)
   (add-hook 'inf-clojure-mode-hook #'eldoc-mode)
@@ -56,6 +58,7 @@
 ;; (setq nrepl-log-messages t)
 
 (use-package cider
+  :ensure t
   :config
   (setq cider-auto-mode t
         nrepl-hide-special-buffers t
@@ -161,7 +164,8 @@
 ;; - [M-x cider-decompile-ns-func [RET] myotherns.core/other-main [RET]]
 
 (use-package cider-decompile
-  :config
+  ;; :ensure t
+  ;; :config
   ;; (define-key clojure-mode-map (kbd "??") cider-decompile-func)
   ;; (define-key clojure-mode-map (kbd "??") cider-decompile-ns-func)
   )
@@ -169,18 +173,22 @@
 
 ;;; [ cider-spy ] -- Spy on CIDER to get Info.
 
-;; (require 'cider-spy)
+;; (use-package cider-spy)
 
 
 ;;; [ cider-profile ]
 
-;; (require 'cider-profile)
+;; (use-package cider-profile)
 
 
 ;;; [ flycheck-clojure, squiggly-clojure ] --
 
-(eval-after-load 'flycheck
-  '(flycheck-clojure-setup))
+(use-package flycheck-clojure
+  :ensure t
+  :config
+  (eval-after-load 'flycheck
+    '(flycheck-clojure-setup))
+  )
 
 
 ;;; [ clj-refactor ]
@@ -256,30 +264,34 @@
 ;; restarting the repl whenever you change settings affecting the middleware.
 
 
-;; (require 'clj-refactor)
+;; (use-package clj-refactor
+;;   :ensure t
+;;   :config
+;;   (add-hook 'clojure-mode-hook (lambda ()
+;;                                  (clj-refactor-mode 1)
+;;                                  ;; insert keybinding setup here
+;;                                  (cljr-add-keybindings-with-prefix "C-c RET")
+;;                                  ))
 ;;
-;; (add-hook 'clojure-mode-hook (lambda ()
-;;                                (clj-refactor-mode 1)
-;;                                ;; insert keybinding setup here
-;;                                (cljr-add-keybindings-with-prefix "C-c RET")
-;;                                ))
+;;   ;; no auto sort
+;;   (setq cljr-auto-sort-ns nil)
 ;;
-;; no auto sort
-;; (setq cljr-auto-sort-ns nil)
-;;
-;; do not prefer prefixes when using clean-ns
-;; (setq cljr-favor-prefix-notation nil)
+;;   ;; do not prefer prefixes when using clean-ns
+;;   (setq cljr-favor-prefix-notation nil)
+;;   )
 
 
 ;;; [ cider-eval-sexp-fu ]
 
-(require 'cider-eval-sexp-fu)
+(use-package cider-eval-sexp-fu
+  :ensure t)
 
 
 ;;; [ align-cljlet ]
 
 (use-package align-cljlet
-  :config
+  ;; :ensure t
+  ;; :config
   ;; (define-key clojure-mode-map (kbd "??") 'align-cljlet)
   )
 
@@ -295,8 +307,11 @@
 ;;| C-c C-a v         | Insert (ann ... ) above the top expression  | typed-clojure-ann-var    |
 ;;| C-c C-a f         | Wrap the current form with (ann-form ... t) | typed-clojure-ann-form   |
 
-;; (add-hook 'clojure-mode-hook 'typed-clojure-mode)
-
+(use-package typed-clojure-mode
+  ;; :ensure t
+  ;; :config
+  ;; (add-hook 'clojure-mode-hook 'typed-clojure-mode)
+  )
 
 
 ;;; [ clojure-cheatsheet ]

@@ -10,6 +10,7 @@
 ;;; [ org-present ]
 
 (use-package org-present
+  ;; :ensure t
   :config
   ;; Precise behaviour of org-present during start and quit is controlled from
   ;; hooks. The following will enlarge text, show images, hide the cursor and
@@ -45,6 +46,7 @@
 ;;; [ org-tree-slide ] -- A presentation tool for org-mode based on the visibility of outline trees.
 
 (use-package org-tree-slide
+  :ensure t
   :config
   (setq org-tree-slide-header t
         org-tree-slide-cursor-init t
@@ -59,10 +61,8 @@
   (org-tree-slide-presentation-profile)
   ;; (org-tree-slide-narrowing-control-profile)
 
-  (if (featurep 'org-tree-slide-mode)
-      (define-key my-org-prefix (kbd "p") 'org-tree-slide-mode)
-    ;; (global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
-    )
+  (define-key my-org-prefix (kbd "p") 'org-tree-slide-mode)
+  ;; (global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
   )
 
 

@@ -149,8 +149,8 @@
 ;; git-commit-ack is re-bound to C-c C-b.
 
 (use-package git-gutter+
+  :ensure t
   :init
-  (global-git-gutter+-mode t)
   (progn
     (define-key my-prog-vcs-map (kbd "m t") 'git-gutter+-mode) ; Turn on/off in the current buffer
     (define-key my-prog-vcs-map (kbd "m T") 'global-git-gutter+-mode) ; Turn on/off globally
@@ -204,6 +204,8 @@
   (set-face-attribute 'git-gutter+-unchanged nil
                       )
   (set-face-foreground 'git-gutter+-separator "cyan")
+
+  (global-git-gutter+-mode t)
   )
 
 

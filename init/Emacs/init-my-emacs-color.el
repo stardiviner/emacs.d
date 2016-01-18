@@ -9,11 +9,15 @@
 
 ;;; [ rainbow-mode ] -- colorize color names in buffers
 
-(dolist (hook
-         '(emacs-lisp-mode-hook
-           css-mode-hook
-           html-mode-hook))
-  (add-hook hook (lambda () (rainbow-mode 1))))
+(use-package rainbow-mode
+  :ensure t
+  :config
+  (dolist (hook
+           '(emacs-lisp-mode-hook
+             css-mode-hook
+             html-mode-hook))
+    (add-hook hook (lambda () (rainbow-mode 1))))
+  )
 
 
 ;;; [ kurecolor ] -- color editing goodies for Emacs.

@@ -62,33 +62,35 @@
 ;;
 ;; - `boxquote-region' :: boxquote region.
 
-(require 'boxquote)
+(use-package boxquote
+  :ensure t
+  :config
+  ;; (setq boxquote-title-format "[ %s ]")
 
-;; (setq boxquote-title-format "[ %s ]")
+  ;; `message-completion-function' (like capf)
+  ;; (setq message-expand-name-databases '(bbdb eudb))
 
-;; `message-completion-function' (like capf)
-;; (setq message-expand-name-databases '(bbdb eudb))
+  (define-key narrow-map (kbd "q") 'boxquote-narrow-to-boxquote-content)
 
-(define-key narrow-map (kbd "q") 'boxquote-narrow-to-boxquote-content)
+  (unless (boundp 'my-boxquote-map)
+    (define-prefix-command 'my-boxquote-map))
+  (define-key my-prog-comment-map (kbd "q") 'my-boxquote-map)
 
-(unless (boundp 'my-boxquote-map)
-  (define-prefix-command 'my-boxquote-map))
-(define-key my-prog-comment-map (kbd "q") 'my-boxquote-map)
-
-(define-key my-boxquote-map (kbd "q") 'boxquote-boxquote)
-(define-key my-boxquote-map (kbd "u") 'boxquote-unbox)
-(define-key my-boxquote-map (kbd "t") 'boxquote-text)
-(define-key my-boxquote-map (kbd "U") 'boxquote-unbox-region)
-(define-key my-boxquote-map (kbd "r") 'boxquote-region)
-(define-key my-boxquote-map (kbd "b") 'boxquote-buffer)
-(define-key my-boxquote-map (kbd "f") 'boxquote-defun)
-(define-key my-boxquote-map (kbd "c") 'boxquote-shell-command)
-(define-key my-boxquote-map (kbd "F") 'boxquote-describe-function)
-(define-key my-boxquote-map (kbd "K") 'boxquote-describe-key)
-(define-key my-boxquote-map (kbd "V") 'boxquote-describe-variable)
-(define-key my-boxquote-map (kbd "C-w") 'boxquote-kill)
-(define-key my-boxquote-map (kbd "C-y") 'boxquote-yank)
-(define-key my-boxquote-map (kbd "p") 'boxquote-paragraph)
+  (define-key my-boxquote-map (kbd "q") 'boxquote-boxquote)
+  (define-key my-boxquote-map (kbd "u") 'boxquote-unbox)
+  (define-key my-boxquote-map (kbd "t") 'boxquote-text)
+  (define-key my-boxquote-map (kbd "U") 'boxquote-unbox-region)
+  (define-key my-boxquote-map (kbd "r") 'boxquote-region)
+  (define-key my-boxquote-map (kbd "b") 'boxquote-buffer)
+  (define-key my-boxquote-map (kbd "f") 'boxquote-defun)
+  (define-key my-boxquote-map (kbd "c") 'boxquote-shell-command)
+  (define-key my-boxquote-map (kbd "F") 'boxquote-describe-function)
+  (define-key my-boxquote-map (kbd "K") 'boxquote-describe-key)
+  (define-key my-boxquote-map (kbd "V") 'boxquote-describe-variable)
+  (define-key my-boxquote-map (kbd "C-w") 'boxquote-kill)
+  (define-key my-boxquote-map (kbd "C-y") 'boxquote-yank)
+  (define-key my-boxquote-map (kbd "p") 'boxquote-paragraph)
+  )
 
 
 ;;; [ encrypt email ]

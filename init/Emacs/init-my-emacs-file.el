@@ -21,9 +21,7 @@
 ;; - `doc-view-clear-cache' :: to delete all cached files.
 ;; - `doc-view-dired' :: for Dired users.
 
-;; (require 'doc-view)
-
-(autoload 'doc-view "DocView mode" t)
+(require 'doc-view)
 
 (setq doc-view-conversion-refresh-interval 1)
 
@@ -43,18 +41,20 @@
 ;;; - [M-x vlf PATH-TO-FILE]
 ;;; - [C-c C-v] -- prefix.
 
-(require 'vlf)
-;; (require 'vlf-integrate)
-
-;;; All VLF operations are grouped under the C-c C-v prefix by default. Here’s
-;;; example how to add another prefix (C-x v):
-;; (eval-after-load "vlf"
-;;   '(define-key vlf-prefix "\C-xv" vlf-mode-map))
+(use-package vlf
+  :ensure t
+  :config
+  ;; All VLF operations are grouped under the C-c C-v prefix by default. Here’s
+  ;; example how to add another prefix (C-x v):
+  ;; (eval-after-load "vlf"
+  ;;   '(define-key vlf-prefix "\C-xv" vlf-mode-map))
+  )
 
 
 ;;; [ openwith ]
 
 (use-package openwith
+  :ensure t
   :config
   (setq openwith-associations
         (list

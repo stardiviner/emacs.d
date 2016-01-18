@@ -24,6 +24,7 @@
 ;;   - `docker-volumes'
 
 (use-package docker
+  :ensure t
   :init
   ;; FIXME: this does not work.
   ;; (setq docker-keymap-prefix "C-c t c")
@@ -50,6 +51,7 @@
 ;; If you don't, you'll be prompted for an image each time you build.
 
 (use-package dockerfile-mode
+  :ensure t
   :config
   (setq dockerfile-use-sudo nil)
   )
@@ -63,6 +65,7 @@
 ;; 2. [C-x C-f] + /docker:user@container:/path/to/file
 
 (use-package docker-tramp
+  :ensure t
   :config
   (setq docker-tramp-use-names t
         docker-tramp-docker-options nil

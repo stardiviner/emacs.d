@@ -29,29 +29,35 @@
 
 ;; - `js-load-file' :: [C-c C-l] load source code for completion.
 
-(eval-after-load 'js-mode
-  '(progn
-     (add-hook 'js-mode-hook
-               (lambda ()
-                 (electric-layout-mode -1) ; electric-layout-mode doesn't play nice with js-mode.
-                 ))))
+(with-eval-after-load 'js-mode
+  (add-hook 'js-mode-hook
+            (lambda ()
+              (electric-layout-mode -1) ; electric-layout-mode doesn't play nice with js-mode.
+              )))
 
 
 ;;; [ js2-mode ]
 
-;; (setq js2-pretty-multiline-declarations t ; 'dynamic
-;;       js2-highlight-level 3
-;;       )
+(use-package js2-mode
+  :ensure t
+  :config
+  ;; (setq js2-pretty-multiline-declarations t ; 'dynamic
+  ;;       js2-highlight-level 3
+  ;;       )
 
-;; (js2-highlight-unused-variables-mode)
+  ;; (js2-highlight-unused-variables-mode)
 
-(add-hook 'js-mode-hook 'js2-minor-mode)
+  (add-hook 'js-mode-hook 'js2-minor-mode)
+  )
 
 
 ;;; [ js3-mode ]
 
-;; (eval-after-load 'auto-complete
-;;   (add-to-list 'ac-modes 'js3-mode))
+(use-package js3-mode
+  :ensure t
+  :config
+  ;; (add-to-list 'ac-modes 'js3-mode)
+  )
 
 
 ;;; [ flycheck checker ]
@@ -234,8 +240,9 @@
 ;; - nvm-use-for (version &optional callback)
 
 (use-package nvm
+  :ensure t
   :config
-  ;; (nvm-use )
+  ;; (nvm-use "system")
   )
 
 
@@ -258,6 +265,7 @@
 ;; - `switch-to-js'
 
 (use-package js-comint
+  :ensure t
   :init
   (dolist (hook '(js2-mode-hook
                   js3-mode-hook
@@ -294,15 +302,19 @@
 ;;
 ;; - [M-x jscs-fix] :: "$ jscs --fix"
 
-;; to apply JSCS indentation rules to JavaScript modes.
-(add-hook 'js-mode-hook #'jscs-indent-apply)
-(add-hook 'js2-mode-hook #'jscs-indent-apply)
-(add-hook 'js3-mode-hook #'jscs-indent-apply)
+(use-package jscs
+  :ensure t
+  :config
+  ;; to apply JSCS indentation rules to JavaScript modes.
+  (add-hook 'js-mode-hook #'jscs-indent-apply)
+  (add-hook 'js2-mode-hook #'jscs-indent-apply)
+  (add-hook 'js3-mode-hook #'jscs-indent-apply)
 
-;; to run "jscs --fix" on the current buffer when saving.
-;; (add-hook 'js-mode-hook #'jscs-fix-run-before-save)
-;; (add-hook 'js2-mode-hook #'jscs-fix-run-before-save)
-;; (add-hook 'js3-mode-hook #'jscs-fix-run-before-save)
+  ;; to run "jscs --fix" on the current buffer when saving.
+  ;; (add-hook 'js-mode-hook #'jscs-fix-run-before-save)
+  ;; (add-hook 'js2-mode-hook #'jscs-fix-run-before-save)
+  ;; (add-hook 'js3-mode-hook #'jscs-fix-run-before-save)
+  )
 
 
 ;;; Node.js
@@ -357,18 +369,23 @@
 ;;   }
 ;; }
 
-(add-to-list 'auto-mode-alist '("\\.tern-project\\'" . json-mode))
-
-;; (setq tern-known-port
-;;       tern-server
-;;       tern-explicit-port
-;;       tern-project-dir
-;;       )
+(use-package tern
+  :ensure t
+  :init
+  (add-to-list 'auto-mode-alist '("\\.tern-project\\'" . json-mode))
+  :config
+  ;; (setq tern-known-port
+  ;;       tern-server
+  ;;       tern-explicit-port
+  ;;       tern-project-dir
+  ;;       )
+  )
 
 
 ;;; [ company-tern ] -- Tern backend for company-mode.
 
 (use-package company-tern
+  :ensure t
   :init
   (dolist (hook '(js-mode-hook
                   js2-mode-hook
@@ -402,12 +419,15 @@
 
 ;;; [ JSX-mode ] -- The XML inside of JavaScript.
 
-;; (require 'jsx-mode)
-;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
-;;
-;; (add-hook 'jsx-mode-hook
-;;           (lambda ()
-;;             (tern-mode 1)))
+(use-package jsx-mode
+  ;; :ensure t
+  ;; :config
+  ;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
+  ;;
+  ;; (add-hook 'jsx-mode-hook
+  ;;           (lambda ()
+  ;;             (tern-mode 1)))
+  )
 
 
 ;;; [ skewer-mode ] --

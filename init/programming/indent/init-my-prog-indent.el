@@ -66,6 +66,7 @@
 
 
 ;;; [ auto-indent-mode ]
+
 ;; (require 'auto-indent-mode)
 
 ;; (setq
@@ -124,7 +125,9 @@
 
 
 ;;; [ indent-hints ] -- Get some hints about whether your buffer is space- or tab-loving
+
 ;; Usage:
+;;
 ;; 1.
 ;; Just check out your mode-line to see whether the buffer you're visiting is space-loving or tab-loving. It also shows the ratio of space-to-tab (or tab-to-space, whichever your buffer loves) loving-ness that your current buffer exudes. Here's a "screenshot":
 ;;            test.el Top -- (Emacs-Lisp \t:0.53 yas pair)--etc. etc.--
@@ -149,6 +152,7 @@
 
 
 ;;; [ indent-hint.el ]
+
 ;; TODO (load "~/.emacs.d/my-init/extensions/indent-hint.el")
 ;; TODO 1. diff with indent/indent-hint.el file.
 ;;    (load "~/.emacs.d/extensions/indent/indent-hint-files/indent-hint-lisp.el")
@@ -164,6 +168,7 @@
 ;;; [ indent-guide ]
 
 (use-package indent-guide
+  :ensure t
   :config
   (setq indent-guide-delay nil
         indent-guide-recursive t
@@ -216,6 +221,7 @@
 ;;; [ aggressive-indent-mode ]
 
 (use-package aggressive-indent
+  :ensure t
   :config
   ;; The variable `aggressive-indent-dont-indent-if' lets you customize when you
   ;; **don't** want indentation to happen.  For instance, if you think it's

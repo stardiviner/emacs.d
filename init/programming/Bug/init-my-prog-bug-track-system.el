@@ -76,6 +76,7 @@
 ;; *4 Multi view is able to edit multiple tickets at one time
 
 (use-package bts
+  ;; :ensure t
   :config
   (require 'pophint)
 
@@ -155,6 +156,7 @@
 ;; [ bts-github ] -- bts for GitHub
 
 (use-package bts-github
+  ;; :ensure t
   :config
   (setq bts-github:ignore-labels '("duplicate" "invalid" "wontfix")
         ;; bts-github:max-lisp-eval-depth 6000
@@ -164,7 +166,7 @@
         bts-github:summary-label-width 15
         )
 
-;;; Faces
+  ;; Faces
   (set-face-attribute 'bts-github:issue-comment-header-face nil
                       )
   (set-face-attribute 'bts-github:summary-label-decorating nil
@@ -173,6 +175,8 @@
                       )
   )
 
+
+;;; [ bts-evernote]
 
 
 (provide 'init-my-prog-bug-track-system)

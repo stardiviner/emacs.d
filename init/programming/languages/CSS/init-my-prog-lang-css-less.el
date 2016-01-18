@@ -40,8 +40,11 @@
 ;;I may consider providing an option to instead run lessc from Emacs, then send
 ;;the output via skewer-css. Let me know if you want this.
 
-
-;; (skewer-less-mode)
+(use-package skewer-less
+  ;; :ensure t
+  ;; :config
+  ;; (skewer-less-mode)
+  )
 
 
 (provide 'init-my-prog-lang-css-less)

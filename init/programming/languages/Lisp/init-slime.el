@@ -10,6 +10,7 @@
 ;;; [ SLIME ]
 
 (use-package slime
+  :ensure t
   :commands (slime)
   :config
   ;; select the default value from slime-lisp-implementations
@@ -87,6 +88,7 @@
 ;;; [ slime-company ] -- slime backend for Company mode.
 
 (use-package slime-company
+  :ensure t
   :config
   (setq slime-company-after-completion nil
         slime-company-completion 'fuzzy

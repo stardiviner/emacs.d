@@ -103,6 +103,7 @@ column. Place the point after the comment box."
 ;;; [ fic-mode ] --- "fixme in comments (and strings)"
 
 (use-package fic-mode
+  :ensure t
   :config
   (setq fic-highlighted-words comment-fic-keywords-list)
 
@@ -127,14 +128,15 @@ column. Place the point after the comment box."
 ;; - [M-#] (outorg-copy-edits-and-exit) ::
 ;; - [C-x C-s] (outorg-save-edits-to-tmp-file) ::
 
-;; (require 'outorg)
-;;
-;; ;; Outorg (like outshine) assumes that you set `outline-minor-mode-prefix' in your init-file to 'M-#':
-;; ;; NOTE: must be set before outline is loaded
-;; (defvar outline-minor-mode-prefix "\M-#")
-;;
-;; (global-set-key (kbd "C-c '") 'outorg-edit-as-org)
+(use-package outorg
+  ;; :ensure t
+  :config
+  ;; Outorg (like outshine) assumes that you set `outline-minor-mode-prefix' in your init-file to 'M-#':
+  ;; NOTE: must be set before outline is loaded
+  (defvar outline-minor-mode-prefix "\M-#")
 
+  (global-set-key (kbd "C-c '") 'outorg-edit-as-org)
+  )
 
 
 ;;_* [ poporg ] -- Editing program comments or strings in text mode.
@@ -146,6 +148,14 @@ column. Place the point after the comment box."
 ;; - `poporg-edit-hook'
 
 (use-package poporg
+  :ensure t
+  :init
+  (add-to-list 'display-buffer-alist
+               '("\\*poporg:\ .*?\\*" ; *poporg: init-my-emacs-window.el*
+                 (display-buffer-reuse-window
+                  display-buffer-below-selected)
+                 (window-height . 0.3)
+                 ))
   :config
   (global-set-key (kbd "C-c '") 'poporg-dwim)
   ;; (define-key my-prog-comment-map (kbd "'") 'poporg-dwim)
@@ -158,13 +168,6 @@ column. Place the point after the comment box."
                       :background (color-darken-name (face-background 'default) 5)
                       :slant 'italic)
   )
-
-(add-to-list 'display-buffer-alist
-             '("\\*poporg:\ .*?\\*" ; *poporg: init-my-emacs-window.el*
-               (display-buffer-reuse-window
-                display-buffer-below-selected)
-               (window-height . 0.3)
-               ))
 
 
 (provide 'init-my-prog-comment)

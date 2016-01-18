@@ -91,7 +91,8 @@
 ;;; [ ac-octave ]
 
 (use-package ac-octave
-  :config
+  ;; :ensure t
+  ;; :config
   ;; FIXME:
   ;; (defun ac-octave-mode-setup ()
   ;;   (add-to-list 'ac-sources 'ac-source-octave))

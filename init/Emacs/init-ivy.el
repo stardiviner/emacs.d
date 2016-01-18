@@ -10,19 +10,24 @@
 ;;; [ swiper/ivy-mode ]
 
 (use-package swiper
+  :ensure t
   :config
   (global-set-key (kbd "C-s") 'swiper)
   ;; Ivy-mode
-  (setq ivy-use-virtual-buffers t
+  (setq ivy-use-virtual-buffers t ; treat recentf, bookmarks as virtual buffers.
         ivy-height 5
+        ivy-display-style 'fancy
         ivy-count-format "(%d/%d) "
         ivy-initial-inputs-alist nil ; remove initial ^ input.
         ivy-extra-directories nil ; remove . and .. directory.
         ivy-wrap nil
         )
 
-  (global-set-key (kbd "C-c C-r") 'ivy-resume)
-  
+  ;; use fuzzy search as default matcher
+  ;; (setq ivy-re-builders-alist
+  ;;       '((ivy-switch-buffer . ivy--regex-plus)
+  ;;         (t . ivy--regexp-fuzzy)))
+
   (set-face-attribute 'ivy-confirm-face nil
                       :inherit nil
                       :foreground "black" :background "khaki"
@@ -62,6 +67,8 @@
                       :foreground "dodger blue"
                       :weight 'normal :box nil
                       )
+
+  (global-set-key (kbd "C-c C-r") 'ivy-resume)
   
   ;; Custom Functions
 

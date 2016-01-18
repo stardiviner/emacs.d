@@ -46,8 +46,8 @@
 ;;              should never be displayed for built-in syntax checkers. If it is, please
 ;;              report this issue to the Flycheck developers.
 
-
 (use-package flycheck
+  :ensure t
   :commands flycheck-mode
   :init
   ;; (add-hook 'after-init-hook #'global-flycheck-mode)
@@ -124,23 +124,28 @@
 
 ;;; [ flycheck-tip ] -- show you error by popup-tip.
 
-;; (define-key YOUR-PROG-MODE (kbd "C-c C-n") 'flycheck-tip-cycle)
+(use-package flycheck-tip
+  ;; :ensure t
+  ;; :config
+  ;; (define-key YOUR-PROG-MODE (kbd "C-c C-n") 'flycheck-tip-cycle)
 
-;;; If you want to show current line errors by popup instead of flycheck's echo
-;;; area function, then configure like this:
-;; (flycheck-tip-use-timer 'verbose)
+  ;; If you want to show current line errors by popup instead of flycheck's echo
+  ;; area function, then configure like this:
+  ;; (flycheck-tip-use-timer 'verbose)
 
-;;; note: This program avoid flycheck-show-error-at-point function to avoid
-;;; duplicated error message(i.e., minibuffer and popup-tip). But if you want to
-;;; regain this behavior, set following configuration to your .emacs:
-;; (setq flycheck-tip-avoid-show-func nil)
+  ;; note: This program avoid flycheck-show-error-at-point function to avoid
+  ;; duplicated error message(i.e., minibuffer and popup-tip). But if you want to
+  ;; regain this behavior, set following configuration to your .emacs:
+  ;; (setq flycheck-tip-avoid-show-func nil)
 
-;; (define-key flycheck-mode-map (kbd "C-c ! c") 'flycheck-tip-cycle)
+  ;; (define-key flycheck-mode-map (kbd "C-c ! c") 'flycheck-tip-cycle)
+  )
 
 
 ;;; [ flycheck-pos-tip ] -- display errors under point using popup.el.
 
 (use-package flycheck-pos-tip
+  :ensure t
   :config
   (with-eval-after-load 'flycheck
     (setq flycheck-display-errors-function 'flycheck-pos-tip-error-messages

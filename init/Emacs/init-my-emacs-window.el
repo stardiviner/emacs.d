@@ -5,11 +5,6 @@
 
 ;;; Code:
 
-;;; [ switch-window ] -- show a number on window instead of modeline.
-
-;; (require 'switch-window)
-;; (global-set-key (kbd "C-x o") 'switch-window)
-
 ;;; switch to new splitted window after split.
 ;;
 ;; 1. this will break the default action, and affect other window behaviors.
@@ -19,6 +14,7 @@
 ;;   (other-window 1))
 ;; 2. bind to a function is a better solution.
 ;;
+
 (define-key global-map (kbd "C-x 2")
   '(lambda ()
      (interactive)
@@ -30,6 +26,15 @@
      (interactive)
      (split-window-horizontally)
      (other-window 1)))
+
+;; popup current window to another new frame.
+
+(defun my-turn-current-window-into-new-frame ()
+  (interactive)
+  (let ((buffer (current-buffer)))
+    (unless (one-window-p)
+      (delete-window))
+    (display-buffer-pop-up-frame buffer nil)))
 
 
 ;;; [ display-buffer-alist ]
@@ -56,6 +61,12 @@
 (winner-mode 1)
 
 
+;;; [ switch-window ] -- show a number on window instead of modeline.
+
+;; (require 'switch-window)
+;; (global-set-key (kbd "C-x o") 'switch-window)
+
+
 ;;; [ window-number ] --
 
 ;;; Usage:
@@ -63,11 +74,15 @@
 ;; - [C-x C-j + N] :: window-number-mode
 ;; - [M- + <N>] :: window-number-meta-mode
 
-(autoload 'window-number-mode "window-number" nil t)
-(autoload 'window-number-meta-mode "window-number" nil t)
+(use-package window-number
+  :ensure t
+  :config
+  (autoload 'window-number-mode "window-number" nil t)
+  (autoload 'window-number-meta-mode "window-number" nil t)
 
-(window-number-mode)
-(window-number-meta-mode)
+  (window-number-mode)
+  (window-number-meta-mode)
+  )
 
 
 ;;; [ window-numbering ] --
@@ -75,16 +90,6 @@
 ;; (unless (package-installed-p 'window-numbering)
 ;;   (package-install 'window-numbering))
 ;; (require 'window-numbering)
-
-
-;; popup current window to another new frame.
-
-(defun my-turn-current-window-into-new-frame ()
-  (interactive)
-  (let ((buffer (current-buffer)))
-    (unless (one-window-p)
-      (delete-window))
-    (display-buffer-pop-up-frame buffer nil)))
 
 
 ;;; [ ace-window ] -- Quickly switch windows in Emacs.
@@ -181,27 +186,28 @@
 ;; * dashboard : showing plug-ins like dashboard in Mac OSX
 ;; * array     : selecting buffers like expose in Mac OSX
 
-;; (require 'e2wm)
-;;
-;; (global-set-key (kbd "C-c +") 'e2wm:start-management)
-;; (global-set-key (kbd "C-c -") 'e2wm:stop-management)
-;;
-;; (setq e2wm:c-my-org-repice
-;;       '(| (:left-max-size 35)
-;;           (- (:upper-size-ratio 0.7)
-;;              files history)
-;;           (- (:upper-size-ratio 0.7)
-;;              (| (:right-max-size 30)
-;;                 main imenu)
-;;              sub)))
-;;
-;; (setq e2wm:c-my-org-winfo
-;;       '((:name main)
-;;         (:name files :plugin files)
-;;         (:name history :plugin history-list)
-;;         (:name sub :buffer "*info*" :default-hide t)
-;;         (:name imenu :plugin imenu :default-hide nil))
-;;       )
+(use-package e2wm
+  ;; :config
+  ;; (global-set-key (kbd "C-c +") 'e2wm:start-management)
+  ;; (global-set-key (kbd "C-c -") 'e2wm:stop-management)
+  ;;
+  ;; (setq e2wm:c-my-org-repice
+  ;;       '(| (:left-max-size 35)
+  ;;           (- (:upper-size-ratio 0.7)
+  ;;              files history)
+  ;;           (- (:upper-size-ratio 0.7)
+  ;;              (| (:right-max-size 30)
+  ;;                 main imenu)
+  ;;              sub)))
+  ;;
+  ;; (setq e2wm:c-my-org-winfo
+  ;;       '((:name main)
+  ;;         (:name files :plugin files)
+  ;;         (:name history :plugin history-list)
+  ;;         (:name sub :buffer "*info*" :default-hide t)
+  ;;         (:name imenu :plugin imenu :default-hide nil))
+  ;;       )
+  )
 
 
 ;;; [ ne2wm ]
@@ -233,7 +239,7 @@
 ;; p, <left> -- persp-prev: Switch to previous perspective
 
 
-;; (require 'perspective)
+;; (use-package perspective)
 
 
 ;;; [ window-purpose ] -- Organize Windows and Buffers According to Purposes.
@@ -284,23 +290,25 @@
 ;;
 ;;   [M-x purpose-save-window-layout]
 
-;; (require 'window-purpose)
-;;
-;; (setq purpose-preferred-prompt 'ivy
-;;       ;; purpose-x-*
-;;       purpose-x-popwin-position 'bottom
-;;       purpose-x-popwin-height 0.5
-;;       purpose-x-popwin-width 0.5)
-;;
-;; (add-to-list 'purpose-user-mode-purposes '(popwin-mode . popup-window))
-;; (add-to-list 'purpose-user-mode-purposes '(compilation-mode . popup-window))
-;; (add-to-list 'purpose-user-mode-purposes '(help-mode . popup-window))
-;; (add-to-list 'purpose-user-mode-purposes '(ack-and-a-half-mode . popup-window))
-;; (add-to-list 'purpose-user-mode-purposes '(dired-mode . sidebar-window))
-;;
-;; (purpose-compile-user-configuration)
-;;
-;; (purpose-mode)
+(use-package window-purpose
+  ;; :ensure t
+  ;; :config
+  ;; (setq purpose-preferred-prompt 'ivy
+  ;;       ;; purpose-x-*
+  ;;       purpose-x-popwin-position 'bottom
+  ;;       purpose-x-popwin-height 0.5
+  ;;       purpose-x-popwin-width 0.5)
+  ;;
+  ;; (add-to-list 'purpose-user-mode-purposes '(popwin-mode . popup-window))
+  ;; (add-to-list 'purpose-user-mode-purposes '(compilation-mode . popup-window))
+  ;; (add-to-list 'purpose-user-mode-purposes '(help-mode . popup-window))
+  ;; (add-to-list 'purpose-user-mode-purposes '(ack-and-a-half-mode . popup-window))
+  ;; (add-to-list 'purpose-user-mode-purposes '(dired-mode . sidebar-window))
+  ;;
+  ;; (purpose-compile-user-configuration)
+  ;;
+  ;; (purpose-mode)
+  )
 
 
 ;;; [ golden-ratio ] -- Automatic resizing of Emacs windows to the golden ratio.
@@ -318,55 +326,15 @@
 ;; - [M-x golden-ratio-mode] :: toggle `golden-ratio-mode'.
 ;; - [M-x golden-ratio-toggle-widescreen] :: toggle between widescreen and regular width window.
 
-;; (require 'golden-ratio)
-;;
-;; (golden-ratio-mode 1)
-;;
-;; (setq golden-ratio-auto-scale t ; for wide screens
-;;       golden-ratio-adjust-factor .8 ; adjust factor
-;;       golden-ratio-wide-adjust-factor .8)
+(use-package golden-ratio
+  ;; :ensure t
+  :config
+  (setq golden-ratio-auto-scale t ; for wide screens
+        golden-ratio-adjust-factor .8 ; adjust factor
+        golden-ratio-wide-adjust-factor .8)
 
-;; (require 'window-purpose)
-;;
-;; (setq purpose-preferred-prompt 'ivy
-;;       ;; purpose-x-*
-;;       purpose-x-popwin-position 'bottom
-;;       purpose-x-popwin-height 0.5
-;;       purpose-x-popwin-width 0.5)
-;;
-;; (add-to-list 'purpose-user-mode-purposes '(popwin-mode . popup-window))
-;; (add-to-list 'purpose-user-mode-purposes '(compilation-mode . popup-window))
-;; (add-to-list 'purpose-user-mode-purposes '(help-mode . popup-window))
-;; (add-to-list 'purpose-user-mode-purposes '(ack-and-a-half-mode . popup-window))
-;; (add-to-list 'purpose-user-mode-purposes '(dired-mode . sidebar-window))
-;;
-;; (purpose-compile-user-configuration)
-;;
-;; (purpose-mode)
-
-
-;;; [ golden-ratio ] -- Automatic resizing of Emacs windows to the golden ratio.
-
-;;; golden-ratio helps on this issue by resizing automatically the windows you
-;;; are working on to the size specified in the "Golden Ratio". The window that
-;;; has the main focus will have the perfect size for editing, while the ones
-;;; that are not being actively edited will be re-sized to a smaller size that
-;;; doesn't get in the way, but at the same time will be readable enough to know
-;;; it's content.
-
-;;; Usage:
-;;
-;; - [M-x golden-ratio] :: manually invoke `golden-ratio'.
-;; - [M-x golden-ratio-mode] :: toggle `golden-ratio-mode'.
-;; - [M-x golden-ratio-toggle-widescreen] :: toggle between widescreen and regular width window.
-
-;; (require 'golden-ratio)
-;;
-;; (golden-ratio-mode 1)
-;;
-;; (setq golden-ratio-auto-scale t ; for wide screens
-;;       golden-ratio-adjust-factor .8 ; adjust factor
-;;       golden-ratio-wide-adjust-factor .8)
+  (golden-ratio-mode 1)
+  )
 
 
 ;;; [ popwin ] -- Popup Window Manager for Emacs (*always* shows upon minibuffer)
@@ -787,13 +755,15 @@ The `BUFFER' is the popwin catch poporg edit popup buffer"
 ;;
 ;; - `zoom-window' :: Toggle between zooming current window and unzooming.
 
-(require 'zoom-window)
+(use-package zoom-window
+  :ensure t
+  :config
+  (setq zoom-window-mode-line-color "dark red"
+        zoom-window-use-elscreen nil ; whether use extension elscreen.
+        )
 
-(setq zoom-window-mode-line-color "dark red"
-      zoom-window-use-elscreen nil ; whether use extension elscreen.
-      )
-
-(global-set-key (kbd "C-x C-z") 'zoom-window-zoom)
+  (global-set-key (kbd "C-x C-z") 'zoom-window-zoom)
+  )
 
 
 (provide 'init-my-emacs-window)

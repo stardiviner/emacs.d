@@ -13,9 +13,11 @@
 ;;
 ;; - [M-x inf-mongo]
 
-(require 'inf-mongo)
-
-(define-key my-inferior-db-nosql-map (kbd "m") 'inf-mongo)
+(use-package inf-mongo
+  :ensure t
+  :config
+  (define-key my-inferior-db-nosql-map (kbd "m") 'inf-mongo)
+  )
 
 
 ;;; [ mongo-elnode ]

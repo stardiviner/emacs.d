@@ -43,6 +43,7 @@
 
 
 (use-package pdf-tools
+  :ensure t
   :config
   
   (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
@@ -214,17 +215,20 @@
 ;; - `org-pdfview-open'
 ;; - `org-pdfview-export'
 
-;; ;; TODO: use `autoload' here.
-;; (require 'org) ; require `org' here to fix error: void variable `org-file-apps'.
-;;
-;; (eval-after-load 'org
-;;   '(require 'org-pdfview))
-;;
-;; ;; integrate it into Org-mode seamlessly.
-;; ;; (org-add-link-type "pdfview" 'org-pdfview-open 'org-pdfview-export)
-;; ;; change Org-mode default open PDF file function.
-;; (add-to-list 'org-file-apps '("\\.pdf\\'" . org-pdfview-open))
-;; (add-to-list 'org-file-apps '("\\.pdf::\\([[:digit:]]+\\)\\'" . org-pdfview-open))
+(use-package org-pdfview
+  :ensure t
+  :config
+  ;; (require 'org) ; require `org' to fix error: void variable `org-file-apps'.
+
+  (eval-after-load 'org
+    '(require 'org-pdfview))
+
+  ;; integrate it into Org-mode seamlessly.
+  ;; (org-add-link-type "pdfview" 'org-pdfview-open 'org-pdfview-export)
+  ;; change Org-mode default open PDF file function.
+  (add-to-list 'org-file-apps '("\\.pdf\\'" . org-pdfview-open))
+  (add-to-list 'org-file-apps '("\\.pdf::\\([[:digit:]]+\\)\\'" . org-pdfview-open))
+  )
 
 
 (provide 'init-my-emacs-pdf)

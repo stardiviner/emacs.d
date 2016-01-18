@@ -10,6 +10,7 @@
 ;;; [ haskell-mode ]
 
 (use-package haskell-mode
+  :ensure t
   :config
   (setq haskell-stylish-on-save nil)
   (setq haskell-font-lock-symbols t)
@@ -85,13 +86,18 @@
 
 ;;; [ flycheck-haskell ]
 
-(with-eval-after-load 'flycheck
-  (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
+(use-package flycheck-haskell
+  :ensure t
+  :config
+  (with-eval-after-load 'flycheck
+    (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
+  )
 
 
 ;;; [ company-ghc ]
 
 (use-package company-ghc
+  :ensure t
   :config
   (setq company-ghc-show-info t
         company-ghc-show-module t
@@ -126,6 +132,7 @@
 ;;; [ ghc ]
 
 (use-package ghc
+  :ensure t
   :config
   (autoload 'ghc-init "ghc" nil t)
   (autoload 'ghc-debug "ghc" nil t)
@@ -138,12 +145,14 @@
 
 ;;; [ ghci-completion ]
 
-(use-package ghci-completion)
+(use-package ghci-completion
+  :ensure t)
 
 
 ;;; [ ebal ] -- Emacs interface to Cabal and Stack.
 
-(use-package ebal)
+(use-package ebal
+  :ensure t)
 
 
 (provide 'init-my-prog-lang-haskell)

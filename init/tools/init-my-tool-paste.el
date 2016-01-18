@@ -24,20 +24,22 @@
 ;;      - gist-region-or-buffer-private
 
 
-;; (require 'gist)
-;;
-;; (setq gist-view-gist t) ; view your Gist using `browse-url` after it is created.
-;;
-;; ;;; TODO: enable gist-mode in Org-mode.
-;; ;; FIXME: gist-mode enable will lead to Org-mode [C-x C-s] error.
-;;
-;; ;;; --------------------------------------------------
-;; (define-key paste-prefix (kbd "p") 'gist-region-or-buffer)
-;; (define-key paste-prefix (kbd "v") 'gist-region-or-buffer-private)
-;; (define-key paste-prefix (kbd "r") 'gist-region)
-;; (define-key paste-prefix (kbd "b") 'gist-buffer)
-;; (define-key paste-prefix (kbd "l") 'gist-list)
-;; ;;; --------------------------------------------------
+(use-package gist
+  ;; :ensure t
+  ;; :config
+  ;; (setq gist-view-gist t) ; view your Gist using `browse-url` after it is created.
+  ;;
+  ;; ;;; TODO: enable gist-mode in Org-mode.
+  ;; ;; FIXME: gist-mode enable will lead to Org-mode [C-x C-s] error.
+  ;;
+  ;; ;;; --------------------------------------------------
+  ;; (define-key paste-prefix (kbd "p") 'gist-region-or-buffer)
+  ;; (define-key paste-prefix (kbd "v") 'gist-region-or-buffer-private)
+  ;; (define-key paste-prefix (kbd "r") 'gist-region)
+  ;; (define-key paste-prefix (kbd "b") 'gist-buffer)
+  ;; (define-key paste-prefix (kbd "l") 'gist-list)
+  ;; ;;; --------------------------------------------------
+  )
 
 
 ;;; [ yagist ] -- Yet Another gist
@@ -57,22 +59,23 @@
 ;; - `yagist-minor-mode' :: Automated POST current buffer contents to gist after saving.
 ;; - `yagist-global-minor-mode' :: Open the file that under gist repository automatically activate `yagist-minor-mode'.
 
-(require 'yagist)
+(use-package yagist
+  :ensure t
+  :config
+  ;; *Encrypt your token by using `kaesar' package with AES encryption algorithm.
+  ;; (setq yagist-encrypt-risky-config t)
 
-;; *Encrypt your token by using `kaesar' package with AES encryption algorithm.
-;; (setq yagist-encrypt-risky-config t)
+  (setq yagist-view-gist t ; view gist URL after posted.
+        yagist-working-directory "~/.gist"
+        ;; yagist-working-directory-alist
+        )
 
-(setq yagist-view-gist t ; view gist URL after posted.
-      yagist-working-directory "~/.gist"
-      ;; yagist-working-directory-alist
-      yagist-github-token "03fdc1142f1eaa170ee1508284513c9ce89cadb0"
-      )
-
-(define-key paste-prefix (kbd "p") 'yagist-region-or-buffer)
-(define-key paste-prefix (kbd "P") 'yagist-region-or-buffer-private)
-(define-key paste-prefix (kbd "r") 'yagist-region)
-(define-key paste-prefix (kbd "b") 'yagist-buffer)
-(define-key paste-prefix (kbd "l") 'yagist-list)
+  (define-key paste-prefix (kbd "p") 'yagist-region-or-buffer)
+  (define-key paste-prefix (kbd "P") 'yagist-region-or-buffer-private)
+  (define-key paste-prefix (kbd "r") 'yagist-region)
+  (define-key paste-prefix (kbd "b") 'yagist-buffer)
+  (define-key paste-prefix (kbd "l") 'yagist-list)
+  )
 
 
 

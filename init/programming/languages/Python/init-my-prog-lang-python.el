@@ -10,6 +10,7 @@
 ;;; [ python-mode ] --- Python's flying circus support for Emacs
 
 (use-package python-mode
+  :ensure t
   :config
 
   (setq-default python-indent-offset 2
@@ -37,13 +38,19 @@
 ;;; [ elpy ] -- Emacs Python Development Environment.
 
 (use-package elpy
+  ;; :ensure t
+  ;; :config
+  ;; (setq elpy-rpc-backend 'rope)
   )
 
 
 ;;; [ pydoc ]
 
-;; (with-eval-after-load 'python
-;;   (define-key my-prog-help-document-map (kbd "d") 'pydoc))
+;; (use-package pydoc
+;;   :ensure t
+;;   :config
+;;   (define-key my-prog-help-document-map (kbd "d") 'pydoc)
+;;   )
 
 
 ;;; [ Inferior Python ]
@@ -87,6 +94,7 @@
 ;; 3. [M-x pyenv-mode-unset] :: unset
 
 ;; (use-package pyenv-mode
+;;   :ensure t
 ;;   :config
 ;;   ;; FIXME: this pyven-mode is global. [C-c C-u] [C-c C-s]
 ;;   ;; (add-hook 'python-mode-hook 'pyenv-mode)
@@ -121,7 +129,10 @@
 ;;
 ;;   an indicator for mode-line.
 
-(pyvenv-workon "python3")
+(use-package pyvenv
+  :ensure t
+  :config
+  (pyvenv-workon "python3"))
 
 
 ;;; [ virtualenv ]
@@ -208,6 +219,7 @@
 ;; options.
 
 (use-package anaconda-mode
+  :ensure t
   :config
   
   ;; show object docstring in eldoc.
@@ -235,6 +247,7 @@
 ;;; [ company-anaconda ]
 
 (use-package company-anaconda
+  :ensure t
   :config
   (add-hook 'python-mode-hook
             '(lambda ()

@@ -20,6 +20,7 @@
 ;;; `global-origami-mode' & `origami-mode'
 
 (use-package origami
+  :ensure t
   :config
   (define-key my-outline-prefix (kbd "m") 'origami-mode)
   (define-key my-outline-prefix (kbd "SPC") 'origami-toggle-node)

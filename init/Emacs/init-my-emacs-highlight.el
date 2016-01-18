@@ -26,34 +26,36 @@
 ;; - [M-s h] :: highlight with isearch.
 ;; - `highlight-symbol-query-replace' can be used to replace the symbol.
 
-(require 'highlight-symbol)
+(use-package highlight-symbol
+  :ensure t
+  :config
+  (setq highlight-symbol-idle-delay 3
+        highlight-symbol-border-pattern '("\\_<" . "\\_>")
+        highlight-symbol-colors '("brown" "tomato" "dark green" "dark slate gray"
+                                  "deep pink" "cyan" "yellow"
+                                  )
+        highlight-symbol-foreground-color nil ; nil: keep original color.
+        ;; highlight-symbol-border-pattern '("\\_<" . "\\_>")
+        )
 
-(setq highlight-symbol-idle-delay 3
-      highlight-symbol-border-pattern '("\\_<" . "\\_>")
-      highlight-symbol-colors '("brown" "tomato" "dark green" "dark slate gray"
-                                "deep pink" "cyan" "yellow"
-                                )
-      highlight-symbol-foreground-color nil ; nil: keep original color.
-      ;; highlight-symbol-border-pattern '("\\_<" . "\\_>")
-      )
+  (set-face-attribute 'highlight-symbol-face nil
+                      :background "midnight blue"
+                      :slant 'italic)
 
-(set-face-attribute 'highlight-symbol-face nil
-                    :background "midnight blue"
-                    :slant 'italic)
+  ;; (add-hook 'prog-mode-hook 'highlight-symbol-mode)
 
-;; (add-hook 'prog-mode-hook 'highlight-symbol-mode)
-
-;; setting up keybindings
-(define-key my-highlight-symbol-prefix (kbd "h") 'highlight-symbol-at-point)
-(define-key my-highlight-symbol-prefix (kbd "n") 'highlight-symbol-next)
-(define-key my-highlight-symbol-prefix (kbd "p") 'highlight-symbol-prev)
-(define-key my-highlight-symbol-prefix (kbd "l") 'highlight-symbol-list-all)
-(define-key my-highlight-symbol-prefix (kbd "o") 'highlight-symbol-occur)
-(define-key my-highlight-symbol-prefix (kbd "C") 'highlight-symbol-count)
-(define-key my-highlight-symbol-prefix (kbd "r") 'highlight-symbol-query-replace)
-(define-key my-highlight-symbol-prefix (kbd "U") 'highlight-symbol-remove-all)
-(define-key my-highlight-symbol-prefix (kbd "u") 'highlight-symbol-at-point)
-(define-key my-highlight-symbol-prefix (kbd "m") 'highlight-symbol-nav-mode)
+  ;; setting up keybindings
+  (define-key my-highlight-symbol-prefix (kbd "h") 'highlight-symbol-at-point)
+  (define-key my-highlight-symbol-prefix (kbd "n") 'highlight-symbol-next)
+  (define-key my-highlight-symbol-prefix (kbd "p") 'highlight-symbol-prev)
+  (define-key my-highlight-symbol-prefix (kbd "l") 'highlight-symbol-list-all)
+  (define-key my-highlight-symbol-prefix (kbd "o") 'highlight-symbol-occur)
+  (define-key my-highlight-symbol-prefix (kbd "C") 'highlight-symbol-count)
+  (define-key my-highlight-symbol-prefix (kbd "r") 'highlight-symbol-query-replace)
+  (define-key my-highlight-symbol-prefix (kbd "U") 'highlight-symbol-remove-all)
+  (define-key my-highlight-symbol-prefix (kbd "u") 'highlight-symbol-at-point)
+  (define-key my-highlight-symbol-prefix (kbd "m") 'highlight-symbol-nav-mode)
+  )
 
 
 ;;; [ highlight-thing ] -- global minor mode to highlight the thing under point.
@@ -104,7 +106,7 @@
 
 ;;; [ highlight-escape-sequences ]
 
-;; (require 'highlight-escape-sequences)
+;; (use-package highlight-escape-sequences)
 
 ;; NOTE: add the following line to the theme.
 ;; (put 'font-lock-regexp-grouping-backslash 'face-alias 'font-lock-builtin-face)
@@ -112,7 +114,7 @@
 
 ;;; [ highlight-stages ]
 
-;; (require 'highlight-stages)
+;; (use-package highlight-stages)
 ;;
 ;; (dolist (hook '(lisp-mode-hook
 ;;                 lisp-interaction-mode-hook

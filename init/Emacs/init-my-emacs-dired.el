@@ -90,6 +90,7 @@ URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'"
 ;;; [ Dired+ ]
 
 (use-package dired+
+  :ensure t
   :config
   ;; The effect is that when you hit [RET] (or click the mouse) on a directory in
   ;; Dired, find-alternate-file is used, so the original Dired buffer is replaced
@@ -105,25 +106,27 @@ URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'"
 ;; - [C-c C-j]
 ;; - [TAB], [Enter]
 
-(require 'direx)
+(use-package direx
+  :ensure t
+  :config
+  ;; direx-project -- (bundled with direx.el) -- project tree explorer.
+  (require 'direx-project)
 
-;; direx-project -- (bundled with direx.el) -- project tree explorer.
-(require 'direx-project)
 
+  (defun my-direx:jump-to-directory ()
+    (interactive)
+    (if (projectile-project-root)
+        ;; (direx-project:jump-to-project-root-other-window)
+        (direx-project:jump-to-project-root)
+      (direx:jump-to-directory-other-window)
+      ))
 
-(defun my-direx:jump-to-directory ()
-  (interactive)
-  (if (projectile-project-root)
-      ;; (direx-project:jump-to-project-root-other-window)
-      (direx-project:jump-to-project-root)
-    (direx:jump-to-directory-other-window)
-    ))
+  (global-set-key (kbd "C-c C-j") 'my-direx:jump-to-directory)
 
-(global-set-key (kbd "C-c C-j") 'my-direx:jump-to-directory)
-
-;;; put direx under popwin management.
-;; (push '(direx:direx-mode :position left :width 35 :dedicated t)
-;;       popwin:special-display-config)
+  ;; put direx under popwin management.
+  ;; (push '(direx:direx-mode :position left :width 35 :dedicated t)
+  ;;       popwin:special-display-config)
+  )
 
 
 ;;; [ emacs-dired-k ] -- highlights dired buffer like "k".
@@ -138,19 +141,18 @@ URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'"
 ;;  - Modified time
 ;;  - Git status(if here is in git repository)
 
-(require 'dired-k)
+(use-package dired-k
+  :ensure t
+  :config
+  (setq dired-k-style 'k.zsh) ; nil, 'k.zsh, 'git
+  (setq dired-k-human-readable t)
 
-(setq dired-k-style 'k.zsh) ; nil, 'k.zsh, 'git
-(setq dired-k-human-readable t)
+  (define-key dired-mode-map (kbd "K") 'dired-k)
+  ;; always execute dired-k when dired buffer is opened
+  (add-hook 'dired-initial-position-hook 'dired-k)
 
-(define-key dired-mode-map (kbd "K") 'dired-k)
-;; always execute dired-k when dired buffer is opened
-(add-hook 'dired-initial-position-hook 'dired-k)
-
-;;; for "direx-k"
-(require 'direx-k)
-
-(define-key direx:direx-mode-map (kbd "K") 'direx-k)
+  (define-key direx:direx-mode-map (kbd "K") 'direx-k)
+  )
 
 
 ;;; [ dired-efap ] -- Edit Filename At Point in an Emacs' dired buffer
@@ -160,17 +162,19 @@ URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'"
 ;; - [F2] / double clicking => rename => [RET] :: edit filename.
 ;; - [C-g] :: abort
 
-(require 'dired-efap)
+(use-package dired-efap
+  :ensure t
+  :config
+  (setq dired-efap-use-mouse t)
 
-(setq dired-efap-use-mouse t)
+  ;; (setq dired-efap-initial-filename-selection 'no-extension)
 
-;; (setq dired-efap-initial-filename-selection 'no-extension)
+  (set-face-attribute 'dired-efap-face nil
+                      :box '(:color "orange" :line-width 2))
 
-(set-face-attribute 'dired-efap-face nil
-                    :box '(:color "orange" :line-width 2))
-
-(define-key dired-mode-map [f2] 'dired-efap)
-(define-key dired-mode-map [down-mouse-1] 'dired-efap-click)
+  (define-key dired-mode-map [f2] 'dired-efap)
+  (define-key dired-mode-map [down-mouse-1] 'dired-efap-click)
+  )
 
 
 ;;; [ peep-dired ] -- A convienent way to look up file contents in other window while browsing directory in dired
@@ -180,38 +184,42 @@ URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'"
 ;; - [C-n/p] :: scroll, and auto display file content.
 ;; - [SPC], [C-SPC] / [backspace] :: scroll file content down/up.
 
-(require 'peep-dired)
+(use-package peep-dired
+  :ensure t
+  :config
+  ;; When disabling the mode you can choose to kill the buffers that were opened
+  ;; while browsing the directories.
+  (setq peep-dired-cleanup-on-disable t)
+  ;; Or you can choose to kill the buffer just after you move to another entry in
+  ;; the dired buffer.
+  (setq peep-dired-cleanup-eagerly t)
+  ;; If you want the dired buffers that were peeped to have the mode enabled set
+  ;; it to true.
+  (setq peep-dired-enable-on-directories nil)
 
-;; FIXME: (add-hook 'dired-mode-hook 'peep-dired)
+  ;; Ignoring Certain File Extensions
+  (setq peep-dired-ignored-extensions '("mkv" "iso" "mp4"))
 
-;;; When disabling the mode you can choose to kill the buffers that were opened
-;;; while browsing the directories.
-(setq peep-dired-cleanup-on-disable t)
-;;; Or you can choose to kill the buffer just after you move to another entry in
-;;; the dired buffer.
-(setq peep-dired-cleanup-eagerly t)
-;; If you want the dired buffers that were peeped to have the mode enabled set
-;; it to true.
-(setq peep-dired-enable-on-directories nil)
+  ;; Evil integration
+  ;;
+  ;; Adjust the state name depending on an evil state you open dired in:
+  ;;
+  ;; (evil-define-key 'normal peep-dired-mode-map (kbd "<SPC>") 'peep-dired-scroll-page-down
+  ;;                  (kbd "C-<SPC>") 'peep-dired-scroll-page-up
+  ;;                  (kbd "<backspace>") 'peep-dired-scroll-page-up
+  ;;                  (kbd "j") 'peep-dired-next-file
+  ;;                  (kbd "k") 'peep-dired-prev-file)
+  ;; (add-hook 'peep-dired-hook 'evil-normalize-keymaps)
 
-;;; Evil integration
-;;
-;; Adjust the state name depending on an evil state you open dired in:
-;;
-;; (evil-define-key 'normal peep-dired-mode-map (kbd "<SPC>") 'peep-dired-scroll-page-down
-;;                  (kbd "C-<SPC>") 'peep-dired-scroll-page-up
-;;                  (kbd "<backspace>") 'peep-dired-scroll-page-up
-;;                  (kbd "j") 'peep-dired-next-file
-;;                  (kbd "k") 'peep-dired-prev-file)
-;; (add-hook 'peep-dired-hook 'evil-normalize-keymaps)
-
-;;; Ignoring Certain File Extensions
-(setq peep-dired-ignored-extensions '("mkv" "iso" "mp4"))
+  ;; FIXME:
+  ;; (add-hook 'dired-mode-hook 'peep-dired)
+  )
 
 
 ;;; [ diredful ]
 
 (use-package diredful
+  :ensure t
   :config
   (diredful-mode 1))
 
@@ -232,6 +240,13 @@ URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'"
       (dired (concat "/sudo::" dir)))))
 
 (define-key dired-mode-map "!" 'sudired)
+
+
+;;; [ image in Dired ]
+
+(setq diredp-image-preview-in-tooltip 100)
+
+(add-hook 'dired-mode-hook 'tooltip-mode)
 
 
 

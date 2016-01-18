@@ -33,6 +33,7 @@
 ;;; [ haxor-mode ] -- Major mode for editing Haxor Assembly Files.
 
 (use-package haxor-mode
+  ;; :ensure t
   :defer t
   :mode ("\\.hax\\'" . haxor-mode)
   )

@@ -67,11 +67,11 @@
 
 
 (use-package projectile
+  :ensure t
   :init
   (setq projectile-keymap-prefix (kbd "C-c p"))
-
+  
   :config
-
   ;; Indexing method
   (setq projectile-use-native-indexing t)
   ;; Caching: nil, (* 10 60) [10 minutes],

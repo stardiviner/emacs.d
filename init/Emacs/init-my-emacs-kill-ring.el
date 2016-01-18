@@ -18,6 +18,7 @@
 ;;    `- q    -- quit
 
 (use-package undo-tree
+  :ensure t
   :config
   (setq undo-tree-visualizer-diff t
         undo-tree-visualizer-relative-timestamps t)

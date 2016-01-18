@@ -8,6 +8,9 @@
 
 ;;; Auto-reload external file changes
 
+;; - `recover-file' :: recover file.
+;; - `recover-session' :: 
+
 (global-auto-revert-mode)
 (setq global-auto-revert-non-file-buffers t
       auto-revert-verbose nil)

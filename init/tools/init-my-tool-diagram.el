@@ -10,6 +10,7 @@
 ;;; [ artist-mode ]
 
 ;;; Usage:
+;;
 ;; - [M-x artist-mode RET]
 ;; Note: If using the keyboard to draw, use [C-u RET] to stop drawing.
 ;; - [C-c C-a C-o] :: select operation.
@@ -24,6 +25,7 @@
 ;;; [ picture-mode ]
 
 ;;; Usage:
+;;
 ;; - [M-x picture-mode]
 
 
@@ -33,27 +35,25 @@
 ;;; graphviz-dot-mode
 
 ;;; Usage:
+;;
 ;; - [C-c c] :: compile
 ;; - [C-c p] :: preview graph
 ;; - [M-;] :: toggle comment
 
-;; (unless (package-installed-p 'graphviz-dot-mode)
-;;   (package-install 'graphviz-dot-mode))
-
-;; (load "graphviz-dot-mode.el" nil t t)
-
-;; (add-hook 'find-file-hook (lambda()
-;;                             (if (string= "dot" (file-name-extension
-;;                                                 buffer-file-name))
-;;                                 (progn
-;;                                   (message "Enabling Setings for dot-mode")
-;;                                   (setq fill-column 1000)
-;;                                   (base-auto-pair)
-;;                                   (local-set-key (kbd "<C-f6>") 'compile)
-;;                                   )
-;;                               )))
-
-
+(use-package graphviz-dot-mode
+  ;; :ensure t
+  ;; :config
+  ;; (add-hook 'find-file-hook (lambda()
+  ;;                             (if (string= "dot" (file-name-extension
+  ;;                                                 buffer-file-name))
+  ;;                                 (progn
+  ;;                                   (message "Enabling Setings for dot-mode")
+  ;;                                   (setq fill-column 1000)
+  ;;                                   (base-auto-pair)
+  ;;                                   (local-set-key (kbd "<C-f6>") 'compile)
+  ;;                                   )
+  ;;                               )))
+  )
 
 
 

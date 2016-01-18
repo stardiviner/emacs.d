@@ -45,7 +45,11 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 ;;;_ show-marks
 
-(global-set-key (kbd "C-c `") 'show-marks)
+(use-package show-marks
+  :ensure t
+  :config
+  (global-set-key (kbd "C-c `") 'show-marks)
+  )
 
 
 ;;;_ visual-mark
@@ -64,6 +68,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;;     each non-empty line will be marked, select the highlighted key to move to it.
 
 (use-package ace-jump-mode
+  :ensure t
   :config
   ;; enable a more powerful jump back function from ace jump mode
   (autoload 'ace-jump-mode-pop-mark "ace-jump-mode" "Ace jump back:-)" t)
@@ -92,39 +97,41 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;; seconds specified by ace-isearch-input-idle-delay, ace-jump-mode will be
 ;; invoked. Of course you can customize the above behaviour.
 
-;; (require 'ace-isearch)
-;;
-;; (setq ace-isearch-use-ace-jump t
-;;       ;; ace-isearch-input-idle-delay 0.5
-;;       ;; ace-isearch-input-length 6
-;;       ;; ace-isearch-function-from-isearch 'swoop-from-isearch
-;;       ;; ace-isearch-use-function-from-isearch t
-;;       ;; ace-isearch-set-ace-jump-after-isearch-exit t
-;;       ;; ace-isearch-use-fallback-function 
-;;       )
-;;
-;; ;; (define-key swoop-map (kbd "C-s") 'swoop-action-goto-line-next)
-;; ;; (define-key swoop-map (kbd "C-r") 'swoop-action-goto-line-prev)
-;;
-;; ;; (ace-isearch-mode +1)
-;; (global-ace-isearch-mode +1)
+(use-package ace-isearch
+  :config
+  (setq ace-isearch-use-ace-jump t
+        ;; ace-isearch-input-idle-delay 0.5
+        ;; ace-isearch-input-length 6
+        ;; ace-isearch-function-from-isearch 'swoop-from-isearch
+        ;; ace-isearch-use-function-from-isearch t
+        ;; ace-isearch-set-ace-jump-after-isearch-exit t
+        ;; ace-isearch-use-fallback-function 
+        )
+
+  ;; (define-key swoop-map (kbd "C-s") 'swoop-action-goto-line-next)
+  ;; (define-key swoop-map (kbd "C-r") 'swoop-action-goto-line-prev)
+
+  ;; (ace-isearch-mode +1)
+  (global-ace-isearch-mode +1)
+  )
 
 
 ;;; [ pophint ]
 
-;; (require 'pophint)
-
-;; (define-key global-map (kbd "C-;") 'pophint:do-flexibly)
-;; (define-key global-map (kbd "C-+") 'pophint:do)
-;; (define-key global-map (kbd "M-;") 'pophint:redo)
-;; (define-key global-map (kbd "C-M-;") 'pophint:do-interactively)
+(use-package pophint
+  :config
+  ;; (define-key global-map (kbd "C-;") 'pophint:do-flexibly)
+  ;; (define-key global-map (kbd "C-+") 'pophint:do)
+  ;; (define-key global-map (kbd "M-;") 'pophint:redo)
+  ;; (define-key global-map (kbd "C-M-;") 'pophint:do-interactively)
+  )
 
 
-;; recenter
+;; [ recenter ]
 
-;; (setq recenter-positions '(top middle bottom)) ; default '(middle top bottom)
-;;
-;; (global-set-key (kbd "C-l") 'recenter-top-bottom)
+(setq recenter-positions '(top middle bottom))
+
+(global-set-key (kbd "C-l") 'recenter-top-bottom)
 
 
 (provide 'init-my-emacs-navigation)

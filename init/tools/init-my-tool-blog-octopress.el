@@ -16,6 +16,7 @@
 ;;      in this window.
 
 (use-package octopress
+  ;; :ensure t
   :config
   (setq octopress-blog-root "~/Org/Blog/octopress"
         octopress-posts-directory "_posts"
@@ -69,22 +70,24 @@
 ;; 4. In command line terminal: $ rake preview.
 ;; 5. Check your article in browser.
 
-(require 'org-octopress)
+;; ~/Org/Blog/octopress/
 
-;;; ~/Org/Blog/octopress/
+(use-package org-octopress
+  ;; :ensure t
+  :config
+  (setq org-octopress-directory-top       "~/Org/Blog/octopress/source"
+        org-octopress-directory-posts     "~/Org/Blog/octopress/source/_posts"
+        org-octopress-directory-org-top   "~/Org/Blog/octopress/source"
+        org-octopress-directory-org-posts "~/Org/Blog/octopress/source/blog"
+        org-octopress-setup-file          "~/sys/lib/org-sty/octopress.org"
+        )
 
-(setq org-octopress-directory-top       "~/Org/Blog/octopress/source"
-      org-octopress-directory-posts     "~/Org/Blog/octopress/source/_posts"
-      org-octopress-directory-org-top   "~/Org/Blog/octopress/source"
-      org-octopress-directory-org-posts "~/Org/Blog/octopress/source/blog"
-      org-octopress-setup-file          "~/sys/lib/org-sty/octopress.org"
-      )
-
-;; Octopress Settings:
-;;
-;; In octopress/_config.yml, you must set the permelink attribute:
-;;
-;;     permalink: /blog/:year-:month-:day-:title.html
+  ;; Octopress Settings:
+  ;;
+  ;; In octopress/_config.yml, you must set the permelink attribute:
+  ;;
+  ;;     permalink: /blog/:year-:month-:day-:title.html
+  )
 
 
 

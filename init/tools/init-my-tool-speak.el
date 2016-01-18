@@ -64,10 +64,6 @@
 (define-key speak-map (kbd "i") 'festival-say)
 
 
-
-
-
-
 (provide 'init-my-tool-speak)
 
 ;;; init-my-tool-speak.el ends here

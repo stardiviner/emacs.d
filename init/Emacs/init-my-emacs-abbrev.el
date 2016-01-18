@@ -31,9 +31,8 @@
 ;;; [ dabbrev ]
 ;; Usage:
 ;; - [M-/] -- dabbrev-expand
+
 (require 'dabbrev)
-
-
 
 
 (provide 'init-my-emacs-abbrev)

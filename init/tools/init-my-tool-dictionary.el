@@ -41,18 +41,6 @@
 (define-key dictionary-map (kbd "C-d") 'sdcv-search-input)
 
 
-;;; [ define-word ] --
-
-;;; Usage:
-;;
-;; - from wordnik.com API
-
-;; (require 'define-word)
-;;
-;; (define-key dictionary-map (kbd "p") 'define-word-at-point)
-;; (define-key dictionary-map (kbd "w") 'define-word)
-
-
 ;;; [ babel ] -- An Emacs interface to different translation services available on the Internet.
 
 ;; (autoload 'babel "babel"
@@ -102,8 +90,7 @@
 
 ;;; [ synonymous ] -- a thesaurus client that replace with synonym or antonym.
 
-
-;; (require 'synonymous)
+;; (use-package synonymous)
 
 
 (provide 'init-my-tool-dictionary)

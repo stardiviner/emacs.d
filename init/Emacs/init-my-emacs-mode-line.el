@@ -12,16 +12,19 @@
 ;; - [C-h v minor-mode-alist] for current buffer minor modes list.
 
 ;; load necessary package which will be used later.
-(require 'window-number)
+(use-package window-number
+  :ensure t)
 (require 'vc)
 (require 'vc-git)
-(require 'flycheck)
+(use-package flycheck
+  :ensure t)
 
 ;; nyan-mode
 ;; Nyan Mode is an analog indicator of your position in the buffer. The Cat
 ;; should go from left to right in your mode-line, as you move your point from
 ;; 0% to 100%.
-;; (require 'nyan-mode)
+;; (use-package nyan-mode
+;;   :ensure t)
 ;; (setq nyan-animate-nyancat t
 ;;       nyan-wavy-trail nil
 ;;       nyan-animation-frame-interval 0.2

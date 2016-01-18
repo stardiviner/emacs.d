@@ -26,26 +26,28 @@
 ;; `spray-quit' (q, )
 ;;     quit spray-mode
 
-(require 'spray)
+(use-package spray
+  :ensure t
+  :config
+  (setq spray-wpm 250 ; words per minute
+        spray-height 400 ; Height of characters
+        spray-margin-top 2 ; Character margin at top of buffer. Characters are as big as spray text characters.
+        spray-margin-left 4
+        spray-ramp 2 ; Initial words before ramping up to full speed.
+        spray-save-point t
+        )
 
-(setq spray-wpm 250 ; words per minute
-      spray-height 400 ; Height of characters
-      spray-margin-top 2 ; Character margin at top of buffer. Characters are as big as spray text characters.
-      spray-margin-left 4
-      spray-ramp 2 ; Initial words before ramping up to full speed.
-      spray-save-point t
-      )
-
-(set-face-attribute 'spray-base-face nil
-                    :inherit 'default
-                    :foreground "black"
-                    :background "white"
-                    :family "DejaVu Sans"
-                    )
-(set-face-attribute 'spray-accent-face nil
-                    :inherit 'spray-base-face
-                    :foreground "red"
-                    )
+  (set-face-attribute 'spray-base-face nil
+                      :inherit 'default
+                      :foreground "black"
+                      :background "white"
+                      :family "DejaVu Sans"
+                      )
+  (set-face-attribute 'spray-accent-face nil
+                      :inherit 'spray-base-face
+                      :foreground "red"
+                      )
+  )
 
 
 ;;; [ speedread ] -- Aid to speedreading emacs buffers
@@ -126,17 +128,19 @@
 ;; of reading material will require different speed settings! You can read a
 ;; scifi novel faster than you can read existential philosophy.
 
-;; (require 'speedread)
-
-;; (setq speedread-chars 20 ; Minimum characters per flash group
-;;       speedread-delay-milliseconds 300 ; Milliseconds of delay between flashes
-;;       speedread-end-sentence-delay-milliseconds 500 ; Pause between sentences in milliseconds
-;;       speedread-final-delay-milliseconds 2000 ; Milliseconds to wait before exiting after reaching end of buffer
-;;       speedread-top-window-size 5 ; size of frame to use for displaying the original buffer whilst speedreading.
-;;       speedread-font-size-scale-factor 2.0 ; Scale factor for size of font
-;;       ;; speedread-text-justification = ; Justification of text in speedread buffer. default = (quote center)
-;;       ;; speedread-end-sentence-regexp  ; Regular expression to match with end of sentence words.
-;;       )
+(use-package speedread
+  ;; :ensure t
+  ;; :config
+  ;; (setq speedread-chars 20 ; Minimum characters per flash group
+  ;;       speedread-delay-milliseconds 300 ; Milliseconds of delay between flashes
+  ;;       speedread-end-sentence-delay-milliseconds 500 ; Pause between sentences in milliseconds
+  ;;       speedread-final-delay-milliseconds 2000 ; Milliseconds to wait before exiting after reaching end of buffer
+  ;;       speedread-top-window-size 5 ; size of frame to use for displaying the original buffer whilst speedreading.
+  ;;       speedread-font-size-scale-factor 2.0 ; Scale factor for size of font
+  ;;       ;; speedread-text-justification = ; Justification of text in speedread buffer. default = (quote center)
+  ;;       ;; speedread-end-sentence-regexp  ; Regular expression to match with end of sentence words.
+  ;;       )
+  )
 
 
 

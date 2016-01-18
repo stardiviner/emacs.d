@@ -114,25 +114,6 @@ re-downloaded in order to locate PACKAGE."
 (package-initialize)
 
 
-;;; [ install & load my packages ]
-
-
-(defun my-packages-installed-p ()
-  (loop for p in my-packages
-        when (not (package-installed-p p)) do (return nil)
-        finally (return t)))
-
-(unless (my-packages-installed-p)
-  ;; check for new packages (package versions)
-  (message "%s" "Emacs packages is now refreshing its package database ...")
-  (package-refresh-contents)
-  (message "%s" " done.")
-  ;; install the missing packages
-  (dolist (p my-packages)
-    (when (not (package-installed-p p))
-      (package-install p)))
-  )
-
 
 ;;; [ paradox ]
 

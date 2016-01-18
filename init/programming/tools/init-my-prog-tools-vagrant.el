@@ -10,6 +10,7 @@
 ;;; [ vagrant ] -- Manage a vagrant box from emacs.
 
 (use-package vagrant
+  :ensure t
   :config
   (unless (boundp 'my-vagrant-map)
     (define-prefix-command 'my-vagrant-map))
@@ -66,6 +67,7 @@
 ;;    kafka-broker2:
 
 (use-package vagrant-tramp
+  :ensure t
   )
 
 

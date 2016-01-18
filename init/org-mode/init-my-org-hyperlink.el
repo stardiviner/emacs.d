@@ -241,13 +241,14 @@ This is especially for create Org files."
 
 ;;;_* orgit -- Support for Org links to Magit buffers.
 
-(require 'orgit)
-
-(setq orgit-remote "origin")
-
-;; Default: github, gitlab, bitbucket, orgmode.org, git.kernel.org
-;;
-;; (add-to-list orgit-export-alist ')
+;; (use-package orgit
+;;   :ensure t
+;;   :config
+;;   (setq orgit-remote "origin")
+;;   ;; Default: github, gitlab, bitbucket, orgmode.org, git.kernel.org
+;;   ;;
+;;   ;; (add-to-list orgit-export-alist ')
+;;   )
 
 
 

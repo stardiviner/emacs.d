@@ -44,13 +44,16 @@
 ;;   - [M-x skewer-repl] / [C-c C-z] :: A REPL into the browser.
 ;;     Messages can be logged to this REPL with skewer.log() (like console.log()).
 
-
-;; (skewer-setup)
-;; or
-(add-hook 'js2-mode-hook 'skewer-mode)
-(add-hook 'js3-mode-hook 'skewer-mode)
-(add-hook 'css-mode-hook 'skewer-css-mode)
-(add-hook 'html-mode-hook 'skewer-html-mode)
+(use-package skewer-mode
+  :ensure t
+  :config
+  ;; (skewer-setup)
+  ;; or
+  (add-hook 'js2-mode-hook 'skewer-mode)
+  (add-hook 'js3-mode-hook 'skewer-mode)
+  (add-hook 'css-mode-hook 'skewer-css-mode)
+  (add-hook 'html-mode-hook 'skewer-html-mode)
+  )
 
 
 
@@ -59,6 +62,10 @@
 ;; 1. [M-x livid-mode] on js2-mode.
 ;; 2. make sure simple-httpd server running.
 ;; 3. <script src="http://localhost:8080/skewer"></script>
+
+(use-package livid-mode
+  :ensure t
+  )
 
 
 (provide 'init-my-prog-web-browser)

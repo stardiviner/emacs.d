@@ -17,13 +17,6 @@
 
 (define-key my-search-prefix (kbd "s") 'ag)
 
-
-(unless (boundp 'my-search-language-prefix)
-  (define-prefix-command 'my-search-language-prefix))
-(define-key my-search-prefix (kbd "l") 'my-search-language-prefix)
-
-(require 'init-my-emacs-search-pinyin)
-(require 'init-my-emacs-search-migemo)
 
 
 (provide 'init-my-emacs-search)

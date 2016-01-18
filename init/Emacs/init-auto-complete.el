@@ -56,12 +56,16 @@
 ;;      - [C-M-v] or [C-M-S-v] to scroll
 ;;
 
-(require 'auto-complete)
-(require 'auto-complete-config)
-(require 'popup)
-;; (require 'showtip)
+(use-package auto-complete
+  :ensure t
+  (require 'auto-complete-config)
+  ;; (ac-config-default)
+  )
 
-;; (ac-config-default)
+(use-package popup
+  :ensure t
+  )
+;; (require 'showtip)
 
 ;; require other auto-complete sources
 (require 'ac-capf)
