@@ -98,7 +98,7 @@
          company-capf                   ; `completion-at-point-functions'
          ;; :with
          company-yasnippet
-         company-abbrev company-dabbrev
+         company-abbrev ; company-dabbrev
          )
         ;; company-elisp ; Emacs Lisp
         ;; company-semantic ; C/C++
