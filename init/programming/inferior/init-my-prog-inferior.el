@@ -7,6 +7,14 @@
 
 ;;; Code:
 
+;;; [ comint-mode ]
+
+;; It will always put point back to the statement you entered, right above the
+;; output it created.
+;; (setq comint-output-filter-functions
+;;       (function (lambda (STR) (comint-show-output))))
+
+
 ;;;_ scratch.el -- launch a scratch buffer for the current mode.
 
 (autoload 'scratch "scratch" nil t)
