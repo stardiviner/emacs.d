@@ -42,30 +42,30 @@
                       )
   (set-face-attribute 'ivy-match-required-face nil
                       :inherit 'minibuffer-prompt
-                      :foreground "dark red" :background " "
+                      :foreground "dark red" :background nil
                       :weight 'bold :box nil
                       )
   ;; the string between matches
   (set-face-attribute 'ivy-minibuffer-match-face-1 nil
                       :inherit nil
-                      :foreground " " :background " "
+                      :foreground nil :background nil
                       :weight 'normal :box nil
                       )
   ;; first match part.
   (set-face-attribute 'ivy-minibuffer-match-face-2 nil
                       :inherit 'ivy-minibuffer-match-face-1
-                      :foreground "green"
+                      :foreground "green" :background nil
                       :weight 'normal :box nil
                       )
   ;; second match part.
   (set-face-attribute 'ivy-minibuffer-match-face-3 nil
                       :inherit 'ivy-minibuffer-match-face-1
-                      :foreground "orange"
+                      :foreground "orange" :background nil
                       :weight 'normal :box nil
                       )
   (set-face-attribute 'ivy-minibuffer-match-face-4 nil
                       :inherit 'ivy-minibuffer-match-face-1
-                      :foreground "dodger blue"
+                      :foreground "dodger blue" :background nil
                       :weight 'normal :box nil
                       )
 
