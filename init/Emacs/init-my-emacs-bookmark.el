@@ -27,12 +27,11 @@
 
 (require 'bookmark)
 
+;; load bookmarks from file.
 (with-eval-after-load 'bookmark
-  (unless bookmarks-already-loaded
-    (setq-default bookmark-default-file
-                  (expand-file-name "bookmarks.el" user-emacs-directory))
-    ;; load bookmarks from file.
-    (bookmark-load bookmark-default-file)))
+  (setq-default bookmark-default-file
+                (expand-file-name "bookmarks.el" user-emacs-directory))
+  (bookmark-maybe-load-default-file))
 
 (setq bookmark-save-flag 1
       bookmark-automatically-show-annotations t)
