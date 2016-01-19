@@ -25,52 +25,37 @@
 
 
 ;;; Add support to package.el for pre-filtering available packages
-(defvar package-filter-function nil
-  "Optional predicate function used to internally filter packages used by package.el.
+;; (defvar package-filter-function nil
+;;   "Optional predicate function used to internally filter packages used by package.el.
 
-The function is called with the arguments PACKAGE VERSION ARCHIVE, where
-PACKAGE is a symbol, VERSION is a vector as produced by `version-to-list', and
-ARCHIVE is the string name of the package archive.")
-
-(defadvice package--add-to-archive-contents
-  (around filter-packages (package archive) activate)
-  "Add filtering of available packages using `package-filter-function', if non-nil."
-  (when (or (null package-filter-function)
-	    (funcall package-filter-function
-		     (car package)
-		     (funcall (if (fboundp 'package-desc-version)
-				  'package--ac-desc-version
-				'package-desc-vers)
-			      (cdr package))
-		     archive))
-    ad-do-it))
+;; The function is called with the arguments PACKAGE VERSION ARCHIVE, where
+;; PACKAGE is a symbol, VERSION is a vector as produced by `version-to-list', and
+;; ARCHIVE is the string name of the package archive.")
+;;
+;; (defadvice package--add-to-archive-contents
+;;   (around filter-packages (package archive) activate)
+;;   "Add filtering of available packages using `package-filter-function', if non-nil."
+;;   (when (or (null package-filter-function)
+;; 	    (funcall package-filter-function
+;; 		     (car package)
+;; 		     (funcall (if (fboundp 'package-desc-version)
+;; 				  'package--ac-desc-version
+;; 				'package-desc-vers)
+;; 			      (cdr package))
+;; 		     archive))
+;;     ad-do-it))
 
 
 
 ;; But don't take Melpa versions of certain packages
-(setq package-filter-function
-      (lambda (package version archive)
-        (or (not (string-equal archive "melpa"))
-            (not (memq package '())))))
+;; (setq package-filter-function
+;;       (lambda (package version archive)
+;;         (or (not (string-equal archive "melpa"))
+;;             (not (memq package '())))))
 
 
 
-;;; On-demand installation of packages
-
-(defun require-package (package &optional min-version no-refresh)
-  "Install given PACKAGE, optionally requiring MIN-VERSION.
-If NO-REFRESH is non-nil, the available package lists will not be
-re-downloaded in order to locate PACKAGE."
-  ;; TODO: if package is not in `my-packages' list, then ignore. (message "package is not in `my-packages' list")
-  (if (package-installed-p package min-version)
-      t
-    (if (or (assoc package package-archive-contents) no-refresh)
-        (package-install package)
-      (progn
-        (package-refresh-contents)
-        (require-package package min-version t)))))
-
-
+;;; auto refresh packages list if not exist.
 
 ;; (when (null package-archive-contents)
 ;;   (package-refresh-contents))
