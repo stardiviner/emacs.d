@@ -155,7 +155,7 @@
   (global-set-key [remap find-file] 'counsel-find-file) ; [C-x C-f]
   (global-set-key (kbd "M-t") 'counsel-git) ; [M-t]
   (global-set-key (kbd "C-c v g g") 'counsel-git-grep)
-  (global-set-key [remap ag] 'counsel-ag) ; [C-s s s] [C-s a a]
+  (define-key my-search-prefix (kbd "g") 'counsel-grep)
   (global-set-key [remap grep] 'counsel-grep) ; [C-s g]
   (setq counsel-yank-pop-truncate t)
   (global-set-key [remap yank-pop] 'counsel-yank-pop) ; [M-y]
