@@ -9,29 +9,6 @@
 
 ;;; [ package.el ] -- Emacs Lisp Package Archive (ELPA)
 
-;;; How Packages work in Emacs 24
-;;
-;; Whenever Emacs starts up, it automatically calls the function ‘
-;; package-initialize’ to load installed packages. This is done after loading
-;; the init file and abbrev file (if any) and before running ‘after-init-hook’
-;; (see Startup Summary). Automatic package loading is disabled if the user
-;; option package-enable-at-startup is nil.
-
-;;; Usage:
-;; - [M-x package-list-packages] :: list out packages.
-;; - [M-x package-install RET] :: install package.
-;;
-;; Keep in mind that MELPA packages are built automatically from the master
-;; branch, meaning bugs might creep in there from time to time. Never-the-less,
-;; installing from MELPA is the recommended way of obtaining CIDER, as the
-;; master branch is normally quite stable and "stable" (tagged) builds are
-;; released somewhat infrequently.
-;;
-;; With the most recent builds of Emacs, you can pin CIDER to always use MELPA
-;; Stable (or Marmalade) by adding this to your Emacs initialization:
-;;
-;;   (add-to-list 'package-pinned-packages '(cider . "melpa-stable") t)
-
 (require 'cl)
 
 (require 'package)
