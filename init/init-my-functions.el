@@ -216,6 +216,20 @@ Usage:
 ;;                (error (if noerror nil (error (cadr e)))))
 ;;              (require feature filename noerror)))))
 
+
+;;; [ align ]
+
+(defun align-whitespace (start end)
+  "Align columns by whitespace"
+  (interactive "r")
+  (align-regexp start end
+                "\\(\\s-*\\)\\s-" 1 0 t))
+
+(defun align-& (start end)
+  "Align columns by ampersand"
+  (interactive "r")
+  (align-regexp start end
+                "\\(\\s-*\\)&" 1 1 t))
 
 
 
