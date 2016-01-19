@@ -78,7 +78,7 @@
 (setq org-latex-create-formula-image-program 'dvipng)
 
 ;;; Using CDLaTeX to enter Math
-(add-hook 'org-mode-hook 'turn-on-org-cdlatex)
+;; (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 
 
 ;;; MathJax
