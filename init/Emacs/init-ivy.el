@@ -15,6 +15,7 @@
   (global-set-key (kbd "C-s") 'swiper)
   ;; Ivy-mode
   (setq ivy-use-virtual-buffers t ; treat recentf, bookmarks as virtual buffers.
+        ivy-virtual-abbreviate 'full ; use 'full to fix bookmarks uniquify issue.
         ivy-height 5
         ivy-display-style 'fancy
         ivy-count-format "(%d/%d) "
