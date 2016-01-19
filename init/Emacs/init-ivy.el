@@ -33,6 +33,7 @@
                       :foreground "black" :background "khaki"
                       :weight 'bold)
   (set-face-attribute 'ivy-current-match nil
+                      :inherit nil
                       ;; :foreground "white" :background "#004A5D"
                       ;; :weight 'normal :box nil
                       ;; Sci-Fi style
