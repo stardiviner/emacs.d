@@ -90,16 +90,6 @@ re-downloaded in order to locate PACKAGE."
 (package-initialize)
 
 
-
-;;; [ paradox ]
-
-;;; Usage:
-;;
-;; - [M-x paradox-list-packages]
-
-
-
-
 (provide 'init-my-pm-package)
 
 ;;; init-my-pm-package.el ends here
