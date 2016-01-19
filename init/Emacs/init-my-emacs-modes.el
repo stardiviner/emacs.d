@@ -30,7 +30,7 @@
 ;; 4. apply submode class to all files which matches conditions.
 ;;    (mmm-add-mode-ext-class MODE EXTENSION CLASS)
 
-(use-package mmm-auto
+(use-package mmm-mode
   :ensure t
   :config
   (setq mmm-global-mode 'maybe) ; t, nil, 'maybe (turn itself on in precisely).
