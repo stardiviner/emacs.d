@@ -39,13 +39,6 @@
         slime-fuzzy-completion-in-place t
         slime-enable-evaluate-in-emacs t)
 
-
-  ;; auto start SLIME unless it's already running.
-  (add-hook 'slime-mode-hook
-            (lambda ()
-              (unless (slime-connected-p)
-                (save-excursion (slime)))))
-
   ;; (add-hook 'slime-load-hook
   ;;           #'(lambda ()
   ;;               (define-key slime-prefix-map (kbd "M-h")
@@ -66,8 +59,15 @@
               (notifications-notify :title "SLIME subprocess"
                                     :body "SLIME connected.")))
   
-  ;; enable SLIME in lisp mode.
-  ;; (add-hook 'lisp-mode-hook 'slime-mode)
+  ;; enable SLIME in `lisp-mode'.
+  ;; auto start SLIME unless it's already running.
+  (add-hook 'lisp-mode-hook
+            (lambda ()
+              (unless (slime-connected-p)
+                (save-excursion (slime)))
+              ;; (cond (slime-mode (slime--on))
+              ;;       (t (slime--off)))
+              ))
   )
 
 
