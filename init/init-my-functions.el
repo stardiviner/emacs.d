@@ -6,16 +6,6 @@
 
 ;;; Code:
 
-;;; [ Macros ]
-
-;;; Evaluate elisp after feature has loaded.
-(defmacro after (feature &rest body)
-  "After FEATURE is loaded, evaluate BODY."
-  (declare (indent defun))
-  `(eval-after-load ,feature
-     '(progn ,@body)))
-
-
 ;;; Group hooks into one new hook.
 
 (defmacro hook-modes (modes &rest body)
@@ -226,55 +216,6 @@ Usage:
 ;;                (error (if noerror nil (error (cadr e)))))
 ;;              (require feature filename noerror)))))
 
-
-;;; notify (notify-send, )
-
-(defun my-func-notify-send (title msg &optional icon sound)
-  "Show a popup if we're on X, or echo it otherwise;
-
-  TITLE is the title of the message, MSG is the context, ICON is
-  the icon for notify-send, SOUND is the audio file.  Optionally,
-  you can provide an ICON and a sound to be played."
-  (interactive)
-  (when sound (shell-command
-               (concat "mplayer -really-quiet " sound " 2> /dev/null")))
-  (if (eq window-system 'x)
-      (shell-command (concat "notify-send "
-                             (if icon (concat "-i " icon) "")
-                             " '" title "' '" msg "'"))
-    ;; text only version
-    (message (concat title ": " msg))))
-
-;;; e.g.
-;; (my-func-notify-send "Warning" "the end is near" "/usr/share/icons/test.png" "/usr/share/sounds/beep.ogg")
-
-
-
-(defun ac-source-remove (source-removed-list)
-  "remove some ac-source from ac-sources.
-Example:
-(add-hook 'emacs-lisp-mode-hook
-          (lambda ()
-            (ac-source-remove '(ac-source-capf ac-source-symbols))))
-"
-  ;; use `remq' in a loop. instead of `delq' which will remove element in global default `ac-sources' too.
-  (interactive)
-  ;; (mapc (lambda (x) (setq-local ac-sources (remq x ac-sources)))
-  ;;       '(ac-source-capf ac-source-symbols))
-  (mapc (lambda (x) (setq-local ac-sources (remq x ac-sources)))
-        source-removed-list)
-  )
-
-
-;;; el-get
-
-(defun my-el-get-require (package)
-  "Require `PACKAGE' if it is installed, if not installed, then el-get install it."
-  (interactive)
-  (if (el-get-package-installed-p package)
-      (require package)
-    (el-get-install package))
-  )
 
 
 
