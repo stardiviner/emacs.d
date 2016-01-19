@@ -28,7 +28,8 @@
 (setq-default bookmark-default-file
 	      (expand-file-name "bookmarks.el" user-emacs-directory))
 
-(setq bookmark-save-flag 1)
+(setq bookmark-save-flag 1
+      bookmark-automatically-show-annotations t)
 
 (unless (boundp 'my-bookmark-map)
   (define-prefix-command 'my-bookmark-map))
