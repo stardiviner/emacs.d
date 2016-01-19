@@ -34,6 +34,45 @@
       )
 
 
+;; Whenever I make a typo:
+;;
+;; 1. Hit =[C-x C-i]=, instead of erasing the mistake;
+;; 2. Select the appropriate correction (thanks to *Ispell*);
+;; 3. Sleep easier at night knowing I'll never see that mistake again (thanks to
+;; *abbrev*).
+;;
+;; The command now searches backward for the closest wrong word. So you can just
+;; hit [C-x C-i] even if the mistake happened several words ago.
+
+(define-key ctl-x-map "\C-i"
+  #'my/ispell-word-then-abbrev)
+
+(defun my/ispell-word-then-abbrev (p)
+  "Call `ispell-word', then create an abbrev for it.
+With prefix P, create local abbrev. Otherwise it will
+be global."
+  (interactive "P")
+  (let (bef aft)
+    (save-excursion
+      (while (and (setq bef (thing-at-point 'word))
+                  (not (ispell-word nil 'quiet))
+                  (not (bobp)))
+        (backward-word))
+      (setq aft (thing-at-point 'word)))
+    (if (and aft bef (not (equal aft bef)))
+        (let ((aft (downcase aft))
+              (bef (downcase bef)))
+          (define-abbrev
+            (if p local-abbrev-table global-abbrev-table)
+            bef aft)
+          (message "\"%s\" now expands to \"%s\" %sally"
+                   bef aft (if p "loc" "glob")))
+      (user-error "No typo at or before point"))))
+
+(setq save-abbrevs 'silently)
+(setq-default abbrev-mode t)
+
+
 ;;; [ Flyspell ]
 
 ;;; Usage:
