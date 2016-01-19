@@ -50,6 +50,9 @@
         ("\\.ods'" . "libreoffice %s") ; Spreadsheet
         ("\\.odp'" . "libreoffice %s") ; Presentation
         ("\\.odf'" . "libreoffice %s") ; Database / Formula
+        ;; Video
+        ;; ("\\mp4'" . "mpv %s")
+        ;; ("\\mov'" . "mpv %s")
         ))
 
 ;; System wise: xdg-open, kde-open, gnome-open.
