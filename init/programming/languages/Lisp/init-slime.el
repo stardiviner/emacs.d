@@ -20,9 +20,6 @@
     ;; default to SBCL on Linux and Windows
     (setq slime-default-lisp 'sbcl))
 
-  ;; (require 'slime-autoloads)
-  ;; (require 'slime)
-  
   (add-to-list 'slime-contribs 'slime-fancy)
 
   ;; a list of alternative Common Lisp implementations that can be
@@ -37,14 +34,6 @@
           (cmucl ("cmucl" "-quiet"))
           (sbcl ("sbcl" "--noinform") :coding-system utf-8-unix)))
   
-  ;; NOTE: currently using slime from el-get installation.
-  ;; (require 'slime-autoloads)
-  ;; -----------------------------------
-  ;; Quicklisp SLIME
-  ;; (load (expand-file-name "~/quicklisp/slime-helper.el"))
-  ;; (require 'slime)
-  ;; -----------------------------------
-
   (setq slime-completion-at-point-functions '(slime-filename-completion
                                               slime-simple-completion-at-point)
         slime-fuzzy-completion-in-place t
@@ -77,9 +66,6 @@
               (notifications-notify :title "SLIME subprocess"
                                     :body "SLIME connected.")))
   
-  ;; load quicklisp installed SLIME.
-  ;; (ql:quickload "quicklisp-slime-helper")
-
   ;; enable SLIME in lisp mode.
   ;; (add-hook 'lisp-mode-hook 'slime-mode)
   )
