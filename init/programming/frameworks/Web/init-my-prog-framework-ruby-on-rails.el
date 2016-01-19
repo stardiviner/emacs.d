@@ -21,6 +21,7 @@
 ;; (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . rhtml-mode))
 
 (use-package rhtml-mode
+  :ensure t
   :config
   (set-face-attribute 'erb-face nil ; ruby code
                       :background (color-darken-name (face-background 'default) 2)
