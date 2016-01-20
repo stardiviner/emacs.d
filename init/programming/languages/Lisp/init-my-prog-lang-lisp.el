@@ -6,6 +6,25 @@
 
 ;;; [ Lisp ]
 
+(defvar lisp-dialects-mode
+  '(emacs-lisp-mode
+    inferior-emacs-lisp-mode
+    ielm-mode
+    lisp-mode
+    lisp-interaction-mode
+    ;; common-lisp-lisp-mode(-hook)
+    inferior-emacs-lisp-mode
+    ;; geiser
+    sly-mrepl-mode
+    scheme-mode
+    clojure-mode
+    inferior-clojure-mode
+    inf-clojure-mode
+    ;; cider-mode
+    cider-repl-mode
+    cider-interaction-mode
+    ))
+
 ;;; Common Settings for All Lisp dialects
 (hook-modes lisp-dialects-mode
   (rainbow-delimiters-mode-enable)

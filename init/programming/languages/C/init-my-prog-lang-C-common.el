@@ -24,6 +24,12 @@
 ;; Hook called by all CC Mode modes for common initializations.
 ;; (add-hook 'c-mode-common-hook)
 
+(defvar c-dialects-mode
+  '(c-mode
+    c++-mode
+    objc-mode
+    ))
+
 
 ;; [ C-mode ]
 

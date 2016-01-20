@@ -66,39 +66,6 @@
                    (run-hooks 'prog-mode-hook))))
 
 
-
-(defvar lisp-dialects-mode
-  '(emacs-lisp-mode
-    inferior-emacs-lisp-mode
-    ielm-mode
-    lisp-mode
-    lisp-interaction-mode
-    ;; common-lisp-lisp-mode(-hook)
-    inferior-emacs-lisp-mode
-    ;; geiser
-    sly-mrepl-mode
-    scheme-mode
-    clojure-mode
-    inferior-clojure-mode
-    inf-clojure-mode
-    ;; cider-mode
-    cider-repl-mode
-    cider-interaction-mode
-    ))
-
-(defvar c-dialects-mode
-  '(c-mode
-    c++-mode
-    objc-mode
-    ))
-
-(defvar css-dialects-mode
-  '(css-mode
-    sass-mode
-    scss-mode
-    less-css-mode))
-
-
 ;;; [ Multiple Inferior buffers ] -- [C-c i] / [C-RET]
 
 ;;; Shell

@@ -7,6 +7,13 @@
 
 ;;; Code:
 
+
+(defvar css-dialects-mode
+  '(css-mode
+    sass-mode
+    scss-mode
+    less-css-mode))
+
 (hook-modes css-dialects-mode
   (css-eldoc-enable)
   (rainbow-mode 1)
