@@ -14,6 +14,8 @@
 ;; load necessary package which will be used later.
 (use-package window-number
   :ensure t)
+(use-package projectile
+  :ensure t)
 (require 'vc)
 (require 'vc-git)
 (use-package flycheck
