@@ -75,6 +75,9 @@
 ;; (require 'init-ido)
 (require 'init-ivy)
 
+;; patch for `helm-dash'.
+(require 'init-helm-simple-config)
+
 
 
 (provide 'init-my-emacs-completion)
