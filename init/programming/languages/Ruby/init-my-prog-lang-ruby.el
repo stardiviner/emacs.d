@@ -320,9 +320,12 @@
     (unless robe-running
       (robe-start)))
 
-  (defadvice inf-ruby (after inf-ruby activate)
+  (defadvice inf-ruby-console-auto (after inf-ruby-console-auto activate)
     "Run `robe-start' after `inf-ruby' started."
     (my-robe-start))
+
+  (define-key ruby-mode-map [remap inf-ruby] 'inf-ruby-console-auto)
+  (define-key enh-ruby-mode-map [remap inf-ruby] 'inf-ruby-console-auto)
   
   (define-key my-prog-inferior-map (kbd "r a") 'inf-ruby-console-auto)
   )
