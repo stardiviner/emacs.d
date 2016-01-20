@@ -97,10 +97,6 @@
 
   ;; NOTE: this cause helm-dash open menu candidate error.
   ;; (define-key helm-map (kbd "<return>") 'helm-confirm-and-exit-minibuffer)
-
-  (define-key helm-grep-mode-map (kbd "<return>")  'helm-grep-mode-jump-other-window)
-  (define-key helm-grep-mode-map (kbd "n")  'helm-grep-mode-jump-other-window-forward)
-  (define-key helm-grep-mode-map (kbd "p")  'helm-grep-mode-jump-other-window-backward)
   )
 
 
