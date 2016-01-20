@@ -331,6 +331,9 @@
           ad-do-it)
       ad-do-it))
 
+  ;; close element
+  (define-key web-mode-map (kbd "C-c /") 'web-mode-element-close)
+  
   ;; open a new line upper between tag.
   (define-key web-mode-map (kbd "C-o")
     '(lambda ()
