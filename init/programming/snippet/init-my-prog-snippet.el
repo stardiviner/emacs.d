@@ -133,6 +133,15 @@ NO-TEMPLATE is non-nil."
   )
 
 
+;;; [ auto-yasnippet ] -- quickly create disposable yasnippets.
+
+(use-package auto-yasnippet
+  :ensure t
+  :config
+  (setq aya-persist-snippets-dir "~/.emacs.d/snippets"
+        aya-create-with-newline t)
+  )
+
 
 
 ;; It will test whether it can expand, if yes, cursor color -> green.
