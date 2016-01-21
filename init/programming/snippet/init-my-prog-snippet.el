@@ -87,11 +87,16 @@ $0"
                       )
 
   ;;; use different way to notify user the snippet exited.
+  ;; (add-hook 'yas-after-exit-snippet-hook
+  ;;           (lambda ()
+  ;;             (popup-tip "snippet exited")
+  ;;             ))
+
   (add-hook 'yas-after-exit-snippet-hook
             (lambda ()
-              (popup-tip "snippet exited")
+              (message "snippet exited")
               ))
-
+  
   ;; create new snippet with region
   (defvar yas-original-buffer nil)
 
