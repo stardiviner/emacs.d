@@ -25,6 +25,21 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 
+;;; helper keybindings
+
+;; [C-o] to open a new line upper between {}.
+(defun my/open-new-line-upper ()
+  "[C-o] to open a new line upper."
+  (interactive)
+  (previous-line)
+  (end-of-line)
+  (newline-and-indent))
+
+(define-key js-mode-map  (kbd "C-o") 'my/open-new-line-upper)
+(define-key js2-mode-map (kbd "C-o") 'my/open-new-line-upper)
+(define-key js3-mode-map (kbd "C-o") 'my/open-new-line-upper)
+
+
 ;;; [ javascript-mode (js-mode) ]
 
 ;; - `js-load-file' :: [C-c C-l] load source code for completion.
