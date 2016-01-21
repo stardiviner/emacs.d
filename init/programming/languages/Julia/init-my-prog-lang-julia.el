@@ -71,7 +71,7 @@
   ;; default add-hook to `completion-at-point-functions'.
   ;; remove `company-ess-julia-objects' from `ess-julia-mode-hook'.
   (make-local-variable 'company-backends)
-  ;; (setq company-backends (copy-tree company-backends))
+  (setq company-backends (copy-tree company-backends))
   (setq company-backends
         (remove-if (lambda (b)
                      (find b '(company-ess-julia-objects)))
