@@ -77,7 +77,7 @@
          '("\\.chm" "kchmviewer" (file))
          (list (openwith-make-extension-regexp
                 '("pdf" "ps" "ps.gz" "dvi"))
-               "zathura"
+               "okular"
                '(file))
          ))
 

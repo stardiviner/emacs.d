@@ -44,10 +44,9 @@
 
 (use-package pdf-tools
   :ensure t
-  :config
-  
+  :init
   (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
-
+  :config
   (add-hook 'pdf-tools-enabled-hook
             '(lambda ()
                ;; Recolor
