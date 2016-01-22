@@ -2,7 +2,6 @@
 # name: function
 # key: func
 # --
-function(${1:arguments}){
-    ${2}
+function ${1:name}(${2:arguments}){
+    $0
 };
-$0

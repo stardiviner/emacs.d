@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: babel-javascript
+# key: babel-javascript
+# group: babel.javascript
+# --
+#+BEGIN_SRC javascript
+$0
+#+END_SRC
