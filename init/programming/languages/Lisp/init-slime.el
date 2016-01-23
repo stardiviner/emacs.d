@@ -58,7 +58,10 @@
             (lambda ()
               (notifications-notify :title "SLIME subprocess"
                                     :body "SLIME connected.")))
-  
+
+  ;; disable slime in `lisp-mode-hook'. except other derived modes.
+  (remove-hook 'lisp-mode-hook 'slime-lisp-mode-hook)
+
   ;; enable SLIME in `lisp-mode'.
   ;; auto start SLIME unless it's already running.
   (defun my-slime-connect ()
