@@ -61,13 +61,17 @@
   
   ;; enable SLIME in `lisp-mode'.
   ;; auto start SLIME unless it's already running.
-  (add-hook 'lisp-mode-hook
-            (lambda ()
-              (unless (slime-connected-p)
-                (save-excursion (slime)))
-              ;; (cond (slime-mode (slime--on))
-              ;;       (t (slime--off)))
-              ))
+  (defun my-slime-connect ()
+    ;; only start SLIME on lisp-mode. (except other lisp dialects: `sibilant-mode' etc)
+    (if (equal major-mode 'lisp-mode)
+        (unless (slime-connected-p)
+          (save-excursion (slime)))
+      ;; (cond (slime-mode (slime--on))
+      ;;       (t (slime--off)))
+      )
+    )
+  
+  (add-hook 'lisp-mode-hook 'my-slime-connect)
   )
 
 
