@@ -89,6 +89,12 @@
                 )))
   )
 
+
+;;; [ sly-macrostep ] -- Expand CL macros inside source files
+
+(use-package sly-macrostep
+  :ensure t
+  )
 
 
 (provide 'init-sly)
