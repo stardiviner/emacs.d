@@ -159,6 +159,14 @@
   )
 
 
+;;; [ ace-link ] -- easier link selection
+
+;; (use-package ace-link
+;;   :ensure t
+;;   :config
+;;   (ace-link-setup-default))
+
+
 (provide 'init-my-tool-browser)
 
 ;;; init-my-tool-browser.el ends here
