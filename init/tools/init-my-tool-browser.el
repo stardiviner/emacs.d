@@ -20,11 +20,11 @@
 ;; - 'browse-url-default-browser
 
 ;; system default browser
-;; (setq browse-url-browser-function 'browse-url-default-browser)
+(setq browse-url-browser-function 'browse-url-default-browser)
 
 ;; specify not exist function browser as default web browser.
-(setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "conkeror")
+;; (setq browse-url-browser-function 'browse-url-generic
+;;       browse-url-generic-program "conkeror")
 
 
 ;;; [ EWW ] -- The Emacs Web Wowser
@@ -33,7 +33,7 @@
   :ensure t
   :config
   ;; set to "internal" Emacs Web Wowser
-  (setq browse-url-browser-function 'eww-browse-url)
+  ;; (setq browse-url-browser-function 'eww-browse-url)
 
   (setq eww-bookmarks-directory "~/.emacs.d/eww/bookmarks/"
         eww-download-directory "~/Downloads/"
