@@ -29,32 +29,32 @@
 
 ;;; [ EWW ] -- The Emacs Web Wowser
 
-;;; Usage:
-;;
-;; - [M-x eww RET URL] ::
+(use-package eww
+  :ensure t
+  :config
+  ;; set to "internal" Emacs Web Wowser
+  (setq browse-url-browser-function 'eww-browse-url)
 
-;;; set to "internal" Emacs Web Wowser
-;; (setq browse-url-browser-function 'eww-browse-url)
+  (setq eww-bookmarks-directory "~/.emacs.d/eww/bookmarks/"
+        eww-download-directory "~/Downloads/"
+        eww-form-checkbox-symbol "[ ]"
+        eww-form-checkbox-selected-symbol "[X]"
+        eww-header-line-format "%t: %u"   ; title: url.
+        ;; - DuckDuckGo :: "https://duckduckgo.com/html/?q="
+        ;; - Google :: "http://www.google.com/search?q=%s"
+        ;; - Bing :: "http://bing.com/search?q="
+        ;; search engine
+        eww-search-prefix "https://www.google.com/search?q=%s"
+        ;; eww-use-external-browser-for-content-type "\\`\\(video/\\|audio/\\|application/ogg\\)"
+        )
 
-(setq eww-bookmarks-directory "~/.emacs.d/eww/bookmarks/"
-      eww-download-directory "~/Downloads/"
-      eww-form-checkbox-symbol "[ ]"
-      eww-form-checkbox-selected-symbol "[X]"
-      eww-header-line-format "%t: %u"   ; title: url.
-      ;; - DuckDuckGo :: "https://duckduckgo.com/html/?q="
-      ;; - Google :: "http://www.google.com/search?q=%s"
-      ;; - Bing :: "http://bing.com/search?q="
-      ;; search engine
-      eww-search-prefix "https://www.google.com/search?q=%s"
-      ;; eww-use-external-browser-for-content-type "\\`\\(video/\\|audio/\\|application/ogg\\)"
-      )
-
-(with-eval-after-load "eww"
+  ;; faces
   (set-face-attribute 'eww-form-checkbox nil
                       :box '(:color "cyan" :line-width 2 :style 'released-button)
                       :foreground "gray" :background "black"
                       )
-  
+
+  ;; keybindings
   (define-key eww-mode-map (kbd "o") 'eww) ; prompt for a URL.
   
   (define-key eww-mode-map (kbd "f") 'eww-follow-link)
@@ -100,10 +100,6 @@
 
 
 ;;; [ w3m ]
-
-;;; Usage:
-;;
-;; - [M-x w3m]
 
 (use-package w3m
   :commands w3m-goto-url w3m-search
