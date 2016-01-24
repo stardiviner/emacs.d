@@ -26,6 +26,26 @@
 ;; (setq browse-url-browser-function 'browse-url-generic
 ;;       browse-url-generic-program "conkeror")
 
+
+;;; custom browser in specific case
+(cl-defun my-generic-browser (url cmd-name &rest args)
+  "Browse URL with NAME browser."
+  (let ((proc (concat cmd-name " " url)))
+    (message "Starting %s..." cmd-name)
+    (apply 'start-process proc nil cmd-name
+           (append args (list url)))
+    (set-process-sentinel
+     (get-process proc)
+     (lambda (process event)
+       (when (string= event "finished\n")
+         (message "%s process %s" process event))))))
+
+(defun browse-url-conkeror (url &optional _ignore)
+  "Browse URL with conkeror browser."
+  (interactive "sURL: ")
+  (my-generic-browser url "conkeror")
+  )
+
 
 ;;; [ EWW ] -- The Emacs Web Wowser
 
