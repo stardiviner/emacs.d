@@ -7,6 +7,13 @@
 
 ;;; Code:
 
+;;; global keybindings
+
+(unless (boundp 'browser-prefix)
+  (define-prefix-command 'browser-prefix))
+(define-key my-tools-prefix (kbd "b") 'browser-prefix)
+
+
 ;;; default browser function
 
 ;; - 'browse-url
@@ -75,9 +82,21 @@
   (define-key eww-mode-map (kbd "R") 'eww-readable)
   
   (define-key eww-mode-map (kbd "<enter>") 'eww-submit)
-  )
 
-(define-key my-tools-prefix (kbd "v") 'eww)
+  ;; custom helper functions
+  (defun eww-search (term)
+    (interactive "sSearch terms: ")
+    (eww-browse-url (concat "http://www.google.com/search?gbv=1&source=hp&hl=en&ie=ISO-8859-1&btnG=Google+Search&q=" term)))
+
+  (defun eww-wiki (text)
+    "Function used to search wikipedia for the given text."
+    (interactive (list (read-string "Wiki for: ")))
+    (eww (format "https://en.m.wikipedia.org/wiki/Special:Search?search=%s"
+                 (url-encode-url text))))
+
+  (define-key eww-mode-map (kbd "s") 'eww-search)
+  (define-key eww-mode-map (kbd "w") 'eww-wiki)
+  )
 
 
 ;;; [ w3m ]
@@ -100,18 +119,36 @@
 
   (define-key w3m-mode-map (kbd "RET") 'w3m-view-this-url)
   (define-key w3m-mode-map (kbd "q") 'bury-buffer)
-  (define-key w3m-mode-map (kbd "<mouse-1>") 'w3m-maybe-url)
   (define-key w3m-mode-map [f5] 'w3m-reload-this-page)
   (define-key w3m-mode-map (kbd "C-c C-d") 'haskell-w3m-open-haddock)
   (define-key w3m-mode-map (kbd "M-<left>") 'w3m-view-previous-page)
   (define-key w3m-mode-map (kbd "M-<right>") 'w3m-view-next-page)
   (define-key w3m-mode-map (kbd "M-.") 'w3m-haddock-find-tag)
 
+  (define-key w3m-mode-map (kbd "<mouse-1>") 'w3m-maybe-url)
+  
   (defun w3m-maybe-url ()
     (interactive)
     (if (or (equal '(w3m-anchor) (get-text-property (point) 'face))
             (equal '(w3m-arrived-anchor) (get-text-property (point) 'face)))
         (w3m-view-this-url)))
+  )
+
+
+;;; global keybindings
+
+(if (featurep 'eww)
+    (progn
+      (define-key browser-prefix (kbd "o") 'eww)
+      (define-key browser-prefix (kbd "w") 'eww-wiki)
+      (define-key browser-prefix (kbd "s") 'eww-search)
+      (define-key browser-prefix (kbd "f") 'eww-follow-link)
+      )    
+  (progn
+    (define-key browser-prefix (kbd "f") 'browse-url-at-point)
+    (define-key browser-prefix (kbd "l") 'w3m-goto-url)
+    (define-key browser-prefix (kbd "f") 'w3m-search)
+    )
   )
 
 
