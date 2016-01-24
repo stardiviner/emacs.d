@@ -106,14 +106,21 @@
 ;; - [M-x w3m]
 
 (use-package w3m
+  :commands w3m-goto-url w3m-search
   :config
+  ;; (setq browse-url-browser-function 'w3m-browse-url)
+  
   (setq w3m-coding-system 'utf-8
         w3m-file-coding-system 'utf-8
         w3m-file-name-coding-system 'utf-8
         w3m-input-coding-system 'utf-8
         w3m-output-coding-system 'utf-8
         w3m-terminal-coding-system 'utf-8)
+  
+  (setq w3m-use-cookies t)
 
+  (define-key w3m-mode-map (kbd "&") 'w3m-view-url-with-external-browser)
+  
   ;; setup keybindings
   (setq w3m-mode-map (make-sparse-keymap))
 
