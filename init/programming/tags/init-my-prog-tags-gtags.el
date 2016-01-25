@@ -69,10 +69,11 @@
 (use-package ggtags
   :ensure t
   :config
-  (hook-modes c-dialects-mode
-    (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-      (and (featurep 'ggtags-mode) (ggtags-mode 1)))
-    )
+  (with-eval-after-load 'init-my-prog-lang-C-common
+    (hook-modes c-dialects-mode
+      (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+        (ggtags-mode 1))
+      ))
   )
 
 
