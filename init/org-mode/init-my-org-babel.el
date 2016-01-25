@@ -143,6 +143,8 @@
 
 (add-to-list 'org-src-lang-modes (cons "SQL" 'sql))
 
+(add-to-list 'org-src-lang-modes '("js" . js2))
+
 ;; open ruby source block with `enh-ruby-mode' major-mode.
 ;; FIXME: this caused org babel block syntax highlighting failed.
 ;; (add-to-list 'org-src-lang-modes '("ruby" . enh-ruby))
