@@ -390,7 +390,7 @@
         (:column . t)
         (:nullvalue . "Null")))
 
-
+
 ;;;_ * Library of Babel
 
 ;;; Usage:
@@ -444,29 +444,6 @@
 
 
 ;;; Templates -- (org skeleton/template)
-
-;; <s, <e, <q, ...
-
-;;; append templates into this list variable.
-;;
-;; default structure easy template alist
-;;
-;; (setq org-structure-template-alist
-;;       '(("s" "#+BEGIN_SRC ?\n\n#+END_SRC")
-;;         ("e" "#+BEGIN_EXAMPLE\n?\n#+END_EXAMPLE")
-;;         ("q" "#+BEGIN_QUOTE\n?\n#+END_QUOTE")
-;;         ("v" "#+BEGIN_VERSE\n?\n#+END_VERSE")
-;;         ("V" "#+BEGIN_VERBATIM\n?\n#+END_VERBATIM")
-;;         ("c" "#+BEGIN_CENTER\n?\n#+END_CENTER")
-;;         ("l" "#+BEGIN_LaTeX\n?\n#+END_LaTeX")
-;;         ("L" "#+LaTeX: ")
-;;         ("h" "#+BEGIN_HTML\n?\n#+END_HTML")
-;;         ("H" "#+HTML: ")
-;;         ("a" "#+BEGIN_ASCII\n?\n#+END_ASCII")
-;;         ("A" "#+ASCII: ")
-;;         ("i" "#+INDEX: ?")
-;;         ("I" "#+INCLUDE: %file ?")))
-
 
 
 
