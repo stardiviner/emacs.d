@@ -2,4 +2,4 @@
 # name: anonymous function
 # key: f
 # --
-function(${1:i}) { $0 }
+function(${1:}) { $0 }

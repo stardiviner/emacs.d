@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: for loop
+# key: for
+# --
+for (var i = 0; i < ${1:max}; i++) {
+$0
+};

@@ -1,0 +1,10 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: jquery-plugin-template
+# key: jquery-plugin-template
+# group: jQuery.template
+# --
+(function($) {
+  $.fn.extend({
+    ${1:action}: function() { $0 }
+  });
+})(jQuery);
