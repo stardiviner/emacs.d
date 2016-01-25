@@ -131,6 +131,10 @@
   ;; (add-to-list 'org-property-set-functions-alist
   ;;              '(".*" . org-completing-read))
 
+  (setq org-contacts-matcher
+        "NAME<>\"\"|EMAIL<>\"\"|Mailing-List<>\"\"|ALIAS<>\"\"|RELATIONSHIP<>\"\"|PHONE<>\"\"|ADDRESS<>\"\"|BIRTHDAY<>\"\"|PROGRAMMING-SKILLS<>\"\"|SKILLS<>\"\"|EDUCATION<>\"\"|JOBS<>\"\"|NOTE"
+        )
+  
   ;; Create agenda view for contacts matching NAME.
   ;; (define-key my-org-prefix (kbd "b") 'org-contacts)
 
