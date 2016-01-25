@@ -24,6 +24,8 @@
 ;; ;; Jump to next/previous hunk
 ;; (define-key my-prog-vcs-map (kbd "m n") 'git-gutter:next-hunk)
 ;; (define-key my-prog-vcs-map (kbd "m p") 'git-gutter:previous-hunk)
+;; ;; Mark current hunk
+;; (define-key my-prog-vcs-map (kbd "m SPC") 'git-gutter:mark-hunk)
 ;; ;; Stage current hunk
 ;; (define-key my-prog-vcs-map (kbd "m s") 'git-gutter:stage-hunk)
 ;; ;; show diff of current hunk
