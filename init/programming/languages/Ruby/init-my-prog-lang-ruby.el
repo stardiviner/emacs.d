@@ -176,12 +176,14 @@
 
 ;;; [ ruby-electric ]
 
-(use-package ruby-electric
-  :ensure t
-  :config
-  (add-hook 'ruby-mode-hook 'ruby-electric-mode)
-  (add-hook 'enh-ruby-mode-hook 'ruby-electric-mode)
-  )
+;;; disable this, to fix conflict with other electric functions.
+;; (use-package ruby-electric
+;;   :ensure t
+;;   :config
+;;   (setq ruby-electric-autoindent-on-closing-char t)
+;;   (add-hook 'ruby-mode-hook 'ruby-electric-mode)
+;;   (add-hook 'enh-ruby-mode-hook 'ruby-electric-mode)
+;;   )
 
 
 ;;; [ ruby-end ]
