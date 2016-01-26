@@ -326,12 +326,15 @@
     "Run `robe-start' after `inf-ruby-console-auto' started."
     (my-robe-start))
 
+  (with-eval-after-load 'projectile-rails
+    (define-key projectile-rails-mode-map
+      [remap inf-ruby] 'inf-ruby-console-auto))
+
   (defadvice inf-ruby (after inf-ruby activate)
     "Run `robe-start' after `inf-ruby' started."
     (my-robe-start))
 
-  (define-key ruby-mode-map [remap inf-ruby] 'inf-ruby-console-auto)
-  (define-key enh-ruby-mode-map [remap inf-ruby] 'inf-ruby-console-auto)
+  ;; (define-key enh-ruby-mode-map (kbd "C-c C-s") 'inf-ruby)
   
   (define-key my-prog-inferior-map (kbd "r a") 'inf-ruby-console-auto)
   )
