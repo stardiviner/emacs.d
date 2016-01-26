@@ -323,6 +323,10 @@
       (robe-start)))
 
   (defadvice inf-ruby-console-auto (after inf-ruby-console-auto activate)
+    "Run `robe-start' after `inf-ruby-console-auto' started."
+    (my-robe-start))
+
+  (defadvice inf-ruby (after inf-ruby activate)
     "Run `robe-start' after `inf-ruby' started."
     (my-robe-start))
 
