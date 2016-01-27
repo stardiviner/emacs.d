@@ -54,7 +54,24 @@
   (define-prefix-command 'my-calculator-map))
 (define-key my-tools-prefix (kbd "x") 'my-calculator-map)
 
-(define-key my-calculator-map (kbd "x") 'quick-calc) ; 'calc-keypad
+(define-key my-calculator-map (kbd "c") 'calc)
+(define-key my-calculator-map (kbd "q") 'quick-calc) ; 'calc-keypad
+
+;; usefull mini calculator
+(defun mini-calc (expr &optional arg)
+  "Calculate expression
+
+If ARG is given, then insert the result to current-buffer"
+  (interactive
+   (list (read-from-minibuffer "Enter expression: ")
+         current-prefix-arg))
+
+  (let ((result (calc-eval expr)))
+    (if arg
+        (insert result)
+      (message (format "Result: [%s] = %s" expr result)))))
+
+(define-key my-calculator-map (kbd "x") 'mini-calc)
 
 
 ;;; [ calculator-mode ]
