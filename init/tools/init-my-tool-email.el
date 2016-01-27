@@ -104,7 +104,7 @@
 
 
 
-;; (require 'init-my-tool-email-gnus)
+(require 'init-my-tool-email-gnus)
 (require 'init-my-tool-email-mu4e)
 
 
