@@ -47,8 +47,8 @@
 (setq calc-complex-format 'i            ; complex number style: x + yi.
       )
 
-;; TODO: set Calc default to normal calculator mode.
-
+;; load personal settings
+(load calc-settings-file t)
 
 (unless (boundp 'my-calculator-map)
   (define-prefix-command 'my-calculator-map))
