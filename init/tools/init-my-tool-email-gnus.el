@@ -18,7 +18,6 @@
 ;; directories
 (setq gnus-default-directory "~/.emacs.d/Gnus/"
       gnus-home-directory "~/.emacs.d/Gnus/"
-      gnus-dribble-directory "~/.emacs.d/Gnus/"
       ;; News
       gnus-directory "~/.emacs.d/Gnus/News/"
       gnus-article-save-directory "~/.emacs.d/Gnus/News/"
@@ -53,6 +52,7 @@
 ;; disable dribble file
 (setq gnus-use-dribble-file nil
       gnus-always-read-dribble-file nil
+      gnus-dribble-directory nil
       )
 
 ;; windows layout
@@ -72,6 +72,8 @@
       gnus-sum-thread-tree-leaf-with-other "├─► "
       gnus-sum-thread-tree-single-leaf "╰─► "
       )
+
+(setq gnus-refer-article-method 'current)
 
 ;; summary
 (setq gnus-summary-gather-subject-limit 'fuzzy)
@@ -129,15 +131,21 @@
 ;; (add-hook 'mail-notify-pre-hook 'gnus-notify+)
 
 ;; retrieve email & news
-(setq gnus-nntp-server nil
-      ;; gnus-refer-article-method 'current
-      gnus-select-method '(nnmaildir "Mails" (directory "~/Mails/"))
+(setq gnus-select-method
+      '(nnmaildir "Mails"
+                  (directory "~/Mails/"))
+      mail-sources
+      '((maildir :path "~/Mails/"
+                 :subdirs ("cur" "new" "tmp"))
+        )
+      mail-source-delete-incoming t
       gnus-secondary-select-methods
       '(
         ;; Mail
         ;; read mails from local, fetch new mail with `getmail'.
         (nnmaildir "Mails"
                    (directory "~/Mails/"))
+        
         ;; NNTP newsgroup
         ;; (nntp "localhost")
         
@@ -157,9 +165,6 @@
 ;; agent
 ;; enable agent for offline viewing
 (gnus-agentize)
-
-;; last set
-;; (setq gnus-use-byte-compile t) ; compile to speed-up
 
 ;; [ C-c C-y]
 (eval-after-load 'gnus-group
@@ -236,6 +241,20 @@
 
 
 ;; [ Gmail ]
+
+;; <Gmail - 0>
+;; (add-to-list 'mail-sources
+;;              '(
+;;                ;; (pop :server "pop3.mailserver.com"
+;;                ;;      :port ""
+;;                ;;      :user "numbchild@gmail.com"
+;;                ;;      :password ""
+;;                ;;      )
+;;                ;; (imap :server "imap.mailserver.com"
+;;                ;;       :port ""
+;;                ;;       :user "numbchild@gmail.com"
+;;                ;;       :password "")
+;;                ))
 
 ;; <Gmail - 1>
 ;; (add-to-list 'gnus-secondary-select-methods
@@ -351,6 +370,16 @@
              '("\\`nnrss:"
                (mm-discouraged-alternatives nil)))
 
+
+;;; [ Chinese ]
+
+;; (setq gnus-default-charset 'cn-gb-2312
+;;       gnus-group-name-charset-group-alist (quote ((".*" . gb2312)))
+;;       gnus-group-posting-charset-alist
+;;       '(("^\\(cn\\)\\.[^,]*\\(,[ 	\n]*\\(cn\\)\\.[^,]*\\)*$" gb2312 (gb2312))
+;;         (message-this-is-mail nil nil)
+;;         (message-this-is-news nil t))
+;;       )
 
 
 
