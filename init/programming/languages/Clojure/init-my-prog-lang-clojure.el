@@ -147,9 +147,17 @@
     )
   (advice-add 'cider-scratch :before #'my-cider-scratch-start)
 
+  ;; switch to cider-repl buffer.
+  (defun my-cider-scratch ()
+    (interactive)
+    (let ((cider-repl "*cider-repl localhost*")
+          (cider-command "cider-jack-in"))
+      (if (get-buffer cider-repl)
+          (switch-to-buffer cider-repl)
+        (message "CIDER REPL buffer not available."))))
   
-  (define-key clojure-mode-map (kbd "C-c C-s") 'cider-scratch)
-  (define-key my-prog-inferior-map (kbd "c") 'cider-scratch)
+  (define-key clojure-mode-map (kbd "C-c C-s") 'my-cider-scratch)
+  (define-key my-prog-inferior-map (kbd "c") 'my-cider-scratch)
   )
 
 
