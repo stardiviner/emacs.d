@@ -46,6 +46,12 @@
   (my-generic-browser url "conkeror")
   )
 
+(defun browse-url-luakit (url &optional _ignore)
+  "Browse URL with Luakit browser."
+  (interactive "sURL: ")
+  (my-generic-browser url "luakit")
+  )
+
 
 ;;; [ EWW ] -- The Emacs Web Wowser
 
