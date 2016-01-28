@@ -163,7 +163,7 @@
   (setq counsel-yank-pop-truncate t)
   (global-set-key [remap yank-pop] 'counsel-yank-pop) ; [M-y]
   (global-set-key [remap imenu] 'counsel-imenu)
-  (global-set-key [remap org-set-tags-command] 'counsel-org-tag) ; [C-c C-q]
+  ;; (global-set-key [remap org-set-tags-command] 'counsel-org-tag) ; [C-c C-q]
   (global-set-key [remap org-agenda-set-tags] 'counsel-org-tag-agenda) ; [:]
   (global-set-key [remap load-library] 'counsel-load-library)
   (global-set-key [remap load-theme] 'counsel-load-theme)
