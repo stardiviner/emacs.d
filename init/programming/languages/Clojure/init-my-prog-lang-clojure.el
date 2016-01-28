@@ -49,13 +49,6 @@
 ;;   3. [M-x cider-connect]
 ;;   4. [M-x cider-scratch]
 ;;   5. [C-c C-l] :: `cider-load-file'
-;;
-;; For Debug
-;;
-;; Log communication with the nREPL server (extremely useful for debugging CIDER
-;; problems):
-;;
-;; (setq nrepl-log-messages t)
 
 (use-package cider
   :ensure t
