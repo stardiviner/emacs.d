@@ -92,7 +92,8 @@
         cider-mode-line-show-connection t
         )
   
-  (setq cider-annotate-completion-candidates t
+  (setq cider-completion-use-context t
+        cider-annotate-completion-candidates t
         ;; cider-annotate-completion-function
         cider-completion-annotations-include-ns 'always ; 'unqualified
         cider-completion-annotations-alist '(("class" "c")
@@ -101,8 +102,8 @@
                                              ("import" "i")
                                              ("keyword" "k")
                                              ("local" "l")
-                                             ("macro" "m")
-                                             ("method" "♩") ; me,
+                                             ("macro" "♩")
+                                             ("method" "m") ; me,
                                              ("namespace" "n")
                                              ("protocol" "p")
                                              ("protocol-function" "pf")
@@ -112,7 +113,6 @@
                                              ("static-method" "sm")
                                              ("type" "t")
                                              ("var" "v"))
-        cider-completion-use-context t
         )
 
   ;; TODO:
