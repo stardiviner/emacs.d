@@ -137,6 +137,13 @@
 
   (add-hook 'cider-mode-hook #'eldoc-mode)
 
+  ;; notify user CIDER is connected.
+  (add-hook 'cider-connected-hook
+            '(lambda ()
+               (notifications-notify :title "CIDER connected"
+                                     :body "CIDER process connected."))
+            )
+  
   ;; clojure-mode has keybinding [C-c C-s] for `cider-scratch'.
   ;; auto execute all commands steps when start `cider-scratch'.
   (defun my-cider-scratch-start ()
