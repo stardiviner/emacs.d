@@ -11,27 +11,23 @@
 
 (require 'gnus)
 
-;; files
-(setq gnus-init-file "~/.emacs.d/Gnus/.gnus"
-      gnus-startup-file "~/.emacs.d/Gnus/.newsrc")
-
-;; directories
-(setq gnus-default-directory "~/.emacs.d/Gnus/"
-      gnus-home-directory "~/.emacs.d/Gnus/"
+;; directories & files
+(setq gnus-home-directory (expand-file-name "Gnus/" user-emacs-directory)
+      gnus-default-directory gnus-home-directory
+      gnus-init-file (nnheader-concat gnus-home-directory ".gnus")
+      gnus-startup-file (nnheader-concat gnus-home-directory ".newsrc")
       ;; News
-      gnus-directory "~/.emacs.d/Gnus/News/"
-      gnus-article-save-directory "~/.emacs.d/Gnus/News/"
-      gnus-kill-files-directory "~/.emacs.d/Gnus/News/trash/"
+      gnus-directory (nnheader-concat gnus-home-directory "News/")
+      gnus-article-save-directory (nnheader-concat gnus-home-directory "News/")
+      gnus-kill-files-directory (nnheader-concat gnus-home-directory "News/trash")
       ;; gnus-agent-directory
-      gnus-cache-directory "~/.emacs.d/Gnus/News/cache/"
+      gnus-cache-directory (nnheader-concat gnus-home-directory "News/trash")
       gnus-cache-active-file (expand-file-name "active" gnus-cache-directory)
       ;; Mail
-      message-directory "~/.emacs.d/Gnus/Mail/"
-      message-auto-save-directory "~/.emacs.d/Gnus/Mail/drafts/"
-      mail-source-directory "~/.emacs.d/Gnus/Mail/incoming/"
-      nnmail-message-id-cache-file "~/.emacs.d/Gnus/.nnmail-cache"
-      ;; nnmail-newsgroups-file "~/.emacs.d/Gnus/Mail/newsgroup"
-      ;; nntp-marks-directory "~/.emacs.d/Gnus/News/marks"
+      message-directory (nnheader-concat gnus-home-directory "Mail")
+      message-auto-save-directory (expand-file-name "drafts/" message-directory)
+      mail-source-directory (expand-file-name "incoming/" message-directory)
+      nnmail-message-id-cache-file (nnheader-concat gnus-home-directory ".nnmail-cache")
       mm-default-directory "~/Downloads/" ; attachment save dir.
       )
 
