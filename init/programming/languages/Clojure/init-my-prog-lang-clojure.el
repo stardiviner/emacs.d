@@ -121,8 +121,6 @@
   ;; (setq cider-refresh-before-fn "user/stop-system!"
   ;;       cider-refresh-after-fn "user/start-system!")
   
-  ;; TODO: (add-hook 'clojure-mode-hook 'cider-mode)
-  
   ;; auto completion with company-mode support
   ;; `cider-complete-at-point' in `completion-at-point-functions'
   (add-hook 'cider-repl-mode-hook #'company-mode)
