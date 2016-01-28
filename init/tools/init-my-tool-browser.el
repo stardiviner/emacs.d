@@ -46,6 +46,12 @@
   (my-generic-browser url "conkeror")
   )
 
+(defun browse-url-uzbl (url &optional _ignore)
+  "Browse URL with uzbl browser."
+  (interactive "sURL: ")
+  (my-generic-browser url "uzbl-browser")
+  )
+
 (defun browse-url-luakit (url &optional _ignore)
   "Browse URL with Luakit browser."
   (interactive "sURL: ")
