@@ -44,11 +44,9 @@
 ;;; Usage:
 ;;
 ;; - workflow:
-;;   1. $ lein repl
-;;   2. [M-x cider-jack-in]
-;;   3. [M-x cider-connect]
-;;   4. [M-x cider-scratch]
-;;   5. [C-c C-l] :: `cider-load-file'
+;;   1. [M-x cider-jack-in]
+;;   2. (optional) [M-x cider-connect]
+;;   3. [C-c C-l] :: `cider-load-file'
 
 (use-package cider
   :ensure t
