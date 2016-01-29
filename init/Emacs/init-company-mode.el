@@ -295,6 +295,9 @@
 
   (setq company-dabbrev-other-buffers t)
 
+  ;; [ company-tempo ]
+  (setq company-tempo-expand t)
+
   ;; [ company-etags ]
 
   (require 'company-etags)
