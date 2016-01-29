@@ -108,15 +108,14 @@
   (add-hook 'enh-ruby-mode-hook
             '(lambda ()
                ;; highlight symbol: dot .
-               ;; (font-lock-add-keywords
-               ;;  'enh-ruby-mode
-               ;;  '(("[[:alnum:]]\\(\\.\\)[[:alnum:]]"
-               ;;     (1 '(:foreground "deep pink" :weight 'bold))
-               ;;     )))
+               (font-lock-add-keywords
+                'enh-ruby-mode
+                '(("[[:alnum:]]\\(\\.\\)[[:alnum:]]"
+                   (1 '(:foreground "deep pink" :weight 'bold))
+                   )))
                
                ;; FIXME: this is override by ruby-mode default syntax highlight.
                ;; highlight keyword: self
-               ;;
                ;; (font-lock-add-keywords
                ;;  'enh-ruby-mode
                ;;  '(("\s\\(self\\)\\(\\.\s\\)?"
