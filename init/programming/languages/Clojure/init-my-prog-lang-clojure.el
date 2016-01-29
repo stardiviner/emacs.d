@@ -80,7 +80,7 @@
 
         ;; Eval
         cider-show-eval-spinner t
-        cider-use-overlays nil
+        cider-use-overlays 'both
 
         ;; Compilation
         cider-auto-jump-to-error 'errors-only
