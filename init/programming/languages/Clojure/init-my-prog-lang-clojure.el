@@ -133,18 +133,6 @@
                                      :body "CIDER process connected."))
             )
   
-  ;; clojure-mode has keybinding [C-c C-s] for `cider-scratch'.
-  ;; auto execute all commands steps when start `cider-scratch'.
-  (defun my-cider-scratch-start ()
-    "Execute all CIDER commands steps when start `cider-scratch'."
-    (cider-jack-in)
-    ;; (sleep )
-    ;; TODO: until `cider-jack-in' finished, and server is available.
-    ;; - check out source code to find out detect function.
-    (call-interactively 'cider-connect)
-    )
-  (advice-add 'cider-scratch :before #'my-cider-scratch-start)
-
   ;; switch to cider-repl buffer.
   (defun my-cider-scratch ()
     (interactive)
@@ -154,7 +142,7 @@
           (switch-to-buffer cider-repl)
         (message "CIDER REPL buffer not available."))))
   
-  (define-key clojure-mode-map (kbd "C-c C-s") 'my-cider-scratch)
+  ;; (define-key clojure-mode-map (kbd "C-c C-s") 'my-cider-scratch)
   (define-key my-prog-inferior-map (kbd "c") 'my-cider-scratch)
   )
 
