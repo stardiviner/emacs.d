@@ -10,13 +10,19 @@
   '(emacs-lisp-mode
     inferior-emacs-lisp-mode
     ielm-mode
+
+    ;; Common Lisp
     lisp-mode
     lisp-interaction-mode
     ;; common-lisp-lisp-mode(-hook)
     inferior-emacs-lisp-mode
-    ;; geiser
     sly-mrepl-mode
+
+    ;; Scheme
     scheme-mode
+    ;; geiser
+
+    ;; Clojure
     clojure-mode
     inferior-clojure-mode
     inf-clojure-mode
