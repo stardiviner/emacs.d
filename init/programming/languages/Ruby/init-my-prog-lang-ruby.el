@@ -196,10 +196,6 @@
   )
 
 
-
-(add-to-list 'which-func-modes 'ruby-mode)
-
-
 ;;; [ yard-mode ] -- for Ruby YARD comments
 
 (use-package yard-mode
