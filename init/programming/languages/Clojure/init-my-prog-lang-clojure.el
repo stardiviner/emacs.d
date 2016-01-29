@@ -57,6 +57,15 @@
         nrepl-buffer-name-separator " "
         nrepl-buffer-name-show-port nil
 
+        ;; resources
+        cider-prefer-local-resources t
+
+        ;; font-lock
+        cider-font-lock-dynamically '(macro core deprecated function)
+
+        ;; indent
+        cider-dynamic-indentation t
+        
         ;; REPL
         cider-repl-display-in-current-window nil
         cider-repl-pop-to-buffer-on-connect nil
@@ -71,25 +80,41 @@
         cider-repl-history-size 500
         cider-repl-history-file nil
         cider-show-error-buffer 'only-in-repl
-        cider-overlays-use-font-lock t ; use overlay for results.
-        cider-result-use-clojure-font-lock t
 
-        ;; Complete
-        cider-annotate-completion-candidates t
-        cider-completion-use-context t
-
+        ;; pretty-printing
+        cider-pprint-fn 'fipp
+        
         ;; Eval
         cider-show-eval-spinner t
         cider-use-overlays 'both
+        cider-overlays-use-font-lock t ; use overlay for results.
+        cider-result-use-clojure-font-lock t
 
         ;; Compilation
         cider-auto-jump-to-error 'errors-only
         cider-auto-select-error-buffer t
 
+        ;; clojure.test
+        cider-test-show-report-on-success nil
+
+        ;; stacktraces
+        cider-show-error-buffer t
+        cider-auto-select-error-buffer t
+        cider-stacktrace-default-filters '(tooling dup)
+
+        ;; debugging
+
+        ;; code reloading
+        cider-refresh-show-log-buffer t
+
+        ;; multiple connections
+        cider-request-dispatch 'dynamic
+
         ;; Mode Line
         cider-mode-line-show-connection t
         )
-  
+
+  ;; Complete & annotations
   (setq cider-completion-use-context t
         cider-annotate-completion-candidates t
         ;; cider-annotate-completion-function
@@ -124,6 +149,7 @@
   (add-hook 'cider-repl-mode-hook #'company-mode)
   (add-hook 'cider-mode-hook #'company-mode)
 
+  ;; enable `eldoc' in relevant buffers.
   (add-hook 'cider-mode-hook #'eldoc-mode)
 
   (add-hook 'cider-repl-mode-hook #'subword-mode)
