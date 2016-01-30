@@ -20,7 +20,7 @@
         ivy-display-style 'fancy
         ivy-count-format "(%d/%d) "
         ivy-initial-inputs-alist nil ; remove initial ^ input.
-        ivy-extra-directories nil ; remove . and .. directory.
+        ivy-extra-directories '("./" "../") ; remove . and .. directory.
         ivy-wrap nil
         )
 
