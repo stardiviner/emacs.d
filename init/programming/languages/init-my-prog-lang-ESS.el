@@ -66,6 +66,8 @@
         inferior-ess-same-window t
         )
 
+  ;; [ devtools (developer tools) ]
+  ;; (setq ess-developer-code-injection-in-packages nil)
   
   ;; [ ESS-R ]
   (setq ess-use-R-completion t)
