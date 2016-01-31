@@ -22,7 +22,6 @@
       gnus-kill-files-directory (nnheader-concat gnus-home-directory "News/trash")
       ;; gnus-agent-directory
       gnus-cache-directory (nnheader-concat gnus-home-directory "News/trash")
-      gnus-cache-active-file (expand-file-name "active" gnus-cache-directory)
       ;; Mail
       message-directory (nnheader-concat gnus-home-directory "Mail")
       message-auto-save-directory (expand-file-name "drafts/" message-directory)
@@ -39,16 +38,36 @@
 (setq gnus-inhibit-startup-message t
       gnus-show-threads t
       gnus-interactive-exit t
+      gnus-interactive-catchup t
       gnus-asynchronous t
       gnus-summary-ignore-duplicates t
       ;; gnus-treat-fill-long-lines t
+
+      ;; group buffer
+      ;; gnus-group-line-format "%M\%S\%p\%P\%5y:%B%(%g%)\n"
+      ;; gnus-group-highlight
+
+      ;; topic
+      ;; gnus-topic-line-format "%i[ %(%{%n%}%) -- %A ]%v\n"
+
+      ;; image
+      ;; Gravatatrs
+      gnus-treat-mail-gravatar 'head
       )
 
-;; start
+;; startup
+;; (setq gnus-use-backend-marks nil)
+
+;; auto save
 ;; disable dribble file
 (setq gnus-use-dribble-file nil
       gnus-always-read-dribble-file nil
       gnus-dribble-directory nil
+      )
+
+;; the active file
+(setq gnus-read-active-file 'some
+      gnus-cache-active-file (expand-file-name "active" gnus-cache-directory)
       )
 
 ;; windows layout
@@ -113,6 +132,9 @@
 ;; newsgroup grouped by.
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 
+;; group score
+(add-hook 'gnus-summary-exit-hook 'gnus-summary-bubble-group)
+
 ;; auto jump to first unread newsgroup.
 (add-hook 'gnus-switch-on-after-hook 'gnus-group-first-unread-group)
 (add-hook 'gnus-summary-exit-hook 'gnus-group-first-unread-group)
@@ -149,9 +171,15 @@
                    (directory "~/Mails/"))
         
         ;; NNTP newsgroup
+        (nntp "gmane")
+        (nntp "news.gwene.org")
+        ;; (nntp "news.somewhere.edu")
+        ;; read directly from local spool
+        ;; (nnspool "")
         ;; (nntp "localhost")
         
         ;; RSS
+        ;; (nnrss "RSS")
         )
       )
 
@@ -345,7 +373,10 @@
       gnus-expert-user nil
       gnus-large-newsgroup 150
       gnus-large-ephemeral-newsgroup nil
+      gnus-check-new-newsgroups 'ask-server
       )
+
+;; (setq gnus-nntpserver-file "/etc/nntpserver")
 
 ;; (add-to-list 'gnus-secondary-select-methods
 ;;              ;; NNTP GMANE newsgroup
@@ -356,6 +387,11 @@
 ;;; [ RSS ]
 
 (require 'nnrss)
+
+(setq nnrss-directory (nnheader-concat gnus-home-directory "RSS")
+      nnrss-file-coding-system 'utf-8-emacs
+      nnrss-use-local t
+      )
 
 (with-eval-after-load "gnus-sum"
   (add-to-list 'gnus-newsgroup-variables
