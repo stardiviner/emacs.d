@@ -9,11 +9,10 @@
 
 ;;; [ Common Lisp ]
 
-;; Open files with .cl extension in lisp-mode
 (add-to-list 'auto-mode-alist '("\\.cl\\'" . common-lisp-mode))
 (add-to-list 'auto-mode-alist '("\\.lisp\\'" . common-lisp-mode))
 
-;;; re-define upstream default function 'lispdoc key binding.
+;;; re-define upstream default function `lispdoc' key binding.
 (define-key lisp-mode-map (kbd "C-h d") 'lispdoc)
 
 (setq cl-lookup-categories
