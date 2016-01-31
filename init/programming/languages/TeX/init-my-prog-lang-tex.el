@@ -105,6 +105,7 @@
   :ensure t
   :config
   (dolist (hook '(tex-mode-hook
+                  TeX-mode-hook
                   latex-mode-hook
                   LaTeX-mode-hook ; from AUCTeX
                   ))
