@@ -15,7 +15,9 @@
 (use-package window-number
   :ensure t)
 (use-package projectile
-  :ensure t)
+  :ensure t
+  :init
+  (require 'projectile))
 (require 'vc)
 (require 'vc-git)
 (use-package flycheck
