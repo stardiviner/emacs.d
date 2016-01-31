@@ -1,9 +1,0 @@
-# -*- mode: snippet; require-final-newline: nil -*-
-# name: results block
-# key: results-block
-# --
-#+RESULTS:
-#+begin_example
-$0
-#+end_example
-
