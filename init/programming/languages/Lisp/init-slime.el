@@ -100,7 +100,7 @@
   (defun my-slime-company-maybe-enable ()
     (when (slime-company-active-p)
       ;; mainly change to my own company-backends adding style.
-      (my-company-add-backends-to-mode 'company-slime)
+      (my-company-add-backends-to-mode '(company-slime))
       (unless (slime-find-contrib 'slime-fuzzy)
         (setq slime-company-completion 'simple)))
     )
