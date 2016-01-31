@@ -128,13 +128,19 @@
 
 ;; retrieve email & news
 (setq gnus-select-method
-      '(nnmaildir "Mails"
-                  (directory "~/Mails/"))
-      mail-sources
-      '((maildir :path "~/Mails/"
-                 :subdirs ("cur" "new" "tmp"))
-        )
+      '(nnimap "gmail"
+               (nnimap-address "imap.gmail.com")
+               (nnimap-server-port "imaps")
+               (nnimap-stream ssl))
+      
+      ;; '(nnmaildir "Mails"
+      ;;             (directory "~/Mails/"))
+      ;; mail-sources
+      ;; '((maildir :path "~/Mails/"
+      ;;            :subdirs ("cur" "new" "tmp"))
+      ;;   )
       mail-source-delete-incoming t
+      
       gnus-secondary-select-methods
       '(
         ;; Mail
