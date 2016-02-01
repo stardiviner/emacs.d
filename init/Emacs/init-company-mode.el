@@ -305,22 +305,7 @@
   ;; enable to offer completions in comment and strings.
   ;; (setq company-etags-everywhere t)
 
-  ;; company-transformers -- Functions to change the list of candidates received from backends.
-
-  ;; example:
-  ;; (push (apply-partially #'cl-remove-if
-  ;;                        (lambda (c))
-  ;;                        (or (string-match-p "[^\x00-\x7F]+" c)
-  ;;                           (string-match-p "[0-9]+" c)
-  ;;                           (if (equal major-mode "org")
-  ;;                               (>= (length c) 15))))
-  ;;       company-transformers)
-  ;;
-  ;; with this code:
-  ;; - remove those non-ANSII candidates.
-  ;; - remove any completion containing numbers.
-  ;; - remove any candidate which is no longer than 15 in org-mode.
-
+  ;; [ company-transformers ]
   ;; (setq company-transformers '(company-sort-by-backend-importance))
   )
 
