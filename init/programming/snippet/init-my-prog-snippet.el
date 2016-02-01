@@ -58,12 +58,11 @@
           yas-no-prompt))
 
   (setq yas-new-snippet-default "\
-# -*- mode: snippet; require-final-newline: nil -*-
+# -*- mode: snippet -*-
 # name: $1
-# key: ${2:${1:$(yas--key-from-desc yas-text)}}${3:
-# group: ${4:group.subgroup}
-# binding: ${5:direct-keybinding}}${6:
-# expand-env: ((${7:some-var} ${8:some-value}))}${9:
+# key: ${2:${1:$(yas--key-from-desc yas-text)}}
+# group: ${3:group.subgroup}
+# expand-env: ((${4:VAR} ${5:VALUE}))}${6:
 # type: snippet/command}
 # --
 $0"
