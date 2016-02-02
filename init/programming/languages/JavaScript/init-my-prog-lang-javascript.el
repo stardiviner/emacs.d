@@ -288,8 +288,7 @@
 (use-package company-tern
   :ensure t
   :init
-  (dolist (hook '(
-                  ;; js-mode-hook
+  (dolist (hook '(js-mode-hook
                   js2-mode-hook
                   js3-mode-hook
                   inferior-js-mode-hook

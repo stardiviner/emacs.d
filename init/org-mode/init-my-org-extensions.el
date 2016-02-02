@@ -81,45 +81,29 @@
                  "* %(org-contacts-template-name)
 :PROPERTIES:
 :NAME: %^{Name}
-:NAME(English): %^{Name(English)}
 :NAME(Chinese): %^{Name(Chinese)}
-:NICK:
-:ALIAS:
+:NAME(English): %^{Name(English)}
+:NICK: %^{Nick}
 :ICON: %^{ICON}.jpg
 :BIRTHDAY: %^{Birthday}
 :GENDER: %^{Gender|Male|Female}
 :Sexual: %^{Sexual|Heterosexual|Bisexual|Homosexual}
 :RELATIONSHIP: %^{Relationship|Meet|Friend|Good Friend|Boy Friend|Girl Friend|Classmate|Schoolmate}
 :FIRST-MEET: %^U  %^{first-time meet}
-:URL: %^{URL}
-:EMAIL: %(org-contacts-template-email)
 :MOBILE: %^{Mobile Phone}
-:PHONE:
-:IRC:
+:EMAIL: %(org-contacts-template-email)
 :QQ: %^{QQ}
 :WeChat: %^{WeChat}
-:Alipay: %^{Alipay}
-:BLOG: %^{BLOG}
-:GitHub: %^{GitHub}
 :Facebook: %^{Facebook}
-:Twitter: %^{Twitter}
 :ADDRESS(home): %^{address(home)}
-:ADDRESS(live): %^{address(live)}
-:ADDRESS(work):
-:Bio:
+:ADDRESS(work): %^{address(work)}
 :CHARACTER: %^{Character}
 :FEELING: %^{Feeling}
 :World-Views: %^{World Views}
-:EXPERIENCE: %^{Main Experience Summary}
 :LANGUAGES: %^{Languages|Chinese|English|Japanese|Korean}
 :EDUCATION: %^{Education}
 :PROGRAMMING-SKILLS: %^{Programming Skills}
 :SKILLS: %^{Skills}
-:INTERESTS: %^{Interests}
-:JOBS: %^{Jobs}
-:COMPANY: %^{Companies}
-:PROJECTS:
-:NOTE:
 :END:"
                  :empty-lines 1
                  :jump-to-captured t
