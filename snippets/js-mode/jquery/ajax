@@ -1,0 +1,23 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: jquery-ajax
+# key: jquery-ajax
+# group: jQuery.ajax
+# --
+$.ajax({
+  url: "${1:URL}",
+  data: {${2:k:v pair}\},
+  type: "${3:GET/POST}",
+  dataType: "${4:json}",
+
+  success: function( json ) {
+  $0
+  }
+  
+  error: function( xhr, status, errorThrown ) {
+  
+  }
+
+  complete: function( xhr, status ) {
+  
+  }
+});
