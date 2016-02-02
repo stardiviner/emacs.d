@@ -288,18 +288,19 @@
 (use-package company-tern
   :ensure t
   :init
-  (dolist (hook '(js-mode-hook
+  (dolist (hook '(
+                  ;; js-mode-hook
                   js2-mode-hook
                   js3-mode-hook
                   inferior-js-mode-hook
                   ))
-    (add-hook hook
-              (lambda ()
-                ;; enable `tern-mode'.
-                (tern-mode t)
+    (add-hook hook 'tern-mode))
 
-                (my-company-add-backends-to-mode '(company-tern))
-                )))
+  (add-hook 'tern-mode-hook
+            '(lambda ()
+               ;; tern-mode auto push `tern-completion-at-point' to `capf'.
+               (my-company-add-backends-to-mode '(company-tern))
+               ))
   
   :config
   (setq
