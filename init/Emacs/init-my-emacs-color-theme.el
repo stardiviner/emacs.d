@@ -28,18 +28,20 @@
 ;; load theme way
 (add-to-list 'custom-theme-load-path "~/.emacs.d/color-themes/")
 
-(load-theme 'solarized-dark t)
+;; for Emacs 24+
+;; (load-theme 'solarized-dark t)
 
 
 ;;; color-theme-solarized
 
-(use-package color-theme-solarized
-  :init
-  (customize-set-variable 'frame-background-mode 'light)
-  :config
-  (color-theme-solarized)
-  (load-theme 'solarized t)
-  )
+;; (use-package color-theme-solarized
+;;   :ensure t
+;;   :init
+;;   (customize-set-variable 'frame-background-mode 'light)
+;;   :config
+;;   (color-theme-solarized)
+;;   (load-theme 'solarized t)
+;;   )
 
 
 ;;; color-theme-monokai
