@@ -22,6 +22,15 @@
       org-agenda-compact-blocks t
       )
 
+;;; sorting strategy
+(setq org-agenda-sorting-strategy
+      '((agenda time-up priority-down deadline-up ts-up habit-down category-keep)
+        (todo priority-down category-keep)
+        (tags priority-down category-keep)
+        (search category-keep))
+      org-agenda-sorting-strategy-selected
+      '(time-up priority-down deadline-up ts-up habit-down category-keep)
+      )
 
 ;;; Time Grid
 (setq org-agenda-use-time-grid t)
