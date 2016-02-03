@@ -47,6 +47,14 @@
 ;; (load-theme 'monokai t)
 
 
+;;; leuven-theme
+
+(use-package leuven-theme
+  :ensure t
+  :config
+  (load-theme 'leuven t))
+
+
 ;;; custom faces
 
 (set-face-attribute 'font-lock-function-name-face nil
