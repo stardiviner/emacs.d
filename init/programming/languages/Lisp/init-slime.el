@@ -62,6 +62,8 @@
   ;; disable slime in `lisp-mode-hook'. except other derived modes.
   (remove-hook 'lisp-mode-hook 'slime-lisp-mode-hook)
 
+  (add-hook 'lisp-mode-hook 'slime-mode)
+
   ;; enable SLIME in `lisp-mode'.
   ;; auto start SLIME unless it's already running.
   (defun my-slime-connect ()
