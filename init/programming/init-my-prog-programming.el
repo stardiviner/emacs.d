@@ -79,16 +79,6 @@
 (define-key my-prog-inferior-map (kbd "l") 'my-inferior-lisp-map)
 
 ;; Emacs Lisp
-(define-key my-inferior-lisp-map (kbd "s")
-  (lambda ()
-    (interactive)
-    (if (get-buffer "*scratch*")
-        (switch-to-buffer "*scratch*")
-      (funcall the-command)
-      (bury-buffer)
-      (when whether-switch-to-buffer
-        (switch-to-buffer "*scratch*")))))
-
 (defun my-ielm-start-or-switch ()
   "Start IELM or switch to its buffer if it already exist."
   (interactive)
@@ -100,16 +90,15 @@
   (interactive)
   (my-func/open-and-switch-to-buffer 'sly "*sly-mrepl for sbcl*" t))
 
-(define-key my-inferior-lisp-map (kbd "e") 'my-ielm-start-or-switch)
 ;; Lisp dialects
-(define-key my-inferior-lisp-map (kbd "l") 'run-lisp)   ; Lisp
-(define-key my-inferior-lisp-map (kbd "s") 'my-run-sly) ; SLY
-(define-key my-inferior-lisp-map (kbd "g") 'run-geiser) ; geiser
-(define-key my-inferior-lisp-map (kbd "m") 'slime)      ; SLIME
+(define-key my-inferior-lisp-map (kbd "e") 'my-ielm-start-or-switch)
+(define-key my-inferior-lisp-map (kbd "l") 'run-lisp)   ; Lisp: *inferior-lisp*
+(define-key my-inferior-lisp-map (kbd "s") 'slime-repl) ; SLIME REPL
+(define-key my-inferior-lisp-map (kbd "y") 'my-run-sly) ; SLY
 (define-key my-inferior-lisp-map (kbd "S") 'run-scheme) ; Scheme
+(define-key my-inferior-lisp-map (kbd "g") 'run-geiser) ; geiser
 (define-key my-inferior-lisp-map (kbd "G") 'run-guile)  ; Guile
-;; FIXME: not `cider-jack-in'
-;; (define-key my-inferior-lisp-map (kbd "c") 'cider-jack-in) ; Clojure cider
+(define-key my-inferior-lisp-map (kbd "c") 'my-cider-scratch) ; CIDER scratch
 
 
 ;; Ruby
