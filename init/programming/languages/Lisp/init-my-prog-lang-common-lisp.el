@@ -13,7 +13,7 @@
 (add-to-list 'auto-mode-alist '("\\.lisp\\'" . common-lisp-mode))
 
 ;;; re-define upstream default function `lispdoc' key binding.
-(define-key lisp-mode-map (kbd "C-h d") 'lispdoc)
+;; (define-key lisp-mode-map (kbd "C-h d") 'lispdoc)
 
 (setq cl-lookup-categories
       '(:hyperspec-index           ; e.g. "", "spec" "CLHS"
