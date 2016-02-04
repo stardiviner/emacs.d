@@ -98,6 +98,9 @@
   (define-key slime-profile (kbd "R") 'slime-profile-reset)
   (define-key slime-profile (kbd "r") 'slime-profile-report)
   (define-key slime-profile (kbd "l") 'slime-profiled-functions)
+
+  ;; connect to a remote Lisp machine.
+  (setq slime-net-coding-system 'utf-8-unix)
   )
 
 
