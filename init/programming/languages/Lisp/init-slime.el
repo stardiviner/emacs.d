@@ -83,6 +83,19 @@
     )
   
   (add-hook 'lisp-mode-hook 'my-slime-connect)
+
+  ;; bind slime-profile-* commands keybindings.
+  (define-key slime-mode-map (kbd "C-c M-e") 'slime-pprint-eval-last-expression)
+  (unless (boundp 'slime-profile)
+    (define-prefix-command 'slime-profile))
+  (define-key slime-mode-map (kbd "C-c C-p") 'slime-profile)
+  (define-key slime-profile (kbd "f") 'slime-toggle-profile-fdefinition)
+  (define-key slime-profile (kbd "p") 'slime-profile-package)
+  (define-key slime-profile (kbd "s") 'slime-profile-by-substring)
+  (define-key slime-profile (kbd "u") 'slime-unprofile-all)
+  (define-key slime-profile (kbd "R") 'slime-profile-reset)
+  (define-key slime-profile (kbd "r") 'slime-profile-report)
+  (define-key slime-profile (kbd "l") 'slime-profiled-functions)
   )
 
 
