@@ -57,6 +57,7 @@
 
   (add-hook 'lisp-mode-hook 'slime-mode)
   (add-hook 'slime-repl-mode-hook 'slime-mode)
+  (add-hook 'slime-repl-mode-hook 'eldoc-mode)
 
   ;; enable SLIME in `lisp-mode'.
   ;; auto start SLIME unless it's already running.
