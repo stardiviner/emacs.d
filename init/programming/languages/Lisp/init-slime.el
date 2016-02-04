@@ -56,10 +56,21 @@
   (remove-hook 'lisp-mode-hook 'slime-lisp-mode-hook)
 
   (add-hook 'lisp-mode-hook 'slime-mode)
+  
+  ;; SLIME REPL buffer
   (add-hook 'slime-repl-mode-hook 'slime-mode)
   (add-hook 'slime-repl-mode-hook 'eldoc-mode)
 
-  ;; enable SLIME in `lisp-mode'.
+  ;; setup `*inferior-lisp*' buffer (`comint-mode' of SBCL)
+  (defun slime-sbcl-inferior-lisp-buffer-setup ()
+    (if (equal (buffer-name) "*inferior-lisp*")
+        (progn
+          (eldoc-mode 1)
+          (slime-mode 1)
+          (my-company-add-backends-to-mode '(company-slime)))))
+  
+  (add-hook 'comint-mode-hook 'slime-sbcl-inferior-lisp-buffer-setup)
+
   ;; auto start SLIME unless it's already running.
   (defun my-slime-connect ()
     ;; only start SLIME on lisp-mode. (except other lisp dialects: `sibilant-mode' etc)
