@@ -55,6 +55,18 @@
   :ensure t
   :config
   (load-theme 'leuven t))
+  ;; override leuven-theme default colors.
+  (set-face-attribute 'org-verbatim nil
+                      ;; :foreground "#0066CC"
+                      :foreground "#0671DF"
+                      :background "#F7FDFF")
+  (set-face-attribute 'org-code nil
+                      ;; :foreground "#006400"
+                      :foreground "#059205"
+                      :background "FDFFF7"
+                      :box '(:color "#059205" :line-width -1)
+                      )
+  )
 
 
 ;;; custom faces
