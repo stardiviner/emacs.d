@@ -21,6 +21,8 @@
     (setq slime-default-lisp 'sbcl))
 
   (add-to-list 'slime-contribs 'slime-fancy)
+  ;; load slime-repl.
+  (slime-setup '(slime-repl))
 
   ;; a list of alternative Common Lisp implementations that can be
   ;; used with SLIME. Note that their presence render
