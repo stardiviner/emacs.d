@@ -120,18 +120,21 @@
 
 (defun slime-description-fontify ()
   "Fontify sections of SLIME Description."
-  (with-current-buffer "*SLIME Description*"
+  (with-current-buffer "*slime-description*"
     (highlight-regexp
-     (concat "^Function:\\|"
-             "^Macro-function:\\|"
-             "^Its associated name.+?) is\\|"
-             "^The .+'s arguments are:\\|"
-             "^Function documentation:$\\|"
-             "^Its.+\\(is\\|are\\):\\|"
-             "^On.+it was compiled from:$")
-     'hi-green-b)))
+     (concat "^#<FUNCTION\ .*>\\|"
+             "^Lambda-list:\\|"
+             "^Declared type:\\|"
+             "^Derived type:\\|"
+             "^Documentation:\\|"
+             "Example:\\|"
+             "^Source file:\\|"
+             ".LISP$"
+             )
+     'hi-blue-b)))
 
-(advice-add 'slime-show-description :after #'slime-description-fontify)
+(defadvice slime-show-description (after slime-description-fontify activate)
+  (slime-description-fontify))
 
 
 ;;; Improve usability of slime-apropos: slime-apropos-minor-mode
