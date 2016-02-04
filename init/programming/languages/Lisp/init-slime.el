@@ -103,6 +103,8 @@
 
 (use-package slime-company
   :ensure t
+  :init
+  (require 'slime-company)
   :config
   (setq slime-company-after-completion nil
         slime-company-completion 'fuzzy
