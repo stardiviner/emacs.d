@@ -45,13 +45,6 @@
   ;;                 'slime-documentation-lookup)))
   (eval-after-load 'slime
     `(define-key slime-prefix-map (kbd "M-h") 'slime-documentation-lookup))
-  
-  (add-hook 'slime-repl-mode-hook
-            '(lambda ()
-               (add-hook (make-local-variable 'completion-at-point-functions)
-                         'slime-complete-symbol)
-               (setq-local tab-always-indent 'complete)
-               ))
 
   ;; notify user after SLIME connected
   (add-hook 'slime-connected-hook
@@ -63,6 +56,7 @@
   (remove-hook 'lisp-mode-hook 'slime-lisp-mode-hook)
 
   (add-hook 'lisp-mode-hook 'slime-mode)
+  (add-hook 'slime-repl-mode-hook 'slime-mode)
 
   ;; enable SLIME in `lisp-mode'.
   ;; auto start SLIME unless it's already running.
