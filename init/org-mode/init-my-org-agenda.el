@@ -228,6 +228,20 @@
                ;; ("w" tags-todo "CATEGORY=\"Work\"")
                ))
 
+
+;;; Tag changes that should be triggered by TODO state changes.
+;; [C-c C-x a]
+(setq org-todo-state-tags-triggers
+      '(
+        ;; ("" ("Task" . t))
+        
+        ('todo ("INPROGRESS" . t))
+        ('done ("ARCHIVE" . t))
+        
+        ("DONE" ("ARCHIVE" . t))
+        ("CANCELLED" ("ARCHIVE" . t))
+        ))
+
 
 ;;; [ Calendar ]
 
