@@ -16,6 +16,7 @@
     lisp-interaction-mode
     ;; common-lisp-lisp-mode(-hook)
     inferior-emacs-lisp-mode
+    slime-repl-mode
     sly-mrepl-mode
 
     ;; Scheme
