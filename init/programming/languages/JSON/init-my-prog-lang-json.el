@@ -41,6 +41,13 @@
   )
 
 
+;;; [ json-snatcher ]
+
+(use-package json-snatcher
+  :ensure t
+  )
+
+
 (provide 'init-my-prog-lang-json)
 
 ;;; init-my-prog-lang-json.el ends here
