@@ -100,7 +100,7 @@
                     :foreground "orange3")
 
 ;; Emphasize
-;;; org-verbatim: =org verbatim highlight=
+;;; org-verbatim: =code=
 (set-face-attribute 'org-verbatim nil
                     :background "#004A5D" :foreground "white"
                     :box '(:color "cyan" :line-width 1)

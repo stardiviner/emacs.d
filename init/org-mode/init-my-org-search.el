@@ -7,6 +7,11 @@
 
 ;;; Code:
 
+;;; [ Agenda dispatcher ]
+
+;; (org-agenda-dispatch)
+
+
 ;;; [ Search Functions ]
 
 (use-package ag
