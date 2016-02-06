@@ -90,6 +90,8 @@
         cider-overlays-use-font-lock t ; use overlay for results.
         cider-result-use-clojure-font-lock t
 
+        ;; Enlighten
+        
         ;; Compilation
         cider-auto-jump-to-error 'errors-only
         cider-auto-select-error-buffer t
@@ -138,6 +140,15 @@
                                              ("var" "v"))
         )
 
+  ;; Enlighten faces
+  (set-face-attribute 'cider-enlightened nil
+                      :background "black" :foreground "yellow"
+                      )
+  (set-face-attribute 'cider-enlightened-local nil
+                      :background "black" :foreground "orange"
+                      )
+  
+  
   ;; TODO:
   ;; You can define Clojure functions to be called before reloading, and after a
   ;; successful reload, when using `cider-refresh':
