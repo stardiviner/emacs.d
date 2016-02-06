@@ -110,29 +110,6 @@
 ;;       )
 
 
-;;; JavaScript subprocess integration
-
-
-;;; [ swank-js ] -- Swank backend for Node.JS and in-browser JavaScript.
-
-;; (use-package swank-js
-;;   :ensure t
-;;   :config
-;;   (dolist (hook '(js2-mode-hook
-;;                   js3-mode-hook
-;;                   ))
-;;     (add-hook hook #'slime-js-minor-mode))
-;;
-;;   (add-hook 'css-mode-hook
-;;             (lambda ()
-;;               (define-key css-mode-map (kbd "C-M-x") 'slime-js-refresh-css)
-;;               (define-key css-mode-map (kbd "C-c C-r") 'slime-js-embed-css)))
-;;
-;;   (define-key js2-mode-map [f6] 'slime-js-reload)
-;;   (define-key js3-mode-map [f6] 'slime-js-reload)
-;;   )
-
-
 ;;; [ nvm ] -- Manage Node versions within Emacs.
 
 ;;; Usage:
@@ -329,6 +306,29 @@
   ;;           (lambda ()
   ;;             (tern-mode 1)))
   )
+
+
+;;; JavaScript subprocess integration
+
+
+;;; [ swank-js ] -- Swank backend for Node.JS and in-browser JavaScript.
+
+;; (use-package swank-js
+;;   :ensure t
+;;   :config
+;;   (dolist (hook '(js2-mode-hook
+;;                   js3-mode-hook
+;;                   ))
+;;     (add-hook hook #'slime-js-minor-mode))
+;;
+;;   (add-hook 'css-mode-hook
+;;             (lambda ()
+;;               (define-key css-mode-map (kbd "C-M-x") 'slime-js-refresh-css)
+;;               (define-key css-mode-map (kbd "C-c C-r") 'slime-js-embed-css)))
+;;
+;;   (define-key js2-mode-map [f6] 'slime-js-reload)
+;;   (define-key js3-mode-map [f6] 'slime-js-reload)
+;;   )
 
 
 ;;; [ skewer-mode ] --
