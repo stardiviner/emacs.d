@@ -140,7 +140,10 @@
                                              ("var" "v"))
         )
 
+
   ;; Enlighten faces
+  (add-hook 'clojure-mode-hook 'cider-enlighten-mode)
+  
   (set-face-attribute 'cider-enlightened nil
                       :background "black" :foreground "yellow"
                       )
