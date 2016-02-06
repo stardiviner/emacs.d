@@ -86,6 +86,10 @@
   
   (add-hook 'lisp-mode-hook 'my-slime-connect)
 
+
+  ;; inspect
+  (define-key slime-mode-map (kbd "C-c C-i") 'slime-inspect)
+  
   ;; bind slime-profile-* commands keybindings.
   (define-key slime-mode-map (kbd "C-c M-e") 'slime-pprint-eval-last-expression)
   (unless (boundp 'slime-profile)
