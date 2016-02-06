@@ -94,7 +94,7 @@
                       :box nil)
 
 
-  (electric-indent-local-mode 1)
+  ;; (electric-indent-local-mode 1)
   ;; TODO: test whether conflict with `ruby-electric'
   ;; (define-key enh-ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
   ;; (define-key enh-ruby-mode-map (kbd "TAB") 'indent-for-tab-command)
