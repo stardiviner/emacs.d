@@ -329,6 +329,8 @@
 ;; - `mu4e~draft-reply-construct'
 
 
+;;; [ Sign ]
+
 ;; Signing and encrypting It's possible using emacs-mime, most easily accessed
 ;; through the Attachments-menu while composing a message, or with M-x
 ;; mml-secure-message-encrypt-pgp, M-x mml-secure-message-sign-pgp.  The support
@@ -658,8 +660,8 @@
       mu4e-view-attachment-actions '(("wopen-with" . mu4e-view-open-attachment-with)
                                      ("ein-emacs" . mu4e-view-open-attachment-emacs)
                                      ("|pipe" . mu4e-view-pipe-attachment))
-      ;; saving multiple attachments asks once for a directory and saves all
-      ;; attachments in the chosen directory.
+      ;; [C-u e] saving multiple attachments asks once for a directory and saves
+      ;; all attachments in the chosen directory.
       mu4e-save-multiple-attachments-without-asking t
       )
 
