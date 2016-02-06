@@ -36,11 +36,11 @@
           "/usr/lib/qt/qml/QtQuick.2/plugins.qmltypes"))
 
   :config
-  (remove-hook 'qml-mode-hook
-               (lambda ()
-                 ;; (add-to-list 'company-backends 'company-qml)
-                 (my-company-add-backends-to-mode '(company-qml))
-                 ))
+  (add-hook 'qml-mode-hook
+            (lambda ()
+              ;; (add-to-list 'company-backends 'company-qml)
+              (my-company-add-backends-to-mode '(company-qml))
+              ))
   )
 
 
