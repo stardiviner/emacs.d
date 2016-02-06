@@ -297,7 +297,7 @@
     (add-hook hook
               (lambda ()
                 (inf-ruby-minor-mode)
-
+                
                 (make-local-variable 'completion-at-point-functions)
 
                 ;; from inf-ruby
@@ -402,13 +402,14 @@
 
   ;; lazily load Ruby source code when saving file.
   (defun my-robe-lazily-load ()
+    (interactive)
     (if (or (equal major-mode 'enh-ruby-mode)
             (equal major-mode 'ruby-mode))
         (progn
           (ruby-load-file (buffer-file-name))
           (message "Robe loaded current file code."))
       ))
-  (add-hook 'after-save-hook 'my-robe-lazily-load 'append)
+  ;; (add-hook 'after-save-hook 'my-robe-lazily-load 'append)
   )
 
 
