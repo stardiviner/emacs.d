@@ -218,7 +218,13 @@
    ;;                'help-echo help-text
    ;;                'local-map github-notifier-mode-line-map
    ;;                'mouse-face 'mode-line-highlight)))
-   
+
+   ;; org-tree-slide slide number
+   ;; TODO:
+   ;; (:eval
+   ;;  (when (org-tree-slide--active-p)
+   ;;    (propertize (format "[%s]" org-tree-slide--slide-number)
+   ;;                'face '(:foreground "cyan"))))
    
    ;; the buffer name; the filename as a tool tip
    (:propertize " ["
