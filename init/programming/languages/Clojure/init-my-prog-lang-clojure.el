@@ -147,7 +147,9 @@
   (set-face-attribute 'cider-enlightened-local nil
                       :background "black" :foreground "orange"
                       )
-  
+
+  ;; enable `cider-mode' in `clojure-mode'.
+  (add-hook 'clojure-mode-hook 'cider-mode)
   
   ;; TODO:
   ;; You can define Clojure functions to be called before reloading, and after a
