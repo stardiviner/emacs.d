@@ -54,18 +54,24 @@
 (use-package leuven-theme
   :ensure t
   :config
-  (load-theme 'leuven t))
-  ;; override leuven-theme default colors.
-  (set-face-attribute 'org-verbatim nil
-                      ;; :foreground "#0066CC"
-                      :foreground "#0671DF"
-                      :background "#F7FDFF")
-  (set-face-attribute 'org-code nil
-                      ;; :foreground "#006400"
-                      :foreground "#059205"
-                      :background "FDFFF7"
-                      :box '(:color "#059205" :line-width -1)
-                      )
+  ;; (load-theme 'leuven t)
+  ;; fix leuven-theme is override by my customization.
+  (add-hook 'after-init-hook
+            (lambda ()
+              (load-theme 'leuven t)))
+
+  (with-eval-after-load 'org
+    ;; override leuven-theme default colors.
+    (set-face-attribute 'org-verbatim nil
+                        ;; :foreground "#0066CC"
+                        :foreground "#0671DF"
+                        :background "#F7FDFF")
+    (set-face-attribute 'org-code nil
+                        ;; :foreground "#006400"
+                        :foreground "#059205"
+                        :background "FDFFF7"
+                        :box '(:color "#059205" :line-width -1)
+                        ))
   )
 
 
