@@ -173,7 +173,7 @@
   (if (functionp 'company-quickhelp-manual-begin)
       (progn
         ;; 'company-quickhelp--show
-        (define-key company-quickhelp-mode-map (kbd "M-h") 'company-quickhelp-manual-begin)
+        ;; (define-key company-quickhelp-mode-map (kbd "M-h") 'company-quickhelp-manual-begin)
         (define-key company-active-map (kbd "M-h") 'company-quickhelp-manual-begin)
         )
     (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
