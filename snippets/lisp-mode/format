@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: format
+# key: format
+# group: print.format
+# --
+format t "~a~%" $0

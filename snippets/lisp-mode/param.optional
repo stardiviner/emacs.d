@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: optional parameters
+# key: param.optional
+# group: parameters.optional
+# --
+&optional ${1:a (a 10)}

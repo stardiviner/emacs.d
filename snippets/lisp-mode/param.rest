@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: rest parameters
+# key: param.rest
+# group: parameters.rest
+# --
+&rest $0

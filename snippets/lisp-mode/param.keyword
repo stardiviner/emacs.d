@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: keyword parameters
+# key: param.keyword
+# group: parameters.keyword
+# --
+&key ${1:param, (param value), (param value param-p)}
