@@ -10,13 +10,15 @@
 ;;; default frame size
 
 (setq default-frame-alist
-      '((height . 120)
+      '((top . 0) (left . 0)
+        (height . 120)
         (width . 90)
         (left-fringe) (right-fringe)
         ))
 
 (setq initial-frame-alist
-      '((height . 120)
+      '((top . 0) (left . 0)
+        (height . 120)
         (width . 90)
         (left-fringe) (right-fringe)))
 
