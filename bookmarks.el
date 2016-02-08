@@ -2,7 +2,27 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Python Packages"
+(("jQuery"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/JavaScript/Data/Packages/jQuery/jQuery.org")
+ (front-context-string . "* Intro\n\njQuery ")
+ (rear-context-string)
+ (position . 1))
+("Common Lisp Packages"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Lisp/Common Lisp/Data/Packages/Packages.org")
+ (front-context-string . "* package manage")
+ (rear-context-string)
+ (position . 1))
+("My Common Lisp Syntax Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Lisp/Common Lisp/Data/Manuals/My Common Lisp Syntax Reference.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("JavaScript Implementation Examples"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/JavaScript/Data/Manuals/JavaScript Implementations/JavaScript Implementations.org")
+ (front-context-string . "* Intro\n\n* DOM m")
+ (rear-context-string)
+ (position . 1))
+("Python Packages"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Python/Data/Packages/Packages.org")
  (front-context-string . "* Python Optimiz")
  (rear-context-string)
@@ -115,11 +135,6 @@
 ("Japanese Language"
  (filename . "~/Org/Wiki/Languages/Japanese/Japanese.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
- (rear-context-string)
- (position . 1))
-("jQuery"
- (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/JavaScript/Data/Projects/Library/jQuery/jQuery.org")
- (front-context-string . "* Intro\n\njQuery ")
  (rear-context-string)
  (position . 1))
 ("Contacts.org"
