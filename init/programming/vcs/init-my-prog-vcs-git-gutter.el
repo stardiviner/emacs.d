@@ -32,6 +32,8 @@
 ;; (define-key my-prog-vcs-map (kbd "m p") 'git-gutter:popup-hunk)
 ;; ;; Revert current hunk
 ;; (define-key my-prog-vcs-map (kbd "m r") 'git-gutter:revert-hunk)
+;; ;; show current buffer's statistic
+;; (define-key my-prog-vcs-map (kbd "m S") 'git-gutter:statistic)
 ;; ;; commit staged changes with [C-c v g c] which custom keybinding from magit function `magit-commit'.
 
 ;; ;; multiple character is OK
