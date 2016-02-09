@@ -57,7 +57,12 @@
   ;; disable slime in `lisp-mode-hook'. except other derived modes.
   (remove-hook 'lisp-mode-hook 'slime-lisp-mode-hook)
 
-  (add-hook 'lisp-mode-hook 'slime-mode)
+  ;; enable slime-mode for setup to support SLIME.
+  (dolist (hook '(lisp-mode-hook
+                  lisp-interaction-mode-hook
+                  slime-repl-mode-hook
+                  ))
+    (add-hook hook 'slime-mode))
   
   ;; SLIME REPL buffer
   (add-hook 'slime-repl-mode-hook 'slime-mode)
