@@ -16,19 +16,20 @@
   )
 
 
+;;; [ php-eldoc ]
+
+(use-package php-eldoc
+  :ensure t
+  :config
+  (php-eldoc-enable))
+
+
 ;;; [ inf-php ]
 
 (use-package inf-php
   :ensure t
   :config
   )
-
-
-;;; [ php-eldoc ]
-
-(use-package php-eldoc
-  :config
-  (php-eldoc-enable))
 
 
 ;;; [ php-boris ]
