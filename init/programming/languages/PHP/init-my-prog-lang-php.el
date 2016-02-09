@@ -9,6 +9,11 @@
 
 ;;; [ php-mode ]
 
+(use-package php-mode
+  :ensure t
+  :config
+  (setq php-search-documentation-browser-function t)
+  )
 
 
 ;;; [ inf-php ]
