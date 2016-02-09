@@ -15,6 +15,16 @@
   (add-to-list 'auto-mode-alist '("\\.lsp$" . newlisp-mode))
   (add-to-list 'interpreter-mode-alist '("newlisp" . newlisp-mode))
   :config
+
+  (add-hook 'newlisp-mode-hook
+            #'(lambda ()
+                (make-local-variable 'completion-at-point-functions)
+                (add-to-list 'completion-at-point-functions
+                             'newlisp-complete-symbol)
+
+                (paredit-mode 1)
+                (eldoc-mode 1)
+                ))
   
   ;; setup `*newlisp*' buffer (`comint-mode' of newLisp)
   (defun newlisp-repl-inferior-buffer-setup ()
@@ -22,6 +32,11 @@
         (progn
           (eldoc-mode t)
           (paredit-mode t)
+
+          ;; for `company-mode' backend `company-capf'
+          (make-local-variable 'completion-at-point-functions)
+          (add-to-list 'completion-at-point-functions
+                       'newlisp-complete-symbol)
           )))
 
   (add-hook 'comint-mode-hook 'newlisp-repl-inferior-buffer-setup)
