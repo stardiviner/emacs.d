@@ -13,6 +13,11 @@
 
 ;;; [ inf-php ]
 
+(use-package inf-php
+  :ensure t
+  :config
+  )
+
 
 ;;; [ php-eldoc ]
 
