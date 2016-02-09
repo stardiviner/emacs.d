@@ -55,18 +55,22 @@
   ;; auto connect SLY.
   (add-hook 'sly-mode-hook
             (lambda ()
-              (unless (sly-connected-p)
-                (save-excursion (sly)))))
+              (if (equal major-mode 'lisp-mode)
+                  (unless (sly-connected-p)
+                    (save-excursion (sly))))))
 
   ;; enable `sly-mode' in Lisps
-  ;;
-  ;; (dolist (hook '(sly-mode-hook
-  ;;                 sly-mrepl-mode-hook
-  ;;                 lisp-mode-hook
-  ;;                 lisp-interaction-mode-hook
-  ;;                 common-lisp-lisp-mode-hook
-  ;;                 ))
-  ;;   (add-hook hook 'sly-mode))
+  (dolist (hook '(lisp-mode-hook
+                  lisp-interaction-mode-hook
+                  sly-mrepl-mode-hook
+                  ))
+    (add-hook hook 'sly-mode))
+
+  ;; setup SLY REPL buffer
+  (add-hook 'sly-mrepl-mode-hook
+            '(lambda ()
+               (paredit-mode 1)
+               (eldoc-mode 1)))
   )
 
 
