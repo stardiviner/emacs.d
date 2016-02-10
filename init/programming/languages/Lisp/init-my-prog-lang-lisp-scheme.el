@@ -21,9 +21,15 @@
 ;;; [ geiser ] -- 
 
 (use-package geiser
-  ;; :ensure t
-  ;; :config
-  ;; (run-geiser)
+  :ensure t
+  :config
+  ;; 'guile, 'racket, 'chicken
+  (setq geiser-default-implementation 'guile)
+
+  ;; company-backend
+  (add-hook 'scheme-mode-hook
+            '(lambda ()
+               (my-company-add-backends-to-mode '(geiser-company-backend))))
   )
 
 
