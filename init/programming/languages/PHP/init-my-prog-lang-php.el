@@ -45,6 +45,7 @@
 (use-package php-boris-minor-mode
   :ensure t
   :config
+  (add-hook 'php-mode-hook 'php-boris-minor-mode)
   )
 
 
