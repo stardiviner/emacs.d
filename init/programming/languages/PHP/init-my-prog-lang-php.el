@@ -54,6 +54,14 @@
 (use-package ac-php
   :ensure t
   :config
+  ;; fix ac-php duplicate parentheses with `smartparens-mode'.
+  (add-to-list 'sp-ignore-modes-list 'php-mode)
+  ;; or:
+  ;; (add-hook 'php-mode-hook
+  ;;           '(lambda ()
+  ;;              (if smartparens-mode
+  ;;                  (smartparens-mode -1))))
+  
   ;; company-mode
   (require 'ac-php-company)
   ;; auto-complete
