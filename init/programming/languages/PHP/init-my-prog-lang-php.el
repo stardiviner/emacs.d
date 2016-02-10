@@ -34,8 +34,18 @@
 
 ;;; [ php-boris ]
 
+(use-package php-boris
+  :ensure t
+  :config
+  )
+
 
 ;;; [ php-boris-minor-mode ]
+
+(use-package php-boris-minor-mode
+  :ensure t
+  :config
+  )
 
 
 ;;; [ ac-php ] -- auto-completion and company source for php for GNU Emacs.
