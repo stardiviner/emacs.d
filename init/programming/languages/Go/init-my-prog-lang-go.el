@@ -169,7 +169,9 @@
 ;;; [ go-oracle ]
 
 (load "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
-(add-hook 'go-mode-hook 'go-oracle-mode)
+
+;; FIXME: (add-hook 'go-mode-hook 'go-oracle-mode)
+(require 'go-oracle)
 
 
 ;;; [ gotest ] -- Launch GO unit tests
