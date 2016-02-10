@@ -33,6 +33,17 @@
 ;;; [ Bash ]
 
 
+;;; [ company-shell ]
+
+(use-package company-shell
+  :ensure t
+  :config
+  (add-hook 'sh-mode-hook
+            '(lambda ()
+               (my-company-add-backends-to-mode '(company-shell))))
+  )
+
+
 ;;; [ bash-completion ]
 
 ;; (autoload 'bash-completion-dynamic-complete 
