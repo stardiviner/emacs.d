@@ -18,13 +18,14 @@
 
 ;;; [ iasm-mode ]
 
-;; (global-set-key (kbd "C-c C-d") 'iasm-disasm)
-;; (global-set-key (kbd "C-c C-l") 'iasm-ldd)
-
-(add-hook 'c-mode-common-hook
-          (lambda ()
-            (local-set-key (kbd "C-c d") 'iasm-goto-disasm-buffer)
-            (local-set-key (kbd "C-c l") 'iasm-disasm-link-buffer)))
+(use-package iasm-mode
+  :ensure t
+  :config
+  (define-key iasm-mode-map (kbd "C-c C-d") 'iasm-disasm)
+  (define-key iasm-mode-map (kbd "C-c d") 'iasm-goto-disasm-buffer)
+  (define-key iasm-mode-map (kbd "C-c C-l") 'iasm-ldd)
+  (define-key iasm-mode-map (kbd "C-c l") 'iasm-disasm-link-buffer)
+  )
 
 
 ;;; [ gas-mode ]
