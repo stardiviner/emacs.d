@@ -77,10 +77,14 @@
 
 ;;; [ go-complete ] -- Native Go completion for Emacs.
 
-(add-hook 'go-mode-hook
-          '(lambda ()
-             (add-hook (make-local-variable 'completion-at-point-functions)
-                       'go-complete-at-point)))
+(use-package go-complete
+  :ensure t
+  :config
+  (add-hook 'go-mode-hook
+            '(lambda ()
+               (add-hook (make-local-variable 'completion-at-point-functions)
+                         'go-complete-at-point)))
+  )
 
 
 ;;; [ go-autocomplete ]
