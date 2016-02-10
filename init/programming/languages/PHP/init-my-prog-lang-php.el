@@ -21,7 +21,7 @@
 (use-package php-eldoc
   :ensure t
   :config
-  (php-eldoc-enable))
+  (add-hook 'php-mode-hook 'php-eldoc-enable))
 
 
 ;;; [ inf-php ]
