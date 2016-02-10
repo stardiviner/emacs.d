@@ -61,8 +61,16 @@
 
 ;;; [ phpunit ]
 
+(use-package phpunit
+  :ensure t
+  :config
+  )
 
 
 (provide 'init-my-prog-lang-php)
 
 ;;; init-my-prog-lang-php.el ends here
+(use-package phpunit
+  :ensure t
+  :config
+  )
