@@ -38,6 +38,27 @@
 ;;; [ php-boris-minor-mode ]
 
 
+;;; [ ac-php ] -- auto-completion and company source for php for GNU Emacs.
+
+(use-package ac-php
+  :ensure t
+  :config
+  ;; company-mode
+  (require 'ac-php-company)
+  ;; (add-to-list 'company-backends 'company-ac-php-backend)
+  (my-company-add-backends-to-mode '(company-ac-php-backend))
+  
+  ;; auto-complete
+  ;; (require 'ac-php)
+  ;; (setq ac-sources  '(ac-source-php))
+  
+  ;; keybindings
+  (define-key php-mode-map (kbd "M-.") 'ac-php-find-symbol-at-point)
+  (define-key php-mode-map (kbd "M-,") 'ac-php-location-stack-back)
+  (define-key php-mode-map (kbd "C-h d d") 'ac-php-show-tip)
+  )
+
+
 ;;; [ phpunit ]
 
 
