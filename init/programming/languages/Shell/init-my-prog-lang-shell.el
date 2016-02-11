@@ -43,6 +43,9 @@
                   shell-mode-hook
                   ))
     (add-hook hook '(lambda ()
+                      (setq-local completion-at-point-functions
+                                  (delq 'sh-completion-at-point-function
+                                        completion-at-point-functions))
                       (my-company-add-backends-to-mode '(company-shell)))))
   )
 
