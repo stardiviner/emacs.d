@@ -12,6 +12,8 @@
 (use-package php-mode
   :ensure t
   :config
+  (with-eval-after-load 'php-mode
+    (require 'php-ext))
   (setq php-search-documentation-browser-function t)
   )
 
