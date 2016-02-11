@@ -109,19 +109,24 @@
         
         helm-dash-common-docsets
         '("Ruby"
-          "Python 3"
-          ;; "PHP"
           "Ruby on Rails"
+          "Python 3"
+          ;; "Django" "Flask"
+          ;; "PHP"
           "HTML" "CSS" "JavaScript"
           ;; "Emmet" "Haml" "Less"
           ;; "CoffeeScript"
           "NodeJS"
-          "jQuery" "AngularJS" "React" "D3JS"
-          ;; "EmberJS" "ExtJS" "BackboneJS" "KnockoutJS" "MomentJS" "PrototypeJS" "RequireJS" "UnderscoreJS"
+          "jQuery" ; "jQuery_UI" "jQuery_Mobile"
+          ;; "PrototypeJS" "RequireJS" "UnderscoreJS"
+          "AngularJS" "React" "D3JS"
+          ;; "EmberJS" "ExtJS" "BackboneJS" "KnockoutJS" "MomentJS"
+          ;; "Grunt"
           ;; "RFCs"
           "Common Lisp"
           "Clojure"
           "C" ; "C++"
+          "CMake"
           "Go" ; "Swift" ; "Rust"
           ;; "Java"
           ;; "Elixir"
@@ -132,14 +137,20 @@
           "Bash"
           "LaTeX"
           "Julia" ; "R"
+          ;; "Matplotlib"
           ;; "Processing"
-          ;; "Unity_3D" "Cocos3D" "Cocos2D"
-          ;; "OpenGL_4" "OpenCV_C"
-          "Docker" "Vagrant" ; "Nginx"
+          "Docker" "Vagrant"
           ;; "Qt"
+          ;; Mobile
           ;; "Android" "iOS" "OS_X"
           ;; "RubyMotion"
           ;; "Arduino"
+          ;; Web
+          ;; "Nginx" "Apache_HTTP_Server"
+          ;; "ElasticSearch"
+          ;; Games
+          ;; "Unity_3D" "Cocos3D" "Cocos2D"
+          ;; "OpenGL_4" "OpenCV_C"
           )
 
         )
