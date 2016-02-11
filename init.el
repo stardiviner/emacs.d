@@ -268,6 +268,11 @@
 (require 'init-my-prog-tools-heroku)
 
 
+;;; Accessibility
+
+(require 'init-my-emacs-accessibility)
+
+
 ;;; Math
 (require 'init-my-math)
 
