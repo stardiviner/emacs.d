@@ -38,9 +38,12 @@
 (use-package company-shell
   :ensure t
   :config
-  (add-hook 'sh-mode-hook
-            '(lambda ()
-               (my-company-add-backends-to-mode '(company-shell))))
+  ;; (setq company-shell-modes '(sh-mode fish-mode shell-mode eshell-mode))
+  (dolist (hook '(sh-mode-hook
+                  shell-mode-hook
+                  ))
+    (add-hook hook '(lambda ()
+                      (my-company-add-backends-to-mode '(company-shell)))))
   )
 
 
