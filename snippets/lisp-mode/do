@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: do
+# key: do
+# group: do.do
+# --
+(do (${1:(${2:var} ${3:init-form} ${4:step-form})})
+    (${5:(end-test-form)} ${6:(result-form*)})
+  ${0:statement*})

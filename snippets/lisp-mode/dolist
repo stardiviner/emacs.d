@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: dolist
+# key: dolist
+# group: do.dolist
+# --
+dolist (${1:var} ${2:list-form})
+${0:body-form*}

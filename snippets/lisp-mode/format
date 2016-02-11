@@ -3,4 +3,4 @@
 # key: format
 # group: print.format
 # --
-format t "~a~%" $0
+format t "~${1:a}~%" $0

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: dotimes
+# key: dotimes
+# group: do.dotimes
+# --
+dotimes (${1:var} ${2:count-form})
+${0:body-form*}

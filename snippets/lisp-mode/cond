@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: cond
+# key: cond
+# group: cond.cond
+# --
+cond
+(${1:test-1} ${2:form*})
+(${3:test-2} ${4:form*})
+${5:T form*}
+$0
