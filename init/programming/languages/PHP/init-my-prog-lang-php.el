@@ -91,6 +91,9 @@
 (use-package phpunit
   :ensure t
   :config
+  (define-key php-mode-map (kbd "C-c t t") 'phpunit-current-test)
+  (define-key php-mode-map (kbd "C-c t c") 'phpunit-current-class)
+  (define-key php-mode-map (kbd "C-c t p") 'phpunit-current-project)
   )
 
 
