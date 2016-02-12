@@ -76,7 +76,7 @@
   :ensure t
   :config
   (setq which-key-idle-delay 1.5
-        which-key-idle-secondary-delay 1.0)
+        which-key-idle-secondary-delay nil)
 
   ;; (setq which-key-popup-type 'side-window ; 'side-window, 'minibuffer, 'frame
   ;;       which-key-side-window-location 'bottom
