@@ -116,6 +116,15 @@
 ;; (add-hook 'prog-mode-hook 'linum-mode)
 
 
+;;; [ nlinum ] -- show line numbers in margin.
+
+;; (use-package nlinum
+;;   :ensure t
+;;   :config
+;;   (setq nlinum-format "%d ")
+;;   )
+
+
 ;;; [ current line & column ]
 
 ;; highlight current line
