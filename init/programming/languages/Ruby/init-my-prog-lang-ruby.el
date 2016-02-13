@@ -49,8 +49,6 @@
   (add-to-list 'auto-mode-alist
                '("\\.\\(?:gemspec\\|irbrc\\|pryrc\\|gemrc\\|rake\\|ru\\|thor\\)\\'" . enh-ruby-mode))
   :config
-  (setq enh-ruby-extra-keywords '("private" "protected" "public" "self"))
-  
   (setq enh-ruby-bounce-deep-indent nil
         enh-ruby-deep-arglist t
         enh-ruby-deep-indent-paren t
@@ -105,23 +103,41 @@
   ;;                "\\(class\\|def\\|do\\|if\\)" "\\(end\\)" "#"
   ;;                (lambda (arg) (ruby-end-of-block)) nil))
 
-  (add-hook 'enh-ruby-mode-hook
-            '(lambda ()
-               ;; highlight symbol: dot .
-               (font-lock-add-keywords
-                'enh-ruby-mode
-                '(("[[:alnum:]]\\(\\.\\)[[:alnum:]]"
-                   (1 '(:foreground "deep pink" :weight 'bold))
-                   )))
-               
-               ;; FIXME: this is override by ruby-mode default syntax highlight.
-               ;; highlight keyword: self
-               ;; (font-lock-add-keywords
-               ;;  'enh-ruby-mode
-               ;;  '(("\s\\(self\\)\\(\\.\s\\)?"
-               ;;     (1 '(:foreground "white" :background "deep pink" :weight 'normal))
-               ;;     )))
-               ))
+
+  ;; (setq enh-ruby-extra-keywords '("private" "protected" "public" "self"))
+  
+  (defun my-ruby-code-custom-highlights ()
+    ;; highlight symbol: dot .
+    (font-lock-add-keywords
+     'enh-ruby-mode
+     '(("[[:alnum:]]\\(\\.\\)[[:alnum:]]"
+        (1 '(:foreground "deep pink" :weight 'bold))
+        )))
+    
+    ;; FIXME: this is override by ruby-mode default syntax highlight.
+    ;; highlight keyword: self
+    ;; (font-lock-add-keywords
+    ;;  'enh-ruby-mode
+    ;;  '(("\s\\(self\\)\\(\\.\s\\)?"
+    ;;     (1 '(:foreground "white" :background "deep pink" :weight 'normal))
+    ;;     )))
+
+    ;; highlight keywords: protected(orange), private(dark red), public(white)
+    (font-lock-add-keywords
+     'enh-ruby-mode
+     '(("^\s*\\(public\\)$"
+        (1 '(:foreground "black" :background "white")))))
+    (font-lock-add-keywords
+     'enh-ruby-mode
+     '(("^\s*\\(protected\\)$"
+        (1 '(:foreground "black" :background "orange")))))
+    (font-lock-add-keywords
+     'enh-ruby-mode
+     '(("^\s*\\(private\\)$"
+        (1 '(:foreground "black" :background "dark red")))))
+    )
+  
+  (add-hook 'enh-ruby-mode-hook 'my-ruby-code-custom-highlights)
   )
 
 
