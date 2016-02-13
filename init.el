@@ -262,7 +262,10 @@
 (require 'init-my-prog-nginx)
 
 
-;;; programming related tools
+;;; DevOps: programming related tools
+
+(require 'init-my-prog-devops)
+
 (require 'init-my-prog-tools-container)
 (require 'init-my-prog-tools-vagrant)
 (require 'init-my-prog-tools-heroku)
