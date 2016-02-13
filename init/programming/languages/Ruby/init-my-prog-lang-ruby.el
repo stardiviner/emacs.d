@@ -40,7 +40,7 @@
 (use-package enh-ruby-mode
   :ensure t
   :init
-  (add-to-list 'auto-mode-alist '("\\.rb\'" . enh-ruby-mode))
+  (add-to-list 'auto-mode-alist '("\\.rb\\'" . enh-ruby-mode))
   (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
   ;; Gemfile, Capfile, Rakefile
   (add-to-list 'auto-mode-alist
