@@ -6,9 +6,6 @@
 ;;; Code:
 
 
-(add-to-list 'auto-mode-alist '("\\.rb\'" . enh-ruby-mode))
-(add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
-
 ;; We never want to edit Rubinius bytecode or MacRuby binaries
 (add-to-list 'completion-ignored-extensions ".rbc")
 (add-to-list 'completion-ignored-extensions ".rbo")
@@ -28,6 +25,8 @@
 ;; - [C-c C-s] -- (inf-ruby)
 ;; - [C-c C-z] -- (ruby-switch-to-inf)
 
+;; (add-to-list 'auto-mode-alist '("\\.rb\'" . ruby-mode))
+;; (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
 
 (setq ruby-use-smie t       ; use sexp navigation for Ruby
       ;; bellowing effect only when `ruby-use-smie' is `nil'.
@@ -48,6 +47,7 @@
   ;; irb(irbrc), pry(pryrc), gem(gemspec, gemrc), rackup(ru), Thor(thor),
   (add-to-list 'auto-mode-alist
                '("\\.\\(?:gemspec\\|irbrc\\|pryrc\\|gemrc\\|rake\\|ru\\|thor\\)\\'" . enh-ruby-mode))
+
   :config
   (setq enh-ruby-bounce-deep-indent nil
         enh-ruby-deep-arglist t
@@ -346,8 +346,7 @@
     (my-robe-start))
 
   ;; (define-key enh-ruby-mode-map (kbd "C-c C-s") 'inf-ruby)
-  
-  (define-key my-prog-inferior-map (kbd "r a") 'inf-ruby-console-auto)
+  ;; (define-key my-prog-inferior-map (kbd "r a") 'inf-ruby-console-auto)
   )
 
 
