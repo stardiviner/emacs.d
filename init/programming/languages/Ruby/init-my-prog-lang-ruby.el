@@ -429,18 +429,6 @@
   )
 
 
-;;; [ ruby-compilation ]
-
-(use-package ruby-compilation
-  :ensure t
-  :config
-  (define-key enh-ruby-mode-map (kbd "C-c t C") 'ruby-compilation-this-buffer)
-  (define-key enh-ruby-mode-map (kbd "C-c t c") 'ruby-compilation-this-test)
-  (define-key ruby-mode-map (kbd "C-c t C") 'ruby-compilation-this-buffer)
-  (define-key ruby-mode-map (kbd "C-c t c") 'ruby-compilation-this-test)
-  )
-
-
 ;;; [ rspec-mode ] -- Ruby RSpec
 
 ;;; Usage:
