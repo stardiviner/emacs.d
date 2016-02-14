@@ -502,15 +502,7 @@
   )
 
 
-;;; [ ruby-test-mode ] -- Emacs minor mode for Behaviour and Test Driven Development in Ruby.
-
-;;; Usage:
-;;
-;; C-c C-,   - Runs the current buffer's file as an unit test or an
-;;             rspec example.
-;; C-c M-,   - Runs the unit test or rspec example at the current buffer's
-;;             buffer's point.
-;; C-c C-s   - Toggle between implementation and test/example files.
+;;; [ ruby-test-mode ] -- Behaviour and Test Driven Development in Ruby.
 
 (use-package ruby-test-mode
   :ensure t
