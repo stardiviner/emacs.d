@@ -126,15 +126,15 @@
     (font-lock-add-keywords
      'enh-ruby-mode
      '(("^\s*\\(public\\)$"
-        (1 '(:foreground "black" :background "white")))))
+        (1 '(:foreground "black" :background "white" :weight 'bold)))))
     (font-lock-add-keywords
      'enh-ruby-mode
      '(("^\s*\\(protected\\)$"
-        (1 '(:foreground "black" :background "orange")))))
+        (1 '(:foreground "black" :background "orange" :weight 'bold)))))
     (font-lock-add-keywords
      'enh-ruby-mode
      '(("^\s*\\(private\\)$"
-        (1 '(:foreground "black" :background "dark red")))))
+        (1 '(:foreground "black" :background "dark green" :weight 'bold)))))
     )
   
   (add-hook 'enh-ruby-mode-hook 'my-ruby-code-custom-highlights)
