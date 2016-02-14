@@ -764,10 +764,8 @@
 (use-package rake
   :ensure t
   :config
-  (if (featurep 'projectile)
-      (eval-after-load 'projectile
-        '(setq rake-completion-system projectile-completion-system))
-    (setq rake-completion-system 'ivy-read))
+  ;; 'ivy-read
+  (setq rake-completion-system 'default)
   )
 
 
