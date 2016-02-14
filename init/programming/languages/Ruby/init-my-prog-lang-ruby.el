@@ -431,21 +431,6 @@
 
 ;;; [ ruby-compilation ]
 
-;;; Usage:
-;; - [C-x t] -- ruby-compilation-this-buffer
-;; - [C-x T] -- ruby-compilation-this-test
-;; - [ruby-compilation-run]
-;; - [ruby-compilation-rake]
-;;
-;; - [C-h f ruby-compilation-mode] -- get help.
-;; - [C-o] -- compilation-display-error
-;; - [RET] / [C-c C-c] -- compile-goto-error
-;; - [TAB] / [M-n] -- compilation-next-error
-;; - [backtab] / [M-p] -- compilation-previous-error
-;; - [g] -- recompile
-;; - [C-c C-f] -- next-error-follow-minor-mode
-;; - [C-c C-k] -- kill compilation
-
 (use-package ruby-compilation
   :ensure t
   :config
