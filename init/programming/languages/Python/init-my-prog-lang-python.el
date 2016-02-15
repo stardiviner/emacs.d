@@ -189,35 +189,6 @@
 
 ;;; [ anaconda-mode ]
 
-;;; Usage:
-;;
-;; - context-sensitive code completion
-;; - jump to definitions
-;; - find references
-;; - view documentation
-;; - virtual environment
-;; - eldoc mode
-
-;; - `pythonic-activate' :: active Python virtualenv.
-
-;;; Keybindings
-;;
-;; - [M-.] :: anaconda-mode-goto-definitions
-;; - [M-*] :: anaconda-nav-pop-marker
-;; - [M-?] :: anaconda-mode-view-doc
-;; - [M-r] :: anaconda-mode-usages
-
-;;; Implementation details
-;;
-;; Anaconda mode comes with anaconda_mode.py server. This server allow you to
-;; use jedi python library over jsonrpc api. Server choice first available port
-;; starting from 24970. Anaconda mode will run this server automatically on
-;; first call of any anaconda-mode command.
-;;
-;; This mean that completion results and reference search depends on your
-;; project installation. To make it available for anaconda-mode you have few
-;; options.
-
 (use-package anaconda-mode
   :ensure t
   :config
