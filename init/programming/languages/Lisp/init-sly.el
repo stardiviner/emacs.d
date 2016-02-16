@@ -79,9 +79,12 @@
   :ensure t
   :config
   ;; (add-hook 'sly-mode-hook 'sly-company-mode)
-  (add-hook 'sly-mode-hook
-            '(lambda ()
-               (my-company-add-backends-to-mode '(sly-company))))
+  (dolist (hook '(sly-mode-hook
+                  sly-mrepl-mode-hook
+                  ))
+    (add-hook hook
+              '(lambda ()
+                 (my-company-add-backends-to-mode '(sly-company)))))
   )
 
 
