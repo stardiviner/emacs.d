@@ -138,7 +138,7 @@
                       :background "forest green" :foreground "white"
                       )
   (set-face-attribute 'web-mode-current-column-highlight-face nil
-                      :background "#444444" :foreground " "
+                      :background "#444444" :foreground nil
                       )
   (set-face-attribute 'web-mode-folded-face nil
                       :weight 'bold :slant 'italic
@@ -240,9 +240,11 @@
   ;; TODO:
   (set-face-attribute 'web-mode-block-delimiter-face nil ; <%= ... =>
                       :foreground "dark red"
-                      :background "black")
+                      :background (color-darken-name (face-background 'default) 3)
+                      )
   (set-face-attribute 'web-mode-block-face nil ; variant embed template blocks
-                      :background "black")
+                      :background (color-darken-name (face-background 'default) 3)
+                      )
   (set-face-attribute 'web-mode-block-control-face nil
                       :foreground "green")
   (set-face-attribute 'web-mode-block-string-face nil ; block string
