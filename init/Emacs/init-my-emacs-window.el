@@ -244,52 +244,6 @@
 
 ;;; [ window-purpose ] -- Organize Windows and Buffers According to Purposes.
 
-;;; Usage:
-;;
-;; - [C-c ,] :: prefix
-;;
-;;; Steps:
-;;
-;; 1. configuration
-;;
-;;   (add-to-list 'purpose-user-mode-purposes '(python-mode . py))
-;;   (add-to-list 'purpose-user-mode-purposes '(inferior-python-mode . py-repl))
-;;   (purpose-compile-user-configuration)
-;;
-;;   - configurations
-;;    
-;;     Manually: M-x customize-group purpose. Look at:
-;;    
-;;     - "Purpose User Mode Purposes": recognize purpose according to major mode
-;;     - "Purpose User Name Purposes": recognize purpose according to buffer name (for exact names)
-;;     - "Purpose User Regexp Purposes": recognize purpose according to buffer name (for name patterns)
-;;     - "Purpose Use Default Configuration": toggle default configuration on/off
-;;    
-;;     (add-to-list 'purpose-user-mode-purposes '(<major-mode> . <purpose>))
-;;     (add-to-list 'purpose-user-name-purposes '(<name> . <purpose>))
-;;     (add-to-list 'purpose-user-regexp-purposes '(<pattern> . <purpose>))
-;;     (setq purpose-use-default-configuration t) ; not really necessary, default is t
-;;     (purpose-compile-user-configuration) ; activates your changes
-;;
-;;
-;; 2. change window layout
-;;
-;; If you have a previously saved layout, you can load it with
-;; purpose-load-window-layout and skip step 2 and step 3.
-;;
-;;   0. open a Python file
-;;   1. C-c , d (purpose-toggle-window-purpose-dedicated) so window is dedicated ("[py]" in the status bar will change to "[py!]")
-;;   2. C-x 1 (delete-other-windows)
-;;   3. C-x 2 (split-window-below)
-;;   4. C-c C-z (python-shell-switch-to-shell)
-;;   5. C-c , d so window is dedicated
-;;   6. C-x o (other-window) to select the python file's window
-;;   7. C-x ^ (enlarge-window) until you like the sizes of the windows
-;;
-;; 3. save window layout
-;;
-;;   [M-x purpose-save-window-layout]
-
 (use-package window-purpose
   ;; :ensure t
   ;; :config
