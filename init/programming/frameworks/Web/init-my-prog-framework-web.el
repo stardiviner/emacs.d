@@ -82,6 +82,9 @@
 
   ;; Never forget to update the auto-mode-alist.
 
+  ;; SQL
+  (setq web-mode-enable-sql-detection t)
+
   ;;_. auto-pairs
 
   ;; add auto-pair
