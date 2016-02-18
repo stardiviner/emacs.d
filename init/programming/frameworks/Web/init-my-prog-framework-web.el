@@ -454,6 +454,17 @@
             (if tern-mode (tern-mode -1))
             ))))
 
+  ;; [C-c ']
+  ;; let Org-mode Babel src code block auto set `web-mode-engine' for rhtml.
+  (defadvice org-edit-special (before org-edit-src-code activate)
+    (let ((lang (nth 0 (org-babel-get-src-block-info))))
+      (if (string= lang "rhtml")
+          (web-mode-set-engine "erb"))))
+
+  (defadvice org-edit-special (after org-edit-src-code activate)
+    (if (string= web-mode-engine "erb")
+        (my-company-add-backends-to-mode '(company-robe))))
+  
   ;; Enable Rails completion between <%= ... %>, or <% ... %>.
   (defadvice company-robe (before web-mode-set-up-ac-sources activate)
     "Set `robe-mode' based on current language before running `company-robe'."
