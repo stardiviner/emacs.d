@@ -63,9 +63,11 @@
 ;; 2. make sure simple-httpd server running.
 ;; 3. <script src="http://localhost:8080/skewer"></script>
 
-(use-package livid-mode
-  :ensure t
-  )
+;; (use-package livid-mode
+;;   :ensure t
+;;   :config
+;;   (add-hook 'js2-mode-hook 'livid-mode)
+;;   )
 
 
 (provide 'init-my-prog-web-browser)

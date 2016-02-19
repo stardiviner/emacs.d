@@ -52,7 +52,7 @@
          )
 
         ;; org-passwords
-        ("p" "password"
+        ("P" "password"
          entry (file "~/Org/Accounts/accounts.org.gpg")
          "* %^{Title}\n  %^{URL}p %^{USERNAME}p %^{PASSWORD}p %^{EMAIL}p"
          :empty-lines 1
@@ -99,6 +99,41 @@
       org-archive-stamp-time t
       org-archive-reversed-order nil
       )
+
+
+;;; [ org-protocol capture ]
+
+(require 'org-protocol)
+
+(add-to-list 'org-capture-templates
+             '("p" "Protocol"
+               entry (file+headline
+                      (concat org-directory "Capture/Capture.org") "Capture")
+               "* %^{Title}\nSource: %u, \n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?"
+               :prepend t
+               :empty-lines 1
+               ))
+
+(add-to-list 'org-capture-templates
+             '("L" "Protocol Link"
+               entry (file+headline
+                      (concat org-directory "Capture/Capture.org") "Capture")
+               "* %? [[%:link][%:description]] \nCaptured On: %U"
+               :prepend t
+               :empty-lines 1
+               ))
+
+(defadvice org-capture
+    (after make-full-window-frame activate)
+  "Advise capture to be the only window when used as a popup"
+  (if (equal "emacs-capture" (frame-parameter nil 'name))
+      (delete-other-windows)))
+
+(defadvice org-capture-finalize
+    (after delete-capture-frame activate)
+  "Advise capture-finalize to close the frame"
+  (if (equal "emacs-capture" (frame-parameter nil 'name))
+      (delete-frame)))
 
 
 (provide 'init-my-org-capture)
