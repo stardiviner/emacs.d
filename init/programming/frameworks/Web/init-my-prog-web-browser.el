@@ -17,32 +17,10 @@
 
 ;;; Usage:
 ;;
-;; 1. M-x run-skewer to attach a browser to Emacs.
+;; 1. =[M-x run-skewer]= to attach a browser to Emacs.
 ;;
-;; 2. From a js2-mode buffer with skewer-mode minor mode enabled, send forms to
-;;    the browser to evaluate
-;;
-;; - [C-x C-e] :: Evaluate the form before the point and display the result in
-;;   the minibuffer. If given a prefix argument, insert the result into the
-;;   current buffer.
-;; - [C-M-x] :: Evaluate the top-level form around the point.
-;; - [C-c C-k] :: Load the current buffer.
-;; - [C-c C-z] :: Select the REPL buffer.
-;;
-;; - CSS
-;;
-;;   - [C-x C-e] :: Load the declaration at the point.
-;;   - [C-M-x] :: Load the entire rule around the point.
-;;   - [C-c C-k] :: Load the current buffer as a stylesheet.
-;;
-;; - HTML
-;;
-;;   - [C-M-x] :: Load the HTML tag immediately around the point.
-;;
-;; - REPL
-;;
-;;   - [M-x skewer-repl] / [C-c C-z] :: A REPL into the browser.
-;;     Messages can be logged to this REPL with skewer.log() (like console.log()).
+;; 2. From a `js2-mode' buffer with `skewer-mode' *minor mode* enabled, send
+;; forms to the browser to evaluate.
 
 (use-package skewer-mode
   :ensure t
