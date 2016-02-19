@@ -353,6 +353,15 @@
   )
 
 
+;;; [ helm-clojuredocs ] -- Searching for help in clojurdocs.org with helm.
+
+;; (use-package helm-clojuredocs
+;;   :ensure t
+;;   :config
+;;   (define-key clojure-mode-map (kbd "C-h d d") 'helm-clojuredocs)
+;;   )
+
+
 ;;; [ clojure-cheatsheet ]
 
 ;; https://github.com/clojure-emacs/clojure-cheatsheet
