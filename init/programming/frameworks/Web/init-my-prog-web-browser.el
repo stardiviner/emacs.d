@@ -67,6 +67,20 @@
 
 ;;; [ kite-minit ] -- Yet another Emacs package to interact with WebKit remote debugging API.
 
+;;; Usage:
+;;
+;; 1. open Chrome with remote debugging enabled:
+;;    $ chromium --remote-debugging-port=9222
+;; 2. kite-mini-mode in `js-mode', or `css-mode'.
+
+(use-package kite-mini
+  :ensure t
+  :config
+  ;; Automatically Turn on the mode for your buffer of choice.
+  (add-hook 'js-mode-hook (lambda () (kite-mini-mode t)))
+  (add-hook 'css-mode-hook (lambda () (kite-mini-mode t)))
+  )
+
 
 (provide 'init-my-prog-web-browser)
 
