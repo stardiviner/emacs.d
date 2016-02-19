@@ -2,7 +2,22 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("jQuery"
+(("My Bash Syntax Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Shell/Bash/Data/Manuals/My Bash Syntax Reference/My Bash Syntax Reference.org")
+ (front-context-string . "* Common Environ")
+ (rear-context-string)
+ (position . 1))
+("Shell Script Programming Language"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Shell/Shell.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("My C Language Syntax Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/C/Data/Manuals/My C Language Syntax Reference/My C Language Syntax Reference.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("jQuery"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/JavaScript/Data/Packages/jQuery/jQuery.org")
  (front-context-string . "* Intro\n\njQuery ")
  (rear-context-string)
@@ -390,11 +405,6 @@
 ("SQL"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Database/SQL/SQL.org")
  (front-context-string . "* Intro\n\n*Struct")
- (rear-context-string)
- (position . 1))
-("Gems for Rails"
- (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Frameworks/Ruby on Rails/Data/Gems/Gems.org")
- (front-context-string . "* Authentication")
  (rear-context-string)
  (position . 1))
 ("Elixir Language"
