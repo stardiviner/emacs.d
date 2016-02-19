@@ -10,7 +10,24 @@
 ;;; [ dom ]
 
 
-;;; [ kite ] -- WebKit
+;;; [ swank-js ] -- Swank backend for Node.JS and in-browser JavaScript.
+
+;; (use-package swank-js
+;;   :ensure t
+;;   :config
+;;   (dolist (hook '(js2-mode-hook
+;;                   js3-mode-hook
+;;                   ))
+;;     (add-hook hook #'slime-js-minor-mode))
+;;
+;;   (add-hook 'css-mode-hook
+;;             (lambda ()
+;;               (define-key css-mode-map (kbd "C-M-x") 'slime-js-refresh-css)
+;;               (define-key css-mode-map (kbd "C-c C-r") 'slime-js-embed-css)))
+;;
+;;   (define-key js2-mode-map [f6] 'slime-js-reload)
+;;   (define-key js3-mode-map [f6] 'slime-js-reload)
+;;   )
 
 
 ;;; [ skewer-mode ] -- Live web development in Emacs.
@@ -40,6 +57,15 @@
 ;;   :config
 ;;   (add-hook 'js2-mode-hook 'livid-mode)
 ;;   )
+
+
+;;; [ wooky ] -- Eval-defun for JavaScript in Chrome.
+
+
+;;; [ kite ] -- Emacs front end for the WebKit Inspector.
+
+
+;;; [ kite-minit ] -- Yet another Emacs package to interact with WebKit remote debugging API.
 
 
 (provide 'init-my-prog-web-browser)
