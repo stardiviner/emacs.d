@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: template
+# key: template
+# group: template.template
+# --
+<?php
+$0
+?>
