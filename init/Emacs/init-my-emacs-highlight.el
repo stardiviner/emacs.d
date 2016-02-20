@@ -65,12 +65,12 @@
 (use-package highlight-thing
   :ensure t
   :config
-  ;; (setq highlight-thing-what-thing 'word)
+  ;; (setq highlight-thing-what-thing 'word) ; 'symbol
   (setq highlight-thing-delay-seconds 1.5)
   (setq highlight-thing-limit-to-defun t)
   (set-face-attribute 'highlight-thing nil
-                      :foreground "green yellow"
-                      :background (color-lighten-name (face-background 'default) 3)
+                      :foreground "white"
+                      :background "deep pink"
                       )
   ;; (global-highlight-thing-mode)
   (add-hook 'prog-mode-hook 'highlight-thing-mode)
