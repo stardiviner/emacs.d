@@ -166,58 +166,36 @@
    ;;  )
    
    ;; VCS - Git, SVN, CVS,
-   
-   ;; branch
+   (vc-mode (:eval
+             (propertize
+              vc-mode
+              'face (pcase (vc-state buffer-file-truename)
+                      (`up-to-date '(:foreground "green" :height 75))
+                      (`edited '(:foreground "orange" :height 75))
+                      (`conflict '(:foreground "red"))
+                      (`unregistered '(:foreground "white"))
+                      (_ '(:foreground "cyan"))
+                      )
+              )))
+
    (:eval
-    (if vc-mode
-        (progn
-          (list
-           (propertize " ⭠"
-                       'face '(:foreground "sky blue"))
-           `(vc-mode vc-mode)           ; TODO: propertize this.
-           ))))
-
-   ;; TODO: git repo file status
-   ;; - added :: ✚
-   ;; - modified :: ∓
-   ;; - deleted :: ✖
-   ;; - renamed :: ➜
-   ;; - unmerged :: ⭠ ⌥
-   ;; - untracked :: ⚡
-   ;; - branch :: ⭠
-   ;;
-   ;; (vc-mode (:eval (propertize vc-mode
-   ;;                             'face (pcase (vc-state buffer-file-truename)
-   ;;                                     (`up-to-date '(:foreground "green"))
-   ;;                                     (`edited nil)
-   ;;                                     (_ '(:foreground "red"))))))
-   ;;
-   ;; (vc-mode (:eval (propertize vc-mode 'face
-   ;;   (pcase (vc-state buffer-file-truename)
-   ;;     (`up-to-date 'mode-line-important)
-   ;;     (`edited                      nil)
-   ;;     (_             'mode-line-warning)))))
-
-   ;; GitHub
-   ;; (:eval
-   ;;  (let (unread-text help-text)
-   ;;    (cond ((null github-notifier-unread-count)
-   ;;           (setq unread-text "-?"
-   ;;                 help-text "The Github notifications number is unknown."))
-   ;;          ((zerop github-notifier-unread-count)
-   ;;           (setq unread-text ""
-   ;;                 help-text "Good job, you don't have unread notification."))
-   ;;          (t
-   ;;           (setq unread-text (format "-%d" github-notifier-unread-count)
-   ;;                 help-text (if (= github-notifier-unread-count 1)
-   ;;                               "You have 1 unread notification.\nmouse-1 Read it on Github."
-   ;;                             (format "You have %d unread notifications.\nmouse-1 Read them on Github."
-   ;;                                     github-notifier-unread-count)))))
-   ;;    (propertize (concat " GH" unread-text)
-   ;;                'face '(:foreground "red" :height 70)
-   ;;                'help-echo help-text
-   ;;                'local-map github-notifier-mode-line-map
-   ;;                'mouse-face 'mode-line-highlight)))
+    (propertize
+     (pcase (vc-state buffer-file-truename)
+       (`edited " ∓")
+       (`added " ✚")
+       (`removed " ✖")
+       (`up-to-date " ✔")
+       (`unlocked-changes " ")
+       (`conflict " ≠")
+       (`needs-merge " ⌥")
+       (`needs-update " ⇧")
+       (`unregistered " u")
+       (`ignored " i")
+       (`missing " m")
+       (`nil "")
+       ;; (_ "")
+       )
+     'face '(:foreground "cyan")))
 
    ;; org-tree-slide slide number
    ;; TODO:
