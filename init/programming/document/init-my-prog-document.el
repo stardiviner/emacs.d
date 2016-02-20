@@ -106,11 +106,12 @@
         ;; 'eww-browse-url, 'browse-url, 'browse-url-generic, 'helm-browse-url
         helm-dash-browser-func 'browse-url-conkeror
         helm-dash-candidate-format "%d  %n  (%t)"
-        
-        helm-dash-common-docsets
+        )
+  
+  (setq helm-dash-common-docsets
         '("Ruby"
           "Ruby on Rails"
-          "Python 3"
+          ;; "Python 3"
           ;; "Django" "Flask"
           ;; "PHP"
           "HTML" "CSS" "JavaScript"
@@ -119,23 +120,23 @@
           "NodeJS"
           "jQuery" ; "jQuery_UI" "jQuery_Mobile"
           ;; "PrototypeJS" "RequireJS" "UnderscoreJS"
-          "AngularJS" "React" "D3JS"
+          ;; "AngularJS" "React" "D3JS"
           ;; "EmberJS" "ExtJS" "BackboneJS" "KnockoutJS" "MomentJS"
           ;; "Grunt"
           ;; "RFCs"
           "Common Lisp"
           "Clojure"
           "C" ; "C++"
-          "CMake"
-          "Go" ; "Swift" ; "Rust"
+          ;; "CMake"
+          ;; "Go" ; "Swift" ; "Rust"
           ;; "Java"
           ;; "Elixir"
           ;; "Haskell" ; "Scala"
           ;; "Erlang"
           "SQLite" "PostgreSQL" "MySQL"
           "Redis" "MongoDB"
-          "Bash"
-          "LaTeX"
+          ;; "Bash"
+          ;; "LaTeX"
           "Julia" ; "R"
           ;; "Matplotlib"
           ;; "Processing"
@@ -152,10 +153,9 @@
           ;; "Unity_3D" "Cocos3D" "Cocos2D"
           ;; "OpenGL_4" "OpenCV_C"
           )
-
         )
-  
-  (setq helm-dash-enable-debugging nil)
+
+    (setq helm-dash-enable-debugging t)
 
   (define-key my-prog-help-document-map (kbd "C-d") 'helm-dash-at-point) ; `helm-dash'
   
