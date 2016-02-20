@@ -102,7 +102,7 @@
   :ensure t
   :config
   (setq helm-dash-docsets-path (expand-file-name "~/.docsets")
-        helm-dash-min-length 1
+        helm-dash-min-length 3
         ;; 'eww-browse-url, 'browse-url, 'browse-url-generic, 'helm-browse-url
         helm-dash-browser-func 'browse-url-conkeror
         helm-dash-candidate-format "%d  %n  (%t)"
