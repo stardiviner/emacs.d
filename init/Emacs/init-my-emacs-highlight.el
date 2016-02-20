@@ -48,6 +48,8 @@
   (define-key my-highlight-symbol-prefix (kbd "h") 'highlight-symbol-at-point)
   (define-key my-highlight-symbol-prefix (kbd "n") 'highlight-symbol-next)
   (define-key my-highlight-symbol-prefix (kbd "p") 'highlight-symbol-prev)
+  (define-key my-highlight-symbol-prefix (kbd "N") 'highlight-symbol-next-in-defun)
+  (define-key my-highlight-symbol-prefix (kbd "P") 'highlight-symbol-prev-in-defun)
   (define-key my-highlight-symbol-prefix (kbd "l") 'highlight-symbol-list-all)
   (define-key my-highlight-symbol-prefix (kbd "o") 'highlight-symbol-occur)
   (define-key my-highlight-symbol-prefix (kbd "C") 'highlight-symbol-count)
