@@ -63,6 +63,7 @@
 ;;; [ highlight-thing ] -- global minor mode to highlight the thing under point.
 
 (use-package highlight-thing
+  :ensure t
   :config
   ;; (setq highlight-thing-what-thing 'word)
   (setq highlight-thing-delay-seconds 1.5)
