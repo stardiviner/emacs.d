@@ -121,6 +121,7 @@
      ;;              'face '(:foreground "dark magenta")
      ;;              'help-echo "remote buffer")
      ;;  )
+     (t "   ")
      ))
    
    ;; rbenv & rvm
