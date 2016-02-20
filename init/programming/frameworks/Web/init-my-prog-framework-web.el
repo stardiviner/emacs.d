@@ -408,33 +408,7 @@
 
   (define-key web-mode-map (kbd "C-'") 'company-web-html)
 
-  ;;_. company-mode support + company-web support
-  ;;
-  ;; TODO: (add-hook web-mode-before-auto-complete-hooks)
-  ;; `web-mode-language-at-pos'
-  ;; `company--begin-new'
-  ;;
-  ;; reference this:
-  ;;
-  ;; (defadvice ac-start (before web-mode-set-up-ac-sources activate)
-  ;;   "Set `ac-sources' based on current language before running auto-complete."
-  ;;   (if (equal major-mode 'web-mode)
-  ;;       (progn
-  ;;         (run-hooks 'web-mode-before-auto-complete-hooks)
-  ;;         (when web-mode-ac-sources-alist
-  ;;           (let ((new-web-mode-ac-sources
-  ;;                  (assoc (web-mode-language-at-pos)
-  ;;                         web-mode-ac-sources-alist)))
-  ;;             (setq ac-sources (cdr new-web-mode-ac-sources)))))))
-  ;;
-  ;; (or (derived-mode-p 'css-mode)
-  ;;     (and (derived-mode-p 'web-mode)
-  ;;          (string= (web-mode-language-at-pos) "css")))
-
-  ;; company-etags
-  ;; $ cd ~/myproj/script; ctags -e '*.js'; cd ~/myproj/style; ctags -e '*.css'
-  (with-eval-after-load 'company-etags
-    (add-to-list 'company-etags-modes 'web-mode))
+  ;; company-mode + company-web support
 
   ;; Enable CSS completion between <style>...</style>
   (defadvice company-css (before web-mode-set-up-ac-sources activate)
@@ -442,9 +416,8 @@
     (if (equal major-mode 'web-mode)
         (let ((web-mode-cur-language (web-mode-language-at-pos)))
           (if (string= web-mode-cur-language "css")
-              (unless css-mode (css-mode))
-            (if css-mode (css-mode -1))
-            ))))
+              ;; ??
+              ))))
 
   ;; Enable JavaScript completion between <script>...</script> etc.
   (defadvice company-tern (before web-mode-set-up-ac-sources activate)
