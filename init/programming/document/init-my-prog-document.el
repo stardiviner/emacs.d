@@ -111,60 +111,107 @@
   (setq helm-dash-common-docsets
         '("Ruby"
           "Ruby on Rails"
-          ;; "Python 3"
-          ;; "Django" "Flask"
-          ;; "PHP"
-          "HTML" "CSS" "JavaScript"
-          ;; "Emmet" "Haml" "Less"
-          ;; "CoffeeScript"
-          "NodeJS"
-          "jQuery" ; "jQuery_UI" "jQuery_Mobile"
-          ;; "PrototypeJS" "RequireJS" "UnderscoreJS"
-          ;; "AngularJS" "React" "D3JS"
-          ;; "EmberJS" "ExtJS" "BackboneJS" "KnockoutJS" "MomentJS"
-          ;; "Grunt"
-          ;; "RFCs"
-          "Common Lisp"
-          "Clojure"
-          "C" ; "C++"
-          ;; "CMake"
-          ;; "Go" ; "Swift" ; "Rust"
-          ;; "Java"
-          ;; "Elixir"
-          ;; "Haskell" ; "Scala"
-          ;; "Erlang"
-          "SQLite" "PostgreSQL" "MySQL"
-          "Redis" "MongoDB"
-          ;; "Bash"
-          ;; "LaTeX"
-          "Julia" ; "R"
-          ;; "Matplotlib"
-          ;; "Processing"
-          "Docker" "Vagrant"
-          ;; "Qt"
-          ;; Mobile
-          ;; "Android" "iOS" "OS_X"
+          "HTML" "CSS"
+          "JavaScript"
+          ;; "Redis" "MongoDB"
           ;; "RubyMotion"
-          ;; "Arduino"
-          ;; Web
-          ;; "Nginx" "Apache_HTTP_Server"
-          ;; "ElasticSearch"
-          ;; Games
-          ;; "Unity_3D" "Cocos3D" "Cocos2D"
-          ;; "OpenGL_4" "OpenCV_C"
           )
         )
 
-    (setq helm-dash-enable-debugging t)
+  (setq helm-dash-enable-debugging t)
 
   (define-key my-prog-help-document-map (kbd "C-d") 'helm-dash-at-point) ; `helm-dash'
   
   ;; buffer local docsets
-  ;; (defun go-doc ()
-  ;;   (interactive)
-  ;;   (setq-local helm-dash-docsets '("Go")))
-  ;; (add-hook 'go-mode-hook 'go-doc)
-
+  ;; Bash
+  (defun helm-dash-buffer-local-shell-docsets ()
+    (setq-local helm-dash-docsets '("Bash")))
+  (add-hook 'sh-mode-hook 'helm-dash-buffer-local-shell-docsets)
+  ;; Ruby
+  (defun helm-dash-buffer-local-ruby-docsets ()
+    (setq-local helm-dash-docsets '("Ruby")))
+  (add-hook 'enh-ruby-mode-hook 'helm-dash-buffer-local-ruby-docsets)
+  ;; Ruby on Rails
+  (defun helm-dash-buffer-local-rails-docsets ()
+    (setq-local helm-dash-docsets '("Ruby" "Ruby on Rails")))
+  (add-hook 'projectile-rails-mode-hook 'helm-dash-buffer-local-rails-docsets)
+  ;; Python
+  (defun helm-dash-buffer-local-python-docsets ()
+    (setq-local helm-dash-docsets '("Python 3")))
+  (add-hook 'python-mode-hook 'helm-dash-buffer-local-python-docsets)
+  ;; Web
+  ;; "RFCs"
+  (defun helm-dash-buffer-local-web-docsets ()
+    (setq-local helm-dash-docsets '("HTML" "CSS" "JavaScript" "jQuery")))
+  (add-hook 'web-mode-hook 'helm-dash-buffer-local-web-docsets)
+  ;; JavaScript
+  (defun helm-dash-buffer-local-javascript-docsets ()
+    (setq-local helm-dash-docsets '("JavaScript" "NodeJS" "jQuery")))
+  (add-hook 'js2-mode-hook 'helm-dash-buffer-local-javascript-docsets)
+  ;; Common Lisp
+  (defun helm-dash-buffer-local-common-lisp-docsets ()
+    (setq-local helm-dash-docsets '("Common Lisp")))
+  (add-hook 'common-lisp-mode-hook 'helm-dash-buffer-local-common-lisp-docsets)
+  ;; Clojure
+  (defun helm-dash-buffer-local-clojure-docsets ()
+    (setq-local helm-dash-docsets '("Clojure")))
+  (add-hook 'clojure-mode-hook 'helm-dash-buffer-local-clojure-docsets)
+  ;; C
+  (defun helm-dash-buffer-local-C-docsets ()
+    (setq-local helm-dash-docsets '("C" "CMake")))
+  (add-hook 'c-mode-hook 'helm-dash-buffer-local-C-docsets)
+  ;; Go
+  (defun helm-dash-buffer-local-go-docsets ()
+    (interactive)
+    (setq-local helm-dash-docsets '("Go")))
+  (add-hook 'go-mode-hook 'helm-dash-buffer-local-go-docsets)
+  ;; Java
+  (defun helm-dash-buffer-local-java-docsets ()
+    (setq-local helm-dash-docsets '("Java")))
+  (add-hook 'java-mode-hook 'helm-dash-buffer-local-java-docsets)
+  ;; SQL
+  (defun helm-dash-buffer-local-sql-docsets ()
+    (setq-local helm-dash-docsets '("SQLite" "PostgreSQL" "MySQL")))
+  (add-hook 'sql-mode-hook 'helm-dash-buffer-local-sql-docsets)
+  ;; LaTeX
+  (defun helm-dash-buffer-local-latex-docsets ()
+    (setq-local helm-dash-docsets '("LaTeX")))
+  (add-hook 'latex-mode-hook 'helm-dash-buffer-local-latex-docsets)
+  (add-hook 'LaTeX-mode-hook 'helm-dash-buffer-local-latex-docsets)
+  ;; ESS: Julia, R
+  (defun helm-dash-buffer-local-ess-docsets ()
+    (setq-local helm-dash-docsets '("Julia" "R")))
+  (add-hook 'ess-mode-hook 'helm-dash-buffer-local-ess-docsets)
+  ;; Docker
+  (with-eval-after-load 'dockerfile-mode
+    (defun helm-dash-buffer-local-docker-docsets ()
+      (setq-local helm-dash-docsets '("Docker")))
+    (add-hook 'dockerfile-mode-hook 'helm-dash-buffer-local-docker-docsets))
+  ;; Swift
+  (with-eval-after-load 'swift-mode
+    (defun helm-dash-buffer-local-swift-docsets ()
+      (setq-local helm-dash-docsets '("Swift" "iOS" "OS_X")))
+    (add-hook 'swift-mode-hook 'helm-dash-buffer-local-swift-docsets))
+  ;; Android
+  (with-eval-after-load 'android-mode
+    (defun helm-dash-buffer-local-android-docsets ()
+      (add-to-list 'helm-dash-docsets "Android"))
+    (add-hook 'android-mode-hook 'helm-dash-buffer-local-android-docsets))
+  ;; Arduino
+  (with-eval-after-load 'arduino-mode
+    (defun helm-dash-buffer-local-arduino-docsets ()
+      (setq-local helm-dash-docsets '("Arduino")))
+    (add-hook 'arduino-mode-hook 'helm-dash-buffer-local-arduino-docsets))
+  ;; Linux
+  (with-eval-after-load 'nginx-mode
+    (defun helm-dash-buffer-local-nginx-docsets ()
+      (setq-local helm-dash-docsets '("Nginx")))
+    (add-hook 'nginx-mode-hook 'helm-dash-buffer-local-nginx-docsets))
+  (with-eval-after-load 'apache-mode
+    (defun helm-dash-buffer-local-nginx-docsets ()
+      (setq-local helm-dash-docsets '("Apache_HTTP_Server")))
+    (add-hook 'apache-mode-hook 'helm-dash-buffer-local-apache-docsets))
+  
   ;; (eval-after-load "helm-dash"
   ;;   '(defun helm-dash-actions (actions doc-item) `(("Go to doc" . eww))))
 
