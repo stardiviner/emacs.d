@@ -104,6 +104,17 @@
   )
 
 
+;;; [ paren-face ] -- A face dedicated to lisp parentheses.
+
+(use-package paren-face
+  ;; :ensure t
+  ;; :config
+  ;; (global-paren-face-mode 1)
+  ;; (set-face-attribute 'parenthesis nil
+  ;;                     :foreground "dim gray")
+  )
+
+
 ;; A quick way to jump to the definition of a function given its key binding
 ;; (global-set-key (kbd "C-h K") 'find-function-on-key)
 
