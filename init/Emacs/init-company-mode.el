@@ -77,11 +77,11 @@
         '((company-files          ; files & directory
            ;; company-gtags company-etags
            company-keywords       ; keywords
-           ;; company-dabbrev-code
            ;; company-tempo          ; tempo: flexible template insertion
            company-capf                   ; `completion-at-point-functions'
            ;; :with
            company-yasnippet
+           company-dabbrev-code
            company-abbrev ; company-dabbrev
            )
           )
