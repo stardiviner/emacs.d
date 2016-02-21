@@ -116,6 +116,13 @@
                     :slant 'italic)
 
 
+;;; [ select-themes ] -- select color-theme with completing-read.
+
+(use-package select-themes
+  :ensure t
+  )
+
+
 (provide 'init-my-emacs-color-theme)
 
 ;;; init-my-emacs-color-theme.el ends here
