@@ -91,6 +91,13 @@
 
 
 ;;; my custom functions
+
+(use-package dash
+  :ensure t
+  :config
+  (eval-after-load "dash" '(dash-enable-font-lock))
+  )
+
 (require 'init-my-library)
 (require 'init-my-functions)
 (require 'init-my-keybindings)
