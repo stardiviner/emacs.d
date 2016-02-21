@@ -142,7 +142,11 @@
                         '((:command . "firefox")
                           (:exec    . ("%c %s"))
                           :default "browser"))
-  (quickrun-set-default "html" "browser/firefox")
+  (quickrun-add-command "browser/chrome"
+                        '((:command . "google-chrome-stable")
+                          (:exec    . ("%c %s"))
+                          :default "browser"))
+  (quickrun-set-default "html" "browser/chrome")
   )
 
 
