@@ -16,14 +16,6 @@
 ;; - [C-M-n] -- end of block
 ;; - [C-M-p] -- beginning of block
 ;; - [C-M-q] -- (prog-indent-sexp)
-;;
-;; - [C-c C-r] -- (ruby-send-region)
-;; - [C-c C-b] -- (ruby-send-block)
-;; - [C-c C-x] -- (ruby-send-definition)
-;; - [C-c C-l] -- (ruby-load-file)
-;; - [C-x C-e] -- (ruby-send-last-sexp)
-;; - [C-c C-s] -- (inf-ruby)
-;; - [C-c C-z] -- (ruby-switch-to-inf)
 
 ;; (add-to-list 'auto-mode-alist '("\\.rb\'" . ruby-mode))
 ;; (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
@@ -285,12 +277,7 @@
   )
 
 
-;;; [ inf-ruby ] -- provides a REPL buffer connected to a Ruby(irb/pry) subprocess
-
-;; Workflow:
-;;
-;; 1. [C-c C-s] / `inf-ruby-console-auto'
-;; 2. [C-c C-l] / [C-c C-k] :: load ruby code / rails code.
+;;; [ inf-ruby ] -- a REPL buffer connected to Ruby(irb/pry) subprocess
 
 (use-package inf-ruby
   :ensure t
