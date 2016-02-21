@@ -87,33 +87,33 @@
           )
         )
 
-  ;; (defun my-company-add-backends-to-mode (backends-list)
-  ;;   "Add a list of backends to mode local. integrate with default `company-backends'."
-  ;;   ;; make `company-backends' local.
-  ;;   (make-local-variable 'company-backends)
-  ;;   ;; TODO: remove duplicate
-  ;;   ;; (remove-if (lambda (backend) (find backend backends-list)) company-backends)
-  ;;   (setq company-backends
-  ;;         (remove-if (lambda (b)
-  ;;                      (find b backends-list))
-  ;;                    company-backends))
-  ;;   ;; copy backends list
-  ;;   (setq company-backends (copy-tree company-backends))
-  ;;   ;; adding
-  ;;   (setf (car company-backends)
-  ;;         (append backends-list
-  ;;                 (car company-backends)))
-  ;;   )
-
   (defun my-company-add-backends-to-mode (backends-list)
+    "Add a list of backends to mode local. integrate with default `company-backends'."
+    ;; make `company-backends' local.
     (make-local-variable 'company-backends)
-    (if (listp (car company-backends))
-        (setq-local company-backends
-                    (setf (car company-backends)
-                          (-union backends-list (car company-backends))))
-      (setq-local company-backends
-                  (-union backends-list company-backends)))
+    ;; TODO: remove duplicate
+    ;; (remove-if (lambda (backend) (find backend backends-list)) company-backends)
+    (setq company-backends
+          (remove-if (lambda (b)
+                       (find b backends-list))
+                     company-backends))
+    ;; copy backends list
+    (setq company-backends (copy-tree company-backends))
+    ;; adding
+    (setf (car company-backends)
+          (append backends-list
+                  (car company-backends)))
     )
+
+  ;; (defun my-company-add-backends-to-mode (backends-list)
+  ;;   (make-local-variable 'company-backends)
+  ;;   (if (listp (car company-backends))
+  ;;       (setq-local company-backends
+  ;;                   (setf (car company-backends)
+  ;;                         (-union backends-list (car company-backends))))
+  ;;     (setq-local company-backends
+  ;;                 (-union backends-list company-backends)))
+  ;;   )
 
   ;; remove company backend from `company-backends'.
   ;; (setq company-backends
