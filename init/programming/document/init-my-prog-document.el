@@ -110,9 +110,9 @@
   
   (setq helm-dash-common-docsets
         '("Ruby"
-          "Ruby on Rails"
-          "HTML" "CSS"
-          "JavaScript"
+          ;; "Ruby on Rails"
+          ;; "HTML" "CSS"
+          ;; "JavaScript"
           ;; "Redis" "MongoDB"
           ;; "RubyMotion"
           )
@@ -123,6 +123,14 @@
   (define-key my-prog-help-document-map (kbd "C-d") 'helm-dash-at-point) ; `helm-dash'
   
   ;; buffer local docsets
+  (defun my-helm-dash-buffer-local-docsets-add (docsets-list)
+    (unless (boundp 'helm-dash-docsets)
+      (defvar helm-dash-docsets '()))
+    (make-local-variable 'helm-dash-docsets)
+    (setq helm-dash-docsets
+          (-union docsets-list (-flatten helm-dash-docsets)))
+    )
+  
   ;; Bash
   (defun helm-dash-buffer-local-shell-docsets ()
     (setq-local helm-dash-docsets '("Bash")))
@@ -133,20 +141,23 @@
   (add-hook 'enh-ruby-mode-hook 'helm-dash-buffer-local-ruby-docsets)
   ;; Ruby on Rails
   (defun helm-dash-buffer-local-rails-docsets ()
-    (setq-local helm-dash-docsets '("Ruby" "Ruby on Rails")))
+    (my-helm-dash-buffer-local-docsets-add '("Ruby on Rails" "Ruby" "HTML" "JavaScript" "CSS" "jQuery"))
+    )
   (add-hook 'projectile-rails-mode-hook 'helm-dash-buffer-local-rails-docsets)
   ;; Python
   (defun helm-dash-buffer-local-python-docsets ()
     (setq-local helm-dash-docsets '("Python 3")))
   (add-hook 'python-mode-hook 'helm-dash-buffer-local-python-docsets)
   ;; Web
-  ;; "RFCs"
   (defun helm-dash-buffer-local-web-docsets ()
-    (setq-local helm-dash-docsets '("HTML" "CSS" "JavaScript" "jQuery")))
+    (setq-local helm-dash-docsets '("HTML" "CSS" "JavaScript"))
+    (my-helm-dash-buffer-local-docsets-add '("jQuery"))
+    )
   (add-hook 'web-mode-hook 'helm-dash-buffer-local-web-docsets)
   ;; JavaScript
   (defun helm-dash-buffer-local-javascript-docsets ()
-    (setq-local helm-dash-docsets '("JavaScript" "NodeJS" "jQuery")))
+    (setq-local helm-dash-docsets '("JavaScript" "NodeJS"))
+    (my-helm-dash-buffer-local-docsets-add '("jQuery")))
   (add-hook 'js2-mode-hook 'helm-dash-buffer-local-javascript-docsets)
   ;; Common Lisp
   (defun helm-dash-buffer-local-common-lisp-docsets ()
@@ -158,11 +169,11 @@
   (add-hook 'clojure-mode-hook 'helm-dash-buffer-local-clojure-docsets)
   ;; C
   (defun helm-dash-buffer-local-C-docsets ()
-    (setq-local helm-dash-docsets '("C" "CMake")))
+    (setq-local helm-dash-docsets '("C"))
+    (my-helm-dash-buffer-local-docsets-add '("CMake")))
   (add-hook 'c-mode-hook 'helm-dash-buffer-local-C-docsets)
   ;; Go
   (defun helm-dash-buffer-local-go-docsets ()
-    (interactive)
     (setq-local helm-dash-docsets '("Go")))
   (add-hook 'go-mode-hook 'helm-dash-buffer-local-go-docsets)
   ;; Java
@@ -180,7 +191,9 @@
   (add-hook 'LaTeX-mode-hook 'helm-dash-buffer-local-latex-docsets)
   ;; ESS: Julia, R
   (defun helm-dash-buffer-local-ess-docsets ()
-    (setq-local helm-dash-docsets '("Julia" "R")))
+    (setq-local helm-dash-docsets '("Julia"))
+    ;; (my-helm-dash-buffer-local-docsets-add '("R"))
+    )
   (add-hook 'ess-mode-hook 'helm-dash-buffer-local-ess-docsets)
   ;; Docker
   (with-eval-after-load 'dockerfile-mode
@@ -190,12 +203,14 @@
   ;; Swift
   (with-eval-after-load 'swift-mode
     (defun helm-dash-buffer-local-swift-docsets ()
-      (setq-local helm-dash-docsets '("Swift" "iOS" "OS_X")))
+      (setq-local helm-dash-docsets '("Swift"))
+      (my-helm-dash-buffer-local-docsets-add '("iOS" "OS_X")))
     (add-hook 'swift-mode-hook 'helm-dash-buffer-local-swift-docsets))
   ;; Android
   (with-eval-after-load 'android-mode
     (defun helm-dash-buffer-local-android-docsets ()
-      (add-to-list 'helm-dash-docsets "Android"))
+      (setq-local helm-dash-docsets '("Android"))
+      (my-helm-dash-buffer-local-docsets-add '("Java")))
     (add-hook 'android-mode-hook 'helm-dash-buffer-local-android-docsets))
   ;; Arduino
   (with-eval-after-load 'arduino-mode
@@ -244,13 +259,12 @@
 
   ;; (add-to-list 'dash-at-point-mode-alist '(perl-mode . "perl"))
 
-  (add-hook 'projectile-rails-mode-hook
-            (lambda () (setq dash-at-point-docset "rails")))
-  (add-hook 'rhtml-mode-hook
-            (lambda () (setq dash-at-point-docset "rails")))
-
-  (add-hook 'ruby-mode-hook
-            (lambda () (setq dash-at-point-docset "ruby")))
+  ;; (add-hook 'projectile-rails-mode-hook
+  ;;           (lambda () (setq dash-at-point-docset "rails")))
+  ;; (add-hook 'rhtml-mode-hook
+  ;;           (lambda () (setq dash-at-point-docset "rails")))
+  ;; (add-hook 'ruby-mode-hook
+  ;;           (lambda () (setq dash-at-point-docset "ruby")))
   )
 
 
