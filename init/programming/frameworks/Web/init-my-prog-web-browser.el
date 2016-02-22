@@ -34,7 +34,7 @@
 
 ;;; Usage:
 ;;
-;; 1. =[M-x run-skewer]= to attach a browser to Emacs.
+;; 1. [M-x run-skewer] to attach a browser to Emacs.
 ;;
 ;; 2. From a `js2-mode' buffer with `skewer-mode' *minor mode* enabled, send
 ;; forms to the browser to evaluate.
@@ -65,7 +65,7 @@
 ;;; [ kite ] -- Emacs front end for the WebKit Inspector.
 
 
-;;; [ kite-minit ] -- Yet another Emacs package to interact with WebKit remote debugging API.
+;;; [ kite-mini ] -- Yet another Emacs package to interact with WebKit remote debugging API.
 
 ;;; Usage:
 ;;
@@ -73,13 +73,13 @@
 ;;    $ chrome --remote-debugging-port=9222
 ;; 2. enable `kite-mini-mode' in `js-mode', or `css-mode'.
 
-;; (use-package kite-mini
-;;   :ensure t
-;;   :config
-;;   ;; Automatically Turn on the mode for your buffer of choice.
-;;   (add-hook 'js-mode-hook (lambda () (kite-mini-mode t)))
-;;   (add-hook 'css-mode-hook (lambda () (kite-mini-mode t)))
-;;   )
+(use-package kite-mini
+  :ensure t
+  :config
+  ;; Automatically Turn on the mode for your buffer of choice.
+  (add-hook 'js-mode-hook (lambda () (kite-mini-mode t)))
+  (add-hook 'css-mode-hook (lambda () (kite-mini-mode t)))
+  )
 
 
 (provide 'init-my-prog-web-browser)
