@@ -7,6 +7,16 @@
 
 ;;; Code:
 
+
+(unless (boundp 'my-highlight-prefix)
+  (define-prefix-command 'my-highlight-prefix))
+(global-set-key (kbd "C-x w") 'my-highlight-prefix)
+(define-key my-search-prefix (kbd "h") 'my-highlight-prefix)
+
+
+
+
+
 ;;; [ highlight-symbol ] -- automatic and manual symbol highlighting for Emacs
 
 (use-package highlight-symbol
