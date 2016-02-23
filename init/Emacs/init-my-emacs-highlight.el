@@ -9,33 +9,15 @@
 
 ;;; [ highlight-symbol ] -- automatic and manual symbol highlighting for Emacs
 
-;;; Usage:
-;;
-;; Use highlight-symbol-at-point to toggle highlighting of the symbol at point
-;; throughout the current buffer. Use highlight-symbol-mode to keep the symbol
-;; at point highlighted.
-;;
-;; The functions highlight-symbol-next, highlight-symbol-prev,
-;; highlight-symbol-next-in-defun and highlight-symbol-prev-in-defun allow for
-;; cycling through the locations of any symbol at point. Use
-;; highlight-symbol-nav-mode to enable key bindings (M-p and M-p) for
-;; navigation. When highlight-symbol-on-navigation-p is set, highlighting is
-;; triggered regardless of highlight-symbol-idle-delay.
-;;
-;; - [C-c s h] :: prefix
-;; - [M-s h] :: highlight with isearch.
-;; - `highlight-symbol-query-replace' can be used to replace the symbol.
-
 (use-package highlight-symbol
   :ensure t
   :config
   (setq highlight-symbol-idle-delay 3
-        highlight-symbol-border-pattern '("\\_<" . "\\_>")
+        ;; highlight-symbol-border-pattern '("\\_<" . "\\_>")
         highlight-symbol-colors '("brown" "tomato" "dark green" "dark slate gray"
                                   "deep pink" "cyan" "yellow"
                                   )
         highlight-symbol-foreground-color nil ; nil: keep original color.
-        ;; highlight-symbol-border-pattern '("\\_<" . "\\_>")
         )
 
   (set-face-attribute 'highlight-symbol-face nil
