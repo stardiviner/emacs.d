@@ -14,7 +14,27 @@
 (define-key my-search-prefix (kbd "h") 'my-highlight-prefix)
 
 
+;;; [ hi-lock ]
 
+;; unbind default keybindings
+(unbind-key (kbd "C-x w .") hi-lock-map)
+(unbind-key (kbd "C-x w b") hi-lock-map)
+(unbind-key (kbd "C-x w h") hi-lock-map)
+(unbind-key (kbd "C-x w i") hi-lock-map)
+(unbind-key (kbd "C-x w l") hi-lock-map)
+(unbind-key (kbd "C-x w p") hi-lock-map)
+(unbind-key (kbd "C-x w r") hi-lock-map)
+;; re-bind keybindings
+(unless (boundp 'hi-lock-prefix)
+  (define-prefix-command 'hi-lock-prefix))
+(define-key my-highlight-prefix (kbd "h") 'hi-lock-prefix)
+(define-key hi-lock-prefix (kbd "s") 'highlight-symbol-at-point)
+(define-key hi-lock-prefix (kbd "p") 'highlight-phrase)
+(define-key hi-lock-prefix (kbd "r") 'highlight-regexp)
+(define-key hi-lock-prefix (kbd "u") 'unhighlight-regexp)
+(define-key hi-lock-prefix (kbd "F") 'hi-lock-find-patterns)
+(define-key hi-lock-prefix (kbd "P") 'hi-lock-write-interactive-patterns)
+(define-key hi-lock-prefix (kbd "l") 'highlight-lines-matching-regexp)
 
 
 ;;; [ highlight-symbol ] -- automatic and manual symbol highlighting for Emacs
