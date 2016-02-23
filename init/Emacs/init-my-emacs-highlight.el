@@ -29,7 +29,6 @@
   (unless (boundp 'my-highlight-symbol-prefix)
     (define-prefix-command 'my-highlight-symbol-prefix))
   (define-key my-highlight-prefix (kbd "s") 'my-highlight-symbol-prefix)
-  (define-key my-search-prefix (kbd "h") 'my-highlight-symbol-prefix)
 
   ;; setting up keybindings
   (define-key my-highlight-symbol-prefix (kbd "h") 'highlight-symbol-at-point)

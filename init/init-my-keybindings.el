@@ -53,6 +53,7 @@
 (unless (boundp 'my-highlight-prefix)
   (define-prefix-command 'my-highlight-prefix))
 (global-set-key (kbd "C-x w") 'my-highlight-prefix)
+(define-key my-search-prefix (kbd "h") 'my-highlight-prefix)
 
 ;;; regexp
 (unless (boundp 'my-regexp-prefix)
