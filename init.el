@@ -256,6 +256,7 @@
 ;; (require 'init-my-prog-lang-prolog)
 ;; (require 'init-my-prog-lang-verilog)
 ;; (require 'init-my-prog-lang-assembly)
+(require 'init-my-prog-lang-HDL)
 
 
 ;;; Frameworks
