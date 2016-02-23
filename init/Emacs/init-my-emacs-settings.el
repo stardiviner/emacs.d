@@ -32,6 +32,11 @@
 (setq jit-lock-stealth-verbose t)
 
 
+;;; [ Garbage Collection ]
+
+(setq garbage-collection-messages nil)
+
+
 ;;; [ Time ]
 (setq system-time-locale "C") ; make timestamps in org-mode appear in English.
 ;;; time-stamp
