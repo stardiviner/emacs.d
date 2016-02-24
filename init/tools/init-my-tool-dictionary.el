@@ -93,6 +93,24 @@
 ;; (use-package synonymous)
 
 
+;;; [ Goldendict ]
+
+(defun goldendict-dwim ()
+  (interactive)
+  (let ((selection (buffer-substring-no-properties (mark) (point))))
+    ;; select current symbol
+    (er/mark-symbol) ; require `expand-region'
+    ;; pass the selection to Emacs shell command goldendict.
+    ;; use Goldendict API: "Scan Popup"
+    (shell-command (concat "goldendict " selection))
+    ;; disable the mark/region
+    (deactivate-mark)
+    )
+  )
+
+(define-key dictionary-map (kbd "d") 'goldendict-dwim)
+
+
 (provide 'init-my-tool-dictionary)
 
 ;;; init-my-tool-dictionary.el ends here
