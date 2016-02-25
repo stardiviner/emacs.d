@@ -136,6 +136,8 @@
 (use-package edbi
   :ensure t
   :config
+  (setq edbi:completion-tool 'auto-complete) ; none
+  
   (define-key my-inferior-db-sql-map (kbd "d") 'edbi:open-db-viewer)
 
   (add-hook 'edbi:sql-mode-hook
@@ -143,6 +145,11 @@
                (define-key edbi:sql-mode-map (kbd "C-c C-q") 'edbi:dbview-query-editor-quit-command)
                
                (sqlup-mode 1)
+
+               ;; for `edbi:completion-tool'
+               (company-mode -1)
+               (auto-complete-mode 1)
+               ;; (add-hook 'completion-at-point-functions 'edbi:completion-at-point-function)
                ))
   )
 
