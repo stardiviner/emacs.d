@@ -29,7 +29,7 @@
 
 
 
-;; (require 'init-auto-complete)
+(require 'init-auto-complete)
 (require 'init-company-mode)
 
 ;;; make auto-complete work with company-mode
