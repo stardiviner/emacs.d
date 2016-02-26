@@ -395,6 +395,9 @@
               (local-set-key (kbd "C-h d d") 'robe-doc)
               ))
 
+  (with-eval-after-load 'projectile-rails
+    (define-key projectile-rails-mode-map (kbd "C-h d d") 'robe-doc))
+
   (dolist (hook '(ruby-mode-hook
                   enh-ruby-mode-hook
                   inf-ruby-mode-hook
