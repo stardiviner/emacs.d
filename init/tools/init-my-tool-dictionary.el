@@ -97,9 +97,12 @@
 
 (defun goldendict-dwim ()
   (interactive)
+  ;; select current symbol
+  (if (functionp 'er/mark-symbol)
+      (er/mark-symbol) ; require `expand-region'
+    (error "select symbol/word function is from `expand-region'.")
+    )
   (let ((selection (buffer-substring-no-properties (mark) (point))))
-    ;; select current symbol
-    (er/mark-symbol) ; require `expand-region'
     ;; pass the selection to Emacs shell command goldendict.
     ;; use Goldendict API: "Scan Popup"
     (shell-command (concat "goldendict " selection))
