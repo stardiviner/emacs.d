@@ -9,6 +9,10 @@
 
 ;;; [ redis ] -- Redis integration
 
+(use-package redis
+  :ensure t
+  :commands redis-mode
+  )
 
 
 ;;; [ eredis ] -- a Redis client in emacs lisp
