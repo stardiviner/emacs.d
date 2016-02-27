@@ -20,7 +20,7 @@
             #'(lambda ()
                 (make-local-variable 'completion-at-point-functions)
                 (add-to-list 'completion-at-point-functions
-                             'newlisp-complete-symbol)
+                             'newlisp-completion-at-point)
 
                 (paredit-mode 1)
                 (eldoc-mode 1)
@@ -36,7 +36,7 @@
           ;; for `company-mode' backend `company-capf'
           (make-local-variable 'completion-at-point-functions)
           (add-to-list 'completion-at-point-functions
-                       'newlisp-complete-symbol)
+                       'newlisp-completion-at-point)
           )))
 
   (add-hook 'comint-mode-hook 'newlisp-repl-inferior-buffer-setup)
