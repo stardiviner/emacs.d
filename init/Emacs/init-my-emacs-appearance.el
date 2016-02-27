@@ -127,10 +127,17 @@
 
 ;;; [ current line & column ]
 
+(set-face-attribute 'highlight nil
+                    :inherit nil
+                    :foreground nil
+                    :background (color-darken-name (face-background 'default) 3)
+                    )
+
 ;; highlight current line
 (global-hl-line-mode 1)
 
 (set-face-attribute 'hl-line nil
+                    :inherit nil
                     ;; 1
                     ;; :background "#004A5D"
                     ;; :box '(:color "#005D5E" :line-width -1)
@@ -139,8 +146,10 @@
                     ;; :box '(:color "cyan" :line-width 1 :style nil) :underline nil
                     ;; :underline "yellow"
                     ;; 3. darker percent 5%
-                    :foreground nil
-                    :background (color-darken-name (face-background 'default) 3)
+                    ;; :foreground nil
+                    ;; :background (color-darken-name (face-background 'default) 3)
+                    ;; use `highlight' face.
+                    :background (face-background 'highlight)
                     )
 
 
