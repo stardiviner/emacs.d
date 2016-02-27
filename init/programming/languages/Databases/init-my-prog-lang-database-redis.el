@@ -17,8 +17,8 @@
 
 ;;; [ eredis ] -- a Redis client in emacs lisp
 
-
-
+(use-package eredis
+  :ensure t)
 
 
 
