@@ -58,10 +58,6 @@
       org-export-babel-evaluate t
       )
 
-(use-package ob-restclient
-  :ensure t
-  :defer t)
-
 (require 'ob-gnuplot)
 
 (org-babel-do-load-languages
@@ -168,10 +164,6 @@
 
 (require 'ob-processing)
 
-;;; [ ob-elixir ]
-
-(use-package ob-elixir)
-
 ;; [ ob-ipython ]
 
 (use-package ob-ipython
@@ -190,68 +182,12 @@
       '((:results . "replace output")
         (:padnewline . "yes")))
 
-;; [ ob-mongo ] -- babel for MongoDB
-
-(use-package ob-mongo
-  :ensure t
-  :defer t
-  )
-
 ;; [ ob-sql ]
 
 (require 'ob-sql)
 
-;; [ ob-go ]
-
-(use-package ob-go
-  :ensure t
-  :defer t
-  )
-
-;; [ ob-prolog ] -- babel for Prolog
-
-(use-package ob-prolog
-  :ensure t
-  :defer t
-  )
-
-;; [ ob-http ] -- http request in org-mode babel
-;;
-;; | option      | curl         | example                                                                               |
-;; |-------------+--------------+---------------------------------------------------------------------------------------|
-;; | :proxy      | -x           | :proxy localhost:8118                                                                 |
-;; | :cookie-jar | --cookie-jar | :cookie-jar username                                                                  |
-;; | :cookie     | --cookie     | :cookie username                                                                      |
-;; | :max-time   | --max-time   | default is 10                                                                         |
-;; | :pretty     | N/A          | :pretty use Content-Type, currently only json is supported, to overwrite :pretty json |
-;; | :select     | N/A          | :select .path path will be passed to jq                                               |
-;; | :get-header | N/A          | :get-header X-Subject-Token                                                           |
 
 
-(use-package ob-http
-  :ensure t
-  :defer t
-  )
-
-;;; [ ob-browser ] -- render HTML in org babel
-
-;; #+BEGIN_SRC browser :out output.png
-;; <!DOCTYPE html>
-;; <html>
-;;   <body>
-;;     <p>hello, world</p>
-;;   </body>
-;; </html>
-;; #+END_SRC
-
-(use-package ob-browser
-  :config
-  ;; open those babels with `web-mode'.
-  (with-eval-after-load "web-mode"
-    (add-to-list 'org-src-lang-modes '("html" . web))
-    (add-to-list 'org-src-lang-modes '("browser" . web))
-    (add-to-list 'org-src-lang-modes '("rhtml" . web)))
-  )
 
 
 ;;;_ + ditaa & PlantUML & Graphviz

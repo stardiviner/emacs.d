@@ -108,6 +108,13 @@
   )
 
 
+;;; [ ob-restclient ]
+
+(use-package ob-restclient
+  :ensure t
+  :defer t)
+
+
 ;;;_ httprepl
 
 (use-package httprepl
@@ -150,6 +157,25 @@
 ;; (use-package web
 ;;   :config
 ;;   )
+
+
+;; [ ob-http ] -- http request in org-mode babel
+;;
+;; | option      | curl         | example                                                                               |
+;; |-------------+--------------+---------------------------------------------------------------------------------------|
+;; | :proxy      | -x           | :proxy localhost:8118                                                                 |
+;; | :cookie-jar | --cookie-jar | :cookie-jar username                                                                  |
+;; | :cookie     | --cookie     | :cookie username                                                                      |
+;; | :max-time   | --max-time   | default is 10                                                                         |
+;; | :pretty     | N/A          | :pretty use Content-Type, currently only json is supported, to overwrite :pretty json |
+;; | :select     | N/A          | :select .path path will be passed to jq                                               |
+;; | :get-header | N/A          | :get-header X-Subject-Token                                                           |
+
+
+(use-package ob-http
+  :ensure t
+  :defer t
+  )
 
 
 (provide 'init-my-prog-framework-http)

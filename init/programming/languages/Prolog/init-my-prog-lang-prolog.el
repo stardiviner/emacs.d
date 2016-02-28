@@ -41,6 +41,14 @@
   )
 
 
+;; [ ob-prolog ] -- babel for Prolog
+
+(use-package ob-prolog
+  :ensure t
+  :defer t
+  )
+
+
 (provide 'init-my-prog-lang-prolog)
 
 ;;; init-my-prog-lang-prolog.el ends here

@@ -86,6 +86,27 @@
   )
 
 
+;;; [ ob-browser ] -- render HTML in org babel
+
+;; #+BEGIN_SRC browser :out output.png
+;; <!DOCTYPE html>
+;; <html>
+;;   <body>
+;;     <p>hello, world</p>
+;;   </body>
+;; </html>
+;; #+END_SRC
+
+(use-package ob-browser
+  :config
+  ;; open those babels with `web-mode'.
+  (with-eval-after-load "web-mode"
+    ;; (add-to-list 'org-src-lang-modes '("html" . html))
+    (add-to-list 'org-src-lang-modes '("browser" . web))
+    (add-to-list 'org-src-lang-modes '("rhtml" . web)))
+  )
+
+
 
 (require 'init-my-prog-lang-html5)
 

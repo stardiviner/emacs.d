@@ -186,6 +186,14 @@
   :ensure t)
 
 
+;; [ ob-go ]
+
+(use-package ob-go
+  :ensure t
+  :defer t
+  )
+
+
 (provide 'init-my-prog-lang-go)
 
 ;;; init-my-prog-lang-go.el ends here

@@ -44,6 +44,11 @@
   )
 
 
+;;; [ ob-elixir ]
+
+(use-package ob-elixir)
+
+
 (provide 'init-my-prog-lang-elixir)
 
 ;;; init-my-prog-lang-elixir.el ends here

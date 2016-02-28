@@ -20,6 +20,14 @@
   )
 
 
+;; [ ob-mongo ] -- Org-mode Babel for MongoDB
+
+(use-package ob-mongo
+  :ensure t
+  :defer t
+  )
+
+
 ;;; [ mongo-elnode ]
 
 
