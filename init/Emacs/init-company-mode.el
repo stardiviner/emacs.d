@@ -51,7 +51,7 @@
         ;; company-tooltip-offset-display 'scrollbar
         ;; loop over candidates
         company-selection-wrap-around t
-        ;; company-search-regexp-function #'regexp-quote
+        company-search-regexp-function #'company-search-flex-regexp
         )
 
   ;; for completion.el
