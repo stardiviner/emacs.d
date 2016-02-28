@@ -17,7 +17,7 @@
 ;; - [C-M-p] -- beginning of block
 ;; - [C-M-q] -- (prog-indent-sexp)
 
-;; (add-to-list 'auto-mode-alist '("\\.rb\'" . ruby-mode))
+;; (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
 ;; (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
 
 (setq ruby-use-smie t       ; use sexp navigation for Ruby
