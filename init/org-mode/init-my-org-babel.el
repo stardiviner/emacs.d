@@ -104,9 +104,10 @@
    ;; (asymptote . t)                      ; Asymptote
    (sass . t)                           ; Sass
    ;; -- Extra --
-   (go . t)
-   (ipython . t)
-   (restclient . t)                     ; ob-restclient
+   ;; use advice: `org-babel-execute-src-block' to load language support lazily.
+   ;; (go . t)
+   ;; (ipython . t)
+   ;; (restclient . t)                     ; ob-restclient
    ))
 
 (setq org-babel-tangle-lang-exts
