@@ -75,8 +75,6 @@
 (setq calendar-longitude +120.40)
 
 (setq calendar-mark-holidays-flag nil
-      calendar-mark-diary-entries-flag nil ; 'calendar-today, "=", face
-      calendar-view-diary-initially-flag t
       calendar-today-marker 'calendar-today)
 
 
@@ -141,8 +139,8 @@
 ;;   - im insert monthly diary entry
 
 ;; fancy display
-(setq calendar-view-diary-initially-flag t
-      calendar-mark-diary-entries-flag t
+(setq calendar-view-diary-initially-flag nil
+      calendar-mark-diary-entries-flag nil ; 'calendar-today, "=", face
       diary-number-of-entries 7)
 
 (add-hook 'diary-display-function 'diary-fancy-display)
