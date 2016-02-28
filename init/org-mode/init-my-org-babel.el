@@ -21,7 +21,7 @@
 ;;; source block header arguments
 (setq org-babel-default-header-args    ; #+BEGIN_SRC ruby :result [output/value]
       '((:session . "none")
-        (:results . "replace output") ; "replace output", "replace", "file", "output"
+        (:results . "replace output") ; "replace output", "replace", "file", "output" "silent"
         (:exports . "both")           ; "both", "results", "code" "none"
         (:cache . "no")
         (:noweb . "no")
@@ -104,6 +104,7 @@
    ;; (asymptote . t)                      ; Asymptote
    (sass . t)                           ; Sass
    ;; -- Extra --
+   (go . t)
    (ipython . t)
    (restclient . t)                     ; ob-restclient
    ))
