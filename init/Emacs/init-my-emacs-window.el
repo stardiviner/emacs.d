@@ -393,11 +393,11 @@
   (push '("*scratch*" :position bottom :height 10) popwin:special-display-config)
 
   ;; Debugger mode, *Backtrace*
-  (push '("*Backtrace*" :position bottom :height 10 :noselect t) popwin:special-display-config)
+  (push '("*Backtrace*" :position bottom :height 8 :noselect t) popwin:special-display-config)
 
   ;; M-! shell command output
-  (push '("*Shell Command Output*" :position bottom :height 10 :noselect t :tail t) popwin:special-display-config)
-  (push '("*Async Shell Command*" :position bottom :height 10 :noselect t :tail t) popwin:special-display-config)
+  (push '("*Shell Command Output*" :position bottom :height 6 :noselect t :tail t) popwin:special-display-config)
+  (push '("*Async Shell Command*" :position bottom :height 6 :noselect t :tail t) popwin:special-display-config)
 
   ;; Info
   (push '(apropos-mode :position bottom :height 10) popwin:special-display-config)
