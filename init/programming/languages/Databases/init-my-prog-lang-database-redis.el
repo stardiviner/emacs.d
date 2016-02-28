@@ -23,6 +23,12 @@
 (use-package eredis
   :ensure t)
 
+
+;;; [ ob-redis ]
+
+(use-package ob-redis
+  :ensure t
+  )
 
 
 (provide 'init-my-prog-lang-database-redis)
