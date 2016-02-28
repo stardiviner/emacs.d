@@ -54,6 +54,11 @@
         company-search-regexp-function #'company-search-flex-regexp
         )
 
+  (setq company-tempo-expand t)
+  
+  (setq company-semantic-begin-after-member-access t
+        company-semantic-insert-arguments t)
+  
   ;; for completion.el
   ;; TODO: test this.
   ;; (add-to-list 'company-begin-commands 'completion-separator-self-insert-command)
