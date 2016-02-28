@@ -12,6 +12,9 @@
 (use-package redis
   :ensure t
   :commands redis-mode
+  :init
+  ;; for pseudo redis script file: *.redis.
+  (add-to-list 'auto-mode-alist '("\\.redis\\'" . redis-mode))
   )
 
 
