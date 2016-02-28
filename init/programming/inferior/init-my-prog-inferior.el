@@ -34,7 +34,8 @@
   :config
   (setq eir-jump-after-eval t)
   (setq eir-delete-other-windows nil
-        eir-repl-placement 'right)
+        eir-repl-placement 'right
+        eir-always-split-script-window t)
 
   ;; Emacs Lisp
   (with-eval-after-load 'ielm
