@@ -244,25 +244,39 @@
 
 ;;; [ window-purpose ] -- Organize Windows and Buffers According to Purposes.
 
-(use-package window-purpose
-  ;; :ensure t
-  ;; :config
-  ;; (setq purpose-preferred-prompt 'ivy
-  ;;       ;; purpose-x-*
-  ;;       purpose-x-popwin-position 'bottom
-  ;;       purpose-x-popwin-height 0.5
-  ;;       purpose-x-popwin-width 0.5)
-  ;;
-  ;; (add-to-list 'purpose-user-mode-purposes '(popwin-mode . popup-window))
-  ;; (add-to-list 'purpose-user-mode-purposes '(compilation-mode . popup-window))
-  ;; (add-to-list 'purpose-user-mode-purposes '(help-mode . popup-window))
-  ;; (add-to-list 'purpose-user-mode-purposes '(ack-and-a-half-mode . popup-window))
-  ;; (add-to-list 'purpose-user-mode-purposes '(dired-mode . sidebar-window))
-  ;;
-  ;; (purpose-compile-user-configuration)
-  ;;
-  ;; (purpose-mode)
-  )
+;; (use-package window-purpose
+;;   :ensure t
+;;   :config
+;;   (setq purpose-preferred-prompt 'ivy
+;;         purpose-layout-dirs '(locate-user-emacs-file ".purpose/layouts/")
+;;         )
+;;
+;;   (setq pop-up-frames t)
+;;
+;;   ;; (add-to-list 'purpose-user-mode-purposes '(<major-mode> . <purpose>))
+;;   ;; (add-to-list 'purpose-user-name-purposes '(<name> . <purpose>))
+;;   ;; (add-to-list 'purpose-user-regexp-purposes '(<pattern> . <purpose>))
+;;
+;;   (add-to-list 'purpose-user-mode-purposes '(popwin-mode . popup-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(compilation-mode . popup-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(help-mode . popup-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(ack-and-a-half-mode . popup-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(dired-mode . sidebar-window))
+;;
+;;   (add-to-list 'purpose-special-action-sequences
+;;                '(popup-frame
+;;                  purpose-display-reuse-window-buffer
+;;                  purpose-display-reuse-window-purpose
+;;                  purpose-display-pop-up-frame))
+;;
+;;   (setq purpose-use-default-configuration t)
+;;   (purpose-compile-user-configuration)
+;;
+;;   (require 'window-purpose-x)
+;;   (purpose-x-kill-setup)
+;;
+;;   (purpose-mode)
+;;   )
 
 
 ;;; [ golden-ratio ] -- Automatic resizing of Emacs windows to the golden ratio.
