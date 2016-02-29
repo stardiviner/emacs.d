@@ -308,6 +308,13 @@
   )
 
 
+;;; [ js-doc ] -- Insert JsDoc style comment easily.
+
+(use-package js-doc
+  :ensure t
+  )
+
+
 ;;; JavaScript subprocess integration
 
 
