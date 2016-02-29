@@ -312,6 +312,17 @@
 
 (use-package js-doc
   :ensure t
+  :config
+  (setq js-doc-mail-address "numbchild@gmail.com"
+        js-doc-author (format "stardiviner <%s>" js-doc-mail-address)
+        js-doc-url "https://stardiviner.github.io/"
+        js-doc-license "GPL3")
+
+  (add-hook 'js2-mode-hook
+            #'(lambda ()
+                (define-key my-prog-comment-map (kbd "F") 'js-doc-insert-file-doc)
+                (define-key my-prog-comment-map (kbd "f") 'js-doc-insert-function-doc)
+                (define-key js2-mode-map (kbd "@") 'js-doc-insert-tag)))
   )
 
 

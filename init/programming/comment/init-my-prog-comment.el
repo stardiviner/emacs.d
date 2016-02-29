@@ -10,8 +10,8 @@
 (define-key my-prog-comment-map (kbd "M-;") 'comment-dwim)
 
 ;; or with [C-u N]
-(global-set-key (kbd "C-x C-;") #'comment-line)
-(define-key my-prog-comment-map (kbd "l") #'comment-line)
+(global-set-key (kbd "C-x C-;") 'comment-line)
+(define-key my-prog-comment-map (kbd "l") 'comment-line)
 
 
 ;;; Emacs default comment [M-;]
@@ -43,7 +43,7 @@
 
 (define-key my-prog-comment-map (kbd "b") 'comment-box)
 
-(define-key my-prog-comment-map (kbd "f") 'comment-box-with-fill-column)
+(define-key my-prog-comment-map (kbd "B") 'comment-box-with-fill-column)
 
 (defun comment-box-with-fill-column (b e) ; begin, end
   "Draw a box comment around the region of B and E.
