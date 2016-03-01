@@ -373,7 +373,11 @@
   :ensure t
   :config
   (setq company-dict-dir (concat user-emacs-directory "dict/"))
-  (add-to-list 'company-backends 'company-dict)
+  
+  ;; (add-to-list 'company-backends 'company-dict)
+  ;; (setq-default company-backends
+  ;;               (my-company-add-backends-to-mode '(company-dict))
+  ;;               )
   )
 
 
