@@ -51,7 +51,7 @@
 
 
 
-(require 'init-slime)
+;; (require 'init-slime)
 (require 'init-sly)
 
 
