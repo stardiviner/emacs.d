@@ -20,8 +20,11 @@
                 ("melpa" . "http://melpa.org/packages/")
                 ;; ("melpa-stable" . "http://stable.melpa.org/packages/")
                 ;; ("marmalade" . "http://marmalade-repo.org/packages/")
-                ("gnu" . "http://elpa.gnu.org/packages/")
                 ))
+
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/")))
 
 
 ;;; Add support to package.el for pre-filtering available packages
