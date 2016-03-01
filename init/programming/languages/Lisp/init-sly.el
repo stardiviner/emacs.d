@@ -73,9 +73,9 @@
   )
 
 
-;;; [ company-sly ] -- Company-mode completion backend for SLY.
+;;; [ sly-company ] -- Company-mode completion backend for SLY.
 
-(use-package company-sly
+(use-package sly-company
   :ensure t
   :config
   ;; (add-hook 'sly-mode-hook 'sly-company-mode)
