@@ -333,6 +333,11 @@
 
   ;; (define-key enh-ruby-mode-map (kbd "C-c C-s") 'inf-ruby)
   ;; (define-key my-prog-inferior-map (kbd "r a") 'inf-ruby-console-auto)
+
+  ;; auto switch from common Ruby compilation
+  ;; (inf-ruby-setup-auto-breakpoint)
+  (add-hook 'compilation-filter-hook 'inf-ruby-auto-enter)
+  (add-hook 'comint-input-filter-functions 'inf-ruby-auto-exit)
   )
 
 
