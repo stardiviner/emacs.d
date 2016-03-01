@@ -367,6 +367,16 @@
 ;;   )
 
 
+;;; [ company-dict ] -- A backend that emulates ac-source-dictionary.
+
+(use-package company-dict
+  :ensure t
+  :config
+  (setq company-dict-dir (concat user-emacs-directory "dict/"))
+  (add-to-list 'company-backends 'company-dict)
+  )
+
+
 (provide 'init-company-mode)
 
 ;;; init-company-mode.el ends here
