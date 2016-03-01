@@ -104,6 +104,13 @@
   )
 
 
+;;; [ sly- ] -- Support named readtables in Common Lisp files.
+
+(use-package sly-named-readtables
+  :ensure t
+  )
+
+
 ;;; [ ob-sly ] -- org-babel functions for common lisp evaluation with SLY.
 
 (use-package ob-sly
