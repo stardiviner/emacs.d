@@ -104,6 +104,12 @@
   )
 
 
+;;; [ ob-sly ] -- org-babel functions for common lisp evaluation with SLY.
+
+(use-package ob-sly
+  :ensure t)
+
+
 (provide 'init-sly)
 
 ;;; init-sly.el ends here
