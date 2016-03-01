@@ -221,14 +221,14 @@
 (use-package yari
   :ensure t
   :config
+  ;; (setq yari-ruby-program-name "ruby"
+  ;;       yari-ri-program-name "ri")
+
   (dolist (hook '(ruby-mode-hook
                   enh-ruby-mode-hook
                   ))
     (add-hook hook
               '(lambda ()
-                 ;; (setq yari-ruby-program-name "ruby"
-                 ;;       yari-ri-program-name "ri")
-
                  ;; (local-set-key (kbd "C-h d k") 'yari)
 
                  ;; or with my-prog-help-document-map prefix.
@@ -236,7 +236,7 @@
                    (define-prefix-command 'ruby-help-doc-map))
                  (local-set-key (kbd "C-h d") 'ruby-help-doc-map)
                  
-                 (define-key ruby-help-doc-map (kbd "k") 'yari)
+                 (define-key ruby-help-doc-map (kbd "k") 'yari-helm)
                  )))
   )
 
