@@ -163,33 +163,27 @@
 
 
 ;;; [ ob-processing ]
-
 (require 'ob-processing)
 
 ;; [ ob-ipython ]
-
 (use-package ob-ipython
   :ensure t
   :defer t
   )
 
 ;;; [ ob-julia ]
-
 (if (not (boundp 'inferior-julia-program-name))
     (setq inferior-julia-program-name "julia"))
-
 (require 'ob-julia)
-
 (setq org-babel-default-header-args:julia
       '((:results . "replace output")
         (:padnewline . "yes")))
 
 ;; [ ob-sql ]
-
 (require 'ob-sql)
 
-
-
+;; [ ob-sqlite ]
+(require 'ob-sqlite)
 
 
 ;;;_ + ditaa & PlantUML & Graphviz
