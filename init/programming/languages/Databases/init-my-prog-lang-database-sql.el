@@ -59,6 +59,7 @@
 
   (dolist (hook '(sql-mode-hook
                   sql-interactive-mode-hook
+                  edbi:sql-mode-hook
                   ))
     (add-hook hook
               '(lambda ()
