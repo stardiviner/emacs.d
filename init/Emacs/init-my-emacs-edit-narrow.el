@@ -80,14 +80,15 @@ narrowed."
 ;;; [ fancy-narrow ] -- immitate `narrow-to-region' with more eye-candy.
 
 (use-package fancy-narrow
+  :ensure t
   :config
   (set-face-attribute 'fancy-narrow-blocked-face nil
                       :foreground "#222222")
-  
-  (define-key narrow-map [remap narrow-to-region] 'fancy-narrow-to-region)
-  (define-key narrow-map [remap narrow-to-defun] 'fancy-narrow-to-defun)
-  (define-key narrow-map [remap narrow-to-page] 'fancy-narrow-to-page)
-  (define-key narrow-map [remap widen] 'fancy-widen)
+
+  (global-set-key [remap narrow-to-region] 'fancy-narrow-to-region)
+  (global-set-key [remap narrow-to-defun] 'fancy-narrow-to-defun)
+  (global-set-key [remap narrow-to-page] 'fancy-narrow-to-page)
+  (global-set-key [remap widen] 'fancy-widen)
   )
 
 
