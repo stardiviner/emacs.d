@@ -9,10 +9,11 @@
 
 ;;; Embedded LaTeX
 
-;; FIXME: error: Can't preview LaTeX fragment in a non-file buffer.
 ;; `org-toggle-inline-images' [C-c C-x C-v]
 ;; `org-toggle-latex-fragment' [C-c C-x C-l] / [C-c C-c]
 ;; `org-toggle-pretty-entities' [C-c C-x \]
+
+(setq org-startup-with-latex-preview t)
 
 ;; config org latex preview style
 (setq org-latex-create-formula-image-program 'dvipng
@@ -48,15 +49,6 @@
 ;; (setq org-latex-minted-options
 ;;       '(("bgcolor" "bg") ("frame" "lines")))
 
-;; (org-toggle-latex-fragment)
-;; (setq org-export-filter-latex-fragment-functions nil)
-
-(setq org-startup-with-latex-preview t)
-;; (add-hook 'org-mode-hook 'org-toggle-latex-fragment)
-
-(setq org-babel-latex-htlatex t)
-
-
 ;; (setq org-format-latex-header)
 ;; (setq org-format-latex-options
 ;;       '(:foreground default
@@ -75,8 +67,6 @@
 ;; `helm-insert-latex-math'
 
 ;;;_* Math formula support
-
-(setq org-latex-create-formula-image-program 'dvipng)
 
 ;;; Using CDLaTeX to enter Math
 ;; (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
