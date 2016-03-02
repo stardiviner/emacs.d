@@ -78,9 +78,9 @@
 (setq org-footnote-auto-label 'confirm
       org-footnote-auto-adjust t
       org-footnote-define-inline nil ; define foot-note inline, instead of separate section.
-      ;; org-footnote-fill-after-inline-note-extraction
-      ;; org-footnote-section
-      ;; org-footnote-tag-for-non-org-mode-files
+      org-footnote-fill-after-inline-note-extraction t
+      ;; org-footnote-section "Footnotes"
+      ;; org-footnote-tag-for-non-org-mode-files "Footnotes:"
       )
 
 
