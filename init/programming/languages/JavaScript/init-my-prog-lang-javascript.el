@@ -74,11 +74,11 @@
 
 ;;; [ js3-mode ]
 
-(use-package js3-mode
-  :ensure t
-  :config
-  ;; (add-to-list 'ac-modes 'js3-mode)
-  )
+;; (use-package js3-mode
+;;   :ensure t
+;;   :config
+;;   ;; (add-to-list 'ac-modes 'js3-mode)
+;;   )
 
 
 ;;; [ flycheck checker ]
