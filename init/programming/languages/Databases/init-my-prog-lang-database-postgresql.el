@@ -7,6 +7,10 @@
 
 ;;; Code:
 
+
+(add-hook 'sql-mode-hook 'sql-highlight-postgres-keywords)
+
+
 ;;; [ db-pg ] -- KeyValue Database on PostgreSQL.
 
 ;; Here's a small example that shows, at least, how to specify the connection details:
