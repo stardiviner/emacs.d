@@ -95,6 +95,24 @@
           '(lambda ()
              (local-set-key (kbd "C-c C-t x") 'TeX-toggle-escape)))
 
+;;; smart tie
+(defun electric-tie ()
+  "Inserts a tilde at point unless the point is at a space
+character(s), in which case it deletes the space(s) first."
+  (interactive)
+  (while (equal (char-after) ?\s) (delete-char 1))
+  (while (equal (char-before) ?\s) (delete-char -1))
+  (call-interactively 'self-insert-command))
+
+(eval-after-load 'tex '(define-key TeX-mode-map "~" 'electric-tie))
+
+(add-hook
+ 'TeX-mode-hook
+ (lambda ()
+   (font-lock-add-keywords
+    nil
+    '(("~" . 'font-latex-sedate-face)))))
+
 
 ;;; [ company-auctex ] & [ company-math ]
 
