@@ -70,7 +70,7 @@
   ;; {Emacs Lisp}
   ;; To make Flycheck use the current `load-path'.
   ;; Don't error about "free variable" without (require ??).
-  (setq flycheck-emacs-lisp-initialize-packages t
+  (setq flycheck-emacs-lisp-initialize-packages 'auto
         flycheck-emacs-lisp-load-path 'inherit
         flycheck-emacs-lisp-package-user-dir nil
         )
