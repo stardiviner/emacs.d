@@ -11,36 +11,26 @@
 (add-hook 'sql-mode-hook 'sql-highlight-postgres-keywords)
 
 
-;;; [ db-pg ] -- KeyValue Database on PostgreSQL.
+;;; [ db-pg ] -- key-value Database on PostgreSQL.
 
-;; Here's a small example that shows, at least, how to specify the connection details:
-;;
-;; ##! emacs-lisp
-;; (let ((db
-;;        (db-make
-;;         '(db-pg
-;;           :db "my-db" :username "nic"
-;;           :table "t1" :column "c1" :key "a"))))
-;;   (db-get "10" db))
-;;
-;; => '(("a" . 10)("b" . "20"))
-
-;; (require 'db-pg)
-
+;; (use-package db-pg
+;;   :ensure t
+;;   )
 
 
-;;; [ pg ]
+;;; [ pg ] -- Emacs Lisp interface to the PostgreSQL RDBMS.
+
+;; (use-package pg
+;;   :ensure t
+;;   )
 
 
-;;; [ pgdevenv ]
+;;; [ pgdevenv ] -- manage your PostgreSQL development envs.
 
-
-;;; [ pgdevenv-el ]
-
-
-
-;;; [ pgsrc-el ]
-
+;; (use-package pgdevenv
+;;   :ensure t
+;;   :config
+;;   )
 
 
 (provide 'init-my-prog-lang-database-postgresql)
