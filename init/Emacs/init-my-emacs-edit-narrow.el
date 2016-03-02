@@ -83,7 +83,9 @@ narrowed."
   :ensure t
   :config
   (set-face-attribute 'fancy-narrow-blocked-face nil
-                      :foreground "#222222")
+                      :foreground "#666666"
+                      :background (color-darken-name (face-background 'default) 2)
+                      )
 
   (global-set-key [remap narrow-to-region] 'fancy-narrow-to-region)
   (global-set-key [remap narrow-to-defun] 'fancy-narrow-to-defun)
