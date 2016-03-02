@@ -586,6 +586,9 @@
 ;; (add-hook 'mu4e-view-mode-hook 'mu4e-view-toggle-hide-cited) ; [C-c h] to toggle hide cited.
 ;; (define-key mu4e-view-mode-map (kbd "C-c h") 'mu4e-view-toggle-hide-cited)
 
+(remove-hook 'mu4e-org-mode-hook 'org-toggle-latex-fragment)
+(remove-hook 'mu4e-view-mode-hook 'org-toggle-latex-fragment)
+
 
 ;;; message-cite
 
