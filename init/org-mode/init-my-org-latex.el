@@ -37,11 +37,14 @@
 
 ;; 2. use "minted"
 (setq org-latex-listings 'minted)
-(add-to-list 'org-latex-packages-alist '("newfloat" "minted"))
+(add-to-list 'org-latex-packages-alist '("" "newfloat" nil))
+(add-to-list 'org-latex-packages-alist '("" "minted" nil))
 (setq org-latex-pdf-process
       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        )
+      )
 ;; (setq org-latex-minted-options
 ;;       '(("bgcolor" "bg") ("frame" "lines")))
 
