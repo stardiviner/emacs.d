@@ -25,7 +25,7 @@
   :config
   (add-hook 'qml-mode-hook
             (lambda ()
-              ;; (add-to-list 'company-backends 'company-qml)
+              (setq-local company-minimum-prefix-length 0)
               (my-company-add-backends-to-mode '(company-qml))
               ))
   )
