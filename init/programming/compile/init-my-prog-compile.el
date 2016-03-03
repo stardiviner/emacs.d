@@ -103,23 +103,6 @@
 
 ;;; [ quickrun ] -- Run command quickly.
 
-;; quickrun.el is a extension to execute editing buffer. quickrun.el is similar
-;; to executable-interpret, but quickrun.el provides more convenient
-;; commands. quickrun.el execute not only script languages(Perl, Ruby, Python
-;; etc), but also compiling languages(C, C++, Go, Java etc) and markup language.
-
-;;; Usage:
-;;
-;; - `quickrun' ::
-;; - `quickrun-region' ::
-;; - `quickrun-with-arg' ::
-;; - `quickrun-shell' ::
-;; - `quickrun-compile-only'
-;; - `quickrun-replace-region'
-;; - `quickrun-autorun-mode'
-;; - `helm-quickrun'
-;; - `quickrun-after-run-hook'
-
 (use-package quickrun
   :ensure t
   :config
