@@ -108,7 +108,8 @@
   :config
   (setq quickrun-focus-p t)
 
-  ;; (quickrun-set-default "c" "c/clang")
+  (quickrun-set-default "c" "c/clang")
+  (quickrun-set-default "c++" "c++/clang++")
 
   ;; Examples:
   ;; check out `quickrun/template-place-holders' for description of `%?'.
