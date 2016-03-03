@@ -36,9 +36,9 @@
                   lisp-interaction-mode-hook
                   ))
     (add-hook hook
-              (lambda ()
-                (define-key my-prog-help-document-map (kbd "d") 'sly-documentation-lookup)
-                )))
+              '(lambda ()
+                 (local-set-key (kbd "C-h d d") 'sly-documentation-lookup)
+                 )))
   
   (eval-after-load 'sly
     `(define-key sly-prefix-map (kbd "M-h") 'sly-documentation-lookup))
