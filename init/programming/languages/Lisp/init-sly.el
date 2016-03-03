@@ -23,10 +23,12 @@
 
   (setq sly-default-lisp 'sbcl)
 
-  (setq sly-contribs '(sly-fancy sly-retro
+  ;; load SLY contribs
+  (setq sly-contribs `(sly-fancy sly-retro
                                  sly-scratch
                                  sly-mrepl
                                  sly-autodoc))
+  (sly-setup sly-contribs)
 
   (dolist (hook '(sly-mode-hook
                   sly-mrepl-mode-hook
