@@ -21,6 +21,10 @@
 
 ;; (require 'cc-mode)
 
+;; Do not check for old-style (K&R) function declarations; this speeds up
+;; indenting a lot.
+(setq c-recognize-knr-p nil)
+
 ;; Hook called by all CC Mode modes for common initializations.
 ;; (add-hook 'c-mode-common-hook)
 
