@@ -174,6 +174,12 @@
 (require 'go-oracle)
 
 
+;;; [ go-guru ] -- Integration of the Go 'guru' analysis tool into Emacs.
+
+(use-package go-guru
+  :ensure t)
+
+
 ;;; [ gotest ] -- Launch GO unit tests
 
 
