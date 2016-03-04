@@ -435,9 +435,10 @@
 
 (use-package rspec-mode
   :ensure t
-  :config
+  :init
   ;; (setq rspec-key-command-prefix (kbd "C-c t r"))
-
+  (setq rspec-key-command-prefix (kbd "C-c ,"))
+  :config
   (dolist (hook '(ruby-mode-hook
                   enh-ruby-mode-hook
                   ))
