@@ -204,6 +204,7 @@
     ;; (my-helm-dash-buffer-local-docsets-add '("R"))
     )
   (add-hook 'ess-mode-hook 'helm-dash-buffer-local-ess-docsets)
+  (add-hook 'julia-mode-hook 'helm-dash-buffer-local-ess-docsets)
   ;; Docker
   (with-eval-after-load 'dockerfile-mode
     (defun helm-dash-buffer-local-docker-docsets ()
