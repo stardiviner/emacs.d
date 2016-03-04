@@ -129,6 +129,8 @@
     )
   
   (add-hook 'enh-ruby-mode-hook 'my-ruby-code-custom-highlights)
+
+  (add-hook 'enh-ruby-mode-hook 'eldoc-mode)
   )
 
 
