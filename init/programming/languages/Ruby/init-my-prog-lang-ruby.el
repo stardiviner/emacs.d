@@ -440,10 +440,61 @@
   ;; (setq rspec-key-command-prefix (kbd "C-c t r"))
   (setq rspec-key-command-prefix (kbd "C-c ,"))
   :config
-  (dolist (hook '(ruby-mode-hook
-                  enh-ruby-mode-hook
-                  ))
-    (add-hook hook 'rspec-mode))
+  ;; (dolist (hook '(ruby-mode-hook
+  ;;                 enh-ruby-mode-hook
+  ;;                 ))
+  ;;   (add-hook hook 'rspec-mode))
+
+  ;; my custom meaningful rspec-mode keybindings
+
+  (defun rspec-open-spec-other-buffer ()
+    (interactive)
+    (when (featurep 'rspec-mode)
+      (let ((source-buffer (current-buffer))
+            (other-buffer (progn
+                            (rspec-toggle-spec-and-target)
+                            (current-buffer))))
+        (switch-to-buffer source-buffer)
+        (pop-to-buffer other-buffer))))
+
+  (defun my-rspec-mode-custom-keybindings ()
+    (interactive)
+    
+    (unless (boundp 'my-rspec-mode-map)
+      (define-prefix-command 'my-rspec-mode-map))
+    (unless (boundp 'rspec-find-map)
+      (define-prefix-command 'rspec-find-map))
+    (unless (boundp 'rspec-verify-map)
+      (define-prefix-command 'rspec-verify-map))
+    (unless (boundp 'rspec-toggle-map)
+      (define-prefix-command 'rspec-toggle-map))
+    
+    (local-set-key (kbd "C-c ,") 'my-rspec-mode-map)
+    (define-key my-rspec-mode-map (kbd "v") 'rspec-verify-map)
+    (define-key my-rspec-mode-map (kbd "t") 'rspec-toggle-map)
+
+    (define-key my-rspec-mode-map (kbd ",") 'rspec-open-spec-other-buffer)
+    
+    ;; find
+    (define-key my-rspec-mode-map (kbd "f") 'rspec-find-spec-or-target-other-window)
+    (define-key my-rspec-mode-map (kbd "F") 'rspec-find-spec-or-target-find-example-other-window)
+    ;; verify
+    (define-key rspec-verify-map (kbd "v") 'rspec-verify)
+    (define-key rspec-verify-map (kbd "c") 'rspec-verify-continue)
+    (define-key rspec-verify-map (kbd "a") 'rspec-verify-all)
+    (define-key rspec-verify-map (kbd "M") 'rspec-verify-matching)
+    (define-key rspec-verify-map (kbd "m") 'rspec-verify-method)
+    (define-key rspec-verify-map (kbd "s") 'rspec-verify-single)
+    ;; run
+    (define-key my-rspec-mode-map (kbd "r") 'rspec-run-last-failed)
+    (define-key my-rspec-mode-map (kbd "R") 'rspec-rerun)
+    ;; toggle
+    (define-key rspec-toggle-map (kbd "t") 'rspec-toggle-spec-and-target)
+    (define-key rspec-toggle-map (kbd "e") 'rspec-toggle-spec-and-target-find-example)
+    (define-key rspec-toggle-map (kbd "p") 'rspec-toggle-example-pendingness)
+    )
+  
+  (add-hook 'rspec-mode-hook 'my-rspec-mode-custom-keybindings)
   
   ;; [ Gotchas ]
   ;; Debugging
