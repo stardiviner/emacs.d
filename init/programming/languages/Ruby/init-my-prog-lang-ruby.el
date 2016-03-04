@@ -98,6 +98,7 @@
   ;; (setq enh-ruby-extra-keywords '("private" "protected" "public" "self"))
   
   (defun my-ruby-code-custom-highlights ()
+    (interactive)
     ;; highlight symbol: dot .
     (font-lock-add-keywords
      'enh-ruby-mode
@@ -117,15 +118,15 @@
     (font-lock-add-keywords
      'enh-ruby-mode
      '(("^\s*\\(public\\)$"
-        (1 '(:foreground "black" :background "white" :weight 'bold)))))
+        (1 '(:foreground "white" :weight 'bold :underline "#888888")))))
     (font-lock-add-keywords
      'enh-ruby-mode
      '(("^\s*\\(protected\\)$"
-        (1 '(:foreground "black" :background "orange" :weight 'bold)))))
+        (1 '(:foreground "yellow" :weight 'bold :underline "#888888")))))
     (font-lock-add-keywords
      'enh-ruby-mode
      '(("^\s*\\(private\\)$"
-        (1 '(:foreground "black" :background "dark green" :weight 'bold)))))
+        (1 '(:foreground "magenta" :weight 'bold :underline "#888888")))))
     )
   
   (add-hook 'enh-ruby-mode-hook 'my-ruby-code-custom-highlights)
