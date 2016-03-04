@@ -56,33 +56,36 @@
 ;;   - [C-M-i] / [TAB] :: `ess-tab-complete-in-script'
 ;; - Eldoc
 
+(use-package ess
+  :ensure t
+  :config
+  ;; (setq inferior-julia-args)
 
-;; (setq inferior-julia-args)
+  (add-hook 'julia-mode-hook
+            (lambda ()
+              ;; add julia-mode to prog-mode.
+              (unless (derived-mode-p 'prog-mode)
+                (run-hooks 'prog-mode-hook))
+              ))
 
-(add-hook 'julia-mode-hook
-          (lambda ()
-            ;; add julia-mode to prog-mode.
-            (unless (derived-mode-p 'prog-mode)
-              (run-hooks 'prog-mode-hook))
-            ))
-
-(defun my-ess-inferior-julia (&optional process-buffer-name)
-  "Start or switch to inferior-julia process buffer PROCESS-BUFFER-NAME."
-  (interactive)
-  (if (get-buffer-process (or process-buffer-name "*julia*"))
-      ;; the inferior julia process exist
-      (switch-to-buffer (or process-buffer-name "*julia*"))
-    ;; create a new inferior julia process
-    (julia)
-    ;; (julia)
-    ;; kill old process
-    ;; (kill-process (get-buffer-process (or process-buffer-name "*julia*"))
+  (defun my-ess-inferior-julia (&optional process-buffer-name)
+    "Start or switch to inferior-julia process buffer PROCESS-BUFFER-NAME."
+    (interactive)
+    (if (get-buffer-process (or process-buffer-name "*julia*"))
+        ;; the inferior julia process exist
+        (switch-to-buffer (or process-buffer-name "*julia*"))
+      ;; create a new inferior julia process
+      (julia)
+      ;; (julia)
+      ;; kill old process
+      ;; (kill-process (get-buffer-process (or process-buffer-name "*julia*"))
+      )
     )
-  )
 
-;; - `julia' :: from ess-julia.
-;; - `inferior-julia' :: from julia-mode.
-(define-key my-inferior-ess-map (kbd "j") 'my-ess-inferior-julia)
+  ;; - `julia' :: from ess-julia.
+  ;; - `inferior-julia' :: from julia-mode.
+  (define-key my-inferior-ess-map (kbd "j") 'my-ess-inferior-julia)
+  )
 
 
 ;;; [ julia-shell ] -- inferior Julia
