@@ -832,6 +832,9 @@
 
 ;;; [ feature-mode ] -- Major mode for Cucumber feature files
 
+(use-package feature-mode
+  :ensure t)
+
 
 ;;; [ ruby-factory ] -- minor mode for Ruby test object generation libraries.
 
