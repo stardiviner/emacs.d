@@ -159,6 +159,15 @@
     (setq-local helm-dash-docsets '("JavaScript" "NodeJS"))
     (my-helm-dash-buffer-local-docsets-add '("jQuery")))
   (add-hook 'js2-mode-hook 'helm-dash-buffer-local-javascript-docsets)
+  ;; HTML
+  (defun helm-dash-buffer-local-html-docsets ()
+    (setq-local helm-dash-docsets '("HTML"))
+    (my-helm-dash-buffer-local-docsets-add '("JavaScript" "jQuery")))
+  (add-hook 'html-mode-hook 'helm-dash-buffer-local-html-docsets)
+  ;; CSS
+  (defun helm-dash-buffer-local-css-docsets ()
+    (setq-local helm-dash-docsets '("CSS")))
+  (add-hook 'css-mode-hook 'helm-dash-buffer-local-css-docsets)
   ;; Common Lisp
   (defun helm-dash-buffer-local-common-lisp-docsets ()
     (setq-local helm-dash-docsets '("Common Lisp")))
