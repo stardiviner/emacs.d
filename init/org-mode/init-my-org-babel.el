@@ -174,10 +174,12 @@
 ;;; [ ob-julia ]
 (if (not (boundp 'inferior-julia-program-name))
     (setq inferior-julia-program-name "julia"))
+;; (setq org-babel-julia-command "julia")
 (require 'ob-julia)
 (setq org-babel-default-header-args:julia
       '((:results . "replace output")
         (:padnewline . "yes")))
+(add-to-list 'org-src-lang-modes '("julia" . ess-julia))
 
 ;; [ ob-sql ]
 (require 'ob-sql)
