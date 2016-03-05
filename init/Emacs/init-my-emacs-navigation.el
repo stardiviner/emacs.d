@@ -127,6 +127,11 @@ This is the same as using \\[set-mark-command] with the prefix argument."
   )
 
 
+;;; [ scroll ]
+
+(setq scroll-margin 3)
+
+
 ;; [ recenter ]
 
 (setq recenter-positions '(top middle bottom))
