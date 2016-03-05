@@ -249,6 +249,15 @@ URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'"
 (add-hook 'dired-mode-hook 'tooltip-mode)
 
 
+;;; [ dired-narrow ]
+
+(use-package dired-narrow
+  :ensure t
+  :bind (:map dired-mode-map
+              ("/" . dired-narrow))
+  )
+
+
 
 (provide 'init-my-emacs-dired)
 
