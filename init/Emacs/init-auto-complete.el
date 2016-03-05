@@ -137,7 +137,7 @@
                   ac-source-filename
                   ac-source-files-in-current-dir
                   ;; complete-at-point-function (capf)
-                  ac-source-capf
+                  ;; ac-source-capf
                   ;; programming
                   ;; semantic
                   ;; ac-source-semantic
