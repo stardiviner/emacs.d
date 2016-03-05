@@ -78,19 +78,19 @@
   ;; company-dabbrev-code), though, it would be skipped because company-ghc would
   ;; always return nil to prefix in that major mode.
 
-  (setq-default company-backends
-                '((company-files          ; files & directory
-                   ;; company-gtags company-etags
-                   company-keywords       ; keywords
-                   ;; company-tempo          ; tempo: flexible template insertion
-                   company-capf                   ; `completion-at-point-functions'
-                   ;; :with
-                   company-yasnippet
-                   company-dabbrev-code
-                   company-abbrev ; company-dabbrev
-                   )
-                  )
-                )
+  (setq company-backends
+        '((company-files          ; files & directory
+           ;; company-gtags company-etags
+           company-keywords       ; keywords
+           ;; company-tempo          ; tempo: flexible template insertion
+           company-capf                   ; `completion-at-point-functions'
+           ;; :with
+           company-yasnippet
+           company-dabbrev-code
+           company-abbrev ; company-dabbrev
+           )
+          )
+        )
 
   (defun my-company-add-backends-to-mode (backends-list)
     "Add a list of backends to mode local. integrate with default `company-backends'."
