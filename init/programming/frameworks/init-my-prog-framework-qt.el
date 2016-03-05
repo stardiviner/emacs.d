@@ -73,6 +73,14 @@
   )
 
 
+;;; [ qmake-mode ]
+
+(load (concat user-emacs-directory "init/extensions/qmake.el"))
+
+(require 'qmake-mode)
+(add-to-list 'auto-mode-alist '("\\.pro\\'" . qmake-mode))
+
+
 (provide 'init-my-prog-framework-qt)
 
 ;;; init-my-prog-framework-qt.el ends here
