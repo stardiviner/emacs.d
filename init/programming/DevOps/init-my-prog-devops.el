@@ -7,7 +7,11 @@
 
 ;;; Code:
 
+;;; [ puppet-mode ]
 
+(use-package puppet-mode
+  :ensure t
+  )
 
 
 
