@@ -27,6 +27,17 @@
       ;; minibuffer-history-position t
       )
 
+
+(add-hook 'eval-expression-minibuffer-setup-hook
+          #'(lambda ()
+              (eldoc-mode 1)
+              (with-eval-after-load 'rainbow-delimiters
+                (rainbow-delimiters-mode-enable))
+              (with-eval-after-load 'smartparens
+                (smartparens-strict-mode 1))
+              ;; (paredit-mode 1)
+              ))
+
 
 ;;; [ echo area ]
 
@@ -50,11 +61,6 @@
 
 
 ;;; find file at point (ffap)
-
-
-
-;; this enable eldoc in minibuffer, and show eldoc in mode-line.
-(add-hook 'eval-expression-minibuffer-setup-hook #'eldoc-mode)
 
 
 ;;; eldoc-eval --- Enable eldoc support when minibuffer is in use. [M-:]

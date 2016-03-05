@@ -167,7 +167,7 @@
            '(clojure-mode-hook
              cider-repl-mode-hook
              emacs-lisp-mode-hook
-             eval-expression-minibuffer-setup-hook
+             ;; eval-expression-minibuffer-setup-hook ; config in minibuffer init file.
              ielm-mode-hook ; inferior-emacs-lisp-mode-hook
              lisp-mode-hook
              lisp-interaction-mode-hook
