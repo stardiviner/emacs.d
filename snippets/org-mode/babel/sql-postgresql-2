@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: ob-sql-postgresql
-# key: ob-sql-postgresql
+# name: babel sql postgresql 2
+# key: babel-sql-postgresql-2
 # --
 #+BEGIN_SRC sql :engine postgresql :exports results :cmdline -p ${2:port} -h ${1:HOST} -U ${3:username} -d ${4:password}
 $0

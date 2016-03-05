@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel C++
+# key: babel-C++
+# group: Babel
+# --
+#+BEGIN_SRC C++
+$0
+#+END_SRC

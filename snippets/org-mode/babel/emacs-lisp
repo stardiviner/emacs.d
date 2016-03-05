@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: code emacs-lisp
-# key: code_emacs-lisp
+# name: babel emacs-lisp
+# key: babel-emacs-lisp
 # --
 #+BEGIN_SRC emacs-lisp
 $1

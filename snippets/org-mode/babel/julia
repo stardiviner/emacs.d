@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel julia
+# key: babel-julia
+# group: babel
+# --
+#+BEGIN_SRC julia :eval no-export
+$0
+#+END_SRC

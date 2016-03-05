@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: babel source code
-# key: code
+# key: babel
 # binding: C-c j
 #comment-here `(org-babel-insert-header-arg)` will raise a completion list if "Helm" is used.
 #comment-here yas-choose-value will raise a gui style candidate select.

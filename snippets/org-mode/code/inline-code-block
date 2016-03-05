@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: inline code block
-# key: src_
-# --
-src_${1:language}${3:[:switch flag]}{${2:inline code block}} $0

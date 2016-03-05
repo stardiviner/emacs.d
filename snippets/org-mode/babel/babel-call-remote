@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: babel remote call
+# key: babel-call-remote
+# group: babel.call
+# --
+#+call: ${1:filename}.org:${2:babel}() ${3:arguments}
