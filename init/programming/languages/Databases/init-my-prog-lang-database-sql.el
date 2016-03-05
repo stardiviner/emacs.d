@@ -20,13 +20,14 @@
   '(load-library "sql-indent"))
 
 (dolist (hook '(sql-mode-hook
-                sql-interactive-mode-hook
+                ;; sql-interactive-mode-hook
                 edbi:sql-mode-hook
                 ))
   (add-hook hook
-            (function (lambda ()
-                        (make-local-variable 'indent-line-function)
-                        (setq indent-line-function 'sql-indent-line)))))
+            '(lambda ()
+               (make-local-variable 'indent-line-function)
+               (setq indent-line-function 'sql-indent-line))
+            ))
 
 
 ;;; Auto Uppercase SQL Keywords
