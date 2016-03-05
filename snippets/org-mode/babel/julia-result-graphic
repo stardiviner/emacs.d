@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel julia graphical result
+# key: babel-julia-result-graphic
+# group: babel
+# --
+#+BEGIN_SRC julia :results graphics :file $1.png
+savefig(p, "${1:file-path}.png")
+#+END_SRC

@@ -3,6 +3,6 @@
 # key: babel-julia
 # group: babel
 # --
-#+BEGIN_SRC julia :eval no-export
+#+BEGIN_SRC julia
 $0
 #+END_SRC
