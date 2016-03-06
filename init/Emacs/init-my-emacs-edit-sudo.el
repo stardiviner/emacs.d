@@ -13,8 +13,11 @@
 ;;
 ;; - [M-x sudo-edit]
 
-;; (use-package sudo-edit)
-
+(use-package sudo-edit
+  :ensure t
+  :config
+  ;; (global-set-key (kbd "C-x C-r") 'sudo-edit-current-file)
+  )
 
 
 (provide 'init-my-emacs-edit-sudo)
