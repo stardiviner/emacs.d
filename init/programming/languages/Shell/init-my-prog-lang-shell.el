@@ -11,23 +11,12 @@
 
 (setq sh-indentation 4)
 
-;; (setq sh-dynamic-complete-functions '(shell-environment-variable-completion
-;;                                       shell-command-completion
-;;                                       comint-filename-completion)
-;;       shell-dynamic-complete-functions '(comint-c-a-p-replace-by-expanded-history
-;;                                          shell-environment-variable-completion
-;;                                          shell-command-completion
-;;                                          shell-c-a-p-replace-by-expanded-directory
-;;                                          pcomplete-completions-at-point
-;;                                          shell-filename-completion
-;;                                          comint-filename-completion)
-;;       )
-;;
-;; (add-hook 'sh-mode-hook
-;;           '(lambda ()
-;;              (remove-hook 'completion-at-point-functions
-;;                           'sh-completion-at-point-function)
-;;              ))
+(add-hook 'sh-mode-hook
+          '(lambda ()
+             ;; FIXME: sh-mode original complete function does not work.
+             ;; (delq 'sh-completion-at-point-function 'completion-at-point-functions)
+             (setq-local completion-at-point-functions nil)
+             ))
 
 
 ;;; [ Bash ]
@@ -39,6 +28,8 @@
   :ensure t
   :config
   ;; (setq company-shell-modes '(sh-mode fish-mode shell-mode eshell-mode))
+  ;; (setq company-shell-use-help-arg nil)
+  
   (dolist (hook '(sh-mode-hook
                   shell-mode-hook
                   ))
@@ -53,18 +44,14 @@
 
 ;;; [ bash-completion ]
 
-;; (autoload 'bash-completion-dynamic-complete 
-;;   "bash-completion"
-;;   "BASH completion hook")
-;; (add-hook 'shell-dynamic-complete-functions
-;;           'bash-completion-dynamic-complete)
-
-;; or
-
 (use-package bash-completion
   :ensure t
   :config
   (bash-completion-setup)
+  ;; (add-hook 'sh-mode-hook
+  ;;           '(lambda ()
+  ;;              (setq-local completion-at-point-functions
+  ;;                          '(bash-completion-dynamic-complete))))
   )
 
 
