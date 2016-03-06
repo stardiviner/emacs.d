@@ -328,6 +328,12 @@
 
 ;;; JavaScript subprocess integration
 
+
+;;; [ import-js ] -- A tool to simplify importing JS modules.
+
+(use-package import-js
+  :ensure t
+  )
 
 
 
