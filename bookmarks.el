@@ -2,7 +2,37 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("My Bash Syntax Reference"
+(("Arch Package Management"
+ (filename . "~/Org/Wiki/Computer/Systems/Linux/Data/Distributions/Arch/Data/Manuals/Arch Linux Package Management.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Arch"
+ (filename . "~/Org/Wiki/Computer/Systems/Linux/Data/Distributions/Arch/Arch.org")
+ (front-context-string . "* Intro\n:PROPERT")
+ (rear-context-string)
+ (position . 1))
+("Chrome"
+ (filename . "~/Org/Wiki/Computer/Softwares/Chrome/Chrome.org")
+ (front-context-string . "* Intro\n\n\n** Scr")
+ (rear-context-string)
+ (position . 1))
+("My Julia Language Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Julia/Data/Manuals/My Julia Language Reference/My Julia Language Reference.org")
+ (front-context-string . "* Julia Language")
+ (rear-context-string)
+ (position . 1))
+("Ruby on Rails Practical Examples"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Frameworks/Ruby on Rails/Data/Manuals/Reference/Ruby on Rails Examples/Ruby on Rails Examples.org")
+ (front-context-string . "* Search Form\n\n*")
+ (rear-context-string)
+ (position . 1))
+("Kernel"
+ (filename . "~/Org/Wiki/Computer/Systems/Kernels/Kernels.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("My Bash Syntax Reference"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Shell/Bash/Data/Manuals/My Bash Syntax Reference/My Bash Syntax Reference.org")
  (front-context-string . "* Common Environ")
  (rear-context-string)
@@ -175,11 +205,6 @@
 ("HTTP"
  (filename . "~/Org/Wiki/Computer/Programming/Implements/Web/HTTP/HTTP.org")
  (front-context-string . "* Intro\n\nThe *Hy")
- (rear-context-string)
- (position . 1))
-("Arch Linux Package Management"
- (filename . "~/Org/Wiki/Computer/Systems/Linux/Arch/Wiki/Data/Manuals/Arch Linux Package Management.org")
- (front-context-string . "* Intro\n\n\n* Help")
  (rear-context-string)
  (position . 1))
 ("Gimp Manual"
@@ -575,11 +600,6 @@
 ("Ruby Language"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Ruby.org")
  (front-context-string . "* Intro\n\n[[file:")
- (rear-context-string)
- (position . 1))
-("Arch"
- (filename . "~/Org/Wiki/Computer/Systems/Linux/Arch/Arch.org")
- (front-context-string . "* Intro\n\n** Arch")
  (rear-context-string)
  (position . 1))
 ("Code"
