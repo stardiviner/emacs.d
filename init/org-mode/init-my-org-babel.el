@@ -313,6 +313,11 @@
 
 ;;; Templates -- (org skeleton/template)
 
+
+;;; [ ob-translate ] -- allows you to translate blocks of text within org-mode.
+
+(use-package ob-translate
+  :ensure t)
 
 
 (provide 'init-my-org-babel)
