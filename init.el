@@ -206,6 +206,7 @@
 (require 'init-my-prog-compile)
 (require 'init-my-prog-make)
 (require 'init-my-prog-lint)
+(require 'init-my-prog-debug)
 (require 'init-my-prog-test)
 (require 'init-my-prog-refactor)
 (require 'init-my-prog-project)
