@@ -13,7 +13,8 @@
   :ensure t
   :config
   (set-face-attribute 'download-region-downloading nil
-                      :background "#194854" :foreground ""
+                      :background "#004A5D" :foreground "white"
+                      :box '(:color "cyan" :line-width -1)
                       )
   )
 
