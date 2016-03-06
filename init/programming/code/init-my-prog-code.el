@@ -6,6 +6,12 @@
 
 ;;; Code:
 
+
+(unless (boundp 'my-prog-code-map)
+  (define-prefix-command 'my-prog-code-map))
+(global-set-key (kbd "C-c c") 'my-prog-code-map)
+
+
 ;;; [ subword-mode ] -- editing code WithCamelCaseWritingLikeThis
 
 ;;; Usage:

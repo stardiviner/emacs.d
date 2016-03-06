@@ -159,6 +159,9 @@
   (global-set-key [remap find-file] 'counsel-find-file) ; [C-x C-f]
   (global-set-key (kbd "M-t") 'counsel-git) ; [M-t]
   (global-set-key (kbd "C-c v g g") 'counsel-git-grep)
+  (unless (boundp 'my-search-prefix)
+    (define-prefix-command 'my-search-prefix))
+  (global-set-key (kbd "C-c s") 'my-search-prefix)
   (define-key my-search-prefix (kbd "g") 'counsel-grep)
   (global-set-key [remap grep] 'counsel-grep) ; [C-s g]
   (setq counsel-yank-pop-truncate t)

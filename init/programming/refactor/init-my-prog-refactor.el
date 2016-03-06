@@ -3,9 +3,14 @@
 
 ;;; Commentary:
 
-;;; Prefix: [C-c RET]
 
 ;;; Code:
+
+
+(unless (boundp 'my-prog-refactor-map)
+  (define-prefix-command 'my-prog-refactor-map))
+(global-set-key (kbd "C-c RET") 'my-prog-refactor-map)
+
 
 ;;; [ emacs-refactor (emr) ] -- Emacs Refactor (EMR) provides language-specific refactoring support for Emacs.
 

@@ -3,6 +3,15 @@
 
 ;;; Commentary:
 
+;; A key binding is a mapping (relation) between an Emacs command and a key
+;; sequence. The same command can be bound to more than one key sequence. A
+;; given key sequence is the binding of at most one command in any given context
+;; (e.g. any given buffer). The same key sequence can be bound to different
+;; commands in different contexts and different keymaps.
+
+;; A keymap is a collection of key bindings, so it is a mapping (relation)
+;; between Emacs commands and key sequences. A keymap can be global, local, or
+;; applicable only to a minor mode.
 
 
 ;;; Code:
@@ -28,6 +37,26 @@
 (global-unset-key [right])
 (global-unset-key [up])
 (global-unset-key [down])
+
+
+;;; Fn[1~12]
+
+;; "<f1>" "<f2>" "<f3>" "<f12>"
+
+;; (-each '()
+;;   (lambda (fn-key)
+;;     ()))
+
+
+;;; C-c [a-z]
+
+;; TODO: improve it.
+;; (-each '("a" "b" "c" "d" "z")
+;;   (lambda (ctrl-c-command-key)
+;;     (let ((ctrl-c-key (concat "C-c " ctrl-c-command-key)))
+;;       (global-unset-key (read-kbd-macro ctrl-c-key))
+;;       (define-prefix-command (intern (concat ctrl-c-key "-map")))
+;;       (global-set-key (read-kbd-macro ctrl-c-key) (intern (concat ctrl-c-key "-map"))))))
 
 
 ;;; bind some useful commands to keybindings.

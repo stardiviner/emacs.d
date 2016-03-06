@@ -7,6 +7,12 @@
 
 ;;; Code:
 
+
+(unless (boundp 'my-prog-bug-bts-map)
+  (define-prefix-command 'my-prog-bug-bts-map))
+(global-set-key (kbd "C-c b") 'my-prog-bug-bts-map)
+
+
 ;;; [ bts ] -- bug track system
 
 ;;; This is a extension of Emacs that provides a unified interface for various

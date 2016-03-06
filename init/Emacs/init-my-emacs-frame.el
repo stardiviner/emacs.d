@@ -41,6 +41,10 @@
 ;;       (modify-frame-parameters frame (list (cons 'alpha newalpha))))))
 
 
+
+(global-set-key [remap toggle-frame-maximized] 'toggle-frame-fullscreen)
+
+
 ;;; [ zoom-frm ]
 
 

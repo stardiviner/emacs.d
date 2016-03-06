@@ -100,7 +100,6 @@
 
 (require 'init-my-library)
 (require 'init-my-functions)
-(require 'init-my-keybindings)
 
 
 ;;; Emacs
@@ -110,7 +109,6 @@
 (require 'init-my-emacs-appearance)
 (require 'init-my-emacs-prettify)
 (require 'init-my-emacs-mode-line)
-(require 'init-my-emacs-highlight)
 (require 'init-my-emacs-popup)
 (require 'init-my-emacs-completion)
 (require 'init-my-emacs-notify)
@@ -140,6 +138,7 @@
 (require 'init-my-emacs-modes)
 (require 'init-my-emacs-abbrev)
 (require 'init-my-emacs-search)
+(require 'init-my-emacs-highlight)
 (require 'init-my-emacs-regexp)
 (require 'init-my-emacs-vcs)
 (require 'init-my-emacs-shell)
@@ -161,6 +160,10 @@
 
 
 ;;; Tools
+(unless (boundp 'my-tools-prefix)
+  (define-prefix-command 'my-tools-prefix))
+(global-set-key (kbd "C-x t") 'my-tools-prefix)
+
 (require 'init-my-org-mode)
 (require 'init-my-tool-calendar)
 (require 'init-my-tool-dictionary)
@@ -271,13 +274,9 @@
 (require 'init-my-prog-nginx)
 
 
-;;; DevOps: programming related tools
+;;; Programming Tools
 
-(require 'init-my-prog-devops)
-
-(require 'init-my-prog-tools-container)
-(require 'init-my-prog-tools-vagrant)
-(require 'init-my-prog-tools-heroku)
+(require 'init-my-prog-tools)
 
 
 ;;; Accessibility

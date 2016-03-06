@@ -18,7 +18,6 @@
 
 (define-key my-search-prefix (kbd "M-o") 'multi-occur-in-matching-buffers)
 
-(define-key my-highlight-symbol-prefix (kbd "M-r") 'highlight-lines-matching-regexp)
 (define-key my-search-prefix (kbd "M-h") 'how-many)
 
 

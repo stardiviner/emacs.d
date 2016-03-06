@@ -4,6 +4,18 @@
 
 ;;; Code:
 
+
+(unless (boundp 'my-prog-help-document-map)
+  (define-prefix-command 'my-prog-help-document-map))
+(global-set-key (kbd "C-h d") 'my-prog-help-document-map)
+
+;; example
+;; (add-hook 'lisp-mode-hook
+;;           '(lambda ()
+;;              (local-set-key (kbd "C-h d d") 'sly-documentation-lookup)
+;;              ))
+
+
 ;;; [ ElDoc ] --- show you the argument list of the function call you are currently writing in the echo area.
 
 (require 'eldoc)

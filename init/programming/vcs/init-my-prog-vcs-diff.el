@@ -7,6 +7,12 @@
 
 ;;; Code:
 
+
+(unless (boundp 'my-prog-vcs-diff-prefix)
+  (define-prefix-command 'my-prog-vcs-diff-prefix))
+(define-key my-prog-vcs-map (kbd "d") 'my-prog-vcs-diff-prefix)
+
+
 ;;; [ ediff ]
 
 ;;; Usage:

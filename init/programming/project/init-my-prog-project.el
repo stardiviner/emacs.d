@@ -5,6 +5,12 @@
 
 ;;; Code:
 
+
+(unless (boundp 'my-prog-project-map)
+  (define-prefix-command 'my-prog-project-map))
+(global-set-key (kbd "C-c p") 'my-prog-project-map)
+
+
 ;;; [ Projectile ]
 ;;
 ;; - [C-c p C-h] -- get Projectile key bindings help.

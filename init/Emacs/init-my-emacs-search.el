@@ -7,6 +7,10 @@
 
 ;;; Code:
 
+(unless (boundp 'my-search-prefix)
+  (define-prefix-command 'my-search-prefix))
+(global-set-key (kbd "C-c s") 'my-search-prefix)
+
 
 (require 'init-my-emacs-search-isearch)
 (require 'init-my-emacs-search-occur)

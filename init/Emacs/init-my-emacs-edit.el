@@ -1,7 +1,14 @@
 ;;; init-my-emacs-edit.el --- init Emacs editing
+
 ;;; Commentary:
 
 ;;; Code:
+
+
+(unless (boundp 'my-edit-prefix)
+  (define-prefix-command 'my-edit-prefix))
+(global-set-key (kbd "C-c e") 'my-edit-prefix)
+
 
 ;;;_ Edit
 

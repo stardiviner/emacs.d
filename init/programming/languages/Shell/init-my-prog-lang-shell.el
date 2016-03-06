@@ -7,7 +7,7 @@
 
 ;;; Code:
 
-;;; [ Shell Script (`sh-mode') ]
+;;; [ shell-script-mode (`sh-mode') ]
 
 (setq sh-indentation 4)
 

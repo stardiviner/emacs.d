@@ -5,6 +5,11 @@
 ;;; Code:
 
 
+;; like tags: function, variable, class, scope etc lookup.
+(unless (boundp 'my-prog-lookup-map)
+  (define-prefix-command 'my-prog-lookup-map))
+(global-set-key (kbd "C-c l") 'my-prog-lookup-map)
+
 (unless (boundp 'my-prog-lookup-tags-map)
   (define-prefix-command 'my-prog-lookup-tags-map))
 (define-key my-prog-lookup-map (kbd "t") 'my-prog-lookup-tags-map)

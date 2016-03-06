@@ -6,6 +6,18 @@
 
 ;;; Code:
 
+
+(unless (boundp 'my-prog-lint-map)
+  (define-prefix-command 'my-prog-lint-map))
+
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (local-set-key (kbd "C-c !") 'my-prog-lint-map)
+            (define-key my-prog-lint-map (kbd "!") 'flycheck-buffer)
+            (define-key my-prog-lint-map (kbd "b") 'flycheck-buffer)
+            ))
+
+
 ;;; [ FlyCheck ] --- modern on-the-fly syntax checking
 
 ;;; Features:

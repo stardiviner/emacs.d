@@ -9,10 +9,6 @@
 
 ;;; [ Keybindings ]
 
-(unless (boundp 'my-org-prefix)
-  (define-prefix-command 'my-org-prefix))
-(global-set-key (kbd "C-c o") 'my-org-prefix)
-
 (define-key my-org-prefix (kbd "e")
   (defun my-org-element-at-point ()
     (interactive)

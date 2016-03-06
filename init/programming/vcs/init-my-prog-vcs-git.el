@@ -4,6 +4,12 @@
 
 ;;; Code:
 
+
+(unless (boundp 'my-prog-vcs-git-map)
+  (define-prefix-command 'my-prog-vcs-git-map))
+(define-key 'my-prog-vcs-map (kbd "g") 'my-prog-vcs-git-map)
+
+
 ;;; [ vc-git ] -- Git support backend
 
 ;;; Usage:

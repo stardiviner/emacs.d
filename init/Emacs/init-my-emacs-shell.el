@@ -143,14 +143,6 @@ PWD is not in a git repo (or the git command is not found)."
 
 (global-set-key (kbd "C-x !") 'my-smart-eshell)
 
-(unless (boundp 'my-inferior-shell-map)
-  (define-prefix-command 'my-inferior-shell-map))
-(define-key my-prog-inferior-map (kbd "s") 'my-inferior-shell-map)
-
-(define-key my-inferior-shell-map (kbd "s") 'my-eshell-start-or-switch)
-
-(define-key my-inferior-shell-map (kbd "S") 'shell)
-
 
 ;;; Eshell smart display
 

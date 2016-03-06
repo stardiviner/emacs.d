@@ -7,6 +7,11 @@
 
 ;;; Code:
 
+(unless (boundp 'my-org-prefix)
+  (define-prefix-command 'my-org-prefix))
+(global-set-key (kbd "C-c o") 'my-org-prefix)
+
+
 (require 'org)
 
 (require 'init-my-org-document-structure)

@@ -7,6 +7,12 @@
 
 ;;; Code:
 
+
+(unless (boundp 'my-prog-vcs-map)
+  (define-prefix-command 'my-prog-vcs-map))
+(global-set-key (kbd "C-c v") 'my-prog-vcs-map)
+
+
 ;;; [ vc-mode ] ---
 
 ;;; Usage:

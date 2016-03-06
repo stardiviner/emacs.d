@@ -8,6 +8,12 @@
 
 ;;; Code:
 
+
+(unless (boundp 'my-regexp-prefix)
+  (define-prefix-command 'my-regexp-prefix))
+(global-set-key (kbd "C-c r") 'my-regexp-prefix)
+
+
 ;;; [ re-builder ] -- instant regexp builder
 
 ;;; Usage:
