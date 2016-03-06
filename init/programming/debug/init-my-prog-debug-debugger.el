@@ -9,7 +9,7 @@
 
 ;;; [ realgud ] -- A modular GNU Emacs front-end for interacting with external debuggers.
 
-(use-package readlgud
+(use-package realgud
   :ensure t
   )
 
