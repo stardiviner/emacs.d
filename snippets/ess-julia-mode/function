@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: function
-# key: function
+# key: func
 # condition: (equal ess-dialect "julia")
 # --
 function ${1:function-name}

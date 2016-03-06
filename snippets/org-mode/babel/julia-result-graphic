@@ -3,6 +3,6 @@
 # key: babel-julia-result-graphic
 # group: babel
 # --
-#+BEGIN_SRC julia :results graphics :file $1.png
-savefig(p, "${1:file-path}.png")
+#+BEGIN_SRC julia :results graphics :file ${1:image name}.png
+${2:draw(PNG("$1", ${4:width}, ${5:height}), ${3:figure})}
 #+END_SRC

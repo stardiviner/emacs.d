@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: org-babel-gadfly
+# key: org-babel-gadfly
+# group: org-mode
+# --
+draw(PNG("${1:/path/to/filename.png}", ${2:width}, ${3:height}), ${4:figure})
