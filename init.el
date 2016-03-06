@@ -177,6 +177,7 @@
 ;; (require 'init-my-tool-bbdb)
 (require 'init-my-tool-browser)
 (require 'init-my-tool-browser-bookmark)
+(require 'init-my-tool-downloader)
 (require 'init-my-tool-OpenSpritz)
 (require 'init-my-tool-email)
 (require 'init-my-tool-feeds)
