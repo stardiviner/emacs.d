@@ -17,7 +17,7 @@
 
 ;; config org latex preview style
 (setq org-latex-create-formula-image-program 'dvipng
-      org-latex-preview-ltxpng-directory "latexpng/"
+      ;; org-latex-preview-ltxpng-directory "ltxpng/"
       org-format-latex-options (plist-put
                                 org-format-latex-options :scale 1.5)
       org-format-latex-options (plist-put
