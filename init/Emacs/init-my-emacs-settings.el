@@ -200,19 +200,6 @@
                )
 
 
-;;; [ guru-mode ] --- Learn to use Emacs the way it was meant to be used (the Emacs guru way)
-
-;;; Guru mode disables some common keybindings and suggests the use of the
-;;; established Emacs alternatives instead.
-
-(use-package guru-mode
-  :config
-  (add-hook 'prog-mode-hook 'turn-on-guru-mode)
-  (guru-global-mode +1)
-  )
-
-
-
 
 (provide 'init-my-emacs-settings)
 
