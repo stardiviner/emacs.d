@@ -5,7 +5,10 @@
 ;;; Code:
 
 ;;; [ Disabled Commands ]
-;; To enable all disabled commands in one fell swoop, put this in .emacs (not recommended for newbies):
+
+;; To enable all disabled commands in one fell swoop, put this in .emacs (not
+;; recommended for newbies):
+;;
 ;; NOTE: uncomment this when you are very familiar with Emacs.
 
 ;; (setq disabled-command-function nil)
@@ -19,6 +22,7 @@
 (put 'downcase-region 'disabled nil)      ; [C-x C-l]
 
 
+
 (fset 'yes-or-no-p 'y-or-n-p) ; treat 'y' as yes, 'n' as no.
 
 (setq inhibit-startup-message t) ; no splash screen
@@ -38,6 +42,7 @@
 
 
 ;;; [ Time ]
+
 (setq system-time-locale "C") ; make timestamps in org-mode appear in English.
 ;;; time-stamp
 ;; (add-hook 'before-save-hook 'time-stamp)
@@ -45,16 +50,19 @@
 
 
 ;; [ Bell ]
+
 (setq visible-bell nil)                   ; use bell beep instead of flash frame.
 
 
 ;;; [ User Information ]
+
 (setq user-full-name "stardiviner")
 (setq user-mail-address "numbchild@gmail.com")
 ;; (setq user-login-name "stardiviner")
 
 
 ;;; [ mode ]
+
 ;; (setq default-major-mode 'org-mode) ; use org-mode for any unspecified mode.
 
 
@@ -65,6 +73,7 @@
 
 
 ;;; [ auto save ]
+
 ;; (auto-save-mode t)
 (setq auto-save-default t               ; create #autosave# files
       auto-save-list-file-prefix "~/.emacs.d/auto-save-list/.saves-"
@@ -72,12 +81,15 @@
 
 
 ;; places
+
 (require 'saveplace)
+
 (setq save-place t                      ; save point place
       save-place-file "~/.emacs.d/.emacs-places")
 
 
 ;;; [ backup ]
+
 (setq make-backup-files t
       backup-by-copying t
       backup-by-copying-when-mismatch t
@@ -105,26 +117,6 @@
 
 ;;; [ register ]
 
-;; Usage:
-;;
-;; Default keybinds
-;; - [C-x r] -- `r' means register prefix.
-;;   - [C-x r SPC] -- `SPC' means mark
-;;     - [C-x r SPC + register_name] -- save current position to register
-;;   - [C-x r j] -- `j' means jump
-;;     - [C-x r j + register_name] -- jump to register position
-;;   - [C-x r s] -- (copy-to-register)
-;;   - [C-x r i] -- (insert-register)
-;;   - [C-x r r] -- (copy-rectangle-to-register)
-;; - [M-x view-register] -- check out a register
-;; - [M-x list-registers] -- list out all registers
-;; - [M-x append-to-register RET r]
-;; - [M-x prepend-to-register RET r]
-
-(unless (boundp 'my-register-map)
-  (define-prefix-command 'my-register-map))
-(global-set-key (kbd "C-x r x") 'my-register-map)
-
 (global-unset-key (kbd "C-x r j"))
 (global-unset-key (kbd "C-x r +"))
 (global-unset-key (kbd "C-x r c"))
@@ -141,6 +133,9 @@
 (global-unset-key (kbd "C-x r C-SPC"))
 (global-unset-key (kbd "C-x r C-@"))
 
+(unless (boundp 'my-register-map)
+  (define-prefix-command 'my-register-map))
+(global-set-key (kbd "C-x r x") 'my-register-map)
 
 (define-key my-register-map (kbd "j") 'jump-to-register)
 (define-key my-register-map (kbd "+") 'increment-register)
@@ -153,14 +148,11 @@
 (define-key my-register-map (kbd "f") 'frameset-to-register)
 (define-key my-register-map (kbd "w") 'window-configuration-to-register)
 
-
-
 
 ;;; [ macro ]
-;; file to save macros:
-;; ~/.emacs.d/macros/macros
-(load-file "~/.emacs.d/init/macros/macros")
 
+;; file to save macros:
+(load-file "~/.emacs.d/init/macros/macros")
 
 
 ;;; [ movement ]
@@ -169,7 +161,6 @@
 ;; (setq sentence-end-double-space nil)
 
 (setq track-eol t) ; always track end of line when moving at end of line.
-
 
 
 ;;; [ clipboard ]
@@ -195,9 +186,10 @@
 
 
 ;;; [ Search ]
-(setq-default  case-fold-search t ; whether toggle case sensitive search depend on your input has mixture of upcase and downcase.
-               case-replace t ; preserve case in replacements.
-               )
+
+(setq-default case-fold-search t ; whether toggle case sensitive search depend on your input has mixture of upcase and downcase.
+              case-replace t ; preserve case in replacements.
+              )
 
 
 
