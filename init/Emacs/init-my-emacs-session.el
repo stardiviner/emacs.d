@@ -7,12 +7,26 @@
 
 ;;; Code:
 
+;;; [ session ]
+
+;;; save-desktop
+;;; save-place
+
+
 ;;; [ desktop-save-mode ]
 
 ;;; Usage:
 ;; - commands prefix with `desktop-'.
 
 ;; (require 'desktop)
+
+
+;; save-place
+
+(require 'saveplace)
+
+(setq save-place t                      ; save point place
+      save-place-file "~/.emacs.d/.emacs-places")
 
 
 ;;; [ workgroups2 ] --

@@ -8,7 +8,8 @@
 ;;; Code:
 
 ;;; [ Dired ] (Directory editing mode)
-;; Usage:
+
+;;; Usage:
 ;; - [C-x d] -- dired (cond 'helm-mode (helm-mode-dired))
 ;; - [C-x C-d] -- simple entry list.
 ;; - [C-u C-x C-d] -- detail entry list.

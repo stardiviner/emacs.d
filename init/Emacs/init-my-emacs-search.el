@@ -12,6 +12,10 @@
 (global-set-key (kbd "C-c s") 'my-search-prefix)
 
 
+(setq-default case-fold-search t
+              case-replace t
+              )
+
 (require 'init-my-emacs-search-isearch)
 (require 'init-my-emacs-search-occur)
 (require 'init-my-emacs-search-grep)

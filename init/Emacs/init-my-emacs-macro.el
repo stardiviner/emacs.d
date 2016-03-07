@@ -14,6 +14,8 @@
 ;; - [C-x (/)] -- start/end macro.
 ;; - [F3/F4] -- start/end macro or insert counter/repeat.
 
+;; file to save macros:
+(load-file "~/.emacs.d/init/macros/macros")
 
 
 (provide 'init-my-emacs-macro)

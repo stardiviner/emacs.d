@@ -103,6 +103,8 @@
 
 
 ;;; Emacs
+(require 'init-my-emacs-environment)
+(require 'init-my-emacs-settings)
 (require 'init-my-emacs-performance)
 (require 'init-my-emacs-font)
 (require 'init-my-emacs-color-theme)
@@ -112,8 +114,6 @@
 (require 'init-my-emacs-popup)
 (require 'init-my-emacs-completion)
 (require 'init-my-emacs-notify)
-(require 'init-my-emacs-environment)
-(require 'init-my-emacs-settings)
 (require 'init-my-emacs-help)
 (require 'init-my-emacs-minibuffer)
 (require 'init-my-emacs-buffer)

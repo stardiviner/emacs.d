@@ -31,19 +31,8 @@
               (concat ";; Happy hacking " (or user-login-name "") "!\n\n"))
 
 
-;;; [ concurrent in Emacs (JIT) ]
-
-(setq jit-lock-stealth-verbose t)
-
-
-;;; [ Garbage Collection ]
-
-(setq garbage-collection-messages nil)
-
-
 ;;; [ Time ]
 
-(setq system-time-locale "C") ; make timestamps in org-mode appear in English.
 ;;; time-stamp
 ;; (add-hook 'before-save-hook 'time-stamp)
 ;; (setq time-stamp-pattern nil)
@@ -54,65 +43,9 @@
 (setq visible-bell nil)                   ; use bell beep instead of flash frame.
 
 
-;;; [ User Information ]
-
-(setq user-full-name "stardiviner")
-(setq user-mail-address "numbchild@gmail.com")
-;; (setq user-login-name "stardiviner")
-
-
 ;;; [ mode ]
 
 ;; (setq default-major-mode 'org-mode) ; use org-mode for any unspecified mode.
-
-
-;;; [ session ]
-
-;;; save-desktop
-;;; save-place
-
-
-;;; [ auto save ]
-
-;; (auto-save-mode t)
-(setq auto-save-default t               ; create #autosave# files
-      auto-save-list-file-prefix "~/.emacs.d/auto-save-list/.saves-"
-      auto-save-interval 1500)
-
-
-;; places
-
-(require 'saveplace)
-
-(setq save-place t                      ; save point place
-      save-place-file "~/.emacs.d/.emacs-places")
-
-
-;;; [ backup ]
-
-(setq make-backup-files t
-      backup-by-copying t
-      backup-by-copying-when-mismatch t
-      backup-by-copying-when-privileged-mismatch t
-      backup-by-copying-when-linked t
-      version-control t ; use versioned backups.
-      vc-make-backup-files nil ; do not backup files in vc.
-      ;; backup-inhibited ; do not generate backup
-      delete-old-versions t             ; auto delete old versions.
-      kept-new-versions 3               ; number of new versions.
-      kept-old-versions 3               ; number of old versions.
-      version-control t                 ; multiple versions backup.
-      )
-
-(setq backup-directory-alist
-      `(("." . ,(expand-file-name "~/.emacs.d/.backups")))
-      ;; `((".*" . ,temporary-file-directory)) ; put all under directory /tmp.
-      )
-
-
-;;; [ password ]
-
-(setq password-cache-expiry nil) ; don't expire password cache.
 
 
 ;;; [ register ]
@@ -149,20 +82,6 @@
 (define-key my-register-map (kbd "w") 'window-configuration-to-register)
 
 
-;;; [ macro ]
-
-;; file to save macros:
-(load-file "~/.emacs.d/init/macros/macros")
-
-
-;;; [ movement ]
-;; set sentence-end to recognize chinese punctuation.
-;; (setq sentence-end "\\([。！？]\\|……\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*")
-;; (setq sentence-end-double-space nil)
-
-(setq track-eol t) ; always track end of line when moving at end of line.
-
-
 ;;; [ clipboard ]
 
 ;; - x-select-enable-primary - default nil; set this to t if you want the Emacs commands C-w and C-y to use the primary selection.
@@ -175,21 +94,6 @@
       x-select-enable-clipboard-manager t
       x-select-enable-primary t
       )
-
-
-;;; [ Browser ]
-
-(setq browse-url-browser-function 'browse-url-generic ; 'browse-url-generic, 'browse-url-default-browser, 'eww-browse-url (EWW)
-      ;; "conkeror" "firefox", "google-chrome-stable", "chromium-browser", "uzbl-tabbed", "luakit", "jumanji", "elinks",
-      browse-url-generic-program (executable-find "google-chrome-stable")
-      )
-
-
-;;; [ Search ]
-
-(setq-default case-fold-search t ; whether toggle case sensitive search depend on your input has mixture of upcase and downcase.
-              case-replace t ; preserve case in replacements.
-              )
 
 
 

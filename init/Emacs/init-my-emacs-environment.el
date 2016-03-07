@@ -4,7 +4,13 @@
 
 ;;; Code:
 
+;;; [ User Information ]
 
+(setq user-full-name "stardiviner")
+(setq user-mail-address "numbchild@gmail.com")
+;; (setq user-login-name "stardiviner")
+
+
 ;;; $PATH
 ;;; way 1:
 ;;     (setq exec-path (append exex-path '("~/bin")))
@@ -20,11 +26,11 @@
 ;; TODO: add to this init file.
 ;; https://www.gnu.org/software/emacs/manual/html_node/elisp/System-Environment.html
 
-
-
 
 ;; format (Unix, DOS) & encoding
+
 ;; [C-h v current-language-environment]
+
 (set-default-coding-systems 'utf-8)
 (setq locale-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
@@ -41,10 +47,12 @@
 ;; (setq-default default-buffer-file-coding-system 'utf-8-unix)
 
 
-;;; Proxy
+;;; time
 
-;; (setenv "no_proxy" "127.0.0.1,localhost"
-;; 	"http_proxy" "")
+(setq system-time-locale "C") ; make timestamps in org-mode appear in English.
+
+
+;;; Proxy
 
 ;; (setq url-proxy-services
 ;;       '(("no_proxy" . "127.0.0.1") ; don't use `localhost', avoid robe server (For Ruby) can't response.

@@ -5,6 +5,11 @@
 
 ;;; Code:
 
+;;; [ password ]
+
+(setq password-cache-expiry nil) ; don't expire password cache.
+
+
 ;;; [ EasyPG Assistant ] --- setup for transparent, automatic encryption and decryption.
 
 ;;; Usage:

@@ -16,15 +16,18 @@
 
 ;;; default browser function
 
-;; - 'browse-url
+;; system default browser: (`browser-url-browser-function')
+;; - 'browse-url-generic
 ;; - 'browse-url-default-browser
+;; - 'eww-browse-url (EWW)
+;;
+;; - ;; "conkeror" "firefox", "google-chrome-stable", "chromium-browser", "uzbl-tabbed", "luakit", "jumanji", "elinks",
 
-;; system default browser
 (setq browse-url-browser-function 'browse-url-default-browser)
 
-;; specify not exist function browser as default web browser.
-;; (setq browse-url-browser-function 'browse-url-generic
-;;       browse-url-generic-program "conkeror")
+(if (eq browse-url-browser-function 'browse-url-generic)
+    (setq browse-url-generic-program (executable-find "google-chrome-stable"))
+  )
 
 
 ;;; custom browser in specific case
@@ -134,6 +137,7 @@
 ;;; [ w3m ]
 
 (use-package w3m
+  ;; :ensure t
   :commands w3m-goto-url w3m-search
   :config
   ;; (setq browse-url-browser-function 'w3m-browse-url)

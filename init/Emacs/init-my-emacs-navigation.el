@@ -7,6 +7,15 @@
 
 ;;; Code:
 
+;;; [ movement ]
+
+;; set sentence-end to recognize chinese punctuation.
+;; (setq sentence-end "\\([。！？]\\|……\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*")
+;; (setq sentence-end-double-space nil)
+
+(setq track-eol t) ; always track end of line when moving at end of line.
+
+
 ;;; [ Mark ] --- [C-SPC / C-@] + [C-u C-SPC / C-u C-@] + [C-`] / [M-`]
 
 (setq set-mark-command-repeat-pop t)
