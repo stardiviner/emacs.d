@@ -47,17 +47,10 @@
 ;; (whitespace-mode 1)
 ;; (global-whitespace-mode)
 
-
-;;;_ Macro
-
-;;; Usage:
-;; - [C-x C-k] -- macro prefix.
-;; - [C-x (/)] -- start/end macro.
-;; - [F3/F4] -- start/end macro or insert counter/repeat.
-
 
 (require 'init-my-emacs-kill-ring)
 (require 'init-my-emacs-region)
+(require 'init-my-emacs-macro)
 (require 'init-my-emacs-edit-electric)
 (require 'init-my-emacs-edit-narrow)
 (require 'init-my-emacs-edit-tabulate)
