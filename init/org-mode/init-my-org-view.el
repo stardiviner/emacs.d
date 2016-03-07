@@ -94,6 +94,10 @@
 
 ;; (require 'org-beautify-theme)
 
+
+;;; eldoc-mode support
+
+(add-hook 'org-mode-hook #'eldoc-mode)
 
 
 (provide 'init-my-org-view)
