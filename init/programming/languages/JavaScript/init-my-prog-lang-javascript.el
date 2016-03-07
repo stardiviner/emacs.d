@@ -40,10 +40,6 @@
   :ensure t
   :config
   (define-key js2-mode-map (kbd "C-o") 'my/open-new-line-upper))
-(use-package js3-mode
-  :ensure t
-  :config
-  (define-key js3-mode-map (kbd "C-o") 'my/open-new-line-upper))
 
 
 ;;; [ javascript-mode (js-mode) ]
