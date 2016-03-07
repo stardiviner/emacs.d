@@ -13,37 +13,7 @@
 (define-key my-prog-inferior-map (kbd "H") 'HTTP-prefix)
 
 
-;;;_ restclient
-
-;;; This is a tool to manually explore and test HTTP REST webservices. Runs
-;;; queries from a plain-text query sheet, displays results as a pretty-printed
-;;; XML, JSON and even images.
-
-;;; Usage:
-;;
-;; `restclient-mode' is a major mode which does a bit of highlighting and supports
-;; a few additional keypresses:
-;;
-;; buffer example:
-;;
-;;   GET http://www.example.com
-;;   # use comment as separator for queries.
-;;   :username = chris
-;;   :password := (read (file "filename.txt"))
-;;   POST http://www.example.com/?action=login&:username&:password
-;;
-;; for localhost
-;; GET http://127.0.0.1:3000
-;;
-;; - [C-c C-c] :: runs the query under the cursor, tries to pretty-print the response (if possible)
-;; - [C-c C-r] :: same, but doesn't do anything with the response, just shows the buffer
-;; - [C-c C-v] :: same as C-c C-c, but doesn't switch focus to other window
-;; - [C-c C-p] :: jump to the previous query
-;; - [C-c C-n] :: jump to the next query
-;; - [C-c C-.] :: mark the query under the cursor
-;; - [C-c C-u] :: `restclient-copy-curl-command' :: copy curl command format to clipboard.
-;;
-;; `restclient-http-do-hook'
+;;; [ restclient ]
 
 (use-package restclient
   :ensure t
@@ -81,22 +51,8 @@
               (setq-local indent-line-function 'js-indent-line)))
   )
 
-
-;;;_ know-your-http-well
-
-(use-package know-your-http-well
-  :ensure t)
-
-;;;_ company-restclient
-
-;; Features
-;;
-;; - HTTP method name completion
-;; - HTTP header name completion
-;; - If header name starts with uppercase character, the completion result is capitalized (e.g. "Content-Type").
-;; - Otherwise, the completion result contains lowercase characters only (e.g. "content-type").
-;; - Description about HTTP method and header is shown in minibuffer
-;; - Variable name completion
+
+;;; [ company-restclient ]
 
 (use-package company-restclient
   :ensure t
@@ -111,11 +67,16 @@
 ;;; [ ob-restclient ]
 
 (use-package ob-restclient
-  :ensure t
-  :defer t)
+  :ensure t)
 
 
-;;;_ httprepl
+;; [ ob-http ] -- http request in org-mode babel
+
+(use-package ob-http
+  :ensure t)
+
+
+;;; [ httprepl ]
 
 (use-package httprepl
   :ensure t
@@ -129,18 +90,16 @@
   )
 
 
+;;; [ know-your-http-well ]
+
+(use-package know-your-http-well
+  :ensure t)
+
+
 ;;; [ httpcode ] -- explains the meaning of an HTTP status code.
 
 (use-package httpcode
   :ensure t)
-
-
-;; [ ob-http ] -- http request in org-mode babel
-
-(use-package ob-http
-  :ensure t
-  :defer t
-  )
 
 
 (provide 'init-my-prog-framework-http)
