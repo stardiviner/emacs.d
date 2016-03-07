@@ -129,11 +129,10 @@
   )
 
 
-;;; [ httpcode ] -- explains the meaning of an HTTP status code
+;;; [ httpcode ] -- explains the meaning of an HTTP status code.
 
-;;; Usage:
-;;
-;; - [M-x hc]
+(use-package httpcode
+  :ensure t)
 
 
 ;;;_ web -- useful HTTP client
