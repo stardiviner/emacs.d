@@ -26,13 +26,12 @@
   
   ;; auto raise popup menu
   (setq ac-auto-start 2)
-  (setq ac-delay 0.2)
-  (setq ac-auto-show-menu 0.4)
+  (setq ac-delay 0.05)
+  (setq ac-auto-show-menu t)
   (setq ac-show-menu-immediately-on-auto-complete t)
   (setq ac-menu-height 10)
   (setq-default ac-expand-on-auto-complete t)
   (setq-default ac-dwim t)
-  (setq ac-delete-dups nil)
 
   ;;; auto-complete UI
   ;; - nil : no limit
@@ -41,16 +40,15 @@
   (setq ac-max-width nil)
 
   ;; completion history
-  (setq ac-comphist t) ; comphist internally
+  (setq ac-comphist nil) ; comphist internally
 
   ;; dictionaries
-  (add-to-list 'ac-dictionary-directories
-               (expand-file-name "ac-dict" user-emacs-directory))
+  ;; (add-to-list 'ac-dictionary-directories
+  ;;              (expand-file-name "ac-dict" user-emacs-directory))
 
   ;; keybindings
   ;; (ac-set-trigger-key "<tab>") ; <tab> is used for yasnippet.
   (ac-set-trigger-key "TAB") ; usualy this, <tab> has higher priority than TAB.
-  (define-key ac-mode-map (kbd "C-i") 'auto-complete)
   ;; (define-key global-map (kbd "M-TAB") 'ac-fuzzy-complete) ; fuzzy complete.
 
   ;; ac-menu-map keymap only map for menu is available, not break default.
@@ -89,7 +87,7 @@
   (setq ac-use-quick-help t) ; nil to disable auto popup quick help.
   ;; Prefer native tooltip with pos-tip than overlay popup for displaying quick help.
   (setq ac-quick-help-prefer-pos-tip t)
-  (setq ac-quick-help-delay 0.6)
+  (setq ac-quick-help-delay 0.2)
   (setq ac-quick-help-timer nil)     ; quick help idle timer. (nil: never disappear)
   (setq ac-quick-help-height 20)
 
@@ -104,8 +102,7 @@
   (define-key ac-mode-map (kbd "C-c H") 'ac-last-help)
 
   ;; Faces
-  (setq ac-disable-inline nil           ; disable inline completion visibility
-        )
+  (setq ac-disable-inline nil)
 
   ;; color of candidates
   (set-face-attribute 'ac-candidate-face nil
@@ -126,35 +123,11 @@
 
   ;; set default auto-complete source
   (setq-default ac-sources
-                '(;; snippet
-                  ac-source-yasnippet
-                  ;; template
-                  ;; ac-source-template
-                  ;; abbrev
+                '(ac-source-yasnippet
                   ac-source-abbrev
                   ;; ac-source-dabbrev
-                  ;; filename
-                  ac-source-filename
-                  ac-source-files-in-current-dir
-                  ;; complete-at-point-function (capf)
-                  ;; ac-source-capf
-                  ;; programming
-                  ;; semantic
-                  ;; ac-source-semantic
-                  ;; ac-source-semantic-raw
-                  ;; tags
-                  ;; ac-source-etags ; NOTE: by default require a TAGS file.
-                  ac-source-gtags
-                  ;; dictionary
                   ;; ac-source-dictionary
-                  ;; chunk
-                  ;; ac-source-chunk-list
-                  ;; buffer
-                  ;; ac-source-words-in-buffer ; NOTE: this source will show a lot of useless candidates.
                   ac-source-words-in-same-mode-buffers
-                  ;; ac-source-words-in-all-buffer
-                  ;; spell
-                  ;; ac-source-ispell
                   ))
 
   ;; (global-auto-complete-mode 1) ; use auto-complete globally
