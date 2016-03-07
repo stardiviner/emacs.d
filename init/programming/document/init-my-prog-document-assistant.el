@@ -55,6 +55,15 @@
   (define-key my-prog-help-document-map (kbd "h") 'howdoi-query)
   )
 
+
+
+;;; [ which-function-mode (which-func) ]
+
+;; ;; (add-to-list 'which-func-modes 'org-mode)
+;; (setq which-func-modes t) ; for all modes.
+;;
+;; (which-function-mode 1)
+
 
 (provide 'init-my-prog-document-assistant)
 
