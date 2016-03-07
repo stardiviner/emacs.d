@@ -3,9 +3,9 @@
 # key: babel-http
 # group: Babel
 # --
-#+BEGIN_SRC http :pretty ${1:arguments}
-RESTful: ${2:GET, POST, PATCH ...}
-${3:Headers:
+#+BEGIN_SRC http :pretty ${1:other arguments}
+${2:RESTful: GET, POST, PATCH ...} ${3:URL}
+${4:Headers:
 User-Agent: ob-http
 Content-Type: application/json
 key=value1&foo=value2

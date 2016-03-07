@@ -4,6 +4,6 @@
 # group: babel
 # expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 't))
 # --
-#+BEGIN_SRC translate :src ${1:source: auto, en} :dest ${2:dest}
+#+BEGIN_SRC translate :src ${1:source: auto, en} :dest ${2:dest: en, zh, ja, ko}
 $0
 #+END_SRC

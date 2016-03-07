@@ -3,6 +3,6 @@
 # key: babel-julia
 # group: babel
 # --
-#+BEGIN_SRC julia
+#+BEGIN_SRC julia :session ${1:session}
 $0
 #+END_SRC
