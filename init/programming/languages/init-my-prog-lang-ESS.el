@@ -84,8 +84,12 @@
   ;; ESS built-in:
   ;; - `ess-company-backends' :: for company-mode.
   ;; - `ess-ac-sources' :: for auto-complete.
-  (setq ess-use-company t)
-  (setq ess-use-auto-complete nil)
+  (setq ess-use-company nil)
+  (setq ess-use-auto-complete t)
+  (add-hook 'ess-mode-hook
+            '(lambda ()
+               (auto-complete-mode 1)
+               (company-mode -1)))
   )
 
 
