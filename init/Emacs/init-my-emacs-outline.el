@@ -10,7 +10,6 @@
 
 (unless (boundp 'my-outline-prefix)
   (define-prefix-command 'my-outline-prefix))
-(global-set-key (kbd "C-c SPC") 'my-outline-prefix)
 (global-set-key (kbd "C-c @") 'my-outline-prefix)
 
 
