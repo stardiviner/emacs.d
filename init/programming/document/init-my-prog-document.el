@@ -17,7 +17,7 @@
 
 (require 'init-my-prog-document-info)
 (require 'init-my-prog-document-man)
-(require 'init-my-prog-document-rfc)
+;; (require 'init-my-prog-document-rfc)
 (require 'init-my-prog-document-api)
 (require 'init-my-prog-document-assistant)
 
