@@ -25,7 +25,7 @@
   :config
   (setq company-minimum-prefix-length 2
         ;; decrease this delay when you can type code continuously fast.
-        company-idle-delay 0.4
+        company-idle-delay 0.05
         ;; determines when to auto-complete.
         ;; 'company-explicit-action-p, t, nil, 'function
         ;; company-auto-complete nil
