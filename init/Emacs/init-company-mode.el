@@ -318,24 +318,19 @@
   ;; set to `nil' to trigger popup doc manually.
   (setq company-quickhelp-delay nil)
 
-  (company-quickhelp-mode 1)
-
+  ;; (company-quickhelp-mode 1)
+  ;;
   ;; remove echo-area short doc display
   ;; (setq-default company-frontends
   ;;               (remq 'company-echo-metadata-frontend company-frontends))
-
+  ;;
   (add-to-list 'company-frontends 'company-quickhelp-frontend)
-
   ;; (add-to-list 'company-frontends 'company-preview-frontend)
 
+  
   (if (functionp 'company-quickhelp-manual-begin)
-      (progn
-        ;; 'company-quickhelp--show
-        ;; (define-key company-quickhelp-mode-map (kbd "M-h") 'company-quickhelp-manual-begin)
-        (define-key company-active-map (kbd "M-h") 'company-quickhelp-manual-begin)
-        )
-    (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
-    )
+      (define-key company-active-map (kbd "M-h") 'company-quickhelp-manual-begin)
+    (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer))
   )
 
 
