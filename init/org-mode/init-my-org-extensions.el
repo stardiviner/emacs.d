@@ -151,6 +151,7 @@
 ;;; [ org-download ] -- drag and drop images to Emacs org-mode.
 
 (use-package org-download
+  :ensure t
   :config
   (setq org-download-screenshot-method "scrot -s %s"
         org-download-method 'attach ; 'attach, 'directory,
