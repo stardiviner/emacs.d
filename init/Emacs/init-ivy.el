@@ -144,6 +144,7 @@
 ;;; [ counsel ]
 
 (use-package counsel
+  :ensure t
   :config
   (global-set-key [remap execute-extended-command] 'counsel-M-x) ; [M-x]
   (global-set-key [remap describe-variable] 'counsel-describe-variable) ; [C-h v]

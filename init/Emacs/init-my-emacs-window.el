@@ -61,109 +61,21 @@
 (winner-mode 1)
 
 
-;;; [ switch-window ] -- show a number on window instead of modeline.
-
-;; (require 'switch-window)
-;; (global-set-key (kbd "C-x o") 'switch-window)
-
-
-;;; [ window-number ] --
-
-;;; Usage:
-;;
-;; - [C-x C-j + N] :: window-number-mode
-;; - [M- + <N>] :: window-number-meta-mode
-
-(use-package window-number
-  :ensure t
-  :config
-  (autoload 'window-number-mode "window-number" nil t)
-  (autoload 'window-number-meta-mode "window-number" nil t)
-
-  (window-number-mode)
-  (window-number-meta-mode)
-  )
-
-
-;;; [ window-numbering ] --
-
-;; (unless (package-installed-p 'window-numbering)
-;;   (package-install 'window-numbering))
-;; (require 'window-numbering)
-
-
 ;;; [ ace-window ] -- Quickly switch windows in Emacs.
 
-;; (use-package ace-window
-;;   :config
-;;   (global-set-key (kbd "C-x C-j") 'ace-window)
-
-;;   (set-face-attribute 'aw-leading-char-face nil
-;;                       :height 200)
-;;   (set-face-attribute 'aw-background-face nil
-;;                       :foreground "#333333")
-;;   (set-face-attribute 'aw-mode-line-face nil
-;;                       :foreground "orange red")
-
-;;   (setq aw-background nil)
-
-;;   ;; TODO: how do this work? what's the keybinding?
-;;   ;; (defvar aw-dispatch-alist
-;;   ;;   '((?x aw-delete-window " Ace - Delete Window")
-;;   ;;     (?m aw-swap-window " Ace - Swap Window")
-;;   ;;     (?M aw-move-window " Ace - Move Window")
-;;   ;;     (?n aw-flip-window)
-;;   ;;     (?v aw-split-window-vert " Ace - Split Vert Window")
-;;   ;;     (?b aw-split-window-horz " Ace - Split Horz Window")
-;;   ;;     (?i delete-other-windows " Ace - Maximize Window")
-;;   ;;     (?o delete-other-windows))
-;;   ;;   "List of actions for `aw-dispatch-default'.")
-;;   )
-
-
-;;; [ golden-radio ] -- automatic resizing of Emacs windows to the golden ratio.
-
-(use-package golden-ratio
+(use-package ace-window
+  :ensure t
   :config
-  (setq golden-ratio-auto-scale t)
-  (setq golden-ratio-adjust-factor 1.0
-        golden-ratio-wide-adjust-factor 0.8)
-  (setq golden-ratio-recenter t)
+  (global-set-key (kbd "C-x C-j") 'ace-window)
 
-  ;; exclude
-  (setq golden-ratio-exclude-modes
-        (append golden-ratio-exclude-modes
-                '(ediff-mode
-                  calendar-mode calc-mode dired-mode
-                  speedbar-mode project-explorer-mode
-                  gnus-summary-mode gnus-article-mode
-                  mu4e-headers-mode mu4e-compose-mode
-                  restclient-mode
-                  )))
+  (set-face-attribute 'aw-leading-char-face nil
+                      :height 200)
+  (set-face-attribute 'aw-background-face nil
+                      :foreground "#333333")
+  (set-face-attribute 'aw-mode-line-face nil
+                      :foreground "orange red")
 
-  ;; "\\`\\*[Hh]elm.*\\*\\'"
-  (setq golden-ratio-exclude-buffer-regexp '("\\`\\*.*?\\*\\'")) ; *...* buffers
-  
-  (setq golden-ratio-exclude-buffer-names '(" *Org todo*" " *Org tags*"))
-  (add-to-list 'golden-ratio-exclude-buffer-names " *which-key*")
-  
-  ;; for popwin.
-  ;; FIXME:
-  ;; (setq golden-ratio-inhibit-functions '(pop-to-buffer))
-
-  (setq golden-ratio-extra-commands
-        (append golden-ratio-extra-commands
-                '(window-number-select
-                  )))
-
-  ;; manually re-fit ratio.
-  (global-set-key (kbd "C-x j") 'golden-ratio)
-
-  ;; (progn
-  ;;   (add-hook 'ediff-before-setup-windows-hook #'(lambda () (golden-ratio-mode -1)))
-  ;;   (add-hook 'ediff-quit-hook #'(lambda () (golden-ratio-mode 1))))
-  
-  (golden-ratio-mode 1)
+  (setq aw-background nil)
   )
 
 
@@ -188,6 +100,7 @@
 ;; * array     : selecting buffers like expose in Mac OSX
 
 (use-package e2wm
+  ;; :ensure t
   ;; :config
   ;; (global-set-key (kbd "C-c +") 'e2wm:start-management)
   ;; (global-set-key (kbd "C-c -") 'e2wm:stop-management)
@@ -240,7 +153,8 @@
 ;; p, <left> -- persp-prev: Switch to previous perspective
 
 
-;; (use-package perspective)
+;; (use-package perspective
+;;   :ensure t)
 
 
 ;;; [ window-purpose ] -- Organize Windows and Buffers According to Purposes.
@@ -280,109 +194,58 @@
 ;;   )
 
 
-;;; [ golden-ratio ] -- Automatic resizing of Emacs windows to the golden ratio.
-
-;;; golden-ratio helps on this issue by resizing automatically the windows you
-;;; are working on to the size specified in the "Golden Ratio". The window that
-;;; has the main focus will have the perfect size for editing, while the ones
-;;; that are not being actively edited will be re-sized to a smaller size that
-;;; doesn't get in the way, but at the same time will be readable enough to know
-;;; it's content.
-
-;;; Usage:
-;;
-;; - [M-x golden-ratio] :: manually invoke `golden-ratio'.
-;; - [M-x golden-ratio-mode] :: toggle `golden-ratio-mode'.
-;; - [M-x golden-ratio-toggle-widescreen] :: toggle between widescreen and regular width window.
+;;; [ golden-radio ] -- automatic resizing of Emacs windows to the golden ratio.
 
 (use-package golden-ratio
   ;; :ensure t
   :config
-  (setq golden-ratio-auto-scale t ; for wide screens
-        golden-ratio-adjust-factor .8 ; adjust factor
-        golden-ratio-wide-adjust-factor .8)
+  (setq golden-ratio-auto-scale t)
+  (setq golden-ratio-adjust-factor 1.0
+        golden-ratio-wide-adjust-factor 0.8)
+  (setq golden-ratio-recenter t)
 
+  ;; exclude
+  (setq golden-ratio-exclude-modes
+        (append golden-ratio-exclude-modes
+                '(ediff-mode
+                  calendar-mode calc-mode dired-mode
+                  speedbar-mode project-explorer-mode
+                  gnus-summary-mode gnus-article-mode
+                  mu4e-headers-mode mu4e-compose-mode
+                  restclient-mode
+                  )))
+
+  ;; "\\`\\*[Hh]elm.*\\*\\'"
+  (setq golden-ratio-exclude-buffer-regexp '("\\`\\*.*?\\*\\'")) ; *...* buffers
+  
+  (setq golden-ratio-exclude-buffer-names '(" *Org todo*" " *Org tags*"))
+  (add-to-list 'golden-ratio-exclude-buffer-names " *which-key*")
+  
+  ;; for popwin.
+  ;; FIXME:
+  ;; (setq golden-ratio-inhibit-functions '(pop-to-buffer))
+
+  (setq golden-ratio-extra-commands
+        (append golden-ratio-extra-commands
+                '(window-number-select
+                  )))
+
+  ;; manually re-fit ratio.
+  (global-set-key (kbd "C-x j") 'golden-ratio)
+
+  ;; (progn
+  ;;   (add-hook 'ediff-before-setup-windows-hook #'(lambda () (golden-ratio-mode -1)))
+  ;;   (add-hook 'ediff-quit-hook #'(lambda () (golden-ratio-mode 1))))
+  
   (golden-ratio-mode 1)
   )
 
 
 ;;; [ popwin ] -- Popup Window Manager for Emacs (*always* shows upon minibuffer)
 
-;;; https://github.com/m2ym/popwin-el
-
-;; popup window which from `display-buffer'.
-
-;; popwin is a popup window manager for Emacs which makes you free from the hell
-;; of annoying buffers such like *Help*, *Completions*, *compilation*, and etc.
-;;
-;; Take an example. When you complete file names during find-file, the
-;; (annoying) *Completions* buffer will appear in a newly splitted window. You
-;; might understand the necessity of the window, but you may wonder why the
-;; window still remains after completion...
-;;
-;; popwin resolves there problems. Windows of such temporary buffers will be
-;; shown as a popup window, and you can close them smoothly by typing C-g in
-;; anytime.
-
-;;; Popup windows:
-;; - *Help*
-;; - *Completions*
-;; - *Compilation*
-;; - *Occur*
-
-;;; NOTE:
-;;; popwin can work for popup function like `pop-to-buffer' etc. If some
-;;; extension uses split window and switch buffer function, not popup function,
-;;; popwin may not work,
-
-;;; Config examples:
-;;;
-;;; 1. buffer name regexp pattern.
-;;;
-;;; M-! shell command output
-;;; (push '("*Shell Command Output*" :position bottom :height 10) popwin:special-display-config)
-;;;
-;;; 2. major-mode name.
-;;;
-;;; You can specify major-mode name as pattern like following.
-;;; (push '(erc-mode) popwin:special-display-config)
-;;;
-;;; 3. combine upper two matches.
-;;; regexp match + major mode match to capture a exact buffer more exactly.
-;;;
-;;; (defun my/popwin-func (buffer)
-;;;   (let ((mode (with-current-buffer buffer
-;;;                 major-mode)))
-;;;     (and (string-match "REGEXP" (buffer-name buffer))
-;;;          (eq mode 'SOME-MODE))))
-;;;
-;;; (push '(my/popwin-func :height 10 :position bottom) popwin:special-display-config)
-
-;;; Usage:
-;; - [C-g] :: close popup window.
-;;
-;; popwin provides a default keymap named `popwin:keymap'.
-;; (global-set-key (kbd "C-z") popwin:keymap)
-;; | Key    | Command                               |
-;; |--------+---------------------------------------|
-;; | b      | popwin:popup-buffer                   |
-;; | l      | popwin:popup-last-buffer              |
-;; | o      | popwin:display-buffer                 |
-;; | C-b    | popwin:switch-to-last-buffer          |
-;; | C-p    | popwin:original-pop-to-last-buffer    |
-;; | C-o    | popwin:original-display-last-buffer   |
-;; | SPC    | popwin:select-popup-window            |
-;; | s      | popwin:stick-popup-window             |
-;; | 0      | popwin:close-popup-window             |
-;; | f, C-f | popwin:find-file                      |
-;; | e      | popwin:messages                       |
-;; | C-u    | popwin:universal-display              |
-;; | 1      | popwin:one-window                     |
-
-
 (use-package popwin
+  :ensure t
   :config
-
   (popwin-mode 1)
 
   (global-set-key (kbd "C-z") popwin:keymap)

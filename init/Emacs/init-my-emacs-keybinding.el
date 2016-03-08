@@ -235,6 +235,7 @@
      ("f" my-turn-current-window-into-new-frame "frame" :color blue)
      ("o" delete-other-windows "one" :color red)
      ("a" ace-window "ace" :color cyan)
+     ("C-j" ace-window "ace" :color cyan)
      ("s" ace-swap-window "swap" :color yellow)
      ("d" delete-window "del" :color red)
      ("m" ace-maximize-window "max" :color orange)
