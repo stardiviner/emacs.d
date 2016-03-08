@@ -170,6 +170,7 @@
 ;;; [ resize-window ]
 
 (use-package resize-window
+  :ensure t
   :config
   (setq resize-window-allow-backgrounds nil)
   (global-set-key (kbd "C-x w") 'resize-window)

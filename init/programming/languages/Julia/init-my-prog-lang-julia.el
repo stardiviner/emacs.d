@@ -84,6 +84,8 @@
 
   ;; - `julia' :: from ess-julia.
   ;; - `inferior-julia' :: from julia-mode.
+  (unless (boundp 'my-inferior-ess-map)
+    (define-prefix-command 'my-inferior-ess-map))
   (define-key my-inferior-ess-map (kbd "j") 'my-ess-inferior-julia)
   )
 
@@ -97,7 +99,7 @@
 ;; - `run-julia'
 
 (use-package julia-shell
-  :ensure t
+  ;; :ensure t
   :config
   (defun my-inferior-julia-shell (&optional process-buffer-name)
     "Start or switch to inferior-julia process buffer PROCESS-BUFFER-NAME."
@@ -108,7 +110,7 @@
       )
     )
 
-  (define-key my-inferior-ess-map (kbd "J") 'my-inferior-julia-shell)
+  ;; (define-key my-inferior-ess-map (kbd "J") 'my-inferior-julia-shell)
 
   (define-key julia-mode-map (kbd "C-c C-c") 'julia-shell-run-region-or-line)
   (define-key julia-mode-map (kbd "C-c C-s") 'julia-shell-save-and-go)

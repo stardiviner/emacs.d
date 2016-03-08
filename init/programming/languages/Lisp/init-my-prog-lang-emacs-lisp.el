@@ -59,7 +59,11 @@
 
 ;;; eldoc-eval --- Enable eldoc support when minibuffer is in use.
 
-(eldoc-in-minibuffer-mode 1)
+(use-package eldoc-eval
+  :ensure t
+  :config
+  (eldoc-in-minibuffer-mode 1)
+  )
 
 
 ;;; elisp-slime-nav

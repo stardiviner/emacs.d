@@ -44,15 +44,15 @@
 
 ;;; [ bash-completion ]
 
-(use-package bash-completion
-  :ensure t
-  :config
-  (bash-completion-setup)
-  ;; (add-hook 'sh-mode-hook
-  ;;           '(lambda ()
-  ;;              (setq-local completion-at-point-functions
-  ;;                          '(bash-completion-dynamic-complete))))
-  )
+;; (use-package bash-completion
+;;   :ensure t
+;;   :config
+;;   (bash-completion-setup)
+;;   ;; (add-hook 'sh-mode-hook
+;;   ;;           '(lambda ()
+;;   ;;              (setq-local completion-at-point-functions
+;;   ;;                          '(bash-completion-dynamic-complete))))
+;;   )
 
 
 ;;; [ Zsh ]
@@ -72,25 +72,25 @@
 
 ;;; [ insert-shebang ]
 
-(use-package insert-shebang
-  :ensure t
-  :config
-  ;; enable it globally
-  ;; (add-hook 'find-file-hook 'insert-shebang)
-  ;; only enable it on some modes
-  (dolist (hook '(sh-mode-hook
-                  ))
-    (add-hook hook 'insert-shebang))
-
-  (setq insert-shebang-env-path "/usr/bin/env"
-        insert-shebang-file-types '(("sh" . "bash"))
-        insert-shebang-custom-headers '(("c" . "#include <stdio.h>")
-                                        ("R" . "#!/usr/bin/env r"))
-        ;; insert-shebang-ignore-extensions '("txt" "org" "markdown" "md")
-        ;; insert-shebang-track-ignored-filename "~/.insert-shebang.log"
-        ;; insert-shebang-header-scan-limit 6
-        )
-  )
+;; (use-package insert-shebang
+;;   :ensure t
+;;   :config
+;;   ;; enable it globally
+;;   ;; (add-hook 'find-file-hook 'insert-shebang)
+;;   ;; only enable it on some modes
+;;   (dolist (hook '(sh-mode-hook
+;;                   ))
+;;     (add-hook hook 'insert-shebang))
+;;
+;;   (setq insert-shebang-env-path "/usr/bin/env"
+;;         insert-shebang-file-types '(("sh" . "bash"))
+;;         insert-shebang-custom-headers '(("c" . "#include <stdio.h>")
+;;                                         ("R" . "#!/usr/bin/env r"))
+;;         ;; insert-shebang-ignore-extensions '("txt" "org" "markdown" "md")
+;;         ;; insert-shebang-track-ignored-filename "~/.insert-shebang.log"
+;;         ;; insert-shebang-header-scan-limit 6
+;;         )
+;;   )
 
 
 ;;; disable flycheck in sh-mode to fix suspend in shell script source code file.

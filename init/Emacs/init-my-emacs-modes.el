@@ -44,6 +44,8 @@
 
   ;; (mmm-add-mode-ext-class 'html-mode "\\.php\\'" 'html-php)
 
+  (unless (boundp 'my-edit-prefix)
+    (define-prefix-command 'my-edit-prefix))
   (define-key my-edit-prefix (kbd "m") 'mmm-mode) ; enable mmm-mode on region.
   )
 

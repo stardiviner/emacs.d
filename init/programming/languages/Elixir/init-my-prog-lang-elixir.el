@@ -46,7 +46,9 @@
 
 ;;; [ ob-elixir ]
 
-(use-package ob-elixir)
+(use-package ob-elixir
+  :ensure t
+  )
 
 
 (provide 'init-my-prog-lang-elixir)

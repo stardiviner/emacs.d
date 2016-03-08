@@ -106,6 +106,11 @@
 ;;
 ;; - [C-RET] :: rules all!
 
+(use-package js3-mode
+  :ensure t)
+(use-package js-comint
+  :ensure t)
+
 (use-package eval-in-repl
   :ensure t
   :config
@@ -206,9 +211,6 @@
                (define-key sh-mode-map (kbd "<C-return>") 'eir-eval-in-shell)))
 
   ;; JavaScript support
-  (with-eval-after-load 'js3-mode
-    (require 'eval-in-repl-javascript)
-    (define-key js3-mode-map (kbd "<C-return>") 'eir-eval-in-javascript))
   (with-eval-after-load 'js2-mode
     (require 'eval-in-repl-javascript)
     (define-key js2-mode-map (kbd "<C-return>") 'eir-eval-in-javascript))

@@ -68,16 +68,6 @@
 ;; - `ess-company-backends' :: for company-mode.
 ;; - `ess-ac-sources' :: for auto-complete.
 
-;; R
-;;   (ess-company-backends . '((company-R-args company-R-objects)))
-
-;; TODO: https://github.com/company-mode/company-mode/issues/317
-;; https://github.com/company-mode/company-mode/pull/402
-(add-hook 'R-mode-hook
-          (lambda ()
-            (my-company-add-backends-to-mode '(company-R-args company-R-objects))
-            ))
-
 
 ;;; TODO: temporally fix lintr missing for flycheck issue.
 

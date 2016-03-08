@@ -30,25 +30,18 @@
 
 ;;; [ vlf -- View Large Files ]
 
-;;; Emacs minor mode that allows viewing, editing, searching and comparing large
-;;; files in batches, trading memory for processor time. Batch size can be
-;;; adjusted on the fly and bounds the memory that is to be used for operations
-;;; on the file. This way multiple large files (like terabytes or whatever) can
-;;; be instantly and simultaneously accessed without swapping and degraded
-;;; performance.
-
 ;;; Usage:
 ;;; - [M-x vlf PATH-TO-FILE]
 ;;; - [C-c C-v] -- prefix.
 
-(use-package vlf
-  :ensure t
-  :config
-  ;; All VLF operations are grouped under the C-c C-v prefix by default. Here’s
-  ;; example how to add another prefix (C-x v):
-  ;; (eval-after-load "vlf"
-  ;;   '(define-key vlf-prefix "\C-xv" vlf-mode-map))
-  )
+;; (use-package vlf
+;;   :ensure t
+;;   :config
+;;   ;; All VLF operations are grouped under the C-c C-v prefix by default. Here’s
+;;   ;; example how to add another prefix (C-x v):
+;;   ;; (eval-after-load "vlf"
+;;   ;;   '(define-key vlf-prefix "\C-xv" vlf-mode-map))
+;;   )
 
 
 ;;; [ openwith ]

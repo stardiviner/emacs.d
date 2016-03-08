@@ -12,7 +12,6 @@
 (use-package clojure-mode
   :ensure t
   :config
-  (require 'clojure-mode-extra-font-locking)
   ;; `subword-mode' is quite useful since we often have to deal with Java class
   ;; and method names.
   (add-hook 'clojure-mode-hook #'subword-mode)

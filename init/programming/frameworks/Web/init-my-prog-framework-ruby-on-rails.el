@@ -119,8 +119,8 @@
 ;; - [M-x rails-new] :: create a new Rails project.
 ;; - [M-x rails-plugin-new] :: create a new Rails plugin.
 
-(use-package rails-new
-  :ensure t)
+;; (use-package rails-new
+;;   :ensure t)
 
 
 ;;; [ yasnippet-rails ]

@@ -31,7 +31,7 @@
   
   (require 'ess-site)
 
-  (setq ess-use-ido nil
+  (setq ess-use-ido t
         ess-ido-flex-matching t
         ess-blink-region t
         ess-blink-delay 0.3

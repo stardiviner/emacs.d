@@ -37,12 +37,7 @@
 ;; (global-set-key (kbd "C-;") #'comment-line)
 
 
-;;; comment annotations keywords list.
-
-(setq comment-fic-keywords-list
-      '("FIXME" "TODO" "BUG" "ISSUE" "ERROR"
-        "OPTIMIZE" "HACK" "REFACTOR" "REVIEW" "TEST"
-        "NOTE" "NOTICE" "README"))
+;;; [ commenter ] -- multiline-comment support package
 
 
 ;;; [ `comment-box' ]
@@ -109,6 +104,12 @@ column. Place the point after the comment box."
   )
 
 
+;;; comment annotations keywords list.
+
+(setq comment-fic-keywords-list
+      '("FIXME" "TODO" "BUG" "ISSUE" "ERROR"
+        "OPTIMIZE" "HACK" "REFACTOR" "REVIEW" "TEST"
+        "NOTE" "NOTICE" "README"))
 
 ;;; comment annotations function
 ;; (defun font-lock-comment-annotations ()

@@ -12,7 +12,10 @@
 (global-set-key (kbd "C-c o") 'my-org-prefix)
 
 
-(require 'org)
+(use-package org
+  :ensure t)
+(use-package org-plus-contrib
+  :ensure t)
 
 (require 'init-my-org-document-structure)
 (require 'init-my-org-complete)

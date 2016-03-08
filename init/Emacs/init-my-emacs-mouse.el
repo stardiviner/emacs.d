@@ -26,7 +26,9 @@
 
 ;;; [ Drag & Drop (dnd protocol) ]
 
+;; (setq dnd-open-file-other-window t)
 
+;; (add-to-list 'dnd-protocol-alist '())
 
 
 (provide 'init-my-emacs-mouse)

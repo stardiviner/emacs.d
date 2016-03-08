@@ -10,7 +10,7 @@
 ;;; [ newlisp-mode ]
 
 (use-package newlisp-mode
-  ;; :ensure t
+  :ensure t
   :init
   (add-to-list 'auto-mode-alist '("\\.lsp$" . newlisp-mode))
   (add-to-list 'interpreter-mode-alist '("newlisp" . newlisp-mode))

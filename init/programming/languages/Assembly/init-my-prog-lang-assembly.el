@@ -9,8 +9,18 @@
 
 ;;; [ asm-mode ]
 
+(use-package asm-mode
+  :ensure t
+  :config
+  )
+
 
 ;;; [ nasm-mode ]
+
+;; (use-package nasm-mode
+;;   :ensure t
+;;   :config
+;;   )
 
 
 ;;; [ fasm-mode ]

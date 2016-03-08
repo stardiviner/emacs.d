@@ -27,7 +27,6 @@
 ;; (setq org-export-latex-packages-alist '("" "color"))
 ;; (setq org-export-latex-listings t)
 
-
 ;;; PDF exporting
 ;;
 ;; (setq org-latex-to-pdf-process 
@@ -52,6 +51,7 @@
 
 
 ;;; ox-html
+(require 'ox-html)
 
 (setq org-html-doctype "html5"
       org-html-html5-fancy t
@@ -148,6 +148,12 @@ pasting on sites like GitHub, and Stack Overflow."
   (x-set-selection 'CLIPBOARD
                    (org-export-string-as
                     (buffer-substring (region-beginning) (region-end)) 'md t)))
+
+
+
+
+;;; Beamer
+(require 'ox-beamer)
 
 
 (provide 'init-my-org-export)

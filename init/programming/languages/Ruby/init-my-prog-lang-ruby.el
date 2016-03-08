@@ -17,12 +17,16 @@
 ;; - [C-M-p] -- beginning of block
 ;; - [C-M-q] -- (prog-indent-sexp)
 
-;; (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
-;; (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
-
-(setq ruby-use-smie t       ; use sexp navigation for Ruby
-      ;; bellowing effect only when `ruby-use-smie' is `nil'.
-      ruby-deep-indent-paren-style 'space)
+(use-package ruby-mode
+  :ensure t
+  :init
+  ;; (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
+  ;; (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
+  :config
+  (setq ruby-use-smie t       ; use sexp navigation for Ruby
+        ;; bellowing effect only when `ruby-use-smie' is `nil'.
+        ruby-deep-indent-paren-style 'space)
+  )
 
 
 ;;; [ enh-ruby-mode ] --
@@ -135,6 +139,13 @@
   )
 
 
+;;; [ ruby-interpolation ] -- Ruby string interpolation helpers.
+
+(use-package ruby-interpolation
+  :ensure t
+  )
+
+
 ;;; [ ruby-hash-syntax ] -- automatically convert the selected region of ruby code between 1.8 and 1.9 hash styles.
 
 ;;; Usage:
@@ -144,7 +155,8 @@
 (use-package ruby-hash-syntax
   :ensure t
   :config
-  (define-key my-prog-code-map (kbd "c") 'ruby-toggle-hash-syntax) ; convert
+  (define-key ruby-mode-map (kbd "C-c c c") 'ruby-toggle-hash-syntax)
+  (define-key enh-ruby-mode-map (kbd "C-c c c") 'ruby-toggle-hash-syntax)
   )
 
 
@@ -833,7 +845,8 @@
 ;;; [ feature-mode ] -- Major mode for Cucumber feature files
 
 (use-package feature-mode
-  :ensure t)
+  ;; :ensure t
+  )
 
 
 ;;; [ ruby-factory ] -- minor mode for Ruby test object generation libraries.

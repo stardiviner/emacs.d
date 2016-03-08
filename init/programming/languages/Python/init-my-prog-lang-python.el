@@ -85,7 +85,7 @@
              (my-company-add-backends-to-mode '(company-anaconda))))
 
 
-;;; [ pyenv-mode ]
+;;; [ pyenv-mode ] -- Python virtual environment interface
 
 ;;; Usage:
 ;;
@@ -139,6 +139,11 @@
 
 
 ;;; [ virtualenvwrapper ]
+
+
+;;; [ pythonic ]
+
+;; - `pythonic-activate' :: active Python virtualenv.
 
 
 ;;; [ jedi.el ] --- a python auto-completion library.

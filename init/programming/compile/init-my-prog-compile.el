@@ -49,8 +49,8 @@
 
 ;;; [ smart-compile ]
 
-;;; Usage:
-;; - [M-x smart-compile]
+;; (use-package smart-compile
+;;   :ensure t)
 
 
 ;;; [ smart-compile+ ]
@@ -134,23 +134,23 @@
   )
 
 
-
-(if (featurep 'quickrun)
-    (global-set-key [f5] 'quickrun)
-  (global-set-key [f5] 'smart-compile))
-
-
 ;;; [ multi-compile ] -- multiple targets compile
 
 ;;; Usage:
 ;;
 ;; - `multi-compile-run' ::
 
-(use-package multi-compile
-  :ensure t
-  :config
-  (setq multi-compile-completion-system 'ivy-read)
-  )
+;; (use-package multi-compile
+;;   :ensure t
+;;   :config
+;;   (setq multi-compile-completion-system 'ivy-read)
+;;   )
+
+
+
+(if (featurep 'quickrun)
+    (global-set-key [f5] 'quickrun)
+  (global-set-key [f5] 'smart-compile))
 
 
 (provide 'init-my-prog-compile)

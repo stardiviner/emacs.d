@@ -51,11 +51,11 @@
 
 ;;; [ yatemplate ] -- with YASnippet + auto-insert-mode.
 
-(use-package yatemplate
-  :ensure t
-  :config
-  (setq yatemplate-dir (locate-user-emacs-file "templates"))
-  )
+;; (use-package yatemplate
+;;   :ensure t
+;;   :config
+;;   (setq yatemplate-dir (locate-user-emacs-file "templates"))
+;;   )
 
 
 (provide 'init-my-prog-template)

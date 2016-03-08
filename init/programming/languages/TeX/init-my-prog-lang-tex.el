@@ -76,6 +76,19 @@
 (add-hook 'latex-mode-hook 'turn-off-iimage-mode)
 (add-hook 'LaTeX-mode-hook 'turn-off-iimage-mode)
 
+;; view generated PDF with `pdf-tools'.
+(unless (assoc "PDF Tools" TeX-view-program-list-builtin)
+  (add-to-list 'TeX-view-program-list-builtin
+               '("PDF Tools" TeX-pdf-tools-sync-view)))
+(add-to-list 'TeX-view-program-selection
+             '(output-pdf "PDF Tools"))
+;; (setq-default TeX-PDF-mode t) ; enable by default since AUCTeX 11.88
+(setq TeX-source-correlate-start-server t)
+;; update PDF buffers after successful LaTeX runs.
+(add-hook 'TeX-after-TeX-LaTeX-command-finished-hook
+          #'TeX-revert-document-buffer)
+
+;; (setq TeX-source-correlate-method)
 
 ;; LaTeX source code block syntax highlighting.
 ;; [ minted ]
@@ -180,31 +193,31 @@ character(s), in which case it deletes the space(s) first."
 
 ;;; [ latex-pretty-symbols ]
 
-(use-package latex-pretty-symbols
-  :ensure t
-  )
+;; (use-package latex-pretty-symbols
+;;   :ensure t
+;;   )
 
 
 ;;; [ magic-latex-buffer ] -- magical syntax highlighting for LaTeX-mode buffers.
 
-(use-package magic-latex-buffer
-  :ensure t
-  :config
-  ;; You can disable some features independently, if they’re too fancy.
-  (setq magic-latex-enable-block-highlight nil
-        magic-latex-enable-suscript        t
-        magic-latex-enable-pretty-symbols  t
-        magic-latex-enable-block-align     t
-        magic-latex-enable-inline-image    t)
-
-  ;; disable this, because `iimage-mode' auto open image in external program
-  ;; caused `LaTeX-mode-hook' break.
-  ;;
-  ;; (add-hook 'latex-mode-hook 'magic-latex-buffer)
-  ;; (add-hook 'LaTeX-mode-hook 'magic-latex-buffer)
-  ;; (add-hook 'latex-mode-hook 'turn-off-iimage-mode)
-  ;; (add-hook 'LaTeX-mode-hook 'turn-off-iimage-mode)
-  )
+;; (use-package magic-latex-buffer
+;;   :ensure t
+;;   :config
+;;   ;; You can disable some features independently, if they’re too fancy.
+;;   (setq magic-latex-enable-block-highlight nil
+;;         magic-latex-enable-suscript        t
+;;         magic-latex-enable-pretty-symbols  t
+;;         magic-latex-enable-block-align     t
+;;         magic-latex-enable-inline-image    t)
+;;
+;;   ;; disable this, because `iimage-mode' auto open image in external program
+;;   ;; caused `LaTeX-mode-hook' break.
+;;   ;;
+;;   ;; (add-hook 'latex-mode-hook 'magic-latex-buffer)
+;;   ;; (add-hook 'LaTeX-mode-hook 'magic-latex-buffer)
+;;   ;; (add-hook 'latex-mode-hook 'turn-off-iimage-mode)
+;;   ;; (add-hook 'LaTeX-mode-hook 'turn-off-iimage-mode)
+;;   )
 
 
 ;;; [ latex-preview-pane ]
@@ -248,8 +261,8 @@ character(s), in which case it deletes the space(s) first."
 ;; Most of this code comes from weechat-latex.el which in turn uses
 ;; org-mode previewer.
 
-(use-package px
-  :ensure t)
+;; (use-package px
+;;   :ensure t)
 
 
 (provide 'init-my-prog-lang-tex)

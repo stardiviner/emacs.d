@@ -12,7 +12,7 @@
     ielm-mode
 
     ;; Common Lisp
-    lisp-mode
+    lisp-mode ; <- common-lisp-mode
     lisp-interaction-mode
     ;; common-lisp-lisp-mode(-hook)
     inferior-emacs-lisp-mode
@@ -33,6 +33,14 @@
     ))
 
 ;;; Common Settings for All Lisp dialects
+(use-package paredit
+  :ensure t)
+(use-package rainbow-delimiters
+  :ensure t)
+(use-package hl-sexp
+  :ensure t)
+(use-package company
+  :ensure t)
 (hook-modes lisp-dialects-mode
   (rainbow-delimiters-mode-enable)
   (enable-paredit-mode)

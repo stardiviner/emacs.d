@@ -350,7 +350,7 @@
       (define-key allout-mode-map (kbd "C-c SPC C-l") 'allout-hide-bodies)))
 
   ;; (define-key my-edit-prefix (kbd "o") 'outlineify-sticky)
-  (define-key my-edit-prefix (kbd "o") 'my-allout-toggle)
+  (define-key my-outline-prefix (kbd "@") 'my-allout-toggle)
 
   ;; (unless (boundp 'my-outline-prefix)
   ;;   (define-prefix-command 'my-outline-prefix))
@@ -391,6 +391,9 @@
 
 
 ;;; [ allout-widgets ]
+
+
+;;; [ outshine ] -- outline with outshine outshines outline
 
 
 (provide 'init-my-emacs-outline)

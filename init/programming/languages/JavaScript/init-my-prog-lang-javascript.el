@@ -70,11 +70,8 @@
 
 ;;; [ js3-mode ]
 
-;; (use-package js3-mode
-;;   :ensure t
-;;   :config
-;;   ;; (add-to-list 'ac-modes 'js3-mode)
-;;   )
+(use-package js3-mode
+  :ensure t)
 
 
 ;;; [ flycheck checker ]
@@ -282,13 +279,10 @@
   )
 
 
-;;; [ tj-mode ] -- Highlight JavaScript with Tern.
+;;; [ tj-mode ] -- major mode for highlighting JavaScript with Tern.
 
-;; FIXME:
-;; (add-hook 'js3-mode-hook
-;;           (lambda ()
-;;             (tj-mode 1)
-;;             ))
+;; (use-package tj-mode
+;;   :ensure t)
 
 
 ;;; [ JSX-mode ] -- The XML inside of JavaScript.
@@ -328,7 +322,7 @@
 ;;; [ import-js ] -- A tool to simplify importing JS modules.
 
 (use-package import-js
-  :ensure t
+  ;; :ensure t
   )
 
 

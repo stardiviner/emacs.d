@@ -61,8 +61,18 @@
 
 ;;; [ wooky ] -- Eval-defun for JavaScript in Chrome.
 
+;; (use-package wooky
+;;   :ensure t
+;;   :config
+;;   )
+
 
 ;;; [ kite ] -- Emacs front end for the WebKit Inspector.
+
+;; (use-package kite
+;;   :ensure t
+;;   :config
+;;   )
 
 
 ;;; [ kite-mini ] -- Yet another Emacs package to interact with WebKit remote debugging API.

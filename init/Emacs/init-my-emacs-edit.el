@@ -12,7 +12,8 @@
 
 ;;;_ Edit
 
-(delete-selection-mode t)             ; typed text replaces the active selection
+;; typed text replaces the active selection
+(delete-selection-mode t)
 
 ;;;_ Rectangle
 

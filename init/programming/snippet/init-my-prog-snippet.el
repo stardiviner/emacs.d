@@ -139,12 +139,12 @@ NO-TEMPLATE is non-nil."
 
 ;;; [ auto-yasnippet ] -- quickly create disposable yasnippets.
 
-(use-package auto-yasnippet
-  :ensure t
-  :config
-  (setq aya-persist-snippets-dir "~/.emacs.d/snippets"
-        aya-create-with-newline t)
-  )
+;; (use-package auto-yasnippet
+;;   :ensure t
+;;   :config
+;;   (setq aya-persist-snippets-dir "~/.emacs.d/snippets"
+;;         aya-create-with-newline t)
+;;   )
 
 
 

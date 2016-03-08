@@ -58,8 +58,6 @@
       org-export-babel-evaluate t
       )
 
-(require 'ob-gnuplot)
-
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((emacs-lisp . t)                     ; Emacs Lisp
@@ -71,30 +69,28 @@
    (python . t)                         ; Python
    (perl . t)                           ; Perl
    (C . t)                              ; C
-   ;; (C++ . t)                            ; C++
    (java . t)                           ; Java
    (awk . t)                            ; Awk
    (sed . t)                            ; Sed
    (screen . t)                         ; Screen
    (lisp . t)                           ; Lisp
    (scheme . t)                         ; Scheme
-   (picolisp . t)                       ; Pico Lisp
+   ;; (picolisp . t)                       ; Pico Lisp
    (clojure . t)                        ; Clojure
    (haskell . t)                        ; Haskell
    (scala . t)                          ; Scala
-   (io . t)                             ; IO
-   (J . t)                              ; J
+   ;; (io . t)                             ; IO
+   ;; (J . t)                              ; J
    (ocaml . t)                          ; Objective Caml
    (js . t)                             ; JavaScript
    (css . t)                            ; CSS
    (latex . t)                          ; LaTeX
-   (R . t)                              ; R
    (sql . t)                            ; SQL
    (sqlite . t)                         ; SQLite
-   (matlab . t)                         ; MATLAB
+   ;; (matlab . t)                         ; MATLAB
    (octave . t)                         ; Octave
    (gnuplot . t)                        ; gnuplot
-   (fortran . t)                        ; Fortran
+   ;; (fortran . t)                        ; Fortran
    (ditaa . t)                          ; ditaa
    (dot . t)                            ; Graphviz, Dot
    (plantuml . t)                       ; PlantUML
@@ -105,6 +101,8 @@
    (sass . t)                           ; Sass
    ;; -- Extra --
    ;; use advice: `org-babel-execute-src-block' to load language support lazily.
+   ;; (C++ . t)                            ; C++
+   ;; (R . t)                              ; R
    ;; (go . t)
    ;; (ipython . t)
    ;; (restclient . t)                     ; ob-restclient
@@ -174,6 +172,12 @@
 (if (not (boundp 'inferior-julia-program-name))
     (setq inferior-julia-program-name "julia"))
 ;; (setq org-babel-julia-command "julia")
+
+(use-package ess
+  :ensure t
+  :config
+  (require 'ess-site))
+
 (require 'ob-julia)
 (setq org-babel-default-header-args:julia
       '((:results . "replace output")
@@ -181,10 +185,10 @@
 (add-to-list 'org-src-lang-modes '("julia" . ess-julia))
 
 ;; [ ob-sql ]
-(require 'ob-sql)
+;; (require 'ob-sql)
 
 ;; [ ob-sqlite ]
-(require 'ob-sqlite)
+;; (require 'ob-sqlite)
 
 
 ;;;_ + ditaa & PlantUML & Graphviz

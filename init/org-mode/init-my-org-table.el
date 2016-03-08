@@ -10,6 +10,12 @@
 
 (setq org-enable-table-editor t)
 
+
+;;; [ orgtbl-ascii-plot ] -- ascii-art bar plots in org-mode tables.
+
+;; (use-package orgtbl-ascii-plot
+;;   :ensure t
+;;   )
 
 
 (provide 'init-my-org-table)

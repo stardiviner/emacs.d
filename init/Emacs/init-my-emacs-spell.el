@@ -84,6 +84,7 @@ be global."
 ;; - [M-x flyspell-buffer] -- checks the whole buffer
 
 (use-package flyspell
+  :ensure t
   :config
   (setq flyspell-default-dictionary "en"
         flyspell-delay 5
@@ -110,6 +111,8 @@ be global."
   ;;           (unbind-key "C-;" flyspell-mode-map)) ; conflict with iedit-mode toggle keybinding.
   (define-key flyspell-mode-map (kbd "C-M-i") nil) ; fix Org-mode abbreviations expand keybinding [M-Tab].
 
+  (unless (boundp 'my-edit-prefix)
+    (define-prefix-command 'my-edit-prefix))
   (unless (boundp 'my-spell-prefix)
     (define-prefix-command 'my-spell-prefix))
   (define-key my-edit-prefix (kbd "s") 'my-spell-prefix)
@@ -140,7 +143,9 @@ be global."
   ;; TeX
   (add-hook 'tex-mode-hook
             (lambda ()
-              (setq ispell-parser 'tex)))
+              (setq ispell-parser 'tex)
+              (flyspell-mode 1)
+              ))
 
   ;; text
   (dolist (hook
@@ -158,7 +163,7 @@ be global."
 
 (use-package flyspell-lazy
   ;; :ensure t
-  :config
+  ;; :config
   ;; (flyspell-mode 1)
   ;; (flyspell-lazy-mode 1)
   )

@@ -84,7 +84,8 @@
 
 ;;; [ regex-tool ]
 
-;; https://github.com/jwiegley/regex-tool
+(use-package regex-tool
+  :ensure t)
 
 
 ;;; [ visual-regexp ] --

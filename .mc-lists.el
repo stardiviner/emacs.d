@@ -13,6 +13,7 @@
         org-ctrl-c-star
         org-delete-char
         org-end-of-line
+        org-force-self-insert
         org-kill-line
         org-metaleft
         org-metaright

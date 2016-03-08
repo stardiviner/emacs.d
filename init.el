@@ -80,8 +80,27 @@
 (setq use-package-verbose t
       use-package-always-ensure nil)
 
+(unless (and (package-installed-p 'let-alist)
+             (package-installed-p 'seq)
+             (package-installed-p 'queue)
+             (package-installed-p 'rainbow-mode)
+             (package-installed-p 'spinner)
+             (package-installed-p 'auctex)
+             )
+  (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
+  (package-refresh-contents)
+  
+  (use-package let-alist :ensure t)
+  (use-package seq :ensure t)
+  (use-package queue :ensure t)
+  (use-package rainbow-mode :ensure t)
+  (use-package spinner :ensure t)
+  (use-package auctex :ensure t)
+  )
+
 (require 'color)
-(require 'color-theme)
+(use-package color-theme
+  :ensure t)
 
 
 ;;; debug, profiling etc
@@ -176,20 +195,20 @@
 (require 'init-my-tool-diagram)
 ;; (require 'init-my-tool-bbdb)
 (require 'init-my-tool-browser)
-(require 'init-my-tool-browser-bookmark)
+;; (require 'init-my-tool-browser-bookmark)
 (require 'init-my-tool-downloader)
 (require 'init-my-tool-OpenSpritz)
 (require 'init-my-tool-email)
-(require 'init-my-tool-feeds)
+;; (require 'init-my-tool-feeds)
 (require 'init-my-tool-blog)
 (require 'init-my-tool-paste)
 ;; (require 'init-my-tool-sauron)
 ;; (require 'init-my-tool-irc-erc)
 ;; (require 'init-my-tool-music)
-(require 'init-my-tool-subtitle)
-(require 'init-my-tool-screenshot)
-(require 'init-my-tool-screencast)
-(require 'init-my-tool-stack-exchange)
+;; (require 'init-my-tool-subtitle)
+;; (require 'init-my-tool-screenshot)
+;; (require 'init-my-tool-screencast)
+;; (require 'init-my-tool-stack-exchange)
 
 
 ;;; Programming
@@ -222,46 +241,47 @@
 (require 'init-my-prog-lang-lisp)
 (require 'init-my-prog-lang-emacs-lisp)
 (require 'init-my-prog-lang-common-lisp)
-(require 'init-my-prog-lang-lisp-scheme)
+;; (require 'init-my-prog-lang-lisp-scheme)
+;; (require 'init-my-prog-lang-lisp-newlisp)
 (require 'init-my-prog-lang-clojure)
 (require 'init-my-prog-lang-ruby)
 (require 'init-my-prog-lang-python)
-(require 'init-my-prog-lang-perl)
+;; (require 'init-my-prog-lang-perl)
 (require 'init-my-prog-lang-shell)
 (require 'init-my-prog-lang-C-common)
 (require 'init-my-prog-lang-C++)
 (require 'init-my-prog-lang-go)
-(require 'init-my-prog-lang-rust)
-(require 'init-my-prog-lang-nim)
-(require 'init-my-prog-lang-lua)
-(require 'init-my-prog-lang-swift)
-(require 'init-my-prog-lang-java)
-(require 'init-my-prog-lang-php)
+;; (require 'init-my-prog-lang-rust)
+;; (require 'init-my-prog-lang-nim)
+;; (require 'init-my-prog-lang-lua)
+;; (require 'init-my-prog-lang-swift)
+;; (require 'init-my-prog-lang-java)
+;; (require 'init-my-prog-lang-php)
 (require 'init-my-prog-lang-html)
 (require 'init-my-prog-lang-css)
 (require 'init-my-prog-lang-javascript)
 (require 'init-my-prog-lang-coffeescript)
-(require 'init-my-prog-lang-sibilant)
+;; (require 'init-my-prog-lang-sibilant)
 ;; (require 'init-my-prog-lang-dart)
 (require 'init-my-prog-lang-database)
 (require 'init-my-prog-lang-xml)
 (require 'init-my-prog-lang-json)
-(require 'init-my-prog-lang-haskell)
+;; (require 'init-my-prog-lang-haskell)
 ;; FIXME: achmeist-company can't be initialized.
 ;; (require 'init-my-prog-lang-elixir)
 ;; (require 'init-my-prog-lang-erlang)
 (require 'init-my-prog-lang-ESS)
 (require 'init-my-prog-lang-julia)
-(require 'init-my-prog-lang-R)
-(require 'init-my-prog-lang-gnuplot)
-(require 'init-my-prog-lang-octave)
+;; (require 'init-my-prog-lang-R)
+;; (require 'init-my-prog-lang-gnuplot)
+;; (require 'init-my-prog-lang-octave)
 ;; (require 'init-my-prog-lang-matlab)
 (require 'init-my-prog-lang-tex)
 (require 'init-my-prog-lang-markdown)
 ;; (require 'init-my-prog-lang-prolog)
 ;; (require 'init-my-prog-lang-verilog)
 ;; (require 'init-my-prog-lang-assembly)
-(require 'init-my-prog-lang-HDL)
+;; (require 'init-my-prog-lang-HDL)
 
 
 ;;; Frameworks
@@ -269,9 +289,9 @@
 (require 'init-my-prog-framework-http)
 (require 'init-my-prog-web-browser)
 (require 'init-my-prog-framework-ruby-on-rails)
-(require 'init-my-prog-framework-android)
-(require 'init-my-prog-framework-arduino)
-(require 'init-my-prog-framework-qt)
+;; (require 'init-my-prog-framework-android)
+;; (require 'init-my-prog-framework-arduino)
+;; (require 'init-my-prog-framework-qt)
 (require 'init-my-prog-nginx)
 
 
@@ -286,7 +306,7 @@
 
 
 ;;; Math
-(require 'init-my-math)
+;; (require 'init-my-math)
 
 
 ;;; at the end!!!

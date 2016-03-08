@@ -34,7 +34,6 @@
         )
 
   ;; [ Helm faces ]
-  ;; FIXME: this does not apply.
   (set-face-attribute 'helm-match nil
                       :foreground "dim gray"
                       :background (color-darken-name (face-background 'default) 5)

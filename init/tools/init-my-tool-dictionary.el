@@ -9,8 +9,10 @@
 
 ;;; [ sdcv.el ]
 
-(load "~/.emacs.d/init/extensions/sdcv.el")
+(use-package pos-tip
+  :ensure t)
 
+(load "~/.emacs.d/init/extensions/sdcv.el")
 
 (setq sdcv-dictionary-simple-list ;; a simple dictionary list for popup display
       '(;; "WordNet"
