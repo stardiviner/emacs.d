@@ -177,14 +177,7 @@
 
   ;; help
   (define-key company-active-map (kbd "<f1>") 'company-show-doc-buffer)
-  (if (functionp 'company-quickhelp-manual-begin)
-      (progn
-        ;; 'company-quickhelp--show
-        ;; (define-key company-quickhelp-mode-map (kbd "M-h") 'company-quickhelp-manual-begin)
-        (define-key company-active-map (kbd "M-h") 'company-quickhelp-manual-begin)
-        )
-    (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
-    )
+  (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
 
   (define-key company-active-map (kbd "M-l") 'company-show-location)
 
@@ -334,6 +327,15 @@
   (add-to-list 'company-frontends 'company-quickhelp-frontend)
 
   ;; (add-to-list 'company-frontends 'company-preview-frontend)
+
+  (if (functionp 'company-quickhelp-manual-begin)
+      (progn
+        ;; 'company-quickhelp--show
+        ;; (define-key company-quickhelp-mode-map (kbd "M-h") 'company-quickhelp-manual-begin)
+        (define-key company-active-map (kbd "M-h") 'company-quickhelp-manual-begin)
+        )
+    (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
+    )
   )
 
 
