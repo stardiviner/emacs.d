@@ -298,10 +298,6 @@
   ;; [ company-tempo ]
   (setq company-tempo-expand t)
 
-  ;; [ company-etags ]
-
-  (require 'company-etags)
-
   ;; enable to offer completions in comment and strings.
   ;; (setq company-etags-everywhere t)
 
