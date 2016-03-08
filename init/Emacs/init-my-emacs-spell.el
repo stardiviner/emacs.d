@@ -135,10 +135,10 @@ be global."
   
   ;; programming code
   ;; flyspell-prog-mode : enable flyspell for comments in source code
-  (dolist (hook
-           '(prog-mode-hook
-             ))
-    (add-hook hook 'flyspell-prog-mode))
+  ;; (dolist (hook
+  ;;          '(prog-mode-hook
+  ;;            ))
+  ;;   (add-hook hook 'flyspell-prog-mode))
 
   ;; TeX
   (add-hook 'tex-mode-hook
