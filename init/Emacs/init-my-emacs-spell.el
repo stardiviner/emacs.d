@@ -75,14 +75,6 @@ be global."
 
 ;;; [ Flyspell ]
 
-;;; Usage:
-;;
-;; - [M-$] -- correct word
-;;   - press [i] and answer "yes" to add word into personal dictionary.
-;; - [C-.] / [C-;] -- automatically correct last misspelled word, cycle through suggestions.
-;; - [M-x flyspell-region] -- checks all words inside a region
-;; - [M-x flyspell-buffer] -- checks the whole buffer
-
 (use-package flyspell
   :ensure t
   :config
