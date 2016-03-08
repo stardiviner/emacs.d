@@ -53,31 +53,7 @@
         company-selection-wrap-around t
         company-search-regexp-function #'company-search-flex-regexp
         )
-
-  (setq company-tempo-expand t)
   
-  (setq company-semantic-begin-after-member-access t
-        company-semantic-insert-arguments t)
-  
-  ;; for completion.el
-  ;; TODO: test this.
-  ;; (add-to-list 'company-begin-commands 'completion-separator-self-insert-command)
-
-  
-  ;; Only one back-end is used at a time.  The choice depends on the order of
-  ;; the items in this list, and on the values they return in response to the
-  ;; `prefix' command (see below).  But a back-end can also be a \"grouped\"
-  ;; one (see below).
-  ;;
-  ;; - `:with' :: e.g. (company-ghc :with company-dabbrev)
-  ;;
-  ;; It affects which backend gets selected for completion: the group in question,
-  ;; or some after it. If you have a group (company-ghc company-dabbrev-code) in,
-  ;; say, a ruby-mode buffer, it will be used because company-dabbrev-code doesn't
-  ;; care about the major mode. If the group was (company-ghc :with
-  ;; company-dabbrev-code), though, it would be skipped because company-ghc would
-  ;; always return nil to prefix in that major mode.
-
   (setq company-backends
         '((company-files          ; files & directory
            ;; company-gtags company-etags
@@ -93,11 +69,9 @@
         )
 
   (defun my-company-add-backends-to-mode (backends-list)
-    "Add a list of backends to mode local. integrate with default `company-backends'."
-    ;; make `company-backends' local.
-    (make-local-variable 'company-backends)
-    ;; TODO: remove duplicate
-    ;; (remove-if (lambda (backend) (find backend backends-list)) company-backends)
+    "Add a list of backends `BACKENDS-LIST' to mode local."
+    (make-local-variable 'company-backends) ; make `company-backends' local.
+    ;; remove duplicate
     (setq company-backends
           (remove-if (lambda (b)
                        (find b backends-list))
@@ -109,22 +83,6 @@
           (append backends-list
                   (car company-backends)))
     )
-
-  ;; (defun my-company-add-backends-to-mode (backends-list)
-  ;;   (make-local-variable 'company-backends)
-  ;;   (if (listp (car company-backends))
-  ;;       (setq-local company-backends
-  ;;                   (setf (car company-backends)
-  ;;                         (-union backends-list (car company-backends))))
-  ;;     (setq-local company-backends
-  ;;                 (-union backends-list company-backends)))
-  ;;   )
-
-  ;; remove company backend from `company-backends'.
-  ;; (setq company-backends
-  ;;       (cons 'company-emacs-eclim
-  ;;             (remove-if (lambda (b) (find b '(company-nxml company-eclim)))
-  ;;                        company-backends)))
 
   ;; globally
   (setq company-global-modes t)
@@ -140,23 +98,9 @@
   ;; (global-set-key (kbd "TAB") 'company-complete)
   ;; (global-set-key [tab] 'company-complete)
 
-  ;; snippet
-  ;; TODO: `yas-expand', `yas-expand-from-trigger-key'
+  ;; yasnippet
+  ;; `yas-expand', `yas-expand-from-trigger-key'
   (define-key company-active-map [tab] 'yas-expand-from-trigger-key)
-  ;; (define-key company-active-map (kbd "<tab>") 'company-complete-common-or-cycle)
-
-  ;; (defun company-yasnippet-or-completion ()
-  ;;   (interactive)
-  ;;   (let ((yas-fallback-behavior nil))
-  ;;     (unless (yas-expand)
-  ;;       (call-interactively #'company-complete-common))))
-  ;;
-  ;; ;; To make sure that this is called instead of `company-complete-common', use
-  ;; (add-hook 'company-mode-hook
-  ;;           (lambda ()
-  ;;             (substitute-key-definition 'company-complete-common
-  ;;                                        'company-yasnippet-or-completion
-  ;;                                        company-active-map)))
 
   ;; navigation
   (define-key company-active-map "\t" nil)
@@ -171,7 +115,6 @@
   (define-key company-active-map (kbd "M-p") 'company-select-previous)
   (define-key company-active-map (kbd "M-j") 'company-complete-selection)
   (define-key company-active-map (kbd "M-i") 'company-complete-common)
-  ;; (define-key company-active-map (kbd "M-i") 'company-complete-common-or-cycle)
   (define-key company-active-map [mouse-1] 'company-complete-mouse)
   (define-key company-active-map [mouse-3] 'company-select-mouse)
 
@@ -210,9 +153,6 @@
        (interactive)
        (company-abort)
        (insert " ")))
-
-  ;; some keybinding for company backends
-  ;; (global-set-key (kbd "C-c /") 'company-files)
 
   ;; faces
   ;; tooltip
@@ -274,11 +214,6 @@
   (set-face-attribute 'company-echo-common nil
                       :inherit 'company-echo
                       :foreground "cyan")
-  ;; template
-  ;; FIXME:
-  ;; (set-face-attribute 'company-template-field nil
-  ;;                     :foreground "orange"
-  ;;                     :weight 'bold)
 
   ;; [ company-yasnippet ]
   ;;
@@ -292,12 +227,12 @@
   ;;                                      #'yas-try-key-from-whitespace))
 
   ;; [ company-abbrev / company-dabbrev ]
-
   (setq company-dabbrev-other-buffers t)
 
   ;; [ company-tempo ]
   (setq company-tempo-expand t)
 
+  ;; [ company-etags ]
   ;; enable to offer completions in comment and strings.
   ;; (setq company-etags-everywhere t)
 
@@ -333,8 +268,7 @@
 ;;; [ company-statistics ]
 
 (use-package company-statistics
-  :init
-  ;; (add-hook 'after-init-hook 'company-statistics-mode)
+  ;; :ensure t
   :config
   (setq company-statistics-auto-restore t
         company-statistics-auto-save t
@@ -350,28 +284,11 @@
 
 ;;; [ company-try-hard ] -- get all completions from company backends.
 
-;; Offer completions from the first backend in `company-backends' that offers
-;; candidates. If called again, use the next backend, and so on.
-
 ;; (use-package company-try-hard
 ;;   :ensure t
 ;;   :config
 ;;   (global-set-key (kbd "<tab>") 'company-try-hard)
 ;;   )
-
-
-;;; [ company-dict ] -- A backend that emulates ac-source-dictionary.
-
-(use-package company-dict
-  :ensure t
-  :config
-  (setq company-dict-dir (concat user-emacs-directory "dict/"))
-  
-  ;; (add-to-list 'company-backends 'company-dict)
-  ;; (setq-default company-backends
-  ;;               (my-company-add-backends-to-mode '(company-dict))
-  ;;               )
-  )
 
 
 (provide 'init-company-mode)
