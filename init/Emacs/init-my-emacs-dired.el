@@ -15,11 +15,11 @@
 ;; - [C-u C-x C-d] -- detail entry list.
 
 (require 'dired)
+(setq dired-bind-jump nil) ; don't bind [C-x C-j] from `dired-x'.
 (require 'dired-x)
 (require 'wdired)
 
 (define-key dired-mode-map (kbd "g") 'dired-do-redisplay)
-
 
 ;; `dired-do-shell-command' does not know (by default) how to handle some
 ;; filetypes.
