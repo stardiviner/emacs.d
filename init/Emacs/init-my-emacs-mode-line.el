@@ -50,7 +50,7 @@
    ;;                        'face '(:foreground "tomato" :weight bold))))
 
    ;; ace-window
-   (:eval (window-parameter (selected-window) 'ace-window-path))
+   ;; (:eval (window-parameter (selected-window) 'ace-window-path))
 
    ;; (:propertize "%e"
    ;;              face (:foreground "red"))
