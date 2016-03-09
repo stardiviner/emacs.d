@@ -20,44 +20,6 @@
 
 ;;; [ FlyCheck ] --- modern on-the-fly syntax checking
 
-;;; Features:
-;;
-;; - Automatic on-the-fly syntax checking while editing
-;; - Fully automatic selection of the syntax checker
-;; - Optional manual selection of a syntax checker with flycheck-select-checker at C-c ! s
-;; - Built-in syntax checkers for:
-;; -  Nice error indication and highlighting
-;; - Easy customization
-;; - Syntax checker configuration with project-specific configuration files and options
-;; - Error navigation with next-error and previous-error
-;; - Error list with flycheck-list-errors at C-c ! l
-;; - Easy declarative API to define new syntax checkers
-;; - Error parsers for structured markup formats (e.g. Checkdoc XML)
-;;
-;; - [C-c ! s] -- manual select a syntax checker.
-;; - [C-c ! ?] -- see what a checker needs.
-;; - [C-c ! l] -- list error list.
-;; - error navigation with 'next-error' and 'previous-error'.
-;; - [M-x flycheck-buffer] -- check buffer.
-;;
-;; Error navigation:
-;; - [M-g n] -- next-error.
-;; - [M-g p] -- previous-error.
-;; - [C-c ! n] -- flycheck-next-error
-;; - [C-c ! p] -- flycheck-previous-error
-;;
-;; Mode line:
-;; - FlyC     -- There are no errors in the current buffer.
-;; - FlyC*    -- A syntax check is being performed currently.
-;; - FlyC:3/4 -- There are three errors and four warnings in the current buffer.
-;; - FlyC-    -- Automatic syntax checker selection did not find a suitable syntax checker. See Selection, for more information.
-;; - FlyC!    -- The syntax check failed. Inspect the *Messages* buffer for details.
-;;
-;; - FlyC?    -- The syntax check had a dubious result. The definition of the syntax checker
-;;               may be flawed. Inspect the *Messages* buffer for details. This indicator
-;;              should never be displayed for built-in syntax checkers. If it is, please
-;;              report this issue to the Flycheck developers.
-
 (use-package flycheck
   :ensure t
   :commands flycheck-mode
