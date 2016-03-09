@@ -12,8 +12,6 @@
 ;; - [C-h v minor-mode-alist] for current buffer minor modes list.
 
 ;; load necessary package which will be used later.
-(use-package window-number
-  :ensure t)
 (use-package projectile
   :ensure t
   :init
@@ -47,9 +45,12 @@
  (quote
   (
    ;; window-number
-   (:eval (if (fboundp 'window-number-mode)
-              (propertize (concat "[" (number-to-string (window-number)) "]")
-                          'face '(:foreground "tomato" :weight bold))))
+   ;; (:eval (if (fboundp 'window-number-mode)
+   ;;            (propertize (concat "[" (number-to-string (window-number)) "]")
+   ;;                        'face '(:foreground "tomato" :weight bold))))
+
+   ;; ace-window
+   (:eval (window-parameter (selected-window) 'ace-window-path))
 
    ;; (:propertize "%e"
    ;;              face (:foreground "red"))

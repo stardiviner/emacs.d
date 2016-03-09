@@ -66,6 +66,9 @@
 (use-package ace-window
   :ensure t
   :config
+  ;; display window number in mode-line.
+  ;; (ace-window-display-mode 1)
+  
   (global-set-key (kbd "C-x C-j") 'ace-window)
 
   (set-face-attribute 'aw-leading-char-face nil
