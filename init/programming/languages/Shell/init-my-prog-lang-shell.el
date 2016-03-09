@@ -24,22 +24,22 @@
 
 ;;; [ company-shell ]
 
-(use-package company-shell
-  :ensure t
-  :config
-  ;; (setq company-shell-modes '(sh-mode fish-mode shell-mode eshell-mode))
-  ;; (setq company-shell-use-help-arg nil)
-  
-  (dolist (hook '(sh-mode-hook
-                  shell-mode-hook
-                  ))
-    (add-hook hook '(lambda ()
-                      (setq-local completion-at-point-functions
-                                  (delq 'sh-completion-at-point-function
-                                        completion-at-point-functions))
-                      (setq-local company-minimum-prefix-length 3)
-                      (my-company-add-backends-to-mode '(company-shell)))))
-  )
+;; (use-package company-shell
+;;   :ensure t
+;;   :config
+;;   ;; (setq company-shell-modes '(sh-mode fish-mode shell-mode eshell-mode))
+;;   ;; (setq company-shell-use-help-arg nil)
+;;  
+;;   (dolist (hook '(sh-mode-hook
+;;                   shell-mode-hook
+;;                   ))
+;;     (add-hook hook '(lambda ()
+;;                       (setq-local completion-at-point-functions
+;;                                   (delq 'sh-completion-at-point-function
+;;                                         completion-at-point-functions))
+;;                       (setq-local company-minimum-prefix-length 3)
+;;                       (my-company-add-backends-to-mode '(company-shell)))))
+;;   )
 
 
 ;;; [ bash-completion ]
