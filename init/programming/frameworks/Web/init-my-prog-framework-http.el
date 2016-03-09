@@ -41,10 +41,7 @@
 
   (define-key HTTP-prefix (kbd "r") 'restclient-new-buffer)
 
-  ;; Org-mode Babel integration
-  ;; TODO: (load "~/.emacs.d/init/extensions/ob-rest.el")
-
-  ;; TEST: indent json in restclient-mode
+  ;; indent JSON in restclient REPL.
   (add-hook 'restclient-mode-hook
             (lambda ()
               (require 'js)
