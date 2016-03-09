@@ -28,7 +28,6 @@
 (use-package ess
   :ensure t
   :config
-  
   (require 'ess-site)
 
   (setq ess-use-ido t
@@ -39,15 +38,15 @@
         ;; ess-ps-viewer-pref nil
         ess-speedbar-use-p t              ; use speedbar
         ;; ESS Edit
-        ess-auto-newline nil
-        ;; ess-default-style 'RRR
+        ess-auto-newline t
+        ess-default-style 'RRR
         ess-indent-with-fancy-comments t
         ess-tab-always-indent t
-        ;; ess-mode-silently-save t
+        ess-mode-silently-save t
         ;; ESS Extra
-        ;; ess-eldoc-show-on-symbol nil
-        ;; ess-eldoc-abbreviation-style 'normal
-        ess-describe-at-point-method 'tooltip  ; display in a tooltip. (need to press [C-c C-d C-e]
+        ess-eldoc-show-on-symbol nil
+        ess-eldoc-abbreviation-style 'normal
+        ess-describe-at-point-method 'tooltip ; display in a tooltip
         ess-use-tracebug t
         ;; ESS Help
         ;; alist of frame parameters used to create help frames.
@@ -62,12 +61,14 @@
         ess-execute-in-process-buffer nil
         ess-synchronize-evals nil
         ess-verbose nil
-        inferior-ess-own-frame nil
-        inferior-ess-same-window t
         )
 
+  ;; inferior ESS (iESS) `inferior-ess-mode'
+  (setq inferior-ess-own-frame nil
+        inferior-ess-same-window t)
+
   ;; [ devtools (developer tools) ]
-  ;; (setq ess-developer-code-injection-in-packages nil)
+  (setq ess-developer-activate-in-package t)
   
   ;; [ ESS-R ]
   (setq ess-use-R-completion t)
