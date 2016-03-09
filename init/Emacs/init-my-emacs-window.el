@@ -72,6 +72,8 @@
   (global-set-key (kbd "C-x C-j") 'ace-window)
 
   (set-face-attribute 'aw-leading-char-face nil
+                      :background "#004A5D" :foreground "white"
+                      :box '(:color "cyan" :line-width 1)
                       :height 200)
   (set-face-attribute 'aw-background-face nil
                       :foreground "#333333")
