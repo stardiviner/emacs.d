@@ -149,12 +149,6 @@
   (define-key company-active-map [return] 'company-new-line)
   (define-key company-active-map "\r" 'company-new-line)
 
-  (define-key company-active-map (kbd "SPC")
-    '(lambda ()
-       (interactive)
-       (company-abort)
-       (insert " ")))
-
   ;; faces
   ;; tooltip
   (set-face-attribute 'company-tooltip nil
