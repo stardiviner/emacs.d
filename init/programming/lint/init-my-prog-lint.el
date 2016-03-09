@@ -86,8 +86,7 @@
       (-when-let (buffer (get-buffer flycheck-error-list-buffer))
         (dolist (window (get-buffer-window-list buffer))
           (quit-window nil window)))))
-  ;; TODO: only show when has error:
-  ;; (add-hook 'before-save-hook #'flycheck-list-errors-only-when-errors)
+  (add-hook 'before-save-hook #'flycheck-list-errors-only-when-errors)
 
   ;; add Django-mode
   ;; (with-eval-after-load 'flycheck
