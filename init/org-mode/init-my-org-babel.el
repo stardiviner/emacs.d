@@ -26,8 +26,8 @@
         (:cache . "yes")
         (:hlines . "no")
         (:padnewline . "yes")
+        (:noweb . "no")
         (:tangle . "no")
-        ;; for tangle jump between org <-> code file
         (:padline . "true")
         (:comments . "links")
         ))
