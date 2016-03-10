@@ -24,12 +24,12 @@
 ;;; [ swoop ] -- Peculiar buffer navigation for Emacs.
 
 (use-package swoop
-  ;; :ensure t
+  :ensure t
   :config
-  (global-set-key (kbd "C-o") 'swoop)
-  (global-set-key (kbd "C-M-o") 'swoop-multi)
-  (global-set-key (kbd "M-o")   'swoop-pcre-regexp)
-  (global-set-key (kbd "C-S-o") 'swoop-back-to-last-position)
+  (define-key my-search-prefix (kbd "C-o") 'swoop)
+  (define-key my-search-prefix (kbd "C-M-o") 'swoop-multi)
+  (define-key my-search-prefix (kbd "M-o")   'swoop-pcre-regexp)
+  (define-key my-search-prefix (kbd "C-S-o") 'swoop-back-to-last-position)
   )
 
 

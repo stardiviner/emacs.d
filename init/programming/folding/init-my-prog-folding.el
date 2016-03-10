@@ -19,9 +19,7 @@
 ;; (add-hook 'prog-mode-hook 'hs-minor-mode)
 
 
-;;; [ origami ]
-
-;;; `global-origami-mode' & `origami-mode'
+;;; [ origami ] -- A folding minor mode for Emacs.
 
 (use-package origami
   :ensure t
@@ -43,6 +41,7 @@
   (define-key my-fold-map (kbd "r") 'origami-redo)
   (define-key my-fold-map (kbd "!") 'origami-reset)
 
+  ;; `global-origami-mode' & `origami-mode'
   (dolist (hook '(prog-mode-hook
                   ))
     (add-hook hook 'origami-mode))
