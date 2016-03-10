@@ -262,20 +262,13 @@
         (:nullvalue . "Null")))
 
 
-;;;_ * Library of Babel
+;;; [ Library of Babel ]
 
-;;; Usage:
-;;
-;; - `org-babel-lob-ingest' [C-c C-v i]
-;;    Add all named source blocks defined in FILE to `org-babel-library-of-babel'.
-
-;; Files used to populate the `org-babel-library-of-babel'.
-;; To add files to this list use the `org-babel-lob-ingest' command.
-;; TODO:
 ;; (setq org-babel-lob-files
+;;       org-babel-library-of-babel
 ;;       )
 
-
+
 ;;;_ * source code block check
 ;;
 ;; - Report an error if there is a source block without a language specified
