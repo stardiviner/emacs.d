@@ -14,9 +14,12 @@
 
 ;;; [ multi-occur ]
 
-(define-key my-search-prefix (kbd "O") 'multi-occur)
-
-(define-key my-search-prefix (kbd "M-o") 'multi-occur-in-matching-buffers)
+(use-package multi-occur
+  :config
+  (define-key my-search-prefix (kbd "O") 'multi-occur)
+  (define-key my-search-prefix (kbd "M-o") 'multi-occur-in-matching-buffers)
+  (define-key my-search-prefix (kbd "M-h") 'how-many)
+  )
 
 (define-key my-search-prefix (kbd "M-h") 'how-many)
 
