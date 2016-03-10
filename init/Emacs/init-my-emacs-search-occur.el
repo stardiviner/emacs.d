@@ -36,6 +36,12 @@
   )
 
 
+;;; [ helm-swoop ]
+
+(use-package helm-swoop
+  :ensure t)
+
+
 (provide 'init-my-emacs-search-occur)
 
 ;;; init-my-emacs-search-occur.el ends here
