@@ -13,7 +13,7 @@
 ;; - [C-c C-v] :: keymap prefix for babel. `org-babel-map'
 
 
-(setq org-confirm-babel-evaluate t)     ; org-babel-evaluate confirm.
+(setq org-confirm-babel-evaluate nil)
 (setq org-babel-no-eval-on-ctrl-c-ctrl-c nil)
 (setq org-confirm-shell-link-function 'yes-or-no-p)
 (setq org-confirm-elisp-link-function 'yes-or-no-p)
