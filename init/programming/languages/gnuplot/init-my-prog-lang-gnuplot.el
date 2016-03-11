@@ -8,6 +8,13 @@
 
 (use-package gnuplot-mode
   :ensure t
+  :init
+  (setq auto-mode-alist (append (list
+                                 '("\\.gp\\'" . gnuplot-mode)
+                                 '("\\.plt\\'" . gnuplot-mode)
+                                 '("\\.gnuplot\\'" . gnuplot-mode)
+                                 )
+                                auto-mode-alist))
   :config
   (require 'gnuplot)
   
@@ -17,13 +24,6 @@
   ;;   (info-initialize)
   ;;   (add-to-list 'Info-directory-list "~/.emacs.d/elpa/gnuplot-*/"))
   (setq gnuplot-info-display 'window)
-
-  (setq auto-mode-alist (append (list
-                                 '("\\.gp\\'" . gnuplot-mode)
-                                 '("\\.plt\\'" . gnuplot-mode)
-                                 '("\\.gnuplot\\'" . gnuplot-mode)
-                                 )
-                                auto-mode-alist))
 
   (setq gnuplot-tab-completion t)
   
