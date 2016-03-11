@@ -95,7 +95,9 @@
     (my-company-add-backends-to-mode
      '(company-gtags
        company-etags
-       company-cmake))
+       company-cmake
+       ;; company-semantic
+       ))
     )
   :config
   ;; replace the `completion-at-point' and `complete-symbol' bindings in
@@ -119,7 +121,9 @@
             '(lambda ()
                (my-company-add-backends-to-mode
                 '(company-irony-c-headers
-                  company-irony))
+                  company-irony
+                  ;; company-clang ; from `company-mode'
+                  ))
                
                ;; (optional) adds CC special commands to `company-begin-commands'
                ;; in order to trigger completion at interesting places, such as
@@ -158,6 +162,7 @@
 ;;   ;; (setq company-clang-arguments
 ;;   ;;       company-clang-prefix-guesser 'company-clang-guess-prefix
 ;;   ;;       )
+;;
 ;;   (setq company-clang-begin-after-member-access t)
 ;;
 ;;   (hook-modes c-dialects-mode
