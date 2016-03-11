@@ -37,7 +37,7 @@
         ;; company-show-numbers nil
         ;; align annotations to the right tooltip border.
         company-tooltip-align-annotations t
-        company-tooltip-flip-when-above t
+        company-tooltip-flip-when-above nil
         ;; tooltip candidates max limit.
         company-tooltip-limit 10
         ;; minimum candidates height limit.
