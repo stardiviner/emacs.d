@@ -48,7 +48,7 @@
       isearch-allow-scroll t
       )
 
-;; (setq isearch-lazy-highlight-??)
+(setq isearch-lazy-highlight t)
 
 ;; isearch
 (set-face-attribute 'isearch nil
