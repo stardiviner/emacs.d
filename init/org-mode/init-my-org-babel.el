@@ -57,12 +57,54 @@
       org-export-babel-evaluate t
       )
 
+
+;;; [ ob-processing ]
+(require 'ob-processing)
+
+;;; [ ob-gnuplot ]
+(require 'ob-gnuplot)
+
+;; [ ob-ipython ]
+(use-package ob-ipython
+  :ensure t
+  :defer t
+  ;; use IJulia backend for IPython notebook
+  ;; (setq ob-ipython-kernel-extra-args "--profile julia")
+  ;; (add-to-list 'org-src-lang-modes '("ipython" . julia))
+  )
+
+;;; [ ob-R ]
+(require 'ob-R)
+
+;;; [ ob-julia ]
+(if (not (boundp 'inferior-julia-program-name))
+    (setq inferior-julia-program-name "julia"))
+;; (setq org-babel-julia-command "julia")
+
+(use-package ess
+  :ensure t
+  :config
+  (require 'ess-site))
+
+(require 'ob-julia)
+(setq org-babel-default-header-args:julia
+      '((:results . "replace output")
+        (:padnewline . "yes")))
+(add-to-list 'org-src-lang-modes '("julia" . ess-julia))
+
+;; [ ob-sql ]
+;; (require 'ob-sql)
+
+;; [ ob-sqlite ]
+;; (require 'ob-sqlite)
+
+
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((emacs-lisp . t)                     ; Emacs Lisp
    (org . t)                            ; Org-mode
-   (shell . t)                          ; Shell Script
    (sh . t)                             ; Shell
+   (shell . t)                          ; Shell Script
    (makefile . t)                       ; Make
    (ruby . t)                           ; Ruby
    (python . t)                         ; Python
@@ -101,11 +143,12 @@
    ;; -- Extra --
    ;; use advice: `org-babel-execute-src-block' to load language support lazily.
    ;; (C++ . t)                            ; C++
-   ;; (R . t)                              ; R
+   (R . t)                              ; R
    ;; (go . t)
    ;; (ipython . t)
    ;; (restclient . t)                     ; ob-restclient
    ))
+
 
 (setq org-babel-tangle-lang-exts
       '(("latex" . "tex")
@@ -156,38 +199,6 @@
 ;; FIXME: this caused org babel block syntax highlighting failed.
 ;; (add-to-list 'org-src-lang-modes '("ruby" . enh-ruby))
 ;; (add-to-list 'org-src-lang-modes (cons "ruby" 'enh-ruby))
-
-
-;;; [ ob-processing ]
-(require 'ob-processing)
-
-;; [ ob-ipython ]
-(use-package ob-ipython
-  :ensure t
-  :defer t
-  )
-
-;;; [ ob-julia ]
-(if (not (boundp 'inferior-julia-program-name))
-    (setq inferior-julia-program-name "julia"))
-;; (setq org-babel-julia-command "julia")
-
-(use-package ess
-  :ensure t
-  :config
-  (require 'ess-site))
-
-(require 'ob-julia)
-(setq org-babel-default-header-args:julia
-      '((:results . "replace output")
-        (:padnewline . "yes")))
-(add-to-list 'org-src-lang-modes '("julia" . ess-julia))
-
-;; [ ob-sql ]
-;; (require 'ob-sql)
-
-;; [ ob-sqlite ]
-;; (require 'ob-sqlite)
 
 
 ;;;_ + ditaa & PlantUML & Graphviz
