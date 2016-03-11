@@ -62,6 +62,9 @@
 ;; `org-link-types'
 ;; `org-add-link-type' + `org-add-link-props'
 
+;; `shell:'
+(setq org-confirm-shell-link-function 'yes-or-no-p)
+
 ;; Email: `mailto:' link open with Emacs internal extension like message-mode, mu4e.
 ;; `mail-user-agent'
 (setq browse-url-mailto-function 'browse-url-mail)
