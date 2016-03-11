@@ -259,7 +259,7 @@
 ;;         (:file . "temp.png")))
 
 (setq org-babel-default-header-args:R
-      '((:session . "no")
+      '((:session . "*R*")
         (:exports . "both")
         (:results . "replace")
         ))
