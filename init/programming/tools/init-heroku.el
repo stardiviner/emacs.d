@@ -1,4 +1,4 @@
-;;; init-my-prog-tools-heroku.el --- init for Heroku
+;;; init-heroku.el --- init for Heroku
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -18,6 +18,6 @@
   :ensure t)
 
 
-(provide 'init-my-prog-tools-heroku)
+(provide 'init-heroku)
 
-;;; init-my-prog-tools-heroku.el ends here
+;;; init-heroku.el ends here

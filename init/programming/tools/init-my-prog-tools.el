@@ -12,10 +12,8 @@
 (global-set-key (kbd "C-c C-t") 'my-prog-tools-map)
 
 
-(require 'init-my-prog-tools-container)
-(require 'init-my-prog-tools-vagrant)
-(require 'init-my-prog-tools-heroku)
-(require 'init-my-prog-tools-devops)
+(require 'init-my-prog-devops)
+(require 'init-heroku)
 
 
 (provide 'init-my-prog-tools)

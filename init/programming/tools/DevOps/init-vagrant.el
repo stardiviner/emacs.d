@@ -1,4 +1,4 @@
-;;; init-my-prog-tools-vagrant.el --- init for Vagrant
+;;; init-vagrant.el --- init for Vagrant
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -71,6 +71,6 @@
   )
 
 
-(provide 'init-my-prog-tools-vagrant)
+(provide 'init-vagrant)
 
-;;; init-my-prog-tools-vagrant.el ends here
+;;; init-vagrant.el ends here
