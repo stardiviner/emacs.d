@@ -9,7 +9,7 @@
 
 ;;; [ shell-script-mode (`sh-mode') ]
 
-(setq sh-indentation 4)
+(setq sh-indentation 2)
 
 (add-hook 'sh-mode-hook
           '(lambda ()
