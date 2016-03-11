@@ -139,6 +139,8 @@
 
   ;; (setq mc/keymap "C-c c")
 
+  (define-key mc/keymap (kbd "C-'") 'mc-hide-unmatched-lines-mode)
+  
   (unless (boundp 'my-mc-prefix)
     (define-prefix-command 'my-mc-prefix))
   (define-key my-edit-prefix (kbd "c") 'my-mc-prefix)
