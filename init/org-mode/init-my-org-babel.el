@@ -23,7 +23,7 @@
       '((:session . "none")
         (:results . "replace")
         (:exports . "both")
-        (:cache . "yes")
+        (:cache . "no")
         (:hlines . "no")
         (:padnewline . "yes")
         (:noweb . "no")
