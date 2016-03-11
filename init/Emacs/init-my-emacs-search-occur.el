@@ -21,7 +21,16 @@
   (define-key my-search-prefix (kbd "M-h") 'how-many)
   )
 
-(define-key my-search-prefix (kbd "M-h") 'how-many)
+
+;;; [ color-moccur ]
+
+(use-package color-moccur
+  ;; :ensure t
+  ;; :config
+  ;; (define-key my-search-prefix (kbd "M") 'moccur)
+  ;; (define-key my-search-prefix (kbd "") 'isearch-moccur)
+  ;; (define-key my-search-prefix (kbd "") 'isearch-moccur-all)
+  )
 
 
 ;;; [ swoop ] -- Peculiar buffer navigation for Emacs.
