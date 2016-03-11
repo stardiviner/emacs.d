@@ -97,7 +97,7 @@
 
 ;;; eldoc-mode support
 
-(add-hook 'org-mode-hook #'eldoc-mode)
+;; (add-hook 'org-mode-hook #'eldoc-mode)
 
 
 (provide 'init-my-org-view)
