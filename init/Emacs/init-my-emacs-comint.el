@@ -9,9 +9,10 @@
 
 ;;; [ Comint ]
 
-(setq comint-prompt-read-only t)
-
-
+(setq comint-prompt-read-only t
+      comint-eol-on-send t ; go to the end of the line before sending input.
+      comint-move-point-for-output t
+      )
 
 
 (provide 'init-my-emacs-comint)
