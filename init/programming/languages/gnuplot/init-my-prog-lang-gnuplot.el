@@ -4,6 +4,12 @@
 
 ;;; Code:
 
+;;; [ gnuplot ]
+
+(use-package gnuplot
+  :ensure t)
+
+
 ;;; [ gnuplot-mode ]
 
 (use-package gnuplot-mode
@@ -16,8 +22,6 @@
                                  )
                                 auto-mode-alist))
   :config
-  (require 'gnuplot)
-  
   ;; add gnuplot info file.
   ;; FIXME: this does not work for `gnuplot-info-lookup-symbol'
   ;; (with-eval-after-load 'info
