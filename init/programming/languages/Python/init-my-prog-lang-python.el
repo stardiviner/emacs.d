@@ -142,6 +142,7 @@
 (use-package pythonic
   :ensure t
   :config
+  (pythonic-activate "~/.virtualenvs/python3")
   )
 
 
