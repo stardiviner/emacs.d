@@ -2,8 +2,7 @@
 # name: defun
 # key: defun
 # --
-(defun $1 (${2:arguments})
+defun $1 (${2:arguments})
   "${3:DOCSTRINGS}"
   (interactive)
   $0
-)

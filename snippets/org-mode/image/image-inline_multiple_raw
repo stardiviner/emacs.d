@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: image-inline_multiple_raw
+# key: image-inline_multiple_raw
+# group: image
+# --
+#+NAME: image-list
+#+BEGIN_SRC sh :results output table
+ls ${1:../../data/images/note_examples}
+#+END_SRC
+
+#+BEGIN_SRC ruby :var list=image-list :results output raw
+list.each do |image|
+  # here image is an Array. you need to access element with image[0].
+  puts "[[file:$1/#{image[0]}]]\n\n\n"
+end
+#+END_SRC

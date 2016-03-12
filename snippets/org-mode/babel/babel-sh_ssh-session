@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-sh_ssh-session
+# key: babel-sh_ssh-session
+# group: babel
+# --
+#+BEGIN_SRC sh :session ${1:SESSION}
+ssh client
+#+END_SRC
