@@ -150,6 +150,35 @@ pasting on sites like GitHub, and Stack Overflow."
                     (buffer-substring (region-beginning) (region-end)) 'md t)))
 
 
+;;; email org-mode region/buffer
+
+;; send email with org-mode region as message.
+;; I like to email org-mode headings and content to people. It would be nice to
+;; have some records of when a heading was sent, and to whom. We store this
+;; information in a heading. It is pretty easy to write a simple function that
+;; emails a selected region.
+;;
+;; use `org-mime'
+;; - `org-mime-org-buffer-htmlize' ::
+
+(require 'org-mime)
+
+(add-hook 'message-mode-hook
+          '(lambda ()
+             (local-set-key (kbd "C-c M-o") 'org-mime-htmlize)))
+(add-hook 'org-mode-hook
+          '(lambda ()
+             ;; `org-mime-org-buffer-htmlize', `org-mime-htmlize'
+             (local-set-key (kbd "C-x M") 'org-mime-org-buffer-htmlize)
+
+             ;; change element style
+             (org-mime-change-element-style
+              "pre" (format "color: %s; background-color: %s; padding: 0.5em;"
+                            "#E6E1DC" "#232323"))
+             (org-mime-change-element-style
+              "blockquote" "border-left: 2px solid gray; padding-left: 4px;")
+             ))
+
 
 
 ;;; Beamer
