@@ -135,15 +135,20 @@
   (pyvenv-workon "python3"))
 
 
+;;; [ pythonic ]
+
+;; - `pythonic-activate' :: active Python virtualenv.
+
+(use-package pythonic
+  :ensure t
+  :config
+  )
+
+
 ;;; [ virtualenv ]
 
 
 ;;; [ virtualenvwrapper ]
-
-
-;;; [ pythonic ]
-
-;; - `pythonic-activate' :: active Python virtualenv.
 
 
 ;;; [ jedi.el ] --- a python auto-completion library.
