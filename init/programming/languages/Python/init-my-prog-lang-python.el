@@ -199,24 +199,7 @@
   :config
   ;; enable anaconda-mode in python-mode.
   (add-hook 'python-mode-hook 'anaconda-mode)
-  
-  ;; show object docstring in eldoc.
-  (defun anaconda-mode-docstring-eldoc-function ()
-    (anaconda-mode-call "goto_definitions" 'anaconda-mode-docstring-eldoc-callback))
-
-  (defun anaconda-mode-docstring-eldoc-callback (result)
-    (eldoc-message
-     (s-join " " (--map
-                  (s-collapse-whitespace (cdr (assoc 'docstring it))) result))))
-
-  (defun docstring-eldoc-init ()
-    (make-local-variable 'eldoc-documentation-function)
-    (setq-local eldoc-documentation-function
-                'anaconda-mode-docstring-eldoc-function))
-
-  (add-hook 'python-mode-hook 'eldoc-mode)
-  
-  (add-hook 'python-mode-hook 'docstring-eldoc-init)
+  (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
   )
 
 
