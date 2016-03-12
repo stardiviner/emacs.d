@@ -39,6 +39,9 @@
                (define-key gnuplot-mode-map (kbd "<f5>") 'gnuplot-make-buffer)
                (define-key gnuplot-mode-map (kbd "C-h d d") 'gnuplot-info-lookup-symbol)
                (define-key gnuplot-mode-map (kbd "C-c M-i") 'gnuplot-inline-display-mode)
+
+               (define-key gnuplot-mode-map (kbd "C-c C-s") 'run-gnuplot)
+               (define-key gnuplot-mode-map (kbd "C-c C-z") 'run-gnuplot)
                ))
 
   ;; auto enable `gnuplot-inline-display-mode' in gnuplot comint process buffer.
