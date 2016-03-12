@@ -2,7 +2,17 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Arch Package Management"
+(("Vagrant"
+ (filename . "~/Org/Wiki/Computer/Softwares/Vagrant/Vagrant.org")
+ (front-context-string . "* Intro\n\nVagrant")
+ (rear-context-string)
+ (position . 1))
+("My Ruby Standard Library Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Library/My Ruby Standard Library Reference.org")
+ (front-context-string . "* Ruby Language\n")
+ (rear-context-string)
+ (position . 1))
+("Arch Package Management"
  (filename . "~/Org/Wiki/Computer/Systems/Linux/Data/Distributions/Arch/Data/Manuals/Arch Linux Package Management.org")
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
