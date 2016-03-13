@@ -76,6 +76,9 @@
   ;; (add-to-list 'org-src-lang-modes '("ipython" . julia))
   )
 
+;;; [ ob-coq ]
+(require 'ob-coq)
+
 ;;; [ ob-R ]
 (require 'ob-R)
 
