@@ -326,6 +326,27 @@
   )
 
 
+;;; [ jquery-doc ] -- jQuery api documentation interface for emacs.
+
+(use-package jquery-doc
+  :ensure t
+  :config
+  ;; default setup.
+  ;; (add-hook 'js2-mode-hook 'jquery-doc-setup)
+
+  ;; my setup.
+  (add-hook 'js2-mode-hook
+            (lambda ()
+              (when (boundp 'ac-sources)
+                (pushnew 'ac-source-jquery ac-sources))
+              (when (boundp 'company-backends)
+                ;; (pushnew 'company-jquery company-backends)
+                (my-company-add-backends-to-mode '(company-jquery))
+                )
+              ))
+  )
+
+
 
 (provide 'init-my-prog-lang-javascript)
 
