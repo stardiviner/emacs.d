@@ -75,30 +75,6 @@
   
   ;; Custom Functions
 
-  ;; {Imenu}
-  (defun ivy-imenu-get-candidates-from (alist  &optional prefix)
-    (cl-loop for elm in alist
-             nconc (if (imenu--subalist-p elm)
-                       (ivy-imenu-get-candidates-from
-                        (cl-loop for (e . v) in (cdr elm) collect
-                                 (cons e (if (integerp v) (copy-marker v) v)))
-                        (concat prefix (if prefix ".") (car elm)))
-                     (and (cdr elm) ; bug in imenu, should not be needed.
-                          (setcdr elm (copy-marker (cdr elm))) ; Same as [1].
-                          (list (cons (concat prefix (if prefix ".") (car elm))
-                                      (copy-marker (cdr elm))))))))
-
-  (defun ivy-imenu-goto ()
-    "Go to buffer position"
-    (interactive)
-    (let ((imenu-auto-rescan t) items)
-      (unless (featurep 'imenu)
-        (require 'imenu nil t))
-      (setq items (imenu--make-index-alist t))
-      (ivy-read "imenu items:"
-                (ivy-imenu-get-candidates-from (delete (assoc "*Rescan*" items) items))
-                :action (lambda (k) (goto-char k)))))
-
   ;; {Bookmarks}
   (defun ivy-bookmark-goto ()
     "Open ANY bookmark"
