@@ -20,19 +20,6 @@
             '(lambda ()
                ;; go-import [C-u] + [C-c C-a]
                ;; (local-set-key (kbd "C-c C-S-a") 'go-remove-unused-imports)
-
-               (unless (boundp 'go-goto-map)
-                 (define-prefix-command 'go-goto-map))
-               (define-key go-mode-map (kbd "C-c C-g") 'go-goto-map)
-               
-               (define-key go-goto-map (kbd "i") 'go-goto-imports)
-               (define-key go-goto-map (kbd "i") 'go-goto-imports)
-               (define-key go-goto-map (kbd "f") 'go-goto-function)
-               (define-key go-goto-map (kbd "d") 'go-goto-docstring)
-               (define-key go-goto-map (kbd "F") 'go-goto-function-name)
-               (define-key go-goto-map (kbd "a") 'go-goto-arguments)
-               (define-key go-goto-map (kbd "r") 'go-goto-return-values)
-               (define-key go-goto-map (kbd "R") 'go-goto-method-receiver)
                
                ;; gofmt
                (local-set-key (kbd "C-c C-f") 'gofmt)
