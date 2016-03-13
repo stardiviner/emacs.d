@@ -281,6 +281,7 @@
 ;; (require 'init-my-prog-lang-matlab)
 (require 'init-my-prog-lang-tex)
 (require 'init-my-prog-lang-markdown)
+(require 'init-my-prog-lang-yaml)
 ;; (require 'init-my-prog-lang-prolog)
 ;; (require 'init-my-prog-lang-verilog)
 ;; (require 'init-my-prog-lang-assembly)
