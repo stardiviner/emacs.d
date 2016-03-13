@@ -27,7 +27,6 @@
 (require 'init-my-org-time)
 (require 'init-my-org-capture)
 (require 'init-my-org-agenda)
-(require 'init-my-org-markup)
 (require 'init-my-org-latex)
 (require 'init-my-org-image)
 (require 'init-my-org-export)
