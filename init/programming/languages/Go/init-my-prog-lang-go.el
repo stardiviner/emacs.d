@@ -129,7 +129,10 @@
 (use-package gorepl-mode
   :ensure t
   :config
-  (add-hook 'go-mode-hook #'gorepl-mode))
+  (add-hook 'go-mode-hook #'gorepl-mode)
+  (define-key gorepl-mode-map (kbd "C-c C-s") 'gorepl-run)
+  (define-key gorepl-mode-map (kbd "C-c C-z") 'gorepl-run)
+  )
 
 
 ;;; [ go-play ] -- Paste to play.golang.org
