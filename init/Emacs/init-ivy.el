@@ -90,21 +90,7 @@
       (ivy-read "bookmarks:"
                 (delq nil (mapcar (lambda (bookmark)
                                     (let (key)
-                                      ;; build key which will be displayed
-                                      ;; (cond
-                                      ;;  ((and (assoc 'filename bookmark) (cdr (assoc 'filename bookmark)))
-                                      ;;   (setq key (format "%s (%s)" (car bookmark) (cdr (assoc 'filename bookmark)))))
-                                      ;;  ((and (assoc 'location bookmark) (cdr (assoc 'location bookmark)))
-                                      ;;   ;; bmkp-jump-w3m is from bookmark+
-                                      ;;   (unless (featurep 'bookmark+)
-                                      ;;     (require 'bookmark+))
-                                      ;;   (setq key (format "%s (%s)" (car bookmark) (cdr (assoc 'location bookmark)))))
-                                      ;;  (t
-                                      ;;   (setq key (car bookmark))))
-                                      ;; re-shape the data so full bookmark be passed to ivy-read:action
-
                                       (setq key (car bookmark))
-                                      
                                       (cons key bookmark)))
                                   bookmarks))
                 :action (lambda (bookmark)
