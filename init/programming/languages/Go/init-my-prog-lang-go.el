@@ -62,6 +62,14 @@
 ;;             (add-to-list 'ac-sources 'ac-source-go)
 ;;             (call-process "gocode" nil nil nil "-s")))
 
+
+;;; [ go-gopath ] -- guess GOPATH using gb and projectile.
+
+(use-package go-gopath
+  :ensure t
+  :config
+  (define-key go-mode-map (kbd "C-x C-e") #'go-gopath-set-gopath)
+  )
 
 
 ;;; [ go-eldoc ]
