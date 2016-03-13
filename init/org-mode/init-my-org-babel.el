@@ -67,7 +67,7 @@
 ;; [ ob-ipython ]
 (use-package ob-ipython
   :ensure t
-  :defer t
+  :config
   ;; open ipython block block with `python-mode'
   (add-to-list 'org-src-lang-modes '("ipython" . python))
   
