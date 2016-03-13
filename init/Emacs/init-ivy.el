@@ -11,9 +11,11 @@
 
 (use-package swiper
   :ensure t
-  :config
+  :init
   (global-set-key (kbd "C-s") 'swiper)
-  ;; Ivy-mode
+  (global-set-key (kbd "C-c C-r") 'ivy-resume)
+  :config
+  ;; ivy-mode
   (setq ivy-use-virtual-buffers t ; treat recentf, bookmarks as virtual buffers.
         ivy-virtual-abbreviate 'full ; use 'full to fix bookmarks uniquify issue.
         ivy-height 5
@@ -70,8 +72,6 @@
                       :foreground "dodger blue" :background nil
                       :weight 'normal :box nil
                       )
-
-  (global-set-key (kbd "C-c C-r") 'ivy-resume)
   
   ;; Custom Functions
 
