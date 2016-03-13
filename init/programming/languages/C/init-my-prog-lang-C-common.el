@@ -48,67 +48,28 @@
 
 ;;; [ Irony-mode ] --- A C/C++ minor mode for Emacs powered by libclang.
 
-;;; irony-mode is an Emacs minor-mode that aims at improving the editing
-;;; experience for the C, C++ and Objective-C languages. It works by using a
-;;; combination of an Emacs package and a C++ program (irony-server) that uses
-;;; libclang.
-
-;;; On the first run, irony-mode will ask you to build and install
-;;; irony-server. To do so, type [M-x irony-install-server RET].
-
-;;; In order to work correctly, irony-mode needs to know the compile
-;;; flags. `irony-cdb' aims to provide as automatic as possible compile flags
-;;; discovery, with minimal user input.
-
-;;; Usage:
-;;
-;; - `irony-server' :: irony-server provides the libclang interface to
-;;                     irony-mode. It uses a simple protocol based on
-;;                     S-expression.
-;;
-;; On the first run, irony-mode will ask you to build and install
-;; irony-server. To do so, type M-x `irony-install-server' RET.
-;;
-;;
-;;; Compilation Database
-;;
-;; In order to work correctly, irony-mode needs to know the compile
-;; flags. irony-cdb aims to provide as automatic as possible compile flags
-;; discovery, with minimal user input.
-;;
-;; Please refer to `irony-cdb-autosetup-compile-options' and
-;; `irony-cdb-compilation-databases'.
-
 (use-package irony
   :ensure t
-  :init
-  (hook-modes c-dialects-mode
-    (when (member major-mode irony-supported-major-modes)
-      (irony-mode 1)))
-
-  (hook-modes c-dialects-mode
-    (c-toggle-auto-newline 1)
-    ;; (c-toggle-auto-hungry-state 1)
-    (electric-indent-mode 1)
-    (turn-on-eldoc-mode)
-
-    (my-company-add-backends-to-mode
-     '(company-gtags
-       company-etags
-       company-cmake
-       ;; company-semantic
-       ))
-    )
   :config
+  (hook-modes c-dialects-mode
+    (when (memq major-mode irony-supported-major-modes)
+      (irony-mode 1))
+
+    (c-toggle-auto-hungry-state 1)
+    ;; (c-toggle-auto-newline 1)
+    ;; (c-toggle-hungry-state 1)
+    (electric-indent-mode 1)
+    )
+
   ;; replace the `completion-at-point' and `complete-symbol' bindings in
   ;; irony-mode's buffers by irony-mode's function
-  (add-hook 'irony-mode-hook
-            (lambda ()
-              (define-key irony-mode-map [remap completion-at-point]
-                'irony-completion-at-point-async)
-              (define-key irony-mode-map [remap complete-symbol]
-                'irony-completion-at-point-async)
-              ))
+  ;; (add-hook 'irony-mode-hook
+  ;;           (lambda ()
+  ;;             (define-key irony-mode-map [remap completion-at-point]
+  ;;               'irony-completion-at-point-async)
+  ;;             (define-key irony-mode-map [remap complete-symbol]
+  ;;               'irony-completion-at-point-async)
+  ;;             ))
   )
 
 
@@ -117,20 +78,26 @@
 (use-package company-irony
   :ensure t
   :config
-  (add-hook 'irony-mode-hook
-            '(lambda ()
-               (my-company-add-backends-to-mode
-                '(company-irony-c-headers
-                  company-irony
-                  ;; company-clang ; from `company-mode'
-                  ))
-               
-               ;; (optional) adds CC special commands to `company-begin-commands'
-               ;; in order to trigger completion at interesting places, such as
-               ;; after scope operator.
-               ;;     std::|
-               (company-irony-setup-begin-commands)
-               ))
+  (defun company-irony-add ()
+    ;; (optional) adds CC special commands to `company-begin-commands'
+    ;; in order to trigger completion at interesting places, such as
+    ;; after scope operator.
+    ;;     std::|
+    (company-irony-setup-begin-commands)
+
+    (my-company-add-backends-to-mode '(company-irony-c-headers
+                                       company-irony
+                                       ;; company-cmake
+                                       ;; company-clang
+                                       ;; company-semantic
+                                       ;; company-gtags
+                                       ;; company-etags
+                                       ))
+    )
+
+  (add-hook 'c-mode-common-hook 'company-irony-add)
+  ;; (hook-modes c-dialects-mode
+  ;;   (company-irony-add))
   )
 
 
@@ -140,7 +107,7 @@
   :ensure t
   :config
   (with-eval-after-load 'irony
-    (add-hook 'irony-mode-hook #'irony-eldoc))  
+    (add-hook 'irony-mode-hook #'irony-eldoc))
   )
 
 
