@@ -402,6 +402,8 @@
                                                     ;; company-web-slim
                                                     ;; company-nxml
                                                     company-tern
+                                                    :with
+                                                    company-jquery
                                                     company-css
                                                     ))
                  )))

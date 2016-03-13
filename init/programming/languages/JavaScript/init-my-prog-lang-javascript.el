@@ -335,15 +335,17 @@
   ;; (add-hook 'js2-mode-hook 'jquery-doc-setup)
 
   ;; my setup.
-  (add-hook 'js2-mode-hook
-            (lambda ()
-              (when (boundp 'ac-sources)
-                (pushnew 'ac-source-jquery ac-sources))
-              (when (boundp 'company-backends)
-                ;; (pushnew 'company-jquery company-backends)
-                (my-company-add-backends-to-mode '(company-jquery))
-                )
-              ))
+  (defun my-jquery-doc-setup ()
+    (when (boundp 'ac-sources)
+      (pushnew 'ac-source-jquery ac-sources))
+    (when (boundp 'company-backends)
+      ;; (pushnew 'company-jquery company-backends)
+      (delq 'company-tern company-backends)
+      (my-company-add-backends-to-mode '(company-tern
+                                         :with
+                                         company-jquery))
+      ))
+  (add-hook 'js2-mode-hook 'my-jquery-doc-setup)
   )
 
 
