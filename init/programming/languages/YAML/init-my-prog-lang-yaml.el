@@ -7,9 +7,10 @@
 
 ;;; Code:
 
+;;; [ yaml-mode ]
 
-
-
+(use-package yaml-mode
+  :ensure t)
 
 
 (provide 'init-my-prog-lang-yaml)
