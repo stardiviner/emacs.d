@@ -165,6 +165,7 @@
   (global-set-key (kbd "C-c s") 'my-search-prefix)
   (define-key my-search-prefix (kbd "g") 'counsel-grep)
   (global-set-key [remap grep] 'counsel-grep) ; [C-s g]
+  (define-key my-search-prefix (kbd "G") 'counsel-ag) ; [C-u] prompt for dir support
   (setq counsel-yank-pop-truncate t)
   (global-set-key [remap yank-pop] 'counsel-yank-pop) ; [M-y]
   (global-set-key [remap imenu] 'counsel-imenu)
