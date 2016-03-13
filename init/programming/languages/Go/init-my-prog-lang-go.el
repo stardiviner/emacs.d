@@ -141,9 +141,15 @@
 (use-package gorepl-mode
   :ensure t
   :config
-  (add-hook 'go-mode-hook #'gorepl-mode)
-  (define-key gorepl-mode-map (kbd "C-c C-s") 'gorepl-run)
-  (define-key gorepl-mode-map (kbd "C-c C-z") 'gorepl-run)
+  ;; default setup mapping
+  ;; (add-hook 'go-mode-hook #'gorepl-mode)
+
+  ;; custom mapping
+  (define-key go-mode-map (kbd "C-c C-s") 'gorepl-run)
+  (define-key go-mode-map (kbd "C-c C-z") 'gorepl-run)
+  (define-key go-mode-map (kbd "C-c C-l") #'gorepl-run-load-current-file)
+  (define-key go-mode-map (kbd "C-c C-e") #'gorepl-eval-region)
+  (define-key go-mode-map (kbd "C-c C-r") #'gorepl-eval-line)
   )
 
 
