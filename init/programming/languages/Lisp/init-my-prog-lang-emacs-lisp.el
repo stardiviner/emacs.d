@@ -123,6 +123,14 @@
 
 ;; ---------------------------------------------------------------
 
+(unless (boundp 'my-prog-inferior-map)
+  (define-prefix-command 'my-prog-inferior-map))
+(global-set-key (kbd "C-c i") 'my-prog-inferior-map)
+
+(unless (boundp 'my-inferior-lisp-map)
+  (define-prefix-command 'my-inferior-lisp-map))
+(define-key my-prog-inferior-map (kbd "l") 'my-inferior-lisp-map)
+
 (defun my-ielm-start-or-switch ()
   "Start IELM or switch to its buffer if it already exist."
   (interactive)
