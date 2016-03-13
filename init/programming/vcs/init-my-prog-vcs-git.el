@@ -369,6 +369,13 @@
   )
 
 
+;;; [ magit-p4 ] -- Magit plugin integrating git-p4 add-on.
+
+(use-package magit-p4
+  :ensure t
+  )
+
+
 
 (require 'init-my-prog-vcs-git-gutter)
 (require 'init-my-prog-vcs-github)
