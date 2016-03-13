@@ -68,6 +68,9 @@
 (use-package ob-ipython
   :ensure t
   :defer t
+  ;; open ipython block block with `python-mode'
+  (add-to-list 'org-src-lang-modes '("ipython" . python))
+  
   ;; use IJulia backend for IPython notebook
   ;; (setq ob-ipython-kernel-extra-args "--profile julia")
   ;; (add-to-list 'org-src-lang-modes '("ipython" . julia))
