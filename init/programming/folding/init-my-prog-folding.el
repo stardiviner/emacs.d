@@ -24,6 +24,8 @@
 (use-package origami
   :ensure t
   :config
+  (setq origami-show-fold-header t)
+  
   (define-key my-fold-map (kbd "m") 'origami-mode)
   (define-key my-fold-map (kbd "SPC") 'origami-toggle-node)
   (define-key my-fold-map (kbd "TAB") 'origami-toggle-all-nodes)
