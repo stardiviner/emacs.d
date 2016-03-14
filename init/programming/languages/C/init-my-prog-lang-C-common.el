@@ -73,6 +73,12 @@
   )
 
 
+;;; [ company-irony-c-headers ]
+
+(use-package company-irony-c-headers
+  :ensure t)
+
+
 ;;; [ company-irony ]
 
 (use-package company-irony
