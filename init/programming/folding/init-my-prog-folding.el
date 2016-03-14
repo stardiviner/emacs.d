@@ -24,7 +24,22 @@
 (use-package origami
   :ensure t
   :config
-  (setq origami-show-fold-header t)
+  (setq origami-show-fold-header t
+        origami-fold-replacement "...")
+
+  (set-face-attribute 'origami-fold-header-face nil
+                      :inherit nil
+                      :foreground nil :background "#004A5D"
+                      :box '(:color "#40CBCB" :line-width 1)
+                      )
+  (set-face-attribute 'origami-fold-fringe-face nil
+                      :inherit nil
+                      :foreground "black" :background "#40CBCB"
+                      )
+  (set-face-attribute 'origami-fold-replacement-face nil
+                      :inherit 'origami-fold-header-face
+                      :foreground "cyan" :background nil
+                      )
   
   (define-key my-fold-map (kbd "m") 'origami-mode)
   (define-key my-fold-map (kbd "SPC") 'origami-toggle-node)
