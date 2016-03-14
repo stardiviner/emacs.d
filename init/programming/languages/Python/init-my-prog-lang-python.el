@@ -9,38 +9,43 @@
 
 ;;; [ python-mode ] --- Python's flying circus support for Emacs
 
-(use-package python-mode
-  :ensure t
-  :config
-
-  (setq-default python-indent-offset 2
-                python-indent-guess-indent-offset t
-                ;; "python", "ipython", "bpython"
-                ;; python-shell-interpreter "python"
-                ;; python-shell-interpreter-args "-i"
-                ;; python-shell-interpreter-interactive-arg "-i"
-                python-shell-virtualenv-path "~/.virtualenvs/python3/"
-                ;; python-ffap-setup-code
-                ;; python-ffap-string-code
-                python-skeleton-autoinsert t
-                )
-
-  ;; temporary solution to fix python-mode completion suspend for long time.
-  ;; `completion-at-point-functions': (python-completion-complete-at-point t)
-  (dolist (hook '(python-mode-hook
-                  inferior-python-mode-hook
-                  ))
-    (add-hook hook '(lambda ()
-                      (setq-local completion-at-point-functions nil))))
-  )
+;; (use-package python-mode
+;;   :ensure t
+;;   :config
+;;   (setq-default python-indent-offset 2
+;;                 python-indent-guess-indent-offset t
+;;                 ;; "python", "ipython", "bpython"
+;;                 ;; python-shell-interpreter "python"
+;;                 ;; python-shell-interpreter-args "-i"
+;;                 ;; python-shell-interpreter-interactive-arg "-i"
+;;                 python-shell-virtualenv-path "~/.virtualenvs/python3/"
+;;                 ;; python-ffap-setup-code
+;;                 ;; python-ffap-string-code
+;;                 python-skeleton-autoinsert t
+;;                 )
+;;
+;;   ;; TODO:
+;;   ;; temporary solution to fix python-mode completion suspend for long time.
+;;   ;; `completion-at-point-functions': (python-completion-complete-at-point t)
+;;   (dolist (hook '(python-mode-hook
+;;                   inferior-python-mode-hook
+;;                   ))
+;;     (add-hook hook '(lambda ()
+;;                       (setq-local completion-at-point-functions nil))))
+;;   )
 
 
 ;;; [ elpy ] -- Emacs Python Development Environment.
 
 (use-package elpy
-  ;; :ensure t
-  ;; :config
+  :ensure t
+  :config
+  (elpy-enable)
   ;; (setq elpy-rpc-backend 'rope)
+  
+  (add-hook 'python-mode-hook
+            (lambda ()
+              (my-company-add-backends-to-mode '(elpy-company-backend))))
   )
 
 
@@ -77,6 +82,11 @@
 ;; (define-key my-prog-inferior-map (kbd "p") 'run-python)
 (define-key my-prog-inferior-map (kbd "p") 'my-inferior-python)
 
+(add-hook 'python-mode-hook
+          (lambda ()
+            ;; inferior-python
+            (define-key python-mode-map (kbd "C-c C-s") 'run-python)
+            ))
 ;; (setq inferior-python-mode-hook '(python-shell-send-setup-code))
 ;; (setq inferior-python-mode-hook nil)
 
@@ -200,44 +210,24 @@
 
 ;;; [ anaconda-mode ]
 
-(use-package anaconda-mode
-  :ensure t
-  :config
-  ;; enable anaconda-mode in python-mode.
-  (add-hook 'python-mode-hook 'anaconda-mode)
-  (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
-  )
+;; (use-package anaconda-mode
+;;   :ensure t
+;;   :config
+;;   ;; enable anaconda-mode in python-mode.
+;;   (add-hook 'python-mode-hook 'anaconda-mode)
+;;   (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
+;;   )
 
 
 ;;; [ company-anaconda ]
 
-(use-package company-anaconda
-  :ensure t
-  :config
-  (add-hook 'python-mode-hook
-            '(lambda ()
-               (my-company-add-backends-to-mode '(company-anaconda))))
-  )
-
-
-
-(add-hook 'python-mode-hook
-          (lambda ()
-            ;; doc
-            (cond
-             ((featurep 'anaconda-mode)
-              (local-set-key (kbd "C-h d d") 'anaconda-mode-show-doc)
-              (local-set-key (kbd "M-.") 'anaconda-mode-goto))
-             ((functionp 'jedi:show-doc)
-              (local-set-key (kbd "C-h d d") 'jedi:show-doc)
-              (local-set-key (kbd "M-.") 'jedi:goto-definition))
-             (t
-              (local-set-key (kbd "d") 'pydoc)
-              (local-set-key (kbd "M-.") 'xref-find-definitions))
-             )
-            ;; inferior-python
-            (define-key python-mode-map (kbd "C-c C-s") 'run-python)
-            ))
+;; (use-package company-anaconda
+;;   :ensure t
+;;   :config
+;;   (add-hook 'python-mode-hook
+;;             '(lambda ()
+;;                (my-company-add-backends-to-mode '(company-anaconda))))
+;;   )
 
 
 ;;; [ IPython ]
