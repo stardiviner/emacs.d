@@ -115,6 +115,11 @@
     (setq-local helm-dash-docsets '("C"))
     (my-helm-dash-buffer-local-docsets-add '("CMake")))
   (add-hook 'c-mode-hook 'helm-dash-buffer-local-C-docsets)
+  ;; C++
+  (defun helm-dash-buffer-local-C++-docsets ()
+    (setq-local helm-dash-docsets '("C++"))
+    )
+  (add-hook 'c++-mode-hook 'helm-dash-buffer-local-C++-docsets)
   ;; Go
   (defun helm-dash-buffer-local-go-docsets ()
     (setq-local helm-dash-docsets '("Go")))
