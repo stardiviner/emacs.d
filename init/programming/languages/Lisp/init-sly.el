@@ -113,6 +113,13 @@
   )
 
 
+;;; [ sly-quicklisp ] -- Quicklisp support for SLY.
+
+(use-package sly-quicklisp
+  :ensure t
+  )
+
+
 ;;; [ ob-sly ] -- org-babel functions for common lisp evaluation with SLY.
 
 (use-package ob-sly
