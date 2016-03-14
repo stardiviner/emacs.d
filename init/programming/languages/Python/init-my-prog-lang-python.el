@@ -149,11 +149,11 @@
 
 ;; - `pythonic-activate' :: active Python virtualenv.
 
-(use-package pythonic
-  :ensure t
-  :config
-  (pythonic-activate "~/.virtualenvs/python3")
-  )
+;; (use-package pythonic
+;;   :ensure t
+;;   :config
+;;   (pythonic-activate "~/.virtualenvs/python3")
+;;   )
 
 
 ;;; [ virtualenv ]
