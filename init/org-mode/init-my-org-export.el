@@ -124,7 +124,8 @@
 
 ;;; [ ox-pandoc ] -- another org-mode exporter via pandoc.
 
-(use-package ox-pandoc)
+(use-package ox-pandoc
+  :ensure t)
 
 
 ;;; export to LaTeX
