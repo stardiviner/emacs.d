@@ -160,7 +160,7 @@ column. Place the point after the comment box."
   (dolist (hook
            '(prog-mode-hook
              ))
-    (add-hook hook #'turn-on-fic-mode)
+    (add-hook hook #'fic-mode)
     )
   
   (set-face-attribute 'font-lock-fic-face nil
