@@ -20,6 +20,7 @@
 ;; (require 'init-my-prog-document-rfc)
 (require 'init-my-prog-document-api)
 (require 'init-my-prog-document-assistant)
+(require 'init-my-prog-document-wikipedia)
 
 
 
