@@ -315,13 +315,23 @@
 
 (add-hook 'org-src-mode-hook 'org-src-block-check)
 
-
 
 ;; how to correctly enable flycheck in babel source blocks
 (defadvice org-edit-src-code (around set-buffer-file-name activate compile)
   (let ((file-name (buffer-file-name)))
     ad-do-it
     (setq buffer-file-name file-name)))
+
+
+;;; auto format (indent) source code block.
+
+;; (defun indent-org-block-automatically ()
+;;   (when (org-in-src-block-p)
+;;     (org-edit-special)
+;;     (indent-region (point-min) (point-max))
+;;     (org-edit-src-exit)))
+;;
+;; (run-at-time 1 10 'indent-org-block-automatically)
 
 
 ;;; Templates -- (org skeleton/template)
