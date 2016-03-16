@@ -175,6 +175,7 @@
   (define-key my-org-download-map (kbd "s") 'org-download-screenshot)
   (define-key my-org-download-map (kbd "y") 'org-download-yank)
   (define-key my-org-download-map (kbd "d") 'org-download-delete)
+  (define-key my-org-download-map (kbd "e") 'org-download-edit)
 
   (define-key org-mode-map (kbd "<drag-n-drop>") 'org-download-dnd)
   (define-key org-mode-map (kbd "<C-drag-n-drop>") 'org-download-dnd)
