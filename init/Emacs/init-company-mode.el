@@ -53,19 +53,19 @@
         company-selection-wrap-around t
         company-search-regexp-function #'company-search-flex-regexp
         )
-  
+
+  ;; use this grouped backends for `company-yasnippet' backend to work.
   (setq company-backends
         '((company-files          ; files & directory
            ;; company-gtags company-etags
            company-keywords       ; keywords
            ;; company-tempo          ; tempo: flexible template insertion
            company-capf                   ; `completion-at-point-functions'
-           ;; :with
+           ;; with
            company-yasnippet
-           company-dabbrev-code
-           company-abbrev ; company-dabbrev
-           )
-          )
+           company-dabbrev-code         ; company-dabbrev
+           company-abbrev
+           ))
         )
 
   (defun my-company-add-backends-to-mode (backends-list)
