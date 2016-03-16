@@ -153,6 +153,8 @@
 (use-package org-download
   :ensure t
   :config
+  (org-download-enable)
+  
   (setq org-download-screenshot-method "scrot -s %s"
         org-download-method 'attach ; 'attach, 'directory,
         ;; if you don't want the #+DOWNLOADED: annotation in your Org document
@@ -177,8 +179,6 @@
   (define-key org-mode-map (kbd "<drag-n-drop>") 'org-download-dnd)
   (define-key org-mode-map (kbd "<C-drag-n-drop>") 'org-download-dnd)
   (define-key org-mode-map (kbd "<M-drag-n-drop>") 'org-download-dnd)
-
-  (org-download-enable)
   )
 
 
