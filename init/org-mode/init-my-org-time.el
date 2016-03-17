@@ -63,8 +63,6 @@
     (org-clock-persistence-insinuate)
   (shell-command (concat "touch " org-clock-persist-file)))
 
-;; to add an effort estimate "on the fly".
-(add-hook 'org-clock-in-prepare-hook 'org-clock-modify-effort-estimate)
 ;; (add-hook 'org-clock-out-hook 'org-clock-remove-empty-clock-drawer) ; `org-clock-out-remove-zero-time-clocks'
 
 (define-key org-clock-mode-line-map [header-line mouse-2] 'org-clock-goto)
@@ -105,8 +103,7 @@
             (org-clock-play-sound
              "~/.emacs.d/resources/audio/Hacking Game/hesfx_untold_tick2.wav")))
 
-
-
+
 ;;; [ Time Interval ]
 
 (defun org-time-interval (&optional arg)
@@ -122,6 +119,13 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
   (org-deadline arg))
 
 (define-key org-mode-map (kbd "C-c C-x r") 'org-time-interval)
+
+
+;;; [ Effort Estimates ]
+
+;; to add an effort estimate "on the fly".
+(add-hook 'org-clock-in-prepare-hook 'org-clock-modify-effort-estimate)
+(add-hook 'org-clock-in-hook 'org-clock-modify-effort-estimate)
 
 
 ;;; [ org-time-budgets ]
