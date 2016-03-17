@@ -14,40 +14,37 @@
 
 ;;; [ auto-capitalize ]
 
-;;; Usage:
+;; (use-package auto-capitalize
+;;   :ensure t
+;;   :init
+;;   (autoload 'auto-capitalize "auto-capitalize"
+;;     "Autoload function `auto-capitalize'." t)
+;;   (autoload 'auto-capitalize-mode "auto-capitalize"
+;;     "Toggle `auto-capitalize' minor mode in the buffer." t)
+;;   (autoload 'turn-on-auto-capitalize-mode "auto-capitalize"
+;;     "Turn on `auto-capitalize' minor mode in the buffer." t)
+;;   (autoload 'enable-auto-capitalize-mode "auto-capitalize"
+;;     "Enable `auto-capitalize' minor mode in the buffer." t)
+;;   :config
+;;   (setq auto-capitalize-yank nil
+;;         auto-capitalize-words '("\\<Emacs\\>" "\\<Linux\\>"
+;;                                 "\\<Android\>>" "\\<iOS\\>" "\\<Mac\\>")
+;;         ;; TODO: auto-capitalize-predicate
+;;         )
 ;;
-;; - auto capitalize words of an sentence.
-;; - prevent a word in the `auto-capitalize-words' list from being capitalized or upcased in a particular context.
-;;   e.g. ("GNU.emacs.sources"), insert the following whitepsace or punctuation character with:
-;;   `M-x quoted insert' (e.g. `gnu C-q .').
-
-(use-package auto-capitalize
-  ;; :ensure t
-  ;; :config
-  ;; (autoload 'auto-capitalize "auto-capitalize" "Autoload function `auto-capitalize'." t)
-  ;; (autoload 'auto-capitalize-mode "auto-capitalize" "Toggle `auto-capitalize' minor mode in the buffer." t)
-  ;; (autoload 'turn-on-auto-capitalize-mode "auto-capitalize" "Turn on `auto-capitalize' minor mode in the buffer." t)
-  ;; (autoload 'enable-auto-capitalize-mode "auto-capitalize" "Enable `auto-capitalize' minor mode in the buffer." t)
-
-  ;; (setq auto-capitalize-yank nil
-  ;;       auto-capitalize-words '("\\<Emacs\\>" "\\<Linux\\>"
-  ;;                               "\\<Android\>>" "\\<iOS\\>" "\\<Mac\\>")
-  ;;       ;; TODO: auto-capitalize-predicate
-  ;;       )
-
-;;; To turn on (unconditional) capitalization in all Text modes.
-  ;; (turn-on-auto-capitalize-mode)
-;;; To enable (interactive) capitalization in all Text modes.
-  ;; (enable-auto-capitalize-mode)
-
-  ;; (dolist (hook '(text-mode-hook
-  ;;                 org-mode-hook
-  ;;                 markdown-mode-hook
-  ;;                 ;; latex-mode-hook
-  ;;                 ))
-  ;;   (add-hook hook (lambda ()
-  ;;                    (turn-on-auto-capitalize-mode))))
-  )
+;;   ;; To turn on (unconditional) capitalization in all Text modes.
+;;   ;; (turn-on-auto-capitalize-mode)
+;;   ;; To enable (interactive) capitalization in all Text modes.
+;;   ;; (enable-auto-capitalize-mode)
+;;   ;; enable in specific modes.
+;;   (dolist (hook '(text-mode-hook
+;;                   org-mode-hook
+;;                   markdown-mode-hook
+;;                   ;; latex-mode-hook
+;;                   ))
+;;     (add-hook hook (lambda ()
+;;                      (turn-on-auto-capitalize-mode))))
+;;   )
 
 
 ;;; [ electric punctuation ]
