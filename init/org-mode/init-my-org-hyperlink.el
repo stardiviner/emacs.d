@@ -188,11 +188,11 @@ With prefix argument, also display headlines without a TODO keyword."
 
 (org-add-link-type "tag" 'follow-tag-link)
 
+;; append "`man:'" protocol.
+;; `[[man:printf][The printf manpage]]'
+(require 'org-man)
+(setq org-man-command 'man) ; 'man, 'woman.
 
-;; change [C-c C-o] to open [[file://filename.org]] in current window instead of default in other window.
-;; (append) (setq org-link-protocols) ; TODO append custom link protocols into this list.
-;; append "man:" protocol to it, and "firefox:" protocol,
-;;; [C-c C-o] open link at point.
 
 (setq org-link-frame-setup
       '((vm . vm-visit-folder-other-frame)
