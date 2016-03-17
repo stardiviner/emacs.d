@@ -526,6 +526,9 @@ The `BUFFER' is the popwin catch pop private message buffer."
   ;; mingus
   (push '(mingus-playlist-mode :position left) popwin:special-display-config)
 
+  ;; vagrant
+  (push '("*Vagrant*" :position bottom :height 6) popwin:special-display-config)
+
   ;; poporg
   ;; FIXME: not work
   ;; (push '("*poporg:*" :position bottom :height 10) popwin:special-display-config)
