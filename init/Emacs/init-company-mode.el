@@ -9,17 +9,6 @@
 
 ;;; [ Company Mode ]
 
-;; TODO: https://github.com/company-mode/company-mode/wiki/Third-Party-Packages
-
-;;; Annotations:
-;; - <f> :: function
-;; - ->  :: snippet (yasnippet)
-
-;;; Usage:
-;;
-;; - [M-x global-company-mode] ::
-;; - [M-:] -> [M-x company-mode] :: enable company-mode in minibuffer.
-
 (use-package company
   :ensure t
   :config
@@ -280,7 +269,9 @@
   "Setup company-mode in minibuffer."
   (company-mode 1)
   (setq-local company-frontends '(company-pseudo-tooltip-unless-just-one-frontend
-                                  company-preview-if-just-one-frontend)) 
+                                  company-preview-if-just-one-frontend))
+  (setq-local company-tooltip-limit 4)
+  (setq-local company-tooltip-minimum 1)
   )
 
 (add-hook 'eval-expression-minibuffer-setup-hook 'company-mode-minibuffer-setup)
