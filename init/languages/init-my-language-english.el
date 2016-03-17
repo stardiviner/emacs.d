@@ -47,6 +47,58 @@
 ;;   )
 
 
+;;; [ Super Smart Capitalization ]
+
+;; Languages are fleeting. But Emacs is forever.
+;; =>
+;; Languages are fleeting, but Emacs is forever.
+
+(global-set-key "\M-c" 'my/capitalize)
+(global-set-key "\M-l" 'my/downcase)
+(global-set-key "\M-u" 'my/upcase)
+
+(defun my/convert-punctuation (rg rp)
+  "Look for regexp RG around point, and replace with RP.
+Only applies to text-mode."
+  (let ((f "\\(%s\\)\\(%s\\)")
+        (space "?:[[:blank:]\n\r]*"))
+    ;; We obviously don't want to do this in prog-mode.
+    (if (and (derived-mode-p 'text-mode)
+             (or (looking-at (format f space rg))
+                 (looking-back (format f rg space))))
+        (replace-match rp nil nil nil 1))))
+
+(defun my/capitalize ()
+  "Capitalize region or word.
+Also converts commas to full stops, and kills
+extraneous space at beginning of line."
+  (interactive)
+  (my/convert-punctuation "," ".")
+  (if (use-region-p)
+      (call-interactively 'capitalize-region)
+    ;; A single space at the start of a line:
+    (when (looking-at "^\\s-\\b")
+      ;; get rid of it!
+      (delete-char 1))
+    (call-interactively 'subword-capitalize)))
+
+(defun my/downcase ()
+  "Downcase region or word.
+Also converts full stops to commas."
+  (interactive)
+  (my/convert-punctuation "\\." ",")
+  (if (use-region-p)
+      (call-interactively 'downcase-region)
+    (call-interactively 'subword-downcase)))
+
+(defun my/upcase ()
+  "Upcase region or word."
+  (interactive)
+  (if (use-region-p)
+      (call-interactively 'upcase-region)
+    (call-interactively 'subword-upcase)))
+
+
 ;;; [ electric punctuation ]
 
 ;;; auto insert space after punctuation.
