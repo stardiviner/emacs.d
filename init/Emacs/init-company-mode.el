@@ -43,6 +43,9 @@
         company-search-regexp-function #'company-search-flex-regexp
         )
 
+  ;; `company-mode' frontend showing the selection as if it had been inserted.
+  (add-to-list 'company-frontends 'company-preview-frontend)
+  
   ;; use this grouped backends for `company-yasnippet' backend to work.
   (setq company-backends
         '((company-files          ; files & directory
@@ -240,7 +243,6 @@
   ;;               (remq 'company-echo-metadata-frontend company-frontends))
   ;;
   (add-to-list 'company-frontends 'company-quickhelp-frontend)
-  ;; (add-to-list 'company-frontends 'company-preview-frontend)
 
   
   (if (functionp 'company-quickhelp-manual-begin)
