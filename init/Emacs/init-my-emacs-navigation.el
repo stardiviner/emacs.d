@@ -149,6 +149,10 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 (global-set-key (kbd "C-l") 'recenter-top-bottom)
 
 
+;;; [ Imenu ]
+
+(global-set-key (kbd "C-x j") 'imenu)
+
 (provide 'init-my-emacs-navigation)
 
 ;;; init-my-emacs-navigation.el ends here
