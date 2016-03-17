@@ -92,32 +92,29 @@
 
 ;;; [ sly-repl-ansi-color ]
 
-(use-package sly-repl-ansi-color
-  :ensure t
-  :config
-  (add-to-list 'sly-contribs 'sly-repl-ansi-color)
-  )
+;; (use-package sly-repl-ansi-color
+;;   :ensure t
+;;   :config
+;;   (add-to-list 'sly-contribs 'sly-repl-ansi-color)
+;;   )
 
 
 ;;; [ sly-macrostep ] -- Expand CL macros inside source files
 
-(use-package sly-macrostep
-  :ensure t
-  )
+;; (use-package sly-macrostep
+;;   :ensure t)
 
 
-;;; [ sly- ] -- Support named readtables in Common Lisp files.
+;;; [ sly-named-readtables ] -- Support named readtables in Common Lisp files.
 
-(use-package sly-named-readtables
-  :ensure t
-  )
+;; (use-package sly-named-readtables
+;;   :ensure t)
 
 
 ;;; [ sly-quicklisp ] -- Quicklisp support for SLY.
 
-(use-package sly-quicklisp
-  :ensure t
-  )
+;; (use-package sly-quicklisp
+;;   :ensure t)
 
 
 ;;; [ ob-sly ] -- org-babel functions for common lisp evaluation with SLY.
