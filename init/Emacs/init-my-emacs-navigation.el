@@ -153,6 +153,16 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 (global-set-key (kbd "C-x j") 'imenu)
 
+
+;;; [ popup-imenu ]
+
+(use-package popup-imenu
+  :ensure t
+  :config
+  (global-set-key [remap imenu] 'popup-imenu)
+  )
+
+
 (provide 'init-my-emacs-navigation)
 
 ;;; init-my-emacs-navigation.el ends here
