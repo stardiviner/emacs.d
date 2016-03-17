@@ -273,8 +273,17 @@
         company-statistics-size 500
         )
 
-  (company-statistics-mode)
+
+;;; [ company-mode in minibuffer `M-:' ]
+
+(defun company-mode-minibuffer-setup ()
+  "Setup company-mode in minibuffer."
+  (company-mode 1)
+  (setq-local company-frontends '(company-pseudo-tooltip-unless-just-one-frontend
+                                  company-preview-if-just-one-frontend)) 
   )
+
+(add-hook 'eval-expression-minibuffer-setup-hook 'company-mode-minibuffer-setup)
 
 
 ;;; [ company-try-hard ] -- get all completions from company backends.
