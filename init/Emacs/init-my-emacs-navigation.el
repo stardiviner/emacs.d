@@ -156,11 +156,13 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 ;;; [ popup-imenu ]
 
-(use-package popup-imenu
-  :ensure t
-  :config
-  (global-set-key [remap imenu] 'popup-imenu)
-  )
+;; (use-package popup-imenu
+;;   :ensure t
+;;   :config
+;;   (global-set-key [remap imenu] 'popup-imenu)
+;;   ;; close the popup with same key.
+;;   (define-key popup-isearch-keymap (kbd "C-x j") 'popup-isearch-cancel)
+;;   )
 
 
 (provide 'init-my-emacs-navigation)
