@@ -152,25 +152,8 @@
 
 ;;; [ ample-regexp ] -- Compose and reuse Emacs regular expressions with ease.
 
-;;; Usage:
-;;
-;;; <basic usage>
-;;
-;; - The main item of the API is the `define-arx' macro. Let's start with a simple example:
-;;
-;;   (define-arx hello-world-rx '()) ;; -> hello-world-rx
-;;   (hello-world-rx "Hello, world") ;; -> "Hello, world"
-;;   (hello-world-rx (* "Hello, world")) ;; -> "\\(?:Hello, world\\)*"
-;;
-;; `define-arx' defines a macro that converts s-exps into regular
-;; expressions. If you're familiar with `rx' package — if not, I encourage you
-;; to do so — you're probably starting to experience déjà vu. You're right: `rx'
-;; is used underneath, ample-regexps is just a cherry on the pie adding
-;; customization with a hint of syntactic sugar atop.
-
 (use-package ample-regexps
-  :ensure t
-  )
+  :ensure t)
 
 
 ;;; [ Swiper ] -- gives you an overview as you search for a regex.
