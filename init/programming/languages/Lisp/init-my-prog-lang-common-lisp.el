@@ -55,6 +55,12 @@
 (require 'init-sly)
 
 
+;;; [ ob-lisp ] -- org-babel functions for common lisp evaluation with SLY or SLIME.
+
+(use-package ob-lisp
+  :ensure t)
+
+
 (provide 'init-my-prog-lang-common-lisp)
 
 ;;; init-my-prog-lang-common-lisp.el ends here
