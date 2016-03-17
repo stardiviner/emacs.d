@@ -90,11 +90,14 @@
 
 ;;; [ help.el ]
 
-(use-package help+)
+(use-package help+
+  :ensure t)
 
-(use-package help-mode+)
+(use-package help-mode+
+  :ensure t)
 
-(use-package help-fns+)
+(use-package help-fns+
+  :ensure t)
 
 
 
