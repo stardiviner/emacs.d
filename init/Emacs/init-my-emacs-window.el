@@ -283,10 +283,10 @@
   (push '("*Async Shell Command*" :position bottom :height 6 :noselect t :tail t) popwin:special-display-config)
 
   ;; Info
-  (push '(apropos-mode :position bottom :height 10) popwin:special-display-config)
+  (push '(apropos-mode :position bottom :height 6) popwin:special-display-config)
 
   ;; help-mode, *Help*, *Metahelp* (from mode C-h ?)
-  (push '(help-mode :position bottom :height 10) popwin:special-display-config)
+  (push '(help-mode :position bottom :height 6) popwin:special-display-config)
 
   ;; Org-mode
   ;; FIXME: this does not work.
