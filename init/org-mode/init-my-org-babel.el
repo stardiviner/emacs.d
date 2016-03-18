@@ -21,7 +21,7 @@
 ;;; source block header arguments
 (setq org-babel-default-header-args    ; #+BEGIN_SRC ruby :result [output/value]
       '((:session . "none")
-        (:results . "output replace")
+        (:results . "replace")
         (:exports . "both")
         (:cache . "no")
         (:hlines . "no")
@@ -94,7 +94,7 @@
 
 (require 'ob-julia)
 (setq org-babel-default-header-args:julia
-      '((:results . "replace output")
+      '((:results . "output replace")
         (:padnewline . "yes")))
 (add-to-list 'org-src-lang-modes '("julia" . ess-julia))
 
