@@ -25,11 +25,13 @@
   ;;       "-o ControlMaster=auto -o ControlPath='ssh_%C' -o ControlPersist=no")
 
   :config
-
   ;; <default method>
   (setq tramp-default-method "ssh") ; default "scp" (ssh + scp),
   ;; (add-to-list 'tramp-default-method-alist '("" ""))
 
+  ;; speed-up tramp.
+  (setq tramp-completion-reread-directory-timeout nil)
+  
   ;; <default user>
   ;; ssh connect: host, user
   ;; (add-to-list 'tramp-default-user-alist
@@ -52,7 +54,7 @@
   (setq tramp-auto-save-directory "/tmp")
 
   ;; tramp-debug-buffer-name t
-  ;; tramp-verbose 10
+  ;; (setq tramp-verbose 10)
 
 
   ;; change SHELL environment variable to solve Tramp hangs issue.
