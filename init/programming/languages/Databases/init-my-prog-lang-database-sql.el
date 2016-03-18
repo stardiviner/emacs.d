@@ -226,8 +226,8 @@
 
 ;;; [ EmacSQL ] -- high-level SQL database front-end.
 
-(use-package emacsql
-  :ensure t)
+;; (use-package emacsql
+;;   :ensure t)
 
 
 ;;; [ db-sql ] -- Connect to SQL server using tramp syntax.
