@@ -28,6 +28,14 @@
 
 (require 'eshell)
 
+;; load eshell's sudo which use Tramp's su/sudo methods.
+(require 'em-tramp)
+;; Switch to eshell’s sudo
+;; by prefering built-in commands
+(setq eshell-prefer-lisp-functions t
+      eshell-prefer-lisp-variables t)
+(setq password-cache t)
+
 (setq eshell-save-histroy-on-exit t
       eshell-history-size 500
       eshell-hist-ignoredups t
