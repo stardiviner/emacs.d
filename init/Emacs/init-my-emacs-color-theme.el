@@ -23,7 +23,8 @@
 (eval-after-load "color-theme"
   '(progn
      (color-theme-initialize)))
-(setq color-theme-is-global t)
+(setq color-theme-is-global t
+      color-theme-is-cumulative t)
 
 ;; load theme way
 (add-to-list 'custom-theme-load-path "~/.emacs.d/color-themes/")
