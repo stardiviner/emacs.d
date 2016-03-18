@@ -114,7 +114,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 ;; to add an effort estimate "on the fly".
 (add-hook 'org-clock-in-prepare-hook 'org-clock-modify-effort-estimate)
-(add-hook 'org-clock-in-hook 'org-clock-modify-effort-estimate)
+;; (remove-hook 'org-clock-in-hook 'org-clock-modify-effort-estimate)
 
 
 ;;; [ org-time-budgets ]
