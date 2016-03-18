@@ -91,6 +91,10 @@
 ;; might include with #+INCLUDE:. The timestamp mechanism in Org is not smart
 ;; enough to detect if included files have been modified.
 
+
+;;; [ ox-rss ] -- RSS 2.0 Back-End for Org Export Engine.
+
+;; (require 'ox-rss)
 
 
 (provide 'init-my-tool-blog-org)
