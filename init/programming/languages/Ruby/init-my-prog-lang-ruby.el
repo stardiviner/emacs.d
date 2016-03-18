@@ -323,24 +323,25 @@
   ;; (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   ;;   (rvm-activate-corresponding-ruby))
 
+  (defun my-inf-ruby-setup ()
+    (inf-ruby-minor-mode)
+    
+    (make-local-variable 'completion-at-point-functions)
+    ;; from inf-ruby
+    (add-to-list 'completion-at-point-functions 'inf-ruby-completion-at-point)
+
+    ;; from robe-mode
+    ;; (remq 'robe-complete-at-point completion-at-point-functions)
+    ;; (append '(robe-complete-at-point) completion-at-point-functions)
+    ;; use `company-robe' instead, because it support doc and meta etc. info
+    (setq-local company-minimum-prefix-length 3)
+    (my-company-add-backends-to-mode '(company-robe))
+    )
+  
   (dolist (hook '(ruby-mode-hook
                   enh-ruby-mode-hook
                   ))
-    (add-hook hook
-              (lambda ()
-                (inf-ruby-minor-mode)
-                
-                (make-local-variable 'completion-at-point-functions)
-
-                ;; from inf-ruby
-                (add-to-list 'completion-at-point-functions 'inf-ruby-completion-at-point)
-
-                ;; from robe-mode
-                ;; (remq 'robe-complete-at-point completion-at-point-functions)
-                ;; (append '(robe-complete-at-point) completion-at-point-functions)
-                ;; use `company-robe' instead, because it support doc and meta etc. info
-                (my-company-add-backends-to-mode '(company-robe))
-                )))
+    (add-hook hook 'my-inf-ruby-setup))
 
   ;; ruby-mode has keybinding [C-c C-s] for `inf-ruby'.
   ;; auto start robe `robe-start' after start `inf-ruby'.
