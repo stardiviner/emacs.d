@@ -152,21 +152,21 @@ column. Place the point after the comment box."
 
 ;;; [ fic-mode ] --- "fixme in comments (and strings)"
 
-(use-package fic-mode
-  :ensure t
-  :config
-  (setq fic-highlighted-words comment-fic-keywords-list)
-
-  (dolist (hook
-           '(prog-mode-hook
-             ))
-    (add-hook hook #'fic-mode)
-    )
-  
-  (set-face-attribute 'font-lock-fic-face nil
-                      :foreground "dark orange"
-                      :background "#444444")
-  )
+;; (use-package fic-mode
+;;   :ensure t
+;;   :config
+;;   (setq fic-highlighted-words comment-fic-keywords-list)
+;;
+;;   (dolist (hook
+;;            '(prog-mode-hook
+;;              ))
+;;     (add-hook hook #'fic-mode)
+;;     )
+;;
+;;   (set-face-attribute 'font-lock-fic-face nil
+;;                       :foreground "dark orange"
+;;                       :background "#444444")
+;;   )
 
 
 ;;;_* outorg -- Convert source-code buffers temporarily to Org-mode for comment editing.
