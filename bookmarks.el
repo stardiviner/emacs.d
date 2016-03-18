@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Vagrant"
+(("Raspberry Pi"
+ (filename . "~/Org/Wiki/Computer/Hardware/Dev Board/Raspberry Pi/Raspberry Pi.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Vagrant"
  (filename . "~/Org/Wiki/Computer/Softwares/Vagrant/Vagrant.org")
  (front-context-string . "* Intro\n\nVagrant")
  (rear-context-string)
@@ -135,11 +140,6 @@
 ("Hack Methods"
  (filename . "~/Org/Wiki/Computer/Hack/Crack/Data/Methods/Methods.org")
  (front-context-string . "* Linux\n\n** GRUB")
- (rear-context-string)
- (position . 1))
-("Ubuntu (Org)"
- (filename . "~/Org/Wiki/Computer/Systems/Linux/Ubuntu/Ubuntu.org")
- (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
  (position . 1))
 ("TeX Macro Packages"
@@ -395,11 +395,6 @@
 ("Open Source"
  (filename . "~/Org/Wiki/Computer/Programming/Implements/Open Source/Open Source.org")
  (front-context-string)
- (rear-context-string)
- (position . 1))
-("Kali Linux"
- (filename . "~/Org/Wiki/Computer/Systems/Linux/Kali Linux/Kali Linux.org")
- (front-context-string . "* Intro\n\nKali Li")
  (rear-context-string)
  (position . 1))
 ("Docker"
