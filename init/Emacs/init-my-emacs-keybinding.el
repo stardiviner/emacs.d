@@ -231,7 +231,7 @@
             (split-window-below)
             (windmove-down))
       "split vert")
-     ("t" transpose-frame "'" :color blue)
+     ("t" transpose-frame "trans frame" :color blue)
      ("f" my-turn-current-window-into-new-frame "frame" :color blue)
      ("o" delete-other-windows "one" :color red)
      ("a" ace-window "ace" :color cyan)
