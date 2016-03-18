@@ -31,23 +31,6 @@
 (eldoc-add-command 'paredit-backward-delete
                    'paredit-close-round)
 
-;;; add docstring to ElDoc output.
-;;; TODO
-;; (defadvice eldoc-get-fnsym-args-string (after add-dacstring (sym)
-;;                                               activate compile)
-;;   "Add a doc string to ElDoc's modeline information."
-;;   (let ((doc (eldoc-docstring-first-line
-;;               (cdr (help-split-fundoc (documentation sym t) sym)))))
-;;     (when (and doc (not (equal doc "")))
-;;       (setq ad-return-value
-;;             (concat ad-return-value
-;;                     (if (> (+ (length ad-return-value) (length doc) 4)
-;;                            (frame-width)) "\n" "    ")
-;;                     doc))))
-;;   ad-return-value)
-
-
-
 
 (provide 'init-my-prog-document-eldoc)
 
