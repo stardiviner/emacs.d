@@ -16,7 +16,7 @@
 
 (unless (boundp 'my-org-agenda-prefix)
   (define-prefix-command 'my-org-agenda-prefix))
-(define-key my-org-prefix (kbd "M-a") 'my-org-agenda-prefix)
+(define-key my-org-prefix (kbd "C-a") 'my-org-agenda-prefix)
 
 (define-key my-org-prefix (kbd "a")
   (defun my-open-org-agenda ()
@@ -37,11 +37,23 @@
 
 (unless (boundp 'my-org-link-prefix)
   (define-prefix-command 'my-org-link-prefix))
-(define-key my-org-prefix (kbd "M-l") 'my-org-link-prefix)
+(define-key my-org-prefix (kbd "C-l") 'my-org-link-prefix)
 
 (define-key my-org-link-prefix (kbd "L") 'org-insert-link-global)
 (define-key my-org-link-prefix (kbd "l") 'org-store-link)
 (define-key my-org-link-prefix (kbd "o") 'org-open-at-point-global)
+
+
+(unless (boundp 'my-org-clock-prefix)
+  (define-prefix-command 'my-org-clock-prefix))
+(define-key my-org-prefix (kbd "C-c") 'my-org-clock-prefix)
+
+(define-key my-org-clock-prefix (kbd "i") 'org-clock-in-last)
+(define-key my-org-clock-prefix (kbd "s") 'org-clock-select-task)
+(define-key my-org-clock-prefix (kbd "g") 'org-clock-goto)
+(define-key my-org-clock-prefix (kbd "j") 'org-clock-jump-to-current-clock)
+(define-key my-org-clock-prefix (kbd "o") 'org-clock-out)
+(define-key my-org-clock-prefix (kbd "c") 'org-clock-cancel)
 
 
 
