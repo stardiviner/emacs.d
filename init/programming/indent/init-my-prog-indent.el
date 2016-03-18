@@ -236,6 +236,7 @@
   (add-to-list 'aggressive-indent-dont-electric-modes 'ruby-mode)
   (add-to-list 'aggressive-indent-dont-electric-modes 'enh-ruby-mode)
   (add-to-list 'aggressive-indent-dont-electric-modes 'inf-ruby-mode)
+  (add-to-list 'aggressive-indent-dont-electric-modes 'python-mode)
   (add-to-list 'aggressive-indent-dont-electric-modes 'haskell-mode)
   
   ;; (global-aggressive-indent-mode)
