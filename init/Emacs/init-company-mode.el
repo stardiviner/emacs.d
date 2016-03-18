@@ -90,6 +90,7 @@
   ;; (global-set-key (kbd "TAB") 'company-complete)
   ;; (global-set-key [tab] 'company-complete)
   (global-set-key (kbd "M-<tab>") 'company-complete)
+  (global-set-key (kbd "C-M-i") 'company-complete)
 
   ;; yasnippet
   ;; `yas-expand', `yas-expand-from-trigger-key'

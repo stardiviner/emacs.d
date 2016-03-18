@@ -331,7 +331,8 @@
     (add-to-list 'completion-at-point-functions 'inf-ruby-completion-at-point)
 
     ;; from robe-mode
-    ;; (remq 'robe-complete-at-point completion-at-point-functions)
+    (set 'completion-at-point-functions
+         (remq 'robe-complete-at-point completion-at-point-functions))
     ;; (append '(robe-complete-at-point) completion-at-point-functions)
     ;; use `company-robe' instead, because it support doc and meta etc. info
     (setq-local company-minimum-prefix-length 3)

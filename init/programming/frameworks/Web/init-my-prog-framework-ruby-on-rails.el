@@ -78,37 +78,37 @@
   :ensure t
   :init
   (setq projectile-rails-keymap-prefix (kbd "C-c C-r"))
-  ;; (setq projectile-rails-keymap-prefix (kbd "C-c p C-r"))
-
   (add-hook 'projectile-mode-hook 'projectile-rails-on)
   
   :config
   (setq projectile-rails-add-keywords t)
   (setq projectile-rails-expand-snippet t)
-  (setq projectile-rails-server-mode-ansi-colors nil) ; disable it if it is SLOW.
-
-  ;; Custom Keybindings `projectile-rails-mode-map'
-  (defun rails-open-browser-development ()
-    "Browse Rails development url."
-    (interactive)
-    (browse-url "http://127.0.0.1:3000"))
-
-  (define-key projectile-rails-mode-run-map (kbd "O") 'rails-open-browser-development)
-
+  (setq projectile-rails-server-mode-ansi-colors t) ; disable it if it is SLOW.
 
   ;; Enable Ruby on Rails completion between rhtml tag <% ... %> or <%= ... %>.
-  (add-hook 'projectile-rails-mode-hook
-            '(lambda ()
-               (defadvice company-robe (before web-mode-set-up-ac-sources activate)
-                 "Set `robe-mode' based on current language before running `company-robe'."
-                 (if (equal major-mode 'web-mode)
-                     (let ((web-mode-cur-language (web-mode-language-at-pos)))
-                       (if (string= web-mode-cur-language "erb")
-                           (unless robe-mode (robe-mode))
-                         (if robe-mode (robe-mode -1))))))
-               
-               (my-company-add-backends-to-mode '(company-robe))
-               ))
+  (defadvice company-robe (before web-mode-set-up-ac-sources activate)
+    "Set `robe-mode' based on current language before running `company-robe'."
+    (if (equal major-mode 'web-mode)
+        (let ((web-mode-cur-language (web-mode-language-at-pos)))
+          (if (string= web-mode-cur-language "erb")
+              (unless robe-mode (robe-mode))
+            (if robe-mode (robe-mode -1))))))
+
+  (defun my-projectile-rails-setup ()
+    (my-company-add-backends-to-mode '(company-robe))
+    ;; `nil': disable auto complete, manually.
+    (setq-local company-idle-delay .3)
+
+    (defun rails-open-browser-development ()
+      "Browse Rails development url."
+      (interactive)
+      (browse-url "http://127.0.0.1:3000"))
+
+    (define-key projectile-rails-mode-run-map (kbd "O")
+      'rails-open-browser-development)
+    )
+  
+  (add-hook 'projectile-rails-mode-hook 'my-projectile-rails-setup)
   )
 
 
