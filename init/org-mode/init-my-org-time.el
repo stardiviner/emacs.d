@@ -103,6 +103,18 @@
             (org-clock-play-sound
              "~/.emacs.d/resources/audio/Hacking Game/hesfx_untold_tick2.wav")))
 
+
+(unless (boundp 'my-org-clock-prefix)
+  (define-prefix-command 'my-org-clock-prefix))
+(define-key my-org-prefix (kbd "C-c") 'my-org-clock-prefix)
+
+(define-key my-org-clock-prefix (kbd "i") 'org-clock-in-last)
+(define-key my-org-clock-prefix (kbd "s") 'org-clock-select-task)
+(define-key my-org-clock-prefix (kbd "g") 'org-clock-goto)
+(define-key my-org-clock-prefix (kbd "j") 'org-clock-jump-to-current-clock)
+(define-key my-org-clock-prefix (kbd "o") 'org-clock-out)
+(define-key my-org-clock-prefix (kbd "c") 'org-clock-cancel)
+
 
 ;;; [ Time Interval ]
 
