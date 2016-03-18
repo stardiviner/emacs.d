@@ -226,15 +226,15 @@
   :config
 
   ;; workaround of `robe-eldoc'
-  (defun yard-eldoc-message ()
-    (cond
-     ((yard-in-comment-p)
-      (let ((tag (yard-tag-at-point)))
-        (when tag (yard-tag-syntax tag))))
-     ((functionp 'robe-eldoc)
-      (robe-eldoc))))
+  ;; (defun yard-eldoc-message ()
+  ;;   (cond
+  ;;    ((yard-in-comment-p)
+  ;;     (let ((tag (yard-tag-at-point)))
+  ;;       (when tag (yard-tag-syntax tag))))
+  ;;    ((functionp 'robe-eldoc)
+  ;;     (robe-eldoc))))
   
-  (setq yard-use-eldoc t)
+  (setq yard-use-eldoc nil)
   
   (add-hook 'ruby-mode-hook 'yard-mode)
   (add-hook 'enh-ruby-mode-hook 'yard-mode)
