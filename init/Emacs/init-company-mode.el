@@ -44,7 +44,7 @@
         )
 
   ;; `company-mode' frontend showing the selection as if it had been inserted.
-  (add-to-list 'company-frontends 'company-preview-frontend)
+  ;; (add-to-list 'company-frontends 'company-preview-frontend)
   
   ;; use this grouped backends for `company-yasnippet' backend to work.
   (setq company-backends
