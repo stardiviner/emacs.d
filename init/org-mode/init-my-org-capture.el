@@ -24,7 +24,7 @@
 
         ;; Tasks
         ("t" "Add a task into Tasks"
-         entry (file+headline "~/Org/Tasks.org" "Tasks")
+         entry (file "~/Org/Projects/Computer Todos.org")
          ;; "\n* TODO %^{Task} [/]\n\n%?\n\n"
          "\n* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n"
          :empty-lines 1
