@@ -176,6 +176,7 @@
         ("js" . "js")
         ("css" . "css")
         ("java" . "java")
+        ;; ("rhtml" . "html.erb")
         )
       )
 
@@ -210,6 +211,9 @@
 ;; FIXME: this caused org babel block syntax highlighting failed.
 ;; (add-to-list 'org-src-lang-modes '("ruby" . enh-ruby))
 ;; (add-to-list 'org-src-lang-modes (cons "ruby" 'enh-ruby))
+
+(with-eval-after-load 'web-mode
+  (add-to-list 'org-src-lang-modes '("rhtml" . web)))
 
 
 ;;;_ + ditaa & PlantUML & Graphviz
