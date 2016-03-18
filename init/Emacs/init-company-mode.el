@@ -254,16 +254,19 @@
 
 ;;; [ company-statistics ]
 
-(use-package company-statistics
-  ;; :ensure t
-  :config
-  (setq company-statistics-auto-restore t
-        company-statistics-auto-save t
-        company-statistics-file "~/.emacs.d/.company-statistics-cache.el"
-        ;; company-statistics-score-calc 'company-statistics-score-calc-default
-        ;; company-statistics-score-change 'company-statistics-score-change-default
-        company-statistics-size 500
-        )
+;; (use-package company-statistics
+;;   ;; :ensure t
+;;   :config
+;;   (setq company-statistics-auto-restore t
+;;         company-statistics-auto-save t
+;;         company-statistics-file "~/.emacs.d/.company-statistics-cache.el"
+;;         ;; company-statistics-score-calc 'company-statistics-score-calc-default
+;;         ;; company-statistics-score-change 'company-statistics-score-change-default
+;;         company-statistics-size 500
+;;         )
+;;
+;;   (company-statistics-mode)
+;;   )
 
 
 ;;; [ company-mode in minibuffer `M-:' ]
