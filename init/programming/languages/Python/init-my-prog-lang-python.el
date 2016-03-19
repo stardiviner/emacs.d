@@ -45,7 +45,9 @@
   
   (add-hook 'elpy-mode-hook
             (lambda ()
-              (my-company-add-backends-to-mode '(elpy-company-backend))))
+              (my-company-add-backends-to-mode '(elpy-company-backend))
+              (define-key my-prog-help-document-map (kbd "d") 'elpy-doc)
+              ))
   )
 
 
