@@ -277,6 +277,20 @@ they are gracefully ignored."
 ;;   (ace-link-setup-default))
 
 
+;;; [ conkeror-minor-mode ] -- mode for editing conkeror javascript files.
+
+(use-package conkeror-minor-mode
+  :ensure t
+  :config
+  (add-hook 'js2-mode-hook
+            (lambda ()
+              (when (string= ".conkerorrc" (buffer-name))
+                (conkeror-minor-mode 1))
+              (when (string-match "conkeror" (buffer-file-name))
+                (conkeror-minor-mode 1))))
+  )
+
+
 (provide 'init-my-tool-browser)
 
 ;;; init-my-tool-browser.el ends here
