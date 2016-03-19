@@ -42,6 +42,8 @@
   :config
   (elpy-enable)
   (setq elpy-rpc-backend "jedi")
+
+  (setq python-indent 4)
   
   (add-hook 'elpy-mode-hook
             (lambda ()
