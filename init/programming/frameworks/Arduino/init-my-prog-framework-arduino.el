@@ -21,7 +21,7 @@
 (use-package company-arduino
   :ensure t
   :init
-  (setenv "ARDUINO_HOME" "/usr/share/arduino/")
+  (setenv "ARDUINO_HOME" "/usr/share/arduino")
   :config
   (add-hook 'arduino-mode-hook
             (lambda ()
