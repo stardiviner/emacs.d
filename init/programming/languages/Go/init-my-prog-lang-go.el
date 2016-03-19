@@ -211,9 +211,7 @@
 ;; [ ob-go ]
 
 (use-package ob-go
-  :ensure t
-  :defer t
-  )
+  :ensure t)
 
 
 (provide 'init-my-prog-lang-go)
