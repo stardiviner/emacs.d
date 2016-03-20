@@ -268,39 +268,38 @@
 
 ;;; [ org-notify ]
 
-(use-package org-plus-contrib
-  :ensure t
-  :config
-  (require 'org-notify)
-  (setq org-notify-audible t)
-  
-  ;; ---------------------------------------------------------
-  ;; List of possible parameters:
-  ;;
-  ;;   :time      Time distance to deadline, when this type of notification shall
-  ;;              start.  It's a string: an integral value (positive or negative)
-  ;;              followed by a unit (s, m, h, d, w, M).
-  ;;   :actions   A function or a list of functions to be called to notify the
-  ;;              user.  Instead of a function name, you can also supply a suffix
-  ;;              of one of the various predefined `org-notify-action-xxx'
-  ;;              functions.
-  ;;
-  ;;   :actions -ding, -notify, -window, -notify/window, -message, -email,
-  ;;
-  ;;   :period    Optional: can be used to repeat the actions periodically.
-  ;;              Same format as :time.
-  ;;   :duration  Some actions use this parameter to specify the duration of the
-  ;;              notification.  It's an integral number in seconds.
-  ;;   :audible   Overwrite the value of `org-notify-audible' for this action.
-  ;; ---------------------------------------------------------
+(require 'org-notify)
 
-  (org-notify-add 'default
-                  '(:time "1h" :period "2h" :duration 8
-                          :actions (-notify -ding))
-                  )
+(setq org-notify-audible t)
 
-  (org-notify-start 60)
-  )
+;; ---------------------------------------------------------
+;; List of possible parameters:
+;;
+;;   :time      Time distance to deadline, when this type of notification shall
+;;              start.  It's a string: an integral value (positive or negative)
+;;              followed by a unit (s, m, h, d, w, M).
+;;   :actions   A function or a list of functions to be called to notify the
+;;              user.  Instead of a function name, you can also supply a suffix
+;;              of one of the various predefined `org-notify-action-xxx'
+;;              functions.
+;;
+;;   :actions -ding, -notify, -window, -notify/window, -message, -email,
+;;
+;;   :period    Optional: can be used to repeat the actions periodically.
+;;              Same format as :time.
+;;   :duration  Some actions use this parameter to specify the duration of the
+;;              notification.  It's an integral number in seconds.
+;;   :audible   Overwrite the value of `org-notify-audible' for this action.
+;; ---------------------------------------------------------
+
+(org-notify-add 'default
+                '(:time "1h" :period "2h" :duration 8
+                        :actions (-notify/window -ding)
+                        :audible nil)
+                )
+
+(org-notify-start 60)
+
 
 
 ;;; bind key [C-l] to locate to current time: "now -----" in Org-Agenda buffer.

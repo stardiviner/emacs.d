@@ -64,22 +64,20 @@
 
 ;;; [ org-contacts ] -- Contacts management in Org-mode.
 
-(use-package org-contacts
-  :ensure t
-  :config
+(require 'org-contacts)
 
-  (setq org-contacts-files '("~/Org/Contacts/Contacts.org")
-        ;; org-contacts-icon-use-gravatar (fboundp 'gravatar-retrieve)
-        org-contacts-icon-use-gravatar nil
-        org-contacts-icon-property "AVATAR"
-        org-contacts-icon-size 32
-        org-contacts-enable-completion t ; enable in message-mode.
-        )
+(setq org-contacts-files '("~/Org/Contacts/Contacts.org")
+      ;; org-contacts-icon-use-gravatar (fboundp 'gravatar-retrieve)
+      org-contacts-icon-use-gravatar nil
+      org-contacts-icon-property "AVATAR"
+      org-contacts-icon-size 32
+      org-contacts-enable-completion t ; enable in message-mode.
+      )
 
-  (add-to-list 'org-capture-templates
-               '("C" "Contacts"
-                 entry (file "~/Org/Contacts/Contacts.org")
-                 "* %(org-contacts-template-name)
+(add-to-list 'org-capture-templates
+             '("C" "Contacts"
+               entry (file "~/Org/Contacts/Contacts.org")
+               "* %(org-contacts-template-name)
 :PROPERTIES:
 :NAME: %^{Name}
 :NAME(Chinese): %^{Name(Chinese)}
@@ -106,28 +104,28 @@
 :PROGRAMMING-SKILLS: %^{Programming Skills}
 :SKILLS: %^{Skills}
 :END:"
-                 :empty-lines 1
-                 :jump-to-captured t
-                 ))
+               :empty-lines 1
+               :jump-to-captured t
+               ))
 
-  ;; TODO: add more custom complete functions.
-  ;; (add-to-list 'org-contacts-complete-functions 'func)
+;; TODO: add more custom complete functions.
+;; (add-to-list 'org-contacts-complete-functions 'func)
 
-  ;; (add-to-list 'org-property-set-functions-alist
-  ;;              '(".*" . org-completing-read))
+;; (add-to-list 'org-property-set-functions-alist
+;;              '(".*" . org-completing-read))
 
-  (setq org-contacts-matcher
-        "NAME<>\"\"|EMAIL<>\"\"|Mailing-List<>\"\"|ALIAS<>\"\"|RELATIONSHIP<>\"\"|PHONE<>\"\"|ADDRESS<>\"\"|BIRTHDAY<>\"\"|PROGRAMMING-SKILLS<>\"\"|SKILLS<>\"\"|EDUCATION<>\"\"|JOBS<>\"\"|NOTE"
-        )
-  
-  ;; Create agenda view for contacts matching NAME.
-  ;; (define-key my-org-prefix (kbd "b") 'org-contacts)
+(setq org-contacts-matcher
+      "NAME<>\"\"|EMAIL<>\"\"|Mailing-List<>\"\"|ALIAS<>\"\"|RELATIONSHIP<>\"\"|PHONE<>\"\"|ADDRESS<>\"\"|BIRTHDAY<>\"\"|PROGRAMMING-SKILLS<>\"\"|SKILLS<>\"\"|EDUCATION<>\"\"|JOBS<>\"\"|NOTE"
+      )
 
-  (dolist (hook '(message-mode-hook
-                  mu4e-compose-mode-hook
-                  ))
-    (add-hook hook 'org-contacts-setup-completion-at-point))
-  )
+;; Create agenda view for contacts matching NAME.
+;; (define-key my-org-prefix (kbd "b") 'org-contacts)
+
+(dolist (hook '(message-mode-hook
+                mu4e-compose-mode-hook
+                ))
+  (add-hook hook 'org-contacts-setup-completion-at-point))
+
 
 
 ;;; [ org-screenshot ] -- Take and manage screenshots in Org-mode files.
