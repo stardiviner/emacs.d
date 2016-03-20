@@ -59,7 +59,11 @@
                '(file))
          (list (openwith-make-extension-regexp
                 '("xbm" "pbm" "pgm" "ppm" "pnm"
-                  "png" "gif" "bmp" "tif" "jpeg" "jpg"))
+                  ;; don't open normal images with external program. use Emacs
+                  ;; buffer to display inline image.
+                  ;;
+                  ;; "png" "gif" "bmp" "tif" "jpeg" "jpg"
+                  ))
                "sxiv"
                '(file))
          (list (openwith-make-extension-regexp
@@ -69,7 +73,9 @@
          '("\\.lyx" "lyx" (file))
          '("\\.chm" "kchmviewer" (file))
          (list (openwith-make-extension-regexp
-                '("pdf" "ps" "ps.gz" "dvi"))
+                '("ps" "ps.gz" "dvi"
+                  ;; "pdf"
+                  ))
                "okular"
                '(file))
          ))

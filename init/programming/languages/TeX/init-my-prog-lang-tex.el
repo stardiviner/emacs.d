@@ -71,10 +71,6 @@
 ;;       preview-auto-reveal
 ;;       preview-auto-cache-preamble 'ask
 ;;       )
-;;
-;; fix iimage-mode auto open preview inline image with external program.
-(add-hook 'latex-mode-hook 'turn-off-iimage-mode)
-(add-hook 'LaTeX-mode-hook 'turn-off-iimage-mode)
 
 ;; view generated PDF with `pdf-tools'.
 (unless (assoc "PDF Tools" TeX-view-program-list-builtin)
