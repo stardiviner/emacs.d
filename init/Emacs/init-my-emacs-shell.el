@@ -84,7 +84,7 @@ PWD is not in a git repo (or the git command is not found)."
               "]")
       )))
 
-;; eshell prompt
+;; Eshell prompt
 (setq eshell-prompt-function
       #'(lambda ()
           ;; (concat
