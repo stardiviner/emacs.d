@@ -24,14 +24,19 @@
 ;; `dired-do-shell-command' does not know (by default) how to handle some
 ;; filetypes.
 (setq dired-guess-shell-alist-user
-      '(("\\.pdf\\'" (if (exec-installed-p "okular")
+      '(
+        ;; PDF
+        ("\\.pdf\\'" (if (exec-installed-p "okular")
                          "okular"
-                       "evince"))       ; PDF
-        ("\\.mm\\'" (if (exec-installed-p "freeplane")
-                        "freeplane"
-                      "freemind"))      ; Mind Maps
-        ("\\.tex\\'" "pdflatex")        ; TeX
-        ("\\.ods\\'\\|\\.xlsx?\\'\\|\\.docx?\\'\\|\\.csv\\'" "libreoffice") ; Office
+                       "evince"))
+        ;; Mind Maps
+        ("\\.mm\\'" (if (exec-installed-p "freemind")
+                        "freemind"
+                      "freeplane"))
+        ;; TeX
+        ("\\.tex\\'" "pdflatex")
+        ;; Office
+        ("\\.ods\\'\\|\\.xlsx?\\'\\|\\.docx?\\'\\|\\.csv\\'" "libreoffice")
         ))
 
 ;; Another thing that did annoy me was the fact that when I traverse the
