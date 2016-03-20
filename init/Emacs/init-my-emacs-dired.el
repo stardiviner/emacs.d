@@ -10,12 +10,12 @@
 ;;; [ Dired ] (Directory editing mode)
 
 ;;; Usage:
-;; - [C-x d] -- dired (cond 'helm-mode (helm-mode-dired))
+;; - [C-x d] -- dired
 ;; - [C-x C-d] -- simple entry list.
 ;; - [C-u C-x C-d] -- detail entry list.
 
 (require 'dired)
-(setq dired-bind-jump nil) ; don't bind [C-x C-j] from `dired-x'.
+(setq dired-bind-jump nil) ; don't bind [C-x C-j] from `dired-x'. (conflict with `ace-window')
 (require 'dired-x)
 (require 'wdired)
 
@@ -182,39 +182,16 @@ URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'"
 
 ;;; [ peep-dired ] -- A convienent way to look up file contents in other window while browsing directory in dired
 
-;;; Usage:
-;;
-;; - [C-n/p] :: scroll, and auto display file content.
-;; - [SPC], [C-SPC] / [backspace] :: scroll file content down/up.
-
 (use-package peep-dired
   :ensure t
   :config
-  ;; When disabling the mode you can choose to kill the buffers that were opened
-  ;; while browsing the directories.
-  (setq peep-dired-cleanup-on-disable t)
-  ;; Or you can choose to kill the buffer just after you move to another entry in
-  ;; the dired buffer.
-  (setq peep-dired-cleanup-eagerly t)
-  ;; If you want the dired buffers that were peeped to have the mode enabled set
-  ;; it to true.
-  (setq peep-dired-enable-on-directories nil)
+  (setq peep-dired-cleanup-on-disable t
+        peep-dired-cleanup-eagerly nil
+        peep-dired-enable-on-directories t
+        peep-dired-ignored-extensions '("mkv" "iso" "mp4")
+        )
 
-  ;; Ignoring Certain File Extensions
-  (setq peep-dired-ignored-extensions '("mkv" "iso" "mp4"))
-
-  ;; Evil integration
-  ;;
-  ;; Adjust the state name depending on an evil state you open dired in:
-  ;;
-  ;; (evil-define-key 'normal peep-dired-mode-map (kbd "<SPC>") 'peep-dired-scroll-page-down
-  ;;                  (kbd "C-<SPC>") 'peep-dired-scroll-page-up
-  ;;                  (kbd "<backspace>") 'peep-dired-scroll-page-up
-  ;;                  (kbd "j") 'peep-dired-next-file
-  ;;                  (kbd "k") 'peep-dired-prev-file)
-  ;; (add-hook 'peep-dired-hook 'evil-normalize-keymaps)
-
-  ;; FIXME:
+  ;; FIXME: this hook does not work.
   ;; (add-hook 'dired-mode-hook 'peep-dired)
   )
 
