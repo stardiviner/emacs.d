@@ -32,9 +32,7 @@
 
 ;;; [ Effort ]
 
-(setq org-effort-property "Effort"
-      org-time-clocksum-use-effort-durations nil
-      )
+(setq org-time-clocksum-use-effort-durations nil)
 
 
 ;;; TODOs status
