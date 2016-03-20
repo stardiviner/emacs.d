@@ -135,10 +135,12 @@ PWD is not in a git repo (or the git command is not found)."
       )
 
 (add-hook 'eshell-mode-hook
-          '(lambda ()
-             (eshell-cmpl-initialize)
-             (company-mode 1)
-             ))
+          (lambda ()
+            (eshell-cmpl-initialize)
+            (company-mode 1)
+            (define-key company-active-map [return] 'company-complete-selection)
+            (define-key company-active-map "\r" 'company-complete-selection)
+            ))
 
 (defun my-smart-eshell (&optional arg)
   "Smart set directory path."
