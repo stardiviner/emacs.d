@@ -41,6 +41,8 @@
         slime-fuzzy-completion-in-place t
         slime-enable-evaluate-in-emacs t)
 
+  ;; (setq slime-auto-start 'ask)
+  
   ;; (add-hook 'slime-load-hook
   ;;           #'(lambda ()
   ;;               (define-key slime-prefix-map (kbd "M-h")
