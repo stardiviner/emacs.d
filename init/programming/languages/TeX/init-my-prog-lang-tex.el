@@ -115,12 +115,11 @@ character(s), in which case it deletes the space(s) first."
 
 (eval-after-load 'tex '(define-key TeX-mode-map "~" 'electric-tie))
 
-(add-hook
- 'TeX-mode-hook
- (lambda ()
-   (font-lock-add-keywords
-    nil
-    '(("~" . 'font-latex-sedate-face)))))
+(add-hook 'TeX-mode-hook
+          (lambda ()
+            (font-lock-add-keywords
+             nil
+             '(("~" . 'font-latex-sedate-face)))))
 
 
 ;;; [ company-auctex ] & [ company-math ]

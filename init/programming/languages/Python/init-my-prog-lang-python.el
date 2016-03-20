@@ -91,8 +91,18 @@
             ;; inferior-python
             (define-key python-mode-map (kbd "C-c C-s") 'run-python)
             ))
+
+;; FIXME: `python-shell-send-setup-code' makes inferior buffer has file name under dir.
+;; FIXME: [RET] send code will cause this issue too.
+(defun python-shell-send-setup-code ()
+  )
 ;; (setq inferior-python-mode-hook '(python-shell-send-setup-code))
+
+;; FIXME:
+;; `company-anaconda' is very slow.
 ;; (setq inferior-python-mode-hook nil)
+
+;; capf has `python-shell-completion-complete-at-point' is slow too.
 
 (add-hook 'inferior-python-mode-hook
           '(lambda ()

@@ -12,14 +12,14 @@
 (setq sh-indentation 2)
 
 (add-hook 'sh-mode-hook
-          '(lambda ()
-             ;; FIXME: sh-mode original complete function does not work.
-             ;; (delq 'sh-completion-at-point-function 'completion-at-point-functions)
-             (setq-local completion-at-point-functions nil)
+          (lambda ()
+            ;; FIXME: sh-mode original complete function does not work.
+            ;; (delq 'sh-completion-at-point-function 'completion-at-point-functions)
+            (setq-local completion-at-point-functions nil)
 
-             ;; disable `company-files' to fix sh-mode typing freezing.
-             (delq 'company-files company-backends)
-             ))
+            ;; disable `company-files' to fix sh-mode typing freezing.
+            ;; (delq 'company-files company-backends)
+            ))
 
 
 ;;; [ Bash ]

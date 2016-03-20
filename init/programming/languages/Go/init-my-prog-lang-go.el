@@ -128,7 +128,7 @@
 (use-package gorepl-mode
   :ensure t
   :config
-  ;; default setup mapping
+  ;; default setup mapping (this will override `go-goto-map')
   ;; (add-hook 'go-mode-hook #'gorepl-mode)
 
   ;; custom mapping
@@ -193,7 +193,10 @@
 ;;; [ go-guru ] -- Integration of the Go 'guru' analysis tool into Emacs.
 
 (use-package go-guru
-  :ensure t)
+  :ensure t
+  :config
+  ;; (setq go-guru-scope)
+  )
 
 
 ;;; [ gotest ] -- Launch GO unit tests

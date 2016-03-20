@@ -401,6 +401,7 @@
                                                     ;; company-web-jade
                                                     ;; company-web-slim
                                                     ;; company-nxml
+                                                    ;; :with company-css
                                                     company-tern
                                                     :with
                                                     company-jquery

@@ -25,7 +25,7 @@
 
 
 ;; [ git-modes ] -- front end wrapper for vc-git.
-;;
+
 ;; The git-emacs package implements almost the same functionality, as the git.el
 ;; package, but it also has some improvements, mostly in the user interface
 ;;

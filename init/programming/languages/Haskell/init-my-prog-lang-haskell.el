@@ -94,7 +94,7 @@
   )
 
 
-;;; [ company-ghc ]
+;;; [ company-ghc ] -- company-mode back-end for haskell-mode via ghc-mod.
 
 (use-package company-ghc
   :ensure t

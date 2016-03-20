@@ -78,8 +78,6 @@
   (setq projectile-keymap-prefix (kbd "C-c p"))
   
   :config
-  ;; Indexing method
-  (setq projectile-use-native-indexing t)
   ;; Caching: nil, (* 10 60) [10 minutes],
   (setq projectile-enable-caching t
         ;; remote file exists cache expire to 10 minutes
