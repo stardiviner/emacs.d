@@ -79,3 +79,5 @@ image-dired/
 /anaconda-mode/
 /games
 /newsticker
+
+.python-environments/
