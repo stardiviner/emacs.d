@@ -189,6 +189,9 @@ URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'"
 
 (use-package peep-dired
   :ensure t
+  :defer t ; don't access `dired-mode-map' until `peep-dired' is loaded
+  :bind (:map dired-mode-map
+              ("P" . peep-dired))
   :config
   (setq peep-dired-cleanup-on-disable t
         peep-dired-cleanup-eagerly nil
