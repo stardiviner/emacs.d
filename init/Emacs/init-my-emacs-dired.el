@@ -194,7 +194,7 @@ URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'"
               ("P" . peep-dired))
   :config
   (setq peep-dired-cleanup-on-disable t
-        peep-dired-cleanup-eagerly nil
+        peep-dired-cleanup-eagerly t
         peep-dired-enable-on-directories t
         peep-dired-ignored-extensions '("mkv" "iso" "mp4")
         )
