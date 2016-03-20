@@ -1,4 +1,4 @@
-;;; init-my-tool-email-gnus.el --- init for Gnus
+;;; init-gnus.el --- init for Gnus
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -125,7 +125,8 @@
 
 ;; display
 (setq mm-text-html-renderer 'gnus-w3m
-      mm-inline-large-images t)
+      mm-inline-large-images t
+      mm-inline-text-html-with-images t)
 (auto-image-file-mode) ; auto load image file
 (add-to-list 'mm-attachment-override-types "image/*") ; attachment display image
 
@@ -425,6 +426,6 @@
 (define-key my-email-prefix (kbd "g") 'gnus)
 
 
-(provide 'init-my-tool-email-gnus)
+(provide 'init-gnus)
 
-;;; init-my-tool-email-gnus.el ends here
+;;; init-gnus.el ends here

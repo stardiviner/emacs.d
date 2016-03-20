@@ -61,8 +61,8 @@
 
 
 
-(require 'init-my-tool-email-gnus)
-(require 'init-my-tool-email-mu4e)
+(require 'init-gnus)
+(require 'init-mu4e)
 
 
 (provide 'init-my-tool-email)

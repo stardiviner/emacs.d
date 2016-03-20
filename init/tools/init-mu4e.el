@@ -1,4 +1,4 @@
-;;; init-my-tool-email-mu4e.el --- an e-mail client for Emacs
+;;; init-mu4e.el --- an e-mail client for Emacs
 ;;
 ;;; Commentary:
 
@@ -1069,6 +1069,6 @@
 
 
 
-(provide 'init-my-tool-email-mu4e)
+(provide 'init-mu4e)
 
-;;; init-my-tool-email-mu4e.el ends here
+;;; init-mu4e.el ends here
