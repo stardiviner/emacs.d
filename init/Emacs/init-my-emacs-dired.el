@@ -232,7 +232,8 @@ URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'"
 
 ;;; [ image in Dired ]
 
-(setq diredp-image-preview-in-tooltip 100)
+(setq image-dired-thumb-size 100
+      diredp-image-preview-in-tooltip 100)
 
 (add-hook 'dired-mode-hook 'tooltip-mode)
 
