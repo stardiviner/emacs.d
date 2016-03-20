@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: babel-gnuplot-ascii
+# key: babel-gnuplot-ascii
+# group: babel
+# --
+#+BEGIN_SRC gnuplot :session none :results output verbatim
+set term dumb
+
+plot $0
+#+END_SRC
