@@ -137,6 +137,7 @@
   (global-set-key [remap load-library] 'counsel-load-library)
   (global-set-key [remap load-theme] 'counsel-load-theme)
   (global-set-key [remap locate] 'counsel-locate)
+  (global-set-key (kbd "C-c #") 'counsel-linux-app)
   )
 
 
