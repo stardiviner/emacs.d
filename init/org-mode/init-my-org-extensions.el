@@ -65,6 +65,7 @@
 ;;; [ org-contacts ] -- Contacts management in Org-mode.
 
 (use-package org-contacts
+  :ensure t
   :config
 
   (setq org-contacts-files '("~/Org/Contacts/Contacts.org")
