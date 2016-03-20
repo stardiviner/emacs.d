@@ -58,7 +58,9 @@
 ;;; [ ob-lisp ] -- org-babel functions for common lisp evaluation with SLY or SLIME.
 
 (use-package ob-lisp
-  :ensure t)
+  :ensure t
+  :config
+  (setq org-babel-lisp-eval-fn "sly-eval"))
 
 
 (provide 'init-my-prog-lang-common-lisp)
