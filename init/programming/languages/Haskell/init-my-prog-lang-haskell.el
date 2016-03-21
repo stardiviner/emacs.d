@@ -81,6 +81,15 @@
   (add-hook 'w3m-display-hook 'w3m-haddock-display)
   (setq haskell-w3m-haddock-dirs '("~/.cabal/share/doc/"))
   (define-key haskell-mode-map (kbd "C-c C-d") 'haskell-w3m-open-haddock)
+  
+  ;; auto start `inf-haskell'
+  (defun my-haskell-interactive-start ()
+    (interactive)
+    (unless (not (get-buffer "*haskell*"))
+      (haskell-interactive-bring)
+      (bury-buffer)))
+
+  (add-hook 'haskell-mode-hook 'my-haskell-interactive-start)
   )
 
 
