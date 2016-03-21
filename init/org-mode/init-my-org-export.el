@@ -181,9 +181,13 @@ pasting on sites like GitHub, and Stack Overflow."
              ))
 
 
-
-;;; Beamer
+;;; [ Beamer ]
 (require 'ox-beamer)
+
+
+;;; [ Mindmap ]
+
+(require 'ox-freemind)
 
 
 (provide 'init-my-org-export)
