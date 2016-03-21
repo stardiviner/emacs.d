@@ -49,13 +49,13 @@
   (define-key my-prog-inferior-map (kbd "h") 'haskell-interactive-switch)
 
   (define-key haskell-mode-map (kbd "C-c C-s") 'haskell-interactive-bring)
+  (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
   (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
   (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
   (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
   (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
-  (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
   (define-key haskell-mode-map (kbd "C-c M-c") 'haskell-process-cabal)
-  (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
+  ;; (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
   
   ;; (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def)
   ;; (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-tag-find)
@@ -94,6 +94,24 @@
   )
 
 
+;;; [ ghc ]
+
+(use-package ghc
+  :ensure t
+  :config
+  (add-hook 'haskell-mode-hook #'ghc-init)
+
+  ;; if you wish to display error each goto next/prev error,
+  (setq ghc-display-error 'minibuffer)
+  )
+
+
+;;; [ ghci-completion ] -- completion for GHCi commands in inferior-haskell buffers.
+
+(use-package ghci-completion
+  :ensure t)
+
+
 ;;; [ company-ghc ] -- company-mode back-end for haskell-mode via ghc-mod.
 
 (use-package company-ghc
@@ -102,20 +120,29 @@
   (setq company-ghc-show-info t
         company-ghc-show-module t
         )
-  
-  (add-hook 'haskell-mode-hook
-            '(lambda ()
-               (my-company-add-backends-to-mode
-                '(company-ghc company-ghci company-cabal))))
+  ;; (add-to-list 'company-backends 'company-ghc)
   )
 
 
-;;; [ company-ghci ]
+;;; [ company-ghci ] -- company backend which uses the current ghci process.
+
+(use-package company-ghci
+  :ensure t
+  :config
+  ;; (add-to-list 'company-backends 'company-ghci)
+  )
 
 
-;;; [ company-cabal ]
+;;; [ company-cabal ] -- company-mode back-end for haskell-cabal-mode.
+
+;; (use-package company-cabal
+;;   :ensure t
+;;   :config
+;;   ;; (add-to-list 'company-backends 'company-cabal)
+;;   )
 
 
+
 (dolist (hook '(haskell-mode-hook
                 haskell-interactive-mode-hook
                 ;; inferior-haskell-mode-hook (deprecated)
@@ -125,28 +152,9 @@
                (my-company-add-backends-to-mode
                 '(company-ghc
                   company-ghci
-                  company-cabal))
+                  ;; company-cabal
+                  ))
                )))
-
-
-;;; [ ghc ]
-
-(use-package ghc
-  :ensure t
-  :config
-  (autoload 'ghc-init "ghc" nil t)
-  (autoload 'ghc-debug "ghc" nil t)
-  (add-hook 'haskell-mode-hook '(lambda () (ghc-init)))
-
-  ;; if you wish to display error each goto next/prev error,
-  (setq ghc-display-error 'minibuffer)
-  )
-
-
-;;; [ ghci-completion ]
-
-(use-package ghci-completion
-  :ensure t)
 
 
 ;;; [ ebal ] -- Emacs interface to Cabal and Stack.
