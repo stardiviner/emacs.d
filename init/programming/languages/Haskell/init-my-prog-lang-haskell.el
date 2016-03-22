@@ -12,15 +12,14 @@
 (use-package haskell-mode
   :ensure t
   :config
-  (setq haskell-stylish-on-save nil)
-  (setq haskell-font-lock-symbols t)
+  (setq haskell-font-lock-symbols t
+        haskell-stylish-on-save nil
+        haskell-tags-on-save t)
   
   (add-hook 'haskell-mode-hook
             '(lambda ()
                ;; indent
                (turn-on-haskell-indent) ; `intelligent' Haskell indentation mode
-               ;; (turn-on-haskell-indentation) ; haskell-indentation minor mode
-               ;; disable `aggressive-indent-mode' in `haskell-mode'.
                (aggressive-indent-mode -1)
                ;; doc
                (turn-on-haskell-doc-mode)
@@ -36,7 +35,7 @@
         haskell-process-auto-import-loaded-modules t
         haskell-process-log t
         haskell-interactive-mode-eval-mode 'haskell-mode
-        haskell-tags-on-save t)
+        )
 
   (add-hook 'haskell-mode-hook
             '(lambda ()
@@ -129,6 +128,7 @@
   (setq company-ghc-show-info t
         company-ghc-show-module t
         )
+  
   ;; (add-to-list 'company-backends 'company-ghc)
   )
 
