@@ -92,6 +92,14 @@
   )
 
 
+;;; [ hindent ] -- Haskell indent.
+
+;; (use-package hindent
+;;   :ensure t
+;;   :config
+;;   (add-hook 'haskell-mode-hook #'hindent-mode))
+
+
 ;;; [ flycheck-haskell ]
 
 (use-package flycheck-haskell
