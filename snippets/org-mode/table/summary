@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: table summary
+# key: table-summary
+# group: table
+# --
+#+NAME: $1
+| Category              | Amount |
+|-----------------------+--------|
+| $0                      |        |
+|-----------------------+--------|
+| Total:                |   0.00 |
+#+TBLFM: @>\$2=vsum(@2..@-1);%.2f

@@ -30,11 +30,25 @@
   (require 'haskell-interactive-mode)
   (require 'haskell-process)
   
-  (setq haskell-process-suggest-remove-import-lines t
+  (setq haskell-process-type 'cabal-repl
+        haskell-process-args-cabal-repl '("--ghc-option=-ferror-spans"
+                                          "--with-ghc=ghci-ng")
+        haskell-process-suggest-remove-import-lines t
+        haskell-process-suggest-haskell-docs-imports t
         haskell-process-suggest-hoogle-imports t
         haskell-process-auto-import-loaded-modules t
         haskell-process-log t
+        haskell-process-use-presentation-mode t
         haskell-interactive-mode-eval-mode 'haskell-mode
+        haskell-complete-module-preferred '("Data.ByteString"
+                                            "Data.ByteString.Lazy"
+                                            "Data.Conduit"
+                                            "Data.Function"
+                                            "Data.List"
+                                            "Data.Map"
+                                            "Data.Maybe"
+                                            "Data.Monoid"
+                                            "Data.Ord")
         )
 
   (add-hook 'haskell-mode-hook
@@ -54,7 +68,6 @@
   (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
   (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
   (define-key haskell-mode-map (kbd "C-c M-c") 'haskell-process-cabal)
-  ;; (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
   
   ;; (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def)
   ;; (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-tag-find)
@@ -74,12 +87,31 @@
   
   (define-key haskell-interactive-mode-map (kbd "C-c C-v") 'haskell-interactive-toggle-print-mode)
 
+  (defun haskell-insert-doc ()
+    "Insert the documentation syntax."
+    (interactive)
+    (insert "-- | "))
+
+  (defun haskell-insert-undefined ()
+    "Insert undefined."
+    (interactive)
+    (if (and (boundp 'structured-haskell-mode)
+             structured-haskell-mode)
+        (shm-insert-string "undefined")
+      (insert "undefined")))
+
+  ;; [ module ]
+  (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
+
   ;; Doc (Haddocks)
   (require 'w3m-haddock)
   ;; make haddock pages a little more palatable (and add syntax highlighting to source view)
   (add-hook 'w3m-display-hook 'w3m-haddock-display)
   (setq haskell-w3m-haddock-dirs '("~/.cabal/share/doc/"))
   (define-key haskell-mode-map (kbd "C-c C-d") 'haskell-w3m-open-haddock)
+
+  ;; API search (use Hayoo)
+  (define-key my-prog-help-document-map (kbd "D") 'haskell-hayoo)
   
   ;; auto start `inf-haskell'
   (defun my-haskell-interactive-start ()
@@ -115,6 +147,7 @@
 (use-package ghc
   :ensure t
   :config
+  ;; (setq ghc-debug t)
   (add-hook 'haskell-mode-hook #'ghc-init)
 
   ;; if you wish to display error each goto next/prev error,
@@ -125,7 +158,12 @@
 ;;; [ ghci-completion ] -- completion for GHCi commands in inferior-haskell buffers.
 
 (use-package ghci-completion
-  :ensure t)
+  :ensure t
+  :config
+  ;; (add-hook 'inferior-haskell-mode-hook 'turn-on-ghci-completion)
+  ;; (add-hook 'interactive-haskell-mode-hook 'turn-on-ghci-completion)
+  ;; (add-hook 'haskell-interactive-mode-hook 'turn-on-ghci-completion)
+  )
 
 
 ;;; [ company-ghc ] -- company-mode back-end for haskell-mode via ghc-mod.
@@ -162,6 +200,7 @@
 
 (dolist (hook '(haskell-mode-hook
                 haskell-interactive-mode-hook
+                interactive-haskell-mode-hook
                 ;; inferior-haskell-mode-hook (deprecated)
                 ))
   (add-hook hook

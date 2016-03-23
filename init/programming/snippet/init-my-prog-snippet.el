@@ -61,8 +61,8 @@
 # -*- mode: snippet -*-
 # name: $1
 # key: ${2:${1:$(yas--key-from-desc yas-text)}}
-# group: ${3:group.subgroup}
-# expand-env: ((${4:VAR} ${5:VALUE}))}${6:
+# group: ${3:group.subgroup}${4:
+# expand-env: ((${5:VAR} ${6:VALUE}))}${7:
 # type: snippet/command}
 # --
 $0"
@@ -85,53 +85,12 @@ $0"
                       :overline "black"
                       )
 
-  ;;; use different way to notify user the snippet exited.
-  ;; (add-hook 'yas-after-exit-snippet-hook
-  ;;           (lambda ()
-  ;;             (popup-tip "snippet exited")
-  ;;             ))
-
   (add-hook 'yas-after-exit-snippet-hook
             (lambda ()
+              ;; (popup-tip "snippet exited")
               (message "snippet exited")
               ))
   
-  ;; create new snippet with region
-  (defvar yas-original-buffer nil)
-
-  (defun yas-new-snippet--with-region (&optional no-template)
-    "Pops a new buffer for writing a snippet.
-
-Expands a snippet-writing snippet, unless the optional prefix arg
-NO-TEMPLATE is non-nil."
-    (interactive "P")
-    (let ((guessed-directories (yas--guess-snippet-directories)))
-
-      (setq yas-original-buffer (current-buffer))
-      (switch-to-buffer "*new snippet*")
-      (erase-buffer)
-      (kill-all-local-variables)
-      (snippet-mode)
-      (yas-minor-mode 1)
-      (set (make-local-variable 'yas--guessed-modes)
-           (mapcar #'(lambda (d)
-                       (yas--table-mode (car d)))
-                   guessed-directories))
-      (when (and (not no-template) yas-new-snippet-default)
-        (save-excursion (insert (yas-snippet-from-region)))
-        (yas-expand-snippet yas-new-snippet-default))))
-
-  (defun yas-snippet-from-region ()
-    "Initial snippet content from region."
-    (or (with-current-buffer yas-original-buffer
-          (if (region-active-p)
-              (replace-regexp-in-string
-               "[\\$]" "\\\\\\&"
-               (buffer-substring-no-properties (region-beginning) (region-end)))))
-        ""))
-
-  (advice-add 'yas-new-snippet :override 'yas-new-snippet--with-region)
-
   ;; enable global yasnippet-mode
   (yas-global-mode 1)
   )

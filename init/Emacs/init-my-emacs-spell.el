@@ -83,9 +83,10 @@ be global."
         ;; flyspell-before-incorrect-word-string
         ;; flyspell-after-incorrect-word-string
         flyspell-use-meta-tab nil ; use [M-TAB] to correct word.
-        flyspell-highlight-flag t
         flyspell-consider-dash-as-word-delimiter-flag t
+        flyspell-highlight-flag t
         flyspell-persistent-highlight t
+        flyspell-highlight-properties t
         ;; flyspell-mode-line-string " FlySpell"
         )
 

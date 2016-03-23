@@ -13,12 +13,12 @@
 ;; system for creating, editing, debugging, and documenting Java applications.
 
 ;; (require 'jdee)
-
+;;
 ;; (autoload 'jde-mode "jde" "JDE mode" t)
 ;; (add-to-list 'auto-mode-alist '("\\.java\\'" . jde-mode))
-
+;;
 ;; (setq jdee-server-dir "~/compile/Emacs/jdee-server/target/")
-
+;;
 ;; (setq jdee-key-bindings '())
 
 
@@ -29,52 +29,40 @@
 
 ;;; [ Eclim ]
 
-;;; Usage:
-;;
-;; - eclimd
-;;   - `start-eclimd' & `stop-eclimd'
-;; - eclim project
-;;   - `eclim-project-mode'
-;;   - `eclim-project-create'
-;;   - `eclim-project-open'
-;;   - `eclim-project-delete'
-;;   - `eclim-project-refresh'
-;;   - `eclim-project-update'
-;;   - `eclim-project-import'
-;;   - `eclim-manage-projects'
-
 (use-package emacs-eclim
-  :ensure t
-  :config
-  ;; Control `eclimd' from emacs
-  (require 'eclimd)
+  :ensure t)
 
-  (setq eclimd-default-workspace "~/Eclipse"
-        eclim-executable (or (executable-find "eclim") (eclim-homedir-executable-find) (eclim-executable-find))
-        eclimd-executable "~/.eclipse/org.eclipse.platform_4.5.1_155965261_linux_gtk_x86_64/eclimd"
-        ;; eclimd-port 45620
-        eclimd-wait-for-process t)
+;; Control `eclimd' from emacs
+(require 'eclimd)
 
-  ;; (or (executable-find "eclim") (eclim-homedir-executable-find) (eclim-executable-find))
-  ;; TODO?: (setq eclim-executable "")
+(setq eclimd-default-workspace "~/Projects/Eclipse"
+      eclim-executable (or
+                        (executable-find "eclim")
+                        (eclim-homedir-executable-find)
+                        (eclim-executable-find))
+      eclimd-executable "~/.eclipse/org.eclipse.platform_4.5.1_155965261_linux_gtk_x86_64/eclimd"
+      ;; eclimd-port 45620
+      eclimd-wait-for-process t)
 
+;; (or (executable-find "eclim") (eclim-homedir-executable-find) (eclim-executable-find))
+;; TODO?: (setq eclim-executable "")
 
-  ;; for company-mode
-  (require 'company-emacs-eclim)
+;; for company-mode
+(require 'company-emacs-eclim)
 
-  ;; (company-emacs-eclim-setup)
-  (add-hook 'java-mode-hook
-            '(lambda ()
-               ;; (eclim-mode 1)
-               
-               ;; TODO: this backend does not work.
-               ;; (my-company-add-backends-to-mode '(company-emacs-eclim))
+;; (company-emacs-eclim-setup)
+(add-hook 'java-mode-hook
+          (lambda ()
+            (eclim-mode 1)
+            
+            ;; TODO: this backend does not work.
+            ;; (my-company-add-backends-to-mode '(company-emacs-eclim))
 
-               (my-company-add-backends-to-mode '(company-eclim))
-               ))
+            (my-company-add-backends-to-mode '(company-eclim))
+            (local-set-key (kbd "C-M-i") 'company-complete)
+            ))
 
-  ;; (global-eclim-mode t)
-  )
+;; (global-eclim-mode t)
 
 
 ;;; [ javadoc-lookup ]
