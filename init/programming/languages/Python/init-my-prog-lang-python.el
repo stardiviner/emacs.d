@@ -47,19 +47,13 @@
   
   (add-hook 'elpy-mode-hook
             (lambda ()
-              (my-company-add-backends-to-mode '(elpy-company-backend))
+              (add-to-list (make-local-variable 'company-backends)
+                           'elpy-company-backend)
               (define-key my-prog-help-document-map (kbd "d") 'elpy-doc)
               ))
+
+  (add-hook 'inferior-python-mode-hook 'elpy-mode)
   )
-
-
-;;; [ pydoc ]
-
-;; (use-package pydoc
-;;   :ensure t
-;;   :config
-;;   (define-key my-prog-help-document-map (kbd "d") 'pydoc)
-;;   )
 
 
 ;;; [ Inferior Python ]
@@ -83,12 +77,10 @@
     )
   )
 
-;; (define-key my-prog-inferior-map (kbd "p") 'run-python)
-(define-key my-prog-inferior-map (kbd "p") 'my-inferior-python)
+(define-key my-prog-inferior-map (kbd "p") 'my-inferior-python) ; 'run-python
 
 (add-hook 'python-mode-hook
           (lambda ()
-            ;; inferior-python
             (define-key python-mode-map (kbd "C-c C-s") 'run-python)
             ))
 
@@ -97,16 +89,6 @@
 (defun python-shell-send-setup-code ()
   )
 ;; (setq inferior-python-mode-hook '(python-shell-send-setup-code))
-
-;; FIXME:
-;; `company-anaconda' is very slow.
-;; (setq inferior-python-mode-hook nil)
-
-;; capf has `python-shell-completion-complete-at-point' is slow too.
-
-(add-hook 'inferior-python-mode-hook
-          '(lambda ()
-             (my-company-add-backends-to-mode '(company-anaconda))))
 
 
 ;;; [ pyenv-mode ] -- Python virtual environment interface
@@ -176,38 +158,6 @@
 ;;; [ virtualenvwrapper ]
 
 
-;;; [ jedi.el ] --- a python auto-completion library.
-
-;; (use-package jedi
-;;   :ensure t
-;;   :config
-;;   (setq jedi:tooltip-method '(pos-tip popup)
-;;         jedi:complete-on-dot t
-;;         jedi:use-shortcuts t)
-;;
-;;   (add-hook 'python-mode-hook 'jedi:setup)
-;;   ;; use auto-complete and use jedi as ac source.
-;;   ;; (add-hook 'python-mode-hook 'jedi:ac-setup)
-;;   )
-
-
-;;; [ company-jedi ]
-
-;; (use-package company-jedi
-;;   :ensure t
-;;   :config
-;;   (add-hook 'python-mode-hook
-;;             (lambda ()
-;;               (jedi:start-server)
-;;
-;;               ;; (company-jedi--setup)
-;;               (my-company-add-backends-to-mode
-;;                '(company-jedi
-;;                  ))
-;;               ))
-;;   )
-
-
 ;;; [ anaconda-mode ]
 
 ;; (use-package anaconda-mode
@@ -225,8 +175,9 @@
 ;;   :ensure t
 ;;   :config
 ;;   (add-hook 'python-mode-hook
-;;             '(lambda ()
-;;                (my-company-add-backends-to-mode '(company-anaconda))))
+;;             (lambda ()
+;;               (add-to-list (make-local-variable 'company-backends)
+;;                            'company-anaconda)))
 ;;   )
 
 

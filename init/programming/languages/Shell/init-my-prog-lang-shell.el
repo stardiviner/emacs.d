@@ -32,7 +32,7 @@
 ;;   :config
 ;;   ;; (setq company-shell-modes '(sh-mode fish-mode shell-mode eshell-mode))
 ;;   ;; (setq company-shell-use-help-arg nil)
-;;  
+;;
 ;;   (dolist (hook '(sh-mode-hook
 ;;                   shell-mode-hook
 ;;                   ))
@@ -41,7 +41,8 @@
 ;;                                   (delq 'sh-completion-at-point-function
 ;;                                         completion-at-point-functions))
 ;;                       (setq-local company-minimum-prefix-length 3)
-;;                       (my-company-add-backends-to-mode '(company-shell)))))
+;;                       (add-to-list (make-local-variable 'company-backends)
+;;                                    'company-shell))))
 ;;   )
 
 

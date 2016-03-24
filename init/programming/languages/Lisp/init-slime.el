@@ -76,7 +76,8 @@
         (progn
           (eldoc-mode 1)
           (slime-mode 1)
-          (my-company-add-backends-to-mode '(company-slime)))))
+          (add-to-list (make-local-variable 'company-backends)
+                       'company-slime))))
   
   (add-hook 'comint-mode-hook 'slime-sbcl-inferior-lisp-buffer-setup)
 
@@ -133,17 +134,16 @@
   ;; (with-eval-after-load 'slime
   ;;   (slime-setup '(slime-company)))
 
-  (dolist (h '(slime-mode-hook slime-repl-mode-hook sldb-mode-hook))
-    (add-hook h 'my-slime-company-maybe-enable))
-
   (defun my-slime-company-maybe-enable ()
     (when (slime-company-active-p)
-      ;; mainly change to my own company-backends adding style.
-      (my-company-add-backends-to-mode '(company-slime))
+      (add-to-list (make-local-variable 'company-backends)
+                   'company-slime)
       (unless (slime-find-contrib 'slime-fuzzy)
         (setq slime-company-completion 'simple)))
     )
   
+  (dolist (h '(slime-mode-hook slime-repl-mode-hook sldb-mode-hook))
+    (add-hook h 'my-slime-company-maybe-enable))
   )
 
 

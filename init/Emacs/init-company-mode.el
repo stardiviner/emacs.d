@@ -46,35 +46,23 @@
   ;; `company-mode' frontend showing the selection as if it had been inserted.
   ;; (add-to-list 'company-frontends 'company-preview-frontend)
   
-  ;; use this grouped backends for `company-yasnippet' backend to work.
   (setq company-backends
-        '((company-files          ; files & directory
-           ;; company-gtags company-etags
-           company-keywords       ; keywords
-           ;; company-tempo          ; tempo: flexible template insertion
-           company-capf                   ; `completion-at-point-functions'
-           ;; with
-           company-yasnippet
-           company-dabbrev-code         ; company-dabbrev
-           company-abbrev
-           ))
+        '(company-files          ; files & directory
+          ;; company-gtags company-etags
+          company-keywords       ; keywords
+          ;; company-tempo          ; tempo: flexible template insertion
+          company-capf                   ; `completion-at-point-functions'
+          :with
+          company-yasnippet
+          company-dabbrev-code         ; company-dabbrev
+          company-abbrev
+          )
         )
 
-  (defun my-company-add-backends-to-mode (backends-list)
-    "Add a list of backends `BACKENDS-LIST' to mode local."
-    (make-local-variable 'company-backends) ; make `company-backends' local.
-    ;; remove duplicate
-    (setq company-backends
-          (remove-if (lambda (b)
-                       (find b backends-list))
-                     company-backends))
-    ;; copy backends list
-    (setq company-backends (copy-tree company-backends))
-    ;; adding
-    (setf (car company-backends)
-          (append backends-list
-                  (car company-backends)))
-    )
+  (defun my-company-add-backend-locally (backend)
+    (if (local-variable-if-set-p 'company-backends)
+        (add-to-list 'company-backends backend)
+      (add-to-list (make-local-variable 'company-backends) backend)))
 
   ;; globally
   (setq company-global-modes t)
@@ -204,12 +192,6 @@
                       :foreground "cyan")
 
   ;; [ company-yasnippet ]
-  ;;
-  ;; TODO: remove this after upstream `company-mode' add this feature.
-  ;; use `yas-key-syntaxes-v2' branch of `company-yasnippet'.
-  ;; (load-file "~/Code/Emacs/company-mode/company-yasnippet.el")
-  ;; (load-file "~/.emacs.d/init/extensions/company-yasnippet.el")
-  ;;
   ;; make `company-yasnippet' work for prefix like `%link_to'.
   ;; (setq-default yas-key-syntaxes (list "w_" "w_." "w_.()"
   ;;                                      #'yas-try-key-from-whitespace))
@@ -275,21 +257,13 @@
   "Setup company-mode in minibuffer."
   (company-mode 1)
   (setq-local company-frontends '(company-pseudo-tooltip-unless-just-one-frontend
-                                  company-preview-if-just-one-frontend))
+                                  ;; company-preview-if-just-one-frontend
+                                  ))
   (setq-local company-tooltip-limit 4)
   (setq-local company-tooltip-minimum 1)
   )
 
 (add-hook 'eval-expression-minibuffer-setup-hook 'company-mode-minibuffer-setup)
-
-
-;;; [ company-try-hard ] -- get all completions from company backends.
-
-;; (use-package company-try-hard
-;;   :ensure t
-;;   :config
-;;   (global-set-key (kbd "<tab>") 'company-try-hard)
-;;   )
 
 
 (provide 'init-company-mode)

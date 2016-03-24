@@ -265,10 +265,10 @@
     (add-hook hook 'tern-mode))
 
   (add-hook 'tern-mode-hook
-            '(lambda ()
-               ;; tern-mode auto push `tern-completion-at-point' to `capf'.
-               (my-company-add-backends-to-mode '(company-tern))
-               ))
+            (lambda ()
+              ;; tern-mode auto push `tern-completion-at-point' to `capf'.
+              (add-to-list (make-local-variable 'company-backends) 'company-tern)
+              ))
   
   :config
   (setq
@@ -340,10 +340,10 @@
     (when (boundp 'company-backends)
       ;; (pushnew 'company-jquery company-backends)
       (delq 'company-tern company-backends)
-      (my-company-add-backends-to-mode '(company-tern
-                                         :with
-                                         company-jquery))
+      (add-to-list (make-local-variable 'company-backends)
+                   '(company-tern :with company-jquery))
       ))
+  
   (add-hook 'js2-mode-hook 'my-jquery-doc-setup)
   )
 

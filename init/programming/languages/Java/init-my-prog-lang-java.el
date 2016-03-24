@@ -55,10 +55,8 @@
           (lambda ()
             (eclim-mode 1)
             
-            ;; TODO: this backend does not work.
-            ;; (my-company-add-backends-to-mode '(company-emacs-eclim))
-
-            (my-company-add-backends-to-mode '(company-eclim))
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-emacs-eclim)
             (local-set-key (kbd "C-M-i") 'company-complete)
             ))
 

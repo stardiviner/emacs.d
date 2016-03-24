@@ -40,8 +40,9 @@
         ;; sourcekit-sourcekitdaemon-executable
         )
   (add-hook 'swift-mode-hook
-            '(lambda ()
-               (my-company-add-backends-to-mode '(company-sourcekit))))
+            (lambda ()
+              (add-to-list (make-local-variable 'company-backends)
+                           'company-sourcekit)))
   )
 
 

@@ -18,35 +18,16 @@
 ;; - [C-c C-o] :: open links to documentation in a unit.
 ;;
 
-(add-to-list 'auto-mode-alist '("\\.service\\'" . conf-unix-mode))
-(add-to-list 'auto-mode-alist '("\\.timer\\'" . conf-unix-mode))
-(add-to-list 'auto-mode-alist '("\\.target\\'" . conf-unix-mode))
-(add-to-list 'auto-mode-alist '("\\.mount\\'" . conf-unix-mode))
-(add-to-list 'auto-mode-alist '("\\.automount\\'" . conf-unix-mode))
-(add-to-list 'auto-mode-alist '("\\.slice\\'" . conf-unix-mode))
-(add-to-list 'auto-mode-alist '("\\.socket\\'" . conf-unix-mode))
-(add-to-list 'auto-mode-alist '("\\.path\\'" . conf-unix-mode))
-(add-to-list 'auto-mode-alist '("\\.netdev\\'" . conf-unix-mode))
-(add-to-list 'auto-mode-alist '("\\.network\\'" . conf-unix-mode))
-(add-to-list 'auto-mode-alist '("\\.link\\'" . conf-unix-mode))
-(add-to-list 'auto-mode-alist '("\\.automount\\'" . conf-unix-mode))
-
-;; built-in default.
-;; (add-hook 'systemd-mode-hook
-;;           (lambda ()
-;;             (my-company-add-backends-to-mode '(systemd-company-backend))
-;;             ))
-
-
-;;; crontab-mode
-
-;; - [C-c C-c] -- finish editing.
-
-(load "~/.emacs.d/init/extensions/crontab-mode.el")
-
-;; (add-to-list 'auto-mode-alist '("\\.cron\\(tab\\)?\\'" . crontab-mode))
-(add-to-list 'auto-mode-alist '("cron\\(tab\\)?\\."    . crontab-mode))
-
+(use-package systemd
+  :ensure t
+  :config
+  ;; built-in default.
+  ;; (add-hook 'systemd-mode-hook
+  ;;           (lambda ()
+  ;;             (add-to-list (make-local-variable 'company-backends)
+  ;;                          'systemd-company-backend)
+  ;;             ))
+  )
 
 
 (provide 'init-linux)

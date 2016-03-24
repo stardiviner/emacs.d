@@ -20,7 +20,7 @@
   (require 'company-nim)
   (add-hook 'nim-mode-hook
             (lambda ()
-              (my-company-add-backends-to-mode '(company-nim))))
+              (add-to-list (make-local-variable 'company-backends) 'company-nim)))
   )
 
 

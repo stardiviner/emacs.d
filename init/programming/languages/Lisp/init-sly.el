@@ -80,13 +80,13 @@
 (use-package sly-company
   :ensure t
   :config
-  ;; (add-hook 'sly-mode-hook 'sly-company-mode)
   (dolist (hook '(sly-mode-hook
                   sly-mrepl-mode-hook
                   ))
     (add-hook hook
-              '(lambda ()
-                 (my-company-add-backends-to-mode '(sly-company)))))
+              (lambda ()
+                (add-to-list (make-local-variable 'company-backends)
+                             'sly-company))))
   )
 
 

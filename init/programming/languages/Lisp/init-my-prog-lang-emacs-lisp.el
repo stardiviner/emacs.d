@@ -32,18 +32,18 @@
 
 ;; Emacs Lisp hook
 (add-hook 'emacs-lisp-mode-hook
-          '(lambda ()
-             (rainbow-mode 1)
-             (turn-on-eldoc-mode)
-             
-             (my-recompile-elc-on-save)
+          (lambda ()
+            (rainbow-mode 1)
+            (turn-on-eldoc-mode)
+            
+            (my-recompile-elc-on-save)
 
-             ;; company-elisp
-             (my-company-add-backends-to-mode '(company-elisp))
-             (setq company-elisp-detect-function-context t
-                   company-elisp-show-locals-first t
-                   )
-             ))
+            ;; company-elisp
+            (add-to-list 'company-backends 'company-elisp)
+            (setq company-elisp-detect-function-context t
+                  company-elisp-show-locals-first t
+                  )
+            ))
 
 (add-to-list 'auto-mode-alist '("Cask\\'" . emacs-lisp-mode))
 
@@ -99,7 +99,8 @@
 (add-hook 'ielm-mode-hook
           (lambda ()
             (elisp-slime-nav-mode 1)
-            (my-company-add-backends-to-mode '(company-elisp))))
+            (add-to-list (make-local-variable 'company-backends)
+                         'company-elisp)))
 
 ;; ---------------------------------------------------------------
 ;;; enable auto-complete support in ielm.

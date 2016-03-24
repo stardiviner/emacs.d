@@ -397,16 +397,15 @@
                   ))
     (add-hook hook
               '(lambda ()
-                 (my-company-add-backends-to-mode '(company-web-html
-                                                    ;; company-web-jade
-                                                    ;; company-web-slim
-                                                    ;; company-nxml
-                                                    ;; :with company-css
-                                                    company-tern
-                                                    :with
-                                                    company-jquery
-                                                    company-css
-                                                    ))
+                 (make-local-variable 'company-backends)
+                 (add-to-list 'company-backends 'company-css)
+                 (add-to-list 'company-backends '(company-tern
+                                                  :with
+                                                  company-jquery))
+                 ;; (add-to-list 'company-backends 'company-nxml)
+                 ;; (add-to-list 'company-backends 'company-web-jade)
+                 ;; (add-to-list 'company-backends 'company-web-slim)
+                 (add-to-list 'company-backends 'company-web-html)
                  )))
 
   (define-key web-mode-map (kbd "C-'") 'company-web-html)
@@ -442,7 +441,7 @@
 
   (defadvice org-edit-special (after org-edit-src-code activate)
     (if (string= web-mode-engine "erb")
-        (my-company-add-backends-to-mode '(company-robe))))
+        (add-to-list (make-local-variable 'company-backends) 'company-robe)))
   
   ;; Enable Rails completion between <%= ... %>, or <% ... %>.
   (defadvice company-robe (before web-mode-set-up-ac-sources activate)

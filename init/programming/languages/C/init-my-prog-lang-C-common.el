@@ -84,6 +84,7 @@
 (use-package company-irony
   :ensure t
   :config
+  
   (defun company-irony-add ()
     ;; (optional) adds CC special commands to `company-begin-commands'
     ;; in order to trigger completion at interesting places, such as
@@ -91,14 +92,14 @@
     ;;     std::|
     (company-irony-setup-begin-commands)
 
-    (my-company-add-backends-to-mode '(company-irony-c-headers
-                                       company-irony
-                                       ;; company-cmake
-                                       ;; company-clang
-                                       ;; company-semantic
-                                       ;; company-gtags
-                                       ;; company-etags
-                                       ))
+    ;; - `company-cmake'
+    ;; - `company-clang'
+    ;; - `company-semantic'
+    ;; - `company-etags'
+    ;; - `company-gtags'
+    (make-local-variable 'company-backends)
+    (add-to-list 'company-backends 'company-irony)
+    (add-to-list 'company-backends 'company-irony-c-headers)
     )
 
   (add-hook 'c-mode-common-hook 'company-irony-add)
@@ -139,7 +140,7 @@
 ;;   (setq company-clang-begin-after-member-access t)
 ;;
 ;;   (hook-modes c-dialects-mode
-;;     (my-company-add-backends-to-mode '(company-clang)))
+;;     (add-to-list (make-local-variable 'company-backends 'company-clang))
 ;;   )
 
 

@@ -40,7 +40,8 @@
 
   (add-hook 'elixir-mode-hook
             (lambda ()
-              (my-company-add-backends-to-mode '(alchemist-company))))
+              (add-to-list (make-local-variable 'company-backends)
+                           'alchemist-company)))
   )
 
 

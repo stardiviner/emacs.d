@@ -68,7 +68,7 @@
   (add-hook 'qml-mode-hook
             (lambda ()
               (setq-local company-minimum-prefix-length 0)
-              (my-company-add-backends-to-mode '(company-qml))
+              (add-to-list (make-local-variable 'company-backends) 'company-qml)
               ))
   )
 

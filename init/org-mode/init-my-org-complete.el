@@ -22,7 +22,7 @@
             (setq-local completion-at-point-functions
                         '(pcomplete-completions-at-point t))
 
-            ;; (my-company-add-backends-to-mode '(company-ispell))
+            ;; (add-to-list (make-local-variable 'company-backends) 'company-ispell)
             ))
 
 

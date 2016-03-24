@@ -174,26 +174,19 @@
   (setq company-ghc-show-info t
         company-ghc-show-module t
         )
-  
-  ;; (add-to-list 'company-backends 'company-ghc)
   )
 
 
 ;;; [ company-ghci ] -- company backend which uses the current ghci process.
 
 (use-package company-ghci
-  :ensure t
-  :config
-  ;; (add-to-list 'company-backends 'company-ghci)
-  )
+  :ensure t)
 
 
 ;;; [ company-cabal ] -- company-mode back-end for haskell-cabal-mode.
 
 ;; (use-package company-cabal
 ;;   :ensure t
-;;   :config
-;;   ;; (add-to-list 'company-backends 'company-cabal)
 ;;   )
 
 
@@ -204,13 +197,12 @@
                 ;; inferior-haskell-mode-hook (deprecated)
                 ))
   (add-hook hook
-            '(lambda ()
-               (my-company-add-backends-to-mode
-                '(company-ghc
-                  company-ghci
-                  ;; company-cabal
-                  ))
-               )))
+            (lambda ()
+              (make-local-variable 'company-backends)
+              ;; (add-to-list 'company-backends 'company-cabal)
+              (add-to-list 'company-backends 'company-ghci)
+              (add-to-list 'company-backends 'company-ghc)
+              )))
 
 
 ;;; [ ebal ] -- Emacs interface to Cabal and Stack.

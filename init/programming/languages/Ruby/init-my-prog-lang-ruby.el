@@ -336,7 +336,7 @@
     ;; (append '(robe-complete-at-point) completion-at-point-functions)
     ;; use `company-robe' instead, because it support doc and meta etc. info
     (setq-local company-minimum-prefix-length 3)
-    (my-company-add-backends-to-mode '(company-robe))
+    (add-to-list (make-local-variable 'company-backends) 'company-robe)
     )
   
   (dolist (hook '(ruby-mode-hook

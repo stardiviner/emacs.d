@@ -31,8 +31,8 @@
 ;; only need to add `company-css' to `css-mode-hook' once,
 ;; because `scss-mode' etc are derived from `css-mode'.
 (add-hook 'css-mode-hook
-          '(lambda ()
-             (my-company-add-backends-to-mode '(company-css))))
+          (lambda ()
+            (add-to-list (make-local-variable 'company-backends) 'company-css)))
 
 
 ;;; [ css-eldoc ]
