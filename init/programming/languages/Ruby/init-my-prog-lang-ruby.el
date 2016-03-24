@@ -140,6 +140,13 @@
      '(("^\s*\\(attr_\\(accessor\\|reader\\|writer\\)\\)"
         (1 '(:foreground "cyan" :weight 'bold
                          :overline "white")))))
+
+    ;; include & extend
+    (font-lock-add-keywords
+     'enh-ruby-mode
+     '(("^\s*\\(include\\|extend\\)"
+        (1 '(:foreground "orange" :weight 'bold
+                         :box '(:color "black" :line-width -1))))))
     )
   
   (add-hook 'enh-ruby-mode-hook 'my-ruby-code-custom-highlights)
