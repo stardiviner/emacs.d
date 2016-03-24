@@ -133,6 +133,13 @@
      'enh-ruby-mode
      '(("^\s*\\(private\\)$"
         (1 '(:foreground "magenta" :weight 'bold :underline "#888888")))))
+
+    ;; attr_*
+    (font-lock-add-keywords
+     'enh-ruby-mode
+     '(("^\s*\\(attr_\\(accessor\\|reader\\|writer\\)\\)"
+        (1 '(:foreground "cyan" :weight 'bold
+                         :overline "white")))))
     )
   
   (add-hook 'enh-ruby-mode-hook 'my-ruby-code-custom-highlights)
