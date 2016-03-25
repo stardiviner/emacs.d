@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-sudo
+# key: babel-sudo
+# group: babel
+# --
+#+BEGIN_SRC sh :dir /sudo:: :results ${1:output/none}
+$0
+#+END_SRC

@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: here document
-# key: here
+# key: heredoc
 # --
 <<-${1:HERE} ${3:# ${4:the only place comment}}
 ${2:start write here document}
