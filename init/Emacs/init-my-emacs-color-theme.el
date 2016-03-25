@@ -8,6 +8,7 @@
 ;;; Code:
 
 ;;; [ Color Theme ]
+
 ;; Usage:
 ;; - [M-x customize-face] -- to custom current point face color/style.
 ;; - [M-x list-colors-display] / [helm-colors]/[C-x c c] -- list out all basic colors.
@@ -34,7 +35,7 @@
 
 ;;; set color-theme for `emacsclient'
 
-(if (daemonp)
+(if (or (daemonp) (server-running-p))
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (select-frame frame)
