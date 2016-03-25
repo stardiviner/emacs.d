@@ -101,7 +101,10 @@
   ;;                (lambda (arg) (ruby-end-of-block)) nil))
 
 
-  ;; (setq enh-ruby-extra-keywords '("private" "protected" "public" "self"))
+  (setq enh-ruby-extra-keywords '("self"
+                                  "include" "extend"
+                                  ;; "private" "protected" "public"
+                                  ))
   
   (defun my-ruby-code-custom-highlights ()
     (interactive)
