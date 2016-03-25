@@ -48,7 +48,7 @@
   (add-hook 'elpy-mode-hook
             (lambda ()
               (my-company-add-backend-locally 'elpy-company-backend)
-              (define-key my-prog-help-document-map (kbd "d") 'elpy-doc)
+              (define-key python-mode-map (kbd "C-h d d") 'elpy-doc)
               ))
 
   (add-hook 'inferior-python-mode-hook 'elpy-mode)

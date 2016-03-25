@@ -111,7 +111,7 @@
   (define-key haskell-mode-map (kbd "C-c C-d") 'haskell-w3m-open-haddock)
 
   ;; API search (use Hayoo)
-  (define-key my-prog-help-document-map (kbd "D") 'haskell-hayoo)
+  (define-key haskell-mode-map (kbd "C-h d d") 'haskell-hayoo)
   
   ;; auto start `inf-haskell'
   (defun my-haskell-interactive-start ()
