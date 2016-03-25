@@ -72,8 +72,7 @@
   (add-hook 'php-mode-hook
             (lambda ()
               ;; company-mode
-              (add-to-list (make-local-variable 'company-backends)
-                           'company-ac-php-backend)
+              (my-company-add-backend-locally 'company-ac-php-backend)
 
               ;; auto-complete
               ;; (setq ac-sources  '(ac-source-php))

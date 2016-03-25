@@ -119,7 +119,7 @@
   
   (add-hook 'go-mode-hook
             (lambda ()
-              (add-to-list (make-local-variable 'company-backends) 'company-go)))
+              (my-company-add-backend-locally 'company-go)))
   )
 
 

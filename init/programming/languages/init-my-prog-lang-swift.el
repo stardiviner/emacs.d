@@ -41,8 +41,8 @@
         )
   (add-hook 'swift-mode-hook
             (lambda ()
-              (add-to-list (make-local-variable 'company-backends)
-                           'company-sourcekit)))
+              (my-company-add-backend-locally 'company-sourcekit)
+              ))
   )
 
 

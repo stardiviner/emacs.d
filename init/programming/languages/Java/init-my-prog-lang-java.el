@@ -54,9 +54,7 @@
 (add-hook 'java-mode-hook
           (lambda ()
             (eclim-mode 1)
-            
-            (add-to-list (make-local-variable 'company-backends)
-                         'company-emacs-eclim)
+            (my-company-add-backend-locally 'company-emacs-eclim)
             (local-set-key (kbd "C-M-i") 'company-complete)
             ))
 

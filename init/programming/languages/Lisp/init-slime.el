@@ -76,8 +76,8 @@
         (progn
           (eldoc-mode 1)
           (slime-mode 1)
-          (add-to-list (make-local-variable 'company-backends)
-                       'company-slime))))
+          (my-company-add-backend-locally 'company-slime)
+          )))
   
   (add-hook 'comint-mode-hook 'slime-sbcl-inferior-lisp-buffer-setup)
 
@@ -136,8 +136,7 @@
 
   (defun my-slime-company-maybe-enable ()
     (when (slime-company-active-p)
-      (add-to-list (make-local-variable 'company-backends)
-                   'company-slime)
+      (my-company-add-backend-locally 'company-slime)
       (unless (slime-find-contrib 'slime-fuzzy)
         (setq slime-company-completion 'simple)))
     )

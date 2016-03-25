@@ -47,8 +47,7 @@
   
   (add-hook 'elpy-mode-hook
             (lambda ()
-              (add-to-list (make-local-variable 'company-backends)
-                           'elpy-company-backend)
+              (my-company-add-backend-locally 'elpy-company-backend)
               (define-key my-prog-help-document-map (kbd "d") 'elpy-doc)
               ))
 
@@ -176,8 +175,8 @@
 ;;   :config
 ;;   (add-hook 'python-mode-hook
 ;;             (lambda ()
-;;               (add-to-list (make-local-variable 'company-backends)
-;;                            'company-anaconda)))
+;;               (my-company-add-backend-locally 'company-anaconda)
+;;               ))
 ;;   )
 
 

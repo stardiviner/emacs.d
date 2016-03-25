@@ -39,7 +39,7 @@
             (my-recompile-elc-on-save)
 
             ;; company-elisp
-            (add-to-list 'company-backends 'company-elisp)
+            (my-company-add-backend-locally 'company-elisp)
             (setq company-elisp-detect-function-context t
                   company-elisp-show-locals-first t
                   )
@@ -99,8 +99,8 @@
 (add-hook 'ielm-mode-hook
           (lambda ()
             (elisp-slime-nav-mode 1)
-            (add-to-list (make-local-variable 'company-backends)
-                         'company-elisp)))
+            (my-company-add-backend-locally 'company-elisp)
+            ))
 
 ;; ---------------------------------------------------------------
 ;;; enable auto-complete support in ielm.

@@ -29,8 +29,8 @@
   ;; company-backend
   (add-hook 'scheme-mode-hook
             (lambda ()
-              (add-to-list (make-local-variable 'company-backends)
-                           'geiser-company-backend)))
+              (my-company-add-backend-locally 'geiser-company-backend)
+              ))
   )
 
 

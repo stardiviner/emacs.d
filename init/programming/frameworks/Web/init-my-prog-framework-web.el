@@ -405,7 +405,9 @@
                  ;; (add-to-list 'company-backends 'company-nxml)
                  ;; (add-to-list 'company-backends 'company-web-jade)
                  ;; (add-to-list 'company-backends 'company-web-slim)
-                 (add-to-list 'company-backends 'company-web-html)
+                 (add-to-list 'company-backends '(company-web-html
+                                                  :with
+                                                  company-yasnippet))
                  )))
 
   (define-key web-mode-map (kbd "C-'") 'company-web-html)

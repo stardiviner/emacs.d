@@ -95,9 +95,7 @@
             (if robe-mode (robe-mode -1))))))
 
   (defun my-projectile-rails-setup ()
-    (if (local-variable-if-set-p 'company-backends)
-        (add-to-list 'company-backends 'company-robe)
-      (add-to-list (make-local-variable 'company-backends) 'company-robe))
+    (my-company-add-backend-locally 'company-robe)
     
     ;; `nil': disable auto complete, manually.
     (setq-local company-idle-delay .3)

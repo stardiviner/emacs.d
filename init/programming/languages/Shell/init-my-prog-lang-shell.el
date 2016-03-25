@@ -41,8 +41,8 @@
 ;;                                   (delq 'sh-completion-at-point-function
 ;;                                         completion-at-point-functions))
 ;;                       (setq-local company-minimum-prefix-length 3)
-;;                       (add-to-list (make-local-variable 'company-backends)
-;;                                    'company-shell))))
+;;                       (my-company-add-backend-locally 'company-shell)
+;;                       )))
 ;;   )
 
 

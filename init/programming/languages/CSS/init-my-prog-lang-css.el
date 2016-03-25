@@ -32,7 +32,8 @@
 ;; because `scss-mode' etc are derived from `css-mode'.
 (add-hook 'css-mode-hook
           (lambda ()
-            (add-to-list (make-local-variable 'company-backends) 'company-css)))
+            (my-company-add-backend-locally 'company-css)
+            ))
 
 
 ;;; [ css-eldoc ]

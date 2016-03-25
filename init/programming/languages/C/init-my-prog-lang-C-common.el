@@ -98,8 +98,10 @@
     ;; - `company-etags'
     ;; - `company-gtags'
     (make-local-variable 'company-backends)
-    (add-to-list 'company-backends 'company-irony)
-    (add-to-list 'company-backends 'company-irony-c-headers)
+    (add-to-list 'company-backends '(company-irony-c-headers
+                                     company-irony
+                                     :with
+                                     company-yasnippet))
     )
 
   (add-hook 'c-mode-common-hook 'company-irony-add)
@@ -140,7 +142,7 @@
 ;;   (setq company-clang-begin-after-member-access t)
 ;;
 ;;   (hook-modes c-dialects-mode
-;;     (add-to-list (make-local-variable 'company-backends 'company-clang))
+;;     (my-company-add-backend-locally 'company-clang))
 ;;   )
 
 
@@ -150,8 +152,7 @@
 ;;   :ensure t
 ;;   :config
 ;;   (hook-modes c-dialects-mode
-;;     (add-to-list (make-local-variable 'company-backends)
-;;                  'company-c-headers))
+;;     (my-company-add-backend-locally 'company-c-headers))
 ;;   )
 
 

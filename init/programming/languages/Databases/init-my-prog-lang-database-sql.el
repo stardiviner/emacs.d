@@ -220,8 +220,8 @@
                   ))
     (add-hook hook
               (lambda ()
-                (add-to-list (make-local-variable 'company-backends)
-                             'company-edbi))))
+                (my-company-add-backend-locally 'company-edbi)
+                )))
   )
 
 

@@ -198,10 +198,13 @@
                 ))
   (add-hook hook
             (lambda ()
-              (make-local-variable 'company-backends)
-              ;; (add-to-list 'company-backends 'company-cabal)
-              (add-to-list 'company-backends 'company-ghci)
-              (add-to-list 'company-backends 'company-ghc)
+              (add-to-list (make-local-variable 'company-backends)
+                           '(company-ghc
+                             :with
+                             company-yasnippet
+                             company-ghci
+                             ;; company-cabal
+                             ))
               )))
 
 

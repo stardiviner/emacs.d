@@ -267,7 +267,7 @@
   (add-hook 'tern-mode-hook
             (lambda ()
               ;; tern-mode auto push `tern-completion-at-point' to `capf'.
-              (add-to-list (make-local-variable 'company-backends) 'company-tern)
+              (my-company-add-backend-locally 'company-tern)
               ))
   
   :config
