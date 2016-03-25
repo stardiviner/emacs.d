@@ -2,7 +2,37 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Raspberry Pi"
+(("dotfiles (org-mode literate)"
+ (filename . "~/Org/dotfiles/dotfiles.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("regexp syntax reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/regexp/Data/Manuals/regular expression syntax reference/regular expression syntax reference.org")
+ (front-context-string . "* Syntax\n\nA /reg")
+ (rear-context-string)
+ (position . 1))
+("Regular Expression (regexp)"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/regexp/regexp.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Bookmarks (Org)"
+ (filename . "~/Org/Bookmarks/Bookmarks.org")
+ (front-context-string . "* Intro\n\n** TODO")
+ (rear-context-string)
+ (position . 1))
+("Haskell Programming Language"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Haskell/Haskell.org")
+ (front-context-string . "* Intro\n\nHaskell")
+ (rear-context-string)
+ (position . 1))
+("Lisp Machine"
+ (filename . "~/Org/Wiki/Computer/Systems/Lisp Machine/Lisp Machine.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Raspberry Pi"
  (filename . "~/Org/Wiki/Computer/Hardware/Dev Board/Raspberry Pi/Raspberry Pi.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
@@ -647,11 +677,6 @@
  (front-context-string . "* About Gem\n\nThe")
  (rear-context-string)
  (position . 1))
-("Ruby Tools"
- (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Tools/Tools.org")
- (front-context-string . "* Ruby Implement")
- (rear-context-string)
- (position . 1))
 ("Programmer"
  (filename . "~/Org/Wiki/Computer/Programming/Programmer/Programmer.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
@@ -712,11 +737,6 @@
  (front-context-string . "* TODO Bugs [/]\n")
  (rear-context-string . " everyday.\n\n\n\n\n*")
  (position . 12196))
-("Bookmarks (Org)"
- (filename . "~/Org/Wiki/Data/Bookmarks/Bookmarks.org")
- (front-context-string . "* Search\n\n** Sea")
- (rear-context-string)
- (position . 1))
 ("Emacs (Org)"
  (filename . "~/Org/Wiki/Computer/Programming/Emacs/Emacs.org")
  (front-context-string . "* Intro\n\n*Edit o")
