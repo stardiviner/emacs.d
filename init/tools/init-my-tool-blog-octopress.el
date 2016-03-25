@@ -16,7 +16,7 @@
 ;;      in this window.
 
 (use-package octopress
-  ;; :ensure t
+  :ensure t
   :config
   (setq octopress-blog-root "~/Org/Blog/octopress"
         octopress-posts-directory "_posts"
