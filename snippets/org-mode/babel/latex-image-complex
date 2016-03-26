@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: babel latex
-# key: babel-latex-output-image
+# name: babel latex use image pkg
+# key: babel-latex-image-complex
 # --
 #+NAME: ${1:plot_1}
 #+HEADERS: :exports results :file ${2:plot_1.png}

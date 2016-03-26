@@ -2,4 +2,4 @@
 # name: yas-choose-value
 # key: yas-choose-value
 # --
-\$\$(yas-choose-value '("${1:value1}" "${2:value2}"))
+\${1:\$\$(yas-choose-value '("${1:value1}" "${2:value2}"))}

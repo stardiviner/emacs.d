@@ -3,5 +3,5 @@
 # key: math_latex_fragment
 # --
 \begin{equation}
-${1:x=\sqrt{b}}
+$0
 \end{equation}

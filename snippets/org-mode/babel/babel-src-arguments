@@ -1,5 +1,5 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: inline code with arguments
-# key: babel-src-arguments
+# key: src_arguments
 # --
-src_${1:language}${3:[:switch flag]}{${2:inline code block}} $0
+src_${1:language}${3:[:switch flag]}{$0} 

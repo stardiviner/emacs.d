@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: agenda-diary-entry
+# key: agenda-diary-entry
+# group: agenda
+# --
+<%%(${1:$$(yas-choose-value '("diary-date" "diary-float"))} ${2:2015 03 19})>
