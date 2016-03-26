@@ -21,7 +21,7 @@
 ;;; source block header arguments
 (setq org-babel-default-header-args    ; #+BEGIN_SRC ruby :result [output/value]
       '((:session . "none")
-        (:results . "replace")
+        (:results . "replace output")
         (:exports . "both")
         (:cache . "no")
         (:hlines . "no")
