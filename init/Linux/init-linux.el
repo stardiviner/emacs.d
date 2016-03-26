@@ -29,8 +29,8 @@
 
 ;;; [ apache-mode ]
 
-;; (use-package apache-mode
-;;   :ensure t)
+(use-package apache-mode
+  :ensure t)
 
 
 (provide 'init-linux)
