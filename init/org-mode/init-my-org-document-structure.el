@@ -20,7 +20,10 @@
 
 
 
-;; * Navigation::
+;; * Navigation/Motion::
+
+;; [C-c C-j] `org-goto' interface.
+(setq org-goto-interface 'outline-path-completion)
 
 (setq org-special-ctrl-a/e t)
 
