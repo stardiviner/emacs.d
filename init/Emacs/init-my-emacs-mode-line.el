@@ -155,8 +155,8 @@
               '(python-mode))
         (progn
           (list
-           (propertize (pyvenv-mode-version)
-                       'face '(:foreground "orange" :height 70))))
+           (propertize (format "[%s]" pyvenv-virtual-env-name)
+                       'face '(:foreground "orange" :height 80))))
       ))
 
    ;; Clojure
