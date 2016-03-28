@@ -269,6 +269,7 @@
 (require 'init-my-prog-lang-xml)
 (require 'init-my-prog-lang-json)
 (require 'init-my-prog-lang-haskell)
+(require 'init-my-prog-lang-scala)
 (require 'init-my-prog-lang-elixir)
 (require 'init-my-prog-lang-erlang)
 (require 'init-my-prog-lang-ESS)
