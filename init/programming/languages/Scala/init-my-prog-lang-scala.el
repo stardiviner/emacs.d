@@ -7,9 +7,24 @@
 
 ;;; Code:
 
+;;; [ scala-mode ]
 
+(use-package scala-mode
+  :ensure t
+  )
 
+
+;;; [ Ensime ]
 
+(use-package ensime
+  :ensure t
+  )
+
+
+;;; [ ob-scala ]
+
+(use-package ob-scala
+  :ensure t)
 
 
 (provide 'init-my-prog-lang-scala)
