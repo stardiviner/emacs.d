@@ -2,6 +2,6 @@
 # name: babel ditaa
 # key: babel-ditaa
 # --
-#+BEGIN_SRC ditaa :file ${1:filename}.png :cmdline --round-corners --overwrite --s 0.8
+#+BEGIN_SRC ditaa :dir "data/images" :file ${1:filename}.png :cmdline --round-corners --overwrite --s 0.8
 $0
 #+END_SRC

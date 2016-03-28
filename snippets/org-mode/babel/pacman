@@ -1,8 +1,8 @@
 # -*- mode: snippet -*-
-# name: babel-sudo
-# key: babel-sudo
+# name: babel-pacman
+# key: babel-pacman
 # group: babel
 # --
 #+BEGIN_SRC sh :dir /sudo:: :results none
-$0
+sudo pacman -S --noconfirm $0
 #+END_SRC

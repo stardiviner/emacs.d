@@ -2,6 +2,6 @@
 # name: babel dot
 # key: babel-dot
 # --
-#+BEGIN_SRC dot :file ${1:output-}.png :cmdline -Kdot -Tpng
+#+BEGIN_SRC dot :dir "${1:data/images}" :file ${2:output-}.png :cmdline -Kdot -Tpng
 $0
 #+END_SRC

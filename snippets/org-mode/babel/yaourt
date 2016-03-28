@@ -1,8 +1,8 @@
 # -*- mode: snippet -*-
-# name: babel-sudo
-# key: babel-sudo
+# name: babel-yaourt
+# key: babel-yaourt
 # group: babel
 # --
 #+BEGIN_SRC sh :dir /sudo:: :results none
-$0
+yaourt -S --noconfirm $0
 #+END_SRC
