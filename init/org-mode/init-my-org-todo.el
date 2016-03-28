@@ -157,17 +157,6 @@
 
 ;;; [ Habit ]
 
-;;; Example:
-;; * TODO write journal
-;;   SCHEDULED: <2014-01-28 Tue .+1d/3d>
-;;   - State "DONE"       from "TODO"       [2014-01-27 Mon 20:50]
-;;   - State "DONE"       from "TODO"       [2013-12-03 Tue 06:37]
-;;   - State "DONE"       from "TODO"       [2013-12-02 Mon 21:54]
-;;   :PROPERTIES:
-;;   :LAST_REPEAT: [2014-01-27 Mon 20:50]
-;;   :STYLE:    habit
-;;   :END:
-
 (require 'org-habit)
 
 (setq org-habit-show-habits t      ; show habits in agenda.
@@ -180,30 +169,27 @@
       org-habit-completed-glyph ?✔
       )
 
-(use-package org-habit
-  :config
-  (set-face-attribute 'org-habit-clear-face nil ; for days that task shouldn't be done yet
-                      :background "dark green"
-                      :foreground "gray")
-  (set-face-attribute 'org-habit-clear-future-face nil ; for future days that task shouldn't be done yet
-                      :background "dark gray")
-  (set-face-attribute 'org-habit-ready-face nil ; for days that task is done
-                      :background "#333333"
-                      :foreground "gray")
-  (set-face-attribute 'org-habit-ready-future-face nil ; task should be start
-                      :background "dodger blue")
-  (set-face-attribute 'org-habit-alert-future-face nil ; task is going to be due
-                      :background "dark orange")
-  (set-face-attribute 'org-habit-alert-face nil ; task is due
-                      :background "dark red")
-  (set-face-attribute 'org-habit-overdue-face nil ; for days that task is overdue before today
-                      :background "saddle brown"
-                      :foreground "white")
-  (set-face-attribute 'org-habit-overdue-future-face nil ; task in future
-                      :background "slate gray")
-  )
+(set-face-attribute 'org-habit-clear-face nil ; for days that task shouldn't be done yet
+                    :background "dark green"
+                    :foreground "gray")
+(set-face-attribute 'org-habit-clear-future-face nil ; for future days that task shouldn't be done yet
+                    :background "dark gray")
+(set-face-attribute 'org-habit-ready-face nil ; for days that task is done
+                    :background "#333333"
+                    :foreground "gray")
+(set-face-attribute 'org-habit-ready-future-face nil ; task should be start
+                    :background "dodger blue")
+(set-face-attribute 'org-habit-alert-future-face nil ; task is going to be due
+                    :background "dark orange")
+(set-face-attribute 'org-habit-alert-face nil ; task is due
+                    :background "dark red")
+(set-face-attribute 'org-habit-overdue-face nil ; for days that task is overdue before today
+                    :background "saddle brown"
+                    :foreground "white")
+(set-face-attribute 'org-habit-overdue-future-face nil ; task in future
+                    :background "slate gray")
 
-;; create an key binding for all necessary steps for create a habit.
+;; set task to habit
 (defun org-habit-apply ()
   "Apply org-habit on this task."
   (interactive)
@@ -226,10 +212,30 @@
                "d"))))
 
   (org-set-property "STYLE" "habit")
-  ;; (org-set-property "LOGGING" "TODO DONE(!)")
+  (org-set-property "LOGGING" "TODO DONE(!)")
   )
 
 (define-key org-mode-map (kbd "C-c C-x h") 'org-habit-apply)
+
+;;; insert habit
+(defun org-insert-habit ()
+  "Insert a new TODO subheading and set its properties so that it becomes a habit."
+  (interactive)
+  (beginning-of-line)
+  (org-insert-todo-subheading nil)
+  (org-schedule nil (format-time-string "%Y-%m-%d" (current-time)))
+  (save-excursion
+    (search-forward ">")
+    (backward-char)
+    (insert (concat
+             " .+"
+             (read-string "Minimum interval: ")
+             "/"
+             (read-string "Maximum interval: "))))
+  (org-set-property "STYLE" "habit")
+  (org-set-property "LOGGING" "TODO DONE(!)"))
+
+(define-key org-mode-map (kbd "C-c C-x H") 'org-insert-habit)
 
 ;;; Stuck Project
 
