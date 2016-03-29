@@ -20,6 +20,12 @@
   :ensure t)
 
 
+;;; [ sbt-mode ]
+
+(use-package sbt-mode
+  :ensure t)
+
+
 ;;; [ Ensime ]
 
 (use-package ensime
