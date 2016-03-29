@@ -30,6 +30,11 @@
 
 (use-package ensime
   :ensure t
+  :config
+  (setq ensime-completion-style 'company)
+  (setq ensime-graphical-tooltips t)
+  ;; (setq ensime-auto-generate-config t)
+  (add-hook 'scala-mode-hook 'ensime-mode)
   )
 
 
