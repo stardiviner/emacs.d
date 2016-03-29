@@ -143,7 +143,7 @@
    (plantuml . t)                       ; PlantUML
    ;; (ebnf2ps . t)                        ; ebnf2ps
    (calc . t)                           ; Calc
-   ;; (ledger . t)                         ; ledger support in Babel
+   (ledger . t)                         ; ledger support in Babel
    ;; (asymptote . t)                      ; Asymptote
    (sass . t)                           ; Sass
    ;; -- Extra --
@@ -285,6 +285,49 @@
         ;; (:echo . t)
         (:column . t)
         (:nullvalue . "Null")))
+
+;;; [ ob-ledger ]
+
+(use-package ledger-mode
+  :ensure t
+  :init
+  (add-to-list 'auto-mode-alist '("\\.ledger\\'" . ledger-mode))
+  )
+
+(use-package flycheck-ledger
+  :ensure t
+  :config
+  (add-hook 'ledger-mode-hook
+            (lambda ()
+              (flycheck-mode 1)
+              (flycheck-select-checker 'ledger)))
+  )
+
+(setq org-capture-templates
+      (append '(("l" "Ledger entries")
+                ("lb" "buy" plain
+                 (file (concat org-directory "/Accounting/my.ledger"))
+                 "%(org-read-date) %^{Payee}\n Expenses:%^{Account}  %^{Amount}")
+                ("lc" "cash" plain
+                 (file (concat org-directory "/Accounting/my.ledger"))
+                 "%(org-read-date) * %^{Payee}\n Expenses:Cash\n Expenses:%^{Account}  %^{Amount}")
+                ("lt" "transfer" plain
+                 (file (concat org-directory "/Accounting/my.ledger"))
+                 "%(org-read-date) * %^{Payee}\n Expenses:Transfer\n Expenses:%^{Account}  %^{Amount}")
+                ("lz" "ZhiFuBao" plain
+                 (file (concat org-directory "/Accounting/my.ledger"))
+                 "%(org-read-date) * %^{Payee}\n Expenses:ZhiFuBao\n Expenses:%^{Account}  %^{Amount}")
+                ("lb" "bank" plain
+                 (file (concat org-directory "/Accounting/my.ledger"))
+                 "%(org-read-date) * %^{Payee}\n Expenses:Bank\n Expenses:%^{Account}  %^{Amount}")
+                ("lL" "Lend" plain
+                 (file (concat org-directory "/Accounting/my.ledger"))
+                 "%(org-read-date) * %^{Payee}\n Expenses:Lend\n Expenses:%^{Account}  %^{Amount}")
+                ("lB" "Borrow" plain
+                 (file (concat org-directory "/Accounting/my.ledger"))
+                 "%(org-read-date) * %^{Payee}\n Expenses:Borrow\n Expenses:%^{Account}  %^{Amount}")
+                )
+              org-capture-templates))
 
 
 ;;; [ Library of Babel ]
