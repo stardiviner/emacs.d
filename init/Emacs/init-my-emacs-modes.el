@@ -9,27 +9,6 @@
 
 ;;; [ mmm-mode ] -- Minor mode to allow multiple major modes in one buffer.
 
-;;; Usage:
-;; prefix
-;; - [C-c % PUNCTUATION] -- prefix
-;;
-;; 1. [C-c % C-c] (`mmm-ify-by-class')
-;; a better way: (auto add buffer submode regions)
-;; to add submode regions by using submode classes.
-;; - [M-x mmm-mode] to enable mmm-mode in this buffer.
-;;  then [C-c % C-c], and enter the name of the class to add submode regions automatically.
-;;
-;; 2. [C-c % C-r] (`mmm-ify-region')
-;; quick start: (mark area submode region)
-;; - [M-x mmm-mode] to mark the area you want to make into a submode region.
-;;  then [C-c % C-r], and enter the desired major mode.
-;;
-;; 3. [C-c % C-x] (`mmm-ify-by-regexp')
-;;   scans the buffer for submode regions.
-;;
-;; 4. apply submode class to all files which matches conditions.
-;;    (mmm-add-mode-ext-class MODE EXTENSION CLASS)
-
 (use-package mmm-mode
   :ensure t
   :config
