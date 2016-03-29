@@ -305,27 +305,59 @@
 
 (setq org-capture-templates
       (append '(("l" "Ledger entries")
-                ("lb" "buy" plain
+                ;; Expense
+                ("le" "Expenses")
+                ("les" "Shopping" plain
                  (file (concat org-directory "/Accounting/my.ledger"))
-                 "%(org-read-date) %^{Payee}\n Expenses:%^{Account}  %^{Amount}")
-                ("lc" "cash" plain
+                 "%(org-read-date) %^{Event}\n expenses:shopping:%^{category}  %^{Amount}")
+                ("lef" "Food" plain
                  (file (concat org-directory "/Accounting/my.ledger"))
-                 "%(org-read-date) * %^{Payee}\n Expenses:Cash\n Expenses:%^{Account}  %^{Amount}")
-                ("lt" "transfer" plain
+                 "%(org-read-date) %^{Event}\n expenses:food:%^{meat,breakfast,lunch,dinner}  %^{Amount}")
+                ("let" "Traffic" plain
                  (file (concat org-directory "/Accounting/my.ledger"))
-                 "%(org-read-date) * %^{Payee}\n Expenses:Transfer\n Expenses:%^{Account}  %^{Amount}")
-                ("lz" "ZhiFuBao" plain
+                 "%(org-read-date) %^{Event}\n expenses:traffic:%^{bus,train,plane}  %^{Amount}")
+                ("leh" "House Rent" plain
                  (file (concat org-directory "/Accounting/my.ledger"))
-                 "%(org-read-date) * %^{Payee}\n Expenses:ZhiFuBao\n Expenses:%^{Account}  %^{Amount}")
-                ("lb" "bank" plain
+                 "%(org-read-date) %^{Event}\n expenses:house rent:  %^{Amount}")
+                
+                ;; Income
+                ("li" "Income")
+                ("lis" "Salary" plain
                  (file (concat org-directory "/Accounting/my.ledger"))
-                 "%(org-read-date) * %^{Payee}\n Expenses:Bank\n Expenses:%^{Account}  %^{Amount}")
-                ("lL" "Lend" plain
+                 "%(org-read-date) %^{Event}\n income:salary:%^{account}  %^{Amount}")
+
+                ;; Transfer
+                ("lt" "Transfer")
+                ("ltb" "Take out money from Bank"
                  (file (concat org-directory "/Accounting/my.ledger"))
-                 "%(org-read-date) * %^{Payee}\n Expenses:Lend\n Expenses:%^{Account}  %^{Amount}")
-                ("lB" "Borrow" plain
+                 "%(org-read-date) %^{Event}\n transfer:%^{source} -> %^{bank}  %^{Amount}"
+                 )
+                ("lto" "save moeny on online account"
                  (file (concat org-directory "/Accounting/my.ledger"))
-                 "%(org-read-date) * %^{Payee}\n Expenses:Borrow\n Expenses:%^{Account}  %^{Amount}")
+                 "%(org-read-date) %^{Event}\n transfer:%^{source} -> %^{ZhiFuBao}  %^{Amount}"
+                 )
+                ("ltc" "take out moeny to Cash"
+                 (file (concat org-directory "/Accounting/my.ledger"))
+                 "%(org-read-date) %^{Event}\n transfer:%^{source} -> cash  %^{Amount}"
+                 )
+
+                ;; Debt
+                ("ld" "Debt")
+                ("ldr" "Rent" plain
+                 (file (concat org-directory "/Accounting/my.ledger"))
+                 "%(org-read-date) %^{Event}\n debt:rent:%^{people}  %^{Amount}")
+                ("ldb" "Borrow" plain
+                 (file (concat org-directory "/Accounting/my.ledger"))
+                 "%(org-read-date) %^{Event}\n debt:borrow:%^{people}  %^{Amount}")
+                
+                ;; Assets
+                ("la" "Assets")
+                ("lab" "Bank" plain
+                 (file (concat org-directory "/Accounting/my.ledger"))
+                 "%(org-read-date) %^{Event}\n assets:bank:%^{bank}  %^{Amount}")
+                ("lao" "Online Accounts" plain
+                 (file (concat org-directory "/Accounting/my.ledger"))
+                 "%(org-read-date) %^{Event}\n assets:online-account:%^{ZhiFuBao}  %^{Amount}")
                 )
               org-capture-templates))
 

@@ -105,23 +105,25 @@
 
 (require 'org-protocol)
 
-(add-to-list 'org-capture-templates
-             '("p" "Protocol"
-               entry (file+headline
-                      (concat org-directory "Capture/Capture.org") "Capture")
-               "* %^{Title}\nSource: %u, \n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?"
-               :prepend t
-               :empty-lines 1
-               ))
+(setq org-capture-templates
+      (append '(("P" "Protocol")
+                ("Pp" "protocol"
+                 entry (file+headline
+                        (concat org-directory "Capture/Capture.org") "Capture")
+                 "* %^{Title}\nSource: %u, \n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?"
+                 :prepend t
+                 :empty-lines 1
+                 )
+                ("Pl" "link"
+                 entry (file+headline
+                        (concat org-directory "Capture/Capture.org") "Capture")
+                 "* %? [[%:link][%:description]] \nCaptured On: %U"
+                 :prepend t
+                 :empty-lines 1
+                 )
+                )
+              org-capture-templates))
 
-(add-to-list 'org-capture-templates
-             '("L" "Protocol Link"
-               entry (file+headline
-                      (concat org-directory "Capture/Capture.org") "Capture")
-               "* %? [[%:link][%:description]] \nCaptured On: %U"
-               :prepend t
-               :empty-lines 1
-               ))
 
 (defadvice org-capture
     (after make-full-window-frame activate)
