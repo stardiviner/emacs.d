@@ -9,10 +9,6 @@
 
 ;;; [ doc-view ]
 
-;;; Usage:
-;;
-;; - [] ::
-
 ;; (require 'doc-view)
 ;;
 ;; (setq doc-view-continuous t
@@ -26,141 +22,90 @@
 
 ;;; [ pdf-tools ] -- Emacs support library for PDF files.
 
-;;; Usage:
-;;
-;; - `pdf-view-mode'
-;;   - `pdf-view-auto-slice-minor-mode'
-;; - `pdf-tools-enable-minor-modes'
-;;   - `pdf-outline-minor-mode'
-;;   - `pdf-annot-minor-mode'
-;;   - `pdf-cache-prefetch-minor-mode'
-;;   - `pdf-history-minor-mode'
-;;   - `pdf-isearch-minor-mode'
-;;   - `pdf-links-minor-mode'
-;;   - `pdf-misc-minor-mode'
-;;     - `pdf-misc-context-menu-minor-mode'
-;; - use bookmark.el to remember PDF position.
-
-
 (use-package pdf-tools
   :ensure t
   :init
   (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
   :config
-  (add-hook 'pdf-tools-enabled-hook
-            '(lambda ()
-               ;; Recolor
-               ;; (pdf-info-setoptions :render/usecolors t
-               ;;                      :render/background "white"
-               ;;                      :render/foreground "black"
-               ;;                      )
-               ))
-
-  ;; PDF View
-
+  ;; (setq pdf-tools-modes
+  ;;       pdf-tools-enabled-modes)
+  
+  ;; [ PDF View ]
   ;; - [SPC] :: scroll continuous
   ;; - [n/p] :: scroll to next/previous page
-
   (setq pdf-view-display-size 'fit-width
         pdf-view-continuous t
         pdf-cache-image-limit 64
         pdf-cache-prefetch-delay 0.5
-        pdf-view-image-relief 0
+        pdf-view-image-relief 2
         pdf-view-bounding-box-margin 0.05
         ;; pdf-view-use-imagemagick nil
         pdf-view-use-scaling t
         )
 
+  ;; [ PDF Tools ]
+  ;; [ isearch ]
+  (require 'pdf-isearch)
+  (add-hook 'pdf-isearch-minor-mode-hook
+            (lambda ()
+              ;; revert to emacs default isearch from custom global search utility.
+              (define-key pdf-isearch-minor-mode-map (kbd "C-s") 'isearch-forward)
+              ))
+
+  ;; [ outline ]
+  (require 'pdf-outline)
+  (setq pdf-outline-display-labels t
+        pdf-outline-enable-imenu t
+        pdf-outline-imenu-use-flat-menus nil
+        )
+
+  ;; [ annotation ]
+  (require 'pdf-annot)
+  (setq pdf-annot-activate-created-annotations t
+        pdf-annot-tweak-tooltips t
+        pdf-annot-minor-mode-map-prefix (kbd "C-c C-a")
+        )
+
+  
+  (add-hook 'pdf-tools-enabled-hook
+            (lambda ()
+              ;;; Recolor
+              ;; (pdf-info-setoptions :render/usecolors t
+              ;;                      :render/background "white"
+              ;;                      :render/foreground "black"
+              ;;                      )
+              ))
+  
   (set-face-attribute 'pdf-view-rectangle nil
-                      :background (color-darken-name (face-background 'default) 5)
+                      :background "yellow"
                       )
   (set-face-attribute 'pdf-view-region nil
-                      :background (color-darken-name (face-background 'default) 3)
+                      :background "orange"
                       )
   
   (add-hook 'pdf-view-mode-hook
-            '(lambda ()
-               ;; change key [k] to [K] to avoid mis-press.
-               ;; (define-key pdf-view-mode-map [remap image-kill-buffer] 'quit-window)
-               (define-key pdf-view-mode-map (kbd "k") nil)
-               (define-key pdf-view-mode-map (kbd "K") 'image-kill-buffer)
+            (lambda ()
+              ;; change key [k] to [K] to avoid mis-press.
+              (define-key pdf-view-mode-map (kbd "k") nil)
 
-               ;; "auto" slice from bounding box
-               (pdf-view-auto-slice-minor-mode)
+              ;; "auto" slice from bounding box
+              (pdf-view-auto-slice-minor-mode)
 
-               ;; use midnight mode theme
-               ;; (pdf-view-midnight-minor-mode)
-               ))
+              ;; use midnight mode theme
+              (pdf-view-midnight-minor-mode)
 
-  ;; PDF Tools
-
-  (setq pdf-tools-enabled-modes
-        '(pdf-outline-minor-mode
-          pdf-isearch-minor-mode
-          pdf-links-minor-mode
-          pdf-annot-minor-mode
-          pdf-history-minor-mode
-          pdf-misc-minor-mode
-          pdf-misc-size-indication-minor-mode
-          pdf-misc-menu-bar-minor-mode
-          pdf-misc-context-menu-minor-mode
-          pdf-sync-minor-mode
-          pdf-cache-prefetch-minor-mode
-          pdf-occur-global-minor-mode))
-
-  ;; PDF Tools - isearch
-
-  (setq pdf-isearch-hyphenation-character "--")
-
-  ;; (set-face-attribute 'pdf-isearch-batch nil
-  ;;                     )
-  ;; (set-face-attribute 'pdf-isearch-lazy nil
-  ;;                     )
-  ;; (set-face-attribute 'pdf-isearch-match nil
-  ;;                     )
-
-  (add-hook 'pdf-isearch-minor-mode-hook
-            '(lambda ()
-               ;; revert to emacs default isearch from custom global search utility.
-               (define-key pdf-isearch-minor-mode-map (kbd "C-s") 'isearch-forward)))
-
-  ;; PDF Tools -- outline
-
-  (setq pdf-outline-buffer-indent 2
-        pdf-outline-display-labels t ; the outline should display labels instead of page numbers.
-        pdf-outline-enable-imenu t
-        pdf-outline-imenu-use-flat-menus nil ; Imenu should be a tree or flatted.
-        )
-
-  ;; PDF Tools - annotation
-
-  (setq pdf-annot-activate-created-annotations t
-        ;; pdf-annot-activate-handler-functions nil
-        ;; pdf-annot-attachment-display-buffer-action nil
-        pdf-annot-default-markup-annotation-properties '((label . "stardiviner")
-                                                         (popup-is-open))
-        pdf-annot-default-text-annotation-properties '((icon . "Note")
-                                                       (color . "#ff0000")
-                                                       (label . "stardiviner")
-                                                       (popup-is-open))
-        ;; pdf-annot-edit-contents-display-buffer-action '((display-buffer-reuse-window display-buffer-split-below-and-attach)
-        ;;                                                 (inhibit-same-window . t)
-        ;;                                                 (window-height . 0.25))
-        ;; pdf-annot-list-display-buffer-action '((display-buffer-reuse-window display-buffer-pop-up-window)
-        ;;                                        (inhibit-same-window . t))
-        pdf-annot-list-listed-types '(text file
-                                           squiggly highlight underline strike-out
-                                           3d circle square
-                                           free-text ink line link poly-line
-                                           polygon popup
-                                           stamp printer-mark watermark widget
-                                           sound movie)
-        pdf-annot-minor-mode-map-prefix (kbd "C-c C-a")
-        ;; pdf-annot-print-annotation-functions '(pdf-annot-print-annotation-latex-maybe)
-        pdf-annot-tweak-tooltips t
-        )
+              ;; `pdf-tools-enabled-modes'
+              (pdf-isearch-minor-mode)
+              (pdf-occur-global-minor-mode)
+              (pdf-outline-minor-mode)
+              (pdf-links-minor-mode)
+              (pdf-annot-minor-mode)
+              (pdf-misc-minor-mode)
+              (pdf-sync-minor-mode)
+              ))
   )
 
+
 ;;; export annotations at once
 ;;
 ;; 1. Try M-x pp-eval-expression (pdf-annot-getannots nil '(text)) RET
@@ -217,8 +162,6 @@
 (use-package org-pdfview
   :ensure t
   :config
-  ;; (require 'org) ; require `org' to fix error: void variable `org-file-apps'.
-
   (eval-after-load 'org
     '(require 'org-pdfview))
 
