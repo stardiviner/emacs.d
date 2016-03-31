@@ -28,6 +28,7 @@
         (:padnewline . "yes")
         (:noweb . "no")
         (:tangle . "no")
+        (:mkdirp . "yes")
         (:padline . "true")
         (:comments . "links")
         ))
