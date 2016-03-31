@@ -49,7 +49,8 @@
 (with-eval-after-load 'js-mode
   (add-hook 'js-mode-hook
             (lambda ()
-              (electric-layout-mode -1) ; electric-layout-mode doesn't play nice with js-mode.
+              ;; electric-layout-mode doesn't play nice with js-mode.
+              (electric-layout-mode -1)
               )))
 
 
