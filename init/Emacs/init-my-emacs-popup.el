@@ -88,6 +88,14 @@
   )
 
 
+;;; [ ace-popup-menu ] -- replace GUI popup menu with something more efficient.
+
+(use-package ace-popup-menu
+  :ensure t
+  :config
+  (setq ace-popup-menu-show-pane-header t))
+
+
 (provide 'init-my-emacs-popup)
 
 ;;; init-my-emacs-popup.el ends here
