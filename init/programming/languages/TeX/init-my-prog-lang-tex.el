@@ -89,7 +89,7 @@
 ;; LaTeX source code block syntax highlighting.
 ;; [ minted ]
 ;; toggle shell escape using [C-c C-t x].
-(defun TeX-toggle-escape ()
+(defun TeX-toggle-shell-escape ()
   "Toggle Shell Escape"
   (interactive)
   (setq-local LaTeX-command
@@ -102,7 +102,8 @@
            ))
 (add-hook 'LaTeX-mode-hook
           '(lambda ()
-             (local-set-key (kbd "C-c C-t x") 'TeX-toggle-escape)))
+             (TeX-toggle-shell-escape)
+             (local-set-key (kbd "C-c C-t x") 'TeX-toggle-shell-escape)))
 
 ;;; smart tie
 (defun electric-tie ()
