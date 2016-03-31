@@ -78,6 +78,7 @@
                   ))
                "okular"
                '(file))
+         '("\\.jar\\'" "java -jar" (file))
          ))
 
   ;; If you also use emacs for email, you may want to add this to your config:
