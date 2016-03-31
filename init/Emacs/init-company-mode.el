@@ -263,7 +263,7 @@
   "Setup company-mode in minibuffer."
   (company-mode 1)
   (setq-local company-frontends '(company-pseudo-tooltip-unless-just-one-frontend
-                                  ;; company-preview-if-just-one-frontend
+                                  company-preview-if-just-one-frontend
                                   ))
   (setq-local company-tooltip-limit 4)
   (setq-local company-tooltip-minimum 1)
