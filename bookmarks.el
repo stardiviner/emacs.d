@@ -2,7 +2,17 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("dotfiles (org-mode literate)"
+(("My CSS Language Syntax Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/CSS/Data/Manuals/My CSS Language Syntax Reference/My CSS Language Syntax Reference.org")
+ (front-context-string . "* Intro\n\n\n* Conc")
+ (rear-context-string)
+ (position . 1))
+("Org-mode"
+ (filename . "~/Org/Wiki/Computer/Programming/Emacs/modes/Org-mode/Org-mode.org")
+ (front-context-string . "#+STARTUP: overv")
+ (rear-context-string)
+ (position . 1))
+("dotfiles (org-mode literate)"
  (filename . "~/Org/dotfiles/dotfiles.org")
  (front-context-string)
  (rear-context-string)
@@ -340,11 +350,6 @@
 ("JavaScript Language Reference"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/JavaScript/Data/Manuals/My JavaScript Reference/My JavaScript Reference.org")
  (front-context-string . "* Intro\n\n** How ")
- (rear-context-string)
- (position . 1))
-("Org-mode"
- (filename . "~/Org/Wiki/Computer/Programming/Emacs/modes/Org/Org-mode.org")
- (front-context-string . "* Intro\n\nOrg is ")
  (rear-context-string)
  (position . 1))
 ("Emacs Lisp Regexp Reference"
