@@ -153,6 +153,13 @@
                       :background "black" :foreground "orange"
                       )
 
+  ;; eval sexp result overlays
+  (set-face-attribute 'cider-result-overlay-face nil
+                      :foreground "orange"
+                      :background (color-darken-name (face-background 'default) 3)
+                      :box '(:line-width -1 :color "dim gray")
+                      )
+
   ;; enable `cider-mode' in `clojure-mode'.
   (add-hook 'clojure-mode-hook 'cider-mode)
   
