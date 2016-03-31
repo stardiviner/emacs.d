@@ -22,16 +22,6 @@
 
 ;;; [ helm-dash ] -- Browse Dash docsets inside emacs.
 
-;;; Usage:
-;;
-;; - [M-x helm-dash]
-;; - [M-x helm-dash-at-point]
-;; - [M-x helm-dash-reset-connections] :: fix/reset sqlite db's error
-;;
-;; - `helm-dash-install-docset' :: install official docset.
-;; - `helm-dash-install-user-docset' :: install user contributed docset.
-;; - `helm-dash-install-docset-from-file' :: install docset from file.
-
 (use-package helm-dash
   :ensure t
   :config
