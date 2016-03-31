@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-ledger-register
+# key: babel-ledger-register
+# group: babel
+# --
+#+BEGIN_SRC ledger ${1::cmdline -M reg ${2:assets}} :noweb yes
+$0
+#+END_SRC

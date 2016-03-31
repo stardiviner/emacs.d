@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-ledger
+# key: babel-ledger
+# group: babel
+# --
+#+BEGIN_SRC ledger :noweb yes
+$0
+#+END_SRC

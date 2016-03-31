@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-ledger-balance
+# key: babel-ledger-balance
+# group: babel
+# --
+#+BEGIN_SRC ledger :cmdline -s bal :noweb yes
+$0
+#+END_SRC
