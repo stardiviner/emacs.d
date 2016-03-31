@@ -49,7 +49,13 @@
   (add-hook 'elpy-mode-hook
             (lambda ()
               (my-company-add-backend-locally 'elpy-company-backend)
+              
               (define-key python-mode-map (kbd "C-h d d") 'elpy-doc)
+              (define-key python-mode-map (kbd "M-,") 'pop-tag-mark)
+
+              ;; disable some modes
+              (highlight-indentation-mode -1)
+              ;; (flymake-mode-off)
               ))
 
   (add-hook 'inferior-python-mode-hook 'elpy-mode)
