@@ -231,7 +231,10 @@
 (use-package helm-org-rifle
   :ensure t
   :config
-  (setq helm-org-rifle-show-path t)
+  (setq helm-org-rifle-show-path t
+        helm-org-rifle-fontify-headings t
+        helm-org-rifle-show-todo-keywords t
+        helm-org-rifle-show-tags t)
   (define-key my-org-prefix (kbd "g") 'helm-org-rifle-current-buffer)
   (define-key my-org-prefix (kbd "G") 'helm-org-rifle)
   )
