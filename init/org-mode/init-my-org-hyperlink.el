@@ -40,7 +40,8 @@
         ;; Image
         ("\\.png\\'" . "sxiv %s")
         ("\\.jpg\\'" . "sxiv %s")
-        ("\\.gif\\'" . "sxiv -a -f %s")
+        ;; ("\\.gif\\'" . "sxiv -a -f %s")
+        ("\\.gif\\'" . "gwenview %s")
         ("\\.svg\\'" . "feh --magick-timeout 5 %s")
         ;; Mind Maps
         ("\\.mm\\'" . "freemind %s") ; freeplane
