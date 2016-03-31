@@ -89,6 +89,7 @@
 :Sexual: %^{Sexual|Heterosexual|Bisexual|Homosexual}
 :RELATIONSHIP: %^{Relationship|Meet|Friend|Good Friend|Boy Friend|Girl Friend|Classmate|Schoolmate}
 :FIRST-MEET: %^U  %^{first-time meet}
+:Thought: %^{Thought|open|conservative}
 :MOBILE: %^{Mobile Phone}
 :EMAIL: %(org-contacts-template-email)
 :QQ: %^{QQ}
