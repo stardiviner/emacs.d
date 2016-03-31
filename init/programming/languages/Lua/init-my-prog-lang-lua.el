@@ -9,13 +9,17 @@
 
 ;;; [ lua-mode ]
 
-(setq lua-indent-level 3
-      lua-always-show t
-      lua-documentation-function 'browse-url
-      lua-prefix-key (kbd "C-c")
-      lua-indent-string-contents t
-      lua-jump-on-traceback t
-      )
+(use-package lua-mode
+  :ensure t
+  :config
+  (setq lua-indent-level 3
+        lua-always-show t
+        lua-documentation-function 'browse-url
+        lua-prefix-key (kbd "C-c")
+        lua-indent-string-contents t
+        lua-jump-on-traceback t
+        )
+  )
 
 
 
