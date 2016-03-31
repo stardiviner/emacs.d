@@ -226,6 +226,17 @@
 ;; (use-package org-ref)
 
 
+;;; [ helm-org-rifle ] -- Rifle through your Org buffers and acquire your target.
+
+(use-package helm-org-rifle
+  :ensure t
+  :config
+  (setq helm-org-rifle-show-path t)
+  (define-key my-org-prefix (kbd "g") 'helm-org-rifle-current-buffer)
+  (define-key my-org-prefix (kbd "G") 'helm-org-rifle)
+  )
+
+
 (provide 'init-my-org-extensions)
 
 ;;; init-my-org-extensions.el ends here
