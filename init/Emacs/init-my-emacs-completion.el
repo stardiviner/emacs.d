@@ -71,12 +71,9 @@
 
 
 
-;; (require 'init-helm)
+(require 'init-helm)
 ;; (require 'init-ido)
 (require 'init-ivy)
-
-;; patch for `helm-dash'.
-(require 'init-helm-simple-config)
 
 
 
