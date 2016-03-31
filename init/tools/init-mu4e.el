@@ -503,8 +503,14 @@
 
 (add-hook 'mu4e-compose-mode-hook
           (lambda ()
-            (org-mu4e-compose-org-mode) ; edit with org-mode in e-mail body.
+            ;; disable latex preview to prevent issue to:
+            ;; `org-mu4e-compose-org-mode'
+            ;; FIXME: does not work.
+            (setq-local org-startup-with-latex-preview nil)
+            ;; edit with org-mode in e-mail body.
+            (org-mu4e-compose-org-mode)
             ))
+
 ;;
 ;; After this, you can use the normal org-mode mechanisms to store links: M-x
 ;; org-store-link stores a link to a particular message when you're in Message
