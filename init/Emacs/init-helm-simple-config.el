@@ -34,28 +34,23 @@
         )
 
   ;; [ Helm faces ]
-  (set-face-attribute 'helm-match nil
-                      :foreground "dim gray"
-                      :background (color-darken-name (face-background 'default) 5)
-                      )
   (set-face-attribute 'helm-selection nil
-                      ;; 1. different font
-                      ;; :family "Comic Sans MS" :weight 'normal :height 1.0 :slant 'italic
-                      ;; 2. box selected
+                      :inherit nil
+                      ;; 1. box selected
                       ;; :background "#004A5D" :foreground "white"
                       ;; :box '(:color "cyan" :line-width -1)
                       ;; :underline nil
-                      ;; 3. tomato color box
-                      :background "#333333" :foreground "white"
-                      :box '(:color "tomato" :line-width -1 :style nil)
-                      :underline nil :weight 'normal
-                      ;; 4. darker background percent 5%
-                      ;; :inherit nil
-                      ;; :inverse-video nil
-                      ;; :background (color-darken-name (face-background 'default) 5)
-                      ;; :underline '(:color "dark red")
+                      ;; 2. darker background
+                      :inverse-video nil
+                      :foreground nil
+                      :background (color-darken-name (face-background 'default) 4)
                       )
-
+  (set-face-attribute 'helm-match nil
+                      :inherit nil
+                      :foreground "white"
+                      :background nil
+                      :box '(:color "cyan" :line-width -1)
+                      )
   (set-face-attribute 'helm-header nil
                       :reverse-video nil
                       :foreground "gray" :background "black"
