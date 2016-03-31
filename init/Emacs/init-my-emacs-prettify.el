@@ -77,9 +77,9 @@
            (append my/clojure-prettify-alist
                    clojure--prettify-symbols-alist)))
   (eval-after-load 'lisp-mode
-    '(setq lisp--prettify-symbols-alist
+    '(setq lisp-prettify-symbols-alist
            (append my/clojure-prettify-alist
-                   lisp--prettify-symbols-alist)))
+                   lisp-prettify-symbols-alist)))
   )
 
 
