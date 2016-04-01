@@ -21,53 +21,51 @@
 ;; - [M-x org-passwords-open-url] ::
 ;; - [M-x org-passwords-generate-password] ::
 
-(use-package org-passwords
-  ;; :ensure t
-  ;; :config
-  ;; (setq org-passwords-file "~/Git/dotfiles/passwords.gpg"
-  ;;       ;; org-passwords-default-password-size "20"
-  ;;       ;; org-passwords-random-words-dictionary "/etc/dictionaries-common/words"
-  ;;       ;; org-passwords-random-words-substitutions '(("for" . "4") ("s" . "5"))
-  ;;       ;; org-passwords-password-property "PASSWORD"
-  ;;       ;; org-passwords-username-property "USERNAME"
-  ;;       ;; org-passwords-url-property "URL"
-  ;;       org-passwords-time-opened "1 min"
-  ;;       )
-  ;;
-  ;; (eval-after-load "org-passwords"
-  ;;   '(progn
-  ;;      (define-key org-passwords-mode-map
-  ;;        (kbd "C-c u")
-  ;;        'org-passwords-copy-username)
-  ;;      (define-key org-passwords-mode-map
-  ;;        (kbd "C-c p")
-  ;;        'org-passwords-copy-password)
-  ;;      (define-key org-passwords-mode-map
-  ;;        (kbd "C-c o")
-  ;;        'org-passwords-open-url)))
+;; (use-package org-passwords
+;;   :ensure t
+;;   :config
+;;   (setq org-passwords-file "~/Git/dotfiles/passwords.gpg"
+;;         ;; org-passwords-default-password-size "20"
+;;         ;; org-passwords-random-words-dictionary "/etc/dictionaries-common/words"
+;;         ;; org-passwords-random-words-substitutions '(("for" . "4") ("s" . "5"))
+;;         ;; org-passwords-password-property "PASSWORD"
+;;         ;; org-passwords-username-property "USERNAME"
+;;         ;; org-passwords-url-property "URL"
+;;         org-passwords-time-opened "1 min"
+;;         )
 
-;;; Making new entries in the database
-;;; To enter new passwords, you can use 'org-capture' and a minimal template like:
-  ;;
-  ;; ("p" "password" entry (file "~/documents/passwords.gpg")
-  ;;  "* %^{Title}\n  %^{URL}p %^{USERNAME}p %^{PASSWORD}p %^{TAGS}p")
+;;   (define-key org-passwords-mode-map
+;;     (kbd "C-c u")
+;;     'org-passwords-copy-username)
+;;   (define-key org-passwords-mode-map
+;;     (kbd "C-c p")
+;;     'org-passwords-copy-password)
+;;   (define-key org-passwords-mode-map
+;;     (kbd "C-c o")
+;;     'org-passwords-open-url)
 
-  ;; When asked for the password you can then call either
-  ;; 'org-passwords-generate-password' or 'org-passwords-random-words'.
-  ;; Be sure to enable recursive minibuffers to call those functions from the minibuffer:
-  ;; (setq enable-recursive-minibuffers t)
-  ;;
-  ;; (defun my-org-passwords-search ()
-  ;;   "Search entry in org-passwords."
-  ;;   (interactive)
-  ;;   (org-passwords)
-  ;;   (switch-to-buffer "passwords.gpg")
-  ;;   (if (boundp 'vr/isearch-forward) ; TODO: add thing-at-point support here.
-  ;;       (vr/isearch-forward)
-  ;;     (isearch-forward-regexp)))
-  ;;
-  ;; (define-key my-org-prefix (kbd "P") 'my-org-passwords-search)
-  )
+;;   ;; Making new entries in the database
+;;   ;; To enter new passwords, you can use 'org-capture' and a minimal template like:
+;;   ;;
+;;   ;; ("p" "password" entry (file "~/documents/passwords.gpg")
+;;   ;;  "* %^{Title}\n  %^{URL}p %^{USERNAME}p %^{PASSWORD}p %^{TAGS}p")
+
+;;   ;; When asked for the password you can then call either
+;;   ;; `org-passwords-generate-password' or `org-passwords-random-words'.
+;;   ;; Be sure to enable recursive minibuffers to call those functions from the minibuffer:
+;;   (setq enable-recursive-minibuffers t)
+  
+;;   (defun my-org-passwords-search ()
+;;     "Search entry in org-passwords."
+;;     (interactive)
+;;     (org-passwords)
+;;     (switch-to-buffer "passwords.gpg")
+;;     (if (boundp 'vr/isearch-forward) ; TODO: add thing-at-point support here.
+;;         (vr/isearch-forward)
+;;       (isearch-forward-regexp)))
+  
+;;   (define-key my-org-prefix (kbd "P") 'my-org-passwords-search)
+;;   )
 
 
 ;;; [ org-password-manager ]
