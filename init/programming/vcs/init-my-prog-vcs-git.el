@@ -15,13 +15,16 @@
 ;;; Usage:
 ;; - [C-x v] -- prefix for vc-git.
 
+;; (require 'vc-git)
+
 
 ;;; [ git.el ] -- front end wrapper for vc-git.
 
 ;;; Usage:
 ;; - [M-x git-help] -- get help of git.el
 
-(require 'git)
+;; (use-package git
+;;   :ensure t)
 
 
 ;; [ git-modes ] -- front end wrapper for vc-git.
