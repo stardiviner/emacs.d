@@ -217,29 +217,6 @@
         )
       )
 
-;; (defun my-set-mu4e-headers-fields-smart
-;;   "Set mu4e headers fields: flag, subject, from, date length depend on window width."
-;;
-;;   ;; solid length
-;;   (setq i_flag 5
-;;         i_date 20)
-;;
-;;   (if (< (window-width) 120)
-;;       (setq subject_percent (/ 5.0 6.0))
-;;     (setq i_subject (* (- (window-width) (+ i_flag i_date)) subject_percent)
-;;           i_from (- (window-width) (+ i_flag i_subject i_date)))
-;;       )
-;;
-;;   (setq mu4e-headers-fields '((:flags   . i_flag)
-;;                               (:subject . i_subject)
-;;                               (:from    . i_from)
-;;                               (:date    . i_date))
-;;         )
-;;   )
-;;
-;; (add-hook 'mu4e-headers-mode-hook 'my-set-mu4e-headers-fields-smart)
-
-
 ;; general emacs mail settings; used when composing e-mail
 ;; the non-mu4e-* stuff is inherited from emacs/message-mode
 (setq mu4e-reply-to-address "numbchild@gmail.com"
@@ -296,14 +273,6 @@
 
 ;; don't keep message buffers around
 (setq message-kill-buffer-on-exit t)
-
-;; `mu4e-compose-mode-hook', `mu4e-compose-pre-hook'.
-(add-hook 'mu4e-compose-mode-hook
-          (lambda ()
-            (set-fill-column 80)
-            ;; (flyspell-mode-on)
-            )
-          )
 
 
 ;;;  Reply
@@ -463,51 +432,16 @@
 ;; It can be useful to include links to e-mail messages or even search queries
 ;; in your org-mode files. mu4e supports this with the org-mu4e module; you can
 ;; set it up by adding it to your configuration:
-;;
 
 (require 'org-mu4e)
 
 ;; store link to message if in "header view", not to "header query"
 (setq org-mu4e-link-query-in-headers-mode nil)
 
-;; integrate to org-capture.
-;;
-;; (setq org-capture-templates
-;;       '(("t" "todo" entry (file+headline "~/todo.org" "Tasks")
-;;          "* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n")))
-;;
-;; This looks like the version we had before, but the extra %a adds a link to
-;; the file you are visiting when you invoke the capture template.
-
-(add-hook 'mu4e-compose-mode-hook
-          (lambda ()
-            ;; disable latex preview to prevent issue to:
-            ;; `org-mu4e-compose-org-mode'
-            (setq-local org-startup-with-latex-preview nil)
-            ;; edit with org-mode in e-mail body.
-            (org-mu4e-compose-org-mode)
-            ))
-
-;;
-;; After this, you can use the normal org-mode mechanisms to store links: M-x
-;; org-store-link stores a link to a particular message when you're in Message
-;; view, and a link to a query when you are in Headers view.
-;;
-;; You can insert this link later with M-x org-insert-link. From org-mode, you
-;; can go to the query or message the link points to with either M-x
-;; org-agenda-open-link in agenda buffers, or M-x org-open-at-point elsewhere -
-;; both typically bound to C-c C-o.
-
-;;; Usage:
-;;
 ;; - `org-mu4e-open' :: open the mu4e message (for paths starting with 'msgid:')
 ;;                      or run the query (for paths starting with 'query:').
 
-;; (if (not (fboundp 'org-mu4e-compose-org-mode))
-;;     (require 'org-mu4e)                 ; this will setup org links.
-;;   ;; when mail is sent, automatically convert org body to HTML
-;;   (setq org-mu4e-convert-to-html t)
-;;   )
+(defalias 'org-email-open 'org-mu4e-open)
 
 (org-add-link-type "email-msgid" 'org-email-open)
 (org-add-link-type "email-query" 'org-email-open)
@@ -558,45 +492,14 @@
       )
 
 
-;;; mu-cite
+;;; [ cite ]
 
-;; (setq message-cite-function 'mu-cite-original ; message-cite-original-without-signature
-;;       mu-cite-top-format '(in-id ">>>>>	" from " wrote:\n")
-;;       mu-cite-prefix-format '(prefix-register-verbose "> ") ;  '(" > ")
-;;       )
+;; mu-cite
+;; [C-c h] to toggle hide cited.
+(add-hook 'mu4e-view-mode-hook 'mu4e-view-toggle-hide-cited)
 
-;; (add-hook 'mu4e-view-mode-hook 'mu4e-view-toggle-hide-cited) ; [C-c h] to toggle hide cited.
-;; (define-key mu4e-view-mode-map (kbd "C-c h") 'mu4e-view-toggle-hide-cited)
-
-(remove-hook 'mu4e-org-mode-hook 'org-toggle-latex-fragment)
-(remove-hook 'mu4e-view-mode-hook 'org-toggle-latex-fragment)
-
-
-;;; message-cite
-
-;; (setq message-cite-style
-;;       '((posting-from-work-p)
-;;         (eval
-;;          (set (make-local-variable 'message-cite-style) message-cite-style-thunderbird))))
-
-(setq message-cite-style message-cite-style-thunderbird)
-;; ((posting-from-work-p) (eval (set (make-local-variable 'message-cite-style) message-cite-style-outlook)))
-;; (setq message-cite-style '((message-cite-function 'message-cite-original)
-;;                            (message-citation-line-function 'message-insert-formatted-citation-line)
-;;                            (message-cite-reply-position 'above)
-;;                            (message-yank-prefix "> ")
-;;                            (message-yank-cited-prefix ">")
-;;                            (message-yank-empty-prefix ">")
-;;                            (message-citation-line-format "On %D %R %p, %N wrote:")))
-
-;; (setq message-cite-style-gmail
-;;       '((message-cite-function 'message-cite-original)
-;;         (message-citation-line-function 'message-insert-formatted-citation-line)
-;;         (message-cite-reply-position 'above)
-;;         (message-yank-prefix "    ")
-;;         (message-yank-cited-prefix "    ")
-;;         (message-yank-empty-prefix "    ")
-;;         (message-citation-line-format "On %e %B %Y %R, %f wrote:\n")))
+;; message-cite
+(setq message-cite-style message-cite-style-gmail)
 
 
 ;; viewing images inline
@@ -780,10 +683,15 @@
         ("maildir:/Emacs/help"           "Emacs mailbox" ?e)
         ))
 
-(add-hook 'mu4e-index-updated-hook
-          (defun mu4e-new-mail-alert ()
-            (shell-command "mplayer /home/stardiviner/Music/Sounds/Hacking Game/voice-complete.wav &>/dev/null")
-            ))
+(defun mu4e-new-mail-alert ()
+  (interactive)
+  (shell-command
+   (concat "mpv "
+           (getenv "HOME")
+           "/Music/Sounds/Ingress/Speech/speech_incoming_message.ogg"
+           " &> /dev/null"))
+  )
+(add-hook 'mu4e-index-updated-hook 'mu4e-new-mail-alert)
 
 
 ;;; Faces
