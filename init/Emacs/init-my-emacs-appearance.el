@@ -103,7 +103,7 @@
 ;; (setq linum-format 'dynamic)
 ;; (setq linum-format "%d ") ; 'dynamic
 ;; (setq linum-format "%4d \u2502") ; a solid line separator
-;; TODO: combine 'dynamic result with \u2502
+;; combine 'dynamic result with \u2502
 ;; (setq linum-format '(combine 'dynamic "\u2502"))
 
 ;; (line-number-mode -1)

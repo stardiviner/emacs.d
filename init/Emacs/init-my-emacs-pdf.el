@@ -118,37 +118,6 @@
 ;;  "\n\n\nNext note:\n")
 
 
-;; TODO: let pdf-view (pdf-tools) remember file position after close.
-;;
-;; (defun pdf-view-store-position ()
-;;   "Store current pdf-view-mode opened file position for later jump to here automatically."
-;;   (interactive)
-;;   ;; borrow from org-pdfview `org-pdfview-store-link'
-;;   (when (eq major-mode 'pdf-view-mode)
-;;     (let* ((path buffer-file-name)
-;;            (page (pdf-view-current-page))
-;;            (link (concat "pdfview:" path "::" (number-to-string page))))
-;;       (org-store-link-props
-;;        :type "pdfview"
-;;        :link link
-;;        :description path)
-;;
-;;       ;; (pdf-view-goto-page (pdf-info-number-of-pages))
-;;       ;; (pdf-view-goto-label ...)
-;;       ))
-;;   )
-;;
-;; (add-hook 'kill-buffer-hook 'pdf-view-store-position)
-
-
-;;; mark region for annotation with keybinding & mouse
-
-;; TODO:
-;; (define-key pdf-view-mode-map (kbd "") 'pdf-view-mouse-set-region)
-;; (define-key pdf-view-mode-map (kbd "") 'pdf-view-mouse-set-region-rectangle)
-;; (define-key pdf-view-mode-map (kbd "") 'pdf-view-mouse-extend-region)
-
-
 ;;; [ org-pdfview ] -- org-link support for pdf-view-mode
 
 ;;; Usage:

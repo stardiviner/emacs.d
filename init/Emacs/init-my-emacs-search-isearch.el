@@ -141,14 +141,6 @@
 
 ;;; custom function
 
-;;; custom isearch to start from buffer beginning
-;; TODO: use `advise' for this function.
-;; (defun my-isearch-forward ()
-;;   (interactive)
-;;   (save-excursion
-;;     (goto-char (point-min))
-;;     (isearch-forward)))
-
 ;;; smart delete/backspace in isearch
 
 (defun isearch-smart-delete ()
@@ -173,7 +165,6 @@
 (setq query-replace-highlight t
       query-replace-lazy-highlight t
       query-replace-show-replacement t
-      ;; TODO: added in Emacs 25.
       ;; query-replace-from-to-separator
       )
 
@@ -183,7 +174,7 @@
 (use-package isearch+
   ;; :ensure t
   ;; :config
-  ;; FIXME: caused eshell startup key prefix map C-c error.
+  ;; NOTE: caused eshell startup key prefix map C-c error.
   ;; (eval-after-load "isearch" '(require 'isearch+))
 
   ;; (setq isearchp-set-region-flag nil
@@ -208,7 +199,7 @@
   ;; if you use multiple-cursors interface, this is for you:
   (if (featurep 'multiple-cursors)
       (define-key my-search-prefix (kbd "m") 'vr/mc-mark))
-  ;; TODO: `vr/select-mc-mark', `vr/select-replace' etc.
+  ;; `vr/select-mc-mark', `vr/select-replace' etc.
   )
 
 (use-package visual-regexp-steroids

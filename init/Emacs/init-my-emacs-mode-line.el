@@ -116,7 +116,7 @@
       (propertize " ☡ "
                   'face '(:foreground "orange")
                   'help-echo "buffer modified."))
-     ;; FIXME:
+
      ;; (mode-line-remote
      ;;  (propertize " R "
      ;;              'face '(:foreground "dark magenta")
@@ -200,7 +200,6 @@
      'face '(:foreground "cyan")))
 
    ;; org-tree-slide slide number
-   ;; TODO:
    ;; (:eval
    ;;  (when (org-tree-slide--active-p)
    ;;    (propertize (format "[%s]" org-tree-slide--slide-number)
@@ -218,10 +217,6 @@
 
 
    ;; mmm-mode
-   ;; FIXME:
-   ;; (:eval (if mmm-buffer-mode-display-name
-   ;;            (propertize mmm-buffer-mode-display-name
-   ;;                        'face '(:foreground "cyan"))))
    
    ;; process
    (:eval
@@ -231,9 +226,6 @@
            (propertize "  ◌"
                        'face '(:foreground "cyan" :height 120 :weight bold)
                        'help-echo "buffer-process")
-           ;; (propertize mode-line-process ; FIXME: this does not work, it is a symbol.
-           ;;             'face '(:foreground "tomato")
-           ;;             'help-echo "buffer-process")
            ))))
 
 
@@ -242,37 +234,18 @@
 
 
    ;; org-timer
-   ;; TODO:
    ;; (:propertize (t org-timer-mode-line-timer)
    ;;              face (:foreground "cyan"))
    
    ;; org-clock
    ;; (:propertize (t org-mode-line-string)
    ;;              face (:foreground "cyan"))
-   ;; FIXME: this does not work.
    ;; (:eval
    ;;  (if (string-empty-p org-mode-line-string)
    ;;      (propertize (t org-mode-line-string)
    ;;                  'face '(:foreground "cyan" :weight bold)
    ;;                  'help-echo "Org-mode clock"))
    ;;  )
-
-   ;; ;; the major mode of the current buffer.
-   ;; (:propertize " 〖"
-   ;;              face (:foreground "orange red"))
-   ;; (:propertize "%m"
-   ;;              face (:foreground "green yellow"
-   ;;                                :family "Comic Sans MS"
-   ;;                                )
-   ;;              ;; FIXME:
-   ;;              help-echo (minor-mode-alist)
-   ;;              )
-   ;; ;; ;; list of minor modes
-   ;; ;; (:propertize "|")
-   ;; ;; (:propertize minor-mode-alist
-   ;; ;;              face (:foreground "dim gray"))
-   ;; (:propertize "〗 "
-   ;;              face (:foreground "orange red"))
 
    ;; --------------------------- right align ----------------------------------
    
@@ -324,7 +297,6 @@
                 display (space :align-to (- right 55)))
 
    ;; Mail
-   ;; FIXME:
    ;; (:eval
    ;;  (propertize (let ((mail-files (directory-files display-time-mail-directory t))
    ;;                    (size 0))
@@ -344,7 +316,7 @@
    ;; (:eval
    ;;  (when nyan-mode (list (nyan-create))))
 
-   ;; FIXME: spinner
+   ;; spinner
    ;; Let spinner support to be used in custom mode-line as a function.
    ;; '(:eval (spinner-start 'minibox))
    ;;
@@ -365,7 +337,7 @@
            (propertize "  ◌"
                        'face '(:foreground "cyan" :weight bold :height 120)
                        'help-echo "buffer-process")
-           ;; (propertize mode-line-process ; FIXME: this does not work, it is a symbol.
+           ;; (propertize mode-line-process
            ;;             'face '(:foreground "tomato")
            ;;             'help-echo "buffer-process")
            ))))

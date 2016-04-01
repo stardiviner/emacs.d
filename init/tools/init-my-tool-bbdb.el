@@ -35,7 +35,7 @@
         bbdb-default-label-list '("personal"
                                   "home" "work" "company" "organization" "other")
         bbdb-default-country "China"
-        bbdb-dial-local-prefix "86" ; "+86" TODO: is this right?
+        bbdb-dial-local-prefix "86"
         bbdb-default-area-code "86"
         ;; bbdb-default-xfield 'notes
         ;; bbdb-xfield-label-list
@@ -135,7 +135,6 @@
 
 ;;; define variant faces for variant xfields
 
-;; TODO: improve it
 (setq bbdb-name-face-alist '((mail . bbdb-field-mail)
                              (mail-alias . bbdb-field-mail-alias)))
 
@@ -249,7 +248,7 @@
 ;;       ;; bbdb-:rcpt-header-format 'multi-line
 ;;       bbdb-:replace-complete-mail-command t ; Whether substitute `bbdb-:start-completion' for `bbdb-complete-mail'.
 ;;       bbdb-:start-completion-key nil
-;;       bbdb-:use-migemo nil ; TODO: set to t
+;;       bbdb-:use-migemo nil
 ;;       )
 ;;
 ;; (set-face-attribute 'bbdb-:bcc-face nil
@@ -308,7 +307,6 @@
   (setq bbdb-vcard-directory "~/Org/BBDB/vCards"
         bbdb-vcard-media-directory "media/"
         )
-  ;; TODO:
   ;; (setq bbdb-vcard-skip-on-import
   ;;       bbdb-vcard-skip-on-export
   ;;       bbdb-vcard-skip-valueless)

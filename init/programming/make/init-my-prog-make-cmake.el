@@ -23,7 +23,6 @@
 
 (autoload 'cmake-font-lock-activate "cmake-font-lock.el" t)
 
-;; TODO: This seems not work.
 (add-hook 'cmake-mode-hook 'cmake-font-lock-activate)
 
 

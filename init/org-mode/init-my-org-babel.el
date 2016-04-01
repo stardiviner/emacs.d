@@ -204,12 +204,12 @@
 
 (add-to-list 'org-src-lang-modes (cons "SQL" 'sql))
 
-;; TODO: js2-mode syntax highlighting not work in Org-mode Babel.
+;; NOTE: js2-mode syntax highlighting not work in Org-mode Babel.
 (with-eval-after-load 'js2-mode
   (add-to-list 'org-src-lang-modes '("js" . js2)))
 
 ;; open ruby source block with `enh-ruby-mode' major-mode.
-;; FIXME: this caused org babel block syntax highlighting failed.
+;; NOTE: this caused org babel block syntax highlighting failed.
 ;; (add-to-list 'org-src-lang-modes '("ruby" . enh-ruby))
 ;; (add-to-list 'org-src-lang-modes (cons "ruby" 'enh-ruby))
 
@@ -245,7 +245,6 @@
 ;; [[file:~/.emacs.d/init/extra/PlantUML%20Language%20Reference%20Guide.pdf][PlantUML Language Reference Guide]]
 
 ;; Use fundamental mode when editing plantuml blocks with C-c '
-;; TODO: test whether I need to use a specific mode.
 ;; (add-to-list 'org-src-lang-modes (quote ("plantuml" . fundamental)))
 
 ;;; Graphviz

@@ -163,12 +163,6 @@
   ;; enable `cider-mode' in `clojure-mode'.
   (add-hook 'clojure-mode-hook 'cider-mode)
   
-  ;; TODO:
-  ;; You can define Clojure functions to be called before reloading, and after a
-  ;; successful reload, when using `cider-refresh':
-  ;; (setq cider-refresh-before-fn "user/stop-system!"
-  ;;       cider-refresh-after-fn "user/start-system!")
-  
   ;; auto completion with company-mode support
   ;; `cider-complete-at-point' in `completion-at-point-functions'
   (add-hook 'cider-repl-mode-hook #'company-mode)

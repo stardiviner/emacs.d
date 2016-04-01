@@ -85,11 +85,6 @@
 
 ;; (require 'ascope)
 
-;; TODO:
-;; (define-key ascope-list-entry-mode-map (kbd "q")
-;;   '(lambda ()
-;;      (kill-buffer "*Result*")))
-
 
 ;;; [ bscope ]
 
@@ -170,7 +165,6 @@
 
  ;; [ cscope ]
  (t
-  ;; FIXME: (define-key cscope-prefix (kbd "s") 'cscope-select-entry-one-window)
   (define-key cscope-prefix (kbd "c") 'cscope-find-this-symbol)
   )
  )

@@ -172,7 +172,6 @@
 ;;
 ;;   (autoload 'turn-on-function-args-mode "function-args" nil t)
 ;;
-;;   ;; FIXME: function-args use semantic-mode, it caused python-interpreter suspend on Emacs startup.
 ;;   (add-hook 'c-mode-hook 'turn-on-function-args-mode)
 ;;   (add-hook 'c++-mode-hook 'turn-on-function-args-mode)
 ;;

@@ -107,9 +107,9 @@
   :config
   (if (getenv "GOPATH")
       (progn
-        ;; TODO: do I need to use liteide's `gocode' instead?
-        (load (concat (getenv "GOPATH") "/src/github.com/nsf/gocode/emacs-company/company-go.el"))
-        )
+        (load
+         (concat (getenv "GOPATH")
+                 "/src/github.com/nsf/gocode/emacs-company/company-go.el")))
     (error "SHELL env $GOPATH not available, set it in your SHELL"))
 
   (setq company-go-show-annotation t
@@ -173,8 +173,6 @@
 
 ;;; [ flycheck ]
 
-;; use linter: `go-errcheck'.
-
 
 ;;; [ go-errcheck ]
 
@@ -186,7 +184,6 @@
 
 (load "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
 
-;; FIXME: (add-hook 'go-mode-hook 'go-oracle-mode)
 (require 'go-oracle)
 
 

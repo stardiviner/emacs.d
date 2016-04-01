@@ -53,14 +53,7 @@
 (setq erc-prompt-for-password nil)
 
 ;; load password
-(setq erc-password "chrisM.sprite324")
-
-;; TODO: use GPG encrypted file to decrypt to get password.
-
-;; TODO: read-lines function is not available
-;; (let ((acc (read-lines "~/.emacs.d/my-init/.my-erc-account")))
-;;   (setq erc-nick (car acc))
-;;   (setq erc-password (nth 1 acc)))
+(setq erc-password "")
 
 
 ;;; encoding
@@ -107,17 +100,6 @@
 
 ;;; SSL connections
 
-;;; TODO: after fix this, change freenode connect port to SSL port
-;; (require 'tls)
-;;
-;; (setq tls-program '("openssl s_client -connect %h:%p -no_ssl2 -ign_eof
-;;                                        -CAfile /home/stardiviner/.ssl/certs/CAs.pem
-;;                                        -cert /home/stardiviner/.ssl/certs/nick.pem"
-;;                     "gnutls-cli --priority secure256
-;;                                  --x509cafile /home/stardiviner/.ssl/certs/CAs.pem
-;;                                  --x509certfile /home/stardiviner/.ssl/certs/nick.pem -p %p %h"
-;;                     "gnutls-cli --priority secure256 -p %p %h"))
-
 
 ;;; [ NickServ ]
 
@@ -136,7 +118,6 @@
 ;;           '(lambda (SERVER NICK)
 ;;              (cond
 ;;               ((string-match "freenode\\.net" SERVER)
-;;                ;; FIXME password here
 ;;                (erc-message "PRIVMSG" "NickServ identify chrisM.sprite324"))
 ;;               ;; ((string-match "oftc\\.net" SERVER)
 ;;               ;;  (erc-message "PRIVMSG" "NickServ identify chrisM.sprite324"))
@@ -161,11 +142,9 @@
       '((".*\\.freenode.net"
          "#emacs"
          "#lisp"
-         ;; "#clojure"
+         "#clojure"
          "#ruby-lang"
          "#ubuntu-cn"
-         ;; TODO: add startup command join #dc5.
-         ;; "#dc5" ; BaseHTTPRequestHandler (in ~/.authinfo)
          )
         ))
 
@@ -440,17 +419,14 @@
 
 ;;; Sound
 
-;; TODO http://www.emacswiki.org/emacs/ErcSound
-
 
 ;;; netsplit -- hide join, quit messages.
+
 (require 'erc-netsplit)
 (erc-netsplit-mode t)
 
 
 ;;; [ org-contacts + ERC ]
-
-;; TODO completion function.
 
 
 ;;; [ Input ]
@@ -519,9 +495,6 @@
 (define-key erc-mode-map (kbd "C-c C-a")
   '(lambda (arg)
      (interactive "sThe away reason: ")
-     ;; TODO:
-     ;; (if (arg == "")
-     ;;     (let arg "No sex, no code!"))
      (erc-cmd-AWAY "arg")
      ))
 ;; global all away

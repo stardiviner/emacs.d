@@ -23,16 +23,9 @@
 ;; - `reb-change-syntax' :: change default regexp syntax.
 ;; - `reb-mode'
 
-(define-key my-regexp-prefix (kbd "b") 're-builder)
-
-
-;;; [ re-builder+ ]
-
-;; (unless (package-installed-p 're-builder+)
-;;   (package-install 're-builder+))
-;; (require 're-builder+)
-;; TODO what's the difference for 'read, 'string and 'rx.
 ;; (setq reb-re-syntax 'read) ; 'read, 'string, 'rx
+
+(define-key my-regexp-prefix (kbd "b") 're-builder)
 
 
 ;;; [ pcre2el ] -- convert between PCRE, Emacs and rx regexp syntax.
@@ -114,36 +107,7 @@
   ;; if you use multiple-cursors, this is for you:
   (if (featurep 'multiple-cursors)
       (define-key visual-regexp-map (kbd "m") 'vr/mc-mark))
-  ;; TODO: `vr/select-mc-mark', `vr/select-replace' etc.
-
-  
-  ;; TODO:
-  ;; (set-face-attribute 'vr/match-separator-face nil
-  ;;                     :foreground "red"
-  ;;                     :inverse-video nil
-  ;;                     :weight 'bold)
-  ;; (set-face-attribute 'vr/match-0 nil
-  ;;                     :background (color-darken-name (face-background 'default) 3)
-  ;;                     :box '(:color "red" :line-width -1)
-  ;;                     :inverse-video nil :weight 'normal
-  ;;                     )
-  ;; (set-face-attribute 'vr/match-1 nil
-  ;;                     :background (color-darken-name (face-background 'default) 3)
-  ;;                     :box '(:color "dark red" :line-width -1)
-  ;;                     :inverse-video nil :weight 'normal
-  ;;                     )
-  ;; (set-face-attribute 'vr/group-0 nil
-  ;;                     :background (color-darken-name (face-background 'default) 3)
-  ;;                     :inverse-video nil :weight 'normal
-  ;;                     )
-  ;; (set-face-attribute 'vr/group-1 nil
-  ;;                     :background (color-darken-name (face-background 'default) 3)
-  ;;                     :inverse-video nil :weight 'normal
-  ;;                     )
-  ;; (set-face-attribute 'vr/group-2 nil
-  ;;                     :background (color-darken-name (face-background 'default) 3)
-  ;;                     :inverse-video nil :weight 'normal
-  ;;                     )
+  ;; `vr/select-mc-mark', `vr/select-replace' etc.
   )
 
 (use-package visual-regexp-steroids

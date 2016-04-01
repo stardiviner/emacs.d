@@ -9,16 +9,8 @@
 
 ;;; [ Tramp ]
 
-;;; NOTE: don't wrap tramp config with use-package, it will cause Emacs tramp ssh connection error.
-
 (use-package tramp
   :init
-  ;; TODO: remove after upgrade Emacs to 25.
-  ;; (when (version< emacs-version "24")
-  ;;   (warn "Only Emacs version 24 and up are supported."))
-  ;; https://debbugs.gnu.org/cgi/bugreport.cgi?bug=20015
-  ;; fix Tramp looong hang at startup, try to connect on ssh.
-  ;; (setq tramp-use-ssh-controlmaster-options t)
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
   ;; (setq tramp-ssh-controlmaster-options

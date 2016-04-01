@@ -77,48 +77,6 @@ Usage:
       (switch-to-buffer the-buffer-name))))
 
 
-;;; file
-
-;;; edit file as root
-
-;;; Option A
-;; (defun sudo-edit (&optional arg)
-;;   "edit currently visited file as root.
-
-;; with a prefix arg prompt for a file to visit.
-;; will also prompt for a file to visit if current
-;; buffer is not visiting a file."
-;;   (interactive "p")
-;;   (if (or arg (not buffer-file-name))
-;;       (find-file (concat "/sudo:root@localhost:"
-;;                          ;; TODO: don't use ido here.?
-;;                          (ido-read-file-name "find file(as root): ")))
-;;     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
-;;
-;; ;; (global-set-key (kbd "C-x C-r") 'sudo-edit)
-;;
-;; ;;; Option B: better
-;; ;;
-;; ;; Lately I’ve decided that such a command is a bit of an overhead, since we can
-;; ;; check the file permissions automatically anyways. While I’m not quite fond of
-;; ;; advising commands (debugging adviced commands is no fun) this was an
-;; ;; excellent opportunity to exploit them (for great good):
-;;
-;; FIXME: the tramp seems does not work correctly here.
-;; (defadvice find-file (after find-file-sudo activate)
-;;   "Find file as root if necessary."
-;;   (unless (and buffer-file-name
-;;              (file-writable-p buffer-file-name))
-;;     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
-
-;; (if (featurep 'ido)
-;;     (defadvice ido-find-file (after find-file-sudo activate)
-;;       "Find file as root if necessary."
-;;       (unless (and buffer-file-name
-;;                  (file-writable-p buffer-file-name))
-;;         (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name)))))
-
-
 ;;; [ keybindings ]
 
 ;;; keybinding lookup

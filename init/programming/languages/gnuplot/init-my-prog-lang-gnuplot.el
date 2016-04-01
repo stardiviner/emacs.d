@@ -22,27 +22,21 @@
                                  )
                                 auto-mode-alist))
   :config
-  ;; add gnuplot info file.
-  ;; FIXME: this does not work for `gnuplot-info-lookup-symbol'
-  ;; (with-eval-after-load 'info
-  ;;   (info-initialize)
-  ;;   (add-to-list 'Info-directory-list "~/.emacs.d/elpa/gnuplot-*/"))
-  (setq gnuplot-info-display 'window)
-
-  (setq gnuplot-tab-completion t)
+  (setq gnuplot-info-display 'window
+        gnuplot-tab-completion t)
   
   (add-hook 'gnuplot-mode-hook
-            '(lambda ()
-               ;; context sensitive for gnuplot completion & eldoc-mode.
-               (gnuplot-context-sensitive-mode 1)
-               
-               (define-key gnuplot-mode-map (kbd "<f5>") 'gnuplot-make-buffer)
-               (define-key gnuplot-mode-map (kbd "C-h d d") 'gnuplot-info-lookup-symbol)
-               (define-key gnuplot-mode-map (kbd "C-c M-i") 'gnuplot-inline-display-mode)
+            (lambda ()
+              ;; context sensitive for gnuplot completion & eldoc-mode.
+              (gnuplot-context-sensitive-mode 1)
+              
+              (define-key gnuplot-mode-map (kbd "<f5>") 'gnuplot-make-buffer)
+              (define-key gnuplot-mode-map (kbd "C-h d d") 'gnuplot-info-lookup-symbol)
+              (define-key gnuplot-mode-map (kbd "C-c M-i") 'gnuplot-inline-display-mode)
 
-               (define-key gnuplot-mode-map (kbd "C-c C-s") 'run-gnuplot)
-               (define-key gnuplot-mode-map (kbd "C-c C-z") 'run-gnuplot)
-               ))
+              (define-key gnuplot-mode-map (kbd "C-c C-s") 'run-gnuplot)
+              (define-key gnuplot-mode-map (kbd "C-c C-z") 'run-gnuplot)
+              ))
 
   ;; auto enable `gnuplot-inline-display-mode' in gnuplot comint process buffer.
   (add-hook 'gnuplot-comint-mode-hook 'gnuplot-inline-display-mode)

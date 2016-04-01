@@ -23,9 +23,6 @@
 
 ;;; Systems
 
-;; TODO: add to this init file.
-;; https://www.gnu.org/software/emacs/manual/html_node/elisp/System-Environment.html
-
 
 ;; format (Unix, DOS) & encoding
 

@@ -9,7 +9,7 @@
 ;; To enable all disabled commands in one fell swoop, put this in .emacs (not
 ;; recommended for newbies):
 ;;
-;; NOTE: uncomment this when you are very familiar with Emacs.
+;; uncomment this when you are very familiar with Emacs.
 
 ;; (setq disabled-command-function nil)
 

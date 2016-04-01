@@ -41,7 +41,6 @@
 (add-to-list 'auto-mode-alist
              '("\\.gitconfig\\'" . gitconfig-mode)
              '("\\.gitignore\\'" . gitignore-mode)
-             ;; FIXME: '("\\.gitattributes$" . gitattributes-mode)
              )
 
 
@@ -247,24 +246,13 @@
   ;; file popup
   (define-key my-prog-vcs-git-map (kbd "f") 'magit-file-popup)
 
-  ;; for Magit auto-complete
-  ;; TODO: how to use this in Magit.
-  ;; (setq magit-repository-directories '("~/code/" "~/Git/")
-  ;;       magit-repository-directories-depth 4)
-
-;;; Magit Faces
-  ;;
-  ;; - [M-x customize-group magit-faces]
-
-  ;; TODO: set remote branch face like this:
-  ;; https://emacs.stackexchange.com/questions/10975/customize-face-magit-item-highlight-properly
-
+  ;; Magit Faces
 
   ;; enable ispell words complete in commit message buffer.
   (add-hook 'git-commit-mode-hook
-            '(lambda ()
-               (add-to-list (make-local-variable 'company-backends)
-                            'company-ispell)))
+            (lambda ()
+              (add-to-list (make-local-variable 'company-backends)
+                           'company-ispell)))
   )
 
 

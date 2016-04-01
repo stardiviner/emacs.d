@@ -91,8 +91,6 @@
                     :box '(:color "cyan" :line-width -1 :style nil)
                     :weight 'bold)
 
-;; TODO: (newsticker-start)
-
 
 
 (provide 'init-my-tool-feeds-newsticker)

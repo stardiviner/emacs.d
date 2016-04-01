@@ -64,35 +64,6 @@
 (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file) ; was dired-advertised-find-file
 (define-key dired-mode-map (kbd "^") (lambda () (interactive) (find-alternate-file "..")))  ; was dired-up-directory
 
-;; TODO: modify this function to my version.
-(defun xah-open-in-external-app ()
-  "Open the current file or dired marked files in external app.
-The app is chosen from your OS's preference.
-
-Version 2015-01-26
-URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'"
-  (interactive)
-  (let* (
-         (ξfile-list
-          (if (string-equal major-mode "dired-mode")
-              (dired-get-marked-files)
-            (list (buffer-file-name))))
-         (ξdo-it-p (if (<= (length ξfile-list) 5)
-                       t
-                     (y-or-n-p "Open more than 5 files? "))))
-
-    (when ξdo-it-p
-      (cond
-       ((string-equal system-type "windows-nt")
-        (mapc
-         (lambda (fPath)
-           (w32-shell-execute "open" (replace-regexp-in-string "/" "\\" fPath t t))) ξfile-list))
-       ((string-equal system-type "darwin")
-        (mapc
-         (lambda (fPath) (shell-command (format "open \"%s\"" fPath)))  ξfile-list))
-       ((string-equal system-type "gnu/linux")
-        (mapc
-         (lambda (fPath) (let ((process-connection-type nil)) (start-process "" nil "xdg-open" fPath))) ξfile-list))))))
 
 
 ;;; [ Dired+ ]
@@ -198,9 +169,6 @@ URL `http://ergoemacs.org/emacs/emacs_dired_open_file_in_ext_apps.html'"
         peep-dired-enable-on-directories t
         peep-dired-ignored-extensions '("mkv" "iso" "mp4")
         )
-
-  ;; FIXME: this hook does not work.
-  ;; (add-hook 'dired-mode-hook 'peep-dired)
   )
 
 

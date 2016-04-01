@@ -39,27 +39,8 @@
 (global-unset-key [down])
 
 
-;;; Fn[1~12]
-
-;; "<f1>" "<f2>" "<f3>" "<f12>"
-
-;; (-each '()
-;;   (lambda (fn-key)
-;;     ()))
-
-
-;;; C-c [a-z]
-
-;; TODO: improve it.
-;; (-each '("a" "b" "c" "d" "z")
-;;   (lambda (ctrl-c-command-key)
-;;     (let ((ctrl-c-key (concat "C-c " ctrl-c-command-key)))
-;;       (global-unset-key (read-kbd-macro ctrl-c-key))
-;;       (define-prefix-command (intern (concat ctrl-c-key "-map")))
-;;       (global-set-key (read-kbd-macro ctrl-c-key) (intern (concat ctrl-c-key "-map"))))))
-
-
 ;;; bind some useful commands to keybindings.
+
 (global-set-key (kbd "M-]") 'forward-sentence)
 (global-set-key (kbd "M-[") 'backward-sentence)
 
@@ -324,18 +305,6 @@
 
 ;;; [ redefine a map's keybinding buffer-locally ]
 
-;; avoid always select unwanted first candidate in ac when in Org writing.
-;; FIXME: this set to nil can not work `locally'.
-;; (add-hook 'org-mode-hook
-;;           (lambda ()
-;;             (eval-after-load 'auto-complete
-;;               (define-key ac-menu-map (kbd "SPC") 'self-insert-command))
-;;            
-;;             ;; *locally* unset/unbind/undefine keybinding.
-;;             ;; X (define-key ac-menu-map (kbd "SPC") nil)
-;;             ;; X (define-key ac-menu-map (kbd "SPC") 'self-insert-command)
-;;             ;; X (setq-local ac-menu-map (delq (kbd "SPC") ac-menu-map))
-;;             ))
 
 
 

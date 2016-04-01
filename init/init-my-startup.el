@@ -79,22 +79,18 @@
 ;; or
 ;; (org-todo-list t)
 
-;; FIXME: (org-agenda-redo 5) ; Urgent tasks
-
 ;; (setq initial-buffer-choice "*Org Agenda*")
 
 
 ;;; Temporary remove semantic in `python-mode-hook'
 
 ;;; FIXME: temporary solve python+semantic stack issue.
-;; TODO: search how to solve this issue?
-;; `semantic-python-get-system-include-path'
 (defun wisent-python-default-setup ()
   )
 (add-hook 'after-init-hook
-          '(lambda ()
-             (remove-hook 'python-mode-hook 'wisent-python-default-setup)
-             ))
+          (lambda ()
+            (remove-hook 'python-mode-hook 'wisent-python-default-setup)
+            ))
 
 
 

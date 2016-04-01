@@ -136,8 +136,8 @@
   (setq sauron-log-events t) ; log all events in *Sauron Log* buffer.
   (setq sauron-log-buffer-max-lines 500)
 
-;;; some sound/light effects for certain events
-  ;; TODO use some voice sound in Ingress game.
+  ;; some sound/light effects for certain events
+  ;; use some voice sound in Ingress game.
   (add-hook 'sauron-event-added-functions
             (lambda (origin prio msg &optional props)
               (if (string-match "org" origin)

@@ -24,7 +24,6 @@
 ;;                 python-skeleton-autoinsert t
 ;;                 )
 ;;
-;;   ;; TODO:
 ;;   ;; temporary solution to fix python-mode completion suspend for long time.
 ;;   ;; `completion-at-point-functions': (python-completion-complete-at-point t)
 ;;   (dolist (hook '(python-mode-hook
@@ -90,12 +89,6 @@
             (define-key python-mode-map (kbd "C-c C-s") 'run-python)
             ))
 
-;; FIXME: `python-shell-send-setup-code' makes inferior buffer has file name under dir.
-;; FIXME: [RET] send code will cause this issue too.
-(defun python-shell-send-setup-code ()
-  )
-;; (setq inferior-python-mode-hook '(python-shell-send-setup-code))
-
 
 ;;; [ pyenv-mode ] -- Python virtual environment interface
 
@@ -108,7 +101,7 @@
 ;; (use-package pyenv-mode
 ;;   :ensure t
 ;;   :config
-;;   ;; FIXME: this pyven-mode is global. [C-c C-u] [C-c C-s]
+;;   ;; this pyven-mode is global. [C-c C-u] [C-c C-s]
 ;;   ;; (add-hook 'python-mode-hook 'pyenv-mode)
 ;;
 ;;   ;; projectile integration

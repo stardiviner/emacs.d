@@ -98,7 +98,6 @@
         ("CANCELLED" :foreground "#444444" :background "orange"
          :weight bold :strike-through t
          :box '(:color "black" :line-width -1))
-        ;; FIXME:
         ("BUG" :foreground "red"
          :weight bold
          :box '(:color "red" :line-width -1 :style nil))

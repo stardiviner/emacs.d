@@ -21,7 +21,7 @@
 
 (require 'festival)
 
-(setq festival-auto-start t ; should festival start when any of the functions are called.
+(setq festival-auto-start t
       festival-buffer "*festival*"
       festival-default-audio-mode 'async
       festival-default-voice 'festival-voice-english-male
@@ -31,15 +31,11 @@
                               ("us-male" . festival-voice-US-male))
       )
 
-;; (run-festival)              ; FIXME: (void-variable inferior-festivalr-mode-map)
-;; (festival-start-process)                ; start process at background of Emacs.
-
 
 ;;; festival extension
 
 (require 'thingatpt)
 
-;; FIXME: this function seems does not work.
 (defun festival-read ()
   "Read current word that at point by Festival."
   (interactive)

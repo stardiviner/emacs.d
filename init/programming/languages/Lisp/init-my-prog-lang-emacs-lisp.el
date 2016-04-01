@@ -83,46 +83,13 @@
 
 ;;; [ IELM (ELISP interactive) ] -- an REPL for emacs. (Read-Eval-Print-Loop)
 
-;;; By default, IELM evaluates complete expressions automatically as soon you as
-;;; you press Enter. So one thing to remember is that if you want to have
-;;; multi-line expression (like above), you must make sure that after each line
-;;; the expression is not complete (i.e., the brackets are not balanced) --
-;;; otherwise the expression will be evaluated too early. That makes modes like
-;;; autopair or paredit a bit inconvenient for this.
-;;;
-;;; If you don't like that behavior, you can do:
-;;
 (setq ielm-dynamic-return t)
-
-;; TODO: (setq ielm-prompt)
 
 (add-hook 'ielm-mode-hook
           (lambda ()
             (elisp-slime-nav-mode 1)
             (my-company-add-backend-locally 'company-elisp)
             ))
-
-;; ---------------------------------------------------------------
-;;; enable auto-complete support in ielm.
-;; (defun ielm-auto-complete ()
-;;   "Enables `auto-complete' support in \\[ielm]."
-;;   (setq ac-sources '(ac-source-functions
-;;                      ac-source-variables
-;;                      ac-source-symbols
-;;                      ac-source-features
-;;                      ac-source-words-in-same-mode-buffers))
-;;   (add-to-list 'ac-modes 'inferior-emacs-lisp-mode)
-;;   (auto-complete-mode 1))
-;;
-;; (add-hook 'ielm-mode-hook 'ielm-auto-complete)
-
-;; or
-;; (add-hook 'ielm-mode-hook
-;;           (lambda ()
-;;             (auto-complete-mode 1)
-;;             (ac-emacs-lisp-mode-setup)))
-
-;; ---------------------------------------------------------------
 
 (unless (boundp 'my-prog-inferior-map)
   (define-prefix-command 'my-prog-inferior-map))
@@ -137,8 +104,6 @@
   (interactive)
   (let ((default-directory (getenv "HOME")))
     (my-func/open-and-switch-to-buffer 'ielm "*ielm*" t)))
-
-;; (add-hook 'emacs-startup-hook 'my-ielm-start-or-switch)
 
 (define-key my-inferior-lisp-map (kbd "e") 'my-ielm-start-or-switch)
 

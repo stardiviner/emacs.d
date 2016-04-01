@@ -9,12 +9,6 @@
 
 ;;; [ prettify-symbols-mode ]
 
-;; TODO:
-;; (setq prettify-symbols-alist '(("lambda" . 955)))
-
-;; If you set it to t, prettify-symbols will “unprettify” a symbol as long as
-;; the cursor is inside it. So you can easily (and temporarily) reveal a symbol
-;; by just moving over to it.
 (setq prettify-symbols-unprettify-at-point 'right-edge)
 
 (global-prettify-symbols-mode 1)
@@ -28,7 +22,6 @@
   (add-to-list 'pretty-supported-modes 'ruby-mode)
   (add-to-list 'pretty-supported-modes 'enh-ruby-mode)
 
-  ;; TODO:
   ;; (add-to-list 'pretty-default-groups '(:function))
   ;; (add-to-list 'pretty-active-groups '(ruby-mode :function))
   ;; (add-to-list 'pretty-active-patterns '(ruby-mode))

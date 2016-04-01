@@ -20,16 +20,6 @@
       ;; tempo-tags
       )
 
-;;; user defined tempo snippets
-(tempo-define-template "chris"
-                       '(> "(lambda (" p ")" n> r> ")">)
-                       nil
-                       "Insert a template for an anonymous procedure (lambda)")
-
-;; TODO: (define-key company-active-map (kbd "M-k") 'company-tempo-insert)
-
-
-
 
 ;;; [ tempo-snippets ]
 

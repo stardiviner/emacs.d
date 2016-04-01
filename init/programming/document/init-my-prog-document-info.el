@@ -25,8 +25,6 @@
         (switch-to-buffer bufname)
       (info topic bufname))))
 
-;; (global-set-key (kbd "C-h i") 'info-display-manual-in-buffer) ; FIXME: replace default `info'.
-
 
 (provide 'init-my-prog-document-info)
 

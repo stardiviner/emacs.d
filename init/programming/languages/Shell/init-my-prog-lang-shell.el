@@ -11,16 +11,6 @@
 
 (setq sh-indentation 2)
 
-(add-hook 'sh-mode-hook
-          (lambda ()
-            ;; FIXME: sh-mode original complete function does not work.
-            ;; (delq 'sh-completion-at-point-function 'completion-at-point-functions)
-            (setq-local completion-at-point-functions nil)
-
-            ;; disable `company-files' to fix sh-mode typing freezing.
-            ;; (delq 'company-files company-backends)
-            ))
-
 
 ;;; [ Bash ]
 
@@ -98,7 +88,7 @@
 
 
 ;;; disable flycheck in sh-mode to fix suspend in shell script source code file.
-;; TODO: test whether the problem is on `flycheck'. or on `company-backends'.
+
 (add-hook 'sh-mode-hook
           (lambda ()
             (flycheck-mode -1)))

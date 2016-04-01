@@ -45,13 +45,6 @@
 ;; Handle the custom ℝ prompt in ess. Don’t use custom here.
 (setq inferior-S-prompt "[]a-zA-Z0-9.[]*\\(?:[>+.] \\)*ℝ+> ")
 
-;; TODO: test whether ESS by default already set this. if not, enable this configuration.
-;; and check out the prettify result in R source file.
-;; (setq prettify-symbols-alist '(("->" . 8594)
-;;                                ("<-" . 8592)
-;;                                ("->>" . 8608)
-;;                                ("<<-" . 8606)))
-
 
 ;; start the ESS process if not started when open ESS buffers.
 ;; (add-hook 'after-init-hook 'R)
@@ -69,7 +62,7 @@
 ;; - `ess-ac-sources' :: for auto-complete.
 
 
-;;; TODO: temporally fix lintr missing for flycheck issue.
+;;; temporally fix lintr missing for flycheck issue.
 
 (add-hook 'R-mode-hook
           (lambda ()

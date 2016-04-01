@@ -30,13 +30,6 @@
 
   ;; You can also edit plain js, jsx, css, scss, xml files.
   (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
-  ;; TODO: test
-  ;; (defadvice web-mode-highlight-part (around tweak-jsx activate)
-  ;;   (if (equal web-mode-content-type "jsx")
-  ;;       (let ((web-mode-enable-part-face nil))
-  ;;         ad-do-it)
-  ;;     ad-do-it))
-
   :config
 
   ;; Associate an engine
@@ -136,7 +129,6 @@
   ;;_. Syntax Highlight: Faces
 
   ;;_ + effects
-  ;; web-mode-folded-face, web-mode-warning-face, web-mode-whitespace-face, web-mode-comment-keyword-face
   (set-face-attribute 'web-mode-current-element-highlight-face nil
                       :background "forest green" :foreground "white"
                       )
@@ -155,7 +147,6 @@
                       :box '(:line-width 1))
 
   ;;_ + html
-  ;; web-mode-doctype-face, web-mode-html-tag-face, web-mode-html-tag-bracket-face, web-mode-html-attr-name-face, web-mode-html-attr-value-face, web-mode-html-attr-equal-face, web-mode-html-tag-custom-face, web-mode-attr-tag-custom-face
   (set-face-attribute 'web-mode-doctype-face nil
                       :foreground "red" :background "dark red")
   (set-face-attribute 'web-mode-html-tag-face nil ; html tag
@@ -182,8 +173,6 @@
                       )
 
   ;;_ + json
-  ;; web-mode-json-key-face, web-mode-json-context-face, web-mode-json-string-face
-  ;; TODO:
   (set-face-attribute 'web-mode-json-key-face nil
                       :foreground "dark red")
   (set-face-attribute 'web-mode-json-context-face nil
@@ -192,8 +181,6 @@
                       :foreground "yellow3")
 
   ;;_ + css
-  ;; web-mode-css-at-rule-face, web-mode-css-property-name-face, web-mode-css-function-face, web-mode-css-priority-face, web-mode-css-pseudo-class-face, web-mode-css-selector-face, web-mode-css-string-face
-  ;; TODO:
   (set-face-attribute 'web-mode-css-selector-face nil ; e.g. .dialog
                       :foreground "sky blue")
   (set-face-attribute 'web-mode-css-at-rule-face nil ; @media
@@ -210,8 +197,6 @@
                       :foreground "midnight blue")
 
   ;;_ + code
-  ;; web-mode-builtin-face, web-mode-comment-face, web-mode-constant-face, web-mode-filter-face, web-mode-function-call-face, web-mode-function-name-face, web-mode-keyword-face, web-mode-preprocessor-face, web-mode-string-face, web-mode-symbol-face, web-mode-type-face, web-mode-variable-name-face
-  ;; TODO:
   (set-face-attribute 'web-mode-keyword-face nil ; keywords: e.g. var, function
                       :foreground "red3")
   (set-face-attribute 'web-mode-builtin-face nil
@@ -239,8 +224,6 @@
 
   ;;_ + block
   (setq web-mode-enable-block-face t)
-  ;; web-mode-block-control-face, web-mode-block-delimiter-face, web-mode-block-face (see web-mode-enable-block-face), web-mode-block-string-face, web-mode-block-comment-face
-  ;; TODO:
   (set-face-attribute 'web-mode-block-delimiter-face nil ; <%= ... =>
                       :foreground "dark red"
                       :background (color-darken-name (face-background 'default) 3)
@@ -256,7 +239,6 @@
                       :foreground "dim gray")
 
   ;;_ + part
-  ;; web-mode-part-face (see web-mode-enable-part-face), web-mode-script-face, web-mode-style-face, web-mode-part-string-face, web-mode-part-comment-face, web-mode-javascript-string-face
   (setq web-mode-enable-part-face t)
   (set-face-attribute 'web-mode-part-face nil ; other parts in block
                       :inherit 'web-mode-block-face
@@ -274,7 +256,6 @@
                       :foreground "yellow3")
 
   ;;_ + content fontification
-  ;; web-mode-bold-face, web-mode-italic-face, web-mode-underline-face
   (set-face-attribute 'web-mode-bold-face nil
                       :weight 'bold)
   (set-face-attribute 'web-mode-italic-face nil
@@ -310,9 +291,6 @@
                  :actions '(:rem insert))
 
   ;;_* comment
-
-  ;; (("java" . "/*") ("javascript" . "/*") ("php" . "/*"))
-  ;; TODO: for js lines region un-comment.
   ;; (add-to-list 'web-mode-comment-formats '("javascript" . "//"))
 
   ;;_. auto-complete support

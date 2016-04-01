@@ -58,12 +58,10 @@
   (unless (derived-mode-p 'prog-mode)
     (run-hooks 'prog-mode-hook))
 
-  ;; TODO: modify those colors.
   ;; Words prefixed with $ are global variables,
   ;; prefixed with @ are instance variables.
   (modify-syntax-entry ?$ "w") ; global variable
   (modify-syntax-entry ?@ "w") ; instance variable
-  ;; FIXME:
   ;; (modify-syntax-entry ?@@ "w") ; class variable
   (modify-syntax-entry ?? "w")
   (modify-syntax-entry ?! "w")
@@ -88,11 +86,6 @@
                       :inherit 'flycheck-error
                       :box nil)
 
-
-  ;; (electric-indent-local-mode 1)
-  ;; TODO: test whether conflict with `ruby-electric'
-  ;; (define-key enh-ruby-mode-map (kbd "RET") 'reindent-then-newline-and-indent)
-  ;; (define-key enh-ruby-mode-map (kbd "TAB") 'indent-for-tab-command)
 
   ;; hs-minor-mode (hide-show)
   ;; (add-to-list 'hs-special-modes-alist
@@ -619,48 +612,6 @@
                  (define-key my-ruby-test-map (kbd "l") 'ruby-test-goto-location)
                  )))
   )
-
-
-;;; [ ruby-test ] -- test runner for ruby unit test.
-
-;; This mode provides commands for running ruby tests. The output is shown in
-;; separate buffer '*Ruby-Test*' in ruby-test mode. Backtraces from failures and
-;; errors are marked, and can be clicked to bring up the relevent source file,
-;; where point is moved to the named line.
-;;
-;; The tests can be both, either rspec behaviours, or unit tests. (File names
-;; are assumed to end in `_spec.rb' or `_test.rb' to tell the type.)  When the
-;; command for running a test is invoked, it looks at several places for an
-;; actual test to run: first, it looks if the current buffer is a test (or
-;; spec), secondly, if not, it checks whether one of the visible buffers is,
-;; thirdly it looks if there has been a test run before (during this session),
-;; in which case that test is invoked again.
-;;
-;; Using the command `ruby-test-run-test-at-point', you can run test cases
-;; separately from others in the same file.
-
-;;; Usage:
-;; - [C-x t] -- ruby test: run file.
-;; - [C-x SPC] -- ruby test: run file.
-;; - [C-x C-SPC] -- ruby test: run test at point.
-;; - [C-c t] -- ruby test: toggle implementation and specification.
-
-;; TODO: compare ruby-test & ruby-test-mode.
-;; (require 'ruby-test)
-;;
-;;
-;; (dolist (hook '(ruby-mode-hook
-;;                 enh-ruby-mode-hook
-;;                 ))
-;;   (add-hook hook (lambda ()
-;;                    (and (local-variable-p 'my-prog-test-map)
-;;                       (local-set-key (kbd "C-c t") 'my-prog-test-map))
-;;                    (define-key my-prog-test-map (kbd "t") 'ruby-test-run-file)
-;;                    (define-key my-prog-test-map (kbd "f") 'ruby-test-run-file)
-;;                    (define-key my-prog-test-map (kbd "p") 'ruby-test-run-test-at-point)
-;;                    (define-key my-prog-test-map (kbd "SPC") 'ruby-test-run-test-at-point)
-;;                    (define-key my-prog-test-map (kbd "i") 'ruby-test-toggle-implementation-and-specification)
-;;                    )))
 
 
 ;;; [ ruby-refactor ]

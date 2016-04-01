@@ -24,12 +24,12 @@
 ;;          :recursive t
 ;;          )
 ;;         ;; ("Gallery"
-;;         ;;  ;; TODO :base-directory "~/Org/"
+;;         ;;  ;; :base-directory "~/Org/"
 ;;         ;;  :recursive t
 ;;         ;;  )
 ;;         ("Website"
 ;;          :components ("Blog" "Gallery")
-;;          ;; TODO can I set those variable at here for all of above publishings ?
+;;          ;; can I set those variable at here for all of above publishings ?
 ;;          :publishing-directory "~/WWW/Org-publish"
 ;;          :publishing-function org-html-publish-to-html
 ;;          ;; :preparation-function
@@ -54,8 +54,8 @@
 ;;          :with-timestamps t
 ;;          ;; :with-toc
 ;;          ;;; [ html ]
-;;          ;; TODO :html-doctype "html5"
-;;          ;; TODO :html-xml-declaration
+;;          ;; :html-doctype "html5"
+;;          ;; :html-xml-declaration
 ;;          ;; :html-link-up
 ;;          ;; :html-link-home
 ;;          ;; :html-head

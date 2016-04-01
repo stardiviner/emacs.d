@@ -45,7 +45,6 @@
 (global-semantic-idle-local-symbol-highlight-mode 1)
 (global-semantic-mru-bookmark-mode 1)
 (global-semanticdb-minor-mode 1)
-;; FIXME: (global-cedet-m3-minor-mode 1)
 (semanticdb-enable-gnu-global-databases 'c-mode t)
 (global-semantic-show-unmatched-syntax-mode t)
 
@@ -213,8 +212,6 @@
 
 ;; (semantic-load-enable-code-helpers) ; enable prototype help and smart completion
 
-;; TODO (semantic-mode t)
-
 
 ;;; [ SemanticDB ] -- is included into Semantic, and implements different storage modules, that store information, needed for names completion, source code navigation, etc.
 
@@ -237,7 +234,8 @@
 
 
 ;;; [ EDE ] -- implements a set of extensions to work with projects.
-;; TODO (global-ede-mode 1) ; enable the project management system
+
+;; (global-ede-mode 1) ; enable the project management system
 
 
 ;;; [ Speedbar ] -- is used to display information about current buffer using different sources of information.

@@ -12,7 +12,6 @@
 ;; (require 'info)
 
 ;; (setq Info-directory-list "/usr/share/info/")
-;; TODO: variable is void:
 ;; (add-to-list 'Info-directory-list (expand-file-name "info/" user-emacs-directory))
 
 (setq Info-additional-directory-list (list (expand-file-name "info/" user-emacs-directory)))

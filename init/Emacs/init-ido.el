@@ -133,7 +133,7 @@
 
 ;;; [ ido-preview ]
 
-;; TODO: (load "~/.emacs.d/init/extensions/ido-preview.el")
+;; (load "~/.emacs.d/init/extensions/ido-preview.el")
 
 
 ;;; [ smex ] --- remember recently and most frequently used commands.

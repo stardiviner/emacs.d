@@ -68,7 +68,6 @@
 ;;                     :foreground "red"
 ;;                     :weight 'bold
 ;;                     )
-;; ;; FIXME: this does not work at Emacs initially.
 ;; (set-face-attribute 'git-gutter:unchanged nil
 ;;                     :weight 'bold
 ;;                     )

@@ -119,7 +119,6 @@
           '(lambda ()
              (calendar-mark-today)
              (calendar-mark-holidays)
-             ;; (mark-diary-entries) ; FIXME: void function.
              ))
 
 
@@ -175,7 +174,7 @@
 
   ;; for iCalendar (Google Calendar) users:
   ;; (require 'calfw-ical)
-  ;; TODO (cfw:open-ical-calendar "http://www.google.com/calendar/ical/.../basic.ics")
+  ;; (cfw:open-ical-calendar "http://www.google.com/calendar/ical/.../basic.ics")
 
   ;; for Diary users:
   ;; - [M-x cfw:open-diary-calendar]
@@ -195,12 +194,10 @@
      (list
       (cfw:org-create-source "dark gray") ; Org-mode source
       ;; (cfw:cal-create-source "orange") ; Diary source
-      ;; TODO
       ;; (cfw:ical-create-source "Moon" "~/moon.ics" "Gray") ; iCalendar source1
       ;; (cfw:ical-create-source "gcal" "https://..../basic.ics" "IndianRed") ; Google Calendar ICS
       ;; (cfw:howm-create-source "blue") ; howm source
       )
-     ;; TODO add annotation-sources
      ;; :annotation-sources
      ;; (list
      ;;  (cfw:ical-create-source "Moon" "~/moon.ics" "Gray") ; Moon annotations

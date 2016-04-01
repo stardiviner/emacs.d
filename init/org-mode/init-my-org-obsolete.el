@@ -43,48 +43,6 @@
 
 
 
-;; TODO try this solution
-;; solve the [TAB] key between org-indent-mode with yasnippet.
-;; (add-hook 'org-mode-hook
-;;        (lambda ()
-;;          (org-set-local 'yas/trigger-key [tab])
-;;          (define-key yas/keymap [tab] 'yas/next-field-group)))
-;; TODO try this new version solution.
-;; if above code does not work (which it may not with later versions of yasnippet).  Then try this one:
-;; (defun yas/org-very-saft-expand ()
-;;   (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
-;; (add-hook 'org-mode-hook
-;;        (lambda ()
-;;          ;; yasnippet (using the new org-cycle hooks)
-;;          (make-variable-buffer-local 'yas/trigger-key)
-;;          (setq yas/trigger-key [tab])
-;;          (add-to-list 'org-tab-first-hook 'yas/org-very-saft-expand)
-;;          (define-key yas/keymap [tab] 'yas/next-field)
-;;          ))
-
-
-;; TODO: iimage-mode.
-;; -----------------------------------------------------------------------------
-;; (if (not (featurep 'iimage))
-;;     (require 'iimage))
-;;
-;; (add-to-list 'iimage-mode-image-regex-alist
-;;              (cons (concat "\\[\\[file:\\(~?" iimage-mode-image-filename-regex
-;;                            "\\)\\]")  1))
-;;
-;; (defun org-toggle-iimage-in-org ()
-;;   "Display images in your org file."
-;;   (interactive)
-;;   (if (face-underline-p 'org-link)
-;;       (set-face-underline-p 'org-link nil)
-;;       (set-face-underline-p 'org-link t))
-;;   (iimage-mode 'toggle))
-;;
-;; (define-key org-mode-map (kbd "C-c C-x C-v") 'org-toggle-iimage-in-org)
-;; -----------------------------------------------------------------------------
-
-
-
 ;;;_* org-annotate-file
 
 ;; This is yet another implementation to allow the annotation of a
@@ -178,9 +136,6 @@
 ;;                              "~/Org/Wiki/Learning/Learn-English.org"
 ;;                              )
 ;;                            (find-lisp-find-files "~/Org" "\.org$"))))
-
-;;; TODO how to remove duplicated list elements, because there are duplicated
-;;; entries in Org-mode agenda.
 
 ;;; ISSUE and seems this (find-lisp-find-files) list in variable
 ;;; org-agenda-files can not update when already has new files added.

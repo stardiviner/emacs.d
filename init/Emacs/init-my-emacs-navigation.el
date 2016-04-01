@@ -84,8 +84,6 @@ This is the same as using \\[set-mark-command] with the prefix argument."
   (autoload 'ace-jump-mode-pop-mark "ace-jump-mode" "Ace jump back:-)" t)
   (eval-after-load "ace-jump-mode" '(ace-jump-mode-enable-mark-sync))
 
-  ;; (global-set-key [remap flyspell-auto-correct-previous-word] nil)
-  ;; FIXME: this does not work, conflict with `flyspell-auto-correct-previous-word'.
   (global-set-key (kbd "C-'") 'ace-jump-mode)
   ;; (define-key global-map (kbd "C-'") 'ace-jump-mode-pop-mark)
   )

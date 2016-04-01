@@ -19,9 +19,6 @@
 
 (use-package docker
   :ensure t
-  :init
-  ;; FIXME: this does not work.
-  ;; (setq docker-keymap-prefix "C-c t c")
   :config
   (define-key my-container-map (kbd "m") 'docker-mode)
   (define-key my-container-map (kbd "i") 'docker-images)

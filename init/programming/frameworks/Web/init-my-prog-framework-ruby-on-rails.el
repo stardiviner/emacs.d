@@ -135,14 +135,6 @@
 
 ;;; [ haml-mode ]
 
-
-
-;;; load rails environment for completion
-
-;; TODO:
-;; (comint-send-string (inf-ruby-proc) (format "require 'sqlite'"))
-;; (process-send-string (inf-ruby-proc) "require 'rails'")
-
 
 (provide 'init-my-prog-framework-ruby-on-rails)
 

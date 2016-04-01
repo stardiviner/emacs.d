@@ -32,10 +32,7 @@
 
 (setq mu4e-mu-home nil ; nil for default
       ;; mu4e-mu-binary "/usr/bin/mu"
-      ;; TODO: find a better solution to solve this bin path variable issue.
-      ;; mu4e-mu-binary "~/bin/mu"
       mu4e-mu-binary "~/compile/Emacs/mu/mu/mu/mu"
-      ;; mu4e-mu-binary "/home/stardiviner/.emacs.d/el-get/mu4e/mu/mu"
       )
 
 ;; a list of user's e-mail addresses
@@ -192,17 +189,13 @@
       mu4e-headers-duplicate-prefix '("=" . "‡")
       )
 
-;; (mu4e-headers-change-sorting 't 'descending)
-
-;; TODO: (setq mu4e- auto-collopase-headers nil)
-
 
 ;;; Message
+
 ;; the headers to show in the headers list -- a pair of a field
 ;; and its width, with `nil' meaning 'unlimited'
 ;; (better only use that for the last field.
 ;; These are the defaults:
-;; TODO add some separator symbols like | + etc between those fields.
 
 (setq mu4e-headers-date-format "%x %X")
 
@@ -293,7 +286,6 @@
       )
 
 ;;; compose address complete with [M-Tab].
-;; FIXME: [M-Tab] is very slow for completion.
 (setq mu4e-compose-complete-addresses t ; e-mail address auto completion
       ;; to limit completion pool, filter mailing list addresses and like.
       mu4e-compose-complete-only-personal nil
@@ -349,7 +341,7 @@
 ;;; message inline pgp sign.
 ;; `message-send-hook' or `mu4e-compose-mode-hook'
 ;; `mml-secure-message-sign-pgpauto' or `mml-secure-message-sign-pgpmime'
-;; TODO:
+
 (add-hook 'message-send-hook 'mml-secure-message-sign-pgpauto)
 ;; (add-hook 'mu4e-compose-mode-hook 'mml-secure-message-sign-pgpauto)
 
@@ -395,7 +387,7 @@
 
 ;;; press [s] -> [:references [regexp]] in search query.
 
-;; FIXME: result is:   -> :References : nil
+;; result is:   -> :References : nil
 (add-to-list 'mu4e-header-info-custom
              '(:references :name "References"
                            :shortname "References"
@@ -413,7 +405,7 @@
 ;;                                :function
 ;;                                (lambda
 ;;                                  (msg)
-;;                                  (string-match-p ".*@[HOSTNAME]" ; TODO use a code to get current hostname
+;;                                  (string-match-p ".*@[HOSTNAME]"
 ;;                                                  (format "%s"
 ;;                                                          (mu4e-message-field msg :References)))
 ;;                                  )))
@@ -462,20 +454,6 @@
 (add-to-list 'mu4e-view-actions
              '("bMark unsure as ham" . mu4e-mark-unsure-as-ham) t)
 
-
-;; TODO: test this
-;; (defun my-mu4e-mark-spam (msg ignore)
-;;   "Mark messages flagged as spam."
-;;   (with-temp-buffer
-;;     (insert-file-contents (mu4e-message-field msg :path))
-;;     (goto-char (point-min))
-;;     (if (re-search-forward "^X-Spam-Flag: \\(.*\\)" nil t 1)
-;;         (string= (downcase (match-string 1)) "yes")
-;;       nil)))
-;;
-;; (add-to-list 'mu4e-headers-custom-markers
-;;              '("Spam" my-mu4e-mark-spam))
-
 
 ;;; creating org-mode links from mu4e messages.
 ;;
@@ -505,7 +483,6 @@
           (lambda ()
             ;; disable latex preview to prevent issue to:
             ;; `org-mu4e-compose-org-mode'
-            ;; FIXME: does not work.
             (setq-local org-startup-with-latex-preview nil)
             ;; edit with org-mode in e-mail body.
             (org-mu4e-compose-org-mode)
@@ -567,7 +544,6 @@
                                :flags
                                :maildir
                                :attachments
-                               ;; FIXME:
                                ;; :mailing-list
                                :references
                                ;; :tags
@@ -703,7 +679,6 @@
   (message "Number of recipients: %d"
            (+ (length (mu4e-message-field msg :to))
               (length (mu4e-message-field msg :cc)))))
-;; FIXME void variable
 ;; (add-to-list 'mu4e-headers-actions
 ;;              '("Number of recipients" . show-number-of-recipients) t)
 ;; search for messages by the sender of the message at point:
@@ -712,7 +687,6 @@
   (mu4e-headers-search
    (concat "from:" (cdar (mu4e-message-field msg :from)))))
 ;; define 'x' as the shortcut
-;; FIXME void variable
 ;; (add-to-list 'mu4e-view-actions
 ;;              '("xsearch for sender" . search-for-sender) t)
 
@@ -775,7 +749,7 @@
          ((mu4e-message-contact-field-matches msg
                                               :to "mu-discuss@googlegroups.com")
           "/Emacs/mu")
-         ;; TODO delete all Cron getmail error messages which is network
+         ;; delete all Cron getmail error messages which is network
          ;; unavailable error.
          ((string-match "Cron .* getmail.*"
                         (or (mu4e-message-field msg :subject) ""))
@@ -803,7 +777,6 @@
         ("date:today..now"               "Today's messages"     ?d)
         ("date:today..now flag:unread"   "Today's unread messages" ?n)
         ("date:1w..now"                  "This week's messages" ?w)
-        ;; FIXME: ("references:.*@stardiviner"     "The mail reply to my thread" ?m)
         ("maildir:/Emacs/help"           "Emacs mailbox" ?e)
         ))
 

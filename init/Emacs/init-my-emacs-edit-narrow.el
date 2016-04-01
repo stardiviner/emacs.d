@@ -30,8 +30,8 @@
 (define-key my-narrow-prefix (kbd "p") 'narrow-to-page)
 
 ;;; custom keybinding for handy (narrow + indirect-buffer)
+;;
 ;; Usage: [C-x n i], you can kill narrowed indirect buffer like normal buffer with [C-x k]. the modification will keep.
-;; FIXME: the region highlight doesn't disappear, this is a problem.
 (defun narrow-to-region-indirect (start end)
   "Restrict editing in this buffer to the current region, indirectly."
   (interactive "r")

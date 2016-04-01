@@ -36,16 +36,10 @@
 (require 'eclimd)
 
 (setq eclimd-default-workspace "~/Projects/Eclipse"
-      eclim-executable (or
-                        (executable-find "eclim")
-                        (eclim-homedir-executable-find)
-                        (eclim-executable-find))
+      ;; eclim-executable
       eclimd-executable "~/.eclipse/org.eclipse.platform_4.5.1_155965261_linux_gtk_x86_64/eclimd"
       ;; eclimd-port 45620
       eclimd-wait-for-process t)
-
-;; (or (executable-find "eclim") (eclim-homedir-executable-find) (eclim-executable-find))
-;; TODO?: (setq eclim-executable "")
 
 ;; for company-mode
 (require 'company-emacs-eclim)

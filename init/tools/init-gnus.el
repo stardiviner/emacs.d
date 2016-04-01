@@ -144,11 +144,6 @@
 (require 'gnus-notifications)
 (add-hook 'gnus-after-getting-new-news-hook 'gnus-notifications)
 
-;; NOTE: deprecated
-;; (add-hook 'gnus-summary-exit-hook 'gnus-notify+)
-;; (add-hook 'gnus-group-catchup-group-hook 'gnus-notify+)
-;; (add-hook 'mail-notify-pre-hook 'gnus-notify+)
-
 ;; retrieve email & news
 (setq gnus-select-method
       '(nnimap "gmail"

@@ -26,7 +26,7 @@
         ;; PDF
         ("\\.pdf\\'" . auto-mode)
         ("\\.pdf::\\([[:digit:]]+\\)\\'" . auto-mode)
-        ;; NOTE: disable this, to use `doc-view' for PDF.
+        ;; disable this, to use `doc-view' from `pdf-tools' for PDF.
         ;; ("\\.pdf\\'" . "okular %s")
         ;; ("\\.pdf::\\([[:digit:]]+\\)\\'" . "okular -p %1 %s")
         ;; CHM
@@ -201,49 +201,6 @@ With prefix argument, also display headlines without a TODO keyword."
         (gnus . org-gnus-no-new-news)
         (file . find-file)
         (wl . wl-other-frame)))
-
-;; [C-u C-c C-o]
-;; (let ((org-link-frame-setup [whatever-policites]))
-;;   (org-open-at-point))
-
-;; (setq org-open-at-point-functions) ; a hook
-
-;; TODO: auto create link to filename smartly when not link on word/region.
-
-(defun find-file-at-point-ex ()
-  "Open link, if does not exist, then create a file which filename with word at current point.
-
-This is especially for create Org files."
-  (interactive)
-  (let ((filename
-         (expand-file-name
-          (thing-at-point 'filename))))
-    (when (or
-           (file-exists-p filename)
-           (y-or-n-p (format "Create %s" filename)))
-      (find-file filename))))
-
-;; (define-key org-mode-map (kbd "C-c C-o") 'find-file-at-point-ex)
-
-;;; Custom Searches
-;; (add-hook 'org-mode-hook
-;;           (lambda ()
-;;             (setq org-create-file-search-functions)
-;;             (setq org-execute-file-search-functions)))
-
-
-;; NOTE: Seems Org-mode's link detect is smart now, whether deprecated this function?
-;; [C-u C-c C-o] :: open in external browser
-;; (defun my-org-open-at-point (&optional arg)
-;;   (interactive)
-;;   (if (not arg)
-;;       (org-open-at-point)
-;;     (let ((browse-url-browser-function #'browse-url-firefox))
-;;       (org-open-at-point))))
-;; (if (functionp 'my-org-open-at-point)
-;;     (define-key org-mode-map (kbd "C-c C-o") 'my-org-open-at-point))
-;;
-;; (setq org-return-follows-link nil) ; to follow links with [RET], rather 2 key combo.
 
 
 ;;;_* orgit -- Support for Org links to Magit buffers.

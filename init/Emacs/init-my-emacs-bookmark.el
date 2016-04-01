@@ -71,7 +71,6 @@
 (use-package bm
   :ensure t
   :init
-  ;; NOTE set this variable before load `bm.el' for repository persistence.
   (setq bm-restore-repository-on-load t)
   :config
   (setq bm-in-lifo-order t)
@@ -108,7 +107,7 @@
 
   (global-set-key (kbd "<left-margin> <mouse-1>") 'bm-toggle-mouse)
 
-  ;; FIXME: `my-bookmark-map' is not void yet. it is in init-my-emacs-bookmark.el
+  ;; NOTE: `my-bookmark-map' is not void yet. it is in init-my-emacs-bookmark.el
   (unless (boundp 'my-bookmark-map)
     (define-prefix-command 'my-bookmark-map))
 
@@ -137,7 +136,7 @@
   (define-key my-bookmark-bm-map (kbd "D") 'bm-remove-all-all-buffers)
 
 
-  ;; TODO: this could affect Emacs increasing running usage
+  ;; this could affect Emacs increasing running usage
   ;; Persistence
   (setq bm-repository-file "~/.emacs.d/.bm-repository"
         bm-repository-size 100)

@@ -38,10 +38,6 @@
 
 ;;; [ sqlup-mode ]
 
-;;; Usage:
-;; - The capitalization is triggered when you press 'SPC', ';', ',', or '(', '\r' (Enter),
-;; - [C-c u] region :: `sqlup-capitalize-keywords-in-region'
-
 (use-package sqlup-mode
   :ensure t
   :init
@@ -64,13 +60,6 @@
     (add-hook hook
               '(lambda ()
                  (sqlup-mode 1))))
-
-  ;; TODO:
-  ;; (add-hook 'sqlup-mode-hook
-  ;;           (lambda ()
-  ;;             (setq sqlup-keywords
-  ;;                   (append sqlup-keywords
-  ;;                           '("text" "glob" "offset")))))
   )
 
 
@@ -79,60 +68,7 @@
 ;; (use-package sqled-mode)
 
 
-;;; [ sqlplus ] -- user friendly interface to SQL*Plus and support for PL/SQL compilation.
-
-;;; Usage:
-;;
-;; - [M-x sqlplus] :: start new SQL*Plus session.
-;;
-;;   - [C-RET]   :: execute command under point.
-;;   - [S-C-RET] :: execute command under point, and show result table in HTML buffer.
-;;   - [M-RET]   :: explain execution plan for command under point.
-;;   - [M-.] / [C-mouse-1] :: find database object definition (table, view index, synonym, trigger, procedure,
-;;                            function, package) in filesystem.
-;;   - [C-c C-s] :: show database object definition (retrieved from database).
-;;
-;; TODO: customize sqlplus group.
-
-;; (require 'sqlplus)
-;; (add-to-list 'auto-mode-alist '("\\.sqp\\'" . sqlplus-mode))
-
-;;  If you want PL/SQL support also, try something like this:
-;;
-;;  (require 'plsql)
-;;  (setq auto-mode-alist
-;;    (append '(("\\.pls\\'" . plsql-mode) ("\\.pkg\\'" . plsql-mode)
-;; 		("\\.pks\\'" . plsql-mode) ("\\.pkb\\'" . plsql-mode)
-;; 		("\\.sql\\'" . plsql-mode) ("\\.PLS\\'" . plsql-mode)
-;; 		("\\.PKG\\'" . plsql-mode) ("\\.PKS\\'" . plsql-mode)
-;; 		("\\.PKB\\'" . plsql-mode) ("\\.SQL\\'" . plsql-mode)
-;; 		("\\.prc\\'" . plsql-mode) ("\\.fnc\\'" . plsql-mode)
-;; 		("\\.trg\\'" . plsql-mode) ("\\.vw\\'" . plsql-mode)
-;; 		("\\.PRC\\'" . plsql-mode) ("\\.FNC\\'" . plsql-mode)
-;; 		("\\.TRG\\'" . plsql-mode) ("\\.VW\\'" . plsql-mode))
-;; 	      auto-mode-alist ))
-
-
-
-
 ;;; [ edbi ]
-
-;;; Usage:
-;;
-;; - M-x `edbi:open-db-viewer' opens a dialog for DB connection.
-;;
-;;     - Data Source : URI string for DBI::connect (Ex. dbi:SQLite:dbname=/path/db.sqlite )
-;;     - User Name, Auth : user name and password for DBI::connect
-;;     - History button : you can choose a data source from your connection history.
-;;     - OK button : connect DB and open the database view
-
-;;; keymaps:
-;;
-;; - `edbi:dbview-keymap'
-;; - `edbi:dbview-table-keymap'
-;; - `ctbl:table-mode-map'
-;; - `edbi:sql-mode-map'
-;; - `edbi:dbview-query-result-keymap'
 
 (use-package edbi
   :ensure t
@@ -168,18 +104,6 @@
 
 ;;; [ edbi-sqlite ] -- edbi helper application
 
-;;; Usage:
-;;
-;; `edbi-sqlite'
-
-;; (defun my-edbi-sqlite ()
-;;   (interactive)
-;;   (if (not (process-live-p (get-process "sqlite3 process")))
-;;       (start-process-shell-command "sqlite3 process" "*SQLite process*" "sqlite3")
-;;     (edbi-sqlite)                       ; FIXME: interactive command.
-;;     )
-;;   )
-
 (use-package edbi-sqlite
   :ensure t
   :config
@@ -188,19 +112,6 @@
 
 
 ;;; [ edbi-database-url ] -- run edbi with database url.
-
-;;; Usage:
-;;
-;; Specify database url with environment variable
-;;
-;;   M-x setenv RET DATABASE_URL RET pgsql://me:secret@localhost:5678/test
-;;
-;; Connect to you database
-;;
-;;   M-x edbi-database-url
-;;
-;; Optionally you can specify database url by marking region or type it
-;; interactively.
 
 (use-package edbi-database-url
   :ensure t

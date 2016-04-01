@@ -17,37 +17,11 @@
       )
 
 
-;; FIXME:
-;;; Export Org to latex PDF with color for source code block highlighting.
-;; (require 'org-latex)
-;; (require 'org-latex-code)
-;; (require 'org-latex-color)
-;;
-;; (setq org-export-latex-packages-alist '("" "listings"))
-;; (setq org-export-latex-packages-alist '("" "color"))
-;; (setq org-export-latex-listings t)
-
-;;; PDF exporting
-;;
-;; (setq org-latex-to-pdf-process 
-;;       '("pdflatex %f" "biber %b" "pdflatex %f" "pdflatex %f"))
-
-
 ;;; ------------- Export UTF-8 checkboxes ---------------------
 ;;; This snippet turns - [X] into ☑ and - [ ] into ☐.
 
 ;; 'ascii, 'unicode, 'html
 (setq org-html-checkbox-type 'ascii)
-
-;; TODO: if upper works, then remove this code.
-;; (defun sacha/org-html-checkbox (checkbox)
-;;   "Format CHECKBOX into HTML."
-;;   (case checkbox (on "<span class=\"check\">&#x2611;</span>") ; checkbox (checked)
-;;         (off "<span class=\"checkbox\">&#x2610;</span>")
-;;         (trans "<code>[-]</code>")
-;;         (t "")))
-;; (defadvice org-html-checkbox (around sacha activate)
-;;   (setq ad-return-value (sacha/org-html-checkbox (ad-get-arg 0))))
 
 
 ;;; ox-html

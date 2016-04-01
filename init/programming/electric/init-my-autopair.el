@@ -42,7 +42,6 @@
              ;; ess-mode-hook                ; Emacs Speaks Statistics
              ))
     (add-hook hook #'(lambda ()
-                       ;; FIXME test whether paredit is active
                        (unless (and (boundp 'paredit-mode) paredit-mode)
                          (autopair-mode))
                        )))

@@ -29,7 +29,7 @@
 ;;   (setq auto-capitalize-yank nil
 ;;         auto-capitalize-words '("\\<Emacs\\>" "\\<Linux\\>"
 ;;                                 "\\<Android\>>" "\\<iOS\\>" "\\<Mac\\>")
-;;         ;; TODO: auto-capitalize-predicate
+;;         ;; auto-capitalize-predicate
 ;;         )
 ;;
 ;;   ;; To turn on (unconditional) capitalization in all Text modes.

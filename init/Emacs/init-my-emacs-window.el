@@ -227,7 +227,6 @@
   (add-to-list 'golden-ratio-exclude-buffer-names " *which-key*")
   
   ;; for popwin.
-  ;; FIXME:
   ;; (setq golden-ratio-inhibit-functions '(pop-to-buffer))
 
   (setq golden-ratio-extra-commands
@@ -289,7 +288,6 @@
   (push '(help-mode :position bottom :height 6) popwin:special-display-config)
 
   ;; Org-mode
-  ;; FIXME: this does not work.
   ;; (push '("*Org todo" :position bottom) popwin:special-display-config)
   ;; (push '("*Org Note" :position bottom :height 10) popwin:special-display-config)
   ;; (push '("*Org tags*" :position bottom) popwin:special-display-config)
@@ -299,7 +297,6 @@
   (push '("*Org-Babel Results*" :position bottom :height 6 :noselect t) popwin:special-display-config)
 
   ;; Completion List (completion-list-mode)
-  ;; FIXME: popwin can't capture this popup window.
   (push '(completion-list-mode :position bottom :height 6) popwin:special-display-config)
 
   ;; Eshell
@@ -326,7 +323,7 @@
   (push '("*quickrun*" :position bottom :height 6 :noselect t) popwin:special-display-config)
 
   ;; *Pp Eval Output*
-  ;; TODO: this will make this buffer does not show up.
+  ;; this will make this buffer does not show up.
   (push '("*Pp Eval Output*" :position bottom :height 6) popwin:special-display-config)
 
   ;; File Explorer
@@ -348,20 +345,19 @@
   ;; (push '("*magit-process*" :position bottom :height 10) popwin:special-display-config)
 
   ;; git-gutter[+]
-  ;; FIXME:
   ;; (push '("*git-gutter+-diff*" :position bottom) popwin:special-display-config)
   ;; (push '(git-gutter+-commit-mode :position bottom) popwin:special-display-config)
 
 
   ;; ERC
-  ;; TODO: This does not work. Because ERC does not use `pop-to-buffer' for private message buffer.
+  ;; This does not work. Because ERC does not use `pop-to-buffer' for private message buffer.
   (defun my/popwin-func-for-erc-private-message (buffer)
     "Match private messages which except channel buffers that start with a #.
 
 The `BUFFER' is the popwin catch pop private message buffer."
     (let ((mode (with-current-buffer buffer
                   major-mode)))
-      ;; TODO or string match `erc-pals' variables list.
+      ;; string match `erc-pals' variables list.
       (and (string-match "^[^#]*" (buffer-name buffer))
            (eq mode 'erc-mode))))
 
@@ -381,7 +377,6 @@ The `BUFFER' is the popwin catch pop private message buffer."
   (push '("*Shelldoc*" :position top :height 6) popwin:special-display-config)
 
   ;; bm.el
-  ;; TODO: modify source code.
   (push '(bm-show-mode :position bottom :height 6) popwin:special-display-config)
   (push '("*bm-bookmarks*" :position bottom :height 6) popwin:special-display-config)
 
@@ -455,7 +450,6 @@ The `BUFFER' is the popwin catch pop private message buffer."
   (push '(projectile-rails-server-mode :position bottom :height 6) popwin:special-display-config)
 
   ;; ruby-compilation-mode (RubyComp)
-  ;; FIXME: popwin can't capture this popup window. dive in ruby-compilation-mode source, it use Emacs built-in function window.el.gz -> `pop-to-buffer'.
   (push '(ruby-compilation-mode :position bottom :height 6) popwin:special-display-config)
 
   ;; bundler
@@ -498,7 +492,6 @@ The `BUFFER' is the popwin catch pop private message buffer."
   (push '(eww-bookmark-mode :position bottom :height 6) popwin:special-display-config)
 
   ;; checkdoc
-  ;; FIXME:
   (push '("*Checkdoc Status*" :position bottom :height 6) popwin:special-display-config)
 
 
@@ -530,7 +523,6 @@ The `BUFFER' is the popwin catch pop private message buffer."
   (push '("*Vagrant*" :position bottom :height 6) popwin:special-display-config)
 
   ;; poporg
-  ;; FIXME: not work
   ;; (push '("*poporg:*" :position bottom :height 10) popwin:special-display-config)
 
   (defun my/popwin-func-for-poporg-edit-window (buffer)

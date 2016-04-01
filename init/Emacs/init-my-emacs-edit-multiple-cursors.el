@@ -177,7 +177,7 @@
 
   (if (featurep 'visual-regexp)
       (define-key my-mc/mark-prefix (kbd "v") 'vr/mc-mark))
-  ;; TODO: `vr/select-mc-mark', `vr/select-replace', `vr/select-query-replace' etc.
+  ;; `vr/select-mc-mark', `vr/select-replace', `vr/select-query-replace' etc.
 
   ;; First mark the word, then add more cursors.
 

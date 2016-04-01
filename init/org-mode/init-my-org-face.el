@@ -157,7 +157,6 @@
                     :foreground "#444444")
 ;; ellipsis
 ;; (setq org-ellipsis "...⤵")
-;; TODO: custom this face does not work.
 (set-face-attribute 'org-ellipsis nil
                     :foreground "red"
                     :weight 'bold
@@ -268,17 +267,6 @@
                     :box '(:color "black" :line-width 1)
                     )
 
-;; seems face `org-block-background' is removed from commit: f8b42e8ebeeecdef59a8a7cbc4324264a5162197 , because it is slower for fontify.
-;; FIXME: how to detect a face is defined?
-;; (if (boundp 'org-block-background)
-;;     (set-face-attribute 'org-block-background nil
-;;                         :background "#004A5D"
-;;                         ))
-;; (set-face-attribute 'org-block-background nil
-;;                     ;; :background "#073642"
-;;                     :background (color-darken-name (face-background 'default) 5)
-;;                     )
-
 (set-face-attribute 'secondary-selection nil
                     :background (color-darken-name (face-background 'default) 6)
                     )
@@ -331,7 +319,6 @@
 
 ;; inline babel call
 ;; ... call_<name>[<inside header arguments>](<arguments>)[<end header arguments>] ...
-;; FIXME:
 (font-lock-add-keywords
  'org-mode
  '(("\\(call_\\)\\([^[(]*\\)\\(\\[.*\\]\\)\\((.*)\\)\\(\\[.*\\]\\)"
@@ -361,28 +348,12 @@
                     :inverse-video nil
                     :box '(:color "green yellow" :line-width 1 :style nil))
 
-;; FIXME: those regexp does not matches.
-;; emabedded latex (inline formula)
-;; (font-lock-add-keywords 'org-mode
-;;                         '(("$\\([^$\ ]*\\)$" 1 'org-code) ; $a=2$
-;;                           ))
-;; (font-lock-add-keywords 'org-mode
-;;                         '(("\\(\ \\([^\ ]*\\)\ )\\" 1 'org-code) ; \( a=2 \)
-;;                           ))
-;; (font-lock-add-keywords 'org-mode
-;;                         '(("\$\$\ \\([^\ ]*\\)\ \$\$" 1 'org-code) ; $$ a=2 $$
-;;                           ))
-;; (font-lock-add-keywords 'org-mode
-;;                         '(("\\\[\ \\([^\ ]*\\)\ \\\]" 1 'org-code) ; \[ a=2 \]
-;;                           ))
-
-
 ;; @@html:<kbd>...</kbd>@@, <kbd> </kbd>
 (defface org-html-kbd-tag
   '((nil (:foreground "cyan" :background "#004A5D"
-                    :box '(:color "cyan" :line-width 1)
-                    ;; :weight 'bold
-                    )))
+                      :box '(:color "cyan" :line-width 1)
+                      ;; :weight 'bold
+                      )))
   "Face for highlight Org-mode html tag @<kbd>...@</kbd> or @@html:<kbd>...</kbd>@@."
   :group 'org-faces)
 

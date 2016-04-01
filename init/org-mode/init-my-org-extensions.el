@@ -35,7 +35,6 @@
 ;; ;; 'anniversary, 'birthday,
 ;; (setq org-bbdb-anniversary-field 'birthday
 ;;       org-bbdb-default-anniversary-format "birthday"
-;;       ;; TODO: improve this option
 ;;       org-bbdb-anniversary-format-alist
 ;;       '(("birthday" lambda
 ;;          (name years suffix)
@@ -58,8 +57,6 @@
 ;;
 ;; - put this line into agenda file below the
 ;;   headline. %%(org-bbdb-anniversaries).
-
-;; FIXME: (org-bbdb-anniversaries)
 
 
 ;;; [ org-contacts ] -- Contacts management in Org-mode.
@@ -108,9 +105,6 @@
                :empty-lines 1
                :jump-to-captured t
                ))
-
-;; TODO: add more custom complete functions.
-;; (add-to-list 'org-contacts-complete-functions 'func)
 
 ;; (add-to-list 'org-property-set-functions-alist
 ;;              '(".*" . org-completing-read))

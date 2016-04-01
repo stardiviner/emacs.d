@@ -14,43 +14,17 @@
 ;;; prefix: [M-;], `my-prog-comment-map'
 
 (define-key my-prog-comment-map (kbd "M-;") 'comment-dwim)
-
 ;; or with [C-u N]
 (global-set-key (kbd "C-x C-;") 'comment-line)
 (define-key my-prog-comment-map (kbd "l") 'comment-line)
-
-
-;;; Emacs default comment [M-;]
-
-;; Usage:
-;; - [M-;] -- indent-for-comment
-;;   - for new line
-;;   - for region
-;; - comment-region
-;;   - [C-u N M-x comment-region] -- where `N` is an integer, adds or removes N `;`.
-;;   - [C-u M-x [un]comment-region] -- uncomments the region, no matter how many `;` have.
-;; - bind [C-x C-;] to `comment-region` is very handy.
-
-;; TODO: http://endlessparentheses.com/new-in-emacs-25-1-comment-line.html
-;; Emacs 25.1
-;; (global-set-key (kbd "M-;") #'comment-line)
-;; (global-set-key (kbd "C-;") #'comment-line)
-
-
-;;; [ commenter ] -- multiline-comment support package
-
-
-;;; [ `comment-box' ]
-
 (define-key my-prog-comment-map (kbd "b") 'comment-box)
-
 (define-key my-prog-comment-map (kbd "B") 'comment-box-with-fill-column)
 
 (defun comment-box-with-fill-column (b e) ; begin, end
   "Draw a box comment around the region of B and E.
 
 But arrange for the region to extend to at least the fill
-column. Place the point after the comment box."
+column.  Place the point after the comment box."
   (interactive "r")
   (let ((e (copy-marker e t)))
     (goto-char b)
@@ -62,16 +36,6 @@ column. Place the point after the comment box."
 
 
 ;;; [ boxquote ]
-
-;; ,----[ Sample quote ]
-;; | This is a sample quote.  Notice that it looks good even if you
-;; | send it to someone who reads mail in a proportional font (probably
-;;                                                             | a non-hacker...).
-;; `----
-
-;;; Usage:
-;;
-;; - `boxquote-region' :: boxquote region.
 
 (use-package boxquote
   :ensure t
@@ -109,7 +73,7 @@ column. Place the point after the comment box."
 (setq comment-fic-keywords-list
       '("FIXME" "TODO" "BUG" "ISSUE" "ERROR"
         "OPTIMIZE" "HACK" "REFACTOR" "REVIEW" "TEST"
-        "NOTE" "NOTICE" "README"))
+        "NOTE" "NOTICE"))
 
 ;;; comment annotations function
 ;; (defun font-lock-comment-annotations ()
@@ -117,7 +81,7 @@ column. Place the point after the comment box."
 ;;
 ;; This functions should be added to the hooks of major modes for programming."
 ;;   (font-lock-add-keywords nil
-;;                           '(("\\<\\(FIXME\\|TODO\\|ISSUE\\|BUG\\|ERROR\\|HACK\\|OPTIMIZE\\|REFACTOR\\|REVIEW\\|TEST\\|NOTE\\|NOTICE\\|README\\):" 1
+;;                           '(("\\<\\(FIXME\\|TODO\\|ISSUE\\|BUG\\|ERROR\\|HACK\\|OPTIMIZE\\|REFACTOR\\|REVIEW\\|TEST\\|NOTE\\|NOTICE\\):" 1
 ;;                              '(:foreground "dark red" :background "black"
 ;;                                            :box '(:color "red" :line-width -1 :style nil)
 ;;                                            :weight 'bold) t))))
@@ -179,12 +143,12 @@ column. Place the point after the comment box."
 ;; - [C-x C-s] (outorg-save-edits-to-tmp-file) ::
 
 (use-package outorg
-  ;; :ensure t
-  :config
+  :ensure t
+  :init
   ;; Outorg (like outshine) assumes that you set `outline-minor-mode-prefix' in your init-file to 'M-#':
   ;; NOTE: must be set before outline is loaded
   (defvar outline-minor-mode-prefix "\M-#")
-
+  :config
   (global-set-key (kbd "C-c '") 'outorg-edit-as-org)
   )
 

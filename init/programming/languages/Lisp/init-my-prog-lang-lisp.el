@@ -143,7 +143,7 @@
   )
 
 
-;;; [ eval-sexp-fu ] -- You can see highlighting the sexps during evaluation in action.
+;;; [ eval-sexp-fu ] -- highlighting the sexps during evaluation in action.
 
 ;;; Usage:
 ;;

@@ -81,19 +81,12 @@
 
 ;;; [ octave-hlp ] -- octave help, Using the Emacs Info Reader for Octave
 
-;; TODO: If `gnuserv' is installed, add the lines
-;; (autoload 'octave-help "octave-hlp" nil t)
-;; (require 'gnuserv)
-;; (gnuserv-start)
-
-
 
 ;;; [ ac-octave ]
 
 (use-package ac-octave
   ;; :ensure t
   ;; :config
-  ;; FIXME:
   ;; (defun ac-octave-mode-setup ()
   ;;   (add-to-list 'ac-sources 'ac-source-octave))
   ;; (add-hook 'octave-mode-hook

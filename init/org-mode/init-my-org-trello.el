@@ -85,10 +85,6 @@
 ;; (add-hook 'org-mode-hook 'org-trello-mode)
 ;; otherwise, M-x org-trello-mode in an org buffer to activate org-trello
 
-;; TODO: enable org-trello-mode on `org-agenda-files'.
-
-;; (define-key my-org-prefix (kbd "t") 'org-trello-mode)
-
 ;; (add-hook 'org-trello-mode-hook
 ;;           (lambda ()
 ;;             ;; 1. built-in provide function
@@ -146,16 +142,12 @@
 ;;; variable dedicated to this:
 (setq org-trello-files '("~/Org/Trello/Trello.org" "~/Org/Trello/Startups/Startups.org"))
 
-;; FIXME: local `org-todo-keywords' in org-trello buffers.
-;; (add-hook 'org-trello-mode-hook
-;;           '(lambda ()
-;;              (setq-local org-todo-keywords '((sequence "TODO(@/@)" "Doing(g!)" "|" "DONE(d@/!)")))
-;;             
-;;              ;; (setq-mode-local org-trello-mode org-todo-keywords
-;;              ;;                  '((sequence "TODO(@/@)" "Doing(g!)" "|" "DONE(d@/!)"))
-;;              ;;                  )
-;;              ))
-
+;; local `org-todo-keywords' in org-trello buffers.
+(add-hook 'org-trello-mode-hook
+          (lambda ()
+            (setq-local org-todo-keywords
+                        '((sequence "TODO(@/@)" "Doing(g!)" "|" "DONE(d@/!)")))
+            ))
 
 
 (provide 'init-my-org-trello)

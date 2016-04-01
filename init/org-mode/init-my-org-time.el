@@ -143,9 +143,6 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
                            ((org-agenda-sorting-strategy
                              '(habit-down time-up priority-down category-keep user-defined-up))))
                    (org-time-budgets-for-agenda)))))
-
-  ;; TODO: how to add to default agenda?
-  ;; FIXME: org-agenda don't have `org-agenda-custom-commands' dispatch. [C-c a] does not work.
   )
 
 
