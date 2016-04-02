@@ -178,8 +178,8 @@
                       :box '(:color "#8BEEFF" :line-width -1)
                       :weight 'normal)
   (set-face-attribute 'magit-branch-remote nil
-                      :foreground "deep pink" :background "dark red"
-                      :box '(:color "deep pink" :line-width -1)
+                      :foreground "#95CA2A" :background "#4F6827"
+                      :box '(:color "#95CA2A" :line-width -1)
                       :weight 'normal)
 
   ;; hash
