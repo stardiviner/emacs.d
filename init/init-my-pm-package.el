@@ -78,6 +78,44 @@
 (package-initialize)
 
 
+;;; user function for get update available packages number in Emacs batch mode.
+
+;; 1. (package-list-packages)
+;; 2. (package-menu-mark-upgrades)
+;; 3. (package-menu-execute)
+;;
+;; - (package-menu--find-and-notify-upgrades)
+;; - (package-menu--find-upgrades)
+
+(defun my/package-check-update ()
+  "Check Emacs packages available update."
+  (interactive)
+  ;; (package-list-packages)
+  (require 'finder-inf nil t)
+  ;; Initialize the package system if necessary.
+  (unless package--initialized
+    (package-initialize t))
+  
+  (add-hook 'package--post-download-archives-hook
+            #'package-menu--post-refresh)
+
+  (let ((buf (get-buffer-create "*Packages*")))
+    (when (buffer-live-p buf)
+      (message "buffer *Packages* created.")
+      (with-current-buffer buf
+        (package-menu-mode)
+        ;; Fetch the remote list of packages.
+        ;; (package-menu-refresh)
+        (let ((package-menu-async nil))
+          (package-refresh-contents package-menu-async))
+        (when-let ((upgrades (package-menu--find-upgrades)))
+          ;; upgrades
+          (message "%d" (length upgrades))
+          )
+        )
+      )))
+
+
 (provide 'init-my-pm-package)
 
 ;;; init-my-pm-package.el ends here
