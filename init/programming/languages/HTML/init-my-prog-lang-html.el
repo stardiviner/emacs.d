@@ -64,6 +64,9 @@
                       :foreground "dark slate gray"
                       :background "#222222"
                       )
+
+  ;; e.g. div -> <div>|</div>
+  (define-key emmet-mode-keymap (kbd "M-j") 'emmet-expand-yas)
   )
 
 
