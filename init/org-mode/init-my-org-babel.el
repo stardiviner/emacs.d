@@ -202,15 +202,14 @@
     ad-do-it))
 
 
+;; NOTE: this may cause org babel block syntax highlighting failed.
+
 (add-to-list 'org-src-lang-modes (cons "SQL" 'sql))
 
-;; NOTE: js2-mode syntax highlighting not work in Org-mode Babel.
 (with-eval-after-load 'js2-mode
   (add-to-list 'org-src-lang-modes '("js" . js2)))
 
-;; open ruby source block with `enh-ruby-mode' major-mode.
-;; NOTE: this caused org babel block syntax highlighting failed.
-;; (add-to-list 'org-src-lang-modes '("ruby" . enh-ruby))
+(add-to-list 'org-src-lang-modes '("ruby" . enh-ruby))
 ;; (add-to-list 'org-src-lang-modes (cons "ruby" 'enh-ruby))
 
 (with-eval-after-load 'web-mode
