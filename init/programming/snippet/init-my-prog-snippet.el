@@ -50,12 +50,7 @@
   ;; (setq yas-key-syntaxes '("w" "w_" "w_." "w_.()" yas-try-key-from-whitespace))
 
   ;; for `yas-choose-value'.
-  (setq yas-prompt-functions
-        '(yas-dropdown-prompt       ; work both in minibuffer and X window system.
-          yas-completing-prompt     ; minibuffer prompting.
-          yas-ido-prompt            ; minibuffer prompting.
-          yas-x-prompt              ; X window system.
-          yas-no-prompt))
+  ;; (setq yas-prompt-functions )
 
   (setq yas-new-snippet-default "\
 # -*- mode: snippet -*-
