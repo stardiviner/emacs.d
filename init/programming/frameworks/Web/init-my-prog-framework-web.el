@@ -30,6 +30,7 @@
 
   ;; You can also edit plain js, jsx, css, scss, xml files.
   (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
+
   :config
 
   ;; Associate an engine
