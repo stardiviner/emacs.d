@@ -19,7 +19,7 @@
 (setq org-confirm-elisp-link-function 'yes-or-no-p)
 
 ;;; source block header arguments
-(setq org-babel-default-header-args    ; #+BEGIN_SRC ruby :result [output/value]
+(setq org-babel-default-header-args
       '((:session . "none")
         (:results . "replace output")
         (:exports . "both")
