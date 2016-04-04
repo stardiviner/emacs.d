@@ -44,8 +44,8 @@
 (setq org-src-fontify-natively t
       ;; nil: preserve org indent, t: preserve export indent.
       org-src-preserve-indentation nil
-      org-edit-src-content-indentation 0
-      org-src-tab-acts-natively t ; make [Tab] work native as in major mode.
+      org-edit-src-content-indentation 2
+      org-src-tab-acts-natively nil ; make [Tab] work native as in major mode.
       org-src-window-setup 'reorganize-frame ; 'current-window
       org-src-ask-before-returning-to-edit-buffer nil
       org-edit-src-auto-save-idle-delay 0 ; 0: don't auto save.
@@ -53,11 +53,11 @@
 
 ;;; babel eval result
 (setq org-babel-inline-result-wrap "=%s="
-      org-babel-hide-result-overlays nil
-      ;; org-babel-results-keyword "RESULTS"
       org-export-babel-evaluate t
       )
 
+;;; [ ob-latex ]
+(require 'ob-latex)
 
 ;;; [ ob-processing ]
 (require 'ob-processing)
