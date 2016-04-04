@@ -19,27 +19,27 @@
 (setq org-confirm-elisp-link-function 'yes-or-no-p)
 
 ;;; source block header arguments
-(setq org-babel-default-header-args
-      '((:session . "none")
-        (:results . "replace output")
-        (:exports . "both")
-        (:cache . "no")
-        (:hlines . "no")
-        (:padnewline . "yes")
-        (:noweb . "no")
-        (:tangle . "no")
-        (:mkdirp . "yes")
-        (:padline . "true")
-        (:comments . "links")
-        ))
+;; (setq org-babel-default-header-args
+;;       '((:session . "none")
+;;         (:results . "replace output")
+;;         (:exports . "both")
+;;         (:cache . "no")
+;;         (:hlines . "no")
+;;         (:padnewline . "yes")
+;;         (:noweb . "no")
+;;         (:tangle . "no")
+;;         (:mkdirp . "yes")
+;;         (:padline . "true")
+;;         (:comments . "links")
+;;         ))
 
 ;;; inline source code header arguments
-(setq org-babel-default-inline-header-args
-      '((:session . "none")
-        (:results . "replace")
-        (:exports . "both")
-        (:hlines . "yes")
-        ))
+;; (setq org-babel-default-inline-header-args
+;;       '((:session . "none")
+;;         (:results . "replace")
+;;         (:exports . "both")
+;;         (:hlines . "yes")
+;;         ))
 
 (setq org-src-fontify-natively t
       ;; nil: preserve org indent, t: preserve export indent.
