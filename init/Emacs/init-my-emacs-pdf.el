@@ -92,7 +92,7 @@
               (pdf-view-auto-slice-minor-mode)
 
               ;; use midnight mode theme
-              (pdf-view-midnight-minor-mode)
+              ;; (pdf-view-midnight-minor-mode)
 
               ;; `pdf-tools-enabled-modes'
               (pdf-isearch-minor-mode)
