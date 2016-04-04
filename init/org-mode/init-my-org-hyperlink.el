@@ -214,6 +214,23 @@ With prefix argument, also display headlines without a TODO keyword."
 ;;   ;; (add-to-list orgit-export-alist ')
 ;;   )
 
+
+;;; open image link to edit
+
+(defvar org-image-link-edit-cmd "gimp %s")
+
+(defun org-image-link-edit ()
+  "Open the image at point for editing."
+  (interactive)
+  (let ((context (org-element-context)))
+    (if (not (eq (car-safe context) 'link))
+        (user-error "not on a link")
+      (start-process-shell-command
+       "org-download-edit"
+       "org-download-edit"
+       (format org-image-link-edit-cmd (plist-get (cadr context) :path))))))
+
+(define-key my-org-prefix (kbd "E") 'org-image-link-edit)
 
 
 (provide 'init-my-org-hyperlink)
