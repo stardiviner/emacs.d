@@ -28,22 +28,13 @@
 ;; (load "/usr/pkg/ess/lisp/ess-site")
 ;; (setq-default inferior-S+6-program-name "Splus")
 
-(setq-default inferior-R-program-name "R" ; /path/to/R
-              ;; inferior-R-args ""
-              ;; inferior-R-font-lock-keywords
-              ess-R-readline nil ;; with --no-readline argument.
-              ;; ess-R-font-lock-keywords
-              )
+;; with --no-readline argument.
+(setq ess-R-readline nil)
 
 ;;; set prompt
-;;
-;; .Rprofile 
-;; Make the ℝ prompt stand out (be sure to tell ESS how to handle this): 
-;; options(prompt="ℝ> ")
-;;
-(setq inferior-ess-primary-prompt "ℝ> ")
-;; Handle the custom ℝ prompt in ess. Don’t use custom here.
-(setq inferior-S-prompt "[]a-zA-Z0-9.[]*\\(?:[>+.] \\)*ℝ+> ")
+;; (setq inferior-ess-primary-prompt "ℝ> ")
+;;; handle the custom ℝ prompt in ess. Don’t use custom here.
+;; (setq inferior-S-prompt "[]a-zA-Z0-9.[]*\\(?:[>+.] \\)*ℝ+> ")
 
 
 ;; start the ESS process if not started when open ESS buffers.
