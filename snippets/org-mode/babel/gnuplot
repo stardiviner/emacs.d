@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: babel-gnuplot-graphic
-# key: babel-gnuplot-graphic
+# name: babel-gnuplot
+# key: babel-gnuplot
 # group: babel
 # --
 #+BEGIN_SRC gnuplot :session none :results graphics :dir "data/images" :file "${1:figure}.png"
