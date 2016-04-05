@@ -159,13 +159,15 @@
                        'face '(:foreground "orange" :height 80))))
       ))
 
-   ;; Clojure
-   ;; TODO: how to make it local to Clojure buffers?
-   ;; (:eval
-   ;;  (unless (equal (cider--modeline-info) "not connected")
-   ;;    (propertize (format " cider[%s] " (cider--modeline-info))
-   ;;                'face '(:foreground "#444444")))
-   ;;  )
+   ;; Clojure - CIDER
+   (:eval
+    (when (and
+           (equal major-mode 'clojure-mode)
+           (not (equal (cider--modeline-info) "not connected")))
+      ;; (format " cider[%s] " (cider--modeline-info))
+      (propertize (format "CIDER √")
+                  'face '(:foreground "forest green")))
+    )
    
    ;; VCS - Git, SVN, CVS,
    (vc-mode (:eval
