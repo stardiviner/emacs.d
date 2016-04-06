@@ -22,19 +22,22 @@
 
 ;;;_ [ edit-server ]
 
-;;; Usage:
-;;
-;; edit browser text-area.
+;; A Chrome "clone" of It's All Text for spawning an editor to edit text areas in browsers with Emacs.
+;; https://github.com/stsquad/emacs_chrome
 
-(when (require 'edit-server nil t)
+(use-package edit-server
+  :ensure t
+  :config
   (setq edit-server-new-frame t)
-  (edit-server-start))
+  (setq edit-server-url-major-mode-alist
+        '(("github\\.com" . markdown-mode)
+          ("stackoverflow\\.com" . markdown-mode)
+          ("segmentfault\\.com" . markdown-mode)
+          ))
+  
+  (edit-server-start)
+  )
 
-(setq edit-server-url-major-mode-alist
-      '(("github\\.com" . markdown-mode)
-        ("stackoverflow\\.com" . markdown-mode)
-        ("segmentfault\\.com" . markdown-mode)
-        ))
 
 ;;;_ whitespace-mode
 
