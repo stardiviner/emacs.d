@@ -900,19 +900,6 @@
     (mu4e-headers-search "maildir:/INBOX"))
   )
 
-(if (featurep 'mu4e)
-    (progn
-      (define-key my-email-prefix (kbd "m") 'mu4e)
-      ;; FIXME: let (setq mail-user-agent 'mu4e-user-agent)
-      (if (eq 'mail-user-agent 'mu4e-user-agent)
-          ;; there is upper set default mail-user-agent, so default [C-x m] will be change for mu4e
-          (global-set-key (kbd "C-x m") 'mu4e-compose-new)
-        )
-      (define-key my-email-prefix (kbd "i") 'my-mu4e-jump-to-index)
-      (define-key my-email-prefix (kbd "C") 'mu4e-compose-new)
-      )
-  )
-
 
 
 (setq mu4e-completing-read-function 'completing-read)
