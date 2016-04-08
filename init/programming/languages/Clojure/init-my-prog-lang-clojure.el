@@ -66,7 +66,7 @@
         cider-dynamic-indentation t
         
         ;; REPL
-        ;; cider-inject-dependencies-at-jack-in t
+        cider-inject-dependencies-at-jack-in t
         cider-repl-display-in-current-window nil
         cider-repl-pop-to-buffer-on-connect nil
         cider-prompt-save-file-on-load t
