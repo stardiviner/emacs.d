@@ -105,7 +105,7 @@
           ;; (top .  80)
           (minibuffer . t)
           )
-        ;; window-id-offset -4
+        ;; window-id-offset 0
         )
 
   (define-key my-screenshot-map (kbd "r") 'camcorder-mode)
