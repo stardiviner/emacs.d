@@ -14,6 +14,8 @@
   ;;       gofmt-command "gofmt"
   ;;       gofmt-show-errors 'buffer         ; 'buffer, 'echo, nil
   ;;       godef-command "godef"
+  ;;       godoc-command "go doc"
+  ;;       godoc-at-point-function 'godoc-and-godef
   ;;       )
 
   (add-hook 'go-mode-hook
