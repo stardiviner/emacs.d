@@ -13,9 +13,13 @@
 
 ;;; [ orgtbl-ascii-plot ] -- ascii-art bar plots in org-mode tables.
 
-;; (use-package orgtbl-ascii-plot
-;;   :ensure t
-;;   )
+;; #+TBLFM: $4='(orgtbl-ascii-draw plot min max)
+;;
+;; - #+TBLFM: $4='(orgtbl-ascii-draw $2 0 10)
+
+(use-package orgtbl-ascii-plot
+  :ensure t
+  )
 
 
 (provide 'init-my-org-table)
