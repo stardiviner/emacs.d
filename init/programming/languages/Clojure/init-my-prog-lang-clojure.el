@@ -175,9 +175,9 @@
 
   ;; notify user CIDER is connected.
   (add-hook 'cider-connected-hook
-            '(lambda ()
-               (notifications-notify :title "CIDER connected"
-                                     :body "CIDER process connected."))
+            (lambda ()
+              (notifications-notify :title "CIDER connected"
+                                    :body "CIDER process connected."))
             )
   
   ;; switch to cider-repl buffer.
