@@ -260,7 +260,7 @@
     (if (and redtick-mode
              (redtick--selected-window-p))
         ;; `redtick--current-bar'
-        (propertize " 卍 "
+        (propertize " ⏳ "
                     'face '(:foreground "yellow" :weight bold)
                     'help-echo '(redtick--popup-message
                                  redtick--pomodoro-started-at)
