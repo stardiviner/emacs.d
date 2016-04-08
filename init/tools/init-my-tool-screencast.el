@@ -31,12 +31,12 @@
         command-log-mode-window-font-size 2
         )
 
-  (set-face-attribute 'command-log-key nil
-                      :background "gray" :foreground "red"
-                      )
-  (set-face-attribute 'command-log-command nil
-                      :background nil :foreground "black"
-                      )
+  ;; (set-face-attribute 'command-log-key nil
+  ;;                     :background "gray" :foreground "red"
+  ;;                     )
+  ;; (set-face-attribute 'command-log-command nil
+  ;;                     :background nil :foreground "black"
+  ;;                     )
 
   (define-key my-screenshot-map (kbd "M-k") 'clm/toggle-command-log-buffer)
   (define-key my-screenshot-map (kbd "k") 'command-log-mode)
