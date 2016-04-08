@@ -131,9 +131,6 @@
 (use-package org-pdfview
   :ensure t
   :config
-  (eval-after-load 'org
-    '(require 'org-pdfview))
-
   ;; integrate it into Org-mode seamlessly.
   ;; (org-add-link-type "pdfview" 'org-pdfview-open 'org-pdfview-export)
   ;; change Org-mode default open PDF file function.
