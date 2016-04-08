@@ -295,7 +295,7 @@
 (org-notify-add 'default
                 '(:time "1h" :period "2h" :duration 8
                         :actions (-notify/window -ding)
-                        :audible nil)
+                        :audible t)
                 )
 
 (org-notify-start 60)
