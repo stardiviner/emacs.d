@@ -66,14 +66,14 @@
 
 
 
-(defvar my-email-client "gnus")
+(defvar my-email-client 'gnus)
 
-(case my-email-client
-  ("gnus"
+(case (intern my-email-client)
+  ('gnus
    (define-key my-email-prefix (kbd "m") 'gnus)
    )
   
-  ("mu4e"
+  ('mu4e
    (define-key my-email-prefix (kbd "m") 'mu4e)
    ;; FIXME: let (setq mail-user-agent 'mu4e-user-agent)
    (if (eq 'mail-user-agent 'mu4e-user-agent)

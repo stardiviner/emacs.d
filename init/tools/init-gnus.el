@@ -416,11 +416,6 @@
 ;;       )
 
 
-
-;; keybindings
-(define-key my-email-prefix (kbd "g") 'gnus)
-
-
 (provide 'init-gnus)
 
 ;;; init-gnus.el ends here

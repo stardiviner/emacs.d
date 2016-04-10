@@ -38,9 +38,9 @@
                   lisp-interaction-mode-hook
                   ))
     (add-hook hook
-              '(lambda ()
-                 (local-set-key (kbd "C-h d d") 'sly-documentation-lookup)
-                 )))
+              (lambda ()
+                (local-set-key (kbd "C-h d d") 'sly-documentation-lookup)
+                )))
   
   (eval-after-load 'sly
     `(define-key sly-prefix-map (kbd "M-h") 'sly-documentation-lookup))
@@ -71,9 +71,9 @@
 
   ;; setup SLY REPL buffer
   (add-hook 'sly-mrepl-mode-hook
-            '(lambda ()
-               (paredit-mode 1)
-               (eldoc-mode 1)))
+            (lambda ()
+              (paredit-mode 1)
+              (eldoc-mode 1)))
   )
 
 
@@ -94,11 +94,11 @@
 
 ;;; [ sly-repl-ansi-color ]
 
-(use-package sly-repl-ansi-color
-  :ensure t
-  :config
-  (add-to-list 'sly-contribs 'sly-repl-ansi-color)
-  )
+;; (use-package sly-repl-ansi-color
+;;   :ensure t
+;;   :config
+;;   (add-to-list 'sly-contribs 'sly-repl-ansi-color)
+;;   )
 
 
 ;;; [ sly-macrostep ] -- Expand CL macros inside source files
