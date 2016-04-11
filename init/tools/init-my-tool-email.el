@@ -62,11 +62,11 @@
 
 
 (require 'init-gnus)
-(require 'init-mu4e)
+;; (require 'init-mu4e)
 
 
 
-(defvar my-email-client 'gnus)
+(defvar my-email-client "gnus")
 
 (case (intern my-email-client)
   ('gnus

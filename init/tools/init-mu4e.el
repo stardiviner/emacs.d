@@ -325,8 +325,8 @@
       mml2015-sign-with-sender t
       )
 
-(add-hook 'message-send-hook 'mml-secure-message-encrypt-pgpauto)
-(add-hook 'mu4e-compose-mode-hook 'mml-secure-message-encrypt-pgpauto)
+;; (add-hook 'message-send-hook 'mml-secure-message-encrypt-pgpauto)
+;; (add-hook 'mu4e-compose-mode-hook 'mml-secure-message-encrypt-pgpauto)
 
 
 ;;; Headers
@@ -953,6 +953,7 @@
          "flag:unread"
          " AND NOT flag:trashed"
          ;; " AND NOT maildir:"
+         "AND references: t"
          ))
   )
 
