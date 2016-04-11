@@ -237,14 +237,14 @@
 
 ;;; [ otama ] -- Simple org-table based database, intended to be a light version of BBDB and helm-friendly.
 
-(use-package otama
-  :ensure t
-  :config
-  (setq otama-database-file-name
-        (concat (getenv "HOME") "/Org" "/otama/otama.org"))
-
-  (define-key my-org-prefix (kbd "d") 'otama-helm)
-  )
+;; (use-package otama
+;;   :ensure t
+;;   :config
+;;   (setq otama-database-file-name
+;;         (concat (getenv "HOME") "/Org" "/otama/otama.org"))
+;;
+;;   (define-key my-org-prefix (kbd "D") 'otama-helm)
+;;   )
 
 
 (provide 'init-my-org-extensions)
