@@ -21,6 +21,17 @@
         )
   )
 
+
+;;; [ company-lua ]
+
+(use-package company-lua
+  :ensure t
+  :config
+  (add-hook 'lua-mode-hook
+            (lambda ()
+              (my-company-add-backend-locally 'company-lua)
+              ))
+  )
 
 
 (provide 'init-my-prog-lang-lua)
