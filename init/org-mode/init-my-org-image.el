@@ -14,7 +14,10 @@
 ;; [C-c C-x C-M-v] - `org-redisplay-inline-images'
 
 (setq org-startup-with-inline-images nil
-      org-image-actual-width 450        ; inline image scale width
+      org-image-actual-width 370        ; inline image scale width
+      ;; org-latex-inline-image-rules
+      org-latex-image-default-width "2.0\\linewidth"
+      ;; org-latex-image-default-height
       )
 
 
