@@ -148,6 +148,10 @@ be global."
              ))
     (add-hook hook 'flyspell-mode))
 
+  ;; (remove-hook 'org-mode-hook
+  ;;              (lambda ()
+  ;;                (flyspell-mode -1)))
+
   ;; (flyspell-mode 1)
   )
 
