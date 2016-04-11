@@ -15,7 +15,7 @@
 ;;; Usage:
 ;; (run-scheme)
 
-;; (setq scheme-program-name "scheme")
+(setq scheme-program-name "guile")
 
 
 ;;; [ geiser ] -- 
