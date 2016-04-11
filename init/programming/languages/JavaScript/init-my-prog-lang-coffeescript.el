@@ -61,6 +61,12 @@
   )
 
 
+;;; [ ob-coffee ]
+
+(use-package ob-coffee
+  :ensure t)
+
+
 (provide 'init-my-prog-lang-coffeescript)
 
 ;;; init-my-prog-lang-coffeescript.el ends here
