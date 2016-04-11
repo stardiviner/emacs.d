@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: babel-julia-plot-ascii
+# key: babel-julia-plot-ascii
+# group: babel
+# --
+#+BEGIN_SRC julia :session "*julia*"
+using ${1:$$(yas-choose-value '("UnicodePlots" "ASCIIPlots"))}
+
+$0
+#+END_SRC

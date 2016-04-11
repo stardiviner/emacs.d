@@ -2,4 +2,4 @@
 # name: defvar
 # key: defvar
 # --
-defvar $1 ${2:&optional INITVALUE "$0"}
+defvar $1 ${2:&optional "${0}"}

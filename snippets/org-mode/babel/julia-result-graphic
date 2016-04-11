@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: babel julia graphical result
-# key: babel-julia-result-graphic
+# name: babel-julia-plot-graphic
+# key: babel-julia-plot-graphic
 # group: babel
 # --
 #+BEGIN_SRC julia :results graphics :file ${1:image name}.png

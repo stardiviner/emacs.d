@@ -3,7 +3,7 @@
 # key: babel-gnuplot-ascii
 # group: babel
 # --
-#+BEGIN_SRC gnuplot :session none :results output verbatim
+#+BEGIN_SRC gnuplot ${1::var data=${2:table name}} :session none :results output verbatim
 set term dumb
 
 plot $0
