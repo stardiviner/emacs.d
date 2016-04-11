@@ -184,8 +184,10 @@
 
 
 
-;;; [ ein ] -- IPython notebook client in Emacs
+;;; [ Emacs IPython Notebook (EIN) ] -- IPython notebook client in Emacs
 
+(use-package ein
+  :ensure t)
 
 
 
