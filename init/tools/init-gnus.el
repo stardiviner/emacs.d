@@ -9,7 +9,8 @@
 
 ;;; [ Gnus ]
 
-(require 'gnus)
+(use-package gnus
+  :ensure t)
 
 ;; directories & files
 (setq gnus-home-directory (expand-file-name "Gnus/" user-emacs-directory)
