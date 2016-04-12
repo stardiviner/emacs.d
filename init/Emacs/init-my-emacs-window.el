@@ -478,6 +478,9 @@ The `BUFFER' is the popwin catch pop private message buffer."
   (push '(inferior-haskell-mode :position bottom :height 6) popwin:special-display-config)
   (push '(haskell-interactive-mode :position bottom :height 6) popwin:special-display-config)
 
+  ;; Lua
+  (push '("*lua*" :position bottom :height 6) popwin:special-display-config)
+
   ;; gnuplot
   (push '(gnuplot-comint-mode :position bottom :height 6) popwin:special-display-config)
   

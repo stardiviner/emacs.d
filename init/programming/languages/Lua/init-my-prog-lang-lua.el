@@ -19,6 +19,8 @@
         lua-indent-string-contents t
         lua-jump-on-traceback t
         )
+
+  (define-key lua-mode-map (kbd "C-c C-s") 'run-lua)
   )
 
 
