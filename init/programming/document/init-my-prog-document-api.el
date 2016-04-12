@@ -44,7 +44,7 @@
 
   (setq helm-dash-enable-debugging t)
 
-  (define-key my-prog-help-document-map (kbd "C-d") 'helm-dash-at-point) ; `helm-dash'
+  (define-key my-prog-help-document-map (kbd "C-s") 'helm-dash-at-point) ; `helm-dash'
   
   ;; buffer local docsets
   (defun my-helm-dash-buffer-local-docsets-add (docsets-list)
@@ -220,7 +220,7 @@
   (defun my-devdocs-search ()
     (interactive)
     (devdocs-search t))
-  (define-key my-prog-help-document-map (kbd "C-s") 'my-devdocs-search)
+  (define-key my-prog-help-document-map (kbd "C-d") 'my-devdocs-search)
   )
 
 
