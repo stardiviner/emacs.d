@@ -207,6 +207,23 @@
   )
 
 
+;;; [ DevDocs ] -- allowing you to easily search the DevDocs documentation.
+
+;;; Usage:
+;;
+;; - [M-x devdocs-search] :: search something under point.
+;; - [C-u M-x devdocs-search js date] :: edit search pattern.
+
+(use-package devdocs
+  :ensure t
+  :config
+  (defun my-devdocs-search ()
+    (interactive)
+    (devdocs-search t))
+  (define-key my-prog-help-document-map (kbd "C-s") 'my-devdocs-search)
+  )
+
+
 (provide 'init-my-prog-document-api)
 
 ;;; init-my-prog-document-api.el ends here
