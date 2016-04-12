@@ -36,6 +36,12 @@
   )
 
 
+;;; [ ob-lua ] -- execute Org-mode Lua babel src block.
+
+(use-package ob-lua
+  :ensure t)
+
+
 (provide 'init-my-prog-lang-lua)
 
 ;;; init-my-prog-lang-lua.el ends here
