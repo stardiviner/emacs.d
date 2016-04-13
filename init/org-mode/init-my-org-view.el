@@ -90,6 +90,24 @@
             ))
 
 
+;;; better list bullets
+
+;; Asterisks and dashes for bullet lists are fine, but having an actual circular
+;; bullet, is just nice:
+
+;; match "- list item"
+(font-lock-add-keywords
+ 'org-mode
+ '(("^\\([-+]\\) "
+    (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+
+;; match " - list item"
+(font-lock-add-keywords
+ 'org-mode
+ '(("^ +\\([-+]\\) "
+    (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+
+
 ;;; [ org-beautify-theme ] -- A sub-theme to make org-mode more beautiful.
 
 ;; (require 'org-beautify-theme)
