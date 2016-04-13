@@ -8,13 +8,6 @@
 ;;; Code:
 
 
-;; set font for all rest font, then override by other face settings.
-;; (add-hook 'org-mode-hook '(lambda ()
-;;                             (set-face-attribute 'default nil
-;;                                                 :family "Gabriola"
-;;                                                 ;; :height 120
-;;                                                 )))
-
 ;;; Date
 ;; Date: Saturday   27 July 2013
 (set-face-attribute 'org-date nil
@@ -117,9 +110,14 @@
 ;;; the ahead stars face when org indentation. (org-hide)
 (set-face-attribute 'org-hide nil
                     :foreground "#002B36" :background "#002B36")
+(set-face-attribute 'org-document-title nil
+                    :inherit nil
+                    :weight 'bold
+                    :height 1.5)
 (set-face-attribute 'org-level-1 nil
+                    :inherit nil
                     :family "DejaVu Sans Mono"
-                    :weight 'bold :height 130
+                    :weight 'bold :height 1.3
                     :foreground "Steelblue4"
                     :background (color-darken-name (face-background 'default) 2)
                     ;; :box '(:color "black" :line-width -1 :style nil)
@@ -166,7 +164,8 @@
                     :foreground "cyan"
                     :underline nil :weight 'normal :slant 'normal
                     :box '(:color "dark green" :line-width 2)
-                    :height 80)
+                    ;; :height 0.8
+                    )
 ;; meta lines
 (set-face-attribute 'org-meta-line nil
                     :foreground "yellow"
@@ -298,9 +297,9 @@
 (font-lock-add-keywords
  'org-mode
  '(("\\(src_\\)\\([^[{]+\\)\\(\\[:.*\\]\\)\\({\\)\\([^}]*\\)\\(}\\)"
-    (1 '(:foreground "black" :weight 'normal :height 10)) ; src_ part
-    (2 '(:foreground "cyan" :weight 'bold :height 75 :underline "red")) ; "lang" part.
-    (3 '(:foreground "#555555" :height 70)) ; [:header arguments] part.
+    (1 '(:foreground "black" :weight 'normal :height 0.1)) ; src_ part
+    (2 '(:foreground "cyan" :weight 'bold :height 0.7 :underline "red")) ; "lang" part.
+    (3 '(:foreground "#555555" :height 0.7)) ; [:header arguments] part.
     (4 '(:foreground "#333333")) ; {
     (5 'org-code) ; "code..." part.
     (6 '(:foreground "#333333")) ; }
@@ -310,8 +309,8 @@
 (font-lock-add-keywords
  'org-mode
  '(("\\(src_\\)\\([^[{]+\\)\\({\\)\\([^}]*\\)\\(}\\)"
-    (1 '(:foreground "black" :weight 'normal :height 10)) ; src_ part
-    (2 '(:foreground "cyan" :weight 'bold :height 80 :underline "red")) ; "lang" part.
+    (1 '(:foreground "black" :weight 'normal :height 0.1)) ; src_ part
+    (2 '(:foreground "cyan" :weight 'bold :height 0.8 :underline "red")) ; "lang" part.
     (3 '(:foreground "#333333")) ; {
     (4 'org-code) ; "code..." part.
     (5 '(:foreground "#333333")) ; }
@@ -323,18 +322,18 @@
  'org-mode
  '(("\\(call_\\)\\([^[(]*\\)\\(\\[.*\\]\\)\\((.*)\\)\\(\\[.*\\]\\)"
     ;; "\\(call_\\)\\([^[(]*\\)\\([([][^)]*]\\)+"
-    (1 '(:foreground "dark red" :height 60)) ; call_
+    (1 '(:foreground "dark red" :height 0.6)) ; call_
     (2 '(:foreground "yellow" :weight 'bold :slant 'italic :underline "dark red")) ; <name>
-    (3 '(:foreground "gray" :height 60)) ; [<inside header arguments>]
+    (3 '(:foreground "gray" :height 0.6)) ; [<inside header arguments>]
     (4 '(:foreground "cyan" :weight 'bold)) ; (<arguments>)
-    (5 '(:foreground "gray" :height 60)) ; [<end header arguments>]
+    (5 '(:foreground "gray" :height 0.6)) ; [<end header arguments>]
     )))
 
 ;; call_<name>(arguments)
 (font-lock-add-keywords
  'org-mode
  '(("\\(call_\\)\\([^[(]*\\)\\((.*)\\)"
-    (1 '(:foreground "dark red" :height 60)) ; call_
+    (1 '(:foreground "dark red" :height 0.6)) ; call_
     (2 '(:foreground "yellow" :weight 'bold :slant 'italic :underline "dark red")) ; <name>
     (3 '(:foreground "cyan" :weight 'bold)) ; (<arguments>)
     )))
