@@ -181,7 +181,7 @@
             )
   
   ;; switch to cider-repl buffer.
-  (defun my-cider-switch-to-repl-buffer ()
+  (defun my-run-cider ()
     (interactive)
     (let ((cider-repl "*cider-repl localhost*")
           (cider-command "cider-jack-in"))
@@ -191,9 +191,10 @@
         (cider-jack-in)
         )))
 
-  ;; (define-key clojure-mode-map [remap cider-switch-to-repl-buffer]
-  ;;   'my-cider-switch-to-repl-buffer)
-  (define-key my-prog-inferior-map (kbd "c") 'my-cider-switch-to-repl-buffer)
+  ;; auto start CIDER jack-in.
+  (add-hook 'clojure-mode-hook 'my-run-cider)
+
+  (define-key my-prog-inferior-map (kbd "c") 'my-run-cider)
   )
 
 
