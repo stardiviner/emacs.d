@@ -58,8 +58,6 @@
               (highlight-indentation-mode -1)
               ;; (flymake-mode-off)
               ))
-
-  (add-hook 'inferior-python-mode-hook 'elpy-mode)
   )
 
 
