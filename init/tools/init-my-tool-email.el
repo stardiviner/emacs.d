@@ -20,6 +20,9 @@
 ;; 'message-user-agent, 'mail-user-agent, 'gnus-user-agent, 'mu4e-user-agent,
 (setq mail-user-agent 'message-user-agent
       compose-mail-user-agent-warnings nil
+      ;; use `postfix' server instead of `smtpmail'.
+      send-mail-function 'sendmail-send-it
+      message-send-mail-function 'message-send-mail-with-sendmail
       )
 
 (add-hook 'message-mode-hook
