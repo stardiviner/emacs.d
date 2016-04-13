@@ -30,85 +30,8 @@
   )
 
 
-;;; [ intelligent `browse-url' ]
-
-;; Use this for all links. If you actually don't want some
-;; links to be viewed externally, change this line here.
-(setq browse-url-browser-function
-      '(("." . my/browse-url-best-browser)))
-
-(defun my/browse-url-best-browser (url &rest _)
-  "Use a running browser or start the preferred one."
-  (setq url (browse-url-encode-url url))
-  (let ((process-environment
-         (browse-url-process-environment))
-        (command (my/decide-browser)))
-    (start-process (concat command " " url)
-                   nil command url)))
-
-(defcustom my/browser-list
-  '(("xulrunner\\|conkeror" . "conkeror.sh")
-    "conkeror.exe" ;; This works if it's in your $PATH
-    "luakit"
-    ("chrome$" . "google-chrome-stable")
-    "chromium"
-    ("firefox\\|mozilla" . "firefox")
-    ;; This works regardless of your $PATH
-    ("firefox.exe" .
-     "c:/Program Files (x86)/Mozilla Firefox/firefox.exe"))
-  "List of browsers by order of preference.
-Each element is a cons cell (REGEXP . EXEC-FILE).
-If REGEXP matches the name of a currently running process and if
-EXEC-FILE a valid executable, EXEC-FILE will be used to open the
-given URL.
-
-An element can also be a string, in this case, it is used as both
-the REGEXP and the EXEC-FILE.
-
-It is safe to have items referring to not-installed browsers,
-they are gracefully ignored."
-  :type '(repeat (choice string (cons regexp file))))
-
-(defun my/decide-browser ()
-  "Decide best browser to use based on `my/browser-list'."
-  (let ((process-list
-         (mapcar #'my/process-name
-                 (list-system-processes)))
-        (browser-list my/browser-list)
-        browser out)
-    ;; Find the first browser on the list that is open.
-    (while (and browser-list (null out))
-      (setq browser (car browser-list))
-      (if (and (cl-member (car-or-self browser)
-                          process-list :test 'string-match)
-               (executable-find (cdr-or-self browser)))
-          (setq out (cdr-or-self browser))
-        (setq browser-list (cdr browser-list))))
-    ;; Use the one we found, or the first one available.
-    (or out (my/first-existing-browser))))
-
-(defun my/first-existing-browser ()
-  "Return the first installed browser in `my/browser-list'."
-  (require 'cl-lib)
-  (cdr-or-self
-   (car
-    (cl-member-if
-     (lambda (x) (executable-find (cdr-or-self x)))
-     my/browser-list))))
-
-(defun my/process-name (proc)
-  (cdr (assoc 'comm (process-attributes proc))))
-
-(defun car-or-self (x)
-  "If X is a list, return the car. Otherwise, return X."
-  (or (car-safe x) x))
-
-(defun cdr-or-self (x)
-  "If X is a list, return the cdr. Otherwise, return X."
-  (or (cdr-safe x) x))
-
-
 ;;; custom browser in specific case
+
 (cl-defun my-generic-browser (url cmd-name &rest args)
   "Browse URL with NAME browser."
   (let ((proc (concat cmd-name " " url)))
