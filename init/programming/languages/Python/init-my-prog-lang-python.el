@@ -51,6 +51,8 @@
               
               (define-key python-mode-map (kbd "C-h d d") 'elpy-doc)
               (define-key python-mode-map (kbd "M-,") 'pop-tag-mark)
+              (define-key python-mode-map (kbd "C-c C-s") 'run-python)
+              (define-key elpy-mode-map (kbd "C-c C-s") 'run-python)
 
               ;; disable some modes
               (highlight-indentation-mode -1)
