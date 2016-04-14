@@ -16,6 +16,11 @@
 
 (require 'init-docker)
 
+
+;;; [ lxc ] -- LXC integration with Emacs.
+
+(use-package lxc
+  :ensure t)
 
 
 (provide 'init-container)
