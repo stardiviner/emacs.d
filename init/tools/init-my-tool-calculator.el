@@ -52,7 +52,7 @@
 
 (unless (boundp 'my-calculator-map)
   (define-prefix-command 'my-calculator-map))
-(define-key my-tools-prefix (kbd "x") 'my-calculator-map)
+(define-key my-tools-prefix (kbd "C") 'my-calculator-map)
 
 (define-key my-calculator-map (kbd "c") 'calc)
 (define-key my-calculator-map (kbd "q") 'quick-calc) ; 'calc-keypad
