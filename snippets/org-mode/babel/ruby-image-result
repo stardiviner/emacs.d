@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: babel-ruby-image-result
+# key: babel-ruby-image-result
+# group: babel
+# --
+#+BEGIN_SRC ruby :results file :dir "data/images" :var fname="${1}.png"
+$0
+
+return fname
+#+END_SRC
