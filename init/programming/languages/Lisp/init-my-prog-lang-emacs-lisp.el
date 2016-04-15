@@ -197,6 +197,20 @@
   )
 
 
+;;; [ elmacro ] -- display keyboard macros or latest interactive commands as emacs lisp.
+
+(use-package elmacro
+  :ensure t
+  :config
+  (setq elmacro-concatenate-multiple-inserts t
+        elmacro-objects-to-convert '(frame window buffer)
+        ;; elmacro-unwanted-commands-regexp "^\\(ido\\|smex\\)"
+        ;; elmacro-additional-recorded-functions
+        ;; '(copy-file copy-directory rename-file delete-file make-directory)
+        )
+  )
+
+
 ;;; [ ERT ] -- Emacs Lisp Regression Testing.
 
 ;;; Usage:
