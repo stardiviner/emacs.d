@@ -167,6 +167,33 @@
 
   (define-key my-prog-debug-map (kbd "m") 'macrostep-expand)
   (define-key my-prog-debug-map (kbd "e") 'macrostep-expand)
+
+  ;; macro expansion background highlight color
+  (set-face-attribute 'macrostep-expansion-highlight-face nil
+                      :inherit nil
+                      :background "#222222" :foreground nil
+                      )
+  ;; macro
+  (set-face-attribute 'macrostep-macro-face nil
+                      :inherit nil
+                      :foreground "cyan" :background "#222222"
+                      :bold t :overline t :underline nil)
+  ;; compiler macro
+  (set-face-attribute 'macrostep-compiler-macro-face nil
+                      :inherit nil
+                      :foreground "black" :background "dim gray"
+                      :bold t :italic t :overline t)
+  ;; gensym
+  (set-face-attribute 'macrostep-gensym-1 nil
+                      :foreground "#8080c0" :box t :bold t)
+  (set-face-attribute 'macrostep-gensym-2 nil
+                      :foreground "#8fbc8f" :box t :bold t)
+  (set-face-attribute 'macrostep-gensym-3 nil
+                      :foreground "#daa520" :box t :bold t)
+  (set-face-attribute 'macrostep-gensym-4 nil
+                      :foreground "#cd5c5c" :box t :bold t)
+  (set-face-attribute 'macrostep-gensym-5 nil
+                      :foreground "#da70d6" :box t :bold t)
   )
 
 
