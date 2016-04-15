@@ -151,6 +151,25 @@
                  (point)))))
 
 
+;;; [ macrostep ] -- interactive macro-expander for Emacs.
+
+;;; Usage:
+;;
+;; - `macrostep-mode' minor-mode.
+;; - `macrostep-expand' interactive command.
+;; - [q] exit
+
+(use-package macrostep
+  :ensure t
+  :config
+  (setq macrostep-expand-in-separate-buffer nil
+        macrostep-expand-compiler-macros t)
+
+  (define-key my-prog-debug-map (kbd "m") 'macrostep-expand)
+  (define-key my-prog-debug-map (kbd "e") 'macrostep-expand)
+  )
+
+
 ;;; [ ERT ] -- Emacs Lisp Regression Testing.
 
 ;;; Usage:
