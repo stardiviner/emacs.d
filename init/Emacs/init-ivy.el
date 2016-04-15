@@ -59,18 +59,18 @@
   (set-face-attribute 'ivy-minibuffer-match-face-2 nil
                       :inherit 'ivy-minibuffer-match-face-1
                       :foreground "green" :background nil
-                      :weight 'normal :box nil
+                      :weight 'normal :box nil :underline t
                       )
   ;; second match part.
   (set-face-attribute 'ivy-minibuffer-match-face-3 nil
                       :inherit 'ivy-minibuffer-match-face-1
                       :foreground "orange" :background nil
-                      :weight 'normal :box nil
+                      :weight 'normal :box nil :underline t
                       )
   (set-face-attribute 'ivy-minibuffer-match-face-4 nil
                       :inherit 'ivy-minibuffer-match-face-1
                       :foreground "dodger blue" :background nil
-                      :weight 'normal :box nil
+                      :weight 'normal :box nil :underline t
                       )
   
   ;; Custom Functions
