@@ -58,16 +58,6 @@
   (unless (derived-mode-p 'prog-mode)
     (run-hooks 'prog-mode-hook))
 
-  ;; Words prefixed with $ are global variables,
-  ;; prefixed with @ are instance variables.
-  (modify-syntax-entry ?$ "w") ; global variable
-  (modify-syntax-entry ?@ "w") ; instance variable
-  ;; (modify-syntax-entry ?@@ "w") ; class variable
-  (modify-syntax-entry ?? "w")
-  (modify-syntax-entry ?! "w")
-  (modify-syntax-entry ?: ".")
-
-  (erm-define-faces)
   (set-face-attribute 'enh-ruby-op-face nil
                       :foreground "red")
   (set-face-attribute 'enh-ruby-string-delimiter-face nil
