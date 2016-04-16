@@ -60,6 +60,12 @@
 ;;; [ ob-gnuplot ]
 (require 'ob-gnuplot)
 
+(setq org-babel-default-header-args:gnuplot
+      '((:session . "none")
+        (:results . "graphics")
+        (:dir . "data/images")
+        ))
+
 ;; [ ob-ipython ]
 (use-package ob-ipython
   :ensure t
