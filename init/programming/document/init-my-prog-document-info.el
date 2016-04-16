@@ -26,6 +26,13 @@
       (info topic bufname))))
 
 
+
+(use-package niceify-info
+  :ensure t
+  :config
+  (add-hook 'Info-selection-hook #'niceify-info))
+
+
 (provide 'init-my-prog-document-info)
 
 ;;; init-my-prog-document-info.el ends here
