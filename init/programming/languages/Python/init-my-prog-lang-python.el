@@ -187,7 +187,14 @@
 ;;; [ Emacs IPython Notebook (EIN) ] -- IPython notebook client in Emacs
 
 (use-package ein
-  :ensure t)
+  :ensure t
+  :config
+  (setq ein:use-auto-complete t
+        ;; ein:use-auto-complete-superpack nil
+        ein:use-smartrep nil
+        ein:load-dev nil
+        )
+  )
 
 
 
