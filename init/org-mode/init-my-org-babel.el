@@ -76,6 +76,12 @@
   ;; use IJulia backend for IPython notebook
   ;; (setq ob-ipython-kernel-extra-args "--profile julia")
   ;; (add-to-list 'org-src-lang-modes '("ipython" . julia))
+
+  (setq org-babel-default-header-args:ipython
+        '((:session . nil)
+          (:dir . "data/images")
+          (:exports . "both")
+          ))
   )
 
 ;;; [ ob-coq ]
