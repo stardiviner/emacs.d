@@ -77,6 +77,7 @@
 (use-package projectile-rails
   :ensure t
   :init
+  ;; NOTE: some settings need to be set before required or loaded.
   (setq projectile-rails-keymap-prefix (kbd "C-c C-r"))
   (add-hook 'projectile-mode-hook 'projectile-rails-on)
   
