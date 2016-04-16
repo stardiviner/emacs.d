@@ -14,8 +14,9 @@
 ;; minibuffer prompt face properties
 (setq minibuffer-prompt-properties '(read-only t face minibuffer-prompt))
 (set-face-attribute 'minibuffer-prompt nil
-                    :weight 'normal :slant 'normal :underline nil :inverse-video nil
-                    :foreground "white" :background "deep pink"
+                    :inverse-video nil
+                    :weight 'normal :slant 'normal :underline nil
+                    :foreground "white" :background "DarkSlateGray"
                     )
 
 (minibuffer-electric-default-mode t)
