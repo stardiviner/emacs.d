@@ -58,6 +58,9 @@
   (unless (derived-mode-p 'prog-mode)
     (run-hooks 'prog-mode-hook))
 
+  (autoload 'erm-define-faces "enh-ruby-mode")
+  (erm-define-faces)
+
   (set-face-attribute 'enh-ruby-op-face nil
                       :foreground "red")
   (set-face-attribute 'enh-ruby-string-delimiter-face nil
@@ -76,7 +79,7 @@
                       :inherit 'flycheck-error
                       :box nil)
 
-
+  
   ;; hs-minor-mode (hide-show)
   ;; (add-to-list 'hs-special-modes-alist
   ;;              '(ruby-mode
