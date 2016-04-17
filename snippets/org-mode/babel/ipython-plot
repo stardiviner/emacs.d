@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: babel-ipython-plot
+# key: babel-ipython-plot
+# --
+#+BEGIN_SRC ipython :session :dir "data/images"${1: :file "${2}.png"} :exports both
+$0
+#+END_SRC

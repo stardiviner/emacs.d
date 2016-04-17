@@ -1,7 +1,0 @@
-# -*- mode: snippet; require-final-newline: nil -*-
-# name: babel-ipython
-# key: babel-ipython
-# --
-#+BEGIN_SRC ipython :session :dir "data/images" ${1::file ${2}} :exports both
-$0
-#+END_SRC

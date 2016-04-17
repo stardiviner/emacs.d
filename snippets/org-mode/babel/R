@@ -2,7 +2,7 @@
 # name: babel R
 # key: babel-R
 # --
-#+NAME: R plot: ${1:babel name}
-#+BEGIN_SRC R :session *my-R* :dir "." :results output graphics :file ${2:filename}.svg :width 18 :height 9
-${3:plot()}
+#+NAME: ${1:babel name}
+#+BEGIN_SRC R :session "*R*" :dir "data/images" :results graphics :file "${2:filename}.png"
+$0
 #+END_SRC
