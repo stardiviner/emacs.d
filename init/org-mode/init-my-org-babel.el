@@ -80,7 +80,7 @@
 
   (setq org-babel-default-header-args:ipython
         '((:session . nil)
-          (:dir . "data/images")
+          ;; (:dir . "data/images")
           (:exports . "both")
           ))
   )
