@@ -278,6 +278,9 @@
         (:results . "replace")
         ))
 
+(add-to-list 'org-babel-default-header-args:ocaml
+             '(:results . "value"))
+
 (setq org-babel-default-header-args:sqlite
       '((:db . "temp.db")
         (:results . "raw")
