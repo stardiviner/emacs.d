@@ -16,10 +16,10 @@
   (autoload 'utop-minor-mode "utop" "Minor mode for utop" t)
   :config
   ;; setup environment variables using opam
-  (dolist (var (car
-                (read-from-string (shell-command-to-string
-                                   "opam config env --sexp"))))
-    (setenv (car var) (cadr var)))
+  ;; (dolist (var (car
+  ;;               (read-from-string (shell-command-to-string
+  ;;                                  "opam config env --sexp"))))
+  ;;   (setenv (car var) (cadr var)))
   
   ;; utop top level
   (add-hook 'tuareg-mode-hook 'utop-minor-mode)
@@ -31,13 +31,11 @@
 (use-package merlin
   :ensure t
   :config
-  ;; Add opam emacs directory to the load-path
-  (setq opam-share (substring (shell-command-to-string "opam config var share 2> /dev/null") 0 -1))
-  (add-to-list 'load-path (concat opam-share "/emacs/site-lisp"))
-  
   ;; Use opam switch to lookup ocamlmerlin binary
-  (setq merlin-command 'opam)
-  (setq tuareg-interactive-program "/usr/local/bin/opam config -- exec metaocaml")
+  ;; (setq merlin-command 'opam)
+  ;; (setq merlin-command "ocamlmerlin")
+  ;; (setq tuareg-interactive-program "/usr/local/bin/opam config -- exec metaocaml")
+
   ;;(setq merlin-error-after-save nil)
 
   ;; complete
