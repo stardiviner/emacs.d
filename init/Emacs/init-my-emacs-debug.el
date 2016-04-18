@@ -167,6 +167,8 @@
             (define-key my-prog-debug-map (kbd "C-e") 'edebug-mode)
             (define-key my-prog-debug-map (kbd "f") 'edebug-defun)
             (define-key my-prog-debug-map (kbd "e") 'debug-on-entry)
+            (defalias 'my-edebug-stop 'eval-defun)
+            (define-key my-prog-debug-map (kbd "c") 'my-edebug-stop)
             ))
 
 (defun edebug-clear-global-break-condition ()
