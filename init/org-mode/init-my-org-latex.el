@@ -79,7 +79,41 @@
 ;; ;; enable `org-cdlatex-mode' for all org files
 ;; (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 
+
+;;; emabedded latex (inline formula)
 
+(defface org-latex-face
+  (org-compatible-face 'shadow
+    '((((class color grayscale) (min-colors 88) (background light))
+       (:foreground "black" :background "brown"))
+      (((class color grayscale) (min-colors 88) (background dark))
+       (:foreground "white" :background "forest green"))
+      (((class color) (min-colors 8) (background light))
+       (:foreground "black" :background "gray"))
+      (((class color) (min-colors 8) (background dark))
+       (:foreground "white" :background "gray"))))
+  "Face for fixed-width text like code snippets."
+  :group 'org-faces
+  :version "22.1")
+
+(set-face-attribute 'org-latex-face nil
+                    :background "brown" :foreground "white"
+                    )
+
+(font-lock-add-keywords
+ 'org-mode
+ '(("\\(\ \\$\\$\ \\)\\(.*\\)\\1" ; $$ ... $$
+    2 'org-latex-face)))
+
+(font-lock-add-keywords
+ 'org-mode
+ '(("\\\\(\ \\(.*\\)\ \\\\)" ; \( ... \)
+    1 'org-latex-face)))
+
+(font-lock-add-keywords
+ 'org-mode
+ '(("\\\\\\[\ \\(.*\\)\ \\\\\\]" ; \[ ... \]
+    1 'org-latex-face)))
 
 
 (provide 'init-my-org-latex)
