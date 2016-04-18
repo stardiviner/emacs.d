@@ -92,6 +92,9 @@
         cider-eval-result-duration nil
 
         ;; Enlighten
+
+        ;; mouse over tooltips
+        cider-use-tooltips t
         
         ;; Compilation
         cider-auto-jump-to-error 'errors-only
