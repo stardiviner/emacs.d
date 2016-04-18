@@ -23,7 +23,9 @@
 ;;; [ sbt-mode ]
 
 (use-package sbt-mode
-  :ensure t)
+  :ensure t
+  :commands sbt-start sbt-command
+  )
 
 
 ;;; [ Ensime ]
@@ -31,9 +33,10 @@
 (use-package ensime
   :ensure t
   :config
-  (setq ensime-completion-style 'company)
-  (setq ensime-graphical-tooltips t)
-  ;; (setq ensime-auto-generate-config t)
+  (setq ensime-completion-style 'company
+        ensime-graphical-tooltips t
+        ensime-auto-generate-config t)
+
   (add-hook 'scala-mode-hook 'ensime-mode)
   )
 

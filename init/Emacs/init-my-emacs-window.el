@@ -486,6 +486,9 @@ The `BUFFER' is the popwin catch pop private message buffer."
   ;; Lua
   (push '("*lua*" :position bottom :height 8) popwin:special-display-config)
 
+  ;; Scala
+  (push '(sbt-mode :position bottom :height 8) popwin:special-display-config)
+  
   ;; gnuplot
   ;; (push '(gnuplot-comint-mode :position bottom :height 8) popwin:special-display-config)
   
