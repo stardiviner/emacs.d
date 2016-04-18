@@ -207,6 +207,22 @@
   )
 
 
+;;; [ zeal-at-point ] -- Search the word at point with Zeal.
+
+(use-package zeal-at-point
+  :ensure t
+  :config
+  (define-key my-prog-help-document-map (kbd "C-d") 'zeal-at-point)
+
+  (add-to-list 'zeal-at-point-mode-alist '(ruby-mode . "ruby"))
+  (add-to-list 'zeal-at-point-mode-alist '(enh-ruby-mode . "ruby"))
+  (add-to-list 'zeal-at-point-mode-alist '(perl-mode . "perl"))
+
+  (add-hook 'projectile-rails-mode-hook
+            (lambda () (setq zeal-at-point-docset "rails")))
+  )
+
+
 ;;; [ DevDocs ] -- allowing you to easily search the DevDocs documentation.
 
 ;;; Usage:
