@@ -230,28 +230,28 @@
 ;; - [M-x devdocs-search] :: search something under point.
 ;; - [C-u M-x devdocs-search js date] :: edit search pattern.
 
-(use-package devdocs
-  :ensure t
-  :config
-  ;; Rails
-  (add-to-list 'devdocs-alist '(rhtml-mode . "rails"))
-  (add-hook 'web-mode-hook
-            (lambda ()
-              (if (string= (web-mode-language-at-pos) "erb")
-                  (progn
-                    (make-local-variable 'devdocs-alist)
-                    (add-to-list 'devdocs-alist '(web-mode . "rails"))))))
-  (add-hook 'projectile-rails-mode-hook
-            (lambda ()
-              (make-local-variable 'devdocs-alist)
-              (add-to-list 'devdocs-alist '(web-mode . "rails"))
-              ))
-  
-  (defun my-devdocs-search ()
-    (interactive)
-    (devdocs-search t))
-  (define-key my-prog-help-document-map (kbd "C-d") 'my-devdocs-search)
-  )
+;; (use-package devdocs
+;;   :ensure t
+;;   :config
+;;   ;; Rails
+;;   (add-to-list 'devdocs-alist '(rhtml-mode . "rails"))
+;;   (add-hook 'web-mode-hook
+;;             (lambda ()
+;;               (if (string= (web-mode-language-at-pos) "erb")
+;;                   (progn
+;;                     (make-local-variable 'devdocs-alist)
+;;                     (add-to-list 'devdocs-alist '(web-mode . "rails"))))))
+;;   (add-hook 'projectile-rails-mode-hook
+;;             (lambda ()
+;;               (make-local-variable 'devdocs-alist)
+;;               (add-to-list 'devdocs-alist '(web-mode . "rails"))
+;;               ))
+;;
+;;   (defun my-devdocs-search ()
+;;     (interactive)
+;;     (devdocs-search t))
+;;   (define-key my-prog-help-document-map (kbd "C-d") 'my-devdocs-search)
+;;   )
 
 
 (provide 'init-my-prog-document-api)
