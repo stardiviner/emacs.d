@@ -25,6 +25,8 @@
 (use-package sbt-mode
   :ensure t
   :commands sbt-start sbt-command
+  :config
+  (define-key scala-mode-map (kbd "C-c C-s") 'run-scala)
   )
 
 
