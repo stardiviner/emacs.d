@@ -54,8 +54,9 @@
 
 (setq org-agenda-category-icon-alist
       '(("Diary" "~/.emacs.d/resources/icon/diary.xpm" nil nil :ascent center)
-        ("Todo" "~/.emacs.d/resources/icon/todo.xpm" nil nil :ascent center)
+        ;; ("Todo" "~/.emacs.d/resources/icon/todo.xpm" nil nil :ascent center)
         ;; ("Todo" "~/.emacs.d/resources/icon/Todo.xpm" nil nil :ascent center)
+        ("Todo" "~/.emacs.d/resources/icon/list.xpm" nil nil :ascent center)
         ("Star" "~/.emacs.d/resources/icon/star.xpm" nil nil :ascent center)
         ;; ("Org" "~/.emacs.d/resources/icon/Org.xpm" nil nil :ascent center)
         ("Org" "~/.emacs.d/resources/icon/org.xpm" nil nil :ascent center)
