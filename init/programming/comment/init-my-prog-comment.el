@@ -67,99 +67,16 @@ column.  Place the point after the comment box."
   (define-key my-boxquote-map (kbd "p") 'boxquote-paragraph)
   )
 
-
-;;; comment annotations keywords list.
+;;; [ fixmee ] -- Quickly navigate to FIXME notices in Emacs.
 
-(setq comment-fic-keywords-list
-      '("FIXME" "TODO" "BUG" "ISSUE" "ERROR"
-        "OPTIMIZE" "HACK" "REFACTOR" "REVIEW" "TEST"
-        "NOTE" "NOTICE"))
-
-;;; comment annotations function
-;; (defun font-lock-comment-annotations ()
-;;   "Highlight a bunch of well known comment annotations like FIXME:.
-;;
-;; This functions should be added to the hooks of major modes for programming."
-;;   (font-lock-add-keywords nil
-;;                           '(("\\<\\(FIXME\\|TODO\\|ISSUE\\|BUG\\|ERROR\\|HACK\\|OPTIMIZE\\|REFACTOR\\|REVIEW\\|TEST\\|NOTE\\|NOTICE\\):" 1
-;;                              '(:foreground "dark red" :background "black"
-;;                                            :box '(:color "red" :line-width -1 :style nil)
-;;                                            :weight 'bold) t))))
-
-;; (add-hook 'prog-mode-hook 'font-lock-comment-annotations)
-
-
-;;; [ fixmee ] -- Quickly navigate to FIXME notices in Emacs
-
-;;; Usage:
-;;
-;; - patterns:
-;;   - @@@
-;;   - XXX         ; only this one is case-sensitive
-;;   - todo
-;;   - fixme
-;;
-;; - urgency :: e.g. FIXMEEEEEE, use command: `fixmee-goto-nextmost-urgent'.
-;;
-;; - C-c f 	 :: fixmee-goto-nextmost-urgent
-;; - C-c F 	 :: fixmee-goto-prevmost-urgent
-;; - C-c v 	 :: fixmee-view-listing
-;; - M-n 	 :: fixmee-goto-next-by-position ; only when the point is
-;; - M-p 	 :: fixmee-goto-previous-by-position ; inside a fixme notice
-
-
-
-;;; [ fixme-mode ] -- highlight fixme, todo, bug and other warning comments, and jumping to.
-
-;; (require 'fixme-mode)
-
-
-;;; [ fic-mode ] --- "fixme in comments (and strings)"
-
-;; (use-package fic-mode
-;;   :ensure t
-;;   :config
-;;   (setq fic-highlighted-words comment-fic-keywords-list)
-;;
-;;   (dolist (hook
-;;            '(prog-mode-hook
-;;              ))
-;;     (add-hook hook #'fic-mode)
-;;     )
-;;
-;;   (set-face-attribute 'font-lock-fic-face nil
-;;                       :foreground "dark orange"
-;;                       :background "#444444")
-;;   )
-
-
-;;;_* outorg -- Convert source-code buffers temporarily to Org-mode for comment editing.
-
-;;; Usage:
-;;
-;; - [prefix] + [C-c '] (outorg-edit-as-org) :: main command
-;; - [M-# #] (or M-x outorg-edit-as-org) ::
-;; - [M-#] (outorg-copy-edits-and-exit) ::
-;; - [C-x C-s] (outorg-save-edits-to-tmp-file) ::
-
-(use-package outorg
+(use-package fixmee
   :ensure t
-  :init
-  ;; Outorg (like outshine) assumes that you set `outline-minor-mode-prefix' in your init-file to 'M-#':
-  ;; NOTE: must be set before outline is loaded
-  (defvar outline-minor-mode-prefix "\M-#")
   :config
-  (global-set-key (kbd "C-c '") 'outorg-edit-as-org)
+  (global-fixmee-mode)
   )
 
 
-;;_* [ poporg ] -- Editing program comments or strings in text mode.
-;;
-;;; Usage:
-;;
-;; - [poporg-dwim] :: [C-c ']
-;; - [poporg-edit-and-exit] :: [C-c '], [C-x C-s] in opened buffer.
-;; - `poporg-edit-hook'
+;; [ poporg ] -- Editing program comments or strings in text mode.
 
 (use-package poporg
   :ensure t
