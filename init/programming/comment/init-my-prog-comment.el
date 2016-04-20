@@ -69,10 +69,66 @@ column.  Place the point after the comment box."
 
 ;;; [ fixmee ] -- Quickly navigate to FIXME notices in Emacs.
 
+(unless (boundp 'my-prog-comment-fixme-map)
+  (define-prefix-command 'my-prog-comment-fixme-map))
+(global-set-key (kbd "M-g f") 'my-prog-comment-fixme-map)
+
+
 (use-package fixmee
   :ensure t
+  :init
+  ;; disable fixmee default global keybindings.
+  (setq fixmee-smartrep-prefix nil
+        fixmee-view-listing-keystrokes nil
+        fixmee-goto-nextmost-urgent-keystrokes nil
+        fixmee-goto-next-by-position-keystrokes nil
+        fixmee-goto-prevmost-urgent-keystrokes nil
+        fixmee-goto-previous-by-position-keystrokes nil)
+
   :config
-  (global-fixmee-mode)
+  (setq fixmee-cache-refresh-interval 30)
+
+  (set-face-attribute 'fixmee-notice-face nil
+                      :background "dark orange" :foreground "#222222"
+                      :weight 'bold
+                      )
+  
+  ;; (add-to-list 'fixmee-exclude-modes 'xxx-mode)
+  ;; (global-fixmee-mode -1)
+
+  (dolist (hook '(prog-mode-hook
+                  ))
+    (add-hook hook 'fixmee-mode))
+
+  (define-key my-prog-comment-fixme-map (kbd "l") 'fixmee-view-listing)
+  (define-key my-prog-comment-fixme-map (kbd "n") 'fixmee-goto-nextmost-urgent)
+  (define-key my-prog-comment-fixme-map (kbd "p") 'fixmee-goto-prevmost-urgent)
+  (define-key my-prog-comment-fixme-map (kbd "N") 'fixmee-goto-next-by-position)
+  (define-key my-prog-comment-fixme-map (kbd "P") 'fixmee-goto-previous-by-position)
+
+  (defun fixmee-insert-keywords (prefix-arg)
+    "Insert fixmee patterns: @@@, XXX, todo, fixme.
+And specify urgent with PREFIX-ARG."
+    (interactive "P")
+
+    (let* ((fixmee-patterns '("@@@" "XXX" "todo" "fixme"))
+           (fixmee-keyword (completing-read "fixmee patterns: " fixmee-patterns))
+           (urgent-number (if prefix-arg
+                              prefix-arg
+                            (string-to-number (read-string "urgent number: "))
+                            ))
+           (last-char-of-fixmee-keyword
+            (substring-no-properties fixmee-keyword (1- (length fixmee-keyword))))
+           (fixmee-keyword-string
+            (concat fixmee-keyword
+                    (make-string
+                     (1- urgent-number)
+                     (string-to-char last-char-of-fixmee-keyword))
+                    ": ")))
+      (insert fixmee-keyword-string))
+    )
+  
+  (define-key my-prog-comment-fixme-map (kbd "i") 'fixmee-insert-keywords)
   )
 
 
