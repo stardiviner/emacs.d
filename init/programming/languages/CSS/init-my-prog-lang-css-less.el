@@ -9,9 +9,8 @@
 
 ;;; [ less-css-mode ] -- Emacs support for LESS CSS (lesscss.org)
 
-;;; Usage:
-;;
-;; `less-css-mode'
+(use-package less-css-mode
+  :ensure t)
 
 
 ;;; [ skewer-less ] -- Emacs minor mode allowing LESS stylesheet manipulation via skewer-mode.
