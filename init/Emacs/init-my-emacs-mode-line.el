@@ -184,28 +184,29 @@
                       (`edited '(:foreground "orange" :height 75))
                       (`conflict '(:foreground "red"))
                       (`unregistered '(:foreground "white"))
-                      (_ '(:foreground "cyan"))
+                      (_ '(:foreground "gray"))
                       )
               )))
 
-   (:eval
-    (propertize
-     (pcase (vc-state buffer-file-truename)
-       (`edited " ∓")
-       (`added " ✚")
-       (`removed " ✖")
-       (`up-to-date " ✔")
-       (`unlocked-changes " ")
-       (`conflict " ≠")
-       (`needs-merge " ⌥")
-       (`needs-update " ⇧")
-       (`unregistered " u")
-       (`ignored " i")
-       (`missing " m")
-       (`nil "")
-       ;; (_ "")
-       )
-     'face '(:foreground "cyan")))
+   ;; FIXME:
+   ;; (:eval
+   ;;  (propertize
+   ;;   (pcase (vc-state buffer-file-truename)
+   ;;     (`dited " ∓")
+   ;;     (`added " ✚")
+   ;;     (`removed " ✖")
+   ;;     (`up-to-date " ✔")
+   ;;     (`unlocked-changes " ")
+   ;;     (`conflict " ≠")
+   ;;     (`needs-merge " ⌥")
+   ;;     (`needs-update " ⇧")
+   ;;     (`unregistered " u")
+   ;;     (`ignored " i")
+   ;;     (`missing " m")
+   ;;     (`nil " ")
+   ;;     ;; (_ "")
+   ;;     )
+   ;;   'face '(:foreground "cyan")))
 
    ;; org-tree-slide slide number
    ;; (:eval
