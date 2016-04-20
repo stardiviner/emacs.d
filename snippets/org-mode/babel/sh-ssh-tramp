@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-sh-tramp
+# key: babel-sh-tramp
+# group: babel
+# --
+#+BEGIN_SRC sh :dir /ssh:${1:${2:stardiviner}@${3:tb.codefarm.us}#${4:20039}}:
+$0
+#+END_SRC

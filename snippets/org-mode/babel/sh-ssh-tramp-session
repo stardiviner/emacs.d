@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: babel-sh_ssh-session
-# key: babel-sh_ssh-session
+# name: babel-sh-ssh-tramp-session
+# key: babel-sh-ssh-tramp-session
 # group: babel
 # --
 #+BEGIN_SRC sh :session ${1:SESSION}
