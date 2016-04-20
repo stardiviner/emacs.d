@@ -47,9 +47,6 @@
 (setq calc-complex-format 'i            ; complex number style: x + yi.
       )
 
-;; load personal settings
-(load calc-settings-file t)
-
 (unless (boundp 'my-calculator-map)
   (define-prefix-command 'my-calculator-map))
 (define-key my-tools-prefix (kbd "C") 'my-calculator-map)
