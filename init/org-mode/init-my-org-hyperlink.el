@@ -76,9 +76,61 @@
   (if (featurep 'circe)
       (setq org-irc-client 'circe)))
 
+;;; telnet: link type
+;;  telnet://ptt.cc
+(org-add-link-type "telnet" 'telnet)
 
 ;; RSS
-;; (org-add-link-type "rss" 'eww)
+(defun org-rss-link-open (uri)
+  "Open rss:// URI link."
+  (eww uri))
+
+(org-add-link-type "rss" 'org-rss-link-open)
+
+;; append "`man:'" protocol.
+;; `[[man:printf][The printf manpage]]'
+(require 'org-man)
+(setq org-man-command 'man) ; 'man, 'woman.
+
+;;; occur: link type
+;;
+;; and you can then use links like:
+;;   occur:my-file.txt#regex
+;; to open a file and run occur with the regex on it.
+(defun org-occur-link-open (uri)
+  "Visit the file specified by URI, and run `occur' on the fragment
+  \(anything after the first '#') in the uri."
+  (let ((list (split-string uri "#")))
+    (org-open-file (car list) t)
+    (occur (mapconcat 'identity (cdr list) "#"))))
+
+(org-add-link-type "occur" 'org-occur-open)
+
+;;; [[grep:regexp][regexp (grep)]]
+(defun org-grep-link-open (regexp)
+  "Run `rgrep' with REGEXP as argument."
+  (grep-compute-defaults)
+  (rgrep regexp "*" (expand-file-name "./")))
+
+(org-add-link-type "grep" 'org-grep-open)
+
+;;; [[tag:]]
+;; e.g. [[tag:work+phonenumber-boss][Optional Description]]
+(defun org-tag-link-open (tag)
+  "Display a list of TODO headlines with tag TAG.
+With prefix argument, also display headlines without a TODO keyword."
+  (org-tags-view (null current-prefix-arg) tag))
+
+(org-add-link-type "tag" 'org-tag-link-open)
+
+
+
+(setq org-link-frame-setup
+      '((vm . vm-visit-folder-other-frame)
+        (vm-imap . vm-visit-imap-folder-other-frame)
+        (gnus . org-gnus-no-new-news)
+        (file . find-file)
+        (wl . wl-other-frame)))
 
 
 ;;; [ Link abbreviations ]
@@ -158,49 +210,6 @@
         ("IMDb" . "http://www.imdb.com/title/%s")
         ("DouBan_Movies" . "http://movie.douban.com/subject_search?search_text=%s")
         ))
-
-;; Add the following bit of code to your startup (after loading org),
-;; and you can then use links like:
-;;   occur:my-file.txt#regex
-;; to open a file and run occur with the regex on it.
-(defun org-occur-link-open (uri)
-  "Visit the file specified by URI, and run `occur' on the fragment
-  \(anything after the first '#') in the uri."
-  (let ((list (split-string uri "#")))
-    (org-open-file (car list) t)
-    (occur (mapconcat 'identity (cdr list) "#"))))
-
-(org-add-link-type "occur" 'org-occur-open)
-
-;;; [[grep:regexp][regexp (grep)]]
-(defun org-grep-link-open (regexp)
-  "Run `rgrep' with REGEXP as argument."
-  (grep-compute-defaults)
-  (rgrep regexp "*" (expand-file-name "./")))
-
-(org-add-link-type "grep" 'org-grep-open)
-
-;;; [[tag:]]
-;; e.g. [[tag:work+phonenumber-boss][Optional Description]]
-(defun org-tag-link-open (tag)
-  "Display a list of TODO headlines with tag TAG.
-With prefix argument, also display headlines without a TODO keyword."
-  (org-tags-view (null current-prefix-arg) tag))
-
-(org-add-link-type "tag" 'follow-tag-link)
-
-;; append "`man:'" protocol.
-;; `[[man:printf][The printf manpage]]'
-(require 'org-man)
-(setq org-man-command 'man) ; 'man, 'woman.
-
-
-(setq org-link-frame-setup
-      '((vm . vm-visit-folder-other-frame)
-        (vm-imap . vm-visit-imap-folder-other-frame)
-        (gnus . org-gnus-no-new-news)
-        (file . find-file)
-        (wl . wl-other-frame)))
 
 
 ;;;_* orgit -- Support for Org links to Magit buffers.
