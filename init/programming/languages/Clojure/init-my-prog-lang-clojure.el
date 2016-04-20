@@ -127,12 +127,12 @@
         cider-completion-annotations-include-ns 'always ; 'unqualified
         cider-completion-annotations-alist '(("class" "c")
                                              ("field" "fi")
-                                             ("function" "λ") ; f,
+                                             ("function" "f") ; f, λ
                                              ("import" "i")
                                              ("keyword" "k")
                                              ("local" "l")
                                              ("macro" "♩")
-                                             ("method" "m") ; me,
+                                             ("method" "me")
                                              ("namespace" "n")
                                              ("protocol" "p")
                                              ("protocol-function" "pf")
