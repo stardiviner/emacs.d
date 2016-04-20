@@ -17,10 +17,8 @@
 
 ;;; [ nasm-mode ]
 
-;; (use-package nasm-mode
-;;   :ensure t
-;;   :config
-;;   )
+(use-package nasm-mode
+  :ensure t)
 
 
 ;;; [ fasm-mode ]
