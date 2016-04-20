@@ -270,7 +270,8 @@
 ;;       '((:results . "raw graphics")
 ;;         (:file . "temp.png")))
 
-(add-to-list 'org-babel-default-header-args:sh '(:results . "output"))
+(add-to-list 'org-babel-default-header-args:sh
+             '(:results . "output"))
 
 (setq org-babel-default-header-args:R
       '((:session . "*R*")
