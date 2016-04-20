@@ -112,6 +112,7 @@
 
 
 (require 'init-my-prog-lang-html5)
+(require 'init-my-prog-lang-haml)
 
 
 (provide 'init-my-prog-lang-html)
