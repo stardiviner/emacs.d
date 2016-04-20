@@ -90,6 +90,9 @@
         projectile-use-git-grep t ; use `vc-git-grep'
         )
 
+  ;; test
+  (setq projectile-create-missing-test-files t)
+
   ;; custom default projectile mode-line :lighter for my custom mode-line format.
   (setq projectile-mode-line '(:eval
                                (format "(%s)" ; " Projectile/>[%s]"
