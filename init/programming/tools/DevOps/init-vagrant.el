@@ -12,6 +12,9 @@
 (use-package vagrant
   :ensure t
   :config
+  ;; (setq vagrant-project-directory "~/.vagrant.d")
+  ;; (setq vagrant-up-options "")
+  
   (unless (boundp 'my-vagrant-map)
     (define-prefix-command 'my-vagrant-map))
   (define-key my-prog-tools-map (kbd "v") 'my-vagrant-map)
