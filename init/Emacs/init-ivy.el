@@ -148,12 +148,12 @@
 ;; - [M-x counsel-projectile]
 ;; - [M-o] for actions
 
-(use-package counsel-projectile
-  :ensure t
-  :commands counsel-projectile
-  :config
-  (define-key projectile-command-map (kbd "p") 'counsel-projectile)
-  )
+;; (use-package counsel-projectile
+;;   :ensure t
+;;   :commands counsel-projectile
+;;   :config
+;;   (define-key projectile-command-map (kbd "p") 'counsel-projectile)
+;;   )
 
 
 (provide 'init-ivy)
