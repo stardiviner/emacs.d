@@ -211,8 +211,8 @@
 ;; (require 'init-my-tool-irc-erc)
 ;; (require 'init-my-tool-music)
 ;; (require 'init-my-tool-subtitle)
-;; (require 'init-my-tool-screenshot)
-;; (require 'init-my-tool-screencast)
+(require 'init-my-tool-screenshot)
+(require 'init-my-tool-screencast)
 ;; (require 'init-my-tool-stack-exchange)
 
 
