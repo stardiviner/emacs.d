@@ -70,29 +70,29 @@
 
 ;;; [ show-css ] -- Show the css of the html attribute the cursor is on.
 
-;; (use-package show-css
-;;   :ensure t
-;;   :config
-;;
-;;   ;; Personally, I find this mode to distracting to use all the time, so I use
-;;   ;; this function to quickly toggle the mode on and off.
-;;   (defun my/toggle-showcss()
-;;     "Toggle showcss-mode"
-;;     (interactive)
-;;     (if (derived-mode-p
-;;          'html-mode
-;;          'nxml-mode
-;;          'nxhtml-mode
-;;          'web-mode
-;;          'handlebars-mode)
-;;         (showcss-mode 'toggle)
-;;       (message "Not in an html mode")))
-;;
-;;   (with-eval-after-load 'html-mode
-;;     (define-key html-mode-map (kbd "C-c C-k") 'my/toggle-showcss))
-;;   (with-eval-after-load 'web-mode
-;;     (define-key web-mode-map (kbd "C-c C-k") 'my/toggle-showcss))
-;;   )
+(use-package show-css
+  :ensure t
+  :config
+
+  ;; Personally, I find this mode to distracting to use all the time, so I use
+  ;; this function to quickly toggle the mode on and off.
+  (defun my/toggle-showcss()
+    "Toggle showcss-mode"
+    (interactive)
+    (if (derived-mode-p
+         'html-mode
+         'nxml-mode
+         'nxhtml-mode
+         'web-mode
+         'handlebars-mode)
+        (showcss-mode 'toggle)
+      (message "Not in an html mode")))
+
+  (with-eval-after-load 'html-mode
+    (define-key html-mode-map (kbd "C-c C-k") 'my/toggle-showcss))
+  (with-eval-after-load 'web-mode
+    (define-key web-mode-map (kbd "C-c C-k") 'my/toggle-showcss))
+  )
 
 
 ;;; [ flycheck-css-colorguard ]
