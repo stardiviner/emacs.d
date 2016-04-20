@@ -217,7 +217,7 @@
 (with-eval-after-load 'js2-mode
   (add-to-list 'org-src-lang-modes '("js" . js2)))
 
-;; (add-to-list 'org-src-lang-modes '("ruby" . enh-ruby))
+(add-to-list 'org-src-lang-modes '("ruby" . enh-ruby))
 
 (with-eval-after-load 'web-mode
   (add-to-list 'org-src-lang-modes '("rhtml" . web)))
