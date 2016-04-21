@@ -83,14 +83,14 @@
                     :weight 'normal)
 ;; comming deadline in agenda
 (set-face-attribute 'org-upcoming-deadline nil
-                    :foreground "orange")
+                    :foreground "OrangeRed")
 ;; scheduled in agenda, scheduled today, & org-habit
 (set-face-attribute 'org-scheduled-today nil
-                    :foreground "green")
+                    :foreground "light sea green")
 (set-face-attribute 'org-scheduled nil
                     :foreground "forest green")
 (set-face-attribute 'org-scheduled-previously nil
-                    :foreground "orange3")
+                    :foreground "olive drab")
 
 ;; Emphasize
 ;;; org-verbatim: =code=
