@@ -155,6 +155,11 @@ pasting on sites like GitHub, and Stack Overflow."
              ))
 
 
+;;; [ ox-publish ]
+
+(require 'ox-publish)
+
+
 ;;; [ Beamer ]
 (require 'ox-beamer)
 

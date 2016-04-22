@@ -30,7 +30,6 @@
 (require 'init-my-org-latex)
 (require 'init-my-org-image)
 (require 'init-my-org-export)
-(require 'init-my-org-publish)
 (require 'init-my-org-babel)
 (require 'init-my-org-misc)
 (require 'init-my-org-keybindings)
