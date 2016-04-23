@@ -261,6 +261,13 @@ character(s), in which case it deletes the space(s) first."
 ;;   :ensure t)
 
 
+;;; [ ivy-bibtex ] -- A BibTeX bibliography manager based on Ivy.
+
+(use-package ivy-bibtex
+  :ensure t
+  )
+
+
 (provide 'init-my-prog-lang-tex)
 
 ;;; init-my-prog-lang-tex.el ends here
