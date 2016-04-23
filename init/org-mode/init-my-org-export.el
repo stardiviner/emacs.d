@@ -166,7 +166,7 @@ pasting on sites like GitHub, and Stack Overflow."
 (setq org-publish-project-alist
       '(("Blog"
          :base-directory "~/Org/Blog/org-publish/Blog/"
-         :base-extension any ; "org"
+         :base-extension "org"
          :publishing-directory "~/Org/Blog/org-publish/exported_html/Blog"
          ;; publish to remote with Tramp.
          ;; :publishing-directory "/ssh:user@host#port:/path/to/dir"
@@ -175,6 +175,13 @@ pasting on sites like GitHub, and Stack Overflow."
          
          :html-link-home "http://stardiviner.github.io/"
          :html-head-extra "<link rel=\"stylesheet\" href=\"assets/stylesheets/stylesheet.css\" type=\"text/css\"/> <link rel=\"alternate\" type=\"application/rss+xml\" href=\"http://stardiviner.github.io/sitemap.xml\" title=\"RSS feed\">"
+         )
+
+        ("Blog-static"
+         :base-directory "~/Org/Blog/org-publish/Blog/"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+         :publishing-directory "~/Org/Blog/org-publish/exported_html/Blog"                 :recursive t
+         :publishing-function org-publish-attachment
          )
 
         ;; ("Blog-RSS"
@@ -188,12 +195,6 @@ pasting on sites like GitHub, and Stack Overflow."
         ;;  :completion-function (my-ox-publish-complete-notify)
         ;;  )
 
-        ;; ("Images"
-        ;;  :base-directory "~/Org/Blog/org-publish/images"
-        ;;  :base-extension "jpg\\|png\\|gif"
-        ;;  :publishing-directory "/ssh:user@host#port:/path/to/dir"
-        ;;  :publishing-function org-publish-attachment)
-
         ;; ("Wiki"
         ;;  :base-directory "~/Org"
         ;;  :base-extension any
@@ -205,7 +206,7 @@ pasting on sites like GitHub, and Stack Overflow."
         ;;  )
         
         ("website"
-         :components ("Blog")
+         :components ("Blog" "Blog-static")
          :publishing-directory "~/Org/Blog/org-publish/exported_html/"
          :publishing-function org-html-publish-to-html
          :completion-function (my-ox-publish-complete-notify)
