@@ -166,8 +166,7 @@ pasting on sites like GitHub, and Stack Overflow."
 (setq org-publish-project-alist
       '(("Blog"
          :base-directory "~/Org/Blog/org-publish/Blog/"
-         ;; :base-extension "org"
-         :base-extension any
+         :base-extension any ; "org"
          :publishing-directory "~/Org/Blog/org-publish/exported_html/Blog"
          ;; publish to remote with Tramp.
          ;; :publishing-directory "/ssh:user@host#port:/path/to/dir"
@@ -210,6 +209,7 @@ pasting on sites like GitHub, and Stack Overflow."
          :components ("Blog" "Blog-RSS")
          :publishing-directory "~/Org/Blog/org-publish/exported_html/"
          :publishing-function org-html-publish-to-html
+         :completion-function (my-ox-publish-complete-notify)
          ;; [ author info ]
          :with-author "stardiviner"
          :with-email "numbchild@[gmail]"
@@ -227,10 +227,8 @@ pasting on sites like GitHub, and Stack Overflow."
          :html-doctype "html5"
          :html-head-include-default-style t
          :html-head-include-scripts t
-         :html-head "<link rel=\"stylesheet\"
-                           href=\"assets/stylesheets/stylesheet.css\"
-                           type=\"text/css\"/>"
-         ;; :html-head-extra
+         ;; :html-head
+         :html-head-extra "<link rel=\"stylesheet\" href=\"assets/stylesheets/stylesheet.css\" type=\"text/css\"/>"
          :html-preamble t
          :html-postamble t
          :html-link-home t
@@ -242,7 +240,6 @@ pasting on sites like GitHub, and Stack Overflow."
          ;; :htmlized-source t
          ;; [ sitemap & index ]
          :auto-sitemap t
-         :sitemap-sans-extension t
          :sitemap-title "stardiviner's site"
          :makeindex t
          )
@@ -267,6 +264,7 @@ pasting on sites like GitHub, and Stack Overflow."
 
 
 ;;; [ Beamer ]
+
 (require 'ox-beamer)
 
 
