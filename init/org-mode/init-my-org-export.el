@@ -159,9 +159,16 @@ pasting on sites like GitHub, and Stack Overflow."
 
 (require 'ox-publish)
 
-(setq org-publish-use-timestamps-flag t)
+(use-package htmlize
+  :ensure t)
 
-(setq org-html-use-infojs nil)
+(setq org-publish-use-timestamps-flag t
+      ;; src code block syntax highlighting
+      org-html-htmlize-output-type 'css
+      org-html-htmlize-font-prefix "org-"
+      ;; org-info.js
+      org-html-use-infojs nil
+      )
 
 (setq org-publish-project-alist
       '(("Blog"
@@ -237,7 +244,8 @@ pasting on sites like GitHub, and Stack Overflow."
          :html-inline-images t
          :section-numbers t
          :with-toc t
-         ;; :htmlized-source t
+         ;; src code block syntax highlighting
+         :htmlized-source t
          ;; [ sitemap & index ]
          :auto-sitemap t
          :sitemap-title "stardiviner's site"
