@@ -159,6 +159,93 @@ pasting on sites like GitHub, and Stack Overflow."
 
 (require 'ox-publish)
 
+(setq org-publish-use-timestamps-flag t)
+
+(setq org-html-use-infojs nil)
+
+(setq org-publish-project-alist
+      '(("Blog"
+         :base-directory "~/Org/Blog/org-publish/Blog/"
+         ;; :base-extension "org"
+         :base-extension any
+         :publishing-directory "~/Org/Blog/org-publish/exported_html/Blog"
+         ;; publish to remote with Tramp.
+         ;; :publishing-directory "/ssh:user@host#port:/path/to/dir"
+         :recursive t
+         :publishing-function org-html-publish-to-html
+         :completion-function my-ox-publish-complete-notify
+         )
+        
+        ;; ("Images"
+        ;;  :base-directory "~/Org/Blog/org-publish/images"
+        ;;  :base-extension "jpg\\|png\\|gif"
+        ;;  :publishing-directory "/ssh:user@host#port:/path/to/dir"
+        ;;  :publishing-function org-publish-attachment)
+
+        ;; ("Wiki"
+        ;;  :base-directory "~/Org"
+        ;;  :base-extension any
+        ;;  :recursive t
+        ;;  :publishing-directory "~/Org/Blog/org-publish/exported_html/Wiki/"
+        ;;  ;; publish to remote with Tramp.
+        ;;  ;; :publishing-directory "/ssh:user@host#port:/path/to/dir"
+        ;;  :publishing-function org-html-publish-to-html
+        ;;  )
+        
+        ("website"
+         :components ("Blog")
+         :publishing-directory "~/Org/Blog/org-publish/exported_html/"
+         :publishing-function org-html-publish-to-html
+         ;; [ author info ]
+         :with-author "stardiviner"
+         :with-email "numbchild@[gmail]"
+         :with-footnotes "get over the world!"
+         ;; [ latex ]
+         :with-sub-superscript t
+         :with-tables t
+         :with-tags t
+         ;; [ tasks ]
+         :with-tasks t
+         :with-todo-keywords t
+         :with-planning t
+         :with-timestamps t
+         ;; [ html ]
+         :html-doctype "html5"
+         :html-head-include-default-style t
+         :html-head-include-scripts t
+         :html-head "<link rel=\"stylesheet\"
+                           href=\"assets/stylesheets/stylesheet.css\"
+                           type=\"text/css\"/>"
+         ;; :html-head-extra
+         :html-preamble t
+         :html-postamble t
+         :html-link-home t
+         :html-link-up t
+         :html-html5-fancy t
+         :html-inline-images t
+         :section-numbers t
+         :with-toc t
+         ;; :htmlized-source t
+         ;; [ sitemap & index ]
+         :auto-sitemap t
+         :sitemap-sans-extension t
+         :sitemap-title "stardiviner's site"
+         :makeindex t
+         )
+        ))
+
+(add-to-list
+ 'org-capture-templates
+ '("B" "Blog"
+   entry (file+datetree "~/Org/Blog/org-publish/source/index.org")
+   "\n* %^{blog title}\n:PROPERTIES:\n:TIME: %U\n:END: \n\n[[file:%<%Y-%m-%d %R>.org][%^{blog title}]]\n\n%i"
+   :empty-lines 1
+   :jump-to-captured t
+   ))
+
+(defun my-ox-publish-complete-notify ()
+  (notifications-notify :title "ox-publish" :body "completed."))
+
 
 ;;; [ Beamer ]
 (require 'ox-beamer)
