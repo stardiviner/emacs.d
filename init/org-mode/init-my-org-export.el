@@ -177,17 +177,16 @@ pasting on sites like GitHub, and Stack Overflow."
          :html-head-extra "<link rel=\"stylesheet\" href=\"assets/stylesheets/stylesheet.css\" type=\"text/css\"/> <link rel=\"alternate\" type=\"application/rss+xml\" href=\"http://stardiviner.github.io/sitemap.xml\" title=\"RSS feed\">"
          )
 
-        ("Blog-RSS"
-         :base-directory "~/Org/Blog/org-publish/Blog/"
-         :base-extension "org"
-         :publishing-directory "~/Org/Blog/org-publish/exported_html/Blog-RSS"
-         :recursive t
-         ;; todo: replace with my domain
-         :html-link-home "http://stardiviner.github.io/"
-         :html-link-use-abs-url t
-         :publishing-function org-rss-publish-to-rss
-         :completion-function (my-ox-publish-complete-notify)
-         )
+        ;; ("Blog-RSS"
+        ;;  :base-directory "~/Org/Blog/org-publish/Blog/"
+        ;;  :base-extension "org"
+        ;;  :publishing-directory "~/Org/Blog/org-publish/exported_html/Blog-RSS"
+        ;;  :recursive t
+        ;;  :html-link-home "http://stardiviner.github.io/"
+        ;;  :html-link-use-abs-url t
+        ;;  :publishing-function org-rss-publish-to-rss
+        ;;  :completion-function (my-ox-publish-complete-notify)
+        ;;  )
 
         ;; ("Images"
         ;;  :base-directory "~/Org/Blog/org-publish/images"
@@ -206,7 +205,7 @@ pasting on sites like GitHub, and Stack Overflow."
         ;;  )
         
         ("website"
-         :components ("Blog" "Blog-RSS")
+         :components ("Blog")
          :publishing-directory "~/Org/Blog/org-publish/exported_html/"
          :publishing-function org-html-publish-to-html
          :completion-function (my-ox-publish-complete-notify)
