@@ -173,9 +173,23 @@ pasting on sites like GitHub, and Stack Overflow."
          ;; :publishing-directory "/ssh:user@host#port:/path/to/dir"
          :recursive t
          :publishing-function org-html-publish-to-html
-         :completion-function my-ox-publish-complete-notify
+         
+         :html-link-home "http://stardiviner.github.io/"
+         :html-head-extra "<link rel=\"stylesheet\" href=\"assets/stylesheets/stylesheet.css\" type=\"text/css\"/> <link rel=\"alternate\" type=\"application/rss+xml\" href=\"http://stardiviner.github.io/sitemap.xml\" title=\"RSS feed\">"
          )
-        
+
+        ("Blog-RSS"
+         :base-directory "~/Org/Blog/org-publish/Blog/"
+         :base-extension "org"
+         :publishing-directory "~/Org/Blog/org-publish/exported_html/Blog-RSS"
+         :recursive t
+         ;; todo: replace with my domain
+         :html-link-home "http://stardiviner.github.io/"
+         :html-link-use-abs-url t
+         :publishing-function org-rss-publish-to-rss
+         :completion-function (my-ox-publish-complete-notify)
+         )
+
         ;; ("Images"
         ;;  :base-directory "~/Org/Blog/org-publish/images"
         ;;  :base-extension "jpg\\|png\\|gif"
@@ -193,7 +207,7 @@ pasting on sites like GitHub, and Stack Overflow."
         ;;  )
         
         ("website"
-         :components ("Blog")
+         :components ("Blog" "Blog-RSS")
          :publishing-directory "~/Org/Blog/org-publish/exported_html/"
          :publishing-function org-html-publish-to-html
          ;; [ author info ]
@@ -245,6 +259,11 @@ pasting on sites like GitHub, and Stack Overflow."
 
 (defun my-ox-publish-complete-notify ()
   (notifications-notify :title "ox-publish" :body "completed."))
+
+
+;;; [ RSS ]
+
+(require 'ox-rss)
 
 
 ;;; [ Beamer ]
