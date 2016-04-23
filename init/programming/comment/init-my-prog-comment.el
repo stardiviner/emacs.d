@@ -101,10 +101,10 @@ column.  Place the point after the comment box."
     (add-hook hook 'fixmee-mode))
 
   (define-key my-prog-comment-fixme-map (kbd "l") 'fixmee-view-listing)
-  (define-key my-prog-comment-fixme-map (kbd "n") 'fixmee-goto-nextmost-urgent)
-  (define-key my-prog-comment-fixme-map (kbd "p") 'fixmee-goto-prevmost-urgent)
-  (define-key my-prog-comment-fixme-map (kbd "N") 'fixmee-goto-next-by-position)
-  (define-key my-prog-comment-fixme-map (kbd "P") 'fixmee-goto-previous-by-position)
+  (define-key my-prog-comment-fixme-map (kbd "n") 'fixmee-goto-next-by-position)
+  (define-key my-prog-comment-fixme-map (kbd "p") 'fixmee-goto-previous-by-position)
+  (define-key my-prog-comment-fixme-map (kbd "N") 'fixmee-goto-nextmost-urgent)
+  (define-key my-prog-comment-fixme-map (kbd "P") 'fixmee-goto-prevmost-urgent)
 
   (defun fixmee-insert-keywords (prefix-arg)
     "Insert fixmee patterns: @@@, XXX, todo, fixme.
