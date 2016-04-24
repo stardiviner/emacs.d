@@ -159,6 +159,8 @@ pasting on sites like GitHub, and Stack Overflow."
 
 (require 'ox-publish)
 
+(setq my-org-publish-directory (expand-file-name "~/Org/Blog/org-publish"))
+
 ;; export files update style
 (setq org-publish-use-timestamps-flag t)
 
@@ -228,7 +230,8 @@ pasting on sites like GitHub, and Stack Overflow."
          :components ("Blog" "Blog-static")
          :publishing-directory "~/Org/Blog/org-publish/exported_html/"
          :publishing-function org-html-publish-to-html
-         :completion-function (my-ox-publish-complete-notify)
+         :completion-function (my-ox-publish-complete-notify
+                               my-ox-publish-sync)
          ;; [ author info ]
          :with-author "stardiviner"
          :with-email "numbchild@[gmail]"
@@ -276,6 +279,17 @@ pasting on sites like GitHub, and Stack Overflow."
 
 (defun my-ox-publish-complete-notify ()
   (notifications-notify :title "ox-publish" :body "completed."))
+
+(defun my-ox-publish-sync ()
+  "Sync ox-publish exported files to remote server."
+
+  (magit-status
+   (concat my-org-publish-directory
+           "/Blog"))
+  (magit-status
+   (concat my-org-publish-directory
+           "/exported_html/Blog"))
+  )
 
 
 ;;; [ RSS ]
