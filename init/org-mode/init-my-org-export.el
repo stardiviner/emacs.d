@@ -159,16 +159,21 @@ pasting on sites like GitHub, and Stack Overflow."
 
 (require 'ox-publish)
 
+;; export files update style
+(setq org-publish-use-timestamps-flag t)
+
+;; link
+(setq org-html-link-home "http://stardiviner.github.io/")
+
+;; org-info.js
+(setq org-html-use-infojs nil)
+
+;; src code block syntax highlighting
 (use-package htmlize
   :ensure t)
 
-(setq org-publish-use-timestamps-flag t
-      ;; src code block syntax highlighting
-      org-html-htmlize-output-type 'css
-      org-html-htmlize-font-prefix "org-"
-      ;; org-info.js
-      org-html-use-infojs nil
-      )
+(setq org-html-htmlize-output-type 'css
+      org-html-htmlize-font-prefix "org-")
 
 ;; MathJax.js
 (add-to-list
@@ -176,6 +181,7 @@ pasting on sites like GitHub, and Stack Overflow."
  '(path
    "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"))
 
+;; projects definition
 (setq org-publish-project-alist
       '(("Blog"
          :base-directory "~/Org/Blog/org-publish/Blog/"
