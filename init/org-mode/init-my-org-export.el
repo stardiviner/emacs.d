@@ -170,6 +170,12 @@ pasting on sites like GitHub, and Stack Overflow."
       org-html-use-infojs nil
       )
 
+;; MathJax.js
+(add-to-list
+ 'org-html-mathjax-options
+ '(path
+   "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"))
+
 (setq org-publish-project-alist
       '(("Blog"
          :base-directory "~/Org/Blog/org-publish/Blog/"
