@@ -28,8 +28,10 @@
         ;; [ google analytics ]
         op/personal-google-analytics-id "UA-63992234-1"
         )
-  )
 
+  (define-key blog-map (kbd "n") 'op/new-post)
+  (define-key blog-map (kbd "p") 'op/do-publication)
+  )
 
 
 
