@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-sh-no-output
+# key: babel-sh-no-output
+# group: babel
+# --
+#+BEGIN_SRC sh :results none
+$0
+#+END_SRC

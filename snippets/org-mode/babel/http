@@ -1,11 +1,11 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: babel http
 # key: babel-http
-# group: Babel
+# group: babel
 # --
 #+BEGIN_SRC http :pretty ${1:other arguments}
 ${2:RESTful: GET, POST, PATCH ...} ${3:URL}
-${4:Headers:
+${4:HTTP Headers:
 User-Agent: ob-http
 Content-Type: application/json
 key=value1&foo=value2

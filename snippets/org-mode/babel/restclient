@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-restclient
+# key: babel-restclient
+# group: babel
+# --
+#+BEGIN_SRC restclient${1: :var term="${2:QUERY}"}
+GET http://$0 $2
+#+END_SRC

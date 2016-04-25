@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-sh-sudo
+# key: babel-sh-sudo
+# group: babel
+# --
+#+BEGIN_SRC sh :dir /sudo::
+$0
+#+END_SRC
