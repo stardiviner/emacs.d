@@ -17,6 +17,20 @@
 
 (setq scheme-program-name "guile")
 
+
+;; auto run `run-scheme' for scheme buffer.
+(defun run-scheme-auto-create ()
+  "Auto run `run-scheme' when not running."
+  (unless (and scheme-buffer
+               (get-buffer scheme-buffer)
+               (comint-check-proc scheme-buffer))
+    (save-window-excursion
+      (run-scheme scheme-program-name))
+    ;; (switch-to-buffer scheme-buffer)
+    ))
+
+(add-hook 'scheme-mode-hook 'run-scheme-auto-create)
+
 
 ;;; [ geiser ] -- 
 
