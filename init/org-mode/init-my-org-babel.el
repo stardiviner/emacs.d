@@ -81,6 +81,19 @@
           ;; (:dir . "data/images")
           (:exports . "both")
           ))
+
+  ;; different kernels support
+  (defun ob-ipython-kernel-get-kernels ()
+    "Get available Jupyter kernels.
+This can be useful for snippets to select kernel interactively."
+    (let ((kernels (split-string
+                    (shell-command-to-string
+                     "jupyter-kernelspec list | sed '1d' | awk -F ' ' '{print $1}'"))))
+      ;; (completing-read "Jupyter kernels: "
+      ;;                  kernels)
+      kernels
+      )
+    )
   )
 
 ;;; [ ob-coq ]

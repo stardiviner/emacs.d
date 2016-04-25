@@ -3,6 +3,6 @@
 # key: babel-ipython-text
 # group: babel
 # --
-#+BEGIN_SRC ipython :session${1: :kernel "${2:ruby-2.3.0}"} :results output
+#+BEGIN_SRC ipython :session${1: :kernel "${2:$$(yas-choose-value (ob-ipython-kernel-get-kernels))}"}
 $0
 #+END_SRC
