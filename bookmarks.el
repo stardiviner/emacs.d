@@ -2,7 +2,37 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("My CSS Language Syntax Reference"
+(("Jupyter Notebook"
+ (filename . "~/Org/Wiki/Computer/Softwares/Jupyter.org")
+ (front-context-string . "* Intro\n\n*Intera")
+ (rear-context-string)
+ (position . 1))
+("IRC"
+ (filename . "~/Org/Wiki/Computer/Softwares/IRC/IRC.org")
+ (front-context-string . "* Intro\n\n=/I-R-C")
+ (rear-context-string)
+ (position . 1))
+("RESTful"
+ (filename . "~/Org/Wiki/Computer/Programming/Implements/Web/HTTP/REST/REST.org")
+ (front-context-string . "* Intro\n\n*Repres")
+ (rear-context-string)
+ (position . 1))
+("Clojure Packages"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Clojure/Data/Packages/Packages.org")
+ (front-context-string . "* Clojure Packag")
+ (rear-context-string)
+ (position . 1))
+("Qt (Org)"
+ (filename . "~/Org/Wiki/Computer/Programming/Implements/GUI/frameworks/Qt/Qt.org")
+ (front-context-string . "* Intro\n\n*Qt is ")
+ (rear-context-string)
+ (position . 1))
+("My gnuplot Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/gnuplot/Data/Manuals/My gnuplot Reference/My gnuplot Reference.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("My CSS Language Syntax Reference"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/CSS/Data/Manuals/My CSS Language Syntax Reference/My CSS Language Syntax Reference.org")
  (front-context-string . "* Intro\n\n\n* Conc")
  (rear-context-string)
@@ -340,11 +370,6 @@
 ("CSS Preprocessor"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/CSS/Data/CSS Preprocessor/CSS Preprocessor.org")
  (front-context-string . "* Intro\n\nAdd pro")
- (rear-context-string)
- (position . 1))
-("RESTful"
- (filename . "~/Org/Wiki/Computer/Programming/Implements/Web/REST/REST.org")
- (front-context-string . "* Intro\n\n*Repres")
  (rear-context-string)
  (position . 1))
 ("JavaScript Language Reference"
