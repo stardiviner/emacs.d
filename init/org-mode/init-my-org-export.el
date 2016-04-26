@@ -134,7 +134,7 @@ pasting on sites like GitHub, and Stack Overflow."
 ;; emails a selected region.
 ;;
 ;; use `org-mime'
-;; - `org-mime-org-buffer-htmlize' ::
+;; - `org-mime-org-buffer-htmlize' :: [C-x M]
 
 (require 'org-mime)
 
@@ -191,6 +191,7 @@ pasting on sites like GitHub, and Stack Overflow."
          :publishing-directory "~/Org/Blog/org-publish/exported_html/Blog"
          ;; publish to remote with Tramp.
          ;; :publishing-directory "/ssh:user@host#port:/path/to/dir"
+         ;; :remote (git "https://github.com/stardiviner/stardiviner.github.com.git" "master")
          :recursive t
          :publishing-function org-html-publish-to-html
          
@@ -201,7 +202,8 @@ pasting on sites like GitHub, and Stack Overflow."
         ("Blog-static"
          :base-directory "~/Org/Blog/org-publish/Blog/"
          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
-         :publishing-directory "~/Org/Blog/org-publish/exported_html/Blog"                 :recursive t
+         :publishing-directory "~/Org/Blog/org-publish/exported_html/Blog"
+         :recursive t
          :publishing-function org-publish-attachment
          )
 
@@ -228,6 +230,7 @@ pasting on sites like GitHub, and Stack Overflow."
         
         ("website"
          :components ("Blog" "Blog-static")
+         ;; todo: :exclude ("exported_html/")
          :publishing-directory "~/Org/Blog/org-publish/exported_html/"
          :publishing-function org-html-publish-to-html
          :completion-function (my-ox-publish-complete-notify
@@ -250,7 +253,7 @@ pasting on sites like GitHub, and Stack Overflow."
          :html-head-include-default-style t
          :html-head-include-scripts t
          ;; :html-head
-         :html-head-extra "<link rel=\"stylesheet\" href=\"assets/stylesheets/stylesheet.css\" type=\"text/css\"/>"
+         ;; :html-head-extra "<link rel=\"stylesheet\" href=\"assets/stylesheets/stylesheet.css\" type=\"text/css\"/>"
          :html-preamble t
          :html-postamble t
          :html-link-home t
@@ -261,6 +264,8 @@ pasting on sites like GitHub, and Stack Overflow."
          :with-toc t
          ;; src code block syntax highlighting
          :htmlized-source t
+         ;; [ stylesheet ]
+         :style "<link rel=\"stylesheet\" href=\"assets/stylesheets/stylesheet.css\" type=\"text/css\"/>"
          ;; [ sitemap & index ]
          :auto-sitemap t
          :sitemap-title "stardiviner's site"
@@ -283,12 +288,23 @@ pasting on sites like GitHub, and Stack Overflow."
 (defun my-ox-publish-sync ()
   "Sync ox-publish exported files to remote server."
 
+  ;; Blog source
   (magit-status
    (concat my-org-publish-directory
            "/Blog"))
+  (magit-stage-modified)
+  (magit-stage-untracked)
+  (magit-commit-add-log)
+  (magit-push-current-to-upstream)
+
+  ;; Blog exported files
   (magit-status
    (concat my-org-publish-directory
            "/exported_html/Blog"))
+  (magit-stage-modified)
+  (magit-stage-untracked)
+  (magit-commit-add-log)
+  (magit-push-current-to-upstream)
   )
 
 
