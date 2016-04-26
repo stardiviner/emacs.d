@@ -64,7 +64,7 @@
 (setq org-babel-default-header-args:gnuplot
       '((:session . "none")
         (:results . "graphics")
-        (:dir . "data/images")
+        ;; (:dir . "data/images")
         ))
 
 ;; [ ob-ipython ]
