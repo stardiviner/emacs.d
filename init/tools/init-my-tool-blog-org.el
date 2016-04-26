@@ -21,7 +21,7 @@
         ;; op/theme-root-directory
         ;; op/theme 'mdo
         op/personal-github-link "https://github.com/stardiviner"
-        op/personal-avatar "https://stardiviner.github.com/assets/images/avatar.png"
+        op/personal-avatar "https://stardiviner.github.com/media/img/avatar.png"
         ;; [ commenting ]
         op/personal-disqus-shortname "stardiviner-dark"
         ;; op/personal-duoshuo-shortname ""
