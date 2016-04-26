@@ -54,8 +54,8 @@
               
               
               (define-key gnuplot-mode-map (kbd "<f5>") 'gnuplot-make-buffer)
-              (define-key gnuplot-mode-map (kbd "C-h d d") 'gnuplot-info-lookup-symbol)
-              (define-key gnuplot-mode-map (kbd "C-c C-d") 'gnuplot-info-at-point)
+              (define-key gnuplot-mode-map (kbd "C-h d d") 'gnuplot-info-at-point)
+              (define-key gnuplot-mode-map (kbd "C-c C-d") 'gnuplot-info-lookup-symbol)
               (define-key gnuplot-mode-map (kbd "C-c C-/") 'gnuplot-help-function)
               (define-key gnuplot-mode-map (kbd "C-c M-i") 'gnuplot-inline-display-mode)
 
