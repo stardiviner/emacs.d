@@ -9,14 +9,13 @@
 
 ;;; [ Scheme Mode ]
 
-
-;;; [ Inferior Scheme ]
+(require 'scheme)
 
-;;; Usage:
-;; (run-scheme)
-
+;;; [ inferior scheme ]
 (setq scheme-program-name "guile")
 
+(with-eval-after-load 'scheme
+  (define-key scheme-mode-map (kbd "C-c C-s") 'run-scheme))
 
 ;; auto run `run-scheme' for scheme buffer.
 (defun run-scheme-auto-create ()
@@ -45,6 +44,8 @@
             (lambda ()
               (my-company-add-backend-locally 'geiser-company-backend)
               ))
+
+  (define-key geiser-mode-map (kbd "C-c C-s") 'run-geiser)
   )
 
 
