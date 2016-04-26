@@ -155,157 +155,157 @@ pasting on sites like GitHub, and Stack Overflow."
              ))
 
 
-;;; [ ox-publish ]
-
-(require 'ox-publish)
-
-(setq my-org-publish-directory (expand-file-name "~/Org/Blog/org-publish"))
-
-;; export files update style
-(setq org-publish-use-timestamps-flag t)
-
-;; link
-(setq org-html-link-home "http://stardiviner.github.io/")
-
-;; org-info.js
-(setq org-html-use-infojs nil)
-
-;; src code block syntax highlighting
-(use-package htmlize
-  :ensure t)
-
-(setq org-html-htmlize-output-type 'css
-      org-html-htmlize-font-prefix "org-")
-
-;; MathJax.js
-(add-to-list
- 'org-html-mathjax-options
- '(path
-   "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"))
-
-;; projects definition
-(setq org-publish-project-alist
-      '(("Blog"
-         :base-directory "~/Org/Blog/org-publish/Blog/"
-         :base-extension "org"
-         :publishing-directory "~/Org/Blog/org-publish/exported_html/Blog"
-         ;; publish to remote with Tramp.
-         ;; :publishing-directory "/ssh:user@host#port:/path/to/dir"
-         ;; :remote (git "https://github.com/stardiviner/stardiviner.github.com.git" "master")
-         :recursive t
-         :publishing-function org-html-publish-to-html
-         
-         :html-link-home "http://stardiviner.github.io/"
-         :html-head-extra "<link rel=\"stylesheet\" href=\"assets/stylesheets/stylesheet.css\" type=\"text/css\"/> <link rel=\"alternate\" type=\"application/rss+xml\" href=\"http://stardiviner.github.io/sitemap.xml\" title=\"RSS feed\">"
-         )
-
-        ("Blog-static"
-         :base-directory "~/Org/Blog/org-publish/Blog/"
-         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
-         :publishing-directory "~/Org/Blog/org-publish/exported_html/Blog"
-         :recursive t
-         :publishing-function org-publish-attachment
-         )
-
-        ;; ("Blog-RSS"
-        ;;  :base-directory "~/Org/Blog/org-publish/Blog/"
-        ;;  :base-extension "org"
-        ;;  :publishing-directory "~/Org/Blog/org-publish/exported_html/Blog-RSS"
-        ;;  :recursive t
-        ;;  :html-link-home "http://stardiviner.github.io/"
-        ;;  :html-link-use-abs-url t
-        ;;  :publishing-function org-rss-publish-to-rss
-        ;;  :completion-function (my-ox-publish-complete-notify)
-        ;;  )
-
-        ;; ("Wiki"
-        ;;  :base-directory "~/Org"
-        ;;  :base-extension any
-        ;;  :recursive t
-        ;;  :publishing-directory "~/Org/Blog/org-publish/exported_html/Wiki/"
-        ;;  ;; publish to remote with Tramp.
-        ;;  ;; :publishing-directory "/ssh:user@host#port:/path/to/dir"
-        ;;  :publishing-function org-html-publish-to-html
-        ;;  )
-        
-        ("website"
-         :components ("Blog" "Blog-static")
-         ;; todo: :exclude ("exported_html/")
-         :publishing-directory "~/Org/Blog/org-publish/exported_html/"
-         :publishing-function org-html-publish-to-html
-         :completion-function (my-ox-publish-complete-notify
-                               my-ox-publish-sync)
-         ;; [ author info ]
-         :with-author "stardiviner"
-         :with-email "numbchild@[gmail]"
-         :with-footnotes "get over the world!"
-         ;; [ latex ]
-         :with-sub-superscript t
-         :with-tables t
-         :with-tags t
-         ;; [ tasks ]
-         :with-tasks t
-         :with-todo-keywords t
-         :with-planning t
-         :with-timestamps t
-         ;; [ html ]
-         :html-doctype "html5"
-         :html-head-include-default-style t
-         :html-head-include-scripts t
-         ;; :html-head
-         ;; :html-head-extra "<link rel=\"stylesheet\" href=\"assets/stylesheets/stylesheet.css\" type=\"text/css\"/>"
-         :html-preamble t
-         :html-postamble t
-         :html-link-home t
-         :html-link-up t
-         :html-html5-fancy t
-         :html-inline-images t
-         :section-numbers t
-         :with-toc t
-         ;; src code block syntax highlighting
-         :htmlized-source t
-         ;; [ stylesheet ]
-         :style "<link rel=\"stylesheet\" href=\"assets/stylesheets/stylesheet.css\" type=\"text/css\"/>"
-         ;; [ sitemap & index ]
-         :auto-sitemap t
-         :sitemap-title "stardiviner's site"
-         :makeindex t
-         )
-        ))
-
-(add-to-list
- 'org-capture-templates
- '("B" "Blog"
-   entry (file+datetree "~/Org/Blog/org-publish/source/index.org")
-   "\n* %^{blog title}\n:PROPERTIES:\n:TIME: %U\n:END: \n\n[[file:%<%Y-%m-%d %R>.org][%^{blog title}]]\n\n%i"
-   :empty-lines 1
-   :jump-to-captured t
-   ))
-
-(defun my-ox-publish-complete-notify ()
-  (notifications-notify :title "ox-publish" :body "completed."))
-
-(defun my-ox-publish-sync ()
-  "Sync ox-publish exported files to remote server."
-
-  ;; Blog source
-  (magit-status
-   (concat my-org-publish-directory
-           "/Blog"))
-  (magit-stage-modified)
-  (magit-stage-untracked)
-  (magit-commit-add-log)
-  (magit-push-current-to-upstream)
-
-  ;; Blog exported files
-  (magit-status
-   (concat my-org-publish-directory
-           "/exported_html/Blog"))
-  (magit-stage-modified)
-  (magit-stage-untracked)
-  (magit-commit-add-log)
-  (magit-push-current-to-upstream)
-  )
+;; ;;; [ ox-publish ]
+;;
+;; (require 'ox-publish)
+;;
+;; (setq my-org-publish-directory (expand-file-name "~/Org/Blog/org-publish"))
+;;
+;; ;; export files update style
+;; (setq org-publish-use-timestamps-flag t)
+;;
+;; ;; link
+;; (setq org-html-link-home "http://stardiviner.github.io/")
+;;
+;; ;; org-info.js
+;; ;; (setq org-html-use-infojs t)
+;;
+;; ;; src code block syntax highlighting
+;; (use-package htmlize
+;;   :ensure t)
+;;
+;; (setq org-html-htmlize-output-type 'css
+;;       org-html-htmlize-font-prefix "org-")
+;;
+;; ;; MathJax.js
+;; (add-to-list
+;;  'org-html-mathjax-options
+;;  '(path
+;;    "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"))
+;;
+;; ;; projects definition
+;; (setq org-publish-project-alist
+;;       '(("Blog"
+;;          :base-directory "~/Org/Blog/org-publish/Blog/"
+;;          :base-extension "org"
+;;          :publishing-directory "~/Org/Blog/org-publish/exported_html/Blog"
+;;          ;; publish to remote with Tramp.
+;;          ;; :publishing-directory "/ssh:user@host#port:/path/to/dir"
+;;          ;; :remote (git "https://github.com/stardiviner/stardiviner.github.com.git" "master")
+;;          :recursive t
+;;          :publishing-function org-html-publish-to-html
+;;
+;;          :html-link-home "http://stardiviner.github.io/"
+;;          :html-head-extra "<link rel=\"stylesheet\" href=\"assets/stylesheets/stylesheet.css\" type=\"text/css\"/> <link rel=\"alternate\" type=\"application/rss+xml\" href=\"http://stardiviner.github.io/sitemap.xml\" title=\"RSS feed\">"
+;;          )
+;;
+;;         ("Blog-static"
+;;          :base-directory "~/Org/Blog/org-publish/Blog/"
+;;          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+;;          :publishing-directory "~/Org/Blog/org-publish/exported_html/Blog"
+;;          :recursive t
+;;          :publishing-function org-publish-attachment
+;;          )
+;;
+;;         ;; ("Blog-RSS"
+;;         ;;  :base-directory "~/Org/Blog/org-publish/Blog/"
+;;         ;;  :base-extension "org"
+;;         ;;  :publishing-directory "~/Org/Blog/org-publish/exported_html/Blog-RSS"
+;;         ;;  :recursive t
+;;         ;;  :html-link-home "http://stardiviner.github.io/"
+;;         ;;  :html-link-use-abs-url t
+;;         ;;  :publishing-function org-rss-publish-to-rss
+;;         ;;  :completion-function (my-ox-publish-complete-notify)
+;;         ;;  )
+;;
+;;         ;; ("Wiki"
+;;         ;;  :base-directory "~/Org"
+;;         ;;  :base-extension any
+;;         ;;  :recursive t
+;;         ;;  :publishing-directory "~/Org/Blog/org-publish/exported_html/Wiki/"
+;;         ;;  ;; publish to remote with Tramp.
+;;         ;;  ;; :publishing-directory "/ssh:user@host#port:/path/to/dir"
+;;         ;;  :publishing-function org-html-publish-to-html
+;;         ;;  )
+;;
+;;         ("website"
+;;          :components ("Blog" "Blog-static")
+;;          ;; todo: :exclude ("exported_html/")
+;;          :publishing-directory "~/Org/Blog/org-publish/exported_html/"
+;;          :publishing-function org-html-publish-to-html
+;;          :completion-function (my-ox-publish-complete-notify
+;;                                my-ox-publish-sync)
+;;          ;; [ author info ]
+;;          :with-author "stardiviner"
+;;          :with-email "numbchild@[gmail]"
+;;          :with-footnotes "get over the world!"
+;;          ;; [ latex ]
+;;          :with-sub-superscript t
+;;          :with-tables t
+;;          :with-tags t
+;;          ;; [ tasks ]
+;;          :with-tasks t
+;;          :with-todo-keywords t
+;;          :with-planning t
+;;          :with-timestamps t
+;;          ;; [ html ]
+;;          :html-doctype "html5"
+;;          :html-head-include-default-style t
+;;          :html-head-include-scripts t
+;;          ;; :html-head
+;;          ;; :html-head-extra "<link rel=\"stylesheet\" href=\"assets/stylesheets/stylesheet.css\" type=\"text/css\"/>"
+;;          :html-preamble t
+;;          :html-postamble t
+;;          :html-link-home t
+;;          :html-link-up t
+;;          :html-html5-fancy t
+;;          :html-inline-images t
+;;          :section-numbers t
+;;          :with-toc t
+;;          ;; src code block syntax highlighting
+;;          :htmlized-source t
+;;          ;; [ stylesheet ]
+;;          :style "<link rel=\"stylesheet\" href=\"assets/stylesheets/stylesheet.css\" type=\"text/css\"/>"
+;;          ;; [ sitemap & index ]
+;;          :auto-sitemap t
+;;          :sitemap-title "stardiviner's site"
+;;          :makeindex t
+;;          )
+;;         ))
+;;
+;; (add-to-list
+;;  'org-capture-templates
+;;  '("B" "Blog"
+;;    entry (file+datetree "~/Org/Blog/org-publish/source/index.org")
+;;    "\n* %^{blog title}\n:PROPERTIES:\n:TIME: %U\n:END: \n\n[[file:%<%Y-%m-%d %R>.org][%^{blog title}]]\n\n%i"
+;;    :empty-lines 1
+;;    :jump-to-captured t
+;;    ))
+;;
+;; (defun my-ox-publish-complete-notify ()
+;;   (notifications-notify :title "ox-publish" :body "completed."))
+;;
+;; (defun my-ox-publish-sync ()
+;;   "Sync ox-publish exported files to remote server."
+;;
+;;   ;; Blog source
+;;   (magit-status
+;;    (concat my-org-publish-directory
+;;            "/Blog"))
+;;   (magit-stage-modified)
+;;   (magit-stage-untracked)
+;;   (magit-commit-add-log)
+;;   (magit-push-current-to-upstream)
+;;
+;;   ;; Blog exported files
+;;   (magit-status
+;;    (concat my-org-publish-directory
+;;            "/exported_html/Blog"))
+;;   (magit-stage-modified)
+;;   (magit-stage-untracked)
+;;   (magit-commit-add-log)
+;;   (magit-push-current-to-upstream)
+;;   )
 
 
 ;;; [ RSS ]
