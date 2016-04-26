@@ -18,8 +18,8 @@
         op/site-domain "http://stardiviner.github.io/"
         op/site-main-title "stardiviner's blog"
         op/site-sub-title "get over the world!"
-        ;; op/theme-root-directory
-        ;; op/theme 'mdo
+        op/theme-root-directory (concat user-emacs-directory "org-page/themes")
+        op/theme 'peach_blossom
         op/personal-github-link "https://github.com/stardiviner"
         op/personal-avatar "https://stardiviner.github.com/media/img/avatar.png"
         ;; [ commenting ]
