@@ -47,10 +47,25 @@
   ;; company-backend
   (add-hook 'scheme-mode-hook
             (lambda ()
+              (geiser-mode 1)
+              (my-run-geiser-auto)
               (my-company-add-backend-locally 'geiser-company-backend)
               ))
 
-  (define-key geiser-mode-map (kbd "C-c C-s") 'run-geiser)
+  ;; auto start geiser inferior buffer process `run-geiser'.
+  (defun my-run-geiser-auto ()
+    (let ((geiser-guile-buffer "* Guile REPL *")
+          (geiser-racket-buffer "* Racket REPL *")
+          (geiser-chicken-buffer "* Chicken REPL *"))
+      (unless (get-buffer geiser-guile-buffer)
+        (save-window-excursion
+          (run-geiser geiser-default-implementation))
+        )
+      )
+    )
+
+  (with-eval-after-load 'geiser-mode
+    (define-key geiser-mode-map (kbd "C-c C-s") 'run-geiser))
   )
 
 
