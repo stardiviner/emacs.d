@@ -469,6 +469,9 @@
   ;; (setq rspec-key-command-prefix (kbd "C-c t r"))
   (setq rspec-key-command-prefix (kbd "C-c ,"))
   :config
+  ;; run RSpec in Vagrant box.
+  (setq rspec-use-vagrant-when-possible t)
+  
   ;; (dolist (hook '(ruby-mode-hook
   ;;                 enh-ruby-mode-hook
   ;;                 ))
