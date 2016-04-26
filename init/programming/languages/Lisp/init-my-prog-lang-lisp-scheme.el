@@ -31,6 +31,11 @@
 (add-hook 'scheme-mode-hook 'run-scheme-auto-create)
 
 
+;;; [ cmuscheme ] -- Scheme process in a buffer. Adapted from tea.el
+
+;; (require 'cmuscheme)
+
+
 ;;; [ geiser ] -- 
 
 (use-package geiser
