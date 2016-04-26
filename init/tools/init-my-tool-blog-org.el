@@ -26,7 +26,7 @@
         op/personal-disqus-shortname "stardiviner-dark"
         ;; op/personal-duoshuo-shortname ""
         ;; [ google analytics ]
-        op/personal-google-analytics-id "UA-63992234-1"
+        op/personal-google-analytics-id "63992234"
         )
 
   (define-key blog-map (kbd "n") 'op/new-post)
