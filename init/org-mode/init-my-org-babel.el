@@ -52,6 +52,9 @@
       org-export-babel-evaluate t
       )
 
+;;; [ ob-lisp ]
+(setq org-babel-lisp-eval-fn #'sly-eval)
+
 ;;; [ ob-latex ]
 (require 'ob-latex)
 
