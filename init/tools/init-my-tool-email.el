@@ -64,18 +64,21 @@
 
 
 
-(require 'init-gnus)
+;; (require 'init-gnus)
 ;; (require 'init-mu4e)
 
 
 
-(defvar my-email-client "gnus")
+(defvar my-email-client t
+  "The value is 'gnus, 'mu4e, or t for default.")
 
-(case (intern my-email-client)
+(case my-email-client
+  ;; Gnus
   ('gnus
    (define-key my-email-prefix (kbd "m") 'gnus)
    )
-  
+
+  ;; mu4e
   ('mu4e
    (define-key my-email-prefix (kbd "m") 'mu4e)
    ;; FIXME: let (setq mail-user-agent 'mu4e-user-agent)
@@ -85,7 +88,12 @@
      )
    (define-key my-email-prefix (kbd "i") 'my-mu4e-jump-to-index)
    (define-key my-email-prefix (kbd "C") 'mu4e-compose-new)
-   ))
+   )
+
+  ;; default
+  (t
+   (define-key my-email-prefix (kbd "m") 'compose-mail))
+  )
 
 
 (provide 'init-my-tool-email)
