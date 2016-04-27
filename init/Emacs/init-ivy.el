@@ -9,6 +9,9 @@
 
 ;;; [ swiper/ivy-mode ]
 
+(use-package ivy
+  :ensure t)
+
 (use-package swiper
   :ensure t
   :init
