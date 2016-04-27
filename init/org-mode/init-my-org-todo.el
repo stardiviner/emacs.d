@@ -45,19 +45,19 @@
 (setq org-todo-keywords
       '(
         ;; Status
-        (sequence "Urgent(u!)" "INPROGRESS(g!)" "TODO(t@/!)" "LATER(l!)" "SOMEDAY(s@/!)" "FAILED(x@/!)" "CANCELLED(C@/!)" "|" "DONE(d@/!)")
+        (sequence "URGENT(u!)" "INPROGRESS(g!)" "TODO(t@/!)" "LATER(l!)" "SOMEDAY(s@/!)" "FAILED(x@/!)" "CANCELLED(C@/!)" "|" "DONE(d@/!)")
         ;; Clock
         (sequence "STARTED(!)" "|" "DONE(d@/!)")
         ;; Habit
         (sequence "HABIT(h)" "|" "DONE(d)")
         ;; Types
-        (type "code(c@/!)" "project(P@/!)" "Org(o@/!)" "|" "DONE(d@/!)")
+        (type "CODE(c@/!)" "PROJECT(P@/!)" "Org(o@/!)" "|" "DONE(d@/!)")
         ;; Code
         (sequence "BUG(b!)" "ISSUE(i!)" "ERROR(e!)" "FEATURE(f!)" "Pull-Request(p!)" "|" "DONE(d@/!)")
         ;; Work
-        (type "Work(w@/!)" "Meeting(m@/!)" "|" "DONE(d@/!)")
+        (type "WORK(w@/!)" "MEETING(m@/!)" "|" "DONE(d@/!)")
         ;; Learn
-        (type "Learn(n!)" "Review(r!)" "|" "DONE(d@/!)")
+        (type "LEARN(n!)" "REVIEW(r!)" "|" "DONE(d@/!)")
         ;; Life
         (type "SEX(X@/!)" "|" "DONE(d@/!)")
         ;; org-trello
@@ -69,7 +69,7 @@
         ("TODO" :foreground "orange"
          :weight bold
          :box '(:color "black" :line-width -1))
-        ("Urgent" :foreground "red" :background "black"
+        ("URGENT" :foreground "red" :background "black"
          :weight bold
          ;; :overline "red"
          :box '(:color "black" :line-width -1 :style nil)
@@ -120,27 +120,23 @@
         ("Org" :foreground "cyan" :background "#004A5D"
          :weight bold
          :box '(:color "cyan" :line-width -1 :style nil))
-        ("code" :foreground "white" :background "#004A5D"
+        ("CODE" :foreground "white" :background "#004A5D"
          :box '(:color "cyan" :line-width -1 :style nil))
-        ("project" :foreground "white" :background "#004A5D"
+        ("PROJECT" :foreground "white" :background "#004A5D"
          :box '(:color "cyan" :line-width -1 :style nil))
         ;; life
         ("SEX" :foreground "deep pink"
          :weight bold
          :box '(:color "deep pink" :line-width -1 :style nil))
-        ("Outside" :foreground "yellow"
-         :box '(:color "yellow" :line-width -1 :style nil))
         ;; work
-        ("Work" :foreground "orange"
+        ("WORK" :foreground "orange"
          :box '(:color "black" :line-width -1 :style nil))
-        ("Meeting" :foreground "cornflower blue"
+        ("MEETING" :foreground "cornflower blue"
          :box '(:color "cyan" :line-width -1 :style nil))
         ;; learn
-        ("Learn" :foreground "dark orange"
+        ("LEARN" :foreground "green yellow"
          :box '(:color "black" :line-width -1))
-        ("Learning" :foreground "green yellow"
-         :box '(:color "black" :line-width -1))
-        ("Review" :foreground "yellow"
+        ("REVIEW" :foreground "yellow"
          :box '(:color "black" :line-width -1))
         ))
 
