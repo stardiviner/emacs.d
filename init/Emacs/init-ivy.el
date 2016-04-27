@@ -117,6 +117,10 @@
 (use-package counsel
   :ensure t
   :config
+  ;; for big size buffer have long swiper startup time. This command will use
+  ;; swiper for small buffers, and counsel-grep for large buffers.
+  (global-set-key (kbd "C-s") 'counsel-grep-or-swiper)
+  
   (global-set-key [remap execute-extended-command] 'counsel-M-x) ; [M-x]
   (global-set-key [remap describe-variable] 'counsel-describe-variable) ; [C-h v]
   (global-set-key [remap describe-function] 'counsel-describe-function) ; [C-h f]
