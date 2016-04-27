@@ -19,7 +19,12 @@
 ;;; [ helm-systemd ] -- helm interface to control systemd units.
 
 (use-package helm-systemd
-  :ensure t)
+  :ensure t
+  :config
+  (setq helm-systemd-list-not-loaded t
+        helm-systemd-list-all nil
+        )
+  )
 
 
 ;;; [ nginx-mode ]
