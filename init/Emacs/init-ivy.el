@@ -7,16 +7,13 @@
 
 ;;; Code:
 
-;;; [ swiper/ivy-mode ]
+;;; [ ivy ]
 
 (use-package ivy
-  :ensure t)
-
-(use-package swiper
   :ensure t
   :init
-  (global-set-key (kbd "C-s") 'swiper)
   (global-set-key (kbd "C-c C-r") 'ivy-resume)
+  
   :config
   ;; ivy-mode
   (setq ivy-use-virtual-buffers t ; treat recentf, bookmarks as virtual buffers.
@@ -103,6 +100,15 @@
   (global-set-key [remap bookmark-jump] 'ivy-bookmark-goto)
   
   (ivy-mode 1)
+  )
+
+
+;;; [ swiper ]
+
+(use-package swiper
+  :ensure t
+  :config
+  (global-set-key (kbd "C-s") 'swiper)
   )
 
 
