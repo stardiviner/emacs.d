@@ -3,6 +3,6 @@
 # key: babel-julia-plot-graphic
 # group: babel
 # --
-#+BEGIN_SRC julia :results graphics :file ${1:image name}.png
-${2:draw(PNG("$1", ${4:width}, ${5:height}), ${3:figure})}
+#+BEGIN_SRC julia :results graphics${2: :dir "data/images"} :file ${1:image name}.png
+${3:draw(PNG("$1", ${5:width}, ${6:height}), ${4:figure})}
 #+END_SRC

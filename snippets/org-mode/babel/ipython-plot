@@ -2,6 +2,6 @@
 # name: babel-ipython-plot
 # key: babel-ipython-plot
 # --
-#+BEGIN_SRC ipython :session :kernel "${1:$$(yas-choose-value (ob-ipython-kernel-get-kernels))}" :dir "data/images" :file "${2}.png"
+#+BEGIN_SRC ipython :session :kernel "${1:$$(yas-choose-value (ob-ipython-kernel-get-kernels))}"${3: :dir "data/images"} :file "${2}.png"
 $0
 #+END_SRC

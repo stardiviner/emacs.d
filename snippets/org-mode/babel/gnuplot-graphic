@@ -3,7 +3,7 @@
 # key: babel-gnuplot-graphic
 # group: babel
 # --
-#+BEGIN_SRC gnuplot${2: :var data=${3:table name}} :session none :results graphics :dir "data/images" :file "${1:figure}.png"
+#+BEGIN_SRC gnuplot${2: :var data=${3:table name}} :session none :results graphics${4: :dir "data/images"} :file "${1:figure}.png"
 set term png
 set output '$1.png'
 
