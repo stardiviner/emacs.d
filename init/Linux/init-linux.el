@@ -16,6 +16,12 @@
   )
 
 
+;;; [ helm-systemd ] -- helm interface to control systemd units.
+
+(use-package helm-systemd
+  :ensure t)
+
+
 ;;; [ nginx-mode ]
 
 (use-package nginx-mode
