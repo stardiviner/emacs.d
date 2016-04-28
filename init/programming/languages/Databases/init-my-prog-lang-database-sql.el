@@ -151,6 +151,12 @@
 ;;; [ sql-completion ] -- support MySQL
 
 
+;;; [ ejc-sql ] -- Emacs SQL client uses Clojure JDBC.
+
+(use-package ejc-sql
+  :ensure t)
+
+
 (provide 'init-my-prog-lang-database-sql)
 
 ;;; init-my-prog-lang-database-sql.el ends here
