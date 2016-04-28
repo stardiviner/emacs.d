@@ -320,21 +320,32 @@
 ;; ... call_<name>[<inside header arguments>](<arguments>)[<end header arguments>] ...
 (font-lock-add-keywords
  'org-mode
- '(("\\(call_\\)\\([^[(]*\\)\\(\\[.*\\]\\)\\((.*)\\)\\(\\[.*\\]\\)"
+ '(("\\(call_\\)\\([^[(]*\\)\\[\\(.*\\)\\](\\(.*\\))\\[\\(.*\\)\\]"
     ;; "\\(call_\\)\\([^[(]*\\)\\([([][^)]*]\\)+"
-    (1 '(:foreground "dark red" :height 0.6)) ; call_
-    (2 '(:foreground "yellow" :weight 'bold :slant 'italic :underline "dark red")) ; <name>
+    (1 '(:foreground "orange red" :height 0.6)) ; call_
+    (2 '(:foreground "yellow" :weight 'bold :slant 'italic :underline "dark gray")) ; <name>
     (3 '(:foreground "gray" :height 0.6)) ; [<inside header arguments>]
     (4 '(:foreground "cyan" :weight 'bold)) ; (<arguments>)
     (5 '(:foreground "gray" :height 0.6)) ; [<end header arguments>]
     )))
 
+;; call_<name>[<inside header arguments>](<arguments>)
+(font-lock-add-keywords
+ 'org-mode
+ '(("\\(call_\\)\\([^[(]*\\)\\[\\(.*\\)\\](\\(.*\\))"
+    (1 '(:foreground "orange red" :height 0.6)) ; call_
+    (2 '(:foreground "yellow" :weight 'bold :slant 'italic :underline "dark gray")) ; <name>
+    (3 '(:foreground "gray" :height 0.6)) ; [<inside header argument>]
+    (4 '(:foreground "cyan" :weight 'bold)) ; (<arguments>)
+    )))
+
+
 ;; call_<name>(arguments)
 (font-lock-add-keywords
  'org-mode
  '(("\\(call_\\)\\([^[(]*\\)\\((.*)\\)"
-    (1 '(:foreground "dark red" :height 0.6)) ; call_
-    (2 '(:foreground "yellow" :weight 'bold :slant 'italic :underline "dark red")) ; <name>
+    (1 '(:foreground "orange red" :height 0.6)) ; call_
+    (2 '(:foreground "yellow" :weight 'bold :slant 'italic :underline "dark gray")) ; <name>
     (3 '(:foreground "cyan" :weight 'bold)) ; (<arguments>)
     )))
 
