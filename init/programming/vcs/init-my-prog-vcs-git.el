@@ -41,6 +41,13 @@
 ;;; Keybindings:
 ;; - [C-x g] -- prefix for global git-emacs keybindings.
 
+(use-package gitconfig-mode
+  :ensure t)
+(use-package gitattributes-mode
+  :ensure t)
+(use-package gitignore-mode
+  :ensure t)
+
 (add-to-list 'auto-mode-alist
              '("\\.gitconfig\\'" . gitconfig-mode)
              '("\\.gitignore\\'" . gitignore-mode)
