@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: babel-R-ascii
+# key: babel-R-ascii
+# group: babel
+# --
+#+BEGIN_SRC R :session "*R*" :results output
+library(ascii)
+
+ascii($0)
+#+END_SRC

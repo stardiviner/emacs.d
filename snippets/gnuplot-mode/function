@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: function
+# key: f
+# group: function
+# --
+f(${1:x}) = $0

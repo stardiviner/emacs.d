@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: babel R
-# key: babel-R
+# name: babel-R-plot
+# key: babel-R-plot
 # --
 #+NAME: ${1:babel name}
 #+BEGIN_SRC R :session "*R*" :dir "data/images" :results graphics :file "${2:filename}.png"
