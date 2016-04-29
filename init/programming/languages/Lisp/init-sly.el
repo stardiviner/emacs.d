@@ -87,6 +87,7 @@
                   ))
     (add-hook hook
               (lambda ()
+                (sly-company-mode 1)
                 (my-company-add-backend-locally 'sly-company)
                 )))
   )
