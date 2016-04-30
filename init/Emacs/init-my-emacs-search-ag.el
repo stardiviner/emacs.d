@@ -50,6 +50,8 @@
   :commands ag
   :config
   (setq ag-highlight-search t
+        ag-group-matches t
+        ;; ag-context-lines nil
         ag-reuse-buffers 't
         ag-reuse-window nil ; nil, or 't. (I use value `nil' for popwin to capture)
         ;; ag-arguments
