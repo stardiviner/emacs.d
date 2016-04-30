@@ -17,7 +17,7 @@
   
   ;; (setq engine/browser-function)
 
-  (engine/set-keymap-prefix (kbd "C-c /"))
+  (engine/set-keymap-prefix (kbd "C-x /"))
 
   ;; general search engines
   (defengine google
