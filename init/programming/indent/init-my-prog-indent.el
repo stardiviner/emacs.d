@@ -195,6 +195,9 @@
   (add-to-list 'aggressive-indent-dont-electric-modes 'inf-ruby-mode)
   (add-to-list 'aggressive-indent-dont-electric-modes 'python-mode)
   (add-to-list 'aggressive-indent-dont-electric-modes 'haskell-mode)
+  (add-to-list 'aggressive-indent-dont-electric-modes 'lua-mode)
+
+  (add-to-list 'aggressive-indent-dont-electric-modes 'makefile-mode)
   
   ;; (global-aggressive-indent-mode)
   ;; or
