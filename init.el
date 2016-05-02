@@ -320,6 +320,10 @@
 ;; (require 'init-my-math)
 
 
+;;; Games
+(require 'init-my-games)
+
+
 ;;; at the end!!!
 
 (require 'init-my-startup)
