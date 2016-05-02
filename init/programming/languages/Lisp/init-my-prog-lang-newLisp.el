@@ -1,4 +1,4 @@
-;;; init-my-prog-lang-lisp-newlisp.el --- init for newLisp
+;;; init-my-prog-lang-lisp-newLisp.el --- init for newLisp
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -43,6 +43,6 @@
   )
 
 
-(provide 'init-my-prog-lang-lisp-newlisp)
+(provide 'init-my-prog-lang-lisp-newLisp)
 
-;;; init-my-prog-lang-lisp-newlisp.el ends here
+;;; init-my-prog-lang-lisp-newLisp.el ends here
