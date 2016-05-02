@@ -248,6 +248,7 @@
 (require 'init-my-prog-lang-common-lisp)
 (require 'init-my-prog-lang-lisp-scheme)
 ;; (require 'init-my-prog-lang-lisp-newlisp)
+;; (require 'init-my-prog-lang-shen)
 (require 'init-my-prog-lang-clojure)
 (require 'init-my-prog-lang-ruby)
 (require 'init-my-prog-lang-python)
