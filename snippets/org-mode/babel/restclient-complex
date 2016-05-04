@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: babel-restclient-complex
+# key: babel-restclient-complex
+# group: babel
+# --
+#+BEGIN_SRC restclient${2: :var term="${3:QUERY}"}
+${1:$$(yas-choose-value '("GET" "POST" "PUT" "PATCH" "DELETE"))} ${4:http|https}://$0 /$3
+${5:Data:
+     ${6:var = value}}
+#+END_SRC

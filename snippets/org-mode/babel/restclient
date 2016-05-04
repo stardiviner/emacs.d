@@ -3,6 +3,6 @@
 # key: babel-restclient
 # group: babel
 # --
-#+BEGIN_SRC restclient${1: :var term="${2:QUERY}"}
-GET http://$0 $2
+#+BEGIN_SRC restclient
+${1:$$(yas-choose-value '("GET" "POST" "PUT" "PATCH" "DELETE"))} $0
 #+END_SRC

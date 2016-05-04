@@ -6,5 +6,5 @@
 #+BEGIN_SRC R :session "*R*" :results output
 library(ascii)
 
-ascii($0)
+print(ascii($0))
 #+END_SRC
