@@ -56,8 +56,8 @@
   :config
   (add-hook 'restclient-mode-hook
             (lambda ()
-              (add-to-list (make-local-variable 'company-backends)
-                           'company-restclient)))
+              (my-company-add-backend-locally 'company-restclient)
+              ))
   )
 
 
@@ -82,8 +82,8 @@
 
   (add-hook 'httprepl-mode-hook
             (lambda ()
-              (add-to-list (make-local-variable 'company-backends)
-                           'company-restclient)))
+              (my-company-add-backend-locally 'company-restclient)
+              ))
   )
 
 
