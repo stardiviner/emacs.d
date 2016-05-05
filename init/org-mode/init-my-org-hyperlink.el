@@ -140,7 +140,9 @@ With prefix argument, also display headlines without a TODO keyword."
 
 ;; [C-c C-l] insert link completion.
 (setq org-link-abbrev-alist
-      '(("RFC" . "https://www.rfc-editor.org/search/rfc_search_detail.php?rfc=%s")
+      '(
+        ("RFC" . "https://datatracker.ietf.org/doc/rfc%s")
+        ;; ("RFC" . "https://www.rfc-editor.org/search/rfc_search_detail.php?rfc=%s")
         ;; search engines
         ("Google" . "http://www.google.com/search?q=%s")
         ("google" . "http://www.google.com/search?q=%s")
