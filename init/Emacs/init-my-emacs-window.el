@@ -292,11 +292,11 @@
   ;; (push '("*Org Note" :position bottom :height 10) popwin:special-display-config)
   ;; (push '("*Org tags*" :position bottom) popwin:special-display-config)
   ;; (push '("*Agenda Commands*" :position bottom) popwin:special-display-config)
-  ;; (push '("*Org Agenda*" :position bottom :height 20) popwin:special-display-config)
 
-  (push '("*Org Agenda*" :height 15) popwin:special-display-config)
+  ;; (push '("*Org Agenda*" :width 50 :position left) popwin:special-display-config)
+  (push '("*Org Agenda*" :height 0.2 :position bottom) popwin:special-display-config)
   (push '("*Org Select*" :height 0.2 :noselect nil :stick t) popwin:special-display-config)
-  (push '("^CAPTURE-.+\*.org$" :regexp t) popwin:special-display-config)
+  (push '("^CAPTURE-.+\*.org$" :position left :regexp t) popwin:special-display-config)
   
   (push '("*Org-Babel Error Output*" :position bottom :height 8 :noselect t) popwin:special-display-config)
   (push '("*Org-Babel Results*" :position bottom :height 8 :noselect t) popwin:special-display-config)
