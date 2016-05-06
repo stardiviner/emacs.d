@@ -30,29 +30,30 @@
 ;;; [ Eclim ]
 
 (use-package emacs-eclim
-  :ensure t)
+  :ensure t
+  :config
+  ;; Control `eclimd' from emacs
+  (require 'eclimd)
 
-;; Control `eclimd' from emacs
-(require 'eclimd)
+  (setq eclimd-default-workspace "~/Projects/Eclipse"
+        ;; eclim-executable
+        eclimd-executable "~/.eclipse/org.eclipse.platform_4.5.1_155965261_linux_gtk_x86_64/eclimd"
+        ;; eclimd-port 45620
+        eclimd-wait-for-process t)
 
-(setq eclimd-default-workspace "~/Projects/Eclipse"
-      ;; eclim-executable
-      eclimd-executable "~/.eclipse/org.eclipse.platform_4.5.1_155965261_linux_gtk_x86_64/eclimd"
-      ;; eclimd-port 45620
-      eclimd-wait-for-process t)
+  ;; for company-mode
+  (require 'company-emacs-eclim)
 
-;; for company-mode
-(require 'company-emacs-eclim)
+  ;; (company-emacs-eclim-setup)
+  (add-hook 'java-mode-hook
+            (lambda ()
+              (eclim-mode 1)
+              (my-company-add-backend-locally 'company-emacs-eclim)
+              (local-set-key (kbd "C-M-i") 'company-complete)
+              ))
 
-;; (company-emacs-eclim-setup)
-(add-hook 'java-mode-hook
-          (lambda ()
-            (eclim-mode 1)
-            (my-company-add-backend-locally 'company-emacs-eclim)
-            (local-set-key (kbd "C-M-i") 'company-complete)
-            ))
-
-;; (global-eclim-mode t)
+  ;; (global-eclim-mode t)
+  )
 
 
 ;;; [ javadoc-lookup ]
