@@ -287,6 +287,9 @@ This can be useful for snippets to select kernel interactively."
 (add-to-list 'org-babel-default-header-args:sh
              '(:results . "output"))
 
+(add-to-list 'org-babel-default-header-args:ruby
+             '(:results . "output"))
+
 (setq org-babel-default-header-args:R
       '((:session . "*R*")
         (:exports . "both")
