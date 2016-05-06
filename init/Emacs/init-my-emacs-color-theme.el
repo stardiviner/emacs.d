@@ -86,6 +86,12 @@
 ;;   )
 
 
+;;; [ darkokai-theme ] -- A darker variant on Monokai.
+
+;; (use-package darkokai-theme
+;;   :ensure t)
+
+
 ;;; custom faces
 
 (set-face-attribute 'font-lock-function-name-face nil
