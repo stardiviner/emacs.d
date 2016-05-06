@@ -98,6 +98,12 @@
   )
 
 
+;;; [ ob-php ] -- execute PHP within org-mode blocks.
+
+(use-package ob-php
+  :ensure t)
+
+
 (provide 'init-my-prog-lang-php)
 
 ;;; init-my-prog-lang-php.el ends here
