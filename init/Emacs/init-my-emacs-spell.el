@@ -166,12 +166,13 @@ be global."
   )
 
 
-;;; [ flyspell-popup ] -- Correct the misspelled word with flyspell in popup menu.
+;;; [ flyspell-correct ] -- correcting words with flyspell via custom interface.
 
-(use-package flyspell-popup
+(use-package flyspell-correct
   :ensure t
   :config
-  (define-key flyspell-mode-map (kbd "C-;") #'flyspell-popup-correct)
+  (setq flyspell-correct-interface 'flyspell-correct-popup)
+  (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-word-generic)
   )
 
 
