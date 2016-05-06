@@ -279,6 +279,7 @@
   (setq web-mode-enable-auto-expanding t)
   ;; HTML
   (add-to-list 'web-mode-expanders '("P/" . "<p>\n | \n</p>"))
+  (add-to-list 'web-mode-expanders '("B/" . "<br />\n|"))
   ;; Ruby
   (add-to-list 'web-mode-expanders '("r/" . "<%= | %>")) ; ruby erb: <%= | %>.
   (add-to-list 'web-mode-expanders '("%/" . "<%= | %>")) ; ruby erb: <%= | %>.
