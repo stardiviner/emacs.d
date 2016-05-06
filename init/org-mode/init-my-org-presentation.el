@@ -63,6 +63,10 @@
 
   (define-key my-org-prefix (kbd "p") 'org-tree-slide-mode)
   ;; (global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
+
+  (define-key org-tree-slide-mode-map (kbd "C-SPC") 'org-tree-slide-move-next-tree)
+  ;; (define-key org-tree-slide-mode-map (kbd "SPC") 'org-tree-slide-move-next-tree)
+  (define-key org-tree-slide-mode-map (kbd "S-SPC") 'org-tree-slide-move-previous-tree)
   )
 
 
