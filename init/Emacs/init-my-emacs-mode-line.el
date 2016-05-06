@@ -41,10 +41,10 @@
 ;; (spinner-start 'triangle)
 
 ;; redtick
-(use-package redtick
-  :ensure t
-  :config
-  (redtick-mode))
+;; (use-package redtick
+;;   :ensure t
+;;   :config
+;;   (redtick-mode))
 
 (setq-default
  mode-line-format
@@ -257,18 +257,18 @@
    ;;  )
 
    ;; redtick
-   (:eval
-    (if (and redtick-mode
-             (redtick--selected-window-p))
-        ;; `redtick--current-bar'
-        (propertize " ⏳ "
-                    'face '(:foreground "yellow" :weight bold)
-                    'help-echo '(redtick--popup-message
-                                 redtick--pomodoro-started-at)
-                    'pointer 'hand
-                    'local-map (make-mode-line-mouse-map 'mouse-1 'redtick)
-                    ))
-    )
+   ;; (:eval
+   ;;  (if (and redtick-mode
+   ;;           (redtick--selected-window-p))
+   ;;      ;; `redtick--current-bar'
+   ;;      (propertize " ⏳ "
+   ;;                  'face '(:foreground "yellow" :weight bold)
+   ;;                  'help-echo '(redtick--popup-message
+   ;;                               redtick--pomodoro-started-at)
+   ;;                  'pointer 'hand
+   ;;                  'local-map (make-mode-line-mouse-map 'mouse-1 'redtick)
+   ;;                  ))
+   ;;  )
    
    ;; --------------------------- right align ----------------------------------
    
