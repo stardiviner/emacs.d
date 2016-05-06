@@ -75,7 +75,9 @@
               (my-company-add-backend-locally 'company-ac-php-backend)
 
               ;; auto-complete
-              ;; (setq ac-sources  '(ac-source-php))
+              ;; (setq ac-sources '(ac-source-php))
+
+              (smartparens-mode 1)
               ))
   
   ;; keybindings
