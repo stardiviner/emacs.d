@@ -73,14 +73,14 @@
 
 (add-to-list 'org-capture-templates
              '("C" "Contacts"
-               entry (file "~/Org/Contacts/Contacts.org")
+               entry (file+headline "~/Org/Contacts/Contacts.org" "Meet")
                "* %(org-contacts-template-name)
 :PROPERTIES:
 :NAME: %^{Name}
 :NAME(Chinese): %^{Name(Chinese)}
 :NAME(English): %^{Name(English)}
 :NICK: %^{Nick}
-:ICON: %^{ICON}.jpg
+:ICON: %^{ICON.jpg}
 :BIRTHDAY: %^{Birthday}
 :GENDER: %^{Gender|Male|Female}
 :Sexual: %^{Sexual|Heterosexual|Bisexual|Homosexual}
