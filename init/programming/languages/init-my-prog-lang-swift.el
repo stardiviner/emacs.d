@@ -46,6 +46,13 @@
   )
 
 
+;;; [ ob-swift ]
+
+(use-package ob-swift
+  :ensure t
+  )
+
+
 (provide 'init-my-prog-lang-swift)
 
 ;;; init-my-prog-lang-swift.el ends here
