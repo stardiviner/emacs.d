@@ -79,7 +79,8 @@
   
   :config
   ;; Caching: nil, (* 10 60) [10 minutes],
-  (setq projectile-enable-caching t
+  (setq projectile-enable-caching nil ; nil: disable caching to fix TRAMP hang
+                                        ; on sending password
         ;; remote file exists cache expire to 10 minutes
         projectile-file-exists-remote-cache-expire '(* 30 60)
         )
@@ -105,14 +106,17 @@
   ;; (add-to-list projectile-globally-ignored-files)
 
 
+  ;; custom default projectile mode-line :lighter for my custom mode-line format.
+  (setq projectile-mode-line " Projectile") ; fix TRAMP hang on sending password.
   ;; Toggle `projectile-mode'
-  (projectile-global-mode +1)
+  ;; (projectile-global-mode)
   ;; OR
-  ;; (dolist (hook
-  ;;          '(prog-mode-hook
-  ;;            ))
-  ;;   (add-hook hook 'projectile-on))
+  (dolist (hook
+           '(prog-mode-hook
+             ))
+    (add-hook hook 'projectile-mode))
 
+  
   ;; [ redefine projectile keybindings ]
   ;;
   ;; (unless (boundp 'my-projectile-keymap-prefix)
