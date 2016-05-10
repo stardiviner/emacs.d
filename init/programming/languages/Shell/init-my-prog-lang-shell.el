@@ -9,7 +9,8 @@
 
 ;;; [ shell-script-mode (`sh-mode') ]
 
-(setq sh-indentation 2)
+(setq sh-indentation 2
+      sh-basic-offset 2)
 
 
 ;;; [ Bash ]
