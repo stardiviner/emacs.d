@@ -78,41 +78,6 @@
 ;;                  (define-key text-mode-map `[,punc] 'my-electric-punctuation)))))
 
 
-;;; [ predictive-mode ] -- tries to predict the rest of the word, and offers you an appropriate completion.
-
-;; (use-package predictive
-;;   :ensure t
-;;   :config
-;;   )
-
-;; ;;; ### Predictive ###
-;; ;;; --- 英语助手
-;; (set-default 'predictive-auto-add-to-dict t) ;自动加入词典
-;; (setq predictive-add-to-dict-ask nil)        ;加入词典不询问
-;; (setq predictive-auto-learn t)               ;自动学习
-;; (setq predictive-completion-speed 0.1)       ;查找补全的速度(秒)
-;; (setq completion-auto-show-delay 0.5)        ;弹出补全tooltip的延迟(秒)
-;; (dolist (hook (list
-;;                'erc-mode-hook
-;;                'rcirc-mode-hook
-;;                'message-mode-hook
-;;                'yaoddmuse-mode-hook
-;;                ))
-;;   (add-hook hook '(lambda () (predictive-mode 1))))
-
-;; (lazy-unset-key
-;;  '("TAB")
-;;  completion-dynamic-map)                ;卸载按键
-;; (lazy-set-key
-;;  '(
-;;    ("M-h" . completion-accept)          ;接受辅助补全
-;;    ("M-H" . completion-reject)          ;拒绝辅助补全
-;;    )
-;;  completion-map
-;;  )
-
-
-
 (provide 'init-my-language-english)
 
 ;;; init-my-language-english.el ends here
