@@ -245,11 +245,7 @@
   :init
   (add-to-list 'auto-mode-alist '("\\.tern-project\\'" . json-mode))
   :config
-  ;; (setq tern-known-port
-  ;;       tern-server
-  ;;       tern-explicit-port
-  ;;       tern-project-dir
-  ;;       )
+  (define-key my-prog-help-document-map (kbd "d") 'tern-get-docs)
   )
 
 
