@@ -94,11 +94,6 @@
   ;; test
   (setq projectile-create-missing-test-files t)
 
-  ;; custom default projectile mode-line :lighter for my custom mode-line format.
-  (setq projectile-mode-line '(:eval
-                               (format "(%s)" ; " Projectile/>[%s]"
-                                       (projectile-project-name))))
-
   ;; ignored projects.
   ;; (add-to-list projectile-globally-ignored-modes)
   ;; (add-to-list projectile-globally-ignored-directories)
