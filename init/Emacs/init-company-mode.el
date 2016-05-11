@@ -65,7 +65,7 @@
 \(my-company-add-backend-locally 'company-robe\)
 "
     (if (local-variable-if-set-p 'company-backends)
-        (add-to-list 'company-backends backend)
+        (add-to-list 'company-backends `(,backend :with company-yasnippet))
       (add-to-list (make-local-variable 'company-backends)
                    `(,backend :with company-yasnippet))
       ))
