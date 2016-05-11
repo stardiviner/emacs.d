@@ -253,7 +253,11 @@
 
 (use-package company-tern
   :ensure t
-  :init
+  :config
+  (setq company-tern-property-marker "" ; " ○"
+        company-tern-meta-as-single-line t
+        )
+  
   (dolist (hook '(js-mode-hook
                   js2-mode-hook
                   js3-mode-hook
@@ -266,12 +270,6 @@
               ;; tern-mode auto push `tern-completion-at-point' to `capf'.
               (my-company-add-backend-locally 'company-tern)
               ))
-  
-  :config
-  (setq
-   company-tern-property-marker "" ; " ○"
-   company-tern-meta-as-single-line t
-   )
   )
 
 
