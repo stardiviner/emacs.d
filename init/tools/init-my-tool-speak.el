@@ -60,6 +60,18 @@
 (define-key speak-map (kbd "i") 'festival-say)
 
 
+;;; [ say-what-im-doing ] -- dictate what you're doing with text to speech.
+
+(use-package say-what-im-doing
+  :ensure t
+  :config
+  (setq say-what-im-doing-shell-command "espeak")
+  (add-to-list 'say-what-im-doing-common-commands 'move-beginning-of-line)
+  (add-to-list 'say-what-im-doing-common-commands 'move-end-of-line)
+  ;; (say-what-im-doing-mode)
+  )
+
+
 (provide 'init-my-tool-speak)
 
 ;;; init-my-tool-speak.el ends here
