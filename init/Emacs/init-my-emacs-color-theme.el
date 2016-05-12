@@ -89,7 +89,10 @@
 ;;; [ darkokai-theme ] -- A darker variant on Monokai.
 
 ;; (use-package darkokai-theme
-;;   :ensure t)
+;;   :ensure t
+;;   :config
+;;   (load-theme 'darkokai t)
+;;   )
 
 
 ;;; custom faces
