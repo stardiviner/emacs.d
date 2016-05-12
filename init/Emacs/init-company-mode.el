@@ -12,9 +12,9 @@
 (use-package company
   :ensure t
   :config
-  (setq company-minimum-prefix-length 2
+  (setq company-minimum-prefix-length 3
         ;; decrease this delay when you can type code continuously fast.
-        company-idle-delay 0.05
+        company-idle-delay 0.2
         ;; determines when to auto-complete.
         ;; 'company-explicit-action-p, t, nil, 'function
         ;; company-auto-complete nil
