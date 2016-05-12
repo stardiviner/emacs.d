@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: ajax
+# key: ajax
+# group: ajax
+# --
+var xhr = new XMLHttpRequest();
+$0

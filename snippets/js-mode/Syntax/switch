@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: switch
+# key: switch
+# group: syntax
+# --
+switch (${1:expression}) {
+  case ${2:value1}:
+    ${3:[break;]}
+  case ${4:value2}:
+    $0
+  ${5:default:
+    ${6}}
+}
