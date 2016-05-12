@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: babel-pacman
-# key: babel-pacman
+# name: babel-install-arch
+# key: babel-install-arch
 # group: babel
 # --
 #+BEGIN_SRC sh :dir /sudo:: :results none
