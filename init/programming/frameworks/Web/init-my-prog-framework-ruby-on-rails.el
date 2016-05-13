@@ -97,9 +97,11 @@
 
   (defun my-projectile-rails-setup ()
     (my-company-add-backend-locally 'company-robe)
-    
+
+    ;; optimize Rails company-robe completion.
+    (setq-local company-minimum-prefix-length 4)
     ;; `nil': disable auto complete, manually.
-    (setq-local company-idle-delay .3)
+    (setq-local company-idle-delay 0.2)
 
     (defun rails-open-browser-development ()
       "Browse Rails development url."
