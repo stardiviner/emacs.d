@@ -65,7 +65,9 @@
 (use-package say-what-im-doing
   :ensure t
   :config
-  (setq say-what-im-doing-shell-command "espeak")
+  (setq say-what-im-doing-shell-command (if (executable-find "mimic")
+                                            "mimic -t"
+                                          "espeak"))
   (add-to-list 'say-what-im-doing-common-commands 'move-beginning-of-line)
   (add-to-list 'say-what-im-doing-common-commands 'move-end-of-line)
   ;; (say-what-im-doing-mode)
