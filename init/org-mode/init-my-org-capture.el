@@ -71,6 +71,12 @@
          entry (file+olp "~/Org/Projects/Code.org" "Features")
          "\n* FEATURE %^{Feature}\n\n%i\n\n%?\n\n"
          :empty-lines 1)
+
+        ;; code snippets
+        ("s" "Code Snippet" entry
+         (file (concat org-directory "/Code Snippets/snippets.org"))
+         ;; Prompt for tag and language
+         "* %?%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
         ))
 
 
