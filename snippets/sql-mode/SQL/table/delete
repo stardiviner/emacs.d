@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: table-delete
+# key: table-delete
+# group: table
+# --
+DELETE FROM ${1:table} WHERE $0;

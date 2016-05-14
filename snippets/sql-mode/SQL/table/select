@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: table-select
+# key: table-select
+# group: table
+# --
+SELECT ${1:column} FROM ${2:table} WHERE $0;

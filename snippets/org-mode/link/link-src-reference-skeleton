@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: link-src-reference-skeleton
+# key: link-src-reference-skeleton
+# group: link
+# --
+#+BEGIN_SRC ${1} -n -r
+$0 (ref:${2})
+#+END_SRC
+
+[[($2)]${3:[(link annotation)]}]

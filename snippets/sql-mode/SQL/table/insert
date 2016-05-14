@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: table-insert
+# key: table-insert
+# group: table
+# --
+INSERT INTO ${1:table} (${2:columns,}) VALUES
+    (${3:values,});

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: table-update
+# key: table-update
+# group: table
+# --
+UPDATE ${1:table} SET ${2:column} = ${3:value} WHERE $0;
