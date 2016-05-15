@@ -125,46 +125,6 @@
   )
 
 
-;;; [ markdown-preview-eww ]
-
-(use-package markdown-preview-eww
-  :ensure t)
-
-
-;;; [ markdown-preview-mode ]
-
-(use-package markdown-preview-mode
-  ;; :ensure t
-  :config
-  ;; enable MultiMarkdown support
-  ;; (setq markdown-command "multimarkdown")
-
-  ;; custom css theme
-  (setq markdown-preview-style ""http://thomasf.github.io/solarized-css/solarized-dark.min.css"")
-
-  ;; websocket.el port
-  ;; (setq markdown-preview-port 7379)
-
-  ;; (set-face-attribute 'markdown-pre-face nil
-  ;;                     :inherit 'font-lock-constant-face
-  ;;                     )
-
-  (define-key markdown-mode-map (kbd "C-c C-k") 'markdown-preview-mode)
-  )
-
-
-;;; [ realtime-preview ] -- realtime preview markdown by EWW.
-
-;;; Usage:
-;;
-;; 1. open markdown file
-;; 2. [M-x realtime-preview]
-
-;; (require 'realtime-preview)
-;;
-;; (add-hook 'markdown-mode-hook 'realtime-preview)
-
-
 ;;; [ flymd ] -- Emacs on the fly markdown preview.
 
 (use-package flymd
