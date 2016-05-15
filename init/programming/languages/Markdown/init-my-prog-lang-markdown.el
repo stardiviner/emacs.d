@@ -165,6 +165,12 @@
 ;; (add-hook 'markdown-mode-hook 'realtime-preview)
 
 
+;;; [ flymd ] -- Emacs on the fly markdown preview.
+
+(use-package flymd
+  :ensure t)
+
+
 
 (provide 'init-my-prog-lang-markdown)
 
