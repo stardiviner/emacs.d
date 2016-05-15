@@ -298,7 +298,7 @@
  'org-mode
  '(("\\(src_\\)\\([^[{]+\\)\\(\\[:.*\\]\\)\\({\\)\\([^}]*\\)\\(}\\)"
     (1 '(:foreground "black" :weight 'normal :height 0.1)) ; src_ part
-    (2 '(:foreground "cyan" :weight 'bold :height 0.7 :underline "red")) ; "lang" part.
+    (2 '(:foreground "cyan" :weight 'bold :height 0.8 :box '(:color "cyan"))) ; "lang" part.
     (3 '(:foreground "#555555" :height 0.7)) ; [:header arguments] part.
     (4 '(:foreground "#333333")) ; {
     (5 'org-code) ; "code..." part.
@@ -310,7 +310,7 @@
  'org-mode
  '(("\\(src_\\)\\([^[{]+\\)\\({\\)\\([^}]*\\)\\(}\\)"
     (1 '(:foreground "black" :weight 'normal :height 0.1)) ; src_ part
-    (2 '(:foreground "cyan" :weight 'bold :height 0.8 :underline "red")) ; "lang" part.
+    (2 '(:foreground "cyan" :weight 'bold :height 0.8 :box '(:color "cyan"))) ; "lang" part.
     (3 '(:foreground "#333333")) ; {
     (4 'org-code) ; "code..." part.
     (5 '(:foreground "#333333")) ; }
