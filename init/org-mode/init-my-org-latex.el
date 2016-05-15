@@ -18,8 +18,9 @@
 ;; config org latex preview style
 (setq org-latex-create-formula-image-program 'dvipng
       ;; org-latex-preview-ltxpng-directory "ltxpng/"
+      ;; set latex fragment preview image size
       org-format-latex-options (plist-put
-                                org-format-latex-options :scale 1.5)
+                                org-format-latex-options :scale 2.0)
       org-format-latex-options (plist-put
                                 org-format-latex-options :html-scale 2.0)
       )
