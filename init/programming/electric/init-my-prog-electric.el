@@ -10,10 +10,10 @@
 
 ;; (electric-indent-mode 1)
 
-;; (require 'init-my-paredit)
-;; (require 'init-my-paxedit)
-(require 'init-my-smartparens)
-;; (require 'init-my-autopair)
+;; (require 'init-paredit)
+;; (require 'init-paxedit)
+(require 'init-smartparens)
+;; (require 'init-autopair)
 
 (require 'init-my-rainbow)
 

@@ -1,4 +1,4 @@
-;;; init-my-paredit.el --- init ParEdit
+;;; init-paredit.el --- init ParEdit
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -65,6 +65,6 @@
   )
 
 
-(provide 'init-my-paredit)
+(provide 'init-paredit)
 
-;;; init-my-paredit.el ends here
+;;; init-paredit.el ends here

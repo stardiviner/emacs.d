@@ -1,4 +1,4 @@
-;;; init-my-paxedit.el --- init for paxedit.
+;;; init-paxedit.el --- init for paxedit.
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -14,6 +14,6 @@
   )
 
 
-(provide 'init-my-paxedit)
+(provide 'init-paxedit)
 
-;;; init-my-paxedit.el ends here
+;;; init-paxedit.el ends here

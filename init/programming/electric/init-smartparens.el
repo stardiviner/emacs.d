@@ -1,4 +1,4 @@
-;;; init-my-smartparens.el --- init smartparens
+;;; init-smartparens.el --- init smartparens
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -199,7 +199,6 @@
   )
 
 
-;;;_ provide init
-(provide 'init-my-smartparens)
+(provide 'init-smartparens)
 
-;;; init-my-smartparens.el ends here
+;;; init-smartparens.el ends here

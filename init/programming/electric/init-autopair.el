@@ -1,4 +1,4 @@
-;;; init-my-autopair.el --- init autopair
+;;; init-autopair.el --- init autopair
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -93,6 +93,6 @@
   )
 
 
-(provide 'init-my-autopair)
+(provide 'init-autopair)
 
-;;; init-my-autopair.el ends here
+;;; init-autopair.el ends here
