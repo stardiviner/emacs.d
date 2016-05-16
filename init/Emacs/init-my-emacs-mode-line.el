@@ -208,6 +208,13 @@
    ;;     )
    ;;   'face '(:foreground "cyan")))
 
+   ;; projectile-rails-mode
+   (:eval
+    (when (eq projectile-rails-mode t)
+      (propertize (format " Rails ")
+                  'face '(:foreground "red")))
+    )
+   
    ;; org-tree-slide slide number
    ;; (:eval
    ;;  (when (org-tree-slide--active-p)
