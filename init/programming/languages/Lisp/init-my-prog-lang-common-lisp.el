@@ -51,8 +51,8 @@
 
 
 
-;; (require 'init-slime)
-(require 'init-sly)
+(require 'init-slime)
+;; (require 'init-sly)
 
 
 (provide 'init-my-prog-lang-common-lisp)
