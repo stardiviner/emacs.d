@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: table-association
+# key: table-association
+# group: table
+# --
+SELECT ${1:columns: articles.id, title, name} FROM ${2:table1: articles}
+    JOIN ${3:table2: authors} ON $2.${4:foreign key} = $3.${5:primary key};

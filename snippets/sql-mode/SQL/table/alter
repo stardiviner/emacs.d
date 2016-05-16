@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: table-alter
+# key: table-alter
+# group: table
+# --
+ALTER TABLE ${1:table} ${2:ADD COLUMN ${3:column} ${4:type}};

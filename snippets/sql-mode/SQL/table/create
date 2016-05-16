@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: table-create
+# key: table-create
+# group: table
+# --
+CREATE TABLE "${1:table}"
+    ("${2:id}" ${3:INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL},
+        "${3:column}" ${4:type});
