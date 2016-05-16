@@ -163,17 +163,17 @@
                       )
 
   ;; use `smartparens-strict-mode' to replace `paredit-mode'.
-  (dolist (hook
-           '(clojure-mode-hook
-             cider-repl-mode-hook
-             emacs-lisp-mode-hook
-             ;; eval-expression-minibuffer-setup-hook ; config in minibuffer init file.
-             ielm-mode-hook ; inferior-emacs-lisp-mode-hook
-             lisp-mode-hook
-             lisp-interaction-mode-hook
-             scheme-mode-hook
-             ))
-    (add-hook hook 'turn-on-smartparens-strict-mode))
+  ;; (dolist (hook
+  ;;          '(clojure-mode-hook
+  ;;            cider-repl-mode-hook
+  ;;            emacs-lisp-mode-hook
+  ;;            ;; eval-expression-minibuffer-setup-hook ; config in minibuffer init file.
+  ;;            ielm-mode-hook ; inferior-emacs-lisp-mode-hook
+  ;;            lisp-mode-hook
+  ;;            lisp-interaction-mode-hook
+  ;;            scheme-mode-hook
+  ;;            ))
+  ;;   (add-hook hook 'turn-on-smartparens-strict-mode))
 
   (sp-local-pair 'minibuffer-inactive-mode "'" nil :actions nil)
 

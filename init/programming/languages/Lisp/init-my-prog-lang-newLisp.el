@@ -21,9 +21,6 @@
                 (make-local-variable 'completion-at-point-functions)
                 (add-to-list 'completion-at-point-functions
                              'newlisp-completion-at-point)
-
-                (paredit-mode 1)
-                (eldoc-mode 1)
                 ))
   
   ;; setup `*newlisp*' buffer (`comint-mode' of newLisp)
@@ -31,7 +28,8 @@
     (if (equal (buffer-name) "*newlisp*")
         (progn
           (eldoc-mode t)
-          (paredit-mode t)
+          ;; (paredit-mode t)
+          (smartparens-strict-mode 1)
 
           ;; for `company-mode' backend `company-capf'
           (make-local-variable 'completion-at-point-functions)

@@ -72,7 +72,8 @@
   ;; setup SLY REPL buffer
   (add-hook 'sly-mrepl-mode-hook
             (lambda ()
-              (paredit-mode 1)
+              ;; (paredit-mode 1)
+              (smartparens-strict-mode 1)
               (eldoc-mode 1)))
   )
 

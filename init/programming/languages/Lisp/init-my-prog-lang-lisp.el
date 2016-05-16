@@ -35,6 +35,8 @@
 ;;; Common Settings for All Lisp dialects
 (use-package paredit
   :ensure t)
+(use-package smartparens
+  :ensure t)
 (use-package rainbow-delimiters
   :ensure t)
 (use-package hl-sexp
@@ -43,7 +45,9 @@
   :ensure t)
 (hook-modes lisp-dialects-mode
   (rainbow-delimiters-mode-enable)
-  (enable-paredit-mode)
+  ;; (enable-paredit-mode)
+  (turn-on-smartparens-strict-mode)
+  ;; (smartparens-strict-mode 1)
   (hl-sexp-mode 1)
   (eldoc-mode 1)
   (company-mode-on)
