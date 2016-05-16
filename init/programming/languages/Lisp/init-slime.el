@@ -67,9 +67,12 @@
     (add-hook hook 'slime-mode))
   
   ;; SLIME REPL buffer
-  (add-hook 'slime-repl-mode-hook 'slime-mode)
-  (add-hook 'slime-repl-mode-hook 'eldoc-mode)
-
+  (add-hook 'slime-repl-mode-hook
+            (lambda ()
+              (slime-mode 1)
+              (eldoc-mode 1)
+              (smartparens-strict-mode 1)))
+  
   ;; setup `*inferior-lisp*' buffer (`comint-mode' of SBCL)
   (defun slime-sbcl-inferior-lisp-buffer-setup ()
     (if (equal (buffer-name) "*inferior-lisp*")
