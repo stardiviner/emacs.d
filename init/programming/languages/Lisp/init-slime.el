@@ -199,27 +199,6 @@
 ;; (define-minor-mode slime-apropos-minor-mode "")
 
 
-;;; Integrate yas/expend to TAB key
-
-;;; slime-indent-and-complete-symbol is a good function to bind to TAB key, but
-;;; if you use Yasnippet, you can let TAB do indent, complete and yas/expand.
-
-;; (defun slime-tab ()
-;;   "slime-mode tab dwim, either indent, complete symbol or yas/expand"
-;;   (interactive)
-;;   (let ((r (slime-indent-and-complete-symbol)))
-;;     (unless r
-;;       (yas/expand))))
-
-;; (defun my-slime-mode-hook ()
-;;   (interactive)
-;;   (define-key slime-mode-map (kbd "<tab>")
-;;     'slime-tab)
-;;   )
-;; (add-hook 'slime-mode-hook 'my-slime-mode-hook)
-
-
-
 (provide 'init-slime)
 
 ;;; init-slime.el ends here
