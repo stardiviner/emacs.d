@@ -41,16 +41,12 @@
   :ensure t)
 (use-package hl-sexp
   :ensure t)
-(use-package company
-  :ensure t)
 (hook-modes lisp-dialects-mode
-  (rainbow-delimiters-mode-enable)
-  ;; (enable-paredit-mode)
-  (turn-on-smartparens-strict-mode)
-  ;; (smartparens-strict-mode 1)
+  (rainbow-delimiters-mode 1)
+  ;; (paredit-mode 1)
+  (smartparens-strict-mode 1)
   (hl-sexp-mode 1)
   (eldoc-mode 1)
-  (company-mode-on)
   )
 
 (setq inferior-lisp-program "sbcl")

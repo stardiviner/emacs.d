@@ -78,6 +78,7 @@
     (if (equal (buffer-name) "*inferior-lisp*")
         (progn
           (eldoc-mode 1)
+          (smartparens-strict-mode 1)
           (slime-mode 1)
           (my-company-add-backend-locally 'company-slime)
           )))
