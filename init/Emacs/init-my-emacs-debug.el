@@ -264,7 +264,8 @@ LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
 
 ;;; [ bug-hunter ] -- Hunt down errors in elisp files.
 
-(use-package bug-hunter)
+(use-package bug-hunter
+  :ensure t)
 
 
 
