@@ -245,7 +245,11 @@
   :init
   (add-to-list 'auto-mode-alist '("\\.tern-project\\'" . json-mode))
   :config
-  (define-key my-prog-help-document-map (kbd "d") 'tern-get-docs)
+  (add-hook 'tern-mode-hook
+            (lambda ()
+              (local-set-key (kbd "C-h d") 'my-prog-help-document-map)
+              (define-key my-prog-help-document-map (kbd "d") 'tern-get-docs)
+              ))
   )
 
 
