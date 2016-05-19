@@ -56,6 +56,8 @@
         ;; ("\\mov'" . "mpv %s")
         ))
 
+(add-to-list 'org-file-apps '("\\.swf'" . "swfdec-gnome %s"))
+
 ;; System wise: xdg-open, kde-open, gnome-open.
 (setcdr (assq 'system org-file-apps-defaults-gnu) "xdg-open %s")
 
