@@ -21,6 +21,30 @@
 (define-key my-tools-prefix (kbd "a") 'artist-mode)
 (define-key artist-mode-map (kbd "C-c C-o") 'artist-select-operation)
 
+(defun artist-select-colors ()
+  "Insert cXXX format colors for ditaa boxes."
+  (interactive)
+  (let* ((color-name
+          (completing-read
+           "cXXX: "
+           (list "hex-number" "black" "red" "green" "yellow" "blue" "pink")))
+         (color-value
+          (cond
+           ((equal color-name "hex-number") color-name)
+           ((equal color-name "black") "BLK")
+           ((equal color-name "red") "RED")
+           ((equal color-name "green") "GRE")
+           ((equal color-name "yellow") "YEL")
+           ((equal color-name "blue") "BLU")
+           ((equal color-name "pink") "PNK")
+           )))
+    
+    (artist-text-insert-overwrite (current-column) (1- (count-lines 1 (point)))
+                                  (concat "c" color-value))
+    ))
+
+(define-key artist-mode-map (kbd "C-c C-a C-c") 'artist-select-colors)
+
 
 ;;; [ picture-mode ]
 
