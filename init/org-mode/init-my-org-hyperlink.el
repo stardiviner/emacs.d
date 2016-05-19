@@ -21,7 +21,7 @@
       '(;; default
         ;; (auto-mode . emacs)
         ;; Web Pages
-        ("\.x?html\'" . default)
+        ("\.x?html?\\'" . default)
         ("\(?:xhtml\|html\)" . "firefox %s")
         ;; PDF
         ("\\.pdf\\'" . auto-mode)
@@ -47,16 +47,17 @@
         ("\\.mm\\'" . "freemind %s") ; freeplane
         ;; Office
         ;; Open Text Document
-        ("\\.odt'" . "libreoffice %s") ; Text Documentation
-        ("\\.ods'" . "libreoffice %s") ; Spreadsheet
-        ("\\.odp'" . "libreoffice %s") ; Presentation
-        ("\\.odf'" . "libreoffice %s") ; Database / Formula
+        ("\\.odt\\'" . "libreoffice %s") ; Text Documentation
+        ("\\.ods\\'" . "libreoffice %s") ; Spreadsheet
+        ("\\.odp\\'" . "libreoffice %s") ; Presentation
+        ("\\.odf\\'" . "libreoffice %s") ; Database / Formula
         ;; Video
-        ;; ("\\mp4'" . "mpv %s")
-        ;; ("\\mov'" . "mpv %s")
+        ;; ("\\mp4\\'" . "mpv %s")
+        ;; ("\\mov\\'" . "mpv %s")
         ))
 
-(add-to-list 'org-file-apps '("\\.swf'" . "swfdec-gnome %s"))
+(add-to-list 'org-file-apps '("\\.swf\\'" . "swfdec-gnome %s"))
+(add-to-list 'org-file-apps '("\\.jar\\'" . "java -jar %s"))
 
 ;; System wise: xdg-open, kde-open, gnome-open.
 (setcdr (assq 'system org-file-apps-defaults-gnu) "xdg-open %s")
