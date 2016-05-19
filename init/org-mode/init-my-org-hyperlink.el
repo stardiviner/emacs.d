@@ -56,7 +56,7 @@
         ;; ("\\mov\\'" . "mpv %s")
         ))
 
-(add-to-list 'org-file-apps '("\\.swf\\'" . "swfdec-gnome %s"))
+(add-to-list 'org-file-apps '("\\.swf\\'" . "swfdec-player %s"))
 (add-to-list 'org-file-apps '("\\.jar\\'" . "java -jar %s"))
 
 ;; System wise: xdg-open, kde-open, gnome-open.

@@ -82,7 +82,7 @@
 
   (add-to-list 'openwith-associations '("\\.gif\\'" "gwenview" (file)))
   (add-to-list 'openwith-associations '("\\.svg\\'" "feh --magick-timeout 5" (file)))
-  (add-to-list 'openwith-associations '("\\.swf\\'" "swfdec-gnome" (file)))
+  (add-to-list 'openwith-associations '("\\.swf\\'" "swfdec-player" (file)))
   (add-to-list 'openwith-associations '("\\.jar\\'" "java -jar" (file)))
   
   ;; If you also use emacs for email, you may want to add this to your config:
