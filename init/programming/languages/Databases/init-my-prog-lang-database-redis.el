@@ -15,6 +15,8 @@
   :init
   ;; for pseudo redis script file: *.redis.
   (add-to-list 'auto-mode-alist '("\\.redis\\'" . redis-mode))
+  :config
+  (add-hook 'redis-mode-hook 'sqlup-mode)
   )
 
 
