@@ -2,7 +2,37 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Jupyter Notebook"
+(("JavaScript Examples"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/JavaScript/Data/Manuals/JavaScript Examples/JavaScript Examples.org")
+ (front-context-string . "* Intro\n\n\n* Java")
+ (rear-context-string)
+ (position . 1))
+("Ruby Examples"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Manuals/Ruby Examples/Ruby Examples.org")
+ (front-context-string . "* Intro\n\n\n* Requ")
+ (rear-context-string)
+ (position . 1))
+("My Common Lisp Examples"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Lisp/Common Lisp/Data/Manuals/My Common Lisp Examples.org")
+ (front-context-string . "* Print Out\n\n** ")
+ (rear-context-string)
+ (position . 1))
+("Reading"
+ (filename . "~/Org/Wiki/Reading/Reading.org")
+ (front-context-string . "* Intro\n\n** 不思考，")
+ (rear-context-string)
+ (position . 1))
+("Mathematics Formula Reference"
+ (filename . "~/Org/Wiki/Mathematics/Data/Manuals/Mathematics Formula Reference/Mathematics Formula Reference.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("My Python Examples"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Python/Data/Manuals/My Python Examples/My Python Examples.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Jupyter Notebook"
  (filename . "~/Org/Wiki/Computer/Softwares/Jupyter.org")
  (front-context-string . "* Intro\n\n*Intera")
  (rear-context-string)
@@ -147,11 +177,6 @@
  (front-context-string)
  (rear-context-string)
  (position . 1))
-("JavaScript Implementation Examples"
- (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/JavaScript/Data/Manuals/JavaScript Implementations/JavaScript Implementations.org")
- (front-context-string . "* Intro\n\n* DOM m")
- (rear-context-string)
- (position . 1))
 ("Python Packages"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Python/Data/Packages/Packages.org")
  (front-context-string . "* Python Optimiz")
@@ -199,9 +224,9 @@
  (position . 1))
 ("org-capture-last-stored"
  (filename . "~/Org/Diary/Diary.org")
- (front-context-string . "**** 在错误的时间遇到喜欢的")
- (rear-context-string . "6-01-11 Monday\n\n")
- (position . 6616))
+ (front-context-string . "**** 梦到在山林大树下被投下")
+ (rear-context-string . "大学有一个晚会。于是就去了。\n\n")
+ (position . 10297))
 ("My R Language Syntax Reference"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/R/Data/Manuals/My R Language Syntax Reference/My R Language Syntax Reference.org")
  (front-context-string)
@@ -215,11 +240,6 @@
 ("TeX Macro Packages"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/TeX/Data/Macro Packages/Macro Packages.org")
  (front-context-string . "* Image\n\n- [[fil")
- (rear-context-string)
- (position . 1))
-("Ruby Practical"
- (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Manuals/Practical Ruby/Practical Ruby.org")
- (front-context-string . "* Intro\n\n\n\n* Ben")
  (rear-context-string)
  (position . 1))
 ("My TeX Syntax Reference"
