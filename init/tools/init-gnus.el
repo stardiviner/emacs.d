@@ -9,6 +9,10 @@
 
 ;;; [ Gnus ]
 
+;; user info
+(setq user-full-name "stardiviner"
+      user-mail-address "numbchild@gmail.com")
+
 (use-package gnus
   :ensure t)
 
@@ -24,16 +28,12 @@
       ;; gnus-agent-directory
       gnus-cache-directory (nnheader-concat gnus-home-directory "News/trash")
       ;; Mail
-      message-directory (nnheader-concat gnus-home-directory "Mail")
+      message-directory (nnheader-concat gnus-home-directory "Email")
       message-auto-save-directory (expand-file-name "drafts/" message-directory)
       mail-source-directory (expand-file-name "incoming/" message-directory)
-      nnmail-message-id-cache-file (nnheader-concat gnus-home-directory ".nnmail-cache")
+      nnmail-message-id-cache-file (nnheader-concat gnus-home-directory "Email/.nnmail-cache")
       mm-default-directory "~/Downloads/" ; attachment save dir.
       )
-
-;; user info
-(setq user-full-name "stardiviner"
-      user-mail-address "numbchild@gmail.com")
 
 ;; interface
 (setq gnus-inhibit-startup-message t
@@ -145,41 +145,6 @@
 (require 'gnus-notifications)
 (add-hook 'gnus-after-getting-new-news-hook 'gnus-notifications)
 
-;; retrieve email & news
-(setq gnus-select-method
-      '(nnimap "gmail"
-               (nnimap-address "imap.gmail.com")
-               (nnimap-server-port "imaps")
-               (nnimap-stream ssl))
-      
-      ;; '(nnmaildir "Mails"
-      ;;             (directory "~/Mails/"))
-      ;; mail-sources
-      ;; '((maildir :path "~/Mails/"
-      ;;            :subdirs ("cur" "new" "tmp"))
-      ;;   )
-      mail-source-delete-incoming t
-      
-      gnus-secondary-select-methods
-      '(
-        ;; Mail
-        ;; read mails from local, fetch new mail with `getmail'.
-        (nnmaildir "Mails"
-                   (directory "~/Mails/"))
-        
-        ;; NNTP newsgroup
-        (nntp "gmane")
-        (nntp "news.gwene.org")
-        ;; (nntp "news.somewhere.edu")
-        ;; read directly from local spool
-        ;; (nnspool "")
-        ;; (nntp "localhost")
-        
-        ;; RSS
-        ;; (nnrss "RSS")
-        )
-      )
-
 ;; archive
 (setq gnus-message-archive-group
       '((if (message-news-p)
@@ -193,64 +158,65 @@
 ;; enable agent for offline viewing
 (gnus-agentize)
 
+
 ;; [ C-c C-y]
-(eval-after-load 'gnus-group
-  '(progn
-     (defhydra hydra-gnus-group (:color blue)
-       "Do?"
-       ("a" gnus-group-list-active "REMOTE groups A A")
-       ("l" gnus-group-list-all-groups "LOCAL groups L")
-       ("c" gnus-topic-catchup-articles "Read all c")
-       ("G" gnus-group-make-nnir-group "Search server G G")
-       ("g" gnus-group-get-new-news "Refresh g")
-       ("s" gnus-group-enter-server-mode "Servers")
-       ("m" gnus-group-new-mail "Compose m OR C-x m")
-       ("#" gnus-topic-mark-topic "mark #")
-       ("q" nil "cancel"))
-     ;; y is not used by default
-     (define-key gnus-group-mode-map "y" 'hydra-gnus-group/body)))
+(with-eval-after-load 'gnus-group
+  (defhydra hydra-gnus-group (:color blue)
+    "Do?"
+    ("a" gnus-group-list-active "REMOTE groups A A")
+    ("l" gnus-group-list-all-groups "LOCAL groups L")
+    ("c" gnus-topic-catchup-articles "Read all c")
+    ("G" gnus-group-make-nnir-group "Search server G G")
+    ("g" gnus-group-get-new-news "Refresh g")
+    ("s" gnus-group-enter-server-mode "Servers")
+    ("m" gnus-group-new-mail "Compose m OR C-x m")
+    ("#" gnus-topic-mark-topic "mark #")
+    ("q" nil "cancel"))
+  ;; y is not used by default
+  (define-key gnus-group-mode-map "y" 'hydra-gnus-group/body)
+  )
 
-(eval-after-load 'gnus-sum
-  '(progn
-     (defhydra hydra-gnus-summary (:color blue)
-       "Do?"
-       ("n" gnus-summary-insert-new-articles "Refresh / N")
-       ("f" gnus-summary-mail-forward "Forward C-c C-f")
-       ("!" gnus-summary-tick-article-forward "Mail -> disk !")
-       ("p" gnus-summary-put-mark-as-read "Mail <- disk")
-       ("c" gnus-summary-catchup-and-exit "Read all c")
-       ("e" gnus-summary-resend-message-edit "Resend S D e")
-       ("R" gnus-summary-reply-with-original "Reply with original R")
-       ("r" gnus-summary-reply "Reply r")
-       ("W" gnus-summary-wide-reply-with-original "Reply all with original S W")
-       ("w" gnus-summary-wide-reply "Reply all S w")
-       ("#" gnus-topic-mark-topic "mark #")
-       ("q" nil "cancel"))
-     ;; y is not used by default
-     (define-key gnus-summary-mode-map "y" 'hydra-gnus-summary/body)))
+(with-eval-after-load 'gnus-sum
+  (defhydra hydra-gnus-summary (:color blue)
+    "Do?"
+    ("n" gnus-summary-insert-new-articles "Refresh / N")
+    ("f" gnus-summary-mail-forward "Forward C-c C-f")
+    ("!" gnus-summary-tick-article-forward "Mail -> disk !")
+    ("p" gnus-summary-put-mark-as-read "Mail <- disk")
+    ("c" gnus-summary-catchup-and-exit "Read all c")
+    ("e" gnus-summary-resend-message-edit "Resend S D e")
+    ("R" gnus-summary-reply-with-original "Reply with original R")
+    ("r" gnus-summary-reply "Reply r")
+    ("W" gnus-summary-wide-reply-with-original "Reply all with original S W")
+    ("w" gnus-summary-wide-reply "Reply all S w")
+    ("#" gnus-topic-mark-topic "mark #")
+    ("q" nil "cancel"))
+  ;; y is not used by default
+  (define-key gnus-summary-mode-map "y" 'hydra-gnus-summary/body)
+  )
 
-(eval-after-load 'gnus-art
-  '(progn
-     (defhydra hydra-gnus-article (:color blue)
-       "Do?"
-       ("f" gnus-summary-mail-forward "Forward")
-       ("R" gnus-article-reply-with-original "Reply with original R")
-       ("r" gnus-article-reply "Reply r")
-       ("W" gnus-article-wide-reply-with-original "Reply all with original S W")
-       ("o" gnus-mime-save-part "Save attachment at point o")
-       ("w" gnus-article-wide-reply "Reply all S w")
-       ("q" nil "cancel"))
-     ;; y is not used by default
-     (define-key gnus-article-mode-map "y" 'hydra-gnus-article/body)))
+(with-eval-after-load 'gnus-art
+  (defhydra hydra-gnus-article (:color blue)
+    "Do?"
+    ("f" gnus-summary-mail-forward "Forward")
+    ("R" gnus-article-reply-with-original "Reply with original R")
+    ("r" gnus-article-reply "Reply r")
+    ("W" gnus-article-wide-reply-with-original "Reply all with original S W")
+    ("o" gnus-mime-save-part "Save attachment at point o")
+    ("w" gnus-article-wide-reply "Reply all S w")
+    ("q" nil "cancel"))
+  ;; y is not used by default
+  (define-key gnus-article-mode-map "y" 'hydra-gnus-article/body)
+  )
 
-(eval-after-load 'message
-  '(progn
-     (defhydra hydra-message (:color blue)
-       "Do?"
-       ("ca" mml-attach-file "Attach C-c C-a")
-       ("cc" message-send-and-exit "Send C-c C-c")
-       ("q" nil "cancel"))
-     (global-set-key (kbd "C-c C-y") 'hydra-message/body)))
+(with-eval-after-load 'message
+  (defhydra hydra-message (:color blue)
+    "Do?"
+    ("ca" mml-attach-file "Attach C-c C-a")
+    ("cc" message-send-and-exit "Send C-c C-c")
+    ("q" nil "cancel"))
+  (define-key message-mode-map (kbd "C-c C-y") 'hydra-message/body)
+  )
 
 
 ;;; [ Mail ]
@@ -260,68 +226,92 @@
       message-from-style 'angles
       ;; message-syntax-checks '((sender . disabled))
       nnmail-expiry-wait 'never
+      mail-source-delete-incoming t
       )
+
+;; (add-to-list 'gnus-select-method
+;;              '(nnmaildir "Mails"
+;;                          (directory "~/Mails/")))
+
+;; (add-to-list 'gnus-select-method
+;;              '(maildir :path "~/Mails/"
+;;                        :subdirs ("cur" "new" "tmp")))
 
 ;; (setq mail-sources '((file)))
 ;; (setq mail-sources '((maildir :path "~/Mails/"
 ;;                               :subdirs ("cur" "new" "tmp"))))
 
-
+
 ;; [ Gmail ]
 
-;; <Gmail - 0>
-;; (add-to-list 'mail-sources
-;;              '(
-;;                ;; (pop :server "pop3.mailserver.com"
-;;                ;;      :port ""
-;;                ;;      :user "numbchild@gmail.com"
-;;                ;;      :password ""
-;;                ;;      )
-;;                ;; (imap :server "imap.mailserver.com"
-;;                ;;       :port ""
-;;                ;;       :user "numbchild@gmail.com"
-;;                ;;       :password "")
-;;                ))
+(setq user-mail-address "numbchild@gmail.com"
+      mml2015-signers '("5AE89AC3")
+      ;; This tells Gnus to get email from Gmail via IMAP.
+      gnus-select-method
+      '(nnimap "gmail"
+               ;; It could also be imap.googlemail.com if that's your server.
+               (nnimap-address "imap.gmail.com")
+               (nnimap-server-port 993)
+               (nnimap-stream ssl)
 
-;; <Gmail - 1>
-;; (add-to-list 'gnus-secondary-select-methods
-;;              '(nnimap "Gmail" ; key
-;;                       (nnimap-address "imap.gmail.com")
-;;                       (nnimap-server-port 993)
-;;                       (nnimap-stream ssl)))
-;; (setq smtpmail-smtp-service 587
-;;       gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]"
-;;       )
+               (nnir-search-engine imap)
+               
+               ;; press 'E' to expire email
+               (nnmail-expiry-target "nnimap+gmail:[Gmail]/Trash")
+               (nnmail-expiry-wait 90)
+               )
+      ;; This tells Gnus to use the Gmail SMTP server. This
+      ;; automatically leaves a copy in the Gmail Sent folder.
+      smtpmail-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-service 587
+      ;; Tell message mode to use SMTP.
+      send-mail-function 'sendmail-send-it
+      message-send-mail-function 'smtpmail-send-it
+      ;; This is where we store the password.
+      nntp-authinfo-file "~/.authinfo.gpg"
+      ;; Gmail system labels have the prefix [Gmail], which matches
+      ;; the default value of gnus-ignored-newsgroups. That's why we
+      ;; redefine it.
+      ;; gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]"
+      ;; The agent seems to confuse nnimap, therefore we'll disable it.
+      gnus-agent nil
+      ;; We don't want local, unencrypted copies of emails we write.
+      gnus-message-archive-group nil
+      ;; We want to be able to read the emails we wrote.
+      mml2015-encrypt-to-self t)
 
-;; <Gmail - 2>
-;; (add-to-list 'gnus-secondary-select-methods
-;;              '(nnimap "gmail"
-;;                       (nnimap-address "imap.gmail.com")
-;;                       (nnimap-server-port 993)
-;;                       (nnimap-stream ssl)
-;;                       (nnir-search-engine imap)
-;;                       ;; press 'E' to expire email
-;;                       (nnmail-expiry-target "nnimap+gmail:[Gmail]/Trash")
-;;                       (nnmail-expiry-wait 90)))
+;; Attempt to encrypt all the mails we'll be sending.
+(add-hook 'message-setup-hook 'mml-secure-message-encrypt)
+
+;; Add two key bindings for your Gmail experience.
+(add-hook 'gnus-summary-mode-hook 'my-gnus-summary-keys)
+
+(defun my-gnus-summary-keys ()
+  (local-set-key "y" 'gmail-archive)
+  (local-set-key "$" 'gmail-report-spam))
+
+(defun gmail-archive ()
+  "Archive the current or marked mails.
+This moves them into the All Mail folder."
+  (interactive)
+  (gnus-summary-move-article nil "nnimap+imap.gmail.com:[Gmail]/All Mail"))
+
+(defun gmail-report-spam ()
+  "Report the current or marked mails as spam.
+This moves them into the Spam folder."
+  (interactive)
+  (gnus-summary-move-article nil "nnimap+imap.gmail.com:[Gmail]/Spam"))
+
+;; auto linebreaking
+(defun my-message-mode-setup ()
+  (setq fill-column 80)
+  (turn-on-auto-fill))
+
+(add-hook 'message-mode-hook 'my-message-mode-setup)
 
 
-;; (with-eval-after-load 'gnus-topic
-;;   (setq gnus-topic-topology '(("Gnus" visible)
-;;                               (("Gmail" visible nil nil))
-;;                               (("QQ mail" visible nil nil))
-;;                               ))
-;;   (setq gnus-topic-alist '(("Gmail" ; the key of topic
-;;                             "INBOX"
-;;                             "[Gmail]/Sent Mail"
-;;                             "[Gmail]/Trash"
-;;                             "Drafts")
-;;                            ("Gnus"))))
-
-;; send email
-(setq send-mail-function 'sendmail-send-it
-      message-send-mail-function 'sendmail-send-it
-      ;; sendmail-program "/usr/bin/msmtp"
-      mail-specify-envelope-from t
+;; envelope when sending email
+(setq mail-specify-envelope-from t
       mail-envelope-from 'header
       )
 
@@ -334,6 +324,7 @@
                    "X-Mailer:" "Reply-To:" "X-Spam:" "X-Spam-Status:" "X-Now-Playing"
                    "X-Attachments" "X-Diagnostic")
                  "\\|"))
+
 
 ;; use `supercite' display multiple quote content styles.
 (setq sc-attrib-selection-list nil
@@ -355,7 +346,7 @@
       gnus-generate-tree-function 'gnus-generate-horizontal-tree
       gnus-summary-thread-gathering-function 'gnus-gather-threads-by-subject
       )
-;; sort
+;; thread sort
 (setq gnus-thread-sort-functions
       '((not gnus-thread-sort-by-date)
         (not gnus-thread-sort-by-number)))
@@ -376,9 +367,9 @@
 ;; (setq gnus-nntpserver-file "/etc/nntpserver")
 
 ;; (add-to-list 'gnus-secondary-select-methods
-;;              ;; NNTP GMANE newsgroup
-;;              '(nntp "news.gmane.org")
-;;              )
+;;              '(nntp "news.gwene.org"))
+;; (add-to-list 'gnus-secondary-select-methods
+;;              '(nntp "news.gmane.org"))
 
 
 ;;; [ RSS ]
@@ -404,6 +395,9 @@
                (mm-w3m-safe-url-regexp nil))
              '("\\`nnrss:"
                (mm-discouraged-alternatives nil)))
+
+;; (add-to-list 'gnus-secondary-select-methods
+;;              '(nnrss "RSS"))
 
 
 ;;; [ Chinese ]
