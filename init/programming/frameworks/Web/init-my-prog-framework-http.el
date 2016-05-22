@@ -67,6 +67,12 @@
   :ensure t)
 
 
+;;; [ restclient-test ] -- Run tests with restclient.el
+
+(use-package restclient-test
+  :ensure t)
+
+
 ;; [ ob-http ] -- http request in org-mode babel
 
 (use-package ob-http
