@@ -1,4 +1,4 @@
-;;; init-my-prog-vcs-github.el --- init for GitHub
+;;; init-my-prog-vcs-git-github.el --- init for GitHub
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -56,6 +56,7 @@
 ;;; [ github-notifier ]
 
 ;; (use-package github-notifier
+;;   :ensure t
 ;;   :config
 ;;   ;; (setq github-notifier-token "")
 ;;   ;; (setq github-notifier-mode-line)
@@ -65,6 +66,6 @@
 ;;   )
 
 
-(provide 'init-my-prog-vcs-github)
+(provide 'init-my-prog-vcs-git-github)
 
-;;; init-my-prog-vcs-github.el ends here
+;;; init-my-prog-vcs-git-github.el ends here
