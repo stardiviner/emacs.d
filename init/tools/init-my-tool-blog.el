@@ -40,6 +40,10 @@
 ;; (require 'init-my-tool-blog-org)
 
 
+
+(define-key 'blog-map (kbd "l") 'blog-admin-start)
+
+
 (provide 'init-my-tool-blog)
 
 ;;; init-my-tool-blog.el ends here
