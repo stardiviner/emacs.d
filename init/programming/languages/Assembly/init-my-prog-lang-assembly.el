@@ -48,6 +48,12 @@
   )
 
 
+;;; [ llvm-mode ] -- Major mode for the LLVM assembler language.
+
+(use-package llvm-mode
+  :ensure t)
+
+
 (provide 'init-my-prog-lang-assembly)
 
 ;;; init-my-prog-lang-assembly.el ends here
