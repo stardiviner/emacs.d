@@ -17,6 +17,16 @@
 
 (use-package blog-admin
   :ensure t
+  :config
+  ;; open post after create new post
+  (add-hook 'blog-admin-backend-after-new-post-hook 'find-file)
+  ;; backend: org-page
+  (setq blog-admin-backend-type 'org-page
+        blog-admin-backend-path "~/Org/Blog/org-page"
+        blog-admin-backend-new-post-in-drafts t
+        blog-admin-backend-new-post-with-same-name-dir t
+        blog-admin-backend-org-page-drafts "_drafts" ; directory to save draft
+        )
   )
 
 
