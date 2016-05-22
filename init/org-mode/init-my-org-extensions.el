@@ -247,6 +247,12 @@
 ;;   )
 
 
+;;; [ org-eww ] -- automatically use eww to preview current org-file when save.
+
+(use-package org-eww
+  :ensure t)
+
+
 (provide 'init-my-org-extensions)
 
 ;;; init-my-org-extensions.el ends here
