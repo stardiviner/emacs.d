@@ -294,7 +294,7 @@
   ;; (push '("*Agenda Commands*" :position bottom) popwin:special-display-config)
 
   ;; (push '("*Org Agenda*" :width 50 :position left) popwin:special-display-config)
-  (push '("*Org Agenda*" :height 0.2 :position bottom) popwin:special-display-config)
+  ;; (push '("*Org Agenda*" :height 0.2 :position bottom) popwin:special-display-config)
   (push '("*Org Select*" :height 0.2 :noselect nil :stick t) popwin:special-display-config)
   (push '("^CAPTURE-.+\*.org$" :position left :regexp t) popwin:special-display-config)
   
@@ -324,8 +324,8 @@
   (push '("*Compile-Log*" :position bottom :height 8) popwin:special-display-config)
 
   ;; quickrun "*quickrun*"
-  (push '(quickrun/mode :position bottom :height 8 :noselect t) popwin:special-display-config)
-  (push '("*quickrun*" :position bottom :height 8 :noselect t) popwin:special-display-config)
+  (push '(quickrun/mode :position bottom :height 6 :noselect t) popwin:special-display-config)
+  (push '("*quickrun*" :position bottom :height 6 :noselect t) popwin:special-display-config)
 
   ;; *Pp Eval Output*
   ;; this will make this buffer does not show up.
@@ -531,7 +531,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
   (push '(mingus-playlist-mode :position left) popwin:special-display-config)
 
   ;; vagrant
-  (push '("*Vagrant*" :position bottom :height 8) popwin:special-display-config)
+  (push '("*Vagrant*" :position bottom :height 6) popwin:special-display-config)
 
   ;; poporg
   ;; (push '("*poporg:*" :position bottom :height 10) popwin:special-display-config)
