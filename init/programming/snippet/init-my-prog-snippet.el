@@ -25,6 +25,9 @@
   (setq yas-prev-field-key '("<S-tab>" "<backtab>"))
   (setq yas-skip-and-clear-key '("C-d"))
 
+  ;; quick shortcut for inserting snipppet with completing system.
+  (define-key yas-minor-mode-map (kbd "C-c \\") 'yas-insert-snippet)
+
   ;; indent
 
   (setq yas-indent-line 'auto) ; 'auto, 'fixed
