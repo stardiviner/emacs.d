@@ -3,6 +3,8 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        artist-backward-char
+        artist-forward-char
         backward-sexp
         fill-paragraph
         forward-sexp
@@ -19,6 +21,9 @@
         org-metaright
         org-open-line
         org-self-insert-command
+        org-shiftleft
+        org-shiftright
+        org-shifttab
         org-yank
         paredit-backward
         paredit-close-square
@@ -26,6 +31,10 @@
         paredit-kill
         paredit-open-square
         paredit-semicolon
+        picture-backward-clear-column
+        picture-clear-column
+        sp-delete-char
+        sp-kill-hybrid-sexp
         sp-remove-active-pair-overlay
         yas-expand
         ))
