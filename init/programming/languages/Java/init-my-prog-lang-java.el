@@ -36,9 +36,19 @@
   )
 
 
-;;; [ malabar-mode ] -- EMCS JVM Integration for Java and other JVM based languages.
+;;; [ malabar-mode ] -- JVM Integration for Java and other JVM based languages.
 
-;; (require 'malabar-mode)
+;; (use-package malabar-mode
+;;   :ensure t
+;;   :config
+;;   (add-hook 'after-init-hook
+;;             (lambda ()
+;;               (message "activate-malabar-mode")
+;;               (activate-malabar-mode)))
+;;
+;;   (add-hook 'malabar-java-mode-hook 'flycheck-mode)
+;;   (add-hook 'malabar-groovy-mode-hook 'flycheck-mode)
+;;   )
 
 
 ;;; [ groovy-mode ] -- Groovy mode derived mode.
