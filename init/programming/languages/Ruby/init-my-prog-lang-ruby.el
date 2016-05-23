@@ -141,6 +141,12 @@
   (add-hook 'enh-ruby-mode-hook 'my-ruby-code-custom-highlights)
 
   (add-hook 'enh-ruby-mode-hook 'eldoc-mode)
+
+  ;; insert => for hash symbol.
+  (defun ruby-mode-insert-symbol-operator ()
+    (interactive)
+    (insert " => "))
+  (define-key enh-ruby-mode-map (kbd "C-,") 'ruby-mode-insert-symbol-operator)
   )
 
 
