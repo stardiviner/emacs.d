@@ -43,6 +43,7 @@
   :ensure t
   :config
   (skewer-setup)
+  (add-hook 'js-mode-hook 'skewer-mode)
   )
 
 
