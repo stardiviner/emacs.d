@@ -135,7 +135,7 @@
 ;; (use-package company-clang
 ;;   :ensure t
 ;;   :config
-;;   ;; (setq company-clang-arguments
+;;   ;; (setq company-clang-arguments '("-std=c++14")
 ;;   ;;       company-clang-prefix-guesser 'company-clang-guess-prefix
 ;;   ;;       )
 ;;
