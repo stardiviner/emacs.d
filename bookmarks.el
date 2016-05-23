@@ -2,7 +2,27 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("JavaScript Examples"
+(("Crack Methods"
+ (filename . "~/Org/Wiki/Computer/Crack/Data/Methods/Methods.org")
+ (front-context-string . "* Search\n\n** Goo")
+ (rear-context-string)
+ (position . 1))
+("Crack"
+ (filename . "~/Org/Wiki/Computer/Crack/Crack.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Kali Linux"
+ (filename . "~/Org/Wiki/Computer/Systems/Linux/Data/Distributions/Kali Linux/Kali Linux.org")
+ (front-context-string . "* Intro\n\nKali Li")
+ (rear-context-string)
+ (position . 1))
+("My English Grammar"
+ (filename . "~/Org/Wiki/Languages/English/Data/Manuals/My English Grammar/My English Grammar.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("JavaScript Examples"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/JavaScript/Data/Manuals/JavaScript Examples/JavaScript Examples.org")
  (front-context-string . "* Intro\n\n\n* Java")
  (rear-context-string)
@@ -232,11 +252,6 @@
  (front-context-string)
  (rear-context-string)
  (position . 1))
-("Hack Methods"
- (filename . "~/Org/Wiki/Computer/Hack/Crack/Data/Methods/Methods.org")
- (front-context-string . "* Linux\n\n** GRUB")
- (rear-context-string)
- (position . 1))
 ("TeX Macro Packages"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/TeX/Data/Macro Packages/Macro Packages.org")
  (front-context-string . "* Image\n\n- [[fil")
@@ -442,11 +457,6 @@
  (front-context-string)
  (rear-context-string)
  (position . 1))
-("Hacking Tools"
- (filename . "~/Org/Wiki/Computer/Hack/Crack/Data/Tools/Tools.org")
- (front-context-string . "* Password Crack")
- (rear-context-string)
- (position . 1))
 ("HTML5"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/HTML/HTML5/HTML5.org")
  (front-context-string . "* Intro\n\n\n* Data")
@@ -650,11 +660,6 @@
 ("Startup (Org)"
  (filename . "~/Org/Wiki/Business/Startup/Startup.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
- (rear-context-string)
- (position . 1))
-("Crack (Org)"
- (filename . "~/Org/Wiki/Computer/Hack/Crack/Crack.org")
- (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
 ("Go Language"
