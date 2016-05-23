@@ -105,6 +105,8 @@
 
 ;;; [ sly-macrostep ] -- Expand CL macros inside source files
 
+;;; - [C-c M-e] in `sly-editing-mode'.
+
 (use-package sly-macrostep
   :ensure t)
 
