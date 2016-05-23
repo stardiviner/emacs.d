@@ -36,10 +36,6 @@
   )
 
 
-;;; [ javadoc-help ]
-
-
-
 ;;; [ malabar-mode ] -- EMCS JVM Integration for Java and other JVM based languages.
 
 ;; (require 'malabar-mode)
