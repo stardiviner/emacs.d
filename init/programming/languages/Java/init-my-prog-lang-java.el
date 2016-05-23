@@ -7,21 +7,6 @@
 
 ;;; Code:
 
-;;; [ jdee ] -- Java Development Environment for Emacs
-
-;; The JDEE is an add-on software package that turns Emacs into a comprehensive
-;; system for creating, editing, debugging, and documenting Java applications.
-
-;; (require 'jdee)
-;;
-;; (autoload 'jde-mode "jde" "JDE mode" t)
-;; (add-to-list 'auto-mode-alist '("\\.java\\'" . jde-mode))
-;;
-;; (setq jdee-server-dir "~/compile/Emacs/jdee-server/target/")
-;;
-;; (setq jdee-key-bindings '())
-
-
 ;;; [ jde-maven ] -- 
 
 ;; (require 'jde-maven)
