@@ -290,6 +290,12 @@ This can be useful for snippets to select kernel interactively."
 (add-to-list 'org-babel-default-header-args:ruby
              '(:results . "output"))
 
+(add-to-list 'org-babel-default-header-args:C
+             '(:results . "output"))
+
+(add-to-list 'org-babel-default-header-args:js
+             '(:results . "output"))
+
 (setq org-babel-default-header-args:R
       '((:session . "*R*")
         (:exports . "both")
@@ -313,6 +319,11 @@ This can be useful for snippets to select kernel interactively."
   :init
   (add-to-list 'auto-mode-alist '("\\.ledger\\'" . ledger-mode))
   )
+
+;; (setq org-babel-default-header-args:ledger
+;;       '((:results . "output") (:cmdline . "bal"))
+;;       )
+
 
 (use-package flycheck-ledger
   :ensure t
