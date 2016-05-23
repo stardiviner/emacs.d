@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: babel-install-emacs-package
+# key: babel-install-emacs-package
+# group: babel.install
+# expand-env: ((yas-indent-line 'fixed))
+# --
+#+BEGIN_SRC emacs-lisp
+(unless (package-installed-p '${1:package})
+  (package-install '$1))
+#+END_SRC

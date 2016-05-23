@@ -4,4 +4,4 @@
 # --
 defcustom ${1:VAR} ${2:VALUE}
   "${3:DOC}"
-  ${4:&optional ${5:ARGS}}
+  ${0:&optional ARGS}
