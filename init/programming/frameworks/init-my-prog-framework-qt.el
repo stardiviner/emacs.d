@@ -39,7 +39,9 @@
 
 (add-hook 'c++-mode-hook 'c++-mode-qt-keywords-highlight)
 
-;; (when (locate-library cc-mode)
+;; (load-library "cc-mode")
+;; (require 'cc-mode)
+;; (when (locate-library "cc-mode")
 ;;   (setq c-font-lock-keywords-3
 ;;         (append '("signals" "\\(public\\|protected\\|private\\) slots")
 ;;                 c-font-lock-keywords-3)))
@@ -48,10 +50,47 @@
                         (c-access-key . "\\<\\(signals\\|public\\|protected\\|private\\|public slots\\|protected slots\\|private slots\\):")
                         (c-basic-offset . 4)))
 
+
+;; (require 'cc-mode)
+;; (setq c-C++-access-key "\\<\\(slots\\|signals\\|private\\|protected\\|public\\)\\>[ \t]*[(slots\\|signals)]*[ \t]*:")
+;; (font-lock-add-keywords 'c++-mode '(("\\<\\(Q_OBJECT\\|public slots\\|public signals\\|private slots\\|private signals\\|protected slots\\|protected signals\\)\\>" . font-lock-constant-face)))
+
+
+;;; Integration within Emacs
+
+;; You can automaticaly enable CcMode for Qt source files, extend the path where
+;; specific files are searched, and feed the SemanticBovinator (note that the
+;; variable ‘qt-base-directory’ is defined in the previous code snippet):
+
+;; (require 'semantic/bovine/c)
+
+;; (setq qt-base-directory "/usr/share/qt")
+
+;; (setq qt-source-directory (expand-file-name "QtSources/4.7.3/src"
+;;                                             qt-base-directory)
+;;       qt-include-directory (expand-file-name "Desktop/Qt/4.7.3/mingw/include/"
+;;                                              qt-base-directory))
+;; (add-to-list 'auto-mode-alist (cons qt-source-directory 'c++-mode))
+;; (add-to-list 'cc-search-directories qt-source-directory)
+
+;; (add-to-list 'auto-mode-alist (cons qt-include-directory 'c++-mode))
+;; (dolist (file (directory-files qt-include-directory))
+;;   (let ((path (expand-file-name file qt-include-directory)))
+;;     (when (and (file-directory-p path)
+;;                (not (or (equal file ".") (equal file ".."))))
+;;       (progn
+;;         (semantic-add-system-include path 'c++-mode)
+;;         (add-to-list 'cc-search-directories path)))))
+
+;; (dolist (file (list "QtCore/qconfig.h" "QtCore/qconfig-dist.h" "QtCore/qconfig-large.h"
+;;                     "QtCore/qconfig-medium.h" "QtCore/qconfig-minimal.h" "QtCore/qconfig-small.h"
+;;                     "QtCore/qglobal.h"))
+;;   (add-to-list 'semantic-lex-c-preprocessor-symbol-file (expand-file-name file qt-include-directory)))
+
 
 ;;; [ Completion for Qt ]
 
-;; (require 'cc-mode)
+(require 'cc-mode)
 
 
 ;;; [ QML-mode ]
