@@ -36,28 +36,6 @@
   )
 
 
-;;; [ javadoc-lookup ]
-
-;;; Usage:
-;; - [M-x javadoc-lookup] -- [C-h d]
-;;
-;;; Import functions
-;;
-;; Two functions for managing Java imports is provided: `add-java-import' and
-;; `sort-java-imports'. The former integrates with the javadoc-lookup index to
-;; provide completions.
-
-;; (add-hook 'java-mode-hook
-;;           (lambda ()
-;;             (local-set-key (kbd "C-h d") 'my-prog-help-document-map)
-;;             (define-key my-prog-help-document-map (kbd "d") 'javadoc-lookup)
-;;             ))
-;;
-;; (javadoc-add-roots "/usr/share/doc/openjdk-7-doc/api"
-;;                    ;; "~/src/project/doc"
-;;                    )
-
-
 ;;; [ javadoc-help ]
 
 
