@@ -15,10 +15,6 @@
 
 ;;; [ blog-admin ] -- Write blog in emacs with many backends: hexo/org-page/nikola
 
-;;; Usage:
-;;
-;; - [M-x blog-admin-start]
-
 (use-package blog-admin
   :ensure t
   :config
