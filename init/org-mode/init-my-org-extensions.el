@@ -250,7 +250,10 @@
 ;;; [ org-eww ] -- automatically use eww to preview current org-file when save.
 
 (use-package org-eww
-  :ensure t)
+  :ensure t
+  :config
+  ;; (add-hook 'org-mode-hook 'org-eww-mode)
+  )
 
 
 (provide 'init-my-org-extensions)
