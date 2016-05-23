@@ -40,8 +40,6 @@
 
 (use-package sqlup-mode
   :ensure t
-  :init
-  (define-key sql-mode-map (kbd "C-c u") 'sqlup-capitalize-keywords-in-region)
   :config
   (defun my-sqlup-backward ()
     "Capitalization the word backward."
@@ -52,6 +50,7 @@
     )
 
   (define-key sql-mode-map (kbd "C-c C-u") 'my-sqlup-backward)
+  (define-key sql-mode-map (kbd "C-c u") 'sqlup-capitalize-keywords-in-region)
 
   (dolist (hook '(sql-mode-hook
                   sql-interactive-mode-hook
