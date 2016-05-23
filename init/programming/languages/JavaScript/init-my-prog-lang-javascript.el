@@ -247,8 +247,7 @@
   :config
   (add-hook 'tern-mode-hook
             (lambda ()
-              (local-set-key (kbd "C-h d") 'my-prog-help-document-map)
-              (define-key my-prog-help-document-map (kbd "d") 'tern-get-docs)
+              (local-set-key (kbd "C-h d d") 'tern-get-docs)
               ))
   )
 
