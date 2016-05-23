@@ -41,7 +41,7 @@
         slime-fuzzy-completion-in-place t
         slime-enable-evaluate-in-emacs t)
 
-  ;; (setq slime-auto-start 'ask)
+  (setq slime-auto-start 'always)
   
   ;; (add-hook 'slime-load-hook
   ;;           #'(lambda ()
