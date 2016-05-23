@@ -12,7 +12,9 @@
 (use-package systemd
   :ensure t
   :config
-  (setq systemd-use-company-p t)
+  (add-hook 'systemd-mode-hook
+            (lambda ()
+              (my-company-add-backend-locally 'systemd-company-backend)))
   )
 
 
