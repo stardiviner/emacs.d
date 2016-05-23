@@ -51,19 +51,7 @@
 ;;   )
 
 
-;;; [ groovy-mode ] -- Groovy mode derived mode.
-
-;; (require 'groovy-mode)
-
-
-;;; [ inf-groovy ] -- minor-mode that adds some Grails project management to a grails project.
-
-;; (require 'inf-groovy)
-
-
 ;;; [ gradle-mode ]
-
-
 
 
 (provide 'init-my-prog-lang-java)
