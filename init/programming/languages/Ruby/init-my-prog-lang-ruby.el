@@ -825,6 +825,13 @@
 
 ;;; [ Cucumber ]
 
+(with-eval-after-load 'ruby-mode
+  (add-to-list
+   'ruby-font-lock-keywords
+   '("\\(\\(\\)\\(\\)\\|Given\\|When\\|Then\\)\\s *\\(/\\)[^/\n\\\\]*\\(\\\\.[^/\n\\\\]*\\)*\\(/\\)"
+     (4 (7 . ?/))
+     (6 (7 . ?/)))))
+
 
 ;;; [ feature-mode ] -- Major mode for Cucumber feature files
 
