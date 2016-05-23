@@ -7,11 +7,6 @@
 
 ;;; Code:
 
-;;; [ jde-maven ] -- 
-
-;; (require 'jde-maven)
-
-
 ;;; [ Eclim ]
 
 (use-package emacs-eclim
