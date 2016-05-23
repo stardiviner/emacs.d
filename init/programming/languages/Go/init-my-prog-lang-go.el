@@ -108,10 +108,9 @@
   :ensure t
   :config
   (if (getenv "GOPATH")
-      (progn
-        (load
-         (concat (getenv "GOPATH")
-                 "/src/github.com/nsf/gocode/emacs-company/company-go.el")))
+      (load
+       (concat (getenv "GOPATH")
+               "/src/github.com/nsf/gocode/emacs-company/company-go.el"))
     (error "SHELL env $GOPATH not available, set it in your SHELL"))
 
   (setq company-go-show-annotation t
