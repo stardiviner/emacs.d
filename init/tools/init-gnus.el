@@ -61,9 +61,9 @@
 
 ;; auto save
 ;; disable dribble file
-(setq gnus-use-dribble-file nil
-      gnus-always-read-dribble-file nil
+(setq gnus-use-dribble-file t
       gnus-dribble-directory nil
+      gnus-always-read-dribble-file nil
       )
 
 ;; the active file
