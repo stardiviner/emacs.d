@@ -53,7 +53,7 @@
 (setq erc-prompt-for-password nil)
 
 ;; load password
-(setq erc-password "")
+(setq erc-password (my/json-read-value my/account-file 'erc))
 
 
 ;;; encoding

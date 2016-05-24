@@ -34,6 +34,7 @@
   (setq yagist-view-gist t ; view gist URL after posted.
         yagist-working-directory "~/.gist"
         ;; yagist-working-directory-alist
+        yagist-github-token (my/json-read-value my/account-file 'yagist)
         )
 
   (define-key paste-prefix (kbd "p") 'yagist-region-or-buffer)

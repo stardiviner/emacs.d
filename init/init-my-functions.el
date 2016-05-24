@@ -191,6 +191,20 @@ Usage:
 
 
 
+
+;;; read in encrypted JSON file key-value pairs.
+
+(setq my/account-file (concat user-emacs-directory "accounts.json.gpg"))
+
+(defun my/json-read-value (file key)
+  "Read in JSON `FILE' and get the value of symbol `KEY'."
+  (cdr (assoc key
+              (json-read-file (if (file-exists-p my/account-file)
+                                  my/account-file
+                                (concat user-emacs-directory "accounts.json.gpg"))))))
+
+
+
 (provide 'init-my-functions)
 
 ;;; init-my-functions.el ends here
