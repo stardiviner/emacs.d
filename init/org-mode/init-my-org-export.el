@@ -12,7 +12,7 @@
       org-export-headline-levels 5
       org-export-with-drawers t
       org-export-with-emphasize t
-      org-export-babel-evaluate nil
+      org-export-babel-evaluate 'inline-only
       org-export-with-smart-quotes t
       )
 
