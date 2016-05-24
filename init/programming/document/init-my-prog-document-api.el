@@ -183,6 +183,12 @@
   )
 
 
+;;; [ counsel-dash ] -- Ivy interface for dash.el.
+
+;; (use-package counsel-dash
+;;   :ensure t)
+
+
 ;;; [ dash-at-point ] -- Search the word at point with Dash.
 
 ;;; Usage:
