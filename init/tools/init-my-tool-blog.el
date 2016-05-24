@@ -18,12 +18,12 @@
 (use-package org-page
   :ensure t
   :config
-  (setq op/repository-directory (expand-file-name "~/Org/Blog/org-page")
-        ;; op/repository-html-branch "master"
-        ;; op/repository-org-branch "source"
+  (setq op/repository-directory "~/Org/Blog/org-page"
+        op/repository-html-branch "gh-pages" ; "master"
+        op/repository-org-branch "source"
         op/site-domain "http://stardiviner.github.io/"
         op/site-main-title "stardiviner's blog"
-        op/site-sub-title "get over the world!"
+        op/site-sub-title "天地之道"
         op/theme-root-directory (concat user-emacs-directory "org-page/themes")
         op/theme 'peach_blossom
         op/personal-github-link "https://github.com/stardiviner"
