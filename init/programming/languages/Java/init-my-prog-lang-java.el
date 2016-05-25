@@ -25,12 +25,12 @@
   (require 'company-emacs-eclim)
 
   ;; (company-emacs-eclim-setup)
-  (add-hook 'java-mode-hook
-            (lambda ()
-              (eclim-mode 1)
-              (my-company-add-backend-locally 'company-emacs-eclim)
-              (local-set-key (kbd "C-M-i") 'company-complete)
-              ))
+  (defun company-eclim-setup ()
+    (eclim-mode 1)
+    (my-company-add-backend-locally 'company-emacs-eclim)
+    (local-set-key (kbd "C-M-i") 'company-complete)
+    )
+  (add-hook 'java-mode-hook 'company-eclim-setup)
 
   ;; (global-eclim-mode t)
   )
