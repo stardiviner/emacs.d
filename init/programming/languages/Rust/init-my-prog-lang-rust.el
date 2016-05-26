@@ -48,6 +48,11 @@
 ;;             (lambda ()
 ;;               (my-company-add-backend-locally 'company-racer))))
 
+
+;;; [ cargo ] -- Emacs Cargo client.
+
+(use-package cargo
+  :ensure t)
 
 
 (provide 'init-my-prog-lang-rust)
