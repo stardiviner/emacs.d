@@ -20,6 +20,24 @@
   )
 
 
+
+;;; [ racer ]
+
+(use-package racer
+  :ensure t
+  :config
+  ;; config racer in the path.
+  (unless (getenv "RUST_SRC_PATH")
+    (setenv "RUST_SRC_PATH" (expand-file-name "~/Code/Rust/rust/src")))
+  ;; (setq racer-cmd (or (executable-find "racer") "/usr/local/bin/racer"))
+  ;; (setq racer-rust-src-path (or (getenv "RUST_SRC_PATH")
+  ;;                               "/usr/local/src/rust/src"))
+  
+  ;; auto start racer for rust-mode.
+  (add-hook 'rust-mode-hook #'racer-mode)
+  (add-hook 'racer-mode-hook #'eldoc-mode)
+  )
+
 (provide 'init-my-prog-lang-rust)
 
 ;;; init-my-prog-lang-rust.el ends here
