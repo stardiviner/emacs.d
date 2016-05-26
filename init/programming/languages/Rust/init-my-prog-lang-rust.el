@@ -38,6 +38,13 @@
   (add-hook 'racer-mode-hook #'eldoc-mode)
   )
 
+
+;;; [ company-racer ]
+
+;; (use-package company-racer
+;;   :ensure t)
+
+
 (provide 'init-my-prog-lang-rust)
 
 ;;; init-my-prog-lang-rust.el ends here
