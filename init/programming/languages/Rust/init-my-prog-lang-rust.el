@@ -20,6 +20,11 @@
   )
 
 
+;;; [ flycheck-rust ]
+
+(use-package flycheck-rust
+  :ensure t)
+
 
 ;;; [ racer ]
 
