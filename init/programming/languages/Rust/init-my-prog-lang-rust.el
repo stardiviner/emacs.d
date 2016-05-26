@@ -42,7 +42,12 @@
 ;;; [ company-racer ]
 
 ;; (use-package company-racer
-;;   :ensure t)
+;;   :ensure t
+;;   :config
+;;   (add-hook 'rust-mode-hook
+;;             (lambda ()
+;;               (my-company-add-backend-locally 'company-racer))))
+
 
 
 (provide 'init-my-prog-lang-rust)
