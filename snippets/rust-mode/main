@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: main
+# key: main
+# group: main
+# --
+fn main(${1:arguments}) {
+$0
+}

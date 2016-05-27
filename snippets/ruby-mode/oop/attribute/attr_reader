@@ -1,5 +1,0 @@
-# -*- mode: snippet; require-final-newline: nil -*-
-# name: attribute accessor
-# key: attr_reader
-# --
-attr_reader ${1::symbol_name}

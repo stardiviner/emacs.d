@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: json
+# key: json
+# group: json
+# --
+\{${1:key}: ${2:value}\}
