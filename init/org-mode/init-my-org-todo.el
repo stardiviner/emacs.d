@@ -92,10 +92,11 @@
         ("DONE" :foreground "black"
          :weight bold :strike-through t
          :box '(:color "black" :line-width -1))
-        ("FAILED" :foreground "#444444" :background "orange"
+        ("FAILED" :foreground "#444444"
          :weight bold :underline "dark red"
          :box '(:color "black" :line-width -1))
-        ("CANCELLED" :foreground "#444444" :background "orange"
+        ("CANCELLED"
+         :foreground "black"
          :weight bold :strike-through t
          :box '(:color "black" :line-width -1))
         ("BUG" :foreground "red"
