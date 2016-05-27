@@ -196,7 +196,7 @@
   ;; auto start CIDER jack-in.
   (add-hook 'clojure-mode-hook 'my-run-cider)
 
-  (define-key my-prog-inferior-map (kbd "c") 'my-run-cider)
+  (define-key my-inferior-lisp-map (kbd "c") 'my-run-cider)
   )
 
 
