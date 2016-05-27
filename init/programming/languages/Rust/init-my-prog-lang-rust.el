@@ -23,7 +23,10 @@
 ;;; [ flycheck-rust ]
 
 (use-package flycheck-rust
-  :ensure t)
+  :ensure t
+  :config
+  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+  )
 
 
 ;;; [ racer ]
