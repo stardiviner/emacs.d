@@ -164,7 +164,7 @@
                       )
 
   ;; enable `cider-mode' in `clojure-mode'.
-  (add-hook 'clojure-mode-hook 'cider-mode)
+  (add-hook 'clojure-mode-hook #'cider-mode)
   
   ;; auto completion with company-mode support
   ;; `cider-complete-at-point' in `completion-at-point-functions'
