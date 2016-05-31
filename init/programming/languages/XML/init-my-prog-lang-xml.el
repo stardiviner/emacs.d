@@ -16,8 +16,8 @@
 ;; pom files should be treated as xml files
 (add-to-list 'auto-mode-alist '("\\.pom\\'" . nxml-mode))
 
-(setq nxml-child-indent 4
-      nxml-attribute-indent 4
+(setq nxml-child-indent 2
+      nxml-attribute-indent 2
       nxml-auto-insert-xml-declaration-flag nil
       nxml-bind-meta-tab-to-complete-flag t
       nxml-slash-auto-complete-flag t)
