@@ -7,6 +7,10 @@
 
 ;;; Code:
 
+;;; [ counsel-osx-app ]
+
+(use-package counsel-osx-app
+  :ensure t)
 
 
 (provide 'init-mac)
