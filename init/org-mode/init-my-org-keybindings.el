@@ -39,9 +39,9 @@
   (define-prefix-command 'my-org-link-prefix))
 (define-key my-org-prefix (kbd "C-l") 'my-org-link-prefix)
 
-(define-key my-org-link-prefix (kbd "L") 'org-insert-link-global)
 (define-key my-org-link-prefix (kbd "l") 'org-store-link)
-(define-key my-org-link-prefix (kbd "o") 'org-open-at-point-global)
+(define-key my-org-link-prefix (kbd "C-l") 'org-insert-link-global)
+(define-key my-org-link-prefix (kbd "C-o") 'org-open-at-point-global)
 
 
 (unless (boundp 'my-org-clock-prefix)
