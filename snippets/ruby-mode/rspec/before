@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: before (RSpec)
+# key: rspec-before
+# group: rspec
+# --
+before do
+  $0
+end

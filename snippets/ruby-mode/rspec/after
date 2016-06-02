@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: after (RSpec)
+# key: rspec-after
+# group: rspec
+# --
+after do
+  $0
+end

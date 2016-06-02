@@ -4,7 +4,5 @@
 # group: rspec
 # --
 describe '${1:description}' do
-  it 'should ${2:description}' do
-    $0
-  end
+  $0
 end
