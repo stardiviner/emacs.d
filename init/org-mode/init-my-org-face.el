@@ -93,11 +93,12 @@
                     :foreground "olive drab")
 
 ;; Emphasize
-;;; org-verbatim: =code=
+;;; org-verbatim: =verbatim=
 (set-face-attribute 'org-verbatim nil
-                    :background "#004A5D" :foreground "white"
-                    :box '(:color "cyan" :line-width 1)
-                    :underline nil)
+                    :background "#222222" :foreground "orange"
+                    :family "Segoe Print"
+                    :bold nil :box nil
+                    )
 
 ;; table
 (set-face-attribute 'org-table nil
@@ -243,13 +244,6 @@
 ;; (set-face-attribute 'org-block nil
 ;;                     :background "#004A5d"
 ;;                     )
-;; ;; code face => ~code~,  #+RESULTS: : result.
-;; (set-face-attribute 'org-code nil
-;;                     :background "#004A5D" :foreground "white"
-;;                     :box '(:color "cyan" :line-width 1 :style nil)
-;;                     ;; :underline '(:color "cyan") :box nil
-;;                     :family "DejaVu Sans Mono"
-;;                     :bold nil)
 
 ;;; black style code block colorscheme
 ;;; babel faces (source code block) => #+BEGIN_SRC ... #+END_SRC
@@ -272,11 +266,16 @@
 
 ;; code face => ~code~,  #+RESULTS: : result.
 (set-face-attribute 'org-code nil
-                    :background "#222222" :foreground "orange"
-                    ;; :box '(:color "cyan" :line-width 1 :style nil)
-                    ;; :underline '(:color "cyan") :box nil
+                    ;; 1. sci-fi cyan style
+                    ;; :background "#004A5D" :foreground "white"
+                    ;; :box '(:color "cyan" :line-width 1)
+                    ;; :family "DejaVu Sans Mono"
+                    ;; :underline nil
+                    
+                    ;; 2. without box, clear for code which has underline.
+                    :background "#004A5D" :foreground "white"
                     :family "DejaVu Sans Mono"
-                    :bold nil :box nil)
+                    )
 
 ;; inline code face => src_ruby{require 'something'}
 ;;
