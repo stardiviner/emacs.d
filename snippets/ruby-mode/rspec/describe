@@ -1,6 +1,7 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: describe (String)
-# key: describe
+# name: describe (RSpec)
+# key: rspec-describe
+# group: rspec
 # --
 describe '${1:description}' do
   it 'should ${2:description}' do
