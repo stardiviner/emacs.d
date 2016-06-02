@@ -64,23 +64,21 @@
   ;;              (if smartparens-mode
   ;;                  (smartparens-mode -1))))
   
-  ;; company-mode
-  (require 'ac-php-company)
-  ;; auto-complete
-  ;; (require 'ac-php)
-  
   (add-hook 'php-mode-hook
             (lambda ()
               ;; company-mode
-              (my-company-add-backend-locally 'company-ac-php-backend)
+              ;; (my-company-add-backend-locally 'company-ac-php-backend)
 
               ;; auto-complete
               ;; (setq ac-sources '(ac-source-php))
-
+              (add-to-list 'ac-sources 'ac-source-php-template)
+              (add-to-list 'ac-sources 'ac-source-php)
+              
               (smartparens-mode 1)
               ))
   
   ;; keybindings
+  ;; goto define & go back
   (define-key php-mode-map (kbd "M-.") 'ac-php-find-symbol-at-point)
   (define-key php-mode-map (kbd "M-,") 'ac-php-location-stack-back)
   (define-key php-mode-map (kbd "C-h d d") 'ac-php-show-tip)
