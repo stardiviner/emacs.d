@@ -96,8 +96,8 @@
 ;;; org-verbatim: =verbatim=
 (set-face-attribute 'org-verbatim nil
                     :background "#222222" :foreground "orange"
-                    :family "Segoe Print"
                     :bold nil :box nil
+                    :family "Segoe Print"
                     )
 
 ;; table
