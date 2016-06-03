@@ -170,9 +170,30 @@
     (when (and
            (equal major-mode 'clojure-mode)
            (not (equal (cider--modeline-info) "not connected")))
-      ;; (format " cider[%s] " (cider--modeline-info))
-      (propertize (format "CIDER √")
-                  'face '(:foreground "forest green")))
+      ;; (propertize (format "CIDER √")
+      ;;             'face '(:foreground "forest green"))
+      ;; (propertize (format "CIDER: %s" (cider--project-name nrepl-project-dir))
+      ;;             'face '(:foreground "forest green"))
+
+      (propertize (format " CIDER: √ ")
+                  'face '(:foreground "forest green")
+                  'display
+                  (let ((clojure-icon (concat user-emacs-directory "resources/icon/" "Clojure.xpm")))
+                    (if (and (file-exists-p clojure-icon)
+                             (image-type-available-p 'xpm))
+                        (create-image clojure-icon 'xpm nil :ascent 'center))))
+      )
+    )
+
+   ;; CIDER project info
+   (:eval
+    (when (and
+           (equal major-mode 'clojure-mode)
+           (not (equal (cider--modeline-info) "not connected")))
+      (propertize (format " %s" (or (cider--project-name nrepl-project-dir)
+                                    ""))
+                  'face '(:foreground "cyan"))
+      )
     )
    
    ;; VCS - Git, SVN, CVS,
