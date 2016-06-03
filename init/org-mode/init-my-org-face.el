@@ -431,8 +431,8 @@ to insert <kbd>..</kbd> (HTML) org =[..]= (Org-mode)."
   "Ask for a KEY then insert its description.
 Will work on both `org-mode' and any mode that accepts plain html."
   (interactive "kType key sequence: ")
-  (let* ((orgp (derived-mode-p 'org-mode))
-         (tag (if orgp
+  (let* ((org-p (derived-mode-p 'org-mode))
+         (tag (if org-p
                   ;; "~%s~"
                   "=[%s]="
                 ;; "@@html:<kbd>%s</kbd>@@"
@@ -442,7 +442,7 @@ Will work on both `org-mode' and any mode that accepts plain html."
          (format tag (help-key-description key nil)))
       ;; If you just hit RET.
       (insert (format tag ""))
-      (forward-char (if orgp -2 -6)))))
+      (forward-char (if org-p -2 -6)))))
 
 (define-key org-mode-map (kbd "C-c K") 'my/insert-kbd)
 (define-key org-mode-map (kbd "C-c k") 'my/org-insert-key)
