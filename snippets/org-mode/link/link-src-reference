@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: link-coderef
+# key: link-coderef
+# group: link.coderef
+# --
+[[(${1})][${2:Description}]]
