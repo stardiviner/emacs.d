@@ -1,7 +1,7 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: describe (RSpec)
 # key: rspec-describe
-# group: rspec
+# group: test.rspec
 # --
 describe '${1:description}' do
   $0

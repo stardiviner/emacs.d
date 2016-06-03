@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # name: after (RSpec)
 # key: rspec-after
-# group: rspec
+# group: test.rspec
 # --
 after do
   $0

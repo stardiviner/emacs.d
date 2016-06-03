@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: context (Test::Unit)
+# key: test.unit-context
+# group: test.unit
+# --
+class Test${1} < Test::Unit::TestCase
+  $0
+end

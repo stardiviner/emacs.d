@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: setup (Test::Unit)
+# key: test.unit-setup
+# group: test.unit
+# --
+def setup
+  $0
+end

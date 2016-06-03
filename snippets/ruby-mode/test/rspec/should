@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
 # name: should (RSpec)
 # key: rspec-should
-# group: rspec
+# group: test.rspec
 # --
 it '${1:$$(yas-choose-value '("should" "should not"))} ${2:description}' do
   $0

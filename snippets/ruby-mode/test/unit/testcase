@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: testcase (Test::Unit)
+# key: test.unit-testcase
+# group: test.unit
+# --
+def test_${1:method}
+  ${2:assert} $0
+end
