@@ -118,6 +118,9 @@
 
         ;; Mode Line
         cider-mode-line-show-connection t
+
+        ;; project
+        cider-prompt-for-project-on-connect 'when-needed
         )
 
   ;; Complete & annotations
