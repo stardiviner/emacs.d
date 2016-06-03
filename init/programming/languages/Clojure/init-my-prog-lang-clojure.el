@@ -200,7 +200,7 @@
     (interactive)
     (my-cider-launch)
     (let ((cider-repl "*cider-repl localhost*"))
-      (switch-to-buffer)))
+      (switch-to-buffer cider-repl)))
 
   ;; auto start CIDER jack-in.
   (add-hook 'clojure-mode-hook 'my-cider-launch)
