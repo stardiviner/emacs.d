@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-clojure
+# key: babel-clojure
+# group: babel
+# --
+#+BEGIN_SRC clojure :session ${1:session}
+$0
+#+END_SRC
