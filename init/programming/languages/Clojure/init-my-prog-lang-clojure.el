@@ -158,9 +158,10 @@
 
   ;; eval sexp result overlays
   (set-face-attribute 'cider-result-overlay-face nil
-                      :foreground "orange"
-                      :background (color-darken-name (face-background 'default) 3)
+                      :foreground "light gray"
+                      :background (color-darken-name (face-background 'default) 2)
                       :box '(:line-width -1 :color "dim gray")
+                      :family "Comic Neue"
                       )
 
   ;; enable `cider-mode' in `clojure-mode'.
