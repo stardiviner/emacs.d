@@ -185,22 +185,25 @@
             )
   
   ;; switch to cider-repl buffer.
-  (defun my-run-cider ()
+  (defun my-cider-launch ()
     (interactive)
     (let ((cider-repl "*cider-repl localhost*")
           (cider-command "cider-jack-in"))
-      (if (not (get-buffer cider-repl))
-          (progn
-            (message "CIDER REPL buffer not available. starting a new one...")
-            (cider-jack-in))
-        (switch-to-buffer cider-repl)
-        )))
+      (unless (get-buffer cider-repl)
+        (message "CIDER REPL buffer not available. starting a new one...")
+        (cider-jack-in))))
+
+  (defun my-cider-switch-to ()
+    (interactive)
+    (my-cider-launch)
+    (let ((cider-repl "*cider-repl localhost*"))
+      (switch-to-buffer)))
 
   ;; auto start CIDER jack-in.
-  (add-hook 'clojure-mode-hook 'my-run-cider)
+  (add-hook 'clojure-mode-hook 'my-cider-launch)
 
-  (define-key clojure-mode-map (kbd "C-c C-s") 'my-run-cider)
-  (define-key my-inferior-lisp-map (kbd "c") 'my-run-cider)
+  (define-key clojure-mode-map (kbd "C-c C-s") 'my-cider-switch-to)
+  (define-key my-inferior-lisp-map (kbd "c") 'my-cider-switch-to)
   )
 
 
