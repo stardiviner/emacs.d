@@ -19,6 +19,17 @@
         )
   )
 
+
+;;; [ company-dart ]
+
+;; (use-package company-dart
+;;   :ensure t
+;;   :config
+;;   (add-hook 'dart-mode-hook
+;;             (lambda ()
+;;               (my-company-add-backend-locally 'company-dart)
+;;               ))
+;;   )
 
 
 (provide 'init-my-prog-lang-dart)
