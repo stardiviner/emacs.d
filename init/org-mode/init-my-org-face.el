@@ -98,6 +98,7 @@
                     :background "#222222" :foreground "orange"
                     :bold nil :box nil
                     :family "Segoe Print"
+                    :height 95
                     )
 
 ;; table
