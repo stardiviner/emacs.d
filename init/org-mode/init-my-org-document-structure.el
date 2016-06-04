@@ -79,7 +79,7 @@
 ;; * Footnotes::                   How footnotes are defined in Org's syntax
 
 (setq org-footnote-auto-label 'confirm
-      org-footnote-auto-adjust t
+      org-footnote-auto-adjust nil
       org-footnote-define-inline nil ; define foot-note inline, instead of separate section.
       org-footnote-fill-after-inline-note-extraction t
       ;; org-footnote-section "Footnotes"
