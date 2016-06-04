@@ -191,8 +191,12 @@
   (defun my-cider-launch ()
     (interactive)
     (let ((cider-repl "*cider-repl localhost*")
+          (cider-connection-process "nrepl-connection")
+          (cider-server-process "nrepl-server")
           (cider-command "cider-jack-in"))
-      (unless (get-buffer cider-repl)
+      (unless (and (get-buffer cider-repl)
+                   (process-live-p (get-process cider-connection-process))
+                   (process-live-p (get-process cider-server-process)))
         (message "CIDER REPL buffer not available. starting a new one...")
         (cider-jack-in))))
 
@@ -203,7 +207,8 @@
       (switch-to-buffer cider-repl)))
 
   ;; auto start CIDER jack-in.
-  (add-hook 'clojure-mode-hook 'my-cider-launch)
+  ;; (add-hook 'clojure-mode-hook 'my-cider-launch)
+  (add-hook 'after-init-hook 'my-cider-launch)
 
   (define-key clojure-mode-map (kbd "C-c C-s") 'my-cider-switch-to)
   (define-key my-inferior-lisp-map (kbd "c") 'my-cider-switch-to)
