@@ -177,6 +177,10 @@
 
   (sp-local-pair 'minibuffer-inactive-mode "'" nil :actions nil)
 
+  ;; `code` in clojure comment
+  (sp-with-modes '(clojure-mode)
+    (sp-local-pair "`" "`"))
+  
   ;; smartparens for other modes.
   (require 'smartparens-ruby)
 
