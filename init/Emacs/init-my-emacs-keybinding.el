@@ -37,6 +37,8 @@
 (global-unset-key [right])
 (global-unset-key [up])
 (global-unset-key [down])
+(global-unset-key [next]) ; PageDown
+(global-unset-key [prior]) ; PageUp
 
 
 ;;; bind some useful commands to keybindings.
