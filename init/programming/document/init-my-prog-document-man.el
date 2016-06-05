@@ -17,6 +17,8 @@
 ;;; Usage:
 ;; - Man-?? :: command prefix.
 
+(define-key my-prog-help-document-map (kbd "m") 'man-follow)
+(define-key my-prog-help-document-map (kbd "M") 'man)
 
 
 ;;; [ women ]
