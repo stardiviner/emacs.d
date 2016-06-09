@@ -134,6 +134,17 @@
   )
 
 
+;;; [ flycheck-cstyle ] --
+
+(use-package flycheck-cstyle
+  :ensure t
+  :config
+  (flycheck-cstyle-setup)
+  (flycheck-add-next-checker 'c/c++-cppcheck '(warning . cstyle))
+  ;; (flycheck-add-next-checker 'c/c++-clang '(warning . cstyle))
+  )
+
+
 ;;; [ company-clang ]
 
 ;; (use-package company-clang
