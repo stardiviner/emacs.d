@@ -198,13 +198,6 @@
 ;;   )
 
 
-;;; [ rtags ]
-
-;;; https://github.com/Andersbakken/rtags
-
-
-
-
 (provide 'init-my-prog-lang-C-common)
 
 ;;; init-my-prog-lang-C-common.el ends here
