@@ -9,6 +9,14 @@
 
 ;;; [ Make ]
 
+;;; [ make-mode ]
+
+(use-package make-mode
+  :ensure t)
+
+
+;;; [ CMake ]
+
 (require 'init-my-prog-make-cmake)
 
 
