@@ -209,6 +209,15 @@
               )))
 
 
+;;; [ intero ] -- Complete interactive development program for Haskell.
+
+(use-package intero
+  :ensure t
+  :config
+  (add-hook 'haskell-mode-hook 'intero-mode)
+  )
+
+
 ;;; [ ebal ] -- Emacs interface to Cabal and Stack.
 
 (use-package ebal
