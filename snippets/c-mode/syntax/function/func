@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: func
+# key: func
+# group: function
+# --
+${1:return value type} ${2:func_name}(${3:arguments}) {
+  $0
+}

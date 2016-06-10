@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: struct-type
+# key: struct-type
+# group: struct
+# --
+struct ${1:struct_name} ${2:name}

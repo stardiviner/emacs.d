@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: array
+# key: array
+# group: datatype.array
+# --
+${1:type} ${2:name}[${3:length}] = {${4:initializer\}};

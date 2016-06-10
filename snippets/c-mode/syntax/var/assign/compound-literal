@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: compound-literal
+# key: var-assign-compound-literal
+# group: variable.assign
+# --
+${1:var} = (${2:struct <struct_name>}){${0:initializer}};

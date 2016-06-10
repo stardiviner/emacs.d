@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: switch
+# key: switch
+# --
+switch (${1:condition}) {
+  case ${2:constant expr}:
+    ${3:statements}
+    break;
+    $0
+  ${4:
+  default:
+    ${5:statements}
+    break;
+  }
+}
