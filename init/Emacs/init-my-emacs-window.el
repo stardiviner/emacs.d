@@ -335,6 +335,8 @@
   (push '(project-explorer-mode :position left :stick yes) popwin:special-display-config)
   
   ;; Tags
+  ;; gtags
+  (push '(ggtags-global-mode :position bottom :height 8) popwin:special-display-config)
   ;; cscope
   ;; ascope
   (push '(ascope-list-entry-mode :position bottom :height 8) popwin:special-display-config)
