@@ -2,7 +2,22 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Crack Methods"
+(("Ruby Language Syntax Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Manuals/Ruby Language Syntax Reference/Ruby Language Syntax Reference.org")
+ (front-context-string . "* The Ruby Progr")
+ (rear-context-string)
+ (position . 1))
+("Religion"
+ (filename . "~/Org/Wiki/Religion/Religion.org")
+ (front-context-string . "* Buddhism (佛教)\n")
+ (rear-context-string)
+ (position . 1))
+("C++ Programming Language"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/C++/C++.org")
+ (front-context-string . "* Intro\n\n\n** Scr")
+ (rear-context-string)
+ (position . 1))
+("Crack Methods"
  (filename . "~/Org/Wiki/Computer/Crack/Data/Methods/Methods.org")
  (front-context-string . "* Search\n\n** Goo")
  (rear-context-string)
@@ -132,11 +147,6 @@
  (front-context-string . "* Intro\n\nVagrant")
  (rear-context-string)
  (position . 1))
-("My Ruby Standard Library Reference"
- (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Library/My Ruby Standard Library Reference.org")
- (front-context-string . "* Ruby Language\n")
- (rear-context-string)
- (position . 1))
 ("Arch Package Management"
  (filename . "~/Org/Wiki/Computer/Systems/Linux/Data/Distributions/Arch/Data/Manuals/Arch Linux Package Management.org")
  (front-context-string . "* Intro\n\n\n* Data")
@@ -200,11 +210,6 @@
 ("Python Packages"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Python/Data/Packages/Packages.org")
  (front-context-string . "* Python Optimiz")
- (rear-context-string)
- (position . 1))
-("Ruby Language Syntax Reference"
- (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Manuals/Ruby Language Syntax Reference.org")
- (front-context-string . "* The Ruby Progr")
  (rear-context-string)
  (position . 1))
 ("Hacker"
