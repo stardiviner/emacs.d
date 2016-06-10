@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-ruby
+# key: babel-ruby
+# group: babel
+# --
+#+BEGIN_SRC ruby :session
+$0
+#+END_SRC

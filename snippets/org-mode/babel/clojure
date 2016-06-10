@@ -3,6 +3,6 @@
 # key: babel-clojure
 # group: babel
 # --
-#+BEGIN_SRC clojure :session ${1:session}
+#+BEGIN_SRC clojure :session
 $0
 #+END_SRC

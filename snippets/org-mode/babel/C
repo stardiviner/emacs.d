@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: babel-C
+# key: babel-C
+# group: babel
+# --
+#+BEGIN_SRC C
+#include <stdio.h>
+
+int main(int argc, char *argv[]) {
+  $0
+}
+#+END_SRC
