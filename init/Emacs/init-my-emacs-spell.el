@@ -175,6 +175,12 @@ be global."
   (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-word-generic)
   )
 
+(use-package flyspell-correct-popup
+  :ensure t)
+
+(use-package flyspell-correct-ivy
+  :ensure t)
+
 
 ;;; [ flyguess ] -- guess language/dictionary for a buffer
 
