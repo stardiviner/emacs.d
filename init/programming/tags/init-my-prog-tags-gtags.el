@@ -20,11 +20,20 @@
 (use-package ggtags
   :ensure t
   :config
-  (with-eval-after-load 'init-my-prog-lang-C-common
-    (hook-modes c-dialects-mode
-      (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-        (ggtags-mode 1))
-      ))
+  (hook-modes c-dialects-mode
+    (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+      (ggtags-mode 1))
+    )
+
+  (define-key ggtags-mode-map (kbd "C-c g s") 'ggtags-find-other-symbol)
+  (define-key ggtags-mode-map (kbd "C-c g h") 'ggtags-view-tag-history)
+  (define-key ggtags-mode-map (kbd "C-c g r") 'ggtags-find-reference)
+  (define-key ggtags-mode-map (kbd "C-c g f") 'ggtags-find-file)
+  (define-key ggtags-mode-map (kbd "C-c g c") 'ggtags-create-tags)
+  (define-key ggtags-mode-map (kbd "C-c g u") 'ggtags-update-tags)
+
+  (define-key ggtags-mode-map (kbd "M-.") 'ggtags-find-tag-dwim)
+  (define-key ggtags-mode-map (kbd "M-,") 'pop-tag-mark)
   )
 
 
