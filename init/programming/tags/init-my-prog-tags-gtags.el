@@ -65,20 +65,28 @@
 ;;         helm-gtags-suggested-key-mapping t
 ;;         )
 ;;
-;;   ;; Enable helm-gtags-mode
-;;   (add-hook 'dired-mode-hook 'helm-gtags-mode)
-;;   (add-hook 'eshell-mode-hook 'helm-gtags-mode)
-;;   (add-hook 'c-mode-hook 'helm-gtags-mode)
-;;   (add-hook 'c++-mode-hook 'helm-gtags-mode)
-;;   (add-hook 'asm-mode-hook 'helm-gtags-mode)
+;;   (defun my-helm-gtags-setup-keybindings ()
+;;     (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
 ;;
-;;   (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
+;;     (define-key my-prog-lookup-map (kbd "M-.") 'helm-gtags-dwim)
+;;     (define-key my-prog-lookup-map (kbd "a") 'helm-gtags-tags-in-this-function)
+;;     (define-key my-prog-lookup-map (kbd "l") 'helm-gtags-select)
+;;     (define-key my-prog-lookup-map (kbd "s") 'helm-gtags-find-symbol)
+;;     (define-key my-prog-lookup-map (kbd "p") 'helm-gtags-find-pattern)
+;;     (define-key my-prog-lookup-map (kbd "t") 'helm-gtags-find-tag)
+;;     (define-key my-prog-lookup-map (kbd "r") 'helm-gtags-find-rtag)
+;;     (define-key my-prog-lookup-map (kbd "f") 'helm-gtags-find-files)
+;;     (define-key my-prog-lookup-map (kbd "<") 'helm-gtags-previous-history)
+;;     (define-key my-prog-lookup-map (kbd ">") 'helm-gtags-next-history)
+;;     (define-key my-prog-lookup-map (kbd "C") 'helm-gtags-create-tags)
+;;     (define-key my-prog-lookup-map (kbd "U") 'helm-gtags-update-tags)
+;;     )
 ;;
-;;   (define-key my-prog-lookup-map (kbd "a") 'helm-gtags-tags-in-this-function)
-;;   (define-key my-prog-lookup-map (kbd "l") 'helm-gtags-select)
-;;   (define-key my-prog-lookup-map (kbd "h") 'helm-gtags-dwim)
-;;   (define-key my-prog-lookup-map (kbd "<") 'helm-gtags-previous-history)
-;;   (define-key my-prog-lookup-map (kbd ">") 'helm-gtags-next-history)
+;;   (dolist (hook '(c-mode-hook
+;;                   c++-mode-hook))
+;;     (add-hook hook 'my-helm-gtags-setup-keybindings))
+;;
+;;   (add-hook 'after-save-hook 'helm-gtags-update-tags nil t)
 ;;   )
 
 
