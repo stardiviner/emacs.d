@@ -20,7 +20,7 @@
 (use-package ggtags
   :ensure t
   :config
-  (hook-modes '(c-mode c++-mode objc-mode)
+  (defun my-ggtags-setup-keybindings ()
     (ggtags-mode -1)
     
     (ggtags-setup-highlight-tag-at-point ggtags-highlight-tag)
