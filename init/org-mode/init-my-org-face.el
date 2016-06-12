@@ -97,7 +97,8 @@
 (set-face-attribute 'org-verbatim nil
                     :background "#222222" :foreground "orange"
                     :bold nil :box nil
-                    :family "Segoe Print"
+                    ;; :family "Segoe Print"
+                    :family "Comic Sans MS"
                     :height 95
                     )
 
