@@ -17,6 +17,7 @@
 (use-package org-plus-contrib
   :ensure t)
 
+(require 'init-my-org-functions)
 (require 'init-my-org-document-structure)
 (require 'init-my-org-complete)
 (require 'init-my-org-table)
