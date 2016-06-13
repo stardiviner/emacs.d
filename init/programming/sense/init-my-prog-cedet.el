@@ -20,11 +20,6 @@
 (require 'cc-mode)
 (require 'semantic)
 
-(global-semanticdb-minor-mode 1)
-(global-semantic-idle-scheduler-mode 1)
-;; or
-;; (add-hook 'semantic-init-hooks 'semantic-idle-completions-mode)
-
 ;; (require 'semantic/senator)
 ;; (require 'semantic/ia)
 ;; (require 'semantic/analyze/refs)
@@ -32,15 +27,16 @@
 ;; (require 'semantic/bovine/gcc)
 ;; (require 'semantic/mru-bookmark)
 
-
+(global-semanticdb-minor-mode 1)
+(global-semantic-idle-scheduler-mode 1)
+;; or
+;; (add-hook 'semantic-init-hooks 'semantic-idle-completions-mode)
 
-;; (global-semantic-idle-scheduler-mode 1)
 ;; (global-semantic-decoration-mode 1)
 ;; (global-semantic-idle-summary-mode 1)
 ;; (global-semantic-stickyfunc-mode 1)
 ;; (global-semantic-idle-local-symbol-highlight-mode 1)
 ;; (global-semantic-mru-bookmark-mode 1)
-;; (global-semanticdb-minor-mode 1)
 ;; (semanticdb-enable-gnu-global-databases 'c-mode t)
 ;; (global-semantic-show-unmatched-syntax-mode t)
 
