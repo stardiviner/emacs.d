@@ -25,7 +25,7 @@
 
 (setq browse-url-browser-function 'browse-url-default-browser)
 
-(if (eq browse-url-browser-function 'browse-url-generic)
+(if (eq browse-url-browser-function 'browse-url-default-browser)
     (setq browse-url-generic-program (executable-find "google-chrome-stable"))
   )
 
