@@ -352,6 +352,19 @@
   )
 
 
+;;; [ xref-js2 ] -- Jump to references/definitions using ag & js2-mode's AST in Emacs.
+
+(unless (version<= emacs-version "25")
+  (use-package xref-js2
+    :ensure t
+    :config
+    (add-hook 'js2-mode-hook
+              (lambda ()
+                (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
+    )
+  )
+
+
 
 (provide 'init-my-prog-lang-javascript)
 
