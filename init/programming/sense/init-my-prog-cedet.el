@@ -12,10 +12,7 @@
 
 ;;; [ CEDET ] --- a Collection of Emacs Development Environment Tools
 
-;; load latest user CEDET instead of Emacs default built-in CEDET.
-;; (load-file (concat user-emacs-directory "el-get/cedet/cedet-devel-load.el"))
-
-;; (require 'cedet)
+(require 'cedet)
 
 
 ;;; [ Semantic ]
