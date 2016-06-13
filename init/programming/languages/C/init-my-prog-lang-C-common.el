@@ -104,6 +104,8 @@
     (make-local-variable 'company-backends)
     (add-to-list 'company-backends '(company-irony-c-headers
                                      company-irony
+                                     company-gtags
+                                     company-etags
                                      :with
                                      company-yasnippet))
     )
