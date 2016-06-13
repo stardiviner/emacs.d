@@ -41,6 +41,13 @@
 ;; (global-semantic-show-unmatched-syntax-mode t)
 
 
+;;; Add more system include paths
+
+(semantic-add-system-include "/usr/include/boost" 'c++-mode)
+;; (semantic-add-system-include "~/linux/kernel")
+;; (semantic-add-system-include "~/linux/include")
+
+
 ;;; [ Non-semantic files ]
 ;; Such non-semantic file-types can often be parsed by imenu and/or etags.
 ;; (setq speedbar-dynamic-tags-function-list)
