@@ -7,9 +7,9 @@
 
 ;;; Code:
 
-;;; [ CEDET ]
+;;; [ CEDET ] -- (C)ollection of (E)macs (D)evelopment (E)nvironment (T)ools
 
-;; (require 'init-my-prog-cedet)
+(require 'init-my-prog-cedet)
 
 
 ;;; [ Sourcegraph: srclib ] -- A hackable, multi-language code analysis library for building better software tools.
