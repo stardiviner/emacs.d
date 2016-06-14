@@ -214,6 +214,13 @@
   (define-key my-inferior-lisp-map (kbd "c") 'my-cider-switch-to)
   )
 
+
+;;; [ helm-cider ]
+
+(use-package helm-cider
+  :ensure t
+  :config
+  (helm-cider-mode 1))
 
 
 ;;; [ cider-decompile ]
