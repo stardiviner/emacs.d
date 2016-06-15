@@ -20,6 +20,8 @@
 (use-package ggtags
   :ensure t
   :config
+  (setq ggtags-mode-prefix-key "M-.")
+  
   (defun my-ggtags-setup-keybindings ()
     (ggtags-mode -1)
     
@@ -48,7 +50,8 @@
     (local-set-key (kbd "M-,") 'pop-tag-mark)
     )
   
-  (hook-modes '(c-mode c++-mode objc-mode) 'my-ggtags-setup-keybindings)
+  (add-hook 'c-mode-hook 'my-ggtags-setup-keybindings)
+  (add-hook 'c++-mode-hook 'my-ggtags-setup-keybindings)
   )
 
 
