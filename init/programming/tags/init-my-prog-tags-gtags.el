@@ -20,7 +20,9 @@
 (use-package ggtags
   :ensure t
   :config
-  (setq ggtags-mode-prefix-key "M-.")
+  (setq ggtags-mode-prefix-key "M-."
+        ggtags-navigation-mode nil
+        ggtags-enable-navigation-keys nil)
   
   (defun my-ggtags-setup-keybindings ()
     (ggtags-mode -1)
