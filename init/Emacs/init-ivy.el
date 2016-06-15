@@ -128,7 +128,8 @@
   (global-set-key [remap info-lookup-symbol] 'counsel-info-lookup-symbol) ; [C-h i]
   (global-set-key [remap menu-bar-open] 'counsel-tmm) ; [F10] text menu access
   (global-set-key (kbd "C-x c p") 'counsel-list-processes) ; [C-x c p]
-  (global-set-key (kbd "C-x RET u") 'counsel-unicode-char)
+  (global-set-key (kbd "C-x RET v") 'counsel-set-variable) ; [C-x RET v]
+  (global-set-key (kbd "C-x RET u") 'counsel-unicode-char) ; [C-x RET u]
   ;; (setq ivy-switch-buffer-show-info '("%s" "buffer-name"))
   (global-set-key [remap switch-to-buffer] 'ivy-switch-buffer) ; [C-x b]
   ;; (global-set-key (kbd "C-x C-b") 'ivy-recentf)
