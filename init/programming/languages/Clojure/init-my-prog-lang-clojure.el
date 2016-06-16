@@ -150,7 +150,10 @@
   ;; Java
 
   ;; Enlighten faces
-  (add-hook 'clojure-mode-hook 'cider-enlighten-mode)
+  (add-hook 'cider-connected-hook
+            (lambda ()
+              (sleep-for 60)
+              (cider-enlighten-mode 1)))
   
   (set-face-attribute 'cider-enlightened-local-face nil
                       :background "black" :foreground "yellow"
