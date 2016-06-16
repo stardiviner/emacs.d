@@ -152,11 +152,13 @@
   ;; Enlighten faces
   (add-hook 'clojure-mode-hook 'cider-enlighten-mode)
   
-  (set-face-attribute 'cider-enlightened-face nil
-                      :background "black" :foreground "yellow"
-                      )
   (set-face-attribute 'cider-enlightened-local-face nil
-                      :background "black" :foreground "orange"
+                      :background "black" :foreground "yellow"
+                      :box t
+                      )
+  (set-face-attribute 'cider-enlightened-face nil
+                      :background "black" :foreground "dark orange"
+                      :box t
                       )
 
   ;; eval sexp result overlays
