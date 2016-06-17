@@ -203,6 +203,9 @@ Usage:
                                   my/account-file
                                 (concat user-emacs-directory "accounts.json.gpg"))))))
 
+;; ask for GPG password at first, not in middle of Emacs startup progress.
+(my/json-read-value my/account-file 'yagist)
+
 
 
 (provide 'init-my-functions)
