@@ -323,6 +323,22 @@ pasting on sites like GitHub, and Stack Overflow."
 (require 'ox-freemind)
 
 
+;;; copy formatted text from org-mode to applications.
+
+(defun my-org-formatted-copy ()
+  "Export region to HTML, and copy it to the clipboard."
+  (interactive)
+  (save-window-excursion
+    (let* ((buf (org-export-to-buffer 'html "*org-mode formatted copy*" nil nil t t))
+           (html (with-current-buffer buf (buffer-string))))
+      (with-current-buffer buf
+        (shell-command-on-region
+         (point-min)
+         (point-max)
+         "textutil -stdin -format html -convert rtf -stdout | pbcopy"))
+      (kill-buffer buf))))
+
+
 (provide 'init-my-org-export)
 
 ;;; init-my-org-export.el ends here
