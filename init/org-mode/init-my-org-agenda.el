@@ -271,7 +271,7 @@
 
 (require 'org-notify)
 
-(setq org-notify-audible t)
+(setq org-notify-audible nil)
 
 ;; ---------------------------------------------------------
 ;; List of possible parameters:
@@ -293,12 +293,10 @@
 ;;   :audible   Overwrite the value of `org-notify-audible' for this action.
 ;; ---------------------------------------------------------
 
-(setq org-notify-audible nil)
-
 (org-notify-add 'default
                 '(:time "1h" :period "2h" :duration 8
-                        :actions (-notify/window -ding)
-                        :audible nil)
+                        :actions (-notify/window)
+                        :audible t)
                 )
 
 (org-notify-start 60)
