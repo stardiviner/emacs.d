@@ -39,7 +39,7 @@
         ;; Diary
         ("D" "Write Diary"
          entry (file+datetree "~/Org/Diary/Diary.org")
-         "\n* %^{Diary Title}\n:PROPERTIES:\n:TIME: %U\n:END: \n\n[[file:%<%Y-%m-%d-%R>.org][On %<%Y-%m-%d %R>]]\n\nEvent: %?\n\n%i"
+         "\n* %^{Diary Title}\n:PROPERTIES:\n:TIME: %U\n:END: \n\n[[file:%<%Y-%m-%d-%R>.org][On %<%Y-%m-%d %R>]]\n\nEvent: %?\n\n%i\n"
          :empty-lines 1
          :jump-to-captured t
          )
