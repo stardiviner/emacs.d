@@ -196,6 +196,8 @@ Usage:
 
 (setq my/account-file (concat user-emacs-directory "accounts.json.gpg"))
 
+(require 'json)
+
 (defun my/json-read-value (file key)
   "Read in JSON `FILE' and get the value of symbol `KEY'."
   (cdr (assoc key
