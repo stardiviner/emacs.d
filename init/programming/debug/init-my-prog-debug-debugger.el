@@ -14,6 +14,16 @@
   )
 
 
+;;; [ GDB ]
+
+(use-package gdb-mi
+  :ensure t
+  :config
+  (setq gdb-many-windows t
+        gdb-show-main t)
+  )
+
+
 (provide 'init-my-prog-debug-debugger)
 
 ;;; init-my-prog-debug-debugger.el ends here
