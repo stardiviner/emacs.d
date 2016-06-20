@@ -75,6 +75,12 @@
   )
 
 
+;;; [ chinese-pyim-basedict ]
+
+(use-package chinese-pyim-basedict
+  :ensure t)
+
+
 ;;; [ chinese-pyim-greatdict ]
 
 (use-package chinese-pyim-greatdict
