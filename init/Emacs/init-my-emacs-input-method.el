@@ -83,10 +83,10 @@
 
 ;;; [ chinese-pyim-greatdict ]
 
-(use-package chinese-pyim-greatdict
-  :ensure t
-  :config
-  (chinese-pyim-greatdict-enable))
+;; (use-package chinese-pyim-greatdict
+;;   :ensure t
+;;   :config
+;;   (chinese-pyim-greatdict-enable))
 
 
 ;;; [ TeX Input Method ]
