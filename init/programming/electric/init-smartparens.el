@@ -13,11 +13,11 @@
 
 (setq show-paren-style 'parenthesis)
 
-(set-face-attribute 'show-paren-match-face nil
+(set-face-attribute 'show-paren-match nil
                     :foreground "white" :background "deep pink"
                     :weight 'bold
                     )
-(set-face-attribute 'show-paren-mismatch-face nil
+(set-face-attribute 'show-paren-mismatch nil
                     :background "brown"
                     :strike-through t
                     )
