@@ -192,7 +192,7 @@
 (require 'init-my-tool-calendar)
 (require 'init-my-tool-dictionary)
 (require 'init-my-tool-clock)
-;; (require 'init-my-tool-speak)
+(require 'init-my-tool-speak)
 (require 'init-my-tool-calculator)
 (require 'init-my-tool-keyboard)
 (require 'init-my-tool-tmux)
