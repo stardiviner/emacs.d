@@ -19,17 +19,17 @@
 
 ;;; [ Festival ]
 
-(require 'festival)
-
-(setq festival-auto-start t
-      festival-buffer "*festival*"
-      festival-default-audio-mode 'async
-      festival-default-voice 'festival-voice-english-male
-      festival-program "/usr/bin/festival"
-      festival-voices-alist '(("english-fair" . festival-voice-english-fair)
-                              ("english-male" . festival-voice-english-male)
-                              ("us-male" . festival-voice-US-male))
-      )
+;; (require 'festival)
+;;
+;; (setq festival-auto-start t
+;;       festival-buffer "*festival*"
+;;       festival-default-audio-mode 'async
+;;       festival-default-voice 'festival-voice-english-male
+;;       festival-program "/usr/bin/festival"
+;;       festival-voices-alist '(("english-fair" . festival-voice-english-fair)
+;;                               ("english-male" . festival-voice-english-male)
+;;                               ("us-male" . festival-voice-US-male))
+;;       )
 
 
 ;;; festival extension
