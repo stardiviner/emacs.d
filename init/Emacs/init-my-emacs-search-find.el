@@ -16,6 +16,14 @@
   )
 
 
+;;; [ f3 ]
+
+(use-package f3
+  :ensure t
+  :config
+  (global-set-key (kbd "C-x f") 'f3))
+
+
 (provide 'init-my-emacs-search-find)
 
 ;;; init-my-emacs-search-find.el ends here
