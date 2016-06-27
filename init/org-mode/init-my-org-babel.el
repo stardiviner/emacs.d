@@ -463,6 +463,43 @@ This can be useful for snippets to select kernel interactively."
   :ensure t)
 
 
+;;; [ Literate Programming with Org-mode ]
+
+;;; [ Clojure ]
+
+;; use CIDER as the Clojure execution backend
+(setq org-babel-clojure-backend 'cider)
+
+;; Useful keybindings when using Clojure from Org
+;; (org-defkey org-mode-map (kbd "C-x C-e") 'cider-eval-last-sexp)
+;; (org-defkey org-mode-map (kbd "C-c C-d") 'cider-doc)
+
+;; No timeout when executing calls on Cider via nrepl
+;; (setq org-babel-clojure-sync-nrepl-timeout nil)
+
+;; (setq org-support-shift-select 'always)
+
+;; Tangle Org files when we save them
+;; (defun tangle-on-save-org-mode-file()
+;;   (when (string= (message "%s" major-mode) "org-mode")
+;;     (org-babel-tangle)))
+;; (add-hook 'after-save-hook 'tangle-on-save-org-mode-file)
+
+;; Enable the auto-revert mode globally. This is quite useful when you have 
+;; multiple buffers opened that Org-mode can update after tangling.
+;; All the buffers will be updated with what changed on the disk.
+(global-auto-revert-mode)
+
+;; Add Org files to the agenda when we save them
+;; (defun to-agenda-on-save-org-mode-file()
+;;   (when (string= (message "%s" major-mode) "org-mode")
+;;     (org-agenda-file-to-front)))
+;; (add-hook 'after-save-hook 'to-agenda-on-save-org-mode-file)
+
+;; Enable Confluence export
+;; (require 'ox-confluence)
+
+
 (provide 'init-my-org-babel)
 
 ;;; init-my-org-babel.el ends here
