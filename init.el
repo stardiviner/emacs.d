@@ -218,6 +218,7 @@
 
 ;;; Programming
 (require 'init-my-prog-programming)
+(require 'init-my-prog-license)
 (require 'init-my-prog-code)
 (require 'init-my-prog-comment)
 (require 'init-my-prog-electric)
