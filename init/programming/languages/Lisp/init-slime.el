@@ -104,6 +104,9 @@
 
   ;; inspect
   (define-key slime-mode-map (kbd "C-c C-i") 'slime-inspect)
+
+  ;; toggle tracing defuns
+  (define-key slime-mode-map (kbd "C-c C-t") 'slime-toggle-trace-fdefinition)
   
   ;; bind slime-profile-* commands keybindings.
   (define-key slime-mode-map (kbd "C-c M-e") 'slime-pprint-eval-last-expression)
