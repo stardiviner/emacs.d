@@ -232,13 +232,13 @@
 
 ;;; Tag changes that should be triggered by TODO state changes.
 ;; [C-c C-x a]
-(setq org-todo-state-tags-triggers
-      '(("" ("Task" . t))
-        ('todo ("" . t))
-        ('done ("ARCHIVE" . t))
-        ("DONE" ("ARCHIVE" . t))
-        ("CANCELLED" ("CANCELLED" . t))
-        ))
+;; (setq org-todo-state-tags-triggers
+;;       '(("" ("Task" . t))
+;;         ('todo ("" . t))
+;;         ('done ("ARCHIVE" . t))
+;;         ("DONE" ("ARCHIVE" . t))
+;;         ("CANCELLED" ("CANCELLED" . t))
+;;         ))
 
 
 ;;; [ Calendar ]
