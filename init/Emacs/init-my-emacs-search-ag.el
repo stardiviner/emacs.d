@@ -55,6 +55,8 @@
         ag-reuse-buffers 't
         ag-reuse-window nil ; nil, or 't. (I use value `nil' for popwin to capture)
         ;; ag-arguments
+        ag-context-lines nil
+        ag-group-matches t
         )
   
   (set-face-attribute 'ag-hit-face nil
