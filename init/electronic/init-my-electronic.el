@@ -8,7 +8,7 @@
 ;;; Code:
 
 
-
+(require 'init-spice)
 
 
 
