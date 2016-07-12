@@ -10,6 +10,12 @@
 (setq password-cache-expiry nil) ; don't expire password cache.
 
 
+;;; [ Auth Source ]
+
+;; Auth Source debugging
+(setq auth-source-debug t)
+
+
 ;;; [ EasyPG Assistant ] --- transparent, automatic encryption and decryption.
 
 (use-package epa
