@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: babel-spice
+# key: babel-spice
+# group: babel.spice
+# --
+#+BEGIN_SRC spice  :results drawer :exports both :var file="data/images/${1:name}"
+$0
+.control
+run
+set gnuplot_terminal=png
+gnuplot $file v(1)
+#+END_SRC

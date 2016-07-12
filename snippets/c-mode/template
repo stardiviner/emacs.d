@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: template
+# key: template
+# group: template
+# --
+#include <stdio.h>
+
+$$(yas-expand-snippet "main"))

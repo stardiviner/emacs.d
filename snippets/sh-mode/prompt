@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: prompt
+# key: prompt
+# group: interactive.prompt
+# --
+echo "${1:prompt text}: "
+read ${2:variable}
+echo "${3:use $variable}"

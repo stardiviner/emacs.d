@@ -1,0 +1,32 @@
+# -*- mode: snippet -*-
+# name: org-contacts
+# key: org-contacts
+# group: org.contacts
+# --
+** ${1:Name}
+:PROPERTIES:
+:NAME(Chinese): ${2:chinese name}
+:NAME(English): ${3:english name}
+:NICK: ${4:nick}
+:ICON: ${5:avatar}
+:BIRTHDAY: ${6:birthday}
+:GENDER: ${7:$$(yas-choose-value '("Male" "Female"))}
+:Sexual: ${8:$$(yas-choose-value '("Unknown" "Heterosexual" "Bisexual" "Homosexual"))}
+:RELATIONSHIP: ${9:$$(yas-choose-value '("Friend" "Good Friend" "Boy Friend" "Girl Friend" "Classmate" "Schoolmate"))}
+:FIRST-MEET: ${10:$$(org-time-stamp-inactive)} ${11:describe first time meet}
+:Thought: ${12:$$(yas-choose-value '("Open" "Conservative"))}
+:MOBILE: ${13:mobile phone number}
+:EMAIL: ${14:$$(org-contacts-template-email)}
+:QQ:
+:WeChat: ${15:WeChat}
+:Facebook:
+:ADDRESS(home): ${16:home address}
+:ADDRESS(work): ${17:work address}
+:CHARACTER:
+:FEELING:
+:World-Views:
+:LANGUAGES: ${18:$$(yas-choose-value '("Chinese" "English" "Japan" "Korean"))}
+:EDUCATION: ${19:education}
+:PROGRAMMING-SKILLS: ${20:programming skills}
+:SKILLS: ${21:skills}
+:END:

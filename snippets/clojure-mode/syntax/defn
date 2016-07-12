@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: defn
+# key: defn
+# group: defn.defn
+# --
+defn ${1:name} [${2:arguments}]
+${3:"docstring"
+}$0

@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: try-catch-finally
+# key: try
+# group: exception
+# --
+try
+  ${1:expr*}
+  ${4:(catch clause*)}
+  ${5:(finally clause?)}
