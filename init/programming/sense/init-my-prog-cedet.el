@@ -29,6 +29,8 @@
 
 (global-semanticdb-minor-mode 1)
 (global-semantic-idle-scheduler-mode 1)
+(global-semantic-idle-summary-mode 1)
+(add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode)
 ;; or
 ;; (add-hook 'semantic-init-hooks 'semantic-idle-completions-mode)
 
