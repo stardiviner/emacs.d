@@ -28,6 +28,10 @@
         epa-file-cache-passphrase-for-symmetric-encryption t
         epa-file-inhibit-auto-save t
         )
+
+  ;; force Emacs to use its own internal password prompt instead of an external
+  ;; pin entry program.
+  (setenv "GPG_AGENT_INFO" nil)
   )
 
 ;;; FAQ
