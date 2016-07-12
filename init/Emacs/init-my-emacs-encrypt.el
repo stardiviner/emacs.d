@@ -10,22 +10,16 @@
 (setq password-cache-expiry nil) ; don't expire password cache.
 
 
-;;; [ EasyPG Assistant ] --- setup for transparent, automatic encryption and decryption.
-
-;;; Usage:
-;;
-;; - `epa-list-keys'
-;; - `epa-sign-file' / `epa-sign-region'
-;; - `epa-encrypt-file' / `epa-encrypt-region'
-;; - `epa-decrypt-file' / `epa-decrypt-region'
+;;; [ EasyPG Assistant ] --- transparent, automatic encryption and decryption.
 
 (use-package epa
-  :config
+  :init
   (require 'epa-file)
+  :config
   (epa-file-enable)
 
   (setq epa-file-encrypt-to "numbchild@gmail.com" ; nil, "numbchild@gmail.com"
-        ;; epa-gpg-program "/usr/bin/gpg"
+        ;; epa-gpg-program "gpg2"
         epa-file-select-keys t       ; ask user to select recipient with public key
         ;; cache passphrase for symmetric encryption.
         ;; For security reasons, this option is turned off by default and
