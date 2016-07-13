@@ -7,13 +7,6 @@
 
 ;;; Code:
 
-;;; [ prettify-symbols-mode ]
-
-(setq prettify-symbols-unprettify-at-point 'right-edge)
-
-(global-prettify-symbols-mode 1)
-
-
 ;;; [ pretty-mode ] -- redisplay parts of the Emacs buffer as pretty symbols.
 
 (use-package pretty-mode
@@ -41,6 +34,8 @@
 (use-package pretty-symbols
   :ensure t
   :config
+  (setq prettify-symbols-unprettify-at-point 'right-edge)
+  
   ;; (setq pretty-symbol-categories '(lambda relational logical)
   ;;       ;; pretty-symbol-patterns '()
   ;;       )
