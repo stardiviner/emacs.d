@@ -254,7 +254,8 @@
 
 ;;; [ cider-profile ]
 
-;; (use-package cider-profile)
+(use-package cider-profile
+  :ensure t)
 
 
 ;;; [ flycheck-clojure, squiggly-clojure ] --
