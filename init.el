@@ -232,6 +232,7 @@
 (require 'init-my-prog-sidebar)
 (require 'init-my-prog-document)
 ;; (require 'init-my-prog-inferior)
+(require 'init-my-prog-eval)
 (require 'init-my-prog-compile)
 (require 'init-my-prog-make)
 (require 'init-my-prog-lint)
