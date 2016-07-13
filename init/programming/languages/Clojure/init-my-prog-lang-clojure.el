@@ -255,7 +255,11 @@
 ;;; [ cider-profile ]
 
 (use-package cider-profile
-  :ensure t)
+  :ensure t
+  :config
+  (add-hook 'cider-mode-hook 'cider-profile-mode)
+  (add-hook 'cider-repl-mode-hook 'cider-profile-mode)
+  )
 
 
 ;;; [ flycheck-clojure, squiggly-clojure ] --
