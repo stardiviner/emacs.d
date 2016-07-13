@@ -247,7 +247,9 @@
 
 ;;; [ cider-spy ] -- Spy on CIDER to get Info.
 
-;; (use-package cider-spy)
+(use-package cider-spy
+  :ensure t
+  )
 
 
 ;;; [ cider-profile ]
