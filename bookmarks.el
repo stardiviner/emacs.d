@@ -2,7 +2,42 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Ruby Language Syntax Reference"
+(("My ClojureScript Examples.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Clojure/ClojureScript/Data/Manuals/My ClojureScript Examples/My ClojureScript Examples.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("My ClojureScript Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Clojure/ClojureScript/Data/Manuals/My ClojureScript Language Syntax Reference/My ClojureScript Language Syntax Reference.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("My Clojure Examples"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Clojure/Data/Manuals/References/My Clojure Examples/My Clojure Examples.org")
+ (front-context-string . "* Java -- ~java.")
+ (rear-context-string)
+ (position . 1))
+("Open Source"
+ (filename . "~/Org/Wiki/Computer/Programming/Open Source/Open Source.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("ClojureScript"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Clojure/ClojureScript/ClojureScript.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Data Structures"
+ (filename . "~/Org/Wiki/Computer/Programming/Data Structure/Data Structures/Data Structures.org")
+ (front-context-string . "* Array, List\n\n*")
+ (rear-context-string)
+ (position . 1))
+("Algorithms"
+ (filename . "~/Org/Wiki/Computer/Programming/Algorithm/Algorithms/Algorithms.org")
+ (front-context-string . "* Intro\n\n\n* Type")
+ (rear-context-string)
+ (position . 1))
+("Ruby Language Syntax Reference"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Manuals/Ruby Language Syntax Reference/Ruby Language Syntax Reference.org")
  (front-context-string . "* The Ruby Progr")
  (rear-context-string)
@@ -249,9 +284,9 @@
  (position . 1))
 ("org-capture-last-stored"
  (filename . "~/Org/Diary/Diary.org")
- (front-context-string . "**** 梦到在山林大树下被投下")
- (rear-context-string . "大学有一个晚会。于是就去了。\n\n")
- (position . 10297))
+ (front-context-string . "**** 和小影他们一起去环海\n")
+ (rear-context-string . "这次程铭很长时间都没有回来。\n\n")
+ (position . 14267))
 ("My R Language Syntax Reference"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/R/Data/Manuals/My R Language Syntax Reference/My R Language Syntax Reference.org")
  (front-context-string)
@@ -485,11 +520,6 @@
 ("Emacs Lisp code examples"
  (filename . "~/Org/Wiki/Computer/Programming/Emacs/Emacs Lisp/Data/code examples/code examples.org")
  (front-context-string . "* thing-at-point")
- (rear-context-string)
- (position . 1))
-("Open Source"
- (filename . "~/Org/Wiki/Computer/Programming/Implements/Open Source/Open Source.org")
- (front-context-string)
  (rear-context-string)
  (position . 1))
 ("Docker"
