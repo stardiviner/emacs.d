@@ -31,6 +31,13 @@
                '(clojure-mode . evalator-clojure-context))
   )
 
+
+;;; [ evalator-clojure ]
+
+(use-package evalator-clojure
+  :ensure t)
+
+
 (provide 'init-my-prog-eval)
 
 ;;; init-my-prog-eval.el ends here
