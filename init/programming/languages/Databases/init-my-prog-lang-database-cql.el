@@ -7,6 +7,10 @@
 
 ;;; Code:
 
+;;; [ cql-mode ]
+
+(use-package cql-mode
+  :ensure t)
 
 
 (provide 'init-my-prog-lang-database-cql)
