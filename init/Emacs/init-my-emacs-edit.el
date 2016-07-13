@@ -7,7 +7,7 @@
 
 (unless (boundp 'my-edit-prefix)
   (define-prefix-command 'my-edit-prefix))
-(global-set-key (kbd "C-c e") 'my-edit-prefix)
+(global-set-key (kbd "C-x e") 'my-edit-prefix)
 
 
 ;;;_ Edit
