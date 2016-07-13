@@ -8,6 +8,10 @@
 ;;; Code:
 
 
+(unless (boundp 'my-prog-eval-map)
+  (define-prefix-command 'my-prog-eval-map))
+(global-set-key (kbd "C-c e") 'my-prog-eval-map)
+
 
 (provide 'init-my-prog-eval)
 
