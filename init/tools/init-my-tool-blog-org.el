@@ -16,8 +16,8 @@
         ;; op/repository-html-branch "master"
         ;; op/repository-org-branch "source"
         op/site-domain "http://stardiviner.github.io/"
-        op/site-main-title "stardiviner's blog"
-        op/site-sub-title "get over the world!"
+        op/site-main-title "stardiviner blog"
+        op/site-sub-title "大道无极"
         op/theme-root-directory (concat user-emacs-directory "org-page/themes")
         op/theme 'peach_blossom
         op/personal-github-link "https://github.com/stardiviner"

@@ -15,31 +15,6 @@
 
 ;;; [ blog-admin ] -- Write blog in emacs with many backends: hexo/org-page/nikola
 
-(use-package org-page
-  :ensure t
-  :config
-  (setq op/repository-directory "~/Org/Blog/org-page"
-        op/repository-html-branch "gh-pages" ; "master"
-        op/repository-org-branch "source"
-        op/site-domain "http://stardiviner.github.io/"
-        op/site-main-title "stardiviner's blog"
-        op/site-sub-title "天地之道"
-        op/theme-root-directory (concat user-emacs-directory "org-page/themes")
-        op/theme 'peach_blossom
-        op/personal-github-link "https://github.com/stardiviner"
-        op/personal-avatar "https://stardiviner.github.com/media/img/avatar.png"
-        ;; [ commenting ]
-        op/personal-disqus-shortname "stardiviner-dark"
-        ;; op/personal-duoshuo-shortname ""
-        ;; [ google analytics ]
-        op/personal-google-analytics-id "63992234"
-        )
-
-  (define-key blog-map (kbd "n") 'op/new-post)
-  (define-key blog-map (kbd "p") 'op/do-publication)
-  (define-key blog-map (kbd "P") 'op/do-publication-and-preview-site)
-  )
-
 (use-package blog-admin
   :ensure t
   :config
@@ -52,17 +27,13 @@
         blog-admin-backend-new-post-with-same-name-dir t
         blog-admin-backend-org-page-drafts "_drafts" ; directory to save draft
         )
+
+  (define-key 'blog-map (kbd "l") 'blog-admin-start)
   )
 
 
 
-;; (require 'init-my-tool-blog-jekyll)
-;; (require 'init-my-tool-blog-octopress)
-;; (require 'init-my-tool-blog-org)
-
-
-
-(define-key 'blog-map (kbd "l") 'blog-admin-start)
+(require 'init-my-tool-blog-org)
 
 
 (provide 'init-my-tool-blog)
