@@ -74,28 +74,28 @@
 (add-to-list 'org-capture-templates
              '("C" "Contacts"
                entry (file+headline "~/Org/Contacts/Contacts.org" "Meet")
-               "** %(org-contacts-template-name)
+               "** %^{NAME}
 :PROPERTIES:
 :NAME(Chinese): %^{Name(Chinese)}
 :NAME(English): %^{Name(English)}
 :NICK: %^{Nick}
-:ICON: %^{ICON.jpg}
-:BIRTHDAY: %^{Birthday}
+:ICON:
+:BIRTHDAY:
 :GENDER: %^{Gender|Male|Female}
 :Sexual: %^{Sexual|Unknown|Heterosexual|Bisexual|Homosexual}
 :RELATIONSHIP: %^{Relationship|Meet|Friend|Good Friend|Boy Friend|Girl Friend|Classmate|Schoolmate}
-:FIRST-MEET: %^U  %^{first-time meet}
+:FIRST-MEET: %^U  %^{How is the first-time meet?}
 :Thought: %^{Thought|open|conservative}
 :MOBILE: %^{Mobile Phone}
 :EMAIL: %(org-contacts-template-email)
-:QQ: %^{QQ}
+:QQ:
 :WeChat: %^{WeChat}
 :Facebook: %^{Facebook}
 :ADDRESS(home): %^{address(home)}
 :ADDRESS(work): %^{address(work)}
-:CHARACTER: %^{Character}
-:FEELING: %^{Feeling}
-:World-Views: %^{World Views}
+:CHARACTER: 
+:FEELING: 
+:World-Views: 
 :LANGUAGES: %^{Languages|Chinese|English|Japanese|Korean}
 :EDUCATION: %^{Education}
 :PROGRAMMING-SKILLS: %^{Programming Skills}
