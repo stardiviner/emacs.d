@@ -31,6 +31,16 @@
 (package-initialize)
 
 
+;;; [ flycheck-package ]
+
+(use-package flycheck-package
+  :ensure t
+  :config
+  (with-eval-after-load 'flycheck
+    (flycheck-package-setup))
+  )
+
+
 (provide 'init-my-pm-package)
 
 ;;; init-my-pm-package.el ends here
