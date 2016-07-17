@@ -66,19 +66,9 @@
   )
 
 
-;;; elisp-slime-nav
+;;; [ xref ]
 
-;;; Usage:
-;; - [M-. / M-, ] -- go to/out navigation of the function definition.
-;; - [C-c C-d d] -- slime-describe-symbol.
-
-(use-package elisp-slime-nav
-  :ensure t
-  :config
-  (dolist (hook '(emacs-lisp-mode-hook
-                  ielm-mode-hook))
-    (add-hook hook 'turn-on-elisp-slime-nav-mode))
-  )
+(require 'xref)
 
 
 ;;; [ IELM (ELISP interactive) ] -- an REPL for emacs. (Read-Eval-Print-Loop)
