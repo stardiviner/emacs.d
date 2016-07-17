@@ -500,6 +500,18 @@ This can be useful for snippets to select kernel interactively."
 ;; (require 'ox-confluence)
 
 
+;;; [ Science ]
+
+;;; [ Chemistry ]
+
+;;; Chemistry: SMILES
+;; in:
+;; - init/extensions/ob-smiles.el
+;; - init/extensions/smiles-mode.el
+(require 'smiles-mode)
+(require 'ob-smiles)
+
+
 (provide 'init-my-org-babel)
 
 ;;; init-my-org-babel.el ends here
