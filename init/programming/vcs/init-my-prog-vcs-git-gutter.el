@@ -9,6 +9,9 @@
 
 ;;; [ git-gutter ]
 
+(use-package git-gutter
+  :ensure t)
+
 ;; (setq git-gutter:disabled-modes '(asm-mode image-mode))
 
 ;; ;; update frequency: uncomment this when Emacs/GitGutter slows.
@@ -85,6 +88,51 @@
 ;; (global-git-gutter-mode +1)
 
 ;; (setq git-gutter:lighter " GitGutter") ; minor mode name in modeline.
+
+
+;; enhance git-gutter with `ivy-mode'.
+(use-package ivy
+  :ensure t)
+
+(defun my-git-gutter-reshap (gutter)
+  "Re-shape gutter for `ivy-read'."
+  (let* ((linenum-start (aref gutter 3))
+         (linenum-end (aref gutter 4))
+         (target-line "")
+         (target-linenum 1)
+         (tmp-line "")
+         (max-line-length 0))
+    (save-excursion
+      ;; find out the longest stripped line in the gutter
+      (while (<= linenum-start linenum-end)
+        (goto-line linenum-start)
+        (setq tmp-line (replace-regexp-in-string "^[ \t]*" ""
+                                                 (buffer-substring (line-beginning-position)
+                                                                   (line-end-position))))
+        (when (> (length tmp-line) max-line-length)
+          (setq target-linenum linenum-start)
+          (setq target-line tmp-line)
+          (setq max-line-length (length tmp-line)))
+
+        (setq linenum-start (1+ linenum-start))))
+    ;; build (key . linenum-start)
+    (cons (format "%s %d: %s"
+                  (if (eq 'deleted (aref gutter 1)) "-" "+")
+                  target-linenum target-line)
+          target-linenum)))
+
+(defun my-git-gutter-goto ()
+  (interactive)
+  (if git-gutter:diffinfos
+      (let* ((collection (mapcar 'my-git-gutter-reshap
+                                 git-gutter:diffinfos)))
+        (ivy-read "git-gutters:"
+                  collection
+                  :action (lambda (linenum)
+                            (goto-line linenum))))
+    (message "NO git-gutters!")))
+
+(define-key my-prog-vcs-map (kbd "m g") 'my-git-gutter-goto)
 
 
 ;;; [ git-gutter-fringe.el ] -- fringe version of of git-gutter.el.
