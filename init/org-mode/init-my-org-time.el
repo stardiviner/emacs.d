@@ -116,6 +116,13 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 (add-hook 'org-clock-in-prepare-hook 'org-clock-modify-effort-estimate)
 ;; (remove-hook 'org-clock-in-hook 'org-clock-modify-effort-estimate)
 
+;; setup column views for effort estimates
+(setq org-columns-default-format "%25ITEM %TODO %3PRIORITY %TAGS %6effort(EFFORT){:}"
+      ;; org-global-properties
+      org-agenda-columns-add-appointments-to-effort-sum t
+      org-agenda-columns-compute-summary-properties t
+      )
+
 
 ;;; [ org-time-budgets ]
 
