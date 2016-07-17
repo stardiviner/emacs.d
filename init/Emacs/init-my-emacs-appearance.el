@@ -119,17 +119,17 @@
 ;; (global-linum-mode -1)
 
 ;; but show line numbers in source code files
-(add-hook 'prog-mode-hook 'linum-mode)
+;; (add-hook 'prog-mode-hook 'linum-mode)
 
 ;; Turn off linum-mode when file is too big.
-(add-hook 'prog-mode-hook
-          (lambda ()
-            ;; turn off `linum-mode' when there are more than 5000 lines
-            ;; use `wc -c file' for performance reason
-            (if (and (executable-find "wc")
-                     (> (string-to-number (shell-command-to-string (format "wc -c %s" (buffer-file-name))))
-                        (* 5000 80)))
-                (linum-mode -1))))
+;; (add-hook 'prog-mode-hook
+;;           (lambda ()
+;;             ;; turn off `linum-mode' when there are more than 5000 lines
+;;             ;; use `wc -c file' for performance reason
+;;             (if (and (executable-find "wc")
+;;                      (> (string-to-number (shell-command-to-string (format "wc -c %s" (buffer-file-name))))
+;;                         (* 5000 80)))
+;;                 (linum-mode -1))))
 
 
 ;;; [ nlinum ] -- show line numbers in margin.
