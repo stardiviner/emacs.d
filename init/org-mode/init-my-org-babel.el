@@ -505,11 +505,10 @@ This can be useful for snippets to select kernel interactively."
 ;;; [ Chemistry ]
 
 ;;; Chemistry: SMILES
-;; in:
-;; - init/extensions/ob-smiles.el
-;; - init/extensions/smiles-mode.el
-(require 'smiles-mode)
-(require 'ob-smiles)
+(use-package smiles-mode
+  :ensure t)
+(use-package ob-smiles
+  :ensure t)
 
 
 (provide 'init-my-org-babel)
