@@ -133,6 +133,15 @@ be global."
   ;;            ))
   ;;   (add-hook hook 'flyspell-prog-mode))
 
+  ;; Org-mode
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (flyspell-mode-on)
+              (flyspell-buffer)
+              ;; ignore TeX commands
+              (setq-local ispell-parser 'tex)
+              ))
+  
   ;; TeX
   (add-hook 'tex-mode-hook
             (lambda ()
@@ -144,13 +153,8 @@ be global."
   (dolist (hook
            '(text-mode-hook
              markdown-mode-hook
-             ;; org-mode-hook
              ))
     (add-hook hook 'flyspell-mode))
-
-  ;; (remove-hook 'org-mode-hook
-  ;;              (lambda ()
-  ;;                (flyspell-mode -1)))
 
   ;; (flyspell-mode 1)
   )
