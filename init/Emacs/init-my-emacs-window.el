@@ -287,6 +287,9 @@
   ;; help-mode, *Help*, *Metahelp* (from mode C-h ?)
   (push '(help-mode :position bottom :height 8) popwin:special-display-config)
 
+  ;; xref
+  (push '(xref--xref-buffer-mode :position bottom :height 5) popwin:special-display-config)
+  
   ;; Org-mode
   ;; (push '("*Org todo" :position bottom) popwin:special-display-config)
   ;; (push '("*Org Note" :position bottom :height 10) popwin:special-display-config)

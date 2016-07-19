@@ -118,6 +118,15 @@
 ;; (add-hook 'org-mode-hook #'eldoc-mode)
 
 
+;;; [ wc-mode ]
+
+(use-package wc-mode
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook 'wc-mode)
+  )
+
+
 (provide 'init-my-org-view)
 
 ;;; init-my-org-view.el ends here
