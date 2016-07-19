@@ -187,6 +187,16 @@ character(s), in which case it deletes the space(s) first."
   )
 
 
+;;; [ CDLaTeX ] -- Fast input methods for LaTeX environments and math.
+
+(use-package cdlatex
+  :ensure t
+  :config
+  ;; enable in Org-mode
+  (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
+  )
+
+
 ;;; [ latex-pretty-symbols ]
 
 ;; (use-package latex-pretty-symbols
