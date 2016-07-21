@@ -29,7 +29,7 @@
 
 (setq org-html-doctype "html5"
       org-html-html5-fancy t
-      org-html-use-infojs t
+      org-html-use-infojs 'when-configured
       ;; org-html-infojs-options
       org-html-indent nil ; t: may break code blocks.
       ;; org-html-format-drawer-function
