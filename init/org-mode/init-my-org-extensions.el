@@ -82,7 +82,7 @@
 :ICON:
 :BIRTHDAY:
 :GENDER: %^{Gender|Male|Female}
-:Sexual: %^{Sexual|Unknown|Heterosexual|Bisexual|Homosexual}
+:Sexual: %^{Sexual|Heterosexual|Bisexual|Homosexual}
 :RELATIONSHIP: %^{Relationship|Meet|Friend|Good Friend|Boy Friend|Girl Friend|Classmate|Schoolmate}
 :FIRST-MEET: %^U  %^{How is the first-time meet?}
 :Thought: %^{Thought|open|conservative}
