@@ -2,7 +2,27 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("My ClojureScript Examples.org"
+(("Hardware"
+ (filename . "~/Org/Wiki/Computer/Programming/Implements/Hardware/Hardware.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Internet"
+ (filename . "~/Org/Wiki/Computer/Programming/Implements/Network/Internet/Internet.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("CIDER"
+ (filename . "~/Org/Wiki/Computer/Programming/Emacs/modes/CIDER.org")
+ (front-context-string . "* Intro\n:PROPERT")
+ (rear-context-string)
+ (position . 1))
+("My Clojure Language Syntax Reference"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Clojure/Data/Manuals/References/My Clojure Language Syntax Reference/My Clojure Language Syntax Reference.org")
+ (front-context-string . "* Intro\n\n** Cloj")
+ (rear-context-string)
+ (position . 1))
+("My ClojureScript Examples.org"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Clojure/ClojureScript/Data/Manuals/My ClojureScript Examples/My ClojureScript Examples.org")
  (front-context-string)
  (rear-context-string)
@@ -457,11 +477,6 @@
  (front-context-string . "* special charac")
  (rear-context-string)
  (position . 1))
-("Clojure Syntax Reference"
- (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Clojure/Data/Manuals/References/My Clojure Language Syntax Reference.org")
- (front-context-string)
- (rear-context-string)
- (position . 1))
 ("Clojure Language"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Clojure/Clojure.org")
  (front-context-string . "* Intro\n\nClojure")
@@ -905,11 +920,6 @@
 ("Hack (Org)"
  (filename . "~/Org/Wiki/Computer/Hack/Hack.org")
  (front-context-string . "* Intro\n\n* Data\n")
- (rear-context-string)
- (position . 1))
-("Hardware (Org)"
- (filename . "~/Org/Wiki/Computer/Hardware/Hardware.org")
- (front-context-string . "* Computer (PC)\n")
  (rear-context-string)
  (position . 1))
 ("Softwares (Org)"
