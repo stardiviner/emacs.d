@@ -107,7 +107,7 @@
     (org-open-file (car list) t)
     (occur (mapconcat 'identity (cdr list) "#"))))
 
-(org-add-link-type "occur" 'org-occur-open)
+(org-add-link-type "occur" 'org-occur-link-open)
 
 ;;; [[grep:regexp][regexp (grep)]]
 (defun org-grep-link-open (regexp)
@@ -115,7 +115,7 @@
   (grep-compute-defaults)
   (rgrep regexp "*" (expand-file-name "./")))
 
-(org-add-link-type "grep" 'org-grep-open)
+(org-add-link-type "grep" 'org-grep-link-open)
 
 ;;; [[tag:]]
 ;; e.g. [[tag:work+phonenumber-boss][Optional Description]]
@@ -126,6 +126,19 @@ With prefix argument, also display headlines without a TODO keyword."
 
 (org-add-link-type "tag" 'org-tag-link-open)
 
+;; [[wiki:]]
+;; for open wiki search query with local application database.
+(defvar kiwix-browser "google-chrome-stable")
+
+(defun org-wiki-link-open (query)
+  "Search `QUERY' with Kiwix."
+  (let* ((browser kiwix-browser)
+         (kiwix-server "http://127.0.0.1:8000/")
+         (kiwix-library "wikipedia_zh_all_2015-11")
+         (url (concat kiwix-server kiwix-library "/A/" query ".html")))
+    (shell-command (concat browser " " url))))
+
+(org-add-link-type "wiki" 'org-wiki-link-open)
 
 
 (setq org-link-frame-setup
@@ -157,6 +170,7 @@ With prefix argument, also display headlines without a TODO keyword."
         ("Wikipedia" . "http://en.wikipedia.org/w/index.php?search=%s")
         ("Wikia" . "http://www.wikia.com/index.php?search=%s")
         ("Baidu_BaiKe" . "http://baike.baidu.com/search/none?word=%s")
+        ("Wikipedia_Local" . "http://127.0.0.1:8000/wikipedia_zh_all_2015-11/A/%s.html")
         ;; Q & A
         ("Quora" . "https://www.quora.com/search?q=%s")
         ("ZhiHu" . "http://www.zhihu.com/search?q=%s&type=question")
