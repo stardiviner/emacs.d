@@ -108,10 +108,14 @@
 (set-face-attribute 'italic nil
                     :slant 'italic
                     :foreground "white"
+                    :weight 'normal
+                    :height 105
                     :underline nil)
 (set-face-attribute 'bold nil
                     :weight 'bold
-                    :foreground "white")
+                    :foreground "#D3d3d3")
+(set-face-attribute 'bold-italic nil
+                    :foreground "pink")
 (set-face-attribute 'underline nil
                     :underline "white")
 ;; region
