@@ -163,6 +163,7 @@ With prefix argument, also display headlines without a TODO keyword."
         ("Baidu_ZhiDao" . "http://zhidao.baidu.com/search?word=%s")
         ("Baidu_JingYan" . "http://jingyan.baidu.com/search?word=%s")
         ;; Maps
+        ("Baidu_Maps" . "http://map.baidu.com/?q=%s")
         ("Google_Maps" . "http://maps.google.com/maps?q=%s")
         ;; Social Networkings
         ("Twitter" . "https://twitter.com/%s")
