@@ -24,10 +24,11 @@
 ;;; [ kiwix ] -- Kiwix client for Emacs.
 
 (use-package kiwix
-  ;; :ensure t
+  :ensure t
   :config
-  (define-key my-prog-help-document-map (kbd "w") 'kiwix-serve-query)
-  (define-key my-prog-help-document-map (kbd "W") 'kiwix-serve-index)
+  (define-key my-prog-help-document-map (kbd "w") 'kiwix-at-point)
+  (define-key my-prog-help-document-map (kbd "W") 'kiwix-serve-query)
+  (define-key my-prog-help-document-map (kbd "C-w") 'kiwix-serve-index)
   )
 
 
