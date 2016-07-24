@@ -52,22 +52,6 @@
 
 ;;; [ bm.el ] -- Visual Bookmarks for GNU Emacs.
 
-;;; Usage:
-;;
-;; - `bm-toggle'
-;; - `bm-show' & `bm-show-all'
-;; - `bm-next' & `bm-previous'
-;;
-;; - `bm-next/previous' :: navigate next/previous.
-;; - `bm-cycle-all-buffers' :: cycle in all buffers bookmarks.
-;; - `bm-bookmark-regexp'-[region] :: set bookmark based on regexp.
-;; - `bm-bookmark-line' :: set bookmark based on line number.
-;; - `bm-goto-position' :: goto line position or start of line.
-;; - `bm-toggle-buffer-persistence' :: persistent bookmarks.
-;; - `bm-remove-all-current-buffer' :: remove all bookmarks in *current buffer.
-;; - `bm-remove-all-all-buffer' :: remove all bookmarks in *all buffer.
-;; - `bm-bookmark-annotate' :: annotate bookmark (displayed in message area when navigating)
-
 (use-package bm
   :ensure t
   :init
