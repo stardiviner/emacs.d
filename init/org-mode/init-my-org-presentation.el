@@ -70,6 +70,22 @@
   )
 
 
+;;; [ ox-reveal ] -- Org-mode export with Reveal.js.
+
+;;; Usage:
+;;
+;; [C-c C-e R B]
+
+(use-package ox-reveal
+  :ensure t
+  :config
+  (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/"
+        ;; (concat user-emacs-directory "init/org-mode/reveal.js")
+        ;; "http://cdn.jsdelivr.net/reveal.js/3.0.0/"
+        org-reveal-hlevel 1)
+  )
+
+
 (provide 'init-my-org-presentation)
 
 ;;; init-my-org-presentation.el ends here
