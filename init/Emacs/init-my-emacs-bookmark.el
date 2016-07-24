@@ -56,6 +56,9 @@
   :ensure t
   :init
   (setq bm-restore-repository-on-load t)
+  :bind (("<C-f2>" . bm-toggle)
+         ("<f2>" . bm-next)
+         ("<S-f2>" . bm-previous))
   :config
   (setq bm-in-lifo-order t)
   (setq bm-cycle-all-buffers nil)
@@ -81,10 +84,11 @@
                       )
   
   ;; keybindings
-  ;; (global-set-key (kbd "<C-f2>") 'bm-toggle)
-  ;; (global-set-key [F2] 'bm-next)
-  ;; (global-set-key (kbd "<S-f2>") 'bm-previous)
-  
+  (global-set-key (kbd "<C-f2>") 'bm-toggle)
+  (global-set-key [f2] 'bm-next)
+  (global-set-key (kbd "<S-f2>") 'bm-previous)
+
+  ;; mouse
   (global-set-key (kbd "<left-fringe> <mouse-5>") 'bm-next-mouse)
   (global-set-key (kbd "<left-fringe> <mouse-4>") 'bm-previous-mouse)
   (global-set-key (kbd "<left-fringe> <mouse-1>") 'bm-toggle-mouse)
@@ -118,8 +122,7 @@
   ;; remove/delete
   (define-key my-bookmark-bm-map (kbd "d") 'bm-remove-all-current-buffer)
   (define-key my-bookmark-bm-map (kbd "D") 'bm-remove-all-all-buffers)
-
-
+  
   ;; this could affect Emacs increasing running usage
   ;; Persistence
   (setq bm-repository-file "~/.emacs.d/.bm-repository"
