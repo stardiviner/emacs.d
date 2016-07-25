@@ -197,15 +197,17 @@
   ;; switch to cider-repl buffer.
   (defun my-cider-launch ()
     (interactive)
-    (let ((cider-repl "*cider-repl localhost*")
+    (let ((cider-clojure-repl "*cider-repl localhost*")
+          (cider-cljs-repl "*cider-repl CLJS localhost*")
           (cider-connection-process "nrepl-connection")
-          (cider-server-process "nrepl-server")
-          (cider-command "cider-jack-in"))
-      (unless (and (get-buffer cider-repl)
+          (cider-server-process "nrepl-server"))
+      (unless (and (get-buffer cider-clojure-repl)
+                   (get-buffer cider-cljs-repl)
                    (process-live-p (get-process cider-connection-process))
                    (process-live-p (get-process cider-server-process)))
-        (message "CIDER REPL buffer not available. starting a new one...")
-        (cider-jack-in))))
+        (message "CIDER REPL buffer not available. starting a new one now...")
+        (cider-jack-in-clojurescript))))
+
 
   (defun my-cider-switch-to ()
     (interactive)
