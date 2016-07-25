@@ -424,6 +424,15 @@
      )
     )
 
+   ;; purpose
+   (:eval
+    (if purpose-mode
+        (list
+         (propertize " ⊞:"
+                     'face '(:foreground "dark green"))
+         (propertize (purpose--modeline-string)
+                     'face '(:foreground "dark green" :height 80))
+         )))
    
    (:propertize " ["
                 face (:foreground "red" :weight bold))
