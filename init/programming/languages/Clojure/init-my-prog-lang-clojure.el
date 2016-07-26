@@ -56,6 +56,7 @@
         nrepl-buffer-name-separator " "
         nrepl-buffer-name-show-port nil
         nrepl-log-messages nil
+        nrepl-prompt-to-kill-server-buffer-on-quit t
 
         ;; resources
         cider-prefer-local-resources t
