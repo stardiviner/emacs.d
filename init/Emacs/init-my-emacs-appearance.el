@@ -98,6 +98,8 @@
 
 ;;; [ line number ]
 
+(require 'linum)
+
 ;; display line numbers in margin
 ;; Linum: separating line numbers from text
 ;; (setq linum-format 'dynamic)
