@@ -55,6 +55,7 @@
         cider-auto-select-error-buffer t
         nrepl-buffer-name-separator " "
         nrepl-buffer-name-show-port nil
+        nrepl-log-messages nil
 
         ;; resources
         cider-prefer-local-resources t
