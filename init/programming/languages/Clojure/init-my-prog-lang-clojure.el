@@ -416,6 +416,12 @@
 ;; https://github.com/clojure-emacs/clojure-cheatsheet
 
 
+;;; [ clojars ] -- Emacs Interface to Clojars.org
+
+(use-package clojars
+  :ensure t)
+
+
 (provide 'init-my-prog-lang-clojure)
 
 ;;; init-my-prog-lang-clojure.el ends here
