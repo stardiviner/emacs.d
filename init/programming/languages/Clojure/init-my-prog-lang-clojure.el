@@ -95,6 +95,9 @@
 
         ;; Enlighten
 
+        ;; Fringe linter
+        cider-use-fringe-indicators t
+
         ;; mouse over tooltips
         cider-use-tooltips t
         
