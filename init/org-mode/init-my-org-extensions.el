@@ -121,6 +121,15 @@
   (add-hook hook 'org-contacts-setup-completion-at-point))
 
 
+(defun org-contacts-properties-drawer-link-workaround ()
+  "Fix can't open link in properties drawer issue."
+  (if (cl-some #'(lambda (x)
+                   (string= (expand-file-name x) (buffer-file-name)))
+               org-contacts-files)
+      (setq-local org-startup-with-latex-preview nil)))
+
+(add-hook 'org-mode-hook 'org-contacts-properties-drawer-link-workaround)
+
 
 ;;; [ org-screenshot ] -- Take and manage screenshots in Org-mode files.
 
