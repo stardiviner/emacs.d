@@ -80,6 +80,21 @@
   )
 
 
+;;; [ eloud ] -- A lightweight, interactive screen reader.
+
+(use-package eloud
+  :ensure t
+  :config
+  (setq eloud-espeak-path (cond
+                           ((string-equal system-type "gnu/linux")
+                            "/usr/bin/espeak")
+                           ((string-equal system-type "darwin")
+                            "/usr/local/bin/espeak")))
+
+  ;; (eloud-mode 1)
+  )
+
+
 (provide 'init-my-tool-speak)
 
 ;;; init-my-tool-speak.el ends here
