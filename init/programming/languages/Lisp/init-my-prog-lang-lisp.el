@@ -43,8 +43,8 @@
   :ensure t)
 (hook-modes lisp-dialects-mode
   (rainbow-delimiters-mode 1)
-  ;; (paredit-mode 1)
-  (smartparens-strict-mode 1)
+  (paredit-mode 1)
+  ;; (smartparens-strict-mode 1)
   (hl-sexp-mode 1)
   (eldoc-mode 1)
   )
