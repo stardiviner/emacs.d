@@ -109,6 +109,7 @@
   :ensure t
   :config
   (global-set-key (kbd "C-s") 'swiper)
+  (global-set-key (kbd "C-c u") 'swiper-all)
   )
 
 
