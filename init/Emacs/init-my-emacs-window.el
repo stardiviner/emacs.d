@@ -171,7 +171,7 @@
         purpose-layout-dirs '(locate-user-emacs-file ".purpose/layouts/")
         )
 
-  (setq pop-up-frames t)
+  ;; (setq pop-up-frames t)
 
   ;; (add-to-list 'purpose-user-mode-purposes '(<major-mode> . <purpose>))
   ;; (add-to-list 'purpose-user-name-purposes '(<name> . <purpose>))
@@ -242,7 +242,7 @@
   (require 'window-purpose-x)
   (purpose-x-kill-setup)
 
-  (purpose-mode)
+  ;; (purpose-mode)
   )
 
 
