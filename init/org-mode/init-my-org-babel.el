@@ -77,6 +77,8 @@
 (use-package ob-ipython
   :ensure t
   :config
+  ;; (setq ob-ipython-command "ipython") ; "jupyter"
+  
   ;; open ipython block block with `python-mode'
   ;; (add-to-list 'org-src-lang-modes '("ipython" . python))
   ;; use IJulia backend for IPython notebook
@@ -177,7 +179,7 @@ This can be useful for snippets to select kernel interactively."
    ;; (C++ . t)                            ; C++
    (R . t)                              ; R
    ;; (go . t)
-   ;; (ipython . t)
+   (ipython . t)
    ;; (restclient . t)                     ; ob-restclient
    ))
 
