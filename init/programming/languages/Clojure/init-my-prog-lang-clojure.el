@@ -1,4 +1,4 @@
-;;; init-my-prog-lang-clojure.el ---
+;;; init-my-prog-lang-clojure.el --- init for Clojure.
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -267,8 +267,7 @@
 ;;; [ cider-spy ] -- Spy on CIDER to get Info.
 
 (use-package cider-spy
-  :ensure t
-  )
+  :ensure t)
 
 
 ;;; [ cider-profile ]
@@ -286,8 +285,8 @@
 (use-package flycheck-clojure
   :ensure t
   :config
-  (eval-after-load 'flycheck
-    '(flycheck-clojure-setup))
+  (with-eval-after-load 'flycheck
+    (flycheck-clojure-setup))
   )
 
 
