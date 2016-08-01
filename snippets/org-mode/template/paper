@@ -1,0 +1,39 @@
+# -*- mode: snippet -*-
+# name: template-paper
+# key: template-paper
+# group: template.paper
+# --
+# Set the article class
+#+LaTeX_CLASS: article
+#+LaTeX_CLASS_OPTIONS: [12pt]
+
+# No need for a table of contents, unless your paper is quite long.
+#+OPTIONS: toc:nil
+
+
+# Use fancy looking fonts. If you don't have MinionPro installed,
+# a good alternative is the Palatino-style pxfonts.
+# See: http://www.tug.dk/FontCatalogue/pxfonts/
+#+LATEX_HEADER: \usepackage[mathlf]{MinionPro}
+#+LATEX_HEADER: \usepackage[scaled=.875]{inconsolata}
+
+# Set the spacing to double, as required in most papers.
+#+LATEX_HEADER: \usepackage{setspace}
+#+LATEX_HEADER: \doublespacing
+
+# Fix the margins
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+
+# This line makes lists work better:
+# It eliminates whitespace before/within a list and pushes it tt the left margin
+#+LATEX_HEADER: \usepackage{enumitem}
+#+LATEX_HEADER: \setlist[enumerate,itemize]{noitemsep,nolistsep,leftmargin=*}
+
+# I always include this for my bibliographies
+#+LATEX_HEADER: \usepackage[notes,isbn=false,backend=biber]{biblatex-chicago}
+
+#+TITLE: ${1:Title}
+#+AUTHOR: stardiviner [numbchild@gmail.com]
+#+DATE: $2
+
+$0
