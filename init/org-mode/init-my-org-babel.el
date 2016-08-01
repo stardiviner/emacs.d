@@ -239,7 +239,9 @@ This can be useful for snippets to select kernel interactively."
 (add-to-list 'org-src-lang-modes '("ruby" . enh-ruby))
 
 (with-eval-after-load 'web-mode
-  (add-to-list 'org-src-lang-modes '("rhtml" . web)))
+  (add-to-list 'org-src-lang-modes '("html" . web))
+  (add-to-list 'org-src-lang-modes '("rhtml" . web))
+  )
 
 
 ;;;_ + ditaa & PlantUML & Graphviz
