@@ -181,6 +181,7 @@ This can be useful for snippets to select kernel interactively."
    ;; (go . t)
    (ipython . t)
    ;; (restclient . t)                     ; ob-restclient
+   (org-if . t)                         ; org-if
    ))
 
 
