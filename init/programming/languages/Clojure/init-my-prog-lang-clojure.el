@@ -324,21 +324,12 @@
   )
 
 
-;;; [ typed-clojure-mode ] -- 
-;;
-;;; Usage:
-;;
-;;| Keyboard Shortcut | Description                                 | Command                  |
-;;|-------------------+---------------------------------------------+--------------------------|
-;;| C-c C-x n         | Print errors in the namespace               | typed-clojure-check-ns   |
-;;| C-c C-x f         | Check the preceding form or symbol          | typed-clojure-check-form |
-;;| C-c C-a v         | Insert (ann ... ) above the top expression  | typed-clojure-ann-var    |
-;;| C-c C-a f         | Wrap the current form with (ann-form ... t) | typed-clojure-ann-form   |
+;;; [ typed-clojure-mode ] -- Typed Clojure minor mode for Emacs.
 
 (use-package typed-clojure-mode
-  ;; :ensure t
-  ;; :config
-  ;; (add-hook 'clojure-mode-hook 'typed-clojure-mode)
+  :ensure t
+  :config
+  (add-hook 'clojure-mode-hook 'typed-clojure-mode)
   )
 
 
