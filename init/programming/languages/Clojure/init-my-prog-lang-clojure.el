@@ -257,7 +257,7 @@
 ;; - [M-x cider-decompile-ns-func [RET] myotherns.core/other-main [RET]]
 
 (use-package cider-decompile
-  ;; :ensure t
+  :ensure t
   ;; :config
   ;; (define-key clojure-mode-map (kbd "??") cider-decompile-func)
   ;; (define-key clojure-mode-map (kbd "??") cider-decompile-ns-func)
