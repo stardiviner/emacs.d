@@ -332,6 +332,10 @@
 ;; (require 'init-my-math)
 
 
+;;; Authoring & Writing
+(require 'init-my-authoring)
+
+
 ;;; Games
 (require 'init-my-games)
 
