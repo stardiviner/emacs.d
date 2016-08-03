@@ -132,6 +132,9 @@ This can be useful for snippets to select kernel interactively."
 ;; [ ob-sqlite ]
 ;; (require 'ob-sqlite)
 
+;; [ org-if ]
+(use-package org-if
+  :ensure t)
 
 (org-babel-do-load-languages
  'org-babel-load-languages
