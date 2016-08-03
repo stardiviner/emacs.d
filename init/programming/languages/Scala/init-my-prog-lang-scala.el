@@ -9,14 +9,7 @@
 
 ;;; [ scala-mode ]
 
-;; (use-package scala-mode
-;;   :ensure t
-;;   )
-
-
-;;; [ scala-mode2 ]
-
-(use-package scala-mode2
+(use-package scala-mode
   :ensure t)
 
 
