@@ -490,11 +490,9 @@
 (set-face-attribute 'mode-line nil
                     :inverse-video nil
                     :foreground "white"
-                    ;; :background (color-darken-name (face-background 'default) 3)
-                    :background "#333333"
-                    :box '(:color "tomato" :line-width 1 :style nil)
+                    :background "#484848"
+                    :box '(:color "dark gray" :line-width 1 :style nil)
                     ;; :box '(:color "slate blue" :line-width 1 :style nil)
-                    ;; :box '(:color "forest green" :line-width 1 :style nil)
                     :family "DejaVu Sans Mono"
                     :height 100
                     )
