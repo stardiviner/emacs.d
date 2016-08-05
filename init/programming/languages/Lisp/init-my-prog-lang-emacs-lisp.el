@@ -201,6 +201,12 @@
   )
 
 
+;;; [ suggest ] -- suggest elisp functions that give the output requested.
+
+(use-package suggest
+  :ensure t)
+
+
 ;;; [ ERT ] -- Emacs Lisp Regression Testing.
 
 ;;; Usage:
