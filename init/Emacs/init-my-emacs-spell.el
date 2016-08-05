@@ -44,8 +44,7 @@
 ;; The command now searches backward for the closest wrong word. So you can just
 ;; hit [C-x C-i] even if the mistake happened several words ago.
 
-(define-key ctl-x-map "\C-i"
-  #'my/ispell-word-then-abbrev)
+(define-key ctl-x-map "\C-i" #'my/ispell-word-then-abbrev)
 
 (defun my/ispell-word-then-abbrev (p)
   "Call `ispell-word', then create an abbrev for it.
@@ -80,8 +79,8 @@ be global."
   :config
   (setq flyspell-default-dictionary "en"
         flyspell-delay 5
-        ;; flyspell-before-incorrect-word-string
-        ;; flyspell-after-incorrect-word-string
+        flyspell-before-incorrect-word-string "✗"
+        flyspell-after-incorrect-word-string "✗" ; × ✖ ✗ ✔
         flyspell-use-meta-tab nil ; use [M-TAB] to correct word.
         flyspell-consider-dash-as-word-delimiter-flag t
         flyspell-highlight-flag t
@@ -96,12 +95,13 @@ be global."
   ;; slowdown.
   (setq flyspell-issue-message-flag nil)
 
-
   ;; (define-key flyspell-mode-map (kbd "C-.") 'flyspell-correct-word-before-point)
   (define-key flyspell-mode-map (kbd "C-.") 'flyspell-auto-correct-previous-word)
   (define-key flyspell-mode-map (kbd "C-,") 'flyspell-goto-next-error)
-  ;; (add-hook 'flyspell-mode-hook
-  ;;           (unbind-key "C-;" flyspell-mode-map)) ; conflict with iedit-mode toggle keybinding.
+  ;; conflict with iedit-mode toggle keybinding.
+  (add-hook 'flyspell-mode-hook
+            (lambda ()
+              (unbind-key "C-;" flyspell-mode-map)))
   (define-key flyspell-mode-map (kbd "C-M-i") nil) ; fix Org-mode abbreviations expand keybinding [M-Tab].
 
   (unless (boundp 'my-edit-prefix)
@@ -117,7 +117,6 @@ be global."
   (define-key my-spell-prefix (kbd "r") 'flyspell-region)
   (define-key my-spell-prefix (kbd "c") 'ispell-word) ; default keybinding [M-$].
 
-  
   (set-face-attribute 'flyspell-incorrect nil
                       :background "#444444" :foreground "red"
                       :underline '(:color "dark red" :style wave))
@@ -125,7 +124,9 @@ be global."
                       :background "#555555" :foreground "orange"
                       :underline '(:color "dark red" :style line))
 
-  
+  ;; global
+  ;; (flyspell-mode 1)
+
   ;; programming code
   ;; flyspell-prog-mode : enable flyspell for comments in source code
   ;; (dolist (hook
@@ -136,12 +137,12 @@ be global."
   ;; Org-mode
   (add-hook 'org-mode-hook
             (lambda ()
-              (flyspell-mode-on)
+              (flyspell-mode 1)
               (flyspell-buffer)
               ;; ignore TeX commands
               (setq-local ispell-parser 'tex)
               ))
-  
+
   ;; TeX
   (add-hook 'tex-mode-hook
             (lambda ()
@@ -155,8 +156,6 @@ be global."
              markdown-mode-hook
              ))
     (add-hook hook 'flyspell-mode))
-
-  ;; (flyspell-mode 1)
   )
 
 
