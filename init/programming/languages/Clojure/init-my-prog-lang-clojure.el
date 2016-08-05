@@ -126,6 +126,9 @@
 
         ;; project
         cider-prompt-for-project-on-connect 'when-needed
+
+        ;; build tool
+        ;; cider-preferred-build-tool "lein"
         )
 
   ;; Complete & annotations
