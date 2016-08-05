@@ -133,8 +133,8 @@ This can be useful for snippets to select kernel interactively."
 ;; (require 'ob-sqlite)
 
 ;; [ org-if ]
-(use-package org-if
-  :ensure t)
+;; (use-package org-if
+;;   :ensure t)
 
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -156,10 +156,10 @@ This can be useful for snippets to select kernel interactively."
    ;; (picolisp . t)                       ; Pico Lisp
    (clojure . t)                        ; Clojure
    (haskell . t)                        ; Haskell
-   (scala . t)                          ; Scala
+   ;; (scala . t)                          ; Scala
    ;; (io . t)                             ; IO
    ;; (J . t)                              ; J
-   (ocaml . t)                          ; Objective Caml
+   ;; (ocaml . t)                          ; Objective Caml
    (js . t)                             ; JavaScript
    (css . t)                            ; CSS
    (latex . t)                          ; LaTeX
@@ -176,7 +176,7 @@ This can be useful for snippets to select kernel interactively."
    (calc . t)                           ; Calc
    (ledger . t)                         ; ledger support in Babel
    ;; (asymptote . t)                      ; Asymptote
-   (sass . t)                           ; Sass
+   ;; (sass . t)                           ; Sass
    ;; -- Extra --
    ;; use advice: `org-babel-execute-src-block' to load language support lazily.
    ;; (C++ . t)                            ; C++
@@ -184,7 +184,7 @@ This can be useful for snippets to select kernel interactively."
    ;; (go . t)
    (ipython . t)
    ;; (restclient . t)                     ; ob-restclient
-   (org-if . t)                         ; org-if
+   ;; (org-if . t)                         ; org-if
    ))
 
 
@@ -316,8 +316,8 @@ This can be useful for snippets to select kernel interactively."
         (:results . "replace")
         ))
 
-(add-to-list 'org-babel-default-header-args:ocaml
-             '(:results . "value"))
+;; (add-to-list 'org-babel-default-header-args:ocaml
+;;              '(:results . "value"))
 
 (setq org-babel-default-header-args:sqlite
       '((:db . "temp.db")
