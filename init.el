@@ -180,8 +180,8 @@
 (define-key my-search-prefix (kbd "l") 'my-search-language-prefix)
 
 (require 'init-my-language-english)
-(require 'init-my-language-chinese)
-(require 'init-my-language-japanese)
+;; (require 'init-my-language-chinese)
+;; (require 'init-my-language-japanese)
 
 
 ;;; Tools

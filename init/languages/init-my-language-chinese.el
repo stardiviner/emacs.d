@@ -10,7 +10,7 @@
 ;;; [ pinyin-search ] --
 
 (use-package pinyin-search
-  ;; :ensure t
+  :ensure t
   :config
   (define-key my-search-language-prefix (kbd "c") 'pinyin-search)
   (define-key my-search-language-prefix (kbd "C") 'pinyin-search-backward)
