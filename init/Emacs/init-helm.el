@@ -80,6 +80,9 @@
 
   ;; NOTE: this cause helm-dash open menu candidate error.
   ;; (define-key helm-map (kbd "<return>") 'helm-confirm-and-exit-minibuffer)
+
+  ;; external keybindings
+  (global-set-key (kbd "C-x f") 'helm-for-files)
   )
 
 
