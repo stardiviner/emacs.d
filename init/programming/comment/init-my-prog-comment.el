@@ -11,6 +11,12 @@
 (global-set-key (kbd "M-;") 'my-prog-comment-map)
 
 
+
+(setq comment-auto-fill-only-comments t
+      comment-multi-line t
+      )
+
+
 ;;; prefix: [M-;], `my-prog-comment-map'
 
 (define-key my-prog-comment-map (kbd "M-;") 'comment-dwim)
