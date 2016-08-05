@@ -46,7 +46,7 @@
 
 ;;; [ Chinese Input Method ]
 
-(require 'init-my-emacs-input-method-chinese)
+;; (require 'init-my-emacs-input-method-chinese)
 
 
 (provide 'init-my-emacs-input-method)
