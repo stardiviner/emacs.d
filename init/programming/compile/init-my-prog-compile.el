@@ -9,9 +9,9 @@
 (setq compilation-ask-about-save t ; save without asking.
       compilation-scroll-output 'first-error ; stop on first error.
       compilation-skip-threshold 2 ; don't stop on info or warnings.
-      )
-
-(setq compilation-window-height nil ; use Emacs default.
+      compilation-window-height 7
+      compilation-auto-jump-to-first-error t
+      ;; compilation-auto-jump-to-next
       )
 
 (set-face-attribute 'compilation-line-number nil
