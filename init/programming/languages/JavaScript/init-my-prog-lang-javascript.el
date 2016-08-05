@@ -25,6 +25,22 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 
+
+;; auto fill-in in multi-lines comment.
+
+(dolist (hook '(js-mode-hook
+                js2-mode-hook
+                js3-mode-hook
+                ))
+  (add-hook hook
+            (lambda ()
+              (setq-local comment-auto-fill-only-comments t)
+              (setq-local comment-multi-line t)
+              (local-set-key (kbd "RET") 'c-indent-new-comment-line)
+              )
+            ))
+
+
 ;;; helper keybindings
 
 ;; [C-o] to open a new line upper between {}.
