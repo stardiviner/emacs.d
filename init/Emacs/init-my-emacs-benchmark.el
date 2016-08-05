@@ -19,7 +19,7 @@
 (use-package benchmark-init
   :ensure t
   :config
-  (benchmark-init/activate)
+  ;; (benchmark-init/activate)
   )
 
 
@@ -30,8 +30,7 @@
 ;; - [M-x esup]
 
 (use-package esup
-  :ensure t
-  )
+  :ensure t)
 
 
 (provide 'init-my-emacs-benchmark)
