@@ -64,7 +64,7 @@
 
 
 
-(require 'init-gnus)
+;; (require 'init-gnus)
 ;; (require 'init-mu4e)
 
 
