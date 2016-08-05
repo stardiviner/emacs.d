@@ -245,10 +245,10 @@
 
 ;;; [ helm-cider ]
 
-(use-package helm-cider
-  :ensure t
-  :config
-  (helm-cider-mode 1))
+;; (use-package helm-cider
+;;   :ensure t
+;;   :config
+;;   (helm-cider-mode 1))
 
 
 ;;; [ cider-decompile ]
@@ -258,28 +258,28 @@
 ;; - [M-x cider-decompile-func [RET] main [RET]]
 ;; - [M-x cider-decompile-ns-func [RET] myotherns.core/other-main [RET]]
 
-(use-package cider-decompile
-  :ensure t
-  ;; :config
-  ;; (define-key clojure-mode-map (kbd "??") cider-decompile-func)
-  ;; (define-key clojure-mode-map (kbd "??") cider-decompile-ns-func)
-  )
+;; (use-package cider-decompile
+;;   :ensure t
+;;   ;; :config
+;;   ;; (define-key clojure-mode-map (kbd "??") cider-decompile-func)
+;;   ;; (define-key clojure-mode-map (kbd "??") cider-decompile-ns-func)
+;;   )
 
 
 ;;; [ cider-spy ] -- Spy on CIDER to get Info.
 
-(use-package cider-spy
-  :ensure t)
+;; (use-package cider-spy
+;;   :ensure t)
 
 
 ;;; [ cider-profile ]
 
-(use-package cider-profile
-  :ensure t
-  :config
-  (add-hook 'cider-mode-hook 'cider-profile-mode)
-  (add-hook 'cider-repl-mode-hook 'cider-profile-mode)
-  )
+;; (use-package cider-profile
+;;   :ensure t
+;;   :config
+;;   (add-hook 'cider-mode-hook 'cider-profile-mode)
+;;   (add-hook 'cider-repl-mode-hook 'cider-profile-mode)
+;;   )
 
 
 ;;; [ flycheck-clojure, squiggly-clojure ] --
@@ -328,11 +328,11 @@
 
 ;;; [ typed-clojure-mode ] -- Typed Clojure minor mode for Emacs.
 
-(use-package typed-clojure-mode
-  :ensure t
-  :config
-  (add-hook 'clojure-mode-hook 'typed-clojure-mode)
-  )
+;; (use-package typed-clojure-mode
+;;   :ensure t
+;;   :config
+;;   (add-hook 'clojure-mode-hook 'typed-clojure-mode)
+;;   )
 
 
 ;;; [ helm-clojuredocs ] -- Searching for help in clojurdocs.org with helm.
