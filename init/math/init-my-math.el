@@ -8,7 +8,7 @@
 ;;; Code:
 
 
-(require 'init-my-math-proof-assistant)
+;; (require 'init-my-math-proof-assistant)
 
 
 
