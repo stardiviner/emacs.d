@@ -323,6 +323,7 @@
 ;; - `org-alert-enable' / `org-alert-disable'
 
 (use-package org-alert
+  ;; :ensure t
   :config
   (setq alert-default-style 'libnotify)
   
