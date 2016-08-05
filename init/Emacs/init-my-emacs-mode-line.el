@@ -16,6 +16,13 @@
   :ensure t
   :init
   (require 'projectile))
+(use-package projectile-rails
+  :ensure t
+  :init
+  (require 'projectile-rails)
+  ;; avoid invalid variable `projectile-rails-mode'
+  (defvar projectile-rails-mode nil)
+  )
 (require 'vc)
 (require 'vc-git)
 (use-package flycheck
@@ -234,15 +241,14 @@
    ;; projectile-rails-mode
    (:propertize " ")
    (:eval
-    (when (eq projectile-rails-mode t)
+    (when (and (featurep 'projectile-rails-mode)
+               (eq projectile-rails-mode t))
       (propertize (format " Rails ")
                   'face '(:foreground "red")
                   'display (let ((rails-icon (concat user-emacs-directory "resources/icon/" "Rails.xpm")))
                              (if (and (file-exists-p rails-icon)
                                       (image-type-available-p 'xpm))
-                                 (create-image rails-icon 'xpm nil :ascent 'center)))
-                  ))
-    )
+                                 (create-image rails-icon 'xpm nil :ascent 'center))))))
    
    ;; org-tree-slide slide number
    ;; (:eval
