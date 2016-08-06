@@ -9,12 +9,33 @@
 
 ;;; [ Timer ]
 
+;;; Usage:
+;;
+;; workflow:
+;;
+;; 1. [C-c C-x ;] set a countdown timer
+;; 2. [C-c C-x 0] start timer
+;; 3. [C-c C-x ,] pause/continue timer
+;; 5. [C-c C-x _] stop timer
+
 (with-eval-after-load 'org
   (require 'org-timer)
   (add-to-list 'org-modules 'org-timer))
 
 (setq org-timer-default-timer 25)       ; Pomodoro time management technique.
 (setq org-timer-display 'mode-line)
+
+(unless (boundp 'my-org-timer-prefix)
+  (define-prefix-command 'my-org-timer-prefix))
+(define-key my-org-prefix (kbd "C-t") 'my-org-timer-prefix)
+
+(define-key my-org-timer-prefix (kbd ".") 'org-timer)
+(define-key my-org-timer-prefix (kbd ";") 'org-timer-set-timer)
+(define-key my-org-timer-prefix (kbd "0") 'org-timer-start)
+(define-key my-org-timer-prefix (kbd "_") 'org-timer-stop)
+(define-key my-org-timer-prefix (kbd ",") 'org-timer-pause-or-continue)
+(define-key my-org-timer-prefix (kbd "-") 'org-timer-item)
+(define-key my-org-timer-prefix (kbd "'") 'org-timer-show-remaining-time)
 
 
 ;;; [ Clock ]
