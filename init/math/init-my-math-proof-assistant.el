@@ -11,6 +11,11 @@
 
 (load-file "/usr/share/emacs/site-lisp/ProofGeneral/generic/proof-site.el")
 (require 'proof-site)
+
+;;; [ coq-mode ]
+
+;; from system package "coq". "/usr/share/emacs/site-lisp/coq.el"
+(require 'coq)
 
 
 ;;; [ company-coq ]
