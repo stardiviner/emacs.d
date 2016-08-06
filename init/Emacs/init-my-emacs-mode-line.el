@@ -285,8 +285,17 @@
 
 
    ;; org-timer
-   ;; (:propertize (t org-timer-mode-line-timer)
-   ;;              face (:foreground "cyan"))
+   (:eval
+    (unless (not org-timer-countdown-timer)
+      (propertize (let* ((rtime (decode-time
+                                 (time-subtract
+                                  (timer--time org-timer-countdown-timer)
+                                  (current-time))))
+                         (rmins (nth 1 rtime))
+                         (rsecs (nth 0 rtime)))
+                    (format "🕔 %d:%d" rmins rsecs))
+                  'face '(:foreground "cyan" :weight bold)
+                  'help-echo "org-timer")))
    
    ;; org-clock
    ;; (:propertize (t org-mode-line-string)
