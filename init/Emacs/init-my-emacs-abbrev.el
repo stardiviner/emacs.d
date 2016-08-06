@@ -10,7 +10,8 @@
 (require 'abbrev)
 
 (setq abbrev-file-name "~/.emacs.d/init/abbrevs/abbrev_defs")
-(setq save-abbrevs t)     ; save abbrevs when files are saved, nil: stop asking.
+(setq save-abbrevs 'silently) ; save abbrevs when files are saved, nil: stop asking.
+(setq-default abbrev-mode t)
 (if (file-exists-p abbrev-file-name)
     (quietly-read-abbrev-file) ; reads the abbreviations file on startup quietly.
   )
