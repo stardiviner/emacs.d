@@ -152,8 +152,12 @@
 
 ;;; [ ejc-sql ] -- Emacs SQL client uses Clojure JDBC.
 
-(use-package ejc-sql
+(use-package clomacs
   :ensure t)
+
+(use-package ejc-sql
+  :ensure t
+  )
 
 
 (provide 'init-my-prog-lang-database-sql)
