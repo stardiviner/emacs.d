@@ -289,6 +289,11 @@
 ;;; trailing whitespace
 
 
+;;; Text style
+
+;; (setq text-quoting-style nil)
+
+
 
 (provide 'init-my-emacs-appearance)
 
