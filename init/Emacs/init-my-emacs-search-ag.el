@@ -9,42 +9,6 @@
 
 ;;; [ silver search (ag) ] -- like ack, but faster.
 
-;;; Usage:
-;;
-;;; Running a search:
-;;
-;; - ag
-;; - ag-files
-;; - ag-regexp
-;; - ag-project
-;; - ag-project-files
-;; - ag-project-regexp
-;;
-;; - *-project :: commands automatically choose the directory to search, automatically
-;;                detecting git, Subversion and Mercurial project roots.
-;;
-;; - *-regexp :: commands allow you to specify a PCRE pattern for your search term.
-;;
-;; - *-files :: commands allow you to specify a PCRE pattern for file names to
-;;              search in. By default, ag searches in all files. Note that in both cases, ag
-;;              ignores files that are ignored by your VCS (e.g. things mentioned in
-;;              .gitignore).
-;;
-;;; Search for files:
-;;
-;; ag supports an option -g that lets you to list file names matching PCRE
-;; patterns. It is analogical to find, but comes with all the nice features of
-;; ag such as automatically ignoring all the vcs files. You can search for files
-;; matching a pattern using functions
-;; 
-;; - ag-dired
-;; - ag-dired-regexp
-;; - ag-project-dired
-;; - ag-project-dired-regexp
-;;
-;; - `ag-mode-hook' :: before search
-;; - `ag-search-finished-hook' :: when finished search
-
 (use-package ag
   :ensure t
   :commands ag
