@@ -26,6 +26,7 @@
 (require 'init-my-org-tag)
 (require 'init-my-org-property)
 (require 'init-my-org-time)
+(require 'init-my-org-clock)
 (require 'init-my-org-capture)
 (require 'init-my-org-agenda)
 (require 'init-my-org-latex)
