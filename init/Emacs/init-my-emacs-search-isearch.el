@@ -139,8 +139,10 @@
 (define-key my-search-prefix (kbd "i") 'my-isearch-prefix)
 
 (define-key my-isearch-prefix (kbd "i") 'isearch-forward)
+(define-key my-isearch-prefix (kbd "C-i") 'isearch-forward-symbol-at-point)
 (define-key my-isearch-prefix (kbd "I") 'isearch-forward-regexp)
 (define-key my-isearch-prefix (kbd "f") 'isearch-forward)
+(define-key my-isearch-prefix (kbd "C-f") 'isearch-forward-symbol-at-point)
 (define-key my-isearch-prefix (kbd "F") 'isearch-forward-regexp)
 (define-key my-isearch-prefix (kbd "b") 'isearch-backward)
 (define-key my-isearch-prefix (kbd "B") 'isearch-backward-regexp)
