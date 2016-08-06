@@ -329,7 +329,7 @@
 
 
 ;;; Math
-;; (require 'init-my-math)
+(require 'init-my-math)
 
 
 ;;; Authoring & Writing
