@@ -70,48 +70,6 @@
 ;; - [M-x smart-compile]
 
 
-;;; [ smart-run ]
-
-(use-package smart-run
-  ;; :ensure t
-  ;; :config
-  ;; (setq smart-compile-alist '((emacs-lisp-mode emacs-lisp-byte-compile)
-  ;;                             (html-mode browse-url-of-buffer)
-  ;;                             (nxhtml-mode browse-url-of-buffer)
-  ;;                             (html-helper-mode browse-url-of-buffer)
-  ;;                             (octave-mode run-octave)
-  ;;                             ("\\.c\\'" . "gcc -O2 %f -lm -o %n")
-  ;;                             ("\\.[Cc]+[Pp]*\\'" . "g++ -O2 %f -lm -o %n")
-  ;;                             ("\\.m\\'" . "gcc -O2 %f -lobjc -lpthread -o %n")
-  ;;                             ("\\.java\\'" . "javac %f")
-  ;;                             ("\\.php\\'" . "php -l %f")
-  ;;                             ("\\.f90\\'" . "gfortran %f -o %n")
-  ;;                             ("\\.[Ff]\\'" . "gfortran %f -o %n")
-  ;;                             ("\\.cron\\(tab\\)?\\'" . "crontab %f")
-  ;;                             ("\\.tex\\'" tex-file)
-  ;;                             ("\\.texi\\'" . "makeinfo %f")
-  ;;                             ("\\.mp\\'" . "mptopdf %f")
-  ;;                             ("\\.pl\\'" . "perl -cw %f")
-  ;;                             ("\\.rb\\'" . "ruby -cw %f")))
-
-  ;; (add-to-list 'smart-compile-alist '("\\.clj" . "clojure %f"))
-
-  ;; (setq smart-run-alist '(("\\.c$" . "./%n")
-  ;;                         ("\\.[Cc]+[Pp]*$" . "./%n")
-  ;;                         ("\\.java$" . "java %n")
-  ;;                         ("\\.php$" . "php %f")
-  ;;                         ("\\.m$" . "./%f")
-  ;;                         ("\\.scm" . "./%f")
-  ;;                         ("\\.tex$" . "dvisvga %n.dvi")
-  ;;                         (texinfo-mode info
-  ;;                                       (smart-compile-replace "%n.info"))))
-
-  ;; (add-to-list 'smart-run-alist '("\\.py$" . "python %n"))
-  ;; (add-to-list 'smart-run-alist '("\\.rb$" . "ruby %n"))
-  ;; (add-to-list 'smart-run-alist '("\\.js\\'" . "node %n"))
-  )
-
-
 ;;; [ quickrun ] -- Run command quickly.
 
 (use-package quickrun
