@@ -65,6 +65,8 @@
             (normal-top-level-add-subdirs-to-load-path)))
          load-path)))
 
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/")
+
 (setq load-prefer-newer t)
 
 
