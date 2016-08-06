@@ -9,8 +9,10 @@
 
 ;;; [ Proof General ]
 
-(load-file "/usr/share/emacs/site-lisp/ProofGeneral/generic/proof-site.el")
-(require 'proof-site)
+(if (load-file "/usr/share/emacs/site-lisp/ProofGeneral/generic/proof-site.el")
+    (require 'proof-site)
+  (warn "You need to install Proof General."))
+
 
 ;;; [ coq-mode ]
 
