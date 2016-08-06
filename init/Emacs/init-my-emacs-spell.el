@@ -79,8 +79,8 @@ be global."
   :config
   (setq flyspell-default-dictionary "en"
         flyspell-delay 5
-        flyspell-before-incorrect-word-string "✗"
-        flyspell-after-incorrect-word-string "✗" ; × ✖ ✗ ✔
+        ;; flyspell-before-incorrect-word-string "✗"
+        ;; flyspell-after-incorrect-word-string "✗" ; × ✖ ✗ ✔
         flyspell-use-meta-tab nil ; use [M-TAB] to correct word.
         flyspell-consider-dash-as-word-delimiter-flag t
         flyspell-highlight-flag t
