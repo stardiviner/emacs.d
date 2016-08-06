@@ -7,10 +7,11 @@
 ;;; [ compile ]
 
 (setq compilation-ask-about-save t ; save without asking.
-      compilation-scroll-output 'first-error ; stop on first error.
       compilation-skip-threshold 2 ; don't stop on info or warnings.
       compilation-window-height 7
-      compilation-auto-jump-to-first-error t
+      compilation-scroll-output 'first-error ; stop on first error.
+      ;; NOTE: t: will cause to can't jump to error location.
+      compilation-auto-jump-to-first-error nil
       ;; compilation-auto-jump-to-next
       )
 
@@ -54,8 +55,7 @@
     (ansi-color-apply-on-region
      compilation-filter-start (point))))
 
-(add-hook 'compilation-filter-hook
-          #'my/colorize-compilation)
+(add-hook 'compilation-filter-hook #'my/colorize-compilation)
 
 
 ;;; [ smart-compile ]
