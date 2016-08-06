@@ -50,6 +50,16 @@
 
 (setq isearch-lazy-highlight t)
 
+;; case smart
+(setq-default case-fold-search t
+              case-replace t
+              )
+
+;; default mode to use when starting isearch.
+(setq search-default-mode 'char-fold-to-regexp ; for isearch [C-s]
+      ;; replace-char-fold t ; for command `query-replace'
+      )
+
 ;; isearch
 (set-face-attribute 'isearch nil
                     :inherit nil
