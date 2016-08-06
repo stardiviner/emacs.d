@@ -107,13 +107,13 @@
 ;; italic & bold
 (set-face-attribute 'italic nil
                     :slant 'italic
-                    :foreground "white"
+                    :foreground "#eeeeee"
                     :weight 'normal
                     :height 105
                     :underline nil)
 (set-face-attribute 'bold nil
                     :weight 'bold
-                    :foreground "#D3d3d3")
+                    :foreground "#c3c3c3")
 (set-face-attribute 'bold-italic nil
                     :foreground "pink")
 (set-face-attribute 'underline nil
