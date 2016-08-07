@@ -12,6 +12,11 @@
 (use-package sage-shell-mode
   :ensure t)
 
+
+;;; [ ob-sagemath ] -- org-babel functions for SageMath evaluation.
+
+(use-package ob-sagemath
+  :ensure t)
 
 
 (provide 'init-my-math-sage-math)
