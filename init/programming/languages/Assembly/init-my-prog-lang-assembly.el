@@ -21,7 +21,7 @@
 (add-hook 'asm-mode-hook #'my-asm-mode-settings)
 
 
-;;; [ nasm-mode ]
+;;; [ nasm-mode ] -- NASM x86 assembly major mode.
 
 (use-package nasm-mode
   :ensure t)
@@ -30,7 +30,7 @@
 ;;; [ fasm-mode ]
 
 
-;;; [ iasm-mode ]
+;;; [ iasm-mode ] -- interactive assembly major mode.
 
 (use-package iasm-mode
   :ensure t
@@ -58,6 +58,20 @@
 
 (use-package llvm-mode
   :ensure t)
+
+
+;;; [ x86-lookup ] -- jump to x86 instruction documentation.
+
+(use-package x86-lookup
+  :ensure t
+  :config
+  (setq x86-lookup-pdf (concat
+                        user-emacs-directory
+                        "documentations/Assembly/NASM/"
+                        "Combined Volume Set of Intel 64 and IA-32 Architectures Software Developer's Manuals.pdf"))
+  ;; (setq x86-lookup-browse-pdf-function 'x86-lookup-browse-pdf-any)
+  (define-key nasm-mode-map (kbd "C-h d d") #'x86-lookup)
+  )
 
 
 (provide 'init-my-prog-lang-assembly)
