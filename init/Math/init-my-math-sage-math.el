@@ -7,6 +7,11 @@
 
 ;;; Code:
 
+;;; [ sage-shell-mode ] -- A front-end for Sage Math.
+
+(use-package sage-shell-mode
+  :ensure t)
+
 
 
 (provide 'init-my-math-sage-math)
