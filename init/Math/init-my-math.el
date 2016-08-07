@@ -10,6 +10,12 @@
 
 (require 'init-my-math-proof-assistant)
 
+
+;;; [ Sage Math ]
+
+(require 'init-my-math-sage-math)
+
+
 
 
 (provide 'init-my-math)
