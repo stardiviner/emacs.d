@@ -70,7 +70,7 @@
                         "documentations/Assembly/NASM/"
                         "Combined Volume Set of Intel 64 and IA-32 Architectures Software Developer's Manuals.pdf"))
   ;; (setq x86-lookup-browse-pdf-function 'x86-lookup-browse-pdf-any)
-  (define-key nasm-mode-map (kbd "C-h d d") #'x86-lookup)
+  (define-key asm-mode-map (kbd "C-h d d") #'x86-lookup)
   )
 
 
