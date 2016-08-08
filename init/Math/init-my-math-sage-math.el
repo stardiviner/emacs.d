@@ -19,6 +19,22 @@
   )
 
 
+;;; [ auto-complete-sage ] -- An auto-complete source for sage-shell-mode.
+
+(use-package auto-complete-sage
+  :ensure t
+  :config
+  (setq ac-sage-complete-on-dot nil
+        ac-sage-show-quick-help t)
+  
+  (add-hook 'sage-shell:sage-mode-hook 'ac-sage-setup)
+  (add-hook 'sage-shell-mode-hook 'ac-sage-setup)
+  )
+
+
+;;; [ helm-sage ]
+
+
 ;;; [ ob-sagemath ] -- org-babel functions for SageMath evaluation.
 
 (use-package ob-sagemath
