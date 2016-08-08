@@ -321,21 +321,22 @@
 
 ;;; [ clj-refactor ]
 
-;; (use-package clj-refactor
-;;   :ensure t
-;;   :config
-;;   (add-hook 'clojure-mode-hook (lambda ()
-;;                                  (clj-refactor-mode 1)
-;;                                  ;; insert keybinding setup here
-;;                                  (cljr-add-keybindings-with-prefix "C-c RET")
-;;                                  ))
-;;
-;;   ;; no auto sort
-;;   (setq cljr-auto-sort-ns nil)
-;;
-;;   ;; do not prefer prefixes when using clean-ns
-;;   (setq cljr-favor-prefix-notation nil)
-;;   )
+(use-package clj-refactor
+  :ensure t
+  :config
+  (add-hook 'clojure-mode-hook
+            (lambda ()
+              (clj-refactor-mode 1)
+              ;; insert keybinding setup here
+              (cljr-add-keybindings-with-prefix "M-RET")
+              ))
+
+  ;; no auto sort
+  (setq cljr-auto-sort-ns nil)
+
+  ;; do not prefer prefixes when using clean-ns
+  (setq cljr-favor-prefix-notation nil)
+  )
 
 
 ;;; [ cider-eval-sexp-fu ]
