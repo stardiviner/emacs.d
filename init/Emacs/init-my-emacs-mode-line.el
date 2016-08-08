@@ -47,6 +47,8 @@
 ;; (spinner-start 'moon)
 ;; (spinner-start 'triangle)
 
+(require 'org-timer)
+
 ;; redtick
 (use-package redtick
   :ensure t
