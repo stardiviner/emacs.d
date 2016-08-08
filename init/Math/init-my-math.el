@@ -16,6 +16,11 @@
 (require 'init-my-math-sage-math)
 
 
+;;; [ GMPL (MathProg) ] -- GMPL(MathProg) files
+
+(use-package gmpl-mode
+  :ensure t)
+
 
 
 (provide 'init-my-math)
