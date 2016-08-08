@@ -46,17 +46,6 @@
 (set-face-attribute 'compilation-mode-line-run nil
                     :foreground "black")
 
-;;; ANSI-colors in the compilation buffer output.
-(require 'ansi-color)
-
-(defun my/colorize-compilation ()
-  "Colorize from `compilation-filter-start' to `point'."
-  (let ((inhibit-read-only t))
-    (ansi-color-apply-on-region
-     compilation-filter-start (point))))
-
-(add-hook 'compilation-filter-hook #'my/colorize-compilation)
-
 
 ;;; [ smart-compile ]
 
