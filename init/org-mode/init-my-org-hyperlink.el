@@ -142,14 +142,12 @@ With prefix argument, also display headlines without a TODO keyword."
 
 ;; [C-c C-l] insert link completion.
 (setq org-link-abbrev-alist
-      '(
-        ("RFC" . "https://datatracker.ietf.org/doc/rfc%s")
+      '(("RFC" . "https://datatracker.ietf.org/doc/rfc%s")
         ;; ("RFC" . "https://www.rfc-editor.org/search/rfc_search_detail.php?rfc=%s")
         ;; search engines
         ("Google" . "http://www.google.com/search?q=%s")
-        ("google" . "http://www.google.com/search?q=%s")
         ("DuckDuckGo" . "https://duckduckgo.com/?q=%s")
-        ("blekko" . "https://blekko.com/#?q=%s")
+        ("Blekko" . "https://blekko.com/#?q=%s")
         ("Bing" . "http://cn.bing.com/search?q=")
         ("Baidu" . "http://www.baidu.com/s?wd=%s")
         ;; Wiki
@@ -164,7 +162,8 @@ With prefix argument, also display headlines without a TODO keyword."
         ;; Maps
         ("Baidu_Maps" . "http://map.baidu.com/?q=%s")
         ("Google_Maps" . "http://maps.google.com/maps?q=%s")
-        ;; Social Networkings
+        ("OpenStreetMap" . "https://www.openstreetmap.org/search?query=%s")
+        ;; Social Networks
         ("Twitter" . "https://twitter.com/%s")
         ("Facebook" . "https://www.facebook.com/%s")
         ;; Programming
@@ -173,9 +172,8 @@ With prefix argument, also display headlines without a TODO keyword."
         ;; Emacs
         ("Emacs_Wiki" . "www.emacswiki.org/emacs?search=%s")
         ("S.E_Emacs" . "http://emacs.stackexchange.com/search?q=%s")
-        ;; Document Search
-        ("Mozilla_Developer" . "https://developer.mozilla.org/en-US/search?q=%s")
         ;; API Search
+        ("Mozilla_Developer" . "https://developer.mozilla.org/en-US/search?q=%s")
         ("{API}Search_apis.io" . "http://apis.io/?search=%s")
         ;; Code Search
         ("search_code" . "http://searchcode.com/?q=%s")
@@ -191,7 +189,6 @@ With prefix argument, also display headlines without a TODO keyword."
         ("Ohloh_Code" . "http://code.ohloh.net/search?s=%s")
         ("Snipplr" . "http://snipplr.com/search.php?q=%s")
         ;; chinese code search
-        ("GitCafe" . "https://gitcafe.com/search?keyword=%s")
         ("Coding" . "https://coding.net/search?q=%s")
         ("Geakit" . "https://geakit.com/search?q=%s")
         ("Git_OSC_Open_Source_China" . "https://git.oschina.net/search?search=%s")
