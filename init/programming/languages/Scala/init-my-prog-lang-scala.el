@@ -36,12 +36,6 @@
   )
 
 
-;;; [ ob-scala ]
-
-(use-package ob-scala
-  :ensure t)
-
-
 (provide 'init-my-prog-lang-scala)
 
 ;;; init-my-prog-lang-scala.el ends here
