@@ -79,13 +79,6 @@
   (define-key my-spell-prefix (kbd "r") 'flyspell-region)
   (define-key my-spell-prefix (kbd "c") 'ispell-word) ; default keybinding [M-$].
 
-  (set-face-attribute 'flyspell-incorrect nil
-                      :background "#444444" :foreground "red"
-                      :underline '(:color "dark red" :style wave))
-  (set-face-attribute 'flyspell-duplicate nil
-                      :background "#555555" :foreground "orange"
-                      :underline '(:color "dark red" :style line))
-
   ;; global
   ;; (flyspell-mode 1)
 
