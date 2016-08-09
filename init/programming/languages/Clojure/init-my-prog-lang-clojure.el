@@ -347,11 +347,6 @@
 ;;   )
 
 
-;;; [ clojure-cheatsheet ]
-
-;; https://github.com/clojure-emacs/clojure-cheatsheet
-
-
 ;;; [ clojars ] -- Emacs Interface to Clojars.org
 
 (use-package clojars
