@@ -92,10 +92,9 @@
   ;; Org-mode
   (add-hook 'org-mode-hook
             (lambda ()
-              (flyspell-mode 1)
-              (flyspell-buffer)
               ;; ignore TeX commands
               (setq-local ispell-parser 'tex)
+              (flyspell-mode 1)
               ))
 
   ;; TeX
