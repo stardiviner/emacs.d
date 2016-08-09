@@ -56,6 +56,11 @@
   ;; slowdown.
   (setq flyspell-issue-message-flag nil)
 
+  (set-face-attribute 'flyspell-incorrect nil
+                      :underline '(:color "red" :style wave))
+  (set-face-attribute 'flyspell-duplicate nil
+                      :underline '(:color "dim gray" :style wave))
+  
   ;; (define-key flyspell-mode-map (kbd "C-.") 'flyspell-correct-word-before-point)
   (define-key flyspell-mode-map (kbd "C-.") 'flyspell-auto-correct-previous-word)
   (define-key flyspell-mode-map (kbd "C-,") 'flyspell-goto-next-error)
