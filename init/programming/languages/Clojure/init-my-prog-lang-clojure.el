@@ -20,24 +20,6 @@
   )
 
 
-;;; [ inf-clojure ] -- basic interaction with a Clojure subprocess
-
-;;; Usage:
-;;
-;; - [M-x inf-clojure/run-clojure] / [C-c C-z]
-;; - [M-j] :: new line in sexp.
-
-;; (use-package inf-clojure
-;;   :ensure t
-;;   :config
-;;   (add-hook 'inf-clojure-mode-hook #'subword-mode)
-;;   (add-hook 'inf-clojure-mode-hook #'eldoc-mode)
-;;   (define-key my-prog-inferior-map (kbd "C") 'inf-clojure)
-;;
-;;   (add-hook 'inf-clojure-mode-hook #'cider-mode)
-;;   )
-
-
 ;;; [ CIDER ] -- CIDER is a Clojure IDE and REPL for Emacs
 
 ;;; Usage:
