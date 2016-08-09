@@ -42,6 +42,9 @@
   :config
   ;; (setq ob-sagemath-output-display-function)
   ;; (setq org-babel-header-args:sage '())
+
+  ;; (with-eval-after-load "org"
+  ;;   (define-key org-mode-map (kbd "C-c c") 'ob-sagemath-execute-async))
   )
 
 
