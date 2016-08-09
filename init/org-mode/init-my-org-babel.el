@@ -104,6 +104,12 @@ This can be useful for snippets to select kernel interactively."
     )
   )
 
+;;; [ ob-sagemath ]
+(use-package ob-sagemath
+  :ensure t
+  :config
+  (require 'ob-sagemath))
+
 ;;; [ ob-coq ]
 (require 'ob-coq)
 
@@ -183,6 +189,7 @@ This can be useful for snippets to select kernel interactively."
    (R . t)                              ; R
    ;; (go . t)
    (ipython . t)
+   (sagemath . t)        ; ob-sagemath
    ;; (restclient . t)                     ; ob-restclient
    ;; (org-if . t)                         ; org-if
    ))
