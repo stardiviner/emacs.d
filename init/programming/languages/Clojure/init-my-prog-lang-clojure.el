@@ -251,13 +251,6 @@
 
 (add-hook 'clojure-mode-hook 'cider-tdd-mode)
 
-
-;;; [ helm-cider ]
-
-;; (use-package helm-cider
-;;   :ensure t
-;;   :config
-;;   (helm-cider-mode 1))
 
 
 ;;; [ cider-decompile ]
