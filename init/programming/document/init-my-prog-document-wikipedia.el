@@ -27,8 +27,8 @@
   :ensure t
   :config
   (define-key my-prog-help-document-map (kbd "w") 'kiwix-at-point)
-  (define-key my-prog-help-document-map (kbd "W") 'kiwix-serve-query)
-  (define-key my-prog-help-document-map (kbd "C-w") 'kiwix-serve-index)
+  (define-key my-prog-help-document-map (kbd "W") 'kiwix-at-point-interactive)
+  (define-key my-prog-help-document-map (kbd "C-w") 'kiwix-launch-server)
   )
 
 
