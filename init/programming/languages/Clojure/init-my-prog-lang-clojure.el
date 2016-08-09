@@ -192,7 +192,7 @@
 
   ;; enable `eldoc' in relevant buffers.
   (add-hook 'cider-mode-hook #'eldoc-mode)
-  (setq cider-eldoc-display-for-symbol-at-point t
+  (setq cider-eldoc-display-for-symbol-at-point nil
         cider-eldoc-max-class-names-to-display 3)
 
   (add-hook 'cider-repl-mode-hook #'subword-mode)
