@@ -139,7 +139,7 @@
 
 ;; set Org agenda to search in ~/Org directory *recursively*.
 
-(setq org-agenda-files '("~/Org/Work/Work.org"
+(setq org-agenda-files '("~/Org/Wiki/Work/Work.org"
                          ;; "~/Org/Projects/Freelancer.org"
                          ;; "~/Org/Projects/Finance.org"
                          "~/Org/Projects/Business Ideas.org"
