@@ -66,19 +66,6 @@
               (unbind-key "C-;" flyspell-mode-map)))
   (define-key flyspell-mode-map (kbd "C-M-i") nil) ; fix Org-mode abbreviations expand keybinding [M-Tab].
 
-  (unless (boundp 'my-edit-prefix)
-    (define-prefix-command 'my-edit-prefix))
-  (unless (boundp 'my-spell-prefix)
-    (define-prefix-command 'my-spell-prefix))
-  (define-key my-edit-prefix (kbd "s") 'my-spell-prefix)
-
-  (define-key my-spell-prefix (kbd "C-s") 'flyspell-mode)
-  (define-key my-spell-prefix (kbd "m") 'flyspell-mode)
-  (define-key my-spell-prefix (kbd "p") 'flyspell-prog-mode)
-  (define-key my-spell-prefix (kbd "b") 'flyspell-buffer)
-  (define-key my-spell-prefix (kbd "r") 'flyspell-region)
-  (define-key my-spell-prefix (kbd "c") 'ispell-word) ; default keybinding [M-$].
-
   ;; global
   ;; (flyspell-mode 1)
 
