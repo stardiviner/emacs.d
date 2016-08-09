@@ -34,7 +34,7 @@
       )
 
 
-;;; [ Flyspell ]
+;;; [ Flyspell ] -- [M-$], [C-;]
 
 (use-package flyspell
   :ensure t
@@ -48,7 +48,6 @@
         flyspell-highlight-flag t
         flyspell-persistent-highlight t
         flyspell-highlight-properties t
-        ;; flyspell-mode-line-string " FlySpell"
         )
 
   ;; performance
@@ -60,14 +59,17 @@
   ;; (define-key flyspell-mode-map (kbd "C-.") 'flyspell-correct-word-before-point)
   (define-key flyspell-mode-map (kbd "C-.") 'flyspell-auto-correct-previous-word)
   (define-key flyspell-mode-map (kbd "C-,") 'flyspell-goto-next-error)
-  ;; conflict with iedit-mode toggle keybinding.
-  (add-hook 'flyspell-mode-hook
-            (lambda ()
-              (unbind-key "C-;" flyspell-mode-map)))
-  (define-key flyspell-mode-map (kbd "C-M-i") nil) ; fix Org-mode abbreviations expand keybinding [M-Tab].
+
+  ;; conflict with `iedit-mode' toggle keybinding.
+  ;; (add-hook 'flyspell-mode-hook
+  ;;           (lambda ()
+  ;;             (unbind-key "C-;" flyspell-mode-map)))
+
+  ;; fix Org-mode abbreviations expand keybinding [M-Tab].
+  (define-key flyspell-mode-map (kbd "C-M-i") nil)
 
   ;; global
-  ;; (flyspell-mode 1)
+  ;; (flyspell-mode -1)
 
   ;; programming code
   ;; flyspell-prog-mode : enable flyspell for comments in source code
