@@ -27,19 +27,14 @@
   :init
   (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
   :config
-  ;; (setq pdf-tools-modes
-  ;;       pdf-tools-enabled-modes)
-  
   ;; [ PDF View ]
   ;; - [SPC] :: scroll continuous
   ;; - [n/p] :: scroll to next/previous page
   (setq pdf-view-display-size 'fit-width
         pdf-view-continuous t
-        pdf-cache-image-limit 64
-        pdf-cache-prefetch-delay 0.5
-        pdf-view-image-relief 2
-        pdf-view-bounding-box-margin 0.05
-        ;; pdf-view-use-imagemagick nil
+        ;; pdf-view-image-relief 2
+        ;; pdf-view-bounding-box-margin 0.05
+        pdf-view-use-imagemagick nil
         pdf-view-use-scaling t
         )
 
@@ -66,43 +61,36 @@
         pdf-annot-minor-mode-map-prefix (kbd "C-c C-a")
         )
 
-  
-  (add-hook 'pdf-tools-enabled-hook
-            (lambda ()
-              ;;; Recolor
-              ;; (pdf-info-setoptions :render/usecolors t
-              ;;                      :render/background "white"
-              ;;                      :render/foreground "black"
-              ;;                      )
-              ))
-  
   (set-face-attribute 'pdf-view-rectangle nil
                       :background "yellow"
                       )
   (set-face-attribute 'pdf-view-region nil
                       :background "orange"
                       )
-  
-  (add-hook 'pdf-view-mode-hook
-            (lambda ()
-              ;; change key [k] to [K] to avoid mis-press.
-              (define-key pdf-view-mode-map (kbd "k") nil)
 
-              ;; "auto" slice from bounding box
-              (pdf-view-auto-slice-minor-mode)
+  (defun my-pdf-tools-setup ()
+    ;; change key [k] to [K] to avoid mis-press.
+    (define-key pdf-view-mode-map (kbd "k") nil)
 
-              ;; use midnight mode theme
-              ;; (pdf-view-midnight-minor-mode)
+    ;; "auto" slice from bounding box
+    (pdf-view-auto-slice-minor-mode)
 
-              ;; `pdf-tools-enabled-modes'
-              (pdf-isearch-minor-mode)
-              (pdf-occur-global-minor-mode)
-              (pdf-outline-minor-mode)
-              (pdf-links-minor-mode)
-              (pdf-annot-minor-mode)
-              (pdf-misc-minor-mode)
-              (pdf-sync-minor-mode)
-              ))
+    ;; use midnight mode theme
+    ;; (pdf-view-midnight-minor-mode)
+
+    ;; `pdf-tools-enabled-modes'
+    (pdf-tools-enable-minor-modes)
+    ;;
+    ;; (pdf-isearch-minor-mode)
+    ;; (pdf-occur-global-minor-mode)
+    ;; (pdf-outline-minor-mode)
+    ;; (pdf-links-minor-mode)
+    ;; (pdf-annot-minor-mode)
+    ;; (pdf-misc-minor-mode)
+    ;; (pdf-sync-minor-mode)
+    )
+
+  (add-hook 'pdf-view-mode-hook #'my-pdf-tools-setup)
   )
 
 
