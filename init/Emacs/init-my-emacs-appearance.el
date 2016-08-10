@@ -276,10 +276,6 @@
 ;; ;;; at the start of a line, plus any number of empty lines or comment lines
 ;; that follow it (that # part is to exclude ;;;###autoload cookies).
 
-;;; hello
-(advice-add #'backward-page :after #'recenter)
-(advice-add #'forward-page  :after #'recenter)
-
 
 ;;; Disable GUI dialog boxes
 
