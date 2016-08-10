@@ -68,7 +68,7 @@
   (setq x86-lookup-pdf (concat
                         user-emacs-directory
                         "documentations/Assembly/NASM/"
-                        "Combined Volume Set of Intel 64 and IA-32 Architectures Software Developer's Manuals.pdf"))
+                        "Intel 64 and IA-32 Architectures Software Developers Manuals: combined volumes 2A, 2B, 2C, and 2D: Instruction set reference, A-Z.pdf"))
   (setq x86-lookup-browse-pdf-function 'x86-lookup-browse-pdf-pdf-tools)
   (define-key asm-mode-map (kbd "C-h d d") #'x86-lookup)
   )
