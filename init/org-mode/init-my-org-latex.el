@@ -101,21 +101,6 @@
                     :background "brown" :foreground "white"
                     )
 
-(font-lock-add-keywords
- 'org-mode
- '(("\\(\ \\$\\$\ \\)\\(.*\\)\\1" ; $$ ... $$
-    2 'org-latex-face)))
-
-(font-lock-add-keywords
- 'org-mode
- '(("\\\\(\ \\(.*\\)\ \\\\)" ; \( ... \)
-    1 'org-latex-face)))
-
-(font-lock-add-keywords
- 'org-mode
- '(("\\\\\\[\ \\(.*\\)\ \\\\\\]" ; \[ ... \]
-    1 'org-latex-face)))
-
 
 (provide 'init-my-org-latex)
 
