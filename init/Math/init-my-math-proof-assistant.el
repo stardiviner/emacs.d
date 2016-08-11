@@ -27,7 +27,7 @@
   :init
   (require 'proof-site)
   :config
-  (add-hook 'coq-mode-hook #'company-coq-initialize)
+  (add-hook 'coq-mode-hook #'company-coq-mode)
   (add-hook 'coq-mode-hook
             '(lambda ()
                (set (make-local-variable 'prettify-symbols-alist)
