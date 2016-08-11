@@ -48,7 +48,6 @@
 
   ;; menu
   (setq yas-use-menu 'abbreviate)
-  (setq yas-trigger-symbol (char-to-string ?\x21E5))
 
   ;; (setq yas-key-syntaxes '("w" "w_" "w_." "w_.()" yas-try-key-from-whitespace))
 
