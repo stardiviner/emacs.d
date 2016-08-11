@@ -74,6 +74,22 @@
   )
 
 
+;;; [ inferior-spim ] -- An emacs inferior mode for spim.
+
+(use-package inferior-spim
+  :ensure t
+  :init
+  (require 'asm-mode)
+  :config
+  (define-key asm-mode-map (kbd "C-`") 'inferior-run-spim)
+  (define-key asm-mode-map (kbd "C-c C-z") 'inferior-switch-to-spim)
+  (define-key asm-mode-map (kbd "C-c C-b") 'inferior-spim-send-buffer)
+  (define-key asm-mode-map (kbd "C-c C-l") 'inferier-spim-load-file)
+  (define-key asm-mode-map (kbd "C-c i") 'inferior-spim-send-reinitialize)
+  (define-key asm-mode-map (kbd "C-c r") 'inferior-spim-send-run)
+  )
+
+
 (provide 'init-my-prog-lang-assembly)
 
 ;;; init-my-prog-lang-assembly.el ends here
