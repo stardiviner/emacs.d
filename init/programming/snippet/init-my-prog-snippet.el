@@ -71,10 +71,9 @@ $0"
   (add-to-list 'auto-mode-alist
                '("\\.yasnippet$" . snippet-mode)
                '("\\.snippet$" . snippet-mode))
-  (add-hook 'snippet-mode
-            (lambda ()
-              ;; turn of auto-fill for long length code
-              (turn-off-auto-fill)))
+
+  ;; turn of auto-fill for long length code
+  (add-hook 'snippet-mode #'turn-off-auto-fill)
 
   ;; Faces
   (set-face-attribute 'yas-field-highlight-face nil
