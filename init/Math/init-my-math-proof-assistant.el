@@ -24,8 +24,9 @@
 
 (use-package company-coq
   :ensure t
-  :config
+  :init
   (require 'proof-site)
+  :config
   (add-hook 'coq-mode-hook #'company-coq-initialize)
   (add-hook 'coq-mode-hook
             '(lambda ()
