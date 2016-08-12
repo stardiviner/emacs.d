@@ -10,7 +10,20 @@
 
 (setq org-export-backends '(ascii html icalendar latex md)
       org-export-headline-levels 5
+      org-export-with-toc t
+      org-export-with-tasks t
+      org-export-with-section-numbers t
+      org-export-with-todo-keywords t
+      org-export-with-priority t
+      org-export-with-clocks t
+      org-export-with-planning t
+      org-export-with-timestamps t
+      org-export-with-tags t
       org-export-with-drawers t
+      org-export-with-properties t
+      org-export-with-footnotes t
+      org-export-with-tables t
+      org-export-with-latex t
       org-export-with-emphasize t
       org-export-babel-evaluate 'inline-only
       org-export-with-smart-quotes t
