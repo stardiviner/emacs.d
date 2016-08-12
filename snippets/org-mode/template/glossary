@@ -1,0 +1,6 @@
+# key: template-glossary
+# name: template-glossary
+# --
+* ${1:glossary} <<<$1>>>${2: (${3:Chinese})}
+
+$0
