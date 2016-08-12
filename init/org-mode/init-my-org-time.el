@@ -27,14 +27,14 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 (define-key org-mode-map (kbd "C-c C-x r") 'org-time-interval)
 
 
-;;; [ Effort Estimates ]
+;;; [ Effort Estimates ] -- [C-c C-x C-c] + [C-c C-x C-e]
 
 ;; to add an effort estimate "on the fly".
 (add-hook 'org-clock-in-prepare-hook 'org-clock-modify-effort-estimate)
 ;; (remove-hook 'org-clock-in-hook 'org-clock-modify-effort-estimate)
 
 ;; setup column views for effort estimates
-(setq org-columns-default-format "%25ITEM %TODO %3PRIORITY %TAGS %6effort(EFFORT){:}"
+(setq org-columns-default-format "%25ITEM %TODO %3PRIORITY %TAGS %8Effort(Effort){:}"
       ;; org-global-properties
       org-agenda-columns-add-appointments-to-effort-sum t
       org-agenda-columns-compute-summary-properties t
