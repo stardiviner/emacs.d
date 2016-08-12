@@ -2,7 +2,32 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Hardware"
+(("Computer & Programming Glossary"
+ (filename . "~/Org/Wiki/Computer/Programming/Glossary/Glossary.org")
+ (front-context-string . "* Terms & Semant")
+ (rear-context-string)
+ (position . 1))
+("My ClojureScript's Standard Library.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Clojure/ClojureScript/Data/Manuals/My ClojureScript's Standard Library/My ClojureScript's Standard Library.org")
+ (front-context-string . "* cljs.core\n\n\n\n*")
+ (rear-context-string)
+ (position . 1))
+("My Applied Mathematics Formula Reference.org"
+ (filename . "~/Org/Wiki/Mathematics/Data/Manuals/My Applied Mathematics Formula Reference/My Applied Mathematics Formula Reference.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("My TeX Symbols Reference.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/TeX/Data/Manuals/My TeX Symbols Reference/My TeX Symbols Reference.org")
+ (front-context-string . "* LaTeX symbol -")
+ (rear-context-string)
+ (position . 1))
+("Philosophy"
+ (filename . "~/Org/Wiki/Philosophy/Philosophy.org")
+ (front-context-string . "* Intro\n\n** Phil")
+ (rear-context-string)
+ (position . 1))
+("Hardware"
  (filename . "~/Org/Wiki/Computer/Programming/Implements/Hardware/Hardware.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
@@ -304,9 +329,9 @@
  (position . 1))
 ("org-capture-last-stored"
  (filename . "~/Org/Diary/Diary.org")
- (front-context-string . "**** 和小影他们一起去环海\n")
- (rear-context-string . "这次程铭很长时间都没有回来。\n\n")
- (position . 14267))
+ (front-context-string . "**** 用行动证明我要开始努力")
+ (rear-context-string . "08-11 Thursday\n\n")
+ (position . 15509))
 ("My R Language Syntax Reference"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/R/Data/Manuals/My R Language Syntax Reference/My R Language Syntax Reference.org")
  (front-context-string)
