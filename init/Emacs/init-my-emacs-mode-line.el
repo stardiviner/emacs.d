@@ -296,7 +296,7 @@
                          (rmins (nth 1 rtime))
                          (rsecs (nth 0 rtime)))
                     (format "🕔 %d:%d" rmins rsecs))
-                  'face '(:foreground "cyan" :weight bold)
+                  'face '(:foreground "cyan3")
                   'help-echo "org-timer")))
    
    ;; org-clock
