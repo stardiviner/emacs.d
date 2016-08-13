@@ -95,6 +95,15 @@
   )
 
 
+;;; [ read-aloud ] -- A simple Emacs interface to TTS (text-to-speech) engines.
+
+(use-package read-aloud
+  :ensure t
+  :config
+  (setq read-aloud-engine "speech-dispatcher")
+  )
+
+
 (provide 'init-my-tool-speak)
 
 ;;; init-my-tool-speak.el ends here
