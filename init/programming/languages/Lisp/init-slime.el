@@ -47,11 +47,12 @@
   ;;           #'(lambda ()
   ;;               (define-key slime-prefix-map (kbd "M-h")
   ;;                 'slime-documentation-lookup)))
-  (with-eval-after-load 'slime
-    (local-set-key (kbd "C-h d") 'my-prog-help-document-map)
-    (define-key my-prog-help-document-map (kbd "d") 'slime-documentation)
-    
-    (define-key slime-prefix-map (kbd "M-h") 'slime-documentation-lookup))
+  (add-hook 'common-lisp-mode-hook
+            (lambda ()
+              (local-set-key (kbd "C-h d") 'my-prog-help-document-map)
+              (define-key my-prog-help-document-map (kbd "d") 'slime-documentation)
+              (define-key slime-prefix-map (kbd "M-h") 'slime-documentation-lookup)
+              ))
 
   ;; notify user after SLIME connected
   (add-hook 'slime-connected-hook
