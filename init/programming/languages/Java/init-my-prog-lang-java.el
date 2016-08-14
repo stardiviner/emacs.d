@@ -10,37 +10,42 @@
 ;;; [ Eclim ]
 
 (use-package emacs-eclim
-  :ensure t)
+  :ensure t
+  :init
+  (require 'eclim)
+  ;; Control `eclimd' from emacs
+  (require 'eclimd)
+  :config
+  (setq eclimd-default-workspace "~/Projects/Eclipse"
+        ;; eclim-executable
+        ;; eclimd-executable "~/.eclipse/org.eclipse.platform_4.5.1_155965261_linux_gtk_x86_64/eclimd"
+        ;; eclimd-port 45620
+        eclimd-wait-for-process t)
 
-(require 'eclim)
+  (defun eclimd-auto-start ()
+    (if (yes-or-no-p "start eclimd? ")
+        ;; (start-eclimd (file-name-directory (buffer-file-name)))
+        (call-interactively 'start-eclimd)
+      ))
 
-(setq eclimd-default-workspace "~/Projects/Eclipse"
-      ;; eclim-executable
-      eclimd-executable "~/.eclipse/org.eclipse.platform_4.5.1_155965261_linux_gtk_x86_64/eclimd"
-      ;; eclimd-port 45620
-      eclimd-wait-for-process t)
+  ;; (remove-hook 'java-mode-hook 'eclimd-auto-start)
 
-;; Control `eclimd' from emacs
-(require 'eclimd)
-
-(defun eclimd-auto-start ()
-  (if (yes-or-no-p "start eclimd? ")
-      ;; (start-eclimd (file-name-directory (buffer-file-name)))
-      (call-interactively 'start-eclimd)
-    ))
-
-;; (remove-hook 'java-mode-hook 'eclimd-auto-start)
-
-;; for company-mode
-(require 'company-emacs-eclim)
-
-;; (company-emacs-eclim-setup)
-(defun company-eclim-setup ()
-  (my-company-add-backend-locally 'company-emacs-eclim)
+  ;; (global-eclim-mode t)
   )
-(add-hook 'eclim-mode-hook 'company-eclim-setup)
 
-;; (global-eclim-mode t)
+
+;; for company-mode
+
+(use-package company-emacs-eclim
+  :ensure t
+  :config
+  ;; (company-emacs-eclim-setup)
+  (defun company-eclim-setup ()
+    (my-company-add-backend-locally 'company-emacs-eclim)
+    )
+
+  (add-hook 'eclim-mode-hook 'company-eclim-setup)
+  )
 
 
 ;;; [ malabar-mode ] -- JVM Integration for Java and other JVM based languages.
