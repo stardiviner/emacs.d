@@ -31,20 +31,15 @@
   ;; (remove-hook 'java-mode-hook 'eclimd-auto-start)
 
   ;; (global-eclim-mode t)
-  )
 
-
-;; for company-mode
-
-(use-package company-emacs-eclim
-  :ensure t
-  :config
+  ;;; for company-mode
+  (require 'company-emacs-eclim)
+  
   ;; (company-emacs-eclim-setup)
-  (defun company-eclim-setup ()
-    (my-company-add-backend-locally 'company-emacs-eclim)
-    )
+  (defun my-company-eclim-setup ()
+    (my-company-add-backend-locally 'company-emacs-eclim))
 
-  (add-hook 'eclim-mode-hook 'company-eclim-setup)
+  (add-hook 'eclim-mode-hook 'my-company-eclim-setup)
   )
 
 
