@@ -304,6 +304,16 @@
 ;;   :ensure t)
 
 
+;;; [ jade ] -- JavaScript Awesome Development Environment (in Emacs).
+
+(use-package jade
+  :ensure t
+  :config
+  ;; JavaScript evaluation in JS buffers. [C-x C-e], [C-c M-i]
+  (add-hook 'js2-mode-hook #'jade-interaction-mode)
+  )
+
+
 ;;; [ JSX-mode ] -- The XML inside of JavaScript.
 
 (use-package jsx-mode
