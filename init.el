@@ -175,6 +175,11 @@
 (require 'init-my-emacs-customize)
 
 
+;;; Vim
+
+(require 'init-my-vim)
+
+
 ;;; Languages
 
 (unless (boundp 'my-search-language-prefix)
