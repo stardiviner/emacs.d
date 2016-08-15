@@ -177,7 +177,7 @@
 
 ;;; Vim
 
-(require 'init-my-vim)
+;; (require 'init-my-vim)
 
 
 ;;; Languages
