@@ -41,6 +41,12 @@
   )
 
 
+;;; [ org-commentary ] -- generate/update conventional library headers using Org-mode.
+
+(use-package org-commentary
+  :ensure t)
+
+
 (provide 'init-my-pm-package)
 
 ;;; init-my-pm-package.el ends here
