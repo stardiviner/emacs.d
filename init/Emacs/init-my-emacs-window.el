@@ -41,6 +41,9 @@
 
 ;; Learn about display actions, see [[info:elisp#Display Action Functions]].
 
+(add-to-list 'display-buffer-alist
+             '("^*Async Shell Command*" . (display-buffer-no-window)))
+
 ;; display poporg popup buffer below the selected window with 0.3 height.
 ;; (add-to-list 'display-buffer-alist
 ;;              '("\\*poporg:\ .*?\\*" ; *poporg: init-my-emacs-window.el*
@@ -328,7 +331,7 @@
   ;; Debugger mode, *Backtrace*
   (push '("*Backtrace*" :position bottom :height 8 :noselect t) popwin:special-display-config)
 
-  ;; M-! shell command output
+  ;; [M-!], [M-&] shell command output
   (push '("*Shell Command Output*" :position bottom :height 8 :noselect t :tail t) popwin:special-display-config)
   (push '("*Async Shell Command*" :position bottom :height 8 :noselect t :tail t) popwin:special-display-config)
 
