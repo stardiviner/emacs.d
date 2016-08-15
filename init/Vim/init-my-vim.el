@@ -7,7 +7,12 @@
 
 ;;; Code:
 
+;;; [ Evil ]
 
+(use-package evil
+  :ensure t
+  :config
+  )
 
 
 
