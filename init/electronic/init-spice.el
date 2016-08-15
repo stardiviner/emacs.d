@@ -9,14 +9,14 @@
 
 ;;; [ spice-mode ] -- major mode for SPICE.
 
-(autoload 'spice-mode "spice-mode" "Spice  Editing Mode" t)
-(setq auto-mode-alist
-      (append '(("\\.sp$"  . spice-mode)) auto-mode-alist))
+(use-package spice-mode
+  :ensure t)
 
 
 ;;; [ ob-spice ] -- Org-mode Babel integrate with SPICE.
 
-(require 'ob-spice)
+(use-package ob-spice
+  :ensure t)
 
 
 (provide 'init-spice)
