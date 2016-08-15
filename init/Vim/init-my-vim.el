@@ -14,7 +14,11 @@
   :config
   )
 
+
+;;; [ vimrc-mode ] -- major mode for vimrc files.
 
+(use-package vimrc-mode
+  :ensure t)
 
 
 (provide 'init-my-vim)
