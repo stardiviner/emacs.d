@@ -146,14 +146,16 @@
               (cider-enlighten-mode 1)))
   
   (set-face-attribute 'cider-enlightened-local-face nil
-                      :background "black" :foreground "yellow"
-                      :family "Comic Sans MS" :italic t
-                      :box '(:color "#444444" :line-width -1)
+                      :foreground "yellow" :background "#333333"
+                      :family "DejaVu Sans Mono"
+                      :italic t
+                      :box '(:color "#444444" :line-width 1)
                       )
   (set-face-attribute 'cider-enlightened-face nil
-                      :background "black" :foreground "dark orange"
-                      :family "Comic Sans MS" :weight 'normal
-                      :box '(:color "#444444" :line-width -1)
+                      :foreground "dark orange" :background "#333333"
+                      :family "DejaVu Sans Mono"
+                      :weight 'normal
+                      :box '(:color "#444444" :line-width 1)
                       )
 
   ;; eval sexp result overlays
