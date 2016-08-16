@@ -52,8 +52,10 @@
         ("\\.odp\\'" . "libreoffice %s") ; Presentation
         ("\\.odf\\'" . "libreoffice %s") ; Database / Formula
         ;; Video
-        ;; ("\\mp4\\'" . "mpv %s")
-        ;; ("\\mov\\'" . "mpv %s")
+        ;; ("\\.mp4\\'" . "mpv %s")
+        ;; ("\\.mov\\'" . "mpv %s")
+        ;; Audio
+        ("\\.mp3\\'" . "mpg123 %s")
         ))
 
 (add-to-list 'org-file-apps '("\\.swf\\'" . "swfdec-player %s"))
