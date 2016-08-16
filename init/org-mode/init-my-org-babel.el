@@ -28,6 +28,9 @@
         (:padline . "true") (:comments . "links")
         ))
 
+;; Raise errors when noweb references don't resolve.
+(setq org-babel-noweb-error-all-langs t)
+
 ;;; inline source code header arguments
 ;; (setq org-babel-default-inline-header-args
 ;;       '((:session . "none")
