@@ -24,7 +24,7 @@
 
 ;;; sorting strategy
 (setq org-agenda-sorting-strategy
-      '((agenda time-up priority-down deadline-up ts-up habit-down category-keep)
+      '((agenda time-up deadline-up priority-down ts-up habit-down category-keep)
         (todo priority-down category-keep)
         (tags priority-down category-keep)
         (search category-keep))
