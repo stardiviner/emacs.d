@@ -36,7 +36,11 @@
 
 ;;; [ nimsuggest ]
 
+
+;;; [ ob-nim ] -- Babel Functions for Nim Language.
 
+(use-package ob-nim
+  :ensure t)
 
 
 (provide 'init-my-prog-lang-nim)
