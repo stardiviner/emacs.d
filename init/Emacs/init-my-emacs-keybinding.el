@@ -90,13 +90,6 @@
   (setq which-key-idle-delay 1.5
         which-key-idle-secondary-delay nil)
 
-  ;; (setq which-key-popup-type 'side-window ; 'side-window, 'minibuffer, 'frame
-  ;;       which-key-side-window-location 'bottom
-  ;;       which-key-side-window-max-height 0.33
-  ;;       which-key-side-window-max-width 0.25)
-
-  ;; (setq max-mini-window-height 0.25)
-
   (setq which-key-max-description-length 27
         which-key-separator " ➜ " ; ⇢
         ;; which-key-unicode-correction 3
