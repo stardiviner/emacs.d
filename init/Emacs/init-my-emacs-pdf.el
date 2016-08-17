@@ -124,6 +124,10 @@
   ;; change Org-mode default open PDF file function.
   (add-to-list 'org-file-apps '("\\.pdf\\'" . org-pdfview-open))
   (add-to-list 'org-file-apps '("\\.pdf::\\([[:digit:]]+\\)\\'" . org-pdfview-open))
+
+  ;; (delete '("\\.pdf\\'" . default) org-file-apps)
+  ;; (add-to-list 'org-file-apps '("\\.pdf\\'" . (org-pdfview-open link)))
+  ;; (add-to-list 'org-file-apps '("\\.pdf::\\(\\d+\\)\\'" . (org-pdfview-open link)))
   )
 
 

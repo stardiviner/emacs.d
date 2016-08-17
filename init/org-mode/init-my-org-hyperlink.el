@@ -23,9 +23,9 @@
         ;; Web Pages
         ("\.x?html?\\'" . default)
         ("\(?:xhtml\|html\)" . "firefox %s")
-        ;; PDF
-        ("\\.pdf\\'" . auto-mode)
-        ("\\.pdf::\\([[:digit:]]+\\)\\'" . auto-mode)
+        ;; PDF (disable this because I use package `org-pdfview'.
+        ;; ("\\.pdf\\'" . auto-mode)
+        ;; ("\\.pdf::\\([[:digit:]]+\\)\\'" . auto-mode)
         ;; disable this, to use `doc-view' from `pdf-tools' for PDF.
         ;; ("\\.pdf\\'" . "okular %s")
         ;; ("\\.pdf::\\([[:digit:]]+\\)\\'" . "okular -p %1 %s")
