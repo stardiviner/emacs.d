@@ -23,6 +23,11 @@
   :ensure t)
 
 
+;;; [ distel ]
+
+(add-to-list 'load-path "/usr/share/distel/elisp/")
+
+
 ;;; [ distel-completion-lib ] -- Completion library for Erlang/Distel.
 
 (use-package distel-completion-lib

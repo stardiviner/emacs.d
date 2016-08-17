@@ -65,6 +65,11 @@
 
 ;;; [ Math ]
 
+
+
+
+;;; LaTeX Math Symbols
+
 ;; `helm-insert-latex-math'
 
 ;;;_* Math formula support
@@ -74,7 +79,9 @@
 
 
 ;;; MathJax
-;;
+
+;; (setq org-html-mathjax-options)
+
 ;; ;; CDLaTeX minor mode to speed up math input.
 ;; (autoload 'cdlatex-mode "cdlatex" nil)
 ;; ;; enable `org-cdlatex-mode' for all org files
