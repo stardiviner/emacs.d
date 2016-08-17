@@ -31,16 +31,23 @@
   ;; (remove-hook 'java-mode-hook 'eclimd-auto-start)
 
   ;; (global-eclim-mode t)
+  )
 
-  ;;; for company-mode
-  (require 'company-emacs-eclim)
-  
+
+;;; for company-mode
+(use-package company-emacs-eclim
+  :ensure t
+  :config
   ;; (company-emacs-eclim-setup)
   (defun my-company-eclim-setup ()
     (my-company-add-backend-locally 'company-emacs-eclim))
 
   (add-hook 'eclim-mode-hook 'my-company-eclim-setup)
   )
+
+;;; for auto-complete
+;; (use-package ac-emacs-eclim
+;;   :ensure t)
 
 
 ;;; [ malabar-mode ] -- JVM Integration for Java and other JVM based languages.
