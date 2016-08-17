@@ -123,6 +123,12 @@
     :docstring "ZhiHu"
     :keybinding "z")
 
+  ;; Downloads
+  (defengine piratebay
+    "https://thepiratebay.org/search/%s"
+    :docstring "The Pirate Bay"
+    :keybinding "p")
+
   ;; Media
   (defengine youtube
     "http://www.youtube.com/results?aq=f&oq=&search_query=%s"
