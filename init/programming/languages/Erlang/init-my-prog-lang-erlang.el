@@ -23,6 +23,29 @@
   :ensure t)
 
 
+;;; [ distel-completion-lib ] -- Completion library for Erlang/Distel.
+
+(use-package distel-completion-lib
+  :ensure t
+  :config
+  ;; (setq distel-completion-get-doc-from-internet t)
+  ;; (setq distel-completion-valid-syntax "a-zA-Z:_-")
+  )
+
+
+;;; [ company-distel ] -- Erlang/distel completion backend for company-mode.
+
+(use-package company-distel
+  :ensure t
+  :config
+  (setq company-distel-popup-help t)
+
+  (add-hook 'erlang-mode-hook
+            (lambda ()
+              (my-company-add-backend-locally 'company-distel)))
+  )
+
+
 (provide 'init-my-prog-lang-erlang)
 
 ;;; init-my-prog-lang-erlang.el ends here
