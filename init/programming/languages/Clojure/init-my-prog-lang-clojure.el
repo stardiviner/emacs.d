@@ -22,13 +22,6 @@
 
 ;;; [ CIDER ] -- CIDER is a Clojure IDE and REPL for Emacs
 
-;;; Usage:
-;;
-;; - workflow:
-;;   1. [M-x cider-jack-in]
-;;   2. (optional) [M-x cider-connect]
-;;   3. [C-c C-l] :: `cider-load-file'
-
 (use-package cider
   :ensure t
   :config
