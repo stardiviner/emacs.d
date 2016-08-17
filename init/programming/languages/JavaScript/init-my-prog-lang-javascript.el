@@ -169,48 +169,6 @@
 
 ;;; [ tern ] -- code-analysis engine for JavaScript
 
-;;; Tern is a stand-alone code-analysis engine for JavaScript. It is intended to
-;;; be used with a code editor plugin to enhance the editor's support for
-;;; intelligent JavaScript editing.
-
-;;; Usage:
-
-;; The Emacs mode uses the bin/tern server, and project configuration is done
-;; with a .tern-project file.
-;;
-;; The following additional keys are bound:
-;;
-;; - [M-tab / C-M-i]
-;;     trigger completion.
-;;
-;; - [M-.]
-;;     Jump to the definition of the thing under the cursor.
-;; - [M-,]
-;;     Brings you back to last place you were when you pressed M-..
-;; - [C-c C-r]
-;;     Rename the variable under the cursor.
-;; - [C-c C-c]
-;;     Find the type of the thing under the cursor.
-;; - [C-c C-d]
-;;     Find docs of the thing under the cursor. Press again to open the associated URL (if any).
-
-;;; .tern-project file example:
-;; {
-;;   "libs": [
-;;     "browser",
-;;     "jquery"
-;;   ],
-;;   "loadEagerly": [
-;;     "importantfile.js"
-;;   ],
-;;   "plugins": {
-;;     "requirejs": {
-;;       "baseURL": "./",
-;;       "paths": {}
-;;     }
-;;   }
-;; }
-
 (use-package tern
   :ensure t
   :init
