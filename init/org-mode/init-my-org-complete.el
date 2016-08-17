@@ -26,6 +26,21 @@
             ))
 
 
+;;; [ company-math ]
+
+(use-package company-math
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (setq-local
+               company-backends
+               (append '((company-math-symbols-latex company-math-symbols-unicode))
+                       company-backends))
+              ))
+  )
+
+
 (provide 'init-my-org-complete)
 
 ;;; init-my-org-complete.el ends here
