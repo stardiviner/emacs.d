@@ -25,8 +25,7 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 
-
-;; auto fill-in in multi-lines comment.
+;;; auto fill-in in multi-lines comment.
 
 (dolist (hook '(js-mode-hook
                 js2-mode-hook
@@ -75,12 +74,6 @@
 (use-package js2-mode
   :ensure t
   :config
-  ;; (setq js2-pretty-multiline-declarations t ; 'dynamic
-  ;;       js2-highlight-level 3
-  ;;       )
-
-  ;; (js2-highlight-unused-variables-mode)
-
   (add-hook 'js-mode-hook 'js2-minor-mode)
   )
 
@@ -222,7 +215,7 @@
   )
 
 
-;;; [ JSX-mode ] -- The XML inside of JavaScript.
+;;; [ jsx-mode ] -- The XML inside of JavaScript.
 
 (use-package jsx-mode
   ;; :ensure t
@@ -251,9 +244,6 @@
                 (define-key my-prog-comment-map (kbd "f") 'js-doc-insert-function-doc)
                 (define-key js2-mode-map (kbd "@") 'js-doc-insert-tag)))
   )
-
-
-;;; JavaScript subprocess integration
 
 
 ;;; [ import-js ] -- A tool to simplify importing JS modules.
