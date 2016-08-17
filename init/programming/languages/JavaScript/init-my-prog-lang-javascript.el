@@ -107,23 +107,6 @@
 (add-hook 'js2-mode-hook 'js-mode-setup-flycheck-checkers)
 
 
-;;; [ ac-js2 ] -- Javascript auto-completion in Emacs using Js2-mode's parser and Skewer-mode.
-
-;;; Usage:
-;;
-;; Call run-skewer and open up a Javascript file. Type part of a variable and
-;; call completion-at-point or if you have auto-complete installed wait for the
-;; popup.
-
-;; (add-hook 'js2-mode-hook 'ac-js2-mode)
-;;
-;; (setq ac-js2-evaluate-calls t ; if you want to evaluate your Javascript code for
-;;                               ; candidates. Not setting this value will still
-;;                                         ; provide you with basic completion.
-;;       ;; ac-js2-external-libraries '("full/path/to/a-library.js")
-;;       )
-
-
 ;;; [ nvm ] -- Manage Node versions within Emacs.
 
 ;;; Usage:
