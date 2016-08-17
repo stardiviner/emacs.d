@@ -158,14 +158,22 @@ pasting on sites like GitHub, and Stack Overflow."
           '(lambda ()
              ;; `org-mime-org-buffer-htmlize', `org-mime-htmlize'
              (local-set-key (kbd "C-x M") 'org-mime-org-buffer-htmlize)
-
-             ;; change element style
-             (org-mime-change-element-style
-              "pre" (format "color: %s; background-color: %s; padding: 0.5em;"
-                            "#E6E1DC" "#232323"))
-             (org-mime-change-element-style
-              "blockquote" "border-left: 2px solid gray; padding-left: 4px;")
              ))
+
+(defun org-export-settings-for-email ()
+  "Settings for export Org-mode buffer to HTML Email format."
+  (interactive)
+
+  ;; change element style
+  (org-mime-change-element-style
+   "pre" (format "color: %s; background-color: %s; padding: 0.5em;"
+                 "#E6E1DC" "#232323"))
+  (org-mime-change-element-style
+   "blockquote" "border-left: 2px solid gray; padding-left: 4px;")
+  )
+
+;; FIXME: wrong number of arguments, 1.
+;; (add-hook 'org-export-before-processing-hook 'org-export-settings-for-email)
 
 
 ;; ;;; [ ox-publish ]
