@@ -11,6 +11,20 @@
 ;; - [C-h v major-mode] for current buffer major mode.
 ;; - [C-h v minor-mode-alist] for current buffer minor modes list.
 
+;;; separate settings for only active mode-line.
+
+(defvar my/mode-line-selected-window nil)
+
+(defun my/mode-line-record-selected-window ()
+  (setq my/mode-line-selected-window (selected-window)))
+
+(defun my/mode-line-update-all ()
+  (force-mode-line-update t))
+
+(add-hook 'post-command-hook 'my/mode-line-record-selected-window)
+
+(add-hook 'buffer-list-update-hook 'my/mode-line-update-all)
+
 ;; load necessary package which will be used later.
 (use-package projectile
   :ensure t
@@ -281,15 +295,16 @@
    ;; org-timer
    (:eval
     (unless (not org-timer-countdown-timer)
-      (propertize (let* ((rtime (decode-time
-                                 (time-subtract
-                                  (timer--time org-timer-countdown-timer)
-                                  (current-time))))
-                         (rmins (nth 1 rtime))
-                         (rsecs (nth 0 rtime)))
-                    (format "🕔 %d:%d" rmins rsecs))
-                  'face '(:foreground "cyan3")
-                  'help-echo "org-timer")))
+      (if (eq my/mode-line-selected-window (selected-window))
+          (propertize (let* ((rtime (decode-time
+                                     (time-subtract
+                                      (timer--time org-timer-countdown-timer)
+                                      (current-time))))
+                             (rmins (nth 1 rtime))
+                             (rsecs (nth 0 rtime)))
+                        (format "🕔 %d:%d" rmins rsecs))
+                      'face '(:foreground "cyan3")
+                      'help-echo "org-timer"))))
    
    ;; org-clock
    ;; (:propertize (t org-mode-line-string)
