@@ -82,6 +82,18 @@
   )
 
 
+;;; [ digit-groups ] -- highlight place-value positions in numbers.
+
+(use-package digit-groups
+  :ensure t
+  :config
+  (set-face-attribute 'digit-groups-default-face nil
+                      :foreground "light gray")
+
+  (add-hook 'org-mode-hook #'digit-groups-mode)
+  )
+
+
 (provide 'init-my-emacs-prettify)
 
 ;;; init-my-emacs-prettify.el ends here
