@@ -109,11 +109,6 @@
 
 ;;; [ nvm ] -- Manage Node versions within Emacs.
 
-;;; Usage:
-;;
-;; - nvm-use (version &optional callback)
-;; - nvm-use-for (version &optional callback)
-
 (use-package nvm
   :ensure t
   :config
