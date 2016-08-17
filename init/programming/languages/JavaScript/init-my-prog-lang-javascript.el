@@ -118,22 +118,6 @@
 
 ;; [ js-comint ] -- a lightweight comint integration package, that also seems to integrate with org-mode nicely.
 
-;; ElnodeIJS, NicFerrier
-;; having a go at writing an Emacs to JavaScript shell. It uses comet for
-;; communication. Currently here and in the Elnode source tree.
-
-;; jsSlime
-;; provides an Emacs interface to the browser’s debugger and javascript engine.
-
-;;; Usage:
-;;
-;; - `inferior-js-mode'
-;; - `js-send-region' & `js-send-buffer'
-;; - `js-load-file' & `js-load-file-and-go'
-;; - `run-js'
-;; - `send-region'
-;; - `switch-to-js'
-
 (use-package js-comint
   :ensure t
   :init
