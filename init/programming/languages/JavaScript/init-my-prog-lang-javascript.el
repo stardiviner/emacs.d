@@ -150,11 +150,7 @@
   )
 
 
-;;; [ JSCS (JavaScript Code Style) ]
-
-;;; Usage:
-;;
-;; - [M-x jscs-fix] :: "$ jscs --fix"
+;;; [ jscs (JavaScript Code Style) ]
 
 ;; (use-package jscs
 ;;   :ensure t
