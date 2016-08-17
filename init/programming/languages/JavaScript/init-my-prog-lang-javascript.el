@@ -143,6 +143,15 @@
   )
 
 
+;;; [ nodejs-repl ] -- Run Node.js REPL and communicate the process.
+
+(use-package nodejs-repl
+  :ensure t
+  :config
+  (setenv "NODE_NO_READLINE" "1")
+  )
+
+
 ;;; [ jscs (JavaScript Code Style) ]
 
 ;; (use-package jscs
