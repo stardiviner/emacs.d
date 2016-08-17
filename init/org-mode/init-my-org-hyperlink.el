@@ -75,7 +75,7 @@
 ;; `mail-user-agent'
 (setq browse-url-mailto-function 'browse-url-mail)
 
-;; IRC
+;; IRC: `irc:'
 (if (featurep 'erc)
     (setq org-irc-client 'erc)
   (if (featurep 'circe)
