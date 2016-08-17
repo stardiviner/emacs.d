@@ -167,14 +167,6 @@
 ;;   )
 
 
-;;; Node.js
-
-;; (defun node-repl ()
-;;   (interactive)
-;;   (pop-to-buffer
-;;    (make-comint "node-repl" "node" nil "--interactive")))
-
-
 ;;; [ tern ] -- code-analysis engine for JavaScript
 
 ;;; Tern is a stand-alone code-analysis engine for JavaScript. It is intended to
