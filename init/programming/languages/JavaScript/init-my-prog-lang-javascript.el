@@ -253,29 +253,6 @@
   )
 
 
-;;; [ jquery-doc ] -- jQuery api documentation interface for emacs.
-
-(use-package jquery-doc
-  :ensure t
-  :config
-  ;; default setup.
-  ;; (add-hook 'js2-mode-hook 'jquery-doc-setup)
-
-  ;; my setup.
-  (defun my-jquery-doc-setup ()
-    (when (boundp 'ac-sources)
-      (pushnew 'ac-source-jquery ac-sources))
-    (when (boundp 'company-backends)
-      ;; (pushnew 'company-jquery company-backends)
-      (delq 'company-tern company-backends)
-      (add-to-list (make-local-variable 'company-backends)
-                   '(company-tern :with company-jquery))
-      ))
-  
-  ;; (add-hook 'js2-mode-hook 'my-jquery-doc-setup)
-  )
-
-
 ;;; [ xref-js2 ] -- Jump to references/definitions using ag & js2-mode's AST in Emacs.
 
 (unless (version<= emacs-version "25")
