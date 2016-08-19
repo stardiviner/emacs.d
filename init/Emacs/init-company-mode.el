@@ -46,18 +46,19 @@
   ;; `company-mode' frontend showing the selection as if it had been inserted.
   ;; (add-to-list 'company-frontends 'company-preview-frontend)
   
-  (setq company-backends
-        '(company-files          ; files & directory
-          ;; company-gtags company-etags
-          company-keywords       ; keywords
-          ;; company-tempo          ; tempo: flexible template insertion
-          company-capf                   ; `completion-at-point-functions'
-          :with
-          company-yasnippet
-          company-dabbrev-code         ; company-dabbrev
-          company-abbrev
-          )
-        )
+  (setq-default company-backends
+                '(company-files                 ; files & directory
+                  ;; company-gtags company-etags
+                  company-keywords              ; keywords
+                  ;; company-tempo                 ; tempo: flexible template insertion
+                  (company-capf                  ; `completion-at-point-functions'
+                   :with
+                   company-yasnippet
+                   )
+                  company-dabbrev-code          ; company-dabbrev
+                  company-abbrev
+                  )
+                )
 
   (defun my-company-add-backend-locally (backend)
     "Add a backend in my custom way.
