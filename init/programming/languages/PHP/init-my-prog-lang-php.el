@@ -11,19 +11,17 @@
 
 (use-package php-mode
   :ensure t
-  :config
+  :init
   (with-eval-after-load 'php-mode
     (require 'php-ext))
+  :config
+  (setq indent-tabs-mode nil
+        c-basic-offset 2
+        php-template-compatibility nil
+        )
+  
   (setq php-search-documentation-browser-function t)
   )
-
-
-;;; [ php-eldoc ]
-
-(use-package php-eldoc
-  :ensure t
-  :config
-  (add-hook 'php-mode-hook 'php-eldoc-enable))
 
 
 ;;; [ inf-php ]
@@ -58,11 +56,6 @@
   :config
   ;; fix ac-php duplicate parentheses with `smartparens-mode'.
   (add-to-list 'sp-ignore-modes-list 'php-mode)
-  ;; or:
-  ;; (add-hook 'php-mode-hook
-  ;;           '(lambda ()
-  ;;              (if smartparens-mode
-  ;;                  (smartparens-mode -1))))
   
   (add-hook 'php-mode-hook
             (lambda ()
@@ -85,6 +78,20 @@
   )
 
 
+;;; [ php-eldoc ]
+
+(use-package php-eldoc
+  :ensure t
+  :config
+  (add-hook 'php-mode-hook 'php-eldoc-enable))
+
+
+;;; [ ob-php ] -- execute PHP within org-mode blocks.
+
+(use-package ob-php
+  :ensure t)
+
+
 ;;; [ phpunit ]
 
 (use-package phpunit
@@ -94,12 +101,6 @@
   (define-key php-mode-map (kbd "C-c t c") 'phpunit-current-class)
   (define-key php-mode-map (kbd "C-c t p") 'phpunit-current-project)
   )
-
-
-;;; [ ob-php ] -- execute PHP within org-mode blocks.
-
-(use-package ob-php
-  :ensure t)
 
 
 (provide 'init-my-prog-lang-php)
