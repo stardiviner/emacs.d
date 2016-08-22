@@ -22,7 +22,12 @@
             (setq-local completion-at-point-functions
                         '(pcomplete-completions-at-point t))
 
-            ;; (add-to-list (make-local-variable 'company-backends) 'company-ispell)
+            (make-local-variable 'company-backends)
+            (setq company-backends '(company-files
+                                     company-capf :with company-yasnippet
+                                     company-dabbrev-code company-abbrev
+                                     ;; company-ispell
+                                     ))
             ))
 
 
@@ -33,10 +38,9 @@
   :config
   (add-hook 'org-mode-hook
             (lambda ()
-              (setq-local
-               company-backends
-               (append '((company-math-symbols-latex company-math-symbols-unicode))
-                       company-backends))
+              (make-local-variable 'company-backends)
+              (add-to-list 'company-backends 'company-math-symbols-latex t)
+              ;; (append company-backends 'company-math-symbols-unicode)
               ))
   )
 
