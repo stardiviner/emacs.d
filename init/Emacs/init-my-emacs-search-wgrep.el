@@ -15,6 +15,12 @@
   )
 
 
+;;; [ wgrep-ag ]
+
+(use-package wgrep-ag
+  :ensure t)
+
+
 (provide 'init-my-emacs-search-wgrep)
 
 ;;; init-my-emacs-search-wgrep.el ends here
