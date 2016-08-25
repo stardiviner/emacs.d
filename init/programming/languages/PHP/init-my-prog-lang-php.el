@@ -14,6 +14,10 @@
   :init
   (with-eval-after-load 'php-mode
     (require 'php-ext))
+
+  (add-to-list 'auto-mode-alist '("[.]php$" . php-mode))
+  (add-to-list 'auto-mode-alist
+               '("\\(pages\\|snippets\\|templates\\)/.*[.]php?$" . web-mode))
   :config
   (setq indent-tabs-mode nil
         c-basic-offset 2
