@@ -224,9 +224,10 @@
 ;;             ))
 
 
-;;; [ org-ref ] -- citations, cross-references, indexes, glossaries and bibtex utilities for org-mode
+;;; [ org-ref ] -- citations, cross-references, indexes, glossaries and bibtex utilities for Org-mode.
 
-;; (use-package org-ref)
+(use-package org-ref
+  :ensure t)
 
 
 ;;; [ helm-org-rifle ] -- Rifle through your Org buffers and acquire your target.
