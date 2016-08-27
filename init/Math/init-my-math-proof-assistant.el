@@ -16,8 +16,9 @@
 
 ;;; [ coq-mode ]
 
-;; from system package "coq". "/usr/share/emacs/site-lisp/coq.el"
-(require 'coq)
+(if (load-file "/usr/share/emacs/site-lisp/ProofGeneral/coq/coq.el")
+    (require 'coq)
+  (warn "You need to install Coq."))
 
 
 ;;; [ company-coq ]
