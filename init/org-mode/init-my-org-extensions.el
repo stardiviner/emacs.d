@@ -241,6 +241,13 @@
   (define-key org-ref-prefix (kbd "c") 'org-ref-helm-insert-cite-link)
   (define-key org-ref-prefix (kbd "l") 'org-ref-helm-insert-label-link)
   (define-key org-ref-prefix (kbd "r") 'org-ref-helm-insert-ref-link)
+
+  ;; Let org-mode auto process the LaTeX export to PDF process.
+  (setq org-latex-pdf-process
+        '("pdflatex -interaction nonstopmode -output-directory %o %f"
+          "bibtex %b"
+          "pdflatex -interaction nonstopmode -output-directory %o %f"
+          "pdflatex -interaction nonstopmode -output-directory %o %f"))
   )
 
 
