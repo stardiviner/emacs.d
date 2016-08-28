@@ -227,7 +227,21 @@
 ;;; [ org-ref ] -- citations, cross-references, indexes, glossaries and bibtex utilities for Org-mode.
 
 (use-package org-ref
-  :ensure t)
+  :ensure t
+  :config
+  (setq bibtex-completion-pdf-open-function 'org-open-file)
+
+  ;; (setq org-ref-bibtex-hydra-key-binding "\C-cj")
+
+  (unless (boundp 'org-ref-prefix)
+    (define-prefix-command 'org-ref-prefix))
+  (define-key my-org-prefix (kbd "C-]") 'org-ref-prefix)
+
+  (define-key org-ref-prefix (kbd "C-]") 'org-ref-insert-link)
+  (define-key org-ref-prefix (kbd "c") 'org-ref-helm-insert-cite-link)
+  (define-key org-ref-prefix (kbd "l") 'org-ref-helm-insert-label-link)
+  (define-key org-ref-prefix (kbd "r") 'org-ref-helm-insert-ref-link)
+  )
 
 
 ;;; [ helm-org-rifle ] -- Rifle through your Org buffers and acquire your target.
