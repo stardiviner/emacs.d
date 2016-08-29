@@ -23,6 +23,7 @@
         eclimd-wait-for-process t)
 
   (defun eclimd-auto-start ()
+    (interactive)
     (if (yes-or-no-p "start eclimd? ")
         ;; (start-eclimd (file-name-directory (buffer-file-name)))
         (call-interactively 'start-eclimd)
