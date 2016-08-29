@@ -82,6 +82,7 @@
 ;;
 ;; other charsets except 'han : kana, symbol, cjk-misc, bopomofo,
 ;; - WenQuanYi Micro Hei Mono :: 文泉驿 微米黑
+;; - "Hiragino Sans GB W3"
 ;; - FZSuXinShiLiuKaiS-R-GB :: 方正苏新诗柳字体
 ;; - DFPShaoNvW5-GB :: 华康少女体 W5
 ;; - DFPWaWaW5-GB :: 华康娃娃体
@@ -94,13 +95,13 @@
 (dolist (charset '(kana han symbol cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font)
                     charset
-                    (font-spec :family "WenQuanYi Micro Hei Mono" :size 13)
-                    )
-  )
+                    (font-spec :family "WenQuanYi Micro Hei Mono" :size 13)))
 ;;; need to modify English font settings to suitable with chinese font.
 ;;; the value is in 1/10pt, so 100 will give you 10pt, etc
-(set-face-attribute 'default nil :font "DejaVu Sans Mono-10" :height 100)
-
+(set-face-attribute 'default nil
+                    :font "DejaVu Sans Mono-10"
+                    ;; :family "DejaVu Sans Mono"
+                    :height 100)
 
 ;; --------
 ;; set different font for different system
