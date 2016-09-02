@@ -223,6 +223,7 @@
   (add-to-list 'zeal-at-point-mode-alist '(ruby-mode . "ruby"))
   (add-to-list 'zeal-at-point-mode-alist '(enh-ruby-mode . "ruby"))
   (add-to-list 'zeal-at-point-mode-alist '(perl-mode . "perl"))
+  (add-to-list 'zeal-at-point-mode-alist '(web-mode . "html"))
 
   (add-hook 'projectile-rails-mode-hook
             (lambda () (setq zeal-at-point-docset "rails")))
