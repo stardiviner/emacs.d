@@ -296,6 +296,8 @@
 (use-package clj-refactor
   :ensure t
   :config
+  ;; (setq cljr-warn-on-eval nil)
+  
   (add-hook 'clojure-mode-hook
             (lambda ()
               (clj-refactor-mode 1)
