@@ -31,21 +31,12 @@
 
 ;;; [ workgroups2 ] --
 
-;;; Usage
-;;;
-;;; Workgroups is a session manager for Emacs.
-;;;
-;;;     It saves all your opened buffers, their location and sizes on disk to restore later
-;;;     You can create several workspaces
-;;;
-;;; You can also restore such buffers as: org-agenda, shell, magit-status, help.
-
 (use-package workgroups2
   :ensure t
   :config
-  ;; Change prefix key (before activating WG)
+  ;; Change prefix key (before activating workgroups2)
   (setq wg-prefix-key (kbd "C-c w"))
-  ;; Change workgroups session file
+  ;; Change workgroups session file position.
   (setq wg-default-session-file "~/.emacs.d/.emacs_workgroups")
 
   (setq wg-mode-line-display-on nil     ; toggle workgroups' mode-line display.
