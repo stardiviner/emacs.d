@@ -205,7 +205,9 @@
                    (process-live-p (get-process cider-connection-process))
                    (process-live-p (get-process cider-server-process)))
         (message "CIDER REPL buffer not available. starting a new one now...")
-        (cider-jack-in-clojurescript))))
+        (cider-jack-in-clojurescript)
+        ;; (cider-jack-in)
+        )))
 
 
   (defun my-cider-switch-to ()
