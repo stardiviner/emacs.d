@@ -111,9 +111,9 @@
                                      company-yasnippet))
     )
 
-  (add-hook 'c-mode-common-hook 'company-irony-add)
-  ;; (hook-modes c-dialects-mode
-  ;;   (company-irony-add))
+  ;; (add-hook 'c-mode-common-hook 'company-irony-add) ; except java-mode.
+  (hook-modes c-dialects-mode
+    (company-irony-add))
   )
 
 
