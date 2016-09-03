@@ -202,6 +202,7 @@
   ;; (global-aggressive-indent-mode)
   ;; or
   (dolist (hook '(prog-mode-hook
+                  nxml-mode-hook
                   ))
     (add-hook hook #'aggressive-indent-mode))
   )
