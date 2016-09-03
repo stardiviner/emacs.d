@@ -168,7 +168,7 @@
 ;;; [ window-purpose ] -- Organize Windows and Buffers According to Purposes.
 
 (use-package window-purpose
-  :ensure t
+  ;; :ensure t
   :config
   (setq purpose-preferred-prompt 'ido
         purpose-layout-dirs '(locate-user-emacs-file ".purpose/layouts/")
@@ -250,7 +250,8 @@
 
 
 (use-package ivy-purpose
-  :ensure t)
+  ;; :ensure t
+  )
 
 
 ;;; [ golden-radio ] -- automatic resizing of Emacs windows to the golden ratio.
