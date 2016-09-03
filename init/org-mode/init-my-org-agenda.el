@@ -148,7 +148,7 @@
                          "~/Org/Capture/Capture.org"
                          "~/Org/Wiki/Things/Things.org"
                          "~/Org/Tasks.org"
-                         "~/Org/Projects/Plans.org"
+                         "~/Org/Projects/Sales/Sales.org"
                          "~/Org/Projects/Code.org"
                          "~/Org/Projects/Computer Todos.org"
                          "~/Org/Projects/Projects.org"
