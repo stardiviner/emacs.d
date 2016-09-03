@@ -2,6 +2,6 @@
 # name: latex fragment block
 # key: latex_fragment_block
 # --
-\begin{equation}
+\begin{equation\} \label{${1}\}
 $0
-\end{equation}
+\end{equation\}
