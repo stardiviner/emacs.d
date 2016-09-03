@@ -6,6 +6,8 @@
 
 ;;; [ minibuffer ]
 
+;; (setq-default max-mini-window-height 6)
+
 ;; recursive minibuffers
 (setq enable-recursive-minibuffers t)   ; enable to use minibuffer recursively.
 (if (booleanp enable-recursive-minibuffers)
