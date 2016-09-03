@@ -19,11 +19,13 @@
 (setq nxml-child-indent 2
       nxml-attribute-indent 2
       nxml-auto-insert-xml-declaration-flag nil
-      nxml-bind-meta-tab-to-complete-flag t
-      nxml-slash-auto-complete-flag t)
+      )
 
-
-
+;;; XML completion
+(setq nxml-bind-meta-tab-to-complete-flag t ; M-Tab to complete
+      nxml-slash-auto-complete-flag nil ; </ to complete
+      )
+;; company-nxml
 (add-hook 'nxml-mode-hook
           (lambda ()
             (add-to-list (make-local-variable 'company-backends)
