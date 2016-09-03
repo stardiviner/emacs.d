@@ -300,7 +300,7 @@
                         :audible t)
                 )
 
-(org-notify-start 60)
+;; (org-notify-start 60)
 
 
 
