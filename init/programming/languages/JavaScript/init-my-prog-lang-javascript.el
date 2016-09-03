@@ -110,7 +110,7 @@
   )
 
 
-;; [ js-comint ] -- a lightweight comint integration package, that also seems to integrate with org-mode nicely.
+;; [ js-comint ] -- a lightweight comint integration.
 
 (use-package js-comint
   :ensure t
