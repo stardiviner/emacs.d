@@ -447,21 +447,27 @@
    (:propertize " ["
                 face (:foreground "red" :weight bold))
    ;; workgroups2
-   (:eval (list
-           (propertize "wg:"
-                       'face '(:foreground "dim gray" :height 75))
-           (propertize (wg-mode-line-string) ; `wg-mode-line-display-on'
-                       'face '(:foreground "yellow" :height 75))
-           ))
+   (:eval
+    (if workgroups-mode
+        (list
+         (propertize "wg:"
+                     'face '(:foreground "dim gray" :height 75))
+         (propertize (wg-mode-line-string) ; `wg-mode-line-display-on'
+                     'face '(:foreground "yellow" :height 75))
+         )
+      ))
    (:propertize " § "
                 face (:foreground "red"))
    ;; projectile
-   (:eval (list
-           (propertize "P: "
-                       'face '(:foreground "dim gray" :height 75))
-           (propertize (projectile-project-name) ; `projectile-mode-line'
-                       'face '(:foreground "cyan" :height 75))
-           ))
+   (:eval
+    (if projectile-mode
+        (list
+         (propertize "P: "
+                     'face '(:foreground "dim gray" :height 75))
+         (propertize (projectile-project-name) ; `projectile-mode-line'
+                     'face '(:foreground "cyan" :height 75))
+         )
+      ))
    (:propertize "] "
                 face (:foreground "red" :weight bold))
 
