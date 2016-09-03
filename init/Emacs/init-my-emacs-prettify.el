@@ -90,7 +90,7 @@
   (set-face-attribute 'digit-groups-default-face nil
                       :foreground "light gray")
 
-  (add-hook 'org-mode-hook #'digit-groups-mode)
+  ;; (add-hook 'org-mode-hook #'digit-groups-mode)
   )
 
 
