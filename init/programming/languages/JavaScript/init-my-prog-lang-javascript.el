@@ -98,6 +98,7 @@
   )
 
 (add-hook 'js2-mode-hook 'js-mode-setup-flycheck-checkers)
+(add-hook 'js3-mode-hook 'js-mode-setup-flycheck-checkers)
 
 
 ;;; [ nvm ] -- Manage Node versions within Emacs.
