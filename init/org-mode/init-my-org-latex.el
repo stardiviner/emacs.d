@@ -45,10 +45,11 @@
       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-        )
-      )
-;; (setq org-latex-minted-options
-;;       '(("bgcolor" "bg") ("frame" "lines")))
+        ))
+(setq org-latex-minted-options
+      '(("bgcolor" "bg")
+        ("frame" "lines")
+        ("linenos" "true")))
 
 ;; (setq org-format-latex-header)
 ;; (setq org-format-latex-options
