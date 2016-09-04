@@ -7,9 +7,10 @@
 
 ;;; Code:
 
+;;; [ emacs-ereader ] -- Epub reader for emacs with org-mode integration.
 
-
-
+(use-package ereader
+  :ensure t)
 
 
 (provide 'init-my-emacs-ebook)
