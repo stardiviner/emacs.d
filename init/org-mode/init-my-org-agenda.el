@@ -241,6 +241,23 @@
 ;;         ("CANCELLED" ("CANCELLED" . t))
 ;;         ))
 
+;;;; [ org-review ] -- Track when you have done a review in org mode.
+
+(use-package org-review
+  :ensure t
+  :config
+  (add-to-list 'org-agenda-custom-commands
+               '("R" "Review projects" tags-todo "-CANCELLED/"
+                 ((org-agenda-overriding-header "Reviews Scheduled")
+                  (org-agenda-skip-function 'org-review-agenda-skip)
+                  (org-agenda-cmp-user-defined 'org-review-compare)
+                  (org-agenda-sorting-strategy '(user-defined-down)))))
+
+  (add-hook 'org-agenda-mode-hook
+            (lambda ()
+              (local-set-key (kbd "C-c C-r") 'org-review-insert-last-review)))
+  )
+
 
 ;;; [ Calendar ]
 
