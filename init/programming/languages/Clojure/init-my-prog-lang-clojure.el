@@ -113,13 +113,13 @@
         cider-completion-annotations-include-ns 'always ; 'unqualified
         cider-completion-annotations-alist '(("class" "c")
                                              ("field" "fi")
-                                             ("function" "f") ; f, λ
+                                             ("function" "λ") ; f, λ
                                              ("import" "i")
                                              ("keyword" "k")
                                              ("local" "l")
-                                             ("macro" "♩")
+                                             ("macro" "♪") ; ♪, ➜
                                              ("method" "me")
-                                             ("namespace" "n")
+                                             ("namespace" "ns")
                                              ("protocol" "p")
                                              ("protocol-function" "pf")
                                              ("record" "r")

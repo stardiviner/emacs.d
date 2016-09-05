@@ -448,7 +448,8 @@
                 face (:foreground "red" :weight bold))
    ;; workgroups2
    (:eval
-    (if workgroups-mode
+    (if (and (boundp 'workgroups-mode)
+             workgroups-mode)
         (list
          (propertize "wg:"
                      'face '(:foreground "dim gray" :height 75))
@@ -460,7 +461,8 @@
                 face (:foreground "red"))
    ;; projectile
    (:eval
-    (if projectile-mode
+    (if (and (boundp 'projectile-mode)
+             projectile-mode)
         (list
          (propertize "P: "
                      'face '(:foreground "dim gray" :height 75))
