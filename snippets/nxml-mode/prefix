@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: prefix-namespace
+# key: prefix
+# group: namespace.prefix
+# --
+<$1:${3:element} xmlns:${1:prefix namespace}="${2:URI}">
+$0
+</$1:$3>

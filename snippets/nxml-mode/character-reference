@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: character reference
+# key: reference-character
+# group: reference
+# --
+(&#${1:number or string}) $0 ($1)

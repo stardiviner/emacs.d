@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: internal-entity
+# key: entity-internal
+# group: entities
+# --
+<!DOCTYPE ${1:document root element} [
+<!ENTITY ${2:entity} "${3:TEXT}">
+]>
+<${4:element}>
+$0 Entity: &$2;
+</$4>

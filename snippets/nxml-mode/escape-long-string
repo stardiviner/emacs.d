@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: CDATA
+# key: escape-long-string
+# group: escape
+# --
+<![CDATA[ $0 ]]>

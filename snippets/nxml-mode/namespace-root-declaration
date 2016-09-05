@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: namespace-root-declaration
+# key: ns-root-declare
+# group: namespace.declaration
+# --
+<${1:root element}
+  xmlns="${2:URI}"
+  xmlns:${3:namespace 2}="${4:URI}">
+</$1>

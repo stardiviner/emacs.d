@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: <
+# key: escape-lower-than-sign
+# group: entities.pre-defined
+# --
+&lt;

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: style-sheet.xml-stylesheet
+# key: style-sheet.xml-stylesheet
+# group: style-sheet
+# --
+<?xml-stylesheet${1: alternate="yes"} type="text/css" href="$0.css" media="${2:all,screen,print}"?>

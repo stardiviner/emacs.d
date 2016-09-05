@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: external-parsed-entity
+# key: entity-external-parsed
+# group: entities
+# --
+<!DOCTYPE ${1:document root element} [
+<!ENTITY ${2:entity} SYSTEM "${3:file.xml}">
+]>
+
+<${4:element}>
+&$2;
+</$4>

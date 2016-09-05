@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: '
+# key: escape-apostrophe
+# group: entities.pre-defined
+# --
+&apos;
