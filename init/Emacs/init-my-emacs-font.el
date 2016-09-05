@@ -28,6 +28,7 @@
 ;; Ubuntu (Mono/Condensed)
 ;; --------
 ;; WenQuanYi (Micro Hei/Zen Hei) (Mono)
+;; HanaMin (Hanazono)
 ;; DFPShaoNvW5-GB
 ;; DFPWaWaW5-GB
 ;; FZMiaoWuS-GB
@@ -95,7 +96,9 @@
 (dolist (charset '(kana han symbol cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font)
                     charset
-                    (font-spec :family "WenQuanYi Micro Hei Mono" :size 13)))
+                    ;; (font-spec :family "WenQuanYi Micro Hei Mono" :size 13)
+                    (font-spec :family "HanaMinA" :size 14)
+                    ))
 ;;; need to modify English font settings to suitable with chinese font.
 ;;; the value is in 1/10pt, so 100 will give you 10pt, etc
 (set-face-attribute 'default nil
