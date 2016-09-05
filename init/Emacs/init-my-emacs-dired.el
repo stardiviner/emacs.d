@@ -215,6 +215,20 @@
   )
 
 
+
+;;; [ dired-launch ] -- launch an external application from dired.
+
+(use-package dired-launch
+  :ensure t
+  :config
+  (dired-launch-enable)
+  (define-key dired-launch-mode-map (kbd "J") nil)
+  (define-key dired-launch-mode-map (kbd "K") nil)
+  (define-key dired-launch-mode-map (kbd "C-c l") 'dired-launch-command)
+  (define-key dired-launch-mode-map (kbd "C-c L") 'dired-launch-with-prompt-command)
+  )
+
+
 
 (provide 'init-my-emacs-dired)
 
