@@ -109,7 +109,7 @@
                     :slant 'italic
                     :foreground "#eeeeee"
                     :weight 'normal
-                    :height 105
+                    :height 100
                     :underline nil)
 (set-face-attribute 'bold nil
                     :weight 'bold
