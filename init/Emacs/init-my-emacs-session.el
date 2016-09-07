@@ -32,7 +32,7 @@
 ;;; [ workgroups2 ] --
 
 (use-package workgroups2
-  :ensure t
+  ;; :ensure t
   :config
   ;; Change prefix key (before activating workgroups2)
   (setq wg-prefix-key (kbd "C-c w"))
