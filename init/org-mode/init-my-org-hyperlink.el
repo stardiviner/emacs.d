@@ -68,23 +68,28 @@
 ;; `org-link-types'
 ;; `org-add-link-type' + `org-add-link-props'
 
+
 ;; `shell:'
 (setq org-confirm-shell-link-function 'yes-or-no-p)
 
+
 ;; Email: `mailto:' link open with Emacs internal extension like message-mode, mu4e.
 ;; `mail-user-agent'
 (setq browse-url-mailto-function 'browse-url-mail)
 
+
 ;; IRC: `irc:'
 (if (featurep 'erc)
     (setq org-irc-client 'erc)
   (if (featurep 'circe)
       (setq org-irc-client 'circe)))
 
+
 ;;; telnet: link type
 ;;  telnet://ptt.cc
 (org-add-link-type "telnet" 'telnet)
 
+
 ;; RSS
 (defun org-rss-link-open (uri)
   "Open rss:// URI link."
@@ -92,11 +97,13 @@
 
 (org-add-link-type "rss" 'org-rss-link-open)
 
+
 ;; append "`man:'" protocol.
 ;; `[[man:printf][The printf manpage]]'
 (require 'org-man)
 (setq org-man-command 'man) ; 'man, 'woman.
 
+
 ;;; occur: link type
 ;;
 ;; and you can then use links like:
@@ -119,6 +126,7 @@
 
 (org-add-link-type "grep" 'org-grep-link-open)
 
+
 ;;; [[tag:]]
 ;; e.g. [[tag:work+phonenumber-boss][Optional Description]]
 (defun org-tag-link-open (tag)
