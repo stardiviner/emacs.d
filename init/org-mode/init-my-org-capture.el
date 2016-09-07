@@ -30,7 +30,7 @@
          :empty-lines 1
          )
         ("T" "Clock in a New Task"
-         entry (file+headline "~/Org/Tasks.org" "Tasks")
+         entry (file+headline "~/Org/Tasks/Tasks.org" "Tasks")
          "\n* TODO %^{Clock Task} [/]\n\n%?\n\n"
          :empty-lines 1
          :clock-in t :clock-resume t
