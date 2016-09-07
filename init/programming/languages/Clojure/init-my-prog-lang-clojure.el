@@ -182,17 +182,6 @@
             )
 
   
-  ;; ClojureScript REPL
-  (setq cider-cljs-lein-repl
-        ;; default
-        ;; "(cemerick.piggieback/cljs-repl (cljs.repl.rhino/repl-env))"
-        ;; Figwheel-sidecar
-        "(do (require 'figwheel-sidecar.repl-api) (figwheel-sidecar.repl-api/start-figwheel!) (figwheel-sidecar.repl-api/cljs-repl))"
-        ;; Weasel
-        ;; "(do (require 'weasel.repl.websocket) (cemerick.piggieback/cljs-repl (weasel.repl.websocket/repl-env :ip \"127.0.0.1\" :port 9001)))"
-        )
-
-  
   ;; switch to cider-repl buffer.
   (defun my-cider-launch ()
     (interactive)
@@ -205,8 +194,21 @@
                    (process-live-p (get-process cider-connection-process))
                    (process-live-p (get-process cider-server-process)))
         (message "CIDER REPL buffer not available. starting a new one now...")
-        (cider-jack-in-clojurescript)
-        ;; (cider-jack-in)
+
+        (cider-jack-in)
+
+        
+        ;; ClojureScript REPL
+        ;; (setq cider-cljs-lein-repl
+        ;;       ;; default
+        ;;       ;; "(cemerick.piggieback/cljs-repl (cljs.repl.rhino/repl-env))"
+        ;;       ;; Figwheel-sidecar
+        ;;       "(do (require 'figwheel-sidecar.repl-api) (figwheel-sidecar.repl-api/start-figwheel!) (figwheel-sidecar.repl-api/cljs-repl))"
+        ;;       ;; Weasel
+        ;;       ;; "(do (require 'weasel.repl.websocket) (cemerick.piggieback/cljs-repl (weasel.repl.websocket/repl-env :ip \"127.0.0.1\" :port 9001)))"
+        ;;       )
+        
+        ;; (cider-jack-in-clojurescript)
         )))
 
 
