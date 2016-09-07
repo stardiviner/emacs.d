@@ -2,7 +2,27 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Computer & Programming Glossary"
+(("Emacs Lisp Examples"
+ (filename . "~/Org/Wiki/Computer/Programming/Emacs/Emacs Lisp/Data/Emacs Lisp Examples/Emacs Lisp Examples.org")
+ (front-context-string . "* color-theme\n\n*")
+ (rear-context-string)
+ (position . 1))
+("Law"
+ (filename . "~/Org/Wiki/Law/Law.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Physics Glossary.org"
+ (filename . "~/Org/Wiki/Psysics/Data/Manuals/Physics Glossary/Physics Glossary.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("My Physics Reference"
+ (filename . "~/Org/Wiki/Psysics/Data/Manuals/My Physics Reference/My Physics Reference.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Computer & Programming Glossary"
  (filename . "~/Org/Wiki/Computer/Programming/Glossary/Glossary.org")
  (front-context-string . "* Terms & Semant")
  (rear-context-string)
@@ -555,11 +575,6 @@
 ("PostgreSQL Reference"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Database/SQL/PostgresQL/Data/Manuals/References/PostgreSQL Reference/PostgreSQL Reference.org")
  (front-context-string)
- (rear-context-string)
- (position . 1))
-("Emacs Lisp code examples"
- (filename . "~/Org/Wiki/Computer/Programming/Emacs/Emacs Lisp/Data/code examples/code examples.org")
- (front-context-string . "* thing-at-point")
  (rear-context-string)
  (position . 1))
 ("Docker"
