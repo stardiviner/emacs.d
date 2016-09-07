@@ -44,6 +44,11 @@
 (disable-mouse-mode 1)
 
 
+;; automatically copy text selected with the mouse.
+
+(setq mouse-drag-copy-region t)
+
+
 ;;; [ Drag & Drop (dnd protocol) ]
 
 ;; (setq dnd-open-file-other-window t)
