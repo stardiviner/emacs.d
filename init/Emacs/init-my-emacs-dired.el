@@ -110,28 +110,18 @@
 
 ;;; [ emacs-dired-k ] -- highlights dired buffer like "k".
 
-;; Usage:
+;; (use-package dired-k
+;;   :ensure t
+;;   :config
+;;   (setq dired-k-style 'k.zsh) ; nil, 'k.zsh, 'git
+;;   (setq dired-k-human-readable t)
 ;;
-;; - `dired-k'
+;;   (define-key dired-mode-map (kbd "K") 'dired-k)
+;;   ;; always execute dired-k when dired buffer is opened
+;;   (add-hook 'dired-initial-position-hook 'dired-k)
 ;;
-;; Highlight dired buffer by following parameters.
-;;
-;;  - File size
-;;  - Modified time
-;;  - Git status(if here is in git repository)
-
-(use-package dired-k
-  :ensure t
-  :config
-  (setq dired-k-style 'k.zsh) ; nil, 'k.zsh, 'git
-  (setq dired-k-human-readable t)
-
-  (define-key dired-mode-map (kbd "K") 'dired-k)
-  ;; always execute dired-k when dired buffer is opened
-  (add-hook 'dired-initial-position-hook 'dired-k)
-
-  (define-key direx:direx-mode-map (kbd "K") 'direx-k)
-  )
+;;   (define-key direx:direx-mode-map (kbd "K") 'direx-k)
+;;   )
 
 
 ;;; [ dired-efap ] -- Edit Filename At Point in an Emacs' dired buffer
