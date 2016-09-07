@@ -56,6 +56,8 @@
 ;;       )
 
 ;; spinner
+(use-package spinner
+  :ensure t)
 ;; (spinner-start 'vertical-breathing 10)
 ;; (spinner-start 'minibox)
 ;; (spinner-start 'moon)
