@@ -360,6 +360,12 @@ pasting on sites like GitHub, and Stack Overflow."
       (kill-buffer buf))))
 
 
+;;; [ org-preview-html ] -- automatically use eww to preview the current org file on save.
+
+(use-package org-preview-html
+  :ensure t)
+
+
 (provide 'init-my-org-export)
 
 ;;; init-my-org-export.el ends here
