@@ -99,6 +99,7 @@
         ("Lisp" "~/.emacs.d/resources/icon/lisp.xpm" nil nil :ascent center)
         ("Common Lisp" "~/.emacs.d/resources/icon/Common-Lisp.xpm" nil nil :ascent center)
         ("Clojure" "~/.emacs.d/resources/icon/Clojure.xpm" nil nil :ascent center)
+        ("ClojureScript" "~/.emacs.d/resources/icon/ClojureScript.xpm" nil nil :ascent center)
         ("Ruby" "~/.emacs.d/resources/icon/Ruby.xpm" nil nil :ascent center)
         ("Rails" "~/.emacs.d/resources/icon/Rails.xpm" nil nil :ascent center)
         ("Python" "~/.emacs.d/resources/icon/Python.xpm" nil nil :ascent center)
