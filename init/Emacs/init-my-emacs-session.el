@@ -29,32 +29,14 @@
       save-place-file "~/.emacs.d/.emacs-places")
 
 
-;;; [ workgroups2 ] --
+;;; [ desktop ] -- save partial status of Emacs when killed.
 
-(use-package workgroups2
-  ;; :ensure t
+(use-package desktop
+  :ensure t
   :config
-  ;; Change prefix key (before activating workgroups2)
-  (setq wg-prefix-key (kbd "C-c w"))
-  ;; Change workgroups session file position.
-  (setq wg-default-session-file "~/.emacs.d/.emacs_workgroups")
+  (setq desktop-path (list (concat user-emacs-directory ".desktop-save")))
 
-  (setq wg-mode-line-display-on nil     ; toggle workgroups' mode-line display.
-        wg-mode-line-disable t          ; do not modify mode-line.
-        wg-mode-line-only-name nil      ; only show workgroup name.
-        wg-mode-line-use-faces t
-        )
-
-  ;; save/restore frame positions
-  (setq wg-control-frames t
-        wg-restore-frame-position t
-        ;; wg-remember-frame-for-each-wg t
-        )
-
-  (define-key wg-prefixed-map (kbd "\\") nil)
-  (define-key wg-prefixed-map (kbd "-") 'wg-reverse-frame-vertically)
-
-  ;; (workgroups-mode 1)        ; put this one at the bottom of .emacs
+  (desktop-save-mode 1)
   )
 
 
