@@ -88,3 +88,4 @@ image-dired/
 /session.*
 /init/programming/languages/Java/workbench.xmi
 /.flycheck_tramp
+*.desktop

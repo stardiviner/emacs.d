@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Emacs Lisp Examples"
+(("Daoism"
+ (filename . "~/Org/Wiki/Philosophy/Daoism/Daoism.org")
+ (front-context-string . "* Intro\n\n** 道 (D")
+ (rear-context-string)
+ (position . 1))
+("Emacs Lisp Examples"
  (filename . "~/Org/Wiki/Computer/Programming/Emacs/Emacs Lisp/Data/Emacs Lisp Examples/Emacs Lisp Examples.org")
  (front-context-string . "* color-theme\n\n*")
  (rear-context-string)
@@ -349,9 +354,9 @@
  (position . 1))
 ("org-capture-last-stored"
  (filename . "~/Org/Diary/Diary.org")
- (front-context-string . "**** 用行动证明我要开始努力")
- (rear-context-string . "08-11 Thursday\n\n")
- (position . 15509))
+ (front-context-string . "**** 把小影的小熊还给她\n:")
+ (rear-context-string . "-09-06 Tuesday\n\n")
+ (position . 16749))
 ("My R Language Syntax Reference"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/R/Data/Manuals/My R Language Syntax Reference/My R Language Syntax Reference.org")
  (front-context-string)
