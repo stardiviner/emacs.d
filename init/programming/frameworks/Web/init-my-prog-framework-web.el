@@ -11,9 +11,7 @@
 
 (use-package web-mode
   :ensure t
-  
   :init
-
   ;; Using web-mode for editing plain HTML files can be done this way
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . web-mode))
@@ -24,10 +22,8 @@
   (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-
   (add-to-list 'auto-mode-alist
                '("/\\(views\\|html\\|theme\\|templates\\)/.*\\.php\\'" . web-mode))
-
   ;; You can also edit plain js, jsx, css, scss, xml files.
   (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
 
