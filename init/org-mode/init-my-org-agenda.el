@@ -286,7 +286,7 @@
 ;;      "Warning" "the end is near"
 ;;      "/usr/share/icons/test.png" "/usr/share/sounds/beep.ogg")
 
-
+
 ;;; [ org-notify ]
 
 (require 'org-notify)
@@ -324,6 +324,7 @@
 
 
 ;;; bind key [C-l] to locate to current time: "now -----" in Org-Agenda buffer.
+
 (defun my-org-agenda-jump-to-current-time ()
   "Jump to current time now."
   (interactive)
