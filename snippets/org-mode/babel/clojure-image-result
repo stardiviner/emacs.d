@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: babel-clojure-image-result
+# key: babel-clojure-image-result
+# group: babel.clojure
+# --
+#+BEGIN_SRC clojure :results file :dir "${1:data/images}" :var fname="${2:image}.png"
+$0
+
+(save ${3:plot var} "$2.png")
+#+END_SRC

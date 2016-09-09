@@ -1,0 +1,27 @@
+# -*- mode: snippet -*-
+# name: babel-mark-annotate
+# key: babel-mark-annotate
+# group: babel.mark
+# --
+#+LATEX_HEADER: \usepackage{tikz}
+#+LATEX_HEADER: \usepackage{minted}
+#+LATEX_HEADER: \usetikzlibrary{tikzmark}
+#+OPTIONS: toc:nil
+
+
+#+ATTR_LATEX: :caption \caption{Yes}\label{lst:code}
+#+BEGIN_listing 
+#+ATTR_LATEX: :options escapeinside=${3:|}$3
+#+BEGIN_SRC ${2:language}
+$0 $3 $\tikzmark{too}$ $3
+#+END_SRC
+#+END_listing
+
+
+#+BEGIN_LaTeX
+\begin{tikzpicture}[overlay,remember picture]
+\draw[dashed,->] (pic cs:too) ++(0,0.25) to[bend left] ++(5,-1)node[right]{$\bullet$ ${1:ANNOTATE}\};
+\end{tikzpicture}
+#+END_LaTeX
+
+As you can see in code listing \ref{lst:code}.

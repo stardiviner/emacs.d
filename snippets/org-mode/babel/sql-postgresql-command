@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: SQL PostgreSQL Command
+# key: babel-sql-postgresql-command
+# group: babel.sql.postgresql
+# --
+#+NAME: ${1:source code name}
+#+headers: :cmdline -h ${2:localhost} -U ${3:username: postgres} ${4:-Wpassword or -w} -d ${5:dbname}
+#+BEGIN_SRC sql :engine postgresql
+$0
+#+END_SRC

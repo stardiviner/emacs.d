@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-install-fedora
+# key: babel-install-fedora
+# group: babel.install
+# --
+#+BEGIN_SRC sh :dir /sudo:: :results none
+sudo dnf install $0
+#+END_SRC

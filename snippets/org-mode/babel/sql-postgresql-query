@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: babel SQL PostgreSQL
-# key: babel-sql-postgresql
+# name: SQL PostgreSQL Query
+# key: babel-sql-postgresql-query
 # --
 #+NAME: ${1:source code name}
 ${6:#+headers: :var table="${7:table name}"
