@@ -276,6 +276,15 @@
 (add-hook 'eval-expression-minibuffer-setup-hook 'company-mode-minibuffer-setup)
 
 
+;;; [ company-flx ] -- flx based fuzzy matching for company.
+
+(use-package company-flx
+  :ensure t
+  :config
+  (with-eval-after-load 'company
+    (company-flx-mode +1)))
+
+
 (provide 'init-company-mode)
 
 ;;; init-company-mode.el ends here
