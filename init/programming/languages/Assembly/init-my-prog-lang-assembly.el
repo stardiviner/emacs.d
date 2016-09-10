@@ -54,6 +54,13 @@
   )
 
 
+;;; [ mips-mode ] -- An Emacs major mode for MIPS assembly code.
+
+(use-package mips-mode
+  ;; :ensure t
+  :mode "\\.mips$")
+
+
 ;;; [ llvm-mode ] -- Major mode for the LLVM assembler language.
 
 (use-package llvm-mode
