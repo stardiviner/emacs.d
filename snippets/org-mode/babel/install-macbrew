@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-install-macbrew
+# key: babel-install-macbrew
+# group: babel.install
+# --
+#+BEGIN_SRC sh :dir /sudo:: :results none
+brew install $0
+#+END_SRC

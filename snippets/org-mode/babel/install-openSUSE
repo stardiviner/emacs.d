@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-install-openSUSE
+# key: babel-install-openSUSE
+# group: babel.install
+# --
+#+BEGIN_SRC sh :dir /sudo:: :results none
+sudo zypper in $0
+#+END_SRC

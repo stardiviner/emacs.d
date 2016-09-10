@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-install-freebsd
+# key: babel-install-freebsd
+# group: babel.install
+# --
+#+BEGIN_SRC sh :dir /sudo:: :results none
+sudo pkg install $0
+#+END_SRC
