@@ -114,6 +114,41 @@
 (define-key dictionary-map (kbd "d") 'goldendict-dwim)
 
 
+;;; [ google-translate ]
+
+(use-package google-translate
+  :ensure t
+  :init
+  ;; (require 'google-translate)
+  ;; (require 'google-translate-default-ui)
+  :config
+  (setq google-translate-enable-ido-completion nil
+        google-translate-show-phonetic t
+        ;; google-translate-listen-program
+        google-translate-output-destination nil ; 'echo-area, 'popup
+        google-translate-pop-up-buffer-set-focus nil
+        )
+
+  (set-face-attribute 'google-translate-phonetic-face nil
+                      :background "orange" :foreground "black"
+                      :slant 'italic)
+  (set-face-attribute 'google-translate-listen-button-face nil
+                      :background "gray" :foreground "black"
+                      :weight 'bold)
+  ;; (set-face-attribute 'google-translate-suggestion-face nil
+  ;;                     )
+  ;; (set-face-attribute 'google-translate-suggestion-label-face nil
+  ;;                     )
+  (set-face-attribute 'google-translate-translation-face nil
+                      :height 1.4
+                      )
+
+  (define-key dictionary-map (kbd "t") 'google-translate-smooth-translate)
+  ;; (define-key dictionary-map (kbd "T") 'google-translate-at-point)
+  ;; (define-key dictionary-map (kbd "C-t") 'google-translate-query-translate)
+  )
+
+
 (provide 'init-my-tool-dictionary)
 
 ;;; init-my-tool-dictionary.el ends here
