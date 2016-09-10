@@ -7,6 +7,16 @@
 
 ;;; Code:
 
+;;; [ auto-mode-alist ]
+
+(add-to-list 'auto-mode-alist '("\\.conkyrc\\'" . conf-mode))
+(add-to-list 'auto-mode-alist '("conkyrc\\'" . conf-mode))
+
+;;; Arch PKGBUILD (pkgbuild-mode)
+(autoload 'pkgbuild-mode "pkgbuild-mode.el" "PKGBUILD mode." t)
+(setq auto-mode-alist (append '(("/PKGBUILD\\'" . pkgbuild-mode)) auto-mode-alist))
+
+
 ;;; [ mmm-mode ] -- Minor mode to allow multiple major modes in one buffer.
 
 (use-package mmm-mode
@@ -138,15 +148,6 @@
 ;;
 ;; (add-to-list 'auto-mode-alist '("\\.md\\'" . poly-markdown))
 
-
-;;; [ auto-mode-alist ]
-
-(add-to-list 'auto-mode-alist '("\\.conkyrc\\'" . conf-mode))
-(add-to-list 'auto-mode-alist '("conkyrc\\'" . conf-mode))
-
-;;; Arch PKGBUILD (pkgbuild-mode)
-(autoload 'pkgbuild-mode "pkgbuild-mode.el" "PKGBUILD mode." t)
-(setq auto-mode-alist (append '(("/PKGBUILD\\'" . pkgbuild-mode)) auto-mode-alist))
 
 
 (provide 'init-my-emacs-modes)
