@@ -290,6 +290,13 @@
 ;; (setq text-quoting-style nil)
 
 
+;;; [ all-the-icons ] -- A utility package to collect various Icon Fonts and propertize them within Emacs.
+
+(use-package all-the-icons
+  :ensure t
+  )
+
+
 
 (provide 'init-my-emacs-appearance)
 
