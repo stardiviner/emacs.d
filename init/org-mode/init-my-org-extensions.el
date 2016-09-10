@@ -185,45 +185,6 @@
   )
 
 
-;;; [ org-pomodoro ] -- adds support for Pomodoro technique in Org-mode.
-
-;;; Usage:
-;;
-;; - Move point to a task as you would do with `org-clock-in'. Call
-;;   `org-pomodoro' the task will be clocked-in.
-;;
-;; - When there's time for break, the task will be org-clock-out'ed.
-;;
-;; - If you call `org-pomodoro' during a pomodoro, you'll be asked to reset a
-;;   pomodoro.
-;;
-;; - If you call `org-pomodoro' outside org-mode, you'll be presented with list
-;;   of recent tasks, as C-u org-clock-in would.
-
-;; (require 'alert)
-;; (require 'org-pomodoro)
-;;
-;; (setq org-pomodoro-audio-player "/usr/bin/mplayer"
-;;       org-pomodoro-play-sounds t
-;;       org-pomodoro-play-start-sound t
-;;       org-pomodoro-play-ticking-sounds nil
-;;       ;; org-pomodoro-ticking-sound
-;;       org-pomodoro-ticking-sound-args "-volume 50" ; adjust ticking sound volume
-;;       ;; org-pomodoro-start-sound-args "-volume 0.3"
-;;       ;; org-pomodoro-long-break-sound-args "-volume 0.3"
-;;       org-pomodoro-format "Pomodoro~%s" ; mode-line string
-;;       )
-;;
-;; (define-key my-org-prefix (kbd "p") 'org-pomodoro)
-;;
-;; ;; start another pomodoro automatically upon a break end.
-;; (add-hook 'org-pomodoro-break-finished-hook
-;;           (lambda ()
-;;             (interactive)
-;;             (org-pomodoro '(16)) ; double prefix [C-u C-u]
-;;             ))
-
-
 ;;; [ org-ref ] -- citations, cross-references, indexes, glossaries and bibtex utilities for Org-mode.
 
 (use-package org-ref
