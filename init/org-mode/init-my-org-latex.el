@@ -64,6 +64,11 @@
 ;;       )
 
 
+
+;; add a nice font to org latex export
+(add-to-list 'org-latex-packages-alist '("" "libertine"))
+
+
 ;;; [ Math ]
 
 
