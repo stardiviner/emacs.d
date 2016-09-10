@@ -140,27 +140,31 @@
 
 ;; set Org agenda to search in ~/Org directory *recursively*.
 
-(setq org-agenda-files '("~/Org/Wiki/Work/Work.org"
-                         ;; "~/Org/Projects/Freelancer.org"
-                         ;; "~/Org/Projects/Finance.org"
-                         "~/Org/Projects/Business Ideas.org"
-                         "~/Org/Wiki/Business/Startup/My Startup/My Startup.org"
-                         "~/Org/Capture/Capture.org"
-                         "~/Org/Wiki/Things/Things.org"
-                         "~/Org/Tasks/Daily.org"
-                         "~/Org/Tasks/Tasks.org"
-                         "~/Org/Tasks/Entertainment.org"
-                         "~/Org/Projects/Sales/Sales.org"
-                         "~/Org/Projects/Code.org"
-                         "~/Org/Projects/Computer Todos.org"
-                         "~/Org/Projects/Projects.org"
-                         "~/Org/Projects/Programming Projects.org" ; BIG!
-                         ;; "~/Org/Projects/Maker.org"
-                         "~/Org/Wiki/Learning/Learning.org"
-                         "~/Org/Wiki/Learning/MyLearningPlan/Learn Programming.org"
-                         ;; "~/Org/Wiki/Wiki.org"
-                         ;; "~/Org/Contacts/Contacts.org"
-                         ))
+(setq org-agenda-files
+      (delq nil
+            (mapcar
+             (lambda (f) (and (file-exists-p f) f))
+             '("~/Org/Wiki/Work/Work.org"
+               ;; "~/Org/Projects/Freelancer.org"
+               ;; "~/Org/Projects/Finance.org"
+               "~/Org/Projects/Business Ideas.org"
+               "~/Org/Wiki/Business/Startup/My Startup/My Startup.org"
+               "~/Org/Capture/Capture.org"
+               "~/Org/Wiki/Things/Things.org"
+               "~/Org/Tasks/Daily.org"
+               "~/Org/Tasks/Tasks.org"
+               "~/Org/Tasks/Entertainment.org"
+               "~/Org/Projects/Sales/Sales.org"
+               "~/Org/Projects/Code.org"
+               "~/Org/Projects/Computer Todos.org"
+               "~/Org/Projects/Projects.org"
+               "~/Org/Projects/Programming Projects.org" ; BIG!
+               ;; "~/Org/Projects/Maker.org"
+               "~/Org/Wiki/Learning/Learning.org"
+               "~/Org/Wiki/Learning/MyLearningPlan/Learn Programming.org"
+               ;; "~/Org/Wiki/Wiki.org"
+               ;; "~/Org/Contacts/Contacts.org"
+               ))))
 
 ;; (setq org-agenda-text-search-extra-files '("~/Org/Journal.org" "~/Org/Diary/"))
 
