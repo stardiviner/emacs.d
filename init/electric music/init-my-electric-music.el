@@ -26,6 +26,17 @@
 
 ;;; Sclang minor mode
 
+
+;;; [ sclang-extensions ] -- A collection of minor modes that improve your SuperCollider experience within Emacs.
+
+(use-package sclang-extensions
+  :ensure t
+  :config
+  (setq sclang-bury-post-on-start? t
+        sclang-run-supercollider-if-not-active? t)
+  
+  (add-hook 'sclang-mode-hook 'sclang-extensions-mode)
+  )
 
 
 (provide 'init-my-electric-music)
