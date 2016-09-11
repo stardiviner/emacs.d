@@ -65,6 +65,9 @@
 
 (require 'org-timer)
 
+(use-package wc-mode
+  :ensure t)
+
 (setq-default
  mode-line-format
  (quote
@@ -275,7 +278,18 @@
                 help-echo (buffer-file-name))
    (:propertize "]"
                 face (:foreground "cyan"))
-
+   
+   ;; wc-mode (word count) `wc-modeline-format', `wc-mode-update'.
+   (:eval
+    (unless wc-orig-words ; this variable is used in `wc-format-modeline-string'.
+      (wc-mode-update))
+    (if (and (featurep 'wc-mode)
+             wc-mode
+             (eq my/mode-line-selected-window (selected-window)))
+        (propertize (let ((wc-modeline-format " WC:[%tw]"))
+                      (format
+                       (wc-format-modeline-string wc-modeline-format)))
+                    'face '(:foreground "cyan" :height 80))))
 
    ;; mmm-mode
    
