@@ -187,6 +187,21 @@ character(s), in which case it deletes the space(s) first."
   )
 
 
+;;; [ RefTeX ] -- a specialized package for support of labels, references.
+
+(use-package reftex
+  :ensure t
+  :defer t
+  :config
+  (setq reftex-cite-prompt-optional-args t) ; prompt for empty optional arguments in cite.
+  
+  (add-hook 'LaTeX-mode-hook
+            (lambda ()
+              (turn-on-reftex)
+              (setq reftex-plug-into-AUCTeX t)
+              (reftex-isearch-minor-mode)))
+  )
+
 ;;; [ CDLaTeX ] -- Fast input methods for LaTeX environments and math.
 
 (use-package cdlatex
