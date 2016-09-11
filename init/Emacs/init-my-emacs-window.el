@@ -556,6 +556,12 @@ The `BUFFER' is the popwin catch pop private message buffer."
   ;; octave help mode
   (push '(octave-help-mode :position bottom :height 8) popwin:special-display-config)
 
+  ;; SuperCollider
+  ;; post buffer
+  (push '("*SCLang:PostBuffer*" :position bottom :height 8) popwin:special-display-config)
+  ;; workspace
+  (push '("*SCLang:Workspace*" :position bottom :height 8) popwin:special-display-config)
+
   ;; calc -- Calculator
   (push '(calc-mode :position bottom :height 8) popwin:special-display-config)
   (push '("*Calculator*" :position bottom :height 8) popwin:special-display-config)
