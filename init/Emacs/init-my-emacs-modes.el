@@ -66,13 +66,6 @@
 
 (use-package polymode
   :ensure t
-  :init
-  (require 'poly-markdown-mode)
-  (require 'poly-noweb-mode)
-  (require 'poly-noweb+r-mode)
-  (require 'poly-ess-help+r-mode)
-  (require 'poly-org-mode)
-  :config
   )
 
 
