@@ -332,6 +332,11 @@
 (require 'init-my-electronic)
 
 
+;;; Electric Music
+
+(require 'init-my-electric-music)
+
+
 ;;; Accessibility
 
 (require 'init-my-emacs-accessibility)
