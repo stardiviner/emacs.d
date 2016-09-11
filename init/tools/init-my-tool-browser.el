@@ -138,7 +138,7 @@
 ;;; [ w3m ]
 
 (use-package w3m
-  ;; :ensure t
+  :ensure t
   :commands w3m-goto-url w3m-search
   :config
   ;; (setq browse-url-browser-function 'w3m-browse-url)
