@@ -145,6 +145,7 @@
   (define-key my-search-prefix (kbd "G") 'counsel-ag) ; [C-u] prompt for dir support
   (setq counsel-yank-pop-truncate t)
   (global-set-key [remap yank-pop] 'counsel-yank-pop) ; [M-y]
+  (define-key ivy-minibuffer-map (kbd "M-y") 'ivy-next-line) ; [M-y] repeatly to next item.
   (global-set-key [remap imenu] 'counsel-imenu)
   (global-set-key (kbd "C-x j") 'counsel-imenu)
   ;; (global-set-key [remap org-set-tags-command] 'counsel-org-tag) ; [C-c C-q]
