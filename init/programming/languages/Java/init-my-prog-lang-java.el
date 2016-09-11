@@ -9,10 +9,9 @@
 
 ;;; [ Eclim ]
 
-(use-package emacs-eclim
+(use-package eclim
   :ensure t
   :init
-  (require 'eclim)
   ;; Control `eclimd' from emacs
   (require 'eclimd)
   :config
