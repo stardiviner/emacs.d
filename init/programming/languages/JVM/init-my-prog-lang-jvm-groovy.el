@@ -1,4 +1,4 @@
-;;; init-my-prog-lang-java-groovy.el --- init for Groovy
+;;; init-my-prog-lang-jvm-groovy.el --- init for Groovy
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -13,6 +13,6 @@
 ;;   :ensure t)
 
 
-(provide 'init-my-prog-lang-java-groovy)
+(provide 'init-my-prog-lang-jvm-groovy)
 
-;;; init-my-prog-lang-java-groovy.el ends here
+;;; init-my-prog-lang-jvm-groovy.el ends here
