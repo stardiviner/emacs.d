@@ -26,11 +26,11 @@
   :ensure t
   :config
   (setq cider-auto-mode t
-        nrepl-hide-special-buffers t
+        nrepl-hide-special-buffers nil
         cider-auto-select-error-buffer t
         nrepl-buffer-name-separator " "
         nrepl-buffer-name-show-port nil
-        nrepl-log-messages nil
+        nrepl-log-messages t
         nrepl-prompt-to-kill-server-buffer-on-quit t
 
         ;; resources
@@ -48,7 +48,6 @@
         cider-repl-pop-to-buffer-on-connect nil
         cider-prompt-save-file-on-load t
         cider-repl-result-prefix ";; => "
-        cider-interactive-eval-result-prefix ";; => "
         cider-repl-use-clojure-font-lock t
         ;; cider-repl-tab-command 'cider-repl-indent-and-complete-symbol
         ;; cider-known-endpoints '(("host-a" "10.10.10.1" "7888") ("host-b" "7888"))
@@ -56,7 +55,7 @@
         cider-repl-wrap-history t
         cider-repl-history-size 500
         cider-repl-history-file nil
-        cider-show-error-buffer 'only-in-repl
+        cider-show-error-buffer t
 
         ;; pretty-printing
         cider-pprint-fn 'fipp
@@ -109,8 +108,7 @@
   ;; Complete & annotations
   (setq cider-completion-use-context t
         cider-annotate-completion-candidates t
-        ;; cider-annotate-completion-function
-        cider-completion-annotations-include-ns 'always ; 'unqualified
+        ;; cider-completion-annotations-include-ns 'always ; 'unqualified
         cider-completion-annotations-alist '(("class" "c")
                                              ("field" "fi")
                                              ("function" "λ") ; f, λ
