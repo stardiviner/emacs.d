@@ -147,6 +147,9 @@ character(s), in which case it deletes the space(s) first."
                 ;; fold
                 (TeX-fold-mode)
 
+                (rainbow-delimiters-mode)
+                (smartparens-mode)
+
                 ;; complete
                 (make-local-variable 'company-backends)
                 ;; company-math
