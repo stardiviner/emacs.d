@@ -266,6 +266,16 @@
   )
 
 
+;;; [ emaps ] -- Emaps provides utilities for working with keymaps and keybindings in Emacs.
+
+(use-package emaps
+  :ensure t
+  :config
+  (global-set-key (kbd "C-h C-k") 'Info-goto-emacs-key-command-node) ; revert original function.
+  (global-set-key (kbd "C-h K") 'emaps-describe-keymap-bindings)
+  )
+
+
 ;;; [ Buffer-locally overriding minor-mode key bindings in Emacs ]
 
 ;;; Solution 1.
