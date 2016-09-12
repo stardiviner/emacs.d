@@ -167,7 +167,7 @@
   ;; search
   (set-face-attribute 'company-tooltip-search nil
                       :inherit 'company-tooltip
-                      :foreground "white" :background "pink")
+                      :foreground "black" :background "pink")
   (set-face-attribute 'company-tooltip-search-selection nil
                       :inherit 'company-tooltip
                       :foreground "white" :background "deep pink"
