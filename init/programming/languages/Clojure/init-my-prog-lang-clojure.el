@@ -248,8 +248,7 @@
 (set-face-attribute 'cider-test-success-face nil
                     :foreground "green" :background nil)
 
-(add-hook 'clojure-mode-hook 'cider-tdd-mode)
-
+;; (add-hook 'clojure-mode-hook 'cider-tdd-mode)
 
 
 ;;; [ cider-decompile ]
