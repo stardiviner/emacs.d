@@ -8,6 +8,10 @@
 ;;; Code:
 ;;; ----------------------------------------------------------------------------
 
+(defun my-figlet-region (&optional b e)
+  "Region select text, then execute command [M-x my-figlet-region]."
+  (interactive "r")
+  (shell-command-on-region b e "toilet" (current-buffer) t))
 
 
 
