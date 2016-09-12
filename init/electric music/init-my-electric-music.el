@@ -33,7 +33,8 @@
   :ensure t
   :config
   (setq sclang-bury-post-on-start? t
-        sclang-run-supercollider-if-not-active? t)
+        sclang-run-supercollider-if-not-active? nil
+        )
   
   (add-hook 'sclang-mode-hook 'sclang-extensions-mode)
   )
