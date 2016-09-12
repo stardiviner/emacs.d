@@ -28,14 +28,20 @@
 
 
   ;; auto start eclimd
+  (defvar eclimd-auto-start? t)
+  
   (defun eclimd-auto-start ()
     (interactive)
-    (unless (and (get-buffer "*eclimd*")
-                 (process-live-p (get-process "eclimd")))
-      (if (yes-or-no-p "start eclimd? ")
-          ;; (start-eclimd (file-name-directory (buffer-file-name)))
-          (call-interactively 'start-eclimd)))
-    )
+    (unless (or (not eclimd-auto-start?)
+                (get-buffer "*eclimd*")
+                (process-live-p (get-process "eclimd")))
+      (if (yes-or-no-p "auto-start eclimd? ")
+          (progn
+            ;; (start-eclimd (file-name-directory (buffer-file-name)))
+            (call-interactively 'start-eclimd)
+            (setq eclimd-auto-start? nil)
+            )
+        (setq eclimd-auto-start? nil))))
 
   (add-hook 'java-mode-hook 'eclimd-auto-start)
   )
