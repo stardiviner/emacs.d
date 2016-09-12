@@ -46,6 +46,11 @@
   :ensure t)
 
 
+;;; [ PulseAudio ]
+
+(add-to-list 'auto-mode-alist '("\\.pa\\'" . conf-mode))
+
+
 (provide 'init-linux)
 
 ;;; init-linux.el ends here
