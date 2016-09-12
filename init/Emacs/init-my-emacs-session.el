@@ -9,10 +9,10 @@
 
 ;; [ save-place ]
 
-(require 'saveplace)
-
-(setq save-place t                      ; save point place
-      save-place-file "~/.emacs.d/.emacs-places")
+;; (require 'saveplace)
+;;
+;; (setq save-place t                      ; save point place
+;;       save-place-file "~/.emacs.d/.emacs-places")
 
 
 ;;; [ desktop ] -- save partial status of Emacs when killed.
