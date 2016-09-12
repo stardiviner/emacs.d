@@ -35,12 +35,11 @@
 
 ;;; set color-theme for `emacsclient'
 
-(add-hook 'after-make-frame-functions
-          (lambda (frame)
-            (select-frame frame)
-            (enable-theme 'solarized-dark)
-            (color-theme-solarized-dark)
-            ))
+(if (daemonp)
+    (add-hook 'after-make-frame-functions
+              (lambda (frame)
+                (with-selected-frame
+                    (load-theme 'solarized-dark t)))))
 
 
 ;;; [ color-theme-solarized ]
