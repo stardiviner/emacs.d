@@ -357,6 +357,12 @@
   :ensure t)
 
 
+;;; [ clomacs ] -- Clomacs simplifies call Clojure code from Emacs lisp.
+
+(use-package clomacs
+  :ensure t)
+
+
 (provide 'init-my-prog-lang-clojure)
 
 ;;; init-my-prog-lang-clojure.el ends here
