@@ -95,6 +95,8 @@
   (setq-local LaTeX-command
               (if (string= LaTeX-command "latex") "latex -shell-escape"
                 "latex"))
+  (setq-local shell-escape-mode "-shell-escape") ; should pdflatex command use shell escaping?
+  
   (message (concat "shell escape "
                    (if (string= LaTeX-command "latex -shell-escape")
                        "enabled"
