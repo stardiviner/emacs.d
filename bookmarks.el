@@ -2,7 +2,22 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Daoism"
+(("My SuperCollider Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer/Softwares/SuperCollider/Data/Manuals/My SuperCollider Language Syntax Reference/My SuperCollider Language Syntax Reference.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Electric Music.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Implements/Electric Music/Electric Music.org")
+ (front-context-string . "* Intro\n\n\n\n\n* Da")
+ (rear-context-string)
+ (position . 1))
+("MySQL"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Database/SQL/MySQL/MySQL.org")
+ (front-context-string . "* Intro\n\n*The wo")
+ (rear-context-string)
+ (position . 1))
+("Daoism"
  (filename . "~/Org/Wiki/Philosophy/Daoism/Daoism.org")
  (front-context-string . "* Intro\n\n** 道 (D")
  (rear-context-string)
@@ -354,9 +369,9 @@
  (position . 1))
 ("org-capture-last-stored"
  (filename . "~/Org/Diary/Diary.org")
- (front-context-string . "**** 把小影的小熊还给她\n:")
- (rear-context-string . "-09-06 Tuesday\n\n")
- (position . 16749))
+ (front-context-string . "**** 对于小影的思考 - 续")
+ (rear-context-string . "09-10 Saturday\n\n")
+ (position . 16936))
 ("My R Language Syntax Reference"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/R/Data/Manuals/My R Language Syntax Reference/My R Language Syntax Reference.org")
  (front-context-string)
