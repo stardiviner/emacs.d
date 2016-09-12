@@ -359,9 +359,5 @@
 (require 'init-my-startup)
 
 
-;; (workgroups-mode 1)
-
-
-
 
 ;;; init.el ends here
