@@ -72,8 +72,7 @@
 ;;       preview-auto-cache-preamble 'ask
 ;;       )
 
-;; view generated PDF with `pdf-tools'.
-;; this is built-in now.
+;;; view generated PDF with `pdf-tools'. (this is built-in now.)
 (unless (assoc "PDF Tools" TeX-view-program-list-builtin)
   (add-to-list 'TeX-view-program-list-builtin
                '("PDF Tools" TeX-pdf-tools-sync-view)))
@@ -101,6 +100,7 @@
                        "enabled"
                      "disabled"))
            ))
+
 (add-hook 'LaTeX-mode-hook
           '(lambda ()
              (TeX-toggle-shell-escape)

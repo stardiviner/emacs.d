@@ -169,7 +169,7 @@
 
   ;; enable `eldoc' in relevant buffers.
   (add-hook 'cider-mode-hook #'eldoc-mode)
-  (setq cider-eldoc-display-for-symbol-at-point nil
+  (setq cider-eldoc-display-for-symbol-at-point t ; NOTE: enable this will cause high CPU.
         cider-eldoc-max-class-names-to-display 3)
 
   (add-hook 'cider-repl-mode-hook #'subword-mode)
@@ -312,6 +312,12 @@
 
   ;; do not prefer prefixes when using clean-ns
   (setq cljr-favor-prefix-notation nil)
+
+  ;; skip Tab in `cljr-add-require-to-ns' snippet.
+  ;; (advice-add 'cljr-add-require-to-ns :after
+  ;;             (lambda (&rest _)
+  ;;               (yas-next-field)
+  ;;               (yas-next-field)))
   )
 
 
