@@ -337,13 +337,13 @@
   (push '("*Async Shell Command*" :position bottom :height 8 :noselect t :tail t) popwin:special-display-config)
 
   ;; Info
-  (push '(apropos-mode :position bottom :height 8) popwin:special-display-config)
+  (push '(apropos-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
 
   ;; help-mode, *Help*, *Metahelp* (from mode C-h ?)
-  (push '(help-mode :position bottom :height 8) popwin:special-display-config)
+  (push '(help-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
 
   ;; xref
-  (push '(xref--xref-buffer-mode :position bottom :height 5) popwin:special-display-config)
+  (push '(xref--xref-buffer-mode :position bottom :height 5 :noselect nil) popwin:special-display-config)
   
   ;; Org-mode
   ;; (push '("*Org todo" :position bottom) popwin:special-display-config)
@@ -360,26 +360,26 @@
   (push '("*Org-Babel Results*" :position bottom :height 8 :noselect t) popwin:special-display-config)
 
   ;; Completion List (completion-list-mode)
-  (push '(completion-list-mode :position bottom :height 8) popwin:special-display-config)
+  (push '(completion-list-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
 
   ;; Eshell
   ;; (push '(eshell-mode :position bottom :height 10) popwin:special-display-config)
   ;; (push '("*eshell*" :position bottom :height 10) popwin:special-display-config)
 
   ;; Occur Mode
-  (push '("*Occur*" :position bottom :height 8) popwin:special-display-config)
+  (push '("*Occur*" :position bottom :height 8 :noselect nil) popwin:special-display-config)
 
   ;; Man/Women
-  (push '(Man-mode :position bottom :height 10) popwin:special-display-config)
-  (push '("*Man *" :position bottom :height 10) popwin:special-display-config)
+  (push '(Man-mode :position bottom :height 10 :noselect nil) popwin:special-display-config)
+  (push '("*Man *" :position bottom :height 10 :noselect nil) popwin:special-display-config)
 
   ;; Ediff
   ;; (push '("*Ediff Control Panel*" :position bottom :height 10) popwin:special-display-config)
 
   ;; Compilation
   ;; (push '(compilation-mode :position bottom :height 10 :tail t) popwin:special-display-config)
-  (push '(compilation-mode :position bottom :height 8) popwin:special-display-config)
-  (push '("*Compile-Log*" :position bottom :height 8) popwin:special-display-config)
+  (push '(compilation-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
+  (push '("*Compile-Log*" :position bottom :height 8 :noselect nil) popwin:special-display-config)
 
   ;; quickrun "*quickrun*"
   (push '(quickrun/mode :position bottom :height 6 :noselect t) popwin:special-display-config)
@@ -413,20 +413,6 @@
   ;; (push '("*git-gutter+-diff*" :position bottom) popwin:special-display-config)
   ;; (push '(git-gutter+-commit-mode :position bottom) popwin:special-display-config)
 
-
-  ;; ERC
-  ;; This does not work. Because ERC does not use `pop-to-buffer' for private message buffer.
-  (defun my/popwin-func-for-erc-private-message (buffer)
-    "Match private messages which except channel buffers that start with a #.
-
-The `BUFFER' is the popwin catch pop private message buffer."
-    (let ((mode (with-current-buffer buffer
-                  major-mode)))
-      ;; string match `erc-pals' variables list.
-      (and (string-match "^[^#]*" (buffer-name buffer))
-           (eq mode 'erc-mode))))
-
-  (push '(my/popwin-func-for-erc-private-message :height 10 :position bottom) popwin:special-display-config)
 
   ;; comint-mode
   (push '(comint-mode :position bottom :height 8) popwin:special-display-config)
@@ -469,12 +455,12 @@ The `BUFFER' is the popwin catch pop private message buffer."
   (push '("*festival*" :position bottom :height 8) popwin:special-display-config)
 
   ;; ack-and-a-half
-  (push '(ack-and-a-half-mode :position bottom :height 8) popwin:special-display-config)
+  (push '(ack-and-a-half-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
 
   ;; ag
-  (push '(ag-mode :position bottom :height 8) popwin:special-display-config)
+  (push '(ag-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
   ;; pt
-  (push '(pt-search-mode :position bottom :height 8) popwin:special-display-config)
+  (push '(pt-search-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
 
   ;; pcre2el
   (push '(rxt-help-mode :position bottom :height 8) popwin:special-display-config)
@@ -487,15 +473,15 @@ The `BUFFER' is the popwin catch pop private message buffer."
   (push '(inferior-lisp-mode :position bottom :height 8) popwin:special-display-config)
   (push '(sly-mrepl-mode :position bottom :height 8) popwin:special-display-config)
   (push '(slime-repl-mode :position bottom :height 8) popwin:special-display-config)
-  (push '(slime-inspector-mode :position bottom :height 8) popwin:special-display-config)
-  (push '("*slime-description*" :position bottom :height 8) popwin:special-display-config)
-  (push '("*slime-macroexpansion*" :position bottom :height 8) popwin:special-display-config)
+  (push '(slime-inspector-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
+  (push '("*slime-description*" :position bottom :height 8 :noselect nil) popwin:special-display-config)
+  (push '("*slime-macroexpansion*" :position bottom :height 8 :noselect nil) popwin:special-display-config)
 
   ;; Clojure, CIDER
   (push '(inf-clojure-mode :position bottom :height 8) popwin:special-display-config)
   (push '(cider-clojure-interaction-mode :position bottom :height 8) popwin:special-display-config)
-  (push '(cider-docview-mode :position bottom :height 10 :noselect t) popwin:special-display-config)
-  (push '(cider-inspector-mode :position bottom :height 8) popwin:special-display-config)
+  (push '(cider-docvqiew-mode :position bottom :height 10 :noselect nil) popwin:special-display-config)
+  (push '(cider-inspector-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
 
   ;; ESS
   (push '(inferior-ess-mode :position bottom :height 8) popwin:special-display-config)
@@ -503,7 +489,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
   (push '(inferior-julia-mode :position bottom :height 8) popwin:special-display-config)
 
   ;; yari Ruby document lookup
-  (push '(yari-mode :position bottom :height 8) popwin:special-display-config)
+  (push '(yari-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
   ;; rub-ruby - inf-ruby
   (push '(inf-ruby-mode :position bottom :height 8) popwin:special-display-config)
   (push '("*ruby*" :position bottom :height 8) popwin:special-display-config)
@@ -528,7 +514,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
   (push '(anaconda-mode-view-mode :position bottom :height 8) popwin:special-display-config)
 
   ;; jedi doc help
-  (push '("*jedi:doc" :position bottom :height 8) popwin:special-display-config)
+  (push '("*jedi:doc" :position bottom :height 8 :noselect nil) popwin:special-display-config)
   (push '(rst-mode :position bottom :height 8) popwin:special-display-config)
 
   ;; JavaScript
@@ -536,7 +522,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
   (push '(inferior-js-mode :position bottom :height 8) popwin:special-display-config)
 
   ;; Go
-  (push '(godoc-mode :position bottom :height 8) popwin:special-display-config)
+  (push '(godoc-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
 
   ;; Swift
 
@@ -554,28 +540,28 @@ The `BUFFER' is the popwin catch pop private message buffer."
   ;; (push '(gnuplot-comint-mode :position bottom :height 8) popwin:special-display-config)
   
   ;; octave help mode
-  (push '(octave-help-mode :position bottom :height 8) popwin:special-display-config)
+  (push '(octave-help-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
 
   ;; SuperCollider
   ;; post buffer
-  (push '("*SCLang:PostBuffer*" :position bottom :height 8) popwin:special-display-config)
+  (push '("*SCLang:PostBuffer*" :position bottom :height 6 :noselect t) popwin:special-display-config)
   ;; workspace
-  (push '("*SCLang:Workspace*" :position bottom :height 8) popwin:special-display-config)
+  (push '("*SCLang:Workspace*" :position bottom :height 6 :noselect t) popwin:special-display-config)
 
   ;; calc -- Calculator
-  (push '(calc-mode :position bottom :height 8) popwin:special-display-config)
-  (push '("*Calculator*" :position bottom :height 8) popwin:special-display-config)
+  (push '(calc-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
+  (push '("*Calculator*" :position bottom :height 8 :noselect nil) popwin:special-display-config)
 
   ;; eww
-  (push '(eww-bookmark-mode :position bottom :height 8) popwin:special-display-config)
+  (push '(eww-bookmark-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
 
   ;; checkdoc
-  (push '("*Checkdoc Status*" :position bottom :height 8) popwin:special-display-config)
+  (push '("*Checkdoc Status*" :position bottom :height 8 :noselect nil) popwin:special-display-config)
 
 
   ;; TeX/LaTeX (AUCTeX)
   ;; (push '(TeX-output-mode :position bottom :height 10) popwin:special-display-config)
-  (push '("*TeX Help*" :position bottom :height 8) popwin:special-display-config)
+  (push '("*TeX Help*" :position bottom :height 8 :noselect nil) popwin:special-display-config)
 
   ;; Database: edbi
   ;; (push '("*edbi-dialog-ds*" :position bottom :height 8) popwin:special-display-config)
@@ -601,7 +587,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
   (push '("*Vagrant*" :position bottom :height 6) popwin:special-display-config)
 
   ;; poporg
-  ;; (push '("*poporg:*" :position bottom :height 10) popwin:special-display-config)
+  (push '("*poporg:*" :position bottom :height 10 :noselect nil) popwin:special-display-config)
 
   (defun my/popwin-func-for-poporg-edit-window (buffer)
     "Match poporg popup edit buffer.
@@ -612,7 +598,21 @@ The `BUFFER' is the popwin catch poporg edit popup buffer"
       (and (string-match "\*poporg:\ .*\*" (buffer-name buffer))
            (eq mode 'org-mode))))
 
-  (push '(my/popwin-func-for-erc-private-message :height 10 :position bottom) popwin:special-display-config)
+  (push '(my/popwin-func-for-poporg-edit-window :height 10 :position bottom :noselect nil) popwin:special-display-config)
+
+  ;; ERC
+  ;; This does not work. Because ERC does not use `pop-to-buffer' for private message buffer.
+  (defun my/popwin-func-for-erc-private-message (buffer)
+    "Match private messages which except channel buffers that start with a #.
+
+The `BUFFER' is the popwin catch pop private message buffer."
+    (let ((mode (with-current-buffer buffer
+                  major-mode)))
+      ;; string match `erc-pals' variables list.
+      (and (string-match "^[^#]*" (buffer-name buffer))
+           (eq mode 'erc-mode))))
+
+  (push '(my/popwin-func-for-erc-private-message :height 10 :position bottom :noselect nil) popwin:special-display-config)
   )
 
 
