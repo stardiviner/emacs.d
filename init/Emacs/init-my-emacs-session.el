@@ -7,21 +7,7 @@
 
 ;;; Code:
 
-;;; [ session ]
-
-;;; save-desktop
-;;; save-place
-
-
-;;; [ desktop-save-mode ]
-
-;;; Usage:
-;; - commands prefix with `desktop-'.
-
-;; (require 'desktop)
-
-
-;; save-place
+;; [ save-place ]
 
 (require 'saveplace)
 
