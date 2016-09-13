@@ -78,6 +78,18 @@
           (lambda ()
             (if (meghanada-alive-p)
                 (message "meghanada started."))
+
+            ;; reset `company-backends'
+            (setq-local company-backends
+                        '(company-files         ; files & directory
+                          company-keywords      ; keywords
+                          (company-capf         ; `completion-at-point-functions'
+                           :with
+                           company-yasnippet)
+                          company-dabbrev-code  ; company-dabbrev
+                          company-abbrev
+                          ))
+            (my-company-add-backend-locally 'company-meghanada)
             ))
 
 
