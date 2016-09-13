@@ -70,7 +70,9 @@
 (require 'meghanada)
 
 (setq meghanada-auto-start t
-      meghanada-debug t)
+      meghanada-debug t
+      meghanada-use-company nil
+      meghanada-use-flycheck t)
 
 (add-hook 'java-mode-hook #'meghanada-mode)
 
@@ -79,16 +81,7 @@
   (if (meghanada-alive-p)
       (message "meghanada started."))
 
-  ;; reset `company-backends'
-  (setq-local company-backends
-              '(company-files         ; files & directory
-                company-keywords      ; keywords
-                (company-capf         ; `completion-at-point-functions'
-                 :with
-                 company-yasnippet)
-                company-dabbrev-code  ; company-dabbrev
-                company-abbrev
-                ))
+  (eclim-mode -1) ; disable `eclim-mode'
   (my-company-add-backend-locally 'company-meghanada)
   )
 
