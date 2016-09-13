@@ -78,7 +78,13 @@
 ;;   )
 
 
-;;; [ gradle-mode ]
+;;; [ gradle-mode ] -- Gradle integration with Emacs' compile.
+
+(use-package gradle-mode
+  :ensure t
+  :config
+  (add-hook 'java-mode-hook #'gradle-mode)
+  )
 
 
 (provide 'init-my-prog-lang-java)
