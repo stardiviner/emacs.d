@@ -63,6 +63,24 @@
 ;;   :ensure t)
 
 
+;;; [ meghanada ] -- A New Java Develop Environment for Emacs.
+
+(add-to-list 'load-path (concat (getenv "HOME") "/Code/Emacs/meghanada-emacs/"))
+
+(require 'meghanada)
+
+(setq meghanada-auto-start t
+      meghanada-debug t)
+
+(add-hook 'java-mode-hook #'meghanada-mode)
+
+(add-hook 'meghanada-mode-hook
+          (lambda ()
+            (if (meghanada-alive-p)
+                (message "meghanada started."))
+            ))
+
+
 ;;; [ malabar-mode ] -- JVM Integration for Java and other JVM based languages.
 
 ;; (use-package malabar-mode
