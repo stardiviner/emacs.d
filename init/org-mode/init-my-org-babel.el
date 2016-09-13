@@ -667,9 +667,9 @@ This can be useful for snippets to select kernel interactively."
 
 
   (defface org-block-org
-    `((t (:background ,(color-lighten-name (face-background 'default) 2))))
+    `((t (:background ,(color-darken-name (face-background 'default) 4))))
     "Face for Org-mode src blocks")
-  
+
   (defface org-block-emacs-lisp
     `((t (:background ,(color-darken-name (face-background 'default) 4))))
     "Face for elisp src blocks")
