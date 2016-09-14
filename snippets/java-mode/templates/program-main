@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: template-program-main
+# key: template-program-main
+# group: template.program
+# --
+class ${1:program dir name} {
+  public static void main(String[] args) {
+    $0
+  }
+}

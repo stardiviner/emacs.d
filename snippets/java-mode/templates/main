@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: main
+# key: main
+# group: template.program
+# --
+public static void main(String[] args) {
+    $0
+}
