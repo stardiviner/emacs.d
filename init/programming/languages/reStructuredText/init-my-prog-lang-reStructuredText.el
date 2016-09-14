@@ -15,6 +15,11 @@
   (add-hook 'rst-adjust-hook 'rst-toc-update)
   )
 
+;;; [ ox-rst ] -- reStructuredText export backend for Org-mode.
+
+(use-package ox-rst
+  :ensure t)
+
 ;;; ----------------------------------------------------------------------------
 
 (provide 'init-my-prog-lang-reStructuredText)
