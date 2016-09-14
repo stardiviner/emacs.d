@@ -20,6 +20,14 @@
 (use-package ox-rst
   :ensure t)
 
+;;; [ sphinx-mode ] -- minor mode providing sphinx support.
+
+(use-package sphinx-mode
+  :ensure t
+  :config
+  (add-hook 'rst-mode-hook 'sphinx-mode)
+  )
+
 ;;; ----------------------------------------------------------------------------
 
 (provide 'init-my-prog-lang-reStructuredText)
