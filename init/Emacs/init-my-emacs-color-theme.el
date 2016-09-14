@@ -30,7 +30,9 @@
 ;; load theme way
 (add-to-list 'custom-theme-load-path "~/.emacs.d/color-themes/")
 
-(load-theme 'solarized-dark t)
+
+
+;; (load-theme 'solarized-dark t)
 
 
 ;;; set color-theme for `emacsclient'
