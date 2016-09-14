@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: define dynamic variable
+# key: var-dynamic-define
+# group: var.dynamic
+# --
+def ^:dynamic ${1:var} $0

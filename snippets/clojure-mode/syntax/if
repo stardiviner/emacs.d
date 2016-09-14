@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: if
+# key: if
+# group: control-flow.if
+# --
+if ${1:condition-expr}
+  ${2:then-expr}
+  ${3:else-expr}

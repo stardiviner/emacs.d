@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: exception
-# key: try
+# name: try-catch-finally
+# key: exception
 # group: exception
 # --
 try

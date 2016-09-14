@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: rebind dynamic var
+# key: var-dynamic-rebind
+# group: var.dynamic
+# --
+(binding [${1:var} ${2:value}]
+  $0)

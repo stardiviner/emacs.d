@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: metadata
+# key: metadata
+# group: metadata.reader-macro
+# --
+^{:${1:key} ${2:value}\}

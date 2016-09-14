@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: let-bind-data
+# key: let-bind-data
+# group: local-binding.let
+# --
+let [[${1:list} & rest] ${2:sequence}]
+    $0

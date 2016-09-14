@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: let
+# key: let
+# group: local-binding.let
+# --
+let [${1:var} ${2:value}]
+    $0

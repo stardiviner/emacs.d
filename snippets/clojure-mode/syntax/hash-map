@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: hash map
+# key: h
+# group: map.map
+# --
+:${1:key} $0
