@@ -99,6 +99,9 @@
 (use-package doom-themes
   :ensure t
   :config
+  (setq doom-enable-bold t
+        doom-enable-italic t)
+  
   ;; themes: 'doom-one, 'doom-dark, 'doom-one-light, 'doom-tron, 'doom-peacock
   (load-theme 'doom-one t)
   
