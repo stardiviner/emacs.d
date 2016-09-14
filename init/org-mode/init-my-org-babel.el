@@ -722,14 +722,14 @@ This can be useful for snippets to select kernel interactively."
     `((t (:background "DarkOliveGreen")))
     "Face for Java blocks")
 
-  (defface org-block-javascript
-    `((t (:background "DarkSlateBlue")))
-    "Face for JavaScript blocks")
-
   (defface org-block-js
     `((t (:background "DarkSlateBlue")))
     "Face for JavaScript blocks")
 
+  (defface org-block-javascript
+    `((t (:background "DarkSlateBlue")))
+    "Face for JavaScript blocks")
+  
   (defface org-block-coffee
     `((t (:background "DarkSlateBlue")))
     "Face for CoffeeScript blocks")
