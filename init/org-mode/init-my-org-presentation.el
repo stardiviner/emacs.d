@@ -39,7 +39,7 @@
         (org-present-quit)
       (org-present)))
 
-  (define-key my-org-prefix (kbd "p") 'my-org-present)
+  (define-key my-org-prefix (kbd "C-s") 'my-org-present)
   )
 
 
@@ -61,7 +61,7 @@
   (org-tree-slide-presentation-profile)
   ;; (org-tree-slide-narrowing-control-profile)
 
-  (define-key my-org-prefix (kbd "p") 'org-tree-slide-mode)
+  (define-key my-org-prefix (kbd "C-s") 'org-tree-slide-mode)
   ;; (global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
 
   (define-key org-tree-slide-mode-map (kbd "C-SPC") 'org-tree-slide-move-next-tree)
