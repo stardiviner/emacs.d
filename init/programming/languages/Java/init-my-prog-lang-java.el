@@ -78,10 +78,9 @@
 
 (defun my-meghanada-settings ()
   (interactive)
-  (if (meghanada-alive-p)
-      (message "meghanada started."))
+  ;; (if (not (meghanada-alive-p))
+  ;;     (warn "meghanada not started."))
 
-  (eclim-mode -1) ; disable `eclim-mode'
   (my-company-add-backend-locally 'company-meghanada)
   )
 
