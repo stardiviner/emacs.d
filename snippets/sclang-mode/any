@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: any { |item| ... }
+# key: any
+# --
+any { |${1:item}|
+  $0
+};
