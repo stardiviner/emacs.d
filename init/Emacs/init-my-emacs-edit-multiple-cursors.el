@@ -179,6 +179,10 @@
       (define-key my-mc/mark-prefix (kbd "v") 'vr/mc-mark))
   ;; `vr/select-mc-mark', `vr/select-replace', `vr/select-query-replace' etc.
 
+  ;; click on multiple-cursors
+  (global-unset-key (kbd "M-<down-mouse-1>"))
+  (global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click)
+  
   ;; First mark the word, then add more cursors.
 
   ;; To get out of multiple-cursors-mode, press <return> or C-g. The latter will
