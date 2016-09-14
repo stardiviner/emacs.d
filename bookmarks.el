@@ -2,7 +2,22 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("My SuperCollider Language Syntax Reference.org"
+(("Encryption.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Implements/Encryption/Encryption.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("My Shell Script Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Shell/Data/Manuals/My Shell Script Syntax Reference/My Shell Script Syntax Reference.org")
+ (front-context-string . "* Tips\n\n** use =")
+ (rear-context-string)
+ (position . 1))
+("My Shell Script Examples.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Shell/Data/Manuals/My Shell Script Examples/My Shell Script Examples.org")
+ (front-context-string . "* Linux\n\n** Dete")
+ (rear-context-string)
+ (position . 1))
+("My SuperCollider Language Syntax Reference.org"
  (filename . "~/Org/Wiki/Computer/Softwares/SuperCollider/Data/Manuals/My SuperCollider Language Syntax Reference/My SuperCollider Language Syntax Reference.org")
  (front-context-string)
  (rear-context-string)
@@ -368,10 +383,10 @@
  (rear-context-string)
  (position . 1))
 ("org-capture-last-stored"
- (filename . "~/Org/Diary/Diary.org")
- (front-context-string . "**** 对于小影的思考 - 续")
- (rear-context-string . "09-10 Saturday\n\n")
- (position . 16936))
+ (filename . "~/Org/Capture/Capture.org")
+ (front-context-string . "** TODO gpg veri")
+ (rear-context-string . "RY: Todo\n:END:\n\n")
+ (position . 53))
 ("My R Language Syntax Reference"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/R/Data/Manuals/My R Language Syntax Reference/My R Language Syntax Reference.org")
  (front-context-string)
