@@ -7,9 +7,13 @@
 
 ;;; Code:
 ;;; ----------------------------------------------------------------------------
+;;; [ rst ] -- Mode for viewing and editing reStructuredText-documents.
 
-
-
+(use-package rst
+  :ensure t
+  :config
+  (add-hook 'rst-adjust-hook 'rst-toc-update)
+  )
 
 ;;; ----------------------------------------------------------------------------
 
