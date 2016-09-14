@@ -51,10 +51,10 @@
 ;; Emacs Lisp highlights
 
 ;; `let-alist' . symbols
-(font-lock-add-keywords
- 'emacs-lisp-mode
- '(("\\_<\\.\\(?:\\sw\\|\\s_\\)+\\_>" 0
-    font-lock-builtin-face)))
+;; (font-lock-add-keywords
+;;  'emacs-lisp-mode
+;;  '(("\\_<\\.\\(?:\\sw\\|\\s_\\)+\\_>" 0
+;;     font-lock-builtin-face)))
 
 
 ;;; eldoc-eval --- Enable eldoc support when minibuffer is in use.
@@ -199,6 +199,63 @@
         ;; '(copy-file copy-directory rename-file delete-file make-directory)
         )
   )
+
+
+;;; thread and unwind code in Emacs Lisp
+
+;;; TODO: integrate into `emr'.
+
+;; (use-package clj-refactor
+;;   :ensure t)
+;;
+;; (defun my/elisp-thread-last ()
+;;   "Turn the form at point into a `thread-last' form."
+;;   (interactive)
+;;   (cljr-thread-last-all nil)
+;;   (save-excursion
+;;     (when (search-backward "->>" nil 'noerror)
+;;       (replace-match "thread-last"))))
+;;
+;; (defun my/elisp-thread-first ()
+;;   "Turn the form at point into a `thread-first' form."
+;;   (interactive)
+;;   (cljr-thread-first-all nil)
+;;   (save-excursion
+;;     (when (search-backward "->" nil 'noerror)
+;;       (replace-match "thread-first"))))
+;;
+;; (defun my/elisp-unwind ()
+;;   "Unwind thread at point or above point by one level.
+;; Return nil if there are no more levels to unwind."
+;;   (interactive)
+;;   (let ((p (point)))
+;;     ;; Find a thread above.
+;;     (when (save-excursion
+;;             (forward-sexp 1)
+;;             (and (search-backward-regexp "\\_<thread-\\(first\\|last\\)\\_>" nil 'noerror)
+;;                  ;; Ensure that it contains the original point.
+;;                  (save-match-data (forward-char -1)
+;;                                   (forward-sexp 1)
+;;                                   (> (point) p))))
+;;       (replace-match (if (string= (match-string 1) "first")
+;;                          "->" "->>"))
+;;       (let ((thread-beginnig (match-beginning 0)))
+;;         (prog1 (cljr-unwind)
+;;           (save-excursion
+;;             (goto-char thread-beginnig)
+;;             (when (looking-at "\\_<->>?\\_>")
+;;               (replace-match (if (string= (match-string 0) "->")
+;;                                  "thread-first" "thread-last")))))))))
+;;
+;; (defun my/elisp-unwind-all ()
+;;   "Fully unwind thread at point or above point."
+;;   (interactive)
+;;   (while (my/elisp-unwind)))
+;;
+;; (define-key emacs-lisp-mode-map (kbd "C-c t f") #'my/elisp-thread-first)
+;; (define-key emacs-lisp-mode-map (kbd "C-c t l") #'my/elisp-thread-last)
+;; (define-key emacs-lisp-mode-map (kbd "C-c t u") #'my/elisp-unwind)
+;; (define-key emacs-lisp-mode-map (kbd "C-c t a") #'my/elisp-unwind-all)
 
 
 ;;; [ suggest ] -- suggest elisp functions that give the output requested.
