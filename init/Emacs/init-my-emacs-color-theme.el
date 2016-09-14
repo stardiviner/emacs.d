@@ -94,6 +94,20 @@
 ;;   )
 
 
+;;; [ doom-theme ] -- Emacs themes inspired by Atom One, for Emacs 24.4+.
+
+(use-package doom-themes
+  :ensure t
+  :config
+  ;; themes: 'doom-one, 'doom-dark, 'doom-one-light, 'doom-tron, 'doom-peacock
+  (load-theme 'doom-one t)
+  
+  (add-hook 'find-file-hook 'doom-buffer-mode) ; brighter source buffers.
+  (add-hook 'minibuffer-setup-hook 'doom-buffer-mode) ; brighter minibuffer when active
+  ;; (require 'doom-neotree) ; for neotree
+  )
+
+
 ;;; custom faces
 
 (set-face-attribute 'font-lock-function-name-face nil
