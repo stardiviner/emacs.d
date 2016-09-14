@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: style-sheet-external-link_alternate
+# key: style-sheet-external-link_alternate
+# group: style-sheet.external.link
+# --
+<link rel="alternate stylesheet" type="text/css" href="$0.css"${1: title="${2}"}>

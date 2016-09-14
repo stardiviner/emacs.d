@@ -1,0 +1,9 @@
+<head>
+  <title>My Document</title>
+  <style type="text/css">
+   @import url(site.css);
+   @import url(navbar.css);
+   @import url(footer.css);
+   body {background: yellow};
+  </style>
+</head>

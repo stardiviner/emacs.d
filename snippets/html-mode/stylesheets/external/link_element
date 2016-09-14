@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: style-sheet-external-import_directive
+# key: style-sheet-external-import_directive
+# group: style-sheet.external
+# --
+<style type="text/css">
+ @import url($0.css);
+</style>

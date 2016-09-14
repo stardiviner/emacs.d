@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: style-sheet-embedded
+# key: style-sheet-embedded
+# group: style-sheet.embeded
+# --
+<head>
+  <style type="text/css">
+  $0
+  </style>
+</head>
