@@ -253,8 +253,6 @@
 (use-package org-board
   :ensure t
   :config
-  (setq org-board-wget-program (executable-find "wget"))
-  
   (unless (boundp 'my-org-board-prefix)
     (define-prefix-command 'my-org-board-prefix))
   (define-key my-org-prefix (kbd "C-a") 'my-org-board-prefix)
