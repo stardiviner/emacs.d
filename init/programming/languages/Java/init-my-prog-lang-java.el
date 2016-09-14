@@ -82,6 +82,10 @@
   ;;     (warn "meghanada not started."))
 
   (my-company-add-backend-locally 'company-meghanada)
+
+  ;; auto parse source code file after save buffer.
+  ;; `meghanada-server' already implemented this.
+  (add-hook 'after-save-hook #'meghanada-parse-file)
   )
 
 (add-hook 'meghanada-mode-hook 'my-meghanada-settings)
