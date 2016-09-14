@@ -106,6 +106,9 @@
   
   ;; themes: 'doom-one, 'doom-dark, 'doom-one-light, 'doom-tron, 'doom-peacock
   (load-theme 'doom-one t)
+  (add-hook 'after-init-hook ; fix mode-line color not applied.
+            (lambda ()
+              (load-theme 'doom-one t)))
   
   (add-hook 'find-file-hook 'doom-buffer-mode) ; brighter source buffers.
   (add-hook 'minibuffer-setup-hook 'doom-buffer-mode) ; brighter minibuffer when active
