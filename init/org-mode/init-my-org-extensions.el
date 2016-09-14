@@ -247,6 +247,28 @@
   )
 
 
+
+;;; [ org-board ] -- Org mode's web archiver.
+
+(use-package org-board
+  :ensure t
+  :config
+  (setq org-board-wget-program (executable-find "wget"))
+  
+  (unless (boundp 'my-org-board-prefix)
+    (define-prefix-command 'my-org-board-prefix))
+  (define-key my-org-prefix (kbd "C-a") 'my-org-board-prefix)
+
+  (define-key my-org-board-prefix (kbd "a") 'org-board-new)
+  (define-key my-org-board-prefix (kbd "n") 'org-board-new)
+  (define-key my-org-board-prefix (kbd "C-a") 'org-board-archive)
+  (define-key my-org-board-prefix (kbd "r") 'org-board-archive-dry-run)
+  (define-key my-org-board-prefix (kbd "o") 'org-board-open)
+  (define-key my-org-board-prefix (kbd "d") 'org-board-diff)
+  (define-key my-org-board-prefix (kbd "C-d") 'org-board-delete-all)
+  )
+
+
 (provide 'init-my-org-extensions)
 
 ;;; init-my-org-extensions.el ends here
