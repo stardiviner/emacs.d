@@ -21,6 +21,8 @@
   :ensure t
   :mode "\\.rst\'"
   :config
+  (add-hook 'rst-mode-hook #'auto-complete-mode)
+  
   (setq auto-complete-rst-other-sources
         '(ac-source-filename
           ac-source-abbrev
