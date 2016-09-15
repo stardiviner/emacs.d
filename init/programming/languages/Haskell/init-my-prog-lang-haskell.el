@@ -192,21 +192,24 @@
 
 
 
+(defun my-haskell-company-backends-setup ()
+  "Setup `company-backends' for Haskell related modes."
+  (interactive)
+  (add-to-list (make-local-variable 'company-backends)
+               '(company-ghc
+                 :with
+                 company-yasnippet
+                 company-ghci
+                 ;; company-cabal
+                 ))
+  )
+
 (dolist (hook '(haskell-mode-hook
                 haskell-interactive-mode-hook
                 interactive-haskell-mode-hook
                 ;; inferior-haskell-mode-hook (deprecated)
                 ))
-  (add-hook hook
-            (lambda ()
-              (add-to-list (make-local-variable 'company-backends)
-                           '(company-ghc
-                             :with
-                             company-yasnippet
-                             company-ghci
-                             ;; company-cabal
-                             ))
-              )))
+  (add-hook hook #'my-haskell-company-backends-setup))
 
 
 ;;; [ intero ] -- Complete interactive development program for Haskell.
