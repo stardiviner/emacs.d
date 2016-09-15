@@ -51,13 +51,21 @@
                                             "Data.Ord")
         )
 
-  (add-hook 'haskell-mode-hook
-            '(lambda ()
-               ;; inferior-haskell-mode (deprecated)
-               ;; (inf-haskell-mode 1)
-               ;; Haskell Interactive Mode
-               (interactive-haskell-mode 1)
-               ))
+  
+  (defun my-haskell-mode-basic-settings ()
+    "Some basic settings for `haskell-mode'."
+    (interactive)
+
+    ;; indent
+    (turn-on-haskell-indent) ; `intelligent' Haskell indentation mode
+    (aggressive-indent-mode -1)
+    ;; doc
+    (turn-on-haskell-doc-mode)
+    )
+  
+  (add-hook 'haskell-mode-hook #'my-haskell-mode-basic-settings)
+
+  (add-hook 'haskell-mode-hook #'interactive-haskell-mode)
   
   (define-key my-prog-inferior-map (kbd "h") 'haskell-interactive-switch)
 
