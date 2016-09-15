@@ -41,6 +41,11 @@
   (add-hook 'rst-mode-hook 'sphinx-mode)
   )
 
+;;; [ sphinx-frontend ] -- Launch build process for rst documents via sphinx.
+
+(use-package sphinx-frontend
+  :ensure t)
+
 ;;; ----------------------------------------------------------------------------
 
 (provide 'init-my-prog-lang-reStructuredText)
