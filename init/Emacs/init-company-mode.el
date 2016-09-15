@@ -78,13 +78,15 @@
 
   ;; keybindings
 
-  ;; manually start completion
+  ;; manually start completion (don't globally set, conflict with auto-complete
+  ;; in some modes which use auto-complete)
+  ;;
   ;; (global-set-key (kbd "<tab>") 'company-indent-or-complete-common)
   ;; (global-set-key (kbd "<tab>") 'company-complete)
   ;; (global-set-key (kbd "TAB") 'company-complete)
   ;; (global-set-key [tab] 'company-complete)
-  (global-set-key (kbd "M-<tab>") 'company-complete)
-  (global-set-key (kbd "C-M-i") 'company-complete)
+  ;; (global-set-key (kbd "M-<tab>") 'company-complete)
+  ;; (global-set-key (kbd "C-M-i") 'company-complete)
 
   ;; yasnippet
   ;; `yas-expand', `yas-expand-from-trigger-key'
