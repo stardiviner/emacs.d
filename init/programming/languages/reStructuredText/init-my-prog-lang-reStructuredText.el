@@ -19,6 +19,7 @@
 
 (use-package auto-complete-rst
   :ensure t
+  :mode "\\.rst\'"
   :config
   (auto-complete-rst-init)
   (setq auto-complete-rst-other-sources
