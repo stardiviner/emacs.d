@@ -328,6 +328,7 @@
 
 (require 'init-linux)
 (require 'init-mac)
+(require 'init-microsoft-windows)
 
 
 ;;; Electronic
