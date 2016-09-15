@@ -21,12 +21,13 @@
   :ensure t
   :mode "\\.rst\'"
   :config
-  (auto-complete-rst-init)
   (setq auto-complete-rst-other-sources
         '(ac-source-filename
           ac-source-abbrev
           ac-source-dictionary
           ac-source-yasnippet))
+
+  (auto-complete-rst-init)
   )
 
 ;;; [ ox-rst ] -- reStructuredText export backend for Org-mode.
