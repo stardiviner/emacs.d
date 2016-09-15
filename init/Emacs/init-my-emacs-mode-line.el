@@ -226,6 +226,13 @@
                   'face '(:foreground "cyan"))
       )
     )
+
+   ;; `ejc-sql' connection name
+   (:eval
+    (when (and ejc-sql-mode
+               (bound-and-true-p ejc-connection-name))
+      (propertize (format "%s" ejc-connection-name)
+                  'face '(:foreground "green"))))
    
    ;; VCS - Git, SVN, CVS,
    (vc-mode (:eval
