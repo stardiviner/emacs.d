@@ -9,10 +9,10 @@
 ;;; Auto-reload external file changes
 
 ;; - `recover-file' :: recover file.
-;; - `recover-session' :: 
+;; - `recover-session' :: recover session.
 
-(global-auto-revert-mode)
-(setq global-auto-revert-non-file-buffers t
+;; (global-auto-revert-mode)
+(setq global-auto-revert-non-file-buffers nil
       auto-revert-verbose nil)
 
 
