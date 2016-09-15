@@ -15,6 +15,19 @@
   (add-hook 'rst-adjust-hook 'rst-toc-update)
   )
 
+;;; [ auto-complete-rst ] -- auto-complete extension for ReST and Sphinx.
+
+(use-package auto-complete-rst
+  :ensure t
+  :config
+  (auto-complete-rst-init)
+  (setq auto-complete-rst-other-sources
+        '(ac-source-filename
+          ac-source-abbrev
+          ac-source-dictionary
+          ac-source-yasnippet))
+  )
+
 ;;; [ ox-rst ] -- reStructuredText export backend for Org-mode.
 
 (use-package ox-rst
