@@ -308,6 +308,8 @@
 (require 'init-my-prog-lang-assembly)
 (require 'init-my-prog-lang-HDL)
 
+(require 'init-my-prog-lang-applescript)
+
 
 ;;; Frameworks
 (require 'init-my-prog-framework-web)
