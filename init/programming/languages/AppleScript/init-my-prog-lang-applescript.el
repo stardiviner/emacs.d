@@ -7,9 +7,20 @@
 
 ;;; Code:
 ;;; ----------------------------------------------------------------------------
+;;; [ applescript-mode ]
 
+(use-package applescript-mode
+  :ensure t)
 
+;;; [ apples-mode ]
 
+(use-package apples-mode
+  :ensure t)
+
+;;; [ ob-applescript ]
+
+(use-package ob-applescript
+  :ensure t)
 
 ;;; ----------------------------------------------------------------------------
 
