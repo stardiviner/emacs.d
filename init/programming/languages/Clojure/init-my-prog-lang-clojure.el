@@ -373,6 +373,12 @@
 ;;   )
 
 
+;;; [ elein ] -- running Leiningen commands from Emacs.
+
+(use-package elein
+  :ensure t)
+
+
 ;;; [ clojars ] -- Emacs Interface to Clojars.org
 
 (use-package clojars
