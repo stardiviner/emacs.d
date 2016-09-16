@@ -72,6 +72,13 @@
  mode-line-format
  (quote
   (
+   ;; active window indicator
+   (:eval
+    (if (eq my/mode-line-selected-window (selected-window))
+        (propertize "▌"
+                    'face '(:foreground "yellow")
+                    )))
+   
    ;; window-number
    ;; (:eval (if (fboundp 'window-number-mode)
    ;;            (propertize (concat "[" (number-to-string (window-number)) "]")
