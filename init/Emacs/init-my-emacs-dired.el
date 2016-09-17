@@ -209,6 +209,16 @@
   )
 
 
+;;; [ call eww in Dired ]
+
+;;; If you have files that you read in eww, here's a suggestion that might make
+;;; your workflow a bit easier:
+
+(define-key dired-mode-map (kbd "e")
+  (lambda ()
+    (interactive)
+    (eww-open-file (dired-get-file-for-visit))))
+
 
 ;;; [ dired-launch ] -- launch an external application from dired.
 
