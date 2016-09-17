@@ -2,7 +2,37 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Encryption.org"
+(("Economy.org"
+ (filename . "~/Org/Wiki/Economy/Economy.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Strategy"
+ (filename . "~/Org/Wiki/Strategy/Strategy.org")
+ (front-context-string . "* Intro\n\n** 名句思想")
+ (rear-context-string)
+ (position . 1))
+("Travel"
+ (filename . "~/Org/Wiki/Travel/Travel.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Government.org"
+ (filename . "~/Org/Wiki/Government/Government.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("My reStructuredText Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/reStructuredText/Data/Manuals/My reStructuredText Syntax Reference/My reStructuredText Syntax Reference.org")
+ (front-context-string . "* Title, Author,")
+ (rear-context-string)
+ (position . 1))
+("reStructuredText.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/reStructuredText/reStructuredText.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Encryption.org"
  (filename . "~/Org/Wiki/Computer/Programming/Implements/Encryption/Encryption.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
@@ -587,11 +617,6 @@
  (front-context-string . "* Intro\n\n*Nim* (")
  (rear-context-string)
  (position . 1))
-("RubyMotion"
- (filename . "~/Org/Wiki/Computer/Systems/iOS/Data/iOS Development/Data/Platforms/RubyMotion/RubyMotion.org")
- (front-context-string)
- (rear-context-string)
- (position . 1))
 ("HTML5"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/HTML/HTML5/HTML5.org")
  (front-context-string . "* Intro\n\n\n* Data")
@@ -955,11 +980,6 @@
 ("Science (Org)"
  (filename . "~/Org/Wiki/Science/Science.org")
  (front-context-string . "* Science and Te")
- (rear-context-string)
- (position . 1))
-("Game Theory (Org)"
- (filename . "~/Org/Wiki/Game Theory/Game Theory.org")
- (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
 ("Management (Org)"
