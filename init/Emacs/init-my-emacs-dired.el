@@ -21,6 +21,10 @@
 
 (define-key dired-mode-map (kbd "g") 'dired-do-redisplay)
 
+;; ignore specific files
+(dired-omit-mode 1)
+;; (setq dired-omit-files )
+
 ;; `dired-do-shell-command' does not know (by default) how to handle some
 ;; filetypes.
 (setq dired-guess-shell-alist-user
