@@ -41,7 +41,7 @@
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (with-selected-frame
-                    (load-theme 'solarized-dark t)))))
+                    (load-theme 'doom-one t)))))
 
 
 ;;; [ color-theme-solarized ]
