@@ -213,8 +213,9 @@
                (process-live-p (get-process cider-connection-process))
                (process-live-p (get-process cider-server-process))
                (get-buffer cider-clojure-repl)
-               (get-buffer cider-cljs-repl)
+               ;; (get-buffer cider-cljs-repl)
                )
+        
         (message "CIDER REPL buffer not available. starting a new one now...")
 
         (cider-jack-in)
