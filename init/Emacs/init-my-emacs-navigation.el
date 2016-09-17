@@ -149,7 +149,11 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 ;;; [ Imenu ]
 
-(global-set-key (kbd "C-x j") 'imenu)
+(use-package imenu
+  :ensure t
+  :config
+  (global-set-key (kbd "C-x j") 'imenu)
+  )
 
 
 ;;; [ popup-imenu ]
