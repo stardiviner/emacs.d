@@ -13,7 +13,9 @@
 
 
 (use-package org
-  :ensure t)
+  :ensure t
+  :mode (("\\.org$" . org-mode))
+  )
 (use-package org-plus-contrib
   :ensure t)
 
