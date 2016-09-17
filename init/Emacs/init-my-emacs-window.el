@@ -562,6 +562,9 @@
   ;; TeX/LaTeX (AUCTeX)
   ;; (push '(TeX-output-mode :position bottom :height 10) popwin:special-display-config)
   (push '("*TeX Help*" :position bottom :height 8 :noselect nil) popwin:special-display-config)
+  ;; auctex [C-c =] outline view.
+  (push '(reftex-toc-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
+  (push '("*toc*" :position bottom :height 8 :noselect nil) popwin:special-display-config)
 
   ;; Database: edbi
   ;; (push '("*edbi-dialog-ds*" :position bottom :height 8) popwin:special-display-config)
