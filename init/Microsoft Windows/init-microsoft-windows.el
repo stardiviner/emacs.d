@@ -7,9 +7,20 @@
 
 ;;; Code:
 ;;; ----------------------------------------------------------------------------
+;;; [ dos ] -- major mode for editing DOS scripts.
 
+;; (use-package dos
+;;   :ensure t)
 
+;;; [ bat-mode ] -- major mode for editing DOS/Windows scripts.
 
+;; (use-package bat-mode
+;;   :ensure t)
+
+;;; [ batch-mode ] --
+
+;; (use-package batch-mode
+;;   :ensure t)
 
 ;;; ----------------------------------------------------------------------------
 
