@@ -82,11 +82,12 @@
   ;; in some modes which use auto-complete)
   ;;
   ;; (global-set-key (kbd "<tab>") 'company-indent-or-complete-common)
-  ;; (global-set-key (kbd "<tab>") 'company-complete)
-  ;; (global-set-key (kbd "TAB") 'company-complete)
-  ;; (global-set-key [tab] 'company-complete)
-  ;; (global-set-key (kbd "M-<tab>") 'company-complete)
-  ;; (global-set-key (kbd "C-M-i") 'company-complete)
+  ;; (define-key company-mode-map (kbd "<tab>") 'company-complete)
+  ;; (define-key company-mode-map (kbd "TAB") 'company-complete)
+  ;; (define-key company-mode-map [tab] 'company-complete)
+  
+  (define-key company-mode-map (kbd "C-M-i") 'company-complete)
+  (define-key company-mode-map (kbd "M-<tab>") 'company-complete)
 
   ;; yasnippet
   ;; `yas-expand', `yas-expand-from-trigger-key'
