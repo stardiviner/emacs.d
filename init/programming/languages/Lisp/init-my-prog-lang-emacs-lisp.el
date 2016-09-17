@@ -77,7 +77,6 @@
 
 (add-hook 'ielm-mode-hook
           (lambda ()
-            (elisp-slime-nav-mode 1)
             (my-company-add-backend-locally 'company-elisp)
             ))
 
