@@ -207,6 +207,17 @@ character(s), in which case it deletes the space(s) first."
               (reftex-isearch-minor-mode)))
   )
 
+
+;;; [ SyncTeX ] -- navigate from the source document to the typeset material and vice versa.
+
+;; (add-hook 'LaTeX-mode-hook
+;;           (lambda ()
+;;             (setq TeX-PDF-mode t)
+;;             (setq TeX-source-correlate-method 'synctex)
+;;             (setq TeX-source-correlate-start-server t))
+;;           )
+
+
 ;;; [ CDLaTeX ] -- Fast input methods for LaTeX environments and math.
 
 (use-package cdlatex
