@@ -18,11 +18,6 @@
   
   (add-hook 'haskell-mode-hook
             '(lambda ()
-               ;; indent
-               (turn-on-haskell-indent) ; `intelligent' Haskell indentation mode
-               (aggressive-indent-mode -1)
-               ;; doc
-               (turn-on-haskell-doc-mode)
                ))
 
   
