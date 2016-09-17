@@ -59,6 +59,13 @@
 ;;         ))
 
 
+;;; ASCII Art
+
+(add-hook 'after-init-hook
+          (lambda ()
+            (shell-command "figlet 'Emacs'")))
+
+
 
 ;; replace initial/scratch buffer with our primary `.org' file
 (setq my-org-special-directory (expand-file-name "~/Org"))
