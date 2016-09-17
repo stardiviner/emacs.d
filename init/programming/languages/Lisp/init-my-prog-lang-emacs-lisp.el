@@ -31,19 +31,21 @@
             t))
 
 ;; Emacs Lisp hook
-(add-hook 'emacs-lisp-mode-hook
-          (lambda ()
-            (rainbow-mode 1)
-            (turn-on-eldoc-mode)
-            
-            (my-recompile-elc-on-save)
+(defun my-emacs-lisp-setup ()
+  (interactive)
+  (rainbow-mode 1)
+  (turn-on-eldoc-mode)
+  
+  (my-recompile-elc-on-save)
 
-            ;; company-elisp
-            (my-company-add-backend-locally 'company-elisp)
-            (setq company-elisp-detect-function-context t
-                  company-elisp-show-locals-first t
-                  )
-            ))
+  ;; company-elisp
+  (my-company-add-backend-locally 'company-elisp)
+  (setq company-elisp-detect-function-context t
+        company-elisp-show-locals-first t
+        )
+  )
+
+(add-hook 'emacs-lisp-mode-hook 'my-emacs-lisp-setup)
 
 (add-to-list 'auto-mode-alist '("Cask\\'" . emacs-lisp-mode))
 
