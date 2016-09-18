@@ -7,6 +7,12 @@
 
 ;;; Code:
 
+;;; [ magithub ] -- Magit interfaces for GitHub.
+
+(use-package magithub
+  :ensure t)
+
+
 ;;; [ magit-gh-pulls ] -- conveniently manipulate Github’s pull requests
 
 (use-package magit-gh-pulls
