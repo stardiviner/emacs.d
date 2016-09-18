@@ -175,6 +175,11 @@
   )
 
 
+;;; [ xwidget-webkit ]
+
+(define-key browser-prefix (kbd "C-b") 'xwidget-webkit-browse-url)
+
+
 ;;; global keybindings
 
 (if (featurep 'eww)
