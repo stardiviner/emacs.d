@@ -242,7 +242,7 @@
 
    ;; `ejc-sql' connection name
    (:eval
-    (when (and ejc-sql-mode
+    (when (and (bound-and-true-p ejc-sql-mode)
                (bound-and-true-p ejc-connection-name))
       (propertize (format "%s" ejc-connection-name)
                   'face '(:foreground "green"))))
@@ -493,8 +493,7 @@
                 face (:foreground "red" :weight bold))
    ;; workgroups2
    (:eval
-    (if (and (boundp 'workgroups-mode)
-             workgroups-mode)
+    (if (bound-and-true-p workgroups-mode)
         (list
          (propertize "wg:"
                      'face '(:foreground "dim gray" :height 75))
@@ -506,8 +505,7 @@
                 face (:foreground "red"))
    ;; projectile
    (:eval
-    (if (and (boundp 'projectile-mode)
-             projectile-mode)
+    (if (bound-and-true-p projectile-mode)
         (list
          (propertize "P: "
                      'face '(:foreground "dim gray" :height 75))
