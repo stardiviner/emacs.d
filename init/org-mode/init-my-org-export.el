@@ -128,6 +128,8 @@
   (define-prefix-command 'paste-prefix))
 (define-key paste-prefix (kbd "m") 'my-org-md-convert-region-to-md)
 
+(require 'ox-md)
+
 (defun my-org-md-convert-region-to-md ()
   "convert selected region to Markdown and copy to clipboard for
 pasting on sites like GitHub, and Stack Overflow."
