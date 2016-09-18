@@ -76,39 +76,43 @@
 
 ;;; [ IELM (ELISP interactive) ] -- an REPL for emacs. (Read-Eval-Print-Loop)
 
-(setq ielm-dynamic-return t)
+(use-package ielm
+  :ensure t
+  :config
+  (setq ielm-dynamic-return t)
 
-(add-hook 'ielm-mode-hook #'my-lisp-repl-common-settings)
+  (add-hook 'ielm-mode-hook #'my-lisp-repl-common-settings)
 
-(add-hook 'ielm-mode-hook
-          (lambda ()
-            (my-company-add-backend-locally 'company-elisp)
-            ))
+  (add-hook 'ielm-mode-hook
+            (lambda ()
+              (my-company-add-backend-locally 'company-elisp)
+              ))
 
-(unless (boundp 'my-prog-inferior-map)
-  (define-prefix-command 'my-prog-inferior-map))
-(global-set-key (kbd "C-c i") 'my-prog-inferior-map)
+  (unless (boundp 'my-prog-inferior-map)
+    (define-prefix-command 'my-prog-inferior-map))
+  (global-set-key (kbd "C-c i") 'my-prog-inferior-map)
 
-(unless (boundp 'my-inferior-lisp-map)
-  (define-prefix-command 'my-inferior-lisp-map))
-(define-key my-prog-inferior-map (kbd "l") 'my-inferior-lisp-map)
+  (unless (boundp 'my-inferior-lisp-map)
+    (define-prefix-command 'my-inferior-lisp-map))
+  (define-key my-prog-inferior-map (kbd "l") 'my-inferior-lisp-map)
 
-(defun my-ielm-start-or-switch ()
-  "Start IELM or switch to its buffer if it already exist."
-  (interactive)
-  (let ((default-directory (getenv "HOME")))
-    (my-func/open-and-switch-to-buffer 'ielm "*ielm*" t)))
+  (defun my-ielm-start-or-switch ()
+    "Start IELM or switch to its buffer if it already exist."
+    (interactive)
+    (let ((default-directory (getenv "HOME")))
+      (my-func/open-and-switch-to-buffer 'ielm "*ielm*" t)))
 
-(define-key my-inferior-lisp-map (kbd "e") 'my-ielm-start-or-switch)
+  (define-key my-inferior-lisp-map (kbd "e") 'my-ielm-start-or-switch)
 
-(defun my-scratch-start-or-switch ()
-  "Start IELM or switch to its buffer if it already exist."
-  (interactive)
-  ;; (switch-to-buffer "*scratch*")
-  (popwin:display-buffer "*scratch*")
+  (defun my-scratch-start-or-switch ()
+    "Start IELM or switch to its buffer if it already exist."
+    (interactive)
+    ;; (switch-to-buffer "*scratch*")
+    (popwin:display-buffer "*scratch*")
+    )
+
+  (define-key my-inferior-lisp-map (kbd "k") 'my-scratch-start-or-switch)
   )
-
-(define-key my-inferior-lisp-map (kbd "k") 'my-scratch-start-or-switch)
 
 
 ;;; eval-result-overlays in Emacs-Lisp.
