@@ -33,6 +33,10 @@
         "cl-lookup-ppcre"          ; e.g. cl-ppcre:parse-tree-synonym
         ))
 
+(add-hook 'lisp-mode-hook #'my-lisp-common-settings)
+(add-hook 'lisp-interaction-mode-hook #'my-lisp-repl-common-settings)
+(add-hook 'common-lisp-mode-hook #'my-lisp-common-settings)
+
 
 ;;; [ SBCL ]
 

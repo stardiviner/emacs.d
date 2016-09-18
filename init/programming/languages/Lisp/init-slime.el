@@ -42,6 +42,8 @@
         slime-enable-evaluate-in-emacs t)
 
   (setq slime-auto-start 'always)
+
+  (add-hook 'slime-repl-mode-hook #'my-lisp-repl-common-settings)
   
   ;; (add-hook 'slime-load-hook
   ;;           #'(lambda ()

@@ -32,6 +32,8 @@
   ;;                      ))
   (sly-setup sly-contribs)
 
+  (add-hook 'sly-mrepl-mode-hook #'my-lisp-repl-common-settings)
+
   (dolist (hook '(sly-mode-hook
                   sly-mrepl-mode-hook
                   lisp-mode-hook

@@ -12,12 +12,14 @@
 (use-package clojure-mode
   :ensure t
   :config
+  (add-hook 'clojure-mode-hook #'my-lisp-common-settings)
+  ;; (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
   ;; `subword-mode' is quite useful since we often have to deal with Java class
   ;; and method names.
   (add-hook 'clojure-mode-hook #'subword-mode)
-  (add-hook 'clojure-mode-hook #'eldoc-mode)
-  ;; (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
 
+  (add-hook 'clojure-repl-mode-hook #'my-lisp-repl-common-settings)
+  
   
   (eval-after-load 'clojure-mode
     '(font-lock-add-keywords

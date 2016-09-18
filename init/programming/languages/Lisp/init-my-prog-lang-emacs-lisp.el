@@ -31,11 +31,12 @@
             t))
 
 ;; Emacs Lisp hook
+(add-hook 'emacs-lisp-mode-hook #'my-lisp-common-settings)
+
+(add-hook 'inferior-emacs-lisp-mode-hook #'my-lisp-repl-common-settings)
+
 (defun my-emacs-lisp-setup ()
   (interactive)
-  (rainbow-mode 1)
-  (turn-on-eldoc-mode)
-  
   (my-recompile-elc-on-save)
 
   ;; company-elisp
@@ -76,6 +77,8 @@
 ;;; [ IELM (ELISP interactive) ] -- an REPL for emacs. (Read-Eval-Print-Loop)
 
 (setq ielm-dynamic-return t)
+
+(add-hook 'ielm-mode-hook #'my-lisp-repl-common-settings)
 
 (add-hook 'ielm-mode-hook
           (lambda ()

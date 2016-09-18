@@ -6,32 +6,6 @@
 
 ;;; [ Lisp ]
 
-(defvar lisp-dialects-mode
-  '(emacs-lisp-mode
-    inferior-emacs-lisp-mode
-    ielm-mode
-
-    ;; Common Lisp
-    lisp-mode ; <- common-lisp-mode
-    lisp-interaction-mode
-    ;; common-lisp-lisp-mode(-hook)
-    inferior-emacs-lisp-mode
-    ;; slime-repl-mode
-    ;; sly-mrepl-mode
-
-    ;; Scheme
-    scheme-mode
-    ;; geiser
-
-    ;; Clojure
-    clojure-mode
-    inferior-clojure-mode
-    inf-clojure-mode
-    ;; cider-mode
-    cider-repl-mode
-    cider-interaction-mode
-    ))
-
 ;;; Common Settings for All Lisp dialects
 (use-package paredit
   :ensure t)
@@ -41,10 +15,21 @@
   :ensure t)
 (use-package hl-sexp
   :ensure t)
-(hook-modes lisp-dialects-mode
+
+(defun my-lisp-common-settings ()
+  "Common settings for all Lisp dialects."
+  (interactive)
   (rainbow-delimiters-mode 1)
   (paredit-mode 1)
   ;; (smartparens-strict-mode 1)
+  (hl-sexp-mode 1)
+  (eldoc-mode 1)
+  )
+
+(defun my-lisp-repl-common-settings ()
+  "Common settings for all Lisp dialects REPL."
+  (interactive)
+  (rainbow-delimiters-mode 1)
   (hl-sexp-mode 1)
   (eldoc-mode 1)
   )
@@ -99,12 +84,9 @@
   (rainbow-delimiters-mode t)
   ;; 1. global
   ;; (global-rainbow-delimiters-mode)
-  ;; 2. enable in all Lisp dialects modes
-  ;; (hook-modes lisp-dialects-mode
-  ;;   (rainbow-delimiters-mode-enable))
-  ;; 3.. enable in all programming-related modes
+  ;; 2.. enable in all programming-related modes
   ;; (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-  ;; 4. enable in specific modes
+  ;; 3. enable in specific modes
   (dolist (hook '(ruby-mode-hook
                   enh-ruby-mode-hook
                   ))

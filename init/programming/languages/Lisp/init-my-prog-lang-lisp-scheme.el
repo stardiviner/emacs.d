@@ -17,6 +17,8 @@
 (with-eval-after-load 'scheme
   (define-key scheme-mode-map (kbd "C-c C-s") 'run-scheme))
 
+(add-hook 'scheme-mode-hook #'my-lisp-common-settings)
+
 ;; auto run `run-scheme' for scheme buffer.
 (defun run-scheme-auto-create ()
   "Auto run `run-scheme' when not running."
