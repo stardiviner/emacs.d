@@ -180,6 +180,17 @@
 ;;   )
 
 
+;;; [ conda ] -- work with your conda environments.
+
+(use-package conda
+  :ensure t
+  :config
+  ;; (conda-env-initialize-interactive-shells)
+  (conda-env-initialize-eshell)
+  (conda-env-autoactivate-mode t)
+  )
+
+
 ;;; [ IPython ]
 
 
