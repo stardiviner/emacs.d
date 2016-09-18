@@ -65,30 +65,30 @@
 
 ;;; [ meghanada ] -- A New Java Develop Environment for Emacs.
 
-(add-to-list 'load-path (concat (getenv "HOME") "/Code/Emacs/meghanada-emacs/"))
+(use-package meghanada
+  :ensure t
+  :config
+  (setq meghanada-auto-start t
+        meghanada-debug t
+        meghanada-use-company nil
+        meghanada-use-flycheck t)
 
-(require 'meghanada)
+  (add-hook 'java-mode-hook #'meghanada-mode)
 
-(setq meghanada-auto-start t
-      meghanada-debug t
-      meghanada-use-company nil
-      meghanada-use-flycheck t)
+  (defun my-meghanada-settings ()
+    (interactive)
+    ;; (if (not (meghanada-alive-p))
+    ;;     (warn "meghanada not started."))
 
-(add-hook 'java-mode-hook #'meghanada-mode)
+    (my-company-add-backend-locally 'company-meghanada)
 
-(defun my-meghanada-settings ()
-  (interactive)
-  ;; (if (not (meghanada-alive-p))
-  ;;     (warn "meghanada not started."))
+    ;; auto parse source code file after save buffer.
+    ;; `meghanada-server' already implemented this.
+    (add-hook 'after-save-hook #'meghanada-parse-file)
+    )
 
-  (my-company-add-backend-locally 'company-meghanada)
-
-  ;; auto parse source code file after save buffer.
-  ;; `meghanada-server' already implemented this.
-  (add-hook 'after-save-hook #'meghanada-parse-file)
+  (add-hook 'meghanada-mode-hook 'my-meghanada-settings)
   )
-
-(add-hook 'meghanada-mode-hook 'my-meghanada-settings)
 
 
 ;;; [ malabar-mode ] -- JVM Integration for Java and other JVM based languages.
