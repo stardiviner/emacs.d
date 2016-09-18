@@ -137,7 +137,8 @@ pasting on sites like GitHub, and Stack Overflow."
   (unless (org-region-active-p) (user-error "No active region to replace"))
   (x-set-selection 'CLIPBOARD
                    (org-export-string-as
-                    (buffer-substring (region-beginning) (region-end)) 'md t)))
+                    (buffer-substring (region-beginning) (region-end)) 'md t))
+  (deactivate-mark))
 
 
 ;;; email org-mode region/buffer
