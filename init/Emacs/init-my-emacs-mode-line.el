@@ -203,6 +203,12 @@
                        'face '(:foreground "orange" :height 80))))
       ))
 
+   ;; conda
+   (:eval
+    (if (bound-and-true-p conda-env-current-name)
+        (propertize (format "[%s]" conda-env-current-name)
+                    'face '(:foreground "dark orange" :height 80))))
+
    ;; Clojure - CIDER
    (:eval
     (when (and
