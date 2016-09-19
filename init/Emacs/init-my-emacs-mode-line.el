@@ -162,7 +162,12 @@
 
    ;; buffer encoding
    (:eval
-    (if (not (memq buffer-file-coding-system '(utf-8 utf-8-unix prefer-utf-8-unix)))
+    (if (not (memq buffer-file-coding-system
+                   '(utf-8
+                     utf-8-unix
+                     prefer-utf-8-unix
+                     undecided-unix ; TODO: remove in future
+                     )))
         (progn
           (list
            (propertize (format "[%s]" (symbol-name buffer-file-coding-system))
