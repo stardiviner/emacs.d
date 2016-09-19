@@ -13,6 +13,9 @@
 
 (require 'sclang)
 
+(setq sclang-extension-path '("/usr/share/SuperCollider/Extensions"
+                              "~/.local/share/SuperCollider/Extensions"))
+
 ;;; Sclang Interface
 (setq sclang-auto-scroll-post-buffer t
       sclang-show-workspace-on-startup nil
