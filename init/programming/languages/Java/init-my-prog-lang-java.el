@@ -68,7 +68,8 @@
 (use-package meghanada
   :ensure t
   :config
-  (setq meghanada-server-install-dir (locate-user-emacs-file "meghanada/")
+  (setq meghanada-server-install-dir (locate-user-emacs-file
+                                      "init/extra/meghanada/")
         meghanada-auto-start t
         meghanada-debug t
         meghanada-use-company nil
