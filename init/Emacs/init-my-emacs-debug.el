@@ -186,13 +186,11 @@
   ;; (setq edebug-x-stop-point-overlay nil)
 
   (set-face-attribute 'hi-edebug-x-stop nil
-		      :background "SaddleBrown"
-		      ;; :background (color-darken-name (face-background 'default) 6)
-		      )
+                      :background "SaddleBrown"
+                      )
   (set-face-attribute 'hi-edebug-x-debug-line nil
-		      :background "dark slate gray"
-		      ;; :background (color-darken-name (face-background 'default) 4)
-		      )
+                      :background "dark slate gray"
+                      )
   )
 
 
