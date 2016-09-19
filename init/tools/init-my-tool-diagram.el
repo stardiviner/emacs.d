@@ -80,6 +80,15 @@
   )
 
 
+;;; [ plantuml-mode ] -- Major mode for PlantUML.
+
+(use-package plantuml-mode
+  :ensure t
+  :init
+  (setq plantuml-jar-path (locate-user-emacs-file "init/extra/plantuml.jar"))
+  )
+
+
 
 (provide 'init-my-tool-diagram)
 
