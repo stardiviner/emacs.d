@@ -10,7 +10,10 @@
 ;;; [ yaml-mode ]
 
 (use-package yaml-mode
-  :ensure t)
+  :ensure t
+  :config
+  (setq yaml-indent-offset 4)
+  )
 
 
 (provide 'init-my-prog-lang-yaml)
