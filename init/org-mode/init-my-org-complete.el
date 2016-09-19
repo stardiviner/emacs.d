@@ -17,18 +17,20 @@
 
 ;;; add Org-mode's `capf' default to `pcomplete' for `company-mode'.
 
-(add-hook 'org-mode-hook
-          (lambda ()
-            (setq-local completion-at-point-functions
-                        '(pcomplete-completions-at-point t))
+(defun my-org-mode-completion-setting ()
+  (setq-local completion-at-point-functions
+              '(pcomplete-completions-at-point t))
 
-            (make-local-variable 'company-backends)
-            (setq company-backends '(company-files
-                                     company-capf :with company-yasnippet
-                                     company-dabbrev-code company-abbrev
-                                     ;; company-ispell
-                                     ))
-            ))
+  (make-local-variable 'company-backends)
+  (setq company-backends '(company-files
+                           (company-capf :with company-yasnippet)
+                           company-dabbrev-code company-abbrev
+                           company-keywords
+                           ;; company-ispell
+                           ))
+  )
+
+(add-hook 'org-mode-hook #'my-org-mode-completion-setting)
 
 
 ;;; [ company-math ]
