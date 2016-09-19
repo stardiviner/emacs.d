@@ -26,6 +26,12 @@
 
 ;;; Sclang minor mode
 
+;;; company-mode for SuperCollider
+(add-hook 'sclang-mode-hook
+          (lambda ()
+            (make-local-variable completion-at-point-functions)
+            (setq completion-at-point-functions '(sclang-complete-symbol t))))
+
 
 ;;; [ sclang-extensions ] -- A collection of minor modes that improve your SuperCollider experience within Emacs.
 
