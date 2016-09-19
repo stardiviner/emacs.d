@@ -49,13 +49,13 @@
   (setq-default company-backends
                 '(company-files         ; files & directory
                   ;; company-gtags company-etags
-                  company-keywords      ; keywords
-                  ;; company-tempo                 ; tempo: flexible template insertion
+                  ;; company-tempo         ; tempo: flexible template insertion
                   (company-capf         ; `completion-at-point-functions'
                    :with
                    company-yasnippet)
                   company-dabbrev-code  ; company-dabbrev
                   company-abbrev
+                  company-keywords      ; keywords
                   )
                 )
 
