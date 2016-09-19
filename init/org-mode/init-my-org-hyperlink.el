@@ -17,6 +17,9 @@
       org-link-file-path-type 'adaptive ; default 'adaptive, 'relative
       )
 
+(define-key org-mode-map (kbd "M-,") 'org-mark-ring-goto)
+;; (define-key org-mode-map (kbd "C-c %") 'org-mark-ring-push)
+
 (setq org-file-apps
       '(;; default
         ;; (auto-mode . emacs)
