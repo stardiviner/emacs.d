@@ -87,7 +87,7 @@
     (add-hook 'after-save-hook #'meghanada-parse-file)
     )
 
-  (add-hook 'meghanada-mode-hook 'my-meghanada-settings)
+  (add-hook 'java-mode-hook 'my-meghanada-settings)
   )
 
 
