@@ -211,46 +211,25 @@
             )
 
   
-  ;; switch to cider-repl buffer.
-  (defun my-cider-launch ()
+  ;; switch to CIDER REPL buffers.
+  (defun my-cider-clojure-repl-switch ()
     (interactive)
-    (let ((cider-connection-process "nrepl-connection")
-          (cider-server-process "nrepl-server")
-          (cider-clojure-repl "*cider-repl localhost*")
-          (cider-cljs-repl "*cider-repl CLJS localhost*"))
-      (unless (and
-               (process-live-p (get-process cider-connection-process))
-               (process-live-p (get-process cider-server-process))
-               (get-buffer cider-clojure-repl)
-               ;; (get-buffer cider-cljs-repl)
-               )
-        
-        (message "CIDER REPL buffer not available. starting a new one now...")
-
+    (let ((cider-clojure-repl-buffer-name "*cider-repl localhost*"))
+      (if (get-buffer cider-clojure-repl-buffer-name)
+          (switch-to-buffer cider-clojure-repl-buffer-name)
         (cider-jack-in)
-
-        
-        ;; ClojureScript REPL
-        ;; (setq cider-cljs-lein-repl
-        ;;       ;; default
-        ;;       ;; "(cemerick.piggieback/cljs-repl (cljs.repl.rhino/repl-env))"
-        ;;       ;; Figwheel-sidecar
-        ;;       "(do (require 'figwheel-sidecar.repl-api) (figwheel-sidecar.repl-api/start-figwheel!) (figwheel-sidecar.repl-api/cljs-repl))"
-        ;;       ;; Weasel
-        ;;       ;; "(do (require 'weasel.repl.websocket) (cemerick.piggieback/cljs-repl (weasel.repl.websocket/repl-env :ip \"127.0.0.1\" :port 9001)))"
-        ;;       )
-        
-        ;; (cider-jack-in-clojurescript)
         )))
-
-
-  (defun my-cider-switch-to ()
+  
+  (defun my-cider-cljs-repl-switch ()
     (interactive)
-    (my-cider-launch)
-    (let ((cider-repl "*cider-repl localhost*"))
-      (switch-to-buffer cider-repl)))
+    (let ((cider-cljs-repl-buffer-name "*cider-repl CLJS localhost*"))
+      (if (get-buffer cider-cljs-repl-buffer-name)
+          (switch-to-buffer cider-cljs-repl-buffer-name)
+        ;; TODO: set variable `cider-cljs-lein-repl'.
+        (cider-jack-in-clojurescript))))
 
-  (define-key clojure-mode-map (kbd "C-c C-s") 'my-cider-switch-to)
+  (define-key clojure-mode-map (kbd "C-c C-s") 'my-cider-clojure-repl-switch)
+  (define-key clojurescript-mode-map (kbd "C-c C-s") 'my-cider-cljs-repl-switch)
   (define-key my-inferior-lisp-map (kbd "c") 'my-cider-switch-to)
   )
 
