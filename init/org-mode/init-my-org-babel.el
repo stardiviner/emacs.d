@@ -189,6 +189,7 @@ This can be useful for snippets to select kernel interactively."
    ;; -- Extra --
    ;; use advice: `org-babel-execute-src-block' to load language support lazily.
    ;; (C++ . t)                            ; C++
+   ;; (D . t)                              ; D
    (R . t)                              ; R
    ;; (go . t)
    (ipython . t)
@@ -316,6 +317,9 @@ This can be useful for snippets to select kernel interactively."
 
 (add-to-list 'org-babel-default-header-args:C
              '(:results . "output"))
+
+;; (add-to-list 'org-babel-default-header-args:C++
+;;              '(:results . "output"))
 
 (add-to-list 'org-babel-default-header-args:js
              '(:results . "output"))
