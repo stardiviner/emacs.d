@@ -26,14 +26,19 @@
 
 ;;; [ auto-insert ]
 
-(require 'autoinsert)
+(use-package autoinsert
+  :ensure t
+  :config
+  ;; (setq auto-insert-query 'function)
+  (setq auto-insert-directory (locate-user-emacs-file "templates/"))
 
-(setq auto-insert t)
-(setq auto-insert-directory "~/.emacs.d/templates/")
-
-(define-auto-insert '("^build\\.xml\\'" . "Java Ant compile file") "build.xml")
-
-(add-hook 'find-file-hook 'auto-insert)
+  (auto-insert-mode 1)
+  
+  ;; templates: `auto-insert-alist'
+  (setq auto-insert-alist nil)
+  (define-auto-insert '("\\.html?$") "default.html")
+  (define-auto-insert '("^build\\.xml\\'" . "Java Ant compile file") "build.xml")
+  )
 
 
 ;;; [ skeleton ]
