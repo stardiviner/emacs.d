@@ -51,6 +51,22 @@
   )
 
 
+;;; [ x-path-walker ] -- navigation for JSON/XML/HTML based on path (imenu like)
+
+(use-package x-path-walker
+  :ensure t
+  :config
+  (dolist (hook '(html-mode-hook
+                  web-mode-hook
+                  nxml-mode-hook
+                  json-mode-hook
+                  ))
+    (add-hook hook
+              (lambda ()
+                (local-set-key (kbd "C-c C-j") 'helm-x-path-walker))))
+  )
+
+
 
 (provide 'init-my-prog-lang-xml)
 
