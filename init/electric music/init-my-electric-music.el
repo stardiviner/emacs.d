@@ -18,6 +18,8 @@
 
 (require 'sclang)
 
+(require 'w3m)
+
 ;; (setq sclang-extension-path '("/usr/share/SuperCollider/Extensions"
 ;;                               "~/.local/share/SuperCollider/Extensions"))
 
