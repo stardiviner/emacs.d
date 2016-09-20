@@ -182,13 +182,14 @@
 
 ;;; [ conda ] -- work with your conda environments.
 
-(use-package conda
-  :ensure t
-  :config
-  ;; (conda-env-initialize-interactive-shells)
-  (conda-env-initialize-eshell)
-  (conda-env-autoactivate-mode t)
-  )
+;; (use-package conda
+;;   :ensure t
+;;   :config
+;;   ;; (setq conda-anaconda-home (concat (getenv "HOME") "/.anaconda3"))
+;;   ;; (conda-env-initialize-interactive-shells)
+;;   (conda-env-initialize-eshell)
+;;   ;; (conda-env-autoactivate-mode t) ; NOTE: this is annoying.
+;;   )
 
 
 ;;; [ IPython ]
