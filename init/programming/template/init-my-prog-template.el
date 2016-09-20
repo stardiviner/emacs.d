@@ -36,8 +36,22 @@
   
   ;; templates: `auto-insert-alist'
   (setq auto-insert-alist nil)
-  (define-auto-insert '("\\.html?$") "default.html")
-  (define-auto-insert '("^build\\.xml\\'" . "Java Ant compile file") "build.xml")
+  ;; (define-auto-insert '("\\.html?$") "default.html")
+  ;; (define-auto-insert '("^build\\.xml\\'" . "Java Ant compile file") "build.xml")
+  
+  ;; combining YASnippet & Auto Insert
+  (defun autoinsert-yas-expand ()
+    "Replace text in yasnippet template."
+    (yas-expand-snippet (buffer-string) (point-min) (point-max)))
+
+  (define-auto-insert "\\.el$" ["default-elisp.el" autoinsert-yas-expand])
+  (define-auto-insert "\\.lisp$" ["default-lisp.lisp" autoinsert-yas-expand])
+  (define-auto-insert "\\.clj$" ["default-clojure.clj" autoinsert-yas-expand])
+  (define-auto-insert "\\.py$" ["default-python.py" autoinsert-yas-expand])
+  (define-auto-insert "\\.rb$" ["default-ruby.rb" autoinsert-yas-expand])
+  (define-auto-insert "\\.c$" ["default-C.c" autoinsert-yas-expand])
+  (define-auto-insert "\\.cpp$" ["default-C++.cpp" autoinsert-yas-expand])
+  (define-auto-insert "\\.java$" ["default-Java.java" autoinsert-yas-expand])
   )
 
 
