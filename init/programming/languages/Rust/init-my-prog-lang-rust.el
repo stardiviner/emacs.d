@@ -17,6 +17,15 @@
         rust-indent-where-clause t
         rust-match-angle-brackets t
         )
+
+  (defun my-rust-basic-settings ()
+    "Some basic settings for Rust."
+    (interactive)
+    (eldoc-mode 1)
+    )
+
+  (add-hook 'rust-mode-hook #'my-rust-basic-settings)
+
   )
 
 
