@@ -32,6 +32,8 @@
 ;;; Sclang mode
 (setq sclang-indent-level 2)
 
+(define-key sclang-mode-map (kbd "C-c C-z") 'sclang-switch-to-post)
+
 ;;; Sclang minor mode
 
 ;;; company-mode for SuperCollider
