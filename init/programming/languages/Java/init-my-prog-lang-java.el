@@ -65,28 +65,28 @@
 
 ;;; [ meghanada ] -- A New Java Develop Environment for Emacs.
 
-(use-package meghanada
-  :ensure t
-  :config
-  (setq meghanada-server-install-dir (locate-user-emacs-file
-                                      "init/extra/meghanada/")
-        meghanada-auto-start t
-        meghanada-debug t
-        meghanada-use-company nil
-        meghanada-use-flycheck t)
-
-  (add-hook 'java-mode-hook #'meghanada-mode)
-
-  (defun my-meghanada-settings ()
-    (interactive)
-    ;; (if (not (meghanada-alive-p))
-    ;;     (warn "meghanada not started."))
-
-    (my-company-add-backend-locally 'company-meghanada)
-    )
-
-  (add-hook 'java-mode-hook 'my-meghanada-settings)
-  )
+;; (use-package meghanada
+;;   :ensure t
+;;   :config
+;;   (setq meghanada-server-install-dir (locate-user-emacs-file
+;;                                       "init/extra/meghanada/")
+;;         meghanada-auto-start t
+;;         meghanada-debug t
+;;         meghanada-use-company nil
+;;         meghanada-use-flycheck t)
+;;
+;;   (add-hook 'java-mode-hook #'meghanada-mode)
+;;
+;;   (defun my-meghanada-settings ()
+;;     (interactive)
+;;     ;; (if (not (meghanada-alive-p))
+;;     ;;     (warn "meghanada not started."))
+;;
+;;     (my-company-add-backend-locally 'company-meghanada)
+;;     )
+;;
+;;   (add-hook 'java-mode-hook 'my-meghanada-settings)
+;;   )
 
 
 ;;; [ malabar-mode ] -- JVM Integration for Java and other JVM based languages.
