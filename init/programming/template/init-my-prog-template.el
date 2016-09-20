@@ -26,7 +26,7 @@
 
 ;;; [ auto-insert ]
 
-(require 'auto-insert)
+(require 'autoinsert)
 
 (setq auto-insert t)
 (setq auto-insert-directory "~/.emacs.d/templates/")
