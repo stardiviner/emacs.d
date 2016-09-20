@@ -18,12 +18,14 @@
 ;;; add Org-mode's `capf' default to `pcomplete' for `company-mode'.
 
 (defun my-org-mode-completion-setting ()
+  "My basic settings for org-mode completion."
+  (interactive)
   (setq-local completion-at-point-functions
               '(pcomplete-completions-at-point t))
 
   (make-local-variable 'company-backends)
   (setq company-backends '(company-files
-                           (company-capf :with company-yasnippet)
+                           company-capf :with company-yasnippet ; NOTE: not grouped in (.. :with ..)
                            company-dabbrev-code company-abbrev
                            company-keywords
                            ;; company-ispell
