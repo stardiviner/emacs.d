@@ -152,10 +152,11 @@
   ;; Java
 
   ;; Enlighten faces
-  (add-hook 'cider-connected-hook
-            (lambda ()
-              (sleep-for 60)
-              (cider-enlighten-mode 1)))
+  ;; TODO: better way to enable
+  ;; (add-hook 'cider-connected-hook
+  ;;           (lambda ()
+  ;;             (sleep-for 60)
+  ;;             (cider-enlighten-mode 1)))
   
   (set-face-attribute 'cider-enlightened-local-face nil
                       :foreground "yellow" :background "#333333"
