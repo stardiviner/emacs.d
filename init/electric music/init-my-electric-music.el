@@ -32,7 +32,17 @@
 ;;; Sclang mode
 (setq sclang-indent-level 2)
 
-(define-key sclang-mode-map (kbd "C-c C-z") 'sclang-switch-to-post)
+(defun my-sclang-mode-define-keybindings ()
+  "Define my custom keybinding for sclang-mode."
+  (interactive)
+  ;; switch between sclang special buffers ([C-c C-z], [C-c C-w])
+  (define-key sclang-mode-map (kbd "C-c C-z") 'sclang-switch-to-post)
+  (define-key sclang-mode-map (kbd "C-c C-w") 'sclang-switch-to-workspace)
+  (define-key sclang-post-buffer-mode-map (kbd "C-c C-z") 'sclang-switch-to-src)
+  (define-key sclang-post-buffer-mode-map (kbd "C-c C-w") 'sclang-switch-to-workspace)
+  )
+
+(add-hook 'sclang-mode-hook #'my-sclang-mode-define-keybindings)
 
 ;;; Sclang minor mode
 
