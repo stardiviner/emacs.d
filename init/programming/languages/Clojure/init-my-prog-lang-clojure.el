@@ -199,6 +199,10 @@
 
   (add-hook 'cider-repl-mode-hook #'subword-mode)
 
+  
+  ;; auto start CIDER jack-in.
+  (add-hook 'after-init-hook #'cider-jack-in)
+
   ;; notify user CIDER is connected.
   (add-hook 'cider-connected-hook
             (lambda ()
@@ -245,10 +249,6 @@
     (my-cider-launch)
     (let ((cider-repl "*cider-repl localhost*"))
       (switch-to-buffer cider-repl)))
-
-  ;; auto start CIDER jack-in.
-  ;; (add-hook 'clojure-mode-hook 'my-cider-launch)
-  (add-hook 'after-init-hook 'my-cider-launch)
 
   (define-key clojure-mode-map (kbd "C-c C-s") 'my-cider-switch-to)
   (define-key my-inferior-lisp-map (kbd "c") 'my-cider-switch-to)
