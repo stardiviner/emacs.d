@@ -13,6 +13,8 @@
 
 (require 'package)
 
+(setq package-menu-async t)
+
 (setq package-user-dir "~/.emacs.d/elpa")
 
 (setq-default package-archives
