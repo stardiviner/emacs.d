@@ -28,17 +28,17 @@
 
 ;;; [ ElScreen ] -- you can have multiple screens (window-configuration).
 
-(use-package elscreen
-  :ensure t
-  :config
-  (setq elscreen-display-screen-number t
-        elscreen-display-tab t
-        elscreen-tab-display-control nil
-        elscreen-tab-display-kill-screen nil
-        )
-  
-  (elscreen-start)
-  )
+;; (use-package elscreen
+;;   :ensure t
+;;   :config
+;;   (setq elscreen-display-screen-number t
+;;         elscreen-display-tab t
+;;         elscreen-tab-display-control nil
+;;         elscreen-tab-display-kill-screen nil
+;;         )
+
+;;   ;; (elscreen-start)
+;;   )
 
 
 (provide 'init-my-emacs-session)
