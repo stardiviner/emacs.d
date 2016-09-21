@@ -18,6 +18,10 @@
 
 ;;; [ EasyPG Assistant ] --- transparent, automatic encryption and decryption.
 
+(require 'pinentry)
+
+(pinentry-start)
+
 (use-package epa
   :init
   (require 'epa-file)
