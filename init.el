@@ -171,6 +171,7 @@
 (require 'init-my-emacs-shell)
 (require 'init-my-emacs-comint)
 (require 'init-my-emacs-subprocess)
+(require 'init-my-emacs-network)
 (require 'init-my-emacs-encrypt)
 (require 'init-my-emacs-xwidget)
 (require 'init-my-emacs-customize)
