@@ -31,6 +31,8 @@
 (eldoc-add-command 'paredit-backward-delete
                    'paredit-close-round)
 
+(global-eldoc-mode t)
+
 
 (provide 'init-my-prog-document-eldoc)
 
