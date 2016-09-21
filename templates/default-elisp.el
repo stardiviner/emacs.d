@@ -1,7 +1,3 @@
-# -*- mode: snippet -*-
-# name: template
-# key: template
-# --
 ;;; ${1:$$(file-name-base)}.el --- $2
 ;;; -*- coding: utf-8 -*-
 
