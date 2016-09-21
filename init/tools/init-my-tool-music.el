@@ -25,6 +25,11 @@
   
   (define-key mpc-mode-map (kbd "l") 'my-mpc-songs-search)
   (define-key mpc-mode-map (kbd "L") 'mpc-songs-kill-search)
+
+  (define-key mpc-mode-map (kbd "y") 'mpc-toggle-single)
+  (define-key mpc-mode-map (kbd "r") 'mpc-toggle-repeat)
+  (define-key mpc-mode-map (kbd "s") 'mpc-toggle-shuffle)
+  (define-key mpc-mode-map (kbd "t") 'mpc-toggle-play)
   
   (define-key my-music-prefix (kbd "M") 'mpc)
   )
