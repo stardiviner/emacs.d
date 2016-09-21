@@ -11,6 +11,8 @@
 
 (require 'sql)
 
+(add-to-list 'same-window-buffer-names "*SQL*")
+
 
 ;;; [ sql-indent]
 
