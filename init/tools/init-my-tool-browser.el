@@ -14,22 +14,20 @@
 (define-key my-tools-prefix (kbd "b") 'browser-prefix)
 
 
-;;; default browser function
+;;; [ browse-url ] -- default browser function
 
 ;; system default browser: (`browser-url-browser-function')
-;; - 'browse-url-generic
-;; - 'browse-url-default-browser
-;; - 'eww-browse-url (EWW)
-;;
-;; - ;; "conkeror" "firefox", "google-chrome-stable", "chromium-browser", "uzbl-tabbed", "luakit", "jumanji", "elinks",
+;; - `browse-url-generic'
+;; - `browse-url-default-browser'
+;; - `browse-url-chrome'
+;; - `browse-url-firefox'
+;; - `browse-url-conkeror'
+;; - `eww-browse-url' (EWW)
+;; - `xwidget-webkit-browse-url'
 
-(setq browse-url-browser-function 'browse-url-default-browser)
+(setq browse-url-browser-function 'browse-url-chrome)
 
-(if (eq browse-url-browser-function 'browse-url-default-browser)
-    (setq browse-url-generic-program (executable-find "google-chrome-stable"))
-  )
 
-
 ;;; custom browser in specific case
 
 (cl-defun my-generic-browser (url cmd-name &rest args)
@@ -43,12 +41,6 @@
      (lambda (process event)
        (when (string= event "finished\n")
          (message "%s process %s" process event))))))
-
-(defun browse-url-conkeror (url &optional _ignore)
-  "Browse URL with conkeror browser."
-  (interactive "sURL: ")
-  (my-generic-browser url "conkeror")
-  )
 
 (defun browse-url-uzbl (url &optional _ignore)
   "Browse URL with uzbl browser."
