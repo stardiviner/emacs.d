@@ -139,6 +139,8 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 (setq scroll-margin 3)
 
+(setq fast-but-imprecise-scrolling t)
+
 
 ;; [ recenter ]
 
