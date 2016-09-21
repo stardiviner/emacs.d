@@ -12,6 +12,10 @@
 (use-package pretty-mode
   :ensure t
   :config
+  (add-to-list 'pretty-supported-modes 'tex-mode)
+  (add-to-list 'pretty-supported-modes 'TeX-mode)
+  (add-to-list 'pretty-supported-modes 'latex-mode)
+  (add-to-list 'pretty-supported-modes 'LaTeX-mode)
   (add-to-list 'pretty-supported-modes 'ruby-mode)
   (add-to-list 'pretty-supported-modes 'enh-ruby-mode)
 
