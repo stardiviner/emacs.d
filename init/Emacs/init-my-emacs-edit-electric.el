@@ -20,7 +20,7 @@
 ;;            c-mode-hook
 ;;            ;; ess-mode-hook
 ;;            ))
-;;   (add-hook hook #'(lambda () (electric-pair-mode t))))
+;;   (add-hook hook #'(lambda () (electric-pair-local-mode t))))
 
 
 ;;; [ skeleton ]
