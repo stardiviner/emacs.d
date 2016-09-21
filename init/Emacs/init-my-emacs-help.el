@@ -11,17 +11,14 @@
 
 ;; (require 'info)
 
-;; (setq Info-directory-list "/usr/share/info/")
-;; (add-to-list 'Info-directory-list (expand-file-name "info/" user-emacs-directory))
+(add-to-list 'Info-directory-list
+             (expand-file-name "info/" user-emacs-directory))
+;; - `Info-default-directory-list'
 
-(setq Info-additional-directory-list (list (expand-file-name "info/" user-emacs-directory)))
+;; let `[s]' search like =isearch= for incremental search.
+(setq Info-isearch-search t)
 
-;; (setq Info-default-directory-list
-;;       (append Info-default-directory-list Info-directory-list))
-
-(setq Info-isearch-search t) ; let `s' search like =isearch= for incremental search.
-
-;; (Info-mode-hook)
+;; - `Info-mode-hook'
 
 
 ;;; [ info+ ]
