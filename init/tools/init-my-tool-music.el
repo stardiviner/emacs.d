@@ -18,7 +18,12 @@
 (use-package mpc
   :ensure t
   :config
-  (define-key mpc-mode-map (kbd "l") 'mpc-songs-search)
+  (defun my-mpc-songs-search ()
+    (interactive)
+    (call-interactively 'mpc-songs-search)
+    (switch-to-buffer-other-window "*MPC-Songs*"))
+  
+  (define-key mpc-mode-map (kbd "l") 'my-mpc-songs-search)
   (define-key mpc-mode-map (kbd "L") 'mpc-songs-kill-search)
   
   (define-key my-music-prefix (kbd "M") 'mpc)
