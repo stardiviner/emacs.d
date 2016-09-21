@@ -221,7 +221,7 @@
 (require 'init-my-tool-paste)
 ;; (require 'init-my-tool-sauron)
 ;; (require 'init-my-tool-irc-erc)
-;; (require 'init-my-tool-music)
+(require 'init-my-tool-music)
 ;; (require 'init-my-tool-subtitle)
 (require 'init-my-tool-screenshot)
 (require 'init-my-tool-screencast)
