@@ -13,6 +13,18 @@
 (define-key my-tools-prefix (kbd "M") 'my-music-prefix)
 
 
+;;; [ MPC ] -- Emacs built-in Music Player
+
+(use-package mpc
+  :ensure t
+  :config
+  (define-key mpc-mode-map (kbd "l") 'mpc-songs-search)
+  (define-key mpc-mode-map (kbd "L") 'mpc-songs-kill-search)
+  
+  (define-key my-music-prefix (kbd "M") 'mpc)
+  )
+
+
 ;;; [ mingus ] -- MPD client
 
 ;;; Usage:
