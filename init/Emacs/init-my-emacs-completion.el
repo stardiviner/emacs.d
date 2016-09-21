@@ -14,8 +14,9 @@
 
 ;; (setq-default completion-at-point-functions
 ;;               '(pcomplete-completions-at-point
-;;                 semantic-completion-at-point-function
-;;                 tags-completion-at-point-function))
+;;                 ;; semantic-completion-at-point-function
+;;                 ;; tags-completion-at-point-function
+;;                 ))
 
 ;; (setq tab-always-indent 'complete)
 ;; (add-to-list 'completion-styles 'initials t)
