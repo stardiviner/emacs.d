@@ -30,6 +30,7 @@
 
 ;; First day of the week
 (setq calendar-week-start-day 1) ; 0:Sunday, 1:Monday
+(setq calendar-weekend-days '(0 6))
 (setq calendar-date-style 'american) ; 'american: month/day/year, 'european: day/month/year, 'iso: year/month/day
 
 
