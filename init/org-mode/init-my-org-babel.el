@@ -675,27 +675,27 @@ This can be useful for snippets to select kernel interactively."
     "Face for Org-mode src blocks")
 
   (defface org-block-emacs-lisp
-    `((t (:background ,(color-darken-name (face-background 'default) 4))))
+    `((t (:background "#3d4451")))
     "Face for elisp src blocks")
 
   (defface org-block-lisp
-    `((t (:background "Darkorchid4")))
+    `((t (:background "#3d4451")))
     "Face for Common Lisp src blockss")
 
   (defface org-block-clojure
-    `((t (:background "Darkorchid4")))
+    `((t (:background "#3d4451")))
     "Face for Clojure blocks")
 
   (defface org-block-scheme
-    `((t (:background "DarkMagenta")))
+    `((t (:background "Darkorchid4")))
     "Face for Scheme src blockss")
 
   (defface org-block-sh
-    `((t (:background "#282828")))
+    `((t (:background "#3d4451")))
     "Face for shell blocks")
 
   (defface org-block-latex
-    `((t (:background "DarkRed")))
+    `((t (:background "#282828")))
     "Face for LaTeX blocks")
   
   (defface org-block-python
