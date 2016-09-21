@@ -36,6 +36,9 @@
         ;; pdf-view-bounding-box-margin 0.05
         pdf-view-use-imagemagick nil
         pdf-view-use-scaling t
+        ;; pdf-view-resize-factor 1.25
+
+        ;; mouse-wheel-follow-mouse t
         )
 
   ;; [ PDF Tools ]
