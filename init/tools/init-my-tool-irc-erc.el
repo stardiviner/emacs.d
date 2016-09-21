@@ -420,10 +420,20 @@
 ;;; Sound
 
 
+;;; ERC auto hide message types.
+
+(setq erc-hide-list '("JOIN" "PART" "QUIT")
+      erc-network-hide-list '(("freenode" "MODE")
+                              ("OFTC" "JOIN" "QUIT"))
+      erc-channel-hide-list '(("#emacs" "QUIT" "JOIN")
+                              ("#erc" "NICK"))
+      )
+
+
 ;;; netsplit -- hide join, quit messages.
 
-(require 'erc-netsplit)
-(erc-netsplit-mode t)
+;; (require 'erc-netsplit)
+;; (erc-netsplit-mode t)
 
 
 ;;; [ org-contacts + ERC ]
