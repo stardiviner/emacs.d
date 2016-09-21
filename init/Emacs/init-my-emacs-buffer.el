@@ -13,7 +13,8 @@
 
 ;; (global-auto-revert-mode)
 (setq global-auto-revert-non-file-buffers nil
-      auto-revert-verbose nil)
+      auto-revert-verbose nil
+      auto-revert-use-notify t)
 
 
 ;;; auto-save visited files
