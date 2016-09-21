@@ -18,15 +18,12 @@
            ielm-mode-hook))
   (add-hook hook 'turn-on-eldoc-mode))
 
-;; (when turn-on-eldoc-mode
-;;   (setq (make-local-variable 'eldoc-documentation-function) 'robe-eldoc))
-
 (set-face-attribute 'eldoc-highlight-function-argument nil
                     :underline t :foreground "cyan"
                     :weight 'bold)
 
 
-;;; ElDoc with most paredit command.
+;;; ElDoc with most `paredit' command.
 ;;; whenever the listed commands are used, ElDoc will automatically refresh the minibuffer.
 (eldoc-add-command 'paredit-backward-delete
                    'paredit-close-round)
