@@ -747,11 +747,11 @@ This can be useful for snippets to select kernel interactively."
     "Face for OCaml blocks")
 
   (defface org-block-sql
-    `((t (:background "DarkCyan")))
+    `((t (:background "#005b5b")))
     "Face for SQL blocks")
 
   (defface org-block-sqlite
-    `((t (:background "DarkCyan")))
+    `((t (:background "#005b5b")))
     "Face for SQLite blocks")
 
   (defface org-block-R
