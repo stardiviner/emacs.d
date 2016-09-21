@@ -230,7 +230,7 @@
 
   (define-key clojure-mode-map (kbd "C-c C-s") 'my-cider-clojure-repl-switch)
   (define-key clojurescript-mode-map (kbd "C-c C-s") 'my-cider-cljs-repl-switch)
-  (define-key my-inferior-lisp-map (kbd "c") 'my-cider-switch-to)
+  (define-key my-inferior-lisp-map (kbd "c") 'my-cider-clojure-repl-switch)
   )
 
 
