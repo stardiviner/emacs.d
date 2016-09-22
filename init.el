@@ -307,6 +307,7 @@
 ;; (require 'init-my-prog-lang-ocaml)
 (require 'init-my-prog-lang-verilog)
 (require 'init-my-prog-lang-assembly)
+(require 'init-my-prog-lang-forth)
 (require 'init-my-prog-lang-HDL)
 
 ;; (require 'init-my-prog-lang-applescript)
