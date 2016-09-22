@@ -13,15 +13,6 @@
   :ensure t)
 
 
-;;; [ magit-gh-pulls ] -- conveniently manipulate Github’s pull requests
-
-(use-package magit-gh-pulls
-  :ensure t
-  :config
-  (add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
-  )
-
-
 ;;; [ magit-gerrit ] -- Magit plugin for Gerrit Code Review
 
 ;;; Usage:
