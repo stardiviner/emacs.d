@@ -15,6 +15,11 @@
 ;; (define-key my-prog-lookup-map (kbd "t") 'my-prog-lookup-tags-map)
 
 
+;;; [ xref ]
+
+(require 'xref)
+
+
 ;;; [ tags settings ]
 
 (setq tags-add-tables t ; always add new tags to tables

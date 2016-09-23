@@ -69,11 +69,6 @@
   )
 
 
-;;; [ xref ]
-
-(require 'xref)
-
-
 ;;; [ IELM (ELISP interactive) ] -- an REPL for emacs. (Read-Eval-Print-Loop)
 
 (use-package ielm
