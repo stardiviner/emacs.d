@@ -19,6 +19,12 @@
 
 (require 'xref)
 
+;; disable the following elements to avoid jump to other window when xref.
+(setq xref-prompt-for-identifier '(not xref-find-definitions
+                                       ;; xref-find-definitions-other-window
+                                       ;; xref-find-definitions-other-frame
+                                       ))
+
 
 ;;; [ tags settings ]
 
