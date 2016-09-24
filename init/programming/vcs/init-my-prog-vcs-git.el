@@ -86,10 +86,6 @@
 (use-package magit
   :ensure t
   :config
-  (with-eval-after-load 'info
-    (info-initialize)
-    (add-to-list 'Info-directory-list "~/.emacs.d/el-get/magit/Documentation/"))
-
   ;; completion
   ;; (setq magit-completing-read-function 'magit-builtin-completing-read)
 
