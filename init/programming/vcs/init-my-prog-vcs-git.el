@@ -257,11 +257,6 @@
 
 ;;; [ magit-gitflow ] -- Git Flow plugin for magit
 
-;;; Usage:
-;;
-;; - [C-f] in magit status buffer and you will be presented with gitflow popup menu.
-;; - All gitflow commands are also accessible through the Magit/Extensions/GitFlow pop-down menu.
-
 (use-package magit-gitflow
   :ensure t
   :config
