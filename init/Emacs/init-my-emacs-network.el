@@ -7,6 +7,9 @@
 
 ;;; Code:
 ;;; ----------------------------------------------------------------------------
+;;; [ Network Security Manager (NSM) ]
+
+;;; - M-x customize `network-security'
 ;;; - `network-security-level'
 
 

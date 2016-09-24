@@ -208,7 +208,7 @@
                        'face '(:foreground "orange" :height 80))))
       ))
 
-   ;; conda
+   ;; conda: `conda-env-current-name'
    (:eval
     (if (bound-and-true-p conda-env-current-name)
         (propertize (format "[%s]" conda-env-current-name)

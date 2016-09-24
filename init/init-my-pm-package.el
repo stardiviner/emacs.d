@@ -32,6 +32,9 @@
 
 (package-initialize)
 
+;; (setq package-enable-at-startup nil)
+;; (package-initialize nil)
+
 
 ;;; [ flycheck-package ]
 

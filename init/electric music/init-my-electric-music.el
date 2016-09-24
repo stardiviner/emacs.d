@@ -72,7 +72,7 @@
   :ensure t
   :config
   (setq sclang-bury-post-on-start? t
-        sclang-run-supercollider-if-not-active? nil
+        sclang-run-supercollider-if-not-active? nil ; run SuperCollider process will mute System sound.
         )
   
   (add-hook 'sclang-mode-hook 'sclang-extensions-mode)

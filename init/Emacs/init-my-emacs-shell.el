@@ -48,6 +48,9 @@
       eshell-highlight-prompt t
       )
 
+;; visual commands
+;; (setq eshell-destroy-buffer-when-process-dies nil)
+
 ;; Eshell-banner
 (setq eshell-banner-message (format "%s %s\nwith Emacs %s on Linux: %s"
                                     (propertize
