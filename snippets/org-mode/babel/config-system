@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-config-system
+# key: babel-config-system
+# group: babel.config
+# --
+#+BEGIN_SRC ${2:conf} :tangle "/sudo::${1:/etc/path/to/file}"
+$0
+#+END_SRC

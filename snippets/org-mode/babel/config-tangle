@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-config-tangle
+# key: babel-config-tangle
+# group: babel.config
+# --
+#+BEGIN_SRC ${2:conf} :tangle "${1:/path/to/file}"
+$0
+#+END_SRC
