@@ -45,24 +45,6 @@
 ;;               (magit-gerrit-remote . "gerrit"))))
 
 
-;;; [ magithub ] -- working with GitHub
-
-;; (require 'magithub)
-
-
-;;; [ github-notifier ]
-
-;; (use-package github-notifier
-;;   :ensure t
-;;   :config
-;;   ;; (setq github-notifier-token "")
-;;   ;; (setq github-notifier-mode-line)
-;;   (setq github-notifier-only-participating t)
-;;   (setq github-notifier-update-interval (* 60 10))
-;;   (github-notifier-mode 1)
-;;   )
-
-
 (provide 'init-my-prog-vcs-git-github)
 
 ;;; init-my-prog-vcs-git-github.el ends here
