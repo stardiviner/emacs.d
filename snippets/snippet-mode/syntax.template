@@ -246,6 +246,10 @@
 # - yas-moving-away-p
 
 # - yas-verify-value
+#
+#     Verify that the current field value is in POSSIBILITIES.
+#
+#  ${1:$$(yas-verify-value '("1" "2" "3"))}
 
 # - ${n:$$(yas-expand-snippet [snippet])}
 #     expand snippet with Emacs Lisp code. So that you can include other snippet
