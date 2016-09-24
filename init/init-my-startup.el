@@ -73,12 +73,12 @@
 ;;; Temporary remove semantic in `python-mode-hook'
 
 ;;; FIXME: temporary solve python+semantic stack issue.
-(defun wisent-python-default-setup ()
-  )
-(add-hook 'after-init-hook
-          (lambda ()
-            (remove-hook 'python-mode-hook 'wisent-python-default-setup)
-            ))
+;; (defun wisent-python-default-setup ()
+;;   )
+;; (add-hook 'after-init-hook
+;;           (lambda ()
+;;             (remove-hook 'python-mode-hook 'wisent-python-default-setup)
+;;             ))
 
 
 
