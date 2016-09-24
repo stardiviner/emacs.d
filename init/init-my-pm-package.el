@@ -36,6 +36,39 @@
 ;; (package-initialize nil)
 
 
+;;; [ use-package ]
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(eval-when-compile
+  (require 'use-package))
+(require 'diminish)                     ; if you use `:diminish'
+(require 'bind-key)                     ; if you use any `:bind' variant
+
+(setq use-package-verbose t
+      use-package-always-ensure nil)
+
+(unless (and (package-installed-p 'let-alist)
+             (package-installed-p 'seq)
+             (package-installed-p 'queue)
+             (package-installed-p 'rainbow-mode)
+             (package-installed-p 'spinner)
+             (package-installed-p 'auctex)
+             )
+  (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
+  (package-refresh-contents)
+  
+  (use-package let-alist :ensure t)
+  (use-package seq :ensure t)
+  (use-package queue :ensure t)
+  (use-package rainbow-mode :ensure t)
+  (use-package spinner :ensure t)
+  (use-package auctex :ensure t)
+  )
+
+
 ;;; [ flycheck-package ]
 
 (use-package flycheck-package
