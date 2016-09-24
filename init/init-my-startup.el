@@ -66,23 +66,8 @@
             (shell-command "figlet 'Emacs'")))
 
 
-
-;; replace initial/scratch buffer with our primary `.org' file
-(setq my-org-special-directory (expand-file-name "~/Org"))
-;; (setq initial-buffer-choice (concat my-org-special-directory "/Tasks.org"))
-
-
 ;;; start Sauron at Emacs startup
 ;; (sauron-start)
-
-
-;;; open Org-Agenda at startup.
-
-;; (org-agenda-list)
-;; or
-;; (org-todo-list t)
-
-;; (setq initial-buffer-choice "*Org Agenda*")
 
 
 ;;; Temporary remove semantic in `python-mode-hook'
