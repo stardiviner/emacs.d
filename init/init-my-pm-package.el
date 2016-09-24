@@ -25,11 +25,6 @@
                 ;; ("gnu" . "https://elpa.gnu.org/packages/")
                 ))
 
-(when (< emacs-major-version 24)
-  ;; For important compatibility libraries like cl-lib
-  (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/")))
-
-
 (package-initialize)
 
 ;; (setq package-enable-at-startup nil)
