@@ -12,18 +12,6 @@
 
 ;; [ git-modes ] -- front end wrapper for vc-git.
 
-;; The git-emacs package implements almost the same functionality, as the git.el
-;; package, but it also has some improvements, mostly in the user interface
-;;
-;; GNU Emacs modes for various Git-related files
-;; Features:
-;; - gitconfig-mode     -- .gitconfig
-;; - gitignore-mode     -- .gitignore
-;; - gitattributes-mode -- .gitattributes
-;;
-;;; Keybindings:
-;; - [C-x g] -- prefix for global git-emacs keybindings.
-
 (use-package gitconfig-mode
   :ensure t)
 (use-package gitattributes-mode
