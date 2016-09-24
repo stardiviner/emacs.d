@@ -10,23 +10,6 @@
 (define-key 'my-prog-vcs-map (kbd "g") 'my-prog-vcs-git-map)
 
 
-;;; [ vc-git ] -- Git support backend
-
-;;; Usage:
-;; - [C-x v] -- prefix for vc-git.
-
-;; (require 'vc-git)
-
-
-;;; [ git.el ] -- front end wrapper for vc-git.
-
-;;; Usage:
-;; - [M-x git-help] -- get help of git.el
-
-;; (use-package git
-;;   :ensure t)
-
-
 ;; [ git-modes ] -- front end wrapper for vc-git.
 
 ;; The git-emacs package implements almost the same functionality, as the git.el
