@@ -37,24 +37,6 @@
              )
 
 
-;;; [ git-emacs ] --- 
-
-;;; The git-emacs package implements almost the same functionality, as the
-;;; git.el package, but it also has some improvements, mostly in the user
-;;; interface.
-
-;; (require 'git-emacs)
-
-;; git-modeline
-
-;;; Usage:
-;; (git--install-state-mark-modeline 'modified)
-;; (git--uninstall-state-mark-modeline)
-;; (git--update-all-state-marks)
-
-;; (setq git-status-modeline-decoration 'git-state-decoration-small-dot)
-
-
 ;;; [ Magit ]
 
 ;; Usage:
