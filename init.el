@@ -174,7 +174,6 @@
 (require 'init-my-tool-blog)
 (require 'init-my-tool-paste)
 (require 'init-my-tool-notify)
-;; (require 'init-my-tool-sauron)
 ;; (require 'init-my-tool-irc-erc)
 (require 'init-my-tool-music)
 ;; (require 'init-my-tool-subtitle)

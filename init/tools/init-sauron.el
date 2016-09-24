@@ -1,4 +1,4 @@
-;;; init-my-tool-sauron.el --- init sauron
+;;; init-sauron.el --- init sauron
 
 ;;; Commentary:
 
@@ -282,6 +282,6 @@
 
 
 
-(provide 'init-my-tool-sauron)
+(provide 'init-sauron)
 
-;;; init-my-tool-sauron.el ends here
+;;; init-sauron.el ends here
