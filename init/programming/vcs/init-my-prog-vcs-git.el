@@ -39,15 +39,6 @@
 
 ;;; [ Magit ]
 
-;; Usage:
-;;
-;; - [M-x magit-status] -- put you in Magit's status buffer.
-;;   - press [?] in `magit-status'. press [q] in [?]help to exit.
-;; - (C-h m in the status buffer) -- Read the short help for magit-mode.
-;; - [C-h f magit RET] -- get Magit help.
-;; - info magit & magit-popup
-;; - [$] :: `magit-process-buffer' :: show git commands output.
-
 (use-package magit
   :ensure t
   :config
