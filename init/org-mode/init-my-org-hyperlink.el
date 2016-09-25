@@ -35,7 +35,8 @@
         ;; CHM
         ("\\.chm\\'" . "kchmviewer %s")
         ;; EPUB
-        ("\\.epub\\'" . "ebook-viewer %s")
+        ("\\.epub\\'" . ereader-mode)
+        ;; ("\\.epub\\'" . "ebook-viewer %s")
         ;; AZW3
         ("\\.azw3\\'" . "ebook-viewer %s")
         ;; mobi
