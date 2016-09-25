@@ -15,6 +15,7 @@
 ;;              (local-set-key (kbd "C-h d d") 'sly-documentation-lookup)
 ;;              ))
 
+(require 'init-my-prog-document-eldoc)
 (require 'init-my-prog-document-info)
 (require 'init-my-prog-document-man)
 ;; (require 'init-my-prog-document-rfc)
