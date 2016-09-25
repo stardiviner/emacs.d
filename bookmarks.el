@@ -2,7 +2,22 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Economy.org"
+(("My Algorithms Reference.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Algorithm/Data/Manuals/My Algorithms Reference/My Algorithms Reference.org")
+ (front-context-string . "* Intro\n\n\n* Form")
+ (rear-context-string)
+ (position . 1))
+("SuperCollider"
+ (filename . "~/Org/Wiki/Computer/Softwares/SuperCollider/SuperCollider.org")
+ (front-context-string . "* Intro\n\nSuperCo")
+ (rear-context-string)
+ (position . 1))
+("YAML"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/YAML/YAML.org")
+ (front-context-string . "* Intro\n\n*YAML A")
+ (rear-context-string)
+ (position . 1))
+("Economy.org"
  (filename . "~/Org/Wiki/Economy/Economy.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
@@ -160,11 +175,6 @@
 ("Data Structures"
  (filename . "~/Org/Wiki/Computer/Programming/Data Structure/Data Structures/Data Structures.org")
  (front-context-string . "* Array, List\n\n*")
- (rear-context-string)
- (position . 1))
-("Algorithms"
- (filename . "~/Org/Wiki/Computer/Programming/Algorithm/Algorithms/Algorithms.org")
- (front-context-string . "* Intro\n\n\n* Type")
  (rear-context-string)
  (position . 1))
 ("Ruby Language Syntax Reference"
@@ -413,10 +423,10 @@
  (rear-context-string)
  (position . 1))
 ("org-capture-last-stored"
- (filename . "~/Org/Capture/Capture.org")
- (front-context-string . "** TODO gpg veri")
- (rear-context-string . "RY: Todo\n:END:\n\n")
- (position . 53))
+ (filename . "~/Org/Diary/Diary.org")
+ (front-context-string . "**** 我已老去的青春\n:PR")
+ (rear-context-string . "09-24 Saturday\n\n")
+ (position . 17681))
 ("My R Language Syntax Reference"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/R/Data/Manuals/My R Language Syntax Reference/My R Language Syntax Reference.org")
  (front-context-string)
