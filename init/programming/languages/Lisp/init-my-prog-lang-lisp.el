@@ -105,11 +105,7 @@
   )
 
 
-;; A quick way to jump to the definition of a function given its key binding
-;; (global-set-key (kbd "C-h K") 'find-function-on-key)
-
-
-;;; [ hl-sexp ]
+;;; [ hl-sexp ] -- highlight the current sexp.
 
 (use-package hl-sexp
   :ensure t
@@ -126,18 +122,6 @@
 
 
 ;;; [ eval-sexp-fu ] -- highlighting the sexps during evaluation in action.
-
-;;; Usage:
-;;
-;;  `eval-sexp-fu-flash-mode'
-;;    Toggle EvalSexpFuFlash mode on or off.
-;;    If this mode is on, some `eval-last-sexp'-ish commands will highlight the sexps during evaluation.
-;;  `turn-on-eval-sexp-fu-flash-mode'
-;;    Unequivocally turn on EvalSexpFuFlash mode
-;;  `eval-sexp-fu-eval-sexp-inner-list'
-;;    Evaluate the list _currently_ pointed at as sexp; print value in minibuffer.
-;;  `eval-sexp-fu-eval-sexp-inner-sexp'
-;;    Evaluate the sexp _currently_ pointed; print value in minibuffer.
 
 (use-package eval-sexp-fu
   :ensure t
