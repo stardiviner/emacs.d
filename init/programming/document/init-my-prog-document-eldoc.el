@@ -31,6 +31,12 @@
 (global-eldoc-mode t)
 
 
+;;; [ suggestion-box ] -- show tooltip on the cursor with convenient information.
+
+(use-package suggestion-box
+  :ensure t)
+
+
 (provide 'init-my-prog-document-eldoc)
 
 ;;; init-my-prog-document-eldoc.el ends here
