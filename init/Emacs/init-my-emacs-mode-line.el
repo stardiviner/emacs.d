@@ -39,6 +39,59 @@
 (defun active ()
   (eq my/mode-line-selected-window (selected-window)))
 
+
+(defvar major-mode-list
+  '(("Elisp" "Emacs" (emacs-lisp-mode inferior-emacs-lisp-mode))
+    ("Lisp" "Common-Lisp" (lisp-mode inferior-lisp-mode slime-repl-mode sly-mrepl-mode))
+    ("Python" "Python" (python-mode))
+    ("Ruby" "Ruby" (ruby-mode enh-ruby-mode))
+    ("C" "C" (c-mode))
+    ("C++" "C++" (c++-mode))
+    ("Go" "Go" (go-mode))
+    ("Swift" "Swift" (swift-mode))
+    ("Rust" "Rust" (rust-mode))
+    ("Java" "Java"(java-mode))
+    ("PHP" "PHP" (php-mode))
+    ("HTML" "HTML" (html-mode web-mode))
+    ("CSS" "CSS" (css-mode))
+    ("JavaScript" "JavaScript" (javascript-mode js-mode js2-mode js3-mode inferior-js-mode))
+    ("Org" "Org" (org-mode))
+    ("TeX/LaTeX" "TeX" (tex-mode latex-mode TeX-mode LaTeX-mode))
+    ("Shell" "Command-Line" (eshell-mode))
+    ("Shell Script" "Shell" (shell-mode sh-mode))
+    ("R" "R" (R-mode ess-mode))
+    ("Julia" "Julia" (julia-mode ess-julia-mode))
+    ("Haskell" "Haskell" (haskell-mode))
+    ("Scala" "Scala" (scala-mode))
+    ("Android" "Android" (android-mode))
+    )
+  "Pairs: [name] [icon-name] [mode-list]."
+  )
+
+(defun major-mode-icon (name mode-list icon-name &optional extra)
+  "Display major mode `NAME' in `MODE-LIST' with `ICON-NAME' with `EXTRA'."
+(defun major-mode-icon (mode-list name icon-name &optional extra)
+  "Display `MODE-LIST' for major mode `NAME' with `ICON-NAME' with `EXTRA'."
+  (if (memq (buffer-local-value 'major-mode (current-buffer))
+            mode-list)
+      (list
+       (propertize
+        name
+        'face (if (active)
+                  '(:family "Segoe Print" :foreground "cyan" :height 80)
+                'mode-line-inactive)
+        'display
+        (let ((icon-path
+               (concat user-emacs-directory "resources/icon/" icon-name ".xpm")))
+          (if (and (active)
+                   (file-exists-p icon-path)
+                   (image-type-available-p 'xpm))
+              (create-image icon-path 'xpm nil :ascent 'center)))
+        )
+       ;; ,extra
+       ))
+  )
+
 ;; load necessary package which will be used later.
 (use-package projectile
   :ensure t
@@ -91,36 +144,40 @@
   (
    ;; active window indicator
    (:eval
-    (if (eq my/mode-line-selected-window (selected-window))
+    (if (active)
         (propertize "▌"
                     'face '(:foreground "yellow")
                     )))
    
    ;; emacsclient indicator
-   (:eval (if (frame-parameter nil 'client)
-              (propertize " あ "
-                          'face '(:foreground "#333333" :background "yellow" :weight bold :height 120)
-                          'help-echo "emacsclient frame")))
+   (:eval
+    (if (frame-parameter nil 'client)
+        (propertize
+         " あ "
+         'face (if (active)
+                   '(:foreground "#333333" :background "yellow" :weight bold)
+                 'mode-line-inactive))))
 
    ;; anzu
-   (:propertize (:eval (anzu--update-mode-line))
-                face (:foreground "cyan" :weight bold
-                                  :box '(:color "cyan")))
+   (:eval
+    (propertize (anzu--update-mode-line)
+                'face '(:foreground "cyan")))
    
    ;; multiple-cursors (mc/)
-   (:eval (if (and 'mc/fake-cursor-p (> (mc/num-cursors) 1)) ; (if 'mc/fake-cursor-p ...)
-              (propertize (format "[%d]" (mc/num-cursors)) ; `mc/mode-line'
-                          'face '(:foreground "firebrick" :background "black")
-                          'help-echo "multiple-cursors")))
+   (:eval
+    (if (and 'mc/fake-cursor-p (> (mc/num-cursors) 1)) ; (if 'mc/fake-cursor-p ...)
+        (propertize (format "[%d]" (mc/num-cursors)) ; `mc/mode-line'
+                    'face '(:foreground "firebrick" :background "black"))))
 
    ;; input method
-   (:eval (if current-input-method-title ; `set-input-method'
-              (propertize (format " {%s}" current-input-method-title)
-                          'face '(:foreground "cyan" :weight bold))))
+   (:eval
+    (if current-input-method-title ; `set-input-method'
+        (propertize (format " {%s}" current-input-method-title)
+                    'face '(:foreground "cyan" :weight bold))))
 
-   ;; mule info
-   (:propertize (" " mode-line-mule-info)
-                face (:foreground "dark gray"))   ; U:[*--]
+   ;; mule info: U:[*--]
+   (:propertize mode-line-mule-info
+                face mode-line-inactive)
    
    ;; Buffer status
    ;; mode-line-client
@@ -156,89 +213,19 @@
                      prefer-utf-8-unix
                      undecided-unix ; TODO: remove in future
                      )))
-        (progn
-          (list
-           (propertize (format "[%s]" (symbol-name buffer-file-coding-system))
-                       'face '(:foreground "red"))))
+        (list
+         (propertize (format "[%s]" (symbol-name buffer-file-coding-system))
+                     'face '(:foreground "red")))
       ))
-   
-   ;; rbenv & rvm
-   (:eval
-    (if (memq (buffer-local-value 'major-mode (current-buffer))
-              '(ruby-mode enh-ruby-mode rhtml-mode))
-        (progn
-          (list
-           (propertize " ("
-                       'face '(:foreground "#444444"))
-           (propertize "Ruby: "
-                       'face '(:family "Segoe Print"
-                                       :height 80
-                                       :foreground "red2"))
-           (propertize (rbenv--active-ruby-version) ; `rbenv--modestring'
-                       'face '(:foreground "cyan" :height 70)
-                       'help-echo '(concat "\nCurrent Ruby version: " (rbenv--active-ruby-version)
-                                           "\nmouse-1: switch Ruby version menu")
-                       )
-           (propertize ")"
-                       'face '(:foreground "#444444"))
-           )
-          )
-      ))
-   
-
-   ;; pyvenv `pyvenv-mode-line-indicator' -> `pyvenv-virtual-env-name'
-   (:eval
-    (if (memq (buffer-local-value 'major-mode (current-buffer))
-              '(python-mode))
-        (progn
-          (list
-           (propertize (format "[%s]" pyvenv-virtual-env-name)
-                       'face '(:foreground "orange" :height 80))))
-      ))
-
-   ;; conda: `conda-env-current-name'
-   (:eval
-    (if (bound-and-true-p conda-env-current-name)
-        (propertize (format "[%s]" conda-env-current-name)
-                    'face '(:foreground "dark orange" :height 80))))
-
-   ;; Clojure - CIDER
-   (:eval
-    (when (and
-           (equal major-mode 'clojure-mode)
-           (not (equal (cider--modeline-info) "not connected")))
-      ;; (propertize (format "CIDER √")
-      ;;             'face '(:foreground "forest green"))
-      ;; (propertize (format "CIDER: %s" (cider--project-name nrepl-project-dir))
-      ;;             'face '(:foreground "forest green"))
-
-      (propertize (format " CIDER: √ ")
-                  'face '(:foreground "forest green")
-                  'display
-                  (let ((clojure-icon (concat user-emacs-directory "resources/icon/" "Clojure.xpm")))
-                    (if (and (file-exists-p clojure-icon)
-                             (image-type-available-p 'xpm))
-                        (create-image clojure-icon 'xpm nil :ascent 'center))))
-      )
-    )
-
-   ;; CIDER project info
-   (:eval
-    (when (and
-           (equal major-mode 'clojure-mode)
-           (not (equal (cider--modeline-info) "not connected")))
-      (propertize (format " %s" (or (cider--project-name nrepl-project-dir)
-                                    ""))
-                  'face '(:foreground "cyan"))
-      )
-    )
 
    ;; `ejc-sql' connection name
    (:eval
     (when (and (bound-and-true-p ejc-sql-mode)
                (bound-and-true-p ejc-connection-name))
       (propertize (format "%s" ejc-connection-name)
-                  'face '(:foreground "green"))))
+                  'face (if (active)
+                            '(:foreground "green")
+                          'mode-line-inactive))))
    
    ;; VCS - Git, SVN, CVS,
    (:eval
@@ -314,27 +301,106 @@
                                  (create-image rails-icon 'xpm nil :ascent 'center))))))
    
    ;; org-tree-slide slide number
+   ;; TODO:
    ;; (:eval
    ;;  (when (org-tree-slide--active-p)
    ;;    (propertize (format "[%s]" org-tree-slide--slide-number)
    ;;                'face '(:foreground "cyan"))))
-   
-   ;; the buffer name; the filename as a tool tip
-   (:propertize " ["
-                face (:foreground "cyan"))
-   (:propertize "%b"
-                face (:foreground "white"
-                                  :height 75)
-                help-echo (buffer-file-name))
-   (:propertize "]"
-                face (:foreground "cyan"))
 
-   ;; flycheck
+   ;; Flycheck
    (:eval
     (if flycheck-current-errors
         (propertize (flycheck-mode-line-status-text)
-                    'face '(:foreground "orange" :height 70))))
+                    'face (if (active)
+                              '(:foreground "orange" :height 70)
+                            'mode-line-inactive))))
+   
+   ;; buffer name
+   (:eval
+    (list
+     (propertize " ["
+                 'face (if (active)
+                           '(:foreground "dim gray")
+                         'mode-line-inactive))
+     (propertize
+      "%b"
+      'face (if (active)
+                '(:foreground "white" :height 75)
+              'mode-line-inactive))
+     (propertize "]"
+                 'face (if (active)
+                           '(:foreground "dim gray")
+                         'mode-line-inactive))
+     ))
 
+   
+   ;; rbenv & rvm
+   (:eval
+    (if (memq (buffer-local-value 'major-mode (current-buffer))
+              '(ruby-mode enh-ruby-mode rhtml-mode))
+        (list
+         (propertize " (" 'face '(:foreground "#444444"))
+         (propertize
+          "Ruby:"
+          'face (if (active)
+                    '(:family "Segoe Print" :foreground "red2" :height 80)
+                  'mode-line-inactive)
+          'display
+          (let ((ruby-icon
+                 (concat user-emacs-directory "resources/icon/" "Ruby.xpm")))
+            (if (and (active)
+                     (file-exists-p ruby-icon)
+                     (image-type-available-p 'xpm))
+                (create-image ruby-icon 'xpm nil :ascent 'center)))
+          )
+         (propertize " ")
+         (propertize
+          (rbenv--active-ruby-version) ; `rbenv--modestring'
+          'face (if (active)
+                    '(:foreground "cyan" :height 70)
+                  'mode-line-inactive)
+          'help-echo '(concat "\nCurrent Ruby version: " (rbenv--active-ruby-version)
+                              "\nmouse-1: switch Ruby version menu")
+          )
+         (propertize ")" 'face '(:foreground "#444444"))
+         )
+      ))
+   
+
+   ;; pyvenv `pyvenv-mode-line-indicator' -> `pyvenv-virtual-env-name'
+   (:eval
+    (if (memq (buffer-local-value 'major-mode (current-buffer))
+              '(python-mode))
+        (list
+         (propertize " (" 'face '(:foreground "#444444"))
+         (propertize
+          "Python:"
+          'face (if (active)
+                    '(:family "Segoe Print" :foreground "red2" :height 80)
+                  'mode-line-inactive)
+          'display
+          (let ((python-icon
+                 (concat user-emacs-directory "resources/icon/" "Python.xpm")))
+            (if (and (active)
+                     (file-exists-p python-icon)
+                     (image-type-available-p 'xpm))
+                (create-image python-icon 'xpm nil :ascent 'center))))
+         (propertize " ")
+         (propertize
+          (format "%s" pyvenv-virtual-env-name)
+          'face (if (active)
+                    '(:foreground "orange" :height 80)
+                  'mode-line-inactive))
+         (propertize ") " 'face '(:foreground "#444444"))
+         )))
+
+   ;; conda: `conda-env-current-name'
+   (:eval
+    (if (bound-and-true-p conda-env-current-name)
+        (propertize (format "[%s]" conda-env-current-name)
+                    'face (if (active)
+                              '(:foreground "dark orange" :height 80)
+                            'mode-line-inactive))))
 
    ;; mmm-mode
 
@@ -358,7 +424,7 @@
    ;; org-timer
    (:eval
     (unless (not org-timer-countdown-timer)
-      (if (eq my/mode-line-selected-window (selected-window))
+      (if (active)
           (propertize (let* ((rtime (decode-time
                                      (time-subtract
                                       (timer--time org-timer-countdown-timer)
@@ -415,7 +481,7 @@
    ;;  (when nyan-mode (list (nyan-create))))
 
    ;; spinner
-   ;; Let spinner support to be used in custom mode-line as a function.
+   ;; TODO: Let spinner support to be used in custom mode-line as a function.
    ;; '(:eval (spinner-start 'minibox))
    ;;
    ;; '(:propertize  (:eval (spinner-start 'minibox))   ; 'spinner--mode-line-construct
@@ -427,44 +493,244 @@
    (:eval
     (list
      (propertize " ("
-                 'face '(:foreground "dark gray"))
+                 'face (if (active)
+                           '(:foreground "dark gray")
+                         'mode-line-inactive))
      (propertize "%02l"
-                 'face '(:foreground "dark gray" :height 75))
+                 'face (if (active)
+                           '(:foreground "dark gray" :height 75)
+                         'mode-line-inactive))
      (propertize ","
-                 'face '(:foreground "dark gray"))
+                 'face (if (active)
+                           '(:foreground "dark gray")
+                         'mode-line-inactive))
      (propertize "%02c"
-                 'face
-                 (if (>= (current-column) 75)
-                     '(:foreground "red" :height 75)
-                   '(:foreground "dark gray" :height 75)))
+                 'face (if (active)
+                           (if (>= (current-column) 75)
+                               '(:foreground "red" :height 75)
+                             '(:foreground "dark gray" :height 75))
+                         'mode-line-inactive))
      (propertize ")"
-                 'face '(:foreground "dark gray"))
-     (propertize "_%03p"
-                 'face '(:foreground "dark gray" :height 75))
+                 'face (if (active)
+                           '(:foreground "dark gray")
+                         'mode-line-inactive))
+     (propertize "_%03p "
+                 'face (if (active)
+                           '(:foreground "dark gray" :height 75)
+                         'mode-line-inactive))
      )
     )
    
-   (:propertize " ["
-                face (:foreground "gray" :weight bold))
    ;; projectile
    (:eval
     (if (bound-and-true-p projectile-mode)
         (list
-         (propertize "P: "
-                     'face '(:foreground "dim gray" :height 75))
+         (propertize " ["
+                     'face 'mode-line-inactive)
+         (propertize "λ: "
+                     'face (if (active)
+                               '(:foreground "dim gray" :height 75)
+                             'mode-line-inactive))
          (propertize (projectile-project-name) ; `projectile-mode-line'
-                     'face '(:foreground "orange" :height 75))
+                     'face (if (active)
+                               '(:foreground "green yellow" :height 75)
+                             'mode-line-inactive))
+         (propertize "] "
+                     'face 'mode-line-inactive)
          )
       ))
-   (:propertize "] "
-                face (:foreground "gray" :weight bold))
+   
 
    ;; the major mode of the current buffer.
    ;; `mode-name', `mode-line-modes', `minor-mode-alist'
-   (:propertize
-    "%m"
-    face (:foreground "cyan"
-                      :family "Comic Sans MS" :weight bold :height 80))
+   ;; (:eval
+   ;;  (propertize
+   ;;   "%m"
+   ;;   'face (if (active)
+   ;;             '(:foreground "cyan"
+   ;;                           :family "Comic Sans MS" :weight bold :height 80)
+   ;;           'mode-line-inactive)))
+
+   
+   ;; Emacs Lisp
+   (:eval
+    (major-mode-icon '(emacs-lisp-mode inferior-emacs-lisp-mode)
+                     "Elisp" "Emacs"))
+
+   ;; Common Lisp
+   (:eval
+    (major-mode-icon '(lisp-mode
+                       inferior-lisp-mode
+                       slime-repl-mode sly-mrepl-mode)
+                     "Lisp" "Common-Lisp"))
+
+   ;; Clojure - CIDER
+   (:eval
+    (when (and (equal major-mode 'clojure-mode)
+               (not (equal (cider--modeline-info) "not connected")))
+      (list
+       (propertize
+        (format " CIDER: √ ")
+        'face (if (active)
+                  '(:foreground "forest green")
+                'mode-line-inactive)
+        'display
+        (let ((clojure-icon
+               (concat user-emacs-directory "resources/icon/" "Clojure.xpm")))
+          (if (and (active)
+                   (file-exists-p clojure-icon)
+                   (image-type-available-p 'xpm))
+              (create-image clojure-icon 'xpm nil :ascent 'center))))
+
+       ;; CIDER project info
+       (propertize (format "%s" (or (cider--project-name nrepl-project-dir)
+                                    " - "))
+                   'face (if (active)
+                             '(:foreground "DarkGreen")
+                           'mode-line-inactive))
+       )))
+
+   ;; ClojureScript
+   (:eval
+    (when (and (equal major-mode 'clojurescript-mode)
+               (not (equal (cider--modeline-info) "not connected")))
+      (list
+       (propertize
+        (format " CIDER: √ ")
+        'face (if (active)
+                  '(:foreground "forest green")
+                'mode-line-inactive)
+        'display
+        (let ((cljs-icon
+               (concat user-emacs-directory "resources/icon/" "ClojureScript.xpm")))
+          (if (and (active)
+                   (file-exists-p cljs-icon)
+                   (image-type-available-p 'xpm))
+              (create-image cljs-icon 'xpm nil :ascent 'center))))
+
+       ;; CIDER project info
+       (propertize (format "%s" (or (cider--project-name nrepl-project-dir) ""))
+                   'face (if (active)
+                             '(:foreground "DarkGreen")
+                           'mode-line-inactive))
+       )))
+   
+   ;; rbenv & rvm
+   (:eval
+    (major-mode-icon
+     '(ruby-mode enh-ruby-mode rhtml-mode)
+     "Ruby" "Ruby"))
+   (:eval
+    (if (memq (buffer-local-value 'major-mode (current-buffer))
+              '(ruby-mode))
+        (list
+         (propertize " ")
+         (propertize
+          (rbenv--active-ruby-version) ; `rbenv--modestring'
+          'face (if (active)
+                    '(:foreground "cyan" :height 70)
+                  'mode-line-inactive)
+          'help-echo '(concat "\nCurrent Ruby version: " (rbenv--active-ruby-version)
+                              "\nmouse-1: switch Ruby version menu")))
+      ))
+
+   ;; pyvenv `pyvenv-mode-line-indicator' -> `pyvenv-virtual-env-name'
+   (:eval
+    (major-mode-icon '(python-mode) "Python" "Python"))
+   (:eval
+    (if (memq (buffer-local-value 'major-mode (current-buffer))
+              '(python-mode))
+        (list
+         (propertize " ")
+         (propertize
+          (format "%s" pyvenv-virtual-env-name)
+          'face (if (active)
+                    '(:foreground "orange" :height 80)
+                  'mode-line-inactive)))
+      ))
+
+   ;; conda: `conda-env-current-name'
+   (:eval
+    (if (bound-and-true-p conda-env-current-name)
+        (propertize (format "[%s]" conda-env-current-name)
+                    'face (if (active)
+                              '(:foreground "dark orange" :height 80)
+                            'mode-line-inactive))))
+
+   ;; C
+   (:eval
+    (major-mode-icon '(c-mode) "C" "C"))
+
+   ;; C++
+   (:eval
+    (major-mode-icon '(c++-mode) "C++" "C++"))
+
+   ;; Go
+   (:eval
+    (major-mode-icon '(go-mode) "Go" "Go"))
+
+   ;; Swift
+   (:eval
+    (major-mode-icon '(swift-mode swift3-mode) "Swift" "Swift"))
+
+   ;; Java
+   (:eval
+    (major-mode-icon '(java-mode) "Java" "Java"))
+
+   ;; PHP
+   (:eval
+    (major-mode-icon '(php-mode) "PHP" "PHP"))
+
+   ;; JavaScript
+   (:eval
+    (major-mode-icon '(javascript-mode js-mode js2-mode js3-mode
+                                       inferior-js-mode)
+                     "JavaScript" "JavaScript"))
+
+   ;; HTML
+   (:eval
+    (major-mode-icon '(html-mode web-mode) "HTML" "HTML"))
+
+   ;; CSS
+   (:eval
+    (major-mode-icon '(css-mode) "CSS" "CSS"))
+
+   ;; Org-mode
+   (:eval
+    (major-mode-icon '(org-mode) "Org" "Org"))
+
+   ;; TeX/LaTeX
+   (:eval
+    (major-mode-icon '(tex-mode latex-mode TeX-mode LaTeX-mode)
+                     "TeX/LaTeX" "TeX"))
+
+   ;; Command-Line
+   (:eval
+    (major-mode-icon '(eshell-mode) "Eshell" "Command-Line"))
+   
+   ;; Shell
+   (:eval
+    (major-mode-icon '(shell-mode sh-mode) "Shell" "Shell"))
+
+   ;; R
+   (:eval
+    (major-mode-icon '(R-mode ess-mode) "R" "R"))
+
+   ;; Julia
+   (:eval
+    (major-mode-icon '(julia-mode ess-julia-mode) "Julia" "Julia"))
+
+   ;; Haskell
+   (:eval
+    (major-mode-icon '(haskell-mode) "Haskell" "Haskell"))
+
+   ;; Scala
+   (:eval
+    (major-mode-icon '(scala-mode) "Scala" "Scala"))
+
+   ;; Android
+   (:eval
+    (major-mode-icon '(android-mode) "Android" "Android"))
    )))
 
 
