@@ -90,35 +90,6 @@
                     'face '(:foreground "yellow")
                     )))
    
-   ;; window-number
-   ;; (:eval (if (fboundp 'window-number-mode)
-   ;;            (propertize (concat "[" (number-to-string (window-number)) "]")
-   ;;                        'face '(:foreground "tomato" :weight bold))))
-
-   ;; ace-window
-   ;; (:eval (window-parameter (selected-window) 'ace-window-path))
-
-   ;; (:propertize "%e"
-   ;;              face (:foreground "red"))
-
-   ;; (:propertize "{/Emacs/}"
-   ;;              face (:foreground "yellow")
-   ;;              help-echo "神之编辑器")
-
-   ;; (:propertize "[牧云笙]"
-   ;;              face (:foreground "#555555")
-   ;;              help-echo "九州 (铁甲依然在 !) ❯ \n 天驱 辰月 ❯ \n 《海上牧云记》 ❯ 牧云笙 \n 《羽传说》 ❯ 暗月 ❯ 向异翅 \n 《缥缈录》 ❯  阿苏勒·帕苏尔")
-   
-   ;; (:eval
-   ;;  (cond
-   ;;   ((string= evil-state 'visual) (propertize "V" 'face '(foreground-color . "orange")))
-   ;;   ((string= evil-state 'normal) (propertize "N" 'face '(foreground-color . "green")))
-   ;;   ((string= evil-state 'motion) "M")
-   ;;   ((string= evil-state 'insert) (propertize "I" 'face '(foreground-color . "red")))
-   ;;   ((string= evil-state 'replace) (propertize "R" 'face '(foreground-color . "red")))
-   ;;   ((string= evil-state 'emacs) (propertize "E" 'face '(foreground-color . "red")))
-   ;;   ((string= evil-state 'operator) (propertize "O" 'face '(foreground-color . "red")))))
-   
    ;; emacsclient indicator
    (:eval (if (frame-parameter nil 'client)
               (propertize " あ "
@@ -337,18 +308,21 @@
                     'face '(:foreground "green yellow" :family "Monospace" :height 75))))
 
    ;; mmm-mode
-   
-   ;; process
+
+
+   ;; process: inferior,
    (:eval
     (if mode-line-process
         (progn
           (list
-           (propertize "  ◌"
-                       'face '(:foreground "cyan" :height 120 :weight bold)
+           (propertize " ◌ "
+                       'face '(:foreground "cyan" :weight bold :height 120)
+                       'help-echo "buffer-process")
+           (propertize mode-line-process
+                       'face '(:foreground "tomato")
                        'help-echo "buffer-process")
            ))))
-
-
+   
    ;; notifications
    ;; IRC
 
@@ -381,26 +355,8 @@
    
    ;; Email
 
-   ;; newsticker RSS new feeds.
-   ;; (:propertize (:eval (let ((unread (or (newsticker--stat-num-items-total 'new) 0)))
-   ;;                       (when (> unread 0)
-   ;;                         (format "RSS: %d" unread)
-   ;;                         )))
-   ;;              face (:foreground "green")
-   ;;              help-echo (format "You have %d unread RSS items! [C-c r]" unread)
-   ;;              mouse-face 'mode-line-highlight)
-
-   ;; ;; add the time, with the date and the emacs uptime in the tool-tip
-   ;; (:propertize (:eval (format-time-string "%H:%M"))
-   ;;              face (:foreground "white")
-   ;;              help-echo (concat (format-time-string "%c; ")
-   ;;                                (emacs-uptime "Uptime: %D, %z%2h:%.2m")))
-   
    ;; fill with ' '.
    ;; (:propertize "% ")
-   
-   ;; `global-mode-string' for many things: org-clock, erc-track,
-   ;; (:eval global-mode-string)
    
    (:propertize mode-line-end-spaces)
    )))
@@ -426,22 +382,6 @@
    (:propertize " "
                 display (space :align-to (- right 55)))
 
-   ;; Mail
-   ;; (:eval
-   ;;  (propertize (let ((mail-files (directory-files display-time-mail-directory t))
-   ;;                    (size 0))
-   ;;                (while (and mail-files (= size 0))
-   ;;                  ;; Count size of regular files only.
-   ;;                  (setq size (+ size (or (and (file-regular-p (car mail-files))
-   ;;                                           (nth 7 (file-attributes (car mail-files))))
-   ;;                                        0)))
-   ;;                  (setq mail-files (cdr mail-files)))
-   ;;                (if (> size 0)
-   ;;                    size
-   ;;                  nil))
-   ;;              'face '(:foreground "deep pink"))
-   ;;  )
-
    ;; nyan-mode
    ;; (:eval
    ;;  (when nyan-mode (list (nyan-create))))
@@ -458,19 +398,6 @@
     (if flycheck-current-errors
         (propertize (flycheck-mode-line-status-text)
                     'face '(:foreground "orange" :height 70))))
-
-   ;; process: inferior,
-   (:eval
-    (if mode-line-process
-        (progn
-          (list
-           (propertize "  ◌"
-                       'face '(:foreground "cyan" :weight bold :height 120)
-                       'help-echo "buffer-process")
-           ;; (propertize mode-line-process
-           ;;             'face '(:foreground "tomato")
-           ;;             'help-echo "buffer-process")
-           ))))
 
    ;; line and column number, relative position
    ;; `mode-line-position'
@@ -494,31 +421,9 @@
                  'face '(:foreground "dark gray" :height 75))
      )
     )
-
-   ;; purpose
-   ;; (:eval
-   ;;  (if purpose-mode
-   ;;      (list
-   ;;       (propertize " ⊞:"
-   ;;                   'face '(:foreground "dark green"))
-   ;;       (propertize (purpose--modeline-string)
-   ;;                   'face '(:foreground "dark green" :height 80))
-   ;;       )))
    
    (:propertize " ["
-                face (:foreground "red" :weight bold))
-   ;; workgroups2
-   (:eval
-    (if (bound-and-true-p workgroups-mode)
-        (list
-         (propertize "wg:"
-                     'face '(:foreground "dim gray" :height 75))
-         (propertize (wg-mode-line-string) ; `wg-mode-line-display-on'
-                     'face '(:foreground "yellow" :height 75))
-         )
-      ))
-   (:propertize " § "
-                face (:foreground "red"))
+                face (:foreground "gray" :weight bold))
    ;; projectile
    (:eval
     (if (bound-and-true-p projectile-mode)
@@ -526,23 +431,19 @@
          (propertize "P: "
                      'face '(:foreground "dim gray" :height 75))
          (propertize (projectile-project-name) ; `projectile-mode-line'
-                     'face '(:foreground "cyan" :height 75))
+                     'face '(:foreground "orange" :height 75))
          )
       ))
    (:propertize "] "
-                face (:foreground "red" :weight bold))
+                face (:foreground "gray" :weight bold))
 
    ;; the major mode of the current buffer.
    ;; `mode-name', `mode-line-modes', `minor-mode-alist'
-   (:propertize "%m"
-                face (:foreground "green"
-                                  :family "Comic Sans MS" :weight bold :height 80
-                                  )
-                )
-
-   ;; 'display-time-string
-   )
-  ))
+   (:propertize
+    "%m"
+    face (:foreground "cyan"
+                      :family "Comic Sans MS" :weight bold :height 80))
+   )))
 
 
 ;; (setq mode-line-in-non-selected-windows t)
