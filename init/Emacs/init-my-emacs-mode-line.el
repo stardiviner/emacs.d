@@ -36,6 +36,9 @@
 
 (add-hook 'buffer-list-update-hook 'my/mode-line-update-all)
 
+(defun active ()
+  (eq my/mode-line-selected-window (selected-window)))
+
 ;; load necessary package which will be used later.
 (use-package projectile
   :ensure t
@@ -51,6 +54,9 @@
 (require 'vc)
 (require 'vc-git)
 (use-package flycheck
+  :ensure t)
+
+(use-package all-the-icons
   :ensure t)
 
 ;; nyan-mode
@@ -235,37 +241,65 @@
                   'face '(:foreground "green"))))
    
    ;; VCS - Git, SVN, CVS,
-   (vc-mode (:eval
-             (propertize
-              vc-mode
-              'face (pcase (vc-state buffer-file-truename)
-                      (`up-to-date '(:foreground "green" :height 75))
-                      (`edited '(:foreground "orange" :height 75))
-                      (`conflict '(:foreground "red"))
-                      (`unregistered '(:foreground "white"))
-                      (_ '(:foreground "gray"))
-                      )
-              )))
+   (:eval
+    (when vc-mode
+      (let* ((backend
+              (substring vc-mode
+                         (+ 2 (length (symbol-name (vc-backend buffer-file-name))))))
+             (state (vc-state buffer-file-name))
+             (ascii (cond ((memq state '(update-to-date))
+                           "✔")
+                          ((memq state '(edited))
+                           "∓")
+                          ((memq state '(added))
+                           "✚")
+                          ((memq state '(removed))
+                           "✖")
+                          ((memq state '(conflict))
+                           "≠")
+                          ((memq state '(needs-merge))
+                           "⌥")
+                          ((memq state '(needs-updated))
+                           "⇧")
+                          ((memq state '(unregistered))
+                           "-")
+                          ((memq state '(missing))
+                           "-")
+                          (nil
+                           "")
+                          ))
+             (face (cond ((memq state '(up-to-date))
+                          'face '(:foreground "green"))
+                         ((memq state '(edited added))
+                          'face '(:foreground "yellow"))
+                         ((memq state '(removed needs-merge needs-update))
+                          'face '(:foreground "dark violet"))
+                         ((memq state '(unregistered))
+                          'face '(:foreground "dim gray"))
+                         ((memq state '(conflict))
+                          'face '(:foreground "firebrick"))
+                         (t
+                          'face '(:foreground "deep pink"))
+                         )))
+        
+        (list
+         ;; TODO:
+         ;; (propertize (all-the-icons-octicon "git-branch")
+         ;;             'face `(:inherit ,(if active face 'mode-line-inactive)
+         ;;                              :family ,(all-the-icons-octicon-family)
+         ;;                              :height 1.25)
+         ;;             'display '(raise -0.1))
+         
+         (propertize (format "%s" backend)
+                     'face (if (active) face 'mode-line-inactive)
+                     'face '(:foreground "red")
+                     )
+         (propertize (format "(%s)" ascii)
+                     'face (if (active) face 'mode-line-inactive)
+                     )
+         ))
+      ))
 
-   ;; FIXME:
-   ;; (:eval
-   ;;  (propertize
-   ;;   (pcase (vc-state buffer-file-truename)
-   ;;     (`dited " ∓")
-   ;;     (`added " ✚")
-   ;;     (`removed " ✖")
-   ;;     (`up-to-date " ✔")
-   ;;     (`unlocked-changes " ")
-   ;;     (`conflict " ≠")
-   ;;     (`needs-merge " ⌥")
-   ;;     (`needs-update " ⇧")
-   ;;     (`unregistered " u")
-   ;;     (`ignored " i")
-   ;;     (`missing " m")
-   ;;     (`nil " ")
-   ;;     ;; (_ "")
-   ;;     )
-   ;;   'face '(:foreground "cyan")))
 
    ;; projectile-rails-mode
    (:propertize " ")
@@ -294,34 +328,28 @@
                 help-echo (buffer-file-name))
    (:propertize "]"
                 face (:foreground "cyan"))
-   
-   ;; wc-mode (word count) `wc-modeline-format', `wc-mode-update'.
+
+   ;; flycheck
    (:eval
-    ;; (unless wc-orig-words ; this variable is used in `wc-format-modeline-string'.
-    ;;   (wc-mode-update))
-    (if (and (featurep 'wc-mode)
-             wc-mode
-             (eq my/mode-line-selected-window (selected-window)))
-        (propertize (let ((wc-modeline-format " WC:[%tw]"))
-                      (format
-                       (wc-format-modeline-string wc-modeline-format)))
-                    'face '(:foreground "green yellow" :family "Monospace" :height 75))))
+    (if flycheck-current-errors
+        (propertize (flycheck-mode-line-status-text)
+                    'face '(:foreground "orange" :height 70))))
+
 
    ;; mmm-mode
 
 
    ;; process: inferior,
    (:eval
-    (if mode-line-process
-        (progn
-          (list
-           (propertize " ◌ "
-                       'face '(:foreground "cyan" :weight bold :height 120)
-                       'help-echo "buffer-process")
-           (propertize mode-line-process
-                       'face '(:foreground "tomato")
-                       'help-echo "buffer-process")
-           ))))
+    (when mode-line-process
+      (list
+       (propertize " ◌ "
+                   'face '(:foreground "cyan" :weight bold :height 120)
+                   'help-echo "buffer-process")
+       (propertize mode-line-process
+                   'face '(:foreground "DeepSkyBlue" :slant 'italic)
+                   'help-echo "buffer-process")
+       )))
    
    ;; notifications
    ;; IRC
@@ -392,12 +420,6 @@
    ;;
    ;; '(:propertize  (:eval (spinner-start 'minibox))   ; 'spinner--mode-line-construct
    ;;                :face (:foreground "dark gray"))
-
-   ;; flycheck
-   (:eval
-    (if flycheck-current-errors
-        (propertize (flycheck-mode-line-status-text)
-                    'face '(:foreground "orange" :height 70))))
 
    ;; line and column number, relative position
    ;; `mode-line-position'
