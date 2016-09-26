@@ -487,23 +487,23 @@
 ;;                     )
 
 ;;; 2. darker style
-(set-face-attribute 'mode-line nil
-                    :inverse-video nil
-                    :foreground "white"
-                    :background "#484848"
-                    :box '(:color "dark gray" :line-width 1 :style nil)
-                    ;; :box '(:color "slate blue" :line-width 1 :style nil)
-                    :family "DejaVu Sans Mono"
-                    :height 100
-                    )
-(set-face-attribute 'mode-line-inactive nil
-                    :inverse-video nil
-                    :foreground "gray"
-                    :background (color-darken-name (face-background 'default) 3)
-                    :family "DejaVu Sans Mono"
-                    :box '(:color "dark slate gray" :line-width 1 :style nil)
-                    :height 100
-                    )
+;; (set-face-attribute 'mode-line nil
+;;                     :inverse-video nil
+;;                     :foreground "white"
+;;                     :background "#484848"
+;;                     :box '(:color "dark gray" :line-width 1 :style nil)
+;;                     ;; :box '(:color "slate blue" :line-width 1 :style nil)
+;;                     :family "DejaVu Sans Mono"
+;;                     :height 100
+;;                     )
+;; (set-face-attribute 'mode-line-inactive nil
+;;                     :inverse-video nil
+;;                     :foreground "dim gray"
+;;                     :background (color-darken-name (face-background 'default) 3)
+;;                     :family "DejaVu Sans Mono"
+;;                     :box '(:color "dark slate gray" :line-width 1 :style nil)
+;;                     :height 100
+;;                     )
 
 
 ;;; [ display-time ]
