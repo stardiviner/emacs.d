@@ -11,6 +11,17 @@
 ;; - [C-h v major-mode] for current buffer major mode.
 ;; - [C-h v minor-mode-alist] for current buffer minor modes list.
 
+
+;;; [ window-divider-mode ]
+
+(when (boundp 'window-divider-mode)
+  (setq window-divider-default-places t
+        window-divider-default-bottom-width 1
+        window-divider-default-right-width 1)
+  ;; (window-divider-mode 1)
+  )
+
+
 ;;; separate settings for only active mode-line.
 
 (defvar my/mode-line-selected-window nil)
