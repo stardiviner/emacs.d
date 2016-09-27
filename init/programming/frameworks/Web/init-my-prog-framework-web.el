@@ -374,6 +374,7 @@
                   ))
     (add-hook hook
               '(lambda ()
+                 (setq-local company-minimum-prefix-length 1)
                  (make-local-variable 'company-backends)
                  (add-to-list 'company-backends 'company-css)
                  (add-to-list 'company-backends '(company-tern
