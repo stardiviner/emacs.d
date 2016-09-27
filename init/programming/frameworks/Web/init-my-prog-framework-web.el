@@ -392,13 +392,13 @@
   ;; company-mode + company-web support
 
   ;; Enable CSS completion between <style>...</style>
-  (defadvice company-css (before web-mode-set-up-ac-sources activate)
-    "Set CSS completion based on current language before running `company-css'."
-    (if (equal major-mode 'web-mode)
-        (let ((web-mode-cur-language (web-mode-language-at-pos)))
-          (if (string= web-mode-cur-language "css")
-              ;; ??
-              ))))
+  ;; (defadvice company-css (before web-mode-set-up-ac-sources activate)
+  ;;   "Set CSS completion based on current language before running `company-css'."
+  ;;   (if (equal major-mode 'web-mode)
+  ;;       (let ((web-mode-cur-language (web-mode-language-at-pos)))
+  ;;         (if (string= web-mode-cur-language "css")
+  ;;             ;; ??
+  ;;             ))))
 
   ;; Enable JavaScript completion between <script>...</script> etc.
   (defadvice company-tern (before web-mode-set-up-ac-sources activate)
