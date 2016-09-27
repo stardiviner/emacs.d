@@ -378,20 +378,6 @@
    ;; IRC
 
 
-   ;; org-timer
-   (:eval
-    (when (and (active) org-timer-countdown-timer)
-      (propertize
-       (let* ((rtime (decode-time
-                      (time-subtract
-                       (timer--time org-timer-countdown-timer)
-                       (current-time))))
-              (rmins (nth 1 rtime))
-              (rsecs (nth 0 rtime)))
-         (format "🕔 %d:%d" rmins rsecs))
-       'face '(:foreground "cyan3")
-       'help-echo "org-timer")))
-   
    ;; org-clock
    (:eval
     (when (and (active) org-clock-idle-timer)
