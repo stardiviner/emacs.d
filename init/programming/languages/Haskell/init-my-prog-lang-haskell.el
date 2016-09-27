@@ -159,17 +159,6 @@
   )
 
 
-;;; [ ghci-completion ] -- completion for GHCi commands in inferior-haskell buffers.
-
-(use-package ghci-completion
-  :ensure t
-  :config
-  ;; (add-hook 'inferior-haskell-mode-hook 'turn-on-ghci-completion)
-  ;; (add-hook 'interactive-haskell-mode-hook 'turn-on-ghci-completion)
-  ;; (add-hook 'haskell-interactive-mode-hook 'turn-on-ghci-completion)
-  )
-
-
 ;;; [ company-ghc ] -- company-mode back-end for haskell-mode via ghc-mod.
 
 (use-package company-ghc
