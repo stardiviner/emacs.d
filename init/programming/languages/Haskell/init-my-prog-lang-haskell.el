@@ -14,20 +14,17 @@
   :config
   (setq haskell-font-lock-symbols t
         haskell-stylish-on-save nil
-        haskell-tags-on-save t)
-  
-  (add-hook 'haskell-mode-hook
-            '(lambda ()
-               ))
-
+        haskell-tags-on-save nil
+        )
   
   ;; [ Haskell Interactive Mode ]
   (require 'haskell-interactive-mode)
   (require 'haskell-process)
   
-  (setq haskell-process-type 'cabal-repl
-        haskell-process-args-cabal-repl '("--ghc-option=-ferror-spans"
-                                          "--with-ghc=ghci-ng")
+  (setq haskell-process-type 'auto ; 'cabal-repl
+        ;; haskell-process-args-cabal-repl '("--ghc-option=-ferror-spans"
+        ;;                                   "--with-ghc=ghci-ng"
+        ;;                                   )
         haskell-process-suggest-remove-import-lines t
         haskell-process-suggest-haskell-docs-imports t
         haskell-process-suggest-hoogle-imports t
@@ -50,18 +47,15 @@
   (defun my-haskell-mode-basic-settings ()
     "Some basic settings for `haskell-mode'."
     (interactive)
-
     ;; indent
-    (turn-on-haskell-indent) ; `intelligent' Haskell indentation mode
+    (haskell-indent-mode 1) ; `intelligent' Haskell indentation mode
     (aggressive-indent-mode -1)
     ;; doc
-    (turn-on-haskell-doc-mode)
+    (haskell-doc-mode 1)
     )
   
   (add-hook 'haskell-mode-hook #'my-haskell-mode-basic-settings)
 
-  (add-hook 'haskell-mode-hook #'interactive-haskell-mode)
-  
   (define-key my-prog-inferior-map (kbd "h") 'haskell-interactive-switch)
 
   (define-key haskell-mode-map (kbd "C-c C-s") 'haskell-interactive-bring)
@@ -77,34 +71,8 @@
   ;; To use GHCi first and then if that fails to fallback to tags for jumping
   (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def-or-tag)
 
-  (defun haskell-interactive-toggle-print-mode ()
-    (interactive)
-    (setq haskell-interactive-mode-eval-mode
-          (intern
-           (completing-read "Eval result mode: "
-                            '("fundamental-mode"
-                              "haskell-mode"
-                              "espresso-mode"
-                              "ghc-core-mode"
-                              "org-mode")))))
-  
-  (define-key haskell-interactive-mode-map (kbd "C-c C-v") 'haskell-interactive-toggle-print-mode)
-
-  (defun haskell-insert-doc ()
-    "Insert the documentation syntax."
-    (interactive)
-    (insert "-- | "))
-
-  (defun haskell-insert-undefined ()
-    "Insert undefined."
-    (interactive)
-    (if (and (boundp 'structured-haskell-mode)
-             structured-haskell-mode)
-        (shm-insert-string "undefined")
-      (insert "undefined")))
-
   ;; [ module ]
-  (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
+  ;; (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
 
   ;; Doc (Haddocks)
   (require 'w3m-haddock)
@@ -119,7 +87,7 @@
   ;; auto start `inf-haskell'
   (defun my-haskell-interactive-start ()
     (interactive)
-    (unless (not (get-buffer "*haskell*"))
+    (unless (get-buffer "*haskell*")
       (haskell-interactive-bring)
       (bury-buffer)))
 
