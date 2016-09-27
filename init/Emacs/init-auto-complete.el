@@ -40,7 +40,6 @@
   (setq ac-max-width nil)
 
   ;; completion history
-  (setq ac-comphist nil) ; comphist internally
 
   ;; dictionaries
   ;; (add-to-list 'ac-dictionary-directories
