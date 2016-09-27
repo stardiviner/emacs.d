@@ -39,6 +39,21 @@
 (defun active ()
   (eq my/mode-line-selected-window (selected-window)))
 
+;; major mode with icon
+;; TODO: how to write the following usage comment into docstring?
+;; Usage:
+;; (major-mode-icon '(shell-mode sh-mode) \"Shell\" \"Shell\")
+;; (:eval
+;;  (major-mode-icon '(R-mode ess-mode) "R" "R"))
+;;
+;; (:eval
+;;  (major-mode-icon
+;;   '(R-mode ess-mode)
+;;   "R" "R"
+;;   ;; extra
+;;   (propertize "???"
+;;               'face '(:foreground "cyan"))
+;;   ))
 
 (defvar major-mode-list
   '(("Elisp" "Emacs" (emacs-lisp-mode inferior-emacs-lisp-mode))
@@ -68,8 +83,8 @@
   "Pairs: [name] [icon-name] [mode-list]."
   )
 
-(defun major-mode-icon (name mode-list icon-name &optional extra)
-  "Display major mode `NAME' in `MODE-LIST' with `ICON-NAME' with `EXTRA'."
+;; TODO: use `case' or `pcase' etc.
+;; TODO: convert to macro
 (defun major-mode-icon (mode-list name icon-name &optional extra)
   "Display `MODE-LIST' for major mode `NAME' with `ICON-NAME' with `EXTRA'."
   (if (memq (buffer-local-value 'major-mode (current-buffer))
@@ -334,74 +349,19 @@
      ))
 
    
-   ;; rbenv & rvm
-   (:eval
-    (if (memq (buffer-local-value 'major-mode (current-buffer))
-              '(ruby-mode enh-ruby-mode rhtml-mode))
-        (list
-         (propertize " (" 'face '(:foreground "#444444"))
-         (propertize
-          "Ruby:"
-          'face (if (active)
-                    '(:family "Segoe Print" :foreground "red2" :height 80)
-                  'mode-line-inactive)
-          'display
-          (let ((ruby-icon
-                 (concat user-emacs-directory "resources/icon/" "Ruby.xpm")))
-            (if (and (active)
-                     (file-exists-p ruby-icon)
-                     (image-type-available-p 'xpm))
-                (create-image ruby-icon 'xpm nil :ascent 'center)))
-          )
-         (propertize " ")
-         (propertize
-          (rbenv--active-ruby-version) ; `rbenv--modestring'
-          'face (if (active)
-                    '(:foreground "cyan" :height 70)
-                  'mode-line-inactive)
-          'help-echo '(concat "\nCurrent Ruby version: " (rbenv--active-ruby-version)
-                              "\nmouse-1: switch Ruby version menu")
-          )
-         (propertize ")" 'face '(:foreground "#444444"))
-         )
-      ))
+   ;; FIXME: wc-mode (word count) `wc-modeline-format', `wc-mode-update'.
+   ;; (:eval
+   ;;  ;; (unless wc-orig-words ; this variable is used in `wc-format-modeline-string'.
+   ;;  ;;   (wc-mode-update))
+   ;;  (if (and (featurep 'wc-mode)
+   ;;           wc-mode
+   ;;           (active)
+   ;;      (propertize (let ((wc-modeline-format " WC:[%tw]"))
+   ;;                    (format
+   ;;                     (wc-format-modeline-string wc-modeline-format)))
+   ;;                  'face '(:foreground "green yellow" :family "Monospace" :height 75))))
+
    
-
-   ;; pyvenv `pyvenv-mode-line-indicator' -> `pyvenv-virtual-env-name'
-   (:eval
-    (if (memq (buffer-local-value 'major-mode (current-buffer))
-              '(python-mode))
-        (list
-         (propertize " (" 'face '(:foreground "#444444"))
-         (propertize
-          "Python:"
-          'face (if (active)
-                    '(:family "Segoe Print" :foreground "red2" :height 80)
-                  'mode-line-inactive)
-          'display
-          (let ((python-icon
-                 (concat user-emacs-directory "resources/icon/" "Python.xpm")))
-            (if (and (active)
-                     (file-exists-p python-icon)
-                     (image-type-available-p 'xpm))
-                (create-image python-icon 'xpm nil :ascent 'center))))
-         (propertize " ")
-         (propertize
-          (format "%s" pyvenv-virtual-env-name)
-          'face (if (active)
-                    '(:foreground "orange" :height 80)
-                  'mode-line-inactive))
-         (propertize ") " 'face '(:foreground "#444444"))
-         )))
-
-   ;; conda: `conda-env-current-name'
-   (:eval
-    (if (bound-and-true-p conda-env-current-name)
-        (propertize (format "[%s]" conda-env-current-name)
-                    'face (if (active)
-                              '(:foreground "dark orange" :height 80)
-                            'mode-line-inactive))))
-
    ;; mmm-mode
 
 
