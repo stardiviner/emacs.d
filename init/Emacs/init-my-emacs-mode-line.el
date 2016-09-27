@@ -398,28 +398,46 @@
 
 
     ;; org-timer
-    ;; (:eval
-    ;;  (unless (not org-timer-countdown-timer)
-    ;;    (if (active)
-    ;;        (propertize (let* ((rtime (decode-time
-    ;;                                   (time-subtract
-    ;;                                    (timer--time org-timer-countdown-timer)
-    ;;                                    (current-time))))
-    ;;                           (rmins (nth 1 rtime))
-    ;;                           (rsecs (nth 0 rtime)))
-    ;;                      (format "🕔 %d:%d" rmins rsecs))
-    ;;                    'face '(:foreground "cyan3")
-    ;;                    'help-echo "org-timer"))))
+    (:eval
+     (when (and (active) org-timer-countdown-timer)
+       (propertize
+        (let* ((rtime (decode-time
+                       (time-subtract
+                        (timer--time org-timer-countdown-timer)
+                        (current-time))))
+               (rmins (nth 1 rtime))
+               (rsecs (nth 0 rtime)))
+          (format "🕔 %d:%d" rmins rsecs))
+        'face '(:foreground "cyan3")
+        'help-echo "org-timer")))
     
     ;; org-clock
-    ;; (:propertize (t org-mode-line-string)
-    ;;              face (:foreground "cyan"))
-    ;; (:eval
-    ;;  (if (string-empty-p org-mode-line-string)
-    ;;      (propertize (t org-mode-line-string)
-    ;;                  'face '(:foreground "cyan" :weight bold)
-    ;;                  'help-echo "Org-mode clock"))
-    ;;  )
+    (:eval
+     (when (and (active) org-clock-idle-timer)
+       (propertize
+        (let* ((rtime (decode-time
+                       (time-subtract
+                        (timer--time org-clock-idle-timer)
+                        (current-time))))
+               (rmins (nth 1 rtime))
+               (rsecs (nth 0 rtime)))
+          (format "🕔 %d:%d" rmins rsecs))
+        'face '(:foreground "cyan3")
+        'help-echo "org-clock timer")))
+    
+    ;; org-pomodoro
+    (:eval
+     (when (and (active) org-pomodoro-timer)
+       (propertize
+        (let* ((rtime (decode-time
+                       (time-subtract
+                        (timer--time org-pomodoro-timer)
+                        (current-time))))
+               (rmins (nth 1 rtime))
+               (rsecs (nth 0 rtime)))
+          (format "🕔 %d:%d" rmins rsecs))
+        'face '(:foreground "cyan3")
+        'help-echo "org-pomodoro timer")))
     
     ;; --------------------------- right align ----------------------------------
     
