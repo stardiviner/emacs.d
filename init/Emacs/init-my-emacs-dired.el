@@ -22,8 +22,10 @@
 (define-key dired-mode-map (kbd "g") 'dired-do-redisplay)
 
 ;; ignore specific files
-(dired-omit-mode 1)
-;; (setq dired-omit-files )
+;; toggle `dired-omit-mode' with [C-x M-o]
+(add-hook 'dired-mode-hook #'dired-omit-mode)
+(setq dired-omit-files
+      (concat dired-omit-files "\\|^.DS_STORE$\\|^.projectile$"))
 
 ;; `dired-do-shell-command' does not know (by default) how to handle some
 ;; filetypes.
