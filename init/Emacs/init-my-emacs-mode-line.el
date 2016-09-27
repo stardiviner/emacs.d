@@ -351,13 +351,12 @@
    
    ;; FIXME: wc-mode (word count) `wc-modeline-format', `wc-mode-update'.
    (:eval
-    (if (and (featurep 'wc-mode)
-             wc-mode
-             (active)
-             (propertize (let ((wc-modeline-format " WC:[%tw]"))
-                           (format
-                            (wc-format-modeline-string wc-modeline-format)))
-                         'face '(:foreground "green yellow" :family "Monospace" :height 75)))))
+    (if (and (featurep 'wc-mode) wc-mode (active))
+        (propertize
+         (let ((wc-modeline-format " WC:[%tw]"))
+           (format
+            (wc-format-modeline-string wc-modeline-format)))
+         'face '(:foreground "green yellow" :family "Monospace" :height 75))))
 
    
    ;; mmm-mode
