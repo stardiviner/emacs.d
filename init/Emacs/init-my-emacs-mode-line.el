@@ -249,7 +249,7 @@
               (substring vc-mode
                          (+ 2 (length (symbol-name (vc-backend buffer-file-name))))))
              (state (vc-state buffer-file-name))
-             (ascii (cond ((memq state '(update-to-date))
+             (ascii (cond ((memq state '(up-to-date))
                            "✔")
                           ((memq state '(edited))
                            "∓")
