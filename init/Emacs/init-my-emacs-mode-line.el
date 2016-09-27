@@ -350,16 +350,14 @@
 
    
    ;; FIXME: wc-mode (word count) `wc-modeline-format', `wc-mode-update'.
-   ;; (:eval
-   ;;  ;; (unless wc-orig-words ; this variable is used in `wc-format-modeline-string'.
-   ;;  ;;   (wc-mode-update))
-   ;;  (if (and (featurep 'wc-mode)
-   ;;           wc-mode
-   ;;           (active)
-   ;;      (propertize (let ((wc-modeline-format " WC:[%tw]"))
-   ;;                    (format
-   ;;                     (wc-format-modeline-string wc-modeline-format)))
-   ;;                  'face '(:foreground "green yellow" :family "Monospace" :height 75))))
+   (:eval
+    (if (and (featurep 'wc-mode)
+             wc-mode
+             (active)
+             (propertize (let ((wc-modeline-format " WC:[%tw]"))
+                           (format
+                            (wc-format-modeline-string wc-modeline-format)))
+                         'face '(:foreground "green yellow" :family "Monospace" :height 75)))))
 
    
    ;; mmm-mode
@@ -367,87 +365,70 @@
 
    ;; process: inferior,
    (:eval
-    ;; (unless wc-orig-words ; this variable is used in `wc-format-modeline-string'.
-    ;;   (wc-mode-update))
-    (if (and (featurep 'wc-mode)
-             wc-mode
-             (active)
-             (propertize (let ((wc-modeline-format " WC:[%tw]"))
-                           (format
-                            (wc-format-modeline-string wc-modeline-format)))
-                         'face '(:foreground "green yellow" :family "Monospace" :height 75))))
-
-    
-    ;; mmm-mode
-
-
-    ;; process: inferior,
-    (:eval
-     (when mode-line-process
-       (list
-        (propertize " ◌ "
-                    'face '(:foreground "cyan" :weight bold :height 120)
-                    'help-echo "buffer-process")
-        (propertize mode-line-process
-                    'face '(:foreground "DeepSkyBlue" :slant 'italic)
-                    'help-echo "buffer-process")
-        )))
-    
-    ;; notifications
-    ;; IRC
+    (when mode-line-process
+      (list
+       (propertize " ◌ "
+                   'face '(:foreground "cyan" :weight bold :height 120)
+                   'help-echo "buffer-process")
+       (propertize mode-line-process
+                   'face '(:foreground "DeepSkyBlue" :slant 'italic)
+                   'help-echo "buffer-process")
+       )))
+   
+   ;; notifications
+   ;; IRC
 
 
-    ;; org-timer
-    (:eval
-     (when (and (active) org-timer-countdown-timer)
-       (propertize
-        (let* ((rtime (decode-time
-                       (time-subtract
-                        (timer--time org-timer-countdown-timer)
-                        (current-time))))
-               (rmins (nth 1 rtime))
-               (rsecs (nth 0 rtime)))
-          (format "🕔 %d:%d" rmins rsecs))
-        'face '(:foreground "cyan3")
-        'help-echo "org-timer")))
-    
-    ;; org-clock
-    (:eval
-     (when (and (active) org-clock-idle-timer)
-       (propertize
-        (let* ((rtime (decode-time
-                       (time-subtract
-                        (timer--time org-clock-idle-timer)
-                        (current-time))))
-               (rmins (nth 1 rtime))
-               (rsecs (nth 0 rtime)))
-          (format "🕔 %d:%d" rmins rsecs))
-        'face '(:foreground "cyan3")
-        'help-echo "org-clock timer")))
-    
-    ;; org-pomodoro
-    (:eval
-     (when (and (active) org-pomodoro-timer)
-       (propertize
-        (let* ((rtime (decode-time
-                       (time-subtract
-                        (timer--time org-pomodoro-timer)
-                        (current-time))))
-               (rmins (nth 1 rtime))
-               (rsecs (nth 0 rtime)))
-          (format "🕔 %d:%d" rmins rsecs))
-        'face '(:foreground "cyan3")
-        'help-echo "org-pomodoro timer")))
-    
-    ;; --------------------------- right align ----------------------------------
-    
-    ;; Email
+   ;; org-timer
+   (:eval
+    (when (and (active) org-timer-countdown-timer)
+      (propertize
+       (let* ((rtime (decode-time
+                      (time-subtract
+                       (timer--time org-timer-countdown-timer)
+                       (current-time))))
+              (rmins (nth 1 rtime))
+              (rsecs (nth 0 rtime)))
+         (format "🕔 %d:%d" rmins rsecs))
+       'face '(:foreground "cyan3")
+       'help-echo "org-timer")))
+   
+   ;; org-clock
+   (:eval
+    (when (and (active) org-clock-idle-timer)
+      (propertize
+       (let* ((rtime (decode-time
+                      (time-subtract
+                       (timer--time org-clock-idle-timer)
+                       (current-time))))
+              (rmins (nth 1 rtime))
+              (rsecs (nth 0 rtime)))
+         (format "🕔 %d:%d" rmins rsecs))
+       'face '(:foreground "cyan3")
+       'help-echo "org-clock timer")))
+   
+   ;; org-pomodoro
+   (:eval
+    (when (and (active) org-pomodoro-timer)
+      (propertize
+       (let* ((rtime (decode-time
+                      (time-subtract
+                       (timer--time org-pomodoro-timer)
+                       (current-time))))
+              (rmins (nth 1 rtime))
+              (rsecs (nth 0 rtime)))
+         (format "🕔 %d:%d" rmins rsecs))
+       'face '(:foreground "cyan3")
+       'help-echo "org-pomodoro timer")))
+   
+   ;; --------------------------- right align ----------------------------------
+   
+   ;; Email
 
-    ;; fill with ' '.
-    ;; (:propertize "% ")
-    
-    (:propertize mode-line-end-spaces)
-    ))))
+   ;; fill with ' '.
+   ;; (:propertize "% ")
+   
+   (:propertize mode-line-end-spaces))))
 
 ;; update org-clock timer in mode-line after `org-clock-out-hook'.
 ;; fix org-clock timer does not disappear after clock out.
