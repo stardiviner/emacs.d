@@ -52,7 +52,7 @@
 
 ;;; babel eval result
 (setq org-babel-inline-result-wrap "=%s="
-      org-export-babel-evaluate t
+      org-export-babel-evaluate 'inline-only
       )
 
 ;;; [ ob-lisp ]
