@@ -21,27 +21,27 @@
   (require 'haskell-interactive-mode)
   (require 'haskell-process)
   
-  (setq haskell-process-type 'auto ; 'cabal-repl
-        ;; haskell-process-args-cabal-repl '("--ghc-option=-ferror-spans"
-        ;;                                   "--with-ghc=ghci-ng"
-        ;;                                   )
-        haskell-process-suggest-remove-import-lines t
-        haskell-process-suggest-haskell-docs-imports t
-        haskell-process-suggest-hoogle-imports t
-        haskell-process-auto-import-loaded-modules t
-        haskell-process-log t
-        haskell-process-use-presentation-mode t
-        haskell-interactive-mode-eval-mode 'haskell-mode
-        haskell-complete-module-preferred '("Data.ByteString"
-                                            "Data.ByteString.Lazy"
-                                            "Data.Conduit"
-                                            "Data.Function"
-                                            "Data.List"
-                                            "Data.Map"
-                                            "Data.Maybe"
-                                            "Data.Monoid"
-                                            "Data.Ord")
-        )
+  ;; (setq haskell-process-type 'auto ; 'cabal-repl
+  ;;       ;; haskell-process-args-cabal-repl '("--ghc-option=-ferror-spans"
+  ;;       ;;                                   "--with-ghc=ghci-ng"
+  ;;       ;;                                   )
+  ;;       haskell-process-suggest-remove-import-lines t
+  ;;       haskell-process-suggest-haskell-docs-imports t
+  ;;       haskell-process-suggest-hoogle-imports t
+  ;;       haskell-process-auto-import-loaded-modules t
+  ;;       haskell-process-log t
+  ;;       haskell-process-use-presentation-mode t
+  ;;       haskell-interactive-mode-eval-mode 'haskell-mode
+  ;;       haskell-complete-module-preferred '("Data.ByteString"
+  ;;                                           "Data.ByteString.Lazy"
+  ;;                                           "Data.Conduit"
+  ;;                                           "Data.Function"
+  ;;                                           "Data.List"
+  ;;                                           "Data.Map"
+  ;;                                           "Data.Maybe"
+  ;;                                           "Data.Monoid"
+  ;;                                           "Data.Ord")
+  ;;       )
 
   
   (defun my-haskell-mode-basic-settings ()

@@ -65,6 +65,18 @@
 ;;             (make-local-variable completion-at-point-functions)
 ;;             (setq completion-at-point-functions '(sclang-complete-symbol t))))
 
+;;; auto start SuperCollider inferior process
+(defun my-sclang-start ()
+  "Start SuperCollider inferior process."
+  (interactive)
+  (unless (or (equal (buffer-name) sclang-post-buffer)
+              (sclang-get-process))
+    (sclang-start)))
+
+(define-key sclang-mode-map (kbd "C-c C-s") 'my-sclang-start)
+(define-key sclang-mode-map (kbd "C-c M-s") 'sclang-main-stop)
+(define-key sclang-mode-map (kbd "C-c M-r") 'sclang-main-run)
+
 
 ;;; [ sclang-extensions ] -- A collection of minor modes that improve your SuperCollider experience within Emacs.
 
