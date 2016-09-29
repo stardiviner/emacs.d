@@ -2,7 +2,17 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("My Algorithms Reference.org"
+(("My HTML Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/HTML/Data/Manuals/My HTML Syntax Reference/My HTML Syntax Reference.org")
+ (front-context-string . "* Notes\n\n** Org-")
+ (rear-context-string)
+ (position . 1))
+("macOS"
+ (filename . "~/Org/Wiki/Computer/Systems/macOS/macOS.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("My Algorithms Reference.org"
  (filename . "~/Org/Wiki/Computer/Programming/Algorithm/Data/Manuals/My Algorithms Reference/My Algorithms Reference.org")
  (front-context-string . "* Intro\n\n\n* Form")
  (rear-context-string)
@@ -407,11 +417,6 @@
  (front-context-string . "* MVC\n\n** How do")
  (rear-context-string)
  (position . 1))
-("HTML Reference"
- (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/HTML/Data/Manuals/References/HTML Reference.org")
- (front-context-string . "* Basic Concepts")
- (rear-context-string)
- (position . 1))
 ("JavaScript Packages"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/JavaScript/Data/Packages/Packages.org")
  (front-context-string)
@@ -424,9 +429,9 @@
  (position . 1))
 ("org-capture-last-stored"
  (filename . "~/Org/Diary/Diary.org")
- (front-context-string . "**** 我已老去的青春\n:PR")
- (rear-context-string . "09-24 Saturday\n\n")
- (position . 17681))
+ (front-context-string . "**** 感觉灵魂回无法启动苏醒")
+ (rear-context-string . "9-28 Wednesday\n\n")
+ (position . 17649))
 ("My R Language Syntax Reference"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/R/Data/Manuals/My R Language Syntax Reference/My R Language Syntax Reference.org")
  (front-context-string)
@@ -725,11 +730,6 @@
 ("GNU operating systems"
  (filename . "~/Org/Wiki/Computer/Systems/GNU/GNU.org")
  (front-context-string . "* Intro\n\n\n\n* Pro")
- (rear-context-string)
- (position . 1))
-("Mac OS X"
- (filename . "~/Org/Wiki/Computer/Systems/Mac/Mac.org")
- (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
  (position . 1))
 ("BSD"
