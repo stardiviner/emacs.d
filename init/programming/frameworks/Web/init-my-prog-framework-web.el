@@ -178,6 +178,15 @@
 
   ;; close element
   (define-key web-mode-map (kbd "C-c /") 'web-mode-element-close)
+
+  (defun web-mode-element-close-single-tag ()
+    "Close single tag like <input />."
+    (interactive)
+    (if (eq (char-before) ?\ )
+        (insert "/>")
+      (insert " />")
+      ))
+  (define-key web-mode-map (kbd "C-c C-/") 'web-mode-element-close-single-tag)
   
   ;; open a new line upper between tag.
   (define-key web-mode-map (kbd "C-o")
