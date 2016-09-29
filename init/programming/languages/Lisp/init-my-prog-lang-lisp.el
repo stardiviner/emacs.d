@@ -146,20 +146,20 @@
 
 ;;; [ parinfer-mode ] -- Parinfer on Emacs with oakmac's parinfer-elisp.
 
-(use-package parinfer
-  :ensure t
-  :bind
-  (;; Use this to toggle Indent/Paren Mode.
-   ("C-," . parinfer-toggle-mode)
-   ;; Some other commands you may want.
-   ("M-r" . parinfer-raise-sexp)
-   ("M-m" . mark-sexp)
-   ("M-j" . parinfer-transpose-sexps)
-   ("M-k" . parinfer-reverse-transpose-sexps))
-  :config
-  (add-hook 'emacs-lisp-mode-hook #'parinfer-mode)
-  (add-hook 'clojure-mode-hook #'parinfer-mode)
-  )
+;; (use-package parinfer
+;;   :ensure t
+;;   :bind
+;;   (;; Use this to toggle Indent/Paren Mode.
+;;    ("C-," . parinfer-toggle-mode)
+;;    ;; Some other commands you may want.
+;;    ("M-r" . parinfer-raise-sexp)
+;;    ("M-m" . mark-sexp)
+;;    ("M-j" . parinfer-transpose-sexps)
+;;    ("M-k" . parinfer-reverse-transpose-sexps))
+;;   :config
+;;   (add-hook 'emacs-lisp-mode-hook #'parinfer-mode)
+;;   (add-hook 'clojure-mode-hook #'parinfer-mode)
+;;   )
 
 
 (provide 'init-my-prog-lang-lisp)
