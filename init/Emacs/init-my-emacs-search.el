@@ -18,7 +18,7 @@
 (require 'init-my-emacs-search-ack)
 (require 'init-my-emacs-search-ag)
 (require 'init-my-emacs-search-pt)
-(require 'init-my-emacs-search-ripgrep)
+;; (require 'init-my-emacs-search-ripgrep)
 (require 'init-my-emacs-search-find)
 (require 'init-my-emacs-search-engine)
 
