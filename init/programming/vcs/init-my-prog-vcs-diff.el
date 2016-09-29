@@ -114,21 +114,6 @@
 
 ;;; [ smerge-mode ] -- simplify editing output from the diff3 program.
 
-;;; Usage:
-;;
-;; 1. open conflict file.
-;; 2. [M-x smerge-mode] :: highlight all conflict regions, add keybindings.
-;;
-;; - `smerge-start-session'
-;;    Turn on `smerge-mode' and move point to first conflict marker.
-;;    If no conflict maker is found, turn off `smerge-mode'.
-;;
-;; - `smerge-ediff'
-;;    - [n/p] :: navigate.
-;;    - [a/b] :: accept version?
-;;    - [/]   :: look at the ancestor.
-;;    - [q]   :: quit the ediff session.
-
 (require 'smerge-mode)
 
 ;; (setq smerge-command-prefix (kbd "C-c v d"))
@@ -153,7 +138,6 @@
       (smerge-mode 1))))
 
 (add-hook 'find-file-hook 'smart-try-smerge t)
-;; (add-hook 'buffer-list-update-hook #'my-enable-smerge-mode-auto)
 
 
 (provide 'init-my-prog-vcs-diff)
