@@ -1,10 +1,3 @@
-;;; init.el --- Emacs init file.
-
-;;; Commentary:
-
-
-;;; Code:
-
 ;;; [ Debug ]
 (setq debug-on-error t
       debug-on-signal nil
