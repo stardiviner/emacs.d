@@ -140,6 +140,7 @@
         (smerge-mode 1))))
 
   (add-hook 'find-file-hook 'smart-try-smerge t)
+  (add-hook 'after-revert-hook 'smerge-try-smerge t)
   )
 
 
