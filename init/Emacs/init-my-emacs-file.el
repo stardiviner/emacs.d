@@ -55,41 +55,34 @@
                 '("mpg" "mpeg" "mp3" "mp4"
                   "avi" "wmv" "wav" "mov" "flv"
                   "ogm" "ogg" "mkv"))
-               "mplayer"
-               '(file))
+               "mplayer" '(file))
          (list (openwith-make-extension-regexp
-                '("xbm" "pbm" "pgm" "ppm" "pnm"
-                  ;; don't open normal images with external program. use Emacs
-                  ;; buffer to display inline image.
-                  ;;
-                  ;; "png" "gif" "bmp" "tif" "jpeg" "jpg"
-                  ))
-               "sxiv"
-               '(file))
+                '("xbm" "pbm" "pgm" "ppm" "pnm"))
+               ;; don't open normal images with external program. use Emacs
+               ;; buffer to display inline image.
+               ;;
+               ;; "png" "gif" "bmp" "tif" "jpeg" "jpg"
+               "sxiv" '(file))
          (list (openwith-make-extension-regexp
                 '("doc" "xls" "ppt" "odt" "ods" "odg" "odp"))
-               "libreoffice"
-               '(file))
+               "libreoffice" '(file))
          '("\\.lyx\\'" "lyx" (file))
          '("\\.chm\\'" "kchmviewer" (file))
          (list (openwith-make-extension-regexp
-                '("ps" "ps.gz" "dvi"
-                  ;; "pdf"
-                  ))
-               "okular"
-               '(file))
-         ))
+                '("ps" "ps.gz" "dvi"))
+               ;; "pdf"
+               "okular" '(file))))
+  
 
-  (add-to-list 'openwith-associations '("\\.gif\\'" "gwenview" (file)))
-  (add-to-list 'openwith-associations '("\\.svg\\'" "feh --magick-timeout 5" (file)))
+  ;;; NOTE: enable this will cause Org-mode open inline displayed images with external program.
+  ;; (add-to-list 'openwith-associations '("\\.gif\\'" "gwenview" (file)))
+  ;; (add-to-list 'openwith-associations '("\\.svg\\'" "feh --magick-timeout 5" (file)))
   (add-to-list 'openwith-associations '("\\.swf\\'" "swfdec-player" (file)))
   (add-to-list 'openwith-associations '("\\.jar\\'" "java -jar" (file)))
   
   ;; If you also use emacs for email, you may want to add this to your config:
   ;; (add-to-list  'mm-inhibit-file-name-handlers 'openwith-file-handler)
-  
-  (openwith-mode 1)
-  )
+  (openwith-mode 1))
 
 
 (provide 'init-my-emacs-file)
