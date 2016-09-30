@@ -14,14 +14,14 @@
   :config
   (setq company-minimum-prefix-length 3
         ;; decrease this delay when you can type code continuously fast.
-        company-idle-delay 0.2
+        company-idle-delay 0.4
         ;; determines when to auto-complete.
         ;; 'company-explicit-action-p, t, nil, 'function
         ;; company-auto-complete nil
         ;; company-auto-complete-chars
         ;; 'company-explicit-action-p, t, nil, 'function
         ;; company-require-match 'company-explicit-action-p
-        company-echo-delay .01
+        ;; company-echo-delay .01
         ;; t: show quick-access numbers for the first ten candidates.
         ;; company-show-numbers nil
         ;; align annotations to the right tooltip border.
