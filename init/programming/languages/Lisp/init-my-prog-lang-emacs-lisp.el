@@ -261,6 +261,26 @@
 ;; (define-key emacs-lisp-mode-map (kbd "C-c t a") #'my/elisp-unwind-all)
 
 
+;;; [ elisp-refs ] -- semantic code search for emacs lisp.
+
+(use-package elisp-refs
+  :ensure t
+  :config
+  (add-hook 'emacs-lisp-mode-hook
+            (lambda ()
+              (unless (boundp 'my-prog-lookup-map)
+                (define-prefix-command 'my-prog-lookup-map))
+              (local-set-key (kbd "C-c l") 'my-prog-lookup-map)
+
+              (define-key my-prog-lookup-map (kbd "s") 'elisp-refs-symbol)
+              (define-key my-prog-lookup-map (kbd "f") 'elisp-refs-function)
+              (define-key my-prog-lookup-map (kbd "m") 'elisp-refs-macro)
+              (define-key my-prog-lookup-map (kbd "v") 'elisp-refs-variable)
+              (define-key my-prog-lookup-map (kbd "S") 'elisp-refs-special)
+              ))
+  )
+
+
 ;;; [ suggest ] -- suggest elisp functions that give the output requested.
 
 (use-package suggest
