@@ -49,5 +49,11 @@
 
 ;;; add your customizations from here
 
+(use-package ace-window
+  :ensure t
+  :config
+  (global-set-key (kbd "C-x C-j") 'ace-window)
+  )
+
 (use-package magithub
   :ensure t)
