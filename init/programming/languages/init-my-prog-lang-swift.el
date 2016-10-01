@@ -54,8 +54,8 @@
 
 ;;; [ flycheck-swift ] -- Flycheck extension for Apple's Swift.
 
-;; (use-package flycheck-swift
-;;   :ensure t)
+(use-package flycheck-swift
+  :ensure t)
 
 
 ;;; [ ob-swift ]
