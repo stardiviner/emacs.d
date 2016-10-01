@@ -192,6 +192,8 @@
   :config
   (setq bibtex-completion-pdf-open-function 'org-open-file)
 
+  (setq org-latex-prefer-user-labels t)
+
   ;; (setq org-ref-bibtex-hydra-key-binding "\C-cj")
 
   (unless (boundp 'org-ref-prefix)
