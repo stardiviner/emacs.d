@@ -175,9 +175,16 @@
 ;;; [ intero ] -- Complete interactive development program for Haskell.
 
 (use-package intero
+
+;;; [ scion ] -- IDE library for Haskell based on the GHC API.
+
+(use-package scion
   :ensure t
   :config
-  (add-hook 'haskell-mode-hook 'intero-mode)
+  (add-hook 'scion-connected-hook
+            (lambda ()
+              (notifications-notify :title "Haskell Scion connected"
+                                    :body "Haskell Scion connected.")))
   )
 
 
