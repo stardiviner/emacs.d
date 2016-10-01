@@ -10,7 +10,11 @@
 ;;; [ podcaster ] -- an Emacs podcast client.
 
 (use-package podcaster
-  :ensure t)
+  :ensure t
+  :config
+  (setq podcaster-feeds-urls
+        '("https://ipn.li/kernelpanic/feed"
+          "http://sachachua.com/blog/tag/emacs-chat/podcast")))
 
 ;;; ----------------------------------------------------------------------------
 
