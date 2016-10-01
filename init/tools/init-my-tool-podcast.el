@@ -14,7 +14,8 @@
   :config
   (setq podcaster-feeds-urls
         '("https://ipn.li/kernelpanic/feed"
-          "http://sachachua.com/blog/tag/emacs-chat/podcast")))
+          "http://sachachua.com/blog/tag/emacs-chat/podcast"))
+  (define-key my-tools-prefix (kbd "P") 'podcaster))
 
 ;;; ----------------------------------------------------------------------------
 
