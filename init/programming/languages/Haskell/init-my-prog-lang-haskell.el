@@ -181,6 +181,14 @@
 (use-package scion
   :ensure t
   :config
+  ;; (setq scion-program "~/.cabal/bin/scion-server")
+  ;; (setq scion-completing-read-function 'ido-completing-read)
+  
+  (add-hook 'haskell-mode-hook
+            (lambda ()
+              (scion-mode 1)
+              (scion-flycheck-on-save 1)))
+  
   (add-hook 'scion-connected-hook
             (lambda ()
               (notifications-notify :title "Haskell Scion connected"
