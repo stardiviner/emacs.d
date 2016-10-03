@@ -40,72 +40,120 @@
   (eq my/mode-line-selected-window (selected-window)))
 
 ;; major mode with icon
-;; TODO: how to write the following usage comment into docstring?
-;; Usage:
-;; (major-mode-icon '(shell-mode sh-mode) \"Shell\" \"Shell\")
-;; (:eval
-;;  (major-mode-icon '(R-mode ess-mode) "R" "R"))
-;;
-;; (:eval
-;;  (major-mode-icon
-;;   '(R-mode ess-mode)
-;;   "R" "R"
-;;   ;; extra
-;;   (propertize "???"
-;;               'face '(:foreground "cyan"))
-;;   ))
-
 (defvar major-mode-list
-  '(("Elisp" "Emacs" (emacs-lisp-mode inferior-emacs-lisp-mode))
-    ("Lisp" "Common-Lisp" (lisp-mode inferior-lisp-mode slime-repl-mode sly-mrepl-mode))
-    ("Python" "Python" (python-mode))
-    ("Ruby" "Ruby" (ruby-mode enh-ruby-mode))
-    ("C" "C" (c-mode))
-    ("C++" "C++" (c++-mode))
-    ("Go" "Go" (go-mode))
-    ("Swift" "Swift" (swift-mode))
-    ("Rust" "Rust" (rust-mode))
-    ("Java" "Java"(java-mode))
-    ("PHP" "PHP" (php-mode))
-    ("HTML" "HTML" (html-mode web-mode))
-    ("CSS" "CSS" (css-mode))
-    ("JavaScript" "JavaScript" (javascript-mode js-mode js2-mode js3-mode inferior-js-mode))
-    ("Org" "Org" (org-mode))
-    ("TeX/LaTeX" "TeX" (tex-mode latex-mode TeX-mode LaTeX-mode))
-    ("Shell" "Command-Line" (eshell-mode))
-    ("Shell Script" "Shell" (shell-mode sh-mode))
-    ("R" "R" (R-mode ess-mode))
-    ("Julia" "Julia" (julia-mode ess-julia-mode))
-    ("Haskell" "Haskell" (haskell-mode))
-    ("Scala" "Scala" (scala-mode))
-    ("Android" "Android" (android-mode))
+  '(((emacs-lisp-mode inferior-emacs-lisp-mode) . ("Elisp" "Emacs"))
+    ((lisp-mode inferior-lisp-mode
+                slime-repl-mode sly-mrepl-mode) . ("Lisp" "Common-Lisp"))
+    ((scheme-mode) . ("Scheme" "Scheme"))
+    ((clojure-mode
+      cider-repl-mode) . ("Clojure" "Clojure"))
+    ((clojurescript-mode) . ("ClojureScript" "ClojureScript"))
+    ((python-mode) . ("Python" "Python"))
+    ((ruby-mode enh-ruby-mode) . ("Ruby" "Ruby"))
+    ((c-mode) . ("C" "C"))
+    ((c++-mode) . ("C++" "C++"))
+    ((go-mode) . ("Go" "Go"))
+    ((swift-mode) . ("Swift" "Swift"))
+    ((rust-mode) . ("Rust" "Rust"))
+    ((java-mode) . ("Java" "Java"))
+    ((php-mode) . ("PHP" "PHP"))
+    ((html-mode web-mode) . ("HTML" "Web"))
+    ((css-mode) . ("CSS" "CSS"))
+    ((javascript-mode
+      js-mode js2-mode js3-mode inferior-js-mode) . ("JavaScript" "JavaScript"))
+    ((org-mode) . ("Org" "Org"))
+    ((tex-mode latex-mode TeX-mode LaTeX-mode) . ("TeX/LaTeX" "TeX"))
+    ((markdown-mode) . ("Markdown" "Markdown"))
+    ((yaml-mode) . ("YAML" "YAML"))
+    ((rst-mode) . ("reStructuredText" "reStructuredText"))
+    ((eshell-mode) . ("Shell" "Command-Line"))
+    ((shell-mode sh-mode) . ("Shell Script" "Shell"))
+    ((R-mode ess-mode) . ("R" "R"))
+    ((julia-mode ess-julia-mode) . ("Julia" "Julia"))
+    ((gnuplot-mode) . ("gnuplot" "gnuplot"))
+    ((octave-mode) . ("Octave" "Octave"))
+    ((matlab-mode) . ("Matlab" "Matlab"))
+    ((haskell-mode) . ("Haskell" "Haskell"))
+    ((scala-mode) . ("Scala" "Scala"))
+    ((erlang-mode) . ("Erlang" "Erlang"))
+    ((prolog-mode) . ("Prolog" "Prolog"))
+    ((xml-mode nxml-mode) . ("XML" "XML"))
+    ((json-mode) . ("JSON" "JSON"))
+    ((asm-mode nasm-mode) . ("Assembly" "Assembly"))
+    ((android-mode) . ("Android" "Android"))
+    ((qt-mode) . ("Qt" "Qt"))
+    ((arduino-mode) . ("Arduino" "Arduino"))
+    ((systemd-mode) . ("Systemd" "Systemd"))
+    ((projectile-rails-mode) . ("Rails" "Rails"))
     )
-  "Pairs: [name] [icon-name] [mode-list]."
+  "Pairs: ([mode-list] . ([name] [icon-name]))."
   )
 
-;; TODO: use `case' or `pcase' etc.
-;; TODO: convert to macro
-(defun major-mode-icon (mode-list name icon-name &optional extra)
-  "Display `MODE-LIST' for major mode `NAME' with `ICON-NAME' with `EXTRA'."
-  (if (memq (buffer-local-value 'major-mode (current-buffer))
-            mode-list)
-      (list
-       (propertize
-        name
-        'face (if (active)
-                  '(:family "Segoe Print" :foreground "cyan" :height 80)
-                'mode-line-inactive)
-        'display
-        (let ((icon-path
-               (concat user-emacs-directory "resources/icon/" icon-name ".xpm")))
-          (if (and (active)
-                   (file-exists-p icon-path)
-                   (image-type-available-p 'xpm))
-              (create-image icon-path 'xpm nil :ascent 'center)))
-        )
-       ;; ,extra
-       ))
+(defun major-mode-list-match ()
+  "Return the matched item in `major-mode-list'."
+  (assoc
+   (cl-some ; or use (remove nil '(nil nil (clojure-mode) nil nil ...))
+    (lambda (elem)
+      (when (not (null elem))
+        elem))
+    (mapcar
+     (lambda (element)
+       (member major-mode element))
+     (map-keys major-mode-list)))
+   major-mode-list))
+
+(defun major-mode-icon (&optional extra)
+  "Display icon for current buffer's `major-mode' and `EXTRA' info."
+  (let* ((match (major-mode-list-match))
+         (name (car (cdr match)))
+         (icon (car (cdr (cdr match)))))
+    (list
+     (propertize
+      (format "%s:" name)
+      'face (if (active)
+                '(:family "Segoe Print" :foreground "cyan" :height 80)
+              'mode-line-inactive)
+      'display
+      (let ((icon-path
+             (concat user-emacs-directory "resources/icon/" icon ".xpm")))
+        (if (and (active)
+                 (file-exists-p icon-path)
+                 (image-type-available-p 'xpm))
+            (create-image icon-path 'xpm nil :ascent 'center)))
+      )
+     (propertize " ")
+     ;;; extra
+     (if extra
+         (propertize (format "%s" (or extra ""))
+                     'face (if (active)
+                               '(:foreground "DarkGreen")
+                             'mode-line-inactive)))
+     )
+    ))
+
+;;; auto show extra info
+(defun major-mode-icon-extra ()
+  "Extend function `major-mode-icon' with extra info."
+  (let ((extra
+         (case major-mode
+           ('clojure-mode
+            (if (not (equal (cider--modeline-info) "not connected"))
+                (cider--project-name nrepl-project-dir)))
+           ('enh-ruby-mode
+            (if global-rbenv-mode
+                (rbenv--active-ruby-version) ; `rbenv--modestring'
+              ))
+           ('python-mode
+            (if pyvenv-mode
+                ;; `pyvenv-mode-line-indicator' -> `pyvenv-virtual-env-name'
+                pyvenv-virtual-env-name
+              ;; conda: `conda-env-current-name'
+              ))
+           )))
+    
+    (major-mode-icon extra))
   )
+
 
 ;; load necessary package which will be used later.
 (use-package projectile
@@ -511,186 +559,10 @@
    ;;                           :family "Comic Sans MS" :weight bold :height 80)
    ;;           'mode-line-inactive)))
 
-   
-   ;; Emacs Lisp
-   (:eval
-    (major-mode-icon '(emacs-lisp-mode inferior-emacs-lisp-mode)
-                     "Elisp" "Emacs"))
 
-   ;; Common Lisp
+   ;; major-mode icon
    (:eval
-    (major-mode-icon '(lisp-mode
-                       inferior-lisp-mode
-                       slime-repl-mode sly-mrepl-mode)
-                     "Lisp" "Common-Lisp"))
-
-   ;; Clojure - CIDER
-   (:eval
-    (when (and (equal major-mode 'clojure-mode)
-               (not (equal (cider--modeline-info) "not connected")))
-      (list
-       (propertize
-        (format " CIDER: √ ")
-        'face (if (active)
-                  '(:foreground "forest green")
-                'mode-line-inactive)
-        'display
-        (let ((clojure-icon
-               (concat user-emacs-directory "resources/icon/" "Clojure.xpm")))
-          (if (and (active)
-                   (file-exists-p clojure-icon)
-                   (image-type-available-p 'xpm))
-              (create-image clojure-icon 'xpm nil :ascent 'center))))
-
-       ;; CIDER project info
-       (propertize (format "%s" (or (cider--project-name nrepl-project-dir)
-                                    " - "))
-                   'face (if (active)
-                             '(:foreground "DarkGreen")
-                           'mode-line-inactive))
-       )))
-
-   ;; ClojureScript
-   (:eval
-    (when (and (equal major-mode 'clojurescript-mode)
-               (not (equal (cider--modeline-info) "not connected")))
-      (list
-       (propertize
-        (format " CIDER: √ ")
-        'face (if (active)
-                  '(:foreground "forest green")
-                'mode-line-inactive)
-        'display
-        (let ((cljs-icon
-               (concat user-emacs-directory "resources/icon/" "ClojureScript.xpm")))
-          (if (and (active)
-                   (file-exists-p cljs-icon)
-                   (image-type-available-p 'xpm))
-              (create-image cljs-icon 'xpm nil :ascent 'center))))
-
-       ;; CIDER project info
-       (propertize (format "%s" (or (cider--project-name nrepl-project-dir) ""))
-                   'face (if (active)
-                             '(:foreground "DarkGreen")
-                           'mode-line-inactive))
-       )))
-   
-   ;; rbenv & rvm
-   (:eval
-    (major-mode-icon
-     '(ruby-mode enh-ruby-mode rhtml-mode)
-     "Ruby" "Ruby"))
-   (:eval
-    (if (memq (buffer-local-value 'major-mode (current-buffer))
-              '(ruby-mode))
-        (list
-         (propertize " ")
-         (propertize
-          (rbenv--active-ruby-version) ; `rbenv--modestring'
-          'face (if (active)
-                    '(:foreground "cyan" :height 70)
-                  'mode-line-inactive)
-          'help-echo '(concat "\nCurrent Ruby version: " (rbenv--active-ruby-version)
-                              "\nmouse-1: switch Ruby version menu")))
-      ))
-
-   ;; pyvenv `pyvenv-mode-line-indicator' -> `pyvenv-virtual-env-name'
-   (:eval
-    (major-mode-icon '(python-mode) "Python" "Python"))
-   (:eval
-    (if (memq (buffer-local-value 'major-mode (current-buffer))
-              '(python-mode))
-        (list
-         (propertize " ")
-         (propertize
-          (format "%s" pyvenv-virtual-env-name)
-          'face (if (active)
-                    '(:foreground "orange" :height 80)
-                  'mode-line-inactive)))
-      ))
-
-   ;; conda: `conda-env-current-name'
-   (:eval
-    (if (bound-and-true-p conda-env-current-name)
-        (propertize (format "[%s]" conda-env-current-name)
-                    'face (if (active)
-                              '(:foreground "dark orange" :height 80)
-                            'mode-line-inactive))))
-
-   ;; C
-   (:eval
-    (major-mode-icon '(c-mode) "C" "C"))
-
-   ;; C++
-   (:eval
-    (major-mode-icon '(c++-mode) "C++" "C++"))
-
-   ;; Go
-   (:eval
-    (major-mode-icon '(go-mode) "Go" "Go"))
-
-   ;; Swift
-   (:eval
-    (major-mode-icon '(swift-mode swift3-mode) "Swift" "Swift"))
-
-   ;; Java
-   (:eval
-    (major-mode-icon '(java-mode) "Java" "Java"))
-
-   ;; PHP
-   (:eval
-    (major-mode-icon '(php-mode) "PHP" "PHP"))
-
-   ;; JavaScript
-   (:eval
-    (major-mode-icon '(javascript-mode js-mode js2-mode js3-mode
-                                       inferior-js-mode)
-                     "JavaScript" "JavaScript"))
-
-   ;; HTML
-   (:eval
-    (major-mode-icon '(html-mode web-mode) "HTML" "HTML"))
-
-   ;; CSS
-   (:eval
-    (major-mode-icon '(css-mode) "CSS" "CSS"))
-
-   ;; Org-mode
-   (:eval
-    (major-mode-icon '(org-mode) "Org" "Org"))
-
-   ;; TeX/LaTeX
-   (:eval
-    (major-mode-icon '(tex-mode latex-mode TeX-mode LaTeX-mode)
-                     "TeX/LaTeX" "TeX"))
-
-   ;; Command-Line
-   (:eval
-    (major-mode-icon '(eshell-mode) "Eshell" "Command-Line"))
-   
-   ;; Shell
-   (:eval
-    (major-mode-icon '(shell-mode sh-mode) "Shell" "Shell"))
-
-   ;; R
-   (:eval
-    (major-mode-icon '(R-mode ess-mode) "R" "R"))
-
-   ;; Julia
-   (:eval
-    (major-mode-icon '(julia-mode ess-julia-mode) "Julia" "Julia"))
-
-   ;; Haskell
-   (:eval
-    (major-mode-icon '(haskell-mode) "Haskell" "Haskell"))
-
-   ;; Scala
-   (:eval
-    (major-mode-icon '(scala-mode) "Scala" "Scala"))
-
-   ;; Android
-   (:eval
-    (major-mode-icon '(android-mode) "Android" "Android"))
+    (major-mode-icon-extra))
    )))
 
 
