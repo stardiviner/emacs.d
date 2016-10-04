@@ -50,22 +50,28 @@
 (use-package elpy
   :ensure t
   :config
-  (elpy-enable)
-  (setq elpy-rpc-backend "jedi")
+  (setq elpy-rpc-backend "jedi"
+        elpy-modules '(elpy-module-sane-defaults
+                       ;; elpy-module-company
+                       elpy-module-eldoc
+                       elpy-module-flymake
+                       ;; elpy-module-highlight-indentation
+                       elpy-module-pyvenv
+                       elpy-module-yasnippet)
+        elpy-company-post-completion-function 'elpy-company-post-complete-parens
+        )
 
   (defun my-elpy-settings ()
     (interactive)
+    ;; don't use `elpy-company-backend', `capf' works correctly.
     (my-company-add-backend-locally 'elpy-company-backend)
     
     (define-key python-mode-map (kbd "C-h d d") 'elpy-doc)
     (define-key python-mode-map (kbd "M-,") 'pop-tag-mark)
     (define-key python-mode-map (kbd "C-c C-s") 'run-python)
     (define-key elpy-mode-map (kbd "C-c C-s") 'run-python)
-
-    ;; disable some modes
-    (highlight-indentation-mode -1)
-    ;; (flymake-mode-off)
     )
+  
   (add-hook 'elpy-mode-hook #'my-elpy-settings)
   )
 
