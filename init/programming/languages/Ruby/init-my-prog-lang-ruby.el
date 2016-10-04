@@ -375,6 +375,14 @@
   ;; (define-key enh-ruby-mode-map (kbd "C-c C-s") 'inf-ruby)
   ;; (define-key my-prog-inferior-map (kbd "r a") 'inf-ruby-console-auto)
 
+  ;; auto type "space" behind inf-ruby buffer line to get rid of company-mode completion.
+  (defun my-inf-ruby-return ()
+    (interactive)
+    (insert " ")
+    (comint-send-input))
+
+  (define-key inf-ruby-mode-map (kbd "RET") 'my-inf-ruby-return)
+  
   ;; auto switch from common Ruby compilation
   ;; (inf-ruby-setup-auto-breakpoint)
   (add-hook 'compilation-filter-hook 'inf-ruby-auto-enter)
