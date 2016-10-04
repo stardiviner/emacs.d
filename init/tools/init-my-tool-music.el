@@ -18,6 +18,8 @@
 (use-package mpc
   :ensure t
   :config
+  (define-key my-music-prefix (kbd "M") 'mpc)
+  
   (defun my-mpc-songs-search ()
     (interactive)
     (call-interactively 'mpc-songs-search)
@@ -31,7 +33,6 @@
   (define-key mpc-mode-map (kbd "s") 'mpc-toggle-shuffle)
   (define-key mpc-mode-map (kbd "t") 'mpc-toggle-play)
   
-  (define-key my-music-prefix (kbd "M") 'mpc)
   (define-key my-music-prefix (kbd "y") 'mpc-toggle-single)
   (define-key my-music-prefix (kbd "r") 'mpc-toggle-repeat)
   (define-key my-music-prefix (kbd "s") 'mpc-toggle-shuffle)
