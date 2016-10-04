@@ -9,65 +9,25 @@
 
 ;;; [ python-mode ] --- Python's flying circus support for Emacs
 
-;; (use-package python-mode
-;;   :ensure t
-;;   :config
-;;   (setq-default python-indent-offset 2
-;;                 python-indent-guess-indent-offset t
-;;                 ;; "python", "ipython", "bpython"
-;;                 ;; python-shell-interpreter "python"
-;;                 ;; python-shell-interpreter-args "-i"
-;;                 ;; python-shell-interpreter-interactive-arg "-i"
-;;                 python-shell-virtualenv-path "~/.virtualenvs/python3/"
-;;                 ;; python-ffap-setup-code
-;;                 ;; python-ffap-string-code
-;;                 python-skeleton-autoinsert t
-;;                 )
-;;
-;;   ;; temporary solution to fix python-mode completion suspend for long time.
-;;   ;; `completion-at-point-functions': (python-completion-complete-at-point t)
-;;   (dolist (hook '(python-mode-hook
-;;                   inferior-python-mode-hook
-;;                   ))
-;;     (add-hook hook '(lambda ()
-;;                       (setq-local completion-at-point-functions nil))))
-;;   )
-
-
-;;; [ elpy ] -- Emacs Python Development Environment.
-
-(use-package elpy
+(use-package python-mode
   :ensure t
   :config
-  (elpy-enable)
-  (setq elpy-rpc-backend "jedi")
-
-  (setq python-indent-offset 2
-        python-indent 2)
-  
-  (add-hook 'elpy-mode-hook
-            (lambda ()
-              (my-company-add-backend-locally 'elpy-company-backend)
-              
-              (define-key python-mode-map (kbd "C-h d d") 'elpy-doc)
-              (define-key python-mode-map (kbd "M-,") 'pop-tag-mark)
-              (define-key python-mode-map (kbd "C-c C-s") 'run-python)
-              (define-key elpy-mode-map (kbd "C-c C-s") 'run-python)
-
-              ;; disable some modes
-              (highlight-indentation-mode -1)
-              ;; (flymake-mode-off)
-              ))
+  (setq-default python-indent-offset 2
+                python-indent 2
+                python-indent-guess-indent-offset t
+                ;; "python", "ipython", "bpython"
+                ;; python-shell-interpreter "python"
+                ;; python-shell-interpreter-args "-i"
+                ;; python-shell-interpreter-interactive-arg "-i"
+                ;; python-shell-virtualenv-path "~/.virtualenvs/python3/"
+                ;; python-ffap-setup-code
+                ;; python-ffap-string-code
+                python-skeleton-autoinsert t
+                )
   )
 
 
 ;;; [ Inferior Python ]
-
-;; - [C-c C-l] :: `python-shell-send-file'
-;; - [C-c C-r] :: `python-shell-send-region'
-;; - [C-c C-c] :: `python-shell-send-buffer'
-;; - [C-M-x]   :: `python-shell-send-defun'
-;; - `python-shell-send-string'
 
 (defun my-inferior-python ()
   "My function to start or switch to inferior-python process buffer `PROCESS-BUFFER-NAME'."
@@ -84,10 +44,30 @@
 
 (define-key my-prog-inferior-map (kbd "p") 'my-inferior-python) ; 'run-python
 
-(add-hook 'python-mode-hook
-          (lambda ()
-            (define-key python-mode-map (kbd "C-c C-s") 'run-python)
-            ))
+
+;;; [ elpy ] -- Emacs Python Development Environment.
+
+(use-package elpy
+  :ensure t
+  :config
+  (elpy-enable)
+  (setq elpy-rpc-backend "jedi")
+
+  (defun my-elpy-settings ()
+    (interactive)
+    (my-company-add-backend-locally 'elpy-company-backend)
+    
+    (define-key python-mode-map (kbd "C-h d d") 'elpy-doc)
+    (define-key python-mode-map (kbd "M-,") 'pop-tag-mark)
+    (define-key python-mode-map (kbd "C-c C-s") 'run-python)
+    (define-key elpy-mode-map (kbd "C-c C-s") 'run-python)
+
+    ;; disable some modes
+    (highlight-indentation-mode -1)
+    ;; (flymake-mode-off)
+    )
+  (add-hook 'elpy-mode-hook #'my-elpy-settings)
+  )
 
 
 ;;; [ pyenv-mode ] -- Python virtual environment interface
