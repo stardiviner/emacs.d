@@ -61,6 +61,12 @@
 ;; (global-whitespace-mode)
 
 
+;;; [ 0xc ] -- Easy base conversion made easy in Emacs.
+
+(use-package 0xc
+  :ensure t)
+
+
 (require 'init-my-emacs-kill-ring)
 (require 'init-my-emacs-region)
 (require 'init-my-emacs-macro)
