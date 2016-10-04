@@ -241,26 +241,22 @@
 (use-package company-web
   :ensure t
   :config
+  (defun my-company-web-backends-setup ()
+    (interactive)
+    (setq-local company-minimum-prefix-length 1)
+    (make-local-variable 'company-backends)
+    (add-to-list 'company-backends 'company-css)
+    (add-to-list 'company-backends 'company-jquery)
+    (add-to-list 'company-backends 'company-tern)
+    ;; (add-to-list 'company-backends 'company-web-jade)
+    ;; (add-to-list 'company-backends 'company-web-slim)
+    (add-to-list 'company-backends 'company-web-html)
+    )
+  
   (dolist (hook '(web-mode-hook
                   html-mode-hook
                   ))
-    (add-hook hook
-              '(lambda ()
-                 (setq-local company-minimum-prefix-length 1)
-                 (make-local-variable 'company-backends)
-                 (add-to-list 'company-backends 'company-css)
-                 (add-to-list 'company-backends '(company-tern
-                                                  :with
-                                                  company-jquery))
-                 ;; (add-to-list 'company-backends 'company-nxml)
-                 ;; (add-to-list 'company-backends 'company-web-jade)
-                 ;; (add-to-list 'company-backends 'company-web-slim)
-                 (add-to-list 'company-backends '(company-web-html
-                                                  :with
-                                                  company-yasnippet))
-                 )))
-
-  (define-key web-mode-map (kbd "C-'") 'company-web-html)
+    (add-hook hook #'my-company-web-backends-setup))
 
   ;; company-mode + company-web support
 
