@@ -149,5 +149,4 @@
   (setq company-tempo-expand t)
   )
 
-(use-package magithub
-  :ensure t)
+
