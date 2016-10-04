@@ -29,6 +29,12 @@
 
 ;;; [ Inferior Python ]
 
+(require 'python)
+
+(setq python-shell-interpreter "python"
+      python-shell-completion-native-enable nil
+      )
+
 (defun my-inferior-python ()
   "My function to start or switch to inferior-python process buffer `PROCESS-BUFFER-NAME'."
   (interactive)
