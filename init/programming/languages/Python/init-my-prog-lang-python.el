@@ -78,12 +78,6 @@
 
 ;;; [ pyenv-mode ] -- Python virtual environment interface
 
-;;; Usage:
-;;
-;; 1. [M-x pyenv-mode-set] :: specify pyenv python version.
-;; 2. [M-x run-python] :: run inferior python.
-;; 3. [M-x pyenv-mode-unset] :: unset
-
 ;; (use-package pyenv-mode
 ;;   :ensure t
 ;;   :config
@@ -102,24 +96,6 @@
 
 ;;; [ pyvenv ] -- Python virtual environment interface for Emacs.
 
-;;; This is a simple global minor mode which will replicate the changes done by
-;;; virtualenv activation inside Emacs.
-
-;;; Usage:
-;;
-;; - `pyvenv-activate'
-;;
-;;   queries the user for a virtual environment directory to activate.
-;;
-;; - `pyvenv-workon'
-;;
-;;    queries for a virtual environment in $WORKON_HOME (from
-;;    virtualenvwrapper.sh).
-;;
-;; - `pyvenv-mode-line-indicator'
-;;
-;;   an indicator for mode-line.
-
 (use-package pyvenv
   :ensure t
   :config
@@ -127,8 +103,6 @@
 
 
 ;;; [ pythonic ]
-
-;; - `pythonic-activate' :: active Python virtualenv.
 
 ;; (use-package pythonic
 ;;   :ensure t
