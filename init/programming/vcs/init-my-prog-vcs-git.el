@@ -237,7 +237,7 @@
 ;;; [ magit-filenotify ] -- Refresh status buffer when git tree changes
 
 (use-package magit-filenotify
-  :ensure t
+  ;; :ensure t
   :config
   (add-hook 'magit-status-mode-hook 'magit-filenotify-mode)
   )
