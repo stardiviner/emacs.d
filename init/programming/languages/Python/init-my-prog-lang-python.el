@@ -79,6 +79,8 @@
     )
   
   (add-hook 'elpy-mode-hook #'my-elpy-settings)
+
+  (add-hook 'python-mode-hook #'elpy-mode)
   )
 
 
