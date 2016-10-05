@@ -20,6 +20,8 @@
 (defun my-org-mode-completion-setting ()
   "My basic settings for org-mode completion."
   (interactive)
+  (setq-local company-minimum-prefix-length 2)
+  
   (setq-local completion-at-point-functions
               '(pcomplete-completions-at-point t))
 
