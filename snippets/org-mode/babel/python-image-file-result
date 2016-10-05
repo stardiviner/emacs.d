@@ -4,13 +4,13 @@
 # group: babel
 # --
 #+BEGIN_SRC python :var fname="${1}.png"${2: :dir "data/images"} :results file
-${3:import matplotlib.pyplot as plt
-
-${4}
+import matplotlib.pyplot as plt
 
 fig = plt.figure()
+
+$0
+
 fig.savefig(fname)
-}$0
 
 return fname
 #+END_SRC
