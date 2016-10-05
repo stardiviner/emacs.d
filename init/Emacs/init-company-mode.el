@@ -156,6 +156,14 @@
 
   ;; [ company-transformers ]
   ;; (setq company-transformers '(company-sort-by-backend-importance))
+
+  ;; animation effect on company completion
+  ;; - `beacon-blink', `beacon--shine'
+  (defun my-company-animation (backend)
+    (beacon-blink)
+    )
+  (add-hook 'company-completion-started-hook #'my-company-animation)
+  (add-hook 'company-completion-finished-hook #'my-company-animation)
   )
 
 
