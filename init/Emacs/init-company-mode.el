@@ -157,6 +157,16 @@
   ;; [ company-transformers ]
   ;; (setq company-transformers '(company-sort-by-backend-importance))
 
+  ;; sort uppercase candidates
+  (defun my-sort-uppercase (candidates)
+    (let (case-fold-search
+          (re "\\`[[:upper:]]*\\'"))
+      (sort candidates
+            (lambda (s1 s2)
+              (and (string-match-p re s2)
+                   (not (string-match-p re s1)))))))
+  (add-to-list 'company-transformers 'my-sort-uppercase)
+
   ;; animation effect on company completion
   ;; - `beacon-blink', `beacon--shine'
   (defun my-company-animation (backend)
