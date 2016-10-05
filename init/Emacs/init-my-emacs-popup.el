@@ -25,8 +25,8 @@
   ;;                                          (border-width . 2))
   ;;               )
 
-  (set-face-attribute 'tooltip nil
-                      :foreground "black" :background "light yellow")
+  ;; (set-face-attribute 'tooltip nil
+  ;;                     :foreground "black" :background "light yellow")
 
   (tooltip-mode t)
   )
