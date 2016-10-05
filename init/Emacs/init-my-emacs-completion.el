@@ -12,6 +12,8 @@
 ;; - `completion-at-point-functions' is a special hook.
 ;;    (add-hook 'completion-at-point-functions 'completion-function)
 
+(setq completion-ignore-case t)
+
 ;; (setq-default completion-at-point-functions
 ;;               '(pcomplete-completions-at-point
 ;;                 ;; semantic-completion-at-point-function
