@@ -40,6 +40,8 @@
 
 (load-library "pcomplete")
 
+(setq pcomplete-ignore-case t)
+
 
 ;;; [ Icomplete ] -- enhance the default minibuffer completion.
 
