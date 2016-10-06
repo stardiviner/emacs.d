@@ -170,7 +170,11 @@
   ;; animation effect on company completion
   ;; - `beacon-blink', `beacon--shine'
   (defun my-company-animation (backend)
-    (beacon-blink)
+    ;; beacon
+    (let ((beacon-size 20)
+          (beacon-color "cyan"))
+      (beacon-blink))
+    ;; spinner in mode-line
     )
   (add-hook 'company-completion-started-hook #'my-company-animation)
   (add-hook 'company-completion-finished-hook #'my-company-animation)
