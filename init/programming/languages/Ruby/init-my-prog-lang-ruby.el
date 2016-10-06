@@ -13,10 +13,6 @@
 
 ;;; [ ruby-mode ]
 
-;; - [C-M-n] -- end of block
-;; - [C-M-p] -- beginning of block
-;; - [C-M-q] -- (prog-indent-sexp)
-
 (use-package ruby-mode
   :ensure t
   :init
@@ -153,15 +149,10 @@
 ;;; [ ruby-interpolation ] -- Ruby string interpolation helpers.
 
 (use-package ruby-interpolation
-  :ensure t
-  )
+  :ensure t)
 
 
 ;;; [ ruby-hash-syntax ] -- automatically convert the selected region of ruby code between 1.8 and 1.9 hash styles.
-
-;;; Usage:
-;;
-;; - region + `ruby-toggle-hash-syntax'
 
 (use-package ruby-hash-syntax
   :ensure t
@@ -220,12 +211,12 @@
 
 ;;; [ ruby-end ]
 
-(use-package ruby-end
-  ;; :ensure t
-  ;; :config
-  ;; (add-hook 'ruby-mode-hook 'ruby-end-mode)
-  ;; (add-hook 'enh-ruby-mode-hook 'ruby-end-mode)
-  )
+;; (use-package ruby-end
+;;   :ensure t
+;;   :config
+;;   (add-hook 'ruby-mode-hook 'ruby-end-mode)
+;;   (add-hook 'enh-ruby-mode-hook 'ruby-end-mode)
+;;   )
 
 
 ;;; [ yard-mode ] -- for Ruby YARD comments
@@ -281,12 +272,6 @@
 
 
 ;;; [ rvm ] -- integrates Emacs with the rvm (Ruby Version Manager)
-
-;;; Usage:
-;;; - [M-x rvm-activate-corresponding-ruby]
-;;; - [M-x rvm-use] -- to use another ruby version.
-;;; - open the source of any rubygem in your current gemset.
-;;;   [M-x rvm-open-gem]
 
 ;; (use-package rvm
 ;;   :ensure t
@@ -419,23 +404,6 @@
 
 ;;; [ Robe ] -- Code navigation, documentation lookup and completion for Ruby.
 
-;;; Usage:
-;;
-;; start Robe server.
-;; 1. [M-x inf-ruby] :: execute this command in a ruby file buffer.
-;; 2. [M-x robe-start]
-;; 3. Project
-;;
-;;    To launch a REPL with project-specific console instead, type M-x
-;;    `inf-ruby-console-auto'. It recognizes several project types, including
-;;    Rails, gems and anything with racksh in their Gemfile.
-;;
-;; - [C-c C-l] -- `ruby-load-file', to load the current file in your project for completion.
-;; - [C-c C-k] -- `robe-rails-refresh', if you're developing a Rails project.
-;; - [C-c C-d] -- `robe-doc',
-;; - [M-.] -- `robe-jump' (jump to definition)
-;; - [M-,] -- pop tag mark
-
 (use-package robe
   :ensure t
   :config
@@ -472,10 +440,6 @@
 
 
 ;;; [ rspec-mode ] -- Ruby RSpec
-
-;;; Usage:
-;;
-;; - [C-c ,] :: keybindings prefix.
 
 (use-package rspec-mode
   :ensure t
@@ -574,11 +538,6 @@
 
 
 ;;; [ minitest ]
-
-;;; Usage:
-;;
-;; - [C-c ,] -- minitest keybindings prefix.
-;; `minitest-enable-appropriate-mode'
 
 (use-package minitest
   :ensure t
@@ -790,20 +749,6 @@
 
 
 ;;; [ bundler ] -- Interact with Bundler from Emacs.
-
-;;; Usage:
-;;
-;; - `bundle-open' :: wraps bundle open which, if the given gem is installed and
-;;   has been required correctly, will open the gem's source directory with
-;;   dired.
-;;
-;; - `bundle-console' :: starts an inferior ruby process in the context of the
-;;   current bundle using 'bundle console' (requires inf-ruby to be installed).
-;;
-;; - `bundle-install', `bundle-update', `bundle-check' :: run the corresponding
-;;   Bundler commands with `async-shell-command' and *Bundler* as the target
-;;   buffer. This exists so the output won't mess with the default buffer used
-;;   by [M-&] and `async-shell-command'.
 
 (use-package bundler
   :ensure t)
