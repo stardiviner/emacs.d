@@ -55,6 +55,9 @@
   ;; - `ess-ac-sources' :: for auto-complete.
   (setq ess-use-company t)
   (setq ess-use-auto-complete nil)
+
+  ;; auto start ESS inferior process
+  (add-hook 'ess-mode-hook #'ess-force-buffer-current)
   )
 
 
