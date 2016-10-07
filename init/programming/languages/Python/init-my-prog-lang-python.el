@@ -15,7 +15,7 @@
   (setq-default python-indent-offset 4
                 python-indent 4
                 python-indent-guess-indent-offset t
-                python-skeleton-autoinsert t
+                python-skeleton-autoinsert nil ; auto interactive insert skeleton
                 )
   )
 
