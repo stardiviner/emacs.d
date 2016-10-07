@@ -2,7 +2,32 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("My HTML Syntax Reference.org"
+(("Recipes"
+ (filename . "~/Org/Wiki/Recipes/Recipes.org")
+ (front-context-string . "* Breakfast\n\n* L")
+ (rear-context-string)
+ (position . 1))
+("My Haskell Examples.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Haskell/Data/Manuals/My Haskell Examples/My Haskell Examples.org")
+ (front-context-string . "* URLS\n\n- https:")
+ (rear-context-string)
+ (position . 1))
+("Experience"
+ (filename . "~/Org/Experience/Experience.org")
+ (front-context-string . "* Life Feeling\n\n")
+ (rear-context-string)
+ (position . 1))
+("Myself"
+ (filename . "~/Org/Myself/Myself.org")
+ (front-context-string . "* My Info\n\n[[fil")
+ (rear-context-string)
+ (position . 1))
+("Prolog"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Prolog/Prolog.org")
+ (front-context-string . "* Intro\n\n*Pro*-g")
+ (rear-context-string)
+ (position . 1))
+("My HTML Syntax Reference.org"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/HTML/Data/Manuals/My HTML Syntax Reference/My HTML Syntax Reference.org")
  (front-context-string . "* Notes\n\n** Org-")
  (rear-context-string)
@@ -429,9 +454,9 @@
  (position . 1))
 ("org-capture-last-stored"
  (filename . "~/Org/Diary/Diary.org")
- (front-context-string . "**** 感觉灵魂回无法启动苏醒")
- (rear-context-string . "9-28 Wednesday\n\n")
- (position . 17649))
+ (front-context-string . "**** 看到史铁生的《命若琴弦")
+ (rear-context-string . "6-10-03 Monday\n\n")
+ (position . 18196))
 ("My R Language Syntax Reference"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/R/Data/Manuals/My R Language Syntax Reference/My R Language Syntax Reference.org")
  (front-context-string)
@@ -439,7 +464,7 @@
  (position . 1))
 ("TeX Macro Packages"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/TeX/Data/Macro Packages/Macro Packages.org")
- (front-context-string . "* Image\n\n- [[fil")
+ (front-context-string . "* About TeX Pack")
  (rear-context-string)
  (position . 1))
 ("My TeX Syntax Reference"
@@ -710,11 +735,6 @@
 ("Emacs Lisp Language"
  (filename . "~/Org/Wiki/Computer/Programming/Emacs/Emacs Lisp/Emacs Lisp.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
- (rear-context-string)
- (position . 1))
-("My Life Experience"
- (filename . "~/Org/Wiki/Myself/LifeExperience/LifeExperience.org")
- (front-context-string . "* My Family\n\n** ")
  (rear-context-string)
  (position . 1))
 ("ASCII & Unicode symbols"
@@ -1005,16 +1025,6 @@
 ("SEX (Org)"
  (filename . "~/Org/Wiki/SEX/SEX.org")
  (front-context-string . "* my thought abo")
- (rear-context-string)
- (position . 1))
-("Myself (Org)"
- (filename . "~/Org/Wiki/Myself/Myself.org")
- (front-context-string . "* myself informa")
- (rear-context-string)
- (position . 1))
-("Experience (Org)"
- (filename . "~/Org/Wiki/Experience/Experience.org")
- (front-context-string . "* TED\n\n* Food\n\n*")
  (rear-context-string)
  (position . 1))
 ("censorship (Org)"
