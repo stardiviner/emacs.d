@@ -15,13 +15,6 @@
   (setq-default python-indent-offset 4
                 python-indent 4
                 python-indent-guess-indent-offset t
-                ;; "python", "ipython", "bpython"
-                ;; python-shell-interpreter "python"
-                ;; python-shell-interpreter-args "-i"
-                ;; python-shell-interpreter-interactive-arg "-i"
-                ;; python-shell-virtualenv-path "~/.virtualenvs/python3/"
-                ;; python-ffap-setup-code
-                ;; python-ffap-string-code
                 python-skeleton-autoinsert t
                 )
   )
