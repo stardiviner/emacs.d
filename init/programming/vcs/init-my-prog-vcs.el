@@ -24,6 +24,7 @@
 
 (require 'init-my-prog-vcs-git)
 (require 'init-my-prog-vcs-diff)
+(require 'init-my-prog-vcs-review)
 
 
 (provide 'init-my-prog-vcs)
