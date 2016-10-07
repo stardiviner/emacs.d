@@ -20,10 +20,6 @@
   ;; keybindings
   (define-key yas-minor-mode-map (kbd "<tab>") 'yas-expand) ; (kbd "<tab>") is same with [tab]
   (define-key yas-minor-mode-map (kbd "TAB") #'indent-for-tab-command)
-  (setq yas-trigger-key "<tab>") ; old value: "TAB"
-  (setq yas-next-field-key '("<tab>"))
-  (setq yas-prev-field-key '("<S-tab>" "<backtab>"))
-  (setq yas-skip-and-clear-key '("C-d"))
 
   ;; quick shortcut for inserting snipppet with completing system.
   (define-key yas-minor-mode-map (kbd "C-c \\") 'yas-insert-snippet)
