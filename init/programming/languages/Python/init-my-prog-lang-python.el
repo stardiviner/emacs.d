@@ -12,8 +12,8 @@
 (use-package python-mode
   :ensure t
   :config
-  (setq-default python-indent-offset 2
-                python-indent 2
+  (setq-default python-indent-offset 4
+                python-indent 4
                 python-indent-guess-indent-offset t
                 ;; "python", "ipython", "bpython"
                 ;; python-shell-interpreter "python"
