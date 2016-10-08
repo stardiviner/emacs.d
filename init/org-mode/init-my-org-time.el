@@ -86,6 +86,8 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
         ;; org-pomodoro-long-break-sound-args "-volume 0.3"
         org-pomodoro-format "Pomodoro~%s" ; mode-line string
         )
+
+  (define-key org-agenda-mode-map (kbd "p") 'org-pomodoro)
   
   (define-key my-org-prefix (kbd "p") 'org-pomodoro)
   
