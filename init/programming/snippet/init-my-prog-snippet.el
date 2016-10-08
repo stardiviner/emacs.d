@@ -77,11 +77,15 @@ $0"
                       :overline "black"
                       )
 
-  (add-hook 'yas-after-exit-snippet-hook
-            (lambda ()
-              ;; (popup-tip "snippet exited")
-              (message "snippet exited")
-              ))
+  (defun my-yas-exit-animation ()
+    ;; (popup-tip "snippet exited")
+    ;; (message "snippet exited")
+    (let ((beacon-size 20)
+          (beacon-color "deep pink"))
+      (beacon-blink))
+    )
+  (add-hook 'yas-after-exit-snippet-hook #'my-yas-exit-animation)
+  
   
   ;; enable global yasnippet-mode
   (yas-global-mode 1)
