@@ -37,7 +37,7 @@
 
 ;;; set color-theme for `emacsclient'
 
-(if (daemonp)
+(if (server-running-p) ; (daemonp)
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (toggle-frame-maximized)
