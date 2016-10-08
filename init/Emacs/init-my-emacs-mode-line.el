@@ -106,11 +106,13 @@
 (defun major-mode-icon (&optional extra)
   "Display icon for current buffer's `major-mode' and `EXTRA' info."
   (let* ((match (major-mode-list-match))
-         (name (car (cdr match)))
+         (name (or (car (cdr match))
+                   "%m" ; return current major-mode as string for `propertize' when not in `major-mode-alist'.
+                   ))
          (icon (car (cdr (cdr match)))))
     (list
      (propertize
-      (format "%s:" name)
+      (format "%s" name)
       'face (if (active)
                 '(:family "Segoe Print" :foreground "cyan" :height 80)
               'mode-line-inactive)
