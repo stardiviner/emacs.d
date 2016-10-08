@@ -254,20 +254,21 @@
   ;; (setq yari-ruby-program-name "ruby"
   ;;       yari-ri-program-name "ri")
 
+  (defun my-yari-settings ()
+    ;; (local-set-key (kbd "C-h d k") 'yari)
+
+    ;; or with my-prog-help-document-map prefix.
+    (unless (boundp 'ruby-help-doc-map)
+      (define-prefix-command 'ruby-help-doc-map))
+    (local-set-key (kbd "C-h d") 'ruby-help-doc-map)
+    
+    (define-key ruby-help-doc-map (kbd "k") 'yari-helm)
+    )
+  
   (dolist (hook '(ruby-mode-hook
                   enh-ruby-mode-hook
                   ))
-    (add-hook hook
-              '(lambda ()
-                 ;; (local-set-key (kbd "C-h d k") 'yari)
-
-                 ;; or with my-prog-help-document-map prefix.
-                 (unless (boundp 'ruby-help-doc-map)
-                   (define-prefix-command 'ruby-help-doc-map))
-                 (local-set-key (kbd "C-h d") 'ruby-help-doc-map)
-                 
-                 (define-key ruby-help-doc-map (kbd "k") 'yari-helm)
-                 )))
+    (add-hook hook #'my-yari-settings))
   )
 
 
