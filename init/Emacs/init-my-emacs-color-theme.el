@@ -40,6 +40,7 @@
 (if (daemonp)
     (add-hook 'after-make-frame-functions
               (lambda (frame)
+                (toggle-frame-maximized)
                 (with-selected-frame
                     (load-theme 'doom-one t)))))
 
