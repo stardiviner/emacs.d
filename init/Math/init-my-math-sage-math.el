@@ -13,6 +13,7 @@
   :ensure t
   :config
   (sage-shell:define-alias) ; define command `run-sage'.
+  (setq sage-shell:use-prompt-toolkit t) ; temporarily fix prompt issue
   ;; (setq sage-shell:completion-function )
   ;; (setq sage-shell:completion-ignore-case t)
   ;; (setq sage-shell-edit:display-function)
