@@ -33,8 +33,8 @@
     (interactive)
     (unless (or (get-buffer "*eclimd*")
                 (process-live-p (get-process "eclimd")))
-      (start-eclimd (read-file-name "Eclim workspace directory: "))
-      ;; (call-interactively 'start-eclimd)
+      (start-eclimd (or eclimd-default-workspace
+                        (read-file-name "Eclim workspace directory: ")))
       ))
 
   (add-hook 'java-mode-hook 'eclimd-auto-start)
