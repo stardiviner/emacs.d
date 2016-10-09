@@ -53,10 +53,6 @@
         highlight-symbol-foreground-color nil ; nil: keep original color.
         )
 
-  (set-face-attribute 'highlight-symbol-face nil
-                      :background "midnight blue"
-                      :slant 'italic)
-
   ;; (add-hook 'prog-mode-hook 'highlight-symbol-mode)
 
   (unless (boundp 'my-highlight-symbol-prefix)

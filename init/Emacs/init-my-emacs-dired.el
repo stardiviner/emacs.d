@@ -144,9 +144,6 @@
 
   ;; (setq dired-efap-initial-filename-selection 'no-extension)
 
-  (set-face-attribute 'dired-efap-face nil
-                      :box '(:color "orange" :line-width 2))
-
   (define-key dired-mode-map [f2] 'dired-efap)
   (define-key dired-mode-map [down-mouse-1] 'dired-efap-click)
   )
