@@ -190,21 +190,20 @@
                                          (thing-at-point 'line)))))
 
 
-  (add-to-list 'aggressive-indent-dont-electric-modes 'ruby-mode)
-  (add-to-list 'aggressive-indent-dont-electric-modes 'enh-ruby-mode)
-  (add-to-list 'aggressive-indent-dont-electric-modes 'inf-ruby-mode)
-  (add-to-list 'aggressive-indent-dont-electric-modes 'python-mode)
-  (add-to-list 'aggressive-indent-dont-electric-modes 'haskell-mode)
-  (add-to-list 'aggressive-indent-dont-electric-modes 'lua-mode)
-
-  (add-to-list 'aggressive-indent-dont-electric-modes 'makefile-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'ruby-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'enh-ruby-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'inf-ruby-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'python-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'haskell-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'lua-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'makefile-mode)
   
-  ;; (global-aggressive-indent-mode)
+  (global-aggressive-indent-mode)
   ;; or
-  (dolist (hook '(prog-mode-hook
-                  nxml-mode-hook
-                  ))
-    (add-hook hook #'aggressive-indent-mode))
+  ;; (dolist (hook '(prog-mode-hook
+  ;;                 nxml-mode-hook
+  ;;                 ))
+  ;;   (add-hook hook #'aggressive-indent-mode))
   )
 
 
