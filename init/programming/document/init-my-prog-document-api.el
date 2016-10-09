@@ -7,16 +7,6 @@
 
 ;;; Code:
 
-;;; [ dash ] -- A modern list api for Emacs. No 'cl required.
-
-(use-package dash
-  :ensure t
-  :config
-  ;; Syntax highlighting of dash functions
-  (eval-after-load "dash" '(dash-enable-font-lock))
-  )
-
-
 ;;; [ helm-dash ] -- Browse Dash docsets inside Emacs.
 
 (use-package helm-dash
