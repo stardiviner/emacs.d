@@ -17,7 +17,7 @@
   )
 
 
-;;; [ helm-dash ] -- Browse Dash docsets inside emacs.
+;;; [ helm-dash ] -- Browse Dash docsets inside Emacs.
 
 (use-package helm-dash
   :ensure t
@@ -30,10 +30,12 @@
         )
   
   (setq helm-dash-common-docsets
-        '("Ruby"
+        '("Clojure"
+          "Common_Lisp"
+          "Python" "Ruby"
           ;; "Ruby on Rails"
-          ;; "HTML" "CSS"
-          ;; "JavaScript"
+          "HTML" "CSS"
+          "JavaScript"
           ;; "Redis" "MongoDB"
           ;; "RubyMotion"
           )
@@ -162,21 +164,6 @@
     (defun helm-dash-buffer-local-nginx-docsets ()
       (setq-local helm-dash-docsets '("Apache_HTTP_Server")))
     (add-hook 'apache-mode-hook 'helm-dash-buffer-local-apache-docsets))
-  
-  ;; (eval-after-load "helm-dash"
-  ;;   '(defun helm-dash-actions (actions doc-item) `(("Go to doc" . eww))))
-
-  ;; open doc as you type
-  ;;
-  ;; This works kinda ok, but it's super slow. makes everything sluggish.  We
-  ;; should investigate on that, There's also helm-idle-delay worth
-  ;; investigating.
-  ;;
-  ;; (add-hook 'helm-update-hook 'helm-dash-update t)
-  ;; (defun helm-dash-update ()
-  ;;   (interactive)
-  ;;   (with-selected-window
-  ;;     (eww (helm-get-selection))))
   )
 
 
