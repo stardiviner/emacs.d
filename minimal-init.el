@@ -58,11 +58,9 @@
 (use-package company
   :ensure t
   :config
-  (setq company-minimum-prefix-length 3
+  (setq company-minimum-prefix-length 2
         company-idle-delay 0.2
         company-tooltip-align-annotations t
-        company-tooltip-flip-when-above nil
-        company-tooltip-limit 10
         company-tooltip-minimum 3
         )
 
@@ -133,9 +131,6 @@
 
   ;; [ company-abbrev / company-dabbrev ]
   (setq company-dabbrev-other-buffers t)
-
-  ;; [ company-tempo ]
-  (setq company-tempo-expand t)
   )
 
 
