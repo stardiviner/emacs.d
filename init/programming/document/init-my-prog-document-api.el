@@ -7,9 +7,6 @@
 
 ;;; Code:
 
-;;; [ API docsets ]
-
-
 ;;; [ dash ] -- A modern list api for Emacs. No 'cl required.
 
 (use-package dash
@@ -187,30 +184,6 @@
 
 ;; (use-package counsel-dash
 ;;   :ensure t)
-
-
-;;; [ dash-at-point ] -- Search the word at point with Dash.
-
-;;; Usage:
-;;
-;; - `dash-at-point'
-;; - `dash-at-point-with-docset'
-
-(use-package dash-at-point
-  :ensure t
-  :config
-  (define-key my-prog-help-document-map (kbd "M-d") 'dash-at-point)
-  (define-key my-prog-help-document-map (kbd "M-e") 'dash-at-point-with-docset)
-
-  ;; (add-to-list 'dash-at-point-mode-alist '(perl-mode . "perl"))
-
-  ;; (add-hook 'projectile-rails-mode-hook
-  ;;           (lambda () (setq dash-at-point-docset "rails")))
-  ;; (add-hook 'rhtml-mode-hook
-  ;;           (lambda () (setq dash-at-point-docset "rails")))
-  ;; (add-hook 'ruby-mode-hook
-  ;;           (lambda () (setq dash-at-point-docset "ruby")))
-  )
 
 
 (provide 'init-my-prog-document-api)
