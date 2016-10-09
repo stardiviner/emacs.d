@@ -163,6 +163,18 @@
 ;;   :ensure t)
 
 
+;;; [ zeal-at-point ]
+
+(use-package zeal-at-point
+  :ensure t
+  :config
+  (define-key my-prog-help-document-map (kbd "C-d") 'zeal-at-point)
+
+  (add-hook 'projectile-rails-mode-hook
+            (lambda () (setq zeal-at-point-docset "rails")))
+  )
+
+
 (provide 'init-my-prog-document-api)
 
 ;;; init-my-prog-document-api.el ends here
