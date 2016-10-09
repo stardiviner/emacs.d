@@ -31,7 +31,7 @@
           )
         )
 
-  (setq helm-dash-enable-debugging t)
+  (setq helm-dash-enable-debugging nil)
 
   (define-key my-prog-help-document-map (kbd "C-s") 'helm-dash-at-point) ; `helm-dash'
   
