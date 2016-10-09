@@ -675,19 +675,19 @@ This can be useful for snippets to select kernel interactively."
     "Face for Org-mode src blocks")
 
   (defface org-block-emacs-lisp
-    `((t (:background "#3d4451")))
+    `((t (:background "#202020")))
     "Face for elisp src blocks")
 
   (defface org-block-lisp
-    `((t (:background "#3d4451")))
+    `((t (:background "#202020")))
     "Face for Common Lisp src blockss")
 
   (defface org-block-clojure
-    `((t (:background "#3d4451")))
+    `((t (:background "#202020")))
     "Face for Clojure blocks")
 
   (defface org-block-scheme
-    `((t (:background "Darkorchid4")))
+    `((t (:background "#3d4451")))
     "Face for Scheme src blockss")
 
   (defface org-block-sh
@@ -699,7 +699,7 @@ This can be useful for snippets to select kernel interactively."
     "Face for LaTeX blocks")
   
   (defface org-block-python
-    `((t (:background "DarkSlateBlue")))
+    `((t (:background "#202020")))
     "Face for python blocks")
 
   (defface org-block-ipython
@@ -707,7 +707,7 @@ This can be useful for snippets to select kernel interactively."
     "Face for IPython blocks")
 
   (defface org-block-ruby
-    `((t (:background "DarkSlateBlue")))
+    `((t (:background "#202020")))
     "Face for Ruby blocks")
 
   (defface org-block-perl
@@ -727,11 +727,11 @@ This can be useful for snippets to select kernel interactively."
     "Face for Java blocks")
 
   (defface org-block-js
-    `((t (:background "DarkSlateBlue")))
+    `((t (:background "#202020")))
     "Face for JavaScript blocks")
 
   (defface org-block-javascript
-    `((t (:background "DarkSlateBlue")))
+    `((t (:background "#202020")))
     "Face for JavaScript blocks")
   
   (defface org-block-coffee
