@@ -180,12 +180,6 @@
   )
 
 
-;;; [ counsel-dash ] -- Ivy interface for dash.el.
-
-;; (use-package counsel-dash
-;;   :ensure t)
-
-
 (provide 'init-my-prog-document-api)
 
 ;;; init-my-prog-document-api.el ends here
