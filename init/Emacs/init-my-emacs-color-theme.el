@@ -39,10 +39,12 @@
 
 (if (server-running-p) ; (daemonp)
     (add-hook 'after-make-frame-functions
-              (lambda (frame)
-                (toggle-frame-maximized)
-                (with-selected-frame
-                    (load-theme 'doom-one t)))))
+              '(lambda (frame)
+                 (with-selected-frame frame
+                   (progn
+                     (toggle-frame-maximized)
+                     (load-theme 'doom-one t)
+                     )))))
 
 
 ;;; [ color-theme-solarized ]
