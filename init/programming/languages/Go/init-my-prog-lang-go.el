@@ -18,22 +18,20 @@
   ;;       godoc-at-point-function 'godoc-and-godef
   ;;       )
 
-  (add-hook 'go-mode-hook
-            '(lambda ()
-               ;; go-import [C-u] + [C-c C-a]
-               ;; (local-set-key (kbd "C-c C-S-a") 'go-remove-unused-imports)
-               
-               ;; gofmt
-               (local-set-key (kbd "C-c C-f") 'gofmt)
-
-               ;; godoc -- `go doc [QUERY]`
-               (local-set-key (kbd "C-h d d") 'godoc-at-point) ; `godoc', `godoc-at-point'
-               ;; (local-set-key (kbd "C-c C-k") 'godoc)
-
-               ;; godef
-               ;; use `godef-jump' instead of `etags' etc tags jumping.
-               (local-set-key (kbd "M-.") #'godef-jump)
-               ))
+  (defun my-go-mode-settings ()
+    ;; go-import [C-u] + [C-c C-a]
+    ;; (local-set-key (kbd "C-c C-S-a") 'go-remove-unused-imports)
+    ;; gofmt
+    (local-set-key (kbd "C-c C-f") 'gofmt)
+    ;; godoc -- `go doc [QUERY]`
+    (local-set-key (kbd "C-h d d") 'godoc-at-point) ; `godoc', `godoc-at-point'
+    ;; (local-set-key (kbd "C-c C-k") 'godoc)
+    ;; godef
+    ;; use `godef-jump' instead of `etags' etc tags jumping.
+    (local-set-key (kbd "M-.") #'godef-jump)
+    )
+  
+  (add-hook 'go-mode-hook #'my-go-mode-settings)
   
   (add-hook 'before-save-hook #'gofmt-before-save)
   )
