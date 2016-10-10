@@ -97,7 +97,7 @@
   )
 
 
-;;; [ gorepl-mode ] -- A minor emacs mode for Go REPL
+;;; [ gorepl-mode ] -- Go REPL Interactive Development in top of Gore.
 
 (use-package gorepl-mode
   :ensure t
@@ -114,21 +114,13 @@
   )
 
 
-;;; [ go-play ] -- Paste to play.golang.org
-
-;;; Usage:
-;;
-;; - [M-x go-play-buffer]
-;; - [M-x go-play-region]
+;;; [ gore-mode ] -- Simple mode for gore, a command-line evaluator for golang.
 
 
-;;; [ go-playground ]
+;;; [ go-play ] -- Paste to play.golang.org
 
-;;; Usage:
-;;
-;; - [M-x go-playground] :: start playground buffer for new snippet.
-;; - [C-RET] :: compile and run your code.
-;; - [M-x go-playground-remove-current-snippet] :: removing snippet after you done with it.
+
+;;; [ go-playground ] -- Local Golang playground for short snippets.
 
 (use-package go-playground
   :ensure t
@@ -140,12 +132,6 @@
 ;;; [ go-playground-cli ]
 
 ;; (use-package go-playground-cli)
-
-
-;;; [ gore-mode ] -- Simple mode for gore, a command-line evaluator for golang.
-
-
-;;; [ flycheck ]
 
 
 ;;; [ go-errcheck ]
