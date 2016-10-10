@@ -323,8 +323,7 @@
                         :audible t)
                 )
 
-;; (org-notify-start 60)
-
+(org-notify-start 300)
 
 
 ;;; bind key [C-l] to locate to current time: "now -----" in Org-Agenda buffer.
