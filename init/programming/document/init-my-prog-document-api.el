@@ -21,11 +21,11 @@
   
   (setq helm-dash-common-docsets
         '("Clojure"
-          "Common_Lisp"
-          "Python" "Ruby"
+          "Common Lisp"
+          "Python 3" "Ruby"
           ;; "Ruby on Rails"
           "HTML" "CSS"
-          "JavaScript"
+          "JavaScript" "NodeJS"
           ;; "Redis" "MongoDB"
           ;; "RubyMotion"
           )
