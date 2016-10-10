@@ -139,7 +139,7 @@
 (set-face-attribute 'bold-italic nil
                     :foreground "pink")
 (set-face-attribute 'underline nil
-                    :underline "#dark gray")
+                    :underline "dark gray")
 ;; region
 (set-face-attribute 'region nil
                     :inverse-video nil
