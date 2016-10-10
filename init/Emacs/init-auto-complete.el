@@ -100,26 +100,6 @@
   (define-key ac-mode-map (kbd "C-c h") 'ac-last-quick-help)
   (define-key ac-mode-map (kbd "C-c H") 'ac-last-help)
 
-  ;; Faces
-  (setq ac-disable-inline nil)
-
-  ;; color of candidates
-  (set-face-attribute 'ac-candidate-face nil
-                      ;; fix for ac candidates face italic/bold on comments etc.
-                      :inherit nil :slant 'normal :weight 'normal :height 100
-                      :foreground "black" :background "white"
-                      )
-  ;; color of selection
-  (set-face-attribute 'ac-selection-face nil
-                      :inherit nil :slant 'normal :weight 'normal :height 100
-                      :foreground "white" :background "black"
-                      )
-  ;; foreground color of inline completion
-  (set-face-foreground 'ac-completion-face "green yellow")
-  (set-face-background 'ac-candidate-mouse-face "orange")
-
-  (setq ac-fuzzy-cursor-color "orange red")
-
   ;; set default auto-complete source
   (setq-default ac-sources
                 '(ac-source-yasnippet
