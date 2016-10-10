@@ -113,6 +113,8 @@
         which-key-show-remaining-keys t
         )
 
+  (setq which-key-sort-order 'which-key-prefix-then-key-order)
+  
   (set-face-attribute 'which-key-key-face nil
                       :foreground "cyan"
                       )
