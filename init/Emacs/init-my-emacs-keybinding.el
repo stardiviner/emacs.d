@@ -115,32 +115,6 @@
 
   (setq which-key-sort-order 'which-key-prefix-then-key-order)
   
-  (set-face-attribute 'which-key-key-face nil
-                      :foreground "cyan"
-                      )
-  (set-face-attribute 'which-key-special-key-face nil
-                      :inverse-video t
-                      )
-  (set-face-attribute 'which-key-note-face nil
-                      :foreground "white"
-                      )
-  (set-face-attribute 'which-key-separator-face nil
-                      :foreground "#444444"
-                      )
-  (set-face-attribute 'which-key-command-description-face nil
-                      :foreground "dark cyan"
-                      )
-  (set-face-attribute 'which-key-group-description-face nil
-                      :foreground "orange red" :background "#333333"
-                      )
-  (set-face-attribute 'which-key-local-map-description-face nil
-                      :foreground "yellow"
-                      :slant 'italic
-                      )
-  (set-face-attribute 'which-key-highlighted-command-face nil
-                      :inherit 'which-key-command-description-face
-                      :underline "dark red")
-
   (setq which-key-highlighted-command-list
         '("toggle"
           "register" "bookmark"
