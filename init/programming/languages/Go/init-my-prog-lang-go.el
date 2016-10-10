@@ -56,27 +56,7 @@
 
 ;;; [ gocode ] -- An autocompletion daemon for the Go programming language.
 
-
-;;; [ go-complete ] -- Native Go completion for Emacs.
-
-;; (use-package go-complete
-;;   :ensure t
-;;   :config
-;;   (add-hook 'go-mode-hook
-;;             '(lambda ()
-;;                (add-hook (make-local-variable 'completion-at-point-functions)
-;;                          'go-complete-at-point)))
-;;   )
-
-
-;;; [ go-autocomplete ]
-
-
-;;; [ go-company ]
-
-
-;;; [ company-go ]
-
+;; [ company-go ]
 (use-package company-go
   :ensure t
   :config
@@ -93,8 +73,22 @@
   
   (add-hook 'go-mode-hook
             (lambda ()
+              (setq-local company-echo-delay 0)
               (my-company-add-backend-locally 'company-go)))
   )
+
+;; [ go-autocomplete ]
+;; (if (getenv "GOPATH")
+;;     (load (concat (getenv "GOPATH")
+;;                   "/src/github.com/nsf/gocode/emacs/go-autocomplete.el"))
+;;   (error "SHELL env $GOPATH not available, set it in your SHELL"))
+;;
+;; (require 'go-autocomplete)
+;; (add-hook 'go-mode-hook
+;;           (lambda ()
+;;             (add-to-list 'ac-sources 'ac-source-go)))
+
+
 
 
 ;;; [ gorepl-mode ] -- Go REPL Interactive Development in top of Gore.
