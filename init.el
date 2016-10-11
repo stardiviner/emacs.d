@@ -170,7 +170,7 @@
 (require 'init-my-tool-downloader)
 (require 'init-my-tool-OpenSpritz)
 (require 'init-my-tool-email)
-;; (require 'init-my-tool-feeds)
+(require 'init-my-tool-feeds)
 (require 'init-my-tool-blog)
 (require 'init-my-tool-paste)
 (require 'init-my-tool-notify)
