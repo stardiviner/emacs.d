@@ -9,23 +9,15 @@
 
 ;;; [ docker ] -- Emacs interface to Docker.
 
-;;; Usage:
-;;
-;; - `docker-mode' / `docker-global-mode'
-;; - `docker-*' :: command prefix.
-;;   - `docker-images'
-;;   - `docker-containers'
-;;   - `docker-volumes'
-
 (use-package docker
   :ensure t
   :config
+  (setq docker-containers-show-all t)
+  
   (define-key my-container-map (kbd "m") 'docker-mode)
   (define-key my-container-map (kbd "i") 'docker-images)
   (define-key my-container-map (kbd "c") 'docker-containers)
   (define-key my-container-map (kbd "v") 'docker-volumes)
-  
-  ;; (docker-global-mode)
   )
 
 

@@ -54,8 +54,9 @@
           ))
 
   (define-key elfeed-search-mode-map (kbd "#") 'elfeed-search-set-filter)
+  ;; (setq elfeed-initial-tags '(unread))
   ;; "@1-week-ago +unread", "@6-months-ago +unread"
-  (setq-default elfeed-search-filter "@1-week-ago +unread")
+  ;; (setq-default elfeed-search-filter "@1-week-ago +unread")
 
   (defun elfeed-mark-read ()
     (interactive)
