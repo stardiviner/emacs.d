@@ -56,13 +56,22 @@
   (define-key elfeed-search-mode-map (kbd "#") 'elfeed-search-set-filter)
   ;; "@1-week-ago +unread", "@6-months-ago +unread"
   (setq-default elfeed-search-filter "@1-week-ago +unread")
-  ;; (setq elfeed-initial-tags '(unread))
 
+  (defun elfeed-mark-read ()
+    (interactive)
+    ;; (elfeed-search-untag-all-unread)
+    (elfeed-search-untag-all 'unread)
+    (previous-line)
+    (elfeed-search-tag-all 'read)
+    )
+  (define-key elfeed-search-mode-map (kbd "r") 'elfeed-mark-read)
+  
   ;; different face colors for different kinds of content (videos, podcast, comics)
   ;; Mapping of tags to faces in the Elfeed entry listing.
   (setq elfeed-search-face-alist
         '((unread (:foreground "light grey"))
-          (read (:foregroound "#444444"))
+          (read (:background (color-darken-name (face-background 'default) 3)
+                             :foregroound "#444444"))
           (Emacs (:foreground "SteelBlue"))
           (Linux (:foreground "tomato"))
           (Arch (:foreground "cyan"))
