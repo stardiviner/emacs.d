@@ -232,6 +232,19 @@
 ;; disable soft wrap lines for windows which has smaller width than 80.
 (global-visual-line-mode -1) ; soft wrap lines at word boundary
 
+;;; toggle fill/un-fill
+(defun my/fill-or-unfill ()
+  "Like `fill-paragraph', but unfill if used twice."
+  (interactive)
+  (let ((fill-column
+         (if (eq last-command 'my/fill-or-unfill)
+             (progn (setq this-command nil)
+                    (point-max))
+           fill-column)))
+    (call-interactively #'fill-paragraph)))
+
+(global-set-key [remap fill-paragraph] #'my/fill-or-unfill)
+
 
 ;;; [ fci -- Fill Column Indicator ]
 
