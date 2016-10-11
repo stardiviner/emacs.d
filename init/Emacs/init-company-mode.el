@@ -239,11 +239,11 @@
 
 ;;; [ company-flx ] -- flx based fuzzy matching for company.
 
-(use-package company-flx
-  :ensure t
-  :config
-  (with-eval-after-load 'company
-    (company-flx-mode +1)))
+;; (use-package company-flx
+;;   :ensure t
+;;   :config
+;;   (with-eval-after-load 'company
+;;     (company-flx-mode +1)))
 
 
 (provide 'init-company-mode)
