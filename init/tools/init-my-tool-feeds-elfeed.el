@@ -15,8 +15,8 @@
   (setq elfeed-db-directory "~/.emacs.d/.elfeed")
 
   (setq elfeed-feeds
-        '(("http://blog.stackoverflow.com/feed/" Stack-Overflow)
-          ("http://programmers.blogoverflow.com/feed/" Stack-Overflow)
+        '(("http://blog.stackoverflow.com/feed/" Programming)
+          ("http://programmers.blogoverflow.com/feed/" Programming)
 
           ;; Emacs
           ("http://planet.emacsen.org/atom.xml" Emacs)
@@ -31,9 +31,6 @@
           ;; Web
           ("https://blog.mozilla.org/feed/" Web)
           ("http://hacks.mozilla.org/feed/" Web)
-          ("http://feeds.feedburner.com/html5rocks" Web)
-          ("http://feeds2.feedburner.com/css3" Web)
-          ;; ("http://feeds2.feedburner.com/WebDesignerWall" Web)
 
           ;; Linux
           ("http://openszone.com/feed" Linux)
@@ -45,15 +42,15 @@
           ("http://planet.archlinux.org/atom.xml" Arch)
           
           ;; Geek News
-          ("http://news.ycombinator.com/rss" geek news)
-          ("http://slashdot.org/index.rss" geek news)
-          ("http://reddit.com/.rss" geek news)
-          ("http://www.solidot.org/index.rss" geek news)
-          ("https://projecteuler.net/rss2_euler.xml" geek news)
-          ("http://lwn.net/headlines/newrss" geek news)
-          ("http://linuxtoy.org/feed/" geek news)
-          ("http://linux.cn/rss.xml" geek news)
-          ("http://blog.jobbole.com/feed/" geek news)
+          ("http://news.ycombinator.com/rss" Geek)
+          ("http://slashdot.org/index.rss" Geek)
+          ("http://reddit.com/.rss" Geek)
+          ("http://www.solidot.org/index.rss" Geek)
+          ("https://projecteuler.net/rss2_euler.xml" Geek)
+          ("http://lwn.net/headlines/newrss" Geek)
+          ("http://linuxtoy.org/feed/" Geek)
+          ("http://linux.cn/rss.xml" Geek)
+          ("http://blog.jobbole.com/feed/" Geek)
           ))
 
   (define-key elfeed-search-mode-map (kbd "#") 'elfeed-search-set-filter)
