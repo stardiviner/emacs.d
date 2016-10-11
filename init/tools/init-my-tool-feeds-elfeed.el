@@ -56,19 +56,10 @@
           ("http://blog.jobbole.com/feed/" geek news)
           ))
 
-  ;; (setq elfeed-initial-tags '(unread))
-
-  (setq elfeed-max-connections 4
-        elfeed-sort-order 'descending ; by time
-        elfeed-search-title-min-width 60
-        elfeed-search-title-max-width 60
-        elfeed-search-trailing-width 20
-        )
-
+  (define-key elfeed-search-mode-map (kbd "#") 'elfeed-search-set-filter)
   ;; "@1-week-ago +unread", "@6-months-ago +unread"
   (setq-default elfeed-search-filter "@1-week-ago +unread")
-
-  (define-key elfeed-search-mode-map (kbd "#") 'elfeed-search-set-filter)
+  ;; (setq elfeed-initial-tags '(unread))
 
   (define-key my-tools-prefix (kbd "f") 'elfeed)
   )
