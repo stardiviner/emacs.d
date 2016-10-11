@@ -200,16 +200,6 @@
   )
 
 
-;;; [ elfeed-web ] -- web interface to elfeed.
-
-;;; Usage:
-;;
-;; - `elfeed-web-start'
-;; - `elfeed-web-stop'
-
-(use-package elfeed-web)
-
-
 (provide 'init-my-tool-feeds-elfeed)
 
 ;;; init-my-tool-feeds-elfeed.el ends here
