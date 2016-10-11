@@ -58,6 +58,19 @@
   (setq-default elfeed-search-filter "@1-week-ago +unread")
   ;; (setq elfeed-initial-tags '(unread))
 
+  ;; different face colors for different kinds of content (videos, podcast, comics)
+  ;; Mapping of tags to faces in the Elfeed entry listing.
+  (setq elfeed-search-face-alist
+        '((unread (:foreground "light grey"))
+          (read (:foregroound "#444444"))
+          (Emacs (:foreground "SteelBlue"))
+          (Linux (:foreground "tomato"))
+          (Arch (:foreground "cyan"))
+          (Programming
+           (:background (color-darken-name (face-background 'default) 3)
+                        :foreground "YellowGreen"
+                        ))))
+  
   (define-key my-tools-prefix (kbd "f") 'elfeed)
   )
 
