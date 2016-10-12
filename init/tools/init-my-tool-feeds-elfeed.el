@@ -68,6 +68,11 @@
   (advice-add 'elfeed-search-tag-all-unread
               :before (lambda ()
                         (elfeed-search-untag-all 'read)))
+  (defalias 'elfeed-search-toggle-all-star
+    (elfeed-expose #'elfeed-search-toggle-all 'star)
+    "Toggle the `star' tag to all selected entries.")
+  (define-key elfeed-search-mode-map (kbd "*") 'elfeed-search-toggle-all-star)
+  (define-key elfeed-search-mode-map (kbd "m") 'elfeed-search-toggle-all-star)
   
   ;; different face colors for different kinds of content (videos, podcast, comics)
   ;; Mapping of tags to faces in the Elfeed entry listing.
