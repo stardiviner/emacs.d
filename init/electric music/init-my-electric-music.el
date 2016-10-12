@@ -75,7 +75,7 @@
 
 (add-hook 'sclang-mode-hook #'my-sclang-auto-start)
 
-(define-key sclang-mode-map (kbd "C-c C-s") 'my-sclang-start)
+(define-key sclang-mode-map (kbd "C-c C-s") 'my-sclang-auto-start)
 (define-key sclang-mode-map (kbd "C-c M-s") 'sclang-main-stop)
 (define-key sclang-mode-map (kbd "C-c M-r") 'sclang-main-run)
 
