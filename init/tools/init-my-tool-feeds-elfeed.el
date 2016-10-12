@@ -69,17 +69,41 @@
   
   ;; different face colors for different kinds of content (videos, podcast, comics)
   ;; Mapping of tags to faces in the Elfeed entry listing.
+  (defface elfeed-unread-tag
+    '((t :foreground "light grey"))
+    "Mark elfeed tag unread.")
+  (defface elfeed-read-tag
+    '((t :foreground "#444444"
+         :background (color-darken-name (face-background 'default) 3)))
+    "Mark elfeed tag read")
+  (defface elfeed-star-tag
+    '((t :foreground "deep pink"
+         :background (color-darken-name (face-background 'default) 2)))
+    "Mark elfeed tag star")
+  (defface elfeed-podcast-tag
+    '((t :foreground "magenta"))
+    "Mark elfeed podcast tag")
+  (defface elfeed-programming-tag
+    '((t :foreground "yellow green"))
+    "Mark elfeed Programming tag")
+  (defface elfeed-linux-tag
+    '((t :foreground "tomato"))
+    "Mark elfeed Linux tag")
+  (defface elfeed-emacs-tag
+    '((t :foreground "SteelBlue"))
+    "Mark elfeed Emacs tag")
+  (defface elfeed-arch-tag
+    '((t :foreground "light cyan"))
+    "Mark elfeed Arch tag")
+  
   (setq elfeed-search-face-alist
-        '((unread (:foreground "light grey"))
-          (read (:background (color-darken-name (face-background 'default) 3)
-                             :foregroound "#444444"))
-          (Emacs (:foreground "SteelBlue"))
-          (Linux (:foreground "tomato"))
-          (Arch (:foreground "cyan"))
-          (Programming
-           (:background (color-darken-name (face-background 'default) 3)
-                        :foreground "YellowGreen"
-                        ))))
+        '((unread elfeed-unread-tag)
+          (read elfeed-read-tag)
+          (star elfeed-star-tag)
+          (Emacs elfeed-emacs-tag)
+          (Linux elfeed-linux-tag)
+          (Arch elfeed-arch-tag)
+          (Programming elfeed-programming-tag)))
   
   (define-key my-tools-prefix (kbd "f") 'elfeed)
   )
