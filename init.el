@@ -178,6 +178,7 @@
 (require 'init-my-tool-music)
 ;; (require 'init-my-tool-subtitle)
 (require 'init-my-tool-podcast)
+(require 'init-my-tool-audio)
 (require 'init-my-tool-screenshot)
 (require 'init-my-tool-screencast)
 ;; (require 'init-my-tool-stack-exchange)
