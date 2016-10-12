@@ -58,14 +58,16 @@
   ;; "@1-week-ago +unread", "@6-months-ago +unread"
   ;; (setq-default elfeed-search-filter "@1-week-ago +unread")
 
-  (defun elfeed-mark-read ()
-    (interactive)
-    ;; (elfeed-search-untag-all-unread)
-    (elfeed-search-untag-all 'unread)
-    (previous-line)
-    (elfeed-search-tag-all 'read)
-    )
-  (define-key elfeed-search-mode-map (kbd "r") 'elfeed-mark-read)
+  (advice-add 'elfeed-search-untag-all-unread
+              :after (lambda ()
+                       (previous-line)
+                       (elfeed-search-tag-all 'read)))
+  (advice-add 'elfeed-search-show-entry
+              :before (lambda (entry)
+                        (elfeed-search-tag-all 'read)))
+  (advice-add 'elfeed-search-tag-all-unread
+              :before (lambda ()
+                        (elfeed-search-untag-all 'read)))
   
   ;; different face colors for different kinds of content (videos, podcast, comics)
   ;; Mapping of tags to faces in the Elfeed entry listing.
