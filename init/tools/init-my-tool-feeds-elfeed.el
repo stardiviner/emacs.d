@@ -73,6 +73,12 @@
     "Toggle the `star' tag to all selected entries.")
   (define-key elfeed-search-mode-map (kbd "*") 'elfeed-search-toggle-all-star)
   (define-key elfeed-search-mode-map (kbd "m") 'elfeed-search-toggle-all-star)
+
+  (defun elfeed-quit ()
+    (interactive)
+    (elfeed-db-save)
+    (quit-window))
+  (define-key elfeed-search-mode-map (kbd "q") 'elfeed-quit)
   
   ;; different face colors for different kinds of content (videos, podcast, comics)
   ;; Mapping of tags to faces in the Elfeed entry listing.
