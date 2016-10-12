@@ -10,11 +10,11 @@
 ;;; [ SuperCollider ] -- an audio server, programming language, and IDE for sound synthesis and algorithmic composition.
 
 ;; from Linux System Package (which only contains *.elc files)
-;; (add-to-list 'load-path "/usr/share/emacs/site-lisp/SuperCollider/")
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/SuperCollider/")
 ;; from Git source code repository (contains *.el source code files)
-(add-to-list 'load-path (concat (getenv "HOME")
-                                "/Code/SuperCollider/supercollider"
-                                "/editors/scel/el/"))
+;; (add-to-list 'load-path (concat (getenv "HOME")
+;;                                 "/Code/SuperCollider/supercollider"
+;;                                 "/editors/scel/el/"))
 
 (require 'sclang)
 
