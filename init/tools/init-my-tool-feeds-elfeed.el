@@ -58,6 +58,13 @@
   ;; "@1-week-ago +unread", "@6-months-ago +unread"
   ;; (setq-default elfeed-search-filter "@1-week-ago +unread")
 
+  ;; filtering
+  (defun elfeed-show-all ()
+    (interactive)
+    (let ((elfeed-search-filter " "))
+      (elfeed-search-live-filter)))
+  (define-key elfeed-search-mode-map (kbd "A") 'elfeed-show-all)
+  
   (advice-add 'elfeed-search-untag-all-unread
               :after (lambda ()
                        (previous-line)
