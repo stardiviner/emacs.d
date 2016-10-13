@@ -21,6 +21,14 @@
         )
   )
 
+;;; [ wolfram.el ] -- Wolfram Alpha integration by showing result with Org-mode.
+
+(use-package wolfram
+  :ensure t
+  :config
+  (setq wolfram-alpha-app-id "YX2WUR-2J7GPTXY44")
+  )
+
 ;;; ----------------------------------------------------------------------------
 
 (provide 'init-my-math-wolfram)
