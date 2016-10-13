@@ -94,11 +94,11 @@
     "Mark elfeed tag unread.")
   (defface elfeed-read-tag
     '((t :foreground "#444444"
-         :background (color-darken-name (face-background 'default) 3)))
+         :background "#222222"))
     "Mark elfeed tag read")
   (defface elfeed-star-tag
     '((t :foreground "deep pink"
-         :background (color-darken-name (face-background 'default) 2)))
+         :background "#222222"))
     "Mark elfeed tag star")
   (defface elfeed-podcast-tag
     '((t :foreground "magenta"))
