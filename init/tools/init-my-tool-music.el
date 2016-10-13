@@ -18,6 +18,10 @@
 (use-package mpc
   :ensure t
   :config
+  (advice-add 'mpc :after
+              (lambda ()
+                (switch-to-buffer-other-window "*MPC-Songs*")))
+  
   (define-key my-music-prefix (kbd "M") 'mpc)
   
   (defun my-mpc-songs-search ()
