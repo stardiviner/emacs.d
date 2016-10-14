@@ -51,6 +51,8 @@
     "http://baike.baidu.com/search/none?word=%s"
     :docstring "Baidu Baike"
     :keybinding "W")
+
+  ;; Computational Knowledge Engine
   (defengine wolfram-alpha
     "http://www.wolframalpha.com/input/?i=%s"
     :docstring "Wolfram Alpha"
@@ -59,6 +61,10 @@
   ;; programming
 
   ;; Docs: API
+  (defengine Stack-Overflow-Documentation
+    ;; TODO: fix URL add search substitude
+    "http://stackoverflow.com/documentation"
+    :docstring "Stack Overflow Documentation")
   (defengine APIs
     "http://apis.io/?search=%s"
     :docstring "APIs"
@@ -113,7 +119,7 @@
   (defengine stack-overflow
     "https://stackoverflow.com/search?q=%s"
     :docstring "Stack Overflow"
-    :keybinding "o")
+    :keybinding "s")
   (defengine quora
     "https://www.quora.com/search?q=%s"
     :docstring "Quora"
