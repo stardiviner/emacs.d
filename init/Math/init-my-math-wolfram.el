@@ -27,6 +27,7 @@
   :ensure t
   :config
   (setq wolfram-alpha-app-id "YX2WUR-2J7GPTXY44")
+  (define-key my-prog-help-document-map (kbd "A") 'wolfram-alpha)
   )
 
 ;;; ----------------------------------------------------------------------------
