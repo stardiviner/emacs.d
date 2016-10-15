@@ -87,54 +87,50 @@
                                   "include" "extend"
                                   ;; "private" "protected" "public"
                                   ))
+
+  ;; highlight symbol: dot .
+  (font-lock-add-keywords
+   'enh-ruby-mode
+   '(("[[:alnum:]]\\(\\.\\)[[:alnum:]]"
+      (1 '(:foreground "deep pink" :weight 'bold))
+      )))
   
-  (defun my-ruby-code-custom-highlights ()
-    (interactive)
-    ;; highlight symbol: dot .
-    (font-lock-add-keywords
-     'enh-ruby-mode
-     '(("[[:alnum:]]\\(\\.\\)[[:alnum:]]"
-        (1 '(:foreground "deep pink" :weight 'bold))
-        )))
-    
-    ;; FIXME: this is override by ruby-mode default syntax highlight.
-    ;; highlight keyword: self
-    ;; (font-lock-add-keywords
-    ;;  'enh-ruby-mode
-    ;;  '(("\s\\(self\\)\\(\\.\s\\)?"
-    ;;     (1 '(:foreground "white" :background "deep pink" :weight 'normal))
-    ;;     )))
+  ;; FIXME: this is override by ruby-mode default syntax highlight.
+  ;; highlight keyword: self
+  (font-lock-add-keywords
+   'enh-ruby-mode
+   '(("\s\\(self\\)\\(\\.\s\\)?"
+      (1 '(:foreground "white" :background "deep pink" :slant 'italic))
+      )))
 
-    ;; highlight keywords: protected(orange), private(dark red), public(white)
-    (font-lock-add-keywords
-     'enh-ruby-mode
-     '(("^\s*\\(public\\)$"
-        (1 '(:foreground "white" :weight 'bold :underline "#888888")))))
-    (font-lock-add-keywords
-     'enh-ruby-mode
-     '(("^\s*\\(protected\\)$"
-        (1 '(:foreground "yellow" :weight 'bold :underline "#888888")))))
-    (font-lock-add-keywords
-     'enh-ruby-mode
-     '(("^\s*\\(private\\)$"
-        (1 '(:foreground "magenta" :weight 'bold :underline "#888888")))))
+  ;; highlight keywords: protected(orange), private(dark red), public(white)
+  (font-lock-add-keywords
+   'enh-ruby-mode
+   '(("^\s*\\(public\\)$"
+      (1 '(:foreground "white" :weight 'bold :underline "#888888")))))
+  (font-lock-add-keywords
+   'enh-ruby-mode
+   '(("^\s*\\(protected\\)$"
+      (1 '(:foreground "yellow" :weight 'bold :underline "#888888")))))
+  (font-lock-add-keywords
+   'enh-ruby-mode
+   '(("^\s*\\(private\\)$"
+      (1 '(:foreground "magenta" :weight 'bold :underline "#888888")))))
 
-    ;; attr_*
-    (font-lock-add-keywords
-     'enh-ruby-mode
-     '(("^\s*\\(attr_\\(accessor\\|reader\\|writer\\)\\)"
-        (1 '(:foreground "cyan" :weight 'bold
-                         :overline "white")))))
+  ;; attr_*
+  (font-lock-add-keywords
+   'enh-ruby-mode
+   '(("^\s*\\(attr_\\(accessor\\|reader\\|writer\\)\\)"
+      (1 '(:foreground "cyan" :weight 'bold
+                       :overline "white")))))
 
-    ;; include & extend
-    (font-lock-add-keywords
-     'enh-ruby-mode
-     '(("^\s*\\(include\\|extend\\)"
-        (1 '(:foreground "orange" :weight 'bold
-                         :box '(:color "black" :line-width -1))))))
-    )
-  
-  (add-hook 'enh-ruby-mode-hook 'my-ruby-code-custom-highlights)
+  ;; include & extend
+  (font-lock-add-keywords
+   'enh-ruby-mode
+   '(("^\s*\\(include\\|extend\\)"
+      (1 '(:foreground "orange" :weight 'bold
+                       :box '(:color "black" :line-width -1))))))
+
 
   (add-hook 'enh-ruby-mode-hook 'eldoc-mode)
 
