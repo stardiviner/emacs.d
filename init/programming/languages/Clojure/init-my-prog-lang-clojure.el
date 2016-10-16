@@ -237,6 +237,20 @@
   (define-key clojure-mode-map (kbd "C-c C-s") 'my-cider-clojure-repl-switch)
   (define-key clojurescript-mode-map (kbd "C-c C-s") 'my-cider-cljs-repl-switch)
   (define-key my-inferior-lisp-map (kbd "c") 'my-cider-clojure-repl-switch)
+
+  ;; CIDER inspect command keybindings
+  (unless (boundp 'cider-inspect-prefix)
+    (define-prefix-command 'cider-inspect-prefix))
+
+  (add-hook 'clojure-mode-hook
+            (lambda ()
+              (local-set-key (kbd "C-c i") 'cider-inspect-prefix)
+              (define-key cider-inspect-prefix (kbd "r") 'cider-inspect-last-result)
+              (define-key cider-inspect-prefix (kbd "E") 'cider-inspect-expr)
+              (define-key cider-inspect-prefix (kbd "d") 'cider-inspect-defun-at-point)
+              (define-key cider-inspect-prefix (kbd "e") 'cider-inspect-last-sexp)
+              (define-key cider-inspect-prefix (kbd "i") 'cider-inspect-read-and-inspect)
+              ))
   )
 
 
