@@ -326,7 +326,7 @@
          (remq 'robe-complete-at-point completion-at-point-functions))
     ;; (append '(robe-complete-at-point) completion-at-point-functions)
     ;; use `company-robe' instead, because it support doc and meta etc. info
-    (setq-local company-minimum-prefix-length 3)
+    (setq-local company-minimum-prefix-length 2)
     (my-company-add-backend-locally 'company-robe)
     )
   
