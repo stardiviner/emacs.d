@@ -34,6 +34,9 @@
 ;;; CQL
 (require 'init-my-prog-lang-database-cql)
 
+;;; GraphQL
+(require 'init-my-prog-lang-database-graphql)
+
 
 (provide 'init-my-prog-lang-database)
 
