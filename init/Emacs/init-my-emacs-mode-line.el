@@ -415,13 +415,13 @@
 
    ;; process: inferior,
    (:eval
-    (when mode-line-process
+    (when (stringp mode-line-process)
       (list
        (propertize " ◌ "
                    'face '(:foreground "cyan" :weight bold :height 120)
                    'help-echo "buffer-process")
        (propertize mode-line-process
-                   'face '(:foreground "DeepSkyBlue" :slant 'italic)
+                   'face '(:foreground "DeepSkyBlue")
                    'help-echo "buffer-process")
        )))
    
