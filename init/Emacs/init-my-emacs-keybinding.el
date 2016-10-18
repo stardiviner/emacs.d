@@ -113,7 +113,7 @@
         which-key-show-remaining-keys t
         )
 
-  (setq which-key-sort-order 'which-key-prefix-then-key-order)
+  (setq which-key-sort-order 'which-key-key-order-alpha)
   
   (setq which-key-highlighted-command-list
         '("toggle"
