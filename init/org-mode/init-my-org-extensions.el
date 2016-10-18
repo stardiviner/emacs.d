@@ -216,6 +216,15 @@
   )
 
 
+;;; [ company-bibtex ] -- Emacs company-mode completion back-end for Bibtex keys.
+
+(use-package company-bibtex
+  :ensure t
+  :config
+  (add-to-list 'company-backends 'company-bibtex t)
+  )
+
+
 ;;; [ helm-org-rifle ] -- Rifle through your Org buffers and acquire your target.
 
 (use-package helm-org-rifle
