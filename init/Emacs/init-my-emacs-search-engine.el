@@ -115,6 +115,12 @@
     :docstring "Code Search"
     :keybinding "c")
 
+  ;; Linux
+  (defengine archlinux-wiki
+    "https://wiki.archlinux.org/index.php/Special:Search?search=%s&fulltext=Search"
+    :docstring "Archlinux Wiki"
+    :keybinding "l")
+  
   ;; Q&A
   (defengine stack-overflow
     "https://stackoverflow.com/search?q=%s"
