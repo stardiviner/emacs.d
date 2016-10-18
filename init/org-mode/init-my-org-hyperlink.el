@@ -37,6 +37,7 @@
         ;; EPUB
         ("\\.epub\\'" . ereader-mode)
         ;; ("\\.epub\\'" . "ebook-viewer %s")
+        ("\\.mobi\\'" . "ebook-viewer %s")
         ;; AZW3
         ("\\.azw3\\'" . "ebook-viewer %s")
         ;; mobi
