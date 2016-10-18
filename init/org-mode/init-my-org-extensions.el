@@ -221,6 +221,10 @@
 (use-package company-bibtex
   :ensure t
   :config
+  (setq company-bibtex-bibliography
+        '("~/.emacs.d/bibliography/bibliography.bib"
+          ))
+
   (add-to-list 'company-backends 'company-bibtex t)
   )
 
