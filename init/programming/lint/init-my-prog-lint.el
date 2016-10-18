@@ -118,18 +118,18 @@
 
 ;;; [ flycheck-pos-tip ] -- display errors under point using popup.el.
 
-;; (use-package flycheck-pos-tip
-;;   :ensure t
-;;   :config
-;;   (with-eval-after-load 'flycheck
-;;     (setq flycheck-display-errors-function 'flycheck-pos-tip-error-messages
-;;           flycheck-pos-tip-timeout 10
-;;           ;; you change change flycheck-pos-tip to use popup.el library.
-;;           ;; default use `pos-tip-show'.
-;;           ;; flycheck-pos-tip-show-function #'flycheck-pos-tip-show
-;;           ))
-;;   )
-
+;;; NOTE: This can avoid flycheck tip in minibuffer to override eldoc info.
+(use-package flycheck-pos-tip
+  :ensure t
+  :config
+  (with-eval-after-load 'flycheck
+    (setq flycheck-display-errors-function 'flycheck-pos-tip-error-messages
+          flycheck-pos-tip-timeout 10
+          ;; you change change flycheck-pos-tip to use popup.el library.
+          ;; default use `pos-tip-show'.
+          ;; flycheck-pos-tip-show-function #'flycheck-pos-tip-show
+          ))
+  )
 
 
 (provide 'init-my-prog-lint)
