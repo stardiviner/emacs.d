@@ -51,6 +51,10 @@
           ("http://linuxtoy.org/feed/" Geek)
           ("http://linux.cn/rss.xml" Geek)
           ("http://blog.jobbole.com/feed/" Geek)
+
+          ;; Podcasts
+          ("https://ipn.li/kernelpanic/feed" Podcast)
+          ("http://sachachua.com/blog/tag/emacs-chat/podcast" Podcast)
           ))
 
   (define-key elfeed-search-mode-map (kbd "#") 'elfeed-search-set-filter)
@@ -101,7 +105,7 @@
          :background "#222222"))
     "Mark elfeed tag star")
   (defface elfeed-podcast-tag
-    '((t :foreground "magenta"))
+    '((t :foreground "dark magenta"))
     "Mark elfeed podcast tag")
   (defface elfeed-programming-tag
     '((t :foreground "yellow green"))
@@ -120,6 +124,7 @@
         '((unread elfeed-unread-tag)
           (read elfeed-read-tag)
           (star elfeed-star-tag)
+          (Podcast elfeed-podcast-tag)
           (Emacs elfeed-emacs-tag)
           (Linux elfeed-linux-tag)
           (Arch elfeed-arch-tag)
