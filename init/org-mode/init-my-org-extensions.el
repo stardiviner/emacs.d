@@ -79,11 +79,11 @@
 :NAME(Chinese): %^{Name(Chinese)}
 :NAME(English): %^{Name(English)}
 :NICK: %^{Nick}
-:ICON:
+:AVATAR: %^{Avatar}
 :BIRTHDAY:
 :GENDER: %^{Gender|Male|Female}
 :Sexual: %^{Sexual|Heterosexual|Bisexual|Homosexual}
-:RELATIONSHIP: %^{Relationship|Meet|Friend|Good Friend|Boy Friend|Girl Friend|Classmate|Schoolmate}
+:RELATIONSHIP: %^{Relationship|Internet|Meet|Friend|Good Friend|Boy Friend|Girl Friend|Classmate|Schoolmate}
 :FIRST-MEET: %^U  %^{How is the first-time meet?}
 :Thought: %^{Thought|open|conservative}
 :MOBILE: %^{Mobile Phone}
@@ -91,15 +91,17 @@
 :QQ:
 :WeChat: %^{WeChat}
 :Facebook: %^{Facebook}
+:GitHub: %^{GitHub}
 :ADDRESS(home): %^{address(home)}
 :ADDRESS(work): %^{address(work)}
-:CHARACTER: 
-:FEELING: 
-:World-Views: 
-:LANGUAGES: %^{Languages|Chinese|English|Japanese|Korean}
+:CHARACTER:
+:FEELING:
+:World-Views:
+:LANGUAGES: %^{Languages|Chinese|Chinese, English|English|Japanese|Korean}
 :EDUCATION: %^{Education}
-:PROGRAMMING-SKILLS: %^{Programming Skills}
 :SKILLS: %^{Skills}
+:Programming-Skills: %^{Programming Skills}
+:Programming-Languages: %^{Programming Languages}
 :END:"
                :empty-lines 1
                :jump-to-captured t
