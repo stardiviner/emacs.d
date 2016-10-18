@@ -265,6 +265,16 @@
   )
 
 
+;;; [ secretaria ] -- A personal assistant based on org-mode.
+
+(use-package secretaria
+  :config
+  ;; use this for getting a reminder every 30 minutes of those tasks scheduled
+  ;; for today and which have no time of day defined.
+  (add-hook 'after-init-hook #'secretaria-today-unknown-time-appt-always-remind-me)
+  )
+
+
 ;;; [ Calendar ]
 
 ;;;_* iCalendar
