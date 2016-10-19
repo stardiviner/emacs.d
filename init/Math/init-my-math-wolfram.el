@@ -7,6 +7,7 @@
 
 ;;; Code:
 ;;; ----------------------------------------------------------------------------
+;;; [ wolfram-mode ] -- Mathematica editing and inferior mode.
 
 (use-package wolfram-mode
   :ensure t
