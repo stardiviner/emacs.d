@@ -9,17 +9,20 @@
         fill-paragraph
         forward-sexp
         kill-region
+        my/fill-or-unfill
         my/org-insert-key
         org-beginning-of-line
         org-ctrl-c-ctrl-c
         org-ctrl-c-star
         org-delete-char
+        org-emphasize
         org-end-of-line
         org-force-self-insert
         org-kill-line
         org-metaleft
         org-metaright
         org-open-line
+        org-return-indent
         org-self-insert-command
         org-shiftleft
         org-shiftright
@@ -28,6 +31,7 @@
         paredit-backward
         paredit-close-square
         paredit-forward-delete
+        paredit-forward-kill-word
         paredit-kill
         paredit-open-square
         paredit-semicolon
@@ -41,4 +45,5 @@
 
 (setq mc/cmds-to-run-once
       '(
+        ace-window
         ))
