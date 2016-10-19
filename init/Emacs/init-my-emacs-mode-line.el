@@ -49,7 +49,7 @@
       cider-repl-mode) . ("Clojure" "Clojure"))
     ((clojurescript-mode) . ("ClojureScript" "ClojureScript"))
     ((python-mode) . ("Python" "Python"))
-    ((ruby-mode enh-ruby-mode) . ("Ruby" "Ruby"))
+    ((enh-ruby-mode ruby-mode) . ("Ruby" "Ruby"))
     ((c-mode) . ("C" "C"))
     ((c++-mode) . ("C++" "C++"))
     ((go-mode) . ("Go" "Go"))
