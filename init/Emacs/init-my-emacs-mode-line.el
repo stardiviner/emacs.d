@@ -430,16 +430,19 @@
 
    ;; company-mode lighter `company-lighter'
    (:eval
-    (when company-mode
-      (list
-       (propertize (if (consp company-backend)
-                       (company--group-lighter (nth company-selection
-                                                    company-candidates)
-                                               company-lighter-base)
-                     (symbol-name company-backend))
-                   'face '(:foreground "green yellow" :slant 'italic)
-                   'help-echo "company-mode current backend")
-       )))
+    (if (and company-mode
+             (consp company-backend))
+        (list
+         ;; (propertize "Ⓐ"
+         ;;             'face '(:foreground "DimGray"))
+         (propertize " ")
+         (propertize (company--group-lighter (nth company-selection
+                                                  company-candidates)
+                                             company-lighter-base)
+                     ;; (symbol-name company-backend)
+                     'face '(:foreground "green yellow" :slant 'italic)
+                     'help-echo "company-mode current backend")
+         )))
 
    ;; org-clock
    (:eval
