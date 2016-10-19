@@ -7,11 +7,13 @@
 
 ;;; Code:
 ;;; ----------------------------------------------------------------------------
-;;; [ ecasound ] -- 
+;;; [ ecasound ] -- command-line multitrack audio processor.
 
 (add-to-list 'load-path "/usr/share/ecasound/")
 
 (require 'ecasound)
+
+(define-key my-tools-prefix (kbd "A") 'ecasound)
 
 ;;; ----------------------------------------------------------------------------
 
