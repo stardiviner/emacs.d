@@ -86,6 +86,12 @@
   )
 
 
+;;; [ ox-ioslide ] -- Export org-mode to Google I/O HTML5 slide.
+
+(use-package ox-ioslide
+  :ensure t)
+
+
 (provide 'init-my-org-presentation)
 
 ;;; init-my-org-presentation.el ends here
