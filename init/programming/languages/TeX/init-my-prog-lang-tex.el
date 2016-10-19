@@ -58,6 +58,14 @@
              (setq TeX-master (guess-TeX-master (buffer-file-name)))
              ))
 
+;;; Fontification
+(require 'font-latex)
+;; (setq TeX-install-font-lock)
+;; macros
+;; quotes
+;; math
+;; verbatim content
+
 ;; enable RefTeX in AUCTeX (LaTeX-mode)
 (setq reftex-plug-into-AUCTeX t)
 (add-hook 'latex-mode-hook 'turn-on-reftex) ; with Emacs latex mode
