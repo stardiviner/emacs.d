@@ -72,14 +72,14 @@
 
 ;;; [ ox-reveal ] -- Org-mode export with Reveal.js.
 
-(use-package ox-reveal
-  :ensure t
-  :config
-  (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/"
-        ;; (concat user-emacs-directory "init/org-mode/reveal.js")
-        ;; "http://cdn.jsdelivr.net/reveal.js/3.0.0/"
-        org-reveal-hlevel 1)
-  )
+;; (use-package ox-reveal
+;;   :ensure t
+;;   :config
+;;   (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/"
+;;         ;; (concat user-emacs-directory "init/org-mode/reveal.js")
+;;         ;; "http://cdn.jsdelivr.net/reveal.js/3.0.0/"
+;;         org-reveal-hlevel 1)
+;;   )
 
 
 ;;; [ ox-ioslide ] -- Export org-mode to Google I/O HTML5 slide.
