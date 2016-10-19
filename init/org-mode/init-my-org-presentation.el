@@ -84,14 +84,14 @@
 
 ;;; [ ox-ioslide ] -- Export org-mode to Google I/O HTML5 slide.
 
-(use-package makey
-  :ensure t)
-
-(use-package ox-ioslide
-  :ensure t
-  :config
-  (require 'ox-ioslide-helper)
-  )
+;; (use-package makey
+;;   :ensure t)
+;;
+;; (use-package ox-ioslide
+;;   :ensure t
+;;   :config
+;;   (require 'ox-ioslide-helper)
+;;   )
 
 
 (provide 'init-my-org-presentation)
