@@ -1,0 +1,25 @@
+* Syntax
+
+Examples: (use =[C-h f]= on functions to check out detail formats.
+
+- Saturday test weekly diary.
+- %%(diary-block 7 26 2014 7 26 2014) test diary block
+- %%(diary-anniversary month day 2014) test diary anniversary
+- %%(diary-cyclic 2 7 26 2014) test repeated diary.
+- Jul 26 test repeated yearly diary.
+- * 26 test repeated monthly diary.
+- Jul 26, 2014 day diary.
+
+
+* Holiday
+
+%%(org-calendar-holiday)
+
+
+* Birthday
+
+** My Birthday
+
+%%(diary-anniversary 3 24 1990) I'm %d%s years old today!!!
+
+
