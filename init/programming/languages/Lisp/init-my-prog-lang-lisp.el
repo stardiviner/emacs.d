@@ -96,13 +96,13 @@
 
 ;;; [ paren-face ] -- A face dedicated to lisp parentheses.
 
-(use-package paren-face
-  ;; :ensure t
-  ;; :config
-  ;; (global-paren-face-mode 1)
-  ;; (set-face-attribute 'parenthesis nil
-  ;;                     :foreground "dim gray")
-  )
+;; (use-package paren-face
+;;   :ensure t
+;;   :config
+;;   (global-paren-face-mode 1)
+;;   (set-face-attribute 'parenthesis nil
+;;                       :foreground "dim gray")
+;;   )
 
 
 ;;; [ hl-sexp ] -- highlight the current sexp.
