@@ -27,6 +27,10 @@
 
 (use-package edit-server
   :ensure t
+  :defer t
+  :init
+  (edit-server-start)
+  
   :config
   (setq edit-server-new-frame t)
   (setq edit-server-url-major-mode-alist
@@ -43,28 +47,14 @@
           ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=julia" . julia-mode)
           ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=python" . python-mode)
           ))
-  
-  (edit-server-start)
   )
-
-
-;;;_ whitespace-mode
-
-;; (require 'whitespace)
-
-;; ;; automatically clean up bad whitespace
-;; (setq whitespace-action '(auto-cleanup))
-;; ;; only show bad whitespace
-;; (setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab))
-
-;; (whitespace-mode 1)
-;; (global-whitespace-mode)
 
 
 ;;; [ 0xc ] -- Easy base conversion made easy in Emacs.
 
 (use-package 0xc
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (require 'init-my-emacs-kill-ring)

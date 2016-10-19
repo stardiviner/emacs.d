@@ -10,7 +10,8 @@
 ;;; [ graphql-mode ] -- Major mode for editing GraphQL.
 
 (use-package graphql-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; ----------------------------------------------------------------------------
 

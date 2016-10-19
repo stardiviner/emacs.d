@@ -11,7 +11,8 @@
 
 (use-package helm-dash
   :ensure t
-  :config
+  :defer t
+  :init
   (setq helm-dash-docsets-path (expand-file-name "~/.docsets")
         helm-dash-min-length 2
         ;; 'eww-browse-url, 'browse-url, 'browse-url-generic, 'helm-browse-url
@@ -19,6 +20,9 @@
         helm-dash-candidate-format "%d  %n  (%t)"
         )
   
+  (define-key my-prog-help-document-map (kbd "C-s") 'helm-dash-at-point) ; `helm-dash'
+  
+  :config
   (setq helm-dash-common-docsets
         '("Clojure"
           "Common Lisp"
@@ -32,18 +36,8 @@
         )
 
   (setq helm-dash-enable-debugging nil)
-
-  (define-key my-prog-help-document-map (kbd "C-s") 'helm-dash-at-point) ; `helm-dash'
   
   ;; buffer local docsets
-  (defun my-helm-dash-buffer-local-docsets-add (docsets-list)
-    (unless (boundp 'helm-dash-docsets)
-      (defvar helm-dash-docsets '()))
-    (make-local-variable 'helm-dash-docsets)
-    (setq helm-dash-docsets
-          (-union docsets-list (-flatten helm-dash-docsets)))
-    )
-  
   ;; Bash
   (defun helm-dash-buffer-local-shell-docsets ()
     (setq-local helm-dash-docsets '("Bash")))
@@ -160,16 +154,19 @@
 ;;; [ dash-at-point ]
 
 ;; (use-package dash-at-point
-;;   :ensure t)
+;;   :ensure t
+;;   :defer t)
 
 
 ;;; [ zeal-at-point ]
 
 (use-package zeal-at-point
   :ensure t
-  :config
+  :defer t
+  :init
+  (setq zeal-at-point-zeal-version "0.3.0")
   (define-key my-prog-help-document-map (kbd "C-d") 'zeal-at-point)
-
+  :config
   (add-hook 'projectile-rails-mode-hook
             (lambda () (setq zeal-at-point-docset "rails")))
   )

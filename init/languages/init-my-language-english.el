@@ -16,6 +16,7 @@
 
 ;; (use-package auto-capitalize
 ;;   :ensure t
+;;   :defer t
 ;;   :init
 ;;   (autoload 'auto-capitalize "auto-capitalize"
 ;;     "Autoload function `auto-capitalize'." t)

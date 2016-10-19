@@ -68,7 +68,7 @@
     "Increase emacs's font-size acording emacs-font-size-pair-list."
     (interactive) (emacs-step-font-size -1))
 
-  (global-set-key (kbd "C-=") 'increase-emacs-font-size)
+  (global-set-key (kbd "C-+") 'increase-emacs-font-size)
   (global-set-key (kbd "C--") 'decrease-emacs-font-size)
   )
 
@@ -81,7 +81,7 @@
 
 (use-package orgtbl-ascii-plot
   :ensure t
-  )
+  :defer t)
 
 
 (provide 'init-my-org-table)

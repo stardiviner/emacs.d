@@ -6,16 +6,17 @@
 
 ;;; [ mongo ]
 
+(use-package mongo
+  :ensure t
+  :defer t)
+
 
 ;;; [ inf-mongo ] -- Run a MongoDB shell process in a buffer.
 
-;;; Usage:
-;;
-;; - [M-x inf-mongo]
-
 (use-package inf-mongo
   :ensure t
-  :config
+  :defer t
+  :init
   (define-key my-inferior-db-nosql-map (kbd "m") 'inf-mongo)
   )
 
@@ -23,12 +24,7 @@
 ;; [ ob-mongo ] -- Org-mode Babel for MongoDB
 
 (use-package ob-mongo
-  :ensure t
-  :defer t
-  )
-
-
-;;; [ mongo-elnode ]
+  :ensure t)
 
 
 (provide 'init-my-prog-lang-database-mongodb)

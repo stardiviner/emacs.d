@@ -23,11 +23,16 @@
 (pinentry-start)
 
 (use-package epa
+  :ensure t
+  :defer t
   :init
   (require 'epa-file)
-  :config
+  ;; force Emacs to use its own internal password prompt instead of an external
+  ;; pin entry program.
+  (setenv "GPG_AGENT_INFO" nil)
   (epa-file-enable)
-
+  
+  :config
   (setq epa-file-encrypt-to "numbchild@gmail.com" ; nil, "numbchild@gmail.com"
         ;; epa-gpg-program "gpg2"
         epa-file-select-keys t       ; ask user to select recipient with public key
@@ -38,10 +43,6 @@
         epa-file-cache-passphrase-for-symmetric-encryption t
         epa-file-inhibit-auto-save t
         )
-
-  ;; force Emacs to use its own internal password prompt instead of an external
-  ;; pin entry program.
-  (setenv "GPG_AGENT_INFO" nil)
   )
 
 ;;; FAQ

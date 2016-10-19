@@ -38,7 +38,8 @@
 ;;; [ auto-complete-nxml ]
 
 (use-package auto-complete-nxml
-  ;; :ensure t
+  :ensure t
+  :defer t
   :config
   ;; If you want to start completion manually from the beginning
   (setq auto-complete-nxml-automatic-p nil)
@@ -55,7 +56,8 @@
 
 (use-package x-path-walker
   :ensure t
-  :config
+  :defer t
+  :init
   (dolist (hook '(html-mode-hook
                   web-mode-hook
                   nxml-mode-hook

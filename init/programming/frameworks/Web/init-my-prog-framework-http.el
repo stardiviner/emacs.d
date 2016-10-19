@@ -17,9 +17,12 @@
 
 (use-package restclient
   :ensure t
+  :defer t
+  :init
+  (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
+  (define-key HTTP-prefix (kbd "r") 'restclient-new-buffer)
+  
   :config
-  ;; (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
-
   (setq restclient-log-request t
         restclient-same-buffer-response t
         ;; restclient-same-buffer-response-name "*HTTP Response*"
@@ -39,8 +42,6 @@
         (restclient-mode)
         (pop-to-buffer buffer))))
 
-  (define-key HTTP-prefix (kbd "r") 'restclient-new-buffer)
-
   ;; indent JSON in restclient REPL.
   (add-hook 'restclient-mode-hook
             (lambda ()
@@ -53,7 +54,8 @@
 
 (use-package company-restclient
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'restclient-mode-hook
             (lambda ()
               (my-company-add-backend-locally 'company-restclient)
@@ -70,7 +72,8 @@
 ;;; [ restclient-test ] -- Run tests with restclient.el
 
 (use-package restclient-test
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 ;; [ ob-http ] -- http request in org-mode babel
@@ -83,7 +86,8 @@
 
 (use-package httprepl
   :ensure t
-  :config
+  :defer t
+  :init
   (define-key HTTP-prefix (kbd "H") 'httprepl)
 
   (add-hook 'httprepl-mode-hook
@@ -102,7 +106,11 @@
 ;;; [ httpcode ] -- explains the meaning of an HTTP status code.
 
 (use-package httpcode
-  :ensure t)
+  :ensure t
+  :defer t
+  :init
+  (define-key HTTP-prefix (kbd "d") 'hc)
+  )
 
 
 (provide 'init-my-prog-framework-http)

@@ -129,6 +129,7 @@
 (require 'init-my-emacs-encrypt)
 (require 'init-my-emacs-xwidget)
 (require 'init-my-emacs-customize)
+(require 'init-my-emacs-accessibility)
 
 
 ;;; Vim
@@ -199,7 +200,7 @@
 (require 'init-my-prog-template)
 (require 'init-my-prog-sidebar)
 (require 'init-my-prog-document)
-;; (require 'init-my-prog-inferior)
+(require 'init-my-prog-inferior)
 (require 'init-my-prog-eval)
 (require 'init-my-prog-compile)
 (require 'init-my-prog-make)
@@ -209,14 +210,14 @@
 (require 'init-my-prog-refactor)
 (require 'init-my-prog-project)
 (require 'init-my-prog-vcs)
-;; (require 'init-my-prog-bug-track-system)
+(require 'init-my-prog-bug-track-system)
 
 
 ;;; Programming Languages
 (require 'init-my-prog-lang-lisp)
 (require 'init-my-prog-lang-emacs-lisp)
 (require 'init-my-prog-lang-common-lisp)
-;; (require 'init-my-prog-lang-lisp-scheme)
+(require 'init-my-prog-lang-lisp-scheme)
 ;; (require 'init-my-prog-lang-newLisp)
 ;; (require 'init-my-prog-lang-shen)
 (require 'init-my-prog-lang-clojure)
@@ -226,16 +227,16 @@
 (require 'init-my-prog-lang-shell)
 (require 'init-my-prog-lang-C-common)
 (require 'init-my-prog-lang-C++)
-(require 'init-my-prog-lang-D)
+;; (require 'init-my-prog-lang-D)
 (require 'init-my-prog-lang-go)
 ;; (require 'init-my-prog-lang-rust)
 ;; (require 'init-my-prog-lang-nim)
-(require 'init-my-prog-lang-lua)
+;; (require 'init-my-prog-lang-lua)
 (require 'init-my-prog-lang-swift)
 (require 'init-my-prog-lang-java)
 ;; (require 'init-my-prog-lang-jvm-groovy)
 ;; (require 'init-my-prog-lang-jvm-kotlin)
-(require 'init-my-prog-lang-php)
+;; (require 'init-my-prog-lang-php)
 (require 'init-my-prog-lang-html)
 (require 'init-my-prog-lang-css)
 (require 'init-my-prog-lang-javascript)
@@ -245,27 +246,26 @@
 (require 'init-my-prog-lang-database)
 (require 'init-my-prog-lang-xml)
 (require 'init-my-prog-lang-json)
-(require 'init-my-prog-lang-haskell)
+;; (require 'init-my-prog-lang-haskell)
 ;; (require 'init-my-prog-lang-scala)
 ;; (require 'init-my-prog-lang-elixir)
 ;; (require 'init-my-prog-lang-erlang)
 (require 'init-my-prog-lang-ESS)
 (require 'init-my-prog-lang-julia)
 (require 'init-my-prog-lang-R)
-(require 'init-my-prog-lang-gnuplot)
+;; (require 'init-my-prog-lang-gnuplot)
 ;; (require 'init-my-prog-lang-octave)
-;; (require 'init-my-prog-lang-matlab)
 (require 'init-my-prog-lang-tex)
+(require 'init-bibliography)
 (require 'init-my-prog-lang-markdown)
 (require 'init-my-prog-lang-reStructuredText)
 (require 'init-my-prog-lang-yaml)
-(require 'init-my-prog-lang-prolog)
+;; (require 'init-my-prog-lang-prolog)
 ;; (require 'init-my-prog-lang-ocaml)
-(require 'init-my-prog-lang-verilog)
-(require 'init-my-prog-lang-assembly)
-(require 'init-my-prog-lang-forth)
-(require 'init-my-prog-lang-HDL)
-
+;; (require 'init-my-prog-lang-verilog)
+;; (require 'init-my-prog-lang-assembly)
+;; (require 'init-my-prog-lang-forth)
+;; (require 'init-my-prog-lang-HDL)
 ;; (require 'init-my-prog-lang-applescript)
 
 
@@ -273,10 +273,10 @@
 (require 'init-my-prog-framework-web)
 (require 'init-my-prog-framework-http)
 (require 'init-my-prog-web-browser)
-(require 'init-my-prog-framework-ruby-on-rails)
-(require 'init-my-prog-framework-android)
-(require 'init-my-prog-framework-arduino)
-(require 'init-my-prog-framework-qt)
+;; (require 'init-my-prog-framework-ruby-on-rails)
+;; (require 'init-my-prog-framework-android)
+;; (require 'init-my-prog-framework-arduino)
+;; (require 'init-my-prog-framework-qt)
 
 
 ;;; Programming Tools
@@ -286,41 +286,33 @@
 
 ;;; Systems
 
-(require 'init-linux)
-(require 'init-mac)
-(require 'init-microsoft-windows)
+(if (string-equal system-type "gnu/linux")
+    (require 'init-linux))
+(if (string-equal system-type "darwin")
+    (require 'init-mac))
+(if (string-equal system-type "windows-nt")
+    (require 'init-microsoft-windows))
 
 
-;;; Electronic
+;;; Engineering
 
 (require 'init-my-electronic)
-
-
-;;; Electric Music
-
 (require 'init-my-electric-music)
 
 
-;;; Accessibility
+;;; Science
 
-(require 'init-my-emacs-accessibility)
-
-
-;;; Math
 (require 'init-my-math)
 
 
 ;;; Authoring & Writing
+
 (require 'init-my-authoring)
 
 
 ;;; Games
+
 (require 'init-my-games)
-
-
-;;; at the end!!!
-
-(require 'init-my-startup)
 
 
 

@@ -11,6 +11,7 @@
 
 (use-package rst
   :ensure t
+  :defer t
   :config
   (add-hook 'rst-adjust-hook 'rst-toc-update)
   )
@@ -19,36 +20,39 @@
 
 (use-package auto-complete-rst
   :ensure t
+  :defer t
   :mode "\\.rst\'"
   :config
-  (add-hook 'rst-mode-hook #'auto-complete-mode)
-  
   (setq auto-complete-rst-other-sources
         '(ac-source-filename
           ac-source-abbrev
           ac-source-dictionary
           ac-source-yasnippet))
 
+  (add-hook 'rst-mode-hook #'auto-complete-mode)
   (auto-complete-rst-init)
   )
 
 ;;; [ ox-rst ] -- reStructuredText export backend for Org-mode.
 
 (use-package ox-rst
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ sphinx-mode ] -- minor mode providing sphinx support.
 
 (use-package sphinx-mode
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'rst-mode-hook 'sphinx-mode)
   )
 
 ;;; [ sphinx-frontend ] -- Launch build process for rst documents via sphinx.
 
 (use-package sphinx-frontend
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; ----------------------------------------------------------------------------
 

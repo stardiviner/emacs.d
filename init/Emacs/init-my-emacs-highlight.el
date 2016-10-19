@@ -45,15 +45,8 @@
 
 (use-package highlight-symbol
   :ensure t
-  :config
-  (setq highlight-symbol-idle-delay 3
-        ;; highlight-symbol-border-pattern '("\\_<" . "\\_>")
-        highlight-symbol-colors '("brown" "tomato" "dark green" "dark slate gray"
-                                  "deep pink" "cyan" "yellow"
-                                  )
-        highlight-symbol-foreground-color nil ; nil: keep original color.
-        )
-
+  :defer t
+  :init
   ;; (add-hook 'prog-mode-hook 'highlight-symbol-mode)
 
   (unless (boundp 'my-highlight-symbol-prefix)
@@ -73,87 +66,35 @@
   (define-key my-highlight-symbol-prefix (kbd "U") 'highlight-symbol-remove-all)
   (define-key my-highlight-symbol-prefix (kbd "u") 'highlight-symbol-at-point)
   (define-key my-highlight-symbol-prefix (kbd "m") 'highlight-symbol-nav-mode)
+  
+  :config
+  (setq highlight-symbol-idle-delay 3
+        ;; highlight-symbol-border-pattern '("\\_<" . "\\_>")
+        highlight-symbol-colors '("brown" "tomato" "dark green" "dark slate gray"
+                                  "deep pink" "cyan" "yellow"
+                                  )
+        highlight-symbol-foreground-color nil ; nil: keep original color.
+        )
   )
 
 
 ;;; [ highlight-thing ] -- global minor mode to highlight the thing under point.
 
-(use-package highlight-thing
-  ;; :ensure t
-  :config
-  ;; (setq highlight-thing-what-thing 'word) ; 'symbol
-  (setq highlight-thing-delay-seconds 1.0)
-  (setq highlight-thing-limit-to-defun t)
-  (set-face-attribute 'highlight-thing nil
-                      :foreground "white"
-                      :background "forest green"
-                      )
-  ;; (global-highlight-thing-mode)
-  (add-hook 'prog-mode-hook 'highlight-thing-mode)
-  )
-
-
-;;; highlight-quoted
-
-;; (load-file (expand-file-name "init/extensions/highlight-quoted.el" user-emacs-directory))
-
-;; (add-hook 'prog-mode-hook 'highlight-quoted-mode)
-
-;; ;; (setq highlight-quoted-highlight-symbols t)
-
-;; (eval-after-load 'highlight-quoted
-;;   (progn
-;;     (set-face-attribute 'highlight-quoted-quote nil
-;;                         :inherit 'font-lock-keyword-face)
-;;     (set-face-attribute 'highlight-quoted-symbol nil
-;;                         :inherit 'font-lock-constant-face))
+;; (use-package highlight-thing
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   ;; (global-highlight-thing-mode)
+;;   (add-hook 'prog-mode-hook 'highlight-thing-mode)
+;;   :config
+;;   ;; (setq highlight-thing-what-thing 'word) ; 'symbol
+;;   (setq highlight-thing-delay-seconds 1.0)
+;;   (setq highlight-thing-limit-to-defun t)
+;;   (set-face-attribute 'highlight-thing nil
+;;                       :foreground "white"
+;;                       :background "forest green"
+;;                       )
 ;;   )
-
-
-;;; highlight-numbers
-
-;; (load-file (expand-file-name "init/extensions/highlight-numbers.el" user-emacs-directory))
-;;
-;; (add-hook 'prog-mode-hook 'highlight-numbers-mode)
-;;
-;; ;; (setq highlight-numbers-modelist)
-;;
-;; (eval-after-load 'highlight-numbers
-;;   (set-face-attribute 'highlight-numbers-number nil
-;;                       :inherit 'font-lock-constant-face))
-
-
-;;; [ highlight-escape-sequences ]
-
-;; (use-package highlight-escape-sequences)
-
-
-;;; [ highlight-stages ]
-
-;; (use-package highlight-stages)
-;;
-;; (dolist (hook '(lisp-mode-hook
-;;                 lisp-interaction-mode-hook
-;;                 emacs-lisp-mode-hook
-;;                 scheme-mode-hook
-;;                 clojure-mode-hook
-;;                 cider-repl-mode-hook
-;;                 ))
-;;   (add-hook hook 'highlight-stages-mode))
-;;
-;; ;; (highlight-stages-global-mode 1)
-;;
-;; (set-face-attribute 'highlight-stages-negative-level-face nil
-;;                     :background "#003745")
-;; (set-face-attribute 'highlight-stages-level-1-face nil
-;;                     :background "#001e26")
-;; (set-face-attribute 'highlight-stages-level-2-face nil
-;;                     :background "#001217")
-;; (set-face-attribute 'highlight-stages-level-3-face nil
-;;                     :background "#000608")
-;; (set-face-attribute 'highlight-stages-higher-level-face nil
-;;                     :background "#000000")
-
 
 
 

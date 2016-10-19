@@ -9,16 +9,11 @@
 
 ;;; [ SX ] -- Stack Exchange
 
-;;; Usage:
-;;
-;; - after install, auth if you want to vote or comment, answer etc.
-;; - `sx-authenticate' :: authenticate your key. store in ~/.emacs.d/.sx/auth.el
-;;
-;; - `sx-tab-' functions prefix
-;; - `sx-tab-all-questions'
-
 (use-package sx
-  ;; :ensure t
+  :ensure t
+  :defer t
+  :init
+  (define-key my-tools-prefix (kbd "s") 'sx-tab-unanswered-my-tags)
   :config
   ;; question mode
   (setq sx-question-mode-display-buffer-function #'pop-to-buffer
@@ -40,7 +35,7 @@
                       )
   (set-face-attribute 'sx-user-reputation nil
                       )
-;;; question list faces
+  ;; question list faces
   (set-face-attribute 'sx-question-list-answers nil
                       :foreground "forest green")
   (set-face-attribute 'sx-question-list-answers-accepted nil
@@ -82,9 +77,6 @@
                       )
   (set-face-attribute 'sx-question-mode-title-comments nil
                       )
-
-
-  (define-key my-tools-prefix (kbd "s") 'sx-tab-unanswered-my-tags)
   )
 
 

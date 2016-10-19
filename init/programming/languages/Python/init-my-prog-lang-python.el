@@ -11,6 +11,7 @@
 
 (use-package python-mode
   :ensure t
+  :defer t
   :config
   (setq python-indent-offset 4
         python-indent 4
@@ -41,6 +42,8 @@
     )
   )
 
+(unless (boundp 'my-prog-inferior-map)
+  (define-prefix-command 'my-prog-inferior-map))
 (define-key my-prog-inferior-map (kbd "p") 'my-inferior-python) ; 'run-python
 
 
@@ -48,6 +51,10 @@
 
 (use-package elpy
   :ensure t
+  :defer t
+  :init
+  (add-hook 'python-mode-hook #'elpy-mode)
+  
   :config
   (setq elpy-rpc-backend "jedi"
         elpy-modules '(elpy-module-sane-defaults
@@ -72,8 +79,6 @@
     )
   
   (add-hook 'elpy-mode-hook #'my-elpy-settings)
-
-  (add-hook 'python-mode-hook #'elpy-mode)
   )
 
 
@@ -81,9 +86,12 @@
 
 ;; (use-package pyenv-mode
 ;;   :ensure t
-;;   :config
+;;   :defer t
+;;   :init
 ;;   ;; this pyven-mode is global. [C-c C-u] [C-c C-s]
 ;;   ;; (add-hook 'python-mode-hook 'pyenv-mode)
+;;
+;;   :config
 ;;
 ;;   ;; projectile integration
 ;;   (defun projectile-pyenv-mode-set ()
@@ -99,7 +107,8 @@
 
 (use-package pyvenv
   :ensure t
-  :config
+  :defer t
+  :init
   (pyvenv-workon "python3"))
 
 
@@ -107,7 +116,8 @@
 
 ;; (use-package pythonic
 ;;   :ensure t
-;;   :config
+;;   :defer t
+;;   :init
 ;;   (pythonic-activate "~/.virtualenvs/python3")
 ;;   )
 
@@ -118,33 +128,11 @@
 ;;; [ virtualenvwrapper ]
 
 
-;;; [ anaconda-mode ]
-
-;; (use-package anaconda-mode
-;;   :ensure t
-;;   :config
-;;   ;; enable anaconda-mode in python-mode.
-;;   (add-hook 'python-mode-hook 'anaconda-mode)
-;;   (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
-;;   )
-
-
-;;; [ company-anaconda ]
-
-;; (use-package company-anaconda
-;;   :ensure t
-;;   :config
-;;   (add-hook 'python-mode-hook
-;;             (lambda ()
-;;               (my-company-add-backend-locally 'company-anaconda)
-;;               ))
-;;   )
-
-
 ;;; [ conda ] -- work with your conda environments.
 
 ;; (use-package conda
 ;;   :ensure t
+;;   :defer t
 ;;   :config
 ;;   ;; (setq conda-anaconda-home (concat (getenv "HOME") "/.anaconda3"))
 ;;   ;; (conda-env-initialize-interactive-shells)
@@ -157,18 +145,17 @@
 
 ;; (use-package cinspect
 ;;   :ensure t
-;;   :config
+;;   :defer t
+;;   :init
+;;   (add-hook 'python-mode-hook 'cinspect)
 ;;   )
-
-
-;;; [ IPython ]
-
 
 
 ;;; [ Emacs IPython Notebook (EIN) ] -- IPython notebook client in Emacs
 
 (use-package ein
   :ensure t
+  :defer t
   :config
   (setq ein:use-auto-complete t
         ;; ein:use-auto-complete-superpack nil

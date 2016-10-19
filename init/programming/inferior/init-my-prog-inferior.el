@@ -107,12 +107,15 @@
 ;; - [C-RET] :: rules all!
 
 (use-package js3-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 (use-package js-comint
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package eval-in-repl
   :ensure t
+  :defer t
   :config
   (setq eir-jump-after-eval t)
   (setq eir-delete-other-windows nil

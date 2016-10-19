@@ -11,6 +11,7 @@
 
 (use-package migemo
   :ensure t
+  :defer t
   :config
   (autoload 'migemo "migemo" "" t)
 
@@ -30,7 +31,7 @@
 
 ;;; [ oniisama ]
 
-(require 'oniisama)
+;; (require 'oniisama)
 
 
 (provide 'init-my-language-japanese)

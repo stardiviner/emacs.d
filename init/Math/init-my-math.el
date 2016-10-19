@@ -20,7 +20,8 @@
 ;;; [ GMPL (MathProg) ] -- GMPL(MathProg) files
 
 (use-package gmpl-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 ;;; [ Wolfram ]

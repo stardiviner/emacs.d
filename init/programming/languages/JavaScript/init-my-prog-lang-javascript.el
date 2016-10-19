@@ -52,9 +52,7 @@
   (newline-and-indent))
 
 (define-key js-mode-map  (kbd "C-o") 'my/open-new-line-upper)
-(use-package js2-mode
-  :ensure t
-  :config
+(with-eval-after-load "js2-mode"
   (define-key js2-mode-map (kbd "C-o") 'my/open-new-line-upper))
 
 
@@ -74,7 +72,8 @@
 
 (use-package js2-mode
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'js-mode-hook 'js2-minor-mode)
   )
 
@@ -82,7 +81,8 @@
 ;;; [ js3-mode ]
 
 (use-package js3-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 ;;; [ flycheck checker ]
@@ -104,18 +104,26 @@
 
 ;;; [ nvm ] -- Manage Node versions within Emacs.
 
-(use-package nvm
-  :ensure t
-  :config
-  ;; (nvm-use "system")
-  )
+;; (use-package nvm
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (nvm-use "system")
+;;   )
 
 
 ;; [ js-comint ] -- a lightweight comint integration.
 
 (use-package js-comint
   :ensure t
+  :defer t
   :init
+  ;; if use node.js, we need nice output
+  (setenv "NODE_NO_READLINE" "1")
+
+  ;; integrate with nvm.
+  (js-do-use-nvm)
+  
   (dolist (hook '(js2-mode-hook
                   js3-mode-hook
                   ))
@@ -136,12 +144,6 @@
   (add-hook 'inferior-js-mode-hook
             (lambda ()
               (ansi-color-for-comint-mode-on)))
-
-  ;; if use node.js, we need nice output
-  (setenv "NODE_NO_READLINE" "1")
-
-  ;; integrate with nvm.
-  (js-do-use-nvm)
   )
 
 
@@ -149,7 +151,8 @@
 
 (use-package nodejs-repl
   :ensure t
-  :config
+  :defer t
+  :init
   (setenv "NODE_NO_READLINE" "1")
   )
 
@@ -158,7 +161,8 @@
 
 ;; (use-package jscs
 ;;   :ensure t
-;;   :config
+;;   :defer t
+;;   :init
 ;;   ;; to apply JSCS indentation rules to JavaScript modes.
 ;;   (add-hook 'js-mode-hook #'jscs-indent-apply)
 ;;   (add-hook 'js2-mode-hook #'jscs-indent-apply)
@@ -175,8 +179,10 @@
 
 (use-package tern
   :ensure t
+  :defer t
   :init
   (add-to-list 'auto-mode-alist '("\\.tern-project\\'" . json-mode))
+
   :config
   (add-hook 'tern-mode-hook
             (lambda ()
@@ -189,11 +195,8 @@
 
 (use-package company-tern
   :ensure t
-  :config
-  (setq company-tern-property-marker "" ; " ○"
-        company-tern-meta-as-single-line t
-        )
-  
+  :defer t
+  :init
   (dolist (hook '(js-mode-hook
                   js2-mode-hook
                   js3-mode-hook
@@ -207,20 +210,27 @@
               (my-company-add-backend-locally 'company-jquery)
               (my-company-add-backend-locally 'company-tern)
               ))
+  
+  :config
+  (setq company-tern-property-marker "" ; " ○"
+        company-tern-meta-as-single-line t
+        )
   )
 
 
 ;;; [ tj-mode ] -- major mode for highlighting JavaScript with Tern.
 
 ;; (use-package tj-mode
-;;   :ensure t)
+;;   :ensure t
+;;   :defer t)
 
 
 ;;; [ jade ] -- JavaScript Awesome Development Environment (in Emacs).
 
 (use-package jade
   :ensure t
-  :config
+  :defer t
+  :init
   ;; JavaScript evaluation in JS buffers. [C-x C-e], [C-c M-i]
   (add-hook 'js2-mode-hook #'jade-interaction-mode)
   )
@@ -228,55 +238,58 @@
 
 ;;; [ jsx-mode ] -- The XML inside of JavaScript.
 
-(use-package jsx-mode
-  ;; :ensure t
-  ;; :config
-  ;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
-  ;;
-  ;; (add-hook 'jsx-mode-hook
-  ;;           (lambda ()
-  ;;             (tern-mode 1)))
-  )
+;; (use-package jsx-mode
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
+;;
+;;   :config
+;;   (add-hook 'jsx-mode-hook
+;;             (lambda ()
+;;               (tern-mode 1)))
+;;   )
 
 
 ;;; [ js-doc ] -- Insert JsDoc style comment easily.
 
 (use-package js-doc
   :ensure t
-  :config
-  (setq js-doc-mail-address "numbchild@gmail.com"
-        js-doc-author (format "stardiviner <%s>" js-doc-mail-address)
-        js-doc-url "https://stardiviner.github.io/"
-        js-doc-license "GPL3")
-
+  :defer t
+  :init
   (add-hook 'js2-mode-hook
             #'(lambda ()
                 (define-key my-prog-comment-map (kbd "F") 'js-doc-insert-file-doc)
                 (define-key my-prog-comment-map (kbd "f") 'js-doc-insert-function-doc)
                 (define-key js2-mode-map (kbd "@") 'js-doc-insert-tag)))
+  
+  :config
+  (setq js-doc-mail-address "numbchild@gmail.com"
+        js-doc-author (format "stardiviner <%s>" js-doc-mail-address)
+        js-doc-url "https://stardiviner.github.io/"
+        js-doc-license "GPL3")
   )
 
 
 ;;; [ import-js ] -- A tool to simplify importing JS modules.
 
 (use-package import-js
-  ;; :ensure t
-  )
+  :ensure t
+  :defer t)
 
 
 ;;; [ xref-js2 ] -- Jump to references/definitions using ag & js2-mode's AST in Emacs.
 
-(unless (version<= emacs-version "25")
-  (use-package xref-js2
-    :ensure t
-    :config
-    (add-hook 'js2-mode-hook
-              (lambda ()
-                (define-key js2-mode-map (kbd "M-.") nil)
-                (add-to-list (make-local-variable 'xref-backend-functions)
-                             'xref-js2-xref-backend)
-                ))
-    )
+(use-package xref-js2
+  :ensure t
+  :defer t
+  :init
+  (add-hook 'js2-mode-hook
+            (lambda ()
+              (define-key js2-mode-map (kbd "M-.") nil)
+              (add-to-list (make-local-variable 'xref-backend-functions)
+                           'xref-js2-xref-backend)
+              ))
   )
 
 

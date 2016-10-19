@@ -59,6 +59,7 @@
 
 (use-package eww
   :ensure t
+  :defer t
   :config
   ;; set to "internal" Emacs Web Wowser
   ;; (setq browse-url-browser-function 'eww-browse-url)
@@ -131,6 +132,7 @@
 
 (use-package w3m
   :ensure t
+  :defer t
   :commands w3m-goto-url w3m-search
   :config
   ;; (setq browse-url-browser-function 'w3m-browse-url)
@@ -191,24 +193,11 @@
 
 ;;; [ ace-link ] -- easier link selection
 
-;; (use-package ace-link
-;;   :ensure t
-;;   :config
-;;   (ace-link-setup-default))
-
-
-;;; [ conkeror-minor-mode ] -- mode for editing conkeror javascript files.
-
-(use-package conkeror-minor-mode
+(use-package ace-link
   :ensure t
-  :config
-  (add-hook 'js2-mode-hook
-            (lambda ()
-              (when (string= ".conkerorrc" (buffer-name))
-                (conkeror-minor-mode 1))
-              (when (string-match "conkeror" (buffer-file-name))
-                (conkeror-minor-mode 1))))
-  )
+  :defer
+  :init
+  (ace-link-setup-default))
 
 
 (provide 'init-my-tool-browser)

@@ -9,19 +9,22 @@
 
 ;;; [ Dired ] (Directory editing mode)
 
-;;; Usage:
-;; - [C-x d] -- dired
-;; - [C-x C-d] -- simple entry list.
-;; - [C-u C-x C-d] -- detail entry list.
-
 (require 'dired)
-(setq dired-bind-jump nil) ; don't bind [C-x C-j] from `dired-x'. (conflict with `ace-window')
-(require 'dired-x)
+
+(use-package dired-x
+  ;; :ensure t
+  :init
+  ;; don't bind [C-x C-j] from `dired-x'. (conflict with `ace-window')
+  (setq dired-bind-jump nil)
+  )
+
+;; (use-package wdired
+;;   :ensure t)
 (require 'wdired)
 
 (define-key dired-mode-map (kbd "g") 'dired-do-redisplay)
 
-;; ignore specific files
+;;; ignore specific files
 ;; toggle `dired-omit-mode' with [C-x M-o]
 (add-hook 'dired-mode-hook #'dired-omit-mode)
 (setq dired-omit-files
@@ -72,7 +75,7 @@
 
 
 
-;;; [ Dired+ ]
+;;; [ Dired+ ] -- Extensions to Dired.
 
 (use-package dired+
   :ensure t
@@ -84,19 +87,13 @@
   )
 
 
-;;; [ direx ] --- direx.el is a simple directory explorer. It also works as a generic tree explore library.
-
-;;; Usage:
-;;
-;; - [C-c C-j]
-;; - [TAB], [Enter]
+;;; [ direx ] --- A simple directory explorer. It also works as a generic tree explore library.
 
 (use-package direx
   :ensure t
   :config
   ;; direx-project -- (bundled with direx.el) -- project tree explorer.
   (require 'direx-project)
-
 
   (defun my-direx:jump-to-directory ()
     (interactive)
@@ -114,28 +111,7 @@
   )
 
 
-;;; [ emacs-dired-k ] -- highlights dired buffer like "k".
-
-;; (use-package dired-k
-;;   :ensure t
-;;   :config
-;;   (setq dired-k-style 'k.zsh) ; nil, 'k.zsh, 'git
-;;   (setq dired-k-human-readable t)
-;;
-;;   (define-key dired-mode-map (kbd "K") 'dired-k)
-;;   ;; always execute dired-k when dired buffer is opened
-;;   (add-hook 'dired-initial-position-hook 'dired-k)
-;;
-;;   (define-key direx:direx-mode-map (kbd "K") 'direx-k)
-;;   )
-
-
 ;;; [ dired-efap ] -- Edit Filename At Point in an Emacs' dired buffer
-
-;;; Usage:
-;;
-;; - [F2] / double clicking => rename => [RET] :: edit filename.
-;; - [C-g] :: abort
 
 (use-package dired-efap
   :ensure t
@@ -153,7 +129,6 @@
 
 (use-package peep-dired
   :ensure t
-  :defer t ; don't access `dired-mode-map' until `peep-dired' is loaded
   :bind (:map dired-mode-map
               ("P" . peep-dired))
   :config
@@ -165,7 +140,7 @@
   )
 
 
-;;; [ diredful ]
+;;; [ diredful ] -- colorful file names in dired buffers.
 
 (use-package diredful
   :ensure t

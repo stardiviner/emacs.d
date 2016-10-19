@@ -41,40 +41,15 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
       )
 
 
-;;; [ org-time-budgets ]
-
-(use-package org-time-budgets
-  ;; :ensure t
-  :config
-  (setq org-time-budgets
-        '((:title "My Learning Plan" :tag "+learn" :budget "35:00" :block 'week)
-          ;; (:title "" :tags "+play" :budget "30:00" :block 'weekend)
-
-          (:title "Emacs" :tag "+learn" :budget "21:00" :block 'week)
-          (:title "Ruby on Rails" :tag "+learn" :budget "21:00" :block 'week)
-          (:title "Ruby" :tag "+learn" :budget "21:00" :block 'week)
-          (:title "Web" :tag "+learn" :budget "21:00" :block 'week)
-          (:title "Julia" :tag "+learn" :budget "15:00" :block 'week)
-          (:title "Lisp" :tag "+learn" :budget "10:00" :block 'week)
-          (:title "Clojure" :tag "+learn" :budget "14:00" :block 'week)
-          ))
-
-
-  ;; adding `org-time-budgets' to your Agenda.
-  (add-to-list 'org-agenda-custom-commands
-               '(("a" "Agenda"
-                  ((agenda ""
-                           ((org-agenda-sorting-strategy
-                             '(habit-down time-up priority-down category-keep user-defined-up))))
-                   (org-time-budgets-for-agenda)))))
-  )
-
-
-
 ;;; [ org-pomodoro ] -- adds support for Pomodoro technique in Org-mode.
 
 (use-package org-pomodoro
   :ensure t
+  :defer t
+  :init
+  (define-key org-agenda-mode-map (kbd "p") 'org-pomodoro)
+  (define-key my-org-prefix (kbd "p") 'org-pomodoro)
+  
   :config
   (setq org-pomodoro-audio-player "/usr/bin/mplayer"
         org-pomodoro-play-sounds t
@@ -87,10 +62,6 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
         org-pomodoro-format "Pomodoro~%s" ; mode-line string
         )
 
-  (define-key org-agenda-mode-map (kbd "p") 'org-pomodoro)
-  
-  (define-key my-org-prefix (kbd "p") 'org-pomodoro)
-  
   ;; start another pomodoro automatically upon a break end.
   (add-hook 'org-pomodoro-break-finished-hook
             (lambda ()

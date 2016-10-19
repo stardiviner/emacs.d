@@ -64,6 +64,9 @@
 
 (use-package say-what-im-doing
   :ensure t
+  :defer t
+  :init
+  ;; (say-what-im-doing-mode)
   :config
   (setq say-what-im-doing-shell-command (if (executable-find "mimic")
                                             "mimic"
@@ -76,7 +79,6 @@
   
   (add-to-list 'say-what-im-doing-common-commands 'move-beginning-of-line)
   (add-to-list 'say-what-im-doing-common-commands 'move-end-of-line)
-  ;; (say-what-im-doing-mode)
   )
 
 
@@ -84,14 +86,15 @@
 
 (use-package eloud
   :ensure t
+  :defer t
+  :init
+  ;; (eloud-mode 1)
   :config
   (setq eloud-espeak-path (cond
                            ((string-equal system-type "gnu/linux")
                             "/usr/bin/espeak")
                            ((string-equal system-type "darwin")
                             "/usr/local/bin/espeak")))
-
-  ;; (eloud-mode 1)
   )
 
 
@@ -99,6 +102,9 @@
 
 (use-package read-aloud
   :ensure t
+  :defer t
+  :init
+  ;; TODO: (read-aloud)
   :config
   (setq read-aloud-engine "speech-dispatcher")
   )

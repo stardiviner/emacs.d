@@ -51,11 +51,9 @@
 
 ;; [ indent ]
 
-(use-package org-indent
-  :config
-  (set-face-attribute 'org-indent nil
-                      )
-  )
+(require 'org-indent)
+(set-face-attribute 'org-indent nil
+                    )
 
 ;; [ org-bullets ]
 
@@ -116,15 +114,6 @@
 ;;; eldoc-mode support
 
 ;; (add-hook 'org-mode-hook #'eldoc-mode)
-
-
-;;; [ wc-mode ]
-
-(use-package wc-mode
-  :ensure t
-  :config
-  (add-hook 'org-mode-hook 'wc-mode)
-  )
 
 
 (provide 'init-my-org-view)

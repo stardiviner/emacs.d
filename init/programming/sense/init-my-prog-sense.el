@@ -31,6 +31,7 @@
 
 (use-package sourcegraph
   ;; :ensure t
+  :defer t
   :config
   ;; enable sourcegraph-mode minor mode in all programming modes repository.
   (add-hook 'prog-mode-hook 'sourcegraph-mode)

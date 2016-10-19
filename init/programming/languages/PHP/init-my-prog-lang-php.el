@@ -11,6 +11,7 @@
 
 (use-package php-mode
   :ensure t
+  :defer t
   :init
   (with-eval-after-load 'php-mode
     (require 'php-ext))
@@ -32,23 +33,22 @@
 
 (use-package inf-php
   :ensure t
-  :config
-  )
+  :defer t)
 
 
 ;;; [ php-boris ]
 
 (use-package php-boris
   :ensure t
-  :config
-  )
+  :defer t)
 
 
 ;;; [ php-boris-minor-mode ]
 
 (use-package php-boris-minor-mode
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'php-mode-hook 'php-boris-minor-mode)
   )
 
@@ -57,7 +57,8 @@
 
 (use-package ac-php
   :ensure t
-  :config
+  :defer t
+  :init
   ;; fix ac-php duplicate parentheses with `smartparens-mode'.
   (add-to-list 'sp-ignore-modes-list 'php-mode)
   
@@ -86,7 +87,8 @@
 
 (use-package php-eldoc
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'php-mode-hook 'php-eldoc-enable))
 
 
@@ -100,7 +102,8 @@
 
 (use-package phpunit
   :ensure t
-  :config
+  :defer t
+  :init
   (define-key php-mode-map (kbd "C-c t t") 'phpunit-current-test)
   (define-key php-mode-map (kbd "C-c t c") 'phpunit-current-class)
   (define-key php-mode-map (kbd "C-c t p") 'phpunit-current-project)

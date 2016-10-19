@@ -54,7 +54,8 @@
 
 (use-package irony
   :ensure t
-  :config
+  :defer t
+  :init
   (hook-modes c-dialects-mode
     (when (memq major-mode irony-supported-major-modes)
       (irony-mode 1))
@@ -65,6 +66,7 @@
     (electric-indent-mode 1)
     )
 
+  :config
   ;; replace the `completion-at-point' and `complete-symbol' bindings in
   ;; irony-mode's buffers by irony-mode's function
   ;; (add-hook 'irony-mode-hook
@@ -87,8 +89,8 @@
 
 (use-package company-irony
   :ensure t
-  :config
-  
+  :defer t
+  :init
   (defun company-irony-add ()
     ;; (optional) adds CC special commands to `company-begin-commands'
     ;; in order to trigger completion at interesting places, such as
@@ -96,22 +98,17 @@
     ;;     std::|
     (company-irony-setup-begin-commands)
 
-    ;; - `company-cmake'
-    ;; - `company-clang'
-    ;; - `company-semantic'
-    ;; - `company-etags'
-    ;; - `company-gtags'
     (make-local-variable 'company-backends)
-    (add-to-list 'company-backends '(company-irony-c-headers
-                                     company-irony
-                                     company-semantic
-                                     company-gtags
-                                     company-etags
-                                     :with
-                                     company-yasnippet))
+    (add-to-list 'company-backends
+                 '(company-irony-c-headers
+                   company-irony
+                   company-semantic
+                   company-gtags
+                   company-etags
+                   :with
+                   company-yasnippet))
     )
-
-  ;; (add-hook 'c-mode-common-hook 'company-irony-add) ; except java-mode.
+  
   (hook-modes c-dialects-mode
     (company-irony-add))
   )
@@ -121,7 +118,8 @@
 
 (use-package irony-eldoc
   :ensure t
-  :config
+  :defer t
+  :init
   (with-eval-after-load 'irony
     (add-hook 'irony-mode-hook #'irony-eldoc))
   )
@@ -131,7 +129,8 @@
 
 (use-package flycheck-irony
   :ensure t
-  :config
+  :defer t
+  :init
   (with-eval-after-load 'irony
     (add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
   )
@@ -141,75 +140,19 @@
 
 (use-package flycheck-cstyle
   :ensure t
-  :config
+  :defer t
+  :init
   (flycheck-cstyle-setup)
   (flycheck-add-next-checker 'c/c++-cppcheck '(warning . cstyle))
   ;; (flycheck-add-next-checker 'c/c++-clang '(warning . cstyle))
   )
 
 
-;;; [ company-clang ]
-
-;; (use-package company-clang
-;;   :ensure t
-;;   :config
-;;   ;; (setq company-clang-arguments '("-std=c++14")
-;;   ;;       company-clang-prefix-guesser 'company-clang-guess-prefix
-;;   ;;       )
-;;
-;;   (setq company-clang-begin-after-member-access t)
-;;
-;;   (hook-modes c-dialects-mode
-;;     (my-company-add-backend-locally 'company-clang))
-;;   )
-
-
-;;; [ company-c-headers ]
-
-;; (use-package company-c-headers
-;;   :ensure t
-;;   :config
-;;   (hook-modes c-dialects-mode
-;;     (my-company-add-backend-locally 'company-c-headers))
-;;   )
-
-
 ;;; [ gccsense ]
 
-;; (unless (package-installed-p 'gccsense)
-;;   (package-install 'gccsense))
-;; (require 'gccsense)
+;; (use-package gccsense
+;;   :ensure t)
 
-
-
-;;; [ function-args ] -- showing an inline arguments hint for the C/C++ function at point.
-
-;; (use-package function-args
-;;   :ensure t
-;;   :config
-;;
-;;   (autoload 'turn-on-function-args-mode "function-args" nil t)
-;;
-;;   (add-hook 'c-mode-hook 'turn-on-function-args-mode)
-;;   (add-hook 'c++-mode-hook 'turn-on-function-args-mode)
-;;
-;;
-;;   ;; Put c++-mode as default for *.h files (improves parsing):
-;;   ;; (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
-;;   ;;
-;;   ;; Enable case-insensitive searching:
-;;   ;; (set-default 'semantic-case-fold t)
-;;   ;;
-;;   ;; If your includes aren't located in default dirs e.g. /usr/include/ etc, then
-;;   ;; you have to do something like this:
-;;   ;; (semantic-add-system-include "~/Software/deal.II/include/" 'c++-mode)
-;;   ;; (semantic-add-system-include "/usr/local/boost_1_54_0/" 'c++-mode)
-;;   ;;
-;;   ;; You can add this to improve the parse of macro-heavy code:
-;;   ;; (require 'semantic/bovine/c)
-;;   ;; (add-to-list 'semantic-lex-c-preprocessor-symbol-file
-;;   ;;              "/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h")
-;;   )
 
 
 (provide 'init-my-prog-lang-C-common)

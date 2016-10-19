@@ -13,16 +13,13 @@
 (global-set-key (kbd "C-c v") 'my-prog-vcs-map)
 
 
-;;; [ vc-mode ] ---
-
-;;; Usage:
-;; - [C-x v] -- prefix. `vc-*'.
-;; - [C-x v C-h] -- get keybinding with its prefix.
-
-
-
 
 (require 'init-my-prog-vcs-git)
+
+(require 'init-my-prog-vcs-git-gutter)
+(require 'init-my-prog-vcs-git-github)
+(require 'init-my-prog-vcs-git-gitlab)
+
 (require 'init-my-prog-vcs-diff)
 (require 'init-my-prog-vcs-review)
 

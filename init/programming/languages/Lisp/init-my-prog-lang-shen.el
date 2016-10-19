@@ -10,13 +10,15 @@
 ;;; [ shen-mode ]
 
 (use-package shen-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 ;;; [ shen-elisp ] -- An implemenatation of the Shen programming language in Elisp.
 
 (use-package shen-elisp
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-my-prog-lang-shen)

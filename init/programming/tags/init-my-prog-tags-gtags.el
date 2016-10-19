@@ -19,6 +19,11 @@
 
 (use-package ggtags
   :ensure t
+  :defer t
+  :init
+  (add-hook 'c-mode-hook 'my-ggtags-setup-keybindings)
+  (add-hook 'c++-mode-hook 'my-ggtags-setup-keybindings)
+
   :config
   (setq ggtags-navigation-mode nil
         ggtags-enable-navigation-keys nil
@@ -33,7 +38,7 @@
     ;; keybindings
     (unless (boundp 'ggtags-prefix)
       (define-prefix-command 'ggtags-prefix))
-    (define-key my-prog-lookup-map (kbd "g") 'ggtags-prefix)
+    (define-key my-prog-lookup-tags-map (kbd "g") 'ggtags-prefix)
     
     (define-key ggtags-prefix (kbd "M-.") 'ggtags-find-tag-dwim)
     (define-key ggtags-prefix (kbd "o") 'ggtags-find-other-symbol)
@@ -52,48 +57,51 @@
     
     (local-set-key (kbd "M-,") 'pop-tag-mark)
     )
-  
-  (add-hook 'c-mode-hook 'my-ggtags-setup-keybindings)
-  (add-hook 'c++-mode-hook 'my-ggtags-setup-keybindings)
   )
 
 
 ;;; [ helm-gtags ] -- helm interface for gtags.
 
-;; (use-package helm-gtags
-;;   :ensure t
-;;   :config
-;;   (setq helm-gtags-ignore-case t
-;;         helm-gtags-auto-update t
-;;         helm-gtags-use-input-at-cursor t
-;;         helm-gtags-pulse-at-cursor t
-;;         helm-gtags-prefix-key ""
-;;         helm-gtags-suggested-key-mapping t
-;;         )
-;;
-;;   (defun my-helm-gtags-setup-keybindings ()
-;;     (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
-;;
-;;     (define-key my-prog-lookup-map (kbd "M-.") 'helm-gtags-dwim)
-;;     (define-key my-prog-lookup-map (kbd "a") 'helm-gtags-tags-in-this-function)
-;;     (define-key my-prog-lookup-map (kbd "l") 'helm-gtags-select)
-;;     (define-key my-prog-lookup-map (kbd "s") 'helm-gtags-find-symbol)
-;;     (define-key my-prog-lookup-map (kbd "p") 'helm-gtags-find-pattern)
-;;     (define-key my-prog-lookup-map (kbd "t") 'helm-gtags-find-tag)
-;;     (define-key my-prog-lookup-map (kbd "r") 'helm-gtags-find-rtag)
-;;     (define-key my-prog-lookup-map (kbd "f") 'helm-gtags-find-files)
-;;     (define-key my-prog-lookup-map (kbd "<") 'helm-gtags-previous-history)
-;;     (define-key my-prog-lookup-map (kbd ">") 'helm-gtags-next-history)
-;;     (define-key my-prog-lookup-map (kbd "C") 'helm-gtags-create-tags)
-;;     (define-key my-prog-lookup-map (kbd "U") 'helm-gtags-update-tags)
-;;     )
-;;
-;;   (dolist (hook '(c-mode-hook
-;;                   c++-mode-hook))
-;;     (add-hook hook 'my-helm-gtags-setup-keybindings))
-;;
-;;   (add-hook 'after-save-hook 'helm-gtags-update-tags nil t)
-;;   )
+(use-package helm-gtags
+  :ensure t
+  :defer t
+  :init
+  (dolist (hook '(c-mode-hook
+                  c++-mode-hook))
+    (add-hook hook 'my-helm-gtags-setup-keybindings))
+
+  (add-hook 'after-save-hook 'helm-gtags-update-tags nil t)
+  
+  :config
+  (setq helm-gtags-ignore-case t
+        helm-gtags-auto-update t
+        helm-gtags-use-input-at-cursor t
+        helm-gtags-pulse-at-cursor t
+        helm-gtags-prefix-key ""
+        helm-gtags-suggested-key-mapping t
+        )
+
+  (defun my-helm-gtags-setup-keybindings ()
+    (define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
+
+    (unless (boundp 'helm-gtags-prefix)
+      (define-prefix-command 'helm-gtags-prefix))
+    (define-key my-prog-lookup-tags-map (kbd "h") 'helm-gtags-prefix)
+    
+    (define-key helm-gtags-prefix (kbd "M-.") 'helm-gtags-dwim)
+    (define-key helm-gtags-prefix (kbd "a") 'helm-gtags-tags-in-this-function)
+    (define-key helm-gtags-prefix (kbd "l") 'helm-gtags-select)
+    (define-key helm-gtags-prefix (kbd "s") 'helm-gtags-find-symbol)
+    (define-key helm-gtags-prefix (kbd "p") 'helm-gtags-find-pattern)
+    (define-key helm-gtags-prefix (kbd "t") 'helm-gtags-find-tag)
+    (define-key helm-gtags-prefix (kbd "r") 'helm-gtags-find-rtag)
+    (define-key helm-gtags-prefix (kbd "f") 'helm-gtags-find-files)
+    (define-key helm-gtags-prefix (kbd "<") 'helm-gtags-previous-history)
+    (define-key helm-gtags-prefix (kbd ">") 'helm-gtags-next-history)
+    (define-key helm-gtags-prefix (kbd "C") 'helm-gtags-create-tags)
+    (define-key helm-gtags-prefix (kbd "U") 'helm-gtags-update-tags)
+    )
+  )
 
 
 (provide 'init-my-prog-tags-gtags)

@@ -105,7 +105,8 @@
 
 (use-package diffview
   :ensure t
-  :config
+  :defer t
+  :init
   (define-key my-prog-vcs-diff-prefix (kbd "d") 'diffview-current)
   (define-key my-prog-vcs-diff-prefix (kbd "r") 'diffview-region)
   (define-key my-prog-vcs-diff-prefix (kbd "m") 'diffview-message)
@@ -116,7 +117,8 @@
 
 (use-package smerge-mode
   :ensure t
-  :config
+  :defer t
+  :init
   ;;; keybindings
   ;; (setq smerge-command-prefix (kbd "C-c v M-d"))
 

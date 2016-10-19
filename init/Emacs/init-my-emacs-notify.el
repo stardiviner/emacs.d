@@ -22,6 +22,7 @@
 
 (use-package alert
   :ensure t
+  :defer t
   :config
   (setq alert-default-style 'libnotify ; 'notifications
         alert-reveal-idle-time 15

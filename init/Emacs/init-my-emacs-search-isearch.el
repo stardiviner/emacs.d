@@ -7,39 +7,7 @@
 
 ;;; Code:
 
-;;; [ Isearch ]
-
-;;; Usage:
-;;
-;;   - `register-mark-mode' -- mark rectangle.
-;;
-;; - Quitting Isearch – Many KeySequences quit Isearch. One that many people use is
-;;   [RET]. You cannot use [RET] to search for the end of a line – use [C-q C-j]
-;;   for that. The cursor is left on the last match.
-;; - [C-g] – Abort the search, putting back the cursor to its initial position.
-;; - [C-s] – Repeat the search as many times as you want throughout the buffer.
-;; - [C-w] – Select the (rest of the) word the TextCursor is on as the search
-;;   string; repeating [C-w] appends more words to the search string.
-;; - [M-s C-e] – Select the text up to the end of the line as the search string
-;;   (this was bound to [C-y] up until Emacs 24.1).
-;; - [M-s h r] – Highlight regular expression ([highlight-regexp])
-;; - [M-s h u] – Unhighlight regular expression
-;; - [M-s o] – call [occur] with the current search term
-;; - [C-y] – Yank (paste) the text last copied to the kill-buffer (clipboard) to
-;;   the end of the search string (this was bound to [M-y] up until Emacs 24.1).
-;; - [M-n], [M-p] – Re-use a previous search string. Repeat to choose older
-;;   strings. [M-n] moves forward in the search history; [M-p] moves backward.
-;; - [M-TAB] – Complete the current search string against all previous search
-;;   strings.
-;; - [M-c] – Toggle search case-sensitivity.
-;; - [M-r] – Toggle between regular-expression searching and literal-string
-;;   searching.
-;; - [M-e] – Pause to edit the search string. Searching is disabled until you
-;;   explicitly resume it with [C-j] (or [C-s] or [C-r]).
-;; - [M-%] – Start query replace using the current string.
-;; - [C-M-%] – Start a regular-expression query replace using the current search
-;;   string.
-
+;;; [ Isearch ] -- Incremental Search
 
 (setq search-highlight t
       query-replace-highlight t
@@ -181,27 +149,14 @@
       )
 
 
-;;; [ Isearch+ ]
-
-(use-package isearch+
-  ;; :ensure t
-  ;; :config
-  ;; NOTE: caused eshell startup key prefix map C-c error.
-  ;; (eval-after-load "isearch" '(require 'isearch+))
-
-  ;; (setq isearchp-set-region-flag nil
-  ;;       isearchp-restrict-to-region-flag t
-  ;;       )
-  )
-
-
 ;;; [ visual-regexp ] -- A regexp/replace command for Emacs with interactive visual feedback.
 
 ;; [ visual-regexp-steroids.el ] -- Extends visual-regexp to support other regexp engines.
 
 (use-package visual-regexp
   :ensure t
-  :config
+  :defer t
+  :init
   (global-set-key (kbd "C-s") 'vr/isearch-forward)
   (global-set-key (kbd "C-r") 'vr/isearch-backward)
   (global-set-key (kbd "M-%") 'vr/replace)
@@ -216,16 +171,21 @@
 
 (use-package visual-regexp-steroids
   :ensure t
-  )
+  :defer t)
 
 
 ;;; [ anzu ] -- Emacs Port of anzu.vim.
 
-;;; provides a minor mode which displays current match and total matches
-;;; information in the mode-line in various search mode.
-
 (use-package anzu
   :ensure t
+  :defer t
+  :init
+  ;; (global-set-key (kbd "M-%") 'anzu-query-replace)
+  (global-set-key (kbd "M-%") 'anzu-query-replace-regexp)
+  (global-set-key (kbd "C-M-%") 'anzu-query-replace-regexp)
+
+  (global-anzu-mode +1)
+  
   :config
   (setq anzu-regexp-search-commands '(vr/isearch-forward
                                       vr/isearch-backward
@@ -241,29 +201,6 @@
         ;; anzu-minimum-input-length 1
         ;; anzu-search-threshold nil ; limit of search number.
         )
-
-  ;; Function which constructs mode-line string. If you color mode-line string, you propertize string by yourself.
-  ;; (defun my/anzu-update-func (here total)
-  ;;   (propertize (format "<%d/%d>" here total)
-  ;;               'face '((:foreground "yellow" :weight bold))))
-  ;; (defun anzu--update-mode-line-default (here total)
-  ;;   (when anzu--state
-  ;;     (let ((status (cl-case anzu--state
-  ;;                     (search (format "(%s/%d%s)"
-  ;;                                     (anzu--format-here-position here total)
-  ;;                                     total (if anzu--overflow-p "+" "")))
-  ;;                     (replace-query (format "(%d replace)" total))
-  ;;                     (replace (format "(%d/%d)" here total)))))
-  ;;       (propertize status 'face 'anzu-mode-line))))
-  ;; (setq anzu-mode-line-update-function 'my/update-func)
-
-  
-  ;; (global-set-key (kbd "M-%") 'anzu-query-replace)
-  (global-set-key (kbd "M-%") 'anzu-query-replace-regexp)
-  (global-set-key (kbd "C-M-%") 'anzu-query-replace-regexp)
-
-  (global-anzu-mode +1)
-  ;; (anzu-mode +1)
   )
 
 
@@ -271,9 +208,8 @@
 
 (use-package swiper
   :ensure t
-  :config
-  (setq ivy-height 5)
-  
+  :defer t
+  :init
   (define-key my-search-prefix (kbd "C-s") 'swiper)
   (define-key my-search-prefix (kbd "C-r") 'swiper)
 
@@ -282,6 +218,9 @@
       (progn
         (global-set-key (kbd "C-s") 'swiper)
         (global-set-key (kbd "C-r") 'swiper)))
+  
+  :config
+  (setq ivy-height 5)
   )
 
 

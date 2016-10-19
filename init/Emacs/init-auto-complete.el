@@ -11,7 +11,7 @@
 
 (use-package popup
   :ensure t
-  )
+  :defer t)
 ;; (require 'showtip)
 
 
@@ -115,23 +115,14 @@
 
 ;;; [ ac-capf ] -- auto-complete source of completion-at-point
 
-;; (use-package ac-capf
-;;   :ensure t
-;;   :config
-;;   ;; global
-;;   ;; (ac-capf-setup)
-;;   ;; or
-;;   ;; complete-at-point-function (capf)
-;;   ;; ac-source-capf
-;;   (add-to-list 'ac-sources 'ac-source-capf)
-;;   ;; or enable in some modes
-;;   ;; (dolist (hook '(ruby-mode-hook
-;;   ;;                 enh-ruby-mode-hook
-;;   ;;                 inf-ruby-mode-hook
-;;   ;;                 inferior-python-mode-hook
-;;   ;;                 ))
-;;   ;;   (add-hook hook 'ac-capf-setup))
-;;   )
+(use-package ac-capf
+  :ensure t
+  :defer t
+  :init
+  ;; global
+  ;; (ac-capf-setup)
+  (add-to-list 'ac-sources 'ac-source-capf)
+  )
 
 
 

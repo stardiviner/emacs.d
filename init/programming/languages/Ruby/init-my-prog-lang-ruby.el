@@ -15,6 +15,7 @@
 
 (use-package ruby-mode
   :ensure t
+  :defer t
   :init
   ;; (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
   ;; (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
@@ -31,6 +32,7 @@
 
 (use-package enh-ruby-mode
   :ensure t
+  :defer t
   :init
   (add-to-list 'auto-mode-alist '("\\.rb\\'" . enh-ruby-mode))
   (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
@@ -97,11 +99,11 @@
   
   ;; FIXME: this is override by ruby-mode default syntax highlight.
   ;; highlight keyword: self
-  (font-lock-add-keywords
-   'enh-ruby-mode
-   '(("\s\\(self\\)\\(\\.\s\\)?"
-      (1 '(:foreground "white" :background "deep pink" :slant 'italic))
-      )))
+  ;; (font-lock-add-keywords
+  ;;  'enh-ruby-mode
+  ;;  '(("\s\\(self\\)\\(\\.\s\\)?"
+  ;;     (1 '(:foreground "white" :background "deep pink" :slant 'italic))
+  ;;     )))
 
   ;; highlight keywords: protected(orange), private(dark red), public(white)
   (font-lock-add-keywords
@@ -152,31 +154,21 @@
 
 (use-package ruby-hash-syntax
   :ensure t
-  :config
-  (define-key ruby-mode-map (kbd "C-c c c") 'ruby-toggle-hash-syntax)
-  (define-key enh-ruby-mode-map (kbd "C-c c c") 'ruby-toggle-hash-syntax)
+  :defer t
+  :init
+  (with-eval-after-load 'ruby-mode
+    (define-key ruby-mode-map (kbd "C-c c c") 'ruby-toggle-hash-syntax))
+  (with-eval-after-load 'enh-ruby-mode
+    (define-key enh-ruby-mode-map (kbd "C-c c c") 'ruby-toggle-hash-syntax))
   )
 
 
 ;;; [ ruby-tools ] -- Ruby tools is a collection of handy functions for Emacs ruby-mode.
 
-;;; Ruby tools is a collection of handy functions for Emacs ruby-mode. You can
-;;; turn a string to symbol, symbol to string, single to double quote string,
-;;; double to single quote string, clear string, interpolate and more...
-
-;;; Usage:
-;;
-;; (the | represents the point position)
-;; - [C-'] :: convert symbol -> string, e.g. foo(|:bar)
-;; - [C-:] :: convert string -> symbol, e.g. foo(|'bar')
-;; - [C-"] :: convert single quote string to double quote string.
-;; - [C-'] :: convert double quote string to single quote string.
-;; - [C-;] :: clear string content
-;; - [#]   :: string interpolation
-
 (use-package ruby-tools
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'ruby-mode-hook 'ruby-tools-mode)
   (add-hook 'enh-ruby-mode-hook 'ruby-tools-mode)
   )
@@ -186,10 +178,12 @@
 
 ;; (use-package ruby-block
 ;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (ruby-block-mode t)
 ;;   :config
 ;;   (setq ruby-block-delay 0)
 ;;   (setq ruby-block-highlight-toggle t)
-;;   (ruby-block-mode t)
 ;;   )
 
 
@@ -198,10 +192,12 @@
 ;;; disable this, to fix conflict with other electric functions.
 ;; (use-package ruby-electric
 ;;   :ensure t
-;;   :config
-;;   (setq ruby-electric-autoindent-on-closing-char t)
+;;   :defer t
+;;   :init
 ;;   (add-hook 'ruby-mode-hook 'ruby-electric-mode)
 ;;   (add-hook 'enh-ruby-mode-hook 'ruby-electric-mode)
+;;   :config
+;;   (setq ruby-electric-autoindent-on-closing-char t)
 ;;   )
 
 
@@ -209,7 +205,8 @@
 
 ;; (use-package ruby-end
 ;;   :ensure t
-;;   :config
+;;   :defer t
+;;   :init
 ;;   (add-hook 'ruby-mode-hook 'ruby-end-mode)
 ;;   (add-hook 'enh-ruby-mode-hook 'ruby-end-mode)
 ;;   )
@@ -219,6 +216,11 @@
 
 (use-package yard-mode
   :ensure t
+  :defer t
+  :init
+  (add-hook 'ruby-mode-hook 'yard-mode)
+  (add-hook 'enh-ruby-mode-hook 'yard-mode)
+
   :config
 
   ;; workaround of `robe-eldoc'
@@ -231,9 +233,6 @@
   ;;     (robe-eldoc))))
   
   (setq yard-use-eldoc nil)
-  
-  (add-hook 'ruby-mode-hook 'yard-mode)
-  (add-hook 'enh-ruby-mode-hook 'yard-mode)
 
   ;; If you would also like eldoc support, so that the expected syntax for the tag
   ;; beneath your cursor is displayed in the minibuffer, add that hook too:
@@ -246,6 +245,13 @@
 
 (use-package yari
   :ensure t
+  :defer t
+  :init
+  (dolist (hook '(ruby-mode-hook
+                  enh-ruby-mode-hook
+                  ))
+    (add-hook hook #'my-yari-settings))
+
   :config
   ;; (setq yari-ruby-program-name "ruby"
   ;;       yari-ri-program-name "ri")
@@ -260,11 +266,6 @@
     
     (define-key ruby-help-doc-map (kbd "k") 'yari-helm)
     )
-  
-  (dolist (hook '(ruby-mode-hook
-                  enh-ruby-mode-hook
-                  ))
-    (add-hook hook #'my-yari-settings))
   )
 
 
@@ -272,14 +273,16 @@
 
 ;; (use-package rvm
 ;;   :ensure t
-;;   :config
+;;   :defer t
+;;   :init
 ;;   (rvm-use-default)        ; use rvm's default ruby for the current Emacs session.
-;;   (setq rvm-verbose t)     ; print rvm switching Ruby version message.
-;;
 ;;   (dolist (hook '(ruby-mode-hook
 ;;                   enh-ruby-mode-hook
 ;;                   ))
 ;;     (add-hook hook 'rvm-activate-corresponding-ruby))
+
+;;   :config
+;;   (setq rvm-verbose t)     ; print rvm switching Ruby version message.
 ;;   )
 
 
@@ -287,14 +290,15 @@
 
 (use-package rbenv
   :ensure t
+  :defer t
+  :init
+  (global-rbenv-mode 1)
+  (rbenv-use-global)
+  
   :config
   (setq rbenv-show-active-ruby-in-modeline t
         rbenv-modeline-function 'rbenv--modeline-plain
         )
-
-  (global-rbenv-mode 1)
-
-  (rbenv-use-global)
   )
 
 
@@ -302,38 +306,18 @@
 
 (use-package inf-ruby
   :ensure t
-  :config
-  (add-to-list 'inf-ruby-implementations
-               '("inf-ruby" . "irb --inf-ruby-mode --noreadline -EUTF-8"))
-  
-  (setq inf-ruby-default-implementation "ruby"
-        inf-ruby-prompt-read-only t
-        )
-
-  ;; integrate with rvm.el
-  ;; (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
-  ;;   (rvm-activate-corresponding-ruby))
-
-  (defun my-inf-ruby-setup ()
-    (inf-ruby-minor-mode)
-    
-    (make-local-variable 'completion-at-point-functions)
-    ;; from inf-ruby
-    (add-to-list 'completion-at-point-functions 'inf-ruby-completion-at-point)
-
-    ;; from robe-mode
-    (set 'completion-at-point-functions
-         (remq 'robe-complete-at-point completion-at-point-functions))
-    ;; (append '(robe-complete-at-point) completion-at-point-functions)
-    ;; use `company-robe' instead, because it support doc and meta etc. info
-    (setq-local company-minimum-prefix-length 2)
-    (my-company-add-backend-locally 'company-robe)
-    )
+  :defer t
+  :init
+  (setq inf-ruby-default-implementation "ruby")
   
   (dolist (hook '(ruby-mode-hook
                   enh-ruby-mode-hook
                   ))
     (add-hook hook 'my-inf-ruby-setup))
+
+  ;; integrate with rvm.el
+  ;; (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
+  ;;   (rvm-activate-corresponding-ruby))
 
   ;; ruby-mode has keybinding [C-c C-s] for `inf-ruby'.
   ;; auto start robe `robe-start' after start `inf-ruby'.
@@ -356,6 +340,28 @@
 
   ;; (define-key enh-ruby-mode-map (kbd "C-c C-s") 'inf-ruby)
   ;; (define-key my-prog-inferior-map (kbd "r a") 'inf-ruby-console-auto)
+  
+  :config
+  (add-to-list 'inf-ruby-implementations
+               '("inf-ruby" . "irb --inf-ruby-mode --noreadline -EUTF-8"))
+  
+  (setq inf-ruby-prompt-read-only t)
+
+  (defun my-inf-ruby-setup ()
+    (inf-ruby-minor-mode)
+    
+    (make-local-variable 'completion-at-point-functions)
+    ;; from inf-ruby
+    (add-to-list 'completion-at-point-functions 'inf-ruby-completion-at-point)
+
+    ;; from robe-mode
+    (set 'completion-at-point-functions
+         (remq 'robe-complete-at-point completion-at-point-functions))
+    ;; (append '(robe-complete-at-point) completion-at-point-functions)
+    ;; use `company-robe' instead, because it support doc and meta etc. info
+    (setq-local company-minimum-prefix-length 2)
+    (my-company-add-backend-locally 'company-robe)
+    )
 
   ;; auto type "space" behind inf-ruby buffer line to get rid of company-mode completion.
   (defun my-inf-ruby-return ()
@@ -371,40 +377,20 @@
   (add-hook 'comint-input-filter-functions 'inf-ruby-auto-exit)
   )
 
-
-
-;;; [ pry (emacs-pry) ] -- Pry support within Emacs
-
-;;; Usage:
-;;
-;; -`run-pry' :: starts a Pry REPL inside a modified term-mode buffer.
-;; - `pry-intercept' :: command allows for quick debuging into a test without
-;;   needing to write the binding.pry into the file.
-;; - Automatically shows source in emacs buffer.
-;; - You can use the pointer or other emacs commands to move the cursor on the
-;;   command line and Pry will be aligned with the new position.
-;; Optional
-;;
-;; - $ gem install pry-nav pry-stack_explorer
-;; - $ gem install termios # replaces the running of: stty sane
-
-;; (use-package pry
-;;   :ensure t
-;;   :config
-;;   ;; (setq pry-program-name "pry")           ; program invoked by the `run-pry' command.
-;;
-;;   (define-key my-inferior-ruby-map (kbd "p") 'run-pry)
-;;   (define-key my-inferior-ruby-map (kbd "C-p") 'pry-intercept)
-;;   (define-key my-inferior-ruby-map (kbd "C-r") 'pry-intercept-rerun)
-;;   )
-
 
 ;;; [ Robe ] -- Code navigation, documentation lookup and completion for Ruby.
 
 (use-package robe
   :ensure t
+  :defer t
+  :init
+  (dolist (hook '(ruby-mode-hook
+                  enh-ruby-mode-hook
+                  inf-ruby-mode-hook
+                  ))
+    (add-hook hook 'robe-mode))
+  
   :config
-
   (setq robe-highlight-capf-candidates t
         robe-completing-read-func 'ivy-read)
 
@@ -416,12 +402,6 @@
 
   (with-eval-after-load 'projectile-rails
     (define-key projectile-rails-mode-map (kbd "C-h d d") 'robe-doc))
-
-  (dolist (hook '(ruby-mode-hook
-                  enh-ruby-mode-hook
-                  inf-ruby-mode-hook
-                  ))
-    (add-hook hook 'robe-mode))
 
   ;; lazily load Ruby source code when saving file.
   (defun my-robe-lazily-load ()
@@ -440,9 +420,11 @@
 
 (use-package rspec-mode
   :ensure t
+  :defer t
   :init
   ;; (setq rspec-key-command-prefix (kbd "C-c t r"))
   (setq rspec-key-command-prefix (kbd "C-c ,"))
+  
   :config
   ;; run RSpec in Vagrant box.
   (setq rspec-use-vagrant-when-possible t)
@@ -538,6 +520,15 @@
 
 (use-package minitest
   :ensure t
+  :defer t
+  :init
+  (add-hook 'ruby-mode-hook 'minitest-mode)
+  (add-hook 'enh-ruby-mode-hook 'minitest-mode)
+
+  ;; if you want snippets loaded
+  (with-eval-after-load 'minitest
+    (minitest-install-snippets))
+
   :config
   (setq minitest-default-env nil
         ;; minitest-keymap-prefix (kbd "C-c t m") ; default [C-c ,]
@@ -545,13 +536,6 @@
         minitest-use-spring nil
         minitest-use-zeus-when-possible t
         )
-
-  ;; (add-hook 'ruby-mode-hook 'minitest-mode)
-  ;; (add-hook 'enh-ruby-mode-hook 'minitest-mode)
-
-  ;; if you want snippets loaded
-  (eval-after-load 'minitest
-    '(minitest-install-snippets))
   )
 
 
@@ -559,6 +543,12 @@
 
 (use-package ruby-test-mode
   :ensure t
+  :defer t
+  :init
+  (dolist (hook '(ruby-mode-hook
+                  enh-ruby-mode-hook))
+    (add-hook hook #'my-ruby-test-mode-settings))
+
   :config
   (defun my-ruby-test-mode-settings ()
     ;; remove default ruby-test-mode in ruby-mode-hook.
@@ -574,157 +564,34 @@
     (define-key my-ruby-test-map (kbd "p") 'ruby-test-run-at-point)
     (define-key my-ruby-test-map (kbd "l") 'ruby-test-goto-location)
     )
-  
-  (dolist (hook '(ruby-mode-hook
-                  enh-ruby-mode-hook))
-    (add-hook hook #'my-ruby-test-mode-settings))
   )
 
 
 ;;; [ ruby-refactor ]
 
-;;; Usage:
-;;; Implemented 5 refactorings:
-;;
-;; - Extract to Method (C-c C-r e)
-;; - Extract Local Variable (C-c C-r v)
-;; - Extract Constant (C-c C-r c)
-;; - Add Parameter (C-c C-r p)
-;; - Extract to Let (C-c C-r l)
-
-;; Extract to Method:
-;;
-;; Select a region of text and invoke ruby-refactor-extract-to-method. You'll be
-;; prompted for a method name and a new argument list. If your extracted method
-;; does not take parameters, leave it empty. The method will be created above
-;; the method you are in with the method contents being the selected region. The
-;; region will be replaced with a call to method.
-;;
-;; Extract Local Variable:
-;;
-;; Select a region o text and invoke
-;; ruby-refactor-extract-local-variable. You'll be prompted for a variable
-;; name. The new variable will be created directly above the selected region and
-;; the region will be replaced with the variable.
-;;
-;; Extract Constant:
-;;
-;; Select a region of text and invoke ruby-refactor-extract-contant. You'll be
-;; prompted for a constant name. The new constant will be created at the top of
-;; the enclosing class or module directly after any include or extend statements
-;; and the regions will be replaced with the constant.
-;;
-;; Add Parameter:
-;;
-;; ruby-refactor-add-parameter This simply prompts you for a parameter to add to
-;; the current method definition. If you are on a text, you can just hit enter
-;; as it will use it by default. There is a custom variable to set if you like
-;; parens on your params list. Default values and the like shouldn't confuse it.
-;;
-;; Extract to Let:
-;;
-;; This is really for use with RSpec
-;;
-;; ruby-refactor-extract-to-let There is a variable for where the 'let' gets
-;; placed. It can be "top" which is top-most in the file, or "closest" which
-;; just walks up to the first describe/context it finds. You can also specify a
-;; different regex, so that you can just use "describe" if you want. If you are
-;; on a line:
-;;
-;; a = Something.else.doing
-;;
-;; becomes
-;;
-;; let(:a){ Something.else.doing }
-;;
-;; If you are selecting a region:
-;;
-;; a = Something.else
-;; a.stub(:blah)
-;;
-;; becomes
-;;
-;; let :a do
-;;   _a = Something.else
-;;   _a.stub(:blah)
-;;   _a
-;; end
-;;
-;; In both cases, you need the line, first line to have an = in it, as that
-;; drives conversion.
-;;
-;; There is also the bonus that the let will be placed after any other let
-;; statements. It appends it to bottom of the list.
-;;
-;; Oh, if you invoke with a prefix arg (C-u, etc.), it'll swap the placement of
-;; the let. If you have location as top, a prefix argument will place it
-;; closest. I kinda got nutty with this one.
-
-
 (use-package ruby-refactor
-  ;; :ensure t
-  :config
+  :ensure t
+  :defer t
+  :init
   (add-hook 'ruby-mode-hook 'ruby-refactor-mode-launch)
   )
-
-
-;;; [ doxymacs-yard ]
-
-
-;;; [ ruby-lint ]
-
-;;; $ gem install ruby-lint
-
-;; (flycheck-define-checker ruby-rubylint
-;;   "A Ruby syntax and style checker using the rubylint tool."
-;;   :command ("ruby-lint" source)
-;;   :error-patterns
-;;   ((warning line-start
-;;             (file-name) ":" line ":" column ": " (or "C" "W") ": " (message)
-;;             line-end)
-;;    (error line-start
-;;           (file-name) ":" line ":" column ": " (or "E" "F") ": " (message)
-;;           line-end))
-;;   :modes (ruby-mode enh-ruby-mode))
-
 
 
 ;;; [ rubocop ] -- based on Ruby Coding Style Guides
 
 (use-package rubocop
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'ruby-mode-hook #'rubocop-mode)
   )
 
 
 ;;; [ Rake ]
 
-;;; Usage:
-;;
-;; `rake' command
-;;
-;; - [M-x rake] :: to run a rake task.
-;; - [C-u M-x rake] :: to amend the command to run. Useful if you want to add arguments.
-;; - [C-u C-u M-x rake] :: to bypass the cache (when enabled).
-;;
-;; `rake-find-task' command
-;;
-;; - [M-x rake-find-task] :: to find a rake task.
-;;
-;; Setting up keybinding
-;;
-;; By default rake command is not bound to any key. You might want to do something like this:
-;;
-;; (define-key ruby-mode-map (kbd "C-!") 'rake)
-;;
-;; Replace (kbd "C-!") with a key of your liking.
-
-;;; Caching, By default the caching is enabled. To disable it:
-;; (setq rake-enable-caching nil)
-
 (use-package rake
   :ensure t
+  :defer t
   :config
   ;; 'ivy-read
   (setq rake-completion-system 'default)
@@ -734,20 +601,22 @@
 ;;; [ bundler ] -- Interact with Bundler from Emacs.
 
 (use-package bundler
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 ;;; [ motion-mode ] -- RubyMotion
 
 (use-package motion-mode
   :ensure t
-  :config
-  ;; following add-hook is very important.
+  :defer t
+  :init
   (add-hook 'ruby-mode-hook 'motion-recognize-project)
-  (if (featurep 'auto-complete)
-      (progn
-        (add-to-list 'ac-modes 'motion-mode)
-        (add-to-list 'ac-sources 'ac-source-dictionary)))
+  
+  :config
+  (when (featurep 'auto-complete)
+    (add-to-list 'ac-modes 'motion-mode)
+    (add-to-list 'ac-sources 'ac-source-dictionary))
   ;; set key-binds as you like
   (define-key motion-mode-map (kbd "C-c C-c") 'motion-execute-rake)
   (define-key motion-mode-map (kbd "C-c C-d") 'motion-dash-at-point)
@@ -759,41 +628,40 @@
   )
 
 
-;;; [ Cucumber ]
+;;; [ feature-mode ] -- Major mode for Cucumber feature files
 
-(with-eval-after-load 'ruby-mode
+(use-package feature-mode
+  :ensure t
+  :defer t
+  :config
   (add-to-list
    'ruby-font-lock-keywords
    '("\\(\\(\\)\\(\\)\\|Given\\|When\\|Then\\)\\s *\\(/\\)[^/\n\\\\]*\\(\\\\.[^/\n\\\\]*\\)*\\(/\\)"
      (4 (7 . ?/))
-     (6 (7 . ?/)))))
-
-
-;;; [ feature-mode ] -- Major mode for Cucumber feature files
-
-(use-package feature-mode
-  ;; :ensure t
+     (6 (7 . ?/))))
   )
 
 
 ;;; [ ruby-factory ] -- minor mode for Ruby test object generation libraries.
 
-;;; Usage:
-;;
-;; - [C-c , j] :: Jump to the current buffer's model or factory
-;; - Snippets
-
-;;; Supports:
-;; - factory_girl
-;; - Fabrication
-;; - only under Rails (for now).
-
 (use-package ruby-factory
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'ruby-mode-hook 'ruby-factory-mode)
   (add-hook 'enh-ruby-mode-hook 'ruby-factory-mode)
   )
+
+
+;;; [ kungfu ] -- CIDER like REPL for Ruby development.
+
+;; (use-package kungfu
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (add-hook 'ruby-mode-hook 'ruby-kungfu-mode))
+
+;; (load-file "~/Code/Emacs/ruby-kungfu/kungfu.el")
 
 
 (provide 'init-my-prog-lang-ruby)

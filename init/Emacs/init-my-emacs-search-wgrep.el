@@ -11,7 +11,10 @@
 
 (use-package wgrep
   :ensure t
-  :config
+  :defer t
+  :init
+  (setq wgrep-enable-key (kbd "C-c C-p")
+        wgrep-auto-save-buffer nil)
   )
 
 

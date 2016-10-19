@@ -10,7 +10,8 @@
 ;;; [ pcap-mode ] -- Major mode for working with PCAP files.
 
 (use-package pcap-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-my-tool-network)

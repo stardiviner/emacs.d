@@ -168,7 +168,7 @@
 
 (use-package select-themes
   :ensure t
-  )
+  :defer t)
 
 
 (provide 'init-my-emacs-color-theme)

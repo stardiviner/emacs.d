@@ -9,27 +9,16 @@
 
 ;;; [ Emacs Speaks Statistics (ESS) ]
 
-;; It is designed to support editing of scripts and interaction with various
-;; statistical analysis programs such as R, S-Plus, SAS, Stata and JAGS.
-
-;;; S family
-;; (R, S+, (aka S-PLUS)).
-
-;;; Usage:
-;;
-;; - [M-x ess-version] :: check out ESS version.
-;; - Start an ESS process.
-;;   - [M-x ESS RET] :: start ESS session.
-;;   - [M-x S RET] :: start S session.
-;; - [C-c C-s] :: `ess-switch-process', switch/create inferior process
-;; - `ess-load-file' :: [C-c C-l], load source code file for completion.
-;; - [C-c C-d e] :: `ess-describe-object-at-point'
-
 (use-package ess
   :ensure t
-  :config
+  :defer t
+  :init
   (require 'ess-site)
+  
+  ;; auto start ESS inferior process
+  ;; (add-hook 'ess-mode-hook #'ess-force-buffer-current)
 
+  :config
   (setq ess-use-ido t
         ess-ido-flex-matching t
         ess-pdf-viewer-pref '("zauthura")
@@ -55,9 +44,6 @@
   ;; - `ess-ac-sources' :: for auto-complete.
   (setq ess-use-company t)
   (setq ess-use-auto-complete nil)
-
-  ;; auto start ESS inferior process
-  ;; (add-hook 'ess-mode-hook #'ess-force-buffer-current)
   )
 
 

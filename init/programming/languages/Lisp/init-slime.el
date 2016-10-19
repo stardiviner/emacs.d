@@ -11,7 +11,33 @@
 
 (use-package slime
   :ensure t
+  :defer t
   :commands (slime)
+  :init
+  ;; disable slime in `lisp-mode-hook'. except other derived modes.
+  (remove-hook 'lisp-mode-hook 'slime-lisp-mode-hook)
+
+  ;; enable slime-mode for setup to support SLIME.
+  (dolist (hook '(lisp-mode-hook
+                  lisp-interaction-mode-hook
+                  slime-repl-mode-hook
+                  ))
+    (add-hook hook 'slime-mode))
+
+  ;; auto start SLIME unless it's already running.
+  (defun my-slime-connect ()
+    ;; only start SLIME on lisp-mode. (except other lisp dialects:
+    ;; `sibilant-mode' etc)
+    (if (equal major-mode 'lisp-mode)
+        (unless (slime-connected-p)
+          (save-excursion (slime)))
+      ;; (cond (slime-mode (slime--on))
+      ;;       (t (slime--off)))
+      )
+    )
+  
+  (add-hook 'lisp-mode-hook 'my-slime-connect)
+  
   :config
   ;; select the default value from slime-lisp-implementations
   (if (eq system-type 'darwin)
@@ -44,33 +70,18 @@
   (setq slime-auto-start 'always)
 
   (add-hook 'slime-repl-mode-hook #'my-lisp-repl-common-settings)
-  
-  ;; (add-hook 'slime-load-hook
-  ;;           #'(lambda ()
-  ;;               (define-key slime-prefix-map (kbd "M-h")
-  ;;                 'slime-documentation-lookup)))
+
   (add-hook 'common-lisp-mode-hook
             (lambda ()
               (local-set-key (kbd "C-h d") 'my-prog-help-document-map)
               (define-key my-prog-help-document-map (kbd "d") 'slime-documentation)
-              (define-key slime-prefix-map (kbd "M-h") 'slime-documentation-lookup)
               ))
-
+  
   ;; notify user after SLIME connected
   (add-hook 'slime-connected-hook
             (lambda ()
               (notifications-notify :title "SLIME subprocess"
                                     :body "SLIME connected.")))
-
-  ;; disable slime in `lisp-mode-hook'. except other derived modes.
-  (remove-hook 'lisp-mode-hook 'slime-lisp-mode-hook)
-
-  ;; enable slime-mode for setup to support SLIME.
-  (dolist (hook '(lisp-mode-hook
-                  lisp-interaction-mode-hook
-                  slime-repl-mode-hook
-                  ))
-    (add-hook hook 'slime-mode))
   
   ;; SLIME REPL buffer
   (add-hook 'slime-repl-mode-hook
@@ -90,20 +101,6 @@
           )))
   
   (add-hook 'comint-mode-hook 'slime-sbcl-inferior-lisp-buffer-setup)
-
-  ;; auto start SLIME unless it's already running.
-  (defun my-slime-connect ()
-    ;; only start SLIME on lisp-mode. (except other lisp dialects: `sibilant-mode' etc)
-    (if (equal major-mode 'lisp-mode)
-        (unless (slime-connected-p)
-          (save-excursion (slime)))
-      ;; (cond (slime-mode (slime--on))
-      ;;       (t (slime--off)))
-      )
-    )
-  
-  (add-hook 'lisp-mode-hook 'my-slime-connect)
-
 
   ;; inspect
   (define-key slime-mode-map (kbd "C-c C-i") 'slime-inspect)
@@ -133,8 +130,11 @@
 
 (use-package slime-company
   :ensure t
+  :defer t
   :init
-  (require 'slime-company)
+  (with-eval-after-load 'slime
+    (slime-setup '(slime-company)))
+  
   :config
   (setq slime-company-after-completion 'slime-company-just-one-space
         slime-company-completion 'fuzzy
@@ -142,20 +142,14 @@
         slime-company-major-modes '(lisp-mode slime-repl-mode scheme-mode)
         )
 
-  ;; [ enable ]
-
-  ;; (with-eval-after-load 'slime
-  ;;   (slime-setup '(slime-company)))
-
   (defun my-slime-company-maybe-enable ()
     (when (slime-company-active-p)
       (my-company-add-backend-locally 'company-slime)
       (unless (slime-find-contrib 'slime-fuzzy)
-        (setq slime-company-completion 'simple)))
-    )
+        (setq slime-company-completion 'simple))))
   
-  (dolist (h '(slime-mode-hook slime-repl-mode-hook sldb-mode-hook))
-    (add-hook h 'my-slime-company-maybe-enable))
+  (dolist (hook '(slime-mode-hook slime-repl-mode-hook sldb-mode-hook))
+    (add-hook hook 'my-slime-company-maybe-enable))
   )
 
 

@@ -36,27 +36,23 @@
   (unless (boundp 'my-edit-prefix)
     (define-prefix-command 'my-edit-prefix))
   (define-key my-edit-prefix (kbd "m") 'mmm-mode) ; enable mmm-mode on region.
+  
+  ;; submode classes
+  ;; (mmm-add-classes
+  ;;  '((embedded-css
+  ;;     :submode css
+  ;;     :face mmm-declaration-submode-face
+  ;;     :front "<style[^>]*>"
+  ;;     :back "</style>")))
+
+  ;; submode groups
+  ;; (mmm-add-to-group 'html-js '((js-html
+  ;;                               :submode javascript
+  ;;                               :face mmm-code-submode-face
+  ;;                               :front "%=%"
+  ;;                               :back "%=%"
+  ;;                               :end-not-begin t)))
   )
-
-
-;;; submode classes
-
-;; (mmm-add-classes
-;;  '((embedded-css
-;;     :submode css
-;;     :face mmm-declaration-submode-face
-;;     :front "<style[^>]*>"
-;;     :back "</style>")))
-
-
-;;; submode groups
-
-;; (mmm-add-to-group 'html-js '((js-html
-;;                               :submode javascript
-;;                               :face mmm-code-submode-face
-;;                               :front "%=%"
-;;                               :back "%=%"
-;;                               :end-not-begin t)))
 
 
 ;;; [ mumamo-noweb ] -- multiple major modes
@@ -66,7 +62,7 @@
 
 (use-package polymode
   :ensure t
-  )
+  :defer t)
 
 
 (provide 'init-my-emacs-modes)

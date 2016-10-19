@@ -159,12 +159,16 @@
 
 
 ;; load necessary package which will be used later.
+(use-package company
+  :ensure t)
 (use-package projectile
   :ensure t
+  :defer t
   :init
   (require 'projectile))
 (use-package projectile-rails
   :ensure t
+  :defer t
   :init
   (require 'projectile-rails)
   ;; avoid invalid variable `projectile-rails-mode'
@@ -173,10 +177,12 @@
 (require 'vc)
 (require 'vc-git)
 (use-package flycheck
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package all-the-icons
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;; nyan-mode
 ;; Nyan Mode is an analog indicator of your position in the buffer. The Cat
@@ -193,7 +199,8 @@
 
 ;; spinner
 (use-package spinner
-  :ensure t)
+  :ensure t
+  :defer t)
 ;; (spinner-start 'vertical-breathing 10)
 ;; (spinner-start 'minibox)
 ;; (spinner-start 'moon)
@@ -202,7 +209,8 @@
 (require 'org-timer)
 
 (use-package wc-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (setq-default
  mode-line-format
@@ -225,15 +233,18 @@
                  'mode-line-inactive))))
 
    ;; anzu
-   (:eval
-    (propertize (anzu--update-mode-line)
-                'face '(:foreground "cyan")))
+   ;; FIXME:
+   ;; (:eval
+   ;;  (propertize (anzu--update-mode-line)
+   ;;              'face '(:foreground "cyan")))
    
    ;; multiple-cursors (mc/)
-   (:eval
-    (if (and 'mc/fake-cursor-p (> (mc/num-cursors) 1)) ; (if 'mc/fake-cursor-p ...)
-        (propertize (format "[%d]" (mc/num-cursors)) ; `mc/mode-line'
-                    'face '(:foreground "firebrick" :background "black"))))
+   ;; (:eval
+   ;;  ;; FIXME: (mc/fake-cursor-p ?)
+   ;;  (if (and (mc/fake-cursor-p)
+   ;;           (> (mc/num-cursors) 1)) ; (if 'mc/fake-cursor-p ...)
+   ;;      (propertize (format "[%d]" (mc/num-cursors)) ; `mc/mode-line'
+   ;;                  'face '(:foreground "firebrick" :background "black"))))
 
    ;; input method
    (:eval
@@ -284,7 +295,7 @@
                      'face '(:foreground "red")))
       ))
 
-   ;; `ejc-sql' connection name
+   ;; `ejc-sql' connection name: `ejc-connection-name'
    (:eval
     (when (and (bound-and-true-p ejc-sql-mode)
                (bound-and-true-p ejc-connection-name))
@@ -299,6 +310,7 @@
       (let* ((backend
               (substring vc-mode
                          (+ 2 (length (symbol-name (vc-backend buffer-file-name))))))
+             (rev (vc-working-revision buffer-file-name))
              (state (vc-state buffer-file-name))
              (ascii (cond ((memq state '(up-to-date))
                            "✔")
@@ -401,13 +413,13 @@
 
    
    ;; FIXME: wc-mode (word count) `wc-modeline-format', `wc-mode-update'.
-   (:eval
-    (if (and (featurep 'wc-mode) wc-mode (active))
-        (propertize
-         (let ((wc-modeline-format " WC:[%tw]"))
-           (format
-            (wc-format-modeline-string wc-modeline-format)))
-         'face '(:foreground "green yellow" :family "Monospace" :height 75))))
+   ;; (:eval
+   ;;  (if (and (featurep 'wc-mode) wc-mode (active))
+   ;;      (propertize
+   ;;       (let ((wc-modeline-format " WC:[%tw]"))
+   ;;         (format
+   ;;          (wc-format-modeline-string wc-modeline-format)))
+   ;;       'face '(:foreground "green yellow" :family "Monospace" :height 75))))
 
    
    ;; mmm-mode
@@ -430,7 +442,8 @@
 
    ;; company-mode lighter `company-lighter'
    (:eval
-    (if (and company-mode
+    (if (and (boundp company-mode)
+             company-mode
              (consp company-backend))
         (list
          ;; (propertize "Ⓐ"
@@ -445,32 +458,19 @@
          )))
 
    ;; org-clock
-   (:eval
-    (when (and (active) org-clock-idle-timer)
-      (propertize
-       (let* ((rtime (decode-time
-                      (time-subtract
-                       (timer--time org-clock-idle-timer)
-                       (current-time))))
-              (rmins (nth 1 rtime))
-              (rsecs (nth 0 rtime)))
-         (format "🕔 %d:%d" rmins rsecs))
-       'face '(:foreground "cyan3")
-       'help-echo "org-clock timer")))
-   
-   ;; org-pomodoro
-   (:eval
-    (when (and (active) org-pomodoro-timer)
-      (propertize
-       (let* ((rtime (decode-time
-                      (time-subtract
-                       (timer--time org-pomodoro-timer)
-                       (current-time))))
-              (rmins (nth 1 rtime))
-              (rsecs (nth 0 rtime)))
-         (format "🕔 %d:%d" rmins rsecs))
-       'face '(:foreground "cyan3")
-       'help-echo "org-pomodoro timer")))
+   ;; FIXME: display wrong
+   ;; (:eval
+   ;; (when (and (active) org-clock-idle-timer)
+   ;;   (propertize
+   ;;    (let* ((rtime (decode-time
+   ;;                   (time-subtract
+   ;;                    (timer--time org-clock-idle-timer)
+   ;;                    (current-time))))
+   ;;           (rmins (nth 1 rtime))
+   ;;           (rsecs (nth 0 rtime)))
+   ;;      (format "🕔 %d:%d" rmins rsecs))
+   ;;    'face '(:foreground "cyan3")
+   ;;    'help-echo "org-clock timer")))
    
    ;; --------------------------- right align ----------------------------------
    

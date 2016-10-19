@@ -7,21 +7,13 @@
 
 ;;; Code:
 
-;;; [ find-file-in-project ]
+;;; [ f3 ] -- The Fantastic File Finder: a helm interface for searching files really fast.
 
-(use-package find-file-in-project
-  :ensure t
-  :config
-  (global-set-key (kbd "C-x f") 'find-file-in-project-by-selected)
-  )
-
-
-;;; [ f3 ]
-
-(use-package f3
-  :ensure t
-  :config
-  (global-set-key (kbd "C-x f") 'f3))
+;; (use-package f3
+;;   :ensure t
+;;   :config
+;;   (global-set-key (kbd "C-x f") 'f3)
+;;   )
 
 
 (provide 'init-my-emacs-search-find)

@@ -28,18 +28,17 @@
 ;;; [ ediprolog ] -- Emacs Does Interactive Prolog
 
 (use-package ediprolog
-  ;; :ensure t
-  :config
-  (global-set-key [f10] 'ediprolog-dwim)
+  :ensure t
+  :defer t
+  :init
+  (define-key prolog-mode-map [f10] 'ediprolog-dwim)
   )
 
 
 ;; [ ob-prolog ] -- babel for Prolog
 
 (use-package ob-prolog
-  :ensure t
-  :defer t
-  )
+  :ensure t)
 
 
 (provide 'init-my-prog-lang-prolog)

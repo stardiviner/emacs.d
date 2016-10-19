@@ -7,12 +7,6 @@
 
 ;;; [ R-mode ]
 
-;;; Usage:
-;;
-;; - [M-x R] :: start R process.
-;; - 'ess-R-describe-object-at-point-commands' / [C-c C-d C-e] ::
-;; - [C-c C-e C-t] runs the command `ess-build-tags-for-directory'
-
 (autoload 'R-mode "ess-site" "R-mode" t)
 
 ;; automatically get the correct mode
@@ -42,7 +36,10 @@
 
 ;; (define-key my-inferior-ess-map (kbd "R") 'R)
 
-(define-key my-inferior-ess-map (kbd "R")
+
+(unless (boundp 'my-prog-inferior-map)
+  (define-prefix-command 'my-prog-inferior-map))
+(define-key my-prog-inferior-map (kbd "R")
   '(lambda ()
      (my-func/open-and-switch-to-buffer 'R "*R*" t)))
 

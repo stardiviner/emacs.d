@@ -171,20 +171,6 @@
                     )
 
 
-;;; [ col-highlight ]
-
-(use-package col-highlight
-  :config
-  (col-highlight-toggle-when-idle 1)
-  (col-highlight-set-interval 6)
-
-  (set-face-attribute 'col-highlight nil
-                      :background "dodger blue")
-  
-  (column-highlight-mode 1)
-  )
-
-
 ;;; [ point & cursor ]
 
 (blink-cursor-mode 1)
@@ -210,6 +196,7 @@
 
 (use-package beacon
   :ensure t
+  :defer t
   :config
   (setq beacon-blink-duration 0.2
         beacon-blink-delay 0.2
@@ -311,7 +298,7 @@
 
 (use-package all-the-icons
   :ensure t
-  )
+  :defer t)
 
 
 

@@ -11,10 +11,9 @@
 
 (use-package modern-cpp-font-lock
   :ensure t
-  :config
+  :defer t
+  :init
   (modern-c++-font-lock-global-mode t)
-  ;; local for current buffer
-  ;; (add-hook 'c++-mode-hook 'modern-c++-font-lock-mode)
   )
 
 

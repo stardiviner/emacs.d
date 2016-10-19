@@ -11,6 +11,7 @@
 
 (use-package systemd
   :ensure t
+  :defer t
   :config
   (add-hook 'systemd-mode-hook
             (lambda ()
@@ -22,6 +23,7 @@
 
 (use-package helm-systemd
   :ensure t
+  :defer t
   :config
   (setq helm-systemd-list-not-loaded t
         helm-systemd-list-all nil
@@ -33,6 +35,7 @@
 
 (use-package nginx-mode
   :ensure t
+  :defer t
   :init
   (add-to-list 'auto-mode-alist
                '("nginx\\.conf\\'" . nginx-mode)
@@ -43,7 +46,8 @@
 ;;; [ apache-mode ]
 
 (use-package apache-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 ;;; [ PulseAudio ]

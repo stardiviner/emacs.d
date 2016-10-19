@@ -11,6 +11,7 @@
 
 (use-package download-region
   :ensure t
+  :defer t
   :config
   (set-face-attribute 'download-region-downloading nil
                       :background "#004A5D" :foreground "white"

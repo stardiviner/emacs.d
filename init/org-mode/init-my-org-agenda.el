@@ -252,7 +252,8 @@
 
 (use-package org-review
   :ensure t
-  :config
+  :defer t
+  :init
   (add-to-list 'org-agenda-custom-commands
                '("R" "Review projects" tags-todo "-CANCELLED/"
                  ((org-agenda-overriding-header "Reviews Scheduled")
@@ -270,7 +271,8 @@
 
 ;; (use-package secretaria
 ;;   :ensure t
-;;   :config
+;;   :defer t
+;;   :init
 ;;   ;; use this for getting a reminder every 30 minutes of those tasks scheduled
 ;;   ;; for today and which have no time of day defined.
 ;;   (add-hook 'after-init-hook #'secretaria-today-unknown-time-appt-always-remind-me)
@@ -354,14 +356,11 @@
 
 ;;; [ org-alert ] -- System notifications of org agenda items.
 
-;; - `org-alert-check'
-;; - `org-alert-enable' / `org-alert-disable'
-
 (use-package org-alert
-  ;; :ensure t
+  :ensure t
+  :defer t
   :config
   (setq alert-default-style 'libnotify)
-  
   (org-alert-enable)
   )
 

@@ -230,18 +230,6 @@ With prefix argument, also display headlines without a TODO keyword."
         ))
 
 
-;;;_* orgit -- Support for Org links to Magit buffers.
-
-;; (use-package orgit
-;;   :ensure t
-;;   :config
-;;   (setq orgit-remote "origin")
-;;   ;; Default: github, gitlab, bitbucket, orgmode.org, git.kernel.org
-;;   ;;
-;;   ;; (add-to-list orgit-export-alist ')
-;;   )
-
-
 ;;; open image link to edit
 
 (defvar org-image-link-edit-cmd "gimp %s")

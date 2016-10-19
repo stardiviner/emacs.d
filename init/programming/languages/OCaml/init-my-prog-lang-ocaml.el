@@ -11,6 +11,7 @@
 
 (use-package tuareg
   :ensure t
+  :defer t
   :init
   (autoload 'utop "utop" "Toplevel for OCaml" t)
   (autoload 'utop-minor-mode "utop" "Minor mode for utop" t)
@@ -30,6 +31,18 @@
 
 (use-package merlin
   :ensure t
+  :defer t
+  :init
+  (dolist (hook '(tuareg-mode-hook
+                  caml-mode-hook
+                  ))
+    (add-hook hook (lambda ()
+                     (merlin-mode 1)
+                     (my-company-add-backend-locally 'merlin-company-backend)
+                     (define-key tuareg-mode-map (kbd "C-c C-s")
+                       'tuareg-run-metaocaml)
+                     )))
+  
   :config
   ;; Use opam switch to lookup ocamlmerlin binary
   ;; (setq merlin-command 'opam)
@@ -44,18 +57,6 @@
         merlin-completion-arg-type t
         merlin-completion-with-doc t)
 
-  
-  (dolist (hook '(tuareg-mode-hook
-                  caml-mode-hook
-                  ))
-    (add-hook hook (lambda ()
-                     (merlin-mode 1)
-                     (my-company-add-backend-locally 'merlin-company-backend)
-                     
-                     (define-key tuareg-mode-map (kbd "C-c C-s")
-                       'tuareg-run-metaocaml)
-                     )))
-
   (defun tuareg-run-metaocaml ()
     "Run an OCaml toplevel process.  I/O via buffer `*ocaml-toplevel*'."
     (interactive)
@@ -68,7 +69,8 @@
 ;;; [ utop ] -- universal toplevel for OCaml.
 
 (use-package utop
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-my-prog-lang-ocaml)

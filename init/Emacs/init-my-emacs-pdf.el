@@ -7,23 +7,11 @@
 
 ;;; Code:
 
-;;; [ doc-view ]
-
-;; (require 'doc-view)
-;;
-;; (setq doc-view-continuous t
-;;       ;; doc-view--image-type ; 'png, 'tiff
-;;       ;; doc-view-doc-type ; Can be `dvi', `pdf', or `ps'.
-;;       ;; doc-view-cache-directory "/tmp/docview1000"
-;;       doc-view-scale-internally t
-;;       doc-view-image-width 850
-;;       )
-
-
 ;;; [ pdf-tools ] -- Emacs support library for PDF files.
 
 (use-package pdf-tools
   :ensure t
+  :defer t
   :init
   (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
   :config
@@ -121,6 +109,7 @@
 
 (use-package org-pdfview
   :ensure t
+  :defer t
   :config
   ;; integrate it into Org-mode seamlessly.
   ;; (org-add-link-type "pdfview" 'org-pdfview-open 'org-pdfview-export)

@@ -40,8 +40,6 @@
 ;;               (auto-complete-mode 1)
 ;;               )))
 
-;; (require 'init-my-prog-complete-ycmd)
-
 
 (provide 'init-my-prog-complete)
 

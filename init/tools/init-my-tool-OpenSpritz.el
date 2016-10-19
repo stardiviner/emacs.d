@@ -11,6 +11,7 @@
 
 (use-package spray
   :ensure t
+  :defer t
   :config
   (setq spray-wpm 250 ; words per minute
         spray-height 400 ; Height of characters
@@ -30,23 +31,6 @@
                       :inherit 'spray-base-face
                       :foreground "red"
                       )
-  )
-
-
-;;; [ speedread ] -- Aid to speedreading emacs buffers.
-
-(use-package speedread
-  ;; :ensure t
-  :config
-  (setq speedread-chars 20
-        speedread-delay-milliseconds 300
-        speedread-end-sentence-delay-milliseconds 500
-        speedread-final-delay-milliseconds 2000
-        speedread-top-window-size 5
-        speedread-font-size-scale-factor 2.0
-        ;; speedread-text-justification =
-        ;; speedread-end-sentence-regexp
-        )
   )
 
 

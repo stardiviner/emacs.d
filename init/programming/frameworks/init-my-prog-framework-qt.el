@@ -96,14 +96,16 @@
 ;;; [ QML-mode ]
 
 (use-package qml-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 ;;; [ company-qml ]
 
 (use-package company-qml
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'qml-mode-hook
             (lambda ()
               (setq-local company-minimum-prefix-length 0)

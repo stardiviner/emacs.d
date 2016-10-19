@@ -9,6 +9,7 @@
 
 (use-package go-mode
   :ensure t
+  :defer t
   :config
   ;; (setq go-command "go"
   ;;       gofmt-command "gofmt"
@@ -41,8 +42,10 @@
 
 (use-package go-gopath
   :ensure t
-  :config
-  (define-key go-mode-map (kbd "C-x C-e") #'go-gopath-set-gopath)
+  :defer t
+  :init
+  (with-eval-after-load 'go-mode
+    (define-key go-mode-map (kbd "C-x C-e") #'go-gopath-set-gopath))
   )
 
 
@@ -50,61 +53,55 @@
 
 (use-package go-eldoc
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'go-mode-hook 'go-eldoc-setup))
 
 
 ;;; [ gocode ] -- An autocompletion daemon for the Go programming language.
 
 ;; [ company-go ]
+
 (use-package company-go
   :ensure t
-  :config
+  :defer t
+  :init
   (if (getenv "GOPATH")
       (load
        (concat (getenv "GOPATH")
                "/src/github.com/nsf/gocode/emacs-company/company-go.el"))
     (error "SHELL env $GOPATH not available, set it in your SHELL"))
-
-  (setq company-go-show-annotation t
-        company-go-begin-after-member-access t
-        company-go-insert-arguments t
-        )
   
   (add-hook 'go-mode-hook
             (lambda ()
               (setq-local company-echo-delay 0)
               (my-company-add-backend-locally 'company-go)))
+
+  :config
+  (setq company-go-show-annotation t
+        company-go-begin-after-member-access t
+        company-go-insert-arguments t
+        ;; company-go-gocode-args
+        )
   )
-
-;; [ go-autocomplete ]
-;; (if (getenv "GOPATH")
-;;     (load (concat (getenv "GOPATH")
-;;                   "/src/github.com/nsf/gocode/emacs/go-autocomplete.el"))
-;;   (error "SHELL env $GOPATH not available, set it in your SHELL"))
-;;
-;; (require 'go-autocomplete)
-;; (add-hook 'go-mode-hook
-;;           (lambda ()
-;;             (add-to-list 'ac-sources 'ac-source-go)))
-
-
 
 
 ;;; [ gorepl-mode ] -- Go REPL Interactive Development in top of Gore.
 
 (use-package gorepl-mode
   :ensure t
-  :config
+  :defer t
+  :init
   ;; default setup mapping (this will override `go-goto-map')
   ;; (add-hook 'go-mode-hook #'gorepl-mode)
 
-  ;; custom mapping
-  (define-key go-mode-map (kbd "C-c C-s") 'gorepl-run)
-  (define-key go-mode-map (kbd "C-c C-z") 'gorepl-run)
-  (define-key go-mode-map (kbd "C-c C-l") #'gorepl-run-load-current-file)
-  (define-key go-mode-map (kbd "C-c C-e") #'gorepl-eval-region)
-  (define-key go-mode-map (kbd "C-c C-r") #'gorepl-eval-line)
+  (with-eval-after-load 'go-mode
+    ;; custom mapping
+    (define-key go-mode-map (kbd "C-c C-s") 'gorepl-run)
+    (define-key go-mode-map (kbd "C-c C-z") 'gorepl-run)
+    (define-key go-mode-map (kbd "C-c C-l") #'gorepl-run-load-current-file)
+    (define-key go-mode-map (kbd "C-c C-e") #'gorepl-eval-region)
+    (define-key go-mode-map (kbd "C-c C-r") #'gorepl-eval-line))
   )
 
 
@@ -118,6 +115,7 @@
 
 (use-package go-playground
   :ensure t
+  :defer t
   :config
   (setq go-playground-basedir "~/.go/src/playground")
   )
@@ -125,7 +123,9 @@
 
 ;;; [ go-playground-cli ]
 
-;; (use-package go-playground-cli)
+;; (use-package go-playground-cli
+;;   :ensure t
+;;   :defer t)
 
 
 ;;; [ go-errcheck ]
@@ -145,7 +145,9 @@
 
 (use-package go-guru
   :ensure t
-  :config
+  :defer t
+  :init
+  ;; (add-hook 'go-mode-hook 'go-guru)
   ;; (setq go-guru-scope)
   )
 

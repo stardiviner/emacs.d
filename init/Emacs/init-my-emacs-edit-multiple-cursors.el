@@ -8,139 +8,40 @@
 ;;; Code:
 
 ;;;_ [ iedit ] -- Edit multiple regions simultaneously in a buffer or a region
-;;;
-;;; This package includes Emacs minor modes (iedit-mode and
-;;; iedit-rectangle-mode) based on a API library (iedit-lib) and allows you to
-;;; edit one occurrence of some text in a buffer (possibly narrowed) or region,
-;;; and simultaneously have other occurrences edited in the same way, with
-;;; visual feedback as you type.
-;;
-;; Normal scenario of Iedit mode is like:
-;;
-;; 1. Highlight certain contents - by press [C-;] All occurrences of a symbol,
-;;    string or a rectangle in the buffer or a region may be highlighted
-;;    corresponding to current mark, point and prefix argument. Refer to the
-;;    document of `iedit-mode’ for details.
-;;
-;; 2. Edit one of the occurrences The change is applied to other occurrences
-;;    simultaneously.
-;;
-;; 3. Finish - by pressing [C-;] again
-;;
-;; You can also use Iedit mode as a quick way to temporarily show only the
-;; buffer lines that match the current text being edited. This gives you the
-;; effect of a temporary `keep-lines’ or `occur’. To get this effect, hit C-’
-;; when in Iedit mode - it toggles hiding non-matching lines.
-;;
-;; Renaming refactoring is convinient in Iedit mode
-;; - The symbol under point is selected as occurrence by default and only complete symbols are matched
-;; - With digit prefix argument 0, only occurrences in current function are matched
-;; - Restricting symbols in current region can be done by pressing C-; again
-;; - Last renaming refactoring is remembered and can be applied to other buffers later
-;; - Restricting the search area to just the current line can be done by pressing M-I.
-;; - Restricting the search area to the lines near the current line can be done
-;;   by pressing M-{ and M-}. These will expand the search region one line at a
-;;   time from the top and bottom. Add a prefix argument to go the opposite
-;;   direction.
 
-;;; Iedit-rectangle-mode provides rectangle support with visible rectangle
-;;; highlighting, which is similar with cua mode rectangle support. But it’s
-;;; lighter weight and uses iedit mechanisms.
+(use-package iedit
+  :ensure t
+  :defer t
+  :init
+  ;; (global-set-key (kbd "C-;") 'iedit-mode)
+  (define-key my-edit-prefix (kbd "e") 'iedit-dwim)
 
-;;; There are also some other facilities you may never think about. Refer to the
-;;; document of function `iedit-mode’ (C-h f iedit-mode RET) for more details.
+  :config
+  (setq iedit-occurrence-face 'isearch) ; 'highlight
 
-;;; Usage:
-;;
-;; - [C-h iedit-mode RET] -- to get help of iedit-mode
-;; - [M-x iedit-mode]
-;;
-;; - [C-;] -- highlight certain contents
-;; - [C-'] -- toggle unmatched lines visible
-;; - [M-;] -- apply global modification
-;;
-;; - [Tab] -- next occurrence
-;; - [S-Tab] -- prev occurrence
-;; - [M-<] -- first occurrence
-;; - [M->] -- last  occurrence
-;;
-;; - [M-b] -- toggle buffering
-;; - [M-c] -- toggle case sensitive
-;;
-;; - [M-d] -- restrict function
-;;
-;; - [M-d] -- delete occurrences
-;; - [M-SPC] -- blank occurences
-;; - [M-l] -- downcase occurrences
-;; - [M-u] -- upcase occurrences
-;; - [M-n] -- number occurrences
-;; - [M-r] -- replace occurrences
-;;
-;; --------------------------------
-;;
-;; - [M-x iedit-rectangle-mode] -- visible rectangle.
-;; - [M-k] -- Iedit kill rectangle.
-;; Steps:
-;; - mark a rectangle like Emacs rectangle with [C-@ / C-SPC].
-;; - after marked the rectangle, then press [C-c C-;] to enable iedit rectangle mode, and highlight the rectangle.
-
-(setq iedit-occurrence-face 'isearch) ; 'highlight
-
-(defun iedit-dwim (arg)
-  "If ARG, start iedit but use \\[narrow-to-defun] to limit its scope."
-  (interactive "P")
-  (if arg
-      (iedit-mode)
-    (save-excursion
-      (save-restriction
-        (widen)
-        ;; this function determines the scope of `iedit-start'.
-        (if iedit-mode
-            (iedit-done)
-          ;; `current-word' can of course be replaced by other
-          ;; functions.
-          (narrow-to-defun)
-          (iedit-start (current-word) (point-min) (point-max)))))))
-
-;; (global-set-key (kbd "C-;") 'iedit-mode)
-(define-key my-edit-prefix (kbd "e") 'iedit-dwim)
-
+  (defun iedit-dwim (arg)
+    "If ARG, start iedit but use \\[narrow-to-defun] to limit its scope."
+    (interactive "P")
+    (if arg
+        (iedit-mode)
+      (save-excursion
+        (save-restriction
+          (widen)
+          ;; this function determines the scope of `iedit-start'.
+          (if iedit-mode
+              (iedit-done)
+            ;; `current-word' can of course be replaced by other
+            ;; functions.
+            (narrow-to-defun)
+            (iedit-start (current-word) (point-min) (point-max)))))))
+  )
 
 ;;;_ [ multiple-cursors ]
 
-;;; Usage:
-;;
-;; https://github.com/magnars/multiple-cursors.el
-;; - [C-c c] -- prefix of mc.
-;; - <return> / [C-g] -- get out of multiple-cursors
-;; - [C-c e c c] -- `mc/mark-next-like-this'
-;; - [C-c e c r] -- `set-rectangular-region-anchor'
-;; - [region] + [C-c e c m] -- mark variants (region is used to limit mark area)
-;;
-;; Unknown commands
-;;
-;; Multiple-cursors uses two lists of commands to know what to do: the run-once
-;; list and the run-for-all list. It comes with a set of defaults, but it would
-;; be beyond silly to try and include all the known Emacs commands.
-;;
-;; So that's why multiple-cursors occasionally asks what to do about a
-;; command. It will then remember your choice by saving it in
-;;
-;;     `~/.emacs.d/.mc-lists.el' You can change the location with:
-
-
 (use-package multiple-cursors
   :ensure t
-  :config
-
-  ;; (setq mc/list-file (expand-file-name ".mc-lists.el" user-emacs-directory))
-
-  ;; (add-to-list 'mc/unsupported-minor-modes 'flyspell-mode)
-
-  ;; (setq mc/keymap "C-c c")
-
-  (define-key mc/keymap (kbd "C-'") 'mc-hide-unmatched-lines-mode)
-  
+  :defer t
+  :init
   (unless (boundp 'my-mc-prefix)
     (define-prefix-command 'my-mc-prefix))
   (define-key my-edit-prefix (kbd "c") 'my-mc-prefix)
@@ -183,6 +84,11 @@
   (global-unset-key (kbd "M-<down-mouse-1>"))
   (global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click)
   
+  :config
+  ;; (setq mc/list-file (expand-file-name ".mc-lists.el" user-emacs-directory))
+
+  ;; (add-to-list 'mc/unsupported-minor-modes 'flyspell-mode)
+  
   ;; First mark the word, then add more cursors.
 
   ;; To get out of multiple-cursors-mode, press <return> or C-g. The latter will
@@ -202,6 +108,9 @@
   (set-face-attribute 'mc/region-face nil
                       :inverse-video nil
                       :background (color-darken-name (face-background 'default) 4))
+
+  ;; (setq mc/keymap "C-c c")
+  (define-key mc/keymap (kbd "C-'") 'mc-hide-unmatched-lines-mode)
   )
 
 

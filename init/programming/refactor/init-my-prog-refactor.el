@@ -14,17 +14,10 @@
 
 ;;; [ emacs-refactor (emr) ] -- Emacs Refactor (EMR) provides language-specific refactoring support for Emacs.
 
-;;; Usage:
-;;
-;; Most EMR commands are context-sensitive and are available through the
-;; refactor menu. Some actions affect the whole buffer and are available in the
-;; menu bar.
-;;
-;; - [M-RET] :: `emr-show-refactor-menu' show popup menu.
-
 (use-package emr
   :ensure t
-  :config
+  :defer t
+  :init
   (eval-after-load "emr" '(emr-initialize))
 
   (define-key prog-mode-map (kbd "M-RET") 'emr-show-refactor-menu)

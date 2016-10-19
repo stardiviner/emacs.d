@@ -7,40 +7,23 @@
 
 ;;; Code:
 
-;;; [ sgml-mode ] -- major mode for editing SGML documents.
-
-;; Makes > match <.
-;; Keys <, &, SPC within <>, ", / and ' can be electric depending on
-;; `sgml-quick-keys'.
-
-
-;;; [ zencoding-mode ] -- renamed to emmet-mode
-
-
 ;;; [ emmet-mode ]
-
-;;; Usage
-;;
-;; - [C-j] :: preview.
-;; - [C-u C-j] :: expand emmet line `emmet-expand-line'.
-;;
-;; Place point in a emmet snippet and press [C-j] to expand it (or
-;; alternatively, alias your preferred keystroke to [M-x emmet-expand-line]) and
-;; you'll transform your snippet into the appropriate tag structure.
 
 (use-package emmet-mode
   :ensure t
+  :defer t
+  :init
+  (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+  (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+  (add-hook 'web-mode-hook  'emmet-mode)
+  (add-hook 'rhtml-mode-hook  'emmet-mode)
+
   :config
   (setq emmet-preview-default t ; set preview as the default action.
         emmet-indentation 4
         emmet-indent-after-insert t
         emmet-use-style-tag-and-attr-detection t
         )
-
-  (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
-  (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
-  (add-hook 'web-mode-hook  'emmet-mode)
-  (add-hook 'rhtml-mode-hook  'emmet-mode)
 
   ;; By default, inserted markup will be indented with indent-region, according to
   ;; the buffer's mode. To disable this, do:
@@ -74,7 +57,8 @@
 
 (use-package tagedit
   :ensure t
-  :config
+  :defer t
+  :init
   (tagedit-add-paredit-like-keybindings)
   ;; auto insert <></> when you type <, and auto expand to <div></div> as you type.
   (tagedit-add-experimental-features)
@@ -85,8 +69,8 @@
 ;;; [ impatient-mode ] -- see your HTML rendered as you type.
 
 (use-package impatient-mode
-  :config
-  )
+  :ensure t
+  :defer t)
 
 
 ;;; [ ob-browser ] -- render HTML in org babel
@@ -101,18 +85,15 @@
 ;; #+END_SRC
 
 (use-package ob-browser
-  :config
+  :ensure t
+  :defer t
+  :init
   ;; open those babels with `web-mode'.
   (with-eval-after-load "web-mode"
     ;; (add-to-list 'org-src-lang-modes '("html" . html))
     (add-to-list 'org-src-lang-modes '("browser" . web))
     (add-to-list 'org-src-lang-modes '("rhtml" . web)))
   )
-
-
-
-(require 'init-my-prog-lang-html5)
-(require 'init-my-prog-lang-haml)
 
 
 (provide 'init-my-prog-lang-html)

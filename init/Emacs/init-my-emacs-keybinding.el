@@ -61,45 +61,18 @@
 (global-set-key (kbd "M-[") 'backward-sentence)
 
 
-;;; [ bind-key ] -- A simple way to manage personal keybindings --- IN ATTIC BECAUSE: part of use-package.
-
-;;; Usage:
-;; - (bind-key "C-c x" 'my-ctrl-c-x-command)
-;;
-;;   normal bind a key to a command.
-;;
-;; - (bind-key* "<C-return>" 'other-window)
-;;
-;;   If you want the keybinding to override all minor modes that may also bind
-;;   the same key, use the bind-key* form.
-;;
-;; - (bind-key "C-c x" 'my-ctrl-c-x-command some-other-mode-map)
-;;
-;;   If you want to rebind a key only for a particular mode.
-;;
-;; - (unbind-key "C-c x" some-other-mode-map)
-;;
-;;   To unbind a key within a keymap (for example, to stop your favorite major
-;;   mode from changing a binding that you don't want to override everywhere),
-;;   use unbind-key.
-;;
-;; - [M-x describe-personal-keybindings]
-;;
-;;   After Emacs loads, you can see a summary of all your personal keybindings
-;;   currently in effect with this command: It will tell you if you've overriden
-;;   a default keybinding, and what that default was. Also, it will tell you if
-;;   the key was rebound after your binding it with bind-key, and what it was
-;;   rebound it to.
-
-(use-package bind-key
-  ;; :ensure t
-  )
-
-
 ;;; [ which-key ]
 
 (use-package which-key
   :ensure t
+  :defer t
+  :init
+  ;; TODO: workaround for bug (void-function display-buffer-in-major-side-window)
+  (defalias 'display-buffer-in-major-side-window 'window--make-major-side-window)
+
+  (global-set-key (kbd "C-x C-t") 'which-key-show-top-level)
+  (which-key-mode)
+  
   :config
   (setq which-key-idle-delay 1.5
         which-key-idle-secondary-delay nil)
@@ -121,30 +94,6 @@
           "rectangle" "iedit"
           ("emacs" . highlight)
           ))
-  
-  ;; (setq which-key-key-based-description-replacement-alist
-  ;;       '(("C-x C-f" . "find files")
-  ;;         (org-mode . (("C-c C-c" . "Org C-c C-c")
-  ;;                      ("C-c C-a" . "Org Attach")))
-  ;;         ))
-  ;;
-  ;; (setq which-key-sort-order 'which-key-key-order)
-  ;;
-  ;; `which-key-show-next-page'
-  ;; (setq which-key-use-C-h-for-paging nil)
-  ;; (define-key which-key-mode-map (kbd "C-x <f5>") 'which-key-show-next-page) ; custom
-  ;; equivalent to =
-  ;; (setq which-key-paging-prefixes '("C-x"))
-  ;; (setq which-key-paging-key "<f5>")
-  
-  ;; (which-key-setup-minibuffer)
-  ;; (which-key-setup-side-window-bottom) ; default
-  ;; (which-key-setup-side-window-right)
-  ;; (which-key-setup-side-window-right-bottom)
-
-  (global-set-key (kbd "C-x C-t") 'which-key-show-top-level)
-
-  (which-key-mode)
   )
 
 
@@ -152,32 +101,11 @@
 
 (use-package hydra
   :ensure t
-  :config
-  ;; display a hint with possible bindings in the echo area.
-  (setq hydra-is-helpful t)
-
+  :defer t
+  :init
   ;; examples
   (require 'hydra-examples)
-
-  ;; hydra faces
-  (set-face-attribute 'hydra-face-red nil
-                      :foreground "red"
-                      :weight 'bold)
-  (set-face-attribute 'hydra-face-blue nil
-                      :foreground "blue"
-                      :weight 'bold)
-  (set-face-attribute 'hydra-face-amaranth nil
-                      :foreground "orange"
-                      :weight 'bold)
-  (set-face-attribute 'hydra-face-pink nil
-                      :foreground "pink"
-                      :weight 'bold)
-  (set-face-attribute 'hydra-face-teal nil
-                      :foreground "cyan"
-                      :weight 'bold)
   
-  ;; my defined hydras
-
   ;; ace-window + hydra
   (global-set-key
    (kbd "C-x C-z")
@@ -213,46 +141,27 @@
      ("q" nil "cancel")
      )
    )
-
-  ;; This means that when I press < from the start of the line, a Hydra will be
-  ;; called instead of inserting <, otherwise < will be inserted.
-
-  ;; (defhydra hydra-org-template (:color red :hint nil)
-  ;;   "
-  ;; _c_enter  _q_uote    _L_aTeX:
-  ;; _l_atex   _e_xample  _i_ndex:
-  ;; _a_scii   _v_erse    _I_NCLUDE:
-  ;; _s_rc     ^ ^        _H_TML:
-  ;; _h_tml    ^ ^        _A_SCII:
-  ;; "
-  ;;   ("s" (hot-expand "<s"))
-  ;;   ("e" (hot-expand "<e"))
-  ;;   ("q" (hot-expand "<q"))
-  ;;   ("v" (hot-expand "<v"))
-  ;;   ("c" (hot-expand "<c"))
-  ;;   ("l" (hot-expand "<l"))
-  ;;   ("h" (hot-expand "<h"))
-  ;;   ("a" (hot-expand "<a"))
-  ;;   ("L" (hot-expand "<L"))
-  ;;   ("i" (hot-expand "<i"))
-  ;;   ("I" (hot-expand "<I"))
-  ;;   ("H" (hot-expand "<H"))
-  ;;   ("A" (hot-expand "<A"))
-  ;;   ("<" self-insert-command "ins")
-  ;;   ("o" nil "quit"))
-  ;;
-  ;; (require 'org)
-  ;; (defun hot-expand (str)
-  ;;   "Expand org template."
-  ;;   (insert str)
-  ;;   (org-try-structure-completion))
-  ;;  
-  ;; (define-key org-mode-map "<"
-  ;;   (lambda () (interactive)
-  ;;     (if (looking-back "^")
-  ;;         (hydra-org-template/body)
-  ;;       (self-insert-command 1))))
   
+  :config
+  ;; display a hint with possible bindings in the echo area.
+  (setq hydra-is-helpful t)
+
+  ;; hydra faces
+  (set-face-attribute 'hydra-face-red nil
+                      :foreground "red"
+                      :weight 'bold)
+  (set-face-attribute 'hydra-face-blue nil
+                      :foreground "blue"
+                      :weight 'bold)
+  (set-face-attribute 'hydra-face-amaranth nil
+                      :foreground "orange"
+                      :weight 'bold)
+  (set-face-attribute 'hydra-face-pink nil
+                      :foreground "pink"
+                      :weight 'bold)
+  (set-face-attribute 'hydra-face-teal nil
+                      :foreground "cyan"
+                      :weight 'bold)
   )
 
 
@@ -280,7 +189,7 @@
 ;;          (newmap (or (cdr (assoc mode minor-mode-overriding-map-alist))
 ;;                      (let ((map (make-sparse-keymap)))
 ;;                        (set-keymap-parent map oldmap)
-;;                        (push `(,mode . ,map) minor-mode-overriding-map-alist) 
+;;                        (push `(,mode . ,map) minor-mode-overriding-map-alist)
 ;;                        map))))
 ;;     (define-key newmap key def)))
 ;;; ---------------------------------------------------

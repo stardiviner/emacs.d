@@ -14,13 +14,6 @@
 
 ;;; [ Full Ack ] -- An Emacs front-end for ack
 
-;;; Usage:
-;; - Run ack to search for all files and ack-same to search for files of the same
-;;   type as the current buffer.
-;; - next-error and previous-error can be used to jump to the matches.
-;; - ack-find-file and ack-find-same-file use ack to list the files in the current
-;;   project. It's a convenient, though slow, way of finding files.
-
 ;; (require 'full-ack)
 
 ;; (autoload 'ack-same "full-ack" nil t)
@@ -33,6 +26,7 @@
 
 ;; (use-package ack-and-a-half
 ;;   :ensure t
+;;   :defer t
 ;;   :config
 ;;   )
 

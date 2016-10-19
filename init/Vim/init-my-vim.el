@@ -10,15 +10,14 @@
 ;;; [ Evil ]
 
 (use-package evil
-  :ensure t
-  :config
-  )
+  :ensure t)
 
 
 ;;; [ vimrc-mode ] -- major mode for vimrc files.
 
 (use-package vimrc-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-my-vim)

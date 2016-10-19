@@ -9,15 +9,21 @@
 
 ;;; [ vhdl-mode ]
 
-;;   (autoload 'vhdl-mode "vhdl-mode" "VHDL Mode" t)
-;;   (push '("\\.vhdl?\\'" . vhdl-mode) auto-mode-alist)
+(use-package vhdl-mode
+  :ensure t
+  :defer t
+  :init
+  (autoload 'vhdl-mode "vhdl-mode" "VHDL Mode" t)
+  (push '("\\.vhdl?\\'" . vhdl-mode) auto-mode-alist)
+  )
 
 
 ;;; [ vhdl-capf ]
 
 (use-package vhdl-capf
   :ensure t
-  :config
+  :defer t
+  :init
   (vhdl-capf-enable)
   )
 
@@ -26,7 +32,8 @@
 
 (use-package vhdl-tools
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'vhdl-mode-hook
             (lambda ()
               (vhdl-tools-mode 1)))

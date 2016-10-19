@@ -7,13 +7,15 @@
 ;;; [ gnuplot ]
 
 (use-package gnuplot
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 ;;; [ gnuplot-mode ]
 
 (use-package gnuplot-mode
   :ensure t
+  :defer t
   :init
   (setq auto-mode-alist (append (list
                                  '("\\.gp\\'" . gnuplot-mode)

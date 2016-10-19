@@ -9,13 +9,9 @@
 
 ;;; [ heroku ]
 
-;;; Usage:
-;;
-;; - [M-x heroku-run] ::
-;; - [M-x heroku-sql] ::
-
 (use-package heroku
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-heroku)

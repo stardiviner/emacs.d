@@ -29,7 +29,7 @@
                    (subword-mode +1))))
 
 
-;;; [ glasses-mode ] -- make CamelCase identifiers easy look.
+;;; [ glasses ] -- make CamelCase identifiers easy look.
 
 ;;; insert a virtual underscore separator between the conjoined words, so
 ;;; `fooBarBaz' will look like `foo_Bar_Baz'.
@@ -38,9 +38,10 @@
 ;;; style as Emacs will automagically insert the virtual separator, as needed,
 ;;; when you type a capitalized character.
 
-(use-package glasses-mode
-  ;; :ensure t
-  )
+(use-package glasses
+  :ensure t
+  :config
+  (glasses-mode 1))
 
 
 (provide 'init-my-prog-code)

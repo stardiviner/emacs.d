@@ -10,7 +10,8 @@
 ;;; [ go ] -- The el-go library provides an Emacs interface to the game of GO.
 
 (use-package go
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-my-games)

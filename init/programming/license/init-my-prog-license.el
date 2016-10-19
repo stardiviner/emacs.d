@@ -10,7 +10,8 @@
 ;;; [ opensource ] -- An Emacs client to the Open Source License API.
 
 (use-package opensource
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-my-prog-license)

@@ -11,8 +11,9 @@
 
 (use-package selectric-mode
   :ensure t
+  :defer t
   :commands selectric-mode
-  ;; :config
+  :init
   ;; (selectric-mode 1)
   )
 

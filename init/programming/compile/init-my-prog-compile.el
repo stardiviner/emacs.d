@@ -50,19 +50,15 @@
 ;;; [ smart-compile ]
 
 ;; (use-package smart-compile
-;;   :ensure t)
-
-
-;;; [ smart-compile+ ]
-
-;;; Usage:
-;; - [M-x smart-compile]
+;;   :ensure t
+;;   :defer t)
 
 
 ;;; [ quickrun ] -- Run command quickly.
 
 (use-package quickrun
   :ensure t
+  :defer t
   :config
   (setq quickrun-focus-p t)
 
@@ -94,12 +90,9 @@
 
 ;;; [ multi-compile ] -- multiple targets compile
 
-;;; Usage:
-;;
-;; - `multi-compile-run' ::
-
 ;; (use-package multi-compile
 ;;   :ensure t
+;;   :defer t
 ;;   :config
 ;;   (setq multi-compile-completion-system 'ivy-read)
 ;;   )

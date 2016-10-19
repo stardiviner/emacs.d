@@ -22,8 +22,19 @@
 
 ;; (use-package org-if
 ;;   :ensure t
-;;   :config
+;;   :defer t
+;;   :init
 ;;   (org-babel-do-load-languages 'org-babel-load-languages '((org-if . t)))
+;;   )
+
+
+;;; [ wc-mode ]
+
+;; (use-package wc-mode
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (add-hook 'org-mode-hook 'wc-mode)
 ;;   )
 
 

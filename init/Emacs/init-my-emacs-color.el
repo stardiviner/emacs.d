@@ -11,6 +11,7 @@
 
 (use-package rainbow-mode
   :ensure t
+  :defer t
   :config
   (dolist (hook
            '(emacs-lisp-mode-hook
@@ -18,9 +19,6 @@
              html-mode-hook))
     (add-hook hook (lambda () (rainbow-mode 1))))
   )
-
-
-;;; [ kurecolor ] -- color editing goodies for Emacs.
 
 
 (provide 'init-my-emacs-color)

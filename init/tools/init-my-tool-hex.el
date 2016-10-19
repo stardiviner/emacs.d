@@ -20,10 +20,6 @@
 
 ;;; [ hexview-mode ]
 
-;;; Usage:
-;;
-;; - `hexview-find-file' :: to open hex files.
-
 (use-package hexview-mode
   ;; :ensure t
   :config

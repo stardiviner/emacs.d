@@ -11,6 +11,7 @@
 
 (use-package redis
   :ensure t
+  :defer t
   :commands redis-mode
   :init
   ;; for pseudo redis script file: *.redis.
@@ -29,8 +30,7 @@
 ;;; [ ob-redis ]
 
 (use-package ob-redis
-  :ensure t
-  )
+  :ensure t)
 
 
 (provide 'init-my-prog-lang-database-redis)

@@ -14,21 +14,9 @@
 
 (use-package expand-region
   :ensure t
+  :defer t
   :config
-  (global-set-key (kbd "C-=") 'er/expand-region)  
-  )
-
-
-;;; [ awk-it ] -- run AWK interactively on region!
-
-;;; Usage:
-;;
-;; - `awk-it-' prefix
-;; - [M-x awk-it]
-
-(use-package awk-it
-  :config
-  (define-key my-search-prefix (kbd "w") 'awk-it)
+  (global-set-key (kbd "C-=") 'er/expand-region)
   )
 
 

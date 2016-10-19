@@ -81,6 +81,7 @@ narrowed."
 
 (use-package fancy-narrow
   :ensure t
+  :defer t
   :config
   (set-face-attribute 'fancy-narrow-blocked-face nil
                       :foreground "#666666"

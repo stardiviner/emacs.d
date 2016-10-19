@@ -10,7 +10,8 @@
 ;;; [ cql-mode ]
 
 (use-package cql-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-my-prog-lang-database-cql)

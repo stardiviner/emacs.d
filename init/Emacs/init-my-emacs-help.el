@@ -25,6 +25,7 @@
 
 (use-package info+
   :ensure t
+  :defer t
   :config
   (setq Info-breadcrumbs-in-header-flag t
         ;; Info-display-node-header-fn
@@ -87,53 +88,22 @@
 ;;; [ help.el ]
 
 (use-package help+
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package help-mode+
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package help-fns+
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 
 (setq suggest-key-bindings t) ; show the /equivalent/ key binding when [M-x] command has one.
 
 (define-key global-map (kbd "C-h u") 'manual-entry) ; Unix
-
-
-;;; [ apropos+ ]
-
-;; (require 'apropos)
-
-;; ;;;###autoload
-;; (defun apropos-user-options (regexp)
-;;   "Show user variables that match REGEXP."
-;;   (interactive
-;;    (list (if (fboundp 'helm-comp-read)
-;;              (helm-comp-read "Apropos user options (regexp): ")
-;;            (read-string "Apropos user options (regexp): "))))
-;;   (let ((apropos-do-all nil))
-;;     (apropos-variable regexp)))
-
-
-;;; [ Discover.el ]
-
-;;; https://github.com/mickeynp/discover.el
-
-;;  Useful Helper Commands
-;;
-;; You can get the name of the command that reveals a given context menu by
-;; calling `discover-get-context-menu-command-name'. If you just want to funcall
-;; the returned symbol, the function `discover-show-context-menu' will do this
-;; for you.
-
-;; (require 'discover)
-;; (global-discover-mode 1)
-
-;; (when (featurep 'discover)
-;;   (discover-add-context-menu))
-
 
 
 (provide 'init-my-emacs-help)

@@ -35,17 +35,18 @@
 
 ;;; [ cmuscheme ] -- Scheme process in a buffer. Adapted from tea.el
 
-;; (require 'cmuscheme)
+;; (use-package cmuscheme
+;;   :ensure t)
 
 
-;;; [ geiser ] -- 
+;;; [ geiser ] -- Scheme completion.
 
 (use-package geiser
   :ensure t
-  :config
+  :init
   ;; 'guile, 'racket, 'chicken
   (setq geiser-default-implementation 'guile)
-
+  
   ;; company-backend
   (add-hook 'scheme-mode-hook
             (lambda ()
@@ -54,6 +55,7 @@
               (my-company-add-backend-locally 'geiser-company-backend)
               ))
 
+  :config
   ;; auto start geiser inferior buffer process `run-geiser'.
   (defun my-run-geiser-auto ()
     (let ((geiser-guile-buffer "* Guile REPL *")
@@ -66,35 +68,18 @@
       )
     )
 
-  (with-eval-after-load 'geiser-mode
-    (define-key geiser-mode-map (kbd "C-c C-s") 'run-geiser))
+  (add-hook 'geiser-mode-hook
+            (lambda ()
+              ;; 'run-geiser)
+              (define-key geiser-mode-map (kbd "C-c C-s") 'my-run-geiser-auto)
+              ))
   )
 
 
-;;; [ ac-geiser ]
+;;; [ quack ] -- enhanced Emacs Support for Editing and Running Scheme Code
 
-;; (require 'ac-geiser)
-;;
-;; (dolist (hook '(lisp-mode-hook
-;;                 lisp-interaction-mode-hook
-;;                 scheme-mode-hook
-;;                 ))
-;;   (add-hook hook (lambda ()
-;;                    (ac-geiser-setup)
-;;                    (add-to-list 'ac-sources 'ac-source-geiser))))
-
-
-;;; [ Quack ] -- enhanced Emacs Support for Editing and Running Scheme Code
-
-;;; http://www.neilvandyke.org/quack/
-
-
-;;; [ Guile Mode ]
-
-;; (run-guile)
-
-
-;;; [ GDS ] -- 
+;; (use-package quack
+;;   :ensure t)
 
 
 

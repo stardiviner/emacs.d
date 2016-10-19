@@ -29,7 +29,8 @@
 
 (use-package niceify-info
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'Info-selection-hook #'niceify-info))
 
 

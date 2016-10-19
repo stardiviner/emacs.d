@@ -17,12 +17,14 @@
 
 (use-package evalator
   :ensure t
-  :config
+  :defer t
+  :init
   (define-key my-prog-eval-map (kbd "e") 'evalator)
   (define-key my-prog-eval-map (kbd "x") 'evalator-explicit)
   (define-key my-prog-eval-map (kbd "r") 'evalator-resume)
   (define-key my-prog-eval-map (kbd "i") 'evalator-insert-equiv-expr)
 
+  :config
   ;; auto detect context
   (setq evalator-config-mode-context-alist nil)
   (add-to-list 'evalator-config-mode-context-alist
@@ -35,7 +37,8 @@
 ;;; [ evalator-clojure ]
 
 (use-package evalator-clojure
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-my-prog-eval)

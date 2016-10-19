@@ -17,6 +17,9 @@
 
 (use-package blog-admin
   :ensure t
+  :defer t
+  :init
+  (define-key 'blog-map (kbd "l") 'blog-admin-start)
   :config
   ;; open post after create new post
   (add-hook 'blog-admin-backend-after-new-post-hook 'find-file)
@@ -27,8 +30,6 @@
         blog-admin-backend-new-post-with-same-name-dir t
         blog-admin-backend-org-page-drafts "_drafts" ; directory to save draft
         )
-
-  (define-key 'blog-map (kbd "l") 'blog-admin-start)
   )
 
 

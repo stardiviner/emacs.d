@@ -11,6 +11,7 @@
 
 (use-package clojure-mode
   :ensure t
+  :defer t
   :config
   (add-hook 'clojure-mode-hook #'my-lisp-common-settings)
   ;; (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
@@ -45,6 +46,16 @@
 
 (use-package cider
   :ensure t
+  :defer t
+  :init
+  ;; enable `cider-mode' in `clojure-mode'.
+  (add-hook 'clojure-mode-hook #'cider-mode)
+  
+  ;; auto start CIDER jack-in.
+  (setq cider-allow-jack-in-without-project t)
+  (add-hook 'after-init-hook #'cider-jack-in)
+
+  
   :config
   (setq cider-auto-mode t
         nrepl-hide-special-buffers nil
@@ -183,9 +194,6 @@
                       :box '(:line-width -1 :color "dim gray")
                       :family "Comic Neue"
                       )
-
-  ;; enable `cider-mode' in `clojure-mode'.
-  (add-hook 'clojure-mode-hook #'cider-mode)
   
   ;; auto completion with company-mode support
   ;; `cider-complete-at-point' in `completion-at-point-functions'
@@ -198,10 +206,6 @@
         cider-eldoc-max-class-names-to-display 3)
 
   (add-hook 'cider-repl-mode-hook #'subword-mode)
-
-  
-  ;; auto start CIDER jack-in.
-  (add-hook 'after-init-hook #'cider-jack-in)
 
   ;; notify user CIDER is connected.
   (add-hook 'cider-connected-hook
@@ -236,6 +240,8 @@
 
   (define-key clojure-mode-map (kbd "C-c C-s") 'my-cider-clojure-repl-switch)
   (define-key clojurescript-mode-map (kbd "C-c C-s") 'my-cider-cljs-repl-switch)
+  (unless (boundp 'my-inferior-lisp-map)
+    (define-prefix-command 'my-inferior-lisp-map))
   (define-key my-inferior-lisp-map (kbd "c") 'my-cider-clojure-repl-switch)
 
   ;; CIDER inspect command keybindings
@@ -272,38 +278,36 @@
       (add-hook 'cider-file-loaded-hook #'cider-tdd-test)
     (remove-hook 'cider-file-loaded-hook #'cider-tdd-test)))
 
-(set-face-attribute 'cider-test-success-face nil
-                    :foreground "green" :background nil)
+;; (set-face-attribute 'cider-test-success-face nil
+;;                     :foreground "green" :background nil)
 
 ;; (add-hook 'clojure-mode-hook 'cider-tdd-mode)
 
 
 ;;; [ cider-decompile ]
 
-;;; Usage:
-;;
-;; - [M-x cider-decompile-func [RET] main [RET]]
-;; - [M-x cider-decompile-ns-func [RET] myotherns.core/other-main [RET]]
-
 ;; (use-package cider-decompile
 ;;   :ensure t
-;;   ;; :config
-;;   ;; (define-key clojure-mode-map (kbd "??") cider-decompile-func)
-;;   ;; (define-key clojure-mode-map (kbd "??") cider-decompile-ns-func)
+;;   :defer t
+;;   :init
+;;   (define-key clojure-mode-map (kbd "??") cider-decompile-func)
+;;   (define-key clojure-mode-map (kbd "??") cider-decompile-ns-func)
 ;;   )
 
 
 ;;; [ cider-spy ] -- Spy on CIDER to get Info.
 
 ;; (use-package cider-spy
-;;   :ensure t)
+;;   :ensure t
+;;   :defer t)
 
 
 ;;; [ cider-profile ]
 
 ;; (use-package cider-profile
 ;;   :ensure t
-;;   :config
+;;   :defer t
+;;   :init
 ;;   (add-hook 'cider-mode-hook 'cider-profile-mode)
 ;;   (add-hook 'cider-repl-mode-hook 'cider-profile-mode)
 ;;   )
@@ -313,7 +317,8 @@
 
 (use-package flycheck-clojure
   :ensure t
-  :config
+  :defer t
+  :init
   (with-eval-after-load 'flycheck
     (flycheck-clojure-setup))
   )
@@ -323,9 +328,8 @@
 
 (use-package clj-refactor
   :ensure t
-  :config
-  ;; (setq cljr-warn-on-eval nil)
-  
+  :defer t
+  :init
   (add-hook 'clojure-mode-hook
             (lambda ()
               (clj-refactor-mode 1)
@@ -333,7 +337,8 @@
               (cljr-add-keybindings-with-prefix "M-RET")
               ))
 
-  ;; no auto sort
+  :config
+  ;; (setq cljr-warn-on-eval nil)
   (setq cljr-auto-sort-ns nil)
 
   ;; do not prefer prefixes when using clean-ns
@@ -351,7 +356,8 @@
 
 (use-package kibit-helper
   :ensure t
-  :config
+  :defer t
+  :init
   (define-key clojure-mode-map (kbd "C-x C-`") 'kibit-accept-proposed-change)
   )
 
@@ -366,7 +372,8 @@
 
 (use-package align-cljlet
   ;; :ensure t
-  ;; :config
+  ;; :defer t
+  ;; :init
   ;; (define-key clojure-mode-map (kbd "??") 'align-cljlet)
   )
 
@@ -375,7 +382,8 @@
 
 ;; (use-package typed-clojure-mode
 ;;   :ensure t
-;;   :config
+;;   :defer t
+;;   :init
 ;;   (add-hook 'clojure-mode-hook 'typed-clojure-mode)
 ;;   )
 
@@ -384,7 +392,8 @@
 
 ;; (use-package helm-clojuredocs
 ;;   :ensure t
-;;   :config
+;;   :defer t
+;;   :init
 ;;   (define-key clojure-mode-map (kbd "C-h d d") 'helm-clojuredocs)
 ;;   )
 
@@ -398,13 +407,15 @@
 ;;; [ clojars ] -- Emacs Interface to Clojars.org
 
 (use-package clojars
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 ;;; [ clomacs ] -- Clomacs simplifies call Clojure code from Emacs lisp.
 
 (use-package clomacs
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-my-prog-lang-clojure)

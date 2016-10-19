@@ -78,7 +78,20 @@
 
 
 (use-package org-trello
-  ;; :ensure t
+  :ensure t
+  :defer t
+  :init
+  :config
+  ;; To activate org-trello only for specific files, there exists a custom
+  ;; variable dedicated to this:
+  (setq org-trello-files '("~/Org/Trello/Trello.org" "~/Org/Trello/Startups/Startups.org"))
+
+  ;; local `org-todo-keywords' in org-trello buffers.
+  (add-hook 'org-trello-mode-hook
+            (lambda ()
+              (setq-local org-todo-keywords
+                          '((sequence "TODO(@/@)" "Doing(g!)" "|" "DONE(d@/!)")))
+              ))
   )
 
 ;; to have org-trello activated for each org file, uncomment this
@@ -101,7 +114,7 @@
 ;; ;; enable org-trello
 ;; (define-key my-org-trello-map (kbd "t") 'org-trello-mode)
 
-;; ;; Install the keys and the access-token            
+;; ;; Install the keys and the access-token
 ;; (define-key my-org-trello-map (kbd "I") 'org-trello/install-key-and-token)
 ;; ;; Connect buffer to board
 ;; (define-key my-org-trello-map (kbd "i") 'org-trello/install-board-and-lists-ids)
@@ -137,17 +150,6 @@
 ;; (define-key my-org-trello-map (kbd "u") 'org-trello/update-board-metadata)
 ;; ;; This help message
 ;; (define-key my-org-trello-map (kbd "h") 'org-trello/help-describing-bindings)
-
-;;; To activate org-trello only for specific files, there exists a custom
-;;; variable dedicated to this:
-(setq org-trello-files '("~/Org/Trello/Trello.org" "~/Org/Trello/Startups/Startups.org"))
-
-;; local `org-todo-keywords' in org-trello buffers.
-(add-hook 'org-trello-mode-hook
-          (lambda ()
-            (setq-local org-todo-keywords
-                        '((sequence "TODO(@/@)" "Doing(g!)" "|" "DONE(d@/!)")))
-            ))
 
 
 (provide 'init-my-org-trello)

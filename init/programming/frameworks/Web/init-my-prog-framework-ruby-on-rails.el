@@ -7,21 +7,15 @@
 
 ;;; Code:
 
-;;; [ Rhtml (.html.erb, .rhtml) ]
-
-;;; There are three options for editing .rhtml files in Emacs. They are presented here in order of decreasing functionality.
-;; - nXhtml-Mode: a package for web development
-;; - MuMaMo-Mode: allows multiple major modes in a single buffer
-;; - rhtml-Mode: edit rhtml files without using multiple major modes
-
-
 ;;; [ rhtml-mode ]
-
-;; (add-to-list 'auto-mode-alist '("\\.html.erb\\'" . rhtml-mode))
-;; (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . rhtml-mode))
 
 (use-package rhtml-mode
   :ensure t
+  :defer t
+  :init
+  (add-to-list 'auto-mode-alist '("\\.html.erb\\'" . rhtml-mode))
+  (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . rhtml-mode))
+  
   :config
   (set-face-attribute 'erb-face nil ; ruby code
                       :background (color-darken-name (face-background 'default) 2)
@@ -46,36 +40,11 @@
   )
 
 
-;;; MuMaMo-Mode
-;; (require 'mumamo-fun)
-;; (setq mumamo-chunk-coloring 'submode-colored)
-;; (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . eruby-html-mumamo))
-;; (add-to-list 'auto-mode-alist '("\\.html.erb\\'" . eruby-html-mumamo))
-
-;;; [ nXhtml-Mode ]
-;; (setq nxhtml-global-minor-mode t
-;;       mumamo-chunk-coloring 'submode-colored
-;;       nxhtml-skip-welcome t
-;;       indent-region-mode t
-;;       rng-nxml-auto-validate-flag nil
-;;       nxml-degraded t)
-;; (add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . eruby-nxhtml-mumamo))
-
-
-
-
 ;;; [ projectile-rails ]
-
-;;; Usage:
-;; - <prefix> -> [C-c p C-r] + [key] (default: [C-c r])
-;; - [M-x projectile-rails-on] -- depend on whether is a Rails project root.
-;; - [M-x projectile-rails-mode]
-;; - [TAB] support for projectile-rails-generate.
-;; - `projectile-rails-server' -> [C-x C-q] `inf-ruby-switch-from-compilation'
-;;   switch current rails server buffer to inf-ruby buffer.
 
 (use-package projectile-rails
   :ensure t
+  :defer t
   :init
   ;; NOTE: some settings need to be set before required or loaded.
   (setq projectile-rails-keymap-prefix (kbd "C-c C-r"))
@@ -114,29 +83,6 @@
   
   (add-hook 'projectile-rails-mode-hook 'my-projectile-rails-setup)
   )
-
-
-;;; [ rails-new ] -- Emacs version of command $ rails new ...
-
-;;; Usage:
-;;
-;; - [M-x rails-new] :: create a new Rails project.
-;; - [M-x rails-plugin-new] :: create a new Rails plugin.
-
-;; (use-package rails-new
-;;   :ensure t)
-
-
-;;; [ yasnippet-rails ]
-
-
-;;; [ sass-mode ]
-
-
-;;; [ slim-mode ]
-
-
-;;; [ haml-mode ]
 
 
 (provide 'init-my-prog-framework-ruby-on-rails)

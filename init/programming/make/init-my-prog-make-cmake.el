@@ -11,6 +11,7 @@
 
 (use-package cmake-mode
   :ensure t
+  :defer t
   :init
   ;; Add cmake listfile names to the mode list.
   (setq auto-mode-alist
@@ -25,7 +26,7 @@
 
 (use-package cmake-font-lock
   :ensure t
-  :config
+  :init
   (autoload 'cmake-font-lock-activate "cmake-font-lock.el" t)
   (add-hook 'cmake-mode-hook 'cmake-font-lock-activate)
   )
@@ -33,17 +34,19 @@
 
 ;;; [ cmake-ide ]
 
-(use-package cmake-ide
-  :ensure t
-  :config
-  (cmake-ide-setup)
-  )
+;; (use-package cmake-ide
+;;   :ensure t
+;;   :defer t
+;;   :config
+;;   (cmake-ide-setup)
+;;   )
 
 
 ;;; [ cmake-project ] -- Integrates CMake build process with Emacs.
 
 (use-package cmake-project
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-my-prog-make-cmake)

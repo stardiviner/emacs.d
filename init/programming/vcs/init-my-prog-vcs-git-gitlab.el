@@ -10,19 +10,22 @@
 ;;; [ gitlab ] -- Emacs client for GitLab
 
 (use-package gitlab
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 ;;; [ ivy-gitlab ] -- Ivy interface to GitLab
 
 (use-package ivy-gitlab
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 ;;; [ helm-gitlab ] -- Helm interface to GitLab
 
 ;; (use-package helm-gitlab
-;;   :ensure t)
+;;   :ensure t
+;;   :defer t)
 
 
 (provide 'init-my-prog-vcs-git-gitlab)

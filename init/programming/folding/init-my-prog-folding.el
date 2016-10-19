@@ -22,6 +22,30 @@
 
 (use-package origami
   :ensure t
+  :defer t
+  :init
+  ;; `global-origami-mode' & `origami-mode'
+  (dolist (hook '(prog-mode-hook
+                  ))
+    (add-hook hook 'origami-mode))
+
+  (define-key my-fold-map (kbd "m") 'origami-mode)
+  (define-key my-fold-map (kbd "SPC") 'origami-toggle-node)
+  (define-key my-fold-map (kbd "TAB") 'origami-toggle-all-nodes)
+  (define-key my-fold-map (kbd "n") 'origami-next-fold)
+  (define-key my-fold-map (kbd "p") 'origami-previous-fold)
+  (define-key my-fold-map (kbd "c") 'origami-close-node)
+  (define-key my-fold-map (kbd "C") 'origami-close-all-nodes)
+  (define-key my-fold-map (kbd "o") 'origami-open-node)
+  (define-key my-fold-map (kbd "O") 'origami-open-all-nodes)
+  (define-key my-fold-map (kbd "T") 'origami-recursively-toggle-node)
+  (define-key my-fold-map (kbd ">") 'origami-open-node-recursively)
+  (define-key my-fold-map (kbd "<") 'origami-close-node-recursively)
+  (define-key my-fold-map (kbd "O") 'origami-show-only-node)
+  (define-key my-fold-map (kbd "u") 'origami-undo)
+  (define-key my-fold-map (kbd "r") 'origami-redo)
+  (define-key my-fold-map (kbd "!") 'origami-reset)
+  
   :config
   (setq origami-show-fold-header t
         origami-fold-replacement "...")
@@ -39,28 +63,6 @@
                       :inherit 'origami-fold-header-face
                       :foreground "cyan" :background nil
                       )
-  
-  (define-key my-fold-map (kbd "m") 'origami-mode)
-  (define-key my-fold-map (kbd "SPC") 'origami-toggle-node)
-  (define-key my-fold-map (kbd "TAB") 'origami-toggle-all-nodes)
-  (define-key my-fold-map (kbd "n") 'origami-next-fold)
-  (define-key my-fold-map (kbd "p") 'origami-previous-fold)
-  (define-key my-fold-map (kbd "c") 'origami-close-node)
-  (define-key my-fold-map (kbd "C") 'origami-close-all-nodes)
-  (define-key my-fold-map (kbd "o") 'origami-open-node)
-  (define-key my-fold-map (kbd "O") 'origami-open-all-nodes)
-  (define-key my-fold-map (kbd "T") 'origami-recursively-toggle-node)
-  (define-key my-fold-map (kbd ">") 'origami-open-node-recursively)
-  (define-key my-fold-map (kbd "<") 'origami-close-node-recursively)
-  (define-key my-fold-map (kbd "O") 'origami-show-only-node)
-  (define-key my-fold-map (kbd "u") 'origami-undo)
-  (define-key my-fold-map (kbd "r") 'origami-redo)
-  (define-key my-fold-map (kbd "!") 'origami-reset)
-
-  ;; `global-origami-mode' & `origami-mode'
-  (dolist (hook '(prog-mode-hook
-                  ))
-    (add-hook hook 'origami-mode))
   )
 
 

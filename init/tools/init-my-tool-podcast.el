@@ -11,11 +11,14 @@
 
 (use-package podcaster
   :ensure t
+  :defer t
+  :init
+  (define-key my-tools-prefix (kbd "P") 'podcaster)
   :config
   (setq podcaster-feeds-urls
         '("https://ipn.li/kernelpanic/feed"
           "http://sachachua.com/blog/tag/emacs-chat/podcast"))
-  (define-key my-tools-prefix (kbd "P") 'podcaster))
+  )
 
 ;;; ----------------------------------------------------------------------------
 

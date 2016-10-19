@@ -7,14 +7,11 @@
 
 ;;; Code:
 
-
-(add-hook 'sql-mode-hook 'sql-highlight-postgres-keywords)
-
-
 ;;; [ db-pg ] -- key-value Database on PostgreSQL.
 
 ;; (use-package db-pg
 ;;   :ensure t
+;;   :defer t
 ;;   )
 
 
@@ -22,6 +19,7 @@
 
 ;; (use-package pg
 ;;   :ensure t
+;;   :defer t
 ;;   )
 
 
@@ -29,7 +27,7 @@
 
 ;; (use-package pgdevenv
 ;;   :ensure t
-;;   :config
+;;   :defer t
 ;;   )
 
 

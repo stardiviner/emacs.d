@@ -84,6 +84,7 @@
 
 (use-package sclang-extensions
   :ensure t
+  :defer t
   :config
   (setq sclang-bury-post-on-start? t
         sclang-run-supercollider-if-not-active? nil ; run SuperCollider process will mute System sound.

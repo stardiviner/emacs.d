@@ -11,6 +11,9 @@
 
 (use-package irfc
   :ensure t
+  :defer t
+  :init
+  (define-key my-prog-help-document-map (kbd "r") 'irfc-visit)
   :config
   (setq irfc-directory (concat user-emacs-directory "documentations/RFC")) ; set RFC database storage.
   (setq irfc-assoc-mode t)        ; RFC documents are associated with `irfc-mode'.
@@ -22,8 +25,6 @@
                                     "MAY" "OPTIONAL" "NOT")
         irfc-requirement-keyword-overlay nil
         irfc-highlight-references t)
-
-  (define-key my-prog-help-document-map (kbd "r") 'irfc-visit)
   )
 
 

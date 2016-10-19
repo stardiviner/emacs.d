@@ -11,9 +11,6 @@
 
 (use-package ivy
   :ensure t
-  :init
-  (global-set-key (kbd "C-c C-r") 'ivy-resume)
-  
   :config
   ;; ivy-mode
   (setq ivy-use-virtual-buffers t ; treat recentf, bookmarks as virtual buffers.
@@ -98,6 +95,8 @@
       ))
 
   (global-set-key [remap bookmark-jump] 'ivy-bookmark-goto)
+
+  (global-set-key (kbd "C-c C-r") 'ivy-resume)
   
   (ivy-mode 1)
   )
@@ -107,6 +106,7 @@
 
 (use-package swiper
   :ensure t
+  :defer t
   :config
   (global-set-key (kbd "C-s") 'swiper)
   (global-set-key (kbd "C-c u") 'swiper-all)
@@ -117,7 +117,7 @@
 
 (use-package counsel
   :ensure t
-  :config
+  :init
   ;; for big size buffer have long swiper startup time. This command will use
   ;; swiper for small buffers, and counsel-grep for large buffers.
   (global-set-key (kbd "C-s") 'counsel-grep-or-swiper)
@@ -166,6 +166,7 @@
 
 ;; (use-package counsel-projectile
 ;;   :ensure t
+;;   :defer t
 ;;   :commands counsel-projectile
 ;;   :config
 ;;   (define-key projectile-command-map (kbd "p") 'counsel-projectile)

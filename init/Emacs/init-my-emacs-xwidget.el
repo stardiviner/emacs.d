@@ -14,8 +14,9 @@
 
 ;;; [ xwidgete ] -- Enhance usability for Xwidget browser in Emacs 25.
 
-;; (use-package xwidgete
-;;   :ensure t)
+(use-package xwidgete
+  :ensure t
+  :defer t)
 
 
 (provide 'init-my-emacs-xwidget)

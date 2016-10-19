@@ -9,14 +9,9 @@
 
 ;;; [ swift-mode ]
 
-;;; Usage:
-;;
-;; - [C-c C-z] `swift-mode-run-repl' :: run REPL.
-;; - [C-c C-r] `swift-mode-send-region' :: send region to REPL.
-;; - [C-c C-f] `swift-mode-send-buffer' :: send buffer to REPL.
-
 (use-package swift-mode
   :ensure t
+  :defer t
   :config
   (setq swift-indent-offset 4
         swift-indent-switch-case-offset 2
@@ -40,15 +35,18 @@
 
 (use-package company-sourcekit
   :ensure t
+  :defer t
+  :init
+  (add-hook 'swift-mode-hook
+            (lambda ()
+              (my-company-add-backend-locally 'company-sourcekit)
+              ))
+  
   :config
   (setq company-sourcekit-use-yasnippet t
         company-sourcekit-verbose nil
         ;; sourcekit-sourcekitdaemon-executable
         )
-  (add-hook 'swift-mode-hook
-            (lambda ()
-              (my-company-add-backend-locally 'company-sourcekit)
-              ))
   )
 
 
@@ -61,8 +59,7 @@
 ;;; [ ob-swift ]
 
 (use-package ob-swift
-  :ensure t
-  )
+  :ensure t)
 
 
 (provide 'init-my-prog-lang-swift)

@@ -30,43 +30,10 @@
 
 ;;; [ pcre2el ] -- convert between PCRE, Emacs and rx regexp syntax.
 
-;; Overview
-;;
-;; pcre2el or rxt (RegeXp Translator or RegeXp Tools) is a utility for working
-;; with regular expressions in Emacs, based on a recursive-descent parser for
-;; regexp syntax. In addition to converting (a subset of) PCRE syntax into its
-;; Emacs equivalent, it can do the following:
-;;
-;; - convert Emacs syntax to PCRE.
-;;
-;; - convert either syntax to rx, an S-expression based regexp syntax.
-;;
-;; - untangle complex regexps by showing the parse tree in rx form and
-;;   highlighting the corresponding chunks of code.
-;;
-;; - show the complete list of strings (productions) matching a regexp, provided
-;;   the list is finite.
-;;
-;; - provide live font-locking of regexp syntax (so far only for Elisp buffers –
-;;   other modes on the todo list).
-
-;; Usage
-;;
-;; Enable `rxt-mode' or its global equivalent `rxt-global-mode' to get the
-;; default key-bindings. There are three sets of commands: commands that take a
-;; PCRE regexp, commands which take an Emacs regexp, and commands that try to do
-;; the right thing based on the current mode. Currently, this means Emacs syntax
-;; in `emacs-lisp-mode' and `lisp-interaction-mode', and PCRE syntax everywhere
-;; else.
-;;
-;; The default key bindings all begin with [C-c /] and have a mnemonic
-;; structure: [C-c / <source> <target>], or just [C-c / <target>] for the “do
-;; what I mean” commands. The complete list of key bindings is given here and
-;; explained in more detail below:
-
 (use-package pcre2el
   :ensure t
-  :config
+  :defer t
+  :init
   (define-key my-regexp-prefix (kbd "t") 'rxt-mode)
   (define-key my-regexp-prefix (kbd "T") 'rxt-global-mode)
   )
@@ -78,7 +45,8 @@
 ;;; [ regex-tool ]
 
 (use-package regex-tool
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 ;;; [ visual-regexp ] --
@@ -89,13 +57,8 @@
 
 (use-package visual-regexp
   :ensure t
-  :config
-  ;; 'emacs engine is the native built-in Emacs engine. it is case-sensitive.
-  (setq vr/engine 'emacs) ; 'python, 'emacs, 'custom, 'vr/command-python, 'vr/command-custom,
-
-  (setq vr/match-separator-use-custom-face t
-        vr/match-separator-string " ⇨ ")
-
+  :defer t
+  :init
   (unless (boundp 'visual-regexp-map)
     (define-prefix-command 'visual-regexp-map))
   (define-key my-regexp-prefix (kbd "v") 'visual-regexp-map)
@@ -108,25 +71,25 @@
   (if (featurep 'multiple-cursors)
       (define-key visual-regexp-map (kbd "m") 'vr/mc-mark))
   ;; `vr/select-mc-mark', `vr/select-replace' etc.
+  
+  :config
+  ;; 'emacs engine is the native built-in Emacs engine. it is case-sensitive.
+  (setq vr/engine 'emacs) ; 'python, 'emacs, 'custom, 'vr/command-python, 'vr/command-custom,
+
+  (setq vr/match-separator-use-custom-face t
+        vr/match-separator-string " ⇨ ")
   )
 
 (use-package visual-regexp-steroids
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 ;;; [ ample-regexp ] -- Compose and reuse Emacs regular expressions with ease.
 
 (use-package ample-regexps
-  :ensure t)
-
-
-;;; [ Swiper ] -- gives you an overview as you search for a regex.
-
-(use-package swiper
   :ensure t
-  :config  
-  (define-key my-regexp-prefix (kbd "s") 'swiper)
-  )
+  :defer t)
 
 
 ;;; Making Elisp regex look nicer

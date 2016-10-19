@@ -112,6 +112,7 @@
 ;; (require 'rscope)
 
 (use-package rscope
+  :ensure t
   :config
   (setq rscope-keymap-prefix (kbd "C-c l t c"))
 

@@ -10,7 +10,8 @@
 ;;; [ sibilant-mode ]
 
 (use-package sibilant-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-my-prog-lang-sibilant)

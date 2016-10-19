@@ -11,6 +11,7 @@
 
 (use-package lua-mode
   :ensure t
+  :defer t
   :config
   (setq lua-indent-level 3
         lua-always-show t
@@ -28,7 +29,8 @@
 
 (use-package company-lua
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'lua-mode-hook
             (lambda ()
               (my-company-add-backend-locally 'company-lua)

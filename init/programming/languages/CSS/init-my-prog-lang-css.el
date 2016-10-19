@@ -40,7 +40,8 @@
 
 (use-package css-eldoc
   :ensure t
-  :config
+  :defer t
+  :init
   (css-eldoc-enable))
 
 ;;; ------------------------------------------------------------------------------------
@@ -72,7 +73,8 @@
 
 ;; (use-package show-css
 ;;   :ensure t
-;;   :config
+;;   :defer t
+;;   :init
 ;;
 ;;   ;; Personally, I find this mode to distracting to use all the time, so I use
 ;;   ;; this function to quickly toggle the mode on and off.
@@ -97,19 +99,34 @@
 
 ;;; [ flycheck-css-colorguard ]
 
-(use-package flycheck-css-colorguard
-  :ensure t
-  :config
-  (with-eval-after-load 'flycheck
-    (flycheck-add-next-checker 'css-csslint
-                               'css-colorguard 'append))
-  )
+;; (use-package flycheck-css-colorguard
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (with-eval-after-load 'flycheck
+;;     (flycheck-add-next-checker 'css-csslint
+;;                                'css-colorguard 'append))
+;;   )
 
 
-;;; [ SCSS ]
+;;; [ scss-mode ]
 
-(require 'init-my-prog-lang-css-scss)
-(require 'init-my-prog-lang-css-less)
+;; Features
+;;
+;; Compilation of current file on save. (Disable by changing `scss-compile-at-save' to nil)
+;; Flymake support, enable with M-x `flymake-mode'
+;; Indentation and highlighting (Derived from CSS-mode)
+;; Syntax highlighting for variables and inline comments.
+
+(use-package scss-mode
+  :ensure t
+  :defer t
+  :init
+  (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
+  :config
+  ;; (setq exec-path (cons (expand-file-name "~/.gem/ruby/1.8/bin") exec-path))
+  ;; (setq scss-sass-command "sass")
+  )
 
 
 (provide 'init-my-prog-lang-css)

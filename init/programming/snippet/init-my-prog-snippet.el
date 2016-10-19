@@ -18,8 +18,8 @@
   ;; (setq yas-verbosity 0)
 
   ;; keybindings
-  (define-key yas-minor-mode-map (kbd "<tab>") 'yas-expand) ; (kbd "<tab>") is same with [tab]
-  (define-key yas-minor-mode-map (kbd "TAB") #'indent-for-tab-command)
+  ;; (define-key yas-minor-mode-map (kbd "<tab>") 'yas-expand) ; (kbd "<tab>") is same with [tab]
+  ;; (define-key yas-minor-mode-map (kbd "TAB") #'indent-for-tab-command)
 
   ;; quick shortcut for inserting snipppet with completing system.
   (define-key yas-minor-mode-map (kbd "C-c \\") 'yas-insert-snippet)

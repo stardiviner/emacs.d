@@ -9,16 +9,10 @@
 
 ;;; [ tempo ]
 
-;;; Usage:
-;;
-;; - `tempo-template-???' :: user defined template functions.
-
 (require 'tempo)
 
 (setq tempo-interactive t               ; `tempo-insert' prompt.
-      tempo-insert-region t
-      ;; tempo-tags
-      )
+      tempo-insert-region t)
 
 
 ;;; [ tempo-snippets ]
@@ -62,7 +56,8 @@
 
 ;; (use-package yatemplate
 ;;   :ensure t
-;;   :config
+;;   :defer t
+;;   :init
 ;;   (setq yatemplate-dir (locate-user-emacs-file "templates"))
 ;;   )
 

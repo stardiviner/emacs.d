@@ -11,6 +11,7 @@
 
 (use-package rust-mode
   :ensure t
+  :defer t
   :config
   (setq rust-indent-offset 4
         rust-indent-method-chain t
@@ -26,6 +27,7 @@
 
   (add-hook 'rust-mode-hook #'my-rust-basic-settings)
 
+  (define-key racer-mode-map (kbd "C-c C-d d") 'racer-describe)
   )
 
 
@@ -33,7 +35,8 @@
 
 (use-package flycheck-rust
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
   )
 
@@ -42,7 +45,8 @@
 
 (use-package racer
   :ensure t
-  :config
+  :defer t
+  :init
   ;; config racer in the path.
   (unless (getenv "RUST_SRC_PATH")
     (setenv "RUST_SRC_PATH" (expand-file-name "~/Code/Rust/rust/src")))
@@ -52,6 +56,8 @@
   
   ;; auto start racer for rust-mode.
   (add-hook 'rust-mode-hook #'racer-mode)
+
+  :config
   (add-hook 'racer-mode-hook #'eldoc-mode)
   )
 
@@ -60,7 +66,8 @@
 
 ;; (use-package company-racer
 ;;   :ensure t
-;;   :config
+;;   :defer t
+;;   :init
 ;;   (add-hook 'rust-mode-hook
 ;;             (lambda ()
 ;;               (my-company-add-backend-locally 'company-racer))))
@@ -69,7 +76,10 @@
 ;;; [ cargo ] -- Emacs Cargo client.
 
 (use-package cargo
-  :ensure t)
+  :ensure t
+  :defer t
+  :init
+  )
 
 
 (provide 'init-my-prog-lang-rust)

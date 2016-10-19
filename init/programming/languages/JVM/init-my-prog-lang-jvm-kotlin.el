@@ -10,7 +10,8 @@
 ;;; [ ob-kotlin ]
 
 (use-package ob-kotlin
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-my-prog-lang-jvm-kotlin)

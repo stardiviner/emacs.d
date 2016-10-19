@@ -12,13 +12,11 @@
 (use-package engine-mode
   :ensure t
   :config
-  ;; enable `engine-mode' minor-mode for making keybindings.
+    ;; enable `engine-mode' minor-mode for making keybindings.
   (engine-mode t)
-  
-  (setq engine/keybinding-prefix "C-x /"
-        ;; engine/browser-function
-        )
-  
+  (setq engine/keybinding-prefix "C-x /")
+  ;; (setq engine/browser-function)
+
   ;; general search engines
   (defengine google
     "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
@@ -58,6 +56,12 @@
     :docstring "Wolfram Alpha"
     :keybinding "A")
 
+  ;; Translation
+  (defengine google-translate
+    "https://translate.google.com/?q=%s"
+    :docstring "Google Translate"
+    :keybinding "t")
+  
   ;; programming
 
   ;; Docs: API

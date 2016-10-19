@@ -9,24 +9,30 @@
 
 ;;; [ auto-image-file-mode ]
 
-;; (setq image-file-name-extensions '("png" "jpeg" "jpg" "gif" "tiff" "tif" "xbm" "xpm" "pbm" "pgm" "ppm" "pnm" "svg"))
+;; (setq image-file-name-extensions
+;;       '("png" "jpeg" "jpg" "gif"
+;;         "tiff" "tif" "xbm" "xpm" "pbm" "pgm" "ppm" "pnm"
+;;         "svg"))
 
-(auto-image-file-mode t) ;; auto display image
+;; auto display image
+(auto-image-file-mode t)
 
 
 ;;; [ iimage-mode ]
 
 (use-package iimage
   :ensure t
-  :config
-  ;; enable `iimage-mode' globally.
-  ;; (iimage-mode 1)
-
+  :defer t
+  :init
+  ;; enable iimage-mode in some modes
+  (add-hook 'info-mode-hook #'iimage-mode)
+  (add-hook 'wiki-mode-hook #'iimage-mode)
   ;; for Eshell
   ;; auto display image in eshell for links after command `cat'.
   ;; enable iimage-mode in eshell.
   (add-hook 'eshell-mode-hook 'iimage-mode)
-
+  
+  :config
   (defun my/iimage-mode-refresh--eshell/cat (orig-fun &rest args)
     "Display image when using cat on it."
     (let ((image-path (cons default-directory iimage-mode-image-search-path)))
@@ -54,10 +60,6 @@
 
   (advice-add 'eshell/cat :around #'my/iimage-mode-refresh--eshell/cat)
 
-  ;; enable iimage-mode in some modes
-  (add-hook 'info-mode-hook #'iimage-mode)
-  (add-hook 'wiki-mode-hook #'iimage-mode)
-
   (defun refresh-iimages ()
     "Only way I've found to refresh iimages (without also recentering)"
     (interactive)
@@ -68,38 +70,35 @@
 
   ;; update images (which is not done on the fly) in a hook after compilation.
   ;; e.g. you can see the image in the compilation buffer like Python code compilation.
-  (add-to-list 'compilation-finish-functions 
+  (add-to-list 'compilation-finish-functions
                (lambda (buffer msg)
                  (save-excursion
                    (set-buffer buffer)
                    (refresh-iimages))))
+
+  ;; enable `iimage-mode' globally.
+  ;; (iimage-mode 1)
   )
 
 
 ;;; [ image+ ] -- Emacs image extension
 
-;; - [C-x C-l] :: prefix
-;; - `imagex-sticky-mode'
-;; - `imagex-global-sticky-mode'
-;;   (eval-after-load 'image+ '(imagex-global-sticky-mode 1))
-;; - [M-x imagex-auto-adjust-mode]
-;; - (setq imagex-quiet-error t)
-
-(use-package image+
-  ;; :ensure t
-  :config
-  (eval-after-load 'image+
-    `(when (require 'hydra nil t)
-       (defhydra imagex-sticky-binding (global-map "C-x C-l")
-         "Manipulating Image"
-         ("+" imagex-sticky-zoom-in "zoom in")
-         ("-" imagex-sticky-zoom-out "zoom out")
-         ("M" imagex-sticky-maximize "maximize")
-         ("O" imagex-sticky-restore-original "restore original")
-         ("S" imagex-sticky-save-image "save file")
-         ("r" imagex-sticky-rotate-right "rotate right")
-         ("l" imagex-sticky-rotate-left "rotate left"))))
-  )
+;; (use-package image+
+;;   :ensure t
+;;   :defer t
+;;   :config
+;;   (with-eval-after-load 'image+
+;;     (when (require 'hydra nil t)
+;;       (defhydra imagex-sticky-binding (global-map "C-x C-l")
+;;         "Manipulating Image"
+;;         ("+" imagex-sticky-zoom-in "zoom in")
+;;         ("-" imagex-sticky-zoom-out "zoom out")
+;;         ("M" imagex-sticky-maximize "maximize")
+;;         ("O" imagex-sticky-restore-original "restore original")
+;;         ("S" imagex-sticky-save-image "save file")
+;;         ("r" imagex-sticky-rotate-right "rotate right")
+;;         ("l" imagex-sticky-rotate-left "rotate left"))))
+;;   )
 
 
 (provide 'init-my-emacs-image)

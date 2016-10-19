@@ -11,6 +11,9 @@
 
 (use-package realgud
   :ensure t
+  :defer t
+  :init
+  ;; (define-key my-prog-debug-map (kbd "") 'realgud-???)
   )
 
 
@@ -18,6 +21,7 @@
 
 (use-package gdb-mi
   :ensure t
+  :defer t
   :config
   (setq gdb-many-windows t
         gdb-show-main t)

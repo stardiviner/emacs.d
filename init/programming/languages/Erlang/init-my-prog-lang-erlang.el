@@ -9,18 +9,16 @@
 
 ;;; [ erlang-mode ]
 
-;;; Usage:
-;;
-;; - [M-x run-erlang]
-
 (use-package erlang
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 ;;; [ edts ] -- Erlang Development Tool Suite
 
 (use-package edts
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 ;;; [ distel ]
@@ -32,6 +30,7 @@
 
 (use-package distel-completion-lib
   :ensure t
+  :defer t
   :config
   ;; (setq distel-completion-get-doc-from-internet t)
   ;; (setq distel-completion-valid-syntax "a-zA-Z:_-")
@@ -42,12 +41,14 @@
 
 (use-package company-distel
   :ensure t
-  :config
-  (setq company-distel-popup-help t)
-
+  :defer t
+  :init
   (add-hook 'erlang-mode-hook
             (lambda ()
               (my-company-add-backend-locally 'company-distel)))
+  
+  :config
+  (setq company-distel-popup-help t)
   )
 
 

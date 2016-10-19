@@ -126,6 +126,34 @@
 
 (use-package indent-guide
   :ensure t
+  :defer t
+  :init
+  (defvar indent-guide-inhibit-modes nil)
+  ;; works with `indent-guide-global-mode'
+  (add-to-list 'indent-guide-inhibit-modes 'org-mode)
+  (add-to-list 'indent-guide-inhibit-modes 'web-mode)
+  (add-to-list 'indent-guide-inhibit-modes 'emacs-lisp-mode)
+  
+  ;; (indent-guide-global-mode)
+
+  (dolist (hook '(prog-mode-hook
+                  emacs-lisp-mode-hook
+                  lisp-mode-hook
+                  clojure-mode-hook
+                  ruby-mode-hook
+                  python-mode-hook
+                  c-mode-hook
+                  c++-mode-hook
+                  js-mode-hook
+                  js2-mode-hook
+                  js3-mode-hook
+                  ))
+    (add-hook hook
+              (lambda ()
+                (unless (member major-mode indent-guide-inhibit-modes)
+                  (indent-guide-mode 1))
+                )))
+  
   :config
   (setq indent-guide-delay nil
         indent-guide-recursive t
@@ -133,11 +161,6 @@
         ;; - -1 to show all indent lines.
         indent-guide-threshold 0
         )
-
-  ;; works with `indent-guide-global-mode'
-  (add-to-list 'indent-guide-inhibit-modes 'org-mode)
-  (add-to-list 'indent-guide-inhibit-modes 'web-mode)
-  (add-to-list 'indent-guide-inhibit-modes 'emacs-lisp-mode)
 
   ;; custom indent line char
   ;; 1: use `indent-guide-char'.
@@ -155,23 +178,6 @@
   ;;                     :foreground "cyan"
   ;;                     :inherit nil
   ;;                     :stipple (list 7 4 (string 16 0 0 0)))
-
-  ;; (indent-guide-global-mode)
-
-  (dolist (hook '(prog-mode-hook
-                  ;; emacs-lisp-mode-hook
-                  ;; lisp-mode-hook
-                  clojure-mode-hook
-                  ruby-mode-hook
-                  python-mode-hook
-                  ))
-    (add-hook hook
-              (lambda ()
-                (unless (member major-mode indent-guide-inhibit-modes)
-                  (indent-guide-mode 1))
-                )))
-
-  ;; (indent-guide-post-command-hook)
   )
 
 
@@ -179,6 +185,15 @@
 
 (use-package aggressive-indent
   :ensure t
+  :defer t
+  :init
+  (global-aggressive-indent-mode)
+  ;; or
+  ;; (dolist (hook '(prog-mode-hook
+  ;;                 nxml-mode-hook
+  ;;                 ))
+  ;;   (add-hook hook #'aggressive-indent-mode))
+  
   :config
   ;; The variable `aggressive-indent-dont-indent-if' lets you customize when you
   ;; **don't** want indentation to happen.  For instance, if you think it's
@@ -197,13 +212,6 @@
   (add-to-list 'aggressive-indent-excluded-modes 'haskell-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'lua-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'makefile-mode)
-  
-  (global-aggressive-indent-mode)
-  ;; or
-  ;; (dolist (hook '(prog-mode-hook
-  ;;                 nxml-mode-hook
-  ;;                 ))
-  ;;   (add-hook hook #'aggressive-indent-mode))
   )
 
 

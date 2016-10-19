@@ -9,11 +9,12 @@
 ;;; ----------------------------------------------------------------------------
 ;;; [ ripgrep ] -- Emacs front-end for ripgrep, a command line search tool.
 
-(use-package ripgrep
-  :ensure t
-  :config
-  (define-key my-search-prefix (kbd "s") 'ripgrep-regexp)
-  )
+;; (use-package ripgrep
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (define-key my-search-prefix (kbd "s") 'ripgrep-regexp)
+;;   )
 
 ;;; ----------------------------------------------------------------------------
 

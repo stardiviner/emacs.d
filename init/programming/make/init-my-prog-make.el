@@ -12,7 +12,8 @@
 ;;; [ make-mode ]
 
 (use-package make-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 ;;; [ CMake ]

@@ -41,7 +41,8 @@
 
 (use-package company-math
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'org-mode-hook
             (lambda ()
               (make-local-variable 'company-backends)

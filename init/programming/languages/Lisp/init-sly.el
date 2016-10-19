@@ -11,18 +11,19 @@
 
 (use-package sly
   :ensure t
-  :init
-  ;; (require 'sly-autoloads)
+  :defer t
   :commands (sly)
-  :config
-  (setq sly-lisp-implementations
-        '((cmucl ("cmucl" "-quiet"))
-          ;; (cmucl ("/opt/cmucl/bin/lisp" "-quiet") :init sly-init-command)
-          (acl (\"acl7\") :coding-system emacs-mule)
-          (sbcl ("/usr/bin/sbcl") :coding-system utf-8-unix)))
-
+  :init
   (setq sly-default-lisp 'sbcl)
 
+  ;; enable `sly-mode' in Lisps
+  (dolist (hook '(lisp-mode-hook
+                  lisp-interaction-mode-hook
+                  sly-mrepl-mode-hook
+                  ))
+    (add-hook hook 'sly-mode))
+  
+  :config
   ;; load SLY contribs
   ;; (setq sly-contribs `(sly-fancy
   ;;                      sly-retro
@@ -64,13 +65,6 @@
                   (unless (sly-connected-p)
                     (save-excursion (sly))))))
 
-  ;; enable `sly-mode' in Lisps
-  (dolist (hook '(lisp-mode-hook
-                  lisp-interaction-mode-hook
-                  sly-mrepl-mode-hook
-                  ))
-    (add-hook hook 'sly-mode))
-
   ;; setup SLY REPL buffer
   (add-hook 'sly-mrepl-mode-hook
             (lambda ()
@@ -84,7 +78,8 @@
 
 (use-package sly-company
   :ensure t
-  :config
+  :defer t
+  :init
   (dolist (hook '(sly-mode-hook
                   sly-mrepl-mode-hook
                   ))
@@ -100,7 +95,8 @@
 
 ;; (use-package sly-repl-ansi-color
 ;;   :ensure t
-;;   :config
+;;   :defer t
+;;   :init
 ;;   (add-to-list 'sly-contribs 'sly-repl-ansi-color)
 ;;   )
 
@@ -116,13 +112,15 @@
 ;;; [ sly-named-readtables ] -- Support named readtables in Common Lisp files.
 
 ;; (use-package sly-named-readtables
-;;   :ensure t)
+;;   :ensure t
+;;   )
 
 
 ;;; [ sly-quicklisp ] -- Quicklisp support for SLY.
 
 ;; (use-package sly-quicklisp
-;;   :ensure t)
+;;   :ensure t
+;;   )
 
 
 (provide 'init-sly)

@@ -68,12 +68,10 @@
 
 (use-package ace-window
   :ensure t
-  :config
-  ;; display window number in mode-line.
-  ;; (ace-window-display-mode -1)
-  
+  :defer t
+  :init
   (global-set-key (kbd "C-x C-j") 'ace-window)
-
+  :config
   (set-face-attribute 'aw-leading-char-face nil
                       :background "#004A5D" :foreground "white"
                       :box '(:color "cyan" :line-width 1)
@@ -91,212 +89,11 @@
 
 (use-package resize-window
   :ensure t
+  :defer t
+  :init
+  (global-set-key (kbd "C-x w") 'resize-window)
   :config
   (setq resize-window-allow-backgrounds nil)
-  (global-set-key (kbd "C-x w") 'resize-window)
-  )
-
-
-;;; [ E2WM ] --- Equilibrium Emacs Window Manager
-
-;;; Usage:
-;; The current implementation has following perspectives:
-;; * code      : main coding layout
-;; * two       : side by side layout
-;; * doc       : reading documentation layout
-;; * dashboard : showing plug-ins like dashboard in Mac OSX
-;; * array     : selecting buffers like expose in Mac OSX
-
-(use-package e2wm
-  ;; :ensure t
-  ;; :config
-  ;; (global-set-key (kbd "C-c +") 'e2wm:start-management)
-  ;; (global-set-key (kbd "C-c -") 'e2wm:stop-management)
-  ;;
-  ;; (setq e2wm:c-my-org-repice
-  ;;       '(| (:left-max-size 35)
-  ;;           (- (:upper-size-ratio 0.7)
-  ;;              files history)
-  ;;           (- (:upper-size-ratio 0.7)
-  ;;              (| (:right-max-size 30)
-  ;;                 main imenu)
-  ;;              sub)))
-  ;;
-  ;; (setq e2wm:c-my-org-winfo
-  ;;       '((:name main)
-  ;;         (:name files :plugin files)
-  ;;         (:name history :plugin history-list)
-  ;;         (:name sub :buffer "*info*" :default-hide t)
-  ;;         (:name imenu :plugin imenu :default-hide nil))
-  ;;       )
-  )
-
-
-;;; [ ne2wm ]
-
-;; (require 'ne2wm-setup)
-
-
-;;; [ perspective ] -- Perspectives for Emacs.
-
-;; This package provides tagged workspaces in Emacs, similar to workspaces in
-;; windows managers such as Awesome and XMonad (and somewhat similar to multiple
-;; desktops in Gnome or Spaces in OS X).
-
-;;; Usage:
-;;
-;; - `persp-mode' :: activate perspective mode.
-;; - [C-x x] :: prefix
-;;
-;; Key -- Command
-;;
-;; s -- persp-switch: Query a perspective to switch or create
-;; k -- persp-remove-buffer: Query a buffer to remove from current perspective
-;; c -- persp-kill : Query a perspective to kill
-;; r -- persp-rename: Rename current perspective
-;; a -- persp-add-buffer: Querry an open buffer to add to current perspective
-;; A -- persp-set-buffer: Add buffer to current perspective and remove it from all others
-;; i -- persp-import: Import a given perspective from another frame.
-;; n, <right> -- persp-next : Switch to next perspective
-;; p, <left> -- persp-prev: Switch to previous perspective
-
-
-;; (use-package perspective
-;;   :ensure t)
-
-
-;;; [ window-purpose ] -- Organize Windows and Buffers According to Purposes.
-
-(use-package window-purpose
-  ;; :ensure t
-  :config
-  (setq purpose-preferred-prompt 'ido
-        purpose-layout-dirs '(locate-user-emacs-file ".purpose/layouts/")
-        )
-
-  ;; (setq pop-up-frames t)
-
-  ;; (add-to-list 'purpose-user-mode-purposes '(<major-mode> . <purpose>))
-  ;; (add-to-list 'purpose-user-name-purposes '(<name> . <purpose>))
-  ;; (add-to-list 'purpose-user-regexp-purposes '(<pattern> . <purpose>))
-  ;;
-  ;; - popup-window
-  ;; - sidebar-window
-  ;; - help-window
-  ;; - search-window
-  ;; - compilation-window
-  ;; - repl-window
-  ;; - utility-window
-  
-  (add-to-list 'purpose-user-mode-purposes '(popwin-mode . popup-window))
-  (add-to-list 'purpose-user-mode-purposes '(compilation-mode . compilation-window))
-  (add-to-list 'purpose-user-mode-purposes '(comint-mode . compilation-window))
-  (add-to-list 'purpose-user-mode-purposes '(help-mode . help-window))
-  (add-to-list 'purpose-user-mode-purposes '(apropos-mode . search-window))
-  (add-to-list 'purpose-user-mode-purposes '(xref--xref-buffer-mode . search-window))
-  (add-to-list 'purpose-user-mode-purposes '(Man-mode . help-window))
-  (add-to-list 'purpose-user-mode-purposes '(ack-and-a-half-mode . search-window))
-  (add-to-list 'purpose-user-mode-purposes '(ag-mode . search-window))
-  (add-to-list 'purpose-user-mode-purposes '(pt-search-mode . search-window))
-  (add-to-list 'purpose-user-mode-purposes '(dired-mode . sidebar-window))
-  (add-to-list 'purpose-user-mode-purposes '(project-explorer-mode . sidebar-window))
-  (add-to-list 'purpose-user-mode-purposes '(bm-show-mode . popup-window))
-  (add-to-list 'purpose-user-mode-purposes '(process-menu-mode . popup-window))
-  (add-to-list 'purpose-user-mode-purposes '(quickrun/mode . compilation-window))
-  (add-to-list 'purpose-user-mode-purposes '(ggtags-global-mode . search-window))
-  (add-to-list 'purpose-user-mode-purposes '(ascope-list-entry-mode . search-window))
-  (add-to-list 'purpose-user-mode-purposes '(pdf-occur-buffer-mode . search-window))
-  (add-to-list 'purpose-user-mode-purposes '(pdf-outline-buffer-mode . search-window))
-  (add-to-list 'purpose-user-mode-purposes '(inferior-lisp-mode . repl-window))
-  (add-to-list 'purpose-user-mode-purposes '(sly-mrepl-mode . repl-window))
-  (add-to-list 'purpose-user-mode-purposes '(slime-repl-mode . repl-window))
-  (add-to-list 'purpose-user-mode-purposes '(slime-inspector-mode . repl-window))
-  (add-to-list 'purpose-user-mode-purposes '(inf-clojure-mode . repl-window))
-  (add-to-list 'purpose-user-mode-purposes '(cider-clojure-interaction-mode . repl-window))
-  (add-to-list 'purpose-user-mode-purposes '(cider-docview-mode . help-window))
-  (add-to-list 'purpose-user-mode-purposes '(cider-inspector-mode . popup-window))
-  (add-to-list 'purpose-user-mode-purposes '(inferior-ess-mode . repl-window))
-  (add-to-list 'purpose-user-mode-purposes '(inferior-julia-mode . repl-window))
-  (add-to-list 'purpose-user-mode-purposes '(yari-mode . help-window))
-  (add-to-list 'purpose-user-mode-purposes '(inf-ruby-mode . popup-window))
-  (add-to-list 'purpose-user-mode-purposes '(ruby-compilation-mode . compilation-window))
-  (add-to-list 'purpose-user-mode-purposes '(projectile-rails-generate-mode . compilation-window))
-  (add-to-list 'purpose-user-mode-purposes '(projectile-rails-compilation-mode . compilation-window))
-  (add-to-list 'purpose-user-mode-purposes '(projectile-rails-server-mode . compilation-window))
-  (add-to-list 'purpose-user-mode-purposes '(inferior-python-mode . repl-window))
-  (add-to-list 'purpose-user-mode-purposes '(anaconda-mode-view-mode . popup-window))
-  (add-to-list 'purpose-user-mode-purposes '(inferior-js-mode . repl-window))
-  (add-to-list 'purpose-user-mode-purposes '(inferior-haskell-mode . repl-window))
-  (add-to-list 'purpose-user-mode-purposes '(haskell-interactive-mode . repl-window))
-  (add-to-list 'purpose-user-mode-purposes '(sbt-mode . compilation-window))
-  (add-to-list 'purpose-user-mode-purposes '(calc-mode . utility-window))
-  (add-to-list 'purpose-user-mode-purposes '(godoc-mode . help-window))
-
-  
-  (setq purpose-special-action-sequences
-        '(purpose-display-reuse-window-buffer
-          purpose-display-reuse-window-purpose
-          purpose-display-pop-up-frame
-          popup-frame))
-
-  (setq purpose-use-default-configuration t)
-  (purpose-compile-user-configuration)
-
-  (require 'window-purpose-x)
-  (purpose-x-kill-setup)
-
-  ;; (purpose-mode)
-  )
-
-
-(use-package ivy-purpose
-  ;; :ensure t
-  )
-
-
-;;; [ golden-radio ] -- automatic resizing of Emacs windows to the golden ratio.
-
-(use-package golden-ratio
-  ;; :ensure t
-  :config
-  (setq golden-ratio-auto-scale t)
-  (setq golden-ratio-adjust-factor 1.0
-        golden-ratio-wide-adjust-factor 0.8)
-  (setq golden-ratio-recenter t)
-
-  ;; exclude
-  (setq golden-ratio-exclude-modes
-        (append golden-ratio-exclude-modes
-                '(ediff-mode
-                  calendar-mode calc-mode dired-mode
-                  speedbar-mode project-explorer-mode
-                  gnus-summary-mode gnus-article-mode
-                  mu4e-headers-mode mu4e-compose-mode
-                  restclient-mode
-                  )))
-
-  ;; "\\`\\*[Hh]elm.*\\*\\'"
-  (setq golden-ratio-exclude-buffer-regexp '("\\`\\*.*?\\*\\'")) ; *...* buffers
-  
-  (setq golden-ratio-exclude-buffer-names '(" *Org todo*" " *Org tags*"))
-  (add-to-list 'golden-ratio-exclude-buffer-names " *which-key*")
-  
-  ;; for popwin.
-  ;; (setq golden-ratio-inhibit-functions '(pop-to-buffer))
-
-  (setq golden-ratio-extra-commands
-        (append golden-ratio-extra-commands
-                '(window-number-select
-                  )))
-
-  ;; manually re-fit ratio.
-  (global-set-key (kbd "C-x j") 'golden-ratio)
-
-  ;; (progn
-  ;;   (add-hook 'ediff-before-setup-windows-hook #'(lambda () (golden-ratio-mode -1)))
-  ;;   (add-hook 'ediff-quit-hook #'(lambda () (golden-ratio-mode 1))))
-  
-  (golden-ratio-mode 1)
   )
 
 
@@ -305,13 +102,12 @@
 (use-package popwin
   :ensure t
   :config
-  (popwin-mode 1)
-
-  (global-set-key (kbd "C-z") popwin:keymap)
-
   (setq popwin:close-popup-window-timer-interval 0.1
         popwin:reuse-window t ; t, 'current,
         )
+
+  (popwin-mode 1)
+  (global-set-key (kbd "C-z") popwin:keymap)
 
   ;; `popwin:special-display-config'
   ;; push popwin:special-display-config `flags': [C-h v popwin:special-display-config]
@@ -619,68 +415,17 @@ The `BUFFER' is the popwin catch pop private message buffer."
   )
 
 
-;;; [ shackle ] -- Enforce rules for popup windows.
-
-;;; This package is heavily inspired by popwin and was hacked together after
-;;; discovering it being hard to debug, creating overly many timers and exposing
-;;; rather baffling bugs. shackle being intentionally simpler and easier to
-;;; understand is considered a debugging-friendly feature, not a bug. However if
-;;; you prefer less rough edges, a sensible default configuration and having
-;;; more options for customizing, give popwin a try.
-
-;;; `shackle-rules'
-;; The condition can be either a symbol, a string, a list of either or t. A
-;; symbol is interpreted as the major mode of the buffer to match, a string as
-;; the name of the buffer (which can be turned into regexp matching by using the
-;; :regexp key with a value of t in the key-value part), a list groups either
-;; symbols or strings (as described earlier) while requiring at least one
-;; element to match and t as the fallback rule to follow when no other match
-;; succeeds. If you set up a fallback rule, make sure it's the last rule in
-;; shackle-rules, otherwise it will always be used.
-
-;; (require 'shackle)
-;;
-;; (setq shackle-default-alignment 'below
-;;       shackle-default-ratio 0.4
-;;       shackle-lighter " ⛓")
-;;
-;; (setq shackle-rules '((t :same t)
-;;                       ;; enables the rather radical behaviour of always reusing
-;;                       ;; the current window in order to avoid unwanted window
-;;                       ;; splitting.
-;;
-;;                       ;; use popup for all buffers
-;;                       (t :popup t)
-;;                      
-;;                       ;; provides a less intrusive user experience to select all
-;;                       ;; windows by default unless they are spawned by
-;;                       ;; compilation-mode and demonstrates how to use
-;;                       ;; exceptions.
-;;                       (compilation-mode :noselect t)
-;;                       (t :select t)
-;;
-;;                       ;; tames helm windows by aligning them at the bottom with
-;;                       ;; a ratio of 40%
-;;                       ("\\`\\*helm.*?\\*\\'" :regexp t :align t :ratio 0.4)
-;;                       ))
-;;
-;; (shackle-mode)
-
-
 ;;; [ zoom-window ] -- zoom/un-zoom window like tmux.
-
-;;; Usage:
-;;
-;; - `zoom-window' :: Toggle between zooming current window and unzooming.
 
 (use-package zoom-window
   :ensure t
+  :defer t
+  :init
+  (global-set-key (kbd "C-x C-z") 'zoom-window-zoom)  
   :config
   (setq zoom-window-mode-line-color "dark red"
         zoom-window-use-elscreen nil ; whether use extension elscreen.
         )
-
-  (global-set-key (kbd "C-x C-z") 'zoom-window-zoom)
   )
 
 

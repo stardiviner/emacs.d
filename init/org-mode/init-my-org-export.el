@@ -131,9 +131,16 @@
 (require 'ox-md)
 
 (defun my-org-md-convert-region-to-md ()
-  "convert selected region to Markdown and copy to clipboard for
-pasting on sites like GitHub, and Stack Overflow."
+  "Convert selected region to Markdown and copy to clipboard.
+
+For pasting on sites like GitHub, and Stack Overflow."
   (interactive)
+  
+  ;; (with-temp-buffer-window
+  ;;  "*org->markdown temp*"
+  ;;  (org-export-to-buffer 'md "*org->markdown temp*"
+  ;;    async subtreep visible-only) 'delete-window)
+
   (unless (org-region-active-p) (user-error "No active region to replace"))
   (x-set-selection 'CLIPBOARD
                    (org-export-string-as
@@ -196,7 +203,8 @@ pasting on sites like GitHub, and Stack Overflow."
 ;;
 ;; ;; src code block syntax highlighting
 ;; (use-package htmlize
-;;   :ensure t)
+;;   :ensure t
+;;   )
 ;;
 ;; (setq org-html-htmlize-output-type 'css
 ;;       org-html-htmlize-font-prefix "org-")
@@ -365,8 +373,9 @@ pasting on sites like GitHub, and Stack Overflow."
 
 ;;; [ org-preview-html ] -- automatically use eww to preview the current org file on save.
 
-(use-package org-preview-html
-  :ensure t)
+;; (use-package org-preview-html
+;;   :ensure t
+;;   :defer t)
 
 
 (provide 'init-my-org-export)

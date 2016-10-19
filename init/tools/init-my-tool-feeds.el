@@ -9,7 +9,6 @@
 
 
 (require 'init-my-tool-feeds-elfeed)
-;; (require 'init-my-tool-feeds-newsticker)
 
 
 (provide 'init-my-tool-feeds)

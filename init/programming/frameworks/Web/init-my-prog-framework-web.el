@@ -11,6 +11,7 @@
 
 (use-package web-mode
   :ensure t
+  :defer t
   :init
   ;; Using web-mode for editing plain HTML files can be done this way
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
@@ -195,52 +196,24 @@
        (previous-line)
        (end-of-line)
        (newline-and-indent)))
+
+  ;; fix company-mode candidates auto lowercase.
+  ;; (add-to-list 'company-dabbrev-code-modes 'web-mode)
   )
-
-
-;;; [ multi-web-mode ]
-
 
 
 ;;; [ web-completion-data ] -- dependency for `ac-html', `company-web'
 
-;; `web-completion-data-sources' is pair list of framework-name and directory of completion data
-;;
-;; This package provide default "html" completion data.
-;;
-;; Completion data directory structure:
-;;
-;; html-attributes-complete - attribute completion
-;; html-attributes-list - attributes of tags-add-tables
-;; html-attributes-short-docs - attributes documantation
-;; html-tag-short-docs  - tags documantation
-
-;; If you decide extend with own completion data, let say "Bootstrap" data:
-;;
-;; (unless (assoc "Bootstrap" web-completion-data-sources)
-;;   (setq web-completion-data-sources 
-;;         (cons (cons "Bootstrap" "/path/to/complete/data")
-;;               web-completion-data-sources)))
+(use-package web-completion-data
+  :ensure t)
 
 
 ;;; [ company-web ] --
 
-;; company-web is an alternative emacs plugin for autocompletion in html-mode,
-;; web-mode, jade-mode, slim-mode and use data of ac-html. It uses company-mode.
-;;
-;; use company-mode with `company-web-html' in web-mode.
-;; now support company completion for emmet.
-;;
-;; - tags after >+^ symbols
-;; - attribute completion after [
-;; - Dot . - complete div's class
-;; - # - id (div's id if no tag)
-;;
-;; annotation string: `html'.
-
 (use-package company-web
   :ensure t
-  :config
+  :defer t
+  :init
   (defun my-company-web-backends-setup ()
     (interactive)
     (setq-local company-minimum-prefix-length 1)
@@ -258,6 +231,7 @@
                   ))
     (add-hook hook #'my-company-web-backends-setup))
 
+  :config
   ;; company-mode + company-web support
 
   ;; Enable CSS completion between <style>...</style>
@@ -276,7 +250,7 @@
         (let ((web-mode-cur-language (web-mode-language-at-pos)))
           (if (or (string= web-mode-cur-language "javascript")
                   (string= web-mode-cur-language "jsx"))
-              (unless tern-mode (tern-mode))
+              (unless tern-mode (tern-mode 1))
             (if tern-mode (tern-mode -1))
             ))))
 
@@ -301,79 +275,6 @@
             (if robe-mode (robe-mode -1))
             ))))
   )
-
-
-;;; [ ac-html ] -- Provide accurate and intelligent auto completion to HTML and CSS.
-
-;; ;;; If you are using html-mode:
-;; (add-hook 'html-mode-hook 'ac-html-enable)
-;; ;;; If you are using web-mode:
-;; ;;; Additionally you need to add these lines:
-;; (unless (featurep 'web-mode)
-;;   (require 'web-mode))
-;; (add-to-list 'web-mode-ac-sources-alist
-;;              '("html" . (ac-source-html-attribute-value
-;;                          ac-source-html-tag
-;;                          ac-source-html-attribute)))
-;;
-;; ;;; Support for template languages:
-;; (add-hook 'haml-mode-hook 'ac-haml-enable)
-;; (add-hook 'jade-mode-hook 'ac-jade-enable)
-;; (add-hook 'slim-mode-hook 'ac-slim-enable)
-
-
-;;; [ ac-html-csswatcher ]
-
-
-;;; [ ac-html-bootstrap ]
-
-
-;;; [ web-beautify ]
-
-;; ~/.jsbeautifyrc
-
-;; (eval-after-load 'js2-mode
-;;   '(define-key js2-mode-map (kbd "C-c b") 'web-beautify-js))
-;; ;; Or if you're using 'js-mode' (a.k.a 'javascript-mode')
-;; (eval-after-load 'js
-;;   '(define-key js-mode-map (kbd "C-c b") 'web-beautify-js))
-;; (eval-after-load 'json-mode
-;;   '(define-key json-mode-map (kbd "C-c b") 'web-beautify-js))
-;; (eval-after-load 'sgml-mode
-;;   '(define-key html-mode-map (kbd "C-c b") 'web-beautify-html))
-;; (eval-after-load 'css-mode
-;;   '(define-key css-mode-map (kbd "C-c b") 'web-beautify-css))
-
-;; (use-package web-beautify
-;;   :ensure t
-;;   :config
-;;   ;; automatically format before saving a file
-;;   (eval-after-load 'js2-mode
-;;     '(add-hook 'js2-mode-hook
-;;                (lambda ()
-;;                  (add-hook 'before-save-hook 'web-beautify-js-buffer t t))))
-;;
-;;   ;; Or if you're using 'js-mode' (a.k.a 'javascript-mode')
-;;   (eval-after-load 'js
-;;     '(add-hook 'js-mode-hook
-;;                (lambda ()
-;;                  (add-hook 'before-save-hook 'web-beautify-js-buffer t t))))
-;;
-;;   (eval-after-load 'json-mode
-;;     '(add-hook 'json-mode-hook
-;;                (lambda ()
-;;                  (add-hook 'before-save-hook 'web-beautify-js-buffer t t))))
-;;
-;;   (eval-after-load 'sgml-mode
-;;     '(add-hook 'html-mode-hook
-;;                (lambda ()
-;;                  (add-hook 'before-save-hook 'web-beautify-html-buffer t t))))
-;;
-;;   (eval-after-load 'css-mode
-;;     '(add-hook 'css-mode-hook
-;;                (lambda ()
-;;                  (add-hook 'before-save-hook 'web-beautify-css-buffer t t))))
-;;   )
 
 
 (provide 'init-my-prog-framework-web)

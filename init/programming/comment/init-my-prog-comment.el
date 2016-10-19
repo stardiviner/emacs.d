@@ -45,12 +45,8 @@ column.  Place the point after the comment box."
 
 (use-package boxquote
   :ensure t
-  :config
-  ;; (setq boxquote-title-format "[ %s ]")
-
-  ;; `message-completion-function' (like capf)
-  ;; (setq message-expand-name-databases '(bbdb eudb))
-
+  :defer t
+  :init
   (define-key narrow-map (kbd "q") 'boxquote-narrow-to-boxquote-content)
 
   (unless (boundp 'my-boxquote-map)
@@ -71,6 +67,12 @@ column.  Place the point after the comment box."
   (define-key my-boxquote-map (kbd "C-w") 'boxquote-kill)
   (define-key my-boxquote-map (kbd "C-y") 'boxquote-yank)
   (define-key my-boxquote-map (kbd "p") 'boxquote-paragraph)
+  
+  :config
+  ;; (setq boxquote-title-format "[ %s ]")
+
+  ;; `message-completion-function' (like capf)
+  ;; (setq message-expand-name-databases '(bbdb eudb))
   )
 
 ;;; [ fixmee ] -- Quickly navigate to FIXME notices in Emacs.
@@ -83,6 +85,14 @@ column.  Place the point after the comment box."
 (use-package fixmee
   :ensure t
   :init
+  (define-key my-prog-comment-fixme-map (kbd "l") 'fixmee-view-listing)
+  (define-key my-prog-comment-fixme-map (kbd "n") 'fixmee-goto-next-by-position)
+  (define-key my-prog-comment-fixme-map (kbd "p") 'fixmee-goto-previous-by-position)
+  (define-key my-prog-comment-fixme-map (kbd "N") 'fixmee-goto-nextmost-urgent)
+  (define-key my-prog-comment-fixme-map (kbd "P") 'fixmee-goto-prevmost-urgent)
+  (define-key my-prog-comment-fixme-map (kbd "i") 'fixmee-insert-keywords)
+
+  :config
   ;; disable fixmee default global keybindings.
   (setq fixmee-smartrep-prefix nil
         fixmee-view-listing-keystrokes nil
@@ -91,26 +101,12 @@ column.  Place the point after the comment box."
         fixmee-goto-prevmost-urgent-keystrokes nil
         fixmee-goto-previous-by-position-keystrokes nil)
 
-  :config
   (setq fixmee-cache-refresh-interval 30)
 
   (set-face-attribute 'fixmee-notice-face nil
                       :background "dark orange" :foreground "#222222"
                       :weight 'bold
                       )
-  
-  ;; (add-to-list 'fixmee-exclude-modes 'xxx-mode)
-  ;; (global-fixmee-mode -1)
-
-  (dolist (hook '(prog-mode-hook
-                  ))
-    (add-hook hook 'fixmee-mode))
-
-  (define-key my-prog-comment-fixme-map (kbd "l") 'fixmee-view-listing)
-  (define-key my-prog-comment-fixme-map (kbd "n") 'fixmee-goto-next-by-position)
-  (define-key my-prog-comment-fixme-map (kbd "p") 'fixmee-goto-previous-by-position)
-  (define-key my-prog-comment-fixme-map (kbd "N") 'fixmee-goto-nextmost-urgent)
-  (define-key my-prog-comment-fixme-map (kbd "P") 'fixmee-goto-prevmost-urgent)
 
   (defun fixmee-insert-keywords (prefix-arg)
     "Insert fixmee patterns: @@@, XXX, todo, fixme.
@@ -133,8 +129,12 @@ And specify urgent with PREFIX-ARG."
                     ": ")))
       (insert fixmee-keyword-string))
     )
-  
-  (define-key my-prog-comment-fixme-map (kbd "i") 'fixmee-insert-keywords)
+
+  ;; (global-fixmee-mode -1)
+  ;;
+  ;; (dolist (hook '(prog-mode-hook
+  ;;                 ))
+  ;;   (add-hook hook 'fixmee-mode))
   )
 
 
@@ -149,11 +149,11 @@ And specify urgent with PREFIX-ARG."
                   display-buffer-below-selected)
                  (window-height . 0.3)
                  ))
-  :config
   (global-set-key (kbd "C-c '") 'poporg-dwim)
   ;; (define-key my-prog-comment-map (kbd "'") 'poporg-dwim)
   ;; (define-key poporg-mode-map [remap save-buffer] 'poporg-edit-exit)
-  
+
+  :config
   (setq poporg-adjust-fill-column t
         poporg-delete-trailing-whitespace t)  
   (set-face-attribute 'poporg-edited-face nil
@@ -166,8 +166,8 @@ And specify urgent with PREFIX-ARG."
 ;;; [ org-commentary ] -- generate/update conventional library headers using Org-mode.
 
 ;; (use-package org-commentary
-;;   :ensure t)
-
+;;   :ensure t
+;;   )
 
 
 (provide 'init-my-prog-comment)

@@ -155,8 +155,17 @@
 
 (use-package calfw
   :ensure t
-  :config
+  :defer t
+  :init
+  (define-key my-calendar-prefix (kbd "o") 'cfw:open-org-calendar)
+  (define-key my-calendar-prefix (kbd "x") 'cfw:open-calendar-buffer)
   
+  (define-key my-calendar-prefix (kbd "c") 'my-open-calfw-week)
+  (define-key my-calendar-prefix (kbd "w") 'my-open-calfw-week)
+  (define-key my-calendar-prefix (kbd "d") 'my-open-calfw-day)
+  (define-key my-calendar-prefix (kbd "m") 'my-open-calfw-month)
+  
+  :config
   ;; for Org-mode
   ;; - [M-x cfw:open-org-calendar]
 
@@ -164,8 +173,6 @@
 
   ;; (setq cfw:org-agenda-schedule-args '(:timestamp))
   ;; (setq cfw:org-overwrite-default-keybinding nil)
-
-  (define-key my-calendar-prefix (kbd "o") 'cfw:open-org-calendar)
 
   ;; org-capture template
   (setq cfw:org-capture-template
@@ -238,12 +245,6 @@
     (bury-buffer)
     (switch-to-buffer "*cfw-calendar*")
     )
-
-  (define-key my-calendar-prefix (kbd "c") 'my-open-calfw-week)
-  (define-key my-calendar-prefix (kbd "w") 'my-open-calfw-week)
-  (define-key my-calendar-prefix (kbd "d") 'my-open-calfw-day)
-  (define-key my-calendar-prefix (kbd "m") 'my-open-calfw-month)
-  (define-key my-calendar-prefix (kbd "x") 'cfw:open-calendar-buffer)
 
   ;; Faces
   ;; Year / Month

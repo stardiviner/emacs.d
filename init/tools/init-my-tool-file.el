@@ -9,13 +9,10 @@
 
 ;;; [ pandoc-mode ] -- pandoc-mode is an Emacs mode for interacting with Pandoc.
 
-;;; Usage:
-;;
-;; - [C-c /] :: the main keybindings dispatcher.
-
 (use-package pandoc-mode
   :ensure t
-  :config
+  :defer t
+  :init
   ;; (add-hook 'markdown-mode-hook 'pandoc-mode)
   ;;
   ;; This function checks if a default settings file exists for the file you're

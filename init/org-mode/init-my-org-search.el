@@ -16,7 +16,8 @@
 
 (use-package ag
   :ensure t
-  :config
+  :defer t
+  :init
   (defun ag-org (string directory)
     "Search using ag in a given DIRECTORY for a given search STRING,
 with STRING defaulting to the symbol under point.

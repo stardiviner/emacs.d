@@ -90,6 +90,7 @@
 
 (use-package sauron
   ;; :ensure t
+  :defer t
   :config
   ;; -- sauron display --
   (setq sauron-separate-frame t      ; default t. nil to embeded in current frame.
@@ -208,6 +209,7 @@
 
 (use-package alert
   ;; :ensure t
+  ;; :defer t
   ;; :config
   ;; (add-hook ‘sauron-event-added-functions ‘sauron-alert-el-adapter)
   )

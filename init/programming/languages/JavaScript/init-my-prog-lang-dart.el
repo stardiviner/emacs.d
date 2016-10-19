@@ -10,6 +10,8 @@
 ;;; [ dart-mode ]
 
 (use-package dart-mode
+  :ensure t
+  :defer t
   :init
   (add-to-list 'auto-mode-alist '("\\.dart\\'" . dart-mode))
   :config
@@ -24,7 +26,8 @@
 
 ;; (use-package company-dart
 ;;   :ensure t
-;;   :config
+;;   :defer t
+;;   :init
 ;;   (add-hook 'dart-mode-hook
 ;;             (lambda ()
 ;;               (my-company-add-backend-locally 'company-dart)

@@ -20,7 +20,8 @@
 ;;; [ lxc ] -- LXC integration with Emacs.
 
 (use-package lxc
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-container)

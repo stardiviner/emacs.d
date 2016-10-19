@@ -7,23 +7,7 @@
 
 ;;; Code:
 
-;; [ Bookmark ]
-;;; Emacs built-in bookmark
-
-;;; Usage
-;;; - [C-x r m] :: mark bookmark.
-;;; - [C-x r b] :: jump to bookmark.
-;;; - [C-x r l] :: list bookmarks.
-;;   - a -- show annotation for current bookmark
-;;   - A -- show all annotations
-;;   - d -- mark as delete
-;;   - e -- edit the annotation for current bookmark
-;;   - m -- mark various entries for display and other operations
-;;   - o -- visit the current bookmark in another window, keeping the bookmark list open
-;;   - C-o -- switch to the current bookmark in another window
-;;   - r -- rename the current bookmark
-;;   - x -- execute marked status actions
-;; - [M-x bookmark-set] -- add current page into bookmark
+;; [ Bookmark ] -- Emacs built-in bookmark
 
 (require 'bookmark)
 
@@ -54,47 +38,16 @@
 
 (use-package bm
   :ensure t
-  :init
-  (setq bm-restore-repository-on-load t)
+  :defer t
   :bind (("<C-f2>" . bm-toggle)
          ("<f2>" . bm-next)
          ("<S-f2>" . bm-previous))
-  :config
-  (setq bm-in-lifo-order t)
-  (setq bm-cycle-all-buffers nil)
-  (setq temporary-bookmark-p nil)
-  (setq bm-annotate-on-create t)
-  (setq bm-highlight-style 'bm-highlight-line-and-fringe)
-  (setq bm-marker 'bm-marker-left)
-
-  ;; faces
-  (set-face-attribute 'bm-face nil
-                      :background "saddle brown")
-  (set-face-attribute 'bm-fringe-face nil
-                      :inherit 'bm-face
-                      :foreground "white"
-                      :weight 'normal
-                      )
-  (set-face-attribute 'bm-persistent-face nil
-                      :background "royal blue")
-  (set-face-attribute 'bm-fringe-persistent-face nil
-                      :inherit 'bm-persistent-face
-                      :foreground "dark red"
-                      :weight 'bold
-                      )
+  :init
+  (setq bm-restore-repository-on-load t)
+  ;; this could affect Emacs increasing running usage Persistence
+  (setq bm-repository-file "~/.emacs.d/.bm-repository"
+        bm-repository-size 100)
   
-  ;; keybindings
-  (global-set-key (kbd "<C-f2>") 'bm-toggle)
-  (global-set-key [f2] 'bm-next)
-  (global-set-key (kbd "<S-f2>") 'bm-previous)
-
-  ;; mouse
-  (global-set-key (kbd "<left-fringe> <mouse-5>") 'bm-next-mouse)
-  (global-set-key (kbd "<left-fringe> <mouse-4>") 'bm-previous-mouse)
-  (global-set-key (kbd "<left-fringe> <mouse-1>") 'bm-toggle-mouse)
-
-  (global-set-key (kbd "<left-margin> <mouse-1>") 'bm-toggle-mouse)
-
   ;; NOTE: `my-bookmark-map' is not void yet. it is in init-my-emacs-bookmark.el
   (unless (boundp 'my-bookmark-map)
     (define-prefix-command 'my-bookmark-map))
@@ -122,11 +75,37 @@
   ;; remove/delete
   (define-key my-bookmark-bm-map (kbd "d") 'bm-remove-all-current-buffer)
   (define-key my-bookmark-bm-map (kbd "D") 'bm-remove-all-all-buffers)
+
+  :config
+  (setq bm-in-lifo-order t)
+  (setq bm-cycle-all-buffers nil)
+  (setq temporary-bookmark-p nil)
+  (setq bm-annotate-on-create t)
+  (setq bm-highlight-style 'bm-highlight-line-and-fringe)
+  (setq bm-marker 'bm-marker-left)
+
+  ;; faces
+  (set-face-attribute 'bm-face nil
+                      :background "saddle brown")
+  (set-face-attribute 'bm-fringe-face nil
+                      :inherit 'bm-face
+                      :foreground "white"
+                      :weight 'normal
+                      )
+  (set-face-attribute 'bm-persistent-face nil
+                      :background "royal blue")
+  (set-face-attribute 'bm-fringe-persistent-face nil
+                      :inherit 'bm-persistent-face
+                      :foreground "dark red"
+                      :weight 'bold
+                      )
   
-  ;; this could affect Emacs increasing running usage
-  ;; Persistence
-  (setq bm-repository-file "~/.emacs.d/.bm-repository"
-        bm-repository-size 100)
+  ;; mouse
+  (global-set-key (kbd "<left-fringe> <mouse-5>") 'bm-next-mouse)
+  (global-set-key (kbd "<left-fringe> <mouse-4>") 'bm-previous-mouse)
+  (global-set-key (kbd "<left-fringe> <mouse-1>") 'bm-toggle-mouse)
+  (global-set-key (kbd "<left-margin> <mouse-1>") 'bm-toggle-mouse)
+
   ;; ;; loading the repository from file when on start up.
   ;; (add-hook 'after-init-hook 'bm-repository-load)
   ;; ;; Restoring bookmarks when on file find.

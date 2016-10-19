@@ -10,6 +10,7 @@
 ;;; [ Helm appearance ]
 
 (use-package helm
+  :ensure t
   :config
   (helm-autoresize-mode t)
 

@@ -9,12 +9,9 @@
 
 ;;; [ julia-mode ]
 
-;;; Usage:
-;;
-;; - `inferior-julia'
-
 (use-package julia-mode
   :ensure t
+  :defer t
   :config
   (setq julia-indent-offset 2)
   )
@@ -22,51 +19,25 @@
 
 ;;; [ ESS - Julia ]
 
-;;; Usage:
-;;
-;; - [M-x julia RET] / [C-c C-z] :: switch to julia process buffer.
-;;         It will show `julia> ESS` represents loaded ESS.
-;;   - julia> quit()  :: to quit process.
-;; - [C-c C-s] :: associate a buffer with a different julia process.
-;;
-;; - `julia-eldoc-function'
-;; - `julia-manual-lookup-function'
-;; - `inferior-julia'
-;;
-;; - Evaluation -- send chunks of code
-;;   - [C-c C-c] :: [C-h k C-c C-c]
-;;   - [C-M-x]
-;;   - [C-c C-l] :: load the whole file.
-;; - Help
-;;   - [C-c C-d C-h] :: `ess-doc-map'
-;;   - [C-c C-d C-d] :: help on any topic or object.
-;;   - [C-c C-d C-a] :: help with apropos.
-;;   - [C-c C-d C-r] :: standard library reference.
-;;   - [C-c C-d m]   :: topic on Julia manual.
-;;   - [C-c C-d C-w] :: search julia website.
-;; - Error Navigation
-;;   - [M-g n/p] :: navigate in error list.
-;;   - Julia conveniently reports the location of its own source files. In order
-;;     to make ESS to understand these links, add the julia’s source folders to
-;;     ess-tracebug-search-path:
-;;     (add-to-list 'ess-tracebug-search-path "/path/to/julia/base/")
-;; - Imenu
-;;   -
-;; - Completion
-;;   - [C-M-i] / [TAB] :: `ess-tab-complete-in-script'
-;; - Eldoc
-
 (use-package ess
   :ensure t
-  :config
-  ;; (setq inferior-julia-args)
-
+  :defer t
+  :init
   (add-hook 'julia-mode-hook
             (lambda ()
               ;; add julia-mode to prog-mode.
               (unless (derived-mode-p 'prog-mode)
                 (run-hooks 'prog-mode-hook))
               ))
+  
+  ;; - `julia' :: from ess-julia.
+  ;; - `inferior-julia' :: from julia-mode.
+  (unless (boundp 'my-inferior-ess-map)
+    (define-prefix-command 'my-inferior-ess-map))
+  (define-key my-inferior-ess-map (kbd "j") 'my-ess-inferior-julia)
+  
+  :config
+  ;; (setq inferior-julia-args)
 
   (defun my-ess-inferior-julia (&optional process-buffer-name)
     "Start or switch to inferior-julia process buffer PROCESS-BUFFER-NAME."
@@ -81,47 +52,6 @@
       ;; (kill-process (get-buffer-process (or process-buffer-name "*julia*"))
       )
     )
-
-  ;; - `julia' :: from ess-julia.
-  ;; - `inferior-julia' :: from julia-mode.
-  (unless (boundp 'my-inferior-ess-map)
-    (define-prefix-command 'my-inferior-ess-map))
-  (define-key my-inferior-ess-map (kbd "j") 'my-ess-inferior-julia)
-  )
-
-
-;;; [ julia-shell ] -- inferior Julia
-
-;;; Usage:
-;;
-;; to interact with `julia-shell' from `julia-mode'.
-;; - `inferior-julia-shell'
-;; - `run-julia'
-
-(use-package julia-shell
-  ;; :ensure t
-  :config
-  (defun my-inferior-julia-shell (&optional process-buffer-name)
-    "Start or switch to inferior-julia process buffer PROCESS-BUFFER-NAME."
-    (interactive)
-    (if (get-buffer-process (or process-buffer-name "*Julia*"))
-        (switch-to-buffer (or process-buffer-name "*Julia*"))
-      (inferior-julia-shell)
-      )
-    )
-
-  ;; (define-key my-inferior-ess-map (kbd "J") 'my-inferior-julia-shell)
-
-  (define-key julia-mode-map (kbd "C-c C-c") 'julia-shell-run-region-or-line)
-  (define-key julia-mode-map (kbd "C-c C-s") 'julia-shell-save-and-go)
-
-  (add-hook 'inferior-julia-shell-mode-hook
-            '(lambda ()
-               (add-hook 'completion-at-point-functions
-                         'ess-julia-object-completion nil 'local)
-               (add-hook 'completion-at-point-functions
-                         'ess-filename-completion nil 'local)
-               ))
   )
 
 

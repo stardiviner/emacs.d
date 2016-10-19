@@ -11,6 +11,7 @@
 
 (use-package elixir-mode
   :ensure t
+  :defer t
   :config
   ;; if you use smartparens you can piggyback on some of its functionality for
   ;; dealing with Ruby's do .. end blocks. A sample configuration would be:
@@ -27,29 +28,26 @@
 
 ;;; [ alchemist ] -- Elixir Tooling Integration into Emacs
 
-;;; Usage:
-;;
-;; - prefix [C-c a]
-
 (use-package alchemist
   :ensure t
-  :config
-  (setq alchemist-key-command-prefix (kbd "C-c ,")) ; default: (kbd "C-c a")
-  ;; run the whole test suite with `alchemist-mix-test' after saving a buffer.
-  (setq alchemist-hooks-test-on-save nil)
-
+  :defer t
+  :init
   (add-hook 'elixir-mode-hook
             (lambda ()
               (my-company-add-backend-locally 'alchemist-company)
               ))
+
+  :config
+  (setq alchemist-key-command-prefix (kbd "C-c ,")) ; default: (kbd "C-c a")
+  ;; run the whole test suite with `alchemist-mix-test' after saving a buffer.
+  (setq alchemist-hooks-test-on-save nil)
   )
 
 
 ;;; [ ob-elixir ]
 
 (use-package ob-elixir
-  :ensure t
-  )
+  :ensure t)
 
 
 (provide 'init-my-prog-lang-elixir)

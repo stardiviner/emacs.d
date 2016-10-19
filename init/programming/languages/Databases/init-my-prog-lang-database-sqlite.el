@@ -6,14 +6,14 @@
 
 ;;; [ sqlite.el ] -- use sqlite via elisp
 
-;;; Usage:
-;;
-;; - http://www.emacswiki.org/emacs/SQLite-el
-
-;; (require 'sqlite)
+;; (use-package sqlite
+;;   :ensure t)
 
 
 ;;; [ esqlite ] -- sqlite file manipulate utilities from Emacs.
+
+;; (use-package esqlite
+;;   :ensure t)
 
 
 (provide 'init-my-prog-lang-database-sqlite)

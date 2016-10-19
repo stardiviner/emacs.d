@@ -29,9 +29,7 @@
 (setq-default abbrev-mode t)            ; turn on abbrev mode globally.
 
 
-;;; [ dabbrev ]
-;; Usage:
-;; - [M-/] -- dabbrev-expand
+;;; [ dabbrev ] -- [M-/]
 
 (require 'dabbrev)
 

@@ -92,7 +92,9 @@
 
 ;;; [ synonymous ] -- a thesaurus client that replace with synonym or antonym.
 
-;; (use-package synonymous)
+;; (use-package synonymous
+;;   :ensure t
+;;   )
 
 
 ;;; [ Goldendict ]
@@ -118,9 +120,6 @@
 
 (use-package google-translate
   :ensure t
-  :init
-  ;; (require 'google-translate)
-  ;; (require 'google-translate-default-ui)
   :config
   (setq google-translate-enable-ido-completion nil
         google-translate-show-phonetic t

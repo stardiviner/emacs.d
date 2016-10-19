@@ -19,6 +19,23 @@
 (use-package org-plus-contrib
   :ensure t)
 
+;;; [ Org Modules ]
+;; Modules that should always be loaded together with org.el.
+(setq org-modules
+      '(org-pcomplete
+        org-faces
+        ;; org-fstree
+        org-table org-compat
+        ;; org-protocol
+        org-timer org-clock org-habit org-notify
+        org-info org-bibtex org-docview
+        org-plot
+        org-bbdb
+        org-irc ; org-gnus org-mhe org-rmail
+        ;; org-w3m
+        ))
+
+
 (require 'init-my-org-functions)
 (require 'init-my-org-document-structure)
 (require 'init-my-org-complete)
@@ -35,20 +52,17 @@
 (require 'init-my-org-image)
 (require 'init-my-org-export)
 (require 'init-my-org-babel)
-(require 'init-my-org-misc)
 (require 'init-my-org-keybindings)
 (require 'init-my-org-view)
 (require 'init-my-org-face)
-(require 'init-my-org-enhance)
 (require 'init-my-org-hacking)
 (require 'init-my-org-search)
-
 (require 'init-my-org-extensions)
+(require 'init-my-org-attach)
 (require 'init-my-org-presentation)
 (require 'init-my-org-trello)
+(require 'init-my-org-contacts)
 (require 'init-my-org-password)
-
-;; (require 'init-my-org-obsolete)
 
 
 (provide 'init-my-org-mode)

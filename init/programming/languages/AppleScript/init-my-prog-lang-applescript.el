@@ -10,17 +10,20 @@
 ;;; [ applescript-mode ]
 
 (use-package applescript-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ apples-mode ]
 
 (use-package apples-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ ob-applescript ]
 
 (use-package ob-applescript
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; ----------------------------------------------------------------------------
 

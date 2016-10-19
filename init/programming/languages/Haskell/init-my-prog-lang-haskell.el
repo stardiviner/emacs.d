@@ -11,6 +11,10 @@
 
 (use-package haskell-mode
   :ensure t
+  :defer t
+  :init
+  (define-key my-prog-inferior-map (kbd "h") 'haskell-interactive-switch)
+
   :config
   (setq haskell-font-lock-symbols t
         haskell-stylish-on-save nil
@@ -52,11 +56,11 @@
     (aggressive-indent-mode -1)
     ;; doc
     (haskell-doc-mode 1)
+
+    (flycheck-mode -1)
     )
   
   (add-hook 'haskell-mode-hook #'my-haskell-mode-basic-settings)
-
-  (define-key my-prog-inferior-map (kbd "h") 'haskell-interactive-switch)
 
   (define-key haskell-mode-map (kbd "C-c C-s") 'haskell-interactive-bring)
   (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
@@ -71,6 +75,10 @@
   ;; To use GHCi first and then if that fails to fallback to tags for jumping
   (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def-or-tag)
 
+  (define-key haskell-mode-map [f8] 'haskell-navigate-imports)
+
+  (define-key haskell-mode-map (kbd "<f6>") 'haskell-compile)
+  
   ;; [ module ]
   ;; (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
 
@@ -89,9 +97,10 @@
     (interactive)
     (unless (get-buffer "*haskell*")
       (haskell-interactive-bring)
+      (switch-to-buffer "*haskell*")
       (bury-buffer)))
 
-  (add-hook 'haskell-mode-hook 'my-haskell-interactive-start)
+  ;; (add-hook 'haskell-mode-hook 'my-haskell-interactive-start)
   )
 
 
@@ -99,29 +108,33 @@
 
 (use-package hindent
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'haskell-mode-hook #'hindent-mode)
   )
 
 
 ;;; [ flycheck-haskell ]
 
-(use-package flycheck-haskell
-  :ensure t
-  :config
-  (with-eval-after-load 'flycheck
-    (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
-  )
+;; (use-package flycheck-haskell
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (with-eval-after-load 'flycheck
+;;     (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
+;;   )
 
 
 ;;; [ ghc ]
 
 (use-package ghc
   :ensure t
-  :config
+  :defer t
+  :init
   ;; (setq ghc-debug t)
   (add-hook 'haskell-mode-hook #'ghc-init)
 
+  :config
   ;; if you wish to display error each goto next/prev error,
   (setq ghc-display-error 'minibuffer)
   )
@@ -129,66 +142,86 @@
 
 ;;; [ company-ghc ] -- company-mode back-end for haskell-mode via ghc-mod.
 
-(use-package company-ghc
-  :ensure t
-  :config
-  (setq company-ghc-show-info t
-        company-ghc-show-module t
-        )
-  )
+;; (use-package company-ghc
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (add-hook 'haskell-mode-hook
+;;             (lambda ()
+;;               (my-company-add-backend-locally 'company-ghc)))
+;;
+;;   :config
+;;   (setq company-ghc-show-info t
+;;         company-ghc-show-module t
+;;         )
+;;   )
 
 
 ;;; [ company-ghci ] -- company backend which uses the current ghci process.
 
-(use-package company-ghci
-  :ensure t)
+;; (use-package company-ghci
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (add-hook 'haskell-mode-hook
+;;             (lambda ()
+;;               (my-company-add-backend-locally 'company-ghci)
+;;               )))
 
 
 ;;; [ company-cabal ] -- company-mode back-end for haskell-cabal-mode.
 
 ;; (use-package company-cabal
 ;;   :ensure t
-;;   )
+;;   :defer t)
 
 
 
-(defun my-haskell-company-backends-setup ()
-  "Setup `company-backends' for Haskell related modes."
-  (interactive)
-  (add-to-list (make-local-variable 'company-backends)
-               '(company-ghc
-                 :with
-                 company-yasnippet
-                 company-ghci
-                 ;; company-cabal
-                 ))
-  )
-
-(dolist (hook '(haskell-mode-hook
-                haskell-interactive-mode-hook
-                interactive-haskell-mode-hook
-                ;; inferior-haskell-mode-hook (deprecated)
-                ))
-  (add-hook hook #'my-haskell-company-backends-setup))
+;; (defun my-haskell-company-backends-setup ()
+;;   "Setup `company-backends' for Haskell related modes."
+;;   (interactive)
+;;   (add-to-list (make-local-variable 'company-backends)
+;;                '(company-ghc
+;;                  :with
+;;                  company-yasnippet
+;;                  company-ghci
+;;                  ;; company-cabal
+;;                  ))
+;;   )
+;;
+;; (dolist (hook '(haskell-mode-hook
+;;                 haskell-interactive-mode-hook
+;;                 interactive-haskell-mode-hook
+;;                 ;; inferior-haskell-mode-hook (deprecated)
+;;                 ))
+;;   (add-hook hook #'my-haskell-company-backends-setup))
 
 
 ;;; [ intero ] -- Complete interactive development program for Haskell.
 
-(use-package intero
+;; (use-package intero
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (add-hook 'haskell-mode-hook 'intero-mode)
+;;   )
+
 
 ;;; [ scion ] -- IDE library for Haskell based on the GHC API.
 
 (use-package scion
   :ensure t
-  :config
-  ;; (setq scion-program "~/.cabal/bin/scion-server")
-  ;; (setq scion-completing-read-function 'ido-completing-read)
-  
+  :defer t
+  :init
   (add-hook 'haskell-mode-hook
             (lambda ()
               (scion-mode 1)
               (scion-flycheck-on-save 1)))
-  
+
+  :config
+  ;; (setq scion-program "~/.cabal/bin/scion-server")
+  ;; (setq scion-completing-read-function 'ido-completing-read)
+
   (add-hook 'scion-connected-hook
             (lambda ()
               (notifications-notify :title "Haskell Scion connected"
@@ -199,7 +232,8 @@
 ;;; [ ebal ] -- Emacs interface to Cabal and Stack.
 
 (use-package ebal
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-my-prog-lang-haskell)

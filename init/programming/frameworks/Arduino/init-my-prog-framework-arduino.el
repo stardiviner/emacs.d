@@ -9,20 +9,22 @@
 
 ;;; [ arduino-mode ]
 
-;; (use-package arduino-mode
-;;   :ensure t
-;;   :config
-;;   (setq arduino-font-lock-extra-types t)
-;;   )
+(use-package arduino-mode
+  :ensure t
+  :defer t
+  :config
+  (setq arduino-font-lock-extra-types t)
+  )
 
 
 ;;; [ company-arduino ]
 
 (use-package company-arduino
   :ensure t
+  :defer t
   :init
   (setenv "ARDUINO_HOME" "/usr/share/arduino")
-  :config
+
   (add-hook 'arduino-mode-hook
             (lambda ()
               (irony-mode 1)
@@ -30,7 +32,8 @@
               ;; (add-to-list 'company-backends 'company-irony)
               ;; (add-to-list 'company-backends 'company-c-headers)
               ))
-  
+
+  :config
   ;; (defun my-company-c-headers-get-system-path ()
   ;;   "Return the system include path for the current buffer."
   ;;   (let ((default '("/usr/include/" "/usr/local/include/")))

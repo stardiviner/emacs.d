@@ -64,7 +64,8 @@
 
 (use-package eldoc-eval
   :ensure t
-  :config
+  :defer t
+  :init
   (eldoc-in-minibuffer-mode 1)
   )
 
@@ -73,6 +74,20 @@
 
 (use-package ielm
   :ensure t
+  :defer t
+  :init
+  (unless (boundp 'my-prog-inferior-map)
+    (define-prefix-command 'my-prog-inferior-map))
+  (global-set-key (kbd "C-c i") 'my-prog-inferior-map)
+
+  (unless (boundp 'my-inferior-lisp-map)
+    (define-prefix-command 'my-inferior-lisp-map))
+  (define-key my-prog-inferior-map (kbd "l") 'my-inferior-lisp-map)
+
+  (define-key my-inferior-lisp-map (kbd "e") 'my-ielm-start-or-switch)
+  
+  (define-key my-inferior-lisp-map (kbd "k") 'my-scratch-start-or-switch)
+
   :config
   (setq ielm-dynamic-return t)
 
@@ -83,21 +98,11 @@
               (my-company-add-backend-locally 'company-elisp)
               ))
 
-  (unless (boundp 'my-prog-inferior-map)
-    (define-prefix-command 'my-prog-inferior-map))
-  (global-set-key (kbd "C-c i") 'my-prog-inferior-map)
-
-  (unless (boundp 'my-inferior-lisp-map)
-    (define-prefix-command 'my-inferior-lisp-map))
-  (define-key my-prog-inferior-map (kbd "l") 'my-inferior-lisp-map)
-
   (defun my-ielm-start-or-switch ()
     "Start IELM or switch to its buffer if it already exist."
     (interactive)
     (let ((default-directory (getenv "HOME")))
       (my-func/open-and-switch-to-buffer 'ielm "*ielm*" t)))
-
-  (define-key my-inferior-lisp-map (kbd "e") 'my-ielm-start-or-switch)
 
   (defun my-scratch-start-or-switch ()
     "Start IELM or switch to its buffer if it already exist."
@@ -105,8 +110,6 @@
     ;; (switch-to-buffer "*scratch*")
     (popwin:display-buffer "*scratch*")
     )
-
-  (define-key my-inferior-lisp-map (kbd "k") 'my-scratch-start-or-switch)
   )
 
 
@@ -154,12 +157,14 @@
 
 (use-package macrostep
   :ensure t
+  :defer t
+  :init
+  (define-key my-prog-debug-map (kbd "m") 'macrostep-expand)
+  (define-key my-prog-debug-map (kbd "e") 'macrostep-expand)
+
   :config
   (setq macrostep-expand-in-separate-buffer nil
         macrostep-expand-compiler-macros t)
-
-  (define-key my-prog-debug-map (kbd "m") 'macrostep-expand)
-  (define-key my-prog-debug-map (kbd "e") 'macrostep-expand)
 
   ;; macro expansion background highlight color
   (set-face-attribute 'macrostep-expansion-highlight-face nil
@@ -194,6 +199,7 @@
 
 (use-package elmacro
   :ensure t
+  :defer t
   :config
   (setq elmacro-concatenate-multiple-inserts t
         elmacro-objects-to-convert '(frame window buffer)
@@ -209,7 +215,8 @@
 ;;; TODO: integrate into `emr'.
 
 ;; (use-package clj-refactor
-;;   :ensure t)
+;;   :ensure t
+;;   :defer t)
 ;;
 ;; (defun my/elisp-thread-last ()
 ;;   "Turn the form at point into a `thread-last' form."
@@ -265,7 +272,8 @@
 
 (use-package elisp-refs
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'emacs-lisp-mode-hook
             (lambda ()
               (unless (boundp 'my-prog-lookup-map)
@@ -284,7 +292,8 @@
 ;;; [ suggest ] -- suggest elisp functions that give the output requested.
 
 (use-package suggest
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 ;;; [ ERT ] -- Emacs Lisp Regression Testing.

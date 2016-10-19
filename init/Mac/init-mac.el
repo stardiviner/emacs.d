@@ -10,7 +10,8 @@
 ;;; [ counsel-osx-app ]
 
 (use-package counsel-osx-app
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-mac)

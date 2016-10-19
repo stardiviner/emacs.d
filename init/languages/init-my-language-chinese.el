@@ -11,7 +11,8 @@
 
 (use-package pinyin-search
   :ensure t
-  :config
+  :defer t
+  :init
   (define-key my-search-language-prefix (kbd "c") 'pinyin-search)
   (define-key my-search-language-prefix (kbd "C") 'pinyin-search-backward)
   )

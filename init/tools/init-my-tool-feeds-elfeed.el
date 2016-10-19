@@ -11,6 +11,9 @@
 
 (use-package elfeed
   :ensure t
+  :defer t
+  :init
+  (define-key my-tools-prefix (kbd "f") 'elfeed)
   :config
   (setq elfeed-db-directory "~/.emacs.d/.elfeed")
 
@@ -57,7 +60,7 @@
           ("http://sachachua.com/blog/tag/emacs-chat/podcast" Podcast)
           ))
 
-  (define-key elfeed-search-mode-map (kbd "#") 'elfeed-search-set-filter)
+  ;; (define-key elfeed-search-mode-map (kbd "#") 'elfeed-search-set-filter)
   ;; (setq elfeed-initial-tags '(unread))
   ;; "@1-week-ago +unread", "@6-months-ago +unread"
   ;; (setq-default elfeed-search-filter "@1-week-ago +unread")
@@ -129,8 +132,6 @@
           (Linux elfeed-linux-tag)
           (Arch elfeed-arch-tag)
           (Programming elfeed-programming-tag)))
-  
-  (define-key my-tools-prefix (kbd "f") 'elfeed)
   )
 
 
