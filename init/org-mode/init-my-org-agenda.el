@@ -39,8 +39,9 @@
 
 
 ;; include `diary-file' from `calendar'
-(setq org-agenda-include-diary nil
-      diary-file "~/Org/Diary/Diary.org"
+(setq org-agenda-include-diary t
+      ;; diary-file "~/Org/Tasks/Daily.org"
+      diary-file (locate-user-emacs-file "data/diary.org" "diary.org")
       org-agenda-diary-file 'diary-file
       ;; org-agenda-insert-diary-strategy 'date-tree
       )
