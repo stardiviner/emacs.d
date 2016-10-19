@@ -62,6 +62,11 @@
 (require 'font-latex)
 ;; (setq TeX-install-font-lock)
 ;; macros
+(add-hook 'LaTeX-mode-hook
+          (lambda ()
+            (font-latex-add-keywords '(("citep" "*[[{")) 'reference)
+            (font-latex-add-keywords '(("citet" "*[[{")) 'reference)
+            ))
 ;; quotes
 ;; math
 ;; verbatim content
