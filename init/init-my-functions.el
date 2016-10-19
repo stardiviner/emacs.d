@@ -200,13 +200,13 @@ Usage:
 (defun my/json-read-value (file key)
   "Read in JSON `FILE' and get the value of symbol `KEY'."
   (cdr (assoc key
-              (json-read-file (if (file-exists-p my/account-file)
-                                  my/account-file
-                                (concat user-emacs-directory "accounts.json.gpg"))))))
+              (json-read-file
+               (if (file-exists-p my/account-file)
+                   my/account-file
+                 (concat user-emacs-directory "accounts.json.gpg"))))))
 
 ;; ask for GPG password at first, not in middle of Emacs startup progress.
-(if (daemonp) ; `emacs --daemon` can't input password.
-    (my/json-read-value my/account-file 'yagist))
+(my/json-read-value my/account-file 'yagist)
 
 
 
