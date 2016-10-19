@@ -153,6 +153,14 @@
 ;;   )
 
 
+;;; [ cinspect ] -- Use cinspect to look at the CPython source of builtins and other C objects!
+
+;; (use-package cinspect
+;;   :ensure t
+;;   :config
+;;   )
+
+
 ;;; [ IPython ]
 
 
