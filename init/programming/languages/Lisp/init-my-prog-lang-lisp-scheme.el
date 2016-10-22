@@ -30,7 +30,7 @@
     ;; (switch-to-buffer scheme-buffer)
     ))
 
-(add-hook 'scheme-mode-hook 'run-scheme-auto-create)
+;; (add-hook 'scheme-mode-hook 'run-scheme-auto-create)
 
 
 ;;; [ cmuscheme ] -- Scheme process in a buffer. Adapted from tea.el
