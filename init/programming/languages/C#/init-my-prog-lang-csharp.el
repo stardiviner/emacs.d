@@ -12,6 +12,19 @@
 (use-package csharp-mode
   :ensure t)
 
+;;; [ omnisharp ] -- C# IDE for Emacs.
+
+(use-package omnisharp
+  :ensure t
+  :defer t
+  :init
+  (add-hook 'csharp-mode-hook 'omnisharp-mode)
+  :config
+  (add-hook 'omnisharp-mode-hook
+            (lambda ()
+              (my-company-add-backend-locally 'company-omnisharp)))
+  )
+
 ;;; ----------------------------------------------------------------------------
 
 (provide 'init-my-prog-lang-csharp)
