@@ -227,6 +227,7 @@
 (require 'init-my-prog-lang-shell)
 (require 'init-my-prog-lang-C-common)
 (require 'init-my-prog-lang-C++)
+(require 'init-my-prog-lang-csharp)
 ;; (require 'init-my-prog-lang-D)
 (require 'init-my-prog-lang-go)
 ;; (require 'init-my-prog-lang-rust)
