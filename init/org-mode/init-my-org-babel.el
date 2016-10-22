@@ -710,15 +710,15 @@ This can be useful for snippets to select kernel interactively."
     "Face for Ruby blocks")
 
   (defface org-block-C
-    `((t (:background "DarkGreen")))
+    `((t (:background "#3d4451")))
     "Face for C blocks")
 
   (defface org-block-C++
-    `((t (:background "DarkGreen")))
+    `((t (:background "#3d4451")))
     "Face for C++ blocks")
 
   (defface org-block-java
-    `((t (:background "DarkOliveGreen")))
+    `((t (:background "#3d4451")))
     "Face for Java blocks")
 
   (defface org-block-js
@@ -734,7 +734,7 @@ This can be useful for snippets to select kernel interactively."
     "Face for CoffeeScript blocks")
 
   (defface org-block-haskell
-    `((t (:background "Darkorchid4")))
+    `((t (:background "#3d4451")))
     "Face for Haskell blocks")
 
   (defface org-block-ocaml
@@ -750,27 +750,27 @@ This can be useful for snippets to select kernel interactively."
     "Face for SQLite blocks")
 
   (defface org-block-R
-    `((t (:background "MidnightBlue")))
+    `((t (:background "#3d4451")))
     "Face for R blocks")
 
   (defface org-block-julia
-    `((t (:background "MidnightBlue")))
+    `((t (:background "#3d4451")))
     "Face for Julia blocks")
   
   (defface org-block-octave
-    `((t (:background "MidnightBlue")))
+    `((t (:background "#3d4451")))
     "Face for Octave blocks")
 
   (defface org-block-matlab
-    `((t (:background "MidnightBlue")))
+    `((t (:background "#3d4451")))
     "Face for Matlab blocks")
   
   (defface org-block-gnuplot
-    `((t (:background "MidnightBlue")))
+    `((t (:background "#3d4451")))
     "Face for gnuplot blocks")
 
   (defface org-block-sclang
-    `((t (:background "MidnightBlue")))
+    `((t (:background "#3d4451")))
     "Face for SuperCollider sclang blocks")
 
   (defface org-block-ditaa
