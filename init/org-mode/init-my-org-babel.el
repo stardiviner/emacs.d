@@ -473,47 +473,6 @@ This can be useful for snippets to select kernel interactively."
 
 ;;; Templates -- (org skeleton/template)
 
-;; This means that when I press < from the start of the line, a Hydra will be
-;; called instead of inserting <, otherwise < will be inserted.
-(use-package hydra
-  :ensure t
-  :init
-  (defun hot-expand (str)
-    "Expand org template."
-    (insert str)
-    (org-try-structure-completion))
-  
-  (defhydra hydra-org-template (:color red :hint nil)
-    "
-  _c_enter  _q_uote    _L_aTeX:
-  _l_atex   _e_xample  _i_ndex:
-  _a_scii   _v_erse    _I_NCLUDE:
-  _s_rc     ^ ^        _H_TML:
-  _h_tml    ^ ^        _A_SCII:
-  "
-    ("s" (hot-expand "<s"))
-    ("e" (hot-expand "<e"))
-    ("q" (hot-expand "<q"))
-    ("v" (hot-expand "<v"))
-    ("c" (hot-expand "<c"))
-    ("l" (hot-expand "<l"))
-    ("h" (hot-expand "<h"))
-    ("a" (hot-expand "<a"))
-    ("L" (hot-expand "<L"))
-    ("i" (hot-expand "<i"))
-    ("I" (hot-expand "<I"))
-    ("H" (hot-expand "<H"))
-    ("A" (hot-expand "<A"))
-    ("<" self-insert-command "ins")
-    ("o" nil "quit"))
-  
-  (define-key org-mode-map "<"
-    (lambda () (interactive)
-      (if (looking-back "^")
-          (hydra-org-template/body)
-        (self-insert-command 1))))
-  )
-
 
 ;;; [ ob-translate ] -- allows you to translate blocks of text within org-mode.
 
