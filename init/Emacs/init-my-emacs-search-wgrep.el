@@ -21,7 +21,13 @@
 ;;; [ wgrep-ag ]
 
 (use-package wgrep-ag
-  :ensure t)
+  :ensure t
+  :defer t
+  :init
+  (autoload 'wgrep-ag-setup "wgrep-ag")
+  (add-hook 'ag-mode-hook 'wgrep-ag-setup)
+  )
+
 
 (provide 'init-my-emacs-search-wgrep)
 
