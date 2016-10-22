@@ -16,39 +16,42 @@
 
 ;;; [ edts ] -- Erlang Development Tool Suite
 
-(use-package edts
-  :ensure t
-  :defer t)
+;; (use-package edts
+;;   :ensure t
+;;   :defer t)
 
 
-;;; [ distel ]
+;;; [ distel ] -- Erlang IDE (Distributed Emacs Lisp for Erlang)
 
-(add-to-list 'load-path "/usr/share/distel/elisp/")
+(use-package distel
+  :load-path "/usr/share/distel/elisp/"
+  :defer t
+  :init
+  ;; (distel-setup)
+  (add-hook 'erlang-mode-hook 'distel-erlang-mode-hook)
+  )
 
-
-;;; [ distel-completion-lib ] -- Completion library for Erlang/Distel.
+;;; [ distel-completion-lib ] -- Erlang/distel completion backend for both auto-complete and company-mode.
 
 (use-package distel-completion-lib
   :ensure t
   :defer t
-  :config
+  ;; :config
   ;; (setq distel-completion-get-doc-from-internet t)
   ;; (setq distel-completion-valid-syntax "a-zA-Z:_-")
-  )
-
-
-;;; [ company-distel ] -- Erlang/distel completion backend for company-mode.
-
-(use-package company-distel
-  :ensure t
-  :defer t
-  :init
-  (add-hook 'erlang-mode-hook
-            (lambda ()
-              (my-company-add-backend-locally 'company-distel)))
-  
   :config
-  (setq company-distel-popup-help t)
+  ;; [ company-distel ] -- Erlang/distel completion backend for company-mode.
+  (use-package company-distel
+    :ensure t
+    :defer t
+    :init
+    (add-hook 'erlang-mode-hook
+              (lambda ()
+                (my-company-add-backend-locally 'company-distel)))
+    
+    :config
+    (setq company-distel-popup-help t)
+    )
   )
 
 
