@@ -47,6 +47,11 @@
 (use-package cider
   :ensure t
   :defer t
+  :bind (:map clojure-mode-map
+              ("C-c C-s" . my-cider-clojure-repl-switch)
+              :map clojurescript-mode-map
+              ("C-c C-s" . my-cider-cljs-repl-switch)
+              )
   :init
   ;; enable `cider-mode' in `clojure-mode'.
   (add-hook 'clojure-mode-hook #'cider-mode)
@@ -237,9 +242,7 @@
 (figwheel-sidecar.repl-api/start-figwheel!)
 (figwheel-sidecar.repl-api/cljs-repl))")
         (cider-jack-in-clojurescript))))
-
-  (define-key clojure-mode-map (kbd "C-c C-s") 'my-cider-clojure-repl-switch)
-  (define-key clojurescript-mode-map (kbd "C-c C-s") 'my-cider-cljs-repl-switch)
+  
   (unless (boundp 'my-inferior-lisp-map)
     (define-prefix-command 'my-inferior-lisp-map))
   (define-key my-inferior-lisp-map (kbd "c") 'my-cider-clojure-repl-switch)
