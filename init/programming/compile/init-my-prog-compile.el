@@ -3,7 +3,7 @@
 ;;; Commentary:
 
 ;;; Code:
-
+
 ;;; [ compile ]
 
 (setq compilation-ask-about-save t ; save without asking.
@@ -46,14 +46,14 @@
 (set-face-attribute 'compilation-mode-line-run nil
                     :foreground "black")
 
-
+
 ;;; [ smart-compile ]
 
 ;; (use-package smart-compile
 ;;   :ensure t
 ;;   :defer t)
 
-
+
 ;;; [ quickrun ] -- Run command quickly.
 
 (use-package quickrun
@@ -87,7 +87,7 @@
   (quickrun-set-default "html" "browser/chrome")
   )
 
-
+
 ;;; [ multi-compile ] -- multiple targets compile
 
 ;; (use-package multi-compile
@@ -97,13 +97,13 @@
 ;;   (setq multi-compile-completion-system 'ivy-read)
 ;;   )
 
-
+
 
 (if (featurep 'quickrun)
     (global-set-key [f5] 'quickrun)
   (global-set-key [f5] 'smart-compile))
 
-
+
 (provide 'init-my-prog-compile)
 
 ;;; init-my-prog-compile.el ends here

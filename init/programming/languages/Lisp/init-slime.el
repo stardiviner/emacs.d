@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ SLIME ]
 
 (use-package slime
@@ -125,7 +125,7 @@
   (setq slime-net-coding-system 'utf-8-unix)
   )
 
-
+
 ;;; [ slime-company ] -- slime backend for Company mode.
 
 (use-package slime-company
@@ -152,7 +152,7 @@
     (add-hook hook 'my-slime-company-maybe-enable))
   )
 
-
+
 ;;; Fontify *SLIME Description* buffer for SBCL
 
 (defun slime-description-fontify ()
@@ -173,8 +173,10 @@
 (defadvice slime-show-description (after slime-description-fontify activate)
   (slime-description-fontify))
 
-
+
 ;;; Improve usability of slime-apropos: slime-apropos-minor-mode
+;; TODO: test whether slime apropos-minor has this by default?
+;; if yes, then remove this.
 
 ;; (defvar slime-apropos-anchor-regexp "^[^ ]")
 ;; (defun slime-apropos-next-anchor ()
@@ -201,7 +203,7 @@
 ;; (define-key slime-apropos-minor-mode-map "k" 'slime-apropos-prev-anchor)
 ;; (define-minor-mode slime-apropos-minor-mode "")
 
-
+
 (provide 'init-slime)
 
 ;;; init-slime.el ends here

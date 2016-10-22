@@ -4,11 +4,11 @@
 
 
 ;;; Code:
-
+
 (setq inhibit-startup-message 't)
 (setq inhibit-startup-echo-area-message "Hacking happy! stardiviner.")
 
-
+
 ;;; [ Title ]
 
 ;; (setq frame-title-format "Emacs λ %b")
@@ -20,12 +20,12 @@
              (abbreviate-file-name (buffer-file-name))
            "%b"))))
 
-
+
 ;;; [ border ]
 
 ;; (set-frame-parameter (selected-frame) 'internal-border-width 1)
 
-
+
 ;;; [ fringe ]
 
 ;; (setq fringe-indicator-alist
@@ -58,12 +58,12 @@
                     :foreground "cyan" :background "#073642"
                     )
 
-
+
 ;;; [ echo area ]
 
 (setq-default echo-keystrokes 0.1) ; faster echo key strokes
 
-
+
 ;;; [ Widget ]
 
 (set-face-attribute 'widget-button nil
@@ -84,7 +84,7 @@
                     :background "#333333"
                     )
 
-
+
 ;;; [ line space(spacing) / line height ]
 ;; - (info "(elisp) Line Height")
 ;; - (info "(elisp) Layout Parameters")
@@ -95,7 +95,7 @@
 ;; additional space to put between lines.
 (setq-default line-spacing nil)         ; 0.1, 1, 0, nil.
 
-
+
 ;;; [ line number ]
 
 (require 'linum)
@@ -133,7 +133,7 @@
 ;;                         (* 5000 80)))
 ;;                 (linum-mode -1))))
 
-
+
 ;;; [ nlinum ] -- show line numbers in margin.
 
 ;; (use-package nlinum
@@ -142,7 +142,7 @@
 ;;   (setq nlinum-format "%d ")
 ;;   )
 
-
+
 ;;; [ current line & column ]
 
 (set-face-attribute 'highlight nil
@@ -170,7 +170,7 @@
                     :background (face-background 'highlight)
                     )
 
-
+
 ;;; [ point & cursor ]
 
 (blink-cursor-mode 1)
@@ -191,7 +191,7 @@
 ;;               cursor-in-non-selected-windows nil)
 ;; (set-cursor-color "green")
 
-
+
 ;;; [ beacon ] -- highlight the cursor whenever the window scrolls.
 
 (use-package beacon
@@ -205,12 +205,12 @@
   (setq beacon-color "green yellow")
   )
 
-
+
 ;;; [ Selection ]
 
 (setq transient-mark-mode t)
 
-
+
 ;;; [ wrap & fill ]
 
 ;; default column length (80)
@@ -232,7 +232,7 @@
 
 (global-set-key [remap fill-paragraph] #'my/fill-or-unfill)
 
-
+
 ;;; [ fci -- Fill Column Indicator ]
 
 ;; (eval-after-load 'fill-column-indicator
@@ -241,7 +241,7 @@
 ;;   ;; (setq fci-rule-character-color "#999999")
 ;;   (setq fci-dash-pattern 1.00))
 
-
+
 ;;; [ auto-fill-mode ] -- auto fill paragraphs like hitting [M-q].
 
 ;;; global
@@ -260,12 +260,12 @@
            markdown-mode-hook))
   (add-hook hook 'turn-on-auto-fill))
 
-
+
 ;;; [ syntax highlighting ]
 
 (global-font-lock-mode t)
 
-
+
 ;;; [ page (^L) ]
 
 ;; - <C-x [/]> :: navigate.
@@ -280,27 +280,27 @@
 ;; ;;; at the start of a line, plus any number of empty lines or comment lines
 ;; that follow it (that # part is to exclude ;;;###autoload cookies).
 
-
+
 ;;; Disable GUI dialog boxes
 
 (setq use-dialog-box nil) ; use mini-buffer for everything' else..
 
-
+
 ;;; trailing whitespace
 
-
+
 ;;; Text style
 
 ;; (setq text-quoting-style nil)
 
-
+
 ;;; [ all-the-icons ] -- A utility package to collect various Icon Fonts and propertize them within Emacs.
 
 (use-package all-the-icons
   :ensure t
   :defer t)
 
-
+
 
 (provide 'init-my-emacs-appearance)
 

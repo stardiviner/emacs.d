@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Calc ]
 
 (autoload 'calc "calc :: a calculator" t)
@@ -37,7 +37,7 @@ If ARG is given, then insert the result to current-buffer"
 
 (define-key my-calculator-map (kbd "x") 'mini-calc)
 
-
+
 (provide 'init-my-tool-calculator)
 
 ;;; init-my-tool-calculator.el ends here

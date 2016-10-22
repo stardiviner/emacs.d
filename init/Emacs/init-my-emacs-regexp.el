@@ -7,13 +7,13 @@
 
 
 ;;; Code:
-
+
 
 (unless (boundp 'my-regexp-prefix)
   (define-prefix-command 'my-regexp-prefix))
 (global-set-key (kbd "C-c r") 'my-regexp-prefix)
 
-
+
 ;;; [ re-builder ] -- instant regexp builder
 
 ;;; Usage:
@@ -27,7 +27,7 @@
 
 (define-key my-regexp-prefix (kbd "b") 're-builder)
 
-
+
 ;;; [ pcre2el ] -- convert between PCRE, Emacs and rx regexp syntax.
 
 (use-package pcre2el
@@ -38,17 +38,17 @@
   (define-key my-regexp-prefix (kbd "T") 'rxt-global-mode)
   )
 
-
+
 ;;; [ rx ] -- A regular expression IDE for Emacs, to help with the creation and testing of regular expressions.
 
-
+
 ;;; [ regex-tool ]
 
 (use-package regex-tool
   :ensure t
   :defer t)
 
-
+
 ;;; [ visual-regexp ] --
 
 ;;; visual-regexp for Emacs is like `replace-regexp' (or
@@ -84,14 +84,14 @@
   :ensure t
   :defer t)
 
-
+
 ;;; [ ample-regexp ] -- Compose and reuse Emacs regular expressions with ease.
 
 (use-package ample-regexps
   :ensure t
   :defer t)
 
-
+
 ;;; Making Elisp regex look nicer
 ;;
 ;; This is just a small improvement to make e.g. \\( show up in regular
@@ -140,7 +140,7 @@
 ;;                         "\"foo|\""))
 ;;        ))
 
-
+
 (provide 'init-my-emacs-regexp)
 
 ;;; init-my-emacs-regexp.el ends here

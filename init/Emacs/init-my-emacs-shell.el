@@ -6,13 +6,13 @@
 
 
 ;;; Code:
-
+
 ;;; variables
 
 ;; "$SHELL", "/bin/sh", "/bin/bash", "usr/bin/zsh"
 ;; (setq shell-file-name (getenv "SHELL"))
 
-
+
 ;;; [ Shell ]
 
 ;; M-x shell is a nice shell interface to use, let's make it colorful. If
@@ -23,7 +23,7 @@
 
 ;; (setq shell-command-completion-mode t)
 
-
+
 ;;; [ Eshell ] (Emacs Shell)
 
 (require 'eshell)
@@ -156,7 +156,7 @@ PWD is not in a git repo (or the git command is not found)."
 
 (global-set-key (kbd "C-x !") 'my-smart-eshell)
 
-
+
 ;;; Eshell smart display
 
 (require 'em-smart)
@@ -165,7 +165,7 @@ PWD is not in a git repo (or the git command is not found)."
       eshell-review-quick-commands nil
       eshell-smart-space-goes-to-end t)
 
-
+
 ;; count how much time the command used.
 
 ;; (add-hook 'eshell-load-hook
@@ -177,7 +177,7 @@ PWD is not in a git repo (or the git command is not found)."
 ;;             (message "spend %g seconds"
 ;;                      (- (time-to-seconds) last-command-start-time))))
 
-
+
 
 (provide 'init-my-emacs-shell)
 

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 (unless (boundp 'my-search-prefix)
   (define-prefix-command 'my-search-prefix))
 (global-set-key (kbd "C-c s") 'my-search-prefix)
@@ -25,7 +25,7 @@
 (define-key my-search-prefix (kbd "s") 'ag)
 
 
-
+
 (provide 'init-my-emacs-search)
 
 ;;; init-my-emacs-search.el ends here

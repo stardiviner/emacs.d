@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ julia-mode ]
 
 (use-package julia-mode
@@ -16,7 +16,7 @@
   (setq julia-indent-offset 2)
   )
 
-
+
 ;;; [ ESS - Julia ]
 
 (use-package ess
@@ -54,7 +54,7 @@
     )
   )
 
-
+
 (provide 'init-my-prog-lang-julia)
 
 ;;; init-my-prog-lang-julia.el ends here

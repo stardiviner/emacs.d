@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 
 
 (if *is-mac*
@@ -28,7 +28,7 @@
   )
 
 
-
+
 (provide 'init-my-emacs-mac)
 
 ;;; init-my-emacs-mac.el ends here

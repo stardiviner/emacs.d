@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Macro ]
 
 ;;; Usage:
@@ -17,7 +17,7 @@
 ;; file to save macros:
 (load-file "~/.emacs.d/init/macros/macros")
 
-
+
 (provide 'init-my-emacs-macro)
 
 ;;; init-my-emacs-macro.el ends here

@@ -3,7 +3,7 @@
 ;;; Commentary:
 
 ;;; Code:
-
+
 ;;; [ tooltip ]
 
 ;; (setq-default tooltip-delay 0.3         ; default 0.7
@@ -23,7 +23,7 @@
 
 (tooltip-mode t)
 
-
+
 ;;; [ popup ]
 
 ;; Features:
@@ -50,7 +50,7 @@
   (define-key popup-menu-keymap (kbd "M-j") 'popup-select)
   )
 
-
+
 ;;; [ pos-tip ]
 
 (use-package pos-tip
@@ -64,12 +64,12 @@
         )
   )
 
-
+
 ;;; [ popup-pos-tip ]
 
 ;; (use-package popup-pos-tip)
 
-
+
 ;;; [ showtip ]
 
 (use-package showtip
@@ -83,7 +83,7 @@
                       :inherit 'tooltip)
   )
 
-
+
 (provide 'init-my-emacs-popup)
 
 ;;; init-my-emacs-popup.el ends here

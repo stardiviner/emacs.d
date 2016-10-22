@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 
 ;;; Date
 ;; Date: Saturday   27 July 2013
@@ -449,7 +449,7 @@ Will work on both `org-mode' and any mode that accepts plain html."
 (define-key org-mode-map (kbd "C-c K") 'my/insert-kbd)
 (define-key org-mode-map (kbd "C-c k") 'my/org-insert-key)
 
-
+
 (provide 'init-my-org-face)
 
 ;;; init-my-org-face.el ends here

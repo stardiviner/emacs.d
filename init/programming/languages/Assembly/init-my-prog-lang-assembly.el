@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ asm-mode ]
 
 (use-package asm-mode
@@ -22,17 +22,17 @@
   (add-hook 'asm-mode-hook #'my-asm-mode-settings)
   )
 
-
+
 ;;; [ nasm-mode ] -- NASM x86 assembly major mode.
 
 (use-package nasm-mode
   :ensure t
   :defer t)
 
-
+
 ;;; [ fasm-mode ]
 
-
+
 ;;; [ iasm-mode ] -- interactive assembly major mode.
 
 (use-package iasm-mode
@@ -45,10 +45,10 @@
   (define-key iasm-mode-map (kbd "C-c l") 'iasm-disasm-link-buffer)
   )
 
-
+
 ;;; [ gas-mode ]
 
-
+
 ;;; [ haxor-mode ] -- Major mode for editing Haxor Assembly Files.
 
 (use-package haxor-mode
@@ -57,7 +57,7 @@
   :mode ("\\.hax\\'" . haxor-mode)
   )
 
-
+
 ;;; [ mips-mode ] -- An Emacs major mode for MIPS assembly code.
 
 (use-package mips-mode
@@ -66,14 +66,14 @@
   :mode "\\.mips$"
   )
 
-
+
 ;;; [ llvm-mode ] -- Major mode for the LLVM assembler language.
 
 (use-package llvm-mode
   :ensure t
   :defer t)
 
-
+
 ;;; [ x86-lookup ] -- jump to x86 instruction documentation.
 
 (use-package x86-lookup
@@ -89,7 +89,7 @@
   (setq x86-lookup-browse-pdf-function 'x86-lookup-browse-pdf-okular)
   )
 
-
+
 ;;; [ inferior-spim ] -- An emacs inferior mode for spim.
 
 (use-package inferior-spim
@@ -104,7 +104,7 @@
   (define-key asm-mode-map (kbd "C-c r") 'inferior-spim-send-run)
   )
 
-
+
 (provide 'init-my-prog-lang-assembly)
 
 ;;; init-my-prog-lang-assembly.el ends here

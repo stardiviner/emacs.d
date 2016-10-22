@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Tab ]
 
 ;;; spaces instead of tabs
@@ -23,7 +23,7 @@
 
 ;; (define-key text-mode-map (kbd "<tab>") 'indent-relative) ; 'indent-relative, 'tab-to-tab-stop,
 
-
+
 (provide 'init-my-emacs-indent)
 
 ;;; init-my-emacs-indent.el ends here

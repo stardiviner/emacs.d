@@ -5,7 +5,7 @@
 
 
 ;;; Code:
-
+
 
 (unless (boundp 'my-inferior-db-map)
   (define-prefix-command 'my-inferior-db-map))
@@ -19,7 +19,7 @@
   (define-prefix-command 'my-inferior-db-nosql-map))
 (define-key my-inferior-db-map (kbd "n") 'my-inferior-db-nosql-map)
 
-
+
 ;; SQL
 (require 'init-my-prog-lang-database-sql)
 (require 'init-my-prog-lang-database-sqlite)
@@ -37,7 +37,7 @@
 ;;; GraphQL
 (require 'init-my-prog-lang-database-graphql)
 
-
+
 (provide 'init-my-prog-lang-database)
 
 ;;; init-my-prog-lang-database.el ends here

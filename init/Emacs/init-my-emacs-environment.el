@@ -3,14 +3,14 @@
 ;;; Commentary:
 
 ;;; Code:
-
+
 ;;; [ User Information ]
 
 (setq user-full-name "stardiviner")
 (setq user-mail-address "numbchild@gmail.com")
 ;; (setq user-login-name "stardiviner")
 
-
+
 ;;; $PATH
 ;;; way 1:
 ;;     (setq exec-path (append exex-path '("~/bin")))
@@ -20,10 +20,10 @@
 ;;   (setenv "PATH" (concat "/usr/local/bin:" (getenv "PATH"))))
 ;; (add-hook 'eshell-mode-hook 'eshell-mode-hook-func)
 
-
+
 ;;; Systems
 
-
+
 ;; format (Unix, DOS) & encoding
 
 ;; [C-h v current-language-environment]
@@ -43,12 +43,12 @@
 ;; (setq-default buffer-file-coding-system 'utf-8-unix)
 ;; (setq-default default-buffer-file-coding-system 'utf-8-unix)
 
-
+
 ;;; time
 
 (setq system-time-locale "C") ; make timestamps in org-mode appear in English.
 
-
+
 ;;; Proxy
 
 ;; (setq url-proxy-services
@@ -84,7 +84,7 @@
     )
   )
 
-
+
 (provide 'init-my-emacs-environment)
 
 ;;; init-my-emacs-environment.el ends here

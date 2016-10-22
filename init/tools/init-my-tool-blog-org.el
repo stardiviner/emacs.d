@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ org-page ]
 
 (use-package org-page
@@ -27,7 +27,35 @@
         ;; op/personal-duoshuo-shortname ""
         ;; [ google analytics ]
         op/personal-google-analytics-id "63992234"
+        op/category-ignore-list '("themes" "assets" "blog")
         )
+
+  (setq op/category-config-alist
+        '(("blog" ; this is the default configuration
+           :label "Blog"
+           :show-meta t
+           :show-comment t
+           :uri-generator op/generate-uri
+           :uri-template "/blog/%y/%m/%d/%t/"
+           :sort-by :date ; how to sort posts
+           :category-index t ; generate category index or not
+           )
+          ("index"
+           :show-meta nil
+           :show-comment nil
+           :uri-generator op/generate-uri
+           :uri-template "/"
+           :sort-by :date
+           :category-index nil
+           )
+          ("about"
+           :show-meta nil
+           :show-comment nil
+           :uri-generator op/generate-uri
+           :uri-template "/about/"
+           :sort-by :date
+           :category-index nil)
+          ))
 
   (define-key blog-map (kbd "n") 'op/new-post)
   (define-key blog-map (kbd "p") 'op/do-publication)
@@ -36,7 +64,7 @@
 
 
 
-
+
 (provide 'init-my-tool-blog-org)
 
 ;;; init-my-tool-blog-org.el ends here

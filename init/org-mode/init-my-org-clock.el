@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Timer ]
 
 ;;; Usage:
@@ -37,7 +37,7 @@
 (define-key my-org-timer-prefix (kbd "-") 'org-timer-item)
 (define-key my-org-timer-prefix (kbd "'") 'org-timer-show-remaining-time)
 
-
+
 ;;; [ Clock ]
 
 (with-eval-after-load 'org
@@ -108,7 +108,7 @@
              (concat user-emacs-directory
                      "resources/audio/Hacking Game/hesfx_untold_tick2.wav"))))
 
-
+
 (provide 'init-my-org-clock)
 
 ;;; init-my-org-clock.el ends here

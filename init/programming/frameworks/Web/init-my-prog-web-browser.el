@@ -6,13 +6,13 @@
 
 
 ;;; Code:
-
+
 ;;; [ dom ]
 
-
+
 ;;; [ kite ] -- Emacs front end for the WebKit Inspector.
 
-
+
 ;;; [ kite-mini ] -- Yet another Emacs package to interact with WebKit remote debugging API.
 
 (use-package kite-mini
@@ -24,7 +24,7 @@
   (add-hook 'css-mode-hook (lambda () (kite-mini-mode t)))
   )
 
-
+
 (provide 'init-my-prog-web-browser)
 
 ;;; init-my-prog-web-browser.el ends here

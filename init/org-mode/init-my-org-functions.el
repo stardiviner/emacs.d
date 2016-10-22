@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; auto replace ’ with '
 
 (defun my/org-mode-buffer-replace-curve-quote-with-straight ()
@@ -25,7 +25,7 @@
 ;; (add-hook 'after-save-hook 'my/org-mode-buffer-replace-curve-quote-with-straight)
 
 
-
+
 (provide 'init-my-org-functions)
 
 ;;; init-my-org-functions.el ends here

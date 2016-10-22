@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ ivy ]
 
 (use-package ivy
@@ -101,7 +101,7 @@
   (ivy-mode 1)
   )
 
-
+
 ;;; [ swiper ]
 
 (use-package swiper
@@ -112,7 +112,7 @@
   (global-set-key (kbd "C-c u") 'swiper-all)
   )
 
-
+
 ;;; [ counsel ]
 
 (use-package counsel
@@ -156,7 +156,7 @@
   (global-set-key (kbd "C-c #") 'counsel-linux-app)
   )
 
-
+
 ;;; [ counsel-projectile ] -- Ivy integration for Projectile.
 
 ;;; Usage:
@@ -172,7 +172,7 @@
 ;;   (define-key projectile-command-map (kbd "p") 'counsel-projectile)
 ;;   )
 
-
+
 (provide 'init-ivy)
 
 ;;; init-ivy.el ends here

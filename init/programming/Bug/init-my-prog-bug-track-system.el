@@ -6,13 +6,13 @@
 
 
 ;;; Code:
-
+
 
 (unless (boundp 'my-prog-bug-bts-map)
   (define-prefix-command 'my-prog-bug-bts-map))
 (global-set-key (kbd "C-c b") 'my-prog-bug-bts-map)
 
-
+
 ;;; [ bts ] -- bug track system
 
 (use-package pophint
@@ -94,7 +94,7 @@
   ;;                     )
   )
 
-
+
 ;; [ bts-github ] -- bts for GitHub
 
 (use-package bts-github
@@ -118,7 +118,7 @@
                       )
   )
 
-
+
 (provide 'init-my-prog-bug-track-system)
 
 ;;; init-my-prog-bug-track-system.el ends here

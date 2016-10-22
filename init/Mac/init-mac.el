@@ -6,14 +6,14 @@
 
 
 ;;; Code:
-
+
 ;;; [ counsel-osx-app ]
 
 (use-package counsel-osx-app
   :ensure t
   :defer t)
 
-
+
 (provide 'init-mac)
 
 ;;; init-mac.el ends here

@@ -5,7 +5,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Emacspeak ]
 
 ;; http://www.emacswiki.org/emacs/EmacSpeak
@@ -16,7 +16,7 @@
 
 ;; (load "~/compile/Emacs/emacspeak/lisp/emacspeak-setup.el")
 
-
+
 ;;; [ Festival ]
 
 ;; (require 'festival)
@@ -31,7 +31,7 @@
 ;;                               ("us-male" . festival-voice-US-male))
 ;;       )
 
-
+
 ;;; festival extension
 
 (require 'thingatpt)
@@ -59,7 +59,7 @@
 (define-key speak-map (kbd "f") 'festival-read-file)
 (define-key speak-map (kbd "i") 'festival-say)
 
-
+
 ;;; [ say-what-im-doing ] -- dictate what you're doing with text to speech.
 
 (use-package say-what-im-doing
@@ -81,7 +81,7 @@
   (add-to-list 'say-what-im-doing-common-commands 'move-end-of-line)
   )
 
-
+
 ;;; [ eloud ] -- A lightweight, interactive screen reader.
 
 (use-package eloud
@@ -97,7 +97,7 @@
                             "/usr/local/bin/espeak")))
   )
 
-
+
 ;;; [ read-aloud ] -- A simple Emacs interface to TTS (text-to-speech) engines.
 
 (use-package read-aloud
@@ -109,7 +109,7 @@
   (setq read-aloud-engine "speech-dispatcher")
   )
 
-
+
 (provide 'init-my-tool-speak)
 
 ;;; init-my-tool-speak.el ends here

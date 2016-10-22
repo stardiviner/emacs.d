@@ -3,13 +3,13 @@
 ;;; Commentary:
 
 ;;; Code:
-
+
 
 (unless (boundp 'my-prog-vcs-git-map)
   (define-prefix-command 'my-prog-vcs-git-map))
 (define-key 'my-prog-vcs-map (kbd "g") 'my-prog-vcs-git-map)
 
-
+
 ;; [ git-modes ] -- front end wrapper for vc-git.
 
 (use-package gitconfig-mode
@@ -27,7 +27,7 @@
              '("\\.gitignore\\'" . gitignore-mode)
              )
 
-
+
 ;;; [ Magit ]
 
 (use-package magit
@@ -133,7 +133,7 @@
                            'company-ispell)))
   )
 
-
+
 ;;; [ with-editor ]
 
 (use-package with-editor
@@ -153,7 +153,7 @@
   ;; (add-hook 'shell-mode-hook 'with-editor-export-git-editor)
   )
 
-
+
 ;;; [ magit-find-file ]
 
 ;; (use-package magit-find-file
@@ -163,7 +163,7 @@
 ;;   (global-set-key (kbd "M-t") 'magit-find-file)
 ;;   )
 
-
+
 ;;; [ magit-gitflow ] -- Git Flow plugin for magit
 
 (use-package magit-gitflow
@@ -172,7 +172,7 @@
   :init
   (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
 
-
+
 ;;; [ git-messenger ] -- popup commit message at current line.
 
 (use-package git-messenger
@@ -193,14 +193,14 @@
   (add-hook 'git-messenger:popup-buffer-hook 'magit-commit-mode)
   )
 
-
+
 ;;; [ magit-p4 ] -- Magit plugin integrating git-p4 add-on.
 
 (use-package magit-p4
   :ensure t
   :defer t)
 
-
+
 
 (provide 'init-my-prog-vcs-git)
 

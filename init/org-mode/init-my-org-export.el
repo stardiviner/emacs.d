@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 
 (setq org-export-backends '(ascii html icalendar latex md)
       org-export-headline-levels 5
@@ -108,19 +108,19 @@
       ;; org-html-todo-kwd-class-prefix ""
       )
 
-
+
 ;;; [ ox-pandoc ] -- another org-mode exporter via pandoc.
 
 (use-package ox-pandoc
   :ensure t)
 
-
+
 ;;; export to LaTeX
 
 ;; syntax highlight in LaTeX output (Minted)
 (require 'ox-latex)
 
-
+
 ;;; convert selected region to Markdown and copy to clipboard for pasting
 ;;; on sites like GitHub, and Stack Overflow.
 
@@ -147,7 +147,7 @@ For pasting on sites like GitHub, and Stack Overflow."
                     (buffer-substring (region-beginning) (region-end)) 'md t))
   (deactivate-mark))
 
-
+
 ;;; email org-mode region/buffer
 
 ;; send email with org-mode region as message.
@@ -185,7 +185,7 @@ For pasting on sites like GitHub, and Stack Overflow."
 ;; FIXME: wrong number of arguments, 1.
 ;; (add-hook 'org-export-before-processing-hook 'org-export-settings-for-email)
 
-
+
 ;; ;;; [ ox-publish ]
 ;;
 ;; (require 'ox-publish)
@@ -339,22 +339,22 @@ For pasting on sites like GitHub, and Stack Overflow."
 ;;   (magit-push-current-to-upstream)
 ;;   )
 
-
+
 ;;; [ RSS ]
 
 (require 'ox-rss)
 
-
+
 ;;; [ Beamer ]
 
 (require 'ox-beamer)
 
-
+
 ;;; [ Mindmap ]
 
 (require 'ox-freemind)
 
-
+
 ;;; copy formatted text from org-mode to applications.
 
 (defun my-org-formatted-copy ()
@@ -370,14 +370,14 @@ For pasting on sites like GitHub, and Stack Overflow."
          "textutil -stdin -format html -convert rtf -stdout | pbcopy"))
       (kill-buffer buf))))
 
-
+
 ;;; [ org-preview-html ] -- automatically use eww to preview the current org file on save.
 
 ;; (use-package org-preview-html
 ;;   :ensure t
 ;;   :defer t)
 
-
+
 (provide 'init-my-org-export)
 
 ;;; init-my-org-export.el ends here

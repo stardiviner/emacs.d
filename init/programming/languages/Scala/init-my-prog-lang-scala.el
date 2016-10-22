@@ -6,14 +6,14 @@
 
 
 ;;; Code:
-
+
 ;;; [ scala-mode ]
 
 (use-package scala-mode
   :ensure t
   :defer t)
 
-
+
 ;;; [ sbt-mode ]
 
 (use-package sbt-mode
@@ -24,7 +24,7 @@
   (define-key scala-mode-map (kbd "C-c C-s") 'run-scala)
   )
 
-
+
 ;;; [ Ensime ]
 
 (use-package ensime
@@ -39,7 +39,7 @@
         ensime-auto-generate-config t)
   )
 
-
+
 (provide 'init-my-prog-lang-scala)
 
 ;;; init-my-prog-lang-scala.el ends here

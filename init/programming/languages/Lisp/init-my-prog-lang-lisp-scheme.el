@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Scheme Mode ]
 
 (require 'scheme)
@@ -32,13 +32,13 @@
 
 (add-hook 'scheme-mode-hook 'run-scheme-auto-create)
 
-
+
 ;;; [ cmuscheme ] -- Scheme process in a buffer. Adapted from tea.el
 
 ;; (use-package cmuscheme
 ;;   :ensure t)
 
-
+
 ;;; [ geiser ] -- Scheme completion.
 
 (use-package geiser
@@ -75,14 +75,14 @@
               ))
   )
 
-
+
 ;;; [ quack ] -- enhanced Emacs Support for Editing and Running Scheme Code
 
 ;; (use-package quack
 ;;   :ensure t)
 
 
-
+
 (provide 'init-my-prog-lang-lisp-scheme)
 
 ;;; init-my-prog-lang-lisp-scheme.el ends here

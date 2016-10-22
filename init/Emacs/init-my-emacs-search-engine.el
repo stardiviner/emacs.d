@@ -6,13 +6,13 @@
 
 
 ;;; Code:
-
+
 ;;; [ engine-mode ] -- minor-mode for defining and querying search engines.
 
 (use-package engine-mode
   :ensure t
   :config
-    ;; enable `engine-mode' minor-mode for making keybindings.
+  ;; enable `engine-mode' minor-mode for making keybindings.
   (engine-mode t)
   (setq engine/keybinding-prefix "C-x /")
   ;; (setq engine/browser-function)
@@ -169,7 +169,7 @@
     :docstring "Facebook")
   )
 
-
+
 (provide 'init-my-emacs-search-engine)
 
 ;;; init-my-emacs-search-engine.el ends here

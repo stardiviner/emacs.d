@@ -6,13 +6,13 @@
 
 
 ;;; Code:
-
+
 
 (unless (boundp 'my-prog-vcs-diff-prefix)
   (define-prefix-command 'my-prog-vcs-diff-prefix))
 (define-key my-prog-vcs-map (kbd "d") 'my-prog-vcs-diff-prefix)
 
-
+
 ;;; [ ediff ]
 
 ;;; Usage:
@@ -58,7 +58,7 @@
 ;; (add-hook 'ediff-before-setup-windows-hook #'winner-mode)
 (add-hook 'ediff-after-quit-hook-internal 'winner-undo)
 
-
+
 ;;; [ diff ]
 
 (set-face-attribute 'diff-file-header nil
@@ -94,7 +94,7 @@
                     :weight 'bold
                     )
 
-
+
 ;;; [ diffview ] -- render a unified diff to side-by-side format.
 
 ;;; Usage:
@@ -112,7 +112,7 @@
   (define-key my-prog-vcs-diff-prefix (kbd "m") 'diffview-message)
   )
 
-
+
 ;;; [ smerge-mode ] -- simplify editing output from the diff3 program.
 
 (use-package smerge-mode
@@ -145,7 +145,7 @@
   (add-hook 'after-revert-hook 'smerge-try-smerge t)
   )
 
-
+
 (provide 'init-my-prog-vcs-diff)
 
 ;;; init-my-prog-vcs-diff.el ends here

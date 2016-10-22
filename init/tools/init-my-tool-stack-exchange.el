@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ SX ] -- Stack Exchange
 
 (use-package sx
@@ -79,7 +79,7 @@
                       )
   )
 
-
+
 (provide 'init-my-tool-stack-exchange)
 
 ;;; init-my-tool-stack-exchange.el ends here

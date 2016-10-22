@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ elfeed ] -- An Emacs web feeds client
 
 (use-package elfeed
@@ -134,7 +134,7 @@
           (Programming elfeed-programming-tag)))
   )
 
-
+
 (provide 'init-my-tool-feeds-elfeed)
 
 ;;; init-my-tool-feeds-elfeed.el ends here

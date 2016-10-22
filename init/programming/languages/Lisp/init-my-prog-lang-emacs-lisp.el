@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Emacs Lisp some setups ]
 
 (setq print-quoted t
@@ -50,7 +50,7 @@
 
 (add-to-list 'auto-mode-alist '("Cask\\'" . emacs-lisp-mode))
 
-
+
 ;; Emacs Lisp highlights
 
 ;; `let-alist' . symbols
@@ -59,7 +59,7 @@
 ;;  '(("\\_<\\.\\(?:\\sw\\|\\s_\\)+\\_>" 0
 ;;     font-lock-builtin-face)))
 
-
+
 ;;; eldoc-eval --- Enable eldoc support when minibuffer is in use.
 
 (use-package eldoc-eval
@@ -69,7 +69,7 @@
   (eldoc-in-minibuffer-mode 1)
   )
 
-
+
 ;;; [ IELM (ELISP interactive) ] -- an REPL for emacs. (Read-Eval-Print-Loop)
 
 (use-package ielm
@@ -112,7 +112,7 @@
     )
   )
 
-
+
 ;;; eval-result-overlays in Emacs-Lisp.
 
 ;; Assuming you already have `CIDER' installed, porting this feature to Elisp is
@@ -146,7 +146,7 @@
                  (end-of-defun)
                  (point)))))
 
-
+
 ;;; [ macrostep ] -- interactive macro-expander for Emacs.
 
 ;;; Usage:
@@ -194,7 +194,7 @@
                       :foreground "#da70d6" :box t :bold t)
   )
 
-
+
 ;;; [ elmacro ] -- display keyboard macros or latest interactive commands as emacs lisp.
 
 (use-package elmacro
@@ -209,7 +209,7 @@
         )
   )
 
-
+
 ;;; thread and unwind code in Emacs Lisp
 
 ;;; TODO: integrate into `emr'.
@@ -267,7 +267,7 @@
 ;; (define-key emacs-lisp-mode-map (kbd "C-c t u") #'my/elisp-unwind)
 ;; (define-key emacs-lisp-mode-map (kbd "C-c t a") #'my/elisp-unwind-all)
 
-
+
 ;;; [ elisp-refs ] -- semantic code search for emacs lisp.
 
 (use-package elisp-refs
@@ -288,14 +288,14 @@
               ))
   )
 
-
+
 ;;; [ suggest ] -- suggest elisp functions that give the output requested.
 
 (use-package suggest
   :ensure t
   :defer t)
 
-
+
 ;;; [ ERT ] -- Emacs Lisp Regression Testing.
 
 ;;; Usage:
@@ -306,19 +306,19 @@
 ;; - `ert-run-tests-interactively' => alias `ert'
 ;; - `ert-describe-test'
 
-
+
 ;;; [ xtest ] -- Simple Testing with Emacs & ERT
 
-
+
 ;;; [ faceup ] -- Regression test system for font-lock
 
-
+
 ;;; [ test-simple ] -- Simple Unit Test Framework for Emacs Lisp
 
-
+
 ;;; [ buttercup ] -- Behavior-Driven Emacs Lisp Testing
 
-
+
 (provide 'init-my-prog-lang-emacs-lisp)
 
 ;;; init-my-prog-lang-emacs-lisp.el ends here

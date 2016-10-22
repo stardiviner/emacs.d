@@ -5,14 +5,14 @@
 
 
 ;;; Code:
-
+
 
 (unless (boundp 'my-music-prefix)
   (define-prefix-command 'my-music-prefix))
 
 (define-key my-tools-prefix (kbd "M") 'my-music-prefix)
 
-
+
 ;;; [ MPC ] -- Emacs built-in Music Player
 
 (use-package mpc
@@ -44,11 +44,11 @@
   (define-key mpc-mode-map (kbd "t") 'mpc-toggle-play)
   )
 
-
+
 
 ;; (require 'init-my-tool-music-emms)
 
-
+
 
 (provide 'init-my-tool-music)
 

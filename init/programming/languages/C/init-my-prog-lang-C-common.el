@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ CC-mode ]
 
 ;; cc-mode provides:
@@ -34,7 +34,7 @@
     objc-mode
     ))
 
-
+
 ;; [ C-mode ]
 
 ;; indent
@@ -49,7 +49,7 @@
                                 (awk-mode . "awk")
                                 (other . "gnu")))
 
-
+
 ;;; [ Irony-mode ] --- A C/C++ minor mode for Emacs powered by libclang.
 
 (use-package irony
@@ -78,13 +78,13 @@
   ;;             ))
   )
 
-
+
 ;;; [ company-irony-c-headers ]
 
 (use-package company-irony-c-headers
   :ensure t)
 
-
+
 ;;; [ company-irony ]
 
 (use-package company-irony
@@ -113,7 +113,7 @@
     (company-irony-add))
   )
 
-
+
 ;;; [ irony-eldoc ]
 
 (use-package irony-eldoc
@@ -124,7 +124,7 @@
     (add-hook 'irony-mode-hook #'irony-eldoc))
   )
 
-
+
 ;;; [ flycheck-irony ]
 
 (use-package flycheck-irony
@@ -135,7 +135,7 @@
     (add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
   )
 
-
+
 ;;; [ flycheck-cstyle ] --
 
 (use-package flycheck-cstyle
@@ -147,14 +147,14 @@
   ;; (flycheck-add-next-checker 'c/c++-clang '(warning . cstyle))
   )
 
-
+
 ;;; [ gccsense ]
 
 ;; (use-package gccsense
 ;;   :ensure t)
 
 
-
+
 (provide 'init-my-prog-lang-C-common)
 
 ;;; init-my-prog-lang-C-common.el ends here

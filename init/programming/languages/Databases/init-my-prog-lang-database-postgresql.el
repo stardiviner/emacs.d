@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ db-pg ] -- key-value Database on PostgreSQL.
 
 ;; (use-package db-pg
@@ -14,7 +14,7 @@
 ;;   :defer t
 ;;   )
 
-
+
 ;;; [ pg ] -- Emacs Lisp interface to the PostgreSQL RDBMS.
 
 ;; (use-package pg
@@ -22,7 +22,7 @@
 ;;   :defer t
 ;;   )
 
-
+
 ;;; [ pgdevenv ] -- manage your PostgreSQL development envs.
 
 ;; (use-package pgdevenv
@@ -30,7 +30,7 @@
 ;;   :defer t
 ;;   )
 
-
+
 (provide 'init-my-prog-lang-database-postgresql)
 
 ;;; init-my-prog-lang-database-postgresql.el ends here

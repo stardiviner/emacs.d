@@ -5,7 +5,7 @@
 
 
 ;;; Code:
-
+
 ;;; Keybindings
 
 (unless (boundp 'my-calendar-prefix)
@@ -13,7 +13,7 @@
 (define-key my-tools-prefix (kbd "c") 'my-calendar-prefix)
 (define-key my-org-prefix (kbd "C") 'my-calendar-prefix)
 
-
+
 ;;; Calendar Mode
 
 (require 'calendar)
@@ -34,7 +34,7 @@
 (setq calendar-date-style 'american) ; 'american: month/day/year, 'european: day/month/year, 'iso: year/month/day
 
 
-
+
 ;;; [ Holidays ]
 
 ;; calfw collects holidays from the customize variable `calendar-holidays` which belongs to `holidays.el` in Emacs.
@@ -49,7 +49,7 @@
 ;;; Annotations
 ;;; variable -> :annotation-sources
 
-
+
 ;;; Localized National Holidays
 
 ;;; cal-china-x.el -- Chinese calendar extras
@@ -63,7 +63,7 @@
 ;; (load "~/.emacs.d/init/extensions/cal-china-x.el")
 ;; (require 'cal-china-x)
 
-
+
 ;; Location
 
 ;; for predicate lunar eclipses.
@@ -78,7 +78,7 @@
 (setq calendar-mark-holidays-flag nil
       calendar-today-marker 'calendar-today)
 
-
+
 ;;; Calendar Printing
 ;;;
 ;;; Usage:
@@ -109,7 +109,7 @@
 ;;
 ;; - [p C-h] -- list out all key bindings
 
-
+
 ;;; Key Bindings
 ;;
 ;; - [C-SPC] + [M-=] -- count the number of days in region (between the mark and
@@ -122,7 +122,7 @@
              (calendar-mark-holidays)
              ))
 
-
+
 ;; [ Diary ] -- Diary Mode
 
 ;; Usage:
@@ -146,11 +146,11 @@
 (add-hook 'diary-display-function 'diary-fancy-display)
 (add-hook 'calendar-today-visible-hook 'calendar-mark-today)
 
-
+
 ;;; [ iCalendar ]
 
 
-
+
 ;;; [ calfw ] -- Calendar framework for Emacs
 
 (use-package calfw
@@ -404,7 +404,7 @@
   ;; (define-key cfw:calendar-mode-map (kbd "f") 'cfw:navi-next-day-command)
   )
 
-
+
 ;; [ Appointment & Remind ]
 ;; (require 'appt)
 ;; (setq appt-issue-message t) ; raise issue message for appointment
@@ -412,7 +412,7 @@
 ;; planner
 
 
-
+
 (provide 'init-my-tool-calendar)
 
 ;;; init-my-tool-calendar.el ends here

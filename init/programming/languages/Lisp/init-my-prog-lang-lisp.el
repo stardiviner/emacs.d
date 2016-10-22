@@ -3,7 +3,7 @@
 ;;; Commentary:
 
 ;;; Code:
-
+
 ;;; [ Lisp ]
 
 ;;; Common Settings for All Lisp dialects
@@ -124,7 +124,7 @@
                       )
   )
 
-
+
 ;;; [ hl-sexp ] -- highlight the current sexp.
 
 (use-package hl-sexp
@@ -136,7 +136,7 @@
                       )
   )
 
-
+
 ;;; [ eval-sexp-fu ] -- highlighting the sexps during evaluation in action.
 
 (use-package eval-sexp-fu
@@ -160,7 +160,7 @@
   ;; (eval-sexp-fu-flash-mode 1)
   )
 
-
+
 ;;; [ parinfer-mode ] -- Parinfer on Emacs with oakmac's parinfer-elisp.
 
 ;; (use-package parinfer
@@ -207,7 +207,7 @@
 ;;             (lambda ()
 ;;               (my-lisp-common-settings))))
 
-
+
 (provide 'init-my-prog-lang-lisp)
 
 ;;; init-my-prog-lang-lisp.el ends here

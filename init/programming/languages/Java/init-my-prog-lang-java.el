@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Eclim ]
 
 (use-package eclim
@@ -41,7 +41,7 @@
         )
   )
 
-
+
 ;;; for company-mode
 (use-package company-emacs-eclim
   :ensure t
@@ -59,7 +59,7 @@
 ;;   :ensure t
 ;;   )
 
-
+
 ;;; [ meghanada ] -- A New Java Develop Environment for Emacs.
 
 ;; (use-package meghanada
@@ -87,7 +87,7 @@
 ;;   (add-hook 'java-mode-hook 'my-meghanada-settings)
 ;;   )
 
-
+
 ;;; [ malabar-mode ] -- JVM Integration for Java and other JVM based languages.
 
 ;; (use-package malabar-mode
@@ -104,7 +104,7 @@
 ;;   (add-hook 'malabar-groovy-mode-hook 'flycheck-mode)
 ;;   )
 
-
+
 ;;; [ gradle-mode ] -- Gradle integration with Emacs' compile.
 
 (use-package gradle-mode
@@ -114,7 +114,7 @@
   (add-hook 'java-mode-hook #'gradle-mode)
   )
 
-
+
 (provide 'init-my-prog-lang-java)
 
 ;;; init-my-prog-lang-java.el.el ends here

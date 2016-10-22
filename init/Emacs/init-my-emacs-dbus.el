@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ D-Bus ]
 
 ;;; Usage
@@ -15,7 +15,7 @@
 
 ;; (dbus-init-bus :session)
 
-
+
 (provide 'init-my-emacs-dbus)
 
 ;;; init-my-emacs-dbus.el ends here

@@ -9,12 +9,12 @@
 
 
 ;;; Code:
-
+
 ;;; [ CEDET ] --- a Collection of Emacs Development Environment Tools
 
 (require 'cedet)
 
-
+
 ;;; [ Semantic ]
 
 (require 'cc-mode)
@@ -42,14 +42,14 @@
 ;; (semanticdb-enable-gnu-global-databases 'c-mode t)
 ;; (global-semantic-show-unmatched-syntax-mode t)
 
-
+
 ;;; Add more system include paths
 
 (semantic-add-system-include "/usr/include/boost" 'c++-mode)
 ;; (semantic-add-system-include "~/linux/kernel")
 ;; (semantic-add-system-include "~/linux/include")
 
-
+
 ;;; [ Non-semantic files ]
 ;; Such non-semantic file-types can often be parsed by imenu and/or etags.
 ;; (setq speedbar-dynamic-tags-function-list)
@@ -57,7 +57,7 @@
 ;; (setq speedbar-tag-regroup-maximum-length)
 ;; (setq speedbar-tag-hierarchy-method)
 
-
+
 ;;; Semantic (code-parsing, smart completion) features
 
 ;;; select one of the following
@@ -115,7 +115,7 @@
 ;;       )
 
 
-
+
 ;; [ Semantic ] -- a base for construction of syntactic analyzers for different programming languages.
 ;; Usage:
 ;; - [M-x semantic-mode] -- use Semantic
@@ -162,7 +162,7 @@
 ;;       (add-to-list 'load-path  "~/.emacs.d/el-get/cedet")
 ;;       (load-file "~/.emacs.d/el-get/cedet/cedet-devel-load.el"))))
 
-
+
 ;;; [ EDE ]
 
 (setq semantic-default-submodes
@@ -203,7 +203,7 @@
 
 ;; (semantic-load-enable-code-helpers) ; enable prototype help and smart completion
 
-
+
 ;;; [ SemanticDB ] -- is included into Semantic, and implements different storage modules, that store information, needed for names completion, source code navigation, etc.
 
 (setq semanticdb-default-save-directory (concat user-emacs-directory "semanticdb"))
@@ -217,32 +217,32 @@
                          semanticdb-new-database-class
                          "/usr/include")))))
 
-
+
 ;;; [ Senator ] -- implements navigation in source code using information extracted by Semantic.
 
-
+
 ;;; [ Srecode ] -- a package for source code generation using syntactic information
 
-
+
 ;;; [ EDE ] -- implements a set of extensions to work with projects.
 
 ;; (global-ede-mode 1) ; enable the project management system
 
-
+
 ;;; [ Speedbar ] -- is used to display information about current buffer using different sources of information.
 
-
+
 ;;; [ Eieio ] -- a library implements CLOS-like (Common Lisp Object System) infrastructure for Emacs Lisp.
 
-
+
 ;;; [ Cogre ] -- a library for generation of UML-like diagrams in Emacs buffer which basic integration with Semantic.
 
-
+
 
 (require 'semantic-tag-folding nil 'noerror)
 
 
-
+
 ;;; [ eassist ]
 
 (require 'eassist nil 'noerror)
@@ -311,7 +311,7 @@
 (define-key lisp-mode-shared-map (kbd "M-m") 'eassist-list-methods)
 
 
-
+
 (provide 'init-my-prog-cedet)
 
 ;;; init-my-prog-cedet.el ends here

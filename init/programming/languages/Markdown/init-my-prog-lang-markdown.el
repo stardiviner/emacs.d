@@ -6,14 +6,14 @@
 
 
 ;;; Code:
-
+
 ;;; [ markdown-mode ]
 
 (use-package markdown-mode
   :ensure t
   :defer t)
 
-
+
 ;;; [ flymd ] -- Emacs on the fly markdown preview.
 
 (use-package flymd
@@ -30,7 +30,7 @@
   (setq flymd-browser-open-function 'my-flymd-browser-function)
   )
 
-
+
 
 (provide 'init-my-prog-lang-markdown)
 

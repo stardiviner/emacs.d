@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;; [ default view ]
 
 (setq org-startup-folded t
@@ -87,7 +87,7 @@
                                 )
             ))
 
-
+
 ;;; better list bullets
 
 ;; Asterisks and dashes for bullet lists are fine, but having an actual circular
@@ -105,17 +105,17 @@
  '(("^ +\\([-+]\\) "
     (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
 
-
+
 ;;; [ org-beautify-theme ] -- A sub-theme to make org-mode more beautiful.
 
 ;; (require 'org-beautify-theme)
 
-
+
 ;;; eldoc-mode support
 
 ;; (add-hook 'org-mode-hook #'eldoc-mode)
 
-
+
 (provide 'init-my-org-view)
 
 ;;; init-my-org-view.el ends here

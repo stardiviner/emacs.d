@@ -3,7 +3,7 @@
 
 ;;; Code:
 
-
+
 ;;; [ aspell & ispell ]
 
 ;;; Usage:
@@ -33,7 +33,7 @@
       ispell-parser 'use-mode-name
       )
 
-
+
 ;;; [ Flyspell ] -- [M-$], [C-;]
 
 (use-package flyspell
@@ -108,7 +108,7 @@
   (define-key flyspell-mode-map (kbd "C-,") 'flyspell-goto-next-error)
   )
 
-
+
 ;;; [ flyspell-correct ] -- correcting words with flyspell via custom interface.
 
 (use-package flyspell-correct
@@ -121,7 +121,7 @@
 (use-package flyspell-correct-popup
   :ensure t)
 
-
+
 (provide 'init-my-emacs-spell)
 
 ;;; init-my-emacs-spell.el ends here

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ pinyin-search ] --
 
 (use-package pinyin-search
@@ -17,7 +17,7 @@
   (define-key my-search-language-prefix (kbd "C") 'pinyin-search-backward)
   )
 
-
+
 (provide 'init-my-language-chinese)
 
 ;;; init-my-language-chinese.el ends here

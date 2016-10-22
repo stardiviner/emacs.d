@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;; [ Bookmark ] -- Emacs built-in bookmark
 
 (require 'bookmark)
@@ -33,7 +33,7 @@
 (define-key my-bookmark-map (kbd "a") 'bookmark-set)
 (define-key my-bookmark-map (kbd "M") 'bookmark-set)
 
-
+
 ;;; [ bm.el ] -- Visual Bookmarks for GNU Emacs.
 
 (use-package bm
@@ -124,7 +124,7 @@
   ;; (add-hook 'after-revert-hook 'bm-buffer-restore)
   )
 
-
+
 (provide 'init-my-emacs-bookmark)
 
 ;;; init-my-emacs-bookmark.el ends here

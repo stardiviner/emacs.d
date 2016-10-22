@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Info ]
 
 ;; (require 'info)
@@ -20,7 +20,7 @@
 
 ;; - `Info-mode-hook'
 
-
+
 ;;; [ info+ ]
 
 (use-package info+
@@ -84,7 +84,7 @@
                       :foreground "cyan")
   )
 
-
+
 ;;; [ help.el ]
 
 (use-package help+
@@ -99,13 +99,13 @@
   :ensure t
   :defer t)
 
-
+
 
 (setq suggest-key-bindings t) ; show the /equivalent/ key binding when [M-x] command has one.
 
 (define-key global-map (kbd "C-h u") 'manual-entry) ; Unix
 
-
+
 (provide 'init-my-emacs-help)
 
 ;;; init-my-emacs-help.el ends here

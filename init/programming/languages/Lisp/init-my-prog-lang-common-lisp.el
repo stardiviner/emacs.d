@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Common Lisp ]
 
 (add-to-list 'auto-mode-alist '("\\.cl\\'" . common-lisp-mode))
@@ -37,14 +37,14 @@
 (add-hook 'lisp-interaction-mode-hook #'my-lisp-repl-common-settings)
 (add-hook 'common-lisp-mode-hook #'my-lisp-common-settings)
 
-
+
 ;;; [ SBCL ]
 
 ;; the SBCL configuration file is in Common Lisp
 (add-to-list 'auto-mode-alist '("\\.sbclrc\\'" . lisp-mode))
 
 
-
+
 ;;; [ Quick Lisp ]
 
 ;;; Common Lisp support depends on SLIME being installed with Quicklisp
@@ -53,12 +53,12 @@
 ;;     (load (expand-file-name "~/quicklisp/slime-helper.el"))
 ;;   (message "%s" "SLIME is not installed. Use Quicklisp to install it."))
 
-
+
 
 (require 'init-slime)
 ;; (require 'init-sly)
 
-
+
 (provide 'init-my-prog-lang-common-lisp)
 
 ;;; init-my-prog-lang-common-lisp.el ends here

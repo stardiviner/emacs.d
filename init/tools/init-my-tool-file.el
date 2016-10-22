@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ pandoc-mode ] -- pandoc-mode is an Emacs mode for interacting with Pandoc.
 
 (use-package pandoc-mode
@@ -30,7 +30,7 @@
   )
 
 
-
+
 (provide 'init-my-tool-file)
 
 ;;; init-my-tool-file.el ends here

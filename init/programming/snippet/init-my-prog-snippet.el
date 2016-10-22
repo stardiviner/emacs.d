@@ -4,7 +4,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ YASnippet ] --- (template/snippet engine)
 
 (use-package yasnippet
@@ -86,12 +86,27 @@ $0"
     )
   (add-hook 'yas-after-exit-snippet-hook #'my-yas-exit-animation)
   
+  ;; change cursor dynamically when prefix text is expandable.
+  (defun my-cursor-change-on-snippet ()
+    (interactive)
+    ;; (yas-next-field-or-maybe-expand)
+    (if (or yas-triggers-in-field ; FIXME: improve condition
+            (yas-next-field-will-exit-p))
+        (progn
+          (set-cursor-color "red")
+          (setq cursor-type 'hollow))
+      (set-cursor-color "cyan")
+      (setq cursor-type '(hbar . 2))
+      )
+    )
+
+  ;; (add-hook 'post-command-hook #'my-cursor-change-on-snippet)
   
   ;; enable global yasnippet-mode
   (yas-global-mode 1)
   )
 
-
+
 ;;; [ auto-yasnippet ] -- quickly create disposable yasnippets.
 
 ;; (use-package auto-yasnippet
@@ -101,7 +116,7 @@ $0"
 ;;         aya-create-with-newline t)
 ;;   )
 
-
+
 
 
 (provide 'init-my-prog-snippet)

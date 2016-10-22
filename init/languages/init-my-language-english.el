@@ -6,12 +6,12 @@
 
 
 ;;; Code:
-
+
 ;;; [ capitalized-words-mode ]
 
 ;; (capitalized-words-mode 1)
 
-
+
 ;;; [ auto-capitalize ]
 
 ;; (use-package auto-capitalize
@@ -47,7 +47,7 @@
 ;;                      (turn-on-auto-capitalize-mode))))
 ;;   )
 
-
+
 ;;; [ Super Smart Capitalization ]
 
 ;; Languages are fleeting. But Emacs is forever.
@@ -55,10 +55,10 @@
 ;; Languages are fleeting, but Emacs is forever.
 
 
-
+
 ;;; [ electric punctuation ]
 
-
+
 (provide 'init-my-language-english)
 
 ;;; init-my-language-english.el ends here

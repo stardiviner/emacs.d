@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Mouse ]
 
 ;;; disable all mouse click events
@@ -23,7 +23,7 @@
 ;; The pointer becomes visible again when the mouse is moved.
 (setq make-pointer-invisible t)
 
-
+
 ;;; disable mouse minor mode
 
 (define-minor-mode disable-mouse-mode
@@ -43,19 +43,19 @@
 
 (disable-mouse-mode 1)
 
-
+
 ;; automatically copy text selected with the mouse.
 
 (setq mouse-drag-copy-region t)
 
-
+
 ;;; [ Drag & Drop (dnd protocol) ]
 
 ;; (setq dnd-open-file-other-window t)
 
 ;; (add-to-list 'dnd-protocol-alist '())
 
-
+
 (provide 'init-my-emacs-mouse)
 
 ;;; init-my-emacs-mouse.el ends here

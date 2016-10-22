@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ ECB ]
 
 ;; (use-package ecb
@@ -75,14 +75,14 @@
 ;;         )
 ;;   )
 
-
+
 
 ;; (global-set-key [f8] 'sr-speedbar-toggle)
 (global-set-key [f8] 'my-sr-speedbar-toggle-and-switch)
 ;; (global-set-key [f8] 'project-explorer-toggle)
 ;; (global-set-key [f8] 'neotree-toggle)
 
-
+
 (provide 'init-my-prog-sidebar)
 
 ;;; init-my-prog-sidebar.el ends here

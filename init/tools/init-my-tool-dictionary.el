@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ sdcv.el ]
 
 (use-package pos-tip
@@ -42,7 +42,7 @@
 (define-key dictionary-map (kbd "d") 'sdcv-search-pointer+)
 (define-key dictionary-map (kbd "C-d") 'sdcv-search-input)
 
-
+
 ;;; [ babel ] -- An Emacs interface to different translation services available on the Internet.
 
 ;; (autoload 'babel "babel"
@@ -62,7 +62,7 @@
 ;;       babel-select-output-window t
 ;;       )
 
-
+
 
 ;; (defun my-translate-dwim (func-region func-string func-buffer)
 ;;   "My custom function to use translate functions depend on situations."
@@ -89,14 +89,14 @@
 ;;     (interactive)
 ;;     (my-translate-dwim 'babel-region 'babel-as-string 'babel-buffer)))
 
-
+
 ;;; [ synonymous ] -- a thesaurus client that replace with synonym or antonym.
 
 ;; (use-package synonymous
 ;;   :ensure t
 ;;   )
 
-
+
 ;;; [ Goldendict ]
 
 (defun goldendict-dwim ()
@@ -115,7 +115,7 @@
 
 (define-key dictionary-map (kbd "d") 'goldendict-dwim)
 
-
+
 ;;; [ google-translate ]
 
 (use-package google-translate
@@ -147,7 +147,7 @@
   ;; (define-key dictionary-map (kbd "C-t") 'google-translate-query-translate)
   )
 
-
+
 (provide 'init-my-tool-dictionary)
 
 ;;; init-my-tool-dictionary.el ends here

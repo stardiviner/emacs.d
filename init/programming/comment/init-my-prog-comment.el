@@ -4,19 +4,19 @@
 
 
 ;;; Code:
-
+
 
 (unless (boundp 'my-prog-comment-map)
   (define-prefix-command 'my-prog-comment-map))
 (global-set-key (kbd "M-;") 'my-prog-comment-map)
 
-
+
 
 (setq comment-auto-fill-only-comments t
       comment-multi-line t
       )
 
-
+
 ;;; prefix: [M-;], `my-prog-comment-map'
 
 (define-key my-prog-comment-map (kbd "M-;") 'comment-dwim)
@@ -40,7 +40,7 @@ column.  Place the point after the comment box."
     (goto-char e)
     (set-marker e nil)))
 
-
+
 ;;; [ boxquote ]
 
 (use-package boxquote
@@ -75,7 +75,7 @@ column.  Place the point after the comment box."
   ;; (setq message-expand-name-databases '(bbdb eudb))
   )
 
-;;; [ fixmee ] -- Quickly navigate to FIXME notices in Emacs.
+;;; [ fixmee ] -- Quickly navigate to FIXME notices in Emacs.
 
 (unless (boundp 'my-prog-comment-fixme-map)
   (define-prefix-command 'my-prog-comment-fixme-map))
@@ -137,7 +137,7 @@ And specify urgent with PREFIX-ARG."
   ;;   (add-hook hook 'fixmee-mode))
   )
 
-
+
 ;; [ poporg ] -- Editing program comments or strings in text mode.
 
 (use-package poporg
@@ -162,14 +162,14 @@ And specify urgent with PREFIX-ARG."
                       :slant 'italic)
   )
 
-
+
 ;;; [ org-commentary ] -- generate/update conventional library headers using Org-mode.
 
 ;; (use-package org-commentary
 ;;   :ensure t
 ;;   )
 
-
+
 (provide 'init-my-prog-comment)
 
 ;;; init-my-prog-comment.el ends here

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ json-mode ] -- Extends the builtin js-mode to add better syntax highlighting for JSON.
 
 (use-package json-mode
@@ -30,14 +30,14 @@
         )
   )
 
-
+
 ;;; [ json-snatcher ]
 
 (use-package json-snatcher
   :ensure t
   :defer t)
 
-
+
 (provide 'init-my-prog-lang-json)
 
 ;;; init-my-prog-lang-json.el ends here

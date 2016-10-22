@@ -6,7 +6,7 @@
 ;; http://www.emacswiki.org/emacs/JavaScript
 
 ;;; Code:
-
+
 ;;; [ JavaScript ]
 
 (require 'js)
@@ -25,7 +25,7 @@
 ;; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js3-mode))
 
-
+
 ;;; auto fill-in in multi-lines comment.
 
 (dolist (hook '(js-mode-hook
@@ -40,7 +40,7 @@
               )
             ))
 
-
+
 ;;; helper keybindings
 
 ;; [C-o] to open a new line upper between {}.
@@ -55,7 +55,7 @@
 (with-eval-after-load "js2-mode"
   (define-key js2-mode-map (kbd "C-o") 'my/open-new-line-upper))
 
-
+
 ;;; [ javascript-mode (js-mode) ]
 
 ;; - `js-load-file' :: [C-c C-l] load source code for completion.
@@ -67,7 +67,7 @@
               (electric-layout-mode -1)
               )))
 
-
+
 ;;; [ js2-mode ]
 
 (use-package js2-mode
@@ -77,14 +77,14 @@
   (add-hook 'js-mode-hook 'js2-minor-mode)
   )
 
-
+
 ;;; [ js3-mode ]
 
 (use-package js3-mode
   :ensure t
   :defer t)
 
-
+
 ;;; [ flycheck checker ]
 
 (defun js-mode-setup-flycheck-checkers ()
@@ -101,7 +101,7 @@
 (add-hook 'js2-mode-hook 'js-mode-setup-flycheck-checkers)
 (add-hook 'js3-mode-hook 'js-mode-setup-flycheck-checkers)
 
-
+
 ;;; [ nvm ] -- Manage Node versions within Emacs.
 
 ;; (use-package nvm
@@ -111,7 +111,7 @@
 ;;   (nvm-use "system")
 ;;   )
 
-
+
 ;; [ js-comint ] -- a lightweight comint integration.
 
 (use-package js-comint
@@ -146,7 +146,7 @@
               (ansi-color-for-comint-mode-on)))
   )
 
-
+
 ;;; [ nodejs-repl ] -- Run Node.js REPL and communicate the process.
 
 (use-package nodejs-repl
@@ -156,7 +156,7 @@
   (setenv "NODE_NO_READLINE" "1")
   )
 
-
+
 ;;; [ jscs (JavaScript Code Style) ]
 
 ;; (use-package jscs
@@ -174,7 +174,7 @@
 ;;   ;; (add-hook 'js3-mode-hook #'jscs-fix-run-before-save)
 ;;   )
 
-
+
 ;;; [ tern ] -- code-analysis engine for JavaScript
 
 (use-package tern
@@ -190,7 +190,7 @@
               ))
   )
 
-
+
 ;;; [ company-tern ] -- Tern backend for company-mode.
 
 (use-package company-tern
@@ -217,14 +217,14 @@
         )
   )
 
-
+
 ;;; [ tj-mode ] -- major mode for highlighting JavaScript with Tern.
 
 ;; (use-package tj-mode
 ;;   :ensure t
 ;;   :defer t)
 
-
+
 ;;; [ jade ] -- JavaScript Awesome Development Environment (in Emacs).
 
 (use-package jade
@@ -235,7 +235,7 @@
   (add-hook 'js2-mode-hook #'jade-interaction-mode)
   )
 
-
+
 ;;; [ jsx-mode ] -- The XML inside of JavaScript.
 
 ;; (use-package jsx-mode
@@ -250,7 +250,7 @@
 ;;               (tern-mode 1)))
 ;;   )
 
-
+
 ;;; [ js-doc ] -- Insert JsDoc style comment easily.
 
 (use-package js-doc
@@ -270,14 +270,19 @@
         js-doc-license "GPL3")
   )
 
-
+
 ;;; [ import-js ] -- A tool to simplify importing JS modules.
 
 (use-package import-js
   :ensure t
   :defer t)
 
-
+;;; [ js-import ] -- Automatically import JavaScript files from the current project or dependencies.
+
+(use-package js-import
+  :ensure t
+  :defer t)
+
 ;;; [ xref-js2 ] -- Jump to references/definitions using ag & js2-mode's AST in Emacs.
 
 (use-package xref-js2
@@ -292,7 +297,7 @@
               ))
   )
 
-
+
 
 (provide 'init-my-prog-lang-javascript)
 

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ helm-dash ] -- Browse Dash docsets inside Emacs.
 
 (use-package helm-dash
@@ -18,6 +18,7 @@
         ;; 'eww-browse-url, 'browse-url, 'browse-url-generic, 'helm-browse-url
         helm-dash-browser-func 'browse-url-conkeror
         helm-dash-candidate-format "%d  %n  (%t)"
+        helm-case-fold-search 'smart
         )
   
   (define-key my-prog-help-document-map (kbd "C-s") 'helm-dash-at-point) ; `helm-dash'
@@ -150,14 +151,14 @@
     (add-hook 'apache-mode-hook 'helm-dash-buffer-local-apache-docsets))
   )
 
-
+
 ;;; [ dash-at-point ]
 
 ;; (use-package dash-at-point
 ;;   :ensure t
 ;;   :defer t)
 
-
+
 ;;; [ zeal-at-point ]
 
 (use-package zeal-at-point
@@ -171,7 +172,7 @@
             (lambda () (setq zeal-at-point-docset "rails")))
   )
 
-
+
 (provide 'init-my-prog-document-api)
 
 ;;; init-my-prog-document-api.el ends here

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ lua-mode ]
 
 (use-package lua-mode
@@ -24,7 +24,7 @@
   (define-key lua-mode-map (kbd "C-c C-s") 'run-lua)
   )
 
-
+
 ;;; [ company-lua ]
 
 (use-package company-lua
@@ -37,13 +37,13 @@
               ))
   )
 
-
+
 ;;; [ ob-lua ] -- execute Org-mode Lua babel src block.
 
 (use-package ob-lua
   :ensure t)
 
-
+
 (provide 'init-my-prog-lang-lua)
 
 ;;; init-my-prog-lang-lua.el ends here

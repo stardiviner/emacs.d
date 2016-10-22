@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 
 ;; prefix
 
@@ -14,7 +14,7 @@
   (define-prefix-command 'my-screenshot-map))
 (define-key my-tools-prefix (kbd "S") 'my-screenshot-map)
 
-
+
 ;;; [ screenshot.el ]
 
 (use-package screenshot
@@ -52,7 +52,7 @@
   (setq screenshot-take-delay 0.5)
   )
 
-
+
 (provide 'init-my-tool-screenshot)
 
 ;;; init-my-tool-screenshot.el ends here

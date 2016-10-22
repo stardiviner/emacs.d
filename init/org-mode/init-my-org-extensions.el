@@ -6,12 +6,12 @@
 
 
 ;;; Code:
-
+
 ;;; [ org-plot ] -- Support for plotting from Org-mode.
 
 (require 'org-plot)
 
-
+
 ;;; [ org-bbdb ] -- Support for links to BBDB entries from within Org-mode.
 
 ;; - [C-c C-l] + `bbdb:' link.
@@ -45,7 +45,7 @@
 ;;   headline. %%(org-bbdb-anniversaries).
 
 
-
+
 ;;; [ org-ref ] -- citations, cross-references, indexes, glossaries and bibtex utilities for Org-mode.
 
 (use-package org-ref
@@ -76,7 +76,7 @@
           "pdflatex -interaction nonstopmode -output-directory %o %f"))
   )
 
-
+
 ;;; [ helm-org-rifle ] -- Rifle through your Org buffers and acquire your target.
 
 (use-package helm-org-rifle
@@ -92,7 +92,7 @@
         helm-org-rifle-show-tags t)
   )
 
-
+
 ;;; [ otama ] -- Simple org-table based database, intended to be a light version of BBDB and helm-friendly.
 
 ;; (use-package otama
@@ -105,7 +105,7 @@
 ;;   (define-key my-org-prefix (kbd "D") 'otama-helm)
 ;;   )
 
-
+
 ;;; [ org-eww ] -- automatically use eww to preview current org-file when save.
 
 ;; (use-package org-eww
@@ -115,7 +115,7 @@
 ;;   (add-hook 'org-mode-hook 'org-eww-mode)
 ;;   )
 
-
+
 (provide 'init-my-org-extensions)
 
 ;;; init-my-org-extensions.el ends here

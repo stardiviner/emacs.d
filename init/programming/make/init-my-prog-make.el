@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Make ]
 
 ;;; [ make-mode ]
@@ -15,12 +15,12 @@
   :ensure t
   :defer t)
 
-
+
 ;;; [ CMake ]
 
 (require 'init-my-prog-make-cmake)
 
-
+
 (provide 'init-my-prog-make)
 
 ;;; init-my-prog-make.el ends here

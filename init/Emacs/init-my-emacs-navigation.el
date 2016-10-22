@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ movement ]
 
 (setq sentence-end-double-space nil)
@@ -16,7 +16,7 @@
 ;; set sentence-end to recognize chinese punctuation.
 ;; (setq sentence-end "\\([。！？]\\|……\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*")
 
-
+
 ;;; [ Mark ] --- [C-SPC / C-@] + [C-u C-SPC / C-u C-@] + [C-`] / [M-`]
 
 (setq set-mark-command-repeat-pop t)
@@ -52,7 +52,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
     (dotimes (i 10)
       (when (= p (point)) ad-do-it))))
 
-
+
 ;;;_ show-marks
 
 (use-package show-marks
@@ -62,7 +62,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
   (global-set-key (kbd "C-c `") 'show-marks)
   )
 
-
+
 ;;; [ ace-jump-mode -- Ace Jump Mode ]
 
 (use-package ace-jump-mode
@@ -77,21 +77,21 @@ This is the same as using \\[set-mark-command] with the prefix argument."
   ;; (define-key global-map (kbd "C-'") 'ace-jump-mode-pop-mark)
   )
 
-
+
 ;;; [ scroll ]
 
 (setq scroll-margin 3)
 
 (setq fast-but-imprecise-scrolling t)
 
-
+
 ;; [ recenter ]
 
 (setq recenter-positions '(top middle bottom))
 
 (global-set-key (kbd "C-l") 'recenter-top-bottom)
 
-
+
 ;;; [ Imenu ]
 
 (use-package imenu
@@ -103,7 +103,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
   (setq imenu-auto-rescan t)
   )
 
-
+
 (provide 'init-my-emacs-navigation)
 
 ;;; init-my-emacs-navigation.el ends here

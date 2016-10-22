@@ -11,12 +11,12 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-
+
 ;;; [ profiler ]
 
 ;; (profiler-start 'cpu+mem)
 
-
+
 ;;; [ things before load ]
 
 ;; Turn off mouse interface early in startup to avoid momentary display
@@ -31,13 +31,13 @@
 
 (toggle-frame-maximized)
 
-
+
 
 (require 'server)
 (unless (server-running-p)
   (server-start))
 
-
+
 ;;; add my init files directory
 
 (let ((default-directory "~/.emacs.d/init/"))
@@ -53,7 +53,7 @@
 
 (setq load-prefer-newer t)
 
-
+
 ;;; [ package manager ]
 
 (load "~/.emacs.d/init/init-my-pm-package.el")
@@ -63,13 +63,13 @@
 (use-package color-theme
   :ensure t)
 
-
+
 ;;; debug, profiling etc
 
 (require 'init-my-emacs-debug)
 (require 'init-my-emacs-benchmark)
 
-
+
 ;;; my custom functions
 
 (use-package dash
@@ -81,7 +81,7 @@
 (require 'init-my-library)
 (require 'init-my-functions)
 
-
+
 ;;; Emacs
 (require 'init-my-emacs-environment)
 (require 'init-my-emacs-settings)
@@ -131,12 +131,12 @@
 (require 'init-my-emacs-customize)
 (require 'init-my-emacs-accessibility)
 
-
+
 ;;; Vim
 
 ;; (require 'init-my-vim)
 
-
+
 ;;; Languages
 
 (unless (boundp 'my-search-language-prefix)
@@ -147,7 +147,7 @@
 (require 'init-my-language-chinese)
 ;; (require 'init-my-language-japanese)
 
-
+
 ;;; Tools
 (unless (boundp 'my-tools-prefix)
   (define-prefix-command 'my-tools-prefix))
@@ -184,7 +184,7 @@
 (require 'init-my-tool-screencast)
 ;; (require 'init-my-tool-stack-exchange)
 
-
+
 ;;; Programming
 (require 'init-my-prog-programming)
 (require 'init-my-prog-license)
@@ -212,7 +212,7 @@
 (require 'init-my-prog-vcs)
 (require 'init-my-prog-bug-track-system)
 
-
+
 ;;; Programming Languages
 (require 'init-my-prog-lang-lisp)
 (require 'init-my-prog-lang-emacs-lisp)
@@ -268,7 +268,7 @@
 ;; (require 'init-my-prog-lang-HDL)
 ;; (require 'init-my-prog-lang-applescript)
 
-
+
 ;;; Frameworks
 (require 'init-my-prog-framework-web)
 (require 'init-my-prog-framework-http)
@@ -278,12 +278,12 @@
 ;; (require 'init-my-prog-framework-arduino)
 ;; (require 'init-my-prog-framework-qt)
 
-
+
 ;;; Programming Tools
 
 (require 'init-my-prog-tools)
 
-
+
 ;;; Systems
 
 (if (string-equal system-type "gnu/linux")
@@ -293,27 +293,26 @@
 (if (string-equal system-type "windows-nt")
     (require 'init-microsoft-windows))
 
-
+
 ;;; Engineering
 
 (require 'init-my-electronic)
 (require 'init-my-electric-music)
 
-
+
 ;;; Science
 
 (require 'init-my-math)
 
-
+
 ;;; Authoring & Writing
 
 (require 'init-my-authoring)
 
-
+
 ;;; Games
 
 (require 'init-my-games)
 
-
 
 ;;; init.el ends here

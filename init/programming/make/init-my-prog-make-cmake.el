@@ -6,7 +6,7 @@
 ;;; http://www.itk.org/Wiki/CMake/Editors/Emacs
 
 ;;; Code:
-
+
 ;;; [ cmake-mode ]
 
 (use-package cmake-mode
@@ -21,7 +21,7 @@
          auto-mode-alist))
   )
 
-
+
 ;;; [ cmake-font-lock ]
 
 (use-package cmake-font-lock
@@ -31,7 +31,7 @@
   (add-hook 'cmake-mode-hook 'cmake-font-lock-activate)
   )
 
-
+
 ;;; [ cmake-ide ]
 
 ;; (use-package cmake-ide
@@ -41,14 +41,14 @@
 ;;   (cmake-ide-setup)
 ;;   )
 
-
+
 ;;; [ cmake-project ] -- Integrates CMake build process with Emacs.
 
 (use-package cmake-project
   :ensure t
   :defer t)
 
-
+
 (provide 'init-my-prog-make-cmake)
 
 ;;; init-my-prog-make-cmake.el ends here

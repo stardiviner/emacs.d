@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;; * Outlines::                    Org is based on Outline mode
 
 (setq org-directory "~/Org")
@@ -19,7 +19,7 @@
       )
 
 
-
+
 ;; * Navigation/Motion::
 
 ;; [C-c C-j] `org-goto' interface.
@@ -27,10 +27,10 @@
 
 (setq org-special-ctrl-a/e t)
 
-
+
 ;; * Headlines::                   How to typeset Org tree headlines
 
-
+
 ;; * Plain Lists::
 
 (setq org-list-allow-alphabetical t
@@ -40,19 +40,19 @@
 (setq org-columns-default-format
       "%25ITEM %TODO %3PRIORITY %TAGS %6effort(EFFORT){:}")
 
-
+
 ;; * Visibility cycling::          Show and hide, much simplified
 
 
-
+
 ;; * Motion::                      Jumping to other headlines
 
 
-
+
 ;; * Structure editing::           Changing sequence and level of headlines
 
 
-
+
 ;; * Sparse trees::                Matches embedded in context
 
 (setq org-highlight-sparse-tree-matches t)
@@ -61,7 +61,7 @@
 ;; * Plain lists::                 Additional structure within an entry
 
 
-
+
 ;; * Drawers::                     Tucking stuff away
 
 ;; (setq org-global-properties ; will be combined with constant `org-global-properties-fixed'
@@ -71,11 +71,11 @@
 ;;         ))
 
 
-
+
 ;; * Blocks::                      Folding blocks
 
 
-
+
 ;; * Footnotes::                   How footnotes are defined in Org's syntax
 
 (setq org-footnote-auto-label 'confirm
@@ -86,17 +86,17 @@
       ;; org-footnote-tag-for-non-org-mode-files "Footnotes:"
       )
 
-
+
 ;; * Orgstruct mode::              Structure editing outside Org
 
 
-
+
 ;; * Org syntax::                  Formal description of Org's syntax
 
 
 
 
-
+
 (provide 'init-my-org-document-structure)
 
 ;;; init-my-org-document-structure.el ends here

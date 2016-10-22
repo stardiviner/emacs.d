@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ nxml-mode ]
 
 (require 'nxml-mode)
@@ -34,7 +34,7 @@
 
 (add-hook 'nxml-mode-hook 'my-company-nxml-settings)
 
-
+
 ;;; [ auto-complete-nxml ]
 
 (use-package auto-complete-nxml
@@ -51,7 +51,7 @@
   ;; (setq auto-complete-nxml-toggle-automatic-key "C-c C-t")
   )
 
-
+
 ;;; [ x-path-walker ] -- navigation for JSON/XML/HTML based on path (imenu like)
 
 (use-package x-path-walker
@@ -68,7 +68,7 @@
                 (local-set-key (kbd "C-c C-j") 'helm-x-path-walker))))
   )
 
-
+
 
 (provide 'init-my-prog-lang-xml)
 

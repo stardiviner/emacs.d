@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ auto-complete ]
 
 (use-package popup
@@ -124,7 +124,7 @@
   (add-to-list 'ac-sources 'ac-source-capf)
   )
 
-
+
 
 (defun ac-source-remove (source-removed-list)
   "remove some ac-source from ac-sources."
@@ -132,7 +132,7 @@
         source-removed-list)
   )
 
-
+
 (provide 'init-auto-complete)
 
 ;;; init-auto-complete.el ends here

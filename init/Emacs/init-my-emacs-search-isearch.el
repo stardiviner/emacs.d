@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Isearch ] -- Incremental Search
 
 (setq search-highlight t
@@ -118,7 +118,7 @@
 (define-key my-isearch-prefix (kbd "r") 'vr/isearch-forward)
 (define-key my-isearch-prefix (kbd "R") 'vr/isearch-backward)
 
-
+
 ;;; custom function
 
 ;;; smart delete/backspace in isearch
@@ -139,7 +139,7 @@
 ;; or from isearch+ use [M-s e]
 (setq isearchp-drop-mismatch t)
 
-
+
 ;;;_ query & replace
 
 (setq query-replace-highlight t
@@ -148,7 +148,7 @@
       ;; query-replace-from-to-separator
       )
 
-
+
 ;;; [ visual-regexp ] -- A regexp/replace command for Emacs with interactive visual feedback.
 
 ;; [ visual-regexp-steroids.el ] -- Extends visual-regexp to support other regexp engines.
@@ -173,7 +173,7 @@
   :ensure t
   :defer t)
 
-
+
 ;;; [ anzu ] -- Emacs Port of anzu.vim.
 
 (use-package anzu
@@ -203,7 +203,7 @@
         )
   )
 
-
+
 ;;; [ Swpier ] -- gives you an overview as you search for a regex.
 
 (use-package swiper
@@ -223,7 +223,7 @@
   (setq ivy-height 5)
   )
 
-
+
 (provide 'init-my-emacs-search-isearch)
 
 ;;; init-my-emacs-search-isearch.el ends here

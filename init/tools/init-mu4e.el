@@ -4,7 +4,7 @@
 
 
 ;;; Code:
-
+
 ;;; from Ubuntu package "maildir-utils"
 ;; (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 ;;
@@ -25,11 +25,11 @@
 ;; (require 'mu4e-proc)
 ;; (require 'mu4e-speedbar)
 
-
+
 
 (setq mail-user-agent 'mu4e-user-agent)
 
-
+
 (setq mu4e-mu-home nil ; nil for default
       ;; mu4e-mu-binary "/usr/bin/mu"
       mu4e-mu-binary "~/compile/Emacs/mu/mu/mu/mu"
@@ -39,7 +39,7 @@
 (setq mu4e-user-mail-address-list
       '("numbchild@gmail.com" "348284894@qq.com"))
 
-
+
 ;;; Maildir
 ;; these must start with a "/", and must exist
 ;; (i.e.. /home/user/Maildir/sent must exist)
@@ -72,7 +72,7 @@
                                ;; others . ?o (mu4e default)
                                ))
 
-
+
 ;;; Get Mail, Update
 ;; - U -- update, get mail.
 ;; program to get mail; alternatives are 'fetchmail', 'getmail'
@@ -82,7 +82,7 @@
       mu4e-update-interval 1800
       mu4e-hide-index-messages t)
 
-
+
 ;;; Send Mail
 
 ;; SMTP
@@ -93,7 +93,7 @@
 ;;  smtpmail-smtp-server         "smtp.example.com"
 ;;  smtpmail-local-domain        "example.com")
 
-
+
 ;; send mail program
 ;; tell message-mode how to send mail
 ;; - `smtpmail-send-it'
@@ -101,7 +101,7 @@
 ;; - `message-send-mail-with-sendmail'
 
 
-
+
 ;;; 0: [sendmail]
 
 (setq message-send-mail-function 'message-send-mail-with-sendmail)
@@ -110,12 +110,12 @@
 ;; $ sendmail -oem -oi
 (setq sendmail-program "/usr/sbin/sendmail")
 
-
+
 ;; 1: msmtp
 ;; (setq sendmail-program "/usr/bin/msmtp")
 ;; $ msmtp -C $HOME/.mutt/msmtprc
 
-
+
 ;; 2: smtpmail
 ;; (setq message-send-mail-function 'smtpmail-send-queued-mail)
 ;; (setq message-send-mail-function 'smtpmail-send-it)
@@ -136,7 +136,7 @@
 ;;       smtpmail-queue-index-file "index"
 ;;       )
 
-
+
 ;;; two: [smtp] for Gmail
 ;; (require 'smtpmail)
 
@@ -160,7 +160,7 @@
 ;;       smtpmail-smtp-server "smtp.gmail.com"
 ;;       smtpmail-smtp-service 587)
 
-
+
 ;;; View
 
 (setq mu4e-split-view 'horizontal ; 'vertical, 'horizontal
@@ -189,7 +189,7 @@
       mu4e-headers-duplicate-prefix '("=" . "‡")
       )
 
-
+
 ;;; Message
 
 ;; the headers to show in the headers list -- a pair of a field
@@ -223,7 +223,7 @@
       user-mail-address "numbchild@gmail.com"
       user-full-name  "stardiviner")
 
-
+
 ;;; Compose
 
 ;;; Compose hooks [mu4e-compose-pre-hook, mu4e-compose-mode-hook]
@@ -274,7 +274,7 @@
 ;; don't keep message buffers around
 (setq message-kill-buffer-on-exit t)
 
-
+
 ;;;  Reply
 
 ;; don't include self (that is, any member of `mu4e-user-mail-address-list') in
@@ -289,7 +289,7 @@
 ;;; reply only to thread: header `Reply-to:', `List-Post:'
 ;; - `mu4e~draft-reply-construct'
 
-
+
 ;;; [ Sign ]
 
 ;; Signing and encrypting It's possible using emacs-mime, most easily accessed
@@ -314,7 +314,7 @@
 (add-hook 'message-send-hook 'mml-secure-message-sign-pgpauto)
 ;; (add-hook 'mu4e-compose-mode-hook 'mml-secure-message-sign-pgpauto)
 
-
+
 ;;; [ Encrypt ]
 
 ;;; encrypt outgoing message.
@@ -328,7 +328,7 @@
 ;; (add-hook 'message-send-hook 'mml-secure-message-encrypt-pgpauto)
 ;; (add-hook 'mu4e-compose-mode-hook 'mml-secure-message-encrypt-pgpauto)
 
-
+
 ;;; Headers
 
 ;;; `mu4e-header-info'.
@@ -401,7 +401,7 @@
                  (message "Messages replied to your thread.")))
              t)
 
-
+
 ;;; [ spam ]
 
 ;; from `mu4e-contrib'
@@ -423,7 +423,7 @@
 (add-to-list 'mu4e-view-actions
              '("bMark unsure as ham" . mu4e-mark-unsure-as-ham) t)
 
-
+
 ;;; creating org-mode links from mu4e messages.
 ;;
 ;; - [M-x org-store-link] / [C-c C-l] -- store link to org-mode.
@@ -446,7 +446,7 @@
 (org-add-link-type "email-msgid" 'org-email-open)
 (org-add-link-type "email-query" 'org-email-open)
 
-
+
 
 ;;; Sort order and threading
 ;; - O -- sort. mu4e-headers-change-sorting
@@ -469,7 +469,7 @@
 (add-to-list 'mu4e-headers-actions '("related thread" . my/mu4e-view-related-search) t)
 (add-to-list 'mu4e-view-actions '("relative thread" . my/mu4e-view-related-search) t)
 
-
+
 ;;; Message view
 
 (setq mu4e-view-fields '(:from :to :cc
@@ -491,7 +491,7 @@
       mu4e-split-view 'horizontal ; split view
       )
 
-
+
 ;;; [ cite ]
 
 ;; mu-cite
@@ -501,7 +501,7 @@
 ;; message-cite
 (setq message-cite-style message-cite-style-gmail)
 
-
+
 ;; viewing images inline
 ;;
 ;; It is possible to show images inline in the message view buffer if you run
@@ -518,7 +518,7 @@
 (when (fboundp 'imagemagick-register-types)
   (imagemagick-register-types))
 
-
+
 ;; Displaying rich-text messages
 ;;
 ;; mu4e normally prefers the plain-text version for messages that consist of
@@ -533,7 +533,7 @@
 
 (setq mu4e-html2text-command 'mu4e-shr2text)
 
-
+
 ;;; Attachments
 
 ;; - A -- action to pick some custom action to perform on current message/attachment.
@@ -553,7 +553,7 @@
       mu4e-save-multiple-attachments-without-asking t
       )
 
-
+
 ;;; Actions
 
 ;; - a -- (for messages)
@@ -594,7 +594,7 @@
 ;;              '("xsearch for sender" . search-for-sender) t)
 
 
-
+
 ;;; Searching
 ;; - Q -- search. mu4e-headers-toggle-full-search.
 ;;
@@ -621,17 +621,17 @@
 ;; including/not-including with <W>.
 (setq mu4e-headers-include-related t)
 
-
+
 ;;; Compose
 
 ;; - `org-mu4e-compose-org-mode' :: 
 
-
+
 ;;; Send
 
 (setq mu4e-sent-messages-behavior 'sent)
 
-
+
 ;;; Crypto (signing, encrypting, verifying, decrypting)
 ;;; - v -- see the details of the signature verification by activating the Details.
 ;; start gpg-agent manually:
@@ -640,7 +640,7 @@
       mu4e-decryption-policy t          ; auto decrypt.
       )
 
-
+
 ;;; Refiling
 
 ;; - r -- refiling, mu4e-refile-folder
@@ -663,7 +663,7 @@
          (t "/archive")
          )))
 
-
+
 ;;; Bookmarks
 
 ;; - [b] :: bookmark
@@ -693,7 +693,7 @@
   )
 (add-hook 'mu4e-index-updated-hook 'mu4e-new-mail-alert)
 
-
+
 ;;; Faces
 
 ;; current select line
@@ -831,14 +831,14 @@
 (set-face-attribute 'message-header-other nil
                     :foreground "#888888")
 
-
+
 ;;; Marking
 
 (define-key mu4e-headers-mode-map (kbd "f") 'mu4e-headers-mark-for-flag)
 (define-key mu4e-headers-mode-map (kbd "m") 'mu4e-headers-mark-for-something)
 (define-key mu4e-headers-mode-map (kbd "M") 'mu4e-headers-mark-for-move)
 
-
+
 ;;; Add Org-mode structure support for Emails
 
 (add-hook 'mu4e-view-mode-hook
@@ -848,7 +848,7 @@
             ;; enable Orgtbl minor mode in message-mode.
             (turn-on-orgtbl)))
 
-
+
 ;;; Gmail
 ;; (setq mu4e-maildir "~/Maildir")
 ;; (setq mu4e-drafts-folder "/[Gmail].Drafts")
@@ -879,7 +879,7 @@
 ;;       smtpmail-smtp-server "smtp.gmail.com"
 ;;       smtpmail-smtp-service 587)
 
-
+
 ;;; Contacts
 
 (add-hook
@@ -890,7 +890,7 @@
                  mail-completion-at-point-function
                  message-completion-function))))
 
-
+
 
 (defun my-mu4e-jump-to-index ()
   ""
@@ -900,11 +900,11 @@
     (mu4e-headers-search "maildir:/INBOX"))
   )
 
-
+
 
 (setq mu4e-completing-read-function 'completing-read)
 
-
+
 ;;; [ mu4e-maildirs-extension ]
 
 ;; - u :: update the index
@@ -924,12 +924,12 @@
   (setq mu4e-maildirs-extension-submaildir-separator "┝") ; "|"
   )
 
-
+
 ;;; [ mu4e-speedbar ]
 
 ;; (add-hook 'mu4e-main-mode-hook 'sr-speedbar-open)
 
-
+
 ;;; maintaining an address-book with org-contacts
 ;;; Usage:
 ;; - <a o> in headers view & message view :: using the org-capture mechanism.
@@ -940,7 +940,7 @@
 (add-to-list 'mu4e-view-actions
              '("org-contact-add" . mu4e-action-add-org-contact) t)
 
-
+
 ;;; [ mu4e-alert ] -- Desktop notifications and modeline display for mu4e.
 
 (use-package mu4e-alert
@@ -957,7 +957,7 @@
          ))
   )
 
-
+
 
 (provide 'init-mu4e)
 

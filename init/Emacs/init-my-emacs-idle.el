@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Zone out ]
 
 ;;; Usage:
@@ -20,7 +20,7 @@
 ;; (autoload 'zone-when-idle "zone.el" nil t)
 ;; (zone-when-idle (* 60 5))
 
-
+
 (provide 'init-my-emacs-idle)
 
 ;;; init-my-emacs-idle.el ends here

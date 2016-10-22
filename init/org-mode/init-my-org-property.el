@@ -6,12 +6,12 @@
 
 
 ;;; Code:
-
 
 
 
 
-
+
+
 (provide 'init-my-org-property)
 
 ;;; init-my-org-property.el ends here

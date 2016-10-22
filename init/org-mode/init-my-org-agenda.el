@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 
 (require 'org-agenda)
 
@@ -248,7 +248,7 @@
 ;;         ("CANCELLED" ("CANCELLED" . t))
 ;;         ))
 
-;;;; [ org-review ] -- Track when you have done a review in org mode.
+;;;; [ org-review ] -- Track when you have done a review in org mode.
 
 (use-package org-review
   :ensure t
@@ -266,7 +266,7 @@
               (local-set-key (kbd "C-c C-r") 'org-review-insert-last-review)))
   )
 
-
+
 ;;; [ secretaria ] -- A personal assistant based on org-mode.
 
 ;; (use-package secretaria
@@ -278,14 +278,14 @@
 ;;   (add-hook 'after-init-hook #'secretaria-today-unknown-time-appt-always-remind-me)
 ;;   )
 
-
+
 ;;; [ Calendar ]
 
 ;;;_* iCalendar
 
 (setq org-combined-agenda-icalendar-file "~/Org/Calendar/iCalendar.ics")
 
-
+
 ;;; [ Notify ]
 
 ;; 1.
@@ -304,7 +304,7 @@
 ;;      "Warning" "the end is near"
 ;;      "/usr/share/icons/test.png" "/usr/share/sounds/beep.ogg")
 
-
+
 ;;; [ org-notify ]
 
 (require 'org-notify)
@@ -339,7 +339,7 @@
 
 (org-notify-start 300)
 
-
+
 ;;; bind key [C-l] to locate to current time: "now -----" in Org-Agenda buffer.
 
 (defun my-org-agenda-jump-to-current-time ()
@@ -353,7 +353,7 @@
 
 (define-key org-agenda-mode-map (kbd "C-l") 'my-org-agenda-jump-to-current-time)
 
-
+
 ;;; [ org-alert ] -- System notifications of org agenda items.
 
 (use-package org-alert
@@ -364,7 +364,7 @@
   (org-alert-enable)
   )
 
-
+
 (provide 'init-my-org-agenda)
 
 ;;; init-my-org-agenda.el ends here

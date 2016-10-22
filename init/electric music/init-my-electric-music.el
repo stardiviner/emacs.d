@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ SuperCollider ] -- an audio server, programming language, and IDE for sound synthesis and algorithmic composition.
 
 ;; from Linux System Package (which only contains *.elc files)
@@ -79,7 +79,7 @@
 (define-key sclang-mode-map (kbd "C-c M-s") 'sclang-main-stop)
 (define-key sclang-mode-map (kbd "C-c M-r") 'sclang-main-run)
 
-
+
 ;;; [ sclang-extensions ] -- A collection of minor modes that improve your SuperCollider experience within Emacs.
 
 (use-package sclang-extensions
@@ -93,7 +93,6 @@
   (add-hook 'sclang-mode-hook 'sclang-extensions-mode)
   )
 
-
 (provide 'init-my-electric-music)
 
 ;;; init-my-electric-music.el ends here

@@ -6,13 +6,13 @@
 
 
 ;;; Code:
-
+
 ;;; [ magithub ] -- Magit interfaces for GitHub.
 
 (use-package magithub
   :ensure t)
 
-
+
 (provide 'init-my-prog-vcs-git-github)
 
 ;;; init-my-prog-vcs-git-github.el ends here

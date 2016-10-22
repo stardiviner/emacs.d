@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ haskell-mode ]
 
 (use-package haskell-mode
@@ -103,7 +103,7 @@
   ;; (add-hook 'haskell-mode-hook 'my-haskell-interactive-start)
   )
 
-
+
 ;;; [ hindent ] -- Haskell indent.
 
 (use-package hindent
@@ -113,7 +113,7 @@
   (add-hook 'haskell-mode-hook #'hindent-mode)
   )
 
-
+
 ;;; [ flycheck-haskell ]
 
 ;; (use-package flycheck-haskell
@@ -124,7 +124,7 @@
 ;;     (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
 ;;   )
 
-
+
 ;;; [ ghc ]
 
 (use-package ghc
@@ -139,7 +139,7 @@
   (setq ghc-display-error 'minibuffer)
   )
 
-
+
 ;;; [ company-ghc ] -- company-mode back-end for haskell-mode via ghc-mod.
 
 ;; (use-package company-ghc
@@ -156,7 +156,7 @@
 ;;         )
 ;;   )
 
-
+
 ;;; [ company-ghci ] -- company backend which uses the current ghci process.
 
 ;; (use-package company-ghci
@@ -168,14 +168,14 @@
 ;;               (my-company-add-backend-locally 'company-ghci)
 ;;               )))
 
-
+
 ;;; [ company-cabal ] -- company-mode back-end for haskell-cabal-mode.
 
 ;; (use-package company-cabal
 ;;   :ensure t
 ;;   :defer t)
 
-
+
 
 ;; (defun my-haskell-company-backends-setup ()
 ;;   "Setup `company-backends' for Haskell related modes."
@@ -196,7 +196,7 @@
 ;;                 ))
 ;;   (add-hook hook #'my-haskell-company-backends-setup))
 
-
+
 ;;; [ intero ] -- Complete interactive development program for Haskell.
 
 ;; (use-package intero
@@ -206,7 +206,7 @@
 ;;   (add-hook 'haskell-mode-hook 'intero-mode)
 ;;   )
 
-
+
 ;;; [ scion ] -- IDE library for Haskell based on the GHC API.
 
 (use-package scion
@@ -228,14 +228,14 @@
                                     :body "Haskell Scion connected.")))
   )
 
-
+
 ;;; [ ebal ] -- Emacs interface to Cabal and Stack.
 
 (use-package ebal
   :ensure t
   :defer t)
 
-
+
 (provide 'init-my-prog-lang-haskell)
 
 ;;; init-my-prog-lang-haskell.el ends here

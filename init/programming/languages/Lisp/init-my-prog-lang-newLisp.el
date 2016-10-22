@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ newlisp-mode ]
 
 (use-package newlisp-mode
@@ -41,7 +41,7 @@
   (add-hook 'comint-mode-hook 'newlisp-repl-inferior-buffer-setup)
   )
 
-
+
 (provide 'init-my-prog-lang-lisp-newLisp)
 
 ;;; init-my-prog-lang-lisp-newLisp.el ends here

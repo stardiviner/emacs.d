@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ redis ] -- Redis integration
 
 (use-package redis
@@ -20,19 +20,19 @@
   (add-hook 'redis-mode-hook 'sqlup-mode)
   )
 
-
+
 ;;; [ eredis ] -- a Redis client in emacs lisp
 
 (use-package eredis
   :ensure t)
 
-
+
 ;;; [ ob-redis ]
 
 (use-package ob-redis
   :ensure t)
 
-
+
 (provide 'init-my-prog-lang-database-redis)
 
 ;;; init-my-prog-lang-database-redis.el ends here

@@ -4,7 +4,7 @@
 
 
 ;;; Code:
-
+
 ;;; switch to new splitted window after split.
 ;;
 ;; 1. this will break the default action, and affect other window behaviors.
@@ -36,7 +36,7 @@
       (delete-window))
     (display-buffer-pop-up-frame buffer nil)))
 
-
+
 ;;; [ display-buffer-alist ]
 
 ;; Learn about display actions, see [[info:elisp#Display Action Functions]].
@@ -52,7 +52,7 @@
 ;;                (window-height . 0.3)
 ;;                ))
 
-
+
 ;;; [ winner ]
 
 ;;; Usage
@@ -63,7 +63,7 @@
 
 (winner-mode 1)
 
-
+
 ;;; [ ace-window ] -- Quickly switch windows in Emacs.
 
 (use-package ace-window
@@ -84,7 +84,7 @@
   (setq aw-background nil)
   )
 
-
+
 ;;; [ resize-window ]
 
 (use-package resize-window
@@ -96,7 +96,7 @@
   (setq resize-window-allow-backgrounds nil)
   )
 
-
+
 ;;; [ popwin ] -- Popup Window Manager for Emacs (*always* shows upon minibuffer)
 
 (use-package popwin
@@ -414,7 +414,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
   (push '(my/popwin-func-for-erc-private-message :height 10 :position bottom :noselect nil) popwin:special-display-config)
   )
 
-
+
 ;;; [ zoom-window ] -- zoom/un-zoom window like tmux.
 
 (use-package zoom-window
@@ -428,7 +428,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
         )
   )
 
-
+
 (provide 'init-my-emacs-window)
 
 ;;; init-my-emacs-window.el ends here

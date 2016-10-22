@@ -15,7 +15,7 @@
 
 
 ;;; Code:
-
+
 ;;; shorter suggestion:
 ;; You can run the command ‘find-file’ with C-x C-f
 ;; =>
@@ -29,7 +29,7 @@
 ;;            command
 ;;            (execute-extended-command--shorter command command)))
 
-
+
 ;;; Search Keybindings
 
 ;; Occur search the full list of keybinds & their commands. Very helpful for
@@ -45,7 +45,7 @@
 
 (define-key help-map (kbd "C-k") 'search-keybind)
 
-
+
 ;;; stop using the arrow keys
 (global-unset-key [left])
 (global-unset-key [right])
@@ -54,13 +54,13 @@
 (global-unset-key [next]) ; PageDown
 (global-unset-key [prior]) ; PageUp
 
-
+
 ;;; bind some useful commands to keybindings.
 
 (global-set-key (kbd "M-]") 'forward-sentence)
 (global-set-key (kbd "M-[") 'backward-sentence)
 
-
+
 ;;; [ which-key ]
 
 (use-package which-key
@@ -96,7 +96,7 @@
           ))
   )
 
-
+
 ;;; [ hydra ] -- tie related commands into a family of short bindings with a common prefix - a Hydra.
 
 (use-package hydra
@@ -164,7 +164,7 @@
                       :weight 'bold)
   )
 
-
+
 ;;; [ emaps ] -- Emaps provides utilities for working with keymaps and keybindings in Emacs.
 
 (use-package emaps
@@ -174,7 +174,7 @@
   (global-set-key (kbd "C-h K") 'emaps-describe-keymap-bindings)
   )
 
-
+
 ;;; [ Buffer-locally overriding minor-mode key bindings in Emacs ]
 
 ;;; Solution 1.
@@ -206,12 +206,12 @@
 ;;               (push `(<minor-mode> . ,newmap) minor-mode-overriding-map-alist))))
 ;; ----------------------------------------------------------------------------------
 
-
+
 ;;; [ redefine a map's keybinding buffer-locally ]
 
 
 
-
+
 
 (provide 'init-my-emacs-keybinding)
 

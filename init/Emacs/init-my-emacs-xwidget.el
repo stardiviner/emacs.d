@@ -6,19 +6,19 @@
 
 
 ;;; Code:
-
+
 ;;; [ xwidget ]
 
 (require 'xwidget)
 
-
+
 ;;; [ xwidgete ] -- Enhance usability for Xwidget browser in Emacs 25.
 
 (use-package xwidgete
   :ensure t
   :defer t)
 
-
+
 (provide 'init-my-emacs-xwidget)
 
 ;;; init-my-emacs-xwidget.el ends here

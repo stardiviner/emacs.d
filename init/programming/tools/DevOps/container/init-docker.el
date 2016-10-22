@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ docker ] -- Emacs interface to Docker.
 
 (use-package docker
@@ -22,7 +22,7 @@
   (setq docker-containers-show-all t)
   )
 
-
+
 ;;; [ dockerfile-mode ] -- Dockerfile
 
 (use-package dockerfile-mode
@@ -32,7 +32,7 @@
   (setq dockerfile-use-sudo nil)
   )
 
-
+
 ;;; [ docker-tramp ]
 
 (use-package docker-tramp
@@ -43,7 +43,7 @@
         )
   )
 
-
+
 (provide 'init-docker)
 
 ;;; init-docker.el ends here

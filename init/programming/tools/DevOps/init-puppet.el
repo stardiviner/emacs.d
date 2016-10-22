@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ puppet-mode ]
 
 (use-package puppet-mode
@@ -14,7 +14,7 @@
   :defer t)
 
 
-
+
 (provide 'init-puppet)
 
 ;;; init-puppet.el ends here

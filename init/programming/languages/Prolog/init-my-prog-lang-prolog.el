@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ prolog.el ]
 
 ;;; A major mode for Prolog programming under Emacs and offers to my knowledge
@@ -24,7 +24,7 @@
 (add-to-list 'auto-mode-alist '("\\.prolog\\'" . prolog-mode))
 (add-to-list 'auto-mode-alist '("\\.m\\'" . mercury-mode))
 
-
+
 ;;; [ ediprolog ] -- Emacs Does Interactive Prolog
 
 (use-package ediprolog
@@ -34,13 +34,13 @@
   (define-key prolog-mode-map [f10] 'ediprolog-dwim)
   )
 
-
+
 ;; [ ob-prolog ] -- babel for Prolog
 
 (use-package ob-prolog
   :ensure t)
 
-
+
 (provide 'init-my-prog-lang-prolog)
 
 ;;; init-my-prog-lang-prolog.el ends here

@@ -6,12 +6,12 @@
 
 
 ;;; Code:
-
+
 ;;; [ Agenda dispatcher ]
 
 ;; (org-agenda-dispatch)
 
-
+
 ;;; [ Search Functions ]
 
 (use-package ag
@@ -36,7 +36,7 @@ If called with a prefix, prompts for flags to pass to ag."
   )
 
 
-
+
 (provide 'init-my-org-search)
 
 ;;; init-my-org-search.el ends here

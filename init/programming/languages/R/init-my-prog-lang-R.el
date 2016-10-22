@@ -4,7 +4,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ R-mode ]
 
 (autoload 'R-mode "ess-site" "R-mode" t)
@@ -30,7 +30,7 @@
 ;;; handle the custom ℝ prompt in ess. Don’t use custom here.
 ;; (setq inferior-S-prompt "[]a-zA-Z0-9.[]*\\(?:[>+.] \\)*ℝ+> ")
 
-
+
 ;; start the ESS process if not started when open ESS buffers.
 ;; (add-hook 'after-init-hook 'R)
 
@@ -43,20 +43,20 @@
   '(lambda ()
      (my-func/open-and-switch-to-buffer 'R "*R*" t)))
 
-
+
 ;;; completing support
 
 ;; - `ess-company-backends' :: for company-mode.
 ;; - `ess-ac-sources' :: for auto-complete.
 
-
+
 ;;; temporally fix lintr missing for flycheck issue.
 
 (add-hook 'R-mode-hook
           (lambda ()
             (flycheck-mode -1)))
 
-
+
 
 (provide 'init-my-prog-lang-R)
 

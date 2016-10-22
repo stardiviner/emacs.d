@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ wgrep ] -- writable grep buffer and apply the changes to files.
 
 (use-package wgrep
@@ -17,13 +17,12 @@
         wgrep-auto-save-buffer nil)
   )
 
-
+
 ;;; [ wgrep-ag ]
 
 (use-package wgrep-ag
   :ensure t)
 
-
 (provide 'init-my-emacs-search-wgrep)
 
 ;;; init-my-emacs-search-wgrep.el ends here

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Capture - Refile - Archive ]
 
 (require 'org-capture)
@@ -105,7 +105,7 @@
       org-archive-reversed-order nil
       )
 
-
+
 ;;; [ org-protocol capture ]
 
 (require 'org-protocol)
@@ -142,7 +142,7 @@
   (if (equal "emacs-capture" (frame-parameter nil 'name))
       (delete-frame)))
 
-
+
 (provide 'init-my-org-capture)
 
 ;;; init-my-org-capture.el ends here

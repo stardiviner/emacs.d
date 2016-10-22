@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ clojure-mode ]
 
 (use-package clojure-mode
@@ -41,7 +41,7 @@
     )
   )
 
-
+
 ;;; [ CIDER ] -- CIDER is a Clojure IDE and REPL for Emacs
 
 (use-package cider
@@ -259,7 +259,7 @@
               ))
   )
 
-
+
 ;;; run test when load file.
 
 (defun cider-tdd-test ()
@@ -283,7 +283,7 @@
 
 ;; (add-hook 'clojure-mode-hook 'cider-tdd-mode)
 
-
+
 ;;; [ cider-decompile ]
 
 ;; (use-package cider-decompile
@@ -294,14 +294,14 @@
 ;;   (define-key clojure-mode-map (kbd "??") cider-decompile-ns-func)
 ;;   )
 
-
+
 ;;; [ cider-spy ] -- Spy on CIDER to get Info.
 
 ;; (use-package cider-spy
 ;;   :ensure t
 ;;   :defer t)
 
-
+
 ;;; [ cider-profile ]
 
 ;; (use-package cider-profile
@@ -312,7 +312,7 @@
 ;;   (add-hook 'cider-repl-mode-hook 'cider-profile-mode)
 ;;   )
 
-
+
 ;;; [ flycheck-clojure, squiggly-clojure ] --
 
 (use-package flycheck-clojure
@@ -323,7 +323,7 @@
     (flycheck-clojure-setup))
   )
 
-
+
 ;;; [ clj-refactor ]
 
 (use-package clj-refactor
@@ -351,7 +351,7 @@
   ;;               (yas-next-field)))
   )
 
-
+
 ;;; [ kibit-helper ] -- A static code analyzer for Clojure with core.logic.
 
 (use-package kibit-helper
@@ -361,13 +361,13 @@
   (define-key clojure-mode-map (kbd "C-x C-`") 'kibit-accept-proposed-change)
   )
 
-
+
 ;;; [ cider-eval-sexp-fu ]
 
 (use-package cider-eval-sexp-fu
   :ensure t)
 
-
+
 ;;; [ align-cljlet ]
 
 (use-package align-cljlet
@@ -377,7 +377,7 @@
   ;; (define-key clojure-mode-map (kbd "??") 'align-cljlet)
   )
 
-
+
 ;;; [ typed-clojure-mode ] -- Typed Clojure minor mode for Emacs.
 
 ;; (use-package typed-clojure-mode
@@ -387,7 +387,7 @@
 ;;   (add-hook 'clojure-mode-hook 'typed-clojure-mode)
 ;;   )
 
-
+
 ;;; [ helm-clojuredocs ] -- Searching for help in clojurdocs.org with helm.
 
 ;; (use-package helm-clojuredocs
@@ -397,27 +397,27 @@
 ;;   (define-key clojure-mode-map (kbd "C-h d d") 'helm-clojuredocs)
 ;;   )
 
-
+
 ;;; [ elein ] -- running Leiningen commands from Emacs.
 
 (use-package elein
   :ensure t)
 
-
+
 ;;; [ clojars ] -- Emacs Interface to Clojars.org
 
 (use-package clojars
   :ensure t
   :defer t)
 
-
+
 ;;; [ clomacs ] -- Clomacs simplifies call Clojure code from Emacs lisp.
 
 (use-package clomacs
   :ensure t
   :defer t)
 
-
+
 (provide 'init-my-prog-lang-clojure)
 
 ;;; init-my-prog-lang-clojure.el ends here

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;;_* org-trello
 
 ;;;_ + Usage:
@@ -151,7 +151,7 @@
 ;; ;; This help message
 ;; (define-key my-org-trello-map (kbd "h") 'org-trello/help-describing-bindings)
 
-
+
 (provide 'init-my-org-trello)
 
 ;;; init-my-org-trello.el ends here

@@ -6,12 +6,12 @@
 
 
 ;;; Code:
-
+
 (unless (boundp 'my-org-password-prefix)
   (define-prefix-command 'my-org-password-prefix))
 (define-key my-org-prefix (kbd "P") 'my-org-password-prefix)
 
-
+
 ;;; [ org-passwords ]
 
 ;; (use-package org-passwords
@@ -56,7 +56,7 @@
 ;;   (setq enable-recursive-minibuffers t)
 ;;   )
 
-
+
 ;;; [ org-password-manager ]
 
 (use-package org-password-manager
@@ -72,7 +72,7 @@
         "pwgen --secure --symbols --capitalize --numerals 25 1")
   )
 
-
+
 (provide 'init-my-org-password)
 
 ;;; init-my-org-password.el ends here

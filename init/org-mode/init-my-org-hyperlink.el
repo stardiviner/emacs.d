@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 
 (setq org-display-internal-link-with-indirect-buffer t
       org-indirect-buffer-display 'current-window
@@ -74,28 +74,28 @@
 ;; `org-link-types'
 ;; `org-add-link-type' + `org-add-link-props'
 
-
+
 ;; `shell:'
 (setq org-confirm-shell-link-function 'yes-or-no-p)
 
-
+
 ;; Email: `mailto:' link open with Emacs internal extension like message-mode, mu4e.
 ;; `mail-user-agent'
 (setq browse-url-mailto-function 'browse-url-mail)
 
-
+
 ;; IRC: `irc:'
 (if (featurep 'erc)
     (setq org-irc-client 'erc)
   (if (featurep 'circe)
       (setq org-irc-client 'circe)))
 
-
+
 ;;; telnet: link type
 ;;  telnet://ptt.cc
 (org-add-link-type "telnet" 'telnet)
 
-
+
 ;; RSS
 (defun org-rss-link-open (uri)
   "Open rss:// URI link."
@@ -103,13 +103,13 @@
 
 (org-add-link-type "rss" 'org-rss-link-open)
 
-
+
 ;; append "`man:'" protocol.
 ;; `[[man:printf][The printf manpage]]'
 (require 'org-man)
 (setq org-man-command 'man) ; 'man, 'woman.
 
-
+
 ;;; occur: link type
 ;;
 ;; and you can then use links like:
@@ -132,7 +132,7 @@
 
 (org-add-link-type "grep" 'org-grep-link-open)
 
-
+
 ;;; [[tag:]]
 ;; e.g. [[tag:work+phonenumber-boss][Optional Description]]
 (defun org-tag-link-open (tag)
@@ -141,6 +141,80 @@ With prefix argument, also display headlines without a TODO keyword."
   (org-tags-view (null current-prefix-arg) tag))
 
 (org-add-link-type "tag" 'org-tag-link-open)
+
+
+;;; [[map:"address name/geography"]]
+;; - address name: "Dali, Yunnan, China"
+(defcustom org-map-application-command "gnome-maps"
+  "Specify the program name for openning map: link.")
+
+(defcustom org-map-application-options ""
+  "Specify the program options for openning map: link.")
+
+(defcustom org-map-services-list
+  '(("Google Maps" . "http://maps.google.com/maps?q=")
+    ("OpenStreetMap" . "https://www.openstreetmap.org/search?query=")
+    ("Baidu Maps" . "http://map.baidu.com/?q="))
+  "Specify a list of Maps services for using when querying address.")
+
+(defun org-map-get-service-url (service-name)
+  "Get Maps `SERVICE_NAME' URL through associate list."
+  (cdr (assoc service-name org-map-services-list)))
+
+(defun org-map-select-service ()
+  "Interactively select Maps service."
+  (completing-read "Maps service: "
+                   (map-keys org-map-services-list)))
+
+(defcustom org-map-prefer-service t
+  "Prefer use Maps service because they are instantly.")
+
+(defvar org-map-application-p (if (executable-find "gnome-maps") t nil)
+  "Return boolean value after check Maps application available.")
+
+(defun org-map-link-open (address)
+  "Search `ADDRESS' in Map application."
+  (if org-map-prefer-service
+      ;; open with Maps service
+      (let* ((map-service (org-map-get-service-url (org-map-select-service))
+                          ;; detect address string is chinese string.
+                          ;; TODO: don't why `multibyte-string-p' detect link `address' like "Dali, Yunnan, China" will become `t'.
+                          ;; (if (multibyte-string-p address)
+                          ;;     (org-map-get-service-url "Baidu Maps")
+                          ;;   (org-map-get-service-url (org-map-select-service)))
+                          )
+             (url (concat map-service (url-encode-url address))))
+        (prin1 url)
+        (browse-url url)
+
+        ;; debug upper if condition
+        ;; (prin1 map-service)
+        ;; (prin1 (multibyte-string-p address))
+        )
+    ;; open with Maps application
+    (when org-map-application-p
+      (start-process-shell-command
+       "org-map-link-open"
+       "org-map-link-open"
+       (format "%s %s %s"
+               org-map-application-command
+               org-map-application-options
+               (shell-quote-wildcard-pattern address))))))
+
+(org-add-link-type "map" 'org-map-link-open)
+
+
+
+;;; [ geography link ]
+;; [geo:37.786971,-122.399677;u=35]
+
+(defun org-geo-link-open ()
+  "Open geography location link with program."
+  
+  )
+
+(org-add-link-type "geo" 'org-geo-link-open)
+
 
 
 (setq org-link-frame-setup
@@ -229,7 +303,7 @@ With prefix argument, also display headlines without a TODO keyword."
         ("DouBan_Movies" . "http://movie.douban.com/subject_search?search_text=%s")
         ))
 
-
+
 ;;; open image link to edit
 
 (defvar org-image-link-edit-cmd "gimp %s")
@@ -247,7 +321,16 @@ With prefix argument, also display headlines without a TODO keyword."
 
 (define-key my-org-prefix (kbd "E") 'org-image-link-edit)
 
-
+
+;;; code ref
+
+;;; auto prefix with comment char when create code ref in src block with
+;;; `org-store-link'.
+
+;; detect whether point position is in comment?
+;; (describe-char (point))
+
+
 (provide 'init-my-org-hyperlink)
 
 ;;; init-my-org-hyperlink.el ends here

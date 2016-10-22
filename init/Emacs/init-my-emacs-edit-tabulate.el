@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Align ]
 
 ;;; Usage:
@@ -39,7 +39,7 @@ For example: input regexp like [[:space:]]+ for align several space separated se
                            (modes   . align-text-modes)
                            (repeat  . t)))))
 
-
+
 ;;; [ Table Editing ]
 
 ;;; http://ergoemacs.org/emacs/emacs_table.html
@@ -55,7 +55,7 @@ For example: input regexp like [[:space:]]+ for align several space separated se
 ;; - [M-x table-] :: commands prefix with `table-'.
 
 
-
+
 (provide 'init-my-emacs-edit-tabulate)
 
 ;;; init-my-emacs-edit-tabulate.el ends here

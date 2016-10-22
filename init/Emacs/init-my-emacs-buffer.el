@@ -5,7 +5,7 @@
 
 
 ;;; Code:
-
+
 ;;; Auto-reload external file changes
 
 ;; - `recover-file' :: recover file.
@@ -16,13 +16,13 @@
       auto-revert-verbose nil
       auto-revert-use-notify t)
 
-
+
 ;;; auto-save visited files
 
 ;; Non-nil says auto-save a buffer in the file it is visiting, when practical.
 (setq auto-save-visited-file-name t)
 
-
+
 ;;; [ auto save ]
 
 ;; (auto-save-mode t)
@@ -30,7 +30,7 @@
       auto-save-list-file-prefix "~/.emacs.d/auto-save-list/.saves-"
       auto-save-interval 1500)
 
-
+
 ;;; [ backup ]
 
 (setq make-backup-files t
@@ -52,7 +52,7 @@
       ;; `((".*" . ,temporary-file-directory)) ; put all under directory /tmp.
       )
 
-
+
 ;;; [ ibuffer ]
 
 ;;; Usage:
@@ -83,11 +83,11 @@
 ;;; [ ibuffer-projectile ]
 
 
-
+
 
 (setq buffers-menu-max-size 30)
 
-
+
 ;;; [uniquify] -- meaningful names for buffers with the same name
 
 (require 'uniquify)
@@ -98,7 +98,7 @@
       uniquify-ignore-buffers-re "^\\*" ; don't muck with special buffers
       )
 
-
+
 ;;; [ recentf ]
 
 (require 'recentf)
@@ -114,7 +114,7 @@
       )
 
 
-
+
 (provide 'init-my-emacs-buffer)
 
 ;;; init-my-emacs-buffer.el ends here

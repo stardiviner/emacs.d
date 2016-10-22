@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ rainbow-mode ] -- colorize color names in buffers
 
 (use-package rainbow-mode
@@ -20,7 +20,7 @@
     (add-hook hook (lambda () (rainbow-mode 1))))
   )
 
-
+
 (provide 'init-my-emacs-color)
 
 ;;; init-my-emacs-color.el ends here

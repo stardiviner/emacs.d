@@ -36,7 +36,7 @@
 ;; iWaWa
 
 ;;; Code:
-
+
 ;; set font for all frames
 ;; (set-frame-font "DejaVu Sans Mono-10" t)
 ;; (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 100)
@@ -123,7 +123,7 @@
 ;;   )
 
 
-
+
 (provide 'init-my-emacs-font)
 
 ;;; init-my-emacs-font.el ends here

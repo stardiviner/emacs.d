@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 
 ;;; [ Status ]
 
@@ -141,7 +141,7 @@
          :box '(:color "black" :line-width -1))
         ))
 
-
+
 ;;; auto remove priority after mark task done.
 
 ;; (defun my/org-remove-preiority ()
@@ -150,7 +150,7 @@
 ;;
 ;; (add-hook 'org-after-todo-statistics-hook 'my/org-remove-preiority)
 
-
+
 ;;; [ Habit ]
 
 (require 'org-habit)
@@ -219,7 +219,7 @@
       '("+PROJECT/-MAYBE-DONE" ("NEXT" "TODO") ("@SHOP")
         "\\<IGNORE\\>"))
 
-
+
 ;;; [ inline task ]
 
 (require 'org-inlinetask)
@@ -229,7 +229,7 @@
       ;; org-inlinetask-min-level 15
       )
 
-
+
 (provide 'init-my-org-todo)
 
 ;;; init-my-org-todo.el ends here

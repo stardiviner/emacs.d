@@ -9,7 +9,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ debug ] -- Emacs built-in debugger.
 
 ;;; Usage:
@@ -35,7 +35,7 @@
 ;; of loading the init file. (This is an undesirable byproduct of the code that
 ;; implements the `--debug-init' command line option.) The best way to make the
 ;; init file set debug-on-error permanently is with after-init-hook, like this:
-;
+                                        ;
 ;; (add-hook 'after-init-hook
 ;;           (lambda ()
 ;;             (setq debug-on-error t)))
@@ -43,7 +43,7 @@
 ;;; Debug: Trace
 (setq stack-trace-on-error t)
 
-
+
 ;; Sometimes you want to find out where a particular error, warning or just
 ;; plain annoying message in Messages is coming from.
 ;; This piece of advice allows you to see the function call sequence that
@@ -74,7 +74,7 @@
 ;; (ad-update 'message)
 
 
-
+
 ;;; [ Checkpoints ]
 
 ;; Since, this is one huge file, it is often hard to debug where a particular
@@ -103,7 +103,7 @@
 ;; an example of above
 (my/checkpoint "initialized benchmarking")
 
-
+
 ;;; test Emacs init files with batch
 
 ;;; Usage:
@@ -134,7 +134,7 @@
   (require 'async)
   (async-start
    (lambda () (shell-command-to-string
-          "emacs --batch --eval \"
+               "emacs --batch --eval \"
 (condition-case e
     (progn
       (load \\\"~/.emacs\\\")
@@ -151,7 +151,7 @@
         (insert output)
         (search-backward "ERROR!")))))
 
-
+
 ;;; [ Edebug ] -- Edebug is a source level debugger.
 
 (require 'edebug)
@@ -176,7 +176,7 @@
   (interactive)
   (setq edebug-global-break-condition nil))
 
-
+
 ;;; [ edebug-x ]
 
 
@@ -193,11 +193,11 @@
                       )
   )
 
-
+
 ;;; [ Benchmarking ]
 
 
-
+
 ;;; [ profiler ]
 
 ;;; Usage:
@@ -222,13 +222,13 @@
             (define-key my-prog-debug-map (kbd "r") 'profiler-report)
             ))
 
-
+
 ;;; [ bug-hunter ] -- Hunt down errors in elisp files.
 
 ;; (use-package bug-hunter
 ;;   :ensure t)
 
-
+
 
 (provide 'init-my-emacs-debug)
 

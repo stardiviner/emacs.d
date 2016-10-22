@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ php-mode ]
 
 (use-package php-mode
@@ -28,21 +28,21 @@
   (setq php-search-documentation-browser-function t)
   )
 
-
+
 ;;; [ inf-php ]
 
 (use-package inf-php
   :ensure t
   :defer t)
 
-
+
 ;;; [ php-boris ]
 
 (use-package php-boris
   :ensure t
   :defer t)
 
-
+
 ;;; [ php-boris-minor-mode ]
 
 (use-package php-boris-minor-mode
@@ -52,7 +52,7 @@
   (add-hook 'php-mode-hook 'php-boris-minor-mode)
   )
 
-
+
 ;;; [ ac-php ] -- auto-completion and company source for php for GNU Emacs.
 
 (use-package ac-php
@@ -82,7 +82,7 @@
   (define-key php-mode-map (kbd "C-h d d") 'ac-php-show-tip)
   )
 
-
+
 ;;; [ php-eldoc ]
 
 (use-package php-eldoc
@@ -91,13 +91,13 @@
   :init
   (add-hook 'php-mode-hook 'php-eldoc-enable))
 
-
+
 ;;; [ ob-php ] -- execute PHP within org-mode blocks.
 
 (use-package ob-php
   :ensure t)
 
-
+
 ;;; [ phpunit ]
 
 (use-package phpunit
@@ -109,7 +109,7 @@
   (define-key php-mode-map (kbd "C-c t p") 'phpunit-current-project)
   )
 
-
+
 (provide 'init-my-prog-lang-php)
 
 ;;; init-my-prog-lang-php.el ends here

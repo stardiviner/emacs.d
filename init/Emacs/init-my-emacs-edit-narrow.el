@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Narrowing ]
 
 ;;; Usage:
@@ -76,7 +76,7 @@ narrowed."
 ;; how much I like this command. Only copy it if that's what you want.
 ;; (define-key ctl-x-map "n" #'narrow-or-widen-dwim)
 
-
+
 ;;; [ fancy-narrow ] -- immitate `narrow-to-region' with more eye-candy.
 
 (use-package fancy-narrow
@@ -94,25 +94,25 @@ narrowed."
   (global-set-key [remap widen] 'fancy-widen)
   )
 
-
+
 ;;;_ Multiple Narrowings
 
-
+
 ;;;_ narrow-indirect
 
 
-
+
 ;;;_ narrow-reindent
 
-
+
 ;;;_ narrowed-page-navigation
 
-
+
 ;;;_ recursive-narrow
 
 
 
-
+
 (provide 'init-my-emacs-edit-narrow)
 
 ;;; init-my-emacs-edit-narrow.el ends here

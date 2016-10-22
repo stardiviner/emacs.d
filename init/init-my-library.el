@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; get the content of region.
 
 (defun region-content ()
@@ -17,7 +17,7 @@
     ))
 
 
-
+
 (provide 'init-my-library)
 
 ;;; init-my-library.el ends here

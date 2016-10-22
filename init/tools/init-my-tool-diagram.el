@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ artist-mode ]
 
 (use-package artist
@@ -42,14 +42,14 @@
   (define-key artist-mode-map (kbd "C-c C-o") 'artist-select-operation)
   )
 
-
+
 ;;; [ picture-mode ]
 
 
-
+
 ;;; ditaa
 
-
+
 ;;; graphviz-dot-mode
 
 ;; (use-package graphviz-dot-mode
@@ -69,7 +69,7 @@
 ;;                 )))
 ;;   )
 
-
+
 ;;; [ plantuml-mode ] -- Major mode for PlantUML.
 
 (use-package plantuml-mode
@@ -79,7 +79,7 @@
   (setq plantuml-jar-path (locate-user-emacs-file "init/extra/plantuml.jar"))
   )
 
-
+
 
 (provide 'init-my-tool-diagram)
 

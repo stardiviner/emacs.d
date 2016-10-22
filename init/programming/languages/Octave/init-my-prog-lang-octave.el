@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ octave-mode ]
 
 (use-package octave
@@ -30,7 +30,7 @@
   (define-key inferior-octave-mode-map (kbd "C-h d") 'octave-help)
   )
 
-
+
 ;;; [ ac-octave ]
 
 (use-package ac-octave
@@ -43,7 +43,7 @@
   (add-hook 'octave-mode-hook #'ac-octave-mode-setup)
   )
 
-
+
 (provide 'init-my-prog-lang-octave)
 
 ;;; init-my-prog-lang-octave.el ends here

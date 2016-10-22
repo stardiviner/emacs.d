@@ -6,12 +6,12 @@
 
 
 ;;; Code:
-
+
 ;;; archive file
 
 (auto-compression-mode 1)           ; auto decompress when open compressed file.
 
-
+
 ;;; [ vlf -- View Large Files ]
 
 (use-package vlf
@@ -23,7 +23,7 @@
   ;;   (define-key vlf-prefix "\C-xv" vlf-mode-map))
   )
 
-
+
 ;;; [ openwith ]
 
 (use-package openwith
@@ -67,7 +67,7 @@
   ;; (add-to-list  'mm-inhibit-file-name-handlers 'openwith-file-handler)
   )
 
-
+
 (provide 'init-my-emacs-file)
 
 ;;; init-my-emacs-file.el ends here

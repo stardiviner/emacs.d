@@ -6,7 +6,7 @@
 ;;; vc
 
 ;;; Code:
-
+
 ;;; [ version control ]
 
 (setq version-control t)                ; enable version control
@@ -16,19 +16,19 @@
 (setq dired-kept-versions 1)
 
 
-
+
 ;;; [ vc ]
 
 (require 'vc)
 
 ;; (setq vc-follow-symlinks 'ask)
 
-
+
 ;;; Git
 
 (require 'vc-git)
 
-
+
 
 (provide 'init-my-emacs-vcs)
 

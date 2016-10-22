@@ -3,14 +3,14 @@
 ;;; Commentary:
 
 ;;; Code:
-
+
 ;;; [ gnuplot ]
 
 (use-package gnuplot
   :ensure t
   :defer t)
 
-
+
 ;;; [ gnuplot-mode ]
 
 (use-package gnuplot-mode
@@ -71,7 +71,7 @@
   (define-key gnuplot-mode-map (kbd "C-c C-c") 'gnuplot-show-gnuplot-buffer)
   )
 
-
+
 
 (provide 'init-my-prog-lang-gnuplot)
 

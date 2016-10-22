@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ git-gutter ]
 
 (use-package git-gutter
@@ -57,7 +57,7 @@
 
 (define-key my-prog-vcs-map (kbd "m g") 'my-git-gutter-goto)
 
-
+
 ;; [ git-gutter-plus / git-gutter+]
 
 (use-package git-gutter+
@@ -121,7 +121,7 @@
   (global-git-gutter+-mode t)
   )
 
-
+
 (provide 'init-my-prog-vcs-git-gutter)
 
 ;;; init-my-prog-vcs-git-gutter.el ends here

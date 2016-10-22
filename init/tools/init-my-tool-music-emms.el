@@ -24,13 +24,13 @@
 
 ;; (require 'emms-streams)
 
-
+
 ;; emms prefix keybinding map
 (unless (boundp 'my-emms-prefix)
   (define-prefix-command 'my-emms-prefix))
 (define-key my-tools-prefix (kbd "e") 'my-emms-prefix)
 
-
+
 (emms-standard)
 
 ;; (setq emms-player-list
@@ -41,7 +41,7 @@
 
 (emms-default-players)
 
-
+
 ;;; [ Playlist ]
 
 ;; The name of emms-playlist-mode is *way* too long
@@ -49,16 +49,16 @@
           #'(lambda ()
               (setq mode-name "EMMS/playlist")))
 
-
+
 ;;; [ Score ]
 (emms-score 1)
 
-
+
 ;;; Encoding
 (setq emms-info-mp3info-coding-system '(utf-8 gbk)
       emms-cache-file-coding-system 'utf-8)
 
-
+
 ;;; [ Playlist ]
 
 ;; Switch to either the radio buffer or the current EMMS playlist
@@ -73,7 +73,7 @@
         (error "No current Emms buffer")
       (switch-to-buffer emms-playlist-buffer))))
 
-
+
 ;;; [ Streams: Radio, Podcasts ]
 
 ;; Switch to the radio buffer
@@ -85,11 +85,11 @@
         (switch-to-buffer buf)
       (emms-streams))))
 
-
+
 ;;; [ Key Bindings ]
 
 
-
+
 ;;; [ MPD ]
 
 ;;; Usage:

@@ -6,13 +6,13 @@
 
 
 ;;; Code:
-
+
 
 (unless (boundp 'my-outline-prefix)
   (define-prefix-command 'my-outline-prefix))
 (global-set-key (kbd "C-c @") 'my-outline-prefix)
 
-
+
 ;;; [ allout ]
 
 (use-package allout
@@ -59,7 +59,7 @@
   ;; (define-key my-outline-prefix (kbd "n") 'allout-next-heading)
   )
 
-
+
 (provide 'init-my-emacs-outline)
 
 ;;; init-my-emacs-outline.el ends here

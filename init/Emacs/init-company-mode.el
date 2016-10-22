@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Company Mode ]
 
 (use-package company
@@ -181,7 +181,7 @@
   (add-hook 'company-completion-finished-hook #'my-company-animation)
   )
 
-
+
 ;;; [ company-quickhelp ] -- quick help document preview & popup
 
 (use-package company-quickhelp
@@ -204,7 +204,7 @@
     (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer))
   )
 
-
+
 ;;; [ company-statistics ]
 
 ;; (use-package company-statistics
@@ -221,7 +221,7 @@
 ;;   (company-statistics-mode)
 ;;   )
 
-
+
 ;;; [ company-mode in minibuffer `M-:' ]
 
 (defun company-mode-minibuffer-setup ()
@@ -236,7 +236,7 @@
 
 (add-hook 'eval-expression-minibuffer-setup-hook 'company-mode-minibuffer-setup)
 
-
+
 ;;; [ company-flx ] -- flx based fuzzy matching for company.
 
 ;; (use-package company-flx
@@ -245,7 +245,7 @@
 ;;   (with-eval-after-load 'company
 ;;     (company-flx-mode +1)))
 
-
+
 (provide 'init-company-mode)
 
 ;;; init-company-mode.el ends here

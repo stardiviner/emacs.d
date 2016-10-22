@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 
 ;;;_* Babel
 ;;
@@ -221,7 +221,7 @@ This can be useful for snippets to select kernel interactively."
       ;; org-babel-post-tangle-hook
       )
 
-
+
 
 (defadvice org-babel-execute-src-block (around load-language nil activate)
   "Load language if needed."
@@ -236,7 +236,7 @@ This can be useful for snippets to select kernel interactively."
       )
     ad-do-it))
 
-
+
 ;; NOTE: this may cause org babel block syntax highlighting failed.
 
 (add-to-list 'org-src-lang-modes (cons "SQL" 'sql))
@@ -251,7 +251,7 @@ This can be useful for snippets to select kernel interactively."
   (add-to-list 'org-src-lang-modes '("rhtml" . web))
   )
 
-
+
 ;;;_ + ditaa & PlantUML & Graphviz
 
 ;; Org-babel makes it easy to generate decent graphics using external packages
@@ -281,7 +281,7 @@ This can be useful for snippets to select kernel interactively."
 ;; #+END_SRC
 
 
-
+
 ;;; language-specific header arguments
 
 ;; `org-babel-default-header-args:<lang>' where `<lang>' is the name of the
@@ -415,14 +415,14 @@ This can be useful for snippets to select kernel interactively."
                 )
               org-capture-templates))
 
-
+
 ;;; [ Library of Babel ]
 
 ;; (setq org-babel-lob-files
 ;;       org-babel-library-of-babel
 ;;       )
 
-
+
 ;;;_ * source code block check
 ;;
 ;; - Report an error if there is a source block without a language specified
@@ -452,14 +452,14 @@ This can be useful for snippets to select kernel interactively."
 
 (add-hook 'org-src-mode-hook 'org-src-block-check)
 
-
+
 ;; how to correctly enable flycheck in babel source blocks
 (defadvice org-edit-src-code (around set-buffer-file-name activate compile)
   (let ((file-name (buffer-file-name)))
     ad-do-it
     (setq buffer-file-name file-name)))
 
-
+
 ;;; auto format (indent) source code block.
 
 ;; (defun indent-org-block-automatically ()
@@ -470,7 +470,7 @@ This can be useful for snippets to select kernel interactively."
 ;;
 ;; (run-at-time 1 10 'indent-org-block-automatically)
 
-
+
 ;;; Templates -- (org skeleton/template)
 
 ;; This means that when I press < from the start of the line, a Hydra will be
@@ -514,13 +514,13 @@ This can be useful for snippets to select kernel interactively."
         (self-insert-command 1))))
   )
 
-
+
 ;;; [ ob-translate ] -- allows you to translate blocks of text within org-mode.
 
 (use-package ob-translate
   :ensure t)
 
-
+
 ;;; [ Literate Programming with Org-mode ]
 
 ;;; [ Clojure ]
@@ -557,7 +557,7 @@ This can be useful for snippets to select kernel interactively."
 ;; Enable Confluence export
 ;; (require 'ox-confluence)
 
-
+
 ;;; [ Science ]
 
 ;;; [ Chemistry ]
@@ -568,7 +568,7 @@ This can be useful for snippets to select kernel interactively."
 (use-package ob-smiles
   :ensure t)
 
-
+
 ;;; change Babel src block background color.
 
 (with-eval-after-load 'org
@@ -835,7 +835,7 @@ This can be useful for snippets to select kernel interactively."
     "Face for calc blocks")
   )
 
-
+
 (provide 'init-my-org-babel)
 
 ;;; init-my-org-babel.el ends here

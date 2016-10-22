@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ visual-fill-column ] -- wrapping visual-line-mode buffers at fill-column.
 
 (use-package visual-fill-column
@@ -17,7 +17,7 @@
   (setq-default visual-fill-column-center-text nil)
   )
 
-
+
 ;;; [ org-if ] -- Interactive Fiction Authoring System for Emacs and Org-Mode.
 
 ;; (use-package org-if
@@ -27,7 +27,7 @@
 ;;   (org-babel-do-load-languages 'org-babel-load-languages '((org-if . t)))
 ;;   )
 
-
+
 ;;; [ wc-mode ]
 
 ;; (use-package wc-mode
@@ -37,7 +37,7 @@
 ;;   (add-hook 'org-mode-hook 'wc-mode)
 ;;   )
 
-
+
 (provide 'init-my-authoring)
 
 ;;; init-my-authoring.el ends here

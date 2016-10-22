@@ -3,13 +3,13 @@
 ;;; Commentary:
 
 ;;; Code:
-
+
 
 (unless (boundp 'my-edit-prefix)
   (define-prefix-command 'my-edit-prefix))
 (global-set-key (kbd "C-x e") 'my-edit-prefix)
 
-
+
 ;;;_ Edit
 
 ;; typed text replaces the active selection
@@ -49,14 +49,14 @@
           ))
   )
 
-
+
 ;;; [ 0xc ] -- Easy base conversion made easy in Emacs.
 
 (use-package 0xc
   :ensure t
   :defer t)
 
-
+
 (require 'init-my-emacs-kill-ring)
 (require 'init-my-emacs-region)
 (require 'init-my-emacs-macro)
@@ -66,7 +66,7 @@
 (require 'init-my-emacs-edit-multiple-cursors)
 (require 'init-my-emacs-edit-sudo)
 
-
+
 (provide 'init-my-emacs-edit)
 
 ;;; init-my-emacs-edit.el ends here

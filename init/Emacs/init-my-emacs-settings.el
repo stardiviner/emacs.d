@@ -3,7 +3,7 @@
 ;;; Commentary:
 
 ;;; Code:
-
+
 ;;; [ Disabled Commands ]
 
 ;; To enable all disabled commands in one fell swoop, put this in .emacs (not
@@ -21,7 +21,7 @@
 (put 'upcase-region 'disabled nil)        ; [C-x C-u]
 (put 'downcase-region 'disabled nil)      ; [C-x C-l]
 
-
+
 
 (fset 'yes-or-no-p 'y-or-n-p) ; treat 'y' as yes, 'n' as no.
 
@@ -30,24 +30,24 @@
 (setq-default initial-scratch-message
               (concat ";; Happy hacking " (or user-login-name "") "!\n\n"))
 
-
+
 ;;; [ Time ]
 
 ;;; time-stamp
 ;; (add-hook 'before-save-hook 'time-stamp)
 ;; (setq time-stamp-pattern nil)
 
-
+
 ;; [ Bell ]
 
 (setq visible-bell nil)                   ; use bell beep instead of flash frame.
 
-
+
 ;;; [ mode ]
 
 ;; (setq default-major-mode 'org-mode) ; use org-mode for any unspecified mode.
 
-
+
 ;;; [ register ]
 
 (global-unset-key (kbd "C-x r j"))
@@ -81,7 +81,7 @@
 (define-key my-register-map (kbd "f") 'frameset-to-register)
 (define-key my-register-map (kbd "w") 'window-configuration-to-register)
 
-
+
 ;;; [ clipboard ]
 
 ;; - select-enable-primary - default nil; set this to t if you want the Emacs commands C-w and C-y to use the primary selection.
@@ -95,7 +95,7 @@
       select-enable-clipboard-manager t
       )
 
-
+
 
 (provide 'init-my-emacs-settings)
 

@@ -5,13 +5,13 @@
 
 
 ;;; Code:
-
+
 
 (unless (boundp 'my-prog-code-map)
   (define-prefix-command 'my-prog-code-map))
 (global-set-key (kbd "C-c c") 'my-prog-code-map)
 
-
+
 ;;; [ subword-mode ] -- editing code WithCamelCaseWritingLikeThis
 
 ;;; Usage:
@@ -28,7 +28,7 @@
   (add-hook hook (lambda ()
                    (subword-mode +1))))
 
-
+
 ;;; [ glasses ] -- make CamelCase identifiers easy look.
 
 ;;; insert a virtual underscore separator between the conjoined words, so
@@ -43,7 +43,7 @@
   :config
   (glasses-mode 1))
 
-
+
 (provide 'init-my-prog-code)
 
 ;;; init-my-prog-code.el ends here

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 (unless (boundp 'my-org-prefix)
   (define-prefix-command 'my-org-prefix))
 (global-set-key (kbd "C-c o") 'my-org-prefix)
@@ -64,7 +64,7 @@
 (require 'init-my-org-contacts)
 (require 'init-my-org-password)
 
-
+
 (provide 'init-my-org-mode)
 
 ;;; init-my-org-mode.el ends here

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ tuareg-mode ] -- major mode for OCaml.
 
 (use-package tuareg
@@ -26,7 +26,7 @@
   (add-hook 'tuareg-mode-hook 'utop-minor-mode)
   )
 
-
+
 ;;; [ merlin ] -- context-sensitive completion for OCaml in Vim and Emacs.
 
 (use-package merlin
@@ -65,14 +65,14 @@
     (display-buffer tuareg-interactive-buffer-name))
   )
 
-
+
 ;;; [ utop ] -- universal toplevel for OCaml.
 
 (use-package utop
   :ensure t
   :defer t)
 
-
+
 (provide 'init-my-prog-lang-ocaml)
 
 ;;; init-my-prog-lang-ocaml.el ends here

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ irfc ]
 
 (use-package irfc
@@ -27,7 +27,7 @@
         irfc-highlight-references t)
   )
 
-
+
 ;;; [ rfcview ]
 
 (use-package rfcview
@@ -49,7 +49,7 @@
   ;; (define-key rfcview-mode-map (kbd "d") 'rfcview-imenu-index-function)
   )
 
-
+
 (provide 'init-my-prog-document-rfc)
 
 ;;; init-my-prog-document-rfc.el ends here

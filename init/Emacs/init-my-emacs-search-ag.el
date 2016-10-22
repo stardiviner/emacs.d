@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ silver search (ag) ] -- like ack, but faster.
 
 (use-package ag
@@ -49,7 +49,7 @@
   ;; (add-hook 'ag-mode-hook #'next-error-follow-minor-mode) ; so you can navigate with 'n' & 'p'.
   )
 
-
+
 (provide 'init-my-emacs-search-ag)
 
 ;;; init-my-emacs-search-ag.el ends here

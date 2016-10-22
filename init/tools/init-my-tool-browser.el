@@ -6,14 +6,14 @@
 
 
 ;;; Code:
-
+
 ;;; global keybindings
 
 (unless (boundp 'browser-prefix)
   (define-prefix-command 'browser-prefix))
 (define-key my-tools-prefix (kbd "b") 'browser-prefix)
 
-
+
 ;;; [ browse-url ] -- default browser function
 
 ;; system default browser: (`browser-url-browser-function')
@@ -54,7 +54,7 @@
   (my-generic-browser url "luakit")
   )
 
-
+
 ;;; [ EWW ] -- The Emacs Web Wowser
 
 (use-package eww
@@ -127,7 +127,7 @@
   (define-key eww-mode-map (kbd "w") 'eww-wiki)
   )
 
-
+
 ;;; [ w3m ]
 
 (use-package w3m
@@ -168,12 +168,12 @@
         (w3m-view-this-url)))
   )
 
-
+
 ;;; [ xwidget-webkit ]
 
 (define-key browser-prefix (kbd "C-b") 'xwidget-webkit-browse-url)
 
-
+
 ;;; global keybindings
 
 (if (featurep 'eww)
@@ -190,7 +190,7 @@
     )
   )
 
-
+
 ;;; [ ace-link ] -- easier link selection
 
 (use-package ace-link
@@ -199,7 +199,7 @@
   :init
   (ace-link-setup-default))
 
-
+
 (provide 'init-my-tool-browser)
 
 ;;; init-my-tool-browser.el ends here

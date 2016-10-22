@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 
 (if (featurep 'ivy)
     (setq org-completion-fallback-command 'ivy-read)
@@ -14,7 +14,7 @@
   (setq org-completion-fallback-command 'completing-read)
   )
 
-
+
 ;;; add Org-mode's `capf' default to `pcomplete' for `company-mode'.
 
 (defun my-org-mode-completion-setting ()
@@ -36,7 +36,7 @@
 
 (add-hook 'org-mode-hook #'my-org-mode-completion-setting)
 
-
+
 ;;; [ company-math ]
 
 (use-package company-math
@@ -51,7 +51,7 @@
               ))
   )
 
-
+
 (provide 'init-my-org-complete)
 
 ;;; init-my-org-complete.el ends here

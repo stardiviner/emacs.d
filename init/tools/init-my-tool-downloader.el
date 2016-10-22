@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ download-region ] -- simple in-buffer download manager for Emacs.
 
 (use-package download-region
@@ -19,7 +19,7 @@
                       )
   )
 
-
+
 (provide 'init-my-tool-downloader)
 
 ;;; init-my-tool-downloader.el ends here

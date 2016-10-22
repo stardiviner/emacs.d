@@ -6,13 +6,13 @@
 
 
 ;;; Code:
-
+
 
 (unless (boundp 'my-prog-eval-map)
   (define-prefix-command 'my-prog-eval-map))
 (global-set-key (kbd "C-c e") 'my-prog-eval-map)
 
-
+
 ;;; [ evalator ]
 
 (use-package evalator
@@ -33,14 +33,14 @@
                '(clojure-mode . evalator-clojure-context))
   )
 
-
+
 ;;; [ evalator-clojure ]
 
 (use-package evalator-clojure
   :ensure t
   :defer t)
 
-
+
 (provide 'init-my-prog-eval)
 
 ;;; init-my-prog-eval.el ends here

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ auto-mode-alist ]
 
 (add-to-list 'auto-mode-alist '("\\.conkyrc\\'" . conf-mode))
@@ -16,7 +16,7 @@
 (autoload 'pkgbuild-mode "pkgbuild-mode.el" "PKGBUILD mode." t)
 (setq auto-mode-alist (append '(("/PKGBUILD\\'" . pkgbuild-mode)) auto-mode-alist))
 
-
+
 ;;; [ mmm-mode ] -- Minor mode to allow multiple major modes in one buffer.
 
 (use-package mmm-mode
@@ -54,17 +54,17 @@
   ;;                               :end-not-begin t)))
   )
 
-
+
 ;;; [ mumamo-noweb ] -- multiple major modes
 
-
+
 ;;; [ polymode ] -- Object oriented framework for multiple emacs modes based on indirect buffers.
 
 (use-package polymode
   :ensure t
   :defer t)
 
-
+
 (provide 'init-my-emacs-modes)
 
 ;;; init-my-emacs-modes.el ends here

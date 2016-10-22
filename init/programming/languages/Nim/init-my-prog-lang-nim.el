@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ nim-mode ]
 
 (use-package nim-mode
@@ -25,25 +25,25 @@
               ))
   )
 
-
+
 ;;; [ nimrod-mode ]
 
-
+
 ;;; [ flycheck-nim ]
 
 (use-package flycheck-nim
   :ensure t)
 
-
+
 ;;; [ nimsuggest ]
 
-
+
 ;;; [ ob-nim ] -- Babel Functions for Nim Language.
 
 (use-package ob-nim
   :ensure t)
 
-
+
 (provide 'init-my-prog-lang-nim)
 
 ;;; init-my-prog-lang-nim.el ends here

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ coffee-mode ]
 
 (use-package coffee-mode
@@ -33,13 +33,13 @@
   ;; (add-hook 'coffee-after-compile-hook 'my/coffee-after-compile-hook)
   )
 
-
+
 ;;; [ ob-coffee ]
 
 (use-package ob-coffee
   :ensure t)
 
-
+
 (provide 'init-my-prog-lang-coffeescript)
 
 ;;; init-my-prog-lang-coffeescript.el ends here

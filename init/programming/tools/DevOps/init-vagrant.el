@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ vagrant ] -- Manage a vagrant box from Emacs.
 
 (use-package vagrant
@@ -34,13 +34,13 @@
   ;; (setq vagrant-up-options "")
   )
 
-
+
 ;;; [ vagrant-tramp ] --
 
 (use-package vagrant-tramp
   :ensure t)
 
-
+
 (provide 'init-vagrant)
 
 ;;; init-vagrant.el ends here

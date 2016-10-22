@@ -4,16 +4,16 @@
 
 
 ;;; Code:
-
+
 
 (setq standard-indent 4)
 
-
+
 ;;; electric-indent-mode
 
 ;; (electric-indent-mode t)
 
-
+
 ;;; [ custom indent functions ]
 
 (global-set-key (kbd "C-c >")
@@ -26,7 +26,7 @@
                   (interactive "rP")
                   (indent-rigidly-left-to-tab-stop start end)))
 
-
+
 
 ;; (defun text-shift-region (start end count)
 ;;   "Indent lines from START to END by COUNT spaces."
@@ -64,7 +64,7 @@
 ;; (setq text-indent-offset 4)
 ;; (global-set-key "\C-c>" 'text-shift-region-right)
 
-
+
 ;;; [ auto-indent-mode ]
 
 ;; (require 'auto-indent-mode)
@@ -82,13 +82,13 @@
 
 ;; (auto-indent-global-mode 1)
 
-
+
 ;;; [ clean-aindent-mode ] -- clean auto-indent and backspace unindent
 
 ;; https://github.com/pmarinov/clean-aindent-mode
 
 
-
+
 ;; ;;; [ highlight-indentation ]
 
 ;; (require 'highlight-indentation)
@@ -121,7 +121,7 @@
 ;;                     (highlight-indentation-current-column-mode)
 ;;                     )))
 
-
+
 ;;; [ indent-guide ]
 
 (use-package indent-guide
@@ -180,7 +180,7 @@
   ;;                     :stipple (list 7 4 (string 16 0 0 0)))
   )
 
-
+
 ;;; [ aggressive-indent-mode ]
 
 (use-package aggressive-indent
@@ -214,7 +214,7 @@
   (add-to-list 'aggressive-indent-excluded-modes 'makefile-mode)
   )
 
-
+
 
 (provide 'init-my-prog-indent)
 

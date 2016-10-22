@@ -6,12 +6,12 @@
 
 
 ;;; Code:
-
+
 ;;; [ Ack ]
 
 ;; (require 'ack)
 
-
+
 ;;; [ Full Ack ] -- An Emacs front-end for ack
 
 ;; (require 'full-ack)
@@ -21,7 +21,7 @@
 ;; (autoload 'ack-find-same-file "full-ack" nil t)
 ;; (autoload 'ack-find-file "full-ack" nil t)
 
-
+
 ;;; [ ack-and-a-half ]
 
 ;; (use-package ack-and-a-half
@@ -65,7 +65,7 @@
 ;; (define-key ack-map (kbd "F") 'ack-find-file-same)
 
 
-
+
 (provide 'init-my-emacs-search-ack)
 
 ;;; init-my-emacs-search-ack.el ends here

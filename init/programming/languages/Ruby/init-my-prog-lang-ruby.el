@@ -4,13 +4,13 @@
 
 
 ;;; Code:
-
+
 
 ;; We never want to edit Rubinius bytecode or MacRuby binaries
 (add-to-list 'completion-ignored-extensions ".rbc")
 (add-to-list 'completion-ignored-extensions ".rbo")
 
-
+
 ;;; [ ruby-mode ]
 
 (use-package ruby-mode
@@ -27,7 +27,7 @@
   (add-hook 'ruby-mode-hook #'eldoc-mode)
   )
 
-
+
 ;;; [ enh-ruby-mode ] --
 
 (use-package enh-ruby-mode
@@ -143,13 +143,13 @@
   (define-key enh-ruby-mode-map (kbd "C-,") 'ruby-mode-insert-symbol-operator)
   )
 
-
+
 ;;; [ ruby-interpolation ] -- Ruby string interpolation helpers.
 
 (use-package ruby-interpolation
   :ensure t)
 
-
+
 ;;; [ ruby-hash-syntax ] -- automatically convert the selected region of ruby code between 1.8 and 1.9 hash styles.
 
 (use-package ruby-hash-syntax
@@ -162,7 +162,7 @@
     (define-key enh-ruby-mode-map (kbd "C-c c c") 'ruby-toggle-hash-syntax))
   )
 
-
+
 ;;; [ ruby-tools ] -- Ruby tools is a collection of handy functions for Emacs ruby-mode.
 
 (use-package ruby-tools
@@ -173,7 +173,7 @@
   (add-hook 'enh-ruby-mode-hook 'ruby-tools-mode)
   )
 
-
+
 ;;; [ ruby-block ] -- highlight matching block
 
 ;; (use-package ruby-block
@@ -186,7 +186,7 @@
 ;;   (setq ruby-block-highlight-toggle t)
 ;;   )
 
-
+
 ;;; [ ruby-electric ]
 
 ;;; disable this, to fix conflict with other electric functions.
@@ -200,7 +200,7 @@
 ;;   (setq ruby-electric-autoindent-on-closing-char t)
 ;;   )
 
-
+
 ;;; [ ruby-end ]
 
 ;; (use-package ruby-end
@@ -211,7 +211,7 @@
 ;;   (add-hook 'enh-ruby-mode-hook 'ruby-end-mode)
 ;;   )
 
-
+
 ;;; [ yard-mode ] -- for Ruby YARD comments
 
 (use-package yard-mode
@@ -240,7 +240,7 @@
   ;; (add-hook 'enh-ruby-mode-hook 'eldoc-mode)
   )
 
-
+
 ;;; [ yari ] -- Yet Another Ri Interface
 
 (use-package yari
@@ -268,7 +268,7 @@
     )
   )
 
-
+
 ;;; [ rvm ] -- integrates Emacs with the rvm (Ruby Version Manager)
 
 ;; (use-package rvm
@@ -285,7 +285,7 @@
 ;;   (setq rvm-verbose t)     ; print rvm switching Ruby version message.
 ;;   )
 
-
+
 ;;; [ rbenv ] -- use rbenv to manage your Ruby versions within Emacs
 
 (use-package rbenv
@@ -301,7 +301,7 @@
         )
   )
 
-
+
 ;;; [ inf-ruby ] -- a REPL buffer connected to Ruby(irb/pry) subprocess
 
 (use-package inf-ruby
@@ -377,7 +377,7 @@
   (add-hook 'comint-input-filter-functions 'inf-ruby-auto-exit)
   )
 
-
+
 ;;; [ Robe ] -- Code navigation, documentation lookup and completion for Ruby.
 
 (use-package robe
@@ -415,7 +415,7 @@
   ;; (add-hook 'after-save-hook 'my-robe-lazily-load 'append)
   )
 
-
+
 ;;; [ rspec-mode ] -- Ruby RSpec
 
 (use-package rspec-mode
@@ -515,7 +515,7 @@
   ;;   '(rspec-install-snippets))
   )
 
-
+
 ;;; [ minitest ]
 
 (use-package minitest
@@ -538,7 +538,7 @@
         )
   )
 
-
+
 ;;; [ ruby-test-mode ] -- Behaviour and Test Driven Development in Ruby.
 
 (use-package ruby-test-mode
@@ -566,7 +566,7 @@
     )
   )
 
-
+
 ;;; [ ruby-refactor ]
 
 (use-package ruby-refactor
@@ -576,7 +576,7 @@
   (add-hook 'ruby-mode-hook 'ruby-refactor-mode-launch)
   )
 
-
+
 ;;; [ rubocop ] -- based on Ruby Coding Style Guides
 
 (use-package rubocop
@@ -586,7 +586,7 @@
   (add-hook 'ruby-mode-hook #'rubocop-mode)
   )
 
-
+
 ;;; [ Rake ]
 
 (use-package rake
@@ -597,14 +597,14 @@
   (setq rake-completion-system 'default)
   )
 
-
+
 ;;; [ bundler ] -- Interact with Bundler from Emacs.
 
 (use-package bundler
   :ensure t
   :defer t)
 
-
+
 ;;; [ motion-mode ] -- RubyMotion
 
 (use-package motion-mode
@@ -627,7 +627,7 @@
   ;; (define-key motion-mode-map (kbd "C-c C-p") 'motion-convert-code-region)
   )
 
-
+
 ;;; [ feature-mode ] -- Major mode for Cucumber feature files
 
 (use-package feature-mode
@@ -641,7 +641,7 @@
      (6 (7 . ?/))))
   )
 
-
+
 ;;; [ ruby-factory ] -- minor mode for Ruby test object generation libraries.
 
 (use-package ruby-factory
@@ -652,7 +652,7 @@
   (add-hook 'enh-ruby-mode-hook 'ruby-factory-mode)
   )
 
-
+
 ;;; [ kungfu ] -- CIDER like REPL for Ruby development.
 
 ;; (use-package kungfu
@@ -663,7 +663,7 @@
 
 ;; (load-file "~/Code/Emacs/ruby-kungfu/kungfu.el")
 
-
+
 (provide 'init-my-prog-lang-ruby)
 
 ;;; init-my-prog-lang-ruby.el ends here

@@ -6,14 +6,14 @@
 
 
 ;;; Code:
-
+
 ;;; [ mediawiki ] -- mediawiki frontend.
 
 (use-package mediawiki
   :ensure t
   :defer t)
 
-
+
 ;;; [ ox-mediawiki ] -- Mediawiki Back-End for Org Export Engine.
 
 ;; Open a .org document and run `org-mw-export-as-mediawiki'.
@@ -22,7 +22,7 @@
   :ensure t
   :defer t)
 
-
+
 ;;; [ kiwix ] -- Kiwix client for Emacs.
 
 (use-package kiwix
@@ -34,7 +34,7 @@
   (define-key my-prog-help-document-map (kbd "C-w") 'kiwix-launch-server)
   )
 
-
+
 (provide 'init-my-prog-document-wikipedia)
 
 ;;; init-my-prog-document-wikipedia.el ends here

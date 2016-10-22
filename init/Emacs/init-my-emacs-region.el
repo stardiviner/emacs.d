@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ expand-region ]
 
 ;;; Expand region increases the selected region by semantic units. Just keep
@@ -19,7 +19,7 @@
   (global-set-key (kbd "C-=") 'er/expand-region)
   )
 
-
+
 (provide 'init-my-emacs-region)
 
 ;;; init-my-emacs-region.el ends here

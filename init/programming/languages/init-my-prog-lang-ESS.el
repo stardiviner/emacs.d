@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Emacs Speaks Statistics (ESS) ]
 
 (use-package ess
@@ -47,7 +47,7 @@
   )
 
 
-
+
 (provide 'init-my-prog-lang-ESS)
 
 ;;; init-my-prog-lang-ESS.el ends here

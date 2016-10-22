@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Electric ]
 
 ;; (electric-indent-mode t)
@@ -22,7 +22,7 @@
 ;;            ))
 ;;   (add-hook hook #'(lambda () (electric-pair-local-mode t))))
 
-
+
 ;;; [ skeleton ]
 
 (setq skeleton-pair t
@@ -41,7 +41,7 @@
         )
       )
 
-
+
 (provide 'init-my-emacs-edit-electric)
 
 ;;; init-my-emacs-edit-electric.el ends here

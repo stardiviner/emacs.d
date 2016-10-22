@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ migemo ] -- provides Japanese increment search with 'Romanization of Japanese'(ローマ字).
 
 (use-package migemo
@@ -28,12 +28,12 @@
   (define-key my-search-language-prefix (kbd "j") 'migemo-isearch-toggle-migemo)
   )
 
-
+
 ;;; [ oniisama ]
 
 ;; (require 'oniisama)
 
-
+
 (provide 'init-my-language-japanese)
 
 ;;; init-my-language-japanese.el ends here

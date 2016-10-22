@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 
 (unless (boundp 'my-highlight-prefix)
   (define-prefix-command 'my-highlight-prefix))
@@ -14,7 +14,7 @@
 (global-set-key (kbd "M-g h") 'my-highlight-prefix)
 (define-key my-search-prefix (kbd "h") 'my-highlight-prefix)
 
-
+
 ;;; [ hi-lock ]
 
 ;; unbind default keybindings
@@ -40,7 +40,7 @@
 (define-key hi-lock-prefix (kbd "P") 'hi-lock-write-interactive-patterns)
 (define-key hi-lock-prefix (kbd "l") 'highlight-lines-matching-regexp)
 
-
+
 ;;; [ highlight-symbol ] -- automatic and manual symbol highlighting for Emacs
 
 (use-package highlight-symbol
@@ -77,7 +77,7 @@
         )
   )
 
-
+
 ;;; [ highlight-thing ] -- global minor mode to highlight the thing under point.
 
 ;; (use-package highlight-thing
@@ -96,7 +96,7 @@
 ;;                       )
 ;;   )
 
-
+
 
 (provide 'init-my-emacs-highlight)
 

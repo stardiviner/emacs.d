@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ platinum searcher (pt) ]
 
 (use-package pt
@@ -25,7 +25,7 @@
   ;; (setq pt-arguments "--smart-case")
   )
 
-
+
 (provide 'init-my-emacs-search-pt)
 
 ;;; init-my-emacs-search-pt.el ends here

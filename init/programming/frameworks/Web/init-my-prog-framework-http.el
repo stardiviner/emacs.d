@@ -6,13 +6,13 @@
 
 
 ;;; Code:
-
+
 
 (unless (boundp 'HTTP-prefix)
   (define-prefix-command 'HTTP-prefix))
 (define-key my-prog-inferior-map (kbd "H") 'HTTP-prefix)
 
-
+
 ;;; [ restclient ]
 
 (use-package restclient
@@ -49,7 +49,7 @@
               (setq-local indent-line-function 'js-indent-line)))
   )
 
-
+
 ;;; [ company-restclient ]
 
 (use-package company-restclient
@@ -62,26 +62,26 @@
               ))
   )
 
-
+
 ;;; [ ob-restclient ]
 
 (use-package ob-restclient
   :ensure t)
 
-
+
 ;;; [ restclient-test ] -- Run tests with restclient.el
 
 (use-package restclient-test
   :ensure t
   :defer t)
 
-
+
 ;; [ ob-http ] -- http request in org-mode babel
 
 (use-package ob-http
   :ensure t)
 
-
+
 ;;; [ httprepl ]
 
 (use-package httprepl
@@ -96,13 +96,13 @@
               ))
   )
 
-
+
 ;;; [ know-your-http-well ]
 
 (use-package know-your-http-well
   :ensure t)
 
-
+
 ;;; [ httpcode ] -- explains the meaning of an HTTP status code.
 
 (use-package httpcode
@@ -112,7 +112,7 @@
   (define-key HTTP-prefix (kbd "d") 'hc)
   )
 
-
+
 (provide 'init-my-prog-framework-http)
 
 ;;; init-my-prog-framework-http.el ends here

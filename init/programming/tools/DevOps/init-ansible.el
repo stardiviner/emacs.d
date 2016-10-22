@@ -6,14 +6,14 @@
 
 
 ;;; Code:
-
+
 ;;; [ ansible ] -- Ansible minor mode
 
 (use-package ansible
   :ensure t
   :defer t)
 
-
+
 ;;; [ ansible-doc ] -- Ansible documentation for GNU Emacs
 
 (use-package ansible-doc
@@ -23,7 +23,7 @@
   (add-hook 'yaml-mode-hook #'ansible-doc-mode) ; [C-c ?] `ansible-doc'.
   )
 
-
+
 ;;; [ company-ansible ]
 
 (use-package company-ansible
@@ -36,7 +36,7 @@
               ))
   )
 
-
+
 (provide 'init-ansible)
 
 ;;; init-ansible.el ends here

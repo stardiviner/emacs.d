@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ rust-mode ]
 
 (use-package rust-mode
@@ -30,7 +30,7 @@
   (define-key racer-mode-map (kbd "C-c C-d d") 'racer-describe)
   )
 
-
+
 ;;; [ flycheck-rust ]
 
 (use-package flycheck-rust
@@ -40,7 +40,7 @@
   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
   )
 
-
+
 ;;; [ racer ]
 
 (use-package racer
@@ -61,7 +61,7 @@
   (add-hook 'racer-mode-hook #'eldoc-mode)
   )
 
-
+
 ;;; [ company-racer ]
 
 ;; (use-package company-racer
@@ -72,7 +72,7 @@
 ;;             (lambda ()
 ;;               (my-company-add-backend-locally 'company-racer))))
 
-
+
 ;;; [ cargo ] -- Emacs Cargo client.
 
 (use-package cargo
@@ -81,7 +81,7 @@
   :init
   )
 
-
+
 (provide 'init-my-prog-lang-rust)
 
 ;;; init-my-prog-lang-rust.el ends here

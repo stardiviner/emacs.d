@@ -6,14 +6,14 @@
 
 
 ;;; Code:
-
+
 ;;; [ go ] -- The el-go library provides an Emacs interface to the game of GO.
 
 (use-package go
   :ensure t
   :defer t)
 
-
+
 (provide 'init-my-games)
 
 ;;; init-my-games.el ends here

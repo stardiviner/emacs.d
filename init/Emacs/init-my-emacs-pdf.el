@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ pdf-tools ] -- Emacs support library for PDF files.
 
 (use-package pdf-tools
@@ -84,7 +84,7 @@
   (add-hook 'pdf-view-mode-hook #'my-pdf-tools-setup)
   )
 
-
+
 ;;; export annotations at once
 ;;
 ;; 1. Try M-x pp-eval-expression (pdf-annot-getannots nil '(text)) RET
@@ -96,7 +96,7 @@
 ;;  (pdf-annot-getannots nil nil)
 ;;  "\n\n\nNext note:\n")
 
-
+
 ;;; [ org-pdfview ] -- org-link support for pdf-view-mode
 
 ;;; Usage:
@@ -122,7 +122,7 @@
   ;; (add-to-list 'org-file-apps '("\\.pdf::\\(\\d+\\)\\'" . (org-pdfview-open link)))
   )
 
-
+
 ;;; display PDFs on the side window of Emacs.
 
 (defvar pdf-minimal-width 72
@@ -172,7 +172,7 @@ when needed."
              '("\\.pdf\\(<[^>]+>\\)?$" .
                (display-buffer-pop-up-window-pdf-split-horizontally)))
 
-
+
 (provide 'init-my-emacs-pdf)
 
 ;;; init-my-emacs-pdf.el ends here

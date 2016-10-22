@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ python-mode ] --- Python's flying circus support for Emacs
 
 (use-package python-mode
@@ -20,7 +20,7 @@
         )
   )
 
-
+
 ;;; [ Inferior Python ]
 
 (require 'python)
@@ -46,7 +46,7 @@
   (define-prefix-command 'my-prog-inferior-map))
 (define-key my-prog-inferior-map (kbd "p") 'my-inferior-python) ; 'run-python
 
-
+
 ;;; [ elpy ] -- Emacs Python Development Environment.
 
 (use-package elpy
@@ -81,7 +81,7 @@
   (add-hook 'elpy-mode-hook #'my-elpy-settings)
   )
 
-
+
 ;;; [ pyenv-mode ] -- Python virtual environment interface
 
 ;; (use-package pyenv-mode
@@ -102,7 +102,7 @@
 ;;   (add-hook 'projectile-switch-project-hook 'projectile-pyenv-mode-set)
 ;;   )
 
-
+
 ;;; [ pyvenv ] -- Python virtual environment interface for Emacs.
 
 (use-package pyvenv
@@ -111,7 +111,7 @@
   :init
   (pyvenv-workon "python3"))
 
-
+
 ;;; [ pythonic ]
 
 ;; (use-package pythonic
@@ -121,13 +121,13 @@
 ;;   (pythonic-activate "~/.virtualenvs/python3")
 ;;   )
 
-
+
 ;;; [ virtualenv ]
 
-
+
 ;;; [ virtualenvwrapper ]
 
-
+
 ;;; [ conda ] -- work with your conda environments.
 
 ;; (use-package conda
@@ -140,7 +140,7 @@
 ;;   ;; (conda-env-autoactivate-mode t) ; NOTE: this is annoying.
 ;;   )
 
-
+
 ;;; [ cinspect ] -- Use cinspect to look at the CPython source of builtins and other C objects!
 
 ;; (use-package cinspect
@@ -150,7 +150,7 @@
 ;;   (add-hook 'python-mode-hook 'cinspect)
 ;;   )
 
-
+
 ;;; [ Emacs IPython Notebook (EIN) ] -- IPython notebook client in Emacs
 
 (use-package ein
@@ -164,7 +164,7 @@
         )
   )
 
-
+
 
 (provide 'init-my-prog-lang-python)
 

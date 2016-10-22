@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ World Clock ]
 
 ;;; Emacs default `display-time-mode' has this world clock list support.
@@ -22,7 +22,7 @@
 
 (define-key my-tools-prefix (kbd "t") 'display-time-world)
 
-
+
 (provide 'init-my-tool-clock)
 
 ;;; init-my-tool-clock.el ends here

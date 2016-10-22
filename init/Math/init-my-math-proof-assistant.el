@@ -6,21 +6,19 @@
 
 
 ;;; Code:
-
+
 ;;; [ Proof General ]
 
 (if (load-file "/usr/share/emacs/site-lisp/ProofGeneral/generic/proof-site.el")
     (require 'proof-site)
   (warn "You need to install Proof General."))
 
-
 ;;; [ coq-mode ]
 
 (if (load-file "/usr/share/emacs/site-lisp/ProofGeneral/coq/coq.el")
     (require 'coq)
   (warn "You need to install Coq."))
 
-
 ;;; [ company-coq ]
 
 (use-package company-coq
@@ -45,7 +43,7 @@
   ;; (setq company-coq-autocomplete-search-results nil)
   )
 
-
+
 (provide 'init-my-math-proof-assistant)
 
 ;;; init-my-math-proof-assistant.el ends here

@@ -6,18 +6,18 @@
 
 
 ;;; Code:
-
+
 
 (unless (boundp 'my-fold-map)
   (define-prefix-command 'my-fold-map))
 (global-set-key (kbd "C-c SPC") 'my-fold-map)
 
-
+
 ;;; [ hs-minor-mode ] -- hide/show
 
 ;; (add-hook 'prog-mode-hook 'hs-minor-mode)
 
-
+
 ;;; [ origami ] -- A folding minor mode for Emacs.
 
 (use-package origami
@@ -65,7 +65,7 @@
                       )
   )
 
-
+
 (provide 'init-my-prog-folding)
 
 ;;; init-my-prog-folding.el ends here

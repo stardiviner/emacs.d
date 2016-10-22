@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; Embedded LaTeX
 
 ;; `org-toggle-inline-images' [C-c C-x C-v]
@@ -71,12 +71,12 @@
 ;;                     )
 ;;       )
 
-
+
 ;;; [ Math ]
 
 
 
-
+
 ;;; LaTeX Math Symbols
 
 ;; `helm-insert-latex-math'
@@ -86,7 +86,7 @@
 ;;; Using CDLaTeX to enter Math
 ;; (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 
-
+
 ;;; MathJax
 
 ;; (setq org-html-mathjax-options)
@@ -96,7 +96,7 @@
 ;; ;; enable `org-cdlatex-mode' for all org files
 ;; (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 
-
+
 ;;; emabedded latex (inline formula)
 
 (defface org-latex-face
@@ -117,7 +117,7 @@
                     :background "brown" :foreground "white"
                     )
 
-
+
 (provide 'init-my-org-latex)
 
 ;;; init-my-org-latex.el ends here

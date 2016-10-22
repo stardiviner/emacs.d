@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;; [ Input Method ]
 
 ;; Usage:
@@ -32,7 +32,7 @@
 (setq input-method-verbose-flag t)
 ;; (global-set-key (kbd "C-SPC") 'nil) ; disable [C-SPC] for input method.
 
-
+
 ;;; [ TeX Input Method ]
 
 ;; - [C-u C-\ TeX RET]
@@ -42,7 +42,7 @@
 ;;                       ("^\\alpha" ?ᵅ)
 ;;                       ))
 
-
+
 (provide 'init-my-emacs-input-method)
 
 ;;; init-my-emacs-input-method.el ends here

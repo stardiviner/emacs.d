@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ emmet-mode ]
 
 (use-package emmet-mode
@@ -52,7 +52,7 @@
   (define-key emmet-mode-keymap (kbd "M-j") 'emmet-expand-yas)
   )
 
-
+
 ;;; [ tagedit ] -- A collection of paredit-like functions for editing in html-mode.
 
 (use-package tagedit
@@ -65,14 +65,14 @@
   (add-hook 'html-mode-hook 'tagedit-mode)
   )
 
-
+
 ;;; [ impatient-mode ] -- see your HTML rendered as you type.
 
 (use-package impatient-mode
   :ensure t
   :defer t)
 
-
+
 ;;; [ ob-browser ] -- render HTML in org babel
 
 ;; #+BEGIN_SRC browser :out output.png
@@ -95,7 +95,7 @@
     (add-to-list 'org-src-lang-modes '("rhtml" . web)))
   )
 
-
+
 (provide 'init-my-prog-lang-html)
 
 ;;; init-my-prog-lang-html.el ends here

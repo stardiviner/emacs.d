@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Color Theme ]
 
 ;; Usage:
@@ -30,11 +30,11 @@
 ;; load theme way
 (add-to-list 'custom-theme-load-path "~/.emacs.d/color-themes/")
 
-
+
 
 ;; (load-theme 'solarized-dark t)
 
-
+
 ;;; set color-theme for `emacsclient'
 
 (if (server-running-p) ; (daemonp)
@@ -46,7 +46,7 @@
                      (load-theme 'doom-one t)
                      )))))
 
-
+
 ;;; [ color-theme-solarized ]
 
 ;; (use-package color-theme-solarized
@@ -58,12 +58,12 @@
 ;;   (load-theme 'solarized t)
 ;;   )
 
-
+
 ;;; [ color-theme-monokai ]
 
 ;; (load-theme 'monokai t)
 
-
+
 ;;; [ leuven-theme ]
 
 ;; (use-package leuven-theme
@@ -89,7 +89,7 @@
 ;;                         ))
 ;;   )
 
-
+
 ;;; [ darkokai-theme ] -- A darker variant on Monokai.
 
 ;; (use-package darkokai-theme
@@ -98,7 +98,7 @@
 ;;   (load-theme 'darkokai t)
 ;;   )
 
-
+
 ;;; [ doom-theme ] -- Emacs themes inspired by Atom One, for Emacs 24.4+.
 
 (use-package doom-themes
@@ -118,7 +118,7 @@
   ;; (require 'doom-neotree) ; for neotree
   )
 
-
+
 ;;; custom faces
 
 (set-face-attribute 'font-lock-function-name-face nil
@@ -163,14 +163,14 @@
 (set-face-attribute 'font-lock-builtin-face nil
                     :slant 'italic)
 
-
+
 ;;; [ select-themes ] -- select color-theme with completing-read.
 
 (use-package select-themes
   :ensure t
   :defer t)
 
-
+
 (provide 'init-my-emacs-color-theme)
 
 ;;; init-my-emacs-color-theme.el ends here

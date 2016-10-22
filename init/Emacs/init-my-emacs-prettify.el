@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ pretty-symbols ]
 
 (use-package pretty-symbols
@@ -49,7 +49,7 @@
   ;;                 lisp-prettify-symbols-alist)))
   )
 
-
+
 ;;; [ digit-groups ] -- highlight place-value positions in numbers.
 
 (use-package digit-groups
@@ -63,7 +63,7 @@
                       :foreground "light gray")
   )
 
-
+
 (provide 'init-my-emacs-prettify)
 
 ;;; init-my-emacs-prettify.el ends here

@@ -161,7 +161,7 @@ You can add this to your `calendar-holidays'.")
   "Pre-defined chinese public holidays.
 You can add this to your `calendar-holidays'.")
 
-
+
 ;;; Interfaces
 
 (defgroup cal-china-x nil
@@ -327,7 +327,7 @@ See `cal-china-x-solar-term-name' for a list of solar term names ."
 
 (defun cal-china-x-setup ()
   (setq calendar-date-display-form
-	'((cal-china-x-calendar-display-form
+        '((cal-china-x-calendar-display-form
            (mapcar (lambda (el) (string-to-number el))
                    (list month day year)))))
 
@@ -339,7 +339,7 @@ See `cal-china-x-solar-term-name' for a list of solar term names ."
                 '(("[0-9]+年\\ *[0-9]+月" . font-lock-function-name-face))))
 
   (setq calendar-chinese-celestial-stem cal-china-x-celestial-stem
-	calendar-chinese-terrestrial-branch cal-china-x-terrestrial-branch)
+        calendar-chinese-terrestrial-branch cal-china-x-terrestrial-branch)
 
   (setq calendar-mode-line-format
         (list
@@ -376,7 +376,7 @@ See `cal-china-x-solar-term-name' for a list of solar term names ."
     (when (eq major-mode 'calendar-mode)
       (calendar-update-mode-line))))
 
-
+
 ;;; Implementations
 
 (defun cal-china-x-day-name (date)
@@ -512,7 +512,7 @@ extra day appended."
 (defun cal-china-x-days-between (date1 date2)
   (apply '- (mapcar 'calendar-absolute-from-gregorian (list date1 date2))))
 
-
+
 ;;; Modifications to Standard Functions
 
 ;; These functions(from calendar.el, cal-china.el) have been modified
@@ -601,7 +601,7 @@ line."
         (setq day (1+ day))       ; first day of next week
         (calendar-insert-at-column indent calendar-intermonth-text trunc)))))
 
-
+
 ;; setup
 (cal-china-x-setup)
 

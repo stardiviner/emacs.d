@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 
 ;;; Tags
 
@@ -101,7 +101,7 @@
                     :foreground "gray")
 
 
-
+
 (provide 'init-my-org-tag)
 
 ;;; init-my-org-tag.el ends here

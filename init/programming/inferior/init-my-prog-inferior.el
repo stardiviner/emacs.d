@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 
 (unless (boundp 'my-prog-inferior-map)
   (define-prefix-command 'my-prog-inferior-map))
@@ -83,7 +83,7 @@
 ;; Festival
 (define-key my-prog-inferior-map (kbd "f") 'run-festival) ; Festival
 
-
+
 ;;; [ comint-mode ]
 
 ;; It will always put point back to the statement you entered, right above the
@@ -91,7 +91,7 @@
 ;; (setq comint-output-filter-functions
 ;;       (function (lambda (STR) (comint-show-output))))
 
-
+
 ;;;_ scratch.el -- launch a scratch buffer for the current mode.
 
 (autoload 'scratch "scratch" nil t)
@@ -99,7 +99,7 @@
 (define-key my-prog-inferior-map (kbd "C-c") 'scratch)
 
 
-
+
 ;;; [ eval-in-repl ] -- Consistent ESS-like eval interface for various REPLs.
 
 ;;; Usage:
@@ -219,7 +219,7 @@
     (define-key js2-mode-map (kbd "<C-return>") 'eir-eval-in-javascript))
   )
 
-
+
 (provide 'init-my-prog-inferior)
 
 ;;; init-my-prog-inferior.el ends here

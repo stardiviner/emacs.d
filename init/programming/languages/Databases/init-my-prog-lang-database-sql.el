@@ -6,14 +6,14 @@
 
 
 ;;; Code:
-
+
 ;;; [ sql.el ] -- specialized comint.el for SQL interpreters.
 
 (require 'sql)
 
 (add-to-list 'same-window-buffer-names "*SQL*")
 
-
+
 ;;; [ sql-indent]
 
 (use-package sql-indent
@@ -31,7 +31,7 @@
               ))
   )
 
-
+
 ;;; [ sqlup-mode ]
 
 (use-package sqlup-mode
@@ -58,14 +58,14 @@
   (define-key sql-mode-map (kbd "C-c u") 'sqlup-capitalize-keywords-in-region)
   )
 
-
+
 ;;; [ sqled-mode ] -- major mode for editing sql, sqlplus, and pl/sql code.
 
 ;; (use-package sqled-mode
 ;;   :ensure t
 ;;   :defer t)
 
-
+
 ;;; [ edbi ]
 
 (use-package edbi
@@ -90,7 +90,7 @@
               ))
   )
 
-
+
 ;;; [ edbi-minor-mode ] -- use edbi with regular SQL files.
 
 (use-package edbi-minor-mode
@@ -102,7 +102,7 @@
               (edbi-minor-mode)))
   )
 
-
+
 ;;; [ edbi-sqlite ] -- edbi helper application
 
 (use-package edbi-sqlite
@@ -112,7 +112,7 @@
   (define-key my-inferior-db-sql-map (kbd "l") 'edbi-sqlite)
   )
 
-
+
 ;;; [ edbi-database-url ] -- run edbi with database url.
 
 (use-package edbi-database-url
@@ -122,7 +122,7 @@
   (define-key my-inferior-db-sql-map (kbd "u") 'edbi-database-url)
   )
 
-
+
 ;;; [ company-edbi ]
 
 (use-package company-edbi
@@ -139,23 +139,23 @@
                 )))
   )
 
-
+
 ;;; [ EmacSQL ] -- high-level SQL database front-end.
 
 ;; (use-package emacsql
 ;;   :ensure t
 ;;   :defer t)
 
-
+
 ;;; [ db-sql ] -- Connect to SQL server using tramp syntax.
 
-
+
 ;;; [ sql-complete ] -- support Oracle
 
-
+
 ;;; [ sql-completion ] -- support MySQL
 
-
+
 (provide 'init-my-prog-lang-database-sql)
 
 ;;; init-my-prog-lang-database-sql.el ends here

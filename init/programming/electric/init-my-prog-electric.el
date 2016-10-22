@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 
 ;; (electric-indent-mode 1)
 
@@ -236,7 +236,7 @@
 ;;               (setq-local autopair-extra-pairs `(:comment ((?`. ?`))))))
 ;;   )
 
-
+
 (provide 'init-my-prog-electric)
 
 ;;; init-my-prog-electric.el ends here

@@ -5,7 +5,7 @@
 
 
 ;;; Code:
-
+
 
 (unless (boundp 'my-prog-lint-map)
   (define-prefix-command 'my-prog-lint-map))
@@ -17,7 +17,7 @@
             (define-key my-prog-lint-map (kbd "b") 'flycheck-buffer)
             ))
 
-
+
 ;;; [ FlyCheck ] --- modern on-the-fly syntax checking
 
 (use-package flycheck
@@ -96,7 +96,7 @@
   ;;     (flycheck-add-mode checker 'django-mode)))
   )
 
-
+
 ;;; [ flycheck-pos-tip ] -- display errors under point using popup.el.
 
 ;;; NOTE: This can avoid flycheck tip in minibuffer to override eldoc info.
@@ -112,7 +112,7 @@
           ))
   )
 
-
+
 (provide 'init-my-prog-lint)
 
 ;;; init-my-prog-lint.el ends here

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; default frame size
 
 (setq default-frame-alist
@@ -31,7 +31,7 @@
       '((height . 2)
         (width . 80)))
 
-
+
 ;;; Adjust Frame’s Opacity
 
 ;; (defun stardiviner/adjust-opacity (frame incr)
@@ -40,15 +40,15 @@
 ;;     (when (and (<= frame-alpha-lower-limit newalpha) (>= 100 newalpha))
 ;;       (modify-frame-parameters frame (list (cons 'alpha newalpha))))))
 
-
+
 
 (global-set-key [remap toggle-frame-maximized] 'toggle-frame-fullscreen)
 
-
+
 ;;; [ zoom-frm ]
 
 
-
+
 (provide 'init-my-emacs-frame)
 
 ;;; init-my-emacs-frame.el ends here

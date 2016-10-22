@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 
 (defvar css-dialects-mode
   '(css-mode
@@ -19,7 +19,7 @@
   (rainbow-mode 1)
   )
 
-
+
 ;;; [ css-mode ]
 
 (autoload 'css-mode "css-mode" "Mode for editing CSS files" t)
@@ -35,7 +35,7 @@
             (my-company-add-backend-locally 'company-css)
             ))
 
-
+
 ;;; [ css-eldoc ]
 
 (use-package css-eldoc
@@ -68,7 +68,7 @@
 ;;                 (local-set-key [remap isearch-backward] 'isearch-backward-noeldoc)))
 ;;; ------------------------------------------------------------------------------------
 
-
+
 ;;; [ show-css ] -- Show the css of the html attribute the cursor is on.
 
 ;; (use-package show-css
@@ -96,7 +96,7 @@
 ;;     (define-key web-mode-map (kbd "C-c C-k") 'my/toggle-showcss))
 ;;   )
 
-
+
 ;;; [ flycheck-css-colorguard ]
 
 ;; (use-package flycheck-css-colorguard
@@ -108,7 +108,7 @@
 ;;                                'css-colorguard 'append))
 ;;   )
 
-
+
 ;;; [ scss-mode ]
 
 ;; Features
@@ -128,7 +128,7 @@
   ;; (setq scss-sass-command "sass")
   )
 
-
+
 (provide 'init-my-prog-lang-css)
 
 ;;; init-my-prog-lang-css.el ends here

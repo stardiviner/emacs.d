@@ -4,7 +4,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ abbrev-mode ]
 
 (require 'abbrev)
@@ -28,12 +28,12 @@
 
 (setq-default abbrev-mode t)            ; turn on abbrev mode globally.
 
-
+
 ;;; [ dabbrev ] -- [M-/]
 
 (require 'dabbrev)
 
-
+
 (provide 'init-my-emacs-abbrev)
 
 ;;; init-my-emacs-abbrev.el ends here

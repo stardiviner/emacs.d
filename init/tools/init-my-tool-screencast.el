@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ command-log-mode ] -- log commands to buffer
 
 (use-package command-log-mode
@@ -35,7 +35,7 @@
   ;;                     )
   )
 
-
+
 ;;; [ camcorder ] -- Tool for capturing screencasts directly from Emacs (use FFmpeg as backend)
 
 (use-package camcorder
@@ -60,7 +60,7 @@
         )
   )
 
-
+
 (provide 'init-my-tool-screencast)
 
 ;;; init-my-tool-screencast.el ends here

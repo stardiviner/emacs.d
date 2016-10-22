@@ -4,13 +4,13 @@
 
 
 ;;; Code:
-
+
 
 (unless (boundp 'my-prog-project-map)
   (define-prefix-command 'my-prog-project-map))
 (global-set-key (kbd "C-c p") 'my-prog-project-map)
 
-
+
 ;;; [ Projectile ] -- minor mode to assist project management and navigation.
 
 (use-package projectile
@@ -56,7 +56,7 @@
   (global-set-key (kbd "M-t") 'find-file-in-project)
   )
 
-
+
 
 (provide 'init-my-prog-project)
 

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ realgud ] -- A modular GNU Emacs front-end for interacting with external debuggers.
 
 (use-package realgud
@@ -16,7 +16,7 @@
   ;; (define-key my-prog-debug-map (kbd "") 'realgud-???)
   )
 
-
+
 ;;; [ GDB ]
 
 (use-package gdb-mi
@@ -27,7 +27,7 @@
         gdb-show-main t)
   )
 
-
+
 (provide 'init-my-prog-debug-debugger)
 
 ;;; init-my-prog-debug-debugger.el ends here

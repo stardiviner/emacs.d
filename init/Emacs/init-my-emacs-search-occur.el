@@ -6,12 +6,12 @@
 
 
 ;;; Code:
-
+
 ;;; [ occur ]
 
 (define-key my-search-prefix (kbd "o") 'occur)
 
-
+
 ;;; [ multi-occur ]
 
 ;; (use-package multi-occur
@@ -22,7 +22,7 @@
 ;;   (define-key my-search-prefix (kbd "M-h") 'how-many)
 ;;   )
 
-
+
 (provide 'init-my-emacs-search-occur)
 
 ;;; init-my-emacs-search-occur.el ends here

@@ -3,13 +3,13 @@
 ;;; Commentary:
 
 ;;; Code:
-
+
 
 (unless (boundp 'paste-prefix)
   (define-prefix-command 'paste-prefix))
 (define-key my-tools-prefix (kbd "p") 'paste-prefix)
 
-
+
 ;;; [ yagist ] -- Yet Another gist
 
 (use-package yagist
@@ -33,12 +33,12 @@
         )
   )
 
-
+
 
 ;;; htmlize-buffer (convert current buffer into HTML output)
 (define-key paste-prefix (kbd "h") 'htmlize-buffer)
 
-
+
 
 (provide 'init-my-tool-paste)
 

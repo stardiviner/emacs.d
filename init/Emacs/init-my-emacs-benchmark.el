@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ benchmark-init.el ] -- Benchmark your Emacs initialization
 
 ;;; Usage:
@@ -22,7 +22,7 @@
   ;; (benchmark-init/activate)
   )
 
-
+
 ;;; [ esup ]
 
 ;;; Usage:
@@ -32,7 +32,7 @@
 (use-package esup
   :ensure t)
 
-
+
 (provide 'init-my-emacs-benchmark)
 
 ;;; init-my-emacs-benchmark.el ends here

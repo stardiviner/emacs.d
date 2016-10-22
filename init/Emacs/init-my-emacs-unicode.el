@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ ucs-utils ] --- utilities unicode characters in Emacs.
 
 ;;; Usage:
@@ -35,7 +35,7 @@
 (define-key global-map [remap insert-char] 'ucs-utils-ucs-insert) ; [C-x 8 RET]
 
 
-
+
 (provide 'init-my-emacs-unicode)
 
 ;;; init-my-emacs-unicode.el ends here

@@ -5,16 +5,16 @@
 
 
 ;;; Code:
-
+
 
 (unless (boundp 'my-email-prefix)
   (define-prefix-command 'my-email-prefix))
 (define-key my-tools-prefix (kbd "m") 'my-email-prefix)
 
-
+
 ;;; [ mail-mode ] -- mail-mode is replaced with message-mode.
 
-
+
 ;;; [ message-mode ]
 
 ;; 'message-user-agent, 'mail-user-agent, 'gnus-user-agent, 'mu4e-user-agent,
@@ -23,6 +23,7 @@
       ;; use `postfix' server instead of `smtpmail'.
       send-mail-function 'sendmail-send-it
       message-send-mail-function 'message-send-mail-with-sendmail
+      ;; message-send-mail-real-function 'message-send-mail-with-sendmail
       )
 
 (add-hook 'message-mode-hook
@@ -38,7 +39,7 @@
                           message-completion-function))
             ))
 
-
+
 ;;; Email region
 
 (defun email-region (start end)
@@ -52,7 +53,7 @@
 
 (define-key my-email-prefix (kbd "r") 'email-region)
 
-
+
 ;;; [ encrypt email ]
 
 ;;; - [C-c C-m C-e] :: (mml-secure-message-sign-encrypt)
@@ -62,12 +63,12 @@
 ;;;      - `sign'
 ;;;      - `encrypt'
 
-
+
 
 ;; (require 'init-gnus)
 ;; (require 'init-mu4e)
 
-
+
 
 (defvar my-email-client t
   "The value is 'gnus, 'mu4e, or t for default.")
@@ -95,7 +96,7 @@
    (define-key my-email-prefix (kbd "m") 'compose-mail))
   )
 
-
+
 (provide 'init-my-tool-email)
 
 ;;; init-my-tool-email.el ends here

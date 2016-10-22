@@ -6,12 +6,12 @@
 
 
 ;;; Code:
-
+
 ;;; [ CEDET ] -- (C)ollection of (E)macs (D)evelopment (E)nvironment (T)ools
 
 ;; (require 'init-my-prog-cedet)
 
-
+
 ;;; [ Sourcegraph: srclib ] -- A hackable, multi-language code analysis library for building better software tools.
 
 ;;; Features
@@ -37,7 +37,7 @@
   (add-hook 'prog-mode-hook 'sourcegraph-mode)
   )
 
-
+
 
 (provide 'init-my-prog-sense)
 

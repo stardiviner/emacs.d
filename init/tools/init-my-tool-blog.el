@@ -6,13 +6,13 @@
 
 
 ;;; Code:
-
+
 
 (unless (boundp 'blog-map)
   (define-prefix-command 'blog-map))
 (define-key my-tools-prefix (kbd "l") 'blog-map)
 
-
+
 ;;; [ blog-admin ] -- Write blog in emacs with many backends: hexo/org-page/nikola
 
 (use-package blog-admin
@@ -32,11 +32,11 @@
         )
   )
 
-
+
 
 (require 'init-my-tool-blog-org)
 
-
+
 (provide 'init-my-tool-blog)
 
 ;;; init-my-tool-blog.el ends here

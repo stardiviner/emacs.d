@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ org-present ]
 
 ;; (use-package org-present
@@ -44,7 +44,7 @@
 ;;                (org-present-read-write)))
 ;;   )
 
-
+
 ;;; [ org-tree-slide ] -- A presentation tool for org-mode based on the visibility of outline trees.
 
 (use-package org-tree-slide
@@ -73,7 +73,7 @@
   (define-key org-tree-slide-mode-map (kbd "S-SPC") 'org-tree-slide-move-previous-tree)
   )
 
-
+
 ;;; [ ox-reveal ] -- Org-mode export with Reveal.js.
 
 ;; (use-package ox-reveal
@@ -87,7 +87,7 @@
 ;;         org-reveal-hlevel 1)
 ;;   )
 
-
+
 ;;; [ ox-ioslide ] -- Export org-mode to Google I/O HTML5 slide.
 
 ;; (use-package makey
@@ -100,7 +100,7 @@
 ;;   (require 'ox-ioslide-helper)
 ;;   )
 
-
+
 (provide 'init-my-org-presentation)
 
 ;;; init-my-org-presentation.el ends here

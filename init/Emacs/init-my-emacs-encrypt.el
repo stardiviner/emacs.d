@@ -4,18 +4,18 @@
 
 
 ;;; Code:
-
+
 ;;; [ password ]
 
 (setq password-cache-expiry nil) ; don't expire password cache.
 
-
+
 ;;; [ Auth Source ]
 
 ;; Auth Source debugging
 (setq auth-source-debug t)
 
-
+
 ;;; [ EasyPG Assistant ] --- transparent, automatic encryption and decryption.
 
 (require 'pinentry)
@@ -60,7 +60,7 @@
 ;; uninstall Seahorse, the prompt will always be text instead of graphical. You
 ;; may have to relogin to X to force Seahorse to close.
 
-
+
 
 
 (provide 'init-my-emacs-encrypt)

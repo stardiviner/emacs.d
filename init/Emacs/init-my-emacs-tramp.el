@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Tramp ]
 
 (use-package tramp
@@ -58,7 +58,7 @@
 
   )
 
-
+
 (provide 'init-my-emacs-tramp)
 
 ;;; init-my-emacs-tramp.el ends here

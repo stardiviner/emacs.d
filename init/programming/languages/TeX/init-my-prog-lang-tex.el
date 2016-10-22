@@ -6,13 +6,13 @@
 
 
 ;;; Code:
-
+
 ;;; [ TeX-mode ]
 
-
+
 ;;; [ LaTeX-mode ]
 
-
+
 ;;; [ AUCTeX ] -- Integrated environment for TeX.
 
 (use-package auctex
@@ -140,7 +140,7 @@ character(s), in which case it deletes the space(s) first."
                '(("~" . 'font-latex-sedate-face)))))
   )
 
-
+
 ;;; [ company-auctex ] & [ company-math ]
 
 (use-package company-math
@@ -210,7 +210,7 @@ character(s), in which case it deletes the space(s) first."
     )
   )
 
-
+
 ;;; [ RefTeX ] -- a specialized package for support of labels, references.
 
 (use-package reftex
@@ -227,7 +227,7 @@ character(s), in which case it deletes the space(s) first."
   (setq reftex-cite-prompt-optional-args t) ; prompt for empty optional arguments in cite.
   )
 
-
+
 ;;; [ SyncTeX ] -- navigate from the source document to the typeset material and vice versa.
 
 ;; (add-hook 'LaTeX-mode-hook
@@ -237,7 +237,7 @@ character(s), in which case it deletes the space(s) first."
 ;;             (setq TeX-source-correlate-start-server t))
 ;;           )
 
-
+
 ;;; [ CDLaTeX ] -- Fast input methods for LaTeX environments and math.
 
 (use-package cdlatex
@@ -248,7 +248,7 @@ character(s), in which case it deletes the space(s) first."
   (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
   )
 
-
+
 ;;; [ magic-latex-buffer ] -- magical syntax highlighting for LaTeX-mode buffers.
 
 (use-package magic-latex-buffer
@@ -269,7 +269,7 @@ character(s), in which case it deletes the space(s) first."
         magic-latex-enable-inline-image    t)
   )
 
-
+
 ;;; [ latex-preview-pane ]
 
 (use-package latex-preview-pane
@@ -282,13 +282,13 @@ character(s), in which case it deletes the space(s) first."
   (setq preview-orientation 'right)
   )
 
-
+
 ;;; [ px ] -- Provides functions to preview LaTeX codes like $x^2$ in any buffer/mode.
 
 (use-package px
   :ensure t)
 
-
+
 (provide 'init-my-prog-lang-tex)
 
 ;;; init-my-prog-lang-tex.el ends here

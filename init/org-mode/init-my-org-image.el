@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 
 ;;; inline images
 ;;
@@ -24,7 +24,7 @@
       ;; org-latex-image-default-height
       )
 
-
+
 ;;; set default Org-mode inline image background color.
 
 (defcustom org-inline-image-background nil
@@ -129,7 +129,7 @@
                             (list 'org-display-inline-remove-overlay))
                            (push ov org-inline-image-overlays)))))))))))))))
 
-
+
 (provide 'init-my-org-image)
 
 ;;; init-my-org-image.el ends here

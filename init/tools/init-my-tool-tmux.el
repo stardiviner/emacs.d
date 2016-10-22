@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ emamux ] -- Tmux manipulation from Emacs.
 
 (use-package emamux
@@ -16,7 +16,7 @@
   (setq emamux:completing-read-type 'normal)
   )
 
-
+
 (provide 'init-my-tool-tmux)
 
 ;;; init-my-tool-tmux.el ends here

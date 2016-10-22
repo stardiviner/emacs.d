@@ -6,10 +6,10 @@
 
 
 ;;; Code:
-
+
 ;;; [ Time Stamps ]
 
-
+
 ;;; [ Time Interval ]
 
 (defun org-time-interval (&optional arg)
@@ -26,7 +26,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 (define-key org-mode-map (kbd "C-c C-x r") 'org-time-interval)
 
-
+
 ;;; [ Effort Estimates ] -- [C-c C-x C-c] + [C-c C-x C-e]
 
 ;; to add an effort estimate "on the fly".
@@ -40,7 +40,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
       org-agenda-columns-compute-summary-properties t
       )
 
-
+
 ;;; [ org-pomodoro ] -- adds support for Pomodoro technique in Org-mode.
 
 (use-package org-pomodoro
@@ -71,7 +71,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
   )
 
 
-
+
 (provide 'init-my-org-time)
 
 ;;; init-my-org-time.el ends here

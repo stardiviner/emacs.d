@@ -2,13 +2,13 @@
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
-
+
 ;;; [ Help ]
 
 ;; - IRC: #erc on freenode.
 ;; - Mailing List: http://news.gmane.org/gmane.emacs.erc.general
 
-
+
 ;; [ Usage ]
 ;; - [TAB] :: completion for: nick,
 ;; - [M-TAB] :: ispell complete word
@@ -25,12 +25,12 @@
 ;; - [C-c C-w C-b/C-f] :: backward/forwards buttons.
 
 ;;; Code:
-
+
 ;;; [ ERC ]
 
 (require 'erc)
 
-
+
 ;;; [ Modules ]
 
 ;; update modules
@@ -38,7 +38,7 @@
 
 ;; (setq erc-modules '(pcomplete netsplit fill button match track completion readonly networks ring autojoin noncommands irccontrols move-to-prompt stamp menu list erc-autoaway-mode))
 
-
+
 ;;; [ user info ]
 
 (setq erc-nick "stardiviner"
@@ -47,7 +47,7 @@
       erc-email-userid "numbchild@gmail.com"
       )
 
-
+
 ;;; [ password ]
 
 (setq erc-prompt-for-password nil)
@@ -55,7 +55,7 @@
 ;; load password
 (setq erc-password (my/json-read-value my/account-file 'erc))
 
-
+
 ;;; encoding
 
 (setq  erc-server-coding-system '(utf-8 . utf-8))
@@ -72,7 +72,7 @@
 ;;       )
 
 
-
+
 ;;; start & switch
 (defun my-erc-start-or-switch ()
   "Connect to ERC, or switch to last active buffer."
@@ -97,10 +97,10 @@
 
 (define-key my-irc-map (kbd "i") 'my-erc-start-or-switch)
 
-
+
 ;;; SSL connections
 
-
+
 ;;; [ NickServ ]
 
 (require 'erc-services)
@@ -125,7 +125,7 @@
 ;;               ;;  (erc-message "PRIVMSG" "#bitlbee identify password3"))
 ;;               )))
 
-
+
 ;;; [ join & auto-join ]
 
 ;; Channels:
@@ -149,7 +149,7 @@
         ))
 
 
-
+
 ;;; Disconnect
 
 (add-hook 'erc-disconnected-hook '(erc-unset-network-name
@@ -174,7 +174,7 @@
 
 ;; (setq erc-header-line-face-method 'erc-update-header-line-show-disconnected)
 
-
+
 ;;; [ Tracking ]
 (require 'erc-track)
 
@@ -189,7 +189,7 @@
                                  "324" "329" "332" "333" "353" "477"))
 ;; don't show any of this
 (setq erc-hide-list '("JOIN" "PART" "QUIT" "NICK"))
-
+
 ;;; [ Matching ]
 (require 'erc-match)
 
@@ -198,7 +198,7 @@
                      ;; "\\<[R\|r]uby\\>" "\\<[L\|l]isp\\>" "\\<Go\\>" "\\<R\\>"
                      ))
 
-
+
 ;;; Nicks Highlight
 (setq erc-current-nick-highlight-type 'nick-or-keyword)
 
@@ -214,7 +214,7 @@
 
 
 (erc-match-mode)
-
+
 ;;; [ Complete ]
 
 ;; - [TAB] ::
@@ -225,13 +225,13 @@
              (pcomplete-erc-setup)
              (erc-completion-mode 1)))
 
-
+
 ;;; disable line number mode
 (add-hook 'erc-mode-hook
           '(lambda ()
              (linum-mode -1)))
 
-
+
 ;;; Filling & Wrap
 (require 'erc-fill)
 (erc-fill-mode t)
@@ -273,7 +273,7 @@
 ;; need to disable it from the ‘erc-mode-hook’. Here’s how:
 (add-hook 'erc-mode-hook (lambda () (auto-fill-mode 0)))
 
-
+
 ;;; timestamp
 (erc-timestamp-mode t)
 (setq erc-timestamp-format "[%H:%M]") ; "[%H:%M]", "[%R-%m/%d]"
@@ -284,7 +284,8 @@
 ;;; [ Colors ]
 (setq erc-interpret-mirc-color t)
 
-
+
+
 ;; Remove Server Part from mode line
 ;;
 ;; To remove the server part from the channel identifyer in the mode line,
@@ -294,7 +295,7 @@
 
 ;; prompt
 (setq erc-prompt "暗月: ")
-
+
 ;;; [ Faces ]
 
 ;; http://www.emacswiki.org/emacs/ErcFaces
@@ -348,7 +349,7 @@
 (set-face-attribute 'erc-nick-msg-face nil
                     :foreground "green" :background "black"
                     )
-
+
 ;;; The following faces are also available with erc-match is loaded (see ErcHighlighting for more details)
 ;; Pals
 (set-face-attribute 'erc-pal-face nil
@@ -375,7 +376,7 @@
                     :box '(:color "black" :line-width 1 :style nil)
                     )
 
-
+
 ;;; [ Buttons ]
 
 ;; buttonizes all messages according to erc-button-alist (*slow*)
@@ -391,11 +392,11 @@
 
 (setq erc-button-buttonize-nicks t)
 
-
+
 ;;; ERC all lines are read-only.
 ;; you can toggle this in erc-modules.
 
-
+
 ;;; Erc Smileys
 
 ;; (require 'smiley)
@@ -407,7 +408,7 @@
 ;; (add-to-list 'smiley-regexp-alist '("\\(:-?D\\)\\W" 1 "grin"))
 ;; (add-to-list 'smiley-regexp-alist '("\\(:-?P\\)\\W" 1 "poke"))
 
-
+
 ;;; [ Notify ]
 
 ;;; Ring
@@ -416,10 +417,10 @@
 
 (setq erc-notice-highlight-type 'all)
 
-
+
 ;;; Sound
 
-
+
 ;;; ERC auto hide message types.
 
 (setq erc-hide-list '("JOIN" "PART" "QUIT")
@@ -429,16 +430,16 @@
                               ("#erc" "NICK"))
       )
 
-
+
 ;;; netsplit -- hide join, quit messages.
 
 ;; (require 'erc-netsplit)
 ;; (erc-netsplit-mode t)
 
-
+
 ;;; [ org-contacts + ERC ]
 
-
+
 ;;; [ Input ]
 
 (setq erc-input-line-position -2)
@@ -449,12 +450,12 @@
 
 ;; (setq erc-spelling-dictionaries '(("irc.tu-ilmenau.de" "german-new8")))
 
-
+
 ;;; [ Speak ]
 
 ;; (require 'erc-speak)
 
-
+
 ;;; [ Image ]
 
 ;; (unless (package-installed-p 'erc-image)
@@ -469,14 +470,14 @@
 ;;  erc-image-images-path "/tmp/"
 ;;  erc-image-inline-rescale 50 ; rescale the inline displayed image
 ;;  )
-
+
 ;;; [ Bots ]
 
 ;; http://www.emacswiki.org/emacs/ErcRobot
 ;; http://www.emacswiki.org/emacs/BirnyTheBot
 ;; http://www.emacswiki.org/emacs/ErBot
 
-
+
 ;;; [ Part & Quit ]
 (setq erc-part-reason 'erc-part-reason-various)
 (setq erc-quit-reason 'erc-quit-reason-various)
@@ -518,7 +519,7 @@
 ;; (erc-join-channel CHANNEL & optional key)
 
 
-
+
 ;;; [ Auto Query ]
 
 ;; Here’s how to have query buffers open automatically when someone sends a private message.
@@ -533,14 +534,14 @@
 ;;           (lambda (server nick)
 ;;             (add-hook 'erc-server-NOTICE-hook 'erc-auto-query)))
 
-
+
 ;;; [ query ]
 
 ;; > /query [NICK]
 
 (setq erc-query-display 'window)
 
-
+
 ;;; [ Logging ]
 
 (setq erc-log-channels-directory "~/.erc/logs/")
@@ -552,7 +553,7 @@
 (add-hook 'erc-insert-post-hook 'erc-truncate-buffer)
 (setq erc-truncate-buffer-on-save t)
 
-
+
 ;;; erc-babel
 
 ;;; http://www.emacswiki.org/emacs/erc-babel.el
@@ -566,7 +567,7 @@
 ;; (define-key erc-mode-map (kbd "C-c C-S-t") 'erc-babel-toggle)
 ;; (define-key erc-mode-map (kbd "C-c C-S-o") 'erc-babel-include-orig-toggle)
 
-
+
 ;;; switch erc buffers
 
 ;;; default [C-c C-b] erc-iswitchb.
@@ -587,12 +588,12 @@
 
 (define-key erc-mode-map (kbd "C-c b") 'stardiviner/erc-buffer-switch)
 
-
+
 ;;; Morse Code
 
 ;; http://www.emacswiki.org/emacs/ErcMorseCode
 
-
+
 
 (provide 'init-my-tool-irc-erc)
 

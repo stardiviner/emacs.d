@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ rhtml-mode ]
 
 (use-package rhtml-mode
@@ -39,7 +39,7 @@
                       )
   )
 
-
+
 ;;; [ projectile-rails ]
 
 (use-package projectile-rails
@@ -84,7 +84,7 @@
   (add-hook 'projectile-rails-mode-hook 'my-projectile-rails-setup)
   )
 
-
+
 (provide 'init-my-prog-framework-ruby-on-rails)
 
 ;;; init-my-prog-framework-ruby-on-rails.el ends here

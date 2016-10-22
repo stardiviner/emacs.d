@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ sudo-edit ]
 
 (use-package sudo-edit
@@ -20,7 +20,7 @@
   ;;                                   (sudo-edit 4)))
   )
 
-
+
 (provide 'init-my-emacs-edit-sudo)
 
 ;;; init-my-emacs-edit-sudo.el ends here

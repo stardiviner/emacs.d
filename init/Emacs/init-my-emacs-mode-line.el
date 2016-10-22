@@ -6,12 +6,12 @@
 
 
 ;;; Code:
-
+
 
 ;; - [C-h v major-mode] for current buffer major mode.
 ;; - [C-h v minor-mode-alist] for current buffer minor modes list.
 
-
+
 ;;; [ window-divider-mode ]
 
 (when (boundp 'window-divider-mode)
@@ -21,7 +21,7 @@
   ;; (window-divider-mode 1)
   )
 
-
+
 ;;; separate settings for only active mode-line.
 
 (defvar my/mode-line-selected-window nil)
@@ -583,7 +583,7 @@
     (major-mode-icon-extra))
    )))
 
-
+
 ;; (setq mode-line-in-non-selected-windows t)
 
 ;;; 1. color style
@@ -621,7 +621,7 @@
 ;;                     :height 100
 ;;                     )
 
-
+
 ;;; [ display-time ]
 
 ;; (setq display-time-interval 60)
@@ -645,7 +645,7 @@
 
 (display-time-mode t)
 
-
+
 (provide 'init-my-emacs-mode-line)
 
 ;;; init-my-emacs-mode-line.el ends here

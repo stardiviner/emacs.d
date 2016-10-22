@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;;_ [ iedit ] -- Edit multiple regions simultaneously in a buffer or a region
 
 (use-package iedit
@@ -114,7 +114,7 @@
   )
 
 
-
+
 (provide 'init-my-emacs-edit-multiple-cursors)
 
 ;;; init-my-emacs-edit-multiple-cursors.el ends here

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ swift-mode ]
 
 (use-package swift-mode
@@ -24,13 +24,13 @@
   (setq flycheck-swift-sdk-path "")
   )
 
-
+
 ;;; [ swift3-mode ] -- major-mode for Apple's Swift programming language.
 
 (use-package swift3-mode
   :ensure t)
 
-
+
 ;;; [ company-sourcekit ]
 
 (use-package company-sourcekit
@@ -49,19 +49,19 @@
         )
   )
 
-
+
 ;;; [ flycheck-swift ] -- Flycheck extension for Apple's Swift.
 
 (use-package flycheck-swift
   :ensure t)
 
-
+
 ;;; [ ob-swift ]
 
 (use-package ob-swift
   :ensure t)
 
-
+
 (provide 'init-my-prog-lang-swift)
 
 ;;; init-my-prog-lang-swift.el ends here

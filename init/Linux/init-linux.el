@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ systemd-mode ] -- Emacs major mode for editing systemd units.
 
 (use-package systemd
@@ -18,7 +18,7 @@
               (my-company-add-backend-locally 'systemd-company-backend)))
   )
 
-
+
 ;;; [ helm-systemd ] -- helm interface to control systemd units.
 
 (use-package helm-systemd
@@ -30,7 +30,7 @@
         )
   )
 
-
+
 ;;; [ nginx-mode ]
 
 (use-package nginx-mode
@@ -42,19 +42,19 @@
                '("/etc/nginx/.*" . nginx-mode))
   )
 
-
+
 ;;; [ apache-mode ]
 
 (use-package apache-mode
   :ensure t
   :defer t)
 
-
+
 ;;; [ PulseAudio ]
 
 (add-to-list 'auto-mode-alist '("\\.pa\\'" . conf-mode))
 
-
+
 (provide 'init-linux)
 
 ;;; init-linux.el ends here

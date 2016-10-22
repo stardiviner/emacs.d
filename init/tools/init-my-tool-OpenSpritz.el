@@ -6,7 +6,7 @@
 ;; - https://www.gnu.org/philosophy/right-to-read.html
 
 ;;; Code:
-
+
 ;;; [ spray ] -- [Emacs] an elisp implementation of OpenSpritz
 
 (use-package spray
@@ -33,12 +33,12 @@
                       )
   )
 
-
+
 
 ;; 'spray-mode, 'speedread
 (global-set-key (kbd "<f9>") 'spray-mode)
 
-
+
 (provide 'init-my-tool-OpenSpritz)
 
 ;;; init-my-tool-OpenSpritz.el ends here

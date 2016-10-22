@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Gnus ]
 
 ;; user info
@@ -218,7 +218,7 @@
   (define-key message-mode-map (kbd "C-c C-y") 'hydra-message/body)
   )
 
-
+
 ;;; [ Mail ]
 
 (setq message-confirm-send t
@@ -241,7 +241,7 @@
 ;; (setq mail-sources '((maildir :path "~/Mails/"
 ;;                               :subdirs ("cur" "new" "tmp"))))
 
-
+
 ;; [ Gmail ]
 
 (setq user-mail-address "numbchild@gmail.com"
@@ -354,7 +354,7 @@ This moves them into the Spam folder."
 ;; search mail with various search engines
 (require 'nnir)
 
-
+
 ;;; GnuPG Agent
 
 ;; (defun gpg-agent-restart ()
@@ -391,7 +391,7 @@ This moves them into the Spam folder."
 ;;
 ;; (gpg-agent-startup)
 
-
+
 ;;; [ Newsgroup ]
 
 (setq gnus-novice-user t
@@ -408,7 +408,7 @@ This moves them into the Spam folder."
 ;; (add-to-list 'gnus-secondary-select-methods
 ;;              '(nntp "news.gmane.org"))
 
-
+
 ;;; [ RSS ]
 
 (require 'nnrss)
@@ -436,7 +436,7 @@ This moves them into the Spam folder."
 ;; (add-to-list 'gnus-secondary-select-methods
 ;;              '(nnrss "RSS"))
 
-
+
 ;;; [ Chinese ]
 
 ;; (setq gnus-default-charset 'cn-gb-2312
@@ -447,7 +447,7 @@ This moves them into the Spam folder."
 ;;         (message-this-is-news nil t))
 ;;       )
 
-
+
 (provide 'init-gnus)
 
 ;;; init-gnus.el ends here

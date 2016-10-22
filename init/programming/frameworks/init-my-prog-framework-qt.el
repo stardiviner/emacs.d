@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Qt mode ]
 
 ;; qt keywords and stuff ...
@@ -55,7 +55,7 @@
 ;; (setq c-C++-access-key "\\<\\(slots\\|signals\\|private\\|protected\\|public\\)\\>[ \t]*[(slots\\|signals)]*[ \t]*:")
 ;; (font-lock-add-keywords 'c++-mode '(("\\<\\(Q_OBJECT\\|public slots\\|public signals\\|private slots\\|private signals\\|protected slots\\|protected signals\\)\\>" . font-lock-constant-face)))
 
-
+
 ;;; Integration within Emacs
 
 ;; You can automaticaly enable CcMode for Qt source files, extend the path where
@@ -87,19 +87,19 @@
 ;;                     "QtCore/qglobal.h"))
 ;;   (add-to-list 'semantic-lex-c-preprocessor-symbol-file (expand-file-name file qt-include-directory)))
 
-
+
 ;;; [ Completion for Qt ]
 
 (require 'cc-mode)
 
-
+
 ;;; [ QML-mode ]
 
 (use-package qml-mode
   :ensure t
   :defer t)
 
-
+
 ;;; [ company-qml ]
 
 (use-package company-qml
@@ -113,7 +113,7 @@
               ))
   )
 
-
+
 ;;; [ qmake-mode ]
 
 (load (concat user-emacs-directory "init/extensions/qmake.el"))
@@ -121,7 +121,7 @@
 (require 'qmake-mode)
 (add-to-list 'auto-mode-alist '("\\.pro\\'" . qmake-mode))
 
-
+
 (provide 'init-my-prog-framework-qt)
 
 ;;; init-my-prog-framework-qt.el ends here

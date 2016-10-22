@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ dart-mode ]
 
 (use-package dart-mode
@@ -21,7 +21,7 @@
         )
   )
 
-
+
 ;;; [ company-dart ]
 
 ;; (use-package company-dart
@@ -34,7 +34,7 @@
 ;;               ))
 ;;   )
 
-
+
 (provide 'init-my-prog-lang-dart)
 
 ;;; init-my-prog-lang-dart.el ends here

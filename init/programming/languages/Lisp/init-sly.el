@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ sly ] -- Sylvester the Cat's Common Lisp IDE
 
 (use-package sly
@@ -73,7 +73,7 @@
               (eldoc-mode 1)))
   )
 
-
+
 ;;; [ sly-company ] -- Company-mode completion backend for SLY.
 
 (use-package sly-company
@@ -90,7 +90,7 @@
                 )))
   )
 
-
+
 ;;; [ sly-repl-ansi-color ]
 
 ;; (use-package sly-repl-ansi-color
@@ -100,7 +100,7 @@
 ;;   (add-to-list 'sly-contribs 'sly-repl-ansi-color)
 ;;   )
 
-
+
 ;;; [ sly-macrostep ] -- Expand CL macros inside source files
 
 ;;; - [C-c M-e] in `sly-editing-mode'.
@@ -108,21 +108,21 @@
 (use-package sly-macrostep
   :ensure t)
 
-
+
 ;;; [ sly-named-readtables ] -- Support named readtables in Common Lisp files.
 
 ;; (use-package sly-named-readtables
 ;;   :ensure t
 ;;   )
 
-
+
 ;;; [ sly-quicklisp ] -- Quicklisp support for SLY.
 
 ;; (use-package sly-quicklisp
 ;;   :ensure t
 ;;   )
 
-
+
 (provide 'init-sly)
 
 ;;; init-sly.el ends here

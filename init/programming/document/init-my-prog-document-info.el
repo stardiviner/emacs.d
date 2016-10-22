@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Info ]
 
 (global-set-key (kbd "C-h i") 'info-display-manual)
@@ -25,7 +25,7 @@
         (switch-to-buffer bufname)
       (info topic bufname))))
 
-
+
 
 (use-package niceify-info
   :ensure t
@@ -33,7 +33,7 @@
   :init
   (add-hook 'Info-selection-hook #'niceify-info))
 
-
+
 (provide 'init-my-prog-document-info)
 
 ;;; init-my-prog-document-info.el ends here

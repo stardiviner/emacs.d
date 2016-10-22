@@ -6,12 +6,12 @@
 
 
 ;;; Code:
-
+
 ;;; [ xclip ] --- 
 
 ;; (require 'xclip)
 
-
+
 (provide 'init-my-emacs-clipboard)
 
 ;;; init-my-emacs-clipboard.el ends here

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ org-protocol ] -- intercept calls from emacsclient to trigger custom actions.
 
 (unless (server-running-p)
@@ -30,7 +30,7 @@
 
 
 
-
+
 (provide 'init-my-org-hacking)
 
 ;;; init-my-org-hacking.el ends here

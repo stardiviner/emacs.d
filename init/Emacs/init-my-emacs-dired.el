@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Dired ] (Directory editing mode)
 
 (require 'dired)
@@ -74,7 +74,7 @@
 (define-key dired-mode-map (kbd "^") (lambda () (interactive) (find-alternate-file "..")))  ; was dired-up-directory
 
 
-
+
 ;;; [ Dired+ ] -- Extensions to Dired.
 
 (use-package dired+
@@ -86,7 +86,7 @@
   (diredp-toggle-find-file-reuse-dir 1)
   )
 
-
+
 ;;; [ direx ] --- A simple directory explorer. It also works as a generic tree explore library.
 
 (use-package direx
@@ -110,7 +110,7 @@
   ;;       popwin:special-display-config)
   )
 
-
+
 ;;; [ dired-efap ] -- Edit Filename At Point in an Emacs' dired buffer
 
 (use-package dired-efap
@@ -124,7 +124,7 @@
   (define-key dired-mode-map [down-mouse-1] 'dired-efap-click)
   )
 
-
+
 ;;; [ peep-dired ] -- A convienent way to look up file contents in other window while browsing directory in dired
 
 (use-package peep-dired
@@ -139,7 +139,7 @@
         )
   )
 
-
+
 ;;; [ diredful ] -- colorful file names in dired buffers.
 
 (use-package diredful
@@ -147,7 +147,7 @@
   :config
   (diredful-mode 1))
 
-
+
 
 ;;; The function above will open the current directory in sudo mode. I decided
 ;;; to bind it to !, since the default & seems strictly better than !. The
@@ -165,7 +165,7 @@
 
 (define-key dired-mode-map "!" 'sudired)
 
-
+
 ;;; [ image in Dired ]
 
 (setq image-dired-thumb-size 100
@@ -173,7 +173,7 @@
 
 (add-hook 'dired-mode-hook 'tooltip-mode)
 
-
+
 ;;; [ dired-narrow ]
 
 (use-package dired-narrow
@@ -182,7 +182,7 @@
               ("/" . dired-narrow))
   )
 
-
+
 ;;; [ call eww in Dired ]
 
 ;;; If you have files that you read in eww, here's a suggestion that might make
@@ -193,7 +193,7 @@
     (interactive)
     (eww-open-file (dired-get-file-for-visit))))
 
-
+
 ;;; Run rsync in Dired.
 
 (defun ora-dired-rsync (dest)
@@ -227,7 +227,7 @@
 
 (define-key dired-mode-map "Y" 'ora-dired-rsync)
 
-
+
 ;;; [ dired-launch ] -- launch an external application from dired.
 
 (use-package dired-launch
@@ -240,7 +240,7 @@
   (define-key dired-launch-mode-map (kbd "C-c L") 'dired-launch-with-prompt-command)
   )
 
-
+
 
 (provide 'init-my-emacs-dired)
 

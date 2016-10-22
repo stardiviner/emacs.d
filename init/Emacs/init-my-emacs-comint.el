@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Comint ]
 
 (setq comint-prompt-read-only t
@@ -14,7 +14,7 @@
       comint-move-point-for-output t
       )
 
-
+
 (provide 'init-my-emacs-comint)
 
 ;;; init-my-emacs-comint.el ends here

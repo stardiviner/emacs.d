@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ auto-image-file-mode ]
 
 ;; (setq image-file-name-extensions
@@ -17,7 +17,7 @@
 ;; auto display image
 (auto-image-file-mode t)
 
-
+
 ;;; [ iimage-mode ]
 
 (use-package iimage
@@ -80,7 +80,7 @@
   ;; (iimage-mode 1)
   )
 
-
+
 ;;; [ image+ ] -- Emacs image extension
 
 ;; (use-package image+
@@ -100,7 +100,7 @@
 ;;         ("l" imagex-sticky-rotate-left "rotate left"))))
 ;;   )
 
-
+
 (provide 'init-my-emacs-image)
 
 ;;; init-my-emacs-image.el ends here

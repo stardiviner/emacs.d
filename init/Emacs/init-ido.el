@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ ido ]
 
 ;;; Usage:
@@ -72,7 +72,7 @@
 (set-face-attribute 'ido-incomplete-regexp nil
                     :foreground "dark red" :background "dim gray")
 
-
+
 ;;; Display Completions Vertically
 
 ;; It’s a lot easier to scan long path names if they’re displayed vertically, instead of horizontally. Run this to achieve just that:
@@ -90,7 +90,7 @@
 ;;   (add-hook 'ido-setup-hook 'ido-define-keys)
 
 
-
+
 ;;; [ ido-vertical-mode ] -- vertical ido.
 
 ;;; Usage:
@@ -125,18 +125,18 @@
 ;;       )
 ;; ---------------------------------------------------------------------------------
 
-
+
 ;;; [ flx-ido ]
 
 ;; (require 'flx-ido)
 
-
+
 ;;; [ ido-preview ]
 
 ;; (load "~/.emacs.d/init/extensions/ido-preview.el")
 
 
-
+
 (provide 'init-ido)
 
 ;;; init-ido.el ends here

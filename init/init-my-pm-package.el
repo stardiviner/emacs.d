@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ package.el ] -- Emacs Lisp Package Archive (ELPA)
 
 (require 'cl)
@@ -30,7 +30,7 @@
 ;; (setq package-enable-at-startup nil)
 ;; (package-initialize nil)
 
-
+
 ;;; [ use-package ]
 
 (unless (package-installed-p 'use-package)
@@ -63,7 +63,7 @@
   (use-package auctex :ensure t)
   )
 
-
+
 ;;; [ flycheck-package ]
 
 (use-package flycheck-package
@@ -73,7 +73,7 @@
     (flycheck-package-setup))
   )
 
-
+
 (provide 'init-my-pm-package)
 
 ;;; init-my-pm-package.el ends here

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ arduino-mode ]
 
 (use-package arduino-mode
@@ -16,7 +16,7 @@
   (setq arduino-font-lock-extra-types t)
   )
 
-
+
 ;;; [ company-arduino ]
 
 (use-package company-arduino
@@ -41,7 +41,7 @@
   ;; (setq company-c-headers-path-system 'my-company-c-headers-get-system-path)
   )
 
-
+
 (provide 'init-my-prog-framework-arduino)
 
 ;;; init-my-prog-framework-arduino.el ends here

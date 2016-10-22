@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Keybindings ]
 
 (define-key my-org-prefix (kbd "e")
@@ -52,7 +52,7 @@
 (define-key my-org-clock-prefix (kbd "c") 'org-clock-cancel)
 
 
-
+
 (provide 'init-my-org-keybindings)
 
 ;;; init-my-org-keybindings.el ends here

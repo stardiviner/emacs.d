@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ elixir-mode ] -- Emacs major mode for Elixir
 
 (use-package elixir-mode
@@ -25,7 +25,7 @@
                    :actions '(insert navigate)))
   )
 
-
+
 ;;; [ alchemist ] -- Elixir Tooling Integration into Emacs
 
 (use-package alchemist
@@ -43,13 +43,13 @@
   (setq alchemist-hooks-test-on-save nil)
   )
 
-
+
 ;;; [ ob-elixir ]
 
 (use-package ob-elixir
   :ensure t)
 
-
+
 (provide 'init-my-prog-lang-elixir)
 
 ;;; init-my-prog-lang-elixir.el ends here

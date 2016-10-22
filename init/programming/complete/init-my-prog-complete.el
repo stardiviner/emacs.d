@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ completion ] -- *Completion* buffer
 
 (require 'completion)
@@ -27,7 +27,7 @@
 ;; (completion-mode)
 ;; (dynamic-completion-mode 1)
 
-
+
 
 (require 'init-auto-complete)
 (require 'init-company-mode)
@@ -40,7 +40,7 @@
 ;;               (auto-complete-mode 1)
 ;;               )))
 
-
+
 (provide 'init-my-prog-complete)
 
 ;;; init-my-prog-complete.el ends here

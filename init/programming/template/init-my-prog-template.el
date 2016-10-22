@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ tempo ]
 
 (require 'tempo)
@@ -14,10 +14,10 @@
 (setq tempo-interactive t               ; `tempo-insert' prompt.
       tempo-insert-region t)
 
-
+
 ;;; [ tempo-snippets ]
 
-
+
 ;;; [ auto-insert ]
 
 (use-package autoinsert
@@ -48,10 +48,10 @@
   (define-auto-insert "\\.java$" ["default-Java.java" autoinsert-yas-expand])
   )
 
-
+
 ;;; [ skeleton ]
 
-
+
 ;;; [ yatemplate ] -- with YASnippet + auto-insert-mode.
 
 ;; (use-package yatemplate
@@ -61,7 +61,7 @@
 ;;   (setq yatemplate-dir (locate-user-emacs-file "templates"))
 ;;   )
 
-
+
 (provide 'init-my-prog-template)
 
 ;;; init-my-prog-template.el ends here

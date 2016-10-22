@@ -3,7 +3,7 @@
 
 ;;; Commentary:
 
-
+
 ;;; Help:
 ;; http://savannah.nongnu.org/projects/bbdb/
 ;; http://www.mail-archive.com/bbdb-info@lists.sourceforge.net/
@@ -11,7 +11,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ BBDB ] -- The Insidious Big Brother Database (BBDB) is a contact management utility.
 
 (use-package bbdb
@@ -132,7 +132,7 @@
   )
 
 
-
+
 ;;; define variant faces for variant xfields
 
 (setq bbdb-name-face-alist '((mail . bbdb-field-mail)
@@ -148,7 +148,7 @@
   "Face used for BBDB fields."
   :group 'bbdb-faces)
 
-
+
 ;;; --- Auto-creation of all messages addressed to me ---
 ;;
 ;; (setq bbdb/mail-auto-create-p 'bbdb-prune-not-to-me)
@@ -193,7 +193,7 @@
 ;;             ;; Otherwise add, subject to filtering
 ;;             (bbdb-ignore-some-messages-hook)))))))
 
-
+
 
 ;;; -- Dial --
 ;; (setq bbdb-dial-function
@@ -204,7 +204,7 @@
 ;;            "send command \"CALL +" phone-number "\" script name \"Call from BBDB\"\n"
 ;;            "end tell"))))
 
-
+
 ;;; [ bbdb- ] -- More easily search/choice than BBDB
 
 ;;; Usage:
@@ -268,7 +268,7 @@
 ;;     (define-key my-bbdb-map (kbd "B") 'bbdb-:open)
 ;;   )
 
-
+
 ;;; [ bbdb-vcard ]
 
 ;;; Usage:
@@ -317,10 +317,10 @@
         )
   )
 
-
+
 ;;; [ bbdb-csv-import ]
 
-
+
 ;;; [ gmail2bbdb ]
 
 ;;; Usage:
@@ -331,7 +331,7 @@
 
 ;; (add-to-list 'gmail2bbdb-excluded-email-regex-list "noreply@*.com")
 
-
+
 
 (provide 'init-my-tool-bbdb)
 

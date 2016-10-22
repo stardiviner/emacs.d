@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ vhdl-mode ]
 
 (use-package vhdl-mode
@@ -17,7 +17,7 @@
   (push '("\\.vhdl?\\'" . vhdl-mode) auto-mode-alist)
   )
 
-
+
 ;;; [ vhdl-capf ]
 
 (use-package vhdl-capf
@@ -27,7 +27,7 @@
   (vhdl-capf-enable)
   )
 
-
+
 ;;; [ vhdl-tools ]
 
 (use-package vhdl-tools
@@ -39,7 +39,7 @@
               (vhdl-tools-mode 1)))
   )
 
-
+
 (provide 'init-my-prog-lang-HDL)
 
 ;;; init-my-prog-lang-HDL.el ends here

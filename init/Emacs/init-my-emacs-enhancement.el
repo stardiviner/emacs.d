@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ describe-number ] -- Describe number value at point in Emacs.
 
 ;; - "b->d" means binary to decimal.
@@ -19,7 +19,7 @@
   )
 
 
-
+
 (provide 'init-my-emacs-enhancement)
 
 ;;; init-my-emacs-enhancement.el ends here

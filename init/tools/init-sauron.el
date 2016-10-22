@@ -22,7 +22,7 @@
 ;; you to fine-tune the behavior. However, I strive for it to be useful with
 ;; minimal configuration.
 
-
+
 ;;; Usage:
 
 ;; - [C-c n] :: sauron notify
@@ -71,7 +71,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ sauron ]
 
 ;; You should load org before starting sauron, in particular before you set
@@ -203,7 +203,7 @@
   (global-set-key [f9] 'sauron-toggle-hide-show)
   )
 
-
+
 ;;; [ alert.el ]
 ;; https://github.com/jwiegley/alert
 
@@ -214,7 +214,7 @@
   ;; (add-hook ‘sauron-event-added-functions ‘sauron-alert-el-adapter)
   )
 
-
+
 ;; -- backend modules --
 ;; - erc
 ;; - org-mode
@@ -233,7 +233,7 @@
         ;; sauron-jabber
         ))
 
-
+
 ;;; [ Org-mode, appt ]
 ;; sauron-org (org-mode/appt)
 ;;
@@ -253,15 +253,15 @@
 ;;       appt-message-warning-time 10
 ;;       appt-disp-window-function 'sr-org-handler-func)
 
-
+
 ;;; Sauron ERC
 (setq sauron-erc-interesting-events '(privmsg current-nick keyword))
 
-
+
 ;;; [ D-Bus ]
 (setq sauron-dbus-cookie t)
 
-
+
 
 ;; some sound/light effects for certain events
 ;; (add-hook 'sauron-event-added-functions
@@ -282,7 +282,7 @@
 ;;       (string-match "^*** Users" msg)))) ;; filter out IRC spam
 
 
-
+
 
 (provide 'init-sauron)
 

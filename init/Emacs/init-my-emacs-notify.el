@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ notifications ]
 
 ;;; Usage:
@@ -17,7 +17,7 @@
 
 (require 'notifications)
 
-
+
 ;;; [ alert ] -- A Growl-like alerts notifier for Emacs.
 
 (use-package alert
@@ -31,7 +31,7 @@
         )
   )
 
-
+
 (provide 'init-my-emacs-notify)
 
 ;;; init-my-emacs-notify.el ends here

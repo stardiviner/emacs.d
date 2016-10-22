@@ -6,11 +6,11 @@
 
 
 ;;; Code:
-
+
 
 (setq org-enable-table-editor t)
 
-
+
 ;;; font size config for Org-mode table chinese & english mixture.
 
 (when (window-system)
@@ -72,7 +72,7 @@
   (global-set-key (kbd "C--") 'decrease-emacs-font-size)
   )
 
-
+
 ;;; [ orgtbl-ascii-plot ] -- ascii-art bar plots in org-mode tables.
 
 ;; #+TBLFM: $4='(orgtbl-ascii-draw plot min max)
@@ -83,7 +83,7 @@
   :ensure t
   :defer t)
 
-
+
 (provide 'init-my-org-table)
 
 ;;; init-my-org-table.el ends here

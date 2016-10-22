@@ -6,18 +6,18 @@
 
 
 ;;; Code:
-
+
 ;;; [ perl-mode ]
 
 
-
+
 ;;; [ perl6-mode ]
 
 (use-package perl6-mode
   :ensure t
   :defer t)
 
-
+
 ;;; [ plsense ] -- interface for PlSense that is a development tool for Perl.
 
 (use-package plsense
@@ -32,7 +32,7 @@
         plsense-jump-to-definition-key "M-.")
   )
 
-
+
 (provide 'init-my-prog-lang-perl)
 
 ;;; init-my-prog-lang-perl.el ends here

@@ -5,7 +5,7 @@
 ;;; use `my-func' as prefix for every function.
 
 ;;; Code:
-
+
 ;;; Group hooks into one new hook.
 
 (defmacro hook-modes (modes &rest body)
@@ -32,7 +32,7 @@
 ;; (dolist (hook '(prog-mode-hook text-mode-hook css-mode-hook ...))
 ;;   (add-hook hook 'my-non-special-mode-setup))
 
-
+
 ;;; keybindings
 
 ;;; Usage: (local-set-minor-mode-key '<minor-mode> (kbd "key-to-hide") nil).
@@ -48,7 +48,7 @@ by creating or altering keymaps stored in buffer-local
                        map))))
     (define-key newmap key def)))
 
-
+
 ;;; magical insert kbd for key.
 (defun insert-kbd-for-key (key)
   (interactive "kKey: ")
@@ -56,7 +56,7 @@ by creating or altering keymaps stored in buffer-local
 
 ;; (global-set-key "C-c k" 'insert-kbd-for-key)
 
-
+
 ;;; [ open and switch to buffer ]
 
 (defun my-func/open-and-switch-to-buffer (the-command the-buffer-name &optional whether-switch-to-buffer)
@@ -77,7 +77,7 @@ Usage:
     (when whether-switch-to-buffer
       (switch-to-buffer the-buffer-name))))
 
-
+
 ;;; [ keybindings ]
 
 ;;; keybinding lookup
@@ -142,7 +142,7 @@ Usage:
             (get-text-property (point) 'keymap)
             (get-text-property (point) 'local-map)))))
 
-
+
 ;;; require and install
 
 ;;; this will lead company-mode complete string from (require into (rrequire.
@@ -175,7 +175,7 @@ Usage:
 ;;                (error (if noerror nil (error (cadr e)))))
 ;;              (require feature filename noerror)))))
 
-
+
 ;;; [ align ]
 
 (defun align-whitespace (start end)
@@ -190,7 +190,7 @@ Usage:
   (align-regexp start end
                 "\\(\\s-*\\)&" 1 1 t))
 
-
+
 ;;; read in encrypted JSON file key-value pairs.
 
 (setq my/account-file (concat user-emacs-directory "accounts.json.gpg"))
@@ -208,7 +208,7 @@ Usage:
 ;; ask for GPG password at first, not in middle of Emacs startup progress.
 (my/json-read-value my/account-file 'yagist)
 
-
+
 
 (provide 'init-my-functions)
 
