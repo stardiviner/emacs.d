@@ -20,9 +20,29 @@
   :init
   (add-hook 'csharp-mode-hook 'omnisharp-mode)
   :config
-  (add-hook 'omnisharp-mode-hook
-            (lambda ()
-              (my-company-add-backend-locally 'company-omnisharp)))
+  (setq omnisharp-server-executable-path
+        (expand-file-name
+         "~/Code/CSharp/omnisharp-server/OmniSharp/bin/Debug/OmniSharp.exe")
+        omnisharp-company-begin-after-member-access t
+        omnisharp-company-do-template-completion t
+        omnisharp-company-template-use-yasnippet t
+        omnisharp-company-ignore-case t
+        ;; auto-complete
+        omnisharp-auto-complete-want-documentation nil
+        omnisharp-auto-complete-popup-persist-help nil
+        ;; eldoc
+        omnisharp-eldoc-support t
+        ;; imenu
+        omnisharp-imenu-support nil
+        )
+
+  (defun my-omnisharp-setup ()
+    (interactive)
+    (my-company-add-backend-locally 'company-omnisharp)
+    (define-key omnisharp-mode-map (kbd "M-.") 'omnisharp-go-to-definition)
+    )
+  
+  (add-hook 'omnisharp-mode-hook 'my-omnisharp-setup)
   )
 
 ;;; ----------------------------------------------------------------------------
