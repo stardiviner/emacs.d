@@ -51,7 +51,7 @@
   (add-hook 'scheme-mode-hook
             (lambda ()
               (geiser-mode 1)
-              (my-run-geiser-auto)
+              ;; (my-run-geiser-auto)
               (my-company-add-backend-locally 'geiser-company-backend)
               ))
 
