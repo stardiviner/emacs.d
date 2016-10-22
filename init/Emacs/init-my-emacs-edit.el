@@ -27,6 +27,7 @@
 
 (use-package edit-server
   :ensure t
+  :if window-system
   :defer t
   :init
   (edit-server-start)
