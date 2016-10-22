@@ -11,6 +11,10 @@
 
 (use-package ivy
   :ensure t
+  :bind (("C-c C-r" . ivy-resume)
+         ("C-i" . complete-symbol)
+         ([remap bookmark-jump] . ivy-bookmark-goto)
+         )
   :config
   ;; ivy-mode
   (setq ivy-use-virtual-buffers t ; treat recentf, bookmarks as virtual buffers.
@@ -93,10 +97,6 @@
                 :action (lambda (bookmark)
                           (bookmark-jump bookmark)))
       ))
-
-  (global-set-key [remap bookmark-jump] 'ivy-bookmark-goto)
-
-  (global-set-key (kbd "C-c C-r") 'ivy-resume)
   
   (ivy-mode 1)
   )
@@ -107,9 +107,8 @@
 (use-package swiper
   :ensure t
   :defer t
-  :config
-  (global-set-key (kbd "C-s") 'swiper)
-  (global-set-key (kbd "C-c u") 'swiper-all)
+  :bind (("C-s" . swiper)
+         ("C-c u" . swiper-all))
   )
 
 
@@ -117,59 +116,54 @@
 
 (use-package counsel
   :ensure t
+  :bind (("C-s" . counsel-grep-or-swiper)
+         ([remap execute-extended-command] . counsel-M-x) ; [M-x]
+         ([remap describe-variable] . counsel-describe-variable) ; [C-h v]
+         ([remap describe-function] . counsel-describe-function) ; [C-h f]
+         ([remap describe-bindings] . counsel-descbinds) ; [C-h b]
+         ([remap info-lookup-symbol] . counsel-info-lookup-symbol) ; [C-h S]
+         ([remap menu-bar-open] . counsel-tmm) ; [F10] text menu access
+         ("C-x c p" . counsel-list-processes) ; [C-x c p]
+         ("C-x RET v" . counsel-set-variable) ; [C-x RET v]
+         ("C-x RET u" . counsel-unicode-char) ; [C-x RET u]
+         ([remap switch-to-buffer] . ivy-switch-buffer) ; [C-x b]
+         ([remap find-file] . counsel-find-file) ; [C-x C-f]
+         ("M-t" . counsel-git) ; [M-t]
+         ("C-c v g g" . counsel-git-grep)
+         ([remap grep] . counsel-grep) ; [C-s g]
+         ([remap yank-pop] . counsel-yank-pop) ; [M-y]
+         ([remap imenu] . counsel-imenu)
+         ("C-x j" . counsel-imenu)
+         ([remap org-set-tags-command] . counsel-org-tag) ; [C-c C-q]
+         ([remap org-agenda-set-tags] . counsel-org-tag-agenda) ; [:]
+         ([remap load-library] . counsel-load-library)
+         ([remap load-theme] . counsel-load-theme)
+         ([remap locate] . counsel-locate)
+         ("C-c #" . counsel-linux-app)
+         :map ivy-minibuffer-map
+         ("M-y" . ivy-next-line)
+         )
+
   :init
-  ;; for big size buffer have long swiper startup time. This command will use
-  ;; swiper for small buffers, and counsel-grep for large buffers.
-  (global-set-key (kbd "C-s") 'counsel-grep-or-swiper)
-  
-  (global-set-key [remap execute-extended-command] 'counsel-M-x) ; [M-x]
-  (global-set-key [remap describe-variable] 'counsel-describe-variable) ; [C-h v]
-  (global-set-key [remap describe-function] 'counsel-describe-function) ; [C-h f]
-  (global-set-key [remap describe-bindings] 'counsel-descbinds) ; [C-h b]
-  (global-set-key [remap info-lookup-symbol] 'counsel-info-lookup-symbol) ; [C-h S]
-  (global-set-key [remap menu-bar-open] 'counsel-tmm) ; [F10] text menu access
-  (global-set-key (kbd "C-x c p") 'counsel-list-processes) ; [C-x c p]
-  (global-set-key (kbd "C-x RET v") 'counsel-set-variable) ; [C-x RET v]
-  (global-set-key (kbd "C-x RET u") 'counsel-unicode-char) ; [C-x RET u]
-  ;; (setq ivy-switch-buffer-show-info '("%s" "buffer-name"))
-  (global-set-key [remap switch-to-buffer] 'ivy-switch-buffer) ; [C-x b]
-  ;; (global-set-key (kbd "C-x C-b") 'ivy-recentf)
-  (global-set-key [remap find-file] 'counsel-find-file) ; [C-x C-f]
-  (global-set-key (kbd "M-t") 'counsel-git) ; [M-t]
-  (global-set-key (kbd "C-c v g g") 'counsel-git-grep)
   (unless (boundp 'my-search-prefix)
     (define-prefix-command 'my-search-prefix))
   (global-set-key (kbd "C-c s") 'my-search-prefix)
   (define-key my-search-prefix (kbd "g") 'counsel-grep)
-  (global-set-key [remap grep] 'counsel-grep) ; [C-s g]
   (define-key my-search-prefix (kbd "G") 'counsel-ag) ; [C-u] prompt for dir support
+  :config
+  ;; (setq ivy-switch-buffer-show-info '("%s" "buffer-name"))
   (setq counsel-yank-pop-truncate t)
-  (global-set-key [remap yank-pop] 'counsel-yank-pop) ; [M-y]
-  (define-key ivy-minibuffer-map (kbd "M-y") 'ivy-next-line) ; [M-y] repeatly to next item.
-  (global-set-key [remap imenu] 'counsel-imenu)
-  (global-set-key (kbd "C-x j") 'counsel-imenu)
-  ;; (global-set-key [remap org-set-tags-command] 'counsel-org-tag) ; [C-c C-q]
-  (global-set-key [remap org-agenda-set-tags] 'counsel-org-tag-agenda) ; [:]
-  (global-set-key [remap load-library] 'counsel-load-library)
-  (global-set-key [remap load-theme] 'counsel-load-theme)
-  (global-set-key [remap locate] 'counsel-locate)
-  (global-set-key (kbd "C-c #") 'counsel-linux-app)
   )
 
 
 ;;; [ counsel-projectile ] -- Ivy integration for Projectile.
 
-;;; Usage:
-;;
-;; - [M-x counsel-projectile]
-;; - [M-o] for actions
-
 ;; (use-package counsel-projectile
 ;;   :ensure t
 ;;   :defer t
 ;;   :commands counsel-projectile
-;;   :config
-;;   (define-key projectile-command-map (kbd "p") 'counsel-projectile)
+;;   :bind (:map projectile-command-map
+;;               ("p". counsel-projectile))
 ;;   )
 
 
