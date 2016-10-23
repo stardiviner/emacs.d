@@ -10,7 +10,7 @@
 
 (unless (boundp 'accounting-prefix)
   (define-prefix-command 'accounting-prefix))
-(define-key my-tools-prefix (kbd "C-a") 'accounting-prefix)
+(define-key my-tools-prefix (kbd "A") 'accounting-prefix)
 
 
 (use-package ledger-mode
