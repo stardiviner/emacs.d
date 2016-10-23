@@ -9,20 +9,17 @@
 
 (use-package yasnippet
   :ensure t
+  :bind (:map yas-minor-mode-map
+              ([tab] . yas-expand)
+              ("TAB" . indent-for-tab-command)
+              ("C-c \\" . yas-insert-snippet)
+              )
   :config
   (setq yas-snippet-dirs
         '("~/.emacs.d/snippets" ; personal snippets directory
           ))
 
-  ;; keybindings
-  ;; (define-key yas-minor-mode-map (kbd "<tab>") 'yas-expand) ; (kbd "<tab>") is same with [tab]
-  ;; (define-key yas-minor-mode-map (kbd "TAB") #'indent-for-tab-command)
-
-  ;; quick shortcut for inserting snipppet with completing system.
-  (define-key yas-minor-mode-map (kbd "C-c \\") 'yas-insert-snippet)
-
   ;; indent
-
   (setq yas-indent-line 'auto) ; 'auto, 'fixed
   (setq yas-also-auto-indent-first-line nil)
   ;; Python indent issue
@@ -39,9 +36,6 @@
 
   (setq yas-snippet-revival t) ; re-activate snippet field after undo/redo.
 
-  ;; menu
-  (setq yas-use-menu 'abbreviate)
-
   ;; (setq yas-key-syntaxes '("w" "w_" "w_." "w_.()" yas-try-key-from-whitespace))
 
   ;; for `yas-choose-value'.
@@ -55,10 +49,8 @@
 # expand-env: ((${5:VAR} ${6:VALUE}))}${7:
 # type: snippet/command}
 # --
-$0"
+$0`(yas-escape-text yas-selected-text)`"
         )
-
-  (setq yas-good-grace t)
 
   ;; auto set major mode: snippet-mode.
   (add-to-list 'auto-mode-alist
