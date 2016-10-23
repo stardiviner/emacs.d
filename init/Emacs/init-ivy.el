@@ -12,7 +12,7 @@
 (use-package ivy
   :ensure t
   :bind (("C-c C-r" . ivy-resume)
-         ("C-i" . complete-symbol)
+         ;; ("C-i" . complete-symbol)
          ([remap bookmark-jump] . ivy-bookmark-goto)
          )
   :config
