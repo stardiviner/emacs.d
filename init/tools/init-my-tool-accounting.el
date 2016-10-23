@@ -39,7 +39,7 @@
   :init
   (add-to-list 'auto-mode-alist '("\\.journal\\'" . hledger-mode))
   (add-to-list 'auto-mode-alist '("\\.hledger\\'" . hledger-mode))
-  (setq hledger-jfile "~/Org/Accounting/my.hledger")
+  (setq hledger-jfile "~/Org/Accounting/hledger.journal")
   :bind (:map accounting-prefix
               ("j" . hledger-run-command)
               ("e" . hledger-jentry))
