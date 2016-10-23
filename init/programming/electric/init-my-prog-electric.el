@@ -7,9 +7,6 @@
 
 ;;; Code:
 
-
-;; (electric-indent-mode 1)
-
 ;;; [ show-paren-mode ]
 
 (show-paren-mode 1) ; highlight matched parentheses
