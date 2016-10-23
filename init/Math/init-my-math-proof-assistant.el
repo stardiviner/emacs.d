@@ -9,15 +9,39 @@
 
 ;;; [ Proof General ]
 
-(if (load-file "/usr/share/emacs/site-lisp/ProofGeneral/generic/proof-site.el")
-    (require 'proof-site)
-  (warn "You need to install Proof General."))
+;; (add-to-list 'package-archives
+;;              '("emacs-pe" . "https://emacs-pe.github.io/packages/"))
+;; (use-package coq
+;;   :ensure t
+;;   :defer t
+;;   :pin emacs-pe)
 
-;;; [ coq-mode ]
+(use-package proof-general
+  :load-path "~/.emacs.d/site-lisp/PG/ProofGeneral/generic"
+  :init
+  (require 'proof-site nil t)
+  )
 
-(if (load-file "/usr/share/emacs/site-lisp/ProofGeneral/coq/coq.el")
-    (require 'coq)
-  (warn "You need to install Coq."))
+(use-package coq
+  :load-path "~/.emacs.d/site-lisp/PG/ProofGeneral/coq"
+  :init
+  (require 'coq nil t)
+  )
+
+;; (use-package proof-general
+;;   :load-path "/usr/share/emacs/site-lisp/ProofGeneral/generic"
+;;   :init
+;;   (require 'proof-site)
+;;   )
+
+;; (use-package coq
+;;   :load-path "/usr/share/emacs/site-lisp/ProofGeneral/coq"
+;;   :init
+;;   ;; FIXME: temporary fix solution for (proof-ass completion-table).
+;;   (defvar coq-completion-table nil)
+;;   (require 'coq)
+;;   )
+
 
 ;;; [ company-coq ]
 
@@ -25,7 +49,7 @@
   :ensure t
   :defer t
   :init
-  (require 'proof-site)
+  (require 'proof-site nil t)
   
   (add-hook 'coq-mode-hook #'company-coq-mode)
   (add-hook 'coq-mode-hook
