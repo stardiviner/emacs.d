@@ -335,27 +335,10 @@ This can be useful for snippets to select kernel interactively."
 
 ;;; [ ob-ledger ]
 
-(use-package ledger-mode
-  :ensure t
-  :defer t
-  :init
-  (add-to-list 'auto-mode-alist '("\\.ledger\\'" . ledger-mode))
-  )
-
 ;; (setq org-babel-default-header-args:ledger
 ;;       '((:results . "output") (:cmdline . "bal"))
 ;;       )
 
-
-(use-package flycheck-ledger
-  :ensure t
-  :defer t
-  :init
-  (add-hook 'ledger-mode-hook
-            (lambda ()
-              (flycheck-mode 1)
-              (flycheck-select-checker 'ledger)))
-  )
 
 (setq org-capture-templates
       (append '(("l" "Ledger entries")

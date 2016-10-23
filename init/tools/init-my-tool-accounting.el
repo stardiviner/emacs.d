@@ -8,6 +8,24 @@
 ;;; Code:
 ;;; ----------------------------------------------------------------------------
 
+(use-package ledger-mode
+  :ensure t
+  :defer t
+  :init
+  (add-to-list 'auto-mode-alist '("\\.ledger\\'" . ledger-mode))
+  )
+
+;;; [ flycheck-ledger ]
+
+(use-package flycheck-ledger
+  :ensure t
+  :defer t
+  :init
+  (add-hook 'ledger-mode-hook
+            (lambda ()
+              (flycheck-mode 1)
+              (flycheck-select-checker 'ledger)))
+  )
 
 ;;; ----------------------------------------------------------------------------
 
