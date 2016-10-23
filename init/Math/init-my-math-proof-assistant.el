@@ -17,13 +17,13 @@
 ;;   :pin emacs-pe)
 
 (use-package proof-general
-  :load-path "~/.emacs.d/site-lisp/PG/ProofGeneral/generic"
+  :load-path "~/.emacs.d/site-lisp/ProofGeneral/generic"
   :init
   (require 'proof-site nil t)
   )
 
 (use-package coq
-  :load-path "~/.emacs.d/site-lisp/PG/ProofGeneral/coq"
+  :load-path "~/.emacs.d/site-lisp/ProofGeneral/coq"
   :init
   (require 'coq nil t)
   )
