@@ -32,6 +32,27 @@
               (flycheck-select-checker 'ledger)))
   )
 
+;;; [ hledger-mode ] -- Major mode for editing hledger.
+
+(use-package hledger-mode
+  :ensure t
+  :init
+  (add-to-list 'auto-mode-alist '("\\.journal\\'" . hledger-mode))
+  (add-to-list 'auto-mode-alist '("\\.hledger\\'" . hledger-mode))
+  (setq hledger-jfile "~/Org/Accounting/my.hledger")
+  :bind (:map accounting-prefix
+              ("j" . hledger-run-command)
+              ("e" . hledger-jentry))
+  :config
+  (add-hook 'hledger-mode-hook
+            (lambda ()
+              ;; for company-mode
+              (my-company-add-backend-locally 'hledger-company)
+              ;; for auto-complete
+              (setq-local ac-sources '(hledger-ac-source))
+              ))
+  )
+
 ;;; ----------------------------------------------------------------------------
 
 (provide 'init-my-tool-accounting)
