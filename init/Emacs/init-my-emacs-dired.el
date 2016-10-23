@@ -120,7 +120,10 @@
     )
   
   (use-package wdired
-    :ensure t)
+    :ensure t
+    :bind (:map dired-mode-map
+                ("C-c C-p" . wdired-change-to-wdired-mode))
+    )
 
   (use-package dired-x
     :init
