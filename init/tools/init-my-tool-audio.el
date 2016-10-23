@@ -7,13 +7,18 @@
 
 ;;; Code:
 ;;; ----------------------------------------------------------------------------
+(unless (boundp 'audio-prefix)
+  (define-prefix-command 'audio-prefix))
+(define-key my-tools-prefix (kbd "C-a") 'audio-prefix)
+
+
 ;;; [ ecasound ] -- command-line multitrack audio processor.
 
-(add-to-list 'load-path "/usr/share/ecasound/")
-
-(require 'ecasound)
-
-(define-key my-tools-prefix (kbd "A") 'ecasound)
+(use-package ecasound
+  :load-path "/usr/share/ecasound/"
+  :bind (:map audio-prefix
+              ("e" . ecasound))
+  )
 
 ;;; ----------------------------------------------------------------------------
 
