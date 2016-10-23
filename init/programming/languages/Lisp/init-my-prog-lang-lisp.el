@@ -199,6 +199,7 @@
   (eldoc-mode 1)
   )
 
+;; I already set upper Lisp common settings function in separately init files.
 ;; (dolist (hook '(lisp-mode-hook
 ;;                 emacs-lisp-mode-hook
 ;;                 clojure-mode-hook

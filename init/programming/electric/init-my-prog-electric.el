@@ -32,17 +32,17 @@
   (smartparens-global-mode t)
 
   ;; use `smartparens-strict-mode' to replace `paredit-mode'.
-  (dolist (hook
-           '(emacs-lisp-mode-hook
-             ielm-mode-hook ; inferior-emacs-lisp-mode-hook
-             ;; eval-expression-minibuffer-setup-hook ; minibuffer
-             clojure-mode-hook
-             cider-repl-mode-hook
-             lisp-mode-hook
-             lisp-interaction-mode-hook
-             scheme-mode-hook
-             ))
-    (add-hook hook 'turn-on-smartparens-strict-mode))
+  ;; (dolist (hook
+  ;;          '(emacs-lisp-mode-hook
+  ;;            ielm-mode-hook ; inferior-emacs-lisp-mode-hook
+  ;;            ;; eval-expression-minibuffer-setup-hook ; minibuffer
+  ;;            clojure-mode-hook
+  ;;            cider-repl-mode-hook
+  ;;            lisp-mode-hook
+  ;;            lisp-interaction-mode-hook
+  ;;            scheme-mode-hook
+  ;;            ))
+  ;;   (add-hook hook 'turn-on-smartparens-strict-mode))
 
   :config
   (require 'smartparens-config)
