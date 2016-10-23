@@ -23,99 +23,42 @@
                     )
 
 
-;;; [ smartparens ] -- Minor mode for Emacs that deals with parens pairs and tries to be smart about it.
+;;; [ smartparens ] -- deals with parens pairs and tries to be smart about it.
 
 (use-package smartparens
   :ensure t
   :defer t
   :init
-  ;; require
-  (require 'smartparens-config)
-  ;; enable smartparens-mode
-  ;; (smartparens-global-mode t)
-  ;; (show-smartparens-global-mode t)
-
-  :config
-  (setq sp-highlight-wrap-overlay t
-        sp-highlight-pair-overlay t
-        sp-highlight-wrap-tag-overlay t
-        ;; sp-undo-pairs-separately
-        sp-navigate-consider-sgml-tags '(html-erb-mode
-                                         jinja2-mode
-                                         web-mode
-                                         nxml-mode sgml-mode
-                                         nxhtml-mode rhtml-mode html-mode)
-        sp-ignore-modes-list '(minibuffer-inactive-mode
-                               ;; Lisp dialects modes which will use paredit.
-                               emacs-lisp-mode
-                               inferior-emacs-lisp-mode ; -> ielm-mode
-                               lisp-mode lisp-interaction-mode
-                               scheme-mode
-                               clojure-mode cider-repl-mode
-                               ;; other modes which built-in already
-                               ;; web-mode
-                               )
-        sp-autowrap-region t
-        sp-autoinsert-pair t
-        sp-autoinsert-if-followed-by-word t
-        sp-show-pair-delay 0.125
-        ;; sp-show-enclosing-pair-commands '(sp-show-enclosing-pair
-        ;;                                   sp-forward-slurp-sexp sp-backward-slurp-sexp
-        ;;                                   sp-forward-barf-sexp sp-backward-barf-sexp)
-        sp-navigate-close-if-unbalanced nil
-
-        ;; sp-pair-list '(("\\\\(" . "\\\\)")
-        ;;                ("\\\"" . "\\\"")
-        ;;                ("\\(" . "\\)")
-        ;;                ("\\{" . "\\}")
-        ;;                ("`" . "'")
-        ;;                ("{" . "}")
-        ;;                ("[" . "]")
-        ;;                ("(" . ")")
-        ;;                ("\"" . "\""))
-
-        sp-override-key-bindings nil
-        sp-autodelete-opening-pair t
-        sp-autodelete-closing-pair t
-        sp-autodelete-pair t
-        sp-message-width 'frame
-        ;; sp-show-pair-overlays t
-        ;; sp-show-pair-enc-overlays
-        )
-
-  ;; set smartparens faces.
-  (set-face-attribute 'sp-pair-overlay-face nil
-                      :inherit 'highlight
-                      )
-  (set-face-attribute 'sp-wrap-overlay-face nil
-                      :inherit 'sp-pair-overlay-face
-                      )
-  (set-face-attribute 'sp-wrap-tag-overlay-face nil
-                      :inherit 'sp-pair-overlay-face
-                      )
-  (set-face-attribute 'sp-show-pair-match-face nil
-                      :inherit 'show-paren-match-face
-                      :foreground "green" :background "black"
-                      )
-  (set-face-attribute 'sp-show-pair-mismatch-face nil
-                      :inherit 'show-paren-mismatch-face
-                      :background "brown"
-                      )
+  (smartparens-global-mode t)
 
   ;; use `smartparens-strict-mode' to replace `paredit-mode'.
-  ;; (dolist (hook
-  ;;          '(clojure-mode-hook
-  ;;            cider-repl-mode-hook
-  ;;            emacs-lisp-mode-hook
-  ;;            ;; eval-expression-minibuffer-setup-hook ; config in minibuffer init file.
-  ;;            ielm-mode-hook ; inferior-emacs-lisp-mode-hook
-  ;;            lisp-mode-hook
-  ;;            lisp-interaction-mode-hook
-  ;;            scheme-mode-hook
-  ;;            ))
-  ;;   (add-hook hook 'turn-on-smartparens-strict-mode))
+  (dolist (hook
+           '(emacs-lisp-mode-hook
+             ielm-mode-hook ; inferior-emacs-lisp-mode-hook
+             ;; eval-expression-minibuffer-setup-hook ; minibuffer
+             clojure-mode-hook
+             cider-repl-mode-hook
+             lisp-mode-hook
+             lisp-interaction-mode-hook
+             scheme-mode-hook
+             ))
+    (add-hook hook 'turn-on-smartparens-strict-mode))
 
-  (sp-local-pair 'minibuffer-inactive-mode "'" nil :actions nil)
+  :config
+  (require 'smartparens-config)
+  
+  (setq sp-navigate-consider-sgml-tags '(html-erb-mode
+                                         web-mode
+                                         nxml-mode sgml-mode
+                                         nxhtml-mode html-mode rhtml-mode
+                                         jinja2-mode)
+        ;; sp-ignore-modes-list '(minibuffer-inactive-mode)
+        ;; sp-override-key-bindings '((\"C-M-f\" . sp-forward-sexp)
+        ;;                            (\"C-<right>\" . nil))
+        )
+
+  (sp-local-pair 'minibuffer-inactive-mode
+                 "'" nil :actions nil)
 
   ;; `code` in clojure comment
   (sp-with-modes '(clojure-mode)
@@ -124,24 +67,19 @@
   ;; smartparens for other modes.
   (require 'smartparens-ruby)
 
-  ;; (sp-local-pair)
+  (require 'smartparens-html)
+  ;; (sp-with-modes '(html-mode sgml-mode)
+  ;;   (sp-local-pair "<" ">"))
   (sp-with-modes '(rhtml-mode)
     ;; (sp-local-pair "<" ">")
     (sp-local-pair "<%" "%>"))
 
-  ;; html-mode
-  ;; (sp-with-modes '(html-mode sgml-mode)
-  ;;   (sp-local-pair "<" ">"))
-  (require 'smartparens-html)
-
-  ;; markdown-mode
   (sp-with-modes '(markdown-mode gfm-mode rst-mode)
     (sp-local-pair "*" "*" :bind "C-*")
     (sp-local-tag "2" "**" "**")
     (sp-local-tag "s" "```scheme" "```")
     (sp-local-tag "<"  "<_>" "</_>" :transform 'sp-match-sgml-tags))
   )
-
 
 
 
