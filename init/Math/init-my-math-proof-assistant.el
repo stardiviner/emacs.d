@@ -28,20 +28,6 @@
   (require 'coq nil t)
   )
 
-;; (use-package proof-general
-;;   :load-path "/usr/share/emacs/site-lisp/ProofGeneral/generic"
-;;   :init
-;;   (require 'proof-site)
-;;   )
-
-;; (use-package coq
-;;   :load-path "/usr/share/emacs/site-lisp/ProofGeneral/coq"
-;;   :init
-;;   ;; FIXME: temporary fix solution for (proof-ass completion-table).
-;;   (defvar coq-completion-table nil)
-;;   (require 'coq)
-;;   )
-
 
 ;;; [ company-coq ]
 
