@@ -52,8 +52,7 @@
 (use-package find-file-in-project
   :ensure t
   :defer t
-  :init
-  (global-set-key (kbd "M-t") 'find-file-in-project)
+  ;; :bind ("M-t" . find-file-in-project) ; same with `counsel-git'
   )
 
 
