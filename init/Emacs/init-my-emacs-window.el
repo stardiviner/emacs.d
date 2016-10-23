@@ -69,8 +69,11 @@
 (use-package ace-window
   :ensure t
   :defer t
+  :bind ("C-x C-j" . ace-window)
   :init
-  (global-set-key (kbd "C-x C-j") 'ace-window)
+  ;; to re-override `dired-x''s `dired-bind-jump'. bind again after Emacs start.
+  (with-eval-after-load 'dired-x
+    (global-set-key (kbd "C-x C-j") 'ace-window))
   :config
   (set-face-attribute 'aw-leading-char-face nil
                       :background "#004A5D" :foreground "white"
