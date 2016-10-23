@@ -8,6 +8,11 @@
 ;;; Code:
 ;;; ----------------------------------------------------------------------------
 
+(unless (boundp 'accounting-prefix)
+  (define-prefix-command 'accounting-prefix))
+(define-key my-tools-prefix (kbd "C-a") 'accounting-prefix)
+
+
 (use-package ledger-mode
   :ensure t
   :defer t
