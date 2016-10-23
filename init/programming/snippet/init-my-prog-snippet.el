@@ -12,10 +12,7 @@
   :config
   (setq yas-snippet-dirs
         '("~/.emacs.d/snippets" ; personal snippets directory
-          ;; "~/.emacs.d/el-get/yasnippet/snippets/" YASnippet bundled snippets
           ))
-
-  ;; (setq yas-verbosity 0)
 
   ;; keybindings
   ;; (define-key yas-minor-mode-map (kbd "<tab>") 'yas-expand) ; (kbd "<tab>") is same with [tab]
@@ -77,6 +74,15 @@ $0"
                       :overline "black"
                       )
 
+  ;; project local snippets
+  (defun yasnippet-project-local ()
+    (interactive)
+    (make-local-variable 'yas-snippet-dirs)
+    (add-to-list 'yas-snippet-dirs
+                 (concat (projectile-project-root) ".snippets"))
+    )
+  (add-hook 'projectile-find-file-hook #'yasnippet-project-local)
+  
   (defun my-yas-exit-animation ()
     ;; (popup-tip "snippet exited")
     ;; (message "snippet exited")
