@@ -169,10 +169,9 @@
 (use-package projectile-rails
   :ensure t
   :defer t
+  :preface (defvar projectile-rails-mode nil)
   :init
   (require 'projectile-rails)
-  ;; avoid invalid variable `projectile-rails-mode'
-  (defvar projectile-rails-mode nil)
   )
 (require 'vc)
 (require 'vc-git)

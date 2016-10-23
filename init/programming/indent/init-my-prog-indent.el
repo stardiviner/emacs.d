@@ -31,6 +31,7 @@
 (use-package indent-guide
   :ensure t
   :defer t
+  :preface (defvar indent-guide-inhibit-modes nil)
   :init
   (defvar indent-guide-inhibit-modes nil)
   ;; works with `indent-guide-global-mode'
