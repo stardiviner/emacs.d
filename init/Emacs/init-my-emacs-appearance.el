@@ -23,7 +23,8 @@
 
 ;;; [ border ]
 
-;; (set-frame-parameter (selected-frame) 'internal-border-width 1)
+;; frame internal border width
+(set-frame-parameter (selected-frame) 'internal-border-width 5)
 
 
 ;;; [ fringe ]
