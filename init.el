@@ -165,7 +165,6 @@
 (require 'init-my-tool-file)
 (require 'init-my-tool-diagram)
 (require 'init-my-tool-ascii)
-;; (require 'init-my-tool-bbdb)
 (require 'init-my-tool-network)
 (require 'init-my-tool-browser)
 (require 'init-my-tool-downloader)

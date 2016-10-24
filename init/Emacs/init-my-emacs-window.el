@@ -241,10 +241,6 @@
   (push '("*Process List*" :position bottom :height 8) popwin:special-display-config)
   (push '(process-menu-mode :position bottom :height 8) popwin:special-display-config)
 
-  ;; BBDB
-  (push '(bbdb-mode :position bottom :height 8) popwin:special-display-config)
-  (push '("*BBDB*" :position bottom :height 8) popwin:special-display-config)
-
   ;; pdf-tools
   (push '(pdf-occur-buffer-mode :position bottom :height 8) popwin:special-display-config)
   (push '(pdf-outline-buffer-mode :position bottom :height 8) popwin:special-display-config)

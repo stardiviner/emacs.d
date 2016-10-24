@@ -12,40 +12,6 @@
 (require 'org-plot)
 
 
-;;; [ org-bbdb ] -- Support for links to BBDB entries from within Org-mode.
-
-;; - [C-c C-l] + `bbdb:' link.
-
-;; (require 'org-bbdb)
-;;
-;; ;; 'anniversary, 'birthday,
-;; (setq org-bbdb-anniversary-field 'birthday
-;;       org-bbdb-default-anniversary-format "birthday"
-;;       org-bbdb-anniversary-format-alist
-;;       '(("birthday" lambda
-;;          (name years suffix)
-;;          (concat "Birthday: [[bbdb:" name "][" name " ("
-;;                  (format "%s" years)
-;;                  suffix ")]]"))
-;;         ("wedding" lambda
-;;          (name years suffix)
-;;          (concat "[[bbdb:" name "][" name "'s "
-;;                  (format "%s" years)
-;;                  suffix " wedding anniversary]]")))
-;;       )
-
-;; - put `%%(org-bbdb-anniversaries)' in one of my agenda files. and set
-;;   headline with property (:CATEGORY: Anniv)
-;;
-;; - [C-c C-x p] to set property
-;;
-;; - select CATEGORY property, value is "`Anniv'".
-;;
-;; - put this line into agenda file below the
-;;   headline. %%(org-bbdb-anniversaries).
-
-
-
 ;;; [ org-ref ] -- citations, cross-references, indexes, glossaries and bibtex utilities for Org-mode.
 
 (use-package org-ref

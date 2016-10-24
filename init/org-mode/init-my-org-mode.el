@@ -30,7 +30,6 @@
         org-timer org-clock org-habit org-notify
         org-info org-bibtex org-docview
         org-plot
-        org-bbdb
         org-irc ; org-gnus org-mhe org-rmail
         ;; org-w3m
         ))
