@@ -65,61 +65,46 @@
         ))
 
 (setq org-todo-keyword-faces
-      '(;;; todos
+      '(;;; todo keywords
         ("TODO" :foreground "orange"
-         :weight bold
          :box '(:color "black" :line-width -1))
         ("URGENT" :foreground "red" :background "black"
-         :weight bold
-         ;; :overline "red"
-         :box '(:color "black" :line-width -1 :style nil)
-         )
+         :box '(:color "black" :line-width -1))
         ("STARTED" :foreground "green"
-         :weight bold
          :box '(:color "red" :line-width -1))
         ("HABIT" :foreground "cyan" :background "black"
-         :weight bold
          :box '(:color "green" :line-width -1))
         ("SOMEDAY" :foreground "dim gray"
-         :weight bold
          :box '(:color "black" :line-width -1))
         ("INPROGRESS" :foreground "cyan"
-         :weight bold
          :box '(:color "black" :line-width -1))
         ("LATER" :foreground "dim gray" :background "black"
-         :weight bold
          :box '(:color "dark red" :line-width -1))
         ("DONE" :foreground "black"
-         :weight bold :strike-through t
+         :strike-through t
          :box '(:color "black" :line-width -1))
         ("FAILED" :foreground "#444444"
-         :weight bold :underline "dark red"
+         :underline "dark red"
          :box '(:color "black" :line-width -1))
         ("CANCELLED"
          :foreground "black"
-         :weight bold :strike-through t
+         :strike-through t
          :box '(:color "black" :line-width -1))
+        ;; code programming
         ("BUG" :foreground "red"
-         :weight bold
          :box '(:color "red" :line-width -1 :style nil))
         ("ISSUE" :foreground "red"
-         :weight bold
          :box '(:color "dark red" :line-width -1 :style nil))
         ("ERROR" :foreground "red"
-         :weight bold
          :box '(:color "red" :line-width -1 :style nil))
         ("FIXME" :foreground "black" :background "red"
-         :weight bold
          :box '(:color "dark red" :line-width -1 :style nil))
         ("FEATURE" :foreground "cyan"
-         :weight bold
          :box '(:color "cyan" :line-width -1 :style nil))
         ("Pull-Request" :foreground "yellow"
-         :weight bold
          :box '(:color "yellow" :line-width -1 :style nil))
-              ;;; types
+        ;; types
         ("Org" :foreground "cyan" :background "#004A5D"
-         :weight bold
          :box '(:color "cyan" :line-width -1 :style nil))
         ("CODE" :foreground "white" :background "#004A5D"
          :box '(:color "cyan" :line-width -1 :style nil))
@@ -127,7 +112,6 @@
          :box '(:color "cyan" :line-width -1 :style nil))
         ;; life
         ("SEX" :foreground "deep pink"
-         :weight bold
          :box '(:color "deep pink" :line-width -1 :style nil))
         ;; work
         ("WORK" :foreground "orange"

@@ -8,7 +8,7 @@
 ;;; Code:
 
 
-;;; Date
+;; Date
 ;; Date: Saturday   27 July 2013
 (set-face-attribute 'org-date nil
                     :foreground "gray"
@@ -32,12 +32,14 @@
                     :foreground "cyan" :background "#004A5D"
                     :box '(:color "cyan" :line-width 1 :style nil)
                     :bold nil)
+
 ;; Daily entry (holidays)
 (set-face-attribute 'org-agenda-diary nil
                     :foreground "light blue"
                     :slant 'italic
                     )
-;; clocking
+
+;; Clocking
 (set-face-attribute 'org-clock-overlay nil
                     :inverse-video nil
                     :foreground "white" :background "#004A5D"
@@ -46,6 +48,7 @@
 (set-face-attribute 'org-agenda-clocking nil
                     :foreground "white" :background "#004A5D"
                     :box '(:color "cyan" :line-width 1 :style nil))
+
 ;; Day-agenda (W30) -> Week number
 (set-face-attribute 'org-agenda-structure nil
                     :foreground "blue"
@@ -56,18 +59,20 @@
                     :foreground "#444444"
                     :background "#222222"
                     :strike-through t)
+
 ;; DONE (org agenda log state change tasks, )
 (set-face-attribute 'org-agenda-done nil
                     :foreground "#444444"
                     :background "black")
+
 ;; Priority
 (setq org-priority-faces
-      '((?A . (:foreground "white" :background "dark red"
-                           :box '(:color "red" :line-width 3 :style released-button)))
-        (?B . (:foreground "white" :background "dark slate blue"
-                           :box '(:color "white" :line-width 3 :style released-button)))
-        (?C . (:foreground "white" :background "dim gray"
-                           :box '(:color "dim gray" :line-width 3 :style released-button)))
+      '((?A . (:foreground "gray" :background "dark red"
+                           :box '(:color "#222222" :line-width -1)))
+        (?B . (:foreground "gray" :background "dark slate blue"
+                           :box '(:color "#222222" :line-width -1)))
+        (?C . (:foreground "gray" :background "dim gray"
+                           :box '(:color "#222222" :line-width -1)))
         ))
 ;; (set-face-attribute 'org-priority nil
 ;;                     :box '(:color "red" :line-width 3 :style released-button)
@@ -93,7 +98,7 @@
                     :foreground "olive drab")
 
 ;; Emphasize
-;;; org-verbatim: =verbatim=
+;; org-verbatim: =verbatim=
 (set-face-attribute 'org-verbatim nil
                     :background "#222222" :foreground "orange"
                     :bold nil :box nil
@@ -109,8 +114,8 @@
                     )
 
 
-;;; headline faces
-;;; the ahead stars face when org indentation. (org-hide)
+;; headline faces
+;; the ahead stars face when org indentation. (org-hide)
 (set-face-attribute 'org-hide nil
                     :foreground (face-background 'default)
                     :background (face-background 'default)
@@ -126,7 +131,7 @@
                     :foreground "Steelblue4"
                     :background (color-darken-name (face-background 'default) 2)
                     ;; :box '(:color "black" :line-width -1 :style nil)
-                    :overline "dark slate gray"
+                    ;; :overline "dark slate gray"
                     )
 (set-face-attribute 'org-level-2 nil
                     :inherit 'org-level-1
@@ -157,15 +162,18 @@
                     :inherit 'org-level-7
                     :foreground "chocolate"
                     )
+
 (set-face-attribute 'org-headline-done nil
                     :foreground "#444444")
+
 ;; ellipsis
 ;; (setq org-ellipsis "...⤵")
 (set-face-attribute 'org-ellipsis nil
                     :foreground "red"
                     :weight 'bold
                     :underline nil)
-;;; tags
+
+;; tags
 (set-face-attribute 'org-tag-group nil
                     :foreground "white" :background "dim gray"
                     :box '(:color "black" :line-width 2))
@@ -177,38 +185,44 @@
                     ;; :box '(:color "dark green" :line-width 2)
                     ;; :height 0.8
                     )
+
 ;; meta lines
 (set-face-attribute 'org-meta-line nil
                     :foreground "yellow"
                     :background (color-darken-name (face-background 'default) 5)
                     )
+
 ;;; checkbox faces
 ;; - [ ], - [X]
 (set-face-attribute 'org-checkbox nil
-                    :bold 'normal
+                    :weight 'normal
                     :box '(:line-width 1 :color "black" :style nil)
                     :foreground "dark gray")
-;; * headline [7%] -> checkbox statistics face.
+;; * headline [7%] [1/10] -> checkbox statistics face.
 (set-face-attribute 'org-checkbox-statistics-todo nil
+                    :foreground "OliveDrab"
+                    :background (color-darken-name (face-background 'default) 4)
                     :box '(:color "black" :line-width -1)
-                    :foreground "green yellow"
-                    :background (color-darken-name (face-background 'default) 5)
                     )
+;; * headline [100%] [10/10]
 (set-face-attribute 'org-checkbox-statistics-done nil
                     :background "#444444" :foreground "black"
                     :box '(:color "black" :line-width -1)
                     :strike-through t)
-;;; list definition terms
+
+;; list definition terms - term :: definition
 (set-face-attribute 'org-list-dt nil
                     :foreground "green yellow")
-;;; link face
+
+;;; link face [[link][desc]]
 (set-face-attribute 'org-link nil
                     :foreground "cyan"
                     :background (color-darken-name (face-background 'default) 5)
                     :underline "dark cyan"
                     ;; :box '(:color "black")
                     )
-;; <<target link>>
+
+;; <<radio target link>>
 (set-face-attribute 'org-target nil
                     :foreground "orange" :background "black"
                     :underline "red"
@@ -354,7 +368,6 @@
     (4 '(:foreground "cyan" :weight 'bold)) ; (<arguments>)
     )))
 
-
 ;; call_<name>(arguments)
 (font-lock-add-keywords
  'org-mode
@@ -394,7 +407,6 @@
  '(("@<kbd>\\([^@]*\\)@</kbd>"
     (1 'org-html-kbd-tag))))
 
-
 (defun my/org-insert-key ()
   "Insert keybinding code in Org with a keybinding quickly.
 
@@ -421,21 +433,6 @@ to insert <kbd>..</kbd> (HTML) org =[..]= (Org-mode)."
       (backward-char 9)))
   )
 
-
-;; (defun my/org-insert-kbd (key)
-;;   "Ask for a KEY then insert its description.
-;; Will work on both `org-mode' and any mode that accepts plain html."
-;;   (interactive "kType key sequence: ")
-;;   (let* ((is-org-mode (derived-mode-p 'org-mode))
-;;          (tag (if is-org-mode
-;;                   "@@html:<kbd>@@%s@@html:</kbd>@@"
-;;                 "<kbd>%s</kbd>")))
-;;     (if (null (equal key "
-;; "))
-;;         (insert
-;;          (format tag (help-key-description key nil)))
-;;       (insert (format tag ""))
-;;       (forward-char (if is-org-mode -15 -6)))))
 
 ;;; Inserting the kbd tag in interactively
 (eval-after-load 'ox-html
