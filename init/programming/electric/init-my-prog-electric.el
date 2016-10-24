@@ -16,10 +16,12 @@
 (set-face-attribute 'show-paren-match nil
                     :foreground "white" :background "deep pink"
                     :weight 'bold
+                    :inverse-video nil
                     )
 (set-face-attribute 'show-paren-mismatch nil
                     :background "brown"
                     :strike-through t
+                    :inverse-video nil
                     )
 
 

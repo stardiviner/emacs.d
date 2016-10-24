@@ -51,9 +51,15 @@
 
 ;; [ indent ]
 
-(require 'org-indent)
-(set-face-attribute 'org-indent nil
-                    )
+(use-package org-indent
+  :defer t
+  :config
+  ;; (org-indent-mode 1)
+  (set-face-attribute 'org-indent nil
+                      :foreground (face-background 'default)
+                      :background (face-background 'default)
+                      )
+  )
 
 ;; [ org-bullets ]
 

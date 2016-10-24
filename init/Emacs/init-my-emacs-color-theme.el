@@ -30,73 +30,7 @@
 ;; load theme way
 (add-to-list 'custom-theme-load-path "~/.emacs.d/color-themes/")
 
-
-
 ;; (load-theme 'solarized-dark t)
-
-
-;;; set color-theme for `emacsclient'
-
-(if (server-running-p) ; (daemonp)
-    (add-hook 'after-make-frame-functions
-              '(lambda (frame)
-                 (with-selected-frame frame
-                   (progn
-                     (toggle-frame-maximized)
-                     (load-theme 'doom-one t)
-                     )))))
-
-
-;;; [ color-theme-solarized ]
-
-;; (use-package color-theme-solarized
-;;   :ensure t
-;;   :init
-;;   (customize-set-variable 'frame-background-mode 'light)
-;;   :config
-;;   (color-theme-solarized)
-;;   (load-theme 'solarized t)
-;;   )
-
-
-;;; [ color-theme-monokai ]
-
-;; (load-theme 'monokai t)
-
-
-;;; [ leuven-theme ]
-
-;; (use-package leuven-theme
-;;   :ensure t
-;;   :config
-;;   ;; (load-theme 'leuven t)
-;;   ;; fix leuven-theme is override by my customization.
-;;   (add-hook 'after-init-hook
-;;             (lambda ()
-;;               (load-theme 'leuven t)))
-
-;;   (with-eval-after-load 'org
-;;     ;; override leuven-theme default colors.
-;;     (set-face-attribute 'org-verbatim nil
-;;                         ;; :foreground "#0066CC"
-;;                         :foreground "#0671DF"
-;;                         :background "#F7FDFF")
-;;     (set-face-attribute 'org-code nil
-;;                         ;; :foreground "#006400"
-;;                         :foreground "#059205"
-;;                         :background "FDFFF7"
-;;                         :box '(:color "#059205" :line-width -1)
-;;                         ))
-;;   )
-
-
-;;; [ darkokai-theme ] -- A darker variant on Monokai.
-
-;; (use-package darkokai-theme
-;;   :ensure t
-;;   :config
-;;   (load-theme 'darkokai t)
-;;   )
 
 
 ;;; [ doom-theme ] -- Emacs themes inspired by Atom One, for Emacs 24.4+.
@@ -109,9 +43,6 @@
   
   ;; themes: 'doom-one, 'doom-dark, 'doom-one-light, 'doom-tron, 'doom-peacock
   (load-theme 'doom-one t)
-  (add-hook 'after-init-hook ; fix mode-line color not applied.
-            (lambda ()
-              (load-theme 'doom-one t)))
   
   (add-hook 'find-file-hook 'doom-buffer-mode) ; brighter source buffers.
   (add-hook 'minibuffer-setup-hook 'doom-buffer-mode) ; brighter minibuffer when active
@@ -169,6 +100,17 @@
 (use-package select-themes
   :ensure t
   :defer t)
+
+;;; set color-theme for `emacsclient'
+
+(if (server-running-p) ; (daemonp)
+    (add-hook 'after-make-frame-functions
+              '(lambda (frame)
+                 (with-selected-frame frame
+                   (progn
+                     (toggle-frame-maximized)
+                     (load-theme 'doom-one t)
+                     )))))
 
 
 (provide 'init-my-emacs-color-theme)

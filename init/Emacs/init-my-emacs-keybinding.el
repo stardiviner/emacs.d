@@ -145,23 +145,6 @@
   :config
   ;; display a hint with possible bindings in the echo area.
   (setq hydra-is-helpful t)
-
-  ;; hydra faces
-  (set-face-attribute 'hydra-face-red nil
-                      :foreground "red"
-                      :weight 'bold)
-  (set-face-attribute 'hydra-face-blue nil
-                      :foreground "blue"
-                      :weight 'bold)
-  (set-face-attribute 'hydra-face-amaranth nil
-                      :foreground "orange"
-                      :weight 'bold)
-  (set-face-attribute 'hydra-face-pink nil
-                      :foreground "pink"
-                      :weight 'bold)
-  (set-face-attribute 'hydra-face-teal nil
-                      :foreground "cyan"
-                      :weight 'bold)
   )
 
 

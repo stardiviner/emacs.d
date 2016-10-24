@@ -94,12 +94,6 @@
         ("Shell" :foreground "sea green")
         ))
 
-(set-face-attribute 'org-tag-group nil
-                    :foreground "white" :background "dim gray"
-                    :box '(:color "black" :line-width 2))
-(set-face-attribute 'org-tag nil
-                    :foreground "gray")
-
 
 
 (provide 'init-my-org-tag)

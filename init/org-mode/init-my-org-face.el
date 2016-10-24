@@ -112,7 +112,9 @@
 ;;; headline faces
 ;;; the ahead stars face when org indentation. (org-hide)
 (set-face-attribute 'org-hide nil
-                    :foreground "#002B36" :background "#002B36")
+                    :foreground (face-background 'default)
+                    :background (face-background 'default)
+                    )
 (set-face-attribute 'org-document-title nil
                     :inherit nil
                     :weight 'bold
@@ -120,7 +122,7 @@
 (set-face-attribute 'org-level-1 nil
                     :inherit nil
                     :family "DejaVu Sans Mono"
-                    :weight 'bold :height 1.3
+                    :weight 'bold :height 130
                     :foreground "Steelblue4"
                     :background (color-darken-name (face-background 'default) 2)
                     ;; :box '(:color "black" :line-width -1 :style nil)
@@ -129,6 +131,7 @@
 (set-face-attribute 'org-level-2 nil
                     :inherit 'org-level-1
                     :foreground "yellow4"
+                    :height 110
                     )
 (set-face-attribute 'org-level-3 nil
                     :inherit 'org-level-2
@@ -163,10 +166,15 @@
                     :weight 'bold
                     :underline nil)
 ;;; tags
+(set-face-attribute 'org-tag-group nil
+                    :foreground "white" :background "dim gray"
+                    :box '(:color "black" :line-width 2))
 (set-face-attribute 'org-tag nil
-                    :foreground "cyan"
-                    :underline nil :weight 'normal :slant 'normal
-                    :box '(:color "dark green" :line-width 2)
+                    :foreground "gray"
+                    ;; sci-fi style
+                    ;; :foreground "cyan"
+                    ;; :underline nil :weight 'normal :slant 'normal
+                    ;; :box '(:color "dark green" :line-width 2)
                     ;; :height 0.8
                     )
 ;; meta lines
@@ -231,7 +239,7 @@
 
 ;;; Babel, Source Code, Block
 ;;
-;; cyan style code block colorscheme
+;; sci-fi cyan style code block colorscheme
 ;; ;;; babel faces (source code block) => #+BEGIN_SRC ... #+END_SRC
 ;; (set-face-attribute 'org-block-begin-line nil
 ;;                     :foreground "cyan" :background "#004A5D"
@@ -261,7 +269,13 @@
                     :weight 'normal :slant 'normal
                     :box '(:color "black" :line-width 1)
                     )
+(set-face-attribute 'org-block nil
+                    :inherit 'shadow
+                    ;; :background (face-foreground 'shadow)
+                    ;; :background "#202020"
+                    )
 
+;; Basic face for displaying the secondary selection.
 (set-face-attribute 'secondary-selection nil
                     :background (color-darken-name (face-background 'default) 6)
                     )
