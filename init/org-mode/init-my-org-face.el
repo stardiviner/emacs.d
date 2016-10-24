@@ -186,12 +186,6 @@
                     ;; :height 0.8
                     )
 
-;; meta lines
-(set-face-attribute 'org-meta-line nil
-                    :foreground "yellow"
-                    :background (color-darken-name (face-background 'default) 5)
-                    )
-
 ;;; checkbox faces
 ;; - [ ], - [X]
 (set-face-attribute 'org-checkbox nil
@@ -247,8 +241,13 @@
                     :background (color-darken-name (face-background 'default) 3)
                     )
 ;; property
+;; meta lines
+(set-face-attribute 'org-meta-line nil
+                    :foreground "dark gray"
+                    :background (face-background 'default)
+                    )
 (set-face-attribute 'org-property-value nil
-                    :foreground "gray")
+                    :foreground "dim gray")
 
 
 ;;; Babel, Source Code, Block
