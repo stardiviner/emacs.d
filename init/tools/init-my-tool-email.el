@@ -66,9 +66,9 @@
 
 
 ;; (require 'init-gnus)
-;; (require 'init-mu4e)
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defvar my-email-client t
   "The value is 'gnus, 'mu4e, or t for default.")
