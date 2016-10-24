@@ -98,77 +98,80 @@
 
 ;;; [ line number ]
 
-(require 'linum)
-
-;; display line numbers in margin
-;; Linum: separating line numbers from text
-;; (setq linum-format 'dynamic)
-;; (setq linum-format "%d ") ; 'dynamic
-(setq linum-format "%4d \u2502") ; a solid line separator
-;; combine 'dynamic result with \u2502
-;; (setq linum-format '(combine 'dynamic "\u2502"))
-
-;; set line number face
-(set-face-attribute 'linum nil
-                    :foreground "#666666"
-                    ;; :background nil
-                    )
-
-;; (line-number-mode -1)
-;; (column-number-mode -1)
-
-;; disable linum-mode because I display line number in mode line.
-;; (global-linum-mode -1)
-
-;; but show line numbers in source code files
-;; (add-hook 'prog-mode-hook 'linum-mode)
-
-;; Turn off linum-mode when file is too big.
-;; (add-hook 'prog-mode-hook
-;;           (lambda ()
-;;             ;; turn off `linum-mode' when there are more than 5000 lines
-;;             ;; use `wc -c file' for performance reason
-;;             (if (and (executable-find "wc")
-;;                      (> (string-to-number (shell-command-to-string (format "wc -c %s" (buffer-file-name))))
-;;                         (* 5000 80)))
-;;                 (linum-mode -1))))
+;; (use-package linum
+;;   :defer t
+;;   :config
+;;   ;; Linum: separating line numbers from text
+;;   ;; (setq linum-format 'dynamic)
+;;   ;; (setq linum-format "%d ") ; 'dynamic
+;;   (setq linum-format "%4d \u2502") ; a solid line separator
+;;   ;; combine 'dynamic result with \u2502
+;;   ;; (setq linum-format '(combine 'dynamic "\u2502"))
+;;
+;;   ;; set line number face
+;;   (set-face-attribute 'linum nil
+;;                       :foreground "#444444"
+;;                       ;; :background nil
+;;                       )
+;;
+;;   ;; (global-linum-mode 1)
+;;   ;; but show line numbers in source code files
+;;   (add-hook 'prog-mode-hook 'linum-mode)
+;;
+;;   ;; Turn off linum-mode when file is too big.
+;;   (add-hook 'prog-mode-hook
+;;             (lambda ()
+;;               ;; turn off `linum-mode' when there are more than 5000 lines
+;;               ;; use `wc -c file' for performance reason
+;;               (if (and (executable-find "wc")
+;;                        (> (string-to-number
+;;                            (shell-command-to-string
+;;                             (format "wc -c %s" (buffer-file-name))))
+;;                           (* 5000 80)))
+;;                   (linum-mode -1))))
+;;   )
 
 
 ;;; [ nlinum ] -- show line numbers in margin.
 
 ;; (use-package nlinum
 ;;   :ensure t
+;;   :defer t
 ;;   :config
 ;;   (setq nlinum-format "%d ")
+;;   ;; TODO: (nlinum-mode 1)
 ;;   )
+
+
+(use-package highlight
+  :defer t
+  :config
+  (set-face-attribute 'highlight nil
+                      :inherit nil
+                      :foreground nil
+                      :background (color-darken-name
+                                   (face-background 'default) 3)
+                      )
+  )
 
 
 ;;; [ current line & column ]
 
-(set-face-attribute 'highlight nil
-                    :inherit nil
-                    :foreground nil
-                    :background (color-darken-name (face-background 'default) 3)
-                    )
-
 ;; highlight current line
-(global-hl-line-mode 1)
+(use-package hl-line
+  :defer t
+  :config
+  (global-hl-line-mode 1)
 
-(set-face-attribute 'hl-line nil
-                    :inherit nil
-                    ;; 1
-                    ;; :background "#004A5D"
-                    ;; :box '(:color "#005D5E" :line-width -1)
-                    ;; 2
-                    ;; :background "#004A5D"
-                    ;; :box '(:color "cyan" :line-width 1 :style nil) :underline nil
-                    ;; :underline "yellow"
-                    ;; 3. darker percent 5%
-                    ;; :foreground nil
-                    ;; :background (color-darken-name (face-background 'default) 3)
-                    ;; use `highlight' face.
-                    :background (face-background 'highlight)
-                    )
+  (set-face-attribute 'hl-line nil
+                      :inherit nil
+                      ;; darker percent 5%
+                      ;; :background (color-darken-name
+                      ;;              (face-background 'default) 3)
+                      :background (face-background 'highlight)
+                      )
+  )
+
 
 
 ;;; [ point & cursor ]
@@ -287,11 +290,6 @@
 
 
 ;;; trailing whitespace
-
-
-;;; Text style
-
-;; (setq text-quoting-style nil)
 
 
 ;;; [ all-the-icons ] -- A utility package to collect various Icon Fonts and propertize them within Emacs.

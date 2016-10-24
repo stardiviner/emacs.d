@@ -13,19 +13,20 @@
   :ensure t
   :defer t
   :commands ag
-  :init
+  :preface
   (unless (boundp 'ag-map)
     (define-prefix-command 'ag-map))
   (define-key my-search-prefix (kbd "a") 'ag-map)
-
-  (define-key ag-map (kbd "a") 'ag)
-  (define-key ag-map (kbd "r") 'ag-regexp)
-  (define-key ag-map (kbd "p") 'ag-regexp-project-at-point) ; 'ag, 'ag-regexp,
-  (define-key ag-map (kbd "P") 'ag-project) ; `ag-project-files', `ag-project-regexp', `ag-project-dired'
-  (define-key ag-map (kbd "d") 'ag-dired) ; `ag-dired-regexp'
-  (define-key ag-map (kbd "f") 'ag-files)
-  (define-key ag-map (kbd "k") 'ag-kill-buffers) ; `ag-kill-other-buffers'
-
+  :bind (:map ag-map
+              ("a" . ag)
+              ("r" . ag-regexp)
+              ("p" . ag-regexp-project-at-point) ; `ag', `ag-regexp'
+              ("P" . ag-project) ; `ag-project-files', `ag-project-regexp', `ag-project-dired'
+              ("d" . ag-dired) ; `ag-dired-regexp'
+              ("f" . ag-files)
+              ("k" . ag-kill-buffers) ; `ag-kill-other-buffers'
+              )
+  
   :config
   (setq ag-highlight-search t
         ag-group-matches t

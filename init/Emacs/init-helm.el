@@ -11,6 +11,17 @@
 
 (use-package helm
   :ensure t
+  :bind (("C-x f" . helm-for-files)
+         ("C-x c c" . helm-colors)
+         :map helm-map
+         ("<tab>" . helm-selection-action)
+         ("C-z" . helm-selection-action)
+         ("C-i" . helm-execute-persistent-action) ; make TAB works in terminal.
+         ("C-j" . helm-execute-persistent-action)
+         ("<RET>" . helm-maybe-exit-minibuffer)
+         ;; NOTE: this cause helm-dash open menu candidate error.
+         ;; ("<return>" . helm-confirm-and-exit-minibuffer)
+         )
   :config
   (helm-autoresize-mode t)
 
@@ -71,19 +82,6 @@
                       :foreground "cyan")
   (set-face-attribute 'helm-visible-mark nil
                       :foreground "black" :background "green yellow")
-
-  ;; [ Helm keybindings ]
-  (define-key helm-map (kbd "<tab>") 'helm-select-action)
-  (define-key helm-map (kbd "C-z") 'helm-select-action)
-  (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action) ; make TAB works in terminal.
-  (define-key helm-map (kbd "C-j") 'helm-execute-persistent-action)
-  (define-key helm-map (kbd "<RET>") 'helm-maybe-exit-minibuffer)
-
-  ;; NOTE: this cause helm-dash open menu candidate error.
-  ;; (define-key helm-map (kbd "<return>") 'helm-confirm-and-exit-minibuffer)
-
-  ;; external keybindings
-  (global-set-key (kbd "C-x f") 'helm-for-files)
   )
 
 

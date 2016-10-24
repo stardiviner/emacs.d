@@ -53,45 +53,47 @@
 
 (use-package org-indent
   :defer t
-  :config
+  ;; :config
   ;; (org-indent-mode 1)
-  (set-face-attribute 'org-indent nil
-                      :foreground (face-background 'default)
-                      :background (face-background 'default)
-                      )
+  ;; (set-face-attribute 'org-indent nil
+  ;;                     :inherit 'org-hide
+  ;;                     )
   )
 
 ;; [ org-bullets ]
 
-(require 'org-bullets nil t)
+(use-package org-bullets
+  :defer t
+  :init
+  (require 'org-bullets nil t)
+  :config
+  (setq-default org-bullets-bullet-list
+                ;; '("◉" "❀" "✿" "✪" "☯" "✜" "✩" "✡" "◌" "◉" "⍟" "☢")
+                ;; '("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
+                ;; '("❶" "❷" "❸" "❹" "❺" "❻" "❼" "❽" "❾" "❿")
+                ;; '("①" "②" "③" "④" "⑤" "⑥" "⑦" "⑧" "⑨" "⑩")
+                ;; '("㊀" "㊁" "㊂" "㊃" "㊄" "㊅" "㊆" "㊇" "㊈" "㊉")
 
-(setq-default org-bullets-bullet-list
-              ;; '("◉")
-              ;; '("✩" "✡" "✪" "☯" "✜" "◌" "◉" "⍟" "❀" "✿" "☢")
-              '("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
-              ;; '("❶" "❷" "❸" "❹" "❺" "❻" "❼" "❽" "❾" "❿")
-              ;; '("①" "②" "③" "④" "⑤" "⑥" "⑦" "⑧" "⑨" "⑩")
-              ;; '("㊀" "㊁" "㊂" "㊃" "㊄" "㊅" "㊆" "㊇" "㊈" "㊉")
-              )
+                '("◉" "☯" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
+                )
 
-(defface org-bullets-face
-  '((t (:inherit nil
-                 :foreground "olive drab"
-                 ;; :box '(:color "dark slate gray" :line-width 2)
-                 )))
-  "My custom face for org-bullets."
-  :group 'org-faces)
-(setq org-bullets-face-name 'org-bullets-face)
+  (defface org-bullets-face
+    '((t (:inherit nil)))
+    "My custom face for org-bullets."
+    :group 'org-faces)
 
-(add-hook 'org-mode-hook
-          (lambda ()
-            (org-bullets-mode 1)
-            (set-face-attribute 'org-bullets-face nil
-                                :weight 'bold :height 150
-                                :foreground "cyan"
-                                ;; :box '(:color "dark slate gray" :line-width -1)
-                                )
-            ))
+  (set-face-attribute 'org-bullets-face nil
+                      :foreground "cyan"
+                      :weight 'bold
+                      :height 1.5
+                      ;; :box '(:color "dark slate gray" :line-width 2)
+                      ;; :family "DejaVu Sans Mono"
+                      )
+
+  (setq org-bullets-face-name 'org-bullets-face)
+
+  (add-hook 'org-mode-hook #'org-bullets-mode)
+  )
 
 
 ;;; better list bullets

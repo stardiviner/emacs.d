@@ -7,6 +7,8 @@
 
 ;;; Code:
 
+;; (setq text-quoting-style nil)
+
 ;;; [ Info ]
 
 ;; (require 'info)

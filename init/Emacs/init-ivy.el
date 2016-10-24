@@ -11,6 +11,7 @@
 
 (use-package ivy
   :ensure t
+  :defer t
   :bind (("C-c C-r" . ivy-resume)
          ;; ("C-i" . complete-symbol)
          ([remap bookmark-jump] . ivy-bookmark-goto)
@@ -73,8 +74,6 @@
                       :foreground "dodger blue" :background nil
                       :weight 'normal :box nil :underline t
                       )
-  
-  ;; Custom Functions
 
   ;; {Bookmarks}
   (defun ivy-bookmark-goto ()

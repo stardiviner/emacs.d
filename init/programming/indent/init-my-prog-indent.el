@@ -58,8 +58,7 @@
                 )))
   
   :config
-  (setq indent-guide-delay nil
-        indent-guide-recursive t
+  (setq indent-guide-recursive t
         ;; - 0 to avoid zero-column guide line.
         ;; - -1 to show all indent lines.
         indent-guide-threshold 0

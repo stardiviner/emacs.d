@@ -105,6 +105,7 @@
   ;; current directory, instead of this Dired buffer's current directory.
   (setq dired-dwim-target t)
 
+  ;; [ dired+ / diredp ]
   (use-package dired+
     :ensure t
     :config
