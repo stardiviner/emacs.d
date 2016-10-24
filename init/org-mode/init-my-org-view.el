@@ -55,9 +55,12 @@
   :defer t
   ;; :config
   ;; (org-indent-mode 1)
-  ;; (set-face-attribute 'org-indent nil
-  ;;                     :inherit 'org-hide
-  ;;                     )
+  (set-face-attribute 'org-indent nil
+                      :inherit 'org-hide
+                      ;; :background "#282c34"
+                      :background (face-background 'doom-default)
+                      :foreground (face-background 'doom-default)
+                      )
   )
 
 ;; [ org-bullets ]
