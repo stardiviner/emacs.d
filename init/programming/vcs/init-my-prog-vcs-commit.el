@@ -7,9 +7,13 @@
 
 ;;; Code:
 ;;; ----------------------------------------------------------------------------
+;;; [ helm-rage ] -- A Helm source for raging. Allows you to spice up your commit message with rage comics or various memes.
 
-
-
+(use-package helm-rage
+  :ensure t
+  :defer t
+  :commands (helm-rage)
+  )
 
 ;;; ----------------------------------------------------------------------------
 
