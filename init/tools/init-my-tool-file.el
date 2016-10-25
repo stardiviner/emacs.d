@@ -6,6 +6,13 @@
 
 
 ;;; Code:
+;;; [ pandoc ] -- pandoc interface.
+
+(use-package pandoc
+  :ensure t
+  :config
+  (setq pandoc-turn-on-advice-eww t)
+  )
 
 ;;; [ pandoc-mode ] -- pandoc-mode is an Emacs mode for interacting with Pandoc.
 
@@ -13,19 +20,10 @@
   :ensure t
   :defer t
   :init
-  ;; (add-hook 'markdown-mode-hook 'pandoc-mode)
-  ;;
-  ;; This function checks if a default settings file exists for the file you're
-  ;; opening and only turns on pandoc-mode if it finds one.
-  ;;
+  (add-hook 'markdown-mode-hook 'pandoc-mode)
+  ;; turn on pandoc-mode if a pandoc settings file exists.
   ;; (add-hook 'markdown-mode-hook 'conditionally-turn-on-pandoc)
-  ;;
-  ;; Additionally, if you want to automatically load the default pandoc-mode
-  ;; settings file for the file you're opening, you can add the following to
-  ;; your init file: The function pandoc-load-default-settings checks if a
-  ;; default settings file exists for the file being loaded and reads its
-  ;; settings if it finds one.
-  ;;
+  :config  
   (add-hook 'pandoc-mode-hook 'pandoc-load-default-settings)
   )
 
