@@ -124,6 +124,7 @@
                     :inherit nil
                     :weight 'bold
                     :height 1.5)
+(setq org-fontify-whole-heading-line t)
 (set-face-attribute 'org-level-1 nil
                     :inherit nil
                     :family "DejaVu Sans Mono"

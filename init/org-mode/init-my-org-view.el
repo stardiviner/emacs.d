@@ -22,7 +22,6 @@
 
 (setq org-fontify-emphasized-text t
       org-fontify-quote-and-verse-blocks t
-      org-fontify-whole-heading-line t
       org-fontify-done-headline t
       )
 
@@ -53,7 +52,7 @@
 
 (use-package org-indent
   :defer t
-  ;; :config
+  :config
   ;; (org-indent-mode 1)
   (set-face-attribute 'org-indent nil
                       :inherit 'org-hide
