@@ -21,6 +21,7 @@
 (require 'init-my-prog-vcs-git-gitlab)
 
 (require 'init-my-prog-vcs-diff)
+(require 'init-my-prog-vcs-commit)
 (require 'init-my-prog-vcs-review)
 
 
