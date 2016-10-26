@@ -222,6 +222,15 @@
                     'face '(:foreground "yellow")
                     )))
    
+   ;; macro recording -- `kmacro-counter', `kmacro-insert-counter'
+   (:eval
+    (when (and (active)
+               defining-kbd-macro)
+      (propertize (format "∆ %s "
+                          ;; macro counter
+                          kmacro-counter)
+                  'face '(:foreground "yellow"))))
+   
    ;; emacsclient indicator
    (:eval
     (if (frame-parameter nil 'client)
