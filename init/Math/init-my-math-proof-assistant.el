@@ -9,23 +9,10 @@
 
 ;;; [ Proof General ]
 
-;; (add-to-list 'package-archives
-;;              '("emacs-pe" . "https://emacs-pe.github.io/packages/"))
-;; (use-package coq
-;;   :ensure t
-;;   :defer t
-;;   :pin emacs-pe)
-
 (use-package proof-general
   :load-path "~/.emacs.d/site-lisp/ProofGeneral/generic"
   :init
   (require 'proof-site nil t)
-  )
-
-(use-package coq
-  :load-path "~/.emacs.d/site-lisp/ProofGeneral/coq"
-  :init
-  (require 'coq nil t)
   )
 
 
