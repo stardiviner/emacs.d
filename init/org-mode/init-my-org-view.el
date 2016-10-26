@@ -98,6 +98,11 @@
   )
 
 
+(require 'org-list)
+
+(setq org-list-demote-modify-bullet
+      '(("+" . "-") ("-" . "+") ("*" . "+")))
+
 ;;; better list bullets
 
 ;; Asterisks and dashes for bullet lists are fine, but having an actual circular
