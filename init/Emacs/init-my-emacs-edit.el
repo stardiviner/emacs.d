@@ -50,6 +50,13 @@
           ))
   )
 
+;;; [ atomic-chrome ] -- with websocket improvement on `edit-server'.
+
+(use-package atomic-chrome
+  :ensure t
+  :config
+  (atomic-chrome-start-server)
+  )
 
 ;;; [ 0xc ] -- Easy base conversion made easy in Emacs.
 
