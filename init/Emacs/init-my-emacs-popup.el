@@ -26,28 +26,19 @@
 
 ;;; [ popup ]
 
-;; Features:
-;;  - Tooltip
-;;      `popup-tip'
-;;  - Popup Menu
-;;      (popup-menu*)
-;;  - Popup Cascade Menu
-;;      (popup-cascade-menu)
-;; e.g. (popup-cascade-menu '(("Top1" "Sub1" "Sub2") "Top2"))
-;;      Navigate between menu candidate and cascade menu with [C-f], [C-b]
-
 (use-package popup
   :ensure t
   :defer t
+  :bind (:map popup-menu-keymap
+              ("M-n" . popup-next)
+              ("M-p" . popup-previous)
+              ("M-j" . popup-select))
   :config
-  
-  ;; (set-face-attribute 'popup-face nil
-  ;;                     :inherit 'tooltip)
-
-  ;; add some shotcuts in popup menu mode
-  (define-key popup-menu-keymap (kbd "M-n") 'popup-next)
-  (define-key popup-menu-keymap (kbd "M-p") 'popup-previous)
-  (define-key popup-menu-keymap (kbd "M-j") 'popup-select)
+  (set-face-attribute 'popup-face nil
+                      :inherit 'tooltip
+                      :foreground "#333333"
+                      :background (color-darken-name
+                                   (face-foreground 'default) 3))
   )
 
 
