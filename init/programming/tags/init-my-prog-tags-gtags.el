@@ -65,13 +65,6 @@
 (use-package helm-gtags
   :ensure t
   :defer t
-  :init
-  (dolist (hook '(c-mode-hook
-                  c++-mode-hook))
-    (add-hook hook 'my-helm-gtags-setup-keybindings))
-
-  (add-hook 'after-save-hook 'helm-gtags-update-tags nil t)
-  
   :config
   (setq helm-gtags-ignore-case t
         helm-gtags-auto-update t
@@ -101,6 +94,12 @@
     (define-key helm-gtags-prefix (kbd "C") 'helm-gtags-create-tags)
     (define-key helm-gtags-prefix (kbd "U") 'helm-gtags-update-tags)
     )
+
+  (dolist (hook '(c-mode-hook
+                  c++-mode-hook))
+    (add-hook hook 'my-helm-gtags-setup-keybindings))
+
+  (add-hook 'after-save-hook 'helm-gtags-update-tags nil t)
   )
 
 
