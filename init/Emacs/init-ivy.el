@@ -123,6 +123,7 @@
          ([remap info-lookup-symbol] . counsel-info-lookup-symbol) ; [C-h S]
          ([remap menu-bar-open] . counsel-tmm) ; [F10] text menu access
          ("C-x c p" . counsel-list-processes) ; [C-x c p]
+         ("C-x c t" . cancel-function-timers)
          ("C-x RET v" . counsel-set-variable) ; [C-x RET v]
          ("C-x RET u" . counsel-unicode-char) ; [C-x RET u]
          ([remap switch-to-buffer] . ivy-switch-buffer) ; [C-x b]
