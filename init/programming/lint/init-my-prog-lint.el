@@ -69,7 +69,7 @@
   (set-face-attribute 'flycheck-info nil
                       :underline '(:color "forest green" :style wave))
   (set-face-attribute 'flycheck-warning nil
-                      :underline '(:color "DarkSlateBlue" :style wave))
+                      :underline '(:color "DarkGoldenrod" :style wave))
   (set-face-attribute 'flycheck-error nil
                       :underline '(:color "red" :style wave))
   (set-face-attribute 'flycheck-fringe-info nil
