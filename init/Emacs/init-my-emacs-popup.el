@@ -58,8 +58,8 @@
         ;; pos-tip-tab-width nil
         )
 
-  (setq pos-tip-foreground-color "#839496"
-        pos-tip-background-color "#073642")
+  (setq pos-tip-foreground-color "#073642"
+        pos-tip-background-color "#839496")
   )
 
 
