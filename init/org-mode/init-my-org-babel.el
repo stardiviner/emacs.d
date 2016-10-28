@@ -757,23 +757,23 @@ This can be useful for snippets to select kernel interactively."
     "Face for SuperCollider sclang blocks")
 
   (defface org-block-ditaa
-    `((t (:background "DimGray")))
+    `((t (:background "#222222")))
     "Face for Ditaa blocks")
 
   (defface org-block-dot
-    `((t (:background "DimGray")))
+    `((t (:background "#222222")))
     "Face for Dot blocks")
   
   (defface org-block-plantuml
-    `((t (:background "DimGray")))
+    `((t (:background "#222222")))
     "Face for plantuml blocks")
 
   (defface org-block-ledger
-    `((t (:background "DimGray")))
+    `((t (:background "#222222")))
     "Face for ledger blocks")
 
   (defface org-block-calc
-    `((t (:background "DimGray")))
+    `((t (:background "#222222")))
     "Face for calc blocks")
   )
 
