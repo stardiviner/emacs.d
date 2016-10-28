@@ -647,7 +647,10 @@ This can be useful for snippets to select kernel interactively."
                                    '(font-lock-fontified t face org-meta-line))
               t))))))
 
-
+  
+  (set-face-attribute 'org-block nil
+                      :background "#202020")
+  
   (defface org-block-org
     `((t (:background ,(color-darken-name (face-background 'default) 4))))
     "Face for Org-mode src blocks")
@@ -665,11 +668,11 @@ This can be useful for snippets to select kernel interactively."
     "Face for Clojure blocks")
 
   (defface org-block-scheme
-    `((t (:background "#3d4451")))
+    `((t (:background "#202020")))
     "Face for Scheme src blockss")
 
   (defface org-block-sh
-    `((t (:background "#3d4451")))
+    `((t (:background "#202020")))
     "Face for shell blocks")
 
   (defface org-block-latex
@@ -689,19 +692,19 @@ This can be useful for snippets to select kernel interactively."
     "Face for Ruby blocks")
 
   (defface org-block-perl
-    `((t (:background "DarkSlateGray")))
+    `((t (:background "#202020")))
     "Face for Ruby blocks")
 
   (defface org-block-C
-    `((t (:background "#3d4451")))
+    `((t (:background "#202020")))
     "Face for C blocks")
 
   (defface org-block-C++
-    `((t (:background "#3d4451")))
+    `((t (:background "#202020")))
     "Face for C++ blocks")
 
   (defface org-block-java
-    `((t (:background "#3d4451")))
+    `((t (:background "#202020")))
     "Face for Java blocks")
 
   (defface org-block-js
