@@ -81,8 +81,6 @@
                       :height 200)
   (set-face-attribute 'aw-background-face nil
                       :foreground "#333333")
-  (set-face-attribute 'aw-mode-line-face nil
-                      :foreground "orange red")
 
   (setq aw-background nil)
   )
