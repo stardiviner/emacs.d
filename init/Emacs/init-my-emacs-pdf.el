@@ -111,7 +111,6 @@
 
 (use-package org-pdfview
   :ensure t
-  :defer t
   :config
   ;; integrate it into Org-mode seamlessly.
   ;; (org-add-link-type "pdfview" 'org-pdfview-open 'org-pdfview-export)
