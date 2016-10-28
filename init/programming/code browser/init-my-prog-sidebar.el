@@ -25,14 +25,13 @@
   :ensure t
   :config
   (setq sr-speedbar-width 30
-        sr-speedbar-width-x 30
-        sr-speedbar-width-console 30
         sr-speedbar-max-width 30
         sr-speedbar-delete-windows nil
         sr-speedbar-skip-other-window-p nil
         sr-speedbar-auto-refresh t
         sr-speedbar-right-side nil
         )
+  
   (add-hook 'speedbar-mode-hook
             (lambda ()
               (linum-mode -1)))
