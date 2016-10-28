@@ -27,11 +27,11 @@
 
 (use-package kiwix
   :ensure t
-  :defer t
-  :init
-  (define-key my-prog-help-document-map (kbd "w") 'kiwix-at-point)
-  (define-key my-prog-help-document-map (kbd "W") 'kiwix-at-point-interactive)
-  (define-key my-prog-help-document-map (kbd "C-w") 'kiwix-launch-server)
+  :bind (:map my-prog-help-document-map
+              ("w" . kiwix-at-point)
+              ("W" . kiwix-at-point-interactive)
+              ("M-w" . kiwix-launch-server)
+              )
   )
 
 
