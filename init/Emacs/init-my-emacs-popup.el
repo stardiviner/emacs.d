@@ -57,6 +57,9 @@
         pos-tip-internal-border-width 2
         ;; pos-tip-tab-width nil
         )
+
+  (setq pos-tip-foreground-color "#839496"
+        pos-tip-background-color "#073642")
   )
 
 
