@@ -174,6 +174,19 @@ when needed."
              '("\\.pdf\\(<[^>]+>\\)?$" .
                (display-buffer-pop-up-window-pdf-split-horizontally)))
 
+;;; -------------------------------------------------------------------------
+
+;;; [ pdf-tools-org ] -- integrate pdf-tools with Org-mode.
+
+(use-package pdf-tools-org
+  :ensure t
+  :config
+  (add-hook 'after-save-hook
+            (lambda ()
+              (when (eq major-mode 'pdf-view-mode)
+                (pdf-tools-org-export-to-org))))
+  )
+
 
 (provide 'init-my-emacs-pdf)
 
