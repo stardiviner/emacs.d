@@ -81,7 +81,17 @@ column.  Place the point after the comment box."
   (define-prefix-command 'fic-prefix))
 (global-set-key (kbd "M-g f") 'fic-prefix)
 
+;;; [ hl-todo ]-- highlight todo, fixme and similar keywords.
 
+(use-package hl-todo
+  :ensure t
+  :bind (:map fic-prefix
+              ("p" . hl-todo-previous)
+              ("n" . hl-todo-next)
+              ("o" . hl-todo-occur))
+  :config
+  (global-hl-todo-mode 1)
+  )
 
 ;; [ poporg ] -- Editing program comments or strings in text mode.
 
@@ -100,7 +110,7 @@ column.  Place the point after the comment box."
 
   :config
   (setq poporg-adjust-fill-column t
-        poporg-delete-trailing-whitespace t)  
+        poporg-delete-trailing-whitespace t)
   (set-face-attribute 'poporg-edited-face nil
                       :foreground "green yellow"
                       :background (color-darken-name (face-background 'default) 5)
