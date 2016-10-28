@@ -117,6 +117,7 @@
   (add-to-list 'aggressive-indent-excluded-modes 'haskell-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'lua-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'makefile-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'coq-mode)
   )
 
 
