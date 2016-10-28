@@ -12,15 +12,27 @@
 (use-package haskell-mode
   :ensure t
   :defer t
-  :init
-  (define-key my-prog-inferior-map (kbd "h") 'haskell-interactive-switch)
+  :bind (:map haskell-mode-map
+              ("C-c C-s" . haskell-interactive-bring)
+              ("C-c C-k" . haskell-interactive-mode-clear)
+              ("M-." . haskell-mode-jump-to-def-or-tag)
+              ("C-c C-p C-l" . haskell-process-load-or-reload)
+              ("C-c C-p C-t" . haskell-process-do-type)
+              ("C-c C-p C-i" . haskell-process-do-info)
+              ("C-c C-p C-c" . haskell-process-cabal-build)
+              ("C-c C-p M-c" . haskell-process-cabal)
+              ([f8] . haskell-navigate-imports)
+              ([f5] . haskell-compile)
 
-  :config
+              :map my-prog-inferior-map
+              ("h" . haskell-interactive-switch)
+              )
+  :init
   (setq haskell-font-lock-symbols t
         haskell-stylish-on-save nil
         haskell-tags-on-save nil
         )
-  
+  :config
   ;; [ Haskell Interactive Mode ]
   (require 'haskell-interactive-mode)
   (require 'haskell-process)
@@ -47,37 +59,8 @@
   ;;                                           "Data.Ord")
   ;;       )
 
-  
-  (defun my-haskell-mode-basic-settings ()
-    "Some basic settings for `haskell-mode'."
-    (interactive)
-    ;; indent
-    (haskell-indent-mode 1) ; `intelligent' Haskell indentation mode
-    (aggressive-indent-mode -1)
-    ;; doc
-    (haskell-doc-mode 1)
-
-    (flycheck-mode -1)
-    )
-  
-  (add-hook 'haskell-mode-hook #'my-haskell-mode-basic-settings)
-
-  (define-key haskell-mode-map (kbd "C-c C-s") 'haskell-interactive-bring)
-  (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
-  (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
-  (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
-  (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
-  (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
-  (define-key haskell-mode-map (kbd "C-c M-c") 'haskell-process-cabal)
-  
-  ;; (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def)
-  ;; (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-tag-find)
-  ;; To use GHCi first and then if that fails to fallback to tags for jumping
-  (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def-or-tag)
-
-  (define-key haskell-mode-map [f8] 'haskell-navigate-imports)
-
-  (define-key haskell-mode-map (kbd "<f6>") 'haskell-compile)
+  ;; [ indent ]
+  (add-hook 'haskell-mode-hook #'haskell-doc-mode)
   
   ;; [ module ]
   ;; (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
