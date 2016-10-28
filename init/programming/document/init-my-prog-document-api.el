@@ -163,13 +163,25 @@
 
 (use-package zeal-at-point
   :ensure t
-  :defer t
+  :bind (:map my-prog-help-document-map
+              ("C-d" . zeal-at-point))
   :init
   (setq zeal-at-point-zeal-version "0.3.0")
-  (define-key my-prog-help-document-map (kbd "C-d") 'zeal-at-point)
   :config
+  ;; multiple docsets search
+  (add-to-list 'zeal-at-point-mode-alist
+               '(clojurescript-mode . ("clojure" "clojurescript")))
+  (add-to-list 'zeal-at-point-mode-alist
+               '(enh-ruby-mode . ("ruby" "rails")))
+  (add-to-list 'zeal-at-point-mode-alist
+               '(python-mode . ("python" "django")))
+  
+  (add-hook 'web-mode-hook
+            (lambda ()
+              (setq-local zeal-at-point-docset '("javascript" "html" "css"))))
   (add-hook 'projectile-rails-mode-hook
-            (lambda () (setq zeal-at-point-docset "rails")))
+            (lambda ()
+              (setq zeal-at-point-docset '("rails" "javascript" "html" "css"))))
   )
 
 
