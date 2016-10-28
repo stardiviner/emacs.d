@@ -15,6 +15,8 @@
   :init
   (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
   :config
+  (pdf-tools-install)
+  
   ;; [ PDF View ]
   ;; - [SPC] :: scroll continuous
   ;; - [n/p] :: scroll to next/previous page
