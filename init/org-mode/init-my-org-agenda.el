@@ -139,8 +139,6 @@
         ))
 
 
-;; set Org agenda to search in ~/Org directory *recursively*.
-
 (setq org-agenda-files
       (delq nil
             (mapcar
@@ -156,11 +154,13 @@
                "~/Org/Tasks/Tasks.org"
                "~/Org/Tasks/Entertainment.org"
                "~/Org/Projects/Sales/Sales.org"
-               "~/Org/Projects/Code.org"
-               "~/Org/Projects/Computer Todos.org"
-               "~/Org/Projects/Projects.org"
-               "~/Org/Projects/Programming Projects.org" ; BIG!
+               "~/Org/Projects/" ; All projects
+               ;; "~/Org/Projects/Code.org"
+               ;; "~/Org/Projects/Computer Todos.org"
+               ;; "~/Org/Projects/Projects.org"
+               ;; "~/Org/Projects/Programming Projects.org" ; BIG!
                ;; "~/Org/Projects/Maker.org"
+               "~/Org/Projects/Interpersonal Network/" ; Interpersonal Network
                "~/Org/Wiki/Learning/Learning.org"
                "~/Org/Wiki/Learning/MyLearningPlan/Learn Programming.org"
                ;; "~/Org/Wiki/Wiki.org"
