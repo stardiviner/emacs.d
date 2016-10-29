@@ -121,6 +121,11 @@
 (use-package flyspell-correct-popup
   :ensure t)
 
+;;; [ company-flyspell ]
+
+(load (locate-user-emacs-file "init/extensions/company-flyspell.el"))
+
+;; (define-key flyspell-mode-map (kbd "C-;") 'company-flyspell)
 
 (provide 'init-my-emacs-spell)
 
