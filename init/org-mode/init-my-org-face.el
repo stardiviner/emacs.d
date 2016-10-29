@@ -290,8 +290,9 @@
                     )
 
 ;; Basic face for displaying the secondary selection.
+;; face for babel src block background color when [C-c '] `org-edit-special'.
 (set-face-attribute 'secondary-selection nil
-                    :background (color-darken-name (face-background 'default) 6)
+                    :background (color-darken-name (face-background 'org-block) 2)
                     )
 
 ;; code face => ~code~,  #+RESULTS: : result.
