@@ -287,40 +287,10 @@
 ;; (add-hook 'clojure-mode-hook 'cider-tdd-mode)
 
 
-;;; [ cider-decompile ]
-
-;; (use-package cider-decompile
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (define-key clojure-mode-map (kbd "??") cider-decompile-func)
-;;   (define-key clojure-mode-map (kbd "??") cider-decompile-ns-func)
-;;   )
-
-
-;;; [ cider-spy ] -- Spy on CIDER to get Info.
-
-;; (use-package cider-spy
-;;   :ensure t
-;;   :defer t)
-
-
-;;; [ cider-profile ]
-
-;; (use-package cider-profile
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (add-hook 'cider-mode-hook 'cider-profile-mode)
-;;   (add-hook 'cider-repl-mode-hook 'cider-profile-mode)
-;;   )
-
-
 ;;; [ flycheck-clojure, squiggly-clojure ] --
 
 (use-package flycheck-clojure
   :ensure t
-  :defer t
   :init
   (with-eval-after-load 'flycheck
     (flycheck-clojure-setup))
@@ -360,6 +330,33 @@
 (use-package cider-eval-sexp-fu
   :ensure t)
 
+;;; [ cider-decompile ] -- decompilation extension for cider.
+
+;; (use-package cider-decompile
+;;   :ensure t
+;;   :bind (:map clojure-mode-map
+;;               ("??" . cider-decompile-func)
+;;               ("??" . cider-decompile-ns-func))
+;;   )
+
+
+;;; [ cider-spy ] -- Spy on CIDER to get Info.
+
+;; (use-package cider-spy
+;;   :ensure t
+;;   :defer t)
+
+
+;;; [ cider-profile ]
+
+;; (use-package cider-profile
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (add-hook 'cider-mode-hook 'cider-profile-mode)
+;;   (add-hook 'cider-repl-mode-hook 'cider-profile-mode)
+;;   )
+
 
 ;;; [ typed-clojure-mode ] -- Typed Clojure minor mode for Emacs.
 
@@ -376,8 +373,8 @@
 ;; (use-package helm-clojuredocs
 ;;   :ensure t
 ;;   :defer t
-;;   :init
-;;   (define-key clojure-mode-map (kbd "C-h d d") 'helm-clojuredocs)
+;;   :bind (:map clojure-mode-map
+;;               ("C-h d d" . helm-clojuredocs))
 ;;   )
 
 
