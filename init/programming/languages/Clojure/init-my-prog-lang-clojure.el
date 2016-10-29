@@ -383,6 +383,10 @@
 (use-package elein
   :ensure t)
 
+;;; [ Boot ]
+
+(add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode)) ; recognize .boot file
+(add-to-list 'magic-mode-alist '(".* boot" . clojure-mode)) ; recognize script file using shebang
 
 ;;; [ clojars ] -- Emacs Interface to Clojars.org
 
