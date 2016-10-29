@@ -355,16 +355,6 @@
   )
 
 
-;;; [ kibit-helper ] -- A static code analyzer for Clojure with core.logic.
-
-(use-package kibit-helper
-  :ensure t
-  :defer t
-  :init
-  (define-key clojure-mode-map (kbd "C-x C-`") 'kibit-accept-proposed-change)
-  )
-
-
 ;;; [ cider-eval-sexp-fu ]
 
 (use-package cider-eval-sexp-fu
