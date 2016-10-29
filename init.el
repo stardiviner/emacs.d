@@ -19,13 +19,9 @@
 
 ;;; [ things before load ]
 
-;; Turn off mouse interface early in startup to avoid momentary display
-(when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-(when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-
-;; No splash screen please... jeez
-(setq inhibit-startup-screen t)
+(setq inhibit-startup-screen nil)
+(setq inhibit-startup-message t)
+(setq inhibit-startup-echo-area-message "Hacking happy! stardiviner.")
 
 (setq confirm-kill-emacs 'yes-or-no-p)
 
