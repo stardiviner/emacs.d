@@ -371,16 +371,6 @@
   :ensure t)
 
 
-;;; [ align-cljlet ]
-
-(use-package align-cljlet
-  ;; :ensure t
-  ;; :defer t
-  ;; :init
-  ;; (define-key clojure-mode-map (kbd "??") 'align-cljlet)
-  )
-
-
 ;;; [ typed-clojure-mode ] -- Typed Clojure minor mode for Emacs.
 
 ;; (use-package typed-clojure-mode
