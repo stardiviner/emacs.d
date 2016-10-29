@@ -11,7 +11,6 @@
 
 (use-package web-mode
   :ensure t
-  :defer t
   :init
   ;; Using web-mode for editing plain HTML files can be done this way
   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
