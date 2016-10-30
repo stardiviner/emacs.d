@@ -123,6 +123,15 @@
   ;; (add-to-list 'org-file-apps '("\\.pdf::\\(\\d+\\)\\'" . (org-pdfview-open link)))
   )
 
+;;; [ pdf-tools-org ] -- integrate pdf-tools annotations with Org-mode.
+
+(use-package pdf-tools-org
+  :ensure t
+  :config
+  (add-hook 'after-save-hook
+            (lambda ()
+              (when (eq major-mode 'pdf-view-mode) (pdf-tools-org-export-to-org))))
+  )
 
 ;;; display PDFs on the side window of Emacs.
 
