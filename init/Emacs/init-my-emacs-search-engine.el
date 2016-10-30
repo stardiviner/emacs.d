@@ -169,6 +169,18 @@
     :docstring "Facebook")
   )
 
+;;; [ es-mode ] -- An Emacs major mode for editing Elasticsearch requests.
+
+(use-package es-mode
+  :ensure t
+  :init
+  (add-to-list 'auto-mode-alist '("\\.es$" . es-mode))
+  :config
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((elasticsearch . t)))
+  )
+
 
 (provide 'init-my-emacs-search-engine)
 
