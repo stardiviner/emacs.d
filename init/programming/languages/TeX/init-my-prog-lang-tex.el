@@ -289,6 +289,48 @@ character(s), in which case it deletes the space(s) first."
   :ensure t)
 
 
+;;; tooltip preview for image with `image-tooltips.el'
+
+(setq x-gtk-use-system-tooltips nil)
+
+(defvar image-tooltip-re
+  (concat  "\\\\includegraphics{\\(?1:.*\\."
+           (regexp-opt '("png" "PNG" "JPG" "jpeg"
+                         "jpg" "JPEG" "eps" "EPS" "pdf"))
+           "\\)}")
+  "Regexp to match included images")
+
+
+(defun image-tooltip (window object position)
+  (save-excursion
+    (goto-char position)
+    (let (beg end imgfile img s)
+      (while (not (looking-at image-tooltip-re))
+        (forward-char -1))
+      (setq imgfile (match-string-no-properties 1))
+      (if (file-exists-p imgfile)
+          (progn
+            (setq img (create-image (expand-file-name imgfile)
+                                    'imagemagick nil :width 800))
+            (propertize "Look in the minibuffer"
+                        'display img))
+        "No file found"))))
+
+(defun img-match (limit)
+  "Match bar in at the end of a word."
+  (when (re-search-forward image-tooltip-re limit t)
+    (flyspell-delete-region-overlays (match-beginning 1)
+                                     (match-end 1))
+    t))
+
+(add-hook 'LaTeX-mode-hook
+          (lambda ()
+            (font-lock-add-keywords
+             nil
+             '((img-match 1 '(face font-lock-keyword-face
+                                   help-echo image-tooltip))))))
+
+
 (provide 'init-my-prog-lang-tex)
 
 ;;; init-my-prog-lang-tex.el ends here
