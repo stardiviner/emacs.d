@@ -85,12 +85,12 @@ column.  Place the point after the comment box."
 
 (use-package hl-todo
   :ensure t
-  :bind (:map fic-prefix
-              ("p" . hl-todo-previous)
-              ("n" . hl-todo-next)
-              ("o" . hl-todo-occur))
   :config
   (global-hl-todo-mode 1)
+
+  (define-key fic-prefix (kbd "p") 'hl-todo-previous)
+  (define-key fic-prefix (kbd "n") 'hl-todo-next)
+  (define-key fic-prefix (kbd "o") 'hl-todo-occur)
   )
 
 ;; [ poporg ] -- Editing program comments or strings in text mode.
