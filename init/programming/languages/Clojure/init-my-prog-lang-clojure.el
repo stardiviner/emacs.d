@@ -197,7 +197,7 @@
                       :foreground "light gray"
                       :background (color-darken-name (face-background 'default) 2)
                       :box '(:line-width -1 :color "dim gray")
-                      :family "Comic Neue"
+                      :family "DejaVu Sans Mono"
                       )
   
   ;; auto completion with company-mode support
