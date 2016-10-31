@@ -127,8 +127,10 @@
 
 
 ;;; eldoc-mode support
-
-;; (add-hook 'org-mode-hook #'eldoc-mode)
+;; NOTE: this caused suspend when point on #+BEGIN_SRC org babel src block.
+(add-hook 'org-mode-hook
+          (lambda ()
+            (eldoc-mode -1)))
 
 
 (provide 'init-my-org-view)

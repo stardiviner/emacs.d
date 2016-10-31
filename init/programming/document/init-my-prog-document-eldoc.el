@@ -11,12 +11,16 @@
 
 (require 'eldoc)
 
+;; (global-eldoc-mode t)
+
 (dolist (hook
-         '(emacs-lisp-mode-hook
+         '(prog-mode-hook
+           emacs-lisp-mode-hook
            lisp-interaction-mode-hook
            lisp-mode-hook
-           ielm-mode-hook))
-  (add-hook hook 'turn-on-eldoc-mode))
+           ielm-mode-hook
+           ))
+  (add-hook hook #'eldoc-mode))
 
 (set-face-attribute 'eldoc-highlight-function-argument nil
                     :underline t :foreground "cyan"
@@ -27,8 +31,6 @@
 ;;; whenever the listed commands are used, ElDoc will automatically refresh the minibuffer.
 (eldoc-add-command 'paredit-backward-delete
                    'paredit-close-round)
-
-(global-eldoc-mode t)
 
 
 ;;; [ suggestion-box ] -- show tooltip on the cursor with convenient information.
