@@ -15,8 +15,7 @@
 
 (use-package ruby-mode
   :ensure t
-  :defer t
-  :init
+  ;; :init
   ;; (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
   ;; (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
   :config
@@ -32,7 +31,6 @@
 
 (use-package enh-ruby-mode
   :ensure t
-  :defer t
   :init
   (add-to-list 'auto-mode-alist '("\\.rb\\'" . enh-ruby-mode))
   (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
@@ -90,50 +88,6 @@
                                   ;; "private" "protected" "public"
                                   ))
 
-  ;; highlight symbol: dot .
-  (font-lock-add-keywords
-   'enh-ruby-mode
-   '(("[[:alnum:]]\\(\\.\\)[[:alnum:]]"
-      (1 '(:foreground "deep pink" :weight 'bold))
-      )))
-  
-  ;; FIXME: this is override by ruby-mode default syntax highlight.
-  ;; highlight keyword: self
-  ;; (font-lock-add-keywords
-  ;;  'enh-ruby-mode
-  ;;  '(("\s\\(self\\)\\(\\.\s\\)?"
-  ;;     (1 '(:foreground "white" :background "deep pink" :slant 'italic))
-  ;;     )))
-
-  ;; highlight keywords: protected(orange), private(dark red), public(white)
-  (font-lock-add-keywords
-   'enh-ruby-mode
-   '(("^\s*\\(public\\)$"
-      (1 '(:foreground "white" :weight 'bold :underline "#888888")))))
-  (font-lock-add-keywords
-   'enh-ruby-mode
-   '(("^\s*\\(protected\\)$"
-      (1 '(:foreground "yellow" :weight 'bold :underline "#888888")))))
-  (font-lock-add-keywords
-   'enh-ruby-mode
-   '(("^\s*\\(private\\)$"
-      (1 '(:foreground "magenta" :weight 'bold :underline "#888888")))))
-
-  ;; attr_*
-  (font-lock-add-keywords
-   'enh-ruby-mode
-   '(("^\s*\\(attr_\\(accessor\\|reader\\|writer\\)\\)"
-      (1 '(:foreground "cyan" :weight 'bold
-                       :overline "white")))))
-
-  ;; include & extend
-  (font-lock-add-keywords
-   'enh-ruby-mode
-   '(("^\s*\\(include\\|extend\\)"
-      (1 '(:foreground "orange" :weight 'bold
-                       :box '(:color "black" :line-width -1))))))
-
-
   (add-hook 'enh-ruby-mode-hook 'eldoc-mode)
 
   ;; insert => for hash symbol.
@@ -154,8 +108,7 @@
 
 (use-package ruby-hash-syntax
   :ensure t
-  :defer t
-  :init
+  :config
   (with-eval-after-load 'ruby-mode
     (define-key ruby-mode-map (kbd "C-c c c") 'ruby-toggle-hash-syntax))
   (with-eval-after-load 'enh-ruby-mode
@@ -167,8 +120,7 @@
 
 (use-package ruby-tools
   :ensure t
-  :defer t
-  :init
+  :config
   (add-hook 'ruby-mode-hook 'ruby-tools-mode)
   (add-hook 'enh-ruby-mode-hook 'ruby-tools-mode)
   )
@@ -178,12 +130,10 @@
 
 ;; (use-package ruby-block
 ;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (ruby-block-mode t)
 ;;   :config
 ;;   (setq ruby-block-delay 0)
 ;;   (setq ruby-block-highlight-toggle t)
+;;   (ruby-block-mode t)
 ;;   )
 
 
@@ -192,7 +142,6 @@
 ;;; disable this, to fix conflict with other electric functions.
 ;; (use-package ruby-electric
 ;;   :ensure t
-;;   :defer t
 ;;   :init
 ;;   (add-hook 'ruby-mode-hook 'ruby-electric-mode)
 ;;   (add-hook 'enh-ruby-mode-hook 'ruby-electric-mode)
@@ -205,7 +154,6 @@
 
 ;; (use-package ruby-end
 ;;   :ensure t
-;;   :defer t
 ;;   :init
 ;;   (add-hook 'ruby-mode-hook 'ruby-end-mode)
 ;;   (add-hook 'enh-ruby-mode-hook 'ruby-end-mode)
@@ -216,13 +164,10 @@
 
 (use-package yard-mode
   :ensure t
-  :defer t
   :init
   (add-hook 'ruby-mode-hook 'yard-mode)
   (add-hook 'enh-ruby-mode-hook 'yard-mode)
-
   :config
-
   ;; workaround of `robe-eldoc'
   ;; (defun yard-eldoc-message ()
   ;;   (cond
@@ -245,13 +190,6 @@
 
 (use-package yari
   :ensure t
-  :defer t
-  :init
-  (dolist (hook '(ruby-mode-hook
-                  enh-ruby-mode-hook
-                  ))
-    (add-hook hook #'my-yari-settings))
-
   :config
   ;; (setq yari-ruby-program-name "ruby"
   ;;       yari-ri-program-name "ri")
@@ -266,6 +204,11 @@
     
     (define-key ruby-help-doc-map (kbd "k") 'yari-helm)
     )
+
+  (dolist (hook '(ruby-mode-hook
+                  enh-ruby-mode-hook
+                  ))
+    (add-hook hook #'my-yari-settings))
   )
 
 
@@ -273,14 +216,13 @@
 
 ;; (use-package rvm
 ;;   :ensure t
-;;   :defer t
 ;;   :init
 ;;   (rvm-use-default)        ; use rvm's default ruby for the current Emacs session.
 ;;   (dolist (hook '(ruby-mode-hook
 ;;                   enh-ruby-mode-hook
 ;;                   ))
 ;;     (add-hook hook 'rvm-activate-corresponding-ruby))
-
+;;
 ;;   :config
 ;;   (setq rvm-verbose t)     ; print rvm switching Ruby version message.
 ;;   )
@@ -290,15 +232,13 @@
 
 (use-package rbenv
   :ensure t
-  :defer t
-  :init
-  (global-rbenv-mode 1)
-  (rbenv-use-global)
-  
   :config
   (setq rbenv-show-active-ruby-in-modeline t
         rbenv-modeline-function 'rbenv--modeline-plain
         )
+  
+  (global-rbenv-mode 1)
+  (rbenv-use-global)
   )
 
 
@@ -306,14 +246,47 @@
 
 (use-package inf-ruby
   :ensure t
-  :defer t
-  :init
+  :config
+  (add-to-list 'inf-ruby-implementations
+               '("inf-ruby" . "irb --inf-ruby-mode --noreadline -EUTF-8"))
+
   (setq inf-ruby-default-implementation "ruby")
+  
+  (setq inf-ruby-prompt-read-only t)
+
+  (defun my-inf-ruby-setup ()
+    (inf-ruby-minor-mode)
+    
+    (make-local-variable 'completion-at-point-functions)
+    ;; from inf-ruby
+    (add-to-list 'completion-at-point-functions 'inf-ruby-completion-at-point)
+
+    ;; from robe-mode
+    (set 'completion-at-point-functions
+         (remq 'robe-complete-at-point completion-at-point-functions))
+    ;; (append '(robe-complete-at-point) completion-at-point-functions)
+    ;; use `company-robe' instead, because it support doc and meta etc. info
+    (setq-local company-minimum-prefix-length 2)
+    (my-company-add-backend-locally 'company-robe)
+    )
   
   (dolist (hook '(ruby-mode-hook
                   enh-ruby-mode-hook
                   ))
     (add-hook hook 'my-inf-ruby-setup))
+
+  ;; auto type "space" behind inf-ruby buffer line to get rid of company-mode completion.
+  (defun my-inf-ruby-return ()
+    (interactive)
+    (insert " ")
+    (comint-send-input))
+
+  (define-key inf-ruby-mode-map (kbd "RET") 'my-inf-ruby-return)
+  
+  ;; auto switch from common Ruby compilation
+  ;; (inf-ruby-setup-auto-breakpoint)
+  (add-hook 'compilation-filter-hook 'inf-ruby-auto-enter)
+  (add-hook 'comint-input-filter-functions 'inf-ruby-auto-exit)
 
   ;; integrate with rvm.el
   ;; (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
@@ -338,43 +311,8 @@
     "Run `robe-start' after `inf-ruby' started."
     (my-robe-start))
 
-  ;; (define-key enh-ruby-mode-map (kbd "C-c C-s") 'inf-ruby)
+  (define-key enh-ruby-mode-map (kbd "C-c C-s") 'inf-ruby)
   ;; (define-key my-prog-inferior-map (kbd "r a") 'inf-ruby-console-auto)
-  
-  :config
-  (add-to-list 'inf-ruby-implementations
-               '("inf-ruby" . "irb --inf-ruby-mode --noreadline -EUTF-8"))
-  
-  (setq inf-ruby-prompt-read-only t)
-
-  (defun my-inf-ruby-setup ()
-    (inf-ruby-minor-mode)
-    
-    (make-local-variable 'completion-at-point-functions)
-    ;; from inf-ruby
-    (add-to-list 'completion-at-point-functions 'inf-ruby-completion-at-point)
-
-    ;; from robe-mode
-    (set 'completion-at-point-functions
-         (remq 'robe-complete-at-point completion-at-point-functions))
-    ;; (append '(robe-complete-at-point) completion-at-point-functions)
-    ;; use `company-robe' instead, because it support doc and meta etc. info
-    (setq-local company-minimum-prefix-length 2)
-    (my-company-add-backend-locally 'company-robe)
-    )
-
-  ;; auto type "space" behind inf-ruby buffer line to get rid of company-mode completion.
-  (defun my-inf-ruby-return ()
-    (interactive)
-    (insert " ")
-    (comint-send-input))
-
-  (define-key inf-ruby-mode-map (kbd "RET") 'my-inf-ruby-return)
-  
-  ;; auto switch from common Ruby compilation
-  ;; (inf-ruby-setup-auto-breakpoint)
-  (add-hook 'compilation-filter-hook 'inf-ruby-auto-enter)
-  (add-hook 'comint-input-filter-functions 'inf-ruby-auto-exit)
   )
 
 
@@ -382,7 +320,6 @@
 
 (use-package robe
   :ensure t
-  :defer t
   :init
   (dolist (hook '(ruby-mode-hook
                   enh-ruby-mode-hook
@@ -420,12 +357,10 @@
 
 (use-package rspec-mode
   :ensure t
-  :defer t
-  :init
+  :config
   ;; (setq rspec-key-command-prefix (kbd "C-c t r"))
   (setq rspec-key-command-prefix (kbd "C-c ,"))
-  
-  :config
+
   ;; run RSpec in Vagrant box.
   (setq rspec-use-vagrant-when-possible t)
   
@@ -520,15 +455,6 @@
 
 (use-package minitest
   :ensure t
-  :defer t
-  :init
-  (add-hook 'ruby-mode-hook 'minitest-mode)
-  (add-hook 'enh-ruby-mode-hook 'minitest-mode)
-
-  ;; if you want snippets loaded
-  (with-eval-after-load 'minitest
-    (minitest-install-snippets))
-
   :config
   (setq minitest-default-env nil
         ;; minitest-keymap-prefix (kbd "C-c t m") ; default [C-c ,]
@@ -536,6 +462,13 @@
         minitest-use-spring nil
         minitest-use-zeus-when-possible t
         )
+
+  (add-hook 'ruby-mode-hook 'minitest-mode)
+  (add-hook 'enh-ruby-mode-hook 'minitest-mode)
+
+  ;; if you want snippets loaded
+  (with-eval-after-load 'minitest
+    (minitest-install-snippets))
   )
 
 
@@ -543,12 +476,6 @@
 
 (use-package ruby-test-mode
   :ensure t
-  :defer t
-  :init
-  (dolist (hook '(ruby-mode-hook
-                  enh-ruby-mode-hook))
-    (add-hook hook #'my-ruby-test-mode-settings))
-
   :config
   (defun my-ruby-test-mode-settings ()
     ;; remove default ruby-test-mode in ruby-mode-hook.
@@ -564,6 +491,10 @@
     (define-key my-ruby-test-map (kbd "p") 'ruby-test-run-at-point)
     (define-key my-ruby-test-map (kbd "l") 'ruby-test-goto-location)
     )
+
+  (dolist (hook '(ruby-mode-hook
+                  enh-ruby-mode-hook))
+    (add-hook hook #'my-ruby-test-mode-settings))
   )
 
 
@@ -571,7 +502,6 @@
 
 (use-package ruby-refactor
   :ensure t
-  :defer t
   :init
   (add-hook 'ruby-mode-hook 'ruby-refactor-mode-launch)
   )
@@ -581,7 +511,6 @@
 
 (use-package rubocop
   :ensure t
-  :defer t
   :init
   (add-hook 'ruby-mode-hook #'rubocop-mode)
   )
@@ -591,7 +520,6 @@
 
 (use-package rake
   :ensure t
-  :defer t
   :config
   ;; 'ivy-read
   (setq rake-completion-system 'default)
@@ -601,15 +529,13 @@
 ;;; [ bundler ] -- Interact with Bundler from Emacs.
 
 (use-package bundler
-  :ensure t
-  :defer t)
+  :ensure t)
 
 
 ;;; [ motion-mode ] -- RubyMotion
 
 (use-package motion-mode
   :ensure t
-  :defer t
   :init
   (add-hook 'ruby-mode-hook 'motion-recognize-project)
   
@@ -617,6 +543,7 @@
   (when (featurep 'auto-complete)
     (add-to-list 'ac-modes 'motion-mode)
     (add-to-list 'ac-sources 'ac-source-dictionary))
+  
   ;; set key-binds as you like
   (define-key motion-mode-map (kbd "C-c C-c") 'motion-execute-rake)
   (define-key motion-mode-map (kbd "C-c C-d") 'motion-dash-at-point)
@@ -631,22 +558,13 @@
 ;;; [ feature-mode ] -- Major mode for Cucumber feature files
 
 (use-package feature-mode
-  :ensure t
-  :defer t
-  :config
-  (add-to-list
-   'ruby-font-lock-keywords
-   '("\\(\\(\\)\\(\\)\\|Given\\|When\\|Then\\)\\s *\\(/\\)[^/\n\\\\]*\\(\\\\.[^/\n\\\\]*\\)*\\(/\\)"
-     (4 (7 . ?/))
-     (6 (7 . ?/))))
-  )
+  :ensure t)
 
 
 ;;; [ ruby-factory ] -- minor mode for Ruby test object generation libraries.
 
 (use-package ruby-factory
   :ensure t
-  :defer t
   :init
   (add-hook 'ruby-mode-hook 'ruby-factory-mode)
   (add-hook 'enh-ruby-mode-hook 'ruby-factory-mode)
@@ -657,7 +575,6 @@
 
 ;; (use-package kungfu
 ;;   :ensure t
-;;   :defer t
 ;;   :init
 ;;   (add-hook 'ruby-mode-hook 'ruby-kungfu-mode))
 
