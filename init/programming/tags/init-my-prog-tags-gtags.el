@@ -11,10 +11,17 @@
 
 
 ;;; Code:
-
+
 ;;; [ gtags ] -- (GNU Global)
 
-
+;;; [ gxref ] -- gtags backend for xref.
+
+(use-package gxref
+  :ensure t
+  :init
+  (add-to-list 'xref-backend-functions 'gxref-xref-backend))
+
+
 ;;; [ ggtags ] -- Emacs frontend to GNU Global source code tagging system.
 
 (use-package ggtags
@@ -59,7 +66,7 @@
     )
   )
 
-
+
 ;;; [ helm-gtags ] -- helm interface for gtags.
 
 (use-package helm-gtags
@@ -102,7 +109,7 @@
   (add-hook 'after-save-hook 'helm-gtags-update-tags nil t)
   )
 
-
+
 (provide 'init-my-prog-tags-gtags)
 
 ;;; init-my-prog-tags-gtags.el ends here
