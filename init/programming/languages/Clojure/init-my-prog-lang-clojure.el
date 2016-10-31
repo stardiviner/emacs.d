@@ -237,10 +237,10 @@
         ;; kill the old CIDER Clojure REPL process
         (kill-process (get-process "nrepl-connection"))
         (kill-process (get-process "nrepl-server"))
-        ;; TODO: set variable `cider-cljs-lein-repl'.
-        (setq cider-cljs-lein-repl "(do (require 'figwheel-sidecar.repl-api)
-(figwheel-sidecar.repl-api/start-figwheel!)
-(figwheel-sidecar.repl-api/cljs-repl))")
+        (setq cider-cljs-lein-repl
+              "(do (require 'figwheel-sidecar.repl-api)
+                   (figwheel-sidecar.repl-api/start-figwheel!)
+                   (figwheel-sidecar.repl-api/cljs-repl))")
         (cider-jack-in-clojurescript))))
   
   (unless (boundp 'my-inferior-lisp-map)
