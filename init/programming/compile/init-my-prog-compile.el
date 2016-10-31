@@ -58,7 +58,6 @@
 
 (use-package quickrun
   :ensure t
-  :defer t
   :config
   (setq quickrun-focus-p t)
 
