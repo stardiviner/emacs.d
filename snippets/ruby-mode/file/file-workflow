@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: file-workflow
+# key: file-workflow
+# group: file
+# --
+${1:file variable} = File.open("${2:file path}", 'w')
+${3:file content} = $1.read
+${4:$3.write(${5})}
+$3.close

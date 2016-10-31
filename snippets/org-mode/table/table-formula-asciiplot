@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: table-formula-asciiplot
+# key: table-formula-asciiplot
+# group: table.formula
+# --
+#+TBLFM: ${1:result column $3}='(orgtbl-ascii-draw ${2:target column $2} ${3:MIN 0} ${4:MAX 5})

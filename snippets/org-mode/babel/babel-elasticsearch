@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: babel-elasticsearch
+# key: babel-elasticsearch
+# group: babel
+# --
+#+BEGIN_SRC es
+POST /${1}
+{
+$0
+}
+#+END_SRC

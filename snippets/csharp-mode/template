@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: template
+# key: template
+# group: template
+# --
+using System;
+$0

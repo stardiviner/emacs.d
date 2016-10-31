@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
-# name: babel-clojure-image-result
-# key: babel-clojure-image-result
-# group: babel.clojure
+# name: babel-clojure-plot-incanter
+# key: babel-clojure-plot-incanter
+# group: babel.clojure.plot
 # --
 #+BEGIN_SRC clojure :results file :dir "${1:data/images}" :var fname="${2:image}.png"
 $0
