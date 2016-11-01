@@ -16,17 +16,15 @@
 
 ;;; [ re-builder ] -- instant regexp builder
 
-;;; Usage:
-;;
-;; - [M-x regexp-builder] -- start regexp-builder
-;; - [C-c C-q] -- quit regexp-builder window.
-;; - `reb-change-syntax' :: change default regexp syntax.
-;; - `reb-mode'
+(use-package re-builder
+  :ensure t
+  :config
+  ;; (setq reb-re-syntax 'read) ; 'read, 'string, 'rx
 
-;; (setq reb-re-syntax 'read) ; 'read, 'string, 'rx
+  (define-key reb-mode-map (kbd "C-c C-q") 'reb-quit)
 
-(define-key my-regexp-prefix (kbd "b") 're-builder)
-
+  (define-key my-regexp-prefix (kbd "b") 're-builder)
+  )
 
 ;;; [ pcre2el ] -- convert between PCRE, Emacs and rx regexp syntax.
 
