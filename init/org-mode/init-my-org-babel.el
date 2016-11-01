@@ -139,6 +139,10 @@ This can be useful for snippets to select kernel interactively."
 ;; [ ob-sqlite ]
 ;; (require 'ob-sqlite)
 
+;; [ es-mode ] -- elastic search
+(use-package es-mode
+  :ensure t)
+
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((emacs-lisp . t)                     ; Emacs Lisp
@@ -189,6 +193,7 @@ This can be useful for snippets to select kernel interactively."
    (ipython . t)
    (sagemath . t)        ; ob-sagemath
    ;; (restclient . t)                     ; ob-restclient
+   (elasticsearch . t)                  ; es-mode
    ))
 
 

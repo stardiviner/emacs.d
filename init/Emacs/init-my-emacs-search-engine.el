@@ -175,10 +175,6 @@
   :ensure t
   :init
   (add-to-list 'auto-mode-alist '("\\.es$" . es-mode))
-  :config
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '((elasticsearch . t)))
   )
 
 
