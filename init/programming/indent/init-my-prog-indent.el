@@ -88,15 +88,6 @@
 
 (use-package aggressive-indent
   :ensure t
-  :defer t
-  :init
-  (global-aggressive-indent-mode)
-  ;; or
-  ;; (dolist (hook '(prog-mode-hook
-  ;;                 nxml-mode-hook
-  ;;                 ))
-  ;;   (add-hook hook #'aggressive-indent-mode))
-  
   :config
   ;; The variable `aggressive-indent-dont-indent-if' lets you customize when you
   ;; **don't** want indentation to happen.  For instance, if you think it's
@@ -116,6 +107,13 @@
   (add-to-list 'aggressive-indent-excluded-modes 'lua-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'makefile-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'coq-mode)
+
+  ;; (global-aggressive-indent-mode)
+  ;; or
+  (dolist (hook '(prog-mode-hook
+                  nxml-mode-hook
+                  ))
+    (add-hook hook #'aggressive-indent-mode))
   )
 
 
