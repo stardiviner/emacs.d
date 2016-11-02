@@ -786,6 +786,16 @@ This can be useful for snippets to select kernel interactively."
   )
 
 
+;; beacon effect when open org-mode babel src block editing.
+(defun my-org-src-edit-animation ()
+  (interactive)
+  (let ((beacon-size 30)
+        (beacon-color "violet red"))
+    (beacon-blink)))
+
+(add-hook 'org-src-mode-hook #'my-org-src-edit-animation)
+
+
 (provide 'init-my-org-babel)
 
 ;;; init-my-org-babel.el ends here
