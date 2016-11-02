@@ -15,126 +15,126 @@
 
 ;;; [ AUCTeX ] -- Integrated environment for TeX.
 
-(use-package auctex
-  :ensure t
-  :config
-  (require 'tex-site)
-  (require 'latex)
+;; NOTE: use-package auctex require 'auctex is invalid.
+;; (use-package auctex
+;;   :ensure t)
+
+(require 'tex-site)
+(require 'latex)
+
+(setq TeX-auto-save t
+      TeX-parse-self t)
+
+(setq-default TeX-master nil)
+
+;; automatic detection of master file
+(defun guess-TeX-master (filename)
+  "Guess the master file for FILENAME from currently open .tex files."
+  (let ((candidate nil)
+	(filename (file-name-nondirectory filename)))
+    (save-excursion
+      (dolist (buffer (buffer-list))
+	(with-current-buffer buffer
+	  (let ((name (buffer-name))
+		(file buffer-file-name))
+	    (if (and file (string-match "\\.tex$" file))
+		(progn
+		  (goto-char (point-min))
+		  (if (re-search-forward (concat "\\\\input{" filename "}") nil t)
+		      (setq candidate file))
+		  (if (re-search-forward (concat "\\\\include{" (file-name-sans-extension filename) "}") nil t)
+		      (setq candidate file))))))))
+    (if candidate
+	(message "TeX master document: %s" (file-name-nondirectory candidate)))
+    candidate))
+
+(add-hook 'LaTeX-mode-hook
+	  '(lambda ()
+	     (setq TeX-master (guess-TeX-master (buffer-file-name)))
+	     ))
+
+
+;; Fontification
+(require 'font-latex)
+;; (setq TeX-install-font-lock)
+;; macros
+(add-hook 'LaTeX-mode-hook
+	  (lambda ()
+	    (font-latex-add-keywords '(("citep" "*[[{")) 'reference)
+	    (font-latex-add-keywords '(("citet" "*[[{")) 'reference)
+	    ))
+;; quotes
+;; math
+;; verbatim content
+
+
+;; enable RefTeX in AUCTeX (LaTeX-mode)
+(setq reftex-plug-into-AUCTeX t)
+(add-hook 'latex-mode-hook 'turn-on-reftex) ; with Emacs latex mode
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex) ; with AUCTeX LaTeX mode
+
+;; (setq TeX-macro-global '())
+;; (setq TeX-outline-extra t)
+
+;; preview-latex config
+;; (setq preview-transparent-color '(highlight :background)
+;;       preview-auto-reveal
+;;       preview-auto-cache-preamble 'ask
+;;       )
+
+;; view generated PDF with `pdf-tools'. (this is built-in now.)
+(unless (assoc "PDF Tools" TeX-view-program-list-builtin)
+  (add-to-list 'TeX-view-program-list-builtin
+	       '("PDF Tools" TeX-pdf-tools-sync-view)))
+(add-to-list 'TeX-view-program-selection
+	     '(output-pdf "PDF Tools"))
+;; (setq-default TeX-PDF-mode t) ; enable by default since AUCTeX 11.88
+(setq TeX-source-correlate-start-server t)
+;; update PDF buffers after successful LaTeX runs.
+(add-hook 'TeX-after-TeX-LaTeX-command-finished-hook
+	  #'TeX-revert-document-buffer)
+
+;; (setq TeX-source-correlate-method)
+
+;; LaTeX source code block syntax highlighting.
+;; [ minted ]
+;; toggle shell escape using [C-c C-t x].
+(defun TeX-toggle-shell-escape ()
+  "Toggle Shell Escape"
+  (interactive)
+  (setq-local LaTeX-command
+	      (if (string= LaTeX-command "latex") "latex -shell-escape"
+		"latex"))
+  (setq-local shell-escape-mode "-shell-escape") ; should pdflatex command use shell escaping?
   
-  (setq TeX-auto-save t
-        TeX-parse-self t)
+  (message (concat "shell escape "
+		   (if (string= LaTeX-command "latex -shell-escape")
+		       "enabled"
+		     "disabled"))
+	   ))
 
-  (setq-default TeX-master nil)
+(add-hook 'LaTeX-mode-hook
+	  '(lambda ()
+	     (TeX-toggle-shell-escape)
+	     (local-set-key (kbd "C-c C-t x") 'TeX-toggle-shell-escape)))
 
-  ;; automatic detection of master file
-  (defun guess-TeX-master (filename)
-    "Guess the master file for FILENAME from currently open .tex files."
-    (let ((candidate nil)
-          (filename (file-name-nondirectory filename)))
-      (save-excursion
-        (dolist (buffer (buffer-list))
-          (with-current-buffer buffer
-            (let ((name (buffer-name))
-                  (file buffer-file-name))
-              (if (and file (string-match "\\.tex$" file))
-                  (progn
-                    (goto-char (point-min))
-                    (if (re-search-forward (concat "\\\\input{" filename "}") nil t)
-                        (setq candidate file))
-                    (if (re-search-forward (concat "\\\\include{" (file-name-sans-extension filename) "}") nil t)
-                        (setq candidate file))))))))
-      (if candidate
-          (message "TeX master document: %s" (file-name-nondirectory candidate)))
-      candidate))
 
-  (add-hook 'LaTeX-mode-hook
-            '(lambda ()
-               (setq TeX-master (guess-TeX-master (buffer-file-name)))
-               ))
-
-  
-  ;; Fontification
-  (require 'font-latex)
-  ;; (setq TeX-install-font-lock)
-  ;; macros
-  (add-hook 'LaTeX-mode-hook
-            (lambda ()
-              (font-latex-add-keywords '(("citep" "*[[{")) 'reference)
-              (font-latex-add-keywords '(("citet" "*[[{")) 'reference)
-              ))
-  ;; quotes
-  ;; math
-  ;; verbatim content
-
-  
-  ;; enable RefTeX in AUCTeX (LaTeX-mode)
-  (setq reftex-plug-into-AUCTeX t)
-  (add-hook 'latex-mode-hook 'turn-on-reftex) ; with Emacs latex mode
-  (add-hook 'LaTeX-mode-hook 'turn-on-reftex) ; with AUCTeX LaTeX mode
-
-  ;; (setq TeX-macro-global '())
-  ;; (setq TeX-outline-extra t)
-
-  ;; preview-latex config
-  ;; (setq preview-transparent-color '(highlight :background)
-  ;;       preview-auto-reveal
-  ;;       preview-auto-cache-preamble 'ask
-  ;;       )
-
-  ;; view generated PDF with `pdf-tools'. (this is built-in now.)
-  (unless (assoc "PDF Tools" TeX-view-program-list-builtin)
-    (add-to-list 'TeX-view-program-list-builtin
-                 '("PDF Tools" TeX-pdf-tools-sync-view)))
-  (add-to-list 'TeX-view-program-selection
-               '(output-pdf "PDF Tools"))
-  ;; (setq-default TeX-PDF-mode t) ; enable by default since AUCTeX 11.88
-  (setq TeX-source-correlate-start-server t)
-  ;; update PDF buffers after successful LaTeX runs.
-  (add-hook 'TeX-after-TeX-LaTeX-command-finished-hook
-            #'TeX-revert-document-buffer)
-
-  ;; (setq TeX-source-correlate-method)
-
-  ;; LaTeX source code block syntax highlighting.
-  ;; [ minted ]
-  ;; toggle shell escape using [C-c C-t x].
-  (defun TeX-toggle-shell-escape ()
-    "Toggle Shell Escape"
-    (interactive)
-    (setq-local LaTeX-command
-                (if (string= LaTeX-command "latex") "latex -shell-escape"
-                  "latex"))
-    (setq-local shell-escape-mode "-shell-escape") ; should pdflatex command use shell escaping?
-    
-    (message (concat "shell escape "
-                     (if (string= LaTeX-command "latex -shell-escape")
-                         "enabled"
-                       "disabled"))
-             ))
-
-  (add-hook 'LaTeX-mode-hook
-            '(lambda ()
-               (TeX-toggle-shell-escape)
-               (local-set-key (kbd "C-c C-t x") 'TeX-toggle-shell-escape)))
-
-  
-  ;; smart tie
-  (defun electric-tie ()
-    "Inserts a tilde at point unless the point is at a space
+;; smart tie
+(defun electric-tie ()
+  "Inserts a tilde at point unless the point is at a space
 character(s), in which case it deletes the space(s) first."
-    (interactive)
-    (while (equal (char-after) ?\s) (delete-char 1))
-    (while (equal (char-before) ?\s) (delete-char -1))
-    (call-interactively 'self-insert-command))
+  (interactive)
+  (while (equal (char-after) ?\s) (delete-char 1))
+  (while (equal (char-before) ?\s) (delete-char -1))
+  (call-interactively 'self-insert-command))
 
-  (eval-after-load 'tex '(define-key TeX-mode-map "~" 'electric-tie))
+(eval-after-load 'tex '(define-key TeX-mode-map "~" 'electric-tie))
 
-  (add-hook 'TeX-mode-hook
-            (lambda ()
-              (font-lock-add-keywords
-               nil
-               '(("~" . 'font-latex-sedate-face)))))
-  )
+(add-hook 'TeX-mode-hook
+	  (lambda ()
+	    (font-lock-add-keywords
+	     nil
+	     '(("~" . 'font-latex-sedate-face)))))
 
 
 ;;; [ company-auctex ] & [ company-math ]
