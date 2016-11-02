@@ -242,10 +242,10 @@ character(s), in which case it deletes the space(s) first."
 
 (use-package cdlatex
   :ensure t
-  :defer t
   :init
+  (add-hook 'LaTeX-mode-hook #'cdlatex-mode)
   ;; enable in Org-mode
-  (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
+  (add-hook 'org-mode-hook #'org-cdlatex-mode)
   )
 
 
