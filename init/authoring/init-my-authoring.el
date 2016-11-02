@@ -30,12 +30,14 @@
 
 ;;; [ wc-mode ]
 
-;; (use-package wc-mode
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (add-hook 'org-mode-hook 'wc-mode)
-;;   )
+(use-package wc-mode
+  :ensure t
+  :config
+  ;; fix `wc-mode' minor-mode update with `':lighter (:eval (wc-mode-update))'.
+  (add-hook 'wc-mode-hook #'wc-mode-update)
+  
+  (add-hook 'org-mode-hook 'wc-mode)
+  )
 
 
 (provide 'init-my-authoring)

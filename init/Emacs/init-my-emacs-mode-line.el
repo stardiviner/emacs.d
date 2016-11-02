@@ -208,8 +208,7 @@
 (require 'org-timer)
 
 (use-package wc-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 
 (setq-default
  mode-line-format
@@ -420,14 +419,11 @@
      ))
 
    
-   ;; FIXME: wc-mode (word count) `wc-modeline-format', `wc-mode-update'.
-   ;; (:eval
-   ;;  (if (and (featurep 'wc-mode) wc-mode (active))
-   ;;      (propertize
-   ;;       (let ((wc-modeline-format " WC:[%tw]"))
-   ;;         (format
-   ;;          (wc-format-modeline-string wc-modeline-format)))
-   ;;       'face '(:foreground "green yellow" :family "Monospace" :height 75))))
+   ;; wc-mode (word count) `wc-format-modeline-string', `wc-mode-update'.
+   (:eval
+    (if (and (featurep 'wc-mode) wc-mode (active))
+        (propertize (wc-format-modeline-string " WC:[%tw]")
+                    'face '(:foreground "green yellow" :height 75))))
 
    
    ;; mmm-mode
