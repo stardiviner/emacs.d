@@ -457,7 +457,7 @@
                                                   company-candidates)
                                              company-lighter-base)
                      ;; (symbol-name company-backend)
-                     'face '(:foreground "green yellow" :slant 'italic)
+                     'face '(:foreground "green yellow")
                      'help-echo "company-mode current backend")
          )))
 
