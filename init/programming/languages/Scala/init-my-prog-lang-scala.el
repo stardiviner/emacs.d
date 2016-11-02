@@ -10,7 +10,17 @@
 ;;; [ scala-mode ]
 
 (use-package scala-mode
-  :ensure t)
+  :ensure t
+  :config
+  ;; let the awesome Smartparens take care of parentheses in Scala buffers.
+  (remove-hook 'post-self-insert-hook
+               'scala-indent:indent-on-parentheses)
+
+  (sp-local-pair 'scala-mode "(" nil
+                 :post-handlers '(("||\n[i]" "RET")))
+  (sp-local-pair 'scala-mode "{" nil
+                 :post-handlers '(("||\n[i]" "RET") ("| " "SPC")))
+  )
 
 
 ;;; [ sbt-mode ]
