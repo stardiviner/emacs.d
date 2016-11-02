@@ -17,14 +17,10 @@
 
 (use-package auctex
   :ensure t
-  :defer t
-  :init
+  :config
   (require 'tex-site)
   (require 'latex)
   
-  :config
-  
-;;; AUCTeX config
   (setq TeX-auto-save t
         TeX-parse-self t)
 
@@ -57,7 +53,7 @@
                ))
 
   
-;;; Fontification
+  ;; Fontification
   (require 'font-latex)
   ;; (setq TeX-install-font-lock)
   ;; macros
@@ -85,7 +81,7 @@
   ;;       preview-auto-cache-preamble 'ask
   ;;       )
 
-;;; view generated PDF with `pdf-tools'. (this is built-in now.)
+  ;; view generated PDF with `pdf-tools'. (this is built-in now.)
   (unless (assoc "PDF Tools" TeX-view-program-list-builtin)
     (add-to-list 'TeX-view-program-list-builtin
                  '("PDF Tools" TeX-pdf-tools-sync-view)))
@@ -144,20 +140,10 @@ character(s), in which case it deletes the space(s) first."
 ;;; [ company-auctex ] & [ company-math ]
 
 (use-package company-math
-  :ensure t
-  :defer t)
+  :ensure t)
 
 (use-package company-auctex
   :ensure t
-  :defer t
-  :init
-  (dolist (hook '(tex-mode-hook
-                  TeX-mode-hook
-                  latex-mode-hook
-                  LaTeX-mode-hook ; from AUCTeX
-                  ))
-    (add-hook hook #'my-company-auctex-setup))
-
   :config
   (defun my-company-auctex-setup ()
     ;; indent
@@ -184,7 +170,7 @@ character(s), in which case it deletes the space(s) first."
     (add-to-list 'company-backends 'company-auctex-macros)
     
     ;; linter
-    (flycheck-mode)
+    (flycheck-mode 1)
 
     ;; Doc
     ;; (info-lookup-add-help
@@ -208,6 +194,13 @@ character(s), in which case it deletes the space(s) first."
     ;; Math
     ;; (LaTeX-math-mode)
     )
+
+  (dolist (hook '(tex-mode-hook
+                  TeX-mode-hook
+                  latex-mode-hook
+                  LaTeX-mode-hook ; from AUCTeX
+                  ))
+    (add-hook hook #'my-company-auctex-setup))
   )
 
 
@@ -215,16 +208,14 @@ character(s), in which case it deletes the space(s) first."
 
 (use-package reftex
   :ensure t
-  :defer t
-  :init
+  :config
+  (setq reftex-cite-prompt-optional-args t) ; prompt for empty optional arguments in cite.
+
   (add-hook 'LaTeX-mode-hook
             (lambda ()
               (turn-on-reftex)
               (setq reftex-plug-into-AUCTeX t)
               (reftex-isearch-minor-mode)))
-  
-  :config
-  (setq reftex-cite-prompt-optional-args t) ; prompt for empty optional arguments in cite.
   )
 
 
@@ -253,13 +244,6 @@ character(s), in which case it deletes the space(s) first."
 
 (use-package magic-latex-buffer
   :ensure t
-  :defer t
-  :init
-  (add-hook 'LaTeX-mode-hook 'magic-latex-buffer)
-  ;; disable this, because `iimage-mode' auto open image in external program
-  ;; caused `LaTeX-mode-hook' break.
-  ;; (add-hook 'LaTeX-mode-hook 'turn-off-iimage-mode)
-
   :config
   ;; You can disable some features independently, if they’re too fancy.
   (setq magic-latex-enable-block-highlight nil
@@ -267,6 +251,11 @@ character(s), in which case it deletes the space(s) first."
         magic-latex-enable-pretty-symbols  t
         magic-latex-enable-block-align     t
         magic-latex-enable-inline-image    t)
+
+  (add-hook 'LaTeX-mode-hook 'magic-latex-buffer)
+  ;; disable this, because `iimage-mode' auto open image in external program
+  ;; caused `LaTeX-mode-hook' break.
+  ;; (add-hook 'LaTeX-mode-hook 'turn-off-iimage-mode)
   )
 
 
@@ -274,12 +263,10 @@ character(s), in which case it deletes the space(s) first."
 
 (use-package latex-preview-pane
   :ensure t
-  :defer t
-  :init
-  (latex-preview-pane-enable)
-  
   :config
   (setq preview-orientation 'right)
+
+  (latex-preview-pane-enable)
   )
 
 
