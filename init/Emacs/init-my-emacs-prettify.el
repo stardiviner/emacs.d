@@ -57,10 +57,9 @@
   :defer t
   :init
   (add-hook 'org-mode-hook #'digit-groups-mode)
-
   :config
   (set-face-attribute 'digit-groups-default-face nil
-                      :foreground "light gray")
+                      :foreground "orange")
   )
 
 
