@@ -10,29 +10,25 @@
 ;;; [ scala-mode ]
 
 (use-package scala-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 
 
 ;;; [ sbt-mode ]
 
 (use-package sbt-mode
   :ensure t
-  :defer t
   :commands sbt-start sbt-command
-  :init
-  (define-key scala-mode-map (kbd "C-c C-s") 'run-scala)
+  :bind (:map scala-mode-map
+              ("C-c C-s" . run-scala))
   )
 
 
-;;; [ Ensime ]
+;;; [ ENSIME ]
 
 (use-package ensime
   :ensure t
-  :defer t
   :init
   (add-hook 'scala-mode-hook 'ensime-mode)
-  
   :config
   (setq ensime-completion-style 'company
         ensime-graphical-tooltips t
