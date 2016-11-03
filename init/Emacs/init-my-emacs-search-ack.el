@@ -7,9 +7,10 @@
 
 ;;; Code:
 
-;;; [ Ack ]
+;;; [ Ack ] -- ack client for Emacs.
 
-;; (require 'ack)
+(use-package ack
+  :ensure t)
 
 
 ;;; [ Full Ack ] -- An Emacs front-end for ack
