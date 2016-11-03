@@ -11,7 +11,9 @@
 
 (use-package ereader
   :ensure t
-  :defer t)
+  :config
+  (require 'org-ebook)
+  )
 
 
 (provide 'init-my-emacs-ebook)
