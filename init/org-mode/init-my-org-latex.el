@@ -18,7 +18,7 @@
   (interactive)
   (if (not (buffer-file-name))
       (setq-local org-startup-with-latex-preview nil)
-    (setq-local org-startup-with-latex-preview t))
+    (setq org-startup-with-latex-preview t))
   )
 
 (add-hook 'org-mode-hook #'disable-org-latex-preview-on-nonfile)

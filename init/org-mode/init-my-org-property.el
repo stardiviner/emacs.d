@@ -7,6 +7,8 @@
 
 ;;; Code:
 
+;; (setq org-use-property-inheritance t)
+
 ;;; auto adding CUSTOM_ID property for heading
 
 ;; (require 'org-id)
