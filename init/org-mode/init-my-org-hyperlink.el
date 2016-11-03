@@ -72,7 +72,10 @@
 
 
 ;; `org-link-types'
-;; `org-add-link-type' + `org-add-link-props'
+;; `org-link-set-parameters' `org-add-link-type' (deprecated) + `org-add-link-props'
+;; (org-link-set-parameters "ebib"
+;;                          :follow #'org-ebib-open
+;;                          :store #'org-ebib-store-link)
 
 
 ;; `shell:'
@@ -93,7 +96,8 @@
 
 ;;; telnet: link type
 ;;  telnet://ptt.cc
-(org-add-link-type "telnet" 'telnet)
+(org-link-set-parameters "telnet"
+                         :follow #'telnet)
 
 
 ;; RSS
@@ -101,7 +105,8 @@
   "Open rss:// URI link."
   (eww uri))
 
-(org-add-link-type "rss" 'org-rss-link-open)
+(org-link-set-parameters "rss"
+                         :follow #'org-rss-link-open)
 
 
 ;; append "`man:'" protocol.
@@ -122,7 +127,8 @@
     (org-open-file (car list) t)
     (occur (mapconcat 'identity (cdr list) "#"))))
 
-(org-add-link-type "occur" 'org-occur-link-open)
+(org-link-set-parameters "occur"
+                         :follow #'org-occur-link-open)
 
 ;;; [[grep:regexp][regexp (grep)]]
 (defun org-grep-link-open (regexp)
@@ -130,7 +136,8 @@
   (grep-compute-defaults)
   (rgrep regexp "*" (expand-file-name "./")))
 
-(org-add-link-type "grep" 'org-grep-link-open)
+(org-link-set-parameters "grep"
+                         #'org-grep-link-open)
 
 
 ;;; [[tag:]]
@@ -140,7 +147,8 @@
 With prefix argument, also display headlines without a TODO keyword."
   (org-tags-view (null current-prefix-arg) tag))
 
-(org-add-link-type "tag" 'org-tag-link-open)
+(org-link-set-parameters "tag"
+                         :follow #'org-tag-link-open)
 
 
 ;;; [[map:"address name/geography"]]
@@ -201,7 +209,8 @@ With prefix argument, also display headlines without a TODO keyword."
                org-map-application-options
                (shell-quote-wildcard-pattern address))))))
 
-(org-add-link-type "map" 'org-map-link-open)
+(org-link-set-parameters "map"
+                         :follow #'org-map-link-open)
 
 
 
@@ -213,7 +222,8 @@ With prefix argument, also display headlines without a TODO keyword."
   
   )
 
-(org-add-link-type "geo" 'org-geo-link-open)
+(org-link-set-parameters "geo"
+                         :follow #'org-geo-link-open)
 
 
 
