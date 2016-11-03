@@ -51,7 +51,7 @@
       )
 
 ;;; [ ob-lisp ]
-(setq org-babel-lisp-eval-fn #'sly-eval)
+;; (setq org-babel-lisp-eval-fn #'sly-eval)
 
 ;;; [ ob-clojure ]
 (setq org-babel-clojure-backend 'cider)
