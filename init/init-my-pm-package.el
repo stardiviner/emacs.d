@@ -18,11 +18,11 @@
 (setq package-user-dir "~/.emacs.d/elpa")
 
 (setq-default package-archives
-              '(("org"   . "http://orgmode.org/elpa/")
-                ("melpa" . "http://melpa.org/packages/")
+              '(("melpa" . "http://melpa.org/packages/")
                 ;; ("melpa-stable" . "http://stable.melpa.org/packages/")
                 ;; ("marmalade" . "http://marmalade-repo.org/packages/")
-                ("gnu" . "https://elpa.gnu.org/packages/")
+                ;; ("gnu" . "https://elpa.gnu.org/packages/")
+                ("org"   . "http://orgmode.org/elpa/")
                 ))
 
 (package-initialize)
