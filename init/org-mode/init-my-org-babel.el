@@ -40,7 +40,7 @@
       ;; 0: fix `diff' babel syntax highlighting invalid issue.
       org-edit-src-content-indentation 0
       org-src-tab-acts-natively nil ; make [Tab] work native as in major mode.
-      org-src-window-setup 'reorganize-frame ; 'current-window
+      org-src-window-setup 'current-window ; 'reorganize-frame, 'current-window
       org-src-ask-before-returning-to-edit-buffer nil
       org-edit-src-auto-save-idle-delay 0 ; 0: don't auto save.
       )
