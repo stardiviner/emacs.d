@@ -7,12 +7,6 @@
 
 ;;; Code:
 
-
-;;;_* Babel
-;;
-;; - [C-c C-v] :: keymap prefix for babel. `org-babel-map'
-
-
 (setq org-confirm-babel-evaluate nil)
 (setq org-babel-no-eval-on-ctrl-c-ctrl-c nil)
 (setq org-confirm-shell-link-function 'yes-or-no-p)
@@ -39,6 +33,7 @@
 ;;         (:hlines . "yes")
 ;;         ))
 
+;; babel src block editing
 (setq org-src-fontify-natively t
       ;; nil: preserve org indent, t: preserve export indent.
       org-src-preserve-indentation nil
