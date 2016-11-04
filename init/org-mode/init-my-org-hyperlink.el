@@ -35,13 +35,10 @@
         ;; CHM
         ("\\.chm\\'" . "kchmviewer %s")
         ;; EPUB
-        ("\\.epub\\'" . ereader-mode)
         ;; ("\\.epub\\'" . "ebook-viewer %s")
-        ("\\.mobi\\'" . "ebook-viewer %s")
-        ;; AZW3
-        ("\\.azw3\\'" . "ebook-viewer %s")
-        ;; mobi
-        ("\\.mobi\\'" . "ebook-viewer %s")
+        ("\\.epub\\'" . "okular %s") ; use `okular' can store reading progress position.
+        ("\\.mobi\\'" . "okular %s")
+        ("\\.azw3\\'" . "okular %s")
         ;; Image
         ("\\.png\\'" . "sxiv %s")
         ("\\.jpg\\'" . "sxiv %s")

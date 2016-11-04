@@ -13,6 +13,7 @@
   :ensure t
   :config
   (require 'org-ebook)
+  ;; (add-to-list 'org-file-apps '("\\.epub\\'" . ereader-mode))
   )
 
 
