@@ -11,10 +11,8 @@
 
 (use-package octave
   :ensure t
-  :defer t
   :init
   (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
-  
   :config
   (setq octave-auto-indent t
         octave-auto-newline t
@@ -26,8 +24,8 @@
         octave-send-show-buffer t
         )
 
-  (define-key octave-mode-map (kbd "C-h d") 'octave-help)
-  (define-key inferior-octave-mode-map (kbd "C-h d") 'octave-help)
+  (define-key octave-mode-map (kbd "C-c C-d") 'octave-help)
+  (define-key inferior-octave-mode-map (kbd "C-c C-d") 'octave-help)
   )
 
 
@@ -35,8 +33,7 @@
 
 (use-package ac-octave
   :ensure t
-  :defer t
-  :init
+  :config
   (defun ac-octave-mode-setup ()
     (add-to-list 'ac-sources 'ac-source-octave))
   
