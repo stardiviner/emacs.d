@@ -27,6 +27,9 @@
 
 (toggle-frame-maximized)
 
+;;; initial values
+(setq scheme-program-name "guile")
+(setq geiser-default-implementation 'guile)
 
 
 (require 'server)
