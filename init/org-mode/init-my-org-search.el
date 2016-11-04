@@ -7,6 +7,8 @@
 
 ;;; Code:
 
+(setq org-occur-case-fold-search 'smart)
+
 ;;; [ Agenda dispatcher ]
 
 ;; (org-agenda-dispatch)
