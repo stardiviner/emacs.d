@@ -5,6 +5,47 @@
 
 ;;; Code:
 
+;;; [ Emacs Speaks Statistics (ESS) ]
+
+(use-package ess
+  :ensure t
+  :defer t
+  :init
+  (require 'ess-site)
+  :config
+  (setq ess-use-ido t
+        ess-ido-flex-matching t
+        ess-pdf-viewer-pref '("zauthura")
+        ;; ess-ps-viewer-pref nil
+        ;; ESS Edit
+        ess-auto-newline t
+        ;; ESS Extra
+        ess-describe-at-point-method 'tooltip
+        ;; ESS Help
+        ;; alist of frame parameters used to create help frames.
+        ;; ess-help-frame-alist '((height . 14) (width . 80) (unsplittable . t))
+        ess-help-own-frame nil
+        ess-help-pop-to-buffer t
+        ess-help-reuse-window t
+        ;; ESS Proc
+        ess-eval-visibly nil ; speedup eval without show the eval commands.
+        ess-eval-visibly-at-end t
+        ess-execute-in-process-buffer nil
+        )
+
+  ;; completing support
+  ;; - `ess-company-backends' :: for company-mode.
+  ;; - `ess-ac-sources' :: for auto-complete.
+  (setq ess-use-company t)
+  (setq ess-use-auto-complete nil)
+
+  (setq ess-use-eldoc t)
+
+  ;; auto start ESS inferior process
+  ;; (add-hook 'ess-mode-hook #'ess-force-buffer-current)
+  )
+
+
 ;;; [ R-mode ]
 
 (autoload 'R-mode "ess-site" "R-mode" t)
@@ -39,6 +80,7 @@
 
 (unless (boundp 'my-prog-inferior-map)
   (define-prefix-command 'my-prog-inferior-map))
+
 (define-key my-prog-inferior-map (kbd "R")
   '(lambda ()
      (my-func/open-and-switch-to-buffer 'R "*R*" t)))
