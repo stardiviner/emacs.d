@@ -58,21 +58,15 @@
   :config
   ;; auto start geiser inferior buffer process `run-geiser'.
   (defun my-run-geiser-auto ()
+    (interactive)
     (let ((geiser-guile-buffer "* Guile REPL *")
           (geiser-racket-buffer "* Racket REPL *")
           (geiser-chicken-buffer "* Chicken REPL *"))
       (unless (get-buffer geiser-guile-buffer)
         (save-window-excursion
-          (run-geiser geiser-default-implementation))
-        )
-      )
-    )
+          (run-geiser geiser-default-implementation)))))
 
-  (add-hook 'geiser-mode-hook
-            (lambda ()
-              ;; 'run-geiser)
-              (define-key geiser-mode-map (kbd "C-c C-s") 'my-run-geiser-auto)
-              ))
+  (define-key geiser-mode-map (kbd "C-c C-s") 'my-run-geiser-auto)
   )
 
 
