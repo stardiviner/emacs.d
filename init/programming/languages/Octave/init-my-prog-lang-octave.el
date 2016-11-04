@@ -29,17 +29,6 @@
   )
 
 
-;;; [ ac-octave ]
-
-(use-package ac-octave
-  :ensure t
-  :config
-  (defun ac-octave-mode-setup ()
-    (add-to-list 'ac-sources 'ac-source-octave))
-  
-  (add-hook 'octave-mode-hook #'ac-octave-mode-setup)
-  )
-
 
 (provide 'init-my-prog-lang-octave)
 
