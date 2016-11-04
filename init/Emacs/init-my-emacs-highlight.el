@@ -47,7 +47,15 @@
   :ensure t
   :defer t
   :init
-  ;; (add-hook 'prog-mode-hook 'highlight-symbol-mode)
+  (add-hook 'prog-mode-hook 'highlight-symbol-mode)
+  :config
+  (setq highlight-symbol-idle-delay 2
+        ;; highlight-symbol-border-pattern '("\\_<" . "\\_>")
+        highlight-symbol-colors '("brown" "tomato" "dark green" "dark slate gray"
+                                  "deep pink" "cyan" "yellow"
+                                  )
+        highlight-symbol-foreground-color nil ; nil: keep original color.
+        )
 
   (unless (boundp 'my-highlight-symbol-prefix)
     (define-prefix-command 'my-highlight-symbol-prefix))
@@ -66,15 +74,6 @@
   (define-key my-highlight-symbol-prefix (kbd "U") 'highlight-symbol-remove-all)
   (define-key my-highlight-symbol-prefix (kbd "u") 'highlight-symbol-at-point)
   (define-key my-highlight-symbol-prefix (kbd "m") 'highlight-symbol-nav-mode)
-  
-  :config
-  (setq highlight-symbol-idle-delay 3
-        ;; highlight-symbol-border-pattern '("\\_<" . "\\_>")
-        highlight-symbol-colors '("brown" "tomato" "dark green" "dark slate gray"
-                                  "deep pink" "cyan" "yellow"
-                                  )
-        highlight-symbol-foreground-color nil ; nil: keep original color.
-        )
   )
 
 
