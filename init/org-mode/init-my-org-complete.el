@@ -7,14 +7,6 @@
 
 ;;; Code:
 
-
-(if (featurep 'ivy)
-    (setq org-completion-fallback-command 'ivy-read)
-  ;; `completing-read', `ido', `ivy-read', `hippie-expand',
-  (setq org-completion-fallback-command 'completing-read)
-  )
-
-
 ;;; add Org-mode's `capf' default to `pcomplete' for `company-mode'.
 
 (defun my-org-mode-completion-setting ()
