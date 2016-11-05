@@ -100,11 +100,10 @@
 ;; Emphasize
 ;; org-verbatim: =verbatim=
 (set-face-attribute 'org-verbatim nil
-                    :background "#222222" :foreground "orange"
-                    :bold nil :box nil
-                    ;; :family "Segoe Print"
-                    :family "Comic Sans MS"
-                    :height 95
+                    :background (color-darken-name (face-background 'default) 5)
+                    :foreground "LimeGreen"
+                    :weight 'bold
+                    ;; :family "Comic Sans MS"
                     )
 
 ;; table
