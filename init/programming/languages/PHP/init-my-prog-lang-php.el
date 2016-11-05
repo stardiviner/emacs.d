@@ -11,7 +11,6 @@
 
 (use-package php-mode
   :ensure t
-  :defer t
   :init
   (with-eval-after-load 'php-mode
     (require 'php-ext))
@@ -23,9 +22,8 @@
   (setq indent-tabs-mode nil
         c-basic-offset 2
         php-template-compatibility nil
+        php-search-documentation-browser-function t
         )
-  
-  (setq php-search-documentation-browser-function t)
   )
 
 
@@ -57,8 +55,7 @@
 
 (use-package ac-php
   :ensure t
-  :defer t
-  :init
+  :config
   ;; fix ac-php duplicate parentheses with `smartparens-mode'.
   (add-to-list 'sp-ignore-modes-list 'php-mode)
   
@@ -71,8 +68,6 @@
               ;; (setq ac-sources '(ac-source-php))
               (add-to-list 'ac-sources 'ac-source-php-template)
               (add-to-list 'ac-sources 'ac-source-php)
-              
-              (smartparens-mode 1)
               ))
   
   ;; keybindings
@@ -87,7 +82,6 @@
 
 (use-package php-eldoc
   :ensure t
-  :defer t
   :init
   (add-hook 'php-mode-hook 'php-eldoc-enable))
 
@@ -102,11 +96,11 @@
 
 (use-package phpunit
   :ensure t
-  :defer t
   :init
-  (define-key php-mode-map (kbd "C-c t t") 'phpunit-current-test)
-  (define-key php-mode-map (kbd "C-c t c") 'phpunit-current-class)
-  (define-key php-mode-map (kbd "C-c t p") 'phpunit-current-project)
+  (with-eval-after-load 'php-mode
+    (define-key php-mode-map (kbd "C-c t t") 'phpunit-current-test)
+    (define-key php-mode-map (kbd "C-c t c") 'phpunit-current-class)
+    (define-key php-mode-map (kbd "C-c t p") 'phpunit-current-project))
   )
 
 
