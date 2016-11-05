@@ -159,15 +159,15 @@
         ;; cider-completion-annotations-include-ns 'always ; 'unqualified
         cider-completion-annotations-alist '(("class" "c")
                                              ("field" "fi")
-                                             ("function" "λ") ; f, λ
+                                             ("function" "λ") ; f, λ, ƒ
                                              ("import" "i")
                                              ("keyword" "k")
                                              ("local" "l")
                                              ("macro" "♪") ; ♪, ➜
-                                             ("method" "me")
+                                             ("method" "m")
                                              ("namespace" "ns")
                                              ("protocol" "p")
-                                             ("protocol-function" "pf")
+                                             ("protocol-function" "p-λ")
                                              ("record" "r")
                                              ("special-form" "s")
                                              ("static-field" "sf")
