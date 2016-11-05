@@ -7,107 +7,101 @@
 
 ;;; Code:
 
+(unless (boundp 'isearch-prefix)
+  (define-prefix-command 'isearch-prefix))
+(define-key my-search-prefix (kbd "i") 'isearch-prefix)
+
+
 ;;; [ Isearch ] -- Incremental Search
 
-(setq search-highlight t
-      query-replace-highlight t
-      query-replace-show-replacement t
-      ;; query-replace-from-to-separator "->"
-      isearch-allow-scroll t
-      )
+(use-package isearch
+  :bind (("C-s" . isearch-forward)
+         ("C-M-s" . isearch-forward-regexp)
+         ("M-%" . query-replace-regexp)
+         :map isearch-prefix
+         ("i" . isearch-forward)
+         ("C-i" . isearch-forward-symbol-at-point)
+         ("I" . isearch-forward-regexp)
+         ("f" . isearch-forward)
+         ("C-f" . isearch-forward-symbol-at-point)
+         ("F" . isearch-forward-regexp)
+         ("b" . isearch-backward)
+         ("B" . isearch-backward-regexp)
+         ("o" . isearch-occur)
+         ("r" . vr/isearch-forward)
+         ("R" . vr/isearch-backward)
+         )
+  :config
+  (setq search-highlight t
+        query-replace-highlight t
+        query-replace-show-replacement t
+        ;; query-replace-from-to-separator "->"
+        isearch-allow-scroll t
+        isearch-lazy-highlight t
+        )
+  ;; case smart
+  (setq-default case-fold-search t
+                case-replace t
+                )
+  ;; default mode to use when starting isearch.
+  (setq search-default-mode 'char-fold-to-regexp ; for isearch [C-s]
+        ;; replace-char-fold t ; for command `query-replace'
+        )
 
-(setq isearch-lazy-highlight t)
+  
+  ;; isearch
+  (set-face-attribute 'isearch nil
+                      :inherit nil
+                      :inverse-video nil
+                      :background (color-darken-name (face-background 'default) 5)
+                      :foreground "pink"
+                      :box '(:color "green" :line-width 1)
+                      :slant 'italic
+                      :weight 'normal)
+  (set-face-attribute 'isearch-fail nil
+                      :inherit nil
+                      :inverse-video nil
+                      :background (color-darken-name (face-background 'default) 5)
+                      :foreground "dark red"
+                      :weight 'bold
+                      :slant 'italic)
+  ;; match
+  (set-face-attribute 'lazy-highlight nil
+                      :inherit nil
+                      :inverse-video nil
+                      :background (color-darken-name (face-background 'default) 5)
+                      :foreground "cyan"
+                      :weight 'bold
+                      )
+  (set-face-attribute 'match nil
+                      :inherit nil
+                      :inverse-video nil
+                      :background (color-darken-name (face-background 'default) 3)
+                      :foreground "red"
+                      )
+  ;; replace
+  (set-face-attribute 'query-replace nil
+                      :inherit nil
+                      :inverse-video nil
+                      :background (color-darken-name (face-background 'default) 5)
+                      :foreground "orange"
+                      :weight 'bold
+                      :box '(:color "black" :line-width 1 :style nil))
 
-;; case smart
-(setq-default case-fold-search t
-              case-replace t
-              )
+  ;;; smart delete/backspace in isearch
+  (defun isearch-smart-delete ()
+    "Delete the failed portion of the search string, or the last char if successful."
+    (interactive)
+    (with-isearch-suspended
+     (setq isearch-new-string
+           (substring
+            isearch-string 0 (or (isearch-fail-pos) (1- (length isearch-string))))
+           isearch-new-message
+           (mapconcat 'isearch-text-char-description isearch-new-string ""))))
 
-;; default mode to use when starting isearch.
-(setq search-default-mode 'char-fold-to-regexp ; for isearch [C-s]
-      ;; replace-char-fold t ; for command `query-replace'
-      )
-
-;; isearch
-(set-face-attribute 'isearch nil
-                    :inherit nil
-                    :inverse-video nil
-                    :background (color-darken-name (face-background 'default) 5)
-                    :foreground "pink"
-                    :box '(:color "green" :line-width 1)
-                    :slant 'italic
-                    :weight 'normal)
-(set-face-attribute 'isearch-fail nil
-                    :inherit nil
-                    :inverse-video nil
-                    :background (color-darken-name (face-background 'default) 5)
-                    :foreground "dark red"
-                    :weight 'bold
-                    :slant 'italic)
-;; match
-(set-face-attribute 'lazy-highlight nil
-                    :inherit nil
-                    :inverse-video nil
-                    :background (color-darken-name (face-background 'default) 5)
-                    :foreground "cyan"
-                    :weight 'bold
-                    )
-(set-face-attribute 'match nil
-                    :inherit nil
-                    :inverse-video nil
-                    :background (color-darken-name (face-background 'default) 3)
-                    :foreground "red"
-                    )
-;; replace
-(set-face-attribute 'query-replace nil
-                    :inherit nil
-                    :inverse-video nil
-                    :background (color-darken-name (face-background 'default) 5)
-                    :foreground "orange"
-                    :weight 'bold
-                    :box '(:color "black" :line-width 1 :style nil))
-
-
-;;; swap isearch with isearch-regexp.
-;; replace [C-s] default (isearch-forward), press [M-r] to toggle isearch-regexp.
-;; the default 'isearch-forward-regexp is bind to [C-M-s]
-(global-set-key (kbd "C-s") 'isearch-forward-regexp)
-;; replace [M-%] default (query-replace)
-(global-set-key (kbd "M-%") 'query-replace-regexp)
-
-(unless (boundp 'my-isearch-prefix)
-  (define-prefix-command 'my-isearch-prefix))
-(define-key my-search-prefix (kbd "i") 'my-isearch-prefix)
-
-(define-key my-isearch-prefix (kbd "i") 'isearch-forward)
-(define-key my-isearch-prefix (kbd "C-i") 'isearch-forward-symbol-at-point)
-(define-key my-isearch-prefix (kbd "I") 'isearch-forward-regexp)
-(define-key my-isearch-prefix (kbd "f") 'isearch-forward)
-(define-key my-isearch-prefix (kbd "C-f") 'isearch-forward-symbol-at-point)
-(define-key my-isearch-prefix (kbd "F") 'isearch-forward-regexp)
-(define-key my-isearch-prefix (kbd "b") 'isearch-backward)
-(define-key my-isearch-prefix (kbd "B") 'isearch-backward-regexp)
-(define-key my-isearch-prefix (kbd "o") 'isearch-occur)
-(define-key my-isearch-prefix (kbd "r") 'vr/isearch-forward)
-(define-key my-isearch-prefix (kbd "R") 'vr/isearch-backward)
-
-
-;;; custom function
-
-;;; smart delete/backspace in isearch
-
-(defun isearch-smart-delete ()
-  "Delete the failed portion of the search string, or the last char if successful."
-  (interactive)
-  (with-isearch-suspended
-   (setq isearch-new-string
-         (substring
-          isearch-string 0 (or (isearch-fail-pos) (1- (length isearch-string))))
-         isearch-new-message
-         (mapconcat 'isearch-text-char-description isearch-new-string ""))))
-
-(define-key isearch-mode-map (kbd "<backspace>") 'isearch-smart-delete)
-(define-key isearch-mode-map (kbd "DEL") 'isearch-smart-delete)
+  (define-key isearch-mode-map (kbd "<backspace>") 'isearch-smart-delete)
+  (define-key isearch-mode-map (kbd "DEL") 'isearch-smart-delete)
+  )
 
 
 ;; (use-package isearch+
