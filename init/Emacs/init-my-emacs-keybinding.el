@@ -32,10 +32,9 @@
 
 ;;; Search Keybindings
 
-;; Occur search the full list of keybinds & their commands. Very helpful for
-;; learning and remembering forgotten binds.
-
 (defun search-keybind (regexp &optional nlines)
+  "Occur search the full list of keybinds & their commands. Very
+helpful for learning and remembering forgotten binds."
   (interactive (occur-read-primary-args))
   (save-excursion
     (describe-bindings)
@@ -43,7 +42,7 @@
     (occur regexp nlines)
     (delete-windows-on "*Help*")))
 
-(define-key help-map (kbd "C-k") 'search-keybind)
+(define-key help-map (kbd "M-k") 'search-keybind)
 
 
 ;;; stop using the arrow keys
