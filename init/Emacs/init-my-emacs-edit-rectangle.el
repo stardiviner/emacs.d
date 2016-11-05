@@ -24,7 +24,7 @@
 (global-unset-key (kbd "C-x r M-w"))
 
 (define-key rectangle-map (kbd "r") 'rectangle-mark-mode)
-(define-key rectangle-map (kbd "m") 'rectangle-mark-mode)
+(define-key rectangle-map (kbd "m") 'set-rectangular-region-anchor)
 (define-key rectangle-map (kbd "c") 'copy-rectangle-to-register)
 (define-key rectangle-map (kbd "M-w") 'copy-rectangle-as-kill)
 (define-key rectangle-map (kbd "y") 'yank-rectangle)
