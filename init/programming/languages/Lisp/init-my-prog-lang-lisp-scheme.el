@@ -46,7 +46,6 @@
   :init
   ;; 'guile, 'racket, 'chicken
   (setq geiser-default-implementation 'guile)
-  
   ;; company-backend
   (add-hook 'scheme-mode-hook
             (lambda ()
@@ -54,7 +53,6 @@
               ;; (my-run-geiser-auto)
               (my-company-add-backend-locally 'geiser-company-backend)
               ))
-
   :config
   ;; auto start geiser inferior buffer process `run-geiser'.
   (defun my-run-geiser-auto ()
@@ -66,7 +64,7 @@
         (save-window-excursion
           (run-geiser geiser-default-implementation)))))
 
-  (define-key geiser-mode-map (kbd "C-c C-s") 'my-run-geiser-auto)
+  (define-key scheme-mode-map (kbd "C-c C-s") 'my-run-geiser-auto)
   )
 
 
