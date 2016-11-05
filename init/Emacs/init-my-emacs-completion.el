@@ -10,9 +10,12 @@
 ;;; Usage:
 ;;
 ;; - `completion-at-point-functions' is a special hook.
-;;    (add-hook 'completion-at-point-functions 'completion-function)
+;;    add a completion command into it with mode locally.
+;;    (add-hook 'completion-at-point-functions 'completion-function nil t)
 
 (setq completion-ignore-case t)
+
+(setq-default completion-at-point-functions nil)
 
 ;; (setq-default completion-at-point-functions
 ;;               '(pcomplete-completions-at-point
