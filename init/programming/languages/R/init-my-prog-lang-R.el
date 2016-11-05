@@ -81,9 +81,11 @@
 (unless (boundp 'my-prog-inferior-map)
   (define-prefix-command 'my-prog-inferior-map))
 
-(define-key my-prog-inferior-map (kbd "R")
-  '(lambda ()
-     (my-func/open-and-switch-to-buffer 'R "*R*" t)))
+(defun my-run-R-auto ()
+  (interactive)
+  (my-func/open-and-switch-to-buffer 'R "*R*" t))
+
+(define-key my-prog-inferior-map (kbd "R") 'my-run-R-auto)
 
 
 ;;; completing support
