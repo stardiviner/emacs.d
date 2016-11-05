@@ -11,7 +11,6 @@
 
 (use-package rust-mode
   :ensure t
-  :defer t
   :config
   (setq rust-indent-offset 4
         rust-indent-method-chain t
@@ -23,11 +22,10 @@
     "Some basic settings for Rust."
     (interactive)
     (eldoc-mode 1)
+    (define-key racer-mode-map (kbd "C-c C-d d") 'racer-describe)
     )
 
   (add-hook 'rust-mode-hook #'my-rust-basic-settings)
-
-  (define-key racer-mode-map (kbd "C-c C-d d") 'racer-describe)
   )
 
 
@@ -35,7 +33,6 @@
 
 (use-package flycheck-rust
   :ensure t
-  :defer t
   :init
   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
   )
@@ -45,7 +42,6 @@
 
 (use-package racer
   :ensure t
-  :defer t
   :init
   ;; config racer in the path.
   (unless (getenv "RUST_SRC_PATH")
@@ -56,9 +52,6 @@
   
   ;; auto start racer for rust-mode.
   (add-hook 'rust-mode-hook #'racer-mode)
-
-  :config
-  (add-hook 'racer-mode-hook #'eldoc-mode)
   )
 
 
@@ -77,9 +70,7 @@
 
 (use-package cargo
   :ensure t
-  :defer t
-  :init
-  )
+  :defer t)
 
 
 (provide 'init-my-prog-lang-rust)
