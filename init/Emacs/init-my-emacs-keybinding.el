@@ -69,10 +69,7 @@
   :init
   ;; TODO: workaround for bug (void-function display-buffer-in-major-side-window)
   (defalias 'display-buffer-in-major-side-window 'window--make-major-side-window)
-
-  (global-set-key (kbd "C-x C-t") 'which-key-show-top-level)
-  (which-key-mode)
-  
+  :bind (("C-x C-t" . which-key-show-top-level))
   :config
   (setq which-key-idle-delay 1.5
         which-key-idle-secondary-delay nil)
@@ -94,6 +91,8 @@
           "rectangle" "iedit"
           ("emacs" . highlight)
           ))
+
+  (which-key-mode 1)
   )
 
 
