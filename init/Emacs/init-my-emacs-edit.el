@@ -32,6 +32,7 @@
 (require 'init-my-emacs-region)
 (require 'init-my-emacs-macro)
 (require 'init-my-emacs-edit-electric)
+(require 'init-my-emacs-edit-rectangle)
 (require 'init-my-emacs-edit-narrow)
 (require 'init-my-emacs-edit-tabulate)
 (require 'init-my-emacs-edit-multiple-cursors)
