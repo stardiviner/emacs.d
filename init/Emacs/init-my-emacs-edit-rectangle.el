@@ -10,7 +10,7 @@
 
 (unless (boundp 'my-rectangle-map)
   (define-prefix-command 'my-rectangle-map))
-(global-set-key (kbd "C-x r r") 'my-rectangle-map)
+(global-set-key (kbd "C-x e r") 'my-rectangle-map)
 
 (global-unset-key (kbd "C-x r N"))
 (global-unset-key (kbd "C-x r t"))
