@@ -109,8 +109,13 @@
 (define-key isearch-mode-map (kbd "<backspace>") 'isearch-smart-delete)
 (define-key isearch-mode-map (kbd "DEL") 'isearch-smart-delete)
 
-;; or from isearch+ use [M-s e]
-(setq isearchp-drop-mismatch t)
+
+;; (use-package isearch+
+;;   :ensure t
+;;   :config
+;;   ;; or from isearch+ use [M-s e]
+;;   (setq isearchp-drop-mismatch t)
+;;   )
 
 
 ;;;_ query & replace
