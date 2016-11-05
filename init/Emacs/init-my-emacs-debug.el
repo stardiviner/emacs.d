@@ -225,8 +225,8 @@
 
 ;;; [ bug-hunter ] -- Hunt down errors in elisp files.
 
-;; (use-package bug-hunter
-;;   :ensure t)
+(use-package bug-hunter
+  :ensure t)
 
 
 
