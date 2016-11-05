@@ -100,8 +100,10 @@
 
 (use-package hydra
   :ensure t
-  :defer t
-  :init
+  :config
+  ;; display a hint with possible bindings in the echo area.
+  (setq hydra-is-helpful t)
+
   ;; examples
   (require 'hydra-examples)
   
@@ -140,10 +142,6 @@
      ("q" nil "cancel")
      )
    )
-  
-  :config
-  ;; display a hint with possible bindings in the echo area.
-  (setq hydra-is-helpful t)
   )
 
 
