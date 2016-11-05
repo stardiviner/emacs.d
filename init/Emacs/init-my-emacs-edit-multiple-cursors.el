@@ -16,9 +16,9 @@
 (use-package iedit
   :ensure t
   :bind (:map my-edit-prefix
-	      ("e" . iedit-dwim)
-	      ("C-;" . iedit-mode)
-	      )
+              ("e" . iedit-mode)
+              ("C-e" . iedit-dwim)
+              )
   :config
   (setq iedit-occurrence-face 'isearch) ; 'highlight
 
