@@ -17,12 +17,13 @@
   :ensure t
   :defer t
   :init
-  (setq auto-mode-alist (append (list
-                                 '("\\.gp\\'" . gnuplot-mode)
-                                 '("\\.plt\\'" . gnuplot-mode)
-                                 '("\\.gnuplot\\'" . gnuplot-mode)
-                                 )
-                                auto-mode-alist))
+  (setq auto-mode-alist
+        (append (list
+                 '("\\.gp\\'" . gnuplot-mode)
+                 '("\\.plt\\'" . gnuplot-mode)
+                 '("\\.gnuplot\\'" . gnuplot-mode)
+                 )
+                auto-mode-alist))
   :config
   (require 'gnuplot-context)
   
@@ -43,8 +44,8 @@
 
               ;; (setq gnuplot-completion-at-point-function
               ;;       #'gnuplot-context-completion-at-point)
-              (add-to-list (make-local-variable 'completion-at-point-functions)
-                           #'gnuplot-context-completion-at-point)
+              (add-hook 'completion-at-point-functions
+                        'gnuplot-context-completion-at-point nil t)
               
               ;; Setup Eldoc
               (eldoc-mode 1)

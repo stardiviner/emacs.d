@@ -34,9 +34,10 @@
             (turn-on-orgtbl)
 
             ;; add email name complete support
-            (setq-local completion-at-point-functions
-                        '(mail-completion-at-point-function
-                          message-completion-function))
+            (add-hook 'completion-at-point-functions
+                      'mail-completion-at-point-function nil t)
+            (add-hook 'completion-at-point-functions
+                      'message-completion-function nil t)
             ))
 
 

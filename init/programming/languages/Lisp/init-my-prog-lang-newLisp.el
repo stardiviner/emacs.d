@@ -19,9 +19,8 @@
 
   (add-hook 'newlisp-mode-hook
             #'(lambda ()
-                (make-local-variable 'completion-at-point-functions)
-                (add-to-list 'completion-at-point-functions
-                             'newlisp-completion-at-point)
+                (add-hook 'completion-at-point-functions
+                          'newlisp-completion-at-point nil t)
                 ))
   
   ;; setup `*newlisp*' buffer (`comint-mode' of newLisp)
@@ -31,11 +30,9 @@
           (eldoc-mode t)
           ;; (paredit-mode t)
           (smartparens-strict-mode 1)
-
           ;; for `company-mode' backend `company-capf'
-          (make-local-variable 'completion-at-point-functions)
-          (add-to-list 'completion-at-point-functions
-                       'newlisp-completion-at-point)
+          (add-hook 'completion-at-point-functions
+                    'newlisp-completion-at-point nil t)
           )))
 
   (add-hook 'comint-mode-hook 'newlisp-repl-inferior-buffer-setup)

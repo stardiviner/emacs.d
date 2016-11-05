@@ -48,18 +48,18 @@
 ;;; Sclang minor mode
 
 ;;; auto-complete for SuperCollider
-(add-hook 'sclang-mode-hook
-          (lambda ()
-            (company-mode -1)
-
-            (setq-local ac-auto-start 1)
-            ))
-
-;;; company-mode for SuperCollider
 ;; (add-hook 'sclang-mode-hook
 ;;           (lambda ()
-;;             (make-local-variable completion-at-point-functions)
-;;             (setq completion-at-point-functions '(sclang-complete-symbol t))))
+;;             (company-mode -1)
+;;             (setq-local ac-auto-start 1)
+;;             ))
+
+;;; company-mode for SuperCollider
+(add-hook 'sclang-mode-hook
+          (lambda ()
+            (add-hook 'completion-at-point-functions
+                      'sclang-complete-symbol nil t)
+            ))
 
 ;;; auto start SuperCollider inferior process
 (defun my-sclang-auto-start ()

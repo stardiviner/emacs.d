@@ -79,14 +79,17 @@
 
   (add-hook 'edbi:sql-mode-hook
             (lambda ()
-              (define-key edbi:sql-mode-map (kbd "C-c C-q") 'edbi:dbview-query-editor-quit-command)
+              (define-key edbi:sql-mode-map (kbd "C-c C-q")
+                'edbi:dbview-query-editor-quit-command)
               
               (sqlup-mode 1)
 
               ;; for `edbi:completion-tool'
-              (company-mode -1)
-              (auto-complete-mode 1)
-              ;; (add-hook 'completion-at-point-functions 'edbi:completion-at-point-function)
+              (add-hook 'completion-at-point-functions
+                        'edbi:completion-at-point-function nil t)
+              (company-mode 1)
+              
+              (auto-complete-mode -1)
               ))
   )
 

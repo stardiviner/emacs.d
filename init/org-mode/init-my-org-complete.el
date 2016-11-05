@@ -13,17 +13,18 @@
   "My basic settings for org-mode completion."
   (interactive)
   (setq-local company-minimum-prefix-length 2)
-  
-  (setq-local completion-at-point-functions
-              '(pcomplete-completions-at-point t))
+
+  (add-hook 'completion-at-point-functions
+            'pcomplete-completions-at-point nil 'local)
 
   (make-local-variable 'company-backends)
-  (setq company-backends '(company-files
-                           company-capf :with company-yasnippet ; NOTE: not grouped in (.. :with ..)
-                           company-dabbrev-code company-abbrev
-                           company-keywords
-                           ;; company-ispell
-                           ))
+  (setq company-backends
+        '(company-files
+          company-capf :with company-yasnippet ; NOTE: not grouped in (.. :with ..)
+          company-dabbrev-code company-abbrev
+          company-keywords
+          ;; company-ispell
+          ))
   )
 
 (add-hook 'org-mode-hook #'my-org-mode-completion-setting)
