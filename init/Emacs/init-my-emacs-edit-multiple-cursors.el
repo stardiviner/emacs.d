@@ -83,23 +83,9 @@
   ;; `vr/select-mc-mark', `vr/select-replace', `vr/select-query-replace' etc.
 
   :config
-  ;; (setq mc/list-file (expand-file-name ".mc-lists.el" user-emacs-directory))
-
+  (setq mc/list-file (expand-file-name ".mc-lists.el" user-emacs-directory))
   ;; (add-to-list 'mc/unsupported-minor-modes 'flyspell-mode)
   
-  ;; First mark the word, then add more cursors.
-
-  ;; To get out of multiple-cursors-mode, press <return> or C-g. The latter will
-  ;; first disable multiple regions before disabling multiple cursors. If you want
-  ;; to insert a newline in multiple-cursors-mode, use [C-j].
-
-  ;; (setq mc/mode-line '("mc:"
-  ;;                      (:eval
-  ;;                       (format
-  ;;                        #("%d" 0 2
-  ;;                          (face font-lock-warning-face))
-  ;;                        (mc/num-cursors)))))
-
   (set-face-attribute 'mc/cursor-face nil
                       :inverse-video nil
                       :background "dark red")
