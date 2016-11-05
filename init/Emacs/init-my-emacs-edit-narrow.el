@@ -20,14 +20,14 @@
 (put 'narrow-to-defun  'disabled nil)
 (put 'narrow-to-page   'disabled nil)
 
-(unless (boundp 'my-narrow-prefix)
-  (define-prefix-command 'my-narrow-prefix))
-(define-key my-edit-prefix (kbd "n") 'my-narrow-prefix)
+(unless (boundp 'narrow-prefix)
+  (define-prefix-command 'narrow-prefix))
+(define-key my-edit-prefix (kbd "n") 'narrow-prefix)
 
-(define-key my-narrow-prefix (kbd "w") 'widen)
-(define-key my-narrow-prefix (kbd "r") 'narrow-to-region)
-(define-key my-narrow-prefix (kbd "d") 'narrow-to-defun)
-(define-key my-narrow-prefix (kbd "p") 'narrow-to-page)
+(define-key narrow-prefix (kbd "w") 'widen)
+(define-key narrow-prefix (kbd "r") 'narrow-to-region)
+(define-key narrow-prefix (kbd "d") 'narrow-to-defun)
+(define-key narrow-prefix (kbd "p") 'narrow-to-page)
 
 ;;; custom keybinding for handy (narrow + indirect-buffer)
 ;;
