@@ -102,9 +102,9 @@
     (add-to-list 'company-backends
                  '(company-irony-c-headers
                    company-irony
-                   company-semantic
-                   company-gtags
-                   company-etags
+                   ;; company-semantic
+                   ;; company-gtags
+                   ;; company-etags
                    :with
                    company-yasnippet))
     )
