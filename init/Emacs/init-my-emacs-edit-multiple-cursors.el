@@ -7,15 +7,18 @@
 
 ;;; Code:
 
+(unless (boundp 'mc-prefix)
+  (define-prefix-command 'mc-prefix))
+(define-key my-edit-prefix (kbd "c") 'mc-prefix)
+
 ;;;_ [ iedit ] -- Edit multiple regions simultaneously in a buffer or a region
 
 (use-package iedit
   :ensure t
-  :defer t
-  :init
-  ;; (global-set-key (kbd "C-;") 'iedit-mode)
-  (define-key my-edit-prefix (kbd "e") 'iedit-dwim)
-
+  :bind (:map my-edit-prefix
+	      ("e" . iedit-dwim)
+	      ("C-;" . iedit-mode)
+	      )
   :config
   (setq iedit-occurrence-face 'isearch) ; 'highlight
 
@@ -40,50 +43,45 @@
 
 (use-package multiple-cursors
   :ensure t
-  :defer t
+  :bind (
+         ;; ("M-<down-mouse-1>" . mc/add-cursor-on-click)
+         ;; ("M-<mouse-1>" . mc/add-cursor-on-click)
+         :map mc-prefix
+              ("a" . mc/mark-all-dwim)
+              ("r" . set-rectangular-region-anchor)
+              ("l" . mc/edit-lines)
+              ("a" . mc/edit-beginnings-of-lines)
+              ("e" . mc/edit-ends-of-lines)
+              ("n" . mc/insert-numbers)
+              ("s" . mc/sort-regions)
+              ("R" . mc/reverse-regions)
+              )
   :init
-  (unless (boundp 'my-mc-prefix)
-    (define-prefix-command 'my-mc-prefix))
-  (define-key my-edit-prefix (kbd "c") 'my-mc-prefix)
+  (unless (boundp 'mc/mark-prefix)
+    (define-prefix-command 'mc/mark-prefix))
+  (define-key mc-prefix (kbd "m") 'mc/mark-prefix)
 
-  (define-key my-mc-prefix (kbd "c") 'mc/mark-all-dwim)
-  (define-key my-mc-prefix (kbd "r") 'set-rectangular-region-anchor)
-  (define-key my-mc-prefix (kbd "l") 'mc/edit-lines)
-  (define-key my-mc-prefix (kbd "a") 'mc/edit-beginnings-of-lines)
-  (define-key my-mc-prefix (kbd "e") 'mc/edit-ends-of-lines)
-  (define-key my-mc-prefix (kbd "n") 'mc/insert-numbers)
-  (define-key my-mc-prefix (kbd "s") 'mc/sort-regions)
-  (define-key my-mc-prefix (kbd "R") 'mc/reverse-regions)
+  (define-key mc/mark-prefix (kbd "a a") 'mc/mark-all-like-this-dwim)
+  (define-key mc/mark-prefix (kbd "a l") 'mc/mark-all-like-this)
+  (define-key mc/mark-prefix (kbd "a w") 'mc/mark-all-words-like-this)
+  (define-key mc/mark-prefix (kbd "a s") 'mc/mark-all-symbols-like-this)
+  (define-key mc/mark-prefix (kbd "a r") 'mc/mark-all-in-region)
+  (define-key mc/mark-prefix (kbd "a f") 'mc/mark-all-like-this-in-defun)
+  (define-key mc/mark-prefix (kbd "a F") 'mc/mark-all-words-like-this-in-defun)
+  (define-key mc/mark-prefix (kbd "a S") 'mc/mark-all-symbols-like-this-in-defun)
+  (define-key mc/mark-prefix (kbd "t") 'mc/mark-sgml-tag-pair)
 
-  (unless (boundp 'my-mc/mark-prefix)
-    (define-prefix-command 'my-mc/mark-prefix))
-  (define-key my-mc-prefix (kbd "m") 'my-mc/mark-prefix)
-
-  (define-key my-mc/mark-prefix (kbd "a a") 'mc/mark-all-like-this-dwim)
-  (define-key my-mc/mark-prefix (kbd "a l") 'mc/mark-all-like-this)
-  (define-key my-mc/mark-prefix (kbd "a w") 'mc/mark-all-words-like-this)
-  (define-key my-mc/mark-prefix (kbd "a s") 'mc/mark-all-symbols-like-this)
-  (define-key my-mc/mark-prefix (kbd "a r") 'mc/mark-all-in-region)
-  (define-key my-mc/mark-prefix (kbd "a f") 'mc/mark-all-like-this-in-defun)
-  (define-key my-mc/mark-prefix (kbd "a F") 'mc/mark-all-words-like-this-in-defun)
-  (define-key my-mc/mark-prefix (kbd "a S") 'mc/mark-all-symbols-like-this-in-defun)
-  (define-key my-mc/mark-prefix (kbd "t") 'mc/mark-sgml-tag-pair)
-
-  (define-key my-mc/mark-prefix (kbd "n n") 'mc/mark-next-like-this)
-  (define-key my-mc/mark-prefix (kbd "n w") 'mc/mark-next-word-like-this)
-  (define-key my-mc/mark-prefix (kbd "n s") 'mc/mark-next-symbol-like-this)
-  (define-key my-mc/mark-prefix (kbd "p p") 'mc/mark-previous-like-this)
-  (define-key my-mc/mark-prefix (kbd "p w") 'mc/mark-previous-word-like-this)
-  (define-key my-mc/mark-prefix (kbd "p s") 'mc/mark-previous-symbol-like-this)
+  (define-key mc/mark-prefix (kbd "n n") 'mc/mark-next-like-this)
+  (define-key mc/mark-prefix (kbd "n w") 'mc/mark-next-word-like-this)
+  (define-key mc/mark-prefix (kbd "n s") 'mc/mark-next-symbol-like-this)
+  (define-key mc/mark-prefix (kbd "p p") 'mc/mark-previous-like-this)
+  (define-key mc/mark-prefix (kbd "p w") 'mc/mark-previous-word-like-this)
+  (define-key mc/mark-prefix (kbd "p s") 'mc/mark-previous-symbol-like-this)
 
   (if (featurep 'visual-regexp)
-      (define-key my-mc/mark-prefix (kbd "v") 'vr/mc-mark))
+      (define-key mc/mark-prefix (kbd "v") 'vr/mc-mark))
   ;; `vr/select-mc-mark', `vr/select-replace', `vr/select-query-replace' etc.
 
-  ;; click on multiple-cursors
-  (global-unset-key (kbd "M-<down-mouse-1>"))
-  (global-set-key (kbd "M-<mouse-1>") 'mc/add-cursor-on-click)
-  
   :config
   ;; (setq mc/list-file (expand-file-name ".mc-lists.el" user-emacs-directory))
 
