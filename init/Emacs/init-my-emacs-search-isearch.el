@@ -126,14 +126,13 @@
 
 (use-package visual-regexp
   :ensure t
-  :bind (
-         ;; ("C-s" . vr/isearch-forward)
-         ;; ("C-r" . vr/isearch-backward)
-         ;; ("M-%" . vr/replace)
+  :bind (("C-s" . vr/isearch-forward)
+         ("C-r" . vr/isearch-backward)
+         ("M-%" . vr/replace)
          :map my-search-prefix
-              ("r" . vr/replace)
-              ("q" . vr/query-replace)
-              )
+         ("r" . vr/replace)
+         ("q" . vr/query-replace)
+         )
   :init
   ;; if you use multiple-cursors interface, this is for you:
   (if (featurep 'multiple-cursors)
@@ -177,9 +176,11 @@
 (use-package swiper
   :ensure t
   :defer t
-  :bind (:map my-search-prefix
-              ("C-s" . swiper)
-              ("C-r" . swiper))
+  :bind (("C-s" . swiper)
+         ("C-r" . swiper)
+         :map my-search-prefix
+         ("C-s" . swiper)
+         ("C-r" . swiper))
   )
 
 
