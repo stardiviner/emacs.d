@@ -150,6 +150,7 @@ This can be useful for snippets to select kernel interactively."
    (perl . t)                           ; Perl
    (C . t)                              ; C
    (java . t)                           ; Java
+   (lua . t)                            ; Lua
    (awk . t)                            ; Awk
    (sed . t)                            ; Sed
    (screen . t)                         ; Screen
@@ -158,10 +159,10 @@ This can be useful for snippets to select kernel interactively."
    ;; (picolisp . t)                       ; Pico Lisp
    (clojure . t)                        ; Clojure
    (haskell . t)                        ; Haskell
-   ;; (scala . t)                          ; Scala
+   (scala . t)                          ; Scala
    ;; (io . t)                             ; IO
    ;; (J . t)                              ; J
-   ;; (ocaml . t)                          ; Objective Caml
+   (ocaml . t)                          ; Objective Caml
    (js . t)                             ; JavaScript
    (css . t)                            ; CSS
    (latex . t)                          ; LaTeX
