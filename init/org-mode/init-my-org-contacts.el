@@ -50,6 +50,8 @@
 :SKILLS: %^{Skills}
 :Programming-Skills: %^{Programming Skills}
 :Programming-Languages: %^{Programming Languages}
+:Occupation: %^{Occupation|Freelancer|Businessman|Servant}
+:Hobbies: %^{Hobbies}
 :END:"
                :empty-lines 1
                :jump-to-captured t
