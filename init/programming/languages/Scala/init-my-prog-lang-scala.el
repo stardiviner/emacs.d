@@ -37,9 +37,9 @@
 
 (use-package ensime
   :ensure t
-  :init
-  (add-hook 'scala-mode-hook 'ensime-mode)
   :config
+  (setq ensime-startup-snapshot-notification nil)
+  
   (setq ensime-completion-style 'company
         ensime-graphical-tooltips t
         ensime-auto-generate-config t)
