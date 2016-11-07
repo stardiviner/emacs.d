@@ -25,7 +25,8 @@
     (add-hook hook 'slime-mode))
 
   ;; auto start SLIME unless it's already running.
-  (defun my-slime-connect ()
+  (defun my-slime-auto-start ()
+    (interactive)
     ;; only start SLIME on lisp-mode. (except other lisp dialects:
     ;; `sibilant-mode' etc)
     (if (equal major-mode 'lisp-mode)
@@ -36,7 +37,7 @@
       )
     )
   
-  (add-hook 'lisp-mode-hook 'my-slime-connect)
+  ;; (add-hook 'lisp-mode-hook 'my-slime-auto-start)
   
   :config
   ;; select the default value from slime-lisp-implementations
