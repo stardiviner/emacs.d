@@ -57,7 +57,9 @@
 ;;             (unless (derived-mode-p 'prog-mode))
 ;;             (run-hooks 'prog-mode-hook)))
 
-(dolist (hook '(ruby-mode-hook
+(dolist (hook '(c-mode-hook
+                c++-mode-hook
+                ruby-mode-hook
                 html-mode-hook
                 css-mode-hook
                 ))
