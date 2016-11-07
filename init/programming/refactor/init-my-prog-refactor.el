@@ -16,7 +16,6 @@
 
 (use-package emr
   :ensure t
-  :defer t
   :init
   (eval-after-load "emr" '(emr-initialize))
 
