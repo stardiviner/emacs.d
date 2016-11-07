@@ -7,6 +7,8 @@
 
 ;;; Code:
 
+(setq save-interprogram-paste-before-kill t)
+
 ;;; [ undo-tree ]
 
 (use-package undo-tree
