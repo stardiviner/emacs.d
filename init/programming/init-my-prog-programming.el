@@ -64,9 +64,8 @@
                 css-mode-hook
                 ))
   (add-hook hook (lambda ()
-                   (unless (derived-mode-p 'prog-mode))
-                   (run-hooks 'prog-mode-hook))))
-
+                   (unless (derived-mode-p 'prog-mode)
+                     (run-hooks 'prog-mode-hook)))))
 
 
 (provide 'init-my-prog-programming)
