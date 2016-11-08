@@ -10,18 +10,16 @@
 (unless (boundp 'refactor-prefix)
   (define-prefix-command 'refactor-prefix))
 (global-set-key (kbd "M-RET") 'refactor-prefix)
-(global-set-key (kbd "C-c RET") 'refactor-prefix)
+;; (global-set-key (kbd "C-c RET") 'refactor-prefix)
 
 
-;;; [ emacs-refactor (emr) ] -- Emacs Refactor (EMR) provides language-specific refactoring support for Emacs.
+;;; [ emacs-refactor (emr) ] -- provides language-specific refactoring support for Emacs.
 
 (use-package emr
   :ensure t
   :config
+  (define-key refactor-prefix (kbd "M-RET") 'emr-show-refactor-menu)
   (eval-after-load "emr" '(emr-initialize))
-
-  (define-key prog-mode-map (kbd "M-RET") 'emr-show-refactor-menu)
-  (define-key prog-mode-map (kbd "C-c RET") 'emr-show-refactor-menu)
   )
 
 
