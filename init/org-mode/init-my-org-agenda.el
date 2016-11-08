@@ -39,7 +39,7 @@
 
 
 ;; include `diary-file' from `calendar'
-(setq org-agenda-include-diary t
+(setq org-agenda-include-diary t ; %%(org-calendar-holiday)
       ;; diary-file "~/Org/Tasks/Daily.org"
       diary-file (locate-user-emacs-file "data/diary.org" "diary.org")
       org-agenda-diary-file 'diary-file

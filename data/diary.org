@@ -15,7 +15,7 @@ Examples: (use =[C-h f]= on functions to check out detail formats.
 
 * Holiday
 
-%%(org-calendar-holiday)
+
 
 
 * Birthday
