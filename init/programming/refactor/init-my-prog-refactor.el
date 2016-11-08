@@ -17,7 +17,7 @@
 
 (use-package emr
   :ensure t
-  :init
+  :config
   (eval-after-load "emr" '(emr-initialize))
 
   (define-key prog-mode-map (kbd "M-RET") 'emr-show-refactor-menu)
