@@ -108,6 +108,15 @@
       ;; org-html-todo-kwd-class-prefix ""
       )
 
+;;; Exporting JavaScript babel code block into <script> tag in HTML export.
+
+;; (add-to-list 'org-src-lang-modes '("inline-js" . javascript))
+(add-to-list 'org-src-lang-modes '("inline-js" . js2))
+(defvar org-babel-default-header-args:inline-js
+  '((:results . "html")
+    (:exports . "results")))
+(defun org-babel-execute:inline-js (body _params)
+  (format "<script type=\"text/javascript\">\n%s\n</script>" body))
 
 ;;; [ ox-pandoc ] -- another org-mode exporter via pandoc.
 
