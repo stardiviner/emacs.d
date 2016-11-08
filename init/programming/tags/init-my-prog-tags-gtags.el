@@ -26,11 +26,6 @@
 
 (use-package ggtags
   :ensure t
-  :defer t
-  :init
-  (add-hook 'c-mode-hook 'my-ggtags-setup-keybindings)
-  (add-hook 'c++-mode-hook 'my-ggtags-setup-keybindings)
-
   :config
   (setq ggtags-navigation-mode nil
         ggtags-enable-navigation-keys nil
@@ -64,6 +59,9 @@
     
     (local-set-key (kbd "M-,") 'pop-tag-mark)
     )
+
+  (add-hook 'c-mode-hook 'my-ggtags-setup-keybindings)
+  (add-hook 'c++-mode-hook 'my-ggtags-setup-keybindings)
   )
 
 
@@ -71,7 +69,6 @@
 
 (use-package helm-gtags
   :ensure t
-  :defer t
   :config
   (setq helm-gtags-ignore-case t
         helm-gtags-auto-update t
