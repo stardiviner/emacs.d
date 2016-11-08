@@ -9,6 +9,7 @@
 
 (unless (boundp 'my-prog-refactor-map)
   (define-prefix-command 'my-prog-refactor-map))
+(global-set-key (kbd "M-RET") 'my-prog-refactor-map)
 (global-set-key (kbd "C-c RET") 'my-prog-refactor-map)
 
 
