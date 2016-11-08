@@ -20,8 +20,6 @@ Examples: (use =[C-h f]= on functions to check out detail formats.
 
 * Birthday
 
-** My Birthday
-
 %%(diary-anniversary 3 24 1990) I'm %d%s years old today!!!
 
 
