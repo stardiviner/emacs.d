@@ -29,23 +29,6 @@
 
 (use-package smartparens
   :ensure t
-  :defer t
-  :init
-  (smartparens-global-mode t)
-
-  ;; use `smartparens-strict-mode' to replace `paredit-mode'.
-  ;; (dolist (hook
-  ;;          '(emacs-lisp-mode-hook
-  ;;            ielm-mode-hook ; inferior-emacs-lisp-mode-hook
-  ;;            ;; eval-expression-minibuffer-setup-hook ; minibuffer
-  ;;            clojure-mode-hook
-  ;;            cider-repl-mode-hook
-  ;;            lisp-mode-hook
-  ;;            lisp-interaction-mode-hook
-  ;;            scheme-mode-hook
-  ;;            ))
-  ;;   (add-hook hook 'turn-on-smartparens-strict-mode))
-
   :config
   (require 'smartparens-config)
   
@@ -81,6 +64,21 @@
     (sp-local-tag "2" "**" "**")
     (sp-local-tag "s" "```scheme" "```")
     (sp-local-tag "<"  "<_>" "</_>" :transform 'sp-match-sgml-tags))
+
+  (smartparens-global-mode t)
+
+  ;; use `smartparens-strict-mode' to replace `paredit-mode'.
+  ;; (dolist (hook
+  ;;          '(emacs-lisp-mode-hook
+  ;;            ielm-mode-hook ; inferior-emacs-lisp-mode-hook
+  ;;            ;; eval-expression-minibuffer-setup-hook ; minibuffer
+  ;;            clojure-mode-hook
+  ;;            cider-repl-mode-hook
+  ;;            lisp-mode-hook
+  ;;            lisp-interaction-mode-hook
+  ;;            scheme-mode-hook
+  ;;            ))
+  ;;   (add-hook hook 'turn-on-smartparens-strict-mode))
   )
 
 
