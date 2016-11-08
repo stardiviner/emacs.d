@@ -178,12 +178,12 @@
                     :foreground "white" :background "dim gray"
                     :box '(:color "black" :line-width 2))
 (set-face-attribute 'org-tag nil
-                    :foreground "gray"
+                    ;; :foreground "gray"
                     ;; sci-fi style
-                    ;; :foreground "cyan"
-                    ;; :underline nil :weight 'normal :slant 'normal
-                    ;; :box '(:color "dark green" :line-width 2)
-                    ;; :height 0.8
+                    :foreground "cyan"
+                    :underline nil :weight 'normal :slant 'normal
+                    :box '(:color "dark green" :line-width 2)
+                    :height 0.8
                     )
 
 ;;; checkbox faces
