@@ -67,14 +67,11 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 (use-package ace-jump-mode
   :ensure t
-  :defer t
+  :bind ("C-'" . ace-jump-mode)
   :init
   ;; enable a more powerful jump back function from ace jump mode
   (autoload 'ace-jump-mode-pop-mark "ace-jump-mode" "Ace jump back:-)" t)
   (eval-after-load "ace-jump-mode" '(ace-jump-mode-enable-mark-sync))
-
-  (global-set-key (kbd "C-'") 'ace-jump-mode)
-  ;; (define-key global-map (kbd "C-'") 'ace-jump-mode-pop-mark)
   )
 
 
