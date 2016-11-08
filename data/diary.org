@@ -3,9 +3,11 @@
 Examples: (use =[C-h f]= on functions to check out detail formats.
 
 - Saturday test weekly diary.
-- %%(diary-block 7 26 2014 7 26 2014) test diary block
-- %%(diary-anniversary month day 2014) test diary anniversary
-- %%(diary-cyclic 2 7 26 2014) test repeated diary.
+- =[M-x info RET org RET m Agenda]= + =[C-s diary]=
+- ~%%(diary-anniversary 3 24 2014)~ test diary anniversary
+- ~%%(diary-cyclic 2 7 26 2014)~ test repeated diary.
+- ~%%(diary-block 7 26 2014 8 26 2020)~ test diary block
+- ~%%(diary-float t 5 1)~ happens every 1st Friday of the month.
 - Jul 26 test repeated yearly diary.
 - * 26 test repeated monthly diary.
 - Jul 26, 2014 day diary.
