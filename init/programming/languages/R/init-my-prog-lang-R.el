@@ -9,10 +9,9 @@
 
 (use-package ess
   :ensure t
-  :defer t
-  :init
-  (require 'ess-site)
   :config
+  (require 'ess-site)
+  
   (setq ess-use-ido t
         ess-ido-flex-matching t
         ess-pdf-viewer-pref '("zauthura")
@@ -70,12 +69,6 @@
 ;; (setq inferior-ess-primary-prompt "ℝ> ")
 ;;; handle the custom ℝ prompt in ess. Don’t use custom here.
 ;; (setq inferior-S-prompt "[]a-zA-Z0-9.[]*\\(?:[>+.] \\)*ℝ+> ")
-
-
-;; start the ESS process if not started when open ESS buffers.
-;; (add-hook 'after-init-hook 'R)
-
-;; (define-key my-inferior-ess-map (kbd "R") 'R)
 
 
 (unless (boundp 'my-prog-inferior-map)
