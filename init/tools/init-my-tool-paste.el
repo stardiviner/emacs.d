@@ -33,6 +33,13 @@
         )
   )
 
+;;; [ webpaste ] -- paste text to pastebin-like services.
+
+(use-package webpaste
+  :ensure t
+  :bind (:map paste-prefix
+              ("C-b" . webpaste-paste-buffer)
+              ("C-r" . webpaste-paste-region)))
 
 
 ;;; htmlize-buffer (convert current buffer into HTML output)
