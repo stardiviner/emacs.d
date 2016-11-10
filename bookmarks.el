@@ -2,7 +2,187 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Sexology"
+(("Medicine.org"
+ (filename . "~/Org/Wiki/Medicine/Medicine.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("My Physics Reference.org"
+ (filename . "~/Org/Wiki/Psysics/Data/Manuals/My Physics Reference/My Physics Reference.org")
+ (front-context-string)
+ (rear-context-string . "stants Reference")
+ (position . 59))
+("Quantum Theory.org"
+ (filename . "~/Org/Wiki/Psysics/Quantum Theory/Quantum Theory.org")
+ (front-context-string . "\n\n\n** Quantum Fo")
+ (rear-context-string . "Quantum Theory\n\n")
+ (position . 6562))
+("My Rust Library Examples.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Rust/Data/Manuals/My Rust Library Examples/My Rust Library Examples.org")
+ (front-context-string . "* Print\n\n** func")
+ (rear-context-string)
+ (position . 1))
+("My Rust Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Rust/Data/Manuals/My Rust Language Syntax Reference/My Rust Language Syntax Reference.org")
+ (front-context-string . "* Intro\n\n** Basi")
+ (rear-context-string)
+ (position . 1))
+("My C Examples.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/C/Data/Manuals/My C Examples/My C Examples.org")
+ (front-context-string . "#+END_SRC\n\n#+RES")
+ (rear-context-string . ";\n  return 0;\n}\n")
+ (position . 660))
+("My C Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/C/Data/Manuals/My C Language Syntax Reference/My C Language Syntax Reference.org")
+ (front-context-string . "* Intro\n\n** Comp")
+ (rear-context-string)
+ (position . 1))
+("My Erlang Language Examples.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Erlang/Data/Manuals/My Erlang Language Examples/My Erlang Language Examples.org")
+ (front-context-string . "* System\n\n** Inv")
+ (rear-context-string)
+ (position . 1))
+("My Erlang Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Erlang/Data/Manuals/My Erlang Language Syntax Reference/My Erlang Language Syntax Reference.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Erlang.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Erlang/Erlang.org")
+ (front-context-string . "* Intro\n\n*Build ")
+ (rear-context-string)
+ (position . 1))
+("My Forth Language Examples.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Forth/Data/Manuals/My Forth Language Examples/My Forth Language Examples.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("My Forth Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Forth/Data/Manuals/My Forth Language Syntax Reference/My Forth Language Syntax Reference.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Forth.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Forth/Forth.org")
+ (front-context-string . "* Intro\n\n** What")
+ (rear-context-string)
+ (position . 1))
+("My Go Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Go/Data/Manuals/My Go Language Syntax Reference/My Go Language Syntax Reference.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("My Go Language Examples.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Go/Data/Manuals/My Go Language Examples/My Go Language Examples.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("My Haskell Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Haskell/Data/Manuals/My Haskell Language Syntax Reference/My Haskell Language Syntax Reference.org")
+ (front-context-string . "* Expression\n\n* ")
+ (rear-context-string)
+ (position . 1))
+("My JavaScript Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/JavaScript/Data/Manuals/My JavaScript Language Syntax Reference/My JavaScript Language Syntax Reference.org")
+ (front-context-string . "* How JavaScript")
+ (rear-context-string)
+ (position . 1))
+("My JavaScript Language Examples.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/JavaScript/Data/Manuals/My JavaScript Language Examples/My JavaScript Language Examples.org")
+ (front-context-string . "* Intro\n\n\n* Java")
+ (rear-context-string)
+ (position . 1))
+("My Julia Language Examples.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Julia/Data/Manuals/My Julia Language Examples/My Julia Language Examples.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("My Julia Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Julia/Data/Manuals/My Julia Language Syntax Reference/My Julia Language Syntax Reference.org")
+ (front-context-string . "* Variables -- ~")
+ (rear-context-string)
+ (position . 1))
+("My Lua Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Lua/Data/Manuals/My Lua Language Syntax Reference/My Lua Language Syntax Reference.org")
+ (front-context-string . "* Lua Language S")
+ (rear-context-string)
+ (position . 1))
+("My Lua Language Examples.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Lua/Data/Manuals/My Lua Language Examples/My Lua Language Examples.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("My OCaml Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/OCaml/Data/Manuals/My OCaml Language Syntax Reference/My OCaml Language Syntax Reference.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("My OCaml Language Examples.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/OCaml/Data/Manuals/My OCaml Language Examples/My OCaml Language Examples.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("OCaml.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/OCaml/OCaml.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("My PHP Practical Examples.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/PHP/Data/Manuals/My PHP Practical Examples/My PHP Practical Examples.org")
+ (front-context-string . "* Web\n\n** URL\n\n*")
+ (rear-context-string)
+ (position . 1))
+("My PHP Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/PHP/Data/Manuals/My PHP Language Syntax Reference/My PHP Language Syntax Reference.org")
+ (front-context-string . "* Intro\n\nPHP is ")
+ (rear-context-string)
+ (position . 1))
+("My Prolog Language Examples.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Prolog/Data/Manuals/My Prolog Language Examples/My Prolog Language Examples.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("My Prolog Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Prolog/Data/Manuals/My Prolog Language Syntax Reference/My Prolog Language Syntax Reference.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("My Scheme Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Lisp/Scheme/Data/Manuals/My Scheme Language Syntax Reference/My Scheme Language Syntax Reference.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("My Scheme Language Examples.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Lisp/Scheme/Data/Manuals/My Scheme Language Examples/My Scheme Language Examples.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Scheme.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Lisp/Scheme/Scheme.org")
+ (front-context-string . "* Intro\n\n** Wiki")
+ (rear-context-string)
+ (position . 1))
+("Arduino.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Implements/Hardware/Dev Board/Arduino/Arduino.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Raspberry Pi.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Implements/Hardware/Dev Board/Raspberry Pi/Raspberry Pi.org")
+ (front-context-string . "* Intro\n\n** Prod")
+ (rear-context-string)
+ (position . 1))
+("Java Packages"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Java/Data/Packages/Packages.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Beauty.org"
+ (filename . "~/Org/Beauty/Beauty.org")
+ (front-context-string . "#+TITLE: Beauty\n")
+ (rear-context-string)
+ (position . 1))
+("Sexology"
  (filename . "~/Org/Wiki/Sexology/Sexology.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
@@ -262,11 +442,6 @@
  (front-context-string)
  (rear-context-string)
  (position . 1))
-("JavaScript Examples"
- (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/JavaScript/Data/Manuals/JavaScript Examples/JavaScript Examples.org")
- (front-context-string . "* Intro\n\n\n* Java")
- (rear-context-string)
- (position . 1))
 ("Ruby Examples"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Manuals/Ruby Examples/Ruby Examples.org")
  (front-context-string . "* Intro\n\n\n* Requ")
@@ -362,11 +537,6 @@
  (front-context-string)
  (rear-context-string)
  (position . 1))
-("Raspberry Pi"
- (filename . "~/Org/Wiki/Computer/Hardware/Dev Board/Raspberry Pi/Raspberry Pi.org")
- (front-context-string . "* Intro\n\n\n\n* Dat")
- (rear-context-string)
- (position . 1))
 ("Vagrant"
  (filename . "~/Org/Wiki/Computer/Softwares/Vagrant/Vagrant.org")
  (front-context-string . "* Intro\n\nVagrant")
@@ -385,11 +555,6 @@
 ("Chrome"
  (filename . "~/Org/Wiki/Computer/Softwares/Chrome/Chrome.org")
  (front-context-string . "* Intro\n\n\n** Scr")
- (rear-context-string)
- (position . 1))
-("My Julia Language Reference"
- (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Julia/Data/Manuals/My Julia Language Reference/My Julia Language Reference.org")
- (front-context-string . "* Julia Language")
  (rear-context-string)
  (position . 1))
 ("Ruby on Rails Practical Examples"
@@ -469,9 +634,9 @@
  (position . 1))
 ("org-capture-last-stored"
  (filename . "~/Org/Diary/Diary.org")
- (front-context-string . "**** 看到史铁生的《命若琴弦")
- (rear-context-string . "6-10-03 Monday\n\n")
- (position . 18196))
+ (front-context-string . "**** 在慈缘斋看到很像小影的")
+ (rear-context-string . "6-11-04 Friday\n\n")
+ (position . 19390))
 ("My R Language Syntax Reference"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/R/Data/Manuals/My R Language Syntax Reference/My R Language Syntax Reference.org")
  (front-context-string)
@@ -572,11 +737,6 @@
  (front-context-string . "* Intro\n\n\n* Make")
  (rear-context-string)
  (position . 1))
-("Arduino"
- (filename . "~/Org/Wiki/Computer/Hardware/Dev Board/Arduino/Arduino.org")
- (front-context-string . "* Intro\n\n\n\n* Dat")
- (rear-context-string)
- (position . 1))
 ("Emacs Config"
  (filename . "~/Org/Wiki/Computer/Programming/Emacs/Emacs Config/Emacs Config.org")
  (front-context-string . "* load emacs lis")
@@ -625,11 +785,6 @@
 ("CSS Preprocessor"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/CSS/Data/CSS Preprocessor/CSS Preprocessor.org")
  (front-context-string . "* Intro\n\nAdd pro")
- (rear-context-string)
- (position . 1))
-("JavaScript Language Reference"
- (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/JavaScript/Data/Manuals/My JavaScript Reference/My JavaScript Reference.org")
- (front-context-string . "* Intro\n\n** How ")
  (rear-context-string)
  (position . 1))
 ("Emacs Lisp Regexp Reference"
