@@ -14,6 +14,7 @@
         org-beginning-of-line
         org-ctrl-c-ctrl-c
         org-ctrl-c-star
+        org-cycle
         org-delete-char
         org-emphasize
         org-end-of-line
@@ -29,14 +30,18 @@
         org-shifttab
         org-yank
         paredit-backward
+        paredit-backward-up
         paredit-close-square
+        paredit-forward
         paredit-forward-delete
         paredit-forward-kill-word
         paredit-kill
         paredit-open-square
         paredit-semicolon
+        paredit-splice-sexp-killing-backward
         picture-backward-clear-column
         picture-clear-column
+        scroll-other-window
         sp-delete-char
         sp-kill-hybrid-sexp
         sp-remove-active-pair-overlay
