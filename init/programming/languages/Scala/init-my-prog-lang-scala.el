@@ -43,6 +43,8 @@
   (setq ensime-completion-style 'company
         ensime-graphical-tooltips t
         ensime-auto-generate-config t)
+
+  (add-hook 'scala-mode-hook 'ensime-mode)
   )
 
 
