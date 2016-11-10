@@ -200,6 +200,12 @@
   :ensure t
   :defer t)
 
+;;; [ projectile-git-autofetch ] -- Automatically fetch git repositories known to projectile.
+
+(use-package projectile-git-autofetch
+  :ensure t
+  :config
+  (projectile-git-autofetch-mode 1))
 
 
 (provide 'init-my-prog-vcs-git)
