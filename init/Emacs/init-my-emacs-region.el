@@ -14,8 +14,7 @@
 
 (use-package expand-region
   :ensure t
-  :defer t
-  :config
+  :init
   (global-set-key (kbd "C-=") 'er/expand-region)
   )
 
