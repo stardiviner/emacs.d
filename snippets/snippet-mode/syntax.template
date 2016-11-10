@@ -260,7 +260,7 @@
 #     beginning of the field and it hasn't been changed yet. Otherwise, it
 #     performs the normal Emacs delete-char command.
 
-# - $&
+# - $> or $&
 #     means indent the line according to the mode's indentation rule.
 
 # - ` -- (backtick)

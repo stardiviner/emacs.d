@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: equation-entropy
+# key: equation-entropy
+# group: equation
+# --
+\begin{equation}
+  \Delta S = \frac{Q}{T}
+\end{equation}
