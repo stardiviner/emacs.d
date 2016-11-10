@@ -73,9 +73,7 @@
 
 (define-abbrev-table 'apropos-mode-abbrev-table '())
 
-(define-abbrev-table 'arduino-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'arduino-mode-abbrev-table '())
 
 (define-abbrev-table 'asdf-mode-abbrev-table '())
 
@@ -129,6 +127,8 @@
 
 (define-abbrev-table 'cider-test-report-mode-abbrev-table '())
 
+(define-abbrev-table 'cljr--change-signature-mode-abbrev-table '())
+
 (define-abbrev-table 'clojure-mode-abbrev-table '())
 
 (define-abbrev-table 'clojurec-mode-abbrev-table '())
@@ -156,6 +156,10 @@
 (define-abbrev-table 'conf-windows-mode-abbrev-table '())
 
 (define-abbrev-table 'conf-xdefaults-mode-abbrev-table '())
+
+(define-abbrev-table 'csharp-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'css-mode-abbrev-table '())
 
@@ -249,13 +253,21 @@
 
 (define-abbrev-table 'erc-mode-abbrev-table '())
 
+(define-abbrev-table 'ereader-mode-abbrev-table '())
+
 (define-abbrev-table 'ert-results-mode-abbrev-table '())
 
 (define-abbrev-table 'ert-simple-view-mode-abbrev-table '())
 
+(define-abbrev-table 'es-mode-abbrev-table '())
+
+(define-abbrev-table 'es-result-mode-abbrev-table '())
+
 (define-abbrev-table 'eshell-mode-abbrev-table '())
 
 (define-abbrev-table 'ess-julia-mode-abbrev-table '())
+
+(define-abbrev-table 'esup-mode-abbrev-table '())
 
 (define-abbrev-table 'eww-bookmark-mode-abbrev-table '())
 
@@ -264,6 +276,8 @@
 (define-abbrev-table 'eww-history-mode-abbrev-table '())
 
 (define-abbrev-table 'eww-mode-abbrev-table '())
+
+(define-abbrev-table 'finder-mode-abbrev-table '())
 
 (define-abbrev-table 'fixmee--listview-mode-abbrev-table '())
 
@@ -339,6 +353,8 @@
 (define-abbrev-table 'gnus-score-mode-abbrev-table '())
 
 (define-abbrev-table 'gnus-sticky-article-mode-abbrev-table '())
+
+(define-abbrev-table 'go-guru-output-mode-abbrev-table '())
 
 (define-abbrev-table 'go-mode-abbrev-table '())
 
@@ -442,6 +458,8 @@
 
 (define-abbrev-table 'jdee-run-mode-abbrev-table '())
 
+(define-abbrev-table 'js-jsx-mode-abbrev-table '())
+
 (define-abbrev-table 'js-mode-abbrev-table '())
 
 (define-abbrev-table 'js2-jsx-mode-abbrev-table '())
@@ -476,9 +494,7 @@
 
 (define-abbrev-table 'log4e-mode-abbrev-table '())
 
-(define-abbrev-table 'lua-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'lua-mode-abbrev-table '())
 
 (define-abbrev-table 'lxc-list-table-mode-abbrev-table '())
 
@@ -509,6 +525,8 @@
 (define-abbrev-table 'magit-reflog-mode-abbrev-table '())
 
 (define-abbrev-table 'magit-refs-mode-abbrev-table '())
+
+(define-abbrev-table 'magit-repolist-mode-abbrev-table '())
 
 (define-abbrev-table 'magit-revision-mode-abbrev-table '())
 
@@ -566,6 +584,8 @@
 
 (define-abbrev-table 'ob-http-mode-abbrev-table '())
 
+(define-abbrev-table 'ob-sagemath-error-mode-abbrev-table '())
+
 (define-abbrev-table 'objc-mode-abbrev-table
   '(
    ))
@@ -599,6 +619,8 @@
 
 (define-abbrev-table 'pdf-annot-list-mode-abbrev-table '())
 
+(define-abbrev-table 'pdf-occur-buffer-mode-abbrev-table '())
+
 (define-abbrev-table 'pdf-outline-buffer-mode-abbrev-table '())
 
 (define-abbrev-table 'perl-mode-abbrev-table '())
@@ -612,6 +634,8 @@
 (define-abbrev-table 'pike-mode-abbrev-table
   '(
    ))
+
+(define-abbrev-table 'pinentry-prompt-mode-abbrev-table '())
 
 (define-abbrev-table 'pkgbuild-mode-abbrev-table '())
 
@@ -677,9 +701,7 @@
 
 (define-abbrev-table 'rspec-compilation-mode-abbrev-table '())
 
-(define-abbrev-table 'rst-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'rst-mode-abbrev-table '())
 
 (define-abbrev-table 'rst-toc-mode-abbrev-table '())
 
@@ -691,6 +713,16 @@
 
 (define-abbrev-table 'rxt-help-mode-abbrev-table '())
 
+(define-abbrev-table 'sage-shell-mode-abbrev-table '())
+
+(define-abbrev-table 'sage-shell-sagetex:error-mode-abbrev-table '())
+
+(define-abbrev-table 'sage-shell:help-mode-abbrev-table '())
+
+(define-abbrev-table 'sage-shell:list-outputs-mode-abbrev-table '())
+
+(define-abbrev-table 'sage-shell:sage-mode-abbrev-table '())
+
 (define-abbrev-table 'sauron-mode-abbrev-table '())
 
 (define-abbrev-table 'sbt-mode-abbrev-table '())
@@ -698,6 +730,8 @@
 (define-abbrev-table 'scala-mode-abbrev-table '())
 
 (define-abbrev-table 'scheme-mode-abbrev-table '())
+
+(define-abbrev-table 'sclang-help-mode-abbrev-table '())
 
 (define-abbrev-table 'scss-mode-abbrev-table '())
 
@@ -757,6 +791,8 @@
 
 (define-abbrev-table 'sly-xref-mode-abbrev-table '())
 
+(define-abbrev-table 'smiles-mode-abbrev-table '())
+
 (define-abbrev-table 'smime-mode-abbrev-table '())
 
 (define-abbrev-table 'snippet-mode-abbrev-table '())
@@ -772,6 +808,10 @@
 (define-abbrev-table 'swift-mode-abbrev-table '())
 
 (define-abbrev-table 'swift-repl-mode-abbrev-table '())
+
+(define-abbrev-table 'swift3-mode-abbrev-table '())
+
+(define-abbrev-table 'swift3-repl-mode-abbrev-table '())
 
 (define-abbrev-table 'systemd-mode-abbrev-table '())
 
@@ -793,9 +833,7 @@
 
 (define-abbrev-table 'tuareg-interactive-mode-abbrev-table '())
 
-(define-abbrev-table 'tuareg-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'tuareg-mode-abbrev-table '())
 
 (define-abbrev-table 'url-cookie-mode-abbrev-table '())
 
@@ -807,15 +845,15 @@
 
 (define-abbrev-table 'vc-svn-log-view-mode-abbrev-table '())
 
-(define-abbrev-table 'vhdl-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'vhdl-mode-abbrev-table '())
 
 (define-abbrev-table 'vlf-mode-abbrev-table '())
 
 (define-abbrev-table 'web-mode-abbrev-table '())
 
 (define-abbrev-table 'xref--xref-buffer-mode-abbrev-table '())
+
+(define-abbrev-table 'xwidget-webkit-mode-abbrev-table '())
 
 (define-abbrev-table 'yagist-list-mode-abbrev-table '())
 
