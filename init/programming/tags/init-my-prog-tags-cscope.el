@@ -6,13 +6,11 @@
 
 
 ;;; Code:
-
 
 ;; (unless (boundp 'cscope-prefix)
 ;;   (define-prefix-command 'cscope-prefix))
 ;; (define-key my-prog-lookup-tags-map (kbd "c") 'cscope-prefix)
 
-
 
 (defun cscope-build (dir)
   "My custom function to execute shell command: $ cscope -bR."
@@ -38,7 +36,6 @@
         ))
     cscope-buffer))
 
-
 ;;; [ cscope ] -- An interface to Joe Steffen's "cscope" C browser.
 
 ;; Usage:
@@ -47,14 +44,12 @@
 ;; - $ cscope -b -R -q -k ::
 ;; - `cscope-minor-mode' :: enable minor mode will enable keybindings.
 
-
 ;;; [ xcscope ] -- interface of cscope.
 
 ;; TODO: (setq cscope-)
 
 (cscope-setup)
 
-
 ;;; [ ascope ] -- another interface of cscope.
 
 ;;; ascope is an improvement over xcscope that runs all queries through a single
@@ -85,10 +80,8 @@
 
 ;; (require 'ascope)
 
-
 ;;; [ bscope ]
 
-
 ;;; [ rscope ] -- It is born to challenge its cousins : xscope, ascope, bscope
 
 ;;; rscope is a new implementation taking its roots from ascope, thus running a
@@ -128,7 +121,6 @@
   ;;                     :foreground "red")
   )
 
-
 
 ;;; a possibly handy hack:
 ;; (defun my-find-tag(&optional prefix)
@@ -147,7 +139,6 @@
 ;;
 ;; (substitute-key-definition 'find-tag 'my-find-tag global-map)
 
-
 
 (define-key cscope-prefix (kbd "b") 'cscope-build)
 
@@ -174,7 +165,6 @@
 (define-key cscope-prefix (kbd "N") 'cscope-history-forward-file-current-result)
 
 
-
 (provide 'init-my-prog-tags-cscope)
 
 ;;; init-my-prog-tags-cscope.el ends here

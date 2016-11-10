@@ -3,7 +3,6 @@
 ;;; Commentary:
 
 ;;; Code:
-
 ;; like tags: function, variable, class, scope etc lookup.
 
 (unless (boundp 'my-prog-lookup-map)
@@ -14,7 +13,6 @@
   (define-prefix-command 'my-prog-lookup-tags-map))
 (define-key my-prog-lookup-map (kbd "t") 'my-prog-lookup-tags-map)
 
-
 ;;; [ xref ]
 
 (require 'xref)
@@ -25,7 +23,6 @@
                                        ;; xref-find-definitions-other-frame
                                        ))
 
-
 ;;; [ tags settings ]
 
 (setq tags-add-tables t ; always add new tags to tables
@@ -37,18 +34,16 @@
       tags-apropos-verbose t
       )
 
-
 ;;; Build Tags
 
 
-
 ;; NOTE: use etags & gtags, because company-mode support.
 (require 'init-my-prog-tags-etags)
 (require 'init-my-prog-tags-gtags)
 ;; (require 'init-my-prog-tags-ctags)
 ;; (require 'init-my-prog-tags-rtags)
 ;; (require 'init-my-prog-tags-cscope)
-
+
 
 (provide 'init-my-prog-tags)
 

@@ -6,19 +6,14 @@
 
 
 ;;; Code:
-
-;; Exuberant Ctags -- ctags
+
+;;; [ ctags ] -- Exuberant Ctags
 
 ;; - Emacs tags for ctags with `ctags -e`.
 ;; - [$ ctags -r -R .]
 
 
-
-;;; Ctags
 
-
-
-
 (provide 'init-my-prog-tags-ctags)
 
 ;;; init-my-prog-tags-ctags.el ends here
