@@ -67,6 +67,11 @@
   ;; (add-to-list  'mm-inhibit-file-name-handlers 'openwith-file-handler)
   )
 
+;;; [ snapshot-timemachine ] -- mode to step through (Btrfs, ZFS, ...) snapshots of files.
+
+(use-package snapshot-timemachine
+  :ensure t)
+
 
 (provide 'init-my-emacs-file)
 
