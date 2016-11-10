@@ -475,6 +475,13 @@
    ;;      (format "🕔 %d:%d" rmins rsecs))
    ;;    'face '(:foreground "cyan3")
    ;;    'help-echo "org-clock timer")))
+   ;; org-clock-today
+   (:eval
+    (when (and (org-clock-is-active) (active))
+      (list
+       (propertize (format "🕔 %s" org-clock-today-string)
+                   'face '(:foreground "cyan")))
+      ))
    
    ;; --------------------------- right align ----------------------------------
    
