@@ -68,7 +68,7 @@
     ((rst-mode) . ("reStructuredText" "reStructuredText"))
     ((eshell-mode) . ("Shell" "Command-Line"))
     ((sh-mode shell-mode) . ("Shell Script" "Shell"))
-    ((R-mode ess-mode) . ("R" "R"))
+    ((ess-mode R-mode) . ("R" "R"))
     ((julia-mode ess-julia-mode) . ("Julia" "Julia"))
     ((gnuplot-mode) . ("gnuplot" "gnuplot"))
     ((octave-mode) . ("Octave" "Octave"))
