@@ -79,6 +79,13 @@ emacsclient -e '(my/org-pomodoro-text-time)'"
       "No active pomodoro"))
   )
 
+;;; [ tomatinho ] -- A simple and beautiful pomodoro technique timer that runs on Emacs.
+
+(use-package tomatinho
+  :ensure t
+  :bind ("<f12>" . tomatinho)
+  )
+
 
 
 (provide 'init-my-org-time)
