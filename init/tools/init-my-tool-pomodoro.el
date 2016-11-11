@@ -19,7 +19,14 @@
 (use-package tomatinho
   :ensure t
   :bind (:map pomodoro-prefix
-              ("<f12>" . tomatinho))
+              ("<f12>" . tomatinho)
+              :map tomatinho-map
+              ("n" . tomatinho-interactive-new-pomodoro)
+              ("p" . tomatinho-interactive-deliberate-pause)
+              ("<DEL>" . tomatinho-interactive-reset)
+              ("TAB" . tomatinho-interactive-toggle-display)
+              ("q" . tomatinho-interactive-kill-buffer)
+              ("Q" . tomatinho-interactive-quit))
   )
 
 
