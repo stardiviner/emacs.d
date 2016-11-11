@@ -67,6 +67,16 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
               (interactive)
               (org-pomodoro '(16)) ; double prefix [C-u C-u]
               ))
+
+  (defun my/org-pomodoro-text-time ()
+    "Display remaining pomodoro time in i3 status bar.
+
+Usage:
+emacsclient -e '(my/org-pomodoro-text-time)'"
+    (if (org-pomodoro-active-p)
+        (format "Pomodoro: %d minutes - %s"
+                (/ org-pomodoro-countdown 60) org-clock-heading)
+      "No active pomodoro"))
   )
 
 
