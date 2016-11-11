@@ -45,11 +45,10 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 
 (use-package org-pomodoro
   :ensure t
-  :defer t
+  :commands (org-pomodoro)
   :init
   (define-key org-agenda-mode-map (kbd "p") 'org-pomodoro)
   (define-key my-org-prefix (kbd "p") 'org-pomodoro)
-  
   :config
   (setq org-pomodoro-audio-player "/usr/bin/mplayer"
         org-pomodoro-play-sounds t

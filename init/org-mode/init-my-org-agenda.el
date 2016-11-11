@@ -358,9 +358,9 @@
 
 (use-package org-alert
   :ensure t
-  :defer t
   :config
   (setq alert-default-style 'libnotify)
+  ;; (setq alert-user-configuration (quote ((((:category . "org-pomodoro")) libnotify nil))))
   (org-alert-enable)
   )
 
