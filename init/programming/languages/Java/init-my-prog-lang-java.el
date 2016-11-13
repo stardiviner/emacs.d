@@ -108,6 +108,8 @@
 (use-package java-imports
   :ensure t
   :bind ("C-c M-i" . java-imports-add-import-dwim)
+  :config
+  (add-hook 'java-mode-hook 'java-imports-scan-file)
   )
 
 
