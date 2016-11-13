@@ -121,6 +121,17 @@
   (add-hook 'java-mode-hook #'gradle-mode)
   )
 
+;;; [ sdkman ] -- Software Development Kit
+
+;; http://sdkman.io/
+
+(add-to-list 'tramp-remote-path
+             (concat (getenv "HOME")
+                     "/.sdkman/candidates/gradle/current/bin"))
+(add-to-list 'tramp-remote-path
+             (concat (getenv "HOME")
+                     "/.sdkman/candidates/groovy/current/bin"))
+
 
 (provide 'init-my-prog-lang-java)
 
