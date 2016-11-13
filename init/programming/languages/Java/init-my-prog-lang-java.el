@@ -45,7 +45,6 @@
 ;;; for company-mode
 (use-package company-emacs-eclim
   :ensure t
-  :defer t
   :init
   ;; (company-emacs-eclim-setup)
   (defun my-company-eclim-setup ()
@@ -109,7 +108,6 @@
 
 (use-package gradle-mode
   :ensure t
-  :defer t
   :init
   (add-hook 'java-mode-hook #'gradle-mode)
   )
