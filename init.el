@@ -315,4 +315,8 @@
 (require 'init-my-games)
 
 
+;;; show Emacs initialized time.
+(message "Emacs initialized in %s" (emacs-init-time))
+
+
 ;;; init.el ends here
