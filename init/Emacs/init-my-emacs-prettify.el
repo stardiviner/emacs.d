@@ -56,7 +56,10 @@
   :ensure t
   :defer t
   :init
-  (add-hook 'org-mode-hook #'digit-groups-mode)
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (if (not (equal (buffer-name) "Diary.org"))
+                  (digit-groups-mode 1))))
   :config
   (set-face-attribute 'digit-groups-default-face nil
                       :foreground "orange")
