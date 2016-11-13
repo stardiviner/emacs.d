@@ -361,7 +361,7 @@
   :config
   (setq alert-default-style 'libnotify)
   ;; (setq alert-user-configuration (quote ((((:category . "org-pomodoro")) libnotify nil))))
-  (org-alert-enable)
+  ;; (org-alert-enable)
   )
 
 
