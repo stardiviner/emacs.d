@@ -103,6 +103,13 @@
 ;;   (add-hook 'malabar-groovy-mode-hook 'flycheck-mode)
 ;;   )
 
+;;; [ java-imports ] -- dealing with Java imports.
+
+(use-package java-imports
+  :ensure t
+  :bind ("C-c M-i" . java-imports-add-import-dwim)
+  )
+
 
 ;;; [ gradle-mode ] -- Gradle integration with Emacs' compile.
 
