@@ -13,6 +13,10 @@
   (define-prefix-command 'my-prog-lookup-tags-map))
 (define-key my-prog-lookup-map (kbd "t") 'my-prog-lookup-tags-map)
 
+
+(setq tags-table-files nil
+      tags-table-list nil)
+
 ;;; [ xref ]
 
 (require 'xref)
