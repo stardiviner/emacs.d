@@ -9,7 +9,6 @@
 
 (use-package go-mode
   :ensure t
-  :defer t
   :config
   ;; (setq go-command "go"
   ;;       gofmt-command "gofmt"
@@ -42,7 +41,6 @@
 
 (use-package go-gopath
   :ensure t
-  :defer t
   :init
   (with-eval-after-load 'go-mode
     (define-key go-mode-map (kbd "C-x C-e") #'go-gopath-set-gopath))
@@ -53,9 +51,9 @@
 
 (use-package go-eldoc
   :ensure t
-  :defer t
   :init
-  (add-hook 'go-mode-hook 'go-eldoc-setup))
+  (add-hook 'go-mode-hook 'go-eldoc-setup)
+  )
 
 
 ;;; [ gocode ] -- An autocompletion daemon for the Go programming language.
@@ -64,7 +62,6 @@
 
 (use-package company-go
   :ensure t
-  :defer t
   :init
   (if (getenv "GOPATH")
       (load
@@ -90,18 +87,16 @@
 
 (use-package gorepl-mode
   :ensure t
-  :defer t
+  :bind (:map go-mode-map
+              ("C-c C-s" . gorepl-run)
+              ("C-c C-z" . gorepl-run)
+              ("C-c C-l" . gorepl-run-load-current-file)
+              ("C-c C-r" . gorepl-eval-region)
+              ("C-c C-e" . gorepl-eval-line)
+              )
   :init
   ;; default setup mapping (this will override `go-goto-map')
   ;; (add-hook 'go-mode-hook #'gorepl-mode)
-
-  (with-eval-after-load 'go-mode
-    ;; custom mapping
-    (define-key go-mode-map (kbd "C-c C-s") 'gorepl-run)
-    (define-key go-mode-map (kbd "C-c C-z") 'gorepl-run)
-    (define-key go-mode-map (kbd "C-c C-l") #'gorepl-run-load-current-file)
-    (define-key go-mode-map (kbd "C-c C-e") #'gorepl-eval-region)
-    (define-key go-mode-map (kbd "C-c C-r") #'gorepl-eval-line))
   )
 
 
