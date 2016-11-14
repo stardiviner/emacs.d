@@ -531,6 +531,7 @@ This can be useful for snippets to select kernel interactively."
         ("ipython" (:background "CadetBlue"))
         ("ruby" (:background "#202020"))
         ("perl" (:background "#202020"))
+        ("php" (:background "#202020"))
         ("C" (:background "#202020"))
         ("C++" (:background "#202020"))
         ("java" (:background "#202020"))
