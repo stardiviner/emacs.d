@@ -59,6 +59,8 @@
           ))
   
   (atomic-chrome-start-server)
+
+  (define-key atomic-chrome-edit-mode-map (kbd "C-x #") 'atomic-chrome-close-current-buffer)
   )
 
 
