@@ -47,7 +47,7 @@
         enh-ruby-deep-indent-paren t
         enh-ruby-indent-level 2
         enh-ruby-use-encoding-map t
-        enh-ruby-use-ruby-mode-show-parens-config t
+        enh-ruby-use-ruby-mode-show-parens-config nil
         enh-ruby-add-encoding-comment-on-save t
         )
 
