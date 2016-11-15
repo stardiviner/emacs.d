@@ -54,6 +54,11 @@
 
 (add-to-list 'auto-mode-alist '("\\.pa\\'" . conf-mode))
 
+;;; [ SystemTap ]
+
+(use-package systemtap-mode
+  :ensure t)
+
 
 (provide 'init-linux)
 
