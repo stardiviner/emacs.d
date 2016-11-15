@@ -206,6 +206,13 @@
 (use-package web-completion-data
   :ensure t)
 
+;;; [ web-mode-edit-element ] -- helper-functions for attribute- and element-handling.
+
+(use-package web-mode-edit-element
+  :ensure t
+  :init
+  (add-hook 'web-mode-hook 'web-mode-edit-element-minor-mode))
+
 
 ;;; [ company-web ] --
 
