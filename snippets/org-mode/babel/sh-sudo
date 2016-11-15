@@ -4,5 +4,5 @@
 # group: babel
 # --
 #+BEGIN_SRC sh :dir /sudo::
-$0
+sudo $0
 #+END_SRC
