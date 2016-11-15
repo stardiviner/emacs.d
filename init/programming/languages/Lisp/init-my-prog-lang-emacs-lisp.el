@@ -12,23 +12,6 @@
 (setq print-quoted t
       print-circle t)
 
-;; - `eval-expression-minibuffer-setup-hook'
-
-;; (setq eval-expression-debug-on-error t
-;;       eval-expression-print-level nil ; 4, nil,
-;;       eval-expression-print-length nil
-;;       )
-
-;;; custom functions:
-;;;
-(defun my-recompile-elc-on-save ()
-  "Recompile your elc when saving an elisp file."
-  (add-hook 'after-save-hook
-            (lambda ()
-              (when (file-exists-p (byte-compile-dest-file buffer-file-name))
-                (emacs-lisp-byte-compile)))
-            nil
-            t))
 
 ;; Emacs Lisp hook
 (add-hook 'emacs-lisp-mode-hook #'my-lisp-common-settings)
@@ -37,8 +20,6 @@
 
 (defun my-emacs-lisp-setup ()
   (interactive)
-  (my-recompile-elc-on-save)
-
   ;; company-elisp
   (my-company-add-backend-locally 'company-elisp)
   (setq company-elisp-detect-function-context t
@@ -48,24 +29,27 @@
 
 (add-hook 'emacs-lisp-mode-hook 'my-emacs-lisp-setup)
 
-(add-to-list 'auto-mode-alist '("Cask\\'" . emacs-lisp-mode))
+;; Recompile your elc when saving an elisp file.
+(add-hook 'after-save-hook
+          (lambda ()
+            (when (file-exists-p (byte-compile-dest-file buffer-file-name))
+              (emacs-lisp-byte-compile)))
+          nil
+          t)
 
 
-;; Emacs Lisp highlights
-
-;; `let-alist' . symbols
-;; (font-lock-add-keywords
-;;  'emacs-lisp-mode
-;;  '(("\\_<\\.\\(?:\\sw\\|\\s_\\)+\\_>" 0
-;;     font-lock-builtin-face)))
-
+;;; - `eval-expression-minibuffer-setup-hook'
+;;
+;; (setq eval-expression-debug-on-error t
+;;       eval-expression-print-level nil ; 4, nil,
+;;       eval-expression-print-length nil
+;;       )
 
 ;;; eldoc-eval --- Enable eldoc support when minibuffer is in use.
 
 (use-package eldoc-eval
   :ensure t
-  :defer t
-  :init
+  :config
   (eldoc-in-minibuffer-mode 1)
   )
 
@@ -78,14 +62,11 @@
   :init
   (unless (boundp 'my-prog-inferior-map)
     (define-prefix-command 'my-prog-inferior-map))
-  (global-set-key (kbd "C-c i") 'my-prog-inferior-map)
 
   (unless (boundp 'my-inferior-lisp-map)
     (define-prefix-command 'my-inferior-lisp-map))
-  (define-key my-prog-inferior-map (kbd "l") 'my-inferior-lisp-map)
 
   (define-key my-inferior-lisp-map (kbd "e") 'my-ielm-start-or-switch)
-  
   (define-key my-inferior-lisp-map (kbd "k") 'my-scratch-start-or-switch)
 
   :config
@@ -149,19 +130,10 @@
 
 ;;; [ macrostep ] -- interactive macro-expander for Emacs.
 
-;;; Usage:
-;;
-;; - `macrostep-mode' minor-mode.
-;; - `macrostep-expand' interactive command.
-;; - [q] exit
-
 (use-package macrostep
   :ensure t
-  :defer t
-  :init
-  (define-key my-prog-debug-map (kbd "m") 'macrostep-expand)
-  (define-key my-prog-debug-map (kbd "e") 'macrostep-expand)
-
+  :bind (:map emacs-debug-prefix
+              ("m" . macrostep-expand))
   :config
   (setq macrostep-expand-in-separate-buffer nil
         macrostep-expand-compiler-macros t)
@@ -272,20 +244,21 @@
 
 (use-package elisp-refs
   :ensure t
-  :defer t
   :init
-  (add-hook 'emacs-lisp-mode-hook
-            (lambda ()
-              (unless (boundp 'my-prog-lookup-map)
-                (define-prefix-command 'my-prog-lookup-map))
-              (local-set-key (kbd "C-c l") 'my-prog-lookup-map)
+  (defun elisp-refs-keybindings-setup ()
+    (interactive)
+    (unless (boundp 'my-prog-lookup-map)
+      (define-prefix-command 'my-prog-lookup-map))
+    (local-set-key (kbd "C-c l") 'my-prog-lookup-map)
 
-              (define-key my-prog-lookup-map (kbd "s") 'elisp-refs-symbol)
-              (define-key my-prog-lookup-map (kbd "f") 'elisp-refs-function)
-              (define-key my-prog-lookup-map (kbd "m") 'elisp-refs-macro)
-              (define-key my-prog-lookup-map (kbd "v") 'elisp-refs-variable)
-              (define-key my-prog-lookup-map (kbd "S") 'elisp-refs-special)
-              ))
+    (define-key my-prog-lookup-map (kbd "s") 'elisp-refs-symbol)
+    (define-key my-prog-lookup-map (kbd "f") 'elisp-refs-function)
+    (define-key my-prog-lookup-map (kbd "m") 'elisp-refs-macro)
+    (define-key my-prog-lookup-map (kbd "v") 'elisp-refs-variable)
+    (define-key my-prog-lookup-map (kbd "S") 'elisp-refs-special)
+    )
+  
+  (add-hook 'emacs-lisp-mode-hook #'elisp-refs-keybindings-setup)
   )
 
 
@@ -298,23 +271,11 @@
 
 ;;; [ ERT ] -- Emacs Lisp Regression Testing.
 
-;;; Usage:
-;;
-;; - `ert-deftest'
-;; - `ert-run-tests-batch'
-;; - `ert-run-tests-batch-and-exit'
-;; - `ert-run-tests-interactively' => alias `ert'
-;; - `ert-describe-test'
-
-
 ;;; [ xtest ] -- Simple Testing with Emacs & ERT
-
 
 ;;; [ faceup ] -- Regression test system for font-lock
 
-
 ;;; [ test-simple ] -- Simple Unit Test Framework for Emacs Lisp
-
 
 ;;; [ buttercup ] -- Behavior-Driven Emacs Lisp Testing
 

@@ -2,46 +2,78 @@
 
 ;;; Commentary:
 
-;;; Tips:
-;; - $ emacs --debug-init
-;; - $ emacs -Q
-;; - $ emacs -q
-
 
 ;;; Code:
 
+(unless (boundp 'emacs-debug-prefix)
+  (define-prefix-command 'emacs-debug-prefix))
+(global-set-key (kbd "C-x C-d") 'emacs-debug-prefix)
+
+
 ;;; [ debug ] -- Emacs built-in debugger.
 
-;;; Usage:
-;;
-;;   M-x debug-on-entry FUNCTION
-;;   M-x cancel-debug-on-entry &optional FUNCTION
-;;   M-x toggle-debug-on-quit
-;;   (debug &rest DEBUGGER-ARGS)
+(use-package debug
+  :config
+  ;; (setq debug-on-error t
+  ;;       debug-on-quit t)
 
-;; [C-h i g (elisp) Debugging RET]
+  ;; If your init file sets debug-on-error, the effect may not last past the end
+  ;; of loading the init file. (This is an undesirable byproduct of the code that
+  ;; implements the `--debug-init' command line option.) The best way to make the
+  ;; init file set debug-on-error permanently is with after-init-hook, like this:
+  ;;
+  ;; (add-hook 'after-init-hook
+  ;;           (lambda ()
+  ;;             (setq debug-on-error t)))
+  )
 
-;; - debug-on-error t
-;; - debug-on-quit t
-;; - debug-on-signal nil
-;; - debug-on-next-call nil
-;; - debug-on-event
-;; - debug-on-message nil ; REGEXP
+;;; [ Edebug ] -- Edebug is a source level debugger.
 
-;; (setq debug-on-error t
-;;       debug-on-quit t)
+(use-package edebug
+  :config
+  (setq edebug-trace t)
 
-;; If your init file sets debug-on-error, the effect may not last past the end
-;; of loading the init file. (This is an undesirable byproduct of the code that
-;; implements the `--debug-init' command line option.) The best way to make the
-;; init file set debug-on-error permanently is with after-init-hook, like this:
-                                        ;
-;; (add-hook 'after-init-hook
-;;           (lambda ()
-;;             (setq debug-on-error t)))
+  (defun my-edebug-keybindings-setup ()
+    (interactive)
+    (define-key emacs-debug-prefix (kbd "C-e") 'edebug-mode)
+    (define-key emacs-debug-prefix (kbd "f") 'edebug-defun)
+    (define-key emacs-debug-prefix (kbd "e") 'debug-on-entry)
+    (define-key emacs-debug-prefix (kbd "s") 'edebug-stop)
+    (defalias 'my-edebug-stop 'eval-defun)
+    (define-key emacs-debug-prefix (kbd "c") 'my-edebug-stop)
+    )
+  
+  (add-hook 'emacs-lisp-mode-hook #'my-edebug-keybindings-setup)
 
-;;; Debug: Trace
-(setq stack-trace-on-error t)
+  (defun edebug-clear-global-break-condition ()
+    "Clear `edebug-global-break-condition'."
+    (interactive)
+    (setq edebug-global-break-condition nil))
+  )
+
+
+;;; [ edebug-x ] -- Extensions for Edebug.
+
+(use-package edebug-x
+  :ensure t
+  :config
+  ;; (setq edebug-x-stop-point-overlay nil)
+
+  (set-face-attribute 'hi-edebug-x-stop nil
+                      :background "SaddleBrown"
+                      )
+  (set-face-attribute 'hi-edebug-x-debug-line nil
+                      :background "dark slate gray"
+                      )
+  )
+
+
+;;; [ bug-hunter ] -- Hunt down errors in elisp files.
+
+(use-package bug-hunter
+  :ensure t
+  :commands (bug-hunter-file bug-hunter-init-file)
+  )
 
 
 ;; Sometimes you want to find out where a particular error, warning or just
@@ -152,82 +184,22 @@
         (search-backward "ERROR!")))))
 
 
-;;; [ Edebug ] -- Edebug is a source level debugger.
-
-(require 'edebug)
-
-(setq edebug-global-prefix (kbd "C-c d"))
-
-(unless (boundp 'my-prog-debug-map)
-  (define-prefix-command 'my-prog-debug-map))
-
-(add-hook 'emacs-lisp-mode-hook
-          (lambda ()
-            (local-set-key (kbd "C-c d") 'my-prog-debug-map)
-            (define-key my-prog-debug-map (kbd "C-e") 'edebug-mode)
-            (define-key my-prog-debug-map (kbd "f") 'edebug-defun)
-            (define-key my-prog-debug-map (kbd "e") 'debug-on-entry)
-            (defalias 'my-edebug-stop 'eval-defun)
-            (define-key my-prog-debug-map (kbd "c") 'my-edebug-stop)
-            ))
-
-(defun edebug-clear-global-break-condition ()
-  "Clear `edebug-global-break-condition'."
-  (interactive)
-  (setq edebug-global-break-condition nil))
-
-
-;;; [ edebug-x ]
-
-
-(use-package edebug-x
-  :ensure t
-  :config
-  ;; (setq edebug-x-stop-point-overlay nil)
-
-  (set-face-attribute 'hi-edebug-x-stop nil
-                      :background "SaddleBrown"
-                      )
-  (set-face-attribute 'hi-edebug-x-debug-line nil
-                      :background "dark slate gray"
-                      )
-  )
-
 
 ;;; [ Benchmarking ]
 
 
-
 ;;; [ profiler ]
 
-;;; Usage:
-;;
-;; - `profiler-start' ::
-;; - `profiler-stop' ::
-;; - `profiler-report' ::
+(unless (boundp 'emacs-profiler-prefix)
+  (define-prefix-command 'emacs-profiler-prefix))
+(define-key emacs-debug-prefix (kbd "p") 'emacs-profiler-prefix)
 
-(unless (boundp 'my-emacs-profiler-prefix)
-  (define-prefix-command 'my-emacs-profiler-prefix))
-(define-key my-prog-debug-map (kbd "p") 'my-emacs-profiler-prefix)
-
-(define-key my-emacs-profiler-prefix (kbd "p") 'profiler-start)
-(define-key my-emacs-profiler-prefix (kbd "s") 'profiler-stop)
-(define-key my-emacs-profiler-prefix (kbd "r") 'profiler-report)
-
-(add-hook 'emacs-lisp-mode-hook
-          (lambda ()
-            (local-set-key (kbd "C-c d") 'my-prog-debug-map)
-            (define-key my-prog-debug-map (kbd "p") 'profiler-start)
-            (define-key my-prog-debug-map (kbd "s") 'profiler-stop)
-            (define-key my-prog-debug-map (kbd "r") 'profiler-report)
-            ))
-
-
-;;; [ bug-hunter ] -- Hunt down errors in elisp files.
-
-(use-package bug-hunter
-  :ensure t)
-
+(use-package profiler
+  :bind (:map emacs-profiler-prefix
+              ("p" . profiler-start)
+              ("s" . profiler-stop)
+              ("r" . profiler-report))
+  )
 
 
 (provide 'init-my-emacs-debug)
