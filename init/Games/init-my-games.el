@@ -17,6 +17,11 @@
   :ensure t
   :defer t)
 
+;;; [ sudoku ] -- simple sudoku game, can download puzzles.
+
+(use-package sudoku
+  :ensure t)
+
 
 (provide 'init-my-games)
 
