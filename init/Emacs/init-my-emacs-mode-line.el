@@ -462,20 +462,14 @@
          )))
 
    ;; org-clock
-   ;; FIXME: display wrong
-   ;; (:eval
-   ;; (when (and (active) org-clock-idle-timer)
-   ;;   (propertize
-   ;;    (let* ((rtime (decode-time
-   ;;                   (time-subtract
-   ;;                    (timer--time org-clock-idle-timer)
-   ;;                    (current-time))))
-   ;;           (rmins (nth 1 rtime))
-   ;;           (rsecs (nth 0 rtime)))
-   ;;      (format "🕔 %d:%d" rmins rsecs))
-   ;;    'face '(:foreground "cyan3")
-   ;;    'help-echo "org-clock timer")))
-   ;; org-clock-today
+   (:eval
+    (when (and (active) org-clock-idle-timer)
+      ;; get [0:05] from `org-clock-get-clock-string'
+      (propertize (format " ⏳ %s"
+                          (org-minutes-to-clocksum-string (org-clock-get-clocked-time)))
+                  'face '(:foreground "yellow"))))
+   
+   ;; org-clock-today (show current org clock)
    (:eval
     (when (and (org-clock-is-active) (active))
       (list
