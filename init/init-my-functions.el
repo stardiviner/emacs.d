@@ -6,6 +6,31 @@
 
 ;;; Code:
 
+;;; Load init layers
+(setq layers-alist
+      '((lisp-layer . "init-my-prog-lang-lisp")
+        (emacs-lisp-layer . "init-my-prog-lang-emacs-lisp")
+        (common-lisp-layer . "init-my-prog-lang-common-lisp")
+        (scheme-layer . "init-my-prog-lang-lisp-scheme")
+        (clojure-layer . "init-my-prog-lang-clojure")
+        (python-layer . "init-my-prog-lang-python")
+        (ruby-layer . "init-my-prog-lang-ruby")
+        ))
+
+(defun my-load-layer (layer)
+  "Load init file `LAYER'.
+
+Usage:
+\\(my-load-layer 'lisp-layer\\)
+"
+  (interactive)
+  (let ((init-file (cdr (assoc layer layers-alist))))
+    (require (intern init-file))
+    ))
+
+;; (my-load-layer 'lisp-layer)
+
+
 ;;; Group hooks into one new hook.
 
 (defmacro hook-modes (modes &rest body)
