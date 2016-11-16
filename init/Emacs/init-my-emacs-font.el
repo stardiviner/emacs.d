@@ -54,6 +54,7 @@
 (my-set-font-default "DejaVu Sans Mono" 10 100)
 
 ;; (set-default-font "-*-Hack-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1")
+;; (my-set-font-default "Hack" 10 100)
 
 ;; -------
 ;; Unicode
@@ -105,6 +106,8 @@
                     :font "DejaVu Sans Mono-10"
                     ;; :family "DejaVu Sans Mono"
                     :height 100)
+
+(set-frame-font (format "%s:pixelsize=%d" "DejaVu Sans Mono" 12) t)
 
 ;; --------
 ;; set different font for different system
