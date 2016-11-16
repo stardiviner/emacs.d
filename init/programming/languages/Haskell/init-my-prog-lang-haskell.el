@@ -189,6 +189,15 @@
 ;;   (add-hook 'haskell-mode-hook 'intero-mode)
 ;;   )
 
+;;; [ dante ] -- a fork of Intero.
+
+(use-package dante
+  :ensure t
+  :commands 'dante-mode
+  :init
+  (add-hook 'haskell-mode-hook 'dante-mode)
+  (add-hook 'haskell-mode-hook 'flycheck-mode))
+
 
 ;;; [ scion ] -- IDE library for Haskell based on the GHC API.
 
