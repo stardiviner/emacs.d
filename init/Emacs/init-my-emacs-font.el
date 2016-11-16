@@ -62,8 +62,8 @@
 ;; set unicode symbol fallback font to "Symbola".
 ;; (set-fontset-font "fontset-default" nil
 ;;                   (font-spec :size 20 :name "Symbola"))
-(set-fontset-font t 'unicode
-                  (font-spec :name "Symbola") nil 'append)
+;; (set-fontset-font t 'unicode
+;;                   (font-spec :name "Symbola") nil 'append)
 ;; (set-fontset-font t 'unicode
 ;;                   (font-spec :name "Symbola") nil 'prepend)
 
