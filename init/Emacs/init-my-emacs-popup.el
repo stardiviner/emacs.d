@@ -4,6 +4,8 @@
 
 ;;; Code:
 
+;; (setq x-gtk-use-system-tooltips t)
+
 ;;; [ tooltip ]
 
 (use-package tooltip
