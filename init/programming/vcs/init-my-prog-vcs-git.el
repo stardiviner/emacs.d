@@ -205,7 +205,8 @@
 (use-package projectile-git-autofetch
   :ensure t
   :config
-  (projectile-git-autofetch-mode 1))
+  ;; (projectile-git-autofetch-mode 1)
+  )
 
 
 (provide 'init-my-prog-vcs-git)
