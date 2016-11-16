@@ -473,7 +473,7 @@
    (:eval
     (when (and (org-clock-is-active) (active))
       (list
-       (propertize (format " ⏳%s" org-clock-today-string)
+       (propertize (format " ⏰%s" org-clock-today-string)
                    'face '(:foreground "cyan")))
       ))
    
