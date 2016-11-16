@@ -39,7 +39,7 @@
 
 ;;; [ flycheck-demjson ] -- flychecker for json-mode using jsonlint from demjson.
 
-(use-package flycheck-demjson
+(use-package flycheck-demjsonlint
   :ensure t)
 
 
