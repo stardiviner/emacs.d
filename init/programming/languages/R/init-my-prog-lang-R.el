@@ -87,14 +87,6 @@
 ;; - `ess-ac-sources' :: for auto-complete.
 
 
-;;; temporally fix lintr missing for flycheck issue.
-
-(add-hook 'R-mode-hook
-          (lambda ()
-            (flycheck-mode -1)))
-
-
-
 (provide 'init-my-prog-lang-R)
 
 ;;; init-my-prog-lang-R.el ends here
