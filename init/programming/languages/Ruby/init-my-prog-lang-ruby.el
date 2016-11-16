@@ -310,7 +310,12 @@
     (my-robe-start))
 
   (define-key enh-ruby-mode-map (kbd "C-c C-s") 'inf-ruby)
-  ;; (define-key my-prog-inferior-map (kbd "r a") 'inf-ruby-console-auto)
+
+  ;; auto start robe process for completing
+  (defun my-robe-auto-start ()
+    (unless robe-running
+      (call-interactively 'inf-ruby)))
+  (add-hook 'enh-ruby-mode-hook #'my-robe-auto-start)
   )
 
 
