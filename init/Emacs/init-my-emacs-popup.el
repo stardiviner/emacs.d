@@ -59,7 +59,7 @@
         )
 
   (setq pos-tip-foreground-color "#073642"
-        pos-tip-background-color "#839496")
+        pos-tip-background-color "light yellow")
   )
 
 
