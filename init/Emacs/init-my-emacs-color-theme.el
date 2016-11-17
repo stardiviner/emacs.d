@@ -49,6 +49,18 @@
   ;; (require 'doom-neotree) ; for neotree
   )
 
+;;; [ leuven-theme ] -- Awesome Emacs color theme for white backgrounds.
+
+(use-package leuven-theme
+  :ensure t
+  :config
+  (load-theme 'leuven t)
+  (add-hook 'after-init-hook
+            (lambda ()
+              (load-theme 'leuven t)
+              ))
+  )
+
 
 ;;; custom faces
 
