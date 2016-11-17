@@ -51,9 +51,9 @@
 ;; [ indent ]
 
 (use-package org-indent
-  :defer t
+  :init
+  (add-hook 'org-mode-hook 'org-indent-mode)
   :config
-  ;; (org-indent-mode 1)
   (set-face-attribute 'org-indent nil
                       :inherit 'org-hide
                       ;; :background "#282c34"
