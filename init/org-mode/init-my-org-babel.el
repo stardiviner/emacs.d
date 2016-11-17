@@ -56,6 +56,11 @@
 ;;; [ ob-clojure ]
 (setq org-babel-clojure-backend 'cider)
 
+;;; [ ob-haskell ]
+
+(setq org-babel-default-header-args:haskell
+      '((:session . "*haskell*")))
+
 ;;; [ ob-latex ]
 (require 'ob-latex)
 
