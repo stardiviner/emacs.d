@@ -322,6 +322,7 @@
   ;; Haskell
   (push '(inferior-haskell-mode :position bottom :height 8) popwin:special-display-config)
   (push '(haskell-interactive-mode :position bottom :height 8) popwin:special-display-config)
+  (push '(haskell-compilation-mode :position bottom :height 8) popwin:special-display-config)
 
   ;; Lua
   (push '("*lua*" :position bottom :height 8) popwin:special-display-config)
