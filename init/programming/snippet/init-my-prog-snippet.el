@@ -9,11 +9,6 @@
 
 (use-package yasnippet
   :ensure t
-  :bind (:map yas-minor-mode-map
-              ([tab] . yas-expand)
-              ("TAB" . indent-for-tab-command)
-              ("C-c \\" . yas-insert-snippet)
-              )
   :config
   (setq yas-snippet-dirs
         '("~/.emacs.d/snippets" ; personal snippets directory
@@ -66,6 +61,10 @@ $0`(yas-escape-text yas-selected-text)`"
                       :overline "black"
                       )
 
+  (define-key yas-minor-mode-map [tab] 'yas-expand)
+  (define-key yas-minor-mode-map (kbd "TAB") 'indent-for-tab-command)
+  (define-key yas-minor-mode-map (kbd "C-c \\") 'yas-insert-snippet)
+  
   ;; project local snippets
   (defun yasnippet-project-local ()
     (interactive)
