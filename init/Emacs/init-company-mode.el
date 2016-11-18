@@ -189,6 +189,7 @@
   :config
   ;; set to `nil' to trigger popup doc manually.
   (setq company-quickhelp-delay nil)
+  (setq company-quickhelp-use-propertized-text t) ; properties text like color, font size, etc
 
   ;; (company-quickhelp-mode 1)
   ;;
