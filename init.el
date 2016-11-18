@@ -81,7 +81,7 @@
 (require 'init-my-functions)
 
 ;;; EXWM
-(require 'init-EXWM)
+;; (require 'init-EXWM)
 
 ;;; Emacs
 (require 'init-my-emacs-environment)

@@ -13,6 +13,7 @@
   :ensure t
   :load-path "/usr/share/emacs/exwm"
   :config
+  (require 'xcb)
   (require 'exwm)
   (require 'exwm-config)
   (exwm-config-default)
