@@ -9,7 +9,10 @@
 ;;; ----------------------------------------------------------------------------
 ;;; [ EXWM ] -- (Emacs X Windows Manager)
 
-(when (featurep 'exwm)
+(use-package exwm
+  :ensure t
+  :load-path "/usr/share/emacs/exwm"
+  :config
   (require 'exwm)
   (require 'exwm-config)
   (exwm-config-default)
