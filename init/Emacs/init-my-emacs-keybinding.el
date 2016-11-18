@@ -64,10 +64,6 @@ helpful for learning and remembering forgotten binds."
 
 (use-package which-key
   :ensure t
-  :defer t
-  :init
-  ;; TODO: workaround for bug (void-function display-buffer-in-major-side-window)
-  (defalias 'display-buffer-in-major-side-window 'window--make-major-side-window)
   :bind (("C-x C-t" . which-key-show-top-level))
   :config
   (setq which-key-idle-delay 1.5
