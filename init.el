@@ -140,6 +140,8 @@
 
 ;;; Languages
 
+(unless (boundp 'my-search-prefix)
+  (define-prefix-command 'my-search-prefix))
 (unless (boundp 'my-search-language-prefix)
   (define-prefix-command 'my-search-language-prefix))
 (define-key my-search-prefix (kbd "l") 'my-search-language-prefix)
