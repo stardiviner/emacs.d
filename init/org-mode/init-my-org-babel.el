@@ -570,6 +570,19 @@ This can be useful for snippets to select kernel interactively."
 
 (add-hook 'org-src-mode-hook #'my-org-src-edit-animation)
 
+;;; [ org-babel-eval-in-repl ] -- eval org-babel block code with eval-in-repl.el
+
+(use-package org-babel-eval-in-repl
+  :ensure t
+  :bind (:map org-mode-map
+              ("C-<return>" . ober-eval-in-repl)
+              ("C-c <return>" . ober-eval-block-in-repl))
+  :config
+  (with-eval-after-load "eval-in-repl"
+    (setq eir-jump-after-eval nil))
+  )
+
+
 
 (provide 'init-my-org-babel)
 
