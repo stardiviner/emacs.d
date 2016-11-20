@@ -7,6 +7,18 @@
 
 ;;; Code:
 ;;; ----------------------------------------------------------------------------
+;;; [ bibtex ] -- BibTeX mode for GNU Emacs.
+
+(use-package bibtex
+  :ensure t
+  :config
+  (use-package bibtex-style
+    :ensure t)
+  (use-package bibtex-utils
+    :ensure t)
+  )
+
+;;; ----------------------------------------------------------------------------
 ;;; [ helm-bibtex ] -- Helm interface for bibliography manager.
 
 (use-package helm-bibtex

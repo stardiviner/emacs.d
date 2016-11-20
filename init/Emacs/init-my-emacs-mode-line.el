@@ -22,6 +22,7 @@
   )
 
 
+;;; ------------------------------------------------------
 ;;; separate settings for only active mode-line.
 
 (defvar my/mode-line-selected-window nil)
@@ -39,124 +40,12 @@
 (defun active ()
   (eq my/mode-line-selected-window (selected-window)))
 
-;; major mode with icon
-(defvar major-mode-list
-  '(((emacs-lisp-mode inferior-emacs-lisp-mode) . ("Elisp" "Emacs"))
-    ((lisp-mode inferior-lisp-mode
-                slime-repl-mode sly-mrepl-mode) . ("Lisp" "Common-Lisp"))
-    ((scheme-mode) . ("Scheme" "Scheme"))
-    ((clojure-mode
-      cider-repl-mode) . ("Clojure" "Clojure"))
-    ((clojurescript-mode) . ("ClojureScript" "ClojureScript"))
-    ((python-mode) . ("Python" "Python"))
-    ((enh-ruby-mode ruby-mode) . ("Ruby" "Ruby"))
-    ((c-mode) . ("C" "C"))
-    ((c++-mode) . ("C++" "C++"))
-    ((go-mode) . ("Go" "Go"))
-    ((swift-mode) . ("Swift" "Swift"))
-    ((rust-mode) . ("Rust" "Rust"))
-    ((java-mode) . ("Java" "Java"))
-    ((php-mode) . ("PHP" "PHP"))
-    ((web-mode html-mode) . ("HTML" "HTML"))
-    ((css-mode) . ("CSS" "CSS"))
-    ((javascript-mode
-      js-mode js2-mode js3-mode inferior-js-mode) . ("JavaScript" "JavaScript"))
-    ((org-mode) . ("Org" "Org"))
-    ((tex-mode latex-mode TeX-mode LaTeX-mode) . ("TeX/LaTeX" "TeX"))
-    ((markdown-mode) . ("Markdown" "Markdown"))
-    ((yaml-mode) . ("YAML" "YAML"))
-    ((rst-mode) . ("reStructuredText" "reStructuredText"))
-    ((eshell-mode) . ("Shell" "Command-Line"))
-    ((sh-mode shell-mode) . ("Shell Script" "Shell"))
-    ((ess-mode R-mode) . ("R" "R"))
-    ((julia-mode ess-julia-mode) . ("Julia" "Julia"))
-    ((gnuplot-mode) . ("gnuplot" "gnuplot"))
-    ((octave-mode) . ("Octave" "Octave"))
-    ((matlab-mode) . ("Matlab" "Matlab"))
-    ((haskell-mode) . ("Haskell" "Haskell"))
-    ((scala-mode) . ("Scala" "Scala"))
-    ((erlang-mode) . ("Erlang" "Erlang"))
-    ((prolog-mode) . ("Prolog" "Prolog"))
-    ((sql-mode) . ("SQL" "SQL"))
-    ((xml-mode nxml-mode) . ("XML" "XML"))
-    ((json-mode) . ("JSON" "JSON"))
-    ((asm-mode nasm-mode) . ("Assembly" "Assembly"))
-    ((android-mode) . ("Android" "Android"))
-    ((qt-mode) . ("Qt" "Qt"))
-    ((arduino-mode) . ("Arduino" "Arduino"))
-    ((systemd-mode) . ("Systemd" "Systemd"))
-    ((projectile-rails-mode) . ("Rails" "Rails"))
-    )
-  "Pairs: ([mode-list] . ([name] [icon-name]))."
-  )
+;;; ------------------------------------------------------
 
-(defun major-mode-list-match ()
-  "Return the matched item in `major-mode-list'."
-  (assoc
-   (cl-some ; or use (remove nil '(nil nil (clojure-mode) nil nil ...))
-    (lambda (elem)
-      (when (not (null elem))
-        elem))
-    (mapcar
-     (lambda (element)
-       (member major-mode element))
-     (map-keys major-mode-list)))
-   major-mode-list))
-
-(defun major-mode-icon (&optional extra)
-  "Display icon for current buffer's `major-mode' and `EXTRA' info."
-  (let* ((match (major-mode-list-match))
-         (name (or (car (cdr match))
-                   "%m" ; return current major-mode as string for `propertize' when not in `major-mode-alist'.
-                   ))
-         (icon (car (cdr (cdr match)))))
-    (list
-     (propertize
-      (format "%s" name)
-      'face (if (active)
-                '(:family "Segoe Print" :foreground "cyan" :height 80)
-              'mode-line-inactive)
-      'display
-      (let ((icon-path
-             (concat user-emacs-directory "resources/icon/" icon ".xpm")))
-        (if (and (active)
-                 (file-exists-p icon-path)
-                 (image-type-available-p 'xpm))
-            (create-image icon-path 'xpm nil :ascent 'center)))
-      )
-     (propertize " ")
-     ;;; extra
-     (if extra
-         (propertize (format "%s" (or extra ""))
-                     'face (if (active)
-                               '(:foreground "DarkGreen")
-                             'mode-line-inactive)))
-     )
-    ))
-
-;;; auto show extra info
-(defun major-mode-icon-extra ()
-  "Extend function `major-mode-icon' with extra info."
-  (let ((extra
-         (case major-mode
-           ('clojure-mode
-            (if (not (equal (cider--modeline-info) "not connected"))
-                (cider--project-name nrepl-project-dir)))
-           ('enh-ruby-mode
-            (if global-rbenv-mode
-                (rbenv--active-ruby-version) ; `rbenv--modestring'
-              ))
-           ('python-mode
-            (if pyvenv-mode
-                ;; `pyvenv-mode-line-indicator' -> `pyvenv-virtual-env-name'
-                pyvenv-virtual-env-name
-              ;; conda: `conda-env-current-name'
-              ))
-           )))
-    
-    (major-mode-icon extra))
-  )
-
+(use-package mode-icons
+  :ensure t
+  :config
+  (mode-icons-mode 1))
 
 ;; load necessary package which will be used later.
 (use-package company
@@ -583,9 +472,11 @@
    ;;           'mode-line-inactive)))
 
 
-   ;; major-mode icon
+   ;; mode-icons: `mode-icons-set-mode-icon'
    (:eval
-    (major-mode-icon-extra))
+    (mode-icons-get-mode-icon mode-name)
+    ;; (setq mode-name (mode-icons-get-mode-icon mode-name))
+    )
    )))
 
 

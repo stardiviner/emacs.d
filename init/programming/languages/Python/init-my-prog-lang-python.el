@@ -141,6 +141,14 @@
 ;;   )
 
 
+;;; [ pygen ] -- Python code generation in Emacs with Elpy and python-mode.
+
+(use-package pygen
+  :ensure t
+  :init
+  (add-hook 'python-mode-hook 'pygen-mode))
+
+
 ;;; [ cinspect ] -- Use cinspect to look at the CPython source of builtins and other C objects!
 
 ;; (use-package cinspect
