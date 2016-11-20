@@ -84,20 +84,27 @@ $0`(yas-escape-text yas-selected-text)`"
   (add-hook 'yas-after-exit-snippet-hook #'my-yas-exit-animation)
   
   ;; change cursor dynamically when prefix text is expandable.
-  (defun my-cursor-change-on-snippet ()
-    (interactive)
-    ;; (yas-next-field-or-maybe-expand)
-    (if (or yas-triggers-in-field ; FIXME: improve condition
-            (yas-next-field-will-exit-p))
-        (progn
-          (set-cursor-color "red")
-          (setq cursor-type 'hollow))
-      (set-cursor-color "cyan")
-      (setq cursor-type '(hbar . 2))
-      )
-    )
+  ;; `yas--templates-for-key-at-point'.
+  (defvar yas--expandable-keys-overlay nil)
 
-  ;; (add-hook 'post-command-hook #'my-cursor-change-on-snippet)
+  (defun yas-show-expand-keys ()
+    "Put overlay on text which is an expandable snippet key.
+This function is intended to be added to `post-command-hook'."
+    (let ((keys-at-point (and yas-minor-mode (yas--templates-for-key-at-point)))
+          (have-overlay (overlayp (buffer-local-value 'yas--expandable-keys-overlay (current-buffer)))))
+      (if keys-at-point
+          (let ((beg (nth 1 keys-at-point))
+                (end (nth 2 keys-at-point)))
+            (if have-overlay
+                (move-overlay yas--expandable-keys-overlay beg end)
+              (setq-local yas--expandable-keys-overlay
+                          (make-overlay beg end)))
+            (overlay-put yas--expandable-keys-overlay 'face '(:box t)))
+        (when have-overlay
+          (delete-overlay yas--expandable-keys-overlay)))))
+
+  (add-hook 'post-command-hook #'yas-show-expand-keys)
+
   
   ;; enable global yasnippet-mode
   (yas-global-mode 1)
