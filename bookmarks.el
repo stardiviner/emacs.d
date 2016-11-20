@@ -2,7 +2,47 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Medicine.org"
+(("Command Line.org"
+ (filename . "~/Org/Wiki/Computer/Systems/Linux/Command Line/Command Line.org")
+ (front-context-string . "* Intro\n\n** Feat")
+ (rear-context-string)
+ (position . 1))
+("Novels.org"
+ (filename . "~/Org/Wiki/Literature/Novels/Novels.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("GitHub.org"
+ (filename . "~/Org/Wiki/Computer/Softwares/Git/GitHub.org")
+ (front-context-string . "You can use the ")
+ (rear-context-string . "ch by filename\n\n")
+ (position . 6267))
+("iOS Apps.org"
+ (filename . "~/Org/Wiki/Computer/Systems/iOS/Data/iOS Apps/iOS Apps.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Android Apps.org"
+ (filename . "~/Org/Wiki/Computer/Systems/Android/Data/Android Apps/Android Apps.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Programming Concepts.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Concepts/Programming Concepts.org")
+ (front-context-string . "* Introspection ")
+ (rear-context-string)
+ (position . 1))
+("My Java Examples.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Java/Data/Manuals/My Java Examples/My Java Examples.org")
+ (front-context-string . "* Print\n\n** Syst")
+ (rear-context-string)
+ (position . 1))
+("My Java Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Java/Data/Manuals/My Java Language Syntax Reference/My Java Language Syntax Reference.org")
+ (front-context-string . "* Intro\n\n\n* Pack")
+ (rear-context-string)
+ (position . 1))
+("Medicine.org"
  (filename . "~/Org/Wiki/Medicine/Medicine.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
@@ -452,11 +492,6 @@
  (front-context-string . "* Print Out\n\n** ")
  (rear-context-string)
  (position . 1))
-("Reading"
- (filename . "~/Org/Wiki/Reading/Reading.org")
- (front-context-string . "* Intro\n\n** 不思考，")
- (rear-context-string)
- (position . 1))
 ("Mathematics Formula Reference"
  (filename . "~/Org/Wiki/Mathematics/Data/Manuals/Mathematics Formula Reference/Mathematics Formula Reference.org")
  (front-context-string)
@@ -633,10 +668,10 @@
  (rear-context-string)
  (position . 1))
 ("org-capture-last-stored"
- (filename . "~/Org/Diary/Diary.org")
- (front-context-string . "**** 在慈缘斋看到很像小影的")
- (rear-context-string . "6-11-04 Friday\n\n")
- (position . 19390))
+ (filename . "~/Org/Contacts/Contacts.org")
+ (front-context-string . "** 刘意\n:PROPERTIE")
+ (rear-context-string . "  Pam177\n:END:\n\n")
+ (position . 46387))
 ("My R Language Syntax Reference"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/R/Data/Manuals/My R Language Syntax Reference/My R Language Syntax Reference.org")
  (front-context-string)
@@ -695,11 +730,6 @@
 ("Ruby Standard Libraries"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Library/stdlib/stdlib.org")
  (front-context-string . "* Ruby Standard ")
- (rear-context-string)
- (position . 1))
-("九州"
- (filename . "~/Org/Wiki/Reading/Novels/Fantasy/九州/九州.org")
- (front-context-string . "#+TAGS: 今何在 江南\n\n")
  (rear-context-string)
  (position . 1))
 ("HTTP"
@@ -1095,11 +1125,6 @@
 ("Writing"
  (filename . "~/Org/Wiki/Writing/Writing.org")
  (front-context-string . "* Words (文字)\n\n[[")
- (rear-context-string)
- (position . 1))
-("Aphorisms"
- (filename . "~/Org/Wiki/Reading/Aphorisms/Aphorisms.org")
- (front-context-string . "* References\n- 佛")
  (rear-context-string)
  (position . 1))
 ("Common Lisp Language"
