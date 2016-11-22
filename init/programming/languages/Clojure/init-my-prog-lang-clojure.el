@@ -389,12 +389,6 @@
 (add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode)) ; recognize .boot file
 (add-to-list 'magic-mode-alist '(".* boot" . clojure-mode)) ; recognize script file using shebang
 
-;;; [ clojars ] -- Emacs Interface to Clojars.org
-
-(use-package clojars
-  :ensure t
-  :defer t)
-
 
 ;;; [ clomacs ] -- Clomacs simplifies call Clojure code from Emacs lisp.
 
