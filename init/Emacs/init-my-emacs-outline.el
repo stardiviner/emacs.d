@@ -7,16 +7,15 @@
 
 ;;; Code:
 
-
-(unless (boundp 'my-outline-prefix)
-  (define-prefix-command 'my-outline-prefix))
-(global-set-key (kbd "C-c @") 'my-outline-prefix)
+(unless (boundp 'outline-prefix)
+  (define-prefix-command 'outline-prefix))
+(global-set-key (kbd "C-c @") 'outline-prefix)
 
 
 ;;; [ allout ]
 
 (use-package allout
-  ;; :ensure t
+  :ensure t
   :config
   (setq allout-auto-activation t
         ;; allout-layout
@@ -46,20 +45,27 @@
     (if (allout-mode-p)
         (allout-mode -1)
       (outlineify-sticky)
-      (allout-hide-bodies)
-      (define-key allout-mode-map (kbd "C-c SPC C-l") 'allout-hide-bodies)))
+      (allout-hide-bodies)))
 
+  (define-key allout-mode-map (kbd "C-c SPC C-l") 'allout-hide-bodies)
+  
   ;; (define-key my-edit-prefix (kbd "o") 'outlineify-sticky)
-  (define-key my-outline-prefix (kbd "@") 'my-allout-toggle)
+  (define-key outline-prefix (kbd "@") 'my-allout-toggle)
 
-  ;; (unless (boundp 'my-outline-prefix)
-  ;;   (define-prefix-command 'my-outline-prefix))
-  ;; (define-key my-edit-prefix (kbd "o") 'my-outline-prefix)
+  ;; (unless (boundp 'outline-prefix)
+  ;;   (define-prefix-command 'outline-prefix))
+  ;; (define-key my-edit-prefix (kbd "o") 'outline-prefix)
   ;;
-  ;; (define-key my-outline-prefix (kbd "n") 'allout-next-heading)
+  ;; (define-key outline-prefix (kbd "n") 'allout-next-heading)
   )
 
 
 (provide 'init-my-emacs-outline)
 
 ;;; init-my-emacs-outline.el ends here
+;;;_* Dummy outline topic header -- see ‘allout-mode’ docstring: ‘C-h m’.
+;;;_* Local emacs vars.
+;;;_ + Local variables:
+;;;_ + allout-layout: (-1 : 0)
+;;;_ + End:
+

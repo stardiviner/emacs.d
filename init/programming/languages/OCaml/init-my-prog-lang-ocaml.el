@@ -11,7 +11,6 @@
 
 (use-package tuareg
   :ensure t
-  :defer t
   :init
   (autoload 'utop "utop" "Toplevel for OCaml" t)
   (autoload 'utop-minor-mode "utop" "Minor mode for utop" t)
@@ -31,7 +30,6 @@
 
 (use-package merlin
   :ensure t
-  :defer t
   :init
   (dolist (hook '(tuareg-mode-hook
                   caml-mode-hook

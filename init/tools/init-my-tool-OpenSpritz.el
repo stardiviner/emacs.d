@@ -11,7 +11,7 @@
 
 (use-package spray
   :ensure t
-  :defer t
+  :bind ("<f9>" . spray-mode)
   :config
   (setq spray-wpm 250 ; words per minute
         spray-height 400 ; Height of characters
@@ -32,11 +32,6 @@
                       :foreground "red"
                       )
   )
-
-
-
-;; 'spray-mode, 'speedread
-(global-set-key (kbd "<f9>") 'spray-mode)
 
 
 (provide 'init-my-tool-OpenSpritz)

@@ -7,23 +7,19 @@
 
 ;;; Code:
 
-
-;; prefix
-
-(unless (boundp 'my-screenshot-map)
-  (define-prefix-command 'my-screenshot-map))
-(define-key my-tools-prefix (kbd "S") 'my-screenshot-map)
+(unless (boundp 'screenshot-prefix)
+  (define-prefix-command 'screenshot-prefix))
+(define-key my-tools-prefix (kbd "S") 'screenshot-prefix)
 
 
 ;;; [ screenshot.el ]
 
 (use-package screenshot
   :ensure t
-  :defer t
-  :init
-  (define-key my-screenshot-map (kbd "S") 'screenshot)
-  (define-key my-screenshot-map (kbd "s") 'screenshot-take) ; `screenshot-take-delay'
-  
+  :bind (:map screenshot-prefix
+              ("S" . screenshot)
+              ("s" . screenshot-take) ; `screenshot-take-delay'
+              )
   :config
   (setq screenshot-schemes
         '(

@@ -11,10 +11,8 @@
 
 (use-package artist
   :ensure t
-  :defer t
-  :init
-  (define-key my-tools-prefix (kbd "a") 'artist-mode)
-
+  :bind (:map my-tools-prefix
+              ("a" . artist-mode))
   :config
   (defun artist-select-colors ()
     "Insert cXXX format colors for ditaa boxes."
@@ -50,11 +48,10 @@
 ;;; ditaa
 
 
-;;; graphviz-dot-mode
+;;; [ graphviz-dot-mode ]
 
 ;; (use-package graphviz-dot-mode
 ;;   :ensure t
-;;   :defer t
 ;;   :init
 ;;   (add-hook 'find-file-hook
 ;;             (lambda()
@@ -74,7 +71,6 @@
 
 (use-package plantuml-mode
   :ensure t
-  :defer t
   :config
   (setq plantuml-jar-path (locate-user-emacs-file "init/extra/plantuml.jar"))
   )

@@ -14,7 +14,7 @@
 
 ;;; [ Sage Math ]
 
-(require 'init-my-math-sage-math)
+;; (require 'init-my-math-sage-math)
 
 
 ;;; [ GMPL (MathProg) ] -- GMPL(MathProg) files

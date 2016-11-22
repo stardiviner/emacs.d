@@ -18,7 +18,7 @@
 
 (require 'init-my-prog-vcs-git-gutter)
 (require 'init-my-prog-vcs-git-github)
-(require 'init-my-prog-vcs-git-gitlab)
+;; (require 'init-my-prog-vcs-git-gitlab)
 
 (require 'init-my-prog-vcs-diff)
 (require 'init-my-prog-vcs-commit)

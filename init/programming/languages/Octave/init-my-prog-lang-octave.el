@@ -28,6 +28,11 @@
   (define-key inferior-octave-mode-map (kbd "C-c C-d") 'octave-help)
   )
 
+;;; [ ac-octave ] -- auto-complete source for Octave.
+
+(use-package ac-octave
+  :ensure t)
+
 
 
 (provide 'init-my-prog-lang-octave)

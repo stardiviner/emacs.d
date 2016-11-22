@@ -7,6 +7,10 @@
 
 ;;; Code:
 
+;; typed text replaces the active selection
+(delete-selection-mode t)
+
+
 ;;; [ expand-region ]
 
 ;;; Expand region increases the selected region by semantic units. Just keep

@@ -6,13 +6,12 @@
 
 ;;; Code:
 
+(unless (boundp 'speak-map)
+  (define-prefix-command 'speak-map))
+(define-key my-tools-prefix (kbd "s") 'speak-map)
+
+
 ;;; [ Emacspeak ]
-
-;; http://www.emacswiki.org/emacs/EmacSpeak
-
-;; Usage:
-;;
-;; - [C-e] :: prefix
 
 ;; (load "~/compile/Emacs/emacspeak/lisp/emacspeak-setup.el")
 
@@ -49,10 +48,6 @@
     )
   )
 
-(unless (boundp 'speak-map)
-  (define-prefix-command 'speak-map))
-(define-key my-tools-prefix (kbd "s") 'speak-map)
-
 (define-key speak-map (kbd "s") 'festival-read)
 (define-key speak-map (kbd "r") 'festival-read-region)
 (define-key speak-map (kbd "b") 'festival-read-buffer)
@@ -64,9 +59,6 @@
 
 (use-package say-what-im-doing
   :ensure t
-  :defer t
-  :init
-  ;; (say-what-im-doing-mode)
   :config
   (setq say-what-im-doing-shell-command (if (executable-find "mimic")
                                             "mimic"
@@ -79,6 +71,8 @@
   
   (add-to-list 'say-what-im-doing-common-commands 'move-beginning-of-line)
   (add-to-list 'say-what-im-doing-common-commands 'move-end-of-line)
+
+  (say-what-im-doing-mode 1)
   )
 
 
@@ -86,15 +80,14 @@
 
 (use-package eloud
   :ensure t
-  :defer t
-  :init
-  ;; (eloud-mode 1)
   :config
   (setq eloud-espeak-path (cond
                            ((string-equal system-type "gnu/linux")
                             "/usr/bin/espeak")
                            ((string-equal system-type "darwin")
                             "/usr/local/bin/espeak")))
+
+  (eloud-mode 1)
   )
 
 
@@ -102,9 +95,6 @@
 
 (use-package read-aloud
   :ensure t
-  :defer t
-  :init
-  ;; TODO: (read-aloud)
   :config
   (setq read-aloud-engine "speech-dispatcher")
   )

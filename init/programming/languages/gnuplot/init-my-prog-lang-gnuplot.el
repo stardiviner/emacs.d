@@ -72,6 +72,18 @@
   (define-key gnuplot-mode-map (kbd "C-c C-c") 'gnuplot-show-gnuplot-buffer)
   )
 
+;;; [ ob-gnuplot ]
+
+(use-package org-plus-contrib
+  :ensure t
+  :config
+  (require 'ob-gnuplot)
+  (setq org-babel-default-header-args:gnuplot
+        '((:session . "none")
+          (:results . "graphics")
+          ;; (:dir . "data/images")
+          ))
+  )
 
 
 (provide 'init-my-prog-lang-gnuplot)

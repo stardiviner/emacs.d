@@ -11,7 +11,6 @@
 
 (use-package forth-mode
   :ensure t
-  :defer t
   :config
   (defun my-forth-switch-to-repl ()
     "Switch to Forth REPL buffer."

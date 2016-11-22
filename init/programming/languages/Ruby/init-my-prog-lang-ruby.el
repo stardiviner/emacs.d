@@ -537,31 +537,30 @@
 
 ;;; [ motion-mode ] -- RubyMotion
 
-(use-package motion-mode
-  :ensure t
-  :init
-  (add-hook 'ruby-mode-hook 'motion-recognize-project)
-  
-  :config
-  (when (featurep 'auto-complete)
-    (add-to-list 'ac-modes 'motion-mode)
-    (add-to-list 'ac-sources 'ac-source-dictionary))
-  
-  ;; set key-binds as you like
-  (define-key motion-mode-map (kbd "C-c C-c") 'motion-execute-rake)
-  (define-key motion-mode-map (kbd "C-c C-d") 'motion-dash-at-point)
-
-  ;; (define-key motion-mode-map (kbd "C-c C-c") 'motion-execute-rake)
-  ;; (define-key motion-mode-map (kbd "C-c C-d") (lambda () (interactive) (motion-execute-rake-command "device")))
-  ;; (define-key motion-mode-map (kbd "C-c C-o") 'motion-dash-at-point)
-  ;; (define-key motion-mode-map (kbd "C-c C-p") 'motion-convert-code-region)
-  )
+;; (use-package motion-mode
+;;   :ensure t
+;;   :init
+;;   (add-hook 'ruby-mode-hook 'motion-recognize-project)
+;;   :config
+;;   (when (featurep 'auto-complete)
+;;     (add-to-list 'ac-modes 'motion-mode)
+;;     (add-to-list 'ac-sources 'ac-source-dictionary))
+;;
+;;   ;; set key-binds as you like
+;;   (define-key motion-mode-map (kbd "C-c C-c") 'motion-execute-rake)
+;;   (define-key motion-mode-map (kbd "C-c C-d") 'motion-dash-at-point)
+;;
+;;   ;; (define-key motion-mode-map (kbd "C-c C-c") 'motion-execute-rake)
+;;   ;; (define-key motion-mode-map (kbd "C-c C-d") (lambda () (interactive) (motion-execute-rake-command "device")))
+;;   ;; (define-key motion-mode-map (kbd "C-c C-o") 'motion-dash-at-point)
+;;   ;; (define-key motion-mode-map (kbd "C-c C-p") 'motion-convert-code-region)
+;;   )
 
 
 ;;; [ feature-mode ] -- Major mode for Cucumber feature files
 
-(use-package feature-mode
-  :ensure t)
+;; (use-package feature-mode
+;;   :ensure t)
 
 
 ;;; [ ruby-factory ] -- minor mode for Ruby test object generation libraries.

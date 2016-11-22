@@ -12,28 +12,27 @@
 ;;; A major mode for Prolog programming under Emacs and offers to my knowledge
 ;;; the best Prolog IDE out there, especially when used from within XEmacs.
 
-(require 'prolog)
+(use-package prolog
+  :init
+  (autoload 'run-prolog "prolog" "Start a Prolog sub-process." t)
+  (autoload 'prolog-mode "prolog" "Major mode for editing Prolog programs." t)
+  (autoload 'mercury-mode "prolog" "Major mode for editing Mercury programs." t)
 
-(autoload 'run-prolog "prolog" "Start a Prolog sub-process." t)
-(autoload 'prolog-mode "prolog" "Major mode for editing Prolog programs." t)
-(autoload 'mercury-mode "prolog" "Major mode for editing Mercury programs." t)
-
-;; which Prolog are you using? 'swi, 'gnu,
-(setq prolog-system 'swi)
-
-(add-to-list 'auto-mode-alist '("\\.prolog\\'" . prolog-mode))
-(add-to-list 'auto-mode-alist '("\\.m\\'" . mercury-mode))
+  (add-to-list 'auto-mode-alist '("\\.prolog\\'" . prolog-mode))
+  (add-to-list 'auto-mode-alist '("\\.m\\'" . mercury-mode))
+  :config
+  ;; which Prolog are you using? 'swi, 'gnu,
+  (setq prolog-system 'swi)
+  )
 
 
 ;;; [ ediprolog ] -- Emacs Does Interactive Prolog
 
 (use-package ediprolog
   :ensure t
-  :defer t
-  :init
-  (define-key prolog-mode-map [f10] 'ediprolog-dwim)
+  :bind (:map prolog-mode-map
+              ([f10] . ediprolog-dwim))
   )
-
 
 ;; [ ob-prolog ] -- babel for Prolog
 

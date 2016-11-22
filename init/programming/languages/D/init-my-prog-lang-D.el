@@ -11,9 +11,7 @@
 
 (use-package d-mode
   :ensure t
-  :defer t
   :init
-  (autoload 'd-mode "d-mode" "Major mode for editing D code." t)
   (add-to-list 'auto-mode-alist '("\\.d[i]?\\'" . d-mode))
   )
 

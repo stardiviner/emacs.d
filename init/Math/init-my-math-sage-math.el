@@ -11,14 +11,13 @@
 
 (use-package sage-shell-mode
   :ensure t
-  :defer t
-  :init
-  (sage-shell:define-alias) ; define command `run-sage'.
   :config
   (setq sage-shell:use-prompt-toolkit t) ; temporarily fix prompt issue
   ;; (setq sage-shell:completion-function )
   ;; (setq sage-shell:completion-ignore-case t)
   ;; (setq sage-shell-edit:display-function)
+
+  (sage-shell:define-alias) ; define command `run-sage'.
   )
 
 
@@ -26,7 +25,6 @@
 
 (use-package auto-complete-sage
   :ensure t
-  :defer t
   :init
   (add-hook 'sage-shell:sage-mode-hook 'ac-sage-setup)
   (add-hook 'sage-shell-mode-hook 'ac-sage-setup)
@@ -43,11 +41,10 @@
 
 (use-package ob-sagemath
   :ensure t
-  :defer t
-  :init
+  ;; :init
   ;; (with-eval-after-load "org"
   ;;   (define-key org-mode-map (kbd "C-c c") 'ob-sagemath-execute-async))
-  :config
+  ;; :config
   ;; (setq ob-sagemath-output-display-function)
   ;; (setq org-babel-header-args:sage '())
   )

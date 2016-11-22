@@ -9,27 +9,24 @@
 
 ;;; [ perl-mode ]
 
-
+(use-package perl-mode
+  :ensure t)
 
 ;;; [ perl6-mode ]
 
 (use-package perl6-mode
-  :ensure t
-  :defer t)
-
+  :ensure t)
 
 ;;; [ plsense ] -- interface for PlSense that is a development tool for Perl.
 
 (use-package plsense
   :ensure t
-  :defer t
-  :init
-  (plsense-config-default)
-
   :config
   (setq plsense-popup-help-key "M-h"
         plsense-display-help-buffer-key "C-h"
         plsense-jump-to-definition-key "M-.")
+  
+  (plsense-config-default)
   )
 
 

@@ -11,6 +11,8 @@
 (unless (boundp 'my-calendar-prefix)
   (define-prefix-command 'my-calendar-prefix))
 (define-key my-tools-prefix (kbd "c") 'my-calendar-prefix)
+(unless (boundp 'my-org-prefix)
+  (define-prefix-command 'my-org-prefix))
 (define-key my-org-prefix (kbd "C") 'my-calendar-prefix)
 
 

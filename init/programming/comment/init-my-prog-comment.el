@@ -5,10 +5,9 @@
 
 ;;; Code:
 
-
-(unless (boundp 'my-prog-comment-map)
-  (define-prefix-command 'my-prog-comment-map))
-(global-set-key (kbd "M-;") 'my-prog-comment-map)
+(unless (boundp 'prog-comment-prefix)
+  (define-prefix-command 'prog-comment-prefix))
+(global-set-key (kbd "M-;") 'prog-comment-prefix)
 
 
 
@@ -17,14 +16,14 @@
       )
 
 
-;;; prefix: [M-;], `my-prog-comment-map'
+;;; prefix: [M-;], `prog-comment-prefix'
 
-(define-key my-prog-comment-map (kbd "M-;") 'comment-dwim)
+(define-key prog-comment-prefix (kbd "M-;") 'comment-dwim)
 ;; or with [C-u N]
 (global-set-key (kbd "C-x C-;") 'comment-line)
-(define-key my-prog-comment-map (kbd "l") 'comment-line)
-(define-key my-prog-comment-map (kbd "b") 'comment-box)
-(define-key my-prog-comment-map (kbd "B") 'comment-box-with-fill-column)
+(define-key prog-comment-prefix (kbd "l") 'comment-line)
+(define-key prog-comment-prefix (kbd "b") 'comment-box)
+(define-key prog-comment-prefix (kbd "B") 'comment-box-with-fill-column)
 
 (defun comment-box-with-fill-column (b e) ; begin, end
   "Draw a box comment around the region of B and E.
@@ -45,13 +44,17 @@ column.  Place the point after the comment box."
 
 (use-package boxquote
   :ensure t
-  :defer t
-  :init
+  :config
+  ;; (setq boxquote-title-format "[ %s ]")
+
+  ;; `message-completion-function' (like capf)
+  ;; (setq message-expand-name-databases '(bbdb eudb))
+
   (define-key narrow-map (kbd "q") 'boxquote-narrow-to-boxquote-content)
 
   (unless (boundp 'my-boxquote-map)
     (define-prefix-command 'my-boxquote-map))
-  (define-key my-prog-comment-map (kbd "q") 'my-boxquote-map)
+  (define-key prog-comment-prefix (kbd "q") 'my-boxquote-map)
 
   (define-key my-boxquote-map (kbd "q") 'boxquote-boxquote)
   (define-key my-boxquote-map (kbd "u") 'boxquote-unbox)
@@ -67,12 +70,6 @@ column.  Place the point after the comment box."
   (define-key my-boxquote-map (kbd "C-w") 'boxquote-kill)
   (define-key my-boxquote-map (kbd "C-y") 'boxquote-yank)
   (define-key my-boxquote-map (kbd "p") 'boxquote-paragraph)
-  
-  :config
-  ;; (setq boxquote-title-format "[ %s ]")
-
-  ;; `message-completion-function' (like capf)
-  ;; (setq message-expand-name-databases '(bbdb eudb))
   )
 
 ;;; --------------------------------------------------------------------
@@ -85,18 +82,21 @@ column.  Place the point after the comment box."
 
 (use-package hl-todo
   :ensure t
+  :bind (:map fic-prefix
+              ("p" . hl-todo-previous)
+              ("n" . hl-todo-next)
+              ("o" . hl-todo-occur))
   :config
   (global-hl-todo-mode 1)
-
-  (define-key fic-prefix (kbd "p") 'hl-todo-previous)
-  (define-key fic-prefix (kbd "n") 'hl-todo-next)
-  (define-key fic-prefix (kbd "o") 'hl-todo-occur)
   )
 
 ;; [ poporg ] -- Editing program comments or strings in text mode.
 
 (use-package poporg
   :ensure t
+  :bind (("C-c '" . poporg-dwim)
+         :map prog-comment-prefix
+         ("'" . poporg-dwim))
   :init
   (add-to-list 'display-buffer-alist
                '("\\*poporg:\ .*?\\*" ; *poporg: init-my-emacs-window.el*
@@ -104,10 +104,6 @@ column.  Place the point after the comment box."
                   display-buffer-below-selected)
                  (window-height . 0.3)
                  ))
-  (global-set-key (kbd "C-c '") 'poporg-dwim)
-  ;; (define-key my-prog-comment-map (kbd "'") 'poporg-dwim)
-  ;; (define-key poporg-mode-map [remap save-buffer] 'poporg-edit-exit)
-
   :config
   (setq poporg-adjust-fill-column t
         poporg-delete-trailing-whitespace t)
@@ -115,6 +111,8 @@ column.  Place the point after the comment box."
                       :foreground "green yellow"
                       :background (color-darken-name (face-background 'default) 5)
                       :slant 'italic)
+
+  (define-key poporg-mode-map [remap save-buffer] 'poporg-edit-exit)
   )
 
 

@@ -20,10 +20,6 @@
 
 (use-package company-coq
   :ensure t
-  :defer t
-  :init
-  (require 'proof-site nil t)
-  (add-hook 'coq-mode-hook #'company-coq-mode)
   :config
   (setq company-coq-dynamic-autocompletion t)
   ;; (setq company-coq-autocomplete-modules nil)
@@ -37,7 +33,17 @@
                (set (make-local-variable 'prettify-symbols-alist)
                     '((":=" . ?≜) ("Proof." . ?∵) ("Qed." . ?■)
                       ("Defined." . ?□) ("Time" . ?⏱) ("Admitted." . ?😱)))))
+
+  (require 'proof-site nil t)
+  (add-hook 'coq-mode-hook #'company-coq-mode)
   )
+
+;;; [ ob-coq ]
+
+(use-package org-plus-contrib
+  :ensure t
+  :config
+  (require 'ob-coq))
 
 
 (provide 'init-my-math-proof-assistant)

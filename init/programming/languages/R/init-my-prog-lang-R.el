@@ -86,6 +86,13 @@
 ;; - `ess-company-backends' :: for company-mode.
 ;; - `ess-ac-sources' :: for auto-complete.
 
+;;; [ ob-R ]
+
+(use-package org-plus-contrib
+  :ensure t
+  :config
+  (require 'ob-R))
+
 
 (provide 'init-my-prog-lang-R)
 

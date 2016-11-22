@@ -42,7 +42,7 @@ helpful for learning and remembering forgotten binds."
     (occur regexp nlines)
     (delete-windows-on "*Help*")))
 
-(define-key help-map (kbd "M-k") 'search-keybind)
+;; (define-key help-map (kbd "M-k") 'search-keybind)
 
 
 ;;; stop using the arrow keys

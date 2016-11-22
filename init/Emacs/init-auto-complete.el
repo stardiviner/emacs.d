@@ -133,6 +133,16 @@
   )
 
 
+;;; make auto-complete work with company-mode
+;;
+;; (add-hook 'c-mode-common-hook
+;;           (lambda ()
+;;             (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+;;               (company-mode -1)
+;;               (auto-complete-mode 1)
+;;               )))
+
+
 (provide 'init-auto-complete)
 
 ;;; init-auto-complete.el ends here

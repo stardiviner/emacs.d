@@ -11,7 +11,6 @@
 
 (use-package elixir-mode
   :ensure t
-  :defer t
   :config
   ;; if you use smartparens you can piggyback on some of its functionality for
   ;; dealing with Ruby's do .. end blocks. A sample configuration would be:
@@ -30,7 +29,6 @@
 
 (use-package alchemist
   :ensure t
-  :defer t
   :init
   (add-hook 'elixir-mode-hook
             (lambda ()

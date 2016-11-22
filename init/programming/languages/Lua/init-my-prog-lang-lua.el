@@ -29,7 +29,6 @@
 
 (use-package company-lua
   :ensure t
-  :defer t
   :init
   (add-hook 'lua-mode-hook
             (lambda ()

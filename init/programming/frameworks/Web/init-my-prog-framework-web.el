@@ -218,7 +218,6 @@
 
 (use-package company-web
   :ensure t
-  :defer t
   :init
   (defun my-company-web-backends-setup ()
     (interactive)

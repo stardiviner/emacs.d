@@ -20,11 +20,11 @@
 
 ;;; [ hexview-mode ]
 
-(use-package hexview-mode
-  ;; :ensure t
-  :config
-  (define-key my-prog-code-map (kbd "h") 'hexview-find-file)
-  )
+;; (use-package hexview-mode
+;;   :ensure t
+;;   :config
+;;   (define-key prog-code-prefix (kbd "h") 'hexview-find-file)
+;;   )
 
 
 ;;; [ elf-mode ] -- Show symbols in binaries.

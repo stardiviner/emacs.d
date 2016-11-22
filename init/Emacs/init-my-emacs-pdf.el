@@ -58,7 +58,7 @@
                       :background "yellow"
                       )
   (set-face-attribute 'pdf-view-region nil
-                      :background "orange"
+                      :background "DarkSlateGray"
                       )
 
   (defun my-pdf-tools-setup ()

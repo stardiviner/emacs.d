@@ -7,45 +7,38 @@
 
 ;;; Code:
 
-
-(unless (boundp 'my-fold-map)
-  (define-prefix-command 'my-fold-map))
-(global-set-key (kbd "C-c SPC") 'my-fold-map)
-
-
-;;; [ hs-minor-mode ] -- hide/show
-
-;; (add-hook 'prog-mode-hook 'hs-minor-mode)
+(unless (boundp 'prog-fold-prefix)
+  (define-prefix-command 'prog-fold-prefix))
+(global-set-key (kbd "C-c SPC") 'prog-fold-prefix)
 
 
 ;;; [ origami ] -- A folding minor mode for Emacs.
 
 (use-package origami
   :ensure t
-  :defer t
+  :bind (:map prog-fold-prefix
+              ("m"  . origami-mode)
+              ("SPC" .  origami-toggle-node)
+              ("TAB". origami-toggle-all-nodes)
+              ("n" . origami-next-fold)
+              ("p" . origami-previous-fold)
+              ("c" . origami-close-node)
+              ("C" . origami-close-all-nodes)
+              ("o" . origami-open-node)
+              ("O" . origami-open-all-nodes)
+              ("T" . origami-recursively-toggle-node)
+              (">" . origami-open-node-recursively)
+              ("<" . origami-close-node-recursively)
+              ("O" . origami-show-only-node)
+              ("u" . origami-undo)
+              ("r" . origami-redo)
+              ("!" . origami-reset)
+              )
   :init
   ;; `global-origami-mode' & `origami-mode'
   (dolist (hook '(prog-mode-hook
                   ))
     (add-hook hook 'origami-mode))
-
-  (define-key my-fold-map (kbd "m") 'origami-mode)
-  (define-key my-fold-map (kbd "SPC") 'origami-toggle-node)
-  (define-key my-fold-map (kbd "TAB") 'origami-toggle-all-nodes)
-  (define-key my-fold-map (kbd "n") 'origami-next-fold)
-  (define-key my-fold-map (kbd "p") 'origami-previous-fold)
-  (define-key my-fold-map (kbd "c") 'origami-close-node)
-  (define-key my-fold-map (kbd "C") 'origami-close-all-nodes)
-  (define-key my-fold-map (kbd "o") 'origami-open-node)
-  (define-key my-fold-map (kbd "O") 'origami-open-all-nodes)
-  (define-key my-fold-map (kbd "T") 'origami-recursively-toggle-node)
-  (define-key my-fold-map (kbd ">") 'origami-open-node-recursively)
-  (define-key my-fold-map (kbd "<") 'origami-close-node-recursively)
-  (define-key my-fold-map (kbd "O") 'origami-show-only-node)
-  (define-key my-fold-map (kbd "u") 'origami-undo)
-  (define-key my-fold-map (kbd "r") 'origami-redo)
-  (define-key my-fold-map (kbd "!") 'origami-reset)
-  
   :config
   (setq origami-show-fold-header t
         origami-fold-replacement "...")

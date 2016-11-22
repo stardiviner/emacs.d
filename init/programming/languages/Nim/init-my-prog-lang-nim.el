@@ -11,7 +11,6 @@
 
 (use-package nim-mode
   :ensure t
-  :defer t
   :config
   (set-face-attribute 'nim-tab-face nil
                       :foreground "dark gray"

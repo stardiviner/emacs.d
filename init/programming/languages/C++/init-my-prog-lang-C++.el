@@ -11,7 +11,6 @@
 
 (use-package modern-cpp-font-lock
   :ensure t
-  :defer t
   :init
   (modern-c++-font-lock-global-mode t)
   )

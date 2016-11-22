@@ -16,9 +16,6 @@
 
 (use-package omnisharp
   :ensure t
-  :defer t
-  :init
-  (add-hook 'csharp-mode-hook 'omnisharp-mode)
   :config
   (setq omnisharp-server-executable-path
         (expand-file-name
@@ -36,6 +33,8 @@
         omnisharp-imenu-support nil
         )
 
+  (add-hook 'csharp-mode-hook 'omnisharp-mode)
+  
   (defun my-omnisharp-setup ()
     (interactive)
     (my-company-add-backend-locally 'company-omnisharp)

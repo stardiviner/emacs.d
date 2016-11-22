@@ -7,9 +7,9 @@
 
 ;;; Code:
 
-(unless (boundp 'my-prog-test-map)
-  (define-prefix-command 'my-prog-test-map))
-(global-set-key (kbd "C-c t") 'my-prog-test-map)
+(unless (boundp 'prog-test-prefix)
+  (define-prefix-command 'prog-test-prefix))
+(global-set-key (kbd "C-c t") 'prog-test-prefix)
 
 
 ;;; [ cerbere ] -- Unit testing in Emacs for several programming languages

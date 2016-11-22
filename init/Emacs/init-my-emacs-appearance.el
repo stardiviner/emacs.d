@@ -26,7 +26,7 @@
   :ensure t
   :config
   (setq tabbar-use-images nil)
-  (tabbar-mode 1)
+  ;; (tabbar-mode 1)
   (use-package tabbar-ruler
     :ensure t
     :bind ("C-t" . tabbar-ruler-move)
@@ -163,6 +163,7 @@
 ;;   ;; TODO: (nlinum-mode 1)
 ;;   )
 
+;;; [ highlight ] -- Highlighting commands.
 
 (use-package highlight
   :defer t

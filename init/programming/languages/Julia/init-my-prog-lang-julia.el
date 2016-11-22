@@ -54,6 +54,29 @@
     )
   )
 
+;;; [ ob-julia ]
+
+(use-package org-plus-contrib
+  :ensure t
+  :config
+  (require 'ob-julia)
+
+  (if (not (boundp 'inferior-julia-program-name))
+      (setq inferior-julia-program-name "julia"))
+  ;; (setq org-babel-julia-command "julia")
+  
+  (use-package ess
+    :ensure t
+    :config
+    (require 'ess-site))
+
+  (setq org-babel-default-header-args:julia
+        '((:results . "output replace")
+          (:padnewline . "yes")))
+  (add-to-list 'org-src-lang-modes '("julia" . ess-julia))
+  )
+
+
 
 (provide 'init-my-prog-lang-julia)
 

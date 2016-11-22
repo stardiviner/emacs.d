@@ -18,7 +18,6 @@
 
 (use-package pandoc-mode
   :ensure t
-  :defer t
   :init
   (add-hook 'markdown-mode-hook 'pandoc-mode)
   ;; turn on pandoc-mode if a pandoc settings file exists.

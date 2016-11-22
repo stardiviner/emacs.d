@@ -17,11 +17,9 @@
 
 (use-package restclient
   :ensure t
-  :defer t
   :init
   (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
   (define-key HTTP-prefix (kbd "r") 'restclient-new-buffer)
-  
   :config
   (setq restclient-log-request t
         restclient-same-buffer-response t
@@ -54,8 +52,7 @@
 
 (use-package company-restclient
   :ensure t
-  :defer t
-  :init
+  :config
   (add-hook 'restclient-mode-hook
             (lambda ()
               (my-company-add-backend-locally 'company-restclient)

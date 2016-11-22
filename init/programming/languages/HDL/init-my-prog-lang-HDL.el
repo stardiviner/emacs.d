@@ -11,7 +11,6 @@
 
 (use-package vhdl-mode
   :ensure t
-  :defer t
   :init
   (autoload 'vhdl-mode "vhdl-mode" "VHDL Mode" t)
   (push '("\\.vhdl?\\'" . vhdl-mode) auto-mode-alist)
@@ -22,8 +21,7 @@
 
 (use-package vhdl-capf
   :ensure t
-  :defer t
-  :init
+  :config
   (vhdl-capf-enable)
   )
 
@@ -32,7 +30,6 @@
 
 (use-package vhdl-tools
   :ensure t
-  :defer t
   :init
   (add-hook 'vhdl-mode-hook
             (lambda ()

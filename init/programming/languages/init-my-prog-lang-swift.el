@@ -35,7 +35,6 @@
 
 (use-package company-sourcekit
   :ensure t
-  :defer t
   :init
   (add-hook 'swift-mode-hook
             (lambda ()

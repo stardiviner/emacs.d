@@ -331,11 +331,6 @@
   )
 
 
-;;; [ cider-eval-sexp-fu ]
-
-(use-package cider-eval-sexp-fu
-  :ensure t)
-
 ;;; [ cider-decompile ] -- decompilation extension for cider.
 
 ;; (use-package cider-decompile

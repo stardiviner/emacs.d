@@ -59,11 +59,11 @@
 
 ;; (use-package company-racer
 ;;   :ensure t
-;;   :defer t
 ;;   :init
 ;;   (add-hook 'rust-mode-hook
 ;;             (lambda ()
-;;               (my-company-add-backend-locally 'company-racer))))
+;;               (my-company-add-backend-locally 'company-racer)))
+;;   )
 
 
 ;;; [ cargo ] -- Emacs Cargo client.

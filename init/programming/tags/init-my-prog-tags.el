@@ -5,13 +5,13 @@
 ;;; Code:
 ;; like tags: function, variable, class, scope etc lookup.
 
-(unless (boundp 'my-prog-lookup-map)
-  (define-prefix-command 'my-prog-lookup-map))
-(global-set-key (kbd "C-c l") 'my-prog-lookup-map)
+(unless (boundp 'prog-lookup-prefix)
+  (define-prefix-command 'prog-lookup-prefix))
+(global-set-key (kbd "C-c l") 'prog-lookup-prefix)
 
-(unless (boundp 'my-prog-lookup-tags-map)
-  (define-prefix-command 'my-prog-lookup-tags-map))
-(define-key my-prog-lookup-map (kbd "t") 'my-prog-lookup-tags-map)
+(unless (boundp 'prog-lookup-tags-prefix)
+  (define-prefix-command 'prog-lookup-tags-prefix))
+(define-key prog-lookup-prefix (kbd "t") 'prog-lookup-tags-prefix)
 
 
 (setq tags-table-files nil

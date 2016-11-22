@@ -69,7 +69,7 @@
               (sclang-get-process))
     (sclang-start)))
 
-(add-hook 'sclang-mode-hook #'my-sclang-auto-start)
+;; (add-hook 'sclang-mode-hook #'my-sclang-auto-start)
 
 (define-key sclang-mode-map (kbd "C-c C-s") 'my-sclang-auto-start)
 (define-key sclang-mode-map (kbd "C-c M-s") 'sclang-main-stop)

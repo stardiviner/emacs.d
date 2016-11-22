@@ -7,7 +7,6 @@
 
 ;;; Code:
 
-
 (setq org-display-internal-link-with-indirect-buffer t
       org-indirect-buffer-display 'current-window
       ;; org-open-directory-means-index-dot-org t

@@ -64,84 +64,6 @@
 ;;; [ ob-latex ]
 (require 'ob-latex)
 
-;;; [ ob-processing ]
-(require 'ob-processing)
-
-;;; [ ob-gnuplot ]
-(require 'ob-gnuplot)
-
-(setq org-babel-default-header-args:gnuplot
-      '((:session . "none")
-        (:results . "graphics")
-        ;; (:dir . "data/images")
-        ))
-
-;; [ ob-ipython ]
-(use-package ob-ipython
-  :ensure t
-  :config
-  ;; (setq ob-ipython-command "ipython") ; "jupyter"
-  
-  ;; open ipython block block with `python-mode'
-  ;; (add-to-list 'org-src-lang-modes '("ipython" . python))
-  ;; use IJulia backend for IPython notebook
-  (add-to-list 'org-src-lang-modes '("ipython" . julia))
-
-  (setq org-babel-default-header-args:ipython
-        '((:session . nil)
-          ;; (:dir . "data/images")
-          (:exports . "both")
-          ))
-
-  ;; different kernels support
-  (defun ob-ipython-kernel-get-kernels ()
-    "Get available Jupyter kernels.
-This can be useful for snippets to select kernel interactively."
-    (let ((kernels (split-string
-                    (shell-command-to-string
-                     "jupyter-kernelspec list | sed '1d' | awk -F ' ' '{print $1}'"))))
-      ;; (completing-read "Jupyter kernels: "
-      ;;                  kernels)
-      kernels
-      )
-    )
-  )
-
-;;; [ ob-sagemath ]
-(use-package ob-sagemath
-  :ensure t)
-
-;;; [ ob-coq ]
-(require 'ob-coq)
-
-;;; [ ob-R ]
-(require 'ob-R)
-
-;;; [ ob-julia ]
-(if (not (boundp 'inferior-julia-program-name))
-    (setq inferior-julia-program-name "julia"))
-;; (setq org-babel-julia-command "julia")
-
-(use-package ess
-  :ensure t
-  :config
-  (require 'ess-site))
-
-(require 'ob-julia)
-(setq org-babel-default-header-args:julia
-      '((:results . "output replace")
-        (:padnewline . "yes")))
-(add-to-list 'org-src-lang-modes '("julia" . ess-julia))
-
-;; [ ob-sql ]
-;; (require 'ob-sql)
-
-;; [ ob-sqlite ]
-;; (require 'ob-sqlite)
-
-;; [ es-mode ] -- elastic search
-(use-package es-mode
-  :ensure t)
 
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -150,32 +72,32 @@ This can be useful for snippets to select kernel interactively."
    (sh . t)                             ; Shell
    (shell . t)                          ; Shell Script
    (makefile . t)                       ; Make
-   (ruby . t)                           ; Ruby
    (python . t)                         ; Python
-   (perl . t)                           ; Perl
+   (ruby . t)                           ; Ruby
+   ;; (perl . t)                           ; Perl
    (C . t)                              ; C
    (java . t)                           ; Java
-   (lua . t)                            ; Lua
-   (awk . t)                            ; Awk
-   (sed . t)                            ; Sed
-   (screen . t)                         ; Screen
+   ;; (lua . t)                            ; Lua
+   ;; (awk . t)                            ; Awk
+   ;; (sed . t)                            ; Sed
+   ;; (screen . t)                         ; Screen
    (lisp . t)                           ; Lisp
    (scheme . t)                         ; Scheme
    ;; (picolisp . t)                       ; Pico Lisp
    (clojure . t)                        ; Clojure
    (haskell . t)                        ; Haskell
-   (scala . t)                          ; Scala
+   ;; (scala . t)                          ; Scala
    ;; (io . t)                             ; IO
    ;; (J . t)                              ; J
-   (ocaml . t)                          ; Objective Caml
+   ;; (ocaml . t)                          ; Objective Caml
    (js . t)                             ; JavaScript
    (css . t)                            ; CSS
    (latex . t)                          ; LaTeX
    (sql . t)                            ; SQL
    (sqlite . t)                         ; SQLite
    ;; (matlab . t)                         ; MATLAB
-   (octave . t)                         ; Octave
-   (gnuplot . t)                        ; gnuplot
+   ;; (octave . t)                         ; Octave
+   ;; (gnuplot . t)                        ; gnuplot
    ;; (fortran . t)                        ; Fortran
    (ditaa . t)                          ; ditaa
    (dot . t)                            ; Graphviz, Dot
@@ -192,7 +114,7 @@ This can be useful for snippets to select kernel interactively."
    (R . t)                              ; R
    ;; (go . t)
    (ipython . t)
-   (sagemath . t)        ; ob-sagemath
+   ;; (sagemath . t)        ; ob-sagemath
    ;; (restclient . t)                     ; ob-restclient
    (elasticsearch . t)                  ; es-mode
    ))
@@ -576,7 +498,7 @@ This can be useful for snippets to select kernel interactively."
   :ensure t
   :bind (:map org-mode-map
               ("C-<return>" . ober-eval-in-repl)
-              ("C-c <return>" . ober-eval-block-in-repl))
+              ("C-c C-<return>" . ober-eval-block-in-repl))
   :config
   (with-eval-after-load "eval-in-repl"
     (setq eir-jump-after-eval nil))

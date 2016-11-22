@@ -25,6 +25,8 @@
                 ("org"   . "http://orgmode.org/elpa/")
                 ))
 
+;; (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
+
 (package-initialize)
 
 ;; (setq package-enable-at-startup nil)

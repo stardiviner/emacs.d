@@ -11,7 +11,6 @@
 
 (use-package wolfram-mode
   :ensure t
-  :defer t
   :init
   (autoload 'wolfram-mode "wolfram-mode" nil t)
   (autoload 'run-wolfram "wolfram-mode" nil t)
@@ -27,7 +26,6 @@
 
 (use-package wolfram
   :ensure t
-  :defer t
   :init
   (define-key my-prog-help-document-map (kbd "A") 'wolfram-alpha)
   :config

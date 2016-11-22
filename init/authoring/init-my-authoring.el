@@ -28,13 +28,14 @@
 ;;   )
 
 
-;;; [ wc-mode ]
+;;; [ wc-mode ] -- minor mode of command `wc' for word counting.
 
 (use-package wc-mode
   :ensure t
   :config
   ;; fix `wc-mode' minor-mode update with `':lighter (:eval (wc-mode-update))'.
-  (add-hook 'wc-mode-hook #'wc-mode-update)
+  ;; (run-with-idle-timer 60 nil 'wc-mode-update)
+  ;; (remove-hook 'org-mode-hook #'wc-mode-update)
   
   (add-hook 'org-mode-hook 'wc-mode)
   )

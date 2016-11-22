@@ -9,28 +9,28 @@
 
 ;;; [ mediawiki ] -- mediawiki frontend.
 
-(use-package mediawiki
-  :ensure t
-  :defer t)
+;; (use-package mediawiki
+;;   :ensure t
+;;   :defer t)
 
 
 ;;; [ ox-mediawiki ] -- Mediawiki Back-End for Org Export Engine.
 
 ;; Open a .org document and run `org-mw-export-as-mediawiki'.
 
-(use-package ox-mediawiki
-  :ensure t
-  :defer t)
+;; (use-package ox-mediawiki
+;;   :ensure t
+;;   :defer t)
 
 
 ;;; [ kiwix ] -- Kiwix client for Emacs.
 
 (use-package kiwix
   :ensure t
-  :config
-  (define-key my-prog-help-document-map (kbd "w") 'kiwix-at-point)
-  (define-key my-prog-help-document-map (kbd "W") 'kiwix-at-point-interactive)
-  (define-key my-prog-help-document-map (kbd "M-w") 'kiwix-launch-server)
+  :bind (:map my-prog-help-document-map
+              ("w" . kiwix-at-point)
+              ("W" . kiwix-at-point-interactive)
+              ("M-w" . kiwix-launch-server))
   )
 
 
