@@ -200,6 +200,11 @@
   :ensure t
   :defer t)
 
+;;; [ git-timemachine ] -- time-machine of Git revisions.
+
+(use-package git-timemachine
+  :ensure t)
+
 ;;; [ projectile-git-autofetch ] -- Automatically fetch git repositories known to projectile.
 
 (use-package projectile-git-autofetch
