@@ -71,12 +71,8 @@
   :config
   (setq-default org-bullets-bullet-list
                 ;; '("◉" "❀" "✿" "✪" "☯" "✜" "✩" "✡" "◌" "◉" "⍟" "☢")
-                ;; '("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
-                ;; '("❶" "❷" "❸" "❹" "❺" "❻" "❼" "❽" "❾" "❿")
                 ;; '("①" "②" "③" "④" "⑤" "⑥" "⑦" "⑧" "⑨" "⑩")
-                ;; '("㊀" "㊁" "㊂" "㊃" "㊄" "㊅" "㊆" "㊇" "㊈" "㊉")
-
-                '("◉" "☯" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
+                '("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
                 )
 
   (defface org-bullets-face
@@ -87,9 +83,8 @@
   (set-face-attribute 'org-bullets-face nil
                       :foreground "cyan"
                       :weight 'bold
-                      :height 1.5
-                      ;; :box '(:color "dark slate gray" :line-width 2)
-                      ;; :family "DejaVu Sans Mono"
+                      :family "Ubuntu Mono"
+                      :height 100
                       )
 
   (setq org-bullets-face-name 'org-bullets-face)
