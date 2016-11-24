@@ -7,6 +7,10 @@
 
 ;;; Code:
 
+;; pom files should be treated as xml files
+(add-to-list 'auto-mode-alist '("\\.pom\\'" . nxml-mode))
+
+
 ;;; [ Eclim ]
 
 (use-package eclim
