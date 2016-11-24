@@ -32,23 +32,6 @@
 (add-hook 'nxml-mode-hook 'my-company-nxml-settings)
 
 
-;;; [ auto-complete-nxml ]
-
-(use-package auto-complete-nxml
-  :ensure t
-  :defer t
-  :config
-  ;; If you want to start completion manually from the beginning
-  (setq auto-complete-nxml-automatic-p nil)
-  
-  ;; Keystroke for popup help about something at point.
-  (setq auto-complete-nxml-popup-help-key "M-h")
-  
-  ;; Keystroke for toggle on/off automatic completion.
-  ;; (setq auto-complete-nxml-toggle-automatic-key "C-c C-t")
-  )
-
-
 ;;; [ x-path-walker ] -- navigation for JSON/XML/HTML based on path (imenu like)
 
 (use-package x-path-walker
