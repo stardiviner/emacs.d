@@ -122,6 +122,7 @@
 (require 'init-my-emacs-search)
 (require 'init-my-emacs-highlight)
 (require 'init-my-emacs-regexp)
+(require 'init-my-emacs-overlay)
 (require 'init-my-emacs-vcs)
 (require 'init-my-emacs-shell)
 (require 'init-my-emacs-comint)
