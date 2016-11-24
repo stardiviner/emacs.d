@@ -10,8 +10,8 @@
 
 (require 'init-container)
 (require 'init-vagrant)
-(require 'init-puppet)
-(require 'init-ansible)
+;; (require 'init-puppet)
+;; (require 'init-ansible)
 
 
 (provide 'init-my-prog-devops)

@@ -17,7 +17,6 @@
   (define-key my-container-map (kbd "i") 'docker-images)
   (define-key my-container-map (kbd "c") 'docker-containers)
   (define-key my-container-map (kbd "v") 'docker-volumes)
-
   :config
   (setq docker-containers-show-all t)
   )

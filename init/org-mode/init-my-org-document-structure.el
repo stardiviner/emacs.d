@@ -19,12 +19,6 @@
       )
 
 
-
-;; * Navigation/Motion::
-
-;; [C-c C-j] `org-goto' interface.
-(setq org-goto-interface 'outline-path-completion)
-
 (setq org-special-ctrl-a/e t)
 
 
@@ -57,9 +51,6 @@
 
 (setq org-highlight-sparse-tree-matches t)
 (setq org-sparse-tree-open-archived-trees nil)
-
-;; * Plain lists::                 Additional structure within an entry
-
 
 
 ;; * Drawers::                     Tucking stuff away

@@ -11,7 +11,6 @@
 
 (use-package emamux
   :ensure t
-  :defer t
   :config
   (setq emamux:completing-read-type 'normal)
   )

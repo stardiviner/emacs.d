@@ -36,8 +36,7 @@
 
 (use-package x-path-walker
   :ensure t
-  :defer t
-  :init
+  :config
   (dolist (hook '(html-mode-hook
                   web-mode-hook
                   nxml-mode-hook

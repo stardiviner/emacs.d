@@ -40,13 +40,16 @@
   :config
   (setq doom-enable-bold t
         doom-enable-italic t)
-  
+
   ;; themes: 'doom-one, 'doom-dark, 'doom-one-light, 'doom-tron, 'doom-peacock
   (load-theme 'doom-one t)
-  
+
   (add-hook 'find-file-hook 'doom-buffer-mode) ; brighter source buffers.
   (add-hook 'minibuffer-setup-hook 'doom-buffer-mode) ; brighter minibuffer when active
-  ;; (require 'doom-neotree) ; for neotree
+
+  (if (featurep 'neotree)
+      (require 'doom-neotree)
+    )
   )
 
 ;;; [ leuven-theme ] -- Awesome Emacs color theme for white backgrounds.
@@ -109,9 +112,9 @@
 
 ;;; [ select-themes ] -- select color-theme with completing-read.
 
-(use-package select-themes
-  :ensure t
-  :defer t)
+;; (use-package select-themes
+;;   :ensure t
+;;   :defer t)
 
 ;;; set color-theme for `emacsclient'
 ;; NOTE: this will override my custom faces again. so disable it.

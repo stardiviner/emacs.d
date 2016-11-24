@@ -34,7 +34,6 @@
 
 (use-package company-math
   :ensure t
-  :defer t
   :init
   (add-hook 'org-mode-hook
             (lambda ()

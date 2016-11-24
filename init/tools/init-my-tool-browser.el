@@ -196,7 +196,7 @@
 (use-package ace-link
   :ensure t
   :defer
-  :init
+  :config
   (ace-link-setup-default))
 
 

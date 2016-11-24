@@ -163,8 +163,8 @@
 (require 'init-my-tool-pomodoro)
 ;; (require 'init-my-tool-speak)
 (require 'init-my-tool-calculator)
-(require 'init-my-tool-keyboard)
-(require 'init-my-tool-tmux)
+;; (require 'init-my-tool-keyboard)
+;; (require 'init-my-tool-tmux)
 ;; (require 'init-my-tool-hex)
 (require 'init-my-tool-file)
 (require 'init-my-tool-diagram)
@@ -176,9 +176,9 @@
 ;; (require 'init-my-tool-email)
 ;; (require 'init-my-tool-feeds)
 (require 'init-my-tool-blog)
-(require 'init-my-tool-accounting)
+;; (require 'init-my-tool-accounting)
 (require 'init-my-tool-paste)
-(require 'init-my-tool-notify)
+;; (require 'init-my-tool-notify)
 ;; (require 'init-my-tool-irc-erc)
 ;; (require 'init-my-tool-music)
 ;; (require 'init-my-tool-subtitle)
@@ -300,8 +300,8 @@
 
 ;;; Engineering
 
-(require 'init-my-electronic)
-(require 'init-my-electric-music)
+;; (require 'init-my-electronic)
+;; (require 'init-my-electric-music)
 
 
 ;;; Science
@@ -319,7 +319,7 @@
 
 ;;; Games
 
-(require 'init-my-games)
+;; (require 'init-my-games)
 
 
 ;;; show Emacs initialized time.
