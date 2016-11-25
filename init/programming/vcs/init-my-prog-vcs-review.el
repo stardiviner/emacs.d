@@ -11,8 +11,7 @@
 
 (use-package magit-gerrit
   :ensure t
-  :defer t
-  :init
+  :config
   ;; if remote url is not using the default gerrit port and
   ;; ssh scheme, need to manually set this variable
   ;; (setq-default magit-gerrit-ssh-creds "myid@gerrithost.org")

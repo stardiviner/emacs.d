@@ -11,7 +11,6 @@
 
 (use-package helm-rage
   :ensure t
-  :defer t
   :commands (helm-rage)
   )
 

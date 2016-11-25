@@ -14,46 +14,27 @@
 
 (use-package gitconfig-mode
   :ensure t
-  :defer t)
+  :init
+  (add-to-list 'auto-mode-alist '("\\.gitconfig\\'" . gitconfig-mode)))
 (use-package gitattributes-mode
   :ensure t
   :defer t)
 (use-package gitignore-mode
   :ensure t
-  :defer t)
-
-(add-to-list 'auto-mode-alist
-             '("\\.gitconfig\\'" . gitconfig-mode)
-             '("\\.gitignore\\'" . gitignore-mode)
-             )
+  :init
+  (add-to-list 'auto-mode-alist '("\\.gitignore\\'" . gitignore-mode)))
 
 
 ;;; [ Magit ]
 
 (use-package magit
   :ensure t
-  :defer t
-  :init
-  (define-key my-prog-vcs-map (kbd "v") 'magit-status)
-
-  (define-key my-prog-vcs-git-map (kbd "F") 'magit-log-buffer-file)
-  (define-key my-prog-vcs-git-map (kbd "b") 'magit-blame-popup)
-  (define-key my-prog-vcs-git-map (kbd "v") 'magit-status)
-  (define-key my-prog-vcs-git-map (kbd "s") 'magit-stage)
-  (define-key my-prog-vcs-git-map (kbd "c") 'magit-commit)
-  (define-key my-prog-vcs-git-map (kbd "C") 'magit-commit-amend)
-  (define-key my-prog-vcs-git-map (kbd "d") 'magit-diff)
-  (define-key my-prog-vcs-git-map (kbd "l") 'magit-log) ; 'magit-log-long
-  ;; show log for current buffer visiting file.
-  (define-key my-prog-vcs-git-map (kbd "L") 'magit-log-buffer-file)
-  (define-key my-prog-vcs-git-map (kbd "o") 'magit-checkout) ; 'magit-checkout-branch-at-point
-  (define-key my-prog-vcs-git-map (kbd "B") 'magit-bisect)
-  (define-key my-prog-vcs-git-map (kbd "b") 'magit-blame)
-  (define-key my-prog-vcs-git-map (kbd "f") 'magit-file-popup)
-
+  :bind (:map my-prog-vcs-map
+              ("v" . magit-status))
   :config
   ;; let magit status buffer display in current window.
   (setq magit-display-buffer-function 'display-buffer)
+
   (add-to-list 'display-buffer-alist
                '("\\`\\*magit:.*\\'"
                  (display-buffer-reuse-window
@@ -126,6 +107,21 @@
   ;; (set-face-attribute 'magit-diff-their-highlight nil
   ;;                     )
 
+  ;; keybindings
+  (define-key my-prog-vcs-git-map (kbd "F") 'magit-log-buffer-file)
+  (define-key my-prog-vcs-git-map (kbd "b") 'magit-blame-popup)
+  (define-key my-prog-vcs-git-map (kbd "v") 'magit-status)
+  (define-key my-prog-vcs-git-map (kbd "s") 'magit-stage)
+  (define-key my-prog-vcs-git-map (kbd "c") 'magit-commit)
+  (define-key my-prog-vcs-git-map (kbd "C") 'magit-commit-amend)
+  (define-key my-prog-vcs-git-map (kbd "d") 'magit-diff)
+  (define-key my-prog-vcs-git-map (kbd "l") 'magit-log)
+  (define-key my-prog-vcs-git-map (kbd "L") 'magit-log-buffer-file) ; show log for current buffer visiting file.
+  (define-key my-prog-vcs-git-map (kbd "o") 'magit-checkout)
+  (define-key my-prog-vcs-git-map (kbd "B") 'magit-bisect)
+  (define-key my-prog-vcs-git-map (kbd "b") 'magit-blame)
+  (define-key my-prog-vcs-git-map (kbd "f") 'magit-file-popup)
+  
   ;; enable ispell words complete in commit message buffer.
   (add-hook 'git-commit-mode-hook
             (lambda ()
@@ -138,13 +134,11 @@
 
 (use-package with-editor
   :ensure t
-  :defer t
-  :init
+  :config
   (add-hook 'shell-mode-hook  'with-editor-export-editor)
   (add-hook 'term-mode-hook   'with-editor-export-editor)
   (add-hook 'eshell-mode-hook 'with-editor-export-editor)
 
-  :config
   ;; Some variants of this function exist, these two forms are
   ;; equivalent:
 
@@ -158,9 +152,7 @@
 
 ;; (use-package magit-find-file
 ;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (global-set-key (kbd "M-t") 'magit-find-file)
+;;   :bind ("M-t" . magit-find-file)
 ;;   )
 
 
@@ -168,37 +160,34 @@
 
 (use-package magit-gitflow
   :ensure t
-  :defer t
-  :init
-  (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
+  :config
+  (with-eval-after-load 'magit
+    (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)))
+
+;;; [ magit-p4 ] -- Magit plugin integrating git-p4 add-on.
+
+(use-package magit-p4
+  :ensure t)
 
 
 ;;; [ git-messenger ] -- popup commit message at current line.
 
 (use-package git-messenger
   :ensure t
-  :defer t
-  :init
-  (define-key my-prog-vcs-map (kbd "m m") 'git-messenger:popup-message)
-  
+  :bind (:map my-prog-vcs-map
+              ("m m" . git-messenger:popup-message)
+              :map git-messenger-map
+              ("m" . git-messenger:copy-message)
+              ("c" . git-messenger:copy-message)
+              )
   :config
   (setq git-messenger:show-detail t ; always show detail message.
         ;; git-messenger:handled-backends '(git svn)
         )
   
-  (define-key git-messenger-map (kbd "m") 'git-messenger:copy-message)
-  (define-key git-messenger-map (kbd "c") 'git-messenger:copy-message)
-  
   ;; enable `magit-commit-mode' after typing 's', 'S', 'd'
   (add-hook 'git-messenger:popup-buffer-hook 'magit-commit-mode)
   )
-
-
-;;; [ magit-p4 ] -- Magit plugin integrating git-p4 add-on.
-
-(use-package magit-p4
-  :ensure t
-  :defer t)
 
 ;;; [ git-timemachine ] -- time-machine of Git revisions.
 
@@ -207,11 +196,11 @@
 
 ;;; [ projectile-git-autofetch ] -- Automatically fetch git repositories known to projectile.
 
-(use-package projectile-git-autofetch
-  :ensure t
-  :config
-  ;; (projectile-git-autofetch-mode 1)
-  )
+;; (use-package projectile-git-autofetch
+;;   :ensure t
+;;   :config
+;;   ;; (projectile-git-autofetch-mode 1)
+;;   )
 
 
 (provide 'init-my-prog-vcs-git)
