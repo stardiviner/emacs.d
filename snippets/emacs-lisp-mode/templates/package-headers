@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: package-headers
+# key: package-headers
+# group: template.package
+# --
+;; Authors: ${1:stardiviner <numbchild@gmail.com>}
+${2:;; Package-Requires: ((emacs "24.4") (cl-lib "0.3")${3})}
+;; Keywords: ${4:keywords separated by comma}
+;; homepage: ${5:homepage}
+
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
+
+;;; Commentary:
+
+${6}
+
