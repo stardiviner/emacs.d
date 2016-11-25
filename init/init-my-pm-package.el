@@ -65,6 +65,10 @@
   (use-package auctex :ensure t)
   )
 
+;;; [ package-lint ]
+
+(use-package package-lint
+  :ensure t)
 
 ;;; [ flycheck-package ]
 
