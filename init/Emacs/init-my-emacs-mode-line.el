@@ -474,7 +474,7 @@
    ;;           'mode-line-inactive)))
    
    (:eval
-    (major-mode-icons/show))
+    (major-mode-icons-show))
    )))
 
 
