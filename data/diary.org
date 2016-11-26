@@ -13,6 +13,11 @@ Examples: (use =[C-h f]= on functions to check out detail formats.
 - Jul 26, 2014 day diary.
 
 
+* Sunrise/Sunset
+
+%%(diary-sunrise-sunset)
+
+
 * Holiday
 
 
