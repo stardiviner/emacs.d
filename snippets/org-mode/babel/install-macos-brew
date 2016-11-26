@@ -1,8 +1,9 @@
 # -*- mode: snippet -*-
-# name: babel-install-MacPorts
-# key: babel-install-macports
+# name: babel-install-MacOS-brew
+# key: babel-install-macos-brew
 # group: babel.install
 # --
 #+BEGIN_SRC sh :dir /sudo:: :results none
-sudo port install $0
+brew update
+brew install $0
 #+END_SRC
