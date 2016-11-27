@@ -43,14 +43,15 @@
 
 ;;; [ Holidays ]
 
-;; calfw collects holidays from the customize variable `calendar-holidays` which belongs to `holidays.el` in Emacs.
-;; calfw gets the holidays using the function (calendar-holiday-list).
-
-(require 'holidays)
-
-(setq holiday-general-holidays nil) ; get rid of U.S. holidays
-(setq holiday-christian-holidays nil) ; get rid of christan holidays
-(setq calendar-view-holidays-initially-flag t)
+(use-package holidays
+  :config
+  ;; `calfw' collects holidays from function `calendar-holiday-list' and the
+  ;; customize variable `calendar-holidays' which belongs to `holidays.el` in
+  ;; Emacs.
+  (setq holiday-general-holidays nil) ; get rid of U.S. holidays
+  (setq holiday-christian-holidays nil) ; get rid of christan holidays
+  (setq calendar-view-holidays-initially-flag t)
+  )
 
 ;;; Annotations
 ;;; variable -> :annotation-sources
