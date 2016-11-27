@@ -112,11 +112,9 @@
 
 (use-package ghc
   :ensure t
-  :defer t
   :init
   ;; (setq ghc-debug t)
   (add-hook 'haskell-mode-hook #'ghc-init)
-
   :config
   ;; if you wish to display error each goto next/prev error,
   (setq ghc-display-error 'minibuffer)
@@ -125,19 +123,17 @@
 
 ;;; [ company-ghc ] -- company-mode back-end for haskell-mode via ghc-mod.
 
-;; (use-package company-ghc
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (add-hook 'haskell-mode-hook
-;;             (lambda ()
-;;               (my-company-add-backend-locally 'company-ghc)))
-;;
-;;   :config
-;;   (setq company-ghc-show-info t
-;;         company-ghc-show-module t
-;;         )
-;;   )
+(use-package company-ghc
+  :ensure t
+  :init
+  (add-hook 'haskell-mode-hook
+            (lambda ()
+              (my-company-add-backend-locally 'company-ghc)))
+  :config
+  (setq company-ghc-show-info t
+        company-ghc-show-module t
+        )
+  )
 
 
 ;;; [ company-ghci ] -- company backend which uses the current ghci process.
