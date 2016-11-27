@@ -118,98 +118,11 @@
 ;;; [ calfw ] -- Calendar framework for Emacs
 
 (use-package calfw
-  :ensure t
-  :defer t
-  :init
-  (define-key my-calendar-prefix (kbd "o") 'cfw:open-org-calendar)
-  (define-key my-calendar-prefix (kbd "x") 'cfw:open-calendar-buffer)
-  
-  (define-key my-calendar-prefix (kbd "c") 'my-open-calfw-week)
-  (define-key my-calendar-prefix (kbd "w") 'my-open-calfw-week)
-  (define-key my-calendar-prefix (kbd "d") 'my-open-calfw-day)
-  (define-key my-calendar-prefix (kbd "m") 'my-open-calfw-month)
-  
+  :bind (:map my-calendar-prefix
+              ("o" . cfw:open-org-calendar)
+              ("x" . cfw:open-calendar-buffer)
+              )
   :config
-  ;; for Org-mode
-  ;; - [M-x cfw:open-org-calendar]
-
-  (require 'calfw-org)
-
-  ;; (setq cfw:org-agenda-schedule-args '(:timestamp))
-  ;; (setq cfw:org-overwrite-default-keybinding nil)
-
-  ;; org-capture template
-  (setq cfw:org-capture-template
-        '("c" "calfw2org" entry
-          (file nil)
-          "* %?\n %(cfw:org-capture-day)"))
-
-  ;; for iCalendar (Google Calendar) users:
-  ;; (require 'calfw-ical)
-  ;; (cfw:open-ical-calendar "http://www.google.com/calendar/ical/.../basic.ics")
-
-  ;; for Diary users:
-  ;; - [M-x cfw:open-diary-calendar]
-  ;; (require 'calfw-cal)
-
-  ;; calfw-gcal.el -- edit Google Calendar for calfw.
-  ;; (require 'calfw-gcal)
-
-  ;; for Howm users:
-  ;; (require 'calfw-howm)
-
-  ;; General setting
-  (defun my-open-calfw-week ()
-    (interactive)
-    (cfw:open-calendar-buffer
-     :contents-sources
-     (list
-      (cfw:org-create-source "dark gray") ; Org-mode source
-      ;; (cfw:cal-create-source "orange") ; Diary source
-      ;; (cfw:ical-create-source "Moon" "~/moon.ics" "Gray") ; iCalendar source1
-      ;; (cfw:ical-create-source "gcal" "https://..../basic.ics" "IndianRed") ; Google Calendar ICS
-      ;; (cfw:howm-create-source "blue") ; howm source
-      )
-     ;; :annotation-sources
-     ;; (list
-     ;;  (cfw:ical-create-source "Moon" "~/moon.ics" "Gray") ; Moon annotations
-     ;;  )
-     :view 'week                         ; 'month, 'week, 'day
-     )
-    (bury-buffer)
-    (switch-to-buffer "*cfw-calendar*")
-    ;; (toggle-frame-maximized)
-    ;; (cfw:refresh-calendar-buffer t)
-    )
-
-  (defun my-open-calfw-day ()
-    (interactive)
-    (cfw:open-calendar-buffer
-     :contents-sources
-     (list
-      (cfw:org-create-source "dark gray") ; Org-mode source
-      (cfw:cal-create-source "orange") ; Diary source
-      )
-     :view 'day                           ; 'month, 'week, 'day
-     )
-    (bury-buffer)
-    (switch-to-buffer "*cfw-calendar*")
-    )
-
-  (defun my-open-calfw-month ()
-    (interactive)
-    (cfw:open-calendar-buffer
-     :contents-sources
-     (list
-      (cfw:org-create-source "dark gray") ; Org-mode source
-      (cfw:cal-create-source "orange") ; Diary source
-      )
-     :view 'month                         ; 'month, 'week, 'day
-     )
-    (bury-buffer)
-    (switch-to-buffer "*cfw-calendar*")
-    )
-
   ;; Faces
   ;; Year / Month
   (set-face-attribute 'cfw:face-title nil
@@ -355,6 +268,92 @@
 
   ;; cfw:source-data
 
+  
+  ;; for Org-mode
+  (require 'calfw-org)
+
+  ;; (setq cfw:org-agenda-schedule-args '(:timestamp))
+  ;; (setq cfw:org-overwrite-default-keybinding nil)
+
+  ;; org-capture template
+  (setq cfw:org-capture-template
+        '("c" "calfw2org" entry
+          (file nil)
+          "* %?\n %(cfw:org-capture-day)"))
+
+  ;; for iCalendar (Google Calendar) users:
+  ;; (require 'calfw-ical)
+  ;; (cfw:open-ical-calendar "http://www.google.com/calendar/ical/.../basic.ics")
+
+  ;; for Diary users:
+  ;; - [M-x cfw:open-diary-calendar]
+  ;; (require 'calfw-cal)
+
+  ;; calfw-gcal.el -- edit Google Calendar for calfw.
+  ;; (require 'calfw-gcal)
+
+  ;; for Howm users:
+  ;; (require 'calfw-howm)
+
+  ;; General setting
+  (defun my-open-calfw-week ()
+    (interactive)
+    (cfw:open-calendar-buffer
+     :contents-sources
+     (list
+      (cfw:org-create-source "dark gray") ; Org-mode source
+      ;; (cfw:cal-create-source "orange") ; Diary source
+      ;; (cfw:ical-create-source "Moon" "~/moon.ics" "Gray") ; iCalendar source1
+      ;; (cfw:ical-create-source "gcal" "https://..../basic.ics" "IndianRed") ; Google Calendar ICS
+      ;; (cfw:howm-create-source "blue") ; howm source
+      )
+     ;; :annotation-sources
+     ;; (list
+     ;;  (cfw:ical-create-source "Moon" "~/moon.ics" "Gray") ; Moon annotations
+     ;;  )
+     :view 'week                         ; 'month, 'week, 'day
+     )
+    (bury-buffer)
+    (switch-to-buffer "*cfw-calendar*")
+    ;; (toggle-frame-maximized)
+    ;; (cfw:refresh-calendar-buffer t)
+    )
+
+  (defun my-open-calfw-day ()
+    (interactive)
+    (cfw:open-calendar-buffer
+     :contents-sources
+     (list
+      (cfw:org-create-source "dark gray") ; Org-mode source
+      (cfw:cal-create-source "orange") ; Diary source
+      )
+     :view 'day                           ; 'month, 'week, 'day
+     )
+    (bury-buffer)
+    (switch-to-buffer "*cfw-calendar*")
+    )
+
+  (defun my-open-calfw-month ()
+    (interactive)
+    (cfw:open-calendar-buffer
+     :contents-sources
+     (list
+      (cfw:org-create-source "dark gray") ; Org-mode source
+      (cfw:cal-create-source "orange") ; Diary source
+      )
+     :view 'month                         ; 'month, 'week, 'day
+     )
+    (bury-buffer)
+    (switch-to-buffer "*cfw-calendar*")
+    )
+
+  (define-key my-calendar-prefix (kbd "c") 'my-open-calfw-week)
+  (define-key my-calendar-prefix (kbd "w") 'my-open-calfw-week)
+  (define-key my-calendar-prefix (kbd "d") 'my-open-calfw-day)
+  (define-key my-calendar-prefix (kbd "m") 'my-open-calfw-month)
+  
+
+
   ;; keybindings
   ;; ;; Vim style navigation around
   ;; (define-key cfw:calendar-mode-map (kbd "k") 'cfw:navi-previous-week-command)
@@ -367,14 +366,6 @@
   ;; (define-key cfw:calendar-mode-map (kbd "b") 'cfw:navi-previous-day-command)
   ;; (define-key cfw:calendar-mode-map (kbd "f") 'cfw:navi-next-day-command)
   )
-
-
-;; [ Appointment & Remind ]
-;; (require 'appt)
-;; (setq appt-issue-message t) ; raise issue message for appointment
-
-;; planner
-
 
 
 (provide 'init-my-tool-calendar)
