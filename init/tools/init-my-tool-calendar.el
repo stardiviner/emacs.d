@@ -111,10 +111,6 @@
   )
 
 
-;;; [ iCalendar ]
-
-
-
 ;;; [ calfw ] -- Calendar framework for Emacs
 
 (use-package calfw
@@ -253,6 +249,7 @@
   ;; for Howm users:
   ;; (require 'calfw-howm)
 
+
   ;; General setting
   (defun my-open-calfw-week ()
     (interactive)
@@ -309,21 +306,11 @@
   (define-key my-calendar-prefix (kbd "w") 'my-open-calfw-week)
   (define-key my-calendar-prefix (kbd "d") 'my-open-calfw-day)
   (define-key my-calendar-prefix (kbd "m") 'my-open-calfw-month)
-  
-
-
-  ;; keybindings
-  ;; ;; Vim style navigation around
-  ;; (define-key cfw:calendar-mode-map (kbd "k") 'cfw:navi-previous-week-command)
-  ;; (define-key cfw:calendar-mode-map (kbd "j") 'cfw:navi-next-week-command)
-  ;; (define-key cfw:calendar-mode-map (kbd "h") 'cfw:navi-previous-day-command)
-  ;; (define-key cfw:calendar-mode-map (kbd "l") 'cfw:navi-next-day-command)
-  ;; ;; 
-  ;; (define-key cfw:calendar-mode-map (kbd "p") 'cfw:navi-previous-week-command)
-  ;; (define-key cfw:calendar-mode-map (kbd "n") 'cfw:navi-next-week-command)
-  ;; (define-key cfw:calendar-mode-map (kbd "b") 'cfw:navi-previous-day-command)
-  ;; (define-key cfw:calendar-mode-map (kbd "f") 'cfw:navi-next-day-command)
   )
+
+
+;;; [ iCalendar ]
+
 
 
 (provide 'init-my-tool-calendar)
