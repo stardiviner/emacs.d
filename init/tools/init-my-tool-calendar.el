@@ -6,8 +6,6 @@
 
 ;;; Code:
 
-;;; Keybindings
-
 (unless (boundp 'my-calendar-prefix)
   (define-prefix-command 'my-calendar-prefix))
 (define-key my-tools-prefix (kbd "c") 'my-calendar-prefix)
@@ -16,24 +14,30 @@
 (define-key my-org-prefix (kbd "C") 'my-calendar-prefix)
 
 
-;;; Calendar Mode
+;;; [ calendar ]
 
-(require 'calendar)
+(use-package calendar
+  :config
+  ;; ;; Month
+  ;; (setq calendar-month-name-array
+  ;;       ["January" "February" "March"     "April"   "May"      "June"
+  ;;        "July"    "August"   "September" "October" "November" "December"])
+  ;; ;; Week days
+  ;; (setq calendar-day-name-array
+  ;;       ["Sunday" "Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday"])
 
-;; ;; Month
-;; (setq calendar-month-name-array
-;;       ["January" "February" "March"     "April"   "May"      "June"
-;;        "July"    "August"   "September" "October" "November" "December"])
-;; ;; Week days
-;; (setq calendar-day-name-array
-;;       ["Sunday" "Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday"])
+  ;; First day of the week
+  (setq calendar-week-start-day 1) ; 0:Sunday, 1:Monday
+  (setq calendar-weekend-days '(0 6))
+  ;; 'american: month/day/year, 'european: day/month/year, 'iso: year/month/day
+  (setq calendar-date-style 'american)
 
-;;; Calendar Localization
-
-;; First day of the week
-(setq calendar-week-start-day 1) ; 0:Sunday, 1:Monday
-(setq calendar-weekend-days '(0 6))
-(setq calendar-date-style 'american) ; 'american: month/day/year, 'european: day/month/year, 'iso: year/month/day
+  ;; Calendar Localization
+  (setq calendar-time-zone +480 ; UTC+8 (China)
+        ;; calendar-latitude
+        ;; calendar-longitude
+        )
+  )
 
 
 
