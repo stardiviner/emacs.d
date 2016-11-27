@@ -24,7 +24,9 @@
 (use-package glasses
   :ensure t
   :init
-  (add-hook 'prog-mode-hook 'glasses-mode))
+  ;; (add-hook 'prog-mode-hook 'glasses-mode)
+  (add-hook 'java-mode-hook 'glasses-mode)
+  )
 
 
 (provide 'init-my-prog-code)
