@@ -99,26 +99,16 @@
 
 ;; [ Diary ] -- Diary Mode
 
-;; Usage:
-;;
-;; - [M-x calendar RET d]
-;; - [M-x diary]
-;;
-;; - `diary-mode-map'
-;;   - m  mark diary entries
-;;   - d  view diary entries
-;;   - s  show all diary entries
-;;   - id insert diary entry
-;;   - iw insert weekly diary entry
-;;   - im insert monthly diary entry
+(use-package diary
+  :config
+  ;; fancy display
+  (setq calendar-view-diary-initially-flag nil
+        calendar-mark-diary-entries-flag nil ; 'calendar-today, "=", face
+        diary-number-of-entries 7)
 
-;; fancy display
-(setq calendar-view-diary-initially-flag nil
-      calendar-mark-diary-entries-flag nil ; 'calendar-today, "=", face
-      diary-number-of-entries 7)
-
-(add-hook 'diary-display-function 'diary-fancy-display)
-(add-hook 'calendar-today-visible-hook 'calendar-mark-today)
+  (add-hook 'diary-display-function 'diary-fancy-display)
+  (add-hook 'calendar-today-visible-hook 'calendar-mark-today)
+  )
 
 
 ;;; [ iCalendar ]
