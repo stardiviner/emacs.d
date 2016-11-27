@@ -226,31 +226,7 @@
   ;; Line breaking
   (setq cfw:render-line-breaker 'cfw:render-line-breaker-wordwrap)
 
-  ;; 'cfw:render-line-breaker-none
-  ;;
-  ;;     Never breaks lines. Longer contents are truncated.
-  ;;
-  ;; 'cfw:render-line-breaker-simple (default)
-  ;;
-  ;;     This strategy breaks lines with rigid width. This may be not so
-  ;;     beautiful, but In the most cases it looks good.
-  ;;
-  ;; 'cfw:render-line-breaker-wordwrap
-  ;;
-  ;;     This strategy breaks lines with the emacs function
-  ;;     'fill-region'. Although, the line breaking algorithm of the Emacs is
-  ;;     not so smart as more complicated ones, such as Knuth/Plass algorithm,
-  ;;     this strategy is better than the simple one.
 
-  ;; Calfw framework details
-
-  ;; How to add a new calendar source?
-  ;; Defining the 'cfw:source' object, one can extend calfw calendar source.
-  ;; 'cfw:source-data' details
-
-  ;; cfw:source-data
-
-  
   ;; for Org-mode
   (require 'calfw-org)
 
