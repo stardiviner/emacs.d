@@ -14,12 +14,18 @@
 
 ;;; [ Man ]
 
-;;; Usage:
-;; - Man-?? :: command prefix.
-
-(define-key my-prog-help-document-map (kbd "m") 'man-follow)
-(define-key my-prog-help-document-map (kbd "M") 'man)
-
+(use-package man
+  :bind (:map my-prog-help-document-map
+              ("m" . man-follow)
+              ("M" . man))
+  :config
+  (set-face-attribute 'Man-overstrike nil
+                      :inherit font-lock-type-face
+                      :bold t)
+  (set-face-attribute 'Man-underline nil
+                      :inherit font-lock-keyword-face
+                      :underline t)
+  )
 
 ;;; [ women ]
 
