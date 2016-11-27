@@ -213,24 +213,6 @@
                       :weight 'normal)
 
   ;; Grid frame
-  ;; Default setting
-  (setq cfw:fchar-junction ?+
-        cfw:fchar-vertical-line ?|
-        cfw:fchar-horizontal-line ?-
-        cfw:fchar-left-junction ?+
-        cfw:fchar-right-junction ?+
-        cfw:fchar-top-junction ?+
-        cfw:fchar-top-left-corner ?+
-        cfw:fchar-top-right-corner ?+)
-  ;; Unicode characters
-  (setq cfw:fchar-junction ?╋
-        cfw:fchar-vertical-line ?┃
-        cfw:fchar-horizontal-line ?━
-        cfw:fchar-left-junction ?┣
-        cfw:fchar-right-junction ?┫
-        cfw:fchar-top-junction ?┯
-        cfw:fchar-top-left-corner ?┏
-        cfw:fchar-top-right-corner ?┓)
   ;; Another unicode chars
   (setq cfw:fchar-junction ?╬
         cfw:fchar-vertical-line ?║
