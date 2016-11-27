@@ -45,10 +45,14 @@
     "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s"
     :docstring "Wikipedia"
     :keybinding "w")
+  (defengine wikipedia-zh
+    "http://www.wikipedia.org/search-redirect.php?language=zh&go=Go&search=%s"
+    :docstring "Wikipedia"
+    :keybinding "W")
   (defengine baidu_baike
     "http://baike.baidu.com/search/none?word=%s"
     :docstring "Baidu Baike"
-    :keybinding "W")
+    :keybinding "B")
 
   ;; Computational Knowledge Engine
   (defengine wolfram-alpha
