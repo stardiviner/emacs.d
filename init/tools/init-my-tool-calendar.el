@@ -129,12 +129,11 @@
                       :height 2.3)
   ;; 1-31
   (set-face-attribute 'cfw:face-default-day nil
-                      :foreground "white" :background "black"
+                      :foreground "white"
                       )
   ;; 1-31 (N)
   (set-face-attribute 'cfw:face-day-title nil
-                      :foreground "dim gray"
-                      :background "black")
+                      :foreground "dim gray")
   ;; Week (1-5)
   (set-face-attribute 'cfw:face-header nil
                       :foreground "sky blue"
@@ -156,7 +155,7 @@
   ;; Holidays
   (set-face-attribute 'cfw:face-holiday nil
                       :inherit 'cfw:face-day-title
-                      :foreground "yellow" :background "black"
+                      :foreground "yellow"
                       ;; :weight 'normal
                       :overline t
                       ;; :box '(:color "yellow" :line-width -1)
@@ -174,7 +173,6 @@
   ;; ??
   (set-face-attribute 'cfw:face-annotation nil
                       :foreground "dark green"
-                      ;; :background "#121212"
                       )
   ;; past days
   (set-face-attribute 'cfw:face-disable nil
@@ -191,7 +189,6 @@
   (set-face-attribute 'cfw:face-today nil
                       :inherit 'cfw:face-day-title
                       :foreground "dark gray"
-                      :background "#121212"
                       :weight 'normal
                       )
   ;; current select
