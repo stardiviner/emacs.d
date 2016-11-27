@@ -59,9 +59,9 @@
   ;; Shaoxing Area: Latitude: 29° 42' ~ 30° 19' 15" , Longitude: 120° 16' 55" ~ 120° 46' 39"
   ;;
   ;; Location: "Shaoxing"
-  ;; (setq calendar-location-name "Shaoxing Town")
-  ;; (setq calendar-latitude +30.10)
-  ;; (setq calendar-longitude +120.40)
+  (setq calendar-location-name "Shaoxing Town")
+  (setq calendar-latitude +30.10)
+  (setq calendar-longitude +120.40)
   ;;
   ;; Location: "Yunnan Dali"
   ;; (setq calendar-location-name "Dali Town"
