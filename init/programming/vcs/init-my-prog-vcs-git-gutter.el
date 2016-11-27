@@ -7,6 +7,10 @@
 
 ;;; Code:
 
+(unless (boundp 'git-gutter-prefix)
+  (define-prefix-command 'git-gutter-prefix))
+(global-set-key (kbd "M-g g") 'git-gutter-prefix)
+
 ;;; [ git-gutter ]
 
 (use-package git-gutter
@@ -62,7 +66,25 @@
 
 (use-package git-gutter+
   :ensure t
-  :bind (:map my-prog-vcs-map
+  :bind (:map git-gutter-prefix
+              ("t" . git-gutter+-mode) ; Turn on/off in the current buffer
+              ("T" . global-git-gutter+-mode) ; Turn on/off globally
+              ;; jump between hunks
+              ("n" . git-gutter+-next-hunk)
+              ("p" . git-gutter+-previous-hunk)
+              ;; actions on hunks
+              ("d" . git-gutter+-show-hunk-inline-at-point)
+              ("=" . git-gutter+-show-hunk) ; diff
+              ("D" . git-gutter+-show-hunk) ; diff
+              ("r" . git-gutter+-revert-hunk)
+              ;; stage hunk at point
+              ;; if region is active, stage all hunk lines within the region.
+              ("s" . git-gutter+-stage-hunks)
+              ("c" . git-gutter+-commit)
+              ("C" . git-gutter+-stage-and-commit)
+              ("u" . git-gutter:update-all-windows)
+
+              :map my-prog-vcs-map
               ("m t" . git-gutter+-mode) ; Turn on/off in the current buffer
               ("m T" . global-git-gutter+-mode) ; Turn on/off globally
               ;; jump between hunks
