@@ -209,7 +209,7 @@
 ;;; horizontal bar
 (setq-default cursor-type '(hbar . 2)
               cursor-in-non-selected-windows t)
-(set-cursor-color "cyan")
+(set-cursor-color "deep pink")
 
 ;;; hollow
 ;; (setq-default cursor-type 'hollow
