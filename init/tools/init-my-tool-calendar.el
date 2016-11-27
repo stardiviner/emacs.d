@@ -45,9 +45,43 @@
   ;; mark today
   (setq calendar-today-marker 'calendar-today)
   (add-hook 'calendar-initial-window-hook 'calendar-mark-today)
+
+
+  ;; Annotations
+  ;; variable -> :annotation-sources
+
   
+  ;; Location
+  ;;
+  ;; for predicate lunar eclipses.
+  ;;
+  ;; Zhejiang, China Area: Latitude: 27° 09' ~ 31° 11' N , Longitude: 118° 02' ~ 122° 57' E
+  ;; Shaoxing Area: Latitude: 29° 42' ~ 30° 19' 15" , Longitude: 120° 16' 55" ~ 120° 46' 39"
+  ;;
+  ;; Location: "Shaoxing"
+  ;; (setq calendar-location-name "Shaoxing Town")
+  ;; (setq calendar-latitude +30.10)
+  ;; (setq calendar-longitude +120.40)
+  ;;
+  ;; Location: "Yunnan Dali"
+  ;; (setq calendar-location-name "Dali Town"
+  ;;       calendar-latitude
+  ;;       calendar-longitude )
+  
+  ;; Localized National Holidays
   )
 
+(use-package cal-china
+  :config
+  ;; display the ‘celestial-stem’ (天干) and the ‘terrestrial-branch’ (地支) in Chinese:
+  (setq calendar-chinese-celestial-stem
+        ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"]
+        calendar-chinese-terrestrial-branch
+        ["子" "丑" "寅" "卯" "辰" "巳" "午" "未" "申" "酉" "戌" "亥"])
+  )
+
+;; (load "~/.emacs.d/init/extensions/cal-china-x.el")
+;; (require 'cal-china-x)
 
 
 ;;; [ Holidays ]
@@ -61,40 +95,6 @@
   (setq holiday-christian-holidays nil) ; get rid of christan holidays
   (setq calendar-view-holidays-initially-flag t)
   )
-
-;;; Annotations
-;;; variable -> :annotation-sources
-
-
-;;; Localized National Holidays
-
-;;; cal-china-x.el -- Chinese calendar extras
-;;; display the ‘celestial-stem’ (天干) and the ‘terrestrial-branch’ (地支) in Chinese:
-
-;; (setq chinese-calendar-celestial-stem
-;;       ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"]
-;;       chinese-calendar-terrestrial-branch
-;;       ["子" "丑" "寅" "卯" "辰" "巳" "午" "未" "申" "酉" "戌" "亥"])
-;;
-;; (load "~/.emacs.d/init/extensions/cal-china-x.el")
-;; (require 'cal-china-x)
-
-
-;; Location
-
-;; for predicate lunar eclipses.
-
-;; Zhejiang, China Area: Latitude: 27° 09' ~ 31° 11' N , Longitude: 118° 02' ~ 122° 57' E
-;; Shaoxing Area: Latitude: 29° 42' ~ 30° 19' 15" , Longitude: 120° 16' 55" ~ 120° 46' 39"
-
-(setq calendar-location-name "Shaoxing")
-(setq calendar-latitude +30.10)
-(setq calendar-longitude +120.40)
-
-(setq calendar-mark-holidays-flag nil
-      calendar-today-marker 'calendar-today)
-
-
 
 
 ;; [ Diary ] -- Diary Mode
