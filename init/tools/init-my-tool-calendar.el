@@ -101,12 +101,14 @@
 
 (use-package diary
   :config
+  (require 'diary-lib)
+  
   ;; fancy display
   (setq calendar-view-diary-initially-flag nil
         calendar-mark-diary-entries-flag nil ; 'calendar-today, "=", face
-        diary-number-of-entries 7)
+        diary-number-of-entries 7
+        diary-display-function 'diary-fancy-display)
 
-  (add-hook 'diary-display-function 'diary-fancy-display)
   (add-hook 'calendar-today-visible-hook 'calendar-mark-today)
   )
 
