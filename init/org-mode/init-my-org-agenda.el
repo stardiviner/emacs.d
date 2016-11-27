@@ -37,6 +37,21 @@
 (setq org-agenda-timegrid-use-ampm t)
 (setq org-agenda-show-current-time-in-grid t)
 
+;;; specify different color for days
+(defun my-org-agenda-get-day-face-fn (date)
+  "Return the face DATE should be displayed with."
+  (let ((day-of-week (calendar-day-of-week date)))
+    (cond
+     ((or (= day-of-week 1) (= day-of-week 5))
+      '(:foreground "forest green" :box (:color "green" :line-width 3)))
+     ((org-agenda-todayp date)
+      'org-agenda-date-today)
+     ((member day-of-week org-agenda-weekend-days)
+      'org-agenda-date-weekend)
+     (t 'org-agenda-date))))
+
+(setq org-agenda-day-face-function 'my-org-agenda-get-day-face-fn)
+
 
 ;; include `diary-file' from `calendar'
 (setq org-agenda-include-diary t ; %%(org-calendar-holiday)
