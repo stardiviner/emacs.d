@@ -57,16 +57,17 @@
   ;;
   ;; Zhejiang, China Area: Latitude: 27° 09' ~ 31° 11' N , Longitude: 118° 02' ~ 122° 57' E
   ;; Shaoxing Area: Latitude: 29° 42' ~ 30° 19' 15" , Longitude: 120° 16' 55" ~ 120° 46' 39"
-  ;;
+
   ;; Location: "Shaoxing"
-  (setq calendar-location-name "Shaoxing Town")
-  (setq calendar-latitude +30.10)
-  (setq calendar-longitude +120.40)
-  ;;
+  ;; (setq calendar-location-name "Shaoxing Town")
+  ;; (setq calendar-latitude +30.10)
+  ;; (setq calendar-longitude +120.40)
+
   ;; Location: "Yunnan Dali"
-  ;; (setq calendar-location-name "Dali Town"
-  ;;       calendar-latitude
-  ;;       calendar-longitude )
+  (setq calendar-location-name "Dali Town"
+        calendar-latitude 25.60
+        calendar-longitude 100.23
+        )
   
   ;; Localized National Holidays
   )
