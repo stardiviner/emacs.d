@@ -13,7 +13,7 @@
   :ensure t
   :defer t
   :commands ag
-  :preface
+  :init
   (unless (boundp 'ag-map)
     (define-prefix-command 'ag-map))
   (define-key my-search-prefix (kbd "a") 'ag-map)

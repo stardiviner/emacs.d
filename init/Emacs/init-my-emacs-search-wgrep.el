@@ -3,7 +3,7 @@
 
 ;;; Commentary:
 
-
+;;; writable grep or other search engine result buffer which can apply changes to files.
 
 ;;; Code:
 
@@ -11,7 +11,6 @@
 
 (use-package wgrep
   :ensure t
-  :defer t
   :init
   (setq wgrep-enable-key (kbd "C-c C-p")
         wgrep-auto-save-buffer nil)
@@ -22,10 +21,10 @@
 
 (use-package wgrep-ag
   :ensure t
-  :defer t
   :init
   (autoload 'wgrep-ag-setup "wgrep-ag")
-  (add-hook 'ag-mode-hook 'wgrep-ag-setup)
+  (with-eval-after-load 'ag
+    (add-hook 'ag-mode-hook 'wgrep-ag-setup))
   )
 
 
