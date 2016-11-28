@@ -20,10 +20,10 @@
   (make-local-variable 'company-backends)
   (setq company-backends
         '(company-files
-          company-capf :with company-yasnippet ; NOTE: not grouped in (.. :with ..)
+          (company-capf :with company-yasnippet)
+          :separate company-ispell
           company-dabbrev-code company-abbrev
           company-keywords
-          ;; company-ispell
           ))
   )
 
