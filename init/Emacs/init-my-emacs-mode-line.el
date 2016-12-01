@@ -311,10 +311,10 @@
 
    
    ;; wc-mode (word count) `wc-format-modeline-string', `wc-mode-update'.
-   (:eval
-    (if (and (featurep 'wc-mode) wc-mode (active))
-        (propertize (wc-format-modeline-string " WC:[%tw]")
-                    'face '(:foreground "green yellow" :height 75))))
+   ;; (:eval
+   ;;  (if (and (featurep 'wc-mode) wc-mode (active))
+   ;;      (propertize (wc-format-modeline-string " WC:[%tw]")
+   ;;                  'face '(:foreground "green yellow" :height 75))))
 
    
    ;; mmm-mode
