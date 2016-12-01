@@ -58,8 +58,10 @@
 
 ;;; [ ob-haskell ]
 
-(setq org-babel-default-header-args:haskell
-      '((:session . "*haskell*")))
+(require 'ob-haskell)
+
+(add-to-list 'org-babel-default-header-args:haskell
+             '(:session . "*haskell*"))
 
 ;;; [ ob-latex ]
 (require 'ob-latex)
