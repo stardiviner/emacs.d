@@ -194,7 +194,7 @@
       org-agenda-todo-ignore-scheduled 'future
       )
 
-(setq org-agenda-scheduled-leaders '("Scheduled: " "%2d days /// "))
+(setq org-agenda-scheduled-leaders '("Scheduled: " "%2d days ▍ "))
 (setq org-agenda-show-all-dates t)
 (setq org-agenda-show-outline-path t)
 ;; determines how far in advance items with
