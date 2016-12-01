@@ -113,6 +113,8 @@
 (use-package ghc
   :ensure t
   :init
+  (autoload 'ghc-init "ghc" nil t)
+  (autoload 'ghc-debug "ghc" nil t)
   ;; (setq ghc-debug t)
   (add-hook 'haskell-mode-hook #'ghc-init)
   :config
@@ -140,12 +142,12 @@
 
 ;; (use-package company-ghci
 ;;   :ensure t
-;;   :defer t
 ;;   :init
 ;;   (add-hook 'haskell-mode-hook
 ;;             (lambda ()
 ;;               (my-company-add-backend-locally 'company-ghci)
-;;               )))
+;;               ))
+;;   )
 
 
 ;;; [ company-cabal ] -- company-mode back-end for haskell-cabal-mode.
