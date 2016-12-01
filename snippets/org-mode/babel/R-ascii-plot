@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: babel-R-ascii
-# key: babel-R-ascii
+# name: babel-R-ascii-plot
+# key: babel-R-ascii-plot
 # group: babel
 # --
 #+BEGIN_SRC R :session "*R*" :results output

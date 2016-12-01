@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-sh-command-literate
+# key: babel-sh-command-literate
+# group: babel.sh
+# --
+#+BEGIN_SRC sh :eval no
+$0
+#+END_SRC

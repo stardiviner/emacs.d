@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-R
+# key: babel-R
+# group: babel.R
+# --
+#+BEGIN_SRC R :session "*R*" :results output
+$0
+#+END_SRC
