@@ -65,12 +65,12 @@
   (use-package auctex :ensure t)
   )
 
-;;; [ package-lint ]
+;;; [ package-lint ] -- A linting library for elisp package authors.
 
 (use-package package-lint
   :ensure t)
 
-;;; [ flycheck-package ]
+;;; [ flycheck-package ] -- A Flycheck checker for elisp package authors.
 
 (use-package flycheck-package
   :ensure t
