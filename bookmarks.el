@@ -2,7 +2,37 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Command Line.org"
+(("Kindle.org"
+ (filename . "~/Org/Wiki/eBook Reader/Kindle/Kindle.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Packages.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Haskell/Data/Packages/Packages.org")
+ (front-context-string . "* Package Manage")
+ (rear-context-string)
+ (position . 1))
+("ACG"
+ (filename . "~/Org/Wiki/ACG/ACG.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("Forensics.org"
+ (filename . "~/Org/Wiki/Computer/Forensics/Forensics.org")
+ (front-context-string . "* Intro\n\n** Fore")
+ (rear-context-string)
+ (position . 1))
+("Clothes.org"
+ (filename . "~/Org/Wiki/Clothes/Clothes.org")
+ (front-context-string . "* Clothes\n\n\n\n* P")
+ (rear-context-string)
+ (position . 1))
+("My Lisp Reference.org"
+ (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Lisp/Data/Manuals/My Lisp Reference/My Lisp Reference.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Command Line.org"
  (filename . "~/Org/Wiki/Computer/Systems/Linux/Command Line/Command Line.org")
  (front-context-string . "* Intro\n\n** Feat")
  (rear-context-string)
@@ -668,10 +698,10 @@
  (rear-context-string)
  (position . 1))
 ("org-capture-last-stored"
- (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "** 刘意\n:PROPERTIE")
- (rear-context-string . "  Pam177\n:END:\n\n")
- (position . 46387))
+ (filename . "~/Org/Diary/Diary.org")
+ (front-context-string . "**** 已经忘记小影的脸\n:P")
+ (rear-context-string . "11-24 Thursday\n\n")
+ (position . 20079))
 ("My R Language Syntax Reference"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/R/Data/Manuals/My R Language Syntax Reference/My R Language Syntax Reference.org")
  (front-context-string)
@@ -1097,11 +1127,6 @@
  (front-context-string . "#!/usr/bin/env b")
  (rear-context-string)
  (position . 1))
-("Porn collections"
- (filename . "~/Org/Porn/Porn.org")
- (front-context-string . "* Porn Keywords\n")
- (rear-context-string . "ories Archive\n\n\n")
- (position . 1015))
 ("Ruby Gems"
  (filename . "~/Org/Wiki/Computer/Programming/Programming Languages/Ruby/Data/Gems/Gems.org")
  (front-context-string . "* About Gem\n\nThe")
