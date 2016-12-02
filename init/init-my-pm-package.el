@@ -79,6 +79,27 @@
     (flycheck-package-setup))
   )
 
+;;; [ Quelpa ] -- Build and install your Emacs Lisp packages on-the-fly directly from source.
+
+(use-package quelpa
+  :ensure t
+  :config
+  (setq quelpa-upgrade-p t)
+
+  (add-to-list 'quelpa-melpa-recipe-stores (concat user-emacs-directory "melpa/recipes"))
+  )
+
+;;; [ Quelpa-use-package ] -- Emacs quelpa handler for use-package.
+
+;; (quelpa
+;;  '(quelpa-use-package
+;;    :fetcher github
+;;    :repo "quelpa/quelpa-use-package"))
+;; (require 'quelpa-use-package)
+
+(use-package quelpa-use-package
+  :ensure t)
+
 
 (provide 'init-my-pm-package)
 
