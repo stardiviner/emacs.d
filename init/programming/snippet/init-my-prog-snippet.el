@@ -61,8 +61,8 @@ $0`(yas-escape-text yas-selected-text)`"
                       :overline "black"
                       )
 
-  (define-key yas-minor-mode-map [tab] 'yas-expand)
-  (define-key yas-minor-mode-map (kbd "TAB") 'indent-for-tab-command)
+  ;; (define-key yas-minor-mode-map [tab] 'yas-expand)
+  ;; (define-key yas-minor-mode-map (kbd "TAB") 'indent-for-tab-command)
   (define-key yas-minor-mode-map (kbd "C-c \\") 'yas-insert-snippet)
   
   ;; project local snippets
