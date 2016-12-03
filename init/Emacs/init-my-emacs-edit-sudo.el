@@ -11,13 +11,7 @@
 
 (use-package sudo-edit
   :ensure t
-  :defer t
-  :init
-  (global-set-key (kbd "C-x C-r") 'sudo-edit)
-  ;; convenient way to always prompt for file to sudo-edit.
-  ;; (global-set-key (kbd "C-x C-r") (lambda ()
-  ;;                                   (interactive)
-  ;;                                   (sudo-edit 4)))
+  :bind ("C-x C-r" . sudo-edit)
   )
 
 
