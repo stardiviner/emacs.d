@@ -56,9 +56,7 @@
   :config
   (set-face-attribute 'org-indent nil
                       :inherit 'org-hide
-                      ;; :background "#282c34"
-                      :background (face-background 'doom-default)
-                      :foreground (face-background 'doom-default)
+                      :foreground (face-background 'default)
                       )
   )
 
