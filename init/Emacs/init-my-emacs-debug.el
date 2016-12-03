@@ -60,11 +60,9 @@
   ;; (setq edebug-x-stop-point-overlay nil)
 
   (set-face-attribute 'hi-edebug-x-stop nil
-                      :background "SaddleBrown"
-                      )
+                      :background "orange")
   (set-face-attribute 'hi-edebug-x-debug-line nil
-                      :background "dark slate gray"
-                      )
+                      :background "gray")
   )
 
 
