@@ -174,8 +174,8 @@
                ;; "~/Org/Projects/Programming Projects.org" ; BIG!
                ;; "~/Org/Projects/Maker.org"
                "~/Org/Projects/Interpersonal Network/" ; Interpersonal Network
-               "~/Org/Wiki/Learning/Learning.org"
-               "~/Org/Wiki/Learning/MyLearningPlan/Learn Programming.org"
+               "~/Org/Learning Plan/Learning Plan.org"
+               "~/Org/Learning Plan/Learn Programming.org"
                ;; "~/Org/Wiki/Wiki.org"
                ;; "~/Org/Contacts/Contacts.org"
                ))))
