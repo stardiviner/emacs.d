@@ -100,6 +100,11 @@
 ;;   (require 'ox-ioslide-helper)
 ;;   )
 
+;;; [ demo-it ] -- demonstrations and presentations with `org-tree-slide' from within Emacs.
+
+(use-package demo-it
+  :ensure t)
+
 
 (provide 'init-my-org-presentation)
 
