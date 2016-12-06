@@ -572,6 +572,16 @@
   (add-hook 'enh-ruby-mode-hook 'ruby-factory-mode)
   )
 
+;;; [ helm-rdefs ] -- rdefs with helm interface.
+
+(use-package helm-rdefs
+  :ensure t
+  :bind (:map ruby-mode-map
+              ("C-c r" . helm-rdefs)
+              :map enh-ruby-mode-map
+              ("C-c r" . helm-rdefs))
+  )
+
 
 ;;; [ kungfu ] -- CIDER like REPL for Ruby development.
 
