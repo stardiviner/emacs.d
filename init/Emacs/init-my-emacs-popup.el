@@ -42,9 +42,8 @@
   :config
   (set-face-attribute 'popup-face nil
                       :inherit 'tooltip
-                      :foreground "#333333"
-                      :background (color-darken-name
-                                   (face-foreground 'default) 3))
+                      :foreground "#073642"
+                      :background "light yellow")
   )
 
 
