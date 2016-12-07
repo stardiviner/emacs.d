@@ -28,8 +28,7 @@
 
 (add-hook 'message-mode-hook
           (lambda ()
-            ;; org-mode structure
-            (turn-on-orgstruct)
+            ;; Org-mode structure
             (turn-on-orgstruct++)
             (turn-on-orgtbl)
 
