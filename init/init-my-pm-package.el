@@ -84,9 +84,10 @@
 (use-package quelpa
   :ensure t
   :config
-  (setq quelpa-upgrade-p t)
+  ;; (setq quelpa-upgrade-p t)
 
-  (add-to-list 'quelpa-melpa-recipe-stores (concat user-emacs-directory "melpa/recipes"))
+  (add-to-list 'quelpa-melpa-recipe-stores
+               (concat user-emacs-directory "melpa/recipes"))
   )
 
 ;;; [ Quelpa-use-package ] -- Emacs quelpa handler for use-package.
