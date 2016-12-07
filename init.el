@@ -178,6 +178,7 @@
 (require 'init-my-tool-blog)
 ;; (require 'init-my-tool-accounting)
 (require 'init-my-tool-paste)
+(require 'init-my-tool-collaborate)
 ;; (require 'init-my-tool-notify)
 ;; (require 'init-my-tool-irc-erc)
 ;; (require 'init-my-tool-music)
