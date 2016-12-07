@@ -69,8 +69,8 @@
   ;; │ ┃  ▍ ┇ ┋ ┊ ┆ ╽ ╿
   (setq indent-guide-char "┃")
   (set-face-attribute 'indent-guide-face nil
-                      :foreground "DarkSlateGray"
-                      ;; :foreground (color-lighten-name (face-background 'default) 10)
+                      :foreground "#535353"
+                      ;; :foreground (color-darken-name (face-background 'default) 5)
                       )
 
   ;; 2: use face-attribute stipple pixmap data.
