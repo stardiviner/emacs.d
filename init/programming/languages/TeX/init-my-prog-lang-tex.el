@@ -131,11 +131,17 @@ character(s), in which case it deletes the space(s) first."
 (eval-after-load 'tex '(define-key TeX-mode-map "~" 'electric-tie))
 
 (add-hook 'TeX-mode-hook
-	  (lambda ()
-	    (font-lock-add-keywords
-	     nil
-	     '(("~" . 'font-latex-sedate-face)))))
+          (lambda ()
+            (font-lock-add-keywords
+             nil
+             '(("~" . 'font-latex-sedate-face)))))
 
+;;; [C-c C-j] insert items smartly
+(add-hook
+ 'LaTeX-mode-hook
+ (lambda ()
+   (add-to-list 'LaTeX-item-list
+                '("frame" . (lambda () (TeX-insert-macro "pause"))))))
 
 ;;; [ company-auctex ] & [ company-math ]
 
