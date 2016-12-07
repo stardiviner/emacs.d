@@ -9,27 +9,42 @@
 
 ;;; [ nxml-mode ]
 
-(require 'nxml-mode)
+(use-package nxml-mode
+  :mode "\\.xml\\'"
+  ;; :init
+  ;; (push '("<\\?xml" . nxml-mode) magic-mode-alist)
+  :config
+  (setq nxml-child-indent 2
+        nxml-attribute-indent 2
+        nxml-auto-insert-xml-declaration-flag nil
+        )
 
-(push '("<\\?xml" . nxml-mode) magic-mode-alist)
+  ;;; XML completion
+  (setq nxml-bind-meta-tab-to-complete-flag t ; M-Tab to complete
+        nxml-slash-auto-complete-flag nil ; </ to complete
+        )
+  ;; company-nxml
+  (defun my-company-nxml-settings ()
+    (setq-local company-minimum-prefix-length 1)
+    (add-to-list (make-local-variable 'company-backends)
+                 'company-nxml)
+    )
 
-(setq nxml-child-indent 2
-      nxml-attribute-indent 2
-      nxml-auto-insert-xml-declaration-flag nil
-      )
+  (add-hook 'nxml-mode-hook 'my-company-nxml-settings)
 
-;;; XML completion
-(setq nxml-bind-meta-tab-to-complete-flag t ; M-Tab to complete
-      nxml-slash-auto-complete-flag nil ; </ to complete
-      )
-;; company-nxml
-(defun my-company-nxml-settings ()
-  (setq-local company-minimum-prefix-length 1)
-  (add-to-list (make-local-variable 'company-backends)
-               'company-nxml)
+  ;; format XML with `xmllint'.
+  (defun my-xml-format ()
+    "Format an XML buffer with `xmllint'."
+    (interactive)
+    (shell-command-on-region (point-min) (point-max)
+                             "xmllint -format -"
+                             (current-buffer)
+                             t
+                             "*Xmllint Error Buffer*"
+                             t))
+
+  (define-key nxml-mode-map (kbd "C-c m f") 'my-xml-format)
   )
-
-(add-hook 'nxml-mode-hook 'my-company-nxml-settings)
 
 
 ;;; [ x-path-walker ] -- navigation for JSON/XML/HTML based on path (imenu like)
