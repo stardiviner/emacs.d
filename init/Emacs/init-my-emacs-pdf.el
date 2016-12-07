@@ -126,11 +126,12 @@
 ;;; [ pdf-tools-org ] -- integrate pdf-tools annotations with Org-mode.
 
 (use-package pdf-tools-org
-  :ensure t
+  :quelpa (pdf-tools-org :fetcher github :repo "machc/pdf-tools-org")
   :config
   (add-hook 'after-save-hook
             (lambda ()
-              (when (eq major-mode 'pdf-view-mode) (pdf-tools-org-export-to-org))))
+              (when (eq major-mode 'pdf-view-mode)
+                (pdf-tools-org-export-to-org))))
   )
 
 ;;; display PDFs on the side window of Emacs.
@@ -181,19 +182,6 @@ when needed."
 (add-to-list 'display-buffer-alist
              '("\\.pdf\\(<[^>]+>\\)?$" .
                (display-buffer-pop-up-window-pdf-split-horizontally)))
-
-;;; -------------------------------------------------------------------------
-
-;;; [ pdf-tools-org ] -- integrate pdf-tools with Org-mode.
-
-(use-package pdf-tools-org
-  :ensure t
-  :config
-  (add-hook 'after-save-hook
-            (lambda ()
-              (when (eq major-mode 'pdf-view-mode)
-                (pdf-tools-org-export-to-org))))
-  )
 
 
 (provide 'init-my-emacs-pdf)
