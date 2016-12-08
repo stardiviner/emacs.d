@@ -50,6 +50,9 @@
 (use-package org-tree-slide
   :ensure t
   :defer t
+  :bind (:map org-tree-slide-mode-map
+              ("SPC" . org-tree-slide-move-next-tree)
+              ("S-SPC" . org-tree-slide-move-previous-tree))
   :init
   (define-key my-org-prefix (kbd "C-s") 'org-tree-slide-mode)
   ;; (global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
