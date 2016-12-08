@@ -194,7 +194,12 @@
   :commands 'dante-mode
   :init
   (add-hook 'haskell-mode-hook 'dante-mode)
-  (add-hook 'haskell-mode-hook 'flycheck-mode))
+  (add-hook 'haskell-mode-hook 'flycheck-mode)
+  :config
+  ;; fix org-mode babel haskell src block [C-c '] keybinding been overwrite issue.
+  (define-key dante-mode-map (kbd "C-c '") 'org-edit-src-exit)
+  (define-key dante-mode-map (kbd "C-x C-e") 'dante-eval-block)
+  )
 
 
 ;;; [ scion ] -- IDE library for Haskell based on the GHC API.
