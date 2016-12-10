@@ -57,9 +57,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 (use-package show-marks
   :ensure t
-  :defer t
-  :init
-  (global-set-key (kbd "C-c `") 'show-marks)
+  :bind ("C-c `" . show-marks)
   )
 
 
@@ -93,9 +91,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 (use-package imenu
   :ensure t
-  :defer t
-  :init
-  (global-set-key (kbd "C-x j") 'imenu)
+  :bind ("C-x j" . imenu)
   :config
   (setq imenu-auto-rescan t)
 
