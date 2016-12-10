@@ -98,6 +98,13 @@ This is the same as using \\[set-mark-command] with the prefix argument."
   (global-set-key (kbd "C-x j") 'imenu)
   :config
   (setq imenu-auto-rescan t)
+
+  ;; Elisp file sections navigation
+  (defun imenu-elisp-sections ()
+    (setq imenu-prev-index-position-function nil)
+    (add-to-list 'imenu-generic-expression '("Sections" "^;;;; \\(.+\\)$" 1) t))
+  
+  (add-hook 'emacs-lisp-mode-hook 'imenu-elisp-sections)
   )
 
 
