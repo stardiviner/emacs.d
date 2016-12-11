@@ -9,13 +9,15 @@
 
 ;;; [ Macro ]
 
-;;; Usage:
-;; - [C-x C-k] -- macro prefix.
-;; - [C-x (/)] -- start/end macro.
-;; - [F3/F4] -- start/end macro or insert counter/repeat.
-
 ;; file to save macros:
 (load-file "~/.emacs.d/init/macros/macros")
+
+(define-key kmacro-keymap (kbd "s") 'kmacro-start-macro)
+(define-key kmacro-keymap (kbd "e") 'kmacro-end-macro)
+(define-key kmacro-keymap (kbd "E") 'edit-kbd-macro)
+(define-key kmacro-keymap (kbd "c") 'kmacro-end-or-call-macro)
+(define-key kmacro-keymap (kbd "C") 'kmacro-call-macro)
+(define-key kmacro-keymap (kbd "v") 'kmacro-view-macro)
 
 
 (provide 'init-my-emacs-macro)
