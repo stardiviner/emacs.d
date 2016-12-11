@@ -158,6 +158,12 @@
 ;;   (add-hook 'python-mode-hook 'cinspect)
 ;;   )
 
+;;; [ importmagic ] -- An Emacs package that resolves unimported Python symbols.
+
+(use-package importmagic
+  :ensure t
+  :init
+  (add-hook 'python-mode-hook 'importmagic-mode))
 
 ;;; [ Emacs IPython Notebook (EIN) ] -- IPython notebook client in Emacs
 
