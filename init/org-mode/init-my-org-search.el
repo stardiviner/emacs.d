@@ -13,6 +13,16 @@
 
 ;; (org-agenda-dispatch)
 
+;;; [ org-searching ] -- Searching Org-mode files in directory.
+
+(use-package org-searching
+  :ensure t
+  :commands (org-searching-string org-searching-regexp org-searching-headlines)
+  :config
+  (define-key my-org-prefix (kbd "s") 'org-searching-headlines)
+  (define-key my-org-prefix (kbd "S") 'org-searching-string)
+  (define-key my-org-prefix (kbd "M-s") 'org-searching-regexp)
+  )
 
 ;;; [ Search Functions ]
 
