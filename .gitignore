@@ -92,3 +92,7 @@ image-dired/
 /.desktop-save/*
 *.desktop
 *.desktop.lock
+server/
+exwm-x/
+.trello/
+quelpa/
