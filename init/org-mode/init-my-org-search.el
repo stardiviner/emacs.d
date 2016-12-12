@@ -22,7 +22,7 @@
   (autoload 'ag/read-from-minibuffer "ag")
   
   (defun ag-org-search (string directory)
-    "Search STRING using ag in a given DIRECTORY.
+    "Full context searching STRING using ag in a given DIRECTORY.
 
 By default STRING is the symbol under point unless called with a
 prefix, prompts for flags to pass to ag."
@@ -36,7 +36,7 @@ prefix, prompts for flags to pass to ag."
     )
 
   (defun ag-org-search-headline (string directory)
-    "Search STRING using ag in a given DIRECTORY.
+    "Search STRING in Org files headlines using ag in a given DIRECTORY.
 
 By default STRING is the symbol under point unless called with a
 prefix, prompts for flags to pass to ag."
