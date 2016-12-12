@@ -11,22 +11,7 @@
 
 (use-package ag
   :ensure t
-  :defer t
-  :commands ag
-  :init
-  (unless (boundp 'ag-map)
-    (define-prefix-command 'ag-map))
-  (define-key my-search-prefix (kbd "a") 'ag-map)
-  :bind (:map ag-map
-              ("a" . ag)
-              ("r" . ag-regexp)
-              ("p" . ag-regexp-project-at-point) ; `ag', `ag-regexp'
-              ("P" . ag-project) ; `ag-project-files', `ag-project-regexp', `ag-project-dired'
-              ("d" . ag-dired) ; `ag-dired-regexp'
-              ("f" . ag-files)
-              ("k" . ag-kill-buffers) ; `ag-kill-other-buffers'
-              )
-  
+  ;; :commands ag
   :config
   (setq ag-highlight-search t
         ag-group-matches t
@@ -48,6 +33,18 @@
   
   ;; This will auto open search results in other window.
   ;; (add-hook 'ag-mode-hook #'next-error-follow-minor-mode) ; so you can navigate with 'n' & 'p'.
+
+  (unless (boundp 'ag-map)
+    (define-prefix-command 'ag-map))
+  (define-key my-search-prefix (kbd "a") 'ag-map)
+
+  (define-key ag-map (kbd "a") 'ag)
+  (define-key ag-map (kbd "r") 'ag-regexp)
+  (define-key ag-map (kbd "p") 'ag-regexp-project-at-point)
+  (define-key ag-map (kbd "P") 'ag-project) ; `ag-project-files', `ag-project-regexp', `ag-project-dired'
+  (define-key ag-map (kbd "d") 'ag-dired)      ; `ag-dired-regexp'
+  (define-key ag-map (kbd "f") 'ag-files)
+  (define-key ag-map (kbd "k") 'ag-kill-buffers) ; `ag-kill-other-buffers'
   )
 
 
