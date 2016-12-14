@@ -7,6 +7,11 @@
 
 ;;; Code:
 
+;;; [ chinese-word-at-point ] -- Get (most likely) Chinese word under the cursor in Emacs.
+
+(use-package chinese-word-at-point
+  :ensure t)
+
 ;;; [ pinyin-search ] --
 
 (use-package pinyin-search
