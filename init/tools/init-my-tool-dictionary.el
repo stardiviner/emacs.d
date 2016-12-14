@@ -34,6 +34,7 @@
   )
 
 ;;; [ babel ] -- An Emacs interface to different translation services available on the Internet.
+;;; [ chinese-yasdcv ] -- yet another sdcv frontend for Emacs.
 
 ;; (autoload 'babel "babel"
 ;;   "Use a web translation service to translate the message MSG." t)
@@ -78,6 +79,18 @@
 ;;   (lambda ()
 ;;     (interactive)
 ;;     (my-translate-dwim 'babel-region 'babel-as-string 'babel-buffer)))
+(use-package chinese-yasdcv
+  :ensure t
+  :bind (:map dictionary-prefix
+              ("M-d" . yasdcv-translate-at-point))
+  :config
+  (setq yasdcv-sdcv-dicts
+        '(("WordNet" "WordNet" nil t)
+          ("Oxford English-Chinese" "牛津英汉双解美化版" nil t)
+          ("Langdao English-Chinese" "朗道英汉字典5.0" nil t)
+          ("Langdao Chinese-English" "朗道汉英字典5.0" nil t)
+          ))
+  )
 
 
 ;;; [ synonymous ] -- a thesaurus client that replace with synonym or antonym.
