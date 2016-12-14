@@ -7,18 +7,17 @@
 
 ;;; Code:
 
+(unless (boundp 'dictionary-prefix)
+  (define-prefix-command 'dictionary-prefix))
+(define-key my-tools-prefix (kbd "d") 'dictionary-prefix)
+
 ;;; [ sdcv.el ]
 
 (use-package sdcv
   :ensure t
-  :init
-  (unless (boundp 'dictionary-map)
-    (define-prefix-command 'dictionary-map))
-  (define-key my-tools-prefix (kbd "d") 'dictionary-map)
-
-  (define-key dictionary-map (kbd "d") 'sdcv-search-pointer+)
-  (define-key dictionary-map (kbd "C-d") 'sdcv-search-input)
-
+  :bind (:map dictionary-prefix
+              ("d" . sdcv-search-pointer+)
+              ("C-d" . sdcv-search-input))
   :config
   ;; a simple dictionary list for popup display
   (setq sdcv-dictionary-simple-list
@@ -75,7 +74,7 @@
 ;;     )
 ;;   )
 ;;
-;; (define-key dictionary-map (kbd "t")
+;; (define-key dictionary-prefix (kbd "t")
 ;;   (lambda ()
 ;;     (interactive)
 ;;     (my-translate-dwim 'babel-region 'babel-as-string 'babel-buffer)))
@@ -104,7 +103,7 @@
     )
   )
 
-(define-key dictionary-map (kbd "d") 'goldendict-dwim)
+(define-key dictionary-prefix (kbd "d") 'goldendict-dwim)
 
 
 ;;; [ google-translate ]
@@ -133,9 +132,9 @@
                       :height 1.4
                       )
 
-  (define-key dictionary-map (kbd "t") 'google-translate-smooth-translate)
-  ;; (define-key dictionary-map (kbd "T") 'google-translate-at-point)
-  ;; (define-key dictionary-map (kbd "C-t") 'google-translate-query-translate)
+  (define-key dictionary-prefix (kbd "t") 'google-translate-smooth-translate)
+  ;; (define-key dictionary-prefix (kbd "T") 'google-translate-at-point)
+  ;; (define-key dictionary-prefix (kbd "C-t") 'google-translate-query-translate)
   )
 
 
