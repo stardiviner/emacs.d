@@ -157,8 +157,6 @@
             (mapcar
              (lambda (f) (and (file-exists-p f) f))
              '("~/Org/Wiki/Work/Work.org"
-               ;; "~/Org/Projects/Freelancer.org"
-               ;; "~/Org/Projects/Finance.org"
                "~/Org/Projects/Business Ideas.org"
                "~/Org/Wiki/Business/Startup/My Startup/My Startup.org"
                "~/Org/Capture/Capture.org"
@@ -166,8 +164,10 @@
                "~/Org/Tasks/Daily.org"
                "~/Org/Tasks/Tasks.org"
                "~/Org/Tasks/Entertainment.org"
-               "~/Org/Projects/Sales/Sales.org"
                "~/Org/Projects/" ; All projects
+               ;; "~/Org/Projects/Freelancer.org"
+               ;; "~/Org/Projects/Finance.org"
+               "~/Org/Projects/Sales/Sales.org"
                ;; "~/Org/Projects/Code.org"
                ;; "~/Org/Projects/Computer Todos.org"
                ;; "~/Org/Projects/Projects.org"
