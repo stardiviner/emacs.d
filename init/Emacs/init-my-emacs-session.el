@@ -19,7 +19,6 @@
 
 (use-package desktop
   :ensure t
-  :defer t
   :init
   (setq desktop-path (list (concat user-emacs-directory ".desktop-save")))
 
