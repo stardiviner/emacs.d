@@ -33,7 +33,7 @@
 
 
 (require 'server)
-(setq server-use-tcp t) ; allow for running multiple Emacs daemons.
+;; (setq server-use-tcp t) ; allow for running multiple Emacs daemons.
 (unless (server-running-p)
   (server-start))
 
