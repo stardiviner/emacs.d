@@ -1,5 +1,4 @@
 ;;; ${1:$$(file-name-base)}.el --- $2
-;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
 
