@@ -39,29 +39,29 @@
 
 ;;; [ atomic-chrome ] -- with websocket improvement on `edit-server'.
 
-(use-package atomic-chrome
-  :ensure t
-  :config
-  (setq atomic-chrome-default-major-mode 'markdown-mode
-        atomic-chrome-url-major-mode-alist
-        '(("github\\.com" . markdown-mode)
-          ;; Stack Overflow
-          ("stackoverflow\\.com" . markdown-mode)
-          ("stack\\(exchange\\|overflow\\)\\.com\\.[a-z0-9]+\\.txt" . markdown-mode)
-          (".*\\.stackexchange\\.com/.*" . markdown-mode)
-          ("segmentfault\\.com" . markdown-mode)
-          ;; Jupyter notebooks
-          ;; localhost:8888/notebooks/Untitled1.ipynb?kernel_name=clojure
-          ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=clojure" . clojure-mode)
-          ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=ruby" . ruby-mode)
-          ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=julia" . julia-mode)
-          ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=python" . python-mode)
-          ))
-  
-  (atomic-chrome-start-server)
-
-  (define-key atomic-chrome-edit-mode-map (kbd "C-x #") 'atomic-chrome-close-current-buffer)
-  )
+;; (use-package atomic-chrome
+;;   :ensure t
+;;   :config
+;;   (setq atomic-chrome-default-major-mode 'markdown-mode
+;;         atomic-chrome-url-major-mode-alist
+;;         '(("github\\.com" . markdown-mode)
+;;           ;; Stack Overflow
+;;           ("stackoverflow\\.com" . markdown-mode)
+;;           ("stack\\(exchange\\|overflow\\)\\.com\\.[a-z0-9]+\\.txt" . markdown-mode)
+;;           (".*\\.stackexchange\\.com/.*" . markdown-mode)
+;;           ("segmentfault\\.com" . markdown-mode)
+;;           ;; Jupyter notebooks
+;;           ;; localhost:8888/notebooks/Untitled1.ipynb?kernel_name=clojure
+;;           ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=clojure" . clojure-mode)
+;;           ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=ruby" . ruby-mode)
+;;           ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=julia" . julia-mode)
+;;           ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=python" . python-mode)
+;;           ))
+;;
+;;   (atomic-chrome-start-server)
+;;
+;;   (define-key atomic-chrome-edit-mode-map (kbd "C-x #") 'atomic-chrome-close-current-buffer)
+;;   )
 
 
 ;;; ----------------------------------------------------------------------------
