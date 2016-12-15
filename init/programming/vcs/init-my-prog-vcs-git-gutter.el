@@ -120,17 +120,17 @@
   
   ;; GitGutter signs
   (set-face-attribute 'git-gutter+-modified nil
-                      :foreground "yellow"
+                      :foreground "dark orange"
                       :weight 'normal
                       :height 90
                       )
   (set-face-attribute 'git-gutter+-added nil
-                      :foreground "green"
+                      :foreground "dark green"
                       :weight 'normal
                       :height 90
                       )
   (set-face-attribute 'git-gutter+-deleted nil
-                      :foreground "red"
+                      :foreground "dark red"
                       :weight 'normal
                       :height 90
                       )
