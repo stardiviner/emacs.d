@@ -152,7 +152,7 @@
 
    ;; mule info: U:[*--]
    (:propertize mode-line-mule-info
-                face 'font-lock-keyword-face)
+                'face 'font-lock-keyword-face)
    
    ;; Buffer status
    ;; mode-line-client
