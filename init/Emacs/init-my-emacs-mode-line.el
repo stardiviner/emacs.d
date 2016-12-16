@@ -263,19 +263,6 @@
          ))
       ))
 
-
-   ;; projectile-rails-mode
-   (:propertize " ")
-   (:eval
-    (when (and (featurep 'projectile-rails-mode)
-               (eq projectile-rails-mode t))
-      (propertize (format " Rails ")
-                  'face '(:foreground "red")
-                  'display (let ((rails-icon (concat user-emacs-directory "resources/icon/" "Rails.xpm")))
-                             (if (and (file-exists-p rails-icon)
-                                      (image-type-available-p 'xpm))
-                                 (create-image rails-icon 'xpm nil :ascent 'center))))))
-   
    ;; org-tree-slide slide number
    ;; TODO:
    ;; (:eval
