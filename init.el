@@ -99,6 +99,7 @@
 (require 'init-my-emacs-help)
 (require 'init-my-emacs-minibuffer)
 (require 'init-my-emacs-buffer)
+(require 'init-my-emacs-backup)
 (require 'init-my-emacs-window)
 (require 'init-my-emacs-frame)
 (require 'init-my-emacs-session)
