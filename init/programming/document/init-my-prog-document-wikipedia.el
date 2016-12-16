@@ -28,6 +28,8 @@
 (use-package kiwix
   :ensure t
   :config
+  (setq kiwix-your-language-library "zh")
+  
   (define-key my-prog-help-document-map (kbd "w") 'kiwix-at-point)
   (define-key my-prog-help-document-map (kbd "W") 'kiwix-at-point-interactive)
   (define-key my-prog-help-document-map (kbd "M-w") 'kiwix-launch-server)
