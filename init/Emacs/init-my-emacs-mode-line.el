@@ -186,6 +186,8 @@
                    '(utf-8
                      utf-8-unix
                      prefer-utf-8-unix
+                     utf-8-auto-unix
+                     utf-8-emacs-unix
                      undecided-unix ; TODO: remove in future
                      )))
         (list
@@ -362,7 +364,8 @@
    ;; fill with ' '.
    ;; (:propertize "% ")
    
-   (:propertize mode-line-end-spaces))))
+   (:propertize mode-line-end-spaces))
+  ))
 
 ;; update org-clock timer in mode-line after `org-clock-out-hook'.
 ;; fix org-clock timer does not disappear after clock out.
