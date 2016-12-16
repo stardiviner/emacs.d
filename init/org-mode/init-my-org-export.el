@@ -156,8 +156,9 @@ For pasting on sites like GitHub, and Stack Overflow."
                     (buffer-substring (region-beginning) (region-end)) 'md t))
   (deactivate-mark))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;; email org-mode region/buffer
+;;; [ Email Org-mode region/buffer ]
 
 ;; send email with org-mode region as message.
 ;; I like to email org-mode headings and content to people. It would be nice to
@@ -170,14 +171,16 @@ For pasting on sites like GitHub, and Stack Overflow."
 
 (require 'org-mime)
 
-(add-hook 'message-mode-hook
-          '(lambda ()
-             (local-set-key (kbd "C-c M-o") 'org-mime-htmlize)))
 (add-hook 'org-mode-hook
           '(lambda ()
              ;; `org-mime-org-buffer-htmlize', `org-mime-htmlize'
              (local-set-key (kbd "C-x M") 'org-mime-org-buffer-htmlize)
              ))
+
+(add-hook 'message-mode-hook
+          '(lambda ()
+             (local-set-key (kbd "C-c M-o") 'org-mime-htmlize)))
+
 
 (defun org-export-settings-for-email ()
   "Settings for export Org-mode buffer to HTML Email format."
@@ -194,6 +197,7 @@ For pasting on sites like GitHub, and Stack Overflow."
 ;; FIXME: wrong number of arguments, 1.
 ;; (add-hook 'org-export-before-processing-hook 'org-export-settings-for-email)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; ;;; [ ox-publish ]
 ;;

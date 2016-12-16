@@ -17,11 +17,10 @@
       backup-by-copying-when-linked t
       version-control t ; use versioned backups.
       vc-make-backup-files nil ; do not backup files in vc.
-      ;; backup-inhibited ; do not generate backup
+      ;; backup-inhibited t ; do not generate backup
       delete-old-versions t             ; auto delete old versions.
       kept-new-versions 3               ; number of new versions.
       kept-old-versions 3               ; number of old versions.
-      version-control t                 ; multiple versions backup.
       )
 
 (setq backup-directory-alist
