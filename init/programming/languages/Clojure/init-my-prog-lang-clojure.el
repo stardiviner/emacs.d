@@ -52,21 +52,6 @@
 
 (use-package cider
   :ensure t
-  :defer t
-  :bind (:map clojure-mode-map
-              ("C-c C-s" . my-cider-clojure-repl-switch)
-              :map clojurescript-mode-map
-              ("C-c C-s" . my-cider-cljs-repl-switch)
-              )
-  :init
-  ;; enable `cider-mode' in `clojure-mode'.
-  (add-hook 'clojure-mode-hook #'cider-mode)
-  
-  ;; auto start CIDER jack-in.
-  (setq cider-allow-jack-in-without-project t)
-  (add-hook 'after-init-hook #'cider-jack-in)
-
-  
   :config
   (setq cider-auto-mode t
         nrepl-hide-special-buffers nil
@@ -218,13 +203,18 @@
 
   (add-hook 'cider-repl-mode-hook #'subword-mode)
 
+  ;; enable `cider-mode' in `clojure-mode'.
+  (add-hook 'clojure-mode-hook #'cider-mode)
+  
+  ;; auto start CIDER jack-in.
+  (setq cider-allow-jack-in-without-project t)
+  (add-hook 'after-init-hook #'cider-jack-in)
+
   ;; notify user CIDER is connected.
   (add-hook 'cider-connected-hook
             (lambda ()
               (notifications-notify :title "CIDER connected"
-                                    :body "CIDER process connected."))
-            )
-
+                                    :body "CIDER process connected.")))
   
   ;; switch to CIDER REPL buffers.
   (defun my-cider-clojure-repl-switch ()
@@ -253,6 +243,9 @@
     (define-prefix-command 'my-inferior-lisp-map))
   (define-key my-inferior-lisp-map (kbd "c") 'my-cider-clojure-repl-switch)
 
+  (define-key clojure-mode-map (kbd "C-c C-s") 'my-cider-clojure-repl-switch)
+  (define-key clojurescript-mode-map (kbd "C-c C-s") 'my-cider-cljs-repl-switch)
+  
   ;; CIDER inspect command keybindings
   (unless (boundp 'cider-inspect-prefix)
     (define-prefix-command 'cider-inspect-prefix))
