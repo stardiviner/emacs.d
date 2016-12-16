@@ -100,6 +100,13 @@
   (ivy-mode 1)
   )
 
+;;; [ ivy-rich ] -- More friendly display transformer for ivy.
+
+(use-package ivy-rich
+  :ensure t
+  :config
+  (ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer)
+  )
 
 ;;; [ swiper ]
 
