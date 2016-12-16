@@ -300,15 +300,6 @@
 
 (use-package clj-refactor
   :ensure t
-  :defer t
-  :init
-  (add-hook 'clojure-mode-hook
-            (lambda ()
-              (clj-refactor-mode 1)
-              ;; insert keybinding setup here
-              (cljr-add-keybindings-with-prefix "M-RET")
-              ))
-
   :config
   ;; (setq cljr-warn-on-eval nil)
   (setq cljr-auto-sort-ns nil)
@@ -316,6 +307,13 @@
   ;; do not prefer prefixes when using clean-ns
   (setq cljr-favor-prefix-notation nil)
 
+  (add-hook 'clojure-mode-hook
+            (lambda ()
+              (clj-refactor-mode 1)
+              ;; insert keybinding setup here
+              (cljr-add-keybindings-with-prefix "M-RET")
+              ))
+  
   ;; skip Tab in `cljr-add-require-to-ns' snippet.
   ;; (advice-add 'cljr-add-require-to-ns :after
   ;;             (lambda (&rest _)
