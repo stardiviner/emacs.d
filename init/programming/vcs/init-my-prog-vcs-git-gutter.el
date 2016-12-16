@@ -125,12 +125,12 @@
                       :height 90
                       )
   (set-face-attribute 'git-gutter+-added nil
-                      :foreground "dark green"
+                      :foreground "green"
                       :weight 'normal
                       :height 90
                       )
   (set-face-attribute 'git-gutter+-deleted nil
-                      :foreground "dark red"
+                      :foreground "red"
                       :weight 'normal
                       :height 90
                       )
