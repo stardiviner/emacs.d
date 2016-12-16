@@ -197,6 +197,63 @@ For pasting on sites like GitHub, and Stack Overflow."
 ;; FIXME: wrong number of arguments, 1.
 ;; (add-hook 'org-export-before-processing-hook 'org-export-settings-for-email)
 
+
+;; Out of the box, =org-mime= does not seem to attach file links to emails or
+;; make images for equations.
+;; Here is an adaptation of =org-mime-compose= that does that for html messages.
+
+(defun org-mime-compose (body fmt file &optional to subject headers)
+  "Make `org-mime-compose' support attach file for HTML messages."
+  (require 'message)
+  (let ((bhook
+         (lambda (body fmt)
+           (let ((hook (intern (concat "org-mime-pre-"
+                                       (symbol-name fmt)
+                                       "-hook"))))
+             (if (> (eval `(length ,hook)) 0)
+                 (with-temp-buffer
+                   (insert body)
+                   (goto-char (point-min))
+                   (eval `(run-hooks ',hook))
+                   (buffer-string))
+               body))))
+        (fmt (if (symbolp fmt) fmt (intern fmt)))
+        (files (org-element-map (org-element-parse-buffer) 'link
+                 (lambda (link)
+                   (when (string= (org-element-property :type link) "file")
+                     (file-truename (org-element-property :path link)))))))
+    (compose-mail to subject headers nil)
+    (message-goto-body)
+    (cond
+     ((eq fmt 'org)
+      (require 'ox-org)
+      (insert (org-export-string-as
+               (org-babel-trim (funcall bhook body 'org)) 'org t)))
+     ((eq fmt 'ascii)
+      (require 'ox-ascii)
+      (insert (org-export-string-as
+               (concat "#+Title:\n" (funcall bhook body 'ascii)) 'ascii t)))
+     ((or (eq fmt 'html) (eq fmt 'html-ascii))
+      (require 'ox-ascii)
+      (require 'ox-org)
+      (let* ((org-link-file-path-type 'absolute)
+             ;; we probably don't want to export a huge style file
+             (org-export-htmlize-output-type 'inline-css)
+             (org-html-with-latex 'dvipng)
+             (html-and-images
+              (org-mime-replace-images
+               (org-export-string-as (funcall bhook body 'html) 'html t)))
+             (images (cdr html-and-images))
+             (html (org-mime-apply-html-hook (car html-and-images))))
+        (insert (org-mime-multipart
+                 (org-export-string-as
+                  (org-babel-trim
+                   (funcall bhook body (if (eq fmt 'html) 'org 'ascii)))
+                  (if (eq fmt 'html) 'org 'ascii) t)
+                 html)
+                (mapconcat 'identity images "\n")))))
+    (mapc #'mml-attach-file files)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; ;;; [ ox-publish ]
