@@ -3,9 +3,13 @@
 
 ;;; Commentary:
 
+;;; Usage:
+
+;; - `recover-session' :: recover session.
 
 
 ;;; Code:
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; [ save-place ]
 
@@ -25,7 +29,7 @@
   (desktop-save-mode 1)
   )
 
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (provide 'init-my-emacs-session)
 
 ;;; init-my-emacs-session.el ends here

@@ -8,56 +8,13 @@
 
 ;;; Auto-reload external file changes
 
-;; - `recover-file' :: recover file.
-;; - `recover-session' :: recover session.
-
 ;; (global-auto-revert-mode)
 (setq global-auto-revert-non-file-buffers nil
       auto-revert-verbose nil
       auto-revert-use-notify t)
 
 
-;;; auto-save visited files
-
-;; Non-nil says auto-save a buffer in the file it is visiting, when practical.
-(setq auto-save-visited-file-name t)
-
-
-;;; [ auto save ]
-
-;; (auto-save-mode t)
-(setq auto-save-default t               ; create #autosave# files
-      auto-save-list-file-prefix "~/.emacs.d/auto-save-list/.saves-"
-      auto-save-interval 1500)
-
-
-;;; [ backup ]
-
-(setq make-backup-files t
-      backup-by-copying t
-      backup-by-copying-when-mismatch t
-      backup-by-copying-when-privileged-mismatch t
-      backup-by-copying-when-linked t
-      version-control t ; use versioned backups.
-      vc-make-backup-files nil ; do not backup files in vc.
-      ;; backup-inhibited ; do not generate backup
-      delete-old-versions t             ; auto delete old versions.
-      kept-new-versions 3               ; number of new versions.
-      kept-old-versions 3               ; number of old versions.
-      version-control t                 ; multiple versions backup.
-      )
-
-(setq backup-directory-alist
-      `(("." . ,(expand-file-name "~/.emacs.d/.backups")))
-      ;; `((".*" . ,temporary-file-directory)) ; put all under directory /tmp.
-      )
-
-
 ;;; [ ibuffer ]
-
-;;; Usage:
-;;
-;; - (M-x ibuffer-mode)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
