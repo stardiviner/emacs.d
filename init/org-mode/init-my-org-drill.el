@@ -8,7 +8,11 @@
 ;;; ----------------------------------------------------------------------------
 ;;; [ org-drill ] -- Begin an interactive "drill session" based on Org-mode.
 
-(require 'org-drill)
+(use-package org-drill
+  :config
+  ;; add org-drill topic property into default properties list.
+  (add-to-list 'org-default-properties "DRILL_CARD_TYPE")
+  )
 
 
 
