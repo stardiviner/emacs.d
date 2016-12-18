@@ -14,6 +14,11 @@
   (add-to-list 'org-default-properties "DRILL_CARD_TYPE")
   )
 
+;;; [ org-drill-table ] -- generate org-drill from org-mode tables.
+
+(use-package org-drill-table
+  :ensure t)
+
 
 
 ;;; ----------------------------------------------------------------------------
