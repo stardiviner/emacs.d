@@ -62,6 +62,7 @@
 (require 'init-my-org-trello)
 (require 'init-my-org-contacts)
 (require 'init-my-org-password)
+(require 'init-my-org-drill)
 
 
 (provide 'init-my-org-mode)
