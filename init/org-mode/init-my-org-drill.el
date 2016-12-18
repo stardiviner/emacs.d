@@ -6,7 +6,9 @@
 
 ;;; Code:
 ;;; ----------------------------------------------------------------------------
+;;; [ org-drill ] -- Begin an interactive "drill session" based on Org-mode.
 
+(require 'org-drill)
 
 
 
