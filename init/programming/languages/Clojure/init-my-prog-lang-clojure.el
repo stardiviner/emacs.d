@@ -62,7 +62,7 @@
         nrepl-prompt-to-kill-server-buffer-on-quit t
 
         ;; versions
-        cider-latest-clojure-version "1.9.0-alpha12"
+        cider-jack-in-auto-inject-clojure "1.9.0-alpha12"
         ;; cider-minimum-clojure-version "1.8.0"
         ;; cider-required-nrepl-version "0.2.12"
 
