@@ -13,7 +13,7 @@
   ;; add org-drill topic property into default properties list.
   (add-to-list 'org-default-properties "DRILL_CARD_TYPE")
 
-  (setq org-drill-use-visible-cloze-face-p t
+  (setq org-drill-use-visible-cloze-face-p nil ; t will caused [] invalid headline fontify.
         org-drill-hide-item-headings-p nil
         org-drill-save-buffers-after-drill-sessions-p nil
         ;; org-drill-spaced-repetition-algorithm 'sm2
