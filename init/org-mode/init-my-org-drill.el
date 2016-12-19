@@ -12,6 +12,12 @@
   :config
   ;; add org-drill topic property into default properties list.
   (add-to-list 'org-default-properties "DRILL_CARD_TYPE")
+
+  (setq org-drill-use-visible-cloze-face-p t
+        org-drill-hide-item-headings-p nil
+        org-drill-save-buffers-after-drill-sessions-p nil
+        ;; org-drill-spaced-repetition-algorithm 'sm2
+        )
   )
 
 ;;; [ org-drill-table ] -- generate org-drill from org-mode tables.
