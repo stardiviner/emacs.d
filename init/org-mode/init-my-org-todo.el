@@ -14,7 +14,13 @@
 (setq org-provide-todo-statistics t
       org-hierarchical-todo-statistics nil ; nil: cover recursive all entries.
       org-checkbox-hierarchical-statistics nil ; nil: covers recursive all entries.
-      org-enforce-todo-dependencies nil ; enforce parent and sub-tasks DONE
+      org-enforce-todo-checkbox-dependencies t
+      )
+
+;; Org-mode built-in TODOs dependencies, enforce parent and sub-tasks DONE.
+(setq org-enforce-todo-dependencies t
+      org-track-ordered-property-with-tag t
+      org-agenda-dim-blocked-tasks t
       )
 
 ;;; time repeat
