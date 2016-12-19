@@ -76,8 +76,7 @@
 
 (use-package org-board
   :ensure t
-  :defer t
-  :init
+  :config
   (unless (boundp 'my-org-board-prefix)
     (define-prefix-command 'my-org-board-prefix))
   (define-key my-org-prefix (kbd "C-a") 'my-org-board-prefix)
