@@ -17,6 +17,8 @@
 ;;; add org-babel header-args property into default properties list.
 (add-to-list 'org-default-properties "header-args")
 
+(add-to-list 'org-default-properties "DATE")
+(add-to-list 'org-default-properties "URL")
 
 (provide 'init-my-org-property)
 
