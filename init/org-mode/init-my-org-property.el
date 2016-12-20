@@ -20,6 +20,9 @@
 (add-to-list 'org-default-properties "DATE")
 (add-to-list 'org-default-properties "URL")
 
+(setq org-support-shift-select t)
+
+
 (provide 'init-my-org-property)
 
 ;;; init-my-org-property.el ends here
