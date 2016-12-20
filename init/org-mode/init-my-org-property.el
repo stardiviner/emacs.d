@@ -20,8 +20,6 @@
 (add-to-list 'org-default-properties "DATE")
 (add-to-list 'org-default-properties "URL")
 
-(setq org-support-shift-select t)
-
 
 (provide 'init-my-org-property)
 
