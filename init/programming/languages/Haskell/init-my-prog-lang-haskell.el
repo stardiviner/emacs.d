@@ -11,7 +11,6 @@
 
 (use-package haskell-mode
   :ensure t
-  :defer t
   :bind (:map haskell-mode-map
               ("C-c C-s" . haskell-interactive-bring)
               ("C-c C-k" . haskell-interactive-mode-clear)
@@ -27,12 +26,12 @@
               :map my-prog-inferior-map
               ("h" . haskell-interactive-switch)
               )
-  :init
+  :config
   (setq haskell-font-lock-symbols t
         haskell-stylish-on-save nil
         haskell-tags-on-save nil
         )
-  :config
+
   ;; [ Haskell Interactive Mode ]
   (require 'haskell-interactive-mode)
   (require 'haskell-process)
@@ -91,7 +90,6 @@
 
 (use-package hindent
   :ensure t
-  :defer t
   :init
   (add-hook 'haskell-mode-hook #'hindent-mode)
   )
@@ -101,7 +99,6 @@
 
 ;; (use-package flycheck-haskell
 ;;   :ensure t
-;;   :defer t
 ;;   :init
 ;;   (with-eval-after-load 'flycheck
 ;;     (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
@@ -127,55 +124,28 @@
 
 (use-package company-ghc
   :ensure t
-  :init
-  (add-hook 'haskell-mode-hook
-            (lambda ()
-              (my-company-add-backend-locally 'company-ghc)))
   :config
   (setq company-ghc-show-info t
         company-ghc-show-module t
         )
+
+  ;; [ company-ghci ] -- company backend which uses the current ghci process.
+  (use-package company-ghci
+    :ensure t)
+
+  (defun haskell-company-backends-setup ()
+    (interactive)
+    (my-company-add-backend-locally 'company-ghc)
+    (my-company-add-backend-locally 'company-ghci))
+  
+  (add-hook 'haskell-mode-hook #'haskell-company-backends-setup)
   )
-
-
-;;; [ company-ghci ] -- company backend which uses the current ghci process.
-
-;; (use-package company-ghci
-;;   :ensure t
-;;   :init
-;;   (add-hook 'haskell-mode-hook
-;;             (lambda ()
-;;               (my-company-add-backend-locally 'company-ghci)
-;;               ))
-;;   )
-
 
 ;;; [ company-cabal ] -- company-mode back-end for haskell-cabal-mode.
 
 ;; (use-package company-cabal
 ;;   :ensure t
 ;;   :defer t)
-
-
-
-;; (defun my-haskell-company-backends-setup ()
-;;   "Setup `company-backends' for Haskell related modes."
-;;   (interactive)
-;;   (add-to-list (make-local-variable 'company-backends)
-;;                '(company-ghc
-;;                  :with
-;;                  company-yasnippet
-;;                  company-ghci
-;;                  ;; company-cabal
-;;                  ))
-;;   )
-;;
-;; (dolist (hook '(haskell-mode-hook
-;;                 haskell-interactive-mode-hook
-;;                 interactive-haskell-mode-hook
-;;                 ;; inferior-haskell-mode-hook (deprecated)
-;;                 ))
-;;   (add-hook hook #'my-haskell-company-backends-setup))
 
 
 ;;; [ intero ] -- Complete interactive development program for Haskell.
