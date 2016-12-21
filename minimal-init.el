@@ -39,9 +39,24 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-;; (require 'color)
-;; (use-package color-theme
-;;   :ensure t)
+;;; [ Quelpa ] -- Build and install your Emacs Lisp packages on-the-fly directly from source.
+
+(use-package quelpa
+  :ensure t
+  :config
+  (setq quelpa-update-melpa-p nil
+        ;; quelpa-upgrade-p t
+        )
+
+  (add-to-list 'quelpa-melpa-recipe-stores
+               (concat user-emacs-directory "melpa/recipes"))
+  )
+
+;;; [ Quelpa-use-package ] -- Emacs quelpa handler for use-package.
+
+(use-package quelpa-use-package
+  :ensure t)
+
 
 ;;; my custom functions
 ;; (require 'init-my-library)
