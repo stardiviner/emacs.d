@@ -69,7 +69,7 @@
   ;; make haddock pages a little more palatable (and add syntax highlighting to source view)
   (add-hook 'w3m-display-hook 'w3m-haddock-display)
   (setq haskell-w3m-haddock-dirs '("~/.cabal/share/doc/"))
-  (define-key haskell-mode-map (kbd "C-c C-d") 'haskell-w3m-open-haddock)
+  (define-key haskell-mode-map (kbd "C-c d w") 'haskell-w3m-open-haddock)
 
   ;; API search (use Hayoo)
   (define-key haskell-mode-map (kbd "C-h d d") 'haskell-hayoo)
@@ -109,14 +109,14 @@
 
 (use-package ghc
   :ensure t
-  :init
+  :config
+  ;; if you wish to display error each goto next/prev error,
+  (setq ghc-display-error 'minibuffer)
+
   (autoload 'ghc-init "ghc" nil t)
   (autoload 'ghc-debug "ghc" nil t)
   ;; (setq ghc-debug t)
   (add-hook 'haskell-mode-hook #'ghc-init)
-  :config
-  ;; if you wish to display error each goto next/prev error,
-  (setq ghc-display-error 'minibuffer)
   )
 
 
