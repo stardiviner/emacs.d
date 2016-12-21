@@ -131,12 +131,10 @@
 
 (use-package slime-company
   :ensure t
-  :defer t
-  :init
+  :config
   (with-eval-after-load 'slime
     (slime-setup '(slime-company)))
   
-  :config
   (setq slime-company-after-completion 'slime-company-just-one-space
         slime-company-completion 'fuzzy
         slime-company-complete-in-comments-and-strings t
