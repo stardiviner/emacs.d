@@ -58,6 +58,11 @@
   :ensure t)
 
 
+
+(require 'color)
+(use-package color-theme
+  :ensure t)
+
 ;;; my custom functions
 ;; (require 'init-my-library)
 ;; (require 'init-my-functions)
