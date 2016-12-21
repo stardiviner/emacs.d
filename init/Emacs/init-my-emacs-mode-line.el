@@ -152,7 +152,8 @@
 
    ;; mule info: U:[*--]
    (:propertize mode-line-mule-info
-                'face 'font-lock-keyword-face)
+                ;; 'face 'font-lock-keyword-face
+                )
    
    ;; Buffer status
    ;; mode-line-client
@@ -438,17 +439,19 @@
     (if (bound-and-true-p projectile-mode)
         (list
          (propertize " ["
-                     'face 'font-lock-doc-face)
-         (propertize "λ: "
+                     ;; 'face 'font-lock-doc-face
+                     )
+         (propertize "P: "
                      'face (if (active)
-                               '(:foreground "dim gray" :height 75)
-                             'mode-line-inactive))
+                               '(:foreground "cyan" :height 100)
+                             'mode-line-active))
          (propertize (projectile-project-name) ; `projectile-mode-line'
                      'face (if (active)
                                '(:foreground "green yellow" :height 75)
                              'mode-line-inactive))
          (propertize "] "
-                     'face 'font-lock-doc-face)
+                     ;; 'face 'font-lock-doc-face
+                     )
          )
       ))
    
