@@ -93,6 +93,12 @@
     )
   )
 
+;;; [ eros ] -- Evaluation Result OverlayS for Emacs Lisp.
+
+(use-package eros
+  :ensure t
+  :config
+  (eros-mode 1))
 
 ;;; eval-result-overlays in Emacs-Lisp.
 
