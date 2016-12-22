@@ -98,7 +98,13 @@
 (use-package eros
   :ensure t
   :config
-  (eros-mode 1))
+  (eros-mode 1)
+  (set-face-attribute 'eros-result-overlay-face nil
+                      :foreground "orange"
+                      :background nil
+                      :box nil :slant 'italic
+                      )
+  )
 
 
 ;;; [ macrostep ] -- interactive macro-expander for Emacs.
