@@ -64,7 +64,7 @@ helpful for learning and remembering forgotten binds."
 
 (use-package which-key
   :ensure t
-  :bind (("C-x C-t" . which-key-show-top-level))
+  :bind (("C-h C-h" . which-key-show-top-level))
   :config
   (setq which-key-idle-delay 1.5
         which-key-idle-secondary-delay nil)
