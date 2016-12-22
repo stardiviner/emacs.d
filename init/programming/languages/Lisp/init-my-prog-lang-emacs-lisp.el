@@ -100,39 +100,6 @@
   :config
   (eros-mode 1))
 
-;;; eval-result-overlays in Emacs-Lisp.
-
-;; Assuming you already have `CIDER' installed, porting this feature to Elisp is
-;; almost trivial. We just define a small wrapper around the function that
-;; creates the overlay, and then advise the relevant elisp commands to call it.
-
-(autoload 'cider--make-result-overlay "cider-overlays")
-
-(defun my-eval-sexp-overlay (value point)
-  (cider--make-result-overlay (format "%S" value)
-                              :where point
-                              :duration 'command)
-  ;; Preserve the return value.
-  value)
-
-(advice-add 'eval-region :around
-            (lambda (f beg end &rest r)
-              (my-eval-sexp-overlay
-               (apply f beg end r)
-               end)))
-
-(advice-add 'eval-last-sexp :filter-return
-            (lambda (r)
-              (my-eval-sexp-overlay r (point))))
-
-(advice-add 'eval-defun :filter-return
-            (lambda (r)
-              (my-eval-sexp-overlay
-               r
-               (save-excursion
-                 (end-of-defun)
-                 (point)))))
-
 
 ;;; [ macrostep ] -- interactive macro-expander for Emacs.
 
