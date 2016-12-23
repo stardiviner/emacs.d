@@ -30,8 +30,7 @@
 (define-key bookmark-prefix (kbd "b") 'bookmark-jump)
 (define-key bookmark-prefix (kbd "j") 'bookmark-jump)
 (define-key bookmark-prefix (kbd "l") 'bookmark-bmenu-list)
-(define-key bookmark-prefix (kbd "a") 'bookmark-set)
-(define-key bookmark-prefix (kbd "M") 'bookmark-set)
+(define-key bookmark-prefix (kbd "m") 'bookmark-set)
 
 
 ;;; [ bm.el ] -- Visual Bookmarks for GNU Emacs.
@@ -54,7 +53,7 @@
 
   (unless (boundp 'bookmark-bm-prefix)
     (define-prefix-command 'bookmark-bm-prefix))
-  (define-key bookmark-prefix (kbd "m") 'bookmark-bm-prefix)
+  (define-key bookmark-prefix (kbd "C-b") 'bookmark-bm-prefix)
 
   ;; mark
   (define-key bookmark-bm-prefix (kbd "m") 'bm-toggle)
