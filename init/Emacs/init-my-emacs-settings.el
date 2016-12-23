@@ -66,20 +66,20 @@
 (global-unset-key (kbd "C-x r C-SPC"))
 (global-unset-key (kbd "C-x r C-@"))
 
-(unless (boundp 'my-register-map)
-  (define-prefix-command 'my-register-map))
-(global-set-key (kbd "C-x r x") 'my-register-map)
+(unless (boundp 'register-prefix)
+  (define-prefix-command 'register-prefix))
+(global-set-key (kbd "C-x r x") 'register-prefix)
 
-(define-key my-register-map (kbd "j") 'jump-to-register)
-(define-key my-register-map (kbd "+") 'increment-register)
-(define-key my-register-map (kbd "c") 'copy-to-register)
-(define-key my-register-map (kbd "i") 'insert-register)
-(define-key my-register-map (kbd "SPC") 'point-to-register)
-(define-key my-register-map (kbd "C-SPC") 'point-to-register)
-(define-key my-register-map (kbd "C-@") 'point-to-register)
-(define-key my-register-map (kbd "p") 'point-to-register)
-(define-key my-register-map (kbd "f") 'frameset-to-register)
-(define-key my-register-map (kbd "w") 'window-configuration-to-register)
+(define-key register-prefix (kbd "j") 'jump-to-register)
+(define-key register-prefix (kbd "+") 'increment-register)
+(define-key register-prefix (kbd "c") 'copy-to-register)
+(define-key register-prefix (kbd "i") 'insert-register)
+(define-key register-prefix (kbd "SPC") 'point-to-register)
+(define-key register-prefix (kbd "C-SPC") 'point-to-register)
+(define-key register-prefix (kbd "C-@") 'point-to-register)
+(define-key register-prefix (kbd "p") 'point-to-register)
+(define-key register-prefix (kbd "f") 'frameset-to-register)
+(define-key register-prefix (kbd "w") 'window-configuration-to-register)
 
 
 ;;; [ clipboard ]
