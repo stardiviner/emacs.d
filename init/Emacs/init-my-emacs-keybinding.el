@@ -184,7 +184,10 @@ helpful for learning and remembering forgotten binds."
 ;;; [ redefine a map's keybinding buffer-locally ]
 
 
+;;; [ headlong ] -- reckless completion for Emacs.
 
+(use-package headlong
+  :ensure t)
 
 
 (provide 'init-my-emacs-keybinding)
