@@ -1,4 +1,4 @@
-;;; init-my-emacs-bookmark.el ---
+;;; init-my-emacs-bookmark.el --- init for Emacs bookmarks.
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -20,18 +20,18 @@
 (setq bookmark-save-flag 1
       bookmark-automatically-show-annotations t)
 
-(unless (boundp 'my-bookmark-map)
-  (define-prefix-command 'my-bookmark-map))
-(global-set-key (kbd "C-x r b") 'my-bookmark-map)
+(unless (boundp 'bookmark-prefix)
+  (define-prefix-command 'bookmark-prefix))
+(global-set-key (kbd "C-x r b") 'bookmark-prefix)
 
 (global-unset-key (kbd "C-x r l"))
 (global-unset-key (kbd "C-x r m"))
 
-(define-key my-bookmark-map (kbd "b") 'bookmark-jump)
-(define-key my-bookmark-map (kbd "j") 'bookmark-jump)
-(define-key my-bookmark-map (kbd "l") 'bookmark-bmenu-list)
-(define-key my-bookmark-map (kbd "a") 'bookmark-set)
-(define-key my-bookmark-map (kbd "M") 'bookmark-set)
+(define-key bookmark-prefix (kbd "b") 'bookmark-jump)
+(define-key bookmark-prefix (kbd "j") 'bookmark-jump)
+(define-key bookmark-prefix (kbd "l") 'bookmark-bmenu-list)
+(define-key bookmark-prefix (kbd "a") 'bookmark-set)
+(define-key bookmark-prefix (kbd "M") 'bookmark-set)
 
 
 ;;; [ bm.el ] -- Visual Bookmarks for GNU Emacs.
@@ -48,33 +48,33 @@
   (setq bm-repository-file "~/.emacs.d/.bm-repository"
         bm-repository-size 100)
   
-  ;; NOTE: `my-bookmark-map' is not void yet. it is in init-my-emacs-bookmark.el
-  (unless (boundp 'my-bookmark-map)
-    (define-prefix-command 'my-bookmark-map))
+  ;; NOTE: `bookmark-prefix' is not void yet. it is in init-my-emacs-bookmark.el
+  (unless (boundp 'bookmark-prefix)
+    (define-prefix-command 'bookmark-prefix))
 
-  (unless (boundp 'my-bookmark-bm-map)
-    (define-prefix-command 'my-bookmark-bm-map))
-  (define-key my-bookmark-map (kbd "m") 'my-bookmark-bm-map)
+  (unless (boundp 'bookmark-bm-prefix)
+    (define-prefix-command 'bookmark-bm-prefix))
+  (define-key bookmark-prefix (kbd "m") 'bookmark-bm-prefix)
 
   ;; mark
-  (define-key my-bookmark-bm-map (kbd "m") 'bm-toggle)
+  (define-key bookmark-bm-prefix (kbd "m") 'bm-toggle)
   ;; navigate
-  (define-key my-bookmark-bm-map (kbd "n") 'bm-next)
-  (define-key my-bookmark-bm-map (kbd "p") 'bm-previous)
+  (define-key bookmark-bm-prefix (kbd "n") 'bm-next)
+  (define-key bookmark-bm-prefix (kbd "p") 'bm-previous)
   ;; show
-  (define-key my-bookmark-bm-map (kbd "j") 'bm-show)
-  (define-key my-bookmark-bm-map (kbd "J") 'bm-show-all)
-  (define-key my-bookmark-bm-map (kbd "N") 'bm-show-next)
-  (define-key my-bookmark-bm-map (kbd "P") 'bm-show-prev)
+  (define-key bookmark-bm-prefix (kbd "j") 'bm-show)
+  (define-key bookmark-bm-prefix (kbd "J") 'bm-show-all)
+  (define-key bookmark-bm-prefix (kbd "N") 'bm-show-next)
+  (define-key bookmark-bm-prefix (kbd "P") 'bm-show-prev)
   ;; persistent
-  (define-key my-bookmark-bm-map (kbd "t") 'bm-toggle-buffer-persistence)
+  (define-key bookmark-bm-prefix (kbd "t") 'bm-toggle-buffer-persistence)
   ;; save to repository
-  (define-key my-bookmark-bm-map (kbd "s") 'bm-save) ; Save bookmarks to persistent repository.
-  (define-key my-bookmark-bm-map (kbd "b") 'bm-buffer-save) ; Save all bookmarks to repository.
-  (define-key my-bookmark-bm-map (kbd "B") 'bm-buffer-save-all) ; Save bookmarks in all buffers.
+  (define-key bookmark-bm-prefix (kbd "s") 'bm-save) ; Save bookmarks to persistent repository.
+  (define-key bookmark-bm-prefix (kbd "b") 'bm-buffer-save) ; Save all bookmarks to repository.
+  (define-key bookmark-bm-prefix (kbd "B") 'bm-buffer-save-all) ; Save bookmarks in all buffers.
   ;; remove/delete
-  (define-key my-bookmark-bm-map (kbd "d") 'bm-remove-all-current-buffer)
-  (define-key my-bookmark-bm-map (kbd "D") 'bm-remove-all-all-buffers)
+  (define-key bookmark-bm-prefix (kbd "d") 'bm-remove-all-current-buffer)
+  (define-key bookmark-bm-prefix (kbd "D") 'bm-remove-all-all-buffers)
 
   :config
   (setq bm-in-lifo-order t)
