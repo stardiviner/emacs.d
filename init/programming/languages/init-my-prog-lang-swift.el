@@ -11,7 +11,6 @@
 
 (use-package swift-mode
   :ensure t
-  :defer t
   :config
   (setq swift-indent-offset 4
         swift-indent-switch-case-offset 2
@@ -35,17 +34,16 @@
 
 (use-package company-sourcekit
   :ensure t
-  :init
-  (add-hook 'swift-mode-hook
-            (lambda ()
-              (my-company-add-backend-locally 'company-sourcekit)
-              ))
-  
   :config
   (setq company-sourcekit-use-yasnippet t
         company-sourcekit-verbose nil
         ;; sourcekit-sourcekitdaemon-executable
         )
+
+  (add-hook 'swift-mode-hook
+            (lambda ()
+              (my-company-add-backend-locally 'company-sourcekit)
+              ))
   )
 
 
