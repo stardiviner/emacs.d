@@ -12,6 +12,16 @@
 (use-package erlang
   :ensure t)
 
+;;; [ company-erlang ] -- company backend based on ivy-erlang-complete.
+
+(use-package company-erlang
+  :ensure t
+  :config
+  (add-hook 'erlang-mode-hook
+            (lambda ()
+              (my-company-add-backend-locally 'company-erlang)))
+  )
+
 ;;; [ edts ] -- Erlang Development Tool Suite
 
 ;; (use-package edts
