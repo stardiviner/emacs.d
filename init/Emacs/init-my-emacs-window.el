@@ -68,7 +68,6 @@
 
 (use-package ace-window
   :ensure t
-  :defer t
   :bind ("C-x C-j" . ace-window)
   :init
   ;; to re-override `dired-x''s `dired-bind-jump'. bind again after Emacs start.
@@ -90,9 +89,7 @@
 
 (use-package resize-window
   :ensure t
-  :defer t
-  :init
-  (global-set-key (kbd "C-x w") 'resize-window)
+  :bind ("C-x w" . resize-window)
   :config
   (setq resize-window-allow-backgrounds nil)
   )
@@ -417,9 +414,7 @@ The `BUFFER' is the popwin catch pop private message buffer."
 
 (use-package zoom-window
   :ensure t
-  :defer t
-  :init
-  (global-set-key (kbd "C-x C-z") 'zoom-window-zoom)  
+  :bind ("C-x C-z" . zoom-window-zoom)
   :config
   (setq zoom-window-mode-line-color "dark red"
         zoom-window-use-elscreen nil ; whether use extension elscreen.

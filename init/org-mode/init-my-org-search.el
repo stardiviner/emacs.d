@@ -17,7 +17,6 @@
 
 (use-package org-seek
   :ensure t
-  :commands (org-seek-string org-seek-regexp org-seek-headlines)
   :config
   (define-key my-org-prefix (kbd "s") 'org-seek-headlines)
   (define-key my-org-prefix (kbd "S") 'org-seek-string)
