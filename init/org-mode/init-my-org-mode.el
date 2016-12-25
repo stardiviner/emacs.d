@@ -26,7 +26,7 @@
         org-faces
         ;; org-fstree
         org-table org-compat
-        ;; org-protocol
+        org-protocol
         org-timer org-clock org-habit org-notify
         org-info org-bibtex org-docview
         org-plot
