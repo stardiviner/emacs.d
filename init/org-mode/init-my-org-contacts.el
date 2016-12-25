@@ -19,10 +19,11 @@
       org-contacts-enable-completion t ; enable in message-mode.
       )
 
-(add-to-list 'org-capture-templates
-             '("C" "Contacts"
-               entry (file+headline "~/Org/Contacts/Contacts.org" "Meet")
-               "** %^{NAME}
+(setq org-capture-templates
+      (append '(("C" "org-contacts")
+                ("Cc" "contact"
+                 entry (file+headline (concat org-directory "Contacts/Contacts.org") "Meet")
+                 "** %^{NAME}
 :PROPERTIES:
 :NAME(Chinese): %^{Name(Chinese)}
 :NAME(English): %^{Name(English)}
@@ -42,6 +43,7 @@
 :GitHub: %^{GitHub}
 :ADDRESS(home): %^{address(home)}
 :ADDRESS(work): %^{address(work)}
+:ADDRESS(live): %^{address(live)}
 :CHARACTER:
 :FEELING:
 :World-Views:
@@ -53,9 +55,101 @@
 :Occupation: %^{Occupation|Freelancer|Businessman|Servant}
 :Hobbies: %^{Hobbies}
 :END:"
-               :empty-lines 1
-               :jump-to-captured t
-               ))
+                 :empty-lines 1
+                 :jump-to-captured t
+                 )
+
+                ("Cm" "meet people"
+                 entry (file+headline (concat org-directory "Contacts/Contacts.org") "Meet")
+                 "** %^{NAME}
+:PROPERTIES:
+:NAME(Chinese): %^{Name(Chinese)}
+:NICK: %^{Nick}
+:AVATAR: %^{Avatar}
+:GENDER: %^{Gender|Male|Female}
+:RELATIONSHIP: Meet
+:FIRST-MEET: %^U  %^{How is the first-time meet?}
+:Thought: %^{Thought|open|conservative}
+:MOBILE: %^{Mobile Phone}
+:WeChat: %^{WeChat}
+:ADDRESS(home): %^{address(home)}
+:ADDRESS(work): %^{address(work)}
+:ADDRESS(live): %^{address(live)}
+:LANGUAGES: %^{Languages|Chinese|Chinese, English|English|Japanese|Korean}
+:EDUCATION: %^{Education}
+:SKILLS: %^{Skills}
+:Occupation: %^{Occupation|Freelancer|Businessman|Servant}
+:Hobbies: %^{Hobbies}
+:END:"
+                 :empty-lines 1
+                 :jump-to-captured t
+                 )
+
+                ("Cp" "programmer"
+                 entry (file+headline (concat org-directory "Contacts/Contacts.org") "Programmers")
+                 "** %^{NAME}
+:PROPERTIES:
+:NAME(Chinese): %^{Name(Chinese)}
+:NAME(English): %^{Name(English)}
+:NICK: %^{Nick}
+:AVATAR: %^{Avatar}
+:GENDER: %^{Gender|Male|Female}
+:RELATIONSHIP: Internet
+:FIRST-MEET: %^U  %^{How is the first-time meet?}
+:Thought: %^{Thought|open|conservative}
+:EMAIL: %(org-contacts-template-email)
+:WeChat: %^{WeChat}
+:Facebook: %^{Facebook}
+:GitHub: %^{GitHub}
+:ADDRESS(home): %^{address(home)}
+:ADDRESS(work): %^{address(work)}
+:ADDRESS(live): %^{address(live)}
+:LANGUAGES: %^{Languages|Chinese|Chinese, English|English|Japanese|Korean}
+:EDUCATION: %^{Education}
+:SKILLS: %^{Skills}
+:Programming-Skills: %^{Programming Skills}
+:Programming-Languages: %^{Programming Languages}
+:Occupation: %^{Occupation|Freelancer|Businessman|Servant}
+:Hobbies: %^{Hobbies}
+:END:"
+                 :empty-lines 1
+                 :jump-to-captured t
+                 )
+                
+                ("Cf" "friend"
+                 entry (file+headline (concat org-directory "Contacts/Contacts.org") "Friends")
+                 "** %^{NAME}
+:PROPERTIES:
+:NAME(Chinese): %^{Name(Chinese)}
+:NAME(English): %^{Name(English)}
+:NICK: %^{Nick}
+:AVATAR: %^{Avatar}
+:BIRTHDAY:
+:GENDER: %^{Gender|Male|Female}
+:Sexual: %^{Sexual|Heterosexual|Bisexual|Homosexual}
+:RELATIONSHIP: Friend
+:FIRST-MEET: %^U  %^{How is the first-time meet?}
+:Thought: %^{Thought|open|conservative}
+:MOBILE: %^{Mobile Phone}
+:EMAIL: %(org-contacts-template-email)
+:WeChat: %^{WeChat}
+:ADDRESS(home): %^{address(home)}
+:ADDRESS(work): %^{address(work)}
+:ADDRESS(live): %^{address(live)}
+:CHARACTER:
+:FEELING:
+:World-Views:
+:LANGUAGES: %^{Languages|Chinese|Chinese, English|English|Japanese|Korean}
+:EDUCATION: %^{Education}
+:SKILLS: %^{Skills}
+:Occupation: %^{Occupation|Freelancer|Businessman|Servant}
+:Hobbies: %^{Hobbies}
+:END:"
+                 :empty-lines 1
+                 :jump-to-captured t
+                 )
+                )
+              org-capture-templates))
 
 ;; (add-to-list 'org-property-set-functions-alist
 ;;              '(".*" . org-completing-read))
