@@ -444,7 +444,7 @@
          (propertize "P: "
                      'face (if (active)
                                '(:foreground "cyan" :height 100)
-                             'mode-line-active))
+                             'mode-line-inactive))
          (propertize (projectile-project-name) ; `projectile-mode-line'
                      'face (if (active)
                                '(:foreground "green yellow" :height 75)
