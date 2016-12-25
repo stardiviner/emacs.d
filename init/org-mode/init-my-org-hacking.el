@@ -9,6 +9,7 @@
 
 ;;; [ org-protocol ] -- intercept calls from emacsclient to trigger custom actions.
 
+(require 'server)
 (unless (server-running-p)
   (server-start))
 (require 'org-protocol)
