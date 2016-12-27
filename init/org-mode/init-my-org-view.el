@@ -94,7 +94,10 @@
 (require 'org-list)
 
 (setq org-list-demote-modify-bullet
-      '(("+" . "-") ("-" . "+") ("*" . "+")))
+      '(("+" . "-")
+        ;; ("-" . "+")
+        ("*" . "-")
+        ))
 
 
 ;;; [ org-beautify-theme ] -- A sub-theme to make org-mode more beautiful.
