@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol calculus
+# key: latex-math-symbol-calculus
+# group: math.symbol
+# --
+\int $0

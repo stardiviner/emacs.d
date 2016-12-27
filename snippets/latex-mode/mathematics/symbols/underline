@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol underline
+# key: latex-math-symbol-underline
+# group: math.symbol
+# --
+\underline{${1:equation}\}

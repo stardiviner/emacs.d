@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol calculator
+# key: latex-math-symbol-calculator
+# group: math.symbol
+# --
+\mathcal{${1:O}\}(${2:N})

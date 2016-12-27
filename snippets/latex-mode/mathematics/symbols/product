@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol product
+# key: latex-math-symbol-product
+# group: math.symbol
+# --
+\prod_{${1:down}\}^{${2:up}\} ${3:equation}

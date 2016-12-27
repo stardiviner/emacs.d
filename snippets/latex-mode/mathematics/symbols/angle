@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol angle
+# key: latex-math-symbol-angle
+# group: math.symbol
+# --
+\angle

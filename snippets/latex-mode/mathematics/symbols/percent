@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol percent
+# key: latex-math-symbol-percent
+# group: math.symbol
+# --
+\%

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol radical
+# key: latex-math-symbol-radical
+# group: math.symbol
+# --
+\sqrt${1:[${2:n}]}{${3:base}\}

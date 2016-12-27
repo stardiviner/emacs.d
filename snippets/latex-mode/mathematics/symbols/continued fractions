@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol continued fractions
+# key: latex-math-symbol-continued-fractions
+# group: math.symbol
+# --
+\cfrac{${1:member}\}{${2:denominator}\}

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol operator
+# key: latex-math-symbol-operator
+# group: math.symbol
+# --
+\operatorname{${1:operator name}\}(${2:equation})

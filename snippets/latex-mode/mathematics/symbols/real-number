@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol real number
+# key: latex-math-symbol-real-number
+# group: math.symbol
+# --
+\mathbb{R}

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: math symbol sum
+# key: latex-math-symbol-sum
+# group: math.symbol
+# --
+\sum_{${2:down}\}^{${3:up}\} ${4:equation}
+

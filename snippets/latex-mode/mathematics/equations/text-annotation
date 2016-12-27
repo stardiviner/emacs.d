@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math text annotation
+# key: latex-math-text-annotation
+# group: math.equation
+# --
+\text{ $0 }

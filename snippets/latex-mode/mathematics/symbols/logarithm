@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol logarithm
+# key: latex-math-symbol-logarithm
+# group: math.symbol
+# --
+{\log_{${1:base}\} ${2:number}\}

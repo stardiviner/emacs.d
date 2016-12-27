@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol oint
+# key: latex-math-symbol-oint
+# group: math.symbol
+# --
+\oint

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol ln
+# key: latex-math-symbol-ln
+# group: math.symbol
+# --
+\ln{${0}\}

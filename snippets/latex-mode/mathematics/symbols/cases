@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: math symbol cases
+# key: latex-math-symbol-cases
+# group: math.symbol
+# --
+{\begin{cases}
+${1:case 1} \\
+$0
+\end{cases}}

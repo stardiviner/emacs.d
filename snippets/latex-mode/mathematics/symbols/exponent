@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol exponent
+# key: latex-math-symbol-exponent
+# group: math.symbol
+# --
+${1:base}^{${2}\} $0

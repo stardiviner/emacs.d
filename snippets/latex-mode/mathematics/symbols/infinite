@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol infinite
+# key: latex-math-symbol-infinite
+# group: math.symbol
+# --
+\infty

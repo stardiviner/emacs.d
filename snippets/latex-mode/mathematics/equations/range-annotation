@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math equation (range annotation)
+# key: latex-math-equation-range-annotation
+# group: math.equation
+# --
+($0)

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol triangle
+# key: latex-math-symbol-triangle
+# group: math.symbol
+# --
+\triangle

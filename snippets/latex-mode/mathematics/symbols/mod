@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol mod
+# key: latex-math-symbol-mod
+# group: math.symbol
+# --
+${1:a} \equiv ${2:b} ${3:$$(yas-choose-value '("\mod" "\bmod" "\pmod" "\pod"))}{${4:c}\}

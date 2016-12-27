@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: math matrix
+# key: latex-math-matrix
+# group: latex.math
+# --
+\left[
+\begin{array}{${1:cc}}
+${2:1 & 2 &
+3 & 4}
+\end{array}
+\right]

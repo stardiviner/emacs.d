@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol fraction
+# key: latex-math-symbol-fraction
+# group: math.symbol
+# --
+\frac{${1:member}\}{${2:denominator}\}

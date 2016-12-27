@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol limit
+# key: latex-math-symbol-limit
+# group: math.symbol
+# --
+\lim_{${1:x} \to ${2:\infty}\} ${3:equation}

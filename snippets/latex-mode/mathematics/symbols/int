@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol int
+# key: latex-math-symbol-int
+# group: math.symbol
+# --
+\int

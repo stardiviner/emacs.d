@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: math equation entropy
+# key: latex-math-equation-entropy
+# group: latex.math.equation
+# --
+\begin{equation}
+  \Delta S = \frac{Q}{T}
+\end{equation}

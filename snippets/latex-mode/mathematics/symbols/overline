@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol overline
+# key: latex-math-symbol-overline
+# group: math.symbol
+# --
+\overline{${1:equation}\}

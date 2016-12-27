@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol combination
+# key: latex-math-symbol-combination
+# group: math.symbol
+# --
+\binom{${1:a}\}{${2:b}\}
