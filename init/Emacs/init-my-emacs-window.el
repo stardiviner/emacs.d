@@ -63,6 +63,16 @@
 
 (winner-mode 1)
 
+;;; [ windmove ]
+
+(use-package windmove
+  :ensure t
+  :config
+  ;; (windmove-default-keybindings) ; default modifier is [Shift]
+  (windmove-default-keybindings 'hyper) ; change modifier [H-]
+  ;; (windmove-default-keybindings 'super) ; use [Command] key on Mac
+  (setq windmove-wrap-around t) ; wrap around at edges
+  )
 
 ;;; [ ace-window ] -- Quickly switch windows in Emacs.
 
