@@ -26,6 +26,11 @@
   :ensure t)
 
 
+;;; [ pamparam ] -- Simple and fast flashcards for Emacs.
+
+(use-package pamparam
+  :quelpa (pamparam :fetcher github :repo "abo-abo/pamparam")
+  )
 
 ;;; ----------------------------------------------------------------------------
 
