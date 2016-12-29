@@ -351,12 +351,13 @@
                   'face '(:foreground "yellow"))))
    
    ;; org-clock-today (show current org clock)
-   (:eval
-    (when (and (org-clock-is-active) (active))
-      (list
-       (propertize (format " ⏰%s" org-clock-today-string)
-                   'face '(:foreground "cyan")))
-      ))
+   ;; NOTE: this time is doubled on `org-clock'.
+   ;; (:eval
+   ;;  (when (and (org-clock-is-active) (active))
+   ;;    (list
+   ;;     (propertize (format " ⏰%s" org-clock-today-string)
+   ;;                 'face '(:foreground "cyan")))
+   ;;    ))
    
    ;; --------------------------- right align ----------------------------------
    
