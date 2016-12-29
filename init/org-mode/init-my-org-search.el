@@ -23,6 +23,30 @@
   (define-key my-org-prefix (kbd "M-s") 'org-seek-regexp)
   )
 
+;;; [ helm-org-rifle ] -- Rifle through your Org buffers and acquire your target.
+
+(use-package helm-org-rifle
+  :ensure t
+  :config
+  (setq helm-org-rifle-show-path t
+        helm-org-rifle-fontify-headings t
+        helm-org-rifle-show-todo-keywords t
+        helm-org-rifle-show-tags t
+        helm-org-rifle-directories-recursive t)
+  
+  (unless (boundp 'org-rifle-prefix)
+    (define-prefix-command 'org-rifle-prefix))
+  (define-key my-org-prefix (kbd "g") 'org-rifle-prefix)
+
+  (define-key org-rifle-prefix (kbd "g") 'helm-org-rifle-current-buffer)
+  (define-key org-rifle-prefix (kbd "G") 'helm-org-rifle)
+  (define-key org-rifle-prefix (kbd "d") 'helm-org-rifle-directories)
+  (define-key org-rifle-prefix (kbd "f") 'helm-org-rifle-files)
+  (define-key org-rifle-prefix (kbd "o") 'helm-org-rifle-org-directory)
+  (define-key org-rifle-prefix (kbd "a") 'helm-org-rifle-agenda-files)
+  )
+
+
 
 (provide 'init-my-org-search)
 
