@@ -144,6 +144,50 @@
   ;; (define-key dictionary-prefix (kbd "C-t") 'google-translate-query-translate)
   )
 
+;;; [ record queried words to Org-mode drill files ]
+
+(require 'org-capture) ; load `org-capture-templates'
+
+(defvar my-org-drill-words-file (concat org-directory "/Tasks/Words.org"))
+
+(setq org-capture-templates
+      (append '(("w" "org-drill words"
+                 entry (file my-org-drill-words-file)
+                 "* %^{Word}  %^g
+:PROPERTIES:
+:DRILL_CARD_TYPE: %^{simple|twosided|multisided|hide1cloze}
+:END:"
+                 :empty-lines 1
+                 ))
+              org-capture-templates))
+
+(defun my-org-drill-open ()
+  "Open org-drill words file for review."
+  (interactive)
+  ;; (find-file my-org-drill-words-file)
+  ;; or:
+  ;; When `org-capture' called interactively with [C-u] will goto the target file/heading.
+  (let ((current-prefix-arg '(4)))
+    (call-interactively #'org-capture "w"))
+  )
+
+(define-key my-org-prefix (kbd "C-w") 'my-org-drill-open)
+
+(defun my-org-drill-record-word ()
+  "Record word to org-drill words file."
+  (interactive)
+  (let ((word (if (region-active-p)
+                  (buffer-substring-no-properties (mark) (point))
+                (thing-at-point 'word))))
+    (if (yes-or-no-p (format "Org-drill this word (%s): " word))
+        ;; call org-capture template programmatically.
+        (org-capture nil "w")
+      ;; (call-interactively #'org-capture)
+      ;; (call-interactively (org-capture nil "w"))
+      (message "without recording word to org-drill."))))
+
+(advice-add 'goldendict-dwim :after #'my-org-drill-record-word)
+
 
 (provide 'init-my-tool-dictionary)
 
