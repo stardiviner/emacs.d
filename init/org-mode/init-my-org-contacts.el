@@ -120,10 +120,10 @@
                  entry (file+headline (concat org-directory "Contacts/Contacts.org") "Friends")
                  "** %^{NAME}
 :PROPERTIES:
+:AVATAR: %^{Avatar}
 :NAME(Chinese): %^{Name(Chinese)}
 :NAME(English): %^{Name(English)}
 :NICK: %^{Nick}
-:AVATAR: %^{Avatar}
 :BIRTHDAY:
 :GENDER: %^{Gender|Male|Female}
 :Sexual: %^{Sexual|Heterosexual|Bisexual|Homosexual}
@@ -176,6 +176,19 @@
 
 (add-hook 'org-mode-hook 'org-contacts-properties-drawer-link-workaround)
 
+(use-package helm-org-rifle
+  :ensure t
+  :config
+  ;; Contacts
+  (defun my-org-rifle-Contacts-reference ()
+    (interactive)
+    (let ((my-contacts-reference-dir
+           (concat org-directory "/Contacts/")))
+      (helm-org-rifle-directories
+       (list my-contacts-reference-dir))))
+  
+  (define-key references-rifle-prefix (kbd "C-c") 'my-org-rifle-Contacts-reference)
+  )
 
 ;;; ----------------------------------------------------------------------------
 
