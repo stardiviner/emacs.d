@@ -25,6 +25,9 @@
   ;; (global-eclim-mode t)
 
   ;; auto start eclimd
+  (setq eclimd-autostart nil
+        eclimd-autostart-with-default-workspace nil)
+  
   (defun eclimd-auto-start ()
     "Auto start eclimd in a selected directory."
     (interactive)
