@@ -98,7 +98,7 @@
   
   (unless (boundp 'bookmark-bm-prefix)
     (define-prefix-command 'bookmark-bm-prefix))
-  (global-set-key (kbd "C-x r C-b") 'bookmark-bm-prefix)
+  (global-set-key (kbd "M-g b") 'bookmark-bm-prefix)
 
   ;; mark
   (define-key bookmark-bm-prefix (kbd "C-b") 'bm-toggle)
