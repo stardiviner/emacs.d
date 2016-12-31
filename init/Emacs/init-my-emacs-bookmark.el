@@ -115,11 +115,11 @@
   (define-key bookmark-bm-prefix (kbd "t") 'bm-toggle-buffer-persistence)
   ;; save to repository
   (define-key bookmark-bm-prefix (kbd "s") 'bm-save) ; Save bookmarks to persistent repository.
-  (define-key bookmark-bm-prefix (kbd "b") 'bm-buffer-save) ; Save all bookmarks to repository.
-  (define-key bookmark-bm-prefix (kbd "B") 'bm-buffer-save-all) ; Save bookmarks in all buffers.
+  (define-key bookmark-bm-prefix (kbd "C-s") 'bm-buffer-save) ; Save all bookmarks to repository.
+  (define-key bookmark-bm-prefix (kbd "M-s") 'bm-buffer-save-all) ; Save bookmarks in all buffers.
   ;; remove/delete
-  (define-key bookmark-bm-prefix (kbd "d") 'bm-remove-all-current-buffer)
-  (define-key bookmark-bm-prefix (kbd "D") 'bm-remove-all-all-buffers)
+  (define-key bookmark-bm-prefix (kbd "c") 'bm-remove-all-current-buffer)
+  (define-key bookmark-bm-prefix (kbd "M-c") 'bm-remove-all-all-buffers)
   )
 
 
