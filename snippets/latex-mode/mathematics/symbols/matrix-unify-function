@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol matrix unify function
+# key: latex-math-symbol-matrix-unify-function
+# group: math.symbol
+# --
+\mathbf{${1:matrix}\} = \left[ f(${2:index: i,j}) \right]_{${3:lines} \times ${4:columns}\}

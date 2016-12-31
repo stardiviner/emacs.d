@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol matrix index
+# key: latex-math-symbol-matrix-index
+# group: math.symbol
+# --
+\mathbf{${1:matrix}\} = \left[ \mathbf{${2:element}\}_{${3:index: i,j}\} \right]_{${4:lines} \times ${5:columns}\}

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: math symbol matrix ring
+# key: latex-math-symbol-matrix-ring
+# group: math.symbol
+# --
+\mathcal{M}_{${1:lines} \times ${2:columns}\}(\mathbf{${3:element: R}\})
