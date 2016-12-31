@@ -60,7 +60,8 @@
         ("\\.mp3\\'" . "mpg123 %s")
         ))
 
-(add-to-list 'org-file-apps '("\\.swf\\'" . "swfdec-player %s"))
+;; (add-to-list 'org-file-apps '("\\.swf\\'" . "swfdec-player %s"))
+(add-to-list 'org-file-apps '("\\.swf\\'" . "firefox %s"))
 (add-to-list 'org-file-apps '("\\.jar\\'" . "java -jar %s"))
 
 ;; System wise: xdg-open, kde-open, gnome-open.
