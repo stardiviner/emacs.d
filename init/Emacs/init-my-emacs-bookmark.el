@@ -39,10 +39,6 @@
 
 (use-package bm
   :ensure t
-  :bind (("<C-f2>" . bm-toggle)
-         ("<f2>" . bm-next)
-         ("<S-f2>" . bm-previous)
-         ("<M-f2>" . bm-show-all))
   :config
   (setq bm-in-lifo-order t)
   (setq bm-cycle-all-buffers nil)
@@ -94,12 +90,18 @@
   ;; this could affect Emacs increasing running usage Persistence
   (setq bm-repository-file "~/.emacs.d/.bm-repository"
         bm-repository-size 100)
+
+  (global-set-key (kbd "<C-f2>") 'bm-toggle)
+  (global-set-key (kbd "<f2>") 'bm-next)
+  (global-set-key (kbd "<S-f2>") 'bm-previous)
+  (global-set-key (kbd "<M-f2>") 'bm-show-all)
   
   (unless (boundp 'bookmark-bm-prefix)
     (define-prefix-command 'bookmark-bm-prefix))
   (global-set-key (kbd "C-x r C-b") 'bookmark-bm-prefix)
 
   ;; mark
+  (define-key bookmark-bm-prefix (kbd "C-b") 'bm-toggle)
   (define-key bookmark-bm-prefix (kbd "m") 'bm-toggle)
   ;; navigate
   (define-key bookmark-bm-prefix (kbd "n") 'bm-next)
