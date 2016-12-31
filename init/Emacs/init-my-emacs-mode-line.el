@@ -442,7 +442,7 @@
          (propertize " ["
                      ;; 'face 'font-lock-doc-face
                      )
-         (propertize "P: "
+         (propertize "💻: "
                      'face (if (active)
                                '(:foreground "cyan" :height 100)
                              'mode-line-inactive))
