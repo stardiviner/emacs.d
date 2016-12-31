@@ -332,9 +332,8 @@ With prefix argument, also display headlines without a TODO keyword."
 
 ;;; auto prefix with comment char when create code ref in src block with
 ;;; `org-store-link'.
+(advice-add 'org-store-link :before #'comment-dwim)
 
-;; detect whether point position is in comment?
-;; (describe-char (point))
 
 ;;; [ org-ref ] -- citations, cross-references, indexes, glossaries and bibtex utilities for Org-mode.
 
