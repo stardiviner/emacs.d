@@ -21,9 +21,14 @@
 
 (use-package company-arduino
   :ensure t
-  :defer t
   :init
   (setenv "ARDUINO_HOME" "/usr/share/arduino")
+  :config
+  ;; (defun my-company-c-headers-get-system-path ()
+  ;;   "Return the system include path for the current buffer."
+  ;;   (let ((default '("/usr/include/" "/usr/local/include/")))
+  ;;     (company-arduino-append-include-dirs default t)))
+  ;; (setq company-c-headers-path-system 'my-company-c-headers-get-system-path)
 
   (add-hook 'arduino-mode-hook
             (lambda ()
@@ -32,13 +37,6 @@
               ;; (add-to-list 'company-backends 'company-irony)
               ;; (add-to-list 'company-backends 'company-c-headers)
               ))
-
-  :config
-  ;; (defun my-company-c-headers-get-system-path ()
-  ;;   "Return the system include path for the current buffer."
-  ;;   (let ((default '("/usr/include/" "/usr/local/include/")))
-  ;;     (company-arduino-append-include-dirs default t)))
-  ;; (setq company-c-headers-path-system 'my-company-c-headers-get-system-path)
   )
 
 
