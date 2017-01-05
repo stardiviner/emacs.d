@@ -421,11 +421,11 @@ The `BUFFER' is the popwin catch pop private message buffer."
 
 ;;; [ golden-ratio ] -- automatically resizes your windows so that the window containing the point is the largest (size determined by the mathematical golden ratio.
 
-(use-package golden-ratio
-  :ensure t
-  :diminish golden-ratio-mode
-  :config
-  (golden-ratio-mode 1))
+;; (use-package golden-ratio
+;;   :ensure t
+;;   :diminish golden-ratio-mode
+;;   :config
+;;   (golden-ratio-mode 1))
 
 ;;; [ zoom-window ] -- zoom/un-zoom window like tmux.
 
