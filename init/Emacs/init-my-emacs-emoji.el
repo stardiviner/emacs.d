@@ -24,6 +24,13 @@
   (global-emojify-mode 1)
   )
 
+;;; [ company-emoji ] -- company-mode backend providing completion for emoji. 🆒💦
+
+(use-package company-emoji
+  :ensure t
+  :config
+  (add-to-list 'company-backends 'company-emoji)
+  )
 
 
 ;;; ----------------------------------------------------------------------------
