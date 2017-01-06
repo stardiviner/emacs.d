@@ -7,6 +7,22 @@
 ;;; Code:
 ;;; ----------------------------------------------------------------------------
 
+;;; [ emojify ] display emojis in Emacs.
+
+(use-package emojify
+  :ensure t
+  :config
+  (setq emojify-emojis-dir (concat user-emacs-directory "emojis")
+        emojify-program-contexts '(comments string code)
+        emojify-display-style 'image
+        ;; emojify-point-entered-behaviour
+        emojify-reveal-on-isearch t
+        emojify-show-help t
+        )
+  ;; (add-to-list 'emojify-inhibit-major-modes ')
+
+  (global-emojify-mode 1)
+  )
 
 
 
