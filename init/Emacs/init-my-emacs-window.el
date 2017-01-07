@@ -148,6 +148,11 @@
 
   ;; xref
   (push '(xref--xref-buffer-mode :position bottom :height 5 :noselect nil) popwin:special-display-config)
+
+  ;; bookmark
+  ;; bm
+  (push '(bm-show-mode :position bottom :height 5 :noselect nil) popwin:special-display-config)
+  ;; (push '("*bm-bookmarks*" :position bottom :height 5 :noselect nil) popwin:special-display-config)
   
   ;; Org-mode
   ;; (push '("*Org todo" :position bottom) popwin:special-display-config)
@@ -191,7 +196,7 @@
 
   ;; *Pp Eval Output*
   ;; this will make this buffer does not show up.
-  (push '("*Pp Eval Output*" :position bottom :height 8) popwin:special-display-config)
+  ;; (push '("*Pp Eval Output*" :position bottom :height 8) popwin:special-display-config)
 
   ;; File Explorer
   (push '(project-explorer-mode :position left :stick yes) popwin:special-display-config)
@@ -227,6 +232,8 @@
 
   ;; sdcv
   (push '("*SDCV*" :position bottom :height 8 :noselect t) popwin:special-display-config)
+  ;; chinese-yasdcv
+  (push '("*Stardict Output*" :position bottom :height 8 :noselect nil) popwin:special-display-config)
 
   ;; shelldoc
   (push '("*Shelldoc*" :position top :height 8) popwin:special-display-config)
@@ -327,6 +334,7 @@
   ;; Swift
 
   ;; Haskell
+  (push '("*haskell*" :position bottom :height 8) popwin:special-display-config)
   (push '(inferior-haskell-mode :position bottom :height 8) popwin:special-display-config)
   (push '(haskell-interactive-mode :position bottom :height 8) popwin:special-display-config)
   (push '(haskell-compilation-mode :position bottom :height 8) popwin:special-display-config)
