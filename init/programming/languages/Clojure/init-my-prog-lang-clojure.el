@@ -55,6 +55,7 @@
   :config
   (setq cider-auto-mode t
         nrepl-hide-special-buffers nil
+        cider-repl-pop-to-buffer-on-connect nil ; buffer will only be created not displayed
         cider-auto-select-error-buffer t
         nrepl-buffer-name-separator " "
         nrepl-buffer-name-show-port nil
