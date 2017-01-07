@@ -35,35 +35,35 @@
 
 ;;; [ doom-theme ] -- Emacs themes inspired by Atom One, for Emacs 24.4+.
 
-;; (use-package doom-themes
-;;   :ensure t
-;;   :config
-;;   (setq doom-enable-bold t
-;;         doom-enable-italic t)
-;;
-;;   ;; themes: 'doom-one, 'doom-dark, 'doom-one-light, 'doom-tron, 'doom-peacock
-;;   (load-theme 'doom-one t)
-;;
-;;   (add-hook 'find-file-hook 'doom-buffer-mode) ; brighter source buffers.
-;;   (add-hook 'minibuffer-setup-hook 'doom-buffer-mode) ; brighter minibuffer when active
-;;
-;;   (if (featurep 'neotree)
-;;       (require 'doom-neotree)
-;;     )
-;;   )
+(use-package doom-themes
+  :ensure t
+  :config
+  (setq doom-enable-bold t
+        doom-enable-italic t)
+
+  ;; themes: 'doom-one, 'doom-dark, 'doom-one-light, 'doom-tron, 'doom-peacock
+  (load-theme 'doom-one t)
+
+  (add-hook 'find-file-hook 'doom-buffer-mode) ; brighter source buffers.
+  (add-hook 'minibuffer-setup-hook 'doom-buffer-mode) ; brighter minibuffer when active
+
+  (if (featurep 'neotree)
+      (require 'doom-neotree)
+    )
+  )
 
 ;;; [ leuven-theme ] -- Awesome Emacs color theme for white backgrounds.
 
-(use-package leuven-theme
-  :ensure t
-  :config
-  (load-theme 'leuven t)
-  (add-hook 'after-init-hook
-            (lambda ()
-              (load-theme 'leuven t)
-              (set-frame-font (format "%s:pixelsize=%d" "DejaVu Sans Mono" 12) t)
-              ))
-  )
+;; (use-package leuven-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'leuven t)
+;;   (add-hook 'after-init-hook
+;;             (lambda ()
+;;               (load-theme 'leuven t)
+;;               (set-frame-font (format "%s:pixelsize=%d" "DejaVu Sans Mono" 12) t)
+;;               ))
+;;   )
 
 
 ;;; custom faces
