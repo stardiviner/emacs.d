@@ -136,7 +136,7 @@
         cider-prompt-for-project-on-connect 'when-needed
 
         ;; build tool
-        ;; cider-preferred-build-tool "lein"
+        ;; cider-preferred-build-tool "boot"
         )
 
   ;; Complete & annotations
@@ -314,7 +314,7 @@
               ;; insert keybinding setup here
               (cljr-add-keybindings-with-prefix "M-RET")
               ))
-  
+
   ;; skip Tab in `cljr-add-require-to-ns' snippet.
   ;; (advice-add 'cljr-add-require-to-ns :after
   ;;             (lambda (&rest _)
