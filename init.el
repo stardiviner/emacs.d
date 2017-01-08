@@ -104,6 +104,7 @@
 (require 'init-my-emacs-window)
 (require 'init-my-emacs-frame)
 (require 'init-my-emacs-session)
+(require 'init-my-emacs-workspace)
 (require 'init-my-emacs-idle)
 (require 'init-my-emacs-edit)
 (require 'init-my-emacs-navigation)
