@@ -23,6 +23,7 @@
 
 ;; (setq shell-command-completion-mode t)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; [ Eshell ] (Emacs Shell)
 
@@ -177,6 +178,13 @@ PWD is not in a git repo (or the git command is not found)."
 ;;             (message "spend %g seconds"
 ;;                      (- (time-to-seconds) last-command-start-time))))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;; [ eshell-fixed-prompt ] -- minor mode to restrict eshell to a single fixed prompt.
+
+(use-package eshell-fixed-prompt
+  :ensure t
+  :config)
 
 
 (provide 'init-my-emacs-shell)
