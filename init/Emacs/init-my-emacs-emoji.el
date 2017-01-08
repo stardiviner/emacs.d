@@ -29,7 +29,7 @@
 (use-package company-emoji
   :ensure t
   :config
-  (add-to-list 'company-backends 'company-emoji)
+  ;; (add-to-list 'company-backends 'company-emoji)
   )
 
 
