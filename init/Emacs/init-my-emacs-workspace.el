@@ -6,6 +6,15 @@
 
 ;;; Code:
 ;;; ----------------------------------------------------------------------------
+;;; [ perspeen ] -- A emacs plugin for multi workspace.
+
+(use-package perspeen
+  :ensure t
+  :config
+  (setq perspeen-keymap-prefix (kbd "C-z"))
+  (perspeen-mode 1)
+  )
+
 
 ;;; ----------------------------------------------------------------------------
 

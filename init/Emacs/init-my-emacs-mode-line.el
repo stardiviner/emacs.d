@@ -64,6 +64,13 @@
   :init
   (require 'projectile-rails)
   )
+(use-package perspeen
+  :ensure t
+  :config
+  (set-face-attribute 'perspeen-selected-face nil
+                      :foreground "white"
+                      :background (face-background 'mode-line-inactive)
+                      ))
 (require 'vc)
 (require 'vc-git)
 (use-package flycheck
@@ -433,6 +440,21 @@
                            '(:foreground "dark gray" :height 75)
                          'mode-line-inactive))
      )
+    )
+
+   ;; perspeen -- `perspeen-modestring'
+   (:eval
+    (if (bound-and-true-p perspeen-modestring)
+        perspeen-modestring
+
+      ;; TODO:
+      ;; (mapc (lambda (ws)
+      ;;         (let* ((name (perspeen-ws-struct-name ws))
+      ;;                (string-name (format "%s" name)))
+      ;;           (if (equal name (perspeen-ws-struct-name perspeen-current-ws))
+      ;;               (setq kk string-name))))
+      ;;       perspeen-ws-list)
+      )
     )
    
    ;; projectile

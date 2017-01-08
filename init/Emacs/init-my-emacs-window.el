@@ -115,7 +115,7 @@
         )
 
   (popwin-mode 1)
-  (global-set-key (kbd "C-z") popwin:keymap)
+  (global-set-key (kbd "C-c C-b") popwin:keymap)
 
   ;; `popwin:special-display-config'
   ;; push popwin:special-display-config `flags': [C-h v popwin:special-display-config]
