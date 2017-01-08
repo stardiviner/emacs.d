@@ -141,7 +141,7 @@
          ([remap yank-pop] . counsel-yank-pop) ; [M-y]
          ([remap imenu] . counsel-imenu)
          ("C-x j" . counsel-imenu)
-         ([remap org-set-tags-command] . counsel-org-tag) ; [C-c C-q]
+         ;; ([remap org-set-tags-command] . counsel-org-tag) ; [C-c C-q]
          ([remap org-agenda-set-tags] . counsel-org-tag-agenda) ; [:]
          ([remap load-library] . counsel-load-library)
          ([remap load-theme] . counsel-load-theme)
