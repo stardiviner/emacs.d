@@ -107,9 +107,7 @@
                     ;; :family "DejaVu Sans Mono"
                     :height 100)
 
-(add-hook 'after-init-hook
-          (lambda ()
-            (set-frame-font (format "%s:pixelsize=%d" "DejaVu Sans Mono" 12) t)))
+(set-frame-font (format "%s:pixelsize=%d" "DejaVu Sans Mono" 12) t)
 
 ;; --------
 ;; set different font for different system
