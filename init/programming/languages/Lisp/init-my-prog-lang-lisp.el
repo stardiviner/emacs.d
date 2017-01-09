@@ -155,7 +155,7 @@
                       :foreground "red"
                       :weight 'bold)
 
-  ;; (eval-sexp-fu-flash-mode 1)
+  (eval-sexp-fu-flash-mode 1)
   )
 
 
