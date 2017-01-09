@@ -48,16 +48,6 @@
                       :inverse-video nil
                       :weight 'bold
                       )
-  
-  ;; another diff color schema
-  (set-face-attribute 'diff-removed nil
-                      :background "#553333")
-  (set-face-attribute 'diff-added nil
-                      :background "#335533")
-  (set-face-attribute 'diff-refine-removed nil
-                      :background "#AA2222")
-  (set-face-attribute 'diff-refine-added nil
-                      :background "#22AA22")
   )
 
 ;;; [ ediff ]
