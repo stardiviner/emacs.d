@@ -22,7 +22,7 @@
 (setq org-capture-templates
       (append '(("C" "org-contacts")
                 ("Cc" "contact"
-                 entry (file+headline (concat org-directory "Contacts/Contacts.org") "Meet")
+                 entry (file+headline (concat org-directory "/Contacts/Contacts.org") "Meet")
                  "** %^{NAME}
 :PROPERTIES:
 :NAME(Chinese): %^{Name(Chinese)}
@@ -60,7 +60,7 @@
                  )
 
                 ("Cm" "meet people"
-                 entry (file+headline (concat org-directory "Contacts/Contacts.org") "Meet")
+                 entry (file+headline (concat org-directory "/Contacts/Contacts.org") "Meet")
                  "** %^{NAME}
 :PROPERTIES:
 :NAME(Chinese): %^{Name(Chinese)}
@@ -86,7 +86,7 @@
                  )
 
                 ("Cp" "programmer"
-                 entry (file+headline (concat org-directory "Contacts/Contacts.org") "Programmers")
+                 entry (file+headline (concat org-directory "/Contacts/Contacts.org") "Programmers")
                  "** %^{NAME}
 :PROPERTIES:
 :NAME(Chinese): %^{Name(Chinese)}
@@ -117,7 +117,7 @@
                  )
                 
                 ("Cf" "friend"
-                 entry (file+headline (concat org-directory "Contacts/Contacts.org") "Friends")
+                 entry (file+headline (concat org-directory "/Contacts/Contacts.org") "Friends")
                  "** %^{NAME}
 :PROPERTIES:
 :AVATAR: %^{Avatar}
