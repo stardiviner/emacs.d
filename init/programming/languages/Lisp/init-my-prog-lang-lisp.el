@@ -129,10 +129,9 @@
 
 (use-package hl-sexp
   :ensure t
-  :defer t
   :config
   (set-face-attribute 'hl-sexp-face nil
-                      :background (color-darken-name (face-background 'default) 2)
+                      :background (color-darken-name (face-background 'default) 3)
                       )
   )
 
@@ -141,7 +140,6 @@
 
 (use-package eval-sexp-fu
   :ensure t
-  :defer t
   :config
   (setq eval-sexp-fu-flash-duration 0.5
         eval-sexp-fu-flash-error-duration 1.5

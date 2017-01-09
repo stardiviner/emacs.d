@@ -75,9 +75,9 @@
 ;; restore the default size
 (fringe-mode nil)
 
-(set-face-attribute 'fringe nil
-                    :foreground "cyan" :background "#073642"
-                    )
+;; (set-face-attribute 'fringe nil
+;;                     :foreground "cyan" :background "#073642"
+;;                     )
 
 
 ;;; [ echo area ]
@@ -188,9 +188,8 @@
   (set-face-attribute 'hl-line nil
                       :inherit nil
                       ;; darker percent 5%
-                      ;; :background (color-darken-name
-                      ;;              (face-background 'default) 3)
-                      :background (face-background 'highlight)
+                      :background (color-darken-name
+                                   (face-background 'highlight) 5)
                       )
   )
 

@@ -53,7 +53,8 @@
 (require 'init-my-org-babel)
 (require 'init-my-org-keybindings)
 (require 'init-my-org-view)
-(require 'init-my-org-face)
+;; (require 'init-my-org-face-builtin) ; disable to compatible with color-theme.
+(require 'init-my-org-face-extra)
 (require 'init-my-org-hacking)
 (require 'init-my-org-search)
 (require 'init-my-org-extensions)

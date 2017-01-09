@@ -38,13 +38,7 @@
 (use-package leuven-theme
   :ensure t
   :config
-  (load-theme 'leuven t)
-  (add-hook 'after-init-hook
-            (lambda ()
-              (load-theme 'leuven t)
-              (set-frame-font (format "%s:pixelsize=%d" "DejaVu Sans Mono" 12) t)
-              ))
-  )
+  (load-theme 'leuven t))
 
 
 ;;; custom faces
