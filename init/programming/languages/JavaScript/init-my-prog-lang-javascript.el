@@ -298,21 +298,21 @@
 
 ;;; [ js-format ] -- Format or transform code style using NodeJS server with different javascript formatter.
 
-(use-package js-format
-  :ensure t
-  :config
-  ;; using "standard" as js formatter
-  (with-eval-after-load 'js2-mode
-    (add-hook 'js2-mode-hook
-	      (lambda()
-		(js-format-setup "standard"))))
-
-  ;; using "jsbeautify-css" as css formatter
-  (with-eval-after-load 'css-mode
-    (add-hook 'css-mode-hook
-	      (lambda()
-		(js-format-setup "jsb-css"))))
-  )
+;; (use-package js-format
+;;   :ensure t
+;;   :config
+;;   ;; using "standard" as js formatter
+;;   (with-eval-after-load 'js2-mode
+;;     (add-hook 'js2-mode-hook
+;; 	      (lambda()
+;; 		(js-format-setup "standard"))))
+;;
+;;   ;; using "jsbeautify-css" as css formatter
+;;   (with-eval-after-load 'css-mode
+;;     (add-hook 'css-mode-hook
+;; 	      (lambda()
+;; 		(js-format-setup "jsb-css"))))
+;;   )
 
 
 (provide 'init-my-prog-lang-javascript)
