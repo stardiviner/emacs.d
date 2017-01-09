@@ -196,11 +196,13 @@
   ;; selection
   (set-face-attribute 'company-tooltip-selection nil
                       :inherit 'company-tooltip
-                      :foreground "white" :background "#212121"
-                      :underline nil)
+                      :foreground "black" :background "Dark Khaki"
+                      :underline nil
+                      :weight 'normal)
   (set-face-attribute 'company-tooltip-mouse nil
                       :inherit 'company-tooltip
-                      :foreground "sky blue" :background "#333333"
+                      :foreground "sky blue"
+                      :background (face-background 'company-tooltip-selection)
                       :weight 'bold)
   ;; common
   (set-face-attribute 'company-tooltip-common nil
@@ -209,10 +211,12 @@
                       :underline nil)
   ;; common selection
   (set-face-attribute 'company-tooltip-common-selection nil
-                      :inverse-video nil
                       :inherit 'company-common
-                      :foreground "cyan" :background "#212121"
-                      :underline nil)
+                      :foreground "black"
+                      :background (face-background 'company-tooltip-selection)
+                      :inverse-video nil
+                      :underline nil
+                      :weight 'bold)
   ;; search
   (set-face-attribute 'company-tooltip-search nil
                       :inherit 'company-tooltip
