@@ -51,27 +51,32 @@
                     :foreground "green")
 
 ;; italic & bold
-(set-face-attribute 'italic nil
-                    :slant 'italic
-                    :foreground "#eeeeee"
-                    :weight 'normal
-                    :height 100
-                    :underline nil)
-(set-face-attribute 'bold nil
-                    :weight 'bold
-                    :foreground "#c3c3c3")
-(set-face-attribute 'bold-italic nil
-                    :foreground "pink")
-(set-face-attribute 'underline nil
-                    :underline "dark gray")
+;;
+;; (set-face-attribute 'italic nil
+;;                     :slant 'italic
+;;                     :foreground "#eeeeee"
+;;                     :weight 'normal
+;;                     :height 100
+;;                     :underline nil)
+;; (set-face-attribute 'bold nil
+;;                     :weight 'bold
+;;                     :foreground "#c3c3c3")
+;; (set-face-attribute 'bold-italic nil
+;;                     :foreground "pink")
+;; (set-face-attribute 'underline nil
+;;                     :underline "dark gray")
+
 ;; region
-(set-face-attribute 'region nil
-                    :inverse-video nil
-                    ;; "dark green", "forest green", "khaki",
-                    :background "khaki"
-                    ;; :background (color-darken-name (face-background 'default) 10)
-                    )
+;;
+;; (set-face-attribute 'region nil
+;;                     :inverse-video nil
+;;                     ;; "dark green", "forest green", "khaki",
+;;                     :background "khaki"
+;;                     ;; :background (color-darken-name (face-background 'default) 10)
+;;                     )
+
 ;; highlight
+;;
 (set-face-attribute 'highlight nil
                     :background (color-darken-name (face-background 'default) 5)
                     )
