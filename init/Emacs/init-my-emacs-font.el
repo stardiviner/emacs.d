@@ -97,8 +97,8 @@
 (dolist (charset '(kana han symbol cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font)
                     charset
-                    ;; (font-spec :family "WenQuanYi Micro Hei Mono" :size 13)
-                    (font-spec :family "HanaMinA" :size 14)
+                    (font-spec :family "WenQuanYi Micro Hei Mono" :size 13)
+                    ;; (font-spec :family "HanaMinA" :size 14)
                     ))
 ;;; need to modify English font settings to suitable with chinese font.
 ;;; the value is in 1/10pt, so 100 will give you 10pt, etc
@@ -107,7 +107,9 @@
                     ;; :family "DejaVu Sans Mono"
                     :height 100)
 
-(set-frame-font (format "%s:pixelsize=%d" "DejaVu Sans Mono" 12) t)
+(add-hook 'after-init-hook
+          (lambda ()
+            (set-frame-font (format "%s:pixelsize=%d" "DejaVu Sans Mono" 12) t)))
 
 ;; --------
 ;; set different font for different system
