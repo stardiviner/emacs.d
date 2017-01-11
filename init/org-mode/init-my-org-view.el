@@ -63,14 +63,13 @@
 ;; [ org-bullets ]
 
 (use-package org-bullets
-  :defer t
-  :init
-  (require 'org-bullets nil t)
+  :ensure t
   :config
   (setq-default org-bullets-bullet-list
                 ;; '("◉" "❀" "✿" "✪" "☯" "✜" "✩" "✡" "◌" "◉" "⍟" "☢")
                 ;; '("①" "②" "③" "④" "⑤" "⑥" "⑦" "⑧" "⑨" "⑩")
                 '("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
+                ;; '("⊢" "⋮" "⋱" " ")
                 )
 
   (defface org-bullets-face
@@ -79,10 +78,8 @@
     :group 'org-faces)
 
   (set-face-attribute 'org-bullets-face nil
-                      :foreground "cyan"
-                      :weight 'bold
-                      :family "Ubuntu Mono"
-                      :height 100
+                      :family "DejaVu Sans"
+                      :height 130 :weight 'bold
                       )
 
   (setq org-bullets-face-name 'org-bullets-face)
