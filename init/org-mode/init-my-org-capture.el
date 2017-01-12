@@ -37,7 +37,7 @@
          )
 
         ;; Diary
-        ("D" "Write Diary"
+        ("d" "Write Diary"
          entry (file+datetree "~/Org/Diary/Diary.org")
          "\n* %^{Diary Title}\n:PROPERTIES:\n:TIME: %U\n:END: \n\n[[file:%<%Y-%m-%d-%R>.org][On %<%Y-%m-%d %R>]]\n\nEvent: %?\n\n%i\n"
          :empty-lines 1
@@ -52,7 +52,7 @@
          )
 
         ;; org-passwords
-        ("P" "password"
+        ("A" "Account passwords"
          entry (file "~/Org/Accounts/accounts.org.gpg")
          "* %^{Title}\n  %^{URL}p %^{USERNAME}p %^{PASSWORD}p %^{EMAIL}p"
          :empty-lines 1
