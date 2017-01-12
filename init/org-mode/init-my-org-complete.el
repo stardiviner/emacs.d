@@ -20,6 +20,7 @@
   (make-local-variable 'company-backends)
   (setq company-backends
         '(company-files
+          company-emoji
           company-capf :with company-yasnippet
           ;; :separate company-ispell
           company-dabbrev-code company-abbrev
