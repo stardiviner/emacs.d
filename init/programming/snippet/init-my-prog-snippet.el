@@ -57,8 +57,8 @@ $0`(yas-escape-text yas-selected-text)`"
 
   ;; Faces
   (set-face-attribute 'yas-field-highlight-face nil
-                      :background "#555555" :foreground "white"
-                      :overline "black"
+                      :foreground (face-foreground 'highlight)
+                      :background (color-darken-name (face-background 'default) 4)
                       )
 
   ;; (define-key yas-minor-mode-map [tab] 'yas-expand)
