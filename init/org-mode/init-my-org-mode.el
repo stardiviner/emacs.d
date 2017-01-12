@@ -64,6 +64,7 @@
 (require 'init-my-org-contacts)
 (require 'init-my-org-password)
 (require 'init-my-org-drill)
+(require 'init-my-org-programming)
 
 
 (provide 'init-my-org-mode)
