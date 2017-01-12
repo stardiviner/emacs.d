@@ -15,7 +15,7 @@
       (concat org-directory "/Capture/notes.org"))
 
 (setq org-capture-templates
-      '(("c" "Capture"
+      '(("c" "[C]apture"
          entry (file+headline "~/Org/Capture/Capture.org" "Capture")
          "\n* TODO %^{Capture}\nSCHEDULED: %t\n%i\n\n%a\n\n%?"
          :prepend t
@@ -23,13 +23,13 @@
          )
 
         ;; Tasks
-        ("t" "Add a task into Tasks"
+        ("t" "Add a [t]ask into Tasks"
          entry (file "~/Org/Projects/Computer Todos.org")
          ;; "\n* TODO %^{Task} [/]\n\n%?\n\n"
          "\n* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n"
          :empty-lines 1
          )
-        ("T" "Clock in a New Task"
+        ("T" "New [T]ask with Clock"
          entry (file+headline "~/Org/Tasks/Tasks.org" "Tasks")
          "\n* TODO %^{Clock Task} [/]\n\n%?\n\n"
          :empty-lines 1
@@ -37,7 +37,7 @@
          )
 
         ;; Diary
-        ("d" "Write Diary"
+        ("d" "Write [D]iary"
          entry (file+datetree "~/Org/Diary/Diary.org")
          "\n* %^{Diary Title}\n:PROPERTIES:\n:TIME: %U\n:END: \n\n[[file:%<%Y-%m-%d-%R>.org][On %<%Y-%m-%d %R>]]\n\nEvent: %?\n\n%i\n"
          :empty-lines 1
@@ -45,35 +45,35 @@
          )
         
         ;; Bookmark
-        ("k" "Add an URL to bookmarks database"
+        ("k" "Add an URL to bookmar[k]s database"
          entry (file+headline "~/Org/Bookmarks/Bookmarks.org" "Uncategoried")
          "\n* %^{Bookmark URL}\n\n%A\n\n%?\n\n"
          :empty-lines 1
          )
 
         ;; org-passwords
-        ("A" "Account passwords"
+        ("A" "[A]ccount passwords"
          entry (file "~/Org/Accounts/accounts.org.gpg")
          "* %^{Title}\n  %^{URL}p %^{USERNAME}p %^{PASSWORD}p %^{EMAIL}p"
          :empty-lines 1
          )
 
         ;; Issues, Bugs, Features
-        ("b" "Bug"
+        ("b" "[B]ug"
          entry (file+olp "~/Org/Projects/Code.org" "Bugs")
          "\n* BUG %^{Bug}\n\n%i\n\n%?\n\n"
          :empty-lines 1)
-        ("i" "Issue"
+        ("i" "[I]ssue"
          entry (file+olp "~/Org/Projects/Code.org" "Issues")
          "\n* ISSUE %^{Issue}\n\n%i\n\n%?\n\n"
          :empty-lines 1)
-        ("f" "Feature"
+        ("f" "[F]eature"
          entry (file+olp "~/Org/Projects/Code.org" "Features")
          "\n* FEATURE %^{Feature}\n\n%i\n\n%?\n\n"
          :empty-lines 1)
 
         ;; code snippets
-        ("s" "Code Snippet" entry
+        ("s" "[S]ource Code Snippet" entry
          (file (concat org-directory "/Programming/Code Snippets/snippets.org"))
          ;; Prompt for tag and language
          "* %?%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
@@ -111,15 +111,15 @@
 (require 'org-protocol)
 
 (setq org-capture-templates
-      (append '(("P" "Protocol")
-                ("Pp" "protocol"
+      (append '(("P" "[P]rotocol")
+                ("Pp" "[p]rotocol"
                  entry (file+headline
                         (concat org-directory "Capture/Capture.org") "Capture")
                  "* %^{Title}\nSource: %u, \n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?"
                  :prepend t
                  :empty-lines 1
                  )
-                ("Pl" "link"
+                ("Pl" "[l]ink"
                  entry (file+headline
                         (concat org-directory "Capture/Capture.org") "Capture")
                  "* %? [[%:link][%:description]] \nCaptured On: %U"

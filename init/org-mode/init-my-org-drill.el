@@ -32,7 +32,7 @@
 (defvar my-org-drill-words-file (concat org-directory "/Tasks/Words.org"))
 
 (setq org-capture-templates
-      (append '(("w" "org-drill words"
+      (append '(("w" "org-drill [w]ords"
                  entry (file my-org-drill-words-file)
                  "* %^{Word}  %^g
 :PROPERTIES:

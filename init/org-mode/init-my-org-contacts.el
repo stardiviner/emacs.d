@@ -20,8 +20,8 @@
       )
 
 (setq org-capture-templates
-      (append '(("C" "org-contacts")
-                ("Cc" "contact"
+      (append '(("C" "[C]ontacts: (org-contacts)")
+                ("Cc" "[c]ontact"
                  entry (file+headline (concat org-directory "/Contacts/Contacts.org") "Meet")
                  "** %^{NAME}
 :PROPERTIES:
@@ -59,7 +59,7 @@
                  :jump-to-captured t
                  )
 
-                ("Cm" "meet people"
+                ("Cm" "[m]eet people"
                  entry (file+headline (concat org-directory "/Contacts/Contacts.org") "Meet")
                  "** %^{NAME}
 :PROPERTIES:
@@ -85,7 +85,7 @@
                  :jump-to-captured t
                  )
 
-                ("Cp" "programmer"
+                ("Cp" "[p]rogrammer"
                  entry (file+headline (concat org-directory "/Contacts/Contacts.org") "Programmers")
                  "** %^{NAME}
 :PROPERTIES:
@@ -116,7 +116,7 @@
                  :jump-to-captured t
                  )
                 
-                ("Cf" "friend"
+                ("Cf" "[f]riend"
                  entry (file+headline (concat org-directory "/Contacts/Contacts.org") "Friends")
                  "** %^{NAME}
 :PROPERTIES:
