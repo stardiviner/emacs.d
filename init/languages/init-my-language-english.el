@@ -58,6 +58,16 @@
 
 ;;; [ electric punctuation ]
 
+;;; [ stem ] -- stemming library for Emacs
+
+(use-package stem
+  :ensure t)
+
+;;; [ stem-english ] -- routines for Stemming English word (Emacs)
+
+(use-package stem-english
+  :ensure t)
+
 
 (provide 'init-my-language-english)
 
