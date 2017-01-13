@@ -158,101 +158,83 @@ For pasting on sites like GitHub, and Stack Overflow."
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;; [ Email Org-mode region/buffer ]
+;;; [ org-mime ] -- org-mime can be used to send HTML email using Org-mode HTML export.
 
-;; send email with org-mode region as message.
-;; I like to email org-mode headings and content to people. It would be nice to
-;; have some records of when a heading was sent, and to whom. We store this
-;; information in a heading. It is pretty easy to write a simple function that
-;; emails a selected region.
-;;
-;; use `org-mime'
-;; - `org-mime-org-buffer-htmlize' :: [C-x M]
+(use-package org-mime
+  :ensure t
+  :bind (:map org-mode-map
+              ("C-x M" . org-mime-org-buffer-htmlize)
+              :map message-mode-map
+              ("C-c M-o" . org-mime-htmlize)
+              )
+  :config
+  (add-hook 'org-mime-html-hook
+            (lambda ()
+              ;; change <pre /> source code block style.
+              (org-mime-change-element-style
+               "pre" (format "color: %s; background-color: %s; padding: 0.5em;"
+                             "#E6E1DC" "#232323"))
+              ;; the following can be used to nicely offset block quotes in email bodies.
+              (org-mime-change-element-style
+               "blockquote" "border-left: 2px solid gray; padding-left: 4px;")
+              ))
+  
+  ;; Out of the box, =org-mime= does not seem to attach file links to emails or
+  ;; make images for equations.
+  ;; Here is an adaptation of =org-mime-compose= that does that for html messages.
 
-(require 'org-mime)
-
-(add-hook 'org-mode-hook
-          '(lambda ()
-             ;; `org-mime-org-buffer-htmlize', `org-mime-htmlize'
-             (local-set-key (kbd "C-x M") 'org-mime-org-buffer-htmlize)
-             ))
-
-(add-hook 'message-mode-hook
-          '(lambda ()
-             (local-set-key (kbd "C-c M-o") 'org-mime-htmlize)))
-
-
-(defun org-export-settings-for-email ()
-  "Settings for export Org-mode buffer to HTML Email format."
-  (interactive)
-
-  ;; change element style
-  (org-mime-change-element-style
-   "pre" (format "color: %s; background-color: %s; padding: 0.5em;"
-                 "#E6E1DC" "#232323"))
-  (org-mime-change-element-style
-   "blockquote" "border-left: 2px solid gray; padding-left: 4px;")
+  (defun org-mime-compose (body fmt file &optional to subject headers)
+    "Make `org-mime-compose' support attach file for HTML messages."
+    (require 'message)
+    (let ((bhook
+           (lambda (body fmt)
+             (let ((hook (intern (concat "org-mime-pre-"
+                                         (symbol-name fmt)
+                                         "-hook"))))
+               (if (> (eval `(length ,hook)) 0)
+                   (with-temp-buffer
+                     (insert body)
+                     (goto-char (point-min))
+                     (eval `(run-hooks ',hook))
+                     (buffer-string))
+                 body))))
+          (fmt (if (symbolp fmt) fmt (intern fmt)))
+          (files (org-element-map (org-element-parse-buffer) 'link
+                   (lambda (link)
+                     (when (string= (org-element-property :type link) "file")
+                       (file-truename (org-element-property :path link)))))))
+      (compose-mail to subject headers nil)
+      (message-goto-body)
+      (cond
+       ((eq fmt 'org)
+        (require 'ox-org)
+        (insert (org-export-string-as
+                 (org-babel-trim (funcall bhook body 'org)) 'org t)))
+       ((eq fmt 'ascii)
+        (require 'ox-ascii)
+        (insert (org-export-string-as
+                 (concat "#+Title:\n" (funcall bhook body 'ascii)) 'ascii t)))
+       ((or (eq fmt 'html) (eq fmt 'html-ascii))
+        (require 'ox-ascii)
+        (require 'ox-org)
+        (let* ((org-link-file-path-type 'absolute)
+               ;; we probably don't want to export a huge style file
+               (org-export-htmlize-output-type 'inline-css)
+               (org-html-with-latex 'dvipng)
+               (html-and-images
+                (org-mime-replace-images
+                 (org-export-string-as (funcall bhook body 'html) 'html t)))
+               (images (cdr html-and-images))
+               (html (org-mime-apply-html-hook (car html-and-images))))
+          (insert (org-mime-multipart
+                   (org-export-string-as
+                    (org-babel-trim
+                     (funcall bhook body (if (eq fmt 'html) 'org 'ascii)))
+                    (if (eq fmt 'html) 'org 'ascii) t)
+                   html)
+                  (mapconcat 'identity images "\n")))))
+      (mapc #'mml-attach-file files)))
   )
-
-;; FIXME: wrong number of arguments, 1.
-;; (add-hook 'org-export-before-processing-hook 'org-export-settings-for-email)
-
-
-;; Out of the box, =org-mime= does not seem to attach file links to emails or
-;; make images for equations.
-;; Here is an adaptation of =org-mime-compose= that does that for html messages.
-
-(defun org-mime-compose (body fmt file &optional to subject headers)
-  "Make `org-mime-compose' support attach file for HTML messages."
-  (require 'message)
-  (let ((bhook
-         (lambda (body fmt)
-           (let ((hook (intern (concat "org-mime-pre-"
-                                       (symbol-name fmt)
-                                       "-hook"))))
-             (if (> (eval `(length ,hook)) 0)
-                 (with-temp-buffer
-                   (insert body)
-                   (goto-char (point-min))
-                   (eval `(run-hooks ',hook))
-                   (buffer-string))
-               body))))
-        (fmt (if (symbolp fmt) fmt (intern fmt)))
-        (files (org-element-map (org-element-parse-buffer) 'link
-                 (lambda (link)
-                   (when (string= (org-element-property :type link) "file")
-                     (file-truename (org-element-property :path link)))))))
-    (compose-mail to subject headers nil)
-    (message-goto-body)
-    (cond
-     ((eq fmt 'org)
-      (require 'ox-org)
-      (insert (org-export-string-as
-               (org-babel-trim (funcall bhook body 'org)) 'org t)))
-     ((eq fmt 'ascii)
-      (require 'ox-ascii)
-      (insert (org-export-string-as
-               (concat "#+Title:\n" (funcall bhook body 'ascii)) 'ascii t)))
-     ((or (eq fmt 'html) (eq fmt 'html-ascii))
-      (require 'ox-ascii)
-      (require 'ox-org)
-      (let* ((org-link-file-path-type 'absolute)
-             ;; we probably don't want to export a huge style file
-             (org-export-htmlize-output-type 'inline-css)
-             (org-html-with-latex 'dvipng)
-             (html-and-images
-              (org-mime-replace-images
-               (org-export-string-as (funcall bhook body 'html) 'html t)))
-             (images (cdr html-and-images))
-             (html (org-mime-apply-html-hook (car html-and-images))))
-        (insert (org-mime-multipart
-                 (org-export-string-as
-                  (org-babel-trim
-                   (funcall bhook body (if (eq fmt 'html) 'org 'ascii)))
-                  (if (eq fmt 'html) 'org 'ascii) t)
-                 html)
-                (mapconcat 'identity images "\n")))))
-    (mapc #'mml-attach-file files)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
