@@ -96,6 +96,27 @@
    (define-key my-email-prefix (kbd "m") 'compose-mail))
   )
 
+;;; [ org-mime ] -- org-mime can be used to send HTML email using Org-mode HTML export.
+
+(use-package org-mime
+  :ensure t
+  :bind (:map org-mode-map
+              ("C-x M" . org-mime-org-buffer-htmlize)
+              :map message-mode-map
+              ("C-c M-o") . org-mime-htmlize)
+  :config
+  (add-hook 'org-mime-html-hook
+            (lambda ()
+              ;; change <pre /> source code block style.
+              (org-mime-change-element-style
+               "pre" (format "color: %s; background-color: %s; padding: 0.5em;"
+                             "#E6E1DC" "#232323"))
+              ;; the following can be used to nicely offset block quotes in email bodies.
+              (org-mime-change-element-style
+               "blockquote" "border-left: 2px solid gray; padding-left: 4px;")
+              ))
+  )
+
 
 (provide 'init-my-tool-email)
 
