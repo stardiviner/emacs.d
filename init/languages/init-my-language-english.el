@@ -66,7 +66,15 @@
 ;;; [ stem-english ] -- routines for Stemming English word (Emacs)
 
 (use-package stem-english
-  :ensure t)
+  :ensure t
+  :config
+  (defun my-stem-english (word)
+    "My smart apply of `stem-english'."
+    (let ((stem-word (stem-english word)))
+      (if (= 1 (length stem-word))
+          word
+        (nth 1 stem-word))))
+  )
 
 
 (provide 'init-my-language-english)
