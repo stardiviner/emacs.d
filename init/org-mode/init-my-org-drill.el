@@ -54,12 +54,17 @@
 
 (define-key my-org-prefix (kbd "C-w") 'my-org-drill-open)
 
+(use-package stem-english
+  :ensure t)
+
 (defun my-org-drill-record-word ()
   "Record word to org-drill words file."
   (interactive)
-  (let ((word (if (region-active-p)
-                  (buffer-substring-no-properties (mark) (point))
-                (thing-at-point 'word))))
+  (let ((word (nth 0 (stem-english ; word stemmer
+                      (downcase
+                       (if (region-active-p)
+                           (buffer-substring-no-properties (mark) (point))
+                         (thing-at-point 'word)))))))
     (if (yes-or-no-p (format "Org-drill this word (%s): " word))
         ;; call org-capture template programmatically.
         (org-capture nil "w")
