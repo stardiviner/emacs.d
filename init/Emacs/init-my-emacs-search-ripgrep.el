@@ -15,6 +15,13 @@
               ("s" . ripgrep-regexp))
   )
 
+;;; [ rg ] -- Use ripgrep (grep and ag replacement) like rgrep.
+
+(use-package rg
+  :ensure t
+  :bind (:map my-search-prefix
+              ("r" . rg))
+  )
 
 ;;; ----------------------------------------------------------------------------
 
