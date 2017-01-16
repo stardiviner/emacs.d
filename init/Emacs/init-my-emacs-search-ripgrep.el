@@ -12,7 +12,7 @@
 (use-package ripgrep
   :ensure t
   :bind (:map my-search-prefix
-              ("s" . ripgrep-regexp))
+              ("M-r" . ripgrep-regexp))
   )
 
 ;;; [ rg ] -- Use ripgrep (grep and ag replacement) like rgrep.

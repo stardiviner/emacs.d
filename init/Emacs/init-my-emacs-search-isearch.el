@@ -129,8 +129,8 @@
          ("C-r" . vr/isearch-backward)
          ("M-%" . vr/replace)
          :map my-search-prefix
-         ("r" . vr/replace)
-         ("q" . vr/query-replace)
+         ("R" . vr/replace)
+         ("Q" . vr/query-replace)
          )
   :init
   ;; if you use multiple-cursors interface, this is for you:
