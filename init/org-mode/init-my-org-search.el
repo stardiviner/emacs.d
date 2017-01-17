@@ -183,6 +183,15 @@
              my-math-terms-reference-dir))))
   
   (define-key references-rifle-prefix (kbd "m") 'my-org-rifle-Math-reference)
+
+  ;; Bookmarks
+  (defun my-org-rifle-bookmarks-reference ()
+    (interactive)
+    (let ((my-bookmarks-reference-dir (concat org-directory "/Bookmarks")))
+      (helm-org-rifle-directories
+       (list my-bookmarks-reference-dir))))
+
+  (define-key references-rifle-prefix (kbd "C-b") 'my-org-rifle-bookmarks-reference)
   )
 
 
