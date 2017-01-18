@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Emacs info
+# key: info-emacs
+# group: info.emacs
+# --
+- Emacs: ${2:$$(format "%s" emacs-version)}
+  - Graphic display: ${3:$$(format "%s" (display-graphic-p))}

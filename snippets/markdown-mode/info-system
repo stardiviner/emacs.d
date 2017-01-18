@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: system env info
+# key: info-system
+# group: info.emacs
+# --
+System Info 💻
+
+- OS: ${1:$$(format "%s" system-type)}
