@@ -12,6 +12,9 @@
   :ensure t
   :config
   (setq perspeen-keymap-prefix (kbd "C-z"))
+  (define-key perspeen-command-map (kbd "k") 'perspeen-delete-ws)
+  (define-key perspeen-command-map (kbd "r") 'perspeen-rename-ws)
+  (define-key perspeen-command-map (kbd "s") 'perspeen-goto-ws)
   (perspeen-mode 1)
   )
 
