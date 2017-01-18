@@ -2,7 +2,72 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("My Python Examples.org"
+(("My Swift Programming Language Practical Examples.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Swift/Data/Manuals/My Swift Programming Language Practical Examples/My Swift Programming Language Practical Examples.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("My Swift Programming Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Swift/Data/Manuals/My Swift Programming Language Syntax Reference/My Swift Programming Language Syntax Reference.org")
+ (front-context-string . "* Intro\n\n\n* Data")
+ (rear-context-string)
+ (position . 1))
+("org-capture-last-stored-marker"
+ (filename . "~/Org/Contacts/Contacts.org")
+ (front-context-string . "** kk\n:PROPERTIE")
+ (rear-context-string . "带果仁的),\n:END:\n\n\n\n")
+ (position . 1729))
+("org-refile-last-stored"
+ (filename . "~/Org/Contacts/Contacts.org")
+ (front-context-string . "** kk\n:PROPERTIE")
+ (rear-context-string . "带果仁的),\n:END:\n\n\n\n")
+ (position . 1729))
+("GNU.org"
+ (filename . "~/Org/Wiki/Computer Technology/Systems/GNU/GNU.org")
+ (front-context-string . "* Intro\n\n\n\n* Pro")
+ (rear-context-string)
+ (position . 1))
+("Vim.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Vim/Vim.org")
+ (front-context-string . "* Intro\n\n*神之编辑器*")
+ (rear-context-string)
+ (position . 1))
+("Internet Censorship.org"
+ (filename . "~/Org/Wiki/Computer Technology/Internet Censorship/Internet Censorship.org")
+ (front-context-string . "* Intro\n\n** Chin")
+ (rear-context-string)
+ (position . 1))
+("Computer Machine.org"
+ (filename . "~/Org/Wiki/Computer Technology/Computer Machine/Computer Machine.org")
+ (front-context-string . "* Data\n\n** Help\n")
+ (rear-context-string)
+ (position . 13))
+("Hardware.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implements/Hardware/Hardware.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Computer Forensics.org"
+ (filename . "~/Org/Wiki/Computer Technology/Computer Forensics/Computer Forensics.org")
+ (front-context-string . "* Intro\n\n\n\n\n\n* D")
+ (rear-context-string)
+ (position . 1))
+("Daoism.org"
+ (filename . "~/Org/Wiki/Philosophy/Daoism/Daoism.org")
+ (front-context-string . "* Intro\n\n** My r")
+ (rear-context-string)
+ (position . 1))
+("Imperial Study.org"
+ (filename . "~/Org/Wiki/Imperial Study/Imperial Study.org")
+ (front-context-string . "* Intro\n\n** 帝王学 ")
+ (rear-context-string)
+ (position . 1))
+("御人之术.org"
+ (filename . "~/Org/Wiki/Imperial Study/Data/Manuals/御人之术/御人之术.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("My Python Examples.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Python/Data/Manuals/My Python Examples/My Python Examples.org")
  (front-context-string . "* System\n\n** she")
  (rear-context-string)
@@ -274,7 +339,7 @@
  (position . 1))
 ("Design.org"
  (filename . "~/Org/Wiki/Computer Technology/Design/Design.org")
- (front-context-string . "* Intro\n\n\n\n* Dat")
+ (front-context-string . "* Intro\n\n** Desi")
  (rear-context-string)
  (position . 1))
 ("My Shell Script Examples.org"
@@ -568,8 +633,8 @@
  (rear-context-string)
  (position . 1))
 ("Packages.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Go/Data/Packages/Packages.org")
- (front-context-string . "* Data\n\n- [[http")
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/R/Data/Packages/Packages.org")
+ (front-context-string . "* Packages Manag")
  (rear-context-string)
  (position . 1))
 ("My SQL Reference.org"
@@ -734,9 +799,9 @@
  (position . 1))
 ("org-capture-last-stored"
  (filename . "~/Org/Diary/Diary.org")
- (front-context-string . "**** 觉得自己真的开始忘记小")
- (rear-context-string . "理的景色。我喜欢里面的画面。\n\n")
- (position . 25112))
+ (front-context-string . "**** 狂欢是一群人的孤独, ")
+ (rear-context-string . "。让这\n个世界看看我的愤怒。\n\n")
+ (position . 26977))
 ("Accounts"
  (filename . "~/Org/Accounts/accounts.org.gpg")
  (front-context-string . "* Nick\n\nstardivi")
