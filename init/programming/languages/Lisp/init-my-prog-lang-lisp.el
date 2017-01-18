@@ -163,15 +163,13 @@
 
 ;; (use-package parinfer
 ;;   :ensure t
-;;   :defer t
-;;   :bind
-;;   (;; Use this to toggle Indent/Paren Mode.
-;;    ("C-," . parinfer-toggle-mode)
-;;    ;; Some other commands you may want.
-;;    ("M-r" . parinfer-raise-sexp)
-;;    ("M-m" . mark-sexp)
-;;    ("M-j" . parinfer-transpose-sexps)
-;;    ("M-k" . parinfer-reverse-transpose-sexps))
+;;   :bind (;; Use this to toggle Indent/Paren Mode.
+;;          ("C-," . parinfer-toggle-mode)
+;;          ;; Some other commands you may want.
+;;          ("M-r" . parinfer-raise-sexp)
+;;          ("M-m" . mark-sexp)
+;;          ("M-j" . parinfer-transpose-sexps)
+;;          ("M-k" . parinfer-reverse-transpose-sexps))
 ;;   :init
 ;;   (add-hook 'emacs-lisp-mode-hook #'parinfer-mode)
 ;;   (add-hook 'clojure-mode-hook #'parinfer-mode)
