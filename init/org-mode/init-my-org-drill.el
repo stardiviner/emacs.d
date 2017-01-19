@@ -36,7 +36,7 @@
                  entry (file my-org-drill-words-file)
                  "* %^{Word}  %^g
 :PROPERTIES:
-:DRILL_CARD_TYPE: %^{simple|twosided|multisided|hide1cloze}
+:DRILL_CARD_TYPE: %^{Difficulty|simple|twosided|multisided|hide1cloze}
 :END:"
                  :empty-lines 1
                  ))
