@@ -87,6 +87,12 @@ column.  Place the point after the comment box."
               ("n" . hl-todo-next)
               ("o" . hl-todo-occur))
   :config
+  (set-face-attribute 'hl-todo nil
+                      :background (color-darken-name (face-background 'default) 3)
+                      :foreground "orange"
+                      :box '(:line-width 1)
+                      )
+  
   (global-hl-todo-mode 1)
   )
 
