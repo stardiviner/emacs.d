@@ -169,6 +169,29 @@
   
   (define-key references-rifle-prefix (kbd "s") 'my-org-rifle-SQL-reference)
 
+  ;; Commands & Softwares
+  (defun my-org-rifle-Commands-reference ()
+    (interactive)
+    (let ((my-commands-reference-dir
+           (concat org-directory
+                   "/Wiki/Computer Technology/Softwares/")))
+      (helm-org-rifle-directories
+       (list my-commands-reference-dir))))
+
+  ;; NOTE: this is VERY SLOW!
+  ;; (define-key references-rifle-prefix (kbd "M-s") 'my-org-rifle-Commands-reference)
+
+  ;; Programming Implements
+  (defun my-org-rifle-Implements-reference ()
+    (interactive)
+    (let ((my-implements-reference-dir
+           (concat org-directory
+                   "/Wiki/Computer Technology/Programming/Implements/")))
+      (helm-org-rifle-directories
+       (list my-implements-reference-dir))))
+  
+  (define-key references-rifle-prefix (kbd "i") 'my-org-rifle-Implements-reference)
+  
   ;; Mathematics
   (defun my-org-rifle-Math-reference ()
     (interactive)
@@ -181,8 +204,9 @@
       (helm-org-rifle-directories
        (list my-math-formulas-reference-dir
              my-math-terms-reference-dir))))
-  
-  (define-key references-rifle-prefix (kbd "m") 'my-org-rifle-Math-reference)
+
+  ;; NOTE: this is VERY SLOW!
+  ;; (define-key references-rifle-prefix (kbd "m") 'my-org-rifle-Math-reference)
 
   ;; Bookmarks
   (defun my-org-rifle-bookmarks-reference ()
