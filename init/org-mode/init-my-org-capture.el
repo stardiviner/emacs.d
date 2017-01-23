@@ -129,19 +129,6 @@
                 )
               org-capture-templates))
 
-
-(defadvice org-capture
-    (after make-full-window-frame activate)
-  "Advise capture to be the only window when used as a popup"
-  (if (equal "emacs-capture" (frame-parameter nil 'name))
-      (delete-other-windows)))
-
-(defadvice org-capture-finalize
-    (after delete-capture-frame activate)
-  "Advise capture-finalize to close the frame"
-  (if (equal "emacs-capture" (frame-parameter nil 'name))
-      (delete-frame)))
-
 ;;; [ org-protocol-capture-html ] -- Capture HTML from the browser selection into Emacs as org-mode content.
 
 (use-package org-protocol-capture-html

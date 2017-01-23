@@ -65,7 +65,7 @@
                 (if (region-active-p)
                     (buffer-substring-no-properties (mark) (point))
                   (thing-at-point 'word))))))
-    (if (yes-or-no-p (format "Org-drill this word (%s): " word))
+    (if (yes-or-no-p (format "org-drill this word (%s): " word))
         ;; call org-capture template programmatically.
         (org-capture nil "w")
       ;; (call-interactively #'org-capture)
