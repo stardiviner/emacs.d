@@ -39,11 +39,6 @@
 (use-package eldoc-overlay-mode
   :ensure t
   :config
-  (set-face-attribute 'eldoc-overlay-face nil
-                      :background "light gray" :foreground "white"
-                      :box '(:color "gray" :line-width 1)
-                      )
-  
   (eldoc-overlay-mode 1))
 
 
