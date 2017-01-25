@@ -34,7 +34,7 @@
 (setq org-capture-templates
       (append '(("w" "org-drill [w]ords"
                  entry (file my-org-drill-words-file)
-                 "* %^{Word}  %^g
+                 "* %^{word} %^{tag :drill: }g
 :PROPERTIES:
 :DRILL_CARD_TYPE: %^{Difficulty|simple|twosided|multisided|hide1cloze}
 :END:"
