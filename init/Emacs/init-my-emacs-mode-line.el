@@ -81,6 +81,12 @@
   :ensure t
   :defer t)
 
+(use-package anzu
+  :ensure t
+  :config
+  (make-variable-buffer-local 'anzu--state)
+  )
+
 ;; nyan-mode
 ;; Nyan Mode is an analog indicator of your position in the buffer. The Cat
 ;; should go from left to right in your mode-line, as you move your point from
@@ -133,15 +139,14 @@
     (if (frame-parameter nil 'client)
         (propertize
          " あ "
-         'face (if (active)
-                   '(:foreground "#333333" :background "yellow" :weight bold)
-                 'mode-line-inactive))))
+         'face (if (active) '(:foreground "#333333" :background "yellow" :weight bold)))))
 
-   ;; anzu
-   ;; FIXME:
-   ;; (:eval
-   ;;  (propertize (anzu--update-mode-line)
-   ;;              'face '(:foreground "cyan")))
+   ;; anzu -- `anzu--update-mode-line'
+   (:eval
+    (when (and (featurep 'anzu) (not (zerop anzu--total-matched)))
+      (propertize (format " %s/%d%s " anzu--current-position anzu--total-matched
+                          (if anzu--overflow-p "+" ""))
+                  'face '(:foreground "yellow"))))
    
    ;; multiple-cursors (mc/)
    ;; (:eval
@@ -208,9 +213,7 @@
     (when (and (bound-and-true-p ejc-sql-mode)
                (bound-and-true-p ejc-connection-name))
       (propertize (format "%s" ejc-connection-name)
-                  'face (if (active)
-                            '(:foreground "green")
-                          'mode-line-inactive))))
+                  'face (if (active) '(:foreground "green")))))
    
    ;; VCS - Git, SVN, CVS,
    (:eval
@@ -257,18 +260,15 @@
         
         (list
          (propertize (all-the-icons-octicon "git-branch")
-                     'face `(:inherit ,(if (active) face 'mode-line-inactive)
+                     'face `(:inherit ,(if (active) '(:foreground "cyan") 'mode-line-inactive)
                                       :family ,(all-the-icons-octicon-family)
                                       :height 1.25)
                      'display '(raise -0.1))
          
          (propertize (format " %s" backend)
-                     'face (if (active) face 'mode-line-inactive)
-                     'face '(:foreground "red")
-                     )
+                     'face (if (active) face))
          (propertize (format " [%s]" ascii)
-                     'face (if (active) face 'mode-line-inactive)
-                     )
+                     'face (if (active) face))
          ))
       ))
 
@@ -283,27 +283,14 @@
    (:eval
     (if flycheck-current-errors
         (propertize (flycheck-mode-line-status-text)
-                    'face (if (active)
-                              '(:foreground "orange" :height 70)
-                            'mode-line-inactive))))
+                    'face (if (active) '(:foreground "orange" :height 70)))))
    
    ;; buffer name
    (:eval
     (list
-     (propertize " ["
-                 'face (if (active)
-                           '(:foreground "dim gray")
-                         'mode-line-inactive))
      (propertize
-      "%b"
-      'face (if (active)
-                '(:foreground "white" :height 75)
-              'mode-line-inactive))
-     (propertize "]"
-                 'face (if (active)
-                           '(:foreground "dim gray")
-                         'mode-line-inactive))
-     ))
+      "[%b]"
+      'face (if (active) '(:foreground "white" :height 75)))))
 
    
    ;; wc-mode (word count) `wc-format-modeline-string', `wc-mode-update'.
@@ -412,32 +399,15 @@
    ;; '(:propertize " [%p,%I] ")
    (:eval
     (list
-     (propertize " ("
-                 'face (if (active)
-                           '(:foreground "dark gray")
-                         'mode-line-inactive))
-     (propertize "%02l"
-                 'face (if (active)
-                           '(:foreground "dark gray" :height 75)
-                         'mode-line-inactive))
-     (propertize ","
-                 'face (if (active)
-                           '(:foreground "dark gray")
-                         'mode-line-inactive))
+     (propertize " (%02l,"
+                 'face (if (active) '(:foreground "dark gray")))
      (propertize "%02c"
                  'face (if (active)
                            (if (>= (current-column) 75)
                                '(:foreground "red" :height 75)
-                             '(:foreground "dark gray" :height 75))
-                         'mode-line-inactive))
-     (propertize ")"
-                 'face (if (active)
-                           '(:foreground "dark gray")
-                         'mode-line-inactive))
-     (propertize "_%03p "
-                 'face (if (active)
-                           '(:foreground "dark gray" :height 75)
-                         'mode-line-inactive))
+                             '(:foreground "dark gray" :height 75))))
+     (propertize " | %03p) "
+                 'face (if (active) '(:foreground "dark gray" :height 75)))
      )
     )
 
