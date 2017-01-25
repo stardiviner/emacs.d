@@ -171,6 +171,12 @@
   (defengine facebook
     "https://www.facebook.com/%s"
     :docstring "Facebook")
+
+  ;; Law
+  (defengine law
+    "http://www.faxin.cn/"
+    :docstring "法信"
+    :keybinding "L")
   )
 
 ;;; [ es-mode ] -- An Emacs major mode for editing Elasticsearch requests.
