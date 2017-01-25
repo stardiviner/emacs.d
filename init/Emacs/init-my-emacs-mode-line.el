@@ -321,7 +321,7 @@
     (when (stringp mode-line-process)
       (list
        (propertize " ◌ "
-                   'face '(:foreground "cyan" :weight bold :height 120)
+                   'face '(:foreground "cyan" :weight bold)
                    'help-echo "buffer-process")
        (propertize mode-line-process
                    'face '(:foreground "DeepSkyBlue")
@@ -460,20 +460,13 @@
    (:eval
     (if (bound-and-true-p projectile-mode)
         (list
-         (propertize " ["
-                     ;; 'face 'font-lock-doc-face
-                     )
+         (propertize " [")
          (propertize "💻: "
-                     'face (if (active)
-                               '(:foreground "cyan" :height 100)
-                             'mode-line-inactive))
+                     'face (if (active) '(:foreground "cyan") 'mode-line-inactive)
+                     'display '(raise 0.1))
          (propertize (projectile-project-name) ; `projectile-mode-line'
-                     'face (if (active)
-                               '(:foreground "green yellow" :height 75)
-                             'mode-line-inactive))
-         (propertize "] "
-                     ;; 'face 'font-lock-doc-face
-                     )
+                     'face (if (active) '(:foreground "green yellow") 'mode-line-inactive))
+         (propertize "] ")
          )
       ))
    
