@@ -256,18 +256,17 @@
                          )))
         
         (list
-         ;; TODO:
-         ;; (propertize (all-the-icons-octicon "git-branch")
-         ;;             'face `(:inherit ,(if active face 'mode-line-inactive)
-         ;;                              :family ,(all-the-icons-octicon-family)
-         ;;                              :height 1.25)
-         ;;             'display '(raise -0.1))
+         (propertize (all-the-icons-octicon "git-branch")
+                     'face `(:inherit ,(if (active) face 'mode-line-inactive)
+                                      :family ,(all-the-icons-octicon-family)
+                                      :height 1.25)
+                     'display '(raise -0.1))
          
-         (propertize (format "%s" backend)
+         (propertize (format " %s" backend)
                      'face (if (active) face 'mode-line-inactive)
                      'face '(:foreground "red")
                      )
-         (propertize (format "(%s)" ascii)
+         (propertize (format " [%s]" ascii)
                      'face (if (active) face 'mode-line-inactive)
                      )
          ))
