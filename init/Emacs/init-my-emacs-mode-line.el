@@ -413,18 +413,19 @@
 
    ;; perspeen -- `perspeen-modestring'
    (:eval
-    (if (bound-and-true-p perspeen-modestring)
-        perspeen-modestring
-
-      ;; TODO:
-      ;; (mapc (lambda (ws)
-      ;;         (let* ((name (perspeen-ws-struct-name ws))
-      ;;                (string-name (format "%s" name)))
-      ;;           (if (equal name (perspeen-ws-struct-name perspeen-current-ws))
-      ;;               (setq kk string-name))))
-      ;;       perspeen-ws-list)
-      )
-    )
+    (when (bound-and-true-p perspeen-modestring)
+      ;; change face
+      (put-text-property 0 6
+                         'face (if (active) '(:foreground "green yellow"))
+                         (nth 1 perspeen-modestring))
+      perspeen-modestring
+      ;; (propertize (nth 1 perspeen-modestring))
+      ;; (propertize
+      ;;  (format "[%s]"
+      ;;          (substring-no-properties
+      ;;           (nth 1 perspeen-modestring)))
+      ;;  'face (if (active) '(:foreground "green yellow")))
+      ))
    
    ;; projectile
    (:eval
