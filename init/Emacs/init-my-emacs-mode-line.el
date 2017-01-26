@@ -30,15 +30,12 @@
 (defun my/mode-line-record-selected-window ()
   (setq my/mode-line-selected-window (selected-window)))
 
-(defun my/mode-line-update-all ()
-  (force-mode-line-update t))
-
 (add-hook 'post-command-hook 'my/mode-line-record-selected-window)
 
-(add-hook 'buffer-list-update-hook 'my/mode-line-update-all)
+(add-hook 'buffer-list-update-hook
+          (lambda () (force-mode-line-update t)))
 
-(defun active ()
-  (eq my/mode-line-selected-window (selected-window)))
+(defsubst active () (eq my/mode-line-selected-window (selected-window)))
 
 ;;; ------------------------------------------------------
 
