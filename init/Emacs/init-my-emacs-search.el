@@ -25,7 +25,6 @@
 (define-key my-search-prefix (kbd "s") 'ag)
 
 
-
 (provide 'init-my-emacs-search)
 
 ;;; init-my-emacs-search.el ends here

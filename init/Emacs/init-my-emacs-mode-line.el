@@ -7,9 +7,7 @@
 
 ;;; Code:
 
-
-;; - [C-h v major-mode] for current buffer major mode.
-;; - [C-h v minor-mode-alist] for current buffer minor modes list.
+(setq mode-line-in-non-selected-windows t)
 
 
 ;;; [ window-divider-mode ]
@@ -25,339 +23,499 @@
 ;;; ------------------------------------------------------
 ;;; separate settings for only active mode-line.
 
-(defvar my/mode-line-selected-window nil)
+(defvar mode-line--selected-window nil
+  "Variable which record mode-line current selected window.")
 
-(defun my/mode-line-record-selected-window ()
-  (setq my/mode-line-selected-window (selected-window)))
+(defun mode-line--record-selected-window ()
+  "Set mode-line selected window to current window."
+  (setq mode-line--selected-window (selected-window)))
 
-(add-hook 'post-command-hook 'my/mode-line-record-selected-window)
+(add-hook 'post-command-hook 'mode-line--record-selected-window)
 
 (add-hook 'buffer-list-update-hook
           (lambda () (force-mode-line-update t)))
 
-(defsubst active () (eq my/mode-line-selected-window (selected-window)))
+(defun active ()
+  "Indicate whether current mode-line is in current selected window."
+  (eq mode-line--selected-window (selected-window)))
 
 ;;; ------------------------------------------------------
 
-(use-package major-mode-icons
-  :ensure t
-  :config
-  (major-mode-icons-mode 1))
+;;; define faces for mode-line
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;; ------------------------------------------------------
+(defface mode-line-buffer-path-face
+  '((t (:inherit mode-line :bold t)))
+  "Face used for the directory name part of the buffer path."
+  :group 'mode-line)
 
-;; load necessary package which will be used later.
-(use-package company
-  :ensure t)
-(use-package projectile
-  :ensure t
-  :defer t
-  :init
-  (require 'projectile))
-(use-package projectile-rails
-  :ensure t
-  :defer t
-  :preface (defvar projectile-rails-mode nil)
-  :init
-  (require 'projectile-rails)
-  )
-(use-package perspeen
-  :ensure t
-  :config
-  (set-face-attribute 'perspeen-selected-face nil
-                      :foreground "white"
-                      :background (face-background 'mode-line-inactive)
+(defface mode-line-buffer-project-face
+  '((t (:inerit 'mode-line-buffer-path-face :bold nil)))
+  "Face used for the filename "
+  :group 'mode-line)
+
+(defface mode-line-buffer-major-mode-face
+  '((t (:inherit 'mode-line :bold t)))
+  "Face used for the buffer's major-mode segment in mode-line."
+  :group 'mode-line)
+
+(defface mode-line-meta-face
+  '((t (:inherit 'highlight)))
+  "Face used for meta info in mode-line."
+  :group 'mode-line)
+
+(defface mode-line-info-face
+  '((t (:inherit 'mode-line)))
+  "Face used for info segments in mode-line."
+  :group 'mode-line)
+
+(defface mode-line-warn-face
+  '((t (:inherit 'warning)))
+  "Face used for warning segments in mode-line."
+  :group 'mode-line)
+
+(defface mode-line-urgent-face
+  '((t (:inherit 'error)))
+  "Face used for urgent or error info segments in mode-line."
+  :group 'mode-line)
+
+;;; mode-line indicator fragments
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;; active window indicator
+(defun *current ()
+  "Display an indicator when current selected buffer."
+  (if (active)
+      (propertize "▌░"
+                  'face '(:foreground "yellow"))
+    ""))
+
+;; emacsclient indicator
+(defun *emacsclient ()
+  "Show whether emacsclient is active."
+  (if (and (frame-parameter nil 'client) (active))
+      (propertize " あ " 'face 'mode-line-meta-face)))
+
+;;; buffer project info
+(defun buffer-path-relative-to-project ()
+  "Displays the buffer's full path relative to the project root.
+\(includes the project root\).  Excludes the file basename."
+  (if buffer-file-name
+      (let* ((default-directory (f-dirname buffer-file-name))
+             (buffer-path (f-relative buffer-file-name (projectile-project-root)))
+             (max-length (truncate (* (window-body-width) 0.4))))
+        (when (and buffer-path (not (equal buffer-path ".")))
+          (if (> (length buffer-path) max-length)
+              (let ((path (reverse (split-string buffer-path "/" t)))
+                    (output ""))
+                (when (and path (equal "" (car path)))
+                  (setq path (cdr path)))
+                (while (and path (<= (length output) (- max-length 4)))
+                  (setq output (concat (car path) "/" output))
+                  (setq path (cdr path)))
+                (when path
+                  (setq output (concat "../" output)))
+                (when (string-suffix-p "/" output)
+                  (setq output (substring output 0 -1)))
+                output)
+            buffer-path)))
+    "%b"))
+
+(defun *buffer-project ()
+  "Displays `default-directory', for special buffers like the scratch buffer."
+  (concat
+   (all-the-icons-octicon "file-directory" :v-adjust -0.05)
+   (propertize
+    (concat " [" (abbreviate-file-name (projectile-project-root)) "] ")
+    'face '(:height 0.8))))
+
+(defun *projectile ()
+  "Show projectile project info."
+  (if (bound-and-true-p projectile-mode)
+      (propertize
+       (concat
+        " ["
+        (all-the-icons-octicon "file-directory" :v-adjust -0.05)
+        " "
+        (propertize (projectile-project-name) ; `projectile-mode-line'
+                    'face (if (active) 'mode-line-info-face))
+        "] "
+        ))))
+
+(defun *perspeen ()
+  "Show perspeen info from `perspeen-modestring'."
+  (when (bound-and-true-p perspeen-modestring)
+    ;; change face
+    (put-text-property 0 6
+                       'face (if (active) 'mode-line-info-face 'mode-line-inactive)
+                       (nth 1 perspeen-modestring))
+    perspeen-modestring
+    ))
+
+;;; buffer name
+(defun *buffer-name ()
+  "Display buffer name better."
+  ;; (propertize (buffer-path-relative-to-project))
+  (propertize (buffer-name)
+              'face (if (active) 'mode-line-buffer-path-face 'mode-line-inactive)))
+
+;;; buffer info
+(defun *buffer-info ()
+  "Combined information about the current buffer.
+
+Including the current working directory, the file name, and its
+state (modified, read-only or non-existent)."
+  (if (active)
+      (propertize
+       (concat
+        (if buffer-read-only
+            (all-the-icons-octicon "lock"
+                                   :face 'mode-line-urgent-face
+                                   :v-adjust -0.05)
+          (when (buffer-modified-p)
+            (all-the-icons-faicon "floppy-o"
+                                  :face 'mode-line-warn-face
+                                  :v-adjust -0.1)))
+        (when (and buffer-file-name (not (file-exists-p buffer-file-name)))
+          (all-the-icons-octicon "circle-slash"
+                                 :face 'mode-line-info-face
+                                 :v-adjust -0.05))
+        " "))))
+
+;;; buffer encoding
+(defun *buffer-encoding ()
+  "The encoding and eol style of the buffer."
+  (if (active)
+      (propertize
+       (concat
+        (let ((eol-type (coding-system-eol-type buffer-file-coding-system)))
+          (cond ((eq eol-type 0) "LF ")
+                ((eq eol-type 1) "CRLF ")
+                ((eq eol-type 2) "CR ")))
+        (let* ((sys (coding-system-plist buffer-file-coding-system))
+               (sys-name (plist-get sys :name))
+               (sys-cat (plist-get sys :category)))
+          (cond ((memq sys-cat '(coding-category-undecided coding-category-utf-8))
+                 "UTF-8")
+                (t (upcase (symbol-name sys-name)))))
+        " ")
+       'face 'mode-line-info-face)))
+
+;;; major-mode
+(defun *major-mode ()
+  "The major mode, including process, environment and text-scale info."
+  (propertize
+   (concat
+    (if (featurep 'major-mode-icons)
+        (major-mode-icons-show)
+      (if (featurep 'all-the-icons)
+          (all-the-icons-icon-for-mode major-mode)
+        (format-mode-line mode-name)))
+    (if (stringp mode-line-process) mode-line-process)
+    " ")
+   'face (if (active) 'mode-line-buffer-major-mode-face 'mode-line-inactive)))
+
+;;; environment version info like: Python, Ruby, JavaScript,
+(defun *env ()
+  "Show environment version info like Python, Ruby, JavaScript etc."
+  (if (active)
+      (let ((env (cl-case major-mode
+                   ('clojure-mode
+                    (if (not (equal (cider--modeline-info) "not connected"))
+                        (cider--project-name nrepl-project-dir)))
+                   ('enh-ruby-mode
+                    (if global-rbenv-mode
+                        (rbenv--active-ruby-version) ; `rbenv--modestring'
                       ))
-(require 'vc)
-(require 'vc-git)
-(use-package flycheck
-  :ensure t
-  :defer t)
+                   ('python-mode
+                    (if pyvenv-mode
+                        ;; `pyvenv-mode-line-indicator' -> `pyvenv-virtual-env-name'
+                        pyvenv-virtual-env-name
+                      ;; conda: `conda-env-current-name'
+                      ))
+                   ('js3-mode
+                    ;; FIXME: `nvm-current-version' is `nil'.
+                    ;; (if (featurep 'nvm)
+                    ;;     nvm-current-version)
+                    )
+                   )))
+        (if env
+            (propertize (concat " [" env "] ")
+                        'face 'mode-line-info-face))
+        )))
 
-(use-package all-the-icons
-  :ensure t
-  :defer t)
+;;; vc
+(defun *vc ()
+  "Displays the current branch, colored based on its state."
+  (when (and vc-mode buffer-file-name)
+    (let ((backend (vc-backend buffer-file-name))
+          (state   (vc-state buffer-file-name))
+          (face    'mode-line-inactive)
+          (active  (active)))
+      (concat
+       (propertize " " 'face 'variable-pitch)
+       (cond ((memq state '(edited added))
+              (if active (setq face 'mode-line-info-face))
+              (all-the-icons-octicon "git-branch" :face face :height 1.1 :v-adjust -0.05))
+             ((eq state 'needs-merge)
+              (if active (setq face 'mode-line-warn-face))
+              (all-the-icons-octicon "git-merge" :face face))
+             ((eq state 'needs-update)
+              (if active (setq face 'mode-line-warn-face))
+              (all-the-icons-octicon "arrow-down" :face face))
+             ((memq state '(removed conflict unregistered))
+              (if active (setq face 'mode-line-urgent-face))
+              (all-the-icons-octicon "alert" :face face))
+             (t
+              (if active (setq face 'mode-line))
+              (all-the-icons-octicon "git-branch" :face face :height 1.1 :v-adjust -0.05)))
+       " "
+       (propertize (substring vc-mode (+ (if (eq backend 'Hg) 2 3) 2))
+                   'face (if active face))
+       " "
+       (propertize " " 'face 'variable-pitch)))))
 
-(use-package anzu
-  :ensure t
-  :config
-  (make-variable-buffer-local 'anzu--state)
+;;; flycheck
+(defvar-local mode-line--flycheck-err-cache nil "")
+(defvar-local mode-line--flycheck-cache nil "")
+
+(defun mode-line--flycheck-count (state)
+  "Return flycheck information for the given error type STATE."
+  (when (flycheck-has-current-errors-p state)
+    (if (eq 'running flycheck-last-status-change)
+        "?"
+      (cdr-safe (assq state (flycheck-count-errors flycheck-current-errors))))))
+
+(defun *flycheck ()
+  "Persistent and cached flycheck indicators in the mode-line."
+  (when (and (featurep 'flycheck) flycheck-mode)
+    (if (or flycheck-current-errors
+            (eq 'running flycheck-last-status-change))
+        (or (and (or (eq mode-line--flycheck-err-cache mode-line--flycheck-cache)
+                     (memq flycheck-last-status-change '(running not-checked)))
+                 (if (eq flycheck-last-status-change 'running)
+                     (concat " "
+                             (all-the-icons-octicon
+                              "ellipsis"
+                              :face (if (active)
+                                        'mode-line-info-face
+                                      'mode-line-inactive)
+                              :height 1.1
+                              :v-adjust 0)
+                             " ")
+                   mode-line--flycheck-cache))
+            (and (setq mode-line--flycheck-err-cache flycheck-current-errors)
+                 (setq mode-line--flycheck-cache
+                       (let ((fw (mode-line--flycheck-count 'warning))
+                             (fe (mode-line--flycheck-count 'error)))
+                         (concat
+                          (if (or fe fw) " ")
+                          (if fe
+                              (concat
+                               (all-the-icons-octicon "circle-slash"
+                                                      :face 'mode-line-warn-face)
+                               (propertize " " 'face 'variable-pitch)
+                               (propertize (format "%d" fe)
+                                           'face (if (active)
+                                                     'mode-line-warn-face
+                                                   'mode-line-inactive))
+                               " "))
+                          (if fw
+                              (concat
+                               (all-the-icons-octicon "alert"
+                                                      :face (if (active)
+                                                                'mode-line-urgent-face
+                                                              'mode-line-inactive)
+                                                      :v-adjust 0.05)
+                               (propertize " " 'face 'variable-pitch)
+                               (propertize (format "%d" fw)
+                                           'face (if (active)
+                                                     'mode-line-urgent-face
+                                                   'mode-line-inactive))
+                               " "))
+                          (if (or fe fw)
+                              " "
+                            (when (active)
+                              (all-the-icons-octicon "check" :v-adjust -0.06))))))))
+      (concat
+       " "
+       (all-the-icons-octicon "check"
+                              :face (if (active) 'mode-line-info-face 'mode-line-inactive)
+                              :v-adjust -0.06)
+       " "))))
+
+;; selection info
+(defun *selection-info ()
+  "Information about the current selection.
+
+Such as how many characters and lines are selected, or the NxM
+dimensions of a block selection."
+  (when (and (active) (evil-visual-state-p))
+    (concat
+     " "
+     (propertize
+      (let ((reg-beg (region-beginning))
+            (reg-end (region-end))
+            (evil (eq 'visual evil-state)))
+        (let ((lines (count-lines reg-beg (min (1+ reg-end) (point-max))))
+              (chars (- (1+ reg-end) reg-beg))
+              (cols (1+ (abs (- (evil-column reg-end)
+                                (evil-column reg-beg))))))
+          (cond
+           ;; rectangle selection
+           ((or (bound-and-true-p rectangle-mark-mode)
+                (and evil (eq 'block evil-visual-selection)))
+            (format " %dx%dB " lines (if evil cols (1- cols))))
+           ;; line selection
+           ((or (> lines 1) (eq 'line evil-visual-selection))
+            (if (and (eq evil-state 'visual) (eq evil-this-type 'line))
+                (format " %dL " lines)
+              (format " %dC %dL " chars lines)))
+           (t (format " %dC " (if evil chars (1- chars)))))))
+      'face 'mode-line-meta-face))))
+
+;;; macro recording
+(defun *macro-recording ()
+  "Display current macro being recorded."
+  (when (and defining-kbd-macro (active))
+    (let ((separator (propertize " " 'face 'mode-line-meta-face)))
+      (concat separator
+              (all-the-icons-octicon "triangle-right"
+                                     :face 'mode-line-meta-face
+                                     :v-adjust -0.05)
+              separator
+              (propertize (char-to-string evil-this-macro)
+                          'face 'mode-line-meta-face)
+              (propertize kmacro-counter
+                          'face 'mode-line-info-face)
+              separator))))
+
+;;; anzu
+(make-variable-buffer-local 'anzu--state)
+
+(defun *anzu ()
+  "Show the match index and total number thereof.  Requires `evil-anzu'."
+  (when (and (featurep 'anzu) (not (zerop anzu--total-matched)))
+    (propertize
+     (format " %s/%d%s "
+             anzu--current-position anzu--total-matched
+             (if anzu--overflow-p "+" ""))
+     'face 'mode-line-meta-face)))
+
+;;; Iedit
+(defun *iedit ()
+  "Show the number of iedit regions match + what match you're on."
+  (when (and (boundp 'iedit-mode) iedit-mode)
+    (propertize
+     (let ((this-oc (let (message-log-max) (iedit-find-current-occurrence-overlay)))
+           (length (or (ignore-errors (length iedit-occurrences-overlays)) 0)))
+       (format " %s/%s "
+               (save-excursion
+                 (unless this-oc
+                   (iedit-prev-occurrence)
+                   (setq this-oc (iedit-find-current-occurrence-overlay)))
+                 (if this-oc
+                     ;; NOTE: Not terribly reliable
+                     (- length (-elem-index this-oc iedit-occurrences-overlays))
+                   "-"))
+               length))
+     'face 'mode-line-meta-face)))
+
+;; multiple-cursors (mc/)
+(defun *multiple-cursors ()
+  "Show multiple-cursors indicator in mode-line."
+  ;; FIXME: (mc/fake-cursor-p OVERLAY)
+  (if (and (mc/fake-cursor-p)
+           (> (mc/num-cursors) 1)) ; (if 'mc/fake-cursor-p ...)
+      (propertize
+       (format "[%d]" (mc/num-cursors)) ; `mc/mode-line'
+       'face 'mode-line-meta-face)))
+
+;;; Evil substitute
+(defun *evil-substitute ()
+  "Show number of :s match in real time."
+  (when (and (evil-ex-p) (evil-ex-hl-active-p 'evil-ex-substitute))
+    (propertize
+     (let ((range (if evil-ex-range
+                      (cons (car evil-ex-range) (cadr evil-ex-range))
+                    (cons (line-beginning-position) (line-end-position))))
+           (pattern (car-safe (evil-delimited-arguments evil-ex-argument 2))))
+       (if pattern
+           (format " %s matches "
+                   (count-matches pattern (car range) (cdr range))
+                   evil-ex-argument)
+         " ... "))
+     'face (if (active) 'mode-line-meta-face))))
+
+;; input method
+(defun *input-method ()
+  "Show input-method info in mode-line."
+  (if (and current-input-method-title (active)) ; `set-input-method'
+      (propertize (format " {%s}" current-input-method-title)
+                  'face 'mode-line-meta-face)))
+
+;; org-tree-slide slide number
+(defun *org-tree-slide ()
+  "Show `org-tree-slide' slide number."
+  (when (and org-tree-slide--active-p (active))
+    (propertize (format "[%s]" org-tree-slide--slide-number)
+                'face 'mode-line-info-face)))
+
+;; wc-mode (word count) `wc-format-modeline-string', `wc-mode-update'.
+(defun *wc-mode ()
+  "Show wc-mode word count."
+  (if (and (featurep 'wc-mode) wc-mode (active))
+      (propertize (wc-format-modeline-string " WC:[%tw]")
+                  'face 'mode-line-info-face)))
+
+;; mmm-mode
+
+
+;; process: inferior,
+(defun *process ()
+  "Show `major-mode' process info."
+  (when (stringp mode-line-process)
+    (propertize
+     (concat " ◌ " mode-line-process)
+     'face 'mode-line-warn-face
+     'help-echo "buffer-process")))
+
+;; notifications
+;; IRC
+(defun *erc ()
+  "Show ERC info."
+  ;; TODO:
   )
 
-;; nyan-mode
-;; Nyan Mode is an analog indicator of your position in the buffer. The Cat
-;; should go from left to right in your mode-line, as you move your point from
-;; 0% to 100%.
-;; (use-package nyan-mode
-;;   :ensure t)
-;; (setq nyan-animate-nyancat t
-;;       nyan-wavy-trail nil
-;;       nyan-animation-frame-interval 0.2
-;;       nyan-bar-length 15
-;;       nyan-cat-face-number 1
-;;       )
+(defun *company-lighter ()
+  "Show company-mode lighter from `company-lighter'."
+  (if (and (boundp company-mode) company-mode (consp company-backend))
+      (propertize
+       (company--group-lighter
+        (nth company-selection company-candidates) company-lighter-base)
+       'face 'mode-line-warn-face)))
 
-;; spinner
-(use-package spinner
-  :ensure t
-  :defer t)
-;; (spinner-start 'vertical-breathing 10)
-;; (spinner-start 'minibox)
-;; (spinner-start 'moon)
-;; (spinner-start 'triangle)
-
-(require 'org-timer)
-
-(use-package wc-mode
-  :ensure t)
-
-(setq-default
- mode-line-format
- (quote
-  (
-   ;; active window indicator
-   (:eval
-    (if (active)
-        (propertize "▌"
-                    'face '(:foreground "yellow")
-                    )))
-   
-   ;; macro recording -- `kmacro-counter', `kmacro-insert-counter'
-   (:eval
-    (when (and (active)
-               defining-kbd-macro)
-      (propertize (format "∆ %s "
-                          ;; macro counter
-                          kmacro-counter)
-                  'face '(:foreground "yellow"))))
-   
-   ;; emacsclient indicator
-   (:eval
-    (if (frame-parameter nil 'client)
-        (propertize
-         " あ "
-         'face (if (active) '(:foreground "#333333" :background "yellow" :weight bold)))))
-
-   ;; anzu -- `anzu--update-mode-line'
-   (:eval
-    (when (and (featurep 'anzu) (not (zerop anzu--total-matched)))
-      (propertize (format " %s/%d%s " anzu--current-position anzu--total-matched
-                          (if anzu--overflow-p "+" ""))
-                  'face '(:foreground "yellow"))))
-   
-   ;; multiple-cursors (mc/)
-   ;; (:eval
-   ;;  ;; FIXME: (mc/fake-cursor-p ?)
-   ;;  (if (and (mc/fake-cursor-p)
-   ;;           (> (mc/num-cursors) 1)) ; (if 'mc/fake-cursor-p ...)
-   ;;      (propertize (format "[%d]" (mc/num-cursors)) ; `mc/mode-line'
-   ;;                  'face '(:foreground "firebrick" :background "black"))))
-
-   ;; input method
-   (:eval
-    (if current-input-method-title ; `set-input-method'
-        (propertize (format " {%s}" current-input-method-title)
-                    'face '(:foreground "cyan" :weight bold))))
-
-   ;; mule info: U:[*--]
-   (:propertize mode-line-mule-info
-                ;; 'face 'font-lock-keyword-face
-                )
-   
-   ;; Buffer status
-   ;; mode-line-client
-   ;; mode-line-remote
-   ;; mode-line-frame-identification
-   ;; mode-line-buffer-identification
-   (:eval
-    (cond
-     (buffer-read-only
-      (propertize " ⚑ "
-                  'face '(:foreground "red" :weight bold)
-                  'help-echo "buffer is read-only!!!"))
-     ;; (overwrite-mode
-     ;;  (propertize "??"))
-     ((buffer-modified-p)
-      (propertize " ☡ "
-                  'face '(:foreground "orange")
-                  'help-echo "buffer modified."))
-
-     ;; (mode-line-remote
-     ;;  (propertize " R "
-     ;;              'face '(:foreground "dark magenta")
-     ;;              'help-echo "remote buffer")
-     ;;  )
-     (t "   ")
-     ))
-
-   ;; buffer encoding
-   (:eval
-    (if (not (memq buffer-file-coding-system
-                   '(utf-8
-                     utf-8-unix
-                     prefer-utf-8-unix
-                     utf-8-auto-unix
-                     utf-8-emacs-unix
-                     undecided-unix ; TODO: remove in future
-                     )))
-        (list
-         (propertize (format "[%s]" (symbol-name buffer-file-coding-system))
-                     'face '(:foreground "red")))
-      ))
-
-   ;; `ejc-sql' connection name: `ejc-connection-name'
-   (:eval
-    (when (and (bound-and-true-p ejc-sql-mode)
-               (bound-and-true-p ejc-connection-name))
-      (propertize (format "%s" ejc-connection-name)
-                  'face (if (active) '(:foreground "green")))))
-   
-   ;; VCS - Git, SVN, CVS,
-   (:eval
-    (when vc-mode
-      (let* ((backend
-              (substring vc-mode
-                         (+ 2 (length (symbol-name (vc-backend buffer-file-name))))))
-             (rev (vc-working-revision buffer-file-name))
-             (state (vc-state buffer-file-name))
-             (ascii (cond ((memq state '(up-to-date))
-                           "✔")
-                          ((memq state '(edited))
-                           "∓")
-                          ((memq state '(added))
-                           "✚")
-                          ((memq state '(removed))
-                           "✖")
-                          ((memq state '(conflict))
-                           "≠")
-                          ((memq state '(needs-merge))
-                           "⌥")
-                          ((memq state '(needs-updated))
-                           "⇧")
-                          ((memq state '(unregistered))
-                           "-")
-                          ((memq state '(missing))
-                           "-")
-                          (nil
-                           "")
-                          ))
-             (face (cond ((memq state '(up-to-date))
-                          'face '(:foreground "green"))
-                         ((memq state '(edited added))
-                          'face '(:foreground "yellow"))
-                         ((memq state '(removed needs-merge needs-update))
-                          'face '(:foreground "dark violet"))
-                         ((memq state '(unregistered))
-                          'face '(:foreground "dim gray"))
-                         ((memq state '(conflict))
-                          'face '(:foreground "firebrick"))
-                         (t
-                          'face '(:foreground "deep pink"))
-                         )))
-        
-        (list
-         (propertize (all-the-icons-octicon "git-branch")
-                     'face `(:inherit ,(if (active) '(:foreground "cyan") 'mode-line-inactive)
-                                      :family ,(all-the-icons-octicon-family)
-                                      :height 1.25)
-                     'display '(raise -0.1))
-         
-         (propertize (format " %s" backend)
-                     'face (if (active) face))
-         (propertize (format " [%s]" ascii)
-                     'face (if (active) face))
-         ))
-      ))
-
-   ;; org-tree-slide slide number
-   ;; TODO:
-   ;; (:eval
-   ;;  (when (org-tree-slide--active-p)
-   ;;    (propertize (format "[%s]" org-tree-slide--slide-number)
-   ;;                'face '(:foreground "cyan"))))
-
-   ;; Flycheck
-   (:eval
-    (if flycheck-current-errors
-        (propertize (flycheck-mode-line-status-text)
-                    'face (if (active) '(:foreground "orange" :height 70)))))
-   
-   ;; buffer name
-   (:eval
-    (list
-     (propertize
-      "[%b]"
-      'face (if (active) '(:foreground "white" :height 75)))))
-
-   
-   ;; wc-mode (word count) `wc-format-modeline-string', `wc-mode-update'.
-   ;; (:eval
-   ;;  (if (and (featurep 'wc-mode) wc-mode (active))
-   ;;      (propertize (wc-format-modeline-string " WC:[%tw]")
-   ;;                  'face '(:foreground "green yellow" :height 75))))
-
-   
-   ;; mmm-mode
-
-
-   ;; process: inferior,
-   (:eval
-    (when (stringp mode-line-process)
-      (list
-       (propertize " ◌ "
-                   'face '(:foreground "cyan" :weight bold)
-                   'help-echo "buffer-process")
-       (propertize mode-line-process
-                   'face '(:foreground "DeepSkyBlue")
-                   'help-echo "buffer-process")
-       )))
-   
-   ;; notifications
-   ;; IRC
-
-   ;; company-mode lighter `company-lighter'
-   (:eval
-    (if (and (boundp company-mode)
-             company-mode
-             (consp company-backend))
-        (list
-         ;; (propertize "Ⓐ"
-         ;;             'face '(:foreground "DimGray"))
-         (propertize " ")
-         (propertize (company--group-lighter (nth company-selection
-                                                  company-candidates)
-                                             company-lighter-base)
-                     ;; (symbol-name company-backend)
-                     'face '(:foreground "green yellow")
-                     'help-echo "company-mode current backend")
-         )))
-
-   ;; org-clock
-   (:eval
-    (when (and (active) org-clock-idle-timer)
-      ;; get [0:05] from `org-clock-get-clock-string'
-      (propertize (format " ⏳ %s"
-                          (org-minutes-to-clocksum-string (org-clock-get-clocked-time)))
-                  'face '(:foreground "yellow"))))
-   
-   ;; org-clock-today (show current org clock)
-   ;; NOTE: this time is doubled on `org-clock'.
-   ;; (:eval
-   ;;  (when (and (org-clock-is-active) (active))
-   ;;    (list
-   ;;     (propertize (format " ⏰%s" org-clock-today-string)
-   ;;                 'face '(:foreground "cyan")))
-   ;;    ))
-   
-   ;; --------------------------- right align ----------------------------------
-   
-   ;; Email
-
-   ;; fill with ' '.
-   ;; (:propertize "% ")
-   
-   (:propertize mode-line-end-spaces))
-  ))
+(defun *org-clock ()
+  "Show org-clock info."
+  (when (and (active) org-clock-idle-timer)
+    ;; get [0:05] from `org-clock-get-clock-string'
+    (propertize
+     (concat
+      (all-the-icons-octicon "clock"
+                             :v-adjust 0.1)
+      (format " %s"
+              (org-minutes-to-clocksum-string (org-clock-get-clocked-time))))
+     'face 'mode-line-warn-face))
+  
+  ;; org-clock-today (show current org clock)
+  ;; NOTE: this time is doubled on `org-clock'.
+  ;; (:eval
+  ;;  (when (and (org-clock-is-active) (active))
+  ;;    (list
+  ;;     (propertize (format " ⏰%s" org-clock-today-string)
+  ;;                 'face '(:foreground "cyan")))
+  ;;    ))
+  )
 
 ;; update org-clock timer in mode-line after `org-clock-out-hook'.
 ;; fix org-clock timer does not disappear after clock out.
@@ -367,94 +525,75 @@
              (setq org-mode-line-string nil)
              (force-mode-line-update)))
 
-;; --------------------------- right align ----------------------------------
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;; mode-line right align (which replace `mode-line-end-spaces')
-;;; you can custom here (add right aligned things here)
-(display-time-mode t)
-(setq global-mode-string (remove 'display-time-string global-mode-string))
-(setq
- mode-line-end-spaces
- (quote
-  (
-   (:propertize " "
-                display (space :align-to (- right 55)))
+(defun my-modeline ()
+  "My custom mode-line."
+  `(:eval
+    (let* ((meta (concat
+                  (*emacsclient)
+                  (*macro-recording)
+                  (*anzu)
+                  (*iedit)
+                  ;; (*multiple-cursors)
+                  ;; (*evil-substitute)
+                  (*input-method)
+                  (*company-lighter)
+                  ;; (*erc)
+                  ))
+           (lhs (list
+                 (*current)
+                 (if (= (length meta) 0) " %I " meta)
+                 " "
+                 (*buffer-info)
+                 (*buffer-name)
+                 ;; (*buffer-encoding)
+                 ;; (*wc-mode)
+                 " [%l:%c %p] "
+                 (*process)
+                 (*org-clock)
+                 ;; (*org-tree-slide)
+                 ))
+           (rhs (list
+                 (*flycheck)
+                 (*vc)
+                 ;; (*buffer-project)
+                 (*projectile)
+                 ;; (*perspeen)
+                 (*major-mode)
+                 (*env)
+                 ))
+           (mid (propertize
+                 " "
+                 'display `((space
+                             :align-to (- (+ right right-fringe right-margin)
+                                          ,(+ 1 (string-width (format-mode-line rhs)))))))))
+      (list lhs mid rhs))))
 
-   ;; nyan-mode
-   ;; (:eval
-   ;;  (when nyan-mode (list (nyan-create))))
-
-   ;; spinner
-   ;; TODO: Let spinner support to be used in custom mode-line as a function.
-   ;; '(:eval (spinner-start 'minibox))
-   ;;
-   ;; '(:propertize  (:eval (spinner-start 'minibox))   ; 'spinner--mode-line-construct
-   ;;                :face (:foreground "dark gray"))
-
-   ;; line and column number, relative position
-   ;; `mode-line-position'
-   ;; '(:propertize " [%p,%I] ")
-   (:eval
-    (list
-     (propertize " (%02l,"
-                 'face (if (active) '(:foreground "dark gray")))
-     (propertize "%02c"
-                 'face (if (active)
-                           (if (>= (current-column) 75)
-                               '(:foreground "red" :height 75)
-                             '(:foreground "dark gray" :height 75))))
-     (propertize " | %03p) "
-                 'face (if (active) '(:foreground "dark gray" :height 75)))
-     )
-    )
-
-   ;; perspeen -- `perspeen-modestring'
-   (:eval
-    (when (bound-and-true-p perspeen-modestring)
-      ;; change face
-      (put-text-property 0 6
-                         'face (if (active) '(:foreground "green yellow"))
-                         (nth 1 perspeen-modestring))
-      perspeen-modestring
-      ;; (propertize (nth 1 perspeen-modestring))
-      ;; (propertize
-      ;;  (format "[%s]"
-      ;;          (substring-no-properties
-      ;;           (nth 1 perspeen-modestring)))
-      ;;  'face (if (active) '(:foreground "green yellow")))
-      ))
-   
-   ;; projectile
-   (:eval
-    (if (bound-and-true-p projectile-mode)
-        (list
-         (propertize " [")
-         (propertize "💻: "
-                     'face (if (active) '(:foreground "cyan") 'mode-line-inactive)
-                     'display '(raise 0.1))
-         (propertize (projectile-project-name) ; `projectile-mode-line'
-                     'face (if (active) '(:foreground "green yellow") 'mode-line-inactive))
-         (propertize "] ")
-         )
-      ))
-   
-
-   ;; the major mode of the current buffer.
-   ;; `mode-name', `mode-line-modes', `minor-mode-alist'
-   ;; (:eval
-   ;;  (propertize
-   ;;   "%m"
-   ;;   'face (if (active)
-   ;;             '(:foreground "cyan"
-   ;;                           :family "Comic Sans MS" :weight bold :height 80)
-   ;;           'mode-line-inactive)))
-   
-   (:eval
-    (major-mode-icons-show))
-   )))
+(setq-default mode-line-format (my-modeline))
 
 
-;; (setq mode-line-in-non-selected-windows t)
+;; display time
+;; (setq display-time-interval 60)
+;; (setq display-time-24hr-format nil)
+;; (setq display-time-format nil)
+;; (setq display-time-day-and-date nil)
+
+;; event
+;; (display-time-event-handler)
+
+;;; Mail
+(setq display-time-mail-directory "~/Mails/INBOX/new/")
+(setq display-time-use-mail-icon t)
+;; (setq display-time-mail-file nil)
+;; (setq display-time-mail-function nil)
+;; (display-time-mail-check-directory)
+
+;;; load-average
+;; (setq display-time-default-load-average 0)
+;; (setq display-time-load-average-threshold 0.5)
+
+;; (display-time-mode t)
 
 
 ;;; smart mode-line colors depend on background color.
@@ -500,30 +639,6 @@
    ;;                     :height 100
    ;;                     )
    ))
-
-
-;;; [ display-time ]
-
-;; (setq display-time-interval 60)
-;; (setq display-time-24hr-format nil)
-;; (setq display-time-format nil)
-;; (setq display-time-day-and-date nil)
-
-;; ;;; event
-;; (display-time-event-handler)
-
-;;; Mail
-(setq display-time-mail-directory "~/Mails/INBOX/new/")
-(setq display-time-use-mail-icon t)
-;; (setq display-time-mail-file nil)
-;; (setq display-time-mail-function nil)
-(display-time-mail-check-directory)
-
-;; ;;; load-average
-;; (setq display-time-default-load-average 0)
-;; (setq display-time-load-average-threshold 0.5)
-
-(display-time-mode t)
 
 
 (provide 'init-my-emacs-mode-line)
