@@ -10,6 +10,15 @@
 (global-set-key (kbd "C-x C-d") 'emacs-debug-prefix)
 
 
+(defun emacs-version-detail ()
+  "Insert version of Emacs and 7 characters of the commit hash."
+  (interactive)
+  (insert
+   (format "GNU Emacs %s (commit %s)"
+           emacs-version
+           (substring (emacs-repository-get-version) 0 7))))
+
+
 ;;; [ debug ] -- Emacs built-in debugger.
 
 (use-package debug
