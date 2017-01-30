@@ -38,6 +38,7 @@
 (use-package leuven-theme
   :ensure t
   :config
+  (setq leuven-scale-outline-headlines t)
   (load-theme 'leuven t))
 
 
