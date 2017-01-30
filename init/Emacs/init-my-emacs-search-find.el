@@ -14,6 +14,13 @@
   :bind ("C-x f" . f3)
   )
 
+;;; [ fuff ] -- Find files with findutils recursively as a replacement of `find-file'.
+
+(use-package fuff
+  :ensure t
+  :bind ("C-x C-f" . fuff-find-file)
+  )
+
 
 (provide 'init-my-emacs-search-find)
 
