@@ -24,6 +24,16 @@
 
 (define-key my-search-prefix (kbd "s") 'ag)
 
+;;; [ socyl ] -- The Emacs frontend for several search tools (ag, pt, sift, ripgrep, ...).
+
+(use-package socyl
+  :ensure t
+  :bind (:map my-search-prefix
+              ("s" . socyl-search-regexp))
+  :config
+  (setq socyl-backend 'ag)
+  )
+
 
 (provide 'init-my-emacs-search)
 

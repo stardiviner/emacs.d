@@ -261,6 +261,9 @@
   ;; Festival
   (push '("*festival*" :position bottom :height 8) popwin:special-display-config)
 
+  ;; socyl
+  (push '(socyl-search-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
+  
   ;; ack-and-a-half
   (push '(ack-and-a-half-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
 
