@@ -12,7 +12,9 @@
 ;;; - M-x customize `network-security'
 ;;; - `network-security-level'
 
+;;; [ Proxy ]
 
+;; (setq url-proxy-services '(()))
 
 ;;; ----------------------------------------------------------------------------
 
