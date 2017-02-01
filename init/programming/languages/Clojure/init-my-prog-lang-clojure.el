@@ -197,6 +197,10 @@
   (add-hook 'cider-repl-mode-hook #'company-mode)
   (add-hook 'cider-mode-hook #'company-mode)
 
+  ;; enable fuzzy completion for CIDER
+  ;; (add-hook 'cider-repl-mode-hook #'cider-company-enable-fuzzy-completion)
+  ;; (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
+
   ;; enable `eldoc' in relevant buffers.
   (add-hook 'cider-mode-hook #'eldoc-mode)
   (setq cider-eldoc-display-for-symbol-at-point t ; NOTE: enable this will cause high CPU.
