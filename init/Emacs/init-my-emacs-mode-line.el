@@ -69,6 +69,12 @@
   "Face used for info segments in mode-line."
   :group 'mode-line)
 
+(defface mode-line-data-face
+  '((t (:inherit 'mode-line
+                 :foreground "cyan")))
+  "Face used for info segments in mode-line."
+  :group 'mode-line)
+
 (defface mode-line-warn-face
   '((t (:inherit 'warning)))
   "Face used for warning segments in mode-line."
@@ -313,7 +319,8 @@ state (modified, read-only or non-existent)."
                           (if fe
                               (concat
                                (all-the-icons-octicon "circle-slash"
-                                                      :face 'mode-line-warn-face)
+                                                      :face 'mode-line-warn-face
+                                                      :v-adjust 0.05)
                                (propertize " " 'face 'variable-pitch)
                                (propertize (format "%d" fe)
                                            'face (if (active)
@@ -505,7 +512,7 @@ dimensions of a block selection."
                              :v-adjust 0.1)
       (format " %s"
               (org-minutes-to-clocksum-string (org-clock-get-clocked-time))))
-     'face 'mode-line-warn-face))
+     'face 'mode-line-data-face))
   
   ;; org-clock-today (show current org clock)
   ;; NOTE: this time is doubled on `org-clock'.
