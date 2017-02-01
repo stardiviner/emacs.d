@@ -16,6 +16,10 @@
 
 ;;; Code:
 
+;;; [ Modifiers]
+
+;; (setq x-hyper-keysym 'hyper)
+
 ;;; shorter suggestion:
 ;; You can run the command ‘find-file’ with C-x C-f
 ;; =>
