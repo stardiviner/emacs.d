@@ -42,6 +42,9 @@
                  ))
               org-capture-templates))
 
+
+(define-key my-org-prefix (kbd "w") 'org-drill)
+
 (defun my-org-drill-open ()
   "Open org-drill words file for review."
   (interactive)
