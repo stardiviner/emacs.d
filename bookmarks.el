@@ -1,8 +1,73 @@
-;;;; Emacs Bookmark Format Version 1 ;;;;
+;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8 -*- 
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("My Swift Programming Language Practical Examples.org"
+(("C++.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/C++/C++.org")
+ (front-context-string . "* Intro\n\n** Abou")
+ (rear-context-string)
+ (position . 1))
+("Programmer.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programmer/Programmer.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Linux Kernel.org"
+ (filename . "~/Org/Wiki/Computer Technology/Systems/Linux/Linux Kernel/Linux Kernel.org")
+ (front-context-string . "* Intro\n\n\n** Lin")
+ (rear-context-string)
+ (position . 1))
+("Open Source.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Open Source/Open Source.org")
+ (front-context-string . "* Intro\n\n\n** Lin")
+ (rear-context-string)
+ (position . 1))
+("Paradigms.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Coding/Paradigms/Paradigms.org")
+ (front-context-string . "* Intro\n\n** Comp")
+ (rear-context-string)
+ (position . 1))
+("Programming Concepts.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Concepts/Programming Concepts.org")
+ (front-context-string . "* Introspection ")
+ (rear-context-string)
+ (position . 1))
+("My Data Structures Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Data Structure/Data/Manuals/My Data Structures Reference/My Data Structures Reference.org")
+ (front-context-string . "* Data types\n\n**")
+ (rear-context-string)
+ (position . 1))
+("Data Structure.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Data Structure/Data Structure.org")
+ (front-context-string . "* Intro\n\n** Wiki")
+ (rear-context-string)
+ (position . 1))
+("My Algorithms Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Algorithm/Data/Manuals/My Algorithms Reference/My Algorithms Reference.org")
+ (front-context-string . "* Sort (排序)\n\n** ")
+ (rear-context-string)
+ (position . 1))
+("Algorithm.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Algorithm/Algorithm.org")
+ (front-context-string . "* Intro\n\n** Abou")
+ (rear-context-string)
+ (position . 1))
+("Talents.org"
+ (filename . "~/Org/Wiki/Talents/Talents.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Mathematics Formula Reference.org"
+ (filename . "~/Org/Wiki/Mathematics/Data/Manuals/Mathematics Formula Reference/Mathematics Formula Reference.org")
+ (front-context-string . "\n\n* Matrix\n\n** M")
+ (rear-context-string . "UP: latexpreview")
+ (position . 24))
+("Mathematics Terms Reference.org"
+ (filename . "~/Org/Wiki/Mathematics/Data/Manuals/Mathematics Terms Reference/Mathematics Terms Reference.org")
+ (front-context-string . "#+TITLE: Mathema")
+ (rear-context-string)
+ (position . 1))
+("My Swift Programming Language Practical Examples.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Swift/Data/Manuals/My Swift Programming Language Practical Examples/My Swift Programming Language Practical Examples.org")
  (front-context-string)
  (rear-context-string)
@@ -59,9 +124,9 @@
  (position . 1))
 ("Imperial Study.org"
  (filename . "~/Org/Wiki/Imperial Study/Imperial Study.org")
- (front-context-string . "* Intro\n\n** 帝王学 ")
- (rear-context-string)
- (position . 1))
+ (front-context-string . "出鳞片、尾巴和触角，，最终英雄变")
+ (rear-context-string . "身上，看着闪烁的黄金，慢慢地长\n")
+ (position . 220))
 ("御人之术.org"
  (filename . "~/Org/Wiki/Imperial Study/Data/Manuals/御人之术/御人之术.org")
  (front-context-string)
@@ -192,11 +257,6 @@
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
-("Mathematics Terms Reference.org"
- (filename . "~/Org/Wiki/Mathematics/Mathematics Terms Reference/Mathematics Terms Reference.org")
- (front-context-string . "* System of line")
- (rear-context-string)
- (position . 1))
 ("My Julia Language Examples.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Julia/Data/Manuals/My Julia Language Examples/My Julia Language Examples.org")
  (front-context-string . "* System\n\n** Inv")
@@ -220,11 +280,6 @@
 ("Swift.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Swift/Swift.org")
  (front-context-string . "* Intro\n\n*Swift*")
- (rear-context-string)
- (position . 1))
-("Mathematics Formula Reference.org"
- (filename . "~/Org/Wiki/Mathematics/Data/Manuals/Mathematics Formula Reference/Mathematics Formula Reference.org")
- (front-context-string . "* Euler's identi")
  (rear-context-string)
  (position . 1))
 ("My TeX Symbols Reference.org"
@@ -633,8 +688,8 @@
  (rear-context-string)
  (position . 1))
 ("Packages.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/R/Data/Packages/Packages.org")
- (front-context-string . "* Packages Manag")
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Java/Data/Packages/Packages.org")
+ (front-context-string . "* Process\n\n** Th")
  (rear-context-string)
  (position . 1))
 ("My SQL Reference.org"
@@ -777,11 +832,6 @@
  (front-context-string)
  (rear-context-string)
  (position . 1))
-("Mathematics Formula Reference"
- (filename . "~/Org/Wiki/Mathematics/Data/Manuals/Mathematics Formula Reference/Mathematics Formula Reference.org")
- (front-context-string)
- (rear-context-string)
- (position . 1))
 ("dotfiles (org-mode literate)"
  (filename . "~/Org/dotfiles/dotfiles.org")
  (front-context-string)
@@ -798,10 +848,10 @@
  (rear-context-string)
  (position . 1))
 ("org-capture-last-stored"
- (filename . "~/Org/Diary/Diary.org")
- (front-context-string . "**** 狂欢是一群人的孤独, ")
- (rear-context-string . "。让这\n个世界看看我的愤怒。\n\n")
- (position . 26977))
+ (filename . "~/Org/Tasks/Words.org")
+ (front-context-string . "* extendable :dr")
+ (rear-context-string . "e\n:END:\n\n阿姆斯特丹\n\n")
+ (position . 555))
 ("Accounts"
  (filename . "~/Org/Accounts/accounts.org.gpg")
  (front-context-string . "* Nick\n\nstardivi")
