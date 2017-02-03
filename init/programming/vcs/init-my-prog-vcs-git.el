@@ -24,12 +24,7 @@
   :init
   (add-to-list 'auto-mode-alist '("\\.gitignore\\'" . gitignore-mode)))
 (use-package git-commit
-  :ensure t
-  :config
-  (set-face-attribute 'git-commit-summary nil
-                      :foreground "black"
-                      )
-  )
+  :ensure t)
 
 
 ;;; [ Magit ]

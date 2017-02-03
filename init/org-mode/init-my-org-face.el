@@ -7,7 +7,6 @@
 
 ;;; Code:
 
-
 ;; Date
 ;; Date: Saturday   27 July 2013
 (set-face-attribute 'org-date nil
@@ -100,15 +99,13 @@
 ;; Emphasize
 ;; org-verbatim: =verbatim=
 (set-face-attribute 'org-verbatim nil
-                    :background (color-darken-name (face-background 'default) 5)
-                    :foreground "LimeGreen"
-                    :weight 'bold
+                    ;; :slant 'italic
+                    :overline t
                     ;; :family "Comic Sans MS"
                     )
 
 ;; table
 (set-face-attribute 'org-table nil
-                    :foreground "dodger blue"
                     :background (color-darken-name (face-background 'default) 2)
                     )
 
@@ -131,7 +128,7 @@
                     :foreground "Steelblue4"
                     :background (color-darken-name (face-background 'default) 2)
                     ;; :box '(:color "black" :line-width -1 :style nil)
-                    ;; :overline "dark slate gray"
+                    :overline "dark slate gray"
                     )
 (set-face-attribute 'org-level-2 nil
                     :inherit 'org-level-1
@@ -294,16 +291,12 @@
                     :background "dark green"
                     )
 
-;; code face => ~code~,  #+RESULTS: : result.
+;; inline code face => ~code~,  #+RESULTS: : result.
 (set-face-attribute 'org-code nil
                     ;; 1. sci-fi cyan style
-                    ;; :background "#004A5D" :foreground "white"
-                    ;; :box '(:color "cyan" :line-width 1)
-                    ;; :family "DejaVu Sans Mono"
-                    ;; :underline nil
-                    
-                    ;; 2. without box, clear for code which has underline.
+                    :inherit nil
                     :background "#004A5D" :foreground "white"
+                    ;; :box '(:color "cyan" :line-width 1)
                     :family "DejaVu Sans Mono"
                     )
 

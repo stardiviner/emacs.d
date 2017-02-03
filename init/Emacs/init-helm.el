@@ -44,44 +44,6 @@
         helm-ff-transformer-show-only-basename t
         ;; helm-sources-using-default-as-input
         )
-
-  ;; [ Helm faces ]
-  (set-face-attribute 'helm-selection nil
-                      :inherit nil
-                      ;; 1. box selected
-                      ;; :background "#004A5D" :foreground "white"
-                      ;; :box '(:color "cyan" :line-width -1)
-                      ;; :underline nil
-                      ;; 2. darker background
-                      :inverse-video nil
-                      :foreground nil
-                      :background (color-darken-name (face-background 'default) 4)
-                      )
-  ;; (set-face-attribute 'helm-match nil
-  ;;                     :inherit nil
-  ;;                     :foreground "white"
-  ;;                     :background nil
-  ;;                     :box '(:color "cyan" :line-width -1)
-  ;;                     )
-  ;; (set-face-attribute 'helm-header nil
-  ;;                     :reverse-video nil
-  ;;                     :foreground "gray" :background "black"
-  ;;                     :weight 'bold)
-  ;; (set-face-attribute 'helm-source-header nil
-  ;;                     :foreground "green" :background "#222222"
-  ;;                     :overline "yellow" :weight 'bold
-  ;;                     )
-  ;; (set-face-attribute 'helm-prefarg nil
-  ;;                     :foreground "cyan")
-  ;; (set-face-attribute 'helm-action nil
-  ;;                     :inverse-video nil
-  ;;                     :foreground "orange"
-  ;;                     :underline nil
-  ;;                     )
-  ;; (set-face-attribute 'helm-separator nil
-  ;;                     :foreground "cyan")
-  ;; (set-face-attribute 'helm-visible-mark nil
-  ;;                     :foreground "black" :background "green yellow")
   )
 
 

@@ -185,74 +185,75 @@
   (add-hook 'company-completion-finished-hook #'my-company-animation)
 
   
-  ;; faces
-  ;; tooltip
-  (set-face-attribute 'company-tooltip nil
-                      :inverse-video nil
-                      :foreground "black"
-                      :background "white"
-                      :weight 'normal :slant 'normal
-                      :underline nil)
-  ;; selection
-  (set-face-attribute 'company-tooltip-selection nil
-                      :inherit 'company-tooltip
-                      :foreground "black" :background "Dark Khaki"
-                      :underline nil
-                      :weight 'normal)
-  (set-face-attribute 'company-tooltip-mouse nil
-                      :inherit 'company-tooltip
-                      :foreground "sky blue"
-                      :background (face-background 'company-tooltip-selection)
-                      :weight 'bold)
-  ;; common
-  (set-face-attribute 'company-tooltip-common nil
-                      :inherit 'company-tooltip
-                      :foreground "dim gray" :background "light gray"
-                      :underline nil)
-  ;; common selection
-  (set-face-attribute 'company-tooltip-common-selection nil
-                      :inherit 'company-common
-                      :foreground "black"
-                      :background (face-background 'company-tooltip-selection)
-                      :inverse-video nil
-                      :underline nil
-                      :weight 'bold)
-  ;; search
-  (set-face-attribute 'company-tooltip-search nil
-                      :inherit 'company-tooltip
-                      :foreground "black" :background "pink")
-  (set-face-attribute 'company-tooltip-search-selection nil
-                      :inherit 'company-tooltip
-                      :foreground "white" :background "deep pink"
-                      )
-  ;; annotation
-  (set-face-attribute 'company-tooltip-annotation nil
-                      :inherit 'company-tooltip
-                      :foreground "#777777" :background "white")
-  (set-face-attribute 'company-tooltip-annotation-selection nil
-                      :inherit 'company-tooltip-selection
-                      :foreground "orange")
-  ;; scroll-bar
-  (set-face-attribute 'company-scrollbar-fg nil
-                      :foreground "black" :background "black")
-  (set-face-attribute 'company-scrollbar-bg nil
-                      :foreground "gray" :background "gray")
-  ;; preview
-  (set-face-attribute 'company-preview nil
-                      :foreground "dim gray" :background "black"
-                      :weight 'normal)
-  (set-face-attribute 'company-preview-common nil
-                      :inherit 'company-preview
-                      :foreground "green yellow" :background "#444444")
-  (set-face-attribute 'company-preview-search nil
-                      :inherit 'company-preview
-                      :foreground "cyan")
-  ;; echo area
-  (set-face-attribute 'company-echo nil
-                      :foreground "light blue")
-  (set-face-attribute 'company-echo-common nil
-                      :inherit 'company-echo
-                      :foreground "cyan")
+  ;; ;; faces
+  ;; ;; tooltip
+  ;; (set-face-attribute 'company-tooltip nil
+  ;;                     :inverse-video nil
+  ;;                     :foreground "black"
+  ;;                     :background "white"
+  ;;                     :weight 'normal :slant 'normal
+  ;;                     :underline nil)
+  ;; ;; selection
+  ;; (set-face-attribute 'company-tooltip-selection nil
+  ;;                     :inherit 'company-tooltip
+  ;;                     :foreground "black" :background "Dark Khaki"
+  ;;                     :underline nil
+  ;;                     :weight 'normal)
+  ;; (set-face-attribute 'company-tooltip-mouse nil
+  ;;                     :inherit 'company-tooltip
+  ;;                     :foreground "sky blue"
+  ;;                     :background (face-background 'company-tooltip-selection)
+  ;;                     :weight 'bold)
+  ;; ;; common
+  ;; (set-face-attribute 'company-tooltip-common nil
+  ;;                     :inherit 'company-tooltip
+  ;;                     :foreground "dim gray" :background "light gray"
+  ;;                     :underline nil)
+  ;; ;; common selection
+  ;; (set-face-attribute 'company-tooltip-common-selection nil
+  ;;                     :inherit 'company-common
+  ;;                     :foreground "black"
+  ;;                     :background (face-background 'company-tooltip-selection)
+  ;;                     :inverse-video nil
+  ;;                     :underline nil
+  ;;                     :weight 'bold)
+  ;; ;; search
+  ;; (set-face-attribute 'company-tooltip-search nil
+  ;;                     :inherit 'company-tooltip
+  ;;                     :foreground "black" :background "pink")
+  ;; (set-face-attribute 'company-tooltip-search-selection nil
+  ;;                     :inherit 'company-tooltip
+  ;;                     :foreground "white" :background "deep pink"
+  ;;                     )
+  ;; ;; annotation
+  ;; (set-face-attribute 'company-tooltip-annotation nil
+  ;;                     :inherit 'company-tooltip
+  ;;                     :foreground "#777777" :background "white")
+  ;; (set-face-attribute 'company-tooltip-annotation-selection nil
+  ;;                     :inherit 'company-tooltip-selection
+  ;;                     :foreground "orange")
+  ;; ;; scroll-bar
+  ;; (set-face-attribute 'company-scrollbar-fg nil
+  ;;                     :foreground "black" :background "black")
+  ;; (set-face-attribute 'company-scrollbar-bg nil
+  ;;                     :foreground "gray" :background "gray")
+  ;; ;; preview
+  ;; (set-face-attribute 'company-preview nil
+  ;;                     :foreground "dim gray" :background "black"
+  ;;                     :weight 'normal)
+  ;; (set-face-attribute 'company-preview-common nil
+  ;;                     :inherit 'company-preview
+  ;;                     :foreground "green yellow" :background "#444444")
+  ;; (set-face-attribute 'company-preview-search nil
+  ;;                     :inherit 'company-preview
+  ;;                     :foreground "cyan")
+  ;; ;; echo area
+  ;; (set-face-attribute 'company-echo nil
+  ;;                     :foreground "light blue")
+  ;; (set-face-attribute 'company-echo-common nil
+  ;;                     :inherit 'company-echo
+  ;;                     :foreground "cyan")
+  
   )
 
 

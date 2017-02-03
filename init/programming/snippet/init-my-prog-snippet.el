@@ -57,10 +57,17 @@ $0`(yas-escape-text yas-selected-text)`"
 
   ;; Faces
   (set-face-attribute 'yas-field-highlight-face nil
-                      :foreground (face-foreground 'highlight)
-                      :background (color-darken-name (face-background 'default) 4)
+                      ;; :inherit 'region
+                      :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('dark
+                                     (color-lighten-name (face-background 'default) 10))
+                                    ('light
+                                     ('dark
+                                      (color-darken-name (face-background 'default) 4))))
+                      :box '(:color "dim gray" :line-width 1)
                       )
 
+  
   ;; (define-key yas-minor-mode-map [tab] 'yas-expand)
   ;; (define-key yas-minor-mode-map (kbd "TAB") 'indent-for-tab-command)
   (define-key yas-minor-mode-map (kbd "C-c \\") 'yas-insert-snippet)

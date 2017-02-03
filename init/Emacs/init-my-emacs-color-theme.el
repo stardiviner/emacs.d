@@ -32,14 +32,22 @@
 
 ;; (load-theme 'solarized-dark t)
 
+;; (use-package leuven-theme
+;;   :ensure t
+;;   :config
+;;   (setq leuven-scale-outline-headlines t)
+;;   (load-theme 'leuven t)
+;;   )
 
-;;; [ leuven-theme ] -- Awesome Emacs color theme for white backgrounds.
+;;; [ madhat2r-theme ] -- Dark theme for (spac[e]macs) that supports GUI and terminal.
 
-(use-package leuven-theme
+(use-package madhat2r-theme
   :ensure t
   :config
-  (setq leuven-scale-outline-headlines t)
-  (load-theme 'leuven t))
+  (setq madhat2r-theme-org-height t
+        madhat2r-theme-org-agenda-height nil)
+  (load-theme 'madhat2r t)
+  )
 
 
 ;;; custom faces

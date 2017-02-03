@@ -611,20 +611,20 @@ dimensions of a block selection."
   ('dark
    ;; sci-fi dark style
    ;;
-   (set-face-attribute 'mode-line nil
-                       :inverse-video nil
-                       :foreground "white" :background "#004A5D"
-                       :box '(:color "cyan" :line-width 1 :style nil)
-                       :family "DejaVu Sans Mono"
-                       :height 90
-                       )
-   (set-face-attribute 'mode-line-inactive nil
-                       :inverse-video nil
-                       :foreground "#444444" :background "black" ; :background "#242424"
-                       :family "DejaVu Sans Mono"
-                       :box '(:color "slate blue" :line-width -1 :style nil)
-                       :height 90
-                       )
+   ;; (set-face-attribute 'mode-line nil
+   ;;                     :inverse-video nil
+   ;;                     :foreground "white" :background "#004A5D"
+   ;;                     :box '(:color "cyan" :line-width 1 :style nil)
+   ;;                     :family "DejaVu Sans Mono"
+   ;;                     :height 90
+   ;;                     )
+   ;; (set-face-attribute 'mode-line-inactive nil
+   ;;                     :inverse-video nil
+   ;;                     :foreground "#444444" :background "black" ; :background "#242424"
+   ;;                     :family "DejaVu Sans Mono"
+   ;;                     :box '(:color "slate blue" :line-width -1 :style nil)
+   ;;                     :height 90
+   ;;                     )
 
    ;; darker style
    ;;
