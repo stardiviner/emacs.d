@@ -185,74 +185,86 @@
   (add-hook 'company-completion-finished-hook #'my-company-animation)
 
   
-  ;; ;; faces
-  ;; ;; tooltip
-  ;; (set-face-attribute 'company-tooltip nil
-  ;;                     :inverse-video nil
-  ;;                     :foreground "black"
-  ;;                     :background "white"
-  ;;                     :weight 'normal :slant 'normal
-  ;;                     :underline nil)
-  ;; ;; selection
-  ;; (set-face-attribute 'company-tooltip-selection nil
-  ;;                     :inherit 'company-tooltip
-  ;;                     :foreground "black" :background "Dark Khaki"
-  ;;                     :underline nil
-  ;;                     :weight 'normal)
-  ;; (set-face-attribute 'company-tooltip-mouse nil
-  ;;                     :inherit 'company-tooltip
-  ;;                     :foreground "sky blue"
-  ;;                     :background (face-background 'company-tooltip-selection)
-  ;;                     :weight 'bold)
-  ;; ;; common
-  ;; (set-face-attribute 'company-tooltip-common nil
-  ;;                     :inherit 'company-tooltip
-  ;;                     :foreground "dim gray" :background "light gray"
-  ;;                     :underline nil)
-  ;; ;; common selection
-  ;; (set-face-attribute 'company-tooltip-common-selection nil
-  ;;                     :inherit 'company-common
-  ;;                     :foreground "black"
-  ;;                     :background (face-background 'company-tooltip-selection)
-  ;;                     :inverse-video nil
-  ;;                     :underline nil
-  ;;                     :weight 'bold)
-  ;; ;; search
-  ;; (set-face-attribute 'company-tooltip-search nil
-  ;;                     :inherit 'company-tooltip
-  ;;                     :foreground "black" :background "pink")
-  ;; (set-face-attribute 'company-tooltip-search-selection nil
-  ;;                     :inherit 'company-tooltip
-  ;;                     :foreground "white" :background "deep pink"
-  ;;                     )
-  ;; ;; annotation
-  ;; (set-face-attribute 'company-tooltip-annotation nil
-  ;;                     :inherit 'company-tooltip
-  ;;                     :foreground "#777777" :background "white")
-  ;; (set-face-attribute 'company-tooltip-annotation-selection nil
-  ;;                     :inherit 'company-tooltip-selection
-  ;;                     :foreground "orange")
-  ;; ;; scroll-bar
-  ;; (set-face-attribute 'company-scrollbar-fg nil
-  ;;                     :foreground "black" :background "black")
-  ;; (set-face-attribute 'company-scrollbar-bg nil
-  ;;                     :foreground "gray" :background "gray")
-  ;; ;; preview
-  ;; (set-face-attribute 'company-preview nil
-  ;;                     :foreground "dim gray" :background "black"
-  ;;                     :weight 'normal)
-  ;; (set-face-attribute 'company-preview-common nil
-  ;;                     :inherit 'company-preview
-  ;;                     :foreground "green yellow" :background "#444444")
-  ;; (set-face-attribute 'company-preview-search nil
-  ;;                     :inherit 'company-preview
-  ;;                     :foreground "cyan")
-  ;; ;; echo area
-  ;; (set-face-attribute 'company-echo nil
-  ;;                     :foreground "light blue")
-  ;; (set-face-attribute 'company-echo-common nil
-  ;;                     :inherit 'company-echo
-  ;;                     :foreground "cyan")
+  ;; faces
+  ;; tooltip
+  (set-face-attribute 'company-tooltip nil
+                      :inherit nil
+                      :weight 'normal :slant 'normal :underline nil
+                      :foreground "gray"
+                      :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('dark "#444444")
+                                    ('light "white"))
+                      )
+  ;; selection
+  (set-face-attribute 'company-tooltip-selection nil
+                      :inherit 'company-tooltip
+                      :weight 'normal :underline nil
+                      :foreground "white"
+                      :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('dark "OliveDrab")
+                                    ('light "deep pink")))
+  (set-face-attribute 'company-tooltip-mouse nil
+                      :inherit 'company-tooltip
+                      :foreground (face-foreground 'company-tooltip)
+                      :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('dark "pink")
+                                    ('light "pink")))
+  ;; common
+  (set-face-attribute 'company-tooltip-common nil
+                      :inherit 'company-tooltip
+                      :foreground "dim gray"
+                      :background (face-background 'company-tooltip))
+  ;; common selection
+  (set-face-attribute 'company-tooltip-common-selection nil
+                      :inherit 'company-tooltip-selection
+                      :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('dark "gray")
+                                    ('light "gray")))
+  ;; search
+  (set-face-attribute 'company-tooltip-search nil
+                      :inherit 'company-tooltip
+                      :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('dark "green")
+                                    ('light "green"))
+                      )
+  (set-face-attribute 'company-tooltip-search-selection nil
+                      :inherit 'company-tooltip-selection
+                      :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('dark "BlueViolet")
+                                    ('light "dark green")))
+  ;; annotation
+  (set-face-attribute 'company-tooltip-annotation nil
+                      :inherit 'company-tooltip
+                      :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('dark "chocolate")
+                                    ('light "SteelBlue")))
+  (set-face-attribute 'company-tooltip-annotation-selection nil
+                      :inherit 'company-tooltip-selection
+                      :foreground (face-foreground 'company-tooltip-annotation))
+  ;; scroll-bar
+  (set-face-attribute 'company-scrollbar-fg nil
+                      :foreground "dim gray"
+                      :background "dim gray")
+  (set-face-attribute 'company-scrollbar-bg nil
+                      :foreground "dark gray"
+                      :background "dark gray")
+  ;; preview
+  (set-face-attribute 'company-preview nil
+                      :weight 'normal
+                      :foreground "dim gray"
+                      :background (color-lighten-name (face-background 'default) 7))
+  (set-face-attribute 'company-preview-common nil
+                      :inherit 'company-preview
+                      :foreground "green yellow")
+  (set-face-attribute 'company-preview-search nil
+                      :inherit 'company-preview
+                      :foreground "cyan")
+  ;; echo area
+  (set-face-attribute 'company-echo nil
+                      :foreground "light blue")
+  (set-face-attribute 'company-echo-common nil
+                      :inherit 'company-echo
+                      :foreground "cyan")
   
   )
 
