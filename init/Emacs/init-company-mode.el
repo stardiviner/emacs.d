@@ -53,10 +53,11 @@
                 '(company-files         ; files & directory
                   ;; company-gtags company-etags
                   ;; company-tempo         ; tempo: flexible template insertion
-                  company-emoji
                   (company-capf         ; `completion-at-point-functions'
                    :with
                    company-yasnippet)
+                  company-emoji
+                  ;; :separate company-ispell
                   company-dabbrev-code  ; company-dabbrev
                   company-abbrev
                   company-keywords      ; keywords
