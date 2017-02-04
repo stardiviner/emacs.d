@@ -140,10 +140,8 @@
 
 (use-package go-guru
   :ensure t
-  :defer t
-  :init
-  ;; (add-hook 'go-mode-hook 'go-guru)
-  ;; (setq go-guru-scope)
+  :config
+  (setq go-guru-debug t)
   )
 
 

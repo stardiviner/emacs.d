@@ -333,6 +333,7 @@
 
   ;; Go
   (push '(godoc-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
+  (push '(go-guru-output-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
 
   ;; Swift
 
