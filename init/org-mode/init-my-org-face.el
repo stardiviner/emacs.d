@@ -268,21 +268,19 @@
 ;;; black style code block colorscheme
 ;;; babel faces (source code block) => #+BEGIN_SRC ... #+END_SRC
 (set-face-attribute 'org-block-begin-line nil
-                    :foreground "dark cyan"
-                    :background (color-darken-name (face-background 'default) 3)
-                    :weight 'normal :slant 'normal
-                    :box '(:color "black" :line-width 1)
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light :background (color-darken-name (face-background 'default) 4))
+                                  ('dark :background (color-lighten-name (face-background 'default) 15)))
                     )
 (set-face-attribute 'org-block-end-line nil
-                    :foreground "dark cyan"
-                    :background (color-darken-name (face-background 'default) 3)
-                    :weight 'normal :slant 'normal
-                    :box '(:color "black" :line-width 1)
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light :background (color-darken-name (face-background 'default) 4))
+                                  ('dark :background (color-lighten-name (face-background 'default) 15)))
                     )
 (set-face-attribute 'org-block nil
-                    :inherit 'shadow
-                    ;; :background (face-foreground 'shadow)
-                    ;; :background "#202020"
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light :background (color-darken-name (face-background 'default) 2))
+                                  ('dark :background (color-lighten-name (face-background 'default) 10)))
                     )
 
 ;; Basic face for displaying the secondary selection.

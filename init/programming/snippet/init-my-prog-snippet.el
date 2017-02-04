@@ -65,8 +65,7 @@ $0`(yas-escape-text yas-selected-text)`"
                                     ('dark
                                      (color-lighten-name (face-background 'default) 10))
                                     ('light
-                                     ('dark
-                                      (color-darken-name (face-background 'default) 4))))
+                                     (color-darken-name (face-background 'default) 4)))
                       :box '(:color "dim gray" :line-width 1)
                       )
 
