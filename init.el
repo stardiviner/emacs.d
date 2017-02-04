@@ -151,6 +151,7 @@
   (define-prefix-command 'my-search-language-prefix))
 (define-key my-search-prefix (kbd "l") 'my-search-language-prefix)
 
+(require 'init-my-languages)
 (require 'init-my-language-english)
 (require 'init-my-language-chinese)
 ;; (require 'init-my-language-japanese)
