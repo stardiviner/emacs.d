@@ -11,11 +11,20 @@
 (use-package perspeen
   :ensure t
   :config
+  ;; (setq perspeen-use-tab t)
   (setq perspeen-keymap-prefix (kbd "C-z"))
   (define-key perspeen-command-map (kbd "k") 'perspeen-delete-ws)
   (define-key perspeen-command-map (kbd "r") 'perspeen-rename-ws)
   (define-key perspeen-command-map (kbd "s") 'perspeen-goto-ws)
   (perspeen-mode 1)
+
+  (use-package helm-perspeen
+    :ensure t
+    :config
+    (with-eval-after-load 'helm
+      (add-to-list 'helm-mini-default-sources 'helm-source-perspeen-tabs)
+      (add-to-list 'helm-mini-default-sources 'helm-source-perspeen-workspaces))
+    )
   )
 
 
