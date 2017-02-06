@@ -45,6 +45,12 @@
 
   ;; test
   (setq projectile-create-missing-test-files t)
+
+  (use-package helm-projectile
+    :ensure t
+    :config
+    (add-to-list 'helm-mini-default-sources 'helm-source-projectile-projects)
+    )
   )
 
 ;;; [ find-file-in-project ]
