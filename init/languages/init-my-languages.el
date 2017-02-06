@@ -10,9 +10,15 @@
 
 (use-package guess-language
   :ensure t
+  :diminish guess-language-mode
+  :init
+  (add-hook 'text-mode-hook #'guess-language-mode)
   :config
   (setq guess-language-languages '(en))
-  (add-hook 'text-mode-hook #'guess-language-mode)
+  ;; (setq guess-language-langcodes '((en . ("en_GB" "English"))
+  ;;                                  (it . ("it_IT" "Italian")))
+  ;;       guess-language-languages '(en it)
+  ;;       guess-language-min-paragraph-length 45)
   )
 
 
