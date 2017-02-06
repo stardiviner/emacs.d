@@ -42,6 +42,15 @@
               ("C-r" . webpaste-paste-region)))
 
 
+;;; [ pastery ] -- paste to pastery from Emacs
+
+(use-package pastery
+  :ensure t
+  :config
+  (setq pastery-api-key "")
+  )
+
+
 ;;; htmlize-buffer (convert current buffer into HTML output)
 (define-key paste-prefix (kbd "h") 'htmlize-buffer)
 
