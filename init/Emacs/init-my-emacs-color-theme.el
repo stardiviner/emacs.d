@@ -41,12 +41,26 @@
 
 ;;; [ madhat2r-theme ] -- Dark theme for (spac[e]macs) that supports GUI and terminal.
 
-(use-package madhat2r-theme
+;; (use-package madhat2r-theme
+;;   :ensure t
+;;   :config
+;;   (setq madhat2r-theme-org-height t
+;;         madhat2r-theme-org-agenda-height nil)
+;;   (load-theme 'madhat2r t)
+;;   )
+
+;;; [ doom-themes ] -- Emacs themes inspired by Atom One
+
+(use-package doom-themes
   :ensure t
   :config
-  (setq madhat2r-theme-org-height t
-        madhat2r-theme-org-agenda-height nil)
-  (load-theme 'madhat2r t)
+  (setq doom-enable-bold t
+        doom-enable-italic t)
+  
+  (load-theme 'doom-one t)
+  
+  (add-hook 'find-file-hook 'doom-buffer-mode) ; brighter source buffers.
+  (add-hook 'minibuffer-setup-hook 'doom-buffer-mode) ; brighter minibuffer when active
   )
 
 
