@@ -186,6 +186,7 @@
   :config
   (setq git-messenger:show-detail t ; always show detail message.
         ;; git-messenger:handled-backends '(git svn)
+        git-messenger:use-magit-popup t
         )
   
   ;; enable `magit-commit-mode' after typing 's', 'S', 'd'
