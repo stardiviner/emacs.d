@@ -48,6 +48,9 @@
 
   ;; e.g. div -> <div>|</div>
   (define-key emmet-mode-keymap (kbd "M-j") 'emmet-expand-yas)
+
+  ;; preview minor mode
+  (emmet-preview-mode 1)
   )
 
 
