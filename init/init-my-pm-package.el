@@ -45,7 +45,8 @@
 (require 'bind-key)                     ; if you use any `:bind' variant
 
 (setq use-package-verbose t
-      use-package-always-ensure nil)
+      use-package-always-ensure nil
+      use-package-enable-imenu-support t)
 
 (unless (and (package-installed-p 'let-alist)
              (package-installed-p 'seq)
