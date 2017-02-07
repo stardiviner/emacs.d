@@ -71,7 +71,7 @@
                     )
 (set-face-attribute 'font-lock-type-face nil
                     :background (color-lighten-name (face-background 'default) 3)
-                    :foreground "green")
+                    )
 
 ;; italic & bold
 ;;
@@ -100,9 +100,9 @@
 
 ;; highlight
 ;;
-(set-face-attribute 'highlight nil
-                    :background (color-darken-name (face-background 'default) 5)
-                    )
+;; (set-face-attribute 'highlight nil
+;;                     :background (color-darken-name (face-background 'default) 5)
+;;                     )
 
 ;; comment
 ;; family: DejaVu Serif,  Droid Serif, Gabriola, Gentium, GFS Didot, Latin Modern Mono, Segoe Print,
