@@ -58,6 +58,17 @@
 
   )
 
+;;; [ helm-tramp ] -- Tramp with Helm interface.
+
+(use-package helm-tramp
+  :ensure t
+  :config
+  (setq tramp-default-method "ssh")
+  (defalias 'exit-tramp 'tramp-cleanup-all-buffers)
+  (define-key helm-command-map (kbd "M-t") 'helm-tramp)
+  )
+
+
 
 (provide 'init-my-emacs-tramp)
 
