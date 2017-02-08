@@ -15,12 +15,13 @@
 (use-package edit-server
   :ensure t
   :if window-system
-  :defer t
   :init
-  (edit-server-start)
-  
+  (unless (server-running-p)
+    (server-start))
+  (add-hook 'after-init-hook 'edit-server-start t)
   :config
   (setq edit-server-new-frame t)
+  
   (setq edit-server-url-major-mode-alist
         '(("github\\.com" . markdown-mode)
           ;; Stack Overflow
