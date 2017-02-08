@@ -65,7 +65,8 @@
   :config
   (setq tramp-default-method "ssh")
   (defalias 'exit-tramp 'tramp-cleanup-all-buffers)
-  (define-key helm-command-map (kbd "M-t") 'helm-tramp)
+  (with-eval-after-load 'helm-config
+    (define-key helm-command-map (kbd "M-t") 'helm-tramp))
   )
 
 

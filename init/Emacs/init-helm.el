@@ -23,6 +23,8 @@
          ;; ("<return>" . helm-confirm-and-exit-minibuffer)
          )
   :config
+  (require 'helm-config)
+  
   (helm-autoresize-mode t)
 
   (setq helm-full-frame nil
