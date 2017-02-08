@@ -163,6 +163,9 @@
   (defengine imdb
     "http://www.imdb.com/title/%s"
     :docstring "IMDb")
+  (defengine netease-music
+    "http://music.163.com/#/search/m/?s=%s"
+    :docstring "NetEase Music")
 
   ;; Social Network
   (defengine twitter
