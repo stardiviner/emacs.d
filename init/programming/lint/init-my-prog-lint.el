@@ -6,7 +6,6 @@
 
 ;;; Code:
 
-
 (unless (boundp 'my-prog-lint-map)
   (define-prefix-command 'my-prog-lint-map))
 
@@ -29,8 +28,7 @@
   (add-hook 'prog-mode-hook #'flycheck-mode)
   :config
   (setq-default flycheck-temp-prefix ".flycheck")
-  ;; (save idle-change new-line mode-enabled)
-  (setq flycheck-check-syntax-automatically '(save new-line)
+  (setq flycheck-check-syntax-automatically '(save idle-change new-line mode-enabled)
         flycheck-idle-change-delay 5.0
         flycheck-display-errors-delay 0.9
         flycheck-highlighting-mode 'symbols
@@ -43,7 +41,7 @@
         flycheck-completing-read-function 'completing-read
         )
 
-  ;; {Emacs Lisp}
+  ;; [Emacs Lisp]
   ;; To make Flycheck use the current `load-path'.
   ;; Don't error about "free variable" without (require ??).
   (setq flycheck-emacs-lisp-initialize-packages 'auto
@@ -51,12 +49,12 @@
         flycheck-emacs-lisp-package-user-dir nil
         )
 
-  ;; {Ruby}
+  ;; [Ruby]
   (setq flycheck-ruby-executable "rubocop"
         ;; flycheck-rubocop-lint-only t
         )
 
-  ;; {clang}
+  ;; [Clang]
   ;; flycheck-clang-definitions
   ;; flycheck-clang-include-path
   ;; flycheck-clang-includes
@@ -99,10 +97,10 @@
 
 ;;; [ flycheck-pos-tip ] -- display errors under point using popup.el.
 
-;;; NOTE: This can avoid flycheck tip in minibuffer to override eldoc info.
+;; This can avoid flycheck tip in minibuffer to override eldoc info.
 (use-package flycheck-pos-tip
   :ensure t
-  :init
+  :config
   (with-eval-after-load 'flycheck
     (setq flycheck-display-errors-function 'flycheck-pos-tip-error-messages
           flycheck-pos-tip-timeout 10))
