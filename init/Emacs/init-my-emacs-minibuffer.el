@@ -18,7 +18,7 @@
 (set-face-attribute 'minibuffer-prompt nil
                     :inverse-video nil
                     :weight 'normal :slant 'normal :underline nil
-                    :foreground "white" :background "DarkSlateGray"
+                    :background (color-darken-name (face-background 'default) 5)
                     )
 
 (minibuffer-electric-default-mode t)

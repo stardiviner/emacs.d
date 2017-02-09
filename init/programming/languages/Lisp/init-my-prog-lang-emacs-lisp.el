@@ -101,7 +101,7 @@
   (eros-mode 1)
   (set-face-attribute 'eros-result-overlay-face nil
                       :foreground "orange"
-                      :background nil
+                      :background (color-darken-name (face-background 'default) 5)
                       :box nil :slant 'italic
                       )
   )
@@ -125,12 +125,14 @@
   ;; macro
   (set-face-attribute 'macrostep-macro-face nil
                       :inherit nil
-                      :foreground "cyan" :background "#222222"
-                      :bold t :overline t :underline nil)
+                      :foreground "cyan"
+                      :background (color-darken-name (face-background 'default) 5)
+                      :bold t :underline nil :overline t)
   ;; compiler macro
   (set-face-attribute 'macrostep-compiler-macro-face nil
                       :inherit nil
-                      :foreground "black" :background "dim gray"
+                      :foreground "gray"
+                      :background (color-darken-name (face-background 'default) 5)
                       :bold t :italic t :overline t)
   ;; gensym
   (set-face-attribute 'macrostep-gensym-1 nil

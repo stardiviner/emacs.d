@@ -16,33 +16,28 @@
       )
 
 (set-face-attribute 'compilation-line-number nil
-                    :background (color-darken-name (face-background 'default) 5)
-                    :foreground "cyan"
+                    :inherit nil
                     :underline nil
-                    :weight 'normal
-                    :box '(:color "black" :line-width -1))
+                    :background (color-darken-name (face-background 'default) 5)
+                    )
 (set-face-attribute 'compilation-column-number nil
                     :background (color-darken-name (face-background 'default) 5)
                     :foreground "orange"
-                    :underline nil
-                    :weight 'normal :slant 'normal
-                    :box '(:color "black" :line-width -1))
+                    )
 (set-face-attribute 'compilation-info nil
                     :background (color-darken-name (face-background 'default) 5)
-                    :underline nil
-                    :weight 'normal
                     )
 (set-face-attribute 'compilation-warning nil
                     :foreground "orange")
 (set-face-attribute 'compilation-error nil
                     :background "dark red"
-                    ;; :family nil
                     )
 (set-face-attribute 'compilation-mode-line-exit nil
                     :inherit 'compilation-info
                     :foreground "forest green")
 (set-face-attribute 'compilation-mode-line-fail nil
-                    :foreground "black" :background "dark red")
+                    :foreground "black"
+                    :background "dark red")
 (set-face-attribute 'compilation-mode-line-run nil
                     :foreground "black")
 

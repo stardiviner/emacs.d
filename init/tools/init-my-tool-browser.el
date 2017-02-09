@@ -79,8 +79,9 @@
 
   ;; faces
   (set-face-attribute 'eww-form-checkbox nil
+                      :foreground "gray"
+                      :background "black"
                       :box '(:color "cyan" :line-width 2 :style 'released-button)
-                      :foreground "gray" :background "black"
                       )
 
   ;; keybindings

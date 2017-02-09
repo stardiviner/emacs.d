@@ -69,14 +69,21 @@
   ;; │ ┃  ▍ ┇ ┋ ┊ ┆ ╽ ╿
   (setq indent-guide-char "┃")
   (set-face-attribute 'indent-guide-face nil
-                      :foreground "#535353"
-                      ;; :foreground (color-darken-name (face-background 'default) 5)
+                      :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('light
+                                     (color-darken-name (face-background 'default) 30))
+                                    ('dark
+                                     (color-lighten-name (face-background 'default) 5)))
                       )
 
   ;; 2: use face-attribute stipple pixmap data.
   ;; (setq indent-guide-char " ")
   ;; (set-face-attribute 'indent-guide-face nil
-  ;;                     :foreground "cyan"
+  ;;                     :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+  ;;                                   ('light
+  ;;                                    (color-darken-name (face-background 'default) 30))
+  ;;                                   ('dark
+  ;;                                    (color-lighten-name (face-background 'default) 5)))
   ;;                     :inherit nil
   ;;                     :stipple (list 7 4 (string 16 0 0 0)))
 

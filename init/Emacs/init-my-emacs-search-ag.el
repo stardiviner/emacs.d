@@ -24,7 +24,8 @@
         )
   
   (set-face-attribute 'ag-hit-face nil
-                      :foreground "gray" :background "black")
+                      :foreground "gray"
+                      :background "black")
   (set-face-attribute 'ag-match-face nil
                       :inverse-video nil
                       :foreground "red"

@@ -47,22 +47,6 @@
   (setq bm-highlight-style 'bm-highlight-line-and-fringe)
   (setq bm-marker 'bm-marker-left)
 
-  ;; faces
-  (set-face-attribute 'bm-face nil
-                      :background "saddle brown")
-  (set-face-attribute 'bm-fringe-face nil
-                      :inherit 'bm-face
-                      :foreground "white"
-                      :weight 'normal
-                      )
-  (set-face-attribute 'bm-persistent-face nil
-                      :background "royal blue")
-  (set-face-attribute 'bm-fringe-persistent-face nil
-                      :inherit 'bm-persistent-face
-                      :foreground "dark red"
-                      :weight 'bold
-                      )
-  
   ;; mouse
   (global-set-key (kbd "<left-fringe> <mouse-5>") 'bm-next-mouse)
   (global-set-key (kbd "<left-fringe> <mouse-4>") 'bm-previous-mouse)

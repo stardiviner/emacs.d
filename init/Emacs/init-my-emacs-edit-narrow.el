@@ -84,7 +84,6 @@ narrowed."
   :defer t
   :config
   (set-face-attribute 'fancy-narrow-blocked-face nil
-                      :foreground "#666666"
                       :background (color-darken-name (face-background 'default) 2)
                       )
 

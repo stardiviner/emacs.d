@@ -13,8 +13,7 @@
   :ensure t
   :config
   (set-face-attribute 'nim-tab-face nil
-                      :foreground "dark gray"
-                      :background "grey22")
+                      )
 
   ;; company-mode support
   (require 'company-nim)

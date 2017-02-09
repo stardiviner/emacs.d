@@ -191,10 +191,16 @@
   (set-face-attribute 'company-tooltip nil
                       :inherit nil
                       :weight 'normal :slant 'normal :underline nil
-                      :foreground "gray"
+                      :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('dark
+                                     (color-lighten-name (face-background 'default) 70))
+                                    ('light
+                                     (color-darken-name (face-background 'default) 70)))
                       :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                    ('dark "#444444")
-                                    ('light "white"))
+                                    ('dark
+                                     (color-lighten-name (face-background 'default) 5))
+                                    ('light
+                                     (color-darken-name (face-background 'default) 5)))
                       )
   ;; selection
   (set-face-attribute 'company-tooltip-selection nil
@@ -203,7 +209,7 @@
                       :foreground "white"
                       :background (cl-case (alist-get 'background-mode (frame-parameters))
                                     ('dark "OliveDrab")
-                                    ('light "deep pink")))
+                                    ('light "light pink")))
   (set-face-attribute 'company-tooltip-mouse nil
                       :inherit 'company-tooltip
                       :foreground (face-foreground 'company-tooltip)
@@ -213,14 +219,18 @@
   ;; common
   (set-face-attribute 'company-tooltip-common nil
                       :inherit 'company-tooltip
-                      :foreground "dim gray"
-                      :background (face-background 'company-tooltip))
+                      :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('dark
+                                     (color-lighten-name
+                                      (face-background 'company-tooltip) 20))
+                                    ('light
+                                     (color-darken-name
+                                      (face-background 'company-tooltip) 30)))
+                      )
   ;; common selection
   (set-face-attribute 'company-tooltip-common-selection nil
                       :inherit 'company-tooltip-selection
-                      :foreground (cl-case (alist-get 'background-mode (frame-parameters))
-                                    ('dark "gray")
-                                    ('light "gray")))
+                      :foreground (face-foreground 'company-tooltip-common))
   ;; search
   (set-face-attribute 'company-tooltip-search nil
                       :inherit 'company-tooltip

@@ -372,7 +372,12 @@
                     )
 ;; occurrences of your current nickname
 (set-face-attribute 'erc-current-nick-face nil
-                    :foreground "red" :background "#333333"
+                    :foreground "red"
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 10))
+                                  ('dark
+                                   (color-lighten-name (face-background 'default) 5)))
                     :box '(:color "black" :line-width 1 :style nil)
                     )
 

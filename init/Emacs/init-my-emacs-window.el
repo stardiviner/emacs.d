@@ -85,13 +85,19 @@
     (global-set-key (kbd "C-x C-j") 'ace-window))
   :config
   (set-face-attribute 'aw-leading-char-face nil
-                      :background "#004A5D" :foreground "white"
-                      :box '(:color "cyan" :line-width 1)
-                      :height 200)
-  (set-face-attribute 'aw-background-face nil
-                      :foreground "#333333")
-
+                      :background (color-darken-name (face-background 'default) 5)
+                      :box "dark gray"
+                      :height 2.5)
+  
   (setq aw-background nil)
+  (if aw-background
+      (set-face-attribute 'aw-background-face nil
+                          :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                        ('light
+                                         (color-lighten-name (face-background 'default) 5))
+                                        ('dark
+                                         (color-darken-name (face-background 'default) 5)))
+                          ))
   )
 
 

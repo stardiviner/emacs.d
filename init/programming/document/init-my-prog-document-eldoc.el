@@ -24,7 +24,8 @@
     (add-hook hook #'eldoc-mode))
 
   (set-face-attribute 'eldoc-highlight-function-argument nil
-                      :underline t :foreground "deep pink"
+                      :foreground "deep pink"
+                      :underline t
                       :weight 'bold)
 
 

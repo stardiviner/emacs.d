@@ -62,7 +62,7 @@
                   (digit-groups-mode 1))))
   :config
   (set-face-attribute 'digit-groups-default-face nil
-                      :foreground "orange")
+                      :foreground "orange red")
   )
 
 

@@ -36,26 +36,25 @@
 
   (set-face-attribute 'ivy-confirm-face nil
                       :inherit nil
+                      :weight 'bold
                       :foreground "black" :background "khaki"
-                      :weight 'bold)
+                      )
   (set-face-attribute 'ivy-current-match nil
                       :inherit nil
-                      ;; :foreground "white" :background "#004A5D"
-                      ;; :weight 'normal :box nil
                       ;; Sci-Fi style
                       :foreground "white" :background "#004A5D"
                       :box '(:color "cyan" :line-width -1)
                       )
   (set-face-attribute 'ivy-match-required-face nil
                       :inherit 'minibuffer-prompt
-                      :foreground "dark red" :background nil
                       :weight 'bold :box nil
+                      :foreground "dark red" :background nil
                       )
   ;; the string between matches
   (set-face-attribute 'ivy-minibuffer-match-face-1 nil
                       :inherit nil
-                      :foreground nil :background nil
                       :weight 'normal :box nil
+                      :foreground nil :background nil
                       )
   ;; first match part.
   (set-face-attribute 'ivy-minibuffer-match-face-2 nil

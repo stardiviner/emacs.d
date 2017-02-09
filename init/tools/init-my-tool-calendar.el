@@ -194,8 +194,12 @@
                       )
   ;; current select
   (set-face-attribute 'cfw:face-select nil
-                      :foreground "black" :background "cyan"
-                      ;; :box '(:color "cyan" :line-width -1)
+                      :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('light "white")
+                                    ('dark "black"))
+                      :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('light "deep pink")
+                                    ('dark "cyan"))
                       )
   ;; toolbar [ < ] [ > ] [Today ]                      [Day] [Week] [Two Weeks] [Month]
   (set-face-attribute 'cfw:face-toolbar nil

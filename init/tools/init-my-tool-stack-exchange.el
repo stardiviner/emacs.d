@@ -32,8 +32,10 @@
   (set-face-attribute 'sx-user-accept-rate nil
                       :foreground "green")
   (set-face-attribute 'sx-user-name nil
+                      :foreground "dark orange"
                       )
   (set-face-attribute 'sx-user-reputation nil
+                      :foreground "brown"
                       )
   ;; question list faces
   (set-face-attribute 'sx-question-list-answers nil

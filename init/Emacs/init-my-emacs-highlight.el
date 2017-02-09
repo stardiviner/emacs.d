@@ -60,26 +60,6 @@
   )
 
 
-;;; [ highlight-thing ] -- global minor mode to highlight the thing under point.
-
-;; (use-package highlight-thing
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   ;; (global-highlight-thing-mode)
-;;   (add-hook 'prog-mode-hook 'highlight-thing-mode)
-;;   :config
-;;   ;; (setq highlight-thing-what-thing 'word) ; 'symbol
-;;   (setq highlight-thing-delay-seconds 1.0)
-;;   (setq highlight-thing-limit-to-defun t)
-;;   (set-face-attribute 'highlight-thing nil
-;;                       :foreground "white"
-;;                       :background "forest green"
-;;                       )
-;;   )
-
-
-
 (provide 'init-my-emacs-highlight)
 
 ;;; init-my-emacs-highlight.el ends here

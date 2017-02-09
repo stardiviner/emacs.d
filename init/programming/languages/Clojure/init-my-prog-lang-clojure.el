@@ -170,25 +170,24 @@
   ;;           (lambda ()
   ;;             (sleep-for 60)
   ;;             (cider-enlighten-mode 1)))
-  
-  (set-face-attribute 'cider-enlightened-local-face nil
-                      :foreground "yellow" :background "#333333"
-                      :family "DejaVu Sans Mono"
-                      :italic t
-                      :box '(:color "#444444" :line-width 1)
-                      )
+
   (set-face-attribute 'cider-enlightened-face nil
-                      :foreground "dark orange" :background "#333333"
+                      :foreground "dark orange"
+                      :background (color-darken-name (face-background 'default) 5)
                       :family "DejaVu Sans Mono"
                       :weight 'normal
-                      :box '(:color "#444444" :line-width 1)
+                      )
+  (set-face-attribute 'cider-enlightened-local-face nil
+                      :inherit 'cider-enlightened-face
+                      :foreground "yellow"
+                      :family "DejaVu Sans Mono"
+                      :italic t
                       )
 
   ;; eval sexp result overlays
   (set-face-attribute 'cider-result-overlay-face nil
                       :foreground "light gray"
-                      :background (color-darken-name (face-background 'default) 2)
-                      :box '(:line-width -1 :color "dim gray")
+                      :background (color-darken-name (face-background 'default) 4)
                       :family "DejaVu Sans Mono"
                       )
   

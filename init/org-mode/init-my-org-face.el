@@ -10,31 +10,50 @@
 ;; Date
 ;; Date: Saturday   27 July 2013
 (set-face-attribute 'org-date nil
-                    :foreground "gray"
                     :background (color-darken-name (face-background 'default) 5)
                     :box '(:color "black" :line-width 1 :style nil)
                     :underline nil)
 (set-face-attribute 'org-agenda-date nil
-                    :foreground "white" :background "#004A5D"
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 10))
+                                  ('dark
+                                   (color-darken-name (face-background 'default) 5)))
                     :box '(:color "dark cyan" :line-width 3 :style nil)
                     :weight 'bold)
 (set-face-attribute 'org-agenda-date-weekend nil
                     :foreground "deep pink"
-                    :background "#222222"
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 10))
+                                  ('dark
+                                   (color-darken-name (face-background 'default) 5)))
                     :box '(:color "dark cyan" :line-width 3 :style nil)
                     :weight 'bold)
 (set-face-attribute 'org-agenda-date-today nil
-                    :foreground "white" :background "#004A5D"
+                    :foreground "red"
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 10))
+                                  ('dark
+                                   (color-darken-name (face-background 'default) 5)))
                     :box '(:color "cyan" :line-width 5 :style nil)
                     :weight 'bold)
 (set-face-attribute 'org-agenda-current-time nil
-                    :foreground "cyan" :background "#004A5D"
-                    :box '(:color "cyan" :line-width 1 :style nil)
-                    :bold nil)
+                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light "deep pink")
+                                  ('dark "cyan"))
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 10))
+                                  ('dark
+                                   (color-darken-name (face-background 'default) 5)))
+                    :box '(:color "deep pink" :line-width 1 :style nil)
+                    :underline nil
+                    :bold t)
 
 ;; Daily entry (holidays)
 (set-face-attribute 'org-agenda-diary nil
-                    :foreground "light blue"
                     :slant 'italic
                     )
 
@@ -50,28 +69,50 @@
 
 ;; Day-agenda (W30) -> Week number
 (set-face-attribute 'org-agenda-structure nil
-                    :foreground "blue"
                     :weight 'extra-bold)
 (set-face-attribute 'org-agenda-filter-tags nil
-                    :foreground "green yellow")
+                    )
 (set-face-attribute 'org-agenda-dimmed-todo-face nil
-                    :foreground "#444444"
-                    :background "#222222"
+                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 20))
+                                  ('dark
+                                   (color-lighten-name (face-background 'default) 5)))
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-lighten-name (face-background 'default) 5))
+                                  ('dark
+                                   (color-darken-name (face-background 'default) 5)))
                     :strike-through t)
 
 ;; DONE (org agenda log state change tasks, )
 (set-face-attribute 'org-agenda-done nil
-                    :foreground "#444444"
-                    :background "black")
+                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 20))
+                                  ('dark
+                                   (color-lighten-name (face-background 'default) 5)))
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-lighten-name (face-background 'default) 5))
+                                  ('dark
+                                   (color-darken-name (face-background 'default) 5)))
+                    :strike-through t)
 
 ;; Priority
 (setq org-priority-faces
-      '((?A . (:foreground "gray" :background "dark red"
-                           :box '(:color "#222222" :line-width -1)))
-        (?B . (:foreground "gray" :background "dark slate blue"
-                           :box '(:color "#222222" :line-width -1)))
-        (?C . (:foreground "gray" :background "dim gray"
-                           :box '(:color "#222222" :line-width -1)))
+      '((?A .
+            (:foreground "dark gray"
+                         :background "red"
+                         :box '(:color "dark gray" :line-width -1)))
+        (?B .
+            (:foreground "dark gray"
+                         :background "dark slate blue"
+                         :box '(:color "dark gray" :line-width -1)))
+        (?C .
+            (:foreground "dim gray"
+                         :background "gray"
+                         :box '(:color "dark gray" :line-width -1)))
         ))
 ;; (set-face-attribute 'org-priority nil
 ;;                     :box '(:color "red" :line-width 3 :style released-button)
@@ -80,21 +121,35 @@
 ;;; Agenda Time Grid
 ;; time grid: 18:00 ...... ----------------
 (set-face-attribute 'org-time-grid nil
-                    :foreground "cyan")
+                    )
 ;; alread past deadline in agenda
 (set-face-attribute 'org-warning nil
-                    :foreground "red"
-                    :weight 'normal)
+                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light "orange red")
+                                  ('dark "red"))
+                    :weight 'bold)
 ;; comming deadline in agenda
 (set-face-attribute 'org-upcoming-deadline nil
-                    :foreground "OrangeRed")
+                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light "orange")
+                                  ('dark "orange red"))
+                    :weight 'bold)
 ;; scheduled in agenda, scheduled today, & org-habit
 (set-face-attribute 'org-scheduled-today nil
-                    :foreground "light sea green")
+                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light "sea green")
+                                  ('dark "light sea green"))
+                    :weight 'bold)
 (set-face-attribute 'org-scheduled nil
-                    :foreground "forest green")
+                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light "forest green")
+                                  ('dark "dark green"))
+                    :weight 'bold)
 (set-face-attribute 'org-scheduled-previously nil
-                    :foreground "olive drab")
+                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light "light green")
+                                  ('dark "olive drab"))
+                    :weight 'bold)
 
 ;; Emphasize
 ;; org-verbatim: =verbatim=
@@ -125,43 +180,40 @@
                     :inherit nil
                     :family "DejaVu Sans Mono"
                     :weight 'bold :height 130
-                    :foreground "Steelblue4"
                     :background (color-darken-name (face-background 'default) 2)
                     ;; :box '(:color "black" :line-width -1 :style nil)
                     :overline "dark slate gray"
                     )
 (set-face-attribute 'org-level-2 nil
                     :inherit 'org-level-1
-                    :foreground "yellow4"
                     :height 110
                     )
 (set-face-attribute 'org-level-3 nil
                     :inherit 'org-level-2
-                    :foreground "#009E00"
                     )
 (set-face-attribute 'org-level-4 nil
                     :inherit 'org-level-3
-                    :foreground "cyan"
                     )
 (set-face-attribute 'org-level-5 nil
                     :inherit 'org-level-4
-                    :foreground "#008080"
                     )
 (set-face-attribute 'org-level-6 nil
                     :inherit 'org-level-5
-                    :foreground "#166DEF"
                     )
 (set-face-attribute 'org-level-7 nil
                     :inherit 'org-level-6
-                    :foreground "deep sky blue"
                     )
 (set-face-attribute 'org-level-8 nil
                     :inherit 'org-level-7
-                    :foreground "chocolate"
                     )
 
 (set-face-attribute 'org-headline-done nil
-                    :foreground "#444444")
+                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 4))
+                                  ('dark
+                                   (color-lighten-name (face-background 'default) 5)))
+                    :background (face-background 'default))
 
 ;; ellipsis
 ;; (setq org-ellipsis "...⤵")
@@ -172,12 +224,18 @@
 
 ;; tags
 (set-face-attribute 'org-tag-group nil
-                    :foreground "white" :background "dim gray"
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 4))
+                                  ('dark
+                                   (color-lighten-name (face-background 'default) 5)))
                     :box '(:color "black" :line-width 2))
 (set-face-attribute 'org-tag nil
-                    ;; :foreground "gray"
-                    ;; sci-fi style
-                    :foreground "cyan"
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 4))
+                                  ('dark
+                                   (color-lighten-name (face-background 'default) 5)))
                     :underline nil :weight 'normal :slant 'normal
                     :box '(:color "dark green" :line-width 2)
                     :height 0.8
@@ -188,26 +246,32 @@
 (set-face-attribute 'org-checkbox nil
                     :weight 'normal
                     :box '(:line-width 1 :color "black" :style nil)
-                    :foreground "dark gray")
+                    )
 ;; * headline [7%] [1/10] -> checkbox statistics face.
 (set-face-attribute 'org-checkbox-statistics-todo nil
-                    :foreground "OliveDrab"
                     :background (color-darken-name (face-background 'default) 4)
                     :box '(:color "black" :line-width -1)
                     )
 ;; * headline [100%] [10/10]
 (set-face-attribute 'org-checkbox-statistics-done nil
-                    :background "#444444" :foreground "black"
-                    :box '(:color "black" :line-width -1)
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 4))
+                                  ('dark
+                                   (color-lighten-name (face-background 'default) 3)))
+                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 7))
+                                  ('dark
+                                   (color-lighten-name (face-background 'default) 6)))
                     :strike-through t)
 
 ;; list definition terms - term :: definition
 (set-face-attribute 'org-list-dt nil
-                    :foreground "green yellow")
+                    )
 
 ;;; link face [[link][desc]]
 (set-face-attribute 'org-link nil
-                    :foreground "cyan"
                     :background (color-darken-name (face-background 'default) 5)
                     :underline "dark cyan"
                     ;; :box '(:color "black")
@@ -215,13 +279,11 @@
 
 ;; <<radio target link>>
 (set-face-attribute 'org-target nil
-                    :foreground "orange" :background "black"
                     :underline "red"
                     :weight 'bold)
 
 ;; org structure faces
 (set-face-attribute 'org-agenda-structure nil
-                    :foreground "gray"
                     :weight 'bold)
 
 ;; set Org clock face.
@@ -229,81 +291,78 @@
 ;; mode-line face. It seems like it gets the attributes from mode-line or
 ;; mode-line-inactive as appropriate, when displayed in the mode line.
 (set-face-attribute 'org-mode-line-clock nil
-                    :foreground "cyan"
                     :inherit nil)
 
 ;; special keywords
 (set-face-attribute 'org-special-keyword nil
-                    :foreground "forest green"
                     :background (color-darken-name (face-background 'default) 3)
                     )
 ;; property
 ;; meta lines
 (set-face-attribute 'org-meta-line nil
-                    :foreground "dark gray"
                     :background (face-background 'default)
                     )
 (set-face-attribute 'org-property-value nil
-                    :foreground "dim gray")
+                    )
 
 
-;;; Babel, Source Code, Block
-;;
-;; sci-fi cyan style code block colorscheme
-;; ;;; babel faces (source code block) => #+BEGIN_SRC ... #+END_SRC
-;; (set-face-attribute 'org-block-begin-line nil
-;;                     :foreground "cyan" :background "#004A5D"
-;;                     :box '(:color "cyan" :line-width -1)
-;;                     :bold nil :height 80
-;;                     )
-;; (set-face-attribute 'org-block-end-line nil
-;;                     :foreground "cyan" :background "#004A5D"
-;;                     :box '(:color "cyan" :line-width -1)
-;;                     :bold nil :height 80
-;;                     )
-;; (set-face-attribute 'org-block nil
-;;                     :background "#004A5d"
-;;                     )
-
-;;; black style code block colorscheme
 ;;; babel faces (source code block) => #+BEGIN_SRC ... #+END_SRC
 (set-face-attribute 'org-block-begin-line nil
                     :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                  ('light :background (color-darken-name (face-background 'default) 4))
-                                  ('dark :background (color-lighten-name (face-background 'default) 15)))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 4))
+                                  ('dark
+                                   (color-lighten-name (face-background 'default) 15)))
                     )
 (set-face-attribute 'org-block-end-line nil
                     :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                  ('light :background (color-darken-name (face-background 'default) 4))
-                                  ('dark :background (color-lighten-name (face-background 'default) 15)))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 4))
+                                  ('dark
+                                   (color-lighten-name (face-background 'default) 15)))
                     )
 (set-face-attribute 'org-block nil
                     :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                  ('light :background (color-darken-name (face-background 'default) 2))
-                                  ('dark :background (color-lighten-name (face-background 'default) 10)))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 2))
+                                  ('dark
+                                   (color-lighten-name (face-background 'default) 10)))
                     )
 
 ;; Basic face for displaying the secondary selection.
 ;; face for babel src block background color when [C-c '] `org-edit-special'.
 (set-face-attribute 'secondary-selection nil
-                    :background "dark green"
                     )
 
 ;; inline code face => ~code~,  #+RESULTS: : result.
 (set-face-attribute 'org-code nil
-                    ;; 1. sci-fi cyan style
                     :inherit nil
-                    :background "#004A5D" :foreground "white"
-                    ;; :box '(:color "cyan" :line-width 1)
                     :family "DejaVu Sans Mono"
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 7))
+                                  ('dark
+                                   (color-darken-name (face-background 'default) 3)))
+                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light "tomato")
+                                  ('dark "cyan"))
+                    )
+
+;;; LaTeX
+(set-face-attribute 'org-latex-face nil
+                    :background "brown"
+                    :foreground "white"
                     )
 
 ;;; Formula face
 (set-face-attribute 'org-formula nil
-                    :background "green yellow"
-                    :foreground "black"
-                    :inverse-video nil
-                    :box '(:color "green yellow" :line-width 1 :style nil))
+                    :inherit nil
+                    ;; :background (cl-case (alist-get 'background-mode (frame-parameters))
+                    ;;               ('light "green yellow")
+                    ;;               ('dark "green"))
+                    ;; :foreground "black"
+                    ;; :box '(:color "green yellow" :line-width 1 :style nil)
+                    )
 
 
 (provide 'init-my-org-face)

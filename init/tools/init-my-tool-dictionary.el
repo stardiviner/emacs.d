@@ -130,10 +130,12 @@
         )
 
   (set-face-attribute 'google-translate-phonetic-face nil
-                      :background "orange" :foreground "black"
+                      :background "orange"
+                      :foreground "black"
                       :slant 'italic)
   (set-face-attribute 'google-translate-listen-button-face nil
-                      :background "gray" :foreground "black"
+                      :background "gray"
+                      :foreground "black"
                       :weight 'bold)
   ;; (set-face-attribute 'google-translate-suggestion-face nil
   ;;                     )

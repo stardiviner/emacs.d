@@ -75,7 +75,7 @@
 (use-package rainbow-delimiters
   :ensure t
   :defer t
-  :init
+  :config
   ;; (rainbow-delimiters-mode t)
   ;; 1. global
   ;; (global-rainbow-delimiters-mode)
@@ -87,41 +87,6 @@
   ;;                 ))
   ;;   (add-hook hook 'rainbow-delimiters-mode-enable))
 
-  :config
-  ;; you have two styles:
-  ;; (set-face-attribute 'rainbow-delimiters-depth-1-face nil
-  ;;                     :foreground "#2aa198"
-  ;;                     :weight 'bold)
-  ;; (set-face-attribute 'rainbow-delimiters-depth-2-face nil
-  ;;                     :foreground "#b58900"
-  ;;                     :weight 'bold)
-  ;; (set-face-attribute 'rainbow-delimiters-depth-3-face nil
-  ;;                     :foreground "#268bd2"
-  ;;                     :weight 'bold)
-  ;; (set-face-attribute 'rainbow-delimiters-depth-4-face nil
-  ;;                     :foreground "#dc322f"
-  ;;                     :weight 'bold)
-  ;; (set-face-attribute 'rainbow-delimiters-depth-5-face nil
-  ;;                     :foreground "#859900"
-  ;;                     :weight 'bold)
-  ;; (set-face-attribute 'rainbow-delimiters-depth-6-face nil
-  ;;                     :foreground "#268bd2"
-  ;;                     :weight 'bold)
-  ;; (set-face-attribute 'rainbow-delimiters-depth-7-face nil
-  ;;                     :foreground "#cb4b16"
-  ;;                     :weight 'bold)
-  ;; (set-face-attribute 'rainbow-delimiters-depth-8-face nil
-  ;;                     :foreground "#d33682"
-  ;;                     :weight 'bold)
-  ;; (set-face-attribute 'rainbow-delimiters-depth-9-face nil
-  ;;                     :foreground "#839496"
-  ;;                     :weight 'bold)
-  ;; (set-face-attribute 'rainbow-delimiters-unmatched-face nil
-  ;;                     :foreground "orange" :background "black"
-  ;;                     )
-  ;; (set-face-attribute 'rainbow-delimiters-mismatched-face nil
-  ;;                     :foreground "red" :background "black"
-  ;;                     )
   )
 
 
@@ -130,9 +95,13 @@
 (use-package hl-sexp
   :ensure t
   :config
-  ;; (set-face-attribute 'hl-sexp-face nil
-  ;;                     :background (color-darken-name (face-background 'default) 3)
-  ;;                     )
+  (set-face-attribute 'hl-sexp-face nil
+                      :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('light
+                                     (color-darken-name (face-background 'default) 7))
+                                    ('dark
+                                     (color-lighten-name (face-background 'default) 4)))
+                      )
   )
 
 
@@ -148,6 +117,12 @@
         )
 
   (eval-sexp-fu-flash-mode 1)
+  
+  (set-face-attribute eval-sexp-fu-flash-face nil
+                      :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('light "pink")
+                                    ('dark "cyan"))
+                      )
   )
 
 

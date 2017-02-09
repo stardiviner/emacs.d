@@ -32,12 +32,16 @@
 
 ;; (load-theme 'solarized-dark t)
 
-;; (use-package leuven-theme
-;;   :ensure t
-;;   :config
-;;   (setq leuven-scale-outline-headlines t)
-;;   (load-theme 'leuven t)
-;;   )
+(use-package leuven-theme
+  :ensure t
+  :config
+  (setq leuven-scale-outline-headlines t)
+  (load-theme 'leuven t)
+  (set-face-attribute 'highlight nil
+                      :foreground (color-darken-name (face-foreground 'default) 50)
+                      :background (color-darken-name (face-background 'default) 5)
+                      )
+  )
 
 ;;; [ madhat2r-theme ] -- Dark theme for (spac[e]macs) that supports GUI and terminal.
 
@@ -51,20 +55,63 @@
 
 ;;; [ doom-themes ] -- Emacs themes inspired by Atom One
 
-(use-package doom-themes
-  :ensure t
-  :config
-  (setq doom-enable-bold t
-        doom-enable-italic t)
-  
-  (load-theme 'doom-one t)
-  
-  (add-hook 'find-file-hook 'doom-buffer-mode) ; brighter source buffers.
-  (add-hook 'minibuffer-setup-hook 'doom-buffer-mode) ; brighter minibuffer when active
-  )
+;; (use-package doom-themes
+;;   :ensure t
+;;   :config
+;;   (setq doom-enable-bold t
+;;         doom-enable-italic t)
+;;   (load-theme 'doom-one t)
+;;   (add-hook 'find-file-hook 'doom-buffer-mode) ; brighter source buffers.
+;;   (add-hook 'minibuffer-setup-hook 'doom-buffer-mode) ; brighter minibuffer when active
+;;   )
 
 
 ;;; custom faces
+(set-face-attribute 'italic nil
+                    :slant 'italic
+                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 50))
+                                  ('dark
+                                   (color-lighten-name (face-background 'default) 10)))
+                    )
+(set-face-attribute 'bold nil
+                    :weight 'bold
+                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 50))
+                                  ('dark
+                                   (color-lighten-name (face-background 'default) 10)))
+                    )
+(set-face-attribute 'bold-italic nil
+                    :weight 'bold :slant 'italic
+                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 50))
+                                  ('dark
+                                   (color-lighten-name (face-background 'default) 10)))
+                    )
+(set-face-attribute 'underline nil
+                    :underline (cl-case (alist-get 'background-mode (frame-parameters))
+                                 ('light
+                                  (color-darken-name (face-background 'default) 50))
+                                 ('dark
+                                  (color-lighten-name (face-background 'default) 10))
+                                 ))
+(set-face-attribute 'region nil
+                    :inherit nil :inverse-video nil
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light "khaki")
+                                  ('dark "forest green"))
+                    )
+
+;; comment
+(set-face-attribute 'font-lock-comment-face nil
+                    :slant 'italic
+                    )
+;; built-in function.
+(set-face-attribute 'font-lock-builtin-face nil
+                    :slant 'italic)
 
 (set-face-attribute 'font-lock-function-name-face nil
                     :background (color-lighten-name (face-background 'default) 2)
@@ -72,46 +119,6 @@
 (set-face-attribute 'font-lock-type-face nil
                     :background (color-lighten-name (face-background 'default) 3)
                     )
-
-;; italic & bold
-;;
-;; (set-face-attribute 'italic nil
-;;                     :slant 'italic
-;;                     :foreground "#eeeeee"
-;;                     :weight 'normal
-;;                     :height 100
-;;                     :underline nil)
-;; (set-face-attribute 'bold nil
-;;                     :weight 'bold
-;;                     :foreground "#c3c3c3")
-;; (set-face-attribute 'bold-italic nil
-;;                     :foreground "pink")
-;; (set-face-attribute 'underline nil
-;;                     :underline "dark gray")
-
-;; region
-;;
-;; (set-face-attribute 'region nil
-;;                     :inverse-video nil
-;;                     ;; "dark green", "forest green", "khaki",
-;;                     :background "khaki"
-;;                     ;; :background (color-darken-name (face-background 'default) 10)
-;;                     )
-
-;; highlight
-;;
-;; (set-face-attribute 'highlight nil
-;;                     :background (color-darken-name (face-background 'default) 5)
-;;                     )
-
-;; comment
-;; family: DejaVu Serif,  Droid Serif, Gabriola, Gentium, GFS Didot, Latin Modern Mono, Segoe Print,
-(set-face-attribute 'font-lock-comment-face nil
-                    :slant 'italic
-                    )
-;; built-in function.
-(set-face-attribute 'font-lock-builtin-face nil
-                    :slant 'italic)
 
 
 ;;; [ select-themes ] -- select color-theme with completing-read.

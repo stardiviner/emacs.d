@@ -37,13 +37,14 @@
   ;; (setq emmet-move-cursor-after-expanding nil) ;; default t
 
   (set-face-attribute 'emmet-preview-input nil
-                      :background "#004A5D"
-                      :foreground "white"
-                      :box '(:color "cyan" :line-width 1)
+                      :background (color-darken-name (face-background 'default) 10)
+                      :foreground (color-lighten-name (face-background 'default) 5)
+                      :underline t
                       )
   (set-face-attribute 'emmet-preview-output nil
-                      :foreground "dark slate gray"
-                      :background "#222222"
+                      :inherit nil
+                      :background (color-darken-name (face-background 'default) 10)
+                      :foreground (color-lighten-name (face-background 'default) 5)
                       )
 
   ;; e.g. div -> <div>|</div>

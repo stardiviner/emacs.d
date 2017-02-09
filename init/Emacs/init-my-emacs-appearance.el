@@ -75,10 +75,6 @@
 ;; restore the default size
 (fringe-mode nil)
 
-;; (set-face-attribute 'fringe nil
-;;                     :foreground "cyan" :background "#073642"
-;;                     )
-
 
 ;;; [ echo area ]
 
@@ -86,24 +82,6 @@
 
 
 ;;; [ Widget ]
-
-(set-face-attribute 'widget-button nil
-                    :weight 'bold)
-(set-face-attribute 'widget-inactive nil
-                    :inherit 'shadow)
-(set-face-attribute 'widget-documentation nil
-                    :foreground "lime green")
-(set-face-attribute 'widget-button-pressed nil
-                    :foreground "red1")
-(set-face-attribute 'widget-field nil
-                    :inherit 'default
-                    :foreground "white"
-                    :background "#666666"
-                    :box '(:color "white" :line-width 1))
-(set-face-attribute 'widget-single-line-field nil
-                    :inherit 'widget-field
-                    :background "#333333"
-                    )
 
 
 ;;; [ line space(spacing) / line height ]
@@ -132,7 +110,6 @@
 ;;   ;; set line number face
 ;;   (set-face-attribute 'linum nil
 ;;                       :foreground "#444444"
-;;                       ;; :background nil
 ;;                       )
 ;;
 ;;   ;; (global-linum-mode 1)

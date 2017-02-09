@@ -7,15 +7,6 @@
 ;;; Code:
 ;;; ----------------------------------------------------------------------------
 
-(setq org-priority-faces
-      '((?A . (:foreground "gray" :background "dark red"
-                           :box '(:color "#222222" :line-width -1)))
-        (?B . (:foreground "gray" :background "dark slate blue"
-                           :box '(:color "#222222" :line-width -1)))
-        (?C . (:foreground "gray" :background "dim gray"
-                           :box '(:color "#222222" :line-width -1)))
-        ))
-
 ;; inline code face => src_ruby{require 'something'}
 ;;
 ;; (REGEXP . FACE)

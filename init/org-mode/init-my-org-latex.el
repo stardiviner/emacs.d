@@ -113,10 +113,6 @@
   :group 'org-faces
   :version "22.1")
 
-(set-face-attribute 'org-latex-face nil
-                    :background "brown" :foreground "white"
-                    )
-
 
 (provide 'init-my-org-latex)
 
