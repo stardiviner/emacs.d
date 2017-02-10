@@ -30,6 +30,14 @@
   (setq flymd-browser-open-function 'my-flymd-browser-function)
   )
 
+;;; [ markdown-edit-indirect ] -- edit markdown code block in a separate buffer like `org-edit-src-code'.
+
+(use-package markdown-edit-indirect
+  :ensure t
+  :config
+  (with-eval-after-load 'markdown-mode
+    (define-key markdown-mode-map (kbd "C-c '") 'markdown-edit-indirect))
+  )
 
 
 (provide 'init-my-prog-lang-markdown)
