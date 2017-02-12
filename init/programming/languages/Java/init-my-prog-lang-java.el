@@ -139,6 +139,17 @@
              (concat (getenv "HOME")
                      "/.sdkman/candidates/groovy/current/bin"))
 
+;;; [ jdecomp ] -- Emacs interface to Java decompilers.
+
+(use-package jdecomp
+  :ensure t
+  :config
+  ;; (setq jdecomp-decompiler-paths '((cfr . "~/.java/cfr.jar")
+  ;;                                  (fernflower . "")))
+  ;; (setq jdecomp-decompiler-type )
+  (jdecomp-mode 1)
+  )
+
 
 (provide 'init-my-prog-lang-java)
 
