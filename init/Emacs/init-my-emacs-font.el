@@ -128,6 +128,12 @@
 ;;   )
 
 
+;;; [ font-lock-profiler ] -- Coverage and timing tool for font-lock keywords.
+
+(use-package font-lock-profiler
+  :ensure t
+  )
+
 
 (provide 'init-my-emacs-font)
 
