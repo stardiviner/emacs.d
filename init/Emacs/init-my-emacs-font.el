@@ -134,6 +134,13 @@
   :ensure t
   )
 
+;;; [ font-lock-studio ] -- Interactive debugger for font-lock keywords (Emacs syntax highlighting rules).
+
+(use-package font-lock-studio
+  :ensure t
+  )
+
+
 
 (provide 'init-my-emacs-font)
 
