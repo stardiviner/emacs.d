@@ -183,6 +183,17 @@ when needed."
                (display-buffer-pop-up-window-pdf-split-horizontally)))
 
 
+;;; [ paperless ] -- Emacs assisted PDF document filing.
+
+(use-package paperless
+  :ensure t
+  :config
+  ;; (setq paperless-root-directory
+  ;;       paperless-capture-directory
+  ;;       )
+  )
+
+
 (provide 'init-my-emacs-pdf)
 
 ;;; init-my-emacs-pdf.el ends here
