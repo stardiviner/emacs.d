@@ -65,6 +65,7 @@
 (require 'init-my-org-password)
 (require 'init-my-org-drill)
 (require 'init-my-org-programming)
+(require 'init-my-org-mobile)
 
 
 (provide 'init-my-org-mode)
