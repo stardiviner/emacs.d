@@ -9,7 +9,10 @@
 
 ;; * Outlines::                    Org is based on Outline mode
 
-(setq org-directory "~/Org")
+(let ((org-dir "~/Org"))
+  (if (file-exists-p org-dir)
+      (setq org-directory org-dir)
+    (make-directory org-dir)))
 
 (setq org-blank-before-new-entry '((heading . t)
                                    (plain-list-item . auto))
