@@ -21,7 +21,7 @@
   (use-package helm-perspeen
     :ensure t
     :config
-    (with-eval-after-load 'helm
+    (with-eval-after-load 'helm-buffers
       (add-to-list 'helm-mini-default-sources 'helm-source-perspeen-tabs)
       (add-to-list 'helm-mini-default-sources 'helm-source-perspeen-workspaces))
     )
