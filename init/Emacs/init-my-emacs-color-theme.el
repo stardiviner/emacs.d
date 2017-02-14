@@ -127,18 +127,6 @@
 ;;   :ensure t
 ;;   :defer t)
 
-;;; set color-theme for `emacsclient'
-;; NOTE: this will override my custom faces again. so disable it.
-;;
-;; (if (daemonp)
-;;     (add-hook 'after-make-frame-functions
-;;               '(lambda (frame)
-;;                  (with-selected-frame frame
-;;                    (progn
-;;                      (toggle-frame-maximized)
-;;                      (load-theme 'doom-one t)
-;;                      )))))
-
 
 (provide 'init-my-emacs-color-theme)
 
