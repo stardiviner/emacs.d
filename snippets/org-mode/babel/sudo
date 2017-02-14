@@ -3,6 +3,6 @@
 # key: babel-sudo
 # group: babel
 # --
-#+BEGIN_SRC sh :dir /sudo:: :results none
+#+BEGIN_SRC sh :dir /sudo::
 sudo $0
 #+END_SRC

@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-install-snap
+# key: babel-install-snap
+# group: babel.install
+# --
+#+BEGIN_SRC sh :results none
+sudo snap install $0
+#+END_SRC
