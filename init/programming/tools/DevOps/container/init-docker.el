@@ -21,7 +21,6 @@
   (setq docker-containers-show-all t)
   )
 
-
 ;;; [ dockerfile-mode ] -- Dockerfile
 
 (use-package dockerfile-mode
@@ -30,7 +29,6 @@
   :config
   (setq dockerfile-use-sudo nil)
   )
-
 
 ;;; [ docker-tramp ]
 
@@ -41,6 +39,11 @@
         docker-tramp-docker-options nil
         )
   )
+
+;;; [ docker-api ] -- Emacs interface to the Docker API.
+
+(use-package docker-api
+  :ensure t)
 
 
 (provide 'init-docker)
