@@ -178,7 +178,7 @@
 (setq org-fontify-whole-heading-line t)
 (set-face-attribute 'org-level-1 nil
                     :inherit nil
-                    :family "DejaVu Sans Mono"
+                    :family "Comic Neue"
                     :weight 'bold :height 130
                     :background (color-darken-name (face-background 'default) 2)
                     ;; :box '(:color "black" :line-width -1 :style nil)
