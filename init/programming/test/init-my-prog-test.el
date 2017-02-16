@@ -19,7 +19,6 @@
 ;;; [ test-case-mode ] -- unit test front-end
 
 
-
 (provide 'init-my-prog-test)
 
 ;;; init-my-prog-test.el ends here

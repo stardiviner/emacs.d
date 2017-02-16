@@ -218,6 +218,7 @@
 (require 'init-my-prog-lint)
 (require 'init-my-prog-debug)
 (require 'init-my-prog-test)
+(require 'init-my-prog-test-coverage)
 (require 'init-my-prog-refactor)
 (require 'init-my-prog-project)
 (require 'init-my-prog-vcs)
