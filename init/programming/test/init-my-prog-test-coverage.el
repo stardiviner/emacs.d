@@ -27,8 +27,10 @@
 
 (use-package cov
   :ensure t
-  :config
-  (add-hook 'prog-mode-hook #'cov-mode)
+  :init
+  ;; NOTE: currently it only supports `gcov'.
+  ;; (add-hook 'prog-mode-hook #'cov-mode)
+  (add-hook 'c-mode-hook #'cov-mode)
   )
 
 
