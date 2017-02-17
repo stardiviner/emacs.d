@@ -36,10 +36,12 @@
   (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
   ;; Gemfile, Capfile, Rakefile
   (add-to-list 'auto-mode-alist
-               '("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . enh-ruby-mode))
+               '("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'"
+                 . enh-ruby-mode))
   ;; irb(irbrc), pry(pryrc), gem(gemspec, gemrc), rackup(ru), Thor(thor),
   (add-to-list 'auto-mode-alist
-               '("\\.\\(?:gemspec\\|irbrc\\|pryrc\\|gemrc\\|rake\\|ru\\|thor\\)\\'" . enh-ruby-mode))
+               '("\\.\\(?:gemspec\\|irbrc\\|pryrc\\|gemrc\\|rake\\|ru\\|thor\\)\\'"
+                 . enh-ruby-mode))
 
   (add-hook 'enh-ruby-mode-hook
             (lambda ()
@@ -56,7 +58,6 @@
         enh-ruby-add-encoding-comment-on-save t
         )
   
-  (autoload 'erm-define-faces "enh-ruby-mode")
   (erm-define-faces)
 
   (set-face-attribute 'enh-ruby-op-face nil
@@ -77,26 +78,16 @@
                       :inherit 'flycheck-error
                       :box nil)
 
-  
-  ;; hs-minor-mode (hide-show)
-  ;; (add-to-list 'hs-special-modes-alist
-  ;;              '(ruby-mode
-  ;;                "\\(class\\|def\\|do\\|if\\)" "\\(end\\)" "#"
-  ;;                (lambda (arg) (ruby-end-of-block)) nil))
-
-
   (setq enh-ruby-extra-keywords '("self"
                                   "include" "extend"
                                   ;; "private" "protected" "public"
                                   ))
 
-  (add-hook 'enh-ruby-mode-hook 'eldoc-mode)
-
   ;; insert => for hash symbol.
   (defun ruby-mode-insert-symbol-operator ()
     (interactive)
     (insert " => "))
-  (define-key enh-ruby-mode-map (kbd "C-,") 'ruby-mode-insert-symbol-operator)
+  (define-key enh-ruby-mode-map (kbd "C-;") 'ruby-mode-insert-symbol-operator)
   )
 
 
