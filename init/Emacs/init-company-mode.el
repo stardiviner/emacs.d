@@ -180,7 +180,6 @@
     (let ((beacon-size 20)
           (beacon-color "cyan"))
       (beacon-blink))
-    ;; spinner in mode-line
     )
   (add-hook 'company-completion-started-hook #'my-company-animation)
   (add-hook 'company-completion-finished-hook #'my-company-animation)
@@ -295,6 +294,7 @@
   ;; (setq-default company-frontends
   ;;               (remq 'company-echo-metadata-frontend company-frontends))
   ;;
+  (add-to-list 'company-frontends 'company-preview-common-frontend)
   (add-to-list 'company-frontends 'company-quickhelp-frontend)
 
   
