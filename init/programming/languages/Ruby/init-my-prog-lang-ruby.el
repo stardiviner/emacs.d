@@ -41,6 +41,11 @@
   (add-to-list 'auto-mode-alist
                '("\\.\\(?:gemspec\\|irbrc\\|pryrc\\|gemrc\\|rake\\|ru\\|thor\\)\\'" . enh-ruby-mode))
 
+  (add-hook 'enh-ruby-mode-hook
+            (lambda ()
+              (unless (derived-mode-p 'prog-mode)
+                (run-hooks 'prog-mode-hook))))
+
   :config
   (setq enh-ruby-bounce-deep-indent nil
         enh-ruby-deep-arglist t
@@ -50,10 +55,7 @@
         enh-ruby-use-ruby-mode-show-parens-config nil
         enh-ruby-add-encoding-comment-on-save t
         )
-
-  (unless (derived-mode-p 'prog-mode)
-    (run-hooks 'prog-mode-hook))
-
+  
   (autoload 'erm-define-faces "enh-ruby-mode")
   (erm-define-faces)
 
