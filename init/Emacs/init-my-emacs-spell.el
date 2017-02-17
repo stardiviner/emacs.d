@@ -104,7 +104,7 @@
   (define-key flyspell-mode-map (kbd "C-M-i") nil)
 
   ;; (define-key flyspell-mode-map (kbd "C-.") 'flyspell-correct-word-before-point)
-  (define-key flyspell-mode-map (kbd "C-.") 'flyspell-auto-correct-previous-word)
+  ;; (define-key flyspell-mode-map (kbd "C-.") 'flyspell-auto-correct-previous-word)
   (define-key flyspell-mode-map (kbd "C-,") 'flyspell-goto-next-error)
   )
 
@@ -113,9 +113,10 @@
 
 (use-package flyspell-correct
   :ensure t
+  :bind (:map flyspell-mode-map
+              ("C-." . flyspell-correct-word-generic))
   :config
   (setq flyspell-correct-interface 'flyspell-correct-popup)
-  (define-key flyspell-mode-map (kbd "C-;") 'flyspell-correct-word-generic)
   )
 
 (use-package flyspell-correct-popup
