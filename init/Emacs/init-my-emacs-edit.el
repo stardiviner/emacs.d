@@ -17,6 +17,7 @@
 (require 'init-my-emacs-edit-narrow)
 (require 'init-my-emacs-edit-tabulate)
 (require 'init-my-emacs-edit-multiple-cursors)
+(require 'init-my-emacs-edit-indirect)
 (require 'init-my-emacs-edit-sudo)
 (require 'init-my-emacs-edit-server)
 
