@@ -25,6 +25,7 @@
 ;; - `eww-browse-url' (EWW)
 ;; - `xwidget-webkit-browse-url'
 
+(setq browse-url-chrome-program "google-chrome-unstable")
 (setq browse-url-browser-function 'browse-url-chrome)
 
 
