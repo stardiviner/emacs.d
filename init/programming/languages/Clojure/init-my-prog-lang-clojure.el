@@ -202,6 +202,9 @@
 
   ;; enable `eldoc' in relevant buffers.
   (add-hook 'cider-mode-hook #'eldoc-mode)
+  (add-hook 'cider-repl-mode-hook #'eldoc-mode)
+  (add-hook 'cider-repl-mode-hook
+            (lambda () (setq eldoc-message-function #'eldoc-minibuffer-message)))
   (setq cider-eldoc-display-for-symbol-at-point t ; NOTE: enable this will cause high CPU.
         cider-eldoc-max-class-names-to-display 3)
 
