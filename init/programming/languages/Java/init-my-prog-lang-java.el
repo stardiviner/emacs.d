@@ -10,6 +10,10 @@
 ;; pom files should be treated as xml files
 (add-to-list 'auto-mode-alist '("\\.pom\\'" . nxml-mode))
 
+;;; [ javap-mode ] -- show the ouput of javap when opening a jvm class file in Emacs.
+
+(use-package javap-mode
+  :ensure t)
 
 ;;; [ Eclim ]
 
