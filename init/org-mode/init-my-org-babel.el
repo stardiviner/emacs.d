@@ -506,6 +506,20 @@
     (setq eir-jump-after-eval nil))
   )
 
+;;; [ ob-sql-mode ] -- SQL code blocks evaluated by sql-mode.
+
+(use-package ob-sql-mode
+  :ensure t
+  :config
+  (setq org-babel-sql-mode-template-selector "Q")
+  ;; security guard
+  (setq org-confirm-babel-evaluate
+        (lambda (lang body)
+          ;; (not )
+          (string= lang "sql-mode")
+          ))
+  ;; (setq org-babel-default-header-args:sql-mode )
+  )
 
 
 (provide 'init-my-org-babel)
