@@ -100,6 +100,11 @@
 ;;         ("l" imagex-sticky-rotate-left "rotate left"))))
 ;;   )
 
+;;; [ picpocket ] -- image viewer
+
+(use-package picpocket
+  :ensure t)
+
 
 (provide 'init-my-emacs-image)
 
