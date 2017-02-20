@@ -83,6 +83,14 @@
   :ensure t
   :defer t)
 
+;;; [ org-table-sticky-header ] -- Sticky header for org-mode tables.
+
+(use-package org-table-sticky-header
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook 'org-table-sticky-header-mode)
+  )
+
 
 (provide 'init-my-org-table)
 
