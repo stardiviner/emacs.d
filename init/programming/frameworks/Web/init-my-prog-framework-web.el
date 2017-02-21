@@ -197,7 +197,7 @@
        (newline-and-indent)))
 
   ;; fix company-mode candidates auto lowercase.
-  ;; (add-to-list 'company-dabbrev-code-modes 'web-mode)
+  (add-to-list 'company-dabbrev-code-modes 'web-mode)
 
   ;; flyspell effective spell checking in web-mode.
   (defun web-mode-flyspell-verify ()
