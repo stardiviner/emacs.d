@@ -31,7 +31,13 @@
 ;;; [ ac-octave ] -- auto-complete source for Octave.
 
 (use-package ac-octave
-  :ensure t)
+  :ensure t
+  :config
+  (add-hook 'octave-mode-hook
+            (lambda ()
+              (ac-octave-init)
+              (add-to-list 'ac-sources 'ac-complete-octave)))
+  )
 
 
 
