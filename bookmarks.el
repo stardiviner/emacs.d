@@ -2,7 +2,102 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("C++.org"
+(("Common Lisp.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lisp/Common Lisp/Common Lisp.org")
+ (front-context-string . "* Intro\n\n** What")
+ (rear-context-string)
+ (position . 1))
+("C#.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/C#/C#.org")
+ (front-context-string . "* Intro\n\n** Abou")
+ (rear-context-string)
+ (position . 1))
+("My Favourite Foods.org"
+ (filename . "~/Org/Wiki/Recipes/Data/Manuals/My Favourite Foods/My Favourite Foods.org")
+ (front-context-string . "#+TITLE: My Favo")
+ (rear-context-string)
+ (position . 1))
+("My Recipes Reference.org"
+ (filename . "~/Org/Wiki/Recipes/Data/Manuals/My Recipes Reference/My Recipes Reference.org")
+ (front-context-string . "#+TITLE: My Reci")
+ (rear-context-string)
+ (position . 1))
+("Recipes.org"
+ (filename . "~/Org/Wiki/Recipes/Recipes.org")
+ (front-context-string . "* Breakfast\n\n* L")
+ (rear-context-string)
+ (position . 1))
+("My ClojureScript Examples.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/ClojureScript/Data/Manuals/My ClojureScript Examples/My ClojureScript Examples.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("My ClojureScript's Standard Library.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/ClojureScript/Data/Manuals/My ClojureScript's Standard Library/My ClojureScript's Standard Library.org")
+ (front-context-string . "* cljs.core\n\n\n\n*")
+ (rear-context-string)
+ (position . 1))
+("My ClojureScript Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/ClojureScript/Data/Manuals/My ClojureScript Language Syntax Reference/My ClojureScript Language Syntax Reference.org")
+ (front-context-string . "* About\n\nClojure")
+ (rear-context-string)
+ (position . 1))
+("Crack Methods.org"
+ (filename . "~/Org/Wiki/Computer Technology/Crack/Data/Crack Methods/Crack Methods.org")
+ (front-context-string . "* Search\n\n** Goo")
+ (rear-context-string)
+ (position . 1))
+("macOS.org"
+ (filename . "~/Org/Wiki/Computer Technology/Systems/macOS/macOS.org")
+ (front-context-string . "* Intro\n\n** Scre")
+ (rear-context-string)
+ (position . 1))
+("My Docker Manual.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Docker/Data/Manuals/My Docker Manual/My Docker Manual.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Docker.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Docker/Docker.org")
+ (front-context-string . "* Intro\n\nDocker ")
+ (rear-context-string)
+ (position . 1))
+("Scala.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Scala/Scala.org")
+ (front-context-string . "* Intro\n\nScala (")
+ (rear-context-string)
+ (position . 1))
+("My R Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/R/Data/Manuals/My R Language Syntax Reference/My R Language Syntax Reference.org")
+ (front-context-string . "* Data Types\n\n\n*")
+ (rear-context-string)
+ (position . 1))
+("Prolog.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Prolog/Prolog.org")
+ (front-context-string . "* Intro\n\n*Pro*-g")
+ (rear-context-string)
+ (position . 1))
+("Lua.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lua/Lua.org")
+ (front-context-string . "* Intro\n\n** Abou")
+ (rear-context-string)
+ (position . 1))
+("LaTeX.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/TeX/LaTeX/LaTeX.org")
+ (front-context-string . "* Intro\n\nLaTeX i")
+ (rear-context-string)
+ (position . 1))
+("HTML5.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/HTML/HTML5/HTML5.org")
+ (front-context-string . "* Intro\n\nThe ter")
+ (rear-context-string)
+ (position . 1))
+("Bash.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Shell/Bash/Bash.org")
+ (front-context-string . "* Intro\n\n** Feat")
+ (rear-context-string)
+ (position . 1))
+("C++.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/C++/C++.org")
  (front-context-string . "* Intro\n\n** Abou")
  (rear-context-string)
@@ -372,21 +467,6 @@
  (front-context-string)
  (rear-context-string)
  (position . 1))
-("git-flow.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Tools/Version Control System/Git/git-flow.org")
- (front-context-string . "* Intro\n\nAVH Edi")
- (rear-context-string)
- (position . 1))
-("Git.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Tools/Version Control System/Git/Git.org")
- (front-context-string . "* Intro\n\nhttp://")
- (rear-context-string)
- (position . 1))
-("Programming Tools.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Tools/Programming Tools.org")
- (front-context-string . "* Intro\n\n\n* Data")
- (rear-context-string)
- (position . 1))
 ("The Sex Mechanism.org"
  (filename . "~/Org/Wiki/Sexology/Data/Manuals/The Sex Mechanism/The Sex Mechanism.org")
  (front-context-string)
@@ -548,8 +628,8 @@
  (rear-context-string)
  (position . 1))
 ("Freelancer.org"
- (filename . "~/Org/Projects/Freelancer.org")
- (front-context-string . "* Intro\n\n\n\n* Dat")
+ (filename . "~/Org/Wiki/Work/Freelancer/Freelancer.org")
+ (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
 ("SQLite.org"
@@ -622,11 +702,6 @@
  (front-context-string . "[[file:sffms.org")
  (rear-context-string . "& Manuscript\n\n- ")
  (position . 12097))
-("Methods.org"
- (filename . "~/Org/Wiki/Computer Technology/Crack/Data/Methods/Methods.org")
- (front-context-string . "请求，从而允许攻击者进行无限次的")
- (rear-context-string . "测出来自不同网站的多次无效支付\n")
- (position . 2346))
 ("Linux.org"
  (filename . "~/Org/Wiki/Computer Technology/Systems/Linux/Linux.org")
  (front-context-string . "Distributions]]\n")
@@ -688,8 +763,8 @@
  (rear-context-string)
  (position . 1))
 ("Packages.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Java/Data/Packages/Packages.org")
- (front-context-string . "* Process\n\n** Th")
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Python/Data/Packages/Packages.org")
+ (front-context-string . "* Python Languag")
  (rear-context-string)
  (position . 1))
 ("My SQL Reference.org"
@@ -848,10 +923,10 @@
  (rear-context-string)
  (position . 1))
 ("org-capture-last-stored"
- (filename . "~/Org/Tasks/Words.org")
- (front-context-string . "* extendable :dr")
- (rear-context-string . "e\n:END:\n\n阿姆斯特丹\n\n")
- (position . 555))
+ (filename . "~/Org/Contacts/Contacts.org")
+ (front-context-string . "** larluo\n:PROPE")
+ (rear-context-string . "cemerick\n:END:\n\n")
+ (position . 28341))
 ("Accounts"
  (filename . "~/Org/Accounts/accounts.org.gpg")
  (front-context-string . "* Nick\n\nstardivi")
