@@ -124,6 +124,8 @@
     :ensure t
     :bind (:map dired-mode-map
                 ("C-c C-p" . wdired-change-to-wdired-mode))
+    :config
+    (setq wdired-allow-to-change-permissions t)
     )
 
   (use-package dired-x
