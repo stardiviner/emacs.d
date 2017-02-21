@@ -3,6 +3,6 @@
 # key: image-size
 # group: image
 # --
-#+ATTR_ORG: :width ${2:200/250/300/400/500/600}
-#+ATTR_LATEX: :width ${3:${2:$(/ (string-to-number yas-text) 100.0)}}in
-#+ATTR_HTML: :width $2px
+#+ATTR_ORG: :width ${1:200/250/300/400/500/600}
+#+ATTR_LATEX: :width ${1:$(/ (string-to-number yas-text) 100.0)}in
+#+ATTR_HTML: :width $1px
