@@ -6,9 +6,11 @@
         artist-backward-char
         artist-forward-char
         backward-sexp
+        counsel-M-x
         counsel-yank-pop
         fill-paragraph
         forward-sexp
+        ivy-done
         kill-region
         lispy-braces
         lispy-brackets
