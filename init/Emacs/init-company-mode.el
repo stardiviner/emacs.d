@@ -181,7 +181,7 @@
           (beacon-color "cyan"))
       (beacon-blink))
     )
-  (add-hook 'company-completion-started-hook #'my-company-animation)
+  ;; (add-hook 'company-completion-started-hook #'my-company-animation)
   (add-hook 'company-completion-finished-hook #'my-company-animation)
 
   
