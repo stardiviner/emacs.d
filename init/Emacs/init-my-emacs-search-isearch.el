@@ -153,19 +153,15 @@
          ("C-M-%" . anzu-query-replace-regexp))
   :config
   (global-anzu-mode +1)
+  
   (setq anzu-regexp-search-commands '(vr/isearch-forward
                                       vr/isearch-backward
                                       isearch-forward-regexp
                                       isearch-backward-regexp)
         anzu-cons-mode-line-p nil
-        ;; anzu--mode-line-format '(:eval (anzu--update-mode-line)) ; add into my custom mode-line
-        ;; anzu--mode-line-format ""
-        ;; anzu-input-idle-delay 0.05
         anzu-deactivate-region nil
-        anzu-use-migemo nil
+        anzu-use-migemo (and (featurep 'migemo) t)
         anzu-replace-to-string-separator " ⇨ "
-        ;; anzu-minimum-input-length 1
-        ;; anzu-search-threshold nil ; limit of search number.
         )
   )
 
