@@ -152,12 +152,6 @@ helpful for learning and remembering forgotten binds."
          ("C-h K" . emaps-describe-keymap-bindings))
   )
 
-;;; [ headlong ] -- reckless completion for Emacs.
-
-(use-package headlong
-  :ensure t)
-
-
 (provide 'init-my-emacs-keybinding)
 
 ;;; init-my-emacs-keybinding.el ends here
