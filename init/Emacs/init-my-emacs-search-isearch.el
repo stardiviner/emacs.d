@@ -16,6 +16,7 @@
 
 (use-package isearch
   :bind (("C-s" . isearch-forward)
+         ("C-r" . isearch-backward)
          ("C-M-s" . isearch-forward-regexp)
          ("M-%" . query-replace-regexp)
          :map isearch-prefix
@@ -48,46 +49,6 @@
         ;; replace-char-fold t ; for command `query-replace'
         )
 
-  
-  ;; isearch
-  (set-face-attribute 'isearch nil
-                      :inherit nil
-                      :inverse-video nil
-                      :background (color-darken-name (face-background 'default) 5)
-                      :foreground "pink"
-                      :box '(:color "green" :line-width 1)
-                      :slant 'italic
-                      :weight 'normal)
-  (set-face-attribute 'isearch-fail nil
-                      :inherit nil
-                      :inverse-video nil
-                      :background (color-darken-name (face-background 'default) 5)
-                      :foreground "dark red"
-                      :weight 'bold
-                      :slant 'italic)
-  ;; match
-  (set-face-attribute 'lazy-highlight nil
-                      :inherit nil
-                      :inverse-video nil
-                      :background (color-darken-name (face-background 'default) 5)
-                      :foreground "cyan"
-                      :weight 'bold
-                      )
-  (set-face-attribute 'match nil
-                      :inherit nil
-                      :inverse-video nil
-                      :background (color-darken-name (face-background 'default) 3)
-                      :foreground "red"
-                      )
-  ;; replace
-  (set-face-attribute 'query-replace nil
-                      :inherit nil
-                      :inverse-video nil
-                      :background (color-darken-name (face-background 'default) 5)
-                      :foreground "orange"
-                      :weight 'bold
-                      :box '(:color "black" :line-width 1 :style nil))
-
   ;;; smart delete/backspace in isearch
   (defun isearch-smart-delete ()
     "Delete the failed portion of the search string, or the last char if successful."
@@ -102,14 +63,6 @@
   (define-key isearch-mode-map (kbd "<backspace>") 'isearch-smart-delete)
   (define-key isearch-mode-map (kbd "DEL") 'isearch-smart-delete)
   )
-
-
-;; (use-package isearch+
-;;   :ensure t
-;;   :config
-;;   ;; or from isearch+ use [M-s e]
-;;   (setq isearchp-drop-mismatch t)
-;;   )
 
 
 ;;;_ query & replace
