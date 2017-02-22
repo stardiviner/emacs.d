@@ -15,13 +15,6 @@
       ;; compilation-auto-jump-to-next
       )
 
-;;; [ smart-compile ]
-
-;; (use-package smart-compile
-;;   :ensure t
-;;   :defer t)
-
-
 ;;; [ quickrun ] -- Run command quickly.
 
 (use-package quickrun
