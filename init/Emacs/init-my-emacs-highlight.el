@@ -35,7 +35,7 @@
 (use-package highlight-symbol
   :ensure t
   :init
-  (add-hook 'prog-mode-hook 'highlight-symbol-mode)
+  ;; (add-hook 'prog-mode-hook 'highlight-symbol-mode)
   :config
   (setq highlight-symbol-idle-delay 2
         ;; highlight-symbol-border-pattern '("\\_<" . "\\_>")
