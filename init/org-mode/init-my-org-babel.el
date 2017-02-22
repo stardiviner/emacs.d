@@ -494,6 +494,15 @@
 
 (add-hook 'org-src-mode-hook #'my-org-src-edit-animation)
 
+;;; [ ob-async ] -- enables asynchronous execution of org-babel src blocks for *any* languages.
+
+(use-package ob-async
+  :ensure t
+  :config
+  (with-eval-after-load 'org
+    (add-hook 'org-ctrl-c-ctrl-c-hook #'ob-async-org-babel-execute-src-block))
+  )
+
 ;;; [ org-babel-eval-in-repl ] -- eval org-babel block code with eval-in-repl.el
 
 (use-package org-babel-eval-in-repl
