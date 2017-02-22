@@ -87,11 +87,6 @@
         (dolist (window (get-buffer-window-list buffer))
           (quit-window nil window)))))
   ;; (add-hook 'before-save-hook #'flycheck-list-errors-only-when-errors)
-
-  ;; add Django-mode
-  ;; (with-eval-after-load 'flycheck
-  ;;   (dolist (checker '(python-pylint python-flake8 python-pycompile))
-  ;;     (flycheck-add-mode checker 'django-mode)))
   )
 
 

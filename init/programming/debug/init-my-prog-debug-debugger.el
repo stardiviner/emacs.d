@@ -11,10 +11,7 @@
 
 (use-package realgud
   :ensure t
-  :defer t
-  :init
-  ;; (define-key my-prog-debug-map (kbd "") 'realgud-???)
-  )
+  :defer t)
 
 
 ;;; [ GDB ]
