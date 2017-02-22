@@ -15,33 +15,6 @@
       ;; compilation-auto-jump-to-next
       )
 
-(set-face-attribute 'compilation-line-number nil
-                    :inherit nil
-                    :underline nil
-                    :background (color-darken-name (face-background 'default) 5)
-                    )
-(set-face-attribute 'compilation-column-number nil
-                    :background (color-darken-name (face-background 'default) 5)
-                    :foreground "orange"
-                    )
-(set-face-attribute 'compilation-info nil
-                    :background (color-darken-name (face-background 'default) 5)
-                    )
-(set-face-attribute 'compilation-warning nil
-                    :foreground "orange")
-(set-face-attribute 'compilation-error nil
-                    :background "dark red"
-                    )
-(set-face-attribute 'compilation-mode-line-exit nil
-                    :inherit 'compilation-info
-                    :foreground "forest green")
-(set-face-attribute 'compilation-mode-line-fail nil
-                    :foreground "black"
-                    :background "dark red")
-(set-face-attribute 'compilation-mode-line-run nil
-                    :foreground "black")
-
-
 ;;; [ smart-compile ]
 
 ;; (use-package smart-compile
