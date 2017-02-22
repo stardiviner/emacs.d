@@ -176,10 +176,7 @@
   :ensure t
   :defer t
   :bind (("C-s" . swiper)
-         ("C-r" . swiper)
-         :map my-search-prefix
-         ("C-s" . swiper)
-         ("C-r" . swiper))
+         ("C-c u" . swiper-all))
   )
 
 

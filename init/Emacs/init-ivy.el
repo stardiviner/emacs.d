@@ -107,16 +107,6 @@
   (ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer)
   )
 
-;;; [ swiper ]
-
-(use-package swiper
-  :ensure t
-  :defer t
-  :bind (("C-s" . swiper)
-         ("C-c u" . swiper-all))
-  )
-
-
 ;;; [ counsel ]
 
 (use-package counsel
