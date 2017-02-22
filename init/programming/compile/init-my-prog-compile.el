@@ -48,17 +48,6 @@
   )
 
 
-;;; [ multi-compile ] -- multiple targets compile
-
-;; (use-package multi-compile
-;;   :ensure t
-;;   :defer t
-;;   :config
-;;   (setq multi-compile-completion-system 'ivy-read)
-;;   )
-
-
-
 (if (featurep 'quickrun)
     (global-set-key [f5] 'quickrun)
   (global-set-key [f5] 'smart-compile))
