@@ -152,42 +152,6 @@ helpful for learning and remembering forgotten binds."
          ("C-h K" . emaps-describe-keymap-bindings))
   )
 
-
-;;; [ Buffer-locally overriding minor-mode key bindings in Emacs ]
-
-;;; Solution 1.
-;;; ---------------------------------------------------
-;; (defun local-set-minor-mode-key (mode key def)
-;;   "Overrides a minor MODE keybinding KEY DEF for the local buffer.
-;;
-;;    by creating or altering keymaps stored in buffer-local
-;;    `minor-mode-overriding-map-alist'.
-;;    Usage example: (local-set-minor-mode-key '<minor-mode> (kbd 'key-to-hide') nil)"
-;;   (let* ((oldmap (cdr (assoc mode minor-mode-map-alist)))
-;;          (newmap (or (cdr (assoc mode minor-mode-overriding-map-alist))
-;;                      (let ((map (make-sparse-keymap)))
-;;                        (set-keymap-parent map oldmap)
-;;                        (push `(,mode . ,map) minor-mode-overriding-map-alist)
-;;                        map))))
-;;     (define-key newmap key def)))
-;;; ---------------------------------------------------
-
-;;; Solution 2.
-;; ----------------------------------------------------------------------------------
-;; (add-hook '<major-mode>-hook
-;;           (lambda ()
-;;             (let ((oldmap (cdr (assoc '<minor-mode> minor-mode-map-alist)))
-;;                   (newmap (make-sparse-keymap)))
-;;               (set-keymap-parent newmap oldmap)
-;;               (define-key newmap [<thekeyIwanttohide>] nil)
-;;               (make-local-variable 'minor-mode-overriding-map-alist)
-;;               (push `(<minor-mode> . ,newmap) minor-mode-overriding-map-alist))))
-;; ----------------------------------------------------------------------------------
-
-
-;;; [ redefine a map's keybinding buffer-locally ]
-
-
 ;;; [ headlong ] -- reckless completion for Emacs.
 
 (use-package headlong
