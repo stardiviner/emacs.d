@@ -53,6 +53,8 @@
 (use-package graphviz-dot-mode
   :ensure t
   :init
+  (setq default-tab-width 2)
+  
   (defun graphviz-dot-mode-find-file ()
     (if (string= "dot" (file-name-extension buffer-file-name))
         (progn

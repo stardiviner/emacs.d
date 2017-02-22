@@ -9,7 +9,7 @@
 
 ;;; spaces instead of tabs
 (setq-default indent-tabs-mode nil)
-;; Tab length
+;;; Tab length
 (setq default-tab-width 2
       tab-width 2
       standard-indent 2)
