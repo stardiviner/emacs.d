@@ -160,24 +160,12 @@
                "~/Org/Projects/Business Ideas.org"
                "~/Org/Wiki/Business/Startup/My Startup/My Startup.org"
                "~/Org/Capture/Capture.org"
-               "~/Org/Wiki/Things/Things.org"
+               "~/Org/Wiki/Things/Things.org" ; Buy Things
                "~/Org/Tasks/"
-               ;; "~/Org/Tasks/Daily.org"
-               ;; "~/Org/Tasks/Tasks.org"
-               ;; "~/Org/Tasks/Computer Todos.org"
-               ;; "~/Org/Tasks/Entertainment.org"
                "~/Org/Projects/" ; All projects
-               ;; "~/Org/Projects/Freelancer.org"
-               ;; "~/Org/Projects/Finance.org"
-               "~/Org/Projects/Sales/Sales.org"
-               ;; "~/Org/Projects/Code.org"
-               ;; "~/Org/Projects/Projects.org"
-               ;; "~/Org/Projects/Programming Projects.org" ; BIG!
-               ;; "~/Org/Projects/Maker.org"
                "~/Org/Projects/Interpersonal Network/" ; Interpersonal Network
                "~/Org/Learning Plan/Learning Plan.org"
                "~/Org/Learning Plan/Learn Programming.org"
-               ;; "~/Org/Wiki/Wiki.org"
                ;; "~/Org/Contacts/Contacts.org"
                ))))
 
