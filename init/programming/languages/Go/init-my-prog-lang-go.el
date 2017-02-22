@@ -10,21 +10,21 @@
 (use-package go-mode
   :ensure t
   :config
-  ;; (setq go-command "go"
-  ;;       gofmt-command "gofmt"
-  ;;       gofmt-show-errors 'buffer         ; 'buffer, 'echo, nil
-  ;;       godef-command "godef"
-  ;;       godoc-command "go doc"
-  ;;       godoc-at-point-function 'godoc-and-godef
-  ;;       )
-
+  (setq gofmt-command "gofmt"
+        godef-command "godef"
+        godoc-command "go doc"
+        godoc-and-godef-command "godoc"
+        godoc-use-completing-read t
+        godoc-at-point-function #'godoc-and-godef ; `godoc-and-godef', `godoc-gogetdoc'
+        )
+  
   (defun my-go-mode-settings ()
     ;; go-import [C-u] + [C-c C-a]
     ;; (local-set-key (kbd "C-c C-S-a") 'go-remove-unused-imports)
     ;; gofmt
     (local-set-key (kbd "C-c C-f") 'gofmt)
     ;; godoc -- `go doc [QUERY]`
-    (local-set-key (kbd "C-h d d") 'godoc-at-point) ; `godoc', `godoc-at-point'
+    (local-set-key (kbd "C-h d d") 'godoc-at-point)
     ;; (local-set-key (kbd "C-c C-k") 'godoc)
     ;; godef
     ;; use `godef-jump' instead of `etags' etc tags jumping.
