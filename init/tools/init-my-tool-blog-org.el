@@ -11,6 +11,11 @@
 
 (use-package org-page
   :ensure t
+  :defer t
+  :bind (:map blog-map
+              ("n" . op/new-post)
+              ("p" . op/do-publication)
+              ("C-p" . op/do-publication-and-preview-site))
   :config
   (setq op/repository-directory (expand-file-name "~/Org/Blog/org-page")
         ;; op/repository-html-branch "master"

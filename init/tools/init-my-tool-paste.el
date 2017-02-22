@@ -15,13 +15,12 @@
 (use-package yagist
   :ensure t
   :defer t
-  :init
-  (define-key paste-prefix (kbd "p") 'yagist-region-or-buffer)
-  (define-key paste-prefix (kbd "P") 'yagist-region-or-buffer-private)
-  (define-key paste-prefix (kbd "r") 'yagist-region)
-  (define-key paste-prefix (kbd "b") 'yagist-buffer)
-  (define-key paste-prefix (kbd "l") 'yagist-list)
-  
+  :bind (:map paste-prefix
+              ("p" . yagist-region-or-buffer)
+              ("P" . yagist-region-or-buffer-private)
+              ("r" . yagist-region)
+              ("b" . yagist-buffer)
+              ("l" . yagist-list))
   :config
   ;; *Encrypt your token by using `kaesar' package with AES encryption algorithm.
   ;; (setq yagist-encrypt-risky-config t)
@@ -37,6 +36,7 @@
 
 (use-package webpaste
   :ensure t
+  :defer t
   :bind (:map paste-prefix
               ("C-b" . webpaste-paste-buffer)
               ("C-r" . webpaste-paste-region)))

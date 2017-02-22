@@ -67,6 +67,12 @@
 
 (use-package google-translate
   :ensure t
+  :defer t
+  :bind (:map dictionary-prefix
+              ("t" . google-translate-smooth-translate)
+              ("T" . google-translate-at-point)
+              ("C-t" . google-translate-query-translate)
+              )
   :config
   (setq google-translate-enable-ido-completion nil
         google-translate-show-phonetic t
@@ -74,26 +80,6 @@
         google-translate-output-destination nil ; 'echo-area, 'popup
         google-translate-pop-up-buffer-set-focus nil
         )
-
-  (set-face-attribute 'google-translate-phonetic-face nil
-                      :background "orange"
-                      :foreground "black"
-                      :slant 'italic)
-  (set-face-attribute 'google-translate-listen-button-face nil
-                      :background "gray"
-                      :foreground "black"
-                      :weight 'bold)
-  ;; (set-face-attribute 'google-translate-suggestion-face nil
-  ;;                     )
-  ;; (set-face-attribute 'google-translate-suggestion-label-face nil
-  ;;                     )
-  (set-face-attribute 'google-translate-translation-face nil
-                      :height 1.4
-                      )
-
-  (define-key dictionary-prefix (kbd "t") 'google-translate-smooth-translate)
-  ;; (define-key dictionary-prefix (kbd "T") 'google-translate-at-point)
-  ;; (define-key dictionary-prefix (kbd "C-t") 'google-translate-query-translate)
   )
 
 

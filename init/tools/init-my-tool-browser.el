@@ -78,13 +78,6 @@
         ;; eww-use-external-browser-for-content-type "\\`\\(video/\\|audio/\\|application/ogg\\)"
         )
 
-  ;; faces
-  (set-face-attribute 'eww-form-checkbox nil
-                      :foreground "gray"
-                      :background "black"
-                      :box '(:color "cyan" :line-width 2 :style 'released-button)
-                      )
-
   ;; keybindings
   (define-key eww-mode-map (kbd "o") 'eww) ; prompt for a URL.
   
@@ -184,7 +177,7 @@
       (define-key browser-prefix (kbd "w") 'eww-wiki)
       (define-key browser-prefix (kbd "s") 'eww-search)
       (define-key browser-prefix (kbd "f") 'eww-follow-link)
-      )    
+      )
   (progn
     (define-key browser-prefix (kbd "f") 'browse-url-at-point)
     (define-key browser-prefix (kbd "l") 'w3m-goto-url)

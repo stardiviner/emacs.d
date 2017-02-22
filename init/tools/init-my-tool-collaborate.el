@@ -10,7 +10,8 @@
 ;;; [ floobits ] -- Floobits client for Emacs.
 
 (use-package floobits
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 ;;; ----------------------------------------------------------------------------

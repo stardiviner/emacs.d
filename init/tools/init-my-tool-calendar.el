@@ -17,6 +17,7 @@
 ;;; [ calendar ]
 
 (use-package calendar
+  :defer t
   :config
   ;; ;; Month
   ;; (setq calendar-month-name-array
@@ -73,6 +74,7 @@
   )
 
 (use-package cal-china
+  :defer t
   :config
   ;; display the ‘celestial-stem’ (天干) and the ‘terrestrial-branch’ (地支) in Chinese:
   (setq calendar-chinese-celestial-stem
@@ -88,6 +90,7 @@
 ;;; [ Holidays ]
 
 (use-package holidays
+  :defer t
   :config
   ;; `calfw' collects holidays from function `calendar-holiday-list' and the
   ;; customize variable `calendar-holidays' which belongs to `holidays.el` in
@@ -101,6 +104,7 @@
 ;; [ Diary ] -- Diary Mode
 
 (use-package diary
+  :defer t
   :config
   (require 'diary-lib)
   
@@ -117,6 +121,7 @@
 ;;; [ calfw ] -- Calendar framework for Emacs
 
 (use-package calfw
+  :defer t
   :bind (:map my-calendar-prefix
               ("o" . cfw:open-org-calendar)
               ("x" . cfw:open-calendar-buffer)

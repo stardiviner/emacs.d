@@ -18,8 +18,8 @@
 (use-package blog-admin
   :ensure t
   :defer t
-  :init
-  (define-key 'blog-map (kbd "l") 'blog-admin-start)
+  :bind (:map blog-map
+              ("l" . blog-admin-start))
   :config
   ;; open post after create new post
   (add-hook 'blog-admin-backend-after-new-post-hook 'find-file)

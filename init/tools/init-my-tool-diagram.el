@@ -43,28 +43,27 @@
 
 ;;; [ picture-mode ]
 
+(require 'picture)
 
-
-;;; ditaa
+;;; [ ditaa ]
 
 
 ;;; [ graphviz-dot-mode ]
 
-;; (use-package graphviz-dot-mode
-;;   :ensure t
-;;   :init
-;;   (add-hook 'find-file-hook
-;;             (lambda()
-;;               (if (string= "dot" (file-name-extension
-;;                                   buffer-file-name))
-;;                   (progn
-;;                     (message "Enabling Setings for dot-mode")
-;;                     (setq fill-column 1000)
-;;                     (base-auto-pair)
-;;                     (local-set-key (kbd "<C-f6>") 'compile)
-;;                     )
-;;                 )))
-;;   )
+(use-package graphviz-dot-mode
+  :ensure t
+  :init
+  (defun graphviz-dot-mode-find-file ()
+    (if (string= "dot" (file-name-extension buffer-file-name))
+        (progn
+          (message "Enabling Setings for dot-mode")
+          (setq fill-column 1000)
+          (base-auto-pair)
+          (local-set-key (kbd "<C-f6>") 'compile)
+          )))
+  
+  (add-hook 'find-file-hook #'graphviz-dot-mode-find-file)
+  )
 
 
 ;;; [ plantuml-mode ] -- Major mode for PlantUML.

@@ -10,6 +10,7 @@
 
 (use-package weechat
   :ensure t
+  :defer t
   :config
   (setq weechat-modules '(weechat-button
                           weechat-complete
