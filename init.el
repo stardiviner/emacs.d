@@ -296,13 +296,14 @@
 
 ;;; Systems
 
-(if (string-equal system-type "gnu/linux")
-    (require 'init-linux))
-(if (string-equal system-type "darwin")
-    (require 'init-mac))
-(if (string-equal system-type "windows-nt")
-    (require 'init-microsoft-windows))
-
+(case system-type
+  ('gnu/linux
+   (require 'init-linux)
+   (message "hi"))
+  ('darwin
+   (require 'init-mac))
+  ('windows-nt
+   (require 'init-microsoft-windows)))
 
 ;;; Engineering
 
