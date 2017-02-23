@@ -32,6 +32,8 @@
 
 ;; (load-theme 'solarized-dark t)
 
+;;; [ leuven-theme ] -- Awesome Emacs color theme on white background.
+
 (use-package leuven-theme
   :ensure t
   :config
