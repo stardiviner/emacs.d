@@ -39,6 +39,11 @@
   (setq helm-dash-enable-debugging nil)
   
   ;; buffer local docsets
+  (defun my-helm-dash-buffer-local-docsets-add (docsets-list)
+    (mapc
+     (lambda (docset)
+       (setq-local helm-dash-docsets (add-to-list 'helm-dash-docsets docset)))
+     docsets-list))
   ;; Bash
   (defun helm-dash-buffer-local-shell-docsets ()
     (setq-local helm-dash-docsets '("Bash")))
