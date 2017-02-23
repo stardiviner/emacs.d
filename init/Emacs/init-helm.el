@@ -11,8 +11,12 @@
 
 (use-package helm
   :ensure t
-  :bind (("C-x f" . helm-for-files)
+  :diminish helm-mode
+  :bind (("M-x" . helm-M-x)
+         ("M-y" . helm-show-kill-ring)
+         ("C-x f" . helm-for-files)
          ("C-x c c" . helm-colors)
+         ("C-. C-r" . helm-grep-it)
          :map helm-map
          ("<tab>" . helm-selection-action)
          ("C-z" . helm-selection-action)
@@ -46,6 +50,17 @@
         helm-ff-transformer-show-only-basename t
         ;; helm-sources-using-default-as-input
         )
+
+  ;; For some reason, this doesn't work. For example, `magit-status'
+  ;; always uses `helm' for `read-file-name'.
+  (add-to-list 'helm-completing-read-handlers-alist
+               '(find-file . ido))
+  (add-to-list 'helm-completing-read-handlers-alist
+               '(dired . ido))
+  (add-to-list 'helm-completing-read-handlers-alist
+               '(read-file-name . ido-read-file-name))
+  
+  ;; (helm-mode 1)
   )
 
 
