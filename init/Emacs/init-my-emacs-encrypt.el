@@ -31,18 +31,17 @@
   ;; pin entry program.
   (setenv "GPG_AGENT_INFO" nil)
   (epa-file-enable)
-  
   :config
-  (setq epa-file-encrypt-to "numbchild@gmail.com" ; nil, "numbchild@gmail.com"
-        ;; epa-gpg-program "gpg2"
-        epa-file-select-keys t       ; ask user to select recipient with public key
-        ;; cache passphrase for symmetric encryption.
-        ;; For security reasons, this option is turned off by default and
-        ;; not recommended to use.  Instead, consider using gpg-agent which
-        ;; does the same job in a safer way.
-        epa-file-cache-passphrase-for-symmetric-encryption t
-        epa-file-inhibit-auto-save t
-        )
+  (setq epa-file-encrypt-to "numbchild@gmail.com")
+  (setq epa-file-select-keys (case epa-file-encrypt-to
+                               ('nil t)
+                               (t nil)))
+  ;; cache passphrase for symmetric encryption.
+  ;; For security reasons, this option is turned off by default and
+  ;; not recommended to use.  Instead, consider using gpg-agent which
+  ;; does the same job in a safer way.
+  (setq epa-file-cache-passphrase-for-symmetric-encryption t
+        epa-file-inhibit-auto-save t)
   )
 
 ;;; FAQ
