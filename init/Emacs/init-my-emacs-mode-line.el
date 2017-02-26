@@ -220,6 +220,13 @@ state (modified, read-only or non-existent)."
         " ")
        'face 'mode-line-info-face)))
 
+;;; line & column position info
+(defun *linum-info ()
+  "Show line & column position info."
+  (propertize " [%l:%c %p] "
+              'face '(:height 0.75))
+  )
+
 ;;; major-mode
 (defun *major-mode ()
   "The major mode, including process, environment and text-scale info."
@@ -575,7 +582,7 @@ dimensions of a block selection."
                  (*buffer-name)
                  ;; (*buffer-encoding)
                  ;; (*wc-mode)
-                 " [%l:%c %p] "
+                 (*linum-info)
                  (*process)
                  (*org-clock)
                  ;; (*org-tree-slide)
