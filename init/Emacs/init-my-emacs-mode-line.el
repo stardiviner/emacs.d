@@ -364,6 +364,38 @@ state (modified, read-only or non-existent)."
                               (all-the-icons-octicon "check" :v-adjust -0.06))))))))
       (concat " " (all-the-icons-octicon "check" :v-adjust -0.06) " "))))
 
+;;; build status
+(defun *build-status ()
+  "Show CI build status in mode-line."
+  ;; `build-status-mode-line-string'
+  (let* ((root (or (build-status--circle-ci-project-root (buffer-file-name))
+                   (build-status--travis-ci-project-root (buffer-file-name))))
+         (active (build-status--activate-mode))
+         (status (cdr (assoc root build-status--project-status-alist)))
+         (project (build-status--project (buffer-file-name))))
+    (if (not (null status))
+        (propertize
+         (concat
+          (all-the-icons-faicon "cogs"
+                                :v-adjust -0.05)
+          (propertize " " 'face 'variable-pitch)
+          (cond
+           ((string= status "passed")
+            (all-the-icons-faicon "check-circle" 'face 'build-status-passed-face))
+           ((string= status "running")
+            (all-the-icons-faicon "spinner" 'face 'build-status-running-face))
+           ((string= status "failed")
+            (all-the-icons-faicon "chain-broken" 'face 'build-status-failed-face))
+           ((string= status "queued")
+            (all-the-icons-faicon "ellipsis-h" 'face 'build-status-queued-face))
+           (t
+            (all-the-icons-faicon "question-circle-o"
+                                  'face 'build-status-unknown-face
+                                  :v-adjust -0.05)))
+          ))
+      ))
+  )
+
 ;; selection info
 (defun *selection-info ()
   "Information about the current selection.
@@ -568,9 +600,10 @@ dimensions of a block selection."
                  (*buffer-info)
                  (*buffer-name)
                  ;; (*buffer-encoding)
-                 ;; (*wc-mode)
                  (*linum-info)
                  (*process)
+                 ;; (*wc-mode)
+                 (*build-status)
                  (*org-clock)
                  ;; (*org-tree-slide)
                  ))
