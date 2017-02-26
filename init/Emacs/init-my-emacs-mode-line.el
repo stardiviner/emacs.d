@@ -45,7 +45,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defface mode-line-buffer-path-face
-  '((t (:inherit mode-line :bold t)))
+  '((t (:inherit mode-line)))
   "Face used for the directory name part of the buffer path."
   :group 'mode-line)
 
@@ -100,7 +100,9 @@
 (defun *emacsclient ()
   "Show whether emacsclient is active."
   (if (and (frame-parameter nil 'client) (active))
-      (propertize " あ " 'face 'mode-line-meta-face)))
+      (all-the-icons-faicon "hashtag"
+                            :face 'mode-line-meta-face
+                            :v-adjust -0.05)))
 
 ;;; buffer project info
 (defun buffer-path-relative-to-project ()
@@ -162,8 +164,15 @@
 (defun *buffer-name ()
   "Display buffer name better."
   ;; (propertize (buffer-path-relative-to-project))
-  (propertize (buffer-name)
-              'face (if (active) 'mode-line-buffer-path-face 'mode-line-inactive)))
+  (propertize
+   (concat
+    (if (derived-mode-p 'prog-mode)
+        (all-the-icons-faicon "file-code-o" :v-adjust -0.05)
+      (all-the-icons-faicon "file-o" :v-adjust -0.05))
+    (propertize " " 'face 'variable-pitch)
+    (propertize (buffer-name)
+                'face (if (active) 'mode-line-buffer-path-face 'mode-line-inactive))
+    )))
 
 ;;; buffer info
 (defun *buffer-info ()
@@ -186,6 +195,10 @@ state (modified, read-only or non-existent)."
           (all-the-icons-octicon "circle-slash"
                                  :face 'mode-line-info-face
                                  :v-adjust -0.05))
+        (when (file-remote-p (buffer-file-name))
+          (all-the-icons-faicon "download"
+                                'face 'mode-line-warn-face
+                                :v-adjust -0.1))
         " "))))
 
 ;;; buffer encoding
@@ -218,7 +231,7 @@ state (modified, read-only or non-existent)."
           (all-the-icons-icon-for-mode major-mode)
         (format-mode-line mode-name)))
     (if (stringp mode-line-process) mode-line-process)
-    " ")
+    "  ")
    'face (if (active) 'mode-line-buffer-major-mode-face 'mode-line-inactive)))
 
 ;;; environment version info like: Python, Ruby, JavaScript,
@@ -260,6 +273,11 @@ state (modified, read-only or non-existent)."
           (active  (active)))
       (concat
        (propertize " " 'face 'variable-pitch)
+       (case backend
+         ('Git
+          (all-the-icons-faicon "git"
+                                :height 1.1 :v-adjust -0.05)))
+       (propertize " " 'face 'variable-pitch)
        (cond ((memq state '(edited added))
               (if active (setq face 'mode-line-info-face))
               (all-the-icons-octicon "git-branch" :face face :height 1.1 :v-adjust -0.05))
@@ -274,7 +292,8 @@ state (modified, read-only or non-existent)."
               (all-the-icons-octicon "alert" :face face))
              (t
               (if active (setq face 'mode-line))
-              (all-the-icons-octicon "git-branch" :face face :height 1.1 :v-adjust -0.05)))
+              (all-the-icons-octicon "git-branch"
+                                     :face face :height 1.1 :v-adjust -0.05)))
        " "
        (propertize (substring vc-mode (+ (if (eq backend 'Hg) 2 3) 2))
                    'face (if active face))
