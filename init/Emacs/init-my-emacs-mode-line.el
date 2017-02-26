@@ -326,15 +326,7 @@ state (modified, read-only or non-existent)."
         (or (and (or (eq mode-line--flycheck-err-cache mode-line--flycheck-cache)
                      (memq flycheck-last-status-change '(running not-checked)))
                  (if (eq flycheck-last-status-change 'running)
-                     (concat " "
-                             (all-the-icons-octicon
-                              "ellipsis"
-                              :face (if (active)
-                                        'mode-line-info-face
-                                      'mode-line-inactive)
-                              :height 1.1
-                              :v-adjust 0)
-                             " ")
+                     (concat " " (all-the-icons-octicon "ellipsis" :height 1.1) " ")
                    mode-line--flycheck-cache))
             (and (setq mode-line--flycheck-err-cache flycheck-current-errors)
                  (setq mode-line--flycheck-cache
@@ -370,12 +362,7 @@ state (modified, read-only or non-existent)."
                               " "
                             (when (active)
                               (all-the-icons-octicon "check" :v-adjust -0.06))))))))
-      (concat
-       " "
-       (all-the-icons-octicon "check"
-                              :face (if (active) 'mode-line-info-face 'mode-line-inactive)
-                              :v-adjust -0.06)
-       " "))))
+      (concat " " (all-the-icons-octicon "check" :v-adjust -0.06) " "))))
 
 ;; selection info
 (defun *selection-info ()
