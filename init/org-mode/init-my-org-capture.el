@@ -36,6 +36,12 @@
          :clock-in t :clock-resume t
          )
 
+        ;; Meeting
+        ("m" "Meeting"
+         entry (file "~/Org/Tasks/Meeting.org")
+         "\n* MEETING %?\n\n"
+         :empty-lines 1)
+
         ;; Diary
         ("d" "Write [D]iary"
          entry (file+datetree "~/Org/Diary/Diary.org")
