@@ -29,6 +29,10 @@
          "\n* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n"
          :empty-lines 1
          )
+        ("n" "Next Task"
+         entry (file+headline "~/Org/Tasks/Tasks.org" "Tasks")
+         "** NEXT %? \nDEADLINE: %t\n"
+         :empty-lines 1)
         ("T" "New [T]ask with Clock"
          entry (file+headline "~/Org/Tasks/Tasks.org" "Tasks")
          "\n* TODO %^{Clock Task} [/]\n\n%?\n\n"

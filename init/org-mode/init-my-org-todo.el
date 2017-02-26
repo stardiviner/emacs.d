@@ -50,8 +50,8 @@
 ;; `(d@/!)` add timestamp and note
 (setq org-todo-keywords
       '(
-        ;; Status
-        (sequence "URGENT(u!)" "INPROGRESS(g!)" "TODO(t@/!)" "LATER(l!)" "SOMEDAY(s@/!)" "FAILED(x@/!)" "CANCELLED(C@/!)" "|" "DONE(d@/!)")
+        ;; Status: Getting Things Done
+        (sequence "URGENT(u!)" "INPROGRESS(g!)" "TODO(t@/!)" "LATER(l!)" "NEXT(n!)" "SOMEDAY(s@/!)" "FAILED(x@/!)" "CANCELLED(C@/!)" "|" "DONE(d@/!)")
         ;; Clock
         (sequence "STARTED(!)" "|" "DONE(d@/!)")
         ;; Habit
@@ -63,7 +63,7 @@
         ;; Work
         (type "WORK(w@/!)" "MEETING(m@/!)" "|" "DONE(d@/!)")
         ;; Learn
-        (type "LEARN(n!)" "REVIEW(r!)" "|" "DONE(d@/!)")
+        (type "LEARN(N!)" "REVIEW(R!)" "|" "DONE(d@/!)")
         ;; Life
         (type "SEX(X@/!)" "|" "DONE(d@/!)")
         ;; org-trello
