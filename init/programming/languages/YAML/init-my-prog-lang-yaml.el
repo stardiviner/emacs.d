@@ -12,6 +12,8 @@
 (use-package yaml-mode
   :ensure t
   :defer t
+  :mode (("\\.yaml$" . yaml-mode)
+         ("\\.yml$" . yaml-mode))
   :config
   (setq yaml-indent-offset 4)
   )
