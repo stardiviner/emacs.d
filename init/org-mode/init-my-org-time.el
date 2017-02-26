@@ -34,7 +34,16 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 ;; (remove-hook 'org-clock-in-hook 'org-clock-modify-effort-estimate)
 
 ;; setup column views for effort estimates
-(setq org-columns-default-format "%25ITEM %TODO %3PRIORITY %TAGS %8Effort(Effort){:}"
+(setq org-columns-default-format
+      "%50ITEM(Task) %8TODO %1PRIORITY %14TIMESTAMP_IA(TimeStamp) %Effort(Effort){:}"
+      ;; Default column view headings
+      ;; - %ITEM(Task) :: Headline (where (Task) is the column head)
+      ;; - %PRIORITY :: Priority
+      ;; - %TAGS :: tags
+      ;; - %CLOCKSUM :: Clock Sum
+      ;; - %ITEMSTAMP_IA :: Timestamp
+      ;; - %Effort(Effort){:} :: Effort
+      
       ;; org-global-properties
       org-agenda-columns-add-appointments-to-effort-sum t
       org-agenda-columns-compute-summary-properties t
