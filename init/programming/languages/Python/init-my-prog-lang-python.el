@@ -52,9 +52,9 @@
 (use-package elpy
   :ensure t
   :defer t
+  :after python
   :init
   (add-hook 'python-mode-hook #'elpy-mode)
-  
   :config
   (setq elpy-rpc-backend "jedi"
         elpy-modules '(elpy-module-sane-defaults
