@@ -12,6 +12,11 @@
 (use-package chinese-word-at-point
   :ensure t)
 
+;;; [ pinyinlib ] -- Elisp library for converting first letter of Pinyin to Simplified/Traditional Chinese characters.
+
+(use-package pinyinlib
+  :ensure t)
+
 ;;; [ pinyin-search ] --
 
 (use-package pinyin-search
