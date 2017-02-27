@@ -61,10 +61,6 @@
            :sort-by :date
            :category-index nil)
           ))
-
-  (define-key blog-map (kbd "n") 'op/new-post)
-  (define-key blog-map (kbd "p") 'op/do-publication)
-  (define-key blog-map (kbd "C-p") 'op/do-publication-and-preview-site)
   )
 
 
