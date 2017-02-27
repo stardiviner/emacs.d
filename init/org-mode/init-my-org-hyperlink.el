@@ -16,8 +16,26 @@
       org-link-file-path-type 'adaptive ; default 'adaptive, 'relative
       )
 
+
+;;; Links are now customizable
+;;
+;; Links can now have custom colors, tooltips, keymaps, display behavior, etc.
+;; Links are now centralized in `org-link-parameters'.
+;; (add-to-list 'org-link-parameters '())
+
+
 (define-key org-mode-map (kbd "M-,") 'org-mark-ring-goto)
 ;; (define-key org-mode-map (kbd "C-c %") 'org-mark-ring-push)
+
+;;; org-file-apps no longer accepts S-expressions as commands
+;;
+;; The variable now accepts functions of two arguments instead of plain
+;; S-expressions. Replacing a S-expresion with an appropriate function is
+;; straightforward. For example:
+;;
+;; ("pdf" . (foo))
+;; becomes:
+;; ("pdf" . (lambda (file link) (foo)))
 
 (setq org-file-apps
       '(;; default
