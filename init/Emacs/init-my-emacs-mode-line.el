@@ -195,11 +195,12 @@ state (modified, read-only or non-existent)."
           (all-the-icons-octicon "circle-slash"
                                  :face 'mode-line-info-face
                                  :v-adjust -0.05))
-        (when (file-remote-p (buffer-file-name))
-          (all-the-icons-faicon "download"
-                                'face 'mode-line-warn-face
-                                :v-adjust -0.1))
-        " "))))
+        (when (and (not (null (buffer-file-name)))
+                   (file-remote-p (buffer-file-name)))
+          (all-the-icons-faicon "cloud-download"
+                                :face 'mode-line-warn-face
+                                :v-adjust -0.01))
+        (propertize " " 'face 'variable-pitch)))))
 
 ;;; buffer encoding
 (defun *buffer-encoding ()
