@@ -26,6 +26,7 @@
 ;; Anonymous Pro
 ;; Inconsolata
 ;; Ubuntu (Mono/Condensed)
+;; Consolas
 ;; --------
 ;; WenQuanYi (Micro Hei/Zen Hei) (Mono)
 ;; HanaMin (Hanazono)
@@ -42,19 +43,19 @@
 ;; (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 100)
 ;; (set-face-font 'default "DejaVu Sans Mono")
 
-(defun my-set-font-default (font size height)
-  "combine multiple set font together for easy change once."
-  (interactive)
-  (set-default-font (concat font "-" (number-to-string size)))
-  (set-frame-font (concat font "-" (number-to-string size)) nil t)
-  (set-face-attribute 'default nil :font font :height height)
-  (set-face-font 'default font)
-  )
-
-(my-set-font-default "DejaVu Sans Mono" 10 100)
-
 ;; (set-default-font "-*-Hack-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1")
 ;; (my-set-font-default "Hack" 10 100)
+
+;; (defun my-set-font-default (font size height)
+;;   "combine multiple set font together for easy change once."
+;;   (interactive)
+;;   (set-default-font (concat font "-" (number-to-string size)))
+;;   (set-frame-font (concat font "-" (number-to-string size)) nil t)
+;;   (set-face-attribute 'default nil :font font :height height)
+;;   (set-face-font 'default font)
+;;   )
+;;
+;; (my-set-font-default "DejaVu Sans Mono" 10 100)
 
 ;; -------
 ;; Unicode
@@ -73,10 +74,6 @@
 
 ;; override font for cyrillic characters
 (set-fontset-font t 'cyrillic "Droid Sans Mono")
-
-;; Averia-12
-;; Averia Serif-12
-;; Linux Libertine-13
 
 ;; -------------
 ;; Chinese Font
@@ -110,9 +107,31 @@
                     :font "Monospace-9"
                     :weight 'normal)
 
-(add-hook 'after-init-hook
-          (lambda ()
-            (set-frame-font (format "%s:pixelsize=%d" "DejaVu Sans Mono" 12) t)))
+;; (add-hook 'after-init-hook
+;;           (lambda ()
+;;             (set-frame-font (format "%s:pixelsize=%d" "DejaVu Sans Mono" 12) t)))
+
+;; --------
+;; set different font for different screen size
+;; --------
+
+(defun my-default-fonts-setup (default-height variable-pitch-height)
+  "Set up default fonts.
+
+Use DEFAULT-HEIGHT for default face and VARIABLE-PITCH-HEIGHT
+for variable-pitch face."
+  (set-face-attribute 'default nil
+                      :family "DejaVu Sans Mono"
+                      :height default-height)
+  (set-face-attribute 'variable-pitch nil
+                      :family "Monospace"
+                      :height variable-pitch-height
+                      :weight 'normal))
+
+(when window-system
+  (if (> (x-display-pixel-width) 1800)
+      (my-default-fonts-setup 110 60)
+    (my-default-fonts-setup 90 50)))
 
 ;; --------
 ;; set different font for different system
@@ -134,14 +153,12 @@
 ;;; [ font-lock-profiler ] -- Coverage and timing tool for font-lock keywords.
 
 (use-package font-lock-profiler
-  :ensure t
-  )
+  :ensure t)
 
 ;;; [ font-lock-studio ] -- Interactive debugger for font-lock keywords (Emacs syntax highlighting rules).
 
 (use-package font-lock-studio
-  :ensure t
-  )
+  :ensure t)
 
 
 
