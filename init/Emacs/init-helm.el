@@ -53,12 +53,12 @@
 
   ;; For some reason, this doesn't work. For example, `magit-status'
   ;; always uses `helm' for `read-file-name'.
-  (add-to-list 'helm-completing-read-handlers-alist
-               '(find-file . ido))
-  (add-to-list 'helm-completing-read-handlers-alist
-               '(dired . ido))
-  (add-to-list 'helm-completing-read-handlers-alist
-               '(read-file-name . ido-read-file-name))
+  ;; (add-to-list 'helm-completing-read-handlers-alist
+  ;;              '(find-file . ido))
+  ;; (add-to-list 'helm-completing-read-handlers-alist
+  ;;              '(dired . ido))
+  ;; (add-to-list 'helm-completing-read-handlers-alist
+  ;;              '(read-file-name . ido-read-file-name))
   
   ;; (helm-mode 1)
   )
