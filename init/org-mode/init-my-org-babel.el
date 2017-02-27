@@ -109,6 +109,7 @@
    (ledger . t)                         ; ledger support in Babel
    ;; (asymptote . t)                      ; Asymptote
    ;; (sass . t)                           ; Sass
+   ;; (processing . t)                     ; Processing
    ;; -- Extra --
    ;; use advice: `org-babel-execute-src-block' to load language support lazily.
    ;; (C++ . t)                            ; C++
@@ -269,8 +270,8 @@
 ;;       '((:results . "output") (:cmdline . "bal"))
 ;;       )
 
-
-(setq org-capture-templates
+(with-eval-after-load 'org-capture
+  (setq org-capture-templates
       (append '(("l" "[L]edger entries")
                 ;; Expense
                 ("le" "[E]xpenses")
@@ -327,6 +328,8 @@
                  "%(org-read-date) %^{Event}\n assets:online-account:%^{ZhiFuBao}  %^{Amount}")
                 )
               org-capture-templates))
+  )
+
 
 
 ;;; [ Library of Babel ]
