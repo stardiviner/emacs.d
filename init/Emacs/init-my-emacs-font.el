@@ -106,6 +106,9 @@
                     :font "DejaVu Sans Mono-10"
                     ;; :family "DejaVu Sans Mono"
                     :height 100)
+(set-face-attribute 'variable-pitch nil
+                    :font "Monospace-9"
+                    :weight 'normal)
 
 (add-hook 'after-init-hook
           (lambda ()
