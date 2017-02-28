@@ -50,6 +50,28 @@
     (define-prefix-command 'references-rifle-prefix))
   (define-key my-org-prefix (kbd "r") 'references-rifle-prefix)
 
+  ;; write a helper function for recursive searching org files.
+  (defun my-helm-org-rifle-reference-search (&optional dirs-or-files)
+    "A macro to quick recursive search through directory or files for Org-mode references."
+    (interactive)
+    (let* ((directories (or dirs-or-files
+                            (-select 'f-dir?
+                                     (helm-read-file-name "Directories: "
+                                                          :marked-candidates t))))
+           (files (f-files
+                   directories
+                   (lambda (file)
+                     (s-matches?
+                      helm-org-rifle-directories-filename-regexp
+                      (f-filename file)))
+                   t)))
+      (if files
+          (helm-org-rifle-files files)
+        (error "No org files found in directories: %s" (s-join " " directories))))
+    )
+
+  (define-key references-rifle-prefix (kbd "r") 'my-helm-org-rifle-reference-search)
+
   (defvar my-org-rifle-references-common-path-languages
     (concat org-directory
             "/Wiki/Computer Technology/Programming/Programming Languages/"))
@@ -90,7 +112,7 @@
       (helm-org-rifle-directories
        (list my-ruby-syntax-reference-dir))))
   
-  (define-key references-rifle-prefix (kbd "r") 'my-org-rifle-Ruby-reference)
+  (define-key references-rifle-prefix (kbd "R") 'my-org-rifle-Ruby-reference)
 
   ;; Python
   (defun my-org-rifle-Python-reference ()
