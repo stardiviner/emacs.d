@@ -166,12 +166,14 @@
   ;; (propertize (buffer-path-relative-to-project))
   (propertize
    (concat
-    (if (derived-mode-p 'prog-mode)
-        (all-the-icons-faicon "file-code-o" :v-adjust -0.05)
-      (all-the-icons-faicon "file-o" :v-adjust -0.05))
+    (if (not (null buffer-file-name))
+        (all-the-icons-faicon "file-o" :v-adjust -0.05)
+      (if (derived-mode-p 'prog-mode)
+          (all-the-icons-faicon "file-code-o" :v-adjust -0.05)
+        ))
     (propertize " " 'face 'variable-pitch)
     (propertize (buffer-name)
-                'face (if (active) 'mode-line-buffer-path-face 'mode-line-inactive))
+                'face (if (active) 'mode-line-buffer-path-face))
     )))
 
 ;;; buffer info
@@ -187,19 +189,22 @@ state (modified, read-only or non-existent)."
             (all-the-icons-octicon "lock"
                                    :face 'mode-line-urgent-face
                                    :v-adjust -0.05)
-          (when (buffer-modified-p)
-            (all-the-icons-faicon "floppy-o"
+          (when (and (not (null buffer-file-name))
+                     (buffer-modified-p))
+            (all-the-icons-faicon "pencil-square-o"
                                   :face 'mode-line-warn-face
                                   :v-adjust -0.1)))
-        (when (and buffer-file-name (not (file-exists-p buffer-file-name)))
+        (when (null buffer-file-name) ; process buffer
+          (all-the-icons-faicon "asterisk" :v-adjust -0.05 :face 'mode-line-data-face))
+        (when (and buffer-file-name (not (file-exists-p buffer-file-name))) ; not exist file
           (all-the-icons-octicon "circle-slash"
                                  :face 'mode-line-info-face
                                  :v-adjust -0.05))
-        (when (and (not (null (buffer-file-name)))
+        (when (and (not (null (buffer-file-name))) ; remote file
                    (file-remote-p (buffer-file-name)))
           (all-the-icons-faicon "cloud-download"
                                 :face 'mode-line-warn-face
-                                :v-adjust -0.01))
+                                :v-adjust -0.05))
         (propertize " " 'face 'variable-pitch)))))
 
 ;;; buffer encoding
@@ -225,7 +230,7 @@ state (modified, read-only or non-existent)."
 (defun *linum-info ()
   "Show line & column position info."
   (propertize " [%l:%c %p] "
-              'face '(:height 0.75))
+              'face '(:family "Monospace" :height 0.8))
   )
 
 ;;; major-mode
@@ -233,14 +238,17 @@ state (modified, read-only or non-existent)."
   "The major mode, including process, environment and text-scale info."
   (propertize
    (concat
-    (if (featurep 'major-mode-icons)
-        (major-mode-icons-show)
-      (if (featurep 'all-the-icons)
-          (all-the-icons-icon-for-mode major-mode)
-        (format-mode-line mode-name)))
-    (if (stringp mode-line-process) mode-line-process)
-    "  ")
-   'face (if (active) 'mode-line-buffer-major-mode-face 'mode-line-inactive)))
+    (if (and (featurep 'all-the-icons)
+             (buffer-file-name)
+             (all-the-icons-auto-mode-match?))
+        ;; (all-the-icons-icon-for-buffer)
+        ;; (all-the-icons-icon-for-mode major-mode :v-adjust -0.05)
+        (all-the-icons-icon-for-file (buffer-file-name) :v-adjust -0.05)
+      (format-mode-line "%s" mode-name) ; FIXME:
+      )
+    (propertize "  "
+                'face 'variable-pitch))
+   'face (if (active) 'mode-line-buffer-major-mode-face)))
 
 ;;; environment version info like: Python, Ruby, JavaScript,
 (defun *env ()
@@ -283,30 +291,27 @@ state (modified, read-only or non-existent)."
        (propertize " " 'face 'variable-pitch)
        (case backend
          ('Git
-          (all-the-icons-faicon "git"
-                                :height 1.1 :v-adjust -0.05)))
+          (all-the-icons-faicon "git" :v-adjust -0.05)))
        (propertize " " 'face 'variable-pitch)
        (cond ((memq state '(edited added))
               (if active (setq face 'mode-line-info-face))
-              (all-the-icons-octicon "git-branch" :face face :height 1.1 :v-adjust -0.05))
+              (all-the-icons-octicon "git-branch" :face face :v-adjust -0.05))
              ((eq state 'needs-merge)
               (if active (setq face 'mode-line-warn-face))
-              (all-the-icons-octicon "git-merge" :face face))
+              (all-the-icons-octicon "git-merge" :face face :v-adjust -0.05))
              ((eq state 'needs-update)
               (if active (setq face 'mode-line-warn-face))
-              (all-the-icons-octicon "arrow-down" :face face))
+              (all-the-icons-octicon "arrow-down" :face face :v-adjust -0.05))
              ((memq state '(removed conflict unregistered))
               (if active (setq face 'mode-line-urgent-face))
-              (all-the-icons-octicon "alert" :face face))
+              (all-the-icons-octicon "alert" :face face :v-adjust -0.05))
              (t
               (if active (setq face 'mode-line))
-              (all-the-icons-octicon "git-branch"
-                                     :face face :height 1.1 :v-adjust -0.05)))
+              (all-the-icons-octicon "git-branch" :face face :v-adjust -0.05)))
        " "
        (propertize (substring vc-mode (+ (if (eq backend 'Hg) 2 3) 2))
                    'face (if active face))
-       " "
-       (propertize " " 'face 'variable-pitch)))))
+       ))))
 
 ;;; flycheck
 (defvar-local mode-line--flycheck-err-cache nil "")
@@ -327,7 +332,7 @@ state (modified, read-only or non-existent)."
         (or (and (or (eq mode-line--flycheck-err-cache mode-line--flycheck-cache)
                      (memq flycheck-last-status-change '(running not-checked)))
                  (if (eq flycheck-last-status-change 'running)
-                     (concat " " (all-the-icons-octicon "ellipsis" :height 1.1) " ")
+                     (concat " " (all-the-icons-octicon "ellipsis" :v-adjust -0.05) " ")
                    mode-line--flycheck-cache))
             (and (setq mode-line--flycheck-err-cache flycheck-current-errors)
                  (setq mode-line--flycheck-cache
@@ -362,8 +367,8 @@ state (modified, read-only or non-existent)."
                           (if (or fe fw)
                               " "
                             (when (active)
-                              (all-the-icons-octicon "check" :v-adjust -0.06))))))))
-      (concat " " (all-the-icons-octicon "check" :v-adjust -0.06) " "))))
+                              (all-the-icons-octicon "check" :v-adjust -0.05))))))))
+      (concat " " (all-the-icons-octicon "check" :v-adjust -0.05) " "))))
 
 ;;; build status
 (defun *build-status ()
@@ -377,18 +382,25 @@ state (modified, read-only or non-existent)."
     (if (not (null status))
         (propertize
          (concat
-          (all-the-icons-faicon "cogs"
-                                :v-adjust -0.05)
+          (all-the-icons-faicon "cogs" :v-adjust -0.05)
           (propertize " " 'face 'variable-pitch)
           (cond
            ((string= status "passed")
-            (all-the-icons-faicon "check-circle" 'face 'build-status-passed-face))
+            (all-the-icons-faicon "check-circle"
+                                  'face 'build-status-passed-face
+                                  :v-adjust -0.05))
            ((string= status "running")
-            (all-the-icons-faicon "spinner" 'face 'build-status-running-face))
+            (all-the-icons-faicon "spinner"
+                                  'face 'build-status-running-face
+                                  :v-adjust -0.05))
            ((string= status "failed")
-            (all-the-icons-faicon "chain-broken" 'face 'build-status-failed-face))
+            (all-the-icons-faicon "chain-broken"
+                                  'face 'build-status-failed-face
+                                  :v-adjust -0.05))
            ((string= status "queued")
-            (all-the-icons-faicon "ellipsis-h" 'face 'build-status-queued-face))
+            (all-the-icons-faicon "ellipsis-h"
+                                  'face 'build-status-queued-face
+                                  :v-adjust -0.05))
            (t
             (all-the-icons-faicon "question-circle-o"
                                   'face 'build-status-unknown-face
@@ -477,9 +489,8 @@ dimensions of a block selection."
 ;; multiple-cursors (mc/)
 (defun *multiple-cursors ()
   "Show multiple-cursors indicator in mode-line."
-  ;; FIXME: (mc/fake-cursor-p OVERLAY)
-  (if (and (mc/fake-cursor-p)
-           (> (mc/num-cursors) 1)) ; (if 'mc/fake-cursor-p ...)
+  (if (and ; FIXME: (mc/fake-cursor-p OVERLAY)
+       (> (mc/num-cursors) 1)) ; (if 'mc/fake-cursor-p ...)
       (propertize
        (format "[%d]" (mc/num-cursors)) ; `mc/mode-line'
        'face 'mode-line-meta-face)))
@@ -510,16 +521,20 @@ dimensions of a block selection."
 ;; org-tree-slide slide number
 (defun *org-tree-slide ()
   "Show `org-tree-slide' slide number."
-  (when (and org-tree-slide--active-p (active))
-    (propertize (format "[%s]" org-tree-slide--slide-number)
-                'face 'mode-line-info-face)))
+  (when (and org-tree-slide-mode (org-tree-slide--active-p))
+    (propertize
+     (concat
+      (all-the-icons-faicon "file-powerpoint-o" :v-adjust -0.05)
+      (format "%s" org-tree-slide--slide-number))
+     'face (if (active) 'mode-line-data-face))))
 
 ;; wc-mode (word count) `wc-format-modeline-string', `wc-mode-update'.
 (defun *wc-mode ()
   "Show wc-mode word count."
-  (if (and (featurep 'wc-mode) wc-mode (active))
-      (propertize (wc-format-modeline-string " WC:[%tw]")
-                  'face 'mode-line-info-face)))
+  (when (and (featurep 'wc-mode) wc-mode)
+    (propertize (wc-format-modeline-string " Words:[%tw]")
+                'face (if (active) 'mode-line-info-face))
+    ))
 
 ;; mmm-mode
 
@@ -529,7 +544,9 @@ dimensions of a block selection."
   "Show `major-mode' process info."
   (when (stringp mode-line-process)
     (propertize
-     (concat " ◌ " mode-line-process)
+     (concat
+      (all-the-icons-faicon "circle-o" :v-adjust -0.05)
+      mode-line-process)
      'face 'mode-line-warn-face
      'help-echo "buffer-process")))
 
@@ -554,8 +571,7 @@ dimensions of a block selection."
     ;; get [0:05] from `org-clock-get-clock-string'
     (propertize
      (concat
-      (all-the-icons-octicon "clock"
-                             :v-adjust 0.1)
+      (all-the-icons-octicon "clock" :v-adjust 0.05)
       (format " %s"
               (org-minutes-to-clocksum-string (org-clock-get-clocked-time))))
      'face 'mode-line-data-face))
@@ -588,7 +604,7 @@ dimensions of a block selection."
                   (*macro-recording)
                   (*anzu)
                   (*iedit)
-                  ;; (*multiple-cursors)
+                  (*multiple-cursors)
                   ;; (*evil-substitute)
                   (*input-method)
                   (*company-lighter)
@@ -602,14 +618,19 @@ dimensions of a block selection."
                  (*buffer-name)
                  ;; (*buffer-encoding)
                  (*linum-info)
-                 (*process)
-                 ;; (*wc-mode)
-                 (*build-status)
+                 (*wc-mode)
                  (*org-clock)
-                 ;; (*org-tree-slide)
+                 (*org-tree-slide)
+                 (*process)
                  ))
            (rhs (list
+                 ;; NOTE: the `mid' `format-mode-line' meet first `nil' will
+                 ;; count as 0. This will cause `rhs' to 0. So make sure the
+                 ;; first fragment is not `nil'. So I use " " empty string with
+                 ;; 1 length.
+                 " "
                  (*flycheck)
+                 (*build-status)
                  (*vc)
                  ;; (*buffer-project)
                  (*projectile)
@@ -663,14 +684,12 @@ dimensions of a block selection."
    ;;                     :foreground "white" :background "#004A5D"
    ;;                     :box '(:color "cyan" :line-width 1 :style nil)
    ;;                     :family "DejaVu Sans Mono"
-   ;;                     :height 90
    ;;                     )
    ;; (set-face-attribute 'mode-line-inactive nil
    ;;                     :inverse-video nil
    ;;                     :foreground "#444444" :background "black" ; :background "#242424"
    ;;                     :family "DejaVu Sans Mono"
    ;;                     :box '(:color "slate blue" :line-width -1 :style nil)
-   ;;                     :height 90
    ;;                     )
 
    ;; darker style
@@ -682,7 +701,6 @@ dimensions of a block selection."
    ;;                     :box '(:color "dark gray" :line-width 1 :style nil)
    ;;                     ;; :box '(:color "slate blue" :line-width 1 :style nil)
    ;;                     :family "DejaVu Sans Mono"
-   ;;                     :height 100
    ;;                     )
    ;; (set-face-attribute 'mode-line-inactive nil
    ;;                     :inverse-video nil
@@ -690,7 +708,6 @@ dimensions of a block selection."
    ;;                     :background (color-darken-name (face-background 'default) 3)
    ;;                     :family "DejaVu Sans Mono"
    ;;                     :box '(:color "dark slate gray" :line-width 1 :style nil)
-   ;;                     :height 100
    ;;                     )
    ))
 
