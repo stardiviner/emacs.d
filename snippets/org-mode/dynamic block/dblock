@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: dynamic block
+# key: dblock
+# group: dblock
+# --
+#+BEGIN: ${1:$$(yas-choose-value '("clocktable" "columnview"))}
+
+#+END:
