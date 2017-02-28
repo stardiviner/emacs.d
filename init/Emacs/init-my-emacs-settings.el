@@ -37,6 +37,9 @@
 ;; (add-hook 'before-save-hook 'time-stamp)
 ;; (setq time-stamp-pattern nil)
 
+;;; [ timer ]
+
+(put 'timer-list 'disabled nil)
 
 ;; [ Bell ]
 
