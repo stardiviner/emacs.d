@@ -32,12 +32,11 @@
 
 (use-package wc-mode
   :ensure t
-  :config
-  ;; fix `wc-mode' minor-mode update with `':lighter (:eval (wc-mode-update))'.
-  ;; (run-with-idle-timer 60 nil 'wc-mode-update)
-  ;; (remove-hook 'org-mode-hook #'wc-mode-update)
-  
+  :init
   (add-hook 'org-mode-hook 'wc-mode)
+  :config
+  (run-with-idle-timer (* 60 1) nil
+                       'wc-mode-update)
   )
 
 
