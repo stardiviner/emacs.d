@@ -213,8 +213,16 @@
         (direx:jump-to-directory-other-window)
         ))
     )
+  
+  ;; [ make-it-so ] -- Transform files with Makefile recipes.
+  (use-package make-it-so
+    :ensure t
+    :config
+    (mis-config-default)
+    (setq mis-recipes-directory
+          (concat user-emacs-directory "init/extensions/make-it-so-recipes/"))
+    )
   )
-
 
 (provide 'init-my-emacs-dired)
 
