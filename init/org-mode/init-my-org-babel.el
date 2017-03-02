@@ -50,11 +50,19 @@
       org-export-babel-evaluate 'inline-only
       )
 
+;;; [ ob-emacs-lisp ]
+
+(add-to-list 'org-babel-default-header-args:emacs-lisp
+             '(:results . "output"))
+
 ;;; [ ob-lisp ]
 ;; (setq org-babel-lisp-eval-fn #'sly-eval)
 
 ;;; [ ob-clojure ]
-(setq org-babel-clojure-backend 'cider)
+
+(require 'ob-clojure)
+(add-to-list 'org-babel-default-header-args:clojure
+             '(:results . "pp"))
 
 ;;; [ ob-haskell ]
 
@@ -231,9 +239,6 @@
 ;;         (:file . "temp.png")))
 
 (add-to-list 'org-babel-default-header-args:sh
-             '(:results . "output"))
-
-(add-to-list 'org-babel-default-header-args:clojure
              '(:results . "output"))
 
 (add-to-list 'org-babel-default-header-args:ruby
