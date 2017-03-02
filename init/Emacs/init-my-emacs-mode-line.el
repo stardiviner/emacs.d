@@ -92,9 +92,15 @@
 (defun *current ()
   "Display an indicator when current selected buffer."
   (if (active)
-      (propertize "▌░"
-                  'face '(:foreground "yellow"))
-    ""))
+      (concat
+       ;; (propertize " " 'face 'variable-pitch)
+       (propertize "▌"
+                   'face '(:foreground "cyan"))
+       (all-the-icons-faicon "chain-broken"
+                             :face '(:foreground "cyan")
+                             :v-adjust -0.05)
+       )
+    (propertize " " 'face 'variable-pitch)))
 
 ;; emacsclient indicator
 (defun *emacsclient ()
