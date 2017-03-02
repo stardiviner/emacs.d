@@ -50,15 +50,20 @@
 
 ;;; [ emacs-neotree ]
 
-;; (use-package neotree
-;;   :ensure t
-;;   :config
-;;   (setq neo-persist-show nil
-;;         neo-window-width 25
-;;         neo-show-header t)
-;;
-;;   (add-hook 'after-init-hook 'neotree-show)
-;;   )
+(use-package neotree
+  :ensure t
+  ;; :init
+  ;; (add-hook 'after-init-hook 'neotree-show)
+  :config
+  (setq neo-window-position 'left
+        neo-window-width 25
+        neo-window-fixed-size t
+        neo-smart-open t
+        neo-auto-indent-point t
+        neo-vc-integration nil
+        )
+  (setq neo-theme (if (and (featurep 'all-the-icons) (display-graphic-p)) 'icons 'classic))
+  )
 
 ;;; [ project-explorer ] -- A project explorer sidebar.
 
@@ -77,9 +82,9 @@
 
 
 ;; (global-set-key [f8] 'sr-speedbar-toggle)
-(global-set-key [f8] 'my-sr-speedbar-toggle-and-switch)
+;; (global-set-key [f8] 'my-sr-speedbar-toggle-and-switch)
 ;; (global-set-key [f8] 'project-explorer-toggle)
-;; (global-set-key [f8] 'neotree-toggle)
+(global-set-key [f8] 'neotree-toggle)
 
 
 (provide 'init-my-prog-sidebar)
