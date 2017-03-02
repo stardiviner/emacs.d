@@ -700,7 +700,16 @@ dimensions of a block selection."
 ;;; get current background color: light/dark?
 (cl-case (alist-get 'background-mode (frame-parameters))
   ('light
+   (set-face-attribute 'mode-line nil
+                       :inherit nil
+                       :height 1.0
+                       )
+   (set-face-attribute 'mode-line-inactive nil
+                       :inherit nil
+                       :height 1.0
+                       )
    )
+  
   ('dark
    ;; sci-fi dark style
    ;;
