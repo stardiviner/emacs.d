@@ -30,7 +30,7 @@
   (setq-default flycheck-temp-prefix ".flycheck")
   (setq flycheck-check-syntax-automatically '(save idle-change new-line mode-enabled)
         flycheck-idle-change-delay 5.0
-        flycheck-display-errors-delay 0.9
+        flycheck-display-errors-delay 2.0
         flycheck-highlighting-mode 'symbols
         flycheck-indication-mode 'left-fringe
         ;; 'flycheck-fringe-bitmap-double-arrow
