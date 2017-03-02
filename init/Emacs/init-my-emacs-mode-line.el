@@ -205,6 +205,10 @@ state (modified, read-only or non-existent)."
           (all-the-icons-faicon "cloud-download"
                                 :face 'mode-line-warn-face
                                 :v-adjust -0.05))
+        (when (buffer-narrowed-p) ; narrow
+          (all-the-icons-faicon "align-center"
+                                :v-adjust -0.05
+                                :face 'mode-line-data-face))
         (propertize " " 'face 'variable-pitch)))))
 
 ;;; buffer encoding
