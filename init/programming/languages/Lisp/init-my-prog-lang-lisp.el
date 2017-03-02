@@ -70,6 +70,14 @@
   :ensure t
   :defer t)
 
+;;; [ Parinfer ] -- Let's simplify the way we write Lisp...
+
+(use-package parinfer
+  :ensure t
+  :config
+  (parinfer-mode 1)
+  )
+
 ;;; [ rainbow-delimiters ] -- rainbow color parenthesis
 
 (use-package rainbow-delimiters
