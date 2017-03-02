@@ -338,61 +338,41 @@ state (modified, read-only or non-existent)."
        ))))
 
 ;;; flycheck
-(defvar-local mode-line--flycheck-err-cache nil "")
-(defvar-local mode-line--flycheck-cache nil "")
-
-(defun mode-line--flycheck-count (state)
-  "Return flycheck information for the given error type STATE."
-  (when (flycheck-has-current-errors-p state)
-    (if (eq 'running flycheck-last-status-change)
-        "?"
-      (cdr-safe (assq state (flycheck-count-errors flycheck-current-errors))))))
-
 (defun *flycheck ()
-  "Persistent and cached flycheck indicators in the mode-line."
+  "Show flycheck info in mode-line."
   (when (and (featurep 'flycheck) flycheck-mode)
-    (if (or flycheck-current-errors
-            (eq 'running flycheck-last-status-change))
-        (or (and (or (eq mode-line--flycheck-err-cache mode-line--flycheck-cache)
-                     (memq flycheck-last-status-change '(running not-checked)))
-                 (if (eq flycheck-last-status-change 'running)
-                     (concat " " (all-the-icons-octicon "ellipsis" :v-adjust -0.05) " ")
-                   mode-line--flycheck-cache))
-            (and (setq mode-line--flycheck-err-cache flycheck-current-errors)
-                 (setq mode-line--flycheck-cache
-                       (let ((fw (mode-line--flycheck-count 'warning))
-                             (fe (mode-line--flycheck-count 'error)))
-                         (concat
-                          (if (or fe fw) " ")
-                          (if fe
-                              (concat
-                               (all-the-icons-octicon "circle-slash"
-                                                      :face 'mode-line-warn-face
-                                                      :v-adjust 0.05)
-                               (propertize " " 'face 'variable-pitch)
-                               (propertize (format "%d" fe)
-                                           'face (if (active)
-                                                     'mode-line-warn-face
-                                                   'mode-line-inactive))
-                               " "))
-                          (if fw
-                              (concat
-                               (all-the-icons-octicon "alert"
-                                                      :face (if (active)
-                                                                'mode-line-urgent-face
-                                                              'mode-line-inactive)
-                                                      :v-adjust 0.05)
-                               (propertize " " 'face 'variable-pitch)
-                               (propertize (format "%d" fw)
-                                           'face (if (active)
-                                                     'mode-line-urgent-face
-                                                   'mode-line-inactive))
-                               " "))
-                          (if (or fe fw)
-                              " "
-                            (when (active)
-                              (all-the-icons-octicon "check" :v-adjust -0.05))))))))
-      (concat " " (all-the-icons-octicon "check" :v-adjust -0.05) " "))))
+    (let* ((text (pcase flycheck-last-status-change
+                   (`finished
+                    (if flycheck-current-errors
+                        (let ((count (let-alist
+                                         (flycheck-count-errors flycheck-current-errors)
+                                       (+ (or .warning 0) (or .error 0)))))
+                          (concat (all-the-icons-octicon "bug" :v-adjust -0.05)
+                                  (propertize
+                                   (format " %s issue%s" count (unless (eq 1 count) "s")))))
+                      (all-the-icons-faicon "check-square" :v-adjust -0.05)))
+                   (`running
+                    (all-the-icons-faicon "ellipsis-h" :v-adjust -0.05))
+                   (`no-checker
+                    (concat (all-the-icons-octicon "alert" :v-adjust -0.05)
+                            (propertize (format " %s" "No Checker"))))
+                   (`not-checked
+                    (concat (all-the-icons-faicon "exclamation-circle" :v-adjust -0.05)
+                            (propertize (format " %s" " Disabled"))))
+                   (`errored
+                    (concat (all-the-icons-faicon "exclamation-triangle" :v-adjust -0.05)
+                            (propertize (format " %s" " Error"))))
+                   (`interrupted
+                    (concat (all-the-icons-faicon "ban" :v-adjust -0.05)
+                            (propertize (format " %s" " Interrupted"))))
+                   (`suspicious
+                    (all-the-icons-faicon "question-circle" :v-adjust -0.05)))))
+      (propertize text
+                  'help-echo "Show Flycheck Errors"
+                  'mouse-face '(:box 1)
+                  'local-map (make-mode-line-mouse-map
+                              'mouse-1 (lambda () (interactive) (flycheck-list-errors)))))
+    ))
 
 ;;; build status
 (defun *build-status ()
