@@ -224,6 +224,11 @@
     )
   )
 
+;;; [ exiftool ] -- an elisp wrapper around ExifTool.
+
+(use-package exiftool
+  :ensure t)
+
 (provide 'init-my-emacs-dired)
 
 ;;; init-my-emacs-dired.el ends here
