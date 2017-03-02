@@ -45,6 +45,14 @@
         ensime-auto-generate-config t)
 
   (add-hook 'scala-mode-hook 'ensime-mode)
+  
+  ;; auto start ENSIME
+  (defun my-ensime-auto-start ()
+    (interactive)
+    (unless (get-buffer-process "*ENSIME*")
+      (ensime)))
+  
+  ;; (add-hook 'ensime-mode-hook #'my-ensime-auto-start)
   )
 
 

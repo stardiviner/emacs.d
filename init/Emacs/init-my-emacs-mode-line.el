@@ -233,6 +233,20 @@ state (modified, read-only or non-existent)."
               'face '(:family "Monospace" :height 0.8))
   )
 
+;;; pdf-tools page position
+(defun *pdf-tools-page-position ()
+  "Show current pdf-tools page current position."
+  (if (eq 'pdf-view-mode major-mode)
+      (propertize
+       (concat
+        "["
+        (number-to-string (pdf-view-current-page))
+        "/"
+        (number-to-string (pdf-cache-number-of-pages))
+        "] "
+        )
+       'face (if (active) 'mode-line-data-face))))
+
 ;;; major-mode
 (defun *major-mode ()
   "The major mode, including process, environment and text-scale info."
@@ -618,7 +632,8 @@ dimensions of a block selection."
                  (*buffer-name)
                  ;; (*buffer-encoding)
                  (*linum-info)
-                 (*wc-mode)
+                 ;; (*wc-mode)
+                 (*pdf-tools-page-position)
                  (*org-clock)
                  (*org-tree-slide)
                  (*process)

@@ -219,6 +219,23 @@
       ;; org-inlinetask-min-level 15
       )
 
+;;; [ org-depend ] -- manage dependencies of Org-mode tasks.
+
+;; (require 'org-depend)
+
+;;; auto trigger by changing TODO states
+;;
+;; (defun my/org-insert-trigger ()
+;;   "Automatically insert chain-find-next trigger when entry becomes NEXT"
+;;   (cond ((equal org-state "NEXT")
+;;          (unless org-depend-doing-chain-find-next
+;;            (org-set-property "TRIGGER"
+;;                              "chain-find-next(NEXT,from-current,priority-up,effort-down)")))
+;;         ((not (member org-state org-done-keywords))
+;;          (org-delete-property "TRIGGER"))))
+;;
+;; (add-hook 'org-after-todo-state-change-hook 'my/org-insert-trigger)
+
 
 (provide 'init-my-org-todo)
 

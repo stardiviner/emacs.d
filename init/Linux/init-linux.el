@@ -56,8 +56,8 @@
 
 ;;; [ SystemTap ]
 
-(use-package systemtap-mode
-  :ensure t)
+;; (use-package systemtap-mode
+;;   :ensure t)
 
 
 (provide 'init-linux)

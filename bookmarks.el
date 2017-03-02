@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Common Lisp.org"
+(("My Data Science Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implements/Data Science/Data/Manuals/My Data Science Reference/My Data Science Reference.org")
+ (front-context-string)
+ (rear-context-string . "ence Reference\n\n")
+ (position . 37))
+("Common Lisp.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lisp/Common Lisp/Common Lisp.org")
  (front-context-string . "* Intro\n\n** What")
  (rear-context-string)
@@ -923,10 +928,10 @@
  (rear-context-string)
  (position . 1))
 ("org-capture-last-stored"
- (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "** larluo\n:PROPE")
- (rear-context-string . "cemerick\n:END:\n\n")
- (position . 28341))
+ (filename . "~/Org/Diary/Diary.org")
+ (front-context-string . "**** 别人说我这样的状态很难")
+ (rear-context-string . "7-02-24 Friday\n\n")
+ (position . 29619))
 ("Accounts"
  (filename . "~/Org/Accounts/accounts.org.gpg")
  (front-context-string . "* Nick\n\nstardivi")
@@ -1012,11 +1017,6 @@
  (front-context-string . "* Science and Te")
  (rear-context-string)
  (position . 1))
-("Management (Org)"
- (filename . "~/Org/Wiki/Management/Management.org")
- (front-context-string)
- (rear-context-string . "* Data\n\n** Books")
- (position . 27))
 ("Kung Fu (Org)"
  (filename . "~/Org/Wiki/Kung Fu/Kung Fu.org")
  (front-context-string . "* Urgent 易筋经 (mu")

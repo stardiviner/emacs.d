@@ -60,6 +60,10 @@
 (use-package stem-english
   :ensure t)
 
+(defun my-org-drill-check ()
+  "Check word exist in Words.org file?"
+  )
+
 (defun my-org-drill-record-word ()
   "Record word to org-drill words file."
   (interactive)
@@ -68,7 +72,8 @@
                 (if (region-active-p)
                     (buffer-substring-no-properties (mark) (point))
                   (thing-at-point 'word))))))
-    (if (yes-or-no-p (format "org-drill this word (%s): " word))
+    (if (and (my-org-drill-check)
+             (yes-or-no-p (format "org-drill this word (%s): " word)))
         ;; call org-capture template programmatically.
         (org-capture nil "w")
       ;; (call-interactively #'org-capture)
@@ -76,7 +81,7 @@
       (message "without recording word to org-drill."))))
 
 (declare-function 'goldendict-dwim "init-my-tool-dictionary")
-(advice-add 'goldendict-dwim :after #'my-org-drill-record-word)
+;; (advice-add 'goldendict-dwim :after #'my-org-drill-record-word)
 
 
 ;;; [ pamparam ] -- Simple and fast flashcards for Emacs.

@@ -21,6 +21,8 @@
         ;; company-auto-complete-chars
         ;; 'company-explicit-action-p, t, nil, 'function
         ;; company-require-match 'company-explicit-action-p
+        ;; determine which characters trigger auto-completion. (default (32 41 46))
+        company-auto-complete-chars '(?\  ?\) ?. ?_ ?$)
         ;; company-echo-delay .01
         ;; t: show quick-access numbers for the first ten candidates.
         ;; company-show-numbers nil

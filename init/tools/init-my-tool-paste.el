@@ -44,11 +44,12 @@
 
 ;;; [ pastery ] -- paste to pastery from Emacs
 
-(use-package pastery
-  :ensure t
-  :config
-  (setq pastery-api-key "")
-  )
+;; (use-package pastery
+;;   :ensure t
+;;   :defer t
+;;   :config
+;;   (setq pastery-api-key "9dMWka2QzhnsFyRb4aKb2Fc6tZMudoZb")
+;;   )
 
 
 ;;; htmlize-buffer (convert current buffer into HTML output)

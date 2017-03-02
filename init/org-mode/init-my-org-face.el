@@ -349,10 +349,10 @@
                     )
 
 ;;; LaTeX
-(set-face-attribute 'org-latex-face nil
-                    :background "brown"
-                    :foreground "white"
-                    )
+;; (set-face-attribute 'org-latex-face nil
+;;                     :background "brown"
+;;                     :foreground "white"
+;;                     )
 
 ;;; Formula face
 (set-face-attribute 'org-formula nil

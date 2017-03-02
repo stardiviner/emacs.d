@@ -36,6 +36,10 @@
 (setq org-agenda-use-time-grid t)
 (setq org-agenda-timegrid-use-ampm t)
 (setq org-agenda-show-current-time-in-grid t)
+;; (setq org-agenda-time-grid
+;;       '((daily today require-timed)
+;;         "----------------"
+;;         (800 1000 1200 1400 1600 1800 2000)))
 
 ;;; specify different color for days
 (defun my-org-agenda-get-day-face-fn (date)

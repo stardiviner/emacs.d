@@ -45,6 +45,10 @@
   (define-key org-rifle-prefix (kbd "o") 'helm-org-rifle-org-directory)
   (define-key org-rifle-prefix (kbd "a") 'helm-org-rifle-agenda-files)
 
+  ;; LaTeX fragments preview support
+  ;; FIXME: `org-toggle-latex-fragment' does not support in *non-file* buffer.
+  ;; (add-hook 'helm-org-rifle-after-init-hook #'org-toggle-latex-fragment)
+  
   ;; quick references searching.
   (unless (boundp 'references-rifle-prefix)
     (define-prefix-command 'references-rifle-prefix))

@@ -89,6 +89,47 @@
   (add-hook 'sclang-mode-hook 'sclang-extensions-mode)
   )
 
+
+;;; [ Overtone ] -- Combine SuperCollider + Clojure.
+
+(use-package clomacs
+  :ensure t
+  :defer t)
+
+;; with `clomacs'
+(clomacs-defun overtone-load-and-boot-external-server
+               overtone.core/boot-external-server
+               :lib-name "overtone"
+               :namespace overtone.core
+               :doc "Load Overtone library and boot external server.")
+
+(clomacs-defun overtone-load-and-boot-internal-server
+               overtone.live/boot-server
+               :lib-name "overtone"
+               :namespace overtone.live
+               :doc "Load Overtone library and boot internal server.")
+
+;; FIXME: (overtone-load-and-boot-external-server)
+
+(defun overtone-auto-start ()
+  "Auto start Overtone in Emacs."
+  (interactive)
+  ;; start Overtone in CIDER REPL
+  ;; send Clojure code to CIDER REPL.
+  
+  ;; (cider-repl--send-input)
+  ;; (cider-nrepl-request:eval)
+
+  ;; for external server
+  ;; (use 'overtone.core)
+  ;; (overtone.core/boot-external-server)
+  
+  ;; for internal server
+  ;; (use 'overtone.live)
+  ;; (overtone.live/boot-server)
+  )
+
+
 (provide 'init-my-electric-music)
 
 ;;; init-my-electric-music.el ends here

@@ -11,8 +11,8 @@
 
 (use-package build-status
   :ensure t
-  :init
-  (add-hook 'prog-mode-hook #'build-status-mode)
+  ;; :init
+  ;; (add-hook 'prog-mode-hook #'build-status-mode)
   )
 
 

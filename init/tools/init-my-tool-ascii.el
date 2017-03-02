@@ -7,6 +7,10 @@
 
 ;;; Code:
 ;;; ----------------------------------------------------------------------------
+;;; [ ascii (ascii-mode) ] --
+
+;; (require 'ascii)
+
 
 (defun my-figlet-region (&optional b e)
   "Region select text, then execute command [M-x my-figlet-region]."

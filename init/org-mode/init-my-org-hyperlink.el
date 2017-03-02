@@ -92,7 +92,7 @@
 ;; (org-link-set-parameters "ebib"
 ;;                          :follow #'org-ebib-open
 ;;                          :store #'org-ebib-store-link)
-
+;; (add-hook 'org-store-link-functions 'org-ebib-store-link)
 
 ;; `shell:'
 (setq org-confirm-shell-link-function 'yes-or-no-p)
@@ -355,8 +355,13 @@ With prefix argument, also display headlines without a TODO keyword."
 
 ;;; auto prefix with comment char when create code ref in src block with
 ;;; `org-store-link'.
-(advice-add 'org-store-link :before #'comment-dwim)
+;; (advice-add 'org-store-link :before #'comment-dwim)
 
+;; TODO: advice with condition.
+;; (defadvice org-store-link (after org-edit-src-code activate)
+;;   (if (string-match "*Org Src.*" (buffer-name))
+;;       (comment-dwim nil)
+;;     ad-do-it))
 
 ;;; [ org-ref ] -- citations, cross-references, indexes, glossaries and bibtex utilities for Org-mode.
 

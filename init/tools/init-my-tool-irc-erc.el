@@ -285,6 +285,29 @@
 (setq erc-interpret-mirc-color t)
 
 
+;;; Marking Emacs chat buffers as read (erc, jabber, etc).
+
+(defun my/mark-read ()
+  "Mark buffer as read up to current line."
+  (let ((inhibit-read-only t))
+    (put-text-property
+     (point-min) (line-beginning-position)
+     'face       'font-lock-comment-face)))
+
+(defun my/bury-buffer ()
+  "Bury buffer and maybe close its window."
+  (interactive)
+  (my/mark-read)
+  (bury-buffer)
+  (when (cdr (window-list nil 'nomini))
+    (delete-window)))
+
+(with-eval-after-load 'jabber
+  (define-key jabber-chat-mode-map (kbd "<escape>") #'my/bury-buffer))
+
+(with-eval-after-load 'erc
+  (define-key erc-mode-map (kbd "<escape>") #'my/bury-buffer))
+
 
 ;; Remove Server Part from mode line
 ;;

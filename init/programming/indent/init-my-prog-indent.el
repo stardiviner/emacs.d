@@ -122,12 +122,12 @@
   (add-to-list 'aggressive-indent-excluded-modes 'makefile-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'coq-mode)
 
-  ;; (global-aggressive-indent-mode)
+  ;; (global-aggressive-indent-mode t)
   ;; or
-  (dolist (hook '(prog-mode-hook
-                  nxml-mode-hook
-                  ))
-    (add-hook hook #'aggressive-indent-mode))
+  ;; (dolist (hook '(prog-mode-hook
+  ;;                 nxml-mode-hook
+  ;;                 ))
+  ;;   (add-hook hook #'aggressive-indent-mode))
   )
 
 

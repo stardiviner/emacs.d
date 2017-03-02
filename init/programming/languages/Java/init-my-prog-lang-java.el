@@ -48,8 +48,13 @@
         ;; eclim-executable
         ;; eclimd-executable "~/.eclipse/org.eclipse.platform_4.5.1_155965261_linux_gtk_x86_64/eclimd"
         ;; eclimd-port 45620
-        eclimd-wait-for-process t
+        ;; eclimd-wait-for-process nil
         )
+
+  ;; Eclim Java
+  ;; (setq eclim-java-documentation-root nil
+  ;;       eclim-java-android-documentation-root
+  ;;       )
   )
 
 

@@ -35,6 +35,17 @@
   ;; [ Haskell Interactive Mode ]
   (require 'haskell-interactive-mode)
   (require 'haskell-process)
+
+  ;; (setq haskell-process-type 'stack-ghci)
+  
+  ;; fix collision with `ob-haskell' session.
+  ;; (defun haskell-session-default-name ()
+  ;;   "Generate a default project name for the new project prompt."
+  ;;   (let ((file (haskell-cabal-find-file)))
+  ;;     (or (when file
+  ;;           (downcase (file-name-sans-extension
+  ;;                      (file-name-nondirectory file))))
+  ;;         "*haskell*")))
   
   ;; (setq haskell-process-type 'auto ; 'cabal-repl
   ;;       ;; haskell-process-args-cabal-repl '("--ghc-option=-ferror-spans"
@@ -58,6 +69,8 @@
   ;;                                           "Data.Ord")
   ;;       )
 
+  ;; (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+  
   ;; [ indent ]
   (add-hook 'haskell-mode-hook #'haskell-doc-mode)
   
@@ -152,46 +165,42 @@
 
 ;; (use-package intero
 ;;   :ensure t
-;;   :defer t
 ;;   :init
 ;;   (add-hook 'haskell-mode-hook 'intero-mode)
 ;;   )
 
 ;;; [ dante ] -- a fork of Intero.
 
-(use-package dante
-  :ensure t
-  :commands 'dante-mode
-  :init
-  (add-hook 'haskell-mode-hook 'dante-mode)
-  (add-hook 'haskell-mode-hook 'flycheck-mode)
-  :config
-  ;; fix org-mode babel haskell src block [C-c '] keybinding been overwrite issue.
-  (define-key dante-mode-map (kbd "C-c '") 'org-edit-src-exit)
-  (define-key dante-mode-map (kbd "C-x C-e") 'dante-eval-block)
-  )
-
+;; (use-package dante
+;;   :ensure t
+;;   :commands 'dante-mode
+;;   :init
+;;   (add-hook 'haskell-mode-hook 'dante-mode)
+;;   ;; (add-hook 'haskell-mode-hook 'flycheck-mode)
+;;   :config
+;;   ;; fix org-mode babel haskell src block [C-c '] keybinding been overwrite issue.
+;;   (define-key dante-mode-map (kbd "C-c '") 'org-edit-src-exit)
+;;   (define-key dante-mode-map (kbd "C-x C-e") 'dante-eval-block)
+;;   )
 
 ;;; [ scion ] -- IDE library for Haskell based on the GHC API.
 
-(use-package scion
-  :ensure t
-  :defer t
-  :init
-  (add-hook 'haskell-mode-hook
-            (lambda ()
-              (scion-mode 1)
-              (scion-flycheck-on-save 1)))
-
-  :config
-  ;; (setq scion-program "~/.cabal/bin/scion-server")
-  ;; (setq scion-completing-read-function 'ido-completing-read)
-
-  (add-hook 'scion-connected-hook
-            (lambda ()
-              (notifications-notify :title "Haskell Scion connected"
-                                    :body "Haskell Scion connected.")))
-  )
+;; (use-package scion
+;;   :ensure t
+;;   :init
+;;   (add-hook 'haskell-mode-hook
+;;             (lambda ()
+;;               (scion-mode 1)
+;;               (scion-flycheck-on-save 1)))
+;;   :config
+;;   ;; (setq scion-program "~/.cabal/bin/scion-server")
+;;   ;; (setq scion-completing-read-function 'ido-completing-read)
+;;
+;;   (add-hook 'scion-connected-hook
+;;             (lambda ()
+;;               (notifications-notify :title "Haskell Scion connected"
+;;                                     :body "Haskell Scion connected.")))
+;;   )
 
 
 ;;; [ ebal ] -- Emacs interface to Cabal and Stack.

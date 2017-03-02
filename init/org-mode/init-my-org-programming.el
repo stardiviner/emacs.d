@@ -26,7 +26,15 @@
   ;; add files to `org-agenda'.
   (setq org-agenda-files (append org-agenda-files (org-projectile:todo-files)))
 
-  (add-to-list 'org-capture-templates (org-projectile:project-todo-entry "p"))
+  (setq org-capture-templates
+        (append '(("p" "[p]rogramming")
+                  ("pt" "[t]odo"
+                   ;; TODO
+                   ;; (org-projectile:project-todo-entry "pt")
+                   ))
+                org-capture-templates))
+  
+  ;; (add-to-list 'org-capture-templates (org-projectile:project-todo-entry "p"))
   )
 
 

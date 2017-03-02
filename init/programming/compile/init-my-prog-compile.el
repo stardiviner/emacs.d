@@ -9,10 +9,10 @@
 (setq compilation-ask-about-save t ; save without asking.
       compilation-skip-threshold 2 ; don't stop on info or warnings.
       compilation-window-height 7
-      compilation-scroll-output 'first-error ; stop on first error.
+      compilation-scroll-output t ; 'first-error ; stop on first error.
       ;; NOTE: t: will cause to can't jump to error location.
-      compilation-auto-jump-to-first-error nil
-      ;; compilation-auto-jump-to-next
+      compilation-auto-jump-to-first-error t
+      compilation-auto-jump-to-next t
       )
 
 ;;; [ quickrun ] -- Run command quickly.

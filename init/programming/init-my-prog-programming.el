@@ -67,6 +67,13 @@
                    (unless (derived-mode-p 'prog-mode)
                      (run-hooks 'prog-mode-hook)))))
 
+;; (defun my-prog-mode-settings ()
+;;   (interactive)
+;;   (eldoc-mode 1)
+;;   )
+;;
+;; (add-hook 'prog-mode-hook #'my-prog-mode-settings)
+
 
 (provide 'init-my-prog-programming)
 

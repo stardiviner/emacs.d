@@ -91,11 +91,18 @@
         cider-repl-history-file nil
         cider-show-error-buffer t
 
+        ;; ClojureScript
+        ;; cider-cljs-lein-repl
+        ;; cider-cljs-boot-repl
+        ;; cider-cljs-gradle-repl
+        
         ;; pretty-printing
         cider-pprint-fn 'fipp
         
         ;; Eval
         cider-show-eval-spinner t
+        cider-eval-spinner-delay 0.1
+        ;; cider-eval-spinner-type 'progress-bar
         cider-use-overlays 'both
         cider-overlays-use-font-lock t ; use overlay for results.
         cider-result-use-clojure-font-lock t
@@ -381,6 +388,14 @@
 
 (use-package elein
   :ensure t)
+
+(defun elein-lein-try ()
+  (interactive)
+  (if (equal "*scratch*" (buffer-name))
+      (progn
+        (setq-local inferior-lisp-program "lein try tentacles")
+        (command-execute 'inferior-lisp)
+        )))
 
 ;;; [ Boot ]
 

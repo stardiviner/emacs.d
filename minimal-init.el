@@ -317,4 +317,9 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
+(use-package cider
+  :ensure t
+  :config
+  (setq cider-show-eval-spinner t)
+  (setq cider-allow-jack-in-without-project t)
+  )

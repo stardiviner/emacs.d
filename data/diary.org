@@ -20,7 +20,43 @@ Examples: (use =[C-h f]= on functions to check out detail formats.
 
 * Holiday
 
+** Valentine's Day
 
+*** 日记情人节
+%%(diary-anniversary 1 14 2017)
+
+*** 传统情人节
+%%(diary-anniversary 2 14 2017)
+
+*** 白色情人节
+%%(diary-anniversary 3 14 2017)
+
+*** 黑色情人节
+%%(diary-anniversary 4 14 2017)
+
+*** 玫瑰情人节
+%%(diary-anniversary 5 14 2017)
+
+*** 亲亲情人节
+%%(diary-anniversary 6 14 2017)
+
+*** 银色情人节
+%%(diary-anniversary 7 14 2017)
+
+*** 绿色情人节
+%%(diary-anniversary 8 14 2017)
+
+*** 相片情人节
+%%(diary-anniversary 9 14 2017)
+
+*** 葡萄酒情人节
+%%(diary-anniversary 10 14 2017)
+
+*** 电影情人节
+%%(diary-anniversary 11 14 2017)
+
+*** 拥抱情人节
+%%(diary-anniversary 12 14 2017)
 
 
 * Birthday
