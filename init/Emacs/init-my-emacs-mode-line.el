@@ -577,7 +577,7 @@ dimensions of a block selection."
       (propertize
        (company--group-lighter
         (nth company-selection company-candidates) company-lighter-base)
-       'face 'mode-line-warn-face)))
+       'face 'mode-line-data-face)))
 
 (defun *org-clock ()
   "Show org-clock info."
