@@ -439,29 +439,17 @@ state (modified, read-only or non-existent)."
 
 Such as how many characters and lines are selected, or the NxM
 dimensions of a block selection."
-  (when (and (active) (evil-visual-state-p))
-    (concat
-     " "
-     (propertize
-      (let ((reg-beg (region-beginning))
-            (reg-end (region-end))
-            (evil (eq 'visual evil-state)))
-        (let ((lines (count-lines reg-beg (min (1+ reg-end) (point-max))))
-              (chars (- (1+ reg-end) reg-beg))
-              (cols (1+ (abs (- (evil-column reg-end)
-                                (evil-column reg-beg))))))
-          (cond
-           ;; rectangle selection
-           ((or (bound-and-true-p rectangle-mark-mode)
-                (and evil (eq 'block evil-visual-selection)))
-            (format " %dx%dB " lines (if evil cols (1- cols))))
-           ;; line selection
-           ((or (> lines 1) (eq 'line evil-visual-selection))
-            (if (and (eq evil-state 'visual) (eq evil-this-type 'line))
-                (format " %dL " lines)
-              (format " %dC %dL " chars lines)))
-           (t (format " %dC " (if evil chars (1- chars)))))))
-      'face 'mode-line-meta-face))))
+  (when (and (active) mark-active)
+    (let ((words (count-lines (region-beginning) (region-end)))
+          (chars (count-words (region-end) (region-beginning))))
+      (concat
+       (propertize " " 'face 'variable-pitch)
+       (all-the-icons-octicon "pencil" :v-adjust -0.05
+                              :face 'mode-line-warn-face)
+       ;; (propertize (format " (w:%s,c:%s)" words chars)
+       ;;             'face `(:height 0.9))
+       ))
+    ))
 
 ;;; macro recording
 (defun *macro-recording ()
@@ -626,6 +614,7 @@ dimensions of a block selection."
     (let* ((meta (concat
                   (*emacsclient)
                   (*macro-recording)
+                  (*selection-info)
                   (*anzu)
                   (*iedit)
                   (*multiple-cursors)
