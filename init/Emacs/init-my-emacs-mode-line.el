@@ -270,7 +270,7 @@ state (modified, read-only or non-existent)."
         (all-the-icons-icon-for-file (buffer-file-name) :v-adjust -0.05)
       (format-mode-line "%s" mode-name) ; FIXME:
       )
-    (propertize "  "
+    (propertize "   "
                 'face 'variable-pitch))
    'face (if (active) 'mode-line-buffer-major-mode-face)))
 
@@ -513,7 +513,7 @@ dimensions of a block selection."
 ;; org-tree-slide slide number
 (defun *org-tree-slide ()
   "Show `org-tree-slide' slide number."
-  (when (and org-tree-slide-mode (org-tree-slide--active-p))
+  (when (bound-and-true-p org-tree-slide-mode)
     (propertize
      (concat
       (all-the-icons-faicon "file-powerpoint-o" :v-adjust -0.05)
@@ -613,8 +613,8 @@ dimensions of a block selection."
                  (*linum-info)
                  ;; (*wc-mode)
                  (*pdf-tools-page-position)
-                 (*org-clock)
                  (*org-tree-slide)
+                 (*org-clock)
                  (*process)
                  ))
            (rhs (list
