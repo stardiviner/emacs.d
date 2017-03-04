@@ -10,9 +10,8 @@
       compilation-skip-threshold 2 ; don't stop on info or warnings.
       compilation-window-height 7
       compilation-scroll-output t ; 'first-error ; stop on first error.
-      ;; NOTE: t: will cause to can't jump to error location.
-      compilation-auto-jump-to-first-error t
-      compilation-auto-jump-to-next t
+      compilation-auto-jump-to-first-error nil ; jump to error file position.
+      compilation-auto-jump-to-next nil
       )
 
 ;;; [ quickrun ] -- Run command quickly.
