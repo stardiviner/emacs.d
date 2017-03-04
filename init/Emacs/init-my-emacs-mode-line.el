@@ -425,7 +425,7 @@ dimensions of a block selection."
       (concat
        (propertize " " 'face 'variable-pitch)
        (all-the-icons-octicon "pencil" :v-adjust -0.05
-                              :face 'mode-line-warn-face)
+                              :face 'mode-line-data-face)
        ;; (propertize (format " (w:%s,c:%s)" words chars)
        ;;             'face `(:height 0.9))
        ))
