@@ -25,9 +25,16 @@
 
 (require 'python)
 
-(setq python-shell-interpreter "python"
+(setq python-shell-interpreter "python" ; "ipython"
       python-shell-completion-native-enable nil
       )
+
+(case python-shell-interpreter
+  ("python"
+   (setq python-shell-interpreter-args "-i"))
+  ("ipython"
+   (setq python-shell-interpreter-args "--simple-prompt --pprint"))
+  )
 
 (defun my-inferior-python ()
   "My function to start or switch to inferior-python process buffer `PROCESS-BUFFER-NAME'."
