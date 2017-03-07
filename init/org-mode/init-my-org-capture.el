@@ -146,7 +146,7 @@
            :fetcher github :repo "alphapapa/org-protocol-capture-html")
   :config
   (setq org-capture-templates
-        (append '(("w" "[W]eb site: (org-protocol-capture-html)" entry
+        (append '(("W" "[W]eb site: (org-protocol-capture-html)" entry
                    (file "")
                    "* %a :website:\n\n%U %?\n\n%:initial"))
                 org-capture-templates))
