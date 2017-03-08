@@ -12,7 +12,8 @@
 (use-package helm
   :ensure t
   :diminish helm-mode
-  :bind (("M-x" . helm-M-x)
+  :bind (
+         ;; ("M-x" . helm-M-x)
          ("M-y" . helm-show-kill-ring)
          ("C-x f" . helm-for-files)
          ("C-x c c" . helm-colors)
