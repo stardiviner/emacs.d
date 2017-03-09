@@ -30,6 +30,12 @@
 (setq-default initial-scratch-message
               (concat ";; Happy hacking " (or user-login-name "") "!\n\n"))
 
+;;; [ File-local Variables ]
+
+(setq enable-local-eval 'maybe
+      enable-local-variables t
+      ;; safe-local-eval-forms
+      )
 
 ;;; [ Time ]
 
