@@ -172,11 +172,8 @@
   ;; Java
 
   ;; Enlighten faces
-  ;; TODO: better way to enable
-  ;; (add-hook 'cider-connected-hook
-  ;;           (lambda ()
-  ;;             (sleep-for 60)
-  ;;             (cider-enlighten-mode 1)))
+  ;; https://github.com/clojure-emacs/cider/pull/1950
+  (add-hook 'cider-mode-hook #'cider-enlighten-mode)
 
   (set-face-attribute 'cider-enlightened-face nil
                       :foreground "dark orange"
