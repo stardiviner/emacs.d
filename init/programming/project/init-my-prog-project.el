@@ -72,6 +72,10 @@
   :config
   ;; (project-shells-setup projectile-mode-map)  
 
+  (if (featurep 'project-shells)
+      (with-eval-after-load 'project-shells
+        (define-key project-shells-map (kbd "!") 'my-smart-eshell)))
+
   (global-project-shells-mode 1)
   ;; (add-hook 'prog-mode-hook #'project-shells-mode)
   )
