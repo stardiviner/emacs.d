@@ -59,6 +59,7 @@
 (require 'init-my-org-attach)
 (require 'init-my-org-hacking)
 (require 'init-my-org-extensions)
+(require 'init-my-org-notebook)
 (require 'init-my-org-programming)
 (require 'init-my-org-presentation)
 (require 'init-my-org-trello)
