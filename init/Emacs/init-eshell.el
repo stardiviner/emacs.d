@@ -159,6 +159,24 @@ PWD is not in a git repo (or the git command is not found)."
 ;;             (message "spend %g seconds"
 ;;                      (- (time-to-seconds) last-command-start-time))))
 
+;;; Bookmarking directories in Eshell with oh-my-zsh plugin "jump".
+;; http://mbork.pl/2017-03-04_Bookmarking_directories_in_Eshell
+;; http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
+;; Usage:
+;; - mark, jump, unmark, marks.
+
+(defvar eshell-jump-bookmark-dir "~/.masks/")
+
+(or (f-directory-p eshell-jump-bookmark-dir)
+    (make-directory eshell-jump-bookmark-dir))
+
+(defun eshell/jump (mark)
+  "Jump to a directory symlinked to by a file called ~/.emacs.d/.marks/MARK."
+  (eshell/cd (file-symlink-p (concat eshell-jump-bookmark-dir mark))))
+
+(defun pcomplete/jump ()
+  "Auto-complete a command that wants a name of a file in ~/.emacs.d/.marks."
+  (pcomplete-here* (directory-files eshell-jump-bookmark-dir)))
 
 ;;; ----------------------------------------------------------------------------
 
