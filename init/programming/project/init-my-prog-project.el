@@ -63,6 +63,18 @@
   ;; :bind ("M-t" . find-file-in-project) ; same with `counsel-git'
   )
 
+;;; [ project-shells ] -- manage the shell buffers for each project.
+
+(use-package project-shells
+  :ensure t
+  :init
+  (setq project-shells-keymap-prefix "C-x !")
+  :config
+  ;; (project-shells-setup projectile-mode-map)  
+
+  (global-project-shells-mode 1)
+  ;; (add-hook 'prog-mode-hook #'project-shells-mode)
+  )
 
 
 (provide 'init-my-prog-project)
