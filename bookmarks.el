@@ -2,7 +2,32 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("My Data Science Reference.org"
+(("Emacs Lisp.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Emacs Lisp/Emacs Lisp.org")
+ (front-context-string . "* Intro\n\n\n** Fea")
+ (rear-context-string)
+ (position . 1))
+("My PUA Manual.org"
+ (filename . "~/Org/Wiki/Love/Data/Manuals/PUA/Data/Manuals/My PUA Manual/My PUA Manual.org")
+ (front-context-string . "#+TITLE: My PUA ")
+ (rear-context-string)
+ (position . 1))
+("UserScript.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implements/Web/UserScript/UserScript.org")
+ (front-context-string . "#+TITLE: UserScr")
+ (rear-context-string)
+ (position . 1))
+("Mysterious Culture.org"
+ (filename . "~/Org/Wiki/Mysterious Culture/Mysterious Culture.org")
+ (front-context-string . "* Intro\n\n\n** 神秘文")
+ (rear-context-string)
+ (position . 1))
+("Eshell.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/Eshell.org")
+ (front-context-string . "* Intro\n\nThere a")
+ (rear-context-string)
+ (position . 1))
+("My Data Science Reference.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implements/Data Science/Data/Manuals/My Data Science Reference/My Data Science Reference.org")
  (front-context-string)
  (rear-context-string . "ence Reference\n\n")
@@ -768,8 +793,8 @@
  (rear-context-string)
  (position . 1))
 ("Packages.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Python/Data/Packages/Packages.org")
- (front-context-string . "* Python Languag")
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/Data/Packages/Packages.org")
+ (front-context-string . "* JavaScript Lan")
  (rear-context-string)
  (position . 1))
 ("My SQL Reference.org"
@@ -928,10 +953,10 @@
  (rear-context-string)
  (position . 1))
 ("org-capture-last-stored"
- (filename . "~/Org/Diary/Diary.org")
- (front-context-string . "**** 别人说我这样的状态很难")
- (rear-context-string . "7-02-24 Friday\n\n")
- (position . 29619))
+ (filename . "~/Org/Tasks/Words.org")
+ (front-context-string . "* disillusionmen")
+ (rear-context-string . "fc\n:END:\n\n可扩展的\n\n")
+ (position . 1011))
 ("Accounts"
  (filename . "~/Org/Accounts/accounts.org.gpg")
  (front-context-string . "* Nick\n\nstardivi")
