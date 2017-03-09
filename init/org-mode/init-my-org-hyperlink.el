@@ -58,7 +58,9 @@
         ("\\.azw3\\'" . "okular %s")
         ;; Image
         ("\\.png\\'" . "sxiv %s")
+        ;; ("\\.jp\(e\)?g" . "sxiv %s")
         ("\\.jpg\\'" . "sxiv %s")
+        ("\\.jpeg\\'" . "sxiv %s")
         ("\\.gif\\'" . "sxiv -a -f %s") ; "sxiv -a -f -- %s
         ;; ("\\.gif\\'" . "gwenview %s")
         ("\\.svg\\'" . "feh --magick-timeout 5 %s")
