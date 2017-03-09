@@ -124,10 +124,10 @@
 
   ;; (global-aggressive-indent-mode t)
   ;; or
-  ;; (dolist (hook '(prog-mode-hook
-  ;;                 nxml-mode-hook
-  ;;                 ))
-  ;;   (add-hook hook #'aggressive-indent-mode))
+  (dolist (hook '(prog-mode-hook
+                  nxml-mode-hook
+                  ))
+    (add-hook hook #'aggressive-indent-mode))
   )
 
 
