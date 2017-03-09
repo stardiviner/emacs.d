@@ -62,7 +62,9 @@
 
 (require 'ob-clojure)
 (add-to-list 'org-babel-default-header-args:clojure
-             '(:results . "pp"))
+             '(:results . "output"))
+;; (add-to-list 'org-babel-default-header-args:clojure
+;;              '(:show-process . t))
 
 ;;; [ ob-haskell ]
 
