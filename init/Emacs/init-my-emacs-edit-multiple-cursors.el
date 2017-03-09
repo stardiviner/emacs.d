@@ -49,6 +49,8 @@
          :map mc-prefix
               ("a" . mc/mark-all-dwim)
               ("r" . set-rectangular-region-anchor)
+              ("m" . mc/mark-next-like-this)
+              ("u" . mc/unmark-next-like-this)
               ("l" . mc/edit-lines)
               ("a" . mc/edit-beginnings-of-lines)
               ("e" . mc/edit-ends-of-lines)
