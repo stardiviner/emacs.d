@@ -201,47 +201,15 @@
 (setq org-agenda-span 'week
       org-agenda-start-on-weekday nil)
 ;; speedup Org Agenda
-(setq org-agenda-dim-blocked-tasks nil
+(setq org-agenda-dim-blocked-tasks t
       org-agenda-inhibit-startup nil
-      org-agenda-use-tag-inheritance nil)
+      ;; org-agenda-use-tag-inheritance nil
+      )
 
 ;; toggle log mode in agenda buffer. show all possible log items.
 (setq org-agenda-start-with-log-mode t
       org-agenda-log-mode-items '(closed clock)
       org-agenda-log-mode-add-notes t)
-
-;;; Custom Agenda Commands
-(add-to-list 'org-agenda-custom-commands
-             '(("d" "Agenda and all TODO's"
-                ((agenda "")
-                 (alltodo "")))
-               ("u" "Urgent tasks"
-                ((search "[#A]")
-                 (todo "Urgent")
-                 (tags "Prepare-Today")))
-               ("t" "all todo entries"
-                todo ""
-                ((org-agenda-buffer-name "*Todo List*")))
-               ("s" "Tasks to start in the future/someday."
-                todo "SOMEDAY")
-               ;; ("c" "Clock"
-               ;;  ((agenda "" ((org-agenda-sticky nil)
-               ;;               (org-agenda-ndays 1)
-               ;;               (org-agenda-span-1)
-               ;;               (org-agenda-use-time-grid t)
-               ;;               (org-agenda-show-log (quote clockcheck))
-               ;;               (org-agenda-clockreport nil)))))
-               ("p" "Project process - project, BUG, ISSUE, Features"
-                ((todo "project")
-                 (todo "BUG")
-                 (todo "ISSUE")
-                 (todo "Features")))
-               ;; used to filter out fragment time tasks.
-               ("f" "Fragment time tasks"
-                ((tags "fragment")))
-               ;; ("i" tags-todo "CATEGORY=\"Task\"")
-               ;; ("w" tags-todo "CATEGORY=\"Work\"")
-               ))
 
 
 ;;; Tag changes that should be triggered by TODO state changes.
@@ -253,6 +221,73 @@
 ;;         ("DONE" ("ARCHIVE" . t))
 ;;         ("CANCELLED" ("CANCELLED" . t))
 ;;         ))
+
+
+;;; [ Composite Agenda View ]
+;;; Usage: `(org-agenda nil "c")'
+
+(defun org-agenda-skip-subtree-if-priority (priority)
+  "Skip an agenda subtree if it has a priority of PRIORITY.
+
+PRIORITY may be one of the characters ?A, ?B, or ?C."
+  (let ((subtree-end (save-excursion (org-end-of-subtree t)))
+        (pri-value (* 1000 (- org-lowest-priority priority)))
+        (pri-current (org-get-priority (thing-at-point 'line t))))
+    (if (= pri-value pri-current)
+        subtree-end
+      nil)))
+
+(defun org-agenda-skip-subtree-if-habit ()
+  "Skip an agenda entry if it has a STYLE property equal to \"habit\"."
+  (let ((subtree-end (save-excursion (org-end-of-subtree t))))
+    (if (string= (org-entry-get nil "STYLE") "habit")
+        subtree-end
+      nil)))
+
+(add-to-list 'org-agenda-custom-commands
+             '(("c" "Agenda with priority tasks and all tasks"
+                ((tags "PRIORITY=\"A\""
+                       ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                        (org-agenda-overriding-header "High-priority unfinished tasks:")))
+                 (agenda ""
+                         ((org-agenda-ndays 1)
+                          (org-agenda-span 1)
+                          (org-agenda-use-time-grid t))
+                         )
+                 (alltodo ""
+                          ((org-agenda-skip-function
+                            '(or (org-agenda-skip-subtree-if-habit)
+                                 (org-agenda-skip-subtree-if-priority ?A)
+                                 (org-agenda-skip-if nil '(scheduled deadline))))
+                           (org-agenda-overriding-header "All normal priority tasks:"))))
+                ((org-agenda-compact-blocks t)))
+               ("u" "Urgent tasks"
+                ((search "[#A]")
+                 (todo "URGENT")))
+               ("T" "all todo entries"
+                todo ""
+                ((org-agenda-buffer-name "*Todo List*")))
+               ("s" "Tasks to start in the future/someday."
+                todo "SOMEDAY")
+               ;; ("c" "Clock"
+               ;;  ((agenda "" ((org-agenda-sticky nil)
+               ;;               (org-agenda-ndays 1)
+               ;;               (org-agenda-span-1)
+               ;;               (org-agenda-use-time-grid t)
+               ;;               (org-agenda-show-log (quote clockcheck))
+               ;;               (org-agenda-clockreport nil)))))
+               ("p" "Project process - PROJECT, BUG, ISSUE, FEATURE"
+                ((todo "PROJECT")
+                 (todo "BUG")
+                 (todo "ISSUE")
+                 (todo "FEATURE")))
+               ("w" tags-todo "CATEGORY=\"Work\"")
+               ;; used to filter out fragment time tasks.
+               ("f" "Fragment time tasks"
+                ((tags "fragment")))
+               ))
+
+
 
 ;;;; [ org-review ] -- Track when you have done a review in org mode.
 
