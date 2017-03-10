@@ -79,7 +79,7 @@
   :config
   (unless (boundp 'my-org-board-prefix)
     (define-prefix-command 'my-org-board-prefix))
-  (define-key my-org-prefix (kbd "C-a") 'my-org-board-prefix)
+  (define-key my-org-prefix (kbd "C-b") 'my-org-board-prefix)
 
   (define-key my-org-board-prefix (kbd "a") 'org-board-new)
   (define-key my-org-board-prefix (kbd "n") 'org-board-new)

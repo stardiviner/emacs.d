@@ -16,20 +16,31 @@
 
 (unless (boundp 'my-org-agenda-prefix)
   (define-prefix-command 'my-org-agenda-prefix))
-(define-key my-org-prefix (kbd "C-a") 'my-org-agenda-prefix)
+(define-key my-org-prefix (kbd "M-a") 'my-org-agenda-prefix)
 
-(defun my-open-org-agenda ()
+(define-key my-org-prefix (kbd "a") 'org-agenda)
+
+(defun my-org-agenda-switch ()
   (interactive)
-  (my-func/open-and-switch-to-buffer 'org-agenda-list "*Org Agenda*" t)
+  (my-func/open-and-switch-to-buffer 'org-agenda "*Org Agenda*" t)
   )
-(define-key my-org-prefix (kbd "a") 'my-open-org-agenda)
 
-(define-key my-org-prefix (kbd "t") 'org-todo-list)
+(define-key my-org-prefix (kbd "C-a") 'my-org-agenda-switch)
 
-(define-key my-org-agenda-prefix (kbd "a") 'my-open-org-agenda)
-(define-key my-org-agenda-prefix (kbd "A") 'org-agenda)
-(define-key my-org-agenda-prefix (kbd "t") 'org-todo-list) ; prefix [C-u] to prompt keyword for todo list
-(define-key my-org-agenda-prefix (kbd "T") 'org-timeline) ; Show a time-sorted view of the entries in the current org file.
+(defun my-org-agenda-composite-view ()
+  "Select an agenda composite view to generate agenda."
+  ;; read-in view-type key
+  (interactive)
+  ;; get available composite agenda views from `org-agenda-custom-commands'.
+  (let* ((views-list org-agenda-custom-commands)
+         (views-keys (map-keys org-agenda-custom-commands))
+         (views-desc (car (cdr (assoc "c" views-list)))))
+    (org-agenda nil (completing-read "Composite Agenda View: "
+                                     (map-keys org-agenda-custom-commands)))
+    ))
+
+(define-key my-org-agenda-prefix (kbd "c") 'my-org-agenda-composite-view)
+
 
 (unless (boundp 'my-org-link-prefix)
   (define-prefix-command 'my-org-link-prefix))
