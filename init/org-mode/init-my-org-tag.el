@@ -12,14 +12,16 @@
 
 (setq org-auto-align-tags t
       org-export-with-tags t
-      org-tags-history t
       org-tags-column -77
       ;; inheritance
       org-use-tag-inheritance t
       org-tags-match-list-sublevels t
-      org-fast-tag-selection-single-key nil
+      org-fast-tag-selection-single-key nil ; multiple different group tags selecting.
       ;; org-tags-exclude-from-inheritance '(("knowledge" . nil))
       )
+
+;; enable group tags
+(setq org-group-tags t)
 
 (setq org-tag-persistent-alist
       '( ;; personal
@@ -71,9 +73,6 @@
         ("Git" . ?g)
         (:endgroup . nil)
         ))
-
-;; enable group tags
-(setq org-group-tags t)
 
 (setq org-tag-faces
       '(("Org" :foreground "green yellow")
