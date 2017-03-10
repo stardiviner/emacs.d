@@ -258,8 +258,7 @@
 
 (use-package org-review
   :ensure t
-  :defer t
-  :init
+  :config
   (add-to-list 'org-agenda-custom-commands
                '("R" "Review projects" tags-todo "-CANCELLED/"
                  ((org-agenda-overriding-header "Reviews Scheduled")
