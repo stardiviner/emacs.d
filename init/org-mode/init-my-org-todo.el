@@ -33,7 +33,13 @@
 ;;; [ Log ]
 
 (setq org-log-done 'time
+      org-log-redeadline 'time
+      org-log-reschedule 'time
+      org-log-refile 'time
+      org-log-repeat 'time
+      org-log-note-clock-out t
       org-log-into-drawer t
+      org-log-done-with-time t
       )
 
 ;;; [ Effort ]
