@@ -9,7 +9,7 @@
 (setq compilation-ask-about-save t ; save without asking.
       compilation-skip-threshold 2 ; don't stop on info or warnings.
       compilation-window-height 7
-      compilation-scroll-output t ; 'first-error ; stop on first error.
+      compilation-scroll-output 'first-error ; 'first-error ; stop on first error.
       compilation-auto-jump-to-first-error nil ; jump to error file position.
       compilation-auto-jump-to-next nil
       )
