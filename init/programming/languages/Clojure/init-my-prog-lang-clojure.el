@@ -270,6 +270,24 @@
               (define-key cider-inspect-prefix (kbd "e") 'cider-inspect-last-sexp)
               (define-key cider-inspect-prefix (kbd "i") 'cider-inspect-read-and-inspect)
               ))
+
+  
+  (defconst cider-metadata-buffer "*cider-metadata*")
+
+  (defun cider-metadata (var &optional ns)
+    "Show VAR's metadata in a separate buffer.
+
+Optional argument NS, if not provided, defaults to
+`cider-current-ns'."
+    (interactive (list (cider-symbol-at-point)))
+    (let* ((buf (current-buffer))
+           (result-buffer (cider-popup-buffer cider-metadata-buffer t 'clojure-mode t))
+           (handler (cider-popup-eval-out-handler result-buffer)))
+      (with-current-buffer buf
+        (cider-interactive-eval (format "(meta (var %s))" (concat (or ns (cider-current-ns)) "/" var))
+                                handler
+                                nil
+                                (cider--nrepl-pprint-request-plist (cider--pretty-print-width))))))
   )
 
 
