@@ -22,7 +22,7 @@
          )
 
   :config
-  (defun sudired ()
+  (defun dired-sudo ()
     "The sudo privilege to change the owner of a file owned by root."
     (interactive)
     (require 'tramp)
@@ -31,10 +31,10 @@
           (user-error "Already in sudo")
         (dired (concat "/sudo::" dir)))))
 
-  (define-key dired-mode-map "!" 'sudired)
+  (define-key dired-mode-map "!" 'dired-sudo)
 
   ;; Run rsync in Dired.
-  (defun ora-dired-rsync (dest)
+  (defun dired-rsync (dest)
     (interactive (list
                   (expand-file-name
                    (read-file-name
@@ -61,7 +61,7 @@
       ;; finally, switch to that window
       (other-window 1)))
 
-  (define-key dired-mode-map "Y" 'ora-dired-rsync)
+  (define-key dired-mode-map "Y" 'dired-rsync)
 
   ;; open file with eww.
   (define-key dired-mode-map (kbd "e")
