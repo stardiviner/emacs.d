@@ -378,40 +378,40 @@ state (modified, read-only or non-existent)."
 (defun *build-status ()
   "Show CI build status in mode-line."
   ;; `build-status-mode-line-string'
-  (let* ((root (or (build-status--circle-ci-project-root (buffer-file-name))
-                   (build-status--travis-ci-project-root (buffer-file-name))))
-         (active (build-status--activate-mode))
-         (status (cdr (assoc root build-status--project-status-alist)))
-         (project (build-status--project (buffer-file-name))))
-    (if (not (null status))
-        (propertize
-         (concat
-          (all-the-icons-faicon "cogs" :v-adjust -0.05)
-          (propertize " " 'face 'variable-pitch)
-          (cond
-           ((string= status "passed")
-            (all-the-icons-faicon "check-circle"
-                                  'face 'build-status-passed-face
-                                  :v-adjust -0.05))
-           ((string= status "running")
-            (all-the-icons-faicon "spinner"
-                                  'face 'build-status-running-face
-                                  :v-adjust -0.05))
-           ((string= status "failed")
-            (all-the-icons-faicon "chain-broken"
-                                  'face 'build-status-failed-face
-                                  :v-adjust -0.05))
-           ((string= status "queued")
-            (all-the-icons-faicon "ellipsis-h"
-                                  'face 'build-status-queued-face
-                                  :v-adjust -0.05))
-           (t
-            (all-the-icons-faicon "question-circle-o"
-                                  'face 'build-status-unknown-face
-                                  :v-adjust -0.05)))
-          ))
-      ))
-  )
+  (if (featurep 'build-status)
+      (let* ((root (or (build-status--circle-ci-project-root (buffer-file-name))
+                       (build-status--travis-ci-project-root (buffer-file-name))))
+             (active (build-status--activate-mode))
+             (status (cdr (assoc root build-status--project-status-alist)))
+             (project (build-status--project (buffer-file-name))))
+        (if (not (null status))
+            (propertize
+             (concat
+              (all-the-icons-faicon "cogs" :v-adjust -0.05)
+              (propertize " " 'face 'variable-pitch)
+              (cond
+               ((string= status "passed")
+                (all-the-icons-faicon "check-circle"
+                                      'face 'build-status-passed-face
+                                      :v-adjust -0.05))
+               ((string= status "running")
+                (all-the-icons-faicon "spinner"
+                                      'face 'build-status-running-face
+                                      :v-adjust -0.05))
+               ((string= status "failed")
+                (all-the-icons-faicon "chain-broken"
+                                      'face 'build-status-failed-face
+                                      :v-adjust -0.05))
+               ((string= status "queued")
+                (all-the-icons-faicon "ellipsis-h"
+                                      'face 'build-status-queued-face
+                                      :v-adjust -0.05))
+               (t
+                (all-the-icons-faicon "question-circle-o"
+                                      'face 'build-status-unknown-face
+                                      :v-adjust -0.05)))
+              ))
+          ))))
 
 ;; selection info
 (defun *selection-info ()
