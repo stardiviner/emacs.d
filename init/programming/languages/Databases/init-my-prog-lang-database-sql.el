@@ -158,6 +158,46 @@
 
 ;;; [ sql-completion ] -- support MySQL
 
+;;; [ ejc-sql ] -- Emacs SQL client uses Clojure JDBC.
+
+(use-package ejc-sql
+  :ensure t
+  :config
+  ;; ;; SQLite
+  ;; (ejc-create-connection
+  ;;  "SQLite-db-connection"
+  ;;  :classpath (concat
+  ;;              "~/.m2/repository/sqlitejdbc/sqlitejdbc/0.5.6/"
+  ;;              "sqlitejdbc-0.5.6.jar")
+  ;;  :classname ""
+  ;;  :subprotocol "sqlite"
+  ;;  :subname ""
+  ;;  :user ""
+  ;;  :password "")
+  ;; ;; MySQL
+  ;; (ejc-create-connection
+  ;;  "MySQL-db-connection"
+  ;;  :classpath (concat
+  ;;              "~/.m2/repository/mysql/mysql-connector-java/5.1.6/"
+  ;;              "mysql-connector-java-5.1.6.jar")
+  ;;  :classname "com.mysql.jdbc.Driver"
+  ;;  :subprotocol "mysql"
+  ;;  :subname "//localhost:3306/my_db_name"
+  ;;  :user "a_user"
+  ;;  :password "secret")
+  ;; ;; PostgreSQL
+  ;; (ejc-create-connection
+  ;;  "PostgreSQL-db-connection"
+  ;;  :classpath (concat
+  ;;              "~/.m2/repository/postgresql/postgresql/9.3-1102.jdbc41/"
+  ;;              "postgresql-9.3-1102.jdbc41.jar")
+  ;;  :classname ""
+  ;;  :subprotocol "postgresql"
+  ;;  :subname "//localhost:5432/test"
+  ;;  :user "postgres"
+  ;;  :password "324324")
+  )
+
 
 (provide 'init-my-prog-lang-database-sql)
 
