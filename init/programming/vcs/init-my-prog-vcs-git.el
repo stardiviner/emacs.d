@@ -198,6 +198,11 @@
 (use-package git-timemachine
   :ensure t)
 
+;;; [ magit-lfs ] -- Magit support for GLFS: Git Large File System
+
+(use-package magit-lfs
+  :ensure t)
+
 ;;; [ projectile-git-autofetch ] -- Automatically fetch git repositories known to projectile.
 
 ;; (use-package projectile-git-autofetch
