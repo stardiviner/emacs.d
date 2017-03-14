@@ -112,9 +112,10 @@
 
 (use-package pyvenv
   :ensure t
-  :defer t
-  :init
-  (pyvenv-workon "python3"))
+  :config
+  (pyvenv-workon "python3")
+  (add-hook 'python-mode-hook #'pyvenv-mode)
+  )
 
 
 ;;; [ pythonic ]
