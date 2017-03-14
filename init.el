@@ -272,6 +272,8 @@
 ;; (require 'init-my-prog-lang-HDL)
 ;; (require 'init-my-prog-lang-applescript)
 
+;;; Data Science
+(require 'init-my-data-science)
 
 ;;; Frameworks
 (require 'init-my-prog-framework-web)
