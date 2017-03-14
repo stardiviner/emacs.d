@@ -270,7 +270,7 @@ state (modified, read-only or non-existent)."
         (all-the-icons-icon-for-file (buffer-file-name) :v-adjust -0.05)
       (format-mode-line "%s" mode-name) ; FIXME:
       )
-    (propertize "   "
+    (propertize " "
                 'face 'variable-pitch))
    'face (if (active) 'mode-line-buffer-major-mode-face)))
 
@@ -293,13 +293,13 @@ state (modified, read-only or non-existent)."
                       ;; conda: `conda-env-current-name'
                       ))
                    ('js3-mode
-                    ;; FIXME: `nvm-current-version' is `nil'.
-                    ;; (if (featurep 'nvm)
-                    ;;     nvm-current-version)
+                    (if (and (featurep 'nvm) (not (null nvm-current-version)))
+                        nvm-current-version)
                     )
                    )))
         (if env
-            (propertize (concat " [" env "] ")
+            (propertize (concat "[" env "]"
+                                (propertize " " 'face 'variable-pitch))
                         'face 'mode-line-info-face))
         )))
 
