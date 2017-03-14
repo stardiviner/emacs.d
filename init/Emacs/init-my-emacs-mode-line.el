@@ -586,6 +586,10 @@ dimensions of a block selection."
              (setq org-mode-line-string nil)
              (force-mode-line-update)))
 
+(defun *space (n)
+  "Add spaces for custom mode-line alignment."
+  (propertize (make-string n (string-to-char " ")) 'face 'variable-pitch))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun my-modeline ()
@@ -631,6 +635,7 @@ dimensions of a block selection."
                  ;; (*perspeen)
                  (*major-mode)
                  (*env)
+                 (*space 3)
                  ))
            (mid (propertize
                  " "
