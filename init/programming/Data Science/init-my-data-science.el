@@ -13,6 +13,10 @@
 (use-package pig-mode
   :ensure t)
 
+;;; [ Apache Hive ]
+
+(use-package hive
+  :ensure t)
 
 ;;; ----------------------------------------------------------------------------
 
