@@ -42,6 +42,9 @@
         ;; helm-split-window-preferred-function
         helm-quick-update nil
         helm-case-fold-search t
+        ;; fuzzy matching
+        helm-mode-fuzzy-match t
+        helm-completion-in-region-fuzzy-match t
         helm-buffers-fuzzy-matching nil
         helm-recentf-fuzzy-match nil
         helm-move-to-line-cycle-in-source nil
