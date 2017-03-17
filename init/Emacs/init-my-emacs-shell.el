@@ -13,15 +13,20 @@
 ;; (setq shell-file-name (getenv "SHELL"))
 
 
-;;; [ Shell ]
+;;; [ Shell ] -- [M-x shell]
 
-;; M-x shell is a nice shell interface to use, let's make it colorful. If
-;; you need a terminal emulator rather than just a shell, consider M-x term
-;; instead.
+;;; open shell buffer in current window
+(add-to-list 'display-buffer-alist
+             '("^\\*shell\\*$" . (display-buffer-same-window)))
+
+;; [M-x shell] is a nice shell interface to use, let's make it colorful.
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+;; If you need a terminal emulator rather than just a shell, consider [M-x term]
+;; instead.
 
-;; (setq shell-command-completion-mode t)
+;; for auto nifty command substitution [!!] and ^a^b.
+(define-key shell-mode-map (kbd "SPC") 'comint-magic-space)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
