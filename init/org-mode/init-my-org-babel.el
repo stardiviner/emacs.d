@@ -132,7 +132,7 @@
    (elasticsearch . t)                  ; es-mode
    ))
 
-
+;;; [ Tangle ]
 (setq org-babel-tangle-lang-exts
       '(("latex" . "tex")
         ("elisp" . "el")

@@ -201,7 +201,7 @@
 (setq org-agenda-span 'week
       org-agenda-start-on-weekday nil)
 ;; speedup Org Agenda
-(setq org-agenda-dim-blocked-tasks t
+(setq org-agenda-dim-blocked-tasks nil ; don't dim blocked tasks: past deadline, etc
       org-agenda-inhibit-startup nil
       ;; org-agenda-use-tag-inheritance nil
       )
