@@ -15,33 +15,18 @@
   (setq company-minimum-prefix-length 3
         ;; decrease this delay when you can type code continuously fast.
         company-idle-delay 0.2
-        ;; determines when to auto-complete.
-        ;; 'company-explicit-action-p, t, nil, 'function
-        ;; company-auto-complete nil
-        ;; company-auto-complete-chars
-        ;; 'company-explicit-action-p, t, nil, 'function
-        ;; company-require-match 'company-explicit-action-p
-        ;; determine which characters trigger auto-completion. (default (32 41 46))
-        company-auto-complete-chars '(?\  ?\) ?. ?_ ?$)
         ;; company-echo-delay .01
-        ;; t: show quick-access numbers for the first ten candidates.
-        ;; company-show-numbers nil
-        ;; align annotations to the right tooltip border.
-        company-tooltip-align-annotations t
+        ;; determine which characters trigger auto-completion the selected candidate.
+        company-auto-complete-chars '(?\s ?\( ?\) ?\, ?\. $_ ?$)
+        company-auto-complete t
+        ;; company-require-match 'company-explicit-action-p
+        company-tooltip-align-annotations t ; align annotations to the right tooltip border.
         company-tooltip-flip-when-above nil
-        ;; tooltip candidates max limit.
-        company-tooltip-limit 10
-        ;; minimum candidates height limit.
-        company-tooltip-minimum 3
-        ;; The minimum width of the tooltip's inner area.
-        ;; company-tooltip-minimum-width 0
-        ;; This doesn't include the margins and the scroll bar.
-        ;; width of margin columns to show around the tooltip
-        company-tooltip-margin 1
-        ;; 'lines - how to show tooltip unshown candidates number.
-        ;; company-tooltip-offset-display 'scrollbar
-        ;; loop over candidates
-        company-selection-wrap-around t
+        company-tooltip-limit 10 ; tooltip candidates max limit
+        company-tooltip-minimum 3 ; minimum candidates height limit
+        ;; company-tooltip-minimum-width 0 ; the minimum width of the tooltip's inner area
+        company-tooltip-margin 1 ; width of margin columns to show around the tooltip
+        company-selection-wrap-around t ; loop over candidates
         company-search-regexp-function #'company-search-flex-regexp
         )
 
