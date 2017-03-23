@@ -210,7 +210,9 @@
   (add-hook 'cider-repl-mode-hook
             (lambda () (setq eldoc-message-function #'eldoc-minibuffer-message)))
   (setq cider-eldoc-display-for-symbol-at-point t ; NOTE: enable this will cause high CPU.
-        cider-eldoc-max-class-names-to-display 3)
+        cider-eldoc-max-class-names-to-display 3
+        cider-eldoc-display-context-dependent-info t ; for datomic query input parameters
+        )
 
   (add-hook 'cider-repl-mode-hook #'subword-mode)
 
