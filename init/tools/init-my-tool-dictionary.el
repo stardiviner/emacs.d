@@ -82,6 +82,11 @@
         )
   )
 
+;;; [ wotd ] -- Show "Word of the Day" from 15 online sources in Emacs.
+
+(use-package wotd
+  :ensure t)
+
 
 (provide 'init-my-tool-dictionary)
 
