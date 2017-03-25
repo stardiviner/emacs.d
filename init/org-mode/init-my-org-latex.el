@@ -114,6 +114,12 @@
   :version "22.1")
 
 
+;;; [ org-edit-latex ] -- Org edit LaTeX block like babel src block.
+
+(use-package org-edit-latex
+  :ensure t)
+
+
 (provide 'init-my-org-latex)
 
 ;;; init-my-org-latex.el ends here
