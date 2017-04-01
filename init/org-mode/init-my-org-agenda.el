@@ -245,8 +245,11 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
       nil)))
 
 (add-to-list 'org-agenda-custom-commands
-             '("c" "Agenda with priority tasks and all tasks"
-               ((tags "PRIORITY=\"A\""
+             '("c" "Agenda with in progress tasks, priority tasks, and all tasks"
+               ((todo "STARTED")
+                (todo "INPROGRESS")
+                (todo "URGENT")
+                (tags "PRIORITY=\"A\""
                       ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
                        (org-agenda-overriding-header "High-priority unfinished tasks:")))
                 (agenda ""
