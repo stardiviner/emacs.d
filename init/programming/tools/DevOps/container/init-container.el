@@ -16,12 +16,15 @@
 
 (require 'init-docker)
 
-
 ;;; [ lxc ] -- LXC integration with Emacs.
 
 (use-package lxc
   :ensure t
   :defer t)
+
+;;; [ Kubernetes ]
+
+(require 'init-kubernetes)
 
 
 (provide 'init-container)
