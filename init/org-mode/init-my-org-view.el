@@ -77,10 +77,10 @@
     "My custom face for org-bullets."
     :group 'org-faces)
 
-  (set-face-attribute 'org-bullets-face nil
-                      :family "DejaVu Sans"
-                      :height 130 :weight 'bold
-                      )
+  ;; (set-face-attribute 'org-bullets-face nil
+  ;;                     :family "DejaVu Sans"
+  ;;                     :height 130 :weight 'bold
+  ;;                     )
 
   (setq org-bullets-face-name 'org-bullets-face)
 

@@ -177,8 +177,6 @@
 
 ;;; [ point & cursor ]
 
-(blink-cursor-mode 1)
-
 (setq-default mouse-avoidance-mode 'animate ; auto move mouse away when cursor is at mouse position
               cursor-in-echo-area nil
               mouse-yank-at-point t
@@ -188,13 +186,14 @@
 ;;; horizontal bar
 (setq-default cursor-type '(hbar . 2)
               cursor-in-non-selected-windows t)
-(set-cursor-color "deep pink")
+(set-cursor-color "cyan")
 
 ;;; hollow
 ;; (setq-default cursor-type 'hollow
 ;;               cursor-in-non-selected-windows nil)
 ;; (set-cursor-color "green")
 
+(blink-cursor-mode 1)
 
 ;;; [ beacon ] -- highlight the cursor whenever the window scrolls.
 

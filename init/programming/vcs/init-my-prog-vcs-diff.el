@@ -18,36 +18,27 @@
   :config
   (set-face-attribute 'diff-file-header nil
                       :foreground "orange"
-                      :weight 'bold
-                      )
+                      :weight 'bold)
   (set-face-attribute 'diff-hunk-header nil
-                      :foreground "sky blue"
-                      )
+                      :foreground "sky blue")
   (set-face-attribute 'diff-context nil
-                      :foreground "dark gray"
-                      )
+                      :foreground "dark gray")
   (set-face-attribute 'diff-removed nil
+                      :weight 'normal
                       :background (color-darken-name (face-background 'default) 5)
-                      :foreground "red3"
-                      :weight 'normal)
+                      :foreground "red3")
   (set-face-attribute 'diff-added nil
+                      :weight 'normal
                       :background (color-darken-name (face-background 'default) 5)
-                      :foreground "forest green"
-                      :weight 'normal)
+                      :foreground "forest green")
   (set-face-attribute 'diff-refine-removed nil
                       :inherit 'diff-removed
-                      :background "black"
-                      :foreground "red"
-                      :inverse-video nil
-                      :weight 'bold
-                      )
+                      :inverse-video nil :weight 'bold
+                      :background "black" :foreground "red")
   (set-face-attribute 'diff-refine-added nil
                       :inherit 'diff-added
-                      :background "black"
-                      :foreground "green"
-                      :inverse-video nil
-                      :weight 'bold
-                      )
+                      :inverse-video nil :weight 'bold
+                      :background "black" :foreground "green")
   )
 
 ;;; [ ediff ]

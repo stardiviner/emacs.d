@@ -9,20 +9,11 @@
 
 ;;; [ show-paren-mode ]
 
+(require 'paren)
+
 (show-paren-mode 1) ; highlight matched parentheses
 
 (setq show-paren-style 'parenthesis)
-
-(set-face-attribute 'show-paren-match nil
-                    :foreground "white" :background "deep pink"
-                    :weight 'bold
-                    :inverse-video nil
-                    )
-(set-face-attribute 'show-paren-mismatch nil
-                    :background "brown"
-                    :strike-through t
-                    :inverse-video nil
-                    )
 
 
 ;;; [ smartparens ] -- deals with parens pairs and tries to be smart about it.

@@ -37,41 +37,30 @@
   (set-face-attribute 'ivy-confirm-face nil
                       :inherit nil
                       :weight 'bold
-                      :foreground "black" :background "khaki"
                       )
   (set-face-attribute 'ivy-current-match nil
                       :inherit nil
                       ;; Sci-Fi style
-                      :foreground "white" :background "#004A5D"
-                      :box '(:color "cyan" :line-width -1)
+                      ;; :foreground "white" :background "#004A5D"
+                      ;; :box '(:color "cyan" :line-width -1)
                       )
   (set-face-attribute 'ivy-match-required-face nil
                       :inherit 'minibuffer-prompt
-                      :weight 'bold :box nil
-                      :foreground "dark red" :background nil
                       )
   ;; the string between matches
   (set-face-attribute 'ivy-minibuffer-match-face-1 nil
                       :inherit nil
-                      :weight 'normal :box nil
-                      :foreground nil :background nil
                       )
   ;; first match part.
   (set-face-attribute 'ivy-minibuffer-match-face-2 nil
                       :inherit 'ivy-minibuffer-match-face-1
-                      :foreground "green" :background nil
-                      :weight 'normal :box nil :underline t
                       )
   ;; second match part.
   (set-face-attribute 'ivy-minibuffer-match-face-3 nil
                       :inherit 'ivy-minibuffer-match-face-1
-                      :foreground "orange" :background nil
-                      :weight 'normal :box nil :underline t
                       )
   (set-face-attribute 'ivy-minibuffer-match-face-4 nil
                       :inherit 'ivy-minibuffer-match-face-1
-                      :foreground "dodger blue" :background nil
-                      :weight 'normal :box nil :underline t
                       )
 
   ;; {Bookmarks}

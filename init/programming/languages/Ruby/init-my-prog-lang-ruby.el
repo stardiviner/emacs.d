@@ -60,16 +60,16 @@
   
   (erm-define-faces)
 
-  (set-face-attribute 'enh-ruby-op-face nil
-                      :foreground "red")
-  (set-face-attribute 'enh-ruby-string-delimiter-face nil
-                      :foreground "orange")
-  (set-face-attribute 'enh-ruby-regexp-delimiter-face nil
-                      :foreground "dark magenta")
-  (set-face-attribute 'enh-ruby-regexp-face nil
-                      :foreground "cyan")
-  (set-face-attribute 'enh-ruby-heredoc-delimiter-face nil
-                      :foreground "dark green")
+  ;; (set-face-attribute 'enh-ruby-op-face nil
+  ;;                     :foreground "red")
+  ;; (set-face-attribute 'enh-ruby-string-delimiter-face nil
+  ;;                     :foreground "orange")
+  ;; (set-face-attribute 'enh-ruby-regexp-delimiter-face nil
+  ;;                     :foreground "dark magenta")
+  ;; (set-face-attribute 'enh-ruby-regexp-face nil
+  ;;                     :foreground "cyan")
+  ;; (set-face-attribute 'enh-ruby-heredoc-delimiter-face nil
+  ;;                     :foreground "dark green")
 
   (set-face-attribute 'erm-syn-warnline nil
                       :inherit 'flycheck-warning

@@ -455,9 +455,6 @@
 
 (setq org-src-fontify-natively t)
 
-;; (set-face-attribute 'org-block nil
-;;                     :background "#202020")
-
 ;; (setq org-src-block-faces
 ;;       '(("org" (:background (color-darken-name (face-background 'default) 4)))
 ;;         ("latex" (:background "#282828"))

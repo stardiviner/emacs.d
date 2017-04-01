@@ -119,24 +119,15 @@
         )
   
   ;; GitGutter signs
-  (set-face-attribute 'git-gutter+-modified nil
-                      :foreground "dark orange"
-                      :weight 'normal
-                      :height 90
-                      )
-  (set-face-attribute 'git-gutter+-added nil
-                      :foreground "green"
-                      :weight 'normal
-                      :height 90
-                      )
-  (set-face-attribute 'git-gutter+-deleted nil
-                      :foreground "red"
-                      :weight 'normal
-                      :height 90
-                      )
-  (set-face-attribute 'git-gutter+-unchanged nil
-                      )
-  (set-face-foreground 'git-gutter+-separator "cyan")
+  ;; (set-face-attribute 'git-gutter+-modified nil
+  ;;                     :foreground "dark orange")
+  ;; (set-face-attribute 'git-gutter+-added nil
+  ;;                     :foreground "green")
+  ;; (set-face-attribute 'git-gutter+-deleted nil
+  ;;                     :foreground "red")
+  ;; (set-face-attribute 'git-gutter+-unchanged nil
+  ;;                     )
+  ;; (set-face-foreground 'git-gutter+-separator "cyan")
 
   (global-git-gutter+-mode t)
   )
