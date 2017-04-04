@@ -15,6 +15,11 @@
   (setq inline-docs-position 'above)
   )
 
+;;; [ quick-peek ] -- An inline pop-up library for Emacs Lisp.
+
+(use-package quick-peek
+  :ensure t)
+
 
 (provide 'init-my-prog-document-assistant)
 
