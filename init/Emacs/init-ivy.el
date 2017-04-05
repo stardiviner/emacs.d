@@ -96,6 +96,14 @@
   (ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer)
   )
 
+;;; [ all-the-icons-ivy ] -- Ivy/Counsel integration with all-the-icons.el
+
+;; (use-package all-the-icons-ivy
+;;   :ensure t
+;;   :config
+;;   (all-the-icons-ivy-setup)
+;;   )
+
 ;;; [ counsel ]
 
 (use-package counsel
