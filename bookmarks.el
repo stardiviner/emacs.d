@@ -2,7 +2,72 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Emacs Lisp.org"
+(("Daoism 道家"
+ (filename . "~/Org/Wiki/Philosophy/道家/道家.org")
+ (front-context-string . "#+TITLE: 道家 Daoi")
+ (rear-context-string)
+ (position . 1))
+("Physics.org"
+ (filename . "~/Org/Wiki/Physics/Physics.org")
+ (front-context-string . "* Intro\n:PROPERT")
+ (rear-context-string)
+ (position . 1))
+("My Git Usage Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Git/Data/Manuals/My Git Usage Reference/My Git Usage Reference.org")
+ (front-context-string . "#+TITLE: My Git ")
+ (rear-context-string)
+ (position . 1))
+("Microsoft Windows.org"
+ (filename . "~/Org/Wiki/Computer Technology/Systems/Microsoft Windows/Microsoft Windows.org")
+ (front-context-string . "* Intro\n\n** Scre")
+ (rear-context-string)
+ (position . 1))
+("Disease Database.org"
+ (filename . "~/Org/Wiki/Medicine/Disease Database/Disease Database.org")
+ (front-context-string . "#+TITLE: Disease")
+ (rear-context-string)
+ (position . 1))
+("Yi Learning.org"
+ (filename . "~/Org/Wiki/Mysterious Culture/Yi Learning/Yi Learning.org")
+ (front-context-string . "#+TITLE: Yi Lear")
+ (rear-context-string)
+ (position . 1))
+("Qt.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implements/GUI/frameworks/Qt/Qt.org")
+ (front-context-string . "* Intro\n\n*Qt is ")
+ (rear-context-string)
+ (position . 1))
+("My Erotic Novels Collections"
+ (filename . "~/Org/Wiki/Pornography/Erotic/Erotic Literature/Erotic Literature.org")
+ (front-context-string . "\n\n- [[file+sys:D")
+ (rear-context-string . "vels Collections")
+ (position . 1153))
+("道家 Daoism"
+ (filename . "~/Org/Wiki/Philosophy/道家/道家.org")
+ (front-context-string . "\n\n* Intro\n:PROPE")
+ (rear-context-string . "TITLE: 道家 Daoism")
+ (position . 19))
+("My Liked Loving.org"
+ (filename . "~/Org/Wiki/Love/Data/Manuals/My Liked Loving/My Liked Loving.org")
+ (front-context-string . "* 《白蛇传》\n:PROPERT")
+ (rear-context-string)
+ (position . 1))
+("My DevOps Manual.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Software Development/Data/Wiki/Software Development Method/DevOps/Data/Manuals/My DevOps Manual/My DevOps Manual.org")
+ (front-context-string . "#+TITLE: My DevO")
+ (rear-context-string)
+ (position . 1))
+("DevOps.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Software Development/Data/Wiki/Software Development Method/DevOps/DevOps.org")
+ (front-context-string . "* Intro\n\nDevOps ")
+ (rear-context-string)
+ (position . 1))
+("Data Science.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implements/Data Science/Data Science.org")
+ (front-context-string . "* Intro\n\n** Data")
+ (rear-context-string)
+ (position . 1))
+("Emacs Lisp.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Emacs Lisp/Emacs Lisp.org")
  (front-context-string . "* Intro\n\n\n** Fea")
  (rear-context-string)
@@ -203,15 +268,15 @@
  (rear-context-string)
  (position . 1))
 ("org-capture-last-stored-marker"
- (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "** kk\n:PROPERTIE")
- (rear-context-string . "带果仁的),\n:END:\n\n\n\n")
- (position . 1729))
+ (filename . "~/Org/Projects/Code.org")
+ (front-context-string . "** TODO Mycroft ")
+ (rear-context-string . "][bind-key]].\n\n\n")
+ (position . 62457))
 ("org-refile-last-stored"
- (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "** kk\n:PROPERTIE")
- (rear-context-string . "带果仁的),\n:END:\n\n\n\n")
- (position . 1729))
+ (filename . "~/Org/Projects/Code.org")
+ (front-context-string . "** TODO Mycroft ")
+ (rear-context-string . "][bind-key]].\n\n\n")
+ (position . 62457))
 ("GNU.org"
  (filename . "~/Org/Wiki/Computer Technology/Systems/GNU/GNU.org")
  (front-context-string . "* Intro\n\n\n\n* Pro")
@@ -240,11 +305,6 @@
 ("Computer Forensics.org"
  (filename . "~/Org/Wiki/Computer Technology/Computer Forensics/Computer Forensics.org")
  (front-context-string . "* Intro\n\n\n\n\n\n* D")
- (rear-context-string)
- (position . 1))
-("Daoism.org"
- (filename . "~/Org/Wiki/Philosophy/Daoism/Daoism.org")
- (front-context-string . "* Intro\n\n** My r")
  (rear-context-string)
  (position . 1))
 ("Imperial Study.org"
@@ -793,8 +853,8 @@
  (rear-context-string)
  (position . 1))
 ("Packages.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/Data/Packages/Packages.org")
- (front-context-string . "* JavaScript Lan")
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Python/Data/Packages/Packages.org")
+ (front-context-string . "* Python Languag")
  (rear-context-string)
  (position . 1))
 ("My SQL Reference.org"
@@ -842,16 +902,6 @@
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
  (position . 1))
-("My Physics Reference.org"
- (filename . "~/Org/Wiki/Psysics/Data/Manuals/My Physics Reference/My Physics Reference.org")
- (front-context-string)
- (rear-context-string . "stants Reference")
- (position . 59))
-("Quantum Theory.org"
- (filename . "~/Org/Wiki/Psysics/Quantum Theory/Quantum Theory.org")
- (front-context-string . "\n\n\n** Quantum Fo")
- (rear-context-string . "Quantum Theory\n\n")
- (position . 6562))
 ("Beauty.org"
  (filename . "~/Org/Beauty/Beauty.org")
  (front-context-string . "#+TITLE: Beauty\n")
@@ -897,24 +947,9 @@
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
-("Daoism"
- (filename . "~/Org/Wiki/Philosophy/Daoism/Daoism.org")
- (front-context-string . "* Intro\n\n** 道 (D")
- (rear-context-string)
- (position . 1))
 ("Law"
  (filename . "~/Org/Wiki/Law/Law.org")
  (front-context-string . "* Intro\n\n\n* Data")
- (rear-context-string)
- (position . 1))
-("Physics Glossary.org"
- (filename . "~/Org/Wiki/Psysics/Data/Manuals/Physics Glossary/Physics Glossary.org")
- (front-context-string)
- (rear-context-string)
- (position . 1))
-("My Physics Reference"
- (filename . "~/Org/Wiki/Psysics/Data/Manuals/My Physics Reference/My Physics Reference.org")
- (front-context-string)
  (rear-context-string)
  (position . 1))
 ("My Applied Mathematics Formula Reference.org"
@@ -953,10 +988,10 @@
  (rear-context-string)
  (position . 1))
 ("org-capture-last-stored"
- (filename . "~/Org/Tasks/Words.org")
- (front-context-string . "* disillusionmen")
- (rear-context-string . "fc\n:END:\n\n可扩展的\n\n")
- (position . 1011))
+ (filename . "~/Org/Diary/Diary.org")
+ (front-context-string . "**** 看到芈兰的回复\n:PR")
+ (rear-context-string . "04-06 Thursday\n\n")
+ (position . 31411))
 ("Accounts"
  (filename . "~/Org/Accounts/accounts.org.gpg")
  (front-context-string . "* Nick\n\nstardivi")
