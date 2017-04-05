@@ -11,13 +11,14 @@
 ;; - [M-x describe-font]
 ;; - from command: $ fc-list
 ;;
+;; ------- Handwriting fonts -----
 ;; Comic Sans MS
 ;; Comic Neue
 ;; Gabriola
 ;; Old London
 ;; Segoe (Print/Script)
 ;; Death Note
-;; --------
+;; -------- Programming fonts -----
 ;; Hack
 ;; DejaVu (Sans/Serif) (Mono)
 ;; Droid (Sans/Serif) (Mono)
@@ -27,7 +28,8 @@
 ;; Inconsolata
 ;; Ubuntu (Mono/Condensed)
 ;; Consolas
-;; --------
+;; -------- CJK fonts -----
+;; Source Han (Noto Sans (Mono), Noto Serif)
 ;; WenQuanYi (Micro Hei/Zen Hei) (Mono)
 ;; HanaMin (Hanazono)
 ;; DFPShaoNvW5-GB
@@ -76,7 +78,7 @@
 (set-fontset-font t 'cyrillic "Droid Sans Mono")
 
 ;; -------------
-;; Chinese Font
+;; CJK (Chinese, Japanese, Korean)
 ;; -------------
 ;;
 ;; other charsets except 'han : kana, symbol, cjk-misc, bopomofo,
@@ -94,7 +96,8 @@
 (dolist (charset '(kana han symbol cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font)
                     charset
-                    (font-spec :family "WenQuanYi Micro Hei Mono" :size 13)
+                    ;; (font-spec :family "Noto Sans Mono CJK SC" :size 12)
+                    (font-spec :family "WenQuanYi Micro Hei" :size 13)
                     ;; (font-spec :family "HanaMinA" :size 14)
                     ))
 ;;; need to modify English font settings to suitable with chinese font.
@@ -102,6 +105,7 @@
 (set-face-attribute 'default nil
                     :font "DejaVu Sans Mono-10"
                     ;; :family "DejaVu Sans Mono"
+                    ;; :family "Noto Sans Mono"
                     :height 100)
 (set-face-attribute 'variable-pitch nil
                     :font "Monospace-9"
@@ -122,6 +126,7 @@ Use DEFAULT-HEIGHT for default face and VARIABLE-PITCH-HEIGHT
 for variable-pitch face."
   (set-face-attribute 'default nil
                       :family "DejaVu Sans Mono"
+                      ;; :family "Noto Sans Mono"
                       :height default-height)
   (set-face-attribute 'variable-pitch nil
                       :family "Monospace"
