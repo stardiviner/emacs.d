@@ -218,6 +218,9 @@
         (direx:jump-to-directory-other-window)
         ))
     )
+
+  (use-package dired-hacks-utils
+    :ensure t)
   
   ;; [ make-it-so ] -- Transform files with Makefile recipes.
   (use-package make-it-so
