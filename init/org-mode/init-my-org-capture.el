@@ -17,7 +17,7 @@
 (setq org-capture-templates
       '(("c" "[C]apture"
          entry (file+headline "~/Org/Capture/Capture.org" "Capture")
-         "\n* TODO %^{Capture}\nSCHEDULED: %t\n%i\n\n%a\n\n%?"
+         "\n* TODO %^{Capture}\nSCHEDULED: %t\n%i\n%a\n\n%?"
          :prepend t
          :empty-lines 1
          )
@@ -49,7 +49,7 @@
         ;; Diary
         ("d" "Write [D]iary"
          entry (file+datetree "~/Org/Diary/Diary.org")
-         "\n* %^{Diary Title}\n:PROPERTIES:\n:TIME: %U\n:END: \n\n[[file:%<%Y-%m-%d-%R>.org][On %<%Y-%m-%d %R>]]\n\nEvent: %?\n\n%i\n"
+         "\n* %^{Diary Title}\n:PROPERTIES:\n:TIME: %U\n:END: \n\n[[file:%<%Y-%m-%d-%R>.org][On %<%Y-%m-%d %R>]]\n\nEvent: %?\n\n%i\n\n"
          :empty-lines 1
          :jump-to-captured t
          )
