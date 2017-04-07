@@ -669,56 +669,6 @@ dimensions of a block selection."
 ;; (display-time-mode t)
 
 
-;;; smart mode-line colors depend on background color.
-;;; get current background color: light/dark?
-(cl-case (alist-get 'background-mode (frame-parameters))
-  ('light
-   (set-face-attribute 'mode-line nil
-                       :inherit nil
-                       :height 1.0
-                       )
-   (set-face-attribute 'mode-line-inactive nil
-                       :inherit nil
-                       :height 1.0
-                       )
-   )
-  
-  ('dark
-   ;; sci-fi dark style
-   ;;
-   ;; (set-face-attribute 'mode-line nil
-   ;;                     :inverse-video nil
-   ;;                     :foreground "white" :background "#004A5D"
-   ;;                     :box '(:color "cyan" :line-width 1 :style nil)
-   ;;                     :family "DejaVu Sans Mono"
-   ;;                     )
-   ;; (set-face-attribute 'mode-line-inactive nil
-   ;;                     :inverse-video nil
-   ;;                     :foreground "#444444" :background "black" ; :background "#242424"
-   ;;                     :family "DejaVu Sans Mono"
-   ;;                     :box '(:color "slate blue" :line-width -1 :style nil)
-   ;;                     )
-
-   ;; darker style
-   ;;
-   ;; (set-face-attribute 'mode-line nil
-   ;;                     :inverse-video nil
-   ;;                     :foreground "white"
-   ;;                     :background "#484848"
-   ;;                     :box '(:color "dark gray" :line-width 1 :style nil)
-   ;;                     ;; :box '(:color "slate blue" :line-width 1 :style nil)
-   ;;                     :family "DejaVu Sans Mono"
-   ;;                     )
-   ;; (set-face-attribute 'mode-line-inactive nil
-   ;;                     :inverse-video nil
-   ;;                     :foreground "dim gray"
-   ;;                     :background (color-darken-name (face-background 'default) 3)
-   ;;                     :family "DejaVu Sans Mono"
-   ;;                     :box '(:color "dark slate gray" :line-width 1 :style nil)
-   ;;                     )
-   ))
-
-
 (provide 'init-my-emacs-mode-line)
 
 ;;; init-my-emacs-mode-line.el ends here

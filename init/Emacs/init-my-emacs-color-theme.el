@@ -76,39 +76,42 @@
 
 
 ;;; custom faces
-(set-face-attribute 'italic nil
-                    :slant 'italic
-                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
-                                  ('light "black")
-                                  ('dark "white")))
-(set-face-attribute 'bold nil
-                    :weight 'bold
-                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
-                                  ('light "black")
-                                  ('dark "white")))
-(set-face-attribute 'bold-italic nil
-                    :weight 'bold :slant 'italic
-                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
-                                  ('light "black")
-                                  ('dark "white")))
-(set-face-attribute 'underline nil
-                    :underline (cl-case (alist-get 'background-mode (frame-parameters))
-                                 ('light
-                                  (color-darken-name (face-background 'default) 50))
-                                 ('dark
-                                  (color-lighten-name (face-background 'default) 10))
-                                 ))
-(set-face-attribute 'region nil
-                    :inherit nil :inverse-video nil
-                    :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                  ('light "khaki")
-                                  ('dark "forest green"))
-                    )
+;; (set-face-attribute 'italic nil
+;;                     :slant 'italic
+;;                     :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+;;                                   ('light "black")
+;;                                   ('dark "white"))
+;;                     )
+;; (set-face-attribute 'bold nil
+;;                     :weight 'bold
+;;                     :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+;;                                   ('light "black")
+;;                                   ('dark "white"))
+;;                     )
+;; (set-face-attribute 'bold-italic nil
+;;                     :weight 'bold :slant 'italic
+;;                     :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+;;                                   ('light "black")
+;;                                   ('dark "white"))
+;;                     )
+;; (set-face-attribute 'underline nil
+;;                     :underline (cl-case (alist-get 'background-mode (frame-parameters))
+;;                                  ('light
+;;                                   (color-darken-name (face-background 'default) 50))
+;;                                  ('dark
+;;                                   (color-lighten-name (face-background 'default) 10))
+;;                                  )
+;;                     )
+;; (set-face-attribute 'region nil
+;;                     :inherit nil :inverse-video nil
+;;                     :background (cl-case (alist-get 'background-mode (frame-parameters))
+;;                                   ('light "khaki")
+;;                                   ('dark "forest green"))
+;;                     )
 
 ;; comment
 (set-face-attribute 'font-lock-comment-face nil
-                    :slant 'italic
-                    )
+                    :slant 'italic)
 ;; built-in function.
 (set-face-attribute 'font-lock-builtin-face nil
                     :slant 'italic)
