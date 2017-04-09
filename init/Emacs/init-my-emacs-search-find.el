@@ -7,6 +7,11 @@
 
 ;;; Code:
 
+(unless (boundp 'find-prefix)
+  (define-prefix-command 'find-prefix))
+
+(define-key my-search-prefix (kbd "f") 'find-prefix)
+
 ;;; [ f3 ] -- The Fantastic File Finder: a helm interface for searching files really fast.
 
 (use-package f3
