@@ -45,8 +45,8 @@
 (require 'init-my-prog-tags-etags)
 (require 'init-my-prog-tags-gtags)
 ;; (require 'init-my-prog-tags-ctags)
-;; (require 'init-my-prog-tags-rtags)
 ;; (require 'init-my-prog-tags-cscope)
+(require 'init-my-prog-tags-rtags)
 
 
 (provide 'init-my-prog-tags)
