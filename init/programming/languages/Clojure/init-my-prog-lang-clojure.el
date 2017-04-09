@@ -221,7 +221,7 @@
   
   ;; auto start CIDER jack-in.
   (setq cider-allow-jack-in-without-project t)
-  (add-hook 'after-init-hook #'cider-jack-in)
+  ;; (add-hook 'after-init-hook #'cider-jack-in)
 
   ;; notify user CIDER is connected.
   (add-hook 'cider-connected-hook
