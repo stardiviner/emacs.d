@@ -26,6 +26,17 @@
   :bind ("C-x C-f" . fuff-find-file)
   )
 
+;;; [ helm-fuzzy-find ] -- Find files using Fuzzy Search (fuzzy-find) with Helm.
+
+(use-package helm-fuzzy-find
+  :ensure t
+  :bind (("C-c C-/" . helm-fuzzy-find)
+         :map find-prefix
+         ("f" . helm-fuzzy-find))
+  :config
+  ;; (setq helm-fuzzy-find-keybind "")
+  )
+
 
 (provide 'init-my-emacs-search-find)
 
