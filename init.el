@@ -294,7 +294,7 @@
    (require 'init-linux)
    (message "hi"))
   ('darwin
-   (require 'init-mac))
+   (require 'init-macOS))
   ('windows-nt
    (require 'init-microsoft-windows)))
 

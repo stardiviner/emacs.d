@@ -1,4 +1,4 @@
-;;; init-mac.el --- init for Mac OS X
+;;; init-macOS.el --- init for Mac OS X
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -19,7 +19,12 @@
   :ensure t
   :defer t)
 
+;;; [ helm-xcdoc ] -- Search Xcode Document by docsetutil and eww with Helm interface.
 
-(provide 'init-mac)
+(use-package helm-xcdoc
+  :ensure t
+  )
 
-;;; init-mac.el ends here
+(provide 'init-macOS)
+
+;;; init-macOS.el ends here
