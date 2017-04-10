@@ -16,6 +16,7 @@
          ;; ("M-x" . helm-M-x)
          ("M-y" . helm-show-kill-ring)
          ("C-x f" . helm-for-files)
+         ("C-x c /" . helm-find)
          ("C-x c c" . helm-colors)
          ("C-. C-r" . helm-grep-it)
          :map helm-map
