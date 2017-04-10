@@ -95,7 +95,6 @@
 
 
 (require 'init-helm)
-(helm-mode -1)
 ;; (require 'init-ido)
 (require 'init-ivy)
 
