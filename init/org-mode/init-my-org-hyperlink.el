@@ -16,6 +16,7 @@
       org-link-file-path-type 'adaptive ; default 'adaptive, 'relative
       )
 
+(setq org-id-track-globally t)
 
 ;;; Links are now customizable
 ;;
