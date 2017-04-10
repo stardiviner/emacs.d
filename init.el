@@ -56,8 +56,8 @@
 
 ;;; [ package manager ]
 
-(load "~/.emacs.d/init/init-my-pm-package.el")
-(require 'init-my-pm-package)
+(load "~/.emacs.d/init/init-package.el")
+(require 'init-package)
 
 ;;; debug, profiling etc
 

@@ -1,4 +1,4 @@
-;;; init-my-pm-package.el --- init package.el
+;;; init-package.el --- init package.el
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -21,7 +21,7 @@
               '(("melpa" . "http://melpa.org/packages/")
                 ;; ("melpa-stable" . "http://stable.melpa.org/packages/")
                 ;; ("marmalade" . "http://marmalade-repo.org/packages/")
-                ;; ("gnu" . "https://elpa.gnu.org/packages/")
+                ("gnu" . "https://elpa.gnu.org/packages/")
                 ("org"   . "http://orgmode.org/elpa/")
                 ))
 
@@ -54,6 +54,7 @@
              (package-installed-p 'rainbow-mode)
              (package-installed-p 'spinner)
              (package-installed-p 'auctex)
+	     (package-installed-p 'bug-hunter)
              )
   (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
   (package-refresh-contents)
@@ -63,7 +64,8 @@
   (use-package queue :ensure t)
   (use-package rainbow-mode :ensure t)
   (use-package spinner :ensure t)
-  (use-package auctex :ensure t)
+  (package-install 'auctex)
+  (use-package bug-hunter :ensure t)
   )
 
 ;;; [ package-lint ] -- A linting library for elisp package authors.
@@ -105,6 +107,6 @@
   :ensure t)
 
 
-(provide 'init-my-pm-package)
+(provide 'init-package)
 
-;;; init-my-pm-package.el ends here
+;;; init-package.el ends here
