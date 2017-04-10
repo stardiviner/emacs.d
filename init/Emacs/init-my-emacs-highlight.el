@@ -30,35 +30,6 @@
 (define-key my-highlight-prefix (kbd "M-u") 'unhighlight-regexp)
 (define-key my-highlight-prefix (kbd "M-s") 'highlight-lines-matching-regexp)
 
-;;; [ highlight-symbol ] -- automatic and manual symbol highlighting for Emacs
-
-(use-package highlight-symbol
-  :ensure t
-  :init
-  ;; (add-hook 'prog-mode-hook 'highlight-symbol-mode)
-  :config
-  (setq highlight-symbol-idle-delay 2
-        ;; highlight-symbol-border-pattern '("\\_<" . "\\_>")
-        highlight-symbol-colors '("brown" "tomato" "dark green" "dark slate gray"
-                                  "deep pink" "cyan" "yellow"
-                                  )
-        highlight-symbol-foreground-color nil ; nil: keep original color.
-        )
-
-  ;; setting up keybindings
-  (define-key my-highlight-prefix (kbd "h") 'highlight-symbol-at-point)
-  (define-key my-highlight-prefix (kbd "n") 'highlight-symbol-next)
-  (define-key my-highlight-prefix (kbd "p") 'highlight-symbol-prev)
-  (define-key my-highlight-prefix (kbd "M-n") 'highlight-symbol-next-in-defun)
-  (define-key my-highlight-prefix (kbd "M-p") 'highlight-symbol-prev-in-defun)
-  (define-key my-highlight-prefix (kbd "l") 'highlight-symbol-list-all)
-  (define-key my-highlight-prefix (kbd "o") 'highlight-symbol-occur)
-  (define-key my-highlight-prefix (kbd "C") 'highlight-symbol-count)
-  (define-key my-highlight-prefix (kbd "M-%") 'highlight-symbol-query-replace)
-  (define-key my-highlight-prefix (kbd "u") 'highlight-symbol-remove-all)
-  (define-key my-highlight-prefix (kbd "m") 'highlight-symbol-nav-mode)
-  )
-
 ;;; [ symbol-overlay ] -- highlighting symbols with keymap-enabled overlays.
 
 (use-package symbol-overlay
