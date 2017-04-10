@@ -67,14 +67,11 @@
 
 ;;;_ query & replace
 
-(use-package replace
-  :config
-  (setq query-replace-highlight t
+(setq query-replace-highlight t
         query-replace-lazy-highlight t
         query-replace-show-replacement t
         query-replace-from-to-separator " → "
         )
-  )
 
 ;;; [ visual-regexp ] -- A regexp/replace command for Emacs with interactive visual feedback.
 
