@@ -1,4 +1,4 @@
-;;; init-my-emacs-tramp.el --- init for tramp
+;;; init-tramp.el --- init for tramp
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -60,17 +60,17 @@
 
 ;;; [ helm-tramp ] -- Tramp with Helm interface.
 
-(use-package helm-tramp
-  :ensure t
-  :config
-  (setq tramp-default-method "ssh")
-  (defalias 'exit-tramp 'tramp-cleanup-all-buffers)
-  (with-eval-after-load 'helm-config
-    (define-key helm-command-map (kbd "M-t") 'helm-tramp))
-  )
+;; (use-package helm-tramp
+;;   :ensure t
+;;   :config
+;;   (setq tramp-default-method "ssh")
+;;   (defalias 'exit-tramp 'tramp-cleanup-all-buffers)
+;;   (with-eval-after-load 'helm-config
+;;     (define-key helm-command-map (kbd "M-t") 'helm-tramp))
+;;   )
 
 
 
-(provide 'init-my-emacs-tramp)
+(provide 'init-tramp)
 
-;;; init-my-emacs-tramp.el ends here
+;;; init-tramp.el ends here

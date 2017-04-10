@@ -92,6 +92,10 @@
 
 (bind-key "C-x M-w" #'move-file)
 
+;;; [ TRAMP ]
+
+(require 'init-tramp)
+
 
 (provide 'init-my-emacs-file)
 
