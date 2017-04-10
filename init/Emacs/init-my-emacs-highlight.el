@@ -59,6 +59,22 @@
   (define-key my-highlight-prefix (kbd "m") 'highlight-symbol-nav-mode)
   )
 
+;;; [ symbol-overlay ] -- highlighting symbols with keymap-enabled overlays.
+
+(use-package symbol-overlay
+  :ensure t
+  :bind (:map my-highlight-prefix
+              ("h" . symbol-overlay-put)
+              ("p" . symbol-overlay-jump-prev)
+              ("n" . symbol-overlay-jump-next)
+              ("d" . symbol-overlay-jump-to-definition)
+              ("c" . symbol-overlay-remove-all)
+              ("r" . symbol-overlay-rename)
+              ("q" . symbol-overlay-query-replace)
+              ("P" . symbol-overlay-switch-backward)
+              ("N" . symbol-overlay-switch-forward))
+  )
+
 
 (provide 'init-my-emacs-highlight)
 
