@@ -51,8 +51,8 @@
     :config
     (add-to-list 'helm-mini-default-sources 'helm-source-projectile-projects)
     )
-  (use-package counsel-projectile
-    :ensure t)
+  ;; (use-package counsel-projectile
+  ;;   :ensure t)
   )
 
 ;;; [ find-file-in-project ]
