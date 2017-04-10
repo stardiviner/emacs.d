@@ -271,8 +271,9 @@
 ;; (require 'init-my-prog-lang-HDL)
 ;; (require 'init-my-prog-lang-applescript)
 
-;;; Data Science
-(require 'init-my-data-science)
+;;; Programming Tools
+
+(require 'init-my-prog-tools)
 
 ;;; Frameworks
 (require 'init-my-prog-framework-web)
@@ -283,11 +284,8 @@
 ;; (require 'init-my-prog-framework-arduino)
 ;; (require 'init-my-prog-framework-qt)
 
-
-;;; Programming Tools
-
-(require 'init-my-prog-tools)
-
+;;; Data Science
+(require 'init-my-data-science)
 
 ;;; Systems
 
@@ -300,24 +298,22 @@
   ('windows-nt
    (require 'init-microsoft-windows)))
 
-;;; Engineering
+;;; hypertextual information management system
 
-;; (require 'init-my-electronic)
-;; (require 'init-my-electric-music)
-
+(require 'init-my-org-mode)
 
 ;;; Science
 
 (require 'init-my-math)
 
+;;; Engineering
+
+;; (require 'init-my-electronic)
+;; (require 'init-my-electric-music)
 
 ;;; Authoring & Writing
 
 (require 'init-my-authoring)
-
-;;; hypertextual information management system
-
-(require 'init-my-org-mode)
 
 ;;; Games
 
