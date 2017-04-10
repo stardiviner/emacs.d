@@ -290,6 +290,10 @@ Optional argument NS, if not provided, defaults to
                                 handler
                                 nil
                                 (cider--nrepl-pprint-request-plist (cider--pretty-print-width))))))
+
+  ;; [ helm-cider ] -- Helm interface to CIDER.
+  (use-package helm-cider
+    :ensure t)
   )
 
 
