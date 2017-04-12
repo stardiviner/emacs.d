@@ -63,6 +63,10 @@
                       :inherit 'ivy-minibuffer-match-face-1
                       )
 
+  ;; [ ivy-hydra ] -- [M-o]
+  (use-package ivy-hydra
+    :ensure t)
+  
   ;; {Bookmarks}
   (defun ivy-bookmark-goto ()
     "Open ANY bookmark"
