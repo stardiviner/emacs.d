@@ -12,7 +12,8 @@
 (use-package ivy
   :ensure t
   :defer t
-  :bind (("C-c C-r" . ivy-resume)
+  :bind (
+         ;; ("C-c C-r" . ivy-resume) ; [C-c C-r] keybinding conflict with `rtags' prefix.
          ;; ("C-i" . complete-symbol)
          ([remap bookmark-jump] . ivy-bookmark-goto)
          )
@@ -118,16 +119,22 @@
          ([remap describe-bindings] . counsel-descbinds) ; [C-h b]
          ([remap info-lookup-symbol] . counsel-info-lookup-symbol) ; [C-h S]
          ([remap menu-bar-open] . counsel-tmm) ; [F10] text menu access
+         ([remap org-set-tags-command] . counsel-org-tag) ; [C-c C-q]
          ("C-s" . counsel-grep-or-swiper)
          ("C-x c p" . counsel-list-processes) ; [C-x c p]
-         ("C-x c t" . cancel-function-timers)
+         ("C-x c t" . cancel-function-timers) ; [C-x c t]
+         ("C-x c c" . counsel-colors-emacs)
+         ("C-x c C" . counsel-colors-web)
+         ("C-x c f" . counsel-faces)
          ("C-x RET v" . counsel-set-variable) ; [C-x RET v]
          ("C-x RET u" . counsel-unicode-char) ; [C-x RET u]
          ([remap switch-to-buffer] . ivy-switch-buffer) ; [C-x b]
          ([remap find-file] . counsel-find-file) ; [C-x C-f]
+         ("M-`" . counsel-mark-ring) ; [M-`]
          ("M-t" . counsel-git) ; [M-t]
          ("C-c v g g" . counsel-git-grep)
          ([remap grep] . counsel-grep) ; [C-s g]
+         ("C-c s C-r" . counsel-rg) ; [ C-c s C-r]
          ([remap yank-pop] . counsel-yank-pop) ; [M-y]
          ([remap imenu] . counsel-imenu)
          ("C-x j" . counsel-imenu)
@@ -136,7 +143,7 @@
          ([remap load-library] . counsel-load-library)
          ([remap load-theme] . counsel-load-theme)
          ([remap locate] . counsel-locate)
-         ("C-c #" . counsel-linux-app)
+         ("C-x c #" . counsel-linux-app)
          :map ivy-minibuffer-map
          ("M-y" . ivy-next-line)
          )
