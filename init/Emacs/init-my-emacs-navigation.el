@@ -103,18 +103,6 @@ This is the same as using \\[set-mark-command] with the prefix argument."
   (add-hook 'emacs-lisp-mode-hook 'imenu-elisp-sections)
   )
 
-;;; [ helm-navi ] -- navigation with Helm with navi-mode and outshine.
-
-(use-package helm-navi
-  :ensure t
-  :config
-  (use-package navi-mode
-    :config
-    ;; Add "use-package" lines to `navi-keywords'.
-    (setf (cdr (assoc :ALL (cdr (assoc "emacs-lisp" navi-keywords))))
-          "^[[:space:]]*(\\(use-package\\|\\(cl-\\)\\{0,1\\}def[a-z]+\\)\\*? "))
-  )
-
 
 (provide 'init-my-emacs-navigation)
 
