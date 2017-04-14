@@ -234,6 +234,12 @@
       rlt))
 
   (put 'web-mode 'flyspell-mode-predicate 'web-mode-flyspell-verify)
+
+  ;; [ web-narrow-mode ] -- narrow for web-mode
+  (use-package web-narrow-mode
+    :ensure t
+    :config
+    (add-hook 'web-mode-hook 'web-narrow-mode))
   )
 
 
