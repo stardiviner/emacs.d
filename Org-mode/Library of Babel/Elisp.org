@@ -1,0 +1,4 @@
+#+name: hello
+#+BEGIN_SRC emacs-lisp :var name=""
+(message name)
+#+END_SRC
