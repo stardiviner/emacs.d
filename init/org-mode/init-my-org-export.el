@@ -429,6 +429,11 @@ For pasting on sites like GitHub, and Stack Overflow."
 ;;   :ensure t
 ;;   :defer t)
 
+;;; [ html2org ] -- convert html to org format text.
+
+(use-package html2org
+  :ensure t)
+
 
 (provide 'init-my-org-export)
 
