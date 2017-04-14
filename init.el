@@ -232,7 +232,7 @@
 ;; (require 'init-my-prog-lang-csharp)
 ;; (require 'init-my-prog-lang-D)
 (require 'init-my-prog-lang-go)
-;; (require 'init-my-prog-lang-rust)
+(require 'init-my-prog-lang-rust)
 ;; (require 'init-my-prog-lang-nim)
 ;; (require 'init-my-prog-lang-lua)
 (require 'init-my-prog-lang-swift)
