@@ -59,6 +59,14 @@
 ;; (use-package systemtap-mode
 ;;   :ensure t)
 
+;;; [ arch-packer ] -- Arch Linux package management frontend for pacman and pacaur.
+
+(use-package arch-packer
+  :ensure t
+  :config
+  (setq arch-packer-default-command "pacaur")
+  )
+
 
 (provide 'init-linux)
 
