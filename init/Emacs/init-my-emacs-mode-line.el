@@ -92,14 +92,11 @@
 (defun *current ()
   "Display an indicator when current selected buffer."
   (if (active)
-      (concat
-       ;; (propertize " " 'face 'variable-pitch)
-       (propertize "▌"
-                   'face '(:foreground "cyan"))
-       (all-the-icons-faicon "chain-broken"
-                             :face '(:foreground "cyan")
-                             :v-adjust -0.05)
-       )
+      (propertize "▌"
+                  'face '(:foreground "cyan"))
+    ;; (all-the-icons-faicon "chain-broken"
+    ;;                       :face '(:foreground "cyan")
+    ;;                       :v-adjust -0.05 :height 1.0)
     (propertize " " 'face 'variable-pitch)))
 
 ;; emacsclient indicator
@@ -149,8 +146,8 @@
       (propertize
        (concat
         " ["
-        (all-the-icons-octicon "file-directory" :v-adjust -0.05)
-        " "
+        (all-the-icons-octicon "file-directory" :v-adjust -0.05 :height 0.9)
+        (propertize " " 'face 'variable-pitch)
         (propertize (projectile-project-name) ; `projectile-mode-line'
                     'face (if (active) 'mode-line-info-face))
         "] "
@@ -173,9 +170,9 @@
   (propertize
    (concat
     (if (not (null buffer-file-name))
-        (all-the-icons-faicon "file-o" :v-adjust -0.05)
+        (all-the-icons-faicon "file-o" :v-adjust -0.05 :height 0.8)
       (if (derived-mode-p 'prog-mode)
-          (all-the-icons-faicon "file-code-o" :v-adjust -0.05)
+          (all-the-icons-faicon "file-code-o" :v-adjust -0.05 :height 0.8)
         ))
     (propertize " " 'face 'variable-pitch)
     (propertize (buffer-name)
@@ -261,17 +258,13 @@ state (modified, read-only or non-existent)."
 (defun *major-mode ()
   "The major mode, including process, environment and text-scale info."
   (propertize
-   (concat
-    (if (and (featurep 'all-the-icons)
-             (buffer-file-name)
-             (all-the-icons-auto-mode-match?))
-        ;; (all-the-icons-icon-for-buffer)
-        ;; (all-the-icons-icon-for-mode major-mode :v-adjust -0.05)
-        (all-the-icons-icon-for-file (buffer-file-name) :v-adjust -0.05 :height 1.3)
-      (format-mode-line "%s" mode-name) ; FIXME:
-      )
-    (propertize " " 'face 'variable-pitch))
-   'face (if (active) 'mode-line-buffer-major-mode-face)))
+   (if (and (all-the-icons-auto-mode-match?) (buffer-file-name))
+       (all-the-icons-icon-for-buffer)
+     ;; (all-the-icons-icon-for-mode major-mode :v-adjust -0.05 :height 1.0)
+     ;; (all-the-icons-icon-for-file (buffer-file-name) :v-adjust -0.05 :height 1.0)
+     (format-mode-line "%m" mode-name)
+     )
+   ))
 
 ;;; environment version info like: Python, Ruby, JavaScript,
 (defun *env ()
@@ -348,7 +341,8 @@ state (modified, read-only or non-existent)."
                                        (+ (or .warning 0) (or .error 0)))))
                           (concat (all-the-icons-octicon "bug" :v-adjust -0.05)
                                   (propertize
-                                   (format " %s issue%s" count (unless (eq 1 count) "s")))))
+                                   ;; (format " %s issue%s" count (unless (eq 1 count) "s"))
+                                   (format "%s" count))))
                       (all-the-icons-faicon "check-square" :v-adjust -0.05)))
                    (`running
                     (all-the-icons-faicon "ellipsis-h" :v-adjust -0.05))
@@ -471,8 +465,9 @@ dimensions of a block selection."
                    (iedit-prev-occurrence)
                    (setq this-oc (iedit-find-current-occurrence-overlay)))
                  (if this-oc
-                     ;; NOTE: Not terribly reliable
-                     (- length (-elem-index this-oc iedit-occurrences-overlays))
+                     ;; `iedit-occurrence-context-lines',
+                     ;; `iedit-occurrences-overlays'.
+                     (- length (-elem-index this-oc iedit-occurrence-context-lines))
                    "-"))
                length))
      'face 'mode-line-meta-face)))
@@ -480,8 +475,7 @@ dimensions of a block selection."
 ;; multiple-cursors (mc/)
 (defun *multiple-cursors ()
   "Show multiple-cursors indicator in mode-line."
-  (if (and ; FIXME: (mc/fake-cursor-p OVERLAY)
-       (> (mc/num-cursors) 1)) ; (if 'mc/fake-cursor-p ...)
+  (if (> (mc/num-cursors) 1) ; (mc/fake-cursor-p OVERLAY)
       (propertize
        (format "[%d]" (mc/num-cursors)) ; `mc/mode-line'
        'face 'mode-line-meta-face)))
@@ -537,6 +531,7 @@ dimensions of a block selection."
     (propertize
      (concat
       (all-the-icons-faicon "circle-o" :v-adjust -0.05)
+      ;; (format-mode-line "%s")
       mode-line-process)
      'face 'mode-line-warn-face
      'help-echo "buffer-process")))
@@ -563,7 +558,8 @@ dimensions of a block selection."
     (propertize
      (concat
       (all-the-icons-octicon "clock" :v-adjust 0.05)
-      (format " %s"
+      (propertize " " 'face 'variable-pitch)
+      (format "%s"
               (org-minutes-to-clocksum-string (org-clock-get-clocked-time))))
      'face 'mode-line-data-face))
   
@@ -586,7 +582,7 @@ dimensions of a block selection."
              (force-mode-line-update)))
 
 (defun *space (n)
-  "Add spaces for custom mode-line alignment."
+  "Add `N' spaces for custom mode-line alignment."
   (propertize (make-string n (string-to-char " ")) 'face 'variable-pitch))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -609,7 +605,6 @@ dimensions of a block selection."
            (lhs (list
                  (*current)
                  (if (= (length meta) 0) " %I " meta)
-                 " "
                  (*buffer-info)
                  (*buffer-name)
                  ;; (*buffer-encoding)
@@ -633,8 +628,9 @@ dimensions of a block selection."
                  (*projectile)
                  ;; (*perspeen)
                  (*major-mode)
+                 (*space 1)
                  (*env)
-                 (*space 3)
+                 (*space 1)
                  ))
            (mid (propertize
                  " "
