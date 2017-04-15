@@ -115,13 +115,14 @@
 
 (use-package popwin
   :ensure t
-  :bind ("C-c C-b" . popwin:keymap)
   :config
   (setq popwin:close-popup-window-timer-interval 0.1
         popwin:reuse-window t ; t, 'current,
         )
 
   (popwin-mode 1)
+
+  (global-set-key (kbd "C-c C-b") popwin:keymap)
 
   ;; `popwin:special-display-config'
   ;; push popwin:special-display-config `flags': [C-h v popwin:special-display-config]
