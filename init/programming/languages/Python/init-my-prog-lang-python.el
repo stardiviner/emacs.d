@@ -11,7 +11,6 @@
 
 (use-package python-mode
   :ensure t
-  :defer t
   :config
   (setq python-indent-offset 4
         python-indent 4
@@ -23,85 +22,66 @@
 
 ;;; [ Inferior Python ]
 
-(require 'python)
+(use-package python
+  :ensure t
+  :bind (:map python-mode-map
+              ("C-c C-s" . run-python))
+  :config
+  (setq python-shell-interpreter "python" ; "ipython"
+        python-shell-completion-native-enable nil
+        )
 
-(setq python-shell-interpreter "python" ; "ipython"
-      python-shell-completion-native-enable nil
-      )
+  (case python-shell-interpreter
+    ("python"
+     (setq python-shell-interpreter-args "-i"))
+    ("ipython"
+     (setq python-shell-interpreter-args "--simple-prompt --pprint"))
+    )
 
-(case python-shell-interpreter
-  ("python"
-   (setq python-shell-interpreter-args "-i"))
-  ("ipython"
-   (setq python-shell-interpreter-args "--simple-prompt --pprint"))
+  (defun my-inferior-python ()
+    "My function to start or switch to inferior-python process buffer `PROCESS-BUFFER-NAME'."
+    (interactive)
+    (unless (get-buffer-process "*Python*")
+      (run-python "python"))
+    (switch-to-buffer "*Python*")
+    )
+
+  (unless (boundp 'my-prog-inferior-map)
+    (define-prefix-command 'my-prog-inferior-map))
+  (define-key my-prog-inferior-map (kbd "p") 'my-inferior-python) ; 'run-python
   )
-
-(defun my-inferior-python ()
-  "My function to start or switch to inferior-python process buffer `PROCESS-BUFFER-NAME'."
-  (interactive)
-  (unless (get-buffer-process "*Python*")
-    (run-python "python"))
-  (switch-to-buffer "*Python*")
-  )
-
-(unless (boundp 'my-prog-inferior-map)
-  (define-prefix-command 'my-prog-inferior-map))
-(define-key my-prog-inferior-map (kbd "p") 'my-inferior-python) ; 'run-python
-
 
 ;;; [ elpy ] -- Emacs Python Development Environment.
 
 (use-package elpy
   :ensure t
+  :init
+  (add-hook 'python-mode-hook #'elpy-mode)
+  :bind (:map python-mode-map
+              ("C-h d d" . elpy-doc)
+              ("M-," . pop-tag-mark))
   :config
   (setq elpy-rpc-backend "jedi"
         elpy-modules '(elpy-module-sane-defaults
                        ;; elpy-module-company
                        elpy-module-eldoc
-                       elpy-module-flymake
+                       ;; elpy-module-flymake
                        ;; elpy-module-highlight-indentation
                        elpy-module-pyvenv
-                       elpy-module-yasnippet)
+                       elpy-module-yasnippet
+                       ;; elpy-module-django
+                       )
         elpy-company-post-completion-function 'elpy-company-post-complete-parens
         )
 
-  (defun my-elpy-settings ()
+  (defun my-elpy-company-setup ()
     (interactive)
     ;; don't use `elpy-company-backend', `capf' works correctly.
     (my-company-add-backend-locally 'elpy-company-backend)
-    
-    (define-key python-mode-map (kbd "C-h d d") 'elpy-doc)
-    (define-key python-mode-map (kbd "M-,") 'pop-tag-mark)
-    (define-key python-mode-map (kbd "C-c C-s") 'run-python)
-    (define-key elpy-mode-map (kbd "C-c C-s") 'run-python)
     )
   
-  (add-hook 'elpy-mode-hook #'my-elpy-settings)
-
-  (add-hook 'python-mode-hook #'elpy-mode)
+  (add-hook 'elpy-mode-hook #'my-elpy-company-setup)
   )
-
-
-;;; [ pyenv-mode ] -- Python virtual environment interface
-
-;; (use-package pyenv-mode
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   ;; this pyven-mode is global. [C-c C-u] [C-c C-s]
-;;   ;; (add-hook 'python-mode-hook 'pyenv-mode)
-;;
-;;   :config
-;;
-;;   ;; projectile integration
-;;   (defun projectile-pyenv-mode-set ()
-;;     "Set pyenv version matching project name.
-;;   Version must be already installed."
-;;     (pyenv-mode-set (projectile-project-name)))
-;;  
-;;   (add-hook 'projectile-switch-project-hook 'projectile-pyenv-mode-set)
-;;   )
-
 
 ;;; [ pyvenv ] -- Python virtual environment interface for Emacs.
 
@@ -120,25 +100,6 @@
 ;;   :defer t
 ;;   :init
 ;;   (pythonic-activate "~/.virtualenvs/python3")
-;;   )
-
-
-;;; [ virtualenv ]
-
-
-;;; [ virtualenvwrapper ]
-
-
-;;; [ conda ] -- work with your conda environments.
-
-;; (use-package conda
-;;   :ensure t
-;;   :defer t
-;;   :config
-;;   ;; (setq conda-anaconda-home (concat (getenv "HOME") "/.anaconda3"))
-;;   ;; (conda-env-initialize-interactive-shells)
-;;   (conda-env-initialize-eshell)
-;;   ;; (conda-env-autoactivate-mode t) ; NOTE: this is annoying.
 ;;   )
 
 
@@ -169,27 +130,17 @@
 ;;; [ Emacs IPython Notebook (EIN) ] -- IPython notebook client in Emacs
 
 (use-package ein
-  :ensure t
-  :defer t
-  :config
-  (setq ein:use-auto-complete t
-        ;; ein:use-auto-complete-superpack nil
-        ein:use-smartrep nil
-        ein:load-dev nil
-        )
-  )
+  :ensure t)
 
 ;;; [ ob-ipython ]
 
 (use-package ob-ipython
   :ensure t
   :config
-  ;; (setq ob-ipython-command "ipython") ; "jupyter"
-  
   ;; open ipython block block with `python-mode'
   ;; (add-to-list 'org-src-lang-modes '("ipython" . python))
   ;; use IJulia backend for IPython notebook
-  (add-to-list 'org-src-lang-modes '("ipython" . julia))
+  ;; (add-to-list 'org-src-lang-modes '("ipython" . python))
 
   (setq org-babel-default-header-args:ipython
         '((:session . nil)
