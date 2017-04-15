@@ -30,13 +30,6 @@
 (add-hook 'sh-mode-hook #'my-sh-mode-zsh-setup)
 
 
-;;; disable flycheck in sh-mode to fix suspend in shell script source code file.
-
-(add-hook 'sh-mode-hook
-          (lambda ()
-            (flycheck-mode -1)))
-
-
 (provide 'init-my-prog-lang-shell)
 
 ;;; init-my-prog-lang-shell.el ends here
