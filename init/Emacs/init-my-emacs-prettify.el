@@ -55,14 +55,11 @@
 (use-package digit-groups
   :ensure t
   :defer t
-  :init
+  :config
   (add-hook 'org-mode-hook
             (lambda ()
               (if (not (equal (buffer-name) "Diary.org"))
                   (digit-groups-mode 1))))
-  :config
-  (set-face-attribute 'digit-groups-default-face nil
-                      :foreground "orange red")
   )
 
 
