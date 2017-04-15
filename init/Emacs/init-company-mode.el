@@ -17,7 +17,7 @@
         company-idle-delay 0.2
         ;; company-echo-delay .01
         ;; determine which characters trigger auto-completion the selected candidate.
-        company-auto-complete-chars '(?\s ?\( ?\) ?\, ?\. $_ ?$)
+        company-auto-complete-chars '(?\) ?\. ?\, $_ ?$ ?#) ; ?\ ,
         company-auto-complete t
         ;; company-require-match 'company-explicit-action-p
         company-tooltip-align-annotations t ; align annotations to the right tooltip border.
@@ -63,8 +63,6 @@
       ))
 
   ;; globally
-  (setq company-global-modes t)
-
   (global-company-mode 1)
   ;; (add-hook 'after-init-hook 'global-company-mode)
 
