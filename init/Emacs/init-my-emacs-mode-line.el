@@ -258,9 +258,10 @@ state (modified, read-only or non-existent)."
 (defun *major-mode ()
   "The major mode, including process, environment and text-scale info."
   (propertize
-   (if (and (all-the-icons-auto-mode-match?) (buffer-file-name))
-       (all-the-icons-icon-for-buffer)
-     ;; (all-the-icons-icon-for-mode major-mode :v-adjust -0.05 :height 1.0)
+   ;; condition: (all-the-icons-auto-mode-match?)
+   (if (cdr (assoc major-mode all-the-icons-mode-icon-alist))
+       ;; (all-the-icons-icon-for-buffer)
+       (all-the-icons-icon-for-mode major-mode :v-adjust -0.05 :height 1.0)
      ;; (all-the-icons-icon-for-file (buffer-file-name) :v-adjust -0.05 :height 1.0)
      (format-mode-line "%m" mode-name)
      )
