@@ -39,14 +39,9 @@
 (defun my-inferior-python ()
   "My function to start or switch to inferior-python process buffer `PROCESS-BUFFER-NAME'."
   (interactive)
-  (if (get-buffer-process "*Python*")
-      ;; the inferior Python process exist
-      (switch-to-buffer "*Python*")
-    ;; create a new inferior Python process
-    (run-python "python")
-    ;; kill old process
-    ;; (kill-process (get-buffer-process (or process-buffer-name "*Python*"))
-    )
+  (unless (get-buffer-process "*Python*")
+    (run-python "python"))
+  (switch-to-buffer "*Python*")
   )
 
 (unless (boundp 'my-prog-inferior-map)
