@@ -146,17 +146,12 @@
   ;; (setq company-etags-everywhere t)
 
   ;; [ company-transformers ]
-  ;; (setq company-transformers '(company-sort-by-backend-importance))
-
-  ;; sort uppercase candidates
-  (defun my-sort-uppercase (candidates)
-    (let (case-fold-search
-          (re "\\`[[:upper:]]*\\'"))
-      (sort candidates
-            (lambda (s1 s2)
-              (and (string-match-p re s2)
-                   (not (string-match-p re s1)))))))
-  (add-to-list 'company-transformers 'my-sort-uppercase)
+  ;; - `company-sort-prefer-same-case-prefix'
+  ;; - `company-sort-by-backend-importance'
+  ;; - `company-sort-by-occurrence'
+  (setq company-transformers '(company-sort-prefer-same-case-prefix
+                               company-sort-by-backend-importance
+                               company-sort-by-occurrence))
 
   ;; animation effect on company completion
   ;; - `beacon-blink', `beacon--shine'
