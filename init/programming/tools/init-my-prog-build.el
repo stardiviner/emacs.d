@@ -9,11 +9,11 @@
 
 ;;; [ build-status ] -- mode line build status indicator.
 
-(use-package build-status
-  :ensure t
-  ;; :init
-  ;; (add-hook 'prog-mode-hook #'build-status-mode)
-  )
+;; (use-package build-status
+;;   :ensure t
+;;   ;; :init
+;;   ;; (add-hook 'prog-mode-hook #'build-status-mode)
+;;   )
 
 
 ;;; ----------------------------------------------------------------------------
