@@ -10,13 +10,10 @@
 ;; [ default view ]
 
 (setq org-startup-folded t
-      org-startup-indented t
       org-startup-truncated t
       ;; org-startup-with-beamer-mode nil
       ;; org-hide-block-startup t
       org-hide-leading-stars t
-      org-indent-mode-turns-on-hiding-stars t
-      org-indent-indentation-per-level 1
       org-hide-emphasis-markers t
       )
 
@@ -52,8 +49,14 @@
 
 (use-package org-indent
   :init
-  (add-hook 'org-mode-hook 'org-indent-mode)
+  (setq org-startup-indented t)
   :config
+  (setq org-indent-mode-turns-on-hiding-stars t
+        org-indent-indentation-per-level 1
+        )
+  
+  ;; (setq org-indent-boundary-char ?\s) ; ?\s, ?|
+
   (set-face-attribute 'org-indent nil
                       :inherit 'org-hide
                       :foreground (face-background 'default)
