@@ -527,7 +527,7 @@ dimensions of a block selection."
 
 ;; process: inferior,
 (defun *process ()
-  "Show `major-mode' process info."
+  "Show `major-mode' process `mode-line-process' info."
   (when (stringp mode-line-process)
     (propertize
      (concat
