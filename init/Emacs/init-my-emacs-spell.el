@@ -116,11 +116,12 @@
   :bind (:map flyspell-mode-map
               ("C-." . flyspell-correct-word-generic))
   :config
-  (setq flyspell-correct-interface 'flyspell-correct-popup)
+  (use-package flyspell-correct-popup
+    :ensure t
+    :config
+    (setq flyspell-correct-interface 'flyspell-correct-popup)
+    )
   )
-
-(use-package flyspell-correct-popup
-  :ensure t)
 
 ;;; [ company-flyspell ]
 
