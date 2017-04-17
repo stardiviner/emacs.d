@@ -331,6 +331,9 @@ state (modified, read-only or non-existent)."
        ))))
 
 ;;; flycheck
+(defvar flycheck-current-errors)
+(defvar flycheck-last-status-change)
+
 (defun *flycheck ()
   "Show flycheck info in mode-line."
   (when (and (featurep 'flycheck) flycheck-mode)
@@ -442,6 +445,8 @@ dimensions of a block selection."
               separator))))
 
 ;;; anzu
+(defvar anzu--state)
+(defvar anzu--overflow-p)
 (make-variable-buffer-local 'anzu--state)
 
 (defun *anzu ()
