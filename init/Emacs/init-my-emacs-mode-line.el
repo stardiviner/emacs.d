@@ -540,9 +540,14 @@ dimensions of a block selection."
 ;; notifications
 ;; IRC
 (defun *erc ()
-  "Show ERC info."
-  ;; TODO:
-  )
+  "Show ERC info from `erc-track-mode'."
+  (if (and (featurep 'erc-track-mode) (erc-server-process-alive) erc-track-mode)
+      (concat
+       (all-the-icons-faicon "comments-o" :v-adjust 0.05)
+       (propertize (format "[%s]" erc-modified-channels-object)
+                   'face 'mode-line-data-face)
+       (propertize " " 'face 'variable-pitch))
+    ))
 
 (defun *company-lighter ()
   "Show company-mode lighter from `company-lighter'."
@@ -601,7 +606,6 @@ dimensions of a block selection."
                   ;; (*evil-substitute)
                   (*input-method)
                   (*company-lighter)
-                  ;; (*erc)
                   ))
            (lhs (list
                  (*current)
@@ -622,6 +626,7 @@ dimensions of a block selection."
                  ;; first fragment is not `nil'. So I use " " empty string with
                  ;; 1 length.
                  " "
+                 (*erc)
                  (*flycheck)
                  (*build-status)
                  (*vc)
