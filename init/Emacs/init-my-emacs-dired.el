@@ -22,6 +22,9 @@
          )
 
   :config
+  ;; auto refresh dired when file changes
+  (add-hook 'dired-mode-hook 'auto-revert-mode)
+  
   (defun dired-sudo ()
     "The sudo privilege to change the owner of a file owned by root."
     (interactive)
