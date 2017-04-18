@@ -233,6 +233,28 @@ state (modified, read-only or non-existent)."
         " ")
        'face 'mode-line-info-face)))
 
+;;; bookmark
+(defun *bookmark ()
+  "Show bookmark icon if current buffer is bookmarked."
+  (let* ((bookmarked (cl-find-if (lambda (it)
+                                   (string= (buffer-file-name)
+                                            (expand-file-name (cdr (assoc 'filename it)))))
+                                 bookmark-alist)))
+    (if bookmarked
+        (concat
+         (propertize
+          (all-the-icons-faicon "bookmark" :v-adjust -0.05 :height 0.8)
+          ;; 'local-map (make-mode-line-mouse-map
+          ;;             'mouse-1
+          ;;             `(lambda () (interactive)
+          ;;                (if ,(car bookmark)
+          ;;                    (bookmark-delete ,(car bookmark))
+          ;;                  (bookmark-set ,bookmark-name))
+          ;;                (force-mode-line-update)))
+          )
+         (propertize " " 'face 'variable-pitch))
+      )))
+
 ;;; line & column position info
 (defun *linum-info ()
   "Show line & column position info."
@@ -616,6 +638,7 @@ dimensions of a block selection."
                  (*current)
                  (if (= (length meta) 0) " %I " meta)
                  (*buffer-info)
+                 (*bookmark)
                  (*buffer-name)
                  ;; (*buffer-encoding)
                  (*linum-info)
