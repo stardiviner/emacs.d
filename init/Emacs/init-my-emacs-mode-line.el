@@ -346,7 +346,7 @@ state (modified, read-only or non-existent)."
               (all-the-icons-octicon "alert" :face face :v-adjust -0.05))
              (t
               (if active (setq face 'mode-line))
-              (all-the-icons-octicon "git-branch" :face face :v-adjust -0.05)))
+              (all-the-icons-octicon "git-compare" :face face :v-adjust -0.05)))
        " "
        (propertize (substring vc-mode (+ (if (eq backend 'Hg) 2 3) 2))
                    'face (if active face))
