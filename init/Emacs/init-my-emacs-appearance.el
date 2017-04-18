@@ -162,15 +162,15 @@
   :config
   (global-hl-line-mode 1)
 
-  (set-face-attribute 'hl-line nil
-                      :inherit nil
-                      :background
-                      (cl-case (alist-get 'background-mode (frame-parameters))
-                        ('light ; darker percent 5%
-                         (color-darken-name (face-background 'highlight) 5))
-                        ('dark
-                         (color-lighten-name (face-background 'default) 10)))
-                      )
+  ;; (set-face-attribute 'hl-line nil
+  ;;                     :inherit nil
+  ;;                     :background
+  ;;                     (cl-case (alist-get 'background-mode (frame-parameters))
+  ;;                       ('light ; darker percent 5%
+  ;;                        (color-darken-name (face-background 'highlight) 5))
+  ;;                       ('dark
+  ;;                        (color-lighten-name (face-background 'default) 10)))
+  ;;                     )
   )
 
 
