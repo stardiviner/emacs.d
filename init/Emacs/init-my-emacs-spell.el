@@ -79,7 +79,8 @@
 
   ;; text
   (dolist (hook
-           '(text-mode-hook
+           '(
+             ;; text-mode-hook
              markdown-mode-hook
              ))
     (add-hook hook 'flyspell-mode))
@@ -136,18 +137,17 @@
   :bind (:map flyspell-mode-map
               ("C-." . flyspell-correct-word-generic))
   :config
-  (use-package flyspell-correct-popup
-    :ensure t
-    :config
-    (setq flyspell-correct-interface 'flyspell-correct-popup)
-    )
+  ;; (use-package flyspell-correct-popup
+  ;;   :ensure t
+  ;;   :config
+  ;;   (setq flyspell-correct-interface 'flyspell-correct-popup)
+  ;;   )
   )
 
 ;;; [ company-flyspell ]
 
 (load (locate-user-emacs-file "init/extensions/company-flyspell.el"))
 
-;; (define-key flyspell-mode-map (kbd "C-;") 'company-flyspell)
 
 (provide 'init-my-emacs-spell)
 
