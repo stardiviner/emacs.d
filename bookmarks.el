@@ -3,8 +3,63 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("Daoism 道家"
- (filename . "~/Org/Wiki/Philosophy/道家/道家.org")
- (front-context-string . "#+TITLE: 道家 Daoi")
+ (filename . "~/Org/Wiki/Thought/诸子百家/道家/道家.org")
+ (front-context-string . " Daoism\n\n* Intro")
+ (rear-context-string)
+ (position . 12))
+("诸子百家.org"
+ (filename . "~/Org/Wiki/Thought/诸子百家/诸子百家.org")
+ (front-context-string . "* Intro\n\n** 沿革\n\n")
+ (rear-context-string)
+ (position . 1))
+("My Emacs Lisp Regexp Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Emacs Lisp/Data/Manuals/My Emacs Lisp Regexp Reference.org")
+ (front-context-string . "\n\n* Demo\n\n** mat")
+ (rear-context-string . "Regexp Reference")
+ (position . 40))
+("My Emacs Lisp Examples.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Emacs Lisp/Data/Manuals/My Emacs Lisp Examples/My Emacs Lisp Examples.org")
+ (front-context-string . "\n\n* Command\n\n** ")
+ (rear-context-string . "cs Lisp Examples")
+ (position . 32))
+("My Emacs Lisp Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Emacs Lisp/Data/Manuals/My Emacs Lisp Syntax Reference/My Emacs Lisp Syntax Reference.org")
+ (front-context-string . "#+TITLE: My Emac")
+ (rear-context-string)
+ (position . 1))
+("Redis.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/NoSQL/Redis/Redis.org")
+ (front-context-string . "* Intro\n\nRedis i")
+ (rear-context-string)
+ (position . 1))
+("MongoDB.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/NoSQL/MongoDB/MongoDB.org")
+ (front-context-string . "* Intro\n\nA high-")
+ (rear-context-string)
+ (position . 1))
+("Zsh.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Shell/Zsh/Zsh.org")
+ (front-context-string . "* Intro\n\n\n\n** Fe")
+ (rear-context-string)
+ (position . 1))
+("Command Line.org"
+ (filename . "~/Org/Wiki/Computer Technology/Systems/Linux/Command Line/Command Line.org")
+ (front-context-string . "* Intro\n\n** Feat")
+ (rear-context-string)
+ (position . 1))
+("Git.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Git/Git.org")
+ (front-context-string . "* Intro\n\nhttp://")
+ (rear-context-string)
+ (position . 1))
+("Assembly.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Assembly/Assembly.org")
+ (front-context-string . "* Intro\n\n[[file:")
+ (rear-context-string)
+ (position . 1))
+("PHP.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/PHP/PHP.org")
+ (front-context-string . "* Intro\n\nA gener")
  (rear-context-string)
  (position . 1))
 ("Physics.org"
@@ -42,11 +97,6 @@
  (front-context-string . "\n\n- [[file+sys:D")
  (rear-context-string . "vels Collections")
  (position . 1153))
-("道家 Daoism"
- (filename . "~/Org/Wiki/Philosophy/道家/道家.org")
- (front-context-string . "\n\n* Intro\n:PROPE")
- (rear-context-string . "TITLE: 道家 Daoism")
- (position . 19))
 ("My Liked Loving.org"
  (filename . "~/Org/Wiki/Love/Data/Manuals/My Liked Loving/My Liked Loving.org")
  (front-context-string . "* 《白蛇传》\n:PROPERT")
@@ -312,11 +362,6 @@
  (front-context-string . "出鳞片、尾巴和触角，，最终英雄变")
  (rear-context-string . "身上，看着闪烁的黄金，慢慢地长\n")
  (position . 220))
-("御人之术.org"
- (filename . "~/Org/Wiki/Imperial Study/Data/Manuals/御人之术/御人之术.org")
- (front-context-string)
- (rear-context-string)
- (position . 1))
 ("My Python Examples.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Python/Data/Manuals/My Python Examples/My Python Examples.org")
  (front-context-string . "* System\n\n** she")
@@ -487,11 +532,6 @@
  (front-context-string . "* Intro\n\nRust is")
  (rear-context-string)
  (position . 1))
-("modes"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/")
- (front-context-string . "0xc.org\n  -rw-r-")
- (rear-context-string . " Oct  4 15:14  ")
- (position . 315))
 ("Arch.org"
  (filename . "~/Org/Wiki/Computer Technology/Systems/Linux/Data/Distributions/Arch/Arch.org")
  (front-context-string . "* Intro\n:PROPERT")
@@ -657,16 +697,6 @@
  (front-context-string . "* Intro\n\n** Sent")
  (rear-context-string)
  (position . 1))
-("Emacs Lisp Regexp Reference.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Emacs Lisp/Data/Emacs Lisp Regexp Reference.org")
- (front-context-string . "* Demo\n\n** match")
- (rear-context-string)
- (position . 1))
-("Emacs Lisp Examples.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Emacs Lisp/Data/Emacs Lisp Examples/Emacs Lisp Examples.org")
- (front-context-string . "* Command\n\n** cu")
- (rear-context-string)
- (position . 1))
 ("ASCII.org"
  (filename . "~/Org/Wiki/Computer Technology/Softwares/ASCII/ASCII.org")
  (front-context-string . "* Intro\n\n\n* Data")
@@ -732,11 +762,6 @@
  (front-context-string . "[[file+sys:Data/")
  (rear-context-string . "ce [0/1]\n\n- [ ] ")
  (position . 52220))
-("Emacs Lisp Reference.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Emacs Lisp/Data/Emacs Lisp Reference/Emacs Lisp Reference.org")
- (front-context-string . "* Intro\n\n** lisp")
- (rear-context-string)
- (position . 1))
 ("R.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/R/R.org")
  (front-context-string . "*** Manuals\n\n***")
@@ -853,8 +878,8 @@
  (rear-context-string)
  (position . 1))
 ("Packages.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Python/Data/Packages/Packages.org")
- (front-context-string . "* Python Languag")
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/ClojureScript/Data/Packages/Packages.org")
+ (front-context-string . "* ClojureScript ")
  (rear-context-string)
  (position . 1))
 ("My SQL Reference.org"
@@ -988,10 +1013,10 @@
  (rear-context-string)
  (position . 1))
 ("org-capture-last-stored"
- (filename . "~/Org/Diary/Diary.org")
- (front-context-string . "**** 看到芈兰的回复\n:PR")
- (rear-context-string . "04-06 Thursday\n\n")
- (position . 31411))
+ (filename . "~/Org/Contacts/Contacts.org")
+ (front-context-string . "** António Nuno ")
+ (rear-context-string . "arbatsov\n:END:\n\n")
+ (position . 33002))
 ("Accounts"
  (filename . "~/Org/Accounts/accounts.org.gpg")
  (front-context-string . "* Nick\n\nstardivi")
