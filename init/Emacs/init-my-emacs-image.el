@@ -3,7 +3,7 @@
 
 ;;; Commentary:
 
-
+;; - variable: `image-file-name-extensions'
 
 ;;; Code:
 
