@@ -38,7 +38,19 @@
 
 (use-package flyspell
   :ensure t
-  :defer t
+  :bind (
+         ;; conflict with `iedit-mode' toggle keybinding.
+         ;; (add-hook 'flyspell-mode-hook
+         ;;           (lambda ()
+         ;;             (unbind-key "C-;" flyspell-mode-map)))
+
+         ;; fix Org-mode abbreviations expand keybinding [M-Tab].
+         :map flyspell-mode-map
+              ("C-M-i" . nil)
+              ;; ("C-." . flyspell-correct-word-before-point)
+              ;; ("C-." . flyspell-auto-correct-previous-word)
+              ("C-," . flyspell-goto-next-error)
+              )
   :init
   ;; global
   ;; (flyspell-mode 1)
@@ -74,14 +86,34 @@
   
   :config
   (setq flyspell-default-dictionary "en"
-        flyspell-delay 5
-        ;; flyspell-before-incorrect-word-string "✗"
-        ;; flyspell-after-incorrect-word-string "✗" ; × ✖ ✗ ✔
+        flyspell-delay 8
+        flyspell-default-delayed-commands '(self-insert-command
+                                            )
+        ;; flyspell-delayed-commands
+        flyspell-default-deplacement-commands '(next-line
+                                                previous-line
+                                                handle-switch-frame
+                                                handle-select-window
+                                                scroll-up
+                                                scroll-down
+                                                scrollbar-vertical-drag
+                                                ;; -------------------------
+                                                backward-delete-char-untabify
+                                                delete-backward-char
+                                                backward-or-forward-delete-char
+                                                delete-char
+                                                )
+        ;; flyspell-deplacement-commands
         flyspell-use-meta-tab nil ; use [M-TAB] to correct word.
         flyspell-consider-dash-as-word-delimiter-flag t
         flyspell-highlight-flag t
         flyspell-persistent-highlight t
         flyspell-highlight-properties t
+        ;; × ✗
+        ;; flyspell-before-incorrect-word-string "✗"
+        flyspell-after-incorrect-word-string "✗"
+        ;; flyspell-abbrev-p t
+        ;; flyspell-use-global-abbrev-table-p t
         )
 
   ;; performance
@@ -94,18 +126,6 @@
                       :underline '(:color "red" :style wave))
   (set-face-attribute 'flyspell-duplicate nil
                       :underline '(:color "dim gray" :style wave))
-
-  ;; conflict with `iedit-mode' toggle keybinding.
-  ;; (add-hook 'flyspell-mode-hook
-  ;;           (lambda ()
-  ;;             (unbind-key "C-;" flyspell-mode-map)))
-
-  ;; fix Org-mode abbreviations expand keybinding [M-Tab].
-  (define-key flyspell-mode-map (kbd "C-M-i") nil)
-
-  ;; (define-key flyspell-mode-map (kbd "C-.") 'flyspell-correct-word-before-point)
-  ;; (define-key flyspell-mode-map (kbd "C-.") 'flyspell-auto-correct-previous-word)
-  (define-key flyspell-mode-map (kbd "C-,") 'flyspell-goto-next-error)
   )
 
 
