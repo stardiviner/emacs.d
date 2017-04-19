@@ -119,7 +119,6 @@
          ([remap describe-bindings] . counsel-descbinds) ; [C-h b]
          ([remap info-lookup-symbol] . counsel-info-lookup-symbol) ; [C-h S]
          ([remap menu-bar-open] . counsel-tmm) ; [F10] text menu access
-         ([remap org-set-tags-command] . counsel-org-tag) ; [C-c C-q]
          ("C-s" . counsel-grep-or-swiper)
          ("C-x c p" . counsel-list-processes) ; [C-x c p]
          ("C-x c t" . cancel-function-timers) ; [C-x c t]
@@ -139,7 +138,7 @@
          ([remap imenu] . counsel-imenu)
          ("C-x j" . counsel-imenu)
          ;; ([remap org-set-tags-command] . counsel-org-tag) ; [C-c C-q]
-         ([remap org-agenda-set-tags] . counsel-org-tag-agenda) ; [:]
+         ;; ([remap org-agenda-set-tags] . counsel-org-tag-agenda) ; [:]
          ([remap load-library] . counsel-load-library)
          ([remap load-theme] . counsel-load-theme)
          ([remap locate] . counsel-locate)
