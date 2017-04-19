@@ -18,7 +18,7 @@
          ("C-x f" . helm-for-files)
          ("C-x c /" . helm-find)
          ("C-x c c" . helm-colors)
-         ("C-. C-r" . helm-grep-it)
+         ("C-x c C-r" . helm-grep-it)
          :map helm-map
          ("<tab>" . helm-selection-action)
          ("C-z" . helm-selection-action)
