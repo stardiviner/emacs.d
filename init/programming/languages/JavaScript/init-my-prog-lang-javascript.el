@@ -234,6 +234,19 @@
   (add-hook 'js2-mode-hook #'jade-interaction-mode)
   )
 
+;;; [ Indium ] -- A JavaScript development environment for Emacs.
+
+(use-package indium
+  :ensure t
+  :init
+  (dolist (hook '(js-mode-hook
+                  js2-mode-hook
+                  js3-mode-hook
+                  ))
+    (add-hook hook #'indium-interaction-mode))
+  :config
+  (setq indium-chrome-executable "google-chrome-unstable")
+  )
 
 ;;; [ jsx-mode ] -- The XML inside of JavaScript.
 
