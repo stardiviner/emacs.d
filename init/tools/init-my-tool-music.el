@@ -44,6 +44,15 @@
   (define-key mpc-mode-map (kbd "t") 'mpc-toggle-play)
   )
 
+;;; [ dionysos ] -- A simple music player for Emacs by support backends like: MPD, VLC, MPlayer.
+
+(use-package dionysos
+  :ensure t
+  :config
+  (setq dionysos-backend 'mpd
+        dionysos-notify-p t
+        dionysos-volume-cmd 'pamixer)
+  )
 
 
 ;; (require 'init-my-tool-music-emms)
