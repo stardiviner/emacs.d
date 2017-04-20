@@ -52,10 +52,6 @@
 
 (use-package cider
   :ensure t
-  :bind (:map cider-test-commands-map
-              ("d" . cider-test-ediff)
-              ("C-d" . cider-test-ediff-cleanup)
-              )
   :config
   (setq cider-auto-mode t
         nrepl-hide-special-buffers nil
