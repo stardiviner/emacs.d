@@ -23,26 +23,13 @@
   :init
   ;; Control `eclimd' from emacs
   (require 'eclimd)
+
+  (setq eclimd-autostart nil
+        eclimd-autostart-with-default-workspace t)
   
   ;; auto enable `eclim-mode' in `java-mode'.
   (add-hook 'java-mode-hook 'eclim-mode)
   ;; (global-eclim-mode t)
-
-  ;; auto start eclimd
-  (setq eclimd-autostart nil
-        eclimd-autostart-with-default-workspace nil)
-  
-  (defun eclimd-auto-start ()
-    "Auto start eclimd in a selected directory."
-    (interactive)
-    (unless (or (get-buffer "*eclimd*")
-                (process-live-p (get-process "eclimd")))
-      (start-eclimd (or eclimd-default-workspace
-                        (read-file-name "Eclim workspace directory: ")))
-      ))
-
-  ;; (add-hook 'java-mode-hook 'eclimd-auto-start)
-  
   :config
   (setq eclimd-default-workspace "~/Projects/Eclipse"
         ;; eclim-executable
@@ -61,19 +48,13 @@
 ;;; for company-mode
 (use-package company-emacs-eclim
   :ensure t
-  :init
+  :config
   ;; (company-emacs-eclim-setup)
   (defun my-company-eclim-setup ()
     (my-company-add-backend-locally 'company-emacs-eclim))
 
   (add-hook 'eclim-mode-hook 'my-company-eclim-setup)
   )
-
-;;; for auto-complete
-;; (use-package ac-emacs-eclim
-;;   :ensure t
-;;   )
-
 
 ;;; [ meghanada ] -- A New Java Develop Environment for Emacs.
 
@@ -82,7 +63,6 @@
 ;;   :defer t
 ;;   :init
 ;;   (add-hook 'java-mode-hook #'meghanada-mode)
-;;
 ;;   :config
 ;;   (setq meghanada-server-install-dir (locate-user-emacs-file
 ;;                                       "init/extra/meghanada/")
@@ -102,7 +82,6 @@
 ;;   (add-hook 'java-mode-hook 'my-meghanada-settings)
 ;;   )
 
-
 ;;; [ malabar-mode ] -- JVM Integration for Java and other JVM based languages.
 
 ;; (use-package malabar-mode
@@ -113,7 +92,6 @@
 ;;             (lambda ()
 ;;               (message "activate-malabar-mode")
 ;;               (activate-malabar-mode)))
-;;
 ;;   :config
 ;;   (add-hook 'malabar-java-mode-hook 'flycheck-mode)
 ;;   (add-hook 'malabar-groovy-mode-hook 'flycheck-mode)
@@ -123,7 +101,9 @@
 
 (use-package java-imports
   :ensure t
-  :bind ("C-c M-i" . java-imports-add-import-dwim)
+  :defer t
+  :bind (:map java-mode-map
+              ("C-c M-i" . java-imports-add-import-dwim))
   :config
   (add-hook 'java-mode-hook 'java-imports-scan-file)
   )
@@ -133,7 +113,8 @@
 
 (use-package gradle-mode
   :ensure t
-  :init
+  :defer t
+  :config
   (add-hook 'java-mode-hook #'gradle-mode)
   )
 
@@ -141,6 +122,7 @@
 
 ;; http://sdkman.io/
 
+;;; add Gradle & Groovy bins to TRAMP path.
 (add-to-list 'tramp-remote-path
              (concat (getenv "HOME")
                      "/.sdkman/candidates/gradle/current/bin"))
