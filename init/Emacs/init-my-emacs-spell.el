@@ -134,9 +134,8 @@
 
 (use-package flyspell-correct
   :ensure t
-  :bind (:map flyspell-mode-map
-              ("C-." . flyspell-correct-word-generic))
   :config
+  (define-key flyspell-mode-map (kbd "C-.") 'flyspell-correct-word-generic)
   ;; (use-package flyspell-correct-popup
   ;;   :ensure t
   ;;   :config
