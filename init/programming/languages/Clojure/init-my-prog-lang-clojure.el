@@ -38,12 +38,12 @@
                       (0 (progn (compose-region (match-beginning 1)
                                                 (match-end 1) "∈")
                                 nil)))))
-    ;; java.io.BufferedReader. (class constructor)
-    (font-lock-add-keywords
-     'clojure-mode `(("([^\\..*]*\\(\\.\\)\\{1\\}[\[:space:]\n)]"
-                      (0 (progn (compose-region (match-beginning 1)
-                                                (match-end 1) "⊿")
-                                nil)))))
+    ;; `java.io.BufferedReader.' (class constructor)
+    ;; (font-lock-add-keywords
+    ;;  'clojure-mode `(("([^\\..*]*\\(\\.\\)\\{1\\}[\[:space:]\n)]"
+    ;;                   (0 (progn (compose-region (match-beginning 1)
+    ;;                                             (match-end 1) "⊿")
+    ;;                             nil)))))
     )
   )
 
