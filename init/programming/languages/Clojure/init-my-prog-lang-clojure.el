@@ -150,23 +150,23 @@
   (setq cider-completion-use-context t
         cider-annotate-completion-candidates t
         ;; cider-completion-annotations-include-ns 'always ; 'unqualified
-        cider-completion-annotations-alist '(("class" "c")
-                                             ("field" "fi")
+        cider-completion-annotations-alist '(("class" "class")
+                                             ("field" "field")
                                              ("function" "λ") ; f, λ, ƒ
-                                             ("import" "i")
-                                             ("keyword" "k")
-                                             ("local" "l")
-                                             ("macro" "♪") ; ♪, ➜
-                                             ("method" "m")
+                                             ("import" "import")
+                                             ("keyword" "keyword")
+                                             ("local" "local")
+                                             ("macro" "macro")
+                                             ("method" "method")
                                              ("namespace" "ns")
-                                             ("protocol" "p")
-                                             ("protocol-function" "p-λ")
-                                             ("record" "r")
-                                             ("special-form" "s")
-                                             ("static-field" "sf")
-                                             ("static-method" "sm")
-                                             ("type" "t")
-                                             ("var" "v"))
+                                             ("protocol" "protocol")
+                                             ("protocol-function" "protocol-function")
+                                             ("record" "record")
+                                             ("special-form" "special-form")
+                                             ("static-field" "static-firld")
+                                             ("static-method" "static-method")
+                                             ("type" "type")
+                                             ("var" "var"))
         )
 
   ;; Java
