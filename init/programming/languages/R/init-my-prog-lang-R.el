@@ -14,7 +14,7 @@
   
   (setq ess-use-ido t
         ess-ido-flex-matching t
-        ess-pdf-viewer-pref '("zauthura")
+        ess-pdf-viewer-pref '("emacsclient")
         ;; ess-ps-viewer-pref nil
         ;; ESS Edit
         ess-auto-newline t
