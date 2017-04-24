@@ -87,12 +87,13 @@
   (add-to-list 'TeX-view-program-list-builtin
 	       '("PDF Tools" TeX-pdf-tools-sync-view)))
 (add-to-list 'TeX-view-program-selection
-	     '(output-pdf "PDF Tools"))
+             '(output-pdf "PDF Tools"))
 ;; (setq-default TeX-PDF-mode t) ; enable by default since AUCTeX 11.88
+;; [C-c C-g] switch between LaTeX source code and PDF positions.
 (setq TeX-source-correlate-start-server t)
+(TeX-source-correlate-mode t)
 ;; update PDF buffers after successful LaTeX runs.
-(add-hook 'TeX-after-TeX-LaTeX-command-finished-hook
-	  #'TeX-revert-document-buffer)
+(add-hook 'TeX-after-TeX-LaTeX-command-finished-hook #'TeX-revert-document-buffer)
 
 ;; (setq TeX-source-correlate-method)
 
