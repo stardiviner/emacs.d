@@ -252,9 +252,9 @@
                    (figwheel-sidecar.repl-api/cljs-repl))")
         (cider-jack-in-clojurescript))))
   
-  (unless (boundp 'my-inferior-lisp-map)
-    (define-prefix-command 'my-inferior-lisp-map))
-  (define-key my-inferior-lisp-map (kbd "c") 'my-cider-clojure-repl-switch)
+  (unless (boundp 'my-prog-inferior-map)
+    (define-prefix-command 'my-prog-inferior-map))
+  (define-key my-prog-inferior-map (kbd "c") 'my-cider-clojure-repl-switch)
 
   (define-key clojure-mode-map (kbd "C-c C-s") 'my-cider-clojure-repl-switch)
   (define-key clojurescript-mode-map (kbd "C-c C-s") 'my-cider-cljs-repl-switch)

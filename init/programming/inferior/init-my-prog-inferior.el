@@ -44,8 +44,6 @@
 (define-key my-inferior-lisp-map (kbd "S") 'run-scheme) ; Scheme
 (define-key my-inferior-lisp-map (kbd "g") 'run-geiser) ; geiser
 (define-key my-inferior-lisp-map (kbd "G") 'run-guile)  ; Guile
-(define-key my-inferior-lisp-map (kbd "c") 'my-cider-scratch) ; CIDER scratch
-
 
 ;; Ruby
 (unless (boundp 'my-inferior-ruby-map)
