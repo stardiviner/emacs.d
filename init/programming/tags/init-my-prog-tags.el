@@ -27,6 +27,13 @@
                                        ;; xref-find-definitions-other-frame
                                        ))
 
+;;; [ helm-xref ] -- Helm interface for xref results.
+
+;; (use-package helm-xref
+;;   :ensure t
+;;   :config
+;;   (setq xref-show-xrefs-function 'helm-xref-show-xrefs))
+
 ;;; [ tags settings ]
 
 (setq tags-add-tables t ; always add new tags to tables
