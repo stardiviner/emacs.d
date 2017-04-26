@@ -184,6 +184,7 @@
 ;; (require 'init-my-tool-screenshot)
 ;; (require 'init-my-tool-screencast)
 ;; (require 'init-my-tool-stack-exchange)
+(require 'init-my-tool-social-network)
 
 
 ;;; Programming
