@@ -25,19 +25,14 @@
   (require 'eclimd)
 
   (setq eclimd-autostart nil
-        eclimd-autostart-with-default-workspace t)
+        eclimd-autostart-with-default-workspace t
+        eclimd-default-workspace "~/Code/Java"
+        eclimd-wait-for-process nil)
   
   ;; auto enable `eclim-mode' in `java-mode'.
   (add-hook 'java-mode-hook 'eclim-mode)
   ;; (global-eclim-mode t)
   :config
-  (setq eclimd-default-workspace "~/Projects/Eclipse"
-        ;; eclim-executable
-        ;; eclimd-executable "~/.eclipse/org.eclipse.platform_4.5.1_155965261_linux_gtk_x86_64/eclimd"
-        ;; eclimd-port 45620
-        ;; eclimd-wait-for-process nil
-        )
-
   ;; Eclim Java
   ;; (setq eclim-java-documentation-root nil
   ;;       eclim-java-android-documentation-root
