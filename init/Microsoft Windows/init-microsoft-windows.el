@@ -7,6 +7,12 @@
 
 ;;; Code:
 ;;; ----------------------------------------------------------------------------
+;;; [ ini-mode ] -- major mode for Windows-style ini files.
+
+(use-package ini-mode
+  :ensure t
+  :mode "\\.ini\\'")
+
 ;;; [ dos ] -- major mode for editing DOS scripts.
 
 ;; (use-package dos
