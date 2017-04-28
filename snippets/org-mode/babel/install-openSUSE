@@ -4,5 +4,5 @@
 # group: babel.install
 # --
 #+BEGIN_SRC sh :dir /sudo:: :results none
-sudo zypper in $0
+sudo zypper install $0
 #+END_SRC
