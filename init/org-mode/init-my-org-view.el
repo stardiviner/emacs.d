@@ -47,21 +47,21 @@
 
 ;; [ indent ]
 
-(use-package org-indent
-  :init
-  (setq org-startup-indented t)
-  :config
-  (setq org-indent-mode-turns-on-hiding-stars t
-        org-indent-indentation-per-level 1
-        )
-  
-  ;; (setq org-indent-boundary-char ?\s) ; ?\s, ?|
-
-  (set-face-attribute 'org-indent nil
-                      :inherit 'org-hide
-                      :foreground (face-background 'default)
-                      )
-  )
+;; (use-package org-indent
+;;   :init
+;;   (setq org-startup-indented t)
+;;   :config
+;;   (setq org-indent-mode-turns-on-hiding-stars t
+;;         org-indent-indentation-per-level 1
+;;         )
+;;
+;;   ;; (setq org-indent-boundary-char ?\s) ; ?\s, ?|
+;;
+;;   (set-face-attribute 'org-indent nil
+;;                       :inherit 'org-hide
+;;                       :foreground (face-background 'default)
+;;                       )
+;;   )
 
 ;; [ org-bullets ]
 
