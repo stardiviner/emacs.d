@@ -79,6 +79,7 @@
         ;; ("\\.ogv\\'" . "mpv %s")
         ;; Audio
         ("\\.mp3\\'" . "mpg123 %s")
+        ("\\.ogg\\'" . "mpv %s")
         (auto-mode . emacs)
         ))
 
