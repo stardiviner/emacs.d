@@ -114,7 +114,7 @@
     :config
     ;; disable by default hide details
     (setq diredp-hide-details-initially-flag nil
-          diredp-hide-details-propagate-flag nil)
+          diredp-hide-details-propagate-flag t)
     ;; (global-dired-hide-details-mode -1)
 
     ;; The effect is that when you hit [RET] (or click the mouse) on a directory
