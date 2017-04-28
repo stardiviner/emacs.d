@@ -17,6 +17,7 @@
 ;;; [ Zsh ]
 
 (add-to-list 'auto-mode-alist '("\\.zsh\\'" . sh-mode))
+(add-to-list 'auto-mode-alist '("\\.zsh-theme\\'" . sh-mode))
 
 ;; A programmatic way of selecting a flavor when you don't want to use the
 ;; shebang is doing this in a sh-mode buffer:
