@@ -15,22 +15,20 @@
   :config
   (setq ag-highlight-search t
         ag-group-matches t
-        ;; ag-context-lines nil
-        ag-reuse-buffers 't
+        ag-context-lines nil
+        ag-reuse-buffers t
         ag-reuse-window nil ; nil, or 't. (I use value `nil' for popwin to capture)
         ;; ag-arguments
-        ag-context-lines nil
-        ag-group-matches t
         )
   
-  (set-face-attribute 'ag-hit-face nil
-                      :foreground "gray"
-                      :background "black")
-  (set-face-attribute 'ag-match-face nil
-                      :inverse-video nil
-                      :foreground "red"
-                      :background (color-darken-name (face-background 'default) 5)
-                      )
+  ;; (set-face-attribute 'ag-hit-face nil
+  ;;                     :foreground "gray"
+  ;;                     :background "black")
+  ;; (set-face-attribute 'ag-match-face nil
+  ;;                     :inverse-video nil
+  ;;                     :foreground "red"
+  ;;                     :background (color-darken-name (face-background 'default) 5)
+  ;;                     )
   
   ;; This will auto open search results in other window.
   ;; (add-hook 'ag-mode-hook #'next-error-follow-minor-mode) ; so you can navigate with 'n' & 'p'.
