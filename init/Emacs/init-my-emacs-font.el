@@ -153,13 +153,13 @@ for variable-pitch face."
 
 ;;; [ font-lock-profiler ] -- Coverage and timing tool for font-lock keywords.
 
-(use-package font-lock-profiler
-  :ensure t)
+;; (use-package font-lock-profiler
+;;   :ensure t)
 
 ;;; [ font-lock-studio ] -- Interactive debugger for font-lock keywords (Emacs syntax highlighting rules).
 
-(use-package font-lock-studio
-  :ensure t)
+;; (use-package font-lock-studio
+;;   :ensure t)
 
 
 
