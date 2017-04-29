@@ -59,6 +59,46 @@
 ;;
 ;; (my-set-font-default "DejaVu Sans Mono" 10 100)
 
+
+;; --------
+;; set different font for different screen size
+;; --------
+
+(defun my-default-fonts-setup (default-height variable-pitch-height)
+  "Set up default fonts.
+
+Use DEFAULT-HEIGHT for default face and VARIABLE-PITCH-HEIGHT
+for variable-pitch face."
+  (set-face-attribute 'default nil
+                      :family "DejaVu Sans Mono"
+                      :height default-height)
+  (set-face-attribute 'variable-pitch nil
+                      :family "Monospace"
+                      :height variable-pitch-height
+                      :weight 'normal))
+
+(when window-system
+  (if (> (x-display-pixel-width) 1800)
+      (my-default-fonts-setup 110 60)
+    (my-default-fonts-setup 90 50)))
+
+;; --------
+;; set different font for different system
+;; --------
+
+;; (when (eq system-type 'darwin)
+;;   (set-fontset-font (frame-parameter nil 'font)
+;;                     'han '("Hiragino Sans GB" . "unicode-bmp"))
+;;   (set-face-attribute 'default nil :height 180)
+;;   )
+;;
+;; (when (eq system-type 'gnu/linux)
+;;   (set-fontset-font (frame-parameter nil 'font)
+;;                     'han '("WenQuanYi Micro Hei Mono" . "unicode-bmp"))
+;;   (set-face-attribute 'default nil :height 100)
+;;   )
+
+
 ;; -------
 ;; Unicode
 ;; -------
@@ -100,59 +140,15 @@
                     (font-spec :family "WenQuanYi Micro Hei" :size 13)
                     ;; (font-spec :family "HanaMinA" :size 14)
                     ))
+
 ;;; need to modify English font settings to suitable with chinese font.
 ;;; the value is in 1/10pt, so 100 will give you 10pt, etc
-(set-face-attribute 'default nil
-                    :font "DejaVu Sans Mono-10"
-                    ;; :family "DejaVu Sans Mono"
-                    ;; :family "Noto Sans Mono"
-                    :height 100)
-(set-face-attribute 'variable-pitch nil
-                    :font "Monospace-9"
-                    :weight 'normal)
+
+
 
 ;; (add-hook 'after-init-hook
 ;;           (lambda ()
 ;;             (set-frame-font (format "%s:pixelsize=%d" "DejaVu Sans Mono" 12) t)))
-
-;; --------
-;; set different font for different screen size
-;; --------
-
-(defun my-default-fonts-setup (default-height variable-pitch-height)
-  "Set up default fonts.
-
-Use DEFAULT-HEIGHT for default face and VARIABLE-PITCH-HEIGHT
-for variable-pitch face."
-  (set-face-attribute 'default nil
-                      :family "DejaVu Sans Mono"
-                      ;; :family "Noto Sans Mono"
-                      :height default-height)
-  (set-face-attribute 'variable-pitch nil
-                      :family "Monospace"
-                      :height variable-pitch-height
-                      :weight 'normal))
-
-(when window-system
-  (if (> (x-display-pixel-width) 1800)
-      (my-default-fonts-setup 110 60)
-    (my-default-fonts-setup 90 50)))
-
-;; --------
-;; set different font for different system
-;; --------
-
-;; (when (eq system-type 'darwin)
-;;   (set-fontset-font (frame-parameter nil 'font)
-;;                     'han '("Hiragino Sans GB" . "unicode-bmp"))
-;;   (set-face-attribute 'default nil :height 180)
-;;   )
-;;
-;; (when (eq system-type 'gnu/linux)
-;;   (set-fontset-font (frame-parameter nil 'font)
-;;                     'han '("WenQuanYi Micro Hei Mono" . "unicode-bmp"))
-;;   (set-face-attribute 'default nil :height 100)
-;;   )
 
 
 ;;; [ font-lock-profiler ] -- Coverage and timing tool for font-lock keywords.
