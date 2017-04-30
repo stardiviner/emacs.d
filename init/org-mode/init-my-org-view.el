@@ -90,6 +90,65 @@
   (add-hook 'org-mode-hook #'org-bullets-mode)
   )
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Complete path numbering of org-mode headlines and plain lists.
+(require 'cl)
+(require 'dash)
+
+(defun overlay-numbered-headings ()
+  "Put numbered overlays on the headings."
+  (interactive)
+  (loop for (p lv) in (let ((counters (copy-list '(0 0 0 0 0 0 0 0 0 0)))
+                            (current-level 1)
+                            last-level)
+                        (mapcar (lambda (x)
+                                  (list (car x)
+                                        ;; trim trailing zeros
+                                        (let ((v (nth 1 x)))
+                                          (while (= 0 (car (last v)))
+                                            (setq v (butlast v)))
+                                          v)))
+                                (org-map-entries
+                                 (lambda ()
+                                   (let* ((hl (org-element-context))
+                                          (level (org-element-property :level hl)))
+                                     (setq last-level current-level
+                                           current-level level)
+                                     (cond
+                                      ;; no level change or increase, increment level counter
+                                      ((or (= last-level current-level)
+                                           (> current-level last-level))
+                                       (incf (nth current-level counters)))
+
+                                      ;; decrease in level
+                                      (t
+                                       (loop for i from (+ 1 current-level) below (length counters)
+                                             do
+                                             (setf (nth i counters) 0))
+                                       (incf (nth current-level counters))))
+
+                                     (list (point) (-slice counters 1)))))))
+        do
+        (let ((ov (make-overlay p (+ 1 p))))
+          (overlay-put ov 'display (concat (mapconcat 'number-to-string lv ".") ". "))
+          (overlay-put ov 'numbered-heading t))))
+
+(define-minor-mode numbered-org-mode
+  "Minor mode to number org headings."
+  :init-value nil
+  (if numbered-org-mode
+      (overlay-numbered-headings)
+    (ov-clear 'numbered-heading)))
+
+;; (set-face-attribute 'org-hide nil
+;;                     :foreground "white")
+(set-face-attribute 'org-indent nil
+                    :background (face-background 'default)
+                    :foreground (face-background 'default)
+                    )
+
+;; (add-hook 'org-mode-hook #'numbered-org-mode)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (require 'org-list)
 
