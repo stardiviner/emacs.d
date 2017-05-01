@@ -395,14 +395,14 @@ Optional argument NS, if not provided, defaults to
 ;;   )
 
 
-;;; [ helm-clojuredocs ] -- Searching for help in clojurdocs.org with helm.
+;;; [ helm-clojuredocs ] -- Searching for help in clojurdocs.org with Helm.
 
-;; (use-package helm-clojuredocs
-;;   :ensure t
-;;   :defer t
-;;   :bind (:map clojure-mode-map
-;;               ("C-h d d" . helm-clojuredocs))
-;;   )
+(use-package helm-clojuredocs
+  :ensure t
+  :defer t
+  :bind (:map clojure-mode-map
+              ("C-h d d" . helm-clojuredocs))
+  )
 
 
 ;;; [ elein ] -- running Leiningen commands from Emacs.
