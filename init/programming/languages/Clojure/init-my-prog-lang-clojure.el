@@ -339,12 +339,6 @@ Optional argument NS, if not provided, defaults to
 ;; (use-package clj-refactor
 ;;   :ensure t
 ;;   :config
-;;   ;; (setq cljr-warn-on-eval nil)
-;;   (setq cljr-auto-sort-ns nil)
-;;
-;;   ;; do not prefer prefixes when using clean-ns
-;;   (setq cljr-favor-prefix-notation nil)
-;;
 ;;   (add-hook 'clojure-mode-hook
 ;;             (lambda ()
 ;;               (clj-refactor-mode 1)
