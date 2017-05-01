@@ -141,16 +141,16 @@
 
 ;;; [ org-protocol-capture-html ] -- Capture HTML from the browser selection into Emacs as org-mode content.
 
-(use-package org-protocol-capture-html
-  :quelpa (org-protocol-capture-html
-           :fetcher github :repo "alphapapa/org-protocol-capture-html")
-  :config
-  (setq org-capture-templates
-        (append '(("W" "[W]eb site: (org-protocol-capture-html)" entry
-                   (file "")
-                   "* %a :website:\n\n%U %?\n\n%:initial"))
-                org-capture-templates))
-  )
+;; (use-package org-protocol-capture-html
+;;   :quelpa (org-protocol-capture-html
+;;            :fetcher github :repo "alphapapa/org-protocol-capture-html")
+;;   :config
+;;   (setq org-capture-templates
+;;         (append '(("W" "[W]eb site: (org-protocol-capture-html)" entry
+;;                    (file "")
+;;                    "* %a :website:\n\n%U %?\n\n%:initial"))
+;;                 org-capture-templates))
+;;   )
 
 
 (provide 'init-my-org-capture)
