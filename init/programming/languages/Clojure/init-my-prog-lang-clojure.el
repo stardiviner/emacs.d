@@ -374,13 +374,17 @@ Optional argument NS, if not provided, defaults to
 
 ;;; [ cider-profile ]
 
-;; (use-package cider-profile
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (add-hook 'cider-mode-hook 'cider-profile-mode)
-;;   (add-hook 'cider-repl-mode-hook 'cider-profile-mode)
-;;   )
+(use-package cider-profile
+  :ensure t
+  :defer t
+  :init
+  (add-hook 'cider-mode-hook 'cider-profile-mode)
+  (add-hook 'cider-repl-mode-hook 'cider-profile-mode)
+  :config
+  ;; If you would like to display profiling statistics in the current repl
+  ;; window instead of in a pop-up window, do the following:
+  ;; (setq cider-profile-buffer nil)
+  )
 
 
 ;;; [ typed-clojure-mode ] -- Typed Clojure minor mode for Emacs.
