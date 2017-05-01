@@ -20,7 +20,8 @@
   (add-hook 'clojure-mode-hook #'subword-mode)
 
   (add-hook 'clojure-repl-mode-hook #'my-lisp-repl-common-settings)
-  
+
+  (setq clojure-align-forms-automatically t)
   
   (with-eval-after-load 'clojure-mode
     (font-lock-add-keywords
