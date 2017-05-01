@@ -142,10 +142,10 @@
 
 ;; (set-face-attribute 'org-hide nil
 ;;                     :foreground "white")
-(set-face-attribute 'org-indent nil
-                    :background (face-background 'default)
-                    :foreground (face-background 'default)
-                    )
+;; (set-face-attribute 'org-indent nil
+;;                     :background (face-background 'default)
+;;                     :foreground (face-background 'default)
+;;                     )
 
 ;; (add-hook 'org-mode-hook #'numbered-org-mode)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
