@@ -45,6 +45,9 @@
     ;;                                             (match-end 1) "⊿")
     ;;                             nil)))))
     )
+
+  (use-package clojure-mode-extra-font-locking
+    :ensure t)
   )
 
 
