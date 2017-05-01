@@ -446,6 +446,19 @@ Optional argument NS, if not provided, defaults to
 (use-package cljsbuild-mode
   :ensure t)
 
+;;; [ 4clojure ] -- Open and evaluate 4clojure.com questions in Emacs.
+
+(use-package 4clojure
+  :ensure t
+  :config
+  (defadvice 4clojure-open-question (around 4clojure-open-question-around)
+    "Start a cider/nREPL connection if one hasn't already been started when
+opening 4clojure questions"
+    ad-do-it
+    (unless cider-current-clojure-buffer
+      (cider-jack-in)))
+  )
+
 
 (provide 'init-my-prog-lang-clojure)
 
