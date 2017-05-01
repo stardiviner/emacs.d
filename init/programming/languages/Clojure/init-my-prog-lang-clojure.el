@@ -404,6 +404,14 @@ Optional argument NS, if not provided, defaults to
               ("C-h d d" . helm-clojuredocs))
   )
 
+;;; [ clojure-cheatsheet ] -- The Clojure Cheatsheet for Emacs.
+
+(use-package clojure-cheatsheet
+  :ensure t
+  :bind (:map clojure-mode-map
+              ("C-c C-h" . clojure-cheatsheet))
+  )
+
 
 ;;; [ elein ] -- running Leiningen commands from Emacs.
 
