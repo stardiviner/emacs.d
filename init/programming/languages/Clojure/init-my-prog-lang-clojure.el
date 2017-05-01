@@ -441,6 +441,11 @@ Optional argument NS, if not provided, defaults to
   :ensure t
   :defer t)
 
+;;; [ cljsbuild-mode ] -- A minor mode for the ClojureScript 'lein cljsbuild' command.
+
+(use-package cljsbuild-mode
+  :ensure t)
+
 
 (provide 'init-my-prog-lang-clojure)
 
