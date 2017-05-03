@@ -19,7 +19,7 @@
         ;; determine which characters trigger auto-completion the selected candidate.
         company-auto-complete-chars '(?\) ?\. ?\, $_ ?$ ?#) ; ?\ ,
         company-auto-complete t
-        ;; company-require-match 'company-explicit-action-p
+        ;; company-require-match 'company-explicit-action-p ; 'never
         company-tooltip-align-annotations t ; align annotations to the right tooltip border.
         company-tooltip-flip-when-above nil
         company-tooltip-limit 10 ; tooltip candidates max limit
@@ -54,13 +54,12 @@
   (defun my-company-add-backend-locally (backend)
     "Add a backend in my custom way.
 
-\(my-company-add-backend-locally 'company-robe\)
-"
-    (if (local-variable-if-set-p 'company-backends)
-        (add-to-list 'company-backends `(,backend :with company-yasnippet))
-      (add-to-list (make-local-variable 'company-backends)
-                   `(,backend :with company-yasnippet))
-      ))
+\\(my-company-add-backend-locally 'company-robe\\)"
+         (if (local-variable-if-set-p 'company-backends)
+             (add-to-list 'company-backends `(,backend :with company-yasnippet))
+           (add-to-list (make-local-variable 'company-backends)
+                        `(,backend :with company-yasnippet))
+           ))
 
   ;; globally
   (global-company-mode 1)
