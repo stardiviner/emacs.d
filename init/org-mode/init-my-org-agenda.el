@@ -437,6 +437,14 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 (setq org-combined-agenda-icalendar-file "~/Org/Calendar/iCalendar.ics")
 
+;;; [ Google Calendar ]
+
+;;;  [ org-gcal ]
+
+(use-package org-gcal
+  :ensure t
+  :config
+  )
 
 ;;; [ Notify ]
 
