@@ -2,11 +2,97 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Daoism 道家"
- (filename . "~/Org/Wiki/Thought/诸子百家/道家/道家.org")
- (front-context-string . " Daoism\n\n* Intro")
+(("Design.org"
+ (filename . "~/Org/Wiki/Design/Design.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
- (position . 12))
+ (position . 1))
+("Digital Design.org"
+ (filename . "~/Org/Wiki/Computer Technology/Digital Design/Digital Design.org")
+ (front-context-string . "* Intro\n\n** Desi")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Softwares/Data/Books/Slack Hacks, Early Release.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Data/Books/Slack Hacks, Early Release.pdf")
+ (position . 1)
+ (page . 5)
+ (slice)
+ (size . fit-width)
+ (origin)
+ (handler . pdf-view-bookmark-jump-handler))
+("Alda.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Alda/Alda.org")
+ (front-context-string . "* Intro\n\n#+BEGIN")
+ (rear-context-string)
+ (position . 1))
+("侠.org"
+ (filename . "~/Org/Wiki/Kung Fu/侠/侠.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Emacs/Data/Books/GNU Emacs Manual.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Data/Books/GNU Emacs Manual.pdf")
+ (position . 1)
+ (page . 4)
+ (slice 0.122059 0.477525 0.7558819999999999 0.44898999999999994)
+ (size . fit-width)
+ (origin 0.0 . 0.5511811023622047)
+ (handler . pdf-view-bookmark-jump-handler))
+("Vagrant.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Vagrant/Vagrant.org")
+ (front-context-string . "* Intro\n\nVagrant")
+ (rear-context-string)
+ (position . 1))
+("Kali Linux.org"
+ (filename . "~/Org/Wiki/Computer Technology/Systems/Linux/Distributions/Kali Linux/Kali Linux.org")
+ (front-context-string . "* Intro\n\nKali Li")
+ (rear-context-string)
+ (position . 1))
+("Japanese.org"
+ (filename . "~/Org/Wiki/Linguistics/Japanese/Japanese.org")
+ (front-context-string . "* Intro\n:PROPERT")
+ (rear-context-string)
+ (position . 1))
+("English.org"
+ (filename . "~/Org/Wiki/Linguistics/English/English.org")
+ (front-context-string . "* Intro\n\n\n** Eng")
+ (rear-context-string)
+ (position . 1))
+("Chinese.org"
+ (filename . "~/Org/Wiki/Linguistics/Chinese/Chinese.org")
+ (front-context-string . "* Intro\n\n\n** Chi")
+ (rear-context-string)
+ (position . 1))
+("Linguistics.org"
+ (filename . "~/Org/Wiki/Linguistics/Linguistics.org")
+ (front-context-string . "#+TITLE: Linguis")
+ (rear-context-string)
+ (position . 1))
+("Angular.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implements/Web/Web Frameworks/Angular/Angular.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("React.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implements/Web/Web Frameworks/React/React.org")
+ (front-context-string . "* Intro\n\n\n\n** Fe")
+ (rear-context-string)
+ (position . 1))
+("Machine Learning.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implements/Artificial Intelligence/Machine Learning/Machine Learning.org")
+ (front-context-string . "* Intro\n\n** Mach")
+ (rear-context-string)
+ (position . 1))
+("Oracle SQL.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/Oracle SQL/Oracle SQL.org")
+ (front-context-string . "* Intro\n\n** Abou")
+ (rear-context-string)
+ (position . 1))
+("Daoism 道家"
+ (filename . "~/Org/Wiki/Thought/诸子百家/道家/道家.org")
+ (front-context-string . "#+TITLE: 道家 Daoi")
+ (rear-context-string)
+ (position . 1))
 ("诸子百家.org"
  (filename . "~/Org/Wiki/Thought/诸子百家/诸子百家.org")
  (front-context-string . "* Intro\n\n** 沿革\n\n")
@@ -318,15 +404,15 @@
  (rear-context-string)
  (position . 1))
 ("org-capture-last-stored-marker"
- (filename . "~/Org/Projects/Code.org")
- (front-context-string . "** TODO Mycroft ")
- (rear-context-string . "][bind-key]].\n\n\n")
- (position . 62457))
+ (filename . "~/Org/Tasks/Computer Todos.org")
+ (front-context-string . "** TODO Cozy (pr")
+ (rear-context-string . "p://gobot.io/\n\n\n")
+ (position . 141858))
 ("org-refile-last-stored"
- (filename . "~/Org/Projects/Code.org")
- (front-context-string . "** TODO Mycroft ")
- (rear-context-string . "][bind-key]].\n\n\n")
- (position . 62457))
+ (filename . "~/Org/Tasks/Computer Todos.org")
+ (front-context-string . "** TODO Cozy (pr")
+ (rear-context-string . "p://gobot.io/\n\n\n")
+ (position . 141858))
 ("GNU.org"
  (filename . "~/Org/Wiki/Computer Technology/Systems/GNU/GNU.org")
  (front-context-string . "* Intro\n\n\n\n* Pro")
@@ -602,11 +688,6 @@
  (front-context-string)
  (rear-context-string)
  (position . 1))
-("Design.org"
- (filename . "~/Org/Wiki/Computer Technology/Design/Design.org")
- (front-context-string . "* Intro\n\n** Desi")
- (rear-context-string)
- (position . 1))
 ("My Shell Script Examples.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Shell/Data/Manuals/My Shell Script Examples/My Shell Script Examples.org")
  (front-context-string . "* Linux\n\n** Dete")
@@ -794,9 +875,9 @@
  (position . 1624))
 ("LGBT.org"
  (filename . "~/Org/Wiki/LGBT/LGBT.org")
- (front-context-string . "* Boy's Love (BL")
- (rear-context-string . " 線上LGBT小說/故事\n\n\n\n")
- (position . 8204))
+ (front-context-string . "* Intro\n\n\n** LGB")
+ (rear-context-string)
+ (position . 1))
 ("TeX.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/TeX/TeX.org")
  (front-context-string . "* Intro\n\nThe TeX")
@@ -878,8 +959,8 @@
  (rear-context-string)
  (position . 1))
 ("Packages.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/ClojureScript/Data/Packages/Packages.org")
- (front-context-string . "* ClojureScript ")
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Java/Data/Packages/Packages.org")
+ (front-context-string . "* Process\n\n** Th")
  (rear-context-string)
  (position . 1))
 ("My SQL Reference.org"
@@ -992,11 +1073,6 @@
  (front-context-string . "* Buddhism (佛教)\n")
  (rear-context-string)
  (position . 1))
-("My English Grammar"
- (filename . "~/Org/Wiki/Languages/English/Data/Manuals/My English Grammar/My English Grammar.org")
- (front-context-string)
- (rear-context-string)
- (position . 1))
 ("dotfiles (org-mode literate)"
  (filename . "~/Org/dotfiles/dotfiles.org")
  (front-context-string)
@@ -1013,18 +1089,13 @@
  (rear-context-string)
  (position . 1))
 ("org-capture-last-stored"
- (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "** António Nuno ")
- (rear-context-string . "arbatsov\n:END:\n\n")
- (position . 33002))
+ (filename . "~/Org/Capture/Capture.org")
+ (front-context-string . "** TODO Join fun")
+ (rear-context-string . "RY: Todo\n:END:\n\n")
+ (position . 53))
 ("Accounts"
  (filename . "~/Org/Accounts/accounts.org.gpg")
  (front-context-string . "* Nick\n\nstardivi")
- (rear-context-string)
- (position . 1))
-("Japanese Language"
- (filename . "~/Org/Wiki/Languages/Japanese/Japanese.org")
- (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
  (position . 1))
 ("Contacts.org"
@@ -1105,11 +1176,6 @@
 ("Kung Fu (Org)"
  (filename . "~/Org/Wiki/Kung Fu/Kung Fu.org")
  (front-context-string . "* Urgent 易筋经 (mu")
- (rear-context-string)
- (position . 1))
-("English (Org)"
- (filename . "~/Org/Wiki/Languages/English/English.org")
- (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
 ("Brain (Org)"
