@@ -32,9 +32,18 @@
   :ensure t
   :bind (("C-c C-/" . helm-fuzzy-find)
          :map find-prefix
-         ("f" . helm-fuzzy-find))
+         ("h" . helm-fuzzy-find))
   :config
   ;; (setq helm-fuzzy-find-keybind "")
+  )
+
+;;; [ fzf ] -- A command-line fuzzy finder written in Go.
+
+(use-package fzf
+  :ensure t
+  :bind (:map find-prefix
+              ("f" . fzf)
+              ("d" . fzf-directory))
   )
 
 
