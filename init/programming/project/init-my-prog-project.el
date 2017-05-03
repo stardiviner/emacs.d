@@ -46,13 +46,10 @@
   ;; test
   (setq projectile-create-missing-test-files t)
 
-  (use-package helm-projectile
+  (use-package counsel-projectile
     :ensure t
     :config
-    (add-to-list 'helm-mini-default-sources 'helm-source-projectile-projects)
-    )
-  ;; (use-package counsel-projectile
-  ;;   :ensure t)
+    (counsel-projectile-on))
   )
 
 ;;; [ find-file-in-project ]
