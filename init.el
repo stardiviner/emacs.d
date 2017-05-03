@@ -175,7 +175,7 @@
 (require 'init-my-tool-paste)
 (require 'init-my-tool-collaborate)
 ;; (require 'init-my-tool-notify)
-(require 'init-my-tool-irc-weechat)
+;; (require 'init-my-tool-irc-weechat)
 ;; (require 'init-my-tool-irc-erc)
 ;; (require 'init-my-tool-music)
 ;; (require 'init-my-tool-subtitle)
