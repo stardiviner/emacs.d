@@ -627,6 +627,27 @@ dimensions of a block selection."
   "Add `N' spaces for custom mode-line alignment."
   (propertize (make-string n (string-to-char " ")) 'face 'variable-pitch))
 
+;; rtags project parsing progress status
+;; - rtags-remaining-jobs :: integer with count of remaining jobs for all projects
+;; - rtags-last-index :: the first number in rdm's output
+;; - rtags-last-total :: the second number in rdm's output, these last two are project local
+;; You have to run `rdm' with the `--progress' for this to work.
+(defvar rtags-enabled)
+
+(defun *my-rtags-modeline ()
+  "Show `rtags-modeline' info in my custom mode-line."
+  (if (and rtags-enabled
+           (not (string-empty-p (rtags-modeline))))
+      (propertize
+       (concat
+        (propertize " " 'face 'variable-pitch)
+        (all-the-icons-faicon "paw" :v-adjust -0.05)
+        (rtags-modeline))
+       'face 'mode-line-data-face)))
+
+(add-hook 'rtags-diagnostics-hook (function force-mode-line-update))
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun my-modeline ()
@@ -656,6 +677,7 @@ dimensions of a block selection."
                  (*org-tree-slide)
                  (*org-clock)
                  (*process)
+                 (*my-rtags-modeline)
                  ))
            (rhs (list
                  ;; NOTE: the `mid' `format-mode-line' meet first `nil' will

@@ -19,14 +19,14 @@
         rtags-display-current-error-as-message nil
         rtags-display-current-error-as-tooltip t
         ;; rtags-rdm-includes "" ; additional include paths.
-        ;; rtags-process-flags "" ; flags for rdm.
+        rtags-process-flags "--progress" ; flags for `rdm'. `--progress' for `rtags-modeline'.
         )
 
   ;; Sets up a ton of standard keybindings under [C-x r] (we try to avoid
   ;; crashing with the register shortcuts).
   (rtags-enable-standard-keybindings c-mode-base-map "C-c C-r")
 
-  ;; start rtags process `rdm'.
+  ;; global start rtags process `rdm'.
   ;; (rtags-start-process-unless-running)
   ;;
   ;; Start the rdm process unless the process is already running. You may create
