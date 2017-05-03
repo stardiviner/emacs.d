@@ -1,4 +1,4 @@
-;;; init-my-emacs-search-find.el --- init for command find
+;;; init-my-emacs-search-finder.el --- init for command find
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -38,6 +38,6 @@
   )
 
 
-(provide 'init-my-emacs-search-find)
+(provide 'init-my-emacs-search-finder)
 
-;;; init-my-emacs-search-find.el ends here
+;;; init-my-emacs-search-finder.el ends here
