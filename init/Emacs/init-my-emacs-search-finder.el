@@ -39,12 +39,12 @@
 
 ;;; [ fzf ] -- A command-line fuzzy finder written in Go.
 
-(use-package fzf
-  :ensure t
-  :bind (:map find-prefix
-              ("f" . fzf)
-              ("d" . fzf-directory))
-  )
+;; (use-package fzf
+;;   :ensure t
+;;   :bind (:map find-prefix
+;;               ("f" . fzf)
+;;               ("d" . fzf-directory))
+;;   )
 
 
 (provide 'init-my-emacs-search-finder)
