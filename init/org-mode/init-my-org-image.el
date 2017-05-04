@@ -13,7 +13,7 @@
 ;; [C-c C-x C-v] - `org-toggle-inline-images'.
 ;; [C-c C-x C-M-v] - `org-redisplay-inline-images'
 
-(setq org-startup-with-inline-images t
+(setq org-startup-with-inline-images nil
       org-image-actual-width nil ; inline image scale width.
       ;; you need to use:
       ;; - #+ATTR_ORG: :width 400
