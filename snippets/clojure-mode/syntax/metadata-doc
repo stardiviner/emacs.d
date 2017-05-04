@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: metadata doc
+# key: metadata-doc
+# group: metadata
+# --
+^{:doc "$0"}

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: defprotocol
+# key: defp
+# group: defprotocol
+# --
+defprotocol ${1:Name}
+  $0

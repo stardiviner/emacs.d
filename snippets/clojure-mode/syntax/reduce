@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: reduce
+# key: reduce
+# group: reduce
+# --
+reduce ${1:(fn [p n] $0)} $2

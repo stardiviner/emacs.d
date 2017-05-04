@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: if-let
+# key: if-let
+# group: control-flow
+# --
+if-let [$1 $2]
+  $0

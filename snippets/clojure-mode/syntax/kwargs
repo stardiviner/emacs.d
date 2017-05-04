@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: keyword args
+# key: kwargs
+# group: args
+# --
+& {:keys [${1:keys}] :or {${2:defaults}}}

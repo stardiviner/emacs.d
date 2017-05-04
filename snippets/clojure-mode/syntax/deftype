@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: deftype
+# key: deft
+# group: deftype
+# --
+deftype ${1:Name} [${2:fields}]
+  ${3:Protocol}
+  $0

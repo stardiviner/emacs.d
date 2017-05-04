@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
-# name: println
-# key: println
+# name: prn
+# key: prn
 # group: print
 # --
-(println $1)
+(prn $1)
 $0

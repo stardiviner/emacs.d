@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: deftest
+# key: deftest
+# group: test
+# --
+deftest $1
+  (is (= $2))
+  $0

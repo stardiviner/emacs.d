@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: condition-predict
+# key: condp
+# group: condition.predict
+# --
+condp ${1:pred} ${2:expr}
+  $0

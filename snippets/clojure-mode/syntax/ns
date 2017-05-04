@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: ns
+# key: ns
+# group: ns
+# --
+ns `(clojure-expected-ns)`
+  $0

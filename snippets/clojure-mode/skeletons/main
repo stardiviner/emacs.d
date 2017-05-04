@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: main
+# key: main
+# group: main
+# --
+(defn -main [& args]$>
+  $0)$>

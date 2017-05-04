@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: require
+# key: require
+# group: require
+# --
+require '[${1:namespace} :as [$0]]

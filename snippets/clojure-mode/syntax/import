@@ -1,0 +1,4 @@
+# key: import
+# name: import
+# --
+import '[${1:package}]

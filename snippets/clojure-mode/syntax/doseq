@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: doseq
+# key: doseq
+# group: loop
+# --
+doseq [$1 $2]
+  $0

@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: defmethod
+# key: defm
+# group: defmethod
+# --
+defmethod ${1:name} ${2:match}
+  [${3:args}]
+  $0

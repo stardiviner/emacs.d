@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: bench
+# key: bench
+# --
+(dotimes [_ 10]
+  (time
+    (dotimes [_ ${1:times like 1000000}]
+      $0)))

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: fn
+# key: fn
+# group: fn
+# --
+fn [${1:arg-list}] $0

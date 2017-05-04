@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: when-let
+# key: when-let
+# group: control-flow
+# --
+when-let [$1 $2]
+  $0

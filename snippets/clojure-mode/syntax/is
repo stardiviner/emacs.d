@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: is
+# key: is
+# group: test
+# --
+is (= $1 $2)$0

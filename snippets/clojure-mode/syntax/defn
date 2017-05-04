@@ -6,5 +6,5 @@
 defn ${1:function-name}
   ${2:doc-string?}${3:
   metadata-map?}
-  ${4:[${5:parameter-list*}]}
+  ${4:[${5:arg-list*}]}
   ${6:conditions-map?}$0

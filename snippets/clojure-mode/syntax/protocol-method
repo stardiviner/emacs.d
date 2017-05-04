@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: protocol method
+# key: pm
+# group: protocol.method
+# --
+(${1:name} [${2:this} ${3:args}])

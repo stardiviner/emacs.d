@@ -3,6 +3,6 @@
 # key: cond
 # group: control-flow.cond
 # --
-cond ${1:test-expr-1} ${2:body-expr-1}
-     ${3:test-expr-2} ${4:body-expr-2}
+cond (${1:test-expr-1}) ${2:body-expr-1}
+     (${3:test-expr-2}) ${4:body-expr-2}
      ${5::else ${6:else-expr}}

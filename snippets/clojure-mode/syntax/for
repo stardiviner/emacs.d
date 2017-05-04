@@ -1,0 +1,5 @@
+# key: for
+# name: for
+# --
+for [$1 $2]
+  $0
