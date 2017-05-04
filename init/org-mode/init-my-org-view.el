@@ -65,30 +65,27 @@
 
 ;; [ org-bullets ]
 
-;; (use-package org-bullets
-;;   :ensure t
-;;   :config
-;;   (setq-default org-bullets-bullet-list
-;;                 ;; '("◉" "❀" "✿" "✪" "☯" "✜" "✩" "✡" "◌" "◉" "⍟" "☢")
-;;                 ;; '("①" "②" "③" "④" "⑤" "⑥" "⑦" "⑧" "⑨" "⑩")
-;;                 '("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
-;;                 ;; '("⊢" "⋮" "⋱" " ")
-;;                 )
-;;
-;;   (defface org-bullets-face
-;;     '((t (:inherit nil)))
-;;     "My custom face for org-bullets."
-;;     :group 'org-faces)
-;;
-;;   ;; (set-face-attribute 'org-bullets-face nil
-;;   ;;                     :family "DejaVu Sans"
-;;   ;;                     :height 130 :weight 'bold
-;;   ;;                     )
-;;
-;;   (setq org-bullets-face-name 'org-bullets-face)
-;;
-;;   (add-hook 'org-mode-hook #'org-bullets-mode)
-;;   )
+(use-package org-bullets
+  :ensure t
+  :config
+  (setq-default org-bullets-bullet-list
+                '("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
+                )
+
+  (defface org-bullets-face
+    '((t (:inherit nil)))
+    "My custom face for org-bullets."
+    :group 'org-faces)
+
+  ;; (set-face-attribute 'org-bullets-face nil
+  ;;                     :family "DejaVu Sans"
+  ;;                     :height 130 :weight 'bold
+  ;;                     )
+
+  (setq org-bullets-face-name 'org-bullets-face)
+
+  (add-hook 'org-mode-hook #'org-bullets-mode)
+  )
 
 
 (require 'org-list)
