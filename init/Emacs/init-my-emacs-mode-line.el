@@ -85,6 +85,9 @@
   "Face used for urgent or error info segments in mode-line."
   :group 'mode-line)
 
+(use-package all-the-icons
+  :ensure t)
+
 ;;; mode-line indicator fragments
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -510,6 +513,8 @@ dimensions of a block selection."
      'face 'mode-line-meta-face)))
 
 ;; multiple-cursors (mc/)
+(use-package multiple-cursors
+  :ensure t)
 (defun *multiple-cursors ()
   "Show multiple-cursors indicator in mode-line."
   (if (> (mc/num-cursors) 1) ; (mc/fake-cursor-p OVERLAY)
@@ -592,6 +597,8 @@ dimensions of a block selection."
        (company--group-lighter
         (nth company-selection company-candidates) company-lighter-base)
        'face 'mode-line-data-face)))
+
+(require 'org-clock)
 
 (defun *org-clock ()
   "Show org-clock info."
