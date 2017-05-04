@@ -13,15 +13,17 @@
 ;; `org-toggle-latex-fragment' [C-c C-x C-l] / [C-c C-c]
 ;; `org-toggle-pretty-entities' [C-c C-x \]
 
-;; fix org-mode startup latex preview invalid on non-file buffer.
-(defun disable-org-latex-preview-on-nonfile ()
-  (interactive)
-  (if (not (buffer-file-name))
-      (setq-local org-startup-with-latex-preview nil)
-    (setq org-startup-with-latex-preview t))
-  )
+(setq org-startup-with-latex-preview nil)
 
-(add-hook 'org-mode-hook #'disable-org-latex-preview-on-nonfile)
+;; fix org-mode startup latex preview invalid on non-file buffer.
+;; (defun disable-org-latex-preview-on-nonfile ()
+;;   (interactive)
+;;   (if (not (buffer-file-name))
+;;       (setq-local org-startup-with-latex-preview nil)
+;;     (setq org-startup-with-latex-preview t))
+;;   )
+;;
+;; (add-hook 'org-mode-hook #'disable-org-latex-preview-on-nonfile)
 
 ;; config org latex preview style
 (setq org-latex-create-formula-image-program 'dvipng
