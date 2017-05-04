@@ -39,27 +39,16 @@
 ;;; [ Edebug ] -- Edebug is a source level debugger.
 
 (use-package edebug
+  :bind (:map emacs-lisp-mode-map
+              ("C-x C-d C-e" . edebug-mode)
+              ("C-x C-d f" . edebug-defun)
+              ("C-x C-d b" . edebug-set-breakpoint)
+              ("C-x C-d e" . edebug-on-entry)
+              ("C-x C-d C-l" . edebug-where))
   :config
   (setq edebug-trace t)
-
-  (defun my-edebug-keybindings-setup ()
-    (interactive)
-    (define-key emacs-debug-prefix (kbd "C-e") 'edebug-mode)
-    (define-key emacs-debug-prefix (kbd "f") 'edebug-defun)
-    (define-key emacs-debug-prefix (kbd "e") 'debug-on-entry)
-    (define-key emacs-debug-prefix (kbd "s") 'edebug-stop)
-    (defalias 'my-edebug-stop 'eval-defun)
-    (define-key emacs-debug-prefix (kbd "c") 'my-edebug-stop)
-    )
-  
-  (add-hook 'emacs-lisp-mode-hook #'my-edebug-keybindings-setup)
-
-  (defun edebug-clear-global-break-condition ()
-    "Clear `edebug-global-break-condition'."
-    (interactive)
-    (setq edebug-global-break-condition nil))
+  (add-hook 'edebug-setup-hook #'edebug-mode)
   )
-
 
 ;;; [ edebug-x ] -- Extensions for Edebug.
 
