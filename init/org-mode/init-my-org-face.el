@@ -126,30 +126,25 @@
 (set-face-attribute 'org-warning nil
                     :foreground (cl-case (alist-get 'background-mode (frame-parameters))
                                   ('light "orange red")
-                                  ('dark "red"))
-                    :weight 'bold)
+                                  ('dark "red")))
 ;; comming deadline in agenda
 (set-face-attribute 'org-upcoming-deadline nil
                     :foreground (cl-case (alist-get 'background-mode (frame-parameters))
                                   ('light "orange")
-                                  ('dark "orange red"))
-                    :weight 'bold)
+                                  ('dark "orange red")))
 ;; scheduled in agenda, scheduled today, & org-habit
 (set-face-attribute 'org-scheduled-today nil
                     :foreground (cl-case (alist-get 'background-mode (frame-parameters))
                                   ('light "sea green")
-                                  ('dark "light sea green"))
-                    :weight 'bold)
+                                  ('dark "light sea green")))
 (set-face-attribute 'org-scheduled nil
                     :foreground (cl-case (alist-get 'background-mode (frame-parameters))
                                   ('light "forest green")
-                                  ('dark "dark green"))
-                    :weight 'bold)
+                                  ('dark "dark green")))
 (set-face-attribute 'org-scheduled-previously nil
                     :foreground (cl-case (alist-get 'background-mode (frame-parameters))
                                   ('light "light green")
-                                  ('dark "olive drab"))
-                    :weight 'bold)
+                                  ('dark "olive drab")))
 
 ;; Emphasize
 ;; org-verbatim: =verbatim=
