@@ -94,7 +94,11 @@
           web-mode-disable-autocompletion t)
     (local-set-key (kbd "RET") 'newline-and-indent)
     ;; electric
-    (setq web-mode-enable-auto-pairing t)
+    (setq web-mode-enable-auto-pairing t
+          web-mode-enable-auto-quoting t
+          web-mode-enable-auto-opening t
+          web-mode-enable-auto-closing t
+          web-mode-enable-auto-indentation t)
     ;; padding (inner indent)
     (setq web-mode-style-padding 1   ; for <style>
           web-mode-script-padding 1  ; for <script>
