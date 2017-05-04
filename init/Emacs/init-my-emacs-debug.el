@@ -23,17 +23,8 @@
 
 (use-package debug
   :config
-  ;; (setq debug-on-error t
-  ;;       debug-on-quit t)
-
-  ;; If your init file sets debug-on-error, the effect may not last past the end
-  ;; of loading the init file. (This is an undesirable byproduct of the code that
-  ;; implements the `--debug-init' command line option.) The best way to make the
-  ;; init file set debug-on-error permanently is with after-init-hook, like this:
-  ;;
-  ;; (add-hook 'after-init-hook
-  ;;           (lambda ()
-  ;;             (setq debug-on-error t)))
+  (setq debug-on-error t
+        debug-on-quit nil)
   )
 
 ;;; [ Edebug ] -- Edebug is a source level debugger.
