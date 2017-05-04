@@ -159,10 +159,10 @@
 (use-package org
   :ensure t)
 
-(use-package org-plus-contrib
-  :ensure t)
+;; (use-package org-plus-contrib
+;;   :ensure t)
 
-(require 'init-my-org-mode)
+;; (require 'init-my-org-mode)
 
 (setq org-modules
       '(org-pcomplete
@@ -184,17 +184,6 @@
 (setq org-confirm-shell-link-function 'yes-or-no-p)
 (setq org-confirm-elisp-link-function 'yes-or-no-p)
 
-(setq org-babel-default-header-args
-      '((:session . "none")
-        (:results . "replace")
-        (:exports . "both") (:cache . "no") (:hlines . "no")
-        (:noweb . "no") (:tangle . "no")
-        (:mkdirp . "yes")
-        (:padline . "true") (:comments . "links")
-        ))
-
-(setq org-babel-noweb-error-all-langs t)
-
 ;; babel src block editing
 (setq org-src-fontify-natively t
       ;; nil: preserve org indent, t: preserve export indent.
@@ -207,11 +196,6 @@
       org-edit-src-auto-save-idle-delay 0 ; 0: don't auto save.
       )
 
-;; latex fragments preview
-(setq org-startup-with-latex-preview t)
-;; inline image preview
-(setq org-startup-with-inline-images t)
-
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((emacs-lisp . t)                     ; Emacs Lisp
@@ -221,14 +205,10 @@
    (python . t)                         ; Python
    (C . t)                              ; C
    (lisp . t)                           ; Lisp
-   (scheme . t)                         ; Scheme
    (clojure . t)                        ; Clojure
    (haskell . t)                        ; Haskell
    (js . t)                             ; JavaScript
-   (css . t)                            ; CSS
    (latex . t)                          ; LaTeX
-   (sql . t)                            ; SQL
-   (sqlite . t)                         ; SQLite
    ))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
