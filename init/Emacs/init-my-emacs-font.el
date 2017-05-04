@@ -137,8 +137,8 @@ for variable-pitch face."
 (dolist (charset '(kana han symbol cjk-misc bopomofo))
   (set-fontset-font (frame-parameter nil 'font)
                     charset
-                    (font-spec :family "Noto Sans CJK SC" :size 13)
-                    ;; (font-spec :family "WenQuanYi Micro Hei" :size 13)
+                    ;; (font-spec :family "Noto Sans CJK SC" :size 12)
+                    (font-spec :family "WenQuanYi Micro Hei" :size 13)
                     ;; (font-spec :family "HanaMinA" :size 14)
                     ))
 
