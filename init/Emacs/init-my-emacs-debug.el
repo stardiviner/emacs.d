@@ -38,7 +38,6 @@
               ("C-x C-d C-l" . edebug-where))
   :config
   (setq edebug-trace t)
-  (add-hook 'edebug-setup-hook #'edebug-mode)
   )
 
 ;;; [ edebug-x ] -- Extensions for Edebug.
