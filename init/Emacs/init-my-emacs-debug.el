@@ -66,12 +66,11 @@
 (use-package edebug-x
   :ensure t
   :config
-  ;; (setq edebug-x-stop-point-overlay nil)
-
+  (require 'color)
   (set-face-attribute 'hi-edebug-x-stop nil
-                      :background "orange")
+                      :background (color-darken-name (face-foreground 'font-lock-warning-face) 50))
   (set-face-attribute 'hi-edebug-x-debug-line nil
-                      :background "gray")
+                      :background (color-darken-name (face-background 'default) 10))
   )
 
 
