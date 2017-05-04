@@ -365,27 +365,36 @@ state (modified, read-only or non-existent)."
                         (let ((count (let-alist
                                          (flycheck-count-errors flycheck-current-errors)
                                        (+ (or .warning 0) (or .error 0)))))
-                          (concat (all-the-icons-octicon "bug" :v-adjust -0.05)
+                          (concat (all-the-icons-octicon "bug" :v-adjust -0.05
+                                                         :face (if (active) '(:foreground "red")))
                                   (propertize
                                    ;; (format " %s issue%s" count (unless (eq 1 count) "s"))
                                    (format "%s" count))))
-                      (all-the-icons-faicon "check-square" :v-adjust -0.05)))
+                      (all-the-icons-faicon "check-square" :v-adjust -0.05
+                                            :face (if (active) '(:foreground "green")))))
                    (`running
-                    (all-the-icons-faicon "ellipsis-h" :v-adjust -0.05))
+                    (all-the-icons-faicon "ellipsis-h"
+                                          :v-adjust -0.05
+                                          :face (if (active) '(:foreground "cyan"))))
                    (`no-checker
-                    (concat (all-the-icons-octicon "alert" :v-adjust -0.05)
+                    (concat (all-the-icons-octicon "alert" :v-adjust -0.05
+                                                   :face (if (active) '(:foreground "dark gray")))
                             (propertize (format " %s" "No Checker"))))
                    (`not-checked
-                    (concat (all-the-icons-faicon "exclamation-circle" :v-adjust -0.05)
+                    (concat (all-the-icons-faicon "exclamation-circle" :v-adjust -0.05
+                                                  :face (if (active) '(:foreground "orange")))
                             (propertize (format " %s" " Disabled"))))
                    (`errored
-                    (concat (all-the-icons-faicon "exclamation-triangle" :v-adjust -0.05)
+                    (concat (all-the-icons-faicon "exclamation-triangle" :v-adjust -0.05
+                                                  :face (if (active) '(:foreground "red")))
                             (propertize (format " %s" " Error"))))
                    (`interrupted
-                    (concat (all-the-icons-faicon "ban" :v-adjust -0.05)
+                    (concat (all-the-icons-faicon "ban" :v-adjust -0.05
+                                                  :face (if (active) '(:foreground "dark orange")))
                             (propertize (format " %s" " Interrupted"))))
                    (`suspicious
-                    (all-the-icons-faicon "question-circle" :v-adjust -0.05)))))
+                    (all-the-icons-faicon "question-circle" :v-adjust -0.05
+                                          :face (if (active) '(:foreground "dark magenta")))))))
       (propertize text
                   'help-echo "Show Flycheck Errors"
                   'mouse-face '(:box 1)
