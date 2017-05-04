@@ -55,11 +55,10 @@
 (use-package edebug-x
   :ensure t
   :config
-  (require 'color)
   (set-face-attribute 'hi-edebug-x-stop nil
-                      :background (color-darken-name (face-foreground 'font-lock-warning-face) 50))
+                      :background "indian red")
   (set-face-attribute 'hi-edebug-x-debug-line nil
-                      :background (color-darken-name (face-background 'default) 10))
+                      :background "#444444")
   )
 
 
