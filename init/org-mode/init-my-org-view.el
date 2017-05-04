@@ -13,7 +13,7 @@
       org-startup-truncated t
       ;; org-startup-with-beamer-mode nil
       ;; org-hide-block-startup t
-      org-hide-leading-stars t
+      org-hide-leading-stars nil
       org-hide-emphasis-markers t
       )
 
@@ -147,7 +147,7 @@
 ;;                     :foreground (face-background 'default)
 ;;                     )
 
-;; (add-hook 'org-mode-hook #'numbered-org-mode)
+(add-hook 'org-mode-hook #'numbered-org-mode)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (require 'org-list)
