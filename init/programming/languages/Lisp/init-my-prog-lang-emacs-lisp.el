@@ -260,6 +260,15 @@
 
 ;;; [ buttercup ] -- Behavior-Driven Emacs Lisp Testing
 
+;;; [ dash.el ] -- A modern list library for Emacs.
+
+(use-package dash
+  :ensure t
+  :config
+  ;; syntax highlighting of dash functions.
+  (eval-after-load 'dash '(dash-enable-font-lock))
+  )
+
 
 (provide 'init-my-prog-lang-emacs-lisp)
 
