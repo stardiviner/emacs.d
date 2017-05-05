@@ -115,23 +115,23 @@
 
 ;;; [ eval-sexp-fu ] -- highlighting the sexps during evaluation in action.
 
-(use-package eval-sexp-fu
-  :ensure t
-  :config
-  (setq eval-sexp-fu-flash-duration 0.5
-        eval-sexp-fu-flash-error-duration 1.5
-        ;; eval-sexp-fu-flash-function
-        ;; eval-sexp-fu-flash-doit-function
-        )
-
-  (eval-sexp-fu-flash-mode 1)
-  
-  (set-face-attribute eval-sexp-fu-flash-face nil
-                      :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                    ('light "pink")
-                                    ('dark "cyan"))
-                      )
-  )
+;; (use-package eval-sexp-fu
+;;   :ensure t
+;;   :config
+;;   (setq eval-sexp-fu-flash-duration 0.5
+;;         eval-sexp-fu-flash-error-duration 1.5
+;;         ;; eval-sexp-fu-flash-function
+;;         ;; eval-sexp-fu-flash-doit-function
+;;         )
+;;
+;;   (eval-sexp-fu-flash-mode 1)
+;;
+;;   (set-face-attribute eval-sexp-fu-flash-face nil
+;;                       :background (cl-case (alist-get 'background-mode (frame-parameters))
+;;                                     ('light "pink")
+;;                                     ('dark "cyan"))
+;;                       )
+;;   )
 
 
 ;;; [ parinfer-mode ] -- Parinfer on Emacs with oakmac's parinfer-elisp.
