@@ -213,7 +213,7 @@
         ("Apple" ,(list (all-the-icons-faicon "apple")) nil nil :ascent center)
         ("Lisp" ,(list (all-the-icons-fileicon "common-lisp")) nil nil :ascent center)
         ("Common Lisp" ,(list (all-the-icons-fileicon "common-lisp")) nil nil :ascent center)
-        ("Clojure" ,(list (all-the-icons-fileicon "clj")) nil nil :ascent center)
+        ("Clojure" ,(list (all-the-icons-alltheicon "clojure-line")) nil nil :ascent center)
         ("ClojureScript" ,(list (all-the-icons-fileicon "cljs")) nil nil :ascent center)
         ("Ruby" ,(list (all-the-icons-alltheicon "ruby")) nil nil :ascent center)
         ("Python" ,(list (all-the-icons-alltheicon "python")) nil nil :ascent center)
