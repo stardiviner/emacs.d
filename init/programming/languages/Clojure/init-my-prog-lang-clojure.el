@@ -354,6 +354,14 @@ Optional argument NS, if not provided, defaults to
 ;;   ;;               (yas-next-field)))
 ;;   )
 
+;;; [ kibit-helper ] -- Conveniently use the Kibit Leiningen plugin from Emacs.
+
+(use-package kibit-helper
+  :ensure t
+  :commands (kibit kibit-current-file kibit-accept-proposed-change)
+  :bind (:map clojure-mode-map
+              ("C-x C-`" . kibit-accept-proposed-change))
+  )
 
 ;;; [ cider-decompile ] -- decompilation extension for cider.
 
