@@ -22,6 +22,9 @@
   (add-hook 'completion-at-point-functions
             'pcomplete-completions-at-point nil 'local)
 
+  (make-local-variable 'company-auto-complete-chars)
+  (setq company-auto-complete-chars '(?\( ?. ?#))
+  
   (make-local-variable 'company-backends)
   (setq company-backends
         '(company-files

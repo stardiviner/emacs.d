@@ -17,8 +17,9 @@
         company-idle-delay 0.2
         ;; company-echo-delay .01
         ;; determine which characters trigger auto-completion the selected candidate.
-        company-auto-complete-chars '(?\) ?\. ?\, $_ ?$ ?#) ; ?\ ,
-        company-auto-complete t
+        ;; '(?_ ?\( ?w ?. ?\" ?$ ?\' ?/ ?| ?! ?#)
+        company-auto-complete-chars '(?\  ?\) ?. ?#)
+        company-auto-complete nil
         ;; company-require-match 'company-explicit-action-p ; 'never
         company-tooltip-align-annotations t ; align annotations to the right tooltip border.
         company-tooltip-flip-when-above nil
