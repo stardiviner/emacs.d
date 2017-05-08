@@ -84,7 +84,7 @@
 (require 'init-my-emacs-color-theme)
 (require 'init-my-emacs-appearance)
 (require 'init-my-emacs-prettify)
-(require 'init-my-emacs-emoji)
+;; (require 'init-my-emacs-emoji)
 (require 'init-my-emacs-mode-line)
 (require 'init-my-emacs-popup)
 (require 'init-my-emacs-completion)
