@@ -16,6 +16,20 @@
     (require 'lsp-flycheck)))
 
 
+(use-package lsp-java
+  :ensure t)
+
+(use-package lsp-go
+  :ensure t)
+
+(use-package lsp-rust
+  :ensure t)
+
+(use-package lsp-python
+  :ensure t)
+
+(use-package lsp-haskell
+  :ensure t)
 
 
 ;;; ----------------------------------------------------------------------------
