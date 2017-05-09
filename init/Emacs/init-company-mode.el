@@ -46,7 +46,9 @@
                    company-yasnippet)
                   ;; company-emoji
                   ;; :separate company-ispell
-                  company-dabbrev-code  ; company-dabbrev
+                  (company-keywords
+                   :with
+                   company-dabbrev-code)
                   company-abbrev
                   company-keywords      ; keywords
                   )
