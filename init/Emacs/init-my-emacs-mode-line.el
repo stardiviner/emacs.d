@@ -151,8 +151,8 @@
         " ["
         (all-the-icons-octicon "file-directory" :v-adjust -0.05 :height 0.9)
         (propertize " " 'face 'variable-pitch)
-        (propertize (projectile-project-name) ; `projectile-mode-line'
-                    'face (if (active) 'mode-line-info-face))
+        ;; `projectile-mode-line'
+        (propertize (projectile-project-name))
         "] "
         ))))
 
@@ -178,8 +178,7 @@
           (all-the-icons-faicon "file-code-o" :v-adjust -0.05 :height 0.8)
         ))
     (propertize " " 'face 'variable-pitch)
-    (propertize (buffer-name)
-                'face (if (active) 'mode-line-buffer-path-face))
+    (propertize (buffer-name))
     )))
 
 ;;; buffer info
