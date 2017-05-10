@@ -12,7 +12,6 @@
       compilation-scroll-output 'first-error ; 'first-error ; stop on first error.
       compilation-auto-jump-to-first-error nil ; jump to error file position.
       compilation-auto-jump-to-next nil
-      compilation-in-progress t
       )
 
 ;;; [ quickrun ] -- Run command quickly.
