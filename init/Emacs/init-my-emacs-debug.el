@@ -23,8 +23,8 @@
 
 (use-package debug
   :config
-  (setq debug-on-error t
-        debug-on-quit nil)
+  ;; (setq debug-on-error t
+  ;;       debug-on-quit nil)
   )
 
 ;;; [ Edebug ] -- Edebug is a source level debugger.
