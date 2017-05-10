@@ -32,8 +32,15 @@
 (use-package magit
   :ensure t
   :bind (:map my-prog-vcs-map
-              ("v" . magit-status))
+              ("v" . magit-status)
+              ("l" . magit-list-repositories))
   :config
+  (setq magit-repository-directories
+        `((,user-emacs-directory . 0)
+          ("~/Code/Emacs/" . 2)
+          ("~/Code/Clojure/" . 2)
+          ))
+  
   ;; let magit status buffer display in current window.
   (setq magit-display-buffer-function 'display-buffer)
 
