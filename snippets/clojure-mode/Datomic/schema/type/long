@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-type-long
+# key: :db.type/long
+# group: datomic.schema.type
+# --
+:db.type/long `
+(popup-tip "Fixed integer value type. Same semantics as a Java long: 64 bits wide, two's complement binary representation." :truncate t)`

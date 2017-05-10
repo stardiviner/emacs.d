@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-attr-isComponent
+# key: :db/isComponent
+# group: datomic.schema.attribute
+# --
+:db/isComponent true `
+(popup-tip "Specifies that an attribute whose type is :db.type/ref refers to a subcomponent of the entity to which the attribute is applied. When you retract an entity with :db.fn/retractEntity, all subcomponents are also retracted. When you touch an entity, all its subcomponent entities are touched recursively. Defaults to nil." :truncate t)`

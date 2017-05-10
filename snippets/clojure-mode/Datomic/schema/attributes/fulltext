@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-attr-fulltext
+# key: :db/fulltext
+# group: datomic.schema.attribute
+# --
+:db/fulltext true `
+(popup-tip "Specifies a boolean value indicating that a fulltext search index should be generated for the attribute. Defaults to false." :truncate t)`

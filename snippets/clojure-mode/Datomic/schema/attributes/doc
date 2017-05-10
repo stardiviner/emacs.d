@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-attr-doc
+# key: :db/doc
+# group: datomic.schema.attribute
+# --
+:db/doc true `
+(popup-tip "Specifies a documentation string." :truncate t)`

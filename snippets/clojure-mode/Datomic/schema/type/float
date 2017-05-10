@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-type-float
+# key: :db.type/float
+# group: datomic.schema.type
+# --
+:db.type/float `
+(popup-tip "Floating point value type. Same semantics as a Java float: single-precision 32-bit IEEE 754 floating point." :truncate t)`

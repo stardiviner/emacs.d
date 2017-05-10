@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-type-ref
+# key: :db.type/ref
+# group: datomic.schema.type
+# --
+:db.type/ref `
+(popup-tip "Value type for references. All references from one entity to another are through attributes with this value type." :truncate t)`

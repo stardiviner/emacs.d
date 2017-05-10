@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-type-double
+# key: :db.type/double
+# group: datomic.schema.type
+# --
+:db.type/double `
+(popup-tip "Floating point value type. Same semantics as a Java double: double-precision 64-bit IEEE 754 floating point." :truncate t)`

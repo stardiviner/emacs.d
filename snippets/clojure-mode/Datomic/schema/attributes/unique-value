@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-attr-unique-value
+# key: :db.unique/value
+# group: datomic.schema.attributes
+# --
+:db.unique/value `
+(popup-tip "The attribute value is unique to each entity; attempts to insert a duplicate value for a different entity id will fail." :truncate t)`

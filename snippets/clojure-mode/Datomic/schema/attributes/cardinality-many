@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-attr-cardinality-many
+# key: :db.cardinality/many
+# group: datomic.schema.attributes
+# --
+:db.cardinality/many `
+(popup-tip "The attribute is multi valued, it associates a set of values with an entity." :truncate t)`

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-type-uri
+# key: :db.type/uri
+# group: datomic.schema.type
+# --
+:db.type/uri `
+(popup-tip "Value type for URIs. Maps to java.net.URI on Java platforms." :truncate t)`

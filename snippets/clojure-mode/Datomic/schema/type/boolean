@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-type-boolean
+# key: :db.type/boolean
+# group: datomic.schema.type
+# --
+:db.type/boolean `
+(popup-tip "Boolean value type." :truncate t)`

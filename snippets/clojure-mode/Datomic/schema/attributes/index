@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-attr-index
+# key: :db/index
+# group: datomic.schema.attribute
+# --
+:db/index true `
+(popup-tip "Specifies a boolean value indicating that an index should be generated for this attribute. Defaults to false." :truncate t)`

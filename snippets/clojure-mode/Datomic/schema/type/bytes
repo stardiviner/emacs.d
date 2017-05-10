@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-type-bytes
+# key: :db.type/bytes
+# group: datomic.schema.type
+# --
+:db.type/bytes `
+(popup-tip "Value type for small binary data. Maps to byte array on Java platforms." :truncate t)`

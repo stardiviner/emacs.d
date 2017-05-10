@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-attr-cardinality-one
+# key: :db.cardinality/one
+# group: datomic.schema.attributes
+# --
+:db.cardinality/one `
+(popup-tip "The attribute is single valued, it associates a single value with an entity." :truncate t)`

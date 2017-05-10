@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-type-keyword
+# key: :db.type/keyword
+# group: datomic.schema.type
+# --
+:db.type/keyword

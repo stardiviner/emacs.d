@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-type-string
+# key: :db.type/string
+# group: datomic.schema.type
+# --
+:db.type/string `
+(popup-tip "Value type for strings." :truncate t)`

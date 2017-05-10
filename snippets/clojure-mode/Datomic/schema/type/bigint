@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-type-bigint
+# key: :db.type/bigint
+# group: datomic.schema.type
+# --
+:db.type/bigint `
+(popup-tip "Value type for arbitrary precision integers. Maps to java.math.BigInteger on Java platforms." :truncate t)`

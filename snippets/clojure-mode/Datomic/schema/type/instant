@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-type-instant
+# key: :db.type/instant
+# group: datomic.schema.type
+# --
+:db.type/instant `
+(popup-tip "Value type for instants in time. Stored internally as a number of milliseconds since midnight, January 1, 1970 UTC. Maps to java.util.Date on Java platforms." :truncate t)`

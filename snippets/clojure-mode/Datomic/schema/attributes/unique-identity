@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-attr-unique-identity
+# key: :db.unique/identity
+# group: datomic.schema.attributes
+# --
+:db.unique/identity `
+(popup-tip "The attribute value is unique to each entity and upsert is enabled; attempts to insert a duplicate value for a temporary entity id will cause all attributes associated with that temporary id to be merged with the entity already in the database." :truncate t)`

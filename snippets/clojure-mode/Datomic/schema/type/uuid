@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-type-uuid
+# key: :db.type/uuid
+# group: datomic.schema.type
+# --
+:db.type/uuid `
+(popup-tip "Value type for UUIDs. Maps to java.util.UUID on Java platforms." :truncate t)`

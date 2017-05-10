@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-attr-cardinality
+# key: :db/cardinality
+# group: datomic.schema.attributes
+# --
+:db/cardinality `
+(popup-tip "Specifies whether an attribute associates a single value or a set of values with an entity." :truncate t)`

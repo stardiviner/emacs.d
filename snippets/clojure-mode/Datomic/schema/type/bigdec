@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-type-bigdec
+# key: :db.type/bigdec
+# group: datomic.schema.type
+# --
+:db.type/bigdec `
+(popup-tip "Value type for arbitrary precision floating point numbers. Maps to java.math.BigDecimal on Java platforms." :truncate t)`

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-attr-unique
+# key: :db/unique
+# group: datomic.schema.attribute
+# --
+:db/unique :db.unique/value `
+(popup-tip "Specifies a uniqueness constraint for the values of an attribute. Setting an attribute :db/unique also implies :db/index." :truncate t)`

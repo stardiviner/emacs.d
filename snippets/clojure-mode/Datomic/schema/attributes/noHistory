@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: datomic-schema-attr-noHistory
+# key: :db/noHistory
+# group: datomic.schema.attribute
+# --
+:db/noHistory true `
+(popup-tip "Specifies a boolean value indicating whether past values of an attribute should not be retained. Defaults to false." :truncate t)`
