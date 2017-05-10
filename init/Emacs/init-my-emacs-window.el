@@ -297,6 +297,7 @@
   ;; Clojure, CIDER
   (push '(inf-clojure-mode :position bottom :height 8) popwin:special-display-config)
   (push '(cider-clojure-interaction-mode :position bottom :height 8) popwin:special-display-config)
+  (push '(cider-repl-mode :position bottom :height 8) popwin:special-display-config)
   (push '(cider-docvqiew-mode :position bottom :height 10 :noselect nil) popwin:special-display-config)
   (push '(cider-inspector-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
 
