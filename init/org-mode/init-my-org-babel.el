@@ -341,10 +341,7 @@
 
 ;;; [ Library of Babel ]
 
-;; (setq org-babel-lob-files
-;;       org-babel-library-of-babel
-;;       )
-
+(org-babel-lob-ingest (concat user-emacs-directory "Org-mode/Library of Babel/Library of Babel.org"))
 
 ;;;_ * source code block check
 ;;
