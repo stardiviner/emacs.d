@@ -629,6 +629,26 @@ dimensions of a block selection."
              (setq org-mode-line-string nil)
              (force-mode-line-update)))
 
+(require 'org-timer)
+
+(defun *org-timer ()
+  "Show `org-timer' info in my custom mode-line."
+  (if (and (active)
+           (or org-timer-mode-line-timer
+               org-timer-countdown-timer
+               (org-at-item-timer-p)
+               ))
+      ;; - `org-timer-value-string'
+      ;; - `org-timer-set-mode-line'
+      ;; - `org-timer-mode-line-string'
+      (propertize
+       (concat
+        (all-the-icons-material "alarm_on" :v-adjust 0.05)
+        (format "%s" org-timer-mode-line-string))
+       'face 'mode-line-data-face)
+    )
+  )
+
 (defun *space (n)
   "Add `N' spaces for custom mode-line alignment."
   (propertize (make-string n (string-to-char " ")) 'face 'variable-pitch))
@@ -682,6 +702,7 @@ dimensions of a block selection."
                  (*pdf-tools-page-position)
                  (*org-tree-slide)
                  (*org-clock)
+                 (*org-timer)
                  (*process)
                  (*my-rtags-modeline)
                  ))
