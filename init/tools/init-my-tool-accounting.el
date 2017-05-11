@@ -16,8 +16,7 @@
 (use-package ledger-mode
   :ensure t
   :defer t
-  :init
-  (add-to-list 'auto-mode-alist '("\\.ledger\\'" . ledger-mode))
+  :mode ("\\.ledger\\'" . ledger-mode)
   :config
   (use-package flycheck-ledger
     :ensure t
@@ -33,14 +32,14 @@
 
 (use-package hledger-mode
   :ensure t
-  :init
-  (add-to-list 'auto-mode-alist '("\\.journal\\'" . hledger-mode))
-  (add-to-list 'auto-mode-alist '("\\.hledger\\'" . hledger-mode))
-  (setq hledger-jfile "~/Org/Accounting/hledger.journal")
+  :mode (("\\.journal\\'" . hledger-mode)
+         ("\\.hledger\\'" . hledger-mode))
   :bind (:map accounting-prefix
               ("j" . hledger-run-command)
               ("e" . hledger-jentry))
   :config
+  (setq hledger-jfile "~/Org/Accounting/hledger.journal")
+  
   (add-hook 'hledger-mode-hook
             (lambda ()
               ;; for company-mode
