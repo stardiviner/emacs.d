@@ -34,23 +34,23 @@
 
 ;;; [ leuven-theme ] -- Awesome Emacs color theme on white background.
 
-;; (use-package leuven-theme
-;;   :ensure t
-;;   :config
-;;   (setq leuven-scale-outline-headlines t)
-;;   (load-theme 'leuven t)
-;;   (set-face-attribute 'highlight nil
-;;                       :foreground (color-darken-name (face-foreground 'default) 50)
-;;                       :background (color-darken-name (face-background 'default) 5)
-;;                       )
-;;   )
+(use-package leuven-theme
+  :ensure t
+  :config
+  (setq leuven-scale-outline-headlines t)
+  (load-theme 'leuven t)
+  (set-face-attribute 'highlight nil
+                      :foreground (color-darken-name (face-foreground 'default) 50)
+                      :background (color-darken-name (face-background 'default) 5)
+                      )
+  )
 
 ;;; [ nord-theme ] -- An arctic, north-bluish clean and elegant Emacs theme.
 
-(use-package nord-theme
-  :ensure t
-  :config
-  (load-theme 'nord t))
+;; (use-package nord-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'nord t))
 
 ;;; [ madhat2r-theme ] -- Dark theme for (spac[e]macs) that supports GUI and terminal.
 
