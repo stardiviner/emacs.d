@@ -120,12 +120,12 @@
 
 ;;; [ Swpier ] -- gives you an overview as you search for a regex.
 
-;; (use-package swiper
-;;   :ensure t
-;;   :defer t
-;;   :bind (("C-s" . swiper)
-;;          ("C-c u" . swiper-all))
-;;   )
+(use-package swiper
+  :ensure t
+  :defer t
+  :bind (("C-s" . swiper)
+         ("C-c u" . swiper-all))
+  )
 
 
 (provide 'init-my-emacs-search-isearch)
