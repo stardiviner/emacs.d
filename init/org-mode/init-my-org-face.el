@@ -277,10 +277,6 @@
                     :underline "red"
                     :weight 'bold)
 
-;; org structure faces
-(set-face-attribute 'org-agenda-structure nil
-                    :weight 'bold)
-
 ;; set Org clock face.
 ;; That is, make the org-mode-line-clock no longer inherit attributes from the
 ;; mode-line face. It seems like it gets the attributes from mode-line or
