@@ -75,6 +75,29 @@
   :defer t
   :init
   (add-hook 'js-mode-hook 'js2-minor-mode)
+  :config
+  (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
+
+  ;; [ js2-refactor ]
+  (use-package js2-refactor
+    :ensure t
+    :config
+    (add-hook 'js2-mode-hook #'js2-refactor-mode)
+    (js2r-add-keybindings-with-prefix "M-RET")
+    (define-key js2-mode-map (kbd "C-k") #'js2r-kill)
+    )
+
+  ;; [ xref-js2 ] -- Jump to references/definitions using ag & js2-mode's AST in Emacs.
+  (use-package xref-js2
+    :ensure t
+    :config
+    (add-hook 'js2-mode-hook
+              (lambda ()
+                (define-key js2-mode-map (kbd "M-.") nil)
+                (add-to-list (make-local-variable 'xref-backend-functions)
+                             'xref-js2-xref-backend)
+                ))
+    )
   )
 
 
@@ -293,20 +316,6 @@
 (use-package js-import
   :ensure t
   :defer t)
-
-;;; [ xref-js2 ] -- Jump to references/definitions using ag & js2-mode's AST in Emacs.
-
-(use-package xref-js2
-  :ensure t
-  :defer t
-  :init
-  (add-hook 'js2-mode-hook
-            (lambda ()
-              (define-key js2-mode-map (kbd "M-.") nil)
-              (add-to-list (make-local-variable 'xref-backend-functions)
-                           'xref-js2-xref-backend)
-              ))
-  )
 
 ;;; [ js-format ] -- Format or transform code style using NodeJS server with different javascript formatter.
 
