@@ -183,7 +183,7 @@
         ("VCS" ,(list (all-the-icons-faicon "git")) nil nil :ascent center)
         ("Git" ,(list (all-the-icons-faicon "git")) nil nil :ascent center)
         ("Design" ,(list (all-the-icons-faicon "file-image-o")) nil nil :ascent center)
-        ("Computer" ,(list (all-the-icons-faicon "desktop")) nil nil :ascent center)
+        ("Computer" ,(list (all-the-icons-faicon "laptop")) nil nil :ascent center) ; desktop
         ("Laptop" ,(list (all-the-icons-faicon "laptop")) nil nil :ascent center)
         ("Hardware" ,(list (all-the-icons-faicon "desktop")) nil nil :ascent center)
         ("Audio" ,(list (all-the-icons-faicon "file-audio-o")) nil nil :ascent center)
@@ -193,6 +193,7 @@
         ("Project" ,(list (all-the-icons-faicon "tasks")) nil nil :ascent center)
         ("Startup" ,(list (all-the-icons-faicon "codepen")) nil nil :ascent center)
         ("Hack" ,(list (all-the-icons-material "security")) nil nil :ascent center)
+        ("Crack" ,(list (all-the-icons-faicon "user-secret")) nil nil :ascent center)
         ("Security" ,(list (all-the-icons-material "security")) nil nil :ascent center)
         ;; ("Anonymous"  "~/.emacs.d/resources/icon/Anonymous.xpm" nil nil :ascent center)
         ("Daily" ,(list (all-the-icons-faicon "calendar-check-o")) nil nil :ascent center)
@@ -248,6 +249,10 @@
         ("Bitcoin" ,(list (all-the-icons-faicon "btc")) nil nil :ascent center)
         ;; ("GFW" "~/.emacs.d/resources/icon/GFW.xpm" nil nil :ascent center)
 
+        ("Entertainment" ,(list (all-the-icons-faicon "youtube")) nil nil :ascent center)
+        ("Health" ,(list (all-the-icons-faicon "medkit")) nil nil :ascent center) ; hospital-o
+        ("Buy" ,(list (all-the-icons-faicon "shopping-cart")) nil nil :ascent center)
+        
         (".*" '(space . (:width (16))))
         ))
 
