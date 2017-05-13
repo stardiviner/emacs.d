@@ -2,7 +2,151 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Design.org"
+(("Thinking.org"
+ (filename . "~/Org/Wiki/Thinking/Thinking.org")
+ (front-context-string . "#+TITLE: Thinkin")
+ (rear-context-string)
+ (position . 1))
+("Creativity.org"
+ (filename . "~/Org/Wiki/Thinking/Creativity/Creativity.org")
+ (front-context-string . "#+TITLE: Creativ")
+ (rear-context-string)
+ (position . 1))
+("World History.org"
+ (filename . "~/Org/Wiki/History/Country's History/World History/World History.org")
+ (front-context-string . "#+TITLE: World H")
+ (rear-context-string)
+ (position . 1))
+("Artificial Intelligence.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implements/Artificial Intelligence/Artificial Intelligence.org")
+ (front-context-string . "#+TITLE: Artific")
+ (rear-context-string)
+ (position . 1))
+("Politics.org"
+ (filename . "~/Org/Wiki/Politics/Politics.org")
+ (front-context-string . "#+TITLE: Politic")
+ (rear-context-string)
+ (position . 1))
+("Raspberry Pi.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implements/Hardware/Dev Board/Raspberry Pi/Raspberry Pi.org")
+ (front-context-string . "#+TITLE: Raspber")
+ (rear-context-string)
+ (position . 1))
+("Conky.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Conky/Conky.org")
+ (front-context-string . "* Intro\n\n\n** Fea")
+ (rear-context-string)
+ (position . 1))
+("Functional Programming.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Coding/Programming Paradigms/Functional Programming/Functional Programming.org")
+ (front-context-string . "#+TITLE: Functio")
+ (rear-context-string)
+ (position . 1))
+("Object-Oriented Programming.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Coding/Programming Paradigms/Object-Oriented Programming/Object-Oriented Programming.org")
+ (front-context-string . "#+TITLE: Object-")
+ (rear-context-string)
+ (position . 1))
+("Literate Programming.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Coding/Programming Paradigms/Literate Programming/Literate Programming.org")
+ (front-context-string . "#+TITLE: Literat")
+ (rear-context-string)
+ (position . 1))
+("Programming Paradigms.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Coding/Programming Paradigms/Programming Paradigms.org")
+ (front-context-string . "#+TITLE: Program")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Code/learning/Emacs/Org-mode/landscape-view.pdf"
+ (filename . "~/Code/learning/Emacs/Org-mode/landscape-view.pdf")
+ (position . 1)
+ (page . 2)
+ (slice 0.092424 0.187418 0.13080799999999998 0.339216)
+ (size . fit-width)
+ (origin 0.0 . 0.4562798092209857)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Softwares/data/docs/Tmux: Productive Mouse-Free Development.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/data/docs/Tmux: Productive Mouse-Free Development.pdf")
+ (position . 1)
+ (page . 60)
+ (slice 0 0.019753 1 1)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Softwares/data/8f/21e898-cc7f-4454-a1cc-b7f30c053280/ledger-mode.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/data/8f/21e898-cc7f-4454-a1cc-b7f30c053280/ledger-mode.pdf")
+ (position . 1)
+ (page . 3)
+ (slice 0.122059 0.038131000000000005 0.7558819999999999 0.890909)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("use-package.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/use-package.org")
+ (front-context-string . "* Intro\n\nA use-p")
+ (rear-context-string)
+ (position . 1))
+("Library of Babel.org"
+ (filename . "~/.emacs.d/Org-mode/Library of Babel/Library of Babel.org")
+ (front-context-string . "#+TITLE: Library")
+ (rear-context-string)
+ (position . 1))
+("Hardware Programming.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implements/Hardware/Hardware Programming/Hardware Programming.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Ubuntu.org"
+ (filename . "~/Org/Wiki/Computer Technology/Systems/Linux/Linux Distributions/Ubuntu/Ubuntu.org")
+ (front-context-string . "* Intro\n\n\n\n* Dat")
+ (rear-context-string)
+ (position . 1))
+("Kali Linux.org"
+ (filename . "~/Org/Wiki/Computer Technology/Systems/Linux/Linux Distributions/Kali Linux/Kali Linux.org")
+ (front-context-string . "* Intro\n\nKali Li")
+ (rear-context-string)
+ (position . 1))
+("Arch.org"
+ (filename . "~/Org/Wiki/Computer Technology/Systems/Linux/Linux Distributions/Arch/Arch.org")
+ (front-context-string . "* Intro\n:PROPERT")
+ (rear-context-string)
+ (position . 1))
+("Linux Distributions.org"
+ (filename . "~/Org/Wiki/Computer Technology/Systems/Linux/Linux Distributions/Linux Distributions.org")
+ (front-context-string . "* Common\n\n- [[fi")
+ (rear-context-string)
+ (position . 1))
+("Erlang.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Erlang/Erlang.org")
+ (front-context-string . "* Intro\n\n*Build ")
+ (rear-context-string)
+ (position . 1))
+("My Sex Positions Reference.org"
+ (filename . "~/Org/Wiki/Sexology/Sexual Intercourse/Sex Positions/Data/Manuals/My Sex Positions Reference/My Sex Positions Reference.org")
+ (front-context-string . "#+TITLE: My Sex ")
+ (rear-context-string)
+ (position . 1))
+("LGBTQ.org"
+ (filename . "~/Org/Wiki/LGBTQ/LGBTQ.org")
+ (front-context-string . "* Intro\n\n\n** LGB")
+ (rear-context-string)
+ (position . 1))
+("regular expression syntax reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/regexp/Data/Manuals/regular expression syntax reference/regular expression syntax reference.org")
+ (front-context-string . "#+TITLE: regular")
+ (rear-context-string)
+ (position . 1))
+("regexp.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/regexp/regexp.org")
+ (front-context-string . "* Intro\n:PROPERT")
+ (rear-context-string)
+ (position . 1))
+("Spiritual.org"
+ (filename . "~/Org/Wiki/Spiritual/Spiritual.org")
+ (front-context-string . "* Intro\n\n** \"灵修\"")
+ (rear-context-string)
+ (position . 1))
+("Design.org"
  (filename . "~/Org/Wiki/Design/Design.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
@@ -41,11 +185,6 @@
 ("Vagrant.org"
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Vagrant/Vagrant.org")
  (front-context-string . "* Intro\n\nVagrant")
- (rear-context-string)
- (position . 1))
-("Kali Linux.org"
- (filename . "~/Org/Wiki/Computer Technology/Systems/Linux/Distributions/Kali Linux/Kali Linux.org")
- (front-context-string . "* Intro\n\nKali Li")
  (rear-context-string)
  (position . 1))
 ("Japanese.org"
@@ -300,7 +439,7 @@
  (position . 1))
 ("My R Language Syntax Reference.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/R/Data/Manuals/My R Language Syntax Reference/My R Language Syntax Reference.org")
- (front-context-string . "* Data Types\n\n\n*")
+ (front-context-string . "#+TITLE: My R La")
  (rear-context-string)
  (position . 1))
 ("Prolog.org"
@@ -346,11 +485,6 @@
 ("Open Source.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Open Source/Open Source.org")
  (front-context-string . "* Intro\n\n\n** Lin")
- (rear-context-string)
- (position . 1))
-("Paradigms.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Coding/Paradigms/Paradigms.org")
- (front-context-string . "* Intro\n\n** Comp")
  (rear-context-string)
  (position . 1))
 ("Programming Concepts.org"
@@ -553,21 +687,6 @@
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
  (position . 1))
-("Linux Distributions"
- (filename . "~/Org/Wiki/Computer Technology/Systems/Linux/Data/Distributions/Distributions.org")
- (front-context-string . "* Common\n\n- [[fi")
- (rear-context-string)
- (position . 1))
-("Debian.org"
- (filename . "~/Org/Wiki/Computer Technology/Systems/Linux/Data/Distributions/Debian/Debian.org")
- (front-context-string . "* Intro\n\n** Debi")
- (rear-context-string)
- (position . 1))
-("Ubuntu.org"
- (filename . "~/Org/Wiki/Computer Technology/Systems/Linux/Data/Distributions/Ubuntu/Ubuntu.org")
- (front-context-string . "[[file:Ubuntu%20")
- (rear-context-string . " Ubuntu Mobile\n\n")
- (position . 2343))
 ("Android.org"
  (filename . "~/Org/Wiki/Computer Technology/Systems/Android/Android.org")
  (front-context-string . "* Intro\n\n\n* Data")
@@ -616,11 +735,6 @@
 ("Rust.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Rust/Rust.org")
  (front-context-string . "* Intro\n\nRust is")
- (rear-context-string)
- (position . 1))
-("Arch.org"
- (filename . "~/Org/Wiki/Computer Technology/Systems/Linux/Data/Distributions/Arch/Arch.org")
- (front-context-string . "* Intro\n:PROPERT")
  (rear-context-string)
  (position . 1))
 ("NoSQL.org"
@@ -873,11 +987,6 @@
  (front-context-string . "iOS Development]")
  (rear-context-string . "evelopment.org][")
  (position . 1624))
-("LGBT.org"
- (filename . "~/Org/Wiki/LGBT/LGBT.org")
- (front-context-string . "* Intro\n\n\n** LGB")
- (rear-context-string)
- (position . 1))
 ("TeX.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/TeX/TeX.org")
  (front-context-string . "* Intro\n\nThe TeX")
@@ -959,8 +1068,8 @@
  (rear-context-string)
  (position . 1))
 ("Packages.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Java/Data/Packages/Packages.org")
- (front-context-string . "* Process\n\n** Th")
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/Data/Packages/Packages.org")
+ (front-context-string . "* JavaScript Lan")
  (rear-context-string)
  (position . 1))
 ("My SQL Reference.org"
@@ -1089,10 +1198,10 @@
  (rear-context-string)
  (position . 1))
 ("org-capture-last-stored"
- (filename . "~/Org/Capture/Capture.org")
- (front-context-string . "** TODO Join fun")
- (rear-context-string . "RY: Todo\n:END:\n\n")
- (position . 53))
+ (filename . "~/Org/Contacts/Contacts.org")
+ (front-context-string . "** 林志强\n:PROPERTI")
+ (rear-context-string . "obbies: \n:END:\n\n")
+ (position . 74197))
 ("Accounts"
  (filename . "~/Org/Accounts/accounts.org.gpg")
  (front-context-string . "* Nick\n\nstardivi")
