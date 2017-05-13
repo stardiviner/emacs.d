@@ -269,6 +269,13 @@
     (add-hook hook #'indium-interaction-mode))
   :config
   (setq indium-chrome-executable "google-chrome-unstable")
+  ;; live JavaScript source edit and update.
+  (setq indium-update-script-on-save t)
+  ;; You can setup a hook to be run after each script update.
+  (add-hook 'indium-update-script-source-hook
+            (lambda (url)
+              (indium-eval
+               (format "window.dispatchEvent(new CustomEvent('patch', {detail: {url: '%s'}}))" url))))
   )
 
 ;;; [ jsx-mode ] -- The XML inside of JavaScript.
