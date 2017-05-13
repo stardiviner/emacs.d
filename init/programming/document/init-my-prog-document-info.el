@@ -25,7 +25,20 @@
         (switch-to-buffer bufname)
       (info topic bufname))))
 
-
+(use-package info+
+  :ensure t
+  :defer t
+  :config
+  (setq Info-breadcrumbs-in-header-flag t
+        ;; Info-display-node-header-fn
+        Info-fit-frame-flag t
+        Info-fontify-angle-bracketed-flag t
+        Info-fontify-quotations-flag t
+        Info-fontify-reference-items-flag t
+        Info-fontify-single-quote-flag t
+        Info-saved-nodes t
+        )
+  )
 
 (use-package niceify-info
   :ensure t
