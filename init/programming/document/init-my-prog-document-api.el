@@ -191,9 +191,9 @@
 
 ;;; [ apib-mode ] -- Emacs API Blueprint major mode.
 
-(use-package apib-mode
-  :ensure t
-  :mode "\\.apib\\'")
+;; (use-package apib-mode
+;;   :ensure t
+;;   :mode "\\.apib\\'")
 
 
 (provide 'init-my-prog-document-api)
