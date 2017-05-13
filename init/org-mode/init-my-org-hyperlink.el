@@ -74,9 +74,9 @@
         ("\\.odp\\'" . "libreoffice %s") ; Presentation
         ("\\.odf\\'" . "libreoffice %s") ; Database / Formula
         ;; Video
-        ;; ("\\.mp4\\'" . "mpv %s")
-        ;; ("\\.mov\\'" . "mpv %s")
-        ;; ("\\.ogv\\'" . "mpv %s")
+        ("\\.mp4\\'" . "mpv %s")
+        ("\\.mov\\'" . "mpv %s")
+        ("\\.ogv\\'" . "mpv %s")
         ;; Audio
         ("\\.mp3\\'" . "mpg123 %s")
         ("\\.ogg\\'" . "mpv %s")
