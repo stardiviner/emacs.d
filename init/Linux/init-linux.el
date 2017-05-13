@@ -15,7 +15,7 @@
   :config
   (add-hook 'systemd-mode-hook
             (lambda ()
-              (my-company-add-backend-locally 'systemd-company-backend)))
+              (my-company-add-backend-locally 'systemd-company-backend)) :local t)
   )
 
 
