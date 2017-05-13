@@ -130,6 +130,7 @@
    ;; (sagemath . t)        ; ob-sagemath
    ;; (restclient . t)                     ; ob-restclient
    (elasticsearch . t)                  ; es-mode
+   (mongo . t)                          ; ob-mongo
    ))
 
 ;;; [ Tangle ]
