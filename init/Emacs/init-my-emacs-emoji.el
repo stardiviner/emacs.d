@@ -29,7 +29,13 @@
 (use-package company-emoji
   :ensure t
   :config
-  ;; (add-to-list 'company-backends 'company-emoji)
+  (dolist (hook '(org-mode-hook
+                  markdown-mode-hook
+                  tex-mode-hook
+                  latex-mode-hook))
+    (add-hook hook
+              (lambda ()
+                (my-company-add-backend-locally 'company-emoji))))
   )
 
 

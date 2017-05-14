@@ -44,7 +44,6 @@
                   (company-capf         ; `completion-at-point-functions'
                    :with
                    company-yasnippet)
-                  ;; company-emoji
                   ;; :separate company-ispell
                   (company-keywords
                    :with
