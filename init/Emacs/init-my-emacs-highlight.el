@@ -36,11 +36,14 @@
   :ensure t
   :bind (:map my-highlight-prefix
               ("h" . symbol-overlay-put)
-              ("H" . symbol-overlay-toggle-in-scope)
+              ("t" . symbol-overlay-toggle-in-scope)
+              ("s" . symbol-overlay-isearch-literatelly)
               ("p" . symbol-overlay-jump-prev)
               ("n" . symbol-overlay-jump-next)
               ("d" . symbol-overlay-jump-to-definition)
-              ("c" . symbol-overlay-remove-all)
+              ("M-," . symbol-overlay-echo-mark)
+              ("c" . symbol-overlay-save-symbol)
+              ("k" . symbol-overlay-remove-all)
               ("r" . symbol-overlay-rename)
               ("q" . symbol-overlay-query-replace)
               ("P" . symbol-overlay-switch-backward)
