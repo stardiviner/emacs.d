@@ -100,37 +100,37 @@
 
 ;;; [ aggressive-indent-mode ]
 
-;; (use-package aggressive-indent
-;;   :ensure t
-;;   :config
-;;   (setq aggressive-indent-sit-for-time 0.1)
-;;
-;;   ;; The variable `aggressive-indent-dont-indent-if' lets you customize when you
-;;   ;; **don't** want indentation to happen.  For instance, if you think it's
-;;   ;; annoying that lines jump around in `c++-mode' because you haven't typed the
-;;   ;; `;' yet, you could add the following clause:
-;;   (add-to-list 'aggressive-indent-dont-indent-if
-;;                '(and (derived-mode-p 'c++-mode)
-;;                      (null (string-match "\\([;{}]\\|\\b\\(if\\|for\\|while\\)\\b\\)"
-;;                                          (thing-at-point 'line)))))
-;;
-;;
-;;   (add-to-list 'aggressive-indent-excluded-modes 'ruby-mode)
-;;   (add-to-list 'aggressive-indent-excluded-modes 'enh-ruby-mode)
-;;   (add-to-list 'aggressive-indent-excluded-modes 'inf-ruby-mode)
-;;   (add-to-list 'aggressive-indent-excluded-modes 'python-mode)
-;;   (add-to-list 'aggressive-indent-excluded-modes 'haskell-mode)
-;;   (add-to-list 'aggressive-indent-excluded-modes 'lua-mode)
-;;   (add-to-list 'aggressive-indent-excluded-modes 'makefile-mode)
-;;   (add-to-list 'aggressive-indent-excluded-modes 'coq-mode)
-;;
-;;   ;; (global-aggressive-indent-mode t)
-;;   ;; or
-;;   (dolist (hook '(prog-mode-hook
-;;                   nxml-mode-hook
-;;                   ))
-;;     (add-hook hook #'aggressive-indent-mode))
-;;   )
+(use-package aggressive-indent
+  :ensure t
+  :config
+  (setq aggressive-indent-sit-for-time 0.1)
+
+  ;; The variable `aggressive-indent-dont-indent-if' lets you customize when you
+  ;; **don't** want indentation to happen.  For instance, if you think it's
+  ;; annoying that lines jump around in `c++-mode' because you haven't typed the
+  ;; `;' yet, you could add the following clause:
+  (add-to-list 'aggressive-indent-dont-indent-if
+               '(and (derived-mode-p 'c++-mode)
+                     (null (string-match "\\([;{}]\\|\\b\\(if\\|for\\|while\\)\\b\\)"
+                                         (thing-at-point 'line)))))
+
+
+  (add-to-list 'aggressive-indent-excluded-modes 'ruby-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'enh-ruby-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'inf-ruby-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'python-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'haskell-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'lua-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'makefile-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'coq-mode)
+
+  ;; (global-aggressive-indent-mode t)
+  ;; or
+  (dolist (hook '(prog-mode-hook
+                  nxml-mode-hook
+                  ))
+    (add-hook hook #'aggressive-indent-mode))
+  )
 
 
 
