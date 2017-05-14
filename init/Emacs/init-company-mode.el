@@ -50,7 +50,6 @@
                    :with
                    company-dabbrev-code)
                   company-abbrev
-                  company-keywords      ; keywords
                   )
                 )
 
