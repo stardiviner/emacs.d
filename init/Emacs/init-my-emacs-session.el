@@ -23,7 +23,7 @@
 
 (use-package desktop
   :ensure t
-  :init
+  :config
   (setq desktop-path (list (concat user-emacs-directory ".desktop-save")))
 
   (desktop-save-mode 1)

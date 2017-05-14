@@ -76,6 +76,8 @@
 ;;; [ ob-latex ]
 (require 'ob-latex)
 
+;; (require 'ob-js)
+;; (setq org-babel-js-cmd "node")
 
 (org-babel-do-load-languages
  'org-babel-load-languages

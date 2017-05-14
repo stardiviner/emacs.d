@@ -130,7 +130,7 @@
 
 
 ;; append "`man:'" protocol.
-;; `[[man:printf][The printf manpage]]'
+;; `[[man:(section: 7 or 3r)gv][gv (man page)]]'
 (require 'org-man)
 (setq org-man-command 'man) ; 'man, 'woman.
 
