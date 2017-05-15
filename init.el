@@ -197,7 +197,9 @@
 (require 'init-my-prog-folding)
 (require 'init-my-prog-complete)
 (require 'init-my-prog-sense)
-(require 'init-my-prog-tags)
+;;; fix issue which `company-rtags' backend is before `company-irony'.
+(with-eval-after-load 'init-my-prog-lang-C-common
+  (require 'init-my-prog-tags))
 (require 'init-my-prog-snippet)
 (require 'init-my-prog-template)
 (require 'init-my-prog-sidebar)

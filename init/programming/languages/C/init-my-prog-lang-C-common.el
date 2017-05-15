@@ -91,8 +91,7 @@
 
 (use-package company-irony
   :ensure t
-  :defer t
-  :init
+  :config
   (defun company-irony-add ()
     ;; (optional) adds CC special commands to `company-begin-commands'
     ;; in order to trigger completion at interesting places, such as
