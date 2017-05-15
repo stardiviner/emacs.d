@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-tangle-sudo
+# key: babel-tangle-sudo
+# group: babel.tangle
+# --
+#+BEGIN_SRC ${1:conf} :tangle "/sudo::${2:/path/to/admin-file}"
+$0
+#+END_SRC
