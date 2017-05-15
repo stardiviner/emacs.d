@@ -6,6 +6,9 @@
 
 
 ;;; Code:
+;;; [ X Resources ]
+
+(setq inhibit-x-resources t)
 
 ;;; [ Color Theme ]
 
