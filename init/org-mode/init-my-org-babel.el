@@ -508,6 +508,9 @@
   :config
   (with-eval-after-load 'org
     (add-hook 'org-ctrl-c-ctrl-c-hook #'ob-async-org-babel-execute-src-block))
+
+  ;; add header argument `:async' to default header arguments list
+  (add-to-list 'org-babel-default-header-args '(:async))
   )
 
 ;;; [ org-babel-eval-in-repl ] -- eval org-babel block code with eval-in-repl.el
