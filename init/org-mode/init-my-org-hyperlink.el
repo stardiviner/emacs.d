@@ -393,6 +393,12 @@ With prefix argument, also display headlines without a TODO keyword."
           "bibtex %b"
           "pdflatex -interaction nonstopmode -output-directory %o %f"
           "pdflatex -interaction nonstopmode -output-directory %o %f"))
+
+  (require 'f)
+  (setq org-ref-default-bibliography
+        (f-files "~/Org/Bibliography/"
+                 (lambda (f)
+                   (f-ext? f "bib"))))
   )
 
 
