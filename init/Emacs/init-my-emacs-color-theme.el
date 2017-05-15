@@ -125,6 +125,8 @@
                     :background (color-lighten-name (face-background 'default) 3)
                     )
 
+;;; apply color-theme on new frame to fix issue.
+(add-hook 'after-make-frame-functions (lambda () (load-theme 'leuven t)))
 
 ;;; [ select-themes ] -- select color-theme with completing-read.
 
