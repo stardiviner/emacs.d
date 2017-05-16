@@ -188,7 +188,7 @@
                       :foreground "white"
                       :background (cl-case (alist-get 'background-mode (frame-parameters))
                                     ('dark "OliveDrab")
-                                    ('light "light pink")))
+                                    ('light "light coral")))
   (set-face-attribute 'company-tooltip-mouse nil
                       :inherit 'company-tooltip
                       :foreground (face-foreground 'company-tooltip)
@@ -209,7 +209,7 @@
   ;; common selection
   (set-face-attribute 'company-tooltip-common-selection nil
                       :inherit 'company-tooltip-selection
-                      :foreground (face-foreground 'company-tooltip-common))
+                      :foreground (face-foreground 'company-tooltip-selection))
   ;; search
   (set-face-attribute 'company-tooltip-search nil
                       :inherit 'company-tooltip
