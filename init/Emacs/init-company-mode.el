@@ -34,9 +34,6 @@
   ;; `company-mode' frontend showing the selection as if it had been inserted.
   ;; (add-to-list 'company-frontends 'company-preview-frontend)
 
-  (use-package company-emoji
-    :ensure t)
-  
   (setq-default company-backends
                 '(company-files         ; files & directory
                   ;; company-gtags company-etags
