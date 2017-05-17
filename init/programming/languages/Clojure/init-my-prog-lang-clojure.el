@@ -186,8 +186,8 @@
   ;; Java
 
   ;; Enlighten faces
-  ;; https://github.com/clojure-emacs/cider/pull/1950
-  (add-hook 'cider-mode-hook #'cider-enlighten-mode)
+  ;; `cider-enlighten-mode' will extremely slow down Clojure/CIDER evaluation.
+  ;; (add-hook 'cider-mode-hook #'cider-enlighten-mode)
 
   (set-face-attribute 'cider-enlightened-face nil
                       :foreground "dark orange"
