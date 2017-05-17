@@ -53,11 +53,11 @@
     "Add a backend in my custom way.
 
 \\(my-company-add-backend-locally 'company-robe\\)"
-         (if (local-variable-if-set-p 'company-backends)
-             (add-to-list 'company-backends `(,backend :with company-yasnippet))
-           (add-to-list (make-local-variable 'company-backends)
-                        `(,backend :with company-yasnippet))
-           ))
+    (if (local-variable-if-set-p 'company-backends)
+        (add-to-list 'company-backends `(,backend :with company-yasnippet))
+      (add-to-list (make-local-variable 'company-backends)
+                   `(,backend :with company-yasnippet))
+      ))
 
   ;; globally
   (global-company-mode 1)

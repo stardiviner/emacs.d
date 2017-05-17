@@ -300,10 +300,11 @@ Optional argument NS, if not provided, defaults to
            (result-buffer (cider-popup-buffer cider-metadata-buffer t 'clojure-mode t))
            (handler (cider-popup-eval-out-handler result-buffer)))
       (with-current-buffer buf
-        (cider-interactive-eval (format "(meta (var %s))" (concat (or ns (cider-current-ns)) "/" var))
-                                handler
-                                nil
-                                (cider--nrepl-pprint-request-plist (cider--pretty-print-width))))))
+        (cider-interactive-eval
+         (format "(meta (var %s))" (concat (or ns (cider-current-ns)) "/" var))
+         handler
+         nil
+         (cider--nrepl-pprint-request-plist (cider--pretty-print-width))))))
 
   ;; [ helm-cider ] -- Helm interface to CIDER.
   (use-package helm-cider
