@@ -129,7 +129,15 @@ This function is intended to be added to `post-command-hook'."
 ;;         aya-create-with-newline t)
 ;;   )
 
+;;; [ org-sync-snippets ] -- simple extension to export snippets to org-mode and vice versa.
 
+(use-package org-sync-snippets
+  :ensure t
+  :config
+  (setq org-sync-snippets-snippets-dir (concat user-emacs-directory "snippets/"))
+  (setq org-sync-snippets-org-snippets-file (concat (file-name-as-directory org-directory) "Programming/Code Snippets/yasnippets.org"))
+  (add-hook 'yas-after-reload-hook 'org-sync-snippets-snippets-to-org)
+  )
 
 
 (provide 'init-my-prog-snippet)
