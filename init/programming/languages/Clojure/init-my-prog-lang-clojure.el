@@ -307,7 +307,9 @@ Optional argument NS, if not provided, defaults to
 
   ;; [ helm-cider ] -- Helm interface to CIDER.
   (use-package helm-cider
-    :ensure t)
+    :ensure t
+    :config
+    (add-hook 'cider-mode-hook #'helm-cider-mode))
   )
 
 
