@@ -155,14 +155,19 @@
 
   ;; animation effect on company completion
   ;; - `beacon-blink', `beacon--shine'
-  (defun my-company-animation (backend)
+  (defun my-company-success-animation (backend)
     ;; beacon
     (let ((beacon-size 20)
           (beacon-color "cyan"))
-      (beacon-blink))
-    )
+      (beacon-blink)))
+  (defun my-company-success-animation (backend)
+    ;; beacon
+    (let ((beacon-size 20)
+          (beacon-color "orange red"))
+      (beacon-blink)))
   ;; (add-hook 'company-completion-started-hook #'my-company-animation)
-  (add-hook 'company-completion-finished-hook #'my-company-animation)
+  (add-hook 'company-completion-finished-hook #'my-company-success-animation)
+  (add-hook 'company-completion-cancelled-hook #'my-company-success-animation)
 
   
   ;; faces
