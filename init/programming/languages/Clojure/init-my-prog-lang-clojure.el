@@ -311,6 +311,13 @@ Optional argument NS, if not provided, defaults to
     :ensure t
     :config
     (add-hook 'cider-mode-hook #'helm-cider-mode))
+
+  ;; bind keybindings to some not-bind wrapping functions in clojure-mode locally.
+  (add-hook 'clojure-mode-hook
+            (lambda ()
+              (define-key paredit-mode-map (kbd "M-[") 'paredit-wrap-square)
+              (define-key paredit-mode-map (kbd "M-{") 'paredit-wrap-curly))
+            nil 'local)
   )
 
 

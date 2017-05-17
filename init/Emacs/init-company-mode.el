@@ -278,7 +278,6 @@
   ;;
   (add-to-list 'company-frontends 'company-preview-common-frontend)
   (add-to-list 'company-frontends 'company-quickhelp-frontend)
-
   
   (if (functionp 'company-quickhelp-manual-begin)
       (define-key company-active-map (kbd "M-h") 'company-quickhelp-manual-begin)
