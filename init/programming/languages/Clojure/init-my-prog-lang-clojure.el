@@ -168,8 +168,8 @@
                                              ("field" "field")
                                              ("function" "λ") ; f, λ, ƒ
                                              ("import" "import")
-                                             ("keyword" "keyword")
-                                             ("local" "local")
+                                             ("keyword" "k")
+                                             ("local" "l")
                                              ("macro" "macro")
                                              ("method" "method")
                                              ("namespace" "ns")
@@ -180,7 +180,7 @@
                                              ("static-field" "static-firld")
                                              ("static-method" "static-method")
                                              ("type" "type")
-                                             ("var" "var"))
+                                             ("var" "v"))
         )
 
   ;; Java
