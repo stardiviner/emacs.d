@@ -120,7 +120,7 @@
         cider-use-overlays 'both
         cider-overlays-use-font-lock t ; use overlay for results.
         cider-result-use-clojure-font-lock t
-        cider-eval-result-duration nil
+        cider-eval-result-duration 'command
 
         ;; Enlighten
 
