@@ -29,6 +29,8 @@
 ;;   :ensure t
 ;;   :defer t
 ;;   :config
+;;   ;; for `popwin'
+;;   (push '(ack-and-a-half-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
 ;;   )
 
 ;; ;; Create shorter aliases
