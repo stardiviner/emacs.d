@@ -129,7 +129,10 @@
                     )
 
 ;;; apply color-theme on new frame to fix issue.
-(add-hook 'after-make-frame-functions (lambda () (load-theme 'leuven t)))
+;; (defun my-new-frame-apply-things (arg)
+;;   (load-theme 'leuven t))
+;;
+;; (add-hook 'after-make-frame-functions #'my-new-frame-apply-things)
 
 ;;; [ select-themes ] -- select color-theme with completing-read.
 
