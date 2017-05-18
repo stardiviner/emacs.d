@@ -368,16 +368,16 @@ state (modified, read-only or non-existent)."
                                          (flycheck-count-errors flycheck-current-errors)
                                        (+ (or .warning 0) (or .error 0)))))
                           (concat (all-the-icons-octicon "bug" :v-adjust -0.05
-                                                         :face (if (active) '(:foreground "red")))
+                                                         :face (if (active) '(:foreground "orange red")))
                                   (propertize
                                    ;; (format " %s issue%s" count (unless (eq 1 count) "s"))
                                    (format "%s" count))))
                       (all-the-icons-faicon "check-square" :v-adjust -0.05
-                                            :face (if (active) '(:foreground "green")))))
+                                            :face (if (active) '(:foreground "dark sea green")))))
                    (`running
                     (all-the-icons-faicon "ellipsis-h"
                                           :v-adjust -0.05
-                                          :face (if (active) '(:foreground "cyan"))))
+                                          :face (if (active) '(:foreground "light sea green"))))
                    (`no-checker
                     (concat (all-the-icons-octicon "alert" :v-adjust -0.05
                                                    :face (if (active) '(:foreground "dark gray")))
