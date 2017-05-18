@@ -65,6 +65,24 @@
 ;;   )
 
 
+;;; [ with-editor ]
+
+(use-package with-editor
+  :ensure t
+  :config
+  (add-hook 'shell-mode-hook  'with-editor-export-editor)
+  (add-hook 'term-mode-hook   'with-editor-export-editor)
+  (add-hook 'eshell-mode-hook 'with-editor-export-editor)
+
+  ;; Some variants of this function exist, these two forms are
+  ;; equivalent:
+
+  ;; (add-hook 'shell-mode-hook
+  ;;           (apply-partially 'with-editor-export-editor "GIT_EDITOR"))
+  ;; (add-hook 'shell-mode-hook 'with-editor-export-git-editor)
+  )
+
+
 ;;; ----------------------------------------------------------------------------
 
 (provide 'init-my-emacs-edit-server)
