@@ -60,7 +60,8 @@
   :ensure t
   :defer t
   :config
-  (setq ielm-dynamic-return t)
+  (setq ielm-dynamic-return t
+        ielm-dynamic-multiline-inputs t)
 
   (add-hook 'ielm-mode-hook #'my-lisp-repl-common-settings)
 
