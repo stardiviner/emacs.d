@@ -59,16 +59,6 @@
 (use-package ielm
   :ensure t
   :defer t
-  :init
-  (unless (boundp 'my-prog-inferior-map)
-    (define-prefix-command 'my-prog-inferior-map))
-
-  (unless (boundp 'my-inferior-lisp-map)
-    (define-prefix-command 'my-inferior-lisp-map))
-
-  (define-key my-inferior-lisp-map (kbd "e") 'my-ielm-start-or-switch)
-  (define-key my-inferior-lisp-map (kbd "k") 'my-scratch-start-or-switch)
-
   :config
   (setq ielm-dynamic-return t)
 
@@ -78,19 +68,6 @@
             (lambda ()
               (my-company-add-backend-locally 'company-elisp)
               ))
-
-  (defun my-ielm-start-or-switch ()
-    "Start IELM or switch to its buffer if it already exist."
-    (interactive)
-    (let ((default-directory (getenv "HOME")))
-      (my-func/open-and-switch-to-buffer 'ielm "*ielm*" t)))
-
-  (defun my-scratch-start-or-switch ()
-    "Start IELM or switch to its buffer if it already exist."
-    (interactive)
-    ;; (switch-to-buffer "*scratch*")
-    (popwin:display-buffer "*scratch*")
-    )
   )
 
 ;;; [ eros ] -- Evaluation Result OverlayS for Emacs Lisp.

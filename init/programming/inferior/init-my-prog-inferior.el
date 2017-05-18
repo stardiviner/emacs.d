@@ -31,6 +31,17 @@
   (let ((default-directory (getenv "HOME")))
     (my-func/open-and-switch-to-buffer 'ielm "*ielm*" t)))
 
+(define-key my-inferior-lisp-map (kbd "e") 'my-ielm-start-or-switch)
+
+(defun my-scratch-start-or-switch ()
+  "Start IELM or switch to its buffer if it already exist."
+  (interactive)
+  ;; (switch-to-buffer "*scratch*")
+  (popwin:display-buffer "*scratch*")
+  )
+
+(define-key my-inferior-lisp-map (kbd "k") 'my-scratch-start-or-switch)
+
 (defun my-run-sly ()
   "Start SLY or switch to its buffer if it already exist."
   (interactive)
