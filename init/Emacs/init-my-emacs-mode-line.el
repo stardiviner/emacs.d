@@ -657,19 +657,23 @@ dimensions of a block selection."
 ;; - rtags-remaining-jobs :: integer with count of remaining jobs for all projects
 ;; - rtags-last-index :: the first number in rdm's output
 ;; - rtags-last-total :: the second number in rdm's output, these last two are project local
+;; rtags indexed file
+;; - `rtags-is-indexed'
 ;; You have to run `rdm' with the `--progress' for this to work.
 (defvar rtags-enabled)
 
 (defun *my-rtags-modeline ()
   "Show `rtags-modeline' info in my custom mode-line."
-  (if (and rtags-enabled
-           (not (string-empty-p (rtags-modeline))))
+  (if (and (active) rtags-enabled)
       (propertize
        (concat
-        (propertize " " 'face 'variable-pitch)
-        (all-the-icons-faicon "paw" :v-adjust -0.05)
-        (rtags-modeline))
-       'face 'mode-line-data-face)))
+        (if (not (string-empty-p (rtags-modeline)))
+            (all-the-icons-faicon "paw" :v-adjust -0.05)
+          (rtags-modeline))
+        (if (rtags-is-indexed)
+            (all-the-icons-faicon "codepen" :v-adjust -0.05))
+        (propertize " " 'face 'variable-pitch))
+       'face 'mode-line-info-face)))
 
 (add-hook 'rtags-diagnostics-hook (function force-mode-line-update))
 
