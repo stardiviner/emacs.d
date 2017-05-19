@@ -18,13 +18,13 @@
 
 ;;; [ EasyPG Assistant ] --- transparent, automatic encryption and decryption.
 
-(require 'pinentry)
-
-(pinentry-start)
+(use-package pinentry
+  :config
+  (pinentry-start)
+  )
 
 (use-package epa
   :ensure t
-  :defer t
   :init
   (require 'epa-file)
   ;; force Emacs to use its own internal password prompt instead of an external
@@ -32,6 +32,9 @@
   (setenv "GPG_AGENT_INFO" nil)
   (epa-file-enable)
   :config
+  ;; let EasyPG Assistant to use loopback for pinentry.
+  (setq epa-pinentry-mode 'loopback)
+  
   (setq epa-file-encrypt-to "numbchild@gmail.com")
   (setq epa-file-select-keys (case epa-file-encrypt-to
                                ('nil t)
