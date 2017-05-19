@@ -49,8 +49,9 @@
 
 ;; [ Bell ]
 
-(setq visible-bell nil)                   ; use bell beep instead of flash frame.
-
+(setq visible-bell nil)
+;;; disable Emacs built-in bell when [C-g]
+(setq ring-bell-function 'ignore)
 
 ;;; [ mode ]
 
