@@ -127,6 +127,17 @@
 ;;   :init
 ;;   (add-hook 'python-mode-hook 'importmagic-mode))
 
+;;; [ jedi-direx ] -- Tree style source code viewer for Python buffer.
+
+(use-package jedi-direx
+  :ensure t
+  :after python
+  :bind (:map python-mode-map
+              ("C-c x" . jedi-direx:pop-to-buffer))
+  :config
+  (add-hook 'jedi-mode-hook 'jedi-direx:setup)
+  )
+
 ;;; [ Emacs IPython Notebook (EIN) ] -- IPython notebook client in Emacs
 
 (use-package ein
