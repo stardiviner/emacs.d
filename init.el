@@ -245,7 +245,7 @@
 (require 'init-my-prog-lang-java)
 ;; (require 'init-my-prog-lang-jvm-groovy)
 ;; (require 'init-my-prog-lang-jvm-kotlin)
-;; (require 'init-my-prog-lang-php)
+(require 'init-my-prog-lang-php)
 (require 'init-my-prog-lang-html)
 (require 'init-my-prog-lang-css)
 (require 'init-my-prog-lang-javascript)
