@@ -133,6 +133,7 @@ This function is intended to be added to `post-command-hook'."
 
 (use-package org-sync-snippets
   :ensure t
+  :after org ; to fix variable `org-directory' is not customized to "~/Org" issue.
   :config
   (setq org-sync-snippets-snippets-dir (concat user-emacs-directory "snippets/"))
   (setq org-sync-snippets-org-snippets-file (concat (file-name-as-directory org-directory) "Programming/Code Snippets/yasnippets.org"))
