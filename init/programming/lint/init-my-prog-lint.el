@@ -26,6 +26,9 @@
   :init
   ;; (add-hook 'after-init-hook #'global-flycheck-mode)
   (add-hook 'prog-mode-hook #'flycheck-mode)
+  :bind (:map flycheck-mode-map
+              ("M-g M-n" . flycheck-next-error)
+              ("M-g M-p" . flycheck-previous-error))
   :config
   (setq-default flycheck-temp-prefix ".flycheck")
   (setq flycheck-check-syntax-automatically '(save idle-change new-line mode-enabled)
