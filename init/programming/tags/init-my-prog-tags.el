@@ -36,23 +36,23 @@
 
 ;;; [ dumb-jump ] -- An Emacs "jump to definition" package using ag, ripgrep etc.
 
-(use-package dumb-jump
-  :ensure t
-  :init
-  (unless (boundp 'jump-prefix)
-    (define-prefix-command 'jump-prefix))
-  (global-set-key (kbd "M-g j") 'jump-prefix)
-  :bind (:map jump-prefix
-              ("j" . dumb-jump-go)
-              ("k" . dumb-jump-back)
-              ("q" . dumb-jump-quick-look)
-              ("o" . dumb-jump-go-other-window)
-              ("x" . dumb-jump-go-prefer-external)
-              ("z" . dumb-jump-go-prefer-external-other-window))
-  :config
-  ;; (setq dumb-jump-selector 'popup) 'ivy
-  (dumb-jump-mode 1)
-  )
+;; (use-package dumb-jump
+;;   :ensure t
+;;   :init
+;;   (unless (boundp 'jump-prefix)
+;;     (define-prefix-command 'jump-prefix))
+;;   (global-set-key (kbd "M-g j") 'jump-prefix)
+;;   :bind (:map jump-prefix
+;;               ("j" . dumb-jump-go)
+;;               ("k" . dumb-jump-back)
+;;               ("q" . dumb-jump-quick-look)
+;;               ("o" . dumb-jump-go-other-window)
+;;               ("x" . dumb-jump-go-prefer-external)
+;;               ("z" . dumb-jump-go-prefer-external-other-window))
+;;   :config
+;;   ;; (setq dumb-jump-selector 'popup) 'ivy
+;;   (dumb-jump-mode 1)
+;;   )
 
 
 ;;; [ tags settings ]
