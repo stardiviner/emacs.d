@@ -31,23 +31,17 @@
 
 (use-package enh-ruby-mode
   :ensure t
+  :mode (("\\.rb\\'" . enh-ruby-mode)
+         ;; Gemfile, Capfile, Rakefile
+         ("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . enh-ruby-mode)
+         ;; irb(irbrc), pry(pryrc), gem(gemspec, gemrc), rackup(ru), Thor(thor),
+         ("\\.\\(?:gemspec\\|irbrc\\|pryrc\\|gemrc\\|rake\\|ru\\|thor\\)\\'" . enh-ruby-mode))
+  :interpreter "ruby"
   :init
-  (add-to-list 'auto-mode-alist '("\\.rb\\'" . enh-ruby-mode))
-  (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
-  ;; Gemfile, Capfile, Rakefile
-  (add-to-list 'auto-mode-alist
-               '("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'"
-                 . enh-ruby-mode))
-  ;; irb(irbrc), pry(pryrc), gem(gemspec, gemrc), rackup(ru), Thor(thor),
-  (add-to-list 'auto-mode-alist
-               '("\\.\\(?:gemspec\\|irbrc\\|pryrc\\|gemrc\\|rake\\|ru\\|thor\\)\\'"
-                 . enh-ruby-mode))
-
   (add-hook 'enh-ruby-mode-hook
             (lambda ()
               (unless (derived-mode-p 'prog-mode)
                 (run-hooks 'prog-mode-hook))))
-
   :config
   (setq enh-ruby-bounce-deep-indent nil
         enh-ruby-deep-arglist t
@@ -242,9 +236,7 @@
   :config
   (add-to-list 'inf-ruby-implementations
                '("inf-ruby" . "irb --inf-ruby-mode --noreadline -EUTF-8"))
-
   (setq inf-ruby-default-implementation "ruby")
-  
   (setq inf-ruby-prompt-read-only t)
 
   (defun my-inf-ruby-setup ()
@@ -288,7 +280,8 @@
       [remap inf-ruby] 'inf-ruby-console-auto))
 
   ;; ruby-mode has keybinding [C-c C-s] for `inf-ruby'.
-  (define-key enh-ruby-mode-map (kbd "C-c C-s") 'inf-ruby)
+  (with-eval-after-load 'enh-ruby-mode
+    (define-key enh-ruby-mode-map (kbd "C-c C-s") 'inf-ruby))
   )
 
 
@@ -302,7 +295,6 @@
                   inf-ruby-mode-hook
                   ))
     (add-hook hook 'robe-mode))
-  
   :config
   (setq robe-highlight-capf-candidates t
         robe-completing-read-func 'ivy-read)
@@ -550,9 +542,10 @@
 (use-package helm-rdefs
   :ensure t
   :bind (:map ruby-mode-map
-              ("C-c r" . helm-rdefs)
-              :map enh-ruby-mode-map
               ("C-c r" . helm-rdefs))
+  :config
+  (with-eval-after-load 'enh-ruby-mode
+    (define-key enh-ruby-mode-map (kbd "C-c r") 'helm-rdefs))
   )
 
 
