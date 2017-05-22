@@ -128,7 +128,7 @@
   (add-hook 'git-commit-mode-hook
             (lambda ()
               (make-local-variable 'company-backends)
-              (add-to-list 'company-backends 'company-ispell)
+              (add-to-list 'company-backends '(company-flyspell :with company-ispell))
               (add-to-list 'company-backends 'company-emoji)))
   )
 

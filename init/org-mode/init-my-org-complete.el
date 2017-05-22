@@ -30,7 +30,7 @@
         '(company-files
           (company-capf :with company-yasnippet)
           company-emoji
-          ;; :separate company-ispell
+          ;; (company-flyspell :with company-ispell) ; slow down Org-mode performance.
           company-dabbrev-code company-abbrev
           company-keywords
           ))

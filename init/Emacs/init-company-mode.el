@@ -41,7 +41,8 @@
                   (company-capf         ; `completion-at-point-functions'
                    :with
                    company-yasnippet)
-                  ;; :separate company-ispell
+                  ;; :separate company-semantic
+                  ;; (company-flyspell :with company-ispell)
                   (company-keywords
                    :with
                    company-dabbrev-code)
