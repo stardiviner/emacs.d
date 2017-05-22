@@ -283,32 +283,12 @@
   ;; (defadvice inf-ruby-console-auto (before activate-rvm-for-robe activate)
   ;;   (rvm-activate-corresponding-ruby))
 
-  ;; ruby-mode has keybinding [C-c C-s] for `inf-ruby'.
-  ;; auto start robe `robe-start' after start `inf-ruby'.
-  (defun my-robe-start ()
-    (interactive)
-    (unless robe-running
-      (robe-start)))
-
-  (defadvice inf-ruby-console-auto (after inf-ruby-console-auto activate)
-    "Run `robe-start' after `inf-ruby-console-auto' started."
-    (my-robe-start))
-
   (with-eval-after-load 'projectile-rails
     (define-key projectile-rails-mode-map
       [remap inf-ruby] 'inf-ruby-console-auto))
 
-  (defadvice inf-ruby (after inf-ruby activate)
-    "Run `robe-start' after `inf-ruby' started."
-    (my-robe-start))
-
+  ;; ruby-mode has keybinding [C-c C-s] for `inf-ruby'.
   (define-key enh-ruby-mode-map (kbd "C-c C-s") 'inf-ruby)
-
-  ;; auto start robe process for completing
-  (defun my-robe-auto-start ()
-    (unless robe-running
-      (call-interactively 'inf-ruby)))
-  (add-hook 'enh-ruby-mode-hook #'my-robe-auto-start)
   )
 
 
