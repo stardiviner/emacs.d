@@ -182,6 +182,7 @@
         ("Feature" ,(list (all-the-icons-faicon "check-circle-o")) nil nil :ascent center)
         ("VCS" ,(list (all-the-icons-faicon "git")) nil nil :ascent center)
         ("Git" ,(list (all-the-icons-faicon "git")) nil nil :ascent center)
+        ("Database" ,(list (all-the-icons-faicon "database")) nil nil :ascent center)
         ("Design" ,(list (all-the-icons-faicon "file-image-o")) nil nil :ascent center)
         ("Computer" ,(list (all-the-icons-faicon "laptop")) nil nil :ascent center) ; desktop
         ("Laptop" ,(list (all-the-icons-faicon "laptop")) nil nil :ascent center)
