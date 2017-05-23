@@ -22,6 +22,8 @@
       org-fontify-done-headline t
       )
 
+(setq org-ellipsis "  ")
+
 ;; include ' in org-verbatim face highlight.
 (setcar (nthcdr 2 org-emphasis-regexp-components) " \t\r\n,\"")
 (org-set-emph-re 'org-emphasis-regexp-components org-emphasis-regexp-components)
