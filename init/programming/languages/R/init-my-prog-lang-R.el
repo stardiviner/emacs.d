@@ -70,17 +70,6 @@
 ;;; handle the custom ℝ prompt in ess. Don’t use custom here.
 ;; (setq inferior-S-prompt "[]a-zA-Z0-9.[]*\\(?:[>+.] \\)*ℝ+> ")
 
-
-(unless (boundp 'my-prog-inferior-map)
-  (define-prefix-command 'my-prog-inferior-map))
-
-(defun my-run-R-auto ()
-  (interactive)
-  (my-func/open-and-switch-to-buffer 'R "*R*" t))
-
-(define-key my-prog-inferior-map (kbd "R") 'my-run-R-auto)
-
-
 ;;; completing support
 
 ;; - `ess-company-backends' :: for company-mode.
