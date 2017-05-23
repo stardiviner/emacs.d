@@ -14,6 +14,7 @@
   :config
   ;; enable `engine-mode' minor-mode for making keybindings.
   (engine-mode t)
+  
   (setq engine/keybinding-prefix "C-x /")
   ;; (setq engine/browser-function)
 
@@ -53,6 +54,10 @@
     "http://baike.baidu.com/search/none?word=%s"
     :docstring "Baidu Baike"
     :keybinding "B")
+  (defengine stack-exchange
+    "http://stackexchange.com/search?q=%s"
+    :docstring "Emacs Stack"
+    :keybinding "e")
 
   ;; Computational Knowledge Engine
   (defengine wolfram-alpha
@@ -86,10 +91,11 @@
     ;; "https://www.rfc-editor.org/search/rfc_search_detail.php?rfc=%s"
     :docstring "RFC"
     :keybinding "R")
-  (defengine emacswiki
+  (defengine emacs-wiki
     "www.emacswiki.org/emacs?search=%s"
     :docstring "Emacs Wiki"
-    :keybinding "e")
+    ;; :keybinding ""
+    )
   (defengine stack-emacs
     "http://emacs.stackexchange.com/search?q=%s"
     :docstring "Emacs Stack"
@@ -100,7 +106,7 @@
   (defengine ruby-doc
     "http://ruby-doc.com/search.html?q=%s"
     :docstring "Ruby doc")
-  (defengine python-doc-3
+  (defengine python-3-doc
     "http://docs.python.org/3/search.html?q=%s"
     :docstring "Python 3 doc")
   (defengine perl-doc-cpan
