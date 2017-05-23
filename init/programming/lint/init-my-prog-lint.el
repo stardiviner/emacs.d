@@ -105,6 +105,16 @@
   )
 
 
+;;; [ flycheck-ineline ] -- display errors with inline style.
+
+(use-package flycheck-inline
+  :ensure t
+  :config
+  (with-eval-after-load 'flycheck
+    (setq flycheck-display-errors-function 'flycheck-inline))
+  )
+
+
 (provide 'init-my-prog-lint)
 
 ;;; init-my-prog-lint.el ends here
