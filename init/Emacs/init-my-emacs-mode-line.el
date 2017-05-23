@@ -298,7 +298,8 @@ state (modified, read-only or non-existent)."
       (let ((env (cl-case major-mode
                    ('clojure-mode
                     (if (not (equal (cider--modeline-info) "not connected"))
-                        (cider--project-name nrepl-project-dir)))
+                        (with-current-buffer (ignore-errors (cider-current-connection))
+                          (cider--project-name nrepl-project-dir))))
                    ('enh-ruby-mode
                     (if global-rbenv-mode
                         (rbenv--active-ruby-version) ; `rbenv--modestring'
