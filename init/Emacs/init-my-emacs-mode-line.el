@@ -608,7 +608,8 @@ dimensions of a block selection."
       (all-the-icons-octicon "clock" :v-adjust 0.05)
       (propertize " " 'face 'variable-pitch)
       (format "%s"
-              (org-minutes-to-clocksum-string (org-clock-get-clocked-time))))
+              (org-minutes-to-clocksum-string (org-clock-get-clocked-time)))
+      (propertize " " 'face 'variable-pitch))
      'face 'mode-line-data-face))
   
   ;; org-clock-today (show current org clock)
@@ -664,7 +665,8 @@ dimensions of a block selection."
 
 (defun *my-rtags-modeline ()
   "Show `rtags-modeline' info in my custom mode-line."
-  (if (and (active) rtags-enabled)
+  (if (and (active)
+           (and (boundp 'rtags-enabled) rtags-enabled))
       (propertize
        (concat
         (if (not (string-empty-p (rtags-modeline)))
