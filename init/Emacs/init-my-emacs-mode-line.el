@@ -297,7 +297,9 @@ state (modified, read-only or non-existent)."
   (if (active)
       (let ((env (cl-case major-mode
                    ('clojure-mode
-                    (if (not (equal (cider--modeline-info) "not connected"))
+                    (if (and (not (equal (cider--modeline-info) "not connected"))
+                             (null (projectile-project-name)) ; don't duplicate with `projectile'
+                             )
                         (with-current-buffer (ignore-errors (cider-current-connection))
                           (cider--project-name nrepl-project-dir))))
                    ('enh-ruby-mode
