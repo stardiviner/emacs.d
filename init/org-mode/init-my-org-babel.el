@@ -129,10 +129,11 @@
    (R . t)                              ; R
    ;; (go . t)
    (ipython . t)
-   ;; (sagemath . t)        ; ob-sagemath
-   ;; (restclient . t)                     ; ob-restclient
-   (elasticsearch . t)                  ; es-mode
-   (mongo . t)                          ; ob-mongo
+   ;; (sagemath . t)        ; `ob-sagemath'
+   ;; (restclient . t)                     ; `ob-restclient'
+   (elasticsearch . t)                  ; `es-mode'
+   (mongo . t)                          ; `ob-mongo'
+   (uart . t)                           ; `ob-uart'
    ))
 
 ;;; [ Tangle ]
@@ -543,6 +544,14 @@
           (string= lang "sql-mode")
           ))
   ;; (setq org-babel-default-header-args:sql-mode )
+  )
+
+;;; [ ob-uart ] -- A wrapper around make-serial-process for org babel, providing integration of UART communication into org documents.
+
+(use-package ob-uart
+  :ensure t
+  :config
+  ;; (org-babel-do-load-languages 'org-babel-load-languages '((uart . t)))
   )
 
 
