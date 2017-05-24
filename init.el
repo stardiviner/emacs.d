@@ -288,7 +288,7 @@
 ;; (require 'init-my-prog-framework-ruby-on-rails)
 ;; (require 'init-my-prog-framework-android)
 ;; (require 'init-my-prog-framework-arduino)
-;; (require 'init-my-prog-framework-qt)
+(require 'init-my-prog-framework-qt)
 
 ;;; Data Science
 (require 'init-my-data-science)

@@ -97,27 +97,22 @@
 
 (use-package qml-mode
   :ensure t
-  :defer t)
-
-
-;;; [ company-qml ]
-
-(use-package company-qml
-  :ensure t
-  :defer t
-  :init
-  (add-hook 'qml-mode-hook
-            (lambda ()
-              (setq-local company-minimum-prefix-length 0)
-              (add-to-list (make-local-variable 'company-backends) 'company-qml)
-              ))
+  :config
+  (use-package company-qml
+    :ensure t
+    :defer t
+    :init
+    (add-hook 'qml-mode-hook
+              (lambda ()
+                (setq-local company-minimum-prefix-length 0)
+                (add-to-list (make-local-variable 'company-backends) 'company-qml)
+                ))
+    )
   )
-
 
 ;;; [ qmake-mode ]
 
 (load (concat user-emacs-directory "init/extensions/qmake.el"))
-
 (require 'qmake-mode)
 (add-to-list 'auto-mode-alist '("\\.pro\\'" . qmake-mode))
 
