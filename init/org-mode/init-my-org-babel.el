@@ -22,6 +22,9 @@
         (:padline . "true") (:comments . "links")
         ))
 
+;; (setq org-babel-default-inline-header-args)
+;; (setq org-babel-default-lob-header-args)
+
 ;; Raise errors when noweb references don't resolve.
 (setq org-babel-noweb-error-all-langs t)
 
@@ -76,8 +79,47 @@
 ;;; [ ob-latex ]
 (require 'ob-latex)
 
+;;; [ ob-js ]
 ;; (require 'ob-js)
 ;; (setq org-babel-js-cmd "node")
+
+;;; [ ob-translate ] -- allows you to translate blocks of text within org-mode.
+
+(use-package ob-translate
+  :ensure t)
+
+;;; [ Science ]
+
+;;; [ Chemistry ]
+
+;;; Chemistry: SMILES
+(use-package smiles-mode
+  :ensure t)
+(use-package ob-smiles
+  :ensure t)
+
+;;; [ ob-sql-mode ] -- SQL code blocks evaluated by sql-mode.
+
+(use-package ob-sql-mode
+  :ensure t
+  :config
+  (setq org-babel-sql-mode-template-selector "Q")
+  ;; security guard
+  (setq org-confirm-babel-evaluate
+        (lambda (lang body)
+          ;; (not )
+          (string= lang "sql-mode")
+          ))
+  ;; (setq org-babel-default-header-args:sql-mode )
+  )
+
+;;; [ ob-uart ] -- A wrapper around make-serial-process for org babel, providing integration of UART communication into org documents.
+
+(use-package ob-uart
+  :ensure t
+  :config
+  ;; (org-babel-do-load-languages 'org-babel-load-languages '((uart . t)))
+  )
 
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -132,11 +174,14 @@
    ;; (sagemath . t)        ; `ob-sagemath'
    ;; (restclient . t)                     ; `ob-restclient'
    (elasticsearch . t)                  ; `es-mode'
+   (sql-mode . t)                       ;  `ob-sql-mode'
    (mongo . t)                          ; `ob-mongo'
    (uart . t)                           ; `ob-uart'
    ))
 
+
 ;;; [ Tangle ]
+
 (setq org-babel-tangle-lang-exts
       '(("latex" . "tex")
         ("elisp" . "el")
@@ -263,6 +308,11 @@
       '((:session . "*R*")
         (:exports . "both")
         (:results . "replace")
+        ;; customize R plot window
+        ;; (:width . 640)
+        ;; (:height . 640)
+        ;; (:bg . "white")
+        ;; (:type . :any)
         ))
 
 ;; (add-to-list 'org-babel-default-header-args:ocaml
@@ -283,64 +333,63 @@
 
 (with-eval-after-load 'org-capture
   (setq org-capture-templates
-      (append '(("l" "[L]edger entries")
-                ;; Expense
-                ("le" "[E]xpenses")
-                ("les" "[S]hopping" plain
-                 (file (concat org-directory "/Accounting/my.ledger"))
-                 "%(org-read-date) %^{Event}\n expenses:shopping:%^{category}  %^{Amount}")
-                ("lef" "[F]ood" plain
-                 (file (concat org-directory "/Accounting/my.ledger"))
-                 "%(org-read-date) %^{Event}\n expenses:food:%^{meat,breakfast,lunch,dinner}  %^{Amount}")
-                ("let" "[T]raffic" plain
-                 (file (concat org-directory "/Accounting/my.ledger"))
-                 "%(org-read-date) %^{Event}\n expenses:traffic:%^{bus,train,plane}  %^{Amount}")
-                ("leh" "[H]ouse Rent" plain
-                 (file (concat org-directory "/Accounting/my.ledger"))
-                 "%(org-read-date) %^{Event}\n expenses:house rent:  %^{Amount}")
-                
-                ;; Income
-                ("li" "[I]ncome")
-                ("lis" "[S]alary" plain
-                 (file (concat org-directory "/Accounting/my.ledger"))
-                 "%(org-read-date) %^{Event}\n income:salary:%^{account}  %^{Amount}")
+        (append '(("l" "[L]edger entries")
+                  ;; Expense
+                  ("le" "[E]xpenses")
+                  ("les" "[S]hopping" plain
+                   (file (concat org-directory "/Accounting/my.ledger"))
+                   "%(org-read-date) %^{Event}\n expenses:shopping:%^{category}  %^{Amount}")
+                  ("lef" "[F]ood" plain
+                   (file (concat org-directory "/Accounting/my.ledger"))
+                   "%(org-read-date) %^{Event}\n expenses:food:%^{meat,breakfast,lunch,dinner}  %^{Amount}")
+                  ("let" "[T]raffic" plain
+                   (file (concat org-directory "/Accounting/my.ledger"))
+                   "%(org-read-date) %^{Event}\n expenses:traffic:%^{bus,train,plane}  %^{Amount}")
+                  ("leh" "[H]ouse Rent" plain
+                   (file (concat org-directory "/Accounting/my.ledger"))
+                   "%(org-read-date) %^{Event}\n expenses:house rent:  %^{Amount}")
+                  
+                  ;; Income
+                  ("li" "[I]ncome")
+                  ("lis" "[S]alary" plain
+                   (file (concat org-directory "/Accounting/my.ledger"))
+                   "%(org-read-date) %^{Event}\n income:salary:%^{account}  %^{Amount}")
 
-                ;; Transfer
-                ("lt" "[T]ransfer")
-                ("ltb" "Take out money from [B]ank"
-                 (file (concat org-directory "/Accounting/my.ledger"))
-                 "%(org-read-date) %^{Event}\n transfer:%^{source} -> %^{bank}  %^{Amount}"
-                 )
-                ("lto" "save moeny on [o]nline account"
-                 (file (concat org-directory "/Accounting/my.ledger"))
-                 "%(org-read-date) %^{Event}\n transfer:%^{source} -> %^{ZhiFuBao}  %^{Amount}"
-                 )
-                ("ltc" "take out moeny to [C]ash"
-                 (file (concat org-directory "/Accounting/my.ledger"))
-                 "%(org-read-date) %^{Event}\n transfer:%^{source} -> cash  %^{Amount}"
-                 )
+                  ;; Transfer
+                  ("lt" "[T]ransfer")
+                  ("ltb" "Take out money from [B]ank"
+                   (file (concat org-directory "/Accounting/my.ledger"))
+                   "%(org-read-date) %^{Event}\n transfer:%^{source} -> %^{bank}  %^{Amount}"
+                   )
+                  ("lto" "save moeny on [o]nline account"
+                   (file (concat org-directory "/Accounting/my.ledger"))
+                   "%(org-read-date) %^{Event}\n transfer:%^{source} -> %^{ZhiFuBao}  %^{Amount}"
+                   )
+                  ("ltc" "take out moeny to [C]ash"
+                   (file (concat org-directory "/Accounting/my.ledger"))
+                   "%(org-read-date) %^{Event}\n transfer:%^{source} -> cash  %^{Amount}"
+                   )
 
-                ;; Debt
-                ("ld" "[D]ebt")
-                ("ldr" "[R]ent" plain
-                 (file (concat org-directory "/Accounting/my.ledger"))
-                 "%(org-read-date) %^{Event}\n debt:rent:%^{people}  %^{Amount}")
-                ("ldb" "[B]orrow" plain
-                 (file (concat org-directory "/Accounting/my.ledger"))
-                 "%(org-read-date) %^{Event}\n debt:borrow:%^{people}  %^{Amount}")
-                
-                ;; Assets
-                ("la" "[A]ssets")
-                ("lab" "[B]ank" plain
-                 (file (concat org-directory "/Accounting/my.ledger"))
-                 "%(org-read-date) %^{Event}\n assets:bank:%^{bank}  %^{Amount}")
-                ("lao" "[O]nline Accounts" plain
-                 (file (concat org-directory "/Accounting/my.ledger"))
-                 "%(org-read-date) %^{Event}\n assets:online-account:%^{ZhiFuBao}  %^{Amount}")
-                )
-              org-capture-templates))
+                  ;; Debt
+                  ("ld" "[D]ebt")
+                  ("ldr" "[R]ent" plain
+                   (file (concat org-directory "/Accounting/my.ledger"))
+                   "%(org-read-date) %^{Event}\n debt:rent:%^{people}  %^{Amount}")
+                  ("ldb" "[B]orrow" plain
+                   (file (concat org-directory "/Accounting/my.ledger"))
+                   "%(org-read-date) %^{Event}\n debt:borrow:%^{people}  %^{Amount}")
+                  
+                  ;; Assets
+                  ("la" "[A]ssets")
+                  ("lab" "[B]ank" plain
+                   (file (concat org-directory "/Accounting/my.ledger"))
+                   "%(org-read-date) %^{Event}\n assets:bank:%^{bank}  %^{Amount}")
+                  ("lao" "[O]nline Accounts" plain
+                   (file (concat org-directory "/Accounting/my.ledger"))
+                   "%(org-read-date) %^{Event}\n assets:online-account:%^{ZhiFuBao}  %^{Amount}")
+                  )
+                org-capture-templates))
   )
-
 
 
 ;;; [ Library of Babel ]
@@ -398,12 +447,6 @@
 ;;; Templates -- (org skeleton/template)
 
 
-;;; [ ob-translate ] -- allows you to translate blocks of text within org-mode.
-
-(use-package ob-translate
-  :ensure t)
-
-
 ;;; [ Literate Programming with Org-mode ]
 
 ;;; [ Clojure ]
@@ -440,16 +483,6 @@
 ;; Enable Confluence export
 ;; (require 'ox-confluence)
 
-
-;;; [ Science ]
-
-;;; [ Chemistry ]
-
-;;; Chemistry: SMILES
-(use-package smiles-mode
-  :ensure t)
-(use-package ob-smiles
-  :ensure t)
 
 
 ;;; change Babel src block background color.
@@ -529,29 +562,6 @@
   :config
   (with-eval-after-load "eval-in-repl"
     (setq eir-jump-after-eval nil))
-  )
-
-;;; [ ob-sql-mode ] -- SQL code blocks evaluated by sql-mode.
-
-(use-package ob-sql-mode
-  :ensure t
-  :config
-  (setq org-babel-sql-mode-template-selector "Q")
-  ;; security guard
-  (setq org-confirm-babel-evaluate
-        (lambda (lang body)
-          ;; (not )
-          (string= lang "sql-mode")
-          ))
-  ;; (setq org-babel-default-header-args:sql-mode )
-  )
-
-;;; [ ob-uart ] -- A wrapper around make-serial-process for org babel, providing integration of UART communication into org documents.
-
-(use-package ob-uart
-  :ensure t
-  :config
-  ;; (org-babel-do-load-languages 'org-babel-load-languages '((uart . t)))
   )
 
 
