@@ -79,6 +79,62 @@
 ;; (require 'ob-js)
 ;; (setq org-babel-js-cmd "node")
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)                     ; Emacs Lisp
+   (org . t)                            ; Org-mode
+   (sh . t)                             ; Shell
+   (shell . t)                          ; Shell Script
+   (makefile . t)                       ; Make
+   (python . t)                         ; Python
+   (ruby . t)                           ; Ruby
+   ;; (perl . t)                           ; Perl
+   (C . t)                              ; C
+   (java . t)                           ; Java
+   ;; (lua . t)                            ; Lua
+   ;; (awk . t)                            ; Awk
+   ;; (sed . t)                            ; Sed
+   ;; (screen . t)                         ; Screen
+   (lisp . t)                           ; Lisp
+   (scheme . t)                         ; Scheme
+   ;; (picolisp . t)                       ; Pico Lisp
+   (clojure . t)                        ; Clojure
+   (haskell . t)                        ; Haskell
+   ;; (scala . t)                          ; Scala
+   ;; (io . t)                             ; IO
+   ;; (J . t)                              ; J
+   ;; (ocaml . t)                          ; Objective Caml
+   (js . t)                             ; JavaScript
+   (css . t)                            ; CSS
+   (latex . t)                          ; LaTeX
+   (sql . t)                            ; SQL
+   (sqlite . t)                         ; SQLite
+   ;; (matlab . t)                         ; MATLAB
+   ;; (octave . t)                         ; Octave
+   ;; (gnuplot . t)                        ; gnuplot
+   ;; (fortran . t)                        ; Fortran
+   (ditaa . t)                          ; ditaa
+   (dot . t)                            ; Graphviz, Dot
+   (plantuml . t)                       ; PlantUML
+   ;; (ebnf2ps . t)                        ; ebnf2ps
+   (calc . t)                           ; Calc
+   (ledger . t)                         ; ledger support in Babel
+   ;; (asymptote . t)                      ; Asymptote
+   ;; (sass . t)                           ; Sass
+   ;; (processing . t)                     ; Processing
+   ;; -- Extra --
+   ;; use advice: `org-babel-execute-src-block' to load language support lazily.
+   ;; (C++ . t)                            ; C++
+   ;; (D . t)                              ; D
+   (R . t)                              ; R
+   ;; (go . t)
+   (ipython . t)
+   ;; (sagemath . t)        ; `ob-sagemath'
+   ;; (restclient . t)                     ; `ob-restclient'
+   (elasticsearch . t)                  ; `es-mode'
+   (mongo . t)                          ; `ob-mongo'
+   (uart . t)                           ; `ob-uart'
+   ))
 
 ;;; [ Tangle ]
 (setq org-babel-tangle-lang-exts
@@ -498,64 +554,6 @@
   ;; (org-babel-do-load-languages 'org-babel-load-languages '((uart . t)))
   )
 
-
-;;; Load babels at last!!!
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((emacs-lisp . t)                     ; Emacs Lisp
-   (org . t)                            ; Org-mode
-   (sh . t)                             ; Shell
-   (shell . t)                          ; Shell Script
-   (makefile . t)                       ; Make
-   (python . t)                         ; Python
-   (ruby . t)                           ; Ruby
-   ;; (perl . t)                           ; Perl
-   (C . t)                              ; C
-   (java . t)                           ; Java
-   ;; (lua . t)                            ; Lua
-   ;; (awk . t)                            ; Awk
-   ;; (sed . t)                            ; Sed
-   ;; (screen . t)                         ; Screen
-   (lisp . t)                           ; Lisp
-   (scheme . t)                         ; Scheme
-   ;; (picolisp . t)                       ; Pico Lisp
-   (clojure . t)                        ; Clojure
-   (haskell . t)                        ; Haskell
-   ;; (scala . t)                          ; Scala
-   ;; (io . t)                             ; IO
-   ;; (J . t)                              ; J
-   ;; (ocaml . t)                          ; Objective Caml
-   (js . t)                             ; JavaScript
-   (css . t)                            ; CSS
-   (latex . t)                          ; LaTeX
-   (sql . t)                            ; SQL
-   (sqlite . t)                         ; SQLite
-   ;; (matlab . t)                         ; MATLAB
-   ;; (octave . t)                         ; Octave
-   ;; (gnuplot . t)                        ; gnuplot
-   ;; (fortran . t)                        ; Fortran
-   (ditaa . t)                          ; ditaa
-   (dot . t)                            ; Graphviz, Dot
-   (plantuml . t)                       ; PlantUML
-   ;; (ebnf2ps . t)                        ; ebnf2ps
-   (calc . t)                           ; Calc
-   (ledger . t)                         ; ledger support in Babel
-   ;; (asymptote . t)                      ; Asymptote
-   ;; (sass . t)                           ; Sass
-   ;; (processing . t)                     ; Processing
-   ;; -- Extra --
-   ;; use advice: `org-babel-execute-src-block' to load language support lazily.
-   ;; (C++ . t)                            ; C++
-   ;; (D . t)                              ; D
-   (R . t)                              ; R
-   ;; (go . t)
-   (ipython . t)
-   ;; (sagemath . t)        ; `ob-sagemath'
-   ;; (restclient . t)                     ; `ob-restclient'
-   (elasticsearch . t)                  ; `es-mode'
-   (mongo . t)                          ; `ob-mongo'
-   (uart . t)                           ; `ob-uart'
-   ))
 
 (provide 'init-my-org-babel)
 
