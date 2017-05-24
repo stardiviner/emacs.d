@@ -30,13 +30,8 @@
   ;;     (company-arduino-append-include-dirs default t)))
   ;; (setq company-c-headers-path-system 'my-company-c-headers-get-system-path)
 
-  (add-hook 'arduino-mode-hook
-            (lambda ()
-              (irony-mode 1)
-              (company-arduino-turn-on)
-              ;; (add-to-list 'company-backends 'company-irony)
-              ;; (add-to-list 'company-backends 'company-c-headers)
-              ))
+  (add-hook 'arduino-mode-hook #'irony-mode)
+  (add-hook 'arduino-mode-hook #'company-arduino-turn-on)
   )
 
 
