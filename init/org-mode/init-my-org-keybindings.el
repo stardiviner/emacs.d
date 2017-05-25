@@ -18,28 +18,13 @@
   (define-prefix-command 'my-org-agenda-prefix))
 (define-key my-org-prefix (kbd "M-a") 'my-org-agenda-prefix)
 
-(define-key my-org-prefix (kbd "a") 'org-agenda)
-
 (defun my-org-agenda-switch ()
   (interactive)
   (my-func/open-and-switch-to-buffer 'org-agenda "*Org Agenda*" t)
   )
 
-(define-key my-org-prefix (kbd "C-a") 'my-org-agenda-switch)
-
-(defun my-org-agenda-composite-view ()
-  "Select an agenda composite view to generate agenda."
-  ;; read-in view-type key
-  (interactive)
-  ;; get available composite agenda views from `org-agenda-custom-commands'.
-  (let* ((views-list org-agenda-custom-commands)
-         (views-keys (map-keys org-agenda-custom-commands))
-         (views-desc (car (cdr (assoc "c" views-list)))))
-    (org-agenda nil (completing-read "Composite Agenda View: "
-                                     (map-keys org-agenda-custom-commands)))
-    ))
-
-(define-key my-org-agenda-prefix (kbd "c") 'my-org-agenda-composite-view)
+(define-key my-org-prefix (kbd "a") 'my-org-agenda-switch)
+;; (define-key my-org-prefix (kbd "a") 'org-agenda)
 
 
 (unless (boundp 'my-org-link-prefix)
