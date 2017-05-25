@@ -49,6 +49,10 @@
 
 ;; 2. use "minted"
 (setq org-latex-listings 'minted)
+;;; enable source code wrap with `breaklines'.
+(setq org-latex-listings-options '(("breaklines" "true")
+                                   ("breakanywhere" "true")))
+;;; add packages to list.
 (add-to-list 'org-latex-packages-alist '("" "newfloat" nil))
 (add-to-list 'org-latex-packages-alist '("" "minted" nil))
 (setq org-latex-pdf-process
