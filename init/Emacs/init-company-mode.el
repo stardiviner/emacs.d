@@ -108,6 +108,8 @@
   ;; (define-key company-active-map (kbd "<tab>") 'company-complete-common-or-cycle)
   (define-key company-active-map (kbd "M-s") 'company-filter-candidates)
   (define-key company-active-map (kbd "C-M-s") 'company-search-candidates)
+  ;; nested searching map.
+  (define-key company-search-map (kbd "M-g") 'company-search-toggle-filtering)
   (define-key company-search-map (kbd "C-g") 'company-search-abort)
   (define-key company-search-map (kbd "M-s") 'company-search-repeat-forward)
   (define-key company-search-map (kbd "M-r") 'company-search-repeat-backward)
