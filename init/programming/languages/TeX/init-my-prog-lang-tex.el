@@ -71,11 +71,14 @@
   (setq reftex-plug-into-AUCTeX t)
   (add-hook 'latex-mode-hook 'turn-on-reftex) ; with Emacs latex mode
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex) ; with AUCTeX LaTeX mode
+  (add-hook 'LaTeX-mode-hook #'reftex-mode)
 
+  (add-hook 'LaTeX-mode-hook 'auto-fill-mode)
+  
   ;; (setq TeX-macro-global '())
   ;; (setq TeX-outline-extra t)
 
-  ;; preview-latex config
+  ;; [ Preview ]
   ;; (setq preview-transparent-color '(highlight :background)
   ;;       preview-auto-reveal
   ;;       preview-auto-cache-preamble 'ask
@@ -83,10 +86,10 @@
 
   ;; view generated PDF with `pdf-tools'. (this is built-in now.)
   (unless (assoc "PDF Tools" TeX-view-program-list-builtin)
-    (add-to-list 'TeX-view-program-list-builtin
-	               '("PDF Tools" TeX-pdf-tools-sync-view)))
-  (add-to-list 'TeX-view-program-selection
-               '(output-pdf "PDF Tools"))
+    (add-to-list 'TeX-view-program-list-builtin '("PDF Tools" TeX-pdf-tools-sync-view)))
+  (unless (equalp "PDF Tools" (car (cdr (assoc 'output-pdf TeX-view-program-selection))))
+    (add-to-list 'TeX-view-program-selection '(output-pdf "PDF Tools")))
+  
   ;; (setq-default TeX-PDF-mode t) ; enable by default since AUCTeX 11.88
   ;; [C-c C-g] switch between LaTeX source code and PDF positions.
   (setq TeX-source-correlate-start-server t)
@@ -118,31 +121,41 @@
 	             (TeX-toggle-shell-escape)
 	             (local-set-key (kbd "C-c C-t x") 'TeX-toggle-shell-escape)))
 
+  ;; auto close dollars
+  (setq TeX-electric-math (cons "$" "$"))
+  (setq TeX-electric-sub-and-superscript t) ; use _{} instead of _
+  (setq font-latex-fontify-script 'multi-level) ; 2^2^2 as multiple scripts
 
   ;; smart tie
   (defun electric-tie ()
     "Inserts a tilde at point unless the point is at a space
 character(s), in which case it deletes the space(s) first."
-  (interactive)
-  (while (equal (char-after) ?\s) (delete-char 1))
-  (while (equal (char-before) ?\s) (delete-char -1))
-  (call-interactively 'self-insert-command))
+    (interactive)
+    (while (equal (char-after) ?\s) (delete-char 1))
+    (while (equal (char-before) ?\s) (delete-char -1))
+    (call-interactively 'self-insert-command))
 
-(eval-after-load 'tex '(define-key TeX-mode-map "~" 'electric-tie))
+  (eval-after-load 'tex '(define-key TeX-mode-map "~" 'electric-tie))
 
-(add-hook 'TeX-mode-hook
-          (lambda ()
-            (font-lock-add-keywords
-             nil
-             '(("~" . 'font-latex-sedate-face)))))
+  (add-hook 'TeX-mode-hook
+            (lambda ()
+              (font-lock-add-keywords
+               nil
+               '(("~" . 'font-latex-sedate-face)))))
 
 ;;; [C-c C-j] insert items smartly
-(add-hook
- 'LaTeX-mode-hook
- (lambda ()
-   (add-to-list 'LaTeX-item-list
-                '("frame" . (lambda () (TeX-insert-macro "pause"))))))
-)
+  (add-hook 'LaTeX-mode-hook
+            (lambda ()
+              (add-to-list 'LaTeX-item-list '("frame" . (lambda () (TeX-insert-macro "pause"))))))
+
+  ;; Big faces for sections, chapters, etc.
+  (set-face-attribute 'font-latex-sectioning-1-face nil
+                      :foreground "#ffcc66" :height 1.5 :bold t)
+  (set-face-attribute 'font-latex-sectioning-2-face nil
+                      :foreground "#ffcc66" :height 1.2 :bold t)
+  (set-face-attribute 'font-latex-sectioning-3-face nil
+                      :foreground "#ffcc66" :height 1.2 :bold nil)
+  )
 
 ;;; [ company-auctex ] & [ company-math ]
 
@@ -156,7 +169,7 @@ character(s), in which case it deletes the space(s) first."
     ;; indent
     (aggressive-indent-mode)
     
-    ;; fold
+    ;; fold: hide some boilerplate
     (TeX-fold-mode)
 
     (rainbow-delimiters-mode)
