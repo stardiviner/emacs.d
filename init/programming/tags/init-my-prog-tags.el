@@ -70,7 +70,7 @@
 
 
 ;; NOTE: use etags & gtags, because company-mode support.
-(require 'init-my-prog-tags-etags)
+;; (require 'init-my-prog-tags-etags)
 ;; (require 'init-my-prog-tags-gtags)
 ;; (require 'init-my-prog-tags-ctags)
 ;; (require 'init-my-prog-tags-cscope)
