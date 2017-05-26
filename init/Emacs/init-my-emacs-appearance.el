@@ -292,6 +292,12 @@
 
 ;;; trailing whitespace
 
+;;; [ page-break-lines ] -- visual horizontal line for page break.
+
+(use-package page-break-lines
+  :ensure t
+  :config
+  (page-break-lines-mode t))
 
 ;;; [ all-the-icons ] -- A utility package to collect various Icon Fonts and propertize them within Emacs.
 
