@@ -40,6 +40,11 @@
 
 ;;; add my init files directory
 
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/")
+
+(add-to-list 'load-path (expand-file-name "init" user-emacs-directory))
+
+;; recursively load init files.
 (let ((default-directory "~/.emacs.d/init/"))
   (setq load-path
         (append
@@ -48,8 +53,6 @@
             (copy-sequence (normal-top-level-add-to-load-path '(".")))
             (normal-top-level-add-subdirs-to-load-path)))
          load-path)))
-
-(add-to-list 'load-path "/usr/share/emacs/site-lisp/")
 
 (setq load-prefer-newer t)
 
