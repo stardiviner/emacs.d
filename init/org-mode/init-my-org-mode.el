@@ -38,7 +38,7 @@
 (require 'init-my-org-functions)
 (require 'init-my-org-document-structure)
 (require 'init-my-org-view)
-(require 'init-my-org-face) ; disable to compatible with color-theme.
+(require 'init-my-org-face)
 (require 'init-my-org-face-extra)
 (require 'init-my-org-keybindings)
 (require 'init-my-org-complete)
