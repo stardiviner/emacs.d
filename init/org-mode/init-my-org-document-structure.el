@@ -87,7 +87,9 @@
 
 ;; * Org syntax::                  Formal description of Org's syntax
 
+;;; [ Template ]
 
+(add-to-list 'org-structure-template-alist '("n" "#+NAME: ?"))
 
 
 
