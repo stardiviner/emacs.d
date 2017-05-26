@@ -17,17 +17,29 @@
 
 (setq package-user-dir "~/.emacs.d/elpa")
 
-(setq-default package-archives
-              '(("melpa" . "http://melpa.org/packages/")
-                ;; ("melpa-stable" . "http://stable.melpa.org/packages/")
-                ;; ("marmalade" . "http://marmalade-repo.org/packages/")
-                ("gnu" . "https://elpa.gnu.org/packages/")
-                ("org"   . "http://orgmode.org/elpa/")
-                ))
+(defvar elpa-gnu '("gnu" . "https://elpa.gnu.org/packages/"))
+(defvar elpa-melpa '("melpa" . "http://melpa.org/packages/"))
+(defvar elpa-melpa-stable '("melpa-stable" . "http://stable.melpa.org/packages/"))
+(defvar elpa-marmalade '("marmalade" . "http://marmalade-repo.org/packages/"))
+(defvar elpa-org '("org"   . "http://orgmode.org/elpa/"))
 
-;; (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
+(setq-default package-archives nil)
+(add-to-list 'package-archives elpa-org t)
+(add-to-list 'package-archives elpa-melpa t)
+;; (add-to-list 'package-archives elpa-melpa-stable t)
+;; (add-to-list 'package-archives elpa-marmalade t)
+(add-to-list 'package-archives elpa-gnu t)
 
 (package-initialize)
+
+(let* ((elpa-archives-dir "~/.emacs.d/elpa/archives/")
+       (elpa-gnu-archives-dir (concat elpa-archives-dir "gnu"))
+       (elpa-melpa-archives-dir (concat elpa-archives-dir "melpa"))
+       (elpa-org-archives-dir (concat elpa-archives-dir "org")))
+  (unless (and (file-exists-p elpa-gnu-archives-dir)
+               (file-exists-p elpa-melpa-archives-dir)
+               (file-exists-p elpa-org-archives-dir))
+    (package-refresh-contents)))
 
 ;; (setq package-enable-at-startup nil)
 ;; (package-initialize nil)
