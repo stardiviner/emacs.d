@@ -36,35 +36,9 @@
   ;;         (t . ivy--regexp-fuzzy)))
 
   (set-face-attribute 'ivy-confirm-face nil
-                      :inherit nil
-                      :weight 'bold
-                      )
-  (set-face-attribute 'ivy-current-match nil
-                      :inherit nil
-                      ;; Sci-Fi style
-                      ;; :foreground "white" :background "#004A5D"
-                      ;; :box '(:color "cyan" :line-width -1)
-                      )
-  (set-face-attribute 'ivy-match-required-face nil
-                      :inherit 'minibuffer-prompt
-                      )
-  ;; the string between matches
-  (set-face-attribute 'ivy-minibuffer-match-face-1 nil
-                      :inherit nil
-                      )
-  ;; first match part.
-  (set-face-attribute 'ivy-minibuffer-match-face-2 nil
-                      :inherit 'ivy-minibuffer-match-face-1
-                      )
-  ;; second match part.
-  (set-face-attribute 'ivy-minibuffer-match-face-3 nil
-                      :inherit 'ivy-minibuffer-match-face-1
-                      )
-  (set-face-attribute 'ivy-minibuffer-match-face-4 nil
-                      :inherit 'ivy-minibuffer-match-face-1
-                      )
-
-  ;; [ ivy-hydra ] -- [M-o]
+                      :weight 'bold)
+  
+  ;; [ ivy-hydra ] -- [C-o], [M-o]
   (use-package ivy-hydra
     :ensure t)
   
