@@ -54,6 +54,10 @@ For example: input regexp like [[:space:]]+ for align several space separated se
 ;; - (info "(emacs) Text Based Tables")
 ;; - [M-x table-] :: commands prefix with `table-'.
 
+;;; [ ETable ] -- An implementation of JTable for Emacs.
+
+(use-package etable
+  :ensure t)
 
 
 (provide 'init-my-emacs-edit-tabulate)
