@@ -154,6 +154,11 @@
 ;; (use-package gccsense
 ;;   :ensure t)
 
+;;;  [ autodisass-llvm-bitcode ] -- Automatically disassemble emacs buffers containing LLVM bitcode.
+
+(use-package autodisass-llvm-bitcode
+  :ensure t)
+
 
 
 (provide 'init-my-prog-lang-C-common)
