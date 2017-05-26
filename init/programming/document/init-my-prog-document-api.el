@@ -12,7 +12,10 @@
 (use-package helm-dash
   :ensure t
   :defer t
-  :init
+  :bind (:map my-prog-help-document-map
+              ("C-s" . helm-dash-at-point) ; `helm-dash'
+              )
+  :config
   (setq helm-dash-docsets-path (expand-file-name "~/.docsets")
         helm-dash-min-length 2
         ;; 'eww-browse-url, 'browse-url, 'browse-url-generic, 'helm-browse-url
@@ -21,13 +24,10 @@
         helm-case-fold-search 'smart
         )
   
-  (define-key my-prog-help-document-map (kbd "C-s") 'helm-dash-at-point) ; `helm-dash'
-  
-  :config
   (setq helm-dash-common-docsets
         '("Clojure"
-          "Common Lisp"
-          "Python 3" "Ruby"
+          ;; "Common Lisp"
+          ;; "Python 3" "Ruby"
           ;; "Ruby on Rails"
           "HTML" "CSS"
           "JavaScript" "NodeJS"
@@ -44,6 +44,7 @@
      (lambda (docset)
        (setq-local helm-dash-docsets (add-to-list 'helm-dash-docsets docset)))
      docsets-list))
+  
   ;; Bash
   (defun helm-dash-buffer-local-shell-docsets ()
     (setq-local helm-dash-docsets '("Bash")))

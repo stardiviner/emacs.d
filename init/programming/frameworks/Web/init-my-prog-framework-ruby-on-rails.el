@@ -12,10 +12,8 @@
 (use-package rhtml-mode
   :ensure t
   :defer t
-  :init
-  (add-to-list 'auto-mode-alist '("\\.html.erb\\'" . rhtml-mode))
-  (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . rhtml-mode))
-  
+  :mode (("\\.html.erb\\'" . rhtml-mode)
+         ("\\.rhtml\\'" . rhtml-mode))
   :config
   (set-face-attribute 'erb-face nil ; ruby code
                       :background (color-darken-name (face-background 'default) 2)
@@ -49,7 +47,6 @@
   ;; NOTE: some settings need to be set before required or loaded.
   (setq projectile-rails-keymap-prefix (kbd "C-c C-r"))
   (add-hook 'projectile-mode-hook 'projectile-rails-on)
-  
   :config
   (setq projectile-rails-add-keywords t)
   (setq projectile-rails-expand-snippet t)

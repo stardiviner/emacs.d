@@ -64,8 +64,8 @@
 ;;; [ ob-clojure ]
 
 (require 'ob-clojure)
-(add-to-list 'org-babel-default-header-args:clojure
-             '(:results . "output"))
+;; (add-to-list 'org-babel-default-header-args:clojure
+;;              '(:results . "output"))
 ;; (add-to-list 'org-babel-default-header-args:clojure
 ;;              '(:show-process . t))
 

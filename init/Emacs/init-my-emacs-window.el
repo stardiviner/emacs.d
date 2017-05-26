@@ -261,8 +261,7 @@
   (push '("*SCLang:Workspace*" :position bottom :height 6 :noselect t) popwin:special-display-config)
 
   ;; TeX/LaTeX (AUCTeX)
-  (push '(TeX-output-mode :position bottom :height 10) popwin:special-display-config)
-  (push '("*TeX Help*" :position bottom :height 8 :noselect nil) popwin:special-display-config)
+  ;; (push '(TeX-output-mode :position bottom :height 10) popwin:special-display-config)
   )
 
 ;;; [ golden-ratio ] -- automatically resizes your windows so that the window containing the point is the largest (size determined by the mathematical golden ratio.

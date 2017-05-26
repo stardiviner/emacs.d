@@ -273,6 +273,7 @@
                "~/Org/Learning Plan/Learning Plan.org"
                "~/Org/Learning Plan/Learn Programming.org"
                ;; "~/Org/Contacts/Contacts.org"
+               "~/Org/Calendars/"
                ))))
 
 (setq org-agenda-text-search-extra-files '(agenda-archives "~/Org/Diary/"))
