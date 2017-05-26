@@ -83,6 +83,7 @@
 (require 'init-my-emacs-environment)
 (require 'init-my-emacs-settings)
 (require 'init-my-emacs-performance)
+(require 'init-my-emacs-security)
 (require 'init-my-emacs-font)
 (require 'init-my-emacs-color-theme)
 (require 'init-my-emacs-appearance)
