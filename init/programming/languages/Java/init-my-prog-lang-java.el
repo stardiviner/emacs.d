@@ -181,6 +181,11 @@
               (define-key dired-mode-map (kbd "C-c t f") 'thread-dump-open-marked-files)))
   )
 
+;;; [ helm-jstack ] -- Helm interface to jps & jstack for JVM.
+
+(use-package helm-jstack
+  :ensure t)
+
 
 (provide 'init-my-prog-lang-java)
 
