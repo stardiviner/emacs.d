@@ -159,6 +159,28 @@
   (jdecomp-mode 1)
   )
 
+;;; [ thread-dump ] -- Emacs mode for java thread dumps.
+
+(use-package thread-dump
+  :ensure t
+  :config
+  ;; config for Dired.
+  ;; support open Dired directory.
+  (defun thread-dump-open-dired-dir ()
+    (interactive)
+    (thread-dump-open-dir (dired-current-directory)))
+  ;; support open Dired marked files.
+  (defun thread-dump-open-marked-files ()
+    (interactive)
+    (let ((files (dired-get-marked-files)))
+      (thread-dump-open-files files)))
+  ;; add keybindings for Dired mode.
+  (add-hook 'dired-mode-hook
+            (lambda ()
+              (define-key dired-mode-map (kbd "C-c t d") 'thread-dump-open-dired-dir)
+              (define-key dired-mode-map (kbd "C-c t f") 'thread-dump-open-marked-files)))
+  )
+
 
 (provide 'init-my-prog-lang-java)
 
