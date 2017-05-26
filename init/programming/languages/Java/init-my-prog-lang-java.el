@@ -15,6 +15,11 @@
 (use-package javap-mode
   :ensure t)
 
+;;; [ autodisass-java-bytecode ] -- Automatically disassemble emacs buffers containing Java bytecode.
+
+(use-package autodisass-java-bytecode
+  :ensure t)
+
 ;;; [ Eclim ]
 
 (use-package eclim
