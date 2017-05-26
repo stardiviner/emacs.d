@@ -371,18 +371,6 @@ With prefix argument, also display headlines without a TODO keyword."
 
 (use-package org-ref
   :ensure t
-  :init
-  (setq org-ref-bibtex-hydra-key-binding (kbd "C-c ]"))
-
-  (unless (boundp 'org-ref-prefix)
-    (define-prefix-command 'org-ref-prefix))
-  (define-key my-org-prefix (kbd "C-]") 'org-ref-prefix)
-
-  (define-key org-ref-prefix (kbd "C-]") 'org-ref-insert-link)
-  (define-key org-ref-prefix (kbd "c") 'org-ref-helm-insert-cite-link)
-  (define-key org-ref-prefix (kbd "l") 'org-ref-helm-insert-label-link)
-  (define-key org-ref-prefix (kbd "r") 'org-ref-helm-insert-ref-link)
-
   :config
   (setq bibtex-completion-pdf-open-function 'org-open-file)
   (setq org-latex-prefer-user-labels t)
@@ -394,6 +382,18 @@ With prefix argument, also display headlines without a TODO keyword."
           "pdflatex -interaction nonstopmode -output-directory %o %f"
           "pdflatex -interaction nonstopmode -output-directory %o %f"))
 
+  ;; setup org-ref keybindings
+  (setq org-ref-bibtex-hydra-key-binding (kbd "C-c ]"))
+
+  (unless (boundp 'org-ref-prefix)
+    (define-prefix-command 'org-ref-prefix))
+  (define-key my-org-prefix (kbd "C-]") 'org-ref-prefix)
+
+  (define-key org-ref-prefix (kbd "C-]") 'org-ref-insert-link)
+  (define-key org-ref-prefix (kbd "c") 'org-ref-helm-insert-cite-link)
+  (define-key org-ref-prefix (kbd "l") 'org-ref-helm-insert-label-link)
+  (define-key org-ref-prefix (kbd "r") 'org-ref-helm-insert-ref-link)
+  
   (require 'f)
   (setq org-ref-default-bibliography
         (f-files "~/Org/Bibliography/"
