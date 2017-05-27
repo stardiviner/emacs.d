@@ -33,12 +33,6 @@
   :ensure t
   :defer t)
 
-;;; [ ivy-bibtex ] -- A BibTeX bibliography manager based on Ivy.
-
-(use-package ivy-bibtex
-  :ensure t
-  :defer t)
-
 ;;; [ company-bibtex ] -- Emacs company-mode completion back-end for Bibtex keys.
 
 (use-package company-bibtex
