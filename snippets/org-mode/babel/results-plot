@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: babel-result-plot
-# key: babel-result-plot
+# name: babel-results-plot
+# key: babel-results-plot
 # group: babel.plot
 # --
 #+BEGIN_SRC ${1:LANG} :results file :file "${3:image}.png" :dir "${2:data/images}" :var fname="$3.png"
