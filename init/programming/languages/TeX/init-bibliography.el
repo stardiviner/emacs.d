@@ -42,7 +42,9 @@
         '("~/.emacs.d/bibliography/bibliography.bib"
           ))
 
-  (add-to-list 'company-backends 'company-bibtex t)
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (my-company-add-backend-locally 'company-bibtex)))
   )
 
 ;;; [ ebib ] -- a BibTeX database manager.
