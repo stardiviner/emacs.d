@@ -359,22 +359,22 @@ Optional argument NS, if not provided, defaults to
 
 ;;; [ clj-refactor ]
 
-;; (use-package clj-refactor
-;;   :ensure t
-;;   :config
-;;   (add-hook 'clojure-mode-hook
-;;             (lambda ()
-;;               (clj-refactor-mode 1)
-;;               ;; insert keybinding setup here
-;;               (cljr-add-keybindings-with-prefix "M-RET")
-;;               ))
-;;
-;;   ;; skip Tab in `cljr-add-require-to-ns' snippet.
-;;   ;; (advice-add 'cljr-add-require-to-ns :after
-;;   ;;             (lambda (&rest _)
-;;   ;;               (yas-next-field)
-;;   ;;               (yas-next-field)))
-;;   )
+(use-package clj-refactor
+  :ensure t
+  :config
+  (add-hook 'clojure-mode-hook
+            (lambda ()
+              (clj-refactor-mode 1)
+              ;; insert keybinding setup here
+              (cljr-add-keybindings-with-prefix "M-RET")
+              ))
+
+  ;; skip Tab in `cljr-add-require-to-ns' snippet.
+  ;; (advice-add 'cljr-add-require-to-ns :after
+  ;;             (lambda (&rest _)
+  ;;               (yas-next-field)
+  ;;               (yas-next-field)))
+  )
 
 ;;; [ kibit-helper ] -- Conveniently use the Kibit Leiningen plugin from Emacs.
 
