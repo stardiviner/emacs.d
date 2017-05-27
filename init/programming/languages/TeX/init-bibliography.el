@@ -15,16 +15,16 @@
 
 ;;; [ bibtex ] -- BibTeX mode for GNU Emacs.
 
-;; (use-package bibtex
-;;   :config
-;;   (setq bibtex-parse-keys-fast t
-;;         bibtex-parse-keys-timeout 0
-;;         )
-;;   (use-package bibtex-style
-;;     :ensure t)
-;;   (use-package bibtex-utils
-;;     :ensure t)
-;;   )
+(use-package bibtex
+  :config
+  (setq bibtex-parse-keys-fast t
+        bibtex-parse-keys-timeout 0
+        )
+  (use-package bibtex-style
+    :ensure t)
+  (use-package bibtex-utils
+    :ensure t)
+  )
 
 ;;; ----------------------------------------------------------------------------
 ;;; [ helm-bibtex ] -- Helm interface for bibliography manager.
