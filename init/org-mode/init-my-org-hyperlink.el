@@ -395,10 +395,10 @@ With prefix argument, also display headlines without a TODO keyword."
   (define-key org-ref-prefix (kbd "r") 'org-ref-helm-insert-ref-link)
   
   (require 'f)
-  (setq org-ref-default-bibliography
-        (f-files "~/Org/Bibliography/"
-                 (lambda (f)
-                   (f-ext? f "bib"))))
+  (setq org-ref-default-bibliography (f-files "~/Org/Bibliography/"
+                                              (lambda (f)
+                                                (f-ext? f "bib")))
+        org-ref-pdf-directory "~/Org/Bibliography/")
   )
 
 
