@@ -295,32 +295,35 @@ state (modified, read-only or non-existent)."
 (defun *env ()
   "Show environment version info like Python, Ruby, JavaScript etc."
   (if (active)
-      (let ((env (cl-case major-mode
-                   ('clojure-mode
-                    (if (and (not (equal (cider--modeline-info) "not connected"))
-                             (null (projectile-project-name)) ; don't duplicate with `projectile'
-                             )
-                        (with-current-buffer (ignore-errors (cider-current-connection))
-                          (cider--project-name nrepl-project-dir))))
-                   ('enh-ruby-mode
-                    (if global-rbenv-mode
-                        (rbenv--active-ruby-version) ; `rbenv--modestring'
-                      ))
-                   ('python-mode
-                    (if pyvenv-mode
-                        ;; `pyvenv-mode-line-indicator' -> `pyvenv-virtual-env-name'
-                        pyvenv-virtual-env-name
-                      ;; conda: `conda-env-current-name'
-                      ))
-                   ('js3-mode
-                    (if (and (featurep 'nvm) (not (null nvm-current-version)))
-                        nvm-current-version)
-                    )
-                   )))
+      (let ((env
+             (cl-case major-mode
+               ('clojure-mode
+                (if (not (equal (cider--modeline-info) "not connected"))
+                    ;; don't duplicate with `projectile'
+                    (if (projectile-project-name)
+                        (all-the-icons-fileicon "clj" :face '(:foreground "green"))
+                      (with-current-buffer (ignore-errors (cider-current-connection))
+                        (cider--project-name nrepl-project-dir))
+                      )
+                  (all-the-icons-fileicon "clj" :face '(:foreground "red"))))
+               ('ruby-mode
+                (if (and global-rbenv-mode rbenv--modestring)
+                    ;; `rbenv--modestring'
+                    (propertize (format "%s" (rbenv--active-ruby-version)))
+                  ))
+               ('python-mode
+                (if pyvenv-mode
+                    ;; `pyvenv-mode-line-indicator' -> `pyvenv-virtual-env-name'
+                    pyvenv-virtual-env-name
+                  ;; conda: `conda-env-current-name'
+                  ))
+               ('js3-mode
+                (if (and (featurep 'nvm) (not (null nvm-current-version)))
+                    nvm-current-version)
+                )
+               )))
         (if env
-            (propertize (concat "[" env "]"
-                                (propertize " " 'face 'variable-pitch))
-                        'face 'mode-line-info-face))
+            (concat "[" env "]"))
         )))
 
 ;;; vc
