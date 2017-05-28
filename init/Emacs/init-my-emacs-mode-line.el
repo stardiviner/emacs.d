@@ -110,6 +110,14 @@
                             :face 'mode-line-meta-face
                             :v-adjust -0.05)))
 
+(defun *recursive-editing ()
+  "Show current recursive editing info."
+  (if (and (active)
+           (not (string-empty-p (format-mode-line "%]"))))
+      (concat
+       (all-the-icons-octicon "pencil" :v-adjust -0.05 :face 'mode-line-warn-face)
+       (propertize (format-mode-line "%]") 'face 'mode-line-warn-face))))
+
 ;;; buffer project info
 (defun buffer-path-relative-to-project ()
   "Displays the buffer's full path relative to the project root.
@@ -190,30 +198,36 @@ state (modified, read-only or non-existent)."
   (if (active)
       (propertize
        (concat
-        (if buffer-read-only
-            (all-the-icons-octicon "lock"
-                                   :face 'mode-line-urgent-face
-                                   :v-adjust -0.05)
-          (when (and (not (null buffer-file-name))
-                     (buffer-modified-p))
-            (all-the-icons-faicon "pencil-square-o"
-                                  :face 'mode-line-warn-face
-                                  :v-adjust -0.1)))
-        (when (null buffer-file-name) ; process buffer
+        ;; buffer modify status
+        (cond
+         ((string-equal (format-mode-line "%*") "*")
+          (all-the-icons-faicon "chain-broken" :v-adjust -0.0 :face 'mode-line-warn-face))
+         ((string-equal (format-mode-line "%*") "-")
+          (all-the-icons-faicon "link" :v-adjust -0.0))
+         ((string-equal (format-mode-line "%*") "%")
+          (all-the-icons-octicon "lock" :v-adjust -0.0))
+         )
+        ;; process buffer
+        (when (null buffer-file-name)
           (all-the-icons-faicon "asterisk" :v-adjust -0.05 :face 'mode-line-data-face))
-        (when (and buffer-file-name (not (file-exists-p buffer-file-name))) ; not exist file
+        ;; not exist file
+        (when (and buffer-file-name (not (file-exists-p buffer-file-name)))
           (all-the-icons-octicon "circle-slash"
                                  :face 'mode-line-info-face
                                  :v-adjust -0.05))
-        (when (and (not (null (buffer-file-name))) ; remote file
+        ;; remote file
+        (when (and (not (null (buffer-file-name)))
                    (file-remote-p (buffer-file-name)))
           (all-the-icons-faicon "cloud-download"
                                 :face 'mode-line-warn-face
                                 :v-adjust -0.05))
-        (when (buffer-narrowed-p) ; narrow
+        ;; narrow
+        (when (buffer-narrowed-p)
           (all-the-icons-faicon "align-center"
                                 :v-adjust -0.05
                                 :face 'mode-line-data-face))
+        ;; buffer size
+        ;; (format-mode-line "%I")
         (propertize " " 'face 'variable-pitch)))))
 
 ;;; buffer encoding
@@ -223,39 +237,52 @@ state (modified, read-only or non-existent)."
       (propertize
        (concat
         (let ((eol-type (coding-system-eol-type buffer-file-coding-system)))
-          (cond ((eq eol-type 0) "LF ")
-                ((eq eol-type 1) "CRLF ")
-                ((eq eol-type 2) "CR ")))
+          (cond
+           ((eq eol-type 0)
+            "" ;; "LF " <-- Unix/Linux EOF
+            )
+           ((eq eol-type 1) "CRLF ")
+           ((eq eol-type 2) "CR ")))
         (let* ((sys (coding-system-plist buffer-file-coding-system))
                (sys-name (plist-get sys :name))
                (sys-cat (plist-get sys :category)))
-          (cond ((memq sys-cat '(coding-category-undecided coding-category-utf-8))
-                 "UTF-8")
-                (t (upcase (symbol-name sys-name)))))
-        " ")
-       'face 'mode-line-info-face)))
+          (cond
+           ((memq sys-cat '(coding-category-undecided coding-category-utf-8))
+            "" ;; "UTF-8" <-- no need to display UTF-8.
+            )
+           (t
+            (upcase (symbol-name sys-name)))))
+        (propertize " " 'face 'variable-pitch)
+        ))))
 
 ;;; bookmark
 (defun *bookmark ()
   "Show bookmark icon if current buffer is bookmarked."
-  (let* ((bookmarked (cl-find-if (lambda (it)
-                                   (string= (buffer-file-name)
-                                            (expand-file-name (cdr (assoc 'filename it)))))
-                                 bookmark-alist)))
-    (if bookmarked
+  (let* ((bookmark
+          (cl-find-if (lambda (it)
+                        (string= (buffer-file-name)
+                                 (expand-file-name (cdr (assoc 'filename it)))))
+                      bookmark-alist)))
+    (if bookmark
         (concat
          (propertize
           (all-the-icons-faicon "bookmark" :v-adjust -0.05 :height 0.8)
-          ;; 'local-map (make-mode-line-mouse-map
-          ;;             'mouse-1
-          ;;             `(lambda () (interactive)
-          ;;                (if ,(car bookmark)
-          ;;                    (bookmark-delete ,(car bookmark))
-          ;;                  (bookmark-set ,bookmark-name))
-          ;;                (force-mode-line-update)))
-          )
+          'local-map (make-mode-line-mouse-map
+                      'mouse-1 `(lambda () (interactive)
+                                  (if ,(car bookmark)
+                                      (bookmark-delete ,(car bookmark))
+                                    (bookmark-set ,bookmark-name))
+                                  (force-mode-line-update))))
          (propertize " " 'face 'variable-pitch))
       )))
+
+;;; window number
+;; (use-package window-numbering
+;;   :ensure t)
+(defun *window-number ()
+  (propertize (format " %c" (+ 9311 (window-numbering-get-number)))
+              'face `(:height ,(/ (* 0.90 powerline/default-height) 100.0))
+              'display '(raise 0.0)))
 
 ;;; line & column position info
 (defun *linum-info ()
@@ -289,6 +316,8 @@ state (modified, read-only or non-existent)."
      ;; (all-the-icons-icon-for-file (buffer-file-name) :v-adjust -0.05 :height 1.0)
      (format-mode-line "%m" mode-name)
      )
+   'help-echo (format "Major-mode: `%s`" major-mode)
+   ;; 'face `(:height 1.2 :family ,(all-the-icons-icon-family-for-buffer))
    ))
 
 ;;; environment version info like: Python, Ruby, JavaScript,
@@ -338,7 +367,14 @@ state (modified, read-only or non-existent)."
        (propertize " " 'face 'variable-pitch)
        (case backend
          ('Git
-          (all-the-icons-faicon "git" :v-adjust -0.05)))
+          (all-the-icons-faicon "git" :v-adjust -0.05))
+         ('SVN
+          (all-the-icons-faicon "cloud" :v-adjust -0.05))
+         ('Hg
+          (all-the-icons-faicon "cloud" :v-adjust -0.05))
+         (t
+          (format "%s" vc-mode))
+         )
        (propertize " " 'face 'variable-pitch)
        (cond ((memq state '(edited added))
               (if active (setq face 'mode-line-info-face))
@@ -355,9 +391,9 @@ state (modified, read-only or non-existent)."
              (t
               (if active (setq face 'mode-line))
               (all-the-icons-octicon "git-compare" :face face :v-adjust -0.05)))
-       " "
+       (propertize " " 'face 'variable-pitch)
        (propertize (substring vc-mode (+ (if (eq backend 'Hg) 2 3) 2))
-                   'face (if active face))
+                   'face (if active `(:foreground "yellow")))
        ))))
 
 ;;; flycheck
@@ -449,21 +485,22 @@ state (modified, read-only or non-existent)."
               ))
           ))))
 
-;; selection info
+;; region selection info
 (defun *selection-info ()
   "Information about the current selection.
 
 Such as how many characters and lines are selected, or the NxM
 dimensions of a block selection."
   (when (and (active) mark-active)
-    (let ((words (count-lines (region-beginning) (region-end)))
-          (chars (count-words (region-end) (region-beginning))))
+    (let ((lines (count-lines (region-beginning) (region-end)))
+          (words (count-words (region-end) (region-beginning))))
       (concat
        (propertize " " 'face 'variable-pitch)
-       (all-the-icons-octicon "pencil" :v-adjust -0.05
-                              :face 'mode-line-data-face)
-       ;; (propertize (format " (w:%s,c:%s)" words chars)
-       ;;             'face `(:height 0.9))
+       (all-the-icons-faicon "pencil-square"
+                             :v-adjust -0.05
+                             :face 'mode-line-data-face)
+       (propertize (format " (l:%s,w:%s)" lines words)
+                   'face `(:height 0.9 :foreground ,(face-foreground 'mode-line-data-face)))
        ))
     ))
 
@@ -597,7 +634,7 @@ dimensions of a block selection."
 
 (defun *company-lighter ()
   "Show company-mode lighter from `company-lighter'."
-  (if (and (boundp company-mode) company-mode (consp company-backend))
+  (if (and (boundp 'company-mode) company-mode (consp company-backend))
       (propertize
        (company--group-lighter
         (nth company-selection company-candidates) company-lighter-base)
@@ -656,6 +693,20 @@ dimensions of a block selection."
     )
   )
 
+;;; Current Time
+(defun *time ()
+  "Show current time in Emacs custom mode-line."
+  (let* ((hour (string-to-number (format-time-string "%I")))
+         (icon (all-the-icons-wicon (format "time-%s" hour) :height 1.3 :v-adjust 0.0)))
+    (if (active)
+        (concat
+         (propertize (format "%s" icon)
+                     'face `(:height 1.0 :family ,(all-the-icons-wicon-family))
+                     'display '(raise -0.0))
+         (propertize (format-time-string " %H:%M ") 'face `(:height 0.9))
+         ))
+    ))
+
 (defun *space (n)
   "Add `N' spaces for custom mode-line alignment."
   (propertize (make-string n (string-to-char " ")) 'face 'variable-pitch))
@@ -693,6 +744,7 @@ dimensions of a block selection."
   `(:eval
     (let* ((meta (concat
                   (*emacsclient)
+                  (*recursive-editing)
                   (*macro-recording)
                   (*selection-info)
                   (*anzu)
@@ -704,11 +756,11 @@ dimensions of a block selection."
                   ))
            (lhs (list
                  (*current)
-                 (if (= (length meta) 0) " %I " meta)
+                 (if (= (length meta) 0) "" meta)
                  (*buffer-info)
                  (*bookmark)
                  (*buffer-name)
-                 ;; (*buffer-encoding)
+                 (*buffer-encoding)
                  (*linum-info)
                  ;; (*wc-mode)
                  (*pdf-tools-page-position)
@@ -724,6 +776,7 @@ dimensions of a block selection."
                  ;; first fragment is not `nil'. So I use " " empty string with
                  ;; 1 length.
                  " "
+                 ;; (*time)
                  (*erc)
                  (*flycheck)
                  (*build-status)
