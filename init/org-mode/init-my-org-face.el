@@ -317,7 +317,7 @@
                                   ('light
                                    (color-darken-name (face-background 'default) 2))
                                   ('dark
-                                   (color-lighten-name (face-background 'default) 10)))
+                                   (color-lighten-name (face-background 'default) 3)))
                     )
 
 ;; Basic face for displaying the secondary selection.
