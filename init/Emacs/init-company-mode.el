@@ -42,7 +42,7 @@
                    :with
                    company-yasnippet)
                   ;; :separate company-semantic
-                  ;; (company-flyspell :with company-ispell)
+                  :separate company-ispell ; for word completion in comment.
                   (company-keywords
                    :with
                    company-dabbrev-code)

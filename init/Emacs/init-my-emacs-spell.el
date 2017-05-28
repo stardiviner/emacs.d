@@ -143,10 +143,6 @@
   ;;   )
   )
 
-;;; [ company-flyspell ]
-
-(load (locate-user-emacs-file "init/extensions/company-flyspell.el"))
-
 
 (provide 'init-my-emacs-spell)
 
