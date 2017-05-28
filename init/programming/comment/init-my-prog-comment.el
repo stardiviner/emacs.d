@@ -82,16 +82,16 @@ column.  Place the point after the comment box."
 
 (use-package hl-todo
   :ensure t
-  :bind (:map fic-prefix
-              ("p" . hl-todo-previous)
-              ("n" . hl-todo-next)
-              ("o" . hl-todo-occur))
   :config
   (set-face-attribute 'hl-todo nil
                       :inherit nil
                       :foreground "orange red"
                       :box '(:line-width 1 :color "gray")
                       )
+
+  (define-key fic-prefix (kbd "p") 'hl-todo-previous)
+  (define-key fic-prefix (kbd "p") 'hl-todo-next)
+  (define-key fic-prefix (kbd "p") 'hl-todo-occur)
   
   (global-hl-todo-mode 1)
   )
