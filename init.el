@@ -131,6 +131,9 @@
 (require 'init-my-emacs-customize)
 (require 'init-my-emacs-accessibility)
 
+;;; hypertextual information management system
+
+(require 'init-my-org-mode)
 
 ;;; Vim
 
@@ -307,10 +310,6 @@
    (require 'init-macOS))
   ('windows-nt
    (require 'init-microsoft-windows)))
-
-;;; hypertextual information management system
-
-(require 'init-my-org-mode)
 
 ;;; Science
 
