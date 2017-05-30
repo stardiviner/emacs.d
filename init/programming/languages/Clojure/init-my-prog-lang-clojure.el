@@ -245,36 +245,6 @@
               (notifications-notify :title "CIDER connected"
                                     :body "CIDER process connected.")))
   
-  ;; switch to CIDER REPL buffers.
-  (defun my-cider-clojure-repl-switch ()
-    (interactive)
-    (let ((cider-clojure-repl-buffer-name "*cider-repl localhost*"))
-      (if (get-buffer cider-clojure-repl-buffer-name)
-          (switch-to-buffer cider-clojure-repl-buffer-name)
-        (cider-jack-in)
-        )))
-  
-  (defun my-cider-cljs-repl-switch ()
-    (interactive)
-    (let ((cider-cljs-repl-buffer-name "*cider-repl CLJS localhost*"))
-      (if (get-buffer cider-cljs-repl-buffer-name)
-          (switch-to-buffer cider-cljs-repl-buffer-name)
-        ;; kill the old CIDER Clojure REPL process
-        (kill-process (get-process "nrepl-connection"))
-        (kill-process (get-process "nrepl-server"))
-        (setq cider-cljs-lein-repl
-              "(do (require 'figwheel-sidecar.repl-api)
-                   (figwheel-sidecar.repl-api/start-figwheel!)
-                   (figwheel-sidecar.repl-api/cljs-repl))")
-        (cider-jack-in-clojurescript))))
-  
-  (unless (boundp 'my-prog-inferior-map)
-    (define-prefix-command 'my-prog-inferior-map))
-  (define-key my-prog-inferior-map (kbd "c") 'my-cider-clojure-repl-switch)
-
-  (define-key clojure-mode-map (kbd "C-c C-s") 'my-cider-clojure-repl-switch)
-  (define-key clojurescript-mode-map (kbd "C-c C-s") 'my-cider-cljs-repl-switch)
-  
   ;; CIDER inspect command keybindings
   (unless (boundp 'cider-inspect-prefix)
     (define-prefix-command 'cider-inspect-prefix))
