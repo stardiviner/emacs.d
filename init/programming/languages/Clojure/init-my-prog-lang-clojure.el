@@ -69,7 +69,7 @@
   :config
   (setq cider-auto-mode t
         nrepl-hide-special-buffers nil
-        cider-repl-pop-to-buffer-on-connect nil ; buffer will only be created not displayed
+        cider-repl-pop-to-buffer-on-connect nil
         cider-auto-select-error-buffer t
         nrepl-buffer-name-separator " "
         nrepl-buffer-name-show-port nil
@@ -80,7 +80,12 @@
         ;; cider-jack-in-auto-inject-clojure "1.9.0-alpha12"
         ;; cider-minimum-clojure-version "1.8.0"
         ;; cider-required-nrepl-version "0.2.12"
-
+        
+        ;; Leiningen parameters
+        ;; cider-lein-command
+        ;; cider-lein-global-options "-o"
+        ;; cider-lein-parameters "repl :headless :host ::"
+        
         ;; resources
         cider-prefer-local-resources t
 
@@ -94,7 +99,7 @@
         cider-inject-dependencies-at-jack-in t
         cider-repl-display-in-current-window nil
         cider-repl-pop-to-buffer-on-connect nil
-        cider-prompt-save-file-on-load t
+        cider-save-file-on-load t
         cider-repl-result-prefix ";; => "
         cider-repl-use-clojure-font-lock t
         ;; cider-repl-tab-command 'cider-repl-indent-and-complete-symbol
@@ -111,10 +116,10 @@
         ;; cider-cljs-gradle-repl
         
         ;; pretty-printing
-        cider-pprint-fn 'fipp
+        ;; cider-pprint-fn 'fipp
         
         ;; Eval
-        cider-show-eval-spinner t
+        cider-show-eval-spinner nil
         cider-eval-spinner-delay 0.1
         ;; cider-eval-spinner-type 'progress-bar
         cider-use-overlays 'both
