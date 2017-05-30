@@ -114,10 +114,6 @@
                      (null (string-match "\\([;{}]\\|\\b\\(if\\|for\\|while\\)\\b\\)"
                                          (thing-at-point 'line)))))
 
-
-  (add-to-list 'aggressive-indent-excluded-modes 'ruby-mode)
-  (add-to-list 'aggressive-indent-excluded-modes 'enh-ruby-mode)
-  (add-to-list 'aggressive-indent-excluded-modes 'inf-ruby-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'python-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'haskell-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'lua-mode)
