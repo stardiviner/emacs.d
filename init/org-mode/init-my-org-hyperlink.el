@@ -34,6 +34,17 @@
  "file+sys"
  :complete 'org-file-complete-link)
 
+;;; fontify broken link.
+(org-link-set-parameters
+ "file"
+ :face (lambda (path) (if (file-exists-p path) 'org-link 'org-warning)))
+(org-link-set-parameters
+ "file+sys"
+ :face (lambda (path) (if (file-exists-p path) 'org-link 'org-warning)))
+(org-link-set-parameters
+ "file+emacs"
+ :face (lambda (path) (if (file-exists-p path) 'org-link 'org-warning)))
+
 
 ;;; org-file-apps no longer accepts S-expressions as commands
 ;;
