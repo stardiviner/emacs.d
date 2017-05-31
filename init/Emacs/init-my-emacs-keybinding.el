@@ -68,9 +68,8 @@ helpful for learning and remembering forgotten binds."
 
 (use-package which-key
   :ensure t
-  :bind (("C-h C-h" . which-key-show-top-level))
   :config
-  (setq which-key-idle-delay 1.5
+  (setq which-key-idle-delay 1.0
         which-key-idle-secondary-delay nil)
 
   (setq which-key-max-description-length 27
@@ -92,6 +91,8 @@ helpful for learning and remembering forgotten binds."
           ))
 
   (which-key-mode 1)
+
+  (global-set-key (kbd "C-h C-h") #'which-key-show-top-level)
   )
 
 
