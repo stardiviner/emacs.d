@@ -4,4 +4,6 @@
 # --
 defcustom ${1:VAR} ${2:VALUE}
   "${3:DOC}"
+  :type '${4:boolean,number,function}
+  :group '${5:parent group}
   ${0:&optional ARGS}

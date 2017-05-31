@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: defgroup
+# key: defgroup
+# group: customize
+# --
+defgroup ${1:name} nil
+  "${2:DOC}."
+  :prefix "${3:defcustom prefix}-"
+  :group '${4:parent group}
