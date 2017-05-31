@@ -19,13 +19,6 @@
   :bind ("C-x f" . f3)
   )
 
-;;; [ fuff ] -- Find files with findutils recursively as a replacement of `find-file'.
-
-(use-package fuff
-  :ensure t
-  :bind ("C-x C-f" . fuff-find-file)
-  )
-
 ;;; [ helm-fuzzy-find ] -- Find files using Fuzzy Search (fuzzy-find) with Helm.
 
 (use-package helm-fuzzy-find
