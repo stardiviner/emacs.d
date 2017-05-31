@@ -360,6 +360,8 @@ Usage: (cider-repl-command \"\(clojure expr\)\")"
               (cljr-add-keybindings-with-prefix "M-RET")
               ))
 
+  (define-key clj-refactor-map (kbd "C-c C-'") #'hydra-cljr-help-menu/body)
+
   ;; skip Tab in `cljr-add-require-to-ns' snippet.
   ;; (advice-add 'cljr-add-require-to-ns :after
   ;;             (lambda (&rest _)
