@@ -9,6 +9,7 @@
 
 (setq org-display-internal-link-with-indirect-buffer t
       org-indirect-buffer-display 'current-window
+      org-keep-stored-link-after-insertion t ; keep stored link in entire session.
       ;; org-open-directory-means-index-dot-org t
       
       ;; You can fully-qualify links on a link-by-link basis by passing one
