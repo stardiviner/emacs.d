@@ -15,7 +15,6 @@
   :bind (
          ;; ("C-c C-r" . ivy-resume) ; [C-c C-r] keybinding conflict with `rtags' prefix.
          ;; ("C-i" . complete-symbol)
-         ([remap bookmark-jump] . ivy-bookmark-goto)
          )
   :config
   ;; ivy-mode
@@ -43,6 +42,20 @@
   ;; [ ivy-hydra ] -- [C-o], [M-o]
   (use-package ivy-hydra
     :ensure t)
+
+  ;; some actions
+  (ivy-set-actions
+   'counsel-find-file
+   '(("d" (lambda (x) (delete-file (expand-file-name x)))
+      "delete")
+     ))
+  (ivy-set-actions
+   'ivy-switch-buffer
+   '(("k" (lambda (x) (kill-buffer x) (ivy--reset-state ivy-last))
+      "kill")
+     ("j" ivy--switch-buffer-other-window-action
+      "other window")
+     ))
   
   ;; {Bookmarks}
   (defun ivy-bookmark-goto ()
@@ -65,6 +78,8 @@
                 :action (lambda (bookmark)
                           (bookmark-jump bookmark)))
       ))
+
+  (global-set-key [remap bookmark-jump] 'ivy-bookmark-goto)
   
   (ivy-mode 1)
   )
