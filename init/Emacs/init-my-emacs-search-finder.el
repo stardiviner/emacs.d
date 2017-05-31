@@ -12,13 +12,6 @@
 
 (define-key my-search-prefix (kbd "f") 'find-prefix)
 
-;;; [ f3 ] -- The Fantastic File Finder: a helm interface for searching files really fast.
-
-(use-package f3
-  :ensure t
-  :bind ("C-x f" . f3)
-  )
-
 ;;; [ helm-fuzzy-find ] -- Find files using Fuzzy Search (fuzzy-find) with Helm.
 
 (use-package helm-fuzzy-find
