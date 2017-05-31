@@ -297,7 +297,7 @@
 (use-package page-break-lines
   :ensure t
   :config
-  (page-break-lines-mode t))
+  (global-page-break-lines-mode t))
 
 ;;; [ all-the-icons ] -- A utility package to collect various Icon Fonts and propertize them within Emacs.
 
