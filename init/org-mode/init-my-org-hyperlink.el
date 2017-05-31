@@ -28,6 +28,13 @@
 (define-key org-mode-map (kbd "M-,") 'org-mark-ring-goto)
 ;; (define-key org-mode-map (kbd "C-c %") 'org-mark-ring-push)
 
+
+;;; support file completion for org external link [file+sys:].
+(org-link-set-parameters
+ "file+sys"
+ :complete 'org-file-complete-link)
+
+
 ;;; org-file-apps no longer accepts S-expressions as commands
 ;;
 ;; The variable now accepts functions of two arguments instead of plain
