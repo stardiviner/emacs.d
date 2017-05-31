@@ -20,9 +20,8 @@
       )
 
 (setq org-capture-templates
-      (append '(("C" "[C]ontacts: (org-contacts)")
-                ("Cc" "[c]ontact"
-                 entry (file+headline (concat org-directory "/Contacts/Contacts.org") "Meet")
+      (append '(("C" "[C]ontact"
+                 entry (file (concat org-directory "/Contacts/Contacts.org"))
                  "** %^{NAME}
 :PROPERTIES:
 :NAME(Chinese): %^{Name(Chinese)}
@@ -30,15 +29,15 @@
 :NICK: %^{Nick}
 :AVATAR: %^{Avatar}
 :BIRTHDAY:
-:GENDER: %^{Gender|Male|Female}
+:GENDER: %^{Gender|Transgender|Male|Female}
 :Sexual: %^{Sexual|Heterosexual|Bisexual|Homosexual}
 :RELATIONSHIP: %^{Relationship|Internet|Meet|Friend|Good Friend|Boy Friend|Girl Friend|Classmate|Schoolmate}
-:FIRST-MEET: %^U  %^{How is the first-time meet?}
+:FIRST-MEET: %^U  %^{How is the first-time meet? when? where? how?}
 :Thought: %^{Thought|open|conservative}
 :MOBILE: %^{Mobile Phone}
-:EMAIL: %(org-contacts-template-email)
+:EMAIL: %^{Email}
+:WeChat: %^{WeChat}
 :QQ:
-:WeChat: %^{WeChat}
 :Facebook: %^{Facebook}
 :GitHub: %^{GitHub}
 :ADDRESS(home): %^{address(home)}
@@ -49,101 +48,11 @@
 :World-Views:
 :LANGUAGES: %^{Languages|Chinese|Chinese, English|English|Japanese|Korean}
 :EDUCATION: %^{Education}
-:SKILLS: %^{Skills}
-:Programming-Skills: %^{Programming Skills}
-:Programming-Languages: %^{Programming Languages}
-:Occupation: %^{Occupation|Freelancer|Businessman|Servant}
-:Hobbies: %^{Hobbies}
-:END:"
-                 :empty-lines 1
-                 :jump-to-captured t
-                 )
-
-                ("Cm" "[m]eet people"
-                 entry (file+headline (concat org-directory "/Contacts/Contacts.org") "Meet")
-                 "** %^{NAME}
-:PROPERTIES:
-:NAME(Chinese): %^{Name(Chinese)}
-:NICK: %^{Nick}
-:AVATAR: %^{Avatar}
-:GENDER: %^{Gender|Male|Female}
-:RELATIONSHIP: Meet
-:FIRST-MEET: %^U  %^{How is the first-time meet?}
-:Thought: %^{Thought|open|conservative}
-:MOBILE: %^{Mobile Phone}
-:WeChat: %^{WeChat}
-:ADDRESS(home): %^{address(home)}
-:ADDRESS(work): %^{address(work)}
-:ADDRESS(live): %^{address(live)}
-:LANGUAGES: %^{Languages|Chinese|Chinese, English|English|Japanese|Korean}
-:EDUCATION: %^{Education}
-:SKILLS: %^{Skills}
-:Occupation: %^{Occupation|Freelancer|Businessman|Servant}
-:Hobbies: %^{Hobbies}
-:END:"
-                 :empty-lines 1
-                 :jump-to-captured t
-                 )
-
-                ("Cp" "[p]rogrammer"
-                 entry (file+headline (concat org-directory "/Contacts/Contacts.org") "Programmers")
-                 "** %^{NAME}
-:PROPERTIES:
-:NAME(Chinese): %^{Name(Chinese)}
-:NAME(English): %^{Name(English)}
-:NICK: %^{Nick}
-:AVATAR: %^{Avatar}
-:GENDER: %^{Gender|Male|Female}
-:RELATIONSHIP: Internet
-:FIRST-MEET: %^U  %^{How is the first-time meet?}
-:Thought: %^{Thought|open|conservative}
-:EMAIL: %(org-contacts-template-email)
-:WeChat: %^{WeChat}
-:Facebook: %^{Facebook}
-:GitHub: %^{GitHub}
-:ADDRESS(home): %^{address(home)}
-:ADDRESS(work): %^{address(work)}
-:ADDRESS(live): %^{address(live)}
-:LANGUAGES: %^{Languages|Chinese|Chinese, English|English|Japanese|Korean}
-:EDUCATION: %^{Education}
-:SKILLS: %^{Skills}
-:Programming-Skills: %^{Programming Skills}
-:Programming-Languages: %^{Programming Languages}
-:Occupation: %^{Occupation|Freelancer|Businessman|Servant}
-:Hobbies: %^{Hobbies}
-:END:"
-                 :empty-lines 1
-                 :jump-to-captured t
-                 )
-                
-                ("Cf" "[f]riend"
-                 entry (file+headline (concat org-directory "/Contacts/Contacts.org") "Friends")
-                 "** %^{NAME}
-:PROPERTIES:
-:AVATAR: %^{Avatar}
-:NAME(Chinese): %^{Name(Chinese)}
-:NAME(English): %^{Name(English)}
-:NICK: %^{Nick}
-:BIRTHDAY:
-:GENDER: %^{Gender|Male|Female}
-:Sexual: %^{Sexual|Heterosexual|Bisexual|Homosexual}
-:RELATIONSHIP: Friend
-:FIRST-MEET: %^U  %^{How is the first-time meet?}
-:Thought: %^{Thought|open|conservative}
-:MOBILE: %^{Mobile Phone}
-:EMAIL: %(org-contacts-template-email)
-:WeChat: %^{WeChat}
-:ADDRESS(home): %^{address(home)}
-:ADDRESS(work): %^{address(work)}
-:ADDRESS(live): %^{address(live)}
-:CHARACTER:
-:FEELING:
-:World-Views:
-:LANGUAGES: %^{Languages|Chinese|Chinese, English|English|Japanese|Korean}
-:EDUCATION: %^{Education}
-:SKILLS: %^{Skills}
-:Occupation: %^{Occupation|Freelancer|Businessman|Servant}
-:Hobbies: %^{Hobbies}
+:SKILLS: %^{Skills|Programming|Economy}
+:Programming-Skills: %^{Programming Skills|Emacs|Web|Computer System|Cloud Computation}
+:Programming-Languages: %^{Programming Languages|Lisp|Common Lisp|Clojure|Emacs Lisp|Java|C/C++|Python|Ruby|PHP}
+:Occupation: %^{Occupation|Programmer|Freelancer|Businessman|Servant|Arter}
+:Hobbies: %^{Hobbies|Reading|Music|Movie|Travel}
 :END:"
                  :empty-lines 1
                  :jump-to-captured t
