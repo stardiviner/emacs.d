@@ -300,6 +300,17 @@ Optional argument NS, if not provided, defaults to
               (define-key paredit-mode-map (kbd "M-[") 'paredit-wrap-square)
               (define-key paredit-mode-map (kbd "M-{") 'paredit-wrap-curly))
             nil 'local)
+
+  ;; CIDER helper functions
+  (defun cider-repl-command (cmd)
+    "Execute commands in CIDER REPL.
+
+Usage: (cider-repl-command \"\(clojure expr\)\")"
+    (cider-switch-to-repl-buffer)
+    (goto-char (point-max))
+    (insert cmd)
+    (cider-repl-return)
+    (cider-switch-to-last-clojure-buffer))
   )
 
 
