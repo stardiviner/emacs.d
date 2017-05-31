@@ -30,14 +30,14 @@
 
 ;;; [ wc-mode ] -- minor mode of command `wc' for word counting.
 
-(use-package wc-mode
-  :ensure t
-  :init
-  (add-hook 'org-mode-hook 'wc-mode)
-  :config
-  (run-with-idle-timer (* 60 1) nil
-                       'wc-mode-update)
-  )
+;; (use-package wc-mode
+;;   :ensure t
+;;   :init
+;;   (add-hook 'org-mode-hook 'wc-mode)
+;;   :config
+;;   (run-with-idle-timer (* 60 1) nil
+;;                        'wc-mode-update)
+;;   )
 
 
 (provide 'init-my-authoring)
