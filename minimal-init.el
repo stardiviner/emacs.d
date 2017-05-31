@@ -86,12 +86,17 @@
 
   (setq-default company-backends
                 '(company-files         ; files & directory
+                  ;; company-gtags company-etags
+                  ;; company-tempo         ; tempo: flexible template insertion
                   (company-capf         ; `completion-at-point-functions'
                    :with
                    company-yasnippet)
-                  company-dabbrev-code  ; company-dabbrev
+                  ;; :separate company-semantic
+                  :separate company-ispell ; for word completion in comment.
+                  (company-keywords
+                   :with
+                   company-dabbrev-code)
                   company-abbrev
-                  company-keywords      ; keywords
                   )
                 )
 
@@ -206,7 +211,6 @@
    (C . t)                              ; C
    (lisp . t)                           ; Lisp
    (clojure . t)                        ; Clojure
-   (haskell . t)                        ; Haskell
    (js . t)                             ; JavaScript
    (latex . t)                          ; LaTeX
    ))
