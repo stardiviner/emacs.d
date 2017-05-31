@@ -101,10 +101,6 @@
 
 ;;; [ org-beautify-theme ] -- A sub-theme to make org-mode more beautiful.
 
-;; (use-package org-beautify-theme
-;;   :ensure t
-;;   :config
-;;   (load-theme 'org-beautify))
 
 
 (provide 'init-my-org-view)

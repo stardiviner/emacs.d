@@ -42,6 +42,12 @@
 ;;   :config
 ;;   (setq leuven-scale-outline-headlines t)
 ;;   (load-theme 'leuven t)
+;;
+;;   ;; [ org-beautify-theme ] -- A sub-theme to make org-mode more beautiful.
+;;   (use-package org-beautify-theme
+;;     :ensure t
+;;     :config
+;;     (load-theme 'org-beautify))
 ;;   )
 
 ;;; [ nord-theme ] -- An arctic, north-bluish clean and elegant Emacs theme.
