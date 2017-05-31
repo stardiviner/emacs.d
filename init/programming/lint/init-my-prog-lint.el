@@ -110,8 +110,7 @@
 (use-package flycheck-inline
   :ensure t
   :config
-  (with-eval-after-load 'flycheck
-    (setq flycheck-display-errors-function 'flycheck-inline))
+  (flycheck-inline-mode 1)
   )
 
 
