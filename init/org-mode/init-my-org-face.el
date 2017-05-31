@@ -321,8 +321,8 @@
                     )
 
 ;;; #+BEGIN_QUOTE
-(set-face-attribute 'org-quote nil
-                    :background "dim gray")
+;; (set-face-attribute 'org-quote nil
+;;                     :background "dim gray")
 
 ;; Basic face for displaying the secondary selection.
 ;; face for babel src block background color when [C-c '] `org-edit-special'.
