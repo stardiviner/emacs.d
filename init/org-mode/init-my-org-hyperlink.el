@@ -189,6 +189,9 @@ With prefix argument, also display headlines without a TODO keyword."
 (org-link-set-parameters "tag"
                          :follow #'org-tag-link-open)
 
+;;; Git -> `git:', `gitbare:'
+(require 'org-git-link)
+
 
 ;;; [[map:"address name/geography"]]
 ;; - address name: "Dali, Yunnan, China"
