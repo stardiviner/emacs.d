@@ -37,6 +37,8 @@
 
   (set-face-attribute 'ivy-confirm-face nil
                       :weight 'bold)
+
+  (define-key read-expression-map (kbd "C-r") #'counsel-expression-history) ; in [M-:]
   
   ;; [ ivy-hydra ] -- [C-o], [M-o]
   (use-package ivy-hydra
