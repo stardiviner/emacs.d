@@ -75,24 +75,22 @@
   (setq bm-repository-file "~/.emacs.d/.bm-repository"
         bm-repository-size 100)
 
-  (global-set-key (kbd "<C-f2>") 'bm-toggle)
-  (global-set-key (kbd "<f2>") 'bm-next)
-  (global-set-key (kbd "<S-f2>") 'bm-previous)
-  (global-set-key (kbd "<M-f2>") 'bm-show-all)
+  ;; (global-set-key (kbd "C-c =") 'bm-toggle)
+  ;; (global-set-key (kbd "C-c ]") 'bm-next)
+  ;; (global-set-key (kbd "C-c [") 'bm-previous)
   
   (unless (boundp 'bookmark-bm-prefix)
     (define-prefix-command 'bookmark-bm-prefix))
   (global-set-key (kbd "M-g b") 'bookmark-bm-prefix)
 
   ;; mark
-  (define-key bookmark-bm-prefix (kbd "C-b") 'bm-toggle)
-  (define-key bookmark-bm-prefix (kbd "m") 'bm-toggle)
+  (define-key bookmark-bm-prefix (kbd "b") 'bm-toggle)
   ;; navigate
   (define-key bookmark-bm-prefix (kbd "n") 'bm-next)
   (define-key bookmark-bm-prefix (kbd "p") 'bm-previous)
   ;; show
   (define-key bookmark-bm-prefix (kbd "j") 'bm-show)
-  (define-key bookmark-bm-prefix (kbd "J") 'bm-show-all)
+  (define-key bookmark-bm-prefix (kbd "l") 'bm-show-all)
   (define-key bookmark-bm-prefix (kbd "N") 'bm-show-next)
   (define-key bookmark-bm-prefix (kbd "P") 'bm-show-prev)
   ;; persistent
