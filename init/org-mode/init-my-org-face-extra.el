@@ -82,7 +82,15 @@
     ))
  'append)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; fontify done checkbox items.
+(font-lock-add-keywords
+ 'org-mode
+ `(("^[ \t]*\\(?:[-+*]\\|[0-9]+[).]\\)[ \t]+\\(\\(?:\\[@\\(?:start:\\)?[0-9]+\\][ \t]*\\)?\\[\\(?:X\\|\\([0-9]+\\)/\\2\\)\\][^\n]*\n\\)"
+    1
+    'org-headline-done prepend))
+ 'append)
+
+
 
 ;; @@html:<kbd>...</kbd>@@, <kbd> </kbd>
 (defface org-html-kbd-tag
