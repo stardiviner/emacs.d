@@ -11,6 +11,27 @@
   (define-prefix-command 'prog-fold-prefix))
 (global-set-key (kbd "C-c SPC") 'prog-fold-prefix)
 
+;;; [ hideshow ] -- minor mode to selectively hide/show code and comment blocks.
+
+(use-package hideshow
+  :ensure t
+  :config
+
+  ;; Add markers to the fringe for regions foldable by hideshow.
+  (use-package hideshowvis
+    :ensure t
+    :config
+    (add-hook 'prog-mode-hook #'hideshowvis-enable)
+    (hideshowvis-symbols)
+    )
+
+  ;; provides Org-mode like hide and show for hideshow.
+  (use-package hideshow-org
+    :ensure t
+    :config
+    ;; (add-hook 'prog-mode-hook #'hs-org/minor-mode)
+    )
+  )
 
 ;;; [ origami ] -- A folding minor mode for Emacs.
 
