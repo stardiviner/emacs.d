@@ -11,7 +11,8 @@
 (use-package lsp-mode
   :ensure t
   :config
-  (global-lsp-mode t)
+  ;; (lsp-mode t)
+  (add-hook 'prog-mode-hook #'lsp-mode)
   (with-eval-after-load 'lsp-mode
     (require 'lsp-flycheck)))
 
