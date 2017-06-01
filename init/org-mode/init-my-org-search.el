@@ -244,6 +244,14 @@
   (define-key references-rifle-prefix (kbd "C-b") 'my-org-rifle-bookmarks-reference)
   )
 
+;;; [ helm-fuzzy-find ] -- [C-c C-/], [C-x c /]
+
+(defun org-helm-fuzzy-find ()
+  (interactive)
+  (let ((default-directory org-directory))
+    (helm-fuzzy-find nil)))
+
+(define-key my-org-prefix (kbd "C-f") 'org-helm-fuzzy-find)
 
 
 (provide 'init-my-org-search)
