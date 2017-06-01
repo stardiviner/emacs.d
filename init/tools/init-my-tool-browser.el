@@ -69,6 +69,8 @@
         eww-download-directory "~/Downloads/"
         eww-form-checkbox-symbol "[ ]"
         eww-form-checkbox-selected-symbol "[X]"
+        shr-use-fonts nil ; [F] `eww-toggle-fonts' don't use web page variable-pitch font.
+        shr-use-colors t
         eww-header-line-format "%t: %u"   ; title: url.
         ;; - DuckDuckGo :: "https://duckduckgo.com/html/?q="
         ;; - Google :: "http://www.google.com/search?q=%s"
