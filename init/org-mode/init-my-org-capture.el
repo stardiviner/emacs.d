@@ -25,26 +25,9 @@
         ;; Tasks
         ("t" "Add a [t]ask into Tasks"
          entry (file "~/Org/Projects/Computer Todos.org")
-         ;; "\n* TODO %^{Task} [/]\n\n%?\n\n"
          "\n* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n"
          :empty-lines 1
          )
-        ("n" "Next Task"
-         entry (file+headline "~/Org/Tasks/Tasks.org" "Tasks")
-         "** NEXT %? \nDEADLINE: %t\n"
-         :empty-lines 1)
-        ("T" "New [T]ask with Clock"
-         entry (file+headline "~/Org/Tasks/Tasks.org" "Tasks")
-         "\n* TODO %^{Clock Task} [/]\n\n%?\n\n"
-         :empty-lines 1
-         :clock-in t :clock-resume t
-         )
-
-        ;; Meeting
-        ("m" "Meeting"
-         entry (file "~/Org/Tasks/Meeting.org")
-         "\n* MEETING %?\n\n"
-         :empty-lines 1)
 
         ;; Diary
         ("d" "Write [D]iary"
@@ -56,7 +39,7 @@
         
         ;; Bookmark
         ("k" "Add an URL to bookmar[k]s database"
-         entry (file+headline "~/Org/Bookmarks/Bookmarks.org" "Uncategoried")
+         entry (file "~/Org/Bookmarks/Bookmarks.org")
          "\n* %^{Bookmark URL}\n\n%A\n\n%?\n\n"
          :empty-lines 1
          )
@@ -67,20 +50,6 @@
          "* %^{Title}\n  %^{URL}p %^{USERNAME}p %^{PASSWORD}p %^{EMAIL}p"
          :empty-lines 1
          )
-
-        ;; Issues, Bugs, Features
-        ("b" "[B]ug"
-         entry (file+olp "~/Org/Projects/Code.org" "Bugs")
-         "\n* BUG %^{Bug}\n\n%i\n\n%?\n\n"
-         :empty-lines 1)
-        ("i" "[I]ssue"
-         entry (file+olp "~/Org/Projects/Code.org" "Issues")
-         "\n* ISSUE %^{Issue}\n\n%i\n\n%?\n\n"
-         :empty-lines 1)
-        ("f" "[F]eature"
-         entry (file+olp "~/Org/Projects/Code.org" "Features")
-         "\n* FEATURE %^{Feature}\n\n%i\n\n%?\n\n"
-         :empty-lines 1)
 
         ;; code snippets
         ("s" "[S]ource Code Snippet" entry

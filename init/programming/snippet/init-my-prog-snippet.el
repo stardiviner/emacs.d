@@ -9,6 +9,9 @@
 
 (use-package yasnippet
   :ensure t
+  ;; auto set major mode: snippet-mode.
+  :mode (("\\.yasnippet$" . snippet-mode)
+         ("\\.snippet$" . snippet-mode))
   :config
   (setq yas-snippet-dirs
         '("~/.emacs.d/snippets" ; personal snippets directory
@@ -45,22 +48,13 @@
 # type: snippet/command}
 # --
 $0`(yas-escape-text yas-selected-text)`"
-        )
-
-  ;; auto set major mode: snippet-mode.
-  (add-to-list 'auto-mode-alist
-               '("\\.yasnippet$" . snippet-mode)
-               '("\\.snippet$" . snippet-mode))
+   )
 
   ;; turn of auto-fill for long length code
   (add-hook 'snippet-mode #'turn-off-auto-fill)
 
   ;; Faces
   (set-face-attribute 'yas-field-highlight-face nil
-                      ;; :inherit 'region
-                      :foreground (cl-case (alist-get 'background-mode (frame-parameters))
-                                    ('dark "gray")
-                                    ('light "black"))
                       :background (cl-case (alist-get 'background-mode (frame-parameters))
                                     ('dark
                                      (color-lighten-name (face-background 'default) 10))
