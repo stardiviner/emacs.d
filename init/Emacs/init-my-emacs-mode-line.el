@@ -335,6 +335,15 @@ state (modified, read-only or non-existent)."
                         (cider--project-name nrepl-project-dir))
                       )
                   (all-the-icons-fileicon "clj" :face '(:foreground "red"))))
+               ('clojurescript-mode
+                (if (not (equal (cider--modeline-info) "not connected"))
+                    ;; don't duplicate with `projectile'
+                    (if (projectile-project-name)
+                        (all-the-icons-fileicon "clj" :face '(:foreground "green"))
+                      (with-current-buffer (ignore-errors (cider-current-connection))
+                        (cider--project-name nrepl-project-dir))
+                      )
+                  (all-the-icons-fileicon "clj" :face '(:foreground "red"))))
                ('ruby-mode
                 (if (and global-rbenv-mode rbenv--modestring)
                     ;; `rbenv--modestring'
