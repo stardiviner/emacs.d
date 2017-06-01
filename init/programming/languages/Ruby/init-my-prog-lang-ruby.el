@@ -239,24 +239,10 @@
   (setq inf-ruby-default-implementation "ruby")
   (setq inf-ruby-prompt-read-only t)
 
-  (defun my-inf-ruby-setup ()
-    (inf-ruby-minor-mode)
-
-    (add-hook 'completion-at-point-functions
-              'inf-ruby-completion-at-point nil t)
-
-    ;; from robe-mode
-    (set 'completion-at-point-functions
-         (remq 'robe-complete-at-point completion-at-point-functions))
-    ;; use `company-robe' instead, because it support doc and meta etc. info
-    (setq-local company-minimum-prefix-length 2)
-    (my-company-add-backend-locally 'company-robe)
-    )
-  
   (dolist (hook '(ruby-mode-hook
                   enh-ruby-mode-hook
                   ))
-    (add-hook hook 'my-inf-ruby-setup))
+    (add-hook hook 'inf-ruby-minor-mode))
 
   ;; auto type "space" behind inf-ruby buffer line to get rid of company-mode completion.
   (defun my-inf-ruby-return ()
