@@ -106,20 +106,6 @@
   (define-key eww-mode-map (kbd "C-r") 'eww-readable)
   
   (define-key eww-mode-map (kbd "<enter>") 'eww-submit)
-
-  ;; custom helper functions
-  (defun eww-search (term)
-    (interactive "sSearch terms: ")
-    (eww-browse-url (concat "http://www.google.com/search?gbv=1&source=hp&hl=en&ie=ISO-8859-1&btnG=Google+Search&q=" term)))
-
-  (defun eww-wiki (text)
-    "Function used to search wikipedia for the given text."
-    (interactive (list (read-string "Wiki for: ")))
-    (eww (format "https://en.m.wikipedia.org/wiki/Special:Search?search=%s"
-                 (url-encode-url text))))
-
-  (define-key eww-mode-map (kbd "s") 'eww-search)
-  (define-key eww-mode-map (kbd "w") 'eww-wiki)
   )
 
 
