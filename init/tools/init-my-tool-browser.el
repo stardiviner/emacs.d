@@ -101,9 +101,9 @@
   
   (define-key eww-mode-map (kbd "&") 'eww-browse-with-external-browser)
   
-  (define-key eww-mode-map (kbd "v") 'eww-view-source)
-  (define-key eww-mode-map (kbd "H") 'eww-parse-headers)
-  (define-key eww-mode-map (kbd "R") 'eww-readable)
+  (define-key eww-mode-map (kbd "C-M-i") 'eww-view-source)
+  (define-key eww-mode-map (kbd "C-M-h") 'eww-parse-headers)
+  (define-key eww-mode-map (kbd "C-r") 'eww-readable)
   
   (define-key eww-mode-map (kbd "<enter>") 'eww-submit)
 
@@ -173,15 +173,13 @@
 
 (if (featurep 'eww)
     (progn
-      (define-key browser-prefix (kbd "o") 'eww)
-      (define-key browser-prefix (kbd "w") 'eww-wiki)
-      (define-key browser-prefix (kbd "s") 'eww-search)
-      (define-key browser-prefix (kbd "f") 'eww-follow-link)
+      (define-key browser-prefix (kbd "b") 'eww)
+      (define-key browser-prefix (kbd "o") 'eww-follow-link)
       )
   (progn
-    (define-key browser-prefix (kbd "f") 'browse-url-at-point)
-    (define-key browser-prefix (kbd "l") 'w3m-goto-url)
-    (define-key browser-prefix (kbd "f") 'w3m-search)
+    (define-key browser-prefix (kbd "o") 'browse-url-at-point)
+    (define-key browser-prefix (kbd "g") 'w3m-goto-url)
+    (define-key browser-prefix (kbd "s") 'w3m-search)
     )
   )
 
