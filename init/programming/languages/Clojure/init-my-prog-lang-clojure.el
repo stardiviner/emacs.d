@@ -245,9 +245,9 @@
   ;; enable `cider-mode' in `clojure-mode'.
   (add-hook 'clojure-mode-hook #'cider-mode)
   
-  ;; auto start CIDER jack-in.
+  ;; auto start CIDER REPL session for Org-mode Babel by jack-in.
   (setq cider-allow-jack-in-without-project t)
-  ;; (add-hook 'after-init-hook #'cider-jack-in)
+  (add-hook 'after-init-hook #'cider-jack-in)
 
   ;; notify user CIDER is connected.
   (add-hook 'cider-connected-hook
