@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: defface
+# key: defface
+# group: customize
+# --
+defface ${1:face name}-face
+  '((t ${2:face properties, :background "forest green"}))
+  "Face for ${3:DOC}."
+  :group ${4:group}
