@@ -36,6 +36,7 @@
   :ensure t
   :bind (:map my-highlight-prefix
               ("h" . symbol-overlay-put)
+              ("M-h" . symbol-overlay-toggle-in-scope)
               ("t" . symbol-overlay-toggle-in-scope)
               ("s" . symbol-overlay-isearch-literatelly)
               ("p" . symbol-overlay-jump-prev)

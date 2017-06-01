@@ -12,7 +12,7 @@
 (auto-compression-mode 1)           ; auto decompress when open compressed file.
 
 
-;;; [ vlf -- View Large Files ]
+;;; [ vlf ] -- View Large Files
 
 (use-package vlf
   :ensure t

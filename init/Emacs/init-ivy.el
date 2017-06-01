@@ -12,10 +12,8 @@
 (use-package ivy
   :ensure t
   :defer t
-  :bind (
-         ;; ("C-c C-r" . ivy-resume) ; [C-c C-r] keybinding conflict with `rtags' prefix.
-         ;; ("C-i" . complete-symbol)
-         )
+  ;; :bind (("C-c C-r" . ivy-resume) ; [C-c C-r] keybinding conflict with `rtags' prefix.
+  ;;        ("C-i" . complete-symbol))
   :config
   ;; ivy-mode
   (setq ivy-use-virtual-buffers t ; treat recentf, bookmarks as virtual buffers.
