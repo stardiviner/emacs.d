@@ -203,13 +203,6 @@
 ;;   )
 
 
-;;; [ ebal ] -- Emacs interface to Cabal and Stack.
-
-(use-package ebal
-  :ensure t
-  :defer t)
-
-
 (provide 'init-my-prog-lang-haskell)
 
 ;;; init-my-prog-lang-haskell.el ends here
