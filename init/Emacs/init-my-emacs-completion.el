@@ -77,23 +77,6 @@
 ;;; Press [TAB] in minibuffer to show completions in popup window buffer.
 
 
-
-;;; [ smex ] --- remember recently and most frequently used commands.
-
-;; work with ido will show recent frequently used commands in [M-x].
-
-(use-package smex
-  :ensure t
-  :defer t
-  :config
-  (setq smex-save-file (expand-file-name ".smex-items" user-emacs-directory))
-
-  (smex-initialize)
-  ;; (global-set-key (kbd "M-X") 'smex-major-mode-commands)
-  )
-
-
-
 (require 'init-helm)
 (require 'init-ivy)
 
