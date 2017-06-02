@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; variables
 
 ;; "$SHELL", "/bin/sh", "/bin/bash", "usr/bin/zsh"
@@ -28,11 +28,11 @@
 ;; for auto nifty command substitution [!!] and ^a^b.
 (define-key shell-mode-map (kbd "SPC") 'comint-magic-space)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 (require 'init-eshell)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 
 (provide 'init-my-emacs-shell)
 
