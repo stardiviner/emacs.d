@@ -702,6 +702,18 @@ dimensions of a block selection."
     )
   )
 
+;;; Pomodoro (org-pomodoro)
+(use-package org-pomodoro
+  :ensure t
+  :config)
+(defun *pomodoro ()
+  "Show pomodoro/org-pomodoro timer in custom mode-line."
+  (if (and (org-pomodoro-active-p)
+           (active))
+      (propertize (format "%s" org-pomodoro-mode-line)
+                  'face 'mode-line-data-face))
+  )
+
 ;;; Current Time
 (defun *time ()
   "Show current time in Emacs custom mode-line."
@@ -776,6 +788,7 @@ dimensions of a block selection."
                  (*org-tree-slide)
                  (*org-clock)
                  (*org-timer)
+                 (*pomodoro)
                  (*process)
                  (*my-rtags-modeline)
                  ))

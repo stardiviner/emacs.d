@@ -55,9 +55,8 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 (use-package org-pomodoro
   :ensure t
   :commands (org-pomodoro)
-  :init
-  (define-key org-agenda-mode-map (kbd "p") 'org-pomodoro)
-  (define-key my-org-prefix (kbd "p") 'org-pomodoro)
+  :bind (:map my-org-prefix
+              ("p" . org-pomodoro))
   :config
   (setq org-pomodoro-audio-player "/usr/bin/mplayer"
         org-pomodoro-play-sounds t
@@ -67,7 +66,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
         org-pomodoro-ticking-sound-args "-volume 50" ; adjust ticking sound volume
         ;; org-pomodoro-start-sound-args "-volume 0.3"
         ;; org-pomodoro-long-break-sound-args "-volume 0.3"
-        org-pomodoro-format "Pomodoro~%s" ; mode-line string
+        org-pomodoro-format "Pomodoro: %s" ; mode-line string
         )
 
   ;; start another pomodoro automatically upon a break end.
@@ -76,16 +75,6 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
               (interactive)
               (org-pomodoro '(16)) ; double prefix [C-u C-u]
               ))
-
-  (defun my/org-pomodoro-text-time ()
-    "Display remaining pomodoro time in i3 status bar.
-
-Usage:
-emacsclient -e '(my/org-pomodoro-text-time)'"
-    (if (org-pomodoro-active-p)
-        (format "Pomodoro: %d minutes - %s"
-                (/ org-pomodoro-countdown 60) org-clock-heading)
-      "No active pomodoro"))
   )
 
 
