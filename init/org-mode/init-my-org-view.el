@@ -89,6 +89,12 @@
   (add-hook 'org-mode-hook #'org-bullets-mode)
   )
 
+;;; [ org-numbers-overlay ]
+
+;; (load "org-numbers-overlay")
+(require 'org-numbers-overlay)
+(add-hook 'org-mode-hook #'org-numbers-overlay-mode)
+
 
 (require 'org-list)
 
@@ -97,10 +103,6 @@
         ;; ("-" . "+")
         ("*" . "-")
         ))
-
-
-;;; [ org-beautify-theme ] -- A sub-theme to make org-mode more beautiful.
-
 
 
 (provide 'init-my-org-view)
