@@ -18,12 +18,15 @@
 (use-package pomidor
   :ensure t
   :bind (:map pomodoro-prefix
-              ("<f12>" . pomidor))
+              ("<f12>" . pomidor)
+              :map pomidor-mode-map
+              ("q" . pomidor-quit))
   :config
   ;; disable sounds
-  ;; (setq pomidor-sound-tick nil
-  ;;       pomidor-sound-tack nil
-  ;;       pomidor-sound-overwork nil)
+  (setq pomidor-sound-tick nil
+        pomidor-sound-tack nil
+        ;; pomidor-sound-overwork nil
+        )
   )
 
 
