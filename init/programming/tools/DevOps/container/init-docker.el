@@ -11,24 +11,20 @@
 
 (use-package docker
   :ensure t
-  :defer t
-  :init
-  (define-key my-container-map (kbd "m") 'docker-mode)
-  (define-key my-container-map (kbd "i") 'docker-images)
-  (define-key my-container-map (kbd "c") 'docker-containers)
-  (define-key my-container-map (kbd "v") 'docker-volumes)
+  :bind (:map my-container-map
+              ("I" . docker-images)
+              ("C" . docker-containers)
+              ("V" . docker-volumes)
+              ("N" . docker-networks))
   :config
   (setq docker-containers-show-all t)
+  (docker-global-mode 1) ; enable docker minor mode
   )
 
 ;;; [ dockerfile-mode ] -- Dockerfile
 
 (use-package dockerfile-mode
-  :ensure t
-  :defer t
-  :config
-  (setq dockerfile-use-sudo nil)
-  )
+  :ensure t)
 
 ;;; [ docker-tramp ]
 
