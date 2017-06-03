@@ -2,7 +2,277 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("My Thought Manuals.org"
+(("IRC.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/IRC/IRC.org")
+ (front-context-string . "#+TITLE: IRC\n\n* ")
+ (rear-context-string)
+ (position . 1))
+("Language Server Protocol.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Coding/Coding IDE/Code IDE Technologies/Language Server Protocol/Language Server Protocol.org")
+ (front-context-string . "#+TITLE: Languag")
+ (rear-context-string)
+ (position . 1))
+("GTK+.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implements/GUI/frameworks/GTK+/GTK+.org")
+ (front-context-string . "#+TITLE: GTK+\n\n*")
+ (rear-context-string)
+ (position . 1))
+("GUI.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implements/GUI/GUI.org")
+ (front-context-string . "#+TITLE: GUI Imp")
+ (rear-context-string)
+ (position . 1))
+("Scala Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Scala/Data/Scala Packages/Scala Packages.org")
+ (front-context-string . "#+TITLE: Scala P")
+ (rear-context-string)
+ (position . 1))
+("Datalog.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Datalog/Datalog.org")
+ (front-context-string . "#+TITLE: Datalog")
+ (rear-context-string)
+ (position . 1))
+("SuperCollider.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/SuperCollider/SuperCollider.org")
+ (front-context-string . "#+TITLE: SuperCo")
+ (rear-context-string)
+ (position . 1))
+("JavaScript Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/Data/JavaScript Packages/JavaScript Packages.org")
+ (front-context-string . "#+TITLE: JavaScr")
+ (rear-context-string)
+ (position . 1))
+("Processing.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Processing/Processing.org")
+ (front-context-string . "#+TITLE: Process")
+ (rear-context-string)
+ (position . 1))
+("Octave Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Octave/Data/Octave Packages/Octave Packages.org")
+ (front-context-string . "#+TITLE: Octave ")
+ (rear-context-string)
+ (position . 1))
+("Octave.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Octave/Octave.org")
+ (front-context-string . "#+TITLE: Octave ")
+ (rear-context-string)
+ (position . 1))
+("Matlab Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Matlab/Data/Matlab Packages/Matlab Packages.org")
+ (front-context-string . "#+TITLE: Matlab ")
+ (rear-context-string)
+ (position . 1))
+("My Matlab Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Matlab/Data/Manuals/My Matlab Language Syntax Reference/My Matlab Language Syntax Reference.org")
+ (front-context-string . "#+TITLE: My Matl")
+ (rear-context-string)
+ (position . 1))
+("Matlab.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Matlab/Matlab.org")
+ (front-context-string . "#+TITLE: Matlab ")
+ (rear-context-string)
+ (position . 1))
+("Julia Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Julia/Data/Julia Packages/Julia Packages.org")
+ (front-context-string . "#+TITLE: Julia P")
+ (rear-context-string)
+ (position . 1))
+("XPath.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/XPath/XPath.org")
+ (front-context-string . "#+TITLE: XPath\n\n")
+ (rear-context-string)
+ (position . 1))
+("JSON.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/JSON/JSON.org")
+ (front-context-string . "#+TITLE: JSON\n\n*")
+ (rear-context-string)
+ (position . 1))
+("XML.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/XML/XML.org")
+ (front-context-string . "#+TITLE: XML\n\n* ")
+ (rear-context-string)
+ (position . 1))
+("GraphQL.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/GraphQL/GraphQL.org")
+ (front-context-string . "#+TITLE: GraphQL")
+ (rear-context-string)
+ (position . 1))
+("CQL.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/CQL/CQL.org")
+ (front-context-string . "#+TITLE: CQL\n\n* ")
+ (rear-context-string)
+ (position . 1))
+("NewSQL.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/NewSQL/NewSQL.org")
+ (front-context-string . "#+TITLE: NewSQL\n")
+ (rear-context-string)
+ (position . 1))
+("Kotlin Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Kotlin/Data/Kotlin Packages/Kotlin Packages.org")
+ (front-context-string . "#+TITLE: Kotlin ")
+ (rear-context-string)
+ (position . 1))
+("Java Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Java/Data/Java Packages/Java Packages.org")
+ (front-context-string . "#+TITLE: Java Pa")
+ (rear-context-string)
+ (position . 1))
+("Lua Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lua/Data/Lua Packages/Lua Packages.org")
+ (front-context-string . "#+TITLE: Lua Pac")
+ (rear-context-string)
+ (position . 1))
+("C# Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/C#/Data/C# Packages/C# Packages.org")
+ (front-context-string . "#+TITLE: C# Pack")
+ (rear-context-string)
+ (position . 1))
+("Swift Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Swift/Data/Swift Packages/Swift Packages.org")
+ (front-context-string . "#+TITLE: Swift P")
+ (rear-context-string)
+ (position . 1))
+("Rust Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Rust/Data/Rust Packages/Rust Packages.org")
+ (front-context-string . "#+TITLE: Rust Pa")
+ (rear-context-string)
+ (position . 1))
+("Go Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Go/Data/Go Packages/Go Packages.org")
+ (front-context-string . "#+TITLE: Go Pack")
+ (rear-context-string)
+ (position . 1))
+("PHP Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/PHP/Data/PHP Packages/PHP Packages.org")
+ (front-context-string . "#+TITLE: PHP Pac")
+ (rear-context-string)
+ (position . 1))
+("Perl.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Perl/Perl.org")
+ (front-context-string . "#+TITLE: Perl Pr")
+ (rear-context-string)
+ (position . 1))
+("Haskell Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Haskell/Data/Haskell Packages/Haskell Packages.org")
+ (front-context-string . "#+TITLE: Haskell")
+ (rear-context-string)
+ (position . 1))
+("Smalltalk.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Smalltalk/Smalltalk.org")
+ (front-context-string . "Smalltalk Progra")
+ (rear-context-string)
+ (position . 10))
+("Common Lisp Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lisp/Common Lisp/Data/Common Lisp Packages/Common Lisp Packages.org")
+ (front-context-string . "#+TITLE: Common ")
+ (rear-context-string)
+ (position . 1))
+("C++ Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/C++/Data/C++ Packages/C++ Packages.org")
+ (front-context-string . "#+TITLE: C++ Pac")
+ (rear-context-string)
+ (position . 1))
+("Python Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Python/Data/Python Packages/Python Packages.org")
+ (front-context-string . "#+TITLE: Python ")
+ (rear-context-string)
+ (position . 1))
+("Ruby Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Ruby/Data/Ruby Packages/Ruby Packages.org")
+ (front-context-string . "#+TITLE: Ruby Pa")
+ (rear-context-string)
+ (position . 1))
+("Clojure Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Clojure Packages/Clojure Packages.org")
+ (front-context-string . "#+TITLE: Clojure")
+ (rear-context-string)
+ (position . 1))
+("My Wolfram Language Examples.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Wolfram/Data/Manuals/My Wolfram Language Examples/My Wolfram Language Examples.org")
+ (front-context-string . "#+TITLE: My Wolf")
+ (rear-context-string)
+ (position . 1))
+("My Wolfram Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Wolfram/Data/Manuals/My Wolfram Language Syntax Reference/My Wolfram Language Syntax Reference.org")
+ (front-context-string . "#+TITLE: My Wolf")
+ (rear-context-string)
+ (position . 1))
+("Wolfram.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Wolfram/Wolfram.org")
+ (front-context-string . "#+TITLE: Wolfram")
+ (rear-context-string)
+ (position . 1))
+("mu4e.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/mu4e.org")
+ (front-context-string . "* Intro\n\nStartin")
+ (rear-context-string)
+ (position . 1))
+("Regular Expressions.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Regular Expressions/Regular Expressions.org")
+ (front-context-string . "#+TITLE: Regular")
+ (rear-context-string)
+ (position . 1))
+("My Docker Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Docker/Data/Manuals/My Docker Reference/My Docker Reference.org")
+ (front-context-string . "#+TITLE: My Dock")
+ (rear-context-string)
+ (position . 1))
+("Social Intercourse.org"
+ (filename . "~/Org/Wiki/Sociology/Social Intercourse/Social Intercourse.org")
+ (front-context-string . "#+TITLE: Social ")
+ (rear-context-string)
+ (position . 1))
+("paredit.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/paredit.org")
+ (front-context-string . "#+TITLE: paredit")
+ (rear-context-string)
+ (position . 1))
+("pacman.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/pacman.org")
+ (front-context-string . "#+TITLE: pacman ")
+ (rear-context-string)
+ (position . 1))
+("My Evil Hack Manual.org"
+ (filename . "~/Org/Wiki/Computer Technology/Hack/Data/Manuals/My Evil Hack Manual/My Evil Hack Manual.org")
+ (front-context-string . "#+TITLE: My Evil")
+ (rear-context-string)
+ (position . 1))
+("PowerShell.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Shell/PowerShell/PowerShell.org")
+ (front-context-string . "#+TITLE: PowerSh")
+ (rear-context-string)
+ (position . 1))
+("Anime.org"
+ (filename . "~/Org/Wiki/ACG/Anime/Anime.org")
+ (front-context-string . "#+TITLE: Anime\n\n")
+ (rear-context-string)
+ (position . 1))
+("ACG.org"
+ (filename . "~/Org/Wiki/ACG/ACG.org")
+ (front-context-string . "#+TITLE: ACG\n\n* ")
+ (rear-context-string)
+ (position . 1))
+("systemd.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/systemd/systemd.org")
+ (front-context-string . "#+TITLE: systemd")
+ (rear-context-string)
+ (position . 1))
+("Novel Books.org"
+ (filename . "~/Org/Wiki/Literature/Novels/Data/Novel Books/Novel Books.org")
+ (front-context-string . "#+TITLE: Novel B")
+ (rear-context-string)
+ (position . 1))
+("Communication.org"
+ (filename . "~/Org/Wiki/Self Enhancement/Communication/Communication.org")
+ (front-context-string . "#+TITLE: Communi")
+ (rear-context-string)
+ (position . 1))
+("Self Enhancement.org"
+ (filename . "~/Org/Wiki/Self Enhancement/Self Enhancement.org")
+ (front-context-string . "#+TITLE: Self En")
+ (rear-context-string)
+ (position . 1))
+("My Thought Manuals.org"
  (filename . "~/Org/Wiki/Thought/Data/Manuals/My Thought Manuals/My Thought Manuals.org")
  (front-context-string . "#+TITLE: My Thou")
  (rear-context-string)
@@ -254,7 +524,7 @@
  (position . 1))
 ("Erlang.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Erlang/Erlang.org")
- (front-context-string . "* Intro\n\n*Build ")
+ (front-context-string . "#+TITLE: Erlang ")
  (rear-context-string)
  (position . 1))
 ("My Sex Positions Reference.org"
@@ -265,16 +535,6 @@
 ("LGBTQ.org"
  (filename . "~/Org/Wiki/LGBTQ/LGBTQ.org")
  (front-context-string . "* Intro\n\n\n** LGB")
- (rear-context-string)
- (position . 1))
-("regular expression syntax reference.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/regexp/Data/Manuals/regular expression syntax reference/regular expression syntax reference.org")
- (front-context-string . "#+TITLE: regular")
- (rear-context-string)
- (position . 1))
-("regexp.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/regexp/regexp.org")
- (front-context-string . "* Intro\n:PROPERT")
  (rear-context-string)
  (position . 1))
 ("Spiritual.org"
@@ -410,17 +670,17 @@
  (position . 1))
 ("Git.org"
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Git/Git.org")
- (front-context-string . "* Intro\n\nhttp://")
+ (front-context-string . "#+TITLE: Git\n\n* ")
  (rear-context-string)
  (position . 1))
 ("Assembly.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Assembly/Assembly.org")
- (front-context-string . "* Intro\n\n[[file:")
+ (front-context-string . "#+TITLE: Assembl")
  (rear-context-string)
  (position . 1))
 ("PHP.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/PHP/PHP.org")
- (front-context-string . "* Intro\n\nA gener")
+ (front-context-string . "#+TITLE: PHP Pro")
  (rear-context-string)
  (position . 1))
 ("Physics.org"
@@ -510,12 +770,12 @@
  (position . 37))
 ("Common Lisp.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lisp/Common Lisp/Common Lisp.org")
- (front-context-string . "* Intro\n\n** What")
+ (front-context-string . "#+TITLE: Common ")
  (rear-context-string)
  (position . 1))
 ("C#.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/C#/C#.org")
- (front-context-string . "* Intro\n\n** Abou")
+ (front-context-string . "#+TITLE: C# Prog")
  (rear-context-string)
  (position . 1))
 ("My Favourite Foods.org"
@@ -535,12 +795,12 @@
  (position . 1))
 ("My ClojureScript Examples.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/ClojureScript/Data/Manuals/My ClojureScript Examples/My ClojureScript Examples.org")
- (front-context-string)
+ (front-context-string . "#+TITLE: My Cloj")
  (rear-context-string)
  (position . 1))
 ("My ClojureScript's Standard Library.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/ClojureScript/Data/Manuals/My ClojureScript's Standard Library/My ClojureScript's Standard Library.org")
- (front-context-string . "* cljs.core\n\n\n\n*")
+ (front-context-string . "#+TITLE: My Cloj")
  (rear-context-string)
  (position . 1))
 ("My ClojureScript Language Syntax Reference.org"
@@ -570,7 +830,7 @@
  (position . 1))
 ("Scala.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Scala/Scala.org")
- (front-context-string . "* Intro\n\nScala (")
+ (front-context-string . "#+TITLE: Scala P")
  (rear-context-string)
  (position . 1))
 ("My R Language Syntax Reference.org"
@@ -580,17 +840,17 @@
  (position . 1))
 ("Prolog.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Prolog/Prolog.org")
- (front-context-string . "* Intro\n\n*Pro*-g")
+ (front-context-string . "#+TITLE: Prolog ")
  (rear-context-string)
  (position . 1))
 ("Lua.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lua/Lua.org")
- (front-context-string . "* Intro\n\n** Abou")
+ (front-context-string . "#+TITLE: Lua Pro")
  (rear-context-string)
  (position . 1))
 ("LaTeX.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/TeX/LaTeX/LaTeX.org")
- (front-context-string . "* Intro\n\nLaTeX i")
+ (front-context-string . "#+TITLE: LaTeX\n\n")
  (rear-context-string)
  (position . 1))
 ("HTML5.org"
@@ -605,7 +865,7 @@
  (position . 1))
 ("C++.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/C++/C++.org")
- (front-context-string . "* Intro\n\n** Abou")
+ (front-context-string . "#+TITLE: C++ Pro")
  (rear-context-string)
  (position . 1))
 ("Programmer.org"
@@ -674,15 +934,15 @@
  (rear-context-string)
  (position . 1))
 ("org-capture-last-stored-marker"
- (filename . "~/Org/Tasks/Computer Todos.org")
- (front-context-string . "** TODO Cozy (pr")
- (rear-context-string . "p://gobot.io/\n\n\n")
- (position . 141858))
+ (filename . "~/Org/Projects/Code.org")
+ (front-context-string . "** TODO kk\n   SC")
+ (rear-context-string . "lo|(size|)~.\n\n\n\n")
+ (position . 47239))
 ("org-refile-last-stored"
- (filename . "~/Org/Tasks/Computer Todos.org")
- (front-context-string . "** TODO Cozy (pr")
- (rear-context-string . "p://gobot.io/\n\n\n")
- (position . 141858))
+ (filename . "~/Org/Projects/Code.org")
+ (front-context-string . "** STARTED use i")
+ (rear-context-string . "ve my config\n\n\n\n")
+ (position . 158083))
 ("GNU.org"
  (filename . "~/Org/Wiki/Computer Technology/Systems/GNU/GNU.org")
  (front-context-string . "* Intro\n\n\n\n* Pro")
@@ -745,9 +1005,9 @@
  (position . 1))
 ("CSS.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/CSS/CSS.org")
- (front-context-string . "anguage Syntax R")
- (rear-context-string . "ce.org][My CSS L")
- (position . 754))
+ (front-context-string . "#+TITLE: CSS Pro")
+ (rear-context-string)
+ (position . 1))
 ("My CSS Language Syntax Reference.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/CSS/Data/Manuals/My CSS Language Syntax Reference/My CSS Language Syntax Reference.org")
  (front-context-string . "* Concepts\n\n** A")
@@ -760,7 +1020,7 @@
  (position . 1))
 ("HTML.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/HTML/HTML.org")
- (front-context-string . "* Intro\n\n\n** str")
+ (front-context-string . "#+TITLE: HTML Pr")
  (rear-context-string)
  (position . 1))
 ("My JavaScript Language Examples.org"
@@ -775,7 +1035,7 @@
  (position . 1))
 ("JavaScript.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/JavaScript.org")
- (front-context-string . "* Intro\n\n** Abou")
+ (front-context-string . "#+TITLE: JavaScr")
  (rear-context-string)
  (position . 1))
 ("My C Examples.org"
@@ -810,12 +1070,12 @@
  (position . 1))
 ("Go.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Go/Go.org")
- (front-context-string . "* Intro\n\nGo is a")
+ (front-context-string . "#+TITLE: Go Prog")
  (rear-context-string)
  (position . 1))
 ("OCaml.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/OCaml/OCaml.org")
- (front-context-string . "* Intro\n\n** Feat")
+ (front-context-string . "#+TITLE: OCaml P")
  (rear-context-string)
  (position . 1))
 ("Systems.org"
@@ -840,7 +1100,7 @@
  (position . 1))
 ("Julia.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Julia/Julia.org")
- (front-context-string . "* Intro\n\nJulia i")
+ (front-context-string . "#+TITLE: Julia P")
  (rear-context-string)
  (position . 1))
 ("Looks.org"
@@ -850,7 +1110,7 @@
  (position . 1))
 ("Swift.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Swift/Swift.org")
- (front-context-string . "* Intro\n\n*Swift*")
+ (front-context-string . "#+TITLE: Swift P")
  (rear-context-string)
  (position . 1))
 ("My TeX Symbols Reference.org"
@@ -870,12 +1130,12 @@
  (position . 1))
 ("Rust.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Rust/Rust.org")
- (front-context-string . "* Intro\n\nRust is")
+ (front-context-string . "#+TITLE: Rust Pr")
  (rear-context-string)
  (position . 1))
 ("NoSQL.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/NoSQL/NoSQL.org")
- (front-context-string . "* Intro\n\n\n* Data")
+ (front-context-string . "#+TITLE: NoSQL\n\n")
  (rear-context-string)
  (position . 1))
 ("PostgresQL.org"
@@ -895,12 +1155,12 @@
  (position . 1))
 ("SQL.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/SQL.org")
- (front-context-string . "* Intro\n\n*Struct")
+ (front-context-string . "#+TITLE: SQL\n\n* ")
  (rear-context-string)
  (position . 1))
 ("Database.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/Database.org")
- (front-context-string . "* Intro\n\n\n\n* Dat")
+ (front-context-string . "#+TITLE: Databas")
  (rear-context-string)
  (position . 1))
 ("My Java Examples.org"
@@ -915,22 +1175,12 @@
  (position . 1))
 ("Java.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Java/Java.org")
- (front-context-string . "* Intro\n\n** Abou")
+ (front-context-string . "#+TITLE: Java Pr")
  (rear-context-string)
  (position . 1))
 ("Programming Glossary.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Glossary/Programming Glossary.org")
  (front-context-string . "* Programming\n\n*")
- (rear-context-string)
- (position . 1))
-("My Wolfram Language Examples.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Wolfram/Data/Manuals/My Wolfram Language Examples/My Wolfram Language Examples.org")
- (front-context-string)
- (rear-context-string)
- (position . 1))
-("My Wolfram Language Syntax Reference.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Wolfram/Data/Manuals/My Wolfram Language Syntax Reference/My Wolfram Language Syntax Reference.org")
- (front-context-string)
  (rear-context-string)
  (position . 1))
 ("The Sex Mechanism.org"
@@ -1075,9 +1325,9 @@
  (position . 42313))
 ("Clojure.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Clojure.org")
- (front-context-string . "[[file+sys:Data/")
- (rear-context-string . "ce [0/1]\n\n- [ ] ")
- (position . 52220))
+ (front-context-string . "#+TITLE: Clojure")
+ (rear-context-string)
+ (position . 1))
 ("R.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/R/R.org")
  (front-context-string . "*** Manuals\n\n***")
@@ -1110,7 +1360,7 @@
  (position . 1624))
 ("TeX.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/TeX/TeX.org")
- (front-context-string . "* Intro\n\nThe TeX")
+ (front-context-string . "#+TITLE: TeX\n\n* ")
  (rear-context-string)
  (position . 1))
 ("Love.org"
@@ -1135,9 +1385,9 @@
  (position . 35851))
 ("Lisp.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lisp/Lisp.org")
- (front-context-string . "- [ ] [[file+sys")
- (rear-context-string . "** Screencasts\n\n")
- (position . 3871))
+ (front-context-string . "#+TITLE: Lisp\n\n*")
+ (rear-context-string)
+ (position . 1))
 ("Commands.org"
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Commands.org")
  (front-context-string . "[[file:parallel.")
@@ -1175,9 +1425,9 @@
  (position . 1))
 ("Programming.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming.org")
- (front-context-string . "* Programmer\n\n[[")
- (rear-context-string . "Computation]]\n\n\n")
- (position . 51110))
+ (front-context-string . "#+TITLE: Program")
+ (rear-context-string)
+ (position . 1))
 ("Computer Technology.org"
  (filename . "~/Org/Wiki/Computer Technology/Computer Technology.org")
  (front-context-string . "* Intro\n:PROPERT")
@@ -1186,11 +1436,6 @@
 ("Poem.org"
  (filename . "~/Org/Wiki/Literature/Poem/Poem.org")
  (front-context-string . "* Intro\n\n\n\n\n* Da")
- (rear-context-string)
- (position . 1))
-("Packages.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Java/Data/Packages/Packages.org")
- (front-context-string . "* Java Language ")
  (rear-context-string)
  (position . 1))
 ("My SQL Reference.org"
@@ -1320,7 +1565,7 @@
  (position . 1))
 ("org-capture-last-stored"
  (filename . "~/Org/Capture/Capture.org")
- (front-context-string . "** TODO all-the-")
+ (front-context-string . "** TODO kk\n   SC")
  (rear-context-string . "RY: Todo\n:END:\n\n")
  (position . 53))
 ("Accounts"
