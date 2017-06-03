@@ -24,13 +24,6 @@
     (add-hook 'prog-mode-hook #'hideshowvis-enable)
     (hideshowvis-symbols)
     )
-
-  ;; provides Org-mode like hide and show for hideshow.
-  (use-package hideshow-org
-    :ensure t
-    :config
-    ;; (add-hook 'prog-mode-hook #'hs-org/minor-mode)
-    )
   )
 
 ;;; [ origami ] -- A folding minor mode for Emacs.
