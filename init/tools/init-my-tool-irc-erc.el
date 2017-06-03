@@ -621,6 +621,14 @@
 
 ;; http://www.emacswiki.org/emacs/ErcMorseCode
 
+;;; [ erc-social-graph ] -- A PieSpy-esque social network graph module for ERC.
+
+;; (use-package erc-social-graph
+;;   :ensure t
+;;   :config
+;;   (setq erc-social-graph-dynamic-graph t)
+;;   (erc-social-graph-enable)
+;;   )
 
 
 (provide 'init-my-tool-irc-erc)
