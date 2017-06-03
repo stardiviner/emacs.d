@@ -5,7 +5,7 @@
 
 
 ;;; Code:
-
+
 
 (unless (boundp 'my-email-prefix)
   (define-prefix-command 'my-email-prefix))
@@ -26,24 +26,25 @@
       ;; message-send-mail-real-function 'message-send-mail-with-sendmail
       )
 
-(add-hook 'message-mode-hook
-          (lambda ()
-            ;; Org-mode structure
-            (turn-on-orgstruct++)
-            (turn-on-orgtbl)
+(defun message-mode-setup ()
+  ;; Org-mode structure
+  (turn-on-orgstruct++)
+  (turn-on-orgtbl)
 
-            ;; add email name complete support
-            (add-hook 'completion-at-point-functions
-                      'mail-completion-at-point-function nil t)
-            (add-hook 'completion-at-point-functions
-                      'message-completion-function nil t)
-            ))
+  ;; add email name complete support
+  (add-hook 'completion-at-point-functions
+            'mail-completion-at-point-function nil t)
+  (add-hook 'completion-at-point-functions
+            'message-completion-function nil t)
+  )
+
+(add-hook 'message-mode-hook #'message-mode-setup)
 
 
 ;;; Email region
 
 (defun email-region (start end)
-  "Send region as the body of an email."
+  "Send region from `START' to `END' as the body of an email."
   (interactive "r")
   (let ((content (buffer-substring start end)))
     (compose-mail)
@@ -63,14 +64,14 @@
 ;;;      - `sign'
 ;;;      - `encrypt'
 
-
+
 
 ;; (require 'init-gnus)
+(require 'init-mu4e)
 
+
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(defvar my-email-client t
+(defvar my-email-client 'mu4e
   "The value is 'gnus, 'mu4e, or t for default.")
 
 (case my-email-client
@@ -96,6 +97,7 @@
    (define-key my-email-prefix (kbd "m") 'compose-mail))
   )
 
+
 
 (provide 'init-my-tool-email)
 

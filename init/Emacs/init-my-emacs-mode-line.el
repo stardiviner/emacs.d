@@ -756,6 +756,11 @@ dimensions of a block selection."
 
 (add-hook 'rtags-diagnostics-hook (function force-mode-line-update))
 
+;;; mu4e
+(defun *mu4e ()
+  "Show `mu4e-alert' new messages count in custom modeline."
+  (if (and (active) mu4e-alert-mode-line)
+      (propertize mu4e-alert-mode-line)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -799,6 +804,7 @@ dimensions of a block selection."
                  " "
                  ;; (*time)
                  (*erc)
+                 (*mu4e)
                  (*flycheck)
                  (*build-status)
                  (*vc)
