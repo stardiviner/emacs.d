@@ -1,4 +1,4 @@
-;;; init-my-tool-feeds-elfeed.el --- init for elfeed
+;;; init-elfeed.el --- init for elfeed
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -11,9 +11,8 @@
 
 (use-package elfeed
   :ensure t
-  :defer t
-  :init
-  (define-key my-tools-prefix (kbd "f") 'elfeed)
+  :bind (:map my-tools-prefix
+              ("f" . elfeed))
   :config
   (setq elfeed-db-directory "~/.emacs.d/.elfeed")
 
@@ -135,6 +134,6 @@
   )
 
 
-(provide 'init-my-tool-feeds-elfeed)
+(provide 'init-elfeed)
 
-;;; init-my-tool-feeds-elfeed.el ends here
+;;; init-elfeed.el ends here

@@ -6,10 +6,12 @@
 
 
 ;;; Code:
+
+
+(require 'init-elfeed)
 
 
-(require 'init-my-tool-feeds-elfeed)
-
+
 
 (provide 'init-my-tool-feeds)
 
