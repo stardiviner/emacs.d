@@ -436,15 +436,15 @@ state (modified, read-only or non-existent)."
                    (`not-checked
                     (concat (all-the-icons-faicon "exclamation-circle" :v-adjust -0.05
                                                   :face (if (active) '(:foreground "orange")))
-                            (propertize (format " %s" " Disabled"))))
+                            (propertize (format " %s" "Disabled"))))
                    (`errored
                     (concat (all-the-icons-faicon "exclamation-triangle" :v-adjust -0.05
                                                   :face (if (active) '(:foreground "red")))
-                            (propertize (format " %s" " Error"))))
+                            (propertize (format " %s" "Error"))))
                    (`interrupted
                     (concat (all-the-icons-faicon "ban" :v-adjust -0.05
                                                   :face (if (active) '(:foreground "dark orange")))
-                            (propertize (format " %s" " Interrupted"))))
+                            (propertize (format " %s" "Interrupted"))))
                    (`suspicious
                     (all-the-icons-faicon "question-circle" :v-adjust -0.05
                                           :face (if (active) '(:foreground "dark magenta")))))))
