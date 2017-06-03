@@ -18,7 +18,7 @@
 
 (use-package sql-indent
   :ensure t
-  :defer t
+  :after 'sql
   :init
   (dolist (hook '(sql-mode-hook
                   ;; sql-interactive-mode-hook
@@ -36,7 +36,7 @@
 
 (use-package sqlup-mode
   :ensure t
-  :defer t
+  :after 'sql
   :init
   (dolist (hook '(sql-mode-hook
                   sql-interactive-mode-hook
@@ -44,7 +44,7 @@
                   ))
     (add-hook hook
               '(lambda ()
-                 (sqlup-mode 1))))  
+                 (sqlup-mode 1))))
   :config
   (defun my-sqlup-backward ()
     "Capitalization the word backward."
