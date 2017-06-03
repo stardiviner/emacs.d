@@ -1,11 +1,13 @@
-;;; init-my-tool-irc-weechat.el --- init for IRC WeeChat.
+;;; init-weechat.el --- init for WeeChat client.
 
+
 ;;; Commentary:
 
 
 
+
 ;;; Code:
-;;; ----------------------------------------------------------------------------
+
 ;;; [ weechat.el ] -- Chat via weechat's relay protocol in Emacs.
 
 (use-package weechat
@@ -39,8 +41,9 @@
   ;;   )
   )
 
-;;; ----------------------------------------------------------------------------
 
-(provide 'init-my-tool-irc-weechat)
+
 
-;;; init-my-tool-irc-weechat.el ends here
+(provide 'init-weechat)
+
+;;; init-weechat.el ends here

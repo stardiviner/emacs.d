@@ -70,8 +70,7 @@
   :group 'mode-line)
 
 (defface mode-line-data-face
-  '((t (:inherit 'mode-line
-                 :foreground "cyan")))
+  '((t (:foreground "cyan")))
   "Face used for info segments in mode-line."
   :group 'mode-line)
 
@@ -632,10 +631,13 @@ dimensions of a block selection."
 ;; IRC
 (defun *erc ()
   "Show ERC info from `erc-track-mode'."
-  (if (and (featurep 'erc-track-mode) (erc-server-process-alive) erc-track-mode)
+  (if (and (and (boundp 'erc-track-mode) erc-track-mode)
+           (erc-server-process-alive)
+           ;; (boundp 'erc-modified-channels-object)
+           )
       (concat
        (all-the-icons-faicon "comments-o" :v-adjust 0.05)
-       (propertize (format "[%s]" erc-modified-channels-object)
+       (propertize (format "%s" erc-modified-channels-object)
                    'face 'mode-line-data-face)
        (propertize " " 'face 'variable-pitch))
     ))
