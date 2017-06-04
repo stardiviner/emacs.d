@@ -55,6 +55,7 @@
 (require 'init-my-org-capture)
 (require 'init-my-org-agenda)
 (require 'init-my-org-export)
+(require 'init-my-org-publish)
 (require 'init-my-org-search)
 (require 'init-my-org-attach)
 (require 'init-my-org-hacking)
