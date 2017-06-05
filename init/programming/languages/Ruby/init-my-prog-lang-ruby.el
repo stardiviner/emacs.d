@@ -29,60 +29,60 @@
 
 ;;; [ enh-ruby-mode ] --
 
-(use-package enh-ruby-mode
-  :ensure t
-  :mode (("\\.rb\\'" . enh-ruby-mode)
-         ;; Gemfile, Capfile, Rakefile
-         ("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . enh-ruby-mode)
-         ;; irb(irbrc), pry(pryrc), gem(gemspec, gemrc), rackup(ru), Thor(thor),
-         ("\\.\\(?:gemspec\\|irbrc\\|pryrc\\|gemrc\\|rake\\|ru\\|thor\\)\\'" . enh-ruby-mode))
-  :interpreter "ruby"
-  :init
-  (add-hook 'enh-ruby-mode-hook
-            (lambda ()
-              (unless (derived-mode-p 'prog-mode)
-                (run-hooks 'prog-mode-hook))))
-  :config
-  (setq enh-ruby-bounce-deep-indent nil
-        enh-ruby-deep-arglist t
-        enh-ruby-deep-indent-paren t
-        enh-ruby-indent-level 2
-        enh-ruby-use-encoding-map t
-        enh-ruby-use-ruby-mode-show-parens-config nil
-        enh-ruby-add-encoding-comment-on-save t
-        )
-  
-  (erm-define-faces)
-
-  ;; (set-face-attribute 'enh-ruby-op-face nil
-  ;;                     :foreground "red")
-  ;; (set-face-attribute 'enh-ruby-string-delimiter-face nil
-  ;;                     :foreground "orange")
-  ;; (set-face-attribute 'enh-ruby-regexp-delimiter-face nil
-  ;;                     :foreground "dark magenta")
-  ;; (set-face-attribute 'enh-ruby-regexp-face nil
-  ;;                     :foreground "cyan")
-  ;; (set-face-attribute 'enh-ruby-heredoc-delimiter-face nil
-  ;;                     :foreground "dark green")
-
-  (set-face-attribute 'erm-syn-warnline nil
-                      :inherit 'flycheck-warning
-                      :box nil)
-  (set-face-attribute 'erm-syn-errline nil
-                      :inherit 'flycheck-error
-                      :box nil)
-
-  (setq enh-ruby-extra-keywords '("self"
-                                  "include" "extend"
-                                  ;; "private" "protected" "public"
-                                  ))
-
-  ;; insert => for hash symbol.
-  (defun ruby-mode-insert-symbol-operator ()
-    (interactive)
-    (insert " => "))
-  (define-key enh-ruby-mode-map (kbd "C-;") 'ruby-mode-insert-symbol-operator)
-  )
+;; (use-package enh-ruby-mode
+;;   :ensure t
+;;   :mode (("\\.rb\\'" . enh-ruby-mode)
+;;          ;; Gemfile, Capfile, Rakefile
+;;          ("\\(Capfile\\|Gemfile\\(?:\\.[a-zA-Z0-9._-]+\\)?\\|[rR]akefile\\)\\'" . enh-ruby-mode)
+;;          ;; irb(irbrc), pry(pryrc), gem(gemspec, gemrc), rackup(ru), Thor(thor),
+;;          ("\\.\\(?:gemspec\\|irbrc\\|pryrc\\|gemrc\\|rake\\|ru\\|thor\\)\\'" . enh-ruby-mode))
+;;   :interpreter "ruby"
+;;   :init
+;;   (add-hook 'enh-ruby-mode-hook
+;;             (lambda ()
+;;               (unless (derived-mode-p 'prog-mode)
+;;                 (run-hooks 'prog-mode-hook))))
+;;   :config
+;;   (setq enh-ruby-bounce-deep-indent nil
+;;         enh-ruby-deep-arglist t
+;;         enh-ruby-deep-indent-paren t
+;;         enh-ruby-indent-level 2
+;;         enh-ruby-use-encoding-map t
+;;         enh-ruby-use-ruby-mode-show-parens-config nil
+;;         enh-ruby-add-encoding-comment-on-save t
+;;         )
+;;
+;;   (erm-define-faces)
+;;
+;;   ;; (set-face-attribute 'enh-ruby-op-face nil
+;;   ;;                     :foreground "red")
+;;   ;; (set-face-attribute 'enh-ruby-string-delimiter-face nil
+;;   ;;                     :foreground "orange")
+;;   ;; (set-face-attribute 'enh-ruby-regexp-delimiter-face nil
+;;   ;;                     :foreground "dark magenta")
+;;   ;; (set-face-attribute 'enh-ruby-regexp-face nil
+;;   ;;                     :foreground "cyan")
+;;   ;; (set-face-attribute 'enh-ruby-heredoc-delimiter-face nil
+;;   ;;                     :foreground "dark green")
+;;
+;;   (set-face-attribute 'erm-syn-warnline nil
+;;                       :inherit 'flycheck-warning
+;;                       :box nil)
+;;   (set-face-attribute 'erm-syn-errline nil
+;;                       :inherit 'flycheck-error
+;;                       :box nil)
+;;
+;;   (setq enh-ruby-extra-keywords '("self"
+;;                                   "include" "extend"
+;;                                   ;; "private" "protected" "public"
+;;                                   ))
+;;
+;;   ;; insert => for hash symbol.
+;;   (defun ruby-mode-insert-symbol-operator ()
+;;     (interactive)
+;;     (insert " => "))
+;;   (define-key enh-ruby-mode-map (kbd "C-;") 'ruby-mode-insert-symbol-operator)
+;;   )
 
 
 ;;; [ ruby-interpolation ] -- Ruby string interpolation helpers.
