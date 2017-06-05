@@ -64,11 +64,12 @@
   :ensure t
   :bind ("C-x C-j" . ace-window)
   :init
-  ;; to re-override `dired-x''s `dired-bind-jump'. bind again after Emacs start.
   (with-eval-after-load 'dired-x
     (global-set-key (kbd "C-x C-j") 'ace-window))
   :config
   (setq aw-background nil)
+  (set-face-attribute 'aw-leading-char-face nil
+                      :height 2.5)
   )
 
 
