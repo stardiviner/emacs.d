@@ -86,11 +86,11 @@
 
 ;;; [ golden-ratio ] -- automatic resizing of Emacs windows to the golden ratio.
 
-(use-package golden-ratio
-  :ensure t
-  :diminish golden-ratio-mode
-  :config
-  (golden-ratio-mode 1))
+;; (use-package golden-ratio
+;;   :ensure t
+;;   :diminish golden-ratio-mode
+;;   :config
+;;   (golden-ratio-mode 1))
 
 ;;; [ window-purpose ] -- Purpose-based window management for Emacs.
 
