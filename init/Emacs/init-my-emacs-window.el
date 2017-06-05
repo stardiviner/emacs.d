@@ -27,9 +27,8 @@
      (split-window-horizontally)
      (other-window 1)))
 
-;; popup current window to another new frame.
-
 (defun my-turn-current-window-into-new-frame ()
+  "Popup current window to another new frame."
   (interactive)
   (let ((buffer (current-buffer)))
     (unless (one-window-p)
@@ -55,13 +54,9 @@
 
 ;;; [ winner ]
 
-;;; Usage
-;;
-;; - [C-c] :: prefix
-;; - [C-c Left] :: undo
-;; - [C-c Right] :: redo
-
-(winner-mode 1)
+(use-package winner
+  :config
+  (winner-mode 1))
 
 ;;; [ ace-window ] -- Quickly switch windows in Emacs.
 
@@ -73,20 +68,7 @@
   (with-eval-after-load 'dired-x
     (global-set-key (kbd "C-x C-j") 'ace-window))
   :config
-  (set-face-attribute 'aw-leading-char-face nil
-                      :background (color-darken-name (face-background 'default) 5)
-                      :box "dark gray"
-                      :height 2.5)
-  
   (setq aw-background nil)
-  (if aw-background
-      (set-face-attribute 'aw-background-face nil
-                          :foreground (cl-case (alist-get 'background-mode (frame-parameters))
-                                        ('light
-                                         (color-lighten-name (face-background 'default) 5))
-                                        ('dark
-                                         (color-darken-name (face-background 'default) 5)))
-                          ))
   )
 
 
