@@ -101,16 +101,6 @@
   )
 
 
-;;; [ resize-window ]
-
-(use-package resize-window
-  :ensure t
-  :bind ("C-x w" . resize-window)
-  :config
-  (setq resize-window-allow-backgrounds nil)
-  )
-
-
 ;;; [ zoom-window ] -- zoom/un-zoom window like tmux.
 
 (use-package zoom-window
