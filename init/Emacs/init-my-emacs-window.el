@@ -4,7 +4,7 @@
 
 
 ;;; Code:
-
+
 ;;; switch to new splitted window after split.
 ;;
 ;; 1. this will break the default action, and affect other window behaviors.
@@ -111,159 +111,6 @@
   )
 
 
-;;; [ popwin ] -- Popup Window Manager for Emacs (*always* shows upon minibuffer)
-
-(use-package popwin
-  :ensure t
-  :config
-  (setq popwin:close-popup-window-timer-interval 0.1
-        popwin:reuse-window t ; t, 'current,
-        )
-
-  (popwin-mode 1)
-
-  (global-set-key (kbd "C-c C-b") popwin:keymap)
-
-  ;; `popwin:special-display-config'
-  ;; push popwin:special-display-config `flags': [C-h v popwin:special-display-config]
-  ;; - :position [bottom|top|left|right]
-  ;; - :height 10
-  ;; - :width 100
-  ;; - :noselect t
-  ;; - :stick t
-  ;; - :regexp t
-  ;; - :dedicated t
-  ;; - :tail t
-
-  ;; (push `(,special-buffer-regexp :regexp t :noselect nil)
-  ;;       popwin:special-display-config)
-
-  ;; Debugger mode, *Backtrace*
-  (push '("*Backtrace*" :position bottom :height 8 :noselect t) popwin:special-display-config)
-
-  ;; [M-!], [M-&] shell command output
-  (push '("*Shell Command Output*" :position bottom :height 8 :noselect t :tail t) popwin:special-display-config)
-  (push '("*Async Shell Command*" :position bottom :height 8 :noselect t :tail t) popwin:special-display-config)
-
-  ;; Info
-  (push '(apropos-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
-
-  ;; help-mode, *Help*, *Metahelp* (from mode C-h ?)
-  (push '(help-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
-
-  ;; xref
-  (push '(xref--xref-buffer-mode :position bottom :height 5 :noselect nil) popwin:special-display-config)
-
-  ;; bm
-  (push '(bm-show-mode :position bottom :height 5 :noselect nil) popwin:special-display-config)
-  
-  ;; Org-mode
-  (push '("*Org-Babel Error Output*" :position bottom :height 8 :noselect t) popwin:special-display-config)
-  (push '("*Org-Babel Results*" :position bottom :height 8 :noselect t) popwin:special-display-config)
-
-  ;; Completion List (completion-list-mode)
-  (push '(completion-list-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
-
-  ;; Occur Mode
-  (push '("*Occur*" :position bottom :height 8 :noselect nil) popwin:special-display-config)
-
-  ;; Compilation
-  (push '(compilation-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
-  ;; quickrun "*quickrun*"
-  (push '(quickrun/mode :position bottom :height 6 :noselect t) popwin:special-display-config)
-
-  ;; Git
-  ;; git-modes
-  ;; (push '("\\*git-" :regexp t :position top) popwin:special-display-config)
-  ;; Magit
-  ;; (push '(magit-commit-mode :position bottom :height 10) popwin:special-display-config)
-  ;; (push '("*magit-commit" :position bottom :height 10) popwin:special-display-config)
-  ;; cd
-  ;; (push '(magit-process-mode :position bottom :height 10 :noselect t) popwin:special-display-config)
-  ;; (push '("*magit-process*" :position bottom :height 10) popwin:special-display-config)
-
-  ;; git-gutter[+]
-  ;; (push '("*git-gutter+-diff*" :position bottom) popwin:special-display-config)
-  ;; (push '(git-gutter+-commit-mode :position bottom) popwin:special-display-config)
-
-  ;; comint-mode
-  (push '(comint-mode :position bottom :height 8) popwin:special-display-config)
-
-  ;; Flycheck
-  (push '("*Flycheck errors*" :position bottom :height 8) popwin:special-display-config)
-
-  ;; process list
-  (push '(process-menu-mode :position bottom :height 8) popwin:special-display-config)
-
-  ;; pdf-tools
-  (push '(pdf-occur-buffer-mode :position bottom :height 8) popwin:special-display-config)
-  (push '(pdf-outline-buffer-mode :position bottom :height 8) popwin:special-display-config)
-  (push '("*PDF-Metadata*" :position bottom :height 8) popwin:special-display-config)
-
-  ;; socyl
-  (push '(socyl-search-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
-  ;; ag
-  (push '(ag-mode :position bottom :height 10 :noselect nil) popwin:special-display-config)
-  ;; pt
-  (push '(pt-search-mode :position bottom :height 10 :noselect nil) popwin:special-display-config)
-
-  ;; pcre2el
-  (push '(rxt-help-mode :position bottom :height 8) popwin:special-display-config)
-
-  ;; Lisp
-
-  ;; Clojure, CIDER
-  (push '(cider-clojure-interaction-mode :position bottom :height 8) popwin:special-display-config)
-  (push '(cider-repl-mode :position bottom :height 8) popwin:special-display-config)
-  (push '(cider-inspector-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
-
-  ;; ESS
-  (push '(inferior-ess-mode :position bottom :height 8) popwin:special-display-config)
-  (push '(inferior-julia-mode :position bottom :height 8) popwin:special-display-config)
-
-  ;; yari Ruby document lookup
-  (push '(yari-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
-  ;; rub-ruby - inf-ruby
-  (push '(inf-ruby-mode :position bottom :height 8) popwin:special-display-config)
-  (push '("*ruby*" :position bottom :height 8) popwin:special-display-config)
-  (push '("*pry*" :position bottom :height 8) popwin:special-display-config)
-  (push '("*rails*" :position bottom :height 8 :noselect t) popwin:special-display-config)
-  ;; projectile-rails
-  (push '(projectile-rails-generate-mode :position bottom :height 8) popwin:special-display-config)
-  (push '(projectile-rails-compilation-mode :position bottom :height 8) popwin:special-display-config)
-  (push '(projectile-rails-server-mode :position bottom :height 8) popwin:special-display-config)
-  ;; ruby-compilation-mode (RubyComp)
-  (push '(ruby-compilation-mode :position bottom :height 8) popwin:special-display-config)
-  ;; bundler
-  (push '("*Bundler*" :position bottom :height 8) popwin:special-display-config)
-
-  ;; Python
-  (push '(inferior-python-mode :position bottom :height 8) popwin:special-display-config)
-  (push '("*jedi:doc" :position bottom :height 8 :noselect nil) popwin:special-display-config)
-  (push '(rst-mode :position bottom :height 8) popwin:special-display-config)
-
-  ;; JavaScript
-  (push '(inferior-js-mode :position bottom :height 8) popwin:special-display-config)
-
-  ;; Go
-  (push '(godoc-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
-  (push '(go-guru-output-mode :position bottom :height 8 :noselect nil) popwin:special-display-config)
-
-  ;; Swift
-
-  ;; Haskell
-  (push '(inferior-haskell-mode :position bottom :height 8) popwin:special-display-config)
-  (push '(haskell-interactive-mode :position bottom :height 8) popwin:special-display-config)
-  (push '(haskell-compilation-mode :position bottom :height 8) popwin:special-display-config)
-
-  ;; SuperCollider
-  (push '("*SCLang:PostBuffer*" :position bottom :height 6 :noselect t) popwin:special-display-config)
-  (push '("*SCLang:Workspace*" :position bottom :height 6 :noselect t) popwin:special-display-config)
-
-  ;; TeX/LaTeX (AUCTeX)
-  ;; (push '(TeX-output-mode :position bottom :height 10) popwin:special-display-config)
-  )
-
 ;;; [ golden-ratio ] -- automatically resizes your windows so that the window containing the point is the largest (size determined by the mathematical golden ratio.
 
 ;; (use-package golden-ratio
@@ -283,6 +130,84 @@
         )
   )
 
+;;; [ window-purpose ] -- Purpose-based window management for Emacs.
+
+;; (use-package window-purpose
+;;   :ensure t
+;;   :config
+;;   (setq purpose-preferred-prompt 'ivy
+;;         purpose-layout-dirs (locate-user-emacs-file ".purpose/layouts/")
+;;         )
+;;
+;;   ;; (setq pop-up-frames t)
+;;
+;;   ;; (add-to-list 'purpose-user-mode-purposes '(<major-mode> . <purpose>))
+;;   ;; (add-to-list 'purpose-user-name-purposes '(<name> . <purpose>))
+;;   ;; (add-to-list 'purpose-user-regexp-purposes '(<pattern> . <purpose>))
+;;   ;;
+;;   ;; - popup-window
+;;   ;; - sidebar-window
+;;   ;; - help-window
+;;   ;; - search-window
+;;   ;; - compilation-window
+;;   ;; - repl-window
+;;   ;; - utility-window
+;;
+;;   (add-to-list 'purpose-user-mode-purposes '(popwin-mode . popup-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(compilation-mode . compilation-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(comint-mode . compilation-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(help-mode . help-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(apropos-mode . search-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(xref--xref-buffer-mode . search-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(Man-mode . help-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(ag-mode . search-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(pt-search-mode . search-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(dired-mode . sidebar-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(project-explorer-mode . sidebar-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(bm-show-mode . popup-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(process-menu-mode . popup-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(quickrun/mode . compilation-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(pdf-occur-buffer-mode . search-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(pdf-outline-buffer-mode . search-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(inferior-lisp-mode . repl-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(sly-mrepl-mode . repl-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(slime-repl-mode . repl-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(slime-inspector-mode . repl-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(inf-clojure-mode . repl-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(cider-clojure-interaction-mode . repl-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(cider-docview-mode . help-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(cider-inspector-mode . popup-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(inferior-ess-mode . repl-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(inferior-julia-mode . repl-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(yari-mode . help-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(inf-ruby-mode . popup-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(ruby-compilation-mode . compilation-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(projectile-rails-generate-mode . compilation-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(projectile-rails-compilation-mode . compilation-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(projectile-rails-server-mode . compilation-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(inferior-python-mode . repl-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(inferior-js-mode . repl-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(inferior-haskell-mode . repl-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(haskell-interactive-mode . repl-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(sbt-mode . compilation-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(calc-mode . utility-window))
+;;   (add-to-list 'purpose-user-mode-purposes '(godoc-mode . help-window))
+;;
+;;
+;;   ;; (setq purpose-special-action-sequences '(purpose-display-reuse-window-buffer
+;;   ;;                                          purpose-display-reuse-window-purpose
+;;   ;;                                          purpose-display-pop-up-frame
+;;   ;;                                          popup-frame)
+;;   ;;       )
+;;
+;;   (setq purpose-use-default-configuration t)
+;;
+;;   (purpose-compile-user-configuration)
+;;
+;;   (purpose-mode)
+;;   )
+
+
 
 (provide 'init-my-emacs-window)
 
