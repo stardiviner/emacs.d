@@ -308,17 +308,16 @@ state (modified, read-only or non-existent)."
 ;;; major-mode
 (defun *major-mode ()
   "The major mode, including process, environment and text-scale info."
-  (propertize
-   ;; condition: (all-the-icons-auto-mode-match?)
+  (concat
    (if (cdr (assoc major-mode all-the-icons-mode-icon-alist))
        ;; (all-the-icons-icon-for-buffer)
+       ;; (all-the-icons-auto-mode-match?)
        (all-the-icons-icon-for-mode major-mode :v-adjust -0.05 :height 1.0)
      ;; (all-the-icons-icon-for-file (buffer-file-name) :v-adjust -0.05 :height 1.0)
      (format-mode-line "%m" mode-name)
      )
-   'help-echo (format "Major-mode: `%s`" major-mode)
-   ;; 'face `(:height 1.2 :family ,(all-the-icons-icon-family-for-buffer))
-   ))
+   (propertize " " 'face 'variable-pitch))
+  )
 
 ;;; environment version info like: Python, Ruby, JavaScript,
 (defun *env ()
@@ -361,7 +360,7 @@ state (modified, read-only or non-existent)."
                 )
                )))
         (if env
-            (concat "[" env "]"))
+            (concat "[" env "] "))
         )))
 
 ;;; vc
@@ -807,9 +806,7 @@ dimensions of a block selection."
                  (*projectile)
                  ;; (*perspeen)
                  (*major-mode)
-                 (*space 1)
                  (*env)
-                 (*space 1)
                  ))
            (mid (propertize
                  " "
