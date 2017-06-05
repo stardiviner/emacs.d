@@ -111,14 +111,6 @@
   )
 
 
-;;; [ golden-ratio ] -- automatically resizes your windows so that the window containing the point is the largest (size determined by the mathematical golden ratio.
-
-;; (use-package golden-ratio
-;;   :ensure t
-;;   :diminish golden-ratio-mode
-;;   :config
-;;   (golden-ratio-mode 1))
-
 ;;; [ zoom-window ] -- zoom/un-zoom window like tmux.
 
 (use-package zoom-window
@@ -129,6 +121,14 @@
         zoom-window-use-elscreen nil ; whether use extension elscreen.
         )
   )
+
+;;; [ golden-ratio ] -- automatic resizing of Emacs windows to the golden ratio.
+
+(use-package golden-ratio
+  :ensure t
+  :diminish golden-ratio-mode
+  :config
+  (golden-ratio-mode 1))
 
 ;;; [ window-purpose ] -- Purpose-based window management for Emacs.
 
