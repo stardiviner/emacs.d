@@ -116,6 +116,9 @@
 (require 'qmake-mode)
 (add-to-list 'auto-mode-alist '("\\.pro\\'" . qmake-mode))
 
+(use-package qt-pro-mode
+  :ensure t
+  :mode ("\\.pro\\'" "\\.pri\\'"))
 
 (provide 'init-my-prog-framework-qt)
 

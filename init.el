@@ -176,11 +176,11 @@
 ;; (require 'init-my-tool-downloader)
 ;; (require 'init-my-tool-OpenSpritz)
 (require 'init-my-tool-email)
-(require 'init-my-tool-feeds)
+;; (require 'init-my-tool-feeds)
 (require 'init-my-tool-blog)
 (require 'init-my-tool-accounting)
 (require 'init-my-tool-paste)
-(require 'init-my-tool-collaborate)
+;; (require 'init-my-tool-collaborate)
 ;; (require 'init-my-tool-notify)
 (require 'init-my-tool-irc)
 ;; (require 'init-my-tool-music)
@@ -190,7 +190,7 @@
 ;; (require 'init-my-tool-screenshot)
 ;; (require 'init-my-tool-screencast)
 ;; (require 'init-my-tool-stack-exchange)
-(require 'init-my-tool-social-network)
+;; (require 'init-my-tool-social-network)
 
 
 ;;; Programming
@@ -200,7 +200,7 @@
 (require 'init-my-prog-comment)
 (require 'init-my-prog-electric)
 (require 'init-my-prog-indent)
-(require 'init-my-prog-folding)
+;; (require 'init-my-prog-folding)
 (require 'init-my-prog-complete)
 (require 'init-my-prog-sense)
 (require 'init-my-prog-parser)
@@ -212,13 +212,13 @@
 (require 'init-my-prog-sidebar)
 (require 'init-my-prog-document)
 (require 'init-my-prog-inferior)
-(require 'init-my-prog-eval)
+;; (require 'init-my-prog-eval)
 (require 'init-my-prog-compile)
 (require 'init-my-prog-make)
 (require 'init-my-prog-lint)
 (require 'init-my-prog-debug)
 (require 'init-my-prog-test)
-(require 'init-my-prog-test-coverage)
+;; (require 'init-my-prog-test-coverage)
 (require 'init-my-prog-refactor)
 (require 'init-my-prog-project)
 (require 'init-my-prog-vcs)
@@ -240,11 +240,11 @@
 ;; (require 'init-my-prog-lang-perl)
 (require 'init-my-prog-lang-shell)
 (require 'init-my-prog-lang-C-common)
-(require 'init-my-prog-lang-C++)
+;; (require 'init-my-prog-lang-C++)
 ;; (require 'init-my-prog-lang-csharp)
 ;; (require 'init-my-prog-lang-D)
 (require 'init-my-prog-lang-go)
-(require 'init-my-prog-lang-rust)
+;; (require 'init-my-prog-lang-rust)
 ;; (require 'init-my-prog-lang-nim)
 ;; (require 'init-my-prog-lang-lua)
 (require 'init-my-prog-lang-swift)
@@ -266,8 +266,8 @@
 ;; (require 'init-my-prog-lang-scala)
 ;; (require 'init-my-prog-lang-elixir)
 ;; (require 'init-my-prog-lang-erlang)
-(require 'init-my-prog-lang-R)
-(require 'init-my-prog-lang-julia)
+;; (require 'init-my-prog-lang-R)
+;; (require 'init-my-prog-lang-julia)
 ;; (require 'init-my-prog-lang-gnuplot)
 ;; (require 'init-my-prog-lang-octave)
 (require 'init-my-prog-lang-tex)
@@ -294,7 +294,7 @@
 ;; (require 'init-my-prog-framework-ruby-on-rails)
 ;; (require 'init-my-prog-framework-android)
 (require 'init-my-prog-framework-arduino)
-(require 'init-my-prog-framework-qt)
+;; (require 'init-my-prog-framework-qt)
 
 ;;; Data Science
 (require 'init-my-data-science)
@@ -312,7 +312,7 @@
 
 ;;; Science
 
-(require 'init-my-math)
+;; (require 'init-my-math)
 
 ;;; Engineering
 

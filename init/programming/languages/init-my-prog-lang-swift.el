@@ -26,8 +26,8 @@
 
 ;;; [ swift3-mode ] -- major-mode for Apple's Swift programming language.
 
-(use-package swift3-mode
-  :ensure t)
+;; (use-package swift3-mode
+;;   :ensure t)
 
 
 ;;; [ company-sourcekit ]

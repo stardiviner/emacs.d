@@ -78,8 +78,8 @@
 
 ;;; [ ob-php ] -- execute PHP within org-mode blocks.
 
-(use-package ob-php
-  :ensure t)
+;; (use-package ob-php
+;;   :ensure t)
 
 
 ;;; [ phpunit ]

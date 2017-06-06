@@ -926,7 +926,8 @@
   :ensure t
   :config
   (mu4e-alert-set-default-style 'libnotify)
-  (add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
+  ;; disable mu4e-alert desktop libnotify notifications.
+  ;; (add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
   (mu4e-alert-enable-mode-line-display)
   (setq mu4e-alert-interesting-mail-query
         (concat

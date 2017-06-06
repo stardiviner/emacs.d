@@ -22,8 +22,8 @@
 
 ;;; [ org-drill-table ] -- generate org-drill from org-mode tables.
 
-(use-package org-drill-table
-  :ensure t)
+;; (use-package org-drill-table
+;;   :ensure t)
 
 ;;; [ record queried words to Org-mode drill files ]
 

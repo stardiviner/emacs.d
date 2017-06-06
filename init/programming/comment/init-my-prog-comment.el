@@ -93,7 +93,7 @@ column.  Place the point after the comment box."
   (define-key fic-prefix (kbd "p") 'hl-todo-next)
   (define-key fic-prefix (kbd "p") 'hl-todo-occur)
   
-  (global-hl-todo-mode 1)
+  ;; (global-hl-todo-mode 1)
   (add-hook 'prog-mode-hook #'hl-todo-mode)
   )
 

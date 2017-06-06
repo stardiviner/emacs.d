@@ -428,28 +428,28 @@
 
 ;;; [ ruby-test-mode ] -- Behaviour and Test Driven Development in Ruby.
 
-(use-package ruby-test-mode
-  :ensure t
-  :config
-  (defun my-ruby-test-mode-settings ()
-    ;; remove default ruby-test-mode in ruby-mode-hook.
-    ;; [C-c C-s] conflict with inf-ruby.
-    (remove-hook 'ruby-mode-hook 'ruby-test-enable)
-    
-    (unless (boundp 'my-ruby-test-map)
-      (define-prefix-command 'my-ruby-test-map))
-    (local-set-key (kbd "C-c t") 'my-ruby-test-map)
-
-    (define-key my-ruby-test-map (kbd "m") 'ruby-test-mode)
-    (define-key my-ruby-test-map (kbd "t") 'ruby-test-run)
-    (define-key my-ruby-test-map (kbd "p") 'ruby-test-run-at-point)
-    (define-key my-ruby-test-map (kbd "l") 'ruby-test-goto-location)
-    )
-
-  (dolist (hook '(ruby-mode-hook
-                  enh-ruby-mode-hook))
-    (add-hook hook #'my-ruby-test-mode-settings))
-  )
+;; (use-package ruby-test-mode
+;;   :ensure t
+;;   :config
+;;   (defun my-ruby-test-mode-settings ()
+;;     ;; remove default ruby-test-mode in ruby-mode-hook.
+;;     ;; [C-c C-s] conflict with inf-ruby.
+;;     (remove-hook 'ruby-mode-hook 'ruby-test-enable)
+;;
+;;     (unless (boundp 'my-ruby-test-map)
+;;       (define-prefix-command 'my-ruby-test-map))
+;;     (local-set-key (kbd "C-c t") 'my-ruby-test-map)
+;;
+;;     (define-key my-ruby-test-map (kbd "m") 'ruby-test-mode)
+;;     (define-key my-ruby-test-map (kbd "t") 'ruby-test-run)
+;;     (define-key my-ruby-test-map (kbd "p") 'ruby-test-run-at-point)
+;;     (define-key my-ruby-test-map (kbd "l") 'ruby-test-goto-location)
+;;     )
+;;
+;;   (dolist (hook '(ruby-mode-hook
+;;                   enh-ruby-mode-hook))
+;;     (add-hook hook #'my-ruby-test-mode-settings))
+;;   )
 
 
 ;;; [ ruby-refactor ]

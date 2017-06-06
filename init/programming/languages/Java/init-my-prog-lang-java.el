@@ -12,13 +12,13 @@
 
 ;;; [ javap-mode ] -- show the ouput of javap when opening a jvm class file in Emacs.
 
-(use-package javap-mode
-  :ensure t)
+;; (use-package javap-mode
+;;   :ensure t)
 
 ;;; [ autodisass-java-bytecode ] -- Automatically disassemble emacs buffers containing Java bytecode.
 
-(use-package autodisass-java-bytecode
-  :ensure t)
+;; (use-package autodisass-java-bytecode
+;;   :ensure t)
 
 ;;; [ Eclim ]
 
@@ -42,18 +42,17 @@
   ;; (setq eclim-java-documentation-root nil
   ;;       eclim-java-android-documentation-root
   ;;       )
-  )
 
+  ;; for company-mode
+  (use-package company-emacs-eclim
+    :ensure t
+    :config
+    ;; (company-emacs-eclim-setup)
+    (defun my-company-eclim-setup ()
+      (my-company-add-backend-locally 'company-emacs-eclim))
 
-;;; for company-mode
-(use-package company-emacs-eclim
-  :ensure t
-  :config
-  ;; (company-emacs-eclim-setup)
-  (defun my-company-eclim-setup ()
-    (my-company-add-backend-locally 'company-emacs-eclim))
-
-  (add-hook 'eclim-mode-hook 'my-company-eclim-setup)
+    (add-hook 'eclim-mode-hook 'my-company-eclim-setup)
+    )
   )
 
 ;;; [ meghanada ] -- A New Java Develop Environment for Emacs.
@@ -141,50 +140,50 @@
 ;; http://sdkman.io/
 
 ;;; add Gradle & Groovy bins to TRAMP path.
-(add-to-list 'tramp-remote-path
-             (concat (getenv "HOME")
-                     "/.sdkman/candidates/gradle/current/bin"))
-(add-to-list 'tramp-remote-path
-             (concat (getenv "HOME")
-                     "/.sdkman/candidates/groovy/current/bin"))
+;; (add-to-list 'tramp-remote-path
+;;              (concat (getenv "HOME")
+;;                      "/.sdkman/candidates/gradle/current/bin"))
+;; (add-to-list 'tramp-remote-path
+;;              (concat (getenv "HOME")
+;;                      "/.sdkman/candidates/groovy/current/bin"))
 
 ;;; [ jdecomp ] -- Emacs interface to Java decompilers.
 
-(use-package jdecomp
-  :ensure t
-  :config
-  ;; (setq jdecomp-decompiler-paths '((cfr . "~/.java/cfr.jar")
-  ;;                                  (fernflower . "")))
-  ;; (setq jdecomp-decompiler-type )
-  (jdecomp-mode 1)
-  )
+;; (use-package jdecomp
+;;   :ensure t
+;;   :config
+;;   ;; (setq jdecomp-decompiler-paths '((cfr . "~/.java/cfr.jar")
+;;   ;;                                  (fernflower . "")))
+;;   ;; (setq jdecomp-decompiler-type )
+;;   (jdecomp-mode 1)
+;;   )
 
 ;;; [ thread-dump ] -- Emacs mode for java thread dumps.
 
-(use-package thread-dump
-  :ensure t
-  :config
-  ;; config for Dired.
-  ;; support open Dired directory.
-  (defun thread-dump-open-dired-dir ()
-    (interactive)
-    (thread-dump-open-dir (dired-current-directory)))
-  ;; support open Dired marked files.
-  (defun thread-dump-open-marked-files ()
-    (interactive)
-    (let ((files (dired-get-marked-files)))
-      (thread-dump-open-files files)))
-  ;; add keybindings for Dired mode.
-  (add-hook 'dired-mode-hook
-            (lambda ()
-              (define-key dired-mode-map (kbd "C-c t d") 'thread-dump-open-dired-dir)
-              (define-key dired-mode-map (kbd "C-c t f") 'thread-dump-open-marked-files)))
-  )
+;; (use-package thread-dump
+;;   :ensure t
+;;   :config
+;;   ;; config for Dired.
+;;   ;; support open Dired directory.
+;;   (defun thread-dump-open-dired-dir ()
+;;     (interactive)
+;;     (thread-dump-open-dir (dired-current-directory)))
+;;   ;; support open Dired marked files.
+;;   (defun thread-dump-open-marked-files ()
+;;     (interactive)
+;;     (let ((files (dired-get-marked-files)))
+;;       (thread-dump-open-files files)))
+;;   ;; add keybindings for Dired mode.
+;;   (add-hook 'dired-mode-hook
+;;             (lambda ()
+;;               (define-key dired-mode-map (kbd "C-c t d") 'thread-dump-open-dired-dir)
+;;               (define-key dired-mode-map (kbd "C-c t f") 'thread-dump-open-marked-files)))
+;;   )
 
 ;;; [ helm-jstack ] -- Helm interface to jps & jstack for JVM.
 
-(use-package helm-jstack
-  :ensure t)
+;; (use-package helm-jstack
+;;   :ensure t)
 
 
 (provide 'init-my-prog-lang-java)
