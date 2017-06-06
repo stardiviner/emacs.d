@@ -679,8 +679,10 @@ dimensions of a block selection."
 (defun *org-timer ()
   "Show `org-timer' info in my custom mode-line."
   (if (and (active)
-           (or org-timer-mode-line-timer
-               org-timer-countdown-timer
+           (or (and (boundp 'org-timer-mode-line-timer)
+		                org-timer-mode-line-timer)
+               (and (boundp 'org-timer-countdown-timer)
+		                org-timer-countdown-timer)
                (org-at-item-timer-p)
                ))
       ;; - `org-timer-value-string'
@@ -752,7 +754,7 @@ dimensions of a block selection."
 ;;; mu4e
 (defun *mu4e ()
   "Show `mu4e-alert' new messages count in custom modeline."
-  (if (and (active) mu4e-alert-mode-line)
+  (if (and (active) (and (boundp 'mu4e-alert-mode-line) mu4e-alert-mode-line))
       (propertize mu4e-alert-mode-line)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
