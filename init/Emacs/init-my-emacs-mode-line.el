@@ -173,6 +173,16 @@
     perspeen-modestring
     ))
 
+;; Purpose
+(defun *purpose ()
+  "Show Purpose info in custom mode-line."
+  (if purpose-mode
+      (concat
+       (propertize "⊞" 'face '(:height 120))
+       (propertize (purpose--modeline-string))
+       (propertize " " 'face 'variable-pitch)
+       )))
+
 ;;; buffer name
 (defun *buffer-name ()
   "Display buffer name better."
@@ -806,6 +816,7 @@ dimensions of a block selection."
                  ;; (*buffer-project)
                  (*projectile)
                  ;; (*perspeen)
+                 ;; (*purpose)
                  (*major-mode)
                  (*env)
                  ))
