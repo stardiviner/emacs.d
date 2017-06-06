@@ -11,11 +11,12 @@
 
 (use-package python-mode
   :ensure t
-  :config
+  :preface
   (setq python-indent-offset 4
         python-indent 4
-        python-indent-guess-indent-offset t
-        python-skeleton-autoinsert nil ; auto interactive insert skeleton
+        python-indent-guess-indent-offset t)
+  :config
+  (setq python-skeleton-autoinsert nil ; auto interactive insert skeleton
         )
   )
 
