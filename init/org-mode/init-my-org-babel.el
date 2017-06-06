@@ -64,8 +64,11 @@
 ;;; [ ob-clojure ]
 
 (require 'ob-clojure)
-;; (add-to-list 'org-babel-default-header-args:clojure
-;;              '(:results . "output"))
+;; let `ob-clojure' babel src blocks allow evaluation.
+(add-to-list 'org-babel-default-header-args:clojure
+             '(:eval . "yes"))
+(add-to-list 'org-babel-default-header-args:clojure
+             '(:results . "output"))
 ;; (add-to-list 'org-babel-default-header-args:clojure
 ;;              '(:show-process . t))
 
