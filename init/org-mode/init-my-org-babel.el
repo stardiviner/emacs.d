@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 (setq org-confirm-babel-evaluate nil)
 (setq org-babel-no-eval-on-ctrl-c-ctrl-c nil)
 (setq org-confirm-shell-link-function 'yes-or-no-p)
@@ -52,6 +52,51 @@
 (setq org-babel-inline-result-wrap "=%s="
       org-export-babel-evaluate 'inline-only
       )
+
+(setq org-babel-load-languages
+      '((emacs-lisp . t)                     ; Emacs Lisp
+        (clojure . t)                        ; Clojure
+        (org . t)                            ; Org-mode
+        (sh . t)                             ; Shell
+        (shell . t)                          ; Shell Script
+        (makefile . t)                       ; Make
+        (python . t)                         ; Python
+        (ruby . t)                           ; Ruby
+        ;; (perl . t)                           ; Perl
+        (C . t)                              ; C
+        (java . t)                           ; Java
+        ;; (lua . t)                            ; Lua
+        ;; (awk . t)                            ; Awk
+        ;; (sed . t)                            ; Sed
+        ;; (screen . t)                         ; Screen
+        (lisp . t)                           ; Lisp
+        (scheme . t)                         ; Scheme
+        ;; (picolisp . t)                       ; Pico Lisp
+        (haskell . t)                        ; Haskell
+        ;; (scala . t)                          ; Scala
+        ;; (io . t)                             ; IO
+        ;; (J . t)                              ; J
+        ;; (ocaml . t)                          ; Objective Caml
+        (js . t)                             ; JavaScript
+        (css . t)                            ; CSS
+        (latex . t)                          ; LaTeX
+        (sql . t)                            ; SQL
+        (sqlite . t)                         ; SQLite
+        ;; (matlab . t)                         ; MATLAB
+        ;; (octave . t)                         ; Octave
+        ;; (fortran . t)                        ; Fortran
+        (ditaa . t)                          ; ditaa
+        (dot . t)                            ; Graphviz, Dot
+        (plantuml . t)                       ; PlantUML
+        ;; (ebnf2ps . t)                        ; ebnf2ps
+        (calc . t)                           ; Calc
+        ;; (asymptote . t)                      ; Asymptote
+        ;; (sass . t)                           ; Sass
+        ;; (processing . t)                     ; Processing
+        ))
+
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+
 
 ;;; [ ob-emacs-lisp ]
 
@@ -99,7 +144,10 @@
 (use-package smiles-mode
   :ensure t)
 (use-package ob-smiles
-  :ensure t)
+  :ensure t
+  :config
+  (add-to-list 'org-babel-load-languages '(smiles . t))
+  )
 
 ;;; [ ob-sql-mode ] -- SQL code blocks evaluated by sql-mode.
 
@@ -107,12 +155,16 @@
   :ensure t
   :config
   (setq org-babel-sql-mode-template-selector "Q")
+
+  (add-to-list 'org-babel-load-languages '(sql-mode . t))
+
   ;; security guard
   (setq org-confirm-babel-evaluate
         (lambda (lang body)
           ;; (not )
           (string= lang "sql-mode")
           ))
+
   ;; (setq org-babel-default-header-args:sql-mode )
   )
 
@@ -122,71 +174,14 @@
   :ensure t
   :config
   ;; (org-babel-do-load-languages 'org-babel-load-languages '((uart . t)))
+  (add-to-list 'org-babel-load-languages '(uart . t))
   )
-
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((emacs-lisp . t)                     ; Emacs Lisp
-   (org . t)                            ; Org-mode
-   (sh . t)                             ; Shell
-   (shell . t)                          ; Shell Script
-   (makefile . t)                       ; Make
-   (python . t)                         ; Python
-   (ruby . t)                           ; Ruby
-   ;; (perl . t)                           ; Perl
-   (C . t)                              ; C
-   (java . t)                           ; Java
-   ;; (lua . t)                            ; Lua
-   ;; (awk . t)                            ; Awk
-   ;; (sed . t)                            ; Sed
-   ;; (screen . t)                         ; Screen
-   (lisp . t)                           ; Lisp
-   (scheme . t)                         ; Scheme
-   ;; (picolisp . t)                       ; Pico Lisp
-   (clojure . t)                        ; Clojure
-   (haskell . t)                        ; Haskell
-   ;; (scala . t)                          ; Scala
-   ;; (io . t)                             ; IO
-   ;; (J . t)                              ; J
-   ;; (ocaml . t)                          ; Objective Caml
-   (js . t)                             ; JavaScript
-   (css . t)                            ; CSS
-   (latex . t)                          ; LaTeX
-   (sql . t)                            ; SQL
-   (sqlite . t)                         ; SQLite
-   ;; (matlab . t)                         ; MATLAB
-   ;; (octave . t)                         ; Octave
-   ;; (gnuplot . t)                        ; gnuplot
-   ;; (fortran . t)                        ; Fortran
-   (ditaa . t)                          ; ditaa
-   (dot . t)                            ; Graphviz, Dot
-   (plantuml . t)                       ; PlantUML
-   ;; (ebnf2ps . t)                        ; ebnf2ps
-   (calc . t)                           ; Calc
-   (ledger . t)                         ; ledger support in Babel
-   ;; (asymptote . t)                      ; Asymptote
-   ;; (sass . t)                           ; Sass
-   ;; (processing . t)                     ; Processing
-   ;; -- Extra --
-   ;; use advice: `org-babel-execute-src-block' to load language support lazily.
-   ;; (C++ . t)                            ; C++
-   ;; (D . t)                              ; D
-   (R . t)                              ; R
-   ;; (go . t)
-   (ipython . t)
-   ;; (sagemath . t)        ; `ob-sagemath'
-   ;; (restclient . t)                     ; `ob-restclient'
-   (elasticsearch . t)                  ; `es-mode'
-   (sql-mode . t)                       ;  `ob-sql-mode'
-   (mongo . t)                          ; `ob-mongo'
-   (uart . t)                           ; `ob-uart'
-   ))
 
 
 ;;; [ Tangle ]
 
 (setq org-babel-tangle-lang-exts
-      '(("latex" . "tex")
+      '(("clojure" . "clj")
         ("elisp" . "el")
         ("emacs-lisp" . "el")
         ("lisp" . "lisp")
@@ -196,7 +191,7 @@
         ("sql" . "sql")
         ("sh" . "sh")
         ("haskell" . "hs")
-        ("clojure" . "clj")
+        ("latex" . "tex")
         ("awk" . "awk")
         ("C" . "c")
         ("Go" . "go")
@@ -325,6 +320,15 @@
         ;; (:echo . t)
         (:column . t)
         (:nullvalue . "Null")))
+
+;;; [ ob-mongo ]
+
+(use-package ob-mongo
+  :ensure t
+  :config
+  (add-to-list 'org-babel-load-languages '(mongo . t))
+  )
+
 
 ;;; [ ob-ledger ]
 
@@ -568,6 +572,10 @@
     (setq eir-jump-after-eval nil))
   )
 
+;; load all languages at last.
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+
+
 
 (provide 'init-my-org-babel)
 

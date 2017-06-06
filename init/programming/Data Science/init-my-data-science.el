@@ -21,6 +21,9 @@
   ;; use IJulia backend for IPython notebook
   ;; (add-to-list 'org-src-lang-modes '("ipython" . python))
 
+  (add-to-list 'org-babel-load-languages '(ipython . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  
   (setq org-babel-default-header-args:ipython
         '((:session . nil)
           ;; (:dir . "data/images")

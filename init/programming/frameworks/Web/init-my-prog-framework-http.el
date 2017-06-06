@@ -63,7 +63,11 @@
 ;;; [ ob-restclient ]
 
 (use-package ob-restclient
-  :ensure t)
+  :ensure t
+  :config
+  (add-to-list 'org-babel-load-languages '(restclient . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  )
 
 
 ;;; [ restclient-test ] -- Run tests with restclient.el

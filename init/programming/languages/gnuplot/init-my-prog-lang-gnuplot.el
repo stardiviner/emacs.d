@@ -78,6 +78,10 @@
   :ensure t
   :config
   (require 'ob-gnuplot)
+
+  (add-to-list 'org-babel-load-languages '(gnuplot . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  
   (setq org-babel-default-header-args:gnuplot
         '((:session . "none")
           (:results . "graphics")

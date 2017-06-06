@@ -160,7 +160,11 @@
 ;; [ ob-go ]
 
 (use-package ob-go
-  :ensure t)
+  :ensure t
+  :config
+  (add-to-list 'org-babel-load-languages '(go . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  )
 
 
 (provide 'init-my-prog-lang-go)

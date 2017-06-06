@@ -47,6 +47,9 @@
   ;; :config
   ;; (setq ob-sagemath-output-display-function)
   ;; (setq org-babel-header-args:sage '())
+
+  (add-to-list 'org-babel-load-languages '(sagemath . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   )
 
 

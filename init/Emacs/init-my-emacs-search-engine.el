@@ -192,8 +192,10 @@
 
 (use-package es-mode
   :ensure t
-  :init
-  (add-to-list 'auto-mode-alist '("\\.es$" . es-mode))
+  :mode ("\\.es$" . es-mode)
+  :config
+  (add-to-list 'org-babel-load-languages '(elasticsearch . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   )
 
 

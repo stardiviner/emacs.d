@@ -26,6 +26,10 @@
                 (flycheck-mode 1)
                 (flycheck-select-checker 'ledger)))
     )
+
+  ;; [ ob-ledger ]
+  (add-to-list 'org-babel-load-languages '(ledger . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   )
 
 ;;; [ hledger-mode ] -- Major mode for editing hledger.

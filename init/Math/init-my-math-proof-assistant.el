@@ -43,7 +43,10 @@
 (use-package org-plus-contrib
   :ensure t
   :config
-  (require 'ob-coq))
+  (require 'ob-coq)
+  (add-to-list 'org-babel-load-languages '(coq . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  )
 
 
 (provide 'init-my-math-proof-assistant)

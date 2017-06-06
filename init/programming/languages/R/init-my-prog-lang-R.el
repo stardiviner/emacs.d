@@ -9,9 +9,26 @@
 
 (use-package ess
   :ensure t
+  :mode (("\\.[rR]\\'" . R-mode)
+         ("\\.Rd\\'" . Rd-mode) ; R documentation
+         ("\\.S\\'" . S-mode)
+         ("\\.Rprofile\\'" . R-mode)
+         ("\\.Renviron\\'" . R-mode))
   :config
   (require 'ess-site)
-  
+
+  ;; with --no-readline argument.
+  (setq ess-R-readline nil)
+
+  ;; set prompt
+  ;; (setq inferior-ess-primary-prompt "ℝ> ")
+  ;; handle the custom ℝ prompt in ess. Don’t use custom here.
+  ;; (setq inferior-S-prompt "[]a-zA-Z0-9.[]*\\(?:[>+.] \\)*ℝ+> ")
+
+  ;; completing support
+  ;; - `ess-company-backends' :: for company-mode.
+  ;; - `ess-ac-sources' :: for auto-complete.
+
   (setq ess-use-ido t
         ess-ido-flex-matching t
         ess-pdf-viewer-pref '("emacsclient")
@@ -45,42 +62,15 @@
   )
 
 
-;;; [ R-mode ]
-
-(autoload 'R-mode "ess-site" "R-mode" t)
-
-;; automatically get the correct mode
-(add-to-list 'auto-mode-alist '("\\.[rR]\\'" . R-mode))
-(add-to-list 'auto-mode-alist '("\\.Rd\\'" . Rd-mode)) ; R documentation
-(add-to-list 'auto-mode-alist '("\\.S\\'" . S-mode))
-
-(add-to-list 'auto-mode-alist '("\\.Rprofile\\'" . R-mode))
-(add-to-list 'auto-mode-alist '("\\.Renviron\\'" . R-mode))
-
-;; comment out the following if you are not using R/S-Plus on ACPUB
-;; add a ";" in front of each line
-;; (load "/usr/pkg/ess/lisp/ess-site")
-;; (setq-default inferior-S+6-program-name "Splus")
-
-;; with --no-readline argument.
-(setq ess-R-readline nil)
-
-;;; set prompt
-;; (setq inferior-ess-primary-prompt "ℝ> ")
-;;; handle the custom ℝ prompt in ess. Don’t use custom here.
-;; (setq inferior-S-prompt "[]a-zA-Z0-9.[]*\\(?:[>+.] \\)*ℝ+> ")
-
-;;; completing support
-
-;; - `ess-company-backends' :: for company-mode.
-;; - `ess-ac-sources' :: for auto-complete.
-
 ;;; [ ob-R ]
 
 (use-package org-plus-contrib
   :ensure t
   :config
-  (require 'ob-R))
+  (require 'ob-R)
+  (add-to-list 'org-babel-load-languages '(R . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  )
 
 
 (provide 'init-my-prog-lang-R)
