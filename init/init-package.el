@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ package.el ] -- Emacs Lisp Package Archive (ELPA)
 
 (require 'cl)
@@ -24,7 +24,7 @@
 (defvar elpa-org '("org"   . "http://orgmode.org/elpa/"))
 
 (setq-default package-archives nil)
-(add-to-list 'package-archives elpa-org t)
+;; (add-to-list 'package-archives elpa-org t)
 (add-to-list 'package-archives elpa-melpa t)
 ;; (add-to-list 'package-archives elpa-melpa-stable t)
 ;; (add-to-list 'package-archives elpa-marmalade t)
@@ -118,6 +118,27 @@
 (use-package quelpa-use-package
   :ensure t)
 
+;;; [ Org-mode ]
+
+;;; latest version
+
+(use-package org
+  :load-path "~/Code/Emacs/org-mode/lisp/"
+  :pin manual
+  ;; :quelpa (org :fetcher git :repo "~/Code/Emacs/org-mode/lisp/")
+  :mode (("\\.org$" . org-mode))
+  :config
+  (load "~/Code/Emacs/org-mode/lisp/org.el")
+  )
+
+(use-package org-plus-contrib
+  :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+  :pin manual
+  ;; :quelpa (org-plus-contrib :fetcher git :repo "~/Code/Emacs/org-mode/contrib/lisp/")
+  :config
+  )
+
+
 
 (provide 'init-package)
 

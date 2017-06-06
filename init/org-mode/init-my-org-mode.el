@@ -12,12 +12,29 @@
 (global-set-key (kbd "C-c o") 'my-org-prefix)
 
 
+;; (use-package org
+;;   :ensure t
+;;   :mode (("\\.org$" . org-mode))
+;;   )
+
+
+;;; latest version
+;; NOTE: also pre-load in `init-package.el'
 (use-package org
-  :ensure t
+  :load-path "~/Code/Emacs/org-mode/lisp/"
+  :pin manual
+  ;; :quelpa (org :fetcher git :repo "~/Code/Emacs/org-mode/lisp/")
   :mode (("\\.org$" . org-mode))
+  :config
+  (load "~/Code/Emacs/org-mode/lisp/org.el")
   )
+
 (use-package org-plus-contrib
-  :ensure t)
+  :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+  :pin manual
+  ;; :quelpa (org-plus-contrib :fetcher git :repo "~/Code/Emacs/org-mode/contrib/lisp/")
+  :config
+  )
 
 ;;; [ Org Modules ]
 ;; Modules that should always be loaded together with org.el.

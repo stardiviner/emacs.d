@@ -25,7 +25,8 @@
 (setq package-menu-async t)
 (setq package-user-dir "~/.emacs.d/elpa")
 (setq-default package-archives
-              '(("org"   . "http://orgmode.org/elpa/")
+              '(
+                ;; ("org"   . "http://orgmode.org/elpa/")
                 ("melpa" . "http://melpa.org/packages/")
                 ;; ("melpa-stable" . "http://stable.melpa.org/packages/")
                 ;; ("marmalade" . "http://marmalade-repo.org/packages/")
@@ -161,11 +162,27 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; (use-package org
+;;   :ensure t)
+;;
+;; (use-package org-plus-contrib
+;;   :ensure t)
+
 (use-package org
-  :ensure t)
+  :load-path "~/Code/Emacs/org-mode/lisp/"
+  :pin manual
+  ;; :quelpa (org :fetcher git :repo "~/Code/Emacs/org-mode/lisp/")
+  :mode (("\\.org$" . org-mode))
+  :config
+  (load "~/Code/Emacs/org-mode/lisp/org.el")
+  )
 
 (use-package org-plus-contrib
-  :ensure t)
+  :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+  :pin manual
+  ;; :quelpa (org-plus-contrib :fetcher git :repo "~/Code/Emacs/org-mode/contrib/lisp/")
+  :config
+  )
 
 ;; (require 'init-my-org-mode)
 
