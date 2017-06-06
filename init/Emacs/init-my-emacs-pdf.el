@@ -11,8 +11,7 @@
 
 (use-package pdf-tools
   :ensure t
-  :init
-  (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
+  :mode ("\\.pdf\\'" . pdf-view-mode)
   :config
   (pdf-tools-install)
   
