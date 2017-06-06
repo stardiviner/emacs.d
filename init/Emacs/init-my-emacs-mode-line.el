@@ -323,17 +323,8 @@ state (modified, read-only or non-existent)."
   "Show environment version info like Python, Ruby, JavaScript etc."
   (if (active)
       (let ((env
-             (cl-case major-mode
-               ('clojure-mode
-                (if (not (equal (cider--modeline-info) "not connected"))
-                    ;; don't duplicate with `projectile'
-                    (if (projectile-project-name)
-                        (all-the-icons-fileicon "clj" :face '(:foreground "green"))
-                      (with-current-buffer (ignore-errors (cider-current-connection))
-                        (cider--project-name nrepl-project-dir))
-                      )
-                  (all-the-icons-fileicon "clj" :face '(:foreground "red"))))
-               ('clojurescript-mode
+             (pcase major-mode
+               ((or 'clojure-mode 'clojurescript-mode)
                 (if (not (equal (cider--modeline-info) "not connected"))
                     ;; don't duplicate with `projectile'
                     (if (projectile-project-name)
