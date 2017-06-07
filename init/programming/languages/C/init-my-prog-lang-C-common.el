@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ CC-mode ]
 
 ;; cc-mode provides:
@@ -45,6 +45,13 @@
               tab-always-indent t ; make tab key always call a indent command.
               )
 
+(hook-modes c-dialects-mode
+  ;; (c-toggle-auto-hungry-state 1)
+  ;; (c-toggle-auto-newline 1)
+  ;; (c-toggle-hungry-state 1)
+  (electric-indent-mode 1)
+  )
+
 (setq-default c-default-style '((java-mode . "java")
                                 (awk-mode . "awk")
                                 (other . "gnu")))
@@ -54,86 +61,57 @@
 
 (use-package irony
   :ensure t
-  :defer t
-  :init
+  :config
   (hook-modes c-dialects-mode
     (when (memq major-mode irony-supported-major-modes)
-      (irony-mode 1))
-
-    (c-toggle-auto-hungry-state 1)
-    ;; (c-toggle-auto-newline 1)
-    ;; (c-toggle-hungry-state 1)
-    (electric-indent-mode 1)
-    )
-
-  :config
-  ;; replace the `completion-at-point' and `complete-symbol' bindings in
-  ;; irony-mode's buffers by irony-mode's function
-  (defun my-irony-mode-hook ()
-    (define-key irony-mode-map [remap completion-at-point]
-      'irony-completion-at-point-async)
-    (define-key irony-mode-map [remap complete-symbol]
-      'irony-completion-at-point-async))
-  (add-hook 'irony-mode-hook 'my-irony-mode-hook)
-
-  ;; load the compile options automatically: 
-  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-  )
-
-
-;;; [ company-irony-c-headers ]
-
-(use-package company-irony-c-headers
-  :ensure t)
-
-
-;;; [ company-irony ]
-
-(use-package company-irony
-  :ensure t
-  :config
-  (defun company-irony-add ()
-    ;; (optional) adds CC special commands to `company-begin-commands'
-    ;; in order to trigger completion at interesting places, such as
-    ;; after scope operator.
-    ;;     std::|
-    (company-irony-setup-begin-commands)
-
-    (make-local-variable 'company-backends)
-    (add-to-list 'company-backends
-                 '(company-irony-c-headers
-                   company-irony
-                   ;; company-semantic
-                   ;; company-gtags
-                   ;; company-etags
-                   :with
-                   company-yasnippet))
-    )
+      (irony-mode 1)))
   
-  (hook-modes c-dialects-mode
-    (company-irony-add))
-  )
+  ;; load the compile options automatically:
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
+  ;; [ company-irony ]
+  (use-package company-irony
+    :ensure t
+    :config
+    ;; [ company-irony-c-headers ]
+    (use-package company-irony-c-headers
+      :ensure t)
 
-;;; [ irony-eldoc ]
+    (defun company-irony-add ()
+      ;; (optional) adds CC special commands to `company-begin-commands'
+      ;; in order to trigger completion at interesting places, such as
+      ;; after scope operator.
+      ;;     std::|
+      (company-irony-setup-begin-commands)
 
-(use-package irony-eldoc
-  :ensure t
-  :defer t
-  :init
-  (with-eval-after-load 'irony
-    (add-hook 'irony-mode-hook #'irony-eldoc))
-  )
+      (make-local-variable 'company-backends)
+      (add-to-list 'company-backends
+                   '(company-irony
+                     :with
+                     company-yasnippet))
+      (add-to-list 'company-backends 'company-irony-c-headers)
+      )
 
+    (hook-modes c-dialects-mode
+      (when (memq major-mode irony-supported-major-modes)
+        (company-irony-add)))
+    )
 
-;;; [ flycheck-irony ]
+  ;; [ irony-eldoc ]
+  (use-package irony-eldoc
+    :ensure t
+    :after irony
+    :config
+    (add-hook 'irony-mode-hook #'irony-eldoc)
+    )
 
-(use-package flycheck-irony
-  :ensure t
-  :defer t
-  :init
-  (with-eval-after-load 'irony
-    (add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+  ;; [ flycheck-irony ]
+  (use-package flycheck-irony
+    :ensure t
+    :after irony
+    :config
+    (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)
+    )
   )
 
 
@@ -141,8 +119,8 @@
 
 (use-package flycheck-cstyle
   :ensure t
-  :defer t
-  :init
+  :after flycheck
+  :config
   (flycheck-cstyle-setup)
   (flycheck-add-next-checker 'c/c++-cppcheck '(warning . cstyle))
   ;; (flycheck-add-next-checker 'c/c++-clang '(warning . cstyle))
@@ -160,6 +138,7 @@
   :ensure t)
 
 
+
 
 (provide 'init-my-prog-lang-C-common)
 
