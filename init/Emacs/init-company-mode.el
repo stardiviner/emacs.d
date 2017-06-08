@@ -14,12 +14,11 @@
   :config
   (setq company-minimum-prefix-length 3
         ;; decrease this delay when you can type code continuously fast.
-        company-idle-delay 0.2
-        ;; company-echo-delay .01
+        company-idle-delay .2
         ;; determine which characters trigger auto-completion the selected candidate.
+        company-auto-complete t
         ;; '(?_ ?\( ?w ?. ?\" ?$ ?\' ?/ ?| ?! ?#)
         company-auto-complete-chars '(?\  ?\) ?. ?#)
-        company-auto-complete nil
         ;; company-require-match 'company-explicit-action-p ; 'never
         company-tooltip-align-annotations t ; align annotations to the right tooltip border.
         company-tooltip-flip-when-above nil
@@ -139,7 +138,6 @@
   (add-to-list 'company-dabbrev-code-modes 'web-mode)
 
   ;; [ company-tempo ]
-  (setq company-tempo-expand t)
 
   ;; [ company-etags ]
   ;; enable to offer completions in comment and strings.
