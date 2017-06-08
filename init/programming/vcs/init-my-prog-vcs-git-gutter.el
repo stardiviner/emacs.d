@@ -109,26 +109,6 @@
         ;; pass option to 'git diff' command: -w: ignore all spaces
         git-gutter+-diff-option "-w")
 
-  (setq git-gutter+-added-sign "✚"
-        git-gutter+-deleted-sign "✖"
-        git-gutter+-modified-sign "Ϟ"
-        git-gutter+-unchanged-sign nil
-        ;; git-gutter+-window-width 2 ; multiple characters is ok.
-        ;; | |, ┇, ┋ ⋮ ¦ ┊ ┆ │ │ ┃
-        git-gutter+-separator-sign ""
-        )
-  
-  ;; GitGutter signs
-  ;; (set-face-attribute 'git-gutter+-modified nil
-  ;;                     :foreground "dark orange")
-  ;; (set-face-attribute 'git-gutter+-added nil
-  ;;                     :foreground "green")
-  ;; (set-face-attribute 'git-gutter+-deleted nil
-  ;;                     :foreground "red")
-  ;; (set-face-attribute 'git-gutter+-unchanged nil
-  ;;                     )
-  ;; (set-face-foreground 'git-gutter+-separator "cyan")
-
   (global-git-gutter+-mode t)
   )
 
