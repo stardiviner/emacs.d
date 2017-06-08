@@ -134,9 +134,8 @@
 
 ;;;  [ autodisass-llvm-bitcode ] -- Automatically disassemble emacs buffers containing LLVM bitcode.
 
-(use-package autodisass-llvm-bitcode
-  :ensure t)
-
+;; (use-package autodisass-llvm-bitcode
+;;   :ensure t)
 
 
 
