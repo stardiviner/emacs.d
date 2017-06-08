@@ -6,12 +6,11 @@
 
 
 ;;; Code:
-
+
 ;;; [ auto-complete ]
 
 (use-package popup
-  :ensure t
-  :defer t)
+  :ensure t)
 ;; (require 'showtip)
 
 
@@ -117,8 +116,7 @@
 
 (use-package ac-capf
   :ensure t
-  :defer t
-  :init
+  :config
   ;; global
   ;; (ac-capf-setup)
   (add-to-list 'ac-sources 'ac-source-capf)
@@ -126,22 +124,13 @@
 
 
 
-(defun ac-source-remove (source-removed-list)
+(defun my/ac-source-remove (source-removed-list)
   "remove some ac-source from ac-sources."
   (mapc (lambda (x) (setq-local ac-sources (remq x ac-sources)))
         source-removed-list)
   )
 
-
-;;; make auto-complete work with company-mode
-;;
-;; (add-hook 'c-mode-common-hook
-;;           (lambda ()
-;;             (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-;;               (company-mode -1)
-;;               (auto-complete-mode 1)
-;;               )))
-
+
 
 (provide 'init-auto-complete)
 
