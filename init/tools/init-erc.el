@@ -316,7 +316,13 @@ When called repeatedly, cycle through the buffers."
    (concat user-emacs-directory
            "resources/audio/Hacking Game/voice-incoming-transmission.wav")))
 
-(add-hook 'erc-server-PRIVMSG-functions #'my/erc-play-sound-private)
+(defun my/erc-play-sound-message (proc passed)
+  "Play sound when receive a private message."
+  (org-clock-play-sound
+   (concat user-emacs-directory
+           "resources/audio/Hacking Game/hesfx-newmessage.wav")))
+
+(add-hook 'erc-server-PRIVMSG-functions #'my/erc-play-sound-message t)
 
 (defun my/erc-play-sound-confirm (proc nick login host to query)
   "Play sound when receive a private message."
