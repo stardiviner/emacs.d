@@ -128,6 +128,16 @@
   (define-key company-active-map [return] 'company-new-line)
   (define-key company-active-map "\r" 'company-new-line)
 
+  (defun company-space ()
+    "insert a literal return new line."
+    (interactive)
+    ;; (company-abort)
+    (company-cancel 'abort)
+    (insert " ")
+    )
+  
+  (define-key company-active-map (kbd "SPC") 'company-space)
+
   ;; [ company-yasnippet ]
   ;; make `company-yasnippet' work for prefix like `%link_to'.
   ;; (setq-default yas-key-syntaxes (list "w_" "w_." "w_.()"
