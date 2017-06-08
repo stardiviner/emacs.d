@@ -277,7 +277,7 @@
   ;; (setq-default company-frontends
   ;;               (remq 'company-echo-metadata-frontend company-frontends))
   ;;
-  (add-to-list 'company-frontends 'company-preview-common-frontend)
+  ;; (add-to-list 'company-frontends 'company-preview-common-frontend) ; NOTE: this caused company-mode tooltip offset.
   (add-to-list 'company-frontends 'company-quickhelp-frontend)
   
   (if (functionp 'company-quickhelp-manual-begin)
