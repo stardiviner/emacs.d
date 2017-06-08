@@ -341,8 +341,9 @@ When called repeatedly, cycle through the buffers."
 (defun my/erc-return ()
   "Show a message and do nothing."
   (interactive)
+  (newline)
   (message "You should press <C-return> !"))
-(define-key erc-mode-map (kbd "RET") 'my/erc-return)
+(define-key erc-mode-map (kbd "RET") 'newline)
 (define-key erc-mode-map (kbd "<C-return>") 'erc-send-current-line)
 
 ;; [ Input History ]
