@@ -433,24 +433,6 @@ When called repeatedly, cycle through the buffers."
 ;; (define-key erc-mode-map (kbd "C-c C-S-o") 'erc-babel-include-orig-toggle)
 
 
-;; switch erc buffers with [C-c C-b] `erc-iswitchb'.
-(defun stardiviner/erc-buffer-switch ()
-  "ERC switch buffers with my style."
-  (interactive)
-  (switch-to-buffer
-   (completing-read "Channel:"
-                    (save-excursion
-                      (delq
-                       nil
-                       (mapcar (lambda (buf)
-                                 (when (buffer-live-p buf)
-                                   (with-current-buffer buf
-                                     (and (eq major-mode 'erc-mode)
-                                          (buffer-name buf)))))
-                               (buffer-list)))))))
-
-(define-key erc-mode-map (kbd "C-c b") 'stardiviner/erc-buffer-switch)
-
 ;;; [ Morse Code ]
 ;; (require 'erc-goodies)
 ;; (add-to-list 'erc-modules 'unmorse)
