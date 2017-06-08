@@ -32,16 +32,14 @@
   (require 'helm-config)
   
   (helm-autoresize-mode t)
-
   (setq helm-full-frame nil
-        helm-always-two-windows t
-        helm-autoresize-max-height 25
-        helm-autoresize-min-height 6
-        ;; helm-display-function 'popwin:pop-to-buffer
+        helm-always-two-windows nil
         helm-split-window-in-side-p t
         helm-split-window-default-side 'below
         ;; helm-split-window-preferred-function
-        helm-quick-update nil
+        ;; helm-display-function 'popwin:pop-to-buffer
+        ;; helm-autoresize-max-height 25
+        helm-autoresize-min-height 6
         helm-case-fold-search t
         ;; fuzzy matching
         helm-mode-fuzzy-match t
@@ -56,15 +54,6 @@
         ;; helm-sources-using-default-as-input
         )
 
-  ;; For some reason, this doesn't work. For example, `magit-status'
-  ;; always uses `helm' for `read-file-name'.
-  ;; (add-to-list 'helm-completing-read-handlers-alist
-  ;;              '(find-file . ido))
-  ;; (add-to-list 'helm-completing-read-handlers-alist
-  ;;              '(dired . ido))
-  ;; (add-to-list 'helm-completing-read-handlers-alist
-  ;;              '(read-file-name . ido-read-file-name))
-  
   ;; (helm-mode 1)
   )
 
