@@ -6,7 +6,9 @@
 
 
 ;;; Code:
+
 
+(require 'org)
 
 (setq org-export-backends '(ascii html icalendar latex md)
       org-export-headline-levels 5
@@ -273,6 +275,12 @@ For pasting on sites like GitHub, and Stack Overflow."
 (use-package html2org
   :ensure t)
 
+;;; [ ox-epub ] -- Org-mode EPUB export.
+
+(use-package ox-epub
+  :ensure t)
+
+
 
 (provide 'init-my-org-export)
 
