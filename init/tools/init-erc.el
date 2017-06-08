@@ -416,7 +416,7 @@ When called repeatedly, cycle through the buffers."
   :config
   (erc-image-mode 1)
 
-  (setq erc-image-display-func 'erc-image-issert-inline
+  (setq erc-image-display-func 'erc-image-insert-inline
         erc-image-images-path "/tmp/"
         erc-image-inline-rescale 50 ; rescale the inline displayed image
         ;; erc-image-regex-alist
