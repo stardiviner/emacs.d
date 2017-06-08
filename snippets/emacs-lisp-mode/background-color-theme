@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: background-color-theme
+# key: background-color-theme
+# group: face
+# --
+:background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) ${1:10}))
+                                  ('dark
+                                   (color-darken-name (face-background 'default) ${2:5})))
