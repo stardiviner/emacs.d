@@ -245,8 +245,8 @@
   ;; enable `cider-mode' in `clojure-mode'.
   (add-hook 'clojure-mode-hook #'cider-mode)
   
-  ;; auto start CIDER REPL session for Org-mode Babel by jack-in.
   (setq cider-allow-jack-in-without-project t)
+  ;; auto start CIDER REPL session for Org-mode Babel by jack-in.
   (add-hook 'after-init-hook #'cider-jack-in)
 
   ;; notify user CIDER is connected.
@@ -308,9 +308,17 @@ Optional argument NS, if not provided, defaults to
 Usage: (cider-repl-command \"\(clojure expr\)\")"
     (cider-switch-to-repl-buffer)
     (goto-char (point-max))
+    (sit-for 10)
     (insert cmd)
     (cider-repl-return)
-    (cider-switch-to-last-clojure-buffer))
+    (cider-switch-to-last-clojure-buffer)
+    )
+  
+  (add-hook 'cider-connected-hook
+            (lambda ()
+              (sit-for 60)
+              (cider-repl-command "(use '(incanter core stats datasets charts io pdf))")
+              ))
   )
 
 
