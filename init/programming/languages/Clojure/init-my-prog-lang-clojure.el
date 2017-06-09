@@ -225,12 +225,13 @@
 
   (setq cider-doc-auto-select-buffer t)
   
+  ;; (use-package cider-hydra
+  ;;   :ensure t
+  ;;   :config
+  ;;   (add-hook 'cider-mode-hook #'cider-hydra-mode)
+  ;;   (add-hook 'cider-repl-mode-hook #'cider-hydra-mode))
+  
   ;; enable `eldoc' in relevant buffers.
-  (use-package cider-hydra
-    :ensure t
-    :config
-    (add-hook 'cider-mode-hook #'cider-hydra-mode)
-    (add-hook 'cider-repl-mode-hook #'cider-hydra-mode))
   (add-hook 'cider-mode-hook #'eldoc-mode)
   (add-hook 'cider-repl-mode-hook #'eldoc-mode)
   (add-hook 'cider-repl-mode-hook
