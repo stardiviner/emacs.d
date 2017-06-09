@@ -120,8 +120,8 @@
   (define-key my-prog-vcs-git-map (kbd "l") 'magit-log)
   (define-key my-prog-vcs-git-map (kbd "L") 'magit-log-buffer-file) ; show log for current buffer visiting file.
   (define-key my-prog-vcs-git-map (kbd "o") 'magit-checkout)
-  (define-key my-prog-vcs-git-map (kbd "B") 'magit-bisect)
-  (define-key my-prog-vcs-git-map (kbd "b") 'magit-blame)
+  (define-key my-prog-vcs-git-map (kbd "M-b") 'magit-bisect)
+  (define-key my-prog-vcs-git-map (kbd "B") 'magit-blame)
   (define-key my-prog-vcs-git-map (kbd "f") 'magit-file-popup)
   
   ;; enable ispell words complete in commit message buffer.
@@ -178,6 +178,16 @@
 
 (use-package git-timemachine
   :ensure t)
+
+;;; [ gited ] -- operate on Git branches like Dired.
+
+(use-package gited
+  :ensure t
+  :bind (:map my-prog-vcs-git-map
+              ("b" . gited-list-branches)
+              :map dired-mode-map
+              ("C-x C-g" . gited-list-branches))
+  )
 
 ;;; [ magit-lfs ] -- Magit support for GLFS: Git Large File System
 
