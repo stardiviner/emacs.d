@@ -31,7 +31,13 @@
 
 (use-package helm-bibtex
   :ensure t
-  :defer t)
+  :config
+  (setq bibtex-completion-bibliography "~/Org/Bibliography/bibliography.bib"
+        bibtex-completion-library-path "~/Org/Bibliography/PDFs/"
+        bibtex-completion-notes-path "~/Org/Bibliography/notes/")
+  (setq bibtex-completion-pdf-open-function 'org-open-file ; `find-file'
+        )
+  )
 
 ;;; [ company-bibtex ] -- Emacs company-mode completion back-end for Bibtex keys.
 
@@ -39,7 +45,7 @@
   :ensure t
   :config
   (setq company-bibtex-bibliography
-        '("~/.emacs.d/bibliography/bibliography.bib"
+        '("~/Org/Bibliography/bibliography.bib"
           ))
 
   (add-hook 'org-mode-hook
@@ -91,12 +97,14 @@
   (define-key org-ref-prefix (kbd "c") 'org-ref-helm-insert-cite-link)
   (define-key org-ref-prefix (kbd "l") 'org-ref-helm-insert-label-link)
   (define-key org-ref-prefix (kbd "r") 'org-ref-helm-insert-ref-link)
-  
+
+  ;; specify `org-ref' bibliography sources
   (require 'f)
   (setq org-ref-default-bibliography (f-files "~/Org/Bibliography/"
                                               (lambda (f)
                                                 (f-ext? f "bib")))
-        org-ref-pdf-directory "~/Org/Bibliography/")
+        org-ref-bibliography-notes "~/Org/Bibliography/notes/"
+        org-ref-pdf-directory "~/Org/Bibliography/PDFs/")
   )
 
 ;;; ----------------------------------------------------------------------------
