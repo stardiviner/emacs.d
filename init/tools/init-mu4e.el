@@ -28,6 +28,18 @@
 
   (setq mail-user-agent 'mu4e-user-agent)
   (setq mu4e-compose-in-new-frame t)
+
+  ;; Helm sources for searching emails and contacts using mu.
+  (use-package helm-mu
+    :ensure t
+    :config
+    ;; Use helm-mu instead of mu4e's search
+    (define-key mu4e-main-mode-map "s" 'helm-mu)
+    (define-key mu4e-headers-mode-map "s" 'helm-mu)
+    (define-key mu4e-view-mode-map "s" 'helm-mu)
+    ;; By the way, enabling `helm-follow-mode' via [C-c C-f] allows to preview
+    ;; emails as you search.
+    )
   )
 
 
