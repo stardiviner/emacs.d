@@ -6,6 +6,7 @@
 
 
 ;;; Code:
+
 
 (setq org-display-internal-link-with-indirect-buffer t
       org-indirect-buffer-display 'current-window
@@ -389,41 +390,7 @@ With prefix argument, also display headlines without a TODO keyword."
 ;;       (comment-dwim nil)
 ;;     ad-do-it))
 
-;;; [ org-ref ] -- citations, cross-references, indexes, glossaries and bibtex utilities for Org-mode.
-
-(use-package org-ref
-  :ensure t
-  :config
-  (setq bibtex-completion-pdf-open-function 'org-open-file)
-  (setq org-latex-prefer-user-labels t)
-
-  ;; Let org-mode auto process the LaTeX export to PDF process.
-  (setq org-latex-pdf-process
-        '("pdflatex -interaction nonstopmode -output-directory %o %f"
-          "bibtex %b"
-          "pdflatex -interaction nonstopmode -output-directory %o %f"
-          "pdflatex -interaction nonstopmode -output-directory %o %f"))
-
-  ;; setup org-ref keybindings
-  (setq org-ref-bibtex-hydra-key-binding (kbd "C-c ]"))
-
-  (unless (boundp 'org-ref-prefix)
-    (define-prefix-command 'org-ref-prefix))
-  (define-key my-org-prefix (kbd "C-]") 'org-ref-prefix)
-
-  (define-key org-ref-prefix (kbd "C-]") 'org-ref-insert-link)
-  (define-key org-ref-prefix (kbd "c") 'org-ref-helm-insert-cite-link)
-  (define-key org-ref-prefix (kbd "l") 'org-ref-helm-insert-label-link)
-  (define-key org-ref-prefix (kbd "r") 'org-ref-helm-insert-ref-link)
-  
-  (require 'f)
-  (setq org-ref-default-bibliography (f-files "~/Org/Bibliography/"
-                                              (lambda (f)
-                                                (f-ext? f "bib")))
-        org-ref-pdf-directory "~/Org/Bibliography/")
-  )
-
-
+
 
 (provide 'init-my-org-hyperlink)
 
