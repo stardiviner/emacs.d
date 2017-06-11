@@ -6,19 +6,19 @@
 
 
 ;;; Code:
-
+
 ;;; [ Tramp ]
 
 (use-package tramp
   :ensure t
-  :defer t
-  :init
-  (setq tramp-ssh-controlmaster-options
-        "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
+  :config
+  ;; hotfix
+  ;; (setq tramp-ssh-controlmaster-options
+  ;;       "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
   ;; (setq tramp-ssh-controlmaster-options
   ;;       "-o ControlMaster=auto -o ControlPath='ssh_%C' -o ControlPersist=no")
 
-  :config
+  
   ;; <default method>
   (setq tramp-default-method "ssh") ; default "scp" (ssh + scp),
   ;; (add-to-list 'tramp-default-method-alist '("" ""))
@@ -69,7 +69,7 @@
 ;;     (define-key helm-command-map (kbd "M-t") 'helm-tramp))
 ;;   )
 
-
+
 
 (provide 'init-tramp)
 
