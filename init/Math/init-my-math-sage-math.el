@@ -6,6 +6,7 @@
 
 
 ;;; Code:
+
 
 ;;; [ sage-shell-mode ] -- A front-end for Sage Math.
 
@@ -20,7 +21,6 @@
   (sage-shell:define-alias) ; define command `run-sage'.
   )
 
-
 ;;; [ auto-complete-sage ] -- An auto-complete source for sage-shell-mode.
 
 (use-package auto-complete-sage
@@ -33,25 +33,27 @@
         ac-sage-show-quick-help t)
   )
 
-
 ;;; [ helm-sage ]
 
+(use-package helm-sage
+  :ensure t)
 
 ;;; [ ob-sagemath ] -- org-babel functions for SageMath evaluation.
 
 (use-package ob-sagemath
-  :ensure t
-  ;; :init
-  ;; (with-eval-after-load "org"
-  ;;   (define-key org-mode-map (kbd "C-c c") 'ob-sagemath-execute-async))
-  ;; :config
+  ;; :ensure t
+  :ensure ob-sage
+  :config
   ;; (setq ob-sagemath-output-display-function)
   ;; (setq org-babel-header-args:sage '())
 
   (add-to-list 'org-babel-load-languages '(sagemath . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  ;; (with-eval-after-load "org"
+  ;;   (define-key org-mode-map (kbd "C-c c") 'ob-sagemath-execute-async))
   )
 
+
 
 (provide 'init-my-math-sage-math)
 

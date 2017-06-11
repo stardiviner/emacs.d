@@ -6,6 +6,7 @@
 
 
 ;;; Code:
+
 
 ;;; [ Proof Assistant ]
 
@@ -28,6 +29,7 @@
 
 (require 'init-my-math-wolfram)
 
+
 
 (provide 'init-my-math)
 
