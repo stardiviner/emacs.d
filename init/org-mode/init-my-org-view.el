@@ -13,7 +13,7 @@
       org-startup-truncated t
       ;; org-startup-with-beamer-mode nil
       ;; org-hide-block-startup t
-      org-hide-leading-stars nil
+      org-hide-leading-stars t
       org-hide-emphasis-markers t
       )
 
@@ -75,15 +75,13 @@
                 )
 
   (defface org-bullets-face
-    '((t (:inherit nil)))
+    '((t (:inherit 'org-level-1 :height 1.2)))
     "My custom face for org-bullets."
     :group 'org-faces)
-
-  ;; (set-face-attribute 'org-bullets-face nil
-  ;;                     :family "DejaVu Sans"
-  ;;                     :height 130 :weight 'bold
-  ;;                     )
-
+  (set-face-attribute 'org-bullets-face nil
+                      :family "Monospace"
+                      :height 120 :weight 'normal
+                      )
   (setq org-bullets-face-name 'org-bullets-face)
 
   (add-hook 'org-mode-hook #'org-bullets-mode)
