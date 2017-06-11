@@ -16,7 +16,7 @@
         ;; decrease this delay when you can type code continuously fast.
         company-idle-delay .2
         ;; determine which characters trigger auto-completion the selected candidate.
-        company-auto-complete t
+        company-auto-complete nil ; nil: don't auto select the first candidate when input `company-auto-complete-chars'.
         ;; '(?_ ?\( ?w ?. ?\" ?$ ?\' ?/ ?| ?! ?#)
         company-auto-complete-chars '(?\  ?\) ?. ?#)
         ;; company-require-match 'company-explicit-action-p ; 'never
