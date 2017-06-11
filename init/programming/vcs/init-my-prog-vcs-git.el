@@ -118,7 +118,8 @@
   (define-key my-prog-vcs-git-map (kbd "C") 'magit-commit-amend)
   (define-key my-prog-vcs-git-map (kbd "d") 'magit-diff)
   (define-key my-prog-vcs-git-map (kbd "l") 'magit-log)
-  (define-key my-prog-vcs-git-map (kbd "L") 'magit-log-buffer-file) ; show log for current buffer visiting file.
+  (defalias 'magit-log-region 'magit-log-buffer-file)
+  (define-key my-prog-vcs-git-map (kbd "L") 'magit-log-region)
   (define-key my-prog-vcs-git-map (kbd "o") 'magit-checkout)
   (define-key my-prog-vcs-git-map (kbd "M-b") 'magit-bisect)
   (define-key my-prog-vcs-git-map (kbd "B") 'magit-blame)
