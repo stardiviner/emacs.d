@@ -1,3 +1,11 @@
+;;; minimal-init.el --- minimal init file for testing.
+
+;;; Commentary:
+
+
+
+;;; Code:
+
 ;;; [ Debug ]
 (setq debug-on-error t
       debug-on-signal nil
@@ -8,6 +16,8 @@
 
 ;;; benchmark
 ;; (require 'init-my-emacs-benchmark)
+
+
 
 ;;; add my init files directory
 (let ((default-directory "~/.emacs.d/init/"))
@@ -58,15 +68,15 @@
 (use-package quelpa-use-package
   :ensure t)
 
-
+
 
 (require 'color)
 (use-package color-theme
   :ensure t)
 
 ;;; my custom functions
-;; (require 'init-my-library)
-;; (require 'init-my-functions)
+(require 'init-my-library)
+(require 'init-my-functions)
 
 ;;; add your customizations from here
 
@@ -233,3 +243,9 @@
    ))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+(provide 'minimal-init)
+
+;;; minimal-init.el ends here
