@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 (setq org-occur-case-fold-search 'smart)
 
 ;;; [ Agenda dispatcher ]
@@ -246,13 +246,15 @@
 
 ;;; [ helm-fuzzy-find ] -- [C-c C-/], [C-x c /]
 
-(defun org-helm-fuzzy-find ()
-  (interactive)
-  (let ((default-directory org-directory))
-    (helm-fuzzy-find nil)))
+(with-eval-after-load 'helm
+  (defun org-helm-fuzzy-find ()
+    (interactive)
+    (let ((default-directory org-directory))
+      (helm-fuzzy-find nil)))
 
-(define-key my-org-prefix (kbd "C-f") 'org-helm-fuzzy-find)
+  (define-key my-org-prefix (kbd "C-f") 'org-helm-fuzzy-find))
 
+
 
 (provide 'init-my-org-search)
 
