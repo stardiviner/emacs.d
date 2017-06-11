@@ -229,6 +229,9 @@
 
 (add-to-list 'org-src-lang-modes (cons "SQL" 'sql))
 
+(with-eval-after-load 'nxml-mode
+  (add-to-list 'org-src-lang-modes '("xml" . nxml)))
+
 (with-eval-after-load 'js2-mode
   (add-to-list 'org-src-lang-modes '("js" . js2)))
 
