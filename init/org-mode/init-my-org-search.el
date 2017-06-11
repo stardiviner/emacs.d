@@ -244,6 +244,18 @@
   (define-key references-rifle-prefix (kbd "C-b") 'my-org-rifle-bookmarks-reference)
   )
 
+;;; [ orgnav ] -- quickly navigate and search your emacs org trees with Helm.
+
+(use-package orgnav ; press `orgnav-search-root', then press [TAB].
+  :ensure t
+  :bind (:map org-mode-map
+              ("M-r" . orgnav-search-root)
+              ("M-a" . orgnav-search-ancestors)
+              ("M-t" . orgnav-search-subtree)
+              ("M-j" . orgnav-search-nearby)
+              )
+  )
+
 ;;; [ helm-fuzzy-find ] -- [C-c C-/], [C-x c /]
 
 (with-eval-after-load 'helm
