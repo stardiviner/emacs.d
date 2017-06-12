@@ -108,6 +108,26 @@
 ;; (global-set-key [f8] 'project-explorer-toggle)
 (global-set-key [f8] 'neotree-toggle)
 
+;;; [ treemacs ] -- a file and project explorer in the same vein as NeoTree or Vim’s NerdTree.
+
+(use-package treemacs
+  :ensure t
+  :bind ("[f8]" . treemacs-toggle)
+  :config
+  (setq treemacs-header-function            #'treemacs--create-header-projectile
+        treemacs-follow-after-init          t
+        treemacs-width                      35
+        treemacs-indentation                2
+        treemacs-git-integration            t
+        treemacs-change-root-without-asking nil
+        treemacs-sorting                    'alphabetic-desc
+        treemacs-show-hidden-files          t
+        treemacs-never-persist              nil)
+
+  ;; (treemacs-follow-mode t)
+  ;; (treemacs-filewatch-mode t)
+  )
+
 
 
 (provide 'init-my-prog-sidebar)
