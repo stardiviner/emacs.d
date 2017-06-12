@@ -6,33 +6,33 @@
 
 
 ;;; Code:
-
+
 ;;; [ ECB ]
 
-(use-package ecb
-  :ensure t
-  :init
-  (unless (boundp 'ECB-prefix)
-    (define-prefix-command 'ECB-prefix))
-  (global-set-key (kbd "C-x C-;") 'ECB-prefix)
-  :bind (:map ECB-prefix
-              ;; activate and deactivate ECB
-              (";" . ecb-activate)
-              ("'" . ecb-deactivate)
-              ;; show/hide ECB window
-              ("C-;" . ecb-show-ecb-windows)
-              ("C-'" . ecb-hide-ecb-windows)
-              ;; quick navigation between ECB windows
-              ;; ("" . ecb-goto-window-edit1)
-              ;; ("" . ecb-goto-window-directories)
-              ;; ("" . ecb-goto-window-sources)
-              ;; ("" . ecb-goto-window-methods)
-              ;; ("" . ecb-goto-window-compilation)
-              )
-  :config
-  (setq ecb-show-sources-in-directories-buffer 'always
-        ecb-compile-window-height 12)
-  )
+;; (use-package ecb
+;;   :ensure t
+;;   :init
+;;   (unless (boundp 'ECB-prefix)
+;;     (define-prefix-command 'ECB-prefix))
+;;   (global-set-key (kbd "C-x C-;") 'ECB-prefix)
+;;   :bind (:map ECB-prefix
+;;               ;; activate and deactivate ECB
+;;               (";" . ecb-activate)
+;;               ("'" . ecb-deactivate)
+;;               ;; show/hide ECB window
+;;               ("C-;" . ecb-show-ecb-windows)
+;;               ("C-'" . ecb-hide-ecb-windows)
+;;               ;; quick navigation between ECB windows
+;;               ;; ("" . ecb-goto-window-edit1)
+;;               ;; ("" . ecb-goto-window-directories)
+;;               ;; ("" . ecb-goto-window-sources)
+;;               ;; ("" . ecb-goto-window-methods)
+;;               ;; ("" . ecb-goto-window-compilation)
+;;               )
+;;   :config
+;;   (setq ecb-show-sources-in-directories-buffer 'always
+;;         ecb-compile-window-height 12)
+;;   )
 
 ;;; [ speedbar ]
 
@@ -108,6 +108,7 @@
 ;; (global-set-key [f8] 'project-explorer-toggle)
 (global-set-key [f8] 'neotree-toggle)
 
+
 
 (provide 'init-my-prog-sidebar)
 
