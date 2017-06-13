@@ -6,6 +6,7 @@
 
 
 ;;; Code:
+
 
 (unless (boundp 'my-org-prefix)
   (define-prefix-command 'my-org-prefix))
@@ -15,26 +16,23 @@
 ;; (use-package org
 ;;   :ensure t
 ;;   :mode (("\\.org$" . org-mode))
+;;   :config
+;;   (use-package org-plus-contrib
+;;     :ensure org)
 ;;   )
 
 
 ;;; latest version
-;; NOTE: also pre-load in `init-package.el'
 (use-package org
   :load-path "~/Code/Emacs/org-mode/lisp/"
   :pin manual
-  ;; :quelpa (org :fetcher git :repo "~/Code/Emacs/org-mode/lisp/")
   :mode (("\\.org$" . org-mode))
   :config
-  (load "~/Code/Emacs/org-mode/lisp/org.el")
+  (use-package org-plus-contrib
+    :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+    :pin manual)
   )
 
-(use-package org-plus-contrib
-  :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
-  :pin manual
-  ;; :quelpa (org-plus-contrib :fetcher git :repo "~/Code/Emacs/org-mode/contrib/lisp/")
-  :config
-  )
 
 ;;; [ Org Modules ]
 ;; Modules that should always be loaded together with org.el.
@@ -85,6 +83,7 @@
 (require 'init-my-org-drill)
 (require 'init-my-org-mobile)
 
+
 
 (provide 'init-my-org-mode)
 

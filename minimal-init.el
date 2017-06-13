@@ -170,29 +170,33 @@
   )
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; (use-package org
-;;   :ensure t)
-;;
-;; (use-package org-plus-contrib
-;;   :ensure t)
+
 
 (use-package org
-  :load-path "~/Code/Emacs/org-mode/lisp/"
-  :pin manual
-  ;; :quelpa (org :fetcher git :repo "~/Code/Emacs/org-mode/lisp/")
+  :ensure t
   :mode (("\\.org$" . org-mode))
   :config
-  (load "~/Code/Emacs/org-mode/lisp/org.el")
+  (use-package org-plus-contrib
+    :ensure org
+    :mode (("\\.org$" . org-mode)))
   )
 
-(use-package org-plus-contrib
-  :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
-  :pin manual
-  ;; :quelpa (org-plus-contrib :fetcher git :repo "~/Code/Emacs/org-mode/contrib/lisp/")
-  :config
-  )
+;; (use-package org
+;;   :load-path "~/Code/Emacs/org-mode/lisp/"
+;;   :pin manual
+;;   ;; :quelpa (org :fetcher git :repo "~/Code/Emacs/org-mode/lisp/")
+;;   :mode (("\\.org$" . org-mode))
+;;   :config
+;;   (load "~/Code/Emacs/org-mode/lisp/org.el")
+;;
+;;   (use-package org-plus-contrib
+;;     :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+;;     :pin manual
+;;     ;; :quelpa (org-plus-contrib :fetcher git :repo "~/Code/Emacs/org-mode/contrib/lisp/")
+;;     :config
+;;     )
+;;   )
+
 
 ;; (require 'init-my-org-mode)
 
@@ -242,7 +246,79 @@
    (latex . t)                          ; LaTeX
    ))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;; [ Clojure ]
+
+;; (require 'init-my-prog-lang-clojure)
+
+
+
+;;; [ C/C++ ]
+
+(defvar c-dialects-mode
+  '(c-mode
+    c++-mode
+    objc-mode
+    ))
+
+(use-package irony
+  :ensure t
+  :config
+  (hook-modes c-dialects-mode
+    (when (memq major-mode irony-supported-major-modes)
+      (irony-mode 1)))
+  
+  ;; load the compile options automatically:
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+
+  ;; [ company-irony ]
+  (use-package company-irony
+    :ensure t
+    :config
+    ;; [ company-irony-c-headers ]
+    (use-package company-irony-c-headers
+      :ensure t)
+
+    (defun company-irony-add ()
+      ;; (optional) adds CC special commands to `company-begin-commands'
+      ;; in order to trigger completion at interesting places, such as
+      ;; after scope operator.
+      ;;     std::|
+      (company-irony-setup-begin-commands)
+
+      (make-local-variable 'company-backends)
+      (add-to-list 'company-backends
+                   '(company-irony
+                     :with
+                     company-yasnippet))
+      (add-to-list 'company-backends 'company-irony-c-headers)
+      )
+
+    (hook-modes c-dialects-mode
+      (when (memq major-mode irony-supported-major-modes)
+        (company-irony-add)))
+    )
+
+  ;; [ irony-eldoc ]
+  (use-package irony-eldoc
+    :ensure t
+    :after irony
+    :config
+    (add-hook 'irony-mode-hook #'irony-eldoc)
+    )
+
+  ;; [ flycheck-irony ]
+  (use-package flycheck-irony
+    :ensure t
+    :after irony
+    :config
+    (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)
+    )
+  )
+
+(use-package yasnippet
+  :ensure t
+  :config)
 
 
 
