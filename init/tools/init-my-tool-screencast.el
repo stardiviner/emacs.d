@@ -26,13 +26,6 @@
         ;; command-log-mode-window-size 40
         command-log-mode-window-font-size 2
         )
-
-  ;; (set-face-attribute 'command-log-key nil
-  ;;                     :background "gray" :foreground "red"
-  ;;                     )
-  ;; (set-face-attribute 'command-log-command nil
-  ;;                     :background nil :foreground "black"
-  ;;                     )
   )
 
 

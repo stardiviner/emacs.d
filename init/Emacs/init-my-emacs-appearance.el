@@ -146,12 +146,12 @@
 (use-package highlight
   :defer t
   :config
-  (set-face-attribute 'highlight nil
-                      :inherit nil
-                      :foreground nil
-                      :background (color-darken-name
-                                   (face-background 'default) 3)
-                      )
+  ;; (set-face-attribute 'highlight nil
+  ;;                     :inherit nil
+  ;;                     :foreground nil
+  ;;                     :background (color-darken-name
+  ;;                                  (face-background 'default) 3)
+  ;;                     )
   )
 
 

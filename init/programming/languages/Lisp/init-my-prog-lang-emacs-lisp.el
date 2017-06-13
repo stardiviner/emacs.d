@@ -77,11 +77,6 @@
   :ensure t
   :config
   (eros-mode 1)
-  (set-face-attribute 'eros-result-overlay-face nil
-                      :foreground "orange"
-                      :background (color-darken-name (face-background 'default) 5)
-                      :box nil :slant 'italic
-                      )
   )
 
 
@@ -94,35 +89,6 @@
   :config
   (setq macrostep-expand-in-separate-buffer nil
         macrostep-expand-compiler-macros t)
-
-  ;; macro expansion background highlight color
-  (set-face-attribute 'macrostep-expansion-highlight-face nil
-                      :inherit nil
-                      :background "#222222" :foreground nil
-                      )
-  ;; macro
-  (set-face-attribute 'macrostep-macro-face nil
-                      :inherit nil
-                      :foreground "cyan"
-                      :background (color-darken-name (face-background 'default) 5)
-                      :bold t :underline nil :overline t)
-  ;; compiler macro
-  (set-face-attribute 'macrostep-compiler-macro-face nil
-                      :inherit nil
-                      :foreground "gray"
-                      :background (color-darken-name (face-background 'default) 5)
-                      :bold t :italic t :overline t)
-  ;; gensym
-  (set-face-attribute 'macrostep-gensym-1 nil
-                      :foreground "#8080c0" :box t :bold t)
-  (set-face-attribute 'macrostep-gensym-2 nil
-                      :foreground "#8fbc8f" :box t :bold t)
-  (set-face-attribute 'macrostep-gensym-3 nil
-                      :foreground "#daa520" :box t :bold t)
-  (set-face-attribute 'macrostep-gensym-4 nil
-                      :foreground "#cd5c5c" :box t :bold t)
-  (set-face-attribute 'macrostep-gensym-5 nil
-                      :foreground "#da70d6" :box t :bold t)
   )
 
 

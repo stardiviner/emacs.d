@@ -62,14 +62,6 @@
         bts-github:summary-label-decorating t
         bts-github:summary-label-width 15
         )
-
-  ;; Faces
-  (set-face-attribute 'bts-github:issue-comment-header-face nil
-                      )
-  (set-face-attribute 'bts-github:summary-label-decorating nil
-                      )
-  (set-face-attribute 'bts-github:summary-label-face nil
-                      )
   )
 
 

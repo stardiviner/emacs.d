@@ -52,13 +52,6 @@
         pdf-annot-minor-mode-map-prefix (kbd "C-c C-a")
         )
 
-  (set-face-attribute 'pdf-view-rectangle nil
-                      :background "yellow"
-                      )
-  (set-face-attribute 'pdf-view-region nil
-                      :background "DarkSlateGray"
-                      )
-
   (defun my-pdf-tools-setup ()
     ;; change key [k] to [K] to avoid mis-press.
     (define-key pdf-view-mode-map (kbd "k") nil)

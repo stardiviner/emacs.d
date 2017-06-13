@@ -55,11 +55,7 @@ $0`(yas-escape-text yas-selected-text)`"
 
   ;; Faces
   (set-face-attribute 'yas-field-highlight-face nil
-                      :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                    ('dark
-                                     (color-lighten-name (face-background 'default) 10))
-                                    ('light
-                                     (color-darken-name (face-background 'default) 4)))
+		      :inherit 'highlight
                       :box '(:color "dim gray" :line-width 1)
                       )
 

@@ -207,7 +207,7 @@
                                   ('light
                                    (color-darken-name (face-background 'default) 4))
                                   ('dark
-                                   (color-lighten-name (face-background 'default) 5)))
+                                   (color-lighten-name (face-background 'default) 15)))
                     :background (face-background 'default))
 
 ;; ellipsis

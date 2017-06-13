@@ -125,12 +125,6 @@
 ;;         )
 ;;
 ;;   (eval-sexp-fu-flash-mode 1)
-;;
-;;   (set-face-attribute eval-sexp-fu-flash-face nil
-;;                       :background (cl-case (alist-get 'background-mode (frame-parameters))
-;;                                     ('light "pink")
-;;                                     ('dark "cyan"))
-;;                       )
 ;;   )
 
 

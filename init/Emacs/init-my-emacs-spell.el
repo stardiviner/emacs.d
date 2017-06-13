@@ -46,11 +46,11 @@
 
          ;; fix Org-mode abbreviations expand keybinding [M-Tab].
          :map flyspell-mode-map
-              ("C-M-i" . nil)
-              ;; ("C-." . flyspell-correct-word-before-point)
-              ;; ("C-." . flyspell-auto-correct-previous-word)
-              ("C-," . flyspell-goto-next-error)
-              )
+         ("C-M-i" . nil)
+         ;; ("C-." . flyspell-correct-word-before-point)
+         ;; ("C-." . flyspell-auto-correct-previous-word)
+         ("C-," . flyspell-goto-next-error)
+         )
   :init
   ;; global
   ;; (flyspell-mode 1)
@@ -122,11 +122,6 @@
   ;; messages for every word (when checking the entire buffer) causes an enormous
   ;; slowdown.
   (setq flyspell-issue-message-flag nil)
-
-  (set-face-attribute 'flyspell-incorrect nil
-                      :underline '(:color "red" :style wave))
-  (set-face-attribute 'flyspell-duplicate nil
-                      :underline '(:color "dim gray" :style wave))
   )
 
 

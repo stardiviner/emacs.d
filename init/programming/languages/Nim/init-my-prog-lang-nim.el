@@ -12,9 +12,6 @@
 (use-package nim-mode
   :ensure t
   :config
-  (set-face-attribute 'nim-tab-face nil
-                      )
-
   ;; company-mode support
   (require 'company-nim)
   (add-hook 'nim-mode-hook

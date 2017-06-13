@@ -11,31 +11,8 @@
 
 (use-package rhtml-mode
   :ensure t
-  :defer t
   :mode (("\\.html.erb\\'" . rhtml-mode)
-         ("\\.rhtml\\'" . rhtml-mode))
-  :config
-  (set-face-attribute 'erb-face nil ; ruby code
-                      :background (color-darken-name (face-background 'default) 2)
-                      )
-  (set-face-attribute 'erb-exec-face nil ; exec in <% ... %>
-                      :inherit 'erb-face
-                      :background (color-darken-name (face-background 'default) 5)
-                      )
-  (set-face-attribute 'erb-out-face nil ; exec in <%= ... %>
-                      :inherit 'erb-face
-                      :background (color-darken-name (face-background 'default) 5)
-                      )
-  (set-face-attribute 'erb-exec-delim-face nil ; <% ... %>
-                      :inherit 'erb-face
-                      :foreground "deep pink"
-                      :weight 'bold
-                      )
-  (set-face-attribute 'erb-out-delim-face nil ; <%= ... %>
-                      :inherit 'erb-face
-                      :foreground "red"
-                      )
-  )
+         ("\\.rhtml\\'" . rhtml-mode)))
 
 
 ;;; [ projectile-rails ]

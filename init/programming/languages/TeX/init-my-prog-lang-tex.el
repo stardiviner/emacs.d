@@ -150,11 +150,11 @@ character(s), in which case it deletes the space(s) first."
 
   ;; Big faces for sections, chapters, etc.
   (set-face-attribute 'font-latex-sectioning-1-face nil
-                      :foreground "#ffcc66" :height 1.5 :bold t)
+                      :height 1.5 :bold t)
   (set-face-attribute 'font-latex-sectioning-2-face nil
-                      :foreground "#ffcc66" :height 1.2 :bold t)
+                      :height 1.2 :bold t)
   (set-face-attribute 'font-latex-sectioning-3-face nil
-                      :foreground "#ffcc66" :height 1.2 :bold nil)
+                      :height 1.2 :bold nil)
   )
 
 ;;; [ company-auctex ] & [ company-math ]

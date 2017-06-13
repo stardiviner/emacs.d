@@ -23,10 +23,6 @@
   ;;                                          (border-width . 2))
   ;;               )
 
-  (set-face-attribute 'tooltip nil
-                      :foreground "black"
-                      :background "yellow3")
-
   (tooltip-mode t)
   )
 
@@ -74,13 +70,9 @@
 
 (use-package showtip
   :ensure t
-  :defer t
   :config
   (setq showtip-timeout 15
         showtip-top-adjust 30)
-
-  (set-face-attribute 'showtip-face nil
-                      :inherit 'tooltip)
   )
 
 

@@ -36,17 +36,6 @@
   ;; Or if you don't want to move cursor after expanding:
   ;; (setq emmet-move-cursor-after-expanding nil) ;; default t
 
-  (set-face-attribute 'emmet-preview-input nil
-                      :background (color-darken-name (face-background 'default) 10)
-                      :foreground (color-lighten-name (face-background 'default) 5)
-                      :underline t
-                      )
-  (set-face-attribute 'emmet-preview-output nil
-                      :inherit nil
-                      :background (color-darken-name (face-background 'default) 10)
-                      :foreground (color-lighten-name (face-background 'default) 5)
-                      )
-
   ;; e.g. div -> <div>|</div>
   (define-key emmet-mode-keymap (kbd "M-j") 'emmet-expand-yas)
 

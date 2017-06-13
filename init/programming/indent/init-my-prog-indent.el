@@ -37,33 +37,6 @@
 
 (use-package indent-guide
   :ensure t
-  :defer t
-  :preface (defvar indent-guide-inhibit-modes nil)
-  :init
-  (defvar indent-guide-inhibit-modes nil)
-  ;; works with `indent-guide-global-mode'
-  (add-to-list 'indent-guide-inhibit-modes 'org-mode)
-  (add-to-list 'indent-guide-inhibit-modes 'web-mode)
-  (add-to-list 'indent-guide-inhibit-modes 'emacs-lisp-mode)
-  
-  (dolist (hook '(prog-mode-hook
-                  emacs-lisp-mode-hook
-                  lisp-mode-hook
-                  clojure-mode-hook
-                  ruby-mode-hook
-                  python-mode-hook
-                  c-mode-hook
-                  c++-mode-hook
-                  js-mode-hook
-                  js2-mode-hook
-                  js3-mode-hook
-                  ))
-    (add-hook hook
-              (lambda ()
-                (unless (member major-mode indent-guide-inhibit-modes)
-                  (indent-guide-mode 1))
-                )))
-  
   :config
   (setq indent-guide-recursive t
         ;; - 0 to avoid zero-column guide line.
@@ -95,6 +68,16 @@
   ;;                     :stipple (list 7 4 (string 16 0 0 0)))
 
   ;; (indent-guide-global-mode)
+
+  ;; works with `indent-guide-global-mode'
+  (add-to-list 'indent-guide-inhibit-modes 'org-mode)
+  (add-to-list 'indent-guide-inhibit-modes 'web-mode)
+  (add-to-list 'indent-guide-inhibit-modes 'emacs-lisp-mode)
+
+  (defun my/indent-guide-mode-enable ()
+    (unless (member major-mode indent-guide-inhibit-modes)
+      (indent-guide-mode 1)))
+  (add-hook 'prog-mode-hook #'my/indent-guide-mode-enable)
   )
 
 

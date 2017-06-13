@@ -194,26 +194,6 @@
   ;; `cider-enlighten-mode' will extremely slow down Clojure/CIDER evaluation.
   ;; (add-hook 'cider-mode-hook #'cider-enlighten-mode)
 
-  (set-face-attribute 'cider-enlightened-face nil
-                      :foreground "dark orange"
-                      :background (color-darken-name (face-background 'default) 5)
-                      :family "DejaVu Sans Mono"
-                      :weight 'normal
-                      )
-  (set-face-attribute 'cider-enlightened-local-face nil
-                      :inherit 'cider-enlightened-face
-                      :foreground "yellow"
-                      :family "DejaVu Sans Mono"
-                      :italic t
-                      )
-
-  ;; eval sexp result overlays
-  (set-face-attribute 'cider-result-overlay-face nil
-                      :foreground "light gray"
-                      :background (color-darken-name (face-background 'default) 4)
-                      :family "DejaVu Sans Mono"
-                      )
-  
   ;; auto completion with company-mode support
   ;; `cider-complete-at-point' in `completion-at-point-functions'
   (add-hook 'cider-repl-mode-hook #'company-mode)
@@ -340,9 +320,6 @@ Usage: (cider-repl-command \"\(clojure expr\)\")"
   (if cider-tdd-mode
       (add-hook 'cider-file-loaded-hook #'cider-tdd-test)
     (remove-hook 'cider-file-loaded-hook #'cider-tdd-test)))
-
-;; (set-face-attribute 'cider-test-success-face nil
-;;                     :foreground "green" :background nil)
 
 ;; (add-hook 'clojure-mode-hook 'cider-tdd-mode)
 

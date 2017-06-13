@@ -46,9 +46,9 @@
   :ensure t
   :config
   (set-face-attribute 'hi-edebug-x-stop nil
-                      :background "orange red")
+                      :background "dark red")
   (set-face-attribute 'hi-edebug-x-debug-line nil
-                      :background "orange")
+                      :background "dim gray")
   )
 
 

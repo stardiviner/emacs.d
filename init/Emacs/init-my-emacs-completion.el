@@ -28,17 +28,6 @@
 ;; (setq completion-cycle-threshold 5)
 
 
-(set-face-attribute 'completions-common-part nil
-                    :foreground "forest green")
-(set-face-attribute 'completions-first-difference nil
-                    :foreground "salmon"
-                    :weight 'bold)
-(set-face-attribute 'completions-annotations nil
-                    :inherit 'italic
-                    :foreground "dark gray"
-                    )
-
-
 ;;; [ pcomplete ] --- Programmable, Context-Sensitive Completion Library
 
 (load-library "pcomplete")
