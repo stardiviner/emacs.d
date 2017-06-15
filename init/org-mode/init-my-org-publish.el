@@ -203,7 +203,7 @@ Built with %c.
 (add-to-list
  'org-capture-templates
  '("b" "[B]log"
-   entry (file+datetree (concat org-directory "/Website/Blog/org-publish/index.org"))
+   entry (file+olp+datetree (concat org-directory "/Website/Blog/org-publish/index.org"))
    "\n* %^{blog title}\n:PROPERTIES:\n:TIME: %U\n:END: \n\n[[file:%<%Y-%m-%d %R>.org][%^{blog title}]]\n\n%i"
    :empty-lines 1
    :jump-to-captured t
