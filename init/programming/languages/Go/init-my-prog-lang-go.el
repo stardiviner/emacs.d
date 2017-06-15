@@ -58,28 +58,29 @@
 
 ;;; [ gocode ] -- An autocompletion daemon for the Go programming language.
 
-;; [ company-go ]
+;; [ company-go ] -- company-mode backend for Go (using gocode).
+
+(if (executable-find "gocode")
+    (use-package company-go
+      :ensure t)
+  (use-package company-go
+    :load-path (lambda ()
+                 (concat
+                  (getenv "GOPATH") "/src/github.com/nsf/gocode/emacs-company/company-go.el"))
+    )
+  )
 
 (use-package company-go
-  :ensure t
-  :init
-  (if (getenv "GOPATH")
-      (load
-       (concat (getenv "GOPATH")
-               "/src/github.com/nsf/gocode/emacs-company/company-go.el"))
-    (error "SHELL env $GOPATH not available, set it in your SHELL"))
-  
-  (add-hook 'go-mode-hook
-            (lambda ()
-              (setq-local company-echo-delay 0)
-              (my-company-add-backend-locally 'company-go)))
-
   :config
   (setq company-go-show-annotation t
         company-go-begin-after-member-access t
         company-go-insert-arguments t
         ;; company-go-gocode-args
         )
+
+  (defun my-company-go-setup ()
+    (my-company-add-backend-locally 'company-go))
+  (add-hook 'go-mode-hook #'my-company-go-setup)
   )
 
 
