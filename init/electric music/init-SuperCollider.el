@@ -17,20 +17,9 @@
   ;; :load-path (concat (getenv "HOME")
   ;;                    "/Code/SuperCollider/supercollider"
   ;;                    "/editors/scel/el/")
-  :bind
-  (:map sclang-mode-map
-        ("C-c M-r" . sclang-main-run)
-        ("C-c M-s" . sclnag-main-stop)
-        ("C-c C-z" . sclang-switch-to-past)
-        ("C-c C-w" . sclang-switch-to-workspace)
-        ("M-." . sclang-find-definitions)
-        ("M-," . sclang-pop-definition-mark)
-        :map sclang-post-buffer-mode-map
-        ("C-c C-z" . sclang-switch-to-src)
-        ("C-c C-w" . sclang-switch-to-workspace)
-        )
   :config
   (require 'sclang)
+  (require 'sclang-interp)
   (require 'w3m)
 
   ;; (setq sclang-extension-path '("/usr/share/SuperCollider/Extensions"
@@ -47,23 +36,32 @@
   ;; Sclang mode
   (setq sclang-indent-level 2)
 
-;;; Sclang minor mode
+  ;; Sclang minor mode
 
-;;; auto-complete for SuperCollider
+  ;; auto-complete for SuperCollider
   ;; (add-hook 'sclang-mode-hook
   ;;           (lambda ()
   ;;             (company-mode -1)
   ;;             (setq-local ac-auto-start 1)
   ;;             ))
 
-;;; company-mode for SuperCollider
+  ;; company-mode for SuperCollider
   (add-hook 'sclang-mode-hook
             (lambda ()
               (add-hook 'completion-at-point-functions
                         'sclang-complete-symbol nil t)
               ))
 
-;;; auto start SuperCollider inferior process
+  (define-key sclang-mode-map (kbd "C-c M-r") 'sclang-main-run)
+  (define-key sclang-mode-map (kbd "C-c M-s") 'sclnag-main-stop)
+  (define-key sclang-mode-map (kbd "C-c C-z") 'sclang-switch-to-past)
+  (define-key sclang-mode-map (kbd "C-c C-w") 'sclang-switch-to-workspace)
+  (define-key sclang-mode-map (kbd "M-.") 'sclang-find-definitions)
+  (define-key sclang-mode-map (kbd "M-,") 'sclang-pop-definition-mark)
+  (define-key sclang-post-buffer-mode-map (kbd "C-c C-z") 'sclang-switch-to-src)
+  (define-key sclang-post-buffer-mode-map (kbd "C-c C-w") 'sclang-switch-to-workspace)
+
+  ;; auto start SuperCollider inferior process
   (defun my-sclang-auto-start ()
     "Start SuperCollider inferior process."
     (interactive)
@@ -80,7 +78,6 @@
 
 (use-package sclang-extensions
   :ensure t
-  :defer t
   :config
   (setq sclang-bury-post-on-start? t
         sclang-run-supercollider-if-not-active? nil ; run SuperCollider process will mute System sound.
@@ -88,7 +85,6 @@
   
   (add-hook 'sclang-mode-hook 'sclang-extensions-mode)
   )
-
 
 
 ;;; [ Overtone ] -- Combine SuperCollider + Clojure.
