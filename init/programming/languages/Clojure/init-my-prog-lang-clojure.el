@@ -283,22 +283,33 @@ Optional argument NS, if not provided, defaults to
             nil 'local)
 
   ;; CIDER helper functions
-  (defun cider-repl-command (cmd)
-    "Execute commands in CIDER REPL.
+  (defun my/cider-repl-insert-and-eval (input)
+    "Execute Clojure `INPUT' in CIDER REPL.
 
-Usage: (cider-repl-command \"\(clojure expr\)\")"
+Usage: (my/cider-repl-insert-and-eval \"\(clojure expr\)\")"
     (cider-switch-to-repl-buffer)
     (goto-char (point-max))
     (sit-for 10)
-    (insert cmd)
+    (insert input)
     (cider-repl-return)
     (cider-switch-to-last-clojure-buffer)
+    )
+
+  (defun my/cider-repl-eval (input)
+    "Execute Clojure `INPUT' in CIDER REPL.
+
+Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
+    (notifications-notify
+     :title "CIDER nREPL evaluation starting."
+     :body input)
+    (cider-interactive-eval input)
+    (sit-for 5)
     )
   
   (add-hook 'cider-connected-hook
             (lambda ()
-              (sit-for 60)
-              (cider-repl-command "(use '(incanter core stats datasets charts io pdf))")
+              (sit-for 10)
+              (my/cider-repl-eval "(use '(incanter core stats datasets charts io pdf))")
               ))
   )
 
