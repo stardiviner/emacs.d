@@ -8,7 +8,7 @@
 ;; algorithmic composition.
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
+
 
 (use-package supercollider
   ;; from Linux System Package (which only contains *.elc files)
@@ -89,45 +89,18 @@
 
 ;;; [ Overtone ] -- Combine SuperCollider + Clojure.
 
-(use-package clomacs
-  :ensure t
-  :defer t)
-
-;; with `clomacs'
-(clomacs-defun overtone-load-and-boot-external-server
-               overtone.core/boot-external-server
-               :lib-name "overtone"
-               :namespace overtone.core
-               :doc "Load Overtone library and boot external server.")
-
-(clomacs-defun overtone-load-and-boot-internal-server
-               overtone.live/boot-server
-               :lib-name "overtone"
-               :namespace overtone.live
-               :doc "Load Overtone library and boot internal server.")
-
-;; FIXME: (overtone-load-and-boot-external-server)
-
-(defun overtone-auto-start ()
+(defun my/overtone-auto-start ()
   "Auto start Overtone in Emacs."
   (interactive)
-  ;; start Overtone in CIDER REPL
-  ;; send Clojure code to CIDER REPL.
-  
-  ;; (cider-repl--send-input)
-  ;; (cider-nrepl-request:eval)
-
   ;; for external server
-  ;; (use 'overtone.core)
-  ;; (overtone.core/boot-external-server)
-  
+  (my/cider-repl-eval "(use 'overtone.core)")
+  (my/cider-repl-eval "(overtone.core/boot-external-server)")
   ;; for internal server
-  ;; (use 'overtone.live)
-  ;; (overtone.live/boot-server)
+  ;; (my/cider-repl-eval "(use 'overtone.live)")
+  ;; (my/cider-repl-eval "(overtone.live/boot-server)")
   )
 
-
-;;; ----------------------------------------------------------------------------
+
 
 (provide 'init-SuperCollider)
 
