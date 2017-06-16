@@ -224,6 +224,20 @@
 
   (use-package dired-hacks-utils
     :ensure t)
+
+  (use-package ivy-dired-history
+    :ensure t
+    :config
+    (require 'savehist)
+    (add-to-list 'savehist-additional-variables 'ivy-dired-history-variable)
+    (savehist-mode 1)
+
+    (with-eval-after-load 'dired
+      (require 'ivy-dired-history)
+      ;; if you are using ido,you'd better disable ido for dired
+      ;; (define-key (cdr ido-minor-mode-map-entry) [remap dired] nil) ;in ido-setup-hook
+      (define-key dired-mode-map "." 'dired))
+    )
   
   ;; [ make-it-so ] -- Transform files with Makefile recipes.
   (use-package make-it-so
