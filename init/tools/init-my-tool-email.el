@@ -36,6 +36,8 @@
             'mail-completion-at-point-function nil t)
   (add-hook 'completion-at-point-functions
             'message-completion-function nil t)
+
+  (footnote-mode 1)
   )
 
 (add-hook 'message-mode-hook #'message-mode-setup)
