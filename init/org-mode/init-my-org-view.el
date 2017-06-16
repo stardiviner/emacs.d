@@ -65,6 +65,15 @@
 ;;                       )
 ;;   )
 
+
+;; [ org-index ] -- fast search for selected org nodes and things outside of Org.
+(use-package org-index
+  :init
+  (setq org-index-dispatch-key (kbd "C-c o i"))
+  :config
+  ;; (setq org-index-id)
+  )
+
 ;; [ org-bullets ]
 
 (use-package org-bullets
