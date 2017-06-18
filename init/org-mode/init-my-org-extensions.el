@@ -6,11 +6,7 @@
 
 
 ;;; Code:
-
-;;; [ org-plot ] -- Support for plotting from Org-mode.
-
-(require 'org-plot)
-
+
 
 ;;; [ otama ] -- Simple org-table based database, intended to be a light version of BBDB and helm-friendly.
 
@@ -34,6 +30,7 @@
 ;;   (add-hook 'org-mode-hook 'org-eww-mode)
 ;;   )
 
+
 
 (provide 'init-my-org-extensions)
 

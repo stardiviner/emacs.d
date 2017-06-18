@@ -37,6 +37,15 @@
 (setq org-columns-default-format
       "%25ITEM %TODO %3PRIORITY %TAGS %6effort(EFFORT){:}")
 
+;; * Table
+
+;; * Plotting
+
+;; [ org-plot ] -- Plotting Tables in Org-mode.
+
+(require 'org-plot)
+(require 'orgtbl-ascii-plot)
+
 
 ;; * Visibility cycling::          Show and hide, much simplified
 
