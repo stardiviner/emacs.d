@@ -144,6 +144,14 @@
 ;;   (add-hook 'magit-mode-hook 'magit-stgit-mode)
 ;;   )
 
+;;; [ magit-topgit ] -- TopGit extension for Magit.
+
+;; (use-package magit-topgit
+;;   :ensure t
+;;   :config
+;;   (add-hook 'magit-mode-hook 'magit-topgit-mode)
+;;   )
+
 ;;; [ projectile-git-autofetch ] -- Automatically fetch git repositories known to projectile.
 
 ;; (use-package projectile-git-autofetch
