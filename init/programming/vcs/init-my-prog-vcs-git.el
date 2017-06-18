@@ -3,7 +3,7 @@
 ;;; Commentary:
 
 ;;; Code:
-
+
 
 (unless (boundp 'my-prog-vcs-git-map)
   (define-prefix-command 'my-prog-vcs-git-map))
@@ -136,6 +136,14 @@
 (use-package magit-lfs
   :ensure t)
 
+;;; [ magit-stgit ] -- StGit extension for Magit
+
+;; (use-package magit-stgit
+;;   :ensure t
+;;   :config
+;;   (add-hook 'magit-mode-hook 'magit-stgit-mode)
+;;   )
+
 ;;; [ projectile-git-autofetch ] -- Automatically fetch git repositories known to projectile.
 
 ;; (use-package projectile-git-autofetch
@@ -144,6 +152,7 @@
 ;;   ;; (projectile-git-autofetch-mode 1)
 ;;   )
 
+
 
 (provide 'init-my-prog-vcs-git)
 
