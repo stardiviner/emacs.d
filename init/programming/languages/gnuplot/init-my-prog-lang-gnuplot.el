@@ -3,7 +3,7 @@
 ;;; Commentary:
 
 ;;; Code:
-
+
 ;;; [ gnuplot ]
 
 (use-package gnuplot
@@ -15,14 +15,9 @@
 
 (use-package gnuplot-mode
   :ensure t
-  :init
-  (setq auto-mode-alist
-        (append (list
-                 '("\\.gp\\'" . gnuplot-mode)
-                 '("\\.plt\\'" . gnuplot-mode)
-                 '("\\.gnuplot\\'" . gnuplot-mode)
-                 )
-                auto-mode-alist))
+  :mode (("\\.gp\\'" . gnuplot-mode)
+         ("\\.plt\\'" . gnuplot-mode)
+         ("\\.gnuplot\\'" . gnuplot-mode))
   :config
   (require 'gnuplot-context)
   
@@ -52,16 +47,6 @@
     (eldoc-add-command 'completion-at-point)     ; Check for eldoc after completion
     (when (fboundp 'comint-dynamic-complete)
       (eldoc-add-command 'comint-dynamic-complete))
-    
-    
-    (define-key gnuplot-mode-map (kbd "<f5>") 'gnuplot-make-buffer)
-    (define-key gnuplot-mode-map (kbd "C-h d d") 'gnuplot-info-at-point)
-    (define-key gnuplot-mode-map (kbd "C-c C-d") 'gnuplot-info-lookup-symbol)
-    (define-key gnuplot-mode-map (kbd "C-c C-/") 'gnuplot-help-function)
-    (define-key gnuplot-mode-map (kbd "C-c M-i") 'gnuplot-inline-display-mode)
-
-    (define-key gnuplot-mode-map (kbd "C-c C-s") 'run-gnuplot)
-    (define-key gnuplot-mode-map (kbd "C-c C-z") 'run-gnuplot)
     )
   
   (add-hook 'gnuplot-mode-hook #'my-gnuplot-mode-settings)
@@ -69,6 +54,14 @@
   ;; auto enable `gnuplot-inline-display-mode' in gnuplot comint process buffer.
   (add-hook 'gnuplot-comint-mode-hook 'gnuplot-inline-display-mode)
 
+  (define-key gnuplot-mode-map (kbd "<f5>") 'gnuplot-make-buffer)
+  (define-key gnuplot-mode-map (kbd "C-h d d") 'gnuplot-info-at-point)
+  (define-key gnuplot-mode-map (kbd "C-c C-d") 'gnuplot-info-lookup-symbol)
+  (define-key gnuplot-mode-map (kbd "C-c C-/") 'gnuplot-help-function)
+  (define-key gnuplot-mode-map (kbd "C-c M-i") 'gnuplot-inline-display-mode)
+
+  (define-key gnuplot-mode-map (kbd "C-c C-s") 'run-gnuplot)
+  (define-key gnuplot-mode-map (kbd "C-c C-z") 'run-gnuplot)
   (define-key gnuplot-mode-map (kbd "C-c C-c") 'gnuplot-show-gnuplot-buffer)
   )
 
@@ -89,6 +82,7 @@
           ))
   )
 
+
 
 (provide 'init-my-prog-lang-gnuplot)
 
