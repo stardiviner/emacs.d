@@ -521,6 +521,8 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 (define-key org-agenda-mode-map (kbd "C-l") 'my-org-agenda-jump-to-current-time)
 
 
+(define-key org-agenda-mode-map (kbd "M-s") 'org-search-view)
+
 ;;; [ org-alert ] -- System notifications of org agenda items.
 
 (use-package org-alert
