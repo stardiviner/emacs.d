@@ -109,6 +109,17 @@
 ;;; [ ob-clojure ]
 
 (require 'ob-clojure)
+
+;; use CIDER as the Clojure execution backend
+(setq org-babel-clojure-backend 'cider)
+
+;; Useful keybindings when using Clojure from Org
+;; (org-defkey org-mode-map (kbd "C-x C-e") 'cider-eval-last-sexp)
+;; (org-defkey org-mode-map (kbd "C-c C-d") 'cider-doc)
+
+;; No timeout when executing calls on Cider via nrepl
+;; (setq org-babel-clojure-sync-nrepl-timeout nil)
+
 ;; let `ob-clojure' babel src blocks allow evaluation.
 (add-to-list 'org-babel-default-header-args:clojure
              '(:eval . "yes"))
@@ -459,18 +470,6 @@
 
 
 ;;; [ Literate Programming with Org-mode ]
-
-;;; [ Clojure ]
-
-;; use CIDER as the Clojure execution backend
-(setq org-babel-clojure-backend 'cider)
-
-;; Useful keybindings when using Clojure from Org
-;; (org-defkey org-mode-map (kbd "C-x C-e") 'cider-eval-last-sexp)
-;; (org-defkey org-mode-map (kbd "C-c C-d") 'cider-doc)
-
-;; No timeout when executing calls on Cider via nrepl
-;; (setq org-babel-clojure-sync-nrepl-timeout nil)
 
 ;; (setq org-support-shift-select 'always)
 
