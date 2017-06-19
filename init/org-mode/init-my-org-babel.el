@@ -102,6 +102,8 @@
 
 (add-to-list 'org-babel-default-header-args:emacs-lisp
              '(:results . "output"))
+(add-to-list 'org-babel-default-header-args:emacs-lisp
+             '(:noweb . "yes"))
 
 ;;; [ ob-lisp ]
 ;; (setq org-babel-lisp-eval-fn #'sly-eval)
@@ -127,6 +129,8 @@
              '(:results . "output"))
 ;; (add-to-list 'org-babel-default-header-args:clojure
 ;;              '(:show-process . t))
+(add-to-list 'org-babel-default-header-args:clojure
+             '(:noweb . "yes"))
 
 ;;; [ ob-haskell ]
 
@@ -301,6 +305,8 @@
 
 (add-to-list 'org-babel-default-header-args:sh
              '(:results . "output"))
+(add-to-list 'org-babel-default-header-args:sh
+             '(:noweb . "yes"))
 
 (add-to-list 'org-babel-default-header-args:ruby
              '(:results . "output"))
