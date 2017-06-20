@@ -12,14 +12,16 @@
 
 ;;; [ Title ]
 
+(setq frame-title-format "Emacs λ Hacking")
+
 ;; (setq frame-title-format "Emacs λ %b")
 
-(setq frame-title-format
-      '("" invocation-name ": "
-        (:eval
-         (if (buffer-file-name)
-             (abbreviate-file-name (buffer-file-name))
-           "%b"))))
+;; (setq frame-title-format
+;;       '("" invocation-name ": "
+;;         (:eval
+;;          (if (buffer-file-name)
+;;              (abbreviate-file-name (buffer-file-name))
+;;            "%b"))))
 
 ;;; [ tabbar ] -- show tabbar for buffers at headline.
 
