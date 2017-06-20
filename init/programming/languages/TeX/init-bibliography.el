@@ -8,6 +8,10 @@
 ;;; Code:
 ;;; ----------------------------------------------------------------------------
 
+(unless (boundp 'org-ref-prefix)
+  (define-prefix-command 'org-ref-prefix))
+(define-key my-org-prefix (kbd "C-]") 'org-ref-prefix)
+
 ;; (setq reftex-default-bibliography
 ;;       (quote
 ;;        ("default.bib" "other-default.bib")))
@@ -31,6 +35,8 @@
 
 (use-package helm-bibtex
   :ensure t
+  :bind (:map org-ref-prefix
+              ("h" . helm-bibtex))
   :config
   (setq bibtex-completion-bibliography "~/Org/Bibliography/bibliography.bib"
         bibtex-completion-library-path "~/Org/Bibliography/PDFs/"
@@ -90,14 +96,11 @@
   ;; setup org-ref keybindings
   (setq org-ref-bibtex-hydra-key-binding (kbd "C-c ]"))
 
-  (unless (boundp 'org-ref-prefix)
-    (define-prefix-command 'org-ref-prefix))
-  (define-key my-org-prefix (kbd "C-]") 'org-ref-prefix)
-
-  (define-key org-ref-prefix (kbd "C-]") 'org-ref-insert-link)
+  (define-key org-ref-prefix (kbd "C-]") 'org-ref)
+  (define-key org-ref-prefix (kbd "C-l") 'org-ref-insert-link)
+  (define-key org-ref-prefix (kbd "r") 'org-ref-helm-insert-ref-link)
   (define-key org-ref-prefix (kbd "c") 'org-ref-helm-insert-cite-link)
   (define-key org-ref-prefix (kbd "l") 'org-ref-helm-insert-label-link)
-  (define-key org-ref-prefix (kbd "r") 'org-ref-helm-insert-ref-link)
 
   ;; specify `org-ref' bibliography sources
   (require 'f)
