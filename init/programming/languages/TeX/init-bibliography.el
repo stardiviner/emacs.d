@@ -78,6 +78,7 @@
   ;; (setq org-ref-open-pdf-function )
   (setq org-latex-prefer-user-labels t)
   (setq org-ref-show-broken-links nil) ; very poor performance.
+  (setq org-ref-prefer-bracket-links t) ; wrap org-ref links with brackets.
 
   ;; Let org-mode auto process the LaTeX export to PDF process.
   (setq org-latex-pdf-process
