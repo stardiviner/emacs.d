@@ -355,10 +355,14 @@ When called repeatedly, cycle through the buffers."
 
 
 ;; [ Away ]
-(add-to-list 'erc-modules 'autoaway)
-(erc-update-modules)
 (setq erc-away-nickname "stardiviner|away"
       erc-public-away-p nil)
+
+;;; auto away (low performance)
+;; (add-to-list 'erc-modules 'autoaway)
+;; (erc-update-modules)
+
+;;; manual away
 ;; channel away
 (defun my/erc-away (arg)
   "Mark away `ARG' from ERC."
