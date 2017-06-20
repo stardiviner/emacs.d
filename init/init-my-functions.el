@@ -233,7 +233,14 @@ Usage:
 ;; ask for GPG password at first, not in middle of Emacs startup progress.
 (my/json-read-value my/account-file 'yagist)
 
-
+;; get the word at point.
+(defun my-func/stem-word-at-point-with-format ()
+  "Get the word at point with formated."
+  (downcase
+   (if (region-active-p)
+       (buffer-substring-no-properties (mark) (point))
+     (my-stem-english (thing-at-point 'word)) ; word stemmer to convert plural word into singular.
+     )))
 
 (provide 'init-my-functions)
 

@@ -50,10 +50,7 @@
   (interactive)
   (save-excursion
     ;;; way: get word with `thing-at-point'
-    (let ((word (my-stem-english ; word stemmer to convert plural word into singular.
-                 (if (region-active-p)
-                     (buffer-substring-no-properties (mark) (point))
-                   (thing-at-point 'word)))))
+    (let ((word (my-func/stem-word-at-point-with-format)))
       ;; pass the selection to Emacs shell command goldendict.
       ;; use Goldendict API: "Scan Popup"
       (shell-command (concat "goldendict " word)))
