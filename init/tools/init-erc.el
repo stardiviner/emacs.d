@@ -172,6 +172,7 @@ When called repeatedly, cycle through the buffers."
 
 (setq erc-header-line-uses-tabbar-p t)
 
+(erc-scrolltobottom-mode 1)
 
 ;;; [ Filling & Wrap ]
 (require 'erc-fill)
