@@ -271,7 +271,7 @@
                "~/Org/Projects/" ; All projects
                "~/Org/Projects/Interpersonal Network/" ; Interpersonal Network
                "~/Org/Learning Plan/Learning Plan.org"
-               "~/Org/Learning Plan/Learn Programming.org"
+               "~/Org/Learning Plan/Learn Programming Plan.org"
                ;; "~/Org/Contacts/Contacts.org"
                "~/Org/Calendars/"
                ))))
