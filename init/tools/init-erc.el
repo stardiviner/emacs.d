@@ -49,7 +49,7 @@
 (setq erc-autojoin-channels-alist
       '((".*\\.freenode.net" ; "freenode.net"
          "#emacs"
-         "#org-mode"
+         ;; "#org-mode"
          ;; "#lisp"
          "#clojure"
          ;; "#clojure-beginners"
