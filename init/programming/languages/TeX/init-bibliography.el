@@ -38,9 +38,11 @@
   :bind (:map org-ref-prefix
               ("h" . helm-bibtex))
   :config
-  (setq bibtex-completion-bibliography "~/Org/Bibliography/bibliography.bib"
-        bibtex-completion-library-path "~/Org/Bibliography/PDFs/"
-        bibtex-completion-notes-path "~/Org/Bibliography/notes/")
+  (setq bibtex-completion-bibliography "~/Org/Bibliography/index.bib"
+        bibtex-completion-library-path "~/Org/Bibliography/lib/"
+        bibtex-completion-notes-path "~/Org/Bibliography/notes/"
+        helm-bibtex-bibliography "~/Org/Bibliography/index.bib"
+        helm-bibtex-library-path "~/Org/Bibliography/lib/")
   (setq bibtex-completion-pdf-open-function 'org-open-file ; `find-file'
         )
   )
@@ -104,11 +106,13 @@
 
   ;; specify `org-ref' bibliography sources
   (require 'f)
-  (setq org-ref-default-bibliography (f-files "~/Org/Bibliography/"
+  (setq org-ref-notes-directory "~/Org/Bibliography/"
+        org-ref-bibliography-notes "~/Org/Bibliography/index.org"
+        org-ref-default-bibliography (f-files "~/Org/Bibliography/"
                                               (lambda (f)
                                                 (f-ext? f "bib")))
         org-ref-bibliography-notes "~/Org/Bibliography/notes/"
-        org-ref-pdf-directory "~/Org/Bibliography/PDFs/")
+        org-ref-pdf-directory "~/Org/Bibliography/lib/")
   )
 
 ;;; [ interleave ] -- Emacs minor mode to interleave notes and text books.
