@@ -34,14 +34,14 @@
         ;; time
         ("Today" . ?D) ("tomorrow" . ?T) ("future" . ?F)
         ;; places
-        ("Company" . ?C) ("Home" . ?H) ("Computer" . ?P) ("Phone" . ?P)
+        ("Company" . ?C) ("home" . ?H) ("computer" . ?P) ("phone" . ?P)
         (:endgroup . nil)
         ;; Work
         (:startgroup . nil)
         ("Work" . ?w)
         (:grouptags . nil)
         ;; work task types
-        ("Urgent" . nil)
+        ("urgent" . nil)
         (:endgroup . nil)
         ;; task types
         (:startgroup . nil)
