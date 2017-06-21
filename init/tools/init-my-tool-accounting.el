@@ -51,6 +51,11 @@
               ;; for auto-complete
               (setq-local ac-sources '(hledger-ac-source))
               ))
+
+  ;; [ ob-hledger ]
+  (require 'ob-hledger)
+  (add-to-list 'org-babel-load-languages '(hledger . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   )
 
 ;;; ----------------------------------------------------------------------------
