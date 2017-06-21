@@ -124,7 +124,9 @@
 ;;; [ org-edit-latex ] -- Org edit LaTeX block like babel src block.
 
 (use-package org-edit-latex
-  :ensure t)
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook #'org-edit-latex-mode))
 
 
 (provide 'init-my-org-latex)
