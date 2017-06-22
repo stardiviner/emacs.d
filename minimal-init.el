@@ -74,6 +74,8 @@
 (use-package color-theme
   :ensure t)
 
+
+
 ;;; my custom functions
 (require 'init-my-library)
 (require 'init-my-functions)
@@ -172,30 +174,19 @@
 
 
 
+;;; latest version
 (use-package org
-  :ensure t
+  :load-path "~/Code/Emacs/org-mode/lisp/"
+  :pin manual
   :mode (("\\.org$" . org-mode))
   :config
   (use-package org-plus-contrib
-    :ensure org
-    :mode (("\\.org$" . org-mode)))
-  )
+    :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+    :pin manual)
 
-;; (use-package org
-;;   :load-path "~/Code/Emacs/org-mode/lisp/"
-;;   :pin manual
-;;   ;; :quelpa (org :fetcher git :repo "~/Code/Emacs/org-mode/lisp/")
-;;   :mode (("\\.org$" . org-mode))
-;;   :config
-;;   (load "~/Code/Emacs/org-mode/lisp/org.el")
-;;
-;;   (use-package org-plus-contrib
-;;     :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
-;;     :pin manual
-;;     ;; :quelpa (org-plus-contrib :fetcher git :repo "~/Code/Emacs/org-mode/contrib/lisp/")
-;;     :config
-;;     )
-;;   )
+  (if (not (fboundp 'org-invisible-p))
+      (defalias 'org-invisible-p 'org-invisible-p2))
+  )
 
 
 ;; (require 'init-my-org-mode)
@@ -243,6 +234,7 @@
    (lisp . t)                           ; Lisp
    (clojure . t)                        ; Clojure
    (js . t)                             ; JavaScript
+   (haskell . t)       			; Haskell
    (latex . t)                          ; LaTeX
    ))
 
