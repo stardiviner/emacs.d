@@ -1,4 +1,4 @@
-;;; init-my-prog-tags-gtags.el --- 
+;;; init-gtags.el --- 
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -107,6 +107,6 @@
   )
 
 
-(provide 'init-my-prog-tags-gtags)
+(provide 'init-gtags)
 
-;;; init-my-prog-tags-gtags.el ends here
+;;; init-gtags.el ends here

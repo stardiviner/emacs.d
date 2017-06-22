@@ -1,4 +1,4 @@
-;;; init-my-prog-tags-cscope.el --- init for cscope etc
+;;; init-cscope.el --- init for cscope etc
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -165,6 +165,6 @@
 (define-key cscope-prefix (kbd "N") 'cscope-history-forward-file-current-result)
 
 
-(provide 'init-my-prog-tags-cscope)
+(provide 'init-cscope)
 
-;;; init-my-prog-tags-cscope.el ends here
+;;; init-cscope.el ends here

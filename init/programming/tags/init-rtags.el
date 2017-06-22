@@ -1,4 +1,4 @@
-;;; init-my-prog-tags-rtags.el --- init for rtags
+;;; init-rtags.el --- init for rtags
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -59,6 +59,6 @@
   :ensure t)
 
 
-(provide 'init-my-prog-tags-rtags)
+(provide 'init-rtags)
 
-;;; init-my-prog-tags-rtags.el ends here
+;;; init-rtags.el ends here
