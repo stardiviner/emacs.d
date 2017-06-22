@@ -47,21 +47,19 @@
 	        (message "TeX master document: %s" (file-name-nondirectory candidate)))
       candidate))
 
-  (add-hook 'LaTeX-mode-hook
-	          '(lambda ()
-	             (setq TeX-master (guess-TeX-master (buffer-file-name)))
-	             ))
-
+  (defun TeX-auto-set-TeX-master ()
+    (setq-local TeX-master (guess-TeX-master (buffer-file-name))))
+  
+  (add-hook 'LaTeX-mode-hook #'TeX-auto-set-TeX-master)
 
   ;; Fontification
   (require 'font-latex)
   ;; (setq TeX-install-font-lock)
   ;; macros
-  (add-hook 'LaTeX-mode-hook
-	          (lambda ()
-	            (font-latex-add-keywords '(("citep" "*[[{")) 'reference)
-	            (font-latex-add-keywords '(("citet" "*[[{")) 'reference)
-	            ))
+  (defun latex-font-lock-add-macros ()
+    (font-latex-add-keywords '(("citep" "*[[{")) 'reference)
+	  (font-latex-add-keywords '(("citet" "*[[{")) 'reference))
+  (add-hook 'LaTeX-mode-hook #'latex-font-lock-add-macros)
   ;; quotes
   ;; math
   ;; verbatim content
@@ -116,10 +114,11 @@
 		                   "disabled"))
 	           ))
 
-  (add-hook 'LaTeX-mode-hook
-	          '(lambda ()
-	             (TeX-toggle-shell-escape)
-	             (local-set-key (kbd "C-c C-t x") 'TeX-toggle-shell-escape)))
+  (defun LaTeX-auto-toggle-shell-escape ()
+    (TeX-toggle-shell-escape)
+	  (local-set-key (kbd "C-c C-t x") 'TeX-toggle-shell-escape))
+  
+  (add-hook 'LaTeX-mode-hook #'LaTeX-auto-toggle-shell-escape)
 
   ;; auto close dollars
   (setq TeX-electric-math (cons "$" "$"))
@@ -137,16 +136,17 @@ character(s), in which case it deletes the space(s) first."
 
   (eval-after-load 'tex '(define-key TeX-mode-map "~" 'electric-tie))
 
-  (add-hook 'TeX-mode-hook
-            (lambda ()
-              (font-lock-add-keywords
-               nil
-               '(("~" . 'font-latex-sedate-face)))))
+  (defun TeX-font-lock-add-tie ()
+    (font-lock-add-keywords
+     nil
+     '(("~" . 'font-latex-sedate-face))))
+  
+  (add-hook 'TeX-mode-hook #'TeX-font-lock-add-tie)
 
 ;;; [C-c C-j] insert items smartly
-  (add-hook 'LaTeX-mode-hook
-            (lambda ()
-              (add-to-list 'LaTeX-item-list '("frame" . (lambda () (TeX-insert-macro "pause"))))))
+  (defun LaTeX-insert-item-smartly ()
+    (add-to-list 'LaTeX-item-list '("frame" . (lambda () (TeX-insert-macro "pause")))))
+  (add-hook 'LaTeX-mode-hook #'LaTeX-insert-item-smartly)
 
   ;; Big faces for sections, chapters, etc.
   (set-face-attribute 'font-latex-sectioning-1-face nil
@@ -231,22 +231,23 @@ character(s), in which case it deletes the space(s) first."
   :config
   (setq reftex-cite-prompt-optional-args t) ; prompt for empty optional arguments in cite.
 
-  (add-hook 'LaTeX-mode-hook
-            (lambda ()
-              (turn-on-reftex)
-              (setq reftex-plug-into-AUCTeX t)
-              (reftex-isearch-minor-mode)))
+  (defun my-reftex-toggle ()
+    (turn-on-reftex)
+    (setq reftex-plug-into-AUCTeX t)
+    (reftex-isearch-minor-mode))
+  
+  (add-hook 'LaTeX-mode-hook #'my-reftex-toggle)
   )
 
 
 ;;; [ SyncTeX ] -- navigate from the source document to the typeset material and vice versa.
 
-;; (add-hook 'LaTeX-mode-hook
-;;           (lambda ()
-;;             (setq TeX-PDF-mode t)
-;;             (setq TeX-source-correlate-method 'synctex)
-;;             (setq TeX-source-correlate-start-server t))
-;;           )
+;; (defun my/SyncTeX-setup ()
+;;   (setq TeX-PDF-mode t)
+;;   (setq TeX-source-correlate-method 'synctex)
+;;   (setq TeX-source-correlate-start-server t))
+
+;; (add-hook 'LaTeX-mode-hook #'my/SyncTeX-setup)
 
 
 ;;; [ CDLaTeX ] -- Fast input methods for LaTeX environments and math.
@@ -330,12 +331,13 @@ character(s), in which case it deletes the space(s) first."
                                      (match-end 1))
     t))
 
-(add-hook 'LaTeX-mode-hook
-          (lambda ()
-            (font-lock-add-keywords
-             nil
-             '((img-match 1 '(face font-lock-keyword-face
-                                   help-echo image-tooltip))))))
+(defun latex-toggle-image-tooltip ()
+  (font-lock-add-keywords
+   nil
+   '((img-match 1 '(face font-lock-keyword-face
+                         help-echo image-tooltip)))))
+
+(add-hook 'LaTeX-mode-hook #'latex-toggle-image-tooltip)
 
 
 (provide 'init-my-prog-lang-tex)
