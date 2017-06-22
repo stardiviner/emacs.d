@@ -744,7 +744,8 @@ dimensions of a block selection."
 ;; rtags indexed file
 ;; - `rtags-is-indexed'
 ;; You have to run `rdm' with the `--progress' for this to work.
-(defvar rtags-enabled)
+
+(declare rtags-enabled)
 
 (defun *my-rtags-modeline ()
   "Show `rtags-modeline' info in my custom mode-line."
@@ -760,7 +761,7 @@ dimensions of a block selection."
         (propertize " " 'face 'variable-pitch))
        'face 'mode-line-info-face)))
 
-(add-hook 'rtags-diagnostics-hook (function force-mode-line-update))
+(add-hook 'rtags-diagnostics-hook #'force-mode-line-update)
 
 ;;; mu4e
 (defun *mu4e ()

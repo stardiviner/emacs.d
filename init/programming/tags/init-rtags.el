@@ -27,14 +27,14 @@
   (rtags-enable-standard-keybindings c-mode-base-map "C-c C-r")
 
   ;; global start rtags process `rdm'.
-  ;; (rtags-start-process-unless-running)
+  (rtags-start-process-unless-running)
   ;;
   ;; Start the rdm process unless the process is already running. You may create
   ;; hook to automatically call this function upon entering, e.g. c-mode or
   ;; c++mode.
-  (add-hook 'c-mode-hook 'rtags-start-process-unless-running)
-  (add-hook 'c++-mode-hook 'rtags-start-process-unless-running)
-  (add-hook 'objc-mode-hook 'rtags-start-process-unless-running)
+  ;; (add-hook 'c-mode-hook 'rtags-start-process-unless-running)
+  ;; (add-hook 'c++-mode-hook 'rtags-start-process-unless-running)
+  ;; (add-hook 'objc-mode-hook 'rtags-start-process-unless-running)
   )
 
 ;;; [ company-rtags ] -- a company-mode backend for rtags.
