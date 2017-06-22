@@ -224,7 +224,8 @@
       ;; org-babel-post-tangle-hook
       )
 
-
+;;; faster tangleing of large Org mode files.
+(setq org-babel-use-quick-and-dirty-noweb-expansion t)
 
 (defadvice org-babel-execute-src-block (around load-language nil activate)
   "Load language if needed."
