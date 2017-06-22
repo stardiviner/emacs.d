@@ -261,6 +261,7 @@
 (require 'init-my-prog-lang-database)
 (require 'init-my-prog-lang-xml)
 (require 'init-my-prog-lang-json)
+(require 'init-my-prog-lang-rdf)
 ;; (require 'init-my-prog-lang-sdlang)
 ;; (require 'init-my-prog-lang-haskell)
 ;; (require 'init-my-prog-lang-scala)
