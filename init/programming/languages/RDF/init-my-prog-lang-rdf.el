@@ -6,7 +6,10 @@
 
 ;;; Code:
 
+;;; [ rdf-prefix ] -- Prefix lookup for RDF.
 
+(use-package rdf-prefix
+  :ensure t)
 
 
 
