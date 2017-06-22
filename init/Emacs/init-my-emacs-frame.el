@@ -16,6 +16,9 @@
         (left-fringe) (right-fringe)
         ))
 
+;; Every time a window is started, make sure it get maximized
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
 (setq initial-frame-alist
       '((top . 0) (left . 0)
         (height . 120)
