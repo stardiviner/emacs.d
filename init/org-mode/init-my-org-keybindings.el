@@ -9,10 +9,11 @@
 
 ;;; [ Keybindings ]
 
-(define-key my-org-prefix (kbd "e")
-  (defun my-org-element-at-point ()
-    (interactive)
-    (org-element-at-point)))
+(defun my-org-element-at-point ()
+  (interactive)
+  (org-element-at-point))
+
+(define-key my-org-prefix (kbd "SPC") #'my-org-element-at-point)
 
 (unless (boundp 'my-org-agenda-prefix)
   (define-prefix-command 'my-org-agenda-prefix))
