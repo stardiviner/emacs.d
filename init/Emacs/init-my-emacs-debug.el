@@ -23,8 +23,9 @@
 
 (use-package debug
   :config
-  ;; (setq debug-on-error t
-  ;;       debug-on-quit nil)
+  (setq debug-on-error t
+        debug-on-quit nil)
+  (add-hook 'after-init-hook (lambda () (setq debug-on-error nil)))
   )
 
 ;;; [ Edebug ] -- Edebug is a source level debugger.
