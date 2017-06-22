@@ -85,8 +85,10 @@
   (setq bibtex-completion-pdf-open-function 'org-open-file)
   ;; (setq org-ref-open-pdf-function )
   (setq org-latex-prefer-user-labels t)
+  (setq org-ref-default-ref-type "ref") ; choose the default ref type for `org-ref'.
   (setq org-ref-show-broken-links nil) ; very poor performance.
   (setq org-ref-prefer-bracket-links t) ; wrap org-ref links with brackets.
+  (setq org-ref-colorize-links t) ; colorize org-ref links.
 
   ;; Let org-mode auto process the LaTeX export to PDF process.
   (setq org-latex-pdf-process
