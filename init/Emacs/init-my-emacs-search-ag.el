@@ -37,6 +37,22 @@
   (define-key ag-map (kbd "k") 'ag-kill-buffers) ; `ag-kill-other-buffers'
   )
 
+;;; [ helm-ag ] --- the silver searcher with helm interface.
+
+(use-package helm-ag
+  :ensure t
+  :init
+  (setq helm-follow-mode-persistent t)
+  :config
+  (setq helm-ag-base-command "ag --nocolor --nogroup --ignore-case"
+        ;; helm-ag-command-option "--all-text"
+        helm-ag-insert-at-point 'symbol
+        )
+
+  (define-key ag-map (kbd "h") 'helm-ag)
+  (define-key ag-map (kbd "M-h") 'helm-do-ag)
+  )
+
 
 (provide 'init-my-emacs-search-ag)
 
