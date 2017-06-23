@@ -117,17 +117,6 @@
         org-ref-pdf-directory "~/Org/Bibliography/lib/")
   )
 
-;;; [ interleave ] -- Emacs minor mode to interleave notes and text books.
-
-(use-package interleave
-  :ensure t
-  :bind (:map my-org-prefix
-              ("i" . interleave-mode))
-  :config
-  (setq interleave-split-direction 'horizontal)
-  (add-to-list 'org-default-properties "INTERLEAVE_PDF")
-  )
-
 ;;; ----------------------------------------------------------------------------
 
 (provide 'init-bibliography)
