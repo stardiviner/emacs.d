@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; global keybindings
 
 (unless (boundp 'browser-prefix)
@@ -25,52 +25,28 @@
 ;; - `eww-browse-url' (EWW)
 ;; - `xwidget-webkit-browse-url'
 
-(setq browse-url-chrome-program "google-chrome-unstable")
+;;; set default browser to generic browser
+;; (setq browse-url-browser-function 'browse-url-generic)
+;; (setq browse-url-generic-program (executable-find "firefox"))
+;;; set default browser to "Google Chrome"
 (setq browse-url-browser-function 'browse-url-chrome)
-
-
-;;; custom browser in specific case
-
-(cl-defun my-generic-browser (url cmd-name &rest args)
-  "Browse URL with NAME browser."
-  (let ((proc (concat cmd-name " " url)))
-    (message "Starting %s..." cmd-name)
-    (apply 'start-process proc nil cmd-name
-           (append args (list url)))
-    (set-process-sentinel
-     (get-process proc)
-     (lambda (process event)
-       (when (string= event "finished\n")
-         (message "%s process %s" process event))))))
-
-(defun browse-url-uzbl (url &optional _ignore)
-  "Browse URL with uzbl browser."
-  (interactive "sURL: ")
-  (my-generic-browser url "uzbl-browser")
-  )
-
-(defun browse-url-luakit (url &optional _ignore)
-  "Browse URL with Luakit browser."
-  (interactive "sURL: ")
-  (my-generic-browser url "luakit")
-  )
-
+(setq browse-url-chrome-program (executable-find "google-chrome-unstable"))
 
 ;;; [ EWW ] -- The Emacs Web Wowser
 
 (use-package eww
   :ensure t
-  :defer t
-  :config
+  :init
   ;; set to "internal" Emacs Web Wowser
   ;; (setq browse-url-browser-function 'eww-browse-url)
-
+  :config
   (setq eww-bookmarks-directory "~/.emacs.d/eww/bookmarks/"
         eww-download-directory "~/Downloads/"
         eww-form-checkbox-symbol "[ ]"
         eww-form-checkbox-selected-symbol "[X]"
         shr-use-fonts nil ; [F] `eww-toggle-fonts' don't use web page variable-pitch font.
         shr-use-colors t
+        shr-external-browser 'browse-url-generic
         eww-header-line-format "%t: %u"   ; title: url.
         ;; - DuckDuckGo :: "https://duckduckgo.com/html/?q="
         ;; - Google :: "http://www.google.com/search?q=%s"
@@ -101,7 +77,7 @@
   (define-key eww-mode-map (kbd "M-n") nil)
   (define-key eww-mode-map (kbd "M-p") nil)
   
-  (define-key eww-mode-map (kbd "&") 'eww-browse-with-external-browser)
+  (define-key eww-mode-map (kbd "O") 'eww-browse-with-external-browser)
   
   (define-key eww-mode-map (kbd "C-M-i") 'eww-view-source)
   (define-key eww-mode-map (kbd "C-M-h") 'eww-parse-headers)
@@ -187,6 +163,9 @@
   :config
   (ace-link-setup-default))
 
+
+
+
 
 (provide 'init-my-tool-browser)
 
