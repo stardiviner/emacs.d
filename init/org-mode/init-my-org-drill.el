@@ -69,7 +69,7 @@
           (kill-ring-save (region-beginning) (region-end))
           (if (region-active-p) (deactivate-mark)))
         ;; region select word for `org-capture' template "`%i'".
-        (unless (region-active-p) (er--expand-region-1))
+        (unless (region-active-p) (er/mark-word))
         ;; call org-capture template programmatically.
         (org-capture nil "w")
         ;; disable region selection.
