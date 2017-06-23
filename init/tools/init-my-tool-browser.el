@@ -108,6 +108,13 @@
   (define-key eww-mode-map (kbd "C-r") 'eww-readable)
   
   (define-key eww-mode-map (kbd "<enter>") 'eww-submit)
+
+  ;; follow mode keybindings support.
+  (use-package eww-lnum
+    :ensure t
+    :bind (:map eww-mode-map
+                ("f" . eww-lnum-follow)
+                ("U" . eww-lnum-universal)))
   )
 
 
