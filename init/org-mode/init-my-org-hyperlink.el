@@ -34,18 +34,12 @@
 ;;; support file completion for org external link [file+sys:].
 (org-link-set-parameters
  "file+sys"
- :complete 'org-file-complete-link)
+ :complete 'org-file-sys-complete-link)
 
-;;; fontify broken link.
-(org-link-set-parameters
- "file"
- :face (lambda (path) (if (file-exists-p path) 'org-link 'org-warning)))
-(org-link-set-parameters
- "file+sys"
- :face (lambda (path) (if (file-exists-p path) 'org-link 'org-warning)))
-(org-link-set-parameters
- "file+emacs"
- :face (lambda (path) (if (file-exists-p path) 'org-link 'org-warning)))
+(defun org-file-sys-complete-link ()
+  "Use the existing file name completion for file."
+  (replace-regexp-in-string "^file:" "file+sys:" (org-file-complete-link)))
+
 
 
 ;;; org-file-apps no longer accepts S-expressions as commands
