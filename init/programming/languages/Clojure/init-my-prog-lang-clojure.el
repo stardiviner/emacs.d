@@ -477,8 +477,16 @@ opening 4clojure questions"
         yesql-ghosts-show-descriptions t)
   )
 
+;;; [ HugSQL Ghosts ] -- Display ghostly HugSQL defqueries inline, in Emacs.
+
+(use-package hugsql-ghosts
+  :ensure t
+  :config
+  (add-hook 'cider-mode-hook 'hugsql-ghosts-install-hook)
+  (setq hugsql-ghosts-newline-before-docstrings t)
   )
 
+
 
 (provide 'init-my-prog-lang-clojure)
 
