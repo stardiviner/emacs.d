@@ -131,6 +131,12 @@
   ;; (flycheck-add-next-checker 'c/c++-clang '(warning . cstyle))
   )
 
+;;; [ flycheck-clang-analyzer ] -- Integrate Clang Static Analyzer with flycheck for on-the-fly static analysis in Emacs.
+
+(use-package flycheck-clang-analyzer
+  :ensure t
+  :after flycheck
+  :config (flycheck-clang-analyzer-setup))
 
 ;;; [ gccsense ]
 
