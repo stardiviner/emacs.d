@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ json-mode ] -- Extends the builtin js-mode to add better syntax highlighting for JSON.
 
 ;; (use-package json-mode
@@ -35,6 +35,12 @@
   :ensure t
   :defer t)
 
+;;; [ json-navigator ] -- view and navigate JSON structures.
+
+(use-package json-navigator
+  :ensure t)
+
+
 
 (provide 'init-my-prog-lang-json)
 
