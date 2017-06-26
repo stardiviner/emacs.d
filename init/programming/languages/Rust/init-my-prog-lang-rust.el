@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ rust-mode ]
 
 (use-package rust-mode
@@ -70,6 +70,16 @@
   :ensure t
   :defer t)
 
+;;; [ ob-rust ] -- Org-mode Babel support for Rust.
+
+(use-package ob-rust
+  :ensure t
+  :config
+  (add-to-list 'org-babel-load-languages '(rust . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  )
+
+
 
 (provide 'init-my-prog-lang-rust)
 
