@@ -183,6 +183,7 @@
 ;; (require 'init-my-tool-collaborate)
 ;; (require 'init-my-tool-notify)
 (require 'init-my-tool-irc)
+(require 'init-slack)
 (require 'init-my-tool-music)
 ;; (require 'init-my-tool-subtitle)
 ;; (require 'init-my-tool-podcast)

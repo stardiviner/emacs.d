@@ -79,6 +79,16 @@
   (add-to-list 'org-src-lang-modes '("julia" . ess-julia))
   )
 
+;;; [ flycheck-julia ] -- Add a julia syntax checker to flycheck using Lint.jl
+
+(use-package flycheck-julia
+  :ensure t
+  :config
+  (flycheck-julia-setup)
+  ;; if you use `flycheck-global-mode'
+  (add-to-list 'flycheck-global-modes 'julia-mode)
+  (add-to-list 'flycheck-global-modes 'ess-julia-mode)
+  )
 
 
 (provide 'init-my-prog-lang-julia)
