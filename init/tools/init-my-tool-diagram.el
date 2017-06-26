@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ artist-mode ]
 
 (use-package artist
@@ -76,7 +76,19 @@
   (setq plantuml-jar-path (locate-user-emacs-file "init/extra/plantuml.jar"))
   )
 
+;;; [ blockdiag ] -- Emacs interface to blockdiag.
 
+(use-package ob-blockdiag
+  :ensure t
+  :config
+  (add-to-list 'org-babel-load-languages '(blockdiag . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  
+  (use-package blockdiag-mode
+    :ensure t)
+  )
+
+
 
 (provide 'init-my-tool-diagram)
 
