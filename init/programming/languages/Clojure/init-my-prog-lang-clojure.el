@@ -467,6 +467,16 @@ opening 4clojure questions"
     ad-do-it
     (unless cider-current-clojure-buffer
       (cider-jack-in)))
+;;; [ YeSQL Ghosts ] -- Display ghostly YeSQL defqueries inline, in Emacs.
+
+(use-package yesql-ghosts
+  :ensure t
+  :config
+  (add-hook 'cider-mode-hook 'yesql-ghosts-auto-show-ghosts)
+  (setq yesql-ghosts-show-ghosts-automatically t
+        yesql-ghosts-show-descriptions t)
+  )
+
   )
 
 
