@@ -86,8 +86,8 @@
   :config
   (flycheck-julia-setup)
   ;; if you use `flycheck-global-mode'
-  (add-to-list 'flycheck-global-modes 'julia-mode)
-  (add-to-list 'flycheck-global-modes 'ess-julia-mode)
+  ;; (add-to-list 'flycheck-global-modes 'julia-mode)
+  ;; (add-to-list 'flycheck-global-modes 'ess-julia-mode)
   )
 
 
