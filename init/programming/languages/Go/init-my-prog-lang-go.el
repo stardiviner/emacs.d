@@ -4,7 +4,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ go-mode ]
 
 (use-package go-mode
@@ -79,7 +79,8 @@
         )
 
   (defun my-company-go-setup ()
-    (my-company-add-backend-locally 'company-go))
+    (my-company-add-backend-locally 'company-go)
+    (setq-local company-minimum-prefix-length 2))
   (add-hook 'go-mode-hook #'my-company-go-setup)
   )
 
@@ -167,6 +168,7 @@
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   )
 
+
 
 (provide 'init-my-prog-lang-go)
 
