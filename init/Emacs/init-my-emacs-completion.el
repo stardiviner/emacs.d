@@ -4,7 +4,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ complete ]
 
 ;;; Usage:
@@ -34,11 +34,11 @@
 
 (setq pcomplete-ignore-case t)
 
-
+(require 'init-ido)
 (require 'init-helm)
 (require 'init-ivy)
 
-
+
 
 (provide 'init-my-emacs-completion)
 
