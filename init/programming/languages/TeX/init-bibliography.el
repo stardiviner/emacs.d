@@ -53,8 +53,7 @@
   :ensure t
   :config
   (setq company-bibtex-bibliography
-        '("~/Org/Bibliography/bibliography.bib"
-          ))
+        '("~/Org/Bibliography/index.bib"))
 
   (add-hook 'org-mode-hook
             (lambda ()
