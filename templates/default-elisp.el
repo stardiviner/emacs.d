@@ -1,12 +1,11 @@
 ;;; ${1:$$(file-name-base)}.el --- $2
 
-
 ;;; Commentary:
 
 $3
 
-
 ;;; Code:
+
 $0
 
 
