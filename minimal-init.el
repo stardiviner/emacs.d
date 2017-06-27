@@ -88,6 +88,14 @@
   (global-set-key (kbd "C-x C-j") 'ace-window)
   )
 
+(use-package which-key
+  :ensure
+  :config)
+
+(use-package ivy
+  :ensure t
+  :config)
+
 (use-package company
   :ensure t
   :config
