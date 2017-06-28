@@ -446,26 +446,14 @@ When called repeatedly, cycle through the buffers."
 
 ;; [ erc-crypt ] -- Symmetric Encryption for ERC.
 
-;; (use-package erc-crypt
-;;   :ensure t
-;;   :config
-;;   ;; (add-hook 'erc-mode-hook #'erc-crypt-enable) ; enable `erc-crypt' in ERC globally.
-;;   (defun my/erc-crypt-encrypt (& msg)
-;;     "Encrypt current input or optional `MSG' with `erc-crypt'."
-;;     (let ((message (or (erc-get-input-line) msg))) ; TODO:
-;;       (erc-crypt-encrypt message)
-;;       ;; replace input with encrypted message output.
-;;       ))
-;;   (defun my/erc-crypt-decrypt (& msg)
-;;     "Decrypt message with `erc-crypt'."
-;;     (let ((message (or (erc-get-current-line) msg))) ; TODO:
-;;       (erc-crypt-decrypt message)
-;;       ;; replace original message with deprecated output.
-;;       ))
-;;   (define-key erc-mode-map (kbd "C-c M-e") 'my/erc-crypt-encrypt)
-;;   (define-key erc-mode-map (kbd "C-c M-d") 'my/erc-crypt-decrypt)
-;;   ;; TODO: record to erc-crypt.org
-;;   )
+(use-package erc-crypt
+  :ensure t
+  :config
+  ;; (add-hook 'erc-mode-hook #'erc-crypt-enable) ; enable `erc-crypt' in ERC globally.
+  
+  ;; manually (toggle) keybinding for encrypting messages.
+  (define-key erc-mode-map (kbd "C-c M-e") 'erc-crypt-mode)
+  )
 
 ;; [ erc-social-graph ] -- A PieSpy-esque social network graph module for ERC.
 
