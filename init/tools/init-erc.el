@@ -278,6 +278,9 @@ When called repeatedly, cycle through the buffers."
 (erc-sound-enable)
 (erc-update-modules)
 
+(setq erc-sound-path `(,(concat user-emacs-directory "resources/audio/Hacking Game/")
+                       ,(concat user-emacs-directory "resources/audio/Ingress/")))
+
 ;;; Play sounds on some actions.
 (autoload 'org-clock-play-sound "org-clock")
 
