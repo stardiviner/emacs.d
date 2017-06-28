@@ -121,6 +121,11 @@
 (use-package git-timemachine
   :ensure t)
 
+;;; [ magit-tbdiff ] -- topic branch interdiff
+
+(use-package magit-tbdiff
+  :ensure t)
+
 ;;; [ gited ] -- operate on Git branches like Dired.
 
 (use-package gited
