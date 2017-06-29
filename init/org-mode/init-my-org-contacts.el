@@ -21,7 +21,7 @@
 
 (setq org-capture-templates
       (append '(("C" "[C]ontact"
-                 entry (file (concat org-directory "/Contacts/Contacts.org"))
+                 entry (file (lambda () (car org-contacts-files)))
                  "** %^{NAME}
 :PROPERTIES:
 :NAME(Chinese): %^{Name(Chinese)}

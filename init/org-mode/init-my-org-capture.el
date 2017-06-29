@@ -53,7 +53,7 @@
 
         ;; code snippets
         ("s" "[S]ource Code Snippet" entry
-         (file (concat org-directory "/Programming/Code Snippets/snippets.org"))
+         (file (lambda () (concat org-directory "/Programming/Code Snippets/snippets.org")))
          ;; Prompt for tag and language
          "* %?%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
         ))
