@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: babel-clojure-tabular-table
+# key: babel-clojure-tabular-table
+# group: babel.clojure
+# --
+#+BEGIN_SRC clojure :results raw
+(use '[table.core :only [table]])
+
+$0
+
+(def tabular-data $1)
+
+(table tabular-data :style :org)
+#+END_SRC

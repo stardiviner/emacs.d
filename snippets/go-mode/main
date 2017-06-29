@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: main
+# key: main
+# group: template
+# --
+func main() {
+  $0	
+}

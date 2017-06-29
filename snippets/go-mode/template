@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: template
+# key: template
+# group: template
+# --
+package main
+
+import "fmt"
+
+$0
+
+func main() {
+	
+}

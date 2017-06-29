@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-blockdiag
+# key: babel-blockdiag
+# group: babel.diagram
+# --
+#+BEGIN_SRC blockdiag :tool ${1:$$(yas-choose-value '("blockdiag" "seqdiag" "actdiag" "nwdiag"))} :dir "data/images" :file ${2:filename}.png
+$0
+#+END_SRC

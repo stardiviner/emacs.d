@@ -5,5 +5,5 @@
 # --
 try
   ${1:expr*}
-  ${4:(catch clause*)}
-  ${5:(finally clause?)}
+  ${2:(catch ${3:clause*})}
+  ${4:(finally ${5:clause?})}
