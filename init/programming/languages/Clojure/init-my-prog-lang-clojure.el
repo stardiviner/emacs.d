@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ clojure-mode ]
 
 (use-package clojure-mode
@@ -300,7 +300,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   (add-hook 'cider-connected-hook
             #'(lambda ()
                 (sit-for 10)
-                (my/cider-repl-eval "(import java.io.File)") ; import Java object static methods like `.getCanonicalFile'.
+                (my/cider-repl-eval "(import [java.io.File])") ; import Java object static methods like `.getCanonicalFile'.
                 (my/cider-repl-eval "(use '(incanter core stats datasets charts io pdf))")
                 ) t)
   )
