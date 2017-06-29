@@ -18,7 +18,7 @@
 
 (use-package sql-indent
   :ensure t
-  :after 'sql
+  :after sql
   :init
   (dolist (hook '(sql-mode-hook
                   ;; sql-interactive-mode-hook
@@ -36,7 +36,7 @@
 
 (use-package sqlup-mode
   :ensure t
-  :after 'sql
+  :after sql
   :init
   (dolist (hook '(sql-mode-hook
                   sql-interactive-mode-hook
