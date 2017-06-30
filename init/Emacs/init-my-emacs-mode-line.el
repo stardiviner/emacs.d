@@ -632,11 +632,12 @@ dimensions of a block selection."
 ;; IRC
 (defun *erc ()
   "Show ERC info from `erc-track-mode'."
-  (if (and (and (boundp 'erc-track-mode) erc-track-mode
+  (if (and (active)
+           (and (boundp 'erc-track-mode) erc-track-mode
                 (boundp 'erc-modified-channels-object))
            ;; (erc-server-process-alive) ; detect buffer has ERC process alive.
            ;; (erc-server-buffer-live-p)
-           (not(string-empty-p erc-modified-channels-object))
+           (not (string-empty-p erc-modified-channels-object))
            )
       (concat
        (all-the-icons-faicon "comments-o" :v-adjust 0.05)
