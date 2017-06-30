@@ -36,7 +36,7 @@
 
 ;; http://irreal.org/blog/?p=6297
 ;; https://www.reddit.com/r/emacs/comments/6iqtze/org_mreturn_annoyance/
-(setq org-M-RET-may-split-line '((default . nil)))
+;; (setq org-M-RET-may-split-line '((default . nil)))
 
 (setq org-columns-default-format
       "%25ITEM %TODO %3PRIORITY %TAGS %6effort(EFFORT){:}")
