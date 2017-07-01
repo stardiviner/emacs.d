@@ -13,7 +13,6 @@
 
 (use-package undo-tree
   :ensure t
-  :defer t
   :config
   (setq undo-tree-visualizer-diff t
         undo-tree-visualizer-relative-timestamps t)
