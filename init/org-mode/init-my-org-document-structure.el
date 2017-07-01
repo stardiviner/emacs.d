@@ -34,6 +34,25 @@
       org-list-empty-line-terminates-plain-lists nil ; need 2 empty lines
       )
 
+;;; List checkbox:
+
+;;; Prettify List Checkbox.
+;; (defun org-mode-list-checkbox-prettify ()
+;;   (push '("[ ]" .  "🞎") prettify-symbols-alist)
+;;   (push '("[X]" . "🗷" ) prettify-symbols-alist)
+;;   (push '("[-]" . "◫" ) prettify-symbols-alist)
+;;   (prettify-symbols-mode)
+;;   )
+;;
+;; (add-hook 'org-mode-hook #'org-mode-list-checkbox-prettify)
+;;
+;; ;;; also enable in HTML export.
+;; (setq org-html-checkbox-type 'unicode)
+;; (setq org-html-checkbox-types
+;;       '((unicode (on . "<span class=\"task-done\">&#x2611;</span>")
+;;                  (off . "<span class=\"task-todo\">&#x2610;</span>")
+;;                  (trans . "<span class=\"task-in-progress\">&#x25eb;</span>"))))
+
 ;; http://irreal.org/blog/?p=6297
 ;; https://www.reddit.com/r/emacs/comments/6iqtze/org_mreturn_annoyance/
 ;; (setq org-M-RET-may-split-line '((default . nil)))
