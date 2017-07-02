@@ -10,6 +10,9 @@
 
 (require 'eshell)
 
+;;; change PAGER from `less' to `cat'.
+(setenv "PAGER" "cat")
+
 ;; load eshell's sudo which use Tramp's su/sudo methods.
 (require 'em-tramp)
 ;; Switch to eshell’s sudo
