@@ -28,6 +28,8 @@
   
   ;; <default user>
   ;; ssh connect: host, user
+  (add-to-list 'tramp-default-user-alist
+               '(("\\`su\\(do\\)?\\'" nil "root")))
   ;; (add-to-list 'tramp-default-user-alist
   ;;              '("ssh" ".*\\.somewhere\\.else\\'" "john"))
 
