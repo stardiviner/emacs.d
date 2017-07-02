@@ -32,6 +32,11 @@
 
 ;; visual commands
 ;; (setq eshell-destroy-buffer-when-process-dies nil)
+(setq eshell-visual-commands '("vi" "screen" "top" "less" "more" "lynx"
+                               "ncftp" "pine" "tin" "trn" "elm" "vim"
+                               "nmtui" "alsamixer" "htop" "el" "elinks"
+                               ))
+(setq eshell-visual-subcommands '(("git" "log" "diff" "show")))
 
 ;; Eshell-banner
 (setq eshell-banner-message (format "%s %s\nwith Emacs %s on Linux: %s"
