@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 (unless (boundp 'git-gutter-prefix)
   (define-prefix-command 'git-gutter-prefix))
 (global-set-key (kbd "M-g g") 'git-gutter-prefix)
@@ -66,6 +66,9 @@
 
 (use-package git-gutter+
   :ensure t
+  :init
+  ;; (add-hook 'prog-mode-hook #'git-gutter+-mode)
+  (global-git-gutter+-mode t)
   :bind (:map git-gutter-prefix
               ("t" . git-gutter+-mode) ; Turn on/off in the current buffer
               ("T" . global-git-gutter+-mode) ; Turn on/off globally
@@ -108,10 +111,9 @@
         git-gutter+-hide-gutter t
         ;; pass option to 'git diff' command: -w: ignore all spaces
         git-gutter+-diff-option "-w")
-
-  (global-git-gutter+-mode t)
   )
 
+
 
 (provide 'init-my-prog-vcs-git-gutter)
 
