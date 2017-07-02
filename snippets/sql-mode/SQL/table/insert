@@ -3,5 +3,5 @@
 # key: table-insert
 # group: table
 # --
-INSERT INTO ${1:table} (${2:columns,}) VALUES
-    (${3:values,});
+INSERT INTO ${1:table} (${2:columns,})
+       VALUES (${3:values,});

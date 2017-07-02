@@ -4,7 +4,7 @@
 # group: babel.sql.postgresql
 # --
 #+NAME: ${1:source code name}
-#+headers: :cmdline -h ${2:localhost} -U ${3:username: postgres} -w -d ${4:dbname}
+#+headers: :cmdline -h ${2:localhost} -U ${3:username} -w -d ${4:dbname}
 #+BEGIN_SRC sql :engine postgresql
 $0
 #+END_SRC
