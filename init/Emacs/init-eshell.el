@@ -13,6 +13,9 @@
 ;;; change PAGER from `less' to `cat'.
 (setenv "PAGER" "cat")
 
+;;; TERM
+(require 'em-term)
+
 ;; load eshell's sudo which use Tramp's su/sudo methods.
 (require 'em-tramp)
 ;; Switch to eshell’s sudo
@@ -78,6 +81,7 @@ PWD is not in a git repo (or the git command is not found)."
       )))
 
 ;; Eshell prompt
+(require 'em-prompt)
 (setq eshell-prompt-function
       #'(lambda ()
           ;; (concat
@@ -119,7 +123,7 @@ PWD is not in a git repo (or the git command is not found)."
 ;; Eshell completion
 ;;
 ;; - `eshell-cmpl-load-hook'
-
+(require 'em-cmpl)
 (setq eshell-show-lisp-completions t
       ;; eshell-command-completion-function #'function
       ;; eshell-cmpl-command-name-function #'function
