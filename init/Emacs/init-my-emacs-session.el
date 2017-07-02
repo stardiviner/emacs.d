@@ -14,9 +14,8 @@
 ;; [ save-place ]
 
 ;; (require 'saveplace)
-;;
-;; (setq save-place t                      ; save point place
-;;       save-place-file "~/.emacs.d/.emacs-places")
+;; (setq-default save-place t) ; save point place
+;; (setq save-place-file (expand-file-name ".places" user-emacs-directory))
 
 
 ;;; [ desktop ] -- save partial status of Emacs when killed.
