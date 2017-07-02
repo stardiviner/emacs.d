@@ -77,8 +77,8 @@
               ("p" . git-gutter+-previous-hunk)
               ;; actions on hunks
               ("d" . git-gutter+-show-hunk-inline-at-point)
-              ("=" . git-gutter+-show-hunk) ; diff
               ("D" . git-gutter+-show-hunk) ; diff
+              ("=" . git-gutter+-popup-hunk)
               ("r" . git-gutter+-revert-hunk)
               ;; stage hunk at point
               ;; if region is active, stage all hunk lines within the region.
