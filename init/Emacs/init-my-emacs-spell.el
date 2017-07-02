@@ -79,8 +79,7 @@
 
   ;; text
   (dolist (hook
-           '(
-             ;; text-mode-hook
+           '(text-mode-hook
              markdown-mode-hook
              ))
     (add-hook hook 'flyspell-mode))
