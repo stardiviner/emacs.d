@@ -29,6 +29,9 @@
         ;; mouse-wheel-follow-mouse t
         )
 
+  (define-key pdf-view-mode-map (kbd "j") 'pdf-view-next-line-or-next-page)
+  (define-key pdf-view-mode-map (kbd "k") 'pdf-view-previous-line-or-previous-page)
+
   ;; [ PDF Tools ]
   ;; [ isearch ]
   (require 'pdf-isearch)
