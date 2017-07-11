@@ -73,6 +73,7 @@
       ;; org-refile-target-verify-function nil
       org-refile-allow-creating-parent-nodes 'confirm
       org-refile-active-region-within-subtree t
+      org-refile-use-outline-path t
       )
 
 ;;;_* Archive
