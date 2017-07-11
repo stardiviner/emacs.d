@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: incanter-view
+# key: incanter-view
+# group: incanter
+# --
+(view $0)

@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: incanter-use
+# key: incanter-use
+# group: incanter
+# --
+(use '(incanter core stats datasets charts io pdf))
+
+$0

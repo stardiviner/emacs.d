@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: incanter-save
+# key: incanter-save
+# group: incanter
+# --
+(save ${1:plot var} "${2:plot filename}.png")
