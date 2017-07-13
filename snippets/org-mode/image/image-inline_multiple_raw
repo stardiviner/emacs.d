@@ -4,7 +4,7 @@
 # group: image
 # --
 #+NAME: image-list
-#+BEGIN_SRC sh :results output table
+#+BEGIN_SRC shell :results output table
 ls ${1:../../data/images/note_examples}
 #+END_SRC
 

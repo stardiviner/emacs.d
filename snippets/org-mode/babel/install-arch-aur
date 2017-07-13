@@ -3,6 +3,6 @@
 # key: babel-install-arch-aur
 # group: babel
 # --
-#+BEGIN_SRC sh :dir /sudo:: :results none
+#+BEGIN_SRC shell :dir /sudo:: :results none
 yaourt -S --noconfirm $0
 #+END_SRC

@@ -3,6 +3,6 @@
 # key: babel-install-openSUSE
 # group: babel.install
 # --
-#+BEGIN_SRC sh :dir /sudo:: :results none
+#+BEGIN_SRC shell :dir /sudo:: :results none
 sudo zypper install $0
 #+END_SRC

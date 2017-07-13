@@ -60,7 +60,6 @@
       '((emacs-lisp . t)                     ; Emacs Lisp
         (clojure . t)                        ; Clojure
         (org . t)                            ; Org-mode
-        (sh . t)                             ; Shell
         (shell . t)                          ; Shell Script
         (makefile . t)                       ; Make
         (python . t)                         ; Python
@@ -135,6 +134,19 @@
 (add-to-list 'org-babel-default-header-args:clojure
              '(:noweb . "yes"))
 
+
+;;; [ ob-shell ]
+
+(require 'ob-shell)
+;; (add-to-list 'org-babel-load-languages '(shell . t))
+;; (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+
+(add-to-list 'org-babel-default-header-args:shell
+             '(:results . "output"))
+(add-to-list 'org-babel-default-header-args:shell
+             '(:noweb . "yes"))
+
+
 ;;; [ ob-haskell ]
 
 (require 'ob-haskell)
@@ -207,7 +219,7 @@
         ("python" . "py")
         ("R" . "R")
         ("sql" . "sql")
-        ("sh" . "sh")
+        ("shell" . "sh")
         ("haskell" . "hs")
         ("latex" . "tex")
         ("awk" . "awk")
@@ -306,11 +318,6 @@
 ;; (setq org-babel-default-header-args:latex
 ;;       '((:results . "raw graphics")
 ;;         (:file . "temp.png")))
-
-(add-to-list 'org-babel-default-header-args:sh
-             '(:results . "output"))
-(add-to-list 'org-babel-default-header-args:sh
-             '(:noweb . "yes"))
 
 (add-to-list 'org-babel-default-header-args:ruby
              '(:results . "output"))
@@ -563,7 +570,7 @@
   ;; add header argument `:async' to default header arguments list
   ;; (add-to-list 'org-babel-default-header-args '(:async)) ; not work for Clojure Babel.
 
-  (add-to-list 'org-babel-default-header-args:sh
+  (add-to-list 'org-babel-default-header-args:shell
                '(:async))
   (add-to-list 'org-babel-default-header-args:js
                '(:async))

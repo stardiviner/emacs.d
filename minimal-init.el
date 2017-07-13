@@ -235,7 +235,7 @@
  'org-babel-load-languages
  '((emacs-lisp . t)                     ; Emacs Lisp
    (org . t)                            ; Org-mode
-   (sh . t)                             ; Shell
+   (shell . t)                          ; Shell
    (ruby . t)                           ; Ruby
    (python . t)                         ; Python
    (C . t)                              ; C

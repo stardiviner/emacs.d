@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-shell-in-data-directory
+# key: babel-shell-in-data-directory
+# group: babel.shell
+# --
+#+BEGIN_SRC shell :dir "data/code/" :var ${1:file="test.txt"}
+$0
+#+END_SRC

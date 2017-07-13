@@ -3,6 +3,6 @@
 # key: babel-install-macos-ports
 # group: babel.install
 # --
-#+BEGIN_SRC sh :dir /sudo:: :results none
+#+BEGIN_SRC shell :dir /sudo:: :results none
 sudo port install $0
 #+END_SRC
