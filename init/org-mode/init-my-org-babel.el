@@ -430,6 +430,10 @@
     )
   )
 
+;;; [ ob-hledger ]
+
+;; (require 'ob-hledger)
+
 
 ;;; [ Library of Babel ]
 
