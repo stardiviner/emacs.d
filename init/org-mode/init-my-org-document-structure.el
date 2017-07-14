@@ -69,6 +69,12 @@
 (require 'org-plot)
 (require 'orgtbl-ascii-plot)
 
+;;; Org Table translator functions.
+(add-to-list 'org-default-properties "ORGTBL") ; for Org-mode Table translator functions.
+
+;; define a keybinding for org table translator functions
+(define-key org-mode-map (kbd "C-c \" i") 'orgtbl-insert-radio-table)
+(define-key org-mode-map (kbd "C-c \" s") 'orgtbl-send-table)
 
 ;; * Visibility cycling::          Show and hide, much simplified
 
