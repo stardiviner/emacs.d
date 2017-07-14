@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ auto-mode-alist ]
 
 (add-to-list 'auto-mode-alist '("\\.conkyrc\\'" . conf-mode))
@@ -64,10 +64,14 @@
 
 ;;; [ polymode ] -- Object oriented framework for multiple emacs modes based on indirect buffers.
 
-(use-package polymode
+(use-package polymode ; [M-n] prefix
   :ensure t
-  :defer t)
+  :config
+  (setq polymode-prefix-key '(kbd "M-n"))
+  (add-hook 'prog-mode-hook 'polymode-minor-mode)
+  )
 
+
 
 (provide 'init-my-emacs-modes)
 
