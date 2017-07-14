@@ -29,9 +29,6 @@
         ;; mouse-wheel-follow-mouse t
         )
 
-  (define-key pdf-view-mode-map (kbd "j") 'pdf-view-next-line-or-next-page)
-  (define-key pdf-view-mode-map (kbd "k") 'pdf-view-previous-line-or-previous-page)
-
   ;; [ PDF Tools ]
   ;; [ isearch ]
   (require 'pdf-isearch)
@@ -56,8 +53,12 @@
         )
 
   (defun my-pdf-tools-setup ()
+    ;; Vim like basic scroll keys.
+    (define-key pdf-view-mode-map (kbd "j") 'pdf-view-next-line-or-next-page)
+    (define-key pdf-view-mode-map (kbd "k") 'pdf-view-previous-line-or-previous-page)
+
     ;; change key [k] to [K] to avoid mis-press.
-    (define-key pdf-view-mode-map (kbd "k") nil)
+    ;; (define-key pdf-view-mode-map (kbd "k") nil)
 
     ;; "auto" slice from bounding box
     (pdf-view-auto-slice-minor-mode)
