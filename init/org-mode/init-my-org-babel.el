@@ -158,8 +158,15 @@
 (require 'ob-latex)
 
 ;;; [ ob-js ]
-;; (require 'ob-js)
+(require 'ob-js)
 ;; (setq org-babel-js-cmd "node")
+
+(add-to-list 'org-babel-default-header-args:js
+             '(:results . "output"))
+;; (add-to-list 'org-babel-default-header-args:js
+;;              '(:session . "*Javascript REPL*")  ; package `js-comint'
+;;              )
+
 
 ;;; [ ob-translate ] -- allows you to translate blocks of text within org-mode.
 
@@ -329,9 +336,6 @@
 
 ;; (add-to-list 'org-babel-default-header-args:C++
 ;;              '(:results . "output"))
-
-(add-to-list 'org-babel-default-header-args:js
-             '(:results . "output"))
 
 (setq org-babel-default-header-args:R
       '((:session . "*R*")
@@ -578,8 +582,6 @@
   ;; (add-to-list 'org-babel-default-header-args '(:async)) ; not work for Clojure Babel.
 
   (add-to-list 'org-babel-default-header-args:shell
-               '(:async))
-  (add-to-list 'org-babel-default-header-args:js
                '(:async))
   )
 
