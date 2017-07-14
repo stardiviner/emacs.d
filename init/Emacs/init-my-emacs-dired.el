@@ -173,6 +173,12 @@
     ;; (setq dired-efap-initial-filename-selection 'no-extension)
     )
 
+  (use-package dired-aux
+    :init
+    (use-package dired-async
+      :config
+      (dired-async-mode 1)))
+  
   (use-package dired-narrow
     :ensure t
     :bind (:map dired-mode-map
