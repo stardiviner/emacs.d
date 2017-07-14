@@ -32,7 +32,7 @@
         ("Wiki" . ?k) ("Org" . ?o) ("Idea" . ?i)
         ("appointment" . ?a) ("meeting" . ?m) ("SEX" . ?X)
         ;; time
-        ("Today" . ?D) ("tomorrow" . ?T) ("future" . ?F)
+        ("Today" . nil) ("Tomorrow" . nil) ("Future" . nil)
         ;; places
         ("Company" . ?C) ("home" . ?H) ("computer" . ?P) ("phone" . ?P)
         (:endgroup . nil)
@@ -71,6 +71,22 @@
         ("Linux" . ?l)
         ("Emacs" . ?e)
         ("Git" . ?g)
+        (:endgroup . nil)
+        ;; Family
+        (:startgroup . nil)
+        ("@Family" . nil)
+        (:grouptags . nil)
+        ("Sister" . ?S)
+        ("Father" . ?F)
+        ("Mother" . ?M)
+        ("Relatives" . ?R)
+        ("GirlFriend" . ?G)
+        (:endgroup . nil)
+        ;; Projects
+        (:startgroup . nil)
+        ("knowledge" . nil)
+        (:grouptags . nil)
+        ("Agriculture" . ?A)
         (:endgroup . nil)
         ))
 
