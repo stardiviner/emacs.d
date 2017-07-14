@@ -177,6 +177,7 @@
   :ensure t
   :config
   (add-to-list 'org-babel-load-languages '(smiles . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   )
 
 ;;; [ ob-sql-mode ] -- SQL code blocks evaluated by sql-mode.
@@ -187,6 +188,7 @@
   (setq org-babel-sql-mode-template-selector "Q")
 
   (add-to-list 'org-babel-load-languages '(sql-mode . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 
   ;; security guard
   (setq org-confirm-babel-evaluate
@@ -203,8 +205,8 @@
 (use-package ob-uart
   :ensure t
   :config
-  ;; (org-babel-do-load-languages 'org-babel-load-languages '((uart . t)))
   (add-to-list 'org-babel-load-languages '(uart . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   )
 
 
@@ -358,6 +360,7 @@
   :ensure t
   :config
   (add-to-list 'org-babel-load-languages '(mongo . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   )
 
 
