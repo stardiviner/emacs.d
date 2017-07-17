@@ -104,8 +104,7 @@
 ;;; [ js3-mode ]
 
 (use-package js3-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 
 
 ;;; [ flycheck checker ]
@@ -139,11 +138,17 @@
 
 (use-package js-comint
   :ensure t
-  :defer t
   :init
   ;; if use node.js, we need nice output
   (setenv "NODE_NO_READLINE" "1")
+  :config
+  ;; (setq inferior-js-program-command "node")
+  ;; (setq inferior-js-program-command "/usr/bin/java org.mozilla.javascript.tools.shell.Main")
 
+  (add-hook 'inferior-js-mode-hook
+            (lambda ()
+              (ansi-color-for-comint-mode-on)))
+  
   ;; integrate with nvm.
   (js-do-use-nvm)
   
@@ -160,21 +165,12 @@
                       ;; (local-set-key (kbd "C-c C-b") 'js-send-buffer-and-go)
                       (local-set-key (kbd "C-c C-l") 'js-load-file)
                       )))
-  :config
-  ;; (setq inferior-js-program-command "node")
-  ;; (setq inferior-js-program-command "/usr/bin/java org.mozilla.javascript.tools.shell.Main")
-
-  (add-hook 'inferior-js-mode-hook
-            (lambda ()
-              (ansi-color-for-comint-mode-on)))
   )
-
 
 ;;; [ nodejs-repl ] -- Run Node.js REPL and communicate the process.
 
 (use-package nodejs-repl
   :ensure t
-  :defer t
   :init
   (setenv "NODE_NO_READLINE" "1")
   )
@@ -202,14 +198,18 @@
 
 (use-package tern
   :ensure t
-  :defer t
+  :mode ("\\.tern-project\\'" . json-mode)
   :init
-  (add-to-list 'auto-mode-alist '("\\.tern-project\\'" . json-mode))
-
+  (dolist (hook '(js-mode-hook
+                  js2-mode-hook
+                  js3-mode-hook
+                  inferior-js-mode-hook
+                  ))
+    (add-hook hook 'tern-mode))
   :config
   (add-hook 'tern-mode-hook
             (lambda ()
-              (local-set-key (kbd "C-h d d") 'tern-get-docs)
+              (local-set-key (kbd "C-c C-d") 'tern-get-docs)
               ))
   )
 
@@ -218,22 +218,13 @@
 
 (use-package company-tern
   :ensure t
-  :defer t
   :init
-  (dolist (hook '(js-mode-hook
-                  js2-mode-hook
-                  js3-mode-hook
-                  inferior-js-mode-hook
-                  ))
-    (add-hook hook 'tern-mode))
-
   (add-hook 'tern-mode-hook
             (lambda ()
               ;; tern-mode auto push `tern-completion-at-point' to `capf'.
               (my-company-add-backend-locally 'company-jquery)
               (my-company-add-backend-locally 'company-tern)
               ))
-  
   :config
   (setq company-tern-property-marker "" ; " ○"
         company-tern-meta-as-single-line t
