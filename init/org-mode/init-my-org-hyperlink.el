@@ -66,9 +66,8 @@
         ;; ("\\.pdf::\\([[:digit:]]+\\)\\'" . "okular -p %1 %s")
         ;; CHM
         ("\\.chm\\'" . "kchmviewer %s")
-        ;; EPUB
-        ;; ("\\.epub\\'" . "ebook-viewer %s")
-        ("\\.epub\\'" . "okular %s") ; use `okular' can store reading progress position.
+        ;; EBooks
+        ("\\.epub\\'" . "ebook-viewer %s")
         ("\\.mobi\\'" . "ebook-viewer %s")
         ("\\.azw3\\'" . "okular %s")
         ;; Image
