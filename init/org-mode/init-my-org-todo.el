@@ -189,25 +189,6 @@
 
 (define-key org-mode-map (kbd "C-c C-x h") 'org-habit-apply)
 
-;;; insert habit
-(defun org-insert-habit ()
-  "Insert a new TODO subheading and set its properties so that it becomes a habit."
-  (interactive)
-  (beginning-of-line)
-  (org-insert-todo-subheading nil)
-  (org-schedule nil (format-time-string "%Y-%m-%d" (current-time)))
-  (save-excursion
-    (search-forward ">")
-    (backward-char)
-    (insert (concat
-             " .+"
-             (read-string "Minimum interval: ")
-             "/"
-             (read-string "Maximum interval: "))))
-  (org-set-property "STYLE" "habit")
-  (org-set-property "LOGGING" "TODO DONE(!)"))
-
-(define-key org-mode-map (kbd "C-c C-x H") 'org-insert-habit)
 
 ;;; Stuck Project
 
