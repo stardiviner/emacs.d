@@ -154,6 +154,7 @@
 (setq org-habit-show-habits t      ; show habits in agenda.
       org-habit-show-all-today nil   ; show all habits' consistency graph in today
       org-habit-show-habits-only-for-today t
+      org-habit-show-done-always-green t
       org-habit-graph-column 70
       org-habit-preceding-days 14
       org-habit-following-days 7
@@ -173,8 +174,8 @@
   (org-schedule nil) ; interactive
   (save-excursion
     (next-line) (beginning-of-line)
-    (when (looking-at "SCHEDULED: [^>]*\\(>\\)")
-      (goto-char (match-beginning 1))
+    (when (looking-at "\\( \\)*SCHEDULED: [^>]*\\(>\\)")
+      (goto-char (match-beginning 2))
       (insert (concat
                " .+"
                (read-string "Minimum interval: ")
