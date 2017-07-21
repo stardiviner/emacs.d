@@ -1,5 +1,5 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: inline code without arguments
+# name: babel inline without arguments
 # key: src_
 # --
 src_${1:language}{$0} 
