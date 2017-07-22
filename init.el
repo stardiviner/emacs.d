@@ -6,10 +6,26 @@
 ;;; Code:
 
 ;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
+;; installed packages.  Don't delete this line.  If you don't 2want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 (package-initialize)
+
+;;; load Org-mode at first to fix two versions source-code & MELPA mixture loaded.
+
+(use-package org
+  :load-path "~/Code/Emacs/org-mode/lisp/"
+  :pin manual
+  ;; :mode (("\\.org$" . org-mode))
+  :config
+  (use-package org-plus-contrib
+    :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+    :pin manual)
+  (if (not (fboundp 'org-invisible-p))
+      (defalias 'org-invisible-p 'org-invisible-p2))
+  (if (not (fboundp 'string-to-int)) ; used in `ob-go.el'
+      (defalias 'string-to-int 'string-to-number))
+  )
 
 
 ;;; [ profiler ]
@@ -132,6 +148,24 @@
 (require 'init-my-emacs-accessibility)
 
 ;;; hypertextual information management system
+
+;;; reload Org-mode to fix two versions source-code & MELPA mixture loaded.
+(use-package org
+  :load-path "~/Code/Emacs/org-mode/lisp/"
+  :pin manual
+  ;; :mode (("\\.org$" . org-mode))
+  :config
+  (use-package org-plus-contrib
+    :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+    :pin manual)
+
+  (if (not (fboundp 'org-invisible-p))
+      (defalias 'org-invisible-p 'org-invisible-p2))
+  (if (not (fboundp 'string-to-int)) ; used in `ob-go.el'
+      (defalias 'string-to-int 'string-to-number))
+  )
+
+(org-reload)
 
 (require 'init-my-org-mode)
 
@@ -328,7 +362,6 @@
 ;;; Games
 
 ;; (require 'init-my-games)
-
 
 ;;; show Emacs initialized time.
 (message "Emacs initialized in %s" (emacs-init-time))
