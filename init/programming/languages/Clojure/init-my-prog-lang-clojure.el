@@ -228,8 +228,7 @@
   (add-hook 'clojure-mode-hook #'cider-mode)
   
   (setq cider-allow-jack-in-without-project t)
-  ;; auto start CIDER REPL session for Org-mode Babel by jack-in.
-  (add-hook 'after-init-hook #'cider-jack-in)
+  ;; (add-hook 'after-init-hook #'cider-jack-in)
 
   ;; notify user CIDER is connected.
   (add-hook 'cider-connected-hook
@@ -398,6 +397,12 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   ;; window instead of in a pop-up window, do the following:
   ;; (setq cider-profile-buffer nil)
   )
+
+;;; Org-mode Babel Clojure
+(require 'ob-clojure)
+;; auto start CIDER REPL session for Org-mode Babel by jack-in.
+(add-hook 'after-init-hook #'cider-jack-in)
+(setq org-babel-clojure-backend 'cider)
 
 
 ;;; [ typed-clojure-mode ] -- Typed Clojure minor mode for Emacs.
