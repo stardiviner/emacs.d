@@ -31,15 +31,6 @@
 ;; (define-key org-mode-map (kbd "C-c %") 'org-mark-ring-push)
 
 
-;;; support file completion for org external link [file+sys:].
-(org-link-set-parameters
- "file+sys"
- :complete 'org-file-sys-complete-link)
-
-(defun org-file-sys-complete-link ()
-  "Use the existing file name completion for file."
-  (replace-regexp-in-string "^file:" "file+sys:" (org-file-complete-link)))
-
 
 
 ;;; org-file-apps no longer accepts S-expressions as commands
