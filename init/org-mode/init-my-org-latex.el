@@ -26,7 +26,7 @@
 ;; (add-hook 'org-mode-hook #'disable-org-latex-preview-on-nonfile)
 
 ;; config org latex preview style
-(setq org-latex-create-formula-image-program 'dvipng
+(setq org-preview-latex-default-process 'dvipng
       ;; org-latex-preview-ltxpng-directory "ltxpng/"
       ;; set latex fragment preview image size
       org-format-latex-options (plist-put
@@ -35,13 +35,11 @@
                                 org-format-latex-options :html-scale 2.0)
       )
 
-;; (setq org-latex-default-packages-alist
-;;       org-latex-packages-alist)
+;; (add-to-list 'org-latex-default-packages-alist)
+;; (add-to-list 'org-latex-packages-alist)
 
 ;;; org -> latex packages
 ;; (source code format, and syntax color highlighting)
-;;
-(require 'ox-latex)
 
 ;; 1. use "listings" + "color"
 ;; (add-to-list 'org-latex-packages-alist '("" "listings"))
@@ -80,9 +78,6 @@
 
 
 ;;; [ Math ]
-
-
-
 
 ;;; LaTeX Math Symbols
 

@@ -21,37 +21,6 @@
   (require 'tex-site)
   (require 'latex)
   :config
-  (setq TeX-auto-save t
-        TeX-parse-self t)
-
-  (setq-default TeX-master nil)
-
-  ;; automatic detection of master file
-  (defun guess-TeX-master (filename)
-    "Guess the master file for FILENAME from currently open .tex files."
-    (let ((candidate nil)
-	        (filename (file-name-nondirectory filename)))
-      (save-excursion
-        (dolist (buffer (buffer-list))
-	        (with-current-buffer buffer
-	          (let ((name (buffer-name))
-		              (file buffer-file-name))
-	            (if (and file (string-match "\\.tex$" file))
-		              (progn
-		                (goto-char (point-min))
-		                (if (re-search-forward (concat "\\\\input{" filename "}") nil t)
-		                    (setq candidate file))
-		                (if (re-search-forward (concat "\\\\include{" (file-name-sans-extension filename) "}") nil t)
-		                    (setq candidate file))))))))
-      (if candidate
-	        (message "TeX master document: %s" (file-name-nondirectory candidate)))
-      candidate))
-
-  (defun TeX-auto-set-TeX-master ()
-    (setq-local TeX-master (guess-TeX-master (buffer-file-name))))
-  
-  (add-hook 'LaTeX-mode-hook #'TeX-auto-set-TeX-master)
-
   ;; Fontification
   (require 'font-latex)
   ;; (setq TeX-install-font-lock)
@@ -64,14 +33,7 @@
   ;; math
   ;; verbatim content
 
-
-  ;; enable RefTeX in AUCTeX (LaTeX-mode)
-  (setq reftex-plug-into-AUCTeX t)
-  (add-hook 'latex-mode-hook 'turn-on-reftex) ; with Emacs latex mode
-  (add-hook 'LaTeX-mode-hook 'turn-on-reftex) ; with AUCTeX LaTeX mode
-  (add-hook 'LaTeX-mode-hook #'reftex-mode)
-
-  (add-hook 'LaTeX-mode-hook 'auto-fill-mode)
+  ;; (add-hook 'LaTeX-mode-hook 'auto-fill-mode)
   
   ;; (setq TeX-macro-global '())
   ;; (setq TeX-outline-extra t)
@@ -231,12 +193,10 @@ character(s), in which case it deletes the space(s) first."
   :config
   (setq reftex-cite-prompt-optional-args t) ; prompt for empty optional arguments in cite.
 
-  (defun my-reftex-toggle ()
-    (turn-on-reftex)
-    (setq reftex-plug-into-AUCTeX t)
-    (reftex-isearch-minor-mode))
-  
-  (add-hook 'LaTeX-mode-hook #'my-reftex-toggle)
+  ;; enable RefTeX in AUCTeX (LaTeX-mode)
+  (add-hook 'latex-mode-hook 'turn-on-reftex) ; with Emacs latex mode
+  (add-hook 'LaTeX-mode-hook 'turn-on-reftex) ; with AUCTeX LaTeX mode
+  (add-hook 'LaTeX-mode-hook #'reftex-mode)
   )
 
 
