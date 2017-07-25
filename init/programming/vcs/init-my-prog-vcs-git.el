@@ -35,6 +35,9 @@
               ("v" . magit-status)
               ("l" . magit-list-repositories))
   :config
+  ;; Git WIP (work in progress) in Magit
+  (add-to-list 'magit-no-confirm 'safe-with-wip)
+
   (setq magit-repository-directories
         `((,user-emacs-directory . 0)
           ("~/Code/" . 2)
