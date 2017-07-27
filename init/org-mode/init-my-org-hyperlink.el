@@ -32,6 +32,11 @@
 
 
 
+;;; fontify broken link.
+;; (org-link-set-parameters
+;;  "file"
+;;  ;; TODO: fix path contains space case.
+;;  :face (lambda (path) (if (file-exists-p path) 'org-link 'org-warning)))
 
 ;;; org-file-apps no longer accepts S-expressions as commands
 ;;
@@ -177,8 +182,10 @@ With prefix argument, also display headlines without a TODO keyword."
 (org-link-set-parameters "tag"
                          :follow #'org-tag-link-open)
 
-;;; Git -> `git:', `gitbare:'
-(require 'org-git-link)
+;;; [ Git ]
+;; In Git local repository file, `org-store-link'. Then insert link in Org-mode buffer.
+;; - `git:'
+;; - `gitbare:'
 
 
 ;;; [[map:"address name/geography"]]
