@@ -28,6 +28,7 @@
           ("stackoverflow\\.com" . markdown-mode)
           ("stack\\(exchange\\|overflow\\)\\.com\\.[a-z0-9]+\\.txt" . markdown-mode)
           (".*\\.stackexchange\\.com/.*" . markdown-mode)
+          (".*\\.mail\\.google\\.com/.*" . web-mode)
           ("segmentfault\\.com" . markdown-mode)
           ;; Jupyter notebooks
           ;; localhost:8888/notebooks/Untitled1.ipynb?kernel_name=clojure
