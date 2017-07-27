@@ -4,6 +4,10 @@
 
 
 ;;; Code:
+
+(unless (boundp 'my-encrypt-prefix)
+  (define-prefix-command 'my-encrypt-prefix))
+(define-key my-tools-prefix (kbd "e") 'my-encrypt-prefix)
 
 ;;; [ password ]
 
