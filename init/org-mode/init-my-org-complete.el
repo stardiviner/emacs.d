@@ -28,7 +28,9 @@
   (make-local-variable 'company-backends)
   (setq company-backends
         '(company-files
-          (company-capf :with company-yasnippet)
+          company-capf
+          company-yasnippet
+          ;; (company-capf :with company-yasnippet)
           company-emoji
           ;; (company-flyspell :with company-ispell) ; slow down Org-mode performance.
           company-dabbrev-code company-abbrev
