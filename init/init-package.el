@@ -60,26 +60,6 @@
       use-package-always-ensure nil
       use-package-enable-imenu-support t)
 
-(unless (and (package-installed-p 'let-alist)
-             (package-installed-p 'seq)
-             (package-installed-p 'queue)
-             (package-installed-p 'rainbow-mode)
-             (package-installed-p 'spinner)
-             (package-installed-p 'auctex)
-	     (package-installed-p 'bug-hunter)
-             )
-  (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
-  (package-refresh-contents)
-  
-  (use-package let-alist :ensure t)
-  (use-package seq :ensure t)
-  (use-package queue :ensure t)
-  (use-package rainbow-mode :ensure t)
-  (use-package spinner :ensure t)
-  (package-install 'auctex)
-  (use-package bug-hunter :ensure t)
-  )
-
 ;;; [ package-lint ] -- A linting library for elisp package authors.
 
 (use-package package-lint
