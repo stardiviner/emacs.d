@@ -104,9 +104,6 @@ helpful for learning and remembering forgotten binds."
   ;; display a hint with possible bindings in the echo area.
   (setq hydra-is-helpful t)
 
-  ;; examples
-  (require 'hydra-examples)
-  
   ;; ace-window + hydra
   (global-set-key
    (kbd "C-x C-z")
