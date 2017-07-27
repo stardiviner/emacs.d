@@ -241,7 +241,7 @@
 
 ;;; [ jade ] -- JavaScript Awesome Development Environment (in Emacs).
 
-(use-package jade
+(use-package jade-mode
   :ensure t
   :init
   ;; JavaScript evaluation in JS buffers. [C-x C-e], [C-c M-i]
