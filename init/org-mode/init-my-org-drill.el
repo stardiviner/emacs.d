@@ -91,7 +91,9 @@
 ;;; [ pamparam ] -- Simple and fast flashcards for Emacs.
 
 (use-package pamparam
-  :quelpa (pamparam :fetcher github :repo "abo-abo/pamparam")
+  :ensure t
+  :bind (:map my-org-prefix
+              ("M-w" . hydra-pamparam/body))
   )
 
 ;;; ----------------------------------------------------------------------------
