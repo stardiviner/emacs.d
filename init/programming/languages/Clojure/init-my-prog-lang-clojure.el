@@ -13,12 +13,14 @@
   :ensure t
   :defer t
   :config
+  (autoload 'my-lisp-common-settings "init-my-prog-lang-lisp.el")
   (add-hook 'clojure-mode-hook #'my-lisp-common-settings)
   ;; (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
   ;; `subword-mode' is quite useful since we often have to deal with Java class
   ;; and method names.
   (add-hook 'clojure-mode-hook #'subword-mode)
 
+  (autoload 'my-lisp-repl-common-settings "init-my-prog-lang-lisp.el")
   (add-hook 'clojure-repl-mode-hook #'my-lisp-repl-common-settings)
 
   (setq clojure-align-forms-automatically t)
