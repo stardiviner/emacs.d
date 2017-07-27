@@ -121,9 +121,9 @@
         ;; cider-pprint-fn 'fipp
         
         ;; Eval
-        cider-show-eval-spinner nil
-        cider-eval-spinner-delay 0.1
-        ;; cider-eval-spinner-type 'progress-bar
+        cider-show-eval-spinner t
+        cider-eval-spinner-delay 1
+        cider-eval-spinner-type 'progress-bar
         cider-use-overlays 'both
         cider-overlays-use-font-lock t ; use overlay for results.
         cider-result-use-clojure-font-lock t
