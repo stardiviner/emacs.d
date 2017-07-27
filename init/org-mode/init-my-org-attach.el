@@ -18,6 +18,7 @@
       org-attach-archive-delete 'query
       org-attach-allow-inheritance t
       org-attach-auto-tag nil
+      org-attach-commit t ; auto commit when Org file is in git repository.
       )
 
 ;;; [ org-screenshot ] -- Take and manage screenshots in Org-mode files.
