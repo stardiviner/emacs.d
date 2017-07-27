@@ -330,6 +330,7 @@
                "~/Org/Wiki/Things/Things.org" ; Buy Things
                "~/Org/Tasks/"
                "~/Org/Projects/" ; All projects
+               "~/Org/Projects/Agriculture Projects/" ; Agriculture Projects
                "~/Org/Projects/Interpersonal Network/" ; Interpersonal Network
                "~/Org/Learning Plan/Learning Plan.org"
                "~/Org/Learning Plan/Learn Programming Plan.org"
