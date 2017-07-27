@@ -25,6 +25,9 @@
       org-agenda-compact-blocks t
       )
 
+(setq org-agenda-show-future-repeats t
+      org-agenda-prefer-last-repeat t)
+
 ;;; sorting strategy
 (setq org-agenda-sorting-strategy
       '((agenda time-up deadline-up priority-down ts-up habit-down category-keep)
@@ -338,6 +341,7 @@
 
 (setq org-agenda-skip-timestamp-if-done t
       org-agenda-skip-deadline-if-done t
+      org-deadline-past-days 3
       org-agenda-skip-scheduled-if-done t
       org-agenda-skip-scheduled-delay-if-deadline 'post-deadline
       org-agenda-skip-scheduled-if-deadline-is-shown t
