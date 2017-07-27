@@ -66,8 +66,15 @@
 ;; uninstall Seahorse, the prompt will always be text instead of graphical. You
 ;; may have to relogin to X to force Seahorse to close.
 
+;;; [ letterbox-mode ] -- a simple minor mode to add letterboxing to sensitive text.
 
+(use-package letterbox-mode
+  :ensure t
+  :bind (:map my-encrypt-prefix
+              ("l" . letterbox-toggle))
+  )
 
+
 
 (provide 'init-my-emacs-encrypt)
 
