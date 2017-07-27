@@ -12,7 +12,7 @@
   (define-prefix-command 'my-org-prefix))
 (global-set-key (kbd "C-c o") 'my-org-prefix)
 
-
+;;; Org-mode ELPA version
 ;; (use-package org
 ;;   :ensure t
 ;;   :mode (("\\.org$" . org-mode))

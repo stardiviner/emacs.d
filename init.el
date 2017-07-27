@@ -11,23 +11,6 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-;;; load Org-mode at first to fix two versions source-code & MELPA mixture loaded.
-
-(use-package org
-  :load-path "~/Code/Emacs/org-mode/lisp/"
-  :pin manual
-  ;; :mode (("\\.org$" . org-mode))
-  :config
-  (use-package org-plus-contrib
-    :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
-    :pin manual)
-  (if (not (fboundp 'org-invisible-p))
-      (defalias 'org-invisible-p 'org-invisible-p2))
-  (if (not (fboundp 'string-to-int)) ; used in `ob-go.el'
-      (defalias 'string-to-int 'string-to-number))
-  )
-
-
 ;;; [ profiler ]
 
 ;; (profiler-start 'cpu+mem)
@@ -72,11 +55,20 @@
 
 (setq load-prefer-newer t)
 
-
 ;;; [ package manager ]
 
 (load "~/.emacs.d/init/init-package.el")
 (require 'init-package)
+
+(use-package org
+  :load-path "~/Code/Emacs/org-mode/lisp/"
+  :pin manual
+  ;; :mode (("\\.org$" . org-mode))
+  :config
+  (use-package org-plus-contrib
+    :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+    :pin manual)
+  )
 
 ;;; debug, profiling etc
 
@@ -158,11 +150,6 @@
   (use-package org-plus-contrib
     :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
     :pin manual)
-
-  (if (not (fboundp 'org-invisible-p))
-      (defalias 'org-invisible-p 'org-invisible-p2))
-  (if (not (fboundp 'string-to-int)) ; used in `ob-go.el'
-      (defalias 'string-to-int 'string-to-number))
   )
 
 (org-reload)

@@ -191,9 +191,6 @@
   (use-package org-plus-contrib
     :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
     :pin manual)
-
-  (if (not (fboundp 'org-invisible-p))
-      (defalias 'org-invisible-p 'org-invisible-p2))
   )
 
 
