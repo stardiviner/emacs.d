@@ -16,6 +16,15 @@
       (buffer-substring-no-properties (region-beginning) (region-end))
     ))
 
+;;; [ s.el ]
+
+(use-package s
+  :ensure t)
+
+;;; [ a.el ]
+
+(use-package a
+  :ensure t)
 
 ;;; [ hierarchy ] -- Emacs library to create, query, navigate and display hierarchy structures.
 
