@@ -165,20 +165,20 @@ for variable-pitch face."
 
 ;;; [ cnfonts ] -- same width English & Chinese
 
-(use-package cnfonts
-  :ensure t
-  :config
-  ;; make Spacemacs mode-line unicode icons display correctly.
-  ;; (cnfonts-set-spacemacs-fallback-fonts)
-  ;; make Org-mode different faces can be rescale.
-  ;; (setq cnfonts-use-face-font-rescale t)
-
-  ;; (cnfonts-enable)
-  (setq cnfonts-profiles
-        '("programming" "org-mode" "reading"))
-  ;; (cnfonts-switch-profile)
-  ;; (cnfonts--select-profile "programming")
-  )
+;; (use-package cnfonts
+;;   :ensure t
+;;   :config
+;;   ;; make Spacemacs mode-line unicode icons display correctly.
+;;   ;; (cnfonts-set-spacemacs-fallback-fonts)
+;;   ;; make Org-mode different faces can be rescale.
+;;   ;; (setq cnfonts-use-face-font-rescale t)
+;;   ;; enable cnfonts profile
+;;   ;; (cnfonts-enable)
+;;   (setq cnfonts-profiles
+;;         '("programming" "org-mode" "reading"))
+;;   ;; (cnfonts-switch-profile)
+;;   ;; (cnfonts--select-profile "programming")
+;;   )
 
 
 
