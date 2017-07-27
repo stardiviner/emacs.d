@@ -23,10 +23,14 @@
 (require 'color) ; for function `color-darken-name'
 
 ;;; initialize color-theme
-(require 'color-theme)
-(eval-after-load "color-theme"
-  '(progn
-     (color-theme-initialize)))
+(use-package color-theme
+  :ensure t
+  :config
+  (eval-after-load "color-theme"
+    '(progn
+       (color-theme-initialize)))
+  )
+
 (setq color-theme-is-global t
       color-theme-is-cumulative t)
 
