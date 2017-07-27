@@ -315,6 +315,16 @@
   (define-key my-calendar-prefix (kbd "w") 'my-open-calfw-week)
   (define-key my-calendar-prefix (kbd "d") 'my-open-calfw-day)
   (define-key my-calendar-prefix (kbd "m") 'my-open-calfw-month)
+
+  ;; for org-agenda
+  (use-package calfw-org
+    :ensure t)
+  ;; for Emacs Diary
+  (use-package calfw-cal
+    :ensure t)
+  ;; for iCal format
+  (use-package calfw-ical
+    :ensure t)
   )
 
 
