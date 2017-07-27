@@ -103,9 +103,11 @@
 ;;; [ ob-emacs-lisp ]
 
 (add-to-list 'org-babel-default-header-args:emacs-lisp
-             '(:results . "output"))
+             '(:results . "value"))
 (add-to-list 'org-babel-default-header-args:emacs-lisp
              '(:noweb . "yes"))
+;; (add-to-list 'org-babel-default-header-args:emacs-lisp
+;;              '(:lexical . "yes"))
 
 ;;; [ ob-lisp ]
 ;; (setq org-babel-lisp-eval-fn #'sly-eval)
@@ -116,6 +118,8 @@
 
 ;; use CIDER as the Clojure execution backend
 (setq org-babel-clojure-backend 'cider)
+
+;; (setq cider-auto-track-ns-form-changes t) ; whether check Org-mode buffer's (ns ) declarations.
 
 ;; Useful keybindings when using Clojure from Org
 ;; (org-defkey org-mode-map (kbd "C-x C-e") 'cider-eval-last-sexp)
@@ -128,11 +132,13 @@
 (add-to-list 'org-babel-default-header-args:clojure
              '(:eval . "yes"))
 (add-to-list 'org-babel-default-header-args:clojure
-             '(:results . "output"))
-;; (add-to-list 'org-babel-default-header-args:clojure
-;;              '(:show-process . t))
+             '(:results . "value"))
+;; (add-to-list 'org-babel-default-header-args:clojure ; for Clojure `dotimes' etc.
+;;              '(:show-process . "no"))
 (add-to-list 'org-babel-default-header-args:clojure
              '(:noweb . "yes"))
+;; (add-to-list 'org-babel-default-header-args:clojure
+;;              '(:session))
 
 
 ;;; [ ob-shell ]
@@ -159,10 +165,10 @@
 
 ;;; [ ob-js ]
 (require 'ob-js)
-;; (setq org-babel-js-cmd "node")
+;; (setq org-babel-js-cmd "node") ; "mozrepl"
 
 (add-to-list 'org-babel-default-header-args:js
-             '(:results . "output"))
+             '(:results . "value"))
 ;; (add-to-list 'org-babel-default-header-args:js
 ;;              '(:session . "*Javascript REPL*")  ; package `js-comint'
 ;;              )
@@ -329,7 +335,7 @@
 ;;         (:file . "temp.png")))
 
 (add-to-list 'org-babel-default-header-args:ruby
-             '(:results . "output"))
+             '(:results . "value"))
 
 (add-to-list 'org-babel-default-header-args:C
              '(:results . "output"))
