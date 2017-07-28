@@ -52,8 +52,7 @@
       '(;; default
         ;; (auto-mode . emacs)
         ;; Web Pages
-        ("\.x?html?\\'" . default)
-        ("\(?:xhtml\|html\)" . "firefox %s")
+        ("\.x?html?\\'" . "firefox %s")
         ;; PDF (disable this because I use package `org-pdfview'.
         ;; ("\\.pdf\\'" . auto-mode)
         ;; ("\\.pdf::\\([[:digit:]]+\\)\\'" . auto-mode)
