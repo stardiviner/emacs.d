@@ -110,8 +110,7 @@
 (use-package flycheck-inline
   :ensure t
   :config
-  (flycheck-inline-mode 1)
-  )
+  (flycheck-inline-enable))
 
 
 (provide 'init-my-prog-lint)
