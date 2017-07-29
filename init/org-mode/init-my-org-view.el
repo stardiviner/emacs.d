@@ -33,7 +33,7 @@
 ;; \pi will display as π
 ;; [C-c C-x \]
 (setq org-pretty-entities t
-      org-pretty-entities-include-sub-superscripts t)
+      org-pretty-entities-include-sub-superscripts nil)
 
 (setq org-script-display
       '(((raise -0.3)
