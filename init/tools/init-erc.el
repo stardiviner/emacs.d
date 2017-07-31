@@ -87,7 +87,7 @@ The function is suitable for `erc-after-connect'."
 
 
 ;; start & switch
-(defun my/erc-start-or-switch ()
+(defun my-erc-start-or-switch ()
   "Connect to ERC, or switch to last active buffer."
   (interactive)
   (if (get-buffer "irc.freenode.net:8000") ;; ERC already active?
@@ -99,9 +99,9 @@ The function is suitable for `erc-after-connect'."
      :full-name "christopher M. miles")
     ))
 
-(define-key my-irc-map (kbd "i") 'my/erc-start-or-switch)
+(define-key my-irc-map (kbd "i") 'my-erc-start-or-switch)
 
-(defun my/erc-switch-to-buffer ()
+(defun my-erc-switch-to-buffer ()
   "Switch to an erc buffer, or run `erc-select'.
 When called repeatedly, cycle through the buffers."
   (interactive)
@@ -113,7 +113,7 @@ When called repeatedly, cycle through the buffers."
     (if buffers
         (switch-to-buffer (car buffers)))))
 
-(define-key my-irc-map (kbd "b") 'my/erc-switch-to-buffer)
+(define-key my-irc-map (kbd "b") 'my-erc-switch-to-buffer)
 
 ;; [ Tracking ]
 ;;
@@ -171,7 +171,7 @@ When called repeatedly, cycle through the buffers."
 (erc-pcomplete-mode 1)
 ;; (erc-completion-mode 1)
 
-(defun my-erc-completion-setup ()
+(defun my/erc-completion-setup ()
   "Setup ERC completion."
   (make-local-variable 'company-minimum-prefix-length)
   (setq company-minimum-prefix-length 2)
@@ -181,7 +181,7 @@ When called repeatedly, cycle through the buffers."
                            (company-keywords :with company-dabbrev-code)
                            company-abbrev)))
 
-(add-hook 'erc-mode-hook #'my-erc-completion-setup)
+(add-hook 'erc-mode-hook #'my/erc-completion-setup)
 
 (add-hook 'erc-mode-hook #'turn-on-eldoc-mode)
 
@@ -230,7 +230,7 @@ When called repeatedly, cycle through the buffers."
      (point-min) (line-beginning-position)
      'face       'font-lock-comment-face)))
 
-(defun my/bury-buffer ()
+(defun my-bury-buffer ()
   "Bury buffer and maybe close its window."
   (interactive)
   (my/mark-read)
@@ -239,9 +239,9 @@ When called repeatedly, cycle through the buffers."
     (delete-window)))
 
 (with-eval-after-load 'erc
-  (define-key erc-mode-map (kbd "<escape>") #'my/bury-buffer))
+  (define-key erc-mode-map (kbd "<escape>") #'my-bury-buffer))
 (with-eval-after-load 'jabber
-  (define-key jabber-chat-mode-map (kbd "<escape>") #'my/bury-buffer))
+  (define-key jabber-chat-mode-map (kbd "<escape>") #'my-bury-buffer))
 
 
 ;; To remove the server part from the channel identifyer in the mode line,

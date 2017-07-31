@@ -2,10 +2,14 @@
 
 ;;; Commentary:
 
-;;; use `my-func' as prefix for every function.
+;;; Convensions:
+;;
+;; - prefix `my/' for private functions.
+;; - prefix `my-' for public global functions.
+;; - use `my-func' as prefix for every function.
 
 ;;; Code:
-
+
 ;;; Load init layers
 (setq layers-alist
       '((lisp-layer . "init-my-prog-lang-lisp")
@@ -241,6 +245,8 @@ Usage:
        (buffer-substring-no-properties (mark) (point))
      (my-stem-english (thing-at-point 'word)) ; word stemmer to convert plural word into singular.
      )))
+
+
 
 (provide 'init-my-functions)
 
