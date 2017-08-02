@@ -42,6 +42,9 @@ This can be useful for snippets to select kernel interactively."
       kernels
       )
     )
+
+  ;; support ox-latex + minted.
+  (add-to-list 'org-latex-minted-langs '(ipython "python"))
   )
 
 
