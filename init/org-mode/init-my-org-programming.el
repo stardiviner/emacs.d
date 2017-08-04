@@ -19,6 +19,11 @@
   (setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
   ;; add org-mode capture templates.
   (add-to-list 'org-capture-templates (org-projectile-project-todo-entry))
+
+  (use-package org-projectile-helm
+    :ensure t
+    :commands (org-projectile-helm-template-or-project)
+    )
   )
 
 
