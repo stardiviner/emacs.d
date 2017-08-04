@@ -414,8 +414,8 @@ When called repeatedly, cycle through the buffers."
 
 ;;; [ Spelling ]
 ;; this will slow down ERC typing in Emacs.
-;; (require 'erc-spelling)
-(erc-spelling-mode -1)
+(require 'erc-spelling)
+(erc-spelling-mode 1)
 ;; (setq erc-spelling-dictionaries '(("irc.tu-ilmenau.de" "german-new8")))
 
 
