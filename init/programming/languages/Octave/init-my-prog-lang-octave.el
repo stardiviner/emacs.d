@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ octave-mode ]
 
 (use-package octave
@@ -39,7 +39,15 @@
               (add-to-list 'ac-sources 'ac-complete-octave)))
   )
 
+(require 'ob-matlab)
+(add-to-list 'org-babel-load-languages '(matlab . t))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 
+(require 'ob-octave)
+(add-to-list 'org-babel-load-languages '(octave . t))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+
+
 
 (provide 'init-my-prog-lang-octave)
 
