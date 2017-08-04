@@ -12,11 +12,11 @@
 (require 'org-capture)
 
 (setq org-default-notes-file
-      (concat org-directory "/Capture/notes.org"))
+      (concat org-directory "/Tasks/notes.org"))
 
 (setq org-capture-templates
       '(("c" "[C]apture"
-         entry (file "~/Org/Capture/Capture.org")
+         entry (file "~/Org/Tasks/Tasks.org")
          "\n* TODO %^{Capture}\nSCHEDULED: %t\n%i\n%a\n\n%?"
          :prepend t
          :empty-lines 1
@@ -93,15 +93,13 @@
 (setq org-capture-templates
       (append '(("P" "[P]rotocol")
                 ("Pp" "[p]rotocol"
-                 entry (file+headline
-                        (concat org-directory "Capture/Capture.org") "Capture")
+                 entry (file (concat org-directory "Tasks/Tasks.org"))
                  "* %^{Title}\nSource: %u, \n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?"
                  :prepend t
                  :empty-lines 1
                  )
                 ("Pl" "[l]ink"
-                 entry (file+headline
-                        (concat org-directory "Capture/Capture.org") "Capture")
+                 entry (file (concat org-directory "Tasks/Tasks.org"))
                  "* %? [[%:link][%:description]] \nCaptured On: %U"
                  :prepend t
                  :empty-lines 1
