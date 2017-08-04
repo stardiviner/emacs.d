@@ -109,8 +109,9 @@
 
 (use-package flycheck-inline
   :ensure t
-  :config
-  (flycheck-inline-enable))
+  :defer
+  :init
+  (add-hook 'flycheck-mode-hook #'flycheck-inline-enable))
 
 
 (provide 'init-my-prog-lint)
