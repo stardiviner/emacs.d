@@ -469,13 +469,17 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
                 (todo "FEATURE"))))
 
 (add-to-list 'org-agenda-custom-commands
-             '("w" tags-todo "CATEGORY=\"Work\""))
+             '("w" "Work" tags-todo "Work"
+               ((org-agenda-overriding-header "Work"))))
 
 ;; used to filter out fragment time tasks.
 (add-to-list 'org-agenda-custom-commands
              '("f" "Fragment time tasks"
                ((tags "fragment"))))
 
+(add-to-list 'org-agenda-custom-commands
+             '("A" "Agriculture" tags-todo "Agriculture"
+               ((org-agenda-overriding-header "Agriculture"))))
 
 ;;;; [ org-review ] -- Track when you have done a review in org mode.
 
