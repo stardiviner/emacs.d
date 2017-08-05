@@ -268,7 +268,7 @@
 ;;; link face [[link][desc]]
 (set-face-attribute 'org-link nil
                     :background (color-darken-name (face-background 'default) 5)
-                    :underline "dark cyan"
+                    :underline "DarkTurquoise"
                     ;; :box '(:color "black")
                     )
 
