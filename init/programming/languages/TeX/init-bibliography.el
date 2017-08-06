@@ -21,9 +21,6 @@
 
 (use-package bibtex
   :config
-  ;; (setq bibtex-parse-keys-fast t
-  ;;       bibtex-parse-keys-timeout 60
-  ;;       )
   (use-package bibtex-style
     :ensure t)
   (use-package bibtex-utils
