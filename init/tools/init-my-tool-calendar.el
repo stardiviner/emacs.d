@@ -5,7 +5,7 @@
 
 
 ;;; Code:
-
+
 (unless (boundp 'my-calendar-prefix)
   (define-prefix-command 'my-calendar-prefix))
 (define-key my-tools-prefix (kbd "c") 'my-calendar-prefix)
@@ -330,7 +330,7 @@
 
 ;;; [ iCalendar ]
 
-
+
 
 (provide 'init-my-tool-calendar)
 

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ magithub ] -- Magit interfaces for GitHub.
 
 (use-package magithub
@@ -15,6 +15,7 @@
   :config
   (magithub-feature-autoinject t))
 
+
 
 (provide 'init-my-prog-vcs-git-github)
 

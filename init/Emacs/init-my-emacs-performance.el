@@ -11,8 +11,12 @@
 
 ;; - [M-x customize-group RET jit-lock RET]
 
-;; (setq-default jit-lock-defer-time nil)
-(setq jit-lock-stealth-verbose t)
+;; Allow font-lock-mode to do background parsing.
+;; (setq jit-lock-stealth-verbose nil
+;;       jit-lock-stealth-time 1
+;;       ;; jit-lock-stealth-load 200
+;;       jit-lock-chunk-size 1000
+;;       jit-lock-defer-time 0.05)
 
 
 ;;; [ Garbage Collection ]

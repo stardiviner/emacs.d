@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 
 ;;; inline images
 ;;
@@ -24,7 +24,7 @@
       ;; org-latex-image-default-height
       )
 
-
+
 ;;; set default Org-mode inline image background color.
 
 (defcustom org-inline-image-background nil
