@@ -121,6 +121,7 @@
 ;;; [ calfw ] -- Calendar framework for Emacs
 
 (use-package calfw
+  :ensure t
   :defer t
   :bind (:map my-calendar-prefix
               ("o" . cfw:open-org-calendar)
