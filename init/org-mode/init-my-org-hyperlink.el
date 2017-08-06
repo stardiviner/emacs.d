@@ -49,9 +49,7 @@
 ;; ("pdf" . (lambda (file link) (foo)))
 
 (setq org-file-apps
-      '(;; default
-        ;; (auto-mode . emacs)
-        ;; Web Pages
+      '(;; Web Pages
         ("\.x?html?\\'" . "firefox %s")
         ;; PDF (disable this because I use package `org-pdfview'.
         ;; ("\\.pdf\\'" . auto-mode)
@@ -62,9 +60,9 @@
         ;; CHM
         ("\\.chm\\'" . "kchmviewer %s")
         ;; EBooks
-        ("\\.epub\\'" . "ebook-viewer %s")
-        ("\\.mobi\\'" . "ebook-viewer %s")
-        ("\\.azw3\\'" . "okular %s")
+        ;; ("\\.epub\\'" . "okular %s")
+        ;; ("\\.mobi\\'" . "okular %s")
+        ("\\.azw3\\'" . "ebook-viewer %s")
         ;; Image
         ("\\.png\\'" . "sxiv %s")
         ;; ("\\.jp\(e\)?g" . "sxiv %s")
