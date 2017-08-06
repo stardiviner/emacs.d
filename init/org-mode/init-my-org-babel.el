@@ -508,15 +508,12 @@
 
 ;;; [ ob-async ] -- enables asynchronous execution of org-babel src blocks for *any* languages.
 
-(use-package ob-async
-  :ensure t
-  :config
-  ;; add header argument `:async' to default header arguments list
-  ;; (add-to-list 'org-babel-default-header-args '(:async)) ; not work for Clojure Babel.
-
-  (add-to-list 'org-babel-default-header-args:shell
-               '(:async))
-  )
+;; (use-package ob-async
+;;   :ensure t
+;;   :config
+;;   ;; (add-to-list 'org-babel-default-header-args:shell
+;;   ;;              '(:async))
+;;   )
 
 ;;; [ org-babel-eval-in-repl ] -- eval org-babel block code with eval-in-repl.el
 
