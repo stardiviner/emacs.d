@@ -36,6 +36,20 @@
   (allout-minor-mode 1)
   )
 
+;;; [ outshine ] -- outline with outshine outshines outline.
+
+(use-package helm-navi
+  :ensure t
+  :config
+  (use-package outshine
+    :ensure t
+    :init
+    (add-hook 'prog-mode-hook 'outline-minor-mode)
+    :config
+    ;; (add-hook 'outline-minor-mode-hook 'outshine-hook-function) ; This will add font lock colors to comments outline.
+    ))
+
+
 
 (provide 'init-my-emacs-outline)
 
