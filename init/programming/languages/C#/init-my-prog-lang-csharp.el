@@ -17,10 +17,9 @@
 (use-package omnisharp
   :ensure t
   :config
-  (setq omnisharp-server-executable-path
-        (expand-file-name
-         "~/Code/CSharp/omnisharp-server/OmniSharp/bin/Debug/OmniSharp.exe")
-        omnisharp-company-begin-after-member-access t
+  ;; (setq omnisharp-server-executable-path
+  ;;       (expand-file-name "~/Code/CSharp/omnisharp-server/OmniSharp/bin/Debug/OmniSharp.exe"))
+  (setq omnisharp-company-begin-after-member-access t
         omnisharp-company-do-template-completion t
         omnisharp-company-template-use-yasnippet t
         omnisharp-company-ignore-case t
