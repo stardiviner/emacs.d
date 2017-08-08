@@ -109,9 +109,18 @@
 
 (use-package flycheck-inline
   :ensure t
-  :defer
-  :init
-  (add-hook 'flycheck-mode-hook #'flycheck-inline-enable))
+  :config
+  (add-hook 'flycheck-mode-hook #'flycheck-inline-enable)
+  )
+
+;;; [ flycheck-popup-tip ] -- displaying errors from Flycheck using popup.el.
+
+;; (use-package flycheck-popup-tip
+;;   :ensure t
+;;   :config
+;;   (with-eval-after-load 'flycheck
+;;     (add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode))
+;;   )
 
 
 (provide 'init-my-prog-lint)
