@@ -606,11 +606,6 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
   ;; (org-alert-enable)
   )
 
-;;; [ org-super-agenda ] -- Supercharge your org-agenda.
-
-(use-package org-super-agenda
-  :ensure t)
-
 
 
 (provide 'init-my-org-agenda)
