@@ -6,7 +6,7 @@
 ;; - variable: `image-file-name-extensions'
 
 ;;; Code:
-
+
 ;;; [ auto-image-file-mode ]
 
 ;; (setq image-file-name-extensions
@@ -18,7 +18,7 @@
 (auto-image-file-mode t)
 
 
-;;; [ iimage-mode ]
+;;; [ iimage ] -- inline image minor mode.
 
 (use-package iimage
   :ensure t
@@ -33,9 +33,11 @@
 ;;; [ picpocket ] -- image viewer
 
 (use-package picpocket
-  :ensure t)
+  :ensure t
+  :commands (picpocket)
+  )
 
-
+
 (provide 'init-my-emacs-image)
 
 ;;; init-my-emacs-image.el ends here
