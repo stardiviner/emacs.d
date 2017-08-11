@@ -15,7 +15,7 @@
 ;;         "svg"))
 
 ;; auto display image
-(auto-image-file-mode t)
+;; (auto-image-file-mode t) ; NOTE: this will open image file with "actual size" instead of fit window width.
 
 
 ;;; [ iimage ] -- inline image minor mode.
