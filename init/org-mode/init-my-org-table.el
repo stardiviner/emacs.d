@@ -6,11 +6,17 @@
 
 
 ;;; Code:
-
+
 
 (setq org-enable-table-editor t)
 
+;;; [ org-table-sticky-header ] -- Sticky header for org-mode tables.
 
+(use-package org-table-sticky-header
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook 'org-table-sticky-header-mode)
+  )
 
 ;;; [ orgtbl-ascii-plot ] -- ascii-art bar plots in org-mode tables.
 
@@ -22,13 +28,11 @@
   :ensure t
   :defer t)
 
-;;; [ org-table-sticky-header ] -- Sticky header for org-mode tables.
+;;; [ orgtbl-aggregate ] -- create an aggregated Org table from another one.
 
-(use-package org-table-sticky-header
+(use-package orgtbl-aggregate
   :ensure t
-  :config
-  (add-hook 'org-mode-hook 'org-table-sticky-header-mode)
-  )
+  :defer t)
 
 
 (provide 'init-my-org-table)
