@@ -142,7 +142,7 @@
     (define-prefix-command 'my-search-prefix))
   (global-set-key (kbd "C-c s") 'my-search-prefix)
   (define-key my-search-prefix (kbd "g") 'counsel-grep)
-  (define-key my-search-prefix (kbd "G") 'counsel-ag) ; [C-u] prompt for dir support
+  (define-key my-search-prefix (kbd "a") 'counsel-ag) ; [C-u] prompt for dir support
   :config
   ;; (setq ivy-switch-buffer-show-info '("%s" "buffer-name"))
   (setq counsel-yank-pop-truncate t)

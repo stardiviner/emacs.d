@@ -15,14 +15,14 @@
 (require 'init-my-emacs-search-occur)
 (require 'init-my-emacs-search-grep)
 (require 'init-my-emacs-search-wgrep)
-(require 'init-my-emacs-search-ack)
-(require 'init-my-emacs-search-ag)
-(require 'init-my-emacs-search-pt)
+;; (require 'init-my-emacs-search-ack)
+;; (require 'init-my-emacs-search-ag)
+;; (require 'init-my-emacs-search-pt)
 (require 'init-my-emacs-search-ripgrep)
 (require 'init-my-emacs-search-finder)
 (require 'init-my-emacs-search-engine)
 
-(define-key my-search-prefix (kbd "s") 'ag)
+(define-key my-search-prefix (kbd "s") 'counsel-rg)
 
 ;;; [ socyl ] -- The Emacs frontend for several search tools (ag, pt, sift, ripgrep, ...).
 
