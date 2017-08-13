@@ -32,26 +32,26 @@
 
 ;;; [ company-shell ] -- company-mode backend for shell script completion.
 
-(use-package company-shell
-  :ensure t
-  :config
-  (setq company-shell-modes '(sh-mode fish-mode shell-mode eshell-mode))
-  (setq company-shell-use-help-arg nil)
-
-  (defun my-company-shell-setup ()
-    ;; (setq-local completion-at-point-functions
-    ;;             (delq 'sh-completion-at-point-function
-    ;;                   completion-at-point-functions))
-    (setq-local company-minimum-prefix-length 2)
-    (add-to-list 'company-backends
-                 '(company-shell :with company-shell-env))
-    )
-  
-  (dolist (hook '(sh-mode-hook
-                  shell-mode-hook
-                  ))
-    (add-hook hook #'my-company-shell-setup))
-  )
+;; (use-package company-shell
+;;   :ensure t
+;;   :config
+;;   (setq company-shell-modes '(sh-mode fish-mode shell-mode eshell-mode))
+;;   (setq company-shell-use-help-arg nil)
+;;
+;;   (defun my-company-shell-setup ()
+;;     ;; (setq-local completion-at-point-functions
+;;     ;;             (delq 'sh-completion-at-point-function
+;;     ;;                   completion-at-point-functions))
+;;     (setq-local company-minimum-prefix-length 2)
+;;     (add-to-list 'company-backends
+;;                  '(company-shell :with company-shell-env))
+;;     )
+;;
+;;   (dolist (hook '(sh-mode-hook
+;;                   shell-mode-hook
+;;                   ))
+;;     (add-hook hook #'my-company-shell-setup))
+;;   )
 
 
 
