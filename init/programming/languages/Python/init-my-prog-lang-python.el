@@ -93,17 +93,6 @@
   (add-hook 'python-mode-hook #'pyvenv-mode)
   )
 
-
-;;; [ pythonic ]
-
-;; (use-package pythonic
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (pythonic-activate "~/.virtualenvs/python3")
-;;   )
-
-
 ;;; [ pygen ] -- Python code generation in Emacs with Elpy and python-mode.
 
 ;; (use-package pygen
@@ -120,24 +109,6 @@
 ;;   :init
 ;;   (add-hook 'python-mode-hook 'cinspect)
 ;;   )
-
-;;; [ importmagic ] -- An Emacs package that resolves unimported Python symbols.
-
-;; (use-package importmagic
-;;   :ensure t
-;;   :init
-;;   (add-hook 'python-mode-hook 'importmagic-mode))
-
-;;; [ jedi-direx ] -- Tree style source code viewer for Python buffer.
-
-(use-package jedi-direx
-  :ensure t
-  :after python
-  :bind (:map python-mode-map
-              ("C-c x" . jedi-direx:pop-to-buffer))
-  :config
-  (add-hook 'jedi-mode-hook 'jedi-direx:setup)
-  )
 
 
 
