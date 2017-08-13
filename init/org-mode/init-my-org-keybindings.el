@@ -37,6 +37,19 @@
 (define-key my-org-link-prefix (kbd "C-o") 'org-open-at-point-global)
 
 
+(unless (boundp 'my-org-timer-prefix)
+  (define-prefix-command 'my-org-timer-prefix))
+(define-key my-org-prefix (kbd "C-t") 'my-org-timer-prefix)
+
+(define-key my-org-timer-prefix (kbd ".") 'org-timer)
+(define-key my-org-timer-prefix (kbd ";") 'org-timer-set-timer)
+(define-key my-org-timer-prefix (kbd "0") 'org-timer-start)
+(define-key my-org-timer-prefix (kbd "_") 'org-timer-stop)
+(define-key my-org-timer-prefix (kbd ",") 'org-timer-pause-or-continue)
+(define-key my-org-timer-prefix (kbd "-") 'org-timer-item)
+(define-key my-org-timer-prefix (kbd "'") 'org-timer-show-remaining-time)
+
+
 (unless (boundp 'my-org-clock-prefix)
   (define-prefix-command 'my-org-clock-prefix))
 (define-key my-org-prefix (kbd "C-c") 'my-org-clock-prefix)
@@ -48,8 +61,7 @@
 (define-key my-org-clock-prefix (kbd "o") 'org-clock-out)
 (define-key my-org-clock-prefix (kbd "c") 'org-clock-cancel)
 
-
-
+
 (provide 'init-my-org-keybindings)
 
 ;;; init-my-org-keybindings.el ends here

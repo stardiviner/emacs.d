@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Timer ]
 
 ;;; Usage:
@@ -25,17 +25,6 @@
 (setq org-timer-default-timer 25)       ; Pomodoro time management technique.
 (setq org-timer-display 'mode-line)
 
-(unless (boundp 'my-org-timer-prefix)
-  (define-prefix-command 'my-org-timer-prefix))
-(define-key my-org-prefix (kbd "C-t") 'my-org-timer-prefix)
-
-(define-key my-org-timer-prefix (kbd ".") 'org-timer)
-(define-key my-org-timer-prefix (kbd ";") 'org-timer-set-timer)
-(define-key my-org-timer-prefix (kbd "0") 'org-timer-start)
-(define-key my-org-timer-prefix (kbd "_") 'org-timer-stop)
-(define-key my-org-timer-prefix (kbd ",") 'org-timer-pause-or-continue)
-(define-key my-org-timer-prefix (kbd "-") 'org-timer-item)
-(define-key my-org-timer-prefix (kbd "'") 'org-timer-show-remaining-time)
 
 
 ;;; [ Clock ]
@@ -115,7 +104,7 @@
   :config
   (org-clock-today-mode 1))
 
-
+
 (provide 'init-my-org-clock)
 
 ;;; init-my-org-clock.el ends here
