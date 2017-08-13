@@ -46,6 +46,7 @@
 ;;   (setq enh-ruby-bounce-deep-indent nil
 ;;         enh-ruby-deep-arglist t
 ;;         enh-ruby-deep-indent-paren t
+;;         enh-ruby-deep-indent-construct nil
 ;;         enh-ruby-indent-level 2
 ;;         enh-ruby-use-encoding-map t
 ;;         enh-ruby-use-ruby-mode-show-parens-config nil
@@ -82,18 +83,6 @@
   :ensure t)
 
 
-;;; [ ruby-hash-syntax ] -- automatically convert the selected region of ruby code between 1.8 and 1.9 hash styles.
-
-(use-package ruby-hash-syntax
-  :ensure t
-  :config
-  (with-eval-after-load 'ruby-mode
-    (define-key ruby-mode-map (kbd "C-c c c") 'ruby-toggle-hash-syntax))
-  (with-eval-after-load 'enh-ruby-mode
-    (define-key enh-ruby-mode-map (kbd "C-c c c") 'ruby-toggle-hash-syntax))
-  )
-
-
 ;;; [ ruby-tools ] -- Ruby tools is a collection of handy functions for Emacs ruby-mode.
 
 (use-package ruby-tools
@@ -104,70 +93,11 @@
   )
 
 
-;;; [ ruby-block ] -- highlight matching block
-
-;; (use-package ruby-block
-;;   :ensure t
-;;   :config
-;;   (setq ruby-block-delay 0)
-;;   (setq ruby-block-highlight-toggle t)
-;;   (ruby-block-mode t)
-;;   )
-
-
-;;; [ ruby-electric ]
-
-;;; disable this, to fix conflict with other electric functions.
-;; (use-package ruby-electric
-;;   :ensure t
-;;   :init
-;;   (add-hook 'ruby-mode-hook 'ruby-electric-mode)
-;;   (add-hook 'enh-ruby-mode-hook 'ruby-electric-mode)
-;;   :config
-;;   (setq ruby-electric-autoindent-on-closing-char t)
-;;   )
-
-
-;;; [ ruby-end ]
-
-;; (use-package ruby-end
-;;   :ensure t
-;;   :init
-;;   (add-hook 'ruby-mode-hook 'ruby-end-mode)
-;;   (add-hook 'enh-ruby-mode-hook 'ruby-end-mode)
-;;   )
-
-
-;;; [ yard-mode ] -- for Ruby YARD comments
-
-(use-package yard-mode
-  :ensure t
-  :init
-  (add-hook 'ruby-mode-hook 'yard-mode)
-  (add-hook 'enh-ruby-mode-hook 'yard-mode)
-  :config
-  ;; workaround of `robe-eldoc'
-  ;; (defun yard-eldoc-message ()
-  ;;   (cond
-  ;;    ((yard-in-comment-p)
-  ;;     (let ((tag (yard-tag-at-point)))
-  ;;       (when tag (yard-tag-syntax tag))))
-  ;;    ((functionp 'robe-eldoc)
-  ;;     (robe-eldoc))))
-  
-  (setq yard-use-eldoc nil)
-
-  ;; If you would also like eldoc support, so that the expected syntax for the tag
-  ;; beneath your cursor is displayed in the minibuffer, add that hook too:
-  ;; (add-hook 'ruby-mode-hook 'eldoc-mode)
-  ;; (add-hook 'enh-ruby-mode-hook 'eldoc-mode)
-  )
-
-
 ;;; [ yari ] -- Yet Another Ri Interface
 
 (use-package yari
   :ensure t
+  :defer t
   :config
   ;; (setq yari-ruby-program-name "ruby"
   ;;       yari-ri-program-name "ri")
@@ -266,6 +196,7 @@
 
 (use-package robe
   :ensure t
+  :defer t
   :init
   (dolist (hook '(ruby-mode-hook
                   enh-ruby-mode-hook
@@ -302,6 +233,7 @@
 
 (use-package rspec-mode
   :ensure t
+  :defer t
   :config
   ;; (setq rspec-key-command-prefix (kbd "C-c t r"))
   (setq rspec-key-command-prefix (kbd "C-c ,"))
@@ -400,6 +332,7 @@
 
 (use-package minitest
   :ensure t
+  :defer t
   :config
   (setq minitest-default-env nil
         ;; minitest-keymap-prefix (kbd "C-c t m") ; default [C-c ,]
@@ -460,7 +393,6 @@
   (add-hook 'ruby-mode-hook #'rubocop-mode)
   )
 
-
 ;;; [ Rake ]
 
 (use-package rake
@@ -470,40 +402,10 @@
   (setq rake-completion-system 'default)
   )
 
-
 ;;; [ bundler ] -- Interact with Bundler from Emacs.
 
 (use-package bundler
   :ensure t)
-
-
-;;; [ motion-mode ] -- RubyMotion
-
-;; (use-package motion-mode
-;;   :ensure t
-;;   :init
-;;   (add-hook 'ruby-mode-hook 'motion-recognize-project)
-;;   :config
-;;   (when (featurep 'auto-complete)
-;;     (add-to-list 'ac-modes 'motion-mode)
-;;     (add-to-list 'ac-sources 'ac-source-dictionary))
-;;
-;;   ;; set key-binds as you like
-;;   (define-key motion-mode-map (kbd "C-c C-c") 'motion-execute-rake)
-;;   (define-key motion-mode-map (kbd "C-c C-d") 'motion-dash-at-point)
-;;
-;;   ;; (define-key motion-mode-map (kbd "C-c C-c") 'motion-execute-rake)
-;;   ;; (define-key motion-mode-map (kbd "C-c C-d") (lambda () (interactive) (motion-execute-rake-command "device")))
-;;   ;; (define-key motion-mode-map (kbd "C-c C-o") 'motion-dash-at-point)
-;;   ;; (define-key motion-mode-map (kbd "C-c C-p") 'motion-convert-code-region)
-;;   )
-
-
-;;; [ feature-mode ] -- Major mode for Cucumber feature files
-
-;; (use-package feature-mode
-;;   :ensure t)
-
 
 ;;; [ ruby-factory ] -- minor mode for Ruby test object generation libraries.
 
@@ -535,7 +437,7 @@
 
 ;; (load-file "~/Code/Emacs/ruby-kungfu/kungfu.el")
 
-
+
 (provide 'init-my-prog-lang-ruby)
 
 ;;; init-my-prog-lang-ruby.el ends here
