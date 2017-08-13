@@ -336,7 +336,9 @@
 ;;; Science
 
 ;; (require 'init-my-math)
+(require 'init-my-physics)
 (require 'init-my-chemistry)
+(require 'init-my-biology)
 
 ;;; Engineering
 
