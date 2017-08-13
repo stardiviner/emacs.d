@@ -33,7 +33,7 @@
   (setq-default flycheck-temp-prefix ".flycheck")
   (setq flycheck-check-syntax-automatically '(save idle-change new-line mode-enabled)
         flycheck-idle-change-delay 5.0
-        flycheck-display-errors-delay 2.0
+        ;; flycheck-display-errors-delay 0.9
         flycheck-highlighting-mode 'symbols
         flycheck-indication-mode 'left-fringe
         ;; 'flycheck-fringe-bitmap-double-arrow
@@ -107,20 +107,21 @@
 
 ;;; [ flycheck-ineline ] -- display errors with inline style.
 
-(use-package flycheck-inline
-  :ensure t
-  :config
-  (add-hook 'flycheck-mode-hook #'flycheck-inline-enable)
-  )
-
-;;; [ flycheck-popup-tip ] -- displaying errors from Flycheck using popup.el.
-
-;; (use-package flycheck-popup-tip
+;; (use-package flycheck-inline
 ;;   :ensure t
 ;;   :config
 ;;   (with-eval-after-load 'flycheck
-;;     (add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode))
+;;     (add-hook 'flycheck-mode-hook #'flycheck-inline-enable))
 ;;   )
+
+;;; [ flycheck-popup-tip ] -- displaying errors from Flycheck using popup.el.
+
+(use-package flycheck-popup-tip
+  :ensure t
+  :config
+  (with-eval-after-load 'flycheck
+    (add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode))
+  )
 
 
 
