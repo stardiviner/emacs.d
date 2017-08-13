@@ -282,6 +282,8 @@ When called repeatedly, cycle through the buffers."
 (erc-sound-enable)
 (erc-update-modules)
 
+(setq erc-default-sound (concat user-emacs-directory "resources/audio/Hacking Game/hesfx_untold_tick2.wav"))
+
 (setq erc-sound-path `(,(concat user-emacs-directory "resources/audio/Hacking Game/")
                        ,(concat user-emacs-directory "resources/audio/Ingress/")))
 
