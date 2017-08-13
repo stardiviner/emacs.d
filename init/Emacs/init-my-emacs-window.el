@@ -27,6 +27,8 @@
      (split-window-horizontally)
      (other-window 1)))
 
+;;; My helper window functions.
+
 (defun my-turn-current-window-into-new-frame ()
   "Popup current window to another new frame."
   (interactive)

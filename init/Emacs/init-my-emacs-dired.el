@@ -111,6 +111,7 @@
   ;; [ dired+ / diredp ]
   (use-package dired+
     :ensure t
+    :defer t
     :config
     ;; disable by default hide details
     (setq diredp-hide-details-initially-flag nil
@@ -122,7 +123,9 @@
     ;; replaced (deleted) by the new one.
     (diredp-toggle-find-file-reuse-dir 1)
 
-    ;; image in Dired
+    ;; [image-dired ] -- image in Dired
+    ;; [M-x image-dired]
+    ;; (require 'image-dired)
     (setq image-dired-thumb-size 100
           diredp-image-preview-in-tooltip 100)
     (add-hook 'dired-mode-hook 'tooltip-mode)
@@ -230,6 +233,11 @@
 
   (use-package dired-hacks-utils
     :ensure t)
+  (use-package dired-collapse
+    :ensure t
+    :config
+    ;; (dired-collapse-mode 1)
+    )
 
   (use-package ivy-dired-history
     :ensure t

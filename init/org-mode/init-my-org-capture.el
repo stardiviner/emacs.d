@@ -58,6 +58,11 @@
          "* %?%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
         ))
 
+;;; Context org-capture templates.
+;;; TODO
+;; (setq org-capture-templates-contexts
+;;       '(("p" (in-mode . "message-mode"))))
+
 
 (define-key my-org-prefix (kbd "c") 'org-capture)
 

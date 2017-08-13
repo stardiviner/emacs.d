@@ -15,6 +15,16 @@
   (setq prodigy-completion-system 'ivy
         prodigy-kill-process-buffer-on-stop nil
         )
+
+  ;; user defined services.
+  ;; (prodigy-define-service
+  ;;   :name "Clojure REPL (Leiningen)"
+  ;;   :command "lein"
+  ;;   :args '("repl")
+  ;;   :cwd "~/Code/learning/Clojure/clojure-examples/"
+  ;;   :tags '(Clojure)
+  ;;   :stop-signal 'sigkill
+  ;;   :kill-process-buffer-on-stop t)
   )
 
 

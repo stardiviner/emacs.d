@@ -83,6 +83,7 @@ The function is suitable for `erc-after-connect'."
 ;; `erc-modified-channels-alist'.
 (setq erc-track-remove-disconnected-buffers nil)
 
+;;; [ SSL ]
 ;; SSL connections
 
 
@@ -221,6 +222,7 @@ When called repeatedly, cycle through the buffers."
 (add-to-list 'erc-modules 'smiley)
 (erc-update-modules)
 
+;;; [ TeX/LaTeX ] -- $ LaTeX $
 
 ;; Marking Emacs chat buffers as read (erc, jabber, etc).
 (defun my/mark-read ()

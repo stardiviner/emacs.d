@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ org-page ]
 
 (use-package org-page
@@ -64,7 +64,7 @@
   )
 
 
-
+
 
 (provide 'init-my-tool-blog-org)
 

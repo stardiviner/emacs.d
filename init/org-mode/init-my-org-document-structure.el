@@ -60,6 +60,8 @@
 (setq org-columns-default-format
       "%25ITEM %TODO %3PRIORITY %TAGS %6effort(EFFORT){:}")
 
+;; (setq org-catch-invisible-edits 'smart)
+
 ;; * Table
 
 ;; * Plotting

@@ -76,6 +76,7 @@
 
 (use-package org-ref
   :ensure t
+  :defer t
   :config
   ;; https://github.com/jkitchin/org-ref/issues/184
   (setq bibtex-completion-pdf-open-function 'org-open-file)

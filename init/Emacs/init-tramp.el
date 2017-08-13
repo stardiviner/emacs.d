@@ -25,6 +25,10 @@
 
   ;; speed-up tramp.
   (setq tramp-completion-reread-directory-timeout nil)
+
+  ;; ad-hoc proxy
+  ;; (setq tramp-save-ad-hoc-proxies t)
+  ;; (setq tramp-default-proxies-alist '())
   
   ;; <default user>
   ;; ssh connect: host, user
