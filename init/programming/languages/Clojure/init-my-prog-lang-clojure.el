@@ -303,8 +303,11 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   (add-hook 'cider-connected-hook
             #'(lambda ()
                 (sit-for 10)
-                (my/cider-repl-eval "(import [java.io.File])") ; import Java object static methods like `.getCanonicalFile'.
-                (my/cider-repl-eval "(use '(incanter core stats datasets charts io pdf))")
+                ;; import Java object static methods like `.getCanonicalFile'.
+                (my/cider-repl-eval "(import [java.io File InputStream])")
+                ;; load Incanter commonly usaed namespaces.
+                ;; (my/cider-repl-eval "(use '(incanter core stats datasets charts io pdf))")
+                (my/cider-repl-eval "(use '(incanter stats charts))")
                 ) t)
   )
 
@@ -426,11 +429,13 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 ;;              '(:show-process . "no"))
 (add-to-list 'org-babel-default-header-args:clojure
              '(:noweb . "yes"))
-;; (add-to-list 'org-babel-default-header-args:clojure
-;;              '(:session))
+(add-to-list 'org-babel-default-header-args:clojure
+             '(:session "*cider-repl ob-clojure*"))
 
-;; auto start CIDER REPL session for Org-mode Babel by jack-in.
-(add-hook 'after-init-hook #'cider-jack-in)
+;; auto start CIDER REPL session in a complete Leiningen project environment for Org-mode Babel by jack-in.
+(progn
+  (find-file (expand-file-name "~/.emacs.d/Org-mode/ob-clojure/src/ob_clojure/core.clj"))
+  (cider-jack-in))
 
 
 ;;; [ typed-clojure-mode ] -- Typed Clojure minor mode for Emacs.
