@@ -240,7 +240,7 @@
   (add-hook 'tern-mode-hook
             (lambda ()
               ;; tern-mode auto push `tern-completion-at-point' to `capf'.
-              (my-company-add-backend-locally 'company-jquery)
+              ;; (my-company-add-backend-locally 'company-jquery) ; FIXME: `company-jquery' definition is void.
               (my-company-add-backend-locally 'company-tern)
               ))
   :config
