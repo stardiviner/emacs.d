@@ -38,12 +38,15 @@
   ;; (setq TeX-macro-global '())
   ;; (setq TeX-outline-extra t)
 
-  ;; [ Preview ]
+  ;; [ Preview ] -- [C-c C-p C-p]
   ;; (setq preview-transparent-color '(highlight :background)
   ;;       preview-auto-reveal
   ;;       preview-auto-cache-preamble 'ask
   ;;       )
 
+  ;; increase TeX/LaTeX preview scale size.
+  (setq preview-scale-function 1.7)
+  
   ;; view generated PDF with `pdf-tools'. (this is built-in now.)
   (unless (assoc "PDF Tools" TeX-view-program-list-builtin)
     (add-to-list 'TeX-view-program-list-builtin '("PDF Tools" TeX-pdf-tools-sync-view)))
