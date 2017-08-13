@@ -24,6 +24,14 @@
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 
 
+;;; [ makefile-executor ] -- Emacs helpers to run things from makefiles.
+
+(use-package makefile-executor
+  :ensure t
+  :config
+  (add-hook 'makefile-mode-hook 'makefile-executor-mode))
+
+
 ;;; [ CMake ]
 
 (require 'init-my-prog-make-cmake)
