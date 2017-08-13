@@ -137,6 +137,8 @@
 (use-package org-edit-latex
   :ensure t
   :config
+  (setq org-edit-latex-create-master 'ask)
+  
   (add-hook 'org-mode-hook #'org-edit-latex-mode)
 
   (defun org-edit-latex-active-in-LaTeX-fragment ()
