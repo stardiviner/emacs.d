@@ -37,15 +37,15 @@
 
 ;;; [ eldoc-overlay-mode ]  -- display eldoc with contextual documentation overlay.
 
-;; (use-package eldoc-overlay-mode
-;;   :ensure t
-;;   :config
-;;   (setq eldoc-overlay-mode-function 'inline-docs)
-;;   (add-hook 'org-mode-hook
-;;             (lambda ()
-;;               (setq-local eldoc-message-function #'eldoc-minibuffer-message)
-;;               ))
-;;   (eldoc-overlay-mode 1))
+(use-package eldoc-overlay-mode
+  :ensure t
+  :config
+  (setq eldoc-overlay-mode-function 'inline-docs)
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (setq-local eldoc-message-function #'eldoc-minibuffer-message)
+              ))
+  (eldoc-overlay-mode 1))
 
 
 ;;; [ suggestion-box ] -- show tooltip on the cursor with convenient information.
