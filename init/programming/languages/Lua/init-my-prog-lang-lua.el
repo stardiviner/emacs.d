@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ lua-mode ]
 
 (use-package lua-mode
@@ -24,7 +24,15 @@
   (define-key lua-mode-map (kbd "C-c C-s") 'run-lua)
   )
 
+
+;;; [ ob-lua ]
 
+(require 'ob-lua)
+
+(add-to-list 'org-babel-load-languages '(lua . t))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+
+
 ;;; [ company-lua ]
 
 (use-package company-lua

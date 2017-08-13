@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ `sh-mode' (shell-script-mode ]
 
 (setq sh-indentation 2
@@ -53,6 +53,7 @@
     (add-hook hook #'my-company-shell-setup))
   )
 
+
 
 (provide 'init-my-prog-lang-shell)
 

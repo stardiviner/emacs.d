@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 
 (defvar css-dialects-mode
   '(css-mode
@@ -18,8 +18,7 @@
   (css-eldoc-enable)
   (rainbow-mode 1)
   )
-
-
+
 ;;; [ css-mode ]
 
 (autoload 'css-mode "css-mode" "Mode for editing CSS files" t)
@@ -35,7 +34,15 @@
             (my-company-add-backend-locally 'company-css)
             ))
 
+
+;;; [ ob-css ]
 
+(require 'ob-css)
+
+(add-to-list 'org-babel-load-languages '(css . t))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+
+
 ;;; [ css-eldoc ]
 
 (use-package css-eldoc
@@ -136,7 +143,7 @@
   ;; (setq scss-sass-command "sass")
   )
 
-
+
 (provide 'init-my-prog-lang-css)
 
 ;;; init-my-prog-lang-css.el ends here

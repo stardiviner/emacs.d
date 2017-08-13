@@ -2,8 +2,8 @@
 
 ;;; Commentary:
 
-;;;; Code:
-
+;;; Code:
+
 ;;; [ mongo ]
 
 (use-package mongo
@@ -24,9 +24,13 @@
 ;; [ ob-mongo ] -- Org-mode Babel for MongoDB
 
 (use-package ob-mongo
-  :ensure t)
+  :ensure t
+  :config
+  (add-to-list 'org-babel-load-languages '(mongo . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  )
 
-
+
 (provide 'init-my-prog-lang-database-mongodb)
 
 ;;; init-my-prog-lang-database-mongodb.el ends here

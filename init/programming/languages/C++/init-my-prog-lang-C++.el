@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ modern-cpp-font-lock ] -- font-locking for C++ mode.
 
 (use-package modern-cpp-font-lock
@@ -15,7 +15,13 @@
   (modern-c++-font-lock-global-mode t)
   )
 
+
+;;; [ ob-c++ ]
 
+;; (add-to-list 'org-babel-default-header-args:C++
+;;              '(:results . "output"))
+
+
 (provide 'init-my-prog-lang-C++)
 
 ;;; init-my-prog-lang-C++.el ends here

@@ -3,12 +3,28 @@
 
 ;;; Commentary:
 
-
-
-;;; Code:
-
 ;;; Embedded LaTeX
 
+;;; Code:
+
+;;; [ ob-latex ]
+(require 'ob-latex)
+
+(add-to-list 'org-babel-load-languages '(latex . t))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+
+;; generate results as #+BEGIN_LaTeX ... #+END_LaTeX block.
+;; (setq org-babel-default-header-args:latex
+;;       '((:results . "latex")
+;;         (:exports . "results")
+;;         ))
+
+;; let latex babel generate image result
+;; (setq org-babel-default-header-args:latex
+;;       '((:results . "raw graphics")
+;;         (:file . "temp.png")))
+
+
 ;; `org-toggle-inline-images' [C-c C-x C-v]
 ;; `org-toggle-latex-fragment' [C-c C-x C-l] / [C-c C-c]
 ;; `org-toggle-pretty-entities' [C-c C-x \]
@@ -124,6 +140,7 @@
   (add-hook 'org-mode-hook #'org-edit-latex-mode))
 
 
+
 (provide 'init-my-org-latex)
 
 ;;; init-my-org-latex.el ends here

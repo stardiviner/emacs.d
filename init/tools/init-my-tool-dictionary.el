@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 (unless (boundp 'dictionary-prefix)
   (define-prefix-command 'dictionary-prefix))
 (define-key my-tools-prefix (kbd "d") 'dictionary-prefix)
@@ -59,7 +59,7 @@
 
 (define-key dictionary-prefix (kbd "d") 'goldendict-dwim)
 
-
+
 ;;; [ google-translate ]
 
 (use-package google-translate
@@ -79,7 +79,13 @@
         )
   )
 
+
+;;; [ ob-translate ] -- allows you to translate blocks of text within org-mode.
 
+(use-package ob-translate
+  :ensure t)
+
+
 (provide 'init-my-tool-dictionary)
 
 ;;; init-my-tool-dictionary.el ends here

@@ -4,13 +4,13 @@
 
 
 ;;; Code:
-
+
 
 ;; We never want to edit Rubinius bytecode or MacRuby binaries
 (add-to-list 'completion-ignored-extensions ".rbc")
 (add-to-list 'completion-ignored-extensions ".rbo")
 
-
+
 ;;; [ ruby-mode ]
 
 (use-package ruby-mode
@@ -26,7 +26,7 @@
   (add-hook 'ruby-mode-hook #'eldoc-mode)
   )
 
-
+
 ;;; [ enh-ruby-mode ] --
 
 ;; (use-package enh-ruby-mode
@@ -64,7 +64,18 @@
 ;;   (define-key enh-ruby-mode-map (kbd "C-;") 'ruby-mode-insert-symbol-operator)
 ;;   )
 
+
+;;; [ ob-ruby ]
 
+(require 'ob-ruby)
+
+(add-to-list 'org-babel-load-languages '(ruby . t))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+
+(add-to-list 'org-babel-default-header-args:ruby
+             '(:results . "value"))
+
+
 ;;; [ ruby-interpolation ] -- Ruby string interpolation helpers.
 
 (use-package ruby-interpolation

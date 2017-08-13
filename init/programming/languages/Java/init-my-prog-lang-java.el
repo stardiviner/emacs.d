@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;; pom files should be treated as xml files
 (add-to-list 'auto-mode-alist '("\\.pom\\'" . nxml-mode))
 
@@ -14,6 +14,13 @@
 
 ;; (use-package javap-mode
 ;;   :ensure t)
+
+;;; [ ob-java ]
+
+(require 'ob-java)
+
+(add-to-list 'org-babel-load-languages '(java . t))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 
 ;;; [ autodisass-java-bytecode ] -- Automatically disassemble emacs buffers containing Java bytecode.
 
@@ -185,7 +192,7 @@
 ;; (use-package helm-jstack
 ;;   :ensure t)
 
-
+
 (provide 'init-my-prog-lang-java)
 
 ;;; init-my-prog-lang-java.el.el ends here

@@ -6,14 +6,45 @@
 
 
 ;;; Code:
-
+
 ;;; [ sql.el ] -- specialized comint.el for SQL interpreters.
 
 (require 'sql)
 
 (add-to-list 'same-window-buffer-names "*SQL*")
 
+
+;;; [ ob-sql ]
 
+(require 'ob-sql)
+
+(add-to-list 'org-babel-load-languages '(sql . t))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+
+(add-to-list 'org-src-lang-modes (cons "SQL" 'sql))
+
+
+;;; [ ob-sql-mode ] -- SQL code blocks evaluated by sql-mode.
+
+(use-package ob-sql-mode
+  :ensure t
+  :config
+  (setq org-babel-sql-mode-template-selector "Q")
+
+  (add-to-list 'org-babel-load-languages '(sql-mode . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+
+  ;; security guard
+  (setq org-confirm-babel-evaluate
+        (lambda (lang body)
+          ;; (not )
+          (string= lang "sql-mode")
+          ))
+
+  ;; (setq org-babel-default-header-args:sql-mode )
+  )
+
+
 ;;; [ sql-indent]
 
 (use-package sql-indent
@@ -198,7 +229,7 @@
   ;;  :password "324324")
   )
 
-
+
 (provide 'init-my-prog-lang-database-sql)
 
 ;;; init-my-prog-lang-database-sql.el ends here

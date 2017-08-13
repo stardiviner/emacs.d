@@ -15,13 +15,14 @@
   :config
   (autoload 'my-lisp-common-settings "init-my-prog-lang-lisp.el")
   (add-hook 'clojure-mode-hook #'my-lisp-common-settings)
+  
+  (autoload 'my-lisp-repl-common-settings "init-my-prog-lang-lisp.el")
+  (add-hook 'clojure-repl-mode-hook #'my-lisp-repl-common-settings)
+
   ;; (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
   ;; `subword-mode' is quite useful since we often have to deal with Java class
   ;; and method names.
   (add-hook 'clojure-mode-hook #'subword-mode)
-
-  (autoload 'my-lisp-repl-common-settings "init-my-prog-lang-lisp.el")
-  (add-hook 'clojure-repl-mode-hook #'my-lisp-repl-common-settings)
 
   (setq clojure-align-forms-automatically t)
   
@@ -307,7 +308,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
                 ) t)
   )
 
-
+
 ;;; run test when load file.
 
 (defun cider-tdd-test ()
@@ -328,6 +329,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 
 ;; (add-hook 'clojure-mode-hook 'cider-tdd-mode)
 
+
 
 ;;; [ flycheck-clojure, squiggly-clojure ] --
 
@@ -400,13 +402,37 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   ;; (setq cider-profile-buffer nil)
   )
 
+
 ;;; Org-mode Babel Clojure
 (require 'ob-clojure)
-;; auto start CIDER REPL session for Org-mode Babel by jack-in.
-(add-hook 'after-init-hook #'cider-jack-in)
+
+(add-to-list 'org-babel-load-languages '(clojure . t))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+
 (setq org-babel-clojure-backend 'cider)
 
+;; whether check Org-mode buffer's (ns ) declarations.
+;; (setq cider-auto-track-ns-form-changes t)
 
+;; No timeout when executing calls on Cider via nrepl
+;; (setq org-babel-clojure-sync-nrepl-timeout nil)
+
+;; let `ob-clojure' babel src blocks allow evaluation.
+(add-to-list 'org-babel-default-header-args:clojure
+             '(:eval . "yes"))
+(add-to-list 'org-babel-default-header-args:clojure
+             '(:results . "value pp"))
+;; (add-to-list 'org-babel-default-header-args:clojure ; for Clojure `dotimes' etc.
+;;              '(:show-process . "no"))
+(add-to-list 'org-babel-default-header-args:clojure
+             '(:noweb . "yes"))
+;; (add-to-list 'org-babel-default-header-args:clojure
+;;              '(:session))
+
+;; auto start CIDER REPL session for Org-mode Babel by jack-in.
+(add-hook 'after-init-hook #'cider-jack-in)
+
+
 ;;; [ typed-clojure-mode ] -- Typed Clojure minor mode for Emacs.
 
 ;; (use-package typed-clojure-mode

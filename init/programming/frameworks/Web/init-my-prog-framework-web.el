@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;;_ web-mode
 
 (use-package web-mode
@@ -246,12 +246,21 @@
     (add-hook 'web-mode-hook 'web-narrow-mode))
   )
 
+
+;;; [ ob-html ]
 
+(with-eval-after-load 'web-mode
+  (add-to-list 'org-src-lang-modes '("html" . web))
+  (add-to-list 'org-src-lang-modes '("rhtml" . web))
+  )
+
+
 ;;; [ web-completion-data ] -- dependency for `ac-html', `company-web'
 
 (use-package web-completion-data
   :ensure t)
 
+
 ;;; [ web-mode-edit-element ] -- helper-functions for attribute- and element-handling.
 
 (use-package web-mode-edit-element
@@ -259,7 +268,7 @@
   :init
   (add-hook 'web-mode-hook 'web-mode-edit-element-minor-mode))
 
-
+
 ;;; [ company-web ] --
 
 (use-package company-web
@@ -327,7 +336,7 @@
             ))))
   )
 
-
+
 (provide 'init-my-prog-framework-web)
 
 ;;; init-my-prog-framework-web.el ends here

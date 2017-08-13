@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ haskell-mode ]
 
 (use-package haskell-mode
@@ -117,6 +117,15 @@
 ;;     (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
 ;;   )
 
+;;; [ ob-haskell ]
+
+(require 'ob-haskell)
+
+(add-to-list 'org-babel-load-languages '(haskell . t))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+
+(add-to-list 'org-babel-default-header-args:haskell '(:session . "*haskell*"))
+
 
 ;;; [ ghc ]
 
@@ -202,7 +211,7 @@
 ;;                                     :body "Haskell Scion connected.")))
 ;;   )
 
-
+
 (provide 'init-my-prog-lang-haskell)
 
 ;;; init-my-prog-lang-haskell.el ends here

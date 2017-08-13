@@ -3,10 +3,9 @@
 
 ;;; Commentary:
 
-;; http://www.emacswiki.org/emacs/JavaScript
 
 ;;; Code:
-
+
 ;;; [ JavaScript ]
 
 (require 'js)
@@ -67,7 +66,26 @@
               (electric-layout-mode -1)
               )))
 
+
+;;; [ ob-js ]
 
+(require 'ob-js)
+
+;; (setq org-babel-js-cmd "node") ; "mozrepl"
+
+(add-to-list 'org-babel-default-header-args:js
+             '(:results . "value"))
+;; (add-to-list 'org-babel-default-header-args:js
+;;              '(:session . "*Javascript REPL*")  ; package `js-comint'
+;;              )
+
+(add-to-list 'org-babel-load-languages '(js . t))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+
+(with-eval-after-load 'js2-mode
+  (add-to-list 'org-src-lang-modes '("js" . js2)))
+
+
 ;;; [ js2-mode ]
 
 (use-package js2-mode
@@ -333,7 +351,7 @@
 ;; 		(js-format-setup "jsb-css"))))
 ;;   )
 
-
+
 (provide 'init-my-prog-lang-javascript)
 
 ;;; init-my-prog-lang-javascript.el ends here

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Scheme Mode ]
 
 (require 'scheme)
@@ -31,6 +31,13 @@
     ))
 
 ;; (add-hook 'scheme-mode-hook 'run-scheme-auto-create)
+
+;;; [ ob-scheme ]
+
+(require 'ob-scheme)
+
+(add-to-list 'org-babel-load-languages '(scheme . t))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 
 
 ;;; [ cmuscheme ] -- Scheme process in a buffer. Adapted from tea.el
@@ -74,7 +81,7 @@
 ;;   :ensure t)
 
 
-
+
 (provide 'init-my-prog-lang-lisp-scheme)
 
 ;;; init-my-prog-lang-lisp-scheme.el ends here

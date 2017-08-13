@@ -10,7 +10,7 @@
   :ensure t
   :defer t)
 
-
+
 ;;; [ gnuplot-mode ]
 
 (use-package gnuplot-mode
@@ -65,6 +65,7 @@
   (define-key gnuplot-mode-map (kbd "C-c C-c") 'gnuplot-show-gnuplot-buffer)
   )
 
+
 ;;; [ ob-gnuplot ]
 
 (use-package org-plus-contrib

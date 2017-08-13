@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ sly ] -- Sylvester the Cat's Common Lisp IDE
 
 (use-package sly
@@ -73,7 +73,12 @@
               (eldoc-mode 1)))
   )
 
+
+;;; [ ob-lisp ]
 
+(setq org-babel-lisp-eval-fn #'sly-eval)
+
+
 ;;; [ sly-company ] -- Company-mode completion backend for SLY.
 
 (use-package sly-company
@@ -122,7 +127,7 @@
 ;;   :ensure t
 ;;   )
 
-
+
 (provide 'init-sly)
 
 ;;; init-sly.el ends here

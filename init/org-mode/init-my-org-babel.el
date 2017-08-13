@@ -57,88 +57,15 @@
       )
 
 (setq org-babel-load-languages
-      '((emacs-lisp . t)                     ; Emacs Lisp
-        (clojure . t)                        ; Clojure
-        (org . t)                            ; Org-mode
+      '((org . t)                            ; Org-mode
         (shell . t)                          ; Shell Script
-        (makefile . t)                       ; Make
-        (python . t)                         ; Python
-        (ruby . t)                           ; Ruby
-        ;; (perl . t)                           ; Perl
-        (C . t)                              ; C
-        (java . t)                           ; Java
-        ;; (lua . t)                            ; Lua
-        ;; (awk . t)                            ; Awk
-        ;; (sed . t)                            ; Sed
-        ;; (screen . t)                         ; Screen
-        (lisp . t)                           ; Lisp
-        (scheme . t)                         ; Scheme
-        ;; (picolisp . t)                       ; Pico Lisp
-        (haskell . t)                        ; Haskell
-        ;; (scala . t)                          ; Scala
-        ;; (io . t)                             ; IO
-        ;; (J . t)                              ; J
-        ;; (ocaml . t)                          ; Objective Caml
-        (js . t)                             ; JavaScript
-        (css . t)                            ; CSS
-        (latex . t)                          ; LaTeX
-        (sql . t)                            ; SQL
-        (sqlite . t)                         ; SQLite
-        ;; (matlab . t)                         ; MATLAB
-        ;; (octave . t)                         ; Octave
-        ;; (fortran . t)                        ; Fortran
         (ditaa . t)                          ; ditaa
         (dot . t)                            ; Graphviz, Dot
         (plantuml . t)                       ; PlantUML
-        ;; (ebnf2ps . t)                        ; ebnf2ps
         (calc . t)                           ; Calc
-        ;; (asymptote . t)                      ; Asymptote
-        ;; (sass . t)                           ; Sass
-        ;; (processing . t)                     ; Processing
         ))
 
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-
-
-;;; [ ob-emacs-lisp ]
-
-(add-to-list 'org-babel-default-header-args:emacs-lisp
-             '(:results . "value"))
-(add-to-list 'org-babel-default-header-args:emacs-lisp
-             '(:noweb . "yes"))
-;; (add-to-list 'org-babel-default-header-args:emacs-lisp
-;;              '(:lexical . "yes"))
-
-;;; [ ob-lisp ]
-;; (setq org-babel-lisp-eval-fn #'sly-eval)
-
-;;; [ ob-clojure ]
-
-(require 'ob-clojure)
-
-;; use CIDER as the Clojure execution backend
-(setq org-babel-clojure-backend 'cider)
-
-;; (setq cider-auto-track-ns-form-changes t) ; whether check Org-mode buffer's (ns ) declarations.
-
-;; Useful keybindings when using Clojure from Org
-;; (org-defkey org-mode-map (kbd "C-x C-e") 'cider-eval-last-sexp)
-;; (org-defkey org-mode-map (kbd "C-c C-d") 'cider-doc)
-
-;; No timeout when executing calls on Cider via nrepl
-;; (setq org-babel-clojure-sync-nrepl-timeout nil)
-
-;; let `ob-clojure' babel src blocks allow evaluation.
-(add-to-list 'org-babel-default-header-args:clojure
-             '(:eval . "yes"))
-(add-to-list 'org-babel-default-header-args:clojure
-             '(:results . "value"))
-;; (add-to-list 'org-babel-default-header-args:clojure ; for Clojure `dotimes' etc.
-;;              '(:show-process . "no"))
-(add-to-list 'org-babel-default-header-args:clojure
-             '(:noweb . "yes"))
-;; (add-to-list 'org-babel-default-header-args:clojure
-;;              '(:session))
 
 
 ;;; [ ob-shell ]
@@ -152,66 +79,6 @@
 (add-to-list 'org-babel-default-header-args:shell
              '(:noweb . "yes"))
 
-
-;;; [ ob-haskell ]
-
-(require 'ob-haskell)
-
-(add-to-list 'org-babel-default-header-args:haskell
-             '(:session . "*haskell*"))
-
-;;; [ ob-latex ]
-(require 'ob-latex)
-
-;;; [ ob-js ]
-(require 'ob-js)
-;; (setq org-babel-js-cmd "node") ; "mozrepl"
-
-(add-to-list 'org-babel-default-header-args:js
-             '(:results . "value"))
-;; (add-to-list 'org-babel-default-header-args:js
-;;              '(:session . "*Javascript REPL*")  ; package `js-comint'
-;;              )
-
-
-;;; [ ob-translate ] -- allows you to translate blocks of text within org-mode.
-
-(use-package ob-translate
-  :ensure t)
-
-;;; [ Science ]
-
-;;; [ Chemistry ]
-
-;;; Chemistry: SMILES
-(use-package smiles-mode
-  :ensure t)
-(use-package ob-smiles
-  :ensure t
-  :config
-  (add-to-list 'org-babel-load-languages '(smiles . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  )
-
-;;; [ ob-sql-mode ] -- SQL code blocks evaluated by sql-mode.
-
-(use-package ob-sql-mode
-  :ensure t
-  :config
-  (setq org-babel-sql-mode-template-selector "Q")
-
-  (add-to-list 'org-babel-load-languages '(sql-mode . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-
-  ;; security guard
-  (setq org-confirm-babel-evaluate
-        (lambda (lang body)
-          ;; (not )
-          (string= lang "sql-mode")
-          ))
-
-  ;; (setq org-babel-default-header-args:sql-mode )
-  )
 
 ;;; [ ob-uart ] -- A wrapper around make-serial-process for org babel, providing integration of UART communication into org documents.
 
@@ -271,22 +138,6 @@
     ad-do-it))
 
 
-;; NOTE: this may cause org babel block syntax highlighting failed.
-
-(add-to-list 'org-src-lang-modes (cons "SQL" 'sql))
-
-(with-eval-after-load 'nxml-mode
-  (add-to-list 'org-src-lang-modes '("xml" . nxml)))
-
-(with-eval-after-load 'js2-mode
-  (add-to-list 'org-src-lang-modes '("js" . js2)))
-
-(with-eval-after-load 'web-mode
-  (add-to-list 'org-src-lang-modes '("html" . web))
-  (add-to-list 'org-src-lang-modes '("rhtml" . web))
-  )
-
-
 ;;;_ + ditaa & PlantUML & Graphviz
 
 ;; Org-babel makes it easy to generate decent graphics using external packages
@@ -316,63 +167,11 @@
 ;; #+END_SRC
 
 
-
 ;;; language-specific header arguments
-
+;;
 ;; `org-babel-default-header-args:<lang>' where `<lang>' is the name of the
 ;; language.  See the language-specific documentation available online at
 ;; `http://orgmode.org/worg/org-contrib/babel'.
-
-;; generate results as #+BEGIN_LaTeX ... #+END_LaTeX block.
-;; (setq org-babel-default-header-args:latex
-;;       '((:results . "latex")
-;;         (:exports . "results")
-;;         ))
-
-;; let latex babel generate image result
-;; (setq org-babel-default-header-args:latex
-;;       '((:results . "raw graphics")
-;;         (:file . "temp.png")))
-
-(add-to-list 'org-babel-default-header-args:ruby
-             '(:results . "value"))
-
-(add-to-list 'org-babel-default-header-args:C
-             '(:results . "output"))
-
-;; (add-to-list 'org-babel-default-header-args:C++
-;;              '(:results . "output"))
-
-(setq org-babel-default-header-args:R
-      '((:session . "*R*")
-        (:exports . "both")
-        (:results . "replace")
-        ;; customize R plot window
-        ;; (:width . 640)
-        ;; (:height . 640)
-        ;; (:bg . "white")
-        ;; (:type . :any)
-        ))
-
-;; (add-to-list 'org-babel-default-header-args:ocaml
-;;              '(:results . "value"))
-
-(setq org-babel-default-header-args:sqlite
-      '((:db . "temp.db")
-        (:results . "raw")
-        ;; (:echo . t)
-        (:column . t)
-        (:nullvalue . "Null")))
-
-;;; [ ob-mongo ]
-
-(use-package ob-mongo
-  :ensure t
-  :config
-  (add-to-list 'org-babel-load-languages '(mongo . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  )
-
 
 
 ;;; [ Library of Babel ]

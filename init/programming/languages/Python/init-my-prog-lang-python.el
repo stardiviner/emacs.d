@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ python-mode ] --- Python's flying circus support for Emacs
 
 (use-package python-mode
@@ -20,7 +20,7 @@
         )
   )
 
-
+
 ;;; [ Inferior Python ]
 
 (use-package python
@@ -52,6 +52,15 @@
   (define-key my-prog-inferior-map (kbd "p") 'my-inferior-python) ; 'run-python
   )
 
+
+;;; [ ob-python ]
+
+(require 'ob-python)
+
+(add-to-list 'org-babel-load-languages '(python . t))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+
+
 ;;; [ elpy ] -- Emacs Python Development Environment.
 
 (use-package elpy
@@ -111,7 +120,6 @@
 ;;   )
 
 
-
 (provide 'init-my-prog-lang-python)
 
 ;;; init-my-prog-lang-python.el ends here

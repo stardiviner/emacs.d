@@ -4,7 +4,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Emacs Speaks Statistics (ESS) ]
 
 (use-package ess
@@ -61,18 +61,26 @@
   ;; (add-hook 'ess-mode-hook #'ess-force-buffer-current)
   )
 
-
+
 ;;; [ ob-R ]
 
-(use-package org-plus-contrib
-  :ensure t
-  :config
-  (require 'ob-R)
-  (add-to-list 'org-babel-load-languages '(R . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  )
+(require 'ob-R)
 
+(add-to-list 'org-babel-load-languages '(R . t))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 
+(setq org-babel-default-header-args:R
+      '((:session . "*R*")
+        (:exports . "both")
+        (:results . "replace")
+        ;; customize R plot window
+        ;; (:width . 640)
+        ;; (:height . 640)
+        ;; (:bg . "white")
+        ;; (:type . :any)
+        ))
+
+
 (provide 'init-my-prog-lang-R)
 
 ;;; init-my-prog-lang-R.el ends here

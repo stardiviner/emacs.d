@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Emacs Lisp some setups ]
 
 (setq print-quoted t
@@ -45,6 +45,19 @@
 ;;       eval-expression-print-length nil
 ;;       )
 
+
+;;; [ ob-emacs-lisp ]
+
+(require 'ob-emacs-lisp)
+
+(add-to-list 'org-babel-default-header-args:emacs-lisp
+             '(:results . "value"))
+(add-to-list 'org-babel-default-header-args:emacs-lisp
+             '(:noweb . "yes"))
+;; (add-to-list 'org-babel-default-header-args:emacs-lisp
+;;              '(:lexical . "yes"))
+
+
 ;;; eldoc-eval --- Enable eldoc support when minibuffer is in use.
 
 (use-package eldoc-eval
@@ -213,7 +226,7 @@
   (eval-after-load 'dash '(dash-enable-font-lock))
   )
 
-
+
 (provide 'init-my-prog-lang-emacs-lisp)
 
 ;;; init-my-prog-lang-emacs-lisp.el ends here

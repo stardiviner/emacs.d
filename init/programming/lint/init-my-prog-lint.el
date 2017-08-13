@@ -122,6 +122,7 @@
 ;;     (add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode))
 ;;   )
 
+
 
 (provide 'init-my-prog-lint)
 

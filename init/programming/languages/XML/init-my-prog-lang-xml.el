@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ nxml-mode ]
 
 (use-package nxml-mode
@@ -46,7 +46,13 @@
   (define-key nxml-mode-map (kbd "C-c m f") 'my-xml-format)
   )
 
+
+;;; [ ob-xml ]
 
+(with-eval-after-load 'nxml-mode
+  (add-to-list 'org-src-lang-modes '("xml" . nxml)))
+
+
 ;;; [ x-path-walker ] -- navigation for JSON/XML/HTML based on path (imenu like)
 
 (use-package x-path-walker

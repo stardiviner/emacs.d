@@ -34,7 +34,7 @@
     objc-mode
     ))
 
-
+
 ;; [ C-mode ]
 
 ;; indent
@@ -56,7 +56,18 @@
                                 (awk-mode . "awk")
                                 (other . "gnu")))
 
+
+;;; [ ob-C ]
 
+(require 'ob-C)
+
+(add-to-list 'org-babel-load-languages '(C . t))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+
+(add-to-list 'org-babel-default-header-args:C
+             '(:results . "output"))
+
+
 ;;; [ Irony-mode ] --- A C/C++ minor mode for Emacs powered by libclang.
 
 (use-package irony
