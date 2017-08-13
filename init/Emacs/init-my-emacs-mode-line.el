@@ -522,9 +522,10 @@ dimensions of a block selection."
                                      :face 'mode-line-meta-face
                                      :v-adjust -0.05)
               separator
-              (propertize (char-to-string evil-this-macro)
-                          'face 'mode-line-meta-face)
-              (propertize kmacro-counter
+              (if (boundp 'evil-this-macro)
+                  (propertize (char-to-string evil-this-macro)
+                              'face 'mode-line-meta-face))
+              (propertize (number-to-string kmacro-counter)
                           'face 'mode-line-info-face)
               separator))))
 
