@@ -45,8 +45,7 @@ The function is suitable for `erc-after-connect'."
   (when (string-match (format "\\(.*?\\)%s+$" erc-nick-uniquifier) nick)
     (let ((nick-orig (match-string 1 nick))
           (password erc-session-password))
-      (when (y-or-n-p (format "Current nick is '%s'. Do you want to ghost?"
-                              nick))
+      (when (y-or-n-p (format "Current nick is '%s'. Do you want to ghost? " nick))
         (erc-message "PRIVMSG" (format "NickServ GHOST %s %s"
 				                               nick-orig password))
 	      (erc-cmd-NICK nick-orig)
@@ -55,8 +54,11 @@ The function is suitable for `erc-after-connect'."
 
 (add-hook 'erc-after-connect 'erc-ghost-maybe)
 
-;; [ IRC Server ]
+;;; [ IRC Server ]
 (setq erc-server-auto-reconnect t)
+
+(setq erc-default-server "irc.freenode.net"
+      erc-default-port 6667)
 
 ;; [ join & auto-join ]
 ;; make sure to use wildcards for e.g. freenode as the actual server
@@ -91,11 +93,11 @@ The function is suitable for `erc-after-connect'."
 (defun my-erc-start-or-switch ()
   "Connect to ERC, or switch to last active buffer."
   (interactive)
-  (if (get-buffer "irc.freenode.net:8000") ;; ERC already active?
+  (if (get-buffer "irc.freenode.net:6667") ;; ERC already active?
       (erc-track-switch-buffer 1) ;; yes: switch to last active
     ;; connections
     (erc
-     :server "irc.freenode.net" :port 8000
+     :server "irc.freenode.net" :port 6667
      :nick "stardiviner" :password (my/json-read-value my/account-file 'erc)
      :full-name "christopher M. miles")
     ))
