@@ -176,7 +176,6 @@
                     ;; :family "Comic Neue"
                     :weight 'bold :height 130
                     :background (color-darken-name (face-background 'default) 2)
-                    ;; :box '(:color "black" :line-width -1 :style nil)
                     :overline "dark slate gray"
                     )
 (set-face-attribute 'org-level-2 nil
@@ -224,7 +223,8 @@
                                    (color-darken-name (face-background 'default) 4))
                                   ('dark
                                    (color-lighten-name (face-background 'default) 5)))
-                    :box '(:color "black" :line-width 2))
+                    ;; :box '(:color "black" :line-width 2)
+                    )
 (set-face-attribute 'org-tag nil
                     :background (cl-case (alist-get 'background-mode (frame-parameters))
                                   ('light
@@ -232,7 +232,6 @@
                                   ('dark
                                    (color-lighten-name (face-background 'default) 5)))
                     :underline nil :weight 'normal :slant 'normal
-                    :box '(:color "dark green" :line-width 2)
                     :height 0.8
                     )
 
@@ -245,7 +244,7 @@
 ;; * headline [7%] [1/10] -> checkbox statistics face.
 (set-face-attribute 'org-checkbox-statistics-todo nil
                     :background (color-darken-name (face-background 'default) 4)
-                    :box '(:color "black" :line-width -1)
+                    ;; :box '(:color "black" :line-width -1)
                     )
 ;; * headline [100%] [10/10]
 (set-face-attribute 'org-checkbox-statistics-done nil
