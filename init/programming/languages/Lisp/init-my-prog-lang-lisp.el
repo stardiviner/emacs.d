@@ -3,7 +3,7 @@
 ;;; Commentary:
 
 ;;; Code:
-
+
 ;;; [ Lisp ]
 
 ;;; Common Settings for All Lisp dialects
@@ -72,11 +72,24 @@
 
 ;;; [ Parinfer ] -- Let's simplify the way we write Lisp...
 
-(use-package parinfer
-  :ensure t
-  :config
-  (parinfer-mode 1)
-  )
+;; (use-package parinfer
+;;   :ensure t
+;;   :bind (("C-," . parinfer-toggle-mode))
+;;   :config
+;;   (setq parinfer-extensions
+;;         '(defaults       ; should be included.
+;;            pretty-parens  ; different paren styles for different modes.
+;;            ;; evil           ; If you use Evil.
+;;            ;; lispy          ; If you use Lispy. With this extension, you should install Lispy and do not enable lispy-mode directly.
+;;            paredit        ; Introduce some paredit commands.
+;;            smart-tab      ; C-b & C-f jump positions and smart shift with tab & S-tab.
+;;            smart-yank     ; Yank behavior depend on mode.
+;;            ))
+;;
+;;   ;; Indent-Mode (don't auto enable)
+;;   (setq parinfer-auto-switch-indent-mode nil)  ;; default
+;;   (setq parinfer-auto-switch-indent-mode-when-closing nil)  ;; default
+;;   )
 
 ;;; [ rainbow-delimiters ] -- rainbow color parenthesis
 
@@ -152,6 +165,8 @@
   (rainbow-delimiters-mode 1)
   (paredit-mode 1)
   ;; (smartparens-strict-mode 1)
+  (if (fboundp 'parinfer-mode)
+      (parinfer-mode 1))
   (hl-sexp-mode 1)
   (eldoc-mode 1)
   )
@@ -173,7 +188,7 @@
 ;;             (lambda ()
 ;;               (my-lisp-common-settings))))
 
-
+
 (provide 'init-my-prog-lang-lisp)
 
 ;;; init-my-prog-lang-lisp.el ends here
