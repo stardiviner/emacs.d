@@ -18,6 +18,7 @@
 (add-to-list 'org-default-properties "header-args")
 
 (add-to-list 'org-default-properties "DATE")
+(add-to-list 'org-default-properties "TIME")
 (add-to-list 'org-default-properties "AUTHOR")
 (add-to-list 'org-default-properties "URL")
 (add-to-list 'org-default-properties "Source_Code")
