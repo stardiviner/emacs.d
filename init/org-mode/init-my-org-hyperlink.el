@@ -353,7 +353,7 @@ With prefix argument, also display headlines without a TODO keyword."
 
 ;;; open image link to edit
 
-(defvar org-image-link-edit-cmd "gimp %s")
+(defvar org-image-link-edit-cmd "nomacs %s")
 
 (defun org-image-link-edit ()
   "Open the image at point for editing."
