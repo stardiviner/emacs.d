@@ -70,7 +70,8 @@
         ("\\.jpeg\\'" . "sxiv %s")
         ("\\.gif\\'" . "sxiv -a -f %s") ; "sxiv -a -f -- %s
         ;; ("\\.gif\\'" . "gwenview %s")
-        ("\\.svg\\'" . "feh --magick-timeout 5 %s")
+        ;; ("\\.svg\\'" . "feh --magick-timeout 5 %s")
+        ("\\.svg\\'" . "nomacs %s")
         ;; Mind Maps
         ("\\.mm\\'" . "freemind %s") ; freeplane
         ;; Office
