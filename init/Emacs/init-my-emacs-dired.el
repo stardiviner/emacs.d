@@ -111,7 +111,6 @@
   ;; [ dired+ / diredp ]
   (use-package dired+
     :ensure t
-    :defer t
     :config
     ;; disable by default hide details
     (setq diredp-hide-details-initially-flag nil
