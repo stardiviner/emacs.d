@@ -54,6 +54,9 @@
   ;; let magit status buffer display in current window.
   (setq magit-display-buffer-function 'display-buffer)
 
+  ;; show gravatar in Magit revision.
+  (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
+
   (add-to-list 'display-buffer-alist
                '("\\`\\*magit:.*\\'"
                  (display-buffer-reuse-window
