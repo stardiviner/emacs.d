@@ -11,43 +11,12 @@
 
 (use-package web-mode
   :ensure t
-  :init
-  ;; Using web-mode for editing plain HTML files can be done this way
-  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.rhtml\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-  (add-to-list 'auto-mode-alist
-               '("/\\(views\\|html\\|theme\\|templates\\)/.*\\.php\\'" . web-mode))
-  ;; You can also edit plain js, jsx, css, scss, xml files.
-  (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
-
   :config
-
-  ;; Associate an engine
-
-  ;; Using this association list is required as soon as the file extension is
-  ;; unknown (by web-mode) or is too general (e.g. *.html).
-  ;;
-  ;; The recognized file extensions are listed in the Engine families paragraph.
-  ;; In summary, you may have to set both `auto-mode-alist' and `web-mode-engines-alist'.
-
-  ;; `web-mode-engines'
-
+  ;; fontifications
   (setq web-mode-enable-element-tag-fontification t
-        web-mode-enable-element-content-fontification t
-        web-mode-enable-current-column-highlight t)
-
-  (setq web-mode-enable-engine-detection t)
-
-  ;; (setq web-mode-engines-alist '())
-  ;; (add-to-list 'web-mode-engines-alist '("php" . "\\.phtml\\'"))
-  ;; (add-to-list 'web-mode-engines-alist '("blade" . "\\.blade\\."))
+        ;; web-mode-enable-element-content-fontification t
+        ;; web-mode-enable-current-column-highlight t
+        )
 
   ;;_. Associate a content type
 
@@ -66,14 +35,9 @@
   ;;         ("xml"  . "/other/path/.*\\.api\\'")
   ;;         ("jsx"  . "/some/react/path/.*\\.js[x]?\\'")))
 
-
-
   ;;_. Engine families
 
   ;; Never forget to update the auto-mode-alist.
-
-  ;; SQL
-  (setq web-mode-enable-sql-detection t)
 
   ;;_. auto-pairs
 
@@ -83,59 +47,13 @@
   ;;         ("php" . (("open" "close") ("open" "close")))
   ;;         ))
 
-  ;;_. web-mode defaults
-  (defun my-web-mode-defaults ()
-    ;; Customizations
-    ;; indent
-    (setq web-mode-markup-indent-offset 2 ; HTML indent
-          web-mode-css-indent-offset 2    ; CSS indent
-          web-mode-code-indent-offset 2   ; Script (JavaScript, Ruby, PHP, etc) indent
-          web-mode-attr-indent-offset 2   ; HTML attribute offset
-          web-mode-disable-autocompletion t)
-    (local-set-key (kbd "RET") 'newline-and-indent)
-    ;; electric
-    (setq web-mode-enable-auto-pairing t
-          web-mode-enable-auto-quoting t
-          web-mode-enable-auto-opening t
-          web-mode-enable-auto-closing t
-          web-mode-enable-auto-indentation t)
-    ;; padding (inner indent)
-    (setq web-mode-style-padding 1   ; for <style>
-          web-mode-script-padding 1  ; for <script>
-          web-mode-block-padding 0   ; for multi-line blocks
-          )
-    ;; comment: 1, server (block) side comment, 2, client (HTML, CSS, JS) side comment
-    (setq web-mode-comment-style 1)
-    ;; CSS
-    (setq web-mode-enable-css-colorization t)
-    ;; (rainbow-mode 1)
-    )
-  (setq my-web-mode-hook 'my-web-mode-defaults)
-
-  (add-hook 'web-mode-hook
-            (lambda ()
-              (run-hooks 'my-web-mode-hook)
-              (rainbow-delimiters-mode-enable)
-              ))
+  (add-hook 'web-mode-hook #'rainbow-delimiters-mode-enable)
 
   ;;_. snippets
 
   ;; add a snippet
-  ;; (setq web-mode-extra-snippets
-  ;;       '(("erb" . (("name" . ("beg" . "end"))))
-  ;;         ("php" . (("name" . ("beg" . "end"))
-  ;;                   ("name" . ("beg" . "end"))))
-  ;;         ))
-
-  ;;_ , unicode symbols
-  (setq web-mode-enable-comment-keywords t
-        web-mode-enable-whitespaces nil     ; show whitespace, lineend, etc with unicode symbols.
-        web-mode-enable-heredoc-fontification t
-        web-mode-enable-current-element-highlight t
-        ;; web-mode-abbrev-table
-        ;; web-mode-syntax-table
-        ;; web-mode-display-table
-        )
+  ;; (add-to-list 'web-mode-extra-snippets '("erb" . (("name" . ("beg" . "end")))))
+  ;; (add-to-list 'web-mode-extra-snippets '("php" . (("name" . ("beg" . "end")))))
 
   ;; expanding
   ;; e.g. auto expand s/ into <span></span>
@@ -143,12 +61,6 @@
   ;; HTML
   (add-to-list 'web-mode-expanders '("P/" . "<p>\n | \n</p>"))
   (add-to-list 'web-mode-expanders '("B/" . "<br />\n|"))
-  ;; Ruby
-  (add-to-list 'web-mode-expanders '("r/" . "<%= | %>")) ; ruby erb: <%= | %>.
-  (add-to-list 'web-mode-expanders '("%/" . "<%= | %>")) ; ruby erb: <%= | %>.
-  (add-to-list 'web-mode-expanders '("R/" . "<% | %>")) ; ruby erb: <% | %>.
-  (add-to-list 'web-mode-expanders '("#/" . "<%# | %>")) ; ruby erb comment: <%# | %>.
-  (add-to-list 'web-mode-expanders '("e/" . "<% end %>")) ; ruby erb end: <% end %>
 
   ;;_* disable "<" pair from smartparens.
   (autoload 'sp-local-pair "smartparens" t)
@@ -158,27 +70,6 @@
 
   ;;_* comment
   ;; (add-to-list 'web-mode-comment-formats '("javascript" . "//"))
-
-  ;;_. auto-complete support
-  ;;
-  ;; - `web-mode-ac-sources-alist'
-  ;; - `web-mode-before-auto-complete-hooks'
-  ;;
-  ;; (setq web-mode-ac-sources-alist
-  ;;       '(("css" . (ac-source-css-property))
-  ;;         ("html" . (ac-source-html-tag
-  ;;                    ac-source-html-attribute ac-source-html-attribute-value
-  ;;                    ac-source-capf
-  ;;                    ac-source-words-in-buffer))))
-
-  ;; improving the JSX syntax-hightlighting in web-mode
-  ;; for better jsx syntax-highlighting in web-mode
-  ;; - courtesy of Patrick @halbtuerke
-  (defadvice web-mode-highlight-part (around tweak-jsx activate)
-    (if (equal web-mode-content-type "jsx")
-        (let ((web-mode-enable-part-face nil))
-          ad-do-it)
-      ad-do-it))
 
   ;; close element
   (define-key web-mode-map (kbd "C-c /") 'web-mode-element-close)
@@ -202,42 +93,6 @@
 
   ;; fix company-mode candidates auto lowercase.
   (add-to-list 'company-dabbrev-code-modes 'web-mode)
-
-  ;; flyspell effective spell checking in web-mode.
-  (defun web-mode-flyspell-verify ()
-    (let* ((f (get-text-property (- (point) 1) 'face))
-           rlt)
-      (cond
-       ;; Check the words with these font faces, possibly.
-       ;; this *blacklist* will be tweaked in next condition
-       ((not (memq f '(web-mode-html-attr-value-face
-                       web-mode-html-tag-face
-                       web-mode-html-attr-name-face
-                       web-mode-constant-face
-                       web-mode-doctype-face
-                       web-mode-keyword-face
-                       web-mode-comment-face ;; focus on get html label right
-                       web-mode-function-name-face
-                       web-mode-variable-name-face
-                       web-mode-css-property-name-face
-                       web-mode-css-selector-face
-                       web-mode-css-color-face
-                       web-mode-type-face
-                       web-mode-block-control-face)))
-        (setq rlt t))
-       ;; check attribute value under certain conditions
-       ((memq f '(web-mode-html-attr-value-face))
-        (save-excursion
-          (search-backward-regexp "=['\"]" (line-beginning-position) t)
-          (backward-char)
-          (setq rlt (string-match "^\\(value\\|class\\|ng[A-Za-z0-9-]*\\)$"
-                                  (thing-at-point 'symbol)))))
-       ;; finalize the blacklist
-       (t
-        (setq rlt nil)))
-      rlt))
-
-  (put 'web-mode 'flyspell-mode-predicate 'web-mode-flyspell-verify)
 
   ;; [ web-narrow-mode ] -- narrow for web-mode
   (use-package web-narrow-mode

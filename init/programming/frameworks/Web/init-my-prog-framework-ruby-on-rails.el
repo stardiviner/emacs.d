@@ -14,6 +14,13 @@
   :mode (("\\.html.erb\\'" . rhtml-mode)
          ("\\.rhtml\\'" . rhtml-mode)))
 
+(with-eval-after-load 'web-mode
+  (add-to-list 'web-mode-expanders '("r/" . "<%= | %>")) ; ruby erb: <%= | %>.
+  (add-to-list 'web-mode-expanders '("%/" . "<%= | %>")) ; ruby erb: <%= | %>.
+  (add-to-list 'web-mode-expanders '("R/" . "<% | %>")) ; ruby erb: <% | %>.
+  (add-to-list 'web-mode-expanders '("#/" . "<%# | %>")) ; ruby erb comment: <%# | %>.
+  (add-to-list 'web-mode-expanders '("e/" . "<% end %>")) ; ruby erb end: <% end %>
+  )
 
 ;;; [ projectile-rails ]
 
