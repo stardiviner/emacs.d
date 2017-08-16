@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: babel-inline-js
-# key: babel-inline-js
+# name: babel-inline-js-export
+# key: babel-inline-js-export
 # group: babel.export
 # --
 #+BEGIN_SRC inline-js
