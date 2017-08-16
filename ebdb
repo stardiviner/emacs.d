@@ -1,0 +1,9 @@
+;; Object File: ~/.emacs.d/ebdb
+;; EBDB file-persistent database
+(ebdb-db-file "File: ~/.emacs.d/ebdb"
+  :object-name "File: ~/.emacs.d/ebdb"
+  :file "ebdb"
+  :uuid
+  (ebdb-field-uuid "ebdb-field-uuid"
+    :uuid "a08cb4ec-7eb8-4e05-905f-05ada32c5034")
+  :record-class ebdb-record-person)
