@@ -78,8 +78,12 @@
 
 ;;; [ ob-php ] -- execute PHP within org-mode blocks.
 
-;; (use-package ob-php
-;;   :ensure t)
+(use-package ob-php
+  :ensure t
+  :config
+  (add-to-list 'org-babel-load-languages '(php . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  )
 
 
 ;;; [ phpunit ]
