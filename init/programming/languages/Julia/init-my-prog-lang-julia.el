@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ julia-mode ]
 
 (use-package julia-mode
@@ -56,28 +56,25 @@
 
 ;;; [ ob-julia ]
 
-(use-package org-plus-contrib
+(use-package ess
   :ensure t
   :config
-  (require 'ob-julia)
+  (require 'ess-site))
 
-  (if (not (boundp 'inferior-julia-program-name))
-      (setq inferior-julia-program-name "julia"))
-  ;; (setq org-babel-julia-command "julia")
+(require 'ob-julia)
 
-  (add-to-list 'org-babel-load-languages '(julia . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  
-  (use-package ess
-    :ensure t
-    :config
-    (require 'ess-site))
+;; (if (not (boundp 'inferior-julia-program-name))
+;;     (setq inferior-julia-program-name "julia"))
+;; (setq org-babel-julia-command "julia")
 
-  (setq org-babel-default-header-args:julia
-        '((:results . "output replace")
-          (:padnewline . "yes")))
-  (add-to-list 'org-src-lang-modes '("julia" . ess-julia))
-  )
+(add-to-list 'org-babel-load-languages '(julia . t))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+
+(setq org-babel-default-header-args:julia
+      '((:results . "output replace")
+        (:padnewline . "yes")))
+(add-to-list 'org-src-lang-modes '("julia" . ess-julia))
+
 
 ;;; [ flycheck-julia ] -- Add a julia syntax checker to flycheck using Lint.jl
 
@@ -90,7 +87,7 @@
   ;; (add-to-list 'flycheck-global-modes 'ess-julia-mode)
   )
 
-
+
 (provide 'init-my-prog-lang-julia)
 
 ;;; init-my-prog-lang-julia.el ends here

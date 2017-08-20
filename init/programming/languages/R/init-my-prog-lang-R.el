@@ -9,6 +9,7 @@
 
 (use-package ess
   :ensure t
+  :defer t
   :mode (("\\.[rR]\\'" . R-mode)
          ("\\.Rd\\'" . Rd-mode) ; R documentation
          ("\\.S\\'" . S-mode)

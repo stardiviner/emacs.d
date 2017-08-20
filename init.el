@@ -254,7 +254,7 @@
 (require 'init-my-prog-lang-lisp)
 (require 'init-my-prog-lang-emacs-lisp)
 (require 'init-my-prog-lang-common-lisp)
-;; (require 'init-my-prog-lang-lisp-scheme)
+(require 'init-my-prog-lang-lisp-scheme)
 ;; (require 'init-my-prog-lang-newLisp)
 ;; (require 'init-my-prog-lang-shen)
 (require 'init-my-prog-lang-clojure)
@@ -267,9 +267,9 @@
 ;; (require 'init-my-prog-lang-csharp)
 ;; (require 'init-my-prog-lang-D)
 (require 'init-my-prog-lang-go)
-;; (require 'init-my-prog-lang-rust)
+(require 'init-my-prog-lang-rust)
 ;; (require 'init-my-prog-lang-nim)
-;; (require 'init-my-prog-lang-lua)
+(require 'init-my-prog-lang-lua)
 (require 'init-my-prog-lang-swift)
 (require 'init-my-prog-lang-java)
 ;; (require 'init-my-prog-lang-jvm-groovy)
@@ -290,7 +290,7 @@
 ;; (require 'init-my-prog-lang-scala)
 ;; (require 'init-my-prog-lang-elixir)
 ;; (require 'init-my-prog-lang-erlang)
-;; (require 'init-my-prog-lang-R)
+(require 'init-my-prog-lang-R)
 (require 'init-my-prog-lang-julia)
 (require 'init-my-prog-lang-gnuplot)
 ;; (require 'init-my-prog-lang-octave)
@@ -336,7 +336,7 @@
 
 ;;; Science
 
-;; (require 'init-my-math)
+(require 'init-my-math)
 (require 'init-my-physics)
 (require 'init-my-chemistry)
 (require 'init-my-biology)

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Dired ] (Directory editing mode)
 
 (use-package dired

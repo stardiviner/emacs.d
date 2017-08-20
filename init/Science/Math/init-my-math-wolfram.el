@@ -11,10 +11,8 @@
 
 (use-package wolfram-mode
   :ensure t
-  :init
-  (autoload 'wolfram-mode "wolfram-mode" nil t)
-  (autoload 'run-wolfram "wolfram-mode" nil t)
-  (add-to-list 'auto-mode-alist '("\\.m$" . wolfram-mode))
+  :defer t
+  :mode ("\\.m$" . wolfram-mode)
   :config
   (setq wolfram-program "tungsten"
         ;; wolfram-program-arguments
@@ -26,8 +24,9 @@
 
 (use-package wolfram
   :ensure t
-  :init
-  (define-key my-prog-help-document-map (kbd "A") 'wolfram-alpha)
+  :defer t
+  :bind (:map my-prog-help-document-map
+              ("A" . wolfram-alpha))
   :config
   (setq wolfram-alpha-app-id "YX2WUR-2J7GPTXY44")
   )

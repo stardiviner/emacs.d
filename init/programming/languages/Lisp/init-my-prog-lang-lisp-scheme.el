@@ -32,6 +32,7 @@
 
 ;; (add-hook 'scheme-mode-hook 'run-scheme-auto-create)
 
+
 ;;; [ ob-scheme ]
 
 (require 'ob-scheme)
@@ -39,7 +40,7 @@
 (add-to-list 'org-babel-load-languages '(scheme . t))
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 
-
+
 ;;; [ cmuscheme ] -- Scheme process in a buffer. Adapted from tea.el
 
 ;; (use-package cmuscheme
@@ -50,16 +51,14 @@
 
 (use-package geiser
   :ensure t
+  :defer t
   :init
   ;; 'guile, 'racket, 'chicken
   (setq geiser-default-implementation 'guile)
+  (add-hook 'scheme-mode-hook #'geiser-mode) ; (my-run-geiser-auto)
   ;; company-backend
   (add-hook 'scheme-mode-hook
-            (lambda ()
-              (geiser-mode 1)
-              ;; (my-run-geiser-auto)
-              (my-company-add-backend-locally 'geiser-company-backend)
-              ))
+            (lambda () (my-company-add-backend-locally 'geiser-company-backend)))
   :config
   ;; auto start geiser inferior buffer process `run-geiser'.
   (defun my-run-geiser-auto ()

@@ -123,24 +123,23 @@
 
 ;;; [ java-imports ] -- dealing with Java imports.
 
-(use-package java-imports
-  :ensure t
-  :defer t
-  :bind (:map java-mode-map
-              ("C-c M-i" . java-imports-add-import-dwim))
-  :config
-  (add-hook 'java-mode-hook 'java-imports-scan-file)
-  )
+;; (use-package java-imports
+;;   :ensure t
+;;   :defer t
+;;   :bind (:map java-mode-map
+;;               ("C-c M-i" . java-imports-add-import-dwim))
+;;   :config
+;;   (add-hook 'java-mode-hook 'java-imports-scan-file)
+;;   )
 
 
 ;;; [ gradle-mode ] -- Gradle integration with Emacs' compile.
 
-(use-package gradle-mode
-  :ensure t
-  :defer t
-  :config
-  (add-hook 'java-mode-hook #'gradle-mode)
-  )
+;; (use-package gradle-mode
+;;   :ensure t
+;;   :config
+;;   (add-hook 'java-mode-hook #'gradle-mode)
+;;   )
 
 ;;; [ sdkman ] -- Software Development Kit
 

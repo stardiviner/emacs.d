@@ -9,11 +9,6 @@
 
 ;;; [ auto-complete ]
 
-(use-package popup
-  :ensure t)
-;; (require 'showtip)
-
-
 (use-package auto-complete
   :ensure t
   :config
@@ -114,13 +109,13 @@
 
 ;;; [ ac-capf ] -- auto-complete source of completion-at-point
 
-(use-package ac-capf
-  :ensure t
-  :config
-  ;; global
-  ;; (ac-capf-setup)
-  (add-to-list 'ac-sources 'ac-source-capf)
-  )
+;; (use-package ac-capf
+;;   :ensure t
+;;   :config
+;;   ;; global
+;;   ;; (ac-capf-setup)
+;;   (add-to-list 'ac-sources 'ac-source-capf)
+;;   )
 
 
 

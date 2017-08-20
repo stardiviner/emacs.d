@@ -243,9 +243,14 @@ For pasting on sites like GitHub, and Stack Overflow."
 (require 'ox-beamer)
 
 
-;;; [ Mindmap ]
+;;; [ Mindmap (`org-freemind') ] -- Creates a directed graph from org-mode files.
 
 (require 'ox-freemind)
+
+(use-package org-mind-map
+  :ensure t
+  :commands (org-mind-map-write)
+  )
 
 
 ;;; copy formatted text from org-mode to applications.

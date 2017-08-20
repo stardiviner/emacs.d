@@ -6,22 +6,11 @@
 
 
 ;;; Code:
-
+
 ;;; [ swift-mode ]
 
 (use-package swift-mode
-  :ensure t
-  :config
-  (setq swift-indent-offset 4
-        swift-indent-switch-case-offset 2
-        swift-indent-multiline-statement-offset 2
-        swift-indent-hanging-comma-offset nil)
-  (setq swift-repl-executable "swift")
-  ;; flycheck + swift-mode
-  (add-to-list 'flycheck-checkers 'swift)
-  ;; Swift flycheck is disabled by default because not available under Linux.
-  (setq flycheck-swift-sdk-path "")
-  )
+  :ensure t)
 
 
 ;;; [ swift3-mode ] -- major-mode for Apple's Swift programming language.
@@ -59,9 +48,13 @@
 ;;; [ ob-swift ]
 
 (use-package ob-swift
-  :ensure t)
+  :ensure t
+  :config
+  (add-to-list 'org-babel-load-languages '(swift . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  )
 
-
+
 (provide 'init-my-prog-lang-swift)
 
 ;;; init-my-prog-lang-swift.el ends here

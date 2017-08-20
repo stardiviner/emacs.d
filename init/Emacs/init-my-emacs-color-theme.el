@@ -6,6 +6,7 @@
 
 
 ;;; Code:
+
 ;;; [ X Resources ]
 
 (setq inhibit-x-resources t)
@@ -26,9 +27,8 @@
 (use-package color-theme
   :ensure t
   :config
-  (eval-after-load "color-theme"
-    '(progn
-       (color-theme-initialize)))
+  (with-eval-after-load "color-theme"
+    (color-theme-initialize))
   )
 
 (setq color-theme-is-global t
@@ -46,12 +46,6 @@
 ;;   :config
 ;;   (setq leuven-scale-outline-headlines t)
 ;;   (load-theme 'leuven t)
-;;
-;;   ;; [ org-beautify-theme ] -- A sub-theme to make org-mode more beautiful.
-;;   ;; (use-package org-beautify-theme
-;;   ;;   :ensure t
-;;   ;;   :config
-;;   ;;   (load-theme 'org-beautify))
 ;;   )
 
 ;;; [ nord-theme ] -- An arctic, north-bluish clean and elegant Emacs theme.
@@ -61,16 +55,6 @@
   :config
   (load-theme 'nord t))
 
-;;; [ madhat2r-theme ] -- Dark theme for (spac[e]macs) that supports GUI and terminal.
-
-;; (use-package madhat2r-theme
-;;   :ensure t
-;;   :config
-;;   (setq madhat2r-theme-org-height t
-;;         madhat2r-theme-org-agenda-height nil)
-;;   (load-theme 'madhat2r t)
-;;   )
-
 ;;; [ doom-themes ] -- Emacs themes inspired by Atom One
 
 ;; (use-package doom-themes
@@ -79,8 +63,6 @@
 ;;   (setq doom-enable-bold t
 ;;         doom-enable-italic t)
 ;;   (load-theme 'doom-one t)
-;;   (add-hook 'find-file-hook 'doom-buffer-mode) ; brighter source buffers.
-;;   (add-hook 'minibuffer-setup-hook 'doom-buffer-mode) ; brighter minibuffer when active
 ;;   )
 
 
@@ -146,7 +128,7 @@
 ;;   :ensure t
 ;;   :defer t)
 
-
+
 (provide 'init-my-emacs-color-theme)
 
 ;;; init-my-emacs-color-theme.el ends here

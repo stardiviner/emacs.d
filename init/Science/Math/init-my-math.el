@@ -7,7 +7,6 @@
 
 ;;; Code:
 
-
 ;;; [ Proof Assistant ]
 
 (require 'init-my-math-proof-assistant)

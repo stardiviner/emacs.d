@@ -36,6 +36,16 @@
   (add-hook 'before-save-hook #'gofmt-before-save)
   )
 
+;; [ ob-go ]
+
+(use-package ob-go
+  :ensure t
+  :config
+  (add-to-list 'org-babel-load-languages '(go . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  )
+
+
 
 ;;; [ go-gopath ] -- guess GOPATH using gb and projectile.
 
@@ -102,29 +112,6 @@
   )
 
 
-;;; [ gore-mode ] -- Simple mode for gore, a command-line evaluator for golang.
-
-
-;;; [ go-play ] -- Paste to play.golang.org
-
-
-;;; [ go-playground ] -- Local Golang playground for short snippets.
-
-(use-package go-playground
-  :ensure t
-  :defer t
-  :config
-  (setq go-playground-basedir "~/.go/src/playground")
-  )
-
-
-;;; [ go-playground-cli ]
-
-;; (use-package go-playground-cli
-;;   :ensure t
-;;   :defer t)
-
-
 ;;; [ go-errcheck ]
 
 (use-package go-errcheck
@@ -134,7 +121,6 @@
 ;;; [ go-oracle ]
 
 (load "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
-
 (require 'go-oracle)
 
 
@@ -158,15 +144,6 @@
 (use-package go-projectile
   :ensure t)
 
-
-;; [ ob-go ]
-
-(use-package ob-go
-  :ensure t
-  :config
-  (add-to-list 'org-babel-load-languages '(go . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  )
 
 
 

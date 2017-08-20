@@ -11,7 +11,8 @@
 
 (use-package lua-mode
   :ensure t
-  :defer t
+  :bind (:map lua-mode-map
+              ("C-c C-s" . run-lua))
   :config
   (setq lua-indent-level 3
         lua-always-show t
@@ -20,8 +21,6 @@
         lua-indent-string-contents t
         lua-jump-on-traceback t
         )
-
-  (define-key lua-mode-map (kbd "C-c C-s") 'run-lua)
   )
 
 

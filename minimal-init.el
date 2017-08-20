@@ -182,7 +182,7 @@
 
 
 
-;;; latest version
+;;; latest version from source code
 (use-package org
   :load-path "~/Code/Emacs/org-mode/lisp/"
   :pin manual
@@ -200,7 +200,7 @@
       '(org-pcomplete
         org-faces
         ;; org-fstree
-        org-table org-compat
+        org-table ; org-compat
         ;; org-protocol
         org-timer org-clock org-habit org-notify
         org-info org-bibtex org-docview

@@ -12,19 +12,16 @@
 
 ;; [ git-modes ] -- front end wrapper for vc-git.
 
-(use-package gitconfig-mode
-  :ensure t
-  :init
-  (add-to-list 'auto-mode-alist '("\\.gitconfig\\'" . gitconfig-mode)))
-(use-package gitattributes-mode
-  :ensure t
-  :defer t)
-(use-package gitignore-mode
-  :ensure t
-  :init
-  (add-to-list 'auto-mode-alist '("\\.gitignore\\'" . gitignore-mode)))
-(use-package git-commit
-  :ensure t)
+;; (use-package gitconfig-mode
+;;   :ensure t
+;;   :mode ("\\.gitconfig\\'" . gitconfig-mode))
+;; (use-package gitattributes-mode
+;;   :ensure t)
+;; (use-package gitignore-mode
+;;   :ensure t
+;;   :mode ("\\.gitignore\\'" . gitignore-mode))
+;; (use-package git-commit
+;;   :ensure t)
 
 
 ;;; [ Magit ]
@@ -105,8 +102,8 @@
 
 ;;; [ magit-p4 ] -- Magit plugin integrating git-p4 add-on.
 
-(use-package magit-p4
-  :ensure t)
+;; (use-package magit-p4
+;;   :ensure t)
 
 
 ;;; [ git-messenger ] -- popup commit message at current line.
@@ -131,28 +128,18 @@
 
 ;;; [ git-timemachine ] -- time-machine of Git revisions.
 
-(use-package git-timemachine
-  :ensure t)
+;; (use-package git-timemachine
+;;   :ensure t)
 
 ;;; [ magit-tbdiff ] -- topic branch interdiff
 
-(use-package magit-tbdiff
-  :ensure t)
-
-;;; [ gited ] -- operate on Git branches like Dired.
-
-(use-package gited
-  :ensure t
-  :bind (:map my-prog-vcs-git-map
-              ("b" . gited-list-branches)
-              :map dired-mode-map
-              ("C-x C-g" . gited-list-branches))
-  )
+;; (use-package magit-tbdiff
+;;   :ensure t)
 
 ;;; [ magit-lfs ] -- Magit support for GLFS: Git Large File System
 
-(use-package magit-lfs
-  :ensure t)
+;; (use-package magit-lfs
+;;   :ensure t)
 
 ;;; [ magit-stgit ] -- StGit extension for Magit
 

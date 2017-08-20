@@ -66,8 +66,9 @@
 
 ;;; [ snapshot-timemachine ] -- mode to step through (Btrfs, ZFS, ...) snapshots of files.
 
-(use-package snapshot-timemachine
-  :ensure t)
+;; (use-package snapshot-timemachine
+;;   :ensure t)
+
 
 ;;; move file to another place
 (defun move-file (new-location)

@@ -54,7 +54,7 @@
   
   ;; auto start racer for rust-mode.
   (add-hook 'rust-mode-hook #'racer-mode)
-
+  :config
   (use-package company-racer
     :ensure t
     :config

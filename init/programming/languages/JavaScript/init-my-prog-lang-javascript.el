@@ -19,11 +19,7 @@
       js-flat-functions nil
       )
 
-;; (add-to-list js-enabled-frameworks 'reat)
-
-;; (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js3-mode))
-
+;; (add-to-list 'js-enabled-frameworks 'reat)
 
 ;;; auto fill-in in multi-lines comment.
 
@@ -90,10 +86,9 @@
 
 (use-package js2-mode
   :ensure t
-  :defer t
-  :init
-  (add-hook 'js-mode-hook 'js2-minor-mode)
+  :mode ("\\.js\\'" . js2-mode)
   :config
+  (add-hook 'js-mode-hook 'js2-minor-mode)
   (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
 
   ;; [ js2-refactor ]
@@ -122,13 +117,15 @@
 ;;; [ js3-mode ]
 
 (use-package js3-mode
-  :ensure t)
+  :ensure t
+  :mode ("\\.js\\'" . js3-mode)
+  )
 
 
 ;;; [ flycheck checker ]
 
 (defun js-mode-setup-flycheck-checkers ()
-  ;; disable jshint checker, so eslint will be used.
+  "Disable jshint checker, so eslint will be used."
   ;; disable json checking (just my preference to not use it)
   (add-to-list 'flycheck-disabled-checkers 'javascript-jshint)
   (add-to-list 'flycheck-disabled-checkers 'json-jsonlist)
@@ -144,12 +141,12 @@
 
 ;;; [ nvm ] -- Manage Node versions within Emacs.
 
-(use-package nvm
-  :ensure t
-  :config
-  ;; FIXME: VERSION should be a number.
-  ;; (nvm-use "system")
-  )
+;; (use-package nvm
+;;   :ensure t
+;;   :config
+;;   ;; FIXME: VERSION should be a number.
+;;   ;; (nvm-use "system")
+;;   )
 
 
 ;; [ js-comint ] -- a lightweight comint integration.
@@ -187,11 +184,11 @@
 
 ;;; [ nodejs-repl ] -- Run Node.js REPL and communicate the process.
 
-(use-package nodejs-repl
-  :ensure t
-  :init
-  (setenv "NODE_NO_READLINE" "1")
-  )
+;; (use-package nodejs-repl
+;;   :ensure t
+;;   :init
+;;   (setenv "NODE_NO_READLINE" "1")
+;;   )
 
 
 ;;; [ jscs (JavaScript Code Style) ]
@@ -229,42 +226,29 @@
             (lambda ()
               (local-set-key (kbd "C-c C-d") 'tern-get-docs)
               ))
+
+  ;; [ company-tern ] -- Tern backend for company-mode.
+  (use-package company-tern
+    :ensure t
+    :init
+    (add-hook 'tern-mode-hook
+              (lambda ()
+                ;; tern-mode auto push `tern-completion-at-point' to `capf'.
+                ;; (my-company-add-backend-locally 'company-jquery) ; FIXME: `company-jquery' definition is void.
+                (my-company-add-backend-locally 'company-tern)
+                ))
+    :config
+    (setq company-tern-property-marker "" ; " ○"
+          company-tern-meta-as-single-line t
+          )
+    )
+
+  ;; [ tj-mode ] -- major mode for highlighting JavaScript with Tern.
+  ;; (use-package tj-mode
+  ;;   :ensure t
+  ;;   :defer t)
   )
 
-
-;;; [ company-tern ] -- Tern backend for company-mode.
-
-(use-package company-tern
-  :ensure t
-  :init
-  (add-hook 'tern-mode-hook
-            (lambda ()
-              ;; tern-mode auto push `tern-completion-at-point' to `capf'.
-              ;; (my-company-add-backend-locally 'company-jquery) ; FIXME: `company-jquery' definition is void.
-              (my-company-add-backend-locally 'company-tern)
-              ))
-  :config
-  (setq company-tern-property-marker "" ; " ○"
-        company-tern-meta-as-single-line t
-        )
-  )
-
-
-;;; [ tj-mode ] -- major mode for highlighting JavaScript with Tern.
-
-;; (use-package tj-mode
-;;   :ensure t
-;;   :defer t)
-
-
-;;; [ jade ] -- JavaScript Awesome Development Environment (in Emacs).
-
-(use-package jade-mode
-  :ensure t
-  :init
-  ;; JavaScript evaluation in JS buffers. [C-x C-e], [C-c M-i]
-  (add-hook 'js2-mode-hook #'jade-interaction-mode)
-  )
 
 ;;; [ Indium ] -- A JavaScript development environment for Emacs.
 
@@ -291,10 +275,7 @@
 
 ;; (use-package jsx-mode
 ;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
-;;
+;;   :mode ("\\.jsx\\'" . jsx-mode)
 ;;   :config
 ;;   (add-hook 'jsx-mode-hook
 ;;             (lambda ()
@@ -304,34 +285,31 @@
 
 ;;; [ js-doc ] -- Insert JsDoc style comment easily.
 
-(use-package js-doc
-  :ensure t
-  :defer t
-  :config
-  (setq js-doc-mail-address "numbchild@gmail.com"
-        js-doc-author (format "stardiviner <%s>" js-doc-mail-address)
-        js-doc-url "https://stardiviner.github.io/"
-        js-doc-license "GPL3")
-
-  (add-hook 'js2-mode-hook
-            #'(lambda ()
-                (define-key prog-comment-prefix (kbd "F") 'js-doc-insert-file-doc)
-                (define-key prog-comment-prefix (kbd "f") 'js-doc-insert-function-doc)
-                (define-key js2-mode-map (kbd "@") 'js-doc-insert-tag)))
-  )
+;; (use-package js-doc
+;;   :ensure t
+;;   :init
+;;   (add-hook 'js2-mode-hook
+;;             #'(lambda ()
+;;                 (define-key prog-comment-prefix (kbd "F") 'js-doc-insert-file-doc)
+;;                 (define-key prog-comment-prefix (kbd "f") 'js-doc-insert-function-doc)
+;;                 (define-key js2-mode-map (kbd "@") 'js-doc-insert-tag)))
+;;   :config
+;;   (setq js-doc-mail-address "numbchild@gmail.com"
+;;         js-doc-author (format "stardiviner <%s>" js-doc-mail-address)
+;;         js-doc-url "https://stardiviner.github.io/"
+;;         js-doc-license "GPL3")
+;;   )
 
 
 ;;; [ import-js ] -- A tool to simplify importing JS modules.
 
-(use-package import-js
-  :ensure t
-  :defer t)
+;; (use-package import-js
+;;   :ensure t)
 
 ;;; [ js-import ] -- Automatically import JavaScript files from the current project or dependencies.
 
 (use-package js-import
-  :ensure t
-  :defer t)
+  :ensure t)
 
 ;;; [ js-format ] -- Format or transform code style using NodeJS server with different javascript formatter.
 

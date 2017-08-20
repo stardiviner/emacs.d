@@ -40,7 +40,7 @@
       '(org-pcomplete
         org-faces
         ;; org-fstree
-        org-table org-compat
+        org-table ; org-compat
         org-protocol
         org-timer org-clock org-habit org-notify
         org-info org-bibtex org-docview
@@ -77,11 +77,11 @@
 (require 'init-my-org-extensions)
 (require 'init-my-org-programming)
 (require 'init-my-org-presentation)
-(require 'init-my-org-trello)
+;; (require 'init-my-org-trello)
 (require 'init-my-org-contacts)
 (require 'init-my-org-password)
 (require 'init-my-org-drill)
-(require 'init-my-org-mobile)
+;; (require 'init-my-org-mobile)
 
 
 
