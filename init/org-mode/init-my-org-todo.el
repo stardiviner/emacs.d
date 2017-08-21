@@ -60,6 +60,8 @@
         (sequence "URGENT(u!)" "INPROGRESS(g!)" "TODO(t@/!)" "LATER(l!)" "NEXT(n!)" "SOMEDAY(s@/!)" "FAILED(x@/!)" "CANCELLED(C@/!)" "|" "DONE(d@/!)")
         ;; Clock
         (sequence "STARTED(!)" "|" "DONE(d@/!)")
+        ;; Repeat tasks with active timestamps
+        (sequence "REPEAT(r!)" "|" "DONE(d@/!)")
         ;; Habit
         (sequence "HABIT(h)" "|" "DONE(d)")
         ;; Types
@@ -84,6 +86,8 @@
          :box '(:color "black" :line-width -1))
         ("STARTED" :foreground "green"
          :box '(:color "red" :line-width -1))
+        ("REPEAT" :foreground "cyan" :background "black"
+         :box '(:color "green" :line-width -1))
         ("HABIT" :foreground "cyan" :background "black"
          :box '(:color "green" :line-width -1))
         ("SOMEDAY" :foreground "dim gray"
