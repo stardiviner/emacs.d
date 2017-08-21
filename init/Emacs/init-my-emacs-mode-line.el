@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 (setq mode-line-in-non-selected-windows t)
 
 
@@ -227,7 +227,7 @@ state (modified, read-only or non-existent)."
         ;; remote file
         (when (and (not (null (buffer-file-name)))
                    (file-remote-p (buffer-file-name)))
-          (all-the-icons-faicon "cloud-download"
+          (all-the-icons-faicon "server"
                                 :face 'mode-line-warn-face
                                 :v-adjust -0.05))
         ;; narrow
@@ -771,6 +771,18 @@ dimensions of a block selection."
   (if (and (active) (and (boundp 'mu4e-alert-mode-line) mu4e-alert-mode-line))
       (propertize mu4e-alert-mode-line)))
 
+;;; TRAMP
+(defun *tramp ()
+  "Show TRAMP info in custom mode-line."
+  (when (and (not (null (buffer-file-name)))
+             (file-remote-p (buffer-file-name)))
+    (concat
+     (all-the-icons-faicon "server"
+                           :face 'mode-line-warn-face
+                           :v-adjust -0.05)
+     (propertize " " 'face 'variable-pitch)
+     )))
+
 ;;; `copy-file-on-save'
 (use-package copy-file-on-save
   :ensure t
@@ -788,6 +800,7 @@ dimensions of a block selection."
   `(:eval
     (let* ((meta (concat
                   (*emacsclient)
+                  ;; (*tramp)
                   (*recursive-editing)
                   (*macro-recording)
                   (*selection-info)
@@ -867,7 +880,7 @@ dimensions of a block selection."
 
 ;; (display-time-mode t)
 
-
+
 (provide 'init-my-emacs-mode-line)
 
 ;;; init-my-emacs-mode-line.el ends here
