@@ -771,6 +771,16 @@ dimensions of a block selection."
   (if (and (active) (and (boundp 'mu4e-alert-mode-line) mu4e-alert-mode-line))
       (propertize mu4e-alert-mode-line)))
 
+;;; `copy-file-on-save'
+(use-package copy-file-on-save
+  :ensure t
+  :config
+  ;; show this segment in custom mode-line.
+  (defun *copy-file-on-save ()
+    "Use `copy-file-on-save-lighter' in custom mode-line."
+    copy-file-on-save-lighter)
+  )
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun my-modeline ()
@@ -803,7 +813,8 @@ dimensions of a block selection."
                  (*org-timer)
                  (*pomodoro)
                  (*process)
-                 (*my-rtags-modeline)
+                 (*copy-file-on-save)
+                 ;; (*my-rtags-modeline)
                  ))
            (rhs (list
                  ;; NOTE: the `mid' `format-mode-line' meet first `nil' will

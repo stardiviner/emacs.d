@@ -4,7 +4,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ YASnippet ] --- (template/snippet engine)
 
 (use-package yasnippet
@@ -108,7 +108,14 @@ $0`(yas-escape-text yas-selected-text)`"
   (add-hook 'yas-after-reload-hook 'org-sync-snippets-snippets-to-org)
   )
 
+;;; [ lively ] -- Live-evaluated Emacs Lisp snippets as interactively updating text.
 
+(use-package lively
+  :ensure t
+  :commands (lively)
+  )
+
+
 (provide 'init-my-prog-snippet)
 
 ;;; init-my-prog-snippet.el ends here
