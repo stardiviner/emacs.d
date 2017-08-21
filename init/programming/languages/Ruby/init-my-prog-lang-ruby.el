@@ -33,6 +33,7 @@
 
 (add-to-list 'org-babel-load-languages '(ruby . t))
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+(add-to-list 'org-babel-tangle-lang-exts '("ruby" . "rb"))
 
 (add-to-list 'org-babel-default-header-args:ruby
              '(:results . "value"))

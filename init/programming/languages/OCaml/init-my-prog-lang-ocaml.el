@@ -32,6 +32,7 @@
 
 (add-to-list 'org-babel-load-languages '(ocaml . t))
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+(add-to-list 'org-babel-tangle-lang-exts '("ocaml" . "ml"))
 
 ;; (add-to-list 'org-babel-default-header-args:ocaml
 ;;              '(:results . "value"))

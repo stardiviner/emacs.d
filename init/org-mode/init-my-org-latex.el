@@ -12,6 +12,7 @@
 
 (add-to-list 'org-babel-load-languages '(latex . t))
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+(add-to-list 'org-babel-tangle-lang-exts '("latex" . "tex"))
 
 ;; generate results as #+BEGIN_LaTeX ... #+END_LaTeX block.
 ;; (setq org-babel-default-header-args:latex
@@ -41,6 +42,7 @@
 ;;
 ;; (add-hook 'org-mode-hook #'disable-org-latex-preview-on-nonfile)
 
+
 ;; config org latex preview style
 (setq org-preview-latex-default-process 'dvipng
       ;; org-latex-preview-ltxpng-directory "ltxpng/"
@@ -51,6 +53,7 @@
                                 org-format-latex-options :html-scale 2.0)
       )
 
+
 ;; (add-to-list 'org-latex-default-packages-alist)
 ;; (add-to-list 'org-latex-packages-alist)
 
@@ -92,7 +95,7 @@
                     )
       )
 
-
+
 ;;; [ Math ]
 
 ;;; LaTeX Math Symbols

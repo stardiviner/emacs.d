@@ -43,6 +43,7 @@
 (require 'ob-coq)
 (add-to-list 'org-babel-load-languages '(coq . t))
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+(add-to-list 'org-babel-tangle-lang-exts '("coq" . "coq"))
 
 
 (provide 'init-my-math-proof-assistant)

@@ -20,6 +20,7 @@
 
 (add-to-list 'org-babel-load-languages '(sql . t))
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+(add-to-list 'org-babel-tangle-lang-exts '("sql" . "sql"))
 
 (add-to-list 'org-src-lang-modes (cons "SQL" 'sql))
 
@@ -33,6 +34,7 @@
 
   (add-to-list 'org-babel-load-languages '(sql-mode . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  ;; (add-to-list 'org-babel-tangle-lang-exts '("sql-mode" . "sql"))
 
   ;; security guard
   (setq org-confirm-babel-evaluate

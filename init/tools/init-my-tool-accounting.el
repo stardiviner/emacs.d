@@ -32,6 +32,7 @@
     :config
     (add-to-list 'org-babel-load-languages '(ledger . t))
     (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+    (add-to-list 'org-babel-tangle-lang-exts '("ledger" . "ledger"))
 
     (setq org-babel-default-header-args:ledger
           '((:results . "output") (:cmdline . "bal"))
@@ -122,6 +123,7 @@
   (require 'ob-hledger)
   (add-to-list 'org-babel-load-languages '(hledger . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("hledger" . "hledger"))
   )
 
 ;;; ----------------------------------------------------------------------------

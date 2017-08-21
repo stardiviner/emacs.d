@@ -77,6 +77,7 @@
 
 (add-to-list 'org-babel-load-languages '(js . t))
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+(add-to-list 'org-babel-tangle-lang-exts '("js" . "js"))
 
 (with-eval-after-load 'js2-mode
   (add-to-list 'org-src-lang-modes '("js" . js2)))

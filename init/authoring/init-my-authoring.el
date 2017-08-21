@@ -25,6 +25,7 @@
 ;;   :defer t
 ;;   :init
 ;;   (org-babel-do-load-languages 'org-babel-load-languages '((org-if . t)))
+;;   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 ;;   )
 
 

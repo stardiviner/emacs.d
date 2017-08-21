@@ -123,6 +123,7 @@
 
 (add-to-list 'org-babel-load-languages '(haskell . t))
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+(add-to-list 'org-babel-tangle-lang-exts '("haskell" . "hs"))
 
 (add-to-list 'org-babel-default-header-args:haskell '(:session . "*haskell*"))
 

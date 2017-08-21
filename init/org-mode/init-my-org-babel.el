@@ -73,6 +73,7 @@
 (require 'ob-shell)
 ;; (add-to-list 'org-babel-load-languages '(shell . t))
 ;; (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+;; (add-to-list 'org-babel-tangle-lang-exts '("shell" . "sh"))
 
 (add-to-list 'org-babel-default-header-args:shell
              '(:results . "output"))
@@ -87,6 +88,7 @@
   :config
   (add-to-list 'org-babel-load-languages '(uart . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  ;; FIXME: (add-to-list 'org-babel-tangle-lang-exts '("uart" . "??"))
   )
 
 

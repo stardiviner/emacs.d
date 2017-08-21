@@ -23,6 +23,7 @@
 
   (add-to-list 'org-babel-load-languages '(ipython . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("ipython" . "ipynb"))
   
   (setq org-babel-default-header-args:ipython
         '((:session . nil)

@@ -11,8 +11,7 @@
 
 (use-package octave
   :ensure t
-  :init
-  (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
+  :mode ("\\.m\\'" . octave-mode)
   :config
   (setq octave-auto-indent t
         octave-auto-newline t
@@ -42,10 +41,12 @@
 (require 'ob-matlab)
 (add-to-list 'org-babel-load-languages '(matlab . t))
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+(add-to-list 'org-babel-tangle-lang-exts '("matlab" . "m"))
 
 (require 'ob-octave)
 (add-to-list 'org-babel-load-languages '(octave . t))
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+(add-to-list 'org-babel-tangle-lang-exts '("octave" . "m"))
 
 
 

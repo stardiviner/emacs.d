@@ -49,6 +49,7 @@
 
   (add-to-list 'org-babel-load-languages '(sagemath . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  ;; FIXME: (add-to-list 'org-babel-tangle-lang-exts '("sagemath" . "??"))
   ;; (with-eval-after-load "org"
   ;;   (define-key org-mode-map (kbd "C-c c") 'ob-sagemath-execute-async))
   )

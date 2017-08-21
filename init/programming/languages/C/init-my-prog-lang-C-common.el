@@ -63,6 +63,7 @@
 
 (add-to-list 'org-babel-load-languages '(C . t))
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+(add-to-list 'org-babel-tangle-lang-exts '("C" . "c"))
 
 (add-to-list 'org-babel-default-header-args:C
              '(:results . "output"))
