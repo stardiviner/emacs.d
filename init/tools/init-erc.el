@@ -179,7 +179,8 @@ When called repeatedly, cycle through the buffers."
   (make-local-variable 'company-minimum-prefix-length)
   (setq company-minimum-prefix-length 2)
   (make-local-variable 'company-backends)
-  (setq company-backends '((company-capf :with company-yasnippet)
+  (setq company-backends '(company-capf
+                           ;; (company-capf :with company-yasnippet)
                            :separate company-ispell
                            (company-keywords :with company-dabbrev-code)
                            company-abbrev)))
@@ -423,7 +424,7 @@ When called repeatedly, cycle through the buffers."
 (require 'erc-spelling)
 (erc-spelling-mode 1)
 ;; (setq erc-spelling-dictionaries '(("irc.tu-ilmenau.de" "german-new8")))
-
+(define-key erc-mode-map (kbd "<M-tab>") 'ispell-complete-word)
 
 ;;; [ Speak ]
 ;; (require 'erc-speak)
