@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 (unless (boundp 'my-search-prefix)
   (define-prefix-command 'my-search-prefix))
 (global-set-key (kbd "C-c s") 'my-search-prefix)
@@ -25,17 +25,7 @@
 (with-eval-after-load 'counsel
   (define-key my-search-prefix (kbd "s") 'counsel-rg))
 
-;;; [ socyl ] -- The Emacs frontend for several search tools (ag, pt, sift, ripgrep, ...).
-
-;; (use-package socyl
-;;   :ensure t
-;;   :bind (:map my-search-prefix
-;;               ("s" . socyl-search-regexp))
-;;   :config
-;;   (setq socyl-backend 'ag)
-;;   )
-
-
+
 (provide 'init-my-emacs-search)
 
 ;;; init-my-emacs-search.el ends here
