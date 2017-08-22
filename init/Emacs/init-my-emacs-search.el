@@ -22,7 +22,8 @@
 (require 'init-my-emacs-search-finder)
 (require 'init-my-emacs-search-engine)
 
-(define-key my-search-prefix (kbd "s") 'counsel-rg)
+(with-eval-after-load 'counsel
+  (define-key my-search-prefix (kbd "s") 'counsel-rg))
 
 ;;; [ socyl ] -- The Emacs frontend for several search tools (ag, pt, sift, ripgrep, ...).
 

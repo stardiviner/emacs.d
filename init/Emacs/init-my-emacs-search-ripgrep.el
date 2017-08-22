@@ -12,21 +12,9 @@
 (use-package ripgrep
   :ensure t
   :bind (:map my-search-prefix
-              ("M-r" . ripgrep-regexp))
+              ("r" . ripgrep-regexp))
   :config
   ;; (setq ripgrep-arguments '())
-  )
-
-;;; [ rg ] -- Use ripgrep (grep and ag replacement) like rgrep.
-
-(use-package rg
-  :ensure t
-  :bind (:map my-search-prefix
-              ("r" . rg))
-  :config
-  (setq rg-command-line-flags '()
-        rg-group-result t
-        rg-show-columns t)
   )
 
 ;;; [ projectile-ripgrep ] -- front-end for ripgrep, a command line search tool.
