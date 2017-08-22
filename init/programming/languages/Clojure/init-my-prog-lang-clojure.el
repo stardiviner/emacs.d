@@ -172,23 +172,25 @@
   (setq cider-completion-use-context t
         cider-annotate-completion-candidates t
         ;; cider-completion-annotations-include-ns 'always ; 'unqualified
-        cider-completion-annotations-alist '(("class" "class")
-                                             ("field" "field")
-                                             ("function" "λ") ; f, λ, ƒ
-                                             ("import" "import")
-                                             ("keyword" "k")
-                                             ("local" "l")
-                                             ("macro" "macro")
-                                             ("method" "method")
-                                             ("namespace" "ns")
-                                             ("protocol" "protocol")
-                                             ("protocol-function" "protocol-function")
-                                             ("record" "record")
-                                             ("special-form" "special-form")
-                                             ("static-field" "static-firld")
-                                             ("static-method" "static-method")
-                                             ("type" "type")
-                                             ("var" "v"))
+        ;; https://en.wikipedia.org/wiki/Mathematical_Alphanumeric_Symbols#Tables
+        cider-completion-annotations-alist '(("var" "𝓋") ; 𝓋, 𝒱
+                                             ("keyword" "𝓀") ; 𝓀, 𝒦
+                                             ("function" "𝒻") ; f, λ, ƒ, 𝒻
+                                             ("class" "𝒞") ; 𝒸, 𝒞
+                                             ("field" "ℱ") ; ℱ
+                                             ("static-field" "𝓕") ; 𝓕
+                                             ("import" "𝓲") ; 𝒾, 𝓲
+                                             ("local" "ℒ") ; ℒ
+                                             ("macro" "𝓂") ; 𝓂
+                                             ("method" "ℳ") ; ℳ
+                                             ("static-method" "𝓜") ; 𝓜
+                                             ("namespace" "𝒩") ; ns, 𝒩
+                                             ("protocol" "𝒫") ; 𝒫, 𝓟
+                                             ("protocol-function" "𝓅") ; 𝓅
+                                             ("record" "ℛ") ; ℛ, 𝓇,
+                                             ("special-form" "𝔽")
+                                             ("type" "𝒯") ; 𝓉, 𝒯
+                                             )
         )
 
   ;; Java
