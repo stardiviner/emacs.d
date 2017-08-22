@@ -193,7 +193,11 @@ When called repeatedly, cycle through the buffers."
 
 (setq erc-header-line-uses-tabbar-p t)
 
-(erc-scrolltobottom-mode 1)
+;;; ERC scroll to bottom
+;; (require 'erc-goodies)
+;; `erc-scrolltobottom-mode'
+;; (add-to-list 'erc-modules 'scrolltobottom)
+;; (erc-update-modules)
 
 ;;; [ Filling & Wrap ]
 (require 'erc-fill)
