@@ -45,6 +45,20 @@
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 (add-to-list 'org-babel-tangle-lang-exts '("coq" . "coq"))
 
+;;; [ coq-commenter ] -- Emacs commeting support tools for Coq proof assistance.
+
+(use-package coq-commenter
+  :ensure t
+  :bind (:map coq-commenter-mode-map
+              ("C-;" . coq-commenter-comment-proof-in-region)
+              ("C-x C-;" . coq-commenter-comment-proof-to-cursor)
+              ("C-'" . coq-commenter-uncomment-proof-in-region)
+              ("C-x C-'" . coq-commenter-uncomment-proof-in-buffer)
+              )
+  :config
+  (add-hook 'coq-mode-hook 'coq-commenter-mode)
+  )
+
 
 (provide 'init-my-math-proof-assistant)
 
