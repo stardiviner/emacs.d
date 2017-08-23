@@ -46,16 +46,6 @@
   :init
   (add-hook 'Info-selection-hook #'niceify-info))
 
-;;; [ helpful ] -- A better Emacs *Help* buffer.
-
-(use-package helpful
-  :ensure t
-  :config
-  (global-set-key [remap describe-function] 'helpful-function) ; [C-h f]
-  (global-set-key [remap describe-command] 'helpful-command) ; [C-h c]
-  (global-set-key (kbd "C-h M-m") 'helpful-macro)
-  )
-
 
 
 (provide 'init-my-prog-document-info)
