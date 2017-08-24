@@ -71,9 +71,9 @@
 
 ;; Refile targets include this file and any file contributing to the
 ;; agenda - up to 5 levels deep
-(setq org-refile-targets '((nil :maxlevel . 9)
-                           (org-agenda-files :maxlevel . 9))
-      ;; org-refile-use-outline-path nil
+(setq org-refile-targets '((nil :maxlevel . 2)
+                           (org-agenda-files :maxlevel . 1))
+      ;; org-refile-use-outline-path t
       ;; org-outline-path-complete-in-steps t
       ;; org-refile-target-verify-function nil
       org-refile-allow-creating-parent-nodes 'confirm
