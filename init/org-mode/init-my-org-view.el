@@ -13,7 +13,7 @@
       org-startup-truncated t
       ;; org-startup-with-beamer-mode nil
       ;; org-hide-block-startup t
-      org-hide-leading-stars t
+      ;; org-hide-leading-stars nil
       org-hide-emphasis-markers t
       )
 
@@ -76,27 +76,30 @@
 
 ;; [ org-bullets ]
 
-(use-package org-bullets
-  :ensure t
-  :config
-  (setq-default org-bullets-bullet-list
-                ;; '("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
-                '("" "" "" "" "" "" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
-                ;; '("" "" "" "" "" "")
-                )
-
-  (defface org-bullets-face
-    '((t (:inherit 'org-level-1 :height 1.2)))
-    "My custom face for org-bullets."
-    :group 'org-faces)
-  (set-face-attribute 'org-bullets-face nil
-                      :family "Monospace"
-                      :height 120 :weight 'normal
-                      )
-  (setq org-bullets-face-name 'org-bullets-face)
-
-  (add-hook 'org-mode-hook #'org-bullets-mode)
-  )
+;; (use-package org-bullets
+;;   :ensure t
+;;   :config
+;;   ;; hide leading stars if use org-bullets.
+;;   (setq org-hide-leading-stars t)
+;;
+;;   (setq-default org-bullets-bullet-list
+;;                 ;; '("Ⅰ" "Ⅱ" "Ⅲ" "Ⅳ" "Ⅴ" "Ⅵ" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
+;;                 '("" "" "" "" "" "" "Ⅶ" "Ⅷ" "Ⅸ" "Ⅹ" "Ⅺ" "Ⅻ")
+;;                 ;; '("" "" "" "" "" "")
+;;                 )
+;;
+;;   (defface org-bullets-face
+;;     '((t (:inherit 'org-level-1 :height 1.2)))
+;;     "My custom face for org-bullets."
+;;     :group 'org-faces)
+;;   (set-face-attribute 'org-bullets-face nil
+;;                       :family "Monospace"
+;;                       :height 120 :weight 'normal
+;;                       )
+;;   (setq org-bullets-face-name 'org-bullets-face)
+;;
+;;   (add-hook 'org-mode-hook #'org-bullets-mode)
+;;   )
 
 ;;; [ org-numbers-overlay ]
 
