@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel diff generate
+# key: babel-diff-generate
+# group: babel.diff
+# --
+#+BEGIN_SRC shell :results code :wrap "SRC diff :tangle '$3' :dir '${4:patch-file dir}' "
+diff -u ${1:file1} ${2:file2} > ${3:patch-file}.patch
+#+END_SRC

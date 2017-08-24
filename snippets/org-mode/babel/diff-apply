@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel diff apply
+# key: babel-diff-apply
+# group: babel.diff
+# --
+#+BEGIN_SRC diff :tangle "${2:patch-file name}.patch" :dir "${1:patch-file dir}"
+$0
+#+END_SRC
