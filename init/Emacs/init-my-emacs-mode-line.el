@@ -658,26 +658,32 @@ dimensions of a block selection."
 
 (defun *org-clock ()
   "Show org-clock info."
-  (when (and (active) org-clock-idle-timer)
+  (when (and (active)
+             (org-clock-is-active)
+             org-clock-idle-timer)
     ;; get [0:05] from `org-clock-get-clock-string'
     (propertize
      (concat
-      (all-the-icons-octicon "clock" :v-adjust 0.05)
+      (all-the-icons-material "timer")
       (propertize " " 'face 'variable-pitch)
       (format "%s"
               (org-minutes-to-clocksum-string (org-clock-get-clocked-time)))
       (propertize " " 'face 'variable-pitch))
      'face 'mode-line-data-face))
-  
-  ;; org-clock-today (show current org clock)
-  ;; NOTE: this time is doubled on `org-clock'.
-  ;; (:eval
-  ;;  (when (and (org-clock-is-active) (active))
-  ;;    (list
-  ;;     (propertize (format " ⏰%s" org-clock-today-string)
-  ;;                 'face '(:foreground "cyan")))
-  ;;    ))
   )
+
+(defun *org-clock-today ()
+  "org-clock-today (show current org clock)."
+  (when (and (active)
+             (org-clock-is-active))
+    (propertize
+     (concat
+      (format "/")
+      (propertize " " 'face 'variable-pitch)
+      (all-the-icons-material "timelapse")
+      (format "%s" org-clock-today-string))
+     'face '(:foreground "orange"))
+    ))
 
 ;; update org-clock timer in mode-line after `org-clock-out-hook'.
 ;; fix org-clock timer does not disappear after clock out.
@@ -823,6 +829,7 @@ dimensions of a block selection."
                  (*pdf-tools-page-position)
                  (*org-tree-slide)
                  (*org-clock)
+                 (*org-clock-today)
                  (*org-timer)
                  (*pomodoro)
                  (*process)
