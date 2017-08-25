@@ -136,15 +136,18 @@
 (use-package org-pdfview
   :ensure t
   :config
-  ;; integrate it into Org-mode seamlessly.
-  ;; (org-add-link-type "pdfview" 'org-pdfview-open 'org-pdfview-export)
-  ;; change Org-mode default open PDF file function.
-  (add-to-list 'org-file-apps '("\\.pdf\\'" . org-pdfview-open))
-  (add-to-list 'org-file-apps '("\\.pdf::\\([[:digit:]]+\\)\\'" . org-pdfview-open))
+  (with-eval-after-load 'org
+    (require 'org-pdfview))
 
-  ;; (delete '("\\.pdf\\'" . default) org-file-apps)
-  ;; (add-to-list 'org-file-apps '("\\.pdf\\'" . (org-pdfview-open link)))
-  ;; (add-to-list 'org-file-apps '("\\.pdf::\\(\\d+\\)\\'" . (org-pdfview-open link)))
+  ;; change Org-mode default open PDF file function.
+  ;; If you want, you can also configure the org-mode default open PDF file function.
+  (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (org-pdfview-open link))))
+  (add-to-list 'org-file-apps '("\\.pdf::\\([[:digit:]]+\\)\\'" . (lambda (file link) (org-pdfview-open link))))
+  ;; DEPRECATED
+  ;; (add-to-list 'org-file-apps '("\\.pdf\\'" . org-pdfview-open))
+  ;; (add-to-list 'org-file-apps '("\\.pdf::\\([[:digit:]]+\\)\\'" . org-pdfview-open))
+
+  (org-add-link-type "pdfview" 'org-pdfview-open 'org-pdfview-export)
   )
 
 ;;; [ pdf-tools-org ] -- integrate pdf-tools annotations with Org-mode.
