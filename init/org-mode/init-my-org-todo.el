@@ -24,7 +24,8 @@
       )
 
 ;;; time repeat
-(setq org-todo-repeat-to-state "REPEAT"
+(setq org-todo-repeat-to-state "TODO"
+      org-agenda-prefer-last-repeat nil
       org-log-repeat 'time
       org-agenda-repeating-timestamp-show-all t
       )
