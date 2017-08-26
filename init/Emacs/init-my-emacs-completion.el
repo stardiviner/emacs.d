@@ -34,7 +34,7 @@
 
 (setq pcomplete-ignore-case t)
 
-(require 'init-ido)
+;; (require 'init-ido)
 (require 'init-helm)
 (require 'init-ivy)
 
