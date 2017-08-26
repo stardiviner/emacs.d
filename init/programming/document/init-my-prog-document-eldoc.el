@@ -41,10 +41,6 @@
   :ensure t
   :config
   (setq eldoc-overlay-mode-function 'inline-docs)
-  (add-hook 'org-mode-hook
-            (lambda ()
-              (setq-local eldoc-message-function #'eldoc-minibuffer-message)
-              ))
   (eldoc-overlay-mode 1))
 
 
