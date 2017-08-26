@@ -41,7 +41,7 @@
   ;; let EasyPG Assistant to use loopback for pinentry.
   (setq epa-pinentry-mode 'loopback)
   
-  (setq epa-file-encrypt-to "numbchild@gmail.com")
+  (setq epa-file-encrypt-to "stardiviner")
   (setq epa-file-select-keys (case epa-file-encrypt-to
                                ('nil t)
                                (t nil)))
