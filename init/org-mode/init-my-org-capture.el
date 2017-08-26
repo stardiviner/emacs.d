@@ -17,22 +17,22 @@
 (setq org-capture-templates
       '(("c" "[C]apture"
          entry (file "~/Org/Tasks/Tasks.org")
-         "\n* TODO %^{Capture}\nSCHEDULED: %t\n%i\n%a\n\n%?"
+         "* TODO %^{Capture}\nSCHEDULED: %t\n%i\n%a\n\n%?"
          :prepend t
          :empty-lines 1
          )
 
         ;; Tasks
-        ("t" "Add a [t]ask into Tasks"
+        ("t" "Add a [t]ime scheduled task into Tasks"
          entry (file "~/Org/Projects/Computer Todos.org")
-         "\n* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n"
+         "* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n"
          :empty-lines 1
          )
 
         ;; Diary
-        ("d" "Write [D]iary"
+        ("d" "Write [d]iary"
          entry (file+olp+datetree "~/Org/Diary/Diary.org")
-         "\n* %^{Diary Title}\n:PROPERTIES:\n:TIME: %U\n:END: \n\n[[file:%<%Y-%m-%d-%R>.org][On %<%Y-%m-%d %R>]]\n\nEvent: %?\n\n%i\n\n"
+         "* %^{Diary Title}\n:PROPERTIES:\n:TIME: %U\n:END: \n\n[[file:%<%Y-%m-%d-%R>.org][On %<%Y-%m-%d %R>]]\n\nEvent: %?\n\n%i\n\n"
          :empty-lines 1
          :jump-to-captured t
          )
@@ -40,7 +40,7 @@
         ;; Bookmark
         ("k" "Add an URL to bookmar[k]s database"
          entry (file "~/Org/Bookmarks/Bookmarks.org")
-         "\n* %^{Bookmark URL}\n\n%A\n\n%?\n\n"
+         "* %^{Bookmark URL}\n\n%A\n\n%?\n\n"
          :empty-lines 1
          )
 
@@ -52,7 +52,7 @@
          )
 
         ;; code snippets
-        ("s" "[S]ource Code Snippet" entry
+        ("s" "code [s]nippet" entry
          (file (lambda () (concat org-directory "/Programming/Code Snippets/snippets.org")))
          ;; Prompt for tag and language
          "* %?%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")

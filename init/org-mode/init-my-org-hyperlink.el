@@ -18,7 +18,8 @@
       org-link-file-path-type 'adaptive ; default 'adaptive, 'relative
       )
 
-(setq org-id-track-globally t)
+(setq org-id-track-globally t
+      org-id-link-to-org-use-id nil)
 
 ;;; Links are now customizable
 ;;
@@ -60,9 +61,9 @@
         ;; CHM
         ("\\.chm\\'" . "kchmviewer %s")
         ;; EBooks
-        ;; ("\\.epub\\'" . "okular %s")
-        ;; ("\\.mobi\\'" . "okular %s")
-        ("\\.azw3\\'" . "ebook-viewer %s")
+        ("\\.epub\\'" . "okular %s")
+        ("\\.mobi\\'" . "okular %s")
+        ("\\.azw3\\'" . "okular %s")
         ;; Image
         ("\\.png\\'" . "sxiv %s")
         ;; ("\\.jp\(e\)?g" . "sxiv %s")

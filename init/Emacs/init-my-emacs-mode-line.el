@@ -209,11 +209,11 @@ state (modified, read-only or non-existent)."
        (concat
         ;; buffer modify status
         (cond
-         ((string-equal (format-mode-line "%*") "*")
+         ((string-equal (format-mode-line "%*") "*") ; modified
           (all-the-icons-faicon "chain-broken" :v-adjust -0.0 :face 'mode-line-warn-face))
-         ((string-equal (format-mode-line "%*") "-")
+         ((string-equal (format-mode-line "%*") "-") ; content saved
           (all-the-icons-faicon "link" :v-adjust -0.0))
-         ((string-equal (format-mode-line "%*") "%")
+         ((string-equal (format-mode-line "%*") "%") ; read-only
           (all-the-icons-octicon "lock" :v-adjust -0.0))
          )
         ;; process buffer

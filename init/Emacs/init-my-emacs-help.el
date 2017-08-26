@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;; (setq text-quoting-style nil)
 
 ;;; [ Info ]
@@ -74,7 +74,7 @@
 
 (define-key global-map (kbd "C-h u") 'manual-entry) ; Unix
 
-
+
 (provide 'init-my-emacs-help)
 
 ;;; init-my-emacs-help.el ends here

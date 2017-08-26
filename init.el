@@ -81,7 +81,8 @@
 (use-package dash
   :ensure t
   :config
-  (eval-after-load "dash" '(dash-enable-font-lock))
+  (with-eval-after-load "dash"
+    (dash-enable-font-lock))
   )
 
 (require 'init-my-library)

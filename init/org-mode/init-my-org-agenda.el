@@ -334,6 +334,7 @@
                "~/Org/Wiki/Things/Things.org" ; Buy Things
                "~/Org/Tasks/"
                "~/Org/Tasks/Family Tasks/" ; Family Tasks
+               "~/Org/Tasks/Travel/" ; Travel
                "~/Org/Projects/" ; All projects
                "~/Org/Projects/Agriculture Projects/" ; Agriculture Projects
                "~/Org/Projects/Organization/"

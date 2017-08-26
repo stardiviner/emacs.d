@@ -3,7 +3,7 @@
 ;;; Commentary:
 
 ;;; Code:
-
+
 ;; (setq x-gtk-use-system-tooltips t)
 
 ;;; [ tooltip ]
@@ -75,7 +75,7 @@
         showtip-top-adjust 30)
   )
 
-
+
 (provide 'init-my-emacs-popup)
 
 ;;; init-my-emacs-popup.el ends here

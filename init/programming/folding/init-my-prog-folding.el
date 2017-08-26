@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 (unless (boundp 'prog-fold-prefix)
   (define-prefix-command 'prog-fold-prefix))
 (global-set-key (kbd "C-c SPC") 'prog-fold-prefix)
@@ -57,7 +57,7 @@
     (add-hook hook 'origami-mode))
   )
 
-
+
 (provide 'init-my-prog-folding)
 
 ;;; init-my-prog-folding.el ends here

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ concurrent in Emacs (JIT) ]
 
 ;; - [M-x customize-group RET jit-lock RET]
@@ -21,9 +21,12 @@
 
 ;;; [ Garbage Collection ]
 
-(setq garbage-collection-messages nil)
+;; (setq garbage-collection-messages nil)
+;; (setq gc-cons-threshold (* 8 (expt 10 8)))
 
+;; (setq file-name-handler-alist nil)
 
+
 (provide 'init-my-emacs-performance)
 
 ;;; init-my-emacs-performance.el ends here
