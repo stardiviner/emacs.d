@@ -169,7 +169,8 @@
 (set-face-attribute 'org-document-title nil
                     :inherit nil
                     :weight 'bold
-                    :height 1.5)
+                    :height 1.5
+                    :underline t)
 (setq org-fontify-whole-heading-line t)
 (set-face-attribute 'org-level-1 nil
                     :inherit nil
