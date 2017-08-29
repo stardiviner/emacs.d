@@ -33,6 +33,23 @@
           ))
   )
 
+;;; [ chinese-yasdcv ] -- Yet another frontend for the StarDict command-line program.
+
+(use-package chinese-yasdcv
+  :ensure t
+  :commands (yasdcv-translate-at-point)
+  :bind (:map dictionary-prefix
+              ("s" . yasdcv-translate-at-point)
+              ("C-s" . yasdcv-translate-input))
+  :config
+  (setq yasdcv-sdcv-dicts
+        '(("WordNet" "WordNet" nil t)
+          ("Oxford English-Chinese" "牛津英汉双解美化版" nil t)
+          ("Langdao English-Chinese" "朗道英汉字典5.0" nil t)
+          ("Langdao Chinese-English" "朗道汉英字典5.0" nil t)
+          ))
+  )
+
 ;;; [ synonymous ] -- a thesaurus client that replace with synonym or antonym.
 
 ;; (use-package synonymous
