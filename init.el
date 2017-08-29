@@ -136,6 +136,7 @@
 (require 'init-my-emacs-subprocess)
 (require 'init-my-emacs-network)
 (require 'init-my-emacs-encrypt)
+(require 'init-pass)
 ;; (require 'init-my-emacs-xwidget)
 (require 'init-my-emacs-customize)
 (require 'init-my-emacs-accessibility)
