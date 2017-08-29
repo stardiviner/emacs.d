@@ -50,10 +50,10 @@
 
 ;;; [ nord-theme ] -- An arctic, north-bluish clean and elegant Emacs theme.
 
-;; (use-package nord-theme
-;;   :ensure t
-;;   :config
-;;   (load-theme 'nord t))
+(use-package nord-theme
+  :ensure t
+  :config
+  (load-theme 'nord t))
 
 ;;; [ doom-themes ] -- Emacs themes inspired by Atom One
 
@@ -67,11 +67,10 @@
 
 ;;; [ gruvbox-theme ] -- Gruvbox is a retro groove color scheme for Emacs.
 
-(use-package gruvbox-theme
-  :ensure t
-  :config
-  (load-theme 'gruvbox t)
-  )
+;; (use-package gruvbox-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'gruvbox t))
 
 
 ;;; custom faces
