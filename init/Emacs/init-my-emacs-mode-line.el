@@ -344,7 +344,9 @@ state (modified, read-only or non-existent)."
                       )
                   (all-the-icons-fileicon "clj" :face '(:foreground "red"))))
                ('ruby-mode
-                (if (and global-rbenv-mode rbenv--modestring)
+                (if (and (featurep 'rbenv)
+                         global-rbenv-mode
+                         rbenv--modestring)
                     ;; `rbenv--modestring'
                     (propertize (format "%s" (rbenv--active-ruby-version)))
                   ))
