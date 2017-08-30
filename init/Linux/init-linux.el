@@ -49,6 +49,10 @@
   :ensure t
   :defer t)
 
+;;; [ ini-mode ] -- a major mode for *.ini files.
+
+(use-package ini-mode
+  :ensure t)
 
 ;;; [ PulseAudio ]
 
