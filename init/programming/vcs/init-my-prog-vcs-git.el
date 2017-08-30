@@ -23,6 +23,20 @@
 ;; (use-package git-commit
 ;;   :ensure t)
 
+;;; `company-dabbrev' in git commit buffer.
+;; https://github.com/company-mode/company-mode/issues/704
+(defun my--company-dabbrev-ignore-except-magit-diff (buffer)
+  (let ((name (buffer-name)))
+    (and (string-match-p "\\`[ *]" name)
+         (not (string-match-p "\\*magit-diff:" name)))))
+
+(defun my--git-commit-setup-hook ()
+  (setq-local fill-column 72)
+  (setq-local company-dabbrev-code-modes '(text-mode magit-diff-mode))
+  (setq-local company-dabbrev-ignore-buffers
+              #'my--company-dabbrev-ignore-except-magit-diff))
+
+(add-hook 'git-commit-setup-hook #'my--git-commit-setup-hook)
 
 ;;; [ Magit ]
 
