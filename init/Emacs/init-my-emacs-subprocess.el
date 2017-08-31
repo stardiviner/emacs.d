@@ -27,6 +27,13 @@
   ;;   :kill-process-buffer-on-stop t)
   )
 
+;;; [ bpr ] -- Emacs Background Process Runner.
+
+(use-package bpr
+  :ensure t
+  :commands (bpr-spawn bpr-open-last-buffer)
+  )
+
 
 
 (provide 'init-my-emacs-subprocess)
