@@ -4,7 +4,7 @@
 
 
 ;;; Code:
-
+
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't 2want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -16,6 +16,7 @@
 ;; (profiler-start 'cpu+mem)
 
 
+
 ;;; [ things before load ]
 
 (setq inhibit-startup-screen nil)
@@ -36,7 +37,7 @@
 (unless (server-running-p)
   (server-start))
 
-
+
 ;;; add my init files directory
 
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/")
@@ -55,6 +56,7 @@
 
 (setq load-prefer-newer t)
 
+
 ;;; [ package manager ]
 
 (load "~/.emacs.d/init/init-package.el")
@@ -70,12 +72,13 @@
     :pin manual)
   )
 
+
 ;;; debug, profiling etc
 
 (require 'init-my-emacs-debug)
 (require 'init-my-emacs-benchmark)
 
-
+
 ;;; my custom functions
 
 (use-package dash
@@ -88,6 +91,7 @@
 (require 'init-my-library)
 (require 'init-my-functions)
 
+
 ;;; Emacs
 (require 'init-my-emacs-environment)
 (require 'init-my-emacs-settings)
@@ -141,6 +145,7 @@
 (require 'init-my-emacs-customize)
 (require 'init-my-emacs-accessibility)
 
+
 ;;; hypertextual information management system
 
 ;;; reload Org-mode to fix two versions source-code & MELPA mixture loaded.
@@ -158,12 +163,13 @@
 
 (require 'init-my-org-mode)
 
+
 ;;; Vim
 
 ;; (require 'init-my-vim)
 
-
-;;; Languages
+
+;;; Natural Languages
 
 (unless (boundp 'my-search-prefix)
   (define-prefix-command 'my-search-prefix))
@@ -176,7 +182,7 @@
 (require 'init-my-language-chinese)
 ;; (require 'init-my-language-japanese)
 
-
+
 ;;; Tools
 (unless (boundp 'my-tools-prefix)
   (define-prefix-command 'my-tools-prefix))
@@ -217,7 +223,7 @@
 ;; (require 'init-my-tool-stack-exchange)
 ;; (require 'init-my-tool-social-network)
 
-
+
 ;;; Programming
 (require 'init-my-prog-programming)
 (require 'init-my-prog-license)
@@ -249,7 +255,7 @@
 (require 'init-my-prog-vcs)
 ;; (require 'init-my-prog-bug-track-system)
 
-
+
 ;;; Programming Languages
 ;; (require 'init-my-prog-language-server-protocol)
 
@@ -309,10 +315,12 @@
 ;; (require 'init-my-prog-lang-HDL)
 ;; (require 'init-my-prog-lang-applescript)
 
+
 ;;; Programming Tools
 
 (require 'init-my-prog-tools)
 
+
 ;;; Frameworks
 (require 'init-my-prog-framework-web)
 (require 'init-my-prog-framework-http)
@@ -322,9 +330,11 @@
 (require 'init-my-prog-framework-arduino)
 ;; (require 'init-my-prog-framework-qt)
 
+
 ;;; Data Science
 (require 'init-my-data-science)
 
+
 ;;; Systems
 
 (case system-type
@@ -336,6 +346,7 @@
   ('windows-nt
    (require 'init-microsoft-windows)))
 
+
 ;;; Science
 
 (require 'init-my-math)
@@ -343,19 +354,23 @@
 (require 'init-my-chemistry)
 (require 'init-my-biology)
 
+
 ;;; Engineering
 
 ;; (require 'init-my-electronic)
 ;; (require 'init-my-electric-music)
 
+
 ;;; Authoring & Writing
 
 (require 'init-my-authoring)
 
+
 ;;; Games
 
 ;; (require 'init-my-games)
 
+
 ;;; show Emacs initialized time.
 (message "Emacs initialized in %s" (emacs-init-time))
 
