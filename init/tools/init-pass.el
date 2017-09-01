@@ -17,14 +17,14 @@
 
 ;;; [ auth-password-store ] -- integrate Emacs' `auth-source' with `password-store'.
 
-(use-package auth-password-store
-  :ensure t
-  :config
-  ;; Emacs < 26
-  ;; (auth-pass-enable)
-  ;; Emacs >= 26
-  (auth-source-pass-enable)
-  )
+;; (use-package auth-password-store
+;;   :ensure t
+;;   :config
+;;   ;; Emacs < 26
+;;   ;; (auth-pass-enable)
+;;   ;; Emacs >= 26
+;;   (auth-source-pass-enable)
+;;   )
 
 ;;; [ pass ] -- major mode for password-store.
 
