@@ -14,7 +14,7 @@
 (setq org-provide-todo-statistics t
       org-hierarchical-todo-statistics nil ; nil: cover recursive all entries.
       org-checkbox-hierarchical-statistics nil ; nil: covers recursive all entries.
-      org-enforce-todo-checkbox-dependencies t
+      org-enforce-todo-checkbox-dependencies nil
       )
 
 ;; Org-mode built-in TODOs dependencies, enforce parent and sub-tasks DONE.
