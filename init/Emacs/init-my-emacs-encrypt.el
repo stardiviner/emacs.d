@@ -68,6 +68,27 @@
 ;; uninstall Seahorse, the prompt will always be text instead of graphical. You
 ;; may have to relogin to X to force Seahorse to close.
 
+;;; [ inline-crypt ] -- simple inline encryption via openssl.
+
+(use-package inline-crypt
+  :ensure t
+  :commands (inline-crypt-encrypt-region
+             inline-crypt-decrypt-region
+             inline-crypt-encrypt-string
+             inline-crypt-decrypt-string)
+  :config
+  ;; (setq inline-crypt-openssl-command "openssl")
+
+  (unless (boundp 'inline-crypt)
+    (define-prefix-command 'inline-crypt-prefix))
+  (define-key my-encrypt-prefix (kbd "i") 'inline-crypt-prefix)
+
+  (define-key inline-crypt-prefix (kbd "r") 'inline-crypt-encrypt-region)
+  (define-key inline-crypt-prefix (kbd "C-r") 'inline-crypt-decrypt-region)
+  (define-key inline-crypt-prefix (kbd "s") 'inline-crypt-encrypt-string)
+  (define-key inline-crypt-prefix (kbd "C-s") 'inline-crypt-decrypt-string)
+  )
+
 ;;; [ letterbox-mode ] -- a simple minor mode to add letterboxing to sensitive text.
 
 (use-package letterbox-mode
