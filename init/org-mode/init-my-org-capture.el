@@ -96,15 +96,14 @@
 (require 'org-protocol)
 
 (setq org-capture-templates
-      (append '(("P" "[P]rotocol")
-                ("Pp" "[p]rotocol"
-                 entry (file (concat org-directory "Tasks/Tasks.org"))
-                 "* %^{Title}\nSource: %u, \n#+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?"
+      (append `(("p" "Protocol"
+                 entry (file ,(concat org-directory "/Tasks/Tasks.org"))
+                 "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?"
                  :prepend t
                  :empty-lines 1
                  )
-                ("Pl" "[l]ink"
-                 entry (file (concat org-directory "Tasks/Tasks.org"))
+                ("L" "Protocol Link"
+                 entry (file ,(concat org-directory "/Tasks/Tasks.org"))
                  "* %? [[%:link][%:description]] \nCaptured On: %U"
                  :prepend t
                  :empty-lines 1
