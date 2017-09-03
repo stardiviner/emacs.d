@@ -150,6 +150,27 @@
   (org-add-link-type "pdfview" 'org-pdfview-open 'org-pdfview-export)
   )
 
+;;; [ interleave ] -- Emacs minor mode to interleave notes and text books.
+
+(use-package interleave
+  :ensure t
+  :commands (interleave-mode)
+  :bind (:map my-org-prefix ("M-p" . interleave-mode))
+  ;; :init
+  ;; open org-mode [[file:.pdf]] link with `interleave-mode'.
+  ;; (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (interleave-mode link))))
+  ;; (add-to-list 'org-file-apps '("\\.pdf::\\([[:digit:]]+\\)\\'" . (lambda (file link) (interleave-mode link))))
+  :config
+  (setq interleave-split-direction 'horizontal)
+  (add-to-list 'org-default-properties "INTERLEAVE_PDF")
+  ;; Idiosyncrasies: Interleave does some automated buffer switching for you, especially at start up.
+  (defun my-interleave-hook ()
+    (with-current-buffer interleave-org-buffer
+      ;; Do something meaningful here
+      (message "Now, you're in the interleave Org-mode buffer!")))
+  (add-hook 'interleave-mode-hook #'my-interleave-hook)
+  )
+
 ;;; [ pdf-tools-org ] -- integrate pdf-tools annotations with Org-mode.
 
 (use-package pdf-tools-org
