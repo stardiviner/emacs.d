@@ -195,8 +195,8 @@
   :ensure t
   :defer t
   :config
-  (setq beacon-blink-duration 0.2
-        beacon-blink-delay 0.2
+  (setq beacon-blink-duration 0.3
+        beacon-blink-delay 0.15
         beacon-size 30)
   (beacon-mode 1)
   (setq beacon-color "green yellow")
