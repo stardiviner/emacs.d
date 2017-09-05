@@ -96,13 +96,14 @@
 (require 'org-protocol)
 
 (setq org-capture-templates
-      (append `(("p" "Protocol"
+      (append `(("P" "Org-[P]rotocol")
+                ("PP" "Protocol"
                  entry (file ,(concat org-directory "/Tasks/Tasks.org"))
                  "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?"
                  :prepend t
                  :empty-lines 1
                  )
-                ("L" "Protocol Link"
+                ("PL" "Protocol Link"
                  entry (file ,(concat org-directory "/Tasks/Tasks.org"))
                  "* %? [[%:link][%:description]] \nCaptured On: %U"
                  :prepend t
@@ -113,16 +114,16 @@
 
 ;;; [ org-protocol-capture-html ] -- Capture HTML from the browser selection into Emacs as org-mode content.
 
-;; (use-package org-protocol-capture-html
-;;   :quelpa (org-protocol-capture-html
-;;            :fetcher github :repo "alphapapa/org-protocol-capture-html")
-;;   :config
-;;   (setq org-capture-templates
-;;         (append '(("W" "[W]eb site: (org-protocol-capture-html)" entry
-;;                    (file "")
-;;                    "* %a :website:\n\n%U %?\n\n%:initial"))
-;;                 org-capture-templates))
-;;   )
+(use-package org-protocol-capture-html
+  :quelpa (org-protocol-capture-html
+           :fetcher github :repo "alphapapa/org-protocol-capture-html")
+  :config
+  (setq org-capture-templates
+        (append '(("PH" "org-[p]rotocol-capture-[h]tml" entry
+                   (file "")
+                   "* %a :website:\n\n%U %?\n\n%:initial"))
+                org-capture-templates))
+  )
 
 
 (provide 'init-my-org-capture)
