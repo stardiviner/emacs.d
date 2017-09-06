@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;; * Outlines::                    Org is based on Outline mode
 
 (let ((org-dir "~/Org"))
@@ -127,12 +127,15 @@
 
 ;; * Org syntax::                  Formal description of Org's syntax
 
-;;; [ Template ]
+;;; [ Easy Templates ]
 
+;;; #+NAME: anchor for linking.
 (add-to-list 'org-structure-template-alist '("n" "#+NAME: ?"))
+;;; translate special block
+(add-to-list 'org-structure-template-alist '("t" "#+BEGIN_TRANSLATE ?\n\n#+END_TRANSLATE"))
 
 
-
+
 (provide 'init-my-org-document-structure)
 
 ;;; init-my-org-document-structure.el ends here
