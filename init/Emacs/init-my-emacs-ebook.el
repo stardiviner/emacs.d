@@ -6,17 +6,27 @@
 
 
 ;;; Code:
-
-;;; [ emacs-ereader ] -- Epub reader for emacs with org-mode integration.
+
+;;; [ ereader ] -- Epub reader for emacs with org-mode integration with `ebook:'.
 
 (use-package ereader
   :ensure t
   :config
   (require 'org-ebook)
-  ;; (add-to-list 'org-file-apps '("\\.epub\\'" . ereader-mode))
+  ;; (add-to-list 'org-file-apps '("\\.epub\\'" . ereader-mode)) ; deprecated
+  ;;
+  (push '("\\.epub\\'" . ereader-mode) auto-mode-alist)
+  (add-to-list 'org-file-apps '("\\.epub\\'" . auto-mode))
   )
 
+;;; [ nov ] -- featureful EPUB reader mode.
 
+(use-package nov
+  :ensure t
+  :mode ("\\.epub\\'" . nov-mode)
+  )
+
+
 (provide 'init-my-emacs-ebook)
 
 ;;; init-my-emacs-ebook.el ends here

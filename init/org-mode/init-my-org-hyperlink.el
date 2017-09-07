@@ -61,7 +61,7 @@
         ;; CHM
         ("\\.chm\\'" . "kchmviewer %s")
         ;; EBooks
-        ("\\.epub\\'" . "okular %s")
+        ;; ("\\.epub\\'" . "okular %s")
         ("\\.mobi\\'" . "okular %s")
         ("\\.azw3\\'" . "okular %s")
         ;; Image
