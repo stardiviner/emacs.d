@@ -20,6 +20,8 @@
 (use-package quick-peek
   :ensure t
   :commands (quick-peek-hide)
+  :init
+  (add-hook 'post-command-hook 'quick-peek-hide)
   )
 
 
