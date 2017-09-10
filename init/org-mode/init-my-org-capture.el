@@ -12,11 +12,11 @@
 (require 'org-capture)
 
 (setq org-default-notes-file
-      (concat org-directory "/Tasks/notes.org"))
+      (concat org-directory "/Tasks/Tasks.org"))
 
 (setq org-capture-templates
       '(("c" "[C]apture"
-         entry (file "~/Org/Tasks/Tasks.org")
+         entry (file "") ; the target file should not be defined, because need to use [C-c C-w] refile to choose target.
          "* TODO %^{Capture}\nSCHEDULED: %t\n%i\n%a\n\n%?"
          :prepend t
          :empty-lines 1
