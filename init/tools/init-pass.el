@@ -26,6 +26,14 @@
 ;;   (auth-source-pass-enable)
 ;;   )
 
+;;; [ password-store-otp ] -- Password store (pass) OTP extension support.
+
+(use-package password-store-otp
+  :ensure t
+  :config
+  ;; (setq password-store-otp-screenshots-path)
+  )
+
 ;;; [ pass ] -- major mode for password-store.
 
 (use-package pass
