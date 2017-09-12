@@ -496,6 +496,24 @@ When called repeatedly, cycle through the buffers."
 ;;   )
 
 
+
+;;; Search backwards, prompting to open any URL found. This is fantastic for ERC
+;;; buffers. I bind this to [C-c u] because I use it a lot.
+(defun browse-last-url-in-brower ()
+  (interactive)
+  (save-excursion
+    (let ((ffap-url-regexp
+           (concat
+            "\\("
+            "news\\(post\\)?:\\|mailto:\\|file:"
+            "\\|"
+            "\\(ftp\\|https?\\|telnet\\|gopher\\|www\\|wais\\)://"
+            "\\).")))
+      (ffap-next t t))))
+
+(define-key erc-mode-map (kbd "C-c u") 'browse-last-url-in-brower)
+
+
 (provide 'init-erc)
 
 ;;; init-erc.el ends here
