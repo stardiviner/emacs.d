@@ -29,8 +29,9 @@
 
 ;;; [ eyebrowse ] -- A simple-minded way of managing window configs in Emacs.
 
-(use-package eyebrowse
+(use-package eyebrowse                  ; [C-c C-w]
   :ensure t
+  :diminish eyebrowse-mode
   :config
   (setq eyebrowse-new-workspace t)
   

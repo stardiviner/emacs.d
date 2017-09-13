@@ -163,6 +163,16 @@
         "] "
         ))))
 
+;;; eyebrowse
+(defun *eyebrowse ()
+  "Displays `default-directory', for special buffers like the scratch buffer."
+  (concat
+   (all-the-icons-faicon "th" :v-adjust -0.05)
+   (propertize
+    ;; (eyebrowse-mode-line-indicator)
+    (format "[%s#%s] " (eyebrowse--get 'current-slot) (length (eyebrowse--get 'window-configs)))
+    'face '(:foreground "dark orange"))))
+
 (defun *perspeen ()
   "Show perspeen info from `perspeen-modestring'."
   (when (bound-and-true-p perspeen-modestring)
@@ -852,6 +862,7 @@ dimensions of a block selection."
                  (*vc)
                  ;; (*buffer-project)
                  (*projectile)
+                 (*eyebrowse)
                  ;; (*perspeen)
                  ;; (*purpose)
                  (*major-mode)
