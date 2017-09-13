@@ -34,9 +34,10 @@
   (setq calendar-date-style 'american)
 
   ;; Calendar Localization
+  ;; - Zhejiang, Shaoxing, Zhuji: 29.72, 120.20
   (setq calendar-time-zone +480 ; UTC+8 (China)
-        ;; calendar-latitude
-        ;; calendar-longitude
+        calendar-latitude 29.72
+        calendar-longitude 120.20
         )
 
   ;; mark holidays
