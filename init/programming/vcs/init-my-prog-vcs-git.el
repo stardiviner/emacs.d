@@ -91,11 +91,17 @@
   (define-key my-prog-vcs-git-map (kbd "f") 'magit-file-popup)
   
   ;; enable ispell words complete in commit message buffer.
-  (add-hook 'git-commit-mode-hook
+  (add-hook 'git-commit-setup-hook
             (lambda ()
+              ;; company-flyspell + company-ispell
               (make-local-variable 'company-backends)
-              (add-to-list 'company-backends '(company-flyspell :with company-ispell))
-              (add-to-list 'company-backends 'company-emoji)))
+              (add-to-list 'company-backends 'company-ispell)
+              (add-to-list 'company-backends 'company-emoji)
+              ;; company-abbrev
+              (setq-local company-dabbrev-code-modes '(text-mode magit-diff-mode))
+              (setq-local company-dabbrev-code-other-buffers 'all)
+              (setq-local company-dabbrev-ignore-buffers #'my--company-dabbrev-ignore-except-magit-diff)
+              ))
   )
 
 ;;; [ magit-find-file ]
