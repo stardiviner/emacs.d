@@ -4,7 +4,7 @@
 
 
 ;;; Code:
-
+
 (unless (boundp 'prog-comment-prefix)
   (define-prefix-command 'prog-comment-prefix))
 (global-set-key (kbd "M-;") 'prog-comment-prefix)
@@ -74,27 +74,51 @@ column.  Place the point after the comment box."
 
 ;;; --------------------------------------------------------------------
 
-(unless (boundp 'fic-prefix)
-  (define-prefix-command 'fic-prefix))
-(global-set-key (kbd "M-g f") 'fic-prefix)
+(unless (boundp 'comment-tag-prefix)
+  (define-prefix-command 'comment-tag-prefix))
+(global-set-key (kbd "M-g c") 'comment-tag-prefix)
 
 ;;; [ hl-todo ]-- highlight todo, fixme and similar keywords.
 
-(use-package hl-todo
-  :ensure t
-  :config
-  (set-face-attribute 'hl-todo nil
-                      :inherit nil
-                      :foreground "orange red"
-                      :box '(:line-width 1 :color "gray")
-                      )
+;; (use-package hl-todo
+;;   :ensure t
+;;   :config
+;;   (set-face-attribute 'hl-todo nil
+;;                       :inherit nil
+;;                       :foreground "orange red"
+;;                       :box '(:line-width 1 :color "gray")
+;;                       )
+;;
+;;   (define-key comment-tag-prefix (kbd "p") 'hl-todo-previous)
+;;   (define-key comment-tag-prefix (kbd "n") 'hl-todo-next)
+;;   (define-key comment-tag-prefix (kbd "l") 'hl-todo-occur)
+;;
+;;   ;; (global-hl-todo-mode 1)
+;;   (add-hook 'prog-mode-hook #'hl-todo-mode)
+;;   )
 
-  (define-key fic-prefix (kbd "p") 'hl-todo-previous)
-  (define-key fic-prefix (kbd "n") 'hl-todo-next)
-  (define-key fic-prefix (kbd "l") 'hl-todo-occur)
-  
-  ;; (global-hl-todo-mode 1)
-  (add-hook 'prog-mode-hook #'hl-todo-mode)
+;;; [ comment-tags ] -- Emacs package to highlight and manage comment tags like TODO, BUG, FIXME, etc.
+
+(use-package comment-tags
+  :ensure t
+  :init
+  (setq comment-tags-keymap-prefix (kbd "M-g c"))
+  :config
+  (setq comment-tags-keyword-faces
+        `(("TODO" . ,(list :weight 'bold :foreground "orange"))
+          ("FIXME" . ,(list :weight 'bold :foreground "red"))
+          ("BUG" . ,(list :weight 'bold :foreground "red"))
+          ("HACK" . ,(list :weight 'bold :foreground "cyan"))
+          ("KLUDGE" . ,(list :weight 'bold :foreground "forest green"))
+          ))
+
+  (setq comment-tags-comment-start-only t
+        comment-tags-require-colon t
+        comment-tags-case-sensitive t
+        comment-tags-show-faces t
+        comment-tags-lighter nil)
+
+  (add-hook 'prog-mode-hook 'comment-tags-mode)
   )
 
 ;; [ poporg ] -- Editing program comments or strings in text mode.
@@ -129,7 +153,7 @@ column.  Place the point after the comment box."
 ;;   :ensure t
 ;;   )
 
-
+
 (provide 'init-my-prog-comment)
 
 ;;; init-my-prog-comment.el ends here
