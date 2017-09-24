@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 
 (unless (boundp 'my-prog-vcs-diff-prefix)
   (define-prefix-command 'my-prog-vcs-diff-prefix))
@@ -123,7 +123,14 @@
   (add-hook 'after-revert-hook 'smerge-try-smerge t)
   )
 
+;;; [ dumb-diff ] -- An Emacs package to fast arbitrary diffs.
 
+(use-package dumb-diff
+  :ensure t
+  :commands (dumb-diff)
+  )
+
+
 (provide 'init-my-prog-vcs-diff)
 
 ;;; init-my-prog-vcs-diff.el ends here
