@@ -34,7 +34,8 @@
   (setq-local fill-column 72)
   (setq-local company-dabbrev-code-modes '(text-mode magit-diff-mode))
   (setq-local company-dabbrev-ignore-buffers
-              #'my--company-dabbrev-ignore-except-magit-diff))
+              #'my--company-dabbrev-ignore-except-magit-diff)
+  (setq company-dabbrev-code-other-buffers 'all))
 
 (add-hook 'git-commit-setup-hook #'my--git-commit-setup-hook)
 
