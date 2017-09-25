@@ -421,7 +421,6 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
              '("c" "Agenda with in progress tasks, priority tasks, and all tasks"
                ((todo "STARTED")
                 (todo "INPROGRESS")
-                (todo "URGENT")
                 (tags "PRIORITY=\"A\""
                       ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
                        (org-agenda-overriding-header "High-priority unfinished tasks:")))
@@ -438,11 +437,6 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
                           (org-agenda-overriding-header "All normal priority tasks:"))))
                ((org-agenda-compact-blocks t)))
              )
-
-(add-to-list 'org-agenda-custom-commands
-             '("u" "Urgent tasks"
-               ((search "[#A]")
-                (todo "URGENT"))))
 
 (add-to-list 'org-agenda-custom-commands
              '("T" "all todo entries"
