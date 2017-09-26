@@ -128,7 +128,7 @@
 
 ;;; export to LaTeX
 
-;; syntax highlight in LaTeX output (Minted)
+;; syntax highlight in LaTeX export (Minted)
 (require 'ox-latex)
 
 
@@ -246,6 +246,8 @@ For pasting on sites like GitHub, and Stack Overflow."
 ;;; [ Mindmap (`org-freemind') ] -- Creates a directed graph from org-mode files.
 
 (require 'ox-freemind)
+
+;;; [ org-mind-map ] -- creates graphviz directed mind-map graphs.
 
 (use-package org-mind-map
   :ensure t

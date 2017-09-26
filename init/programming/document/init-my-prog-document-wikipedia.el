@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ mediawiki ] -- mediawiki frontend.
 
 ;; (use-package mediawiki
@@ -29,13 +29,13 @@
   :ensure t
   :config
   (setq kiwix-your-language-library "zh")
-  
+
   (define-key my-prog-help-document-map (kbd "w") 'kiwix-at-point)
   (define-key my-prog-help-document-map (kbd "W") 'kiwix-at-point-interactive)
   (define-key my-prog-help-document-map (kbd "M-w") 'kiwix-launch-server)
   )
 
-
+
 (provide 'init-my-prog-document-wikipedia)
 
 ;;; init-my-prog-document-wikipedia.el ends here

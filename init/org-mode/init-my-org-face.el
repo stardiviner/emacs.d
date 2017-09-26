@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;; Date
 ;; Date: Saturday   27 July 2013
 (set-face-attribute 'org-date nil
@@ -359,7 +359,7 @@
                     ;; :box '(:color "green yellow" :line-width 1 :style nil)
                     )
 
-
+
 (provide 'init-my-org-face)
 
 ;;; init-my-org-face.el ends here

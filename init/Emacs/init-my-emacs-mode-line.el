@@ -685,7 +685,7 @@ dimensions of a block selection."
   )
 
 (defun *org-clock-today ()
-  "org-clock-today (show current org clock)."
+  "Show `org-clock-today' current org clock)."
   (when (and (active)
              (org-clock-is-active))
     (propertize
