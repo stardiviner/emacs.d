@@ -418,7 +418,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
       nil)))
 
 (add-to-list 'org-agenda-custom-commands
-             '("c" "Agenda with in progress tasks, priority tasks, and all tasks"
+             '("c" "Custom Agenda with in progress tasks, priority tasks (and all tasks)."
                ((todo "STARTED")
                 (todo "INPROGRESS")
                 (tags "PRIORITY=\"A\""
@@ -429,52 +429,59 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
                          (org-agenda-span 1)
                          (org-agenda-use-time-grid t))
                         )
-                (alltodo ""
-                         ((org-agenda-skip-function
-                           '(or (org-agenda-skip-subtree-if-habit)
-                                (org-agenda-skip-subtree-if-priority ?A)
-                                (org-agenda-skip-if nil '(scheduled deadline))))
-                          (org-agenda-overriding-header "All normal priority tasks:"))))
+                ;; (alltodo ""
+                ;;          ((org-agenda-skip-function
+                ;;            '(or (org-agenda-skip-subtree-if-habit)
+                ;;                 (org-agenda-skip-subtree-if-priority ?A)
+                ;;                 (org-agenda-skip-if nil '(scheduled deadline))))
+                ;;           (org-agenda-overriding-header "All normal priority tasks:")))
+                )
                ((org-agenda-compact-blocks t)))
              )
 
 (add-to-list 'org-agenda-custom-commands
              '("T" "all todo entries"
                todo ""
-               ((org-agenda-buffer-name "*Todo List*"))))
+               ;; ((org-agenda-buffer-name "*Todo List*"))
+               ))
 
 (add-to-list 'org-agenda-custom-commands
              '("s" "Tasks to start in the future/someday."
                todo "SOMEDAY"))
 
 (add-to-list 'org-agenda-custom-commands
-             '("C" "Clock"
-               ((agenda "" ((org-agenda-sticky nil)
-                            (org-agenda-ndays 1)
-                            (org-agenda-span-1)
-                            (org-agenda-use-time-grid t)
-                            (org-agenda-show-log (quote clockcheck))
-                            (org-agenda-clockreport nil))))))
+             '("C" "Tody Clocked tasks."
+               ((agenda ""
+                        ((org-agenda-ndays 1)
+                         (org-agenda-span-1)
+                         (org-agenda-use-time-grid t)
+                         (org-agenda-include-diary nil)
+                         (org-agenda-show-log (quote clockcheck))
+                         (org-agenda-clockreport t))))))
 
 (add-to-list 'org-agenda-custom-commands
-             '("p" "Project process - PROJECT, BUG, ISSUE, FEATURE"
-               ((todo "PROJECT")
-                (todo "BUG")
+             '("p" "Project process - PROJECT, BUG, ISSUE, FEATURE etc."
+               ((todo "BUG")
                 (todo "ISSUE")
                 (todo "FEATURE"))))
 
 (add-to-list 'org-agenda-custom-commands
-             '("w" "Work" tags-todo "Work"
+             '("w" "Work"
+               todo "WORK"
                ((org-agenda-overriding-header "Work"))))
 
 ;; used to filter out fragment time tasks.
 (add-to-list 'org-agenda-custom-commands
              '("f" "Fragment time tasks"
-               ((tags "fragment"))))
+               tags "fragment"
+               ((org-agenda-overriding-header "Fragment Tasks"))
+               ))
 
-(add-to-list 'org-agenda-custom-commands
-             '("A" "Agriculture" tags-todo "Agriculture"
-               ((org-agenda-overriding-header "Agriculture"))))
+;; (add-to-list 'org-agenda-custom-commands
+;;              '("A" "Agriculture"
+;;                ;; FIXME:
+;;                category "Agriculture"
+;;                ((org-agenda-overriding-header "Agriculture"))))
 
 ;;;; [ org-review ] -- Track when you have done a review in org mode.
 
