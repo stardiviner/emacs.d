@@ -39,17 +39,6 @@
 
 ;; (load-theme 'solarized-dark t)
 
-;;; [ circadian ] -- theme-switching for Emacs based on daytime.
-
-(use-package circadian
-  :ensure t
-  :config
-  (setq circadian-themes '(("6:00" . dichromacy) ; leuven
-                           ("18:00" . nord)))
-  
-  (circadian-setup)
-  )
-
 ;;; [ leuven-theme ] -- Awesome Emacs color theme on white background.
 
 ;; (use-package leuven-theme
@@ -145,6 +134,18 @@
 ;; (use-package select-themes
 ;;   :ensure t
 ;;   :defer t)
+
+;;; [ circadian ] -- theme-switching for Emacs based on daytime.
+
+(use-package circadian
+  :ensure t
+  :config
+  (setq circadian-themes '(("0:00" . nord)
+			                     ("9:00" . leuven) ; dichromacy, leuven
+                           ("18:00" . nord)))
+  
+  (circadian-setup)
+  )
 
 
 (provide 'init-my-emacs-color-theme)
