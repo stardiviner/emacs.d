@@ -2,7 +2,578 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Crack/Data/Books/An Augmented Penetration Testing Framework for Mobile Devices on 802.11 ac Wireless Networks.pdf"
+(("PDF-LAST-VIEWED: /home/stardiviner/Code/learning/Emacs/Org-mode/export-chinese.pdf"
+ (filename . "~/Code/learning/Emacs/Org-mode/export-chinese.pdf")
+ (position . 1)
+ (page . 4)
+ (slice 0.20702600000000002 0.142929 0.321242 0.7646470000000001)
+ (size . 1.5441176470588236)
+ (origin 0.0 . 0.6417112299465241)
+ (handler . pdf-view-bookmark-jump-handler))
+("TRAMP.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/TRAMP.org")
+ (front-context-string . "#+TITLE: TRAMP\n\n")
+ (rear-context-string)
+ (position . 1))
+("packer.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/packer.org")
+ (front-context-string . "sage\n\n**** workf")
+ (rear-context-string . "iguration\n\n*** U")
+ (position . 468))
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Linguistics/English/Data/Books/一目十行: 英语快速阅读技巧.pdf" 0 1
+   (idx 0))
+ (filename . "~/Org/Wiki/Linguistics/English/Data/Books/一目十行: 英语快速阅读技巧.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Sexology/Data/Books/青春期性解码 - 彩图版.pdf" 0 1
+   (idx 1))
+ (filename . "~/Org/Wiki/Sexology/Data/Books/青春期性解码 - 彩图版.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin)
+ (handler . pdf-view-bookmark-jump-handler))
+(#("Society Network.org" 0 1
+   (idx 2))
+ (filename . "~/Org/Wiki/Sociology/Society/Society Network/Society Network.org")
+ (front-context-string . "#+TITLE: Society")
+ (rear-context-string)
+ (position . 1))
+(#("Social Media.org" 0 1
+   (idx 3))
+ (filename . "~/Org/Wiki/Sociology/Social Intercourse/Social Media/Social Media.org")
+ (front-context-string . "#+TITLE: Social ")
+ (rear-context-string)
+ (position . 1))
+(#("Cyber Security.org" 0 1
+   (idx 4))
+ (filename . "~/Org/Wiki/Computer Technology/Cyber Security/Cyber Security.org")
+ (front-context-string . "#+TITLE: Cyber S")
+ (rear-context-string)
+ (position . 1))
+(#("My Linux Manual.org" 0 1
+   (idx 5))
+ (filename . "~/Org/Wiki/Computer Technology/Operating System/Linux/Data/Manuals/My Linux Manual/My Linux Manual.org")
+ (front-context-string . "#+TITLE: My Linu")
+ (rear-context-string)
+ (position . 1))
+(#("Humour.org" 0 1
+   (idx 6))
+ (filename . "~/Org/Wiki/Self Enhancement/Communication/Humour/Humour.org")
+ (front-context-string . "#+TITLE: Humour\n")
+ (rear-context-string)
+ (position . 1))
+(#("My Sexual Intercourse Guide.org" 0 1
+   (idx 7))
+ (filename . "~/Org/Wiki/Sexology/Sexual Intercourse/Data/Manuals/My Sexual Intercourse Guide/My Sexual Intercourse Guide.org")
+ (front-context-string . "#+TITLE: My Sexu")
+ (rear-context-string)
+ (position . 1))
+(#("My Accost Manual.org" 0 1
+   (idx 8))
+ (filename . "~/Org/Wiki/Love/Accost/Data/Manuals/My Accost Manual/My Accost Manual.org")
+ (front-context-string . "#+TITLE: My Acco")
+ (rear-context-string)
+ (position . 1))
+(#("My PUA Manual.org" 0 1
+   (idx 9))
+ (filename . "~/Org/Wiki/Love/Love Theories/PUA/Data/Manuals/My PUA Manual/My PUA Manual.org")
+ (front-context-string . "#+TITLE: My PUA ")
+ (rear-context-string)
+ (position . 1))
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Love/Love Theories/PUA/Data/Books/把妹达人之谜男方法.pdf" 0 1
+   (idx 10))
+ (filename . "~/Org/Wiki/Love/Love Theories/PUA/Data/Books/把妹达人之谜男方法.pdf")
+ (position . 1)
+ (page . 2)
+ (slice 0.089286 0.008253999999999997 0.821428 0.9846790000000001)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+(#("quicklisp.org" 0 1
+   (idx 11))
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lisp/Common Lisp/Data/Common Lisp Packages/quicklisp.org")
+ (front-context-string . "#+TITLE: QuickLi")
+ (rear-context-string)
+ (position . 1))
+(#("outline.org" 0 1
+   (idx 12))
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/outline.org")
+ (front-context-string . "#+TITLE: outline")
+ (rear-context-string)
+ (position . 1))
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Softwares/data/25/4d1567-105a-4054-8f16-b5c471485106/老司机核心驾驶技术之Shadowsocks翻墙终极教程.pdf" 0 1
+   (idx 13))
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/data/25/4d1567-105a-4054-8f16-b5c471485106/老司机核心驾驶技术之Shadowsocks翻墙终极教程.pdf")
+ (position . 1)
+ (page . 9)
+ (slice 0.017484 0 0.9650320000000001 1)
+ (size . fit-width)
+ (origin 0.0 . 0.43577981651376146)
+ (handler . pdf-view-bookmark-jump-handler))
+(#("My GIMP Reference.org" 0 1
+   (idx 14))
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/GIMP/Data/Manuals/My GIMP Reference/My GIMP Reference.org")
+ (front-context-string . "#+TITLE: My GIMP")
+ (rear-context-string)
+ (position . 1))
+(#("GIMP.org" 0 1
+   (idx 15))
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/GIMP/GIMP.org")
+ (front-context-string . "#+TITLE: GIMP\n\n*")
+ (rear-context-string)
+ (position . 1))
+(#("Helm.org" 0 1
+   (idx 16))
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/Helm/Helm.org")
+ (front-context-string . "#+TITLE: Helm\n\n*")
+ (rear-context-string)
+ (position . 1))
+(#("Linux Troubleshooting.org" 0 1
+   (idx 17))
+ (filename . "~/Org/Wiki/Computer Technology/Operating System/Linux/Data/Manuals/Linux Troubleshooting/Linux Troubleshooting.org")
+ (front-context-string . "#+TITLE: Linux T")
+ (rear-context-string)
+ (position . 1))
+(#("Peer-to-Peer.org" 0 1
+   (idx 18))
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Network/Peer-to-Peer/Peer-to-Peer.org")
+ (front-context-string . "#+TITLE: Peer-to")
+ (rear-context-string)
+ (position . 1))
+(#("My Cosmetology Manual.org" 0 1
+   (idx 19))
+ (filename . "~/Org/Wiki/Cosmetology/Data/Manuals/My Cosmetology Manual/My Cosmetology Manual.org")
+ (front-context-string . "#+TITLE: My Cosm")
+ (rear-context-string)
+ (position . 1))
+(#("Cosmetology.org" 0 1
+   (idx 20))
+ (filename . "~/Org/Wiki/Cosmetology/Cosmetology.org")
+ (front-context-string . "#+TITLE: Cosmeto")
+ (rear-context-string)
+ (position . 1))
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Emacs/modes/org-mind-map.org.pdf" 0 1
+   (idx 21))
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/org-mind-map.org.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+(#("My Chinese Policy Reference.org" 0 1
+   (idx 22))
+ (filename . "~/Org/Wiki/Countries/China/Chinese Policy/Data/Manuals/My Chinese Policy Reference/My Chinese Policy Reference.org")
+ (front-context-string . "#+TITLE: My Chin")
+ (rear-context-string)
+ (position . 1))
+(#("Internet of Things.org" 0 1
+   (idx 23))
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Network/Internet of Things/Internet of Things.org")
+ (front-context-string . "#+TITLE: Interne")
+ (rear-context-string)
+ (position . 1))
+(#("My HTML Language Syntax Reference.org" 0 1
+   (idx 24))
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/HTML/Data/Manuals/My HTML Language Syntax Reference/My HTML Language Syntax Reference.org")
+ (front-context-string . "#+TITLE: My HTML")
+ (rear-context-string)
+ (position . 1))
+(#("Science and Technology.org" 0 1
+   (idx 25))
+ (filename . "~/Org/Wiki/Science and Technology/Science and Technology.org")
+ (front-context-string . "#+TITLE: Science")
+ (rear-context-string)
+ (position . 1))
+(#("Quantum Information System.org" 0 1
+   (idx 26))
+ (filename . "~/Org/Wiki/Physics/Quantum Theory/Quantum Information System/Quantum Information System.org")
+ (front-context-string . "#+TITLE: Quantum")
+ (rear-context-string)
+ (position . 1))
+(#("Biology.org" 0 1
+   (idx 27))
+ (filename . "~/Org/Wiki/Biology/Biology.org")
+ (front-context-string . "#+TITLE: Biology")
+ (rear-context-string)
+ (position . 1))
+(#("Agriculture.org" 0 1
+   (idx 28))
+ (filename . "~/Org/Wiki/Agriculture/Agriculture.org")
+ (front-context-string . "#+TITLE: Agricul")
+ (rear-context-string)
+ (position . 1))
+(#("Container.org" 0 1
+   (idx 29))
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Container/Container.org")
+ (front-context-string . "#+TITLE: Contain")
+ (rear-context-string)
+ (position . 1))
+(#("Deep Learning.org" 0 1
+   (idx 30))
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Artificial Intelligence/Deep Learning/Deep Learning.org")
+ (front-context-string . "#+TITLE: Deep Le")
+ (rear-context-string)
+ (position . 1))
+(#("Chinese Censorship.org" 0 1
+   (idx 31))
+ (filename . "~/Org/Wiki/Countries/China/Chinese Censorship/Chinese Censorship.org")
+ (front-context-string . "#+TITLE: China C")
+ (rear-context-string)
+ (position . 1))
+(#("My Chinese Policy Usage Manual.org" 0 1
+   (idx 32))
+ (filename . "~/Org/Wiki/Countries/China/Chinese Policy/Data/Manuals/My Chinese Policy Usage Manual/My Chinese Policy Usage Manual.org")
+ (front-context-string . "#+TITLE: My Chin")
+ (rear-context-string)
+ (position . 1))
+(#("Chinese Policy.org" 0 1
+   (idx 33))
+ (filename . "~/Org/Wiki/Countries/China/Chinese Policy/Chinese Policy.org")
+ (front-context-string . "#+TITLE: Chinese")
+ (rear-context-string)
+ (position . 1))
+(#("Chinese Government.org" 0 1
+   (idx 34))
+ (filename . "~/Org/Wiki/Countries/China/Chinese Government/Chinese Government.org")
+ (front-context-string . "#+TITLE: Chinese")
+ (rear-context-string)
+ (position . 1))
+(#("Chinese Law.org" 0 1
+   (idx 35))
+ (filename . "~/Org/Wiki/Countries/China/Chinese Law/Chinese Law.org")
+ (front-context-string . "#+TITLE: Chinese")
+ (rear-context-string)
+ (position . 1))
+(#("My Chinese Law Database.org" 0 1
+   (idx 36))
+ (filename . "~/Org/Wiki/Countries/China/Chinese Law/Data/Manuals/My Chinese Law Database/My Chinese Law Database.org")
+ (front-context-string . "#+TITLE: My Chin")
+ (rear-context-string)
+ (position . 1))
+(#("America.org" 0 1
+   (idx 37))
+ (filename . "~/Org/Wiki/Countries/America/America.org")
+ (front-context-string . "#+TITLE: America")
+ (rear-context-string)
+ (position . 1))
+(#("China.org" 0 1
+   (idx 38))
+ (filename . "~/Org/Wiki/Countries/China/China.org")
+ (front-context-string . "#+TITLE: China\n\n")
+ (rear-context-string)
+ (position . 1))
+(#("AUCTeX.org" 0 1
+   (idx 39))
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/AUCTeX/AUCTeX.org")
+ (front-context-string . "#+TITLE: AUCTeX\n")
+ (rear-context-string)
+ (position . 1))
+(#("GDB.org" 0 1
+   (idx 40))
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/GDB.org")
+ (front-context-string . "#+TITLE: GDB\n\n* ")
+ (rear-context-string)
+ (position . 1))
+(#("Machine Learning.org" 0 1
+   (idx 41))
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Artificial Intelligence/Machine Learning/Machine Learning.org")
+ (front-context-string . "#+TITLE: Machine")
+ (rear-context-string)
+ (position . 1))
+(#("Arch Linux.org" 0 1
+   (idx 42))
+ (filename . "~/Org/Wiki/Computer Technology/Operating System/Linux/Linux Distributions/Arch Linux/Arch Linux.org")
+ (front-context-string . "#+TITLE: Arch Li")
+ (rear-context-string)
+ (position . 1))
+(#("Ethereum.org" 0 1
+   (idx 43))
+ (filename . "~/Org/Wiki/Economy/Currency/Digital Currency/Digital Currency Variants/Ethereum/Ethereum.org")
+ (front-context-string . "#+TITLE: Ethereu")
+ (rear-context-string)
+ (position . 1))
+(#("Bitcoin.org" 0 1
+   (idx 44))
+ (filename . "~/Org/Wiki/Economy/Currency/Digital Currency/Digital Currency Variants/Bitcoin/Bitcoin.org")
+ (front-context-string . "#+TITLE: Bitcoin")
+ (rear-context-string)
+ (position . 1))
+(#("Evolutionism.org" 0 1
+   (idx 45))
+ (filename . "~/Org/Wiki/Biology/Evolutionism/Evolutionism.org")
+ (front-context-string . "#+TITLE: Evoluti")
+ (rear-context-string)
+ (position . 1))
+(#("Digital Currency.org" 0 1
+   (idx 46))
+ (filename . "~/Org/Wiki/Economy/Currency/Digital Currency/Digital Currency.org")
+ (front-context-string . "#+TITLE: Digital")
+ (rear-context-string)
+ (position . 1))
+(#("Currency.org" 0 1
+   (idx 47))
+ (filename . "~/Org/Wiki/Economy/Currency/Currency.org")
+ (front-context-string . "#+TITLE: Currenc")
+ (rear-context-string)
+ (position . 1))
+(#("Policy.org" 0 1
+   (idx 48))
+ (filename . "~/Org/Wiki/Government/Policy/Policy.org")
+ (front-context-string . "#+TITLE: Policy\n")
+ (rear-context-string)
+ (position . 1))
+(#("Education.org" 0 1
+   (idx 49))
+ (filename . "~/Org/Wiki/Education/Education.org")
+ (front-context-string . "#+TITLE: Educati")
+ (rear-context-string)
+ (position . 1))
+(#("Scheme.org" 0 1
+   (idx 50))
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lisp/Scheme/Scheme.org")
+ (front-context-string . "#+TITLE: Scheme ")
+ (rear-context-string)
+ (position . 1))
+(#("yaourt.org" 0 1
+   (idx 51))
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/yaourt.org")
+ (front-context-string . "#+TITLE: yaourt\n")
+ (rear-context-string)
+ (position . 1))
+(#("My Creature Reference.org" 0 1
+   (idx 52))
+ (filename . "~/Org/Wiki/Biology/Zoology/Data/Manuals/My Creature Reference/My Creature Reference.org")
+ (front-context-string . "#+TITLE: My Crea")
+ (rear-context-string)
+ (position . 1))
+(#("Crawler.org" 0 1
+   (idx 53))
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Web/Web Technologies/Crawler/Crawler.org")
+ (front-context-string . "#+TITLE: Web Scr")
+ (rear-context-string)
+ (position . 1))
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Algorithm/Data/Books/Learning Functional Data Structures and Algorithms.pdf" 0 1
+   (idx 54))
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Algorithm/Data/Books/Learning Functional Data Structures and Algorithms.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+(#("Chrome Extensions.org" 0 1
+   (idx 55))
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Chrome/Data/Chrome Extensions/Chrome Extensions.org")
+ (front-context-string . "#+TITLE: Chrome ")
+ (rear-context-string)
+ (position . 1))
+(#("Kali Linux.org" 0 1
+   (idx 56))
+ (filename . "~/Org/Wiki/Computer Technology/Operating System/Linux/Linux Distributions/Kali Linux/Kali Linux.org")
+ (front-context-string . "#+TITLE: Kali Li")
+ (rear-context-string)
+ (position . 1))
+(#("Astrology.org" 0 1
+   (idx 57))
+ (filename . "~/Org/Wiki/Astrology/Astrology.org")
+ (front-context-string . "#+TITLE: Astrolo")
+ (rear-context-string)
+ (position . 1))
+(#("License.org" 0 1
+   (idx 58))
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Copyright/Data/License/License.org")
+ (front-context-string . "#+TITLE: License")
+ (rear-context-string)
+ (position . 1))
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Books/Clojure in Action.pdf" 0 1
+   (idx 59))
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Books/Clojure in Action.pdf")
+ (position . 1)
+ (page . 6)
+ (slice 0.099294 0.33536 0.8221280000000001 0.601051)
+ (size . fit-width)
+ (origin 0.0 . 0.44481054365733114)
+ (handler . pdf-view-bookmark-jump-handler))
+(#("Sports.org" 0 1
+   (idx 60))
+ (filename . "~/Org/Wiki/Sports/Sports.org")
+ (front-context-string . "#+TITLE: Sports\n")
+ (rear-context-string)
+ (position . 1))
+(#("Skateboard.org" 0 1
+   (idx 61))
+ (filename . "~/Org/Wiki/Sports/Skateboard/Skateboard.org")
+ (front-context-string . "#+TITLE: Skatebo")
+ (rear-context-string)
+ (position . 1))
+(#("Resilio Sync.org" 0 1
+   (idx 62))
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Resilio Sync.org")
+ (front-context-string . "#+TITLE: Resilio")
+ (rear-context-string)
+ (position . 1))
+(#("Lesbian.org" 0 1
+   (idx 63))
+ (filename . "~/Org/Wiki/LGBTQ/Homosexuality/Lesbian/Lesbian.org")
+ (front-context-string . "#+TITLE: Lesbian")
+ (rear-context-string)
+ (position . 1))
+(#("Gay.org" 0 1
+   (idx 64))
+ (filename . "~/Org/Wiki/LGBTQ/Homosexuality/Gay/Gay.org")
+ (front-context-string . "#+TITLE: Gay\n\n* ")
+ (rear-context-string)
+ (position . 1))
+(#("Disease Database.org" 0 1
+   (idx 65))
+ (filename . "~/Org/Wiki/Medicine/Disease/Disease Database/Disease Database.org")
+ (front-context-string . "#+TITLE: Disease")
+ (rear-context-string)
+ (position . 1))
+(#("Disease.org" 0 1
+   (idx 66))
+ (filename . "~/Org/Wiki/Medicine/Disease/Disease.org")
+ (front-context-string . "#+TITLE: Disease")
+ (rear-context-string)
+ (position . 1))
+(#("Porn.org" 0 1
+   (idx 67))
+ (filename . "~/Org/Wiki/Pornography/Porn/Porn.org")
+ (front-context-string . "#+TITLE: Porn\n\n*")
+ (rear-context-string)
+ (position . 1))
+(#("Market.org" 0 1
+   (idx 68))
+ (filename . "~/Org/Wiki/Market/Market.org")
+ (front-context-string . "#+TITLE: Market\n")
+ (rear-context-string)
+ (position . 1))
+(#("csharp.org" 0 1
+   (idx 69))
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/csharp/csharp.org")
+ (front-context-string . "#+TITLE: C# Prog")
+ (rear-context-string)
+ (position . 1))
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Red/data/f2/f6f31f-07d2-4997-bdba-7577719620ee/Red, 不红不专, 但性感.pdf" 0 1
+   (idx 70))
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Red/data/f2/f6f31f-07d2-4997-bdba-7577719620ee/Red, 不红不专, 但性感.pdf")
+ (position . 1)
+ (page . 3)
+ (slice 0.017484 0 0.9650320000000001 1)
+ (size . fit-width)
+ (origin 0.0 . 0.2530933633295838)
+ (handler . pdf-view-bookmark-jump-handler))
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/Data/Books/Manga Guide to Databases.pdf" 0 1
+   (idx 71))
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/Data/Books/Manga Guide to Databases.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin)
+ (handler . pdf-view-bookmark-jump-handler))
+(#("Info.org" 0 1
+   (idx 72))
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/Info.org")
+ (front-context-string . "#+TITLE: Info\n\n*")
+ (rear-context-string)
+ (position . 1))
+(#("Arch Linux Crash Fix Up Manual.org" 0 1
+   (idx 73))
+ (filename . "~/Org/Wiki/Computer Technology/Operating System/Linux/Linux Distributions/Arch Linux/Data/Manuals/Arch Linux Crash Fix Up Manual/Arch Linux Crash Fix Up Manual.org")
+ (front-context-string . "#+TITLE: Arch Li")
+ (rear-context-string)
+ (position . 1))
+(#("My Poems Reference.org" 0 1
+   (idx 74))
+ (filename . "~/Org/Wiki/Literature/Poem/Data/Manuals/My Poems Reference/My Poems Reference.org")
+ (front-context-string . "#+TITLE: My Poem")
+ (rear-context-string)
+ (position . 1))
+(#("Complex Systems.org" 0 1
+   (idx 75))
+ (filename . "~/Org/Wiki/Systems Science/Complex Systems/Complex Systems.org")
+ (front-context-string . "#+TITLE: Complex")
+ (rear-context-string)
+ (position . 1))
+(#("Thought.org" 0 1
+   (idx 76))
+ (filename . "~/Org/Wiki/Thought/Thought.org")
+ (front-context-string . "#+TITLE: Thought")
+ (rear-context-string)
+ (position . 1))
+(#("Revenge.org" 0 1
+   (idx 77))
+ (filename . "~/Org/Revenge/Revenge.org")
+ (front-context-string . "#+TITLE: Revenge")
+ (rear-context-string)
+ (position . 1))
+(#("local accounts.org" 0 1
+   (idx 78))
+ (filename . "~/Org/Accounts/local accounts.org")
+ (front-context-string . "#+TITLE: locally")
+ (rear-context-string)
+ (position . 1))
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Diary/Data/Memory/少年记 高中写的一些日记和文字/高中时代的日记.pdf" 0 1
+   (idx 79))
+ (filename . "~/Org/Diary/Data/Memory/少年记 高中写的一些日记和文字/高中时代的日记.pdf")
+ (position . 1)
+ (page . 6)
+ (slice 0 0.003504 1 0.995368)
+ (size . 2.2521008403361344)
+ (origin 0.0 . 0.49284578696343406)
+ (handler . pdf-view-bookmark-jump-handler))
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Diary/Data/Memory/少年记 高中写的一些日记和文字/少年记 1.pdf" 0 1
+   (idx 80))
+ (filename . "~/Org/Diary/Data/Memory/少年记 高中写的一些日记和文字/少年记 1.pdf")
+ (position . 1)
+ (page . 2)
+ (slice 0 0.003504 1 0.995368)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Diary/Data/Memory/少年记 高中写的一些日记和文字/少年记 2.pdf" 0 1
+   (idx 81))
+ (filename . "~/Org/Diary/Data/Memory/少年记 高中写的一些日记和文字/少年记 2.pdf")
+ (position . 1)
+ (page . 5)
+ (slice 0 0.003504 1 0.995368)
+ (size . fit-width)
+ (origin 0.0 . 0.28938906752411575)
+ (handler . pdf-view-bookmark-jump-handler))
+(#("Aircrack-ng.org" 0 1
+   (idx 82))
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Aircrack-ng.org")
+ (front-context-string . "#+TITLE: Aircrac")
+ (rear-context-string)
+ (position . 1))
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Crack/Data/Books/Hacking Exposed Wireless, Second Edition.pdf" 0 1
+   (idx 83))
+ (filename . "~/Org/Wiki/Computer Technology/Crack/Data/Books/Hacking Exposed Wireless, Second Edition.pdf")
+ (position . 1)
+ (page . 161)
+ (slice 0 0.028332999999999997 0.950621 0.8500000000000001)
+ (size . fit-width)
+ (origin 0.0 . 0.5971049457177322)
+ (handler . pdf-view-bookmark-jump-handler))
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Crack/Data/Books/Seven Deadliest Wireless Technologies Attacks.pdf" 0 1
+   (idx 84))
+ (filename . "~/Org/Wiki/Computer Technology/Crack/Data/Books/Seven Deadliest Wireless Technologies Attacks.pdf")
+ (position . 1)
+ (page . 43)
+ (slice 0 0.0005259999999999987 1 0.956906)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Crack/Data/Books/An Augmented Penetration Testing Framework for Mobile Devices on 802.11 ac Wireless Networks.pdf" 0 1
+   (idx 85))
  (filename . "~/Org/Wiki/Computer Technology/Crack/Data/Books/An Augmented Penetration Testing Framework for Mobile Devices on 802.11 ac Wireless Networks.pdf")
  (position . 1)
  (page . 50)
@@ -10,27 +581,20 @@
  (size . fit-width)
  (origin)
  (handler . pdf-view-bookmark-jump-handler))
-("My China Government Administration Manual.org"
- (filename . "~/Org/Wiki/Government/Data/Manuals/My China Government Administration Manual/My China Government Administration Manual.org")
- (front-context-string . "#+TITLE: My Chin")
- (rear-context-string)
- (position . 1))
-("Security.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Security/Security.org")
- (front-context-string . "#+TITLE: Securit")
- (rear-context-string)
- (position . 1))
-("Product.org"
+(#("Product.org" 0 1
+   (idx 86))
  (filename . "~/Org/Wiki/Commercial Science/Product/Product.org")
  (front-context-string . "#+TITLE: Product")
  (rear-context-string)
  (position . 1))
-("Command Line.org"
+(#("Command Line.org" 0 1
+   (idx 87))
  (filename . "~/Org/Wiki/Computer Technology/Operating System/Linux/Command Line/Command Line.org")
  (front-context-string . "#+TITLE: Command")
  (rear-context-string)
  (position . 1))
-("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Implementations/DevOps/Data/Books/Infrastructure as Code.pdf"
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Implementations/DevOps/Data/Books/Infrastructure as Code.pdf" 0 1
+   (idx 88))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/DevOps/Data/Books/Infrastructure as Code.pdf")
  (position . 1)
  (page . 1)
@@ -38,102 +602,122 @@
  (size . fit-width)
  (origin 0.0 . 0.6214039125431531)
  (handler . pdf-view-bookmark-jump-handler))
-("Reverse Engineering.org"
+(#("Reverse Engineering.org" 0 1
+   (idx 89))
  (filename . "~/Org/Wiki/Computer Technology/Hack/Reverse Engineering/Reverse Engineering.org")
  (front-context-string . "#+TITLE: Reverse")
  (rear-context-string)
  (position . 1))
-("Data Visualization.org"
+(#("Data Visualization.org" 0 1
+   (idx 90))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Data Science/Data Visualization/Data Visualization.org")
  (front-context-string . "#+TITLE: Data Vi")
  (rear-context-string)
  (position . 1))
-("Nmap.org"
+(#("Nmap.org" 0 1
+   (idx 91))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Nmap/Nmap.org")
  (front-context-string . "#+TITLE: Nmap\n\n*")
  (rear-context-string)
  (position . 1))
-("Sexology.org"
+(#("Sexology.org" 0 1
+   (idx 92))
  (filename . "~/Org/Wiki/Sexology/Sexology.org")
  (front-context-string . "#+TITLE: Sexolog")
  (rear-context-string)
  (position . 1))
-("PUA.org"
+(#("PUA.org" 0 1
+   (idx 93))
  (filename . "~/Org/Wiki/Love/Love Theories/PUA/PUA.org")
  (front-context-string . "#+TITLE: Pick-Up")
  (rear-context-string)
  (position . 1))
-("My Genetics Reference.org"
+(#("My Genetics Reference.org" 0 1
+   (idx 94))
  (filename . "~/Org/Wiki/Biology/Genetics/Data/Manuals/My Genetics Reference/My Genetics Reference.org")
  (front-context-string . "#+TITLE: My Gene")
  (rear-context-string)
  (position . 1))
-("Genetics.org"
+(#("Genetics.org" 0 1
+   (idx 95))
  (filename . "~/Org/Wiki/Biology/Genetics/Genetics.org")
  (front-context-string . "#+TITLE: Genetic")
  (rear-context-string)
  (position . 1))
-("Numerology.org"
+(#("Numerology.org" 0 1
+   (idx 96))
  (filename . "~/Org/Wiki/Mysterious Culture/Numerology/Numerology.org")
  (front-context-string . "#+TITLE: Numerol")
  (rear-context-string)
  (position . 1))
-("codox.org"
+(#("codox.org" 0 1
+   (idx 97))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Clojure Packages/codox.org")
  (front-context-string . "#+TITLE: codox\n\n")
  (rear-context-string)
  (position . 1))
-("Jupyter.org"
+(#("Jupyter.org" 0 1
+   (idx 98))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Jupyter.org")
  (front-context-string . "#+TITLE: Jupyter")
  (rear-context-string)
  (position . 1))
-("IPython.org"
+(#("IPython.org" 0 1
+   (idx 99))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Python/Data/Python Packages/IPython/IPython.org")
  (front-context-string . "#+TITLE: IPython")
  (rear-context-string)
  (position . 1))
-("History.org"
+(#("History.org" 0 1
+   (idx 100))
  (filename . "~/Org/Wiki/History/History.org")
  (front-context-string . "#+TITLE: History")
  (rear-context-string)
  (position . 1))
-("Arduino.org"
+(#("Arduino.org" 0 1
+   (idx 101))
  (filename . "~/Org/Wiki/Computer Technology/Hardware/Dev Board/Arduino/Arduino.org")
  (front-context-string . "#+TITLE: Arduino")
  (rear-context-string)
  (position . 1))
-("Raspberry Pi.org"
+(#("Raspberry Pi.org" 0 1
+   (idx 102))
  (filename . "~/Org/Wiki/Computer Technology/Hardware/Dev Board/Raspberry Pi/Raspberry Pi.org")
  (front-context-string . "#+TITLE: Raspber")
  (rear-context-string)
  (position . 1))
-("Open Source Hardware.org"
+(#("Open Source Hardware.org" 0 1
+   (idx 103))
  (filename . "~/Org/Wiki/Computer Technology/Hardware/Open Source Hardware/Open Source Hardware.org")
  (front-context-string . "#+TITLE: Open So")
  (rear-context-string)
  (position . 1))
-("Programming Mathematics.org"
+(#("Programming Mathematics.org" 0 1
+   (idx 104))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Programming Mathematics/Programming Mathematics.org")
  (front-context-string . "#+TITLE: Program")
  (rear-context-string)
  (position . 1))
-("Thinking.org"
+(#("Thinking.org" 0 1
+   (idx 105))
  (filename . "~/Org/Wiki/Self Enhancement/Thinking/Thinking.org")
  (front-context-string . "#+TITLE: Thinkin")
  (rear-context-string)
  (position . 1))
-("Blockchain.org"
+(#("Blockchain.org" 0 1
+   (idx 106))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Blockchain/Blockchain.org")
  (front-context-string . "#+TITLE: Blockch")
  (rear-context-string)
  (position . 1))
-("Civilization.org"
+(#("Civilization.org" 0 1
+   (idx 107))
  (filename . "~/Org/Wiki/Civilization/Civilization.org")
  (front-context-string . "#+TITLE: Civiliz")
  (rear-context-string)
  (position . 1))
-("PDF-LAST-VIEWED: /home/stardiviner/incanter-xy-line.pdf"
+(#("PDF-LAST-VIEWED: /home/stardiviner/incanter-xy-line.pdf" 0 1
+   (idx 108))
  (filename . "~/incanter-xy-line.pdf")
  (position . 1)
  (page . 1)
@@ -141,52 +725,62 @@
  (size . fit-width)
  (origin 0.0 . 0.0)
  (handler . pdf-view-bookmark-jump-handler))
-("xargs.org"
+(#("xargs.org" 0 1
+   (idx 109))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/xargs.org")
  (front-context-string . "#+TITLE: xargs\n\n")
  (rear-context-string)
  (position . 1))
-("Interpersonal Relationship.org"
+(#("Interpersonal Relationship.org" 0 1
+   (idx 110))
  (filename . "~/Org/Wiki/Sociology/Social Intercourse/Interpersonal Relationship/Interpersonal Relationship.org")
  (front-context-string . "#+TITLE: Interpe")
  (rear-context-string)
  (position . 1))
-("Unicode.org"
+(#("Unicode.org" 0 1
+   (idx 111))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Unicode/Unicode.org")
  (front-context-string . "#+TITLE: Unicode")
  (rear-context-string)
  (position . 1))
-("Apache Spark.org"
+(#("Apache Spark.org" 0 1
+   (idx 112))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Apache Spark/Apache Spark.org")
  (front-context-string . "#+TITLE: Apache ")
  (rear-context-string)
  (position . 1))
-("WeChat bot.org"
+(#("WeChat bot.org" 0 1
+   (idx 113))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Communication/Projects/WeChat/WeChat bot/WeChat bot.org")
  (front-context-string . "#+TITLE: WeChat ")
  (rear-context-string)
  (position . 1))
-("Hardware Programming.org"
+(#("Hardware Programming.org" 0 1
+   (idx 114))
  (filename . "~/Org/Wiki/Computer Technology/Hardware/Hardware Programming/Hardware Programming.org")
  (front-context-string . "#+TITLE: Hardwar")
  (rear-context-string)
  (position . 1))
-("Computer Architecture.org"
+(#("Computer Architecture.org" 0 1
+   (idx 115))
  (filename . "~/Org/Wiki/Computer Technology/Hardware/Computer Architecture/Computer Architecture.org")
  (front-context-string . "#+TITLE: Compute")
  (rear-context-string)
  (position . 1))
-("Hardware.org"
+(#("Hardware.org" 0 1
+   (idx 116))
  (filename . "~/Org/Wiki/Computer Technology/Hardware/Hardware.org")
  (front-context-string . "#+TITLE: Hardwar")
  (rear-context-string)
  (position . 1))
-("Culture.org"
+(#("Culture.org" 0 1
+   (idx 117))
  (filename . "~/Org/Wiki/Culture/Culture.org")
  (front-context-string . "#+TITLE: Culture")
  (rear-context-string)
  (position . 1))
-("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Philosophy/Data/Books/中国哲学简史.pdf"
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Philosophy/Data/Books/中国哲学简史.pdf" 0 1
+   (idx 118))
  (filename . "~/Org/Wiki/Philosophy/Data/Books/中国哲学简史.pdf")
  (position . 1)
  (page . 1)
@@ -194,32 +788,38 @@
  (size . fit-width)
  (origin 0.0 . 0.8402777777777778)
  (handler . pdf-view-bookmark-jump-handler))
-("find.org"
+(#("find.org" 0 1
+   (idx 119))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/find.org")
  (front-context-string . "#+TITLE: find\n\n*")
  (rear-context-string)
  (position . 1))
-("Graphviz.org"
+(#("Graphviz.org" 0 1
+   (idx 120))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Graphviz/Graphviz.org")
  (front-context-string . "#+TITLE: Graphvi")
  (rear-context-string)
  (position . 1))
-("My RDF Syntax Reference.org"
+(#("My RDF Syntax Reference.org" 0 1
+   (idx 121))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/RDF/Data/Manuals/My RDF Syntax Reference/My RDF Syntax Reference.org")
  (front-context-string . "#+TITLE: My RDF ")
  (rear-context-string)
  (position . 1))
-("Systems Science.org"
+(#("Systems Science.org" 0 1
+   (idx 122))
  (filename . "~/Org/Wiki/Systems Science/Systems Science.org")
  (front-context-string . "#+TITLE: Systems")
  (rear-context-string)
  (position . 1))
-("Communication Studies.org"
+(#("Communication Studies.org" 0 1
+   (idx 123))
  (filename . "~/Org/Wiki/Communication Studies/Communication Studies.org")
  (front-context-string . "#+TITLE: Communi")
  (rear-context-string)
  (position . 1))
-("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Algorithm/Data/Books/程序员的数学.pdf"
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Algorithm/Data/Books/程序员的数学.pdf" 0 1
+   (idx 124))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Algorithm/Data/Books/程序员的数学.pdf")
  (position . 1)
  (page . 88)
@@ -227,132 +827,158 @@
  (size . fit-width)
  (origin 0.0 . 0.45454545454545453)
  (handler . pdf-view-bookmark-jump-handler))
-("API.org"
+(#("API.org" 0 1
+   (idx 125))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/API/API.org")
  (front-context-string . "#+TITLE: API\n\n* ")
  (rear-context-string)
  (position . 1))
-("Network.org"
+(#("Network.org" 0 1
+   (idx 126))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Network/Network.org")
  (front-context-string . "#+TITLE: Network")
  (rear-context-string)
  (position . 1))
-("Cloud.org"
+(#("Cloud.org" 0 1
+   (idx 127))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Cloud/Cloud.org")
  (front-context-string . "#+TITLE: Cloud\n\n")
  (rear-context-string)
  (position . 1))
-("Mobile Development.org"
+(#("Mobile Development.org" 0 1
+   (idx 128))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Mobile Development/Mobile Development.org")
  (front-context-string . "#+TITLE: Mobile ")
  (rear-context-string)
  (position . 1))
-("Programmable Music.org"
+(#("Programmable Music.org" 0 1
+   (idx 129))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Electric Music/Programmable Music/Programmable Music.org")
  (front-context-string . "#+TITLE: Program")
  (rear-context-string)
  (position . 1))
-("Electric Music.org"
+(#("Electric Music.org" 0 1
+   (idx 130))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Electric Music/Electric Music.org")
  (front-context-string . "#+TITLE: Electri")
  (rear-context-string)
  (position . 1))
-("Natural Language Processing.org"
+(#("Natural Language Processing.org" 0 1
+   (idx 131))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Natural Language Processing/Natural Language Processing.org")
  (front-context-string . "#+TITLE: Natural")
  (rear-context-string)
  (position . 1))
-("Artificial Intelligence.org"
+(#("Artificial Intelligence.org" 0 1
+   (idx 132))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Artificial Intelligence/Artificial Intelligence.org")
  (front-context-string . "#+TITLE: Artific")
  (rear-context-string)
  (position . 1))
-("GTK+.org"
+(#("GTK+.org" 0 1
+   (idx 133))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/GUI/frameworks/GTK+/GTK+.org")
  (front-context-string . "#+TITLE: GTK+\n\n*")
  (rear-context-string)
  (position . 1))
-("Qt.org"
+(#("Qt.org" 0 1
+   (idx 134))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/GUI/frameworks/Qt/Qt.org")
  (front-context-string . "#+TITLE: Qt\n\n* I")
  (rear-context-string)
  (position . 1))
-("GUI.org"
+(#("GUI.org" 0 1
+   (idx 135))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/GUI/GUI.org")
  (front-context-string . "#+TITLE: GUI Imp")
  (rear-context-string)
  (position . 1))
-("Data Science.org"
+(#("Data Science.org" 0 1
+   (idx 136))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Data Science/Data Science.org")
  (front-context-string . "#+TITLE: Data Sc")
  (rear-context-string)
  (position . 1))
-("Web.org"
+(#("Web.org" 0 1
+   (idx 137))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Web/Web.org")
  (front-context-string . "#+TITLE: Web Imp")
  (rear-context-string)
  (position . 1))
-("Implementations.org"
+(#("Implementations.org" 0 1
+   (idx 138))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Implementations.org")
  (front-context-string . "#+TITLE: Impleme")
  (rear-context-string)
  (position . 1))
-("GnuPG.org"
+(#("GnuPG.org" 0 1
+   (idx 139))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/GnuPG.org")
  (front-context-string . "#+TITLE: GnuPG\n\n")
  (rear-context-string)
  (position . 1))
-("Markdown.org"
+(#("Markdown.org" 0 1
+   (idx 140))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Markdown/Markdown.org")
  (front-context-string . "#+TITLE: Markdow")
  (rear-context-string)
  (position . 1))
-("adb.org"
+(#("adb.org" 0 1
+   (idx 141))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/adb.org")
  (front-context-string . "#+TITLE: ADB\n\n* ")
  (rear-context-string)
  (position . 1))
-("ffmpeg.org"
+(#("ffmpeg.org" 0 1
+   (idx 142))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/ffmpeg.org")
  (front-context-string . "#+TITLE: ffmpeg\n")
  (rear-context-string)
  (position . 1))
-("Unit Testing.org"
+(#("Unit Testing.org" 0 1
+   (idx 143))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Coding/Testing/Unit Testing/Unit Testing.org")
  (front-context-string . "#+TITLE: Unit Te")
  (rear-context-string)
  (position . 1))
-("Behavior-Driven Development.org"
+(#("Behavior-Driven Development.org" 0 1
+   (idx 144))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Coding/Testing/Behavior-Driven Development/Behavior-Driven Development.org")
  (front-context-string . "#+TITLE: Behavio")
  (rear-context-string)
  (position . 1))
-("Test-Driven Development.org"
+(#("Test-Driven Development.org" 0 1
+   (idx 145))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Coding/Testing/Test-Driven Development/Test-Driven Development.org")
  (front-context-string . "#+TITLE: Test-Dr")
  (rear-context-string)
  (position . 1))
-("Testing.org"
+(#("Testing.org" 0 1
+   (idx 146))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Coding/Testing/Testing.org")
  (front-context-string . "#+TITLE: Testing")
  (rear-context-string)
  (position . 1))
-("Program Design.org"
+(#("Program Design.org" 0 1
+   (idx 147))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Program Design/Program Design.org")
  (front-context-string . "#+TITLE: Program")
  (rear-context-string)
  (position . 1))
-("Programming Glossary.org"
+(#("Programming Glossary.org" 0 1
+   (idx 148))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Data/Manuals/Programming Glossary/Programming Glossary.org")
  (front-context-string . "#+TITLE: Program")
  (rear-context-string)
  (position . 1))
-("ledger.org"
+(#("ledger.org" 0 1
+   (idx 149))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/ledger.org")
  (front-context-string . "#+TITLE: ledger\n")
  (rear-context-string)
  (position . 1))
-("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Reading/Data/Manuals/My Reading Manual/Data/Docs/Read before you cite.pdf"
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Reading/Data/Manuals/My Reading Manual/Data/Docs/Read before you cite.pdf" 0 1
+   (idx 150))
  (filename . "~/Org/Wiki/Reading/Data/Manuals/My Reading Manual/Data/Docs/Read before you cite.pdf")
  (position . 1)
  (page . 1)
@@ -360,7 +986,8 @@
  (size . fit-width)
  (origin 0.0 . 0.0)
  (handler . pdf-view-bookmark-jump-handler))
-("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Reading/Data/Manuals/My Reading Manual/Data/Docs/How to Read a Paper.pdf"
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Reading/Data/Manuals/My Reading Manual/Data/Docs/How to Read a Paper.pdf" 0 1
+   (idx 151))
  (filename . "~/Org/Wiki/Reading/Data/Manuals/My Reading Manual/Data/Docs/How to Read a Paper.pdf")
  (position . 1)
  (page . 2)
@@ -368,777 +995,908 @@
  (size . fit-width)
  (origin 0.0 . 0.6073943661971831)
  (handler . pdf-view-bookmark-jump-handler))
-("pdf-tools.org"
+(#("pdf-tools.org" 0 1
+   (idx 152))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/pdf-tools.org")
  (front-context-string . "* Intro\n\n** Abou")
  (rear-context-string)
  (position . 1))
-("Distributed Programming.org"
+(#("Distributed Programming.org" 0 1
+   (idx 153))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Coding/Programming Paradigms/Distributed Programming/Distributed Programming.org")
  (front-context-string . "#+TITLE: Distrib")
  (rear-context-string)
  (position . 1))
-("My Reading Manual.org"
+(#("My Reading Manual.org" 0 1
+   (idx 154))
  (filename . "~/Org/Wiki/Reading/Data/Manuals/My Reading Manual/My Reading Manual.org")
  (front-context-string . "#+TITLE: My Read")
  (rear-context-string)
  (position . 1))
-("gnuplot.org"
+(#("gnuplot.org" 0 1
+   (idx 155))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/gnuplot/gnuplot.org")
  (front-context-string . "#+TITLE: gnuplot")
  (rear-context-string)
  (position . 1))
-("Overtone.org"
+(#("Overtone.org" 0 1
+   (idx 156))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Clojure Packages/Overtone.org")
  (front-context-string . "#+TITLE: Overton")
  (rear-context-string)
  (position . 1))
-("Investing and Financing.org"
+(#("Investing and Financing.org" 0 1
+   (idx 157))
  (filename . "~/Org/Wiki/Investing and Financing/Investing and Financing.org")
  (front-context-string . "#+TITLE: Investi")
  (rear-context-string)
  (position . 1))
-("Metaphysics.org"
+(#("Metaphysics.org" 0 1
+   (idx 158))
  (filename . "~/Org/Wiki/Philosophy/Metaphysics/Metaphysics.org")
  (front-context-string . "#+TITLE: Metaphy")
  (rear-context-string)
  (position . 1))
-("Argumentation.org"
+(#("Argumentation.org" 0 1
+   (idx 159))
  (filename . "~/Org/Wiki/Reasoning Science/Logic/Argumentation/Argumentation.org")
  (front-context-string . "#+TITLE: Argumen")
  (rear-context-string)
  (position . 1))
-("My Argumentation Manual.org"
+(#("My Argumentation Manual.org" 0 1
+   (idx 160))
  (filename . "~/Org/Wiki/Reasoning Science/Logic/Argumentation/Data/Manuals/My Argumentation Manual/My Argumentation Manual.org")
  (front-context-string . "#+TITLE: My Argu")
  (rear-context-string)
  (position . 1))
-("Complexity.org"
- (filename . "~/Org/Wiki/Complexity/Complexity.org")
- (front-context-string . "#+TITLE: Complex")
- (rear-context-string)
- (position . 1))
-("Gorilla REPL.org"
+(#("Gorilla REPL.org" 0 1
+   (idx 161))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Clojure Packages/Gorilla REPL.org")
  (front-context-string . "#+TITLE: Gorilla")
  (rear-context-string)
  (position . 1))
-("Boy's Love.org"
+(#("Boy's Love.org" 0 1
+   (idx 162))
  (filename . "~/Org/Wiki/LGBTQ/Boy's Love/Boy's Love.org")
  (front-context-string . "#+TITLE: Boy's L")
  (rear-context-string)
  (position . 1))
-("Make Love.org"
+(#("Make Love.org" 0 1
+   (idx 163))
  (filename . "~/Org/Wiki/Love/Make Love/Make Love.org")
  (front-context-string . "#+TITLE: Make Lo")
  (rear-context-string)
  (position . 1))
-("Photograph.org"
+(#("Photograph.org" 0 1
+   (idx 164))
  (filename . "~/Org/Wiki/Photograph/Photograph.org")
  (front-context-string . "#+TITLE: Photogr")
  (rear-context-string)
  (position . 1))
-("Theology.org"
+(#("Theology.org" 0 1
+   (idx 165))
  (filename . "~/Org/Wiki/Religion/Theology/Theology.org")
  (front-context-string . "#+TITLE: Theolog")
  (rear-context-string)
  (position . 1))
-("Religion.org"
+(#("Religion.org" 0 1
+   (idx 166))
  (filename . "~/Org/Wiki/Religion/Religion.org")
  (front-context-string . "#+TITLE: Religio")
  (rear-context-string)
  (position . 1))
-("Logic.org"
+(#("Logic.org" 0 1
+   (idx 167))
  (filename . "~/Org/Wiki/Reasoning Science/Logic/Logic.org")
  (front-context-string . "#+TITLE: Logic\n\n")
  (rear-context-string)
  (position . 1))
-("Reasoning Science.org"
+(#("Reasoning Science.org" 0 1
+   (idx 168))
  (filename . "~/Org/Wiki/Reasoning Science/Reasoning Science.org")
  (front-context-string . "#+TITLE: Reasoni")
  (rear-context-string)
  (position . 1))
-("Trade.org"
+(#("Trade.org" 0 1
+   (idx 169))
  (filename . "~/Org/Wiki/Economy/Trade/Trade.org")
  (front-context-string . "#+TITLE: Trade\n\n")
  (rear-context-string)
  (position . 1))
-("Indium.org"
+(#("Indium.org" 0 1
+   (idx 170))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/Indium.org")
  (front-context-string . "#+TITLE: Indium\n")
  (rear-context-string)
  (position . 1))
-("ssh.org"
+(#("ssh.org" 0 1
+   (idx 171))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/ssh.org")
  (front-context-string . "#+TITLE: SSH\n\n* ")
  (rear-context-string)
  (position . 1))
-("Linux Distributions.org"
+(#("Linux Distributions.org" 0 1
+   (idx 172))
  (filename . "~/Org/Wiki/Computer Technology/Operating System/Linux/Linux Distributions/Linux Distributions.org")
  (front-context-string . "#+TITLE: Linux D")
  (rear-context-string)
  (position . 1))
-("Workplace.org"
+(#("Workplace.org" 0 1
+   (idx 173))
  (filename . "~/Org/Wiki/Work/Workplace/Workplace.org")
  (front-context-string . "#+TITLE: Workpla")
  (rear-context-string)
  (position . 1))
-("Work.org"
+(#("Work.org" 0 1
+   (idx 174))
  (filename . "~/Org/Wiki/Work/Work.org")
  (front-context-string . "#+TITLE: Work\n\n*")
  (rear-context-string)
  (position . 1))
-("Influence.org"
+(#("Influence.org" 0 1
+   (idx 175))
  (filename . "~/Org/Wiki/Self Enhancement/Leadership/Influence/Influence.org")
  (front-context-string . "#+TITLE: Influen")
  (rear-context-string)
  (position . 1))
-("DevOps.org"
+(#("DevOps.org" 0 1
+   (idx 176))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/DevOps/DevOps.org")
  (front-context-string . "#+TITLE: DevOps\n")
  (rear-context-string)
  (position . 1))
-("People Management.org"
+(#("People Management.org" 0 1
+   (idx 177))
  (filename . "~/Org/Wiki/Commercial Science/Management/People Management/People Management.org")
  (front-context-string . "#+TITLE: People ")
  (rear-context-string)
  (position . 1))
-("Willpower.org"
+(#("Willpower.org" 0 1
+   (idx 178))
  (filename . "~/Org/Wiki/Self Enhancement/Willpower/Willpower.org")
  (front-context-string . "#+TITLE: Willpow")
  (rear-context-string)
  (position . 1))
-("Female.org"
+(#("Female.org" 0 1
+   (idx 179))
  (filename . "~/Org/Wiki/Sociology/Male and Female/Female/Female.org")
  (front-context-string . "#+TITLE: Female\n")
  (rear-context-string)
  (position . 1))
-("Male.org"
+(#("Male.org" 0 1
+   (idx 180))
  (filename . "~/Org/Wiki/Sociology/Male and Female/Male/Male.org")
  (front-context-string . "#+TITLE: Male\n\n*")
  (rear-context-string)
  (position . 1))
-("Male and Female.org"
+(#("Male and Female.org" 0 1
+   (idx 181))
  (filename . "~/Org/Wiki/Sociology/Male and Female/Male and Female.org")
  (front-context-string . "#+TITLE: Male an")
  (rear-context-string)
  (position . 1))
-("Sociology.org"
+(#("Sociology.org" 0 1
+   (idx 182))
  (filename . "~/Org/Wiki/Sociology/Sociology.org")
  (front-context-string . "#+TITLE: Sociolo")
  (rear-context-string)
  (position . 1))
-("Knowledge Management.org"
+(#("Knowledge Management.org" 0 1
+   (idx 183))
  (filename . "~/Org/Wiki/Self Enhancement/Knowledge Management/Knowledge Management.org")
  (front-context-string . "#+TITLE: Knowled")
  (rear-context-string)
  (position . 1))
-("Reading.org"
+(#("Reading.org" 0 1
+   (idx 184))
  (filename . "~/Org/Wiki/Reading/Reading.org")
  (front-context-string . "#+TITLE: Reading")
  (rear-context-string)
  (position . 1))
-("Management.org"
+(#("Management.org" 0 1
+   (idx 185))
  (filename . "~/Org/Wiki/Commercial Science/Management/Management.org")
  (front-context-string . "#+TITLE: Managem")
  (rear-context-string)
  (position . 1))
-("Self Marketing.org"
+(#("Self Marketing.org" 0 1
+   (idx 186))
  (filename . "~/Org/Wiki/Self Enhancement/Self Marketing/Self Marketing.org")
  (front-context-string . "#+TITLE: Self Ma")
  (rear-context-string)
  (position . 1))
-("Personal Life.org"
+(#("Personal Life.org" 0 1
+   (idx 187))
  (filename . "~/Org/Wiki/Self Enhancement/Personal Life/Personal Life.org")
  (front-context-string . "#+TITLE: Persona")
  (rear-context-string)
  (position . 1))
-("Time Management.org"
+(#("Time Management.org" 0 1
+   (idx 188))
  (filename . "~/Org/Wiki/Self Enhancement/Time Management/Time Management.org")
  (front-context-string . "#+TITLE: Time Ma")
  (rear-context-string)
  (position . 1))
-("Leadership.org"
+(#("Leadership.org" 0 1
+   (idx 189))
  (filename . "~/Org/Wiki/Self Enhancement/Leadership/Leadership.org")
  (front-context-string . "#+TITLE: Leaders")
  (rear-context-string)
  (position . 1))
-("My Problem Solving Manual.org"
+(#("My Problem Solving Manual.org" 0 1
+   (idx 190))
  (filename . "~/Org/Wiki/Thinking/Data/Manuals/My Problem Solving Manual/My Problem Solving Manual.org")
  (front-context-string . "#+TITLE: My Prob")
  (rear-context-string)
  (position . 1))
-("Matrix.org"
+(#("Matrix.org" 0 1
+   (idx 191))
  (filename . "~/Org/Wiki/Mathematics/Algebra/Linear Algebra/Matrix/Matrix.org")
  (front-context-string . "#+TITLE: Matrix\n")
  (rear-context-string)
  (position . 1))
-("My Mathematics Manual.org"
+(#("My Mathematics Manual.org" 0 1
+   (idx 192))
  (filename . "~/Org/Wiki/Mathematics/Data/Manuals/My Mathematics Manual/My Mathematics Manual.org")
  (front-context-string . "#+TITLE: My Math")
  (rear-context-string)
  (position . 1))
-("My Algorithm Manual.org"
+(#("My Algorithm Manual.org" 0 1
+   (idx 193))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Algorithm/Data/Manuals/My Algorithm Manual/My Algorithm Manual.org")
  (front-context-string . "#+TITLE: My Algo")
  (rear-context-string)
  (position . 1))
-("Algorithm Complexity.org"
+(#("Algorithm Complexity.org" 0 1
+   (idx 194))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Algorithm/Data/Manuals/Algorithm Complexity/Algorithm Complexity.org")
  (front-context-string . "#+TITLE: Algorit")
  (rear-context-string)
  (position . 1))
-("Mind Growth.org"
+(#("Mind Growth.org" 0 1
+   (idx 195))
  (filename . "~/Org/Wiki/Self Enhancement/Mind Growth/Mind Growth.org")
  (front-context-string . "#+TITLE: Mind Gr")
  (rear-context-string)
  (position . 1))
-("Sinology.org"
+(#("Sinology.org" 0 1
+   (idx 196))
  (filename . "~/Org/Wiki/Culture/Countries Culture/China Culture/Sinology/Sinology.org")
  (front-context-string . "#+TITLE: Sinolog")
  (rear-context-string)
  (position . 1))
-("Negotiate.org"
+(#("Negotiate.org" 0 1
+   (idx 197))
  (filename . "~/Org/Wiki/Self Enhancement/Communication/Negotiate/Negotiate.org")
  (front-context-string . "#+TITLE: Negotia")
  (rear-context-string)
  (position . 1))
-("Boot.org"
+(#("Boot.org" 0 1
+   (idx 198))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Clojure Packages/Boot.org")
  (front-context-string . "#+TITLE: Boot\n\n*")
  (rear-context-string)
  (position . 1))
-("Leiningen.org"
+(#("Leiningen.org" 0 1
+   (idx 199))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Clojure Packages/Leiningen.org")
  (front-context-string . "#+TITLE: Leining")
  (rear-context-string)
  (position . 1))
-("Life Science.org"
+(#("Life Science.org" 0 1
+   (idx 200))
  (filename . "~/Org/Wiki/Life Science/Life Science.org")
  (front-context-string . "#+TITLE: Life Sc")
  (rear-context-string)
  (position . 1))
-("Life.org"
+(#("Life.org" 0 1
+   (idx 201))
  (filename . "~/Org/Wiki/Life/Life.org")
  (front-context-string . "#+TITLE: Life\n\n*")
  (rear-context-string)
  (position . 1))
-("Science.org"
- (filename . "~/Org/Wiki/Science/Science.org")
- (front-context-string . "#+TITLE: Science")
- (rear-context-string)
- (position . 1))
-("Astronomy.org"
+(#("Astronomy.org" 0 1
+   (idx 202))
  (filename . "~/Org/Wiki/Astronomy/Astronomy.org")
  (front-context-string . "#+TITLE: Astrono")
  (rear-context-string)
  (position . 1))
-("ClojureScript Packages.org"
+(#("ClojureScript Packages.org" 0 1
+   (idx 203))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/ClojureScript/Data/ClojureScript Packages/ClojureScript Packages.org")
  (front-context-string . "#+TITLE: Clojure")
  (rear-context-string)
  (position . 1))
-("Electricity.org"
+(#("Electricity.org" 0 1
+   (idx 204))
  (filename . "~/Org/Wiki/Physics/Electricity/Electricity.org")
  (front-context-string . "#+TITLE: Electri")
  (rear-context-string)
  (position . 1))
-("Mechanics.org"
+(#("Mechanics.org" 0 1
+   (idx 205))
  (filename . "~/Org/Wiki/Physics/Mechanics/Mechanics.org")
  (front-context-string . "#+TITLE: Mechani")
  (rear-context-string)
  (position . 1))
-("Quantum Theory.org"
+(#("Quantum Theory.org" 0 1
+   (idx 206))
  (filename . "~/Org/Wiki/Physics/Quantum Theory/Quantum Theory.org")
  (front-context-string . "#+TITLE: Quantum")
  (rear-context-string)
  (position . 1))
-("Consciousness.org"
+(#("Consciousness.org" 0 1
+   (idx 207))
  (filename . "~/Org/Wiki/Brain Science/Consciousness/Consciousness.org")
  (front-context-string . "#+TITLE: Conscio")
  (rear-context-string)
  (position . 1))
-("Brain Science.org"
+(#("Brain Science.org" 0 1
+   (idx 208))
  (filename . "~/Org/Wiki/Brain Science/Brain Science.org")
  (front-context-string . "#+TITLE: Brain S")
  (rear-context-string)
  (position . 1))
-("Dired.org"
+(#("Dired.org" 0 1
+   (idx 209))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/Dired/Dired.org")
  (front-context-string . "#+TITLE: Dired\n\n")
  (rear-context-string)
  (position . 1))
-("Cosmology.org"
+(#("Cosmology.org" 0 1
+   (idx 210))
  (filename . "~/Org/Wiki/Physics/Cosmology/Cosmology.org")
  (front-context-string . "#+TITLE: Cosmolo")
  (rear-context-string)
  (position . 1))
-("Philosophy.org"
+(#("Philosophy.org" 0 1
+   (idx 211))
  (filename . "~/Org/Wiki/Philosophy/Philosophy.org")
  (front-context-string . "#+TITLE: Philoso")
  (rear-context-string)
  (position . 1))
-("心学.org"
+(#("心学.org" 0 1
+   (idx 212))
  (filename . "~/Org/Wiki/Thought/诸子百家/儒家/心学/心学.org")
  (front-context-string . "#+TITLE: 心学\n\n* I")
  (rear-context-string)
  (position . 1))
-("儒家.org"
+(#("儒家.org" 0 1
+   (idx 213))
  (filename . "~/Org/Wiki/Thought/诸子百家/儒家/儒家.org")
  (front-context-string . "#+TITLE: 儒家\n\n* I")
  (rear-context-string)
  (position . 1))
-("My OpenGL Manual.org"
+(#("My OpenGL Manual.org" 0 1
+   (idx 214))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/OpenGL/Data/Manuals/My OpenGL Manual/My OpenGL Manual.org")
  (front-context-string . "#+TITLE: My Open")
  (rear-context-string)
  (position . 1))
-("OpenGL.org"
+(#("OpenGL.org" 0 1
+   (idx 215))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/OpenGL/OpenGL.org")
  (front-context-string . "#+TITLE: OpenGL\n")
  (rear-context-string)
  (position . 1))
-("KDE.org"
+(#("KDE.org" 0 1
+   (idx 216))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/KDE/KDE.org")
  (front-context-string . "#+TITLE: KDE\n\n* ")
  (rear-context-string)
  (position . 1))
-("My Lua Language Syntax Reference.org"
+(#("My Lua Language Syntax Reference.org" 0 1
+   (idx 217))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lua/Data/Manuals/My Lua Language Syntax Reference/My Lua Language Syntax Reference.org")
  (front-context-string . "#+TITLE: My Lua ")
  (rear-context-string)
  (position . 1))
-("Software Development Method.org"
+(#("Software Development Method.org" 0 1
+   (idx 218))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Software Development/Software Development Method/Software Development Method.org")
  (front-context-string . "#+TITLE: Softwar")
  (rear-context-string)
  (position . 1))
-("Software Development.org"
+(#("Software Development.org" 0 1
+   (idx 219))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Software Development/Software Development.org")
  (front-context-string . "#+TITLE: Softwar")
  (rear-context-string)
  (position . 1))
-("Microsoft Windows Kernel.org"
+(#("Microsoft Windows Kernel.org" 0 1
+   (idx 220))
  (filename . "~/Org/Wiki/Computer Technology/Operating System/Microsoft Windows/Microsoft Windows Kernel/Microsoft Windows Kernel.org")
  (front-context-string . "#+TITLE: Microso")
  (rear-context-string)
  (position . 1))
-("BSD Kernel.org"
+(#("BSD Kernel.org" 0 1
+   (idx 221))
  (filename . "~/Org/Wiki/Computer Technology/Operating System/BSD/BSD Kernel/BSD Kernel.org")
  (front-context-string . "#+TITLE: BSD Ker")
  (rear-context-string)
  (position . 1))
-("Linux Kernel.org"
+(#("Linux Kernel.org" 0 1
+   (idx 222))
  (filename . "~/Org/Wiki/Computer Technology/Operating System/Linux/Linux Kernel/Linux Kernel.org")
  (front-context-string . "#+TITLE: Linux K")
  (rear-context-string)
  (position . 1))
-("Kernels.org"
+(#("Kernels.org" 0 1
+   (idx 223))
  (filename . "~/Org/Wiki/Computer Technology/Operating System/Kernels/Kernels.org")
  (front-context-string . "#+TITLE: Kernels")
  (rear-context-string)
  (position . 1))
-("OpenWrt.org"
+(#("OpenWrt.org" 0 1
+   (idx 224))
  (filename . "~/Org/Wiki/Computer Technology/Operating System/OpenWrt/OpenWrt.org")
  (front-context-string . "#+TITLE: OpenWrt")
  (rear-context-string)
  (position . 1))
-("iOS.org"
+(#("iOS.org" 0 1
+   (idx 225))
  (filename . "~/Org/Wiki/Computer Technology/Operating System/iOS/iOS.org")
  (front-context-string . "#+TITLE: iOS\n\n* ")
  (rear-context-string)
  (position . 1))
-("Android.org"
+(#("Android.org" 0 1
+   (idx 226))
  (filename . "~/Org/Wiki/Computer Technology/Operating System/Android/Android.org")
  (front-context-string . "#+TITLE: Android")
  (rear-context-string)
  (position . 1))
-("Microsoft Windows.org"
+(#("Microsoft Windows.org" 0 1
+   (idx 227))
  (filename . "~/Org/Wiki/Computer Technology/Operating System/Microsoft Windows/Microsoft Windows.org")
  (front-context-string . "#+TITLE: Microso")
  (rear-context-string)
  (position . 1))
-("GNU.org"
+(#("GNU.org" 0 1
+   (idx 228))
  (filename . "~/Org/Wiki/Computer Technology/Operating System/GNU/GNU.org")
  (front-context-string . "#+TITLE: GNU Ope")
  (rear-context-string)
  (position . 1))
-("macOS.org"
+(#("macOS.org" 0 1
+   (idx 229))
  (filename . "~/Org/Wiki/Computer Technology/Operating System/macOS/macOS.org")
  (front-context-string . "#+TITLE: macOS\n\n")
  (rear-context-string)
  (position . 1))
-("BSD.org"
+(#("BSD.org" 0 1
+   (idx 230))
  (filename . "~/Org/Wiki/Computer Technology/Operating System/BSD/BSD.org")
  (front-context-string . "#+TITLE: BSD\n\n* ")
  (rear-context-string)
  (position . 1))
-("Linux.org"
+(#("Linux.org" 0 1
+   (idx 231))
  (filename . "~/Org/Wiki/Computer Technology/Operating System/Linux/Linux.org")
  (front-context-string . "#+TITLE: GNU/Lin")
  (rear-context-string)
  (position . 1))
-("UNIX.org"
+(#("UNIX.org" 0 1
+   (idx 232))
  (filename . "~/Org/Wiki/Computer Technology/Operating System/UNIX/UNIX.org")
  (front-context-string . "#+TITLE: UNIX\n\n*")
  (rear-context-string)
  (position . 1))
-("Lisp Machines.org"
+(#("Lisp Machines.org" 0 1
+   (idx 233))
  (filename . "~/Org/Wiki/Computer Technology/Operating System/Lisp Machines/Lisp Machines.org")
  (front-context-string . "#+TITLE: Lisp Ma")
  (rear-context-string)
  (position . 1))
-("Operating System.org"
+(#("Operating System.org" 0 1
+   (idx 234))
  (filename . "~/Org/Wiki/Computer Technology/Operating System/Operating System.org")
  (front-context-string . "#+TITLE: Operati")
  (rear-context-string)
  (position . 1))
-("Magit.org"
+(#("Magit.org" 0 1
+   (idx 235))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/Magit/Magit.org")
  (front-context-string . "#+TITLE: Magit\n\n")
  (rear-context-string)
  (position . 1))
-("ERC.org"
+(#("ERC.org" 0 1
+   (idx 236))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/ERC.org")
  (front-context-string . "#+TITLE: ERC\n\n* ")
  (rear-context-string)
  (position . 1))
-("Apache Hadoop.org"
+(#("Apache Hadoop.org" 0 1
+   (idx 237))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Apache Hadoop/Apache Hadoop.org")
  (front-context-string . "#+TITLE: Apache ")
  (rear-context-string)
  (position . 1))
-("Debug.org"
+(#("Debug.org" 0 1
+   (idx 238))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Coding/Debug/Debug.org")
  (front-context-string . "#+TITLE: Debug\n\n")
  (rear-context-string)
  (position . 1))
-("youtube-dl.org"
+(#("youtube-dl.org" 0 1
+   (idx 239))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/youtube-dl.org")
  (front-context-string . "#+TITLE: youtube")
  (rear-context-string)
  (position . 1))
-("China Law Database.org"
- (filename . "~/Org/Wiki/Law/Data/Law Databases/China Law Database/China Law Database.org")
- (front-context-string . "#+TITLE: China L")
- (rear-context-string)
- (position . 1))
-("org-ref.org"
+(#("org-ref.org" 0 1
+   (idx 240))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/org-ref.org")
  (front-context-string . "* Intro\n\ncitatio")
  (rear-context-string)
  (position . 1))
-("Buddhism.org"
+(#("Buddhism.org" 0 1
+   (idx 241))
  (filename . "~/Org/Wiki/Religion/Buddhism/Buddhism.org")
  (front-context-string . "#+TITLE: Buddhis")
  (rear-context-string)
  (position . 1))
-("Chestnut.org"
+(#("Chestnut.org" 0 1
+   (idx 242))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Clojure Packages/Chestnut.org")
  (front-context-string . "#+TITLE: Chestnu")
  (rear-context-string)
  (position . 1))
-("Incanter.org"
+(#("Incanter.org" 0 1
+   (idx 243))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Clojure Packages/Incanter.org")
  (front-context-string . "#+TITLE: Incante")
  (rear-context-string)
  (position . 1))
-("Accost.org"
+(#("Accost.org" 0 1
+   (idx 244))
  (filename . "~/Org/Wiki/Love/Accost/Accost.org")
  (front-context-string . "#+TITLE: Accost\n")
  (rear-context-string)
  (position . 1))
-("IRC.org"
+(#("IRC.org" 0 1
+   (idx 245))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/IRC/IRC.org")
  (front-context-string . "#+TITLE: IRC\n\n* ")
  (rear-context-string)
  (position . 1))
-("Language Server Protocol.org"
+(#("Language Server Protocol.org" 0 1
+   (idx 246))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Coding/Coding IDE/Code IDE Technologies/Language Server Protocol/Language Server Protocol.org")
  (front-context-string . "#+TITLE: Languag")
  (rear-context-string)
  (position . 1))
-("Scala Packages.org"
+(#("Scala Packages.org" 0 1
+   (idx 247))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Scala/Data/Scala Packages/Scala Packages.org")
  (front-context-string . "#+TITLE: Scala P")
  (rear-context-string)
  (position . 1))
-("Datalog.org"
+(#("Datalog.org" 0 1
+   (idx 248))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Datalog/Datalog.org")
  (front-context-string . "#+TITLE: Datalog")
  (rear-context-string)
  (position . 1))
-("SuperCollider.org"
+(#("SuperCollider.org" 0 1
+   (idx 249))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/SuperCollider/SuperCollider.org")
  (front-context-string . "#+TITLE: SuperCo")
  (rear-context-string)
  (position . 1))
-("JavaScript Packages.org"
+(#("JavaScript Packages.org" 0 1
+   (idx 250))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/Data/JavaScript Packages/JavaScript Packages.org")
  (front-context-string . "#+TITLE: JavaScr")
  (rear-context-string)
  (position . 1))
-("Processing.org"
+(#("Processing.org" 0 1
+   (idx 251))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Processing/Processing.org")
  (front-context-string . "#+TITLE: Process")
  (rear-context-string)
  (position . 1))
-("Octave Packages.org"
+(#("Octave Packages.org" 0 1
+   (idx 252))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Octave/Data/Octave Packages/Octave Packages.org")
  (front-context-string . "#+TITLE: Octave ")
  (rear-context-string)
  (position . 1))
-("Octave.org"
+(#("Octave.org" 0 1
+   (idx 253))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Octave/Octave.org")
  (front-context-string . "#+TITLE: Octave ")
  (rear-context-string)
  (position . 1))
-("Matlab Packages.org"
+(#("Matlab Packages.org" 0 1
+   (idx 254))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Matlab/Data/Matlab Packages/Matlab Packages.org")
  (front-context-string . "#+TITLE: Matlab ")
  (rear-context-string)
  (position . 1))
-("My Matlab Language Syntax Reference.org"
+(#("My Matlab Language Syntax Reference.org" 0 1
+   (idx 255))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Matlab/Data/Manuals/My Matlab Language Syntax Reference/My Matlab Language Syntax Reference.org")
  (front-context-string . "#+TITLE: My Matl")
  (rear-context-string)
  (position . 1))
-("Matlab.org"
+(#("Matlab.org" 0 1
+   (idx 256))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Matlab/Matlab.org")
  (front-context-string . "#+TITLE: Matlab ")
  (rear-context-string)
  (position . 1))
-("Julia Packages.org"
+(#("Julia Packages.org" 0 1
+   (idx 257))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Julia/Data/Julia Packages/Julia Packages.org")
  (front-context-string . "#+TITLE: Julia P")
  (rear-context-string)
  (position . 1))
-("XPath.org"
+(#("XPath.org" 0 1
+   (idx 258))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/XPath/XPath.org")
  (front-context-string . "#+TITLE: XPath\n\n")
  (rear-context-string)
  (position . 1))
-("JSON.org"
+(#("JSON.org" 0 1
+   (idx 259))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/JSON/JSON.org")
  (front-context-string . "#+TITLE: JSON\n\n*")
  (rear-context-string)
  (position . 1))
-("XML.org"
+(#("XML.org" 0 1
+   (idx 260))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/XML/XML.org")
  (front-context-string . "#+TITLE: XML\n\n* ")
  (rear-context-string)
  (position . 1))
-("GraphQL.org"
+(#("GraphQL.org" 0 1
+   (idx 261))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/GraphQL/GraphQL.org")
  (front-context-string . "#+TITLE: GraphQL")
  (rear-context-string)
  (position . 1))
-("CQL.org"
+(#("CQL.org" 0 1
+   (idx 262))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/CQL/CQL.org")
  (front-context-string . "#+TITLE: CQL\n\n* ")
  (rear-context-string)
  (position . 1))
-("NewSQL.org"
+(#("NewSQL.org" 0 1
+   (idx 263))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/NewSQL/NewSQL.org")
  (front-context-string . "#+TITLE: NewSQL\n")
  (rear-context-string)
  (position . 1))
-("Kotlin Packages.org"
+(#("Kotlin Packages.org" 0 1
+   (idx 264))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Kotlin/Data/Kotlin Packages/Kotlin Packages.org")
  (front-context-string . "#+TITLE: Kotlin ")
  (rear-context-string)
  (position . 1))
-("Java Packages.org"
+(#("Java Packages.org" 0 1
+   (idx 265))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Java/Data/Java Packages/Java Packages.org")
  (front-context-string . "#+TITLE: Java Pa")
  (rear-context-string)
  (position . 1))
-("Lua Packages.org"
+(#("Lua Packages.org" 0 1
+   (idx 266))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lua/Data/Lua Packages/Lua Packages.org")
  (front-context-string . "#+TITLE: Lua Pac")
  (rear-context-string)
  (position . 1))
-("C# Packages.org"
+(#("C# Packages.org" 0 1
+   (idx 267))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/C#/Data/C# Packages/C# Packages.org")
  (front-context-string . "#+TITLE: C# Pack")
  (rear-context-string)
  (position . 1))
-("Swift Packages.org"
+(#("Swift Packages.org" 0 1
+   (idx 268))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Swift/Data/Swift Packages/Swift Packages.org")
  (front-context-string . "#+TITLE: Swift P")
  (rear-context-string)
  (position . 1))
-("Rust Packages.org"
+(#("Rust Packages.org" 0 1
+   (idx 269))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Rust/Data/Rust Packages/Rust Packages.org")
  (front-context-string . "#+TITLE: Rust Pa")
  (rear-context-string)
  (position . 1))
-("Go Packages.org"
+(#("Go Packages.org" 0 1
+   (idx 270))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Go/Data/Go Packages/Go Packages.org")
  (front-context-string . "#+TITLE: Go Pack")
  (rear-context-string)
  (position . 1))
-("PHP Packages.org"
+(#("PHP Packages.org" 0 1
+   (idx 271))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/PHP/Data/PHP Packages/PHP Packages.org")
  (front-context-string . "#+TITLE: PHP Pac")
  (rear-context-string)
  (position . 1))
-("Perl.org"
+(#("Perl.org" 0 1
+   (idx 272))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Perl/Perl.org")
  (front-context-string . "#+TITLE: Perl Pr")
  (rear-context-string)
  (position . 1))
-("Haskell Packages.org"
+(#("Haskell Packages.org" 0 1
+   (idx 273))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Haskell/Data/Haskell Packages/Haskell Packages.org")
  (front-context-string . "#+TITLE: Haskell")
  (rear-context-string)
  (position . 1))
-("Smalltalk.org"
+(#("Smalltalk.org" 0 1
+   (idx 274))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Smalltalk/Smalltalk.org")
  (front-context-string . "Smalltalk Progra")
  (rear-context-string)
  (position . 10))
-("Common Lisp Packages.org"
+(#("Common Lisp Packages.org" 0 1
+   (idx 275))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lisp/Common Lisp/Data/Common Lisp Packages/Common Lisp Packages.org")
  (front-context-string . "#+TITLE: Common ")
  (rear-context-string)
  (position . 1))
-("C++ Packages.org"
+(#("C++ Packages.org" 0 1
+   (idx 276))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/C++/Data/C++ Packages/C++ Packages.org")
  (front-context-string . "#+TITLE: C++ Pac")
  (rear-context-string)
  (position . 1))
-("Python Packages.org"
+(#("Python Packages.org" 0 1
+   (idx 277))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Python/Data/Python Packages/Python Packages.org")
  (front-context-string . "#+TITLE: Python ")
  (rear-context-string)
  (position . 1))
-("Ruby Packages.org"
+(#("Ruby Packages.org" 0 1
+   (idx 278))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Ruby/Data/Ruby Packages/Ruby Packages.org")
  (front-context-string . "#+TITLE: Ruby Pa")
  (rear-context-string)
  (position . 1))
-("Clojure Packages.org"
+(#("Clojure Packages.org" 0 1
+   (idx 279))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Clojure Packages/Clojure Packages.org")
  (front-context-string . "#+TITLE: Clojure")
  (rear-context-string)
  (position . 1))
-("My Wolfram Language Examples.org"
+(#("My Wolfram Language Examples.org" 0 1
+   (idx 280))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Wolfram/Data/Manuals/My Wolfram Language Examples/My Wolfram Language Examples.org")
  (front-context-string . "#+TITLE: My Wolf")
  (rear-context-string)
  (position . 1))
-("My Wolfram Language Syntax Reference.org"
+(#("My Wolfram Language Syntax Reference.org" 0 1
+   (idx 281))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Wolfram/Data/Manuals/My Wolfram Language Syntax Reference/My Wolfram Language Syntax Reference.org")
  (front-context-string . "#+TITLE: My Wolf")
  (rear-context-string)
  (position . 1))
-("Wolfram.org"
+(#("Wolfram.org" 0 1
+   (idx 282))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Wolfram/Wolfram.org")
  (front-context-string . "#+TITLE: Wolfram")
  (rear-context-string)
  (position . 1))
-("mu4e.org"
+(#("mu4e.org" 0 1
+   (idx 283))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/mu4e.org")
  (front-context-string . "* Intro\n\nStartin")
  (rear-context-string)
  (position . 1))
-("Regular Expressions.org"
+(#("Regular Expressions.org" 0 1
+   (idx 284))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Regular Expressions/Regular Expressions.org")
  (front-context-string . "#+TITLE: Regular")
  (rear-context-string)
  (position . 1))
-("My Docker Reference.org"
+(#("My Docker Reference.org" 0 1
+   (idx 285))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Docker/Data/Manuals/My Docker Reference/My Docker Reference.org")
  (front-context-string . "#+TITLE: My Dock")
  (rear-context-string)
  (position . 1))
-("Social Intercourse.org"
+(#("Social Intercourse.org" 0 1
+   (idx 286))
  (filename . "~/Org/Wiki/Sociology/Social Intercourse/Social Intercourse.org")
  (front-context-string . "#+TITLE: Social ")
  (rear-context-string)
  (position . 1))
-("paredit.org"
+(#("paredit.org" 0 1
+   (idx 287))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/paredit.org")
  (front-context-string . "#+TITLE: paredit")
  (rear-context-string)
  (position . 1))
-("pacman.org"
+(#("pacman.org" 0 1
+   (idx 288))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/pacman.org")
  (front-context-string . "#+TITLE: pacman ")
  (rear-context-string)
  (position . 1))
-("My Evil Hack Manual.org"
+(#("My Evil Hack Manual.org" 0 1
+   (idx 289))
  (filename . "~/Org/Wiki/Computer Technology/Hack/Data/Manuals/My Evil Hack Manual/My Evil Hack Manual.org")
  (front-context-string . "#+TITLE: My Evil")
  (rear-context-string)
  (position . 1))
-("PowerShell.org"
+(#("PowerShell.org" 0 1
+   (idx 290))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Shell/PowerShell/PowerShell.org")
  (front-context-string . "#+TITLE: PowerSh")
  (rear-context-string)
  (position . 1))
-("Anime.org"
+(#("Anime.org" 0 1
+   (idx 291))
  (filename . "~/Org/Wiki/ACG/Anime/Anime.org")
  (front-context-string . "#+TITLE: Anime\n\n")
  (rear-context-string)
  (position . 1))
-("ACG.org"
- (filename . "~/Org/Wiki/ACG/ACG.org")
- (front-context-string . "#+TITLE: ACG\n\n* ")
- (rear-context-string)
- (position . 1))
-("systemd.org"
+(#("systemd.org" 0 1
+   (idx 292))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/systemd/systemd.org")
  (front-context-string . "#+TITLE: systemd")
  (rear-context-string)
  (position . 1))
-("Novel Books.org"
+(#("Novel Books.org" 0 1
+   (idx 293))
  (filename . "~/Org/Wiki/Literature/Novels/Data/Novel Books/Novel Books.org")
  (front-context-string . "#+TITLE: Novel B")
  (rear-context-string)
  (position . 1))
-("Communication.org"
+(#("Communication.org" 0 1
+   (idx 294))
  (filename . "~/Org/Wiki/Self Enhancement/Communication/Communication.org")
  (front-context-string . "#+TITLE: Communi")
  (rear-context-string)
  (position . 1))
-("Self Enhancement.org"
+(#("Self Enhancement.org" 0 1
+   (idx 295))
  (filename . "~/Org/Wiki/Self Enhancement/Self Enhancement.org")
  (front-context-string . "#+TITLE: Self En")
  (rear-context-string)
  (position . 1))
-("My Thought Manuals.org"
+(#("My Thought Manuals.org" 0 1
+   (idx 296))
  (filename . "~/Org/Wiki/Thought/Data/Manuals/My Thought Manuals/My Thought Manuals.org")
  (front-context-string . "#+TITLE: My Thou")
  (rear-context-string)
  (position . 1))
-("Operations Research.org"
+(#("Operations Research.org" 0 1
+   (idx 297))
  (filename . "~/Org/Wiki/Mathematics/Applied Mathematics/Operations Research/Operations Research.org")
  (front-context-string . "#+TITLE: Operati")
  (rear-context-string)
  (position . 1))
-("Atom.org"
+(#("Atom.org" 0 1
+   (idx 298))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Atom/Atom.org")
  (front-context-string . "* Intro\n\nThe Hac")
  (rear-context-string)
  (position . 1))
-("My Rust Language Syntax Reference.org"
+(#("My Rust Language Syntax Reference.org" 0 1
+   (idx 299))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Rust/Data/Manuals/My Rust Language Syntax Reference/My Rust Language Syntax Reference.org")
  (front-context-string . "#+TITLE: My Rust")
  (rear-context-string)
  (position . 1))
-("My Rust Library Examples.org"
+(#("My Rust Library Examples.org" 0 1
+   (idx 300))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Rust/Data/Manuals/My Rust Library Examples/My Rust Library Examples.org")
  (front-context-string . "#+TITLE: My Rust")
  (rear-context-string)
  (position . 1))
-("My Rust Language Examples.org"
+(#("My Rust Language Examples.org" 0 1
+   (idx 301))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Rust/Data/Manuals/My Rust Language Examples/My Rust Language Examples.org")
  (front-context-string . "#+TITLE: My Rust")
  (rear-context-string)
  (position . 1))
-("PDF-LAST-VIEWED: /home/stardiviner/Code/learning/TeX/test.pdf"
+(#("PDF-LAST-VIEWED: /home/stardiviner/Code/learning/TeX/test.pdf" 0 1
+   (idx 302))
  (filename . "~/Code/learning/TeX/test.pdf")
  (position . 1)
  (page . 2)
@@ -1146,22 +1904,26 @@
  (size . fit-width)
  (origin 0.0 . 0.048283261802575105)
  (handler . pdf-view-bookmark-jump-handler))
-("My Ruby Examples.org"
+(#("My Ruby Examples.org" 0 1
+   (idx 303))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Ruby/Data/Manuals/My Ruby Examples/My Ruby Examples.org")
  (front-context-string . "#+TITLE: My Ruby")
  (rear-context-string)
  (position . 1))
-("My Ruby Language Syntax Reference.org"
+(#("My Ruby Language Syntax Reference.org" 0 1
+   (idx 304))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Ruby/Data/Manuals/My Ruby Language Syntax Reference/My Ruby Language Syntax Reference.org")
  (front-context-string . "#+TITLE: My Ruby")
  (rear-context-string)
  (position . 1))
-("Kotlin.org"
+(#("Kotlin.org" 0 1
+   (idx 305))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Kotlin/Kotlin.org")
  (front-context-string . "#+TITLE: Kotlin ")
  (rear-context-string)
  (position . 1))
-("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Packages/Data/Docs/incanter-charts-custom.pdf"
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Packages/Data/Docs/incanter-charts-custom.pdf" 0 1
+   (idx 306))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Packages/Data/Docs/incanter-charts-custom.pdf")
  (position . 1)
  (page . 1)
@@ -1169,85 +1931,101 @@
  (size . fit-width)
  (origin 0.0 . 0.0)
  (handler . pdf-view-bookmark-jump-handler))
-("Porn Novel Books.org"
+(#("Porn Novel Books.org" 0 1
+   (idx 307))
  (filename . "~/Org/Wiki/Pornography/Porn/Porn Novels/Data/Porn Novel Books/Porn Novel Books.org")
  (front-context-string . "#+TITLE: Porn No")
  (rear-context-string)
  (position . 1))
-("Sex Knowledge.org"
+(#("Sex Knowledge.org" 0 1
+   (idx 308))
  (filename . "~/Org/Wiki/Sexology/Sexual Intercourse/Sex Knowledge/Sex Knowledge.org")
  (front-context-string . "#+TITLE: Sex Kno")
  (rear-context-string)
  (position . 1))
-("Sexual Intercourse.org"
+(#("Sexual Intercourse.org" 0 1
+   (idx 309))
  (filename . "~/Org/Wiki/Sexology/Sexual Intercourse/Sexual Intercourse.org")
  (front-context-string . "#+TITLE: Sexual ")
  (rear-context-string)
  (position . 1))
-("Sex Toys.org"
+(#("Sex Toys.org" 0 1
+   (idx 310))
  (filename . "~/Org/Wiki/Sexology/Masturbation/Sex Toys/Sex Toys.org")
  (front-context-string . "#+TITLE: Sex Toy")
  (rear-context-string)
  (position . 1))
-("Statistics.org"
+(#("Statistics.org" 0 1
+   (idx 311))
  (filename . "~/Org/Wiki/Mathematics/Statistics/Statistics.org")
  (front-context-string . "#+TITLE: Statist")
  (rear-context-string)
  (position . 1))
-("Internet Marketing.org"
+(#("Internet Marketing.org" 0 1
+   (idx 312))
  (filename . "~/Org/Wiki/Commercial Science/Marketing/Internet Marketing/Internet Marketing.org")
  (front-context-string . "#+TITLE: Interne")
  (rear-context-string)
  (position . 1))
-("Creativity.org"
+(#("Creativity.org" 0 1
+   (idx 313))
  (filename . "~/Org/Wiki/Thinking/Creativity/Creativity.org")
  (front-context-string . "#+TITLE: Creativ")
  (rear-context-string)
  (position . 1))
-("World History.org"
+(#("World History.org" 0 1
+   (idx 314))
  (filename . "~/Org/Wiki/History/Country's History/World History/World History.org")
  (front-context-string . "#+TITLE: World H")
  (rear-context-string)
  (position . 1))
-("Politics.org"
+(#("Politics.org" 0 1
+   (idx 315))
  (filename . "~/Org/Wiki/Politics/Politics.org")
  (front-context-string . "#+TITLE: Politic")
  (rear-context-string)
  (position . 1))
-("Conky.org"
+(#("Conky.org" 0 1
+   (idx 316))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Conky/Conky.org")
  (front-context-string . "* Intro\n\n\n** Fea")
  (rear-context-string)
  (position . 1))
-("Functional Programming.org"
+(#("Functional Programming.org" 0 1
+   (idx 317))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Coding/Programming Paradigms/Functional Programming/Functional Programming.org")
  (front-context-string . "#+TITLE: Functio")
  (rear-context-string)
  (position . 1))
-("Object-Oriented Programming.org"
+(#("Object-Oriented Programming.org" 0 1
+   (idx 318))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Coding/Programming Paradigms/Object-Oriented Programming/Object-Oriented Programming.org")
  (front-context-string . "#+TITLE: Object-")
  (rear-context-string)
  (position . 1))
-("Literate Programming.org"
+(#("Literate Programming.org" 0 1
+   (idx 319))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Coding/Programming Paradigms/Literate Programming/Literate Programming.org")
  (front-context-string . "#+TITLE: Literat")
  (rear-context-string)
  (position . 1))
-("Programming Paradigms.org"
+(#("Programming Paradigms.org" 0 1
+   (idx 320))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Coding/Programming Paradigms/Programming Paradigms.org")
  (front-context-string . "#+TITLE: Program")
  (rear-context-string)
  (position . 1))
-("PDF-LAST-VIEWED: /home/stardiviner/Code/learning/Emacs/Org-mode/landscape-view.pdf"
+(#("PDF-LAST-VIEWED: /home/stardiviner/Code/learning/Emacs/Org-mode/landscape-view.pdf" 0 1
+   (idx 321))
  (filename . "~/Code/learning/Emacs/Org-mode/landscape-view.pdf")
  (position . 1)
  (page . 2)
  (slice 0.092424 0.187418 0.13080799999999998 0.339216)
  (size . fit-width)
- (origin 0.0 . 0.4562798092209857)
+ (origin 0.0 . 0.0)
  (handler . pdf-view-bookmark-jump-handler))
-("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Softwares/data/docs/Tmux: Productive Mouse-Free Development.pdf"
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Softwares/data/docs/Tmux: Productive Mouse-Free Development.pdf" 0 1
+   (idx 322))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/data/docs/Tmux: Productive Mouse-Free Development.pdf")
  (position . 1)
  (page . 60)
@@ -1255,7 +2033,8 @@
  (size . fit-width)
  (origin 0.0 . 0.0)
  (handler . pdf-view-bookmark-jump-handler))
-("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Softwares/data/8f/21e898-cc7f-4454-a1cc-b7f30c053280/ledger-mode.pdf"
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Softwares/data/8f/21e898-cc7f-4454-a1cc-b7f30c053280/ledger-mode.pdf" 0 1
+   (idx 323))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/data/8f/21e898-cc7f-4454-a1cc-b7f30c053280/ledger-mode.pdf")
  (position . 1)
  (page . 3)
@@ -1263,47 +2042,56 @@
  (size . fit-width)
  (origin 0.0 . 0.0)
  (handler . pdf-view-bookmark-jump-handler))
-("use-package.org"
+(#("use-package.org" 0 1
+   (idx 324))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/use-package.org")
  (front-context-string . "* Intro\n\nA use-p")
  (rear-context-string)
  (position . 1))
-("Library of Babel.org"
+(#("Library of Babel.org" 0 1
+   (idx 325))
  (filename . "~/.emacs.d/Org-mode/Library of Babel/Library of Babel.org")
  (front-context-string . "#+TITLE: Library")
  (rear-context-string)
  (position . 1))
-("Erlang.org"
+(#("Erlang.org" 0 1
+   (idx 326))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Erlang/Erlang.org")
  (front-context-string . "#+TITLE: Erlang ")
  (rear-context-string)
  (position . 1))
-("My Sex Positions Reference.org"
+(#("My Sex Positions Reference.org" 0 1
+   (idx 327))
  (filename . "~/Org/Wiki/Sexology/Sexual Intercourse/Sex Positions/Data/Manuals/My Sex Positions Reference/My Sex Positions Reference.org")
  (front-context-string . "#+TITLE: My Sex ")
  (rear-context-string)
  (position . 1))
-("LGBTQ.org"
+(#("LGBTQ.org" 0 1
+   (idx 328))
  (filename . "~/Org/Wiki/LGBTQ/LGBTQ.org")
  (front-context-string . "#+TITLE: LGBTQ\n\n")
  (rear-context-string)
  (position . 1))
-("Spiritual.org"
+(#("Spiritual.org" 0 1
+   (idx 329))
  (filename . "~/Org/Wiki/Spiritual/Spiritual.org")
  (front-context-string . "* Intro\n\n** \"灵修\"")
  (rear-context-string)
  (position . 1))
-("Design.org"
+(#("Design.org" 0 1
+   (idx 330))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Design/Design.org")
  (front-context-string . "#+TITLE: Design\n")
  (rear-context-string)
  (position . 1))
-("Digital Design.org"
+(#("Digital Design.org" 0 1
+   (idx 331))
  (filename . "~/Org/Wiki/Computer Technology/Digital Design/Digital Design.org")
  (front-context-string . "* Intro\n\n** Desi")
  (rear-context-string)
  (position . 1))
-("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Softwares/Data/Books/Slack Hacks, Early Release.pdf"
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Softwares/Data/Books/Slack Hacks, Early Release.pdf" 0 1
+   (idx 332))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Data/Books/Slack Hacks, Early Release.pdf")
  (position . 1)
  (page . 5)
@@ -1311,17 +2099,20 @@
  (size . fit-width)
  (origin)
  (handler . pdf-view-bookmark-jump-handler))
-("Alda.org"
+(#("Alda.org" 0 1
+   (idx 333))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Alda/Alda.org")
  (front-context-string . "* Intro\n\n#+BEGIN")
  (rear-context-string)
  (position . 1))
-("侠.org"
+(#("侠.org" 0 1
+   (idx 334))
  (filename . "~/Org/Wiki/Kung Fu/侠/侠.org")
  (front-context-string)
  (rear-context-string)
  (position . 1))
-("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Emacs/Data/Books/GNU Emacs Manual.pdf"
+(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Emacs/Data/Books/GNU Emacs Manual.pdf" 0 1
+   (idx 335))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Data/Books/GNU Emacs Manual.pdf")
  (position . 1)
  (page . 4)
@@ -1329,997 +2120,1172 @@
  (size . fit-width)
  (origin 0.0 . 0.5511811023622047)
  (handler . pdf-view-bookmark-jump-handler))
-("Vagrant.org"
+(#("Vagrant.org" 0 1
+   (idx 336))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Vagrant/Vagrant.org")
  (front-context-string . "* Intro\n\nVagrant")
  (rear-context-string)
  (position . 1))
-("Japanese.org"
+(#("Japanese.org" 0 1
+   (idx 337))
  (filename . "~/Org/Wiki/Linguistics/Japanese/Japanese.org")
  (front-context-string . "* Intro\n:PROPERT")
  (rear-context-string)
  (position . 1))
-("English.org"
+(#("English.org" 0 1
+   (idx 338))
  (filename . "~/Org/Wiki/Linguistics/English/English.org")
- (front-context-string . "* Intro\n\n\n** Eng")
+ (front-context-string . "#+TITLE: English")
  (rear-context-string)
  (position . 1))
-("Chinese.org"
+(#("Chinese.org" 0 1
+   (idx 339))
  (filename . "~/Org/Wiki/Linguistics/Chinese/Chinese.org")
  (front-context-string . "* Intro\n\n\n** Chi")
  (rear-context-string)
  (position . 1))
-("Linguistics.org"
+(#("Linguistics.org" 0 1
+   (idx 340))
  (filename . "~/Org/Wiki/Linguistics/Linguistics.org")
  (front-context-string . "#+TITLE: Linguis")
  (rear-context-string)
  (position . 1))
-("Oracle SQL.org"
+(#("Oracle SQL.org" 0 1
+   (idx 341))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/Oracle SQL/Oracle SQL.org")
  (front-context-string . "* Intro\n\n** Abou")
  (rear-context-string)
  (position . 1))
-("Daoism 道家"
+(#("Daoism 道家" 0 1
+   (idx 342))
  (filename . "~/Org/Wiki/Thought/诸子百家/道家/道家.org")
  (front-context-string . "#+TITLE: 道家 Daoi")
  (rear-context-string)
  (position . 1))
-("诸子百家.org"
+(#("诸子百家.org" 0 1
+   (idx 343))
  (filename . "~/Org/Wiki/Thought/诸子百家/诸子百家.org")
  (front-context-string . "* Intro\n\n** 沿革\n\n")
  (rear-context-string)
  (position . 1))
-("My Emacs Lisp Regexp Reference.org"
+(#("My Emacs Lisp Regexp Reference.org" 0 1
+   (idx 344))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Emacs Lisp/Data/Manuals/My Emacs Lisp Regexp Reference.org")
  (front-context-string . "\n\n* Demo\n\n** mat")
  (rear-context-string . "Regexp Reference")
  (position . 40))
-("My Emacs Lisp Examples.org"
+(#("My Emacs Lisp Examples.org" 0 1
+   (idx 345))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Emacs Lisp/Data/Manuals/My Emacs Lisp Examples/My Emacs Lisp Examples.org")
  (front-context-string . "\n\n* Command\n\n** ")
  (rear-context-string . "cs Lisp Examples")
  (position . 32))
-("My Emacs Lisp Syntax Reference.org"
+(#("My Emacs Lisp Syntax Reference.org" 0 1
+   (idx 346))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Emacs Lisp/Data/Manuals/My Emacs Lisp Syntax Reference/My Emacs Lisp Syntax Reference.org")
  (front-context-string . "#+TITLE: My Emac")
  (rear-context-string)
  (position . 1))
-("Redis.org"
+(#("Redis.org" 0 1
+   (idx 347))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/NoSQL/Redis/Redis.org")
  (front-context-string . "* Intro\n\nRedis i")
  (rear-context-string)
  (position . 1))
-("MongoDB.org"
+(#("MongoDB.org" 0 1
+   (idx 348))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/NoSQL/MongoDB/MongoDB.org")
  (front-context-string . "* Intro\n\nA high-")
  (rear-context-string)
  (position . 1))
-("Zsh.org"
+(#("Zsh.org" 0 1
+   (idx 349))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Shell/Zsh/Zsh.org")
  (front-context-string . "* Intro\n\n\n\n** Fe")
  (rear-context-string)
  (position . 1))
-("Git.org"
+(#("Git.org" 0 1
+   (idx 350))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Git/Git.org")
  (front-context-string . "#+TITLE: Git\n\n* ")
  (rear-context-string)
  (position . 1))
-("Assembly.org"
+(#("Assembly.org" 0 1
+   (idx 351))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Assembly/Assembly.org")
  (front-context-string . "#+TITLE: Assembl")
  (rear-context-string)
  (position . 1))
-("PHP.org"
+(#("PHP.org" 0 1
+   (idx 352))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/PHP/PHP.org")
  (front-context-string . "#+TITLE: PHP Pro")
  (rear-context-string)
  (position . 1))
-("Physics.org"
+(#("Physics.org" 0 1
+   (idx 353))
  (filename . "~/Org/Wiki/Physics/Physics.org")
  (front-context-string . "#+TITLE: Physics")
  (rear-context-string)
  (position . 1))
-("My Git Usage Reference.org"
+(#("My Git Usage Reference.org" 0 1
+   (idx 354))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Git/Data/Manuals/My Git Usage Reference/My Git Usage Reference.org")
  (front-context-string . "#+TITLE: My Git ")
  (rear-context-string)
  (position . 1))
-("Disease Database.org"
- (filename . "~/Org/Wiki/Medicine/Disease Database/Disease Database.org")
- (front-context-string . "#+TITLE: Disease")
- (rear-context-string)
- (position . 1))
-("Yi Learning.org"
+(#("Yi Learning.org" 0 1
+   (idx 355))
  (filename . "~/Org/Wiki/Mysterious Culture/Yi Learning/Yi Learning.org")
  (front-context-string . "#+TITLE: Yi Lear")
  (rear-context-string)
  (position . 1))
-("My Erotic Novels Collections"
+(#("My Erotic Novels Collections" 0 1
+   (idx 356))
  (filename . "~/Org/Wiki/Pornography/Erotic/Erotic Literature/Erotic Literature.org")
  (front-context-string . "\n\n- [[file+sys:D")
  (rear-context-string . "vels Collections")
  (position . 1153))
-("My Liked Loving.org"
+(#("My Liked Loving.org" 0 1
+   (idx 357))
  (filename . "~/Org/Wiki/Love/Data/Manuals/My Liked Loving/My Liked Loving.org")
  (front-context-string . "* 《白蛇传》\n:PROPERT")
  (rear-context-string)
  (position . 1))
-("Emacs Lisp.org"
+(#("Emacs Lisp.org" 0 1
+   (idx 358))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Emacs Lisp/Emacs Lisp.org")
  (front-context-string . "* Intro\n\n\n** Fea")
  (rear-context-string)
  (position . 1))
-("Mysterious Culture.org"
+(#("Mysterious Culture.org" 0 1
+   (idx 359))
  (filename . "~/Org/Wiki/Mysterious Culture/Mysterious Culture.org")
  (front-context-string . "#+TITLE: Mysteri")
  (rear-context-string)
  (position . 1))
-("Eshell.org"
+(#("Eshell.org" 0 1
+   (idx 360))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/Eshell.org")
  (front-context-string . "* Intro\n\nThere a")
  (rear-context-string)
  (position . 1))
-("Common Lisp.org"
+(#("Common Lisp.org" 0 1
+   (idx 361))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lisp/Common Lisp/Common Lisp.org")
  (front-context-string . "#+TITLE: Common ")
  (rear-context-string)
  (position . 1))
-("C#.org"
+(#("C#.org" 0 1
+   (idx 362))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/C#/C#.org")
  (front-context-string . "#+TITLE: C# Prog")
  (rear-context-string)
  (position . 1))
-("My Favourite Foods.org"
+(#("My Favourite Foods.org" 0 1
+   (idx 363))
  (filename . "~/Org/Wiki/Recipes/Data/Manuals/My Favourite Foods/My Favourite Foods.org")
  (front-context-string . "#+TITLE: My Favo")
  (rear-context-string)
  (position . 1))
-("My Recipes Reference.org"
+(#("My Recipes Reference.org" 0 1
+   (idx 364))
  (filename . "~/Org/Wiki/Recipes/Data/Manuals/My Recipes Reference/My Recipes Reference.org")
  (front-context-string . "#+TITLE: My Reci")
  (rear-context-string)
  (position . 1))
-("Recipes.org"
+(#("Recipes.org" 0 1
+   (idx 365))
  (filename . "~/Org/Wiki/Recipes/Recipes.org")
- (front-context-string . "* Breakfast\n\n* L")
+ (front-context-string . "#+TITLE: Recipes")
  (rear-context-string)
  (position . 1))
-("My ClojureScript Examples.org"
+(#("My ClojureScript Examples.org" 0 1
+   (idx 366))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/ClojureScript/Data/Manuals/My ClojureScript Examples/My ClojureScript Examples.org")
  (front-context-string . "#+TITLE: My Cloj")
  (rear-context-string)
  (position . 1))
-("My ClojureScript's Standard Library.org"
+(#("My ClojureScript's Standard Library.org" 0 1
+   (idx 367))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/ClojureScript/Data/Manuals/My ClojureScript's Standard Library/My ClojureScript's Standard Library.org")
  (front-context-string . "#+TITLE: My Cloj")
  (rear-context-string)
  (position . 1))
-("My ClojureScript Language Syntax Reference.org"
+(#("My ClojureScript Language Syntax Reference.org" 0 1
+   (idx 368))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/ClojureScript/Data/Manuals/My ClojureScript Language Syntax Reference/My ClojureScript Language Syntax Reference.org")
  (front-context-string . "#+TITLE: My Cloj")
  (rear-context-string)
  (position . 1))
-("Crack Methods.org"
+(#("Crack Methods.org" 0 1
+   (idx 369))
  (filename . "~/Org/Wiki/Computer Technology/Crack/Data/Crack Methods/Crack Methods.org")
  (front-context-string . "#+TITLE: Crack M")
  (rear-context-string)
  (position . 1))
-("My Docker Manual.org"
+(#("My Docker Manual.org" 0 1
+   (idx 370))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Docker/Data/Manuals/My Docker Manual/My Docker Manual.org")
  (front-context-string)
  (rear-context-string)
  (position . 1))
-("Docker.org"
+(#("Docker.org" 0 1
+   (idx 371))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Docker/Docker.org")
  (front-context-string . "#+TITLE: Docker\n")
  (rear-context-string)
  (position . 1))
-("Scala.org"
+(#("Scala.org" 0 1
+   (idx 372))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Scala/Scala.org")
  (front-context-string . "#+TITLE: Scala P")
  (rear-context-string)
  (position . 1))
-("My R Language Syntax Reference.org"
+(#("My R Language Syntax Reference.org" 0 1
+   (idx 373))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/R/Data/Manuals/My R Language Syntax Reference/My R Language Syntax Reference.org")
  (front-context-string . "#+TITLE: My R La")
  (rear-context-string)
  (position . 1))
-("Prolog.org"
+(#("Prolog.org" 0 1
+   (idx 374))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Prolog/Prolog.org")
  (front-context-string . "#+TITLE: Prolog ")
  (rear-context-string)
  (position . 1))
-("Lua.org"
+(#("Lua.org" 0 1
+   (idx 375))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lua/Lua.org")
  (front-context-string . "#+TITLE: Lua Pro")
  (rear-context-string)
  (position . 1))
-("LaTeX.org"
+(#("LaTeX.org" 0 1
+   (idx 376))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/TeX/LaTeX/LaTeX.org")
  (front-context-string . "#+TITLE: LaTeX\n\n")
  (rear-context-string)
  (position . 1))
-("HTML5.org"
+(#("HTML5.org" 0 1
+   (idx 377))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/HTML/HTML5/HTML5.org")
  (front-context-string . "#+TITLE: HTML5\n\n")
  (rear-context-string)
  (position . 1))
-("Bash.org"
+(#("Bash.org" 0 1
+   (idx 378))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Shell/Bash/Bash.org")
  (front-context-string . "#+TITLE: Bash\n\n*")
  (rear-context-string)
  (position . 1))
-("C++.org"
+(#("C++.org" 0 1
+   (idx 379))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/C++/C++.org")
  (front-context-string . "#+TITLE: C++ Pro")
  (rear-context-string)
  (position . 1))
-("Programmer.org"
+(#("Programmer.org" 0 1
+   (idx 380))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programmer/Programmer.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
  (position . 1))
-("Open Source.org"
+(#("Open Source.org" 0 1
+   (idx 381))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Open Source/Open Source.org")
  (front-context-string . "#+TITLE: Open So")
  (rear-context-string)
  (position . 1))
-("Programming Concepts.org"
+(#("Programming Concepts.org" 0 1
+   (idx 382))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Concepts/Programming Concepts.org")
  (front-context-string . "* Introspection ")
  (rear-context-string)
  (position . 1))
-("My Data Structures Reference.org"
+(#("My Data Structures Reference.org" 0 1
+   (idx 383))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Data Structure/Data/Manuals/My Data Structures Reference/My Data Structures Reference.org")
  (front-context-string . "#+TITLE: My Data")
  (rear-context-string)
  (position . 1))
-("Data Structure.org"
+(#("Data Structure.org" 0 1
+   (idx 384))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Data Structure/Data Structure.org")
  (front-context-string . "#+TITLE: Data St")
  (rear-context-string)
  (position . 1))
-("My Algorithms Reference.org"
+(#("My Algorithms Reference.org" 0 1
+   (idx 385))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Algorithm/Data/Manuals/My Algorithms Reference/My Algorithms Reference.org")
  (front-context-string . "#+TITLE: My Algo")
  (rear-context-string)
  (position . 1))
-("Algorithm.org"
+(#("Algorithm.org" 0 1
+   (idx 386))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Algorithm/Algorithm.org")
  (front-context-string . "#+TITLE: Algorit")
  (rear-context-string)
  (position . 1))
-("Talents.org"
+(#("Talents.org" 0 1
+   (idx 387))
  (filename . "~/Org/Wiki/Talents/Talents.org")
  (front-context-string . "#+TITLE: Talents")
  (rear-context-string)
  (position . 1))
-("Mathematics Formula Reference.org"
+(#("Mathematics Formula Reference.org" 0 1
+   (idx 388))
  (filename . "~/Org/Wiki/Mathematics/Data/Manuals/Mathematics Formula Reference/Mathematics Formula Reference.org")
  (front-context-string . "#+TITLE: Mathema")
  (rear-context-string)
  (position . 1))
-("Mathematics Terms Reference.org"
+(#("Mathematics Terms Reference.org" 0 1
+   (idx 389))
  (filename . "~/Org/Wiki/Mathematics/Data/Manuals/Mathematics Terms Reference/Mathematics Terms Reference.org")
  (front-context-string . "#+TITLE: Mathema")
  (rear-context-string)
  (position . 1))
-("My Swift Programming Language Practical Examples.org"
+(#("My Swift Programming Language Practical Examples.org" 0 1
+   (idx 390))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Swift/Data/Manuals/My Swift Programming Language Practical Examples/My Swift Programming Language Practical Examples.org")
  (front-context-string)
  (rear-context-string)
  (position . 1))
-("My Swift Programming Language Syntax Reference.org"
+(#("My Swift Programming Language Syntax Reference.org" 0 1
+   (idx 391))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Swift/Data/Manuals/My Swift Programming Language Syntax Reference/My Swift Programming Language Syntax Reference.org")
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
-("org-capture-last-stored-marker"
- (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "** 郭铁勇\n:PROPERTI")
- (rear-context-string . "姐姐的女儿\"\n:END:\n\n\n\n")
- (position . 84505))
-("org-refile-last-stored"
- (filename . "~/Org/Contacts/Contacts.org")
- (front-context-string . "** 郭铁勇\n:PROPERTI")
- (rear-context-string . "姐姐的女儿\"\n:END:\n\n\n\n")
- (position . 84505))
-("Vim.org"
+(#("org-capture-last-stored-marker" 0 1
+   (idx 392))
+ (filename . "~/Org/Projects/Code.org")
+ (front-context-string . "** TODO Org-mode")
+ (rear-context-string . "el/issues/388\n\n\n")
+ (position . 81782))
+(#("org-refile-last-stored" 0 1
+   (idx 393))
+ (filename . "~/Org/Projects/Code.org")
+ (front-context-string . "** TODO Org-mode")
+ (rear-context-string . "el/issues/388\n\n\n")
+ (position . 81782))
+(#("Vim.org" 0 1
+   (idx 394))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Vim/Vim.org")
  (front-context-string . "* Intro\n\n*神之编辑器*")
  (rear-context-string)
  (position . 1))
-("Internet Censorship.org"
+(#("Internet Censorship.org" 0 1
+   (idx 395))
  (filename . "~/Org/Wiki/Computer Technology/Internet Censorship/Internet Censorship.org")
- (front-context-string . "* Intro\n\n** Chin")
+ (front-context-string . "#+TITLE: Interne")
  (rear-context-string)
  (position . 1))
-("Computer Machine.org"
+(#("Computer Machine.org" 0 1
+   (idx 396))
  (filename . "~/Org/Wiki/Computer Technology/Computer Machine/Computer Machine.org")
  (front-context-string . "* Data\n\n** Help\n")
  (rear-context-string)
  (position . 13))
-("Computer Forensics.org"
+(#("Computer Forensics.org" 0 1
+   (idx 397))
  (filename . "~/Org/Wiki/Computer Technology/Computer Forensics/Computer Forensics.org")
  (front-context-string . "* Intro\n\n\n\n\n\n* D")
  (rear-context-string)
  (position . 1))
-("Imperial Study.org"
+(#("Imperial Study.org" 0 1
+   (idx 398))
  (filename . "~/Org/Wiki/Imperial Study/Imperial Study.org")
  (front-context-string . "出鳞片、尾巴和触角，，最终英雄变")
  (rear-context-string . "身上，看着闪烁的黄金，慢慢地长\n")
  (position . 220))
-("My Python Examples.org"
+(#("My Python Examples.org" 0 1
+   (idx 399))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Python/Data/Manuals/My Python Examples/My Python Examples.org")
  (front-context-string . "* System\n\n** she")
  (rear-context-string)
  (position . 1))
-("My Python Language Syntax Reference.org"
+(#("My Python Language Syntax Reference.org" 0 1
+   (idx 400))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Python/Data/Manuals/My Python Language Syntax Reference/My Python Language Syntax Reference.org")
  (front-context-string . "* Data Types\n\n\n*")
  (rear-context-string)
  (position . 1))
-("My Clojure Examples.org"
+(#("My Clojure Examples.org" 0 1
+   (idx 401))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Manuals/My Clojure Examples/My Clojure Examples.org")
  (front-context-string . "* Print\n\n** form")
  (rear-context-string . "cumentation]]\n\n\n")
  (position . 1154))
-("My Clojure Language Syntax Reference.org"
+(#("My Clojure Language Syntax Reference.org" 0 1
+   (idx 402))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Manuals/My Clojure Language Syntax Reference/My Clojure Language Syntax Reference.org")
  (front-context-string . "\n\n** nil, truth ")
  (rear-context-string . " Data Structures")
  (position . 33303))
-("My SQL Language Syntax Reference.org"
+(#("My SQL Language Syntax Reference.org" 0 1
+   (idx 403))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/Data/Manuals/My SQL Language Syntax Reference/My SQL Language Syntax Reference.org")
  (front-context-string . "#+TITLE: My SQL ")
  (rear-context-string)
  (position . 1))
-("CSS.org"
+(#("CSS.org" 0 1
+   (idx 404))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/CSS/CSS.org")
  (front-context-string . "#+TITLE: CSS Pro")
  (rear-context-string)
  (position . 1))
-("My CSS Language Syntax Reference.org"
+(#("My CSS Language Syntax Reference.org" 0 1
+   (idx 405))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/CSS/Data/Manuals/My CSS Language Syntax Reference/My CSS Language Syntax Reference.org")
  (front-context-string . "* Concepts\n\n** A")
  (rear-context-string)
  (position . 1))
-("My HTML Syntax Reference.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/HTML/Data/Manuals/My HTML Syntax Reference/My HTML Syntax Reference.org")
- (front-context-string . "* Notes\n\n** Org-")
- (rear-context-string)
- (position . 1))
-("HTML.org"
+(#("HTML.org" 0 1
+   (idx 406))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/HTML/HTML.org")
  (front-context-string . "#+TITLE: HTML Pr")
  (rear-context-string)
  (position . 1))
-("My JavaScript Language Examples.org"
+(#("My JavaScript Language Examples.org" 0 1
+   (idx 407))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/Data/Manuals/My JavaScript Language Examples/My JavaScript Language Examples.org")
  (front-context-string . "* Intro\n\n\n* Java")
  (rear-context-string)
  (position . 1))
-("My JavaScript Language Syntax Reference.org"
+(#("My JavaScript Language Syntax Reference.org" 0 1
+   (idx 408))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/Data/Manuals/My JavaScript Language Syntax Reference/My JavaScript Language Syntax Reference.org")
  (front-context-string . "* How JavaScript")
  (rear-context-string)
  (position . 1))
-("JavaScript.org"
+(#("JavaScript.org" 0 1
+   (idx 409))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/JavaScript.org")
  (front-context-string . "#+TITLE: JavaScr")
  (rear-context-string)
  (position . 1))
-("My C Examples.org"
+(#("My C Examples.org" 0 1
+   (idx 410))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/C/Data/Manuals/My C Examples/My C Examples.org")
  (front-context-string . "* Libraries\n\n** ")
  (rear-context-string)
  (position . 1))
-("My C Language Syntax Reference.org"
+(#("My C Language Syntax Reference.org" 0 1
+   (idx 411))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/C/Data/Manuals/My C Language Syntax Reference/My C Language Syntax Reference.org")
  (front-context-string . "* Intro\n\n** Comp")
  (rear-context-string)
  (position . 1))
-("C Programming Language"
+(#("C Programming Language" 0 1
+   (idx 412))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/C/C.org")
  (front-context-string . "* Intro\n\n** Abou")
  (rear-context-string)
  (position . 1))
-("GitHub.org"
+(#("GitHub.org" 0 1
+   (idx 413))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Git/GitHub.org")
  (front-context-string . "* Intro\n:PROPERT")
  (rear-context-string)
  (position . 1))
-("My Go Language Examples.org"
+(#("My Go Language Examples.org" 0 1
+   (idx 414))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Go/Data/Manuals/My Go Language Examples/My Go Language Examples.org")
  (front-context-string . "#+TITLE: My Go L")
  (rear-context-string)
  (position . 1))
-("My Go Language Syntax Reference.org"
+(#("My Go Language Syntax Reference.org" 0 1
+   (idx 415))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Go/Data/Manuals/My Go Language Syntax Reference/My Go Language Syntax Reference.org")
  (front-context-string . "#+TITLE: My Go L")
  (rear-context-string)
  (position . 1))
-("Go.org"
+(#("Go.org" 0 1
+   (idx 416))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Go/Go.org")
  (front-context-string . "#+TITLE: Go Prog")
  (rear-context-string)
  (position . 1))
-("OCaml.org"
+(#("OCaml.org" 0 1
+   (idx 417))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/OCaml/OCaml.org")
  (front-context-string . "#+TITLE: OCaml P")
  (rear-context-string)
  (position . 1))
-("My Julia Language Examples.org"
+(#("My Julia Language Examples.org" 0 1
+   (idx 418))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Julia/Data/Manuals/My Julia Language Examples/My Julia Language Examples.org")
  (front-context-string . "* System\n\n** Inv")
  (rear-context-string)
  (position . 1))
-("My Julia Language Syntax Reference.org"
+(#("My Julia Language Syntax Reference.org" 0 1
+   (idx 419))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Julia/Data/Manuals/My Julia Language Syntax Reference/My Julia Language Syntax Reference.org")
  (front-context-string . "* Variables -- ~")
  (rear-context-string)
  (position . 1))
-("Julia.org"
+(#("Julia.org" 0 1
+   (idx 420))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Julia/Julia.org")
  (front-context-string . "#+TITLE: Julia P")
  (rear-context-string)
  (position . 1))
-("Looks.org"
+(#("Looks.org" 0 1
+   (idx 421))
  (filename . "~/Org/Wiki/Looks/Looks.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
  (position . 1))
-("Swift.org"
+(#("Swift.org" 0 1
+   (idx 422))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Swift/Swift.org")
  (front-context-string . "#+TITLE: Swift P")
  (rear-context-string)
  (position . 1))
-("My TeX Symbols Reference.org"
+(#("My TeX Symbols Reference.org" 0 1
+   (idx 423))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/TeX/Data/Manuals/My TeX Symbols Reference/My TeX Symbols Reference.org")
  (front-context-string . "* LaTeX symbol -")
  (rear-context-string)
  (position . 1))
-("My TeX Syntax Reference.org"
+(#("My TeX Syntax Reference.org" 0 1
+   (idx 424))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/TeX/Data/Manuals/My TeX Syntax Reference/My TeX Syntax Reference.org")
  (front-context-string . "* Document Struc")
  (rear-context-string)
  (position . 1))
-("CIDER.org"
+(#("CIDER.org" 0 1
+   (idx 425))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/CIDER.org")
  (front-context-string . "#+TITLE: CIDER\n\n")
  (rear-context-string)
  (position . 1))
-("Rust.org"
+(#("Rust.org" 0 1
+   (idx 426))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Rust/Rust.org")
  (front-context-string . "#+TITLE: Rust Pr")
  (rear-context-string)
  (position . 1))
-("NoSQL.org"
+(#("NoSQL.org" 0 1
+   (idx 427))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/NoSQL/NoSQL.org")
  (front-context-string . "#+TITLE: NoSQL\n\n")
  (rear-context-string)
  (position . 1))
-("PostgresQL.org"
+(#("PostgresQL.org" 0 1
+   (idx 428))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/PostgresQL/PostgresQL.org")
  (front-context-string . "* Intro\n\n*A soph")
  (rear-context-string)
  (position . 1))
-("MariaDB.org"
+(#("MariaDB.org" 0 1
+   (idx 429))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/MariaDB/MariaDB.org")
  (front-context-string . "#+TITLE: MariaDB")
  (rear-context-string)
  (position . 1))
-("MySQL.org"
+(#("MySQL.org" 0 1
+   (idx 430))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/MySQL/MySQL.org")
  (front-context-string . "#+TITLE: MySQL\n\n")
  (rear-context-string)
  (position . 1))
-("SQL.org"
+(#("SQL.org" 0 1
+   (idx 431))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/SQL.org")
  (front-context-string . "#+TITLE: SQL\n\n* ")
  (rear-context-string)
  (position . 1))
-("Database.org"
+(#("Database.org" 0 1
+   (idx 432))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/Database.org")
  (front-context-string . "#+TITLE: Databas")
  (rear-context-string)
  (position . 1))
-("My Java Examples.org"
+(#("My Java Examples.org" 0 1
+   (idx 433))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Java/Data/Manuals/My Java Examples/My Java Examples.org")
  (front-context-string . "#+TITLE: My Java")
  (rear-context-string)
  (position . 1))
-("My Java Language Syntax Reference.org"
+(#("My Java Language Syntax Reference.org" 0 1
+   (idx 434))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Java/Data/Manuals/My Java Language Syntax Reference/My Java Language Syntax Reference.org")
  (front-context-string . "#+TITLE: My Java")
  (rear-context-string)
  (position . 1))
-("Java.org"
+(#("Java.org" 0 1
+   (idx 435))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Java/Java.org")
  (front-context-string . "#+TITLE: Java Pr")
  (rear-context-string)
  (position . 1))
-("The Sex Mechanism.org"
+(#("The Sex Mechanism.org" 0 1
+   (idx 436))
  (filename . "~/Org/Wiki/Sexology/Data/Manuals/The Sex Mechanism/The Sex Mechanism.org")
  (front-context-string)
  (rear-context-string)
  (position . 1))
-("My Shell Script Examples.org"
+(#("My Shell Script Examples.org" 0 1
+   (idx 437))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Shell/Data/Manuals/My Shell Script Examples/My Shell Script Examples.org")
  (front-context-string . "* Linux\n\n** Dete")
  (rear-context-string)
  (position . 1))
-("My Bash Syntax Reference.org"
+(#("My Bash Syntax Reference.org" 0 1
+   (idx 438))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Shell/Bash/Data/Manuals/My Bash Syntax Reference/My Bash Syntax Reference.org")
  (front-context-string . "* Common Environ")
  (rear-context-string)
  (position . 1))
-("My Shell Script Syntax Reference.org"
+(#("My Shell Script Syntax Reference.org" 0 1
+   (idx 439))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Shell/Data/Manuals/My Shell Script Syntax Reference/My Shell Script Syntax Reference.org")
  (front-context-string . "#+TITLE: My Shel")
  (rear-context-string)
  (position . 1))
-("Shell.org"
+(#("Shell.org" 0 1
+   (idx 440))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Shell/Shell.org")
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
-("Sinatra.org"
+(#("Sinatra.org" 0 1
+   (idx 441))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Ruby/Data/Frameworks/Sinatra/Sinatra.org")
  (front-context-string . "* Intro\n\nSinatra")
  (rear-context-string)
  (position . 1))
-("Ruby.org"
+(#("Ruby.org" 0 1
+   (idx 442))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Ruby/Ruby.org")
- (front-context-string . "* Intro\n\n[[file:")
+ (front-context-string . "#+TITLE: Ruby Pr")
  (rear-context-string)
  (position . 1))
-("Hacker.org"
+(#("Hacker.org" 0 1
+   (idx 443))
  (filename . "~/Org/Wiki/Computer Technology/Hack/Hacker/Hacker.org")
  (front-context-string . "* Hacker Ethic\n\n")
  (rear-context-string)
  (position . 1))
-("Dark Net.org"
+(#("Dark Net.org" 0 1
+   (idx 444))
  (filename . "~/Org/Wiki/Computer Technology/Crack/Dark Net/Dark Net.org")
  (front-context-string . "* Intro\n:PROPERT")
  (rear-context-string)
  (position . 1))
-("ClojureScript.org"
+(#("ClojureScript.org" 0 1
+   (idx 445))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/ClojureScript/ClojureScript.org")
  (front-context-string . "#+TITLE: Clojure")
  (rear-context-string)
  (position . 1))
-("Operation.org"
+(#("Operation.org" 0 1
+   (idx 446))
  (filename . "~/Org/Wiki/Commercial Science/Operation/Operation.org")
  (front-context-string . "* Intro\n\n** Oper")
  (rear-context-string)
  (position . 1))
-("Marketing.org"
+(#("Marketing.org" 0 1
+   (idx 447))
  (filename . "~/Org/Wiki/Commercial Science/Marketing/Marketing.org")
  (front-context-string . "* Intro\n\n** Mark")
  (rear-context-string)
  (position . 1))
-("Startup.org"
+(#("Startup.org" 0 1
+   (idx 448))
  (filename . "~/Org/Wiki/Commercial Science/Startup/Startup.org")
  (front-context-string . "#+TITLE: Startup")
  (rear-context-string)
  (position . 1))
-("Company.org"
+(#("Company.org" 0 1
+   (idx 449))
  (filename . "~/Org/Wiki/Commercial Science/Company/Company.org")
  (front-context-string . "#+TITLE: Company")
  (rear-context-string)
  (position . 1))
-("Business.org"
+(#("Business.org" 0 1
+   (idx 450))
  (filename . "~/Org/Wiki/Commercial Science/Business/Business.org")
  (front-context-string . "#+TITLE: Busines")
  (rear-context-string)
  (position . 1))
-("Commercial Science.org"
+(#("Commercial Science.org" 0 1
+   (idx 451))
  (filename . "~/Org/Wiki/Commercial Science/Commercial Science.org")
  (front-context-string . "* Intro\n\n** Sent")
  (rear-context-string)
  (position . 1))
-("ASCII.org"
+(#("ASCII.org" 0 1
+   (idx 452))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/ASCII/ASCII.org")
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
-("Crack.org"
+(#("Crack.org" 0 1
+   (idx 453))
  (filename . "~/Org/Wiki/Computer Technology/Crack/Crack.org")
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
-("Hack.org"
+(#("Hack.org" 0 1
+   (idx 454))
  (filename . "~/Org/Wiki/Computer Technology/Hack/Hack.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
  (position . 1))
-("Python.org"
+(#("Python.org" 0 1
+   (idx 455))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Python/Python.org")
  (front-context-string . "* Intro\n\n** Logo")
  (rear-context-string)
  (position . 1))
-("Configurations.org"
+(#("Configurations.org" 0 1
+   (idx 456))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Configurations.org")
  (front-context-string . "* Data\n\n- [[http")
  (rear-context-string)
  (position . 1))
-("Emacs.org"
+(#("Emacs.org" 0 1
+   (idx 457))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Emacs.org")
  (front-context-string . "#+TITLE: Emacs\n\n")
  (rear-context-string)
  (position . 1))
-("Firefox.org"
+(#("Firefox.org" 0 1
+   (idx 458))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Firefox/Firefox.org")
  (front-context-string . "#+TITLE: Firefox")
  (rear-context-string)
  (position . 1))
-("Chrome.org"
+(#("Chrome.org" 0 1
+   (idx 459))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Chrome/Chrome.org")
  (front-context-string . "* Intro\n\n\n\n** Sc")
  (rear-context-string)
  (position . 1))
-("H.org"
+(#("H.org" 0 1
+   (idx 460))
  (filename . "~/Org/Wiki/Pornography/H/H.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
  (position . 1))
-("Pornography.org"
+(#("Pornography.org" 0 1
+   (idx 461))
  (filename . "~/Org/Wiki/Pornography/Pornography.org")
  (front-context-string . "#+TITLE: Pornogr")
  (rear-context-string)
  (position . 1))
-("Freelancer.org"
+(#("Freelancer.org" 0 1
+   (idx 462))
  (filename . "~/Org/Wiki/Work/Freelancer/Freelancer.org")
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
-("SQLite.org"
+(#("SQLite.org" 0 1
+   (idx 463))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/SQLite/SQLite.org")
  (front-context-string . "#+TITLE: SQLite\n")
  (rear-context-string)
  (position . 1))
-("Clojure.org"
+(#("Clojure.org" 0 1
+   (idx 464))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Clojure.org")
  (front-context-string . "#+TITLE: Clojure")
  (rear-context-string)
  (position . 1))
-("R.org"
+(#("R.org" 0 1
+   (idx 465))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/R/R.org")
  (front-context-string . "*** Manuals\n\n***")
  (rear-context-string . "S:\n: linux-gnu\n\n")
  (position . 14299))
-("Learning.org"
+(#("Learning.org" 0 1
+   (idx 466))
  (filename . "~/Org/Wiki/Learning/Learning.org")
  (front-context-string . "* Intro\n:PROPERT")
  (rear-context-string)
  (position . 1))
-("My Haskell Language Syntax Reference.org"
+(#("My Haskell Language Syntax Reference.org" 0 1
+   (idx 467))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Haskell/Data/Manuals/My Haskell Language Syntax Reference/My Haskell Language Syntax Reference.org")
  (front-context-string . "* Expression\n\n* ")
  (rear-context-string)
  (position . 1))
-("My Haskell Examples.org"
+(#("My Haskell Examples.org" 0 1
+   (idx 468))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Haskell/Data/Manuals/My Haskell Examples/My Haskell Examples.org")
  (front-context-string . "** Prelude\n\nThe ")
  (rear-context-string)
  (position . 12))
-("Haskell.org"
+(#("Haskell.org" 0 1
+   (idx 469))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Haskell/Haskell.org")
  (front-context-string . "Haskell Data Ana")
  (rear-context-string . "is [0/1]\n\n- [ ] ")
  (position . 10457))
-("TeX.org"
+(#("TeX.org" 0 1
+   (idx 470))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/TeX/TeX.org")
  (front-context-string . "#+TITLE: TeX\n\n* ")
  (rear-context-string)
  (position . 1))
-("Love.org"
+(#("Love.org" 0 1
+   (idx 471))
  (filename . "~/Org/Wiki/Love/Love.org")
  (front-context-string . "#+TITLE: Love\n\n*")
  (rear-context-string)
  (position . 1))
-("Health.org"
+(#("Health.org" 0 1
+   (idx 472))
  (filename . "~/Org/Wiki/Health/Health.org")
- (front-context-string . "Nutrition]]\n\n\n* ")
- (rear-context-string . "/Nutrition.org][")
- (position . 70))
-("TeX Macro Packages.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/TeX/Data/TeX Macro Packages/TeX Macro Packages.org")
- (front-context-string . "* About TeX Pack")
+ (front-context-string . "#+TITLE: Health\n")
  (rear-context-string)
  (position . 1))
-("Lisp.org"
+(#("TeX Macro Packages.org" 0 1
+   (idx 473))
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/TeX/Data/TeX Macro Packages/TeX Macro Packages.org")
+ (front-context-string . "#+TITLE: TeX Mac")
+ (rear-context-string)
+ (position . 1))
+(#("Lisp.org" 0 1
+   (idx 474))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lisp/Lisp.org")
  (front-context-string . "#+TITLE: Lisp\n\n*")
  (rear-context-string)
  (position . 1))
-("Commands.org"
+(#("Commands.org" 0 1
+   (idx 475))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Commands.org")
  (front-context-string . "#+TITLE: Command")
  (rear-context-string)
  (position . 1))
-("Gems.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Ruby/Data/Gems/Gems.org")
- (front-context-string . "[[file:rdefs.org")
- (rear-context-string . " definitions\n\n- ")
- (position . 5364))
-("Org-mode.org"
+(#("Org-mode.org" 0 1
+   (idx 476))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/Org-mode/Org-mode.org")
  (front-context-string . "* Document Struc")
  (rear-context-string . "g-mode files.\n\n\n")
  (position . 60787))
-("modes.org"
+(#("modes.org" 0 1
+   (idx 477))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/modes.org")
  (front-context-string . "[[file:~/Org/Wik")
  (rear-context-string . "][floobits]] :: ")
  (position . 172601))
-("Softwares.org"
+(#("Softwares.org" 0 1
+   (idx 478))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Softwares.org")
  (front-context-string . "#+TITLE: Softwar")
  (rear-context-string)
  (position . 1))
-("Programming Languages.org"
+(#("Programming Languages.org" 0 1
+   (idx 479))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Programming Languages.org")
  (front-context-string . "#+TITLE: Program")
  (rear-context-string)
  (position . 1))
-("Programming.org"
+(#("Programming.org" 0 1
+   (idx 480))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming.org")
  (front-context-string . "#+TITLE: Program")
  (rear-context-string)
  (position . 1))
-("Computer Technology.org"
+(#("Computer Technology.org" 0 1
+   (idx 481))
  (filename . "~/Org/Wiki/Computer Technology/Computer Technology.org")
  (front-context-string . "* Intro\n:PROPERT")
  (rear-context-string)
  (position . 1))
-("Poem.org"
+(#("Poem.org" 0 1
+   (idx 482))
  (filename . "~/Org/Wiki/Literature/Poem/Poem.org")
  (front-context-string . "* Intro\n\n\n\n\n* Da")
  (rear-context-string)
  (position . 1))
-("My SQL Reference.org"
+(#("My SQL Reference.org" 0 1
+   (idx 483))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/Data/Manuals/My SQL Reference/My SQL Reference.org")
  (front-context-string . "\n\n\n** SELECT DIS")
  (rear-context-string . "%20Joins.png]]\n\n")
  (position . 3676))
-("Internet.org"
+(#("Internet.org" 0 1
+   (idx 484))
  (filename . "~/Org/Wiki/Internet/Internet.org")
  (front-context-string . "#+TITLE: Interne")
  (rear-context-string)
  (position . 1))
-("My Masturbation Manual.org"
+(#("My Masturbation Manual.org" 0 1
+   (idx 485))
  (filename . "~/Org/Wiki/Sexology/Masturbation/Data/Manuals/My Masturbation Manual/My Masturbation Manual.org")
  (front-context-string . "#+TITLE: My Mast")
  (rear-context-string)
  (position . 1))
-("Electronics.org"
+(#("Electronics.org" 0 1
+   (idx 486))
  (filename . "~/Org/Wiki/Electronics/Electronics.org")
  (front-context-string)
  (rear-context-string)
  (position . 1))
-("Kindle.org"
+(#("Kindle.org" 0 1
+   (idx 487))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Kindle/Kindle.org")
  (front-context-string . "#+TITLE: Kindle\n")
  (rear-context-string)
  (position . 1))
-("ACG"
+(#("ACG" 0 1
+   (idx 488))
  (filename . "~/Org/Wiki/ACG/ACG.org")
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
-("Clothes.org"
+(#("Clothes.org" 0 1
+   (idx 489))
  (filename . "~/Org/Wiki/Clothes/Clothes.org")
  (front-context-string . "* Clothes\n\n\n\n* P")
  (rear-context-string)
  (position . 1))
-("Novels.org"
+(#("Novels.org" 0 1
+   (idx 490))
  (filename . "~/Org/Wiki/Literature/Novels/Novels.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
  (position . 1))
-("Medicine.org"
+(#("Medicine.org" 0 1
+   (idx 491))
  (filename . "~/Org/Wiki/Medicine/Medicine.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
  (position . 1))
-("Beauty.org"
+(#("Beauty.org" 0 1
+   (idx 492))
  (filename . "~/Org/Beauty/Beauty.org")
  (front-context-string . "#+TITLE: Beauty\n")
  (rear-context-string)
  (position . 1))
-("Sexology"
+(#("Sexology" 0 1
+   (idx 493))
  (filename . "~/Org/Wiki/Sexology/Sexology.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
  (position . 1))
-("Recipes"
+(#("Recipes" 0 1
+   (idx 494))
  (filename . "~/Org/Wiki/Recipes/Recipes.org")
  (front-context-string . "* Breakfast\n\n* L")
  (rear-context-string)
  (position . 1))
-("Experience"
+(#("Experience" 0 1
+   (idx 495))
  (filename . "~/Org/Experience/Experience.org")
  (front-context-string . "* Life Feeling\n\n")
  (rear-context-string)
  (position . 1))
-("Myself"
+(#("Myself" 0 1
+   (idx 496))
  (filename . "~/Org/Myself/Myself.org")
  (front-context-string . "* My Info\n\n[[fil")
  (rear-context-string)
  (position . 1))
-("Economy.org"
+(#("Economy.org" 0 1
+   (idx 497))
  (filename . "~/Org/Wiki/Economy/Economy.org")
  (front-context-string . "#+TITLE: Economy")
  (rear-context-string)
  (position . 1))
-("Strategy"
+(#("Strategy" 0 1
+   (idx 498))
  (filename . "~/Org/Wiki/Strategy/Strategy.org")
  (front-context-string . "* Intro\n\n** 名句思想")
  (rear-context-string)
  (position . 1))
-("Travel"
+(#("Travel" 0 1
+   (idx 499))
  (filename . "~/Org/Wiki/Travel/Travel.org")
  (front-context-string . "* Intro\n\n\n\n* Dat")
  (rear-context-string)
  (position . 1))
-("Government.org"
+(#("Government.org" 0 1
+   (idx 500))
  (filename . "~/Org/Wiki/Government/Government.org")
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
-("Law"
+(#("Law" 0 1
+   (idx 501))
  (filename . "~/Org/Wiki/Law/Law.org")
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
-("My Applied Mathematics Formula Reference.org"
+(#("My Applied Mathematics Formula Reference.org" 0 1
+   (idx 502))
  (filename . "~/Org/Wiki/Mathematics/Data/Manuals/My Applied Mathematics Formula Reference/My Applied Mathematics Formula Reference.org")
  (front-context-string . "#+TITLE: Applied")
  (rear-context-string)
  (position . 1))
-("Philosophy"
+(#("Philosophy" 0 1
+   (idx 503))
  (filename . "~/Org/Wiki/Philosophy/Philosophy.org")
  (front-context-string . "* Intro\n\n** Phil")
  (rear-context-string)
  (position . 1))
-("Religion"
+(#("Religion" 0 1
+   (idx 504))
  (filename . "~/Org/Wiki/Religion/Religion.org")
  (front-context-string . "* Buddhism (佛教)\n")
  (rear-context-string)
  (position . 1))
-("dotfiles (org-mode literate)"
+(#("dotfiles (org-mode literate)" 0 1
+   (idx 505))
  (filename . "~/Org/dotfiles/dotfiles.org")
  (front-context-string)
  (rear-context-string)
  (position . 1))
-("Bookmarks (Org)"
+(#("Bookmarks (Org)" 0 1
+   (idx 506))
  (filename . "~/Org/Bookmarks/Bookmarks.org")
  (front-context-string . "* Intro\n\n** TODO")
  (rear-context-string)
  (position . 1))
-("Diary.org"
+(#("Diary.org" 0 1
+   (idx 507))
  (filename . "~/Org/Diary/Diary.org")
  (front-context-string . "#+CATEGORY: Diar")
  (rear-context-string)
  (position . 1))
-("org-capture-last-stored"
- (filename . "~/Org/Tasks/Words.org")
- (front-context-string . "* delightful :dr")
- (rear-context-string . "/indirection/.\n\n")
- (position . 7916))
-("Accounts"
+(#("org-capture-last-stored" 0 1
+   (idx 508))
+ (filename . "~/Org/Tasks/Tasks.org")
+ (front-context-string . "* TODO Org-mode ")
+ (rear-context-string . "CATEGORY: Todo\n\n")
+ (position . 19))
+(#("Accounts" 0 1
+   (idx 509))
  (filename . "~/Org/Accounts/accounts.org.gpg")
  (front-context-string . "* Nick\n\nstardivi")
  (rear-context-string)
  (position . 1))
-("Contacts.org"
+(#("Contacts.org" 0 1
+   (idx 510))
  (filename . "~/Org/Contacts/Contacts.org")
  (front-context-string . "#+TITLE: Contact")
  (rear-context-string)
  (position . 1))
-("init.el"
+(#("init.el" 0 1
+   (idx 511))
  (filename . "~/.emacs.d/init.el")
  (front-context-string . ";; Added by Pack")
  (rear-context-string)
  (position . 1))
-("Arch install.sh"
+(#("Arch install.sh" 0 1
+   (idx 512))
  (filename . "~/Git/Arch/install.sh")
  (front-context-string . "#!/usr/bin/env b")
  (rear-context-string)
  (position . 1))
-("Revenge"
+(#("Revenge" 0 1
+   (idx 513))
  (filename . "~/Org/Revenge/Revenge.org")
  (front-context-string . "* I Swear\n\n- 当初说")
  (rear-context-string)
  (position . 1))
-("Life"
+(#("Life" 0 1
+   (idx 514))
  (filename . "~/Org/Wiki/Life/Life.org")
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
-("Writing"
+(#("Writing" 0 1
+   (idx 515))
  (filename . "~/Org/Wiki/Writing/Writing.org")
  (front-context-string . "* Words (文字)\n\n[[")
  (rear-context-string)
  (position . 1))
-("Features"
+(#("Features" 0 1
+   (idx 516))
  (filename . "~/Org/Projects/Projects.org")
  (front-context-string . "* TODO Features ")
  (rear-context-string . "Q voice chat.\n\n*")
  (position . 19882))
-("Issues"
+(#("Issues" 0 1
+   (idx 517))
  (filename . "~/Org/Projects/Projects.org")
  (front-context-string . "* TODO Issues [2")
  (rear-context-string . "OGBOOK:\n:END:\n\n*")
  (position . 12268))
-("Bugs"
+(#("Bugs" 0 1
+   (idx 518))
  (filename . "~/Org/Projects/Projects.org")
  (front-context-string . "* TODO Bugs [/]\n")
  (rear-context-string . " everyday.\n\n\n\n\n*")
  (position . 12196))
-("Investing & Financing (Org)"
+(#("Investing & Financing (Org)" 0 1
+   (idx 519))
  (filename . "~/Org/Wiki/Investing and Financing/Investing and Financing.org")
  (front-context-string . "* Intro\n\n\n* Data")
  (rear-context-string)
  (position . 1))
-("Sociology (Org)"
+(#("Sociology (Org)" 0 1
+   (idx 520))
  (filename . "~/Org/Wiki/Sociology/Sociology.org")
  (front-context-string . "\n* Sociology (社会")
  (rear-context-string . " Intro\n\n\n* Data\n")
  (position . 18))
-("Mathematics (Org)"
+(#("Mathematics (Org)" 0 1
+   (idx 521))
  (filename . "~/Org/Wiki/Mathematics/Mathematics.org")
  (front-context-string . "  - [ ] [[file+s")
  (rear-context-string . "学 同济大学数学系 [0/4]\n")
  (position . 156))
-("Psychology (Org)"
+(#("Psychology (Org)" 0 1
+   (idx 522))
  (filename . "~/Org/Wiki/Psychology/Psychology.org")
  (front-context-string . " Tips\n\n- 心怀期待更快乐")
  (rear-context-string . "* Books\n\n* Small")
  (position . 36))
-("Literature (Org)"
+(#("Literature (Org)" 0 1
+   (idx 523))
  (filename . "~/Org/Wiki/Literature/Literature.org")
  (front-context-string)
  (rear-context-string . "* Data\n\n** Books")
  (position . 27))
-("Science (Org)"
- (filename . "~/Org/Wiki/Science/Science.org")
- (front-context-string . "* Science and Te")
- (rear-context-string)
- (position . 1))
-("Kung Fu (Org)"
+(#("Kung Fu (Org)" 0 1
+   (idx 524))
  (filename . "~/Org/Wiki/Kung Fu/Kung Fu.org")
  (front-context-string . "* Urgent 易筋经 (mu")
  (rear-context-string)
  (position . 1))
-("Learning (Org)"
+(#("Learning (Org)" 0 1
+   (idx 525))
  (filename . "~/Org/Wiki/Learning/Learning.org")
  (front-context-string . "- [ ] [[file+sys")
  (rear-context-string . "s.org][Emacs]]\n\n")
  (position . 17461))
-("Thought (Org)"
+(#("Thought (Org)" 0 1
+   (idx 526))
  (filename . "~/Org/Wiki/Thought/Thought.org")
  (front-context-string . "- Believe that y")
  (rear-context-string)
  (position . 12))
-("Reading (Org)"
+(#("Reading (Org)" 0 1
+   (idx 527))
  (filename . "~/Org/Wiki/Reading/Reading.org")
  (front-context-string . "[[file:Literatur")
  (rear-context-string . "Literature (文学)\n")
  (position . 30))
-("Data (Org)"
+(#("Data (Org)" 0 1
+   (idx 528))
  (filename . "~/Org/Wiki/Data/Data.org")
  (front-context-string . "*** Search Engin")
  (rear-context-string . "s\n\n** Internet\n\n")
  (position . 35))
-("Wiki (Org)"
+(#("Wiki (Org)" 0 1
+   (idx 529))
  (filename . "~/Org/Wiki/Wiki.org")
  (front-context-string . "[[file:Reading/R")
  (rear-context-string . "\n* Reading (阅读)\n")
  (position . 59))
-("INDEX (Org)"
+(#("INDEX (Org)" 0 1
+   (idx 530))
  (filename . "~/Org/INDEX.org")
  (front-context-string . "* Learning (学习)\n")
  (rear-context-string . "  =精于心, 简于形.=\n\n\n")
