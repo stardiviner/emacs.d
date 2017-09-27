@@ -41,19 +41,20 @@
 
 ;;; [ leuven-theme ] -- Awesome Emacs color theme on white background.
 
-;; (use-package leuven-theme
-;;   :ensure t
-;;   :config
-;;   (setq leuven-scale-outline-headlines t)
-;;   (load-theme 'leuven t)
-;;   )
+(use-package leuven-theme
+  :ensure t
+  :config
+  (setq leuven-scale-outline-headlines t)
+  ;; (load-theme 'leuven t)
+  )
 
 ;;; [ nord-theme ] -- An arctic, north-bluish clean and elegant Emacs theme.
 
 (use-package nord-theme
   :ensure t
   :config
-  (load-theme 'nord t))
+  ;; (load-theme 'nord t)
+  )
 
 ;;; [ doom-themes ] -- Emacs themes inspired by Atom One
 
@@ -140,9 +141,8 @@
 (use-package circadian
   :ensure t
   :config
-  (setq circadian-themes '(("0:00" . nord)
-			                     ("9:00" . leuven) ; dichromacy, leuven
-                           ("18:00" . nord)))
+  (setq circadian-themes '(("9:00" . leuven) ; dichromacy, leuven
+                           ("15:30" . nord)))
   
   (circadian-setup)
   )
