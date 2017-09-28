@@ -61,7 +61,7 @@
     ;; (define-key pdf-view-mode-map (kbd "k") nil)
 
     ;; "auto" slice from bounding box
-    (pdf-view-auto-slice-minor-mode)
+    ;; (pdf-view-auto-slice-minor-mode)
 
     ;; use midnight mode theme
     ;; (pdf-view-midnight-minor-mode)
