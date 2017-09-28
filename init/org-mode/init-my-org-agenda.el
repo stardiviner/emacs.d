@@ -328,19 +328,17 @@
       (delq nil
             (mapcar
              (lambda (f) (and (file-exists-p f) f))
-             '("~/Org/Wiki/Work/Work.org"
-               "~/Org/Projects/Business Ideas.org"
-               "~/Org/Wiki/Business/Startup/My Startup/My Startup.org"
+             '("~/Org/Wiki/Business/Startup/My Startup/My Startup.org"
                "~/Org/Wiki/Things/Things.org" ; Buy Things
                "~/Org/Tasks/"
+               "~/Org/Tasks/Work Tasks/" ; Work Tasks
                "~/Org/Tasks/Family Tasks/" ; Family Tasks
                "~/Org/Tasks/Travel/" ; Travel
                "~/Org/Projects/" ; All projects
                "~/Org/Projects/Agriculture Projects/" ; Agriculture Projects
                "~/Org/Projects/Organization/"
                "~/Org/Projects/Interpersonal Network/" ; Interpersonal Network
-               "~/Org/Learning Plan/Learning Plan.org"
-               "~/Org/Learning Plan/Learn Programming Plan.org"
+               "~/Org/Learning Plan/"
                ;; "~/Org/Contacts/Contacts.org"
                "~/Org/Calendars/"
                ))))
