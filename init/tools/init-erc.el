@@ -70,7 +70,7 @@ The function is suitable for `erc-after-connect'."
          "#emacs"
          ;; "#org-mode"
          ;; "#lisp"
-         "#clojure"
+         ;; "#clojure"
          ;; "#clojure-beginners"
          ;; "#archlinux"
          ;; "#swift-lang"
@@ -447,17 +447,17 @@ When called repeatedly, cycle through the buffers."
   (erc-update-modules))
 
 ;; [ Image ]
-(use-package erc-image
-  :ensure t
-  :config
-  (erc-image-mode 1)
-
-  (setq erc-image-display-func 'erc-image-insert-inline
-        erc-image-images-path "/tmp/"
-        erc-image-inline-rescale 50 ; rescale the inline displayed image
-        ;; erc-image-regex-alist
-        )
-  )
+;; (use-package erc-image
+;;   :ensure t
+;;   :config
+;;   ;; (erc-image-mode 1)
+;;
+;;   (setq erc-image-display-func 'erc-image-insert-inline
+;;         erc-image-images-path "/tmp/"
+;;         erc-image-inline-rescale 500 ; rescale the inline displayed image
+;;         ;; erc-image-regex-alist
+;;         )
+;;   )
 
 ;; [ Bots ]
 
@@ -477,14 +477,14 @@ When called repeatedly, cycle through the buffers."
 
 ;; [ erc-crypt ] -- Symmetric Encryption for ERC.
 
-(use-package erc-crypt
-  :ensure t
-  :config
-  ;; (add-hook 'erc-mode-hook #'erc-crypt-enable) ; enable `erc-crypt' in ERC globally.
-  
-  ;; manually (toggle) keybinding for encrypting messages.
-  (define-key erc-mode-map (kbd "C-c M-e") 'erc-crypt-mode)
-  )
+;; (use-package erc-crypt
+;;   :ensure t
+;;   :config
+;;   ;; (add-hook 'erc-mode-hook #'erc-crypt-enable) ; enable `erc-crypt' in ERC globally.
+;;  
+;;   ;; manually (toggle) keybinding for encrypting messages.
+;;   (define-key erc-mode-map (kbd "C-c M-e") 'erc-crypt-mode)
+;;   )
 
 ;; [ erc-social-graph ] -- A PieSpy-esque social network graph module for ERC.
 
