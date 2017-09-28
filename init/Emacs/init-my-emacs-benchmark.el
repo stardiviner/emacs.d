@@ -18,16 +18,12 @@
 
 (use-package benchmark-init
   :ensure t
-  :config
+  ;; :config
   ;; (benchmark-init/activate)
   )
 
 
-;;; [ esup ]
-
-;;; Usage:
-;;
-;; - [M-x esup]
+;;; [ esup ] -- the Emacs StartUp Profiler (ESUP)
 
 (use-package esup
   :ensure t)

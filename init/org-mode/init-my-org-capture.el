@@ -16,7 +16,7 @@
 
 (setq org-capture-templates
       '(("c" "[C]apture"
-         entry (file "") ; the target file should not be defined, because need to use [C-c C-w] refile to choose target.
+         entry (file "") ; FIXME: the target file should not be defined, because need to use [C-c C-w] refile to choose target.
          "* TODO %^{Capture}\nSCHEDULED: %t\n%i\n%a\n\n%?"
          :prepend t
          :empty-lines 1

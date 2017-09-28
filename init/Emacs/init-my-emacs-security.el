@@ -5,7 +5,11 @@
 
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
+
+;;; File Local Variables
+
+
+
 ;;; [ certificate ]
 
 (require 'tls)
@@ -20,9 +24,7 @@
       ;; gnutls-trustfiles
       )
 
-
-;;; ----------------------------------------------------------------------------
-
+
 (provide 'init-my-emacs-security)
 
 ;;; init-my-emacs-security.el ends here

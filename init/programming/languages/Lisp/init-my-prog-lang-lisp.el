@@ -95,9 +95,7 @@
 
 (use-package rainbow-delimiters
   :ensure t
-  :defer t
   :config
-  ;; (rainbow-delimiters-mode t)
   ;; 1. global
   ;; (global-rainbow-delimiters-mode)
   ;; 2.. enable in all programming-related modes
@@ -107,7 +105,6 @@
   ;;                 enh-ruby-mode-hook
   ;;                 ))
   ;;   (add-hook hook 'rainbow-delimiters-mode-enable))
-
   )
 
 

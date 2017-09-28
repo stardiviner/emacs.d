@@ -63,6 +63,8 @@
 
   ;; [ sudo in Tramp ]
 
+  ;; [ adb ]
+  ;; (setq tramp-adb-program "adb")
   )
 
 ;;; [ helm-tramp ] -- Tramp with Helm interface.

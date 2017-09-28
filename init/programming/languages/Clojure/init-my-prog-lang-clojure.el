@@ -129,6 +129,7 @@
         cider-overlays-use-font-lock t ; use overlay for results.
         cider-result-use-clojure-font-lock t
         cider-eval-result-duration 'command
+        ;; cider-auto-track-ns-form-changes t
 
         ;; Enlighten
 

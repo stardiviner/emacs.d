@@ -142,7 +142,7 @@ When called repeatedly, cycle through the buffers."
 (setq erc-track-enable-keybindings t) ; [C-c C-SPACE], [C_c C-@]
 
 
-;; [ netsplit ] -- hide join, quit messages.
+;; [ netsplit ] -- Reduce JOIN/QUIT messages on netsplits.
 (require 'erc-netsplit)
 (erc-netsplit-mode t)
 
