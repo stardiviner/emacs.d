@@ -66,9 +66,9 @@
 
 ;;; [ paxedit ] -- Structured, Context-Driven, LISP Editing and Refactoring.
 
-(use-package paxedit
-  :ensure t
-  :defer t)
+;; (use-package paxedit
+;;   :ensure t
+;;   :defer t)
 
 ;;; [ Parinfer ] -- Let's simplify the way we write Lisp...
 
