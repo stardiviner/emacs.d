@@ -3,7 +3,7 @@
 ;;; Commentary:
 
 ;;; Code:
-
+
 ;;; [ User Information ]
 
 (setq user-full-name "stardiviner")
@@ -12,6 +12,8 @@
 
 
 ;;; $PATH
+;;; way 0:
+;; (setenv "PATH" (concat (getenv "PATH") ":~/bin"))
 ;;; way 1:
 ;;     (setq exec-path (append exex-path '("~/bin")))
 ;;; way 2:
@@ -49,7 +51,7 @@
 (setq system-time-locale "C") ; make timestamps in org-mode appear in English.
 
 
-
+
 (provide 'init-my-emacs-environment)
 
 ;;; init-my-emacs-environment.el ends here
