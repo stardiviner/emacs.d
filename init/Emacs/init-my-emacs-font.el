@@ -134,21 +134,24 @@
 ;;
 ;; (set-fontset-font t 'han (font-spec :family "WenQuanYi Micro Hei Mono" :size 13))
 
-(add-hook 'after-init-hook
-          (lambda ()
-            (dolist (charset '(kana han symbol cjk-misc bopomofo))
-              (set-fontset-font (frame-parameter nil 'font)
-                                charset
-                                ;; (font-spec :family "Noto Sans CJK SC" :size 14)
-                                (font-spec :family "WenQuanYi Micro Hei" :size 14)
-                                ;; (font-spec :family "HanaMinA" :size 14)
-                                ))
-            
-            ;; need to modify English font settings to suitable with chinese font.
-            ;; the value is in 1/10pt, so 100 will give you 10pt, etc
-            ;; (set-frame-font (format "%s:pixelsize=%d" "DejaVu Sans Mono" 12) t)
-            (set-frame-font (format "%s:pixelsize=%d" "Hack" 12) t)
-            ))
+(defun my-font-settings ()
+  "Set Emacs font."
+  (interactive)
+  (dolist (charset '(kana han symbol cjk-misc bopomofo))
+    (set-fontset-font (frame-parameter nil 'font)
+                      charset
+                      ;; (font-spec :family "Noto Sans CJK SC" :size 14)
+                      (font-spec :family "WenQuanYi Micro Hei" :size 14)
+                      ;; (font-spec :family "HanaMinA" :size 14)
+                      ))
+  
+  ;; need to modify English font settings to suitable with chinese font.
+  ;; the value is in 1/10pt, so 100 will give you 10pt, etc
+  ;; (set-frame-font (format "%s:pixelsize=%d" "DejaVu Sans Mono" 12) t)
+  (set-frame-font (format "%s:pixelsize=%d" "Hack" 12) t)
+  )
+
+(add-hook 'after-init-hook #'my-font-settings)
 
 
 ;;; [ font-lock-profiler ] -- Coverage and timing tool for font-lock keywords.
