@@ -151,6 +151,8 @@
   (set-frame-font (format "%s:pixelsize=%d" "Hack" 12) t)
   )
 
+(my-font-settings)
+
 (add-hook 'after-init-hook #'my-font-settings)
 
 
