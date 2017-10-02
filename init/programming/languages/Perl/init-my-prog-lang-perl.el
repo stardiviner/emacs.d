@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ perl-mode ]
 
 (use-package perl-mode
@@ -27,9 +27,19 @@
         plsense-jump-to-definition-key "M-.")
   
   (plsense-config-default)
+
+  (use-package company-plsense
+    :ensure t
+    :config
+    (dolist (hook '(perl-mode-hook
+                    cperl-mode-hook))
+      (add-hook hook
+                (lambda ()
+                  (my-company-add-backend-locally 'company-plsense))))
+    )
   )
 
-
+
 (provide 'init-my-prog-lang-perl)
 
 ;;; init-my-prog-lang-perl.el ends here
