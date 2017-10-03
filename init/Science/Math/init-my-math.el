@@ -28,6 +28,10 @@
 
 (require 'init-my-math-wolfram)
 
+;;; [ Lean Theorem Prover ]
+
+(require 'init-my-math-lean)
+
 
 
 (provide 'init-my-math)
