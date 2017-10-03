@@ -18,6 +18,7 @@
 (setq package-user-dir "~/.emacs.d/elpa")
 
 (defvar elpa-gnu '("gnu" . "https://elpa.gnu.org/packages/"))
+;; (defvar elpa-china '("elpa-china" . "http://elpa.emacs-china.org"))
 (defvar elpa-melpa '("melpa" . "http://melpa.org/packages/"))
 (defvar elpa-melpa-stable '("melpa-stable" . "http://stable.melpa.org/packages/"))
 (defvar elpa-marmalade '("marmalade" . "http://marmalade-repo.org/packages/"))
@@ -29,6 +30,7 @@
 ;; (add-to-list 'package-archives elpa-melpa-stable t)
 ;; (add-to-list 'package-archives elpa-marmalade t)
 (add-to-list 'package-archives elpa-gnu t)
+;; (add-to-list 'package-archives elpa-china t)
 
 (package-initialize)
 
