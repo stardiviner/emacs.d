@@ -30,7 +30,7 @@
 
 ;;; [ Lean Theorem Prover ]
 
-(require 'init-my-math-lean)
+;; (require 'init-my-math-lean)
 
 
 
