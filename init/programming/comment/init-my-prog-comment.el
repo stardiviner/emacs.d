@@ -44,25 +44,6 @@ column.  Place the point after the comment box."
   (define-prefix-command 'comment-tag-prefix))
 (global-set-key (kbd "M-g c") 'comment-tag-prefix)
 
-;;; [ hl-todo ]-- highlight todo, fixme and similar keywords.
-
-;; (use-package hl-todo
-;;   :ensure t
-;;   :config
-;;   (set-face-attribute 'hl-todo nil
-;;                       :inherit nil
-;;                       :foreground "orange red"
-;;                       :box '(:line-width 1 :color "gray")
-;;                       )
-;;
-;;   (define-key comment-tag-prefix (kbd "p") 'hl-todo-previous)
-;;   (define-key comment-tag-prefix (kbd "n") 'hl-todo-next)
-;;   (define-key comment-tag-prefix (kbd "l") 'hl-todo-occur)
-;;
-;;   ;; (global-hl-todo-mode 1)
-;;   (add-hook 'prog-mode-hook #'hl-todo-mode)
-;;   )
-
 ;;; [ comment-tags ] -- Emacs package to highlight and manage comment tags like TODO, BUG, FIXME, etc.
 
 (use-package comment-tags
