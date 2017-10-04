@@ -13,9 +13,9 @@
 
 ;;; [ git-gutter ]
 
-(use-package git-gutter
-  :ensure t
-  :defer t)
+;; (use-package git-gutter
+;;   :ensure t
+;;   :defer t)
 
 (use-package ivy
   :ensure t
