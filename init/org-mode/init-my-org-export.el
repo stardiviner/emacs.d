@@ -31,6 +31,8 @@
       org-export-with-smart-quotes t
       )
 
+;;; exclude org headlines exporting with a specific tags.
+(setq org-export-exclude-tags '("noexport"))
 
 ;;; ------------- Export UTF-8 checkboxes ---------------------
 ;;; This snippet turns - [X] into ☑ and - [ ] into ☐.
