@@ -28,9 +28,14 @@
 ;;; set default browser to generic browser
 ;; (setq browse-url-browser-function 'browse-url-generic)
 ;; (setq browse-url-generic-program (executable-find "firefox"))
+;;
+;;; set default browser to "Firefox"
+(setq browse-url-browser-function 'browse-url-firefox)
+(setq browse-url-firefox-program (executable-find "firefox-nightly"))
+;;
 ;;; set default browser to "Google Chrome"
-(setq browse-url-browser-function 'browse-url-chrome)
-(setq browse-url-chrome-program (executable-find "google-chrome-unstable"))
+;; (setq browse-url-browser-function 'browse-url-chrome)
+;; (setq browse-url-chrome-program (executable-find "google-chrome-unstable"))
 
 ;;; [ EWW ] -- The Emacs Web Wowser
 
