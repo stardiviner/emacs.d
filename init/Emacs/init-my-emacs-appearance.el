@@ -76,7 +76,7 @@
 ;; or
 ;; (set-fringe-style '(10 . 0))
 ;; restore the default size
-(fringe-mode nil)
+;; (fringe-mode nil)
 
 
 ;;; [ echo area ]

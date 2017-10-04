@@ -17,7 +17,7 @@
 (use-package captain
   :ensure t
   :commands (captain-capitalize-word)
-  :init
+  :config
   (global-captain-mode 1)
   )
 

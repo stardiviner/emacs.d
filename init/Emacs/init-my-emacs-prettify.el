@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ pretty-symbols ]
 
 (use-package pretty-symbols
@@ -54,7 +54,6 @@
 
 (use-package digit-groups
   :ensure t
-  :defer t
   :config
   (add-hook 'org-mode-hook
             (lambda ()
@@ -62,7 +61,7 @@
                   (digit-groups-mode 1))))
   )
 
-
+
 (provide 'init-my-emacs-prettify)
 
 ;;; init-my-emacs-prettify.el ends here

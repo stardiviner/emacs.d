@@ -224,6 +224,8 @@ marginparsep=7pt, marginparwidth=.6in}
   (define-prefix-command 'paste-prefix))
 (define-key paste-prefix (kbd "m") 'my-org-md-convert-region-to-md)
 
+;;; [ ox-md ] -- Markdown
+
 (require 'ox-md)
 
 (defun my-org-md-convert-region-to-md ()

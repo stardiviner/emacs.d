@@ -45,10 +45,6 @@
 ;; (set-frame-font "DejaVu Sans Mono-10" t)
 ;; (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 100)
 ;; (set-face-font 'default "DejaVu Sans Mono")
-;;
-;; (set-default-font "-*-Hack-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1")
-;; (my-set-font-default "Hack" 10 100)
-
 
 ;; (defun my-set-font-default (font size height)
 ;;   "combine multiple set font together for easy change once."
@@ -114,10 +110,12 @@
 ;;                   (font-spec :name "Symbola") nil 'prepend)
 
 ;; greek characters
-(set-fontset-font t 'greek (font-spec :name "DejaVu Sans Mono") nil)
+(when (member "DejaVu Sans Mono" (font-family-list))
+  (set-fontset-font t 'greek (font-spec :name "DejaVu Sans Mono") nil))
 
 ;; override font for cyrillic characters
-(set-fontset-font t 'cyrillic "Droid Sans Mono")
+(when (member "DejaVu Sans Mono" (font-family-list))
+  (set-fontset-font t 'cyrillic "Droid Sans Mono"))
 
 ;; -------------
 ;; CJK (Chinese, Japanese, Korean)
@@ -149,6 +147,9 @@
   ;; the value is in 1/10pt, so 100 will give you 10pt, etc
   ;; (set-frame-font (format "%s:pixelsize=%d" "DejaVu Sans Mono" 12) t)
   (set-frame-font (format "%s:pixelsize=%d" "Hack" 12) t)
+
+  ;; set default font.
+  ;; (set-face-attribute 'default nil :font "DejaVu Sans Mono" :height 90)
   )
 
 (my-font-settings)

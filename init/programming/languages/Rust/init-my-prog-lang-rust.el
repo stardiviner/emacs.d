@@ -81,7 +81,6 @@
   )
 
 
-
 (provide 'init-my-prog-lang-rust)
 
 ;;; init-my-prog-lang-rust.el ends here

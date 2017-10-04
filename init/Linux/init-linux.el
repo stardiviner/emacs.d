@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ systemd-mode ] -- Emacs major mode for editing systemd units.
 
 (use-package systemd
@@ -71,7 +71,7 @@
 ;;   (setq arch-packer-default-command "pacaur")
 ;;   )
 
-
+
 (provide 'init-linux)
 
 ;;; init-linux.el ends here
