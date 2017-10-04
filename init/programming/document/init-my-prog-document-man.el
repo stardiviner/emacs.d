@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 (unless (boundp 'man-lookup-prefix)
   (define-prefix-command 'man-lookup-prefix))
 ;; (define-key my-prog-help-document-map (kbd "m") 'man-lookup-prefix)
@@ -22,13 +22,12 @@
 
 ;;; [ women ]
 
+(use-package woman
+  :bind (:map my-prog-help-document-map
+              ("M-m" . woman))
+  )
 
-;;; [ iman ]
-
-
-;;; [ man-preview ]
-
-
+
 (provide 'init-my-prog-document-man)
 
 ;;; init-my-prog-document-man.el ends here
