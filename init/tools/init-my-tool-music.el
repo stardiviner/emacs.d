@@ -20,6 +20,16 @@
 
 ;; (require 'init-my-tool-music-emms)
 
+;;; [ PulseAudio ]
+
+(use-package pulseaudio-control
+  :ensure t
+  :config
+  ;; keybindings
+  ;; (pulseaudio-control-default-keybindings)
+  ;; (global-set-key (kbd "C-x /") 'pulseaudio-control-map)
+  (define-key my-music-prefix (kbd "a") 'pulseaudio-control-map)
+  )
 
 
 (provide 'init-my-tool-music)
