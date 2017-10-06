@@ -20,6 +20,19 @@
 (use-package lsp-java
   :ensure t)
 
+;;; [ lsp-javacomp ] -- Emacs Language Server client backed by JavaComp.
+
+(use-package lsp-javacomp
+  :ensure t
+  :init
+  ;; Make sure lsp-javacomp is loaded when lsp-mode is used so that the JavaComp
+  ;; LSP handler is installed.
+  (with-eval-after-load 'lsp-mode
+    (require 'lsp-javacomp))
+  ;; Enable `lsp-mode' for `java-mode'.
+  (add-hook 'java-mode-hook 'lsp-mode)
+  )
+
 (use-package lsp-go
   :ensure t)
 
