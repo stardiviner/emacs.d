@@ -29,6 +29,8 @@
 (use-package boxquote
   :ensure t
   :init
+  (unless (boundp 'prog-comment-prefix)
+    (define-prefix-command 'prog-comment-prefix))
   (unless (boundp 'boxquote-prefix)
     (define-prefix-command 'boxquote-prefix))
   (define-key prog-comment-prefix (kbd "q") 'boxquote-prefix)
