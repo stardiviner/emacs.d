@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; Interactive Selection Interface
 
 ;; - helm, ivy, ido,
@@ -54,7 +54,7 @@
               ))
   )
 
-
+
 (provide 'init-my-org-complete)
 
 ;;; init-my-org-complete.el ends here

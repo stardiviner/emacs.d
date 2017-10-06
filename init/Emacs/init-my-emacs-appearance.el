@@ -187,6 +187,11 @@
 ;;               cursor-in-non-selected-windows nil)
 ;; (set-cursor-color "green")
 
+;;; adaptive cursor width
+;; make cursor the width of the character it is under
+;; i.e. full width of a TAB
+(setq x-stretch-cursor t)
+
 (blink-cursor-mode 1)
 
 ;;; [ beacon ] -- highlight the cursor whenever the window scrolls.
