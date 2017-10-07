@@ -5,7 +5,7 @@
 
 
 ;;; Code:
-
+
 
 (unless (boundp 'refactor-prefix)
   (define-prefix-command 'refactor-prefix))
@@ -17,12 +17,14 @@
 
 (use-package emr
   :ensure t
-  :config
-  (define-key refactor-prefix (kbd "M-RET") 'emr-show-refactor-menu)
-  (eval-after-load "emr" '(emr-initialize))
+  :bind (:map prog-mode-map
+              ("M-RET" . emr-show-refactor-menu))
+  :init
+  (autoload 'emr-show-refactor-menu "emr")
+  (add-hook 'prog-mode-hook #'emr-initialize)
   )
 
-
+
 (provide 'init-my-prog-refactor)
 
 ;;; init-my-prog-refactor.el ends here
