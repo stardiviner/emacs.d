@@ -66,7 +66,7 @@
         ;; Habit
         (sequence "HABIT(h)" "|" "DONE(d)")
         ;; Types
-        (type "CODE(c@/!)" "PROJECT(P@/!)" "Org(o@/!)" "|" "DONE(d@/!)")
+        (type "CODE(c@/!)" "PROJECT(P@/!)" "|" "DONE(d@/!)")
         ;; Code
         (sequence "BUG(b!)" "ISSUE(i!)" "ERROR(e!)" "FEATURE(f!)" "Pull-Request(p!)" "|" "DONE(d@/!)")
         ;; Work
@@ -121,8 +121,6 @@
         ("Pull-Request" :foreground "yellow"
          :box '(:color "yellow" :line-width -1 :style nil))
         ;; types
-        ("Org" :foreground "cyan" :background "#004A5D"
-         :box '(:color "cyan" :line-width -1 :style nil))
         ("CODE" :foreground "white" :background "#004A5D"
          :box '(:color "cyan" :line-width -1 :style nil))
         ("PROJECT" :foreground "white" :background "#004A5D"
