@@ -1,2 +1,0 @@
-RFC 648 was never issued.
-

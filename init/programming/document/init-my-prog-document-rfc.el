@@ -15,7 +15,7 @@
   :bind (:map my-prog-help-document-map
               ("r" . irfc-visit))
   :config
-  (setq irfc-directory (concat user-emacs-directory "documentations/RFC"))
+  (setq irfc-directory (concat (getenv "HOME") "/Code/documentations/RFC"))
   (setq irfc-assoc-mode t)        ; RFC documents are associated with `irfc-mode'.
 
   (setq irfc-highlight-requirement-keywords t
