@@ -71,8 +71,17 @@
         ;; ("\\.jp\(e\)?g" . "sxiv %s")
         ("\\.jpg\\'" . "sxiv %s")
         ("\\.jpeg\\'" . "sxiv %s")
-        ("\\.gif\\'" . "sxiv -a -f %s") ; "sxiv -a -f -- %s
+        ;; ("\\.gif\\'" . "sxiv -a -f %s") ; "sxiv -a -f -- %s
         ;; ("\\.gif\\'" . "gwenview %s")
+        ("\\.gif\\'" . (lambda (file link)
+                         (let ((gif-image (create-image file))
+                               (tmp-buf (get-buffer-create "*Org-mode GIF image animation*")))
+                           (switch-to-buffer tmp-buf)
+                           (erase-buffer)
+                           (insert-image gif-image)
+                           (image-animate gif-image)
+                           (local-set-key (kbd "q") 'bury-buffer)
+                           )))
         ;; ("\\.svg\\'" . "feh --magick-timeout 5 %s")
         ("\\.svg\\'" . "nomacs %s")
         ;; Mind Maps
