@@ -33,7 +33,19 @@
   :group 'org
   :type '(choice color (const nil)))
 
-(setq org-inline-image-background "#FFFFFF")
+;;; set default background color based on different stategies.
+(setq org-inline-image-background
+      ;; a static color.
+      ;; "#FFFFFF"
+      ;; same color with color-theme background.
+      (face-background 'default)
+      ;; slight darker than color-theme.
+      ;; (cl-case (alist-get 'background-mode (frame-parameters))
+      ;;   ('light
+      ;;    (color-darken-name (face-background 'default) 10))
+      ;;   ('dark
+      ;;    (color-darken-name (face-background 'default) 2)))
+      )
 
 ;;modified version of original `org-display-inline-images'.
 ;; append `:background' in `create-image'.
