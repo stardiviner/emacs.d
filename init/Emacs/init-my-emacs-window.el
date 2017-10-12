@@ -86,13 +86,29 @@
         )
   )
 
-;;; [ golden-ratio ] -- automatic resizing of Emacs windows to the golden ratio.
+;;; [ zoom ] -- like `golden-ratio' style managing the window sizes by enforcing a fixed and automatic balanced layout.
 
-;; (use-package golden-ratio
-;;   :ensure t
-;;   :diminish golden-ratio-mode
-;;   :config
-;;   (golden-ratio-mode 1))
+(use-package zoom
+  :ensure t
+  ;; Override the key binding of `balance-windows':
+  :bind ("C-x +" . zoom)
+  :config
+  ;; Resize the selected window using the golden ratio:
+  ;; (setq zoom-size '(0.618 . 0.618))
+
+  ;; Resize the selected window according to the frame width:
+  (defun size-callback ()
+    (cond ((> (frame-pixel-width) 1280) '(90 . 0.75))
+          (t                            '(0.5 . 0.5))))
+  (setq zoom-size 'size-callback)
+
+  (setq zoom-ignored-major-modes '(dired-mode markdown-mode))
+  (setq zoom-ignored-buffer-names '("zoom.el" "init.el"))
+  (setq zoom-ignored-buffer-name-regexps '("^*calc"))
+  (setq zoom-ignore-predicates '((lambda () (> (count-lines (point-min) (point-max)) 20))))
+  
+  (zoom-mode t)
+  )
 
 ;;; [ window-purpose ] -- Purpose-based window management for Emacs.
 
