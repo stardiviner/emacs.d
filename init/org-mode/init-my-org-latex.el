@@ -161,6 +161,17 @@
   )
 
 
+;;; Org-mode export to -> Chinese TeX (ctex) -> PDF
+
+;;; [ org2ctex ] -- Export org to ctex (a latex macro for Chinese)
+
+(use-package org2ctex
+  :ensure t
+  :config
+  (org2ctex-toggle t)
+  )
+
+
 (provide 'init-my-org-latex)
 
 ;;; init-my-org-latex.el ends here
