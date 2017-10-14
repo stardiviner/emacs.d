@@ -43,17 +43,6 @@
 ;; (add-hook 'org-mode-hook #'disable-org-latex-preview-on-nonfile)
 
 
-;; config org latex preview style
-(setq org-preview-latex-default-process 'dvipng
-      ;; org-latex-preview-ltxpng-directory "ltxpng/"
-      ;; set latex fragment preview image size
-      org-format-latex-options (plist-put
-                                org-format-latex-options :scale 2.0)
-      org-format-latex-options (plist-put
-                                org-format-latex-options :html-scale 2.0)
-      )
-
-
 ;; (add-to-list 'org-latex-default-packages-alist)
 ;; (add-to-list 'org-latex-packages-alist)
 
@@ -85,15 +74,19 @@
 ;; (setq org-format-latex-header)
 
 (setq org-format-latex-options
-      '(:foreground default
-                    :background default
-                    :scale 1.5
-                    :html-foreground "Black"
-                    :html-background "Transparent"
-                    :html-scale 1.0
-                    :matchers ("begin" "$1" "$" "$$" "\\(" "\\[")
-                    )
-      )
+      (plist-put org-format-latex-options :foreground 'default))
+(setq org-format-latex-options
+      (plist-put org-format-latex-options :background 'default))
+(setq org-format-latex-options
+      (plist-put org-format-latex-options :matchers '("begin" "$1" "$" "$$" "\\(" "\\[")))
+(setq org-format-latex-options
+      (plist-put org-format-latex-options :html-foreground "Black"))
+(setq org-format-latex-options
+      (plist-put org-format-latex-options :html-background "Transparent"))
+(setq org-format-latex-options
+      (plist-put org-format-latex-options :scale 2.0))
+(setq org-format-latex-options
+      (plist-put org-format-latex-options :html-scale 2.5))
 
 
 ;;; [ Math ]
@@ -119,6 +112,16 @@
 
 
 ;;; emabedded latex (inline formula)
+
+;;; Preview Org-mode LaTeX fragments
+;; (setq org-preview-latex-default-process 'dvipng)    ;速度很快，但 *默认* 不支持中文
+(setq org-preview-latex-default-process 'imagemagick)  ;速度较慢，但支持中文
+(setq org-format-latex-options
+      (plist-put org-format-latex-options :scale 2.0))      ;调整 LaTeX 预览图片的大小
+(setq org-format-latex-options
+      (plist-put org-format-latex-options :html-scale 2.5)) ;调整 HTML 文件中 LaTeX 图像的大小
+
+
 
 (defface org-latex-face
   (org-compatible-face 'shadow
