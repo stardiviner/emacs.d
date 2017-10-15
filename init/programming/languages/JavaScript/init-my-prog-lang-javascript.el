@@ -114,7 +114,7 @@
     )
   )
 
-
+
 ;;; [ js3-mode ]
 
 (use-package js3-mode
@@ -139,7 +139,7 @@
 (add-hook 'js2-mode-hook 'js-mode-setup-flycheck-checkers)
 (add-hook 'js3-mode-hook 'js-mode-setup-flycheck-checkers)
 
-
+
 ;;; [ nvm ] -- Manage Node versions within Emacs.
 
 ;; (use-package nvm
@@ -149,7 +149,7 @@
 ;;   ;; (nvm-use "system")
 ;;   )
 
-
+
 ;; [ js-comint ] -- a lightweight comint integration.
 
 (use-package js-comint
@@ -183,6 +183,7 @@
                       )))
   )
 
+
 ;;; [ nodejs-repl ] -- Run Node.js REPL and communicate the process.
 
 ;; (use-package nodejs-repl
@@ -191,7 +192,7 @@
 ;;   (setenv "NODE_NO_READLINE" "1")
 ;;   )
 
-
+
 ;;; [ jscs (JavaScript Code Style) ]
 
 ;; (use-package jscs
@@ -209,7 +210,7 @@
 ;;   ;; (add-hook 'js3-mode-hook #'jscs-fix-run-before-save)
 ;;   )
 
-
+
 ;;; [ tern ] -- code-analysis engine for JavaScript
 
 (use-package tern
@@ -250,7 +251,7 @@
   ;;   :defer t)
   )
 
-
+
 ;;; [ Indium ] -- A JavaScript development environment for Emacs.
 
 (use-package indium
@@ -272,6 +273,19 @@
                (format "window.dispatchEvent(new CustomEvent('patch', {detail: {url: '%s'}}))" url))))
   )
 
+
+;;; [ lsp-javascript-typescript ] -- Javascript and Typescript support for lsp-mode using javascript-typescript-langserver.
+
+(use-package lsp-javascript-typescript
+  :ensure t
+  :config
+  (add-hook 'js-mode-hook #'lsp-mode)
+  (add-hook 'typescript-mode-hook #'lsp-mode) ;; for typescript support
+  (add-hook 'js3-mode-hook #'lsp-mode) ;; for js3-mode support
+  (add-hook 'rjsx-mode #'lsp-mode) ;; for rjsx-mode support
+  )
+
+
 ;;; [ jsx-mode ] -- The XML inside of JavaScript.
 
 ;; (use-package jsx-mode
@@ -283,7 +297,7 @@
 ;;               (tern-mode 1)))
 ;;   )
 
-
+
 ;;; [ js-doc ] -- Insert JsDoc style comment easily.
 
 ;; (use-package js-doc
@@ -301,7 +315,7 @@
 ;;         js-doc-license "GPL3")
 ;;   )
 
-
+
 ;;; [ import-js ] -- A tool to simplify importing JS modules.
 
 ;; (use-package import-js
