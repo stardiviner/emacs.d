@@ -34,7 +34,7 @@ Usage:
 
 ;; (my-load-layer 'lisp-layer)
 
-
+
 ;;; Group hooks into one new hook.
 
 (defmacro hook-modes (modes &rest body)
@@ -61,7 +61,7 @@ Usage:
 ;; (dolist (hook '(prog-mode-hook text-mode-hook css-mode-hook ...))
 ;;   (add-hook hook 'my-non-special-mode-setup))
 
-
+
 ;;; keybindings
 
 ;;; Usage: (local-set-minor-mode-key '<minor-mode> (kbd "key-to-hide") nil).
@@ -77,7 +77,7 @@ by creating or altering keymaps stored in buffer-local
                        map))))
     (define-key newmap key def)))
 
-
+
 ;;; magical insert kbd for key.
 (defun insert-kbd-for-key (key)
   (interactive "kKey: ")
@@ -85,7 +85,7 @@ by creating or altering keymaps stored in buffer-local
 
 ;; (global-set-key "C-c k" 'insert-kbd-for-key)
 
-
+
 ;;; [ open and switch to buffer ]
 
 (defun my-func/open-and-switch-to-buffer (the-command the-buffer-name &optional whether-switch-to-buffer)
@@ -106,7 +106,23 @@ Usage:
     (when whether-switch-to-buffer
       (switch-to-buffer the-buffer-name))))
 
+
+;;; Open and play GIF image in Emacs buffer.
 
+(defun my-func/open-and-play-gif-image (file &optional link)
+  "Open and play GIF image `FILE' in Emacs buffer.
+
+Optional for Org-mode file: `LINK'."
+  (let ((gif-image (create-image file))
+        (tmp-buf (get-buffer-create "*Org-mode GIF image animation*")))
+    (switch-to-buffer tmp-buf)
+    (erase-buffer)
+    (insert-image gif-image)
+    (image-animate gif-image nil t)
+    (local-set-key (kbd "q") 'bury-buffer)
+    ))
+
+
 ;;; [ keybindings ]
 
 ;;; keybinding lookup
