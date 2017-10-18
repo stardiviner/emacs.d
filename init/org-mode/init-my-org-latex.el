@@ -32,6 +32,9 @@
 
 (setq org-startup-with-latex-preview nil)
 
+;; highlight inline LaTeX with different face.
+(setq org-highlight-latex-and-related '(latex script entities))
+
 ;; fix org-mode startup latex preview invalid on non-file buffer.
 ;; (defun disable-org-latex-preview-on-nonfile ()
 ;;   (interactive)
