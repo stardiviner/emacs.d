@@ -69,7 +69,8 @@
 ;; [ org-plot ] -- Plotting Tables in Org-mode.
 
 (require 'org-plot)
-(require 'orgtbl-ascii-plot)
+(use-package orgtbl-ascii-plot
+  :ensure t)
 
 ;;; Org Table translator functions.
 (add-to-list 'org-default-properties "ORGTBL") ; for Org-mode Table translator functions.
