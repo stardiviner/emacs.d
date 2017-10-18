@@ -9,7 +9,7 @@
 
 
 ;;; Tags
-
+
 (setq org-auto-align-tags t
       org-export-with-tags t
       org-tags-column -77
@@ -24,7 +24,12 @@
 (setq org-group-tags t)
 
 (setq org-tag-persistent-alist
-      '( ;; personal
+      '((:startgroup . nil)
+        ("Export")
+        (:grouptags . nil)
+        ("noexport" . ?E)
+        (:endgroup . nil)
+        ;; personal
         (:startgroup . nil)
         ("types")
         (:grouptags . nil)
@@ -69,7 +74,7 @@
         (:grouptags . nil)
         ("code" . ?c)
         ("Linux" . ?l)
-        ("Emacs" . ?e)
+        ("Emacs" . ?I)
         ("Git" . ?g)
         (:endgroup . nil)
         ;; Family
@@ -90,8 +95,29 @@
         (:endgroup . nil)
         ))
 
+;; (set-face-attribute 'org-tag nil
+;;                     :background (cl-case (alist-get 'background-mode (frame-parameters))
+;;                                   ('light
+;;                                    (color-darken-name (face-background 'default) 4))
+;;                                   ('dark
+;;                                    (color-lighten-name (face-background 'default) 5)))
+;;                     :underline nil :weight 'normal :slant 'normal
+;;                     :height 0.8
+;;                     )
+;;
+;; (set-face-attribute 'org-tag-group nil
+;;                     :background (cl-case (alist-get 'background-mode (frame-parameters))
+;;                                   ('light
+;;                                    (color-darken-name (face-background 'default) 4))
+;;                                   ('dark
+;;                                    (color-lighten-name (face-background 'default) 5)))
+;;                     ;; :box '(:color "black" :line-width 2)
+;;                     )
+
 (setq org-tag-faces
-      '(("Org" :foreground "green yellow")
+      '(("noexport" :foreground "DimGray" :weight bold)
+        ("fragment" :foreground "white" :weight bold)
+        ("Org" :foreground "green yellow")
         ("Computer" :foreground "green" :background "black")
         ("Life" :foreground "black" :background "DimGray")
         ("SEX" :foreground "deep pink" :weight bold)
@@ -109,8 +135,7 @@
         ("Shell" :foreground "sea green")
         ))
 
-
-
+
 (provide 'init-my-org-tag)
 
 ;;; init-my-org-tag.el ends here

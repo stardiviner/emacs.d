@@ -218,23 +218,7 @@
                     :underline nil)
 
 ;; tags
-(set-face-attribute 'org-tag-group nil
-                    :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                  ('light
-                                   (color-darken-name (face-background 'default) 4))
-                                  ('dark
-                                   (color-lighten-name (face-background 'default) 5)))
-                    ;; :box '(:color "black" :line-width 2)
-                    )
-(set-face-attribute 'org-tag nil
-                    :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                  ('light
-                                   (color-darken-name (face-background 'default) 4))
-                                  ('dark
-                                   (color-lighten-name (face-background 'default) 5)))
-                    :underline nil :weight 'normal :slant 'normal
-                    :height 0.8
-                    )
+
 
 ;;; checkbox faces
 ;; - [ ], - [X]
