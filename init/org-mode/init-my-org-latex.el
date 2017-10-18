@@ -57,22 +57,33 @@
 ;; (add-to-list 'org-latex-packages-alist '("" "color"))
 
 ;; 2. use "minted"
-(setq org-latex-listings 'minted)
-;;; enable source code wrap with `breaklines'.
-(setq org-latex-listings-options '(("breaklines" "true")
-                                   ("breakanywhere" "true")))
-;;; add packages to list.
-(add-to-list 'org-latex-packages-alist '("" "newfloat" nil))
-(add-to-list 'org-latex-packages-alist '("" "minted" nil))
-(setq org-latex-pdf-process
-      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-        ))
+;; (setq org-latex-listings 'minted)
+;; ;;; enable source code wrap with `breaklines'.
+;; (setq org-latex-listings-options '(("breaklines" "true")
+;;                                    ("breakanywhere" "true")))
+;; ;;; add packages to list.
+;; (add-to-list 'org-latex-packages-alist '("" "newfloat" nil))
+;; (add-to-list 'org-latex-packages-alist '("" "minted" nil))
+;; (setq org-latex-pdf-process
+;;       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+;;         "bibtex %b"
+;;         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+;;         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+;;         ))
+;;
+;; or:
+;; (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
 (setq org-latex-minted-options
       '(("bgcolor" "bg")
         ("frame" "lines")
         ("linenos" "true")))
+
+;;; Use `xelatex' to handle Chinese LaTeX.
+(setq org-latex-pdf-process '(("latexmk -xelatex -g -pdf %b.tex"
+                               "bibtex %b"
+                               "latexmk -xelatex -g -pdf %b.tex"
+                               "latexmk -xelatex -g -pdf %b.tex")
+                              ("xelatex -interaction nonstopmode -output-directory %o %f")))
 
 ;; (setq org-format-latex-header)
 
