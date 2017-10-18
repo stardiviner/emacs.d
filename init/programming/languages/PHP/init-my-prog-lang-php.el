@@ -24,11 +24,6 @@
         )
   )
 
-;;; [ inf-php ]
-
-(use-package inf-php
-  :ensure t)
-
 ;;; [ php-eldoc ]
 
 (use-package php-eldoc
