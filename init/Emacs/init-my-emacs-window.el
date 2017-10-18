@@ -91,7 +91,8 @@
 (use-package zoom
   :ensure t
   ;; Override the key binding of `balance-windows':
-  :bind ("C-x +" . zoom)
+  ;; enable this keybinding when `zoom-mode' is disabled.
+  ;; :bind ("C-x +" . zoom)
   :config
   ;; Resize the selected window using the golden ratio:
   ;; (setq zoom-size '(0.618 . 0.618))

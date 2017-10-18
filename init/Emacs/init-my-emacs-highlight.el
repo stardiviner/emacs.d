@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 
 (unless (boundp 'my-highlight-prefix)
   (define-prefix-command 'my-highlight-prefix))
@@ -54,7 +54,7 @@
   (add-hook 'prog-mode-hook #'symbol-overlay-mode)
   )
 
-
+
 (provide 'init-my-emacs-highlight)
 
 ;;; init-my-emacs-highlight.el ends here

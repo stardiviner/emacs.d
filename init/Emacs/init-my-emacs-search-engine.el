@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ engine-mode ] -- minor-mode for defining and querying search engines.
 
 (use-package engine-mode
@@ -199,7 +199,7 @@
   (add-to-list 'org-babel-tangle-lang-exts '("elasticsearch" . "es"))
   )
 
-
+
 (provide 'init-my-emacs-search-engine)
 
 ;;; init-my-emacs-search-engine.el ends here
