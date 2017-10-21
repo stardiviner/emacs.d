@@ -14,7 +14,15 @@
   ;; (lsp-mode t)
   (add-hook 'prog-mode-hook #'lsp-mode)
   (with-eval-after-load 'lsp-mode
-    (require 'lsp-flycheck)))
+    (require 'lsp-flycheck))
+
+  (use-package company-lsp
+    :ensure t
+    :config
+    (push 'company-lsp company-backends)
+    (setq company-lsp-cache-candidates t)
+    )
+  )
 
 
 (use-package lsp-java
