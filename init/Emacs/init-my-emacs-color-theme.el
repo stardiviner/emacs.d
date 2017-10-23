@@ -53,6 +53,9 @@
 (use-package nord-theme
   :ensure t
   :config
+  ;; (setq nord-comment-brightness 15)
+  ;; (setq nord-region-highlight "frost")
+  ;; (setq nord-uniform-mode-lines t)
   (load-theme 'nord t)
   )
 
@@ -73,6 +76,13 @@
 ;;   :config
 ;;   (load-theme 'gruvbox t))
 
+;;; [ kaolin-themes ] -- A set of eye pleasing themes.
+
+(use-package kaolin-themes
+  :ensure t
+  :config
+  ;; (load-theme 'kaolin-dark t)
+  )
 
 ;;; custom faces
 (set-face-attribute 'italic nil
@@ -141,9 +151,8 @@
 ;; (use-package circadian
 ;;   :ensure t
 ;;   :config
-;;   (setq circadian-themes '(("9:00" . leuven) ; dichromacy, leuven
-;;                            ("15:30" . nord)))
-;;
+;;   (setq circadian-themes '(("9:00" . kaolin-light) ; dichromacy, leuven
+;;                            ("15:30" . kaolin-dark)))
 ;;   (circadian-setup)
 ;;   )
 
