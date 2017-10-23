@@ -878,6 +878,16 @@ dimensions of a block selection."
 (setq-default mode-line-format (my-modeline))
 
 
+(set-face-attribute 'mode-line nil
+                    ;; :box `(:line-width 2 :color ,(color-darken-name (face-background 'default) 3))
+                    :height 100
+                    )
+(set-face-attribute 'mode-line-inactive nil
+                    ;; :box `(:line-width 1 :color ,(color-darken-name (face-background 'default) 3))
+                    :height 100
+                    )
+
+
 ;; display time
 ;; (setq display-time-interval 60)
 ;; (setq display-time-24hr-format nil)
