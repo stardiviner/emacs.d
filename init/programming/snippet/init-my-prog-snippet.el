@@ -90,12 +90,16 @@ $0`(yas-escape-text yas-selected-text)`"
 
 ;;; [ auto-yasnippet ] -- quickly create disposable yasnippets.
 
-;; (use-package auto-yasnippet
-;;   :ensure t
-;;   :config
-;;   (setq aya-persist-snippets-dir "~/.emacs.d/snippets"
-;;         aya-create-with-newline t)
-;;   )
+(use-package auto-yasnippet
+  :ensure t
+  :bind (:map yas-minor-mode-map
+              ("C-c & a" . aya-create)
+              ("C-c & e" . aya-expand)
+              ("C-c & o" . aya-open-line)
+              ("C-c & s" . aya-persist-snippet))
+  :config
+  (setq aya-persist-snippets-dir "~/.emacs.d/snippets")
+  )
 
 ;;; [ org-sync-snippets ] -- simple extension to export snippets to org-mode and vice versa.
 
