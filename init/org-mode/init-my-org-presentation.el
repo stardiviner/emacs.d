@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ org-present ]
 
 ;; (use-package org-present
@@ -74,16 +74,18 @@
 
 ;;; [ ox-reveal ] -- Org-mode export with Reveal.js.
 
-;; (use-package ox-reveal
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   :config
-;;   (setq org-reveal-root "http://cdn.jsdelivr.net/reveal.js/3.0.0/"
-;;         ;; (concat user-emacs-directory "init/org-mode/reveal.js")
-;;         ;; "http://cdn.jsdelivr.net/reveal.js/3.0.0/"
-;;         org-reveal-hlevel 1)
-;;   )
+(use-package ox-reveal
+  :ensure t
+  :init
+  (use-package htmlize
+    :ensure t)
+  :config
+  ;; "http://cdn.jsdelivr.net/reveal.js/3.0.0/"
+  ;; (concat user-emacs-directory "init/org-mode/reveal.js")
+  (setq org-reveal-root (concat user-emacs-directory "init/org-mode/reveal.js"))
+  (setq org-reveal-plugins '(classList markdown zoom notes
+                                       highlight search remotes multiplex))
+  )
 
 
 ;;; [ ox-ioslide ] -- Export org-mode to Google I/O HTML5 slide.
@@ -103,7 +105,7 @@
 (use-package demo-it
   :ensure t)
 
-
+
 (provide 'init-my-org-presentation)
 
 ;;; init-my-org-presentation.el ends here
