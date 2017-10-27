@@ -33,13 +33,6 @@
   ;; 'american: month/day/year, 'european: day/month/year, 'iso: year/month/day
   (setq calendar-date-style 'american)
 
-  ;; Calendar Localization
-  ;; - Zhejiang, Shaoxing, Zhuji: 29.72, 120.20
-  (setq calendar-time-zone +480 ; UTC+8 (China)
-        calendar-latitude 29.72
-        calendar-longitude 120.20
-        )
-
   ;; mark holidays
   (setq calendar-mark-holidays-flag nil)
   (add-hook 'calendar-initial-window-hook 'calendar-mark-holidays)
@@ -53,24 +46,21 @@
   ;; variable -> :annotation-sources
 
   
-  ;; Location
+  ;; Calendar Location: Latitude, Longitude.
   ;;
   ;; for predicate lunar eclipses.
   ;;
   ;; Zhejiang, China Area: Latitude: 27° 09' ~ 31° 11' N , Longitude: 118° 02' ~ 122° 57' E
   ;; Shaoxing Area: Latitude: 29° 42' ~ 30° 19' 15" , Longitude: 120° 16' 55" ~ 120° 46' 39"
+  ;; Yunnan, Dali: Latitude: 25.60, Longitude: 100.23,
 
-  ;; Location: "Shaoxing"
-  ;; (setq calendar-location-name "Shaoxing Town")
-  ;; (setq calendar-latitude +30.10)
-  ;; (setq calendar-longitude +120.40)
-
-  ;; Location: "Yunnan Dali"
-  (setq calendar-location-name "Dali Town"
-        calendar-latitude 25.60
-        calendar-longitude 100.23
+  ;; - Zhejiang, Shaoxing, Zhuji: 29.72, 120.20, UTC+8 (China): +480
+  (setq calendar-location-name "Shaoxing Town"
+        calendar-time-zone +480
+        calendar-latitude 29.72
+        calendar-longitude 120.20
         )
-  
+
   ;; Localized National Holidays
   )
 
