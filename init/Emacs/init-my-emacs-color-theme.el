@@ -148,13 +148,14 @@
 
 ;;; [ circadian ] -- theme-switching for Emacs based on daytime.
 
-;; (use-package circadian
-;;   :ensure t
-;;   :config
-;;   (setq circadian-themes '(("9:00" . kaolin-light) ; dichromacy, leuven
-;;                            ("15:30" . kaolin-dark)))
-;;   (circadian-setup)
-;;   )
+(use-package circadian
+  :ensure t
+  :config
+  (setq circadian-themes '((:sunrise . leuven) ; dichromacy, leuven, kaolin-light
+                           ;; ("9:00" . tsdh-light)
+                           (:sunset . nord)))
+  (circadian-setup)
+  )
 
 
 (provide 'init-my-emacs-color-theme)
