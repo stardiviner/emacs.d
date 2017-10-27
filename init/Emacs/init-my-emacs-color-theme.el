@@ -151,6 +151,12 @@
 (use-package circadian
   :ensure t
   :config
+  (setq calendar-location-name "Shaoxing Town"
+        calendar-time-zone +480
+        calendar-latitude 29.72
+        calendar-longitude 120.20
+        )
+  
   (setq circadian-themes '((:sunrise . leuven) ; dichromacy, leuven, kaolin-light
                            ;; ("9:00" . tsdh-light)
                            (:sunset . nord)))
