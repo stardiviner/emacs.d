@@ -18,8 +18,8 @@
 ;;; source block header arguments
 (setq org-babel-default-header-args
       '((:session . "none")
-        (:results . "replace")
-        (:exports . "both") (:cache . "no") (:hlines . "no")
+        (:results . "replace") (:cache . "no")
+        (:exports . "code") (:hlines . "no")
         (:noweb . "no") (:tangle . "no")
         (:mkdirp . "yes")
         (:padline . "true") (:comments . "links")
