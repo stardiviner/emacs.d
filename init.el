@@ -358,7 +358,7 @@
 ;;; Engineering
 
 (require 'init-my-electronic)
-;; (require 'init-my-electric-music)
+(require 'init-my-electric-music)
 
 
 ;;; Authoring & Writing
