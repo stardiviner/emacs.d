@@ -252,27 +252,28 @@ state (modified, read-only or non-existent)."
 ;;; buffer encoding
 (defun *buffer-encoding ()
   "The encoding and eol style of the buffer."
-  (if (active)
-      (propertize
-       (concat
-        (let ((eol-type (coding-system-eol-type buffer-file-coding-system)))
-          (cond
-           ((eq eol-type 0)
-            "" ;; "LF " <-- Unix/Linux EOF
-            )
-           ((eq eol-type 1) "CRLF ")
-           ((eq eol-type 2) "CR ")))
-        (let* ((sys (coding-system-plist buffer-file-coding-system))
-               (sys-name (plist-get sys :name))
-               (sys-cat (plist-get sys :category)))
-          (cond
-           ((memq sys-cat '(coding-category-undecided coding-category-utf-8))
-            "" ;; "UTF-8" <-- no need to display UTF-8.
-            )
-           (t
-            (upcase (symbol-name sys-name)))))
-        (propertize " " 'face 'variable-pitch)
-        ))))
+  (propertize
+   (concat
+    " "
+    (let ((eol-type (coding-system-eol-type buffer-file-coding-system)))
+      (cond
+       ((eq eol-type 0)
+        "" ;; "LF " <-- Unix/Linux EOF
+        )
+       ((eq eol-type 1) "CRLF ")
+       ((eq eol-type 2) "CR ")))
+    (let* ((sys (coding-system-plist buffer-file-coding-system))
+           (sys-name (plist-get sys :name))
+           (sys-cat (plist-get sys :category)))
+      (cond
+       ((memq sys-cat '(coding-category-undecided coding-category-utf-8))
+        "" ;; "UTF-8" <-- no need to display UTF-8.
+        )
+       (t
+        (upcase (symbol-name sys-name)))))
+    " "
+    )
+   'face (if (active) 'mode-line-warn-face)))
 
 ;;; bookmark
 (defun *bookmark ()
