@@ -6,12 +6,11 @@
 
 
 ;;; Code:
-
+
 ;;; [ spice-mode ] -- major mode for SPICE.
 
 (use-package spice-mode
-  :ensure t
-  :defer t)
+  :ensure t)
 
 
 ;;; [ ob-spice ] -- Org-mode Babel integrate with SPICE.
@@ -19,7 +18,7 @@
 (use-package ob-spice
   :ensure t)
 
-
+
 (provide 'init-spice)
 
 ;;; init-spice.el ends here

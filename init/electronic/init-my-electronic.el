@@ -6,12 +6,12 @@
 
 
 ;;; Code:
-
-
+
+;;; [ SPICE ]
 (require 'init-spice)
 
 
-
+
 (provide 'init-my-electronic)
 
 ;;; init-my-electronic.el ends here
