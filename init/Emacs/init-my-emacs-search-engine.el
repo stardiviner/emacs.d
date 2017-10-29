@@ -69,10 +69,17 @@
   (defengine google-translate
     "https://translate.google.com/?q=%s"
     :docstring "Google Translate"
+    :keybinding "T")
+  
+  ;; Programming
+
+  ;; Programming Languages
+  ;; TeX/LaTeX
+  (defengine TeX-LaTeX-CTAN
+    "https://www.ctan.org/search/?phrase=%s"
+    :docstring "TeX/LaTeX CTAN"
     :keybinding "t")
   
-  ;; programming
-
   ;; Docs: API
   (defengine Stack-Overflow-Documentation
     ;; TODO: fix URL add search substitude
