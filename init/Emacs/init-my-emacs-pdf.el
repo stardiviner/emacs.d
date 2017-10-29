@@ -23,7 +23,7 @@
         ;; pdf-view-image-relief 2
         ;; pdf-view-bounding-box-margin 0.05
         pdf-view-use-imagemagick nil
-        pdf-view-use-scaling t
+        pdf-view-use-scaling t ; open PDFs scaled to fit page.
         ;; pdf-view-resize-factor 1.25
 
         ;; mouse-wheel-follow-mouse t
@@ -32,12 +32,9 @@
   ;; [ PDF Tools ]
   ;; [ isearch ]
   (require 'pdf-isearch)
-  (add-hook 'pdf-isearch-minor-mode-hook
-            (lambda ()
-              ;; revert to emacs default isearch from custom global search utility.
-              (define-key pdf-isearch-minor-mode-map (kbd "C-s") 'isearch-forward)
-              ))
-
+  ;; revert to emacs default isearch instead of `swiper' from custom global search utility.
+  (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward)
+  
   ;; [ outline ]
   (require 'pdf-outline)
   (setq pdf-outline-display-labels t
@@ -47,7 +44,7 @@
 
   ;; [ annotation ]
   (require 'pdf-annot)
-  (setq pdf-annot-activate-created-annotations t
+  (setq pdf-annot-activate-created-annotations t ; automatically annotate highlights.
         pdf-annot-tweak-tooltips t
         pdf-annot-minor-mode-map-prefix (kbd "C-c C-a")
         )
