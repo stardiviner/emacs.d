@@ -76,6 +76,14 @@
 ;;   :config
 ;;   (load-theme 'gruvbox t))
 
+;;; [ spacemacs-theme ] -- Spacemacs default color-theme.
+
+;; (use-package spacemacs-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'spacemacs-dark t)
+;;   )
+
 ;;; [ kaolin-themes ] -- A set of eye pleasing themes.
 
 (use-package kaolin-themes
