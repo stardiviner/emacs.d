@@ -46,6 +46,11 @@
   :init
   (add-hook 'Info-selection-hook #'niceify-info))
 
+;;; [ sicp ] -- Structure and Interpretation of Computer Programs in info format.
+
+(use-package sicp
+  :ensure t)
+
 
 
 (provide 'init-my-prog-document-info)
