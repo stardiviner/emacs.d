@@ -63,7 +63,7 @@
         ;; CHM
         ("\\.chm\\'" . "kchmviewer %s")
         ;; EBooks
-        ;; ("\\.epub\\'" . "okular %s")
+        ("\\.epub\\'" . "okular %s")
         ("\\.mobi\\'" . "okular %s")
         ("\\.azw3\\'" . "okular %s")
         ;; Image
@@ -71,9 +71,9 @@
         ;; ("\\.jp\(e\)?g" . "sxiv %s")
         ("\\.jpg\\'" . "sxiv %s")
         ("\\.jpeg\\'" . "sxiv %s")
-        ;; ("\\.gif\\'" . "sxiv -a -f %s") ; "sxiv -a -f -- %s
+        ("\\.gif\\'" . "sxiv -a -f %s") ; "sxiv -a -f -- %s
         ;; ("\\.gif\\'" . "gwenview %s")
-        ("\\.gif\\'" . my-func/open-and-play-gif-image)
+        ;; ("\\.gif\\'" . my-func/open-and-play-gif-image)
         ;; ("\\.svg\\'" . "feh --magick-timeout 5 %s")
         ("\\.svg\\'" . "nomacs %s")
         ;; Mind Maps
