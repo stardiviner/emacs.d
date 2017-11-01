@@ -10,7 +10,7 @@
 
 (require 'org)
 
-(setq org-export-backends '(ascii html icalendar latex md)
+(setq org-export-backends '(ascii html icalendar latex md odt)
       org-export-headline-levels 5
       org-export-with-toc t
       org-export-with-tasks t
@@ -245,8 +245,7 @@ For pasting on sites like GitHub, and Stack Overflow."
                     (buffer-substring (region-beginning) (region-end)) 'md t))
   (deactivate-mark))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+
 ;;; [ org-mime ] -- org-mime can be used to send HTML email using Org-mode HTML export.
 
 (use-package org-mime
@@ -375,7 +374,6 @@ For pasting on sites like GitHub, and Stack Overflow."
   :ensure t)
 
 
-
 (provide 'init-my-org-export)
 
 ;;; init-my-org-export.el ends here
