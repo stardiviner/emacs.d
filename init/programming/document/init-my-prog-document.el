@@ -3,7 +3,7 @@
 ;;; Commentary:
 
 ;;; Code:
-
+
 
 (unless (boundp 'my-prog-help-document-map)
   (define-prefix-command 'my-prog-help-document-map))
@@ -23,8 +23,7 @@
 (require 'init-my-prog-document-assistant)
 (require 'init-my-prog-document-wikipedia)
 
-
-
+
 (provide 'init-my-prog-document)
 
 ;;; init-my-prog-document.el ends here

@@ -1,6 +1,5 @@
 ;;; init-mu4e.el --- init for mu4e.
 
-
 ;;; Commentary:
 
 
@@ -693,10 +692,15 @@
 ;; current select line
 (set-face-attribute 'mu4e-header-highlight-face nil
                     :inherit nil
-                    ;; 1.
-                    :background "#004A5D" :foreground "white"
-                    :box '(:color "cyan" :line-width -1)
-                    :weight 'normal :underline nil
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 10))
+                                  ('dark
+                                   (color-darken-name (face-background 'default) 5)))
+                    ;; 1. Sci-Fi cyan
+                    ;; :background "#004A5D" :foreground "white"
+                    ;; :box '(:color "cyan" :line-width -1)
+                    ;; :weight 'normal :underline nil
                     ;; 2.
                     ;; :background "#004A5D" :foreground "white"
                     ;; :box '(:color "#005D5E" :line-width -1)

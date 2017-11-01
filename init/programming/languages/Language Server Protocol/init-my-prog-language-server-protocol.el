@@ -5,7 +5,7 @@
 
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
+
 ;;; [ lsp-mode ] -- A Emacs Lisp library for implementing clients for servers using Microsoft's Language Server Protocol.
 
 (use-package lsp-mode
@@ -53,9 +53,7 @@
 (use-package lsp-haskell
   :ensure t)
 
-
-;;; ----------------------------------------------------------------------------
-
+
 (provide 'init-my-prog-language-server-protocol)
 
 ;;; init-my-prog-language-server-protocol.el ends here
