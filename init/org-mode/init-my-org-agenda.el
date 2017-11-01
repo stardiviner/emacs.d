@@ -65,9 +65,9 @@
 
 
 ;; include `diary-file' from `calendar'
-(setq org-agenda-include-diary t ; %%(org-calendar-holiday)
+(setq org-agenda-include-diary t
       ;; diary-file "~/Org/Tasks/Daily.org"
-      diary-file (locate-user-emacs-file "data/diary.org" "diary.org")
+      diary-file (locate-user-emacs-file "data/Anniversaries.org" "Anniversaries.org")
       org-agenda-diary-file 'diary-file
       ;; org-agenda-insert-diary-strategy 'date-tree
       )
