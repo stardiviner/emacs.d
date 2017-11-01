@@ -59,10 +59,10 @@
 
   ;; (setq org-indent-boundary-char ?\s) ; ?\s, ?|
 
-  (set-face-attribute 'org-indent nil
-                      :inherit 'org-hide
-                      :foreground (face-background 'default)
-                      )
+  ;; (set-face-attribute 'org-indent nil
+  ;;                     :inherit 'org-hide
+  ;;                     :foreground (face-background 'default)
+  ;;                     )
   )
 
 
