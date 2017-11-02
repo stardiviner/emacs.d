@@ -29,6 +29,8 @@
         ;; mouse-wheel-follow-mouse t
         )
 
+  (define-key pdf-view-mode-map (kbd "q") 'kill-current-buffer)
+
   ;; [ PDF Tools ]
   ;; [ isearch ]
   (require 'pdf-isearch)
