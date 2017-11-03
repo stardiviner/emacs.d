@@ -254,7 +254,6 @@ state (modified, read-only or non-existent)."
   "The encoding and eol style of the buffer."
   (propertize
    (concat
-    " "
     (let ((eol-type (coding-system-eol-type buffer-file-coding-system)))
       (cond
        ((eq eol-type 0)
@@ -271,7 +270,6 @@ state (modified, read-only or non-existent)."
         )
        (t
         (upcase (symbol-name sys-name)))))
-    " "
     )
    'face (if (active) 'mode-line-warn-face)))
 
@@ -308,7 +306,7 @@ state (modified, read-only or non-existent)."
 (defun *linum-info ()
   "Show line & column position info."
   (propertize " [%l:%c %p] "
-              'face '(:family "Monospace" :height 0.8))
+              'face '(:height 0.8))
   )
 
 ;;; pdf-tools page position
@@ -336,7 +334,7 @@ state (modified, read-only or non-existent)."
      ;; (all-the-icons-icon-for-file (buffer-file-name) :v-adjust -0.05 :height 1.0)
      (format-mode-line "%m" mode-name)
      )
-   (propertize " " 'face 'variable-pitch))
+   )
   )
 
 ;;; environment version info like: Python, Ruby, JavaScript,
@@ -868,6 +866,7 @@ dimensions of a block selection."
                  ;; (*purpose)
                  (*major-mode)
                  (*env)
+                 (*space 8)
                  ))
            (mid (propertize
                  " "
