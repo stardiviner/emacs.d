@@ -199,6 +199,17 @@ When called repeatedly, cycle through the buffers."
 ;; (add-to-list 'erc-modules 'scrolltobottom)
 ;; (erc-update-modules)
 
+;;; [ erc-scrolltoplace ] -- An ERC module to replace scrolltobottom while using keep-place.
+
+;; this fix issues from `erc-scrolltobottom-mode'.
+
+(use-package erc-scrolltoplace
+  :ensure t
+  :config
+  (add-to-list 'erc-modules 'scrolltoplace)
+  (erc-update-modules)
+  )
+
 ;;; [ Filling & Wrap ]
 (require 'erc-fill)
 (setq erc-fill-column 78) ; default: 78
