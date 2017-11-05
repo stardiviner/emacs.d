@@ -81,7 +81,7 @@ helpful for learning and remembering forgotten binds."
         which-key-show-remaining-keys t
         )
 
-  (setq which-key-sort-order 'which-key-prefix-then-key-order-reverse)
+  (setq which-key-sort-order 'which-key-key-order-alpha)
   
   (setq which-key-highlighted-command-list
         '("toggle"
