@@ -571,13 +571,13 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 ;;   :audible   Overwrite the value of `org-notify-audible' for this action.
 ;; ---------------------------------------------------------
 
-(org-notify-add 'default
-                '(:time "1h" :period "2h" :duration 8
-                        :actions (-notify/window)
-                        :audible t)
-                )
-
-(org-notify-start 300)
+;; (org-notify-add 'default
+;;                 '(:time "1h" :period "2h" :duration 8
+;;                         :actions (-notify/window)
+;;                         :audible t)
+;;                 )
+;;
+;; (org-notify-start 300)
 
 
 ;;; bind key [C-l] to locate to current time: "now -----" in Org-Agenda buffer.
@@ -598,13 +598,13 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 ;;; [ org-alert ] -- System notifications of org agenda items.
 
-(use-package org-alert
-  :ensure t
-  :config
-  (setq alert-default-style 'libnotify)
-  ;; (setq alert-user-configuration (quote ((((:category . "org-pomodoro")) libnotify nil))))
-  ;; (org-alert-enable)
-  )
+;; (use-package org-alert
+;;   :ensure t
+;;   :config
+;;   (setq alert-default-style 'libnotify)
+;;   ;; (setq alert-user-configuration (quote ((((:category . "org-pomodoro")) libnotify nil))))
+;;   (org-alert-enable)
+;;   )
 
 
 
