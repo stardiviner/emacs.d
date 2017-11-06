@@ -54,22 +54,6 @@
   )
 
 
-;;; [ help.el ]
-
-(use-package help+
-  :ensure t
-  :defer t)
-
-(use-package help-mode+
-  :ensure t
-  :defer t)
-
-(use-package help-fns+
-  :ensure t
-  :defer t)
-
-
-
 (setq suggest-key-bindings t) ; show the /equivalent/ key binding when [M-x] command has one.
 
 (define-key global-map (kbd "C-h u") 'manual-entry) ; Unix
