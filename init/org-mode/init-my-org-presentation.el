@@ -82,7 +82,7 @@
   :config
   ;; "http://cdn.jsdelivr.net/reveal.js/3.0.0/"
   ;; (concat user-emacs-directory "init/org-mode/reveal.js")
-  (setq org-reveal-root (expand-file-name (concat user-emacs-directory "init/org-mode/reveal.js/")))
+  (setq org-reveal-root (expand-file-name (concat user-emacs-directory "Org-mode/reveal.js/")))
   (setq org-reveal-plugins '(classList markdown zoom notes
                                        highlight search remotes multiplex))
   (setq org-reveal-highlight-css "%r/lib/css/solarized.css")
