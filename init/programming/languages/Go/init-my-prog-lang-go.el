@@ -121,9 +121,10 @@
 
 ;;; [ go-oracle ]
 
-(load "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
-(require 'go-oracle)
-
+(use-package go-oracle
+  :load-path "$GOPATH/src/golang.org/x/tools/cmd/oracle/"
+  :config
+  (require 'go-oracle))
 
 ;;; [ go-guru ] -- Integration of the Go 'guru' analysis tool into Emacs.
 
