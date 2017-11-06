@@ -8,7 +8,7 @@
 
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
+
 
 (setq make-backup-files t
       backup-by-copying t
@@ -29,7 +29,7 @@
       )
 
 
-;;; [ auto save ]
+;;; [ auto-save-mode ] -- toggle auto-saving in the current buffer.
 
 (setq auto-save-default t               ; create #autosave# files
       auto-save-list-file-prefix "~/.emacs.d/auto-save-list/.saves-"
@@ -39,10 +39,9 @@
 ;; Non-nil says auto-save a buffer in the file it is visiting, when practical.
 (setq auto-save-visited-file-name t)
 
-;; (auto-save-mode t)
+(auto-save-mode t)
 
-;;; ----------------------------------------------------------------------------
-
+
 (provide 'init-my-emacs-backup)
 
 ;;; init-my-emacs-backup.el ends here
