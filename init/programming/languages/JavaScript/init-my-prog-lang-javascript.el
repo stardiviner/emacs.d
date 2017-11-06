@@ -88,23 +88,24 @@
 (use-package js2-mode
   :ensure t
   :mode ("\\.js\\'" . js2-mode)
-  :config
+  :init
   (add-hook 'js-mode-hook 'js2-minor-mode)
   (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
-
+  :config
   ;; [ js2-refactor ]
   (use-package js2-refactor
     :ensure t
-    :config
+    :init
     (add-hook 'js2-mode-hook #'js2-refactor-mode)
-    (js2r-add-keybindings-with-prefix "M-RET")
     (define-key js2-mode-map (kbd "C-k") #'js2r-kill)
+    :config
+    (js2r-add-keybindings-with-prefix "M-RET")
     )
 
   ;; [ xref-js2 ] -- Jump to references/definitions using ag & js2-mode's AST in Emacs.
   (use-package xref-js2
     :ensure t
-    :config
+    :init
     (add-hook 'js2-mode-hook
               (lambda ()
                 (define-key js2-mode-map (kbd "M-.") nil)
@@ -117,10 +118,10 @@
 
 ;;; [ js3-mode ]
 
-(use-package js3-mode
-  :ensure t
-  :mode ("\\.js\\'" . js3-mode)
-  )
+;; (use-package js3-mode
+;;   :ensure t
+;;   :mode ("\\.js\\'" . js3-mode)
+;;   )
 
 
 ;;; [ flycheck checker ]
@@ -137,7 +138,9 @@
   )
 
 (add-hook 'js2-mode-hook 'js-mode-setup-flycheck-checkers)
-(add-hook 'js3-mode-hook 'js-mode-setup-flycheck-checkers)
+
+(if (featurep 'js3-mode)
+    (add-hook 'js3-mode-hook 'js-mode-setup-flycheck-checkers))
 
 
 ;;; [ nvm ] -- Manage Node versions within Emacs.
@@ -154,20 +157,11 @@
 
 (use-package js-comint
   :ensure t
+  :defer t
   :init
   ;; if use node.js, we need nice output
   (setenv "NODE_NO_READLINE" "1")
-  :config
-  ;; (setq inferior-js-program-command "node")
-  ;; (setq inferior-js-program-command "/usr/bin/java org.mozilla.javascript.tools.shell.Main")
 
-  (add-hook 'inferior-js-mode-hook
-            (lambda ()
-              (ansi-color-for-comint-mode-on)))
-  
-  ;; integrate with nvm.
-  (js-do-use-nvm)
-  
   (dolist (hook '(js2-mode-hook
                   js3-mode-hook
                   ))
@@ -181,6 +175,16 @@
                       ;; (local-set-key (kbd "C-c C-b") 'js-send-buffer-and-go)
                       (local-set-key (kbd "C-c C-l") 'js-load-file)
                       )))
+  :config
+  ;; (setq inferior-js-program-command "node")
+  ;; (setq inferior-js-program-command "/usr/bin/java org.mozilla.javascript.tools.shell.Main")
+
+  (add-hook 'inferior-js-mode-hook
+            (lambda ()
+              (ansi-color-for-comint-mode-on)))
+  
+  ;; integrate with nvm.
+  (js-do-use-nvm)
   )
 
 
@@ -215,6 +219,7 @@
 
 (use-package tern
   :ensure t
+  :defer t
   :mode ("\\.tern-project\\'" . json-mode)
   :init
   (dolist (hook '(js-mode-hook
@@ -256,6 +261,7 @@
 
 (use-package indium
   :ensure t
+  :defer t
   :init
   (dolist (hook '(js-mode-hook
                   js2-mode-hook
@@ -278,7 +284,8 @@
 
 (use-package lsp-javascript-typescript
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'js-mode-hook #'lsp-mode)
   (add-hook 'typescript-mode-hook #'lsp-mode) ;; for typescript support
   (add-hook 'js3-mode-hook #'lsp-mode) ;; for js3-mode support
@@ -324,7 +331,8 @@
 ;;; [ js-import ] -- Automatically import JavaScript files from the current project or dependencies.
 
 (use-package js-import
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ js-format ] -- Format or transform code style using NodeJS server with different javascript formatter.
 

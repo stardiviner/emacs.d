@@ -17,6 +17,7 @@
   ;; :load-path (concat (getenv "HOME")
   ;;                    "/Code/SuperCollider/supercollider"
   ;;                    "/editors/scel/el/")
+  :defer t
   :config
   (require 'sclang)
   (require 'sclang-interp)
@@ -71,22 +72,20 @@
 
   ;; (add-hook 'sclang-mode-hook #'my-sclang-auto-start)
   (define-key sclang-mode-map (kbd "C-c C-s") 'my-sclang-auto-start)
+
+  ;; [ sclang-extensions ] -- A collection of minor modes that improve your SuperCollider experience within Emacs.
+  (use-package sclang-extensions
+    :ensure t
+    :config
+    (setq sclang-bury-post-on-start? t
+          sclang-run-supercollider-if-not-active? nil ; run SuperCollider process will mute System sound.
+          )
+    
+    (add-hook 'sclang-mode-hook 'sclang-extensions-mode)
+    )
   )
 
-
-;;; [ sclang-extensions ] -- A collection of minor modes that improve your SuperCollider experience within Emacs.
-
-(use-package sclang-extensions
-  :ensure t
-  :config
-  (setq sclang-bury-post-on-start? t
-        sclang-run-supercollider-if-not-active? nil ; run SuperCollider process will mute System sound.
-        )
-  
-  (add-hook 'sclang-mode-hook 'sclang-extensions-mode)
-  )
-
-
+
 ;;; [ Overtone ] -- Combine SuperCollider + Clojure.
 
 (defun my/overtone-auto-start ()
@@ -117,6 +116,8 @@
 
 ;; (overtone-load-and-boot-external-server)
 ;; (overtone-load-and-boot-internal-server)
+
+
 
 
 

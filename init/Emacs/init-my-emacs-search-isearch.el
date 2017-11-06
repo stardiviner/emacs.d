@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 (unless (boundp 'isearch-prefix)
   (define-prefix-command 'isearch-prefix))
 (define-key my-search-prefix (kbd "i") 'isearch-prefix)
@@ -127,7 +127,7 @@
          ("C-c u" . swiper-all))
   )
 
-
+
 (provide 'init-my-emacs-search-isearch)
 
 ;;; init-my-emacs-search-isearch.el ends here

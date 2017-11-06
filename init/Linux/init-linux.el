@@ -35,11 +35,8 @@
 
 (use-package nginx-mode
   :ensure t
-  :defer t
-  :init
-  (add-to-list 'auto-mode-alist
-               '("nginx\\.conf\\'" . nginx-mode)
-               '("/etc/nginx/.*" . nginx-mode))
+  :mode (("nginx\\.conf\\'" . nginx-mode)
+         ("/etc/nginx/.*" . nginx-mode))
   )
 
 

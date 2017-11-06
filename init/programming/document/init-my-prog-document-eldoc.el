@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ ElDoc ] --- show you the argument list of the function call you are currently writing in the echo area.
 
 (use-package eldoc
@@ -50,7 +50,7 @@
   :ensure t
   :defer t)
 
-
+
 (provide 'init-my-prog-document-eldoc)
 
 ;;; init-my-prog-document-eldoc.el ends here

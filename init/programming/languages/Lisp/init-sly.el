@@ -22,7 +22,6 @@
                   sly-mrepl-mode-hook
                   ))
     (add-hook hook 'sly-mode))
-  
   :config
   ;; load SLY contribs
   ;; (setq sly-contribs `(sly-fancy
@@ -71,30 +70,25 @@
               ;; (paredit-mode 1)
               (smartparens-strict-mode 1)
               (eldoc-mode 1)))
+
+  ;; [ sly-company ] -- Company-mode completion backend for SLY.
+  (use-package sly-company
+    :ensure t
+    :defer t
+    :init
+    (dolist (hook '(sly-mode-hook
+                    sly-mrepl-mode-hook
+                    ))
+      (add-hook hook
+                (lambda ()
+                  (sly-company-mode 1)
+                  (my-company-add-backend-locally 'sly-company)
+                  )))
+    )
+
+  ;; [ ob-lisp ]
+  (setq org-babel-lisp-eval-fn #'sly-eval)
   )
-
-
-;;; [ ob-lisp ]
-
-(setq org-babel-lisp-eval-fn #'sly-eval)
-
-
-;;; [ sly-company ] -- Company-mode completion backend for SLY.
-
-(use-package sly-company
-  :ensure t
-  :defer t
-  :init
-  (dolist (hook '(sly-mode-hook
-                  sly-mrepl-mode-hook
-                  ))
-    (add-hook hook
-              (lambda ()
-                (sly-company-mode 1)
-                (my-company-add-backend-locally 'sly-company)
-                )))
-  )
-
 
 ;;; [ sly-repl-ansi-color ]
 
@@ -111,7 +105,8 @@
 ;;; - [C-c M-e] in `sly-editing-mode'.
 
 (use-package sly-macrostep
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 ;;; [ sly-named-readtables ] -- Support named readtables in Common Lisp files.

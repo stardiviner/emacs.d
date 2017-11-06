@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ markdown-mode ]
 
 (use-package markdown-mode
@@ -20,7 +20,7 @@
   :ensure t
   :defer t
   :init
-  ;; (add-hook 'markdown-mode-hook #'flymd-flyit)
+  (add-hook 'markdown-mode-hook #'flymd-flyit)
   :config
   ;; for Chrome browser compatible, set default browser to Firefox.
   (defun my-flymd-browser-function (url)
@@ -34,12 +34,13 @@
 
 (use-package markdown-edit-indirect
   :ensure t
+  :defer t
   :config
   (with-eval-after-load 'markdown-mode
     (define-key markdown-mode-map (kbd "C-c '") 'markdown-edit-indirect))
   )
 
-
+
 (provide 'init-my-prog-lang-markdown)
 
 ;;; init-my-prog-lang-markdown.el ends here

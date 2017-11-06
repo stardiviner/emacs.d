@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 
 (unless (boundp 'my-prog-eval-map)
   (define-prefix-command 'my-prog-eval-map))
@@ -126,12 +126,11 @@
 (use-package evalator
   :ensure t
   :defer t
-  :init
-  (define-key my-prog-eval-map (kbd "e") 'evalator)
-  (define-key my-prog-eval-map (kbd "x") 'evalator-explicit)
-  (define-key my-prog-eval-map (kbd "r") 'evalator-resume)
-  (define-key my-prog-eval-map (kbd "i") 'evalator-insert-equiv-expr)
-
+  :bind (:map my-prog-eval-map
+              ("e" . evalator)
+              ("x" . evalator-explicit)
+              ("r" . evalator-resume)
+              ("i" . evalator-insert-equiv-expr))
   :config
   ;; auto detect context
   (setq evalator-config-mode-context-alist nil)
@@ -139,16 +138,13 @@
                '(ruby-mode . evalator-ruby-context))
   (add-to-list 'evalator-config-mode-context-alist
                '(clojure-mode . evalator-clojure-context))
+
+  (use-package evalator-clojure
+    :ensure t
+    :defer t)
   )
 
-
-;;; [ evalator-clojure ]
-
-(use-package evalator-clojure
-  :ensure t
-  :defer t)
-
-
+
 (provide 'init-my-prog-eval)
 
 ;;; init-my-prog-eval.el ends here

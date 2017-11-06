@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ dom ]
 
 ;; (use-package dom
@@ -28,7 +28,7 @@
 ;;   (add-hook 'css-mode-hook (lambda () (kite-mini-mode t)))
 ;;   )
 
-
+
 (provide 'init-my-prog-web-browser)
 
 ;;; init-my-prog-web-browser.el ends here

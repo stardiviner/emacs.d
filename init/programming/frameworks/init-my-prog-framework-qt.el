@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Qt mode ]
 
 ;; qt keywords and stuff ...
@@ -97,10 +97,10 @@
 
 (use-package qml-mode
   :ensure t
+  :defer t
   :config
   (use-package company-qml
     :ensure t
-    :defer t
     :init
     (add-hook 'qml-mode-hook
               (lambda ()
@@ -120,6 +120,7 @@
   :ensure t
   :mode ("\\.pro\\'" "\\.pri\\'"))
 
+
 (provide 'init-my-prog-framework-qt)
 
 ;;; init-my-prog-framework-qt.el ends here

@@ -6,19 +6,23 @@
 
 
 ;;; Code:
+
+(unless (boundp 'screencast-prefix)
+  (define-prefix-command 'screencast-prefix))
+(define-key my-tools-prefix (kbd "M-s") 'screencast-prefix)
 
 ;;; [ command-log-mode ] -- log commands to buffer
 
 (use-package command-log-mode
   :ensure t
   :defer t
+  :bind (:map screencast-prefix
+              ("M-k" . clm/toggle-command-log-buffer)
+              ("k" . command-log-mode)
+              ("K" . global-command-log-mode))
   :init
-  ;; FIX: disable default global keybinding [C-c o]
+  ;; FIXME: disable default global keybinding [C-c o]
   (setq command-log-mode-key-binding-open-log nil)
-  
-  (define-key my-screenshot-map (kbd "M-k") 'clm/toggle-command-log-buffer)
-  (define-key my-screenshot-map (kbd "k") 'command-log-mode)
-  (define-key my-screenshot-map (kbd "K") 'global-command-log-mode)
   :config
   (setq command-log-mode-auto-show t
         command-log-mode-is-global nil
@@ -34,10 +38,9 @@
 (use-package camcorder
   :ensure t
   :defer t
-  :init
-  (define-key my-screenshot-map (kbd "r") 'camcorder-mode)
-  (define-key my-screenshot-map (kbd "R") 'camcorder-record)
-  
+  :bind (:map screencast-prefix
+              ("r" . camcorder-mode)
+              ("R" . camcorder-record))
   :config
   ;; (setq camcorder-recording-command
   ;;       '("recordmydesktop" " --fps 20 --no-sound --windowid " window-id " -o " file))
@@ -53,7 +56,7 @@
         )
   )
 
-
+
 (provide 'init-my-tool-screencast)
 
 ;;; init-my-tool-screencast.el ends here

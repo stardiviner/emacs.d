@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 (use-package gnugo
   :ensure t
   :defer t)
@@ -22,7 +22,7 @@
 (use-package sudoku
   :ensure t)
 
-
+
 (provide 'init-my-games)
 
 ;;; init-my-games.el ends here

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
+
 ;;; [ org-attach ] -- Manage file attachments to org-mode tasks.
 
 ;; - [C-c C-a] :: `org-attach'.
@@ -43,6 +43,7 @@
 
 (use-package org-download
   :ensure t
+  :defer t
   :config
   (setq org-download-screenshot-method "scrot -s %s"
         org-download-method 'attach ; 'attach, 'directory,
@@ -77,7 +78,8 @@
 
 (use-package org-board
   :ensure t
-  :config
+  :defer t
+  :init
   (unless (boundp 'my-org-board-prefix)
     (define-prefix-command 'my-org-board-prefix))
   (define-key my-org-prefix (kbd "C-b") 'my-org-board-prefix)
@@ -91,8 +93,7 @@
   (define-key my-org-board-prefix (kbd "C-d") 'org-board-delete-all)
   )
 
-;;; ----------------------------------------------------------------------------
-
+
 (provide 'init-my-org-attach)
 
 ;;; init-my-org-attach.el ends here

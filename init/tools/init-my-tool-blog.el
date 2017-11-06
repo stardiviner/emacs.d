@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 
 (unless (boundp 'blog-map)
   (define-prefix-command 'blog-map))
@@ -36,7 +36,7 @@
 
 (require 'init-my-tool-blog-org)
 
-
+
 (provide 'init-my-tool-blog)
 
 ;;; init-my-tool-blog.el ends here

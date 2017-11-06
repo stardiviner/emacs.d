@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ shen-mode ]
 
 (use-package shen-mode
@@ -20,7 +20,7 @@
   :ensure t
   :defer t)
 
-
+
 (provide 'init-my-prog-lang-shen)
 
 ;;; init-my-prog-lang-shen.el ends here

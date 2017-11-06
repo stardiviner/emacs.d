@@ -3,11 +3,9 @@
 
 ;;; Commentary:
 
-;;; [ regular expression ]
-
 
 ;;; Code:
-
+
 
 (unless (boundp 'my-regexp-prefix)
   (define-prefix-command 'my-regexp-prefix))
@@ -18,12 +16,12 @@
 
 (use-package re-builder
   :ensure t
+  :defer t
+  :bind (:map my-regexp-prefix
+              ("b" . re-builder))
   :config
   ;; (setq reb-re-syntax 'read) ; 'read, 'string, 'rx
-
   (define-key reb-mode-map (kbd "C-c C-q") 'reb-quit)
-
-  (define-key my-regexp-prefix (kbd "b") 're-builder)
   )
 
 ;;; [ pcre2el ] -- convert between PCRE, Emacs and rx regexp syntax.
@@ -31,9 +29,9 @@
 (use-package pcre2el
   :ensure t
   :defer t
-  :init
-  (define-key my-regexp-prefix (kbd "t") 'rxt-mode)
-  (define-key my-regexp-prefix (kbd "T") 'rxt-global-mode)
+  :bind (:map my-regexp-prefix
+              ("t" . rxt-mode)
+              ("T" . rxt-global-mode))
   )
 
 
@@ -138,7 +136,7 @@
 ;;                         "\"foo|\""))
 ;;        ))
 
-
+
 (provide 'init-my-emacs-regexp)
 
 ;;; init-my-emacs-regexp.el ends here

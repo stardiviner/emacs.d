@@ -6,14 +6,14 @@
 
 
 ;;; Code:
-
+
 ;;; [ SX ] -- Stack Exchange
 
 (use-package sx
   :ensure t
   :defer t
-  :init
-  (define-key my-tools-prefix (kbd "s") 'sx-tab-unanswered-my-tags)
+  :bind (:map my-tools-prefix
+              ("s" . sx-tab-unanswered-my-tags))
   :config
   ;; question mode
   (setq sx-question-mode-display-buffer-function #'pop-to-buffer
@@ -81,7 +81,7 @@
                       )
   )
 
-
+
 (provide 'init-my-tool-stack-exchange)
 
 ;;; init-my-tool-stack-exchange.el ends here

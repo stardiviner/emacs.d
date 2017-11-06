@@ -11,7 +11,6 @@
 
 (use-package clojure-mode
   :ensure t
-  :defer t
   :config
   (autoload 'my-lisp-common-settings "init-my-prog-lang-lisp.el")
   (add-hook 'clojure-mode-hook #'my-lisp-common-settings)
@@ -382,11 +381,10 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 
 (use-package cider-profile
   :ensure t
-  :defer t
   :init
   (add-hook 'cider-mode-hook 'cider-profile-mode)
   (add-hook 'cider-repl-mode-hook 'cider-profile-mode)
-  :config
+  ;; :config
   ;; If you would like to display profiling statistics in the current repl
   ;; window instead of in a pop-up window, do the following:
   ;; (setq cider-profile-buffer nil)
@@ -482,12 +480,14 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 ;;; [ cljsbuild-mode ] -- A minor mode for the ClojureScript 'lein cljsbuild' command.
 
 (use-package cljsbuild-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ 4clojure ] -- Open and evaluate 4clojure.com questions in Emacs.
 
 (use-package 4clojure
   :ensure t
+  :defer t
   :config
   (defadvice 4clojure-open-question (around 4clojure-open-question-around)
     "Start a cider/nREPL connection if one hasn't already been started when
@@ -499,6 +499,7 @@ opening 4clojure questions"
 
 (use-package yesql-ghosts
   :ensure t
+  :defer t
   :config
   (add-hook 'cider-mode-hook 'yesql-ghosts-auto-show-ghosts)
   (setq yesql-ghosts-show-ghosts-automatically t
@@ -509,6 +510,7 @@ opening 4clojure questions"
 
 (use-package hugsql-ghosts
   :ensure t
+  :defer t
   :config
   (add-hook 'cider-mode-hook 'hugsql-ghosts-install-hook)
   (setq hugsql-ghosts-newline-before-docstrings t)

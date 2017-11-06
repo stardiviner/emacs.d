@@ -6,31 +6,18 @@
 ;;; http://www.itk.org/Wiki/CMake/Editors/Emacs
 
 ;;; Code:
-
+
 ;;; [ cmake-mode ]
 
 (use-package cmake-mode
   :ensure t
-  :defer t
-  :init
-  ;; Add cmake listfile names to the mode list.
-  (setq auto-mode-alist
-        (append
-         '(("CMakeLists\\.txt\\'" . cmake-mode))
-         '(("\\.cmake\\'" . cmake-mode))
-         auto-mode-alist))
+  :mode (("CMakeLists\\.txt\\'" . cmake-mode)
+         ("\\.cmake\\'" . cmake-mode))
+  :config
+  (use-package cmake-font-lock
+    :ensure t
+    :defer t)
   )
-
-
-;;; [ cmake-font-lock ]
-
-(use-package cmake-font-lock
-  :ensure t
-  :init
-  (autoload 'cmake-font-lock-activate "cmake-font-lock.el" t)
-  (add-hook 'cmake-mode-hook 'cmake-font-lock-activate)
-  )
-
 
 ;;; [ cmake-ide ]
 
@@ -48,7 +35,7 @@
   :ensure t
   :defer t)
 
-
+
 (provide 'init-my-prog-make-cmake)
 
 ;;; init-my-prog-make-cmake.el ends here

@@ -20,16 +20,6 @@
 ;;   (define-key my-org-prefix (kbd "D") 'otama-helm)
 ;;   )
 
-
-;;; [ org-eww ] -- automatically use eww to preview current org-file when save.
-
-;; (use-package org-eww
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (add-hook 'org-mode-hook 'org-eww-mode)
-;;   )
-
 ;;; [ org-crypt ] -- public key encryption for Org entries
 
 (require 'org-crypt)

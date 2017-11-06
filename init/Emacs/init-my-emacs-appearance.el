@@ -161,8 +161,7 @@
 
 ;; highlight current line
 (use-package hl-line
-  :defer t
-  :config
+  :init
   (global-hl-line-mode 1)
   )
 

@@ -73,6 +73,7 @@
 
 (use-package irony
   :ensure t
+  :defer t
   :config
   (hook-modes c-dialects-mode
     (when (memq major-mode irony-supported-major-modes)
@@ -136,6 +137,7 @@
 
 (use-package flycheck-cstyle
   :ensure t
+  :defer t
   :after flycheck
   :config
   (flycheck-cstyle-setup)
@@ -147,6 +149,7 @@
 
 (use-package flycheck-clang-analyzer
   :ensure t
+  :defer t
   :after flycheck
   :config (flycheck-clang-analyzer-setup))
 

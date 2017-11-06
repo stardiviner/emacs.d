@@ -12,7 +12,7 @@
 (use-package visual-fill-column
   :ensure t
   :defer t
-  :bind (("C-x t v" . visual-fill-column-mode))
+  :bind ("C-x t M-v" . visual-fill-column-mode)
   :config
   (setq-default visual-fill-column-center-text nil)
   )

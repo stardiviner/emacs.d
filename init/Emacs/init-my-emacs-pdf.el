@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ pdf-tools ] -- Emacs support library for PDF files.
 
 (use-package pdf-tools
@@ -79,6 +79,56 @@
 
   (add-hook 'pdf-view-mode-hook #'my-pdf-tools-setup)
 
+
+  ;; display PDFs on the side window of Emacs.
+  (defvar pdf-minimal-width 72
+    "Minimal width of a window displaying a pdf.
+If an integer, number of columns.  If a float, fraction of the
+original window.")
+
+  (defvar pdf-split-width-threshold 120
+    "Minimum width a window should have to split it horizontally
+for displaying a pdf in the right.")
+
+  (defun pdf-split-window-sensibly (&optional window)
+    "A version of `split-window-sensibly' for pdfs.
+It prefers splitting horizontally, and takes `pdf-minimal-width'
+into account."
+    (let ((window (or window (selected-window)))
+          (width (- (if (integerp pdf-minimal-width)
+                        pdf-minimal-width
+                      (round (* pdf-minimal-width (window-width window)))))))
+      (or (and (window-splittable-p window t)
+               ;; Split window horizontally.
+               (with-selected-window window
+                 (split-window-right width)))
+          (and (window-splittable-p window)
+               ;; Split window vertically.
+               (with-selected-window window
+                 (split-window-below)))
+          (and (eq window (frame-root-window (window-frame window)))
+               (not (window-minibuffer-p window))
+               ;; If WINDOW is the only window on its frame and is not the
+               ;; minibuffer window, try to split it vertically disregarding
+               ;; the value of `split-height-threshold'.
+               (let ((split-height-threshold 0))
+                 (when (window-splittable-p window)
+                   (with-selected-window window
+                     (split-window-below))))))))
+
+  (defun display-buffer-pop-up-window-pdf-split-horizontally (buffer alist)
+    "Call `display-buffer-pop-up-window', using `pdf-split-window-sensibly'
+when needed."
+    (let ((split-height-threshold nil)
+          (split-width-threshold pdf-split-width-threshold)
+          (split-window-preferred-function #'pdf-split-window-sensibly))
+      (display-buffer-pop-up-window buffer alist)))
+
+  (add-to-list 'display-buffer-alist
+               '("\\.pdf\\(<[^>]+>\\)?$" .
+                 (display-buffer-pop-up-window-pdf-split-horizontally)))
+
+
   ;; workaround for pdf-tools not reopening to last-viewed page of the pdf:
   ;; https://github.com/politza/pdf-tools/issues/18#issuecomment-269515117
   (defun my/pdf-set-last-viewed-bookmark ()
@@ -110,7 +160,7 @@
   )
 
 
-;;; export annotations at once
+;; export annotations at once
 ;;
 ;; 1. Try M-x pp-eval-expression (pdf-annot-getannots nil '(text)) RET
 ;;
@@ -134,10 +184,8 @@
 
 (use-package org-pdfview
   :ensure t
+  :after 'org
   :config
-  (with-eval-after-load 'org
-    (require 'org-pdfview))
-
   ;; change Org-mode default open PDF file function.
   ;; If you want, you can also configure the org-mode default open PDF file function.
   (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (org-pdfview-open link))))
@@ -147,101 +195,52 @@
   ;; (add-to-list 'org-file-apps '("\\.pdf::\\([[:digit:]]+\\)\\'" . org-pdfview-open))
 
   (org-add-link-type "pdfview" 'org-pdfview-open 'org-pdfview-export)
-  )
 
-;;; [ interleave ] -- Emacs minor mode to interleave notes and text books.
+  ;; [ interleave ] -- Emacs minor mode to interleave notes and text books.
+  (use-package interleave
+    :ensure t
+    :defer t
+    :commands (interleave-mode)
+    :bind (:map my-org-prefix ("M-p" . interleave-mode))
+    ;; :init
+    ;; open org-mode [[file:.pdf]] link with `interleave-mode'.
+    ;; (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (interleave-mode link))))
+    ;; (add-to-list 'org-file-apps '("\\.pdf::\\([[:digit:]]+\\)\\'" . (lambda (file link) (interleave-mode link))))
+    :config
+    (setq interleave-split-direction 'horizontal)
+    (add-to-list 'org-default-properties "INTERLEAVE_PDF")
+    ;; Idiosyncrasies: Interleave does some automated buffer switching for you, especially at start up.
+    (defun my-interleave-hook ()
+      (with-current-buffer interleave-org-buffer
+        ;; Do something meaningful here
+        (message "Now, you're in the interleave Org-mode buffer!")))
+    (add-hook 'interleave-mode-hook #'my-interleave-hook)
+    )
 
-(use-package interleave
-  :ensure t
-  :commands (interleave-mode)
-  :bind (:map my-org-prefix ("M-p" . interleave-mode))
-  ;; :init
-  ;; open org-mode [[file:.pdf]] link with `interleave-mode'.
-  ;; (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (interleave-mode link))))
-  ;; (add-to-list 'org-file-apps '("\\.pdf::\\([[:digit:]]+\\)\\'" . (lambda (file link) (interleave-mode link))))
-  :config
-  (setq interleave-split-direction 'horizontal)
-  (add-to-list 'org-default-properties "INTERLEAVE_PDF")
-  ;; Idiosyncrasies: Interleave does some automated buffer switching for you, especially at start up.
-  (defun my-interleave-hook ()
-    (with-current-buffer interleave-org-buffer
-      ;; Do something meaningful here
-      (message "Now, you're in the interleave Org-mode buffer!")))
-  (add-hook 'interleave-mode-hook #'my-interleave-hook)
-  )
-
-;;; [ pdf-tools-org ] -- integrate pdf-tools annotations with Org-mode.
-
-(use-package pdf-tools-org
-  :quelpa (pdf-tools-org :fetcher github :repo "machc/pdf-tools-org")
-  :config
-  (add-hook 'after-save-hook
-            (lambda ()
-              (when (eq major-mode 'pdf-view-mode)
-                (pdf-tools-org-export-to-org))))
-  )
-
-;;; display PDFs on the side window of Emacs.
-
-(defvar pdf-minimal-width 72
-  "Minimal width of a window displaying a pdf.
-If an integer, number of columns.  If a float, fraction of the
-original window.")
-
-(defvar pdf-split-width-threshold 120
-  "Minimum width a window should have to split it horizontally
-for displaying a pdf in the right.")
-
-(defun pdf-split-window-sensibly (&optional window)
-  "A version of `split-window-sensibly' for pdfs.
-It prefers splitting horizontally, and takes `pdf-minimal-width'
-into account."
-  (let ((window (or window (selected-window)))
-        (width (- (if (integerp pdf-minimal-width)
-                      pdf-minimal-width
-                    (round (* pdf-minimal-width (window-width window)))))))
-    (or (and (window-splittable-p window t)
-             ;; Split window horizontally.
-             (with-selected-window window
-               (split-window-right width)))
-        (and (window-splittable-p window)
-             ;; Split window vertically.
-             (with-selected-window window
-               (split-window-below)))
-        (and (eq window (frame-root-window (window-frame window)))
-             (not (window-minibuffer-p window))
-             ;; If WINDOW is the only window on its frame and is not the
-             ;; minibuffer window, try to split it vertically disregarding
-             ;; the value of `split-height-threshold'.
-             (let ((split-height-threshold 0))
-               (when (window-splittable-p window)
-                 (with-selected-window window
-                   (split-window-below))))))))
-
-(defun display-buffer-pop-up-window-pdf-split-horizontally (buffer alist)
-  "Call `display-buffer-pop-up-window', using `pdf-split-window-sensibly'
-when needed."
-  (let ((split-height-threshold nil)
-        (split-width-threshold pdf-split-width-threshold)
-        (split-window-preferred-function #'pdf-split-window-sensibly))
-    (display-buffer-pop-up-window buffer alist)))
-
-(add-to-list 'display-buffer-alist
-             '("\\.pdf\\(<[^>]+>\\)?$" .
-               (display-buffer-pop-up-window-pdf-split-horizontally)))
-
-
-;;; [ paperless ] -- Emacs assisted PDF document filing.
-
-(use-package paperless
-  :ensure t
-  :config
-  ;; (setq paperless-root-directory
-  ;;       paperless-capture-directory
-  ;;       )
+  ;; [ pdf-tools-org ] -- integrate pdf-tools annotations with Org-mode.
+  (use-package pdf-tools-org
+    :quelpa (pdf-tools-org :fetcher github :repo "machc/pdf-tools-org")
+    :defer t
+    :init
+    (add-hook 'after-save-hook
+              (lambda ()
+                (when (eq major-mode 'pdf-view-mode)
+                  (pdf-tools-org-export-to-org))))
+    )
+  
+  ;; [ paperless ] -- Emacs assisted PDF document filing.
+  (use-package paperless
+    :ensure t
+    :commands (paperless)
+    ;; :config
+    ;; (setq paperless-root-directory
+    ;;       paperless-capture-directory
+    ;;       )
+    )
   )
 
 
+
 (provide 'init-my-emacs-pdf)
 
 ;;; init-my-emacs-pdf.el ends here

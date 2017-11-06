@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ gitlab ] -- Emacs client for GitLab
 
 (use-package gitlab
@@ -27,7 +27,7 @@
 ;;   :ensure t
 ;;   :defer t)
 
-
+
 (provide 'init-my-prog-vcs-git-gitlab)
 
 ;;; init-my-prog-vcs-git-gitlab.el ends here

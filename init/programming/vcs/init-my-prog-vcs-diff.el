@@ -84,6 +84,7 @@
 
 (use-package diffview
   :ensure t
+  :defer t
   :bind (:map my-prog-vcs-diff-prefix
               ("d" . diffview-current)
               ("r" . diffview-region)
@@ -127,6 +128,7 @@
 
 (use-package dumb-diff
   :ensure t
+  :defer t
   :commands (dumb-diff)
   )
 

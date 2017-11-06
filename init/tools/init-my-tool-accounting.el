@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
+
 
 (unless (boundp 'accounting-prefix)
   (define-prefix-command 'accounting-prefix))
@@ -109,7 +109,7 @@
               ("j" . hledger-run-command)
               ("e" . hledger-jentry))
   :config
-  (setq hledger-jfile "~/Org/Accounting/hledger.journal")
+  (setq hledger-jfile (expand-file-name (concat org-directory "/Accounting/hledger.journal")))
   
   (add-hook 'hledger-mode-hook
             (lambda ()
@@ -126,7 +126,7 @@
   (add-to-list 'org-babel-tangle-lang-exts '("hledger" . "hledger"))
   )
 
-;;; ----------------------------------------------------------------------------
+
 
 (provide 'init-my-tool-accounting)
 

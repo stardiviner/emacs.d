@@ -6,11 +6,12 @@
 
 
 ;;; Code:
-
+
 ;;; [ asm-mode ]
 
 (use-package asm-mode
   :ensure t
+  :defer t
   :config
   (defun my-asm-mode-settings ()
     ;; you can use `comment-dwim' (M-;) for this kind of behaviour anyway
@@ -104,7 +105,7 @@
   (define-key asm-mode-map (kbd "C-c r") 'inferior-spim-send-run)
   )
 
-
+
 (provide 'init-my-prog-lang-assembly)
 
 ;;; init-my-prog-lang-assembly.el ends here

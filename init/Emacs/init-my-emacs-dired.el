@@ -10,7 +10,6 @@
 ;;; [ Dired ] (Directory editing mode)
 
 (use-package dired
-  :defer t
   :bind (("C-x d" . dired)
          :map dired-mode-map
          ("j" . dired-next-line)
@@ -20,7 +19,6 @@
          ("F" . find-name-dired)
          ;; ("e" . ediff-files)
          )
-
   :config
   ;; auto refresh dired when file changes
   (add-hook 'dired-mode-hook 'auto-revert-mode)
@@ -240,6 +238,7 @@
 
   (use-package ivy-dired-history
     :ensure t
+    :defer t
     :config
     (require 'savehist)
     (add-to-list 'savehist-additional-variables 'ivy-dired-history-variable)
@@ -265,8 +264,10 @@
 ;;; [ exiftool ] -- an elisp wrapper around ExifTool.
 
 (use-package exiftool
-  :ensure t)
+  :ensure t
+  :defer t)
 
+
 (provide 'init-my-emacs-dired)
 
 ;;; init-my-emacs-dired.el ends here

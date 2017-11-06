@@ -3,7 +3,7 @@
 ;;; Commentary:
 
 ;;; Code:
-
+
 ;;; [ minibuffer ]
 
 ;; (setq-default max-mini-window-height 6)
@@ -52,7 +52,7 @@
       )
 (help-at-pt-set-timer)
 
-
+
 (provide 'init-my-emacs-minibuffer)
 
 ;;; init-my-emacs-minibuffer.el ends here

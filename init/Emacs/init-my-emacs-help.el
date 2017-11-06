@@ -27,7 +27,6 @@
 
 (use-package info+
   :ensure t
-  :defer t
   :config
   (setq Info-breadcrumbs-in-header-flag t
         ;; Info-display-node-header-fn

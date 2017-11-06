@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ yaml-mode ]
 
 (use-package yaml-mode
@@ -18,7 +18,7 @@
   (setq yaml-indent-offset 4)
   )
 
-
+
 (provide 'init-my-prog-lang-yaml)
 
 ;;; init-my-prog-lang-yaml.el ends here

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Evil ]
 
 (use-package evil
@@ -19,7 +19,7 @@
   :ensure t
   :defer t)
 
-
+
 (provide 'init-my-vim)
 
 ;;; init-my-vim.el ends here

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ db-pg ] -- key-value Database on PostgreSQL.
 
 ;; (use-package db-pg
@@ -30,7 +30,7 @@
 ;;   :defer t
 ;;   )
 
-
+
 (provide 'init-my-prog-lang-database-postgresql)
 
 ;;; init-my-prog-lang-database-postgresql.el ends here

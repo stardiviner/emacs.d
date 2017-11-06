@@ -14,7 +14,6 @@
   :defer t
   :init
   (global-prettify-symbols-mode 1)
-  
   :config
   (setq prettify-symbols-unprettify-at-point 'right-edge)
   
@@ -54,7 +53,8 @@
 
 (use-package digit-groups
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'org-mode-hook
             (lambda ()
               (if (not (equal (buffer-name) "Diary.org"))

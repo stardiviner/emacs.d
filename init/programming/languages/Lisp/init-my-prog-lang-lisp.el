@@ -15,7 +15,6 @@
 
 (use-package paredit
   :ensure t
-  :defer t
   :config
   ;; remove following keybindings
   (dolist (binding (list (kbd "C-<left>") (kbd "C-<right>")

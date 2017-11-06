@@ -363,6 +363,15 @@ For pasting on sites like GitHub, and Stack Overflow."
 ;;   :ensure t
 ;;   :defer t)
 
+;;; [ org-eww ] -- automatically use eww to preview current org-file when save.
+
+;; (use-package org-eww
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (add-hook 'org-mode-hook 'org-eww-mode)
+;;   )
+
 ;;; [ html2org ] -- convert html to org format text.
 
 (use-package html2org

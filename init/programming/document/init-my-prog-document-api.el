@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ helm-dash ] -- Browse Dash docsets inside Emacs.
 
 (use-package helm-dash
@@ -169,6 +169,7 @@
 
 (use-package zeal-at-point
   :ensure t
+  :defer t
   :bind (:map my-prog-help-document-map
               ("C-d" . zeal-at-point))
   :init
@@ -196,7 +197,7 @@
 ;;   :ensure t
 ;;   :mode "\\.apib\\'")
 
-
+
 (provide 'init-my-prog-document-api)
 
 ;;; init-my-prog-document-api.el ends here

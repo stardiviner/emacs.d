@@ -6,15 +6,16 @@
 
 
 ;;; Code:
-
+
 ;;; [ migemo ] -- provides Japanese increment search with 'Romanization of Japanese'(ローマ字).
 
 (use-package migemo
   :ensure t
   :defer t
+  :commands (migemo)
+  :bind (:map my-search-language-prefix
+              ("j" . migemo-isearch-toggle-migemo))
   :config
-  (autoload 'migemo "migemo" "" t)
-
   (setq migemo-command "cmigemo"
         migemo-options '("-q" "--emacs")
         ;; Set your installed path
@@ -25,7 +26,6 @@
         )
 
   ;; (migemo-init)
-  (define-key my-search-language-prefix (kbd "j") 'migemo-isearch-toggle-migemo)
   )
 
 
@@ -33,7 +33,7 @@
 
 ;; (require 'oniisama)
 
-
+
 (provide 'init-my-language-japanese)
 
 ;;; init-my-language-japanese.el ends here

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
+
 ;;; [ rst ] -- Mode for viewing and editing reStructuredText-documents.
 
 (use-package rst
@@ -54,8 +54,7 @@
   :ensure t
   :defer t)
 
-;;; ----------------------------------------------------------------------------
-
+
 (provide 'init-my-prog-lang-reStructuredText)
 
 ;;; init-my-prog-lang-reStructuredText.el ends here

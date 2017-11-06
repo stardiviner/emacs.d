@@ -204,7 +204,8 @@
 
 (use-package suggest
   :ensure t
-  :defer t)
+  :defer t
+  :commands (suggest))
 
 
 ;;; [ ERT ] -- Emacs Lisp Regression Testing.

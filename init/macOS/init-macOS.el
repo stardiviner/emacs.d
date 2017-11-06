@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; For MacOS
 (setq mac-option-modifier 'hyper) ; sets the Option key as Hyper
 (setq mac-option-modifier 'super) ; sets the Option key as Super
@@ -22,9 +22,9 @@
 ;;; [ helm-xcdoc ] -- Search Xcode Document by docsetutil and eww with Helm interface.
 
 (use-package helm-xcdoc
-  :ensure t
-  )
+  :ensure t)
 
+
 (provide 'init-macOS)
 
 ;;; init-macOS.el ends here

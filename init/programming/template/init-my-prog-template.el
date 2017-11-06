@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ tempo ]
 
 (require 'tempo)
@@ -49,8 +49,9 @@
   )
 
 
-;;; [ skeleton ]
+;;; [ skeleton ] -- Lisp language extension for writing statement skeletons.
 
+(require 'skeleton)
 
 ;;; [ yatemplate ] -- with YASnippet + auto-insert-mode.
 
@@ -61,7 +62,7 @@
 ;;   (setq yatemplate-dir (locate-user-emacs-file "templates"))
 ;;   )
 
-
+
 (provide 'init-my-prog-template)
 
 ;;; init-my-prog-template.el ends here

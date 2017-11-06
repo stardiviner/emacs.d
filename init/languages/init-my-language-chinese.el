@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ chinese-word-at-point ] -- Get (most likely) Chinese word under the cursor in Emacs.
 
 (use-package chinese-word-at-point
@@ -21,13 +21,12 @@
 
 (use-package pinyin-search
   :ensure t
-  :defer t
-  :init
-  (define-key my-search-language-prefix (kbd "c") 'pinyin-search)
-  (define-key my-search-language-prefix (kbd "C") 'pinyin-search-backward)
+  :bind (:map my-search-language-prefix
+              ("c" . pinyin-search)
+              ("C" . pinyin-search-backward))
   )
 
-
+
 (provide 'init-my-language-chinese)
 
 ;;; init-my-language-chinese.el ends here

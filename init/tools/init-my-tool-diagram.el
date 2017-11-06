@@ -11,6 +11,7 @@
 
 (use-package artist
   :ensure t
+  :defer t
   :bind (:map my-tools-prefix
               ("a" . artist-mode))
   :config
@@ -52,6 +53,7 @@
 
 (use-package graphviz-dot-mode
   :ensure t
+  :defer t
   :init
   (setq default-tab-width 2)
   
@@ -72,6 +74,7 @@
 
 (use-package plantuml-mode
   :ensure t
+  :defer t
   :config
   (setq plantuml-jar-path (locate-user-emacs-file "init/extra/plantuml.jar"))
   )
@@ -80,6 +83,7 @@
 
 (use-package ob-blockdiag
   :ensure t
+  :defer t
   :config
   (add-to-list 'org-babel-load-languages '(blockdiag . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)

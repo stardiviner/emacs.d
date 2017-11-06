@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ ivy ]
 
 (use-package ivy
@@ -148,18 +148,7 @@
   (setq counsel-yank-pop-truncate t)
   )
 
-
-;;; [ counsel-projectile ] -- Ivy integration for Projectile.
-
-;; (use-package counsel-projectile
-;;   :ensure t
-;;   :defer t
-;;   :commands counsel-projectile
-;;   :bind (:map projectile-command-map
-;;               ("p". counsel-projectile))
-;;   )
-
-
+
 (provide 'init-ivy)
 
 ;;; init-ivy.el ends here

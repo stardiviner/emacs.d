@@ -5,7 +5,7 @@
 
 
 ;;; Code:
-
+
 (unless (boundp 'my-prog-lint-map)
   (define-prefix-command 'my-prog-lint-map))
 
@@ -21,7 +21,6 @@
 
 (use-package flycheck
   :ensure t
-  :defer t
   :commands flycheck-mode
   :init
   ;; (add-hook 'after-init-hook #'global-flycheck-mode)
@@ -93,17 +92,6 @@
   )
 
 
-;;; [ flycheck-pos-tip ] -- display errors under point using popup.el.
-
-;; This can avoid flycheck tip in minibuffer to override eldoc info.
-(use-package flycheck-pos-tip
-  :ensure t
-  :config
-  (with-eval-after-load 'flycheck
-    (setq flycheck-display-errors-function 'flycheck-pos-tip-error-messages
-          flycheck-pos-tip-timeout 5))
-  )
-
 
 ;;; [ flycheck-ineline ] -- display errors with inline style.
 
@@ -114,11 +102,12 @@
 ;;     (add-hook 'flycheck-mode-hook #'flycheck-inline-enable))
 ;;   )
 
+
 ;;; [ flycheck-popup-tip ] -- displaying errors from Flycheck using popup.el.
 
 (use-package flycheck-popup-tip
   :ensure t
-  :config
+  :init
   (with-eval-after-load 'flycheck
     (add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode))
   )

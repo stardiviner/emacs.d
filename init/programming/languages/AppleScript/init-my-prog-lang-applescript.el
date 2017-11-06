@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
+
 ;;; [ applescript-mode ]
 
 (use-package applescript-mode
@@ -25,8 +25,7 @@
   :ensure t
   :defer t)
 
-;;; ----------------------------------------------------------------------------
-
+
 (provide 'init-my-prog-lang-applescript)
 
 ;;; init-my-prog-lang-applescript.el ends here

@@ -81,6 +81,7 @@
 
 (use-package flycheck-julia
   :ensure t
+  :defer t
   :config
   (flycheck-julia-setup)
   ;; if you use `flycheck-global-mode'

@@ -6,11 +6,12 @@
 
 
 ;;; Code:
-
+
 ;;; [ emmet-mode ]
 
 (use-package emmet-mode
   :ensure t
+  :defer t
   :init
   (add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
   (add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
@@ -48,6 +49,7 @@
 
 (use-package tagedit
   :ensure t
+  :defer t
   :init
   (tagedit-add-paredit-like-keybindings)
   ;; auto insert <></> when you type <, and auto expand to <div></div> as you type.
@@ -75,6 +77,7 @@
 
 (use-package ob-browser
   :ensure t
+  :defer t
   :init
   ;; open those babels with `web-mode'.
   (with-eval-after-load "web-mode"
@@ -83,7 +86,7 @@
     (add-to-list 'org-src-lang-modes '("rhtml" . web)))
   )
 
-
+
 (provide 'init-my-prog-lang-html)
 
 ;;; init-my-prog-lang-html.el ends here

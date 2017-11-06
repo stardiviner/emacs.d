@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ org-trello ] -- Sync Trello boards with Emacs' Org-mode buffers.
 
 (use-package org-trello
@@ -44,7 +44,7 @@
   ;;             ))
   )
 
-
+
 (provide 'init-my-org-trello)
 
 ;;; init-my-org-trello.el ends here

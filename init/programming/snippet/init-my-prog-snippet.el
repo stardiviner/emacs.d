@@ -9,7 +9,6 @@
 
 (use-package yasnippet
   :ensure t
-  :defer t
   ;; auto set major mode: snippet-mode.
   :mode (("\\.snippet$" . snippet-mode)
          ("\\.yasnippet$" . snippet-mode))

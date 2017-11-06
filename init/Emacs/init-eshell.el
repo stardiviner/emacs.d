@@ -5,7 +5,7 @@
 
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
+
 ;;; [ Eshell ] (Emacs Shell)
 
 (require 'eshell)
@@ -190,8 +190,7 @@ PWD is not in a git repo (or the git command is not found)."
   "Auto-complete a command that wants a name of a file in ~/.emacs.d/.marks."
   (pcomplete-here* (directory-files eshell-jump-bookmark-dir)))
 
-;;; ----------------------------------------------------------------------------
-
+
 (provide 'init-eshell)
 
 ;;; init-eshell.el ends here

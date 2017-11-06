@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 
 (unless (boundp 'HTTP-prefix)
   (define-prefix-command 'HTTP-prefix))
@@ -17,9 +17,9 @@
 
 (use-package restclient
   :ensure t
-  :init
-  (add-to-list 'auto-mode-alist '("\\.http\\'" . restclient-mode))
-  (define-key HTTP-prefix (kbd "r") 'restclient-new-buffer)
+  :mode ("\\.http\\'" . restclient-mode)
+  :bind (:map HTTP-prefix
+              ("r" . restclient-new-buffer))
   :config
   (setq restclient-log-request t
         restclient-same-buffer-response t
@@ -45,38 +45,30 @@
             (lambda ()
               (require 'js)
               (setq-local indent-line-function 'js-indent-line)))
+
+  ;; [ company-restclient ]
+  (use-package company-restclient
+    :ensure t
+    :config
+    (add-hook 'restclient-mode-hook
+              (lambda ()
+                (my-company-add-backend-locally 'company-restclient)
+                ))
+    )
+
+  ;; [ ob-restclient ]
+  (use-package ob-restclient
+    :ensure t
+    :config
+    (add-to-list 'org-babel-load-languages '(restclient . t))
+    (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+    ;; (add-to-list 'org-babel-tangle-lang-exts '("restclient" . "http"))
+    )
+
+  ;; [ restclient-test ] -- Run tests with restclient.el
+  (use-package restclient-test
+    :ensure t)
   )
-
-
-;;; [ company-restclient ]
-
-(use-package company-restclient
-  :ensure t
-  :config
-  (add-hook 'restclient-mode-hook
-            (lambda ()
-              (my-company-add-backend-locally 'company-restclient)
-              ))
-  )
-
-
-;;; [ ob-restclient ]
-
-(use-package ob-restclient
-  :ensure t
-  :config
-  (add-to-list 'org-babel-load-languages '(restclient . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  ;; (add-to-list 'org-babel-tangle-lang-exts '("restclient" . "http"))
-  )
-
-
-;;; [ restclient-test ] -- Run tests with restclient.el
-
-(use-package restclient-test
-  :ensure t
-  :defer t)
-
 
 ;; [ ob-http ] -- http request in org-mode babel
 
@@ -102,7 +94,8 @@
 ;;; [ know-your-http-well ]
 
 (use-package know-your-http-well
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 ;;; [ httpcode ] -- explains the meaning of an HTTP status code.
@@ -110,11 +103,11 @@
 (use-package httpcode
   :ensure t
   :defer t
-  :init
-  (define-key HTTP-prefix (kbd "d") 'hc)
+  :bind (:map HTTP-prefix
+              ("d" . hc))
   )
 
-
+
 (provide 'init-my-prog-framework-http)
 
 ;;; init-my-prog-framework-http.el ends here

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ TeX-mode ]
 
 
@@ -243,7 +243,7 @@ character(s), in which case it deletes the space(s) first."
   )
 
 
-;;; [ latex-preview-pane ]
+;;; [ latex-preview-pane ] -- Makes LaTeX editing less painful by providing a updatable preview pane.
 
 (use-package latex-preview-pane
   :ensure t
@@ -302,7 +302,7 @@ character(s), in which case it deletes the space(s) first."
 
 (add-hook 'LaTeX-mode-hook #'latex-toggle-image-tooltip)
 
-
+
 (provide 'init-my-prog-lang-tex)
 
 ;;; init-my-prog-lang-tex.el ends here

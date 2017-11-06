@@ -42,6 +42,7 @@
 
 (use-package racer
   :ensure t
+  :defer t
   :init
   ;; config racer in the path.
   (let ((rust-src-path (getenv "RUST_SRC_PATH")))

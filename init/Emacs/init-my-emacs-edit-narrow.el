@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Narrowing ]
 
 ;;; Usage:
@@ -111,7 +111,7 @@ narrowed."
 
 
 
-
+
 (provide 'init-my-emacs-edit-narrow)
 
 ;;; init-my-emacs-edit-narrow.el ends here

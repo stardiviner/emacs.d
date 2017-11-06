@@ -108,7 +108,8 @@
 
 (use-package javadoc-lookup
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'java-mode-hook
             (lambda ()
               (unless (boundp 'my-prog-document-map-prefix)
@@ -116,6 +117,7 @@
               (local-set-key (kbd "C-h d") 'my-prog-help-document-map)
               (define-key my-prog-help-document-map (kbd "d") 'javadoc-lookup)
               ))
+  :config
   (javadoc-add-roots "/usr/share/doc/openjdk7-doc/api/"
                      ;; "/usr/share/doc/openjdk8-doc/api/"
                      ;; "~/src/project/doc"

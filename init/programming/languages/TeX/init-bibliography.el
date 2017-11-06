@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
+
 
 (unless (boundp 'bibliograph-prefix)
   (define-prefix-command 'bibliograph-prefix))
@@ -20,6 +20,7 @@
 ;;; [ bibtex ] -- BibTeX mode for GNU Emacs.
 
 (use-package bibtex
+  :defer t
   :config
   (use-package bibtex-style
     :ensure t)
@@ -32,6 +33,7 @@
 
 (use-package helm-bibtex
   :ensure t
+  :defer t
   :bind (:map bibliograph-prefix
               ("h" . helm-bibtex))
   :config
@@ -48,7 +50,8 @@
 
 (use-package company-bibtex
   :ensure t
-  :config
+  :defer t
+  :init
   (setq company-bibtex-bibliography
         '("~/Org/Bibliography/index.bib"))
 
@@ -76,6 +79,7 @@
 
 (use-package org-ref
   :ensure t
+  :defer t
   :config
   ;; https://github.com/jkitchin/org-ref/issues/184
   (setq bibtex-completion-pdf-open-function 'org-open-file)
@@ -113,8 +117,7 @@
         org-ref-pdf-directory "~/Org/Bibliography/lib/")
   )
 
-;;; ----------------------------------------------------------------------------
-
+
 (provide 'init-bibliography)
 
 ;;; init-bibliography.el ends here

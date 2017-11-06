@@ -38,10 +38,9 @@
 
 (use-package ox-reveal
   :ensure t
-  :init
+  :config
   (use-package htmlize
     :ensure t)
-  :config
   ;; "http://cdn.jsdelivr.net/reveal.js/3.0.0/"
   ;; (concat user-emacs-directory "init/org-mode/reveal.js")
   (setq org-reveal-root (expand-file-name (concat user-emacs-directory "Org-mode/reveal.js/")))
@@ -54,13 +53,11 @@
 
 ;;; [ ox-ioslide ] -- Export org-mode to Google I/O HTML5 slide.
 
-;; (use-package makey
-;;   :ensure t
-;;   )
-;;
 ;; (use-package ox-ioslide
 ;;   :ensure t
 ;;   :config
+;;   (use-package makey
+;;     :ensure t)
 ;;   (require 'ox-ioslide-helper)
 ;;   )
 

@@ -43,7 +43,7 @@
 
 (use-package ruby-tools
   :ensure t
-  :config
+  :init
   (add-hook 'ruby-mode-hook 'ruby-tools-mode)
   (add-hook 'enh-ruby-mode-hook 'ruby-tools-mode)
   )
@@ -166,11 +166,10 @@
 ;;; [ kungfu ] -- CIDER like REPL for Ruby development.
 
 ;; (use-package kungfu
-;;   :ensure t
+;;   ;; :ensure t
+;;   :load-path "~/Code/Emacs/ruby-kungfu/kungfu.el"
 ;;   :init
 ;;   (add-hook 'ruby-mode-hook 'ruby-kungfu-mode))
-
-;; (load-file "~/Code/Emacs/ruby-kungfu/kungfu.el")
 
 
 (provide 'init-my-prog-lang-ruby)

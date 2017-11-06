@@ -18,7 +18,6 @@
   ;; [ company-coq ]
   (use-package company-coq
     :ensure t
-    :defer t
     :config
     (setq company-coq-dynamic-autocompletion t)
     ;; (setq company-coq-autocomplete-modules nil)

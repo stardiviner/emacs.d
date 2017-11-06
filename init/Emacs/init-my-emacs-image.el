@@ -34,6 +34,7 @@
 
 (use-package picpocket
   :ensure t
+  :defer t
   :commands (picpocket)
   )
 

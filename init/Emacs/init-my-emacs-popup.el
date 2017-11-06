@@ -70,6 +70,7 @@
 
 (use-package showtip
   :ensure t
+  :defer t
   :config
   (setq showtip-timeout 15
         showtip-top-adjust 30)

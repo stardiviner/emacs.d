@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ arduino-mode ]
 
 (use-package arduino-mode
@@ -23,18 +23,18 @@
   :ensure t
   :init
   (setenv "ARDUINO_HOME" "/usr/share/arduino")
+  
+  (add-hook 'arduino-mode-hook #'irony-mode)
+  (add-hook 'arduino-mode-hook #'company-arduino-turn-on)
   :config
   ;; (defun my-company-c-headers-get-system-path ()
   ;;   "Return the system include path for the current buffer."
   ;;   (let ((default '("/usr/include/" "/usr/local/include/")))
   ;;     (company-arduino-append-include-dirs default t)))
   ;; (setq company-c-headers-path-system 'my-company-c-headers-get-system-path)
-
-  (add-hook 'arduino-mode-hook #'irony-mode)
-  (add-hook 'arduino-mode-hook #'company-arduino-turn-on)
   )
 
-
+
 (provide 'init-my-prog-framework-arduino)
 
 ;;; init-my-prog-framework-arduino.el ends here

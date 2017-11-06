@@ -27,12 +27,13 @@
 
 (use-package kiwix
   :ensure t
-  :config
+  :defer t
+  :bind (:map my-prog-help-document-map
+              ("w" . kiwix-at-point)
+              ("W" . kiwix-at-point-interactive)
+              ("M-w" . kiwix-launch-server))
+  :init
   (setq kiwix-your-language-library "zh")
-
-  (define-key my-prog-help-document-map (kbd "w") 'kiwix-at-point)
-  (define-key my-prog-help-document-map (kbd "W") 'kiwix-at-point-interactive)
-  (define-key my-prog-help-document-map (kbd "M-w") 'kiwix-launch-server)
   )
 
 

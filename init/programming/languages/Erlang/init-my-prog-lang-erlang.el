@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ erlang-mode ]
 
 (use-package erlang
@@ -16,7 +16,8 @@
 
 (use-package company-erlang
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'erlang-mode-hook
             (lambda ()
               (my-company-add-backend-locally 'company-erlang)))
@@ -33,28 +34,27 @@
 
 (use-package distel
   :load-path "/usr/share/distel/elisp/"
+  :defer t
   :init
   ;; (distel-setup)
   (add-hook 'erlang-mode-hook 'distel-erlang-mode-hook)
-  )
-
-;;; [ distel-completion-lib ] -- Erlang/distel completion backend for both auto-complete and company-mode.
-
-(use-package distel-completion-lib
-  :ensure t)
-
-;; [ company-distel ] -- Erlang/distel completion backend for company-mode.
-(use-package company-distel
-  :ensure t
-  :init
-  (add-hook 'erlang-mode-hook
-            (lambda ()
-              (my-company-add-backend-locally 'company-distel)))
   :config
-  (setq company-distel-popup-help t)
+  ;; [ distel-completion-lib ] -- Erlang/distel completion backend for both auto-complete and company-mode.
+  (use-package distel-completion-lib
+    :ensure t)
+  ;; [ company-distel ] -- Erlang/distel completion backend for company-mode.
+  (use-package company-distel
+    :ensure t
+    :init
+    (add-hook 'erlang-mode-hook
+              (lambda ()
+                (my-company-add-backend-locally 'company-distel)))
+    :config
+    (setq company-distel-popup-help t)
+    )
   )
 
-
+
 (provide 'init-my-prog-lang-erlang)
 
 ;;; init-my-prog-lang-erlang.el ends here

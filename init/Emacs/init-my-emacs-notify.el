@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ notifications ]
 
 ;;; Usage:
@@ -31,7 +31,7 @@
         )
   )
 
-
+
 (provide 'init-my-emacs-notify)
 
 ;;; init-my-emacs-notify.el ends here

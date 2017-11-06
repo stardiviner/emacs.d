@@ -51,6 +51,7 @@
 
 (use-package sql-indent
   :ensure t
+  :defer t
   :after sql
   :init
   (dolist (hook '(sql-mode-hook
@@ -69,6 +70,7 @@
 
 (use-package sqlup-mode
   :ensure t
+  :defer t
   :after sql
   :init
   (dolist (hook '(sql-mode-hook
@@ -104,9 +106,8 @@
 (use-package edbi
   :ensure t
   :defer t
-  :init
-  (define-key my-inferior-db-sql-map (kbd "d") 'edbi:open-db-viewer)
-  
+  :bind (:map my-inferior-db-sql-map
+              ("d" . edbi:open-db-viewer))
   :config
   (setq edbi:completion-tool 'auto-complete) ; none
 
@@ -124,55 +125,44 @@
               
               (auto-complete-mode -1)
               ))
-  )
 
-
-;;; [ edbi-minor-mode ] -- use edbi with regular SQL files.
-
-(use-package edbi-minor-mode
-  :ensure t
-  :defer t
-  :init
-  (add-hook 'sql-mode-hook
-            (lambda ()
-              (edbi-minor-mode)))
-  )
-
-
-;;; [ edbi-sqlite ] -- edbi helper application
-
-(use-package edbi-sqlite
-  :ensure t
-  :defer t
-  :init
-  (define-key my-inferior-db-sql-map (kbd "l") 'edbi-sqlite)
-  )
-
-
-;;; [ edbi-database-url ] -- run edbi with database url.
-
-(use-package edbi-database-url
-  :ensure t
-  :defer t
-  :init
-  (define-key my-inferior-db-sql-map (kbd "u") 'edbi-database-url)
-  )
-
-
-;;; [ company-edbi ]
-
-(use-package company-edbi
-  :ensure t
-  :defer t
-  :init
-  (dolist (hook '(sql-mode-hook
-                  sql-interactive-mode-hook
-                  edbi:sql-mode-hook
-                  ))
-    (add-hook hook
+  
+  ;; [ edbi-minor-mode ] -- use edbi with regular SQL files.
+  (use-package edbi-minor-mode
+    :ensure t
+    :init
+    (add-hook 'sql-mode-hook
               (lambda ()
-                (my-company-add-backend-locally 'company-edbi)
-                )))
+                (edbi-minor-mode)))
+    )
+
+  ;; [ edbi-sqlite ] -- edbi helper application
+  (use-package edbi-sqlite
+    :ensure t
+    :bind (:map my-inferior-db-sql-map
+                ("l" . edbi-sqlite))
+    )
+
+  ;; [ edbi-database-url ] -- run edbi with database url.
+  (use-package edbi-database-url
+    :ensure t
+    :bind (:map my-inferior-db-sql-map
+                ("u" . edbi-database-url))
+    )
+
+  ;; [ company-edbi ]
+  (use-package company-edbi
+    :ensure t
+    :init
+    (dolist (hook '(sql-mode-hook
+                    sql-interactive-mode-hook
+                    edbi:sql-mode-hook
+                    ))
+      (add-hook hook
+                (lambda ()
+                  (my-company-add-backend-locally 'company-edbi)
+                  )))
+    )
   )
 
 
@@ -195,7 +185,8 @@
 
 (use-package ejc-sql
   :ensure t
-  :config
+  :defer t
+  ;; :config
   ;; ;; SQLite
   ;; (ejc-create-connection
   ;;  "SQLite-db-connection"

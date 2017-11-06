@@ -15,6 +15,7 @@
 
 (use-package ob-ipython
   :ensure t
+  :defer t
   :config
   ;; open ipython block block with `python-mode'
   ;; (add-to-list 'org-src-lang-modes '("ipython" . python))
@@ -55,15 +56,16 @@ This can be useful for snippets to select kernel interactively."
 ;;; [ Apache Pig ]
 
 (use-package pig-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ Apache Hive ]
 
 (use-package hive
-  :ensure t)
+  :ensure t
+  :defer t)
 
-;;; ----------------------------------------------------------------------------
-
+
 (provide 'init-my-data-science)
 
 ;;; init-my-data-science.el ends here

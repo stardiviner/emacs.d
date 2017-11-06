@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ SLIME ]
 
 (use-package slime
@@ -124,53 +124,48 @@
 
   ;; connect to a remote Lisp machine.
   (setq slime-net-coding-system 'utf-8-unix)
-  )
 
-
-;;; [ slime-company ] -- slime backend for Company mode.
-
-(use-package slime-company
-  :ensure t
-  :config
-  (with-eval-after-load 'slime
-    (slime-setup '(slime-company)))
+  ;; Fontify *SLIME Description* buffer for SBCL
+  (defun slime-description-fontify ()
+    "Fontify sections of SLIME Description."
+    (with-current-buffer "*slime-description*"
+      (highlight-regexp
+       (concat "^#<FUNCTION\ .*>\\|"
+               "^Lambda-list:\\|"
+               "^Declared type:\\|"
+               "^Derived type:\\|"
+               "^Documentation:\\|"
+               "Example:\\|"
+               "^Source file:\\|"
+               ".LISP$"
+               )
+       'hi-blue-b)))
+  (defadvice slime-show-description (after slime-description-fontify activate)
+    (slime-description-fontify))
   
-  (setq slime-company-after-completion 'slime-company-just-one-space
-        slime-company-completion 'fuzzy
-        slime-company-complete-in-comments-and-strings t
-        slime-company-major-modes '(lisp-mode slime-repl-mode scheme-mode)
-        )
+  ;; [ slime-company ] -- slime backend for Company mode.
+  (use-package slime-company
+    :ensure t
+    :config
+    (with-eval-after-load 'slime
+      (slime-setup '(slime-company)))
+    
+    (setq slime-company-after-completion 'slime-company-just-one-space
+          slime-company-completion 'fuzzy
+          slime-company-complete-in-comments-and-strings t
+          slime-company-major-modes '(lisp-mode slime-repl-mode scheme-mode)
+          )
 
-  (defun my-slime-company-maybe-enable ()
-    (when (slime-company-active-p)
-      (my-company-add-backend-locally 'company-slime)
-      (unless (slime-find-contrib 'slime-fuzzy)
-        (setq slime-company-completion 'simple))))
-  
-  (dolist (hook '(slime-mode-hook slime-repl-mode-hook sldb-mode-hook))
-    (add-hook hook 'my-slime-company-maybe-enable))
+    (defun my-slime-company-maybe-enable ()
+      (when (slime-company-active-p)
+        (my-company-add-backend-locally 'company-slime)
+        (unless (slime-find-contrib 'slime-fuzzy)
+          (setq slime-company-completion 'simple))))
+    
+    (dolist (hook '(slime-mode-hook slime-repl-mode-hook sldb-mode-hook))
+      (add-hook hook 'my-slime-company-maybe-enable))
+    )
   )
-
-
-;;; Fontify *SLIME Description* buffer for SBCL
-
-(defun slime-description-fontify ()
-  "Fontify sections of SLIME Description."
-  (with-current-buffer "*slime-description*"
-    (highlight-regexp
-     (concat "^#<FUNCTION\ .*>\\|"
-             "^Lambda-list:\\|"
-             "^Declared type:\\|"
-             "^Derived type:\\|"
-             "^Documentation:\\|"
-             "Example:\\|"
-             "^Source file:\\|"
-             ".LISP$"
-             )
-     'hi-blue-b)))
-
-(defadvice slime-show-description (after slime-description-fontify activate)
-  (slime-description-fontify))
 
 
 ;;; Improve usability of slime-apropos: slime-apropos-minor-mode
@@ -202,7 +197,7 @@
 ;; (define-key slime-apropos-minor-mode-map "k" 'slime-apropos-prev-anchor)
 ;; (define-minor-mode slime-apropos-minor-mode "")
 
-
+
 (provide 'init-slime)
 
 ;;; init-slime.el ends here

@@ -6,15 +6,14 @@
 
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
+
 ;;; [ graphql-mode ] -- Major mode for editing GraphQL.
 
 (use-package graphql-mode
   :ensure t
   :defer t)
 
-;;; ----------------------------------------------------------------------------
-
+
 (provide 'init-my-prog-lang-database-graphql)
 
 ;;; init-my-prog-lang-database-graphql.el ends here
