@@ -100,7 +100,7 @@
   ;; (my/cider-repl-eval "(overtone.live/boot-server)")
   )
 
-(add-hook 'cider-connected-hook #'my/overtone-auto-start)
+;; (add-hook 'cider-connected-hook #'my/overtone-auto-start)
 
 ;;; auto load with `clomacs'.
 (clomacs-defun overtone-load-and-boot-external-server

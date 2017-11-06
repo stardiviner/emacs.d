@@ -221,10 +221,10 @@
   ;; (add-hook 'after-init-hook #'cider-jack-in)
 
   ;; notify user CIDER is connected.
-  (add-hook 'cider-connected-hook
-            (lambda ()
-              (notifications-notify :title "CIDER connected"
-                                    :body "CIDER process connected.")))
+  ;; (add-hook 'cider-connected-hook
+  ;;           (lambda ()
+  ;;             (notifications-notify :title "CIDER connected"
+  ;;                                   :body "CIDER process connected.")))
   
   ;; CIDER inspect command keybindings
   (unless (boundp 'cider-inspect-prefix)
@@ -287,15 +287,15 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
     (sit-for 5)
     )
   
-  (add-hook 'cider-connected-hook
-            #'(lambda ()
-                (sit-for 10)
-                ;; import Java object static methods like `.getCanonicalFile'.
-                (my/cider-repl-eval "(import [java.io File InputStream])")
-                ;; load Incanter commonly usaed namespaces.
-                ;; (my/cider-repl-eval "(use '(incanter core stats datasets charts io pdf))")
-                (my/cider-repl-eval "(use '(incanter stats charts))")
-                ) t)
+  ;; (add-hook 'cider-connected-hook
+  ;;           #'(lambda ()
+  ;;               (sit-for 10)
+  ;;               ;; import Java object static methods like `.getCanonicalFile'.
+  ;;               (my/cider-repl-eval "(import [java.io File InputStream])")
+  ;;               ;; load Incanter commonly usaed namespaces.
+  ;;               ;; (my/cider-repl-eval "(use '(incanter core stats datasets charts io pdf))")
+  ;;               (my/cider-repl-eval "(use '(incanter stats charts))")
+  ;;               ) t)
   )
 
 
