@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 (unless (boundp 'find-prefix)
   (define-prefix-command 'find-prefix))
 
@@ -38,7 +38,7 @@
   ;; (setq deft-strip-summary-regexp)
   )
 
-
+
 (provide 'init-my-emacs-search-finder)
 
 ;;; init-my-emacs-search-finder.el ends here

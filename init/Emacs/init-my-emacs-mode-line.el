@@ -888,26 +888,26 @@ dimensions of a block selection."
                     )
 
 
-;; display time
+;;; display time
 ;; (setq display-time-interval 60)
 ;; (setq display-time-24hr-format nil)
 ;; (setq display-time-format nil)
 ;; (setq display-time-day-and-date nil)
-
-;; event
+;;
+;;; event
 ;; (display-time-event-handler)
-
+;;
 ;;; Mail
-(setq display-time-mail-directory "~/Mails/INBOX/new/")
-(setq display-time-use-mail-icon t)
+;; (setq display-time-mail-directory "~/Mails/INBOX/new/")
+;; (setq display-time-use-mail-icon t)
 ;; (setq display-time-mail-file nil)
 ;; (setq display-time-mail-function nil)
 ;; (display-time-mail-check-directory)
-
+;;
 ;;; load-average
 ;; (setq display-time-default-load-average 0)
 ;; (setq display-time-load-average-threshold 0.5)
-
+;;
 ;; (display-time-mode t)
 
 

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 
 ;; saving customizations
 ;; Usage:
@@ -17,7 +17,7 @@
     (load custom-file)
   (shell-command (concat "touch " custom-file)))
 
-
+
 (provide 'init-my-emacs-customize)
 
 ;;; init-my-emacs-customize.el ends here
