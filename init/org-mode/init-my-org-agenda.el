@@ -22,6 +22,7 @@
         (search . " %i %-12:c")
         (tags . " %i %-12:c")
         ))
+(setq org-agenda-scheduled-leaders '("Scheduled: " "%3d days | "))
 
 (setq org-agenda-block-separator ?=
       org-agenda-compact-blocks t
@@ -360,7 +361,6 @@
       org-agenda-todo-ignore-scheduled 'future
       )
 
-(setq org-agenda-scheduled-leaders '("Scheduled: " "%3d days ▍ "))
 (setq org-agenda-show-all-dates t)
 (setq org-agenda-show-outline-path t)
 ;; determines how far in advance items with

@@ -11,7 +11,7 @@
 ;; Date: Saturday   27 July 2013
 (set-face-attribute 'org-date nil
                     :background (color-darken-name (face-background 'default) 5)
-                    :box '(:color "black" :line-width 1 :style nil)
+                    :box '(:color "black" :line-width -1 :style nil)
                     :underline nil)
 (set-face-attribute 'org-agenda-date nil
                     :background (cl-case (alist-get 'background-mode (frame-parameters))
@@ -48,7 +48,7 @@
                                    (color-darken-name (face-background 'default) 10))
                                   ('dark
                                    (color-darken-name (face-background 'default) 5)))
-                    :box '(:color "deep pink" :line-width 1 :style nil)
+                    :box '(:line-width 1)
                     :underline nil
                     :bold t)
 
@@ -61,11 +61,11 @@
 (set-face-attribute 'org-clock-overlay nil
                     :inverse-video nil
                     :foreground "white" :background "#004A5D"
-                    :box '(:color "cyan" :line-width 1 :style nil)
+                    :box '(:color "cyan" :line-width -1 :style nil)
                     :bold t)
 (set-face-attribute 'org-agenda-clocking nil
                     :foreground "white" :background "#004A5D"
-                    :box '(:color "cyan" :line-width 1 :style nil))
+                    :box '(:color "cyan" :line-width -1 :style nil))
 
 ;; Day-agenda (W30) -> Week number
 (set-face-attribute 'org-agenda-structure nil
@@ -224,7 +224,7 @@
 ;; - [ ], - [X]
 (set-face-attribute 'org-checkbox nil
                     :weight 'normal
-                    :box '(:line-width 1 :color "black" :style nil)
+                    :box '(:line-width -1 :color "black" :style nil)
                     )
 ;; * headline [7%] [1/10] -> checkbox statistics face.
 (set-face-attribute 'org-checkbox-statistics-todo nil
