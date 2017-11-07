@@ -65,7 +65,7 @@
 
 
 ;; include `diary-file' from `calendar'
-(setq org-agenda-include-diary t
+(setq org-agenda-include-diary nil ; speed up Org Agenda generation.
       ;; diary-file "~/Org/Tasks/Daily.org"
       diary-file (locate-user-emacs-file "data/Anniversaries.org" "Anniversaries.org")
       org-agenda-diary-file 'diary-file
