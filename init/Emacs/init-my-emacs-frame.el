@@ -14,6 +14,7 @@
         (height . 120)
         (width . 90)
         (left-fringe) (right-fringe)
+        (tool-bar-lines . 0)
         ))
 
 ;; Every time a window is started, make sure it get maximized
@@ -23,16 +24,19 @@
       '((top . 0) (left . 0)
         (height . 120)
         (width . 90)
-        (left-fringe) (right-fringe)))
+        (left-fringe) (right-fringe)
+        (tool-bar-lines . 0)))
 
 (setq window-system-default-frame-alist
       '((height . 120)
         (width . 90)
-        (left-fringe) (right-fringe)))
+        (left-fringe) (right-fringe)
+        (tool-bar-lines . 0)))
 
 (setq minibuffer-frame-alist
       '((height . 2)
-        (width . 80)))
+        (width . 80)
+        (tool-bar-lines . 0)))
 
 
 ;;; Adjust Frame’s Opacity
