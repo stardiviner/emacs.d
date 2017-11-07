@@ -54,7 +54,6 @@
   ;; (setq magit-refresh-status-buffer nil)
   ;; (setq auto-revert-buffer-list-filter
   ;;       'magit-auto-revert-repository-buffers-p)
-  (setq vc-handled-backends (delq 'Git vc-handled-backends))
   
   (setq magit-repository-directories
         `((,user-emacs-directory . 0)
