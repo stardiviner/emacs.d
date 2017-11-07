@@ -6,12 +6,11 @@
 
 
 ;;; Code:
+
 
-
-(unless (boundp 'my-prog-vcs-map)
-  (define-prefix-command 'my-prog-vcs-map))
-(global-set-key (kbd "C-c v") 'my-prog-vcs-map)
-
+(unless (boundp 'prog-vcs-prefix)
+  (define-prefix-command 'prog-vcs-prefix))
+(global-set-key (kbd "C-c v") 'prog-vcs-prefix)
 
 
 (require 'init-my-prog-vcs-git)
@@ -24,7 +23,7 @@
 (require 'init-my-prog-vcs-commit)
 (require 'init-my-prog-vcs-review)
 
-
+
 (provide 'init-my-prog-vcs)
 
 ;;; init-my-prog-vcs.el ends here

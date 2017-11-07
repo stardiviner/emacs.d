@@ -5,9 +5,9 @@
 ;;; Code:
 
 
-(unless (boundp 'my-prog-vcs-git-map)
-  (define-prefix-command 'my-prog-vcs-git-map))
-(define-key 'my-prog-vcs-map (kbd "g") 'my-prog-vcs-git-map)
+(unless (boundp 'prog-vcs-git-prefix)
+  (define-prefix-command 'prog-vcs-git-prefix))
+(define-key 'prog-vcs-prefix (kbd "g") 'prog-vcs-git-prefix)
 
 
 ;; [ git-modes ] -- front end wrapper for vc-git.
@@ -43,7 +43,7 @@
 
 (use-package magit
   :ensure t
-  :bind (:map my-prog-vcs-map
+  :bind (:map prog-vcs-prefix
               ("v" . magit-status)
               ("l" . magit-list-repositories))
   :config
@@ -76,20 +76,20 @@
                  ))
 
   ;; keybindings
-  (define-key my-prog-vcs-git-map (kbd "F") 'magit-log-buffer-file)
-  (define-key my-prog-vcs-git-map (kbd "b") 'magit-blame-popup)
-  (define-key my-prog-vcs-git-map (kbd "v") 'magit-status)
-  (define-key my-prog-vcs-git-map (kbd "s") 'magit-stage)
-  (define-key my-prog-vcs-git-map (kbd "c") 'magit-commit)
-  (define-key my-prog-vcs-git-map (kbd "C") 'magit-commit-amend)
-  (define-key my-prog-vcs-git-map (kbd "d") 'magit-diff)
-  (define-key my-prog-vcs-git-map (kbd "l") 'magit-log)
+  (define-key prog-vcs-git-prefix (kbd "F") 'magit-log-buffer-file)
+  (define-key prog-vcs-git-prefix (kbd "b") 'magit-blame-popup)
+  (define-key prog-vcs-git-prefix (kbd "v") 'magit-status)
+  (define-key prog-vcs-git-prefix (kbd "s") 'magit-stage)
+  (define-key prog-vcs-git-prefix (kbd "c") 'magit-commit)
+  (define-key prog-vcs-git-prefix (kbd "C") 'magit-commit-amend)
+  (define-key prog-vcs-git-prefix (kbd "d") 'magit-diff)
+  (define-key prog-vcs-git-prefix (kbd "l") 'magit-log)
   (defalias 'magit-log-region 'magit-log-buffer-file)
-  (define-key my-prog-vcs-git-map (kbd "L") 'magit-log-region)
-  (define-key my-prog-vcs-git-map (kbd "o") 'magit-checkout)
-  (define-key my-prog-vcs-git-map (kbd "M-b") 'magit-bisect)
-  (define-key my-prog-vcs-git-map (kbd "B") 'magit-blame)
-  (define-key my-prog-vcs-git-map (kbd "f") 'magit-file-popup)
+  (define-key prog-vcs-git-prefix (kbd "r") 'magit-log-region)
+  (define-key prog-vcs-git-prefix (kbd "o") 'magit-checkout)
+  (define-key prog-vcs-git-prefix (kbd "M-b") 'magit-bisect)
+  (define-key prog-vcs-git-prefix (kbd "B") 'magit-blame)
+  (define-key prog-vcs-git-prefix (kbd "f") 'magit-file-popup)
   
   ;; enable ispell words complete in commit message buffer.
   (add-hook 'git-commit-setup-hook
@@ -131,7 +131,7 @@
 
 (use-package git-messenger
   :ensure t
-  :bind (:map my-prog-vcs-map
+  :bind (:map prog-vcs-prefix
               ("m m" . git-messenger:popup-message)
               :map git-messenger-map
               ("m" . git-messenger:copy-message)

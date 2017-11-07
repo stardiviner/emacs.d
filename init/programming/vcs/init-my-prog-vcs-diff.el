@@ -8,9 +8,9 @@
 ;;; Code:
 
 
-(unless (boundp 'my-prog-vcs-diff-prefix)
-  (define-prefix-command 'my-prog-vcs-diff-prefix))
-(define-key my-prog-vcs-map (kbd "d") 'my-prog-vcs-diff-prefix)
+(unless (boundp 'prog-vcs-diff-prefix)
+  (define-prefix-command 'prog-vcs-diff-prefix))
+(define-key prog-vcs-prefix (kbd "d") 'prog-vcs-diff-prefix)
 
 ;;; [ diff ]
 
@@ -85,7 +85,7 @@
 (use-package diffview
   :ensure t
   :defer t
-  :bind (:map my-prog-vcs-diff-prefix
+  :bind (:map prog-vcs-diff-prefix
               ("d" . diffview-current)
               ("r" . diffview-region)
               ("m" . diffview-message))

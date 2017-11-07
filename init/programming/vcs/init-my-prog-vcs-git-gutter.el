@@ -59,7 +59,7 @@
                             (goto-line linenum))))
     (message "NO git-gutters!")))
 
-(define-key my-prog-vcs-map (kbd "m g") 'my-git-gutter-goto)
+(define-key prog-vcs-prefix (kbd "m g") 'my-git-gutter-goto)
 
 
 ;; [ git-gutter-plus / git-gutter+]
@@ -87,7 +87,7 @@
               ("C" . git-gutter+-stage-and-commit)
               ("u" . git-gutter:update-all-windows)
 
-              :map my-prog-vcs-map
+              :map prog-vcs-prefix
               ("m t" . git-gutter+-mode) ; Turn on/off in the current buffer
               ("m T" . global-git-gutter+-mode) ; Turn on/off globally
               ;; jump between hunks
