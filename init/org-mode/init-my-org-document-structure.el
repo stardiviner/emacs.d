@@ -128,12 +128,14 @@
 
 ;; * Org syntax::                  Formal description of Org's syntax
 
-;;; [ Easy Templates ]
 
-;;; #+NAME: anchor for linking.
-(add-to-list 'org-structure-template-alist '("n" "#+NAME: ?"))
-;;; translate special block
-(add-to-list 'org-structure-template-alist '("t" "#+BEGIN_TRANSLATE ?\n\n#+END_TRANSLATE"))
+;;; [ Structure Templates ]
+
+(setq org-babel-uppercase-example-markers t)
+
+;; translate special block
+(add-to-list 'org-structure-template-alist '(?t . "translate"))
+
 
 ;;; [ Entities ]
 

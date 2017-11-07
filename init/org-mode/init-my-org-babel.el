@@ -12,7 +12,6 @@
 (setq org-confirm-shell-link-function 'yes-or-no-p)
 (setq org-confirm-elisp-link-function 'yes-or-no-p)
 
-(setq org-babel-uppercase-example-markers t)
 (setq org-babel-hash-show-time t)
 
 ;;; source block header arguments
