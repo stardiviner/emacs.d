@@ -245,7 +245,7 @@
                 (my-company-add-backend-locally 'company-tern)
                 ))
     :config
-    (setq company-tern-property-marker "" ; " ○"
+    (setq company-tern-property-marker " js" ; " ○"
           company-tern-meta-as-single-line t
           )
     )
