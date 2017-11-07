@@ -133,16 +133,36 @@
     ;;             ;; ??
     ;;             ))))
 
+    ;; (advice-add 'company-css :before
+    ;;             #'(lambda (&rest _)
+    ;;                 (if (equal major-mode 'web-mode)
+    ;;                     (let ((web-mode-cur-language (web-mode-language-at-pos)))
+    ;;                       (if (string= web-mode-cur-language "css")
+    ;;                           (unless css-mode (css-mode))
+    ;;                         (if css-mode (css-mode -1)))))))
+    
     ;; Enable JavaScript completion between <script>...</script> etc.
-    (defadvice company-tern (before web-mode-set-up-ac-sources activate)
-      "Set `tern-mode' based on current language before running `company-tern'."
-      (if (equal major-mode 'web-mode)
-          (let ((web-mode-cur-language (web-mode-language-at-pos)))
-            (if (or (string= web-mode-cur-language "javascript")
-                    (string= web-mode-cur-language "jsx"))
-                (unless tern-mode (tern-mode 1))
-              (if tern-mode (tern-mode -1))
-              ))))
+    (add-hook 'web-mode-hook 'tern-mode)
+    
+    ;; (defadvice company-tern (before web-mode-set-up-ac-sources activate)
+    ;;   "Set `tern-mode' based on current language before running `company-tern'."
+    ;;   (if (equal major-mode 'web-mode)
+    ;;       (let ((web-mode-cur-language (web-mode-language-at-pos)))
+    ;;         (if (or (string= web-mode-cur-language "javascript")
+    ;;                 (string= web-mode-cur-language "jsx"))
+    ;;             (unless tern-mode (tern-mode 1))
+    ;;           (if tern-mode (tern-mode -1))
+    ;;           ))))
+
+    (advice-add 'company-tern :before
+                #'(lambda (&rest _)
+                    (if (equal major-mode 'web-mode)
+                        (let ((web-mode-cur-language
+                               (web-mode-language-at-pos)))
+                          (if (or (string= web-mode-cur-language "javascript")
+                                  (string= web-mode-cur-language "jsx"))
+                              (unless tern-mode (tern-mode))
+                            (if tern-mode (tern-mode -1)))))))
 
     ;; [C-c ']
     ;; let Org-mode Babel src code block auto set `web-mode-engine' for rhtml.

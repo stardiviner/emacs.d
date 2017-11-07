@@ -37,13 +37,23 @@
   (setq projectile-rails-server-mode-ansi-colors t) ; disable it if it is SLOW.
 
   ;; Enable Ruby on Rails completion between rhtml tag <% ... %> or <%= ... %>.
-  (defadvice company-robe (before web-mode-set-up-ac-sources activate)
-    "Set `robe-mode' based on current language before running `company-robe'."
-    (if (equal major-mode 'web-mode)
-        (let ((web-mode-cur-language (web-mode-language-at-pos)))
-          (if (string= web-mode-cur-language "erb")
-              (unless robe-mode (robe-mode))
-            (if robe-mode (robe-mode -1))))))
+  (add-hook 'web-mode-hook 'robe-mode)
+  
+  ;; (defadvice company-robe (before web-mode-set-up-ac-sources activate)
+  ;;   "Set `robe-mode' based on current language before running `company-robe'."
+  ;;   (if (equal major-mode 'web-mode)
+  ;;       (let ((web-mode-cur-language (web-mode-language-at-pos)))
+  ;;         (if (string= web-mode-cur-language "erb")
+  ;;             (unless robe-mode (robe-mode))
+  ;;           (if robe-mode (robe-mode -1))))))
+
+  (advice-add 'company-robe :before
+              #'(lambda (&rest _)
+                  (if (equal major-mode 'web-mode)
+                      (let ((web-mode-cur-language (web-mode-language-at-pos)))
+                        (if (string= web-mode-cur-language "erb")
+                            (unless robe-mode (robe-mode))
+                          (if robe-mode (robe-mode -1)))))))
 
   (defun my-projectile-rails-setup ()
     (my-company-add-backend-locally 'company-robe)
