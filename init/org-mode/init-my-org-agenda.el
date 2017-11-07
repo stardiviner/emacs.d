@@ -11,11 +11,13 @@
 (require 'org-agenda)
 
 ;; Agenda Views
+(setq org-agenda-show-inherited-tags t)
+(setq org-agenda-align-tags-to-column -100
+      org-agenda-tags-column -100)
 (setq org-agenda-prefix-format
-      '(
-        ;; (effort . " %e %(or (org-entry-get (point) \"Effort\") \"0:00\")")
-        (agenda . " ┠ %i %-12:c%?-12t% s")
-        (timeline . "  % s")
+      '((agenda . " %i %-12:c %? e %?-12t % s")
+        (timeline . " % s")
+        (effort . " %e %(or (org-entry-get (point) \"Effort\") \"0:00\")")
         (todo . " %i %-12:c")
         (search . " %i %-12:c")
         (tags . " %i %-12:c")
