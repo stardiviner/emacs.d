@@ -5,7 +5,7 @@
 
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
+
 ;;; [ org-drill ] -- Begin an interactive "drill session" based on Org-mode.
 
 (use-package org-drill
@@ -30,7 +30,7 @@
   (setq org-capture-templates
         (append '(("w" "org-drill [w]ords"
                    entry (file my-org-drill-words-file)
-                   "* %^{word} :drill:
+                   "* %i :drill:
 :PROPERTIES:
 :DRILL_CARD_TYPE: %^{Drill Difficulty|simple|twosided|multisided|hide1cloze}
 :END:
@@ -60,9 +60,13 @@
   (defun my-org-drill-record-word ()
     "Record word to org-drill words file."
     (interactive)
-    (let ((word (my-func/stem-word-at-point-with-format)))
+    (let ((word (downcase
+                 (substring-no-properties
+                  (if (region-active-p)
+                      (buffer-substring-no-properties (mark) (point))
+                    (thing-at-point 'word))))))
       (unless (not (and (my-org-drill-check-not-exist word)
-                        (yes-or-no-p (format "org-drill this word (%s): " word))))
+                        (yes-or-no-p (format "org-drill record this word (%s): " word))))
         ;; copy original source sentence for `org-capture' template `%c'.
         (save-mark-and-excursion
           (ignore-errors (er/mark-sentence))
@@ -73,7 +77,7 @@
         ;; call org-capture template programmatically.
         (org-capture nil "w")
         ;; disable region selection.
-        ;; FIXME the current buffer is CAPTURE buffer.
+        ;; FIXME: the current buffer is CAPTURE buffer.
         (if (region-active-p) (deactivate-mark))
         )))
 
@@ -96,8 +100,7 @@
               ("M-w" . hydra-pamparam/body))
   )
 
-;;; ----------------------------------------------------------------------------
-
+
 (provide 'init-my-org-drill)
 
 ;;; init-my-org-drill.el ends here

@@ -65,14 +65,16 @@
 (defun goldendict-dwim ()
   "Query current symbol/word at point with Goldendict."
   (interactive)
-  (save-excursion
-    ;;; way: get word with `thing-at-point'
-    (let ((word (my-func/stem-word-at-point-with-format)))
+  (let ((word (downcase
+               (substring-no-properties
+                (if (region-active-p)
+                    (buffer-substring-no-properties (mark) (point))
+                  ;; way: get word with `thing-at-point'
+                  (thing-at-point 'word))))))
+    (save-excursion
       ;; pass the selection to Emacs shell command goldendict.
       ;; use Goldendict API: "Scan Popup"
-      (shell-command (concat "goldendict " word)))
-    )
-  )
+      (shell-command (concat "goldendict " word)))))
 
 (define-key dictionary-prefix (kbd "d") 'goldendict-dwim)
 
