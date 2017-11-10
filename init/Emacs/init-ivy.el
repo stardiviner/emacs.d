@@ -30,7 +30,13 @@
   ;; use fuzzy search as default matcher
   ;; (setq ivy-re-builders-alist
   ;;       '((ivy-switch-buffer . ivy--regex-plus)
+  ;;         (swiper . ivy--regexp-fuzzy)
   ;;         (t . ivy--regexp-fuzzy)))
+  ;; or more programmatically:
+  (with-eval-after-load 'ivy
+    (push (cons t #'ivy--regex-plus) ivy-re-builders-alist)
+    (push (cons #'swiper (cdr (assq t ivy-re-builders-alist))) ivy-re-builders-alist)
+    )
 
   (set-face-attribute 'ivy-confirm-face nil
                       :weight 'bold)
