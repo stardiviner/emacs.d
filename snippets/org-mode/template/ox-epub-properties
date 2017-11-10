@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: template-ox-epub-properties
+# key: template-ox-epub-properties
+# group: template.property
+# --
+#+TITLE: ${1:book's title}
+#+AUTHOR: ${2:`user-full-name`} [[mailto:${3:`user-mail-address`}][$3]]
+#+DATE: `(org-time-stamp-inactive)`
+#+UID:
+#+LANGUAGE: ${4:$$(yas-choose-value '("zh" "en"))}
+#+Subject: ${5:the subject matter of the book}
+#+Description: ${6:the description of the book}
+#+Publisher: ${7:the publisher of the book}
+#+License: ${8:the rights associated with this book}
