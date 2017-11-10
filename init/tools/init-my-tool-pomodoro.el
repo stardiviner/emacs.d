@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
+
 
 (unless (boundp 'pomodoro-prefix)
   (define-prefix-command 'pomodoro-prefix))
@@ -29,9 +29,7 @@
         )
   )
 
-
-;;; ----------------------------------------------------------------------------
-
+
 (provide 'init-my-tool-pomodoro)
 
 ;;; init-my-tool-pomodoro.el ends here

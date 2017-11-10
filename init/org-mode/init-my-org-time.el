@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Time Stamps ]
 
 
@@ -55,17 +55,23 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
 (use-package org-pomodoro
   :ensure t
   :commands (org-pomodoro)
-  :bind (:map my-org-prefix
-              ("p" . org-pomodoro))
+  :init
+  (unless (boundp 'pomodoro-prefix)
+    (define-prefix-command 'pomodoro-prefix))
+  :bind (:map pomodoro-prefix
+              ("o" . org-pomodoro)
+              :map my-org-prefix
+              ("p" . org-pomodoro)
+              )
   :config
-  (setq org-pomodoro-audio-player "/usr/bin/mplayer"
-        org-pomodoro-play-sounds t
-        org-pomodoro-play-start-sound t
-        org-pomodoro-play-ticking-sounds nil
+  (setq org-pomodoro-play-sounds t
+        org-pomodoro-start-sound-p t
+        org-pomodoro-ticking-sound-p nil
         ;; org-pomodoro-ticking-sound
         org-pomodoro-ticking-sound-args "-volume 50" ; adjust ticking sound volume
         ;; org-pomodoro-start-sound-args "-volume 0.3"
         ;; org-pomodoro-long-break-sound-args "-volume 0.3"
+        org-pomodoro-audio-player "/usr/bin/mplayer"
         org-pomodoro-format "Pomodoro: %s" ; mode-line string
         )
 
@@ -77,8 +83,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
               ))
   )
 
-
-
+
 (provide 'init-my-org-time)
 
 ;;; init-my-org-time.el ends here
