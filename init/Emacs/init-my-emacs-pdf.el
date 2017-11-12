@@ -66,8 +66,16 @@
     ;; "auto" slice from bounding box
     ;; (pdf-view-auto-slice-minor-mode)
 
-    ;; use midnight mode theme
-    ;; (pdf-view-midnight-minor-mode)
+    ;; toggle midnight mode theme
+    ;; color-theme adaptive colors.
+    (setq pdf-view-midnight-colors `(,(face-background 'default) . ,(face-foreground 'default)))
+    ;; green color on black background
+    ;; (setq pdf-view-midnight-colors '("#00B800" . "#000000" ))
+    ;; amber color on black background
+    ;; (setq pdf-view-midnight-colors '("#ff9900" . "#0a0a12" ))
+    ;; original solarized colors
+    ;; (setq pdf-view-midnight-colors '("#839496" . "#002b36" ))
+    (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)
 
     ;; `pdf-tools-enabled-modes'
     (pdf-tools-enable-minor-modes)
