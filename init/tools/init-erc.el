@@ -179,9 +179,7 @@ When called repeatedly, cycle through the buffers."
   (make-local-variable 'company-minimum-prefix-length)
   (setq company-minimum-prefix-length 2)
   (make-local-variable 'company-backends)
-  (setq company-backends '(company-capf
-                           ;; (company-capf :with company-yasnippet)
-                           :separate company-ispell
+  (setq company-backends '((company-capf :with company-ispell)
                            (company-keywords :with company-dabbrev-code)
                            company-abbrev)))
 
