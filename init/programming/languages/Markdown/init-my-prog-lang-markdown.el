@@ -19,8 +19,7 @@
 (use-package flymd
   :ensure t
   :defer t
-  :init
-  (add-hook 'markdown-mode-hook #'flymd-flyit)
+  :bind ("<f5>" . flymd-flyit)
   :config
   ;; for Chrome browser compatible, set default browser to Firefox.
   (defun my-flymd-browser-function (url)
