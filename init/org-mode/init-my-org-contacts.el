@@ -24,10 +24,10 @@
                  entry (file (lambda () (car org-contacts-files)))
                  "** %^{NAME}
 :PROPERTIES:
+:AVATAR: %^{Avatar}
+:NICK: %^{Nick}
 :NAME(Chinese): %^{Name(Chinese)}
 :NAME(English): %^{Name(English)}
-:NICK: %^{Nick}
-:AVATAR: %^{Avatar}
 :BIRTHDAY:
 :GENDER: %^{Gender|Transgender|Male|Female}
 :Sexual: %^{Sexual|Heterosexual|Bisexual|Homosexual}
