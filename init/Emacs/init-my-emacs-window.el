@@ -71,7 +71,7 @@
   :config
   (setq aw-background nil)
   (set-face-attribute 'aw-leading-char-face nil
-                      :height 2.5)
+                      :height 2.5 :weight 'bold)
   )
 
 

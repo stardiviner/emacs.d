@@ -15,7 +15,8 @@
 ;;; [ Isearch ] -- Incremental Search
 
 (use-package isearch
-  :bind (("C-s" . isearch-forward)
+  :bind (
+         ;; ("C-s" . isearch-forward)
          ("C-r" . isearch-backward)
          ("C-M-s" . isearch-forward-regexp)
          ("M-%" . query-replace-regexp)
@@ -29,8 +30,6 @@
          ("b" . isearch-backward)
          ("B" . isearch-backward-regexp)
          ("o" . isearch-occur)
-         ("r" . vr/isearch-forward)
-         ("R" . vr/isearch-backward)
          )
   :config
   (setq search-highlight t
@@ -77,17 +76,20 @@
 
 (use-package visual-regexp
   :ensure t
-  :bind (("C-s" . vr/isearch-forward)
-         ("C-r" . vr/isearch-backward)
+  :bind (
+         ;; ("C-s" . vr/isearch-forward)
+         ;; ("C-r" . vr/isearch-backward)
          ("M-%" . vr/replace)
          :map my-search-prefix
+         ("s" . vr/isearch-forward)
+         ("M-s" . vr/isearch-backward)
+         ("%" . vr/query-replace)
          ("R" . vr/replace)
-         ("Q" . vr/query-replace)
          )
   :init
-  ;; if you use multiple-cursors interface, this is for you:
-  (if (featurep 'multiple-cursors)
-      (define-key my-search-prefix (kbd "m") 'vr/mc-mark))
+  ;; if you use `multiple-cursors' interface, this is for you:
+  (with-eval-after-load 'multiple-cursors
+    (define-key my-search-prefix (kbd "m") 'vr/mc-mark))
   ;; `vr/select-mc-mark', `vr/select-replace' etc.
   )
 
@@ -123,8 +125,10 @@
 (use-package swiper
   :ensure t
   :defer t
-  :bind (("C-s" . swiper)
-         ("C-c u" . swiper-all))
+  :bind (
+         ;; ("C-s" . swiper)
+         ("C-c u" . swiper-all)
+         )
   )
 
 

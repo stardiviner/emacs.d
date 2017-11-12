@@ -12,8 +12,6 @@
 (use-package ivy
   :ensure t
   :defer t
-  ;; :bind (("C-c C-r" . ivy-resume) ; [C-c C-r] keybinding conflict with `rtags' prefix.
-  ;;        ("C-i" . complete-symbol))
   :config
   ;; ivy-mode
   (setq ivy-use-virtual-buffers t ; treat recentf, bookmarks as virtual buffers.
@@ -114,7 +112,7 @@
          ([remap describe-bindings] . counsel-descbinds) ; [C-h b]
          ([remap info-lookup-symbol] . counsel-info-lookup-symbol) ; [C-h S]
          ([remap menu-bar-open] . counsel-tmm) ; [F10] text menu access
-         ;; ("C-s" . counsel-grep-or-swiper)
+         ("C-s" . counsel-grep-or-swiper)
          ("C-x c p" . counsel-list-processes) ; [C-x c p]
          ("C-x c t" . cancel-function-timers) ; [C-x c t]
          ("C-x c c" . counsel-colors-emacs)
