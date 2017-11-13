@@ -11,6 +11,7 @@
 
 (use-package company
   :ensure t
+  :commands (global-company-mode)
   :config
   (setq company-minimum-prefix-length 3
         ;; decrease this delay when you can type code continuously fast.
@@ -60,8 +61,8 @@
       ))
 
   ;; globally
-  (global-company-mode 1)
-  ;; (add-hook 'after-init-hook 'global-company-mode)
+  ;; (global-company-mode 1)
+  (add-hook 'after-init-hook 'global-company-mode)
 
   ;; keybindings
 
@@ -197,10 +198,10 @@
   ;;
   ;; (add-to-list 'company-frontends 'company-preview-common-frontend) ; NOTE: this caused company-mode tooltip offset.
   (add-to-list 'company-frontends 'company-quickhelp-frontend)
-  
-  (if (functionp 'company-quickhelp-manual-begin)
-      (define-key company-active-map (kbd "M-h") 'company-quickhelp-manual-begin)
-    (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer))
+
+  (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
+  (with-eval-after-load 'company-quickhelp
+    (define-key company-active-map (kbd "M-h") 'company-quickhelp-manual-begin))
   )
 
 
