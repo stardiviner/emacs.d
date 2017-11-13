@@ -20,6 +20,7 @@
 (define-key prog-comment-prefix (kbd "M-;") 'comment-dwim)
 ;; or with [C-u N]
 (global-set-key (kbd "C-x C-;") 'comment-line)
+(define-key prog-comment-prefix (kbd "r") 'comment-or-uncomment-region)
 (define-key prog-comment-prefix (kbd "l") 'comment-line)
 (define-key prog-comment-prefix (kbd "b") 'comment-box)
 (define-key prog-comment-prefix (kbd "B") 'comment-box-with-fill-column)
