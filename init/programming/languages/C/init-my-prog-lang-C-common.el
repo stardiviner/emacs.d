@@ -132,6 +132,10 @@
   (local-set-key (kbd "C-x C-o") 'ff-find-other-file))
 (add-hook 'c-mode-common-hook #'my/c-mode-common-header-switch)
 
+;;; [ c-eldoc ] -- helpful description of the arguments to C functions.
+
+(use-package c-eldoc
+  :ensure t)
 
 ;;; [ flycheck-cstyle ] --
 
