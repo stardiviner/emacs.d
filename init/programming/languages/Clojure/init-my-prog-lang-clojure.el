@@ -61,6 +61,11 @@
 
   (use-package clojure-mode-extra-font-locking
     :ensure t)
+
+  (use-package subword
+    :ensure t
+    :config
+    (add-hook 'clojure-mode-hook 'subword-mode))
   )
 
 
