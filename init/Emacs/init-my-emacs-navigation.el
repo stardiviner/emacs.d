@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ movement ]
 
 (setq sentence-end-double-space nil)
@@ -105,7 +105,14 @@ This is the same as using \\[set-mark-command] with the prefix argument."
   (add-hook 'emacs-lisp-mode-hook 'imenu-elisp-sections)
   )
 
+;;; [ beginend ] -- Emacs package to redefine =[M-<]= and =[M->]= for some modes like Dired.
 
+(use-package beginend
+  :ensure t
+  :config
+  (beginend-global-mode))
+
+
 (provide 'init-my-emacs-navigation)
 
 ;;; init-my-emacs-navigation.el ends here
