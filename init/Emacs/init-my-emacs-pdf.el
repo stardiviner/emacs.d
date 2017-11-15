@@ -55,6 +55,12 @@
         pdf-annot-minor-mode-map-prefix (kbd "C-c C-a")
         )
 
+  ;; save after adding annotation comment
+  (defun pdf-tools-save-buffer ()
+    "This function is used to save pdf-annot commits."
+    (save-buffer))
+  (advice-add 'pdf-annot-edit-contents-commit :after 'pdf-tools-save-buffer)
+
   (defun my-pdf-tools-setup ()
     ;; Vim like basic scroll keys.
     (define-key pdf-view-mode-map (kbd "j") 'pdf-view-next-line-or-next-page)
