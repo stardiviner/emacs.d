@@ -7,6 +7,15 @@
 
 ;;; Code:
 
+;;; a helper function to run sudo Shell command.
+(defun sudo-shell-command (command)
+  "The suggested way to run sudo Shell `COMMAND' with TRAMP's sudo method."
+  (interactive "MAsync sudo command (root): ")
+  (with-temp-buffer
+    (cd "/sudo::/")
+    (async-shell-command command)))
+
+
 ;;; [ deferred ] -- Simple asynchronous functions for Emacs Lisp.
 
 (use-package deferred
