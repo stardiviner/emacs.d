@@ -58,7 +58,10 @@
 (setq org-todo-keywords
       '(
         ;; Status: Getting Things Done
-        (sequence "URGENT(u!)" "INPROGRESS(g!)" "TODO(t@/!)" "LATER(l!)" "NEXT(n!)" "SOMEDAY(s@/!)" "FAILED(x@/!)" "CANCELLED(C@/!)" "|" "DONE(d@/!)")
+        (sequence "TODO(t@/!)" "NEXT(n!)"
+                  "URGENT(u!)" "INPROGRESS(g@/!)" "LATER(l!)" "SOMEDAY(s@/!)"
+                  "FAILED(x@/!)" "CANCELLED(C@/!)"
+                  "|" "DONE(d@/!)")
         ;; Clock
         (sequence "STARTED(!)" "|" "DONE(d@/!)")
         ;; Repeat tasks with active timestamps
