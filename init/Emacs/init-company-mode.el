@@ -147,8 +147,6 @@
 
   ;; [ company-abbrev / company-dabbrev ]
   (setq company-dabbrev-other-buffers t)
-  ;; (setq company-dabbrev-code-other-buffers 'all)
-  (add-to-list 'company-dabbrev-code-modes 'web-mode)
 
   ;; [ company-tempo ]
 
