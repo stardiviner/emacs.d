@@ -246,8 +246,8 @@
 ;;; [ auto-fill-mode ] -- auto fill paragraphs like hitting [M-q].
 
 ;;; global
-;; (auto-fill-mode t)
-
+(auto-fill-mode t)
+;;
 ;;; auto fill comments but not code in programming modes:
 (add-hook 'prog-mode-hook
           '(lambda ()
@@ -255,6 +255,7 @@
              ))
 
 ;;; enable only for text writing modes.
+(toggle-text-mode-auto-fill)
 (dolist (hook
          '(text-mode-hook
            org-mode-hook
