@@ -162,7 +162,10 @@
 
 ;; (use-package dash-at-point
 ;;   :ensure t
-;;   :defer t)
+;;   :defer t
+;;   :bind (("C-h d p" . dash-at-point)
+;;          ("C-h d d" . dash-at-point-with-docset))
+;;   )
 
 
 ;;; [ zeal-at-point ]
