@@ -41,6 +41,7 @@
                   (company-capf         ; `completion-at-point-functions'
                    :with
                    company-yasnippet)
+                  :separate company-tempo
                   ;; :separate company-semantic
                   :separate company-ispell ; for word completion in comment.
                   (company-keywords
