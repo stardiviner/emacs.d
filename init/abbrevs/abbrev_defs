@@ -91,6 +91,12 @@
 
 (define-abbrev-table 'bibtex-mode-abbrev-table '())
 
+(define-abbrev-table 'bibtex-style-mode-abbrev-table '())
+
+(define-abbrev-table 'bison-mode-abbrev-table '())
+
+(define-abbrev-table 'blockdiag-mode-abbrev-table '())
+
 (define-abbrev-table 'bookmark-bmenu-mode-abbrev-table '())
 
 (define-abbrev-table 'bookmark-edit-annotation-mode-abbrev-table '())
@@ -109,6 +115,13 @@
 
 (define-abbrev-table 'calendar-mode-abbrev-table '())
 
+(define-abbrev-table 'captain-mode-abbrev-table
+  '(
+    ("The" "The" nil 1)
+    ("want" "Want" nil 1)
+    ("when" "When" nil 1)
+   ))
+
 (define-abbrev-table 'change-log-mode-abbrev-table '())
 
 (define-abbrev-table 'cider-browse-ns-mode-abbrev-table '())
@@ -121,6 +134,8 @@
 
 (define-abbrev-table 'cider-inspector-mode-abbrev-table '())
 
+(define-abbrev-table 'cider-repl-history-mode-abbrev-table '())
+
 (define-abbrev-table 'cider-repl-mode-abbrev-table '())
 
 (define-abbrev-table 'cider-stacktrace-mode-abbrev-table '())
@@ -128,6 +143,8 @@
 (define-abbrev-table 'cider-test-report-mode-abbrev-table '())
 
 (define-abbrev-table 'cljr--change-signature-mode-abbrev-table '())
+
+(define-abbrev-table 'cljsbuild-compilation-mode-abbrev-table '())
 
 (define-abbrev-table 'clojure-mode-abbrev-table '())
 
@@ -145,11 +162,15 @@
 
 (define-abbrev-table 'conf-colon-mode-abbrev-table '())
 
+(define-abbrev-table 'conf-desktop-mode-abbrev-table '())
+
 (define-abbrev-table 'conf-javaprop-mode-abbrev-table '())
 
 (define-abbrev-table 'conf-ppd-mode-abbrev-table '())
 
 (define-abbrev-table 'conf-space-mode-abbrev-table '())
+
+(define-abbrev-table 'conf-toml-mode-abbrev-table '())
 
 (define-abbrev-table 'conf-unix-mode-abbrev-table '())
 
@@ -157,9 +178,7 @@
 
 (define-abbrev-table 'conf-xdefaults-mode-abbrev-table '())
 
-(define-abbrev-table 'csharp-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'csharp-mode-abbrev-table '())
 
 (define-abbrev-table 'css-mode-abbrev-table '())
 
@@ -176,6 +195,10 @@
 (define-abbrev-table 'diffview-mode-abbrev-table '())
 
 (define-abbrev-table 'dig-mode-abbrev-table '())
+
+(define-abbrev-table 'dionysos--fs-mode-abbrev-table '())
+
+(define-abbrev-table 'dionysos--mpd-mode-abbrev-table '())
 
 (define-abbrev-table 'direx:direx-mode-abbrev-table '())
 
@@ -194,6 +217,8 @@
 (define-abbrev-table 'dsssl-mode-abbrev-table '())
 
 (define-abbrev-table 'eassist-mode-abbrev-table '())
+
+(define-abbrev-table 'ebdb-mode-abbrev-table '())
 
 (define-abbrev-table 'edbi:dbview-query-result-quicklook-mode-abbrev-table '())
 
@@ -223,6 +248,8 @@
 
 (define-abbrev-table 'elisp-byte-code-mode-abbrev-table '())
 
+(define-abbrev-table 'elisp-refs-mode-abbrev-table '())
+
 (define-abbrev-table 'elixir-mode-abbrev-table '())
 
 (define-abbrev-table 'elpy-refactor-mode-abbrev-table '())
@@ -233,9 +260,7 @@
 
 (define-abbrev-table 'emr-buffer-report-mode-abbrev-table '())
 
-(define-abbrev-table 'enh-ruby-mode-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'enh-ruby-mode-abbrev-table '())
 
 (define-abbrev-table 'ensime-connection-list-mode-abbrev-table '())
 
@@ -277,11 +302,15 @@
 
 (define-abbrev-table 'eww-mode-abbrev-table '())
 
+(define-abbrev-table 'ffip-diff-mode-abbrev-table '())
+
 (define-abbrev-table 'finder-mode-abbrev-table '())
 
 (define-abbrev-table 'fixmee--listview-mode-abbrev-table '())
 
 (define-abbrev-table 'flycheck-error-list-mode-abbrev-table '())
+
+(define-abbrev-table 'flymake-diagnostics-buffer-mode-abbrev-table '())
 
 (define-abbrev-table 'fundamental-mode-abbrev-table '())
 
@@ -364,6 +393,8 @@
 
 (define-abbrev-table 'google-maps-static-mode-abbrev-table '())
 
+(define-abbrev-table 'graphviz-dot-mode-abbrev-table '())
+
 (define-abbrev-table 'grep-mode-abbrev-table '())
 
 (define-abbrev-table 'gud-mode-abbrev-table '())
@@ -396,6 +427,8 @@
 
 (define-abbrev-table 'help-mode-abbrev-table '())
 
+(define-abbrev-table 'hierarchy-tabulated-mode-abbrev-table '())
+
 (define-abbrev-table 'html-erb-mode-abbrev-table '())
 
 (define-abbrev-table 'html-mode-abbrev-table '())
@@ -414,9 +447,19 @@
 
 (define-abbrev-table 'image-dired-thumbnail-mode-abbrev-table '())
 
+(define-abbrev-table 'indium-debugger-frames-mode-abbrev-table '())
+
+(define-abbrev-table 'indium-debugger-locals-mode-abbrev-table '())
+
+(define-abbrev-table 'indium-inspector-mode-abbrev-table '())
+
+(define-abbrev-table 'indium-repl-mode-abbrev-table '())
+
 (define-abbrev-table 'inf-clojure-mode-abbrev-table '())
 
 (define-abbrev-table 'inf-mongo-mode-abbrev-table '())
+
+(define-abbrev-table 'inf-ruby-mode-abbrev-table '())
 
 (define-abbrev-table 'inferior-emacs-lisp-mode-abbrev-table '())
 
@@ -432,7 +475,11 @@
 
 (define-abbrev-table 'inferior-moz-mode-abbrev-table '())
 
+(define-abbrev-table 'inferior-pig-mode-abbrev-table '())
+
 (define-abbrev-table 'inferior-python-mode-abbrev-table '())
+
+(define-abbrev-table 'ini-mode-abbrev-table '())
 
 (define-abbrev-table 'internal-ange-ftp-mode-abbrev-table '())
 
@@ -458,6 +505,10 @@
 
 (define-abbrev-table 'jdee-run-mode-abbrev-table '())
 
+(define-abbrev-table 'jison-mode-abbrev-table '())
+
+(define-abbrev-table 'js-comint-mode-abbrev-table '())
+
 (define-abbrev-table 'js-jsx-mode-abbrev-table '())
 
 (define-abbrev-table 'js-mode-abbrev-table '())
@@ -473,6 +524,10 @@
 (define-abbrev-table 'julia-mode-abbrev-table '())
 
 (define-abbrev-table 'latex-mode-abbrev-table '())
+
+(define-abbrev-table 'lean-abbrev-table '())
+
+(define-abbrev-table 'lean-info-mode-abbrev-table '())
 
 (define-abbrev-table 'ledger-check-mode-abbrev-table '())
 
@@ -494,7 +549,9 @@
 
 (define-abbrev-table 'log4e-mode-abbrev-table '())
 
-(define-abbrev-table 'lua-mode-abbrev-table '())
+(define-abbrev-table 'lua-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'lxc-list-table-mode-abbrev-table '())
 
@@ -538,7 +595,21 @@
 
 (define-abbrev-table 'magit-wazzup-mode-abbrev-table '())
 
+(define-abbrev-table 'magithub-issue-post-mode-abbrev-table '())
+
 (define-abbrev-table 'mail-abbrevs '())
+
+(define-abbrev-table 'makefile-automake-mode-abbrev-table '())
+
+(define-abbrev-table 'makefile-bsdmake-mode-abbrev-table '())
+
+(define-abbrev-table 'makefile-gmake-mode-abbrev-table '())
+
+(define-abbrev-table 'makefile-imake-mode-abbrev-table '())
+
+(define-abbrev-table 'makefile-makepp-mode-abbrev-table '())
+
+(define-abbrev-table 'makefile-mode-abbrev-table '())
 
 (define-abbrev-table 'mark-mode-abbrev-table '())
 
@@ -558,6 +629,16 @@
 
 (define-abbrev-table 'motion-mode-abbrev-table '())
 
+(define-abbrev-table 'mpc-mode-abbrev-table '())
+
+(define-abbrev-table 'mpc-songs-mode-abbrev-table '())
+
+(define-abbrev-table 'mpc-status-mode-abbrev-table '())
+
+(define-abbrev-table 'mpc-tagbrowser-dir-mode-abbrev-table '())
+
+(define-abbrev-table 'mpc-tagbrowser-mode-abbrev-table '())
+
 (define-abbrev-table 'mu4e-about-mode-abbrev-table '())
 
 (define-abbrev-table 'mu4e-org-mode-abbrev-table '())
@@ -566,6 +647,10 @@
 
 (define-abbrev-table 'nasm-mode-abbrev-table '())
 
+(define-abbrev-table 'navi-edit-mode-abbrev-table '())
+
+(define-abbrev-table 'navi-mode-abbrev-table '())
+
 (define-abbrev-table 'neotree-mode-abbrev-table '())
 
 (define-abbrev-table 'nim-compile-mode-abbrev-table '())
@@ -573,6 +658,8 @@
 (define-abbrev-table 'nim-mode-abbrev-table '())
 
 (define-abbrev-table 'nimscript-mode-abbrev-table '())
+
+(define-abbrev-table 'nov-mode-abbrev-table '())
 
 (define-abbrev-table 'nrepl-connections-buffer-mode-abbrev-table '())
 
@@ -606,7 +693,28 @@
 
 (define-abbrev-table 'org-mode-abbrev-table
   '(
+    ("baidu" "Baidu" nil 0)
+    ("bitbucket" "BitBucket" nil 0)
+    ("blekko" "Blekko" nil 0)
+    ("chrome" "Chrome" nil 0)
+    ("conky" "Conky" nil 0)
+    ("duckduckgo" "DuckDuckGo" nil 0)
     ("eg" "e.g." nil 4)
+    ("emacs" "Emacs" nil 0)
+    ("facebook" "Facebook" nil 0)
+    ("firefox" "FireFox" nil 0)
+    ("github" "GitHub" nil 1)
+    ("gitlab" "GitLab" nil 0)
+    ("gnome" "GNOME" nil 0)
+    ("gnu" "GNU" nil 0)
+    ("google" "Google" nil 1)
+    ("kde" "KDE" nil 0)
+    ("linux" "Linux" nil 0)
+    ("org-mode" "Org-mode" nil 0)
+    ("orgmode" "Org-mode" nil 1)
+    ("qq" "QQ" nil 0)
+    ("tencent" "Tencent" nil 0)
+    ("youtube" "YouTube" nil 0)
    ))
 
 (define-abbrev-table 'org-passwords-mode-abbrev-table '())
@@ -616,6 +724,12 @@
 (define-abbrev-table 'package-menu-mode-abbrev-table '())
 
 (define-abbrev-table 'pandoc-@-mode-abbrev-table '())
+
+(define-abbrev-table 'paperless-mode-abbrev-table '())
+
+(define-abbrev-table 'pass-mode-abbrev-table '())
+
+(define-abbrev-table 'pass-view-mode-abbrev-table '())
 
 (define-abbrev-table 'pdf-annot-list-mode-abbrev-table '())
 
@@ -631,6 +745,8 @@
 
 (define-abbrev-table 'php-mode-abbrev-table '())
 
+(define-abbrev-table 'pig-mode-abbrev-table '())
+
 (define-abbrev-table 'pike-mode-abbrev-table
   '(
    ))
@@ -641,7 +757,17 @@
 
 (define-abbrev-table 'plain-tex-mode-abbrev-table '())
 
+(define-abbrev-table 'plantuml-mode-abbrev-table '())
+
+(define-abbrev-table 'poly-fallback-mode-abbrev-table '())
+
+(define-abbrev-table 'poly-head-tail-mode-abbrev-table '())
+
 (define-abbrev-table 'process-menu-mode-abbrev-table '())
+
+(define-abbrev-table 'prodigy-mode-abbrev-table '())
+
+(define-abbrev-table 'prodigy-view-mode-abbrev-table '())
 
 (define-abbrev-table 'prog-mode-abbrev-table '())
 
@@ -665,6 +791,8 @@
 
 (define-abbrev-table 'py-python-shell-mode-abbrev-table '())
 
+(define-abbrev-table 'pyim-dm-mode-abbrev-table '())
+
 (define-abbrev-table 'pylint-mode-abbrev-table '())
 
 (define-abbrev-table 'python-mode-abbrev-table '())
@@ -677,7 +805,11 @@
 
 (define-abbrev-table 'qml-mode-abbrev-table '())
 
+(define-abbrev-table 'quickrun--mode-abbrev-table '())
+
 (define-abbrev-table 'quickrun/mode-abbrev-table '())
+
+(define-abbrev-table 'racer-help-mode-abbrev-table '())
 
 (define-abbrev-table 'rails-new-mode-abbrev-table '())
 
@@ -698,6 +830,10 @@
 (define-abbrev-table 'restclient-mode-abbrev-table '())
 
 (define-abbrev-table 'rhtml-mode-abbrev-table '())
+
+(define-abbrev-table 'ripgrep-search-mode-abbrev-table '())
+
+(define-abbrev-table 'rmail-summary-mode-abbrev-table '())
 
 (define-abbrev-table 'rspec-compilation-mode-abbrev-table '())
 
@@ -800,6 +936,81 @@
 (define-abbrev-table 'special-mode-abbrev-table '())
 
 (define-abbrev-table 'speedbar-mode-abbrev-table '())
+
+(define-abbrev-table 'spice-mode-abbrev-table
+  '(
+    ("c" "" tempo-template-spice-spice2g6-capacitor 0)
+    ("cccs" "" tempo-template-spice-spice2g6-cccs 0)
+    ("ccvs" "" tempo-template-spice-spice2g6-ccvs 0)
+    ("ce" "" tempo-template-spice-eldo-capacitor 0)
+    ("cee" "" tempo-template-spice-eldo-expression-capacitor 0)
+    ("ch" "" tempo-template-spice-hspice-capacitor 0)
+    ("cl" "" tempo-template-spice-layla-capacitor 0)
+    ("comp" "" tempo-template-spice-eldo-comp 0)
+    ("compd" "" tempo-template-spice-eldo-compd 0)
+    ("css" "" tempo-template-spice-spice3-semiconductor-capacitor 0)
+    ("d" "" tempo-template-spice-spice2g6-diode 0)
+    ("dc" "" tempo-template-spice-eldo-duty-macro 0)
+    ("de" "" tempo-template-spice-eldo-diode 0)
+    ("dh" "" tempo-template-spice-hspice-diode 0)
+    ("dl" "" tempo-template-spice-layla-diode 0)
+    ("e" "" tempo-template-spice-spice2g6-vcvs 0)
+    ("exp" "" tempo-template-spice-exp 0)
+    ("f" "" tempo-template-spice-spice2g6-cccs 0)
+    ("fc" "" tempo-template-spice-eldo-fc 0)
+    ("g" "" tempo-template-spice-spice2g6-vccs 0)
+    ("gmag" "" tempo-template-spice-eldo-gmag 0)
+    ("h" "" tempo-template-spice-spice2g6-ccvs 0)
+    ("he" "" tempo-template-spice-eldo-circuit-header 0)
+    ("j" "" tempo-template-spice-spice2g6-jfet 0)
+    ("je" "" tempo-template-spice-eldo-jfet 0)
+    ("jh" "" tempo-template-spice-hspice-jfet 0)
+    ("k" "" tempo-template-spice-spice2g6-coupled-inductors 0)
+    ("l" "" tempo-template-spice-spice2g6-inductor 0)
+    ("le" "" tempo-template-spice-eldo-inductor 0)
+    ("lee" "" tempo-template-spice-eldo-expression-inductor 0)
+    ("lh" "" tempo-template-spice-hspice-inductor 0)
+    ("ll" "" tempo-template-spice-layla-inductor 0)
+    ("m" "" tempo-template-spice-spice2g6-mosfet 0)
+    ("me" "" tempo-template-spice-eldo-mosfet 0)
+    ("mh" "" tempo-template-spice-hspice-mosfet 0)
+    ("ml" "" tempo-template-spice-layla-mosfet 0)
+    ("noi" "" tempo-template-spice-eldo-noise 0)
+    ("o" "" tempo-template-spice-spice2g6-lossy-transmission 0)
+    ("opa0" "" tempo-template-spice-eldo-linear-opa0 0)
+    ("opa0d" "" tempo-template-spice-eldo-linear-opa0d 0)
+    ("opa1" "" tempo-template-spice-eldo-linear-opa0 0)
+    ("opa1d" "" tempo-template-spice-eldo-linear-opa0d 0)
+    ("opa2" "" tempo-template-spice-eldo-linear-opa0 0)
+    ("opa2d" "" tempo-template-spice-eldo-linear-opa0d 0)
+    ("pat" "" tempo-template-spice-eldo-pattern 0)
+    ("phmag" "" tempo-template-spice-eldo-phmag 0)
+    ("pu" "" tempo-template-spice-pulse 0)
+    ("pwl" "" (spice-pwl) 0)
+    ("q" "" tempo-template-spice-spice2g6-bipolar 0)
+    ("qe" "" tempo-template-spice-eldo-bipolar 0)
+    ("qh" "" tempo-template-spice-hspice-bipolar 0)
+    ("r" "" tempo-template-spice-spice2g6-resistor 0)
+    ("rcle" "" tempo-template-spice-eldo-rcline 0)
+    ("rcls" "" tempo-template-spice-spice3-rcline 0)
+    ("re" "" tempo-template-spice-eldo-resistor 0)
+    ("ree" "" tempo-template-spice-eldo-expression-resistor 0)
+    ("res" "" tempo-template-spice-eldo-semiconductor-resistor 0)
+    ("rh" "" tempo-template-spice-hspice-resistor 0)
+    ("rl" "" tempo-template-spice-layla-resistor 0)
+    ("rss" "" tempo-template-spice-spice3-semiconductor-resistor 0)
+    ("sin" "" tempo-template-spice-sine 0)
+    ("sub" "" tempo-template-spice-spice2g6-subckt 0)
+    ("t" "" tempo-template-spice-spice2g6-lossless-transmission 0)
+    ("te" "" tempo-template-spice-spice2g6-lossless-transmission 0)
+    ("tf" "" tempo-template-spice-eldo-period 0)
+    ("tfm" "" tempo-template-spice-eldo-period-macro 0)
+    ("th" "" tempo-template-spice-hspice-lossless-transmission 0)
+    ("ugfc" "" tempo-template-spice-eldo-ugfc 0)
+    ("vccs" "" tempo-template-spice-spice2g6-vccs 0)
+    ("vcvs" "" tempo-template-spice-spice2g6-vcvs 0)
+    ("z" "" tempo-template-spice-spice2g6-mesfet 0)
+   ))
 
 (define-abbrev-table 'sql-mode-abbrev-table
   '(
