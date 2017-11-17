@@ -27,10 +27,11 @@
   (add-hook 'prog-mode-hook #'flycheck-mode)
   :bind (:map flycheck-mode-map
               ("M-g M-n" . flycheck-next-error)
-              ("M-g M-p" . flycheck-previous-error))
+              ("M-g M-p" . flycheck-previous-error)
+              ("M-g M-l" . flycheck-list-errors))
   :config
   (setq-default flycheck-temp-prefix ".flycheck")
-  (setq flycheck-check-syntax-automatically '(save idle-change new-line mode-enabled)
+  (setq flycheck-check-syntax-automatically '(mode-enabled save idle-change) ; new-line
         flycheck-idle-change-delay 5.0
         ;; flycheck-display-errors-delay 0.9
         flycheck-highlighting-mode 'symbols
