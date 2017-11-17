@@ -35,6 +35,9 @@
   ;; [ Haskell Interactive Mode ]
   (require 'haskell-interactive-mode)
   (require 'haskell-process)
+  (require 'inf-haskell)
+
+  ;; (setq haskell-process-type 'auto) ; 'ghci
 
   ;; (setq haskell-process-type 'stack-ghci)
   
