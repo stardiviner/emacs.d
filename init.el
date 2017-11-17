@@ -157,6 +157,12 @@
   (use-package org-plus-contrib
     :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
     :pin manual)
+
+  ;; add source code version Org-mode Info into Emacs.
+  (with-eval-after-load 'info
+    (info-initialize)
+    (add-to-list 'Info-directory-list
+                 "~/Code/Emacs/org-mode/doc/"))
   )
 
 (org-reload)
