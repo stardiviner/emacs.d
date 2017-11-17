@@ -343,7 +343,7 @@
                "~/Org/Projects/Interpersonal Network/" ; Interpersonal Network
                "~/Org/Learning Plan/"
                ;; "~/Org/Contacts/Contacts.org"
-               "~/Org/Calendars/"
+               ;; "~/Org/Calendars/"
                ))))
 
 (setq org-agenda-text-search-extra-files '(agenda-archives "~/Org/Diary/"))
@@ -517,7 +517,8 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 ;;;_* iCalendar
 
-(setq org-combined-agenda-icalendar-file "~/Org/Calendar/iCalendar.ics")
+;; FIXME: deprecated variable (free assigned).
+;; (setq org-combined-agenda-icalendar-file "~/Org/Calendar/iCalendar.ics")
 
 ;;; [ Google Calendar ]
 
