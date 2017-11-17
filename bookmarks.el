@@ -2,7 +2,255 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("PDF-LAST-VIEWED: /home/stardiviner/Code/learning/Emacs/Org-mode/export-chinese.pdf"
+(("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Things/data/e1/824d15-35cb-4105-a617-5f7ecd6a1049/DZFP2017111600007674_034011700111_02106006.pdf"
+ (filename . "~/Org/Wiki/Things/data/e1/824d15-35cb-4105-a617-5f7ecd6a1049/DZFP2017111600007674_034011700111_02106006.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("Products Manual.org"
+ (filename . "~/Org/Products Manual/Products Manual.org")
+ (front-context-string . "#+TITLE: Product")
+ (rear-context-string)
+ (position . 1))
+("Android Development.org"
+ (filename . "~/Org/Wiki/Computer Technology/Operating System/Android/Android Development/Android Development.org")
+ (front-context-string . "#+TITLE: Android")
+ (rear-context-string)
+ (position . 1))
+("Arduino.org"
+ (filename . "~/Org/Wiki/Computer Technology/Hardware/Dev Board/Single Board Computer/Arduino/Arduino.org")
+ (front-context-string . "#+TITLE: Arduino")
+ (rear-context-string)
+ (position . 1))
+("Raspberry Pi.org"
+ (filename . "~/Org/Wiki/Computer Technology/Hardware/Dev Board/Single Board Computer/Raspberry Pi/Raspberry Pi.org")
+ (front-context-string . "#+TITLE: Raspber")
+ (rear-context-string)
+ (position . 1))
+("Single Board Computer.org"
+ (filename . "~/Org/Wiki/Computer Technology/Hardware/Dev Board/Single Board Computer/Single Board Computer.org")
+ (front-context-string . "#+TITLE: Single ")
+ (rear-context-string)
+ (position . 1))
+("My Communication Skills Manual.org"
+ (filename . "~/Org/Wiki/Self Enhancement/Communication/Data/Manuals/My Communication Skills Manual/My Communication Skills Manual.org")
+ (front-context-string . "#+TITLE: My Comm")
+ (rear-context-string)
+ (position . 1))
+("Dev Board.org"
+ (filename . "~/Org/Wiki/Computer Technology/Hardware/Dev Board/Dev Board.org")
+ (front-context-string . "#+TITLE: Dev Boa")
+ (rear-context-string)
+ (position . 1))
+("C Sharp.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/C Sharp/C Sharp.org")
+ (front-context-string . "#+TITLE: C# Prog")
+ (rear-context-string)
+ (position . 1))
+("Social Network.org"
+ (filename . "~/Org/Wiki/Sociology/Social Intercourse/Social Network/Social Network.org")
+ (front-context-string . "#+TITLE: Social ")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Emacs/Data/Books/Mastering Emacs.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Data/Books/Mastering Emacs.pdf")
+ (position . 1)
+ (page . 6)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Emacs/Data/Books/Learning GNU Emacs Chinese.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Data/Books/Learning GNU Emacs Chinese.pdf")
+ (position . 1)
+ (page . 2)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.4558610709117221)
+ (handler . pdf-view-bookmark-jump-handler))
+("Stock.org"
+ (filename . "~/Org/Wiki/Investing and Financing/Stock/Stock.org")
+ (front-context-string . "\n\n* Intro\n\n\n** S")
+ (rear-context-string)
+ (position . 15))
+("Negotiable Securities.org"
+ (filename . "~/Org/Wiki/Investing and Financing/Negotiable Securities/Negotiable Securities.org")
+ (front-context-string . "#+TITLE: Negotia")
+ (rear-context-string)
+ (position . 1))
+("Emacs KeyBindings.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Emacs KeyBindings/Emacs KeyBindings.org")
+ (front-context-string . "#+TITLE: Emacs K")
+ (rear-context-string)
+ (position . 1))
+("Sex Positions.org"
+ (filename . "~/Org/Wiki/Sexology/Sexual Intercourse/Sex Positions/Sex Positions.org")
+ (front-context-string . "#+TITLE: Sex Pos")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Softwares/TensorFlow/Data/Books/Learning TensorFlow.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/TensorFlow/Data/Books/Learning TensorFlow.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Books/Clojure Applied: From Practice to Practitioner.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Books/Clojure Applied: From Practice to Practitioner.pdf")
+ (position . 1)
+ (page . 21)
+ (slice)
+ (size . fit-width)
+ (origin)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Emacs/modes/Calc/calc-qref.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/Calc/calc-qref.pdf")
+ (position . 1)
+ (page . 4)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("Calc.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/Calc/Calc.org")
+ (front-context-string . "#+TITLE: Calc\n\n*")
+ (rear-context-string)
+ (position . 1))
+("Revenge.org.gpg"
+ (filename . "~/Org/Revenge/Revenge.org.gpg")
+ (front-context-string . "#+TITLE: Revenge")
+ (rear-context-string)
+ (position . 1))
+("Poems.org"
+ (filename . "~/Org/Wiki/Literature/Poem/Data/Poems/Poems.org")
+ (front-context-string . "#+TITLE: Poems\n\n")
+ (rear-context-string)
+ (position . 1))
+("China Ancient Medicine.org"
+ (filename . "~/Org/Wiki/Medicine/China Ancient Medicine/China Ancient Medicine.org")
+ (front-context-string . "#+TITLE: China A")
+ (rear-context-string)
+ (position . 1))
+("Economy of China.org"
+ (filename . "~/Org/Wiki/Economy/Economy of Countries/Economy of China/Economy of China.org")
+ (front-context-string . "#+TITLE: Economy")
+ (rear-context-string)
+ (position . 1))
+("Perl Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Perl/Data/Perl Packages/Perl Packages.org")
+ (front-context-string . "#+TITLE: Perl Pa")
+ (rear-context-string)
+ (position . 1))
+("Social Engineering.org"
+ (filename . "~/Org/Wiki/Computer Technology/Crack/Data/Crack Methods/Social Engineering/Social Engineering.org")
+ (front-context-string . "#+TITLE: Social ")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Projects/Agriculture Projects/Agriculture Projects.pdf"
+ (filename . "~/Org/Projects/Agriculture Projects/Agriculture Projects.pdf")
+ (position . 1)
+ (page . 11)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.25998492840994725)
+ (handler . pdf-view-bookmark-jump-handler))
+("tlmgr.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/TeX/Data/TeX Macro Packages/tlmgr.org")
+ (front-context-string . "#+TITLE: tlmgr\n\n")
+ (rear-context-string)
+ (position . 1))
+("Digital Circuit.org"
+ (filename . "~/Org/Wiki/Computer Technology/Hardware/Digital Circuit/Digital Circuit.org")
+ (front-context-string . "#+TITLE: Digital")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/History/Country's History/China History/Data/Books/大秦帝国全集.pdf"
+ (filename . "~/Org/Wiki/History/Country's History/China History/Data/Books/大秦帝国全集.pdf")
+ (position . 1)
+ (page . 2)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.15825169555388094)
+ (handler . pdf-view-bookmark-jump-handler))
+("China History.org"
+ (filename . "~/Org/Wiki/History/Country's History/China History/China History.org")
+ (front-context-string . "#+TITLE: China H")
+ (rear-context-string)
+ (position . 1))
+("Agile.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Software Development/Software Development Method/Agile/Agile.org")
+ (front-context-string . "#+TITLE: Agile S")
+ (rear-context-string)
+ (position . 1))
+("Chinese Class Music.org"
+ (filename . "~/Org/Wiki/Music/Chinese Class Music/Chinese Class Music.org")
+ (front-context-string . "#+TITLE: Chinese")
+ (rear-context-string)
+ (position . 1))
+("Music.org"
+ (filename . "~/Org/Wiki/Music/Music.org")
+ (front-context-string . "#+TITLE: Music\n\n")
+ (rear-context-string)
+ (position . 1))
+("Traditional Chinese Medical Science.org"
+ (filename . "~/Org/Wiki/Traditional Chinese Medical Science/Traditional Chinese Medical Science.org")
+ (front-context-string . "#+TITLE: Traditi")
+ (rear-context-string)
+ (position . 1))
+("Acupoint.org"
+ (filename . "~/Org/Wiki/中医/Acupoint/Acupoint.org")
+ (front-context-string . "#+TITLE: Acupoin")
+ (rear-context-string)
+ (position . 1))
+("My Medicine Manual.org"
+ (filename . "~/Org/Wiki/Medicine/Data/Manuals/My Medicine Manual/My Medicine Manual.org")
+ (front-context-string . "#+TITLE: My Medi")
+ (rear-context-string)
+ (position . 1))
+("UserScript.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Web/Web Technologies/UserScript/UserScript.org")
+ (front-context-string . "#+TITLE: UserScr")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Diary/2017-09-25-19:31.pdf"
+ (filename . "~/Org/Diary/2017-09-25-19:31.pdf")
+ (position . 1)
+ (page . 4)
+ (slice)
+ (size . 1.1105882352941177)
+ (origin 0.0 . 0.2733118971061093)
+ (handler . pdf-view-bookmark-jump-handler))
+("BlackArch Linux.org"
+ (filename . "~/Org/Wiki/Computer Technology/Operating System/Linux/Linux Distributions/BlackArch Linux.org")
+ (front-context-string . "#+TITLE: BlackAr")
+ (rear-context-string)
+ (position . 1))
+("Embedded.org"
+ (filename . "~/Org/Wiki/Computer Technology/Hardware/Embedded/Embedded.org")
+ (front-context-string . "#+TITLE: Embedde")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Implementations/Programming Finance/Data/Books/Python for Finance, 2nd Edition.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Programming Finance/Data/Books/Python for Finance, 2nd Edition.pdf")
+ (position . 1)
+ (page . 19)
+ (slice 0.051923000000000004 0.027469 0.8982910000000001 0.9450620000000001)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Self Enhancement/Encouragement/Data/Books/我的奋斗 罗永浩.pdf"
+ (filename . "~/Org/Wiki/Self Enhancement/Encouragement/Data/Books/我的奋斗 罗永浩.pdf")
+ (position . 1)
+ (page . 1)
+ (slice 0 0 1 1)
+ (size . fit-width)
+ (origin 0.0 . 0.32786885245901637)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Code/learning/Emacs/Org-mode/export-chinese.pdf"
  (filename . "~/Code/learning/Emacs/Org-mode/export-chinese.pdf")
  (position . 1)
  (page . 4)
@@ -455,12 +703,6 @@
  (front-context-string . "#+TITLE: Market\n")
  (rear-context-string)
  (position . 1))
-(#("csharp.org" 0 1
-   (idx 69))
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/csharp/csharp.org")
- (front-context-string . "#+TITLE: C# Prog")
- (rear-context-string)
- (position . 1))
 (#("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Red/data/f2/f6f31f-07d2-4997-bdba-7577719620ee/Red, 不红不专, 但性感.pdf" 0 1
    (idx 70))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Red/data/f2/f6f31f-07d2-4997-bdba-7577719620ee/Red, 不红不专, 但性感.pdf")
@@ -507,12 +749,6 @@
    (idx 76))
  (filename . "~/Org/Wiki/Thought/Thought.org")
  (front-context-string . "#+TITLE: Thought")
- (rear-context-string)
- (position . 1))
-(#("Revenge.org" 0 1
-   (idx 77))
- (filename . "~/Org/Revenge/Revenge.org")
- (front-context-string . "#+TITLE: Revenge")
  (rear-context-string)
  (position . 1))
 (#("local accounts.org" 0 1
@@ -672,18 +908,6 @@
    (idx 100))
  (filename . "~/Org/Wiki/History/History.org")
  (front-context-string . "#+TITLE: History")
- (rear-context-string)
- (position . 1))
-(#("Arduino.org" 0 1
-   (idx 101))
- (filename . "~/Org/Wiki/Computer Technology/Hardware/Dev Board/Arduino/Arduino.org")
- (front-context-string . "#+TITLE: Arduino")
- (rear-context-string)
- (position . 1))
-(#("Raspberry Pi.org" 0 1
-   (idx 102))
- (filename . "~/Org/Wiki/Computer Technology/Hardware/Dev Board/Raspberry Pi/Raspberry Pi.org")
- (front-context-string . "#+TITLE: Raspber")
  (rear-context-string)
  (position . 1))
 (#("Open Source Hardware.org" 0 1
@@ -1185,12 +1409,6 @@
    (idx 183))
  (filename . "~/Org/Wiki/Self Enhancement/Knowledge Management/Knowledge Management.org")
  (front-context-string . "#+TITLE: Knowled")
- (rear-context-string)
- (position . 1))
-(#("Reading.org" 0 1
-   (idx 184))
- (filename . "~/Org/Wiki/Reading/Reading.org")
- (front-context-string . "#+TITLE: Reading")
  (rear-context-string)
  (position . 1))
 (#("Management.org" 0 1
@@ -2459,15 +2677,15 @@
 (#("org-capture-last-stored-marker" 0 1
    (idx 392))
  (filename . "~/Org/Projects/Code.org")
- (front-context-string . "** TODO Org-mode")
- (rear-context-string . "el/issues/388\n\n\n")
- (position . 81782))
+ (front-context-string . "** TODO arduino-")
+ (rear-context-string . "!!!\n#+END_SRC\n\n\n")
+ (position . 51875))
 (#("org-refile-last-stored" 0 1
    (idx 393))
  (filename . "~/Org/Projects/Code.org")
- (front-context-string . "** TODO Org-mode")
- (rear-context-string . "el/issues/388\n\n\n")
- (position . 81782))
+ (front-context-string . "** TODO arduino-")
+ (rear-context-string . "!!!\n#+END_SRC\n\n\n")
+ (position . 51875))
 (#("Vim.org" 0 1
    (idx 394))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Vim/Vim.org")
@@ -3053,7 +3271,7 @@
 (#("Medicine.org" 0 1
    (idx 491))
  (filename . "~/Org/Wiki/Medicine/Medicine.org")
- (front-context-string . "* Intro\n\n\n\n* Dat")
+ (front-context-string . "#+TITLE: Medicin")
  (rear-context-string)
  (position . 1))
 (#("Beauty.org" 0 1
@@ -3155,7 +3373,7 @@
 (#("org-capture-last-stored" 0 1
    (idx 508))
  (filename . "~/Org/Tasks/Tasks.org")
- (front-context-string . "* TODO Org-mode ")
+ (front-context-string . "* TODO arduino-m")
  (rear-context-string . "CATEGORY: Todo\n\n")
  (position . 19))
 (#("Accounts" 0 1
@@ -3180,12 +3398,6 @@
    (idx 512))
  (filename . "~/Git/Arch/install.sh")
  (front-context-string . "#!/usr/bin/env b")
- (rear-context-string)
- (position . 1))
-(#("Revenge" 0 1
-   (idx 513))
- (filename . "~/Org/Revenge/Revenge.org")
- (front-context-string . "* I Swear\n\n- 当初说")
  (rear-context-string)
  (position . 1))
 (#("Life" 0 1
