@@ -262,12 +262,6 @@
 (use-package indium
   :ensure t
   :defer t
-  :init
-  (dolist (hook '(js-mode-hook
-                  js2-mode-hook
-                  js3-mode-hook
-                  ))
-    (add-hook hook #'indium-interaction-mode))
   :config
   (setq indium-chrome-executable "google-chrome-unstable")
   ;; live JavaScript source edit and update.
