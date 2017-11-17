@@ -157,7 +157,7 @@
 (use-package org-edit-latex
   :ensure t
   :config
-  (setq org-edit-latex-create-master 'ask)
+  (setq org-edit-latex-create-master nil) ; 'ask, t, nil
   
   (add-hook 'org-mode-hook #'org-edit-latex-mode)
 
