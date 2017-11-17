@@ -26,10 +26,14 @@
   ;; speed-up tramp.
   (setq tramp-completion-reread-directory-timeout nil)
 
+  ;; Multi-hops SSH proxy bridges
+  ;; [[info:tramp#Multi-hops][info:tramp#Multi-hops]]
+  ;;
+  ;; (add-to-list 'tramp-default-proxies-alist '(HOST USER SSH-PROXY))
+
   ;; ad-hoc proxy
   ;; (setq tramp-save-ad-hoc-proxies t)
-  ;; (setq tramp-default-proxies-alist '())
-  
+  ;;
   ;; <default user>
   ;; ssh connect: host, user
   ;; NOTE: this cause `ob-shell' :dir /sudo:: error.
@@ -37,16 +41,16 @@
   ;;              '(("\\`su\\(do\\)?\\'" nil "root")))
   ;; (add-to-list 'tramp-default-user-alist
   ;;              '("ssh" ".*\\.somewhere\\.else\\'" "john"))
-
+  ;;
   ;; <default host>
   ;; (add-to-list 'tramp-default-host-alist)
-
+  ;;
   ;; <default proxy>
   ;; (add-to-list 'tramp-default-proxies-alist)
-
+  ;;
   ;; Tramp completion
   ;; (add-to-list 'tramp-completion-function-alist)
-
+  ;;
   ;; <predefined connection property>
   ;; (add-to-list 'tramp-connection-properties
   ;;              (list (regexp-quote "/ssh:user@randomhost.your.domain:")
