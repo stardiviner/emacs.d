@@ -74,12 +74,19 @@
   ;;   (add-hook hook 'flyspell-prog-mode))
 
   ;; Org-mode
-  (add-hook 'org-mode-hook
-            (lambda ()
-              ;; ignore TeX commands
-              (setq-local ispell-parser 'tex)
-              (flyspell-mode 1)
-              ))
+  ;; (add-hook 'org-mode-hook
+  ;;           (lambda ()
+  ;;             ;; ignore TeX commands
+  ;;             (setq-local ispell-parser 'tex)
+  ;;             (flyspell-mode 1)
+  ;;             ))
+  ;;; to improve Org-mode performance.
+  (defun flyspell-buffer-org ()
+    "Flyspell on Org-mode buffer."
+    (when (equal major-mode 'org-mode)
+      (flyspell-buffer)
+      (flyspell-goto-next-error)))
+  (add-hook 'after-save-hook #'flyspell-buffer-org)
 
   ;; TeX
   (add-hook 'tex-mode-hook
