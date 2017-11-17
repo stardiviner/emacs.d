@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
+
 ;;; [ csharp-mode ]
 
 (use-package csharp-mode
@@ -43,8 +43,7 @@
   (add-hook 'omnisharp-mode-hook 'my-omnisharp-setup)
   )
 
-;;; ----------------------------------------------------------------------------
-
+
 (provide 'init-my-prog-lang-csharp)
 
 ;;; init-my-prog-lang-csharp.el ends here

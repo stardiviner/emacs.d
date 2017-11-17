@@ -234,7 +234,7 @@
 (global-set-key [remap fill-paragraph] #'my/fill-or-unfill)
 
 
-;;; [ fci -- Fill Column Indicator ]
+;;; [ fci ] -- Fill Column Indicator
 
 ;; (eval-after-load 'fill-column-indicator
 ;;   (setq fci-rule-width 10)

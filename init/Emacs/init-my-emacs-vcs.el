@@ -6,7 +6,7 @@
 ;;; vc
 
 ;;; Code:
-
+
 ;;; [ version control ]
 
 (setq version-control t)                ; enable version control
@@ -29,7 +29,7 @@
 (require 'vc-git)
 
 
-
+
 (provide 'init-my-emacs-vcs)
 
 ;;; init-my-emacs-vcs.el ends here
