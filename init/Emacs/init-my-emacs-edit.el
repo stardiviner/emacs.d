@@ -10,7 +10,6 @@
 
 (require 'init-my-emacs-kill-ring)
 (require 'init-my-emacs-region)
-(require 'init-my-emacs-macro)
 (require 'init-my-emacs-edit-electric)
 (require 'init-my-emacs-edit-rectangle)
 (require 'init-my-emacs-edit-narrow)
