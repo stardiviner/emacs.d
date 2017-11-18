@@ -54,6 +54,13 @@
                       :background "#b58900" :height 1.05
                       :weight 'bold
                       )
+
+  (use-package navi-mode
+    :ensure t
+    :config
+    ;; Add "use-package" lines to `navi-keywords'.
+    (setf (cdr (assoc :ALL (cdr (assoc "emacs-lisp" navi-keywords))))
+          "^[[:space:]]*(\\(use-package\\|\\(cl-\\)\\{0,1\\}def[a-z]+\\)\\*? "))
   )
 
 ;;; [ outshine ] -- outline with outshine outshines outline.
