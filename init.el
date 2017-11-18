@@ -122,7 +122,7 @@
 (require 'init-my-emacs-outline)
 (require 'init-my-emacs-macro)
 (require 'init-my-emacs-input-method)
-(require 'init-my-emacs-spell)
+;; (require 'init-my-emacs-spell)
 (require 'init-my-emacs-file)
 (require 'init-my-emacs-color)
 (require 'init-my-emacs-image)

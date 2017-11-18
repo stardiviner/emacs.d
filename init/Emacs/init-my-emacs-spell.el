@@ -3,7 +3,6 @@
 
 ;;; Code:
 
-
 ;; bind to [M-g] keybindings.
 (unless (boundp 'my-spell-prefix)
   (define-prefix-command 'my-spell-prefix))
@@ -48,7 +47,6 @@
 ;;; [ Flyspell ] -- [M-$], [C-;]
 
 (use-package flyspell
-  :ensure t
   :bind (
          ;; conflict with `iedit-mode' toggle keybinding.
          ;; (add-hook 'flyspell-mode-hook
@@ -74,19 +72,12 @@
   ;;   (add-hook hook 'flyspell-prog-mode))
 
   ;; Org-mode
-  ;; (add-hook 'org-mode-hook
-  ;;           (lambda ()
-  ;;             ;; ignore TeX commands
-  ;;             (setq-local ispell-parser 'tex)
-  ;;             (flyspell-mode 1)
-  ;;             ))
-  ;;; to improve Org-mode performance.
-  (defun flyspell-buffer-org ()
-    "Flyspell on Org-mode buffer."
-    (when (equal major-mode 'org-mode)
-      (flyspell-buffer)
-      (flyspell-goto-next-error)))
-  (add-hook 'after-save-hook #'flyspell-buffer-org)
+  (add-hook 'org-mode-hook
+            (lambda ()
+              ;; ignore TeX commands
+              (setq-local ispell-parser 'tex)
+              (flyspell-mode 1)
+              ))
 
   ;; TeX
   (add-hook 'tex-mode-hook
@@ -101,7 +92,7 @@
              markdown-mode-hook
              ))
     (add-hook hook 'flyspell-mode))
-  
+
   :config
   (setq flyspell-default-dictionary "en"
         flyspell-delay 8
@@ -159,7 +150,7 @@
   ;;   )
   )
 
-
+
 (provide 'init-my-emacs-spell)
 
 ;;; init-my-emacs-spell.el ends here
