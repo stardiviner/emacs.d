@@ -76,7 +76,7 @@
 ;;; debug, profiling etc
 
 (require 'init-my-emacs-debug)
-(require 'init-my-emacs-benchmark)
+;; (require 'init-my-emacs-benchmark)
 
 
 ;;; my custom functions
