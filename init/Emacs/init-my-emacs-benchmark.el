@@ -18,8 +18,9 @@
 
 (use-package benchmark-init
   :ensure t
-  ;; :config
-  ;; (benchmark-init/activate)
+  :config
+  (benchmark-init/activate)
+  (setq max-specpdl-size 2500) ; increase to fix error on `benchmark-init/show-durations-tree'
   )
 
 
