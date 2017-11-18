@@ -185,15 +185,15 @@
   :init
   (defun elisp-refs-keybindings-setup ()
     (interactive)
-    (unless (boundp 'my-prog-lookup-map)
-      (define-prefix-command 'my-prog-lookup-map))
-    (local-set-key (kbd "C-c l") 'my-prog-lookup-map)
+    (unless (boundp 'tags-prefix)
+      (define-prefix-command 'tags-prefix))
+    (local-set-key (kbd "M-g t") 'tags-prefix)
 
-    (define-key my-prog-lookup-map (kbd "s") 'elisp-refs-symbol)
-    (define-key my-prog-lookup-map (kbd "f") 'elisp-refs-function)
-    (define-key my-prog-lookup-map (kbd "m") 'elisp-refs-macro)
-    (define-key my-prog-lookup-map (kbd "v") 'elisp-refs-variable)
-    (define-key my-prog-lookup-map (kbd "S") 'elisp-refs-special)
+    (define-key tags-prefix (kbd "s") 'elisp-refs-symbol)
+    (define-key tags-prefix (kbd "f") 'elisp-refs-function)
+    (define-key tags-prefix (kbd "m") 'elisp-refs-macro)
+    (define-key tags-prefix (kbd "v") 'elisp-refs-variable)
+    (define-key tags-prefix (kbd "S") 'elisp-refs-special)
     )
   
   (add-hook 'emacs-lisp-mode-hook #'elisp-refs-keybindings-setup)

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ rtags ] -- A c/c++ client/server indexer for c/c++/objc[++] with integration for Emacs based on clang.
 
 (use-package rtags
@@ -24,7 +24,7 @@
 
   ;; Sets up a ton of standard keybindings under [C-x r] (we try to avoid
   ;; crashing with the register shortcuts).
-  (rtags-enable-standard-keybindings c-mode-base-map "C-c C-r")
+  (rtags-enable-standard-keybindings c-mode-base-map "M-g t")
 
   ;; global start rtags process `rdm'.
   (rtags-start-process-unless-running)
@@ -58,7 +58,7 @@
 (use-package flycheck-rtags
   :ensure t)
 
-
+
 (provide 'init-rtags)
 
 ;;; init-rtags.el ends here

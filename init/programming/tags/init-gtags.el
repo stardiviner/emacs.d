@@ -40,7 +40,7 @@
     ;; keybindings
     (unless (boundp 'ggtags-prefix)
       (define-prefix-command 'ggtags-prefix))
-    (define-key prog-lookup-tags-prefix (kbd "g") 'ggtags-prefix)
+    (define-key tags-prefix (kbd "g") 'ggtags-prefix)
     
     (define-key ggtags-prefix (kbd "M-.") 'ggtags-find-tag-dwim)
     (define-key ggtags-prefix (kbd "o") 'ggtags-find-other-symbol)
@@ -83,7 +83,7 @@
 
     (unless (boundp 'helm-gtags-prefix)
       (define-prefix-command 'helm-gtags-prefix))
-    (define-key prog-lookup-tags-prefix (kbd "h") 'helm-gtags-prefix)
+    (define-key tags-prefix (kbd "h") 'helm-gtags-prefix)
     
     (define-key helm-gtags-prefix (kbd "M-.") 'helm-gtags-dwim)
     (define-key helm-gtags-prefix (kbd "a") 'helm-gtags-tags-in-this-function)

@@ -6,14 +6,14 @@
 
 
 ;;; Code:
-
-;; (unless (boundp 'cscope-prefix)
-;;   (define-prefix-command 'cscope-prefix))
-;; (define-key my-prog-lookup-tags-map (kbd "c") 'cscope-prefix)
+
+(unless (boundp 'cscope-prefix)
+  (define-prefix-command 'cscope-prefix))
+(define-key tags-prefix (kbd "c") 'cscope-prefix)
 
 
 (defun cscope-build (dir)
-  "My custom function to execute shell command: $ cscope -bR."
+  "My custom function to execute shell command: $ cscope -bR under `DIR'."
   (interactive "Dcscope build database directory: ")
   (let* ((dir (expand-file-name dir))
          (buffer-name (format "*cscope-build-%s" dir))
@@ -164,7 +164,7 @@
 (define-key cscope-prefix (kbd "n") 'cscope-history-backward-line-current-result)
 (define-key cscope-prefix (kbd "N") 'cscope-history-forward-file-current-result)
 
-
+
 (provide 'init-cscope)
 
 ;;; init-cscope.el ends here

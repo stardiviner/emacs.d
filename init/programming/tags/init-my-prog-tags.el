@@ -2,16 +2,14 @@
 
 ;;; Commentary:
 
-;;; Code:
 ;; like tags: function, variable, class, scope etc lookup.
 
-(unless (boundp 'prog-lookup-prefix)
-  (define-prefix-command 'prog-lookup-prefix))
-(global-set-key (kbd "C-c l") 'prog-lookup-prefix)
+;;; Code:
+
 
-(unless (boundp 'prog-lookup-tags-prefix)
-  (define-prefix-command 'prog-lookup-tags-prefix))
-(define-key prog-lookup-prefix (kbd "t") 'prog-lookup-tags-prefix)
+(unless (boundp 'tags-prefix)
+  (define-prefix-command 'tags-prefix))
+(global-set-key (kbd "M-g t") 'tags-prefix)
 
 
 (setq tags-table-files nil
@@ -39,10 +37,7 @@
 ;; (use-package dumb-jump
 ;;   :ensure t
 ;;   :init
-;;   (unless (boundp 'jump-prefix)
-;;     (define-prefix-command 'jump-prefix))
-;;   (global-set-key (kbd "M-g j") 'jump-prefix)
-;;   :bind (:map jump-prefix
+;;   :bind (:map tags-prefix
 ;;               ("j" . dumb-jump-go)
 ;;               ("k" . dumb-jump-back)
 ;;               ("q" . dumb-jump-quick-look)
@@ -76,7 +71,7 @@
 ;; (require 'init-cscope)
 (require 'init-rtags)
 
-
+
 (provide 'init-my-prog-tags)
 
 ;;; init-my-prog-tags.el ends here
