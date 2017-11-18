@@ -8,6 +8,8 @@
 
 ;;; [ auto-revert-mode ] -- auto-reload external file changes.
 
+(require 'autorevert)
+
 (setq global-auto-revert-non-file-buffers nil
       auto-revert-verbose nil
       auto-revert-use-notify t)
@@ -19,7 +21,7 @@
 (use-package ibuffer
   :bind ("C-x C-b" . ibuffer)
   :config
-  (setq buffers-menu-max-size 30)
+  (setq buffers-menu-max-size nil)
   )
 
 ;;; [uniquify] -- meaningful names for buffers with the same name
