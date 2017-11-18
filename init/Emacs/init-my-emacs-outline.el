@@ -36,6 +36,26 @@
   (allout-minor-mode 1)
   )
 
+;;; [ outline ] -- outline mode commands for Emacs.
+
+(use-package outline
+  :init
+  (add-hook 'prog-mode-hook 'outline-minor-mode)
+  :config
+  (set-face-attribute 'outline-1 nil
+                      :background "#268bd2" :height 1.25
+                      :weight 'bold
+                      )
+  (set-face-attribute 'outline-2 nil
+                      :background "#2aa198" :height 1.15
+                      :weight 'bold
+                      )
+  (set-face-attribute 'outline-3 nil
+                      :background "#b58900" :height 1.05
+                      :weight 'bold
+                      )
+  )
+
 ;;; [ outshine ] -- outline with outshine outshines outline.
 
 (use-package helm-navi
