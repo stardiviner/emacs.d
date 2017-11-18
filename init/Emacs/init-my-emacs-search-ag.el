@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ silver search (ag) ] -- like ack, but faster.
 
 (use-package ag
@@ -30,8 +30,8 @@
 
   (define-key ag-map (kbd "a") 'ag)
   (define-key ag-map (kbd "r") 'ag-regexp)
-  (define-key ag-map (kbd "p") 'ag-regexp-project-at-point)
-  (define-key ag-map (kbd "P") 'ag-project) ; `ag-project-files', `ag-project-regexp', `ag-project-dired'
+  (define-key ag-map (kbd "p") 'ag-project) ; `ag-project-files', `ag-project-regexp', `ag-project-dired'
+  (define-key ag-map (kbd "P") 'ag-regexp-project-at-point)
   (define-key ag-map (kbd "d") 'ag-dired)      ; `ag-dired-regexp'
   (define-key ag-map (kbd "f") 'ag-files)
   (define-key ag-map (kbd "k") 'ag-kill-buffers) ; `ag-kill-other-buffers'
@@ -53,7 +53,7 @@
   (define-key ag-map (kbd "M-h") 'helm-do-ag)
   )
 
-
+
 (provide 'init-my-emacs-search-ag)
 
 ;;; init-my-emacs-search-ag.el ends here
