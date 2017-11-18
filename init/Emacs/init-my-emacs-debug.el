@@ -4,7 +4,7 @@
 
 
 ;;; Code:
-
+
 (unless (boundp 'emacs-debug-prefix)
   (define-prefix-command 'emacs-debug-prefix))
 (global-set-key (kbd "C-x C-d") 'emacs-debug-prefix)
@@ -22,9 +22,12 @@
 ;;; [ debug ] -- Emacs built-in debugger.
 
 (use-package debug
+  :init
+  ;; XXX: for Emacs startup freeze debug.
+  (toggle-debug-on-quit)
+  (add-hook 'after-init-hook #'toggle-debug-on-quit)
   :config
-  (setq debug-on-error t
-        debug-on-quit nil)
+  (setq debug-on-error t)
   (add-hook 'after-init-hook (lambda () (setq debug-on-error nil)))
   )
 
@@ -186,7 +189,7 @@
               ("r" . profiler-report))
   )
 
-
+
 (provide 'init-my-emacs-debug)
 
 ;;; init-my-emacs-debug.el ends here
