@@ -9,7 +9,7 @@
 
 (unless (boundp 'outline-prefix)
   (define-prefix-command 'outline-prefix))
-(global-set-key (kbd "C-c @") 'outline-prefix)
+(global-set-key (kbd "C-c C-j") 'outline-prefix)
 
 
 ;;; [ allout ]
@@ -40,6 +40,9 @@
 
 (use-package helm-navi
   :ensure t
+  :bind (:map outline-prefix
+              ("C-j" . helm-navi)
+              ("h" . helm-navi-headings))
   :config
   (use-package outshine
     :ensure t
