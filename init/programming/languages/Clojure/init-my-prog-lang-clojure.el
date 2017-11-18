@@ -460,15 +460,16 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 ;;; [ elein ] -- running Leiningen commands from Emacs.
 
 (use-package elein
-  :ensure t)
-
-(defun elein-lein-try ()
-  (interactive)
-  (if (equal "*scratch*" (buffer-name))
-      (progn
-        (setq-local inferior-lisp-program "lein try tentacles")
-        (command-execute 'inferior-lisp)
-        )))
+  :ensure t
+  :config
+  (defun elein-lein-try ()
+    (interactive)
+    (if (equal "*scratch*" (buffer-name))
+        (progn
+          (setq-local inferior-lisp-program "lein try tentacles")
+          (command-execute 'inferior-lisp)
+          )))
+  )
 
 ;;; [ Boot ]
 
