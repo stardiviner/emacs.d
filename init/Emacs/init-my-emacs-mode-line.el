@@ -50,7 +50,7 @@
     (setq spaceline-all-the-icons-icon-set-modified 'chain)
 
     (set-face-attribute 'spaceline-highlight-face nil
-                        :background "DarkCyan")
+                        :background "SlateGrey")
 
     (spaceline-toggle-all-the-icons-time-off)
     (spaceline-toggle-all-the-icons-buffer-path-off)
