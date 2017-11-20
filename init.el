@@ -310,7 +310,7 @@
 (require 'init-my-prog-lang-gnuplot)
 ;; (require 'init-my-prog-lang-octave)
 (require 'init-my-prog-lang-tex)
-(require 'init-bibliography)
+;; (require 'init-bibliography)
 (require 'init-my-prog-lang-markdown)
 ;; (require 'init-my-prog-lang-reStructuredText)
 (require 'init-my-prog-lang-yaml)
