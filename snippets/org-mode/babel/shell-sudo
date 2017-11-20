@@ -3,6 +3,6 @@
 # key: babel-shell-sudo
 # group: babel
 # --
-#+BEGIN_SRC shell :dir /sudo::
+#+begin_src shell :dir /sudo::
 sudo $0
-#+END_SRC
+#+end_src

@@ -3,8 +3,8 @@
 # key: babel-julia-plot-ascii
 # group: babel
 # --
-#+BEGIN_SRC julia :session "*julia*"
+#+begin_src julia :session "*julia*"
 using ${1:$$(yas-choose-value '("UnicodePlots" "ASCIIPlots"))}
 
 $0
-#+END_SRC
+#+end_src

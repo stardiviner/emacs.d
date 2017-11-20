@@ -3,9 +3,9 @@
 # key: babel-elasticsearch
 # group: babel
 # --
-#+BEGIN_SRC es
+#+begin_src es
 POST /${1}
 {
 $0
 }
-#+END_SRC
+#+end_src

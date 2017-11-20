@@ -3,6 +3,6 @@
 # key: babel-restclient
 # group: babel
 # --
-#+BEGIN_SRC restclient
+#+begin_src restclient
 ${1:$$(yas-choose-value '("GET" "POST" "PUT" "PATCH" "DELETE"))} $0
-#+END_SRC
+#+end_src

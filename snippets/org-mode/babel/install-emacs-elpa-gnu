@@ -3,9 +3,9 @@
 # key: babel-install-emacs-elpa-gnu
 # group: babel.install.emacs
 # --
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
 
 (unless (package-installed-p '${1:package})
 (package-install '$1))
-#+END_SRC
+#+end_src

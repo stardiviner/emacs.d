@@ -5,6 +5,6 @@
 #+NAME: $1
 #+headers: :db ${2:test.db} ${3::dir data/source/} ${4::echo} :results raw
 #+header: ${5:$$(yas-choose-value '(":column" ":list" ":line" ":csv" ":html"))}
-#+BEGIN_SRC sqlite
+#+begin_src sqlite
 $0
-#+END_SRC
+#+end_src

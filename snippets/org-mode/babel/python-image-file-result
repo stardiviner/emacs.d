@@ -3,7 +3,7 @@
 # key: babel-python-image-file-result
 # group: babel
 # --
-#+BEGIN_SRC python :var fname="${1}.png"${2: :dir "data/images"} :results file
+#+begin_src python :var fname="${1}.png"${2: :dir "data/images"} :results file
 import matplotlib.pyplot as plt
 
 fig = plt.figure()
@@ -13,4 +13,4 @@ $0
 fig.savefig(fname)
 
 return fname
-#+END_SRC
+#+end_src

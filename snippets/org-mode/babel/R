@@ -3,6 +3,6 @@
 # key: babel-R
 # group: babel.R
 # --
-#+BEGIN_SRC R :session "*R*" :results output
+#+begin_src R :session "*R*" :results output
 $0
-#+END_SRC
+#+end_src

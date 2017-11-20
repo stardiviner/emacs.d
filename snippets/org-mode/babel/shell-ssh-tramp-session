@@ -3,6 +3,6 @@
 # key: babel-shell-ssh-tramp-session
 # group: babel.shell
 # --
-#+BEGIN_SRC shell :session ${1:SESSION}
+#+begin_src shell :session ${1:SESSION}
 ssh client
-#+END_SRC
+#+end_src

@@ -3,8 +3,8 @@
 # key: babel-ruby-image-result
 # group: babel
 # --
-#+BEGIN_SRC ruby :results file${1: :dir "data/images"} :var fname="${2}.png"
+#+begin_src ruby :results file${1: :dir "data/images"} :var fname="${2}.png"
 $0
 
 return fname
-#+END_SRC
+#+end_src

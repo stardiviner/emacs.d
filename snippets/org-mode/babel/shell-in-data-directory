@@ -3,6 +3,6 @@
 # key: babel-shell-in-data-directory
 # group: babel.shell
 # --
-#+BEGIN_SRC shell :dir "data/code/" :var ${1:file="test.txt"}
+#+begin_src shell :dir "data/code/" :var ${1:file="test.txt"}
 $0
-#+END_SRC
+#+end_src

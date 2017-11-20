@@ -2,6 +2,6 @@
 # name: SQL PostgreSQL Query alternative 
 # key: babel-sql-postgresql-query-alternative
 # --
-#+BEGIN_SRC sql :engine postgresql :exports results :cmdline -p ${2:port} -h ${1:HOST} -U ${3:username} -d ${4:password}
+#+begin_src sql :engine postgresql :exports results :cmdline -p ${2:port} -h ${1:HOST} -U ${3:username} -d ${4:password}
 $0
-#+END_SRC
+#+end_src

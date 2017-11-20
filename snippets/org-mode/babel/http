@@ -3,7 +3,7 @@
 # key: babel-http
 # group: babel
 # --
-#+BEGIN_SRC http :pretty ${1:other arguments}
+#+begin_src http :pretty ${1:other arguments}
 ${2:RESTful: GET, POST, PATCH ...} ${3:URL}
 ${4:HTTP Headers:
 User-Agent: ob-http
@@ -11,4 +11,4 @@ Content-Type: application/json
 key=value1&foo=value2
 }
 $0
-#+END_SRC
+#+end_src

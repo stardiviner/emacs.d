@@ -3,6 +3,6 @@
 # key: babel-config-system
 # group: babel.config
 # --
-#+BEGIN_SRC ${2:conf} :tangle "/sudo::${1:/etc/path/to/file}"
+#+begin_src ${2:conf} :tangle "/sudo::${1:/etc/path/to/file}"
 $0
-#+END_SRC
+#+end_src

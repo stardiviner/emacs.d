@@ -3,6 +3,6 @@
 # key: babel-install-osx
 # group: babel.install
 # --
-#+BEGIN_SRC shell :dir /sudo:: :results none
+#+begin_src shell :dir /sudo:: :results none
 brew install $0
-#+END_SRC
+#+end_src

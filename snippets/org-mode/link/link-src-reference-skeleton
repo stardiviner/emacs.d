@@ -3,8 +3,8 @@
 # key: link-src-reference-skeleton
 # group: link
 # --
-#+BEGIN_SRC ${1} -n -r
+#+begin_src ${1} -n -r
 $0 (ref:${2})
-#+END_SRC
+#+end_src
 
 [[($2)]${3:[(link annotation)]}]

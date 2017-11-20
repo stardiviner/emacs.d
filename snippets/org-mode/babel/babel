@@ -7,6 +7,6 @@
 # --
 #+NAME: ${2:filename.rb}
 #+HEADERS: ${3:$$(org-babel-insert-header-arg)}
-#+BEGIN_SRC ${1:$$(yas-choose-value (mapcar 'car org-babel-load-languages))}
+#+begin_src ${1:$$(yas-choose-value (mapcar 'car org-babel-load-languages))}
 $0
-#+END_SRC
+#+end_src

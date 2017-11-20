@@ -3,6 +3,6 @@
 # key: babel-results-plot
 # group: babel.plot
 # --
-#+BEGIN_SRC ${1:LANG} :results file :file "${3:image}.png" :dir "${2:data/images}" :var fname="$3.png"
+#+begin_src ${1:LANG} :results file :file "${3:image}.png" :dir "${2:data/images}" :var fname="$3.png"
 $0
-#+END_SRC
+#+end_src

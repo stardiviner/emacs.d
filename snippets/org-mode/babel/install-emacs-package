@@ -4,7 +4,7 @@
 # group: babel.install
 # expand-env: ((yas-indent-line 'fixed))
 # --
-#+BEGIN_SRC emacs-lisp
+#+begin_src emacs-lisp
 (unless (package-installed-p '${1:package})
   (package-install '$1))
-#+END_SRC
+#+end_src

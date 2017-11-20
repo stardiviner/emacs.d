@@ -3,6 +3,6 @@
 # key: babel-smiles
 # group: babel.smiles
 # --
-#+BEGIN_SRC smiles :file "${1:SMILES_result_image}.svg"
+#+begin_src smiles :file "${1:SMILES_result_image}.svg"
 $0
-#+END_SRC
+#+end_src

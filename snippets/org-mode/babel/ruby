@@ -3,6 +3,6 @@
 # key: babel-ruby
 # group: babel
 # --
-#+BEGIN_SRC ruby :session
+#+begin_src ruby :session
 $0
-#+END_SRC
+#+end_src

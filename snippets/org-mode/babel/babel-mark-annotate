@@ -12,9 +12,9 @@
 #+ATTR_LATEX: :caption \caption{Yes}\label{lst:code}
 #+BEGIN_listing 
 #+ATTR_LATEX: :options escapeinside=${3:|}$3
-#+BEGIN_SRC ${2:language}
+#+begin_src ${2:language}
 $0 $3 $\tikzmark{too}$ $3
-#+END_SRC
+#+end_src
 #+END_listing
 
 

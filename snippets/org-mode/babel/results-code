@@ -3,6 +3,6 @@
 # key: babel-results-code
 # group: babel.results
 # --
-#+BEGIN_SRC ${1:sh} :results code :wrap SRC ${2:systemd}
+#+begin_src ${1:sh} :results code :wrap SRC ${2:systemd}
 $0
-#+END_SRC
+#+end_src

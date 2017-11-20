@@ -3,6 +3,6 @@
 # key: babel-R-plot
 # --
 #+NAME: ${1:babel name}
-#+BEGIN_SRC R :session "*R*" :results output graphics :dir "data/images" :file "${2:$1}.png"
+#+begin_src R :session "*R*" :results output graphics :dir "data/images" :file "${2:$1}.png"
 $0
-#+END_SRC
+#+end_src

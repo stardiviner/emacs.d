@@ -3,6 +3,6 @@
 # key: babel-shell-no-output
 # group: babel.shell
 # --
-#+BEGIN_SRC shell :results none
+#+begin_src shell :results none
 $0
-#+END_SRC
+#+end_src

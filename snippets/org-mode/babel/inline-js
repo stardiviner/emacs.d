@@ -3,6 +3,6 @@
 # key: babel-inline-js-export
 # group: babel.export
 # --
-#+BEGIN_SRC inline-js
+#+begin_src inline-js
 $0
-#+END_SRC
+#+end_src

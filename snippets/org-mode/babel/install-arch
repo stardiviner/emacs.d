@@ -3,6 +3,6 @@
 # key: babel-install-arch
 # group: babel
 # --
-#+BEGIN_SRC shell :dir /sudo:: :results none
+#+begin_src shell :dir /sudo:: :results none
 sudo pacman -S --noconfirm $0
-#+END_SRC
+#+end_src

@@ -3,8 +3,8 @@
 # key: babel-R-ascii-plot
 # group: babel
 # --
-#+BEGIN_SRC R :session "*R*" :results output
+#+begin_src R :session "*R*" :results output
 library(ascii)
 
 print(ascii($0))
-#+END_SRC
+#+end_src

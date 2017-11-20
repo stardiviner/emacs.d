@@ -3,6 +3,6 @@
 # key: babel-javascript
 # group: babel
 # --
-#+BEGIN_SRC js
+#+begin_src js
 $0
-#+END_SRC
+#+end_src

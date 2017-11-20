@@ -3,6 +3,6 @@
 # key: babel-shell-tramp
 # group: babel
 # --
-#+BEGIN_SRC shell :dir /ssh:${1:${2:stardiviner}@${3:tb.codefarm.us}#${4:20039}}:
+#+begin_src shell :dir /ssh:${1:${2:stardiviner}@${3:tb.codefarm.us}#${4:20039}}:
 $0
-#+END_SRC
+#+end_src

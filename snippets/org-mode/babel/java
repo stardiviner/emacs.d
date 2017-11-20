@@ -4,6 +4,6 @@
 # group: babel.java
 # --
 #+HEADERS: :classname ${1:classname} :cmdline "-cp ."
-#+BEGIN_SRC java :results output :exports both
+#+begin_src java :results output :exports both
 $0
-#+END_SRC
+#+end_src

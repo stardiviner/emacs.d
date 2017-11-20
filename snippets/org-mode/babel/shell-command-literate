@@ -3,6 +3,6 @@
 # key: babel-shell-command-literate
 # group: babel.shell
 # --
-#+BEGIN_SRC shell :eval no
+#+begin_src shell :eval no
 $0
-#+END_SRC
+#+end_src

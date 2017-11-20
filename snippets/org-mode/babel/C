@@ -3,10 +3,10 @@
 # key: babel-C
 # group: babel
 # --
-#+BEGIN_SRC C
+#+begin_src C
 #include <stdio.h>
 
 int main(int argc, char *argv[]) {
   $0
 }
-#+END_SRC
+#+end_src

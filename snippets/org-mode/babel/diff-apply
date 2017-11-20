@@ -3,6 +3,6 @@
 # key: babel-diff-apply
 # group: babel.diff
 # --
-#+BEGIN_SRC diff :tangle "${2:patch-file name}.patch" :dir "${1:patch-file dir}"
+#+begin_src diff :tangle "${2:patch-file name}.patch" :dir "${1:patch-file dir}"
 $0
-#+END_SRC
+#+end_src
