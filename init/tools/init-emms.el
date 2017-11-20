@@ -1,4 +1,4 @@
-;;; init-my-tool-music-emms.el --- init for EMMS
+;;; init-emms.el --- init for EMMS
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -26,6 +26,13 @@
   ;; [ Playlist ]
   ;; The name of emms-playlist-mode is *way* too long
   (add-hook 'emms-playlist-mode-hook #'(lambda () (setq mode-name "EMMS/playlist")))
+
+  (setq emms-last-played-format-alist
+        '(((emms-last-played-seconds-today) . "%a %H:%M")
+	        (604800                           . "%a %H:%M") ; this week
+	        ((emms-last-played-seconds-month) . "%d")
+	        ((emms-last-played-seconds-year)  . "%m/%d")
+	        (t                                . "%Y/%m/%d")))
   
   ;; Switch to either the radio buffer or the current EMMS playlist
   (defun my-emms-switch-to-current-playlist ()
@@ -39,6 +46,9 @@
           (error "No current Emms buffer")
         (switch-to-buffer emms-playlist-buffer))))
 
+  ;; [ Track ]
+  ;; (setq emms-track-description-function 'emms-track-simple-description)
+  
   ;; [ Score ]
   (emms-score 1)
 
@@ -81,13 +91,15 @@
 
   (define-key emms-mpd-prefix (kbd "m") 'emms-player-mpd-connect)
   (define-key emms-mpd-prefix (kbd "c") 'emms-player-mpd-connect)
-  (define-key emms-mpd-prefix (kbd "p") 'emms-player-mpd-play)
+  (define-key emms-mpd-prefix (kbd "s") 'emms-player-mpd-start)
+  ;; FIXME: un-comment when `emms-player-mpd-play' is a command with (interactive).
+  ;; (define-key emms-mpd-prefix (kbd "p") 'emms-player-mpd-play)
   ;; TODO: (emms-player-mpd-get-mpd-state nil #'ignore info)
   (define-key emms-mpd-prefix (kbd "P") 'emms-player-mpd-pause)
-  (define-key emms-mpd-prefix (kbd "s") 'emms-player-mpd-stop)
+  (define-key emms-mpd-prefix (kbd "S") 'emms-player-mpd-stop)
   )
 
 
-(provide 'init-my-tool-music-emms)
+(provide 'init-emms)
 
-;;; init-my-tool-music-emms.el ends here
+;;; init-emms.el ends here

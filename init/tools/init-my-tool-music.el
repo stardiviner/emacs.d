@@ -18,7 +18,7 @@
 
 ;;; [ EMMS ]
 
-;; (require 'init-my-tool-music-emms)
+(require 'init-emms)
 
 ;;; [ PulseAudio ]
 
