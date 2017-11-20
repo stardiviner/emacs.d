@@ -59,6 +59,7 @@
 (require 'init-my-org-complete)
 (require 'init-my-org-table)
 (require 'init-my-org-hyperlink)
+(require 'init-my-org-bibliography)
 (require 'init-my-org-todo)
 (require 'init-my-org-tag)
 (require 'init-my-org-property)
