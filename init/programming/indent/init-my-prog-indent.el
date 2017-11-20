@@ -53,7 +53,7 @@
                                     ('light
                                      (color-darken-name (face-background 'default) 30))
                                     ('dark
-                                     (color-lighten-name (face-background 'default) 5)))
+                                     (color-lighten-name (face-background 'default) 8)))
                       )
 
   ;; 2: use face-attribute stipple pixmap data.
