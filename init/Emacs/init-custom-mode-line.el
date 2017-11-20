@@ -865,7 +865,7 @@ dimensions of a block selection."
                                           ,(+ 1 (string-width (format-mode-line rhs)))))))))
       (list lhs mid rhs))))
 
-;; (setq-default mode-line-format (my-modeline))
+(setq-default mode-line-format (my-modeline))
 
 
 ;; (set-face-attribute 'mode-line nil

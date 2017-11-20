@@ -20,11 +20,10 @@
   )
 
 ;;; My custom mode-line fragments
-;;
-;; (require 'init-custom-mode-line)
+(require 'init-custom-mode-line)
 
 
-(require 'init-powerline)
+;; (require 'init-powerline)
 
 
 (provide 'init-my-emacs-mode-line)
