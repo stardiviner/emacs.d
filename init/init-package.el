@@ -62,6 +62,13 @@
       use-package-always-ensure nil
       use-package-enable-imenu-support t)
 
+;;; [ use-package-ensure-system-package ] -- auto installing system binaries the emacs way.
+
+;;; Usage: (use-package [package] :ensure-system-package ())
+
+(use-package use-package-ensure-system-package
+  :ensure t)
+
 ;;; [ package-lint ] -- A linting library for elisp package authors.
 
 (use-package package-lint
