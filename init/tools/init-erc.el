@@ -285,10 +285,37 @@ When called repeatedly, cycle through the buffers."
 
 
 ;; [ Notify ]
-(require 'erc-notify)
-(add-to-list 'erc-modules 'notify)
+;;; Send notification on PRIVMSG or mentions.
 (require 'erc-desktop-notifications)
 (add-to-list 'erc-modules 'notifications)
+
+;;; notify on direct query message.
+;; (defun ysph-erc-privmsg-notify (proc res)
+;;   "Notify on direct query message in Emacs ERC."
+;;   (cl-flet ((rtrim-string (s) (replace-regexp-in-string "\\([[:space:]\n]*$\\)" "" s)))
+;;     (let ((channel-buffers     (erc-channel-list proc))
+;;           (sender              (or (car (split-string (erc-response.sender res) "!"))
+;;                                    (erc-response.sender res)))
+;;           (target-channel-name (car (erc-response.command-args res)))
+;;           (xwindow-class       (rtrim-string (shell-command-to-string "stumpish current-window-class"))))
+;;       (unless (or (string= xwindow-class "Emacs") ; we are in an emacs frame
+;;                   (member (get-buffer target-channel-name) channel-buffers)) ; this is a channel message
+;;         (progn (notify "Instant message!"
+;;                        (format "Direct message from %s" sender)
+;;                        :icon     "/home/ysph/.emacs.d/emacs.png"
+;;                        :timeout  120000
+;;                        :app "ERC")
+;;                nil        ; we never want this to interrupt processing
+;;                )))))
+;;
+;; (add-hook 'erc-server-PRIVMSG-functions 'ysph-erc-privmsg-notify)
+
+
+;; List of nicknames you want to be notified about online/offline status change.
+;; This module defines a new command, /NOTIFY
+;; (require 'erc-notify)
+;; (add-to-list 'erc-modules 'notify)
+;; (setq erc-notify-list '("tristan1" "yaxin"))
 
 ;; [ Sound ]
 (require 'erc-sound)
