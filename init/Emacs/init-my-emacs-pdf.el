@@ -202,7 +202,6 @@ when needed."
 
 (use-package org-pdfview
   :ensure t
-  :after 'org
   :config
   ;; change Org-mode default open PDF file function.
   ;; If you want, you can also configure the org-mode default open PDF file function.
@@ -217,9 +216,6 @@ when needed."
   ;; [ interleave ] -- Emacs minor mode to interleave notes and text books.
   (use-package interleave
     :ensure t
-    :defer t
-    :commands (interleave-mode)
-    :bind (:map my-org-prefix ("M-p" . interleave-mode))
     ;; :init
     ;; open org-mode [[file:.pdf]] link with `interleave-mode'.
     ;; (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (interleave-mode link))))
@@ -227,18 +223,21 @@ when needed."
     :config
     (setq interleave-split-direction 'horizontal)
     (add-to-list 'org-default-properties "INTERLEAVE_PDF")
+
     ;; Idiosyncrasies: Interleave does some automated buffer switching for you, especially at start up.
     (defun my-interleave-hook ()
       (with-current-buffer interleave-org-buffer
         ;; Do something meaningful here
         (message "Now, you're in the interleave Org-mode buffer!")))
+    
     (add-hook 'interleave-mode-hook #'my-interleave-hook)
+    
+    (define-key my-org-prefix (kbd "M-p") 'interleave-mode)
     )
 
   ;; [ pdf-tools-org ] -- integrate pdf-tools annotations with Org-mode.
   (use-package pdf-tools-org
     :quelpa (pdf-tools-org :fetcher github :repo "machc/pdf-tools-org")
-    :defer t
     :init
     (add-hook 'after-save-hook
               (lambda ()
@@ -249,7 +248,7 @@ when needed."
   ;; [ paperless ] -- Emacs assisted PDF document filing.
   (use-package paperless
     :ensure t
-    :commands (paperless)
+    ;; :commands (paperless)
     ;; :config
     ;; (setq paperless-root-directory
     ;;       paperless-capture-directory
