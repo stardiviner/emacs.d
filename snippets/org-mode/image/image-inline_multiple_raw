@@ -10,9 +10,9 @@ ls ${1:../../data/images/note_examples}
 
 #+begin_src ruby :var list=image-list :results output raw
 list.each do |image|
-  puts "#+ATTR_ORG: :width ${2}00"
-  puts "#+ATTR_LATEX: :width ${2}.0"
-  puts "#+ATTR_HTML: :width ${2}00px"
+  puts "#+ATTR_ORG: :width ${2:200/250/300/400/500/600}"
+  puts "#+ATTR_LATEX: :width ${2:$(/ (string-to-number yas-text) 100.0)}in"
+  puts "#+ATTR_HTML: :width $2px"
   # here image is an Array. you need to access element with image[0].
   puts "[[file:$1/#{image[0]}]]\n\n\n"
 end
