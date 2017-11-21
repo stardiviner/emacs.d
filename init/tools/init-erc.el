@@ -76,6 +76,7 @@ The function is suitable for `erc-after-connect'."
          ;; "#swift-lang"
          ;; "#docker"
          ;; "#hackerrank"
+         ;; "#dc5" ; #0xDEATHCODE
          )
         ))
 
