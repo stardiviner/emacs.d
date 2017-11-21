@@ -46,6 +46,24 @@
               (require 'js)
               (setq-local indent-line-function 'js-indent-line)))
 
+  ;; Edit restclient JSON body in a narrow buffer.
+  (defun my-restclient-indirect-edit ()
+    "Use `edit-indirect-region' to edit the request body in a separate buffer."
+    (interactive)
+    (save-excursion
+      (goto-char (restclient-current-min))
+      (when (re-search-forward restclient-method-url-regexp (point-max) t)
+        (forward-line)
+        (while (cond
+                ((and (looking-at restclient-header-regexp) (not (looking-at restclient-empty-line-regexp))))
+                ((looking-at restclient-use-var-regexp)))
+          (forward-line))
+        (when (looking-at restclient-empty-line-regexp)
+          (forward-line))
+        (edit-indirect-region (min (point) (restclient-current-max)) (restclient-current-max) t))))
+
+  (define-key restclient-mode-map (kbd "C-c '") 'my-restclient-indirect-edit)
+
   ;; [ company-restclient ]
   (use-package company-restclient
     :ensure t
