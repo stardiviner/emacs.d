@@ -404,14 +404,10 @@ When called repeatedly, cycle through the buffers."
 
 
 ;; [ Input ]
-(setq erc-input-line-position -2)
-;; use [Ctrl-RET] as send button for multiple lines input.
-(defun my/erc-return ()
-  "Show a message and do nothing."
-  (interactive)
-  (newline)
-  (message "You should press <C-return> !"))
-(define-key erc-mode-map (kbd "RET") 'newline)
+(setq erc-input-line-position -1)
+;; use [RET] as send button for multiple lines input.
+(define-key erc-mode-map (kbd "<M-return>") 'newline)
+(define-key erc-mode-map (kbd "<return>") 'erc-send-current-line)
 (define-key erc-mode-map (kbd "<C-return>") 'erc-send-current-line)
 
 ;; [ Input History ]
