@@ -374,6 +374,14 @@ When called repeatedly, cycle through the buffers."
 
 (add-hook 'erc-send-pre-hook #'my/erc-play-sound-tick)
 
+(defun my/erc-play-sound-tick2 ()
+  "Play sound `str' when tick on ERC."
+  (org-clock-play-sound
+   (concat user-emacs-directory
+           "resources/audio/Ingress/SFX/sfx_sonar.wav")))
+
+;; TODO (add-hook 'erc-.. -hook #'my/erc-play-sound-tick2)
+
 ;; (add-hook 'erc-send-completed-hook #'my/erc-play-sound-tick)
 
 
@@ -390,7 +398,9 @@ When called repeatedly, cycle through the buffers."
    (concat user-emacs-directory
            "resources/audio/Hacking Game/hesfx-newmessage.wav")))
 
-(add-hook 'erc-server-PRIVMSG-functions #'my/erc-play-sound-message t)
+;; For normal new essage in channel.
+;; (add-hook 'erc-server-PRIVMSG-functions #'my/erc-play-sound-message t)
+;; TODO: For private new message in channel.
 
 (defun my/erc-play-sound-confirm (proc nick login host to query)
   "Play sound when receive a private message."
