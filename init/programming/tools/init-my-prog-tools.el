@@ -6,17 +6,17 @@
 
 
 ;;; Code:
-
-(unless (boundp 'my-prog-tools-map)
-  (define-prefix-command 'my-prog-tools-map))
-(global-set-key (kbd "C-c C-t") 'my-prog-tools-map)
+
+(unless (boundp 'prog-tools-prefix)
+  (define-prefix-command 'prog-tools-prefix))
+(global-set-key (kbd "C-c t") 'prog-tools-prefix)
 
 
 (require 'init-my-prog-devops)
 (require 'init-my-prog-build)
 (require 'init-heroku)
 
-
+
 (provide 'init-my-prog-tools)
 
 ;;; init-my-prog-tools.el ends here

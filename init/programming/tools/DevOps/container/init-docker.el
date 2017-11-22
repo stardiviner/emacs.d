@@ -6,16 +6,16 @@
 
 
 ;;; Code:
-
+
 ;;; [ docker ] -- Emacs interface to Docker.
 
 (use-package docker
   :ensure t
-  :bind (:map my-container-map
-              ("I" . docker-images)
-              ("C" . docker-containers)
-              ("V" . docker-volumes)
-              ("N" . docker-networks))
+  :bind (:map container-prefix
+              ("c" . docker-containers)
+              ("i" . docker-images)
+              ("v" . docker-volumes)
+              ("n" . docker-networks))
   :config
   (setq docker-containers-show-all t)
   (docker-global-mode 1) ; enable docker minor mode
@@ -32,7 +32,7 @@
   :ensure t
   :config
   (setq docker-tramp-use-names t
-        docker-tramp-docker-options nil
+        ;; docker-tramp-docker-options nil
         )
   )
 
@@ -41,7 +41,7 @@
 (use-package docker-api
   :ensure t)
 
-
+
 (provide 'init-docker)
 
 ;;; init-docker.el ends here

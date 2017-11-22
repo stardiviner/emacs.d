@@ -8,9 +8,9 @@
 ;;; Code:
 
 
-(unless (boundp 'my-container-map)
-  (define-prefix-command 'my-container-map))
-(define-key my-prog-tools-map (kbd "c") 'my-container-map)
+(unless (boundp 'container-prefix)
+  (define-prefix-command 'container-prefix))
+(define-key prog-tools-prefix (kbd "c") 'container-prefix)
 
 ;;; [ Docker ]
 
