@@ -26,6 +26,11 @@
 (use-package dockerfile-mode
   :ensure t)
 
+;;; [ docker-compose-mode ] -- Major mode for editing docker-compose files.
+
+(use-package docker-compose-mode
+  :ensure t)
+
 ;;; [ docker-tramp ]
 
 (use-package docker-tramp
