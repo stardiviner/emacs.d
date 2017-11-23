@@ -22,10 +22,6 @@
   :ensure t
   :defer t)
 
-;;; [ Kubernetes ]
-
-(require 'init-kubernetes)
-
 
 (provide 'init-container)
 
