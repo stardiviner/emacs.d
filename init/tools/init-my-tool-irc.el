@@ -5,17 +5,16 @@
 
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
+
 
-(unless (boundp 'my-irc-map)
-  (define-prefix-command 'my-irc-map))
-(define-key my-tools-prefix (kbd "i") 'my-irc-map)
+(unless (boundp 'irc-prefix)
+  (define-prefix-command 'irc-prefix))
+(define-key tools-prefix (kbd "i") 'irc-prefix)
 
 
 (require 'init-erc)
 
-;;; ----------------------------------------------------------------------------
-
+
 (provide 'init-my-tool-irc)
 
 ;;; init-my-tool-irc.el ends here

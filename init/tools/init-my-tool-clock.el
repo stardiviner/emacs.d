@@ -20,7 +20,7 @@
                                 ("Europe/London" "London")
                                 ))
 
-(define-key my-tools-prefix (kbd "t") 'display-time-world)
+(define-key tools-prefix (kbd "t") 'display-time-world)
 
 
 (provide 'init-my-tool-clock)

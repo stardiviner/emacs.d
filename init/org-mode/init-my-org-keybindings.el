@@ -13,52 +13,52 @@
   (interactive)
   (org-element-at-point))
 
-(define-key my-org-prefix (kbd "SPC") #'my-org-element-at-point)
+(define-key Org-prefix (kbd "SPC") #'my-org-element-at-point)
 
-(unless (boundp 'my-org-agenda-prefix)
-  (define-prefix-command 'my-org-agenda-prefix))
-(define-key my-org-prefix (kbd "M-a") 'my-org-agenda-prefix)
+(unless (boundp 'org-agenda-prefix)
+  (define-prefix-command 'org-agenda-prefix))
+(define-key Org-prefix (kbd "M-a") 'org-agenda-prefix)
 
 (defun my-org-agenda-switch ()
   (interactive)
   (my-func/open-and-switch-to-buffer 'org-agenda "*Org Agenda*" t)
   )
 
-(define-key my-org-prefix (kbd "a") 'my-org-agenda-switch)
-;; (define-key my-org-prefix (kbd "a") 'org-agenda)
+(define-key Org-prefix (kbd "a") 'my-org-agenda-switch)
+;; (define-key Org-prefix (kbd "a") 'org-agenda)
 
 
-(unless (boundp 'my-org-link-prefix)
-  (define-prefix-command 'my-org-link-prefix))
-(define-key my-org-prefix (kbd "C-l") 'my-org-link-prefix)
+(unless (boundp 'org-link-prefix)
+  (define-prefix-command 'org-link-prefix))
+(define-key Org-prefix (kbd "C-l") 'org-link-prefix)
 
-(define-key my-org-link-prefix (kbd "l") 'org-store-link)
-(define-key my-org-link-prefix (kbd "C-l") 'org-insert-link-global)
-(define-key my-org-link-prefix (kbd "C-o") 'org-open-at-point-global)
-
-
-(unless (boundp 'my-org-timer-prefix)
-  (define-prefix-command 'my-org-timer-prefix))
-(define-key my-org-prefix (kbd "C-t") 'my-org-timer-prefix)
-
-(define-key my-org-timer-prefix (kbd ".") 'org-timer)
-(define-key my-org-timer-prefix (kbd ";") 'org-timer-set-timer)
-(define-key my-org-timer-prefix (kbd "0") 'org-timer-start)
-(define-key my-org-timer-prefix (kbd "_") 'org-timer-stop)
-(define-key my-org-timer-prefix (kbd ",") 'org-timer-pause-or-continue)
-(define-key my-org-timer-prefix (kbd "-") 'org-timer-item)
-(define-key my-org-timer-prefix (kbd "'") 'org-timer-show-remaining-time)
+(define-key org-link-prefix (kbd "l") 'org-store-link)
+(define-key org-link-prefix (kbd "C-l") 'org-insert-link-global)
+(define-key org-link-prefix (kbd "C-o") 'org-open-at-point-global)
 
 
-(unless (boundp 'my-org-clock-prefix)
-  (define-prefix-command 'my-org-clock-prefix))
-(define-key my-org-prefix (kbd "C-c") 'my-org-clock-prefix)
+(unless (boundp 'org-timer-prefix)
+  (define-prefix-command 'org-timer-prefix))
+(define-key Org-prefix (kbd "C-t") 'org-timer-prefix)
 
-(define-key my-org-clock-prefix (kbd "i") 'org-clock-in-last)
-(define-key my-org-clock-prefix (kbd "g") 'org-clock-goto)
-(define-key my-org-clock-prefix (kbd "j") 'org-clock-jump-to-current-clock)
-(define-key my-org-clock-prefix (kbd "o") 'org-clock-out)
-(define-key my-org-clock-prefix (kbd "c") 'org-clock-cancel)
+(define-key org-timer-prefix (kbd ".") 'org-timer)
+(define-key org-timer-prefix (kbd ";") 'org-timer-set-timer)
+(define-key org-timer-prefix (kbd "0") 'org-timer-start)
+(define-key org-timer-prefix (kbd "_") 'org-timer-stop)
+(define-key org-timer-prefix (kbd ",") 'org-timer-pause-or-continue)
+(define-key org-timer-prefix (kbd "-") 'org-timer-item)
+(define-key org-timer-prefix (kbd "'") 'org-timer-show-remaining-time)
+
+
+(unless (boundp 'org-clock-prefix)
+  (define-prefix-command 'org-clock-prefix))
+(define-key Org-prefix (kbd "C-c") 'org-clock-prefix)
+
+(define-key org-clock-prefix (kbd "i") 'org-clock-in-last)
+(define-key org-clock-prefix (kbd "g") 'org-clock-goto)
+(define-key org-clock-prefix (kbd "j") 'org-clock-jump-to-current-clock)
+(define-key org-clock-prefix (kbd "o") 'org-clock-out)
+(define-key org-clock-prefix (kbd "c") 'org-clock-cancel)
 
 
 (provide 'init-my-org-keybindings)

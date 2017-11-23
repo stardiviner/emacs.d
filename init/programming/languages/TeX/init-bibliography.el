@@ -10,7 +10,7 @@
 
 (unless (boundp 'bibliograph-prefix)
   (define-prefix-command 'bibliograph-prefix))
-(define-key my-org-prefix (kbd "C-]") 'bibliograph-prefix)
+(define-key Org-prefix (kbd "C-]") 'bibliograph-prefix)
 
 ;; (setq reftex-default-bibliography
 ;;       (quote

@@ -10,7 +10,7 @@
 
 (unless (boundp 'blog-map)
   (define-prefix-command 'blog-map))
-(define-key my-tools-prefix (kbd "l") 'blog-map)
+(define-key tools-prefix (kbd "l") 'blog-map)
 
 
 ;;; [ blog-admin ] -- Write blog in emacs with many backends: hexo/org-page/nikola

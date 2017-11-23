@@ -25,17 +25,17 @@
   (define-key mpc-mode-map (kbd "M-r") 'mpc-toggle-repeat)
   (define-key mpc-mode-map (kbd "M-s") 'mpc-toggle-shuffle)
 
-  (define-key my-music-prefix (kbd "p") 'mpc-toggle-play)
-  (define-key my-music-prefix (kbd "y") 'mpc-toggle-single)
-  (define-key my-music-prefix (kbd "r") 'mpc-toggle-repeat)
-  (define-key my-music-prefix (kbd "s") 'mpc-toggle-shuffle)
+  (define-key music-prefix (kbd "p") 'mpc-toggle-play)
+  (define-key music-prefix (kbd "y") 'mpc-toggle-single)
+  (define-key music-prefix (kbd "r") 'mpc-toggle-repeat)
+  (define-key music-prefix (kbd "s") 'mpc-toggle-shuffle)
   
   (defun my/mpc ()
     (interactive)
     (select-frame (make-frame mpc-frame-alist))
     (mpc))
 
-  (define-key my-music-prefix (kbd "M") 'my/mpc)
+  (define-key music-prefix (kbd "M") 'my/mpc)
   
   ;; auto start MPC frame.
   ;; (funcall-interactively 'my/mpc)

@@ -43,7 +43,7 @@
                    ))
                 org-capture-templates))
 
-  (define-key my-org-prefix (kbd "w") 'org-drill)
+  (define-key Org-prefix (kbd "w") 'org-drill)
 
   (use-package stem-english
     :ensure t)
@@ -84,7 +84,7 @@
   (declare-function 'goldendict-dwim "init-my-tool-dictionary")
   (advice-add 'goldendict-dwim :after #'my-org-drill-record-word)
 
-  (define-key my-org-prefix (kbd "C-w") 'my-org-drill-record-word)
+  (define-key Org-prefix (kbd "C-w") 'my-org-drill-record-word)
   )
 
 ;;; [ org-drill-table ] -- generate org-drill from org-mode tables.
@@ -96,7 +96,7 @@
 
 (use-package pamparam
   :ensure t
-  :bind (:map my-org-prefix
+  :bind (:map Org-prefix
               ("M-w" . hydra-pamparam/body))
   )
 

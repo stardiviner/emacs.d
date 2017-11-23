@@ -16,7 +16,7 @@
 
   (unless (boundp 'pt-prefix)
     (define-prefix-command 'pt-prefix))
-  (define-key my-search-prefix (kbd "p") 'pt-prefix)
+  (define-key search-prefix (kbd "p") 'pt-prefix)
 
   (define-key pt-prefix (kbd "p") 'pt-regexp)
   (define-key pt-prefix (kbd "r") 'pt-regexp)

@@ -6,12 +6,12 @@
 
 ;;; Code:
 
-(unless (boundp 'my-calendar-prefix)
-  (define-prefix-command 'my-calendar-prefix))
-(define-key my-tools-prefix (kbd "c") 'my-calendar-prefix)
-(unless (boundp 'my-org-prefix)
-  (define-prefix-command 'my-org-prefix))
-(define-key my-org-prefix (kbd "C") 'my-calendar-prefix)
+(unless (boundp 'calendar-prefix)
+  (define-prefix-command 'calendar-prefix))
+(define-key tools-prefix (kbd "c") 'calendar-prefix)
+(unless (boundp 'Org-prefix)
+  (define-prefix-command 'Org-prefix))
+(define-key Org-prefix (kbd "C") 'calendar-prefix)
 
 
 ;;; [ calendar ]
@@ -109,7 +109,7 @@
 (use-package calfw
   :ensure t
   :defer t
-  :bind (:map my-calendar-prefix
+  :bind (:map calendar-prefix
               ("o" . cfw:open-org-calendar)
               ("x" . cfw:open-calendar-buffer)
               )
@@ -298,10 +298,10 @@
     (switch-to-buffer "*cfw-calendar*")
     )
 
-  (define-key my-calendar-prefix (kbd "c") 'my-open-calfw-week)
-  (define-key my-calendar-prefix (kbd "w") 'my-open-calfw-week)
-  (define-key my-calendar-prefix (kbd "d") 'my-open-calfw-day)
-  (define-key my-calendar-prefix (kbd "m") 'my-open-calfw-month)
+  (define-key calendar-prefix (kbd "c") 'my-open-calfw-week)
+  (define-key calendar-prefix (kbd "w") 'my-open-calfw-week)
+  (define-key calendar-prefix (kbd "d") 'my-open-calfw-day)
+  (define-key calendar-prefix (kbd "m") 'my-open-calfw-month)
 
   ;; for org-agenda
   (use-package calfw-org

@@ -12,7 +12,7 @@
 (use-package artist
   :ensure t
   :defer t
-  :bind (:map my-tools-prefix
+  :bind (:map tools-prefix
               ("a" . artist-mode))
   :config
   (defun artist-select-colors ()

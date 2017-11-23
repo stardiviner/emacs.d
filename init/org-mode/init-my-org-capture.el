@@ -64,7 +64,7 @@
 ;;       '(("p" (in-mode . "message-mode"))))
 
 
-(define-key my-org-prefix (kbd "c") 'org-capture)
+(define-key Org-prefix (kbd "c") 'org-capture)
 
 
 ;;;_* Refile

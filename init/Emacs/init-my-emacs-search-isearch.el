@@ -9,7 +9,7 @@
 
 (unless (boundp 'isearch-prefix)
   (define-prefix-command 'isearch-prefix))
-(define-key my-search-prefix (kbd "i") 'isearch-prefix)
+(define-key search-prefix (kbd "i") 'isearch-prefix)
 
 
 ;;; [ Isearch ] -- Incremental Search
@@ -80,7 +80,7 @@
          ;; ("C-s" . vr/isearch-forward)
          ;; ("C-r" . vr/isearch-backward)
          ("M-%" . vr/replace)
-         :map my-search-prefix
+         :map search-prefix
          ("s" . vr/isearch-forward)
          ("M-s" . vr/isearch-backward)
          ("%" . vr/query-replace)
@@ -89,7 +89,7 @@
   :init
   ;; if you use `multiple-cursors' interface, this is for you:
   (with-eval-after-load 'multiple-cursors
-    (define-key my-search-prefix (kbd "m") 'vr/mc-mark))
+    (define-key search-prefix (kbd "m") 'vr/mc-mark))
   ;; `vr/select-mc-mark', `vr/select-replace' etc.
   )
 

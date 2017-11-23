@@ -1,4 +1,4 @@
-;;; init-my-emacs-regexp.el --- init my Emacs regexp expression
+;;; init-my-emacs-regex.el --- init my Emacs regexp expression
 
 
 ;;; Commentary:
@@ -7,9 +7,9 @@
 ;;; Code:
 
 
-(unless (boundp 'my-regexp-prefix)
-  (define-prefix-command 'my-regexp-prefix))
-(global-set-key (kbd "C-c r") 'my-regexp-prefix)
+(unless (boundp 'regex-prefix)
+  (define-prefix-command 'regex-prefix))
+(global-set-key (kbd "C-c r") 'regex-prefix)
 
 
 ;;; [ re-builder ] -- instant regexp builder
@@ -17,7 +17,7 @@
 (use-package re-builder
   :ensure t
   :defer t
-  :bind (:map my-regexp-prefix
+  :bind (:map regex-prefix
               ("b" . re-builder))
   :config
   ;; (setq reb-re-syntax 'read) ; 'read, 'string, 'rx
@@ -29,7 +29,7 @@
 (use-package pcre2el
   :ensure t
   :defer t
-  :bind (:map my-regexp-prefix
+  :bind (:map regex-prefix
               ("t" . rxt-mode)
               ("T" . rxt-global-mode))
   )
@@ -57,7 +57,7 @@
   :init
   (unless (boundp 'visual-regexp-map)
     (define-prefix-command 'visual-regexp-map))
-  (define-key my-regexp-prefix (kbd "v") 'visual-regexp-map)
+  (define-key regex-prefix (kbd "v") 'visual-regexp-map)
 
   (define-key visual-regexp-map (kbd "s") 'vr/isearch-forward)
   (define-key visual-regexp-map (kbd "b") 'vr/isearch-backward)
@@ -137,6 +137,6 @@
 ;;        ))
 
 
-(provide 'init-my-emacs-regexp)
+(provide 'init-my-emacs-regex)
 
-;;; init-my-emacs-regexp.el ends here
+;;; init-my-emacs-regex.el ends here

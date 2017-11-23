@@ -12,7 +12,7 @@
 (use-package sx
   :ensure t
   :defer t
-  :bind (:map my-tools-prefix
+  :bind (:map tools-prefix
               ("s" . sx-tab-unanswered-my-tags))
   :config
   ;; question mode

@@ -5,7 +5,14 @@
 
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
+
+
+(unless (boundp 'search-prefix)
+  (define-prefix-command 'search-prefix))
+(unless (boundp 'language-search-prefix)
+  (define-prefix-command 'language-search-prefix))
+(define-key search-prefix (kbd "l") 'language-search-prefix)
+
 ;;; [ guess-language ] -- Robust automatic language detection.
 
 ;; (use-package guess-language
@@ -21,9 +28,7 @@
 ;;   ;;       guess-language-min-paragraph-length 45)
 ;;   )
 
-
-;;; ----------------------------------------------------------------------------
-
+
 (provide 'init-my-languages)
 
 ;;; init-my-languages.el ends here

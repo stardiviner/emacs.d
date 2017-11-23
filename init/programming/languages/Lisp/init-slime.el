@@ -74,8 +74,8 @@
 
   (add-hook 'common-lisp-mode-hook
             (lambda ()
-              (local-set-key (kbd "C-h d") 'my-prog-help-document-map)
-              (define-key my-prog-help-document-map (kbd "d") 'slime-documentation)
+              (local-set-key (kbd "C-h d") 'prog-doc-map)
+              (define-key prog-doc-map (kbd "d") 'slime-documentation)
               ))
   
   ;; notify user after SLIME connected

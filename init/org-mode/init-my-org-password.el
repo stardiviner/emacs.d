@@ -7,9 +7,9 @@
 
 ;;; Code:
 
-(unless (boundp 'my-org-password-prefix)
-  (define-prefix-command 'my-org-password-prefix))
-(define-key my-org-prefix (kbd "P") 'my-org-password-prefix)
+(unless (boundp 'org-password-prefix)
+  (define-prefix-command 'org-password-prefix))
+(define-key Org-prefix (kbd "P") 'org-password-prefix)
 
 
 ;;; [ org-passwords ]
@@ -31,7 +31,7 @@
 ;;         (vr/isearch-forward)
 ;;       (isearch-forward-regexp)))
 ;;
-;;   (define-key my-org-prefix (kbd "P") 'my-org-passwords-search)
+;;   (define-key Org-prefix (kbd "P") 'my-org-passwords-search)
 ;;  
 ;;   :config
 ;;   (define-key org-passwords-mode-map
@@ -61,7 +61,7 @@
 
 (use-package org-password-manager
   :ensure t
-  :bind (:map my-org-password-prefix
+  :bind (:map org-password-prefix
               ("u" . org-password-manager-get-username)
               ("p" . org-password-manager-get-password)
               ("s" . org-password-manager-get-property)

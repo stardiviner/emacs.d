@@ -13,7 +13,7 @@
   :ensure t
   :defer t
   :commands (migemo)
-  :bind (:map my-search-language-prefix
+  :bind (:map language-search-prefix
               ("j" . migemo-isearch-toggle-migemo))
   :config
   (setq migemo-command "cmigemo"

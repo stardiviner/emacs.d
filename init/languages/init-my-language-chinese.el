@@ -21,7 +21,7 @@
 
 (use-package pinyin-search
   :ensure t
-  :bind (:map my-search-language-prefix
+  :bind (:map language-search-prefix
               ("c" . pinyin-search)
               ("C" . pinyin-search-backward))
   )

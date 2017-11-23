@@ -6,14 +6,14 @@
 
 ;;; Code:
 
-(unless (boundp 'my-prog-lint-map)
-  (define-prefix-command 'my-prog-lint-map))
+(unless (boundp 'linter-prefix)
+  (define-prefix-command 'linter-prefix))
 
 (add-hook 'prog-mode-hook
           (lambda ()
-            (local-set-key (kbd "C-c !") 'my-prog-lint-map)
-            (define-key my-prog-lint-map (kbd "!") 'flycheck-buffer)
-            (define-key my-prog-lint-map (kbd "b") 'flycheck-buffer)
+            (local-set-key (kbd "C-c !") 'linter-prefix)
+            (define-key linter-prefix (kbd "!") 'flycheck-buffer)
+            (define-key linter-prefix (kbd "b") 'flycheck-buffer)
             ))
 
 

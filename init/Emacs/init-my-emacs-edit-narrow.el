@@ -22,7 +22,7 @@
 
 (unless (boundp 'narrow-prefix)
   (define-prefix-command 'narrow-prefix))
-(define-key my-edit-prefix (kbd "n") 'narrow-prefix)
+(define-key editing-prefix (kbd "n") 'narrow-prefix)
 
 (define-key narrow-prefix (kbd "w") 'widen)
 (define-key narrow-prefix (kbd "r") 'narrow-to-region)

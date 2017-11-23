@@ -15,7 +15,7 @@
 
 (use-package describe-number
   :config
-  (define-key my-prog-help-document-map (kbd "N") 'describe-number-at-point)
+  (define-key prog-doc-map (kbd "N") 'describe-number-at-point)
   )
 
 

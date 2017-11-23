@@ -10,7 +10,7 @@
 ;; emms prefix keybinding map
 (unless (boundp 'emms-prefix)
   (define-prefix-command 'emms-prefix))
-(define-key my-tools-prefix (kbd "e") 'emms-prefix)
+(define-key tools-prefix (kbd "e") 'emms-prefix)
 
 ;;; [ EMMS ]
 

@@ -4,9 +4,9 @@
 
 ;;; Code:
 
-(unless (boundp 'my-edit-prefix)
-  (define-prefix-command 'my-edit-prefix))
-(global-set-key (kbd "C-x e") 'my-edit-prefix)
+(unless (boundp 'editing-prefix)
+  (define-prefix-command 'editing-prefix))
+(global-set-key (kbd "C-x e") 'editing-prefix)
 
 (require 'init-my-emacs-kill-ring)
 (require 'init-my-emacs-region)

@@ -11,7 +11,7 @@
 
 (use-package elfeed
   :ensure t
-  :bind (:map my-tools-prefix
+  :bind (:map tools-prefix
               ("f" . elfeed))
   :config
   (setq elfeed-db-directory "~/.emacs.d/.elfeed")

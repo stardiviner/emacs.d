@@ -8,7 +8,7 @@
 
 (unless (boundp 'password-prefix)
   (define-prefix-command 'password-prefix))
-(define-key 'my-tools-prefix (kbd "P") 'password-prefix)
+(define-key 'tools-prefix (kbd "P") 'password-prefix)
 
 ;;; [ password-store ] -- password store (pass) support.
 

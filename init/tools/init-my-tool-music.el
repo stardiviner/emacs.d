@@ -7,10 +7,10 @@
 ;;; Code:
 
 
-(unless (boundp 'my-music-prefix)
-  (define-prefix-command 'my-music-prefix))
+(unless (boundp 'music-prefix)
+  (define-prefix-command 'music-prefix))
 
-(define-key my-tools-prefix (kbd "M") 'my-music-prefix)
+(define-key tools-prefix (kbd "M") 'music-prefix)
 
 ;;; [ MPD ]
 
@@ -28,7 +28,7 @@
   ;; keybindings
   ;; (pulseaudio-control-default-keybindings)
   ;; (global-set-key (kbd "C-x /") 'pulseaudio-control-map)
-  (define-key my-music-prefix (kbd "a") 'pulseaudio-control-map)
+  (define-key music-prefix (kbd "a") 'pulseaudio-control-map)
   )
 
 

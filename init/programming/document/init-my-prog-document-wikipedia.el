@@ -28,7 +28,7 @@
 (use-package kiwix
   :ensure t
   :defer t
-  :bind (:map my-prog-help-document-map
+  :bind (:map prog-doc-map
               ("w" . kiwix-at-point)
               ("W" . kiwix-at-point-interactive)
               ("M-w" . kiwix-launch-server))

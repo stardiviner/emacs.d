@@ -10,7 +10,7 @@
 
 (unless (boundp 'HTTP-prefix)
   (define-prefix-command 'HTTP-prefix))
-(define-key my-prog-inferior-map (kbd "H") 'HTTP-prefix)
+(define-key inferior-prefix (kbd "H") 'HTTP-prefix)
 
 
 ;;; [ restclient ]

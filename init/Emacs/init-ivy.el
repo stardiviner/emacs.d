@@ -140,13 +140,11 @@
          :map ivy-minibuffer-map
          ("M-y" . ivy-next-line)
          )
-
   :init
-  (unless (boundp 'my-search-prefix)
-    (define-prefix-command 'my-search-prefix))
-  (global-set-key (kbd "C-c s") 'my-search-prefix)
-  (define-key my-search-prefix (kbd "g") 'counsel-grep)
-  (define-key my-search-prefix (kbd "a") 'counsel-ag) ; [C-u] prompt for dir support
+  (unless (boundp 'search-prefix)
+    (define-prefix-command 'search-prefix))
+  (define-key search-prefix (kbd "g") 'counsel-grep)
+  (define-key search-prefix (kbd "a") 'counsel-ag) ; [C-u] prompt for dir support
   :config
   ;; (setq ivy-switch-buffer-show-info '("%s" "buffer-name"))
   (setq counsel-yank-pop-truncate t)

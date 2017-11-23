@@ -7,9 +7,9 @@
 
 ;;; Code:
 
-(unless (boundp 'prog-tools-prefix)
-  (define-prefix-command 'prog-tools-prefix))
-(global-set-key (kbd "C-c t") 'prog-tools-prefix)
+(unless (boundp 'prog-tool-prefix)
+  (define-prefix-command 'prog-tool-prefix))
+(global-set-key (kbd "C-c t") 'prog-tool-prefix)
 
 
 (require 'init-my-prog-devops)

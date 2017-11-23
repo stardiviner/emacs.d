@@ -11,7 +11,7 @@
 
 (unless (boundp 'browser-prefix)
   (define-prefix-command 'browser-prefix))
-(define-key my-tools-prefix (kbd "b") 'browser-prefix)
+(define-key tools-prefix (kbd "b") 'browser-prefix)
 
 
 ;;; [ browse-url ] -- default browser function

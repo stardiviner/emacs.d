@@ -7,7 +7,7 @@
 
 (unless (boundp 'paste-prefix)
   (define-prefix-command 'paste-prefix))
-(define-key my-tools-prefix (kbd "p") 'paste-prefix)
+(define-key tools-prefix (kbd "p") 'paste-prefix)
 
 
 ;;; [ yagist ] -- Yet Another gist

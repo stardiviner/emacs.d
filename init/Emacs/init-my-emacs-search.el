@@ -7,9 +7,9 @@
 
 ;;; Code:
 
-(unless (boundp 'my-search-prefix)
-  (define-prefix-command 'my-search-prefix))
-(global-set-key (kbd "C-c s") 'my-search-prefix)
+(unless (boundp 'search-prefix)
+  (define-prefix-command 'search-prefix))
+(global-set-key (kbd "C-c s") 'search-prefix)
 
 (require 'init-my-emacs-search-isearch)
 (require 'init-my-emacs-search-occur)
@@ -22,7 +22,7 @@
 (require 'init-my-emacs-search-engine)
 
 (with-eval-after-load 'counsel
-  (define-key my-search-prefix (kbd "s") 'counsel-rg))
+  (define-key search-prefix (kbd "s") 'counsel-rg))
 
 
 (provide 'init-my-emacs-search)

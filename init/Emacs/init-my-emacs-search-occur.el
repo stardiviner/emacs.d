@@ -9,7 +9,7 @@
 
 ;;; [ occur ]
 
-(define-key my-search-prefix (kbd "o") 'occur)
+(define-key search-prefix (kbd "o") 'occur)
 
 
 ;;; [ multi-occur ]
@@ -17,9 +17,9 @@
 ;; (use-package multi-occur
 ;;   :ensure t
 ;;   :init
-;;   (define-key my-search-prefix (kbd "O") 'multi-occur)
-;;   (define-key my-search-prefix (kbd "M-o") 'multi-occur-in-matching-buffers)
-;;   (define-key my-search-prefix (kbd "M-h") 'how-many)
+;;   (define-key search-prefix (kbd "O") 'multi-occur)
+;;   (define-key search-prefix (kbd "M-o") 'multi-occur-in-matching-buffers)
+;;   (define-key search-prefix (kbd "M-h") 'how-many)
 ;;   )
 
 

@@ -60,7 +60,7 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
     (define-prefix-command 'pomodoro-prefix))
   :bind (:map pomodoro-prefix
               ("o" . org-pomodoro)
-              :map my-org-prefix
+              :map Org-prefix
               ("p" . org-pomodoro)
               )
   :config

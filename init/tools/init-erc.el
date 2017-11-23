@@ -103,7 +103,7 @@ The function is suitable for `erc-after-connect'."
      :full-name "christopher M. miles")
     ))
 
-(define-key my-irc-map (kbd "i") 'my-erc-start-or-switch)
+(define-key irc-prefix (kbd "i") 'my-erc-start-or-switch)
 
 (defun my-erc-switch-to-buffer ()
   "Switch to an erc buffer, or run `erc-select'.
@@ -117,7 +117,7 @@ When called repeatedly, cycle through the buffers."
     (if buffers
         (switch-to-buffer (car buffers)))))
 
-(define-key my-irc-map (kbd "b") 'my-erc-switch-to-buffer)
+(define-key irc-prefix (kbd "b") 'my-erc-switch-to-buffer)
 
 ;; [ Tracking ]
 ;;

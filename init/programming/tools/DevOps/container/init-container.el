@@ -10,7 +10,7 @@
 
 (unless (boundp 'container-prefix)
   (define-prefix-command 'container-prefix))
-(define-key prog-tools-prefix (kbd "c") 'container-prefix)
+(define-key prog-tool-prefix (kbd "c") 'container-prefix)
 
 ;;; [ Docker ]
 

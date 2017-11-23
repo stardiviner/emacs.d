@@ -5,9 +5,9 @@
 ;;; Code:
 
 
-(unless (boundp 'my-prog-help-document-map)
-  (define-prefix-command 'my-prog-help-document-map))
-(global-set-key (kbd "C-h d") 'my-prog-help-document-map)
+(unless (boundp 'prog-doc-map)
+  (define-prefix-command 'prog-doc-map))
+(global-set-key (kbd "C-h d") 'prog-doc-map)
 
 ;; example
 ;; (add-hook 'lisp-mode-hook

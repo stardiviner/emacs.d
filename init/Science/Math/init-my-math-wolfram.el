@@ -12,7 +12,7 @@
 (use-package wolfram
   :ensure t
   :defer t
-  :bind (:map my-prog-help-document-map
+  :bind (:map prog-doc-map
               ("A" . wolfram-alpha))
   :config
   (setq wolfram-alpha-app-id "YX2WUR-2J7GPTXY44")

@@ -14,12 +14,12 @@
 (setq calc-complex-format 'i            ; complex number style: x + yi.
       )
 
-(unless (boundp 'my-calculator-map)
-  (define-prefix-command 'my-calculator-map))
-(define-key my-tools-prefix (kbd "C") 'my-calculator-map)
+(unless (boundp 'calculator-prefix)
+  (define-prefix-command 'calculator-prefix))
+(define-key tools-prefix (kbd "C") 'calculator-prefix)
 
-(define-key my-calculator-map (kbd "c") 'calc)
-(define-key my-calculator-map (kbd "q") 'quick-calc) ; 'calc-keypad
+(define-key calculator-prefix (kbd "c") 'calc)
+(define-key calculator-prefix (kbd "q") 'quick-calc) ; 'calc-keypad
 
 ;; usefull mini calculator
 (defun mini-calc (expr &optional arg)
@@ -35,7 +35,7 @@ If ARG is given, then insert the result to current-buffer"
         (insert result)
       (message (format "Result: [%s] = %s" expr result)))))
 
-(define-key my-calculator-map (kbd "x") 'mini-calc)
+(define-key calculator-prefix (kbd "x") 'mini-calc)
 
 
 (provide 'init-my-tool-calculator)

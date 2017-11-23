@@ -133,7 +133,7 @@
 (require 'init-my-emacs-abbrev)
 (require 'init-my-emacs-search)
 (require 'init-my-emacs-highlight)
-(require 'init-my-emacs-regexp)
+(require 'init-my-emacs-regex)
 (require 'init-my-emacs-overlay)
 (require 'init-my-emacs-vcs)
 (require 'init-my-emacs-shell)
@@ -177,12 +177,6 @@
 
 ;;; Natural Languages
 
-(unless (boundp 'my-search-prefix)
-  (define-prefix-command 'my-search-prefix))
-(unless (boundp 'my-search-language-prefix)
-  (define-prefix-command 'my-search-language-prefix))
-(define-key my-search-prefix (kbd "l") 'my-search-language-prefix)
-
 (require 'init-my-languages)
 (require 'init-my-language-english)
 (require 'init-my-language-chinese)
@@ -190,9 +184,9 @@
 
 
 ;;; Tools
-(unless (boundp 'my-tools-prefix)
-  (define-prefix-command 'my-tools-prefix))
-(global-set-key (kbd "C-x t") 'my-tools-prefix)
+(unless (boundp 'tools-prefix)
+  (define-prefix-command 'tools-prefix))
+(global-set-key (kbd "C-x t") 'tools-prefix)
 
 (require 'init-my-tool-calendar)
 (require 'init-my-tool-dictionary)

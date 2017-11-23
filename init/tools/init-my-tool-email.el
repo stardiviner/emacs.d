@@ -7,9 +7,9 @@
 ;;; Code:
 
 
-(unless (boundp 'my-email-prefix)
-  (define-prefix-command 'my-email-prefix))
-(define-key my-tools-prefix (kbd "m") 'my-email-prefix)
+(unless (boundp 'email-prefix)
+  (define-prefix-command 'email-prefix))
+(define-key tools-prefix (kbd "m") 'email-prefix)
 
 
 ;;; [ mail-mode ] -- mail-mode is replaced with message-mode.
@@ -54,7 +54,7 @@
     (insert content)
     (message-goto-to)))
 
-(define-key my-email-prefix (kbd "r") 'email-region)
+(define-key email-prefix (kbd "r") 'email-region)
 
 
 ;;; [ encrypt email ]
@@ -79,24 +79,24 @@
 (case my-email-client
   ;; Gnus
   ('gnus
-   (define-key my-email-prefix (kbd "m") 'gnus)
+   (define-key email-prefix (kbd "m") 'gnus)
    )
 
   ;; mu4e
   ('mu4e
-   (define-key my-email-prefix (kbd "m") 'mu4e)
+   (define-key email-prefix (kbd "m") 'mu4e)
    ;; FIXME: let (setq mail-user-agent 'mu4e-user-agent)
    (if (eq 'mail-user-agent 'mu4e-user-agent)
        ;; there is upper set default mail-user-agent, so default [C-x m] will be change for mu4e
        (global-set-key (kbd "C-x m") 'mu4e-compose-new)
      )
-   (define-key my-email-prefix (kbd "i") 'my-mu4e-jump-to-index)
-   (define-key my-email-prefix (kbd "C") 'mu4e-compose-new)
+   (define-key email-prefix (kbd "i") 'my-mu4e-jump-to-index)
+   (define-key email-prefix (kbd "C") 'mu4e-compose-new)
    )
 
   ;; default
   (t
-   (define-key my-email-prefix (kbd "m") 'compose-mail))
+   (define-key email-prefix (kbd "m") 'compose-mail))
   )
 
 

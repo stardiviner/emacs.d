@@ -112,10 +112,10 @@
   :init
   (add-hook 'java-mode-hook
             (lambda ()
-              (unless (boundp 'my-prog-document-map-prefix)
-                (define-prefix-command 'my-prog-document-map))
-              (local-set-key (kbd "C-h d") 'my-prog-help-document-map)
-              (define-key my-prog-help-document-map (kbd "d") 'javadoc-lookup)
+              (unless (boundp 'prog-doc-map)
+                (define-prefix-command 'prog-doc-map))
+              (local-set-key (kbd "C-h d") 'prog-doc-map)
+              (define-key prog-doc-map (kbd "d") 'javadoc-lookup)
               ))
   :config
   (javadoc-add-roots "/usr/share/doc/openjdk7-doc/api/"

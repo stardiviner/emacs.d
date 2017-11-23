@@ -9,13 +9,13 @@
 
 (unless (boundp 'mc-prefix)
   (define-prefix-command 'mc-prefix))
-(define-key my-edit-prefix (kbd "c") 'mc-prefix)
+(define-key editing-prefix (kbd "c") 'mc-prefix)
 
 ;;;_ [ iedit ] -- Edit multiple regions simultaneously in a buffer or a region
 
 (use-package iedit
   :ensure t
-  :bind (:map my-edit-prefix
+  :bind (:map editing-prefix
               ("e" . iedit-mode)
               ("C-e" . iedit-dwim)
               )

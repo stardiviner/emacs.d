@@ -5,11 +5,11 @@
 
 ;;; Code:
 
-(unless (boundp 'my-tools-prefix)
-  (define-prefix-command 'my-tools-prefix))
-(unless (boundp 'my-encrypt-prefix)
-  (define-prefix-command 'my-encrypt-prefix))
-(define-key my-tools-prefix (kbd "e") 'my-encrypt-prefix)
+(unless (boundp 'tools-prefix)
+  (define-prefix-command 'tools-prefix))
+(unless (boundp 'encrypt-prefix)
+  (define-prefix-command 'encrypt-prefix))
+(define-key tools-prefix (kbd "e") 'encrypt-prefix)
 
 ;;; [ password ]
 
@@ -81,7 +81,7 @@
 
   (unless (boundp 'inline-crypt)
     (define-prefix-command 'inline-crypt-prefix))
-  (define-key my-encrypt-prefix (kbd "i") 'inline-crypt-prefix)
+  (define-key encrypt-prefix (kbd "i") 'inline-crypt-prefix)
 
   (define-key inline-crypt-prefix (kbd "r") 'inline-crypt-encrypt-region)
   (define-key inline-crypt-prefix (kbd "C-r") 'inline-crypt-decrypt-region)
@@ -93,7 +93,7 @@
 
 (use-package letterbox-mode
   :ensure t
-  :bind (:map my-encrypt-prefix
+  :bind (:map encrypt-prefix
               ("l" . letterbox-toggle))
   )
 

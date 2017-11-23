@@ -11,7 +11,7 @@
 (unless (boundp 'pomodoro-prefix)
   (define-prefix-command 'pomodoro-prefix))
 (global-set-key (kbd "<f12>") 'pomodoro-prefix)
-;; (define-key my-tools-prefix (kbd "C-p") 'pomodoro-prefix)
+;; (define-key tools-prefix (kbd "C-p") 'pomodoro-prefix)
 
 ;;; [ pomidor ] -- Pomidor is a simple and cool pomodoro technique timer.
 

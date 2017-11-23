@@ -36,7 +36,7 @@
   
   (unless (boundp 'org-rifle-prefix)
     (define-prefix-command 'org-rifle-prefix))
-  (define-key my-org-prefix (kbd "g") 'org-rifle-prefix)
+  (define-key Org-prefix (kbd "g") 'org-rifle-prefix)
 
   (define-key org-rifle-prefix (kbd "g") 'helm-org-rifle-current-buffer)
   (define-key org-rifle-prefix (kbd "G") 'helm-org-rifle)
@@ -52,7 +52,7 @@
   ;; quick references searching.
   (unless (boundp 'references-rifle-prefix)
     (define-prefix-command 'references-rifle-prefix))
-  (define-key my-org-prefix (kbd "r") 'references-rifle-prefix)
+  (define-key Org-prefix (kbd "r") 'references-rifle-prefix)
 
   ;; write a helper function for recursive searching org files.
   (defun my-helm-org-rifle-reference-search (&optional dirs-or-files)
@@ -264,7 +264,7 @@
     (let ((default-directory org-directory))
       (helm-fuzzy-find nil)))
 
-  (define-key my-org-prefix (kbd "C-f") 'org-helm-fuzzy-find))
+  (define-key Org-prefix (kbd "C-f") 'org-helm-fuzzy-find))
 
 
 

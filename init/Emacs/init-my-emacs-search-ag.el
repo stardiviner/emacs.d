@@ -26,7 +26,7 @@
 
   (unless (boundp 'ag-map)
     (define-prefix-command 'ag-map))
-  (define-key my-search-prefix (kbd "a") 'ag-map)
+  (define-key search-prefix (kbd "a") 'ag-map)
 
   (define-key ag-map (kbd "a") 'ag)
   (define-key ag-map (kbd "r") 'ag-regexp)

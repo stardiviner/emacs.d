@@ -123,7 +123,7 @@
 
 
 ;;; a possibly handy hack:
-;; (defun my-find-tag(&optional prefix)
+;; (defun my-find-tag (&optional prefix)
 ;;   "union of `find-tag' alternatives. decides upon major-mode"
 ;;   (interactive "P")
 ;;   (if (and (boundp 'cscope-minor-mode)

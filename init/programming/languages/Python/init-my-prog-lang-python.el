@@ -47,9 +47,9 @@
     (switch-to-buffer "*Python*")
     )
 
-  (unless (boundp 'my-prog-inferior-map)
-    (define-prefix-command 'my-prog-inferior-map))
-  (define-key my-prog-inferior-map (kbd "p") 'my-inferior-python) ; 'run-python
+  (unless (boundp 'inferior-prefix)
+    (define-prefix-command 'inferior-prefix))
+  (define-key inferior-prefix (kbd "p") 'my-inferior-python) ; 'run-python
   )
 
 

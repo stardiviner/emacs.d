@@ -5,19 +5,19 @@
 
 
 ;;; Code:
+
 
+(unless (boundp 'database-prefix)
+  (define-prefix-command 'database-prefix))
+(define-key inferior-prefix (kbd "d") 'database-prefix)
 
-(unless (boundp 'my-inferior-db-map)
-  (define-prefix-command 'my-inferior-db-map))
-(define-key my-prog-inferior-map (kbd "d") 'my-inferior-db-map)
+(unless (boundp 'sql-prefix)
+  (define-prefix-command 'sql-prefix))
+(define-key database-prefix (kbd "s") 'sql-prefix)
 
-(unless (boundp 'my-inferior-db-sql-map)
-  (define-prefix-command 'my-inferior-db-sql-map))
-(define-key my-inferior-db-map (kbd "s") 'my-inferior-db-sql-map)
-
-(unless (boundp 'my-inferior-db-nosql-map)
-  (define-prefix-command 'my-inferior-db-nosql-map))
-(define-key my-inferior-db-map (kbd "n") 'my-inferior-db-nosql-map)
+(unless (boundp 'nosql-prefix)
+  (define-prefix-command 'nosql-prefix))
+(define-key database-prefix (kbd "n") 'nosql-prefix)
 
 
 ;; SQL
@@ -37,7 +37,7 @@
 ;;; GraphQL
 (require 'init-my-prog-lang-database-graphql)
 
-
+
 (provide 'init-my-prog-lang-database)
 
 ;;; init-my-prog-lang-database.el ends here

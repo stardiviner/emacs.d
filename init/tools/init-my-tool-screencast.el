@@ -9,7 +9,7 @@
 
 (unless (boundp 'screencast-prefix)
   (define-prefix-command 'screencast-prefix))
-(define-key my-tools-prefix (kbd "M-s") 'screencast-prefix)
+(define-key tools-prefix (kbd "M-s") 'screencast-prefix)
 
 ;;; [ command-log-mode ] -- log commands to buffer
 

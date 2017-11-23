@@ -32,9 +32,9 @@
   
   ;; - `julia' :: from ess-julia.
   ;; - `inferior-julia' :: from julia-mode.
-  (unless (boundp 'my-inferior-ess-map)
-    (define-prefix-command 'my-inferior-ess-map))
-  (define-key my-inferior-ess-map (kbd "j") 'my-ess-inferior-julia)
+  (unless (boundp 'ess-prefix)
+    (define-prefix-command 'ess-prefix))
+  (define-key ess-prefix (kbd "j") 'my-ess-inferior-julia)
   
   :config
   ;; (setq inferior-julia-args)

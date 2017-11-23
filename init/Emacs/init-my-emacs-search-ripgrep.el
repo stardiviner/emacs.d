@@ -11,7 +11,7 @@
 
 (use-package ripgrep
   :ensure t
-  :bind (:map my-search-prefix
+  :bind (:map search-prefix
               ("r" . ripgrep-regexp))
   :config
   ;; (setq ripgrep-arguments '())
@@ -22,7 +22,7 @@
 (use-package projectile-ripgrep
   :ensure t
   :config
-  (define-key my-search-prefix (kbd "C-r") 'projectile-ripgrep)
+  (define-key search-prefix (kbd "C-r") 'projectile-ripgrep)
   )
 
 ;;; ----------------------------------------------------------------------------

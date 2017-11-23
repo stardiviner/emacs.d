@@ -106,7 +106,7 @@
 (use-package edbi
   :ensure t
   :defer t
-  :bind (:map my-inferior-db-sql-map
+  :bind (:map sql-prefix
               ("d" . edbi:open-db-viewer))
   :config
   (setq edbi:completion-tool 'auto-complete) ; none
@@ -139,14 +139,14 @@
   ;; [ edbi-sqlite ] -- edbi helper application
   (use-package edbi-sqlite
     :ensure t
-    :bind (:map my-inferior-db-sql-map
+    :bind (:map sql-prefix
                 ("l" . edbi-sqlite))
     )
 
   ;; [ edbi-database-url ] -- run edbi with database url.
   (use-package edbi-database-url
     :ensure t
-    :bind (:map my-inferior-db-sql-map
+    :bind (:map sql-prefix
                 ("u" . edbi-database-url))
     )
 

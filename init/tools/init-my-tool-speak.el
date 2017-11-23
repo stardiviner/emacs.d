@@ -8,7 +8,7 @@
 
 (unless (boundp 'speak-map)
   (define-prefix-command 'speak-map))
-(define-key my-tools-prefix (kbd "s") 'speak-map)
+(define-key tools-prefix (kbd "s") 'speak-map)
 
 
 ;;; [ Emacspeak ]

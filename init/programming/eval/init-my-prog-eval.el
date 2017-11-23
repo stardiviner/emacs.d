@@ -8,9 +8,9 @@
 ;;; Code:
 
 
-(unless (boundp 'my-prog-eval-map)
-  (define-prefix-command 'my-prog-eval-map))
-(global-set-key (kbd "C-c e") 'my-prog-eval-map)
+(unless (boundp 'eval-prefix)
+  (define-prefix-command 'eval-prefix))
+(global-set-key (kbd "C-c e") 'eval-prefix)
 
 
 ;;; [ eval-in-repl ] -- Consistent ESS-like eval interface for various REPLs.
@@ -126,7 +126,7 @@
 (use-package evalator
   :ensure t
   :defer t
-  :bind (:map my-prog-eval-map
+  :bind (:map eval-prefix
               ("e" . evalator)
               ("x" . evalator-explicit)
               ("r" . evalator-resume)

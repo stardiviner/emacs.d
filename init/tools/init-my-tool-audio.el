@@ -9,7 +9,7 @@
 ;;; ----------------------------------------------------------------------------
 (unless (boundp 'audio-prefix)
   (define-prefix-command 'audio-prefix))
-(define-key my-tools-prefix (kbd "C-a") 'audio-prefix)
+(define-key tools-prefix (kbd "C-a") 'audio-prefix)
 
 
 ;;; [ ecasound ] -- command-line multitrack audio processor.

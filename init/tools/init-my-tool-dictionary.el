@@ -9,7 +9,7 @@
 
 (unless (boundp 'dictionary-prefix)
   (define-prefix-command 'dictionary-prefix))
-(define-key my-tools-prefix (kbd "d") 'dictionary-prefix)
+(define-key tools-prefix (kbd "d") 'dictionary-prefix)
 
 ;;; [ sdcv.el ]
 

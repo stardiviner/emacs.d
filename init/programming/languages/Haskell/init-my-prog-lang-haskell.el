@@ -23,7 +23,7 @@
               ([f8] . haskell-navigate-imports)
               ([f5] . haskell-compile)
 
-              :map my-prog-inferior-map
+              :map inferior-prefix
               ("h" . haskell-interactive-switch)
               )
   :config

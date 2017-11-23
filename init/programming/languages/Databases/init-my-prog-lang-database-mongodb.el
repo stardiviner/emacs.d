@@ -17,7 +17,7 @@
   :ensure t
   :defer t
   :init
-  (define-key my-inferior-db-nosql-map (kbd "m") 'inf-mongo)
+  (define-key nosql-prefix (kbd "m") 'inf-mongo)
   )
 
 

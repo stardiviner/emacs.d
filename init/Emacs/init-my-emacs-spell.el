@@ -4,9 +4,9 @@
 ;;; Code:
 
 ;; bind to [M-g] keybindings.
-(unless (boundp 'my-spell-prefix)
-  (define-prefix-command 'my-spell-prefix))
-(global-set-key (kbd "M-g s") 'my-spell-prefix)
+(unless (boundp 'spell-prefix)
+  (define-prefix-command 'spell-prefix))
+(global-set-key (kbd "M-g s") 'spell-prefix)
 
 
 ;;; [ aspell & ispell ]
@@ -132,8 +132,8 @@
   (setq flyspell-issue-message-flag nil)
 
   ;; bind to [M-g] keybindings.
-  (define-key my-spell-prefix (kbd "n") 'flyspell-goto-next-error)
-  (define-key my-spell-prefix (kbd "c") 'flyspell-correct-word-before-point)
+  (define-key spell-prefix (kbd "n") 'flyspell-goto-next-error)
+  (define-key spell-prefix (kbd "c") 'flyspell-correct-word-before-point)
   )
 
 

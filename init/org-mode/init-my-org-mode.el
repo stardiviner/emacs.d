@@ -8,9 +8,9 @@
 ;;; Code:
 
 
-(unless (boundp 'my-org-prefix)
-  (define-prefix-command 'my-org-prefix))
-(global-set-key (kbd "C-c o") 'my-org-prefix)
+(unless (boundp 'Org-prefix)
+  (define-prefix-command 'Org-prefix))
+(global-set-key (kbd "C-c o") 'Org-prefix)
 
 ;;; Org-mode ELPA version
 ;; (use-package org

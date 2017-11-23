@@ -12,7 +12,7 @@
 (use-package podcaster
   :ensure t
   :defer t
-  :bind (:map my-tools-prefix
+  :bind (:map tools-prefix
               ("P" . podcaster))
   :config
   (setq podcaster-feeds-urls

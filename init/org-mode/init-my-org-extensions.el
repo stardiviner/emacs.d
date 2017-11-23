@@ -17,7 +17,7 @@
 ;;   (setq otama-database-file-name
 ;;         (concat (getenv "HOME") "/Org" "/otama/otama.org"))
 ;;
-;;   (define-key my-org-prefix (kbd "D") 'otama-helm)
+;;   (define-key Org-prefix (kbd "D") 'otama-helm)
 ;;   )
 
 ;;; [ org-crypt ] -- public key encryption for Org entries

@@ -59,7 +59,7 @@
   (defun my-yari-settings ()
     ;; (local-set-key (kbd "C-h d k") 'yari)
 
-    ;; or with my-prog-help-document-map prefix.
+    ;; or with prog-doc-map prefix.
     (unless (boundp 'ruby-help-doc-map)
       (define-prefix-command 'ruby-help-doc-map))
     (local-set-key (kbd "C-h d") 'ruby-help-doc-map)

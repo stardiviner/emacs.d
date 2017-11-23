@@ -59,15 +59,15 @@
 
   (org-download-enable)
 
-  (unless (boundp 'my-org-download-map)
-    (define-prefix-command 'my-org-download-map))
-  (define-key my-org-prefix (kbd "d") 'my-org-download-map)
+  (unless (boundp 'org-download-prefix)
+    (define-prefix-command 'org-download-prefix))
+  (define-key Org-prefix (kbd "d") 'org-download-prefix)
 
-  (define-key my-org-download-map (kbd "i") 'org-download-image)
-  (define-key my-org-download-map (kbd "s") 'org-download-screenshot)
-  (define-key my-org-download-map (kbd "y") 'org-download-yank)
-  (define-key my-org-download-map (kbd "d") 'org-download-delete)
-  (define-key my-org-download-map (kbd "e") 'org-download-edit)
+  (define-key org-download-prefix (kbd "i") 'org-download-image)
+  (define-key org-download-prefix (kbd "s") 'org-download-screenshot)
+  (define-key org-download-prefix (kbd "y") 'org-download-yank)
+  (define-key org-download-prefix (kbd "d") 'org-download-delete)
+  (define-key org-download-prefix (kbd "e") 'org-download-edit)
 
   (define-key org-mode-map (kbd "<drag-n-drop>") 'org-download-dnd)
   (define-key org-mode-map (kbd "<C-drag-n-drop>") 'org-download-dnd)
@@ -80,17 +80,17 @@
   :ensure t
   :defer t
   :init
-  (unless (boundp 'my-org-board-prefix)
-    (define-prefix-command 'my-org-board-prefix))
-  (define-key my-org-prefix (kbd "C-b") 'my-org-board-prefix)
+  (unless (boundp 'org-board-prefix)
+    (define-prefix-command 'org-board-prefix))
+  (define-key Org-prefix (kbd "C-b") 'org-board-prefix)
 
-  (define-key my-org-board-prefix (kbd "a") 'org-board-new)
-  (define-key my-org-board-prefix (kbd "n") 'org-board-new)
-  (define-key my-org-board-prefix (kbd "C-a") 'org-board-archive)
-  (define-key my-org-board-prefix (kbd "r") 'org-board-archive-dry-run)
-  (define-key my-org-board-prefix (kbd "o") 'org-board-open)
-  (define-key my-org-board-prefix (kbd "d") 'org-board-diff)
-  (define-key my-org-board-prefix (kbd "C-d") 'org-board-delete-all)
+  (define-key org-board-prefix (kbd "a") 'org-board-new)
+  (define-key org-board-prefix (kbd "n") 'org-board-new)
+  (define-key org-board-prefix (kbd "C-a") 'org-board-archive)
+  (define-key org-board-prefix (kbd "r") 'org-board-archive-dry-run)
+  (define-key org-board-prefix (kbd "o") 'org-board-open)
+  (define-key org-board-prefix (kbd "d") 'org-board-diff)
+  (define-key org-board-prefix (kbd "C-d") 'org-board-delete-all)
   )
 
 

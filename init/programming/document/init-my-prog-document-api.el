@@ -12,7 +12,7 @@
 (use-package helm-dash
   :ensure t
   :defer t
-  :bind (:map my-prog-help-document-map
+  :bind (:map prog-doc-map
               ("C-s" . helm-dash-at-point) ; `helm-dash'
               )
   :config
@@ -173,7 +173,7 @@
 (use-package zeal-at-point
   :ensure t
   :defer t
-  :bind (:map my-prog-help-document-map
+  :bind (:map prog-doc-map
               ("C-d" . zeal-at-point))
   :init
   (setq zeal-at-point-zeal-version "0.3.0")

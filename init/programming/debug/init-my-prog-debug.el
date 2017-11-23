@@ -7,9 +7,9 @@
 
 ;;; Code:
 
-(unless (boundp 'my-prog-debug-map)
-  (define-prefix-command 'my-prog-debug-map))
-(global-set-key (kbd "C-c d") 'my-prog-debug-map)
+(unless (boundp 'debug-prefix)
+  (define-prefix-command 'debug-prefix))
+(global-set-key (kbd "C-c d") 'debug-prefix)
 
 
 (require 'init-my-prog-debug-debugger)

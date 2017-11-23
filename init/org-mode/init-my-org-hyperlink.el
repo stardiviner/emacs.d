@@ -371,7 +371,7 @@ With prefix argument, also display headlines without a TODO keyword."
        "org-download-edit"
        (format org-image-link-edit-cmd (plist-get (cadr context) :path))))))
 
-(define-key my-org-prefix (kbd "E") 'org-image-link-edit)
+(define-key Org-prefix (kbd "E") 'org-image-link-edit)
 
 
 ;;; code ref

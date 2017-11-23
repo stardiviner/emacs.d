@@ -9,7 +9,7 @@
 
 (unless (boundp 'screenshot-prefix)
   (define-prefix-command 'screenshot-prefix))
-(define-key my-tools-prefix (kbd "S") 'screenshot-prefix)
+(define-key tools-prefix (kbd "S") 'screenshot-prefix)
 
 
 ;;; [ screenshot.el ]

@@ -8,9 +8,9 @@
 ;;; Code:
 
 
-(unless (boundp 'my-highlight-prefix)
-  (define-prefix-command 'my-highlight-prefix))
-(global-set-key (kbd "M-g h") 'my-highlight-prefix)
+(unless (boundp 'highlight-prefix)
+  (define-prefix-command 'highlight-prefix))
+(global-set-key (kbd "M-g h") 'highlight-prefix)
 
 ;;; [ hi-lock ]
 
@@ -26,15 +26,15 @@
   )
 
 ;; rebind commands
-(define-key my-highlight-prefix (kbd "C-s") 'highlight-regexp)
-(define-key my-highlight-prefix (kbd "M-u") 'unhighlight-regexp)
-(define-key my-highlight-prefix (kbd "M-s") 'highlight-lines-matching-regexp)
+(define-key highlight-prefix (kbd "C-s") 'highlight-regexp)
+(define-key highlight-prefix (kbd "M-u") 'unhighlight-regexp)
+(define-key highlight-prefix (kbd "M-s") 'highlight-lines-matching-regexp)
 
 ;;; [ symbol-overlay ] -- highlighting symbols with keymap-enabled overlays.
 
 (use-package symbol-overlay
   :ensure t
-  :bind (:map my-highlight-prefix
+  :bind (:map highlight-prefix
               ("h" . symbol-overlay-put)
               ("M-h" . symbol-overlay-toggle-in-scope)
               ("t" . symbol-overlay-toggle-in-scope)

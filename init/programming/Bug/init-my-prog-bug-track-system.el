@@ -8,9 +8,9 @@
 ;;; Code:
 
 
-(unless (boundp 'my-prog-bug-bts-map)
-  (define-prefix-command 'my-prog-bug-bts-map))
-(global-set-key (kbd "C-c b") 'my-prog-bug-bts-map)
+(unless (boundp 'my-bts-prefix)
+  (define-prefix-command 'my-bts-prefix))
+(global-set-key (kbd "C-c b") 'my-bts-prefix)
 
 
 ;;; [ bts ] -- bug track system
@@ -22,7 +22,7 @@
 (use-package bts
   :ensure t
   :defer t
-  :bind (:map my-prog-bug-bts-map
+  :bind (:map my-bts-prefix
               ("b" . bts:summary-open)
               ("t" . bts:ticket-new)
               ("P" . bts:project-new)

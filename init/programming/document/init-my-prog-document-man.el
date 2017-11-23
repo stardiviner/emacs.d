@@ -9,13 +9,13 @@
 
 (unless (boundp 'man-lookup-prefix)
   (define-prefix-command 'man-lookup-prefix))
-;; (define-key my-prog-help-document-map (kbd "m") 'man-lookup-prefix)
+;; (define-key prog-doc-map (kbd "m") 'man-lookup-prefix)
 
 
 ;;; [ Man ]
 
 (use-package man
-  :bind (:map my-prog-help-document-map
+  :bind (:map prog-doc-map
               ("m" . man-follow)
               ("M" . man))
   )
@@ -23,7 +23,7 @@
 ;;; [ women ]
 
 (use-package woman
-  :bind (:map my-prog-help-document-map
+  :bind (:map prog-doc-map
               ("M-m" . woman))
   )
 

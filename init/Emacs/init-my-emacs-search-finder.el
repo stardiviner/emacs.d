@@ -10,7 +10,7 @@
 (unless (boundp 'find-prefix)
   (define-prefix-command 'find-prefix))
 
-(define-key my-search-prefix (kbd "f") 'find-prefix)
+(define-key search-prefix (kbd "f") 'find-prefix)
 
 ;;; [ helm-fuzzy-find ] -- Find files using Fuzzy Search (fuzzy-find) with Helm.
 

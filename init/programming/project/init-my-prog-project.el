@@ -6,9 +6,9 @@
 ;;; Code:
 
 
-(unless (boundp 'my-prog-project-map)
-  (define-prefix-command 'my-prog-project-map))
-(global-set-key (kbd "C-c p") 'my-prog-project-map)
+(unless (boundp 'project-prefix)
+  (define-prefix-command 'project-prefix))
+(global-set-key (kbd "C-c p") 'project-prefix)
 
 
 ;;; [ Projectile ] -- minor mode to assist project management and navigation.

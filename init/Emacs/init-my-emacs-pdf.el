@@ -231,8 +231,11 @@ when needed."
         (message "Now, you're in the interleave Org-mode buffer!")))
     
     (add-hook 'interleave-mode-hook #'my-interleave-hook)
-    
-    (define-key my-org-prefix (kbd "M-p") 'interleave-mode)
+
+    (unless (boundp 'Org-prefix)
+      (define-prefix-command 'Org-prefix))
+    (global-set-key (kbd "C-c o") 'Org-prefix)
+    (define-key Org-prefix (kbd "M-p") 'interleave-mode)
     )
 
   ;; [ pdf-tools-org ] -- integrate pdf-tools annotations with Org-mode.
