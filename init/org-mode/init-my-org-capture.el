@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Capture - Refile - Archive ]
 
 (require 'org-capture)
@@ -16,7 +16,7 @@
 
 (setq org-capture-templates
       '(("c" "[C]apture"
-         entry (file "") ; FIXME: the target file should not be defined, because need to use [C-c C-w] refile to choose target.
+         entry (file "")
          "* TODO %^{Capture}\nSCHEDULED: %t\n%i\n%a\n\n%?"
          :prepend t
          :empty-lines 1
@@ -125,7 +125,7 @@
                 org-capture-templates))
   )
 
-
+
 (provide 'init-my-org-capture)
 
 ;;; init-my-org-capture.el ends here
