@@ -296,8 +296,22 @@
 ;;         ("calc" (:background "#222222"))
 ;;         ))
 
+;;; interactive completing named src blocks.
+;; workflow:
+;; 1. M-x org-babel-insert-named-source-block (imaginary function)
+;; 2. List of named source blocks pops up
+;; 3. Hit enter and "#+call: name-of-source-block()" is inserted at point.
+(defun org-babel-insert-src-block (&optional template)
+  "Interactively insert a named src block."
+  (interactive)
+  (let ((template (or template "#+call: %s()\n"))
+	      (src-block (completing-read "Enter src block name[or TAB or ENTER]: " (org-babel-src-block-names))))
+    (unless (string-equal "" src-block)
+	    (insert (format template src-block)))))
 
-;; beacon effect when open org-mode babel src block editing.
+(define-key org-babel-map (kbd "<tab>") 'org-babel-insert-src-block)
+
+;;; beacon effect when open org-mode babel src block editing.
 (defun my-org-src-edit-animation ()
   (interactive)
   (let ((beacon-size 30)
