@@ -344,6 +344,7 @@
                "~/Org/Learning Plan/"
                ;; "~/Org/Contacts/Contacts.org"
                ;; "~/Org/Calendars/"
+               "~/Org/Myself/"
                ))))
 
 (setq org-agenda-text-search-extra-files '(agenda-archives "~/Org/Diary/"))
