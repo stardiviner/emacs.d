@@ -10,7 +10,7 @@
 (require 'abbrev)
 
 ;;; setup my abbrevs file custom path.
-(setq abbrev-file-name "~/.emacs.d/init/abbrevs/abbrev_defs")
+(setq abbrev-file-name "~/.emacs.d/abbrev_defs")
 (setq save-abbrevs 'silently) ; save abbrevs when files are saved, nil: stop asking.
 (setq-default abbrev-mode t)
 (if (file-exists-p abbrev-file-name)

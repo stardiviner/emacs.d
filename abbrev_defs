@@ -73,7 +73,9 @@
 
 (define-abbrev-table 'apropos-mode-abbrev-table '())
 
-(define-abbrev-table 'arduino-mode-abbrev-table '())
+(define-abbrev-table 'arduino-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'asdf-mode-abbrev-table '())
 
@@ -204,6 +206,8 @@
 
 (define-abbrev-table 'display-time-world-mode-abbrev-table '())
 
+(define-abbrev-table 'docker-compose-mode-abbrev-table '())
+
 (define-abbrev-table 'docker-containers-mode-abbrev-table '())
 
 (define-abbrev-table 'docker-images-mode-abbrev-table '())
@@ -257,6 +261,12 @@
 (define-abbrev-table 'emacs-lisp-byte-code-mode-abbrev-table '())
 
 (define-abbrev-table 'emacs-lisp-mode-abbrev-table '())
+
+(define-abbrev-table 'emms-lyrics-mode-abbrev-table '())
+
+(define-abbrev-table 'emms-show-all-mode-abbrev-table '())
+
+(define-abbrev-table 'emms-tag-editor-mode-abbrev-table '())
 
 (define-abbrev-table 'emr-buffer-report-mode-abbrev-table '())
 
@@ -595,6 +605,8 @@
 
 (define-abbrev-table 'magit-wazzup-mode-abbrev-table '())
 
+(define-abbrev-table 'magithub-dash-mode-abbrev-table '())
+
 (define-abbrev-table 'magithub-issue-post-mode-abbrev-table '())
 
 (define-abbrev-table 'mail-abbrevs '())
@@ -700,9 +712,8 @@
     ("conky" "Conky" nil 0)
     ("duckduckgo" "DuckDuckGo" nil 0)
     ("eg" "e.g." nil 4)
-    ("emacs" "Emacs" nil 0)
+    ("emacs" "Emacs" nil 2)
     ("facebook" "Facebook" nil 0)
-    ("firefox" "FireFox" nil 0)
     ("github" "GitHub" nil 1)
     ("gitlab" "GitLab" nil 0)
     ("gnome" "GNOME" nil 0)
@@ -768,6 +779,8 @@
 (define-abbrev-table 'prodigy-mode-abbrev-table '())
 
 (define-abbrev-table 'prodigy-view-mode-abbrev-table '())
+
+(define-abbrev-table 'profiler-report-mode-abbrev-table '())
 
 (define-abbrev-table 'prog-mode-abbrev-table '())
 
@@ -840,6 +853,20 @@
 (define-abbrev-table 'rst-mode-abbrev-table '())
 
 (define-abbrev-table 'rst-toc-mode-abbrev-table '())
+
+(define-abbrev-table 'rtags-dependency-tree-mode-abbrev-table '())
+
+(define-abbrev-table 'rtags-diagnostics-mode-abbrev-table '())
+
+(define-abbrev-table 'rtags-location-stack-visualize-mode-abbrev-table '())
+
+(define-abbrev-table 'rtags-mode-abbrev-table '())
+
+(define-abbrev-table 'rtags-preprocess-mode-abbrev-table '())
+
+(define-abbrev-table 'rtags-references-tree-mode-abbrev-table '())
+
+(define-abbrev-table 'rtags-taglist-mode-abbrev-table '())
 
 (define-abbrev-table 'ruby-compilation-mode-abbrev-table '())
 
@@ -1063,10 +1090,6 @@
 (define-abbrev-table 'web-mode-abbrev-table '())
 
 (define-abbrev-table 'xref--xref-buffer-mode-abbrev-table '())
-
-(define-abbrev-table 'xwidget-webkit-mode-abbrev-table '())
-
-(define-abbrev-table 'yagist-list-mode-abbrev-table '())
 
 (define-abbrev-table 'yaml-mode-abbrev-table '())
 
