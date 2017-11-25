@@ -91,13 +91,14 @@ $0`(yas-escape-text yas-selected-text)`"
 
 (use-package auto-yasnippet
   :ensure t
-  :bind (:map yas-minor-mode-map
-              ("C-c & a" . aya-create)
-              ("C-c & e" . aya-expand)
-              ("C-c & o" . aya-open-line)
-              ("C-c & s" . aya-persist-snippet))
+  :after yasnippet
   :config
   (setq aya-persist-snippets-dir "~/.emacs.d/snippets")
+
+  (define-key yas-minor-mode-map (kbd "C-c & a") 'aya-create)
+  (define-key yas-minor-mode-map (kbd "C-c & e") 'aya-expand)
+  (define-key yas-minor-mode-map (kbd "C-c & o") 'aya-open-line)
+  (define-key yas-minor-mode-map (kbd "C-c & s") 'aya-persist-snippet)
   )
 
 ;;; [ org-sync-snippets ] -- simple extension to export snippets to org-mode and vice versa.
