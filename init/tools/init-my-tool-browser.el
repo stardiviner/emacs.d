@@ -117,6 +117,14 @@
   
   (setq w3m-use-cookies t)
 
+  (require 'w3m-search) ; Command `w3m-search'
+  (setq w3m-language "English")
+  (setq w3m-search-engine-alist '(("google" "https://www.google.com/search?q=%s")
+                                  ("duckduckgo" "https://duckduckgo.com/?q=%s")
+                                  ("wikipedia" "https://en.wikipedia.org/wiki/Special:Search/%s")
+                                  ("emacswiki" "https://www.emacswiki.org/cgi-bin/wiki?search=%s")
+                                  ))
+
   (define-key w3m-mode-map (kbd "&") 'w3m-view-url-with-external-browser)
   
   ;; setup keybindings
