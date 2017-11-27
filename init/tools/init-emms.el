@@ -92,8 +92,7 @@
   (define-key emms-mpd-prefix (kbd "m") 'emms-player-mpd-connect)
   (define-key emms-mpd-prefix (kbd "c") 'emms-player-mpd-connect)
   (define-key emms-mpd-prefix (kbd "s") 'emms-player-mpd-start)
-  ;; FIXME: un-comment when `emms-player-mpd-play' is a command with (interactive).
-  ;; (define-key emms-mpd-prefix (kbd "p") 'emms-player-mpd-play)
+  (define-key emms-mpd-prefix (kbd "p") 'emms-player-mpd-play)
   ;; TODO: (emms-player-mpd-get-mpd-state nil #'ignore info)
   (define-key emms-mpd-prefix (kbd "P") 'emms-player-mpd-pause)
   (define-key emms-mpd-prefix (kbd "S") 'emms-player-mpd-stop)
