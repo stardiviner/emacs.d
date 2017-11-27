@@ -11,7 +11,7 @@
 (require 'org-agenda)
 
 ;; Agenda Views
-(setq org-agenda-show-inherited-tags t)
+(setq org-agenda-show-inherited-tags nil)
 (setq org-agenda-align-tags-to-column -100
       org-agenda-tags-column -100)
 (setq org-agenda-prefix-format
@@ -377,7 +377,7 @@
 ;; speedup Org Agenda
 (setq org-agenda-dim-blocked-tasks nil ; don't dim blocked tasks: past deadline, etc
       org-agenda-inhibit-startup nil
-      ;; org-agenda-use-tag-inheritance nil
+      org-agenda-use-tag-inheritance nil
       )
 
 ;; toggle log mode in agenda buffer. show all possible log items.
