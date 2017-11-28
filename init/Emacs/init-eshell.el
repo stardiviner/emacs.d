@@ -16,13 +16,16 @@
 ;;; TERM
 (require 'em-term)
 
+;;; Eshell sudo
 ;; load eshell's sudo which use Tramp's su/sudo methods.
 (require 'em-tramp)
 ;; Switch to eshell’s sudo
 ;; by prefering built-in commands
 (setq eshell-prefer-lisp-functions t
       eshell-prefer-lisp-variables t)
-(setq password-cache t)
+(setq password-cache t
+      ;; password-cache-expiry 3600 ; 1 hour
+      )
 
 (setq eshell-save-histroy-on-exit t
       eshell-history-size 500
@@ -129,13 +132,20 @@ PWD is not in a git repo (or the git command is not found)."
       eshell-cmpl-use-paring t
       )
 
-(add-hook 'eshell-mode-hook
-          (lambda ()
-            (eshell-cmpl-initialize)
-            (company-mode 1)
-            (define-key company-active-map [return] 'company-complete-selection)
-            (define-key company-active-map "\r" 'company-complete-selection)
-            ))
+(defun my-eshell-completing-setup ()
+  "Setup my Eshell completing."
+  (interactive)
+  (eshell-cmpl-initialize)
+  ;; disable company-mode auto complete to speed up Eshell typing command, use [Tab] manually.
+  (company-mode 1)
+  ;; (local-set-key (kbd "<tab>") 'company-complete)
+  (setq-local company-minimum-prefix-length 3)
+  (setq-local company-idle-delay 0.4)
+  (define-key company-active-map [return] 'company-complete-selection)
+  (define-key company-active-map "\r" 'company-complete-selection)
+  )
+
+(add-hook 'eshell-mode-hook 'my-eshell-completing-setup)
 
 (defun my-smart-eshell (&optional arg)
   "Smart set directory path."
