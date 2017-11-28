@@ -30,9 +30,7 @@
 
 ;; * Plain Lists::
 
-(setq org-list-allow-alphabetical t
-      org-list-empty-line-terminates-plain-lists nil ; need 2 empty lines
-      )
+(setq org-list-allow-alphabetical t)
 
 ;;; List checkbox:
 
