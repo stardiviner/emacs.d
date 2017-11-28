@@ -105,17 +105,15 @@ PWD is not in a git repo (or the git command is not found)."
                   ;;  'face '((:foreground "green yellow"))
                   ;;  )
                   (propertize ; $ ➜ ⇨ </>
-                   (if (= (user-uid) 0) "#" "⇨")
+                   (if (= (user-uid) 0) " #" " $")
                    'face '((:foreground "deep pink")))
                   ;; set following cmd face
                   (propertize
-                   "·"
-                   'face '((:foreground "light gray")))
+                   " ☯ "
+                   'face '((:foreground "dark")))
                   )))
 
-;; (setq eshell-prompt-regexp "^[^#$\n]* [#$] ")
-;; (setq eshell-prompt-regexp "^[^#$\n]*[#⇨]* ")
-(setq eshell-prompt-regexp "^[^#$\n]*[#⇨] · ")
+(setq eshell-prompt-regexp "^[^#$\n]* [#$] ☯ ")
 
 ;; Eshell modules
 ;; (add-to-list 'eshell-modules-list 'eshell-rebind)
