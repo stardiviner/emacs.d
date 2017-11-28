@@ -81,10 +81,10 @@
         ("Python" . ?p)
         ("Ruby" . ?r)
         ("Shell" . ?s)
-        ("C" . ?C)
-        ("Go" . ?g)
-        ("Rust" . ?t)
         ("JavaScript" . ?j)
+        ("Go" . ?g)
+        ("Rust" . nil)
+        ("C" . nil)
         (:endgroup . nil)
         
         (:startgroup . nil)
