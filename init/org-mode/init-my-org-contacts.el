@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
+
 ;;; [ org-contacts ] -- Contacts management in Org-mode.
 
 (require 'org-contacts)
@@ -89,18 +89,17 @@
   :ensure t
   :config
   ;; Contacts
-  (defun my-org-rifle-Contacts-reference ()
+  (defun rifle-Contacts-ref ()
     (interactive)
     (let ((my-contacts-reference-dir
            (concat org-directory "/Contacts/")))
       (helm-org-rifle-directories
        (list my-contacts-reference-dir))))
   
-  (define-key references-rifle-prefix (kbd "C-c") 'my-org-rifle-Contacts-reference)
+  (define-key reference-prefix (kbd "C-c") 'rifle-Contacts-ref)
   )
 
-;;; ----------------------------------------------------------------------------
-
+
 (provide 'init-my-org-contacts)
 
 ;;; init-my-org-contacts.el ends here
