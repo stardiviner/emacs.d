@@ -100,6 +100,18 @@
   )
 
 
+;;; [ org-vcard ] -- export and import vCards from within Org-mode.
+
+(use-package org-vcard
+  :ensure t
+  :commands (org-vcard-export org-vcard-import)
+  :config
+  (setq org-vcard-append-to-existing-import-buffer t
+        org-vcard-append-to-existing-export-buffer t)
+  (setq org-vcard-include-import-unknowns t)
+  )
+
+
 (provide 'init-my-org-contacts)
 
 ;;; init-my-org-contacts.el ends here
