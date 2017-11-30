@@ -74,7 +74,7 @@
         (error "No org files found in directories: %s" (s-join " " directories))))
     )
 
-  (define-key reference-prefix (kbd "r") 'Rifle-refs-search)
+  (define-key reference-prefix (kbd "SPC") 'Rifle-refs-search)
 
   (defvar rifle-references-common-path--languages
     (concat org-directory
@@ -116,7 +116,7 @@
       (helm-org-rifle-directories
        (list my-ruby-syntax-reference-dir))))
   
-  (define-key reference-prefix (kbd "R") 'rifle-Ruby-ref)
+  (define-key reference-prefix (kbd "r") 'rifle-Ruby-ref)
 
   ;; Python
   (defun rifle-Python-ref ()
@@ -171,7 +171,7 @@
       (helm-org-rifle-directories
        (list my-css-syntax-reference-dir))))
   
-  (define-key reference-prefix (kbd "M-c") 'rifle-CSS-ref)
+  (define-key reference-prefix (kbd "H") 'rifle-CSS-ref)
 
   ;; Julia
   (defun rifle-Julia-ref ()
@@ -217,6 +217,28 @@
        (list my-implements-reference-dir))))
   
   (define-key reference-prefix (kbd "i") 'rifle-Implements-ref)
+
+  ;; Computer Technology Glossary
+  (defun rifle-Computer-ref ()
+    (interactive)
+    (let ((my-implements-reference-dir
+           (concat org-directory
+                   "/Wiki/Computer Technology/Data/Manuals/My Computer Technology Glossary/")))
+      (helm-org-rifle-directories
+       (list my-implements-reference-dir))))
+  
+  (define-key reference-prefix (kbd "M-c") 'rifle-Computer-ref)
+
+  ;; Programming Glossary
+  (defun rifle-Programming-ref ()
+    (interactive)
+    (let ((my-implements-reference-dir
+           (concat org-directory
+                   "/Wiki/Computer Technology/Programming/Data/Manuals/My Programming Glossary/")))
+      (helm-org-rifle-directories
+       (list my-implements-reference-dir))))
+  
+  (define-key reference-prefix (kbd "p") 'rifle-Programming-ref)
   
   ;; Mathematics
   (defun rifle-Math-ref ()
