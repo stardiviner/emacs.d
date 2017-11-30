@@ -156,22 +156,11 @@
 
 (use-package org-edit-latex
   :ensure t
+  :init
+  (setq org-edit-latex-create-master nil)
+  (add-hook 'org-mode-hook #'org-edit-latex-mode)
   :config
   (setq org-edit-latex-create-master nil) ; 'ask, t, nil
-  
-  (add-hook 'org-mode-hook #'org-edit-latex-mode)
-
-  (defun org-edit-latex-active-in-LaTeX-fragment ()
-    (if (and (equal major-mode 'org-mode)
-             (or (eq 'latex-environment (car (org-element-context)))
-                 (org-inside-LaTeX-fragment-p)))
-        (progn
-          (message "You can use `org-edit-latex' [C-c '].")
-          (unless org-edit-latex-mode (org-edit-latex-mode 1)))
-      (if org-edit-latex-mode (org-edit-latex-mode -1))
-      ))
-
-  (add-hook 'post-command-hook #'org-edit-latex-active-in-LaTeX-fragment)
   )
 
 
