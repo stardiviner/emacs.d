@@ -625,6 +625,7 @@ dimensions of a block selection."
   (when (stringp mode-line-process)
     (propertize
      (concat
+      (propertize " " 'face 'variable-pitch)
       (all-the-icons-faicon "circle-o" :v-adjust -0.05)
       ;; (format-mode-line "%s")
       mode-line-process)
