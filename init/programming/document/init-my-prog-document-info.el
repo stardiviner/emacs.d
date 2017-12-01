@@ -40,11 +40,10 @@
         )
   )
 
-(use-package niceify-info
-  :ensure t
-  :defer t
-  :init
-  (add-hook 'Info-selection-hook #'niceify-info))
+;; (use-package niceify-info
+;;   :ensure t
+;;   :init
+;;   (add-hook 'Info-selection-hook #'niceify-info))
 
 ;;; [ sicp ] -- Structure and Interpretation of Computer Programs in info format.
 
