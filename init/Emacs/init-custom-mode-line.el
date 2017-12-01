@@ -283,11 +283,13 @@ state (modified, read-only or non-existent)."
 
 ;;; window number
 ;; (use-package window-numbering
-;;   :ensure t)
-(defun *window-number ()
-  (propertize (format " %c" (+ 9311 (window-numbering-get-number)))
-              'face `(:height ,(/ (* 0.90 powerline/default-height) 100.0))
-              'display '(raise 0.0)))
+;;   :ensure t
+;;   :config
+;;   (defun *window-number ()
+;;     (propertize (format " %c" (+ 9311 (window-numbering-get-number)))
+;;                 'face `(:height ,(/ (* 0.90 powerline/default-height) 100.0))
+;;                 'display '(raise 0.0)))
+;;   )
 
 ;;; line & column position info
 (defun *linum-info ()
@@ -563,13 +565,15 @@ dimensions of a block selection."
 
 ;; multiple-cursors (mc/)
 (use-package multiple-cursors
-  :ensure t)
-(defun *multiple-cursors ()
-  "Show multiple-cursors indicator in mode-line."
-  (if (> (mc/num-cursors) 1) ; (mc/fake-cursor-p OVERLAY)
-      (propertize
-       (format "[%d]" (mc/num-cursors)) ; `mc/mode-line'
-       'face 'mode-line-meta-face)))
+  :ensure t
+  :config
+  (defun *multiple-cursors ()
+    "Show multiple-cursors indicator in mode-line."
+    (if (> (mc/num-cursors) 1) ; (mc/fake-cursor-p OVERLAY)
+        (propertize
+         (format "[%d]" (mc/num-cursors)) ; `mc/mode-line'
+         'face 'mode-line-meta-face)))
+  )
 
 ;;; Evil substitute
 (defun *evil-substitute ()
@@ -716,13 +720,14 @@ dimensions of a block selection."
 ;;; Pomodoro (org-pomodoro)
 (use-package org-pomodoro
   :ensure t
-  :config)
-(defun *pomodoro ()
-  "Show pomodoro/org-pomodoro timer in custom mode-line."
-  (if (and (org-pomodoro-active-p)
-           (active))
-      (propertize (format "%s" org-pomodoro-mode-line)
-                  'face 'mode-line-data-face))
+  :config
+  (defun *pomodoro ()
+    "Show pomodoro/org-pomodoro timer in custom mode-line."
+    (if (and (org-pomodoro-active-p)
+             (active))
+        (propertize (format "%s" org-pomodoro-mode-line)
+                    'face 'mode-line-data-face))
+    )
   )
 
 ;;; Current Time
@@ -751,23 +756,26 @@ dimensions of a block selection."
 ;; - `rtags-is-indexed'
 ;; You have to run `rdm' with the `--progress' for this to work.
 
-(declare rtags-enabled)
-
-(defun *my-rtags-modeline ()
-  "Show `rtags-modeline' info in my custom mode-line."
-  (if (and (active)
-           (and (boundp 'rtags-enabled) rtags-enabled))
-      (propertize
-       (concat
-        (if (not (string-empty-p (rtags-modeline)))
-            (all-the-icons-faicon "paw" :v-adjust -0.05)
-          (rtags-modeline))
-        (if (rtags-is-indexed)
-            (all-the-icons-faicon "codepen" :v-adjust -0.05))
-        (propertize " " 'face 'variable-pitch))
-       'face 'mode-line-info-face)))
-
-;; (add-hook 'rtags-diagnostics-hook #'force-mode-line-update)
+(use-package rtags
+  :ensure t
+  :defines rtags-enabled
+  :config
+  (defun *rtags-modeline ()
+    "Show `rtags-modeline' info in my custom mode-line."
+    (if (and (active)
+             (and (boundp 'rtags-enabled) rtags-enabled))
+        (propertize
+         (concat
+          (if (not (string-empty-p (rtags-modeline)))
+              (all-the-icons-faicon "paw" :v-adjust -0.05)
+            (rtags-modeline))
+          (if (rtags-is-indexed)
+              (all-the-icons-faicon "codepen" :v-adjust -0.05))
+          (propertize " " 'face 'variable-pitch))
+         'face 'mode-line-info-face)))
+  
+  ;; (add-hook 'rtags-diagnostics-hook #'force-mode-line-update)
+  )
 
 ;;; mu4e
 (defun *mu4e ()
@@ -790,9 +798,7 @@ dimensions of a block selection."
 ;;; `copy-file-on-save'
 (use-package copy-file-on-save
   :ensure t
-  :init
-  (use-package projectile
-    :ensure t)
+  :ensure projectile
   :config
   ;; show this segment in custom mode-line.
   (defun *copy-file-on-save ()
@@ -835,7 +841,7 @@ dimensions of a block selection."
                  (*pomodoro)
                  (*process)
                  (*copy-file-on-save)
-                 ;; (*my-rtags-modeline)
+                 (*rtags-modeline)
                  ))
            (rhs (list
                  ;; NOTE: the `mid' `format-mode-line' meet first `nil' will
