@@ -372,7 +372,7 @@
 
 (setq org-agenda-window-setup 'current-window)
 
-(setq org-agenda-span 'week
+(setq org-agenda-span 'day
       org-agenda-start-on-weekday nil)
 ;; speedup Org Agenda
 (setq org-agenda-dim-blocked-tasks nil ; don't dim blocked tasks: past deadline, etc
