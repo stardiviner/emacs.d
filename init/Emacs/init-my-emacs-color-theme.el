@@ -121,12 +121,14 @@
 ;;                                  )
 ;;                     )
 
-;; (set-face-attribute 'region nil
-;;                     :inherit nil :inverse-video nil
-;;                     :background (cl-case (alist-get 'background-mode (frame-parameters))
-;;                                   ('light "khaki")
-;;                                   ('dark "forest green"))
-;;                     )
+(set-face-attribute 'region nil
+                    :inherit nil :inverse-video nil
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 5))
+                                  ('dark
+                                   (color-lighten-name (face-background 'default) 10)))
+                    )
 
 ;; comment
 (set-face-attribute 'font-lock-comment-face nil
