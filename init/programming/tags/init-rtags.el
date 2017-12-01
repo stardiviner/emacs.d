@@ -12,10 +12,11 @@
 (use-package rtags
   :ensure t
   :config
-  (setq rtags-path "/usr/bin"
+  (setq rtags-completions-enabled t
+        rtags-install-path (expand-file-name "~/bin/") ; for command `rtags-install'
+        ;; rtags-path (expand-file-name "~/bin/rtags-2.16/bin/")
         ;; rtags-socket-file "/run/user/1000/rdm.socket"
         rtags-autostart-diagnostics t
-        rtags-completions-enabled t
         rtags-display-current-error-as-message nil
         rtags-display-current-error-as-tooltip t
         ;; rtags-rdm-includes "" ; additional include paths.
