@@ -25,7 +25,7 @@
   ;; [ record queried words to Org-mode drill files ]
   (require 'org-capture) ; load `org-capture-templates'
 
-  (defvar my-org-drill-words-file (concat org-directory "/Tasks/Words.org"))
+  (setq my-org-drill-words-file (concat org-directory "/Tasks/Words/Words.org"))
 
   (setq org-capture-templates
         (append '(("w" "org-drill [w]ords"
@@ -43,7 +43,13 @@
                    ))
                 org-capture-templates))
 
-  (define-key Org-prefix (kbd "w") 'org-drill)
+  (defun my-org-drill ()
+    "My wrapper helper function around `org-drill'."
+    (interactive)
+    (find-file my-org-drill-words-file)
+    (org-drill))
+  
+  (define-key Org-prefix (kbd "w") 'my-org-drill)
 
   (use-package stem-english
     :ensure t)
