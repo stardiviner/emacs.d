@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;; [ default view ]
 
 (setq org-startup-folded t
@@ -117,7 +117,7 @@
         ("*" . "-")
         ))
 
-
+
 (provide 'init-my-org-view)
 
 ;;; init-my-org-view.el ends here
