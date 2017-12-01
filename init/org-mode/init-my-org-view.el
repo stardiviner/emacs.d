@@ -104,8 +104,9 @@
 ;;; [ org-numbers-overlay ]
 
 ;; (load "org-numbers-overlay")
-(require 'org-numbers-overlay)
-(add-hook 'org-mode-hook #'org-numbers-overlay-mode)
+;; (with-eval-after-load "org"
+;;   (require 'org-numbers-overlay)
+;;   (add-hook 'org-mode-hook #'org-numbers-overlay-mode))
 
 
 (require 'org-list)
