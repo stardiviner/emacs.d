@@ -39,6 +39,8 @@
     (require 'lsp-javacomp))
   ;; Enable `lsp-mode' for `java-mode'.
   (add-hook 'java-mode-hook 'lsp-mode)
+  :config
+  ;; (setq lsp-javacomp-server-jar "path/to/JavaComp.jar")
   )
 
 (use-package lsp-go

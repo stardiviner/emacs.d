@@ -18,7 +18,7 @@
               ("n" . docker-networks))
   :config
   (setq docker-containers-show-all t)
-  (docker-global-mode 1) ; enable docker minor mode
+  (docker-global-mode 1) ; enable global docker minor mode
   )
 
 ;;; [ dockerfile-mode ] -- Dockerfile

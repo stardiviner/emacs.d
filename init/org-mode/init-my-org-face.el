@@ -202,6 +202,7 @@
                     :inherit 'org-level-7
                     )
 
+(setq org-fontify-done-headline t)
 (set-face-attribute 'org-headline-done nil
                     :foreground (cl-case (alist-get 'background-mode (frame-parameters))
                                   ('light

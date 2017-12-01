@@ -45,9 +45,8 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 ;;   (deactivate-mark nil))
 ;; (define-key global-map [remap exchange-point-and-mark] 'exchange-point-and-mark-no-activate)
 
-;; When popping the mark, continue popping until the cursor
-;; actually moves
 (defadvice pop-to-mark-command (around ensure-new-position activate)
+  "When popping the mark, continue popping until the cursor actually moves."
   (let ((p (point)))
     (dotimes (i 10)
       (when (= p (point)) ad-do-it))))

@@ -217,10 +217,9 @@
 
 ;; (require 'org-depend)
 
-;;; auto trigger by changing TODO states
-;;
+;;; auto trigger by changing TODO states into NEXT.
 ;; (defun my/org-insert-trigger ()
-;;   "Automatically insert chain-find-next trigger when entry becomes NEXT"
+;;   "Automatically insert chain-find-next trigger when entry becomes NEXT."
 ;;   (cond ((equal org-state "NEXT")
 ;;          (unless org-depend-doing-chain-find-next
 ;;            (org-set-property "TRIGGER"

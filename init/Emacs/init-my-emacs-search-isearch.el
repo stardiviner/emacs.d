@@ -20,6 +20,7 @@
          ("C-r" . isearch-backward)
          ("C-M-s" . isearch-forward-regexp)
          ("M-%" . query-replace-regexp)
+         ("C-M-%" . isearch-query-replace-regexp)
          :map isearch-prefix
          ("i" . isearch-forward)
          ("C-i" . isearch-forward-symbol-at-point)
@@ -67,10 +68,10 @@
 ;;;_ query & replace
 
 (setq query-replace-highlight t
-        query-replace-lazy-highlight t
-        query-replace-show-replacement t
-        query-replace-from-to-separator " → "
-        )
+      query-replace-lazy-highlight t
+      query-replace-show-replacement t
+      query-replace-from-to-separator " → "
+      )
 
 ;;; [ visual-regexp ] -- A regexp/replace command for Emacs with interactive visual feedback.
 
@@ -106,7 +107,7 @@
   :bind (("M-%" . anzu-query-replace-regexp) ; anzu-query-replace
          ("C-M-%" . anzu-query-replace-regexp))
   :config
-  (global-anzu-mode +1)
+  (global-anzu-mode 1)
   
   (setq anzu-regexp-search-commands '(vr/isearch-forward
                                       vr/isearch-backward

@@ -10,6 +10,7 @@
 ;;; [ pdf-tools ] -- Emacs support library for PDF files.
 
 (use-package pdf-tools
+  ;; :pin manual ; manually update to disable auto update to avoid frequency break.
   :ensure t
   :mode ("\\.pdf\\'" . pdf-view-mode)
   :config
@@ -24,7 +25,7 @@
         ;; pdf-view-bounding-box-margin 0.05
         pdf-view-use-imagemagick nil
         pdf-view-use-scaling t ; open PDFs scaled to fit page.
-        ;; pdf-view-resize-factor 1.25
+        pdf-view-resize-factor 1.25 ; more fine-grained zooming.
 
         ;; mouse-wheel-follow-mouse t
         )

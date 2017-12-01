@@ -65,9 +65,13 @@
   ;; change SHELL environment variable to solve Tramp hangs issue.
   ;; (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
 
+  ;; [ sh ]
+  (require 'tramp-sh)
+  (add-to-list 'tramp-remote-path "~/bin")
+  
   ;; [ sudo in Tramp ]
 
-  ;; [ adb ]
+  ;; [ Android adb ]
   ;; (setq tramp-adb-program "adb")
   )
 
