@@ -50,14 +50,11 @@
 
 ;;; [ nord-theme ] -- An arctic, north-bluish clean and elegant Emacs theme.
 
-(use-package nord-theme
-  :ensure t
-  :config
-  ;; (setq nord-comment-brightness 15)
-  ;; (setq nord-region-highlight "frost")
-  ;; (setq nord-uniform-mode-lines t)
-  (load-theme 'nord t)
-  )
+;; (use-package nord-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'nord t)
+;;   )
 
 ;;; [ doom-themes ] -- Emacs themes inspired by Atom One
 
@@ -78,11 +75,11 @@
 
 ;;; [ spacemacs-theme ] -- Spacemacs default color-theme.
 
-;; (use-package spacemacs-theme
-;;   :ensure t
-;;   :config
-;;   (load-theme 'spacemacs-dark t)
-;;   )
+(use-package spacemacs-theme
+  :ensure t
+  :config
+  (load-theme 'spacemacs-dark t)
+  )
 
 ;;; [ kaolin-themes ] -- A set of eye pleasing themes.
 
@@ -166,10 +163,11 @@
         calendar-latitude 29.72
         calendar-longitude 120.20
         )
-  
-  (setq circadian-themes '((:sunrise . leuven) ; dichromacy, leuven, kaolin-light
+
+  (setq circadian-themes '((:sunrise . spacemacs-light)
                            ;; ("9:00" . tsdh-light)
-                           (:sunset . nord)))
+                           (:sunset . spacemacs-dark)
+                           ))
   (circadian-setup)
   )
 
