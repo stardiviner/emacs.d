@@ -160,11 +160,11 @@
 (setq org-habit-show-habits t      ; show habits in agenda.
       org-habit-show-all-today nil   ; show all habits' consistency graph in today
       org-habit-show-habits-only-for-today t
-      org-habit-show-done-always-green t
+      org-habit-show-done-always-green nil
       org-habit-graph-column 70
-      org-habit-preceding-days 14
+      org-habit-preceding-days 21
       org-habit-following-days 7
-      org-habit-today-glyph ?⇨
+      org-habit-today-glyph ?>
       org-habit-completed-glyph ?✔
       )
 
@@ -196,6 +196,30 @@
 
 (define-key org-mode-map (kbd "C-c C-x h") 'org-habit-apply)
 
+;; "Face for future days on which a task shouldn't be done yet."
+(set-face-attribute 'org-habit-clear-future-face nil
+                    :background "#222222")
+;; "Face for days on which a task shouldn't be done yet."
+(set-face-attribute 'org-habit-clear-face nil
+                    :background "black")
+;; "Face for days on which a task should start to be done."
+(set-face-attribute 'org-habit-ready-future-face nil
+                    :background "#444444")
+;; "Face for days on which a task should start to be done."
+(set-face-attribute 'org-habit-ready-face nil
+                    :background "#888888")
+;; "Face for days on which a task is due."
+(set-face-attribute 'org-habit-alert-face nil
+                    :background "orange")
+;; "Face for days on which a task is due."
+(set-face-attribute 'org-habit-alert-future-face nil
+                    :background "DarkOrange2")
+;; "Face for days on which a task is overdue."
+(set-face-attribute 'org-habit-overdue-face nil
+                    :background "dark red")
+;; "Face for days on which a task is overdue."
+(set-face-attribute 'org-habit-overdue-future-face nil
+                    :background "DarkSlateBlue")
 
 ;;; Stuck Project
 

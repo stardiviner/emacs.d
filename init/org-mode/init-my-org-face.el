@@ -28,16 +28,16 @@
                                    (color-darken-name (face-background 'default) 10))
                                   ('dark
                                    (color-darken-name (face-background 'default) 5)))
-                    :box '(:color "dark cyan" :line-width 3 :style nil)
+                    :box '(:color "dim gray" :line-width 3 :style nil)
                     :weight 'bold)
 (set-face-attribute 'org-agenda-date-today nil
-                    :foreground "red"
+                    :foreground "cyan"
                     :background (cl-case (alist-get 'background-mode (frame-parameters))
                                   ('light
                                    (color-darken-name (face-background 'default) 10))
                                   ('dark
                                    (color-darken-name (face-background 'default) 5)))
-                    :box '(:color "cyan" :line-width 5 :style nil)
+                    :box '(:color "dim gray" :line-width 5 :style nil)
                     :weight 'bold)
 (set-face-attribute 'org-agenda-current-time nil
                     :foreground (cl-case (alist-get 'background-mode (frame-parameters))
@@ -121,6 +121,11 @@
 ;;; Agenda Time Grid
 ;; time grid: 18:00 ...... ----------------
 (set-face-attribute 'org-time-grid nil
+                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-foreground 'default) 5))
+                                  ('dark
+                                   (color-darken-name (face-foreground 'default) 10)))
                     )
 ;; alread past deadline in agenda
 (set-face-attribute 'org-warning nil
