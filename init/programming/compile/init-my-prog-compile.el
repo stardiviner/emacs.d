@@ -3,7 +3,7 @@
 ;;; Commentary:
 
 ;;; Code:
-
+
 ;;; [ compile ]
 
 (setq compilation-ask-about-save t ; save without asking.
@@ -18,6 +18,7 @@
 
 (use-package quickrun
   :ensure t
+  :bind ([f5] . quickrun)
   :config
   (setq quickrun-focus-p t)
 
@@ -36,22 +37,17 @@
   ;;                       :default "c++")
 
   (quickrun-add-command "browser/firefox"
-                        '((:command . "firefox")
-                          (:exec    . ("%c %s"))
-                          :default "browser"))
+    '((:command . "firefox")
+      (:exec    . ("%c %s"))
+      :default "browser"))
   (quickrun-add-command "browser/chrome"
-                        '((:command . "google-chrome-stable")
-                          (:exec    . ("%c %s"))
-                          :default "browser"))
-  (quickrun-set-default "html" "browser/chrome")
+    '((:command . "google-chrome-stable")
+      (:exec    . ("%c %s"))
+      :default "browser"))
+  (quickrun-set-default "html" "browser/firefox")
   )
 
-
-(if (featurep 'quickrun)
-    (global-set-key [f5] 'quickrun)
-  (global-set-key [f5] 'smart-compile))
-
-
+
 (provide 'init-my-prog-compile)
 
 ;;; init-my-prog-compile.el ends here

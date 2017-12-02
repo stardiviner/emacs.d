@@ -84,6 +84,7 @@
 
 (use-package ob-uart
   :ensure t
+  :defer t
   :config
   (add-to-list 'org-babel-load-languages '(uart . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
@@ -125,18 +126,21 @@
 ;;; faster tangleing of large Org mode files.
 (setq org-babel-use-quick-and-dirty-noweb-expansion t)
 
-(defadvice org-babel-execute-src-block (around load-language nil activate)
-  "Load language if needed."
-  (let ((language (org-element-property :language (org-element-at-point))))
-    ;; workaround for #+CALL: babel. (`language' will be `nil')
-    (if language
-        ;; whether language is already loaded in `org-babel-load-languages'.
-        (unless (cdr (assoc (intern language) org-babel-load-languages))
-          (require (intern (concat "ob-" language)))
-          (add-to-list 'org-babel-load-languages (cons (intern language) t))
-          (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
-      )
-    ad-do-it))
+;;; auto load require Babel language libraries `ob-*'.
+;; (defadvice org-babel-execute-src-block (around load-language nil activate)
+;;   "Load language if needed."
+;;   (let ((language (org-element-property :language (org-element-at-point))))
+;;     ;; workaround for #+CALL: babel. (`language' will be `nil')
+;;     (if language
+;;         ;; whether language is already loaded in `org-babel-load-languages'.
+;;         (unless (cdr (assoc (intern language) org-babel-load-languages))
+;;           (require (intern (concat "ob-" language)))
+;;           (add-to-list 'org-babel-load-languages (cons (intern language) t))
+;;           (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
+;;       )
+;;     ad-do-it))
+
+;; (advice-remove 'org-babel-execute-src-block 'ad-Advice-org-babel-execute-src-block)
 
 
 ;;;_ + ditaa & PlantUML & Graphviz
@@ -325,21 +329,22 @@
 ;; (use-package ob-async
 ;;   :ensure t
 ;;   :config
-;;   ;; (add-to-list 'org-babel-default-header-args:shell
-;;   ;;              '(:async))
+;;   (add-to-list 'org-babel-default-header-args:shell
+;;                '(:async))
 ;;   )
 
 ;;; [ org-babel-eval-in-repl ] -- eval org-babel block code with eval-in-repl.el
 
-(use-package org-babel-eval-in-repl
-  :ensure t
-  :bind (:map org-mode-map
-              ("C-<return>" . ober-eval-in-repl)
-              ("C-c C-<return>" . ober-eval-block-in-repl))
-  :config
-  (with-eval-after-load "eval-in-repl"
-    (setq eir-jump-after-eval nil))
-  )
+;; (use-package org-babel-eval-in-repl
+;;   :ensure t
+;;   :bind (:map org-mode-map
+;;               ("C-<return>" . ober-eval-in-repl)
+;;               ("C-c C-<return>" . ober-eval-block-in-repl))
+;;   :config
+;;   (with-eval-after-load "eval-in-repl"
+;;     (setq eir-jump-after-eval nil))
+;;   )
+
 
 ;; load all languages at last.
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)

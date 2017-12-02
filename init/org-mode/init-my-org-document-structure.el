@@ -9,11 +9,6 @@
 
 ;; * Outlines::                    Org is based on Outline mode
 
-(let ((org-dir "~/Org"))
-  (if (file-exists-p org-dir)
-      (setq org-directory org-dir)
-    (make-directory org-dir)))
-
 (setq org-blank-before-new-entry '((heading . t)
                                    (plain-list-item . auto))
       org-ascii-headline-spacing '(1 . 2)
@@ -21,24 +16,29 @@
       org-adapt-indentation t   ; adapt indentation to outline node level.
       )
 
-
 (setq org-special-ctrl-a/e t)
-
 
 ;; * Headlines::                   How to typeset Org tree headlines
 
-
 ;; * Plain Lists::
 
+(require 'org-list)
+
 (setq org-list-allow-alphabetical t)
+
+(setq org-list-demote-modify-bullet
+      '(("+" . "-")
+        ;; ("-" . "+")
+        ("*" . "-")
+        ))
 
 ;;; List checkbox:
 
 ;;; Prettify List Checkbox.
 ;; (defun org-mode-list-checkbox-prettify ()
-;;   (push '("[ ]" .  "🞎") prettify-symbols-alist)
-;;   (push '("[X]" . "🗷" ) prettify-symbols-alist)
-;;   (push '("[-]" . "◫" ) prettify-symbols-alist)
+;;   (push '("[ ]" .  "☐") prettify-symbols-alist)
+;;   (push '("[X]" . "☒" ) prettify-symbols-alist)
+;;   (push '("[-]" . "☑" ) prettify-symbols-alist)
 ;;   (prettify-symbols-mode)
 ;;   )
 ;;
@@ -67,8 +67,6 @@
 ;; [ org-plot ] -- Plotting Tables in Org-mode.
 
 (require 'org-plot)
-(use-package orgtbl-ascii-plot
-  :ensure t)
 
 ;;; Org Table translator functions.
 (add-to-list 'org-default-properties "ORGTBL") ; for Org-mode Table translator functions.
@@ -79,21 +77,14 @@
 
 ;; * Visibility cycling::          Show and hide, much simplified
 
-
-
 ;; * Motion::                      Jumping to other headlines
 
-
-
 ;; * Structure editing::           Changing sequence and level of headlines
-
-
 
 ;; * Sparse trees::                Matches embedded in context
 
 (setq org-highlight-sparse-tree-matches t)
 (setq org-sparse-tree-open-archived-trees nil)
-
 
 ;; * Drawers::                     Tucking stuff away
 
@@ -103,11 +94,7 @@
 ;;         ("Author" . "stardiviner")
 ;;         ))
 
-
-
 ;; * Blocks::                      Folding blocks
-
-
 
 ;; * Footnotes::                   How footnotes are defined in Org's syntax
 
@@ -119,13 +106,9 @@
       ;; org-footnote-tag-for-non-org-mode-files "Footnotes:"
       )
 
-
 ;; * Orgstruct mode::              Structure editing outside Org
 
-
-
 ;; * Org syntax::                  Formal description of Org's syntax
-
 
 ;;; [ Structure Templates ]
 
@@ -133,7 +116,6 @@
 
 ;; translate special block
 (add-to-list 'org-structure-template-alist '(?t . "translate"))
-
 
 ;;; [ Entities ]
 

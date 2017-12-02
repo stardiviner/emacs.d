@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ prog-mode ]
 
 ;;; `prog-mode' is a major mode provided by Emacs. Typically, it is not used
@@ -67,14 +67,7 @@
                    (unless (derived-mode-p 'prog-mode)
                      (run-hooks 'prog-mode-hook)))))
 
-;; (defun my-prog-mode-settings ()
-;;   (interactive)
-;;   (eldoc-mode 1)
-;;   )
-;;
-;; (add-hook 'prog-mode-hook #'my-prog-mode-settings)
-
-
+
 (provide 'init-my-prog-programming)
 
 ;;; init-my-prog-programming.el ends here

@@ -104,6 +104,7 @@
 
 (use-package org-vcard
   :ensure t
+  :defer t
   :commands (org-vcard-export org-vcard-import)
   :config
   (setq org-vcard-append-to-existing-import-buffer t

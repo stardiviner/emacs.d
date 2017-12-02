@@ -51,7 +51,7 @@
 
 ;;; [ skeleton ] -- Lisp language extension for writing statement skeletons.
 
-(require 'skeleton)
+;; (require 'skeleton)
 
 ;;; [ yatemplate ] -- with YASnippet + auto-insert-mode.
 

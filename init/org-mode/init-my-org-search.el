@@ -13,15 +13,14 @@
 
 ;; (org-agenda-dispatch)
 
-;;; [ org-seek ] -- Searching Org-mode files in directory.
+;; [ org-index ] -- fast search for selected org nodes and things outside of Org.
 
-(use-package org-seek
-  :ensure t
-  :config
-  (define-key my-org-prefix (kbd "s") 'org-seek-headlines)
-  (define-key my-org-prefix (kbd "S") 'org-seek-string)
-  (define-key my-org-prefix (kbd "M-s") 'org-seek-regexp)
-  )
+;; (use-package org-index
+;;   :init
+;;   (setq org-index-dispatch-key (kbd "C-c o i"))
+;;   :config
+;;   ;; (setq org-index-id)
+;;   )
 
 ;;; [ helm-org-rifle ] -- Rifle through your Org buffers and acquire your target.
 
@@ -266,27 +265,19 @@
   (define-key reference-prefix (kbd "C-b") 'rifle-bookmarks-ref)
   )
 
-;;; [ orgnav ] -- quickly navigate and search your emacs org trees with Helm.
-
-(use-package orgnav ; press `orgnav-search-root', then press [TAB].
-  :ensure t
-  :bind (:map org-mode-map
-              ("M-r" . orgnav-search-root)
-              ("M-a" . orgnav-search-ancestors)
-              ("M-t" . orgnav-search-subtree)
-              ("M-j" . orgnav-search-nearby)
-              )
-  )
-
 ;;; [ helm-fuzzy-find ] -- [C-c C-/], [C-x c /]
 
-(with-eval-after-load 'helm
-  (defun org-helm-fuzzy-find ()
-    (interactive)
-    (let ((default-directory org-directory))
-      (helm-fuzzy-find nil)))
+(use-package helm-fuzzy-find
+  :ensure t
+  :init
+  (with-eval-after-load 'helm
+    (defun org-helm-fuzzy-find ()
+      (interactive)
+      (let ((default-directory org-directory))
+	(helm-fuzzy-find nil)))
 
-  (define-key Org-prefix (kbd "C-f") 'org-helm-fuzzy-find))
+    (define-key Org-prefix (kbd "C-f") 'org-helm-fuzzy-find))
+  )
 
 
 

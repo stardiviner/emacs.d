@@ -24,9 +24,6 @@
   (require 'helm)
   (require 'helm-config)
 
-  ;; (helm-mode 1)
-  ;; (helm-mode -1)
-  
   (helm-autoresize-mode t)
   (setq helm-full-frame nil
         helm-always-two-windows nil

@@ -6,8 +6,8 @@
 
 
 ;;; Code:
-
-;;; [ Macro ]
+
+;;; [ Macro ] -- [C-x C-k]
 
 ;; file to save macros:
 (load-file "~/.emacs.d/init/macros/macros")
@@ -19,7 +19,7 @@
 (define-key kmacro-keymap (kbd "C") 'kmacro-call-macro)
 (define-key kmacro-keymap (kbd "v") 'kmacro-view-macro)
 
-
+
 (provide 'init-my-emacs-macro)
 
 ;;; init-my-emacs-macro.el ends here

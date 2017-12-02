@@ -16,9 +16,11 @@
 ;; - [C-x n w] -- widen (undo narrow)
 
 ;;; don't disable narrowing functions
-(put 'narrow-to-region 'disabled nil)
-(put 'narrow-to-defun  'disabled nil)
-(put 'narrow-to-page   'disabled nil)
+(put 'narrow-to-region 'disabled nil)     ; [C-x n n]
+(put 'narrow-to-page 'disabled nil)       ; [C-x n p]
+(put 'narrow-to-defun 'disabled nil)      ; [C-x n d]
+(put 'upcase-region 'disabled nil)        ; [C-x C-u]
+(put 'downcase-region 'disabled nil)      ; [C-x C-l]
 
 (unless (boundp 'narrow-prefix)
   (define-prefix-command 'narrow-prefix))
@@ -81,35 +83,16 @@ narrowed."
 
 (use-package fancy-narrow
   :ensure t
-  :defer t
-  :config
-  (set-face-attribute 'fancy-narrow-blocked-face nil
-                      :background (color-darken-name (face-background 'default) 2)
-                      )
-
+  :init
   (global-set-key [remap narrow-to-region] 'fancy-narrow-to-region)
   (global-set-key [remap narrow-to-defun] 'fancy-narrow-to-defun)
   (global-set-key [remap narrow-to-page] 'fancy-narrow-to-page)
   (global-set-key [remap widen] 'fancy-widen)
+  :config
+  (set-face-attribute 'fancy-narrow-blocked-face nil
+                      :background (color-darken-name (face-background 'default) 2)
+                      )
   )
-
-
-;;;_ Multiple Narrowings
-
-
-;;;_ narrow-indirect
-
-
-
-;;;_ narrow-reindent
-
-
-;;;_ narrowed-page-navigation
-
-
-;;;_ recursive-narrow
-
-
 
 
 (provide 'init-my-emacs-edit-narrow)

@@ -9,7 +9,7 @@
 
 (unless (boundp 'outline-prefix)
   (define-prefix-command 'outline-prefix))
-(global-set-key (kbd "C-c C-j") 'outline-prefix)
+(global-set-key (kbd "C-C C-h") 'outline-prefix)
 
 
 ;;; [ allout ]
@@ -38,9 +38,7 @@
 
 ;;; [ outline ] -- outline mode commands for Emacs.
 
-(use-package outline
-  :init
-  (add-hook 'prog-mode-hook 'outline-minor-mode)
+(use-package outline ; [ C-c @]
   :config
   (set-face-attribute 'outline-1 nil
                       :background "#268bd2" :height 1.25
@@ -55,12 +53,7 @@
                       :weight 'bold
                       )
 
-  (use-package navi-mode
-    :ensure t
-    :config
-    ;; Add "use-package" lines to `navi-keywords'.
-    (setf (cdr (assoc :ALL (cdr (assoc "emacs-lisp" navi-keywords))))
-          "^[[:space:]]*(\\(use-package\\|\\(cl-\\)\\{0,1\\}def[a-z]+\\)\\*? "))
+  (add-hook 'prog-mode-hook 'outline-minor-mode)
   )
 
 ;;; [ outshine ] -- outline with outshine outshines outline.
@@ -68,16 +61,25 @@
 (use-package helm-navi
   :ensure t
   :bind (:map outline-prefix
-              ("C-j" . helm-navi)
-              ("h" . helm-navi-headings))
+              ;; ("C-j" . helm-navi) ; this is very slow!!!
+              ("C-h" . helm-navi-headings)
+	      :map org-mode-map
+	      ("M-j" . helm-navi-headings))
   :config
+  (use-package navi-mode
+    :ensure t
+    :config
+    ;; Add "use-package" lines to `navi-keywords'.
+    (setf (cdr (assoc :ALL (cdr (assoc "emacs-lisp" navi-keywords))))
+          "^[[:space:]]*(\\(use-package\\|\\(cl-\\)\\{0,1\\}def[a-z]+\\)\\*? "))
   (use-package outshine
     :ensure t
     :init
     (add-hook 'prog-mode-hook 'outline-minor-mode)
     :config
     ;; (add-hook 'outline-minor-mode-hook 'outshine-hook-function) ; This will add font lock colors to comments outline.
-    ))
+    )
+  )
 
 
 

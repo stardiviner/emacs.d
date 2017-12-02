@@ -100,7 +100,7 @@
 (require 'init-my-emacs-font)
 (require 'init-my-emacs-color-theme)
 (require 'init-my-emacs-appearance)
-(require 'init-my-emacs-prettify)
+;; (require 'init-my-emacs-prettify)
 ;; (require 'init-my-emacs-emoji)
 (require 'init-my-emacs-mode-line)
 (require 'init-my-emacs-popup)
@@ -147,25 +147,6 @@
 
 
 ;;; hypertextual information management system
-
-;;; reload Org-mode to fix two versions source-code & MELPA mixture loaded.
-(use-package org
-  :load-path "~/Code/Emacs/org-mode/lisp/"
-  :pin manual
-  ;; :mode (("\\.org$" . org-mode))
-  :config
-  (use-package org-plus-contrib
-    :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
-    :pin manual)
-
-  ;; add source code version Org-mode Info into Emacs.
-  (with-eval-after-load 'info
-    (info-initialize)
-    (add-to-list 'Info-directory-list
-                 "~/Code/Emacs/org-mode/doc/"))
-  )
-
-(org-reload)
 
 (require 'init-my-org-mode)
 
@@ -214,7 +195,7 @@
 ;; (require 'init-my-tool-collaborate)
 ;; (require 'init-my-tool-notify)
 (require 'init-my-tool-irc)
-(require 'init-slack)
+;; (require 'init-slack)
 (require 'init-my-tool-music)
 ;; (require 'init-my-tool-subtitle)
 ;; (require 'init-my-tool-podcast)
@@ -235,7 +216,7 @@
 ;; (require 'init-my-prog-folding)
 (require 'init-my-prog-complete)
 (require 'init-my-prog-sense)
-(require 'init-my-prog-parser)
+;; (require 'init-my-prog-parser)
 ;;; fix issue which `company-rtags' backend is before `company-irony'.
 (with-eval-after-load 'init-my-prog-lang-C-common
   (require 'init-my-prog-tags))

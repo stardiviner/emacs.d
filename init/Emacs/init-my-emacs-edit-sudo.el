@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ sudo-edit ]
 
 (use-package sudo-edit
@@ -14,7 +14,7 @@
   :bind ("C-x C-r" . sudo-edit)
   )
 
-
+
 (provide 'init-my-emacs-edit-sudo)
 
 ;;; init-my-emacs-edit-sudo.el ends here

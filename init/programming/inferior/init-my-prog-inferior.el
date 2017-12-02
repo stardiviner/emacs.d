@@ -103,9 +103,8 @@
 
 ;;;_ scratch.el -- launch a scratch buffer for the current mode.
 
-(autoload 'scratch "scratch" nil t)
-
-(define-key inferior-prefix (kbd "C-c") 'scratch)
+;; (autoload 'scratch "scratch" nil t)
+;; (define-key inferior-prefix (kbd "C-c") 'scratch)
 
 
 (provide 'init-my-prog-inferior)

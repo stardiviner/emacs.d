@@ -250,8 +250,8 @@ For pasting on sites like GitHub, and Stack Overflow."
 
 (use-package org-mime
   :ensure t
-  :bind (:map org-mode-map
-              ("C-x M" . org-mime-org-buffer-htmlize)
+  :bind (:map Org-prefix
+              ("m" . org-mime-org-buffer-htmlize)
               :map message-mode-map
               ("C-c M-o" . org-mime-htmlize)
               )
@@ -327,19 +327,6 @@ For pasting on sites like GitHub, and Stack Overflow."
 ;;; [ Beamer ]
 
 (require 'ox-beamer)
-
-
-;;; [ Mindmap (`org-freemind') ] -- Creates a directed graph from org-mode files.
-
-(require 'ox-freemind)
-
-;;; [ org-mind-map ] -- creates graphviz directed mind-map graphs.
-
-(use-package org-mind-map
-  :ensure t
-  :commands (org-mind-map-write)
-  )
-
 
 ;;; copy formatted text from org-mode to applications.
 

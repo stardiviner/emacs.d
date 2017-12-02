@@ -11,33 +11,29 @@
 
 (setq inhibit-x-resources t)
 
+;;; [ font lock ]
+
+(global-font-lock-mode t)
+
 ;;; [ Color Theme ]
 
-;; Usage:
-;; - [M-x customize-face] -- to custom current point face color/style.
-;; - [M-x list-colors-display] / [helm-colors]/[C-x c c] -- list out all basic colors.
-;; - [C-u M-x list-faces-display RET org] -- overview of all the faces in org-mode.
-;; - [M-x customize-group org-font-lock] -- custom org-faces and other aspects of org-apperance.
-;; - [C-u C-x =] -- verbose information about the properties of the text under the point.
-;; - [M-x load-theme RET (theme)] -- load a color-theme.
 
-(require 'color) ; for function `color-darken-name'
-
-;;; initialize color-theme
 (use-package color-theme
   :ensure t
-  :config
+  :init
+  (autoload 'color-darken-name "color.el")
+  (autoload 'color-lighten-name "color.el")
   (with-eval-after-load "color-theme"
     (color-theme-initialize))
+  ;; load theme way
+  (add-to-list 'custom-theme-load-path "~/.emacs.d/color-themes/")
+  :config
+  ;; (setq color-theme-is-global t
+  ;;     color-theme-is-cumulative t)
+  
+  ;; (load-theme 'solarized-dark t)
   )
 
-(setq color-theme-is-global t
-      color-theme-is-cumulative t)
-
-;; load theme way
-(add-to-list 'custom-theme-load-path "~/.emacs.d/color-themes/")
-
-;; (load-theme 'solarized-dark t)
 
 ;;; [ leuven-theme ] -- Awesome Emacs color theme on white background.
 
@@ -83,11 +79,11 @@
 
 ;;; [ kaolin-themes ] -- A set of eye pleasing themes.
 
-(use-package kaolin-themes
-  :ensure t
-  :config
-  ;; (load-theme 'kaolin-dark t)
-  )
+;; (use-package kaolin-themes
+;;   :ensure t
+;;   :config
+;;   (load-theme 'kaolin-dark t)
+;;   )
 
 ;;; custom faces
 (set-face-attribute 'italic nil

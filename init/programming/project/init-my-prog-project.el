@@ -11,7 +11,7 @@
 (global-set-key (kbd "C-c p") 'project-prefix)
 
 
-;;; [ Projectile ] -- minor mode to assist project management and navigation.
+;;; [ projectile ] -- minor mode to assist project management and navigation.
 
 (use-package projectile
   :ensure t
@@ -45,19 +45,15 @@
     (counsel-projectile-on))
   )
 
-;;; [ find-file-in-project ]
+;;; [ projectile-variable ] -- store project local variables.
 
-(use-package find-file-in-project
-  :ensure t
-  :defer t
-  :bind ("C-M-t" . find-file-in-project) ; same with `counsel-git'
-  )
+(use-package projectile-variable
+  :ensure t)
 
 ;;; [ project-shells ] -- manage the shell buffers for each project.
 
 (use-package project-shells
   :ensure t
-  :defer t
   :init
   (setq project-shells-keymap-prefix "C-x !")
   (with-eval-after-load 'project-shells

@@ -77,6 +77,7 @@ column.  Place the point after the comment box."
          :map prog-comment-prefix
          ("'" . poporg-dwim))
   :init
+  ;; display poporg popup buffer below the selected window with 0.3 height.
   (add-to-list 'display-buffer-alist
                '("\\*poporg:\ .*?\\*" ; *poporg: init-my-emacs-window.el*
                  (display-buffer-reuse-window

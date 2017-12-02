@@ -20,7 +20,6 @@
   :bind (:map prog-mode-map
               ("M-RET" . emr-show-refactor-menu))
   :init
-  (autoload 'emr-show-refactor-menu "emr")
   (add-hook 'prog-mode-hook #'emr-initialize)
   )
 

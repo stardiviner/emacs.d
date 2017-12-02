@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ org-protocol ] -- intercept calls from emacsclient to trigger custom actions.
 
 (require 'server)
@@ -29,9 +29,7 @@
 ;;          :working-directory "/home/user/org/"
 ;;          :rewrites (("org/?$" . "index.php")))))
 
-
-
-
+
 (provide 'init-my-org-hacking)
 
 ;;; init-my-org-hacking.el ends here

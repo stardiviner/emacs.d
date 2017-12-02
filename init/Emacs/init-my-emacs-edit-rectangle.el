@@ -6,11 +6,10 @@
 
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
-
-(unless (boundp 'rectangle-map)
-  (define-prefix-command 'rectangle-map))
-(global-set-key (kbd "C-x e r") 'rectangle-map)
+
+(unless (boundp 'rectangle-prefix)
+  (define-prefix-command 'rectangle-prefix))
+(define-key editing-prefix (kbd "r") 'rectangle-prefix)
 
 (global-unset-key (kbd "C-x r N"))
 (global-unset-key (kbd "C-x r t"))
@@ -23,21 +22,19 @@
 (global-unset-key (kbd "C-x r d"))
 (global-unset-key (kbd "C-x r M-w"))
 
-(define-key rectangle-map (kbd "r") 'rectangle-mark-mode)
-(define-key rectangle-map (kbd "m") 'set-rectangular-region-anchor)
-(define-key rectangle-map (kbd "c") 'copy-rectangle-to-register)
-(define-key rectangle-map (kbd "M-w") 'copy-rectangle-as-kill)
-(define-key rectangle-map (kbd "y") 'yank-rectangle)
-(define-key rectangle-map (kbd "x") 'clear-rectangle)
-(define-key rectangle-map (kbd "d") 'delete-rectangle)
-(define-key rectangle-map (kbd "k") 'kill-rectangle)
-(define-key rectangle-map (kbd "o") 'open-rectangle)
-(define-key rectangle-map (kbd "t") 'string-rectangle)
-(define-key rectangle-map (kbd "N") 'rectangle-number-lines)
+(define-key rectangle-prefix (kbd "r") 'rectangle-mark-mode)
+(define-key rectangle-prefix (kbd "m") 'set-rectangular-region-anchor)
+(define-key rectangle-prefix (kbd "c") 'copy-rectangle-to-register)
+(define-key rectangle-prefix (kbd "M-w") 'copy-rectangle-as-kill)
+(define-key rectangle-prefix (kbd "y") 'yank-rectangle)
+(define-key rectangle-prefix (kbd "x") 'clear-rectangle)
+(define-key rectangle-prefix (kbd "d") 'delete-rectangle)
+(define-key rectangle-prefix (kbd "k") 'kill-rectangle)
+(define-key rectangle-prefix (kbd "o") 'open-rectangle)
+(define-key rectangle-prefix (kbd "t") 'string-rectangle)
+(define-key rectangle-prefix (kbd "N") 'rectangle-number-lines)
 
-
-;;; ----------------------------------------------------------------------------
-
+
 (provide 'init-my-emacs-edit-rectangle)
 
 ;;; init-my-emacs-edit-rectangle.el ends here

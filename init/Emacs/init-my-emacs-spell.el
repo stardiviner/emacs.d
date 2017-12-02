@@ -13,7 +13,7 @@
 
 ;;; Usage:
 ;;
-;; - [M-$]
+;; - [M-$] / `ispell-word'
 ;; - [M-x ispell-complete-word]
 
 (require 'ispell)
@@ -44,6 +44,9 @@
 (add-to-list 'ispell-skip-region-alist '("#\\+BEGIN_SRC" . "#\\+END_SRC"))
 (add-to-list 'ispell-skip-region-alist '("#\\+BEGIN_EXAMPLE" . "#\\+END_EXAMPLE"))
 
+(define-key spell-prefix (kbd "s") 'ispell-word) ; [M-$]
+(define-key spell-prefix (kbd "<tab>") 'ispell-complete-word)
+
 ;;; [ Flyspell ] -- [M-$], [C-;]
 
 (use-package flyspell
@@ -56,7 +59,7 @@
          ;; fix Org-mode abbreviations expand keybinding [M-Tab].
          :map flyspell-mode-map
          ("C-M-i" . nil)
-         ;; ("C-." . flyspell-correct-word-before-point)
+         ("C-." . flyspell-correct-word-before-point)
          ;; ("C-." . flyspell-auto-correct-previous-word)
          ("C-," . flyspell-goto-next-error)
          )
@@ -96,22 +99,21 @@
   :config
   (setq flyspell-default-dictionary "en"
         flyspell-delay 8
-        flyspell-default-delayed-commands '(self-insert-command
-                                            )
+        flyspell-default-delayed-commands '(self-insert-command)
         ;; flyspell-delayed-commands
-        flyspell-default-deplacement-commands '(next-line
-                                                previous-line
-                                                handle-switch-frame
-                                                handle-select-window
-                                                scroll-up
-                                                scroll-down
-                                                scrollbar-vertical-drag
-                                                ;; -------------------------
-                                                backward-delete-char-untabify
-                                                delete-backward-char
-                                                backward-or-forward-delete-char
-                                                delete-char
-                                                )
+        ;; flyspell-default-deplacement-commands '(next-line
+        ;;                                         previous-line
+        ;;                                         handle-switch-frame
+        ;;                                         handle-select-window
+        ;;                                         scroll-up
+        ;;                                         scroll-down
+        ;;                                         scrollbar-vertical-drag
+        ;;                                         ;; -------------------------
+        ;;                                         backward-delete-char-untabify
+        ;;                                         delete-backward-char
+        ;;                                         backward-or-forward-delete-char
+        ;;                                         delete-char
+        ;;                                         )
         ;; flyspell-deplacement-commands
         flyspell-use-meta-tab nil ; use [M-TAB] to correct word.
         flyspell-consider-dash-as-word-delimiter-flag t
@@ -142,12 +144,8 @@
 (use-package flyspell-correct
   :ensure t
   :config
-  (define-key flyspell-mode-map (kbd "C-.") 'flyspell-correct-word-generic)
-  ;; (use-package flyspell-correct-popup
-  ;;   :ensure t
-  ;;   :config
-  ;;   (setq flyspell-correct-interface 'flyspell-correct-popup)
-  ;;   )
+  (with-eval-after-load 'flyspell
+    (define-key flyspell-mode-map (kbd "C-.") 'flyspell-correct-word-generic))
   )
 
 

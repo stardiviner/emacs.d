@@ -675,18 +675,27 @@ dimensions of a block selection."
      'face 'mode-line-data-face))
   )
 
-(defun *org-clock-today ()
-  "Show `org-clock-today' current org clock)."
-  (when (and (active)
-             (org-clock-is-active))
-    (propertize
-     (concat
-      (format "/")
-      (propertize " " 'face 'variable-pitch)
-      (all-the-icons-material "timelapse")
-      (format "%s" org-clock-today-string))
-     'face '(:foreground "orange"))
-    ))
+
+;;; [ org-clock-today ] -- show the total clocked time of the current day in the mode line.
+
+;; (use-package org-clock-today
+;;   :ensure t
+;;   :config
+;;   (org-clock-today-mode 1)
+  
+;;   (defun *org-clock-today ()
+;;   "Show `org-clock-today' current org clock)."
+;;   (when (and (active)
+;;              (org-clock-is-active))
+;;     (propertize
+;;      (concat
+;;       (format "/")
+;;       (propertize " " 'face 'variable-pitch)
+;;       (all-the-icons-material "timelapse")
+;;       (format "%s" org-clock-today-string))
+;;      'face '(:foreground "orange"))
+;;     ))
+;;   )
 
 ;; update org-clock timer in mode-line after `org-clock-out-hook'.
 ;; fix org-clock timer does not disappear after clock out.
@@ -799,7 +808,6 @@ dimensions of a block selection."
 ;;; `copy-file-on-save'
 (use-package copy-file-on-save
   :ensure t
-  :ensure projectile
   :config
   ;; show this segment in custom mode-line.
   (defun *copy-file-on-save ()
@@ -837,7 +845,7 @@ dimensions of a block selection."
                  (*pdf-tools-page-position)
                  (*org-tree-slide)
                  (*org-clock)
-                 (*org-clock-today)
+                 ;; (*org-clock-today)
                  (*org-timer)
                  (*pomodoro)
                  (*process)

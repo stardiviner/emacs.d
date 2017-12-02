@@ -38,7 +38,7 @@
 
 ;;; [ dabbrev ] -- Dynamic Abbrevs [M-/]
 
-(require 'dabbrev)
+;; (require 'dabbrev)
 
 
 (provide 'init-my-emacs-abbrev)

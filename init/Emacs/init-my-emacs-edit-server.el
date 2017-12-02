@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
+
 ;;;_ [ edit-server ]
 
 ;; A Chrome "clone" of It's All Text for spawning an editor to edit text areas in browsers with Emacs.
@@ -70,7 +70,7 @@
 
 (use-package with-editor
   :ensure t
-  :config
+  :init
   (add-hook 'shell-mode-hook  'with-editor-export-editor)
   (add-hook 'term-mode-hook   'with-editor-export-editor)
   (add-hook 'term-exec-hook   'with-editor-export-editor)
@@ -84,9 +84,7 @@
   ;; (add-hook 'shell-mode-hook 'with-editor-export-git-editor)
   )
 
-
-;;; ----------------------------------------------------------------------------
-
+
 (provide 'init-my-emacs-edit-server)
 
 ;;; init-my-emacs-edit-server.el ends here

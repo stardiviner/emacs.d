@@ -4,7 +4,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Tab ]
 
 ;;; spaces instead of tabs
@@ -111,8 +111,7 @@
     (add-hook hook #'aggressive-indent-mode))
   )
 
-
-
+
 (provide 'init-my-prog-indent)
 
 ;;; init-my-prog-indent.el ends here

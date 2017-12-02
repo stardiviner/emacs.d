@@ -6,12 +6,12 @@
 
 
 ;;; Code:
+
 
 
 
 
-
-
+
 (provide 'init-my-emacs-accessibility)
 
 ;;; init-my-emacs-accessibility.el ends here

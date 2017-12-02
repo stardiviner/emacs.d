@@ -44,19 +44,7 @@
 (use-package org-download
   :ensure t
   :defer t
-  :config
-  (setq org-download-screenshot-method "scrot -s %s"
-        org-download-method 'attach ; 'attach, 'directory,
-        ;; if you don't want the #+DOWNLOADED: annotation in your Org document
-        org-download-annotate-function (lambda (_) "")
-        org-download-backend t ; url-retrieve (t), wget, curl.
-        ;; org-download-heading-lvl
-        ;; org-download-timestamp "_%Y-%m-%d_%H:%M:%S"
-        org-download-image-dir "data/images" ; nil: default to "."
-        ;; org-download-image-width nil ; use #+attr_html: :width
-        ;; org-download-img-regex-list '("<img +src=\"" "<img +\\(class=\"[^\"]+\"\\)? *src=\"")
-        )
-
+  :init
   (org-download-enable)
 
   (unless (boundp 'org-download-prefix)
@@ -72,6 +60,18 @@
   (define-key org-mode-map (kbd "<drag-n-drop>") 'org-download-dnd)
   (define-key org-mode-map (kbd "<C-drag-n-drop>") 'org-download-dnd)
   (define-key org-mode-map (kbd "<M-drag-n-drop>") 'org-download-dnd)
+  :config
+  (setq org-download-screenshot-method "scrot -s %s"
+        org-download-method 'attach ; 'attach, 'directory,
+        ;; if you don't want the #+DOWNLOADED: annotation in your Org document
+        org-download-annotate-function (lambda (_) "")
+        org-download-backend t ; url-retrieve (t), wget, curl.
+        ;; org-download-heading-lvl
+        ;; org-download-timestamp "_%Y-%m-%d_%H:%M:%S"
+        org-download-image-dir "data/images" ; nil: default to "."
+        ;; org-download-image-width nil ; use #+attr_html: :width
+        ;; org-download-img-regex-list '("<img +src=\"" "<img +\\(class=\"[^\"]+\"\\)? *src=\"")
+        )
   )
 
 ;;; [ org-board ] -- Org mode's web archiver.

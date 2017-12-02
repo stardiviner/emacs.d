@@ -112,6 +112,7 @@
          ([remap describe-bindings] . counsel-descbinds) ; [C-h b]
          ([remap info-lookup-symbol] . counsel-info-lookup-symbol) ; [C-h S]
          ([remap menu-bar-open] . counsel-tmm) ; [F10] text menu access
+         ([remap apropos] . counsel-apropos)
          ("C-s" . counsel-grep-or-swiper)
          ("C-x c p" . counsel-list-processes) ; [C-x c p]
          ("C-x c t" . cancel-function-timers) ; [C-x c t]
@@ -130,9 +131,13 @@
          ([remap yank-pop] . counsel-yank-pop) ; [M-y]
          ([remap imenu] . counsel-imenu)
          ("C-x j" . counsel-imenu)
-         ([remap org-goto] . counsel-org-goto) ; [C-c C-j]
+         ;; ("" . counsel-switch-to-shell-buffer) ; switch to a shell buffer, or create one
+         ([remap org-goto] . counsel-org-goto) ; [C-c C-j] completion for Org headings
+         ;; ( . counsel-org-goto-all) ; completion for Org headings in all open buffers
          ;; ([remap org-set-tags-command] . counsel-org-tag) ; [C-c C-q]
          ;; ([remap org-agenda-set-tags] . counsel-org-tag-agenda) ; [:]
+         ;; ([remap org-capture] . counsel-org-capture)
+         ;; ("" . counsel-org-file) ; browse all attachments for the current Org file
          ([remap load-library] . counsel-load-library)
          ([remap load-theme] . counsel-load-theme)
          ([remap locate] . counsel-locate)
@@ -145,7 +150,9 @@
     (define-prefix-command 'search-prefix))
   (define-key search-prefix (kbd "g") 'counsel-grep)
   (define-key search-prefix (kbd "a") 'counsel-ag) ; [C-u] prompt for dir support
+  (define-key search-prefix (kbd "F") 'counsel-fzf)
   :config
+  (setq ivy-use-selectable-prompt t)
   ;; (setq ivy-switch-buffer-show-info '("%s" "buffer-name"))
   (setq counsel-yank-pop-truncate t)
   )

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Align ]
 
 ;;; Usage:
@@ -59,7 +59,7 @@ For example: input regexp like [[:space:]]+ for align several space separated se
 ;; (use-package etable
 ;;   :ensure t)
 
-
+
 (provide 'init-my-emacs-edit-tabulate)
 
 ;;; init-my-emacs-edit-tabulate.el ends here

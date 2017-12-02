@@ -7,11 +7,6 @@
 
 ;;; Code:
 
-;;; Interactive Selection Interface
-
-;; - helm, ivy, ido,
-
-
 ;;; add Org-mode's `capf' default to `pcomplete' for `company-mode'.
 
 (defun my-org-mode-completion-setting ()
@@ -39,20 +34,6 @@
   )
 
 (add-hook 'org-mode-hook #'my-org-mode-completion-setting)
-
-
-;;; [ company-math ]
-
-(use-package company-math
-  :ensure t
-  :init
-  (add-hook 'org-mode-hook
-            (lambda ()
-              (make-local-variable 'company-backends)
-              (add-to-list 'company-backends 'company-math-symbols-latex t)
-              ;; (append company-backends 'company-math-symbols-unicode)
-              ))
-  )
 
 
 (provide 'init-my-org-complete)

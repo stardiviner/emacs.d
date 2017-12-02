@@ -65,15 +65,6 @@
   ;;                     )
   )
 
-
-;; [ org-index ] -- fast search for selected org nodes and things outside of Org.
-(use-package org-index
-  :init
-  (setq org-index-dispatch-key (kbd "C-c o i"))
-  :config
-  ;; (setq org-index-id)
-  )
-
 ;; [ org-bullets ]
 
 ;; (use-package org-bullets
@@ -107,15 +98,6 @@
 ;; (with-eval-after-load "org"
 ;;   (require 'org-numbers-overlay)
 ;;   (add-hook 'org-mode-hook #'org-numbers-overlay-mode))
-
-
-(require 'org-list)
-
-(setq org-list-demote-modify-bullet
-      '(("+" . "-")
-        ;; ("-" . "+")
-        ("*" . "-")
-        ))
 
 
 (provide 'init-my-org-view)

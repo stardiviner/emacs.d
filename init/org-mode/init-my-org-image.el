@@ -227,7 +227,7 @@ which to select the file to move, sorted by most recent first."
     ;; re-display inline images.
     (org-display-inline-images t t)))
 
-(define-key org-mode-map (kbd "C-c C-x C-m") 'my-insert-org-mode-inline-image)
+(define-key org-link-prefix (kbd "i") 'my-insert-org-mode-inline-image)
 
 
 

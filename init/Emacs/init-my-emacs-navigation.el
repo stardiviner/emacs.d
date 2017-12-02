@@ -52,7 +52,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
       (when (= p (point)) ad-do-it))))
 
 
-;;;_ show-marks
+;;; [ show-marks ]
 
 (use-package show-marks
   :ensure t
@@ -93,7 +93,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 (use-package imenu
   :ensure t
-  :bind ("C-x j" . imenu)
+  ;; :bind ("C-x j" . imenu)
   :config
   (setq imenu-auto-rescan t)
 

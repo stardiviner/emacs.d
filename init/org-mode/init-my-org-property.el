@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;; (setq org-use-property-inheritance t)
 
 ;;; auto adding CUSTOM_ID property for heading
@@ -23,7 +23,7 @@
 (add-to-list 'org-default-properties "URL")
 (add-to-list 'org-default-properties "Source_Code")
 
-
+
 (provide 'init-my-org-property)
 
 ;;; init-my-org-property.el ends here

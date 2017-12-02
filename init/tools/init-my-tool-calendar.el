@@ -72,6 +72,8 @@
         ["子" "丑" "寅" "卯" "辰" "巳" "午" "未" "申" "酉" "戌" "亥"])
   )
 
+;; [ cal-china-x ] -- Chinese localization, lunar/horoscope/zodiac info and more...
+
 (use-package cal-china-x
   :ensure t)
 
@@ -93,13 +95,6 @@
 (use-package diary
   :config
   (require 'diary-lib)
-  
-  ;; fancy display
-  (setq calendar-view-diary-initially-flag nil
-        calendar-mark-diary-entries-flag nil ; 'calendar-today, "=", face
-        diary-number-of-entries 7
-        diary-display-function 'diary-fancy-display)
-
   (add-hook 'calendar-today-visible-hook 'calendar-mark-today)
   )
 
@@ -316,6 +311,26 @@
 
 
 ;;; [ iCalendar ]
+
+;; FIXME: deprecated variable (free assigned).
+;; (setq org-combined-agenda-icalendar-file "~/Org/Calendar/iCalendar.ics")
+
+;;; [ Google Calendar ]
+
+;;;  [ org-gcal ]
+
+;; (use-package org-gcal
+;;   :ensure t
+;;   :config
+;;   (setq org-gcal-client-id "1019475480650-hrce54ct4su6stomeq4n0ka2jn8sh4i1.apps.googleusercontent.com"
+;;         org-gcal-client-secret "iBXd-WZYFlUKAFJwlKdviaoT"
+;;         org-gcal-file-alist '(("numbchild@gmail.com" .  "~/Org/Calendars/Google Calendar.org")
+;;                               ;; ("another-mail@gmail.com" .  "~/task.org")
+;;                               ))
+;;
+;;   (add-hook 'org-agenda-mode-hook #'org-gcal-sync)
+;;   (add-hook 'org-capture-after-finalize-hook #'org-gcal-sync)
+;;   )
 
 
 

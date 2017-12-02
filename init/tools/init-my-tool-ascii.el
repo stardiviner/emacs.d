@@ -7,6 +7,10 @@
 
 ;;; Code:
 
+(unless (boundp 'ascii-prefix)
+    (define-prefix-command 'ascii-prefix))
+(define-key editing-prefix (kbd "a") 'ascii-prefix)
+
 ;;; [ ascii (ascii-mode) ] --
 
 ;; (require 'ascii)
@@ -22,6 +26,8 @@
 (use-package helm-rage
   :ensure t
   :commands (helm-rage)
+  :bind (:map ascii-prefix
+	      ("a" . helm-rage))
   )
 
 ;;; [ boxquote ] -- quote text with a semi-box.

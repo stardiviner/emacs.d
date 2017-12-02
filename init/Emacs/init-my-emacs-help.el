@@ -36,26 +36,8 @@
         Info-fontify-reference-items-flag t
         Info-fontify-single-quote-flag t
         Info-saved-nodes t
-        ;; Info-subtree-separator "
-        ;; * "
         )
-
-  ;; ----------------- Faces -----------------------
-  ;;  Faces defined here:
-  ;;
-  ;;    `info-command-ref-item', `info-constant-ref-item', `info-file',
-  ;;    `info-function-ref-item',`info-macro-ref-item', `info-menu',
-  ;;    `info-node', `info-quoted-name', `info-reference-item',
-  ;;    `info-single-quote', `info-special-form-ref-item',
-  ;;    `info-string', `info-syntax-class-item',
-  ;;    `info-user-option-ref-item', `info-variable-ref-item',
-  ;;    `info-xref'.
   )
-
-
-(setq suggest-key-bindings t) ; show the /equivalent/ key binding when [M-x] command has one.
-
-(define-key global-map (kbd "C-h u") 'manual-entry) ; Unix
 
 
 (provide 'init-my-emacs-help)

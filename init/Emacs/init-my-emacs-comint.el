@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Comint ]
 
 (setq comint-prompt-read-only t
@@ -17,7 +17,7 @@
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 (add-hook 'comint-mode-hook 'ansi-color-for-comint-mode-on)
 
-
+
 (provide 'init-my-emacs-comint)
 
 ;;; init-my-emacs-comint.el ends here

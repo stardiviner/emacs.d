@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
+
 ;;; [ overlay ]
 
 ;;; [ ov ] -- Overlay library for Emacs Lisp.
@@ -14,8 +14,7 @@
 (use-package ov
   :ensure t)
 
-;;; ----------------------------------------------------------------------------
-
+
 (provide 'init-my-emacs-overlay)
 
 ;;; init-my-emacs-overlay.el ends here

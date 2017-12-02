@@ -15,11 +15,11 @@
 
 ;; minibuffer prompt face properties
 (setq minibuffer-prompt-properties '(read-only t face minibuffer-prompt))
-(set-face-attribute 'minibuffer-prompt nil
-                    :inverse-video nil
-                    :weight 'normal :slant 'normal :underline nil
-                    :background (color-darken-name (face-background 'default) 5)
-                    )
+;; (set-face-attribute 'minibuffer-prompt nil
+;;                     :inverse-video nil
+;;                     :weight 'normal :slant 'normal :underline nil
+;;                     :background (color-darken-name (face-background 'default) 5)
+;;                     )
 
 (minibuffer-electric-default-mode t)
 
@@ -38,7 +38,6 @@
                 (rainbow-delimiters-mode-enable))
               (with-eval-after-load 'smartparens
                 (smartparens-strict-mode 1))
-              ;; (paredit-mode 1)
               ))
 
 
@@ -47,10 +46,10 @@
 
 ;;; [ help-at-pointer ]
 
-(setq help-at-pt-display-when-idle t
-      ;; help-at-pt-timer-delay 0.1
-      )
-(help-at-pt-set-timer)
+;; (setq help-at-pt-display-when-idle t
+;;       ;; help-at-pt-timer-delay 0.1
+;;       )
+;; (help-at-pt-set-timer)
 
 
 (provide 'init-my-emacs-minibuffer)

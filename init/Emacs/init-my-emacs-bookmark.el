@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 (unless (boundp 'bookmark-prefix)
   (define-prefix-command 'bookmark-prefix))
 (global-set-key (kbd "C-x r b") 'bookmark-prefix)
@@ -39,41 +39,13 @@
 
 (use-package bm
   :ensure t
-  :config
-  (setq bm-in-lifo-order t)
-  (setq bm-cycle-all-buffers nil)
-  (setq temporary-bookmark-p nil)
-  (setq bm-annotate-on-create t)
-  (setq bm-highlight-style 'bm-highlight-line-and-fringe)
-  (setq bm-marker 'bm-marker-left)
-
+  :defer t
+  :init
   ;; mouse
   (global-set-key (kbd "<left-fringe> <mouse-5>") 'bm-next-mouse)
   (global-set-key (kbd "<left-fringe> <mouse-4>") 'bm-previous-mouse)
   (global-set-key (kbd "<left-fringe> <mouse-1>") 'bm-toggle-mouse)
   (global-set-key (kbd "<left-margin> <mouse-1>") 'bm-toggle-mouse)
-
-  ;; ;; loading the repository from file when on start up.
-  ;; (add-hook 'after-init-hook 'bm-repository-load)
-  ;; ;; Restoring bookmarks when on file find.
-  ;; (add-hook 'find-file-hooks 'bm-buffer-restore)
-  ;; ;; Saving bookmark data on killing a buffer
-  ;; (add-hook 'kill-buffer-hook 'bm-buffer-save)
-  ;; ;; Saving the repository to file when on exit.
-  ;; ;; kill-buffer-hook is not called when Emacs is killed, so we
-  ;; ;; must save all bookmarks first.
-  ;; (add-hook 'kill-emacs-hook '(lambda nil
-  ;;                               (bm-buffer-save-all)
-  ;;                               (bm-repository-save)))
-  ;; ;; Update bookmark repository when saving the file.
-  ;; (add-hook 'after-save-hook 'bm-buffer-save)
-  ;; ;; Restore bookmarks when buffer is reverted.
-  ;; (add-hook 'after-revert-hook 'bm-buffer-restore)
-  
-  (setq bm-restore-repository-on-load t)
-  ;; this could affect Emacs increasing running usage Persistence
-  (setq bm-repository-file "~/.emacs.d/.bm-repository"
-        bm-repository-size 100)
 
   ;; (global-set-key (kbd "C-c =") 'bm-toggle)
   ;; (global-set-key (kbd "C-c ]") 'bm-next)
@@ -102,9 +74,39 @@
   ;; remove/delete
   (define-key bookmark-bm-prefix (kbd "c") 'bm-remove-all-current-buffer)
   (define-key bookmark-bm-prefix (kbd "M-c") 'bm-remove-all-all-buffers)
+  
+  :config
+  (setq bm-in-lifo-order t)
+  (setq bm-cycle-all-buffers nil)
+  (setq temporary-bookmark-p nil)
+  (setq bm-annotate-on-create t)
+  (setq bm-highlight-style 'bm-highlight-line-and-fringe)
+  (setq bm-marker 'bm-marker-left)
+
+  ;; ;; loading the repository from file when on start up.
+  ;; (add-hook 'after-init-hook 'bm-repository-load)
+  ;; ;; Restoring bookmarks when on file find.
+  ;; (add-hook 'find-file-hooks 'bm-buffer-restore)
+  ;; ;; Saving bookmark data on killing a buffer
+  ;; (add-hook 'kill-buffer-hook 'bm-buffer-save)
+  ;; ;; Saving the repository to file when on exit.
+  ;; ;; kill-buffer-hook is not called when Emacs is killed, so we
+  ;; ;; must save all bookmarks first.
+  ;; (add-hook 'kill-emacs-hook '(lambda nil
+  ;;                               (bm-buffer-save-all)
+  ;;                               (bm-repository-save)))
+  ;; ;; Update bookmark repository when saving the file.
+  ;; (add-hook 'after-save-hook 'bm-buffer-save)
+  ;; ;; Restore bookmarks when buffer is reverted.
+  ;; (add-hook 'after-revert-hook 'bm-buffer-restore)
+  
+  (setq bm-restore-repository-on-load t)
+  ;; this could affect Emacs increasing running usage Persistence
+  (setq bm-repository-file "~/.emacs.d/.bm-repository"
+        bm-repository-size 100)
   )
 
-
+
 (provide 'init-my-emacs-bookmark)
 
 ;;; init-my-emacs-bookmark.el ends here

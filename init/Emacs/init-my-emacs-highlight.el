@@ -49,9 +49,11 @@
               ("q" . symbol-overlay-query-replace)
               ("P" . symbol-overlay-switch-backward)
               ("N" . symbol-overlay-switch-forward))
-  :config
+  :init
   ;; auto highlighting minor mode
   (add-hook 'prog-mode-hook #'symbol-overlay-mode)
+  :config
+  (setq symbol-overlay-idle-time 1.0)
   )
 
 

@@ -8,23 +8,23 @@
 
 ;;; [ tooltip ]
 
-(use-package tooltip
-  :defer t
-  :config
-  ;; (setq-default tooltip-delay 0.3         ; default 0.7
-  ;;               tooltip-hide-delay 10     ; default 10
-  ;;               tooltip-short-delay 0.1   ; default 0.1
-  ;;               ;; tooltip-functions '(tooltip-help-tips)
-  ;;               ;; tooltip-hide-time nil
-  ;;               tooltip-x-offset 5
-  ;;               tooltip-y-offset +20
-  ;;               tooltip-frame-parameters '((name . "tooltip")
-  ;;                                          (internal-border-width . 2)
-  ;;                                          (border-width . 2))
-  ;;               )
-
-  (tooltip-mode t)
-  )
+;; (use-package tooltip
+;;   :defer t
+;;   :config
+;;   ;; (setq-default tooltip-delay 0.3         ; default 0.7
+;;   ;;               tooltip-hide-delay 10     ; default 10
+;;   ;;               tooltip-short-delay 0.1   ; default 0.1
+;;   ;;               ;; tooltip-functions '(tooltip-help-tips)
+;;   ;;               ;; tooltip-hide-time nil
+;;   ;;               tooltip-x-offset 5
+;;   ;;               tooltip-y-offset +20
+;;   ;;               tooltip-frame-parameters '((name . "tooltip")
+;;   ;;                                          (internal-border-width . 2)
+;;   ;;                                          (border-width . 2))
+;;   ;;               )
+;;
+;;   (tooltip-mode t)
+;;   )
 
 
 ;;; [ popup ]
@@ -37,10 +37,10 @@
               ("M-p" . popup-previous)
               ("M-j" . popup-select))
   :config
-  (set-face-attribute 'popup-face nil
-                      :inherit 'tooltip
-                      :foreground "#073642"
-                      :background "light yellow")
+  ;; (set-face-attribute 'popup-face nil
+  ;;                     :inherit 'tooltip
+  ;;                     :foreground "#073642"
+  ;;                     :background "light yellow")
   )
 
 
@@ -56,8 +56,8 @@
         ;; pos-tip-tab-width nil
         )
 
-  (setq pos-tip-foreground-color "#073642"
-        pos-tip-background-color "light yellow")
+  ;; (setq pos-tip-foreground-color "#073642"
+  ;;       pos-tip-background-color "light yellow")
   )
 
 
@@ -68,13 +68,13 @@
 
 ;;; [ showtip ]
 
-(use-package showtip
-  :ensure t
-  :defer t
-  :config
-  (setq showtip-timeout 15
-        showtip-top-adjust 30)
-  )
+;; (use-package showtip
+;;   :ensure t
+;;   :defer t
+;;   :config
+;;   (setq showtip-timeout 15
+;;         showtip-top-adjust 30)
+;;   )
 
 
 (provide 'init-my-emacs-popup)

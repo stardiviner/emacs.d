@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; archive file
 
 (auto-compression-mode 1)           ; auto decompress when open compressed file.
@@ -16,7 +16,7 @@
 
 (use-package vlf
   :ensure t
-  :config
+  ;; :config
   ;; All VLF operations are grouped under the C-c C-v prefix by default. Here’s
   ;; example how to add another prefix (C-x v):
   ;; (with-eval-after-load "vlf"
@@ -28,6 +28,7 @@
 
 (use-package openwith
   :ensure t
+  :defer t
   :config
   (setq openwith-associations
         (list
@@ -62,7 +63,9 @@
 
   ;; If you also use emacs for email, you may want to add this to your config:
   ;; (add-to-list  'mm-inhibit-file-name-handlers 'openwith-file-handler)
-  (openwith-mode 1))
+  (openwith-mode 1)
+  )
+
 
 ;;; [ snapshot-timemachine ] -- mode to step through (Btrfs, ZFS, ...) snapshots of files.
 
@@ -94,7 +97,7 @@
 
 (require 'init-tramp)
 
-
+
 (provide 'init-my-emacs-file)
 
 ;;; init-my-emacs-file.el ends here

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ CEDET ] -- (C)ollection of (E)macs (D)evelopment (E)nvironment (T)ools
 
 ;; (require 'init-my-prog-cedet)
@@ -30,8 +30,7 @@
 ;;   (add-hook 'prog-mode-hook 'sourcegraph-mode)
 ;;   )
 
-
-
+
 (provide 'init-my-prog-sense)
 
 ;;; init-my-prog-sense.el ends here

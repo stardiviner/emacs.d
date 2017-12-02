@@ -15,19 +15,19 @@
 
 ;;; [ pomidor ] -- Pomidor is a simple and cool pomodoro technique timer.
 
-(use-package pomidor
-  :ensure t
-  :bind (:map pomodoro-prefix
-              ("<f12>" . pomidor)
-              :map pomidor-mode-map
-              ("q" . pomidor-quit))
-  :config
-  ;; disable sounds
-  (setq pomidor-sound-tick nil
-        pomidor-sound-tack nil
-        ;; pomidor-sound-overwork nil
-        )
-  )
+;; (use-package pomidor
+;;   :ensure t
+;;   :bind (:map pomodoro-prefix
+;;               ("<f12>" . pomidor)
+;;               :map pomidor-mode-map
+;;               ("q" . pomidor-quit))
+;;   :config
+;;   ;; disable sounds
+;;   (setq pomidor-sound-tick nil
+;;         pomidor-sound-tack nil
+;;         ;; pomidor-sound-overwork nil
+;;         )
+;;   )
 
 
 (provide 'init-my-tool-pomodoro)

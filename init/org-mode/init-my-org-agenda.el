@@ -376,7 +376,7 @@
       org-agenda-start-on-weekday nil)
 ;; speedup Org Agenda
 (setq org-agenda-dim-blocked-tasks nil ; don't dim blocked tasks: past deadline, etc
-      org-agenda-inhibit-startup nil
+      org-agenda-inhibit-startup t
       org-agenda-use-tag-inheritance nil
       )
 
@@ -441,17 +441,15 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
              )
 
 (add-to-list 'org-agenda-custom-commands
-             '("T" "all todo entries"
-               todo ""
-               ;; ((org-agenda-buffer-name "*Todo List*"))
-               ))
+             '("T" "all [T]odo entries"
+               todo ""))
 
 (add-to-list 'org-agenda-custom-commands
-             '("s" "Tasks to start in the future/someday."
+             '("S" "Future tasks in [S]omeday"
                todo "SOMEDAY"))
 
 (add-to-list 'org-agenda-custom-commands
-             '("C" "Tody Clocked tasks."
+             '("C" "Tody [C]locked tasks."
                ((agenda ""
                         ((org-agenda-ndays 1)
                          (org-agenda-span-1)
@@ -461,74 +459,38 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
                          (org-agenda-clockreport t))))))
 
 (add-to-list 'org-agenda-custom-commands
-             '("p" "Project process - PROJECT, BUG, ISSUE, FEATURE etc."
+             '("p" "[p]rogramming - BUG, ISSUE, FEATURE etc."
                ((todo "BUG")
                 (todo "ISSUE")
                 (todo "FEATURE"))))
 
 (add-to-list 'org-agenda-custom-commands
-             '("w" "Work"
+             '("w" "[W]ork"
                todo "WORK"
                ((org-agenda-overriding-header "Work"))))
 
 ;; used to filter out fragment time tasks.
 (add-to-list 'org-agenda-custom-commands
-             '("f" "Fragment time tasks"
+             '("f" "[f]ragment time tasks"
                tags "fragment"
                ((org-agenda-overriding-header "Fragment Tasks"))
                ))
 
-;; (add-to-list 'org-agenda-custom-commands
-;;              '("A" "Agriculture"
-;;                ;; FIXME:
-;;                category "Agriculture"
-;;                ((org-agenda-overriding-header "Agriculture"))))
-
 ;;;; [ org-review ] -- Track when you have done a review in org mode.
 
-(use-package org-review
-  :ensure t
-  :config
-  (add-to-list 'org-agenda-custom-commands
-               '("R" "Review projects" tags-todo "-CANCELLED/"
-                 ((org-agenda-overriding-header "Reviews Scheduled")
-                  (org-agenda-skip-function 'org-review-agenda-skip)
-                  (org-agenda-cmp-user-defined 'org-review-compare)
-                  (org-agenda-sorting-strategy '(user-defined-down)))))
-
-  (add-hook 'org-agenda-mode-hook
-            (lambda ()
-              (local-set-key (kbd "C-c C-r") 'org-review-insert-last-review)))
-  )
-
-
-;;; [ secretaria ] -- A personal assistant based on org-mode.
-
-;; (use-package secretaria
+;; (use-package org-review
 ;;   :ensure t
-;;   :defer t
-;;   :init
-;;   ;; use this for getting a reminder every 30 minutes of those tasks scheduled
-;;   ;; for today and which have no time of day defined.
-;;   (add-hook 'after-init-hook #'secretaria-today-unknown-time-appt-always-remind-me)
+;;   :config
+;;   (add-to-list 'org-agenda-custom-commands
+;;                '("R" "Review projects" tags-todo "-CANCELLED/"
+;;                  ((org-agenda-overriding-header "Reviews Scheduled")
+;;                   (org-agenda-skip-function 'org-review-agenda-skip)
+;;                   (org-agenda-cmp-user-defined 'org-review-compare)
+;;                   (org-agenda-sorting-strategy '(user-defined-down)))))
+;;
+;;   (add-to-list 'org-default-properties "NEXT_REVIEW")
+;;   (add-to-list 'org-default-properties "LAST_REVIEW")
 ;;   )
-
-
-;;; [ Calendar ]
-
-;;;_* iCalendar
-
-;; FIXME: deprecated variable (free assigned).
-;; (setq org-combined-agenda-icalendar-file "~/Org/Calendar/iCalendar.ics")
-
-;;; [ Google Calendar ]
-
-;;;  [ org-gcal ]
-
-(use-package org-gcal
-  :ensure t
-  :config
-  )
 
 ;;; [ Notify ]
 
@@ -551,9 +513,9 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 ;;; [ org-notify ]
 
-(require 'org-notify)
+;; (require 'org-notify)
 
-(setq org-notify-audible nil)
+;; (setq org-notify-audible nil)
 
 ;; ---------------------------------------------------------
 ;; List of possible parameters:
@@ -609,6 +571,39 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 ;;   ;; (setq alert-user-configuration (quote ((((:category . "org-pomodoro")) libnotify nil))))
 ;;   (org-alert-enable)
 ;;   )
+
+;;; [ org-pomodoro ] -- adds support for Pomodoro technique in Org-mode.
+
+(use-package org-pomodoro
+  :ensure t
+  :commands (org-pomodoro)
+  :init
+  (unless (boundp 'pomodoro-prefix)
+    (define-prefix-command 'pomodoro-prefix))
+  :bind (:map pomodoro-prefix
+              ("o" . org-pomodoro)
+              :map Org-prefix
+              ("p" . org-pomodoro)
+              )
+  :config
+  (setq org-pomodoro-play-sounds t
+        org-pomodoro-start-sound-p t
+        org-pomodoro-ticking-sound-p nil
+        ;; org-pomodoro-ticking-sound
+        org-pomodoro-ticking-sound-args "-volume 50" ; adjust ticking sound volume
+        ;; org-pomodoro-start-sound-args "-volume 0.3"
+        ;; org-pomodoro-long-break-sound-args "-volume 0.3"
+        org-pomodoro-audio-player "/usr/bin/mplayer"
+        org-pomodoro-format "Pomodoro: %s" ; mode-line string
+        )
+
+  ;; start another pomodoro automatically upon a break end.
+  (add-hook 'org-pomodoro-break-finished-hook
+            (lambda ()
+              (interactive)
+              (org-pomodoro '(16)) ; double prefix [C-u C-u]
+              ))
+  )
 
 
 

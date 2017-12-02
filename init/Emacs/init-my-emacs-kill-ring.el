@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 (setq save-interprogram-paste-before-kill t)
 
 ;;; [ undo-tree ]
@@ -20,7 +20,7 @@
   (global-undo-tree-mode 1)
   )
 
-
+
 (provide 'init-my-emacs-kill-ring)
 
 ;;; init-my-emacs-kill-ring.el ends here

@@ -11,6 +11,19 @@
 
 (require 'init-my-math-proof-assistant)
 
+;;; [ company-math ] -- completion backends for unicode math symbols and latex tags.
+
+(use-package company-math
+  :ensure t
+  :config
+  (defun my-company-math-setup ()
+    (make-local-variable 'company-backends)
+    (add-to-list 'company-backends 'company-math-symbols-latex t)
+    ;; (append company-backends 'company-math-symbols-unicode)
+    )
+  (add-hook 'org-mode-hook 'my-company-math-setup)
+  (add-hook 'LaTeX-mode-hook 'my-company-math-setup)
+  )
 
 ;;; [ Sage Math ]
 

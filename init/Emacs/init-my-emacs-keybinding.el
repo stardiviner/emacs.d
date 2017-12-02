@@ -15,7 +15,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Modifiers]
 
 ;; (setq x-hyper-keysym 'hyper)
@@ -34,20 +34,7 @@
 ;;            (execute-extended-command--shorter command command)))
 
 
-;;; Search Keybindings
-
-(defun search-keybind (regexp &optional nlines)
-  "Occur search the full list of keybinds & their commands. Very
-helpful for learning and remembering forgotten binds."
-  (interactive (occur-read-primary-args))
-  (save-excursion
-    (describe-bindings)
-    (set-buffer "*Help*")
-    (occur regexp nlines)
-    (delete-windows-on "*Help*")))
-
-;; (define-key help-map (kbd "M-k") 'search-keybind)
-
+(setq suggest-key-bindings t) ; show the /equivalent/ key binding when [M-x] command has one.
 
 ;;; stop using the arrow keys
 (global-unset-key [left])
@@ -73,11 +60,10 @@ helpful for learning and remembering forgotten binds."
         which-key-idle-secondary-delay nil)
 
   (setq which-key-max-description-length 27
-        which-key-separator " ➜ " ; ⇢
+        ;; which-key-separator " ⇢ "
+	which-key-separator " "
         ;; which-key-unicode-correction 3
-        which-key-special-keys '("SPC" "TAB" "RET" "ESC" "DEL")
-        ;; which-key-prefix-title-alist '()
-        which-key-show-prefix 'echo ; 'left 'echo
+        which-key-show-prefix 'mode-line ; 'mode-line 'echo 'left
         which-key-show-remaining-keys t
         )
 
@@ -87,9 +73,13 @@ helpful for learning and remembering forgotten binds."
         '("toggle"
           "register" "bookmark"
           "rectangle" "iedit"
+	  "describe"
           ("emacs" . highlight)
           ))
 
+  (set-face-attribute 'which-key-highlighted-command-face nil
+		      :underline nil :weight 'bold :slant 'italic)
+  
   (which-key-mode 1)
 
   (global-set-key (kbd "C-h C-h") #'which-key-show-top-level)
@@ -150,6 +140,21 @@ helpful for learning and remembering forgotten binds."
          ("C-h K" . emaps-describe-keymap-bindings))
   )
 
+;;; Search Keybindings
+
+(defun search-keybind (regexp &optional nlines)
+  "Occur search the full list of keybinds & their commands. Very
+helpful for learning and remembering forgotten binds."
+  (interactive (occur-read-primary-args))
+  (save-excursion
+    (describe-bindings)
+    (set-buffer "*Help*")
+    (occur regexp nlines)
+    (delete-windows-on "*Help*")))
+
+(define-key help-map (kbd "M-s") 'search-keybind)
+
+
 (provide 'init-my-emacs-keybinding)
 
 ;;; init-my-emacs-keybinding.el ends here

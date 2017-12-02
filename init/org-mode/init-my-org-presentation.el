@@ -11,6 +11,7 @@
 
 (use-package org-tree-slide
   :ensure t
+  :defer t
   :config
   (setq org-tree-slide-header t
         org-tree-slide-cursor-init t
@@ -38,18 +39,18 @@
 
 (use-package ox-reveal
   :ensure t
-  :config
+  :init
   (use-package htmlize
     :ensure t)
+  :config
   ;; "http://cdn.jsdelivr.net/reveal.js/3.0.0/"
   ;; (concat user-emacs-directory "init/org-mode/reveal.js")
   (setq org-reveal-root (expand-file-name (concat user-emacs-directory "Org-mode/reveal.js/")))
-  (setq org-reveal-plugins '(classList markdown zoom notes
-                                       highlight search remotes multiplex))
-  (setq org-reveal-highlight-css "%r/lib/css/solarized.css")
+  (setq org-reveal-plugins '(classList markdown zoom notes highlight search remotes multiplex))
+  (setq org-reveal-highlight-css "%r/lib/css/zenburn.css")
+  (setq org-reveal-theme "blood")
   (setq org-reveal-default-frag-style t)
   )
-
 
 ;;; [ ox-ioslide ] -- Export org-mode to Google I/O HTML5 slide.
 
@@ -64,7 +65,8 @@
 ;;; [ demo-it ] -- demonstrations and presentations with `org-tree-slide' from within Emacs.
 
 (use-package demo-it
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-my-org-presentation)

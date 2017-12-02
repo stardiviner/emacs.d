@@ -25,6 +25,7 @@
 
 (use-package mmm-mode
   :ensure t
+  :defer t
   :config
   (setq mmm-global-mode 'maybe) ; t, nil, 'maybe (turn itself on in precisely).
 
@@ -64,12 +65,13 @@
 
 ;;; [ polymode ] -- Object oriented framework for multiple emacs modes based on indirect buffers.
 
-(use-package polymode ; [M-n] prefix
-  :ensure t
-  :config
-  (setq polymode-prefix-key '(kbd "M-n"))
-  (add-hook 'prog-mode-hook 'polymode-minor-mode)
-  )
+;; (use-package polymode ; [M-n] prefix
+;;   :ensure t
+;;   :defer t
+;;   :config
+;;   (setq polymode-prefix-key '(kbd "M-n"))
+;;   (add-hook 'prog-mode-hook 'polymode-minor-mode)
+;;   )
 
 
 

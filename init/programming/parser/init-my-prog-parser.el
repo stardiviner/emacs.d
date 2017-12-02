@@ -5,7 +5,7 @@
 
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
+
 ;;; [ Lexical Parsing ]
 
 (require 'init-my-prog-lexical-parsing)
@@ -14,8 +14,7 @@
 
 (require 'init-my-prog-grammar-parsing)
 
-;;; ----------------------------------------------------------------------------
-
+
 (provide 'init-my-prog-parser)
 
 ;;; init-my-prog-parser.el ends here

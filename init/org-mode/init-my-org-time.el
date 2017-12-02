@@ -50,39 +50,6 @@ Accepts universal argument \\<C-c C-x r> & \\[org-time-interval]."
       )
 
 
-;;; [ org-pomodoro ] -- adds support for Pomodoro technique in Org-mode.
-
-(use-package org-pomodoro
-  :ensure t
-  :commands (org-pomodoro)
-  :init
-  (unless (boundp 'pomodoro-prefix)
-    (define-prefix-command 'pomodoro-prefix))
-  :bind (:map pomodoro-prefix
-              ("o" . org-pomodoro)
-              :map Org-prefix
-              ("p" . org-pomodoro)
-              )
-  :config
-  (setq org-pomodoro-play-sounds t
-        org-pomodoro-start-sound-p t
-        org-pomodoro-ticking-sound-p nil
-        ;; org-pomodoro-ticking-sound
-        org-pomodoro-ticking-sound-args "-volume 50" ; adjust ticking sound volume
-        ;; org-pomodoro-start-sound-args "-volume 0.3"
-        ;; org-pomodoro-long-break-sound-args "-volume 0.3"
-        org-pomodoro-audio-player "/usr/bin/mplayer"
-        org-pomodoro-format "Pomodoro: %s" ; mode-line string
-        )
-
-  ;; start another pomodoro automatically upon a break end.
-  (add-hook 'org-pomodoro-break-finished-hook
-            (lambda ()
-              (interactive)
-              (org-pomodoro '(16)) ; double prefix [C-u C-u]
-              ))
-  )
-
 
 (provide 'init-my-org-time)
 

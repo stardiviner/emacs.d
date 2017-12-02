@@ -95,7 +95,7 @@
 ;; above or below the display line.
 
 ;; additional space to put between lines.
-(setq-default line-spacing nil)         ; 0.1, 1, 0, nil.
+(setq-default line-spacing 0.1)         ; 0.1, 1, 0, nil.
 
 
 ;;; [ line number ]
@@ -202,7 +202,7 @@
   (setq beacon-blink-duration 0.3
         beacon-blink-delay 0.15
         beacon-size 30)
-  ;; (beacon-mode 1)
+  ;; (beacon-mode 1) ; disable beacon to speed up Emacs.
   (setq beacon-color "green yellow")
   )
 
@@ -236,7 +236,7 @@
 
 ;;; [ fci ] -- Fill Column Indicator
 
-;; (eval-after-load 'fill-column-indicator
+;; (with-eval-after-load 'fill-column-indicator
 ;;   (setq fci-rule-width 10)
 ;;   (setq fci-rule-character ?❚)
 ;;   ;; (setq fci-rule-character-color "#999999")
@@ -246,14 +246,14 @@
 ;;; [ auto-fill-mode ] -- auto fill paragraphs like hitting [M-q].
 
 ;;; global
-(auto-fill-mode t)
+;; (auto-fill-mode t)
 ;;
 ;;; auto fill comments but not code in programming modes:
 (add-hook 'prog-mode-hook
           '(lambda ()
              (setq-local comment-auto-fill-only-comments t)
              ))
-
+;;
 ;;; enable only for text writing modes.
 (toggle-text-mode-auto-fill)
 (dolist (hook
@@ -262,19 +262,13 @@
            markdown-mode-hook))
   (add-hook hook 'turn-on-auto-fill))
 
-
-;;; [ syntax highlighting ]
-
-(global-font-lock-mode t)
-
-
 ;;; [ page (^L) ]
 
 ;; - <C-x [/]> :: navigate.
 ;; "^\014",
-(setq page-delimiter
-      (rx bol ";;;" (not (any "#")) (* not-newline) "\n"
-          (* (* blank) (opt ";" (* not-newline)) "\n")))
+;; (setq page-delimiter
+;;       (rx bol ";;;" (not (any "#")) (* not-newline) "\n"
+;;           (* (* blank) (opt ";" (* not-newline)) "\n")))
 ;; Expanded regexp:
 ;; "^;;;[^#].*\n\\(?:[[:blank:]]*\\(?:;.*\\)?\n\\)*"
 ;;

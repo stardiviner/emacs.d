@@ -24,6 +24,15 @@
   (define-key reb-mode-map (kbd "C-c C-q") 'reb-quit)
   )
 
+;;; [ regex-tool ] -- A regular expression evaluation tool for programmers.
+
+(use-package regex-tool
+  :ensure t
+  :defer t
+  :bind (:map regex-prefix
+	      ("e" . regex-tool))
+  )
+
 ;;; [ pcre2el ] -- convert between PCRE, Emacs and rx regexp syntax.
 
 (use-package pcre2el
@@ -38,14 +47,15 @@
 ;;; [ rx ] -- A regular expression IDE for Emacs, to help with the creation and testing of regular expressions.
 
 
-;;; [ regex-tool ]
+;;; [ ample-regexp ] -- Compose and reuse Emacs regular expressions with ease based on `rx'.
 
-(use-package regex-tool
+(use-package ample-regexps
   :ensure t
-  :defer t)
+  :bind (:map regex-prefix
+	      ("B" . arx-builder))
+  )
 
-
-;;; [ visual-regexp ] --
+;;; [ visual-regexp ] -- A regexp/replace command for Emacs with interactive visual feedback.
 
 ;;; visual-regexp for Emacs is like `replace-regexp' (or
 ;;; `query-replace-regexp'), but with live visual feedback directly in the
@@ -74,19 +84,11 @@
 
   (setq vr/match-separator-use-custom-face t
         vr/match-separator-string " ⇨ ")
+
+  (use-package visual-regexp-steroids
+    :ensure t
+    :defer t)
   )
-
-(use-package visual-regexp-steroids
-  :ensure t
-  :defer t)
-
-
-;;; [ ample-regexp ] -- Compose and reuse Emacs regular expressions with ease.
-
-(use-package ample-regexps
-  :ensure t
-  :defer t)
-
 
 ;;; Making Elisp regex look nicer
 ;;

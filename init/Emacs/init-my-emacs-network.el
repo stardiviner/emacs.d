@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
+
 ;;; [ Network Security Manager (NSM) ]
 
 ;;; - M-x customize `network-security'
@@ -45,9 +45,7 @@
     )
   )
 
-
-;;; ----------------------------------------------------------------------------
-
+
 (provide 'init-my-emacs-network)
 
 ;;; init-my-emacs-network.el ends here

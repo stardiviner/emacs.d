@@ -6,15 +6,14 @@
 
 
 ;;; Code:
-
+
 ;;; [ show-paren-mode ]
 
-(require 'paren)
-
-(show-paren-mode 1) ; highlight matched parentheses
-
-(setq show-paren-style 'parenthesis)
-
+;; (use-package paren
+;;   :config
+;;   (show-paren-mode 1) ; highlight matched parentheses
+;;   (setq show-paren-style 'parenthesis)
+;;   )
 
 ;;; [ smartparens ] -- deals with parens pairs and tries to be smart about it.
 
@@ -57,23 +56,10 @@
     (sp-local-tag "<"  "<_>" "</_>" :transform 'sp-match-sgml-tags))
 
   (smartparens-global-mode t)
-
-  ;; use `smartparens-strict-mode' to replace `paredit-mode'.
-  ;; (dolist (hook
-  ;;          '(emacs-lisp-mode-hook
-  ;;            ielm-mode-hook ; inferior-emacs-lisp-mode-hook
-  ;;            ;; eval-expression-minibuffer-setup-hook ; minibuffer
-  ;;            clojure-mode-hook
-  ;;            cider-repl-mode-hook
-  ;;            lisp-mode-hook
-  ;;            lisp-interaction-mode-hook
-  ;;            scheme-mode-hook
-  ;;            ))
-  ;;   (add-hook hook 'turn-on-smartparens-strict-mode))
+  (show-smartparens-global-mode t)
   )
 
-
-
+
 (provide 'init-my-prog-electric)
 
 ;;; init-my-prog-electric.el ends here

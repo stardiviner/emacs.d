@@ -97,13 +97,6 @@
              (concat user-emacs-directory
                      "resources/audio/Hacking Game/hesfx_untold_tick2.wav"))))
 
-;;; [ org-clock-today ] -- show the total clocked time of the current day in the mode line.
-
-(use-package org-clock-today
-  :ensure t
-  :config
-  (org-clock-today-mode 1))
-
 
 (provide 'init-my-org-clock)
 

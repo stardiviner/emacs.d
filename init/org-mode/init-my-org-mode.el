@@ -12,6 +12,26 @@
   (define-prefix-command 'Org-prefix))
 (global-set-key (kbd "C-c o") 'Org-prefix)
 
+
+(use-package org
+  :load-path "~/Code/Emacs/org-mode/lisp/"
+  :pin manual
+  ;; :mode (("\\.org$" . org-mode))
+  :config
+  (use-package org-plus-contrib
+    :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+    :pin manual)
+
+  ;; add source code version Org-mode Info into Emacs.
+  (with-eval-after-load 'info
+    (info-initialize)
+    (add-to-list 'Info-directory-list
+                 "~/Code/Emacs/org-mode/doc/"))
+  )
+
+;;; reload Org-mode to fix two versions source-code & MELPA mixture loaded.
+(org-reload)
+
 ;;; Org-mode ELPA version
 ;; (use-package org
 ;;   :ensure t
@@ -21,19 +41,7 @@
 ;;     :ensure org)
 ;;   )
 
-
-;;; latest version
-(use-package org
-  :load-path "~/Code/Emacs/org-mode/lisp/"
-  :pin manual
-  :mode (("\\.org$" . org-mode))
-  :config
-  (use-package org-plus-contrib
-    :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
-    :pin manual)
-  )
-
-
+
 ;;; [ Org Modules ]
 ;; Modules that should always be loaded together with org.el.
 (setq org-modules
@@ -50,7 +58,11 @@
         ))
 
 
-(require 'init-my-org-functions)
+(let ((org-dir "~/Org"))
+  (if (file-exists-p org-dir)
+      (setq org-directory org-dir)
+    (make-directory org-dir)))
+
 (require 'init-my-org-document-structure)
 (require 'init-my-org-view)
 (require 'init-my-org-face)
@@ -77,6 +89,7 @@
 (require 'init-my-org-hacking)
 (require 'init-my-org-extensions)
 (require 'init-my-org-programming)
+(require 'init-my-org-mindmap)
 (require 'init-my-org-presentation)
 ;; (require 'init-my-org-trello)
 (require 'init-my-org-contacts)

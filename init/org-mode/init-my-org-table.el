@@ -19,7 +19,7 @@
 
 (use-package org-table-sticky-header
   :ensure t
-  :config
+  :init
   (add-hook 'org-mode-hook 'org-table-sticky-header-mode)
   )
 
@@ -39,6 +39,19 @@
   :ensure t
   :defer t)
 
+;;; [ otama ] -- Simple org-table based database, intended to be a light version of BBDB and helm-friendly.
+
+;; (use-package otama
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (setq otama-database-file-name
+;;         (concat (getenv "HOME") "/Org" "/otama/otama.org"))
+;;
+;;   (define-key Org-prefix (kbd "D") 'otama-helm)
+;;   )
+
+
 
 (provide 'init-my-org-table)
 

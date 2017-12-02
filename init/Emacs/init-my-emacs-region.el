@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;; typed text replaces the active selection
 (delete-selection-mode t)
 
@@ -22,7 +22,7 @@
   (global-set-key (kbd "C-=") 'er/expand-region)
   )
 
-
+
 (provide 'init-my-emacs-region)
 
 ;;; init-my-emacs-region.el ends here

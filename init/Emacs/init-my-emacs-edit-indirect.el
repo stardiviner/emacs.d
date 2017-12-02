@@ -5,15 +5,13 @@
 
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
+
 ;;; [ edit-indirect ] -- edit regions in separate buffers.
 
-(use-package edit-indirect
-  :ensure t)
+;; (use-package edit-indirect
+;;   :ensure t)
 
-
-;;; ----------------------------------------------------------------------------
-
+
 (provide 'init-my-emacs-edit-indirect)
 
 ;;; init-my-emacs-edit-indirect.el ends here

@@ -7,19 +7,6 @@
 
 ;;; Code:
 
-
-;;; [ otama ] -- Simple org-table based database, intended to be a light version of BBDB and helm-friendly.
-
-;; (use-package otama
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (setq otama-database-file-name
-;;         (concat (getenv "HOME") "/Org" "/otama/otama.org"))
-;;
-;;   (define-key Org-prefix (kbd "D") 'otama-helm)
-;;   )
-
 ;;; [ org-crypt ] -- public key encryption for Org entries
 
 (require 'org-crypt)
@@ -46,8 +33,6 @@
 ;;; set keybindings for org-crypt functions.
 (define-key org-mode-map (kbd "C-c C-r") 'org-encrypt-entry)
 (define-key org-mode-map (kbd "C-c M-r") 'org-decrypt-entry)
-
-
 
 
 

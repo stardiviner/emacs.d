@@ -276,15 +276,15 @@
 
 ;;; [ lsp-javascript-typescript ] -- Javascript and Typescript support for lsp-mode using javascript-typescript-langserver.
 
-(use-package lsp-javascript-typescript
-  :ensure t
-  :defer t
-  :init
-  (add-hook 'js-mode-hook #'lsp-mode)
-  (add-hook 'typescript-mode-hook #'lsp-mode) ;; for typescript support
-  (add-hook 'js3-mode-hook #'lsp-mode) ;; for js3-mode support
-  (add-hook 'rjsx-mode #'lsp-mode) ;; for rjsx-mode support
-  )
+;; (use-package lsp-javascript-typescript
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (add-hook 'js-mode-hook #'lsp-mode)
+;;   (add-hook 'typescript-mode-hook #'lsp-mode) ;; for typescript support
+;;   (add-hook 'js3-mode-hook #'lsp-mode) ;; for js3-mode support
+;;   (add-hook 'rjsx-mode #'lsp-mode) ;; for rjsx-mode support
+;;   )
 
 
 ;;; [ jsx-mode ] -- The XML inside of JavaScript.

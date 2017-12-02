@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 (unless (boundp 'mc-prefix)
   (define-prefix-command 'mc-prefix))
 (define-key editing-prefix (kbd "c") 'mc-prefix)
@@ -92,8 +92,7 @@
   (define-key mc/keymap (kbd "C-'") 'mc-hide-unmatched-lines-mode)
   )
 
-
-
+
 (provide 'init-my-emacs-edit-multiple-cursors)
 
 ;;; init-my-emacs-edit-multiple-cursors.el ends here

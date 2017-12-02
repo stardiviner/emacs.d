@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 (unless (boundp 'org-password-prefix)
   (define-prefix-command 'org-password-prefix))
 (define-key Org-prefix (kbd "P") 'org-password-prefix)
@@ -72,7 +72,7 @@
         "pwgen --secure --symbols --capitalize --numerals 25 1")
   )
 
-
+
 (provide 'init-my-org-password)
 
 ;;; init-my-org-password.el ends here

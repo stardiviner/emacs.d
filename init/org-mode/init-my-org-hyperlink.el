@@ -51,8 +51,8 @@
 
 (setq org-file-apps
       `(;; Web Pages
-        ,(if (executable-find "firefox-nightly")
-             `("\.x?html?\\'" . "firefox-nightly %s")
+        ,(if (executable-find "firefox")
+             `("\.x?html?\\'" . "firefox %s")
            `("\.x?html?\\'" . "firefox %s"))
         ;; PDF (disable this because I use package `org-pdfview'.
         ;; ("\\.pdf\\'" . auto-mode)

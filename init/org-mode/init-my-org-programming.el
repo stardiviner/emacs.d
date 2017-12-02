@@ -5,12 +5,15 @@
 
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
+
 ;;; [ org-projectile ] -- Manage org-mode TODOs for your projectile projects.
 
+;; TODO: setup this correctly, check out org file.
+;; TODO: add helper functions
 (use-package org-projectile
   :ensure t
-  :bind (("C-c n p" . org-projectile-project-todo-completing-read))
+  :bind (:map Org-prefix
+	 ("C-p" . org-projectile-project-todo-completing-read))
   :config
   ;; global projects todo file
   (setq org-projectile-projects-file
@@ -26,9 +29,7 @@
     )
   )
 
-
-;;; ----------------------------------------------------------------------------
-
+
 (provide 'init-my-org-programming)
 
 ;;; init-my-org-programming.el ends here

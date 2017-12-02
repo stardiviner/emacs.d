@@ -30,9 +30,12 @@
 
 ;;; [ pcomplete ] --- Programmable, Context-Sensitive Completion Library
 
-(load-library "pcomplete")
+(use-package pcomplete
+  :ensure t
+  :config
+  (setq pcomplete-ignore-case t)
+  )
 
-(setq pcomplete-ignore-case t)
 
 ;; (require 'init-ido)
 (require 'init-helm)
