@@ -36,9 +36,6 @@
     (push (cons #'swiper (cdr (assq t ivy-re-builders-alist))) ivy-re-builders-alist)
     )
 
-  (set-face-attribute 'ivy-confirm-face nil
-                      :weight 'bold)
-
   (define-key read-expression-map (kbd "C-r") #'counsel-expression-history) ; in [M-:]
   
   ;; [ ivy-hydra ] -- [C-o], [M-o]

@@ -23,11 +23,10 @@
              ))
     (add-hook hook #'eldoc-mode))
 
-  (set-face-attribute 'eldoc-highlight-function-argument nil
-                      :foreground "deep pink"
-                      :underline t
-                      :weight 'bold)
-
+  ;; (set-face-attribute 'eldoc-highlight-function-argument nil
+  ;;                     :foreground "deep pink"
+  ;;                     :underline t
+  ;;                     :weight 'bold)
 
   ;; ElDoc with most `paredit' command.
   ;; whenever the listed commands are used, ElDoc will automatically refresh the minibuffer.

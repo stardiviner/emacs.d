@@ -7,6 +7,27 @@
 
 ;;; Code:
 
+;;; custom faces
+(set-face-attribute 'italic nil
+                    :slant 'italic
+                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light "black")
+                                  ('dark "white"))
+                    )
+(set-face-attribute 'bold nil
+                    :weight 'bold
+                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light "black")
+                                  ('dark "white"))
+                    )
+(set-face-attribute 'bold-italic nil
+                    :weight 'bold :slant 'italic
+                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light "black")
+                                  ('dark "white"))
+                    )
+
+
 ;; Date
 ;; Date: Saturday   27 July 2013
 (set-face-attribute 'org-date nil
@@ -103,7 +124,7 @@
 (setq org-priority-faces
       '((?A .
             (:foreground "dark gray"
-                         :background "red"
+                         :background "OrangeRed"
                          :box '(:color "dark gray" :line-width -1)))
         (?B .
             (:foreground "dark gray"
@@ -179,10 +200,12 @@
 (setq org-fontify-whole-heading-line t)
 (set-face-attribute 'org-level-1 nil
                     :inherit nil
-                    ;; :family "Comic Neue"
                     :weight 'bold :height 130
-                    :background (color-darken-name (face-background 'default) 2)
-                    :overline "dark slate gray"
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 5))
+                                  ('dark
+                                   (color-darken-name (face-background 'default) 3)))
                     )
 (set-face-attribute 'org-level-2 nil
                     :inherit 'org-level-1
@@ -217,13 +240,31 @@
                     :background (face-background 'default))
 
 ;; ellipsis
-;; (setq org-ellipsis "...⤵")
 (set-face-attribute 'org-ellipsis nil
-                    :foreground "red"
+                    :foreground "DarkRed"
                     :weight 'bold
                     :underline nil)
 
 ;; tags
+
+;; (set-face-attribute 'org-tag nil
+;;                     :background (cl-case (alist-get 'background-mode (frame-parameters))
+;;                                   ('light
+;;                                    (color-darken-name (face-background 'default) 4))
+;;                                   ('dark
+;;                                    (color-lighten-name (face-background 'default) 5)))
+;;                     :underline nil :weight 'normal :slant 'normal
+;;                     :height 0.8
+;;                     )
+
+;; (set-face-attribute 'org-tag-group nil
+;;                     :background (cl-case (alist-get 'background-mode (frame-parameters))
+;;                                   ('light
+;;                                    (color-darken-name (face-background 'default) 4))
+;;                                   ('dark
+;;                                    (color-lighten-name (face-background 'default) 5)))
+;;                     :box '(:color "black" :line-width -1)
+;;                     )
 
 
 ;;; checkbox faces
@@ -262,9 +303,9 @@
                     ;; :box '(:color "black")
                     )
 
-;; <<radio target link>>
+;; <<<radio target link>>>
 (set-face-attribute 'org-target nil
-                    :underline "red"
+                    :underline "DimGrey"
                     :weight 'bold)
 
 ;; set Org clock face.
@@ -274,15 +315,13 @@
 (set-face-attribute 'org-mode-line-clock nil
                     :inherit nil)
 
-;; special keywords
+;; special keywords :keyword:
 (set-face-attribute 'org-special-keyword nil
-                    :background (color-darken-name (face-background 'default) 3)
-                    )
+                    :background (color-darken-name (face-background 'default) 3))
 ;; property
-;; meta lines
+;; meta lines :PROPERTY: value
 (set-face-attribute 'org-meta-line nil
-                    :background (face-background 'default)
-                    )
+                    :background (face-background 'default))
 (set-face-attribute 'org-property-value nil
                     )
 
@@ -311,13 +350,21 @@
                     )
 
 ;;; #+BEGIN_QUOTE
-;; (set-face-attribute 'org-quote nil
-;;                     :background "dim gray")
+(set-face-attribute 'org-quote nil
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 10))
+                                  ('dark
+                                   (color-darken-name (face-background 'default) 5))))
 
 ;; Basic face for displaying the secondary selection.
 ;; face for babel src block background color when [C-c '] `org-edit-special'.
 (set-face-attribute 'secondary-selection nil
-                    )
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 10))
+                                  ('dark
+                                   (color-darken-name (face-background 'default) 5))))
 
 ;; inline code face => ~code~,  #+RESULTS: : result.
 (set-face-attribute 'org-code nil
@@ -342,11 +389,11 @@
 ;;; Formula face
 (set-face-attribute 'org-formula nil
                     :inherit nil
-                    ;; :background (cl-case (alist-get 'background-mode (frame-parameters))
-                    ;;               ('light "green yellow")
-                    ;;               ('dark "green"))
-                    ;; :foreground "black"
-                    ;; :box '(:color "green yellow" :line-width 1 :style nil)
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light "green yellow")
+                                  ('dark "green"))
+                    :foreground "black"
+                    :box '(:color "green yellow" :line-width 1 :style nil)
                     )
 
 

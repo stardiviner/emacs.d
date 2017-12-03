@@ -67,20 +67,6 @@
   ;; flycheck-clang-warnings
   ;; flycheck-cppcheck-checks
 
-  (set-face-attribute 'flycheck-info nil
-                      :underline '(:color "forest green" :style wave))
-  (set-face-attribute 'flycheck-warning nil
-                      :underline '(:color "DarkGoldenrod" :style wave))
-  (set-face-attribute 'flycheck-error nil
-                      :underline '(:color "red" :style wave))
-  (set-face-attribute 'flycheck-fringe-info nil
-                      :foreground "forest green")
-  (set-face-attribute 'flycheck-fringe-warning nil
-                      :foreground "DarkSlateBlue")
-  (set-face-attribute 'flycheck-fringe-error nil
-                      :foreground "red")
-
-
   ;; list errors only when has lint errors
   (defun flycheck-list-errors-only-when-errors ()
     "List errors only when has lint errors."

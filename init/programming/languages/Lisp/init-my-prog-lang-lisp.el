@@ -115,10 +115,9 @@
   (set-face-attribute 'hl-sexp-face nil
                       :background (cl-case (alist-get 'background-mode (frame-parameters))
                                     ('light
-                                     (color-darken-name (face-background 'default) 7))
+                                     (color-darken-name (face-background 'default) 5))
                                     ('dark
-                                     (color-lighten-name (face-background 'default) 4)))
-                      )
+                                     (color-darken-name (face-background 'default) 5))))
   )
 
 

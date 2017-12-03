@@ -269,14 +269,14 @@ When called repeatedly, cycle through the buffers."
 
 ;; prompt
 (setq erc-prompt " (λ): ")
-(set-face-attribute 'erc-prompt-face nil
-                    :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                  ('light
-                                   (color-darken-name (face-background 'default) 10))
-                                  ('dark
-                                   (color-darken-name (face-background 'default) 5)))
-                    :foreground "lawn green"
-                    )
+;; (set-face-attribute 'erc-prompt-face nil
+;;                     :background (cl-case (alist-get 'background-mode (frame-parameters))
+;;                                   ('light
+;;                                    (color-darken-name (face-background 'default) 10))
+;;                                   ('dark
+;;                                    (color-darken-name (face-background 'default) 5)))
+;;                     :foreground "lawn green"
+;;                     )
 
 
 ;; [ Button ]

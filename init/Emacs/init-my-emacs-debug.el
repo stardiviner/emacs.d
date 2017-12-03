@@ -50,9 +50,9 @@
   :ensure t
   :config
   (set-face-attribute 'hi-edebug-x-stop nil
-                      :background "dark red")
+                      :background "violet red")
   (set-face-attribute 'hi-edebug-x-debug-line nil
-                      :background "dim gray")
+                      :background (color-lighten-name (face-background 'highlight) 5))
   )
 
 

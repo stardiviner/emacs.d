@@ -196,30 +196,30 @@
 
 (define-key org-mode-map (kbd "C-c C-x h") 'org-habit-apply)
 
-;; "Face for future days on which a task shouldn't be done yet."
-(set-face-attribute 'org-habit-clear-future-face nil
-                    :background "#222222")
-;; "Face for days on which a task shouldn't be done yet."
-(set-face-attribute 'org-habit-clear-face nil
-                    :background "black")
-;; "Face for days on which a task should start to be done."
-(set-face-attribute 'org-habit-ready-future-face nil
-                    :background "#444444")
-;; "Face for days on which a task should start to be done."
-(set-face-attribute 'org-habit-ready-face nil
-                    :background "#888888")
-;; "Face for days on which a task is due."
-(set-face-attribute 'org-habit-alert-face nil
-                    :background "orange")
-;; "Face for days on which a task is due."
-(set-face-attribute 'org-habit-alert-future-face nil
-                    :background "DarkOrange2")
-;; "Face for days on which a task is overdue."
-(set-face-attribute 'org-habit-overdue-face nil
-                    :background "dark red")
-;; "Face for days on which a task is overdue."
-(set-face-attribute 'org-habit-overdue-future-face nil
-                    :background "DarkSlateBlue")
+;; ;; "Face for future days on which a task shouldn't be done yet."
+;; (set-face-attribute 'org-habit-clear-future-face nil
+;;                     :background "#222222")
+;; ;; "Face for days on which a task shouldn't be done yet."
+;; (set-face-attribute 'org-habit-clear-face nil
+;;                     :background "black")
+;; ;; "Face for days on which a task should start to be done."
+;; (set-face-attribute 'org-habit-ready-future-face nil
+;;                     :background "#444444")
+;; ;; "Face for days on which a task should start to be done."
+;; (set-face-attribute 'org-habit-ready-face nil
+;;                     :background "#888888")
+;; ;; "Face for days on which a task is due."
+;; (set-face-attribute 'org-habit-alert-face nil
+;;                     :background "orange")
+;; ;; "Face for days on which a task is due."
+;; (set-face-attribute 'org-habit-alert-future-face nil
+;;                     :background "DarkOrange2")
+;; ;; "Face for days on which a task is overdue."
+;; (set-face-attribute 'org-habit-overdue-face nil
+;;                     :background "dark red")
+;; ;; "Face for days on which a task is overdue."
+;; (set-face-attribute 'org-habit-overdue-future-face nil
+;;                     :background "DarkSlateBlue")
 
 ;;; Stuck Project
 

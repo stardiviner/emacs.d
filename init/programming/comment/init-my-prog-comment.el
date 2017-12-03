@@ -87,10 +87,10 @@ column.  Place the point after the comment box."
   :config
   (setq poporg-adjust-fill-column t
         poporg-delete-trailing-whitespace t)
-  (set-face-attribute 'poporg-edited-face nil
-                      :foreground "chocolate"
-                      :background (color-darken-name (face-background 'default) 5)
-                      :slant 'italic)
+  ;; (set-face-attribute 'poporg-edited-face nil
+  ;;                     :foreground "chocolate"
+  ;;                     :background (color-darken-name (face-background 'default) 5)
+  ;;                     :slant 'italic)
 
   (define-key poporg-mode-map [remap save-buffer] 'poporg-edit-exit)
   )
