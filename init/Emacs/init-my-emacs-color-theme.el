@@ -15,25 +15,37 @@
 
 (global-font-lock-mode t)
 
-;;; [ Color Theme ]
-
+;;; [ Color Themes ]
 
 (use-package color-theme
   :ensure t
   :init
   (autoload 'color-darken-name "color.el")
   (autoload 'color-lighten-name "color.el")
-  (with-eval-after-load "color-theme"
-    (color-theme-initialize))
-  ;; load theme way
-  (add-to-list 'custom-theme-load-path "~/.emacs.d/color-themes/")
   :config
   ;; (setq color-theme-is-global t
   ;;     color-theme-is-cumulative t)
+
+  (color-theme-initialize)
   
+  ;; (color-theme-robin-hood) ; a color-theme
   ;; (load-theme 'solarized-dark t)
   )
 
+;; (use-package color-theme-buffer-local
+;;   :ensure t
+;;   :config
+;;   (add-hook 'org-mode-hook
+;;             (lambda ()
+;;               (color-theme-buffer-local 'color-theme-standard (current-buffer))))
+;;   )
+
+;;; [ Custom Themes ]
+
+(use-package custom-theme
+  :config
+  (add-to-list 'custom-theme-load-path "~/.emacs.d/color-themes/")
+  )
 
 ;;; [ leuven-theme ] -- Awesome Emacs color theme on white background.
 
@@ -41,7 +53,7 @@
 ;;   :ensure t
 ;;   :config
 ;;   (setq leuven-scale-outline-headlines t)
-;;   (load-theme 'leuven t)
+;;   ;; (load-theme 'leuven t)
 ;;   )
 
 ;;; [ nord-theme ] -- An arctic, north-bluish clean and elegant Emacs theme.
@@ -73,7 +85,7 @@
 
 (use-package spacemacs-theme
   :ensure t
-  :config
+  :init
   (load-theme 'spacemacs-dark t)
   )
 
@@ -151,21 +163,21 @@
 
 ;;; [ circadian ] -- theme-switching for Emacs based on daytime.
 
-(use-package circadian
-  :ensure t
-  :config
-  (setq calendar-location-name "Shaoxing Town"
-        calendar-time-zone +480
-        calendar-latitude 29.72
-        calendar-longitude 120.20
-        )
-
-  (setq circadian-themes '((:sunrise . spacemacs-light)
-                           ;; ("9:00" . tsdh-light)
-                           (:sunset . spacemacs-dark)
-                           ))
-  (circadian-setup)
-  )
+;; (use-package circadian
+;;   :ensure t
+;;   :config
+;;   (setq calendar-location-name "Shaoxing Town"
+;;         calendar-time-zone +480
+;;         calendar-latitude 29.72
+;;         calendar-longitude 120.20
+;;         )
+;;
+;;   (setq circadian-themes '((:sunrise . spacemacs-light)
+;;                            ;; ("9:00" . tsdh-light)
+;;                            (:sunset . spacemacs-dark)
+;;                            ))
+;;   (circadian-setup)
+;;   )
 
 
 (provide 'init-my-emacs-color-theme)
