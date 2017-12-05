@@ -55,7 +55,6 @@
 
 (eval-when-compile
   (require 'use-package))
-(require 'diminish)                     ; if you use `:diminish'
 (require 'bind-key)                     ; if you use any `:bind' variant
 
 (setq use-package-verbose t ; 'debug: any evaluation errors report to `*use-package*` buffer.

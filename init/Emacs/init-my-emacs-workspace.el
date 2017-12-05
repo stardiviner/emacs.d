@@ -100,7 +100,6 @@
 
 (use-package eyebrowse                  ; [C-c C-w]
   :ensure t
-  :diminish eyebrowse-mode
   :config
   (setq eyebrowse-new-workspace t)
   

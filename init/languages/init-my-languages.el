@@ -17,7 +17,6 @@
 
 ;; (use-package guess-language
 ;;   :ensure t
-;;   :diminish guess-language-mode
 ;;   :init
 ;;   (add-hook 'text-mode-hook #'guess-language-mode)
 ;;   :config

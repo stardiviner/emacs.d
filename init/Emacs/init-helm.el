@@ -11,7 +11,6 @@
 
 (use-package helm
   :ensure t
-  ;; :diminish helm-mode
   ;; :bind (
   ;;        ("M-x" . helm-M-x)
   ;;        ("M-y" . helm-show-kill-ring)
