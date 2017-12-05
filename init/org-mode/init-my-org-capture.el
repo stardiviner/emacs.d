@@ -17,7 +17,7 @@
 (setq org-capture-templates
       '(("c" "[C]apture"
          entry (file "")
-         "* TODO %^{Capture}\nSCHEDULED: %t\n%i\n%a\n\n%?"
+         "* TODO %^{Capture}\n\n%i\n%a\n\n%?"
          :prepend t
          :empty-lines 1
          )
