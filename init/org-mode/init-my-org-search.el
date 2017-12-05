@@ -78,7 +78,18 @@
   (defvar rifle-references-common-path--languages
     (concat org-directory
             "/Wiki/Computer Technology/Programming/Programming Languages/"))
+
+  ;; Emacs modes
+  (defun rifle-Emacs-modes-ref ()
+    (interactive)
+    (let ((my-emacs-modes-reference-dir
+           (concat org-directory
+                   "/Wiki/Computer Technology/Programming/Emacs/modes/")))
+      (helm-org-rifle-directories
+       (list my-emacs-modes-reference-dir))))
   
+  ;; (define-key reference-prefix (kbd "e") 'rifle-Emacs-modes-ref)
+
   ;; TeX/LaTeX
   (defun rifle-TeX-ref ()
     (interactive)
