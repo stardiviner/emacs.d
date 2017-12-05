@@ -33,13 +33,21 @@
   (setq calendar-date-style 'american)
 
   ;; mark holidays
-  (setq calendar-mark-holidays-flag nil)
-  (add-hook 'calendar-initial-window-hook 'calendar-mark-holidays)
+  ;; (setq calendar-mark-holidays-flag t
+  ;;       calendar-holiday-marker 'holiday
+  ;;       )
+  ;;
+  ;; (add-hook 'calendar-initial-window-hook 'calendar-mark-holidays) ; this will slow down `org-time-stamp-inactive' performance.
 
   ;; mark today
   (setq calendar-today-marker 'calendar-today)
+  (set-face-attribute 'calendar-today nil
+                      :inherit 'highlight
+                      :box '(:color "dim gray" :line-width -1 :style nil))
   (add-hook 'calendar-initial-window-hook 'calendar-mark-today)
-
+  
+  ;; mark diary entries
+  ;; (setq calendar-mark-diary-entries-flag t)
 
   ;; Annotations
   ;; variable -> :annotation-sources
@@ -91,13 +99,6 @@
 
 
 ;; [ Diary ] -- Diary Mode
-
-(use-package diary
-  :config
-  (require 'diary-lib)
-  (add-hook 'calendar-today-visible-hook 'calendar-mark-today)
-  )
-
 
 ;;; [ calfw ] -- Calendar framework for Emacs
 
