@@ -300,7 +300,7 @@
 ;;         ("calc" (:background "#222222"))
 ;;         ))
 
-;;; interactive completing named src blocks.
+;;; interactive completing named src blocks. [C-c C-v C-q]
 ;; workflow:
 ;; 1. M-x org-babel-insert-named-source-block (imaginary function)
 ;; 2. List of named source blocks pops up
@@ -313,7 +313,7 @@
     (unless (string-equal "" src-block)
 	    (insert (format template src-block)))))
 
-(define-key org-babel-map (kbd "<tab>") 'org-babel-insert-src-block)
+(define-key org-babel-map (kbd "C-q") 'org-babel-insert-src-block)
 
 ;;; beacon effect when open org-mode babel src block editing.
 (defun my-org-src-edit-animation ()
