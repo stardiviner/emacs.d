@@ -91,6 +91,33 @@
   (advice-add 'goldendict-dwim :after #'my-org-drill-record-word)
 
   (define-key Org-prefix (kbd "C-w") 'my-org-drill-record-word)
+
+  ;; auto pronounce the drill word.
+  (defcustom org-drill-pronounce-command "espeak"
+    "Specify word pronounce command."
+    :type 'string
+    :group 'org-drill)
+
+  (defcustom org-drill-pronounce-command-args "-v en"
+    "Specify word pronounce command arguments."
+    :type 'string
+    :group 'org-drill)
+
+  (defun org-drill-pronounce-word (&optional word)
+    "Pronounce `WORD' after querying."
+    (shell-command-to-string
+     (format "%s %s %s &"
+             org-drill-pronounce-command org-drill-pronounce-command-args
+             (shell-quote-argument
+              (if word
+                  word
+                (save-excursion
+                  (unless (org-at-heading-p)
+                    (org-back-to-heading))
+                  (org-element-property :raw-value (org-element-context)))
+                )))))
+
+  (advice-add 'org-drill-entry :before #'org-drill-pronounce-word)
   )
 
 ;;; [ org-drill-table ] -- generate org-drill from org-mode tables.
