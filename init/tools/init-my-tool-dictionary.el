@@ -16,8 +16,8 @@
 (use-package sdcv
   :ensure t
   :bind (:map dictionary-prefix
-              ("d" . sdcv-search-pointer+)
-              ("C-d" . sdcv-search-input))
+              ("C-d" . sdcv-search-pointer+)
+              ("M-d" . sdcv-search-input))
   :config
   ;; a simple dictionary list for popup display
   (setq sdcv-dictionary-simple-list
