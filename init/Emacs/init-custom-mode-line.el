@@ -128,56 +128,72 @@
             buffer-path)))
     "%b"))
 
-(defun *buffer-project ()
-  "Displays `default-directory', for special buffers like the scratch buffer."
-  (concat
-   (all-the-icons-octicon "file-directory" :v-adjust -0.05)
-   (propertize
-    (concat " [" (abbreviate-file-name (projectile-project-root)) "] ")
-    'face '(:height 0.8))))
+(use-package projectile
+  :ensure t
+  :config
+  (defun *buffer-project ()
+    "Displays `default-directory', for special buffers like the scratch buffer."
+    (concat
+     (all-the-icons-octicon "file-directory" :v-adjust -0.05)
+     (propertize
+      (concat " [" (abbreviate-file-name (projectile-project-root)) "] ")
+      'face '(:height 0.8))))
 
-(defun *projectile ()
-  "Show projectile project info."
-  (if (bound-and-true-p projectile-mode)
-      (propertize
-       (concat
-        " ["
-        (all-the-icons-octicon "file-directory" :v-adjust -0.05 :height 0.9)
-        (propertize " " 'face 'variable-pitch)
-        ;; `projectile-mode-line'
-        (propertize (projectile-project-name))
-        "] "
-        ))))
+  (defun *projectile ()
+    "Show projectile project info."
+    (if (bound-and-true-p projectile-mode)
+        (propertize
+         (concat
+          " ["
+          (all-the-icons-octicon "file-directory" :v-adjust -0.05 :height 0.9)
+          (propertize " " 'face 'variable-pitch)
+          ;; `projectile-mode-line'
+          (propertize (projectile-project-name))
+          "] "
+          ))))
+  )
 
 ;;; eyebrowse
-(defun *eyebrowse ()
-  "Displays `default-directory', for special buffers like the scratch buffer."
-  (concat
-   (all-the-icons-faicon "th" :v-adjust -0.05)
-   (propertize
-    ;; (eyebrowse-mode-line-indicator)
-    (format "[%s#%s] " (eyebrowse--get 'current-slot) (length (eyebrowse--get 'window-configs)))
-    'face '(:foreground "dark orange"))))
+(use-package eyebrowse
+  :ensure t
+  :config
+  (defun *eyebrowse ()
+    "Displays `default-directory', for special buffers like the scratch buffer."
+    (concat
+     (all-the-icons-faicon "th" :v-adjust -0.05)
+     (propertize
+      ;; (eyebrowse-mode-line-indicator)
+      (format "[%s#%s] " (eyebrowse--get 'current-slot) (length (eyebrowse--get 'window-configs)))
+      'face '(:foreground "dark orange"))))
+  )
 
-(defun *perspeen ()
-  "Show perspeen info from `perspeen-modestring'."
-  (when (bound-and-true-p perspeen-modestring)
-    ;; change face
-    (put-text-property 0 6
-                       'face (if (active) 'mode-line-info-face 'mode-line-inactive)
-                       (nth 1 perspeen-modestring))
-    perspeen-modestring
-    ))
+;; (use-package perspeen
+;;   :ensure t
+;;   :config
+;;   (defun *perspeen ()
+;;     "Show perspeen info from `perspeen-modestring'."
+;;     (when (bound-and-true-p perspeen-modestring)
+;;       ;; change face
+;;       (put-text-property 0 6
+;;                          'face (if (active) 'mode-line-info-face 'mode-line-inactive)
+;;                          (nth 1 perspeen-modestring))
+;;       perspeen-modestring
+;;       ))
+;;   )
 
 ;; Purpose
-(defun *purpose ()
-  "Show Purpose info in custom mode-line."
-  (if purpose-mode
-      (concat
-       (propertize "⊞" 'face '(:height 120))
-       (propertize (purpose--modeline-string))
-       (propertize " " 'face 'variable-pitch)
-       )))
+;; (use-package purpose
+;;   :ensure t
+;;   :config
+;;   (defun *purpose ()
+;;     "Show Purpose info in custom mode-line."
+;;     (if purpose-mode
+;;         (concat
+;;          (propertize "⊞" 'face '(:height 120))
+;;          (propertize (purpose--modeline-string))
+;;          (propertize " " 'face 'variable-pitch)
+;;          )))
+;;   )
 
 ;;; buffer name
 (defun *buffer-name ()
@@ -299,18 +315,22 @@ state (modified, read-only or non-existent)."
   )
 
 ;;; pdf-tools page position
-(defun *pdf-tools-page-position ()
-  "Show current pdf-tools page current position."
-  (if (eq 'pdf-view-mode major-mode)
-      (propertize
-       (concat
-        "["
-        (number-to-string (pdf-view-current-page))
-        "/"
-        (number-to-string (pdf-cache-number-of-pages))
-        "] "
-        )
-       'face (if (active) 'mode-line-data-face))))
+(use-package pdf-tools
+  :ensure t
+  :config
+  (defun *pdf-tools-page-position ()
+    "Show current pdf-tools page current position."
+    (if (eq 'pdf-view-mode major-mode)
+        (propertize
+         (concat
+          "["
+          (number-to-string (pdf-view-current-page))
+          "/"
+          (number-to-string (pdf-cache-number-of-pages))
+          "] "
+          )
+         'face (if (active) 'mode-line-data-face))))
+  )
 
 ;;; major-mode
 (defun *major-mode ()
@@ -405,93 +425,98 @@ state (modified, read-only or non-existent)."
        ))))
 
 ;;; flycheck
-(defvar flycheck-current-errors)
-(defvar flycheck-last-status-change)
-
-(defun *flycheck ()
-  "Show flycheck info in mode-line."
-  (when (and (featurep 'flycheck) flycheck-mode)
-    (let* ((text (pcase flycheck-last-status-change
-                   (`finished
-                    (if flycheck-current-errors
-                        (let ((count (let-alist
-                                         (flycheck-count-errors flycheck-current-errors)
-                                       (+ (or .warning 0) (or .error 0)))))
-                          (concat (all-the-icons-octicon "bug" :v-adjust -0.05
-                                                         :face (if (active) '(:foreground "orange red")))
-                                  (propertize
-                                   ;; (format " %s issue%s" count (unless (eq 1 count) "s"))
-                                   (format "%s" count))))
-                      (all-the-icons-faicon "check-square" :v-adjust -0.05
-                                            :face (if (active) '(:foreground "dark sea green")))))
-                   (`running
-                    (all-the-icons-faicon "ellipsis-h"
-                                          :v-adjust -0.05
-                                          :face (if (active) '(:foreground "light sea green"))))
-                   (`no-checker
-                    (concat (all-the-icons-octicon "alert" :v-adjust -0.05
-                                                   :face (if (active) '(:foreground "dark gray")))
-                            (propertize (format " %s" "No Checker"))))
-                   (`not-checked
-                    (concat (all-the-icons-faicon "exclamation-circle" :v-adjust -0.05
-                                                  :face (if (active) '(:foreground "orange")))
-                            (propertize (format " %s" "Disabled"))))
-                   (`errored
-                    (concat (all-the-icons-faicon "exclamation-triangle" :v-adjust -0.05
-                                                  :face (if (active) '(:foreground "red")))
-                            (propertize (format " %s" "Error"))))
-                   (`interrupted
-                    (concat (all-the-icons-faicon "ban" :v-adjust -0.05
-                                                  :face (if (active) '(:foreground "dark orange")))
-                            (propertize (format " %s" "Interrupted"))))
-                   (`suspicious
-                    (all-the-icons-faicon "question-circle" :v-adjust -0.05
-                                          :face (if (active) '(:foreground "dark magenta")))))))
-      (propertize text
-                  'help-echo "Show Flycheck Errors"
-                  'mouse-face '(:box 1)
-                  'local-map (make-mode-line-mouse-map
-                              'mouse-1 (lambda () (interactive) (flycheck-list-errors)))))
-    ))
+(use-package flycheck
+  :ensure t
+  :config
+  (defun *flycheck ()
+    "Show flycheck info in mode-line."
+    (when (and (featurep 'flycheck) flycheck-mode)
+      (let* ((text (pcase flycheck-last-status-change
+                     (`finished
+                      (if flycheck-current-errors
+                          (let ((count (let-alist
+                                           (flycheck-count-errors flycheck-current-errors)
+                                         (+ (or .warning 0) (or .error 0)))))
+                            (concat (all-the-icons-octicon "bug" :v-adjust -0.05
+                                                           :face (if (active) '(:foreground "orange red")))
+                                    (propertize
+                                     ;; (format " %s issue%s" count (unless (eq 1 count) "s"))
+                                     (format "%s" count))))
+                        (all-the-icons-faicon "check-square" :v-adjust -0.05
+                                              :face (if (active) '(:foreground "dark sea green")))))
+                     (`running
+                      (all-the-icons-faicon "ellipsis-h"
+                                            :v-adjust -0.05
+                                            :face (if (active) '(:foreground "light sea green"))))
+                     (`no-checker
+                      (concat (all-the-icons-octicon "alert" :v-adjust -0.05
+                                                     :face (if (active) '(:foreground "dark gray")))
+                              (propertize (format " %s" "No Checker"))))
+                     (`not-checked
+                      (concat (all-the-icons-faicon "exclamation-circle" :v-adjust -0.05
+                                                    :face (if (active) '(:foreground "orange")))
+                              (propertize (format " %s" "Disabled"))))
+                     (`errored
+                      (concat (all-the-icons-faicon "exclamation-triangle" :v-adjust -0.05
+                                                    :face (if (active) '(:foreground "red")))
+                              (propertize (format " %s" "Error"))))
+                     (`interrupted
+                      (concat (all-the-icons-faicon "ban" :v-adjust -0.05
+                                                    :face (if (active) '(:foreground "dark orange")))
+                              (propertize (format " %s" "Interrupted"))))
+                     (`suspicious
+                      (all-the-icons-faicon "question-circle" :v-adjust -0.05
+                                            :face (if (active) '(:foreground "dark magenta")))))))
+        (propertize text
+                    'help-echo "Show Flycheck Errors"
+                    'mouse-face '(:box 1)
+                    'local-map (make-mode-line-mouse-map
+                                'mouse-1 (lambda () (interactive) (flycheck-list-errors)))))
+      ))
+  )
 
 ;;; build status
-(defun *build-status ()
-  "Show CI build status in mode-line."
-  ;; `build-status-mode-line-string'
-  (if (featurep 'build-status)
-      (let* ((root (or (build-status--circle-ci-project-root (buffer-file-name))
-                       (build-status--travis-ci-project-root (buffer-file-name))))
-             (active (build-status--activate-mode))
-             (status (cdr (assoc root build-status--project-status-alist)))
-             (project (build-status--project (buffer-file-name))))
-        (if (not (null status))
-            (propertize
-             (concat
-              (all-the-icons-faicon "cogs" :v-adjust -0.05)
-              (propertize " " 'face 'variable-pitch)
-              (cond
-               ((string= status "passed")
-                (all-the-icons-faicon "check-circle"
-                                      'face 'build-status-passed-face
-                                      :v-adjust -0.05))
-               ((string= status "running")
-                (all-the-icons-faicon "spinner"
-                                      'face 'build-status-running-face
-                                      :v-adjust -0.05))
-               ((string= status "failed")
-                (all-the-icons-faicon "chain-broken"
-                                      'face 'build-status-failed-face
-                                      :v-adjust -0.05))
-               ((string= status "queued")
-                (all-the-icons-faicon "ellipsis-h"
-                                      'face 'build-status-queued-face
-                                      :v-adjust -0.05))
-               (t
-                (all-the-icons-faicon "question-circle-o"
-                                      'face 'build-status-unknown-face
-                                      :v-adjust -0.05)))
-              ))
-          ))))
+(use-package build-status
+  :ensure t
+  :config
+  (defun *build-status ()
+    "Show CI build status in mode-line."
+    ;; `build-status-mode-line-string'
+    (if (featurep 'build-status)
+        (let* ((root (or (build-status--circle-ci-project-root (buffer-file-name))
+                         (build-status--travis-ci-project-root (buffer-file-name))))
+               (active (build-status--activate-mode))
+               (status (cdr (assoc root build-status--project-status-alist)))
+               (project (build-status--project (buffer-file-name))))
+          (if (not (null status))
+              (propertize
+               (concat
+                (all-the-icons-faicon "cogs" :v-adjust -0.05)
+                (propertize " " 'face 'variable-pitch)
+                (cond
+                 ((string= status "passed")
+                  (all-the-icons-faicon "check-circle"
+                                        'face 'build-status-passed-face
+                                        :v-adjust -0.05))
+                 ((string= status "running")
+                  (all-the-icons-faicon "spinner"
+                                        'face 'build-status-running-face
+                                        :v-adjust -0.05))
+                 ((string= status "failed")
+                  (all-the-icons-faicon "chain-broken"
+                                        'face 'build-status-failed-face
+                                        :v-adjust -0.05))
+                 ((string= status "queued")
+                  (all-the-icons-faicon "ellipsis-h"
+                                        'face 'build-status-queued-face
+                                        :v-adjust -0.05))
+                 (t
+                  (all-the-icons-faicon "question-circle-o"
+                                        'face 'build-status-unknown-face
+                                        :v-adjust -0.05)))
+                ))
+            ))))
+  )
 
 ;; region selection info
 (defun *selection-info ()
@@ -530,38 +555,46 @@ dimensions of a block selection."
               separator))))
 
 ;;; anzu
-(defvar anzu--state)
-(defvar anzu--overflow-p)
-(make-variable-buffer-local 'anzu--state)
-
-(defun *anzu ()
-  "Show the match index and total number thereof.  Requires `evil-anzu'."
-  (when (and (featurep 'anzu) (not (zerop anzu--total-matched)))
-    (propertize
-     (format " %s/%d%s "
-             anzu--current-position anzu--total-matched
-             (if anzu--overflow-p "+" ""))
-     'face 'mode-line-meta-face)))
+(use-package anzu
+  :ensure t
+  :init
+  ;; (defvar anzu--state)
+  ;; (defvar anzu--overflow-p)
+  (make-variable-buffer-local 'anzu--state)
+  :config
+  (defun *anzu ()
+    "Show the match index and total number thereof.  Requires `evil-anzu'."
+    (when (and (featurep 'anzu) (not (zerop anzu--total-matched)))
+      (propertize
+       (format " %s/%d%s "
+               anzu--current-position anzu--total-matched
+               (if anzu--overflow-p "+" ""))
+       'face 'mode-line-meta-face)))
+  )
 
 ;;; Iedit
-(defun *iedit ()
-  "Show the number of iedit regions match + what match you're on."
-  (when (and (boundp 'iedit-mode) iedit-mode)
-    (propertize
-     (let ((this-oc (let (message-log-max) (iedit-find-current-occurrence-overlay)))
-           (length (or (ignore-errors (length iedit-occurrences-overlays)) 0)))
-       (format " %s/%s "
-               (save-excursion
-                 (unless this-oc
-                   (iedit-prev-occurrence)
-                   (setq this-oc (iedit-find-current-occurrence-overlay)))
-                 (if this-oc
-                     ;; `iedit-occurrence-context-lines',
-                     ;; `iedit-occurrences-overlays'.
-                     (- length (-elem-index this-oc iedit-occurrence-context-lines))
-                   "-"))
-               length))
-     'face 'mode-line-meta-face)))
+(use-package iedit
+  :ensure t
+  :config
+  (defun *iedit ()
+    "Show the number of iedit regions match + what match you're on."
+    (when (and (boundp 'iedit-mode) iedit-mode)
+      (propertize
+       (let ((this-oc (let (message-log-max) (iedit-find-current-occurrence-overlay)))
+             (length (or (ignore-errors (length iedit-occurrences-overlays)) 0)))
+         (format " %s/%s "
+                 (save-excursion
+                   (unless this-oc
+                     (iedit-prev-occurrence)
+                     (setq this-oc (iedit-find-current-occurrence-overlay)))
+                   (if this-oc
+                       ;; `iedit-occurrence-context-lines',
+                       ;; `iedit-occurrences-overlays'.
+                       (- length (-elem-index this-oc iedit-occurrence-context-lines))
+                     "-"))
+                 length))
+       'face 'mode-line-meta-face)))
+  )
 
 ;; multiple-cursors (mc/)
 (use-package multiple-cursors
@@ -599,22 +632,30 @@ dimensions of a block selection."
                   'face 'mode-line-meta-face)))
 
 ;; org-tree-slide slide number
-(defun *org-tree-slide ()
-  "Show `org-tree-slide' slide number."
-  (when (bound-and-true-p org-tree-slide-mode)
-    (propertize
-     (concat
-      (all-the-icons-faicon "file-powerpoint-o" :v-adjust -0.05)
-      (format "%s" org-tree-slide--slide-number))
-     'face (if (active) 'mode-line-data-face))))
+(use-package org-tree-slide
+  :ensure t
+  :config
+  (defun *org-tree-slide ()
+    "Show `org-tree-slide' slide number."
+    (when (bound-and-true-p org-tree-slide-mode)
+      (propertize
+       (concat
+        (all-the-icons-faicon "file-powerpoint-o" :v-adjust -0.05)
+        (format "%s" org-tree-slide--slide-number))
+       'face (if (active) 'mode-line-data-face))))
+  )
 
 ;; wc-mode (word count) `wc-format-modeline-string', `wc-mode-update'.
-(defun *wc-mode ()
-  "Show wc-mode word count."
-  (when (and (featurep 'wc-mode) wc-mode)
-    (propertize (wc-format-modeline-string " Words:[%tw]")
-                'face (if (active) 'mode-line-info-face))
-    ))
+;; (use-package wc-mode
+;;   :ensure t
+;;   :config
+;;   (defun *wc-mode ()
+;;     "Show wc-mode word count."
+;;     (when (and (featurep 'wc-mode) wc-mode)
+;;       (propertize (wc-format-modeline-string " Words:[%tw]")
+;;                   'face (if (active) 'mode-line-info-face))
+;;       ))
+;;   )
 
 ;; mmm-mode
 
@@ -649,13 +690,18 @@ dimensions of a block selection."
                    'face 'mode-line-data-face))
     ))
 
-(defun *company-lighter ()
-  "Show company-mode lighter from `company-lighter'."
-  (if (and (boundp 'company-mode) company-mode (consp company-backend))
-      (propertize
-       (company--group-lighter
-        (nth company-selection company-candidates) company-lighter-base)
-       'face 'mode-line-data-face)))
+(use-package company
+  :ensure t
+  :config
+  (defun *company-lighter ()
+    "Show company-mode lighter from `company-lighter'."
+    (if (and (boundp 'company-mode) company-mode (consp company-backend))
+        (propertize
+         (company--group-lighter
+          (nth company-selection company-candidates) company-lighter-base)
+         'face 'mode-line-data-face)))
+  )
+
 
 (require 'org-clock)
 
@@ -682,7 +728,7 @@ dimensions of a block selection."
 ;;   :ensure t
 ;;   :config
 ;;   (org-clock-today-mode 1)
-  
+;;  
 ;;   (defun *org-clock-today ()
 ;;   "Show `org-clock-today' current org clock)."
 ;;   (when (and (active)
@@ -704,6 +750,7 @@ dimensions of a block selection."
              ;; (org-clock-update-mode-line)
              (setq org-mode-line-string nil)
              (force-mode-line-update)))
+
 
 (require 'org-timer)
 
@@ -788,10 +835,18 @@ dimensions of a block selection."
   )
 
 ;;; mu4e
-(defun *mu4e ()
-  "Show `mu4e-alert' new messages count in custom modeline."
-  (if (and (active) (and (boundp 'mu4e-alert-mode-line) mu4e-alert-mode-line))
-      (propertize mu4e-alert-mode-line)))
+(use-package mu4e
+  :load-path "/usr/share/emacs/site-lisp/mu4e/"
+  :init
+  (require 'mu4e)
+  (require 'mu4e-contrib)
+  :config
+  (defun *mu4e ()
+    "Show `mu4e-alert' new messages count in custom modeline."
+    (if (and (active) (and (boundp 'mu4e-alert-mode-line) mu4e-alert-mode-line))
+        (propertize mu4e-alert-mode-line)))
+  )
+
 
 ;;; TRAMP
 (defun *tramp ()

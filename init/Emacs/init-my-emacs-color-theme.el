@@ -42,10 +42,7 @@
 
 ;;; [ Custom Themes ]
 
-(use-package custom-theme
-  :config
-  (add-to-list 'custom-theme-load-path "~/.emacs.d/color-themes/")
-  )
+(add-to-list 'custom-theme-load-path "~/.emacs.d/color-themes/")
 
 ;;; [ leuven-theme ] -- Awesome Emacs color theme on white background.
 
