@@ -59,13 +59,6 @@
   ;;                     )
   )
 
-;;; [ org-numbers-overlay ]
-
-;; (load "org-numbers-overlay")
-;; (with-eval-after-load "org"
-;;   (require 'org-numbers-overlay)
-;;   (add-hook 'org-mode-hook #'org-numbers-overlay-mode))
-
 
 (provide 'init-my-org-view)
 
