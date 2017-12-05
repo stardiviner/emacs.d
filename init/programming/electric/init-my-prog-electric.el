@@ -56,7 +56,7 @@
     (sp-local-tag "<"  "<_>" "</_>" :transform 'sp-match-sgml-tags))
 
   (smartparens-global-mode t)
-  (show-smartparens-global-mode t)
+  ;; (show-smartparens-global-mode t)
   )
 
 
