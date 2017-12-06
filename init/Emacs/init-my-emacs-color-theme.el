@@ -82,9 +82,9 @@
 
 (use-package spacemacs-theme
   :ensure t
-  :init
-  (load-theme 'spacemacs-dark t)
-  )
+  :no-require t
+  :config
+  (load-theme 'spacemacs-dark t))
 
 ;;; [ kaolin-themes ] -- A set of eye pleasing themes.
 

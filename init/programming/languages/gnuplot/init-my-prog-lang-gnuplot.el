@@ -70,6 +70,7 @@
 
 (use-package org-plus-contrib
   :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+  :no-require t
   :pin manual
   :config
   (require 'ob-gnuplot)
