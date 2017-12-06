@@ -125,11 +125,7 @@
 
 (use-package swiper
   :ensure t
-  :defer t
-  :bind (
-         ;; ("C-s" . swiper)
-         ("C-c u" . swiper-all)
-         )
+  :bind ("C-s" . swiper)
   )
 
 

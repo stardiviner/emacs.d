@@ -31,10 +31,9 @@
   ;;         (swiper . ivy--regexp-fuzzy)
   ;;         (t . ivy--regexp-fuzzy)))
   ;; or more programmatically:
-  (with-eval-after-load 'ivy
-    (push (cons t #'ivy--regex-plus) ivy-re-builders-alist)
-    (push (cons #'swiper (cdr (assq t ivy-re-builders-alist))) ivy-re-builders-alist)
-    )
+  ;; (with-eval-after-load 'ivy
+  ;;   (push (cons t #'ivy--regex-plus) ivy-re-builders-alist)
+  ;;   (push (cons #'swiper (cdr (assq t ivy-re-builders-alist))) ivy-re-builders-alist))
 
   (define-key read-expression-map (kbd "C-r") #'counsel-expression-history) ; in [M-:]
   
@@ -110,7 +109,7 @@
          ([remap info-lookup-symbol] . counsel-info-lookup-symbol) ; [C-h S]
          ([remap menu-bar-open] . counsel-tmm) ; [F10] text menu access
          ([remap apropos] . counsel-apropos)
-         ("C-s" . counsel-grep-or-swiper)
+         ;; ("C-s" . counsel-grep-or-swiper)
          ("C-x c p" . counsel-list-processes) ; [C-x c p]
          ("C-x c t" . cancel-function-timers) ; [C-x c t]
          ("C-x c c" . counsel-colors-emacs)
