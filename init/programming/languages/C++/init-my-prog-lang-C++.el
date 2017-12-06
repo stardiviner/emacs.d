@@ -18,6 +18,8 @@
 
 ;;; [ ob-c++ ]
 
+;; (setq org-babel-C++-compiler "g++") ; "g++", "c++", "g++ -v"
+
 ;; (add-to-list 'org-babel-default-header-args:C++
 ;;              '(:results . "output"))
 
