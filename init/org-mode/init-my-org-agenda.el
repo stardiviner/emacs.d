@@ -69,8 +69,7 @@
 
 ;; include `diary-file' from `calendar'
 (setq org-agenda-include-diary nil ; speed up Org Agenda generation.
-      ;; diary-file "~/Org/Tasks/Daily.org"
-      diary-file (locate-user-emacs-file "data/Anniversaries.org" "Anniversaries.org")
+      ;; diary-file
       org-agenda-diary-file 'diary-file
       ;; org-agenda-insert-diary-strategy 'date-tree
       )
@@ -343,7 +342,7 @@
                "~/Org/Projects/Interpersonal Network/" ; Interpersonal Network
                "~/Org/Learning Plan/"
                ;; "~/Org/Contacts/Contacts.org"
-               ;; "~/Org/Calendars/"
+               "~/Org/Calendars/Anniversary.org"
                "~/Org/Myself/"
                ))))
 
@@ -441,11 +440,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
              )
 
 (add-to-list 'org-agenda-custom-commands
-             '("T" "all [T]odo entries"
-               todo ""))
-
-(add-to-list 'org-agenda-custom-commands
-             '("S" "Future tasks in [S]omeday"
+             '("F" "[F]uture tasks in someday"
                todo "SOMEDAY"))
 
 (add-to-list 'org-agenda-custom-commands
