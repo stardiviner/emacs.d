@@ -71,17 +71,8 @@
 
 ;; [ company-go ] -- company-mode backend for Go (using gocode).
 
-(if (executable-find "gocode")
-    (use-package company-go
-      :ensure t)
-  (use-package company-go
-    :load-path (lambda ()
-                 (concat
-                  (getenv "GOPATH") "/src/github.com/nsf/gocode/emacs-company/company-go.el"))
-    )
-  )
-
 (use-package company-go
+  :load-path (lambda () (concat (getenv "GOPATH") "/src/github.com/nsf/gocode/emacs-company/company-go.el"))
   :config
   (setq company-go-show-annotation t
         company-go-begin-after-member-access t
