@@ -158,9 +158,7 @@
   "Common settings for all Lisp dialects."
   (interactive)
   (rainbow-delimiters-mode 1)
-  (smartparens-mode -1)
-  (show-smartparens-mode -1)
-  ;; (smartparens-strict-mode 1)
+  (smartparens-strict-mode 1)
   (paredit-mode 1)
   (if (fboundp 'parinfer-mode)
       (parinfer-mode 1))
