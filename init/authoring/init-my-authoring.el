@@ -7,17 +7,6 @@
 
 ;;; Code:
 
-;;; [ visual-fill-column ] -- wrapping visual-line-mode buffers at fill-column.
-
-(use-package visual-fill-column
-  :ensure t
-  :defer t
-  :bind ("C-x t M-v" . visual-fill-column-mode)
-  :config
-  (setq-default visual-fill-column-center-text nil)
-  )
-
-
 ;;; [ org-if ] -- Interactive Fiction Authoring System for Emacs and Org-Mode.
 
 ;; (use-package org-if

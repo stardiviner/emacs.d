@@ -139,33 +139,23 @@
 
 ;;; [ flycheck-cstyle ] --
 
-(use-package flycheck-cstyle
-  :ensure t
-  :defer t
-  :after flycheck
-  :config
-  (flycheck-cstyle-setup)
-  (flycheck-add-next-checker 'c/c++-cppcheck '(warning . cstyle))
-  ;; (flycheck-add-next-checker 'c/c++-clang '(warning . cstyle))
-  )
+;; (use-package flycheck-cstyle
+;;   :ensure t
+;;   :defer t
+;;   :after flycheck
+;;   :config
+;;   (flycheck-cstyle-setup)
+;;   (flycheck-add-next-checker 'c/c++-cppcheck '(warning . cstyle))
+;;   ;; (flycheck-add-next-checker 'c/c++-clang '(warning . cstyle))
+;;   )
 
 ;;; [ flycheck-clang-analyzer ] -- Integrate Clang Static Analyzer with flycheck for on-the-fly static analysis in Emacs.
 
-(use-package flycheck-clang-analyzer
-  :ensure t
-  :defer t
-  :after flycheck
-  :config (flycheck-clang-analyzer-setup))
-
-;;; [ gccsense ]
-
-;; (use-package gccsense
-;;   :ensure t)
-
-;;;  [ autodisass-llvm-bitcode ] -- Automatically disassemble emacs buffers containing LLVM bitcode.
-
-;; (use-package autodisass-llvm-bitcode
-;;   :ensure t)
+;; (use-package flycheck-clang-analyzer
+;;   :ensure t
+;;   :defer t
+;;   :after flycheck
+;;   :config (flycheck-clang-analyzer-setup))
 
 
 

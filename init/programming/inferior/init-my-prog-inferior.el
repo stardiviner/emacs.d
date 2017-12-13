@@ -13,11 +13,13 @@
 (global-set-key (kbd "C-c i") 'inferior-prefix)
 
 ;;; Shell
-(unless (boundp 'shell-prefix)
-  (define-prefix-command 'shell-prefix))
-(define-key inferior-prefix (kbd "s") 'shell-prefix)
+;; (unless (boundp 'shell-prefix)
+;;   (define-prefix-command 'shell-prefix))
+;; (define-key inferior-prefix (kbd "s") 'shell-prefix)
+;;
+;; (define-key shell-prefix (kbd "s") 'shell)
 
-(define-key shell-prefix (kbd "s") 'shell)
+(define-key inferior-prefix (kbd "s") 'shell)
 
 ;;; Lisp
 (unless (boundp 'lisp-prefix)
@@ -74,11 +76,12 @@
 ;; Prolog
 (define-key inferior-prefix (kbd "g") 'run-prolog)   ; Prolog
 ;; ESS
-(unless (boundp 'ess-prefix)
-  (define-prefix-command 'ess-prefix))
-(define-key inferior-prefix (kbd "E") 'ess-prefix)
-
-(define-key ess-prefix (kbd "E") 'inferior-ess) ; ESS
+;; (unless (boundp 'ess-prefix)
+;;   (define-prefix-command 'ess-prefix))
+;; (define-key inferior-prefix (kbd "E") 'ess-prefix)
+;;
+;; (define-key ess-prefix (kbd "E") 'inferior-ess) ; ESS
+(define-key inferior-prefix (kbd "E") 'inferior-ess) ; ESS
 ;; R
 ;; Julia
 ;; Octave

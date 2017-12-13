@@ -9,9 +9,9 @@
 
 ;;; [ emacs-db ] -- very simple database for emacslisp, can also wrap other databases.
 
-(use-package db
-  :ensure t
-  :defer t)
+;; (use-package db
+;;   :ensure t
+;;   :defer t)
 
 
 (provide 'init-my-prog-lang-database-nosql)

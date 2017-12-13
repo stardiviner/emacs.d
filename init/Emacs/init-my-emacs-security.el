@@ -9,7 +9,7 @@
 ;;; [ File-local Variables ]
 
 (setq enable-local-eval 'maybe
-      enable-local-variables t
+      enable-local-variables t ; :all
       ;; safe-local-eval-forms
       )
 

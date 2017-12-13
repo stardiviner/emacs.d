@@ -22,14 +22,14 @@
 
 ;;; [ PulseAudio ]
 
-(use-package pulseaudio-control
-  :ensure t
-  :config
-  ;; keybindings
-  ;; (pulseaudio-control-default-keybindings)
-  ;; (global-set-key (kbd "C-x /") 'pulseaudio-control-map)
-  (define-key music-prefix (kbd "a") 'pulseaudio-control-map)
-  )
+;; (use-package pulseaudio-control
+;;   :ensure t
+;;   :config
+;;   ;; keybindings
+;;   ;; (pulseaudio-control-default-keybindings)
+;;   ;; (global-set-key (kbd "C-x /") 'pulseaudio-control-map)
+;;   (define-key music-prefix (kbd "a") 'pulseaudio-control-map)
+;;   )
 
 
 (provide 'init-my-tool-music)

@@ -5,8 +5,7 @@
 
 
 ;;; Code:
-;;; ----------------------------------------------------------------------------
-
+
 ;;; [ coverage ] -- a minor mode to highlight code coverage in source code files.
 
 ;; (use-package coverage
@@ -33,11 +32,7 @@
   (add-hook 'c-mode-hook #'cov-mode)
   )
 
-
-
-
-;;; ----------------------------------------------------------------------------
-
+
 (provide 'init-my-prog-test-coverage)
 
 ;;; init-my-prog-test-coverage.el ends here

@@ -96,12 +96,12 @@
 
 ;;; [ pyvenv ] -- Python virtual environment interface for Emacs.
 
-;; (use-package pyvenv
-;;   :ensure t
-;;   :config
-;;   (pyvenv-workon "python3")
-;;   (add-hook 'python-mode-hook #'pyvenv-mode)
-;;   )
+(use-package pyvenv
+  :ensure t
+  :config
+  (pyvenv-workon "python3")
+  (add-hook 'python-mode-hook #'pyvenv-mode)
+  )
 
 ;;; [ pygen ] -- Python code generation in Emacs with Elpy and python-mode.
 

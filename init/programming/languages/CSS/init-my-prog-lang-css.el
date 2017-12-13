@@ -49,33 +49,8 @@
 (use-package css-eldoc
   :ensure t
   :defer t
-  :init
+  :config
   (css-eldoc-enable))
-
-;;; ------------------------------------------------------------------------------------
-;;; Attention!
-
-;; If your less mode's isearch became really slow, add the following code to your .emacs
-
-;; (defun isearch-forward-noeldoc ()
-;;   "close eldoc temperaily"
-;;   (interactive)
-;;   (eldoc-mode -1)
-;;   (isearch-forward)
-;;   (eldoc-mode 1))
-;; (add-hook 'less-css-mode-hook (lambda ()
-;;                 (local-set-key [remap isearch-forward] 'isearch-forward-noeldoc)))
-
-;; (defun isearch-backward-noeldoc ()
-;;   "close eldoc temperaily"
-;;   (interactive)
-;;   (eldoc-mode -1)
-;;   (isearch-backward)
-;;   (eldoc-mode 1))
-;; (add-hook 'less-css-mode-hook (lambda ()
-;;                 (local-set-key [remap isearch-backward] 'isearch-backward-noeldoc)))
-;;; ------------------------------------------------------------------------------------
-
 
 ;;; [ show-css ] -- Show the css of the html attribute the cursor is on.
 
@@ -104,18 +79,6 @@
 ;;     (define-key web-mode-map (kbd "C-c C-k") 'my/toggle-showcss))
 ;;   )
 
-
-;;; [ flycheck-css-colorguard ]
-
-;; (use-package flycheck-css-colorguard
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (with-eval-after-load 'flycheck
-;;     (flycheck-add-next-checker 'css-csslint
-;;                                'css-colorguard 'append))
-;;   )
-
 ;;; [ stylefmt ] -- An emacs interface for stylefmt style code formatter.
 
 (use-package stylefmt
@@ -123,25 +86,6 @@
   :defer t
   :init
   (add-hook 'css-mode-hook 'stylefmt-enable-on-save)
-  )
-
-;;; [ scss-mode ]
-
-;; Features
-;;
-;; Compilation of current file on save. (Disable by changing `scss-compile-at-save' to nil)
-;; Flymake support, enable with M-x `flymake-mode'
-;; Indentation and highlighting (Derived from CSS-mode)
-;; Syntax highlighting for variables and inline comments.
-
-(use-package scss-mode
-  :ensure t
-  :defer t
-  :init
-  (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
-  :config
-  ;; (setq exec-path (cons (expand-file-name "~/.gem/ruby/1.8/bin") exec-path))
-  ;; (setq scss-sass-command "sass")
   )
 
 

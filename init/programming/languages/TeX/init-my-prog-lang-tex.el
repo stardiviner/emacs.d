@@ -18,17 +18,12 @@
 ;;; [ LaTeX-mode ]
 
 
-;;; [ AUCTeX ] -- Integrated environment for TeX.
+;;; [ AUCTeX ] -- Integrated environment for *TeX*.
 
-(use-package tex
-  :ensure auctex
-  :init
-  (require 'tex-site)
-  (require 'latex)
+(use-package auctex
+  :ensure t
+  :load (tex-site latex font-latex)
   :config
-  ;; Fontification
-  (require 'font-latex)
-  ;; (setq TeX-install-font-lock)
   ;; macros
   (defun latex-font-lock-add-macros ()
     (font-latex-add-keywords '(("citep" "*[[{")) 'reference)
@@ -127,76 +122,69 @@ character(s), in which case it deletes the space(s) first."
                       :height 1.2 :bold nil)
   )
 
-;;; [ AucTex ] -- Integrated environment for *TeX*.
-
-(use-package auctex
+(use-package company-auctex
   :ensure t
-  :load tex-site
   :config
-  (use-package company-auctex
-    :ensure t
-    :config
-    (defun my-company-auctex-setup ()
-      ;; indent
-      (aggressive-indent-mode)
-      
-      ;; fold: hide some boilerplate
-      (TeX-fold-mode)
+  (defun my-company-auctex-setup ()
+    ;; indent
+    (aggressive-indent-mode)
+    
+    ;; fold: hide some boilerplate
+    (TeX-fold-mode)
 
-      (rainbow-delimiters-mode)
-      (smartparens-mode)
+    (rainbow-delimiters-mode)
+    (smartparens-mode)
 
-      ;; complete
-      (make-local-variable 'company-backends)
-      ;; company-math
-      (add-to-list 'company-backends 'company-math-symbols-unicode)
-      (add-to-list 'company-backends 'company-math-symbols-latex)
-      (add-to-list 'company-backends 'company-latex-commands)
+    ;; complete
+    (make-local-variable 'company-backends)
+    ;; company-math
+    (add-to-list 'company-backends 'company-math-symbols-unicode)
+    (add-to-list 'company-backends 'company-math-symbols-latex)
+    (add-to-list 'company-backends 'company-latex-commands)
 
-      ;; company-auctex
-      (add-to-list 'company-backends 'company-auctex-labels)
-      (add-to-list 'company-backends 'company-auctex-bibs)
-      (add-to-list 'company-backends 'company-auctex-environments)
-      (add-to-list 'company-backends 'company-auctex-symbols)
-      (add-to-list 'company-backends 'company-auctex-macros)
-      
-      ;; linter
-      (flycheck-mode 1)
+    ;; company-auctex
+    (add-to-list 'company-backends 'company-auctex-labels)
+    (add-to-list 'company-backends 'company-auctex-bibs)
+    (add-to-list 'company-backends 'company-auctex-environments)
+    (add-to-list 'company-backends 'company-auctex-symbols)
+    (add-to-list 'company-backends 'company-auctex-macros)
+    
+    ;; linter
+    (flycheck-mode 1)
 
-      ;; Doc
-      ;; (info-lookup-add-help
-      ;;  :mode 'latex-mode
-      ;;  :regexp ".*"
-      ;;  :parse-rule "\\\\?[a-zA-Z]+\\|\\\\[^a-zA-Z]"
-      ;;  :doc-spec '(("(latex2e)Concept Index" )
-      ;;              ("(latex2e)Command Index")))
+    ;; Doc
+    ;; (info-lookup-add-help
+    ;;  :mode 'latex-mode
+    ;;  :regexp ".*"
+    ;;  :parse-rule "\\\\?[a-zA-Z]+\\|\\\\[^a-zA-Z]"
+    ;;  :doc-spec '(("(latex2e)Concept Index" )
+    ;;              ("(latex2e)Command Index")))
 
-      ;; block
-      (local-set-key (kbd "C-c C-i") 'tex-latex-block)
-      
-      ;; Section
-      (setq LaTeX-section-hook
-            '(LaTeX-section-heading
-              LaTeX-section-title
-              LaTeX-section-toc
-              LaTeX-section-section
-              LaTeX-section-label))
+    ;; block
+    (local-set-key (kbd "C-c C-i") 'tex-latex-block)
+    
+    ;; Section
+    (setq LaTeX-section-hook
+          '(LaTeX-section-heading
+            LaTeX-section-title
+            LaTeX-section-toc
+            LaTeX-section-section
+            LaTeX-section-label))
 
-      ;; Math
-      ;; (LaTeX-math-mode)
-      )
-
-    (dolist (hook '(tex-mode-hook
-                    TeX-mode-hook
-                    latex-mode-hook
-                    LaTeX-mode-hook ; from AUCTeX
-                    ))
-      (add-hook hook #'my-company-auctex-setup))
+    ;; Math
+    ;; (LaTeX-math-mode)
     )
 
-  (use-package company-math
-    :ensure t)
+  (dolist (hook '(tex-mode-hook
+                  TeX-mode-hook
+                  latex-mode-hook
+                  LaTeX-mode-hook ; from AUCTeX
+                  ))
+    (add-hook hook #'my-company-auctex-setup))
   )
+
+(use-package company-math
+  :ensure t)
 
 ;;; [ RefTeX ] -- a specialized package for support of labels, references.
 

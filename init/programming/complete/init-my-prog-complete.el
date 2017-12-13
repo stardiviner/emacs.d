@@ -7,27 +7,6 @@
 
 ;;; Code:
 
-;;; [ completion ] -- *Completion* buffer
-
-(use-package completion
-  :config
-  (setq enable-completion t
-        completion-cdabbrev-prompt-flag nil
-        completion-on-separator-character nil
-        ;; completion-prompt-speed-threshold 4800 ; default
-        ;; completion-search-distance 15000
-        completion-show-help t
-        completion-show-inline-help t
-        ;; completions-merging-modes '(lisp c)
-        save-completions-flag t
-        save-completions-file-name "~/.emacs.d/completion"
-        ;; save-completions-retention-time 336
-        )
-
-  ;; (completion-mode)
-  ;; (dynamic-completion-mode 1)
-  )
-
 
 (require 'init-auto-complete)
 (require 'init-company-mode)

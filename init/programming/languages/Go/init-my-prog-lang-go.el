@@ -89,42 +89,40 @@
 
 ;;; [ gorepl-mode ] -- Go REPL Interactive Development in top of Gore.
 
-(use-package gorepl-mode
-  :ensure t
-  :bind (:map go-mode-map
-              ("C-c C-s" . gorepl-run)
-              ("C-c C-z" . gorepl-run)
-              ("C-c C-l" . gorepl-run-load-current-file)
-              ("C-c C-r" . gorepl-eval-region)
-              ("C-c C-e" . gorepl-eval-line)
-              )
-  :init
-  ;; default setup mapping (this will override `go-goto-map')
-  ;; (add-hook 'go-mode-hook #'gorepl-mode)
-  )
+;; (use-package gorepl-mode
+;;   :ensure t
+;;   :bind (:map go-mode-map
+;;               ("C-c C-s" . gorepl-run)
+;;               ("C-c C-z" . gorepl-run)
+;;               ("C-c C-l" . gorepl-run-load-current-file)
+;;               ("C-c C-r" . gorepl-eval-region)
+;;               ("C-c C-e" . gorepl-eval-line)
+;;               )
+;;   :init
+;;   ;; default setup mapping (this will override `go-goto-map')
+;;   ;; (add-hook 'go-mode-hook #'gorepl-mode)
+;;   )
 
 
-;;; [ go-errcheck ]
+;;; [ go-errcheck ] -- errcheck integration for go-mode.
 
-(use-package go-errcheck
-  :ensure t)
-
+;; (use-package go-errcheck
+;;   :ensure t)
 
 ;;; [ go-oracle ]
 
-(use-package go-oracle
-  :load-path "$GOPATH/src/golang.org/x/tools/cmd/oracle/"
-  :config
-  (require 'go-oracle))
+;; (use-package go-oracle
+;;   :load-path "$GOPATH/src/golang.org/x/tools/cmd/oracle/"
+;;   :config
+;;   (require 'go-oracle))
 
 ;;; [ go-guru ] -- Integration of the Go 'guru' analysis tool into Emacs.
 
-(use-package go-guru
-  :ensure t
-  :config
-  (setq go-guru-debug t)
-  )
-
+;; (use-package go-guru
+;;   :ensure t
+;;   :config
+;;   (setq go-guru-debug t)
+;;   )
 
 ;;; [ gotest ] -- Launch GO unit tests
 
@@ -134,9 +132,8 @@
 
 ;;; [ go-projectile ] -- Projectile GOPATH.
 
-(use-package go-projectile
-  :ensure t)
-
+;; (use-package go-projectile
+;;   :ensure t)
 
 
 

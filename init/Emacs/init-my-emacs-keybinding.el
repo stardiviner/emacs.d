@@ -56,12 +56,12 @@
 (use-package which-key
   :ensure t
   :config
-  (setq which-key-idle-delay 1.0
+  (setq which-key-idle-delay 0.5
         which-key-idle-secondary-delay nil)
 
   (setq which-key-max-description-length 27
         ;; which-key-separator " ⇢ "
-	which-key-separator " "
+	      which-key-separator " "
         ;; which-key-unicode-correction 3
         which-key-show-prefix 'mode-line ; 'mode-line 'echo 'left
         which-key-show-remaining-keys t
@@ -73,12 +73,12 @@
         '("toggle"
           "register" "bookmark"
           "rectangle" "iedit"
-	  "describe"
+	        "describe"
           ("emacs" . highlight)
           ))
 
   (set-face-attribute 'which-key-highlighted-command-face nil
-		      :underline nil :weight 'bold :slant 'italic)
+		                  :underline nil :weight 'bold :slant 'italic)
   
   (which-key-mode 1)
 
@@ -121,7 +121,6 @@
      ("s" ace-swap-window "swap" :color yellow)
      ("d" delete-window "del" :color red)
      ("m" ace-maximize-window "max" :color orange)
-     ("z" zoom-window-zoom "zoom" :color orange)
      ("b" bookmark-jump "bookmark" :color blue)
      ("C-x" bm-toggle "bm (toggle)" :color yellow)
      ("C-b" bm-previous "bm (prev)" :color yellow)

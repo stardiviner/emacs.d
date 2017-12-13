@@ -79,15 +79,15 @@
 
 ;;; [ flycheck-julia ] -- Add a julia syntax checker to flycheck using Lint.jl
 
-(use-package flycheck-julia
-  :ensure t
-  :defer t
-  :config
-  (flycheck-julia-setup)
-  ;; if you use `flycheck-global-mode'
-  ;; (add-to-list 'flycheck-global-modes 'julia-mode)
-  ;; (add-to-list 'flycheck-global-modes 'ess-julia-mode)
-  )
+;; (use-package flycheck-julia
+;;   :ensure t
+;;   :defer t
+;;   :config
+;;   (flycheck-julia-setup)
+;;   ;; if you use `flycheck-global-mode'
+;;   ;; (add-to-list 'flycheck-global-modes 'julia-mode)
+;;   ;; (add-to-list 'flycheck-global-modes 'ess-julia-mode)
+;;   )
 
 
 (provide 'init-my-prog-lang-julia)

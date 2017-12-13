@@ -107,10 +107,10 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 ;;; [ beginend ] -- Emacs package to redefine =[M-<]= and =[M->]= for some modes like Dired.
 
-(use-package beginend
-  :ensure t
-  :config
-  (beginend-global-mode))
+;; (use-package beginend
+;;   :ensure t
+;;   :config
+;;   (beginend-global-mode))
 
 
 (provide 'init-my-emacs-navigation)

@@ -19,9 +19,8 @@
 
 (use-package smartparens
   :ensure t
+  :load (smartparens-config)
   :config
-  (require 'smartparens-config)
-  
   (setq sp-navigate-consider-sgml-tags '(html-erb-mode
                                          web-mode
                                          nxml-mode sgml-mode

@@ -11,10 +11,9 @@
 (global-set-key (kbd "C-c c") 'prog-code-prefix)
 
 
-;;; [ subword-mode ] -- editing code WithCamelCaseWritingLikeThis
+;;; [ subword ] -- editing code WithCamelCaseWritingLikeThis
 
 (use-package subword
-  :ensure t
   :init
   (add-hook 'prog-mode-hook 'subword-mode))
 

@@ -175,8 +175,8 @@
           (beacon-color "dark violet"))
       (beacon-blink)))
   ;; (add-hook 'company-completion-started-hook #'my-company-animation)
-  (add-hook 'company-completion-finished-hook #'my-company-success-animation)
-  (add-hook 'company-completion-cancelled-hook #'my-company-success-animation)
+  ;; (add-hook 'company-completion-finished-hook #'my-company-success-animation)
+  ;; (add-hook 'company-completion-cancelled-hook #'my-company-success-animation)
   )
 
 

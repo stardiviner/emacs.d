@@ -29,7 +29,6 @@
 
 (use-package makefile-executor
   :ensure t
-  :defer t
   :init
   (add-hook 'makefile-mode-hook 'makefile-executor-mode))
 

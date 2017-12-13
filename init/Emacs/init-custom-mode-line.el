@@ -834,10 +834,9 @@ dimensions of a block selection."
 
 ;;; mu4e
 (use-package mu4e
+  :ensure-system-package mu
   :load-path "/usr/share/emacs/site-lisp/mu4e/"
-  :init
-  (require 'mu4e)
-  (require 'mu4e-contrib)
+  :load (mu4e mu4e-contrib)
   :config
   (defun *mu4e ()
     "Show `mu4e-alert' new messages count in custom modeline."
@@ -913,7 +912,7 @@ dimensions of a block selection."
                  " "
                  ;; (*time)
                  (*erc)
-                 (*mu4e)
+                 ;; (*mu4e)
                  (*flycheck)
                  (*build-status)
                  (*vc)

@@ -23,11 +23,6 @@
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 (add-to-list 'org-babel-tangle-lang-exts '("java" . "java"))
 
-;;; [ autodisass-java-bytecode ] -- Automatically disassemble emacs buffers containing Java bytecode.
-
-;; (use-package autodisass-java-bytecode
-;;   :ensure t)
-
 ;;; [ Eclim ]
 
 (use-package eclim

@@ -23,21 +23,6 @@
   ;; (setq helm-fuzzy-find-keybind "")
   )
 
-;;; [ Deft ] -- quickly browsing, filtering, and editing directories of plain text notes.
-
-(use-package deft
-  :ensure t
-  :bind ("<f7>" . deft)
-  :commands (deft)
-  :config
-  (setq deft-extensions '("org" "tex" "txt" "md" "markdown"))
-  (with-eval-after-load 'org
-    (setq deft-directory (concat org-directory "/Projects")))
-  (setq deft-recursive t)
-  (setq deft-use-filename-as-title t)
-  ;; (setq deft-strip-summary-regexp)
-  )
-
 
 (provide 'init-my-emacs-search-finder)
 

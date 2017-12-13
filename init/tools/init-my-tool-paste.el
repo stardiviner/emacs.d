@@ -34,12 +34,13 @@
 
 ;;; [ webpaste ] -- paste text to pastebin-like services.
 
-(use-package webpaste
-  :ensure t
-  :defer t
-  :bind (:map paste-prefix
-              ("C-b" . webpaste-paste-buffer)
-              ("C-r" . webpaste-paste-region)))
+;; (use-package webpaste
+;;   :ensure t
+;;   :defer t
+;;   :bind (:map paste-prefix
+;;               ("C-b" . webpaste-paste-buffer)
+;;               ("C-r" . webpaste-paste-region))
+;;   )
 
 
 ;;; [ pastery ] -- paste to pastery from Emacs

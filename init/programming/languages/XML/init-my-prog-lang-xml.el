@@ -11,8 +11,6 @@
 
 (use-package nxml-mode
   :mode "\\.xml\\'"
-  ;; :init
-  ;; (push '("<\\?xml" . nxml-mode) magic-mode-alist)
   :config
   (setq nxml-child-indent 2
         nxml-attribute-indent 2

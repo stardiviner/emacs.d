@@ -79,6 +79,12 @@
 (require 'init-my-emacs-debug)
 ;; (require 'init-my-emacs-benchmark)
 
+(use-package pinentry
+  :ensure t
+  :ensure-system-package pinentry
+  :config
+  (pinentry-start))
+
 
 ;;; my custom functions
 
@@ -161,7 +167,7 @@
 
 (require 'init-my-languages)
 (require 'init-my-language-english)
-(require 'init-my-language-chinese)
+;; (require 'init-my-language-chinese)
 ;; (require 'init-my-language-japanese)
 
 
@@ -190,7 +196,7 @@
 ;; (require 'init-my-tool-feeds)
 (require 'init-my-tool-blog)
 (require 'init-my-tool-contacts)
-(require 'init-my-tool-password-manager)
+;; (require 'init-my-tool-password-manager)
 (require 'init-my-tool-accounting)
 (require 'init-my-tool-paste)
 ;; (require 'init-my-tool-collaborate)
@@ -219,8 +225,6 @@
 (require 'init-my-prog-sense)
 ;; (require 'init-my-prog-parser)
 ;;; fix issue which `company-rtags' backend is before `company-irony'.
-(with-eval-after-load 'init-my-prog-lang-C-common
-  (require 'init-my-prog-tags))
 (require 'init-my-prog-snippet)
 (require 'init-my-prog-template)
 (require 'init-my-prog-sidebar)
@@ -228,10 +232,11 @@
 (require 'init-my-prog-inferior)
 ;; (require 'init-my-prog-eval)
 (require 'init-my-prog-compile)
-(require 'init-my-prog-make)
+;; (require 'init-my-prog-make)
 (require 'init-my-prog-lint)
 (require 'init-my-prog-debug)
 (require 'init-my-prog-test)
+;; (require 'init-my-prog-build)
 ;; (require 'init-my-prog-test-coverage)
 (require 'init-my-prog-refactor)
 (require 'init-my-prog-project)
@@ -245,27 +250,29 @@
 (require 'init-my-prog-lang-lisp)
 (require 'init-my-prog-lang-emacs-lisp)
 (require 'init-my-prog-lang-common-lisp)
-(require 'init-my-prog-lang-lisp-scheme)
+;; (require 'init-my-prog-lang-lisp-scheme)
 ;; (require 'init-my-prog-lang-newLisp)
 ;; (require 'init-my-prog-lang-shen)
 (require 'init-my-prog-lang-clojure)
 (require 'init-my-prog-lang-python)
-(require 'init-my-prog-lang-ruby)
+;; (require 'init-my-prog-lang-ruby)
 ;; (require 'init-my-prog-lang-perl)
 (require 'init-my-prog-lang-shell)
 (require 'init-my-prog-lang-C-common)
+(with-eval-after-load 'init-my-prog-lang-C-common
+  (require 'init-my-prog-tags))
 ;; (require 'init-my-prog-lang-C++)
 ;; (require 'init-my-prog-lang-csharp)
 ;; (require 'init-my-prog-lang-D)
-(require 'init-my-prog-lang-go)
-(require 'init-my-prog-lang-rust)
+;; (require 'init-my-prog-lang-go)
+;; (require 'init-my-prog-lang-rust)
 ;; (require 'init-my-prog-lang-nim)
-(require 'init-my-prog-lang-lua)
-(require 'init-my-prog-lang-swift)
-(require 'init-my-prog-lang-java)
+;; (require 'init-my-prog-lang-lua)
+;; (require 'init-my-prog-lang-swift)
+;; (require 'init-my-prog-lang-java)
 ;; (require 'init-my-prog-lang-jvm-groovy)
 ;; (require 'init-my-prog-lang-jvm-kotlin)
-(require 'init-my-prog-lang-php)
+;; (require 'init-my-prog-lang-php)
 (require 'init-my-prog-lang-html)
 (require 'init-my-prog-lang-css)
 (require 'init-my-prog-lang-javascript)
@@ -275,17 +282,17 @@
 (require 'init-my-prog-lang-database)
 (require 'init-my-prog-lang-xml)
 (require 'init-my-prog-lang-json)
-(require 'init-my-prog-lang-rdf)
+;; (require 'init-my-prog-lang-rdf)
 ;; (require 'init-my-prog-lang-sdlang)
 ;; (require 'init-my-prog-lang-haskell)
 ;; (require 'init-my-prog-lang-scala)
 ;; (require 'init-my-prog-lang-elixir)
 ;; (require 'init-my-prog-lang-erlang)
-(require 'init-my-prog-lang-R)
-(require 'init-my-prog-lang-julia)
-(require 'init-my-prog-lang-gnuplot)
+;; (require 'init-my-prog-lang-R)
+;; (require 'init-my-prog-lang-julia)
+;; (require 'init-my-prog-lang-gnuplot)
 ;; (require 'init-my-prog-lang-octave)
-(require 'init-my-prog-lang-tex)
+;; (require 'init-my-prog-lang-tex)
 ;; (require 'init-bibliography)
 (require 'init-my-prog-lang-markdown)
 ;; (require 'init-my-prog-lang-reStructuredText)
@@ -332,16 +339,16 @@
 
 ;;; Science
 
-(require 'init-my-math)
-(require 'init-my-physics)
-(require 'init-my-chemistry)
-(require 'init-my-biology)
+;; (require 'init-my-math)
+;; (require 'init-my-physics)
+;; (require 'init-my-chemistry)
+;; (require 'init-my-biology)
 
 
 ;;; Engineering
 
-(require 'init-my-electronic)
-(require 'init-my-electric-music)
+;; (require 'init-my-electronic)
+;; (require 'init-my-electric-music)
 
 
 ;;; Authoring & Writing

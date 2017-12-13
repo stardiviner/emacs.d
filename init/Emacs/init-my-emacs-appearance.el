@@ -195,16 +195,12 @@
 
 ;;; [ beacon ] -- highlight the cursor whenever the window scrolls.
 
-(use-package beacon
-  :ensure t
-  :defer t
-  :config
-  (setq beacon-blink-duration 0.3
-        beacon-blink-delay 0.15
-        beacon-size 30)
-  ;; (beacon-mode 1) ; disable beacon to speed up Emacs.
-  (setq beacon-color "green yellow")
-  )
+;; (use-package beacon
+;;   :ensure t
+;;   :config
+;;   (beacon-mode 1)
+;;   (setq beacon-color "green yellow")
+;;   )
 
 
 ;;; [ Selection ]

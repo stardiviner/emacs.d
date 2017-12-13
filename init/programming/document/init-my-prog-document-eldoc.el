@@ -39,15 +39,7 @@
 (use-package eldoc-overlay-mode
   :ensure t
   :config
-  (setq eldoc-overlay-mode-function 'inline-docs)
   (eldoc-overlay-mode 1))
-
-
-;;; [ suggestion-box ] -- show tooltip on the cursor with convenient information.
-
-(use-package suggestion-box
-  :ensure t
-  :defer t)
 
 
 (provide 'init-my-prog-document-eldoc)

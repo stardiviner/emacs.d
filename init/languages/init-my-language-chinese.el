@@ -17,7 +17,7 @@
 (use-package pinyinlib
   :ensure t)
 
-;;; [ pinyin-search ] --
+;;; [ pinyin-search ] -- Search Chinese by Pinyin
 
 (use-package pinyin-search
   :ensure t
