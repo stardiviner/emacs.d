@@ -27,6 +27,7 @@
 ;; (setq org-babel-default-inline-header-args)
 ;; (setq org-babel-default-lob-header-args)
 
+;;; [ noweb ]
 ;; Raise errors when noweb references don't resolve.
 (setq org-babel-noweb-error-all-langs t)
 
@@ -48,11 +49,6 @@
       org-src-window-setup 'current-window ; 'reorganize-frame, 'current-window
       org-src-ask-before-returning-to-edit-buffer nil
       org-edit-src-auto-save-idle-delay 0 ; 0: don't auto save.
-      )
-
-;;; babel eval result
-(setq org-babel-inline-result-wrap "=%s="
-      org-export-babel-evaluate 'inline-only
       )
 
 (setq org-babel-load-languages
@@ -124,11 +120,11 @@
       )
 
 ;;; faster tangleing of large Org mode files.
-(setq org-babel-use-quick-and-dirty-noweb-expansion t)
+;; (setq org-babel-use-quick-and-dirty-noweb-expansion t)
 
-;;; auto load require Babel language libraries `ob-*'.
+
 ;; (defadvice org-babel-execute-src-block (around load-language nil activate)
-;;   "Load language if needed."
+;;   "Auto load require Babel language libraries `ob-*'."
 ;;   (let ((language (org-element-property :language (org-element-at-point))))
 ;;     ;; workaround for #+CALL: babel. (`language' will be `nil')
 ;;     (if language
@@ -141,35 +137,6 @@
 ;;     ad-do-it))
 
 ;; (advice-remove 'org-babel-execute-src-block 'ad-Advice-org-babel-execute-src-block)
-
-
-;;;_ + ditaa & PlantUML & Graphviz
-
-;; Org-babel makes it easy to generate decent graphics using external packages
-;; like ditaa, graphviz, PlantUML, and others.
-;;
-;; The setup is really easy. ditaa is provided with the org-mode source. You'll
-;; have to install the `graphviz' and `PlantUML' packages on your system.
-
-;; ditaa & PlantUML setup
-(setq org-ditaa-jar-path "~/.emacs.d/init/extra/ditaa0_9.jar")
-(setq org-plantuml-jar-path "~/.emacs.d/init/extra/plantuml.jar")
-
-(add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images 'append)
-
-;;; PlantUML language reference
-;;
-;; [[file:~/.emacs.d/init/extra/PlantUML%20Language%20Reference%20Guide.pdf][PlantUML Language Reference Guide]]
-
-;; Use fundamental mode when editing plantuml blocks with C-c '
-;; (add-to-list 'org-src-lang-modes (quote ("plantuml" . fundamental)))
-
-;;; Graphviz
-
-;;; Example
-;; #+BEGIN_SRC dot :file some_filename.png :cmdline -Kdot -Tpng
-;;   <context of graphviz source goes here>
-;; #+END_SRC
 
 
 ;;; language-specific header arguments
@@ -322,7 +289,7 @@
         (beacon-color "violet red"))
     (beacon-blink)))
 
-(add-hook 'org-src-mode-hook #'my-org-src-edit-animation)
+;; (add-hook 'org-src-mode-hook #'my-org-src-edit-animation)
 
 ;;; [ ob-async ] -- enables asynchronous execution of org-babel src blocks for *any* languages.
 

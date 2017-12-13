@@ -9,19 +9,6 @@
 
 (setq org-occur-case-fold-search 'smart)
 
-;;; [ Agenda dispatcher ]
-
-;; (org-agenda-dispatch)
-
-;; [ org-index ] -- fast search for selected org nodes and things outside of Org.
-
-;; (use-package org-index
-;;   :init
-;;   (setq org-index-dispatch-key (kbd "C-c o i"))
-;;   :config
-;;   ;; (setq org-index-id)
-;;   )
-
 ;;; [ helm-org-rifle ] -- Rifle through your Org buffers and acquire your target.
 
 (use-package helm-org-rifle
@@ -280,14 +267,16 @@
 
 (use-package helm-fuzzy-find
   :ensure t
+  :after helm
+  :ensure-system-package (ff . "cd ~/Code/Emacs/ff/ ; make && mv ff ~/bin/")
   :init
-  (with-eval-after-load 'helm
-    (defun org-helm-fuzzy-find ()
-      (interactive)
-      (let ((default-directory org-directory))
-	(helm-fuzzy-find nil)))
-
-    (define-key Org-prefix (kbd "C-f") 'org-helm-fuzzy-find))
+  (defun org-helm-fuzzy-find ()
+    (interactive)
+    (let ((default-directory org-directory))
+	    (when (yes-or-no-p "Heavy recursive on Org root ~/Org/, continue? ")
+        (helm-fuzzy-find nil))))
+  
+  (define-key Org-prefix (kbd "C-f") 'org-helm-fuzzy-find)
   )
 
 

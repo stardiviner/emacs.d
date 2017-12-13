@@ -27,6 +27,7 @@
 (define-key Org-prefix (kbd "a") 'my-org-agenda-switch)
 ;; (define-key Org-prefix (kbd "a") 'org-agenda)
 
+(define-key Org-prefix (kbd "c") 'org-capture)
 
 (unless (boundp 'org-link-prefix)
   (define-prefix-command 'org-link-prefix))

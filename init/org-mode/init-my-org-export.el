@@ -8,27 +8,14 @@
 ;;; Code:
 
 
-(require 'org)
+(require 'ox)
 
-(setq org-export-backends '(ascii html icalendar latex md odt)
-      org-export-headline-levels 5
-      org-export-with-toc t
-      org-export-with-tasks t
-      org-export-with-section-numbers t
-      org-export-with-todo-keywords t
-      org-export-with-priority t
+(setq org-export-headline-levels 4
       org-export-with-clocks t
       org-export-with-planning t
       org-export-with-timestamps t
-      org-export-with-tags t
-      org-export-with-drawers t
       org-export-with-properties t
-      org-export-with-footnotes t
-      org-export-with-tables t
-      org-export-with-latex t
-      org-export-with-emphasize t
-      org-export-babel-evaluate 'inline-only
-      org-export-with-smart-quotes t
+      ;; org-export-use-babel nil
       )
 
 ;;; exclude org headlines exporting with a specific tags.
@@ -38,7 +25,7 @@
 ;;; This snippet turns - [X] into ☑ and - [ ] into ☐.
 
 ;; 'ascii, 'unicode, 'html
-(setq org-html-checkbox-type 'ascii)
+(setq org-html-checkbox-type 'unicode)
 
 
 ;;; ox-html
@@ -46,33 +33,11 @@
 
 (setq org-html-doctype "html5"
       org-html-html5-fancy t
-      org-html-use-infojs 'when-configured
+      org-html-use-infojs t ; 'when-configured
       ;; org-html-infojs-options
-      org-html-indent nil ; t: may break code blocks.
-      ;; org-html-format-drawer-function
-      ;; org-html-footnotes-section
-      org-html-toplevel-hlevel 1 ; use <h1> for h1 level headlines.
-      ;; org-html-format-headline-function
-      org-html-allow-name-attribute-in-anchors t
-      ;; org-html-format-inlinetask-function
-      org-html-with-latex t ; t: mathjax, 'divpng, 'imagemagick, 'verbatim,
-      org-html-inline-images t
+      ;; org-html-allow-name-attribute-in-anchors t
       org-html-htmlize-output-type 'inline-css ; make HTML self-containing
-      org-html-htmlize-font-prefix "org-"
-      
-      ;; org-html-table-default-attributes
-      ;; '(:border "2" :cellspacing "0" :cellpadding "6"
-      ;;           :rules "groups" :frame "hsides")
-      ;; org-html-table-header-tags '("<th scope=\"%s\"%s>" . "</th>")
-      ;; org-html-table-data-tags '("<td%s>" . "</td>")
-      ;; org-html-table-row-tags '("<tr>" . "</tr>")
-      org-html-table-align-individual-fields t
-      org-html-table-caption-above t
-      
-      ;; org-html-tag-class-prefix ""
-      
-      org-html-coding-system 'utf-8
-      
+
       ;; org-html-mathjax-options
       ;; '((path
       ;;   "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML")
@@ -88,28 +53,14 @@
       ;;   )
       ;; org-html-mathjax-template
       
-      org-html-postamble 't ; author, email, creator, date,
-      ;;       org-html-postamble-format
-      ;;       '(("en" "<p class=\"author\">Author: %a (%e)</p>
-      ;; <p class=\"date\">Date: %d</p>
-      ;; <p class=\"creator\">%c</p>
-      ;; <p class=\"validation\">%v</p>"))
-      ;;
-      org-html-preamble t
-      ;; org-html-preamble-format
-
-      ;; org-html-link-home
-      ;; org-html-link-up
-      org-html-link-use-abs-url nil
-      org-html-link-org-files-as-html t
-      ;; org-html-home/up-format
+      ;; org-html-link-home ""
+      ;; org-html-link-up ""
+      ;; org-html-link-use-abs-url t ; relative to HTML_LINK_HOME
 
       ;; org-html-head ""
       ;; org-html-head-extra ""
 
       ;; org-html-viewport
-
-      ;; org-html-todo-kwd-class-prefix ""
       )
 
 ;;; Exporting JavaScript babel code block into <script> tag in HTML export.
@@ -122,117 +73,16 @@
 (defun org-babel-execute:inline-js (body _params)
   (format "<script type=\"text/javascript\">\n%s\n</script>" body))
 
-;;; [ ox-pandoc ] -- another org-mode exporter via pandoc.
-
-;; (use-package ox-pandoc
-;;   :ensure t)
-
-
-;;; [ ox-latex ]
-
-(require 'ox-latex)
-
-;; syntax highlight in LaTeX export (Minted)
-
 
-;;; Chinese support in LaTeX/PDF export.
-;; Usage:
-;; add following line to Org-mode file.
-;; #+LATEX_CLASS: cn-article
-
-(require 'ox-latex)
-
-(setq org-latex-pdf-process
-      '("xelatex -interaction nonstopmode %f"
-        "xelatex -interaction nonstopmode %f"))
-
-(unless (boundp 'org-latex-classes)
-  (setq org-latex-classes nil))
-
-(add-to-list 'org-latex-classes
-             '("cn-article"
-               "\\documentclass[10pt,a4paper]{article}
-\\usepackage{graphicx}
-\\usepackage{xcolor}
-\\usepackage{xeCJK}
-\\usepackage{lmodern}
-\\usepackage{verbatim}
-\\usepackage{fixltx2e}
-\\usepackage{longtable}
-\\usepackage{float}
-\\usepackage{tikz}
-\\usepackage{wrapfig}
-\\usepackage{soul}
-\\usepackage{textcomp}
-\\usepackage{listings}
-\\usepackage{geometry}
-\\usepackage{algorithm}
-\\usepackage{algorithmic}
-\\usepackage{marvosym}
-\\usepackage{wasysym}
-\\usepackage{latexsym}
-\\usepackage{natbib}
-\\usepackage{fancyhdr}
-\\usepackage[xetex,colorlinks=true,CJKbookmarks=true,
-linkcolor=blue,
-urlcolor=blue,
-menucolor=blue]{hyperref}
-\\usepackage{fontspec,xunicode,xltxtra}
-\\setmainfont{WenQuanYi Micro Hei}
-\\setsansfont{WenQuanYi Micro Hei}
-\\setmonofont{WenQuanYi Micro Hei Mono}
-\\newcommand\\fontnamemono{WenQuanYi Micro Hei Mono}%等宽字体
-\\newfontinstance\\MONO{\\fontnamemono}
-\\newcommand{\\mono}[1]{{\\MONO #1}}
-\\setCJKmainfont[Scale=0.9]{WenQuanYi Micro Hei}%中文字体
-\\setCJKmonofont[Scale=0.9]{WenQuanYi Micro Hei}
-\\hypersetup{unicode=true}
-\\geometry{a4paper, textwidth=6.5in, textheight=10in,
-marginparsep=7pt, marginparwidth=.6in}
-\\definecolor{foreground}{RGB}{220,220,204}%浅灰
-\\definecolor{background}{RGB}{62,62,62}%浅黑
-\\definecolor{preprocess}{RGB}{250,187,249}%浅紫
-\\definecolor{var}{RGB}{239,224,174}%浅肉色
-\\definecolor{string}{RGB}{154,150,230}%浅紫色
-\\definecolor{type}{RGB}{225,225,116}%浅黄
-\\definecolor{function}{RGB}{140,206,211}%浅天蓝
-\\definecolor{keyword}{RGB}{239,224,174}%浅肉色
-\\definecolor{comment}{RGB}{180,98,4}%深褐色
-\\definecolor{doc}{RGB}{175,215,175}%浅铅绿
-\\definecolor{comdil}{RGB}{111,128,111}%深灰
-\\definecolor{constant}{RGB}{220,162,170}%粉红
-\\definecolor{buildin}{RGB}{127,159,127}%深铅绿
-\\punctstyle{kaiming}
-\\title{}
-\\fancyfoot[C]{\\bfseries\\thepage}
-\\chead{\\MakeUppercase\\sectionmark}
-\\pagestyle{fancy}
-\\tolerance=1000
-[NO-DEFAULT-PACKAGES]
-[NO-PACKAGES]"
-               ("\\section{%s}" . "\\section*{%s}")
-               ("\\subsection{%s}" . "\\subsection*{%s}")
-               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-               ("\\paragraph{%s}" . "\\paragraph*{%s}")
-               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-
-
 ;;; convert selected region to Markdown and copy to clipboard for pasting
 ;;; on sites like GitHub, and Stack Overflow.
-
-(unless (boundp 'paste-prefix)
-  (define-prefix-command 'paste-prefix))
-(define-key paste-prefix (kbd "m") 'my-org-md-convert-region-to-md)
-
-;;; [ ox-md ] -- Markdown
-
-(require 'ox-md)
 
 (defun my-org-md-convert-region-to-md ()
   "Convert selected region to Markdown and copy to clipboard.
 
 For pasting on sites like GitHub, and Stack Overflow."
   (interactive)
+  (require 'ox-md)
   
   ;; (with-temp-buffer-window
   ;;  "*org->markdown temp*"
@@ -244,6 +94,10 @@ For pasting on sites like GitHub, and Stack Overflow."
                    (org-export-string-as
                     (buffer-substring (region-beginning) (region-end)) 'md t))
   (deactivate-mark))
+
+(unless (boundp 'paste-prefix)
+  (define-prefix-command 'paste-prefix))
+(define-key paste-prefix (kbd "m") 'my-org-md-convert-region-to-md)
 
 
 ;;; [ org-mime ] -- org-mime can be used to send HTML email using Org-mode HTML export.
@@ -326,23 +180,7 @@ For pasting on sites like GitHub, and Stack Overflow."
 
 ;;; [ Beamer ]
 
-(require 'ox-beamer)
-
-;;; copy formatted text from org-mode to applications.
-
-(defun my-org-formatted-copy ()
-  "Export region to HTML, and copy it to the clipboard."
-  (interactive)
-  (save-window-excursion
-    (let* ((buf (org-export-to-buffer 'html "*org-mode formatted copy*" nil nil t t))
-           (html (with-current-buffer buf (buffer-string))))
-      (with-current-buffer buf
-        (shell-command-on-region
-         (point-min)
-         (point-max)
-         "textutil -stdin -format html -convert rtf -stdout | pbcopy"))
-      (kill-buffer buf))))
-
+;; (require 'ox-beamer)
 
 ;;; [ org-preview-html ] -- automatically use eww to preview the current org file on save.
 
@@ -362,12 +200,34 @@ For pasting on sites like GitHub, and Stack Overflow."
 ;;; [ html2org ] -- convert html to org format text.
 
 (use-package html2org
-  :ensure t)
+  :ensure t
+  :commands (html2org))
+
+;;; copy formatted text from org-mode to applications.
+
+(defun my-org-formatted-copy ()
+  "Export region to HTML, and copy it to the clipboard."
+  (interactive)
+  (save-window-excursion
+    (let* ((buf (org-export-to-buffer 'html "*org-mode formatted copy*" nil nil t t))
+           (html (with-current-buffer buf (buffer-string))))
+      (with-current-buffer buf
+        (shell-command-on-region
+         (point-min)
+         (point-max)
+         "textutil -stdin -format html -convert rtf -stdout | pbcopy"))
+      (kill-buffer buf))))
+
 
 ;;; [ ox-epub ] -- Org-mode EPUB export.
 
 (use-package ox-epub
   :ensure t)
+
+;;; [ ox-pandoc ] -- another org-mode exporter via pandoc.
+
+;; (use-package ox-pandoc
+;;   :ensure t)
 
 
 (provide 'init-my-org-export)

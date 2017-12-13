@@ -9,17 +9,12 @@
 
 ;; [ default view ]
 
-(setq org-startup-folded t
-      org-startup-truncated t
-      ;; org-startup-with-beamer-mode nil
-      ;; org-hide-block-startup t
-      org-hide-emphasis-markers t
-      )
+(setq org-startup-folded t)
 
-(setq org-fontify-emphasized-text t
+(setq org-hide-emphasis-markers t
+      org-fontify-emphasized-text t
       org-fontify-quote-and-verse-blocks t
-      org-fontify-done-headline t
-      )
+      org-fontify-done-headline t)
 
 (setq org-ellipsis "  ")
 
@@ -30,7 +25,6 @@
 ;; [ pretty entities ]
 
 ;; \pi will display as π
-;; [C-c C-x \]
 (setq org-pretty-entities t
       org-pretty-entities-include-sub-superscripts nil)
 

@@ -79,6 +79,34 @@
   (setq plantuml-jar-path (locate-user-emacs-file "init/extra/plantuml.jar"))
   )
 
+
+;; Org-babel makes it easy to generate decent graphics using external packages
+;; like ditaa, graphviz, PlantUML, and others.
+;;
+;; The setup is really easy. ditaa is provided with the org-mode source. You'll
+;; have to install the `graphviz' and `PlantUML' packages on your system.
+
+;; ditaa & PlantUML setup
+(setq org-ditaa-jar-path "~/.emacs.d/init/extra/ditaa0_9.jar")
+(setq org-plantuml-jar-path "~/.emacs.d/init/extra/plantuml.jar")
+
+(add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images 'append)
+
+;;; PlantUML language reference
+;;
+;; [[file:~/.emacs.d/init/extra/PlantUML%20Language%20Reference%20Guide.pdf][PlantUML Language Reference Guide]]
+
+;; Use fundamental mode when editing plantuml blocks with C-c '
+;; (add-to-list 'org-src-lang-modes (quote ("plantuml" . fundamental)))
+
+;;; Graphviz
+
+;;; Example
+;; #+BEGIN_SRC dot :file some_filename.png :cmdline -Kdot -Tpng
+;;   <context of graphviz source goes here>
+;; #+END_SRC
+
+
 ;;; [ blockdiag ] -- Emacs interface to blockdiag.
 
 (use-package ob-blockdiag

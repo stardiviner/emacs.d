@@ -11,15 +11,16 @@
 (setq org-display-internal-link-with-indirect-buffer t
       org-indirect-buffer-display 'current-window
       org-keep-stored-link-after-insertion t ; keep stored link in entire session.
-      ;; org-open-directory-means-index-dot-org t
       
       ;; You can fully-qualify links on a link-by-link basis by passing one
       ;; universal argument [C-u].
       org-link-file-path-type 'adaptive ; default 'adaptive, 'relative
       )
 
-(setq org-id-track-globally t
-      org-id-link-to-org-use-id nil)
+(setq org-id-link-to-org-use-id nil
+      org-id-track-globally t)
+
+(define-key org-mode-map (kbd "M-,") 'org-mark-ring-goto)
 
 ;;; Links are now customizable
 ;;
@@ -27,11 +28,7 @@
 ;; Links are now centralized in `org-link-parameters'.
 ;; (add-to-list 'org-link-parameters '())
 
-
 (define-key org-mode-map (kbd "M-,") 'org-mark-ring-goto)
-;; (define-key org-mode-map (kbd "C-c %") 'org-mark-ring-push)
-
-
 
 ;;; fontify broken link.
 ;; (org-link-set-parameters
@@ -334,6 +331,8 @@ With prefix argument, also display headlines without a TODO keyword."
         ("Coding" . "https://coding.net/search?q=%s")
         ("Geakit" . "https://geakit.com/search?q=%s")
         ("Git_OSC_Open_Source_China" . "https://git.oschina.net/search?search=%s")
+        ;; Bug Track System
+        ("CVE" . "https://cve.mitre.org/cgi-bin/cvename.cgi?name=%s")
         ;; Lisp
         ("lispdoc" . "http://lispdoc.com/?q=%s")
         ;; Ruby

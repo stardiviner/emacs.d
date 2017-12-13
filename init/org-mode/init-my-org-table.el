@@ -39,17 +39,15 @@
   :ensure t
   :defer t)
 
-;;; [ otama ] -- Simple org-table based database, intended to be a light version of BBDB and helm-friendly.
-
-;; (use-package otama
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (setq otama-database-file-name
-;;         (concat (getenv "HOME") "/Org" "/otama/otama.org"))
-;;
-;;   (define-key Org-prefix (kbd "D") 'otama-helm)
-;;   )
+;;; import .xlsx, .csv file into Org.
+(defun org-table-import-xlsx-file-to-csv-org (file)
+  "Import .xlsx, .csv `FILE' into Org."
+  (interactive "f")
+  (let* ((source-file  (file-name-sans-extension (buffer-file-name (current-buffer))))
+         (xlsx-file (concat source-file ".xlsx"))
+         (csv-file (concat source-file ".csv")))
+    (org-odt-convert file "csv")
+    (org-table-import csv-file  nil)))
 
 
 

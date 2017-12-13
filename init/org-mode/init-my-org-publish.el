@@ -22,10 +22,11 @@
 
 ;; src code block syntax highlighting
 (use-package htmlize
-  :ensure t)
-
-(setq org-html-htmlize-output-type 'css
-      org-html-htmlize-font-prefix "org-")
+  :ensure t
+  :config
+  (setq org-html-htmlize-output-type 'css
+        org-html-htmlize-font-prefix "org-")
+  )
 
 ;; MathJax.js
 (add-to-list
@@ -58,7 +59,7 @@ Last updated %C. <br>
 Built with %c.
 </div>")
 
-(setq my-org-publish-directory "~/Org-Public")
+(defvar my-org-publish-directory "~/Org-Public")
 
 ;; projects definition
 (setq org-publish-project-alist

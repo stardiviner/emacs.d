@@ -10,15 +10,7 @@
 
 ;;; Tags
 
-(setq org-auto-align-tags t
-      org-export-with-tags t
-      org-tags-column -77
-      ;; inheritance
-      org-use-tag-inheritance t
-      org-tags-match-list-sublevels t
-      org-fast-tag-selection-single-key nil ; multiple different group tags selecting.
-      ;; org-tags-exclude-from-inheritance '(("knowledge" . nil))
-      )
+(setq org-export-with-tags t)
 
 ;; enable group tags
 (setq org-group-tags t)

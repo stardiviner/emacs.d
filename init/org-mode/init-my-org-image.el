@@ -7,29 +7,26 @@
 
 ;;; Code:
 
+;;; [ inline images ]
 
-;;; inline images
-;;
-;; [C-c C-x C-v] - `org-toggle-inline-images'.
-;; [C-c C-x C-M-v] - `org-redisplay-inline-images'
+(setq org-startup-with-inline-images t)  ; disable starup preview inline image to improve org-mode pferformance.
 
-(setq org-startup-with-inline-images t ; disable starup preview inline image to improve org-mode pferformance.
-      org-image-actual-width nil ; inline image scale width.
-      ;; you need to use:
-      ;; - #+ATTR_ORG: :width 400
-      ;; - #+ATTR_LATEX: :width 5in
-      ;; - #+ATTR_HTML: :width 200px
-      ;; org-latex-inline-image-rules
-      org-latex-image-default-width "2.0\\linewidth"
-      ;; org-latex-image-default-height
-      )
+;;; manually specify inline image size.
+;; you need to use:
+;; - #+ATTR_ORG: :width 400
+;; - #+ATTR_LATEX: :width 5in
+;; - #+ATTR_HTML: :width 200px
+(use-package org
+  :ensure-system-package (convert . "sudo pacman -S --noconfirm imagemagick")
+  :config
+  (setq org-image-actual-width nil) ; inline image scale width.
+  )
 
-
+
 ;;; set default Org-mode inline image background color.
-
 (defcustom org-inline-image-background nil
   "The color used as the default background for inline images.
-  When nil, use the default face background."
+When nil, use the default face background."
   :group 'org
   :type '(choice color (const nil)))
 
@@ -47,7 +44,7 @@
       ;;    (color-darken-name (face-background 'default) 2)))
       )
 
-;;modified version of original `org-display-inline-images'.
+;; modified version of original `org-display-inline-images'.
 ;; append `:background' in `create-image'.
 (defun org-display-inline-images (&optional include-linked refresh beg end)
   (interactive "P")
@@ -58,7 +55,7 @@
     (org-with-wide-buffer
      (goto-char (or beg (point-min)))
      (let ((case-fold-search t)
-           (file-extension-re (org-image-file-name-regexp)))
+           (file-extension-re (image-file-name-regexp)))
        (while (re-search-forward "[][]\\[\\(?:file\\|[./~]\\)" end t)
          (let ((link (save-match-data (org-element-context))))
            ;; Check if we're at an inline image.
@@ -141,7 +138,6 @@
                             (list 'org-display-inline-remove-overlay))
                            (push ov org-inline-image-overlays)))))))))))))))
 
-
 
 ;;; A workflow to quickly insert inline images to Org-mode.
 ;; http://pragmaticemacs.com/emacs/a-workflow-to-quickly-add-photos-to-org-mode-notes/

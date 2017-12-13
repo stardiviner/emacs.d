@@ -88,16 +88,16 @@
 (require 'init-my-org-publish)
 (require 'init-my-org-search)
 (require 'init-my-org-attach)
-(require 'init-my-org-hacking)
+(require 'init-my-org-protocol)
 (require 'init-my-org-extensions)
 (require 'init-my-org-programming)
 (require 'init-my-org-mindmap)
 (require 'init-my-org-presentation)
-;; (require 'init-my-org-trello)
 (require 'init-my-org-contacts)
 (require 'init-my-org-password)
 (require 'init-my-org-drill)
 ;; (require 'init-my-org-mobile)
+;; (require 'init-my-org-trello)
 
 
 

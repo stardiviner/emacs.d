@@ -7,46 +7,32 @@
 
 ;;; Code:
 
-
 ;;; [ Status ]
 
 ;;; statistics -> [1/10] or [15%]
-(setq org-provide-todo-statistics t
-      org-hierarchical-todo-statistics nil ; nil: cover recursive all entries.
-      org-checkbox-hierarchical-statistics nil ; nil: covers recursive all entries.
-      org-enforce-todo-checkbox-dependencies nil
-      )
 
 ;; Org-mode built-in TODOs dependencies, enforce parent and sub-tasks DONE.
 (setq org-enforce-todo-dependencies t
-      org-track-ordered-property-with-tag t
-      org-agenda-dim-blocked-tasks t
-      )
+      org-track-ordered-property-with-tag t)
 
 ;;; time repeat
-(setq org-todo-repeat-to-state "TODO"
+(setq org-todo-repeat-to-state nil
       org-agenda-prefer-last-repeat nil
-      org-log-repeat 'time
-      org-agenda-repeating-timestamp-show-all t
-      )
+      org-log-repeat 'time)
 
 
 ;;; [ Log ]
 
-(setq org-log-done 'time
+(setq org-log-into-drawer t
+      org-log-note-clock-out t
+      org-log-done 'time
+      org-log-done-with-time t
       org-log-redeadline 'time
       org-log-reschedule 'time
       org-log-refile 'time
-      org-log-repeat 'time
-      org-log-note-clock-out t
-      org-log-into-drawer t
-      org-log-done-with-time t
-      )
+      org-log-repeat 'time)
 
 ;;; [ Effort ]
-
-(setq org-time-clocksum-use-effort-durations nil)
-
 
 ;;; TODOs status
 ;;
@@ -144,13 +130,11 @@
         ))
 
 
-;;; auto remove priority after mark task done.
-
-;; (defun my/org-remove-preiority ()
-;;   (if (= (org-get-priority (match-string 0)) 0)
-;;       (org-priority 'remove)))
-;;
-;; (add-hook 'org-after-todo-statistics-hook 'my/org-remove-preiority)
+(defun my/org-remove-preiority ()
+  "Auto remove priority after mark task done."
+  (if (= (org-get-priority (match-string 0)) 0)
+      (org-priority 'remove)))
+(add-hook 'org-after-todo-statistics-hook 'my/org-remove-preiority)
 
 
 ;;; [ Habit ]

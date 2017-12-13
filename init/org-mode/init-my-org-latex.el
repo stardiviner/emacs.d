@@ -7,6 +7,23 @@
 
 ;;; Code:
 
+
+(setq org-startup-with-latex-preview nil)
+
+;; highlight inline LaTeX, and org-entities with different face.
+(setq org-highlight-latex-and-related '(latex entities))
+
+;; fix org-mode startup latex preview invalid on non-file buffer.
+;; (defun disable-org-latex-preview-on-nonfile ()
+;;   (interactive)
+;;   (if (not (buffer-file-name))
+;;       (setq-local org-startup-with-latex-preview nil)
+;;     (setq org-startup-with-latex-preview t))
+;;   )
+;;
+;; (add-hook 'org-mode-hook #'disable-org-latex-preview-on-nonfile)
+
+
 ;;; [ ob-latex ]
 (require 'ob-latex)
 
@@ -25,31 +42,11 @@
 ;;       '((:results . "raw graphics")
 ;;         (:file . "temp.png")))
 
-
-;; `org-toggle-inline-images' [C-c C-x C-v]
-;; `org-toggle-latex-fragment' [C-c C-x C-l] / [C-c C-c]
-;; `org-toggle-pretty-entities' [C-c C-x \]
 
-(setq org-startup-with-latex-preview nil)
-
-;; highlight inline LaTeX, and org-entities with different face.
-(setq org-highlight-latex-and-related '(latex entities))
-
-;; fix org-mode startup latex preview invalid on non-file buffer.
-;; (defun disable-org-latex-preview-on-nonfile ()
-;;   (interactive)
-;;   (if (not (buffer-file-name))
-;;       (setq-local org-startup-with-latex-preview nil)
-;;     (setq org-startup-with-latex-preview t))
-;;   )
-;;
-;; (add-hook 'org-mode-hook #'disable-org-latex-preview-on-nonfile)
-
-
+;;; org -> latex packages
 ;; (add-to-list 'org-latex-default-packages-alist)
 ;; (add-to-list 'org-latex-packages-alist)
 
-;;; org -> latex packages
 ;; (source code format, and syntax color highlighting)
 
 ;; 1. use "listings" + "color"
@@ -87,6 +84,7 @@
 
 ;; (setq org-format-latex-header)
 
+;;; set LaTeX export to HTML style.
 (setq org-format-latex-options
       (plist-put org-format-latex-options :foreground 'default))
 (setq org-format-latex-options
@@ -97,12 +95,20 @@
       (plist-put org-format-latex-options :html-foreground "Black"))
 (setq org-format-latex-options
       (plist-put org-format-latex-options :html-background "Transparent"))
+;;; Preview Org-mode LaTeX fragments
+;; (setq org-preview-latex-default-process 'dvipng)    ; faster but don't support Chinese by default.
+(setq org-preview-latex-default-process 'imagemagick)  ; slower but support Chinese by default.
+(setq org-latex-image-default-width "2.0\\linewidth"
+      ;; org-latex-image-default-height "20.0\\lineheight"
+      )
 (setq org-format-latex-options
-      (plist-put org-format-latex-options :scale 2.0))
+      (plist-put org-format-latex-options :scale 2.0)) ; adjust LaTeX preview image size.
 (setq org-format-latex-options
-      (plist-put org-format-latex-options :html-scale 2.5))
+      (plist-put org-format-latex-options :html-scale 2.5)) ; adjust HTML exporting LaTeX image size.
 
-
+;;; emabedded latex (inline formula)
+
+
 ;;; [ Math ]
 
 ;;; LaTeX Math Symbols
@@ -114,42 +120,22 @@
 ;;; Using CDLaTeX to enter Math
 ;; (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 
-
-;;; MathJax
-
-;; (setq org-html-mathjax-options)
-
 ;; ;; CDLaTeX minor mode to speed up math input.
 ;; (autoload 'cdlatex-mode "cdlatex" nil)
 ;; ;; enable `org-cdlatex-mode' for all org files
 ;; (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 
+;;; change default `org-cdlatex' keybindings.
+;; (with-eval-after-load 'org
+;;   (define-key org-cdlatex-mode-map (kbd "`") nil)
+;;   (setq cdlatex-math-symbol-prefix ?`)
+;;   (setq cdlatex-math-modify-prefix ?')
+;;   (org-defkey org-cdlatex-mode-map (kbd "\"") 'cdlatex-math-symbol)
+;;   (org-defkey org-cdlatex-mode-map (kbd "'") 'org-cdlatex-math-modify))
 
-;;; emabedded latex (inline formula)
+;;; [ MathJax ]
 
-;;; Preview Org-mode LaTeX fragments
-;; (setq org-preview-latex-default-process 'dvipng)    ;速度很快，但 *默认* 不支持中文
-(setq org-preview-latex-default-process 'imagemagick)  ;速度较慢，但支持中文
-(setq org-format-latex-options
-      (plist-put org-format-latex-options :scale 2.0))      ;调整 LaTeX 预览图片的大小
-(setq org-format-latex-options
-      (plist-put org-format-latex-options :html-scale 2.5)) ;调整 HTML 文件中 LaTeX 图像的大小
-
-
-
-(defface org-latex-face
-  (org-compatible-face 'shadow
-    '((((class color grayscale) (min-colors 88) (background light))
-       (:foreground "black" :background "brown"))
-      (((class color grayscale) (min-colors 88) (background dark))
-       (:foreground "white" :background "forest green"))
-      (((class color) (min-colors 8) (background light))
-       (:foreground "black" :background "gray"))
-      (((class color) (min-colors 8) (background dark))
-       (:foreground "white" :background "gray"))))
-  "Face for fixed-width text like code snippets."
-  :group 'org-faces
-  :version "22.1")
+;; (setq org-html-mathjax-options)
 
 
 ;;; [ org-edit-latex ] -- Org edit LaTeX block like babel src block.
@@ -163,7 +149,7 @@
   (setq org-edit-latex-create-master nil) ; 'ask, t, nil
   )
 
-
+
 ;;; Org-mode export to -> Chinese TeX (ctex) -> PDF
 
 ;;; [ org2ctex ] -- Export org to ctex (a latex macro for Chinese)

@@ -7,11 +7,11 @@
 
 ;;; Code:
 
-
 (require 'org-agenda)
 
+(setq org-agenda-window-setup 'current-window)
+
 ;; Agenda Views
-(setq org-agenda-show-inherited-tags nil)
 (setq org-agenda-align-tags-to-column -100
       org-agenda-tags-column -100)
 (setq org-agenda-prefix-format
@@ -25,11 +25,9 @@
 (setq org-agenda-scheduled-leaders '("Scheduled: " "%3d days | "))
 
 (setq org-agenda-block-separator ?=
-      org-agenda-compact-blocks t
-      )
+      org-agenda-compact-blocks t)
 
-(setq org-agenda-show-future-repeats t
-      org-agenda-prefer-last-repeat t)
+(setq org-agenda-prefer-last-repeat t)
 
 ;;; sorting strategy
 (setq org-agenda-sorting-strategy
@@ -42,14 +40,7 @@
       )
 
 ;;; Time Grid
-(setq org-agenda-use-time-grid t)
 (setq org-agenda-timegrid-use-ampm t)
-(setq org-agenda-show-current-time-in-grid t)
-;; (setq org-agenda-time-grid
-;;       '((daily today require-timed)
-;;         (800 1000 1200 1400 1600 1800 2000)
-;;         "......"
-;;         "----------------"))
 
 ;;; specify different color for days
 (defun my-org-agenda-get-day-face-fn (date)
@@ -239,13 +230,17 @@
              '("~/Org/Wiki/Business/Startup/My Startup/My Startup.org"
                "~/Org/Wiki/Things/Things.org" ; Buy Things
                "~/Org/Tasks/"
-               "~/Org/Tasks/Work Tasks/" ; Work Tasks
-               "~/Org/Tasks/Family Tasks/" ; Family Tasks
-               "~/Org/Tasks/Travel/" ; Travel
-               "~/Org/Projects/" ; All projects
-               "~/Org/Projects/Agriculture Projects/" ; Agriculture Projects
+               "~/Org/Tasks/Work Tasks/"
+               "~/Org/Tasks/Family Tasks/"
+               "~/Org/Tasks/Travel/"
+               "~/Org/Programming/"
+               "~/Org/Projects/"
+               "~/Org/Projects/Agriculture Projects/"
+               "~/Org/Projects/Programming Projects/"
+               "~/Org/Projects/Writing Projects/"
+               "~/Org/Projects/Business Projects/"
                "~/Org/Projects/Organization/"
-               "~/Org/Projects/Interpersonal Network/" ; Interpersonal Network
+               "~/Org/Projects/Interpersonal Network/"
                "~/Org/Learning Plan/"
                ;; "~/Org/Contacts/Contacts.org"
                "~/Org/Calendars/Anniversary.org"
@@ -256,39 +251,29 @@
 
 (setq org-agenda-skip-timestamp-if-done t
       org-agenda-skip-deadline-if-done t
-      org-deadline-past-days 3
       org-agenda-skip-scheduled-if-done t
       org-agenda-skip-scheduled-delay-if-deadline 'post-deadline
       org-agenda-skip-scheduled-if-deadline-is-shown t
-      ;; NOTE: org-agenda-ignore-properties '(effort appt stats category)
+      org-deadline-past-days 3
+      ;; XXX: org-agenda-ignore-properties '(effort appt stats category)
       org-agenda-tags-todo-honor-ignore-options t
-      org-agenda-todo-ignore-timestamp nil ; 'all
+      )
+
+;;; Org-Agenda All Todo List
+(setq org-agenda-todo-ignore-timestamp 'all
       org-agenda-todo-ignore-with-date nil
       org-agenda-todo-ignore-scheduled 'future
       )
 
-(setq org-agenda-show-all-dates t)
-(setq org-agenda-show-outline-path t)
-;; determines how far in advance items with
-;; deadlines will show up in the agenda.
-(setq org-deadline-warning-days 14)
-;; I work late at night! Extend my current day past midnight.
-(setq org-extend-today-until 1)
-
-(setq org-agenda-window-setup 'current-window)
-
-(setq org-agenda-span 'day
-      org-agenda-start-on-weekday nil)
+(setq org-agenda-span 'day)
 ;; speedup Org Agenda
-(setq org-agenda-dim-blocked-tasks nil ; don't dim blocked tasks: past deadline, etc
-      org-agenda-inhibit-startup t
-      org-agenda-use-tag-inheritance nil
-      )
+(setq org-agenda-inhibit-startup t
+      org-agenda-dim-blocked-tasks nil ; don't dim blocked tasks: past deadline, etc
+      org-agenda-use-tag-inheritance nil)
 
-;; toggle log mode in agenda buffer. show all possible log items.
-(setq org-agenda-start-with-log-mode t
-      org-agenda-log-mode-items '(closed clock)
-      org-agenda-log-mode-add-notes t)
+;;; toggle log mode in agenda buffer. Press [l] in org-agenda buffer.
+(setq org-agenda-start-with-log-mode '(closed clock)
+      org-agenda-log-mode-items '(closed clock))
 
 
 ;;; Tag changes that should be triggered by TODO state changes.
@@ -377,6 +362,24 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
                ((org-agenda-overriding-header "Fragment Tasks"))
                ))
 
+
+;;; bind key [C-l] to locate to current time: "now -----" in Org-Agenda buffer.
+
+(defun my-org-agenda-jump-to-current-time ()
+  "Jump to current time now."
+  (interactive)
+  (goto-char
+   (text-property-any (point-min) (point-max)
+                      'face 'org-agenda-current-time))
+  (recenter-top-bottom)
+  )
+
+(define-key org-agenda-mode-map (kbd "C-l") 'my-org-agenda-jump-to-current-time)
+
+
+(define-key org-agenda-mode-map (kbd "M-s") 'org-search-view)
+
+
 ;;;; [ org-review ] -- Track when you have done a review in org mode.
 
 ;; (use-package org-review
@@ -414,9 +417,9 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 ;;; [ org-notify ]
 
-;; (require 'org-notify)
+(require 'org-notify)
 
-;; (setq org-notify-audible nil)
+(setq org-notify-audible nil)
 
 ;; ---------------------------------------------------------
 ;; List of possible parameters:
@@ -438,33 +441,17 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 ;;   :audible   Overwrite the value of `org-notify-audible' for this action.
 ;; ---------------------------------------------------------
 
-;; (org-notify-add 'default
-;;                 '(:time "1h" :period "2h" :duration 8
-;;                         :actions (-notify/window)
-;;                         :audible t)
-;;                 )
-;;
-;; (org-notify-start 300)
+(org-notify-add 'default
+                '(:time "1h" :period "2h" :duration 8
+                        :actions (-notify/window)
+                        :audible t)
+                )
 
-
-;;; bind key [C-l] to locate to current time: "now -----" in Org-Agenda buffer.
-
-(defun my-org-agenda-jump-to-current-time ()
-  "Jump to current time now."
-  (interactive)
-  (goto-char
-   (text-property-any (point-min) (point-max)
-                      'face 'org-agenda-current-time))
-  (recenter-top-bottom)
-  )
-
-(define-key org-agenda-mode-map (kbd "C-l") 'my-org-agenda-jump-to-current-time)
-
-
-(define-key org-agenda-mode-map (kbd "M-s") 'org-search-view)
+(org-notify-start 300)
 
 ;;; [ org-alert ] -- System notifications of org agenda items.
 
+;;; TODO: enable this package if `org-notify' not good.
 ;; (use-package org-alert
 ;;   :ensure t
 ;;   :config

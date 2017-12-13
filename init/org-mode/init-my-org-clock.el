@@ -18,9 +18,8 @@
 ;; 3. [C-c C-x ,] pause/continue timer
 ;; 5. [C-c C-x _] stop timer
 
-(with-eval-after-load 'org
-  (require 'org-timer)
-  (add-to-list 'org-modules 'org-timer))
+(require 'org-timer)
+(add-to-list 'org-modules 'org-timer)
 
 (setq org-timer-default-timer 25)       ; Pomodoro time management technique.
 (setq org-timer-display 'mode-line)
@@ -29,22 +28,19 @@
 
 ;;; [ Clock ]
 
-(with-eval-after-load 'org
-  (require 'org-clock))
+(require 'org-clock)
 
 (setq org-clock-persist t ; nil, t, 'clock, 'history
       org-clock-persist-query-save t
       org-clock-persist-query-resume t
-      org-clock-persist-file (concat user-emacs-directory
-                                     "org-clock-save.el")
+      org-clock-persist-file (concat user-emacs-directory "org-clock-save.el")
       org-clock-in-resume t    ; resume when clock in.
       org-clock-continuously nil ; don't continue on last clock out.
       org-clock-in-switch-to-state "STARTED"
       org-clock-out-when-done t         ; clock will stop when task marked DONE.
       org-clock-into-drawer t  ; Save clock data and notes in the :LOGBOOK: drawer
       org-clock-out-remove-zero-time-clocks t ; Removes clocked tasks with 0:00 duration
-      org-clock-sound (concat user-emacs-directory
-                              "resources/audio/Ingress/Speech/speech_hacking.wav")
+      org-clock-sound (concat user-emacs-directory "resources/audio/Ingress/Speech/speech_hacking.wav")
       ;; 'mode-line, 'frame-title, 'both, nil.
       org-clock-clocked-in-display 'frame-title
       ;; org-clock-mode-line-entry t

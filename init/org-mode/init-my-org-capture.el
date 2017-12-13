@@ -59,12 +59,9 @@
         ))
 
 ;;; Context org-capture templates.
-;;; TODO
+;; TODO:
 ;; (setq org-capture-templates-contexts
 ;;       '(("p" (in-mode . "message-mode"))))
-
-
-(define-key Org-prefix (kbd "c") 'org-capture)
 
 
 ;;;_* Refile
@@ -82,13 +79,6 @@
       )
 
 ;;;_* Archive
-
-(setq org-archive-location "%s_archive::"
-      org-archive-save-context-info '(time file olpath category todo itags ltags)
-      org-archive-mark-done nil
-      org-archive-stamp-time t
-      org-archive-reversed-order nil
-      )
 
 
 ;;; [ org-protocol capture ]

@@ -1,4 +1,4 @@
-;;; init-my-org-hacking.el --- init for Org Hacking
+;;; init-my-org-protocol.el --- init for Org Protocol
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -30,6 +30,6 @@
 ;;          :rewrites (("org/?$" . "index.php")))))
 
 
-(provide 'init-my-org-hacking)
+(provide 'init-my-org-protocol)
 
-;;; init-my-org-hacking.el ends here
+;;; init-my-org-protocol.el ends here

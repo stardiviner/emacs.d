@@ -9,44 +9,35 @@
 
 ;;; [ org-attach ] -- Manage file attachments to org-mode tasks.
 
-;; - [C-c C-a] :: `org-attach'.
-;; - drag & drop
-
 (require 'org-attach)
 
-(setq org-attach-directory "data/"
-      org-attach-archive-delete 'query
-      org-attach-allow-inheritance t
-      org-attach-auto-tag nil
-      org-attach-commit t ; auto commit when Org file is in git repository.
-      )
+(setq org-attach-archive-delete 'query)
+
+;; auto commit when Org file is in git repository.
+(setq org-attach-commit t)
+
+;;; don't auto add tag "ATTACH"
+(setq org-attach-auto-tag nil)
 
 ;;; [ org-screenshot ] -- Take and manage screenshots in Org-mode files.
 
-;;; Usage:
-;;
-;; - [M-x org-screenshot]
-;; - `org-screenshot-take'
-
-;; (setq org-screenshot-command-line "scrot -d 5 -s %f" ; "import %f",
-;;       org-screenshot-relative-links t
-;;       org-attach-directory "data/"
-;;       org-screenshot-image-directory "./images/"
-;;       org-screenshot-file-name-format "screenshot-%2.2d.png"
-;;       )
-;;
-;; (add-hook 'org-mode-hook
-;;           (lambda ()
-;;             (local-set-key (kbd "C-c o s") 'org-screenshot)))
+(use-package org-plus-contrib
+  :ensure t
+  :no-require t
+  :ensure-system-package scrot
+  :config
+  (require 'org-screenshot)
+  ;; (setq org-screenshot-command-line "scrot -d 5 -s %f") ; "import %f",
+  (add-hook 'org-mode-hook
+            (lambda ()
+              (local-set-key (kbd "C-c o M-s") 'org-screenshot)))
+  )
 
 ;;; [ org-download ] -- drag and drop images to Emacs org-mode.
 
 (use-package org-download
   :ensure t
-  :defer t
   :init
-  (org-download-enable)
-
   (unless (boundp 'org-download-prefix)
     (define-prefix-command 'org-download-prefix))
   (define-key Org-prefix (kbd "d") 'org-download-prefix)
@@ -72,6 +63,8 @@
         ;; org-download-image-width nil ; use #+attr_html: :width
         ;; org-download-img-regex-list '("<img +src=\"" "<img +\\(class=\"[^\"]+\"\\)? *src=\"")
         )
+
+  (org-download-enable)
   )
 
 ;;; [ org-board ] -- Org mode's web archiver.

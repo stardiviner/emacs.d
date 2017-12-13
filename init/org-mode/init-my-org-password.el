@@ -61,6 +61,7 @@
 
 (use-package org-password-manager
   :ensure t
+  :defer t
   :bind (:map org-password-prefix
               ("u" . org-password-manager-get-username)
               ("p" . org-password-manager-get-password)
