@@ -588,9 +588,7 @@ dimensions of a block selection."
                      (iedit-prev-occurrence)
                      (setq this-oc (iedit-find-current-occurrence-overlay)))
                    (if this-oc
-                       ;; `iedit-occurrence-context-lines',
-                       ;; `iedit-occurrences-overlays'.
-                       (- length (-elem-index this-oc iedit-occurrence-context-lines))
+                       (- length (-elem-index this-oc iedit-occurrences-overlays))
                      "-"))
                  length))
        'face 'mode-line-meta-face)))
