@@ -48,6 +48,9 @@
 
 (use-package edebug-x
   :ensure t
+  :init
+  (autoload 'color-darken-name "color.el")
+  (autoload 'color-lighten-name "color.el")
   :config
   (set-face-attribute 'hi-edebug-x-stop nil
                       :background "violet red")
