@@ -6,11 +6,12 @@
 
 
 ;;; Code:
-
+
 ;;; [ nim-mode ]
 
 (use-package nim-mode
   :ensure t
+  :ensure-system-package nim
   :config
   ;; company-mode support
   (require 'company-nim)
@@ -38,7 +39,7 @@
 (use-package ob-nim
   :ensure t)
 
-
+
 (provide 'init-my-prog-lang-nim)
 
 ;;; init-my-prog-lang-nim.el ends here

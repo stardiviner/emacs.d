@@ -8,6 +8,7 @@
 ;;; Code:
 
 (use-package mu4e
+  :ensure-system-package mu
   ;; from Linux package
   :load-path "/usr/share/emacs/site-lisp/mu4e/"
   ;; compile from git

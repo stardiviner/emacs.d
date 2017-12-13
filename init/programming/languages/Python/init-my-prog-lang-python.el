@@ -11,6 +11,7 @@
 
 (use-package python-mode
   :ensure t
+  :ensure-system-package python
   :preface
   (setq python-indent-offset 4
         python-indent 4

@@ -172,6 +172,7 @@
 
 (use-package zeal-at-point
   :ensure t
+  :ensure-system-package zeal
   :defer t
   :bind (:map prog-doc-map
               ("C-d" . zeal-at-point))

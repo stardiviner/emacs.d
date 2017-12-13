@@ -16,6 +16,7 @@
 
 (use-package helm-fuzzy-find
   :ensure t
+  :ensure-system-package (ff . "cd ~/Code/Emacs/ff/ ; make && mv ff ~/bin/")
   :bind (("C-c C-/" . helm-fuzzy-find)
          :map find-prefix
          ("h" . helm-fuzzy-find))

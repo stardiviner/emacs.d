@@ -11,6 +11,7 @@
 
 (use-package tuareg
   :ensure t
+  :ensure-system-package ocaml
   :defer t
   :init
   (autoload 'utop "utop" "Toplevel for OCaml" t)

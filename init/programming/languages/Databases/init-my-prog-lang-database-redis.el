@@ -11,6 +11,7 @@
 
 (use-package redis
   :ensure t
+  :ensure-system-package redis
   :commands redis-mode
   :init
   ;; for pseudo redis script file: *.redis.

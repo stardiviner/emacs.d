@@ -22,7 +22,6 @@
 ;;; [ org-screenshot ] -- Take and manage screenshots in Org-mode files.
 
 (use-package org-plus-contrib
-  :ensure t
   :no-require t
   :ensure-system-package scrot
   :config
@@ -37,6 +36,7 @@
 
 (use-package org-download
   :ensure t
+  :ensure-system-package wget
   :init
   (unless (boundp 'org-download-prefix)
     (define-prefix-command 'org-download-prefix))
@@ -71,6 +71,7 @@
 
 (use-package org-board
   :ensure t
+  :ensure-system-package wget
   :defer t
   :init
   (unless (boundp 'org-board-prefix)

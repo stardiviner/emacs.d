@@ -8,6 +8,7 @@
 
 (use-package mongo
   :ensure t
+  :ensure-system-package mongodb
   :defer t)
 
 
@@ -15,6 +16,7 @@
 
 (use-package inf-mongo
   :ensure t
+  :ensure-system-package mongodb-tools
   :defer t
   :init
   (define-key nosql-prefix (kbd "m") 'inf-mongo)

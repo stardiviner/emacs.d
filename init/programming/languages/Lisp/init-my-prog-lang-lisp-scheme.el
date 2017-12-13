@@ -9,28 +9,31 @@
 
 ;;; [ Scheme Mode ]
 
-(require 'scheme)
+(use-package scheme
+  :ensure-system-package guile
+  :config
 
-;;; [ inferior scheme ]
-(setq scheme-program-name "guile")
+  ;; [ inferior scheme ]
+  (setq scheme-program-name "guile")
 
-(with-eval-after-load 'scheme
-  (define-key scheme-mode-map (kbd "C-c C-s") 'run-scheme))
+  (with-eval-after-load 'scheme
+    (define-key scheme-mode-map (kbd "C-c C-s") 'run-scheme))
 
-(add-hook 'scheme-mode-hook #'my-lisp-common-settings)
+  (add-hook 'scheme-mode-hook #'my-lisp-common-settings)
 
-;; auto run `run-scheme' for scheme buffer.
-(defun run-scheme-auto-create ()
-  "Auto run `run-scheme' when not running."
-  (unless (and scheme-buffer
-               (get-buffer scheme-buffer)
-               (comint-check-proc scheme-buffer))
-    (save-window-excursion
-      (run-scheme scheme-program-name))
-    ;; (switch-to-buffer scheme-buffer)
-    ))
+  ;; auto run `run-scheme' for scheme buffer.
+  (defun run-scheme-auto-create ()
+    "Auto run `run-scheme' when not running."
+    (unless (and scheme-buffer
+                 (get-buffer scheme-buffer)
+                 (comint-check-proc scheme-buffer))
+      (save-window-excursion
+        (run-scheme scheme-program-name))
+      ;; (switch-to-buffer scheme-buffer)
+      ))
 
-;; (add-hook 'scheme-mode-hook 'run-scheme-auto-create)
+  ;; (add-hook 'scheme-mode-hook 'run-scheme-auto-create)
+  )
 
 
 ;;; [ ob-scheme ]

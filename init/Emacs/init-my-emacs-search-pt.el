@@ -6,11 +6,12 @@
 
 
 ;;; Code:
-
+
 ;;; [ platinum searcher (pt) ]
 
 (use-package pt
   :ensure t
+  :ensure-system-package (ag . "sudo pacman -S --noconfirm the_platinum_searcher")
   :config
   ;; (setq pt-arguments "--smart-case")
 
@@ -24,7 +25,7 @@
   (define-key pt-prefix (kbd "P") 'projectile-pt)
   )
 
-
+
 (provide 'init-my-emacs-search-pt)
 
 ;;; init-my-emacs-search-pt.el ends here

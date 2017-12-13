@@ -11,6 +11,7 @@
 
 (use-package clojure-mode
   :ensure t
+  :ensure-system-package clojure
   :config
   (autoload 'my-lisp-common-settings "init-my-prog-lang-lisp.el")
   (add-hook 'clojure-mode-hook #'my-lisp-common-settings)
@@ -461,6 +462,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 
 (use-package elein
   :ensure t
+  :ensure-system-package (lein . "wget 'https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein' && mv lein ~/bin/ && chmod 755 ~/bin/lein")
   :config
   (defun elein-lein-try ()
     (interactive)

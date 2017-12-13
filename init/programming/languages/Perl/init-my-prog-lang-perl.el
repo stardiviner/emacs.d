@@ -10,7 +10,8 @@
 ;;; [ perl-mode ]
 
 (use-package perl-mode
-  :ensure t)
+  :ensure t
+  :ensure-system-package perl)
 
 ;;; [ perl6-mode ]
 

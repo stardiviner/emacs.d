@@ -15,6 +15,7 @@
 
 (use-package ledger-mode
   :ensure t
+  :ensure-system-package (ledger . "yaourt -S --noconfirm ledger")
   :defer t
   :mode ("\\.ledger\\'" . ledger-mode)
   :config
@@ -103,6 +104,7 @@
 
 (use-package hledger-mode
   :ensure t
+  :ensure-system-package (hledger hledger-api hledger-ui hledger-web)
   :mode (("\\.journal\\'" . hledger-mode)
          ("\\.hledger\\'" . hledger-mode))
   :bind (:map accounting-prefix

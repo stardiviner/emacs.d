@@ -11,6 +11,7 @@
 
 (use-package octave
   :ensure t
+  :ensure-system-package octave
   :mode ("\\.m\\'" . octave-mode)
   :config
   (setq octave-auto-indent t

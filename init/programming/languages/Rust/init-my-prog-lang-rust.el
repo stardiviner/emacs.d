@@ -11,6 +11,7 @@
 
 (use-package rust-mode
   :ensure t
+  :ensure-system-package rust
   :config
   (setq rust-indent-offset 4
         rust-indent-method-chain t
@@ -42,6 +43,7 @@
 
 (use-package racer
   :ensure t
+  :ensure-system-package rust-racer
   :defer t
   :init
   ;; config racer in the path.

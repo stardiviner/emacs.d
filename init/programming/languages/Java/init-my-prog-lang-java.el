@@ -27,6 +27,7 @@
 
 (use-package eclim
   :ensure t
+  :ensure-system-package (eclim . "yaourt -S --noconfirm eclim")
   :defer t
   :init
   ;; Control `eclimd' from emacs

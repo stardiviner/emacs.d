@@ -10,7 +10,8 @@
 ;;; [ erlang-mode ]
 
 (use-package erlang
-  :ensure t)
+  :ensure t
+  :ensure-system-package erlang)
 
 ;;; [ company-erlang ] -- company backend based on ivy-erlang-complete.
 
@@ -32,16 +33,19 @@
 
 ;;; [ distel ] -- Erlang IDE (Distributed Emacs Lisp for Erlang)
 
-(use-package distel
-  :load-path "/usr/share/distel/elisp/"
-  :defer t
+;; (use-package distel-completion-lib
+;;   :load-path "/usr/share/distel/elisp/"
+;;   :defer t
+;;   :init
+;;   (add-hook 'erlang-mode-hook 'distel-erlang-mode-hook)
+;;   :config
+;;   ;; (distel-setup)
+;;   )
+
+;; [ distel-completion-lib ] -- Erlang/distel completion backend for both auto-complete and company-mode.
+(use-package distel-completion-lib
+  :ensure t
   :init
-  ;; (distel-setup)
-  (add-hook 'erlang-mode-hook 'distel-erlang-mode-hook)
-  :config
-  ;; [ distel-completion-lib ] -- Erlang/distel completion backend for both auto-complete and company-mode.
-  (use-package distel-completion-lib
-    :ensure t)
   ;; [ company-distel ] -- Erlang/distel completion backend for company-mode.
   (use-package company-distel
     :ensure t

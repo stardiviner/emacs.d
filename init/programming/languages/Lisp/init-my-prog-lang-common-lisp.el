@@ -49,8 +49,11 @@
 
 ;;; [ SBCL ]
 
-;; the SBCL configuration file is in Common Lisp
-(add-to-list 'auto-mode-alist '("\\.sbclrc\\'" . lisp-mode))
+(use-package lisp-mode
+  ;; the SBCL configuration file is in Common Lisp
+  :mode ("\\.sbclrc\\'" . lisp-mode)
+  :ensure-system-package sbcl
+  )
 
 
 ;;; [ Quick Lisp ]

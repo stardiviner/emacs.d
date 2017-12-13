@@ -9,6 +9,7 @@
 
 (use-package go-mode
   :ensure t
+  :ensure-system-package go
   :config
   (setq gofmt-command "gofmt"
         godef-command "godef"
@@ -72,7 +73,10 @@
 ;; [ company-go ] -- company-mode backend for Go (using gocode).
 
 (use-package company-go
-  :load-path (lambda () (concat (getenv "GOPATH") "/src/github.com/nsf/gocode/emacs-company/company-go.el"))
+  :ensure t
+  ;; :load-path (lambda () (concat (getenv "GOPATH") "/src/github.com/nsf/gocode/emacs-company/company-go.el"))
+  :ensure-system-package ((gocode . "go get -u github.com/nsf/gocode")
+                          (liteide . "sudo pacman -S --noconfirm liteide"))
   :config
   (setq company-go-show-annotation t
         company-go-begin-after-member-access t

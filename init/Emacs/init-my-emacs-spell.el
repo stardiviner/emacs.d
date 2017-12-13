@@ -50,6 +50,7 @@
 ;;; [ Flyspell ] -- [M-$], [C-;]
 
 (use-package flyspell
+  :ensure-system-package (ispell aspell hunspell)
   :bind (
          ;; conflict with `iedit-mode' toggle keybinding.
          ;; (add-hook 'flyspell-mode-hook

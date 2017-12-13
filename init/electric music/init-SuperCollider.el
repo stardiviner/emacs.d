@@ -17,7 +17,8 @@
   ;; :load-path (concat (getenv "HOME")
   ;;                    "/Code/SuperCollider/supercollider"
   ;;                    "/editors/scel/el/")
-  :defer t
+  :no-require t
+  :ensure-system-package (sclang . "sudo pacman -S --noconfirm supercollider")
   :config
   (require 'sclang)
   (require 'sclang-interp)

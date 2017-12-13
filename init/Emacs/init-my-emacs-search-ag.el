@@ -11,7 +11,7 @@
 
 (use-package ag
   :ensure t
-  ;; :commands ag
+  :ensure-system-package (ag . "sudo pacman -S --noconfirm the_silver_searcher")
   :config
   (setq ag-highlight-search t
         ag-group-matches t

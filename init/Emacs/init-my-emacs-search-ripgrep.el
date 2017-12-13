@@ -11,7 +11,7 @@
 
 (use-package ripgrep
   :ensure t
-  :ensure-system-package ripgrep
+  :ensure-system-package (rg . "sudo pacman -S --noconfirm ripgrep")
   :bind (:map search-prefix
               ("r" . ripgrep-regexp))
   :config

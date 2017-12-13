@@ -87,6 +87,7 @@
 
 (use-package js2-mode
   :ensure t
+  :ensure-system-package (node . "sudo pacman -S --noconfirm nodejs")
   :mode ("\\.js\\'" . js2-mode)
   :init
   (add-hook 'js-mode-hook 'js2-minor-mode)
@@ -219,6 +220,7 @@
 
 (use-package tern
   :ensure t
+  :ensure-system-package (tern . "npm install tern")
   :defer t
   :mode ("\\.tern-project\\'" . json-mode)
   :init

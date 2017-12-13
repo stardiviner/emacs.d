@@ -11,6 +11,7 @@
 
 (use-package docker
   :ensure t
+  :ensure-system-package docker
   :bind (:map container-prefix
               ("c" . docker-containers)
               ("i" . docker-images)

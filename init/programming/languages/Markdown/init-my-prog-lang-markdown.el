@@ -11,6 +11,7 @@
 
 (use-package markdown-mode
   :ensure t
+  :ensure-system-package (markdown . "sudo pacman -S --noconfirm discount")
   :defer t)
 
 

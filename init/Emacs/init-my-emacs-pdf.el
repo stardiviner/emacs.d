@@ -12,6 +12,7 @@
 (use-package pdf-tools
   ;; :pin manual ; manually update to disable auto update to avoid frequency break.
   :ensure t
+  :ensure-system-package (pdfinfo . "sudo pacman -S --noconfirm poppler poppler-data")
   :mode ("\\.pdf\\'" . pdf-view-mode)
   :config
   (pdf-tools-install)

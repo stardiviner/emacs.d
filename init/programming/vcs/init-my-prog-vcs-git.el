@@ -43,6 +43,7 @@
 
 (use-package magit
   :ensure t
+  :ensure-system-package git
   :bind (:map prog-vcs-prefix
               ("v" . magit-status)
               ("l" . magit-list-repositories))

@@ -8,6 +8,7 @@
 
 (use-package gnuplot
   :ensure t
+  :ensure-system-package gnuplot
   :defer t)
 
 

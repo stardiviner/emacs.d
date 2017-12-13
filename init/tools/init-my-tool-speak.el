@@ -5,7 +5,7 @@
 
 
 ;;; Code:
-
+
 (unless (boundp 'speak-map)
   (define-prefix-command 'speak-map))
 (define-key tools-prefix (kbd "s") 'speak-map)
@@ -29,36 +29,34 @@
 ;;                               ("english-male" . festival-voice-english-male)
 ;;                               ("us-male" . festival-voice-US-male))
 ;;       )
-
-
-;;; festival extension
-
-(require 'thingatpt)
-
-(defun festival-read ()
-  "Read current word that at point by Festival."
-  (interactive)
-  (if (use-region-p)
-      (let ((region (buffer-substring-no-properties (region-beginning) (region-end))))
-        (festival-say-region region)
-        (message "Festival reading (region) ..."))
-    (let ((word (thing-at-point 'word)))
-      (festival-say word)
-      (message "Festival reading (word): %s" word))
-    )
-  )
-
-(define-key speak-map (kbd "s") 'festival-read)
-(define-key speak-map (kbd "r") 'festival-read-region)
-(define-key speak-map (kbd "b") 'festival-read-buffer)
-(define-key speak-map (kbd "f") 'festival-read-file)
-(define-key speak-map (kbd "i") 'festival-say)
+;;
+;; (require 'thingatpt)
+;;
+;; (defun festival-read ()
+;;   "Read current word that at point by Festival."
+;;   (interactive)
+;;   (if (use-region-p)
+;;       (let ((region (buffer-substring-no-properties (region-beginning) (region-end))))
+;;         (festival-say-region region)
+;;         (message "Festival reading (region) ..."))
+;;     (let ((word (thing-at-point 'word)))
+;;       (festival-say word)
+;;       (message "Festival reading (word): %s" word))
+;;     )
+;;   )
+;;
+;; (define-key speak-map (kbd "s") 'festival-read)
+;; (define-key speak-map (kbd "r") 'festival-read-region)
+;; (define-key speak-map (kbd "b") 'festival-read-buffer)
+;; (define-key speak-map (kbd "f") 'festival-read-file)
+;; (define-key speak-map (kbd "i") 'festival-say)
 
 
 ;;; [ say-what-im-doing ] -- dictate what you're doing with text to speech.
 
 (use-package say-what-im-doing
   :ensure t
+  :ensure-system-package (mimic . "yaourt -S --noconfirm mimic")
   :config
   (setq say-what-im-doing-shell-command (if (executable-find "mimic")
                                             "mimic"
@@ -67,7 +65,6 @@
         (if (equal say-what-im-doing-shell-command "mimic")
             "-t")
         )
-  
   
   (add-to-list 'say-what-im-doing-common-commands 'move-beginning-of-line)
   (add-to-list 'say-what-im-doing-common-commands 'move-end-of-line)
@@ -80,6 +77,7 @@
 
 (use-package eloud
   :ensure t
+  :ensure-system-package espeak
   :config
   (setq eloud-espeak-path (cond
                            ((string-equal system-type "gnu/linux")
@@ -95,11 +93,12 @@
 
 (use-package read-aloud
   :ensure t
+  :ensure-system-package (spd-say . "sudo pacman -S --noconfirm speech-dispatcher")
   :config
   (setq read-aloud-engine "speech-dispatcher")
   )
 
-
+
 (provide 'init-my-tool-speak)
 
 ;;; init-my-tool-speak.el ends here

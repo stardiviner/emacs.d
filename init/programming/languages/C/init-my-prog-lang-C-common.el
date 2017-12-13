@@ -73,6 +73,7 @@
 
 (use-package irony
   :ensure t
+  :ensure-system-package clang
   :defer t
   :config
   (hook-modes c-dialects-mode
