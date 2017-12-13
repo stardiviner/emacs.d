@@ -17,11 +17,10 @@
   :ensure t
   :bind (:map editing-prefix
               ("e" . iedit-mode)
-              ("C-e" . iedit-dwim)
-              )
+              ("C-e" . iedit-dwim))
+  :init
+  (setq iedit-toggle-key-default (kbd "C-x e e"))
   :config
-  (setq iedit-occurrence-face 'isearch) ; 'highlight
-
   (defun iedit-dwim (arg)
     "If ARG, start iedit but use \\[narrow-to-defun] to limit its scope."
     (interactive "P")
