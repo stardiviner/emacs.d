@@ -16,6 +16,7 @@
 ;;              ))
 
 (require 'init-my-prog-document-eldoc)
+(require 'init-my-prog-document-help)
 (require 'init-my-prog-document-info)
 (require 'init-my-prog-document-man)
 ;; (require 'init-my-prog-document-rfc)
