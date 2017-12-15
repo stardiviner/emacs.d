@@ -62,7 +62,11 @@
       use-package-enable-imenu-support t)
 
 (use-package use-package-ensure-system-package
-  :ensure t)
+  :ensure t
+  :config
+  ;; for system-packages
+  (setq system-packages-noconfirm t)
+  )
 
 ;;; [ package-lint ] -- A linting library for elisp package authors.
 
