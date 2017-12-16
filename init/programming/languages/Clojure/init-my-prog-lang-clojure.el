@@ -415,16 +415,16 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 ;; let `ob-clojure' babel src blocks allow evaluation.
 (add-to-list 'org-babel-default-header-args:clojure
              '(:eval . "yes"))
-(add-to-list 'org-babel-default-header-args:clojure
-             '(:results . "value pp"))
+;; (add-to-list 'org-babel-default-header-args:clojure
+;;              '(:results . "value"))
 ;; (add-to-list 'org-babel-default-header-args:clojure ; for Clojure `dotimes' etc.
 ;;              '(:show-process . "no"))
 (add-to-list 'org-babel-default-header-args:clojure
              '(:noweb . "yes"))
-(add-to-list 'org-babel-default-header-args:clojure
-             '(:session "*cider-repl ob-clojure*"))
 
 ;; auto start CIDER REPL session in a complete Leiningen project environment for Org-mode Babel by jack-in.
+(add-to-list 'org-babel-default-header-args:clojure
+             '(:session "*cider-repl ob-clojure*"))
 (progn
   (find-file (expand-file-name "~/.emacs.d/Org-mode/ob-clojure/src/ob_clojure/core.clj"))
   (cider-jack-in))
