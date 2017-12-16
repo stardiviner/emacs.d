@@ -209,7 +209,7 @@
 ;; (require 'init-my-tool-audio)
 ;; (require 'init-my-tool-screenshot)
 ;; (require 'init-my-tool-screencast)
-;; (require 'init-my-tool-stack-exchange)
+(require 'init-stack-overflow)
 ;; (require 'init-my-tool-social-network)
 
 
