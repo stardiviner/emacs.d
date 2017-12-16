@@ -31,22 +31,25 @@ When nil, use the default face background."
   :type '(choice color (const nil)))
 
 ;;; set default background color based on different stategies.
-(setq org-inline-image-background
-      ;; a static color.
-      ;; "#FFFFFF"
-      ;; same color with color-theme background.
-      (face-background 'default)
-      ;; slight darker than color-theme.
-      ;; (cl-case (alist-get 'background-mode (frame-parameters))
-      ;;   ('light
-      ;;    (color-darken-name (face-background 'default) 10))
-      ;;   ('dark
-      ;;    (color-darken-name (face-background 'default) 2)))
-      )
+(defun my-org-mode-image-set-face (&args)
+  (setq org-inline-image-background
+        ;; a static color.
+        ;; "#FFFFFF"
+        ;; same color with color-theme background.
+        (face-background 'default)
+        ;; slight darker than color-theme.
+        ;; (cl-case (alist-get 'background-mode (frame-parameters))
+        ;;   ('light
+        ;;    (color-darken-name (face-background 'default) 10))
+        ;;   ('dark
+        ;;    (color-darken-name (face-background 'default) 2)))
+        ))
 
-;; modified version of original `org-display-inline-images'.
-;; append `:background' in `create-image'.
+(add-hook 'circadian-after-load-theme-hook #'my-org-mode-image-set-face)
+
 (defun org-display-inline-images (&optional include-linked refresh beg end)
+  "Modified version of original `org-display-inline-images'.
+Append `:background' in `create-image'."
   (interactive "P")
   (when (display-graphic-p)
     (unless refresh

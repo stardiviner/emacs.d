@@ -8,6 +8,7 @@
 ;;; Code:
 
 ;;; custom faces
+
 (set-face-attribute 'italic nil
                     :slant 'italic
                     :foreground (cl-case (alist-get 'background-mode (frame-parameters))
@@ -26,7 +27,6 @@
                                   ('light "black")
                                   ('dark "white"))
                     )
-
 
 ;; Date
 ;; Date: Saturday   27 July 2013
@@ -169,7 +169,7 @@
                                   ('dark "dark green")))
 (set-face-attribute 'org-scheduled-previously nil
                     :foreground (cl-case (alist-get 'background-mode (frame-parameters))
-                                  ('light "light green")
+                                  ('light "forest green")
                                   ('dark "olive drab")))
 
 ;; Emphasize

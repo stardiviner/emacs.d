@@ -54,11 +54,13 @@ $0`(yas-escape-text yas-selected-text)`"
   (add-hook 'snippet-mode #'turn-off-auto-fill)
 
   ;; Faces
-  (set-face-attribute 'yas-field-highlight-face nil
-		                  :inherit 'highlight
-                      :box '(:color "dim gray" :line-width 1)
-                      )
-
+  (defun my-yasnippet-set-face (&args)
+    (set-face-attribute 'yas-field-highlight-face nil
+		                    :inherit 'highlight
+                        :box '(:color "dim gray" :line-width 1)
+                        ))
+  
+  (add-hook 'circadian-after-load-theme-hook #'my-yasnippet-set-face)
   
   ;; (define-key yas-minor-mode-map [tab] 'yas-expand)
   ;; (define-key yas-minor-mode-map (kbd "TAB") 'indent-for-tab-command)

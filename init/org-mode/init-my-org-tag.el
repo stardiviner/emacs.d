@@ -98,17 +98,17 @@
         ))
 
 (setq org-tag-faces
-      '(("noexport" :foreground "DimGray" :weight bold :underline t)
-        ("deprecated" :foreground "DimGray" :weight bold :strike-through t)
-        ("fragment" :foreground "white" :weight bold)
-        ("computer" :foreground "green" :background "black")
-        ("life" :foreground "black" :background "DimGray")
+      '(("noexport" :foreground "DimGray" :weight bold :underline t :slant 'italic)
+        ("deprecated" :foreground "DimGray" :strike-through t :slant 'italic)
+        ("fragment" :foreground "LightGrey" :weight bold :slant 'italic)
+        ("computer" :foreground "green" :slant 'italic)
+        ("life" :foreground "black" :slant 'italic)
         ("SEX" :foreground "deep pink" :weight bold)
         ("code" :foreground "lawn green" :weight bold)
         ("Linux" :foreground "yellow" :weight bold)
-        ("Mac" :foreground "#444444" :background "black" :weight bold)
+        ("Mac" :foreground "#444444" :weight bold)
         ("Emacs" :foreground "dodger blue" :weight bold)
-        ("Org" :foreground "green yellow")
+        ("Org" :foreground "green yellow" :weight bold)
         ("Lisp" :foreground "deep pink" :weight bold)
         ("Clojure" :foreground "sky blue" :weight bold)
         ("Python" :foreground "yellow" :weight bold)
@@ -117,7 +117,7 @@
         ("C" :foreground "SaddleBrown" :weight bold)
         ("Go" :foreground "gold" :weight bold)
         ("Rust" :foreground "WhiteSmoke" :weight bold)
-        ("JavaScript" :foreground "yellow")
+        ("JavaScript" :foreground "yellow" :weight bold)
         ))
 
 

@@ -52,10 +52,23 @@
   (autoload 'color-darken-name "color.el")
   (autoload 'color-lighten-name "color.el")
   :config
-  (set-face-attribute 'hi-edebug-x-stop nil
-                      :background "violet red")
-  (set-face-attribute 'hi-edebug-x-debug-line nil
-                      :background (color-lighten-name (face-background 'highlight) 5))
+  (defun my-edebug-set-face (&args)
+    (set-face-attribute 'hi-edebug-x-stop nil
+                        :overline t
+                        :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                      ('light
+                                       (color-darken-name (face-background 'default) 10))
+                                      ('dark
+                                       (color-darken-name (face-background 'default) 5))))
+    (set-face-attribute 'hi-edebug-x-debug-line nil
+                        :underline t
+                        :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                      ('light
+                                       (color-darken-name (face-background 'default) 10))
+                                      ('dark
+                                       (color-darken-name (face-background 'default) 5))))
+    )
+  (add-hook 'circadian-after-load-theme-hook #'my-edebug-set-face)
   )
 
 

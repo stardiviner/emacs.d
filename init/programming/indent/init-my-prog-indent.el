@@ -47,26 +47,29 @@
   ;; custom indent line char
   ;; 1: use `indent-guide-char'.
   ;; │ ┃  ▍ ┇ ┋ ┊ ┆ ╽ ╿
-  (setq indent-guide-char "┃")
-  (set-face-attribute 'indent-guide-face nil
-                      :foreground (cl-case (alist-get 'background-mode (frame-parameters))
-                                    ('light
-                                     (color-darken-name (face-background 'default) 30))
-                                    ('dark
-                                     (color-lighten-name (face-background 'default) 8)))
-                      )
+  ;; (setq indent-guide-char "┃")
 
   ;; 2: use face-attribute stipple pixmap data.
-  ;; (setq indent-guide-char " ")
-  ;; (set-face-attribute 'indent-guide-face nil
-  ;;                     :foreground (cl-case (alist-get 'background-mode (frame-parameters))
-  ;;                                   ('light
-  ;;                                    (color-darken-name (face-background 'default) 30))
-  ;;                                   ('dark
-  ;;                                    (color-lighten-name (face-background 'default) 5)))
-  ;;                     :inherit nil
-  ;;                     :stipple (list 7 4 (string 16 0 0 0)))
+  (setq indent-guide-char " ")
+  (set-face-attribute 'indent-guide-face nil
+                      :inherit nil
+                      ;; small dots
+                      ;; :stipple (list 7 4 (string 16 0 0 0))
+                      ;; straight line
+                      :stipple (list 7 4 (string 16 16 16 16))
+                      )
 
+  (defun my-indent-guide-set-face (&args)
+    (set-face-attribute 'indent-guide-face nil
+                        :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                      ('light
+                                       (color-darken-name (face-background 'default) 35))
+                                      ('dark
+                                       (color-lighten-name (face-background 'default) 20))))
+    )
+
+  (add-hook 'circadian-after-load-theme-hook #'my-indent-guide-set-face)
+  
   ;; (indent-guide-global-mode)
 
   ;; works with `indent-guide-global-mode'

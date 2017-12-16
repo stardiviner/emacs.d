@@ -101,7 +101,6 @@
 ;;; [ line number ]
 
 ;; (use-package linum
-;;   :defer t
 ;;   :config
 ;;   ;; Linum: separating line numbers from text
 ;;   ;; (setq linum-format 'dynamic)
@@ -109,11 +108,6 @@
 ;;   (setq linum-format "%4d \u2502") ; a solid line separator
 ;;   ;; combine 'dynamic result with \u2502
 ;;   ;; (setq linum-format '(combine 'dynamic "\u2502"))
-;;
-;;   ;; set line number face
-;;   (set-face-attribute 'linum nil
-;;                       :foreground "#444444"
-;;                       )
 ;;
 ;;   ;; (global-linum-mode 1)
 ;;   ;; but show line numbers in source code files
@@ -141,19 +135,6 @@
 ;;   :config
 ;;   (setq nlinum-format "%d ")
 ;;   ;; TODO: (nlinum-mode 1)
-;;   )
-
-;;; [ highlight ] -- Highlighting commands.
-
-;; (use-package highlight
-;;   :defer t
-;;   :config
-;;   ;; (set-face-attribute 'highlight nil
-;;   ;;                     :inherit nil
-;;   ;;                     :foreground nil
-;;   ;;                     :background (color-darken-name
-;;   ;;                                  (face-background 'default) 3)
-;;   ;;                     )
 ;;   )
 
 

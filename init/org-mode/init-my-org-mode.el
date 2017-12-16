@@ -67,8 +67,15 @@
 
 (require 'init-my-org-document-structure)
 (require 'init-my-org-view)
+
 (require 'init-my-org-face)
 (require 'init-my-org-face-extra)
+
+(defun my-org-mode-set-face (&args)
+  (load "init-my-org-face")
+  (load "init-my-org-face-extra"))
+(add-hook 'circadian-after-load-theme-hook 'my-org-mode-set-face)
+
 (require 'init-my-org-keybindings)
 (require 'init-my-org-complete)
 (require 'init-my-org-table)

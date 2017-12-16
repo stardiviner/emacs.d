@@ -112,12 +112,15 @@
 (use-package hl-sexp
   :ensure t
   :config
-  (set-face-attribute 'hl-sexp-face nil
-                      :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                    ('light
-                                     (color-darken-name (face-background 'default) 5))
-                                    ('dark
-                                     (color-darken-name (face-background 'default) 5))))
+  (defun my-hl-sexp-set-face (&args)
+    (set-face-attribute 'hl-sexp-face nil
+                        :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                      ('light
+                                       (color-darken-name (face-background 'default) 4))
+                                      ('dark
+                                       (color-darken-name (face-background 'default) 5)))))
+  
+  (add-hook 'circadian-after-load-theme-hook #'my-hl-sexp-set-face)
   )
 
 

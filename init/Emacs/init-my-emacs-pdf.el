@@ -75,14 +75,17 @@
     ;; (pdf-view-auto-slice-minor-mode)
 
     ;; toggle midnight mode theme
-    ;; color-theme adaptive colors.
-    (setq pdf-view-midnight-colors `(,(face-background 'default) . ,(face-foreground 'default)))
-    ;; green color on black background
-    ;; (setq pdf-view-midnight-colors '("#00B800" . "#000000" ))
-    ;; amber color on black background
-    ;; (setq pdf-view-midnight-colors '("#ff9900" . "#0a0a12" ))
-    ;; original solarized colors
-    ;; (setq pdf-view-midnight-colors '("#839496" . "#002b36" ))
+    (defun my-pdf-tools-set-face (&args)
+      ;; color-theme adaptive colors.
+      (setq pdf-view-midnight-colors `(,(face-background 'default) . ,(face-foreground 'default)))
+      ;; green color on black background
+      ;; (setq pdf-view-midnight-colors '("#00B800" . "#000000" ))
+      ;; amber color on black background
+      ;; (setq pdf-view-midnight-colors '("#ff9900" . "#0a0a12" ))
+      ;; original solarized colors
+      ;; (setq pdf-view-midnight-colors '("#839496" . "#002b36" ))
+      )
+    (add-hook 'circadian-after-load-theme-hook #'my-pdf-tools-set-face)
     (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)
 
     ;; `pdf-tools-enabled-modes'

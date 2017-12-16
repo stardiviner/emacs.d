@@ -46,12 +46,13 @@
 
 ;;; [ leuven-theme ] -- Awesome Emacs color theme on white background.
 
-;; (use-package leuven-theme
-;;   :ensure t
-;;   :config
-;;   (setq leuven-scale-outline-headlines t)
-;;   ;; (load-theme 'leuven t)
-;;   )
+(use-package leuven-theme
+  :ensure t
+  :defer t
+  :config
+  (setq leuven-scale-outline-headlines t)
+  ;; (load-theme 'leuven t)
+  )
 
 ;;; [ nord-theme ] -- An arctic, north-bluish clean and elegant Emacs theme.
 
@@ -83,8 +84,9 @@
 (use-package spacemacs-theme
   :ensure t
   :no-require t
-  :config
-  (load-theme 'spacemacs-dark t))
+  :defer t
+  ;; (load-theme 'spacemacs-dark t)
+  )
 
 ;;; [ kaolin-themes ] -- A set of eye pleasing themes.
 
@@ -140,21 +142,20 @@
 
 ;;; [ circadian ] -- theme-switching for Emacs based on daytime.
 
-;; (use-package circadian
-;;   :ensure t
-;;   :config
-;;   (setq calendar-location-name "Shaoxing Town"
-;;         calendar-time-zone +480
-;;         calendar-latitude 29.72
-;;         calendar-longitude 120.20
-;;         )
-;;
-;;   (setq circadian-themes '((:sunrise . spacemacs-light)
-;;                            ;; ("9:00" . tsdh-light)
-;;                            (:sunset . spacemacs-dark)
-;;                            ))
-;;   (circadian-setup)
-;;   )
+(use-package circadian
+  :ensure t
+  :config
+  (setq calendar-location-name "Shaoxing Town"
+        calendar-time-zone +480
+        calendar-latitude 29.72
+        calendar-longitude 120.20
+        )
+
+  (setq circadian-themes '((:sunrise . leuven) ; spacemacs-light
+                           (:sunset . spacemacs-dark)
+                           ))
+  (circadian-setup)
+  )
 
 
 (provide 'init-my-emacs-color-theme)
