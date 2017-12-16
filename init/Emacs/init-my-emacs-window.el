@@ -32,8 +32,8 @@
 
 ;; Learn about display actions, see [[info:elisp#Display Action Functions]].
 
-(add-to-list 'display-buffer-alist
-             '("^*Async Shell Command*" . (display-buffer-no-window)))
+;; (add-to-list 'display-buffer-alist
+;;              '("^*Async Shell Command*" . (display-buffer-no-window)))
 
 
 ;;; [ winner ]
