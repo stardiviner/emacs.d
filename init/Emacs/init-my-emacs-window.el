@@ -57,17 +57,6 @@
   )
 
 
-;;; [ zoom-window ] -- zoom/un-zoom window like tmux.
-
-;; (use-package zoom-window
-;;   :ensure t
-;;   :bind ("C-x C-z" . zoom-window-zoom)
-;;   :config
-;;   (setq zoom-window-mode-line-color "dark red"
-;;         zoom-window-use-elscreen nil ; whether use extension elscreen.
-;;         )
-;;   )
-
 ;;; [ zoom ] -- like `golden-ratio' style managing the window sizes by enforcing a fixed and automatic balanced layout.
 
 ;; (use-package zoom
