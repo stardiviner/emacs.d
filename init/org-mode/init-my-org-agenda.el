@@ -449,17 +449,6 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 (org-notify-start 300)
 
-;;; [ org-alert ] -- System notifications of org agenda items.
-
-;;; TODO: enable this package if `org-notify' not good.
-;; (use-package org-alert
-;;   :ensure t
-;;   :config
-;;   (setq alert-default-style 'libnotify)
-;;   ;; (setq alert-user-configuration (quote ((((:category . "org-pomodoro")) libnotify nil))))
-;;   (org-alert-enable)
-;;   )
-
 ;;; [ org-pomodoro ] -- adds support for Pomodoro technique in Org-mode.
 
 (use-package org-pomodoro
