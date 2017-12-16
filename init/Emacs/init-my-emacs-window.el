@@ -56,31 +56,6 @@
                       :height 2.5 :weight 'bold)
   )
 
-
-;;; [ zoom ] -- like `golden-ratio' style managing the window sizes by enforcing a fixed and automatic balanced layout.
-
-;; (use-package zoom
-;;   :ensure t
-;;   ;; Override the key binding of `balance-windows':
-;;   ;; enable this keybinding when `zoom-mode' is disabled.
-;;   ;; :bind ("C-x +" . zoom)
-;;   :config
-;;   ;; Resize the selected window using the golden ratio:
-;;   ;; (setq zoom-size '(0.618 . 0.618))
-;;
-;;   ;; Resize the selected window according to the frame width:
-;;   (setq zoom-size
-;;         (cond ((> (frame-pixel-width) 1280) '(90 . 0.75))
-;;               (t                            '(0.5 . 0.5))))
-;;
-;;   (setq zoom-ignored-major-modes '(which-key-mode))
-;;   (setq zoom-ignored-buffer-names '("zoom.el" "init.el"))
-;;   (setq zoom-ignored-buffer-name-regexps '("^*calc"))
-;;   (setq zoom-ignore-predicates '((lambda () (> (count-lines (point-min) (point-max)) 20))))
-;;
-;;   (zoom-mode t)
-;;   )
-
 
 
 (provide 'init-my-emacs-window)
