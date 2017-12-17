@@ -307,6 +307,18 @@ state (modified, read-only or non-existent)."
 ;;                 'display '(raise 0.0)))
 ;;   )
 
+;;; ace-window
+(use-package ace-window
+  :ensure t
+  :config
+  (defun *ace-window ()
+    "Showing the ace-window key in the mode-line."
+    (concat
+     (window-parameter (selected-window) 'ace-window-path)
+     (propertize " " 'face 'variable-pitch)))
+  (add-hook 'window-configuration-change-hook 'aw-update)
+  )
+
 ;;; line & column position info
 (defun *linum-info ()
   "Show line & column position info."
@@ -887,6 +899,8 @@ dimensions of a block selection."
                   ))
            (lhs (list
                  (*current)
+                 ;; (*window-number)
+                 (*ace-window)
                  (if (= (length meta) 0) "" meta)
                  (*buffer-info)
                  ;; (*bookmark)

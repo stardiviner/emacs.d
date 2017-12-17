@@ -54,6 +54,9 @@
   (setq aw-background nil)
   (set-face-attribute 'aw-leading-char-face nil
                       :height 2.5 :weight 'bold)
+  (set-face-attribute 'aw-mode-line-face nil
+                      :inherit 'mode-line-buffer-id
+                      :foreground "cyan")
   )
 
 
