@@ -27,7 +27,7 @@
  'org-mode
  '(("\\(src_\\)\\([^[{]+\\)\\(\\[:.*\\]\\)\\({\\)\\([^}]*\\)\\(}\\)"
     (1 '(:foreground "black" :weight 'normal :height 0.1)) ; src_ part
-    (2 '(:foreground "cyan" :weight 'bold :height 0.8 :box '(:color "cyan"))) ; "lang" part.
+    (2 '(:foreground "cyan" :weight 'bold :height 0.8 :box '(:color "light gray"))) ; "lang" part.
     (3 '(:foreground "#555555" :height 0.7)) ; [:header arguments] part.
     (4 '(:foreground "#333333")) ; {
     (5 'org-code) ; "code..." part.
@@ -40,7 +40,7 @@
  'org-mode
  '(("\\(src_\\)\\([^[{]+\\)\\({\\)\\([^}]*\\)\\(}\\)"
     (1 '(:foreground "black" :weight 'normal :height 0.1)) ; src_ part
-    (2 '(:foreground "cyan" :weight 'bold :height 0.8 :box '(:color "cyan"))) ; "lang" part.
+    (2 '(:foreground "cyan" :weight 'bold :height 0.8 :box '(:color "light gray"))) ; "lang" part.
     (3 '(:foreground "#333333")) ; {
     (4 'org-code) ; "code..." part.
     (5 '(:foreground "#333333")) ; }
@@ -95,7 +95,7 @@
 ;; @@html:<kbd>...</kbd>@@, <kbd> </kbd>
 (defface org-html-kbd-tag
   '((nil (:foreground "cyan" :background "#004A5D"
-                      :box '(:color "cyan" :line-width 1)
+                      :box '(:color "light gray" :line-width 1)
                       ;; :weight 'bold
                       )))
   "Face for highlight Org-mode html tag @<kbd>...@</kbd> or @@html:<kbd>...</kbd>@@."

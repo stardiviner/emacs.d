@@ -40,7 +40,7 @@
                                    (color-darken-name (face-background 'default) 10))
                                   ('dark
                                    (color-darken-name (face-background 'default) 5)))
-                    :box '(:color "dark cyan" :line-width 3 :style nil)
+                    :box '(:color "gray" :line-width 3 :style nil)
                     :weight 'bold)
 (set-face-attribute 'org-agenda-date-weekend nil
                     :foreground "deep pink"
@@ -136,7 +136,7 @@
                          :box '(:color "dark gray" :line-width -1)))
         ))
 ;; (set-face-attribute 'org-priority nil
-;;                     :box '(:color "red" :line-width 3 :style released-button)
+;;                     :box '(:color "dim gray" :line-width 3 :style released-button)
 ;;                     :bold nil)
 
 ;;; Agenda Time Grid
@@ -393,7 +393,7 @@
                                   ('light "green yellow")
                                   ('dark "green"))
                     :foreground "black"
-                    :box '(:color "green yellow" :line-width 1 :style nil)
+                    :box '(:color "dim gray" :line-width 1 :style nil)
                     )
 
 

@@ -48,7 +48,7 @@
   (let ((day-of-week (calendar-day-of-week date)))
     (cond
      ((or (= day-of-week 1) (= day-of-week 5))
-      '(:foreground "forest green" :box (:color "green" :line-width 3)))
+      '(:foreground "forest green" :box (:color "dim gray" :line-width 3)))
      ((org-agenda-todayp date)
       'org-agenda-date-today)
      ((member day-of-week org-agenda-weekend-days)
