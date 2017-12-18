@@ -56,6 +56,29 @@
 
 (define-key email-prefix (kbd "r") 'email-region)
 
+;;; cite region in message-mode.
+(defun message-cite-region (beg end &optional levels)
+  "Cite region in message-mode."
+  (interactive "*r\np")
+  (goto-char beg)
+  (beginning-of-line)
+  (let*((first-line (line-number-at-pos))
+        (last-line  (line-number-at-pos end))
+        (num-lines  (1+ (- last-line first-line))) )
+    (dotimes (unused num-lines)
+      (while (looking-at ">") (delete-char 1)) ; TODO: away hard-code
+      (when  (looking-at " ") (delete-char 1))
+      (when (> levels 0)
+        (insert-char ?> levels)
+        (insert-char ?\ ) ) ; this repairs ugly >quotes as well
+      (forward-line 1) )
+    ;; clean up
+    (goto-char (point-min))
+    (forward-line (1- last-line))
+    (end-of-line)
+    (when (region-active-p) (keyboard-quit))))
+
+(define-key message-mode-map (kbd "M-;") 'message-cite-region)
 
 ;;; [ encrypt email ]
 
