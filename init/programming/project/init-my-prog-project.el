@@ -42,7 +42,7 @@
   (use-package counsel-projectile
     :ensure t
     :config
-    (counsel-projectile-on))
+    (counsel-projectile-mode 1))
   )
 
 ;;; [ projectile-variable ] -- store project local variables.
