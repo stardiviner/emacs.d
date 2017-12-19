@@ -86,7 +86,7 @@
       ;; (setq pdf-view-midnight-colors '("#839496" . "#002b36" ))
       )
     (add-hook 'circadian-after-load-theme-hook #'my-pdf-tools-set-face)
-    (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)
+    ;; (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)
 
     ;; `pdf-tools-enabled-modes'
     (pdf-tools-enable-minor-modes)
