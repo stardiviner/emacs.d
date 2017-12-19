@@ -1,4 +1,51 @@
-#+name: hello
-#+BEGIN_SRC emacs-lisp :var name=""
-(message name)
+#+TITLE: Library of Babel
+
+* Org-mode
+
+** Export
+
+*** landscape view
+
+#+NAME: load-latex-package-pdflscape-original-data
+#+BEGIN_SRC shell :results silent :wrap landscape :var babel=""
+echo "echo \"$babel\""
 #+END_SRC
+
+#+NAME: load-latex-package-pdflscape
+#+BEGIN_SRC shell :results raw output :exports none :var data="" :noweb yes
+echo "#+LATEX_HEADER: \sepackage{pdflscape}"
+<<load-latex-package-pdflscape-original-data(babel="hello")>>
+#+END_SRC
+
+#+RESULTS: load-latex-package-pdflscape
+#+LATEX_HEADER: \sepackage{pdflscape}
+hello
+
+#+NAME: org-mode-export-landscape-view
+#+BEGIN_SRC shell :exports results :results raw :post load-latex-package-pdflscape(data=*this*)
+echo "hello"
+#+END_SRC
+
+#+RESULTS: org-mode-export-landscape-view
+#+LATEX_HEADER: \sepackage{pdflscape}
+hello
+
+
+
+* Print
+
+ #+name: elisp-print
+ #+BEGIN_SRC emacs-lisp :var name=""
+ (prin1 name)
+ #+END_SRC
+
+#+NAME: sh-echo
+#+BEGIN_SRC shell :var input="stardiviner"
+echo $input
+#+END_SRC
+
+#+NAME: ruby-print
+#+BEGIN_SRC ruby :var str="stardiviner"
+puts str
+#+END_SRC
+
