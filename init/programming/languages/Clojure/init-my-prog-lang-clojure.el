@@ -409,18 +409,18 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 ;; whether check Org-mode buffer's (ns ) declarations.
 ;; (setq cider-auto-track-ns-form-changes t)
 
-;; No timeout when executing calls on Cider via nrepl
-;; (setq org-babel-clojure-sync-nrepl-timeout nil)
-
 ;; let `ob-clojure' babel src blocks allow evaluation.
 (add-to-list 'org-babel-default-header-args:clojure
              '(:eval . "yes"))
 (add-to-list 'org-babel-default-header-args:clojure
-             '(:results . "output"))
-;; (add-to-list 'org-babel-default-header-args:clojure ; for Clojure `dotimes' etc.
-;;              '(:show-process . "no"))
-(add-to-list 'org-babel-default-header-args:clojure
              '(:noweb . "yes"))
+(add-to-list 'org-babel-default-header-args:clojure
+             '(:results . "output"))
+
+;; No timeout when executing calls on Cider via nrepl
+(setq org-babel-clojure-sync-nrepl-timeout 30)
+(add-to-list 'org-babel-default-header-args:clojure ; for Clojure `dotimes' etc.
+             '(:show-process . "no"))
 
 ;; auto start CIDER REPL session in a complete Leiningen project environment for Org-mode Babel by jack-in.
 (add-to-list 'org-babel-default-header-args:clojure
