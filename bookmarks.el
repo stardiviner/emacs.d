@@ -2,7 +2,237 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Things/data/e1/824d15-35cb-4105-a617-5f7ecd6a1049/DZFP2017111600007674_034011700111_02106006.pdf"
+(("Digital Economy.org"
+ (filename . "~/Org/Wiki/Commercial Science/Digital Economy/Digital Economy.org")
+ (front-context-string . "#+TITLE: Digital")
+ (rear-context-string)
+ (position . 1))
+("Digital Currency Variants.org"
+ (filename . "~/Org/Wiki/Economy/Currency/Digital Currency/Digital Currency Variants/Digital Currency Variants.org")
+ (front-context-string . "#+TITLE: Digital")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Spice/Data/Books/危险的味道: 香料的历史.pdf"
+ (filename . "~/Org/Wiki/Spice/Data/Books/危险的味道: 香料的历史.pdf")
+ (position . 1)
+ (page . 7)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("My SuperCollider Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/SuperCollider/Data/Manuals/My SuperCollider Language Syntax Reference/My SuperCollider Language Syntax Reference.org")
+ (front-context-string . "#+TITLE: My Supe")
+ (rear-context-string)
+ (position . 1))
+("My SuperCollider Examples.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/SuperCollider/Data/Manuals/My SuperCollider Examples/My SuperCollider Examples.org")
+ (front-context-string . "#+TITLE: My Supe")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/R/Data/R Packages/data/1a/b94d67-d030-4087-b66b-189bafb46854/sos.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/R/Data/R Packages/data/1a/b94d67-d030-4087-b66b-189bafb46854/sos.pdf")
+ (position . 1)
+ (page . 6)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.5925925925925926)
+ (handler . pdf-view-bookmark-jump-handler))
+("R Packages.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/R/Data/R Packages/R Packages.org")
+ (front-context-string . "#+TITLE: R Packa")
+ (rear-context-string)
+ (position . 1))
+("Quantum Algorithm.org"
+ (filename . "~/Org/Wiki/Physics/Quantum Theory/Quantum Information System/Quantum Computer/Quantum Programming/Quantum Algorithm/Quantum Algorithm.org")
+ (front-context-string . "#+TITLE: Quantum")
+ (rear-context-string)
+ (position . 1))
+("Quantum Programming.org"
+ (filename . "~/Org/Wiki/Physics/Quantum Theory/Quantum Information System/Quantum Computer/Quantum Programming/Quantum Programming.org")
+ (front-context-string . "#+TITLE: Quantum")
+ (rear-context-string)
+ (position . 1))
+("Ubuntu.org"
+ (filename . "~/Org/Wiki/Computer Technology/Operating System/Linux/Linux Distributions/Ubuntu/Ubuntu.org")
+ (front-context-string . "#+TITLE: Ubuntu ")
+ (rear-context-string)
+ (position . 1))
+("Debian.org"
+ (filename . "~/Org/Wiki/Computer Technology/Operating System/Linux/Linux Distributions/Debian/Debian.org")
+ (front-context-string . "#+TITLE: Debian ")
+ (rear-context-string)
+ (position . 1))
+("My World Views History.org"
+ (filename . "~/Org/Wiki/Thought/World Views/Data/Manuals/My World Views History/My World Views History.org")
+ (front-context-string . "#+TITLE: My Worl")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Emacs/modes/Org-mode/data/0d/4c4100-56c5-45c3-807a-fdfbf5979a58/Keeping a Laboratory Notebook.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/Org-mode/data/0d/4c4100-56c5-45c3-807a-fdfbf5979a58/Keeping a Laboratory Notebook.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin)
+ (handler . pdf-view-bookmark-jump-handler))
+("Quantum Computer.org"
+ (filename . "~/Org/Wiki/Physics/Quantum Theory/Quantum Information System/Quantum Computer/Quantum Computer.org")
+ (front-context-string . "#+TITLE: Quantum")
+ (rear-context-string)
+ (position . 1))
+("World Views.org"
+ (filename . "~/Org/Wiki/Thought/World Views/World Views.org")
+ (front-context-string . "#+TITLE: World V")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Kung Fu/Krav Maga/Data/Books/Krav Maga 徒手格斗术.pdf"
+ (filename . "~/Org/Wiki/Kung Fu/Krav Maga/Data/Books/Krav Maga 徒手格斗术.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Kung Fu/Krav Maga/Data/Books/匕首格斗术小册图解.pdf"
+ (filename . "~/Org/Wiki/Kung Fu/Krav Maga/Data/Books/匕首格斗术小册图解.pdf")
+ (position . 1)
+ (page . 6)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.25306748466257667)
+ (handler . pdf-view-bookmark-jump-handler))
+("My Computer Technology Glossary.org"
+ (filename . "~/Org/Wiki/Computer Technology/Data/Manuals/My Computer Technology Glossary/My Computer Technology Glossary.org")
+ (front-context-string . "#+TITLE: My Comp")
+ (rear-context-string)
+ (position . 1))
+("My Programming Glossary.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Data/Manuals/My Programming Glossary/My Programming Glossary.org")
+ (front-context-string . "#+TITLE: My Prog")
+ (rear-context-string)
+ (position . 1))
+("React.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Web/Web Frameworks/React/React.org")
+ (front-context-string . "#+TITLE: React\n\n")
+ (rear-context-string)
+ (position . 1))
+("Angular.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Web/Web Frameworks/Angular/Angular.org")
+ (front-context-string . "#+TITLE: Angular")
+ (rear-context-string)
+ (position . 1))
+("Web Frameworks.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Web/Web Frameworks/Web Frameworks.org")
+ (front-context-string . "#+TITLE: Web Fra")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Softwares/Docker/Data/Books/Docker Practice.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Docker/Data/Books/Docker Practice.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("My Crop Reference.org"
+ (filename . "~/Org/Wiki/Agriculture/Crop/Data/Manuals/My Crop Reference/My Crop Reference.org")
+ (front-context-string . "#+TITLE: My Crop")
+ (rear-context-string)
+ (position . 1))
+("Android Apps.org"
+ (filename . "~/Org/Wiki/Computer Technology/Operating System/Android/Data/Android Apps/Android Apps.org")
+ (front-context-string . "#+TITLE: Android")
+ (rear-context-string)
+ (position . 1))
+("tmux.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/tmux.org")
+ (front-context-string . "#+TITLE: tmux\n\n*")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/Data/Books/The Past, Present, and Future of JavaScript.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/Data/Books/The Past, Present, and Future of JavaScript.pdf")
+ (position . 1)
+ (page . 7)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("shadowsocks.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/shadowsocks.org")
+ (front-context-string . "#+TITLE: shadows")
+ (rear-context-string)
+ (position . 1))
+("My HTML5 Examples.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/HTML/HTML5/Data/Manuals/My HTML5 Examples/My HTML5 Examples.org")
+ (front-context-string . "#+TITLE: My HTML")
+ (rear-context-string)
+ (position . 1))
+("My HTML5 Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/HTML/HTML5/Data/Manuals/My HTML5 Language Syntax Reference/My HTML5 Language Syntax Reference.org")
+ (front-context-string . "#+TITLE: My HTML")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/HTML/HTML5/Data/Books/HTML5: Up and Running.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/HTML/HTML5/Data/Books/HTML5: Up and Running.pdf")
+ (position . 1)
+ (page . 11)
+ (slice)
+ (size . fit-width)
+ (origin)
+ (handler . pdf-view-bookmark-jump-handler))
+("My SQLite Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/SQLite/Data/Manuals/My SQLite Syntax Reference/My SQLite Syntax Reference.org")
+ (front-context-string . "#+TITLE: My SQLi")
+ (rear-context-string)
+ (position . 1))
+("SSH.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/SSH.org")
+ (front-context-string . "#+TITLE: SSH\n\n* ")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Softwares/Data/Docs/Nextcloud 12 User Manual.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Data/Docs/Nextcloud 12 User Manual.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . 1.0)
+ (origin)
+ (handler . pdf-view-bookmark-jump-handler))
+("Manjaro.org"
+ (filename . "~/Org/Wiki/Computer Technology/Operating System/Linux/Linux Distributions/Manjaro/Manjaro.org")
+ (front-context-string . "#+TITLE: Manjaro")
+ (rear-context-string)
+ (position . 1))
+("My PHP Practical Examples.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/PHP/Data/Manuals/My PHP Practical Examples/My PHP Practical Examples.org")
+ (front-context-string . "#+TITLE: My PHP ")
+ (rear-context-string)
+ (position . 1))
+("My PHP Language Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/PHP/Data/Manuals/My PHP Language Syntax Reference/My PHP Language Syntax Reference.org")
+ (front-context-string . "#+TITLE: My PHP ")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Java/Data/Books/Functional Programming in Java.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Java/Data/Books/Functional Programming in Java.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("My Kung Fu Manual.org"
+ (filename . "~/Org/Wiki/Kung Fu/Data/Manuals/My Kung Fu Manual/My Kung Fu Manual.org")
+ (front-context-string . "#+TITLE: My Kung")
+ (rear-context-string)
+ (position . 1))
+("Success.org"
+ (filename . "~/Org/Wiki/Self Enhancement/Success/Success.org")
+ (front-context-string . "#+TITLE: Success")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Things/data/e1/824d15-35cb-4105-a617-5f7ecd6a1049/DZFP2017111600007674_034011700111_02106006.pdf"
  (filename . "~/Org/Wiki/Things/data/e1/824d15-35cb-4105-a617-5f7ecd6a1049/DZFP2017111600007674_034011700111_02106006.pdf")
  (position . 1)
  (page . 1)
@@ -43,11 +273,6 @@
 ("Dev Board.org"
  (filename . "~/Org/Wiki/Computer Technology/Hardware/Dev Board/Dev Board.org")
  (front-context-string . "#+TITLE: Dev Boa")
- (rear-context-string)
- (position . 1))
-("C Sharp.org"
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/C Sharp/C Sharp.org")
- (front-context-string . "#+TITLE: C# Prog")
  (rear-context-string)
  (position . 1))
 ("Social Network.org"
@@ -328,21 +553,6 @@
  (front-context-string . "#+TITLE: My Acco")
  (rear-context-string)
  (position . 1))
-(#("My PUA Manual.org" 0 1
-   (idx 9))
- (filename . "~/Org/Wiki/Love/Love Theories/PUA/Data/Manuals/My PUA Manual/My PUA Manual.org")
- (front-context-string . "#+TITLE: My PUA ")
- (rear-context-string)
- (position . 1))
-(#("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Love/Love Theories/PUA/Data/Books/把妹达人之谜男方法.pdf" 0 1
-   (idx 10))
- (filename . "~/Org/Wiki/Love/Love Theories/PUA/Data/Books/把妹达人之谜男方法.pdf")
- (position . 1)
- (page . 2)
- (slice 0.089286 0.008253999999999997 0.821428 0.9846790000000001)
- (size . fit-width)
- (origin 0.0 . 0.0)
- (handler . pdf-view-bookmark-jump-handler))
 (#("quicklisp.org" 0 1
    (idx 11))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lisp/Common Lisp/Data/Common Lisp Packages/quicklisp.org")
@@ -862,12 +1072,6 @@
  (front-context-string . "#+TITLE: Sexolog")
  (rear-context-string)
  (position . 1))
-(#("PUA.org" 0 1
-   (idx 93))
- (filename . "~/Org/Wiki/Love/Love Theories/PUA/PUA.org")
- (front-context-string . "#+TITLE: Pick-Up")
- (rear-context-string)
- (position . 1))
 (#("My Genetics Reference.org" 0 1
    (idx 94))
  (filename . "~/Org/Wiki/Biology/Genetics/Data/Manuals/My Genetics Reference/My Genetics Reference.org")
@@ -1331,12 +1535,6 @@
    (idx 170))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/Indium.org")
  (front-context-string . "#+TITLE: Indium\n")
- (rear-context-string)
- (position . 1))
-(#("ssh.org" 0 1
-   (idx 171))
- (filename . "~/Org/Wiki/Computer Technology/Softwares/ssh.org")
- (front-context-string . "#+TITLE: SSH\n\n* ")
  (rear-context-string)
  (position . 1))
 (#("Linux Distributions.org" 0 1
@@ -2545,7 +2743,7 @@
 (#("My Docker Manual.org" 0 1
    (idx 370))
  (filename . "~/Org/Wiki/Computer Technology/Softwares/Docker/Data/Manuals/My Docker Manual/My Docker Manual.org")
- (front-context-string)
+ (front-context-string . "#+TITLE: My Dock")
  (rear-context-string)
  (position . 1))
 (#("Docker.org" 0 1
@@ -2676,16 +2874,16 @@
  (position . 1))
 (#("org-capture-last-stored-marker" 0 1
    (idx 392))
- (filename . "~/Org/Projects/Code.org")
- (front-context-string . "** TODO arduino-")
- (rear-context-string . "!!!\n#+END_SRC\n\n\n")
- (position . 51875))
+ (filename . "~/Org/Tasks/Computer Todos.org")
+ (front-context-string . "** TODO Beauty \"")
+ (rear-context-string . "3%A5][一些帅哥]]\n\n\n\n")
+ (position . 65518))
 (#("org-refile-last-stored" 0 1
    (idx 393))
- (filename . "~/Org/Projects/Code.org")
- (front-context-string . "** TODO arduino-")
- (rear-context-string . "!!!\n#+END_SRC\n\n\n")
- (position . 51875))
+ (filename . "~/Org/Tasks/Computer Todos.org")
+ (front-context-string . "** TODO Beauty \"")
+ (rear-context-string . "3%A5][一些帅哥]]\n\n\n\n")
+ (position . 65518))
 (#("Vim.org" 0 1
    (idx 394))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Vim/Vim.org")
@@ -3373,7 +3571,7 @@
 (#("org-capture-last-stored" 0 1
    (idx 508))
  (filename . "~/Org/Tasks/Tasks.org")
- (front-context-string . "* TODO arduino-m")
+ (front-context-string . "* TODO Org-mode ")
  (rear-context-string . "CATEGORY: Todo\n\n")
  (position . 19))
 (#("Accounts" 0 1
