@@ -857,6 +857,15 @@ dimensions of a block selection."
   )
 
 
+;;; Lunar Sunrise/Sunset
+(use-package celestial-mode-line
+  :ensure t
+  :config
+  (celestial-mode-line-start-timer)
+  (defun *lunar-sun ()
+    celestial-mode-line-string)
+  )
+
 ;;; TRAMP
 (defun *tramp ()
   "Show TRAMP info in custom mode-line."
@@ -925,6 +934,8 @@ dimensions of a block selection."
                  ;; 1 length.
                  " "
                  ;; (*time)
+                 (*lunar-sun)
+                 (*space 1)
                  (*erc)
                  ;; (*mu4e)
                  (*flycheck)
