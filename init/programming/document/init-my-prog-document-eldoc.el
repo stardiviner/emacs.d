@@ -29,12 +29,12 @@
                      'paredit-close-round)
   )
 
-;;; [ eldoc-overlay-mode ]  -- display eldoc with contextual documentation overlay.
+;;; [ eldoc-overlay ]  -- display eldoc with contextual documentation overlay.
 
-(use-package eldoc-overlay-mode
+(use-package eldoc-overlay
   :ensure t
   :config
-  (eldoc-overlay-mode 1))
+  (global-eldoc-overlay-mode 1))
 
 
 (provide 'init-my-prog-document-eldoc)
