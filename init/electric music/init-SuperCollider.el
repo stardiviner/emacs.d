@@ -60,8 +60,8 @@
   (define-key sclang-mode-map (kbd "C-c C-w") 'sclang-switch-to-workspace)
   (define-key sclang-mode-map (kbd "M-.") 'sclang-find-definitions)
   (define-key sclang-mode-map (kbd "M-,") 'sclang-pop-definition-mark)
-  (define-key sclang-post-buffer-mode-map (kbd "C-c C-z") 'sclang-switch-to-src)
-  (define-key sclang-post-buffer-mode-map (kbd "C-c C-w") 'sclang-switch-to-workspace)
+  ;; (define-key sclang-post-buffer-mode-map (kbd "C-c C-z") 'sclang-switch-to-src)
+  ;; (define-key sclang-post-buffer-mode-map (kbd "C-c C-w") 'sclang-switch-to-workspace)
 
   ;; auto start SuperCollider inferior process
   (defun my-sclang-auto-start ()
