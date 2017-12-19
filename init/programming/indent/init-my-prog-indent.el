@@ -75,7 +75,6 @@
   ;; works with `indent-guide-global-mode'
   (add-to-list 'indent-guide-inhibit-modes 'org-mode)
   (add-to-list 'indent-guide-inhibit-modes 'web-mode)
-  (add-to-list 'indent-guide-inhibit-modes 'emacs-lisp-mode)
 
   (defun my/indent-guide-mode-enable ()
     (unless (member major-mode indent-guide-inhibit-modes)
