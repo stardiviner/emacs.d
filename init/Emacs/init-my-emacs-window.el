@@ -59,6 +59,11 @@
                       :foreground "cyan")
   )
 
+;;; [ follow-mode ] -- [C-c .] same buffer different windows auto following in large screen.
+
+(require 'follow)
+(add-hook 'follow-mode-hook #'split-window-horizontally)
+
 
 
 (provide 'init-my-emacs-window)
