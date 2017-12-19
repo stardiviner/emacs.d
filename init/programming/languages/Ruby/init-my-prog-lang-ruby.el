@@ -16,6 +16,7 @@
 (use-package ruby-mode
   :ensure t
   :ensure-system-package ruby
+  :mode (("\\.irbrc\\'" . ruby-mode))
   ;; :init
   ;; (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
   ;; (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
