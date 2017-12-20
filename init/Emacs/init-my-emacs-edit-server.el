@@ -30,6 +30,8 @@
           (".*\\.stackexchange\\.com/.*" . markdown-mode)
           (".*\\.mail\\.google\\.com/.*" . web-mode)
           ("segmentfault\\.com" . markdown-mode)
+          ;; Gmail
+          ("mail\\.google\\.com" . web-mode)
           ;; Jupyter notebooks
           ;; localhost:8888/notebooks/Untitled1.ipynb?kernel_name=clojure
           ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=clojure" . clojure-mode)
