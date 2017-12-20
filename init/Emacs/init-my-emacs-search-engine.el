@@ -56,8 +56,8 @@
     :keybinding "B")
   (defengine stack-exchange
     "http://stackexchange.com/search?q=%s"
-    :docstring "Emacs Stack"
-    :keybinding "e")
+    :docstring "Stack Exchange all sites: powered by Google Custom Search"
+    :keybinding "s")
 
   ;; Computational Knowledge Engine
   (defengine wolfram-alpha
@@ -81,10 +81,6 @@
     :keybinding "t")
   
   ;; Docs: API
-  (defengine Stack-Overflow-Documentation
-    ;; TODO: fix URL add search substitude
-    "http://stackoverflow.com/documentation"
-    :docstring "Stack Overflow Documentation")
   (defengine APIs
     "http://apis.io/?search=%s"
     :docstring "APIs"
@@ -146,7 +142,7 @@
   (defengine stack-overflow
     "https://stackoverflow.com/search?q=%s"
     :docstring "Stack Overflow"
-    :keybinding "s")
+    :keybinding "S")
   (defengine quora
     "https://www.quora.com/search?q=%s"
     :docstring "Quora"
