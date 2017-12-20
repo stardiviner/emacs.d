@@ -90,7 +90,7 @@
     :docstring "Mozilla Developer"
     :keybinding "m")
   (defengine rfcs
-    "http://pretty-rfc.herokuapp.com/search?q=%s"
+    "https://datatracker.ietf.org/doc/search/?name=%s&activedrafts=on&rfcs=on"
     ;; "https://www.rfc-editor.org/search/rfc_search_detail.php?rfc=%s"
     :docstring "RFC"
     :keybinding "R")
