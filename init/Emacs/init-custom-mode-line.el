@@ -720,15 +720,20 @@ dimensions of a block selection."
   (when (and (active)
              (org-clock-is-active)
              org-clock-idle-timer)
-    ;; get [0:05] from `org-clock-get-clock-string'
-    (propertize
-     (concat
-      (all-the-icons-material "timer")
-      (propertize " " 'face 'variable-pitch)
-      (format "%s"
-              (org-minutes-to-clocksum-string (org-clock-get-clocked-time)))
-      (propertize " " 'face 'variable-pitch))
-     'face 'mode-line-data-face))
+    (concat
+     ;; (all-the-icons-material "timer")
+     (propertize (all-the-icons-octicon "clock") 'face 'mode-line-data-face)
+     (propertize " " 'face 'variable-pitch)
+     ;; get [0:05] from `org-clock-get-clock-string'
+     (propertize
+      (format "%s" (org-duration-from-minutes (org-clock-get-clocked-time)))
+      'face 'mode-line-data-face)
+     ;; get clocking task title
+     (propertize
+      (format " %s" (s-truncate 30 org-clock-heading))
+      'face '(:foreground "gray"))
+     (propertize " " 'face 'variable-pitch))
+    )
   )
 
 
