@@ -59,6 +59,7 @@
         org-clock-idle-time nil             ; t
         ;; org-clock-auto-clock-resolution 'when-no-clock-is-running
         ;; org-clock-resolve-expert t
+        org-clock-history-length 20 ; keep a long clocking tasks history for easy re-select history task to clock.
         )
   )
 
