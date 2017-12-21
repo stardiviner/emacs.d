@@ -46,6 +46,12 @@
   :ensure t
   :defer t)
 
+;;; [ Conky ]
+
+(use-package lua-mode
+  :ensure t
+  :mode (("\\.conkyrc\\'" . lua-mode)))
+
 ;;; [ ini-mode ] -- a major mode for *.ini files.
 
 (use-package ini-mode
