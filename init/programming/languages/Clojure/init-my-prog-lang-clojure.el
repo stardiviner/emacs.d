@@ -435,6 +435,14 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   (find-file (expand-file-name "~/.emacs.d/Org-mode/ob-clojure/src/ob_clojure/core.clj"))
   (cider-jack-in))
 
+(defun ob-clojure-cider-do-not-find-ns ()
+  "Fix the issue that `cider-current-ns' try to invoke `clojure-find-ns' to extract ns from buffer."
+  (if (cider-connected-p)
+      (with-current-buffer "*cider-repl ob-clojure*"
+        (defvar ob-clojure-cider-repl-ns cider-buffer-ns)
+        (setq-local cider-buffer-ns ob-clojure-cider-repl-ns))))
+(add-hook 'org-mode-hook #'ob-clojure-cider-do-not-find-ns)
+
 
 ;;; [ typed-clojure-mode ] -- Typed Clojure minor mode for Emacs.
 
