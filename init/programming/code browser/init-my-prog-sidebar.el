@@ -11,7 +11,7 @@
 
 (use-package neotree
   :ensure t
-  :bind ([f8] . neotree)
+  :bind ([f8] . neotree-toggle)
   :config
   (setq neo-window-position 'left
         neo-window-width 25
