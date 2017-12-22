@@ -148,7 +148,90 @@
 
 ;;; [ Library of Babel ]
 
+;;; automatically ingest "Library of Babel".
 (org-babel-lob-ingest (concat user-emacs-directory "Org-mode/Library of Babel/Library of Babel.org"))
+
+
+;;; interactive completing named src blocks. [C-c C-v C-q]
+;; workflow:
+;; 1. M-x org-babel-insert-named-source-block (imaginary function)
+;; 2. List of named source blocks pops up
+;; 3. Hit enter and "#+call: name-of-source-block()" is inserted at point.
+(defun org-babel-insert-src-block (&optional template)
+  "Interactively insert a named src block."
+  (interactive)
+  (let ((template (or template "#+call: %s()\n"))
+	      (src-block (completing-read "Enter src block name[or TAB or ENTER]: " (org-babel-src-block-names))))
+    (unless (string-equal "" src-block)
+	    (insert (format template src-block)))))
+
+(define-key org-babel-map (kbd "C-q") 'org-babel-insert-src-block)
+
+
+;;; [ Literate dotfiles management with Org-mode ]
+
+;; Tangle Org files when we save them
+;; (defun tangle-on-save-org-mode-file()
+;;   (when (string= (message "%s" major-mode) "org-mode")
+;;     (org-babel-tangle)))
+;; (add-hook 'after-save-hook 'tangle-on-save-org-mode-file)
+
+;; Enable the auto-revert mode globally. This is quite useful when you have 
+;; multiple buffers opened that Org-mode can update after tangling.
+;; All the buffers will be updated with what changed on the disk.
+;; (global-auto-revert-mode)
+
+;; Add Org files to the agenda when we save them
+;; (defun to-agenda-on-save-org-mode-file()
+;;   (when (string= (message "%s" major-mode) "org-mode")
+;;     (org-agenda-file-to-front)))
+;; (add-hook 'after-save-hook 'to-agenda-on-save-org-mode-file)
+
+;; Enable Confluence export
+;; (require 'ox-confluence)
+
+
+
+;;; change Babel src block background color.
+(setq org-src-fontify-natively t)
+
+(setq org-src-block-faces
+      '(("org" (:background (color-darken-name (face-background 'default) 4)))
+        ("latex" (:background "cyan4"))
+        ("emacs-lisp" (:background "dark slate gray"))
+        ("lisp" (:background "DarkGrey"))
+        ("scheme" (:background "DarkGrey"))
+        ("clojure" (:background "dark slate blue"))
+        ("shell" (:background "dark green"))
+        ("python" (:background "orange1"))
+        ("ipython" (:background "CadetBlue"))
+        ("ruby" (:background "HotPink"))
+        ("perl" (:background "#202020"))
+        ("php" (:background "SteelBlue4"))
+        ("C" (:background "SteelBlue4"))
+        ("C++" (:background "SteelBlue3"))
+        ("java" (:background "OrangeRed4"))
+        ("js" (:background "tomato"))
+        ("javascript" (:background "tomato"))
+        ("coffee" (:background "dark slate blue"))
+        ("haskell" (:background "IndianRed"))
+        ("ocaml" (:background "saddle brown"))
+        ("sql" (:background "yellow"))
+        ("sqlite" (:background "yellow"))
+        ("R" (:background "CadetBlue"))
+        ("julia" (:background "YellowGreen"))
+        ("octave" (:background "YellowGreen"))
+        ("matlab" (:background "YellowGreen"))
+        ("gnuplot" (:background "YellowGreen"))
+        ("sclang" (:background "DeepSkyBlue"))
+        ("ditaa" (:background "violet"))
+        ("dot" (:background "violet"))
+        ("plantuml" (:background "violet"))
+        ("ledger" (:background "LightCoral"))
+        ("calc" (:background "LightCoral"))
+        ))
+
+
 
 ;;;_ * source code block check
 ;;
@@ -159,6 +242,7 @@
 ;; – “Report the line number instead of the char position.”
 
 (defun org-src-block-check ()
+  "Auto check whether src block has language setted."
   (interactive)
   (org-element-map (org-element-parse-buffer)
       '(src-block inline-src-block)
@@ -180,7 +264,7 @@
 (add-hook 'org-src-mode-hook 'org-src-block-check)
 
 
-;; how to correctly enable flycheck in babel source blocks
+;;; correctly enable `flycheck' in babel source blocks.
 (defadvice org-edit-src-code (around set-buffer-file-name activate compile)
   (let ((file-name (buffer-file-name)))
     ad-do-it
@@ -196,91 +280,8 @@
 ;;     (org-edit-src-exit)))
 ;;
 ;; (run-at-time 1 10 'indent-org-block-automatically)
+;; TODO: auto start/stop timer when open/close temp src buffer.
 
-
-;;; Templates -- (org skeleton/template)
-
-
-;;; [ Literate Programming with Org-mode ]
-
-;; (setq org-support-shift-select 'always)
-
-;; Tangle Org files when we save them
-;; (defun tangle-on-save-org-mode-file()
-;;   (when (string= (message "%s" major-mode) "org-mode")
-;;     (org-babel-tangle)))
-;; (add-hook 'after-save-hook 'tangle-on-save-org-mode-file)
-
-;; Enable the auto-revert mode globally. This is quite useful when you have 
-;; multiple buffers opened that Org-mode can update after tangling.
-;; All the buffers will be updated with what changed on the disk.
-(global-auto-revert-mode)
-
-;; Add Org files to the agenda when we save them
-;; (defun to-agenda-on-save-org-mode-file()
-;;   (when (string= (message "%s" major-mode) "org-mode")
-;;     (org-agenda-file-to-front)))
-;; (add-hook 'after-save-hook 'to-agenda-on-save-org-mode-file)
-
-;; Enable Confluence export
-;; (require 'ox-confluence)
-
-
-
-;;; change Babel src block background color.
-
-(setq org-src-fontify-natively t)
-
-;; (setq org-src-block-faces
-;;       '(("org" (:background (color-darken-name (face-background 'default) 4)))
-;;         ("latex" (:background "#282828"))
-;;         ("emacs-lisp" (:background "#202020"))
-;;         ("lisp" (:background "#202020"))
-;;         ("scheme" (:background "#202020"))
-;;         ("clojure" (:background "#202020"))
-;;         ("sh" (:background "#202020"))
-;;         ("python" (:background "#202020"))
-;;         ("ipython" (:background "CadetBlue"))
-;;         ("ruby" (:background "#202020"))
-;;         ("perl" (:background "#202020"))
-;;         ("php" (:background "#202020"))
-;;         ("C" (:background "#202020"))
-;;         ("C++" (:background "#202020"))
-;;         ("java" (:background "#202020"))
-;;         ("js" (:background "#202020"))
-;;         ("javascript" (:background "#202020"))
-;;         ("coffee" (:background "dark slate blue"))
-;;         ("haskell" (:background "#3d4451"))
-;;         ("ocaml" (:background "saddle brown"))
-;;         ("sql" (:background "#005b5b"))
-;;         ("sqlite" (:background "#005b5b"))
-;;         ("R" (:background "#3d4451"))
-;;         ("julia" (:background "#3d4451"))
-;;         ("octave" (:background "#3d4451"))
-;;         ("matlab" (:background "#3d4451"))
-;;         ("gnuplot" (:background "#3d4451"))
-;;         ("sclang" (:background "#3d4451"))
-;;         ("ditaa" (:background "#222222"))
-;;         ("dot" (:background "#222222"))
-;;         ("plantuml" (:background "#222222"))
-;;         ("ledger" (:background "#222222"))
-;;         ("calc" (:background "#222222"))
-;;         ))
-
-;;; interactive completing named src blocks. [C-c C-v C-q]
-;; workflow:
-;; 1. M-x org-babel-insert-named-source-block (imaginary function)
-;; 2. List of named source blocks pops up
-;; 3. Hit enter and "#+call: name-of-source-block()" is inserted at point.
-(defun org-babel-insert-src-block (&optional template)
-  "Interactively insert a named src block."
-  (interactive)
-  (let ((template (or template "#+call: %s()\n"))
-	      (src-block (completing-read "Enter src block name[or TAB or ENTER]: " (org-babel-src-block-names))))
-    (unless (string-equal "" src-block)
-	    (insert (format template src-block)))))
-
-(define-key org-babel-map (kbd "C-q") 'org-babel-insert-src-block)
 
 ;;; beacon effect when open org-mode babel src block editing.
 (defun my-org-src-edit-animation ()
@@ -290,6 +291,7 @@
     (beacon-blink)))
 
 ;; (add-hook 'org-src-mode-hook #'my-org-src-edit-animation)
+
 
 ;;; [ ob-async ] -- enables asynchronous execution of org-babel src blocks for *any* languages.
 
