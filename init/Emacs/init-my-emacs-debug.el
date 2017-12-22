@@ -40,6 +40,9 @@
               ("C-x C-d b" . edebug-set-breakpoint)
               ("C-x C-d e" . edebug-on-entry)
               ("C-x C-d C-l" . edebug-where))
+  :init
+  (add-to-list 'display-buffer-alist
+               '("^\\*edebug-trace\\*" (display-buffer-below-selected)))
   :config
   (setq edebug-trace t)
   )

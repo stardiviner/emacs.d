@@ -15,17 +15,9 @@
 
 (define-key Org-prefix (kbd "SPC") #'my-org-element-at-point)
 
-(unless (boundp 'org-agenda-prefix)
-  (define-prefix-command 'org-agenda-prefix))
-(define-key Org-prefix (kbd "M-a") 'org-agenda-prefix)
-
-(defun my-org-agenda-switch ()
-  (interactive)
-  (my-func/open-and-switch-to-buffer 'org-agenda "*Org Agenda*" t)
-  )
-
-(define-key Org-prefix (kbd "a") 'my-org-agenda-switch)
-;; (define-key Org-prefix (kbd "a") 'org-agenda)
+(add-to-list 'display-buffer-alist
+             '("^\\*Org Agenda\\*" (display-buffer-below-selected)))
+(define-key Org-prefix (kbd "a") 'org-agenda)
 
 (define-key Org-prefix (kbd "c") 'org-capture)
 

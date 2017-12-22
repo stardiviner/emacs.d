@@ -69,12 +69,6 @@
   ;; show gravatar in Magit revision.
   ;; (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
 
-  (add-to-list 'display-buffer-alist
-               '("\\`\\*magit:.*\\'"
-                 (display-buffer-reuse-window
-                  display-buffer-same-window)
-                 ))
-
   ;; keybindings
   (define-key prog-vcs-git-prefix (kbd "F") 'magit-log-buffer-file)
   (define-key prog-vcs-git-prefix (kbd "b") 'magit-blame-popup)
@@ -104,6 +98,18 @@
               (setq-local company-dabbrev-code-other-buffers 'all)
               (setq-local company-dabbrev-ignore-buffers #'my--company-dabbrev-ignore-except-magit-diff)
               ))
+
+  ;; manage popup buffers.
+  (add-to-list 'display-buffer-alist
+               '("\\`\\*magit:.*\\'" (display-buffer-reuse-window display-buffer-same-window)))
+  (add-to-list 'display-buffer-alist
+               '("^\\*magit-diff.*" (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("^\\*magit-revision.*" (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("^\\*magit-log.*" (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("^\\*magit-process.*" (display-buffer-below-selected)))
   )
 
 ;;; [ magit-find-file ]

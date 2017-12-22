@@ -28,10 +28,9 @@
           ("stackoverflow\\.com" . markdown-mode)
           ("stack\\(exchange\\|overflow\\)\\.com\\.[a-z0-9]+\\.txt" . markdown-mode)
           (".*\\.stackexchange\\.com/.*" . markdown-mode)
-          (".*\\.mail\\.google\\.com/.*" . web-mode)
           ("segmentfault\\.com" . markdown-mode)
           ;; Gmail
-          ("mail\\.google\\.com" . web-mode)
+          (".*mail\\.google\\.com/.*" . html-mode)
           ;; Jupyter notebooks
           ;; localhost:8888/notebooks/Untitled1.ipynb?kernel_name=clojure
           ("localhost:8888/notebooks/.*\\.ipynb\\?kernel_name=clojure" . clojure-mode)

@@ -6,6 +6,9 @@
 
 ;;; Code:
 
+(add-to-list 'display-buffer-alist
+             '("^\\*Help\\*$" (display-buffer-below-selected)))
+
 ;;; [ helpful ] -- A better Emacs *help* buffer.
 
 (use-package helpful
@@ -17,6 +20,9 @@
   (global-set-key (kbd "C-h k") #'helpful-key)
   ;; convenient keybinding:
   (global-set-key (kbd "C-h C-.") #'helpful-at-point)
+  
+  (add-to-list 'display-buffer-alist
+               '("^\\*helpful.*\\*$" (display-buffer-same-window)))
   )
 
 

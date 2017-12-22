@@ -86,27 +86,6 @@ by creating or altering keymaps stored in buffer-local
 ;; (global-set-key "C-c k" 'insert-kbd-for-key)
 
 
-;;; [ open and switch to buffer ]
-
-(defun my-func/open-and-switch-to-buffer (the-command the-buffer-name &optional whether-switch-to-buffer)
-  "Open a `COMMAND', and switch to that `BUFFER' depend on `OPTION'.
-
-Usage: 
-
- (define-key Org-prefix (kbd 'o')
-   (lambda ()
-     (interactive)
-     (my-func/open-and-switch-to-buffer 'org-agenda-list \"*Org Agenda*\" t)))
-"
-  (interactive)
-  (if (get-buffer the-buffer-name)
-      (switch-to-buffer the-buffer-name)
-    (funcall the-command)
-    (bury-buffer)
-    (when whether-switch-to-buffer
-      (switch-to-buffer the-buffer-name))))
-
-
 ;;; Open and play GIF image in Emacs buffer.
 
 (defun my-func/open-and-play-gif-image (file &optional link)

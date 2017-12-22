@@ -17,7 +17,11 @@
 
 ;;; open shell buffer in current window
 (add-to-list 'display-buffer-alist
-             '("^\\*shell\\*$" . (display-buffer-same-window)))
+             '("^\\*shell\\*$" . (display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist
+             '("^\\*Shell Command Output\\*$" . (display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist
+             '("^\\*Async Shell Command\\*" (display-buffer-below-selected)))
 
 ;; [M-x shell] is a nice shell interface to use, let's make it colorful.
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)

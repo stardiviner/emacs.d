@@ -27,6 +27,14 @@
 ;; (setq org-babel-default-inline-header-args)
 ;; (setq org-babel-default-lob-header-args)
 
+;;; Manage org-babel popup buffers with `display-buffer-alist'.
+(add-to-list 'display-buffer-alist
+             '("^\\*Org- Src.*\\*" (display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist
+             '("^\\*Org-Babel Preview.*\\*" (display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist
+             '("^\\*Org-Babel Error Output\\*" (display-buffer-below-selected)))
+
 ;;; [ noweb ]
 ;; Raise errors when noweb references don't resolve.
 (setq org-babel-noweb-error-all-langs t)

@@ -25,6 +25,9 @@
                                        ;; xref-find-definitions-other-frame
                                        ))
 
+(add-to-list 'display-buffer-alist
+             '("^\\*xref\\*$" (display-buffer-same-window)))
+
 ;;; [ helm-xref ] -- Helm interface for xref results.
 
 ;; (use-package helm-xref

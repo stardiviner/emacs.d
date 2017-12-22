@@ -35,6 +35,9 @@
   (define-key ag-map (kbd "d") 'ag-dired)      ; `ag-dired-regexp'
   (define-key ag-map (kbd "f") 'ag-files)
   (define-key ag-map (kbd "k") 'ag-kill-buffers) ; `ag-kill-other-buffers'
+
+  (add-to-list 'display-buffer-alist
+               '("^\\*ag search\\*" (display-buffer-below-selected)))
   )
 
 ;;; [ helm-ag ] --- the silver searcher with helm interface.

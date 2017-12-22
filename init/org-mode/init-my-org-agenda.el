@@ -11,6 +11,11 @@
 
 (setq org-agenda-window-setup 'current-window)
 
+(add-to-list 'display-buffer-alist
+             '("^\\*Org Agenda\\*" (display-buffer-same-window)))
+(add-to-list 'display-buffer-alist
+             '("^\\*Org Note\\*" (display-buffer-same-window)))
+
 ;; Agenda Views
 (setq org-agenda-align-tags-to-column -100
       org-agenda-tags-column -100)

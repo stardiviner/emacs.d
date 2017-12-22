@@ -32,8 +32,17 @@
 
 ;; Learn about display actions, see [[info:elisp#Display Action Functions]].
 
-;; (add-to-list 'display-buffer-alist
-;;              '("^*Async Shell Command*" . (display-buffer-no-window)))
+;; Actions:
+;; display-buffer actions:
+;; - (display-buffer-same-window)
+;; - (display-buffer-reuse-window display-buffer-below-selected) (window-height . 0.3)
+;; - (display-buffer-reuse-window display-buffer-same-window)
+(add-to-list 'display-buffer-alist
+             '("^\\*Warnings\\*" (display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist
+             '("^\\*Pp Eval Output\\*" (display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist
+             '("^\\*Backtrace\\*" (display-buffer-below-selected)))
 
 
 ;;; [ winner ]

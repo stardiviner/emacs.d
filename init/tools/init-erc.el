@@ -105,19 +105,8 @@ The function is suitable for `erc-after-connect'."
 
 (define-key irc-prefix (kbd "i") 'my-erc-start-or-switch)
 
-(defun my-erc-switch-to-buffer ()
-  "Switch to an erc buffer, or run `erc-select'.
-When called repeatedly, cycle through the buffers."
-  (interactive)
-  (let ((buffers (and (fboundp 'erc-buffer-list)
-                      (erc-buffer-list))))
-    (when (eq (current-buffer) (car buffers))
-      (bury-buffer)
-      (setq buffers (cdr buffers)))
-    (if buffers
-        (switch-to-buffer (car buffers)))))
-
-(define-key irc-prefix (kbd "b") 'my-erc-switch-to-buffer)
+(define-key irc-prefix (kbd "j") 'erc-track-switch-buffer)
+(define-key irc-prefix (kbd "b") 'erc-iswitchb)
 
 ;; [ Tracking ]
 ;;

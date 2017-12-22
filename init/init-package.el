@@ -46,6 +46,9 @@
 ;; (setq package-enable-at-startup nil)
 ;; (package-initialize nil)
 
+(add-to-list 'display-buffer-alist
+             '("^\\*package-build-result\\*" (display-buffer-below-selected)))
+
 
 ;;; [ use-package ]
 

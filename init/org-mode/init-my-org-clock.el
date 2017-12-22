@@ -28,6 +28,9 @@
 
 ;;; [ Clock ]
 
+(add-to-list 'display-buffer-alist
+             '("^\\*Clock Task Select\\*" (display-buffer-below-selected)))
+
 (use-package org-clock
   :ensure-system-package (aplay . "sudo pacman -S --noconfirm alsa-utils")
   :config

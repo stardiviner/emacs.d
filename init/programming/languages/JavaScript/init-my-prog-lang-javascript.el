@@ -159,7 +159,10 @@
 (use-package js-comint
   :ensure t
   :defer t
+  :commands (run-js)
   :init
+  (add-to-list 'display-buffer-alist
+               '("^\\*JavaScript REPL\\*" (display-buffer-below-selected)))
   ;; if use node.js, we need nice output
   (setenv "NODE_NO_READLINE" "1")
 

@@ -14,6 +14,9 @@
       compilation-auto-jump-to-next nil
       )
 
+(add-to-list 'display-buffer-alist
+             '("^\\*compilation\\*" (display-buffer-below-selected)))
+
 ;;; [ quickrun ] -- Run command quickly.
 
 (use-package quickrun
@@ -45,6 +48,10 @@
       (:exec    . ("%c %s"))
       :default "browser"))
   (quickrun-set-default "html" "browser/firefox")
+
+  ;; manage quickrun popup buffers.
+  (add-to-list 'display-buffer-alist
+               '("^\\*quickrun\\*" (display-buffer-below-selected)))
   )
 
 

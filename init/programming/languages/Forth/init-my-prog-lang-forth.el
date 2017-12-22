@@ -12,6 +12,24 @@
 (use-package forth-mode
   :ensure t
   :config
+  (defun my-func/open-and-switch-to-buffer (the-command the-buffer-name &optional whether-switch-to-buffer)
+    "Open a `COMMAND', and switch to that `BUFFER' depend on `OPTION'.
+
+Usage: 
+
+ (define-key Org-prefix (kbd 'o')
+   (lambda ()
+     (interactive)
+     (my-func/open-and-switch-to-buffer 'org-agenda-list \"*Org Agenda*\" t)))
+"
+    (interactive)
+    (if (get-buffer the-buffer-name)
+        (switch-to-buffer the-buffer-name)
+      (funcall the-command)
+      (bury-buffer)
+      (when whether-switch-to-buffer
+        (switch-to-buffer the-buffer-name))))
+  
   (defun my-forth-switch-to-repl ()
     "Switch to Forth REPL buffer."
     (interactive)

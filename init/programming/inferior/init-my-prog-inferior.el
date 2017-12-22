@@ -12,13 +12,9 @@
   (define-prefix-command 'inferior-prefix))
 (global-set-key (kbd "C-c i") 'inferior-prefix)
 
-;;; Shell
-;; (unless (boundp 'shell-prefix)
-;;   (define-prefix-command 'shell-prefix))
-;; (define-key inferior-prefix (kbd "s") 'shell-prefix)
-;;
-;; (define-key shell-prefix (kbd "s") 'shell)
-
+;; Shell
+(add-to-list 'display-buffer-alist
+             '("^\\*shell\\*" (display-buffer-below-selected)))
 (define-key inferior-prefix (kbd "s") 'shell)
 
 ;;; Lisp
@@ -26,47 +22,23 @@
   (define-prefix-command 'lisp-prefix))
 (define-key inferior-prefix (kbd "l") 'lisp-prefix)
 
-;; Emacs Lisp
-(defun my-ielm-start-or-switch ()
-  "Start IELM or switch to its buffer if it already exist."
-  (interactive)
-  (let ((default-directory (getenv "HOME")))
-    (my-func/open-and-switch-to-buffer 'ielm "*ielm*" t)))
-
-(define-key lisp-prefix (kbd "e") 'my-ielm-start-or-switch)
-
-(defun my-scratch-start-or-switch ()
-  "Start IELM or switch to its buffer if it already exist."
-  (interactive)
-  ;; (switch-to-buffer "*scratch*")
-  (popwin:display-buffer "*scratch*")
-  )
-
-(define-key lisp-prefix (kbd "k") 'my-scratch-start-or-switch)
-
-(defun my-run-sly ()
-  "Start SLY or switch to its buffer if it already exist."
-  (interactive)
-  (my-func/open-and-switch-to-buffer 'sly "*sly-mrepl for sbcl*" t))
-
 ;; Lisp dialects
-(define-key lisp-prefix (kbd "e") 'my-ielm-start-or-switch)
+(add-to-list 'display-buffer-alist
+             '("^\\*ielm\\*" (display-buffer-below-selected)))
+(define-key lisp-prefix (kbd "e") 'ielm)
 (define-key lisp-prefix (kbd "l") 'run-lisp)   ; Lisp: *inferior-lisp*
 (define-key lisp-prefix (kbd "s") 'slime-repl) ; SLIME REPL
-(define-key lisp-prefix (kbd "y") 'my-run-sly) ; SLY
+(add-to-list 'display-buffer-alist
+             '("^\\*sly-mrepl for sbcl\\*" (display-buffer-below-selected)))
+(define-key lisp-prefix (kbd "y") 'sly) ; SLY
 (define-key lisp-prefix (kbd "S") 'run-scheme) ; Scheme
 (define-key lisp-prefix (kbd "g") 'run-geiser) ; geiser
 (define-key lisp-prefix (kbd "G") 'run-guile)  ; Guile
 
 ;; Ruby
-(unless (boundp 'ruby-prefix)
-  (define-prefix-command 'ruby-prefix))
-(define-key inferior-prefix (kbd "r") 'ruby-prefix)
-(define-key ruby-prefix (kbd "r") 'my-run-ruby) ; `run-ruby'
-(defun my-run-ruby ()
-  "Start SLY or switch to its buffer if it already exist."
-  (interactive)
-  (my-func/open-and-switch-to-buffer 'run-ruby "*ruby*" t))
+(add-to-list 'display-buffer-alist
+             '("^\\*ruby\\*" (display-buffer-below-selected)))
+(define-key inferior-prefix (kbd "r") 'run-ruby)
 
 ;; Python
 ;; (unless (boundp 'python-prefix)

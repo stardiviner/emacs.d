@@ -16,6 +16,10 @@
 
 (use-package emms
   :ensure t
+  :init
+  (define-key emms-prefix (kbd "e") 'emms)
+  (add-to-list 'display-buffer-alist
+               '("^\\*EMMS Playlist\\*" (display-buffer-below-selected)))
   :config
   (require 'emms-setup)
   (emms-all)

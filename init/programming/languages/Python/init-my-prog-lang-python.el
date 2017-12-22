@@ -40,6 +40,10 @@
      (setq python-shell-interpreter-args "--simple-prompt --pprint"))
     )
 
+  (add-to-list 'display-buffer-alist
+               '("^\\*Python\\*" (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("^\\*Python Doc\\*" (display-buffer-below-selected)))
   (defun my-inferior-python ()
     "My function to start or switch to inferior-python process buffer `PROCESS-BUFFER-NAME'."
     (interactive)
@@ -47,7 +51,6 @@
       (run-python "python"))
     (switch-to-buffer "*Python*")
     )
-
   (unless (boundp 'inferior-prefix)
     (define-prefix-command 'inferior-prefix))
   (define-key inferior-prefix (kbd "p") 'my-inferior-python) ; 'run-python
