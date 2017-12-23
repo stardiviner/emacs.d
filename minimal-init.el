@@ -6,6 +6,8 @@
 
 ;;; Code:
 
+(package-initialize)
+
 ;;; [ Debug ]
 (setq debug-on-error t
       debug-on-signal nil
@@ -18,8 +20,13 @@
 ;; (require 'init-my-emacs-benchmark)
 
 
-
 ;;; add my init files directory
+
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/")
+
+(add-to-list 'load-path (expand-file-name "init" user-emacs-directory))
+
+;; recursively load init files.
 (let ((default-directory "~/.emacs.d/init/"))
   (setq load-path
         (append
@@ -29,44 +36,11 @@
             (normal-top-level-add-subdirs-to-load-path)))
          load-path)))
 
+(setq load-prefer-newer t)
+
 ;;; [ package.el ]
-(require 'cl)
-(require 'package)
-(setq package-menu-async t)
-(setq package-user-dir "~/.emacs.d/elpa")
-(setq-default package-archives
-              '(
-                ;; ("org"   . "http://orgmode.org/elpa/")
-                ("melpa" . "http://melpa.org/packages/")
-                ;; ("melpa-stable" . "http://stable.melpa.org/packages/")
-                ;; ("marmalade" . "http://marmalade-repo.org/packages/")
-                ("gnu" . "https://elpa.gnu.org/packages/")
-                ))
-
-(package-initialize)
-
-;;; [ use-package ]
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
-;;; [ Quelpa ] -- Build and install your Emacs Lisp packages on-the-fly directly from source.
-
-(use-package quelpa
-  :ensure t
-  :config
-  (setq quelpa-update-melpa-p nil
-        ;; quelpa-upgrade-p t
-        )
-
-  (add-to-list 'quelpa-melpa-recipe-stores
-               (concat user-emacs-directory "melpa/recipes"))
-  )
-
-;;; [ Quelpa-use-package ] -- Emacs quelpa handler for use-package.
-
-(use-package quelpa-use-package
-  :ensure t)
+(load "~/.emacs.d/init/init-package.el")
+(require 'init-package)
 
 
 
