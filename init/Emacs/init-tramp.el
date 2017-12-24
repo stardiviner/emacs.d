@@ -75,6 +75,16 @@
   ;; (setq tramp-adb-program "adb")
   )
 
+;;; [ counsel-tramp ] -- Tramp with Ivy/counsel interface.
+
+(use-package counsel-tramp
+  :ensure t
+  :defer t
+  :commands (counsel-tramp)
+  :config
+  (defalias 'exit-tramp 'tramp-cleanup-all-buffers)
+  )
+
 ;;; [ helm-tramp ] -- Tramp with Helm interface.
 
 ;; (use-package helm-tramp
