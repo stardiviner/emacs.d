@@ -16,8 +16,9 @@
 (setq password-cache-expiry nil) ; don't expire password cache.
 
 
-;;; [ Auth Source ]
+;;; [ Auth-Source ]
 
+(setq auth-sources '("~/.authinfo.gpg" "~/.authinfo" "~/.netrc"))
 ;; Auth Source debugging
 (setq auth-source-debug t)
 
