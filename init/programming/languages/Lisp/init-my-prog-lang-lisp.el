@@ -71,24 +71,16 @@
 
 ;;; [ Parinfer ] -- Let's simplify the way we write Lisp...
 
-;; (use-package parinfer
-;;   :ensure t
-;;   :bind (("C-," . parinfer-toggle-mode))
-;;   :config
-;;   (setq parinfer-extensions
-;;         '(defaults       ; should be included.
-;;            pretty-parens  ; different paren styles for different modes.
-;;            ;; evil           ; If you use Evil.
-;;            ;; lispy          ; If you use Lispy. With this extension, you should install Lispy and do not enable lispy-mode directly.
-;;            paredit        ; Introduce some paredit commands.
-;;            smart-tab      ; C-b & C-f jump positions and smart shift with tab & S-tab.
-;;            smart-yank     ; Yank behavior depend on mode.
-;;            ))
-;;
-;;   ;; Indent-Mode (don't auto enable)
-;;   (setq parinfer-auto-switch-indent-mode nil)  ;; default
-;;   (setq parinfer-auto-switch-indent-mode-when-closing nil)  ;; default
-;;   )
+(use-package parinfer
+  :ensure t
+  ;; :bind (("C-," . parinfer-toggle-mode))
+  :config
+  (setq parinfer-extensions
+        '(defaults                 ; should be included.
+           pretty-parens           ; different paren styles for different modes.
+           paredit                 ; Introduce some paredit commands.
+           smart-yank))            ; Yank behavior depend on mode.
+  (parinfer-mode 1))
 
 ;;; [ rainbow-delimiters ] -- rainbow color parenthesis
 
