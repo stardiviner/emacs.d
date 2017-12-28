@@ -108,12 +108,9 @@
               ("M-g m" . smerge-context-menu)
               ("M-g M" . smerge-popup-context-menu)
               )
-  :config
-  ;;; keybindings
-  ;; (setq smerge-command-prefix (kbd "C-c v M-d"))
-
-  ;; enable `smerge-mode' automatically
+  :init
   (defun smart-try-smerge ()
+    "Enable `smerge-mode' automatically."
     (save-excursion
       (goto-char (point-min))
       (when (re-search-forward "^<<<<<<< " nil t)
