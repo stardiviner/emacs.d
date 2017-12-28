@@ -133,13 +133,13 @@
 (setq org-habit-show-habits t      ; show habits in agenda.
       org-habit-show-all-today nil   ; show all habits' consistency graph in today
       org-habit-show-habits-only-for-today t
-      org-habit-show-done-always-green nil
       org-habit-graph-column 70
-      org-habit-preceding-days 21
+      org-habit-preceding-days 14
       org-habit-following-days 7
       org-habit-today-glyph ?>
       org-habit-completed-glyph ?✔
-      )
+      org-habit-show-done-always-green nil)
+
 
 ;; set task to habit
 (defun org-habit-apply ()
