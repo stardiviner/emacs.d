@@ -55,8 +55,12 @@
 
 
 ;; (require 'init-ido)
-(require 'init-helm)
 (require 'init-ivy)
+(require 'init-helm)
+
+(if (bound-and-true-p helm-mode)
+    (ivy-mode -1)
+  (helm-mode 1))
 
 
 

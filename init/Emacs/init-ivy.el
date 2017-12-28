@@ -13,7 +13,6 @@
   :ensure t
   :defer t
   :config
-  ;; ivy-mode
   (setq ivy-use-virtual-buffers t ; treat recentf, bookmarks as virtual buffers.
         ivy-virtual-abbreviate 'full ; use 'full to fix bookmarks uniquify issue.
         ivy-height 5
@@ -78,8 +77,6 @@
       ))
 
   (global-set-key [remap bookmark-jump] 'ivy-bookmark-goto)
-  
-  (ivy-mode 1)
   )
 
 ;;; [ ivy-rich ] -- More friendly display transformer for ivy.
@@ -87,8 +84,7 @@
 (use-package ivy-rich
   :ensure t
   :config
-  (ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer)
-  )
+  (ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer))
 
 ;;; [ all-the-icons-ivy ] -- Ivy/Counsel integration with all-the-icons.el
 
@@ -158,8 +154,7 @@
 
 (use-package swiper
   :ensure t
-  :bind ("C-s" . swiper)
-  )
+  :bind ("C-s" . swiper))
 
 
 (provide 'init-ivy)

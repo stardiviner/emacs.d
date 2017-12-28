@@ -11,8 +11,8 @@
 
 (use-package helm
   :ensure t
-  ;; :bind (("M-x" . helm-M-x)
-  ;;        ("M-y" . helm-show-kill-ring))
+  :bind (("M-x" . helm-M-x)
+         ("M-y" . helm-show-kill-ring))
   :load (helm helm-config)
   :config
   (setq helm-split-window-inside-p t)
@@ -24,7 +24,7 @@
     (setq helm-autoresize-max-height 20
           helm-autoresize-min-height 10))
 
-  ;; (helm-mode 1)
+  (helm-mode 1)
 
   ;; Helm internal keybindings `helm-map'
 
