@@ -46,8 +46,7 @@
         ;; Status: Getting Things Done
         (sequence "TODO(t@/!)" "NEXT(n!)"
                   "URGENT(u!)" "INPROGRESS(g@/!)" "LATER(l!)" "SOMEDAY(s@/!)"
-                  "FAILED(x@/!)" "CANCELLED(C@/!)"
-                  "|" "DONE(d@/!)")
+                  "|" "DONE(d@/!)" "FAILED(x@/!)" "CANCELLED(k@/!)")
         ;; Clock
         (sequence "STARTED(!)" "|" "DONE(d@/!)")
         ;; Repeat tasks with active timestamps
