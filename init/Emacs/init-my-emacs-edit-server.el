@@ -21,6 +21,8 @@
   (add-hook 'after-init-hook 'edit-server-start t)
   :config
   (setq edit-server-new-frame t)
+
+  (add-hook 'edit-server-edit-mode-hook #'flyspell-mode)
   
   (setq edit-server-url-major-mode-alist
         '(("github\\.com" . markdown-mode)
