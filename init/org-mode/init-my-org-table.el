@@ -19,9 +19,8 @@
 
 (use-package org-table-sticky-header
   :ensure t
-  :init
-  (add-hook 'org-mode-hook 'org-table-sticky-header-mode)
-  )
+  :config
+  (add-hook 'org-mode-hook 'org-table-sticky-header-mode))
 
 ;;; [ orgtbl-ascii-plot ] -- ascii-art bar plots in org-mode tables.
 
