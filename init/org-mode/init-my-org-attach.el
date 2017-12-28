@@ -74,18 +74,7 @@
   :ensure-system-package wget
   :defer t
   :init
-  (unless (boundp 'org-board-prefix)
-    (define-prefix-command 'org-board-prefix))
-  (define-key Org-prefix (kbd "C-b") 'org-board-prefix)
-
-  (define-key org-board-prefix (kbd "a") 'org-board-new)
-  (define-key org-board-prefix (kbd "n") 'org-board-new)
-  (define-key org-board-prefix (kbd "C-a") 'org-board-archive)
-  (define-key org-board-prefix (kbd "r") 'org-board-archive-dry-run)
-  (define-key org-board-prefix (kbd "o") 'org-board-open)
-  (define-key org-board-prefix (kbd "d") 'org-board-diff)
-  (define-key org-board-prefix (kbd "C-d") 'org-board-delete-all)
-  )
+  (define-key Org-prefix (kbd "C-a") org-board-keymap))
 
 
 (provide 'init-my-org-attach)
