@@ -95,7 +95,7 @@
         )
 
   (add-to-list 'quelpa-melpa-recipe-stores
-               (concat user-emacs-directory "melpa/recipes"))
+               (concat user-emacs-directory "elpa/recipes"))
   )
 
 ;;; [ Quelpa-use-package ] -- Emacs quelpa handler for use-package.
