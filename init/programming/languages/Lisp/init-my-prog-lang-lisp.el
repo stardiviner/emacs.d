@@ -78,16 +78,16 @@
 
 ;;; [ Parinfer ] -- Let's simplify the way we write Lisp...
 
-(use-package parinfer
-  :ensure t
-  ;; :bind (("C-," . parinfer-toggle-mode))
-  :config
-  (setq parinfer-extensions
-        '(defaults                 ; should be included.
-           pretty-parens           ; different paren styles for different modes.
-           paredit                 ; Introduce some paredit commands.
-           smart-yank))            ; Yank behavior depend on mode.
-  (parinfer-mode 1))
+;; (use-package parinfer
+;;   :ensure t
+;;   ;; :bind (("C-," . parinfer-toggle-mode))
+;;   :config
+;;   (setq parinfer-extensions
+;;         '(defaults                 ; should be included.
+;;            pretty-parens           ; different paren styles for different modes.
+;;            paredit                 ; Introduce some paredit commands.
+;;            smart-yank))            ; Yank behavior depend on mode.
+;;   (parinfer-mode 1))
 
 ;;; [ rainbow-delimiters ] -- rainbow color parenthesis
 
