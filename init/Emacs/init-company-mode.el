@@ -39,11 +39,11 @@
                   ;; company-gtags company-etags
                   ;; company-tempo         ; tempo: flexible template insertion
                   (company-capf         ; `completion-at-point-functions'
-                   :with
-                   company-yasnippet)
-                  :separate company-tempo
-                  ;; :separate company-semantic
-                  :separate company-ispell ; for word completion in comment.
+                   :with company-yasnippet
+                   :with company-tempo
+                   ;; :separate company-semantic
+                   ;; :separate company-ispell ; for word completion in comment.
+                   )
                   (company-keywords
                    :with
                    company-dabbrev-code)

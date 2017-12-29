@@ -170,7 +170,7 @@ The function is suitable for `erc-after-connect'."
   (setq company-minimum-prefix-length 2)
   (make-local-variable 'company-backends)
   (setq company-backends '((company-capf :with company-ispell)
-                           (company-keywords :with company-dabbrev-code)
+                           company-keywords
                            company-abbrev)))
 
 (add-hook 'erc-mode-hook #'my/erc-completion-setup)
