@@ -4,7 +4,7 @@
 # group: template.package
 # --
 ;; Authors: ${1:stardiviner <numbchild@gmail.com>}
-${2:;; Package-Requires: ((emacs "24.4") (cl-lib "0.3")${3})}
+${2:;; Package-Requires: ((emacs "24.4") (cl-lib "0.5")${3})}
 ;; Package-Version: ${4:0.1}
 ;; Keywords: ${5:keywords separated by comma}
 ;; homepage: ${6:homepage}
