@@ -98,6 +98,7 @@
   (define-key emms-mpd-prefix (kbd "s") 'emms-player-mpd-start)
   (define-key emms-mpd-prefix (kbd "p") 'emms-player-mpd-play)
   ;; TODO: (emms-player-mpd-get-mpd-state nil #'ignore info)
+  (define-key emms-mpd-prefix (kbd "SPC") 'emms-player-mpd-show)
   (define-key emms-mpd-prefix (kbd "P") 'emms-player-mpd-pause)
   (define-key emms-mpd-prefix (kbd "S") 'emms-player-mpd-stop)
 
