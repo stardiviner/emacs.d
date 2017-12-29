@@ -34,10 +34,10 @@ hello
 
 * Print
 
- #+name: elisp-print
- #+BEGIN_SRC emacs-lisp :var name=""
- (prin1 name)
- #+END_SRC
+#+name: elisp-print
+#+BEGIN_SRC emacs-lisp :var name=""
+(prin1 name)
+#+END_SRC
 
 #+NAME: sh-echo
 #+BEGIN_SRC shell :var input="stardiviner"
@@ -48,4 +48,14 @@ echo $input
 #+BEGIN_SRC ruby :var str="stardiviner"
 puts str
 #+END_SRC
+
+
+* Docker
+
+** get latest docker container name
+
+#+NAME: docker-name-latest
+#+begin_src shell
+docker ps --format="{{.Names}}"
+#+end_src
 
