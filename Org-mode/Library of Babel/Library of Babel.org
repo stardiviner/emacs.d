@@ -59,3 +59,24 @@ puts str
 docker ps --format="{{.Names}}"
 #+end_src
 
+
+* Deluge
+
+** local RPC daemon account
+
+#+NAME: deluge-daemon-username
+#+begin_src shell
+cat ~/.config/deluge/auth | cut -d ":" -f 1
+#+end_src
+
+#+RESULTS: deluge-daemon-username
+: localclient
+
+#+NAME: deluge-daemon-password
+#+begin_src shell
+cat ~/.config/deluge/auth | cut -d ":" -f 2
+#+end_src
+
+#+RESULTS: deluge-daemon-password
+: 9b83ceded9ac08cc5c7403b093115874a6086958
+
