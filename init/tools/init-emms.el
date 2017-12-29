@@ -100,6 +100,12 @@
   ;; TODO: (emms-player-mpd-get-mpd-state nil #'ignore info)
   (define-key emms-mpd-prefix (kbd "P") 'emms-player-mpd-pause)
   (define-key emms-mpd-prefix (kbd "S") 'emms-player-mpd-stop)
+
+  ;; [ mpv ]
+  (use-package emms-player-mpv
+    :ensure t
+    :config
+    )
   )
 
 
