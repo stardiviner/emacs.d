@@ -263,6 +263,7 @@
   (require 'init-my-prog-tags))
 ;; (require 'init-my-prog-lang-C++)
 ;; (require 'init-my-prog-lang-csharp)
+;; (require 'init-my-prog-lang-fsharp)
 ;; (require 'init-my-prog-lang-D)
 ;; (require 'init-my-prog-lang-go)
 ;; (require 'init-my-prog-lang-rust)
