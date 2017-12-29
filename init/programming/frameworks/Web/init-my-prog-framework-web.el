@@ -91,9 +91,6 @@
        (end-of-line)
        (newline-and-indent)))
 
-  ;; fix company-mode candidates auto lowercase.
-  (add-to-list 'company-dabbrev-code-modes 'web-mode)
-
   ;; [ web-narrow-mode ] -- narrow for web-mode
   (use-package web-narrow-mode
     :ensure t
