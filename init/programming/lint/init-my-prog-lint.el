@@ -30,42 +30,13 @@
               ("M-g M-p" . flycheck-previous-error)
               ("M-g M-l" . flycheck-list-errors))
   :config
-  (setq-default flycheck-temp-prefix ".flycheck")
-  (setq flycheck-check-syntax-automatically '(mode-enabled save idle-change) ; new-line
-        flycheck-idle-change-delay 5.0
-        ;; flycheck-display-errors-delay 0.9
-        flycheck-highlighting-mode 'symbols
-        flycheck-indication-mode 'left-fringe
-        ;; 'flycheck-fringe-bitmap-double-arrow
-        ;; flycheck-display-errors-function 'flycheck-display-error-messages
-        flycheck-standard-error-navigation t ; [M-g n/p]
-        flycheck-deferred-syntax-check nil
-        ;; flycheck-mode-line '(:eval (flycheck-mode-line-status-text))
-        flycheck-completing-read-function 'completing-read
-        )
+  (setq flycheck-check-syntax-automatically '(save idle-change)
+        flycheck-idle-change-delay 5.0)
 
   ;; [Emacs Lisp]
   ;; To make Flycheck use the current `load-path'.
   ;; Don't error about "free variable" without (require ??).
-  (setq flycheck-emacs-lisp-initialize-packages 'auto
-        flycheck-emacs-lisp-load-path 'inherit
-        flycheck-emacs-lisp-package-user-dir nil
-        )
-
-  ;; [Ruby]
-  (setq flycheck-ruby-executable "rubocop"
-        ;; flycheck-rubocop-lint-only t
-        )
-
-  ;; [Clang]
-  ;; flycheck-clang-definitions
-  ;; flycheck-clang-include-path
-  ;; flycheck-clang-includes
-  ;; flycheck-clang-language-standard
-  ;; flycheck-clang-no-rtti
-  ;; flycheck-clang-standard-library
-  ;; flycheck-clang-warnings
-  ;; flycheck-cppcheck-checks
+  (setq flycheck-emacs-lisp-load-path 'inherit)
 
   ;; list errors only when has lint errors
   (defun flycheck-list-errors-only-when-errors ()
@@ -75,12 +46,11 @@
       (-when-let (buffer (get-buffer flycheck-error-list-buffer))
         (dolist (window (get-buffer-window-list buffer))
           (quit-window nil window)))))
-  ;; (add-hook 'before-save-hook #'flycheck-list-errors-only-when-errors)
+  ;; (add-hook 'after-save-hook #'flycheck-list-errors-only-when-errors)
   )
 
 
-
-;;; [ flycheck-ineline ] -- display errors with inline style.
+;;; [ flycheck-inline ] -- display errors with inline style.
 
 ;; (use-package flycheck-inline
 ;;   :ensure t

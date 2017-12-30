@@ -70,10 +70,7 @@
 
   ;; programming code
   ;; flyspell-prog-mode : enable flyspell for comments in source code
-  ;; (dolist (hook
-  ;;          '(prog-mode-hook
-  ;;            ))
-  ;;   (add-hook hook 'flyspell-prog-mode))
+  (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
   ;; Org-mode
   (add-hook 'org-mode-hook
@@ -102,28 +99,14 @@
         flyspell-delay 8
         flyspell-default-delayed-commands '(self-insert-command)
         ;; flyspell-delayed-commands
-        ;; flyspell-default-deplacement-commands '(next-line
-        ;;                                         previous-line
-        ;;                                         handle-switch-frame
-        ;;                                         handle-select-window
-        ;;                                         scroll-up
-        ;;                                         scroll-down
-        ;;                                         scrollbar-vertical-drag
-        ;;                                         ;; -------------------------
-        ;;                                         backward-delete-char-untabify
-        ;;                                         delete-backward-char
-        ;;                                         backward-or-forward-delete-char
-        ;;                                         delete-char
-        ;;                                         )
+        ;; flyspell-default-deplacement-commands '(next-line previous-line
+        ;;                                                   handle-switch-frame handle-select-window
+        ;;                                                   scroll-up scroll-down)
         ;; flyspell-deplacement-commands
         flyspell-use-meta-tab nil ; use [M-TAB] to correct word.
         flyspell-consider-dash-as-word-delimiter-flag t
-        flyspell-highlight-flag t
-        flyspell-persistent-highlight t
-        flyspell-highlight-properties t
-        ;; × ✗
-        ;; flyspell-before-incorrect-word-string "✗"
         flyspell-after-incorrect-word-string "✗"
+        ;; save correct wrong words into global abbrev table.
         ;; flyspell-abbrev-p t
         ;; flyspell-use-global-abbrev-table-p t
         )
@@ -146,8 +129,7 @@
   :ensure t
   :config
   (with-eval-after-load 'flyspell
-    (define-key flyspell-mode-map (kbd "C-.") 'flyspell-correct-word-generic))
-  )
+    (define-key flyspell-mode-map (kbd "C-.") 'flyspell-correct-word-generic)))
 
 
 (provide 'init-my-emacs-spell)

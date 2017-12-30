@@ -61,8 +61,7 @@
 (require 'bind-key)                     ; if you use any `:bind' variant
 
 (setq use-package-verbose t ; 'debug: any evaluation errors report to `*use-package*` buffer.
-      use-package-always-ensure nil
-      use-package-enable-imenu-support t)
+      use-package-always-ensure nil)
 
 (use-package use-package-ensure-system-package
   :ensure t

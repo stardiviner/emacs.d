@@ -42,12 +42,14 @@
         ;; - 0 to avoid zero-column guide line.
         ;; - -1 to show all indent lines.
         indent-guide-threshold 0
+        ;; indent-guide-delay 0.1
         )
 
   ;; custom indent line char
   ;; 1: use `indent-guide-char'.
   ;; │ ┃  ▍ ┇ ┋ ┊ ┆ ╽ ╿
   ;; (setq indent-guide-char "┃")
+  ;; (setq indent-guide-char ":")
 
   ;; 2: use face-attribute stipple pixmap data.
   (setq indent-guide-char " ")

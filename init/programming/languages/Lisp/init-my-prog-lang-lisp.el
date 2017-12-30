@@ -12,11 +12,11 @@
 
 ;;; [ lisp-extra-font-lock ] -- Highlight bound variables and quoted expressions in Lisp.
 
-(use-package lisp-extra-font-lock
-  :ensure t
-  :config
-  (lisp-extra-font-lock-global-mode 1)
-  )
+;; (use-package lisp-extra-font-lock
+;;   :ensure t
+;;   :config
+;;   (lisp-extra-font-lock-global-mode 1)
+;;   )
 
 ;;; [ Par Edit (paredit) ] -- performing structured editing of S-expression data.
 

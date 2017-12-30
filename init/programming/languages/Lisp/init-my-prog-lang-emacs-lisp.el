@@ -58,7 +58,7 @@
 ;;              '(:lexical . "yes"))
 
 
-;;; eldoc-eval --- Enable eldoc support when minibuffer is in use.
+;;; [ eldoc-eval ] -- Enable eldoc support when minibuffer is in use.
 
 (use-package eldoc-eval
   :ensure t

@@ -330,8 +330,7 @@
 
 (case system-type
   ('gnu/linux
-   (require 'init-linux)
-   (message "hi"))
+   (require 'init-linux))
   ('darwin
    (require 'init-macOS))
   ('windows-nt

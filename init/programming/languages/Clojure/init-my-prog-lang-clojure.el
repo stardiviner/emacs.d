@@ -113,6 +113,7 @@
         ;; cider-repl-tab-command 'cider-repl-indent-and-complete-symbol
         ;; cider-known-endpoints '(("host-a" "10.10.10.1" "7888") ("host-b" "7888"))
         cider-repl-use-pretty-printing t
+        ;; cider-pprint-fn 'fipp
         cider-repl-wrap-history t
         cider-repl-history-size 500
         cider-repl-history-file nil
@@ -209,10 +210,6 @@
   ;; enable `eldoc' in relevant buffers.
   (add-hook 'cider-mode-hook #'eldoc-mode)
   (add-hook 'cider-repl-mode-hook #'eldoc-mode)
-  (add-hook 'cider-repl-mode-hook
-            (lambda ()
-              (if (bound-and-true-p eldoc-overlay-mode)
-                  (setq-local eldoc-message-function #'eldoc-minibuffer-message))))
   (setq cider-eldoc-display-for-symbol-at-point nil
         cider-eldoc-display-context-dependent-info t ; for datomic query input parameters
         )
