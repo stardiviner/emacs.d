@@ -243,6 +243,11 @@ when needed."
     (define-key Org-prefix (kbd "M-p") 'interleave-mode)
     )
 
+  ;; [ org-noter ] -- Emacs document annotator, using Org-mode.
+  (use-package org-noter
+    :ensure t
+    :bind (:map Org-prefix ("n" . org-noter)))
+
   ;; [ pdf-tools-org ] -- integrate pdf-tools annotations with Org-mode.
   (use-package pdf-tools-org
     :quelpa (pdf-tools-org :fetcher github :repo "machc/pdf-tools-org")
