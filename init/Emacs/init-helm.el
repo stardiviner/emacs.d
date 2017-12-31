@@ -12,7 +12,9 @@
 (use-package helm
   :ensure t
   :bind (("M-x" . helm-M-x)
-         ("M-y" . helm-show-kill-ring))
+         ("M-y" . helm-show-kill-ring)
+         ;; ([remap org-goto] . helm-org-in-buffer-headings)
+         )
   :load (helm helm-config)
   :config
   (setq helm-split-window-inside-p t)
@@ -27,9 +29,7 @@
   (helm-mode 1)
 
   ;; Helm internal keybindings `helm-map'
-
-  (with-eval-after-load 'org
-    (define-key org-mode-map (kbd "C-c C-j") 'helm-org-in-buffer-headings)))
+  )
 
 
 ;; (use-package helm-git

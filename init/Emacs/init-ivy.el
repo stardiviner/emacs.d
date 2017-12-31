@@ -11,8 +11,8 @@
 
 (use-package ivy
   :ensure t
-  :defer t
   :config
+  (ivy-mode 1)
   (setq ivy-use-virtual-buffers t ; treat recentf, bookmarks as virtual buffers.
         ivy-virtual-abbreviate 'full ; use 'full to fix bookmarks uniquify issue.
         ivy-height 5

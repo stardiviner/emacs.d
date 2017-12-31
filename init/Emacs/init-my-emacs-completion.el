@@ -55,12 +55,24 @@
 
 
 ;; (require 'init-ido)
-(require 'init-ivy)
 (require 'init-helm)
+(require 'init-ivy)
 
-(if (bound-and-true-p helm-mode)
-    (ivy-mode -1)
-  (helm-mode 1))
+(if (bound-and-true-p ivy-mode)
+    (use-package ivy
+      :config
+      (helm-mode -1)
+      (ivy-mode 1)
+      (use-package counsel
+        :bind (([remap execute-extended-command] . counsel-M-x)
+               ([remap helm-M-x] . counsel-M-x)))
+      )
+  (use-package helm
+    :bind (("M-x" . helm-M-x)
+           ("M-y" . helm-show-kill-ring))
+    :config
+    (helm-mode 1))
+  )
 
 
 
