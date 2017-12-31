@@ -10,8 +10,18 @@
 ;;; [ arduino-mode ]
 
 (use-package arduino-mode
-  :ensure t
-  :defer t
+  ;; :ensure t
+  :ensure-system-package arduino
+  ;; TODO: switch to official package after the maintainer accepted new PRs.
+  ;; https://github.com/bookest/arduino-mode/network
+  :load ede
+  :preface
+  (defvar ede-arduino-preferences-file (expand-file-name "~/.arduino/preferences.txt"))
+  :defines ede-arduino-preferences-file
+  :quelpa (arduino-mode :fetcher github :repo "bwachter/arduino-mode") ; "bwachter/arduino-mode", "mavit/arduino-mode"
+  
+  :bind (:map arduino-mode-map
+              ("C-c C-c" . arduino-upload))
   :config
   (setq arduino-font-lock-extra-types t)
   )
