@@ -65,6 +65,15 @@
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 (add-to-list 'org-babel-tangle-lang-exts '("python" . "py"))
 
+(add-to-list 'org-babel-default-header-args:python
+             '(:eval . "yes"))
+(add-to-list 'org-babel-default-header-args:python
+             '(:noweb . "yes"))
+(add-to-list 'org-babel-default-header-args:python
+             '(:results . "output"))
+;; (add-to-list 'org-babel-default-header-args:python
+;;              '(:session . "*Python*"))
+
 
 ;;; [ elpy ] -- Emacs Python Development Environment.
 
