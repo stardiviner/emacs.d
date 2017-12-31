@@ -280,6 +280,14 @@
 (setq org-agenda-start-with-log-mode '(closed clock)
       org-agenda-log-mode-items '(closed clock))
 
+;;; clock report mode
+(setq org-agenda-start-with-clockreport-mode t)
+
+;;; entry text mode
+;; (setq org-agenda-start-with-entry-text-mode t)
+
+;;; follow mode
+;; (setq org-agenda-start-with-follow-mode t)
 
 ;;; Tag changes that should be triggered by TODO state changes.
 ;; [C-c C-x a]
