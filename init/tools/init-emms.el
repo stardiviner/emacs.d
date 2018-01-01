@@ -16,14 +16,13 @@
 
 (use-package emms
   :ensure t
+  :load (emms-setup)
   :init
   (define-key emms-prefix (kbd "e") 'emms)
   (add-to-list 'display-buffer-alist
                '("^\\*EMMS Playlist\\*" (display-buffer-below-selected)))
   :config
-  (require 'emms-setup)
   (emms-all)
-
   ;; [ players ]
   (emms-default-players)
 
@@ -76,7 +75,7 @@
   ;; [ MPD ] -- [M-x emms-player-mpd-connect]
   (require 'emms-player-mpd)
 
-  (add-to-list 'emms-player-list 'emms-player-mpd)
+  (add-to-list 'emms-player-list 'emms-player-mpd t)
   
   (setq emms-player-mpd-server-name "127.0.0.1"
         emms-player-mpd-server-port "6600")
@@ -106,6 +105,7 @@
   (use-package emms-player-mpv
     :ensure t
     :config
+    (add-to-list 'emms-player-list 'emms-player-mpv)
     )
   )
 
