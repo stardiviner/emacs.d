@@ -22,6 +22,10 @@
     (push 'company-lsp company-backends)
     (setq company-lsp-cache-candidates t)
     )
+
+  ;; [ lsp-ui ] -- UI modules for lsp-mode.
+  (use-package lsp-ui
+    :ensure t)
   )
 
 
