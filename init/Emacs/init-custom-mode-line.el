@@ -868,7 +868,23 @@ dimensions of a block selection."
   :config
   (celestial-mode-line-start-timer)
   (defun *lunar-sun ()
-    celestial-mode-line-string)
+    (if (active)
+        celestial-mode-line-string))
+  )
+
+;;; EMMS
+(use-package emms
+  :ensure t
+  :load emms-mode-line
+  :config
+  ;; (emms-mode-line 1)
+  (setq emms-mode-line-format "[ %s ]")
+  (defun *emms ()
+    (when (and emms-player-playing-p (active))
+      ;; emms-mode-line-string
+      (format emms-mode-line-format
+              (s-truncate 20
+                          (emms-track-description (emms-playlist-current-selected-track))))))
   )
 
 ;;; TRAMP
@@ -942,6 +958,7 @@ dimensions of a block selection."
                  (*lunar-sun)
                  (*space 1)
                  (*erc)
+                 (*emms)
                  ;; (*mu4e)
                  (*flycheck)
                  ;; (*build-status)
