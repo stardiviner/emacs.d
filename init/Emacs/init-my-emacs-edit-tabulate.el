@@ -39,6 +39,11 @@ For example: input regexp like [[:space:]]+ for align several space separated se
                            (modes   . align-text-modes)
                            (repeat  . t)))))
 
+;;; [ ialign ] -- interactive Emacs command `align-regexp'.
+
+(use-package ialign
+  :ensure t
+  :commands (ialign-interactive-align))
 
 ;;; [ Table Editing ]
 
