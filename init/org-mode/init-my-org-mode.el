@@ -104,7 +104,7 @@
 (require 'init-my-org-password)
 (require 'init-my-org-drill)
 ;; (require 'init-my-org-mobile)
-;; (require 'init-my-org-trello)
+(require 'init-org-trello)
 
 
 

@@ -1,4 +1,4 @@
-;;; init-my-org-trello.el --- init for Org-Trello
+;;; init-org-trello.el --- init for Org-Trello
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -45,6 +45,6 @@
   )
 
 
-(provide 'init-my-org-trello)
+(provide 'init-org-trello)
 
-;;; init-my-org-trello.el ends here
+;;; init-org-trello.el ends here
