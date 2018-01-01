@@ -36,6 +36,10 @@
 	        ((emms-last-played-seconds-month) . "%d")
 	        ((emms-last-played-seconds-year)  . "%m/%d")
 	        (t                                . "%Y/%m/%d")))
+
+  (setq emms-source-file-default-directory "~/Music/")
+
+  ;; (setq emms-repeat-playlist nil) ; don't repeat to auto play next track in playlist.
   
   ;; Switch to either the radio buffer or the current EMMS playlist
   (defun my-emms-switch-to-current-playlist ()
