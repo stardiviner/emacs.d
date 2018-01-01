@@ -425,30 +425,42 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 (add-to-list 'org-babel-default-header-args:clojure ; for Clojure `dotimes' etc.
              '(:show-process . "no"))
 
-;; auto start CIDER REPL session in a complete Leiningen project environment for Org-mode Babel by jack-in.
-(add-to-list 'org-babel-default-header-args:clojure
-             '(:session . "*cider-repl ob-clojure*"))
+;;; [ ob-clojure-literate ]
 
-(progn
-      (find-file (expand-file-name "~/.emacs.d/Org-mode/ob-clojure/src/ob_clojure/core.clj"))
-      ;; (with-current-buffer "core.clj"
-      ;;   )
-      (cider-jack-in))
-
-(defun ob-clojure-literate-programming ()
-  "Fix the issue that `cider-current-ns' try to invoke `clojure-find-ns' to extract ns from buffer."
-  (unless (file-directory-p (concat user-emacs-directory "Org-mode/"))
-    (make-directory (concat user-emacs-directory "Org-mode/") t)
-    (let ((default-directory (concat user-emacs-directory "Org-mode/")))
-      (shell-command "lein new ob-clojure")))
-  (unless (and (not (cider-connected-p))
-	       (not (seq-contains cider-connections (get-buffer "*cider-repl ob-clojure*"))))
-    (with-current-buffer "*cider-repl ob-clojure*"
-      (setq ob-clojure-cider-repl-ns cider-buffer-ns))
-    (setq-local cider-buffer-ns ob-clojure-cider-repl-ns))
+(use-package ob-clojure-literate
+  :ensure t
+  ;; :load-path "~/Code/Emacs/ob-clojure-literate/"
+  :after org
+  :init
+  (setq ob-clojure-literate-auto-jackin-p t)
+  (add-hook 'org-mode-hook #'ob-clojure-literate-mode)
   )
 
-(add-hook 'org-mode-hook #'ob-clojure-literate-programming)
+
+;;; auto start CIDER REPL session in a complete Leiningen project environment for Org-mode Babel by jack-in.
+;; (add-to-list 'org-babel-default-header-args:clojure
+;;              '(:session . "*cider-repl ob-clojure*"))
+;;
+;; (progn
+;;   (find-file (expand-file-name "~/.emacs.d/Org-mode/ob-clojure/src/ob_clojure/core.clj"))
+;;   ;; (with-current-buffer "core.clj"
+;;   ;;   )
+;;   (cider-jack-in))
+;;
+;; (defun ob-clojure-literate-programming ()
+;;   "Fix the issue that `cider-current-ns' try to invoke `clojure-find-ns' to extract ns from buffer."
+;;   (unless (file-directory-p (concat user-emacs-directory "Org-mode/"))
+;;     (make-directory (concat user-emacs-directory "Org-mode/") t)
+;;     (let ((default-directory (concat user-emacs-directory "Org-mode/")))
+;;       (shell-command "lein new ob-clojure")))
+;;   (unless (and (not (cider-connected-p))
+;; 	             (not (seq-contains cider-connections (get-buffer "*cider-repl ob-clojure*"))))
+;;     (with-current-buffer "*cider-repl ob-clojure*"
+;;       (setq ob-clojure-cider-repl-ns cider-buffer-ns))
+;;     (setq-local cider-buffer-ns ob-clojure-cider-repl-ns))
+;;   )
+;;
+;; (add-hook 'org-mode-hook #'ob-clojure-literate-programming)
 
 
 ;;; [ typed-clojure-mode ] -- Typed Clojure minor mode for Emacs.
