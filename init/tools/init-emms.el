@@ -105,8 +105,11 @@
   (use-package emms-player-mpv
     :ensure t
     :config
-    (add-to-list 'emms-player-list 'emms-player-mpv)
-    )
+    (add-to-list 'emms-player-list 'emms-player-mpv))
+
+  ;; [ BBT: SBaGen ]
+  (define-emms-simple-player sbagen '(file) (emms-player-simple-regexp "sbg") "sbagen")
+
   )
 
 
