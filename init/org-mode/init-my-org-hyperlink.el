@@ -384,6 +384,13 @@ With prefix argument, also display headlines without a TODO keyword."
 ;;       (comment-dwim nil)
 ;;     ad-do-it))
 
+;;; [ org-send-ebook ] -- Send org link file to ebook reader.
+
+(use-package org-send-ebook
+  :ensure t
+  :commands (org-send-ebook)
+  :bind (:map Org-prefix ("M-e" . org-send-ebook)))
+
 
 
 (provide 'init-my-org-hyperlink)
