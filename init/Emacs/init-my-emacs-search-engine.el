@@ -106,6 +106,10 @@
   (defengine lisp-doc
     "http://lispdoc.com/?q=%s"
     :docstring "Lisp doc")
+  (defengine clojure-docs
+    "http://clojuredocs.org/search?q=%s"
+    :docstring "Clojure Docs"
+    :keybinding "c")
   (defengine ruby-doc
     "http://ruby-doc.com/search.html?q=%s"
     :docstring "Ruby doc")
@@ -130,7 +134,7 @@
   (defengine code-search
     "http://searchcode.com/?q=%s"
     :docstring "Code Search"
-    :keybinding "c")
+    :keybinding "C")
 
   ;; Linux
   (defengine archlinux-wiki
