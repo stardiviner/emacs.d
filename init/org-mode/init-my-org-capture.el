@@ -17,7 +17,8 @@
 (setq org-capture-templates
       '(("c" "[C]apture"
          entry (file "")
-         "* TODO %^{Capture}\n\n%i\n%a\n\n%?"
+         ;; select todo keyword interactively from `org-todo-keywords'.
+         "* %(completing-read \"Todo keyword: \" org-todo-keywords-for-agenda nil t) %^{Capture}\n\n%i\n%a\n\n%?"
          :prepend t
          :empty-lines 1
          )
