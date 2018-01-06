@@ -291,6 +291,34 @@
 ;; TODO: auto start/stop timer when open/close temp src buffer.
 
 
+;;; prepend comment char ahead of `org-babel-ref'.
+;; auto prefix with comment char when create code ref in src block with `org-store-link'.
+(defun org-babel-ref-prepend-comment-char (arg &optional interactive?)
+  "Prepend comment chart in Org-mode src code block."
+  (when (org-src-edit-buffer-p)
+    (comment-dwim nil)
+    (insert " ")))
+
+(advice-add 'org-store-link :before #'org-babel-ref-prepend-comment-char)
+
+;;; Another implement solution.
+;; (defun org-src-coderef-format (&optional element)
+;;   (cond
+;;    ((and element (org-element-property :label-fmt element)))
+;;    ((org-src-edit-buffer-p) (org-src-do-at-code-block (org-src-coderef-format)))
+;;    ((org-element-property :label-fmt (org-element-at-point)))
+;;    (t org-coderef-label-format)))
+;;
+;; (defun org-src-coderef-prepend-comment-char (args)
+;;   "Prepend comment chart in Org-mode src code block."
+;;   (when (org-src-edit-buffer-p)
+;;     (comment-dwim nil)
+;;     (insert " ")))
+;;
+;; (advice-add 'org-src-coderef-format :filter-return
+;;             #'org-src-coderef-prepend-comment-char)
+
+
 ;;; beacon effect when open org-mode babel src block editing.
 (defun my-org-src-edit-animation ()
   (interactive)

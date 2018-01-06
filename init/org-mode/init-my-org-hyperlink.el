@@ -372,17 +372,7 @@ With prefix argument, also display headlines without a TODO keyword."
 (define-key Org-prefix (kbd "E") 'org-image-link-edit)
 
 
-;;; code ref
 
-;;; auto prefix with comment char when create code ref in src block with
-;;; `org-store-link'.
-;; (advice-add 'org-store-link :before #'comment-dwim)
-
-;; TODO: advice with condition.
-;; (defadvice org-store-link (after org-edit-src-code activate)
-;;   (if (string-match "*Org Src.*" (buffer-name))
-;;       (comment-dwim nil)
-;;     ad-do-it))
 
 ;;; [ org-send-ebook ] -- Send org link file to ebook reader.
 
