@@ -52,6 +52,8 @@
 
 (add-to-list 'display-buffer-alist
              '("^\\*Help\\*$" (display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist
+             '("^\\*Apropos\\*$" (display-buffer-below-selected)))
 
 ;;; [ helpful ] -- A better Emacs *help* buffer.
 
@@ -66,7 +68,7 @@
 ;;   (global-set-key (kbd "C-h C-.") #'helpful-at-point)
 ;;  
 ;;   (add-to-list 'display-buffer-alist
-;;                '("^\\*helpful.*\\*$" (display-buffer-below-selected)))
+;;                '("^\\*helpful.*$" (display-buffer-below-selected)))
 ;;   )
 
 

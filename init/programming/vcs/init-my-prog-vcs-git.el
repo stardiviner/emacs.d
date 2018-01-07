@@ -108,8 +108,8 @@
                '("^\\*magit-revision.*" (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
                '("^\\*magit-log.*" (display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("^\\*magit-process.*" (display-buffer-below-selected)))
+  ;; (add-to-list 'display-buffer-alist
+  ;;              '("^\\*magit-process.*" (display-buffer-below-selected)))
   )
 
 ;;; [ magit-find-file ]

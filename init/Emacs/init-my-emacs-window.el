@@ -35,6 +35,7 @@
 ;; Actions:
 ;; display-buffer actions:
 ;; - (display-buffer-same-window)
+;; - (display-buffer-no-window)
 ;; - (display-buffer-reuse-window display-buffer-below-selected) (window-height . 0.3)
 ;; - (display-buffer-reuse-window display-buffer-same-window)
 (add-to-list 'display-buffer-alist
