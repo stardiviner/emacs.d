@@ -86,8 +86,8 @@
         ("\\.mov\\'" . "mpv %s")
         ("\\.ogv\\'" . "mpv %s")
         ;; Audio
-        ("\\.mp3\\'" . "mpg123 %s")
-        ("\\.ogg\\'" . "mpv %s")
+        ("\\.mp3\\'" . "play %s")
+        ("\\.ogg\\'" . "play %s")
         (auto-mode . emacs)
         ))
 
