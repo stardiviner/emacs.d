@@ -10,6 +10,28 @@
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
+;;; [ Transparent ]
+
+(defun my-emacs-transparency-setting (theme)
+  "Set Emacs transparency based on `circadian' color `THEME' switching."
+  (cl-case (alist-get 'background-mode (frame-parameters))
+    ('light
+     (set-frame-parameter (selected-frame) 'alpha '(90 90))
+     (add-to-list 'default-frame-alist '(alpha 90 90)))
+    ('dark
+     (set-frame-parameter (selected-frame) 'alpha '(90 90))
+     (add-to-list 'default-frame-alist '(alpha 90 90)))))
+
+(add-hook 'circadian-after-load-theme-hook #'my-emacs-transparency-setting)
+
+(defun my/emacs-transparency-toggle ()
+  "Toggle Emacs transparency."
+  (interactive)
+  (let ((alpha (frame-parameter nil 'alpha)))
+    (if (equal (if (numberp alpha) alpha (car alpha)) 100)
+        (my-emacs-transparency-setting nil)
+      (set-frame-parameter nil 'alpha '(100 . 100)))))
+
 ;;; [ Title ]
 
 (setq frame-title-format "Emacs λ Hacking")
