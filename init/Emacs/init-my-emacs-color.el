@@ -12,12 +12,12 @@
 (use-package rainbow-mode
   :ensure t
   :defer t
-  :init
+  :config
   (dolist (hook
            '(emacs-lisp-mode-hook
              css-mode-hook
              html-mode-hook))
-    (add-hook hook (lambda () (rainbow-mode 1))))
+    (add-hook hook #'rainbow-mode))
   )
 
 
