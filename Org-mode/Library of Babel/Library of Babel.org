@@ -28,8 +28,40 @@ echo "hello"
 
 #+RESULTS: org-mode-export-landscape-view
 #+LATEX_HEADER: \sepackage{pdflscape}
-hello
 
+
+* GnuPG
+
+** get Key ID (fingerprint)
+
+#+NAME: gpg-get-my-key-id
+#+begin_src shell
+gpg --list-key stardiviner | awk 'NR == 2 {print $1}' # get the last 16 characters as Key ID
+#+end_src
+
+** get user ID
+
+#+NAME: gpg-get-my-user-id
+#+begin_src shell
+gpg --list-secret-keys | grep "uid" | head -n 1
+#+end_src
+
+
+* SSH
+
+** get the ssh public key
+
+#+NAME: ssh-get-public-key
+#+begin_src shell
+ssh-add -L
+#+end_src
+
+** get the fingerprint
+
+#+NAME: ssh-get-fingerprint
+#+begin_src shell
+ssh-add -l
+#+end_src
 
 
 * Print
