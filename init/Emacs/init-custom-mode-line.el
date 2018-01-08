@@ -832,15 +832,15 @@ dimensions of a block selection."
   :ensure t
   :defines rtags-enabled
   :config
-  (defun *rtags-modeline ()
-    "Show `rtags-modeline' info in my custom mode-line."
+  (defun *rtags-mode-line ()
+    "Show `rtags-mode-line' info in my custom mode-line."
     (if (and (active)
              (and (boundp 'rtags-enabled) rtags-enabled))
         (propertize
          (concat
-          (if (not (string-empty-p (rtags-modeline)))
+          (if (not (string-empty-p (rtags-mode-line)))
               (all-the-icons-faicon "paw" :v-adjust -0.05)
-            (rtags-modeline))
+            (rtags-mode-line))
           (if (rtags-is-indexed)
               (all-the-icons-faicon "codepen" :v-adjust -0.05))
           (propertize " " 'face 'variable-pitch))
@@ -946,7 +946,7 @@ dimensions of a block selection."
                  (*pomodoro)
                  (*process)
                  (*copy-file-on-save)
-                 (*rtags-modeline)
+                 (*rtags-mode-line)
                  ))
            (rhs (list
                  ;; NOTE: the `mid' `format-mode-line' meet first `nil' will
