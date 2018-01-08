@@ -454,13 +454,13 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 ;;   :audible   Overwrite the value of `org-notify-audible' for this action.
 ;; ---------------------------------------------------------
 
-(org-notify-add 'default
-                '(:time "1h" :period "2h" :duration 8
-                        :actions (-notify/window)
-                        :audible t)
-                )
+;; (org-notify-add 'default
+;;                 '(:time "1h" :period "2h" :duration 8
+;;                         :actions (-notify/window)
+;;                         :audible t)
+;;                 )
 
-(org-notify-start 300)
+;; (org-notify-start 300)
 
 ;;; [ org-pomodoro ] -- adds support for Pomodoro technique in Org-mode.
 
