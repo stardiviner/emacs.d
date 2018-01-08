@@ -433,7 +433,8 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   :after org
   :init
   (setq ob-clojure-literate-auto-jackin-p t)
-  (add-hook 'org-mode-hook #'ob-clojure-literate-mode)
+  ;; (add-hook 'org-mode-hook #'ob-clojure-literate-mode)
+  (define-key org-babel-map (kbd "M-c") 'ob-clojure-literate-mode)
   )
 
 
