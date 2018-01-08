@@ -29,12 +29,11 @@
 
 ;;; [ ob-dot ]
 
-;;; Example
-;; #+BEGIN_SRC dot :file some_filename.png :cmdline -Kdot -Tpng
-;;   <context of graphviz source goes here>
-;; #+END_SRC
-
 (require 'ob-dot)
+
+(add-to-list 'org-babel-load-languages '(dot . t))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+;; (add-to-list 'org-babel-tangle-lang-exts '("dot" . "??")) ; TODO:
 
 
 

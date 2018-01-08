@@ -17,8 +17,10 @@
   
   ;; [ ob-plantuml ]
   (require 'ob-plantuml)
-  (add-to-list 'org-src-lang-modes '("plantuml" . plantuml-mode))
   (setq org-plantuml-jar-path plantuml-jar-path)
+  (add-to-list 'org-src-lang-modes '("plantuml" . plantuml-mode))
+  (add-to-list 'org-babel-load-languages '(clojure . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images 'append)
   )
 

@@ -62,9 +62,6 @@
 (setq org-babel-load-languages
       '((org . t)                            ; Org-mode
         (shell . t)                          ; Shell Script
-        (ditaa . t)                          ; ditaa
-        (dot . t)                            ; Graphviz, Dot
-        (plantuml . t)                       ; PlantUML
         (calc . t)                           ; Calc
         ))
 

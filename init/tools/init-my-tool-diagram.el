@@ -48,7 +48,7 @@
 
 
 (require 'init-UML)
-(require 'init-Graphviz)
+(require 'init-Graphviz) ; Graphviz, Dot
 (require 'init-ditaa)
 (require 'init-blockdiag)
 
