@@ -7,6 +7,11 @@
 
 ;;; Code:
 
+;;; [ mhtml-mode ] -- Major mode based on ‘html-mode’, but works with embedded JS and CSS.
+
+(use-package mhtml-mode
+  :mode (("\\.html\\'" . mhtml-mode)))
+
 ;;; [ emmet-mode ]
 
 (use-package emmet-mode
