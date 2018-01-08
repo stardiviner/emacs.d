@@ -164,8 +164,8 @@
 
 (add-hook 'after-init-hook #'my-font-settings)
 
-(defun my-circadian-font-reset (&args)
-  "Set Emacs font."
+(defun my-circadian-font-reset (theme)
+  "Set Emacs font based on `circadian' color `THEME' switching."
   (interactive)
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font)

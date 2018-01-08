@@ -55,7 +55,8 @@
   (autoload 'color-darken-name "color.el")
   (autoload 'color-lighten-name "color.el")
   :config
-  (defun my-edebug-set-face (&args)
+  (defun my-edebug-set-face (theme)
+    "Set edebug-x faces based on `circadian' color `THEME' switching"
     (set-face-attribute 'hi-edebug-x-stop nil
                         :overline t
                         :background (cl-case (alist-get 'background-mode (frame-parameters))
