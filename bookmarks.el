@@ -2,7 +2,193 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Digital Economy.org"
+(("3D Printing.org"
+ (filename . "~/Org/Wiki/Computer Technology/Hardware/3D Printing/3D Printing.org")
+ (front-context-string . "#+TITLE: 3D Prin")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Crack/Data/Crack Methods/Acoustic Attack/Data/Manuals/data/ae/3783cf-8d12-4b40-bca9-45460645631f/1712.07816.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Crack/Data/Crack Methods/Acoustic Attack/Data/Manuals/data/ae/3783cf-8d12-4b40-bca9-45460645631f/1712.07816.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("Image Processing.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Image Processing/Image Processing.org")
+ (front-context-string . "#+TITLE: Image P")
+ (rear-context-string)
+ (position . 1))
+("Excel.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Excel/Excel.org")
+ (front-context-string . "#+TITLE: Excel\n\n")
+ (rear-context-string)
+ (position . 1))
+("Cross Validation.org"
+ (filename . "~/Org/Wiki/Mathematics/Statistics/Modeling/Predictive Model/Estimate the Performance of Predictive Mode/Cross Validation/Cross Validation.org")
+ (front-context-string . "#+TITLE: Cross V")
+ (rear-context-string)
+ (position . 1))
+("Data Analysis.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Data Science/Data Analysis/Data Analysis.org")
+ (front-context-string . "#+TITLE: Data An")
+ (rear-context-string)
+ (position . 1))
+("Growth Hacker.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Growth Hacker/Growth Hacker.org")
+ (front-context-string . "#+TITLE: Growth ")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/https:/spectreattack.com/spectre.pdf"
+ (filename . "~/https:/spectreattack.com/spectre.pdf")
+ (position . 1)
+ (page)
+ (slice)
+ (size . fit-width)
+ (origin)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Crack/Data/Crack Methods/CPU Cracking/Data/Docs/meltdown.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Crack/Data/Crack Methods/CPU Cracking/Data/Docs/meltdown.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Crack/Data/Crack Methods/CPU Cracking/Data/Docs/spectre.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Crack/Data/Crack Methods/CPU Cracking/Data/Docs/spectre.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Operating System/Linux/Command Line/Data/Books/Introduction to the Command Line, 2nd Edition: The Fat-Free Guide to Unix and Linux Commands.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Operating System/Linux/Command Line/Data/Books/Introduction to the Command Line, 2nd Edition: The Fat-Free Guide to Unix and Linux Commands.pdf")
+ (position . 1)
+ (page . 5)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.2667578659370725)
+ (handler . pdf-view-bookmark-jump-handler))
+("GCC.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/GCC.org")
+ (front-context-string . "#+TITLE: GCC\n\n* ")
+ (rear-context-string)
+ (position . 1))
+("Binaural Beat Technology.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Binaural Beat Technology/Binaural Beat Technology.org")
+ (front-context-string . "#+TITLE: Binaura")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Emacs/modes/Org-mode/Data/docs/Keeping a Laboratory Notebook.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/Org-mode/Data/docs/Keeping a Laboratory Notebook.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin)
+ (handler . pdf-view-bookmark-jump-handler))
+("My Chinese Government Administration Manual.org"
+ (filename . "~/Org/Wiki/Countries/China/Chinese Government/Data/Manuals/My Chinese Government Administration Manual/My Chinese Government Administration Manual.org")
+ (front-context-string . "#+TITLE: My Chin")
+ (rear-context-string)
+ (position . 1))
+("My Government Policy Usage Manual.org"
+ (filename . "~/Org/Wiki/Government/Policy/Data/Manuals/My Government Policy Usage Manual/My Government Policy Usage Manual.org")
+ (front-context-string . "#+TITLE: My Gove")
+ (rear-context-string)
+ (position . 1))
+("How to report Bug.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Data/Manuals/How to report Bug/How to report Bug.org")
+ (front-context-string . "#+TITLE: How to ")
+ (rear-context-string)
+ (position . 1))
+("World Grid Information.org"
+ (filename . "~/Org/Wiki/World Grid Information/World Grid Information.org")
+ (front-context-string . "#+TITLE: World G")
+ (rear-context-string)
+ (position . 1))
+("My Clothes Styles Reference.org"
+ (filename . "~/Org/Wiki/Clothes/My Clothes Styles Reference/My Clothes Styles Reference.org")
+ (front-context-string . "#+TITLE: My Clot")
+ (rear-context-string)
+ (position . 1))
+("Express.org"
+ (filename . "~/Org/Wiki/Logistics/Psychical Distribution/Express/Express.org")
+ (front-context-string . "#+TITLE: Express")
+ (rear-context-string)
+ (position . 1))
+("Logistics.org"
+ (filename . "~/Org/Wiki/Logistics/Logistics.org")
+ (front-context-string . "#+TITLE: Logisti")
+ (rear-context-string)
+ (position . 1))
+("SLIME.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/SLIME.org")
+ (front-context-string . "#+TITLE: SLIME\n\n")
+ (rear-context-string)
+ (position . 1))
+("My Liked Love.org"
+ (filename . "~/Org/Wiki/Love/Data/Manuals/My Liked Love/My Liked Love.org")
+ (front-context-string . "#+TITLE: My Like")
+ (rear-context-string)
+ (position . 1))
+("My Medical Formulary Reference.org"
+ (filename . "~/Org/Wiki/Medicine/Data/Manuals/My Medical Formulary Reference/My Medical Formulary Reference.org")
+ (front-context-string . "#+TITLE: My Medi")
+ (rear-context-string)
+ (position . 1))
+("My Creativity Enlightening Manual.org"
+ (filename . "~/Org/Wiki/Self Enhancement/Creativity/Data/Manuals/My Creativity Enlightening Manual/My Creativity Enlightening Manual.org")
+ (front-context-string . "#+TITLE: My Crea")
+ (rear-context-string)
+ (position . 1))
+("Creativity.org"
+ (filename . "~/Org/Wiki/Self Enhancement/Creativity/Creativity.org")
+ (front-context-string . "#+TITLE: Creativ")
+ (rear-context-string)
+ (position . 1))
+("Organization.org"
+ (filename . "~/Org/Wiki/Organization/Organization.org")
+ (front-context-string . "#+TITLE: Organiz")
+ (rear-context-string)
+ (position . 1))
+("Programming Language Design.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Programming Language Design/Programming Language Design.org")
+ (front-context-string . "#+TITLE: Program")
+ (rear-context-string)
+ (position . 1))
+("Firefox Addons.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Firefox/Firefox Addons/Firefox Addons.org")
+ (front-context-string . "#+TITLE: Firefox")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Botany/Spice/Data/Books/78种健康香草栽培: 赏识香草的独特气质 品味香草的迷人魅力.pdf"
+ (filename . "~/Org/Wiki/Botany/Spice/Data/Books/78种健康香草栽培: 赏识香草的独特气质 品味香草的迷人魅力.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin)
+ (handler . pdf-view-bookmark-jump-handler))
+("Spice.org"
+ (filename . "~/Org/Wiki/Botany/Spice/Spice.org")
+ (front-context-string . "#+TITLE: Spice\n\n")
+ (rear-context-string)
+ (position . 1))
+("Botany.org"
+ (filename . "~/Org/Wiki/Botany/Botany.org")
+ (front-context-string . "#+TITLE: Botany\n")
+ (rear-context-string)
+ (position . 1))
+("MELPA.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/MELPA.org")
+ (front-context-string . "#+TITLE: MELPA\n\n")
+ (rear-context-string)
+ (position . 1))
+("Digital Economy.org"
  (filename . "~/Org/Wiki/Commercial Science/Digital Economy/Digital Economy.org")
  (front-context-string . "#+TITLE: Digital")
  (rear-context-string)
@@ -2383,12 +2569,6 @@
  (front-context-string . "#+TITLE: Interne")
  (rear-context-string)
  (position . 1))
-(#("Creativity.org" 0 1
-   (idx 313))
- (filename . "~/Org/Wiki/Thinking/Creativity/Creativity.org")
- (front-context-string . "#+TITLE: Creativ")
- (rear-context-string)
- (position . 1))
 (#("World History.org" 0 1
    (idx 314))
  (filename . "~/Org/Wiki/History/Country's History/World History/World History.org")
@@ -2662,12 +2842,6 @@
  (front-context-string . "\n\n- [[file+sys:D")
  (rear-context-string . "vels Collections")
  (position . 1153))
-(#("My Liked Loving.org" 0 1
-   (idx 357))
- (filename . "~/Org/Wiki/Love/Data/Manuals/My Liked Loving/My Liked Loving.org")
- (front-context-string . "* 《白蛇传》\n:PROPERT")
- (rear-context-string)
- (position . 1))
 (#("Emacs Lisp.org" 0 1
    (idx 358))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Emacs Lisp/Emacs Lisp.org")
@@ -2874,16 +3048,16 @@
  (position . 1))
 (#("org-capture-last-stored-marker" 0 1
    (idx 392))
- (filename . "~/Org/Tasks/Computer Todos.org")
- (front-context-string . "** TODO Beauty \"")
- (rear-context-string . "3%A5][一些帅哥]]\n\n\n\n")
- (position . 65518))
+ (filename . "~/Org/Programming/Code.org")
+ (front-context-string . "** TODO Emacs ho")
+ (rear-context-string . "record to Org\n\n\n")
+ (position . 101911))
 (#("org-refile-last-stored" 0 1
    (idx 393))
- (filename . "~/Org/Tasks/Computer Todos.org")
- (front-context-string . "** TODO Beauty \"")
- (rear-context-string . "3%A5][一些帅哥]]\n\n\n\n")
- (position . 65518))
+ (filename . "~/Org/Programming/Code.org")
+ (front-context-string . "** TODO Emacs ho")
+ (rear-context-string . "record to Org\n\n\n")
+ (position . 101911))
 (#("Vim.org" 0 1
    (idx 394))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Vim/Vim.org")
@@ -3570,10 +3744,10 @@
  (position . 1))
 (#("org-capture-last-stored" 0 1
    (idx 508))
- (filename . "~/Org/Tasks/Tasks.org")
- (front-context-string . "* TODO Org-mode ")
- (rear-context-string . "CATEGORY: Todo\n\n")
- (position . 19))
+ (filename . "~/Org/Tasks/Words/Words.org")
+ (front-context-string . "* nutriology :dr")
+ (rear-context-string . " values of it.\n\n")
+ (position . 32156))
 (#("Accounts" 0 1
    (idx 509))
  (filename . "~/Org/Accounts/accounts.org.gpg")
