@@ -119,8 +119,6 @@
 (require 'init-my-emacs-backup)
 (require 'init-my-emacs-window)
 (require 'init-my-emacs-frame)
-(require 'init-my-emacs-session)
-(require 'init-my-emacs-workspace)
 (require 'init-my-emacs-idle)
 (require 'init-my-emacs-edit)
 (require 'init-my-emacs-navigation)
@@ -361,6 +359,10 @@
 ;; (require 'init-my-games)
 
 
+
+(require 'init-my-emacs-session)
+(require 'init-my-emacs-workspace)
+
 ;;; show Emacs initialized time.
 (message "Emacs initialized in %s" (emacs-init-time))
 
