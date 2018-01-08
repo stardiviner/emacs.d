@@ -72,7 +72,7 @@
         ;; ("\\.gif\\'" . "gwenview %s")
         ;; ("\\.gif\\'" . my-func/open-and-play-gif-image)
         ;; ("\\.svg\\'" . "feh --magick-timeout 5 %s")
-        ("\\.svg\\'" . "nomacs %s")
+        ("\\.svg\\'" . "display %s")
         ;; Mind Maps
         ("\\.mm\\'" . "freemind %s") ; freeplane
         ;; Office
