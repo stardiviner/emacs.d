@@ -59,14 +59,12 @@
 
 ;; (use-package helpful
 ;;   :ensure t
+;;   :bind (("C-h f" . helpful-callable) ; replace Emacs default keybindings.
+;;          ("C-h v" . helpful-variable)
+;;          ("C-h k" . helpful-key)
+;;          ;; convenient keybinding:
+;;          ("C-h C-." . helpful-at-point))
 ;;   :config
-;;   ;; replace Emacs default keybindings.
-;;   (global-set-key (kbd "C-h f") #'helpful-callable)
-;;   (global-set-key (kbd "C-h v") #'helpful-variable)
-;;   (global-set-key (kbd "C-h k") #'helpful-key)
-;;   ;; convenient keybinding:
-;;   (global-set-key (kbd "C-h C-.") #'helpful-at-point)
-;;  
 ;;   (add-to-list 'display-buffer-alist
 ;;                '("^\\*helpful.*$" (display-buffer-below-selected)))
 ;;   )
