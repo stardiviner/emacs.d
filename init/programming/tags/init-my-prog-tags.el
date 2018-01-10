@@ -52,6 +52,12 @@
 ;;   (dumb-jump-mode 1)
 ;;   )
 
+;;; [ Imenu ] -- [M-x imenu]
+
+(use-package imenu
+  :ensure t
+  :bind (([remap imenu] . counsel-imenu)
+         ("C-x j" . counsel-imenu)))
 
 ;;; [ tags settings ]
 

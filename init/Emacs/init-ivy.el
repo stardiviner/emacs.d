@@ -121,8 +121,6 @@
          ([remap grep] . counsel-grep) ; [C-s g]
          ("C-c s C-r" . counsel-rg) ; [ C-c s C-r]
          ([remap yank-pop] . counsel-yank-pop) ; [M-y]
-         ([remap imenu] . counsel-imenu)
-         ("C-x j" . counsel-imenu)
          ;; ("" . counsel-switch-to-shell-buffer) ; switch to a shell buffer, or create one
          ([remap org-goto] . counsel-org-goto) ; [C-c C-j] completion for Org headings
          ;; ( . counsel-org-goto-all) ; completion for Org headings in all open buffers
