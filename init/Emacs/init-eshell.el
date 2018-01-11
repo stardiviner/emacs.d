@@ -198,6 +198,14 @@ PWD is not in a git repo (or the git command is not found)."
   "Auto-complete a command that wants a name of a file in ~/.emacs.d/.marks."
   (pcomplete-here* (directory-files eshell-jump-bookmark-dir)))
 
+
+;;; [ eshell-bookmark ] -- Integrate bookmarks with eshell.
+
+(use-package eshell-bookmark
+  :ensure t
+  :config
+  (add-hook 'eshell-mode-hook 'eshell-bookmark-setup))
+
 
 (provide 'init-eshell)
 
