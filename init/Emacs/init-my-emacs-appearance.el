@@ -216,8 +216,9 @@
 ;; default column length (80)
 (setq-default fill-column 80)
 
-;; disable soft wrap lines for windows which has smaller width than 80.
-(global-visual-line-mode -1) ; soft wrap lines at word boundary
+;; (global-visual-line-mode -1) ; soft wrap lines at word boundary
+(toggle-truncate-lines 1)
+
 
 ;;; toggle fill/un-fill
 (defun my/fill-or-unfill ()
