@@ -64,15 +64,15 @@
         ("\\.mobi\\'" . "ebook-viewer %s")
         ("\\.azw3\\'" . "ebook-viewer %s")
         ;; Image
-        ("\\.png\\'" . "sxiv %s")
+        ;; ("\\.png\\'" . "sxiv %s")
         ;; ("\\.jp\(e\)?g" . "sxiv %s")
-        ("\\.jpg\\'" . "sxiv %s")
-        ("\\.jpeg\\'" . "sxiv %s")
+        ;; ("\\.jpg\\'" . "sxiv %s")
+        ;; ("\\.jpeg\\'" . "sxiv %s")
         ("\\.gif\\'" . "sxiv -a -f %s") ; "sxiv -a -f -- %s
         ;; ("\\.gif\\'" . "gwenview %s")
         ;; ("\\.gif\\'" . my-func/open-and-play-gif-image)
         ;; ("\\.svg\\'" . "feh --magick-timeout 5 %s")
-        ("\\.svg\\'" . "display %s")
+        ;; ("\\.svg\\'" . "display %s") ; Emacs built-in support display svg
         ;; Mind Maps
         ("\\.mm\\'" . "freemind %s") ; freeplane
         ;; Office
