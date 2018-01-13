@@ -83,10 +83,10 @@
               ;; stage hunk at point
               ;; if region is active, stage all hunk lines within the region.
               ("s" . git-gutter+-stage-hunks)
-              ("c" . git-gutter+-commit)
+              ("c" . magit-commit)
               ("C" . git-gutter+-stage-and-commit)
               ("u" . git-gutter:update-all-windows)
-
+              
               :map prog-vcs-prefix
               ("m t" . git-gutter+-mode) ; Turn on/off in the current buffer
               ("m T" . global-git-gutter+-mode) ; Turn on/off globally
