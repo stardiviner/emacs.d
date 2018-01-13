@@ -576,7 +576,7 @@ dimensions of a block selection."
   :config
   (defun *anzu ()
     "Show the match index and total number thereof.  Requires `evil-anzu'."
-    (when (and (featurep 'anzu) (not (zerop anzu--total-matched)))
+    (when (and (active) (featurep 'anzu) (not (zerop anzu--total-matched)))
       (propertize
        (format " %s/%d%s "
                anzu--current-position anzu--total-matched
