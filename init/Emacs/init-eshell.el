@@ -39,6 +39,35 @@
       eshell-highlight-prompt t
       )
 
+;;; Pipes
+(setq eshell-buffer-shorthand t) ; to reference buffers in Eshell with #<bufffer-name>.
+
+;;; command `bargs' to apply on buffer.
+;;; Usage: $ bargs #<buffer name> [command]
+(defun eshell/-buffer-as-args (buffer separator command)
+  "Takes the contents of `BUFFER', and splits it on `SEPARATOR',
+and runs the `COMMAND with the contents as arguments. Use an
+argument `%' to substitute the contents at a particular point,
+otherwise, they are appended."
+  (let* ((lines (with-current-buffer buffer
+                  (split-string
+                   (buffer-substring-no-properties (point-min) (point-max))
+                   separator)))
+         (subcmd (if (-contains? command "%")
+                     (-flatten (-replace "%" lines command))
+                   (-concat command lines)))
+         (cmd-str (string-join subcmd " ")))
+    (message cmd-str)
+    (eshell-command-result cmd-str)))
+
+(defun eshell/bargs (buffer &rest command)
+  ("Passes the lines from `BUFFER' as arguments to `COMMAND'."
+   (eshell/-buffer-as-args buffer "\n" command)))
+
+(defun eshell/sargs (buffer &rest command)
+  "Passes the words from `BREFFU' as arguments to `COMMAND'."
+  (eshell/-buffer-as-args buffer nil command))
+
 ;; visual commands
 ;; (setq eshell-destroy-buffer-when-process-dies nil)
 (setq eshell-visual-commands '("vi" "screen" "top" "less" "more" "lynx"
@@ -46,6 +75,7 @@
                                "nmtui" "alsamixer" "htop" "el" "elinks"
                                ))
 (setq eshell-visual-subcommands '(("git" "log" "diff" "show")))
+(add-to-list 'eshell-visual-options '("git" "--help"))
 
 ;; Eshell-banner
 (setq eshell-banner-message (format "%s %s\nwith Emacs %s on Linux: %s"
@@ -125,15 +155,7 @@ PWD is not in a git repo (or the git command is not found)."
 ;; (add-to-list 'eshell-modules-list 'eshell-rebind)
 
 ;; Eshell completion
-;;
-;; - `eshell-cmpl-load-hook'
 (require 'em-cmpl)
-(setq eshell-show-lisp-completions t
-      ;; eshell-command-completion-function #'function
-      ;; eshell-cmpl-command-name-function #'function
-      ;; eshell-default-completion-function #'function
-      eshell-cmpl-use-paring t
-      )
 
 (defun my-eshell-completing-setup ()
   "Setup my Eshell completing."
