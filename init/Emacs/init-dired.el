@@ -1,4 +1,4 @@
-;;; init-my-emacs-dired.el --- init Dired for Emacs
+;;; init-dired.el --- init Dired for Emacs
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -268,6 +268,6 @@
   :defer t)
 
 
-(provide 'init-my-emacs-dired)
+(provide 'init-dired)
 
-;;; init-my-emacs-dired.el ends here
+;;; init-dired.el ends here

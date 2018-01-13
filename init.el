@@ -133,7 +133,7 @@
 (require 'init-my-emacs-image)
 (require 'init-my-emacs-pdf)
 (require 'init-my-emacs-ebook)
-(require 'init-my-emacs-dired)
+(require 'init-dired)
 (require 'init-my-emacs-modes)
 (require 'init-my-emacs-abbrev)
 (require 'init-my-emacs-search)
