@@ -114,6 +114,10 @@
   ;; [ BBT: SBaGen ]
   (define-emms-simple-player sbagen '(file) (emms-player-simple-regexp "sbg") "sbagen")
 
+  ;; [ emms-bilibili ] -- Play Bilibili user favourite videos in EMMS.
+  (use-package emms-bilibili
+    :ensure t
+    :commands (emms-bilibili))
   )
 
 
