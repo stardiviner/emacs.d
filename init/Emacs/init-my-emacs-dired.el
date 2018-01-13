@@ -142,8 +142,8 @@
     (setq dired-bind-jump nil)
     :config
     ;; ignore specific files
-    ;; toggle `dired-omit-mode' with [C-x M-o]
-    (add-hook 'dired-mode-hook #'dired-omit-mode)
+    ;; toggle `dired-omit-mode' to hide hidden files with [C-x M-o]
+    ;; (add-hook 'dired-mode-hook #'dired-omit-mode)
     (setq dired-omit-files
           (concat dired-omit-files
                   "\\|^.DS_STORE$\\|^.projectile$"
