@@ -4,5 +4,5 @@
 # group: babel.install
 # --
 #+begin_src shell :dir /sudo:: :results none
-sudo apt-get install $0
+sudo apt-get install -y $0
 #+end_src
