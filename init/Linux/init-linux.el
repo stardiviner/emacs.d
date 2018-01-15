@@ -57,11 +57,6 @@
 (use-package ini-mode
   :ensure t)
 
-;;; [ lognav-mode ] -- Navigate Log Error Messages with [M-n/p].
-
-(use-package lognav-mode
-  :ensure t)
-
 ;;; [ PulseAudio ]
 
 (add-to-list 'auto-mode-alist '("\\.pa\\'" . conf-mode))

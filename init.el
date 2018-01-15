@@ -334,6 +334,8 @@
   ('windows-nt
    (require 'init-microsoft-windows)))
 
+(require 'init-log-tools)
+
 
 ;;; Science
 
