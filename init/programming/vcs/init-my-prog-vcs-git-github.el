@@ -20,8 +20,13 @@
 (use-package magithub
   :ensure t
   :after magit
+  :bind (:map prog-vcs-prefix
+              ("n" . magithub-dashboard))
   :config
-  (magithub-feature-autoinject t))
+  (magithub-feature-autoinject t)
+  (add-to-list 'display-buffer-alist
+               '("^\\*magithub-dash\\*" (display-buffer-same-window)))
+  )
 
 ;;; [ github-browse-file ] -- View the file you're editing in Emacs on GitHub.
 
