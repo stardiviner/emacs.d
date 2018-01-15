@@ -33,23 +33,16 @@
          ("o" . isearch-occur)
          )
   :config
-  (setq search-highlight t
-        query-replace-highlight t
-        query-replace-show-replacement t
-        ;; query-replace-from-to-separator "->"
-        isearch-allow-scroll t
-        isearch-lazy-highlight t
-        )
+  (setq isearch-allow-scroll t)
   ;; case smart
   (setq-default case-fold-search t
-                case-replace t
-                )
+                case-replace t)
   ;; default mode to use when starting isearch.
-  (setq search-default-mode 'char-fold-to-regexp ; for isearch [C-s]
+  (setq search-default-mode 'char-fold-to-regexp ; if you deal with multi-lingual stuff.
         ;; replace-char-fold t ; for command `query-replace'
         )
-
-  ;;; smart delete/backspace in isearch
+  
+  ;; smart delete/backspace in `isearch'
   (defun isearch-smart-delete ()
     "Delete the failed portion of the search string, or the last char if successful."
     (interactive)
@@ -63,15 +56,6 @@
   (define-key isearch-mode-map (kbd "<backspace>") 'isearch-smart-delete)
   (define-key isearch-mode-map (kbd "DEL") 'isearch-smart-delete)
   )
-
-
-;;;_ query & replace
-
-(setq query-replace-highlight t
-      query-replace-lazy-highlight t
-      query-replace-show-replacement t
-      query-replace-from-to-separator " → "
-      )
 
 ;;; [ visual-regexp ] -- A regexp/replace command for Emacs with interactive visual feedback.
 
