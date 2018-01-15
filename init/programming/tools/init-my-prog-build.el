@@ -10,7 +10,7 @@
 
 (use-package build-status
   :ensure t
-  :init
+  :config
   (add-hook 'prog-mode-hook #'build-status-mode)
   )
 

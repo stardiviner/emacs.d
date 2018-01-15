@@ -9,7 +9,7 @@
 
 (unless (boundp 'vagrant-prefix)
   (define-prefix-command 'vagrant-prefix))
-(define-key prog-tool-prefix (kbd "v") 'vagrant-prefix)
+(define-key prog-tools-prefix (kbd "v") 'vagrant-prefix)
 
 ;;; [ vagrant ] -- Manage a vagrant box from Emacs.
 
