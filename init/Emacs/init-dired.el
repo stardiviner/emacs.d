@@ -111,8 +111,8 @@
     :ensure t
     :config
     ;; disable by default hide details
-    ;; (setq diredp-hide-details-initially-flag nil
-    ;;       diredp-hide-details-propagate-flag t)
+    (setq diredp-hide-details-initially-flag nil
+          diredp-hide-details-propagate-flag nil)
     
     ;; The effect is that when you hit [RET] (or click the mouse) on a directory
     ;; in Dired, find-alternate-file is used, so the original Dired buffer is
