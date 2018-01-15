@@ -64,17 +64,17 @@
   ;; argument, M-- M-x slime, you can select a program from that list.
   ;;
   (setq slime-lisp-implementations
-        '((ccl ("ccl"))
+        '((sbcl ("sbcl" "--noinform") :coding-system utf-8-unix)
+          (ccl ("ccl"))
           (clisp ("clisp" "-q"))
-          (cmucl ("cmucl" "-quiet"))
-          (sbcl ("sbcl" "--noinform") :coding-system utf-8-unix)))
+          (cmucl ("cmucl" "-quiet"))))
   
-  (setq slime-completion-at-point-functions '(slime-filename-completion
-                                              slime-simple-completion-at-point)
-        slime-fuzzy-completion-in-place t
-        slime-enable-evaluate-in-emacs t)
+  ;; (setq slime-completion-at-point-functions
+  ;;       '(slime-filename-completion
+  ;;         slime-simple-completion-at-point))
+  ;; (setq slime-enable-evaluate-in-emacs t)
 
-  (setq slime-auto-start 'always)
+  ;; (setq slime-auto-start 'always)
 
   (add-hook 'slime-repl-mode-hook #'my-lisp-repl-common-settings)
 
@@ -91,23 +91,18 @@
                                     :body "SLIME connected.")))
   
   ;; SLIME REPL buffer
-  (add-hook 'slime-repl-mode-hook
-            (lambda ()
-              (slime-mode 1)
-              (eldoc-mode 1)
-              (smartparens-strict-mode 1)))
-  
   ;; setup `*inferior-lisp*' buffer (`comint-mode' of SBCL)
   (defun slime-sbcl-inferior-lisp-buffer-setup ()
     (if (equal (buffer-name) "*inferior-lisp*")
         (progn
-          (eldoc-mode 1)
-          (smartparens-strict-mode 1)
           (slime-mode 1)
+          (eldoc-mode 1)
+          (paredit-mode 1)
           (my-company-add-backend-locally 'company-slime)
           )))
-  
-  (add-hook 'comint-mode-hook 'slime-sbcl-inferior-lisp-buffer-setup)
+
+  ;; (add-hook 'comint-mode-hook #'slime-sbcl-inferior-lisp-buffer-setup)
+  (add-hook 'slime-repl-mode-hook #'slime-sbcl-inferior-lisp-buffer-setup)
 
   ;; inspect
   (define-key slime-mode-map (kbd "C-c C-i") 'slime-inspect)
@@ -146,8 +141,8 @@
                ".LISP$"
                )
        'hi-blue-b)))
-  (defadvice slime-show-description (after slime-description-fontify activate)
-    (slime-description-fontify))
+
+  (advice-add 'slime-show-description :after 'slime-description-fontify)
   
   ;; [ slime-company ] -- slime backend for Company mode.
   (use-package slime-company
