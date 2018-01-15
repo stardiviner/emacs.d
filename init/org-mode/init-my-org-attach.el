@@ -74,7 +74,11 @@
   :ensure-system-package wget
   :defer t
   :init
-  (define-key Org-prefix (kbd "C-a") org-board-keymap))
+  (define-key Org-prefix (kbd "C-a") org-board-keymap)
+  :config
+  (add-to-list 'display-buffer-alist
+               '("org-board-wget-call" (display-buffer-below-selected)))
+  )
 
 
 (provide 'init-my-org-attach)
