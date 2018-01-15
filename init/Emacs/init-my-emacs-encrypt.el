@@ -53,6 +53,9 @@
   ;; does the same job in a safer way.
   (setq epa-file-cache-passphrase-for-symmetric-encryption t
         epa-file-inhibit-auto-save t)
+
+  (add-to-list 'display-buffer-alist
+               '("^\\*Keys\\*" (display-buffer-below-selected)))
   )
 
 ;;; FAQ
