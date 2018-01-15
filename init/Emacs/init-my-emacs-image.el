@@ -7,6 +7,10 @@
 
 ;;; Code:
 
+;;; [ image-mode ]
+
+(define-key image-mode-map (kbd "q") 'kill-current-buffer)
+
 ;;; [ auto-image-file-mode ]
 
 ;; (setq image-file-name-extensions
