@@ -111,15 +111,14 @@
     :ensure t
     :config
     ;; disable by default hide details
-    (setq diredp-hide-details-initially-flag nil
-          diredp-hide-details-propagate-flag t)
-    ;; (global-dired-hide-details-mode -1)
-
+    ;; (setq diredp-hide-details-initially-flag nil
+    ;;       diredp-hide-details-propagate-flag t)
+    
     ;; The effect is that when you hit [RET] (or click the mouse) on a directory
     ;; in Dired, find-alternate-file is used, so the original Dired buffer is
     ;; replaced (deleted) by the new one.
     (diredp-toggle-find-file-reuse-dir 1)
-
+    
     ;; [image-dired ] -- image in Dired
     ;; [M-x image-dired]
     ;; (require 'image-dired)
