@@ -43,6 +43,15 @@
   (add-hook 'prog-mode-hook 'outline-minor-mode)
   )
 
+;;; [ hideshow ] -- minor mode cmds to selectively display code/comment blocks.
+
+(use-package hideshow
+  :ensure t
+  :init (add-hook 'prog-mode-hook #'hs-minor-mode)
+  :config
+  (use-package hideshowvis
+    :ensure t))
+
 
 
 (provide 'init-my-emacs-outline)
