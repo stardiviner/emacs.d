@@ -6,57 +6,67 @@
 
 
 ;;; Code:
-
+
 ;;; [ elfeed ] -- An Emacs web feeds client
 
 (use-package elfeed
   :ensure t
   :bind (:map tools-prefix
-              ("f" . elfeed))
+              ("r" . elfeed))
   :config
   (setq elfeed-db-directory "~/.emacs.d/.elfeed")
 
   (setq elfeed-feeds
-        '(("http://blog.stackoverflow.com/feed/" Programming)
+        '(
+          ;; Programming
+          ("http://blog.stackoverflow.com/feed/" Programming)
           ("http://programmers.blogoverflow.com/feed/" Programming)
-
+          
           ;; Emacs
           ("http://planet.emacsen.org/atom.xml" Emacs)
-
-          ;; Ruby
-          ;; ("http://www.ruby-lang.org/en/feeds/news.rss" Ruby)
-          ;; ("http://rubyweekly.com/rss" Ruby)
-          ;; ("http://feeds.feedburner.com/RubyInside" Ruby)
-          ;; ("http://feeds2.feedburner.com/Rubyflow" Ruby)
-          ;; ("http://feeds.feedburner.com/Ruby5" Ruby)
-
+          
           ;; Web
           ("https://blog.mozilla.org/feed/" Web)
           ("http://hacks.mozilla.org/feed/" Web)
-
+          
           ;; Linux
-          ("http://openszone.com/feed" Linux)
           ("https://www.linux.com/rss/feeds.php" Linux)
-
+          
           ;; Arch Linux
           ("http://www.archlinux.org/feeds/news/" Arch)
           ("http://archlinux.me/feed/" Arch)
-          ("http://planet.archlinux.org/atom.xml" Arch)
+          ;; ("http://planet.archlinux.org/atom.xml" Arch)
+          ;; Kali Linux
+          ("http://www.kali.org/feed/" Kali)
           
           ;; Geek News
           ("http://news.ycombinator.com/rss" Geek)
-          ("http://slashdot.org/index.rss" Geek)
-          ("http://reddit.com/.rss" Geek)
+          ;; ("http://slashdot.org/index.rss" Geek)
+          ;; ("http://reddit.com/.rss" Geek)
           ("http://www.solidot.org/index.rss" Geek)
-          ("https://projecteuler.net/rss2_euler.xml" Geek)
           ("http://lwn.net/headlines/newrss" Geek)
-          ("http://linuxtoy.org/feed/" Geek)
           ("http://linux.cn/rss.xml" Geek)
           ("http://blog.jobbole.com/feed/" Geek)
-
+          ("http://feeds.howtogeek.com/HowToGeek" Geek)
+          ("http://fullcirclemagazine.org/feed" Geek)
+          
           ;; Podcasts
-          ("https://ipn.li/kernelpanic/feed" Podcast)
-          ("http://sachachua.com/blog/tag/emacs-chat/podcast" Podcast)
+          
+          ;; Clojure
+          ("http://insideclojure.org/feed.xml" Clojure)
+          ("http://www.lispcast.com/feed" Clojure)
+          
+          ;; Blogs
+          ("http://feed.williamlong.info/" Blog)
+          ("http://www.ruanyifeng.com/blog/atom.xml" Blog)
+          
+          ;; Comic
+          ("http://turnoff.us/feed.xml" Comic)
+          ("http://xkcd.com/rss.xml" Comic)
+          
+          ;; Subscribe
+          ("https://github.com/blog/all.atom" GitHub)
+          ("http://www.salttiger.com/feed/" Ebook)
           ))
 
   ;; (define-key elfeed-search-mode-map (kbd "#") 'elfeed-search-set-filter)
@@ -71,22 +81,21 @@
       (elfeed-search-live-filter)))
   (define-key elfeed-search-mode-map (kbd "A") 'elfeed-show-all)
   
-  (advice-add 'elfeed-search-untag-all-unread
-              :after (lambda ()
-                       (previous-line)
-                       (elfeed-search-tag-all 'read)))
-  (advice-add 'elfeed-search-show-entry
-              :before (lambda (entry)
-                        (elfeed-search-tag-all 'read)))
-  (advice-add 'elfeed-search-tag-all-unread
-              :before (lambda ()
-                        (elfeed-search-untag-all 'read)))
+  (advice-add 'elfeed-search-untag-all-unrea :after
+              (lambda () (forward-line) (elfeed-search-tag-all 'read)))
+  (advice-add 'elfeed-search-show-entry :before
+              (lambda (entry) (elfeed-search-tag-all 'read)))
+  (advice-add 'elfeed-search-tag-all-unread :before
+              (lambda () (elfeed-search-untag-all 'read)))
   (defalias 'elfeed-search-toggle-all-star
     (elfeed-expose #'elfeed-search-toggle-all 'star)
     "Toggle the `star' tag to all selected entries.")
   (define-key elfeed-search-mode-map (kbd "*") 'elfeed-search-toggle-all-star)
   (define-key elfeed-search-mode-map (kbd "m") 'elfeed-search-toggle-all-star)
 
+  ;; auto update after entering elfeed.
+  (advice-add 'elfeed :after 'elfeed-update)
+  
   (defun elfeed-quit ()
     (interactive)
     (elfeed-db-save)
@@ -97,30 +106,38 @@
   ;; Mapping of tags to faces in the Elfeed entry listing.
   (defface elfeed-unread-tag
     '((t :foreground "light grey"))
-    "Mark elfeed tag unread.")
+    "Mark elfeed tag unread."
+    :group 'elfeed)
   (defface elfeed-read-tag
     '((t :foreground "#444444"
          :background "#222222"))
-    "Mark elfeed tag read")
+    "Mark elfeed tag read"
+    :group 'elfeed)
   (defface elfeed-star-tag
     '((t :foreground "deep pink"
          :background "#222222"))
-    "Mark elfeed tag star")
+    "Mark elfeed tag star"
+    :group 'elfeed)
   (defface elfeed-podcast-tag
     '((t :foreground "dark magenta"))
-    "Mark elfeed podcast tag")
+    "Mark elfeed podcast tag"
+    :group 'elfeed)
   (defface elfeed-programming-tag
     '((t :foreground "yellow green"))
-    "Mark elfeed Programming tag")
+    "Mark elfeed Programming tag"
+    :group 'elfeed)
   (defface elfeed-linux-tag
     '((t :foreground "tomato"))
-    "Mark elfeed Linux tag")
+    "Mark elfeed Linux tag"
+    :group 'elfeed)
   (defface elfeed-emacs-tag
     '((t :foreground "SteelBlue"))
-    "Mark elfeed Emacs tag")
+    "Mark elfeed Emacs tag"
+    :group 'elfeed)
   (defface elfeed-arch-tag
     '((t :foreground "light cyan"))
-    "Mark elfeed Arch tag")
+    "Mark elfeed Arch tag"
+    :group 'elfeed)
   
   (setq elfeed-search-face-alist
         '((unread elfeed-unread-tag)
@@ -133,7 +150,7 @@
           (Programming elfeed-programming-tag)))
   )
 
-
+
 (provide 'init-elfeed)
 
 ;;; init-elfeed.el ends here
