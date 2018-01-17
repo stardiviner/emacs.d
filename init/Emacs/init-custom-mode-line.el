@@ -721,8 +721,7 @@ dimensions of a block selection."
              (org-clock-is-active)
              org-clock-idle-timer)
     (concat
-     ;; (all-the-icons-material "timer")
-     (propertize (all-the-icons-octicon "clock") 'face 'mode-line-data-face)
+     (all-the-icons-material "av_timer")
      (propertize " " 'face 'variable-pitch)
      ;; get [0:05] from `org-clock-get-clock-string'
      (propertize
