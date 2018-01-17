@@ -11,18 +11,9 @@
 
 (use-package sly
   :ensure t
-  :defer t
   :commands (sly)
-  :init
-  (setq sly-default-lisp 'sbcl)
-
-  ;; enable `sly-mode' in Lisps
-  (dolist (hook '(lisp-mode-hook
-                  lisp-interaction-mode-hook
-                  sly-mrepl-mode-hook
-                  ))
-    (add-hook hook 'sly-mode))
   :config
+  (setq sly-default-lisp 'sbcl)
   ;; load SLY contribs
   ;; (setq sly-contribs `(sly-fancy
   ;;                      sly-retro
@@ -32,61 +23,48 @@
   ;;                      ))
   (sly-setup sly-contribs)
 
-  (add-hook 'sly-mrepl-mode-hook #'my-lisp-repl-common-settings)
-
+  (dolist (hook '(lisp-mode-hook
+                  lisp-interaction-mode-hook
+                  sly-mrepl-mode-hook
+                  ))
+    (add-hook hook 'sly-mode))
+  
+  (defun my-sly-setup ()
+    (local-set-key (kbd "C-h d d") 'sly-documentation-lookup)
+    )
   (dolist (hook '(sly-mode-hook
                   sly-mrepl-mode-hook
                   lisp-mode-hook
                   lisp-interaction-mode-hook
                   ))
-    (add-hook hook
-              (lambda ()
-                (local-set-key (kbd "C-h d d") 'sly-documentation-lookup)
-                )))
-  
-  (eval-after-load 'sly
-    `(define-key sly-prefix-map (kbd "M-h") 'sly-documentation-lookup))
+    (add-hook hook #'my-sly-setup))
 
-  (eval-after-load 'sly-mrepl
-    `(define-key sly-mrepl-mode-map (kbd "C-c C-k")
-       'sly-mrepl-clear-recent-output))
+  (add-hook 'sly-mrepl-mode-hook #'my-lisp-repl-common-settings)
 
-  ;; notify user after SLY connected.
-  (add-hook 'sly-connected-hook
-            (lambda ()
-              (notifications-notify :title "SLY subprocess"
-                                    :body "SLY connected")))
+  (define-key sly-prefix-map (kbd "M-h") 'sly-documentation-lookup)
+  (define-key sly-mrepl-mode-map (kbd "C-c C-k") 'sly-mrepl-clear-recent-output)
 
   ;; auto connect SLY.
-  (add-hook 'sly-mode-hook
-            (lambda ()
-              (if (equal major-mode 'lisp-mode)
-                  (unless (sly-connected-p)
-                    (save-excursion (sly))))))
+  (setq sly-auto-start t)
 
-  ;; setup SLY REPL buffer
-  (add-hook 'sly-mrepl-mode-hook
-            (lambda ()
-              ;; (paredit-mode 1)
-              (smartparens-strict-mode 1)
-              (eldoc-mode 1)))
+  (add-to-list 'display-buffer-alist
+               '("^\\*sly-mrepl.*\\*" (display-buffer-below-selected)))
 
   ;; [ sly-company ] -- Company-mode completion backend for SLY.
   (use-package sly-company
     :ensure t
-    :defer t
-    :init
+    :config
+    (defun my-sly-company-setup ()
+      (sly-company-mode 1)
+      (my-company-add-backend-locally 'sly-company))
     (dolist (hook '(sly-mode-hook
                     sly-mrepl-mode-hook
                     ))
-      (add-hook hook
-                (lambda ()
-                  (sly-company-mode 1)
-                  (my-company-add-backend-locally 'sly-company)
-                  )))
+      (add-hook hook #'my-sly-company-setup))
     )
 
   ;; [ ob-lisp ]
+  (require 'ob-lisp)
   (setq org-babel-lisp-eval-fn #'sly-eval)
   )
 
@@ -105,8 +83,7 @@
 ;;; - [C-c M-e] in `sly-editing-mode'.
 
 (use-package sly-macrostep
-  :ensure t
-  :defer t)
+  :ensure t)
 
 
 ;;; [ sly-named-readtables ] -- Support named readtables in Common Lisp files.
@@ -116,11 +93,10 @@
 ;;   )
 
 
-;;; [ sly-quicklisp ] -- Quicklisp support for SLY.
+;;; [ sly-quicklisp ] -- Quicklisp support for SLY with command `sly-quickload' / [C-c C-d C-q].
 
-;; (use-package sly-quicklisp
-;;   :ensure t
-;;   )
+(use-package sly-quicklisp
+  :ensure t)
 
 
 (provide 'init-sly)

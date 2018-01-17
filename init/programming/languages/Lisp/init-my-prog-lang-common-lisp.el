@@ -70,8 +70,8 @@
 ;;   (message "%s" "SLIME is not installed. Use Quicklisp to install it."))
 
 
-(require 'init-slime)
-;; (require 'init-sly)
+;; (require 'init-slime)
+(require 'init-sly)
 
 
 (provide 'init-my-prog-lang-common-lisp)
