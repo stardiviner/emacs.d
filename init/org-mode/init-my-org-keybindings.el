@@ -47,11 +47,11 @@
   (define-prefix-command 'org-clock-prefix))
 (define-key Org-prefix (kbd "C-c") 'org-clock-prefix)
 
-(define-key org-clock-prefix (kbd "i") 'org-clock-in-last)
-(define-key org-clock-prefix (kbd "g") 'org-clock-goto)
-(define-key org-clock-prefix (kbd "j") 'org-clock-jump-to-current-clock)
-(define-key org-clock-prefix (kbd "o") 'org-clock-out)
-(define-key org-clock-prefix (kbd "c") 'org-clock-cancel)
+(define-key org-clock-prefix (kbd "C-i") 'org-clock-in-last)
+(define-key org-clock-prefix (kbd "C-l") 'org-clock-goto)
+(define-key org-clock-prefix (kbd "C-j") 'org-clock-jump-to-current-clock)
+(define-key org-clock-prefix (kbd "C-o") 'org-clock-out)
+(define-key org-clock-prefix (kbd "C-k") 'org-clock-cancel)
 
 
 (provide 'init-my-org-keybindings)
