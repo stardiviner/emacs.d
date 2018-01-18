@@ -91,6 +91,12 @@
     (add-to-list 'org-src-lang-modes '("rhtml" . web)))
   )
 
+;;; [ cakecrumbs ] -- Show parent-chain on header for HTML / Jade / Pug / LESS / SCSS / Sass / Stylus.
+
+(use-package cakecrumbs
+  :ensure t
+  :config (cakecrumbs-auto-setup))
+
 
 (provide 'init-my-prog-lang-html)
 
