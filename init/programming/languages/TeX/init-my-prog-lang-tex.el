@@ -22,7 +22,6 @@
 
 (use-package auctex
   :ensure t
-  :ensure-system-package (texlive-core texlive-bin)
   :load (tex-site latex font-latex)
   :config
   ;; macros
