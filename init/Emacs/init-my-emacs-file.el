@@ -28,20 +28,18 @@
 
 (use-package openwith
   :ensure t
-  :defer t
   :config
   (setq openwith-associations
         (list
          (list (openwith-make-extension-regexp
                 '("mpg" "mpeg" "mp3" "mp4"
-                  "avi" "wmv" "wav" "mov" "flv"
+                  "avi" "rmvb" "wmv" "wav" "mov" "flv"
                   "ogm" "ogg" "ogv" "mkv" "webm"))
                "mplayer" '(file))
          (list (openwith-make-extension-regexp
                 '("xbm" "pbm" "pgm" "ppm" "pnm"))
                ;; don't open normal images with external program. use Emacs
-               ;; buffer to display inline image.
-               ;;
+               ;; buffer to display inline image:
                ;; "png" "gif" "bmp" "tif" "jpeg" "jpg"
                "sxiv" '(file))
          (list (openwith-make-extension-regexp
@@ -49,10 +47,10 @@
                "libreoffice" '(file))
          '("\\.lyx\\'" "lyx" (file))
          '("\\.chm\\'" "kchmviewer" (file))
-         (list (openwith-make-extension-regexp
-                '("ps" "ps.gz" "dvi"))
-               ;; "pdf"
-               "zathure" '(file))))
+         ;; (list (openwith-make-extension-regexp
+         ;;        '("ps" "ps.gz" "dvi"))
+         ;;       "zathure" '(file))
+         ))
 
 
   ;;; NOTE: enable this will cause Org-mode open inline displayed images with external program.
