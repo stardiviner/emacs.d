@@ -13,10 +13,10 @@
   :ensure t
   :defer t
   :init
-  (unless (boundp 'stack-overflow-prefix)
-    (define-prefix-command 'stack-overflow-prefix))
-  (define-key tools-prefix (kbd "s") 'stack-overflow-prefix)
-  :bind (:map stack-overflow-prefix
+  (unless (boundp 'stack-exchange-prefix)
+    (define-prefix-command 'stack-exchange-prefix))
+  (define-key tools-prefix (kbd "s") 'stack-exchange-prefix)
+  :bind (:map stack-exchange-prefix
               ("q" . sx-tab-all-questions)
               ("i" . sx-inbox)
               ("o" . sx-open-link)
@@ -34,9 +34,13 @@
                '("^\\*sx-question\\*$" (display-buffer-same-window)))
   (add-to-list 'display-buffer-alist
                '("^\\*sx draft answer.*\\*$" (display-buffer-below-selected)))
+  ;; (use-package texfrag ; show MathJax in HTML and sx.el
+  ;;   :ensure t
+  ;;   ;; :init (add-hook 'sx-question-mode-hook #'texfrag-mode)
+  ;;   )
   )
 
 
-(provide 'init-stack-overflow)
+(provide 'init-stack-exchange)
 
-;;; init-stack-overflow.el ends here
+;;; init-stack-exchange.el ends here

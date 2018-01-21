@@ -208,7 +208,7 @@
 ;; (require 'init-my-tool-audio)
 ;; (require 'init-my-tool-screenshot)
 ;; (require 'init-my-tool-screencast)
-(require 'init-stack-overflow)
+(require 'init-stack-exchange)
 ;; (require 'init-my-tool-social-network)
 
 
