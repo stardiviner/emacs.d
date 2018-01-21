@@ -87,7 +87,7 @@
         (if (region-active-p) (deactivate-mark))
         )))
 
-  (declare-function 'goldendict-dwim "init-my-tool-dictionary")
+  (autoload 'goldendict-dwim "goldendict")
   (advice-add 'goldendict-dwim :after #'my-org-drill-record-word)
 
   (define-key Org-prefix (kbd "C-w") 'my-org-drill-record-word)
