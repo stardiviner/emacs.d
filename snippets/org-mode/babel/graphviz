@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: babel dot
-# key: babel-dot
+# name: babel graphviz
+# key: babel-graphviz
 # --
 #+begin_src dot :dir "${1:data/images}" :file ${2:output-}.png :cmdline -Kdot -Tpng
 $0
