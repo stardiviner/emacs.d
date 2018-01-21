@@ -20,6 +20,7 @@
 
 ;; (require 'init-puppet)
 ;; (require 'init-ansible)
+(require 'init-terraform)
 
 ;;; [ Deployment ]
 
