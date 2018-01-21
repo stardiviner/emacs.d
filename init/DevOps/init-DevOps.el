@@ -12,11 +12,11 @@
 (require 'init-container)
 (require 'init-vagrant)
 
-;;; [ Configuration Manager (CMs) ]
+;;; [ Infrastructure as Code ]
 
-(unless (boundp 'config-manager-prefix)
-  (define-prefix-command 'config-manager-prefix))
-(define-key prog-tools-prefix (kbd "c") 'config-manager-prefix)
+(unless (boundp 'infrastructure-as-code-prefix)
+  (define-prefix-command 'infrastructure-as-code-prefix))
+(define-key prog-tools-prefix (kbd "c") 'infrastructure-as-code-prefix)
 
 ;; (require 'init-puppet)
 ;; (require 'init-ansible)
