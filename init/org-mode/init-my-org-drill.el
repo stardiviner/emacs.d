@@ -105,6 +105,7 @@
 
   (defun org-drill-pronounce-word (&optional word)
     "Pronounce `WORD' after querying."
+    (interactive)
     (shell-command-to-string
      (format "%s %s %s &"
              org-drill-pronounce-command org-drill-pronounce-command-args
