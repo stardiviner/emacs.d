@@ -19,11 +19,9 @@
 
 (use-package magithub
   :ensure t
-  :after magit
-  :bind (:map prog-vcs-prefix
-              ("n" . magithub-dashboard))
   :config
   (magithub-feature-autoinject t)
+  (define-key prog-vcs-prefix (kbd "n") 'magithub-dashboard)
   (add-to-list 'display-buffer-alist
                '("^\\*magithub-dash\\*" (display-buffer-same-window)))
   )
