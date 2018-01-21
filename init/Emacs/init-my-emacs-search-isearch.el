@@ -15,23 +15,17 @@
 ;;; [ Isearch ] -- Incremental Search
 
 (use-package isearch
-  :bind (
-         ;; ("C-s" . isearch-forward)
-         ("C-r" . isearch-backward)
-         ("C-M-s" . isearch-forward-regexp)
-         ("M-%" . query-replace-regexp)
-         ("C-M-%" . isearch-query-replace-regexp)
-         :map isearch-prefix
-         ("i" . isearch-forward)
-         ("C-i" . isearch-forward-symbol-at-point)
-         ("I" . isearch-forward-regexp)
-         ("f" . isearch-forward)
-         ("C-f" . isearch-forward-symbol-at-point)
-         ("F" . isearch-forward-regexp)
-         ("b" . isearch-backward)
-         ("B" . isearch-backward-regexp)
-         ("o" . isearch-occur)
-         )
+  :bind (:map isearch-prefix
+              ("i" . isearch-forward)
+              ("C-i" . isearch-forward-symbol-at-point)
+              ("I" . isearch-forward-regexp)
+              ("f" . isearch-forward)
+              ("C-f" . isearch-forward-symbol-at-point)
+              ("F" . isearch-forward-regexp)
+              ("b" . isearch-backward)
+              ("B" . isearch-backward-regexp)
+              ("o" . isearch-occur)
+              )
   :config
   (setq isearch-allow-scroll t)
   ;; case smart
@@ -61,14 +55,13 @@
 
 (use-package visual-regexp
   :ensure t
-  :bind (
-         ;; ("C-s" . vr/isearch-forward)
-         ;; ("C-r" . vr/isearch-backward)
-         ("M-%" . vr/replace)
+  :bind (("C-s" . vr/isearch-forward)
+         ("C-r" . vr/isearch-backward)
+         ("M-%" . vr/query-replace)
          :map search-prefix
          ("s" . vr/isearch-forward)
          ("M-s" . vr/isearch-backward)
-         ("%" . vr/query-replace)
+         ("r" . vr/query-replace)
          ("R" . vr/replace)
          )
   :init
