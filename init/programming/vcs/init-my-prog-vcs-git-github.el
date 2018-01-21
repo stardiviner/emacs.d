@@ -38,7 +38,9 @@
   :bind (:map git-gutter-prefix
               ("f" . github-browse-file)
               ("F" . github-browse-file-blame)
-              ("M-c" . github-browse-commit)))
+              ("M-c" . github-browse-commit))
+  :config
+  (setq github-browse-file-show-line-at-point t))
 
 
 
