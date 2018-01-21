@@ -17,10 +17,25 @@
       org-link-file-path-type 'adaptive ; default 'adaptive, 'relative
       )
 
-(setq org-id-link-to-org-use-id nil
-      org-id-track-globally t)
+;;; use :ID: property for org linking.
+;; (setq org-id-link-to-org-use-id t
+;;       org-id-track-globally t)
 
-(define-key org-mode-map (kbd "M-,") 'org-mark-ring-goto)
+;;; use :CUSTOM_ID: property for org headlines linking.
+(defun org-store-link-set-headline-custom-id (arg &optional interactive?)
+  "Set `CUSTOM_ID' for `org-store-link' on headline."
+  (when (and (equal major-mode 'org-mode)
+             (org-on-heading-p t) ; detect whether on a headline
+             ;; (re-search-backward (concat "^\\(?:" outline-regexp "\\)") nil t) ; detect whether under a headline?
+             (not (org-entry-get nil "CUSTOM_ID")))
+    (org-set-property
+     "CUSTOM_ID"
+     (completing-read-default "Property :CUSTOM_ID: value: "
+                              nil nil nil
+                              (substring-no-properties (org-get-heading t t))))))
+
+(advice-add 'org-store-link :before #'org-store-link-set-headline-custom-id)
+
 
 ;;; Links are now customizable
 ;;
