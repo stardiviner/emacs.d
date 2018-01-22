@@ -75,7 +75,7 @@
         ;; CHM
         ("\\.chm\\'" . "kchmviewer %s")
         ;; EBooks
-        ("\\.epub\\'" . "okular %s")
+        ;; ("\\.epub\\'" . "okular %s") ; it is opened by `ereader', and `nov'.
         ("\\.mobi\\'" . "ebook-viewer %s")
         ("\\.azw3\\'" . "ebook-viewer %s")
         ;; Image
