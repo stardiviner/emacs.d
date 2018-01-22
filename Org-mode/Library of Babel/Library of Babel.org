@@ -7,24 +7,25 @@
 *** landscape view
 
 #+NAME: load-latex-package-pdflscape-original-data
-#+BEGIN_SRC shell :results silent :wrap landscape :var babel=""
+#+begin_src shell :results silent :wrap landscape :var babel=""
 echo "echo \"$babel\""
-#+END_SRC
+#+end_src
 
 #+NAME: load-latex-package-pdflscape
-#+BEGIN_SRC shell :results raw output :exports none :var data="" :noweb yes
+#+begin_src shell :results raw output :exports none :var data="" :noweb yes
 echo "#+LATEX_HEADER: \sepackage{pdflscape}"
 <<load-latex-package-pdflscape-original-data(babel="hello")>>
-#+END_SRC
+#+end_src
 
 #+RESULTS: load-latex-package-pdflscape
 #+LATEX_HEADER: \sepackage{pdflscape}
 hello
 
 #+NAME: org-mode-export-landscape-view
-#+BEGIN_SRC shell :exports results :results raw :post load-latex-package-pdflscape(data=*this*)
 echo "hello"
-#+END_SRC
+#+begin_src shell :exports results :results raw :post load-latex-package-pdflscape(data=*this*)
+
+#+end_src
 
 #+RESULTS: org-mode-export-landscape-view
 #+LATEX_HEADER: \sepackage{pdflscape}
@@ -67,19 +68,19 @@ ssh-add -l
 * Print
 
 #+name: elisp-print
-#+BEGIN_SRC emacs-lisp :var name=""
+#+begin_src emacs-lisp :var name=""
 (prin1 name)
-#+END_SRC
+#+end_src
 
 #+NAME: sh-echo
-#+BEGIN_SRC shell :var input="stardiviner"
+#+begin_src shell :var input="stardiviner"
 echo $input
-#+END_SRC
+#+end_src
 
 #+NAME: ruby-print
-#+BEGIN_SRC ruby :var str="stardiviner"
+#+begin_src ruby :var str="stardiviner"
 puts str
-#+END_SRC
+#+end_src
 
 
 * Docker
