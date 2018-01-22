@@ -25,11 +25,11 @@
 
 ;;; [ EasyPG Assistant ] --- transparent, automatic encryption and decryption.
 
-(use-package pinentry
-  :ensure t
-  :ensure-system-package pinentry
-  :config
-  (pinentry-start))
+;; (use-package pinentry
+;;   :ensure t
+;;   :ensure-system-package pinentry
+;;   :config
+;;   (pinentry-start))
 
 (use-package epa
   :ensure t
