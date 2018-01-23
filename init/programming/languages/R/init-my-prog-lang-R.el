@@ -64,6 +64,11 @@
 
   ;; quickly insert assign operator: <-
   (define-key ess-mode-map (kbd "=") (lambda () (interactive) (insert " <- ")))
+
+  (add-to-list 'display-buffer-alist
+               '("\\*help\\[R\\]\\(.*\\)\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("\\*ess-apropos\\[R\\]\\(.*\\)\\*" . (display-buffer-below-selected)))
   )
 
 
