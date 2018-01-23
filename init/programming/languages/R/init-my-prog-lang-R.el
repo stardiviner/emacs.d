@@ -61,6 +61,9 @@
 
   ;; auto start ESS inferior process
   ;; (add-hook 'ess-mode-hook #'ess-force-buffer-current)
+
+  ;; quickly insert assign operator: <-
+  (define-key ess-mode-map (kbd "=") (lambda () (interactive) (insert " <- ")))
   )
 
 
