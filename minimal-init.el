@@ -156,20 +156,7 @@
 
 
 
-;;; latest version from source code
-(use-package org
-  :load-path "~/Code/Emacs/org-mode/lisp/"
-  :pin manual
-  :mode (("\\.org$" . org-mode))
-  :config
-  (use-package org-plus-contrib
-    :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
-    :no-require t
-    :pin manual)
-  )
-
-
-;; (require 'init-my-org-mode)
+(require 'init-my-org-mode)
 
 (setq org-modules
       '(org-pcomplete

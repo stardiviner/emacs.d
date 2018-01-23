@@ -62,17 +62,6 @@
 (load "~/.emacs.d/init/init-package.el")
 (require 'init-package)
 
-(use-package org
-  :load-path "~/Code/Emacs/org-mode/lisp/"
-  :pin manual
-  ;; :mode (("\\.org$" . org-mode))
-  :config
-  (use-package org-plus-contrib
-    :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
-    :no-require t
-    :pin manual)
-  )
-
 
 ;;; debug, profiling etc
 

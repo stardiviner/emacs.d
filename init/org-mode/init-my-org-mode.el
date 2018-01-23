@@ -13,37 +13,6 @@
 (global-set-key (kbd "C-c o") 'Org-prefix)
 
 
-(use-package org
-  :load-path "~/Code/Emacs/org-mode/lisp/"
-  :pin manual
-  ;; :mode (("\\.org$" . org-mode))
-  :config
-  (use-package org-plus-contrib
-    :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
-    :no-require t
-    :pin manual)
-
-  ;; add source code version Org-mode Info into Emacs.
-  (with-eval-after-load 'info
-    (info-initialize)
-    (add-to-list 'Info-directory-list
-                 "~/Code/Emacs/org-mode/doc/"))
-  )
-
-;;; reload Org-mode to fix two versions source-code & MELPA mixture loaded.
-(org-reload)
-
-;;; Org-mode ELPA version
-;; (use-package org
-;;   :ensure t
-;;   :mode (("\\.org$" . org-mode))
-;;   :config
-;;   (use-package org-plus-contrib
-;;     :ensure t
-;;     :no-require t)
-;;   )
-
-
 ;;; [ Org Modules ]
 ;; Modules that should always be loaded together with org.el.
 (setq org-modules

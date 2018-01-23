@@ -32,24 +32,12 @@
 (add-to-list 'package-archives elpa-gnu t)
 ;; (add-to-list 'package-archives elpa-china t)
 
-(package-initialize)
-
-(let* ((elpa-archives-dir "~/.emacs.d/elpa/archives/")
-       (elpa-gnu-archives-dir (concat elpa-archives-dir "gnu"))
-       (elpa-melpa-archives-dir (concat elpa-archives-dir "melpa"))
-       (elpa-org-archives-dir (concat elpa-archives-dir "org")))
-  (unless (and (file-exists-p elpa-gnu-archives-dir)
-               (file-exists-p elpa-melpa-archives-dir)
-               (file-exists-p elpa-org-archives-dir))
-    (package-refresh-contents)))
-
-;; (setq package-enable-at-startup nil)
-;; (package-initialize nil)
 
 (add-to-list 'display-buffer-alist
              '("^\\*package-build-result\\*" (display-buffer-below-selected)))
 
 
+;;; Load `use-package' ahead before `package-initialize' for (use-package org :pin manual ...).
 ;;; [ use-package ]
 
 (unless (package-installed-p 'use-package)
@@ -69,6 +57,41 @@
   ;; for system-packages
   (setq system-packages-noconfirm t)
   )
+
+;;; NOTE: load manual version Org before MELPA Org to fix conflict issue.
+(use-package org
+  :load-path "~/Code/Emacs/org-mode/lisp/"
+  :pin manual
+  :mode (("\\.org$" . org-mode))
+  :config
+  (use-package org-plus-contrib
+    :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+    :no-require t
+    :pin manual)
+  
+  ;; add source code version Org-mode Info into Emacs.
+  (with-eval-after-load 'info
+    (info-initialize)
+    (add-to-list 'Info-directory-list
+                 "~/Code/Emacs/org-mode/doc/"))
+  )
+
+
+;;; initialize installed packages after (use-package <package> :pin manual ..)
+(package-initialize)
+
+(let* ((elpa-archives-dir "~/.emacs.d/elpa/archives/")
+       (elpa-gnu-archives-dir (concat elpa-archives-dir "gnu"))
+       (elpa-melpa-archives-dir (concat elpa-archives-dir "melpa"))
+       (elpa-org-archives-dir (concat elpa-archives-dir "org")))
+  (unless (and (file-exists-p elpa-gnu-archives-dir)
+               (file-exists-p elpa-melpa-archives-dir)
+               (file-exists-p elpa-org-archives-dir))
+    (package-refresh-contents)))
+
+;; (setq package-enable-at-startup nil)
+;; (package-initialize nil)
+
 
 ;;; [ package-lint ] -- A linting library for elisp package authors.
 
