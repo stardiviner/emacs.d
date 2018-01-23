@@ -16,9 +16,10 @@
          ("\\.S\\'" . S-mode)
          ("\\.Rprofile\\'" . R-mode)
          ("\\.Renviron\\'" . R-mode))
+  :load (ess-site)
   :config
-  (require 'ess-site)
-
+  ;; (setq ess-ask-for-ess-directory nil) ; suppress ESS from prompting for session directory.
+  
   ;; with --no-readline argument.
   (setq ess-R-readline nil)
 
