@@ -10,11 +10,12 @@
 ;;; spaces instead of tabs
 (setq-default indent-tabs-mode nil)
 ;;; Tab length
-(setq-default default-tab-width 2
-              tab-width 2
+(setq-default tab-width 2
               standard-indent 2)
 (setq-default tab-stop-list (number-sequence 2 120 2))
 
+(require 'cc-mode)
+(setq c-basic-offset 2)
 
 ;;; [ electric-indent-mode ]
 

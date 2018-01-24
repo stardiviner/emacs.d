@@ -10,10 +10,15 @@
 ;; pom files should be treated as xml files
 (add-to-list 'auto-mode-alist '("\\.pom\\'" . nxml-mode))
 
-;;; [ javap-mode ] -- show the ouput of javap when opening a jvm class file in Emacs.
+(defun my/java-mode-setup ()
+  "My setup for `java-mode'."
+  ;; set tab with to 4.
+  (setq-local c-basic-offset 4)
+  (setq-local tab-width 4)
+  (setq-local standard-indent 4)
+  )
 
-;; (use-package javap-mode
-;;   :ensure t)
+(add-hook 'java-mode-hook #'my/java-mode-setup)
 
 ;;; [ ob-java ]
 
