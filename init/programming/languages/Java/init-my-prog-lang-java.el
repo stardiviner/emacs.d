@@ -100,26 +100,6 @@
 ;;   (add-hook 'malabar-groovy-mode-hook 'flycheck-mode)
 ;;   )
 
-;;; [ javadoc-lookup ] -- Quickly lookup Javadoc pages from Emacs.
-
-(use-package javadoc-lookup
-  :ensure t
-  :defer t
-  :init
-  (add-hook 'java-mode-hook
-            (lambda ()
-              (unless (boundp 'prog-doc-map)
-                (define-prefix-command 'prog-doc-map))
-              (local-set-key (kbd "C-h d") 'prog-doc-map)
-              (define-key prog-doc-map (kbd "d") 'javadoc-lookup)
-              ))
-  :config
-  (javadoc-add-roots "/usr/share/doc/openjdk7-doc/api/"
-                     ;; "/usr/share/doc/openjdk8-doc/api/"
-                     ;; "~/src/project/doc"
-                     )
-  )
-
 ;;; [ java-imports ] -- dealing with Java imports.
 
 ;; (use-package java-imports
