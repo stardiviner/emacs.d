@@ -98,9 +98,6 @@
 (use-package ace-window
   :ensure t
   :bind ("C-x C-j" . ace-window)
-  :init
-  (with-eval-after-load 'dired-x
-    (global-set-key (kbd "C-x C-j") 'ace-window))
   :config
   (setq aw-background nil)
   (set-face-attribute 'aw-leading-char-face nil

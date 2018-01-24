@@ -136,7 +136,7 @@
     )
 
   (use-package dired-x
-    :init
+    :preface
     ;; don't bind [C-x C-j] from `dired-x'. (conflict with `ace-window')
     (setq dired-bind-jump nil)
     :config
