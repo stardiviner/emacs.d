@@ -28,6 +28,12 @@
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 (add-to-list 'org-babel-tangle-lang-exts '("java" . "java"))
 
+(defvar org-babel-default-header-args:java nil)
+(add-to-list 'org-babel-default-header-args:java
+             '(:results . "output"))
+;; (add-to-list 'org-babel-default-header-args:java
+;;              '(:cmdline . "-cp ."))
+
 ;;; [ Eclim ]
 
 (use-package eclim
