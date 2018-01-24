@@ -12,12 +12,12 @@
 (setq org-confirm-shell-link-function 'yes-or-no-p)
 (setq org-confirm-elisp-link-function 'yes-or-no-p)
 
-(setq org-babel-hash-show-time t)
+(setq org-babel-hash-show-time t) ; header argument: :cache yes.
 
-;;; source block header arguments
+;;; source block default header arguments
 (setq org-babel-default-header-args
       '((:session . "none")
-        (:results . "replace") (:cache . "no")
+        (:results . "replace") (:cache . "yes")
         (:exports . "code") (:hlines . "no")
         (:noweb . "no") (:tangle . "no")
         (:mkdirp . "yes")
@@ -238,16 +238,15 @@
 
 
 
-;;;_ * source code block check
-;;
-;; - Report an error if there is a source block without a language specified
-;; - Report an error if there is a source block with a language specified that
-;;   is not present in `org-babel-load-languages’
-;; – “Check as well for the language of inline code blocks,”
-;; – “Report the line number instead of the char position.”
-
+;;; source code block check
 (defun org-src-block-check ()
-  "Auto check whether src block has language setted."
+  "Auto check whether src block has language set.
+- Report an error if there is a source block without a language specified
+- Report an error if there is a source block with a language specified that
+is not present in `org-babel-load-languages’
+– Check as well for the language of inline code blocks.
+– Report the line number instead of the char position.
+"
   (interactive)
   (org-element-map (org-element-parse-buffer)
       '(src-block inline-src-block)
@@ -269,23 +268,11 @@
 (add-hook 'org-src-mode-hook 'org-src-block-check)
 
 
-;;; correctly enable `flycheck' in babel source blocks.
 (defadvice org-edit-src-code (around set-buffer-file-name activate compile)
+  "Correctly enable `flycheck' in Babel src blocks."
   (let ((file-name (buffer-file-name)))
     ad-do-it
     (setq buffer-file-name file-name)))
-
-
-;;; auto format (indent) source code block.
-
-;; (defun indent-org-block-automatically ()
-;;   (when (org-in-src-block-p)
-;;     (org-edit-special)
-;;     (indent-region (point-min) (point-max))
-;;     (org-edit-src-exit)))
-;;
-;; (run-at-time 1 10 'indent-org-block-automatically)
-;; TODO: auto start/stop timer when open/close temp src buffer.
 
 
 ;;; prepend comment char ahead of `org-babel-ref'.
@@ -297,23 +284,6 @@
     (insert " ")))
 
 (advice-add 'org-store-link :before #'org-babel-ref-prepend-comment-char)
-
-;;; Another implement solution.
-;; (defun org-src-coderef-format (&optional element)
-;;   (cond
-;;    ((and element (org-element-property :label-fmt element)))
-;;    ((org-src-edit-buffer-p) (org-src-do-at-code-block (org-src-coderef-format)))
-;;    ((org-element-property :label-fmt (org-element-at-point)))
-;;    (t org-coderef-label-format)))
-;;
-;; (defun org-src-coderef-prepend-comment-char (args)
-;;   "Prepend comment chart in Org-mode src code block."
-;;   (when (org-src-edit-buffer-p)
-;;     (comment-dwim nil)
-;;     (insert " ")))
-;;
-;; (advice-add 'org-src-coderef-format :filter-return
-;;             #'org-src-coderef-prepend-comment-char)
 
 
 ;;; beacon effect when open org-mode babel src block editing.
@@ -346,28 +316,6 @@
 ;;   (with-eval-after-load "eval-in-repl"
 ;;     (setq eir-jump-after-eval nil))
 ;;   )
-
-;;; timestamp on `babel-execute' [C-c C-c] result block.
-(defadvice org-babel-execute-src-block (after org-babel-record-execute-timestamp)
-  "Insert timestamp on `babel-execute' [C-c C-c] result block."
-  (let ((code-block-params (nth 2 (org-babel-get-src-block-info)))
-        (code-block-name (nth 4 (org-babel-get-src-block-info))))
-    (let ((timestamp (cdr (assoc :timestamp code-block-params)))
-          (result-params (assoc :result-params code-block-params)))
-      (if (and (equal timestamp "t") (> (length code-block-name) 0))
-          (save-excursion
-            (search-forward-regexp (concat "#\\+RESULTS\\(\\[.*\\]\\)?: "
-                                           code-block-name))
-            (beginning-of-line)
-            (search-forward "RESULTS")
-            (kill-line)
-            (insert (concat (format-time-string "[%F %r]: ") code-block-name)))
-        (if (equal timestamp "t")
-            (message (concat "Result timestamping requires a #+NAME: "
-                             "and a ':results output' argument.")))))))
-
-(ad-activate 'org-babel-execute-src-block)
-
 
 ;; load all languages at last.
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
