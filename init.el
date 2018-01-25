@@ -243,7 +243,7 @@
 ;; (require 'init-my-prog-lang-shen)
 (require 'init-my-prog-lang-clojure)
 (require 'init-my-prog-lang-python)
-;; (require 'init-my-prog-lang-ruby)
+(require 'init-my-prog-lang-ruby)
 ;; (require 'init-my-prog-lang-perl)
 (require 'init-my-prog-lang-shell)
 (require 'init-my-prog-lang-C-common)

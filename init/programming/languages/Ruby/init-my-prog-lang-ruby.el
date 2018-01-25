@@ -55,24 +55,15 @@
 (use-package yari
   :ensure t
   :config
-  ;; (setq yari-ruby-program-name "ruby"
-  ;;       yari-ri-program-name "ri")
-
   (defun my-yari-settings ()
     ;; (local-set-key (kbd "C-h d k") 'yari)
-
     ;; or with prog-doc-map prefix.
     (unless (boundp 'ruby-help-doc-map)
       (define-prefix-command 'ruby-help-doc-map))
     (local-set-key (kbd "C-h d") 'ruby-help-doc-map)
-    
     (define-key ruby-help-doc-map (kbd "k") 'yari-helm)
     )
-
-  (dolist (hook '(ruby-mode-hook
-                  enh-ruby-mode-hook
-                  ))
-    (add-hook hook #'my-yari-settings))
+  (add-hook 'ruby-mode-hook #'my-yari-settings)
   )
 
 ;;; [ rbenv ] -- use rbenv to manage your Ruby versions within Emacs
@@ -98,17 +89,13 @@
   (setq inf-ruby-default-implementation "ruby")
   (setq inf-ruby-prompt-read-only t)
 
-  (dolist (hook '(ruby-mode-hook
-                  enh-ruby-mode-hook
-                  ))
-    (add-hook hook 'inf-ruby-minor-mode))
+  (add-hook 'ruby-mode-hook #'inf-ruby-minor-mode)
 
   ;; auto type "space" behind inf-ruby buffer line to get rid of company-mode completion.
   (defun my-inf-ruby-return ()
     (interactive)
     (insert " ")
     (comint-send-input))
-
   (define-key inf-ruby-mode-map (kbd "RET") 'my-inf-ruby-return)
   
   ;; auto switch from common Ruby compilation
@@ -121,8 +108,7 @@
   ;;   (rvm-activate-corresponding-ruby))
 
   (with-eval-after-load 'projectile-rails
-    (define-key projectile-rails-mode-map
-      [remap inf-ruby] 'inf-ruby-console-auto))
+    (define-key projectile-rails-mode-map [remap inf-ruby] 'inf-ruby-console-auto))
 
   ;; ruby-mode has keybinding [C-c C-s] for `inf-ruby'.
   (with-eval-after-load 'enh-ruby-mode
@@ -154,15 +140,12 @@
             (equal major-mode 'ruby-mode))
         (progn
           (ruby-load-file (buffer-file-name))
-          (message "Robe loaded current file code."))
-      ))
+          (message "Robe loaded current file code."))))
   ;; (add-hook 'after-save-hook 'my-robe-lazily-load 'append)
 
-  (dolist (hook '(ruby-mode-hook
-                  enh-ruby-mode-hook
-                  inf-ruby-mode-hook
-                  ))
-    (add-hook hook 'robe-mode))
+  (mapc
+   (lambda (hook) (add-hook hook #'robe-mode))
+   '(ruby-mode-hook inf-ruby-mode-hook))
   )
 
 ;;; [ kungfu ] -- CIDER like REPL for Ruby development.
