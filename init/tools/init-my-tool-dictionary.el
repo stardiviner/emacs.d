@@ -62,7 +62,11 @@
 ;;; [ ob-translate ] -- allows you to translate blocks of text within org-mode.
 
 ;; (use-package ob-translate
-;;   :ensure t)
+;;   :ensure t
+;;   :init
+;;   ;; translate special block
+;;   (add-to-list 'org-structure-template-alist '(?t . "translate"))
+;;   )
 
 
 (provide 'init-my-tool-dictionary)

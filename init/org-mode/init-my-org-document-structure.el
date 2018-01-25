@@ -102,9 +102,6 @@
 
 ;;; [ Structure Templates ]
 
-;; translate special block
-(add-to-list 'org-structure-template-alist '(?t . "translate"))
-
 ;;; [ Entities ]
 
 (defun ivy-insert-org-entity ()
@@ -113,7 +110,7 @@
   (ivy-read "Entity: " (loop for element in (append org-entities org-entities-user)
 			                       when (not (stringp element))
 			                       collect
-			                       (cons 
+			                       (cons
 			                        (format "%10s | %s | %s | %s"
 				                              (car element) ;name
 				                              (nth 1 element) ; latex
