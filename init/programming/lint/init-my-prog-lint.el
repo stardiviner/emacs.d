@@ -22,7 +22,9 @@
 (use-package flycheck
   :ensure t
   :commands flycheck-mode
-  :init
+  :preface
+  (setq flycheck-check-syntax-automatically '(save idle-change)
+        flycheck-idle-change-delay 5.0)
   ;; (add-hook 'after-init-hook #'global-flycheck-mode)
   (add-hook 'prog-mode-hook #'flycheck-mode)
   :bind (:map flycheck-mode-map
@@ -30,9 +32,6 @@
               ("M-g M-p" . flycheck-previous-error)
               ("M-g M-l" . flycheck-list-errors))
   :config
-  (setq flycheck-check-syntax-automatically '(save idle-change)
-        flycheck-idle-change-delay 5.0)
-
   ;; [Emacs Lisp]
   ;; To make Flycheck use the current `load-path'.
   ;; Don't error about "free variable" without (require ??).
