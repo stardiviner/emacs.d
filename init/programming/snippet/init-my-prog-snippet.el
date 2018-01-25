@@ -82,7 +82,7 @@ $0`(yas-escape-text yas-selected-text)`"
           (beacon-color "deep pink"))
       (beacon-blink))
     )
-  ;; (add-hook 'yas-after-exit-snippet-hook #'my-yas-exit-animation)
+  (add-hook 'yas-after-exit-snippet-hook #'my-yas-exit-animation)
   
   ;; enable global yasnippet-mode
   (yas-global-mode 1)

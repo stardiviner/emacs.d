@@ -293,7 +293,7 @@ is not present in `org-babel-load-languages’
         (beacon-color "violet red"))
     (beacon-blink)))
 
-;; (add-hook 'org-src-mode-hook #'my-org-src-edit-animation)
+(add-hook 'org-src-mode-hook #'my-org-src-edit-animation)
 
 
 ;;; [ ob-async ] -- enables asynchronous execution of org-babel src blocks for *any* languages.

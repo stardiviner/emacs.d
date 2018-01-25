@@ -198,12 +198,12 @@
 
 ;;; [ beacon ] -- highlight the cursor whenever the window scrolls.
 
-;; (use-package beacon
-;;   :ensure t
-;;   :config
-;;   (beacon-mode 1)
-;;   (setq beacon-color "green yellow")
-;;   )
+(use-package beacon
+  :ensure t
+  :config
+  (beacon-mode 1)
+  (setq beacon-color "green yellow")
+  )
 
 
 ;;; [ Selection ]
