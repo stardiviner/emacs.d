@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: new
+# name: instance
 # key: new
-# group: class.new
+# group: class.instance
 # --
 ${1:Class} ${2:instance} = new $1();

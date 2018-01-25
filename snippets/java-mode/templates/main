@@ -1,8 +1,8 @@
 # -*- mode: snippet -*-
-# name: main
+# name: main method
 # key: main
-# group: template.program
+# group: class.method
 # --
-public static void main(String[] args) {
+public static ${1:TYPE: void} main(${2:TYPE: String[]} ${3:arg name}) {
     $0
 }
