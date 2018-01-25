@@ -27,7 +27,7 @@
         pdf-view-use-imagemagick nil
         pdf-view-use-scaling t ; open PDFs scaled to fit page.
         pdf-view-resize-factor 1.25 ; more fine-grained zooming.
-
+        pdf-view-use-unicode-ligther nil ; to speed-up pdf-tools by don't try to find unicode.
         ;; mouse-wheel-follow-mouse t
         )
 
