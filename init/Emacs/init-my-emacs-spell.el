@@ -41,8 +41,8 @@
 ;;; skip regions in Org-mode for ispell.
 (add-to-list 'ispell-skip-region-alist '("[^\000-\377]+"))
 (add-to-list 'ispell-skip-region-alist '(":\\(PROPERTIES\\|LOGBOOK\\):" . ":END:"))
-(add-to-list 'ispell-skip-region-alist '("#\\+BEGIN_SRC" . "#\\+END_SRC"))
-(add-to-list 'ispell-skip-region-alist '("#\\+BEGIN_EXAMPLE" . "#\\+END_EXAMPLE"))
+(add-to-list 'ispell-skip-region-alist '("#\\+begin_src" . "#\\+end_src"))
+(add-to-list 'ispell-skip-region-alist '("#\\+begin_example" . "#\\+end_example"))
 
 (define-key spell-prefix (kbd "s") 'ispell-word) ; [M-$]
 (define-key spell-prefix (kbd "<tab>") 'ispell-complete-word)
