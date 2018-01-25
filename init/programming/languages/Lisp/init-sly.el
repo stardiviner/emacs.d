@@ -12,32 +12,22 @@
 (use-package sly
   :ensure t
   :commands (sly)
-  :config
+  :init
   (setq sly-default-lisp 'sbcl)
+  :config
   ;; load SLY contribs
-  ;; (setq sly-contribs `(sly-fancy
-  ;;                      sly-retro
-  ;;                      sly-scratch
-  ;;                      sly-mrepl
-  ;;                      sly-autodoc
-  ;;                      ))
+  (setq sly-contribs `(sly-fancy sly-scratch sly-mrepl sly-autodoc))
   (sly-setup sly-contribs)
 
-  (dolist (hook '(lisp-mode-hook
-                  lisp-interaction-mode-hook
-                  sly-mrepl-mode-hook
-                  ))
-    (add-hook hook 'sly-mode))
+  (mapc
+   (lambda (hook) (add-hook hook #'sly-mode))
+   '(lisp-mode-hook lisp-interaction-mode-hook sly-mrepl-mode-hook))
   
   (defun my-sly-setup ()
-    (local-set-key (kbd "C-h d d") 'sly-documentation-lookup)
-    )
-  (dolist (hook '(sly-mode-hook
-                  sly-mrepl-mode-hook
-                  lisp-mode-hook
-                  lisp-interaction-mode-hook
-                  ))
-    (add-hook hook #'my-sly-setup))
+    (local-set-key (kbd "C-h d d") 'sly-documentation-lookup))
+  (mapc
+   (lambda (hook) (add-hook hook #'my-sly-setup))
+   '(sly-mode-hook sly-mrepl-mode-hook lisp-mode-hook lisp-interaction-mode-hook))
 
   (add-hook 'sly-mrepl-mode-hook #'my-lisp-repl-common-settings)
 
@@ -57,10 +47,9 @@
     (defun my-sly-company-setup ()
       (sly-company-mode 1)
       (my-company-add-backend-locally 'sly-company))
-    (dolist (hook '(sly-mode-hook
-                    sly-mrepl-mode-hook
-                    ))
-      (add-hook hook #'my-sly-company-setup))
+    (mapc
+     (lambda (hook) (add-hook hook #'my-sly-company-setup))
+     '(sly-mode-hook sly-mrepl-mode-hook))
     )
 
   ;; [ ob-lisp ]
