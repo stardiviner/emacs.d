@@ -712,15 +712,11 @@
     ("conky" "Conky" nil 0)
     ("duckduckgo" "DuckDuckGo" nil 0)
     ("eg" "e.g." nil 4)
-    ("emacs" "Emacs" nil 2)
     ("facebook" "Facebook" nil 0)
-    ("github" "GitHub" nil 1)
-    ("gitlab" "GitLab" nil 0)
     ("gnome" "GNOME" nil 0)
     ("gnu" "GNU" nil 0)
     ("google" "Google" nil 1)
     ("kde" "KDE" nil 0)
-    ("linux" "Linux" nil 0)
     ("org-mode" "Org-mode" nil 0)
     ("orgmode" "Org-mode" nil 1)
     ("qq" "QQ" nil 0)
@@ -810,9 +806,7 @@
 
 (define-abbrev-table 'python-mode-abbrev-table '())
 
-(define-abbrev-table 'python-mode-skeleton-abbrev-table
-  '(
-   ))
+(define-abbrev-table 'python-mode-skeleton-abbrev-table '())
 
 (define-abbrev-table 'qmake-mode-abbrev-table '())
 
@@ -1058,6 +1052,8 @@
 (define-abbrev-table 'tabulated-list-ext-mode-abbrev-table '())
 
 (define-abbrev-table 'tabulated-list-mode-abbrev-table '())
+
+(define-abbrev-table 'tags-table-mode-abbrev-table '())
 
 (define-abbrev-table 'tar-mode-abbrev-table '())
 
