@@ -69,6 +69,12 @@
   (org-download-enable)
   )
 
+;;; [ org-attach-screenshot ] -- screenshots integrated with org attachment dirs.
+
+(use-package org-attach-screenshot
+  :ensure t
+  :commands (org-attach-screenshot))
+
 ;;; [ org-board ] -- Org mode's web archiver.
 
 (use-package org-board
