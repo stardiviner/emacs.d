@@ -284,6 +284,12 @@
 
 ;;; trailing whitespace
 
+(require 'whitespace)
+(setq whitespace-line-column 80) ; limit line length
+(setq whitespace-style '(face lines-tail))
+;; (add-hook 'prog-mode-hook 'whitespace-mode)
+;; (global-whitespace-mode +1)
+
 ;;; [ page-break-lines ] -- visual horizontal line for page break.
 
 (use-package page-break-lines
