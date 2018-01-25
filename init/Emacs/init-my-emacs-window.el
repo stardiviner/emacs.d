@@ -35,6 +35,7 @@
 ;; Actions:
 ;; display-buffer actions:
 ;; - (display-buffer-same-window)
+;; - (display-buffer-in-side-window)
 ;; - (display-buffer-no-window)
 ;; - (display-buffer-reuse-window display-buffer-below-selected) (window-height . 0.3)
 ;; - (display-buffer-reuse-window display-buffer-same-window)
@@ -44,7 +45,8 @@
              '("^\\*Pp Eval Output\\*" (display-buffer-below-selected)))
 (add-to-list 'display-buffer-alist
              '("^\\*Backtrace\\*" (display-buffer-below-selected)))
-
+(add-to-list 'display-buffer-alist
+             '("^\\*Process List\\*" (display-buffer-below-selected)))
 
 ;;; [ winner ]
 

@@ -181,6 +181,10 @@ when needed."
   (add-hook 'pdf-view-mode-hook 'my/pdf-jump-last-viewed-bookmark)
   (unless noninteractive  ; as `save-place-mode' does
     (add-hook 'kill-emacs-hook #'my/pdf-set-all-last-viewed-bookmarks))
+
+  ;; [ pdf-outline ]
+  (add-to-list 'display-buffer-alist
+               '("\\*Outline .*pdf\\*" . (display-buffer-pop-up-window-pdf-split-horizontally)))
   )
 
 

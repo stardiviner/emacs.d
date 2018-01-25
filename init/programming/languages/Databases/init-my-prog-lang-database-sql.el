@@ -11,7 +11,8 @@
 
 (require 'sql)
 
-(add-to-list 'same-window-buffer-names "*SQL*")
+(add-to-list 'display-buffer-alist
+             '("^\\*SQL\\*" (display-buffer-below-selected)))
 
 
 ;;; [ ob-sql ]
