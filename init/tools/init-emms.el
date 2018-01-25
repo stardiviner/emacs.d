@@ -75,6 +75,7 @@
         (emms-streams))))
 
   ;; [ Key Bindings ]
+  (add-hook 'emms-playlist-mode-hook #'emms-mark-mode)
 
   ;; [ MPD ] -- [M-x emms-player-mpd-connect]
   (require 'emms-player-mpd)
