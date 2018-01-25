@@ -31,20 +31,16 @@
 (use-package ob-sql-mode
   :ensure t
   :config
-  (setq org-babel-sql-mode-template-selector "Q")
-
   (add-to-list 'org-babel-load-languages '(sql-mode . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   ;; (add-to-list 'org-babel-tangle-lang-exts '("sql-mode" . "sql"))
 
+  ;; (add-to-list 'org-babel-default-header-args:sql-mode '(:product . "sqlite"))
+  ;; (add-to-list 'org-babel-default-header-args:sql-mode '(:session . "ob-sql-mode"))
+
   ;; security guard
   (setq org-confirm-babel-evaluate
-        (lambda (lang body)
-          ;; (not )
-          (string= lang "sql-mode")
-          ))
-
-  ;; (setq org-babel-default-header-args:sql-mode )
+        (lambda (lang body) (string= lang "sql-mode")))
   )
 
 
