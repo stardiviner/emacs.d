@@ -15,6 +15,7 @@
               ("r" . elfeed))
   :config
   (setq elfeed-db-directory "~/.emacs.d/.elfeed")
+  (setq elfeed-search-date-format '("%Y-%m-%d" 10 :right))
 
   (setq elfeed-feeds
         '(
@@ -52,6 +53,9 @@
           
           ;; Podcasts
           
+          ;; Common Lisp
+          ("http://planet.lisp.org/rss20.xml" Lisp)
+          
           ;; Clojure
           ("http://insideclojure.org/feed.xml" Clojure)
           ("http://www.lispcast.com/feed" Clojure)
@@ -59,10 +63,6 @@
           ;; Blogs
           ("http://feed.williamlong.info/" Blog)
           ("http://www.ruanyifeng.com/blog/atom.xml" Blog)
-          
-          ;; Comic
-          ("http://turnoff.us/feed.xml" Comic)
-          ("http://xkcd.com/rss.xml" Comic)
           
           ;; Subscribe
           ("https://github.com/blog/all.atom" GitHub)
@@ -80,14 +80,14 @@
     (let ((elfeed-search-filter " "))
       (elfeed-search-live-filter)))
   (define-key elfeed-search-mode-map (kbd "A") 'elfeed-show-all)
-  
-  (advice-add 'elfeed-search-untag-all-unrea :after
+
+  (advice-add 'elfeed-search-untag-all-unread :after ; [r]
               (lambda () (forward-line) (elfeed-search-tag-all 'read)))
-  (advice-add 'elfeed-search-show-entry :before
+  (advice-add 'elfeed-search-show-entry :before ; [Enter]
               (lambda (entry) (elfeed-search-tag-all 'read)))
-  (advice-add 'elfeed-search-tag-all-unread :before
+  (advice-add 'elfeed-search-tag-all-unread :before ; [u]
               (lambda () (elfeed-search-untag-all 'read)))
-  (defalias 'elfeed-search-toggle-all-star
+  (defalias 'elfeed-search-toggle-all-star ; [m], [*]
     (elfeed-expose #'elfeed-search-toggle-all 'star)
     "Toggle the `star' tag to all selected entries.")
   (define-key elfeed-search-mode-map (kbd "*") 'elfeed-search-toggle-all-star)
