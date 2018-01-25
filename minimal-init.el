@@ -44,6 +44,12 @@
 
 
 
+(use-package pinentry
+  :ensure t
+  :ensure-system-package pinentry
+  :config
+  (pinentry-start))
+
 (require 'color)
 (use-package color-theme
   :ensure t)
