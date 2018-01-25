@@ -243,13 +243,17 @@
                "~/Org/Projects/Agriculture Projects/"
                "~/Org/Projects/Programming Projects/"
                "~/Org/Projects/Writing Projects/"
+               "~/Org/Projects/Product Projects/"
+               "~/Org/Projects/Hardware Projects/"
+               "~/Org/Projects/Finance Projects/"
                "~/Org/Projects/Business Projects/"
-               "~/Org/Projects/Organization/"
+               "~/Org/Projects/Organization Projects/"
                "~/Org/Projects/Interpersonal Network/"
                "~/Org/Learning Plan/"
                ;; "~/Org/Contacts/Contacts.org"
                "~/Org/Calendars/Anniversary.org"
                "~/Org/Myself/"
+               "~/Org/Wiki/Literature/Novels/Data/Novel Books/Novel Books.org"
                ))))
 
 (setq org-agenda-text-search-extra-files '(agenda-archives "~/Org/Diary/"))
