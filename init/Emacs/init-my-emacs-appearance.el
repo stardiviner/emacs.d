@@ -182,7 +182,7 @@
 (setq-default cursor-type t ; '(hbar . 2)
               cursor-in-non-selected-windows nil)
 ;; (set-cursor-color "cyan")
-(set-cursor-color "DeepSkyBlue")
+(set-cursor-color "deep pink")
 
 ;;; hollow
 ;; (setq-default cursor-type 'hollow
