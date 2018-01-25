@@ -25,7 +25,7 @@
 
         ;; Tasks
         ("t" "Add a [t]ime scheduled task into Tasks"
-         entry (file "~/Org/Projects/Computer Todos.org")
+         entry (file "~/Org/Tasks/Computer Todos.org")
          "* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n"
          :empty-lines 1
          )
@@ -56,7 +56,7 @@
         ("s" "code [s]nippet" entry
          (file (lambda () (concat org-directory "/Programming/Code Snippets/snippets.org")))
          ;; Prompt for tag and language
-         "* %?%^g\n#+BEGIN_SRC %^{language}\n\n#+END_SRC")
+         "* %?%^g\n#+begin_src %^{language}\n\n#+end_src")
         ))
 
 ;;; Context org-capture templates.
@@ -90,7 +90,7 @@
       (append `(("P" "Org-[P]rotocol")
                 ("PP" "Protocol"
                  entry (file ,(concat org-directory "/Tasks/Tasks.org"))
-                 "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?"
+                 "* %^{Title}\nSource: %u, %c\n #+begin_quote\n%i\n#+end_quote\n\n\n%?"
                  :prepend t
                  :empty-lines 1
                  )
