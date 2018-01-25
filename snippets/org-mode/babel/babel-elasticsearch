@@ -4,7 +4,7 @@
 # group: babel
 # --
 #+begin_src es
-POST /${1}
+${1:$$(yas-choose-value '("GET " "POST " "DELETE "))}  /${2:_search}
 {
 $0
 }

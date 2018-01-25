@@ -195,17 +195,6 @@
     :keybinding "L")
   )
 
-;;; [ es-mode ] -- An Emacs major mode for editing Elasticsearch requests.
-
-(use-package es-mode
-  :ensure t
-  :mode ("\\.es$" . es-mode)
-  :config
-  (add-to-list 'org-babel-load-languages '(elasticsearch . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  (add-to-list 'org-babel-tangle-lang-exts '("elasticsearch" . "es"))
-  )
-
 
 (provide 'init-my-emacs-search-engine)
 

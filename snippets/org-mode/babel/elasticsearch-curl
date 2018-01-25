@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: babel elasticsearch curl
+# key: babel-elasticsearch-curl
+# group: babel.elasticsearch
+# --
+#+begin_src shell :results code :wrap src json
+curl ${1:-X RESTful: GET/POST/DELETE${2: }}'localhost:9200/${3:${4:Index}${5:/Type}${6:/_search}}?pretty'${7: -H 'Content-Type: application/json' -d '
+\{
+${8:<JSON> "query": "value"}
+\}'}
+#+end_src

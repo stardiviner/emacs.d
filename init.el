@@ -303,6 +303,7 @@
 
 ;; (require 'init-my-prog-build)
 (require 'init-DevOps)
+(require 'init-elasticsearch)
 
 
 ;;; Frameworks
