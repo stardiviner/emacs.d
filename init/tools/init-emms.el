@@ -27,36 +27,19 @@
   (emms-default-players)
 
   ;; [ Playlist ]
-  (setq emms-last-played-format-alist
-        '(((emms-last-played-seconds-today) . "%a %H:%M")
-	        (604800                           . "%a %H:%M") ; this week
-	        ((emms-last-played-seconds-month) . "%d")
-	        ((emms-last-played-seconds-year)  . "%m/%d")
-	        (t                                . "%Y/%m/%d")))
+  ;; setq `emms-last-played-format-alist'
 
   (setq emms-source-file-default-directory "~/Music/")
 
-  ;; (setq emms-repeat-playlist nil) ; don't repeat to auto play next track in playlist.
+  ;; (setq emms-repeat-playlist nil) ; don't repeat the playlist after the last track.
   
-  ;; Switch to either the radio buffer or the current EMMS playlist
-  (defun my-emms-switch-to-current-playlist ()
-    "Switch current playlist or start playlist."
-    (interactive)
-    (if (and (boundp 'emms-stream-playlist-buffer)
-             (eq emms-stream-playlist-buffer emms-playlist-buffer))
-        (switch-to-buffer emms-stream-buffer-name)
-      (if (or (null emms-playlist-buffer)
-              (not (buffer-live-p emms-playlist-buffer)))
-          (error "No current Emms buffer")
-        (switch-to-buffer emms-playlist-buffer))))
-
   ;; [ Track ]
-  ;; (setq emms-track-description-function 'emms-track-simple-description)
   
   ;; [ Score ]
   (emms-score 1)
 
   ;; [ Encoding ]
+  (require 'emms-info-mp3info)
   (setq emms-info-mp3info-coding-system '(utf-8 gbk)
         emms-cache-file-coding-system 'utf-8)
 
@@ -72,21 +55,17 @@
         (emms-streams))))
 
   ;; [ Key Bindings ]
-  (add-hook 'emms-playlist-mode-hook #'emms-mark-mode)
+  ;; (add-hook 'emms-playlist-mode-hook #'emms-mark-mode) ; ERROR when M-x `emms-bilibili'
 
   ;; [ MPD ] -- [M-x emms-player-mpd-connect]
   (require 'emms-player-mpd)
 
+  (add-to-list 'emms-info-functions 'emms-info-mpd)
   (add-to-list 'emms-player-list 'emms-player-mpd t)
   
   (setq emms-player-mpd-server-name "127.0.0.1"
         emms-player-mpd-server-port "6600")
-
-  ;; (setq emms-player-mpd-music-directory)
-  (setq emms-player-mpd-sync-playlist t)
-
-  (add-to-list 'emms-info-functions 'emms-info-mpd)
-  (add-to-list 'emms-player-list 'emms-player-mpd)
+  (setq emms-player-mpd-music-directory "~/Music/music/")
 
   ;; (global-set-key (kbd "Fn + <F10>") 'emms-player-mpd-pause)
 
