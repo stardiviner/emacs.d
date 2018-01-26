@@ -16,13 +16,13 @@
 (use-package command-log-mode
   :ensure t
   :defer t
+  :preface
+  ;; disable default global keybinding [C-c o]
+  (setq command-log-mode-key-binding-open-log nil)
   :bind (:map screencast-prefix
               ("M-k" . clm/toggle-command-log-buffer)
               ("k" . command-log-mode)
               ("K" . global-command-log-mode))
-  :init
-  ;; FIXME: disable default global keybinding [C-c o]
-  (setq command-log-mode-key-binding-open-log nil)
   :config
   (setq command-log-mode-auto-show t
         command-log-mode-is-global nil

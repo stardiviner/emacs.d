@@ -195,8 +195,8 @@
 ;; (require 'init-my-tool-subtitle)
 ;; (require 'init-my-tool-podcast)
 ;; (require 'init-my-tool-audio)
-;; (require 'init-my-tool-screenshot)
-;; (require 'init-my-tool-screencast)
+(require 'init-my-tool-screenshot)
+(require 'init-my-tool-screencast)
 (require 'init-stack-exchange)
 ;; (require 'init-my-tool-social-network)
 
