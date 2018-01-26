@@ -50,20 +50,14 @@
 ;;; [ Flyspell ] -- [M-$], [C-;]
 
 (use-package flyspell
-  :ensure-system-package (ispell aspell hunspell)
-  :bind (
-         ;; conflict with `iedit-mode' toggle keybinding.
-         ;; (add-hook 'flyspell-mode-hook
-         ;;           (lambda ()
-         ;;             (unbind-key "C-;" flyspell-mode-map)))
-
-         ;; fix Org-mode abbreviations expand keybinding [M-Tab].
-         :map flyspell-mode-map
-         ("C-M-i" . nil)
-         ("C-." . flyspell-correct-word-before-point)
-         ;; ("C-." . flyspell-auto-correct-previous-word)
-         ("C-," . flyspell-goto-next-error)
-         )
+  :ensure-system-package (ispell aspell)
+  :preface
+  ;; don't use [M-TAB] keybinding to correct word.
+  (setq flyspell-use-meta-tab nil)
+  :bind (:map flyspell-mode-map
+              ("C-." . flyspell-correct-word-before-point)
+              ("C-," . flyspell-goto-next-error)
+              )
   :init
   ;; global
   ;; (flyspell-mode 1)
@@ -73,12 +67,12 @@
   (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
   ;; Org-mode
-  (add-hook 'org-mode-hook
-            (lambda ()
-              ;; ignore TeX commands
-              (setq-local ispell-parser 'tex)
-              (flyspell-mode 1)
-              ))
+  ;; (add-hook 'org-mode-hook
+  ;;           (lambda ()
+  ;;             ;; ignore TeX commands
+  ;;             (setq-local ispell-parser 'tex)
+  ;;             (flyspell-mode 1)
+  ;;             ))
 
   ;; TeX
   (add-hook 'tex-mode-hook
@@ -96,14 +90,10 @@
 
   :config
   (setq flyspell-default-dictionary "en"
-        flyspell-delay 8
         flyspell-default-delayed-commands '(self-insert-command)
-        ;; flyspell-delayed-commands
-        ;; flyspell-default-deplacement-commands '(next-line previous-line
-        ;;                                                   handle-switch-frame handle-select-window
-        ;;                                                   scroll-up scroll-down)
-        ;; flyspell-deplacement-commands
-        flyspell-use-meta-tab nil ; use [M-TAB] to correct word.
+        flyspell-delayed-commands '(self-insert-command)
+        flyspell-default-deplacement-commands '(next-line previous-line scroll-up scroll-down)
+        flyspell-deplacement-commands '(next-line previous-line scroll-up scroll-down)
         flyspell-consider-dash-as-word-delimiter-flag t
         flyspell-after-incorrect-word-string "✗"
         ;; save correct wrong words into global abbrev table.
