@@ -267,13 +267,14 @@ With prefix argument, also display headlines without a TODO keyword."
 ;;; [ geography link ]
 ;; [geo:37.786971,-122.399677;u=35]
 
-(defun org-geo-link-open ()
-  "Open geography location link with program."
-  
-  )
+(defun org-geo-link-open (geo)
+  "Open geography location link `GEO' like \"geo:25.5889136,100.2208514\" with program."
+  (browse-url geo))
 
 (org-link-set-parameters "geo"
                          :follow #'org-geo-link-open)
+
+
 
 
 
