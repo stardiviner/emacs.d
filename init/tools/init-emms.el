@@ -27,9 +27,6 @@
   (emms-default-players)
 
   ;; [ Playlist ]
-  ;; The name of emms-playlist-mode is *way* too long
-  (add-hook 'emms-playlist-mode-hook #'(lambda () (setq mode-name "EMMS/playlist")))
-
   (setq emms-last-played-format-alist
         '(((emms-last-played-seconds-today) . "%a %H:%M")
 	        (604800                           . "%a %H:%M") ; this week
