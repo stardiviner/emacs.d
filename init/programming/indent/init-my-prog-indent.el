@@ -90,6 +90,8 @@
 
 (use-package aggressive-indent
   :ensure t
+  :init
+  (add-hook 'prog-mode-hook #'aggressive-indent-mode)
   :config
   (setq aggressive-indent-sit-for-time 0.1)
 
@@ -110,11 +112,6 @@
   (add-to-list 'aggressive-indent-excluded-modes 'snippet-mode)
 
   ;; (global-aggressive-indent-mode t)
-  ;; or
-  (dolist (hook '(prog-mode-hook
-                  nxml-mode-hook
-                  ))
-    (add-hook hook #'aggressive-indent-mode))
   )
 
 
