@@ -341,6 +341,7 @@
 ;; (require 'init-my-physics)
 ;; (require 'init-my-chemistry)
 ;; (require 'init-my-biology)
+(require 'init-my-music)
 
 
 ;;; Engineering
