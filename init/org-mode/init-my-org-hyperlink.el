@@ -372,18 +372,20 @@ With prefix argument, also display headlines without a TODO keyword."
 
 ;;; open image link to edit
 
-(defvar org-image-link-edit-cmd "nomacs %s")
+(setq org-image-link-edit-cmd "gimp")
 
 (defun org-image-link-edit ()
   "Open the image at point for editing."
   (interactive)
   (let ((context (org-element-context)))
     (if (not (eq (car-safe context) 'link))
-        (user-error "not on a link")
-      (start-process-shell-command
+        (user-error "Not on a link")
+      (async-start-process
        "org-download-edit"
-       "org-download-edit"
-       (format org-image-link-edit-cmd (plist-get (cadr context) :path))))))
+       org-image-link-edit-cmd
+       (lambda (p)
+         (message (format "%s" p)))
+       (org-link-unescape (plist-get (cadr context) :path))))))
 
 (define-key Org-prefix (kbd "E") 'org-image-link-edit)
 
