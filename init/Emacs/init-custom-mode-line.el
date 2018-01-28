@@ -860,6 +860,27 @@ dimensions of a block selection."
         (propertize mu4e-alert-mode-line)))
   )
 
+;;; GitHub Notifications (Participating)
+(use-package ghub+
+  :ensure t
+  :config
+  (defvar github-notifications-number nil)
+  (defun github-notifications ()
+    (setq github-notifications-number
+          (length
+           ;; check out documentation of `ghubp-get-notifications'.
+           (ghubp-get-notifications :participating "true") ; from package `ghub+'.
+           ;; (ghub-get "/notifications" '((:participating . "true")))
+           ;; (ghub-get "/notifications")
+           )))
+  (run-with-timer 10 600 'github-notifications)
+  (defun *github-notifications ()
+    (if (and (active) (> github-notifications-number 0))
+        (propertize
+         (concat
+          (all-the-icons-faicon "github" :v-adjust 0.05)
+          (format " %s " github-notifications-number))
+         'face 'mode-line-data-face))))
 
 ;;; Lunar Sunrise/Sunset
 (use-package celestial-mode-line
@@ -959,6 +980,7 @@ dimensions of a block selection."
                  (*erc)
                  (*emms)
                  ;; (*mu4e)
+                 (*github-notifications)
                  (*flycheck)
                  ;; (*build-status)
                  (*vc)
