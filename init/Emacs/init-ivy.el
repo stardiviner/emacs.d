@@ -34,7 +34,7 @@
   ;;   (push (cons t #'ivy--regex-plus) ivy-re-builders-alist)
   ;;   (push (cons #'swiper (cdr (assq t ivy-re-builders-alist))) ivy-re-builders-alist))
 
-  (define-key read-expression-map (kbd "C-r") #'counsel-expression-history) ; in [M-:]
+  (define-key read-expression-map (kbd "C-r") #'counsel-minibuffer-history) ; in [M-:]
   
   ;; [ ivy-hydra ] -- [C-o], [M-o]
   (use-package ivy-hydra
