@@ -51,8 +51,6 @@
   (pinentry-start))
 
 (require 'color)
-(use-package color-theme
-  :ensure t)
 
 
 

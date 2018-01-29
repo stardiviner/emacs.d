@@ -15,35 +15,6 @@
 
 (global-font-lock-mode t)
 
-;;; [ Custom Themes ]
-
-;;; [ Color Themes ]
-
-(use-package color-theme
-  :ensure t
-  :init
-  (autoload 'color-darken-name "color.el")
-  (autoload 'color-lighten-name "color.el")
-  :config
-  ;; (setq color-theme-is-global t
-  ;;     color-theme-is-cumulative t)
-
-  (color-theme-initialize)
-  
-  ;; (color-theme-robin-hood) ; a color-theme
-  ;; (load-theme 'solarized-dark t)
-  )
-
-;; (use-package color-theme-buffer-local
-;;   :ensure t
-;;   :config
-;;   (add-hook 'org-mode-hook
-;;             (lambda ()
-;;               (color-theme-buffer-local 'color-theme-standard (current-buffer))))
-;;   )
-
-;; (add-to-list 'custom-theme-load-path "~/.emacs.d/color-themes/")
-
 ;;; [ leuven-theme ] -- Awesome Emacs color theme on white background.
 
 (use-package leuven-theme
