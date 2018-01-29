@@ -1,5 +1,4 @@
-;;; init-my-prog-framework-http.el --- init for HTTP
-;;; -*- coding: utf-8 -*-
+;;; init-RESTful.el --- init for RESTful
 
 ;;; Commentary:
 
@@ -7,7 +6,6 @@
 
 ;;; Code:
 
-
 (unless (boundp 'HTTP-prefix)
   (define-prefix-command 'HTTP-prefix))
 (define-key inferior-prefix (kbd "H") 'HTTP-prefix)
@@ -126,6 +124,7 @@
   )
 
 
-(provide 'init-my-prog-framework-http)
 
-;;; init-my-prog-framework-http.el ends here
+(provide 'init-RESTful)
+
+;;; init-RESTful.el ends here

@@ -202,6 +202,10 @@
   (add-to-list 'org-src-lang-modes '("rhtml" . web))
   )
 
+;;; [ RESTful ]
+
+(require 'init-RESTful)
+
 
 (provide 'init-my-prog-framework-web)
 

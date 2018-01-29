@@ -309,7 +309,6 @@
 ;;; Frameworks
 
 (require 'init-my-prog-framework-web)
-(require 'init-my-prog-framework-http)
 (require 'init-my-prog-web-browser)
 ;; (require 'init-my-prog-framework-ruby-on-rails)
 ;; (require 'init-my-prog-framework-android)
