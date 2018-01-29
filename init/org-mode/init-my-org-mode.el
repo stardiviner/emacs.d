@@ -8,6 +8,16 @@
 ;;; Code:
 
 
+(use-package org
+  :ensure t
+  :mode (("\\.org$" . org-mode))
+  :init
+  (use-package org-plus-contrib
+    :ensure t
+    :no-require t)
+  )
+
+
 (unless (boundp 'Org-prefix)
   (define-prefix-command 'Org-prefix))
 (global-set-key (kbd "C-c o") 'Org-prefix)
