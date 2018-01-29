@@ -82,9 +82,6 @@
   (if (active)
       (propertize "▌"
                   'face '(:foreground "cyan"))
-    ;; (all-the-icons-faicon "chain-broken"
-    ;;                       :face '(:foreground "cyan")
-    ;;                       :v-adjust -0.05 :height 1.0)
     (propertize " " 'face 'variable-pitch)))
 
 ;; emacsclient indicator
@@ -224,7 +221,7 @@ state (modified, read-only or non-existent)."
          ((string-equal (format-mode-line "%*") "*") ; modified
           (all-the-icons-faicon "chain-broken" :v-adjust -0.0 :face 'mode-line-warn-face))
          ((string-equal (format-mode-line "%*") "-") ; content saved
-          (all-the-icons-faicon "link" :v-adjust -0.0))
+          "")
          ((string-equal (format-mode-line "%*") "%") ; read-only
           (all-the-icons-octicon "lock" :v-adjust -0.0))
          )
@@ -374,9 +371,7 @@ state (modified, read-only or non-existent)."
                       )
                   (all-the-icons-fileicon "clj" :face '(:foreground "red"))))
                ('ruby-mode
-                (if (and (featurep 'rbenv)
-                         global-rbenv-mode
-                         rbenv--modestring)
+                (if (and (featurep 'rbenv) global-rbenv-mode rbenv--modestring)
                     ;; `rbenv--modestring'
                     (propertize (format "%s" (rbenv--active-ruby-version)))
                   ))
