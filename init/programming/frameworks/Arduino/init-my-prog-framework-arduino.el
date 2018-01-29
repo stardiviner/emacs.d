@@ -14,16 +14,20 @@
   :ensure-system-package arduino
   ;; TODO: switch to official package after the maintainer accepted new PRs.
   ;; https://github.com/bookest/arduino-mode/network
-  :load ede
   :preface
+  ;; fix bug (void-function ede-project-autoload)
+  (require 'ede)
   (defvar ede-arduino-preferences-file (expand-file-name "~/.arduino/preferences.txt"))
-  :defines ede-arduino-preferences-file
-  :quelpa (arduino-mode :fetcher github :repo "bwachter/arduino-mode") ; "bwachter/arduino-mode", "mavit/arduino-mode"
   
+  :defines ede-arduino-preferences-file
+  :quelpa (arduino-mode
+           :fetcher github
+           :repo "bwachter/arduino-mode"
+           :upgrade t) ; "bwachter/arduino-mode", "mavit/arduino-mode"
   :bind (:map arduino-mode-map
               ("C-c C-c" . arduino-upload))
-  :config
-  (setq arduino-font-lock-extra-types t)
+  ;; :config
+  ;; (setq arduino-font-lock-extra-types '()) ; this depend on c-font-lock like c-lang-defvar etc.
   )
 
 
