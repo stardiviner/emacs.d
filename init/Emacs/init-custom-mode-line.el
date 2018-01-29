@@ -667,6 +667,14 @@ dimensions of a block selection."
 ;;       ))
 ;;   )
 
+;;; org-noter
+(use-package org-noter
+  :ensure t
+  :config
+  (defun *org-noter ()
+    "Display org-noter notes count."
+    (if (active) (org-noter--modeline-text))))
+
 ;; mmm-mode
 
 
@@ -960,6 +968,7 @@ dimensions of a block selection."
                  ;; (*wc-mode)
                  (*pdf-tools-page-position)
                  (*org-tree-slide)
+                 (*org-noter)
                  (*org-clock)
                  ;; (*org-clock-today)
                  (*org-timer)
