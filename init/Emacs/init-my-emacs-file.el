@@ -33,7 +33,7 @@
         (list
          (list (openwith-make-extension-regexp
                 '("mpg" "mpeg" "mp3" "mp4"
-                  "avi" "rmvb" "wmv" "wav" "mov" "flv"
+                  "avi" "rmvb" "wmv" "wav" "mov" "flv" "hlv"
                   "ogm" "ogg" "ogv" "mkv" "webm"))
                "mplayer" '(file))
          (list (openwith-make-extension-regexp
