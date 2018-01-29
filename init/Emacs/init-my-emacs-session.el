@@ -19,13 +19,12 @@
 
 ;;; [ desktop ] -- save partial status of Emacs when killed.
 
-(use-package desktop
-  :ensure t
-  :config
-  (setq desktop-path (list (concat user-emacs-directory ".desktop-save")))
-
-  (desktop-save-mode 1)
-  )
+;; (use-package desktop
+;;   :ensure t
+;;   :config
+;;   ;; (setq desktop-path (list (concat user-emacs-directory ".desktop-save")))
+;;   (desktop-save-mode 1)
+;;   )
 
 
 (provide 'init-my-emacs-session)
