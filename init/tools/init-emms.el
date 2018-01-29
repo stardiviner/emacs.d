@@ -55,7 +55,8 @@
         (emms-streams))))
 
   ;; [ Key Bindings ]
-  ;; (add-hook 'emms-playlist-mode-hook #'emms-mark-mode) ; ERROR when M-x `emms-bilibili'
+  (setq emms-info-asynchronously nil)
+  (setq emms-playlist-default-major-mode 'emms-mark-mode)
 
   ;; [ MPD ] -- [M-x emms-player-mpd-connect]
   (require 'emms-player-mpd)
