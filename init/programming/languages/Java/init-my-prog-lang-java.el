@@ -38,17 +38,15 @@
 
 (use-package eclim
   :ensure t
-  :ensure-system-package (eclim . "yaourt -S --noconfirm eclim")
   :defer t
-  :init
   ;; Control `eclimd' from emacs
-  (require 'eclimd)
-
+  :load (eclimd)
+  :preface
   (setq eclimd-autostart nil
         eclimd-autostart-with-default-workspace t
-        eclimd-default-workspace "~/Code/Java"
+        eclimd-default-workspace "~/eclipse-workspace"
         eclimd-wait-for-process nil)
-  
+  :init
   ;; auto enable `eclim-mode' in `java-mode'.
   (add-hook 'java-mode-hook 'eclim-mode)
   ;; (global-eclim-mode t)
@@ -62,10 +60,9 @@
   (use-package company-emacs-eclim
     :ensure t
     :config
-    ;; (company-emacs-eclim-setup)
+    ;; `company-emacs-eclim-setup'
     (defun my-company-eclim-setup ()
       (my-company-add-backend-locally 'company-emacs-eclim))
-
     (add-hook 'eclim-mode-hook 'my-company-eclim-setup)
     )
   )
@@ -78,21 +75,16 @@
 ;;   :init
 ;;   (add-hook 'java-mode-hook #'meghanada-mode)
 ;;   :config
-;;   (setq meghanada-server-install-dir (locate-user-emacs-file
-;;                                       "init/extra/meghanada/")
+;;   (setq meghanada-server-install-dir (locate-user-emacs-file "init/extra/meghanada/")
 ;;         meghanada-auto-start t
 ;;         meghanada-debug t
 ;;         meghanada-use-company nil
 ;;         meghanada-use-flycheck t)
-;;
 ;;   (defun my-meghanada-settings ()
 ;;     (interactive)
-;;     ;; (if (not (meghanada-alive-p))
-;;     ;;     (warn "meghanada not started."))
-;;
-;;     (my-company-add-backend-locally 'company-meghanada)
-;;     )
-;;
+;;     (if (not (meghanada-alive-p))
+;;         (message "meghanada not started."))
+;;     (my-company-add-backend-locally 'company-meghanada))
 ;;   (add-hook 'java-mode-hook 'my-meghanada-settings)
 ;;   )
 
