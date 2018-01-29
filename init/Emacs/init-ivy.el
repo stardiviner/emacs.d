@@ -147,13 +147,6 @@
   (setq counsel-yank-pop-truncate t)
   )
 
-
-;;; [ Swpier ] -- gives you an overview as you search for a regex.
-
-(use-package swiper
-  :ensure t
-  :bind ("C-s" . swiper))
-
 
 (provide 'init-ivy)
 
