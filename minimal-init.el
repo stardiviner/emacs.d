@@ -63,104 +63,19 @@
 (use-package ace-window
   :ensure t
   :config
-  (global-set-key (kbd "C-x C-j") 'ace-window)
-  )
+  (global-set-key (kbd "C-x C-j") 'ace-window))
 
 (use-package which-key
   :ensure
-  :config)
-
-(use-package ivy
-  :ensure t
-  :config)
-
-(use-package company
-  :ensure t
   :config
-  (setq company-minimum-prefix-length 2
-        company-idle-delay 0.2
-        company-tooltip-align-annotations t
-        company-tooltip-minimum 3
-        )
+  (which-key-mode 1))
 
-  (setq-default company-backends
-                '(company-files         ; files & directory
-                  ;; company-gtags company-etags
-                  ;; company-tempo         ; tempo: flexible template insertion
-                  (company-capf         ; `completion-at-point-functions'
-                   :with
-                   company-yasnippet)
-                  ;; :separate company-semantic
-                  :separate company-ispell ; for word completion in comment.
-                  (company-keywords
-                   :with
-                   company-dabbrev-code)
-                  company-abbrev
-                  )
-                )
-
-  (defun my-company-add-backend-locally (backend)
-    "Add a backend in my custom way.
-
-\(my-company-add-backend-locally 'company-robe\)
-"
-    (if (local-variable-if-set-p 'company-backends)
-        (add-to-list 'company-backends `(,backend :with company-yasnippet))
-      (add-to-list (make-local-variable 'company-backends)
-                   `(,backend :with company-yasnippet))
-      ))
-
-  (global-company-mode 1)
-  
-  (define-key company-mode-map (kbd "C-M-i") 'company-complete)
-
-  ;; yasnippet
-  ;; `yas-expand', `yas-expand-from-trigger-key'
-  (define-key company-active-map [tab] 'yas-expand-from-trigger-key)
-
-  ;; navigation
-  (define-key company-active-map (kbd "C-g") 'company-abort)
-  (define-key company-active-map (kbd "M-n") 'company-select-next)
-  (define-key company-active-map (kbd "M-p") 'company-select-previous)
-  (define-key company-active-map (kbd "M-j") 'company-complete-selection)
-  (define-key company-active-map (kbd "M-i") 'company-complete-common)
-
-  ;; help
-  (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
-
-  (define-key company-active-map (kbd "M-l") 'company-show-location)
-
-  ;; search
-  (define-key company-active-map (kbd "M-s") 'company-filter-candidates)
-  (define-key company-active-map (kbd "C-M-s") 'company-search-candidates)
-  (define-key company-search-map (kbd "C-g") 'company-search-abort)
-  (define-key company-search-map (kbd "M-s") 'company-search-repeat-forward)
-  (define-key company-search-map (kbd "M-r") 'company-search-repeat-backward)
-  (define-key company-search-map (kbd "M-n") 'company-search-repeat-forward)
-  (define-key company-search-map (kbd "M-p") 'company-search-repeat-backward)
-  (define-key company-search-map (kbd "M-o") 'company-search-kill-others)
-  (define-key company-search-map (kbd "M-j") 'company-complete-selection)
-
-  (defun company-new-line ()
-    "insert a literal return new line."
-    (interactive)
-    ;; (company-abort)
-    (company-cancel 'abort)
-    (newline-and-indent)
-    )
-
-  (define-key company-active-map [return] 'company-new-line)
-  (define-key company-active-map "\r" 'company-new-line)
-
-
-  ;; [ company-abbrev / company-dabbrev ]
-  (setq company-dabbrev-other-buffers t)
-  )
-
+(require 'init-ivy)
+(require 'init-company-mode)
 
 
 
-(require 'init-my-org-mode)
+;; (require 'init-my-org-mode)
 
 (setq org-modules
       '(org-pcomplete
@@ -210,81 +125,6 @@
    ))
 
 
-;;; [ Clojure ]
-
-;; (require 'init-my-prog-lang-clojure)
-
-
-
-;;; [ C/C++ ]
-
-(defvar c-dialects-mode
-  '(c-mode
-    c++-mode
-    objc-mode
-    ))
-
-(use-package irony
-  :ensure t
-  :config
-  (hook-modes c-dialects-mode
-    (when (memq major-mode irony-supported-major-modes)
-      (irony-mode 1)))
-  
-  ;; load the compile options automatically:
-  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-
-  ;; [ company-irony ]
-  (use-package company-irony
-    :ensure t
-    :config
-    ;; [ company-irony-c-headers ]
-    (use-package company-irony-c-headers
-      :ensure t)
-
-    (defun company-irony-add ()
-      ;; (optional) adds CC special commands to `company-begin-commands'
-      ;; in order to trigger completion at interesting places, such as
-      ;; after scope operator.
-      ;;     std::|
-      (company-irony-setup-begin-commands)
-
-      (make-local-variable 'company-backends)
-      (add-to-list 'company-backends
-                   '(company-irony
-                     :with
-                     company-yasnippet))
-      (add-to-list 'company-backends 'company-irony-c-headers)
-      )
-
-    (hook-modes c-dialects-mode
-      (when (memq major-mode irony-supported-major-modes)
-        (company-irony-add)))
-    )
-
-  ;; [ irony-eldoc ]
-  (use-package irony-eldoc
-    :ensure t
-    :after irony
-    :config
-    (add-hook 'irony-mode-hook #'irony-eldoc)
-    )
-
-  ;; [ flycheck-irony ]
-  (use-package flycheck-irony
-    :ensure t
-    :after irony
-    :config
-    (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)
-    )
-  )
-
-(use-package yasnippet
-  :ensure t
-  :config)
-
-
-
 
 
 
