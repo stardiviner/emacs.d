@@ -7,20 +7,21 @@
 
 ;;; Code:
 
-;;; [ emacs-neotree ]
-
-(use-package neotree
+;; [ dired-sidebar ] -- Sidebar for Emacs leveraging Dired.
+(use-package dired-sidebar
   :ensure t
-  :bind ([f8] . neotree-toggle)
+  :commands (dired-sidebar-toggle-sidebar)
+  :bind ("<f8>" . dired-sidebar-toggle-sidebar)
   :config
-  (setq neo-window-position 'left
-        neo-window-width 25
-        neo-window-fixed-size t
-        neo-smart-open t
-        neo-auto-indent-point t
-        neo-vc-integration nil
-        )
-  (setq neo-theme (if (and (featurep 'all-the-icons) (display-graphic-p)) 'icons 'classic))
+  (use-package all-the-icons-dired
+    :ensure t)
+  (if (and (display-graphic-p) (featurep 'all-the-icons-dired))
+      (progn
+        (add-hook 'dired-sidebar-mode-hook #'all-the-icons-dired-mode)
+        (setq dired-sidebar-theme 'icons))
+    (setq dired-sidebar-theme 'nerd))
+  ;; (setq dired-sidebar-use-custom-font t)
+  ;; (setq dired-sidebar-face '(:family "Monaco" :height 120))
   )
 
 
