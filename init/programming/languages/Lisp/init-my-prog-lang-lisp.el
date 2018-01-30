@@ -171,6 +171,7 @@
 (defun my-lisp-repl-common-settings ()
   "Common settings for all Lisp dialects REPL."
   (interactive)
+  (paredit-mode 1)
   (rainbow-delimiters-mode 1)
   (hl-sexp-mode 1)
   (eldoc-mode 1)
