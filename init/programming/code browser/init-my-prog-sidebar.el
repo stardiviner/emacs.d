@@ -8,6 +8,7 @@
 ;;; Code:
 
 ;; [ dired-sidebar ] -- Sidebar for Emacs leveraging Dired.
+
 (use-package dired-sidebar
   :ensure t
   :commands (dired-sidebar-toggle-sidebar)
@@ -22,6 +23,8 @@
     (setq dired-sidebar-theme 'nerd))
   ;; (setq dired-sidebar-use-custom-font t)
   ;; (setq dired-sidebar-face '(:family "Monaco" :height 120))
+
+  (setq dired-sidebar-delay-auto-revert-updates nil)
   )
 
 
