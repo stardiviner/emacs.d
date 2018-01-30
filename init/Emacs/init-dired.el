@@ -106,36 +106,38 @@
   ;; current directory, instead of this Dired buffer's current directory.
   (setq dired-dwim-target t)
 
-  ;; [ dired+ / diredp ]
-  (use-package dired+
-    :ensure t
-    :config
-    ;; disable by default hide details
-    (setq diredp-hide-details-initially-flag nil
-          diredp-hide-details-propagate-flag nil)
-    
-    ;; The effect is that when you hit [RET] (or click the mouse) on a directory
-    ;; in Dired, find-alternate-file is used, so the original Dired buffer is
-    ;; replaced (deleted) by the new one.
-    (diredp-toggle-find-file-reuse-dir 1)
-    
-    ;; [image-dired ] -- image in Dired
-    ;; [M-x image-dired]
-    ;; (require 'image-dired)
-    (setq image-dired-thumb-size 100
-          diredp-image-preview-in-tooltip 100)
-    (add-hook 'dired-mode-hook 'tooltip-mode)
-    )
-  
-  (use-package wdired
-    :ensure t
-    :bind (:map dired-mode-map
-                ("C-c C-p" . wdired-change-to-wdired-mode))
-    :config
-    (setq wdired-allow-to-change-permissions t)
-    )
+  ;; [ dired+ (diredp) ]
+  ;; (use-package dired+
+  ;;   :ensure t
+  ;;   :config
+  ;;   ;; disable by default hide details
+  ;;   (setq diredp-hide-details-initially-flag nil
+  ;;         diredp-hide-details-propagate-flag nil)
+  ;;   ;; The effect is that when you hit [RET] (or click the mouse) on a directory
+  ;;   ;; in Dired, find-alternate-file is used, so the original Dired buffer is
+  ;;   ;; replaced (deleted) by the new one.
+  ;;   (diredp-toggle-find-file-reuse-dir 1)
+  ;;   ;; image thumbnails tooltip
+  ;;   (add-hook 'dired-mode-hook #'tooltip-mode))
 
-  (use-package dired-x
+  ;; [image-dired ] -- image in Dired
+  (use-package image-dired+
+    :ensure t
+    :after image-dired
+    :config
+    (image-diredx-async-mode 1)
+    (image-diredx-adjust-mode 1)
+    (define-key image-dired-thumbnail-mode-map "g" 'revert-buffer)
+    ;; delete confirmation prompt with thumbnails.
+    (define-key image-dired-thumbnail-mode-map "x" 'image-diredx-flagged-delete))
+  
+  (use-package wdired ; Rename files editing their names in dired buffers.
+    :ensure t
+    :bind (:map dired-mode-map ("C-c C-p" . wdired-change-to-wdired-mode))
+    :config
+    (setq wdired-allow-to-change-permissions t))
+
+  (use-package dired-x ; extra Dired functionality
     :preface
     ;; don't bind [C-x C-j] from `dired-x'. (conflict with `ace-window')
     (setq dired-bind-jump nil)
@@ -172,17 +174,18 @@
     ;; (setq dired-efap-initial-filename-selection 'no-extension)
     )
 
-  (use-package dired-aux
+  (use-package dired-aux ; less commonly used parts of dired.
     :init
-    (use-package dired-async
+    (use-package async
+      :ensure t
+      :load (dired-async)
       :config
       (dired-async-mode 1)))
   
   (use-package dired-narrow
     :ensure t
     :bind (:map dired-mode-map
-                ("/" . dired-narrow))
-    )
+                ("/" . dired-narrow)))
   
   ;; A convienent way to look up file contents in other window while browsing
   ;; directory in Dired.
@@ -194,9 +197,7 @@
     (setq peep-dired-cleanup-on-disable t
           peep-dired-cleanup-eagerly t
           peep-dired-enable-on-directories t
-          peep-dired-ignored-extensions '("mkv" "iso" "mp4")
-          )
-    )
+          peep-dired-ignored-extensions '("mkv" "iso" "mp4")))
 
   ;; launch an external application from dired.
   (use-package dired-launch
@@ -207,26 +208,22 @@
                 ("C-c l" . dired-launch-command)
                 ("C-c L" . dired-launch-with-prompt-command))
     :config
-    (dired-launch-enable)
-    )
-
+    (dired-launch-enable))
+  
   ;; A simple directory explorer. It also works as a generic tree explore library.
   (use-package direx
     :ensure t
+    ;; direx-project -- (bundled with direx.el) -- project tree explorer.
+    :load (direx-project)
     :bind ("C-c C-j" . my-direx:jump-to-directory)
     :config
-    ;; direx-project -- (bundled with direx.el) -- project tree explorer.
-    (require 'direx-project)
-
     (defun my-direx:jump-to-directory ()
       (interactive)
       (if (projectile-project-root)
           ;; (direx-project:jump-to-project-root-other-window)
           (direx-project:jump-to-project-root)
         (direx:jump-to-directory-other-window)
-        ))
-    )
-
+        )))
   (use-package dired-hacks-utils
     :ensure t)
   (use-package dired-collapse
@@ -235,6 +232,9 @@
     ;; (dired-collapse-mode 1)
     )
 
+  (use-package find-by-pinyin-dired ; Find file by first Pinyin characters of Chinese Hanzi.
+    :ensure t)
+  
   (use-package ivy-dired-history
     :ensure t
     :defer t
@@ -242,7 +242,7 @@
     (require 'savehist)
     (add-to-list 'savehist-additional-variables 'ivy-dired-history-variable)
     (savehist-mode 1)
-
+    
     (with-eval-after-load 'dired
       (require 'ivy-dired-history)
       ;; if you are using ido,you'd better disable ido for dired
@@ -256,8 +256,7 @@
     :config
     (mis-config-default)
     (setq mis-recipes-directory
-          (concat user-emacs-directory "init/extensions/make-it-so-recipes/"))
-    )
+          (concat user-emacs-directory "init/extensions/make-it-so-recipes/")))
   )
 
 ;;; [ exiftool ] -- an elisp wrapper around ExifTool.
