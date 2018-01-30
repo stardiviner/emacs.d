@@ -7,26 +7,17 @@
 
 ;;; Code:
 
-;;; [ Emacs Lisp some setups ]
 
-(setq print-quoted t
-      print-circle t)
-
-
-;; Emacs Lisp hook
 (add-hook 'emacs-lisp-mode-hook #'my-lisp-common-settings)
-
 (add-hook 'inferior-emacs-lisp-mode-hook #'my-lisp-repl-common-settings)
 
 (defun my-emacs-lisp-setup ()
+  "My Emacs Lisp mode settings."
   (interactive)
   ;; company-elisp
   (my-company-add-backend-locally 'company-elisp)
   (setq company-elisp-detect-function-context t
-        company-elisp-show-locals-first t
-        )
-  )
-
+        company-elisp-show-locals-first t))
 (add-hook 'emacs-lisp-mode-hook 'my-emacs-lisp-setup)
 
 ;; Recompile your elc when saving an elisp file.
@@ -34,16 +25,7 @@
           (lambda ()
             (when (file-exists-p (byte-compile-dest-file buffer-file-name))
               (emacs-lisp-byte-compile)))
-          nil
-          t)
-
-
-;;; - `eval-expression-minibuffer-setup-hook'
-;;
-;; (setq eval-expression-debug-on-error t
-;;       eval-expression-print-level nil ; 4, nil,
-;;       eval-expression-print-length nil
-;;       )
+          'append 'local)
 
 
 ;;; [ ob-emacs-lisp ]
@@ -63,8 +45,7 @@
 (use-package eldoc-eval
   :ensure t
   :config
-  (eldoc-in-minibuffer-mode 1)
-  )
+  (eldoc-in-minibuffer-mode 1))
 
 
 ;;; [ IELM (ELISP interactive) ] -- an REPL for emacs. (Read-Eval-Print-Loop)
@@ -75,13 +56,10 @@
   :config
   (setq ielm-dynamic-return t
         ielm-dynamic-multiline-inputs t)
-
   (add-hook 'ielm-mode-hook #'my-lisp-repl-common-settings)
-
   (add-hook 'ielm-mode-hook
             (lambda ()
-              (my-company-add-backend-locally 'company-elisp)
-              ))
+              (my-company-add-backend-locally 'company-elisp)))
   )
 
 ;;; [ eros ] -- Evaluation Result OverlayS for Emacs Lisp.
@@ -89,8 +67,7 @@
 (use-package eros
   :ensure t
   :config
-  (eros-mode 1)
-  )
+  (eros-mode 1))
 
 
 ;;; [ macrostep ] -- interactive macro-expander for Emacs.
@@ -101,8 +78,7 @@
               ("m" . macrostep-expand))
   :config
   (setq macrostep-expand-in-separate-buffer nil
-        macrostep-expand-compiler-macros t)
-  )
+        macrostep-expand-compiler-macros t))
 
 
 ;;; [ elmacro ] -- display keyboard macros or latest interactive commands as emacs lisp.
@@ -120,82 +96,21 @@
   )
 
 
-;;; thread and unwind code in Emacs Lisp
-
-;;; TODO: integrate into `emr'.
-
-;; (use-package clj-refactor
-;;   :ensure t
-;;   :defer t)
-;;
-;; (defun my/elisp-thread-last ()
-;;   "Turn the form at point into a `thread-last' form."
-;;   (interactive)
-;;   (cljr-thread-last-all nil)
-;;   (save-excursion
-;;     (when (search-backward "->>" nil 'noerror)
-;;       (replace-match "thread-last"))))
-;;
-;; (defun my/elisp-thread-first ()
-;;   "Turn the form at point into a `thread-first' form."
-;;   (interactive)
-;;   (cljr-thread-first-all nil)
-;;   (save-excursion
-;;     (when (search-backward "->" nil 'noerror)
-;;       (replace-match "thread-first"))))
-;;
-;; (defun my/elisp-unwind ()
-;;   "Unwind thread at point or above point by one level.
-;; Return nil if there are no more levels to unwind."
-;;   (interactive)
-;;   (let ((p (point)))
-;;     ;; Find a thread above.
-;;     (when (save-excursion
-;;             (forward-sexp 1)
-;;             (and (search-backward-regexp "\\_<thread-\\(first\\|last\\)\\_>" nil 'noerror)
-;;                  ;; Ensure that it contains the original point.
-;;                  (save-match-data (forward-char -1)
-;;                                   (forward-sexp 1)
-;;                                   (> (point) p))))
-;;       (replace-match (if (string= (match-string 1) "first")
-;;                          "->" "->>"))
-;;       (let ((thread-beginnig (match-beginning 0)))
-;;         (prog1 (cljr-unwind)
-;;           (save-excursion
-;;             (goto-char thread-beginnig)
-;;             (when (looking-at "\\_<->>?\\_>")
-;;               (replace-match (if (string= (match-string 0) "->")
-;;                                  "thread-first" "thread-last")))))))))
-;;
-;; (defun my/elisp-unwind-all ()
-;;   "Fully unwind thread at point or above point."
-;;   (interactive)
-;;   (while (my/elisp-unwind)))
-;;
-;; (define-key emacs-lisp-mode-map (kbd "C-c t f") #'my/elisp-thread-first)
-;; (define-key emacs-lisp-mode-map (kbd "C-c t l") #'my/elisp-thread-last)
-;; (define-key emacs-lisp-mode-map (kbd "C-c t u") #'my/elisp-unwind)
-;; (define-key emacs-lisp-mode-map (kbd "C-c t a") #'my/elisp-unwind-all)
-
-
 ;;; [ elisp-refs ] -- semantic code search for emacs lisp.
 
 (use-package elisp-refs
   :ensure t
-  :init
+  :config
   (defun elisp-refs-keybindings-setup ()
     (interactive)
     (unless (boundp 'tags-prefix)
       (define-prefix-command 'tags-prefix))
     (local-set-key (kbd "M-g t") 'tags-prefix)
-
     (define-key tags-prefix (kbd "s") 'elisp-refs-symbol)
     (define-key tags-prefix (kbd "f") 'elisp-refs-function)
     (define-key tags-prefix (kbd "m") 'elisp-refs-macro)
     (define-key tags-prefix (kbd "v") 'elisp-refs-variable)
-    (define-key tags-prefix (kbd "S") 'elisp-refs-special)
-    )
-  
+    (define-key tags-prefix (kbd "S") 'elisp-refs-special))
   (add-hook 'emacs-lisp-mode-hook #'elisp-refs-keybindings-setup)
   )
 

@@ -40,6 +40,13 @@
                 (smartparens-strict-mode 1))
               ))
 
+;;; - `eval-expression-minibuffer-setup-hook'
+;;
+;; (setq eval-expression-debug-on-error t
+;;       eval-expression-print-level nil ; 4, nil,
+;;       eval-expression-print-length nil
+;;       )
+
 
 ;;; [ echo area ]
 
