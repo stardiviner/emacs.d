@@ -26,6 +26,9 @@
 (require 'init-my-prog-lang-database-mysql)
 (require 'init-my-prog-lang-database-postgresql)
 
+;; NewSQL
+(require 'init-my-prog-lang-database-newsql)
+
 ;; NoSQL
 (require 'init-my-prog-lang-database-nosql)
 (require 'init-my-prog-lang-database-mongodb)
