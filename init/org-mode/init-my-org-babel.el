@@ -275,15 +275,17 @@ is not present in `org-babel-load-languages’
     (setq buffer-file-name file-name)))
 
 
-;;; prepend comment char ahead of `org-babel-ref'.
+;;; [ coderef ]
+;;; prepend comment char ahead of `org-coderef-label'.
 ;; auto prefix with comment char when create code ref in src block with `org-store-link'.
-(defun org-babel-ref-prepend-comment-char (arg &optional interactive?)
-  "Prepend comment chart in Org-mode src code block."
-  (when (org-src-edit-buffer-p)
-    (comment-dwim nil)
-    (insert " ")))
-
-(advice-add 'org-store-link :before #'org-babel-ref-prepend-comment-char)
+(use-package smartparens
+  :ensure t)
+(defun my-org-src-coderef-format (result)
+  "Auto prefix with comment char before `org-coderef-label' `RESULT'."
+  (if sp-comment-char
+      (format "%s %s" sp-comment-char result)
+    result))
+(advice-add 'org-src-coderef-format :filter-return 'my-org-src-coderef-format)
 
 
 ;;; beacon effect when open org-mode babel src block editing.
