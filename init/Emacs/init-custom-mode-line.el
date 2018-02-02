@@ -80,8 +80,7 @@
 (defun *current ()
   "Display an indicator when current selected buffer."
   (if (active)
-      (propertize "▌"
-                  'face '(:foreground "cyan"))
+      (propertize "▌" 'face '(:foreground "cyan"))
     (propertize " " 'face 'variable-pitch)))
 
 ;; emacsclient indicator
@@ -1005,7 +1004,7 @@ dimensions of a block selection."
                  ;; (*purpose)
                  (*major-mode)
                  (*env)
-                 (*space 8)
+                 (*space 4)
                  ))
            (mid (propertize
                  " "
