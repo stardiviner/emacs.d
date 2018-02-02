@@ -883,7 +883,15 @@ dimensions of a block selection."
          (concat
           (all-the-icons-faicon "github" :v-adjust 0.05)
           (format " %s " github-notifications-number))
-         'face 'mode-line-data-face))))
+         'face 'mode-line-data-face)))
+  (defun github-open-notifications-participating ()
+    "Open GitHub Notifications/Participating page."
+    (interactive)
+    (browse-url "https://github.com/notifications/participating"))
+  (unless (boundp 'prog-vcs-prefix)
+    (define-prefix-command 'prog-vcs-prefix))
+  (define-key prog-vcs-prefix (kbd "N") 'github-open-notifications-participating)
+  )
 
 ;;; Lunar Sunrise/Sunset
 (use-package celestial-mode-line
