@@ -356,37 +356,41 @@ state (modified, read-only or non-existent)."
 ;;; environment version info like: Python, Ruby, JavaScript,
 (defun *env ()
   "Show environment version info like Python, Ruby, JavaScript etc."
-  (if (active)
-      (let ((env
-             (pcase major-mode
-               ((or 'clojure-mode 'clojurescript-mode)
-                (if (not (equal (cider--modeline-info) "not connected"))
-                    ;; don't duplicate with `projectile'
-                    (if (projectile-project-name)
-                        (all-the-icons-fileicon "clj" :face '(:foreground "green"))
-                      (with-current-buffer (ignore-errors (cider-current-connection))
-                        (cider--project-name nrepl-project-dir))
-                      )
-                  (all-the-icons-fileicon "clj" :face '(:foreground "red"))))
-               ('ruby-mode
-                (if (and (featurep 'rbenv) global-rbenv-mode rbenv--modestring)
-                    ;; `rbenv--modestring'
-                    (propertize (format "%s" (rbenv--active-ruby-version)))
-                  ))
-               ('python-mode
-                (if pyvenv-mode
-                    ;; `pyvenv-mode-line-indicator' -> `pyvenv-virtual-env-name'
-                    pyvenv-virtual-env-name
-                  ;; conda: `conda-env-current-name'
-                  ))
-               ('js3-mode
-                (if (and (featurep 'nvm) (not (null nvm-current-version)))
-                    nvm-current-version)
-                )
-               )))
-        (if env
-            (concat "[" env "] "))
-        )))
+  (let ((env
+         (pcase major-mode
+           ((or 'common-lisp-mode 'lisp-mode 'sly-mrepl-mode)
+            (if (sly-connected-p)
+                ;; TODO: use this original (:eval (sly--mode-line-format))
+                (all-the-icons-fileicon "clisp"
+                                        :v-adjust -0.05 :face '(:foreground "green"))))
+           ((or 'clojure-mode 'clojurescript-mode)
+            (if (not (equal (cider--modeline-info) "not connected"))
+                ;; don't duplicate with `projectile'
+                (if (projectile-project-name)
+                    (all-the-icons-fileicon "clj" :face '(:foreground "green"))
+                  (with-current-buffer (ignore-errors (cider-current-connection))
+                    (cider--project-name nrepl-project-dir))
+                  )
+              (all-the-icons-fileicon "clj" :face '(:foreground "red"))))
+           ('ruby-mode
+            (if (and (featurep 'rbenv) global-rbenv-mode rbenv--modestring)
+                ;; `rbenv--modestring'
+                (propertize (format "%s" (rbenv--active-ruby-version)))
+              ))
+           ('python-mode
+            (if pyvenv-mode
+                ;; `pyvenv-mode-line-indicator' -> `pyvenv-virtual-env-name'
+                pyvenv-virtual-env-name
+              ;; conda: `conda-env-current-name'
+              ))
+           ('js3-mode
+            (if (and (featurep 'nvm) (not (null nvm-current-version)))
+                nvm-current-version)
+            )
+           )))
+    (if env
+        (concat "[" env "] "))
+    ))
 
 ;;; vc
 (defun *vc ()
