@@ -344,16 +344,14 @@ state (modified, read-only or non-existent)."
 ;;; major-mode
 (defun *major-mode ()
   "The major mode, including process, environment and text-scale info."
-  (concat
-   (if (cdr (assoc major-mode all-the-icons-mode-icon-alist))
-       ;; (all-the-icons-icon-for-buffer)
-       ;; (all-the-icons-auto-mode-match?)
-       (all-the-icons-icon-for-mode major-mode :v-adjust -0.05 :height 1.0)
-     ;; (all-the-icons-icon-for-file (buffer-file-name) :v-adjust -0.05 :height 1.0)
-     (format-mode-line "%m" mode-name)
-     )
-   )
-  )
+  (if (cdr (assoc major-mode all-the-icons-mode-icon-alist))
+      ;; (all-the-icons-icon-for-buffer)
+      ;; (all-the-icons-auto-mode-match?)
+      (all-the-icons-icon-for-mode major-mode :v-adjust -0.05 :height 1.0)
+    ;; (all-the-icons-icon-for-file (buffer-file-name) :v-adjust -0.05 :height 1.0)
+    (propertize (format-mode-line "%m" mode-name)
+                'face 'mode-line-data-face)
+    ))
 
 ;;; environment version info like: Python, Ruby, JavaScript,
 (defun *env ()
