@@ -30,15 +30,14 @@
       ;; minibuffer-history-position t
       )
 
-
-(add-hook 'eval-expression-minibuffer-setup-hook
-          #'(lambda ()
-              (eldoc-mode 1)
-              (with-eval-after-load 'rainbow-delimiters
-                (rainbow-delimiters-mode-enable))
-              (with-eval-after-load 'smartparens
-                (smartparens-strict-mode 1))
-              ))
+(defun my/minibuffer-lisp-setup ()
+  "Setup minibuffer for Lisp editing."
+  (eldoc-mode 1)
+  (with-eval-after-load 'rainbow-delimiters
+    (rainbow-delimiters-mode-enable))
+  (with-eval-after-load 'smartparens
+    (smartparens-strict-mode 1)))
+(add-hook 'eval-expression-minibuffer-setup-hook #'my/minibuffer-lisp-setup)
 
 ;;; - `eval-expression-minibuffer-setup-hook'
 ;;
@@ -46,7 +45,6 @@
 ;;       eval-expression-print-level nil ; 4, nil,
 ;;       eval-expression-print-length nil
 ;;       )
-
 
 ;;; [ echo area ]
 
