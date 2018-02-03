@@ -65,7 +65,7 @@
   "Face used for warning segments in mode-line."
   :group 'mode-line)
 
-(defface mode-line-urgent-face
+(defface mode-line-error-face
   '((t (:inherit 'error)))
   "Face used for urgent or error info segments in mode-line."
   :group 'mode-line)
@@ -357,35 +357,55 @@ state (modified, read-only or non-existent)."
   "Show environment version info like Python, Ruby, JavaScript etc."
   (let ((env
          (pcase major-mode
-           ((or 'common-lisp-mode 'lisp-mode 'sly-mrepl-mode)
-            (if (sly-connected-p)
+           ((or 'common-lisp-mode 'lisp-mode 'sly-mrepl-mode 'slime-repl-mode)
+            (if (or (sly-connected-p) (slime-connected-p))
                 ;; TODO: use this original (:eval (sly--mode-line-format))
                 (all-the-icons-fileicon "clisp"
-                                        :v-adjust -0.05 :face '(:foreground "green"))))
-           ((or 'clojure-mode 'clojurescript-mode)
+                                        :v-adjust -0.05 :face '(:foreground "green"))
+              (concat
+               (all-the-icons-fileicon "clisp"
+                                       :v-adjust -0.05 :face '(:foreground "dim gray"))
+               (all-the-icons-faicon "chain-broken"
+                                     :v-adjust -0.0 :face 'mode-line-error-face))))
+           ((or 'clojure-mode 'clojurescript-mode 'cider-repl-mode)
             (if (not (equal (cider--modeline-info) "not connected"))
-                ;; don't duplicate with `projectile'
-                (if (projectile-project-name)
-                    (all-the-icons-fileicon "clj" :face '(:foreground "green"))
-                  (with-current-buffer (ignore-errors (cider-current-connection))
-                    (cider--project-name nrepl-project-dir))
-                  )
-              (all-the-icons-fileicon "clj" :face '(:foreground "red"))))
-           ('ruby-mode
-            (if (and (featurep 'rbenv) global-rbenv-mode rbenv--modestring)
-                ;; `rbenv--modestring'
-                (propertize (format "%s" (rbenv--active-ruby-version)))
-              ))
-           ('python-mode
-            (if pyvenv-mode
-                ;; `pyvenv-mode-line-indicator' -> `pyvenv-virtual-env-name'
-                pyvenv-virtual-env-name
-              ;; conda: `conda-env-current-name'
-              ))
-           ('js3-mode
+                (concat
+                 (all-the-icons-fileicon "clj" :face '(:foreground "green"))
+                 (if (projectile-project-name)
+                     (with-current-buffer (ignore-errors (cider-current-connection))
+                       (format " %s" (cider--project-name nrepl-project-dir)))))
+              (concat
+               (all-the-icons-fileicon "clj" :face '(:foreground "red"))
+               (all-the-icons-faicon "chain-broken"
+                                     :v-adjust -0.0 :face 'mode-line-error-face))))
+           ((or 'ruby-mode 'inf-ruby-mode)
+            (concat
+             (if (inf-ruby-proc)
+                 (all-the-icons-alltheicon "ruby"
+                                           :v-adjust -0.05 :face '(:foreground "green"))
+               (all-the-icons-faicon "chain-broken"
+                                     :v-adjust -0.0 :face 'mode-line-error-face))
+             (if (and (featurep 'rbenv) rbenv--modestring)
+                 (propertize (format " %s" (rbenv--active-ruby-version))
+                             'face 'mode-line-info-face))))
+           ((or 'python-mode 'inferior-python-mode)
+            (concat
+             (if (get-buffer-process (if (eq major-mode 'inferior-python-mode)
+                                         (current-buffer)
+                                       "*Python*"))
+                 (all-the-icons-alltheicon "python"
+                                           :v-adjust -0.05 :face '(:foreground "green"))
+               (all-the-icons-faicon "chain-broken"
+                                     :v-adjust -0.0 :face 'mode-line-error-face))
+             (if (and (featurep pyvenv-mode) pyvenv-mode)
+                 ;; `pyvenv-mode-line-indicator' -> `pyvenv-virtual-env-name'
+                 (propertize (format " %s" pyvenv-virtual-env-name)
+                             'face 'mode-line-info-face)
+               ;; conda: `conda-env-current-name'
+               )))
+           ((or 'js-mode 'js2-mode 'js3-mode)
             (if (and (featurep 'nvm) (not (null nvm-current-version)))
-                nvm-current-version)
-            )
+                nvm-current-version))
            )))
     (if env
         (concat "[" env "] "))
@@ -422,7 +442,7 @@ state (modified, read-only or non-existent)."
               (if active (setq face 'mode-line-warn-face))
               (all-the-icons-octicon "arrow-down" :face face :v-adjust -0.05))
              ((memq state '(removed conflict unregistered))
-              (if active (setq face 'mode-line-urgent-face))
+              (if active (setq face 'mode-line-error-face))
               (all-the-icons-octicon "alert" :face face :v-adjust -0.05))
              (t
               (if active (setq face 'mode-line))
