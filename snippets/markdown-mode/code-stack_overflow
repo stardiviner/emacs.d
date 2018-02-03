@@ -3,6 +3,6 @@
 # key: code-stack_overflow
 # expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 'nil))
 # --
-<!-- language: lang-${1:lisp,ruby,js} -->
+<!-- language: lang-${1:lisp,el,ruby,js} -->
 
      ${2:code here}
