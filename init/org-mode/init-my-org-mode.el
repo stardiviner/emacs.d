@@ -25,19 +25,22 @@
 
 ;;; [ Org Modules ]
 ;; Modules that should always be loaded together with org.el.
-(setq org-modules
-      '(org-pcomplete
-        org-faces
-        ;; org-fstree
-        org-table ; org-compat
-        org-protocol
-        org-timer org-clock org-habit org-notify
-        org-info org-bibtex org-docview
-        org-plot
-        org-irc ; org-gnus org-mhe org-rmail
-        ;; org-w3m
-        ))
+;; (setq org-modules
+;;       '(org-pcomplete
+;;         org-faces
+;;         ;; org-fstree
+;;         org-table ; org-compat
+;;         org-protocol
+;;         org-timer org-clock org-habit
+;;         org-notify
+;;         org-info org-bibtex org-docview
+;;         org-plot
+;;         org-irc ; org-gnus org-mhe org-rmail
+;;         ;; org-w3m
+;;         ))
 
+;;; disable all extra org-mode modules to speed-up Org-mode file opening.
+(setq org-modules nil)
 
 (let ((org-dir "~/Org"))
   (if (file-exists-p org-dir)
