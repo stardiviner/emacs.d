@@ -835,6 +835,7 @@ dimensions of a block selection."
   :ensure t
   :defines rtags-enabled
   :config
+  ;; FIXME: `*rtags-mode-line' caused `beacon-mode' blink does not fade off.
   (defun *rtags-mode-line ()
     "Show `rtags-mode-line' info in my custom mode-line."
     (if (and (active)
@@ -979,7 +980,7 @@ dimensions of a block selection."
                  (*pomodoro)
                  (*process)
                  (*copy-file-on-save)
-                 (*rtags-mode-line)
+                 ;; (*rtags-mode-line)
                  ))
            (rhs (list
                  ;; NOTE: the `mid' `format-mode-line' meet first `nil' will
