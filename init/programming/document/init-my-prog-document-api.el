@@ -160,40 +160,39 @@
 
 ;;; [ dash-at-point ]
 
-;; (use-package dash-at-point
-;;   :ensure t
-;;   :defer t
-;;   :bind (("C-h d p" . dash-at-point)
-;;          ("C-h d d" . dash-at-point-with-docset))
-;;   )
+(use-package dash-at-point
+  :ensure t
+  :defer t
+  :bind (("C-h d C-d" . dash-at-point)
+         ("C-h d M-d" . dash-at-point-with-docset))
+  )
 
 
 ;;; [ zeal-at-point ]
 
-(use-package zeal-at-point
-  :ensure t
-  :ensure-system-package zeal
-  :defer t
-  :bind (:map prog-doc-map
-              ("C-d" . zeal-at-point))
-  :init
-  (setq zeal-at-point-zeal-version "0.3.0")
-  :config
-  ;; multiple docsets search
-  (add-to-list 'zeal-at-point-mode-alist
-               '(clojurescript-mode . ("clojure" "clojurescript")))
-  (add-to-list 'zeal-at-point-mode-alist
-               '(enh-ruby-mode . ("ruby" "rails")))
-  (add-to-list 'zeal-at-point-mode-alist
-               '(python-mode . ("python" "django")))
-  
-  (add-hook 'web-mode-hook
-            (lambda ()
-              (setq-local zeal-at-point-docset '("javascript" "html" "css"))))
-  (add-hook 'projectile-rails-mode-hook
-            (lambda ()
-              (setq zeal-at-point-docset '("rails" "javascript" "html" "css"))))
-  )
+;; (use-package zeal-at-point
+;;   :ensure t
+;;   :ensure-system-package zeal
+;;   :defer t
+;;   :bind (:map prog-doc-map
+;;               ("C-d" . zeal-at-point))
+;;   :init
+;;   (setq zeal-at-point-zeal-version "0.3.0")
+;;   :config
+;;   ;; multiple docsets search
+;;   (add-to-list 'zeal-at-point-mode-alist
+;;                '(clojurescript-mode . ("clojure" "clojurescript")))
+;;   (add-to-list 'zeal-at-point-mode-alist
+;;                '(enh-ruby-mode . ("ruby" "rails")))
+;;   (add-to-list 'zeal-at-point-mode-alist
+;;                '(python-mode . ("python" "django")))
+;;   (add-hook 'web-mode-hook
+;;             (lambda ()
+;;               (setq-local zeal-at-point-docset '("javascript" "html" "css"))))
+;;   (add-hook 'projectile-rails-mode-hook
+;;             (lambda ()
+;;               (setq zeal-at-point-docset '("rails" "javascript" "html" "css"))))
+;;   )
 
 ;;; [ apib-mode ] -- Emacs API Blueprint major mode.
 
