@@ -18,9 +18,9 @@
 
 ;;; [ Auth-Source ]
 
-(setq auth-sources '("~/.authinfo.gpg" "~/.authinfo" "~/.netrc"))
+(add-to-list 'auth-sources (concat user-emacs-directory "secrets/.authinfo.gpg"))
 ;; Auth Source debugging
-(setq auth-source-debug t)
+;; (setq auth-source-debug t)
 
 
 ;;; [ EasyPG Assistant ] --- transparent, automatic encryption and decryption.
