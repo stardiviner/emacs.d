@@ -91,6 +91,7 @@
 ;;; Emacs
 (require 'init-my-emacs-environment)
 (require 'init-my-emacs-settings)
+(require 'init-my-emacs-encrypt)
 (require 'init-my-emacs-performance)
 (require 'init-my-emacs-security)
 (require 'init-my-emacs-font)
@@ -134,7 +135,6 @@
 (require 'init-my-emacs-comint)
 (require 'init-my-emacs-subprocess)
 (require 'init-my-emacs-network)
-(require 'init-my-emacs-encrypt)
 ;; (require 'init-my-emacs-xwidget)
 (require 'init-my-emacs-customize)
 (require 'init-my-emacs-accessibility)
