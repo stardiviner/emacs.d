@@ -12,9 +12,7 @@
 (use-package helm-dash
   :ensure t
   :defer t
-  :bind (:map prog-doc-map
-              ("C-s" . helm-dash-at-point) ; `helm-dash'
-              )
+  :bind (:map prog-doc-map ("C-d" . helm-dash-at-point))
   :config
   (setq helm-dash-docsets-path (expand-file-name "~/.docsets")
         helm-dash-min-length 2
@@ -155,16 +153,6 @@
     (defun helm-dash-buffer-local-nginx-docsets ()
       (setq-local helm-dash-docsets '("Apache_HTTP_Server")))
     (add-hook 'apache-mode-hook 'helm-dash-buffer-local-apache-docsets))
-  )
-
-
-;;; [ dash-at-point ]
-
-(use-package dash-at-point
-  :ensure t
-  :defer t
-  :bind (("C-h d C-d" . dash-at-point)
-         ("C-h d M-d" . dash-at-point-with-docset))
   )
 
 
