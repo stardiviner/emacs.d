@@ -51,7 +51,7 @@
   :group 'mode-line)
 
 (defface mode-line-info-face
-  '((t (:inherit 'mode-line)))
+  '((t (:foreground "deep pink")))
   "Face used for info segments in mode-line."
   :group 'mode-line)
 
@@ -171,7 +171,7 @@
 ;;     (when (bound-and-true-p perspeen-modestring)
 ;;       ;; change face
 ;;       (put-text-property 0 6
-;;                          'face (if (active) 'mode-line-info-face 'mode-line-inactive)
+;;                          'face (if (active) 'mode-line 'mode-line-inactive)
 ;;                          (nth 1 perspeen-modestring))
 ;;       perspeen-modestring
 ;;       ))
@@ -212,40 +212,36 @@
 
 Including the current working directory, the file name, and its
 state (modified, read-only or non-existent)."
-  (if (active)
-      (propertize
-       (concat
-        ;; buffer modify status
-        (cond
-         ((string-equal (format-mode-line "%*") "*") ; modified
-          (all-the-icons-faicon "chain-broken" :v-adjust -0.0 :face 'mode-line-warn-face))
-         ((string-equal (format-mode-line "%*") "-") ; content saved
-          "")
-         ((string-equal (format-mode-line "%*") "%") ; read-only
-          (all-the-icons-octicon "lock" :v-adjust -0.0))
-         )
-        ;; process buffer
-        (when (null buffer-file-name)
-          (all-the-icons-faicon "asterisk" :v-adjust -0.05 :face 'mode-line-data-face))
-        ;; not exist file
-        (when (and buffer-file-name (not (file-exists-p buffer-file-name)))
-          (all-the-icons-octicon "circle-slash"
-                                 :face 'mode-line-info-face
-                                 :v-adjust -0.05))
-        ;; remote file
-        (when (and (not (null (buffer-file-name)))
-                   (file-remote-p (buffer-file-name)))
-          (all-the-icons-faicon "server"
-                                :face 'mode-line-warn-face
-                                :v-adjust -0.05))
-        ;; narrow
-        (when (buffer-narrowed-p)
-          (all-the-icons-faicon "align-center"
-                                :v-adjust -0.05
-                                :face 'mode-line-data-face))
-        ;; buffer size
-        ;; (format-mode-line "%I")
-        (propertize " " 'face 'variable-pitch)))))
+  (propertize
+   (concat
+    ;; buffer modify status
+    (cond
+     ((string-equal (format-mode-line "%*") "*") ; modified
+      (all-the-icons-faicon "chain-broken" :v-adjust -0.0 :face 'mode-line-warn-face))
+     ((string-equal (format-mode-line "%*") "-") ; content saved
+      "")
+     ((string-equal (format-mode-line "%*") "%") ; read-only
+      (all-the-icons-octicon "lock" :v-adjust -0.0 'mode-line-error-face)))
+    ;; process buffer
+    (when (null buffer-file-name)
+      (all-the-icons-faicon "asterisk" :v-adjust -0.05 :face 'mode-line-data-face))
+    ;; not exist file
+    (when (and buffer-file-name (not (file-exists-p buffer-file-name)))
+      (all-the-icons-octicon "circle-slash" :v-adjust -0.05 :face 'mode-line-error-face))
+    ;; remote file
+    (when (and (not (null (buffer-file-name)))
+               (file-remote-p (buffer-file-name)))
+      (all-the-icons-faicon "server" :v-adjust -0.05 :face 'mode-line-warn-face))
+    ;; encrypted file
+    (when (string-match-p "\\.gpg" (buffer-name))
+      (all-the-icons-material "enhanced_encryption" :face 'mode-line-info-face))
+    ;; narrow
+    (when (buffer-narrowed-p)
+      (all-the-icons-faicon "align-center" :v-adjust -0.05 :face 'mode-line-data-face))
+    ;; buffer size
+    ;; (format-mode-line "%I")
+    (propertize " " 'face 'variable-pitch))
+   ))
 
 ;;; buffer encoding
 (defun *buffer-encoding ()
@@ -387,7 +383,7 @@ state (modified, read-only or non-existent)."
                                      :v-adjust -0.0 :face 'mode-line-error-face))
              (if (and (featurep 'rbenv) rbenv--modestring)
                  (propertize (format " %s" (rbenv--active-ruby-version))
-                             'face 'mode-line-info-face))))
+                             'face '(:foreground "green")))))
            ((or 'python-mode 'inferior-python-mode)
             (concat
              (if (get-buffer-process (if (eq major-mode 'inferior-python-mode)
@@ -400,7 +396,7 @@ state (modified, read-only or non-existent)."
              (if (and (featurep pyvenv-mode) pyvenv-mode)
                  ;; `pyvenv-mode-line-indicator' -> `pyvenv-virtual-env-name'
                  (propertize (format " %s" pyvenv-virtual-env-name)
-                             'face 'mode-line-info-face)
+                             'face '(:foreground "green"))
                ;; conda: `conda-env-current-name'
                )))
            ((or 'js-mode 'js2-mode 'js3-mode)
@@ -433,7 +429,7 @@ state (modified, read-only or non-existent)."
          )
        (propertize " " 'face 'variable-pitch)
        (cond ((memq state '(edited added))
-              (if active (setq face 'mode-line-info-face))
+              (if active (setq face 'mode-line))
               (all-the-icons-octicon "git-branch" :face face :v-adjust -0.05))
              ((eq state 'needs-merge)
               (if active (setq face 'mode-line-warn-face))
@@ -578,8 +574,7 @@ dimensions of a block selection."
               (if (boundp 'evil-this-macro)
                   (propertize (char-to-string evil-this-macro)
                               'face 'mode-line-meta-face))
-              (propertize (number-to-string kmacro-counter)
-                          'face 'mode-line-info-face)
+              (propertize (number-to-string kmacro-counter))
               separator))))
 
 ;;; anzu
@@ -679,7 +674,7 @@ dimensions of a block selection."
 ;;     "Show wc-mode word count."
 ;;     (when (and (featurep 'wc-mode) wc-mode)
 ;;       (propertize (wc-format-modeline-string " Words:[%tw]")
-;;                   'face (if (active) 'mode-line-info-face))
+;;                   'face (if (active) 'mode-line))
 ;;       ))
 ;;   )
 
@@ -704,7 +699,7 @@ dimensions of a block selection."
       (all-the-icons-faicon "circle-o" :v-adjust -0.05)
       ;; (format-mode-line "%s")
       mode-line-process)
-     'face 'mode-line-warn-face
+     'face 'mode-line-data-face
      'help-echo "buffer-process")))
 
 ;; notifications
@@ -868,7 +863,7 @@ dimensions of a block selection."
           (if (rtags-is-indexed)
               (all-the-icons-faicon "codepen" :v-adjust -0.05))
           (propertize " " 'face 'variable-pitch))
-         'face 'mode-line-info-face)))
+         'face 'mode-line)))
   
   ;; (add-hook 'rtags-diagnostics-hook #'force-mode-line-update)
   )
