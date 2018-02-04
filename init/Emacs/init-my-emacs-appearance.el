@@ -202,7 +202,14 @@
   :ensure t
   :config
   (beacon-mode 1)
-  (setq beacon-color "green yellow")
+  (setq beacon-push-mark nil
+        beacon-blink-when-point-moves-vertically 10
+        beacon-blink-when-point-moves-horizontally 20
+        beacon-blink-when-focused t
+        beacon-blink-duration 0.2
+        beacon-blink-delay 0.2
+        beacon-size 30
+        beacon-color 0.5)
   )
 
 
