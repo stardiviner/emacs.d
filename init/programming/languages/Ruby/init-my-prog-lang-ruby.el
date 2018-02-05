@@ -115,6 +115,9 @@
     (define-key ruby-mode-map (kbd "C-c C-s") 'inf-ruby))
   (with-eval-after-load 'enh-ruby-mode
     (define-key enh-ruby-mode-map (kbd "C-c C-s") 'inf-ruby))
+
+  (add-to-list 'display-buffer-alist
+               '("^\\*ruby\\*" (display-buffer-below-selected)))
   )
 
 

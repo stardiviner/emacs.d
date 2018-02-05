@@ -39,6 +39,14 @@
 
   (add-to-list 'display-buffer-alist
                '("^\\*sly-mrepl.*\\*" (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("^\\*sly-connections\\*" (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("^\\*sly-threads.*\\*" (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("^\\*sly-description\\*" (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("^\\*sly-apropos.*\\*" (display-buffer-below-selected)))
 
   ;; [ sly-company ] -- Company-mode completion backend for SLY.
   (use-package sly-company

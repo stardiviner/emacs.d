@@ -161,7 +161,8 @@
 ;; `[[man:(section: 7 or 3r)gv][gv (man page)]]'
 (require 'org-man)
 (setq org-man-command 'man) ; 'man, 'woman.
-
+(add-to-list 'display-buffer-alist
+             '("\\*Man.*\\*" (display-buffer-below-selected)))
 
 ;;; occur: link type
 ;;

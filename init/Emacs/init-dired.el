@@ -129,7 +129,12 @@
     (image-diredx-adjust-mode 1)
     (define-key image-dired-thumbnail-mode-map "g" 'revert-buffer)
     ;; delete confirmation prompt with thumbnails.
-    (define-key image-dired-thumbnail-mode-map "x" 'image-diredx-flagged-delete))
+    (define-key image-dired-thumbnail-mode-map "x" 'image-diredx-flagged-delete)
+    (add-to-list 'display-buffer-alist
+                 '("^\\*image-dired\\*" (display-buffer-same-window)))
+    (add-to-list 'display-buffer-alist
+                 '("^\\*image-dired-display-image\\*" (display-buffer-same-window)))
+    )
   
   (use-package wdired ; Rename files editing their names in dired buffers.
     :ensure t

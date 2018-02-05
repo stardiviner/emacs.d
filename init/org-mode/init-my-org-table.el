@@ -10,6 +10,9 @@
 
 (setq org-enable-table-editor t)
 
+(add-to-list 'display-buffer-alist
+             '("\^\\*Org Table Edit Field\\*" (display-buffer-below-selected)))
+
 ;; (set-face-attribute 'org-column nil
 ;;                     :height (face-attribute 'default :height)
 ;;                     :family (face-attribute 'default :family))

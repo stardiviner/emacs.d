@@ -16,7 +16,7 @@
   (add-to-list 'Info-directory-list
                (expand-file-name "info/" user-emacs-directory))
   (add-to-list 'display-buffer-alist
-               '("\\*info\\*" . (display-buffer-below-selected)))
+               '("\\*info\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
   ;; let `[s]' search like =isearch= for incremental search.
   (setq Info-isearch-search t)
   ;; - `Info-mode-hook'
@@ -36,9 +36,9 @@
 
 
 (add-to-list 'display-buffer-alist
-             '("^\\*Help\\*$" (display-buffer-below-selected)))
+             '("^\\*Help\\*$" (display-buffer-reuse-window display-buffer-below-selected)))
 (add-to-list 'display-buffer-alist
-             '("^\\*Apropos\\*$" (display-buffer-below-selected)))
+             '("^\\*Apropos\\*$" (display-buffer-reuse-window display-buffer-below-selected)))
 
 ;;; [ helpful ] -- A better Emacs *help* buffer.
 
