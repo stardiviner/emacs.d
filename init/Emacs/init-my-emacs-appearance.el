@@ -219,12 +219,11 @@
 
 
 ;;; [ wrap & fill ]
-
-;; default column length (80)
 (setq-default fill-column 80)
-
-;; (global-visual-line-mode -1) ; soft wrap lines at word boundary
-(toggle-truncate-lines 1)
+(setq-default truncate-lines t) ; truncate long lines.
+(setq-default truncate-partial-width-windows 50)
+(setq-default global-visual-line-mode nil) ; soft wrap lines at word boundary
+(setq-default visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
 
 
 ;;; toggle fill/un-fill
