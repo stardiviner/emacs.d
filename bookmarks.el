@@ -2,14 +2,110 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Masturbation.org"
- (filename . "~/Org/Wiki/Sexology/Masturbation/Masturbation.org")
- (front-context-string . "#+TITLE: Masturb")
+(("My MySQL Syntax Reference.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/MySQL/Data/Manuals/My MySQL Syntax Reference/My MySQL Syntax Reference.org")
+ (front-context-string . "#+TITLE: My MySQ")
  (rear-context-string)
  (position . 1))
-("curl.org"
- (filename . "~/Org/Wiki/Computer Technology/Softwares/curl.org")
- (front-context-string . "#+TITLE: curl\n\n*")
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Brain Science/Data/Books/Mind Performance Hacks: Tips & Tools for Overclocking Your Brain.pdf"
+ (filename . "~/Org/Wiki/Brain Science/Data/Books/Mind Performance Hacks: Tips & Tools for Overclocking Your Brain.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("aria2.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/aria2.org")
+ (front-context-string . "* Intro\n\n*The ul")
+ (rear-context-string)
+ (position . 1))
+("magithub.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/magithub.org")
+ (front-context-string . "* Intro\n\nMagithu")
+ (rear-context-string)
+ (position . 1))
+("Quantum Programming.org"
+ (filename . "~/Org/Wiki/Physics/Quantum Theory/Quantum Information System/Quantum Computer/Quantum Computation/Quantum Programming/Quantum Programming.org")
+ (front-context-string . "#+TITLE: Quantum")
+ (rear-context-string)
+ (position . 1))
+("Quantum Computation.org"
+ (filename . "~/Org/Wiki/Physics/Quantum Theory/Quantum Information System/Quantum Computer/Quantum Computation/Quantum Computation.org")
+ (front-context-string . "#+TITLE: Quantum")
+ (rear-context-string)
+ (position . 1))
+("SLY.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/modes/SLY.org")
+ (front-context-string . "* Intro\n\n*Sylves")
+ (rear-context-string)
+ (position . 1))
+("git-flow.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Git/git-flow.org")
+ (front-context-string . "* Intro\n\nAVH Edi")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Religion/Buddhism/Data/Books/没有水, 没有月亮.pdf"
+ (filename . "~/Org/Wiki/Religion/Buddhism/Data/Books/没有水, 没有月亮.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("ElasticSearch.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/ElasticSearch/ElasticSearch.org")
+ (front-context-string . "* Intro\n\nOpen So")
+ (rear-context-string)
+ (position . 1))
+("HTTP.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Network/Network Protocols/HTTP/HTTP.org")
+ (front-context-string . "#+TITLE: HTTP\n\n*")
+ (rear-context-string)
+ (position . 1))
+("Network Protocols.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Network/Network Protocols/Network Protocols.org")
+ (front-context-string . "#+TITLE: Network")
+ (rear-context-string)
+ (position . 1))
+("Web Technologies.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Web/Web Technologies/Web Technologies.org")
+ (front-context-string . "#+TITLE: Web Tec")
+ (rear-context-string)
+ (position . 1))
+("cURL.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/cURL.org")
+ (front-context-string . "#+TITLE: cURL\n\n*")
+ (rear-context-string)
+ (position . 1))
+("My HTML Examples.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/HTML/Data/Manuals/My HTML Examples/My HTML Examples.org")
+ (front-context-string . "#+TITLE: My HTML")
+ (rear-context-string)
+ (position . 1))
+("My Common Lisp Examples.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Lisp/Common Lisp/Data/Manuals/My Common Lisp Examples.org")
+ (front-context-string . "#+TITLE: My Comm")
+ (rear-context-string)
+ (position . 1))
+("Terraform.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Terraform.org")
+ (front-context-string . "#+TITLE: Terrafo")
+ (rear-context-string)
+ (position . 1))
+("Cryptology.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Cryptology/Cryptology.org")
+ (front-context-string . "#+TITLE: Cryptol")
+ (rear-context-string)
+ (position . 1))
+("My Reverse Engineering Manual.org"
+ (filename . "~/Org/Wiki/Computer Technology/Hack/Reverse Engineering/Data/Manuals/My Reverse Engineering Manual/My Reverse Engineering Manual.org")
+ (front-context-string . "#+TITLE: My Reve")
+ (rear-context-string)
+ (position . 1))
+("Masturbation.org"
+ (filename . "~/Org/Wiki/Sexology/Masturbation/Masturbation.org")
+ (front-context-string . "#+TITLE: Masturb")
  (rear-context-string)
  (position . 1))
 (#("Full-text Search.org" 0 1
@@ -289,7 +385,7 @@
  (page . 1)
  (slice)
  (size . fit-width)
- (origin)
+ (origin 0.0 . 0.0)
  (handler . pdf-view-bookmark-jump-handler))
 (#("My Chinese Government Administration Manual.org" 0 1
    (idx 40))
@@ -313,12 +409,6 @@
    (idx 43))
  (filename . "~/Org/Wiki/World Grid Information/World Grid Information.org")
  (front-context-string . "#+TITLE: World G")
- (rear-context-string)
- (position . 1))
-(#("My Clothes Styles Reference.org" 0 1
-   (idx 44))
- (filename . "~/Org/Wiki/Clothes/My Clothes Styles Reference/My Clothes Styles Reference.org")
- (front-context-string . "#+TITLE: My Clot")
  (rear-context-string)
  (position . 1))
 (#("Express.org" 0 1
@@ -454,18 +544,6 @@
    (idx 65))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/R/Data/R Packages/R Packages.org")
  (front-context-string . "#+TITLE: R Packa")
- (rear-context-string)
- (position . 1))
-(#("Quantum Algorithm.org" 0 1
-   (idx 66))
- (filename . "~/Org/Wiki/Physics/Quantum Theory/Quantum Information System/Quantum Computer/Quantum Programming/Quantum Algorithm/Quantum Algorithm.org")
- (front-context-string . "#+TITLE: Quantum")
- (rear-context-string)
- (position . 1))
-(#("Quantum Programming.org" 0 1
-   (idx 67))
- (filename . "~/Org/Wiki/Physics/Quantum Theory/Quantum Information System/Quantum Computer/Quantum Programming/Quantum Programming.org")
- (front-context-string . "#+TITLE: Quantum")
  (rear-context-string)
  (position . 1))
 (#("Ubuntu.org" 0 1
@@ -3347,10 +3425,10 @@
  (position . 108957))
 (#("org-refile-last-stored" 0 1
    (idx 524))
- (filename . "~/Org/Programming/Code.org")
- (front-context-string . "** SOMEDAY (kung")
- (rear-context-string . "e extension]]\n\n\n")
- (position . 151146))
+ (filename . "~/Org/Contacts/Contacts.org")
+ (front-context-string . "** Steve Purcell")
+ (rear-context-string . " CIDER,\n:END:\n\n\n")
+ (position . 50806))
 (#("Vim.org" 0 1
    (idx 525))
  (filename . "~/Org/Wiki/Computer Technology/Programming/Vim/Vim.org")
@@ -3885,12 +3963,6 @@
  (front-context-string . "* Intro\n\n\n\n\n* Da")
  (rear-context-string)
  (position . 1))
-(#("My SQL Reference.org" 0 1
-   (idx 614))
- (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/Data/Manuals/My SQL Reference/My SQL Reference.org")
- (front-context-string . "\n\n\n** SELECT DIS")
- (rear-context-string . "%20Joins.png]]\n\n")
- (position . 3676))
 (#("Internet.org" 0 1
    (idx 615))
  (filename . "~/Org/Wiki/Internet/Internet.org")
@@ -4037,10 +4109,10 @@
  (position . 1))
 (#("org-capture-last-stored" 0 1
    (idx 639))
- (filename . "~/Org/Tasks/Words/Words.org")
- (front-context-string . "* thesaurus :dri")
- (rear-context-string . "s/subroutines)\n\n")
- (position . 41473))
+ (filename . "~/Org/Contacts/Contacts.org")
+ (front-context-string . "* Steve Purcell\n")
+ (rear-context-string . "- 骨四区：81782072\n\n")
+ (position . 96176))
 (#("Accounts" 0 1
    (idx 640))
  (filename . "~/Org/Accounts/accounts.org.gpg")
