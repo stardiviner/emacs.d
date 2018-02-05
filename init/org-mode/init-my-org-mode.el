@@ -18,6 +18,25 @@
   )
 
 
+(use-package org
+  :load-path "~/Code/Emacs/org-mode/lisp/"
+  :pin manual
+  ;; :mode (("\\.org$" . org-mode))
+  :config
+  (use-package org-plus-contrib
+    :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+    :no-require t
+    :pin manual)
+  ;; add source code version Org-mode Info into Emacs.
+  (with-eval-after-load 'info
+    (info-initialize)
+    (add-to-list 'Info-directory-list
+                 "~/Code/Emacs/org-mode/doc/"))
+  ;; reload org-mode.
+  ;; (unload-feature 'org)
+  (org-reload)
+  )
+
 (unless (boundp 'Org-prefix)
   (define-prefix-command 'Org-prefix))
 (global-set-key (kbd "C-c o") 'Org-prefix)
