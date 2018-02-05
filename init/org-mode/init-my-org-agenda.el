@@ -227,34 +227,27 @@
           ))
   )
 
-
+(use-package dash ; for `-flatten'
+  :ensure t)
 (setq org-agenda-files
-      (delq nil
-            (mapcar
-             (lambda (f) (and (file-exists-p f) f))
-             '("~/Org/Wiki/Business/Startup/My Startup/My Startup.org"
-               "~/Org/Wiki/Things/Things.org" ; Buy Things
-               "~/Org/Tasks/"
-               "~/Org/Tasks/Work Tasks/"
-               "~/Org/Tasks/Family Tasks/"
-               "~/Org/Tasks/Travel/"
-               "~/Org/Programming/"
-               "~/Org/Projects/"
-               "~/Org/Projects/Agriculture Projects/"
-               "~/Org/Projects/Programming Projects/"
-               "~/Org/Projects/Writing Projects/"
-               "~/Org/Projects/Product Projects/"
-               "~/Org/Projects/Hardware Projects/"
-               "~/Org/Projects/Finance Projects/"
-               "~/Org/Projects/Business Projects/"
-               "~/Org/Projects/Organization Projects/"
-               "~/Org/Projects/Interpersonal Network/"
-               "~/Org/Learning Plan/"
-               ;; "~/Org/Contacts/Contacts.org"
-               "~/Org/Calendars/Anniversary.org"
-               "~/Org/Myself/"
-               "~/Org/Wiki/Literature/Novels/Data/Novel Books/Novel Books.org"
-               ))))
+      ;; recursive in all directory and sub-directory.
+      (-flatten
+       (mapcar
+        (lambda (path)
+          (if (file-directory-p path)   ; if it is a directory
+              ;; return all files recursively in directory
+              (directory-files-recursively path ".org$")
+            ;; if it is a file, return the file directly.
+            path))
+        '("~/Org/Wiki/Things/Things.org" ; Buy Things
+          "~/Org/Tasks/"
+          "~/Org/Projects/"
+          "~/Org/Learning Plan/"
+          "~/Org/Contacts/Contacts.org"
+          "~/Org/Calendars/Anniversary.org"
+          "~/Org/Myself/"               ; about Myself tasks
+          "~/Org/Wiki/Literature/Novels/Data/Novel Books/Novel Books.org" ; Reading Novels
+          ))))
 
 (setq org-agenda-text-search-extra-files '(agenda-archives "~/Org/Diary/"))
 
