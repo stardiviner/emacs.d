@@ -314,6 +314,7 @@
 ;; (require 'init-my-prog-framework-android)
 (require 'init-my-prog-framework-arduino)
 ;; (require 'init-my-prog-framework-qt)
+(require 'init-my-prog-framework-ethereum)
 
 
 ;;; Data Science
