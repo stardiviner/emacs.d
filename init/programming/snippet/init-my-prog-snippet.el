@@ -110,7 +110,9 @@ $0`(yas-escape-text yas-selected-text)`"
   :after org ; to fix variable `org-directory' is not customized to "~/Org" issue.
   :config
   (setq org-sync-snippets-snippets-dir (concat user-emacs-directory "snippets/"))
-  (setq org-sync-snippets-org-snippets-file (concat (file-name-as-directory org-directory) "Programming/Code Snippets/yasnippets.org"))
+  (setq org-sync-snippets-org-snippets-file
+        (concat (file-name-as-directory org-directory)
+                "Programming Code/Code Snippets/yasnippets.org"))
   (add-hook 'yas-after-reload-hook 'org-sync-snippets-snippets-to-org)
   )
 
