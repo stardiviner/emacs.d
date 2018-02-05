@@ -31,6 +31,28 @@
         company-search-regexp-function #'company-search-flex-regexp
         )
 
+  ;; using digits to select company-mode candidates.
+  (setq company-show-numbers t)
+
+  (defun my:company-choose-with-number ()
+    "Forward to `company-complete-number'.
+
+Unless the number is potentially part of the candidate.
+In that case, insert the number."
+    (interactive)
+    (let* ((k (this-command-keys))
+           (re (concat "^" company-prefix k)))
+      (if (cl-find-if (lambda (s) (string-match re s)) company-candidates)
+          (self-insert-command 1)
+        (company-complete-number (string-to-number k)))))
+  
+  (let ((map company-active-map))
+    (mapc
+     (lambda (x)
+       (define-key map (format "%d" x) 'my:company-choose-with-number))
+     (number-sequence 0 9))
+    (define-key map " " (lambda () (interactive) (company-abort) (self-insert-command 1))))
+
   ;; `company-mode' frontend showing the selection as if it had been inserted.
   ;; (add-to-list 'company-frontends 'company-preview-frontend)
 
