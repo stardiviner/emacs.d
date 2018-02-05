@@ -98,8 +98,9 @@
 
 ;;; [ eyebrowse ] -- A simple-minded way of managing window configs in Emacs.
 
-(use-package eyebrowse                  ; [C-c C-w]
+(use-package eyebrowse
   :ensure t
+  :custom (eyebrowse-keymap-prefix (kbd "C-x w"))
   :config
   (setq eyebrowse-new-workspace t)
   

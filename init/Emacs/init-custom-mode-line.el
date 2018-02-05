@@ -152,6 +152,7 @@
 ;;; eyebrowse
 (use-package eyebrowse
   :ensure t
+  :custom (eyebrowse-keymap-prefix (kbd "C-x w"))
   :config
   (defun *eyebrowse ()
     "Displays `default-directory', for special buffers like the scratch buffer."
