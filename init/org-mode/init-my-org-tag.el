@@ -104,7 +104,7 @@
 (setq org-tag-faces
       '(("noexport" :foreground "DimGray" :weight bold :underline t :slant 'italic)
         ("deprecated" :foreground "DimGray" :strike-through t :slant 'italic)
-        ("fragment" :foreground "LightGrey" :weight bold :slant 'italic)
+        ("fragment" :foreground "LightGray" :weight bold :slant 'italic)
         ("computer" :foreground "green" :slant 'italic)
         ("life" :foreground "black" :slant 'italic)
         ("SEX" :foreground "deep pink" :weight bold)

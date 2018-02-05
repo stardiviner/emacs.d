@@ -15,6 +15,8 @@
   (setq org-tag-alist
         (append '((:startgroup . nil) ("drill" . ?d) (:endgroup . nil))
                 org-tag-alist))
+  (add-to-list 'org-tag-faces
+               '("drill" :foreground "coral"))
 
   (setq org-drill-use-visible-cloze-face-p nil ; t will caused [] invalid headline fontify.
         org-drill-hide-item-headings-p nil
