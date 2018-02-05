@@ -76,6 +76,13 @@
 ;;         showtip-top-adjust 30)
 ;;   )
 
+;;; [ child-frame ]
+
+;;; [ posframe ] -- Pop a posframe (just a child-frame) at point.
+
+(use-package posframe
+  :ensure t)
+
 
 (provide 'init-my-emacs-popup)
 

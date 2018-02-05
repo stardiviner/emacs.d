@@ -206,6 +206,14 @@ In that case, insert the number."
   (add-hook 'company-completion-cancelled-hook #'my-company-fail-animation)
   )
 
+;;; [ company-childframe ] -- use a child-frame as company candidate menu.
+
+;; (use-package company-childframe
+;;   :ensure t
+;;   :config
+;;   (company-childframe-mode 1)
+;;   ;; (add-to-list 'company-frontends 'company-childframe-frontend)
+;;   )
 
 ;;; [ company-quickhelp ] -- quick help document preview & popup
 
