@@ -6,10 +6,12 @@
         artist-backward-char
         artist-forward-char
         backward-sexp
+        c-electric-delete-forward
         counsel-M-x
         counsel-yank-pop
         fill-paragraph
         forward-sexp
+        indent-for-tab-command
         ivy-done
         kill-region
         lispy-braces
@@ -27,8 +29,10 @@
         org-delete-char
         org-emphasize
         org-end-of-line
+        org-fill-paragraph
         org-force-self-insert
         org-kill-line
+        org-meta-return
         org-metaleft
         org-metaright
         org-next-visible-heading
@@ -39,9 +43,11 @@
         org-shiftright
         org-shifttab
         org-yank
+        outshine-self-insert-command
         paredit-backward
         paredit-backward-up
         paredit-close-square
+        paredit-doublequote
         paredit-forward
         paredit-forward-delete
         paredit-forward-kill-word
@@ -50,11 +56,14 @@
         paredit-open-square
         paredit-semicolon
         paredit-splice-sexp-killing-backward
+        paredit-wrap-round
         picture-backward-clear-column
         picture-clear-column
         scroll-other-window
+        set-rectangular-region-anchor
         sp-delete-char
         sp-kill-hybrid-sexp
+        sp-kill-region
         sp-remove-active-pair-overlay
         special-digit-argument
         special-lh-knight/body
@@ -132,5 +141,8 @@
 (setq mc/cmds-to-run-once
       '(
         ace-window
+        iedit-switch-to-mc-mode
+        jump-to-mark
         lispy-cursor-down
+        org-ctrl-c-ret
         ))

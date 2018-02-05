@@ -11,11 +11,15 @@
 
 (use-package ereader
   :ensure t
-  :load (org-ebook)
   :mode (("\\.epub\\'" . ereader-mode))
   :config
   (with-eval-after-load "org"
-    (add-to-list 'org-file-apps '("\\.epub\\'" . auto-mode))))
+    (add-to-list 'org-file-apps '("\\.epub\\'" . auto-mode)))
+  (require 'org-ebook)
+  (org-link-set-parameters "ebook"
+                           :follow #'org-ebook-open
+                           :store #'org-ebook-store-link
+                           :complete #'org-file-complete-link))
 
 ;;; [ nov ] -- featureful EPUB reader mode.
 
@@ -24,7 +28,9 @@
   :mode ("\\.epub\\'" . nov-mode)
   :config
   (with-eval-after-load "org"
-    (add-to-list 'org-file-apps '("\\.epub\\'" . auto-mode))))
+    (add-to-list 'org-file-apps '("\\.epub\\'" . auto-mode)))
+  ;; (define-key nov-mode-map (kbd "q") 'kill-current-buffer)
+  )
 
 
 (provide 'init-my-emacs-ebook)

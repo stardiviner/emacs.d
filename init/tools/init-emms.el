@@ -94,8 +94,13 @@
 
   ;; [ emms-bilibili ] -- Play Bilibili user favourite videos in EMMS.
   (use-package emms-bilibili
-    :ensure t
-    :commands (emms-bilibili))
+    ;; :ensure t
+    :load-path "~/Code/Emacs/emms-bilibili"
+    :commands (emms-bilibili)
+    :config
+    (setq emms-bilibili-mid
+          (string-to-number (my/json-read-value my/account-file 'emms-bilibili)))
+    (setq emms-bilibili-use-popup t))
   )
 
 

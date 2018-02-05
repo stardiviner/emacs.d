@@ -32,13 +32,13 @@
           
           ;; Linux
           ("https://www.linux.com/rss/feeds.php" Linux)
-          
           ;; Arch Linux
           ("http://www.archlinux.org/feeds/news/" Arch)
           ("http://archlinux.me/feed/" Arch)
           ;; ("http://planet.archlinux.org/atom.xml" Arch)
-          ;; Kali Linux
-          ("http://www.kali.org/feed/" Kali)
+          
+          ;; DevOps
+          ("https://www.digitalocean.com/community/tutorials/feed" DevOps)
           
           ;; Geek News
           ("http://news.ycombinator.com/rss" Geek)
@@ -67,6 +67,11 @@
           ;; Subscribe
           ("https://github.com/blog/all.atom" GitHub)
           ("http://www.salttiger.com/feed/" Ebook)
+          ("http://book.zi5.me/feed" Ebook)
+          
+          ;; Crack
+          ;; Kali Linux
+          ("http://www.kali.org/feed/" Kali)
           ))
 
   ;; (define-key elfeed-search-mode-map (kbd "#") 'elfeed-search-set-filter)

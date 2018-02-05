@@ -36,6 +36,7 @@
 
 (use-package ob-php
   :ensure t
+  ;; :quelpa (ob-php :fetcher github :repo "steckerhalter/ob-php")
   :config
   (add-to-list 'org-babel-load-languages '(php . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)

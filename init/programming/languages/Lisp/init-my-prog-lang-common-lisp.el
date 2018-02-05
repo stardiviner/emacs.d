@@ -48,8 +48,8 @@
 
 (add-to-list 'org-babel-default-header-args:lisp
              '(:noweb . "yes"))
-(add-to-list 'org-babel-default-header-args:lisp
-             '(:results . "output"))
+;; (add-to-list 'org-babel-default-header-args:lisp
+;;              '(:results . "output pp"))
 
 
 ;;; [ SBCL ]

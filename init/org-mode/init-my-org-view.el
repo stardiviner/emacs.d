@@ -42,16 +42,13 @@
 
 ;; [ indent ]
 
-(use-package org-indent
-  :init
-  (setq org-startup-indented t
-        org-hide-leading-stars t)
-  :config
-  ;; (set-face-attribute 'org-indent nil
-  ;;                     :inherit 'org-hide
-  ;;                     :foreground (face-background 'default)
-  ;;                     )
-  )
+(require 'org-indent)
+(setq org-startup-indented t
+      org-hide-leading-stars t)
+;; (set-face-attribute 'org-indent nil
+;;                     :inherit 'org-hide
+;;                     :foreground (face-background 'default)
+;;                     )
 
 
 (provide 'init-my-org-view)

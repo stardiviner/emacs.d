@@ -111,6 +111,8 @@
     (define-key projectile-rails-mode-map [remap inf-ruby] 'inf-ruby-console-auto))
 
   ;; ruby-mode has keybinding [C-c C-s] for `inf-ruby'.
+  (with-eval-after-load 'ruby-mode
+    (define-key ruby-mode-map (kbd "C-c C-s") 'inf-ruby))
   (with-eval-after-load 'enh-ruby-mode
     (define-key enh-ruby-mode-map (kbd "C-c C-s") 'inf-ruby))
   )

@@ -77,21 +77,7 @@
 
 ;; (require 'init-my-org-mode)
 
-(setq org-modules
-      '(org-pcomplete
-        org-faces
-        ;; org-fstree
-        org-table ; org-compat
-        ;; org-protocol
-        org-timer org-clock org-habit org-notify
-        org-info org-bibtex org-docview
-        org-plot
-        org-irc ; org-gnus org-mhe org-rmail
-        ;; org-w3m
-        ))
-
 ;;; Org-mode Babel
-
 (setq org-confirm-babel-evaluate nil)
 (setq org-babel-no-eval-on-ctrl-c-ctrl-c nil)
 (setq org-confirm-shell-link-function 'yes-or-no-p)

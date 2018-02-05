@@ -12,6 +12,11 @@
 (use-package clojure-mode
   :ensure t
   :ensure-system-package clojure
+  :mode (
+         ;; Boot files
+         ("\\.boot\\'" . clojure-mode) ; recognize .boot file
+         (".* boot" . clojure-mode) ; recognize script file using shebang
+         )
   :config
   (autoload 'my-lisp-common-settings "init-my-prog-lang-lisp.el")
   (add-hook 'clojure-mode-hook #'my-lisp-common-settings)
@@ -428,8 +433,8 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 ;;; [ ob-clojure-literate ]
 
 (use-package ob-clojure-literate
-  :ensure t
-  ;; :load-path "~/Code/Emacs/ob-clojure-literate/"
+  ;; :ensure t
+  :load-path "~/Code/Emacs/ob-clojure-literate/"
   :after org
   :init
   (setq ob-clojure-literate-auto-jackin-p t)
@@ -480,16 +485,14 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   :ensure t
   :defer t
   :bind (:map clojure-mode-map
-              ("C-h d d" . helm-clojuredocs))
-  )
+              ("C-h d d" . helm-clojuredocs)))
 
 ;;; [ clojure-cheatsheet ] -- The Clojure Cheatsheet for Emacs.
 
 (use-package clojure-cheatsheet
   :ensure t
   :bind (:map clojure-mode-map
-              ("C-c C-h" . clojure-cheatsheet))
-  )
+              ("C-c C-h" . clojure-cheatsheet)))
 
 
 ;;; [ elein ] -- running Leiningen commands from Emacs.
@@ -506,12 +509,6 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
           (command-execute 'inferior-lisp)
           )))
   )
-
-;;; [ Boot ]
-
-(add-to-list 'auto-mode-alist '("\\.boot\\'" . clojure-mode)) ; recognize .boot file
-(add-to-list 'magic-mode-alist '(".* boot" . clojure-mode)) ; recognize script file using shebang
-
 
 ;;; [ clomacs ] -- Clomacs simplifies call Clojure code from Emacs lisp.
 

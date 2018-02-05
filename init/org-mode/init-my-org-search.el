@@ -28,8 +28,8 @@
   (define-key org-rifle-prefix (kbd "G") 'helm-org-rifle)
   (define-key org-rifle-prefix (kbd "d") 'helm-org-rifle-directories)
   (define-key org-rifle-prefix (kbd "f") 'helm-org-rifle-files)
-  (define-key org-rifle-prefix (kbd "o") 'helm-org-rifle-org-directory)
   (define-key org-rifle-prefix (kbd "a") 'helm-org-rifle-agenda-files)
+  (define-key org-rifle-prefix (kbd "M-r") 'helm-org-rifle-org-directory)
 
   ;; LaTeX fragments preview support
   ;; FIXME: `org-toggle-latex-fragment' does not support in *non-file* buffer.

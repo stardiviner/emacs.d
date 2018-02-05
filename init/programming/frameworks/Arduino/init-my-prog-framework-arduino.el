@@ -24,6 +24,7 @@
            :fetcher github
            :repo "bwachter/arduino-mode"
            :upgrade t) ; "bwachter/arduino-mode", "mavit/arduino-mode"
+  :ensure ede
   :bind (:map arduino-mode-map
               ("C-c C-c" . arduino-upload))
   ;; :config

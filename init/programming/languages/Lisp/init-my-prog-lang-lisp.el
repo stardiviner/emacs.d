@@ -38,8 +38,8 @@
                                         eval-expression-with-eldoc
                                         ibuffer-do-eval
                                         ibuffer-do-view-and-eval
-                                        eldoc-eval-expression
-                                        )
+                                        eldoc-eval-expression)
+    
     "Interactive commands for which paredit should be enabled in the minibuffer.")
   (defun conditionally-enable-paredit-mode ()
     "Enable paredit during lisp-related minibuffer commands."
@@ -67,8 +67,8 @@
         (save-excursion
           (not (and (eq delimiter ?\()
                     (re-search-backward (rx ",@")
-                                        (line-beginning-position) t))))))
-  )
+                                        (line-beginning-position) t)))))))
+
 
 ;;; [ paxedit ] -- Structured, Context-Driven, LISP Editing and Refactoring.
 
@@ -80,14 +80,23 @@
 
 ;; (use-package parinfer
 ;;   :ensure t
-;;   ;; :bind (("C-," . parinfer-toggle-mode))
+;;   :bind (("C-," . parinfer-toggle-mode))
+;;   :init
+;;   (mapc
+;;    (lambda (hook)
+;;      (add-hook hook #'parinfer-mode))
+;;    '(emacs-lisp-mode-hook lisp-mode-hook common-lisp-mode-hook clojure-mode-hook))
 ;;   :config
 ;;   (setq parinfer-extensions
 ;;         '(defaults                 ; should be included.
 ;;            pretty-parens           ; different paren styles for different modes.
 ;;            paredit                 ; Introduce some paredit commands.
-;;            smart-yank))            ; Yank behavior depend on mode.
-;;   (parinfer-mode 1))
+;;            smart-tab ; C-b & C-f jump positions and smart shift with tab & S-tab.
+;;            smart-yank)))            ; Yank behavior depend on mode.
+;; Parinfer will auto switch to Indent Mode whenever parens are balance in Paren Mode.
+;; (setq parinfer-auto-switch-indent-mode nil)
+
+
 
 ;;; [ rainbow-delimiters ] -- rainbow color parenthesis
 

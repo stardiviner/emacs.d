@@ -5,6 +5,9 @@
 ** Export
 
 *** landscape view
+:PROPERTIES:
+:header-args: :eval no
+:END:
 
 #+NAME: load-latex-package-pdflscape-original-data
 #+begin_src shell :results silent :wrap landscape :var babel=""
@@ -18,11 +21,8 @@ echo "#+LATEX_HEADER: \sepackage{pdflscape}"
 #+end_src
 
 #+RESULTS: load-latex-package-pdflscape
-#+LATEX_HEADER: \sepackage{pdflscape}
-hello
 
 #+NAME: org-mode-export-landscape-view
-echo "hello"
 #+begin_src shell :exports results :results raw :post load-latex-package-pdflscape(data=*this*)
 
 #+end_src

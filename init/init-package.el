@@ -151,10 +151,7 @@
 (use-package quelpa
   :ensure t
   :config
-  (setq quelpa-update-melpa-p nil
-        ;; quelpa-upgrade-p t
-        )
-
+  ;; (setq quelpa-upgrade-p t)
   (add-to-list 'quelpa-melpa-recipe-stores
                (concat user-emacs-directory "elpa/recipes"))
   )

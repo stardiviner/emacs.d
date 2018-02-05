@@ -159,26 +159,21 @@ when needed."
     (interactive)
     (when (eq major-mode 'pdf-view-mode)
       (bookmark-set (my/pdf-generate-bookmark-name))))
-
   (defun my/pdf-jump-last-viewed-bookmark ()
     (when
         (my/pdf-has-last-viewed-bookmark)
       (bookmark-jump (my/pdf-generate-bookmark-name))))
-
   (defun my/pdf-has-last-viewed-bookmark ()
     (assoc
      (my/pdf-generate-bookmark-name) bookmark-alist))
-
   (defun my/pdf-generate-bookmark-name ()
     (concat "PDF-LAST-VIEWED: " (buffer-file-name)))
-
   (defun my/pdf-set-all-last-viewed-bookmarks ()
     (dolist (buf (buffer-list))
-      (with-current-buffer buf
+      (with-current-buffer (and (buffer-name buf) buf)
         (my/pdf-set-last-viewed-bookmark))))
-
-  (add-hook 'kill-buffer-hook 'my/pdf-set-last-viewed-bookmark)
   (add-hook 'pdf-view-mode-hook 'my/pdf-jump-last-viewed-bookmark)
+  (add-hook 'kill-buffer-hook 'my/pdf-set-last-viewed-bookmark) ; Cause "selecting deleted buffer" error.
   (unless noninteractive  ; as `save-place-mode' does
     (add-hook 'kill-emacs-hook #'my/pdf-set-all-last-viewed-bookmarks))
 
@@ -251,7 +246,12 @@ when needed."
   ;; [ org-noter ] -- Emacs document annotator, using Org-mode.
   (use-package org-noter
     :ensure t
-    :bind (:map Org-prefix ("n" . org-noter)))
+    :preface
+    (unless (boundp 'Org-prefix)
+      (define-prefix-command 'Org-prefix))
+    :bind (:map Org-prefix ("n" . org-noter))
+    :config
+    (setq org-noter-set-auto-save-last-page t))
 
   ;; [ pdf-tools-org ] -- integrate pdf-tools annotations with Org-mode.
   (use-package pdf-tools-org

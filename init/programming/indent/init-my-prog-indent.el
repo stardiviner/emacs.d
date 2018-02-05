@@ -110,8 +110,6 @@
   (add-to-list 'aggressive-indent-excluded-modes 'makefile-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'coq-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'snippet-mode)
-
-  ;; (global-aggressive-indent-mode t)
   )
 
 

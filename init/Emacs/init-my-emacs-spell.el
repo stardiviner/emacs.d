@@ -1,4 +1,4 @@
-;;; init-my-emacs-spell.el --- settings
+;;; init-my-emacs-spell.el --- init for spell settings.
 ;;; Commentary:
 
 ;;; Code:
@@ -18,7 +18,7 @@
 
 (require 'ispell)
 
-(setq ispell-look-command "/usr/sbin/look")
+(setq ispell-look-command "/usr/bin/look")
 
 ;; find aspell automatically
 (cond
@@ -56,8 +56,7 @@
   (setq flyspell-use-meta-tab nil)
   :bind (:map flyspell-mode-map
               ("C-." . flyspell-correct-word-before-point)
-              ("C-," . flyspell-goto-next-error)
-              )
+              ("C-," . flyspell-goto-next-error))
   :init
   ;; global
   ;; (flyspell-mode 1)

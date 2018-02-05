@@ -202,8 +202,7 @@
   :ensure t
   :config
   (beacon-mode 1)
-  (setq beacon-push-mark nil
-        beacon-blink-when-point-moves-vertically 10
+  (setq beacon-blink-when-point-moves-vertically 10
         beacon-blink-when-point-moves-horizontally 20
         beacon-blink-when-focused t
         beacon-blink-duration 0.2

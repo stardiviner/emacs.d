@@ -11,9 +11,9 @@
 
 (use-package eldoc
   :ensure t
-  :config
+  :init
   (add-hook 'prog-mode-hook #'eldoc-mode)
-
+  :config
   ;; ElDoc with most `paredit' command.
   ;; whenever the listed commands are used, ElDoc will automatically refresh the minibuffer.
   (eldoc-add-command 'paredit-backward-delete 'paredit-close-round)

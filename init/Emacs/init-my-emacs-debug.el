@@ -206,7 +206,8 @@
   :bind (:map emacs-profiler-prefix
               ("p" . profiler-start)
               ("s" . profiler-stop)
-              ("r" . profiler-report))
+              ("r" . profiler-report)
+              ("x" . profiler-reset))
   )
 
 

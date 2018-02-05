@@ -17,6 +17,7 @@
 ;;; [ calendar ]
 
 (use-package calendar
+  :bind (:map calendar-prefix ("c" . calendar))
   :config
   ;; ;; Month
   ;; (setq calendar-month-name-array
@@ -33,10 +34,8 @@
   (setq calendar-date-style 'american)
 
   ;; mark holidays
-  ;; (setq calendar-mark-holidays-flag t
-  ;;       calendar-holiday-marker 'holiday
-  ;;       )
-  ;;
+  (setq calendar-mark-holidays-flag t
+        calendar-holiday-marker 'holiday)
   ;; (add-hook 'calendar-initial-window-hook 'calendar-mark-holidays) ; this will slow down `org-time-stamp-inactive' performance.
 
   ;; mark today
@@ -65,11 +64,18 @@
   (setq calendar-location-name "Shaoxing Town"
         calendar-time-zone +480
         calendar-latitude 29.72
-        calendar-longitude 120.20
-        )
-
-  ;; Localized National Holidays
+        calendar-longitude 120.20)
   )
+
+;;; Localized National Holidays
+(use-package holidays
+  :config
+  ;; `calfw' collects holidays from function `calendar-holiday-list' and the
+  ;; customize variable `calendar-holidays' which belongs to `holidays.el` in
+  ;; Emacs.
+  ;; (setq holiday-general-holidays nil) ; get rid of U.S. holidays
+  (setq holiday-christian-holidays nil) ; get rid of christan holidays
+  (setq calendar-view-holidays-initially-flag t))
 
 (use-package cal-china
   :config
@@ -81,24 +87,22 @@
   )
 
 ;; [ cal-china-x ] -- Chinese localization, lunar/horoscope/zodiac info and more...
-
 (use-package cal-china-x
-  :ensure t)
-
-;;; [ Holidays ]
-
-(use-package holidays
+  :ensure t
   :config
-  ;; `calfw' collects holidays from function `calendar-holiday-list' and the
-  ;; customize variable `calendar-holidays' which belongs to `holidays.el` in
-  ;; Emacs.
-  (setq holiday-general-holidays nil) ; get rid of U.S. holidays
-  (setq holiday-christian-holidays nil) ; get rid of christan holidays
-  (setq calendar-view-holidays-initially-flag t)
+  (setq calendar-mark-holidays-flag t)
+  (setq cal-china-x-important-holidays cal-china-x-chinese-holidays)
+  (setq cal-china-x-general-holidays '((holiday-lunar 1 15 "元宵节")))
+  (setq calendar-holidays
+        (append cal-china-x-important-holidays
+                cal-china-x-general-holidays
+                holiday-general-holidays
+                holiday-local-holidays
+                holiday-other-holidays))
   )
 
 
-;; [ Diary ] -- Diary Mode
+;; [ Diary ] -- Diary markers in Calendar.
 
 ;;; [ calfw ] -- Calendar framework for Emacs
 
@@ -107,8 +111,7 @@
   :defer t
   :bind (:map calendar-prefix
               ("o" . cfw:open-org-calendar)
-              ("x" . cfw:open-calendar-buffer)
-              )
+              ("x" . cfw:open-calendar-buffer))
   :config
   ;; Faces
   ;; Year / Month

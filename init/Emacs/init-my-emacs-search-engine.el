@@ -50,7 +50,7 @@
     "http://www.wikipedia.org/search-redirect.php?language=zh&go=Go&search=%s"
     :docstring "Wikipedia"
     :keybinding "W")
-  (defengine baidu_baike
+  (defengine baidu-baike
     "http://baike.baidu.com/search/none?word=%s"
     :docstring "Baidu Baike"
     :keybinding "B")
@@ -70,6 +70,8 @@
     "https://translate.google.com/?q=%s"
     :docstring "Google Translate"
     :keybinding "T")
+
+  ;; Maps
   
   ;; Programming
 

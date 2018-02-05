@@ -99,11 +99,8 @@
         )
 
   (defun my-elpy-company-setup ()
-    (interactive)
-    ;; don't use `elpy-company-backend', `capf' works correctly.
-    (my-company-add-backend-locally 'elpy-company-backend)
-    )
-  
+    ;; don't use `elpy-company-backend', `company-capf' works correctly.
+    (my-company-add-backend-locally 'elpy-company-backend))
   (add-hook 'elpy-mode-hook #'my-elpy-company-setup)
   )
 
@@ -112,9 +109,8 @@
 (use-package pyvenv
   :ensure t
   :config
-  (pyvenv-workon "python3")
-  (add-hook 'python-mode-hook #'pyvenv-mode)
-  )
+  (pyvenv-workon "python3.6")
+  (add-hook 'python-mode-hook #'pyvenv-mode))
 
 ;;; [ pygen ] -- Python code generation in Emacs with Elpy and python-mode.
 
@@ -123,6 +119,7 @@
 ;;   :init
 ;;   (add-hook 'python-mode-hook 'pygen-mode))
 
+;;; [ elpygen ] -- Generate a Python function/method using a symbol under point.
 
 ;;; [ cinspect ] -- Use cinspect to look at the CPython source of builtins and other C objects!
 

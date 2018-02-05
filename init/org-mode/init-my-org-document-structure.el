@@ -124,6 +124,10 @@
 		                  ("l" (lambda (element) (insert (nth 1 (cdr element)))) "latex")
 		                  ("h" (lambda (element) (insert (nth 3 (cdr element)))) "html"))))
 
+;;; [ org-eldoc ]
+
+(require 'org-eldoc)
+
 
 (provide 'init-my-org-document-structure)
 

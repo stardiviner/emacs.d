@@ -195,7 +195,7 @@
 With prefix argument, also display headlines without a TODO keyword."
   (org-tags-view (null current-prefix-arg) tag))
 
-(org-link-set-parameters "tag"
+(org-link-set-parameters "org-tag"
                          :follow #'org-tag-link-open)
 
 ;;; [ Git ]
