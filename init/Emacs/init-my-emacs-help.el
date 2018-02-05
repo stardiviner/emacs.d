@@ -22,27 +22,12 @@
   ;; - `Info-mode-hook'
   )
 
+;;; [ info-colors ] -- A modern adaption of the extra coloring provided by info+ package.
 
-;;; [ info+ ]
-
-(use-package info+
-  :ensure t
-  :defer t
-  :config
-  (setq Info-breadcrumbs-in-header-flag t
-        ;; Info-display-node-header-fn
-        Info-fit-frame-flag t
-        Info-fontify-angle-bracketed-flag t
-        Info-fontify-quotations-flag t
-        Info-fontify-reference-items-flag t
-        Info-fontify-single-quote-flag t
-        Info-saved-nodes t))
-
-
-;; (use-package niceify-info
-;;   :ensure t
-;;   :init
-;;   (add-hook 'Info-selection-hook #'niceify-info))
+(use-package info-colors
+  :quelpa (info-colors :fetcher github :repo "ubolonton/info-colors")
+  :init
+  (add-hook 'Info-selection-hook 'info-colors-fontify-node))
 
 ;;; [ sicp ] -- Structure and Interpretation of Computer Programs in info format.
 
