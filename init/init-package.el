@@ -32,10 +32,21 @@
 (add-to-list 'package-archives elpa-gnu t)
 ;; (add-to-list 'package-archives elpa-china t)
 
+(let* ((elpa-archives-dir "~/.emacs.d/elpa/archives/")
+       (elpa-gnu-archives-dir (concat elpa-archives-dir "gnu"))
+       (elpa-melpa-archives-dir (concat elpa-archives-dir "melpa"))
+       (elpa-org-archives-dir (concat elpa-archives-dir "org")))
+  (unless (and (file-exists-p elpa-gnu-archives-dir)
+               (file-exists-p elpa-melpa-archives-dir)
+               (file-exists-p elpa-org-archives-dir))
+    (package-refresh-contents)))
+
+
 
 (add-to-list 'display-buffer-alist
              '("^\\*package-build-result\\*" (display-buffer-below-selected)))
 
+;; (setq package-enable-at-startup nil)
 (package-initialize)
 
 
@@ -119,18 +130,6 @@
 
 ;;; initialize installed packages after (use-package <package> :pin manual ..)
 ;; (package-initialize)
-
-(let* ((elpa-archives-dir "~/.emacs.d/elpa/archives/")
-       (elpa-gnu-archives-dir (concat elpa-archives-dir "gnu"))
-       (elpa-melpa-archives-dir (concat elpa-archives-dir "melpa"))
-       (elpa-org-archives-dir (concat elpa-archives-dir "org")))
-  (unless (and (file-exists-p elpa-gnu-archives-dir)
-               (file-exists-p elpa-melpa-archives-dir)
-               (file-exists-p elpa-org-archives-dir))
-    (package-refresh-contents)))
-
-;; (setq package-enable-at-startup nil)
-;; (package-initialize nil)
 
 
 ;;; [ package-lint ] -- A linting library for elisp package authors.
