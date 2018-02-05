@@ -37,7 +37,7 @@
 :DRILL_CARD_TYPE: %^{Drill Difficulty|simple|twosided|multisided|hide1cloze}
 :END:
 
-%?
+[%?]
 
 %c
 "
