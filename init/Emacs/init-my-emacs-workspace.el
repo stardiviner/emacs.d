@@ -102,8 +102,10 @@
   :ensure t
   :custom (eyebrowse-keymap-prefix (kbd "C-x w"))
   :config
-  (setq eyebrowse-new-workspace t)
-  
+  (setq eyebrowse-new-workspace t
+        eyebrowse-close-window-config-prompt t)
+
+  ;; Fix side-window issue.
   ;; also save side and slot windows configuration.
   (add-to-list 'window-persistent-parameters '(window-side . writable))
   (add-to-list 'window-persistent-parameters '(window-slot . writable))
