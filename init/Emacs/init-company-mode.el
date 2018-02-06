@@ -199,9 +199,9 @@ In that case, insert the number."
   (defun my-company-fail-animation (backend)
     ;; beacon
     (let ((beacon-size 20)
-          (beacon-color "dark gray"))
+          (beacon-color "dark red"))
       (beacon-blink)))
-  (add-hook 'company-completion-started-hook #'my-company-start-animation)
+  ;; (add-hook 'company-completion-started-hook #'my-company-start-animation)
   (add-hook 'company-completion-finished-hook #'my-company-success-animation)
   (add-hook 'company-completion-cancelled-hook #'my-company-fail-animation)
   )
