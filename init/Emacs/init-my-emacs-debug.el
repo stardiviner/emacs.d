@@ -18,23 +18,21 @@
 
 (use-package debug
   :init
-  ;; XXX: for Emacs startup freeze debug.
+  ;; for Emacs startup freeze debug.
   (toggle-debug-on-quit)
-  (add-hook 'after-init-hook #'toggle-debug-on-quit)
+  (add-hook 'after-init-hook (lambda () (setq debug-on-quit nil)))
   :config
   (setq debug-on-error t)
-  (add-hook 'after-init-hook (lambda () (setq debug-on-error nil)))
   )
 
 ;;; [ Edebug ] -- Edebug is a source level debugger.
 
 (use-package edebug
   :bind (:map emacs-lisp-mode-map ("C-c d e" . edebug-mode))
-  :init
-  (add-to-list 'display-buffer-alist
-               '("^\\*edebug-trace\\*" (display-buffer-below-selected)))
   :config
-  (setq edebug-trace t)
+  ;; (setq edebug-trace t)
+  ;; (add-to-list 'display-buffer-alist
+  ;;              '("^\\*edebug-trace\\*" (display-buffer-below-selected)))
   )
 
 ;;; [ edebug-x ] -- Extensions for Edebug.
@@ -67,6 +65,11 @@
                                        (color-darken-name (face-background 'default) 5))))
     )
   (add-hook 'circadian-after-load-theme-hook #'my-edebug-set-face)
+
+  (add-to-list 'display-buffer-alist
+               '("^\\*Instrumented Functions\\*" (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("^\\*Edebug Breakpoints\\*" (display-buffer-below-selected)))
   )
 
 
