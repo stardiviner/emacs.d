@@ -12,10 +12,12 @@
 (use-package company
   :ensure t
   :commands (global-company-mode)
+  :init
+  (add-hook 'after-init-hook 'global-company-mode)
   :config
   (setq company-minimum-prefix-length 3
         ;; decrease this delay when you can type code continuously fast.
-        company-idle-delay .2
+        company-idle-delay .1
         ;; determine which characters trigger auto-completion the selected candidate.
         company-auto-complete nil ; nil: don't auto select the first candidate when input `company-auto-complete-chars'.
         ;; '(?_ ?\( ?w ?. ?\" ?$ ?\' ?/ ?| ?! ?#)
@@ -67,9 +69,8 @@ In that case, insert the number."
                    ;; :separate company-ispell ; for word completion in comment.
                    )
                   (company-keywords
-                   :with
-                   company-dabbrev-code)
-                  company-abbrev
+                   :with company-dabbrev-code
+                   :with company-abbrev)
                   )
                 )
 
@@ -82,10 +83,6 @@ In that case, insert the number."
       (add-to-list (make-local-variable 'company-backends)
                    `(,backend :with company-yasnippet))
       ))
-
-  ;; globally
-  ;; (global-company-mode 1)
-  (add-hook 'after-init-hook 'global-company-mode)
 
   ;; keybindings
 
