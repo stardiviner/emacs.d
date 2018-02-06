@@ -15,6 +15,8 @@
 
 (global-font-lock-mode t)
 
+(require 'color) ; for `color-lighten-name' and `color-darken-name'
+
 ;;; [ leuven-theme ] -- Awesome Emacs color theme on white background.
 
 (use-package leuven-theme
