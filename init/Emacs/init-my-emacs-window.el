@@ -57,47 +57,6 @@
   :config
   (winner-mode 1))
 
-;;; [ golden-ratio ] -- automatic resizing of Emacs windows to the golden ratio.
-
-(use-package golden-ratio
-  :ensure t
-  :config
-  (setq golden-ratio-auto-scale t
-        golden-ratio-adjust-factor 1.0
-        golden-ratio-wide-adjust-factor 0.8
-        golden-ratio-recenter t)
-
-  ;; add window navigation commands to `golden-ratio' triggers list.
-  (setq golden-ratio-extra-commands
-        (append golden-ratio-extra-commands
-                '(window-number-select ace-window)))
-
-  ;; exclude
-  (setq golden-ratio-exclude-modes
-        (append golden-ratio-exclude-modes
-                '(ediff-mode
-                  calendar-mode calc-mode dired-mode
-                  speedbar-mode project-explorer-mode
-                  gnus-summary-mode gnus-article-mode
-                  mu4e-headers-mode mu4e-compose-mode
-                  restclient-mode
-                  )))
-
-  (setq golden-ratio-exclude-buffer-regexp '("\\`\\*.*?\\*\\'")) ; *...* buffers
-  ;; "\\`\\*[Hh]elm.*\\*\\'"
-  (setq golden-ratio-exclude-buffer-names '(" *Org todo*" " *Org tags*"))
-  (add-to-list 'golden-ratio-exclude-buffer-names " *which-key*")
-  
-  ;; manually re-fit ratio.
-  ;; (global-set-key (kbd "C-C C-j") 'golden-ratio)
-
-  ;; fix `ediff' buffers alignment issue.
-  (add-hook 'ediff-before-setup-windows-hook #'(lambda () (golden-ratio-mode -1)))
-  (add-hook 'ediff-quit-hook #'(lambda () (golden-ratio-mode 1)))
-  
-  (golden-ratio-mode 1)
-  )
-
 ;;; [ ace-window ] -- Quickly switch windows in Emacs.
 
 (use-package ace-window
