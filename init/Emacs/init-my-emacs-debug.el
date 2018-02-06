@@ -5,11 +5,6 @@
 
 ;;; Code:
 
-(unless (boundp 'emacs-debug-prefix)
-  (define-prefix-command 'emacs-debug-prefix))
-(global-set-key (kbd "C-x C-d") 'emacs-debug-prefix)
-
-
 (defun emacs-version-detail ()
   "Insert version of Emacs and 7 characters of the commit hash."
   (interactive)
@@ -34,12 +29,7 @@
 ;;; [ Edebug ] -- Edebug is a source level debugger.
 
 (use-package edebug
-  :bind (:map emacs-lisp-mode-map
-              ("C-x C-d C-e" . edebug-mode)
-              ("C-x C-d f" . edebug-defun)
-              ("C-x C-d b" . edebug-set-breakpoint)
-              ("C-x C-d e" . edebug-on-entry)
-              ("C-x C-d C-l" . edebug-where))
+  :bind (:map emacs-lisp-mode-map ("C-c d e" . edebug-mode))
   :init
   (add-to-list 'display-buffer-alist
                '("^\\*edebug-trace\\*" (display-buffer-below-selected)))
@@ -51,9 +41,13 @@
 
 (use-package edebug-x
   :ensure t
-  :init
+  :preface
   (autoload 'color-darken-name "color.el")
   (autoload 'color-lighten-name "color.el")
+  :bind (:map edebug-mode-map
+              ("M-s" . edebug-x-show-data)
+              ("M-b" . edebug-x-show-breakpoints)
+              ("M-i" . edebug-x-show-instrumented))
   :config
   (defun my-edebug-set-face (theme)
     "Set edebug-x faces based on `circadian' color `THEME' switching"
@@ -196,19 +190,7 @@
 ;;; [ Benchmarking ]
 
 
-;;; [ profiler ]
-
-(unless (boundp 'emacs-profiler-prefix)
-  (define-prefix-command 'emacs-profiler-prefix))
-(define-key emacs-debug-prefix (kbd "p") 'emacs-profiler-prefix)
-
-(use-package profiler
-  :bind (:map emacs-profiler-prefix
-              ("p" . profiler-start)
-              ("s" . profiler-stop)
-              ("r" . profiler-report)
-              ("x" . profiler-reset))
-  )
+;;; [ profiler ] -- Emacs buolt-in profiler.
 
 
 (provide 'init-my-emacs-debug)

@@ -74,8 +74,7 @@
 
 (use-package macrostep
   :ensure t
-  :bind (:map emacs-debug-prefix
-              ("m" . macrostep-expand))
+  :commands (macrostep-expand)
   :config
   (setq macrostep-expand-in-separate-buffer nil
         macrostep-expand-compiler-macros t))
