@@ -57,6 +57,7 @@ $0`(yas-escape-text yas-selected-text)`"
   (defun my-yasnippet-set-face (&args)
     (set-face-attribute 'yas-field-highlight-face nil
 		                    :inherit 'highlight
+                        :foreground nil :background nil
                         :box '(:color "dim gray" :line-width 1)
                         ))
   

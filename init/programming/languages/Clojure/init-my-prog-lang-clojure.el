@@ -79,115 +79,43 @@
 
 (use-package cider
   :ensure t
+  :after clojure-mode
+  :init
+  (add-hook 'clojure-mode-hook #'cider-mode)
   :config
   (setq cider-auto-mode t
-        nrepl-hide-special-buffers nil
-        cider-repl-pop-to-buffer-on-connect nil
+        ;; cider-repl-pop-to-buffer-on-connect nil
         cider-auto-select-error-buffer t
-        nrepl-buffer-name-separator " "
-        nrepl-buffer-name-show-port nil
-        nrepl-log-messages t
-        nrepl-prompt-to-kill-server-buffer-on-quit t
+        ;; nrepl-log-messages t
 
-        ;; versions
-        ;; cider-jack-in-auto-inject-clojure "1.9.0-alpha12"
-        ;; cider-minimum-clojure-version "1.8.0"
-        ;; cider-required-nrepl-version "0.2.12"
-        
         ;; Leiningen parameters
-        ;; cider-lein-command
-        ;; cider-lein-global-options "-o"
+        ;; cider-lein-global-options "-o" ; -o:  for offline
         ;; cider-lein-parameters "repl :headless :host ::"
-        
-        ;; resources
-        cider-prefer-local-resources t
-
-        ;; font-lock
-        cider-font-lock-dynamically '(macro core deprecated function)
-
-        ;; indent
-        cider-dynamic-indentation t
-        
-        ;; REPL
-        cider-inject-dependencies-at-jack-in t
-        cider-repl-display-in-current-window nil
-        cider-repl-pop-to-buffer-on-connect nil
-        cider-save-file-on-load t
-        cider-repl-result-prefix ";; => "
-        cider-repl-use-clojure-font-lock t
-        ;; cider-repl-tab-command 'cider-repl-indent-and-complete-symbol
-        ;; cider-known-endpoints '(("host-a" "10.10.10.1" "7888") ("host-b" "7888"))
-        cider-repl-use-pretty-printing t
-        ;; cider-pprint-fn 'fipp
-        cider-repl-wrap-history t
-        cider-repl-history-size 500
-        cider-repl-history-file nil
-        cider-show-error-buffer t
 
         ;; ClojureScript
         ;; cider-cljs-lein-repl
         ;; cider-cljs-boot-repl
-        ;; cider-cljs-gradle-repl
-        
-        ;; pretty-printing
+
+        ;; resources
+        ;; cider-prefer-local-resources t
+
+        ;; font-lock
+        cider-font-lock-dynamically '(macro core deprecated function)
+
+        ;; REPL
+        cider-repl-result-prefix ";; => "
+        ;; cider-known-endpoints '(("host-a" "10.10.10.1" "7888") ("host-b" "7888"))
+        cider-repl-use-pretty-printing t
         ;; cider-pprint-fn 'fipp
-        
-        ;; Eval
-        cider-show-eval-spinner t
-        cider-eval-spinner-delay 1
-        cider-eval-spinner-type 'progress-bar
-        cider-use-overlays 'both
-        cider-overlays-use-font-lock t ; use overlay for results.
-        cider-result-use-clojure-font-lock t
-        cider-eval-result-duration 'command
-        ;; cider-auto-track-ns-form-changes t
-
-        ;; Enlighten
-
-        ;; Fringe linter
-        cider-use-fringe-indicators t
-
-        ;; mouse over tooltips
-        cider-use-tooltips t
-        
-        ;; Compilation
-        cider-auto-jump-to-error 'errors-only
-        cider-auto-select-error-buffer t
-
-        ;; clojure.test
-        cider-test-show-report-on-success nil
-
-        ;; stacktraces
-        cider-show-error-buffer t
-        cider-auto-select-error-buffer t
-        cider-stacktrace-default-filters '(tooling dup)
-
-        ;; debugging
-
-        ;; code reloading
-        cider-refresh-show-log-buffer t
-
-        ;; multiple connections
-        cider-request-dispatch 'dynamic
-
-        ;; Mode Line
-        cider-mode-line-show-connection t
-
-        ;; project
-        cider-prompt-for-project-on-connect 'when-needed
-
-        ;; build tool
-        ;; cider-preferred-build-tool "boot"
         )
 
-  ;; Complete & annotations
-  (setq cider-completion-use-context t
-        cider-annotate-completion-candidates t
-        ;; cider-completion-annotations-include-ns 'always ; 'unqualified
-        ;; https://en.wikipedia.org/wiki/Mathematical_Alphanumeric_Symbols#Tables
-        ;; cider-completion-annotations-alist '(()
-        ;;                                      ())
-        )
+  ;; annotations
+  ;; (setq cider-completion-annotations-alist
+  ;;       `(("function" ,(all-the-icons-faicon "file-text-o" :face 'company-tooltip-annotation :v-adjust -0.05))
+  ;;         ("variable" ,(all-the-icons-faicon "file-o" :face 'company-tooltip-annotation :v-adjust -0.05))
+  ;;         ("macro" ,(all-the-icons-faicon "codepen" :face 'company-tooltip-annotation :v-adjust -0.05))
+  ;;         ("protocol" ,(all-the-icons-faicon "link" :face 'company-tooltip-annotation :v-adjust -0.05))
+  ;;         ))
 
   ;; Java
 
@@ -199,13 +127,10 @@
   ;; `cider-complete-at-point' in `completion-at-point-functions'
   (add-hook 'cider-repl-mode-hook #'company-mode)
   (add-hook 'cider-mode-hook #'company-mode)
-
   ;; enable fuzzy completion for CIDER
   ;; (add-hook 'cider-repl-mode-hook #'cider-company-enable-fuzzy-completion)
   ;; (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
 
-  (setq cider-doc-auto-select-buffer t)
-  
   ;; (use-package cider-hydra
   ;;   :ensure t
   ;;   :config
@@ -215,16 +140,14 @@
   ;; enable `eldoc' in relevant buffers.
   (add-hook 'cider-mode-hook #'eldoc-mode)
   (add-hook 'cider-repl-mode-hook #'eldoc-mode)
-  (setq cider-eldoc-display-for-symbol-at-point nil
+  ;; (add-hook 'cider-repl-mode-hook #'cider-repl-require-repl-utils) ; require common functions like doc, source, etc.
+  (setq cider-eldoc-display-for-symbol-at-point t
         cider-eldoc-display-context-dependent-info t ; for datomic query input parameters
         )
 
   (add-hook 'cider-repl-mode-hook #'subword-mode)
-
-  ;; enable `cider-mode' in `clojure-mode'.
-  (add-hook 'clojure-mode-hook #'cider-mode)
   
-  (setq cider-allow-jack-in-without-project t)
+  ;; (setq cider-allow-jack-in-without-project t)
   ;; (add-hook 'after-init-hook #'cider-jack-in)
 
   ;; notify user CIDER is connected.
@@ -255,7 +178,6 @@
 
   
   (defconst cider-metadata-buffer "*cider-metadata*")
-
   (defun cider-metadata (var &optional ns)
     "Show VAR's metadata in a separate buffer.
 
@@ -340,8 +262,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   :ensure t
   :init
   (with-eval-after-load 'flycheck
-    (flycheck-clojure-setup))
-  )
+    (flycheck-clojure-setup)))
 
 
 ;;; [ clj-refactor ]

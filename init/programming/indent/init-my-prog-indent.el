@@ -64,6 +64,7 @@
 
   (defun my-indent-guide-set-face (&args)
     (set-face-attribute 'indent-guide-face nil
+                        :background nil
                         :foreground (cl-case (alist-get 'background-mode (frame-parameters))
                                       ('light
                                        (color-darken-name (face-background 'default) 35))

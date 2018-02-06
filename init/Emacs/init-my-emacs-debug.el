@@ -50,19 +50,19 @@
   (defun my-edebug-set-face (theme)
     "Set edebug-x faces based on `circadian' color `THEME' switching"
     (set-face-attribute 'hi-edebug-x-stop nil
-                        :overline t
+                        :reverse-video nil :foreground nil :overline t
                         :background (cl-case (alist-get 'background-mode (frame-parameters))
                                       ('light
                                        (color-darken-name (face-background 'default) 10))
                                       ('dark
                                        (color-darken-name (face-background 'default) 5))))
     (set-face-attribute 'hi-edebug-x-debug-line nil
-                        :underline t
+                        :reverse-video nil :foreground nil :underline t
                         :background (cl-case (alist-get 'background-mode (frame-parameters))
                                       ('light
                                        (color-darken-name (face-background 'default) 10))
                                       ('dark
-                                       (color-darken-name (face-background 'default) 5))))
+                                       (color-darken-name (face-background 'default) 10))))
     )
   (add-hook 'circadian-after-load-theme-hook #'my-edebug-set-face)
 

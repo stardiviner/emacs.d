@@ -122,6 +122,7 @@
   :config
   (defun my-hl-sexp-set-face (&args)
     (set-face-attribute 'hl-sexp-face nil
+                        :reverse-video nil :foreground nil
                         :background (cl-case (alist-get 'background-mode (frame-parameters))
                                       ('light
                                        (color-darken-name (face-background 'default) 4))
