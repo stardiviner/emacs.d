@@ -25,6 +25,12 @@
   :config
   (setq leuven-scale-outline-headlines t)
   ;; (load-theme 'leuven t)
+
+  ;; remove underline for `hl-line'.
+  (defun my:leuven-theme-disable-underline (&args)
+    (if (custom-theme-enabled-p 'leuven)
+        (set-face-attribute 'hl-line nil :underline nil)))
+  (add-hook 'circadian-after-load-theme-hook #'my:leuven-theme-disable-underline)
   )
 
 ;;; [ spacemacs-theme ] -- Spacemacs default color-theme.
