@@ -95,7 +95,7 @@
 (require 'init-my-emacs-performance)
 (require 'init-my-emacs-security)
 (require 'init-my-emacs-font)
-(require 'init-my-emacs-color-theme)
+(require 'init-my-emacs-theme)
 (require 'init-my-emacs-appearance)
 ;; (require 'init-my-emacs-prettify)
 ;; (require 'init-my-emacs-emoji)

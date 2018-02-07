@@ -1,4 +1,4 @@
-;;; init-my-emacs-color-theme.el --- init for color theme
+;;; init-my-emacs-theme.el --- Init for Themes
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -92,6 +92,6 @@
   (circadian-setup))
 
 
-(provide 'init-my-emacs-color-theme)
+(provide 'init-my-emacs-theme)
 
-;;; init-my-emacs-color-theme.el ends here
+;;; init-my-emacs-theme.el ends here
