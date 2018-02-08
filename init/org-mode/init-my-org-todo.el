@@ -167,7 +167,7 @@
   (org-set-property "LOGGING" "TODO DONE(!)")
   )
 
-(define-key org-mode-map (kbd "C-c C-x h") 'org-habit-apply)
+(define-key org-mode-map (kbd "C-c C-x M-h") 'org-habit-apply)
 
 ;; ;; "Face for future days on which a task shouldn't be done yet."
 ;; (set-face-attribute 'org-habit-clear-future-face nil
