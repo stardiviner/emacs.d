@@ -2,8 +2,8 @@
 # name: babel SQL MySQL
 # key: babel-sql-mysql
 # --
-#+NAME: ${1:source code name}
-#+headers: :cmdline -h ${2:localhost} -u ${3:username} --p${4:password} -D ${5:dbname} -t ${6:table}
+${1:#+NAME: ${2:src block name}
+}#+headers: :cmdline -h ${3:localhost} -u ${4:username} -p${5:password}${6: -D ${7:dbname} -t ${8:table}}
 #+begin_src sql :engine mysql
 $0
 #+end_src

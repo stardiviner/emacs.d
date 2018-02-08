@@ -2,9 +2,9 @@
 # name: babel sqlite
 # key: babel-sql-sqlite
 # --
-#+NAME: $1
-#+headers: :db ${2:test.db} ${3::dir data/source/} ${4::echo} :results raw
-#+header: ${5:$$(yas-choose-value '(":column" ":list" ":line" ":csv" ":html"))}
+${1:#+NAME: ${2:src block name}
+}#+headers: :db ${3:test.db} ${4::dir data/source/} ${5::echo} :results raw
+#+header: ${6:$$(yas-choose-value '(":column" ":list" ":line" ":csv" ":html"))}
 #+begin_src sqlite
 $0
 #+end_src

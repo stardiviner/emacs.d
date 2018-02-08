@@ -2,6 +2,7 @@
 # name: babel sql
 # key: babel-sql
 # --
-#+begin_src sql :engine ${1:engine:postgresql} :exports results :cmdline -p 5443 -h ${2:HOST} -U ${3:username} -d ${4:password}
+${1:#+NAME: ${2:src block name}
+}#+begin_src sql :engine ${3:engine:${4:$$(yas-choose-value '("mysql" "postgresql"))}} :exports results :cmdline -h ${5:HOST} -p ${6:PORT: 5443} -U ${7:username} -d ${8:password}
 $0
 #+end_src

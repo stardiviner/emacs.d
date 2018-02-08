@@ -2,9 +2,9 @@
 # name: SQL PostgreSQL Query
 # key: babel-sql-postgresql-query
 # --
-#+NAME: ${1:source code name}
-${5:#+headers: :var table="${6:table name}"
-}#+headers: :cmdline -h ${2:localhost} -U ${3:username} -w -d ${4:dbname}
+${1:#+NAME: ${2:src block name}
+}${6:#+headers: :var table="${7:table name}"
+}#+headers: :cmdline -h ${3:localhost} -U ${4:username} -w -d ${5:dbname}
 #+begin_src sql :engine postgresql :results table
 $0
 #+end_src

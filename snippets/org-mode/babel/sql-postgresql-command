@@ -3,8 +3,8 @@
 # key: babel-sql-postgresql-command
 # group: babel.sql.postgresql
 # --
-#+NAME: ${1:source code name}
-#+headers: :cmdline -h ${2:localhost} -U ${3:username} -w -d ${4:dbname}
+${1:#+NAME: ${2:src block name}
+}#+headers: :cmdline -h ${3:localhost} -U ${4:username} -w -d ${5:dbname}
 #+begin_src sql :engine postgresql
 $0
 #+end_src
