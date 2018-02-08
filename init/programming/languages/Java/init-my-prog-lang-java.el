@@ -135,6 +135,11 @@
 ;;              (concat (getenv "HOME")
 ;;                      "/.sdkman/candidates/groovy/current/bin"))
 
+;;; [ javap-mode ] -- show the ouput of javap when opening a jvm class file in Emacs.
+
+(use-package javap-mode
+  :ensure t)
+
 ;;; [ jdecomp ] -- Emacs interface to Java decompilers.
 
 ;; (use-package jdecomp
