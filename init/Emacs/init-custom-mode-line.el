@@ -745,7 +745,8 @@ dimensions of a block selection."
              (org-clock-is-active)
              org-clock-idle-timer)
     (concat
-     (all-the-icons-material "av_timer")
+     (all-the-icons-faicon "hourglass-half"
+                           :v-adjust -0.05 :height 0.9 :face 'mode-line-data-face)
      (propertize " " 'face 'variable-pitch)
      ;; get [0:05] from `org-clock-get-clock-string'
      (propertize
@@ -753,8 +754,7 @@ dimensions of a block selection."
       'face 'mode-line-data-face)
      ;; get clocking task title
      (propertize
-      (format " %s" (s-truncate 30 org-clock-heading))
-      'face '(:foreground "gray"))
+      (format " %s" (s-truncate 30 org-clock-heading)))
      (propertize " " 'face 'variable-pitch))
     )
   )
@@ -806,7 +806,8 @@ dimensions of a block selection."
       ;; - `org-timer-mode-line-string'
       (propertize
        (concat
-        (all-the-icons-material "alarm_on" :v-adjust 0.05)
+        (all-the-icons-faicon "hourglass-half"
+                              :v-adjust -0.05 :height 0.9 :face 'mode-line-data-face)
         (format "%s" org-timer-mode-line-string))
        'face 'mode-line-data-face)
     )
@@ -816,10 +817,24 @@ dimensions of a block selection."
 (use-package org-pomodoro
   :ensure t
   :config
+  (setq org-pomodoro-format
+        (concat
+         (all-the-icons-faicon "refresh"
+                               :v-adjust -0.05 :height 0.9 :face 'mode-line-data-face)
+         (propertize " %s")))
+  (setq org-pomodoro-short-break-format
+        (concat
+         (all-the-icons-faicon "pause-circle-o"
+                               :v-adjust -0.05 :height 0.9 :face 'mode-line-data-face)
+         (propertize " %s")))
+  (setq org-pomodoro-long-break-format
+        (concat
+         (all-the-icons-faicon "pause-circle"
+                               :v-adjust -0.05 :height 0.9 :face 'mode-line-data-face)
+         (propertize " %s")))
   (defun *pomodoro ()
     "Show pomodoro/org-pomodoro timer in custom mode-line."
-    (if (and (org-pomodoro-active-p)
-             (active))
+    (if (and (org-pomodoro-active-p) (active))
         (propertize (format "%s" org-pomodoro-mode-line)
                     'face 'mode-line-data-face))
     )
