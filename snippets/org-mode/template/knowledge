@@ -1,0 +1,20 @@
+# -*- mode: snippet -*-
+# name: knowledge template
+# key: template-knowledge
+# group: template
+# --
+* Intro
+
+$0
+
+
+* Data
+
+** Help
+
+** Wiki
+
+*** Manuals
+
+** Books
+
