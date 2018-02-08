@@ -157,11 +157,15 @@
   (defun *eyebrowse ()
     "Displays `default-directory', for special buffers like the scratch buffer."
     (concat
-     (all-the-icons-faicon "th" :v-adjust -0.05)
+     (all-the-icons-faicon "th" :v-adjust -0.1)
      (propertize
       ;; (eyebrowse-mode-line-indicator)
-      (format "[%s#%s] " (eyebrowse--get 'current-slot) (length (eyebrowse--get 'window-configs)))
-      'face '(:foreground "dark orange"))))
+      (let ((current-slot-number (eyebrowse--get 'current-slot))
+            (current-slot-tag (cadr (alist-get (eyebrowse--get 'current-slot) (eyebrowse--get 'window-configs))))
+            (slot-numbers (length (eyebrowse--get 'window-configs))))
+	      (format "[%s:%s] " current-slot-number current-slot-tag))
+      'face 'mode-line-data-face)
+     ))
   )
 
 ;; (use-package perspeen
