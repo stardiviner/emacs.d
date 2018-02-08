@@ -175,10 +175,7 @@
 ;; Emphasize
 ;; org-verbatim: =verbatim=
 (set-face-attribute 'org-verbatim nil
-                    ;; :slant 'italic
-                    :overline t
-                    ;; :family "Comic Sans MS"
-                    )
+                    :family "DejaVu Serif" :height 110)
 
 ;; table
 (set-face-attribute 'org-table nil
@@ -369,7 +366,7 @@
 ;; inline code face => ~code~,  #+RESULTS: : result.
 (set-face-attribute 'org-code nil
                     :inherit nil
-                    :family "DejaVu Sans Mono"
+                    :family "DejaVu Serif" :height 110
                     :background (cl-case (alist-get 'background-mode (frame-parameters))
                                   ('light
                                    (color-darken-name (face-background 'default) 7))
