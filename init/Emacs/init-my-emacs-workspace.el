@@ -111,6 +111,10 @@
   (add-to-list 'window-persistent-parameters '(window-slot . writable))
 
   (eyebrowse-mode t)
+
+  (advice-add 'eyebrowse-create-window-config :after
+              (lambda () (interactive)
+                (command-execute 'eyebrowse-rename-window-config)))
   )
 
 
