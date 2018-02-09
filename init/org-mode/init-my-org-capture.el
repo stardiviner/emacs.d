@@ -18,8 +18,9 @@
       '(("c" "[C]apture"
          entry (file "")
          ;; select todo keyword interactively from `org-todo-keywords'.
-         "* %(completing-read \"Todo keyword: \" org-todo-keywords-for-agenda nil t) %^{Capture}\n\n%i\n%a\n\n%?"
-         :prepend t
+         "* %(completing-read \"Todo keyword: \" org-todo-keywords-for-agenda nil t) %^{Capture} \n:PROPERTIES:\n:TIME: %U\n:END: \n%i\n%a\n\n%?"
+         ;; :prepend t
+         ;; :time-prompt t
          :empty-lines 1
          )
 
@@ -34,6 +35,7 @@
         ("d" "Write [d]iary"
          entry (file+olp+datetree "~/Org/Diary/Diary.org")
          "* %^{Diary Title}\n:PROPERTIES:\n:TIME: %U\n:END: \n\n[[file:%<%Y-%m-%d-%R>.org][On %<%Y-%m-%d %R>]]\n\nEvent: %?\n\n%i\n\n"
+         ;; :time-prompt t
          :empty-lines 1
          :jump-to-captured t
          )
