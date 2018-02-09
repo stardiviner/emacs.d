@@ -13,25 +13,17 @@
   :ensure t
   :defer t
   :config
-  (setq org-tree-slide-header t
-        org-tree-slide-cursor-init t
-        org-tree-slide-skip-done nil
-        org-tree-slide-slide-in-effect t
-        org-tree-slide-heading-emphasis t
-        org-tree-slide-modeline-display 'outside
-        org-tree-slide-fold-subtrees-skipped t)
+  (setq org-tree-slide-skip-done nil
+        org-tree-slide-heading-emphasis t)
   
   ;; profiles
   ;; (org-tree-slide-simple-profile)
   (org-tree-slide-presentation-profile)
   ;; (org-tree-slide-narrowing-control-profile)
 
-  (define-key Org-prefix (kbd "C-s") 'org-tree-slide-mode)
-  ;; (global-set-key (kbd "S-<f8>") 'org-tree-slide-skip-done-toggle)
-  
-  (define-key org-tree-slide-mode-map (kbd "C-SPC") 'org-tree-slide-move-next-tree)
-  ;; (define-key org-tree-slide-mode-map (kbd "SPC") 'org-tree-slide-move-next-tree)
-  (define-key org-tree-slide-mode-map (kbd "S-SPC") 'org-tree-slide-move-previous-tree)
+  (define-key Org-prefix (kbd "s") 'org-tree-slide-mode)
+  (define-key org-tree-slide-mode-map (kbd "<left>") 'org-tree-slide-move-next-tree)
+  (define-key org-tree-slide-mode-map (kbd "<right>") 'org-tree-slide-move-previous-tree)
   )
 
 
