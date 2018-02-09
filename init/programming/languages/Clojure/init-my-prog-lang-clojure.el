@@ -155,20 +155,21 @@
   ;;           (lambda ()
   ;;             (notifications-notify :title "CIDER connected"
   ;;                                   :body "CIDER process connected.")))
+
+  ;; cider-profile.el [C-c C-=]
+  
   
   ;; CIDER inspect command keybindings
   (unless (boundp 'cider-inspect-prefix)
     (define-prefix-command 'cider-inspect-prefix))
-
-  (add-hook 'clojure-mode-hook
-            (lambda ()
-              (local-set-key (kbd "C-c i") 'cider-inspect-prefix)
-              (define-key cider-inspect-prefix (kbd "r") 'cider-inspect-last-result)
-              (define-key cider-inspect-prefix (kbd "E") 'cider-inspect-expr)
-              (define-key cider-inspect-prefix (kbd "d") 'cider-inspect-defun-at-point)
-              (define-key cider-inspect-prefix (kbd "e") 'cider-inspect-last-sexp)
-              (define-key cider-inspect-prefix (kbd "i") 'cider-inspect-read-and-inspect)
-              ))
+  (defun my:cider-setup-inspect-keybindings ()
+    (local-set-key (kbd "C-c i") 'cider-inspect-prefix)
+    (define-key cider-inspect-prefix (kbd "r") 'cider-inspect-last-result)
+    (define-key cider-inspect-prefix (kbd "E") 'cider-inspect-expr)
+    (define-key cider-inspect-prefix (kbd "d") 'cider-inspect-defun-at-point)
+    (define-key cider-inspect-prefix (kbd "e") 'cider-inspect-last-sexp)
+    (define-key cider-inspect-prefix (kbd "i") 'cider-inspect-read-and-inspect))
+  (add-hook 'clojure-mode-hook #'my:cider-setup-inspect-keybindings)
 
   ;; manage CIDER popup buffers.
   (add-to-list 'display-buffer-alist
