@@ -352,17 +352,12 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 (add-to-list 'org-babel-default-header-args:clojure ; for Clojure `dotimes' etc.
              '(:show-process . "no"))
 
-;;; [ ob-clojure-literate ]
+;;; [ ob-clojure-literate ] -- Clojure Literate Programming in Org-mode Babel.
 
-(use-package ob-clojure-literate
-  ;; :ensure t
-  :load-path "~/Code/Emacs/ob-clojure-literate/"
-  :after org
-  :init
-  (setq ob-clojure-literate-auto-jackin-p t)
-  ;; (add-hook 'org-mode-hook #'ob-clojure-literate-mode)
-  (define-key org-babel-map (kbd "M-c") 'ob-clojure-literate-mode)
-  )
+(require 'ob-clojure-literate)
+(setq ob-clojure-literate-auto-jackin-p t)
+;; (add-hook 'org-mode-hook #'ob-clojure-literate-mode)
+(define-key org-babel-map (kbd "M-c") 'ob-clojure-literate-mode)
 
 
 ;;; auto start CIDER REPL session in a complete Leiningen project environment for Org-mode Babel by jack-in.

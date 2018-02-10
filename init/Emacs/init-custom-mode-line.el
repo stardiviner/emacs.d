@@ -274,6 +274,7 @@ state (modified, read-only or non-existent)."
 
 ;;; bookmark
 ;;; TODO: optimize the performance
+(require 'bookmark)
 (defun *bookmark ()
   "Show bookmark icon if current buffer is bookmarked."
   (let* ((bookmark
@@ -289,7 +290,7 @@ state (modified, read-only or non-existent)."
                       'mouse-1 `(lambda () (interactive)
                                   (if ,(car bookmark)
                                       (bookmark-delete ,(car bookmark))
-                                    (bookmark-set ,bookmark-name))
+                                    (bookmark-set ,bookmark))
                                   (force-mode-line-update))))
          (propertize " " 'face 'variable-pitch))
       )))
@@ -474,30 +475,31 @@ state (modified, read-only or non-existent)."
                         (all-the-icons-faicon "check-square" :v-adjust -0.05
                                               :face (if (active) '(:foreground "dark sea green")))))
                      (`running
-                      (all-the-icons-faicon "ellipsis-h"
-                                            :v-adjust -0.05
-                                            :face (if (active) '(:foreground "light sea green"))))
+                      (propertize (all-the-icons-faicon "ellipsis-h"
+                                                        :v-adjust -0.05
+                                                        :face (if (active) '(:foreground "light sea green")))
+                                  'help-echo "Flycheck running ..."))
                      (`no-checker
-                      (concat (all-the-icons-octicon "alert" :v-adjust -0.05
-                                                     :face (if (active) '(:foreground "dark gray")))
-                              (propertize (format " %s" "No Checker"))))
+                      (propertize (all-the-icons-octicon "alert" :v-adjust -0.05
+                                                         :face (if (active) '(:foreground "dark gray")))
+                                  'help-echo "No Checker"))
                      (`not-checked
-                      (concat (all-the-icons-faicon "exclamation-circle" :v-adjust -0.05
-                                                    :face (if (active) '(:foreground "orange")))
-                              (propertize (format " %s" "Disabled"))))
+                      (propertize (all-the-icons-faicon "exclamation-circle" :v-adjust -0.05
+                                                        :face (if (active) '(:foreground "orange")))
+                                  'help-echo "Not Checked"))
                      (`errored
-                      (concat (all-the-icons-faicon "exclamation-triangle" :v-adjust -0.05
-                                                    :face (if (active) '(:foreground "red")))
-                              (propertize (format " %s" "Error"))))
+                      (propertize (all-the-icons-faicon "exclamation-triangle" :v-adjust -0.05
+                                                        :face (if (active) '(:foreground "red")))
+                                  'help-echo "Errored"))
                      (`interrupted
-                      (concat (all-the-icons-faicon "ban" :v-adjust -0.05
-                                                    :face (if (active) '(:foreground "dark orange")))
-                              (propertize (format " %s" "Interrupted"))))
+                      (propertize (all-the-icons-faicon "ban" :v-adjust -0.05
+                                                        :face (if (active) '(:foreground "dark orange")))
+                                  'help-echo "Interrupted"))
                      (`suspicious
-                      (all-the-icons-faicon "question-circle" :v-adjust -0.05
-                                            :face (if (active) '(:foreground "dark magenta")))))))
+                      (propertize (all-the-icons-faicon "question-circle" :v-adjust -0.05
+                                                        :face (if (active) '(:foreground "dark magenta")))
+                                  'help-echo "Suspicious")))))
         (propertize text
-                    'help-echo "Show Flycheck Errors"
                     'mouse-face '(:box 1)
                     'local-map (make-mode-line-mouse-map
                                 'mouse-1 (lambda () (interactive) (flycheck-list-errors)))))
@@ -585,10 +587,10 @@ dimensions of a block selection."
 ;;; anzu
 (use-package anzu
   :ensure t
-  :init
-  ;; (defvar anzu--state)
-  ;; (defvar anzu--overflow-p)
-  (make-variable-buffer-local 'anzu--state)
+  :preface
+  (defvar anzu--state nil)
+  (defvar anzu--overflow-p nil)
+  (make-local-variable 'anzu--state)
   :config
   (defun *anzu ()
     "Show the match index and total number thereof.  Requires `evil-anzu'."
@@ -633,22 +635,6 @@ dimensions of a block selection."
          (format "[%d]" (mc/num-cursors)) ; `mc/mode-line'
          'face 'mode-line-meta-face)))
   )
-
-;;; Evil substitute
-(defun *evil-substitute ()
-  "Show number of :s match in real time."
-  (when (and (evil-ex-p) (evil-ex-hl-active-p 'evil-ex-substitute))
-    (propertize
-     (let ((range (if evil-ex-range
-                      (cons (car evil-ex-range) (cadr evil-ex-range))
-                    (cons (line-beginning-position) (line-end-position))))
-           (pattern (car-safe (evil-delimited-arguments evil-ex-argument 2))))
-       (if pattern
-           (format " %s matches "
-                   (count-matches pattern (car range) (cdr range))
-                   evil-ex-argument)
-         " ... "))
-     'face (if (active) 'mode-line-meta-face))))
 
 ;; input method
 (defun *input-method ()
@@ -701,7 +687,7 @@ dimensions of a block selection."
     (propertize
      (concat
       (propertize " " 'face 'variable-pitch)
-      (all-the-icons-faicon "circle-o" :v-adjust -0.05)
+      (all-the-icons-faicon "spinner" :v-adjust -0.05)
       ;; (format-mode-line "%s")
       mode-line-process)
      'face 'mode-line-data-face
@@ -709,20 +695,23 @@ dimensions of a block selection."
 
 ;; notifications
 ;; IRC
-(defun *erc ()
-  "Show ERC info from `erc-track-mode'."
-  (if (and (active)
-           (and (boundp 'erc-track-mode) erc-track-mode
-                (boundp 'erc-modified-channels-object))
-           ;; (erc-server-process-alive) ; detect buffer has ERC process alive.
-           ;; (erc-server-buffer-live-p)
-           (not (string-empty-p erc-modified-channels-object))
-           )
-      (concat
-       (all-the-icons-faicon "comments-o" :v-adjust 0.05)
-       (propertize (format "%s" erc-modified-channels-object)
-                   'face 'mode-line-data-face))
-    ))
+(use-package erc
+  :ensure t
+  :config
+  (defun *erc ()
+    "Show ERC info from `erc-track-mode'."
+    (if (and (active)
+             (and (boundp 'erc-track-mode) erc-track-mode
+                  (boundp 'erc-modified-channels-object))
+             ;; (erc-server-process-alive) ; detect buffer has ERC process alive.
+             ;; (erc-server-buffer-live-p)
+             (not (string-empty-p erc-modified-channels-object))
+             )
+        (concat
+         (all-the-icons-faicon "comments-o" :v-adjust 0.05)
+         (propertize (format "%s" erc-modified-channels-object)
+                     'face 'mode-line-data-face))
+      )))
 
 (use-package company
   :ensure t
@@ -931,14 +920,14 @@ dimensions of a block selection."
   )
 
 ;;; Lunar Sunrise/Sunset
-(use-package celestial-mode-line
-  :ensure t
-  :config
-  (celestial-mode-line-start-timer)
-  (defun *lunar-sun ()
-    (if (active)
-        celestial-mode-line-string))
-  )
+;; (use-package celestial-mode-line
+;;   :ensure t
+;;   :config
+;;   (celestial-mode-line-start-timer)
+;;   (defun *lunar-sun ()
+;;     (if (active)
+;;         celestial-mode-line-string))
+;;   )
 
 ;;; EMMS
 (use-package emms
@@ -1024,7 +1013,7 @@ dimensions of a block selection."
                  ;; 1 length.
                  " "
                  ;; (*time)
-                 (*lunar-sun)
+                 ;; (*lunar-sun)
                  (*space 1)
                  (*erc)
                  (*emms)
