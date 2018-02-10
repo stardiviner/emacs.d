@@ -161,12 +161,11 @@ when needed."
       (bookmark-set (my/pdf-generate-bookmark-name))))
   (defun my/pdf-jump-last-viewed-bookmark ()
     (interactive)
-    (when
-        (my/pdf-has-last-viewed-bookmark)
+    (when (and (not org-noter-doc)      ; Fix not compatible with `org-noter'.
+               (my/pdf-has-last-viewed-bookmark))
       (bookmark-jump (my/pdf-generate-bookmark-name))))
   (defun my/pdf-has-last-viewed-bookmark ()
-    (assoc
-     (my/pdf-generate-bookmark-name) bookmark-alist))
+    (assoc (my/pdf-generate-bookmark-name) bookmark-alist))
   (defun my/pdf-generate-bookmark-name ()
     (concat "PDF-LAST-VIEWED: " (buffer-file-name)))
   (defun my/pdf-set-all-last-viewed-bookmarks ()
@@ -198,18 +197,6 @@ when needed."
   ;; (add-to-list 'org-file-apps '("\\.pdf::\\([[:digit:]]+\\)\\'" . org-pdfview-open))
 
   (org-add-link-type "pdfview" 'org-pdfview-open 'org-pdfview-export)
-  )
-
-;; [ interleave ] -- Emacs minor mode to interleave notes and text books.
-(use-package interleave
-  :ensure t
-  :init
-  (unless (boundp 'Org-prefix)
-    (define-prefix-command 'Org-prefix))
-  (define-key Org-prefix (kbd "M-n") 'interleave-mode)
-  :config
-  (setq interleave-split-direction 'horizontal)
-  (add-to-list 'org-default-properties "INTERLEAVE_PDF")
   )
 
 ;; [ org-noter ] -- Emacs document annotator, using Org-mode.
