@@ -1,8 +1,11 @@
-# -*- mode: snippet; require-final-newline: nil -*-
-# name: babel sql
+# -*- mode: snippet -*-
+# name: babel SQL
 # key: babel-sql
+# group: babel.sql
 # --
-${1:#+NAME: ${2:src block name}
-}#+begin_src sql :engine ${3:engine:${4:$$(yas-choose-value '("mysql" "postgresql"))}} :exports results :cmdline -h ${5:HOST} -p ${6:PORT: 5443} -U ${7:username} -d ${8:password}
+
+${1:#+NAME: ${2:}
+}#+headers: :dbhost ${4:localhost} :dbuser ${5:postgres}${6: :dbpassword ${7:password}}${8: :databse ${9:test}}
+#+begin_src sql :engine ${3:$$(yas-choose-value '("postgresql" "mysql" "sqlite"))}
 $0
 #+end_src
