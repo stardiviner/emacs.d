@@ -97,7 +97,7 @@
 (require 'init-my-emacs-font)
 (require 'init-my-emacs-theme)
 (require 'init-my-emacs-appearance)
-;; (require 'init-my-emacs-prettify)
+(require 'init-my-emacs-prettify)
 ;; (require 'init-my-emacs-emoji)
 (require 'init-my-emacs-mode-line)
 (require 'init-my-emacs-popup)
