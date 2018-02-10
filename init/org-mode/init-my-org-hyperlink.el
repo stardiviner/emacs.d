@@ -92,7 +92,7 @@
         ;; ("\\.svg\\'" . "feh --magick-timeout 5 %s")
         ;; ("\\.svg\\'" . "display %s") ; Emacs built-in support display svg
         ;; Mind Maps
-        ("\\.mm\\'" . "freemind %s") ; freeplane
+        ("\\.mm\\'" . "freeplane %s")
         ;; Office
         ;; Open Text Document
         ("\\.odt\\'" . "libreoffice %s") ; Text Documentation
