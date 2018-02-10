@@ -160,6 +160,7 @@ when needed."
     (when (eq major-mode 'pdf-view-mode)
       (bookmark-set (my/pdf-generate-bookmark-name))))
   (defun my/pdf-jump-last-viewed-bookmark ()
+    (interactive)
     (when
         (my/pdf-has-last-viewed-bookmark)
       (bookmark-jump (my/pdf-generate-bookmark-name))))
@@ -183,27 +184,7 @@ when needed."
   )
 
 
-;; export annotations at once
-;;
-;; 1. Try M-x pp-eval-expression (pdf-annot-getannots nil '(text)) RET
-;;
-;; 2.
-;; (mapconcat
-;;  (lambda (x)
-;;    (alist-get 'contents x))
-;;  (pdf-annot-getannots nil nil)
-;;  "\n\n\nNext note:\n")
-
-
 ;;; [ org-pdfview ] -- org-link support for pdf-view-mode
-
-;;; Usage:
-;;
-;; - [[file:filename.pdf::(page-number)]]
-;; - org-pdfview will remember file reading position with `org-pdfview-store-link'.
-;;   But it will disappear after close Emacs session.
-;; - `org-pdfview-open'
-;; - `org-pdfview-export'
 
 (use-package org-pdfview
   :ensure t
@@ -217,64 +198,47 @@ when needed."
   ;; (add-to-list 'org-file-apps '("\\.pdf::\\([[:digit:]]+\\)\\'" . org-pdfview-open))
 
   (org-add-link-type "pdfview" 'org-pdfview-open 'org-pdfview-export)
-
-  ;; [ interleave ] -- Emacs minor mode to interleave notes and text books.
-  (use-package interleave
-    :ensure t
-    ;; :init
-    ;; open org-mode [[file:.pdf]] link with `interleave-mode'.
-    ;; (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (interleave-mode link))))
-    ;; (add-to-list 'org-file-apps '("\\.pdf::\\([[:digit:]]+\\)\\'" . (lambda (file link) (interleave-mode link))))
-    :config
-    (setq interleave-split-direction 'horizontal)
-    (add-to-list 'org-default-properties "INTERLEAVE_PDF")
-
-    ;; Idiosyncrasies: Interleave does some automated buffer switching for you, especially at start up.
-    (defun my-interleave-hook ()
-      (with-current-buffer interleave-org-buffer
-        ;; Do something meaningful here
-        (message "Now, you're in the interleave Org-mode buffer!")))
-    
-    (add-hook 'interleave-mode-hook #'my-interleave-hook)
-
-    (unless (boundp 'Org-prefix)
-      (define-prefix-command 'Org-prefix))
-    (global-set-key (kbd "C-c o") 'Org-prefix)
-    (define-key Org-prefix (kbd "M-p") 'interleave-mode)
-    )
-
-  ;; [ org-noter ] -- Emacs document annotator, using Org-mode.
-  (use-package org-noter
-    :ensure t
-    :preface
-    (unless (boundp 'Org-prefix)
-      (define-prefix-command 'Org-prefix))
-    :bind (:map Org-prefix ("n" . org-noter))
-    :config
-    (setq org-noter-always-create-frame nil
-          org-noter-set-auto-save-last-page t))
-
-  ;; [ pdf-tools-org ] -- integrate pdf-tools annotations with Org-mode.
-  (use-package pdf-tools-org
-    :quelpa (pdf-tools-org :fetcher github :repo "machc/pdf-tools-org")
-    :init
-    (add-hook 'after-save-hook
-              (lambda ()
-                (when (eq major-mode 'pdf-view-mode)
-                  (pdf-tools-org-export-to-org))))
-    )
-  
-  ;; [ paperless ] -- Emacs assisted PDF document filing.
-  (use-package paperless
-    :ensure t
-    ;; :commands (paperless)
-    ;; :config
-    ;; (setq paperless-root-directory
-    ;;       paperless-capture-directory
-    ;;       )
-    )
   )
 
+;; [ interleave ] -- Emacs minor mode to interleave notes and text books.
+(use-package interleave
+  :ensure t
+  :init
+  (unless (boundp 'Org-prefix)
+    (define-prefix-command 'Org-prefix))
+  (define-key Org-prefix (kbd "M-n") 'interleave-mode)
+  :config
+  (setq interleave-split-direction 'horizontal)
+  (add-to-list 'org-default-properties "INTERLEAVE_PDF")
+  )
+
+;; [ org-noter ] -- Emacs document annotator, using Org-mode.
+(use-package org-noter
+  :ensure t
+  :preface
+  (unless (boundp 'Org-prefix)
+    (define-prefix-command 'Org-prefix))
+  :bind (:map Org-prefix ("n" . org-noter)))
+
+;; [ pdf-tools-org ] -- integrate pdf-tools annotations with Org-mode.
+(use-package pdf-tools-org
+  :quelpa (pdf-tools-org :fetcher github :repo "machc/pdf-tools-org")
+  :init
+  (add-hook 'after-save-hook
+            (lambda ()
+              (when (eq major-mode 'pdf-view-mode)
+                (pdf-tools-org-export-to-org))))
+  )
+
+;; [ paperless ] -- Emacs assisted PDF document filing.
+(use-package paperless
+  :ensure t
+  :commands (paperless)
+  :config
+  (setq paperless-capture-directory "~/Downloads"
+        paperless-root-directory "~/Org"
+        )
+  )
 
 
 (provide 'init-my-emacs-pdf)
