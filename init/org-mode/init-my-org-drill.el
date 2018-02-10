@@ -37,7 +37,7 @@
 :DRILL_CARD_TYPE: %^{Drill Difficulty|simple|twosided|multisided|hide1cloze}
 :END:
 
-[%?]
+- : [%?]
 
 %c
 "
@@ -49,7 +49,10 @@
     "My wrapper helper function around `org-drill'."
     (interactive)
     (find-file my-org-drill-words-file)
-    (org-drill))
+    (if (org-drill-entries-pending-p)
+        (org-drill-resume)
+      (org-drill))
+    )
   
   (define-key Org-prefix (kbd "w") 'my-org-drill)
 
