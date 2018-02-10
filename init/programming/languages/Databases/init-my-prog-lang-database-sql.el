@@ -12,7 +12,7 @@
 (require 'sql)
 
 (add-to-list 'display-buffer-alist
-             '("^\\*SQL\\*" (display-buffer-below-selected)))
+             '("^\\*SQL:.*\\*" (display-buffer-below-selected)))
 
 
 ;;; [ ob-sql ]
@@ -48,43 +48,31 @@
 
 (use-package sql-indent
   :ensure t
-  :defer t
-  :after sql
   :init
-  (dolist (hook '(sql-mode-hook
-                  ;; sql-interactive-mode-hook
-                  edbi:sql-mode-hook
-                  ))
-    (add-hook hook
-              '(lambda ()
-                 (make-local-variable 'indent-line-function)
-                 (setq indent-line-function 'sql-indent-line))
-              ))
+  (defun sql-indent-setup-local ()
+    (make-local-variable 'indent-line-function)
+    (setq-local indent-line-function 'sql-indent-line))
+  (dolist (hook '(sql-mode-hook edbi:sql-mode-hook))
+    (add-hook hook #'sql-indent-setup-local))
   )
 
 
-;;; [ sqlup-mode ]
+;;; [ sqlup-mode ] -- An Emacs minor mode to upcase SQL keyword and functions.
 
 (use-package sqlup-mode
   :ensure t
-  :defer t
-  :after sql
   :init
   (dolist (hook '(sql-mode-hook
                   sql-interactive-mode-hook
-                  edbi:sql-mode-hook
-                  ))
-    (add-hook hook
-              '(lambda ()
-                 (sqlup-mode 1))))
+                  edbi:sql-mode-hook))
+    (add-hook hook #'sqlup-mode))
   :config
   (defun my-sqlup-backward ()
     "Capitalization the word backward."
     (interactive)
     (backward-word) ; `backward-sexp'
     (upcase-word 1)
-    (forward-char 1)
-    )
+    (forward-char 1))
 
   (define-key sql-mode-map (kbd "C-c C-u") 'my-sqlup-backward)
   (define-key sql-mode-map (kbd "C-c u") 'sqlup-capitalize-keywords-in-region)
