@@ -278,7 +278,8 @@
       org-agenda-log-mode-items '(closed clock))
 
 ;;; clock report mode
-(setq org-agenda-start-with-clockreport-mode t)
+(setq org-agenda-start-with-clockreport-mode t
+      org-agenda-clockreport-parameter-plist '(:link t :maxlevel 3))
 
 ;;; entry text mode
 ;; (setq org-agenda-start-with-entry-text-mode t)

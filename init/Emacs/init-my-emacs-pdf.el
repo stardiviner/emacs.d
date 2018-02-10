@@ -251,7 +251,8 @@ when needed."
       (define-prefix-command 'Org-prefix))
     :bind (:map Org-prefix ("n" . org-noter))
     :config
-    (setq org-noter-set-auto-save-last-page t))
+    (setq org-noter-always-create-frame nil
+          org-noter-set-auto-save-last-page t))
 
   ;; [ pdf-tools-org ] -- integrate pdf-tools annotations with Org-mode.
   (use-package pdf-tools-org

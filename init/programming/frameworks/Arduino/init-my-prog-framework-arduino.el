@@ -29,14 +29,12 @@
   (setq company-arduino-home
         (setenv "ARDUINO_HOME" (expand-file-name "~/Arduino/")))
   :init
+  ;; Turn-on irony-mode on arduino-mode (on .ino file).
   (add-hook 'arduino-mode-hook #'irony-mode)
   (add-hook 'arduino-mode-hook #'company-arduino-turn-on)
   :config
-  ;; (defun my-company-c-headers-get-system-path ()
-  ;;   "Return the system include path for the current buffer."
-  ;;   (let ((default '("/usr/include/" "/usr/local/include/")))
-  ;;     (company-arduino-append-include-dirs default t)))
-  ;; (setq company-c-headers-path-system 'my-company-c-headers-get-system-path)
+  ;; temporary workaround for Arduino v17 new libraries location.
+  ;; (setq company-arduino-includes-dirs '("~/Arduino/libraries/"))
   )
 
 

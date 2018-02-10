@@ -80,7 +80,7 @@
     (when (memq major-mode irony-supported-major-modes)
       (irony-mode 1)))
   
-  ;; load the compile options automatically:
+  ;; find the compile flag options automatically:
   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
   ;; [ company-irony ]

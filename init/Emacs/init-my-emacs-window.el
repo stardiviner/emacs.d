@@ -38,7 +38,7 @@
 ;; - (display-buffer-in-side-window) :: like which-key popup window upon bottom minibuffer.
 ;; - (display-buffer-no-window)
 ;; - (display-buffer-in-child-frame) :: don't use it!!!
-;; - (display-buffer-reuse-window display-buffer-below-selected) (window-height . 0.3)
+;; - (display-buffer-reuse-window (window-height . 0.3))
 ;; - (display-buffer-reuse-window display-buffer-same-window)
 (add-to-list 'display-buffer-alist
              '("^\\*Warnings\\*" (display-buffer-below-selected)))

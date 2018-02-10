@@ -7,12 +7,9 @@
 
 ;;; Code:
 
+;; Customize Saving
 
-;; saving customizations
-;; Usage:
-;; - (info "(Emacs) Customization")
 (setq custom-file "~/.emacs.d/customize.el")
-
 (if (file-exists-p custom-file)
     (load custom-file)
   (shell-command (concat "touch " custom-file)))

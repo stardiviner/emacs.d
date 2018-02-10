@@ -12,16 +12,13 @@
 (use-package lua-mode
   :ensure t
   :ensure-system-package lua
-  :bind (:map lua-mode-map
-              ("C-c C-s" . run-lua))
+  :bind (:map lua-mode-map ("C-c C-s" . run-lua))
   :config
-  (setq lua-indent-level 3
-        lua-always-show t
-        lua-documentation-function 'browse-url
-        lua-prefix-key (kbd "C-c")
-        lua-indent-string-contents t
-        lua-jump-on-traceback t
+  (setq lua-documentation-function 'eww
+        ;; lua-indent-string-contents t
         )
+  (add-to-list 'display-buffer-alist
+               '("^\\*lua\\*" (display-buffer-below-selected)))
   )
 
 

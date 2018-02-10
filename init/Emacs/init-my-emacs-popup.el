@@ -4,27 +4,29 @@
 
 ;;; Code:
 
+;;; use GTK+ tooltips for Emacs widget tooltips.
 ;; (setq x-gtk-use-system-tooltips t)
 
 ;;; [ tooltip ]
 
-;; (use-package tooltip
-;;   :defer t
-;;   :config
-;;   ;; (setq-default tooltip-delay 0.3         ; default 0.7
-;;   ;;               tooltip-hide-delay 10     ; default 10
-;;   ;;               tooltip-short-delay 0.1   ; default 0.1
-;;   ;;               ;; tooltip-functions '(tooltip-help-tips)
-;;   ;;               ;; tooltip-hide-time nil
-;;   ;;               tooltip-x-offset 5
-;;   ;;               tooltip-y-offset +20
-;;   ;;               tooltip-frame-parameters '((name . "tooltip")
-;;   ;;                                          (internal-border-width . 2)
-;;   ;;                                          (border-width . 2))
-;;   ;;               )
-;;
-;;   (tooltip-mode t)
-;;   )
+(use-package tooltip
+  :config
+  (setq tooltip-reuse-hidden-frame t)
+
+  ;; (setq-default tooltip-delay 0.3         ; default 0.7
+  ;;               tooltip-hide-delay 10     ; default 10
+  ;;               tooltip-short-delay 0.1   ; default 0.1
+  ;;               ;; tooltip-functions '(tooltip-help-tips)
+  ;;               ;; tooltip-hide-time nil
+  ;;               tooltip-x-offset 5
+  ;;               tooltip-y-offset +20
+  ;;               tooltip-frame-parameters '((name . "tooltip")
+  ;;                                          (internal-border-width . 2)
+  ;;                                          (border-width . 2))
+  ;;               )
+
+  ;; (tooltip-mode t)
+  )
 
 
 ;;; [ popup ]

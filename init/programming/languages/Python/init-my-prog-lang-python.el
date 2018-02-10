@@ -49,7 +49,7 @@
     (interactive)
     (unless (get-buffer-process "*Python*")
       (run-python "python"))
-    (switch-to-buffer "*Python*")
+    ;; (switch-to-buffer "*Python*")
     )
   (unless (boundp 'inferior-prefix)
     (define-prefix-command 'inferior-prefix))

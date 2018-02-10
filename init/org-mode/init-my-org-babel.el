@@ -267,14 +267,6 @@ is not present in `org-babel-load-languages’
 
 (add-hook 'org-src-mode-hook 'org-src-block-check)
 
-
-(defadvice org-edit-src-code (around set-buffer-file-name activate compile)
-  "Correctly enable `flycheck' in Babel src blocks."
-  (let ((file-name (buffer-file-name)))
-    ad-do-it
-    (setq buffer-file-name file-name)))
-
-
 ;;; [ coderef ]
 ;;; prepend comment char ahead of `org-coderef-label'.
 ;; auto prefix with comment char when create code ref in src block with `org-store-link'.

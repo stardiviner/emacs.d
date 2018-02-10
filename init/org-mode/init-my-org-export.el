@@ -15,6 +15,10 @@
       org-export-with-planning t
       org-export-with-timestamps t
       org-export-with-properties t
+      )
+
+;;; Org-mode Babel
+(setq TeX-auto-untabify t ; preserve spacing in src blocks when export LaTeX to PDF.
       ;; org-export-use-babel nil
       )
 

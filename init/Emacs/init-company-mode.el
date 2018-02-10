@@ -210,6 +210,9 @@ In that case, insert the number."
 ;;   :config
 ;;   (company-childframe-mode 1)
 ;;   ;; (add-to-list 'company-frontends 'company-childframe-frontend)
+;;   ;; fix `desktop-save-mode' record and enable `company-childframe' on all buffers.
+;;   (require 'desktop)
+;;   (push '(company-childframe-mode . nil) desktop-minor-mode-table)
 ;;   )
 
 ;;; [ company-quickhelp ] -- quick help document preview & popup

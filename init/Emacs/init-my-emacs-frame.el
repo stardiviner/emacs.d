@@ -15,6 +15,8 @@
         (width . 90)
         (left-fringe) (right-fringe)
         (tool-bar-lines . 0)
+        (menu-bar-lines . 0)
+        (scroll-bar-lines . 0)
         ))
 
 ;; Every time a window is started, make sure it get maximized
@@ -25,7 +27,10 @@
         (height . 120)
         (width . 90)
         (left-fringe) (right-fringe)
-        (tool-bar-lines . 0)))
+        (tool-bar-lines . 0)
+        (menu-bar-lines . 0)
+        (scroll-bar-lines . 0)
+        ))
 
 (setq window-system-default-frame-alist
       '((height . 120)
@@ -38,6 +43,8 @@
         (width . 80)
         (tool-bar-lines . 0)))
 
+
+;; (setq frame-resize-pixelwise nil)
 
 ;;; Adjust Frame’s Opacity
 

@@ -25,11 +25,15 @@
 
 (add-to-list 'org-src-lang-modes (cons "SQL" 'sql))
 
+;; (add-to-list 'org-babel-default-header-args:sql
+;;              '(:results . "table"))
+
 
 ;;; [ ob-sql-mode ] -- SQL code blocks evaluated by sql-mode.
 
 (use-package ob-sql-mode
-  :ensure t
+  ;; :ensure t
+  :load-path "~/Code/Emacs/ob-sql-mode"
   :config
   (add-to-list 'org-babel-load-languages '(sql-mode . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)

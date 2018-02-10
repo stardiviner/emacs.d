@@ -13,7 +13,7 @@
   :ensure t
   :bind (("M-x" . helm-M-x)
          ("M-y" . helm-show-kill-ring)
-         ;; ([remap org-goto] . helm-org-in-buffer-headings)
+         ;; ([remap org-goto] . helm-org-in-buffer-headings) ; [C-c C-j] completion for Org headings
          )
   :load (helm helm-config)
   :config

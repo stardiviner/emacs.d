@@ -364,6 +364,13 @@
 (require 'init-my-emacs-session)
 (require 'init-my-emacs-workspace)
 
+;; (add-hook 'after-init-hook
+;;           (lambda ()
+;;             (animate-sequence '("This is a title animation demo"
+;;                                 "Author: stardiviner"
+;;                                 "Date: 2011/10/0 (yes, day 0!)") 0)
+;;             ))
+
 ;;; show Emacs initialized time.
 (message "Emacs initialized in %s" (emacs-init-time))
 

@@ -86,9 +86,6 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 (setq recenter-positions '(top middle bottom))
 
-(global-set-key (kbd "C-l") 'recenter-top-bottom)
-
-
 ;;; [ beginend ] -- Emacs package to redefine =[M-<]= and =[M->]= for some modes like Dired.
 
 ;; (use-package beginend

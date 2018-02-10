@@ -22,6 +22,10 @@
 ;; Auth Source debugging
 ;; (setq auth-source-debug t)
 
+;;; [ Secrets ] -- presenting password entries retrieved by Security Service from freedesktop.org.
+
+;; - Variable: `secrets-path'
+;; - Command-Line Utility: `secret-tool'
 
 ;;; [ EasyPG Assistant ] --- transparent, automatic encryption and decryption.
 

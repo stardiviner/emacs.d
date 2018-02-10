@@ -42,6 +42,7 @@
 ;;                  (off . "<span class=\"task-todo\">&#x2610;</span>")
 ;;                  (trans . "<span class=\"task-in-progress\">&#x25eb;</span>"))))
 
+;;; [ column view ]
 (setq org-columns-default-format
       "%25ITEM %TODO %3PRIORITY %TAGS %6effort(EFFORT){:}")
 

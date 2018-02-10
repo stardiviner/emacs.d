@@ -25,7 +25,7 @@
 ;;; [ info-colors ] -- A modern adaption of the extra coloring provided by info+ package.
 
 (use-package info-colors
-  :quelpa (info-colors :fetcher github :repo "ubolonton/info-colors")
+  :ensure t
   :init
   (add-hook 'Info-selection-hook 'info-colors-fontify-node))
 

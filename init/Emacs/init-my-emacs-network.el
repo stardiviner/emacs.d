@@ -32,18 +32,34 @@
 ;; 		  (cons "Input your LDAP UID !"
 ;; 			(base64-encode-string "LOGIN:PASSWORD")))))
 
+;;; [ url-gw (url-gateway) ]
 
-(defun proxy-toggle ()
-  (interactive)
-  (if (getenv "HTTP_PROXY")
-      (progn
-        (setenv "HTTP_PROXY"  nil)
-        (setenv "HTTPS_PROXY" nil)
-        )
-    (setenv "HTTP_PROXY"  "http://b.qypac.net:57008")
-    (setenv "HTTPS_PROXY" "http://b.qypac.net:57008")
-    )
-  )
+(require 'url-gw)
+(require 'socks)
+
+;; (setq url-gateway-method 'socks
+;;       socks-noproxy '("localhost")
+;;       socks-server '("Default server" "127.0.0.1" 1086 5))
+
+;;; -------------------
+
+;; (defun proxy-toggle ()
+;;   (interactive)
+;;   (if (getenv "HTTP_PROXY") ; TODO:
+;;       (progn
+;;         (setenv "HTTP_PROXY"  nil)
+;;         (setenv "HTTPS_PROXY" nil)
+;;         )
+;;     ;; HTTP Proxy
+;;     ;; Privoxy
+;;     (setenv "HTTP_PROXY"  "http://localhost:8118")
+;;     (setenv "HTTPS_PROXY" "http://localhost:8118")
+;;     ;; socks v5 proxy
+;;     (setq url-gateway-method 'socks
+;;           socks-noproxy '("localhost")
+;;           socks-server '("Default server" "127.0.0.1" 1080 5))
+;;     )
+;;   )
 
 
 (provide 'init-my-emacs-network)
