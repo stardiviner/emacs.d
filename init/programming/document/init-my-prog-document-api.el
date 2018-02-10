@@ -12,7 +12,7 @@
 (use-package helm-dash
   :ensure t
   :defer t
-  :bind (:map prog-doc-map ("C-d" . helm-dash-at-point))
+  :bind (:map prog-doc-map ("C-d" . helm-dash-at-point) ("M-d" . helm-dash))
   :config
   (setq helm-dash-docsets-path (expand-file-name "~/.docsets")
         helm-dash-min-length 2
