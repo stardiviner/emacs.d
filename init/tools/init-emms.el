@@ -27,7 +27,9 @@
   (emms-default-players)
 
   ;; [ Playlist ]
-  ;; setq `emms-last-played-format-alist'
+  ;; format
+  (setq emms-browser-info-title-format "%i%T %t - %a"
+        emms-browser-playlist-info-title-format emms-browser-info-title-format)
 
   (setq emms-source-file-default-directory "~/Music/")
 
@@ -55,8 +57,8 @@
         (emms-streams))))
 
   ;; [ Key Bindings ]
-  (setq emms-info-asynchronously nil)
-  (setq emms-playlist-default-major-mode 'emms-mark-mode)
+  ;; (setq emms-info-asynchronously nil)
+  ;; (setq emms-playlist-default-major-mode 'emms-mark-mode)
 
   ;; [ MPD ] -- [M-x emms-player-mpd-connect]
   (require 'emms-player-mpd)

@@ -27,7 +27,8 @@
   ;; (load-theme 'leuven t)
 
   ;; remove underline for `hl-line'.
-  (defun my:leuven-theme-disable-underline (&args)
+  (defun my:leuven-theme-disable-underline (theme)
+    "Reload customized faces on `circadian' `THEME' toggling."
     (if (custom-theme-enabled-p 'leuven)
         (set-face-attribute 'hl-line nil :underline nil)))
   (add-hook 'circadian-after-load-theme-hook #'my:leuven-theme-disable-underline)
@@ -64,7 +65,7 @@
 
 
 (defun my:font-lock-extra-setup (theme)
-  "Set some built-in faces."
+  "Reload customized faces on `circadian' `THEME' toggling."
   (set-face-attribute 'underline nil
                       :underline (cl-case (alist-get 'background-mode (frame-parameters))
                                    ('light
@@ -94,7 +95,6 @@
   (set-face-attribute 'font-lock-type-face nil
                       :background (color-lighten-name (face-background 'default) 3))
   )
-
 (add-hook 'circadian-after-load-theme-hook #'my:font-lock-extra-setup)
 
 

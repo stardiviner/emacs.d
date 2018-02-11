@@ -72,7 +72,8 @@
 (require 'init-my-org-face)
 (require 'init-my-org-face-extra)
 
-(defun my-org-mode-set-face (&args)
+(defun my-org-mode-set-face (theme)
+  "Reload customized faces on `circadian' `THEME' toggling."
   (load "init-my-org-face")
   (load "init-my-org-face-extra"))
 (add-hook 'circadian-after-load-theme-hook 'my-org-mode-set-face)

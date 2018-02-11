@@ -691,7 +691,8 @@
 ;;; Faces
 
 ;; current select line
-(defun my-mu4e-set-face (&args)
+(defun my-mu4e-set-face (theme)
+  "Reload customized faces on `circadian' `THEME' toggling."
   (set-face-attribute 'mu4e-header-highlight-face nil
                       :inherit nil :foreground nil
                       :background (cl-case (alist-get 'background-mode (frame-parameters))
@@ -708,7 +709,6 @@
                       ;; :box '(:color "#005D5E" :line-width -1)
                       ;; :weight 'normal
                       ))
-
 (add-hook 'circadian-after-load-theme-hook 'my-mu4e-set-face)
 
 ;;; highlighted email, main view key color like "[q]uit mu4e".

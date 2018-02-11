@@ -73,7 +73,7 @@ In that case, insert the number."
                    :with company-abbrev)
                   )
                 )
-
+  
   (defun my-company-add-backend-locally (backend)
     "Add a backend in my custom way.
 
@@ -233,10 +233,9 @@ In that case, insert the number."
 (use-package company-quickhelp
   :ensure t
   :config
-  ;; set to `nil' to trigger popup doc manually.
-  (setq company-quickhelp-delay nil)
-  (setq company-quickhelp-use-propertized-text t) ; properties text like color, font size, etc
+  (setq company-quickhelp-use-propertized-text t)
 
+  ;; automatic
   ;; (company-quickhelp-mode 1)
   ;;
   ;; remove echo-area short doc display
@@ -244,8 +243,10 @@ In that case, insert the number."
   ;;               (remq 'company-echo-metadata-frontend company-frontends))
   ;;
   ;; (add-to-list 'company-frontends 'company-preview-common-frontend) ; NOTE: this caused company-mode tooltip offset.
-  (add-to-list 'company-frontends 'company-quickhelp-frontend)
 
+  ;; manually
+  (setq company-quickhelp-delay nil) ; set to `nil' to trigger popup doc manually.
+  (add-to-list 'company-frontends 'company-quickhelp-frontend)
   (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
   (with-eval-after-load 'company-quickhelp
     (define-key company-active-map (kbd "M-h") 'company-quickhelp-manual-begin))

@@ -48,9 +48,10 @@
 (use-package hideshow
   :ensure t
   :init (add-hook 'prog-mode-hook #'hs-minor-mode)
-  :config
-  (use-package hideshowvis
-    :ensure t))
+  ;; :config
+  ;; (use-package hideshowvis
+  ;;   :ensure t)
+  )
 
 
 

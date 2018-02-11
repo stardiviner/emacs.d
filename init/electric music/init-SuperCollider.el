@@ -119,9 +119,6 @@
 ;; (overtone-load-and-boot-internal-server)
 
 
-
-
-
 (provide 'init-SuperCollider)
 
 ;;; init-SuperCollider.el ends here

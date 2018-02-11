@@ -45,10 +45,6 @@
 (require 'org-indent)
 (setq org-startup-indented t
       org-hide-leading-stars t)
-;; (set-face-attribute 'org-indent nil
-;;                     :inherit 'org-hide
-;;                     :foreground (face-background 'default)
-;;                     )
 
 ;;; [ org-bullets ]
 

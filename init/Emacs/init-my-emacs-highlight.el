@@ -62,8 +62,7 @@
                                       ('light
                                        (color-darken-name (face-background 'default) 10))
                                       ('dark
-                                       (color-darken-name (face-background 'default) 5)))
-                        ))
+                                       (color-darken-name (face-background 'default) 5)))))
   (add-hook 'circadian-after-load-theme-hook #'my-symbol-overlay-set-face)
   )
 

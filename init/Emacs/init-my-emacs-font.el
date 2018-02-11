@@ -165,15 +165,13 @@
 (add-hook 'after-init-hook #'my-font-settings)
 
 (defun my-circadian-font-reset (theme)
-  "Set Emacs font based on `circadian' color `THEME' switching."
+  "Reload customized faces on `circadian' `THEME' toggling."
   (interactive)
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font)
                       charset
-                      (font-spec :family "WenQuanYi Micro Hei" :size 13)
-                      ))
-  (set-frame-font (format "%s:pixelsize=%d" "Hack" 12) t)
-  )
+                      (font-spec :family "WenQuanYi Micro Hei" :size 13)))
+  (set-frame-font (format "%s:pixelsize=%d" "Hack" 12) t))
 (add-hook 'circadian-after-load-theme-hook #'my-circadian-font-reset)
 
 ;;; [ font-lock-profiler ] -- Coverage and timing tool for font-lock keywords.

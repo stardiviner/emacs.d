@@ -54,13 +54,12 @@ $0`(yas-escape-text yas-selected-text)`"
   (add-hook 'snippet-mode #'turn-off-auto-fill)
 
   ;; Faces
-  (defun my-yasnippet-set-face (&args)
+  (defun my-yasnippet-set-face (theme)
+    "Reload customized faces on `circadian' `THEME' toggling."
     (set-face-attribute 'yas-field-highlight-face nil
 		                    :inherit 'highlight
                         :foreground nil :background nil
-                        :box '(:color "dim gray" :line-width 1)
-                        ))
-  
+                        :box '(:color "dim gray" :line-width 1)))
   (add-hook 'circadian-after-load-theme-hook #'my-yasnippet-set-face)
   
   ;; (define-key yas-minor-mode-map [tab] 'yas-expand)

@@ -56,7 +56,7 @@
 (use-package which-key
   :ensure t
   :config
-  (setq which-key-idle-delay 0.5
+  (setq which-key-idle-delay 0.4
         which-key-idle-secondary-delay nil)
 
   (setq which-key-max-description-length 27

@@ -120,15 +120,15 @@
 (use-package hl-sexp
   :ensure t
   :config
-  (defun my-hl-sexp-set-face (&args)
+  (defun my-hl-sexp-set-face (theme)
+    "Reload customized faces on `circadian' `THEME' toggling."
     (set-face-attribute 'hl-sexp-face nil
                         :reverse-video nil :foreground nil
                         :background (cl-case (alist-get 'background-mode (frame-parameters))
                                       ('light
-                                       (color-darken-name (face-background 'default) 4))
+                                       (color-darken-name (face-background 'default) 8))
                                       ('dark
                                        (color-darken-name (face-background 'default) 5)))))
-  
   (add-hook 'circadian-after-load-theme-hook #'my-hl-sexp-set-face)
   )
 

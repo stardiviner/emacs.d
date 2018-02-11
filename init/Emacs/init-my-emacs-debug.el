@@ -62,8 +62,7 @@
                                       ('light
                                        (color-darken-name (face-background 'default) 10))
                                       ('dark
-                                       (color-darken-name (face-background 'default) 10))))
-    )
+                                       (color-darken-name (face-background 'default) 10)))))
   (add-hook 'circadian-after-load-theme-hook #'my-edebug-set-face)
 
   (add-to-list 'display-buffer-alist

@@ -6,7 +6,7 @@
 
 
 ;;; Code:
-
+
 ;;; [ Gnus ]
 
 ;; user info
@@ -447,7 +447,7 @@ This moves them into the Spam folder."
 ;;         (message-this-is-news nil t))
 ;;       )
 
-
+
 (provide 'init-gnus)
 
 ;;; init-gnus.el ends here

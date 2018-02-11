@@ -675,7 +675,7 @@ dimensions of a block selection."
   :config
   (defun *org-noter ()
     "Display org-noter notes count."
-    (if (active) (org-noter--modeline-text))))
+    (if (active) (org-noter--mode-line-text))))
 
 ;; mmm-mode
 

@@ -62,16 +62,15 @@
                       :stipple (list 7 4 (string 16 16 16 16))
                       )
 
-  (defun my-indent-guide-set-face (&args)
+  (defun my-indent-guide-set-face (theme)
+    "Reload customized faces on `circadian' `THEME' toggling."
     (set-face-attribute 'indent-guide-face nil
                         :background nil
                         :foreground (cl-case (alist-get 'background-mode (frame-parameters))
                                       ('light
                                        (color-darken-name (face-background 'default) 35))
                                       ('dark
-                                       (color-lighten-name (face-background 'default) 20))))
-    )
-
+                                       (color-lighten-name (face-background 'default) 20)))))
   (add-hook 'circadian-after-load-theme-hook #'my-indent-guide-set-face)
   
   ;; (indent-guide-global-mode)

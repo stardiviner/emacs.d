@@ -18,6 +18,7 @@
          (".* boot" . clojure-mode) ; recognize script file using shebang
          )
   :config
+  (setq cider-repl-display-help-banner nil) ; inhibit CIDER REPL help banner.
   (autoload 'my-lisp-common-settings "init-my-prog-lang-lisp.el")
   (add-hook 'clojure-mode-hook #'my-lisp-common-settings)
   
