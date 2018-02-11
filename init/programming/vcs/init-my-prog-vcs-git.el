@@ -126,7 +126,11 @@
   :ensure t
   :config
   (with-eval-after-load 'magit
-    (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)))
+    (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
+  ;; TODO: check out the original Issue on GitHub.
+  (magit-define-popup-switch 'magit-gitflow-release-finish-popup ?p
+    "Push after finish" "--push" t)
+  )
 
 ;;; [ magit-p4 ] -- Magit plugin integrating git-p4 add-on.
 

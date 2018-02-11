@@ -10,11 +10,8 @@
 
 ;;; Tags
 
-(setq org-export-with-tags t)
-
 ;; suitable tag position length for 12' inch screen size split window.
-(setq org-tags-column -65)
-;; (- (- (/ (/ (car (cdddr (car (cdr (car (display-monitor-attributes-list)))))) 10) 2) 3))
+(setq org-tags-column (- (- (/ (/ (display-pixel-width) 2) 10) 3)))
 
 ;; enable group tags
 (setq org-group-tags t)

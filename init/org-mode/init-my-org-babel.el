@@ -8,11 +8,10 @@
 ;;; Code:
 
 (setq org-confirm-babel-evaluate nil)
-(setq org-babel-no-eval-on-ctrl-c-ctrl-c nil)
-(setq org-confirm-shell-link-function 'yes-or-no-p)
-(setq org-confirm-elisp-link-function 'yes-or-no-p)
-
 (setq org-babel-hash-show-time t) ; header argument: :cache yes.
+
+;;; add org-babel header-args property into default properties list.
+(add-to-list 'org-default-properties "header-args")
 
 ;;; source block default header arguments
 (setq org-babel-default-header-args
@@ -39,24 +38,14 @@
 ;; Raise errors when noweb references don't resolve.
 (setq org-babel-noweb-error-all-langs t)
 
-;;; inline source code header arguments
-;; (setq org-babel-default-inline-header-args
-;;       '((:session . "none")
-;;         (:results . "replace")
-;;         (:exports . "both")
-;;         (:hlines . "yes")
-;;         ))
-
 ;; babel src block editing
 (setq org-src-fontify-natively t
       ;; nil: preserve org indent, t: preserve export indent.
       org-src-preserve-indentation nil
       ;; 0: fix `diff' babel syntax highlighting invalid issue.
       org-edit-src-content-indentation 0
-      org-src-tab-acts-natively nil ; make [Tab] work native as in major mode.
       org-src-window-setup 'current-window ; 'reorganize-frame, 'current-window
       org-src-ask-before-returning-to-edit-buffer nil
-      org-edit-src-auto-save-idle-delay 0 ; 0: don't auto save.
       )
 
 (setq org-babel-load-languages
@@ -65,15 +54,12 @@
         (calc . t)                           ; Calc
         ))
 
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-
-
 ;;; [ ob-shell ]
 
 (require 'ob-shell)
-;; (add-to-list 'org-babel-load-languages '(shell . t))
-;; (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-;; (add-to-list 'org-babel-tangle-lang-exts '("shell" . "sh"))
+(add-to-list 'org-babel-load-languages '(shell . t))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+(add-to-list 'org-babel-tangle-lang-exts '("shell" . "sh"))
 
 (add-to-list 'org-babel-default-header-args:shell
              '(:results . "output"))
@@ -83,65 +69,20 @@
 ;;; [ Tangle ]
 
 (setq org-babel-tangle-lang-exts
-      '(("clojure" . "clj")
-        ("elisp" . "el")
-        ("emacs-lisp" . "el")
-        ("lisp" . "lisp")
-        ("ruby" . "rb")
-        ("python" . "py")
-        ("R" . "R")
-        ("sql" . "sql")
-        ("shell" . "sh")
-        ("haskell" . "hs")
-        ("latex" . "tex")
-        ("awk" . "awk")
-        ("C" . "c")
-        ("Go" . "go")
-        ("C++" . "cpp")
-        ("perl" . "pl")
-        ("js" . "js")
-        ("css" . "css")
-        ("java" . "java")
-        ;; ("rhtml" . "html.erb")
-        )
-      )
+      '(("latex" . "tex")
+        ("awk" . "awk")))
 
 (setq org-babel-tangle-use-relative-file-links t
       ;; org-babel-pre-tangle-hook '(save-buffer)
       ;; org-babel-post-tangle-hook
       )
 
-;;; faster tangleing of large Org mode files.
-;; (setq org-babel-use-quick-and-dirty-noweb-expansion t)
-
-
-;; (defadvice org-babel-execute-src-block (around load-language nil activate)
-;;   "Auto load require Babel language libraries `ob-*'."
-;;   (let ((language (org-element-property :language (org-element-at-point))))
-;;     ;; workaround for #+CALL: babel. (`language' will be `nil')
-;;     (if language
-;;         ;; whether language is already loaded in `org-babel-load-languages'.
-;;         (unless (cdr (assoc (intern language) org-babel-load-languages))
-;;           (require (intern (concat "ob-" language)))
-;;           (add-to-list 'org-babel-load-languages (cons (intern language) t))
-;;           (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
-;;       )
-;;     ad-do-it))
-
-;; (advice-remove 'org-babel-execute-src-block 'ad-Advice-org-babel-execute-src-block)
-
-
-;;; language-specific header arguments
-;;
-;; `org-babel-default-header-args:<lang>' where `<lang>' is the name of the
-;; language.  See the language-specific documentation available online at
-;; `http://orgmode.org/worg/org-contrib/babel'.
-
 
 ;;; [ Library of Babel ]
 
 ;;; automatically ingest "Library of Babel".
-(org-babel-lob-ingest (concat user-emacs-directory "Org-mode/Library of Babel/Library of Babel.org"))
+(org-babel-lob-ingest
+ (concat user-emacs-directory "Org-mode/Library of Babel/Library of Babel.org"))
 
 
 ;;; interactive completing named src blocks. [C-c C-v C-q]
@@ -168,7 +109,8 @@
 ;;     (org-babel-tangle)))
 ;; (add-hook 'after-save-hook 'tangle-on-save-org-mode-file)
 
-;; Enable the auto-revert mode globally. This is quite useful when you have 
+
+;; Enable the auto-revert mode globally. This is quite useful when you have
 ;; multiple buffers opened that Org-mode can update after tangling.
 ;; All the buffers will be updated with what changed on the disk.
 ;; (global-auto-revert-mode)
@@ -183,9 +125,6 @@
 ;; (require 'ox-confluence)
 
 
-
-;;; change Babel src block background color.
-(setq org-src-fontify-natively t)
 
 ;; (setq org-src-block-faces
 ;;       '(("org" (:background (color-darken-name (face-background 'default) 4)))
@@ -232,8 +171,7 @@
 - Report an error if there is a source block with a language specified that
 is not present in `org-babel-load-languages’
 – Check as well for the language of inline code blocks.
-– Report the line number instead of the char position.
-"
+– Report the line number instead of the char position."
   (interactive)
   (org-element-map (org-element-parse-buffer)
       '(src-block inline-src-block)
@@ -280,11 +218,7 @@ is not present in `org-babel-load-languages’
 ;;; [ ob-async ] -- enables asynchronous execution of org-babel src blocks for *any* languages.
 
 (use-package ob-async
-  :ensure t
-  ;; :config
-  ;; (add-to-list 'org-babel-default-header-args:shell
-  ;;              '(:async))
-  )
+  :ensure t)
 
 ;;; [ org-babel-eval-in-repl ] -- eval org-babel block code with eval-in-repl.el
 

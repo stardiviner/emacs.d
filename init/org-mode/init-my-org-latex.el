@@ -157,8 +157,7 @@
 (use-package org2ctex
   :ensure t
   :config
-  (org2ctex-toggle t)
-  )
+  (org2ctex-toggle t))
 
 
 (provide 'init-my-org-latex)

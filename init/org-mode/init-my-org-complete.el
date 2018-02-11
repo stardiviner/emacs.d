@@ -24,12 +24,7 @@
   (setq company-backends
         `(company-capf
           company-yasnippet
-          ;; (company-capf :with company-yasnippet)
-          ;; ,(when (featurep 'company-emoji)
-          ;;    'company-emoji)
-          ;; (company-flyspell :with company-ispell) ; slow down Org-mode performance.
-          company-dabbrev-code company-abbrev
-          ))
+          company-dabbrev-code company-abbrev))
   )
 
 (add-hook 'org-mode-hook #'my-org-mode-completion-setting)

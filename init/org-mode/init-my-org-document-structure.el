@@ -7,46 +7,40 @@
 
 ;;; Code:
 
-;; * Outlines::                    Org is based on Outline mode
+;;; Editing
 
-;; * Headlines::                   How to typeset Org tree headlines
+(setq org-catch-invisible-edits 'smart)
+
+;;; Navigation
+
+(setq org-special-ctrl-a/e t
+      org-special-ctrl-o t)
 
 ;; * Plain Lists::
 
 (require 'org-list)
-
 (setq org-list-allow-alphabetical t)
 
-;; (setq org-list-demote-modify-bullet
-;;       '(("+" . "-")
-;;         ;; ("-" . "+")
-;;         ("*" . "-")
-;;         ))
-
-;;; List checkbox:
-
-;;; Prettify List Checkbox.
-;; (defun org-mode-list-checkbox-prettify ()
-;;   (push '("[ ]" .  "☐") prettify-symbols-alist)
-;;   (push '("[X]" . "☒" ) prettify-symbols-alist)
-;;   (push '("[-]" . "☑" ) prettify-symbols-alist)
-;;   (prettify-symbols-mode)
-;;   )
-;;
-;; (add-hook 'org-mode-hook #'org-mode-list-checkbox-prettify)
-;;
-;; ;;; also enable in HTML export.
-;; (setq org-html-checkbox-type 'unicode)
-;; (setq org-html-checkbox-types
-;;       '((unicode (on . "<span class=\"task-done\">&#x2611;</span>")
-;;                  (off . "<span class=\"task-todo\">&#x2610;</span>")
-;;                  (trans . "<span class=\"task-in-progress\">&#x25eb;</span>"))))
-
 ;;; [ column view ]
-(setq org-columns-default-format
-      "%25ITEM %TODO %3PRIORITY %TAGS %6effort(EFFORT){:}")
 
-(setq org-catch-invisible-edits 'smart)
+;; (setq org-columns-default-format
+;;       "%25ITEM %TODO %3PRIORITY %TAGS %6effort(EFFORT){:}")
+
+;; setup column views for effort estimates
+(setq org-columns-default-format
+      "%50ITEM(Task) %8TODO %1PRIORITY %14TIMESTAMP_IA(TimeStamp) %Effort(Effort){:}"
+      ;; Default column view headings
+      ;; - %ITEM(Task) :: Headline (where (Task) is the column head)
+      ;; - %PRIORITY :: Priority
+      ;; - %TAGS :: tags
+      ;; - %CLOCKSUM :: Clock Sum
+      ;; - %ITEMSTAMP_IA :: Timestamp
+      ;; - %Effort(Effort){:} :: Effort
+      
+      ;; org-global-properties
+      org-agenda-columns-add-appointments-to-effort-sum t
+      org-agenda-columns-compute-summary-properties t
+      )
 
 ;;; Statistics [1/4]
 
@@ -68,24 +62,11 @@
 (define-key org-mode-map (kbd "C-c \" i") 'orgtbl-insert-radio-table)
 (define-key org-mode-map (kbd "C-c \" s") 'orgtbl-send-table)
 
-;; * Visibility cycling::          Show and hide, much simplified
-
-;; * Motion::                      Jumping to other headlines
-
-;; * Structure editing::           Changing sequence and level of headlines
-
-(setq org-special-ctrl-a/e t
-      org-special-ctrl-o t)
-
-;; * Sparse trees::                Matches embedded in context
-
-;; * Drawers::                     Tucking stuff away
-
-;; (setq org-global-properties ; will be combined with constant `org-global-properties-fixed'
-;;       '(("Effort" . "0:15 0:30 0:45 1:00 2:00 3:00 4:00 5:00 6:00 0:00")
-;;         ("Title" . nil)
-;;         ("Author" . "stardiviner")
-;;         ))
+;;; TODO: does this work?
+;; will be combined with constant `org-global-properties-fixed'
+;; (add-to-list 'org-global-properties '("Effort" . "0:30"))
+;; (add-to-list 'org-global-properties '("Title" . nil))
+;; (add-to-list 'org-global-properties '("Author" . "stardiviner"))
 
 ;; * Blocks::                      Folding blocks
 
@@ -97,16 +78,12 @@
       org-footnote-fill-after-inline-note-extraction t
       )
 
-;; * Orgstruct mode::              Structure editing outside Org
-
-;; * Org syntax::                  Formal description of Org's syntax
-
 ;;; [ Structure Templates ]
 
 ;;; [ Entities ]
 
-(defun ivy-insert-org-entity ()
-  "Insert an org-entity using ivy."
+(defun org-insert-entity-with-ivy ()
+  "Insert an org-entity using Ivy."
   (interactive)
   (ivy-read "Entity: " (loop for element in (append org-entities org-entities-user)
 			                       when (not (stringp element))
@@ -125,9 +102,7 @@
 		                  ("l" (lambda (element) (insert (nth 1 (cdr element)))) "latex")
 		                  ("h" (lambda (element) (insert (nth 3 (cdr element)))) "html"))))
 
-;;; [ org-eldoc ]
-
-(require 'org-eldoc)
+;;; [ Dynamic Blocks ] -- [C-c C-x i]
 
 
 (provide 'init-my-org-document-structure)

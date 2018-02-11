@@ -1,23 +1,16 @@
 ;;; init-my-org-publish.el --- init for Org Publish.
 
-
 ;;; Commentary:
 
-
-
-
 ;;; Code:
-
-(require 'org)
+
 (require 'ox-publish)
 (require 'ox-rss)
-(require 'org-capture)
-
 
 ;; export files update style
 (setq org-publish-use-timestamps-flag t)
 
-;; org-info.js
+;; [ org-info.js ]
 ;; (setq org-html-use-infojs t)
 
 ;; src code block syntax highlighting
@@ -179,7 +172,7 @@ Built with %c.
 
 
 (defun my-ox-publish-complete-notify ()
-  (notifications-notify :title "ox-publish" :body "completed."))
+  (notifications-notify :title "org-publish" :body "completed."))
 
 (defun my-ox-publish-sync ()
   "Sync ox-publish exported files to remote server."

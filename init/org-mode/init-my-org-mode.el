@@ -19,6 +19,11 @@
 
 
 (use-package org
+  :preface
+  ;; [ Org-mode modules ] -- modules that should always be loaded together with org.el.
+  ;; t: greedy load all modules.
+  ;; nil: disable all extra org-mode modules to speed-up Org-mode file opening.
+  (setq org-modules nil)
   :load-path "~/Code/Emacs/org-mode/lisp/"
   :pin manual
   ;; :mode (("\\.org$" . org-mode))
@@ -42,25 +47,6 @@
 (global-set-key (kbd "C-c o") 'Org-prefix)
 
 
-;;; [ Org Modules ]
-;; Modules that should always be loaded together with org.el.
-;; (setq org-modules
-;;       '(org-pcomplete
-;;         org-faces
-;;         ;; org-fstree
-;;         org-table ; org-compat
-;;         org-protocol
-;;         org-timer org-clock org-habit
-;;         org-notify
-;;         org-info org-bibtex org-docview
-;;         org-plot
-;;         org-irc ; org-gnus org-mhe org-rmail
-;;         ;; org-w3m
-;;         ))
-
-;;; disable all extra org-mode modules to speed-up Org-mode file opening.
-(setq org-modules nil)
-
 (let ((org-dir "~/Org"))
   (if (file-exists-p org-dir)
       (setq org-directory org-dir)

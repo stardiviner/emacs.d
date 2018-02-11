@@ -45,6 +45,15 @@
 
 ;;; Email region
 
+(defun email-buffer ()
+  "Send current buffer as the body of an email."
+  (interactive)
+  (let ((buf (current-buffer)))
+    (compose-mail)
+    (save-excursion
+      (message-goto-body)
+      (insert-buffer-substring buf))))
+
 (defun email-region (start end)
   "Send region from `START' to `END' as the body of an email."
   (interactive "r")

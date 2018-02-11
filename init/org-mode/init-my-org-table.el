@@ -8,21 +8,14 @@
 ;;; Code:
 
 
-(setq org-enable-table-editor t)
-
 (add-to-list 'display-buffer-alist
              '("\^\\*Org Table Edit Field\\*" (display-buffer-below-selected)))
-
-;; (set-face-attribute 'org-column nil
-;;                     :height (face-attribute 'default :height)
-;;                     :family (face-attribute 'default :family))
-
 
 ;;; [ org-table-sticky-header ] -- Sticky header for org-mode tables.
 
 (use-package org-table-sticky-header
   :ensure t
-  :config
+  :init
   (add-hook 'org-mode-hook 'org-table-sticky-header-mode))
 
 ;;; [ orgtbl-ascii-plot ] -- ascii-art bar plots in org-mode tables.
@@ -38,8 +31,12 @@
 ;;; [ orgtbl-aggregate ] -- create an aggregated Org table from another one.
 
 (use-package orgtbl-aggregate
-  :ensure t
-  :defer t)
+  :ensure t)
+
+;;; [ orgtbl-join ] -- join two Org-mode tables.
+
+(use-package orgtbl-join
+  :ensure t)
 
 ;;; import .xlsx, .csv file into Org.
 (defun org-table-import-xlsx-file-to-csv-org (file)

@@ -76,7 +76,7 @@
 ;; Daily entry (holidays)
 (set-face-attribute 'org-agenda-diary nil
                     :slant 'italic
-                    )
+                    :family "DejaVu Serif")
 
 ;; Clocking
 (set-face-attribute 'org-clock-overlay nil
@@ -181,7 +181,9 @@
 (set-face-attribute 'org-table nil
                     :background (color-darken-name (face-background 'default) 2)
                     )
-
+;; (set-face-attribute 'org-column nil
+;;                     :height (face-attribute 'default :height)
+;;                     :family (face-attribute 'default :family))
 
 ;; headline faces
 ;; the ahead stars face when org indentation. (org-hide)
@@ -231,7 +233,7 @@
 (set-face-attribute 'org-headline-done nil
                     :foreground (cl-case (alist-get 'background-mode (frame-parameters))
                                   ('light
-                                   (color-darken-name (face-background 'default) 4))
+                                   (color-darken-name (face-background 'default) 20))
                                   ('dark
                                    (color-lighten-name (face-background 'default) 15)))
                     :background (face-background 'default))
@@ -243,6 +245,8 @@
                     :underline nil)
 
 ;; tags
+
+;;; NOTE: It is already defined in `org-tag-faces'.
 
 ;; (set-face-attribute 'org-tag nil
 ;;                     :background (cl-case (alist-get 'background-mode (frame-parameters))
@@ -268,13 +272,11 @@
 ;; - [ ], - [X]
 (set-face-attribute 'org-checkbox nil
                     :weight 'normal
-                    :box '(:line-width -1 :color "black" :style nil)
-                    )
+                    :box '(:line-width -1 :color "black" :style nil))
 ;; * headline [7%] [1/10] -> checkbox statistics face.
 (set-face-attribute 'org-checkbox-statistics-todo nil
-                    :background (color-darken-name (face-background 'default) 4)
                     ;; :box '(:color "black" :line-width -1)
-                    )
+                    :background (color-darken-name (face-background 'default) 4))
 ;; * headline [100%] [10/10]
 (set-face-attribute 'org-checkbox-statistics-done nil
                     :background (cl-case (alist-get 'background-mode (frame-parameters))
@@ -291,31 +293,23 @@
 
 ;; list definition terms - term :: definition
 (set-face-attribute 'org-list-dt nil
-                    )
+                    :slant 'italic :weight 'bold)
 
 ;;; link face [[link][desc]]
 (set-face-attribute 'org-link nil
                     :background (color-darken-name (face-background 'default) 5)
-                    :underline "DarkTurquoise"
-                    ;; :box '(:color "black")
-                    )
+                    :underline "DarkTurquoise")
 
 ;; <<<radio target link>>>
 (set-face-attribute 'org-target nil
                     :underline "DimGrey"
                     :weight 'bold)
 
-;; set Org clock face.
-;; That is, make the org-mode-line-clock no longer inherit attributes from the
-;; mode-line face. It seems like it gets the attributes from mode-line or
-;; mode-line-inactive as appropriate, when displayed in the mode line.
-(set-face-attribute 'org-mode-line-clock nil
-                    :inherit nil)
 
+;; property
 ;; special keywords :keyword:
 (set-face-attribute 'org-special-keyword nil
                     :background (color-darken-name (face-background 'default) 3))
-;; property
 ;; meta lines :PROPERTY: value
 (set-face-attribute 'org-meta-line nil
                     :background (face-background 'default))

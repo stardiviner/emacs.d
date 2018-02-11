@@ -12,11 +12,13 @@
 ;;; statistics -> [1/10] or [15%]
 
 ;; Org-mode built-in TODOs dependencies, enforce parent and sub-tasks DONE.
-(setq org-enforce-todo-dependencies t
-      org-track-ordered-property-with-tag t)
+(setq org-enforce-todo-dependencies t)
+
+(setq org-track-ordered-property-with-tag t)
+(add-to-list 'org-default-properties "ORDERED")
 
 ;;; time repeat
-(setq org-todo-repeat-to-state nil
+(setq org-todo-repeat-to-state "REPEAT"
       org-agenda-prefer-last-repeat nil
       org-log-repeat 'time)
 
@@ -53,10 +55,8 @@
         (sequence "REPEAT(r!)" "|" "DONE(d@/!)")
         ;; Habit
         (sequence "HABIT(h)" "|" "DONE(d)")
-        ;; Types
-        (type "CODE(c@/!)" "PROJECT(P@/!)" "|" "DONE(d@/!)")
         ;; Code
-        (sequence "BUG(b!)" "ISSUE(i!)" "ERROR(e!)" "FEATURE(f!)" "Pull-Request(p!)" "|" "DONE(d@/!)")
+        (sequence "CODE(c@/!)" "BUG(b!)" "ISSUE(i!)" "ERROR(e!)" "FEATURE(f!)" "Pull-Request(p!)" "|" "DONE(d@/!)")
         ;; Work
         (type "WORK(w@/!)" "MEETING(m@/!)" "|" "DONE(d@/!)")
         ;; Learn
@@ -79,6 +79,8 @@
         ("REPEAT" :foreground "cyan"
          :box '(:color "dim gray" :line-width -1))
         ("HABIT" :foreground "cyan"
+         :box '(:color "dim gray" :line-width -1))
+        ("NEXT" :foreground "yellow"
          :box '(:color "dim gray" :line-width -1))
         ("SOMEDAY" :foreground "gray"
          :box '(:color "dim gray" :line-width -1))
@@ -106,9 +108,7 @@
         ("Pull-Request" :foreground "yellow"
          :box '(:color "dim gray" :line-width -1 :style nil))
         ;; types
-        ("CODE" :foreground "#004A5D"
-         :box '(:color "dim gray" :line-width -1 :style nil))
-        ("PROJECT" :foreground "#004A5D"
+        ("CODE" :foreground "DodgerBlue"
          :box '(:color "dim gray" :line-width -1 :style nil))
         ;; life
         ("SEX" :foreground "deep pink"
@@ -138,8 +138,7 @@
       org-habit-following-days 7
       org-habit-today-glyph ?>
       org-habit-completed-glyph ?✔
-      org-habit-show-done-always-green nil)
-
+      )
 
 ;; set task to habit
 (defun org-habit-apply ()
@@ -194,11 +193,16 @@
 ;; (set-face-attribute 'org-habit-overdue-future-face nil
 ;;                     :background "DarkSlateBlue")
 
-;;; Stuck Project
+;;; Stuck Project: Find projects you need to review. [C-c o a #]
 
 (setq org-stuck-projects
-      '("+PROJECT/-MAYBE-DONE" ("NEXT" "TODO") ("@SHOP")
-        "\\<IGNORE\\>"))
+      '("+PROJECT/-DONE" ("NEXT" "NEXTACTION" "TODO") nil ""))
+
+(add-to-list 'org-todo-keywords
+             '(type "PROJECT(P@/!)" "|" "DONE(d@/!)"))
+(add-to-list 'org-todo-keyword-faces
+             '("PROJECT" :foreground "DodgerBlue"
+               :box '(:color "dim gray" :line-width -1 :style nil)))
 
 
 ;;; [ inline task ]
@@ -206,26 +210,34 @@
 (require 'org-inlinetask)
 
 (setq org-inlinetask-default-state "TODO"
-      org-inlinetask-show-first-star nil
-      ;; org-inlinetask-min-level 15
-      )
+      org-inlinetask-show-first-star nil)
 
 ;;; [ org-depend ] -- manage dependencies of Org-mode tasks.
 
-;; (require 'org-depend)
+(require 'org-depend)
 
 ;;; auto trigger by changing TODO states into NEXT.
-;; (defun my/org-insert-trigger ()
-;;   "Automatically insert chain-find-next trigger when entry becomes NEXT."
-;;   (cond ((equal org-state "NEXT")
-;;          (unless org-depend-doing-chain-find-next
-;;            (org-set-property "TRIGGER"
-;;                              "chain-find-next(NEXT,from-current,priority-up,effort-down)")))
-;;         ((not (member org-state org-done-keywords))
-;;          (org-delete-property "TRIGGER"))))
-;;
-;; (add-hook 'org-after-todo-state-change-hook 'my/org-insert-trigger)
+(defun my/org-insert-trigger ()
+  "Automatically insert chain-find-next trigger when entry becomes NEXT."
+  (cond ((equal org-state "NEXT")
+         (unless org-depend-doing-chain-find-next
+           (org-set-property "TRIGGER"
+                             "chain-find-next(NEXT,from-current,priority-up,effort-down)")))
+        ((not (member org-state org-done-keywords))
+         (org-delete-property "TRIGGER"))))
 
+(add-hook 'org-after-todo-state-change-hook 'my/org-insert-trigger)
+
+;;; [ org-edna ] -- Extensible Dependencies 'N' Actions.
+
+;;; Usage:
+;;
+;; - properties: BLOCKER, TRIGGER.
+
+(use-package org-edna
+  :ensure t)
+
+
 
 (provide 'init-my-org-todo)
 

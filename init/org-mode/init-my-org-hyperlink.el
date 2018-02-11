@@ -8,14 +8,15 @@
 ;;; Code:
 
 
-(setq org-display-internal-link-with-indirect-buffer t
-      org-indirect-buffer-display 'current-window
+(setq org-indirect-buffer-display 'current-window
+      ;; org-display-internal-link-with-indirect-buffer t ; [C-u] to open in indirect buffer window.
       org-keep-stored-link-after-insertion t ; keep stored link in entire session.
-      
       ;; You can fully-qualify links on a link-by-link basis by passing one
       ;; universal argument [C-u].
       org-link-file-path-type 'adaptive ; default 'adaptive, 'relative
       )
+
+(define-key org-mode-map (kbd "M-,") 'org-mark-ring-goto)
 
 ;;; use :ID: property for org linking.
 ;; (setq org-id-link-to-org-use-id t
@@ -23,7 +24,7 @@
 
 ;;; use :CUSTOM_ID: property for org headlines linking.
 (defun org-store-link-set-headline-custom-id (arg &optional interactive?)
-  "Set `CUSTOM_ID' for `org-store-link' on headline."
+  "Set property :CUSTOM_ID: for `org-store-link' on headline."
   (when (and (equal major-mode 'org-mode) ; handle case `org-store-link' not in org-mode file.
              (not (org-before-first-heading-p)) ; handle case point is in org-mode buffer ahead of first headline.
              ;; (org-on-heading-p t) ; detect whether on a headline
@@ -39,20 +40,6 @@
 
 (advice-add 'org-store-link :before #'org-store-link-set-headline-custom-id)
 
-
-;;; Links are now customizable
-;;
-;; Links can now have custom colors, tooltips, keymaps, display behavior, etc.
-;; Links are now centralized in `org-link-parameters'.
-;; (add-to-list 'org-link-parameters '())
-
-(define-key org-mode-map (kbd "M-,") 'org-mark-ring-goto)
-
-;;; fontify broken link.
-;; (org-link-set-parameters
-;;  "file"
-;;  ;; TODO: fix path contains space case.
-;;  :face (lambda (path) (if (file-exists-p path) 'org-link 'org-warning)))
 
 ;;; org-file-apps no longer accepts S-expressions as commands
 ;;
@@ -116,20 +103,36 @@
 (setcdr (assq 'system org-file-apps-defaults-gnu) "xdg-open %s")
 
 
+;;; Links are now customizable
+;;
+;; Links can now have custom colors, tooltips, keymaps, display behavior, etc.
+;; Links are now centralized in `org-link-parameters'.
+;; (add-to-list 'org-link-parameters '())
 ;; `org-link-types'
-;; `org-link-set-parameters' `org-add-link-type' (deprecated) + `org-add-link-props'
-;; (org-link-set-parameters "ebib"
-;;                          :follow #'org-ebib-open
-;;                          :store #'org-ebib-store-link)
-;; (add-hook 'org-store-link-functions 'org-ebib-store-link)
+;; `org-link-set-parameters'
 
+;;; fontify broken link.
+(org-link-set-parameters
+ "file"
+ :face (lambda (path)
+         (if (file-exists-p (expand-file-name (org-link-unescape path)))
+             'org-link 'org-warning)))
+
+(setq org-link-frame-setup
+      '((vm . vm-visit-folder-other-frame)
+        (vm-imap . vm-visit-imap-folder-other-frame)
+        (gnus . org-gnus-no-new-news)
+        (file . find-file)
+        (wl . wl-other-frame)))
+
+;; `elisp:'
+(setq org-confirm-elisp-link-function 'yes-or-no-p)
 ;; `shell:'
 (setq org-confirm-shell-link-function 'yes-or-no-p)
 
-
 ;; Email: `mailto:' link open with Emacs internal extension like message-mode, mu4e.
 ;; `mail-user-agent'
-(setq browse-url-mailto-function 'browse-url-mail)
+;; (setq browse-url-mailto-function 'browse-url-mail)
 
 
 ;; IRC: `irc:'
@@ -142,7 +145,7 @@
       (setq org-irc-client 'circe)))
 
 
-;;; telnet: link type
+;;; Telnet:
 ;;  telnet://ptt.cc
 (org-link-set-parameters "telnet"
                          :follow #'telnet)
@@ -161,17 +164,13 @@
 ;; `[[man:(section: 7 or 3r)gv][gv (man page)]]'
 (require 'org-man)
 (setq org-man-command 'man) ; 'man, 'woman.
-(add-to-list 'display-buffer-alist
-             '("\\*Man.*\\*" (display-buffer-below-selected)))
 
-;;; occur: link type
-;;
-;; and you can then use links like:
+;;; `occur:'
 ;;   occur:my-file.txt#regex
 ;; to open a file and run occur with the regex on it.
 (defun org-occur-link-open (uri)
-  "Visit the file specified by URI, and run `occur' on the fragment
-  \(anything after the first '#') in the uri."
+  "Visit the file specified by `URI', and run `occur' on the fragment.
+  \(anything after the first '#') in the `URI'."
   (let ((list (split-string uri "#")))
     (org-open-file (car list) t)
     (occur (mapconcat 'identity (cdr list) "#"))))
@@ -179,9 +178,10 @@
 (org-link-set-parameters "occur"
                          :follow #'org-occur-link-open)
 
-;;; [[grep:regexp][regexp (grep)]]
+;;; `grep:'
+;;  [[grep:regexp][regexp (grep)]]
 (defun org-grep-link-open (regexp)
-  "Run `rgrep' with REGEXP as argument."
+  "Run `rgrep' with `REGEXP' as argument."
   (grep-compute-defaults)
   (rgrep regexp "*" (expand-file-name "./")))
 
@@ -189,23 +189,42 @@
                          #'org-grep-link-open)
 
 
-;;; [[tag:]]
+;;; `tag:'
 ;; e.g. [[tag:work+phonenumber-boss][Optional Description]]
 (defun org-tag-link-open (tag)
   "Display a list of TODO headlines with tag TAG.
 With prefix argument, also display headlines without a TODO keyword."
   (org-tags-view (null current-prefix-arg) tag))
 
-(org-link-set-parameters "org-tag"
+(org-link-set-parameters "tag"
                          :follow #'org-tag-link-open)
 
 ;;; [ Git ]
 ;; In Git local repository file, `org-store-link'. Then insert link in Org-mode buffer.
 ;; - `git:'
 ;; - `gitbare:'
+;; (require 'org-git-link)
+
+;;; add file path completion support for `git:' and `gitbare:'
+(org-link-set-parameters "git"
+                         :complete 'org-git-complete-link)
+
+;;; TODO: add a function to complete git: link. parse git repo metadata, show in available candidates.
+(defun org-git-complete-link ()
+  "Use the existing file name completion for file.
+Links to get the file name, then ask the user for the page number
+and append it."
+  (concat (replace-regexp-in-string "^file:" "git:" (org-file-complete-link))
+	        "::"
+	        (read-from-minibuffer "branch:" "1")
+          "@"
+          (read-from-minibuffer "date:" "{2017-06-24}")
+          "::"
+          (read-from-minibuffer "line:" "1")))
 
 
-;;; [[map:"address name/geography"]]
+;;; `map:'
+;;  [[map:"address name/geography"]]
 ;; - address name: "Dali, Yunnan, China"
 (defcustom org-map-application-command "gnome-maps"
   "Specify the program name for openning map: link.")
@@ -268,26 +287,14 @@ With prefix argument, also display headlines without a TODO keyword."
 
 
 
-;;; [ geography link ]
+;; `geo:' geography link
 ;; [geo:37.786971,-122.399677;u=35]
-
 (defun org-geo-link-open (geo)
   "Open geography location link `GEO' like \"geo:25.5889136,100.2208514\" with program."
   (browse-url geo))
 
 (org-link-set-parameters "geo"
                          :follow #'org-geo-link-open)
-
-
-
-
-
-(setq org-link-frame-setup
-      '((vm . vm-visit-folder-other-frame)
-        (vm-imap . vm-visit-imap-folder-other-frame)
-        (gnus . org-gnus-no-new-news)
-        (file . find-file)
-        (wl . wl-other-frame)))
 
 
 ;;; [ Link abbreviations ]

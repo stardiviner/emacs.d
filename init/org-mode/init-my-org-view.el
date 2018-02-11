@@ -12,21 +12,20 @@
 (setq org-startup-folded t)
 
 (setq org-hide-emphasis-markers t
-      org-fontify-emphasized-text t
-      org-fontify-quote-and-verse-blocks t
-      org-fontify-done-headline t)
+      org-fontify-quote-and-verse-blocks t)
 
 (setq org-ellipsis "  ")
 
+;;; TODO: whether remove this extra setting which not supported by Org-mode built-in.
 ;; include ' in org-verbatim face highlight.
-(setcar (nthcdr 2 org-emphasis-regexp-components) " \t\r\n,\"")
-(org-set-emph-re 'org-emphasis-regexp-components org-emphasis-regexp-components)
+;; (setcar (nthcdr 2 org-emphasis-regexp-components) " \t\r\n,\"")
+;; (org-set-emph-re 'org-emphasis-regexp-components org-emphasis-regexp-components)
 
 ;; [ pretty entities ]
 
 ;; \pi will display as π
 (setq org-pretty-entities t
-      org-pretty-entities-include-sub-superscripts nil)
+      org-pretty-entities-include-sub-superscripts t)
 
 (setq org-script-display
       '(((raise -0.3)
@@ -36,9 +35,7 @@
          (height 0.7)
          (:foreground "yellow"))
         ((raise -0.5))
-        ((raise 0.5))
-        )
-      )
+        ((raise 0.5))))
 
 ;; [ indent ]
 

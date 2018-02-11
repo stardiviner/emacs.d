@@ -22,6 +22,12 @@
   (add-to-list 'web-mode-expanders '("e/" . "<% end %>")) ; ruby erb end: <% end %>
   )
 
+;;; [ ob-html ]
+
+(add-to-list 'org-babel-load-languages '(html . t))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+(add-to-list 'org-babel-tangle-lang-exts '("rhtml" . "html.erb"))
+
 ;;; [ projectile-rails ]
 
 (use-package projectile-rails

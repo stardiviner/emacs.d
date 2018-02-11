@@ -11,14 +11,47 @@
 
 (setq org-agenda-window-setup 'current-window)
 
-(add-to-list 'display-buffer-alist
-             '("^\\*Org Agenda\\*" (display-buffer-same-window)))
-(add-to-list 'display-buffer-alist
-             '("^\\*Org Note\\*" (display-buffer-same-window)))
+
+(use-package dash ; for `-flatten'
+  :ensure t)
+(setq org-agenda-files
+      ;; recursive in all directory and sub-directory.
+      (-flatten
+       (mapcar
+        (lambda (path)
+          (if (file-directory-p path)   ; if it is a directory
+              ;; return all files recursively in directory
+              (directory-files-recursively path ".org$")
+            ;; if it is a file, return the file directly.
+            path))
+        '("~/Org/Wiki/Things/Things.org" ; Buy Things
+          "~/Org/Tasks/"
+          "~/Org/Projects/"
+          "~/Org/Learning Plan/"
+          "~/Org/Contacts/Contacts.org"
+          "~/Org/Calendars/Anniversary.org"
+          "~/Org/Myself/"               ; about Myself tasks
+          ))))
+
+;; include `diary-file' from `calendar'
+(setq org-agenda-include-diary nil ; speed up Org Agenda generation.
+      ;; diary-file
+      org-agenda-diary-file 'diary-file
+      ;; org-agenda-insert-diary-strategy 'date-tree
+      )
+
+;;; FIXME: anniversary appears at day agenda view which it should not appear.
+;; (setq org-agenda-include-diary t
+;;       diary-file (concat org-directory "/Calendars/Anniversary.org")
+;;       org-agenda-diary-file (concat org-directory "/Calendars/Anniversary.org")
+;;       )
+
 
 ;; Agenda Views
-(setq org-agenda-align-tags-to-column -100
-      org-agenda-tags-column -100)
+(setq org-agenda-span 'day)
+
+(setq org-agenda-align-tags-to-column (- (- (/ (/ (display-pixel-width) 2) 10) 3))
+      org-agenda-tags-column (- (- (/ (/ (display-pixel-width) 2) 10) 3)))
 (setq org-agenda-prefix-format
       '((agenda . " %i %-12:c %? e %?-12t % s")
         (timeline . " % s")
@@ -28,6 +61,19 @@
         (tags . " %i %-12:c")
         ))
 (setq org-agenda-scheduled-leaders '("Scheduled: " "%3d days | "))
+
+;; speedup Org Agenda
+(setq org-agenda-inhibit-startup t
+      org-agenda-dim-blocked-tasks nil ; don't dim blocked tasks: past deadline, etc
+      org-agenda-use-tag-inheritance nil)
+
+;;; toggle log mode in agenda buffer. Press [l] in org-agenda buffer.
+(setq org-agenda-start-with-log-mode '(closed clock)
+      org-agenda-log-mode-items '(closed clock))
+
+;;; clock report mode
+(setq org-agenda-start-with-clockreport-mode t
+      org-agenda-clockreport-parameter-plist '(:link t :maxlevel 3))
 
 (setq org-agenda-block-separator ?=
       org-agenda-compact-blocks t)
@@ -61,14 +107,6 @@
      (t 'org-agenda-date))))
 
 (setq org-agenda-day-face-function 'my-org-agenda-get-day-face-fn)
-
-
-;; include `diary-file' from `calendar'
-(setq org-agenda-include-diary nil ; speed up Org Agenda generation.
-      ;; diary-file
-      org-agenda-diary-file 'diary-file
-      ;; org-agenda-insert-diary-strategy 'date-tree
-      )
 
 ;;; Icon
 
@@ -227,30 +265,6 @@
           ))
   )
 
-(use-package dash ; for `-flatten'
-  :ensure t)
-(setq org-agenda-files
-      ;; recursive in all directory and sub-directory.
-      (-flatten
-       (mapcar
-        (lambda (path)
-          (if (file-directory-p path)   ; if it is a directory
-              ;; return all files recursively in directory
-              (directory-files-recursively path ".org$")
-            ;; if it is a file, return the file directly.
-            path))
-        '("~/Org/Wiki/Things/Things.org" ; Buy Things
-          "~/Org/Tasks/"
-          "~/Org/Projects/"
-          "~/Org/Learning Plan/"
-          "~/Org/Contacts/Contacts.org"
-          "~/Org/Calendars/Anniversary.org"
-          "~/Org/Myself/"               ; about Myself tasks
-          "~/Org/Wiki/Literature/Novels/Data/Novel Books/Novel Books.org" ; Reading Novels
-          ))))
-
-(setq org-agenda-text-search-extra-files '(agenda-archives "~/Org/Diary/"))
-
 (setq org-agenda-skip-timestamp-if-done t
       org-agenda-skip-deadline-if-done t
       org-agenda-skip-scheduled-if-done t
@@ -266,20 +280,6 @@
       org-agenda-todo-ignore-with-date nil
       org-agenda-todo-ignore-scheduled 'future
       )
-
-(setq org-agenda-span 'day)
-;; speedup Org Agenda
-(setq org-agenda-inhibit-startup t
-      org-agenda-dim-blocked-tasks nil ; don't dim blocked tasks: past deadline, etc
-      org-agenda-use-tag-inheritance nil)
-
-;;; toggle log mode in agenda buffer. Press [l] in org-agenda buffer.
-(setq org-agenda-start-with-log-mode '(closed clock)
-      org-agenda-log-mode-items '(closed clock))
-
-;;; clock report mode
-(setq org-agenda-start-with-clockreport-mode t
-      org-agenda-clockreport-parameter-plist '(:link t :maxlevel 3))
 
 ;;; entry text mode
 ;; (setq org-agenda-start-with-entry-text-mode t)
@@ -460,38 +460,6 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 ;; (org-notify-start 300)
 
-;;; [ org-pomodoro ] -- adds support for Pomodoro technique in Org-mode.
-
-(use-package org-pomodoro
-  :ensure t
-  :commands (org-pomodoro)
-  :init
-  (unless (boundp 'pomodoro-prefix)
-    (define-prefix-command 'pomodoro-prefix))
-  :bind (:map pomodoro-prefix
-              ("o" . org-pomodoro)
-              :map Org-prefix
-              ("p" . org-pomodoro)
-              )
-  :config
-  (setq org-pomodoro-play-sounds t
-        org-pomodoro-start-sound-p t
-        org-pomodoro-ticking-sound-p nil
-        ;; org-pomodoro-ticking-sound
-        org-pomodoro-ticking-sound-args "-volume 50" ; adjust ticking sound volume
-        ;; org-pomodoro-start-sound-args "-volume 0.3"
-        ;; org-pomodoro-long-break-sound-args "-volume 0.3"
-        org-pomodoro-audio-player "/usr/bin/mplayer"
-        org-pomodoro-format "Pomodoro: %s" ; mode-line string
-        )
-
-  ;; start another pomodoro automatically upon a break end.
-  (add-hook 'org-pomodoro-break-finished-hook
-            (lambda ()
-              (interactive)
-              (org-pomodoro '(16)) ; double prefix [C-u C-u]
-              ))
-  )
 
 ;;; auto launch org-agenda after Emacs finished startup.
 (add-hook 'after-init-hook

@@ -15,6 +15,7 @@
       org-export-with-planning t
       org-export-with-timestamps t
       org-export-with-properties t
+      org-export-with-tags t
       )
 
 ;;; Org-mode Babel
@@ -76,32 +77,6 @@
     (:exports . "results")))
 (defun org-babel-execute:inline-js (body _params)
   (format "<script type=\"text/javascript\">\n%s\n</script>" body))
-
-
-;;; convert selected region to Markdown and copy to clipboard for pasting
-;;; on sites like GitHub, and Stack Overflow.
-
-(defun my-org-md-convert-region-to-md ()
-  "Convert selected region to Markdown and copy to clipboard.
-
-For pasting on sites like GitHub, and Stack Overflow."
-  (interactive)
-  (require 'ox-md)
-  
-  ;; (with-temp-buffer-window
-  ;;  "*org->markdown temp*"
-  ;;  (org-export-to-buffer 'md "*org->markdown temp*"
-  ;;    async subtreep visible-only) 'delete-window)
-
-  (unless (org-region-active-p) (user-error "No active region to replace"))
-  (x-set-selection 'CLIPBOARD
-                   (org-export-string-as
-                    (buffer-substring (region-beginning) (region-end)) 'md t))
-  (deactivate-mark))
-
-(unless (boundp 'paste-prefix)
-  (define-prefix-command 'paste-prefix))
-(define-key paste-prefix (kbd "m") 'my-org-md-convert-region-to-md)
 
 
 ;;; [ org-mime ] -- org-mime can be used to send HTML email using Org-mode HTML export.
@@ -206,22 +181,6 @@ For pasting on sites like GitHub, and Stack Overflow."
 (use-package html2org
   :ensure t
   :commands (html2org))
-
-;;; copy formatted text from org-mode to applications.
-
-(defun my-org-formatted-copy ()
-  "Export region to HTML, and copy it to the clipboard."
-  (interactive)
-  (save-window-excursion
-    (let* ((buf (org-export-to-buffer 'html "*org-mode formatted copy*" nil nil t t))
-           (html (with-current-buffer buf (buffer-string))))
-      (with-current-buffer buf
-        (shell-command-on-region
-         (point-min)
-         (point-max)
-         "textutil -stdin -format html -convert rtf -stdout | pbcopy"))
-      (kill-buffer buf))))
-
 
 ;;; [ ox-epub ] -- Org-mode EPUB export.
 

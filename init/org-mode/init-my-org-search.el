@@ -9,6 +9,8 @@
 
 (setq org-occur-case-fold-search 'smart)
 
+;;; org-agenda [C-c a s] / `org-search-view' search view.
+
 ;;; [ helm-org-rifle ] -- Rifle through your Org buffers and acquire your target.
 
 (use-package helm-org-rifle
