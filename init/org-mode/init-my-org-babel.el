@@ -80,19 +80,6 @@
 (add-to-list 'org-babel-default-header-args:shell
              '(:noweb . "yes"))
 
-
-;;; [ ob-uart ] -- A wrapper around make-serial-process for org babel, providing integration of UART communication into org documents.
-
-(use-package ob-uart
-  :ensure t
-  :defer t
-  :config
-  (add-to-list 'org-babel-load-languages '(uart . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  ;; FIXME: (add-to-list 'org-babel-tangle-lang-exts '("uart" . "??"))
-  )
-
-
 ;;; [ Tangle ]
 
 (setq org-babel-tangle-lang-exts
