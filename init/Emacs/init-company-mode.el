@@ -203,6 +203,19 @@ In that case, insert the number."
   (add-hook 'company-completion-cancelled-hook #'my-company-fail-animation)
   )
 
+
+;; show dictionary for `company-ispell' word with `company-quickhelp'.
+(defun company-ispell-dict (command &optional arg &rest ignored)
+  "Provide dict as `doc-buffer' for `company-quickdict' popup."
+  (interactive (list 'interactive))
+  (cl-case command
+    (doc-buffer
+     (let ((doc (sdcv-search-simple arg)))
+       (when doc
+         (company-doc-buffer doc))))
+    (t (apply #'company-ispell command arg ignored))))
+
+
 ;;; [ company-childframe ] -- use a child-frame as company candidate menu.
 
 ;; (use-package company-childframe

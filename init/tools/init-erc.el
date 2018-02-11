@@ -169,7 +169,7 @@ The function is suitable for `erc-after-connect'."
   (make-local-variable 'company-minimum-prefix-length)
   (setq company-minimum-prefix-length 2)
   (make-local-variable 'company-backends)
-  (setq company-backends '((company-capf :with company-ispell)
+  (setq company-backends '((company-capf :with company-ispell-dict)
                            company-keywords
                            company-abbrev)))
 
