@@ -9,6 +9,8 @@
 
 ;;; [ Gnus ]
 
+(define-key email-prefix (kbd "g") 'gnus)
+
 ;; user info
 (setq user-full-name "stardiviner"
       user-mail-address "numbchild@gmail.com")
@@ -17,6 +19,9 @@
   :ensure t)
 
 ;; directories & files
+(let ((dir (expand-file-name "Gnus/" user-emacs-directory)))
+  (if (not (file-exists-p dir))
+      (mkdir dir t)))
 (setq gnus-home-directory (expand-file-name "Gnus/" user-emacs-directory)
       gnus-default-directory gnus-home-directory
       gnus-init-file (nnheader-concat gnus-home-directory ".gnus")
@@ -40,7 +45,7 @@
       gnus-show-threads t
       gnus-interactive-exit t
       gnus-interactive-catchup t
-      gnus-asynchronous t
+      gnus-view-pseudo-asynchronously t
       gnus-summary-ignore-duplicates t
       ;; gnus-treat-fill-long-lines t
 
@@ -56,21 +61,6 @@
       gnus-treat-mail-gravatar 'head
       )
 
-;; startup
-;; (setq gnus-use-backend-marks nil)
-
-;; auto save
-;; disable dribble file
-(setq gnus-use-dribble-file t
-      gnus-dribble-directory nil
-      gnus-always-read-dribble-file nil
-      )
-
-;; the active file
-(setq gnus-read-active-file 'some
-      gnus-cache-active-file (expand-file-name "active" gnus-cache-directory)
-      )
-
 ;; windows layout
 (gnus-add-configuration
  '(article
@@ -80,16 +70,14 @@
 
 ;; visual thread `%B'
 (setq gnus-summary-same-subject ""
-      gnus-sum-thread-tree-indent "    "
+      gnus-sum-thread-tree-indent "  "
       gnus-sum-thread-tree-single-indent "◎ "
       gnus-sum-thread-tree-root "● "
-      gnus-sum-thread-tree-false-root "☆"
+      gnus-sum-thread-tree-false-root "x"
       gnus-sum-thread-tree-vertical "│"
-      gnus-sum-thread-tree-leaf-with-other "├─► "
-      gnus-sum-thread-tree-single-leaf "╰─► "
+      gnus-sum-thread-tree-leaf-with-other "├► "
+      gnus-sum-thread-tree-single-leaf "╰► "
       )
-
-(setq gnus-refer-article-method 'current)
 
 ;; summary
 (setq gnus-summary-gather-subject-limit 'fuzzy)
@@ -132,7 +120,7 @@
 (add-to-list 'mm-attachment-override-types "image/*") ; attachment display image
 
 ;; newsgroup grouped by.
-(add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
+;; (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 
 ;; group score
 (add-hook 'gnus-summary-exit-hook 'gnus-summary-bubble-group)
@@ -229,46 +217,30 @@
       mail-source-delete-incoming t
       )
 
-;; (add-to-list 'gnus-select-method
-;;              '(nnmaildir "Mails"
-;;                          (directory "~/Mails/")))
-
-;; (add-to-list 'gnus-select-method
-;;              '(maildir :path "~/Mails/"
-;;                        :subdirs ("cur" "new" "tmp")))
-
-;; (setq mail-sources '((file)))
-;; (setq mail-sources '((maildir :path "~/Mails/"
-;;                               :subdirs ("cur" "new" "tmp"))))
-
-
 ;; [ Gmail ]
 
 (setq user-mail-address "numbchild@gmail.com"
-      mml2015-signers '("5AE89AC3")
       ;; This tells Gnus to get email from Gmail via IMAP.
-      gnus-select-method
-      '(nnimap "gmail"
-               ;; It could also be imap.googlemail.com if that's your server.
-               (nnimap-address "imap.gmail.com")
-               (nnimap-server-port 993)
-               (nnimap-stream ssl)
-
-               (nnir-search-engine imap)
-               
-               ;; press 'E' to expire email
-               (nnmail-expiry-target "nnimap+gmail:[Gmail]/Trash")
-               (nnmail-expiry-wait 90)
-               )
+      gnus-select-method '(nnimap "gmail"
+                                  (nnimap-address "imap.gmail.com")
+                                  (nnimap-server-port 993)
+                                  (nnimap-stream ssl)
+                                  ;; Search
+                                  (nnir-search-engine imap)
+                                  ;; press 'E' to expire email
+                                  (nnmail-expiry-target "nnimap+gmail:[Gmail]/Trash")
+                                  (nnmail-expiry-wait 90)
+                                  )
       ;; This tells Gnus to use the Gmail SMTP server. This
       ;; automatically leaves a copy in the Gmail Sent folder.
       smtpmail-smtp-server "smtp.gmail.com"
-      smtpmail-smtp-service 587
+      smtpmail-default-smtp-server "smtp.gmail.com"
+      ;; smtpmail-smtp-service 587 ; SSL: 456, TLS/STARTTLS: 587
       ;; Tell message mode to use SMTP.
       send-mail-function 'sendmail-send-it
       message-send-mail-function 'smtpmail-send-it
       ;; This is where we store the password.
-      nntp-authinfo-file "~/.authinfo.gpg"
+      nntp-authinfo-file (concat user-emacs-directory "secrets/.authinfo.gpg")
       ;; Gmail system labels have the prefix [Gmail], which matches
       ;; the default value of gnus-ignored-newsgroups. That's why we
       ;; redefine it.
@@ -277,11 +249,15 @@
       gnus-agent nil
       ;; We don't want local, unencrypted copies of emails we write.
       gnus-message-archive-group nil
-      ;; We want to be able to read the emails we wrote.
-      mml2015-encrypt-to-self t)
+      )
 
+;; We want to be able to read the emails we wrote.
+(setq mml2015-signers '("5AE89AC3")
+      mml2015-encrypt-to-self t)
+;; Attempt to sign all the mails we'll be sending.
+(add-hook 'message-setup-hook 'mml-secure-message-sign)
 ;; Attempt to encrypt all the mails we'll be sending.
-(add-hook 'message-setup-hook 'mml-secure-message-encrypt)
+;; (add-hook 'message-setup-hook 'mml-secure-message-encrypt)
 
 ;; Add two key bindings for your Gmail experience.
 (add-hook 'gnus-summary-mode-hook 'my-gnus-summary-keys)
@@ -302,11 +278,11 @@ This moves them into the Spam folder."
   (interactive)
   (gnus-summary-move-article nil "nnimap+imap.gmail.com:[Gmail]/Spam"))
 
+
 ;; auto linebreaking
 (defun my-message-mode-setup ()
   (setq fill-column 80)
   (turn-on-auto-fill))
-
 (add-hook 'message-mode-hook 'my-message-mode-setup)
 
 
@@ -319,7 +295,7 @@ This moves them into the Spam folder."
 (setq gnus-visible-headers
       (mapconcat 'regexp-quote
                  '("From:" "Newsgroups:" "Subject:" "Date:"
-                   "Organization:" "To:" "Cc:" "Followup-To" "Gnus-Warnings:"
+                   "Organization:" "To:" "Cc:" "Followup-To" "Gnus:" "Gnus-Warnings:"
                    "X-Sent:" "X-URL:" "User-Agent:" "X-Newsreader:"
                    "X-Mailer:" "Reply-To:" "X-Spam:" "X-Spam-Status:" "X-Now-Playing"
                    "X-Attachments" "X-Diagnostic")
