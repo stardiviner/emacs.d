@@ -423,6 +423,13 @@ This moves them into the Spam folder."
 ;;         (message-this-is-news nil t))
 ;;       )
 
+;;; [ all-the-icons-gnus ]
+
+(use-package all-the-icons-gnus
+  :ensure t
+  :config
+  (all-the-icons-gnus-setup))
+
 
 (provide 'init-gnus)
 
