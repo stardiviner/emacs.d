@@ -377,9 +377,16 @@ state (modified, read-only or non-existent)."
                      (with-current-buffer (ignore-errors (cider-current-connection))
                        (format " %s" (cider--project-name nrepl-project-dir)))))
               (concat
-               (all-the-icons-fileicon "clj" :face '(:foreground "red"))
                (all-the-icons-faicon "chain-broken"
                                      :v-adjust -0.0 :face 'mode-line-error-face))))
+           ('org-mode
+            (if (bound-and-true-p ob-clojure-literate-mode)
+                (if (cl-some
+                     (lambda (conn)
+                       (string= (buffer-name conn) ob-clojure-literate-default-session))
+                     cider-connections)
+                    (all-the-icons-fileicon "clj" :face '(:foreground "green"))
+                  (all-the-icons-fileicon "clj" :face '(:foreground "gray")))))
            ((or 'ruby-mode 'inf-ruby-mode)
             (concat
              (if (inf-ruby-proc)
