@@ -9,14 +9,17 @@
 
 ;;; [ org-if ] -- Interactive Fiction Authoring System for Emacs and Org-Mode.
 
-;; (use-package org-if
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (org-babel-do-load-languages 'org-babel-load-languages '((org-if . t)))
-;;   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-;;   )
+(use-package org-if
+  :ensure t
+  :config
+  (org-babel-do-load-languages 'org-babel-load-languages '((org-if . t)))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  )
 
+;;; [ org-wc ] count words under every org-mode trees
+
+(use-package org-wc
+  :ensure t)
 
 ;;; [ wc-mode ] -- minor mode of command `wc' for word counting.
 
