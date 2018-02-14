@@ -23,7 +23,8 @@
   (setq edit-server-new-frame t)
 
   (add-hook 'edit-server-edit-mode-hook #'flyspell-mode)
-  
+
+  (setq edit-server-default-major-mode 'markdown-mode)
   (setq edit-server-url-major-mode-alist
         '(("github\\.com" . markdown-mode)
           ;; Stack Overflow
@@ -31,6 +32,7 @@
           ("stack\\(exchange\\|overflow\\)\\.com\\.[a-z0-9]+\\.txt" . markdown-mode)
           (".*\\.stackexchange\\.com/.*" . markdown-mode)
           ("segmentfault\\.com" . markdown-mode)
+          ("discuss\\.elastic\\.co" . markdown-mode)
           ;; Gmail
           (".*mail\\.google\\.com/.*" . html-mode)
           ;; Jupyter notebooks
