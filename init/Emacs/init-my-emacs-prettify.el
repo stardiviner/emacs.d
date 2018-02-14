@@ -65,7 +65,6 @@
 
 (use-package digit-groups
   :ensure t
-  :defer t
   :init
   (add-hook 'org-mode-hook
             (lambda ()
