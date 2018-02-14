@@ -50,6 +50,8 @@
              '("^\\*Process List\\*" (display-buffer-below-selected)))
 (add-to-list 'display-buffer-alist
              '("^\\*Process List\\*" (display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist
+             '("^\\*Animation\\*" (display-buffer-below-selected)))
 
 ;;; [ winner ]
 

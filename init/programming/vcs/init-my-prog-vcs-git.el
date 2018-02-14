@@ -101,15 +101,15 @@
 
   ;; manage popup buffers.
   (add-to-list 'display-buffer-alist
-               '("\\`\\*magit:.*\\'" (display-buffer-reuse-window display-buffer-same-window)))
+               '("\\`magit:.*\\'" (display-buffer-reuse-window display-buffer-same-window)))
   (add-to-list 'display-buffer-alist
-               '("^\\*magit-diff.*" (display-buffer-below-selected)))
+               '("^magit-diff.*" (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
-               '("^\\*magit-revision.*" (display-buffer-below-selected)))
+               '("^magit-revision.*" (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
-               '("^\\*magit-log.*" (display-buffer-same-window)))
-  ;; (add-to-list 'display-buffer-alist
-  ;;              '("^\\*magit-process.*" (display-buffer-below-selected)))
+               '("^magit-log.*" (display-buffer-same-window)))
+  (add-to-list 'display-buffer-alist
+               '("^magit-process.*" (display-buffer-same-window)))
   )
 
 ;;; [ magit-find-file ]

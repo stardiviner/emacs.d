@@ -36,6 +36,8 @@
   ;; To make Flycheck use the current `load-path'.
   ;; Don't error about "free variable" without (require ??).
   (setq flycheck-emacs-lisp-load-path 'inherit)
+  (add-to-list 'display-buffer-alist
+               '("^\\*Flycheck errors\\*" (display-buffer-below-selected)))
   )
 
 
