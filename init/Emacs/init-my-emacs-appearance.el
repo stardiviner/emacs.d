@@ -294,13 +294,6 @@
 ;; (add-hook 'prog-mode-hook 'whitespace-mode)
 ;; (global-whitespace-mode +1)
 
-;;; [ page-break-lines ] -- visual horizontal line for page break.
-
-(use-package page-break-lines
-  :ensure t
-  :config
-  (global-page-break-lines-mode t))
-
 ;;; [ all-the-icons ] -- A utility package to collect various Icon Fonts and propertize them within Emacs.
 
 (use-package all-the-icons
