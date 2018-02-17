@@ -103,7 +103,12 @@
 
 (use-package swiper
   :ensure t
-  :bind ("C-s" . swiper))
+  :bind ("C-s" . swiper)
+  :config
+  (set-face-attribute 'swiper-line-face nil
+                      :inherit nil
+                      :foreground nil)
+  )
 
 
 (provide 'init-my-emacs-search-isearch)
