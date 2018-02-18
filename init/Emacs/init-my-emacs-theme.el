@@ -27,11 +27,12 @@
   ;; (load-theme 'leuven t)
 
   ;; remove underline for `hl-line'.
-  (defun my:leuven-theme-disable-underline (theme)
-    "Reload customized faces on `circadian' `THEME' toggling."
-    (if (custom-theme-enabled-p 'leuven)
-        (set-face-attribute 'hl-line nil :underline nil)))
-  (add-hook 'circadian-after-load-theme-hook #'my:leuven-theme-disable-underline)
+  (with-eval-after-load 'hl-line
+    (defun my:leuven-theme-disable-underline (theme)
+      "Reload customized faces on `circadian' `THEME' toggling."
+      (if (custom-theme-enabled-p 'leuven)
+          (set-face-attribute 'hl-line nil :underline nil)))
+    (add-hook 'circadian-after-load-theme-hook #'my:leuven-theme-disable-underline))
   )
 
 ;;; [ spacemacs-theme ] -- Spacemacs default color-theme.
