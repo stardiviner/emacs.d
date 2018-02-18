@@ -26,34 +26,22 @@
 
 (use-package python
   :ensure t
-  :bind (:map python-mode-map
-              ("C-c C-s" . run-python))
-  :config
-  (setq python-shell-interpreter "python" ; "ipython"
-        python-shell-completion-native-enable nil
-        )
-
+  :bind (:map python-mode-map ("C-c C-s" . run-python))
+  :init
+  (setq python-shell-interpreter "python")
   (case python-shell-interpreter
     ("python"
      (setq python-shell-interpreter-args "-i"))
     ("ipython"
      (setq python-shell-interpreter-args "--simple-prompt --pprint"))
     )
+  :config
+  (setq python-shell-completion-native-enable nil)
 
   (add-to-list 'display-buffer-alist
                '("^\\*Python\\*" (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
                '("^\\*Python Doc\\*" (display-buffer-below-selected)))
-  (defun my-inferior-python ()
-    "My function to start or switch to inferior-python process buffer `PROCESS-BUFFER-NAME'."
-    (interactive)
-    (unless (get-buffer-process "*Python*")
-      (run-python "python"))
-    ;; (switch-to-buffer "*Python*")
-    )
-  (unless (boundp 'inferior-prefix)
-    (define-prefix-command 'inferior-prefix))
-  (define-key inferior-prefix (kbd "p") 'my-inferior-python) ; 'run-python
   )
 
 
