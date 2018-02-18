@@ -314,19 +314,6 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 ;;   :defer t)
 
 
-;;; [ cider-profile ]
-
-(use-package cider-profile
-  :ensure t
-  :init
-  (add-hook 'cider-mode-hook 'cider-profile-mode)
-  (add-hook 'cider-repl-mode-hook 'cider-profile-mode)
-  ;; :config
-  ;; If you would like to display profiling statistics in the current repl
-  ;; window instead of in a pop-up window, do the following:
-  ;; (setq cider-profile-buffer nil)
-  )
-
 
 ;;; Org-mode Babel Clojure
 (require 'ob-clojure)
@@ -353,6 +340,8 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 (add-to-list 'org-babel-default-header-args:clojure ; for Clojure `dotimes' etc.
              '(:show-process . "no"))
 
+
+
 ;;; [ ob-clojure-literate ] -- Clojure Literate Programming in Org-mode Babel.
 
 (require 'ob-clojure-literate)
