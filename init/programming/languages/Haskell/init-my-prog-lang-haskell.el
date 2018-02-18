@@ -73,6 +73,14 @@
   ;;       )
 
   ;; (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+
+  ;; [ completion ]
+  ;; remove `haskell-interactive-mode-completion-at-point-function' from `completion-at-point-functions'.
+  (defun company-haskell-fix-company-capf ()
+    (setq-local completion-at-point-functions
+                (delq 'haskell-completions-completion-at-point
+                      completion-at-point-functions)))
+  (add-hook 'haskell-mode-hook #'company-haskell-fix-company-capf)
   
   ;; [ indent ]
   (add-hook 'haskell-mode-hook #'haskell-doc-mode)
