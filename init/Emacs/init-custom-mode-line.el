@@ -991,7 +991,7 @@ dimensions of a block selection."
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defun my-modeline ()
+(defun custom-mode-line ()
   "My custom mode-line."
   `(:eval
     (let* ((meta (concat
@@ -1062,7 +1062,7 @@ dimensions of a block selection."
                                           ,(+ 1 (string-width (format-mode-line rhs)))))))))
       (list lhs mid rhs))))
 
-(setq-default mode-line-format (my-modeline))
+(setq-default mode-line-format (custom-mode-line))
 
 
 ;; (set-face-attribute 'mode-line nil
