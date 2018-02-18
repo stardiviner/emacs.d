@@ -81,6 +81,9 @@
 (use-package cider
   :ensure t
   :after clojure-mode
+  :bind (:map cider-doc-map
+              ("c" . helm-cider-cheatsheet)
+              ("C-c" . helm-cider-cheatsheet))
   :init
   (add-hook 'clojure-mode-hook #'cider-mode)
   :config
@@ -367,13 +370,6 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   :defer t
   :bind (:map clojure-mode-map
               ("C-h d d" . helm-clojuredocs)))
-
-;;; [ clojure-cheatsheet ] -- The Clojure Cheatsheet for Emacs.
-
-(use-package clojure-cheatsheet
-  :ensure t
-  :bind (:map clojure-mode-map
-              ("C-c C-h" . clojure-cheatsheet)))
 
 
 ;;; [ elein ] -- running Leiningen commands from Emacs.
