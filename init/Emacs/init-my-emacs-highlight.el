@@ -66,6 +66,11 @@
   (add-hook 'circadian-after-load-theme-hook #'my-symbol-overlay-set-face)
   )
 
+;;; [ language-detection ] -- Automatic programming language detection of code snippets, in Emacs Lisp.
+
+(use-package language-detection
+  :ensure t)
+
 
 (provide 'init-my-emacs-highlight)
 
