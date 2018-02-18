@@ -67,12 +67,12 @@
 
 ;;; [ sly-repl-ansi-color ]
 
-;; (use-package sly-repl-ansi-color
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (add-to-list 'sly-contribs 'sly-repl-ansi-color)
-;;   )
+(use-package sly-repl-ansi-color
+  :ensure t
+  :after sly
+  :init
+  (add-to-list 'sly-contribs 'sly-repl-ansi-color)
+  )
 
 
 ;;; [ sly-macrostep ] -- Expand CL macros inside source files
