@@ -187,6 +187,7 @@
 
 ;; headline faces
 ;; the ahead stars face when org indentation. (org-hide)
+(require 'org-indent)
 (set-face-attribute 'org-hide nil
                     :foreground (face-background 'default)
                     :background (face-background 'default)
@@ -293,7 +294,7 @@
 
 ;; list definition terms - term :: definition
 (set-face-attribute 'org-list-dt nil
-                    :slant 'italic :weight 'bold)
+                    :weight 'bold)
 
 ;;; link face [[link][desc]]
 (set-face-attribute 'org-link nil
