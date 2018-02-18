@@ -14,23 +14,23 @@
 
 ;;; [ prodigy ] -- Manage external services from within Emacs.
 
-;; (use-package prodigy
-;;   :ensure t
-;;   :config
-;;   (setq prodigy-completion-system 'ivy
-;;         prodigy-kill-process-buffer-on-stop nil
-;;         )
-;;
-;;   ;; user defined services.
-;;   ;; (prodigy-define-service
-;;   ;;   :name "Clojure REPL (Leiningen)"
-;;   ;;   :command "lein"
-;;   ;;   :args '("repl")
-;;   ;;   :cwd "~/Code/learning/Clojure/clojure-examples/"
-;;   ;;   :tags '(Clojure)
-;;   ;;   :stop-signal 'sigkill
-;;   ;;   :kill-process-buffer-on-stop t)
-;;   )
+(use-package prodigy
+  :ensure t
+  :config
+  (setq prodigy-completion-system 'ivy
+        prodigy-kill-process-buffer-on-stop nil
+        )
+
+  ;; user defined services.
+  ;; (prodigy-define-service
+  ;;   :name "Clojure REPL (Leiningen)"
+  ;;   :command "lein"
+  ;;   :args '("repl")
+  ;;   :cwd "~/Code/learning/Clojure/clojure-examples/"
+  ;;   :tags '(Clojure)
+  ;;   :stop-signal 'sigkill
+  ;;   :kill-process-buffer-on-stop t)
+  )
 
 ;;; [ bpr ] -- Emacs Background Process Runner.
 
