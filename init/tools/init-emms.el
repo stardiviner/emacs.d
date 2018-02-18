@@ -58,6 +58,7 @@
 
   ;; [ Key Bindings ]
   ;; (setq emms-info-asynchronously nil)
+  (define-key emms-playlist-mode-map (kbd "Q") 'emms-stream-quit) ; really quit EMMS Stream.
   ;; (setq emms-playlist-default-major-mode 'emms-mark-mode)
 
   ;; [ MPD ] -- [M-x emms-player-mpd-connect]
