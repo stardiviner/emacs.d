@@ -111,6 +111,9 @@
         ;; cider-known-endpoints '(("host-a" "10.10.10.1" "7888") ("host-b" "7888"))
         cider-repl-use-pretty-printing t
         ;; cider-pprint-fn 'fipp
+
+        ;; spinner
+        cider-eval-spinner-type 'horizontal-breathing
         )
 
   ;; annotations
