@@ -884,16 +884,32 @@ dimensions of a block selection."
   ;; (add-hook 'rtags-diagnostics-hook #'force-mode-line-update)
   )
 
+;;; [ Email ]
 ;;; mu4e
-(use-package mu4e
-  :ensure-system-package mu
-  :load-path "/usr/share/emacs/site-lisp/mu4e/"
-  :load (mu4e mu4e-contrib)
+;; (use-package mu4e
+;;   :ensure-system-package mu
+;;   :load-path "/usr/share/emacs/site-lisp/mu4e/"
+;;   :load (mu4e mu4e-contrib)
+;;   :config
+;;   (defun *mu4e ()
+;;     "Show `mu4e-alert' new messages count in custom mode-line."
+;;     (if (and (active) (and (boundp 'mu4e-alert-mode-line) mu4e-alert-mode-line))
+;;         (propertize mu4e-alert-mode-line)))
+;;   )
+
+;;; Gnus
+(use-package gnus
+  :ensure t
   :config
-  (defun *mu4e ()
-    "Show `mu4e-alert' new messages count in custom modeline."
-    (if (and (active) (and (boundp 'mu4e-alert-mode-line) mu4e-alert-mode-line))
-        (propertize mu4e-alert-mode-line)))
+  (defun *gnus ()
+    "Show `gnus' new messages count in custom mode-line."
+    ;; (if (and (active) )
+    ;;     (concat
+    ;;      (all-the-icons-faicon "mail" :v-adjust -0.05)
+    ;;      ;; (propertize gnus-summary-mode-line-format)
+    ;;      ;; (gnus-set-mode-line 'summary)
+    ;;      ))
+    )
   )
 
 ;;; GitHub Notifications (Participating)
@@ -1025,6 +1041,7 @@ dimensions of a block selection."
                  (*erc)
                  (*emms)
                  ;; (*mu4e)
+                 ;; (*gnus)
                  (*github-notifications)
                  (*flycheck)
                  ;; (*build-status)
