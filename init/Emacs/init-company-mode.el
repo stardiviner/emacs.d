@@ -43,11 +43,11 @@
                   (company-capf         ; `completion-at-point-functions'
                    :with company-yasnippet
                    :with company-tempo
+                   :with company-dabbrev-code
                    ;; :separate company-semantic
                    ;; :separate company-ispell ; for word completion in comment.
                    )
                   (company-keywords
-                   :with company-dabbrev-code
                    :with company-abbrev)
                   )
                 )
