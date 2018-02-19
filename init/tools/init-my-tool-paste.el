@@ -73,6 +73,19 @@ For pasting on sites like GitHub, and Stack Overflow."
         ;; yagist-working-directory-alist
         yagist-github-token (my/json-read-value my/account-file 'yagist)
         )
+
+  ;; Fix `yagist' detect major-mode issue.
+  (defun yagist-anonymous-file-name-for-org-babel ()
+    "Fix `yagist' detect major-mode issue."
+    (let* ((ext (cdr (assoc
+                      (replace-regexp-in-string "-mode" "" (symbol-name major-mode))
+                      org-babel-tangle-lang-exts))
+                ;; (cdr (assoc (nth 0 (org-babel-get-src-block-info)) org-babel-tangle-lang-exts))
+                ))
+      (setq buffer-file-name
+            (concat (file-name-sans-extension (buffer-file-name)) (format ".%s" ext)))
+      ))
+  (advice-add 'yagist-anonymous-file-name :before #'yagist-anonymous-file-name-for-org-babel)
   )
 
 ;;; [ webpaste ] -- paste text to pastebin-like services.
