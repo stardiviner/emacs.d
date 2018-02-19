@@ -223,79 +223,23 @@ and append it."
           (read-from-minibuffer "line:" "1")))
 
 
-;;; `map:'
-;;  [[map:"address name/geography"]]
-;; - address name: "Dali, Yunnan, China"
-(defcustom org-map-application-command "gnome-maps"
-  "Specify the program name for openning map: link.")
-
-(defcustom org-map-application-options ""
-  "Specify the program options for openning map: link.")
-
-(defcustom org-map-services-list
-  '(("Google Maps" . "http://maps.google.com/maps?q=")
-    ("OpenStreetMap" . "https://www.openstreetmap.org/search?query=")
-    ("Baidu Maps" . "http://map.baidu.com/?q="))
-  "Specify a list of Maps services for using when querying address.")
-
-(defun org-map-get-service-url (service-name)
-  "Get Maps `SERVICE_NAME' URL through associate list."
-  (cdr (assoc service-name org-map-services-list)))
-
-(defun org-map-select-service ()
-  "Interactively select Maps service."
-  (completing-read "Maps service: "
-                   (map-keys org-map-services-list)))
-
-(defcustom org-map-prefer-service t
-  "Prefer use Maps service because they are instantly.")
-
-(defvar org-map-application-p (if (executable-find "gnome-maps") t nil)
-  "Return boolean value after check Maps application available.")
-
-(defun org-map-link-open (address)
-  "Search `ADDRESS' in Map application."
-  (if org-map-prefer-service
-      ;; open with Maps service
-      (let* ((map-service (org-map-get-service-url (org-map-select-service))
-                          ;; detect address string is chinese string.
-                          ;; TODO: don't why `multibyte-string-p' detect link `address' like "Dali, Yunnan, China" will become `t'.
-                          ;; (if (multibyte-string-p address)
-                          ;;     (org-map-get-service-url "Baidu Maps")
-                          ;;   (org-map-get-service-url (org-map-select-service)))
-                          )
-             (url (concat map-service (url-encode-url address))))
-        (prin1 url)
-        (browse-url url)
-
-        ;; debug upper if condition
-        ;; (prin1 map-service)
-        ;; (prin1 (multibyte-string-p address))
-        )
-    ;; open with Maps application
-    (when org-map-application-p
-      (start-process-shell-command
-       "org-map-link-open"
-       "org-map-link-open"
-       (format "%s %s %s"
-               org-map-application-command
-               org-map-application-options
-               (shell-quote-wildcard-pattern address))))))
-
-(org-link-set-parameters "map"
-                         :follow #'org-map-link-open)
-
-
-
-;; `geo:' geography link
+;;; `geo:'
 ;; [geo:37.786971,-122.399677;u=35]
-(defun org-geo-link-open (geo)
-  "Open geography location link `GEO' like \"geo:25.5889136,100.2208514\" with program."
-  (browse-url geo))
+(defcustom org-geo-link-application-command "gnome-maps"
+  "Specify the program name for openning geo: link.")
 
-(org-link-set-parameters "geo"
-                         :follow #'org-geo-link-open)
+(defun org-geo-link-open (uri)
+  "Open Geography location `URI' like \"geo:25.5889136,100.2208514\" in Map application."
+  (if (executable-find "gnome-maps")
+      (start-process
+       "org-geo-link-open"
+       "*org-geo-link-open*"
+       org-geo-link-application-command
+       (shell-quote-wildcard-pattern uri))
+    (browse-url uri))
+  )
 
+(org-link-set-parameters "geo" :follow #'org-geo-link-open)
 
 ;;; [ Link abbreviations ]
 
