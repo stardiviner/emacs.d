@@ -15,7 +15,8 @@
 
 (use-package projectile
   :ensure t
-  :init
+  :defer t
+  :preface
   (setq projectile-keymap-prefix (kbd "C-c p"))
   :config
   ;; Caching: nil, (* 10 60) [10 minutes],
@@ -41,8 +42,7 @@
 
   (use-package counsel-projectile
     :ensure t
-    :config
-    (counsel-projectile-mode 1))
+    :init (counsel-projectile-mode 1))
   )
 
 ;;; [ projectile-variable ] -- store project local variables.
@@ -54,15 +54,9 @@
 
 (use-package project-shells
   :ensure t
-  :init
-  (setq project-shells-keymap-prefix "C-x !")
-  (with-eval-after-load 'project-shells
-    (define-key project-shells-map (kbd "!") 'my-smart-eshell))
-  :config
-  ;; (project-shells-setup projectile-mode-map)
-
-  (global-project-shells-mode 1)
-  ;; (add-hook 'prog-mode-hook #'project-shells-mode)
+  :defer t
+  :preface (setq project-shells-keymap-prefix "C-c p M-!")
+  :init (global-project-shells-mode 1)
   )
 
 

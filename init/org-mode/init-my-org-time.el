@@ -56,6 +56,7 @@ Accepts universal argument `ARG' for \\<C-c C-x r> & \\[org-time-interval]."
 
 (use-package org-pomodoro
   :ensure t
+  :defer t
   :commands (org-pomodoro)
   :init
   (unless (boundp 'pomodoro-prefix)

@@ -10,8 +10,8 @@
 ;;; [ spice-mode ] -- major mode for SPICE.
 
 (use-package spice-mode
-  :ensure t)
-
+  :ensure t
+  :defer t)
 
 ;;; [ ob-spice ] -- Org-mode Babel integrate with SPICE.
 

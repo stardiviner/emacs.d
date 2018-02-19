@@ -11,6 +11,7 @@
 
 (use-package pretty-symbols
   :ensure t
+  :defer t
   :init
   (global-prettify-symbols-mode 1)
   :config

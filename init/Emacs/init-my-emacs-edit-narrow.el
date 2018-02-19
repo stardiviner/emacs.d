@@ -83,15 +83,12 @@ narrowed."
 
 (use-package fancy-narrow
   :ensure t
+  :defer t
   :init
   (global-set-key [remap narrow-to-region] 'fancy-narrow-to-region)
   (global-set-key [remap narrow-to-defun] 'fancy-narrow-to-defun)
   (global-set-key [remap narrow-to-page] 'fancy-narrow-to-page)
   (global-set-key [remap widen] 'fancy-widen)
-  :config
-  ;; (set-face-attribute 'fancy-narrow-blocked-face nil
-  ;;                     :background (color-darken-name (face-background 'default) 2)
-  ;;                     )
   )
 
 

@@ -11,6 +11,7 @@
 
 (use-package org-if
   :ensure t
+  :defer t
   :config
   (org-babel-do-load-languages 'org-babel-load-languages '((org-if . t)))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
@@ -19,7 +20,8 @@
 ;;; [ org-wc ] count words under every org-mode trees
 
 (use-package org-wc
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ wc-mode ] -- minor mode of command `wc' for word counting.
 

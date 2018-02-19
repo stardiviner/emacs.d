@@ -12,8 +12,7 @@
 ;; TODO: add helper functions
 (use-package org-projectile
   :ensure t
-  :bind (:map Org-prefix
-	 ("C-p" . org-projectile-project-todo-completing-read))
+  :bind (:map Org-prefix ("C-p" . org-projectile-project-todo-completing-read))
   :config
   ;; global projects todo file
   (setq org-projectile-projects-file
@@ -25,8 +24,7 @@
 
   (use-package org-projectile-helm
     :ensure t
-    :commands (org-projectile-helm-template-or-project)
-    )
+    :commands (org-projectile-helm-template-or-project))
   )
 
 

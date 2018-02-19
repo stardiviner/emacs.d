@@ -10,6 +10,7 @@
 
 (use-package slack
   :ensure t
+  :defer t
   :config
   (setq slack-buffer-emojify nil)
   (setq slack-prefer-current-team t)

@@ -95,7 +95,8 @@
 
 (use-package cakecrumbs
   :ensure t
-  :config (cakecrumbs-auto-setup))
+  :defer t
+  :init (cakecrumbs-auto-setup))
 
 
 (provide 'init-my-prog-lang-html)

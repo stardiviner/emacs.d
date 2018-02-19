@@ -15,9 +15,9 @@
 
 (use-package restclient
   :ensure t
+  :defer t
   :mode ("\\.http\\'" . restclient-mode)
-  :bind (:map HTTP-prefix
-              ("r" . restclient-new-buffer))
+  :bind (:map HTTP-prefix ("r" . restclient-new-buffer))
   :config
   (setq restclient-log-request t
         restclient-same-buffer-response t
@@ -72,38 +72,42 @@
                 ))
     )
 
-  ;; [ ob-restclient ]
-  (use-package ob-restclient
-    :ensure t
-    :config
-    (add-to-list 'org-babel-load-languages '(restclient . t))
-    (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-    ;; (add-to-list 'org-babel-tangle-lang-exts '("restclient" . "http"))
-    )
-
   ;; [ restclient-test ] -- Run tests with restclient.el
   (use-package restclient-test
     :ensure t)
   )
 
+
+;; [ ob-restclient ]
+(use-package ob-restclient
+  :ensure t
+  :defer t
+  :init
+  (add-to-list 'org-babel-load-languages '(restclient . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("restclient" . "http"))
+  )
+
 ;; [ ob-http ] -- http request in org-mode babel
 
 (use-package ob-http
-  :ensure t)
-
+  :ensure t
+  :defer t
+  :init
+  (add-to-list 'org-babel-load-languages '(http . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  (add-to-list 'org-babel-tangle-lang-exts '("http" . "http"))
+  )
 
 ;;; [ httprepl ]
 
 (use-package httprepl
   :ensure t
   :defer t
+  :bind (:map HTTP-prefix ("H" . httprepl))
   :init
-  (define-key HTTP-prefix (kbd "H") 'httprepl)
-
   (add-hook 'httprepl-mode-hook
-            (lambda ()
-              (my-company-add-backend-locally 'company-restclient)
-              ))
+            (lambda () (my-company-add-backend-locally 'company-restclient)))
   )
 
 
@@ -111,7 +115,8 @@
 
 (use-package know-your-http-well
   :ensure t
-  :defer t)
+  :defer t
+  :after company-restclient)
 
 
 ;;; [ httpcode ] -- explains the meaning of an HTTP status code.
@@ -119,8 +124,10 @@
 (use-package httpcode
   :ensure t
   :defer t
-  :bind (:map HTTP-prefix
-              ("d" . hc))
+  :bind (:map restclient-mode-map
+              ("C-c C-d" . hc)
+              :map ob-http-mode-map
+              ("C-c C-d" . hc))
   )
 
 

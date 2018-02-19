@@ -18,9 +18,8 @@
 
 (use-package expand-region
   :ensure t
-  :init
-  (global-set-key (kbd "C-=") 'er/expand-region)
-  )
+  :defer t
+  :bind ("C-=" . er/expand-region))
 
 
 (provide 'init-my-emacs-region)

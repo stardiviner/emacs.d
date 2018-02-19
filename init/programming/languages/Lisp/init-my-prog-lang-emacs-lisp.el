@@ -78,6 +78,7 @@
 
 (use-package macrostep
   :ensure t
+  :defer t
   :commands (macrostep-expand)
   :config
   (setq macrostep-expand-in-separate-buffer nil
@@ -103,7 +104,8 @@
 
 (use-package elisp-refs
   :ensure t
-  :config
+  :defer t
+  :init
   (defun elisp-refs-keybindings-setup ()
     (interactive)
     (unless (boundp 'tags-prefix)

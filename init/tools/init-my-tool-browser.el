@@ -58,13 +58,13 @@
   )
 
 
-;;; [ ace-link ] -- easier link selection
+;;; [ ace-link ] -- easier link selection with ace-mode on many buffer links.
 
 (use-package ace-link
   :ensure t
-  :defer
-  :config
-  (ace-link-setup-default))
+  :defer t
+  :init (ace-link-setup-default))
+
 
 
 (provide 'init-my-tool-browser)

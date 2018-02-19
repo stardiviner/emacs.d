@@ -11,18 +11,18 @@
 
 (use-package inline-docs
   :ensure t
+  :defer t
   :config
-  (setq inline-docs-position 'above)
-  )
+  (setq inline-docs-position 'above))
 
 ;;; [ quick-peek ] -- An inline pop-up library for Emacs Lisp.
 
 (use-package quick-peek
   :ensure t
+  :defer t
   :commands (quick-peek-hide)
   :init
-  (add-hook 'post-command-hook 'quick-peek-hide)
-  )
+  (add-hook 'post-command-hook 'quick-peek-hide))
 
 
 (provide 'init-my-prog-document-assistant)

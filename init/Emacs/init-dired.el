@@ -19,6 +19,7 @@
          ("F" . find-name-dired)
          ;; ("e" . ediff-files)
          )
+  :defer t
   :config
   ;; auto refresh dired when file changes
   (setq dired-auto-revert-buffer t)

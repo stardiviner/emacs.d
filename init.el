@@ -117,7 +117,6 @@
 (require 'init-my-emacs-outline)
 (require 'init-my-emacs-macro)
 (require 'init-my-emacs-input-method)
-(require 'init-my-emacs-spell)
 (require 'init-my-emacs-file)
 (require 'init-my-emacs-color)
 (require 'init-my-emacs-image)
@@ -244,24 +243,23 @@
 (require 'init-my-prog-lang-clojure)
 (require 'init-my-prog-lang-python)
 (require 'init-my-prog-lang-ruby)
-;; (require 'init-my-prog-lang-perl)
+(require 'init-my-prog-lang-perl)
 (require 'init-my-prog-lang-shell)
 (require 'init-my-prog-lang-C-common)
 (with-eval-after-load 'init-my-prog-lang-C-common
   (require 'init-my-prog-tags))
-;; (require 'init-my-prog-lang-C++)
 ;; (require 'init-my-prog-lang-csharp)
 ;; (require 'init-my-prog-lang-fsharp)
 ;; (require 'init-my-prog-lang-D)
-;; (require 'init-my-prog-lang-go)
-;; (require 'init-my-prog-lang-rust)
+(require 'init-my-prog-lang-go)
+(require 'init-my-prog-lang-rust)
 ;; (require 'init-my-prog-lang-nim)
-;; (require 'init-my-prog-lang-lua)
-;; (require 'init-my-prog-lang-swift)
+(require 'init-my-prog-lang-lua)
+(require 'init-my-prog-lang-swift)
 (require 'init-my-prog-lang-java)
 ;; (require 'init-my-prog-lang-jvm-groovy)
 ;; (require 'init-my-prog-lang-jvm-kotlin)
-;; (require 'init-my-prog-lang-php)
+(require 'init-my-prog-lang-php)
 (require 'init-my-prog-lang-html)
 (require 'init-my-prog-lang-css)
 (require 'init-my-prog-lang-javascript)
@@ -273,7 +271,7 @@
 (require 'init-my-prog-lang-json)
 ;; (require 'init-my-prog-lang-rdf)
 ;; (require 'init-my-prog-lang-sdlang)
-;; (require 'init-my-prog-lang-haskell)
+(require 'init-my-prog-lang-haskell)
 ;; (require 'init-my-prog-lang-scala)
 ;; (require 'init-my-prog-lang-elixir)
 ;; (require 'init-my-prog-lang-erlang)
@@ -284,12 +282,12 @@
 (require 'init-my-prog-lang-tex)
 ;; (require 'init-bibliography)
 (require 'init-my-prog-lang-markdown)
-;; (require 'init-my-prog-lang-reStructuredText)
+(require 'init-my-prog-lang-reStructuredText)
 (require 'init-my-prog-lang-yaml)
-;; (require 'init-my-prog-lang-prolog)
+(require 'init-my-prog-lang-prolog)
 ;; (require 'init-my-prog-lang-ocaml)
 ;; (require 'init-my-prog-lang-verilog)
-;; (require 'init-my-prog-lang-assembly)
+(require 'init-my-prog-lang-assembly)
 ;; (require 'init-my-prog-lang-forth)
 ;; (require 'init-my-prog-lang-HDL)
 ;; (require 'init-my-prog-lang-applescript)
@@ -347,12 +345,13 @@
 
 ;;; Engineering
 
-;; (require 'init-my-electronic)
-;; (require 'init-my-electric-music)
+(require 'init-my-electronic)
+(require 'init-my-electric-music)
 
 
 ;;; Authoring & Writing
 
+(require 'init-text-checker)
 (require 'init-my-authoring)
 
 

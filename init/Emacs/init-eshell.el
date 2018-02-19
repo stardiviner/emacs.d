@@ -10,20 +10,11 @@
 
 (use-package eshell
   :ensure t
-  :bind ()
+  :defer t
+  :bind ("C-x !" . eshell)
   :init
   ;; change PAGER from `less' to `cat'.
   (setenv "PAGER" "cat")
-  ;; launch bind key
-  (defun my-smart-eshell (&optional arg)
-    "Smart set directory path."
-    (interactive "P")
-    (if arg
-        (let ((default-directory (getenv "HOME")))
-          (command-execute 'eshell))
-      (command-execute 'eshell))
-    )
-  (global-set-key (kbd "C-x !") 'my-smart-eshell)
   :load (em-term em-smart)
   :config
   ;; Eshell sudo

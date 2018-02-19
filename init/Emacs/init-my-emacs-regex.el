@@ -51,8 +51,8 @@
 
 (use-package ample-regexps
   :ensure t
-  :bind (:map regex-prefix
-	      ("B" . arx-builder))
+  :defer t
+  :bind (:map regex-prefix ("B" . arx-builder))
   )
 
 ;;; [ visual-regexp ] -- A regexp/replace command for Emacs with interactive visual feedback.

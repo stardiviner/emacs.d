@@ -14,6 +14,8 @@
 ;;; [ subword ] -- editing code WithCamelCaseWritingLikeThis
 
 (use-package subword
+  :ensure t
+  :defer t
   :init
   (add-hook 'prog-mode-hook 'subword-mode))
 
@@ -21,6 +23,7 @@
 
 ;; (use-package glasses
 ;;   :ensure t
+;;   :defer t
 ;;   :init
 ;;   ;; (add-hook 'prog-mode-hook 'glasses-mode)
 ;;   (add-hook 'java-mode-hook 'glasses-mode)

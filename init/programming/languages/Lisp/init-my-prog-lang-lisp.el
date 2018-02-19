@@ -22,6 +22,7 @@
 
 (use-package paredit
   :ensure t
+  :defer t
   :config
   ;; remove following keybindings
   (dolist (binding (list (kbd "C-<left>") (kbd "C-<right>")
@@ -80,29 +81,30 @@
 
 ;; (use-package parinfer
 ;;   :ensure t
+;;   :defer t
 ;;   :bind (("C-," . parinfer-toggle-mode))
-;;   :init
-;;   (mapc
-;;    (lambda (hook)
-;;      (add-hook hook #'parinfer-mode))
-;;    '(emacs-lisp-mode-hook lisp-mode-hook common-lisp-mode-hook clojure-mode-hook))
+;;   :init (mapc
+;;          (lambda (hook)
+;;            (add-hook hook #'parinfer-mode))
+;;          '(emacs-lisp-mode-hook lisp-mode-hook common-lisp-mode-hook clojure-mode-hook))
 ;;   :config
+;;   ;; Parinfer will auto switch to Indent Mode whenever parens are balance in Paren Mode.
+;;   ;; (setq parinfer-auto-switch-indent-mode nil)
 ;;   (setq parinfer-extensions
 ;;         '(defaults                 ; should be included.
 ;;            pretty-parens           ; different paren styles for different modes.
 ;;            paredit                 ; Introduce some paredit commands.
 ;;            smart-tab ; C-b & C-f jump positions and smart shift with tab & S-tab.
-;;            smart-yank)))            ; Yank behavior depend on mode.
-;; Parinfer will auto switch to Indent Mode whenever parens are balance in Paren Mode.
-;; (setq parinfer-auto-switch-indent-mode nil)
-
-
+;;            smart-yank            ; Yank behavior depend on mode.
+;;            ))
+;;   )
 
 ;;; [ rainbow-delimiters ] -- rainbow color parenthesis
 
 (use-package rainbow-delimiters
   :ensure t
-  :config
+  :defer t
+  ;; :config
   ;; 1. global
   ;; (global-rainbow-delimiters-mode)
   ;; 2.. enable in all programming-related modes
@@ -119,6 +121,7 @@
 
 (use-package hl-sexp
   :ensure t
+  :defer t
   :config
   (defun my-hl-sexp-set-face (theme)
     "Reload customized faces on `circadian' `THEME' toggling."
@@ -137,6 +140,7 @@
 
 ;; (use-package eval-sexp-fu
 ;;   :ensure t
+;;   :defer t
 ;;   :config
 ;;   (setq eval-sexp-fu-flash-duration 0.5
 ;;         eval-sexp-fu-flash-error-duration 1.5
@@ -152,6 +156,7 @@
 
 ;; (use-package parinfer
 ;;   :ensure t
+;;   :defer t
 ;;   :bind (;; Use this to toggle Indent/Paren Mode.
 ;;          ("C-," . parinfer-toggle-mode)
 ;;          ;; Some other commands you may want.

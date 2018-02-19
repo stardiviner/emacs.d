@@ -23,7 +23,7 @@
 
 ;; (use-package eldoc-overlay
 ;;   :ensure t
-;;   :config
+;;   :init
 ;;   (global-eldoc-overlay-mode 1))
 
 

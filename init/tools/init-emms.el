@@ -16,6 +16,7 @@
 
 (use-package emms
   :ensure t
+  :defer t
   :load (emms-setup)
   :init
   (define-key emms-prefix (kbd "e") 'emms)
@@ -94,16 +95,23 @@
 
   ;; [ BBT: SBaGen ]
   (define-emms-simple-player sbagen '(file) (emms-player-simple-regexp "sbg") "sbagen")
+  )
 
-  ;; [ emms-bilibili ] -- Play Bilibili user favourite videos in EMMS.
-  (use-package emms-bilibili
-    ;; :ensure t
-    :load-path "~/Code/Emacs/emms-bilibili"
-    :commands (emms-bilibili)
-    :config
-    (setq emms-bilibili-mid
-          (string-to-number (my/json-read-value my/account-file 'emms-bilibili)))
-    (setq emms-bilibili-use-popup t))
+
+;; [ emms-bilibili ] -- Play Bilibili user favourite videos in EMMS.
+(use-package emms-bilibili
+  ;; :ensure t
+  :load-path "~/Code/Emacs/emms-bilibili"
+  :defer t
+  :commands (emms-bilibili)
+  :init
+  (setq emms-bilibili-mid
+        (string-to-number (my/json-read-value my/account-file 'emms-bilibili)))
+  (setq emms-bilibili-use-popup t)
+  :config
+  (use-package youtube-dl
+    :load-path "~/Code/Emacs/youtube-dl-emacs/"
+    )
   )
 
 

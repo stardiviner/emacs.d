@@ -1,13 +1,12 @@
-;;; init-my-emacs-spell.el --- init for spell settings.
+;;; init-text-checker.el --- init for spell settings.
 ;;; Commentary:
 
 ;;; Code:
 
 ;; bind to [M-g] keybindings.
-(unless (boundp 'spell-prefix)
-  (define-prefix-command 'spell-prefix))
-(global-set-key (kbd "M-g s") 'spell-prefix)
-
+(unless (boundp 'text-checker-prefix)
+  (define-prefix-command 'text-checker-prefix))
+(global-set-key (kbd "M-g w") 'text-checker-prefix)
 
 ;;; [ aspell & ispell ]
 
@@ -16,47 +15,52 @@
 ;; - [M-$] / `ispell-word'
 ;; - [M-x ispell-complete-word]
 
-(require 'ispell)
-
-(setq ispell-look-command "/usr/bin/look")
-
-;; find aspell automatically
-(cond
- ((executable-find "aspell")
-  (setq ispell-program-name "aspell")
-  (setq ispell-extra-args '("--sug-mode=ultra" "--lang=en_US")))
- (t
-  (setq ispell-program-name nil))
- )
-
-(setq ispell-dictionary "english"
-      ;; ispell-local-dictionary
-      ispell-personal-dictionary nil ; If nil, the default (~/.ispell_LANGUAGE) will be used
-      ispell-complete-word-dict "/usr/share/dict/words"
-      ;; ispell-alternate-dictionary "/usr/share/dict/words"
-      ispell-silently-savep t ; `ispell-pdict-save' save silently. stop confirm when saving personal dictionary.
-      ispell-parser 'use-mode-name
-      )
-
-;;; skip regions in Org-mode for ispell.
-(add-to-list 'ispell-skip-region-alist '("[^\000-\377]+"))
-(add-to-list 'ispell-skip-region-alist '(":\\(PROPERTIES\\|LOGBOOK\\):" . ":END:"))
-(add-to-list 'ispell-skip-region-alist '("#\\+begin_src" . "#\\+end_src"))
-(add-to-list 'ispell-skip-region-alist '("#\\+begin_example" . "#\\+end_example"))
-
-(define-key spell-prefix (kbd "s") 'ispell-word) ; [M-$]
-(define-key spell-prefix (kbd "<tab>") 'ispell-complete-word)
+(use-package ispell
+  :ensure t
+  :defer t
+  :bind (:map text-checker-prefix
+              ("s" . ispell-word) ; [M-$]
+              ("<tab>" . ispell-complete-word))
+  :init
+  ;; set ispell program automatically.
+  (cond
+   ((executable-find "aspell")
+    (setq ispell-program-name "aspell")
+    (setq ispell-extra-args '("--sug-mode=ultra" "--lang=en_US")))
+   (t
+    (setq ispell-program-name nil))
+   )
+  :config
+  (setq ispell-dictionary "english"
+        ;; ispell-local-dictionary
+        ispell-personal-dictionary nil ; If nil, the default (~/.ispell_LANGUAGE) will be used
+        ispell-complete-word-dict "/usr/share/dict/words"
+        ;; ispell-alternate-dictionary "/usr/share/dict/words"
+        ispell-silently-savep t ; `ispell-pdict-save' save silently. stop confirm when saving personal dictionary.
+        ispell-parser 'use-mode-name
+        )
+  ;;; skip regions in Org-mode for ispell.
+  (add-to-list 'ispell-skip-region-alist '("[^\000-\377]+"))
+  (add-to-list 'ispell-skip-region-alist '(":\\(PROPERTIES\\|LOGBOOK\\):" . ":END:"))
+  (add-to-list 'ispell-skip-region-alist '("#\\+begin_src" . "#\\+end_src"))
+  (add-to-list 'ispell-skip-region-alist '("#\\+begin_example" . "#\\+end_example"))
+  )
 
 ;;; [ Flyspell ] -- [M-$], [C-;]
 
 (use-package flyspell
+  :ensure t
   :ensure-system-package (ispell aspell)
+  :defer t
   :preface
   ;; don't use [M-TAB] keybinding to correct word.
   (setq flyspell-use-meta-tab nil)
   :bind (:map flyspell-mode-map
               ("C-." . flyspell-correct-word-before-point)
-              ("C-," . flyspell-goto-next-error))
+              ("C-," . flyspell-goto-next-error)
+              :map text-checker-prefix
+              ("n" . flyspell-goto-next-error)
+              ("c" . flyspell-correct-word-before-point))
   :init
   ;; global
   ;; (flyspell-mode 1)
@@ -105,22 +109,20 @@
   ;; messages for every word (when checking the entire buffer) causes an enormous
   ;; slowdown.
   (setq flyspell-issue-message-flag nil)
-
-  ;; bind to [M-g] keybindings.
-  (define-key spell-prefix (kbd "n") 'flyspell-goto-next-error)
-  (define-key spell-prefix (kbd "c") 'flyspell-correct-word-before-point)
   )
-
 
 ;;; [ flyspell-correct ] -- correcting words with flyspell via custom interface.
 
 (use-package flyspell-correct
   :ensure t
-  :config
-  (with-eval-after-load 'flyspell
-    (define-key flyspell-mode-map (kbd "C-.") 'flyspell-correct-word-generic)))
+  :defer t
+  :after flyspell
+  :bind (:map flyspell-mode-map
+              ("C-." . flyspell-correct-word-generic))
+  )
+
 
 
-(provide 'init-my-emacs-spell)
+(provide 'init-text-checker)
 
-;;; init-my-emacs-spell.el ends here
+;;; init-text-checker.el ends here

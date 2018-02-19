@@ -14,6 +14,7 @@
   :ensure t
   :ensure-system-package (pdfinfo . "sudo pacman -S --noconfirm poppler poppler-data")
   :mode ("\\.pdf\\'" . pdf-view-mode)
+  :defer t
   :config
   (pdf-tools-install)
   
@@ -187,7 +188,9 @@ when needed."
 
 (use-package org-pdfview
   :ensure t
-  :config
+  :defer t
+  :after org
+  :init
   ;; change Org-mode default open PDF file function.
   ;; If you want, you can also configure the org-mode default open PDF file function.
   (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (org-pdfview-open link))))
@@ -200,16 +203,20 @@ when needed."
   )
 
 ;; [ org-noter ] -- Emacs document annotator, using Org-mode.
+
 (use-package org-noter
   :ensure t
+  :defer t
   :preface
   (unless (boundp 'Org-prefix)
     (define-prefix-command 'Org-prefix))
   :bind (:map Org-prefix ("n" . org-noter)))
 
 ;; [ pdf-tools-org ] -- integrate pdf-tools annotations with Org-mode.
+
 (use-package pdf-tools-org
-  :quelpa (pdf-tools-org :fetcher github :repo "machc/pdf-tools-org")
+  :quelpa (pdf-tools-org :fetcher github :repo "machc/pdf-tools-org" :upgrade nil)
+  :defer t
   :init
   (add-hook 'after-save-hook
             (lambda ()
@@ -218,13 +225,14 @@ when needed."
   )
 
 ;; [ paperless ] -- Emacs assisted PDF document filing.
+
 (use-package paperless
   :ensure t
+  :defer t
   :commands (paperless)
-  :config
+  :init
   (setq paperless-capture-directory "~/Downloads"
-        paperless-root-directory "~/Org"
-        )
+        paperless-root-directory "~/Org")
   )
 
 

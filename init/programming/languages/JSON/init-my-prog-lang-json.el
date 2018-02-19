@@ -11,6 +11,7 @@
 
 (use-package json-mode
   :ensure t
+  :defer t
   :config
   (setq json-reformat:indent-width 2
         json-reformat:pretty-string? t ; decode some special characters. like \u00e4.
@@ -38,7 +39,8 @@
 ;;; [ json-navigator ] -- view and navigate JSON structures.
 
 (use-package json-navigator
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 

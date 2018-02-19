@@ -71,6 +71,7 @@
   (defun my-org-drill-record-word ()
     "Record word to org-drill words file."
     (interactive)
+    (require 'expand-region)
     (let ((word (downcase
                  (substring-no-properties
                   (if (region-active-p)
@@ -135,8 +136,8 @@
 
 (use-package pamparam
   :ensure t
-  :bind (:map Org-prefix
-              ("M-w" . hydra-pamparam/body))
+  :defer t
+  :bind (:map Org-prefix ("M-w" . hydra-pamparam/body))
   )
 
 

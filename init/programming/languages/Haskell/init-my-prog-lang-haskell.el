@@ -11,21 +11,22 @@
 
 (use-package haskell-mode
   :ensure t
-  :bind (:map haskell-mode-map
-              ("C-c C-s" . haskell-interactive-bring)
-              ("C-c C-k" . haskell-interactive-mode-clear)
-              ("M-." . haskell-mode-jump-to-def-or-tag)
-              ("C-c C-p C-l" . haskell-process-load-or-reload)
-              ("C-c C-p C-t" . haskell-process-do-type)
-              ("C-c C-p C-i" . haskell-process-do-info)
-              ("C-c C-p C-c" . haskell-process-cabal-build)
-              ("C-c C-p M-c" . haskell-process-cabal)
-              ([f8] . haskell-navigate-imports)
-              ([f5] . haskell-compile)
-
-              :map inferior-prefix
-              ("h" . haskell-interactive-switch)
-              )
+  :bind (
+         :map inferior-prefix
+         ("h" . haskell-interactive-switch)
+         :map haskell-mode-map
+         ("C-c C-s" . haskell-interactive-bring)
+         ("C-c C-k" . haskell-interactive-mode-clear)
+         ("M-." . haskell-mode-jump-to-def-or-tag)
+         ("C-c C-p C-l" . haskell-process-load-or-reload)
+         ("C-c C-p C-t" . haskell-process-do-type)
+         ("C-c C-p C-i" . haskell-process-do-info)
+         ("C-c C-p C-c" . haskell-process-cabal-build)
+         ("C-c C-p M-c" . haskell-process-cabal)
+         ([f8] . haskell-navigate-imports)
+         ([f5] . haskell-compile)
+         )
+  :defer t
   :config
   (setq haskell-font-lock-symbols t
         haskell-stylish-on-save nil
@@ -114,9 +115,9 @@
 
 (use-package hindent
   :ensure t
+  :defer t
   :init
-  (add-hook 'haskell-mode-hook #'hindent-mode)
-  )
+  (add-hook 'haskell-mode-hook #'hindent-mode))
 
 
 ;;; [ flycheck-haskell ]
@@ -143,14 +144,15 @@
 
 (use-package ghc
   :ensure t
+  :defer t
+  :init
+  (autoload 'ghc-init "ghc" nil t)
+  (autoload 'ghc-debug "ghc" nil t)
+  (add-hook 'haskell-mode-hook #'ghc-init)
   :config
   ;; if you wish to display error each goto next/prev error,
   (setq ghc-display-error 'minibuffer)
-
-  (autoload 'ghc-init "ghc" nil t)
-  (autoload 'ghc-debug "ghc" nil t)
   ;; (setq ghc-debug t)
-  (add-hook 'haskell-mode-hook #'ghc-init)
   )
 
 
@@ -158,21 +160,20 @@
 
 (use-package company-ghc
   :ensure t
+  :defer t
+  :init
+  (defun my:haskell-company-backends-setup ()
+    (interactive)
+    (my-company-add-backend-locally 'company-ghc)
+    (my-company-add-backend-locally 'company-ghci))
+  (add-hook 'haskell-mode-hook #'my:haskell-company-backends-setup)
   :config
   (setq company-ghc-show-info t
-        company-ghc-show-module t
-        )
+        company-ghc-show-module t)
 
   ;; [ company-ghci ] -- company backend which uses the current ghci process.
   (use-package company-ghci
     :ensure t)
-
-  (defun haskell-company-backends-setup ()
-    (interactive)
-    (my-company-add-backend-locally 'company-ghc)
-    (my-company-add-backend-locally 'company-ghci))
-  
-  (add-hook 'haskell-mode-hook #'haskell-company-backends-setup)
   )
 
 ;;; [ company-cabal ] -- company-mode back-end for haskell-cabal-mode.

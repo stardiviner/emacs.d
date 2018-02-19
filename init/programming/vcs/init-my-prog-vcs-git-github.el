@@ -11,15 +11,14 @@
 
 (use-package ghub
   :ensure t
-  ;; :config
-  ;; (setq ghub-github-token-scopes)
-  )
+  :defer t)
 
 ;;; [ magithub ] -- Magit interfaces for GitHub.
 
 (use-package magithub
   :ensure t
-  :config
+  :defer t
+  :init
   (magithub-feature-autoinject t)
   (define-key prog-vcs-prefix (kbd "n") 'magithub-dashboard)
   (add-to-list 'display-buffer-alist
@@ -32,6 +31,7 @@
 
 (use-package github-browse-file
   :ensure t
+  :defer t
   :init
   (unless (boundp 'git-gutter-prefix)
     (define-prefix-command 'git-gutter-prefix))

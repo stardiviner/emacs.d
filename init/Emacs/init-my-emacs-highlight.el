@@ -34,6 +34,7 @@
 
 (use-package symbol-overlay
   :ensure t
+  :defer t
   :bind (:map highlight-prefix
               ("h" . symbol-overlay-put)
               ("M-h" . symbol-overlay-toggle-in-scope)
@@ -69,7 +70,8 @@
 ;;; [ language-detection ] -- Automatic programming language detection of code snippets, in Emacs Lisp.
 
 (use-package language-detection
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-my-emacs-highlight)

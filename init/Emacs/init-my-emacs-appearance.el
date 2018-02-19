@@ -162,12 +162,7 @@
 ;;; [ current line & column ]
 
 ;; highlight current line
-(use-package hl-line
-  :init
-  (global-hl-line-mode 1)
-  )
-
-
+(global-hl-line-mode 1)
 
 ;;; [ point & cursor ]
 
@@ -199,8 +194,10 @@
 
 (use-package beacon
   :ensure t
-  :config
+  :defer t
+  :init
   (beacon-mode 1)
+  :config
   (setq beacon-blink-when-point-moves-vertically 10
         beacon-blink-when-point-moves-horizontally 20
         beacon-blink-when-focused t

@@ -138,7 +138,8 @@
 ;;; [ javap-mode ] -- show the ouput of javap when opening a jvm class file in Emacs.
 
 (use-package javap-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ jdecomp ] -- Emacs interface to Java decompilers.
 

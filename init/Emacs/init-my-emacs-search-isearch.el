@@ -15,6 +15,7 @@
 ;;; [ Isearch ] -- Incremental Search
 
 (use-package isearch
+  :defer t
   :bind (:map isearch-prefix
               ("i" . isearch-forward)
               ("C-i" . isearch-forward-symbol-at-point)
@@ -55,6 +56,7 @@
 
 (use-package visual-regexp
   :ensure t
+  :defer t
   :bind (("C-s" . vr/isearch-forward)
          ("C-r" . vr/isearch-backward)
          ("M-%" . vr/query-replace)
@@ -74,18 +76,20 @@
 ;; [ visual-regexp-steroids.el ] -- Extends visual-regexp to support other regexp engines.
 
 (use-package visual-regexp-steroids
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 ;;; [ anzu ] -- Emacs Port of anzu.vim.
 
 (use-package anzu
   :ensure t
+  :defer t
   :bind (("M-%" . anzu-query-replace-regexp) ; anzu-query-replace
          ("C-M-%" . anzu-query-replace-regexp))
-  :config
+  :init
   (global-anzu-mode 1)
-  
+  :config
   (setq anzu-regexp-search-commands '(vr/isearch-forward
                                       vr/isearch-backward
                                       isearch-forward-regexp
@@ -103,6 +107,7 @@
 
 (use-package swiper
   :ensure t
+  :defer t
   :bind ("C-s" . swiper)
   :config
   (set-face-attribute 'swiper-line-face nil

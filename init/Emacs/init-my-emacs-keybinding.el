@@ -55,6 +55,9 @@
 
 (use-package which-key
   :ensure t
+  :defer t
+  :init (which-key-mode 1)
+  :bind ("C-h C-h" . which-key-show-top-level)
   :config
   (setq which-key-idle-delay 0.4
         which-key-idle-secondary-delay nil)
@@ -79,10 +82,6 @@
 
   (set-face-attribute 'which-key-highlighted-command-face nil
 		                  :underline nil :weight 'bold)
-  
-  (which-key-mode 1)
-
-  (global-set-key (kbd "C-h C-h") #'which-key-show-top-level)
   )
 
 
@@ -90,6 +89,7 @@
 
 (use-package hydra
   :ensure t
+  :defer t
   :config
   ;; display a hint with possible bindings in the echo area.
   (setq hydra-is-helpful t)
@@ -135,6 +135,7 @@
 
 (use-package emaps
   :ensure t
+  :defer t
   :bind (("C-h C-k" . Info-goto-emacs-key-command-node) ; revert original function.
          ("C-h K" . emaps-describe-keymap-bindings))
   )

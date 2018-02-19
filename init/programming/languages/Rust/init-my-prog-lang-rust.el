@@ -12,6 +12,7 @@
 (use-package rust-mode
   :ensure t
   :ensure-system-package rust
+  :defer t
   :config
   (setq rust-indent-offset 4
         rust-indent-method-chain t
@@ -34,6 +35,8 @@
 
 (use-package flycheck-rust
   :ensure t
+  :defer t
+  :after rust-mode
   :init
   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
   )
@@ -77,7 +80,8 @@
 
 (use-package ob-rust
   :ensure t
-  :config
+  :defer t
+  :init
   (add-to-list 'org-babel-load-languages '(rust . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   (add-to-list 'org-babel-tangle-lang-exts '("rust" . "rs"))

@@ -10,15 +10,14 @@
 ;;; [ Scheme Mode ]
 
 (use-package scheme
+  :ensure t
   :ensure-system-package guile
-  :config
-
-  ;; [ inferior scheme ]
+  :defer t
+  :init
   (setq scheme-program-name "guile")
-
   (with-eval-after-load 'scheme
     (define-key scheme-mode-map (kbd "C-c C-s") 'run-scheme))
-
+  :config
   (add-hook 'scheme-mode-hook #'my-lisp-common-settings)
 
   ;; auto run `run-scheme' for scheme buffer.
@@ -63,7 +62,6 @@
   ;; company-backend
   (add-hook 'scheme-mode-hook
             (lambda () (my-company-add-backend-locally 'geiser-company-backend)))
-  :config
   ;; auto start geiser inferior buffer process `run-geiser'.
   (defun my-run-geiser-auto ()
     (interactive)
@@ -73,7 +71,6 @@
       (unless (get-buffer geiser-guile-buffer)
         (save-window-excursion
           (run-geiser geiser-default-implementation)))))
-
   (define-key scheme-mode-map (kbd "C-c C-s") 'my-run-geiser-auto)
   )
 

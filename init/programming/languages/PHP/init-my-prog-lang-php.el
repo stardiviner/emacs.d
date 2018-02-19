@@ -12,11 +12,10 @@
 (use-package php-mode
   :ensure t
   :ensure-system-package php
+  :defer t
   :mode (("[.]php$" . php-mode)
          ("\\(pages\\|snippets\\|templates\\)/.*[.]php?$" . web-mode))
-  :init
-  (with-eval-after-load 'php-mode
-    (require 'php-ext))
+  :load (php-ext)
   :config
   (setq indent-tabs-mode nil
         c-basic-offset 2
@@ -29,6 +28,7 @@
 
 (use-package php-eldoc
   :ensure t
+  :defer t
   :init
   (add-hook 'php-mode-hook 'php-eldoc-enable))
 

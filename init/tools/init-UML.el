@@ -11,18 +11,17 @@
 (use-package plantuml-mode
   :ensure t
   :defer t
-  :config
+  :init
   (setq plantuml-jar-path (locate-user-emacs-file "init/extra/plantuml.jar"))
-
-  
-  ;; [ ob-plantuml ]
-  (require 'ob-plantuml)
-  (setq org-plantuml-jar-path plantuml-jar-path)
-  (add-to-list 'org-src-lang-modes '("plantuml" . plantuml-mode))
-  (add-to-list 'org-babel-load-languages '(clojure . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images 'append)
   )
+
+;; [ ob-plantuml ]
+(require 'ob-plantuml)
+(setq org-plantuml-jar-path plantuml-jar-path)
+(add-to-list 'org-src-lang-modes '("plantuml" . plantuml))
+(add-to-list 'org-babel-load-languages '(clojure . t))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+(add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images 'append)
 
 
 

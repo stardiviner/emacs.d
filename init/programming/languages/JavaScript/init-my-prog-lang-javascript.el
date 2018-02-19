@@ -88,6 +88,7 @@
 (use-package js2-mode
   :ensure t
   :ensure-system-package (node . "sudo pacman -S --noconfirm nodejs")
+  :defer t
   :mode ("\\.js\\'" . js2-mode)
   :init
   (add-hook 'js-mode-hook 'js2-minor-mode)
@@ -121,6 +122,7 @@
 
 ;; (use-package js3-mode
 ;;   :ensure t
+;;   :defer t
 ;;   :mode ("\\.js\\'" . js3-mode)
 ;;   )
 
@@ -148,6 +150,7 @@
 
 ;; (use-package nvm
 ;;   :ensure t
+;;   :defer t
 ;;   :config
 ;;   ;; FIXME: VERSION should be a number.
 ;;   ;; (nvm-use "system")
@@ -158,6 +161,7 @@
 
 (use-package js-comint
   :ensure t
+  :defer t
   :commands (run-js)
   :init
   (add-to-list 'display-buffer-alist
@@ -194,6 +198,7 @@
 
 ;; (use-package nodejs-repl
 ;;   :ensure t
+;;   :defer t
 ;;   :init
 ;;   (setenv "NODE_NO_READLINE" "1")
 ;;   )

@@ -15,10 +15,11 @@
 
 (use-package iedit
   :ensure t
+  :defer t
   :bind (:map editing-prefix
               ("e" . iedit-mode)
               ("C-e" . iedit-dwim))
-  :init
+  :preface
   (setq iedit-toggle-key-default (kbd "C-x e e"))
   :config
   (defun iedit-dwim (arg)
@@ -42,6 +43,7 @@
 
 (use-package multiple-cursors
   :ensure t
+  :defer t
   :bind (
          ;; ("M-<down-mouse-1>" . mc/add-cursor-on-click)
          ;; ("M-<mouse-1>" . mc/add-cursor-on-click)

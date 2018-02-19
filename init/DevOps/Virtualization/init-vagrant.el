@@ -15,6 +15,7 @@
 
 (use-package vagrant
   :ensure t
+  :defer t
   :bind (:map vagrant-prefix
               ("u" . vagrant-up)
               ("s" . vagrant-ssh)
@@ -37,7 +38,8 @@
 ;;; [ vagrant-tramp ] --
 
 (use-package vagrant-tramp
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-vagrant)

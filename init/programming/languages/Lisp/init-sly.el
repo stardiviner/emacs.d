@@ -11,6 +11,7 @@
 
 (use-package sly
   :ensure t
+  :defer t
   :commands (sly)
   :init
   (setq sly-default-lisp 'sbcl)

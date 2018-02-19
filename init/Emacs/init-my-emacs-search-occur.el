@@ -24,6 +24,7 @@
 
 ;; (use-package multi-occur
 ;;   :ensure t
+;;   :defer t
 ;;   :init
 ;;   (define-key search-prefix (kbd "O") 'multi-occur)
 ;;   (define-key search-prefix (kbd "M-o") 'multi-occur-in-matching-buffers)

@@ -11,6 +11,7 @@
 (use-package es-mode
   :ensure t
   :ensure-system-package jq
+  :defer t
   :mode ("\\.es$" . es-mode)
   :config
   ;; [ ob-elasticsearch (ob-es) ]

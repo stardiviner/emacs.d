@@ -11,12 +11,14 @@
 
 (use-package perl-mode
   :ensure t
-  :ensure-system-package perl)
+  :ensure-system-package perl
+  :defer t)
 
 ;;; [ perl6-mode ]
 
 (use-package perl6-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ ob-perl ]
 
@@ -30,6 +32,7 @@
 
 (use-package plsense
   :ensure t
+  :defer t
   :config
   (setq plsense-popup-help-key "M-h"
         plsense-display-help-buffer-key "C-h"

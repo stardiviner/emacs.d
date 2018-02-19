@@ -11,6 +11,7 @@
 
 (use-package tramp
   :ensure t
+  :defer t
   :config
   ;; hotfix
   ;; (setq tramp-ssh-controlmaster-options
@@ -89,6 +90,7 @@
 
 ;; (use-package helm-tramp
 ;;   :ensure t
+;;   :defer t
 ;;   :config
 ;;   (setq tramp-default-method "ssh")
 ;;   (defalias 'exit-tramp 'tramp-cleanup-all-buffers)

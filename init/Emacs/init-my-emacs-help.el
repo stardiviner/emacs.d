@@ -26,13 +26,15 @@
 
 (use-package info-colors
   :ensure t
+  :defer t
   :init
   (add-hook 'Info-selection-hook 'info-colors-fontify-node))
 
 ;;; [ sicp ] -- Structure and Interpretation of Computer Programs in info format.
 
 (use-package sicp
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (add-to-list 'display-buffer-alist
@@ -44,6 +46,7 @@
 
 ;; (use-package helpful
 ;;   :ensure t
+;;   :defer t
 ;;   :bind (("C-h f" . helpful-callable) ; replace Emacs default keybindings.
 ;;          ("C-h v" . helpful-variable)
 ;;          ("C-h k" . helpful-key)

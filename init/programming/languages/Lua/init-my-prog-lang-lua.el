@@ -12,6 +12,7 @@
 (use-package lua-mode
   :ensure t
   :ensure-system-package lua
+  :defer t
   :bind (:map lua-mode-map ("C-c C-s" . run-lua))
   :config
   (setq lua-documentation-function 'eww
@@ -35,6 +36,8 @@
 
 (use-package company-lua
   :ensure t
+  :defer t
+  :after lua-mode
   :init
   (add-hook 'lua-mode-hook
             (lambda ()

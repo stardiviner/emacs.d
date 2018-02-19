@@ -10,6 +10,7 @@
 
 (use-package graphviz-dot-mode
   :ensure t
+  :defer t
   :config
   (setq graphviz-dot-toggle-completions t
         graphviz-dot-auto-preview-on-save t)

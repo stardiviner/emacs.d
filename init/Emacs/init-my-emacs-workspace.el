@@ -100,6 +100,7 @@
 
 (use-package eyebrowse
   :ensure t
+  :defer t
   :custom (eyebrowse-keymap-prefix (kbd "C-x w"))
   :config
   (setq eyebrowse-new-workspace t

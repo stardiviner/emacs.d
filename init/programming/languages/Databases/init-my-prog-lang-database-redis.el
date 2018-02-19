@@ -12,7 +12,8 @@
 (use-package redis
   :ensure t
   :ensure-system-package redis
-  :commands redis-mode
+  :defer t
+  :commands (redis-mode)
   :init
   ;; for pseudo redis script file: *.redis.
   (add-to-list 'auto-mode-alist '("\\.redis\\'" . redis-mode))
@@ -24,7 +25,8 @@
 ;;; [ eredis ] -- a Redis client in emacs lisp
 
 (use-package eredis
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ ob-redis ]
 

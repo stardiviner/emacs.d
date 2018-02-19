@@ -10,6 +10,7 @@
 (use-package go-mode
   :ensure t
   :ensure-system-package go
+  :defer t
   :config
   (setq gofmt-command "gofmt"
         godef-command "godef"
@@ -41,7 +42,8 @@
 
 (use-package ob-go
   :ensure t
-  :config
+  :defer t
+  :init
   (add-to-list 'org-babel-load-languages '(go . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   (add-to-list 'org-babel-tangle-lang-exts '("go" . "go"))
@@ -53,9 +55,10 @@
 
 (use-package go-gopath
   :ensure t
+  :defer t
+  :after go-mode
   :init
-  (with-eval-after-load 'go-mode
-    (define-key go-mode-map (kbd "C-x C-e") #'go-gopath-set-gopath))
+  (define-key go-mode-map (kbd "C-x C-e") #'go-gopath-set-gopath)
   )
 
 
@@ -63,6 +66,7 @@
 
 (use-package go-eldoc
   :ensure t
+  :defer t
   :init
   (add-hook 'go-mode-hook 'go-eldoc-setup)
   )

@@ -19,37 +19,44 @@
 ;;; [ s.el ]
 
 (use-package s
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ dash.el ] -- A modern list library for Emacs.
 
 (use-package dash
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ a.el ] -- associative data structure functions.
 
 (use-package a
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ ht ] -- The missing hash table library for Emacs.
 
 (use-package ht
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ kv ] -- key/value data structure functions.
 
 (use-package kv
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ hierarchy ] -- Emacs library to create, query, navigate and display hierarchy structures.
 
 (use-package hierarchy
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ treepy ] --
 
 (use-package treepy
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 

@@ -9,12 +9,14 @@
 ;;; [ solidity-mode ]
 
 (use-package solidity-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ company-solidity ]
 
 (use-package company-solidity
   :ensure t
+  :defer t
   :config
   (defun my-company-solidity-setup ()
     (my-company-add-backend-locally 'company-solidity))

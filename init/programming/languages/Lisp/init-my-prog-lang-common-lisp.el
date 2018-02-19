@@ -73,6 +73,7 @@
 ;; http://quickdocs.org/
 (use-package engine-mode
   :ensure t
+  :defer t
   :config
   (defengine quickdocs
     "http://quickdocs.org/search?q=%s"

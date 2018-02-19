@@ -16,6 +16,7 @@
 
 (use-package allout
   :ensure t
+  :defer t
   :config
   (setq allout-auto-activation t
         ;; allout-layout
@@ -47,6 +48,7 @@
 
 (use-package hideshow
   :ensure t
+  :defer t
   :init (add-hook 'prog-mode-hook #'hs-minor-mode)
   ;; :config
   ;; (use-package hideshowvis

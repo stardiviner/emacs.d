@@ -19,6 +19,7 @@
 
 (use-package smartparens
   :ensure t
+  :defer t
   :load (smartparens-config)
   :config
   (setq sp-navigate-consider-sgml-tags '(html-erb-mode

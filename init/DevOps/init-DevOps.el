@@ -30,9 +30,9 @@
 
 (use-package copy-file-on-save
   :ensure t
-  :config
-  (global-copy-file-on-save-mode)
-  )
+  :defer t
+  :init
+  (global-copy-file-on-save-mode))
 
 ;;; [ heroku ]
 

@@ -11,6 +11,7 @@
 
 (use-package auto-complete
   :ensure t
+  :defer t
   :config
   (require 'auto-complete-config)
   ;; (ac-config-default)

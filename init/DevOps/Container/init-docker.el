@@ -12,6 +12,7 @@
 (use-package docker
   :ensure t
   :ensure-system-package docker
+  :defer t
   :bind (:map container-prefix
               ("c" . docker-containers)
               ("i" . docker-images)
@@ -34,17 +35,20 @@
 ;;; [ dockerfile-mode ] -- Dockerfile
 
 (use-package dockerfile-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ docker-compose-mode ] -- Major mode for editing docker-compose files.
 
 (use-package docker-compose-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ docker-tramp ]
 
 (use-package docker-tramp
   :ensure t
+  :defer t
   :config
   (setq docker-tramp-use-names t
         ;; docker-tramp-docker-options nil
@@ -68,12 +72,14 @@ For Org-babel header argument :dir /docker:<name>:."
 ;;; [ docker-api ] -- Emacs interface to the Docker API.
 
 (use-package docker-api
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ kubernetes ] -- Emacs porcelain for Kubernetes. A magit-style interface to the Kubernetes command-line client.
 
 (use-package kubernetes
   :ensure t
+  :defer t
   :commands (kubernetes-display-pods
              kubernetes-display-configmaps)
   )
@@ -82,8 +88,7 @@ For Org-babel header argument :dir /docker:<name>:."
 
 (use-package kubernetes-tramp
   :ensure t
-  :config
-  )
+  :defer t)
 
 
 (provide 'init-docker)

@@ -49,9 +49,9 @@
 
 (use-package pcomplete
   :ensure t
+  :defer t
   :config
-  (setq pcomplete-ignore-case t)
-  )
+  (setq pcomplete-ignore-case t))
 
 
 ;; (require 'init-ido)

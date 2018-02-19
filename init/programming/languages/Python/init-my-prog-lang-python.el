@@ -96,9 +96,9 @@
 
 (use-package pyvenv
   :ensure t
-  :config
-  (pyvenv-workon "python3.6")
-  (add-hook 'python-mode-hook #'pyvenv-mode))
+  :defer t
+  :init (add-hook 'python-mode-hook #'pyvenv-mode)
+  :config (pyvenv-workon "python3.6"))
 
 ;;; [ pygen ] -- Python code generation in Emacs with Elpy and python-mode.
 

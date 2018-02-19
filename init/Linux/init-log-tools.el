@@ -9,11 +9,14 @@
 ;;; [ logview ] -- Emacs mode for viewing log files.
 
 (use-package logview
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ view-mode ]
 
 (use-package view
+  :ensure t
+  :defer t
   :config
   (defun View-goto-line-last (&optional line)
     "goto last line"
@@ -37,7 +40,8 @@
 ;;; [ lognav-mode ] -- Navigate Log Error Messages with [M-n/p].
 
 (use-package lognav-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ log4j-mode ] -- Java applications' common log format Log4j.
 

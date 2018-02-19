@@ -10,12 +10,10 @@
 ;;; [ arduino-mode ]
 
 (use-package arduino-mode
+  :ensure t
   :ensure-system-package arduino
-  ;; :ensure t
-  :quelpa (arduino-mode :fetcher github :repo "stardiviner/arduino-mode" :upgrade t)
   ;; :load-path "~/Code/Emacs/arduino-mode"
-  ;; :config
-  ;; (setq arduino-font-lock-extra-types '()) ; this depend on c-font-lock like c-lang-defvar etc.
+  :defer t
   )
 
 
@@ -23,6 +21,7 @@
 
 (use-package company-arduino
   ;; :ensure t
+  :defer t
   :load-path "~/Code/Emacs/company-arduino"
   :after arduino-mode
   :preface

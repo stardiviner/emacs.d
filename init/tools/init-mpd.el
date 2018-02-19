@@ -10,6 +10,7 @@
 
 (use-package mpc
   :ensure t
+  :defer t
   :config
   (setq mpc-mpd-music-directory "~/Music/")
   ;; Assign shortcut [Win+M] for Emacs MPC in KDE.
@@ -45,6 +46,7 @@
 
 (use-package dionysos
   :ensure t
+  :defer t
   :config
   (setq dionysos-backend 'mpd
         dionysos-notify-p t

@@ -11,13 +11,12 @@
 
 (use-package engine-mode
   :ensure t
-  :config
-  ;; enable `engine-mode' minor-mode for making keybindings.
-  (engine-mode t)
-  
+  :defer t
+  :init (engine-mode t)
+  :preface
   (setq engine/keybinding-prefix "C-x /")
   ;; (setq engine/browser-function)
-
+  :config
   ;; general search engines
   (defengine google
     "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"

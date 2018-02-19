@@ -12,6 +12,7 @@
 (use-package clojure-mode
   :ensure t
   :ensure-system-package clojure
+  :defer t
   :mode (
          ;; Boot files
          ("\\.boot\\'" . clojure-mode) ; recognize .boot file
@@ -80,6 +81,7 @@
 
 (use-package cider
   :ensure t
+  :defer t
   :after clojure-mode
   :bind (:map cider-doc-map
               ("c" . helm-cider-cheatsheet)
@@ -268,9 +270,10 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 
 (use-package flycheck-clojure
   :ensure t
+  :defer t
+  :after flycheck
   :init
-  (with-eval-after-load 'flycheck
-    (flycheck-clojure-setup)))
+  (flycheck-clojure-setup))
 
 
 ;;; [ clj-refactor ]
@@ -298,6 +301,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 
 (use-package kibit-helper
   :ensure t
+  :defer t
   :commands (kibit kibit-current-file kibit-accept-proposed-change)
   :bind (:map clojure-mode-map
               ("C-x C-`" . kibit-accept-proposed-change))
@@ -305,12 +309,10 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 
 ;;; [ cider-decompile ] -- decompilation extension for cider.
 
-;; (use-package cider-decompile
-;;   :ensure t
-;;   :bind (:map clojure-mode-map
-;;               ("??" . cider-decompile-func)
-;;               ("??" . cider-decompile-ns-func))
-;;   )
+(use-package cider-decompile
+  :ensure t
+  :defer t
+  :commands (cider-decompile-func cider-decompile-ns-func))
 
 
 ;;; [ cider-spy ] -- Spy on CIDER to get Info.
@@ -380,6 +382,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 (use-package elein
   :ensure t
   :ensure-system-package (lein . "wget 'https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein' && mv lein ~/bin/ && chmod 755 ~/bin/lein")
+  :defer t
   :config
   (defun elein-lein-try ()
     (interactive)

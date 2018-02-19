@@ -11,6 +11,7 @@
 
 (use-package web-mode
   :ensure t
+  :defer t
   :config
   ;; fontifications
   (setq web-mode-enable-element-tag-fontification t
@@ -199,8 +200,7 @@
 ;; [ ob-html ]
 (with-eval-after-load 'web-mode
   (add-to-list 'org-src-lang-modes '("html" . web))
-  (add-to-list 'org-src-lang-modes '("rhtml" . web))
-  )
+  (add-to-list 'org-src-lang-modes '("rhtml" . web)))
 
 ;;; [ RESTful ]
 

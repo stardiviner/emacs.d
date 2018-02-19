@@ -44,6 +44,8 @@
 ;;; [ ediff ]
 
 (use-package ediff
+  :ensure t
+  :defer t
   :config
   (setq ediff-use-faces t)
 
@@ -95,6 +97,7 @@
 
 (use-package smerge-mode
   :ensure t
+  :defer t
   :bind (:map smerge-mode-map
               ("M-g n" . smerge-next)
               ("M-g p" . smerge-prev)

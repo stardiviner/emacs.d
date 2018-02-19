@@ -22,6 +22,7 @@
 
 (use-package autoinsert
   :ensure t
+  :defer t
   :config
   ;; (setq auto-insert-query 'function)
   (setq auto-insert-directory (locate-user-emacs-file "templates/"))

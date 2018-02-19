@@ -15,6 +15,7 @@
 
 (use-package company-math
   :ensure t
+  :defer t
   :config
   (defun my-company-math-setup ()
     (make-local-variable 'company-backends)

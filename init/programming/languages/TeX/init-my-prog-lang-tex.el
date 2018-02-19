@@ -22,6 +22,7 @@
 
 (use-package auctex
   :ensure t
+  :defer t
   :load (tex-site latex font-latex)
   :config
   ;; macros
@@ -108,7 +109,7 @@ character(s), in which case it deletes the space(s) first."
   
   (add-hook 'TeX-mode-hook #'TeX-font-lock-add-tie)
 
-;;; [C-c C-j] insert items smartly
+  ;; [C-c C-j] insert items smartly
   (defun LaTeX-insert-item-smartly ()
     (add-to-list 'LaTeX-item-list '("frame" . (lambda () (TeX-insert-macro "pause")))))
   (add-hook 'LaTeX-mode-hook #'LaTeX-insert-item-smartly)
@@ -120,79 +121,80 @@ character(s), in which case it deletes the space(s) first."
                       :height 1.2 :bold t)
   (set-face-attribute 'font-latex-sectioning-3-face nil
                       :height 1.2 :bold nil)
-  )
 
-(use-package company-auctex
-  :ensure t
-  :config
-  (defun my-company-auctex-setup ()
-    ;; indent
-    (aggressive-indent-mode)
-    
-    ;; fold: hide some boilerplate
-    (TeX-fold-mode)
+  (use-package company-auctex
+    :ensure t
+    :config
+    (defun my-company-auctex-setup ()
+      ;; indent
+      (aggressive-indent-mode)
+      
+      ;; fold: hide some boilerplate
+      (TeX-fold-mode)
 
-    (rainbow-delimiters-mode)
-    (smartparens-mode)
+      (rainbow-delimiters-mode)
+      (smartparens-mode)
 
-    ;; complete
-    (make-local-variable 'company-backends)
-    ;; company-math
-    (add-to-list 'company-backends 'company-math-symbols-unicode)
-    (add-to-list 'company-backends 'company-math-symbols-latex)
-    (add-to-list 'company-backends 'company-latex-commands)
+      ;; complete
+      (make-local-variable 'company-backends)
+      ;; company-math
+      (add-to-list 'company-backends 'company-math-symbols-unicode)
+      (add-to-list 'company-backends 'company-math-symbols-latex)
+      (add-to-list 'company-backends 'company-latex-commands)
 
-    ;; company-auctex
-    (add-to-list 'company-backends 'company-auctex-labels)
-    (add-to-list 'company-backends 'company-auctex-bibs)
-    (add-to-list 'company-backends 'company-auctex-environments)
-    (add-to-list 'company-backends 'company-auctex-symbols)
-    (add-to-list 'company-backends 'company-auctex-macros)
-    
-    ;; linter
-    (flycheck-mode 1)
+      ;; company-auctex
+      (add-to-list 'company-backends 'company-auctex-labels)
+      (add-to-list 'company-backends 'company-auctex-bibs)
+      (add-to-list 'company-backends 'company-auctex-environments)
+      (add-to-list 'company-backends 'company-auctex-symbols)
+      (add-to-list 'company-backends 'company-auctex-macros)
+      
+      ;; linter
+      (flycheck-mode 1)
 
-    ;; Doc
-    ;; (info-lookup-add-help
-    ;;  :mode 'latex-mode
-    ;;  :regexp ".*"
-    ;;  :parse-rule "\\\\?[a-zA-Z]+\\|\\\\[^a-zA-Z]"
-    ;;  :doc-spec '(("(latex2e)Concept Index" )
-    ;;              ("(latex2e)Command Index")))
+      ;; Doc
+      ;; (info-lookup-add-help
+      ;;  :mode 'latex-mode
+      ;;  :regexp ".*"
+      ;;  :parse-rule "\\\\?[a-zA-Z]+\\|\\\\[^a-zA-Z]"
+      ;;  :doc-spec '(("(latex2e)Concept Index" )
+      ;;              ("(latex2e)Command Index")))
+      
+      ;; block
+      (local-set-key (kbd "C-c C-i") 'tex-latex-block)
+      
+      ;; Section
+      (setq LaTeX-section-hook
+            '(LaTeX-section-heading
+              LaTeX-section-title
+              LaTeX-section-toc
+              LaTeX-section-section
+              LaTeX-section-label))
+      
+      ;; Math
+      ;; (LaTeX-math-mode)
+      )
 
-    ;; block
-    (local-set-key (kbd "C-c C-i") 'tex-latex-block)
-    
-    ;; Section
-    (setq LaTeX-section-hook
-          '(LaTeX-section-heading
-            LaTeX-section-title
-            LaTeX-section-toc
-            LaTeX-section-section
-            LaTeX-section-label))
-
-    ;; Math
-    ;; (LaTeX-math-mode)
+    (dolist (hook '(tex-mode-hook
+                    TeX-mode-hook
+                    latex-mode-hook
+                    LaTeX-mode-hook ; from AUCTeX
+                    ))
+      (add-hook hook #'my-company-auctex-setup))
     )
 
-  (dolist (hook '(tex-mode-hook
-                  TeX-mode-hook
-                  latex-mode-hook
-                  LaTeX-mode-hook ; from AUCTeX
-                  ))
-    (add-hook hook #'my-company-auctex-setup))
+  (use-package company-math
+    :ensure t)
   )
 
-(use-package company-math
-  :ensure t)
 
 ;;; [ RefTeX ] -- a specialized package for support of labels, references.
 
 (use-package reftex
   :ensure t
+  :defer t
   :config
   (setq reftex-cite-prompt-optional-args t) ; prompt for empty optional arguments in cite.
-
   ;; enable RefTeX in AUCTeX (LaTeX-mode)
   (add-hook 'latex-mode-hook 'turn-on-reftex) ; with Emacs latex mode
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex) ; with AUCTeX LaTeX mode
@@ -214,7 +216,8 @@ character(s), in which case it deletes the space(s) first."
 
 (use-package cdlatex
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'LaTeX-mode-hook #'cdlatex-mode)
   ;; enable in Org-mode
   (add-hook 'org-mode-hook #'org-cdlatex-mode)
@@ -227,6 +230,12 @@ character(s), in which case it deletes the space(s) first."
 
 (use-package magic-latex-buffer
   :ensure t
+  :defer t
+  :init
+  (add-hook 'LaTeX-mode-hook 'magic-latex-buffer)
+  ;; disable this, because `iimage-mode' auto open image in external program
+  ;; caused `LaTeX-mode-hook' break.
+  ;; (add-hook 'LaTeX-mode-hook 'turn-off-iimage-mode)
   :config
   ;; You can disable some features independently, if they’re too fancy.
   (setq magic-latex-enable-block-highlight nil
@@ -234,11 +243,6 @@ character(s), in which case it deletes the space(s) first."
         magic-latex-enable-pretty-symbols  t
         magic-latex-enable-block-align     t
         magic-latex-enable-inline-image    t)
-
-  (add-hook 'LaTeX-mode-hook 'magic-latex-buffer)
-  ;; disable this, because `iimage-mode' auto open image in external program
-  ;; caused `LaTeX-mode-hook' break.
-  ;; (add-hook 'LaTeX-mode-hook 'turn-off-iimage-mode)
   )
 
 
@@ -246,12 +250,12 @@ character(s), in which case it deletes the space(s) first."
 
 (use-package latex-preview-pane
   :ensure t
+  :defer t
+  :init
+  (latex-preview-pane-enable)
   :config
   (setq preview-orientation 'right)
-
-  (latex-preview-pane-enable)
   )
-
 
 ;;; [ px ] -- Provides functions to preview LaTeX codes like $x^2$ in any buffer/mode.
 
@@ -269,7 +273,6 @@ character(s), in which case it deletes the space(s) first."
                          "jpg" "JPEG" "eps" "EPS" "pdf"))
            "\\)}")
   "Regexp to match included images")
-
 
 (defun image-tooltip (window object position)
   (save-excursion

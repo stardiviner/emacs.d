@@ -35,6 +35,7 @@
 
 (use-package nginx-mode
   :ensure t
+  :defer t
   :mode (("nginx\\.conf\\'" . nginx-mode)
          ("/etc/nginx/.*" . nginx-mode))
   )
@@ -50,12 +51,14 @@
 
 (use-package lua-mode
   :ensure t
+  :defer t
   :mode (("\\.conkyrc\\'" . lua-mode)))
 
 ;;; [ ini-mode ] -- a major mode for *.ini files.
 
 (use-package ini-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ PulseAudio ]
 
@@ -64,12 +67,14 @@
 ;;; [ SystemTap ]
 
 ;; (use-package systemtap-mode
-;;   :ensure t)
+;;   :ensure t
+;;   :defer t)
 
 ;;; [ arch-packer ] -- Arch Linux package management frontend for pacman and pacaur.
 
 ;; (use-package arch-packer
 ;;   :ensure t
+;;   :defer t
 ;;   :config
 ;;   (setq arch-packer-default-command "pacaur")
 ;;   )

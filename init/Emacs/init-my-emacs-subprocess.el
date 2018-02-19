@@ -10,12 +10,14 @@
 ;;; [ deferred ] -- Simple asynchronous functions for Emacs Lisp.
 
 ;; (use-package deferred
-;;   :ensure t)
+;;   :ensure t
+;;   :defer t)
 
 ;;; [ prodigy ] -- Manage external services from within Emacs.
 
 (use-package prodigy
   :ensure t
+  :defer t
   :config
   (setq prodigy-completion-system 'ivy
         prodigy-kill-process-buffer-on-stop nil
@@ -36,6 +38,7 @@
 
 ;; (use-package bpr
 ;;   :ensure t
+;;   :defer t
 ;;   :commands (bpr-spawn bpr-open-last-buffer)
 ;;   )
 

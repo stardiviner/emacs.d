@@ -11,8 +11,11 @@
 
 (use-package ivy
   :ensure t
-  :config
+  :defer t
+  :init
   (ivy-mode 1)
+  (define-key read-expression-map (kbd "C-r") #'counsel-minibuffer-history) ; in [M-:]
+  :config
   (setq ivy-use-virtual-buffers t ; treat recentf, bookmarks as virtual buffers.
         ivy-virtual-abbreviate 'full ; use 'full to fix bookmarks uniquify issue.
         ivy-height 5
@@ -33,8 +36,6 @@
   ;; (with-eval-after-load 'ivy
   ;;   (push (cons t #'ivy--regex-plus) ivy-re-builders-alist)
   ;;   (push (cons #'swiper (cdr (assq t ivy-re-builders-alist))) ivy-re-builders-alist))
-
-  (define-key read-expression-map (kbd "C-r") #'counsel-minibuffer-history) ; in [M-:]
   
   ;; [ ivy-hydra ] -- [C-o], [M-o]
   (use-package ivy-hydra
@@ -64,7 +65,6 @@
         (require 'bookmark))
       (bookmark-maybe-load-default-file)
       (setq bookmarks (and (boundp 'bookmark-alist) bookmark-alist))
-
       ;; do the real thing
       (ivy-read "bookmarks:"
                 (delq nil (mapcar (lambda (bookmark)
@@ -75,7 +75,6 @@
                 :action (lambda (bookmark)
                           (bookmark-jump bookmark)))
       ))
-
   (global-set-key [remap bookmark-jump] 'ivy-bookmark-goto)
   )
 

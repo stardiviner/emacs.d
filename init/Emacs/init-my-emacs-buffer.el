@@ -19,6 +19,8 @@
 ;;; [ ibuffer ]
 
 (use-package ibuffer
+  :ensure t
+  :defer t
   :bind ("C-x C-b" . ibuffer)
   :config
   (setq buffers-menu-max-size nil)

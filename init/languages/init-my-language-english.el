@@ -16,17 +16,18 @@
 
 (use-package captain
   :ensure t
+  :defer t
   :commands (captain-capitalize-word)
-  :config
-  (global-captain-mode 1)
-  )
+  :init
+  (global-captain-mode 1))
 
 ;;; [ electric punctuation ]
 
 ;;; [ stem-english ] -- routines for Stemming English word (Emacs)
 
 (use-package stem-english
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-my-language-english)

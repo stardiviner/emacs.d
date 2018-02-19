@@ -68,26 +68,18 @@
   )
 
 
-;;; [ llvm-mode ] -- Major mode for the LLVM assembler language.
-
-(use-package llvm-mode
-  :ensure t
-  :defer t)
-
-
 ;;; [ x86-lookup ] -- jump to x86 instruction documentation.
 
 (use-package x86-lookup
   :ensure t
   :defer t
-  :init
-  (define-key asm-mode-map (kbd "C-h d d") #'x86-lookup)
   :config
   (setq x86-lookup-pdf (concat
                         user-emacs-directory
                         "documentations/Assembly/NASM/"
                         "Intel 64 and IA-32 Architectures Software Developers Manuals: combined volumes 2A, 2B, 2C, and 2D: Instruction set reference, A-Z.pdf"))
   (setq x86-lookup-browse-pdf-function 'x86-lookup-browse-pdf-okular)
+  (define-key asm-mode-map (kbd "C-h d d") #'x86-lookup)
   )
 
 
@@ -96,8 +88,9 @@
 (use-package inferior-spim
   :ensure t
   :defer t
-  :init
+  :config
   (define-key asm-mode-map (kbd "C-`") 'inferior-run-spim)
+  (define-key asm-mode-map (kbd "C-c C-s") 'inferior-run-spim)
   (define-key asm-mode-map (kbd "C-c C-z") 'inferior-switch-to-spim)
   (define-key asm-mode-map (kbd "C-c C-b") 'inferior-spim-send-buffer)
   (define-key asm-mode-map (kbd "C-c C-l") 'inferier-spim-load-file)

@@ -109,7 +109,8 @@
 
 (use-package org-protocol-capture-html
   :quelpa (org-protocol-capture-html
-           :fetcher github :repo "alphapapa/org-protocol-capture-html")
+           :fetcher github :repo "alphapapa/org-protocol-capture-html"
+           :upgrade nil)
   :config
   (setq org-capture-templates
         (append '(("PH" "org-[p]rotocol-capture-[h]tml" entry

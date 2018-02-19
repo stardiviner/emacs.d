@@ -68,6 +68,12 @@
 (add-to-list 'org-babel-default-header-args:C
              '(:results . "output"))
 
+;; (setq org-babel-C++-compiler "g++") ; "g++", "c++", "g++ -v"
+(add-to-list 'org-babel-tangle-lang-exts '("C++" . "cpp"))
+
+;; (add-to-list 'org-babel-default-header-args:C++
+;;              '(:results . "output"))
+
 
 ;;; [ Irony-mode ] --- A C/C++ minor mode for Emacs powered by libclang.
 
@@ -136,7 +142,8 @@
 ;;; [ c-eldoc ] -- helpful description of the arguments to C functions.
 
 (use-package c-eldoc
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ flycheck-cstyle ] --
 

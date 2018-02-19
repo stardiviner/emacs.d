@@ -9,7 +9,8 @@
 ;;; [ gregorio-mode ] -- Gregorio Mode for .gabc files.
 
 (use-package gregorio-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 

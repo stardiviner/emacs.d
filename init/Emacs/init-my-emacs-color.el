@@ -11,6 +11,7 @@
 
 (use-package rainbow-mode
   :ensure t
+  :defer t
   :init
   (dolist (hook
            '(emacs-lisp-mode-hook

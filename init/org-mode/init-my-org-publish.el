@@ -16,6 +16,7 @@
 ;; src code block syntax highlighting
 (use-package htmlize
   :ensure t
+  :defer t
   :config
   (setq org-html-htmlize-output-type 'css
         org-html-htmlize-font-prefix "org-")

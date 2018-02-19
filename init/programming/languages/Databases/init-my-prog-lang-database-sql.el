@@ -34,6 +34,7 @@
 (use-package ob-sql-mode
   ;; :ensure t
   :load-path "~/Code/Emacs/ob-sql-mode"
+  :defer t
   :config
   (add-to-list 'org-babel-load-languages '(sql-mode . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
@@ -52,6 +53,7 @@
 
 (use-package sql-indent
   :ensure t
+  :defer t
   :init
   (defun sql-indent-setup-local ()
     (make-local-variable 'indent-line-function)
@@ -65,6 +67,7 @@
 
 (use-package sqlup-mode
   :ensure t
+  :defer t
   :init
   (dolist (hook '(sql-mode-hook
                   sql-interactive-mode-hook

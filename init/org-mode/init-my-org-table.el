@@ -15,6 +15,7 @@
 
 (use-package org-table-sticky-header
   :ensure t
+  :defer t
   :init
   (add-hook 'org-mode-hook 'org-table-sticky-header-mode))
 
@@ -31,12 +32,14 @@
 ;;; [ orgtbl-aggregate ] -- create an aggregated Org table from another one.
 
 (use-package orgtbl-aggregate
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ orgtbl-join ] -- join two Org-mode tables.
 
 (use-package orgtbl-join
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; import .xlsx, .csv file into Org.
 (defun org-table-import-xlsx-file-to-csv-org (file)

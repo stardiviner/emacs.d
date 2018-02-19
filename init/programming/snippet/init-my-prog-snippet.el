@@ -9,9 +9,11 @@
 
 (use-package yasnippet
   :ensure t
+  :defer t
   ;; auto set major mode: snippet-mode.
   :mode (("\\.snippet$" . snippet-mode)
          ("\\.yasnippet$" . snippet-mode))
+  :init (yas-global-mode 1)
   :config
   (setq yas-snippet-dirs
         '("~/.emacs.d/snippets" ; personal snippets directory
@@ -83,9 +85,6 @@ $0`(yas-escape-text yas-selected-text)`"
       (beacon-blink))
     )
   (add-hook 'yas-after-exit-snippet-hook #'my-yas-exit-animation)
-  
-  ;; enable global yasnippet-mode
-  (yas-global-mode 1)
   )
 
 
@@ -93,6 +92,7 @@ $0`(yas-escape-text yas-selected-text)`"
 
 (use-package auto-yasnippet
   :ensure t
+  :defer t
   :after yasnippet
   :config
   (setq aya-persist-snippets-dir "~/.emacs.d/snippets")
@@ -107,6 +107,7 @@ $0`(yas-escape-text yas-selected-text)`"
 
 (use-package org-sync-snippets
   :ensure t
+  :defer t
   :after org ; to fix variable `org-directory' is not customized to "~/Org" issue.
   :config
   (setq org-sync-snippets-snippets-dir (concat user-emacs-directory "snippets/"))
@@ -120,8 +121,8 @@ $0`(yas-escape-text yas-selected-text)`"
 
 (use-package lively
   :ensure t
-  :commands (lively)
-  )
+  :defer t
+  :commands (lively))
 
 
 (provide 'init-my-prog-snippet)

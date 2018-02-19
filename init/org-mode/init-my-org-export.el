@@ -83,6 +83,7 @@
 
 (use-package org-mime
   :ensure t
+  :defer t
   :bind (:map Org-prefix
               ("m" . org-mime-org-buffer-htmlize)
               :map message-mode-map
@@ -180,17 +181,20 @@
 
 (use-package html2org
   :ensure t
+  :defer t
   :commands (html2org))
 
 ;;; [ ox-epub ] -- Org-mode EPUB export.
 
 (use-package ox-epub
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ ox-pandoc ] -- another org-mode exporter via pandoc.
 
 ;; (use-package ox-pandoc
-;;   :ensure t)
+;;   :ensure t
+;;   :defer t)
 
 
 (provide 'init-my-org-export)

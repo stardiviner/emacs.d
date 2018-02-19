@@ -43,6 +43,7 @@
 
 (use-package magit
   :ensure t
+  :defer t
   :ensure-system-package git
   :bind (:map prog-vcs-prefix
               ("v" . magit-status)
@@ -124,6 +125,8 @@
 
 (use-package magit-gitflow
   :ensure t
+  :after magit
+  :defer t
   :config
   (with-eval-after-load 'magit
     (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
@@ -142,6 +145,7 @@
 
 (use-package git-messenger
   :ensure t
+  :defer t
   :bind (:map prog-vcs-prefix
               ("m m" . git-messenger:popup-message)
               :map git-messenger-map

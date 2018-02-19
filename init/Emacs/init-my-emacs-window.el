@@ -56,13 +56,16 @@
 ;;; [ winner ]
 
 (use-package winner
-  :config
+  :ensure t
+  :defer t
+  :init
   (winner-mode 1))
 
 ;;; [ ace-window ] -- Quickly switch windows in Emacs.
 
 (use-package ace-window
   :ensure t
+  :defer t
   :bind ("C-x C-j" . ace-window)
   :config
   (setq aw-background nil)

@@ -59,14 +59,14 @@
 
 (use-package ess
   :ensure t
-  :config
-  (require 'ess-site))
+  :load (ess-site ess-custom)
+  :init
+  (if (boundp 'inferior-julia-program-name)
+      (setq inferior-julia-program-name "julia")))
 
 (require 'ob-julia)
 
-;; (if (not (boundp 'inferior-julia-program-name))
-;;     (setq inferior-julia-program-name "julia"))
-;; (setq org-babel-julia-command "julia")
+(setq org-babel-julia-command "julia")
 
 (add-to-list 'org-babel-load-languages '(julia . t))
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)

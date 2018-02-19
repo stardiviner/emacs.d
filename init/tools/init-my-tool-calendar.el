@@ -17,6 +17,8 @@
 ;;; [ calendar ]
 
 (use-package calendar
+  :ensure t
+  :defer t
   :bind (:map calendar-prefix ("c" . calendar))
   :config
   ;; ;; Month
@@ -69,6 +71,7 @@
 
 ;;; Localized National Holidays
 (use-package holidays
+  :defer t
   :config
   ;; `calfw' collects holidays from function `calendar-holiday-list' and the
   ;; customize variable `calendar-holidays' which belongs to `holidays.el` in
@@ -78,6 +81,7 @@
   (setq calendar-view-holidays-initially-flag t))
 
 (use-package cal-china
+  :defer t
   :config
   ;; display the ‘celestial-stem’ (天干) and the ‘terrestrial-branch’ (地支) in Chinese:
   (setq calendar-chinese-celestial-stem
@@ -89,6 +93,7 @@
 ;; [ cal-china-x ] -- Chinese localization, lunar/horoscope/zodiac info and more...
 (use-package cal-china-x
   :ensure t
+  :defer t
   :config
   (setq calendar-mark-holidays-flag t)
   (setq cal-china-x-important-holidays cal-china-x-chinese-holidays)

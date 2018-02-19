@@ -11,6 +11,7 @@
 
 (use-package helm
   :ensure t
+  :defer t
   :bind (("M-x" . helm-M-x)
          ("M-y" . helm-show-kill-ring)
          ;; ([remap org-goto] . helm-org-in-buffer-headings) ; [C-c C-j] completion for Org headings

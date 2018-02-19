@@ -10,6 +10,7 @@
 
 (use-package ob-uart
   :ensure t
+  :defer t
   :config
   (add-to-list 'org-babel-load-languages '(uart . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)

@@ -12,7 +12,8 @@
 ;;; [ ov ] -- Overlay library for Emacs Lisp.
 
 (use-package ov
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 (provide 'init-my-emacs-overlay)

@@ -351,6 +351,7 @@ and append it."
 
 (use-package org-send-ebook
   :ensure t
+  :defer t
   :commands (org-send-ebook)
   :bind (:map Org-prefix ("M-e" . org-send-ebook)))
 

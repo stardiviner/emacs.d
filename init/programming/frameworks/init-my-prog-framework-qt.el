@@ -118,6 +118,7 @@
 
 (use-package qt-pro-mode
   :ensure t
+  :defer t
   :mode ("\\.pro\\'" "\\.pri\\'"))
 
 

@@ -235,7 +235,8 @@
 ;; - properties: BLOCKER, TRIGGER.
 
 (use-package org-edna
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 

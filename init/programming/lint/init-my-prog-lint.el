@@ -18,6 +18,7 @@
 
 (use-package flycheck
   :ensure t
+  :defer t
   :commands flycheck-mode
   :preface
   (setq flycheck-check-syntax-automatically '(save)
@@ -45,9 +46,10 @@
 
 ;; (use-package flycheck-inline
 ;;   :ensure t
-;;   :config
-;;   (with-eval-after-load 'flycheck
-;;     (add-hook 'flycheck-mode-hook #'flycheck-inline-enable))
+;;   :defer t
+;;   :after flycheck
+;;   :init
+;;   (add-hook 'flycheck-mode-hook #'flycheck-inline-enable)
 ;;   )
 
 
@@ -55,6 +57,7 @@
 
 (use-package flycheck-popup-tip
   :ensure t
+  :defer t
   :after flycheck
   :init
   (add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode))

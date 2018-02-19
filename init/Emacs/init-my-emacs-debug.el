@@ -29,7 +29,7 @@
 
 (use-package edebug
   :bind (:map emacs-lisp-mode-map ("C-c d e" . edebug-mode))
-  :config
+  ;; :config
   ;; (setq edebug-trace t)
   ;; (add-to-list 'display-buffer-alist
   ;;              '("^\\*edebug-trace\\*" (display-buffer-below-selected)))
@@ -46,26 +46,24 @@
               ("M-s" . edebug-x-show-data)
               ("M-b" . edebug-x-show-breakpoints)
               ("M-i" . edebug-x-show-instrumented))
-  :init
-  (with-eval-after-load 'edebug-x
-    (defun my-edebug-set-face (theme)
-      "Set edebug-x faces based on `circadian' color `THEME' switching"
-      (set-face-attribute 'hi-edebug-x-stop nil
-                          :reverse-video nil :foreground nil :overline t
-                          :background (cl-case (alist-get 'background-mode (frame-parameters))
-					('light
-					 (color-darken-name (face-background 'default) 10))
-					('dark
-					 (color-darken-name (face-background 'default) 5))))
-      (set-face-attribute 'hi-edebug-x-debug-line nil
-                          :reverse-video nil :foreground nil :underline t
-                          :background (cl-case (alist-get 'background-mode (frame-parameters))
-					('light
-					 (color-darken-name (face-background 'default) 10))
-					('dark
-					 (color-darken-name (face-background 'default) 10)))))
-    
-    (add-hook 'circadian-after-load-theme-hook #'my-edebug-set-face))
+  :config
+  (defun my-edebug-set-face (theme)
+    "Set edebug-x faces based on `circadian' color `THEME' switching"
+    (set-face-attribute 'hi-edebug-x-stop nil
+                        :reverse-video nil :foreground nil :overline t
+                        :background (cl-case (alist-get 'background-mode (frame-parameters))
+					                            ('light
+					                             (color-darken-name (face-background 'default) 10))
+					                            ('dark
+					                             (color-darken-name (face-background 'default) 5))))
+    (set-face-attribute 'hi-edebug-x-debug-line nil
+                        :reverse-video nil :foreground nil :underline t
+                        :background (cl-case (alist-get 'background-mode (frame-parameters))
+					                            ('light
+					                             (color-darken-name (face-background 'default) 10))
+					                            ('dark
+					                             (color-darken-name (face-background 'default) 10)))))
+  (add-hook 'circadian-after-load-theme-hook #'my-edebug-set-face)
 
   (add-to-list 'display-buffer-alist
                '("^\\*Instrumented Functions\\*" (display-buffer-below-selected)))
@@ -78,8 +76,8 @@
 
 (use-package bug-hunter
   :ensure t
-  :commands (bug-hunter-file bug-hunter-init-file)
-  )
+  :defer t
+  :commands (bug-hunter-file bug-hunter-init-file))
 
 
 ;; Sometimes you want to find out where a particular error, warning or just

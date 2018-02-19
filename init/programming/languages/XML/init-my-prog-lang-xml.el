@@ -7,9 +7,10 @@
 
 ;;; Code:
 
-;;; [ nxml-mode ]
+;;; [ nxml ]
 
-(use-package nxml-mode
+(use-package nxml
+  :defer t
   :mode "\\.xml\\'"
   :config
   (setq nxml-child-indent 2
@@ -55,7 +56,8 @@
 
 (use-package x-path-walker
   :ensure t
-  :config
+  :defer t
+  :init
   (dolist (hook '(html-mode-hook
                   web-mode-hook
                   nxml-mode-hook

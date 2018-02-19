@@ -19,11 +19,9 @@
   ;;                    "/editors/scel/el/")
   :no-require t
   :ensure-system-package (sclang . "sudo pacman -S --noconfirm supercollider")
+  :defer t
+  :load (sclang sclang-interp)
   :config
-  (require 'sclang)
-  (require 'sclang-interp)
-  (require 'w3m)
-
   ;; (setq sclang-extension-path '("/usr/share/SuperCollider/Extensions"
   ;;                               "~/.local/share/SuperCollider/Extensions"))
 
@@ -102,21 +100,25 @@
 
 ;; (add-hook 'cider-connected-hook #'my/overtone-auto-start)
 
-;;; auto load with `clomacs'.
-(clomacs-defun overtone-load-and-boot-external-server
-               overtone.core/boot-external-server
-               :lib-name "overtone"
-               :namespace overtone.core
-               :doc "Load Overtone library and boot external server.")
+(use-package clomacs
+  :ensure t
+  :config
+  ;; auto load with `clomacs'.
+  (clomacs-defun overtone-load-and-boot-external-server
+                 overtone.core/boot-external-server
+                 :lib-name "overtone"
+                 :namespace overtone.core
+                 :doc "Load Overtone library and boot external server.")
 
-(clomacs-defun overtone-load-and-boot-internal-server
-               overtone.live/boot-server
-               :lib-name "overtone"
-               :namespace overtone.live
-               :doc "Load Overtone library and boot internal server.")
+  (clomacs-defun overtone-load-and-boot-internal-server
+                 overtone.live/boot-server
+                 :lib-name "overtone"
+                 :namespace overtone.live
+                 :doc "Load Overtone library and boot internal server.")
 
-;; (overtone-load-and-boot-external-server)
-;; (overtone-load-and-boot-internal-server)
+  ;; (overtone-load-and-boot-external-server)
+  ;; (overtone-load-and-boot-internal-server)
+  )
 
 
 (provide 'init-SuperCollider)

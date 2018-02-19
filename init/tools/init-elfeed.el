@@ -11,12 +11,12 @@
 
 (use-package elfeed
   :ensure t
-  :bind (:map tools-prefix
-              ("r" . elfeed))
-  :config
+  :defer t
+  :bind (:map tools-prefix ("r" . elfeed))
+  :init
   (setq elfeed-db-directory "~/.emacs.d/.elfeed")
+  :config
   (setq elfeed-search-date-format '("%Y-%m-%d" 10 :right))
-
   (setq elfeed-feeds
         '(
           ;; Programming

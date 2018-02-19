@@ -16,6 +16,7 @@
 (use-package ruby-mode
   :ensure t
   :ensure-system-package ruby
+  :defer t
   :mode (("\\.irbrc\\'" . ruby-mode))
   ;; :init
   ;; (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
@@ -45,6 +46,7 @@
 
 (use-package ruby-tools
   :ensure t
+  :defer t
   :init
   (add-hook 'ruby-mode-hook 'ruby-tools-mode)
   (add-hook 'enh-ruby-mode-hook 'ruby-tools-mode)
@@ -54,7 +56,8 @@
 
 (use-package yari
   :ensure t
-  :config
+  :defer t
+  :init
   (defun my-yari-settings ()
     ;; (local-set-key (kbd "C-h d k") 'yari)
     ;; or with prog-doc-map prefix.
@@ -70,12 +73,14 @@
 
 ;; (use-package rbenv
 ;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (global-rbenv-mode 1)
+;;   (rbenv-use-global)
 ;;   :config
 ;;   (setq rbenv-show-active-ruby-in-modeline t
 ;;         rbenv-modeline-function 'rbenv--modeline-plain
 ;;         )
-;;   (global-rbenv-mode 1)
-;;   (rbenv-use-global)
 ;;   )
 
 
@@ -83,6 +88,7 @@
 
 (use-package inf-ruby
   :ensure t
+  :defer t
   :config
   (add-to-list 'inf-ruby-implementations
                '("inf-ruby" . "irb --inf-ruby-mode --noreadline -EUTF-8"))
@@ -125,6 +131,7 @@
 
 (use-package robe
   :ensure t
+  :defer t
   :config
   (setq robe-highlight-capf-candidates t
         robe-completing-read-func 'ivy-read)

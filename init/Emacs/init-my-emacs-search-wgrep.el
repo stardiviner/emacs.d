@@ -11,10 +11,11 @@
 
 (use-package wgrep
   :ensure t
+  :defer t
   :init
-  (setq wgrep-enable-key (kbd "C-c C-p")
-        wgrep-auto-save-buffer nil)
+  (setq wgrep-enable-key (kbd "C-c C-p"))
   :config
+  (setq wgrep-auto-save-buffer nil)
   (advice-add 'wgrep-finish-edit :after #'wgrep-save-all-buffers)
   )
 
@@ -22,7 +23,8 @@
 
 (use-package wgrep-helm
   :ensure t
-  :config
+  :defer t
+  ;; :config
   ;; support wgrep for ripgrep.
   ;; [M-x `helm-do-grep-ag'] `ripgrep' is fully supported with `wgrep' when used as backend for `helm'.
   ;; You have first [C-x C-s] to save your helm grep buffer before being able to edit it with wgrep.
@@ -33,10 +35,10 @@
 
 (use-package wgrep-ag
   :ensure t
+  :defer t
+  :after ag
   :init
-  (autoload 'wgrep-ag-setup "wgrep-ag")
-  (with-eval-after-load 'ag
-    (add-hook 'ag-mode-hook 'wgrep-ag-setup))
+  (add-hook 'ag-mode-hook 'wgrep-ag-setup)
   )
 
 

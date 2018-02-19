@@ -11,6 +11,7 @@
 
 (use-package company
   :ensure t
+  :defer t
   :commands (global-company-mode)
   :init
   (add-hook 'after-init-hook 'global-company-mode)

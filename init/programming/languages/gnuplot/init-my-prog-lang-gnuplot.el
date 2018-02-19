@@ -16,12 +16,12 @@
 
 (use-package gnuplot-mode
   :ensure t
+  :defer t
   :mode (("\\.gp\\'" . gnuplot-mode)
          ("\\.plt\\'" . gnuplot-mode)
          ("\\.gnuplot\\'" . gnuplot-mode))
+  :load (gnuplot-context)
   :config
-  (require 'gnuplot-context)
-  
   (setq gnuplot-info-display 'window
         gnuplot-tab-completion t
         gnuplot-use-context-sensitive-completion nil

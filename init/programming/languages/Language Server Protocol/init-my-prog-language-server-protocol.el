@@ -10,17 +10,24 @@
 
 (use-package lsp-mode
   :ensure t
-  :config
-  ;; (lsp-mode t)
+  :defer t
+  :preface
+  (setq lsp-enable-flycheck nil
+        lsp-enable-indentation nil
+        lsp-highlight-symbol-at-point nil)
+  :init
   (add-hook 'prog-mode-hook #'lsp-mode)
   (with-eval-after-load 'lsp-mode
     (require 'lsp-flycheck))
-
+  :config
   (use-package company-lsp
     :ensure t
     :config
     (push 'company-lsp company-backends)
-    (setq company-lsp-cache-candidates t)
+    (setq company-lsp-enable-recompletion t
+          company-lsp-enable-snippet t
+          company-lsp-cache-candidates t
+          company-lsp-async t)
     )
 
   ;; [ lsp-ui ] -- UI modules for lsp-mode.
