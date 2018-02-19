@@ -76,7 +76,8 @@
 ;; Daily entry (holidays)
 (set-face-attribute 'org-agenda-diary nil
                     :slant 'italic
-                    :family "DejaVu Serif")
+                    :family "DejaVu Serif"
+                    :foreground "orange")
 
 ;; Clocking
 (set-face-attribute 'org-clock-overlay nil

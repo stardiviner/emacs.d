@@ -90,7 +90,6 @@ column.  Place the point after the comment box."
   (defun my-poporg-set-face (theme)
     "Reload customized faces on `circadian' `THEME' toggling."
     (set-face-attribute 'poporg-edited-face nil
-                        :slant 'italic
                         :foreground "chocolate"
                         :background (cl-case (alist-get 'background-mode (frame-parameters))
                                       ('light

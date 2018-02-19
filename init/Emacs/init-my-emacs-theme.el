@@ -75,26 +75,6 @@
                                     (color-lighten-name (face-background 'default) 10))
                                    )
                       )
-
-  ;; (set-face-attribute 'region nil
-  ;;                     :inherit nil :inverse-video nil
-  ;;                     :background (cl-case (alist-get 'background-mode (frame-parameters))
-  ;;                                   ('light
-  ;;                                    (color-darken-name (face-background 'default) 5))
-  ;;                                   ('dark
-  ;;                                    (color-lighten-name (face-background 'default) 8)))
-  ;;                     )
-
-  ;; comment
-  (set-face-attribute 'font-lock-comment-face nil
-                      :slant 'italic)
-  ;; built-in function.
-  (set-face-attribute 'font-lock-builtin-face nil
-                      :slant 'italic)
-  (set-face-attribute 'font-lock-function-name-face nil
-                      :background (color-lighten-name (face-background 'default) 2))
-  (set-face-attribute 'font-lock-type-face nil
-                      :background (color-lighten-name (face-background 'default) 3))
   )
 (add-hook 'circadian-after-load-theme-hook #'my:font-lock-extra-setup)
 

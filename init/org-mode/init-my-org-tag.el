@@ -99,11 +99,11 @@
         ))
 
 (setq org-tag-faces
-      '(("noexport" :foreground "DimGray" :weight bold :underline t :slant 'italic)
-        ("deprecated" :foreground "DimGray" :strike-through t :slant 'italic)
-        ("fragment" :foreground "LightGray" :weight bold :slant 'italic)
-        ("computer" :foreground "green" :slant 'italic)
-        ("life" :foreground "black" :slant 'italic)
+      '(("noexport" :foreground "DimGray" :weight bold :underline t :strike-through t)
+        ("deprecated" :foreground "DimGray" :strike-through t)
+        ("fragment" :foreground "LightGray" :weight bold)
+        ("computer" :foreground "green")
+        ("life" :foreground "black")
         ("SEX" :foreground "deep pink" :weight bold)
         ("code" :foreground "lawn green" :weight bold)
         ("Linux" :foreground "yellow" :weight bold)

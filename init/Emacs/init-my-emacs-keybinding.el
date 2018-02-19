@@ -78,7 +78,7 @@
           ))
 
   (set-face-attribute 'which-key-highlighted-command-face nil
-		                  :underline nil :weight 'bold :slant 'italic)
+		                  :underline nil :weight 'bold)
   
   (which-key-mode 1)
 
