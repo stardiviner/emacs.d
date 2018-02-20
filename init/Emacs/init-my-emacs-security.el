@@ -16,10 +16,14 @@
 ;;; [ certificate ]
 
 ;; (require 'tls)
-;;
-;; (setq tls-checktrust 'ask
-;;       ;; tls-program
-;;       )
+
+;; (setq tls-checktrust 'ask)
+
+;;; Fix SSL certificate issue on `gnutls'.
+(setq tls-program
+      '("openssl s_client -connect %h:%p -no_ssl2 -ign_eof"
+        "gnutls-cli --x509cafile %t -p %p %h"
+        "gnutls-cli -p %p %h"))
 
 ;; (require 'gnutls)
 ;;
