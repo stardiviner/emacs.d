@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: mapc add-hook
+# key: add-hook-mapc
+# group: add-hook
+# --
+(mapc
+(lambda (hook)
+(add-hook hook #'${1:func}))
+'(${2:hooks list}))

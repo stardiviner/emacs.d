@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: EOF
+# key: EOF
+# group: syntax
+# --
+cat <<${1:EOF} ${2:> redirect output}
+$0
+$1
