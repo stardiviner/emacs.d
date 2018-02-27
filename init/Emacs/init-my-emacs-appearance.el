@@ -295,7 +295,27 @@
 
 (use-package all-the-icons
   :ensure t
-  :defer t)
+  :defer t
+  :config
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(erc-mode all-the-icons-faicon "commenting-o" :height 1.0 :v-adjust 0.0))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(ag-mode all-the-icons-faicon "search" :height 1.0 :v-adjust 0.0))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(sh-mode all-the-icons-alltheicon "terminal" :height 1.0 :v-adjust 0.0))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(sql-interactive-mode all-the-icons-faicon "database" 1.0 :v-adjust 0.05))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(arduino-mode all-the-icons-fileicon "arduino" 1.0 :v-adjust 0.00))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(sly-mrepl-mode all-the-icons-fileicon "lisp" :height 1.0 :v-adjust 0.0))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(slime-repl-mode all-the-icons-fileicon "lisp" :height 1.0 :v-adjust 0.0))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(inferior-python-mode all-the-icons-alltheicon "python" :height 1.0 :v-adjust 0.0))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(package-menu-mode all-the-icons-octicon "package" :height 1.0 :v-adjust 0.0))
+  )
 
 
 
