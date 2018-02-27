@@ -855,6 +855,27 @@ dimensions of a block selection."
          ))
     ))
 
+;;; [ keycast ]
+(use-package keycast
+  :ensure t
+  :preface
+  (setq keycast-window-predicate 'mode-line-window-active-p)
+  :config
+  (defun *keycast ()
+    "Show keycast in custom mode-line."
+    (when (mode-line-window-active-p)
+      mode-line-keycast))
+  (set-face-attribute 'keycast-key nil
+                      :inherit 'mode-line
+                      :height 1.0 :box nil
+                      :foreground "cyan"
+                      :background (face-background 'mode-line)
+                      :box (face-attribute 'mode-line :box)
+                      )
+  (set-face-attribute 'keycast-command nil
+                      :bold nil)
+  )
+
 (defun *space (n)
   "Add `N' spaces for custom mode-line alignment."
   (propertize (make-string n (string-to-char " ")) 'face 'variable-pitch))
@@ -1032,6 +1053,7 @@ dimensions of a block selection."
                  ;; (*org-clock-today)
                  (*org-timer)
                  (*pomodoro)
+                 (*keycast)
                  (*process)
                  (*copy-file-on-save)
                  ;; (*rtags-mode-line)
