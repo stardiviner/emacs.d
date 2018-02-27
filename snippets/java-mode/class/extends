@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: class-extends
+# key: class-extends
+# group: class.extends
+# --
+class ${1:subclass} extends ${2:superclass} {
+$0
+}
