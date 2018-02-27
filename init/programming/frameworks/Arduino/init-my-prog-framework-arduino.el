@@ -12,10 +12,22 @@
 (use-package arduino-mode
   :ensure t
   :ensure-system-package arduino
-  ;; :load-path "~/Code/Emacs/arduino-mode"
-  :defer t
-  )
+  :defer t)
 
+;;; [ ob-arduino ]
+
+(use-package org-plus-contrib
+  :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+  :no-require t
+  :pin manual
+  :ensure-system-package arduino
+  :load (ob-arduino)
+  :init
+  (add-to-list 'org-babel-load-languages '(arduino . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  :config
+  (add-to-list 'org-babel-tangle-lang-exts '("arduino" . "ino"))
+  )
 
 ;;; [ company-arduino ]
 
