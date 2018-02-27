@@ -32,6 +32,11 @@
       ))
 
   ;; (add-hook 'scheme-mode-hook 'run-scheme-auto-create)
+
+  (add-to-list 'display-buffer-alist
+               '("\\* Guile REPL \\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("\\* Racket REPL \\*" . (display-buffer-below-selected)))
   )
 
 
@@ -42,6 +47,15 @@
 (add-to-list 'org-babel-load-languages '(scheme . t))
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 (add-to-list 'org-babel-tangle-lang-exts '("scheme" . "scm"))
+
+(pcase scheme-program-name
+  ("guile"
+   (add-to-list 'org-babel-default-header-args:scheme
+                '(:session . "* Guile REPL *")))
+  ("racket"
+   (add-to-list 'org-babel-default-header-args:scheme
+                '(:session . "* Racket REPL *")))
+  )
 
 
 ;;; [ cmuscheme ] -- Scheme process in a buffer. Adapted from tea.el
