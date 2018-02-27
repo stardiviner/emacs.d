@@ -88,6 +88,16 @@
   (defun helm-dash-buffer-local-clojure-docsets ()
     (setq-local helm-dash-docsets '("Clojure")))
   (add-hook 'clojure-mode-hook 'helm-dash-buffer-local-clojure-docsets)
+  ;; ClojureScript
+  (defun helm-dash-buffer-local-clojurescript-docsets ()
+    (setq-local helm-dash-docsets '("Clojure" "ClojureScript")))
+  (add-hook 'clojurescript-mode-hook 'helm-dash-buffer-local-clojurescript-docsets)
+  ;; CIDER REPL
+  (defun helm-dash-buffer-local-cider-docsets ()
+    (if (eq cider-repl-type "clj")
+        (setq-local helm-dash-docsets '("Clojure"))
+      (setq-local helm-dash-docsets '("Clojure" "ClojureScript"))))
+  (add-hook 'cider-repl-mode-hook 'helm-dash-buffer-local-cider-docsets)
   ;; C
   (defun helm-dash-buffer-local-C-docsets ()
     (setq-local helm-dash-docsets '("C"))
@@ -110,6 +120,7 @@
   (defun helm-dash-buffer-local-sql-docsets ()
     (setq-local helm-dash-docsets '("SQLite" "PostgreSQL" "MySQL")))
   (add-hook 'sql-mode-hook 'helm-dash-buffer-local-sql-docsets)
+  (add-hook 'sql-interactive-mode-hook 'helm-dash-buffer-local-sql-docsets)
   ;; LaTeX
   (defun helm-dash-buffer-local-latex-docsets ()
     (setq-local helm-dash-docsets '("LaTeX")))

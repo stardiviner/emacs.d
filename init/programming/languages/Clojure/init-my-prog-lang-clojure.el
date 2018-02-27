@@ -374,6 +374,8 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   :ensure t
   :defer t
   :bind (:map clojure-mode-map
+              ("C-h d d" . helm-clojuredocs)
+              :map cider-repl-mode-map
               ("C-h d d" . helm-clojuredocs)))
 
 
