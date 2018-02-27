@@ -77,28 +77,6 @@
 ;;   :ensure t
 ;;   :defer t)
 
-;;; [ Parinfer ] -- Let's simplify the way we write Lisp...
-
-;; (use-package parinfer
-;;   :ensure t
-;;   :defer t
-;;   :bind (("C-," . parinfer-toggle-mode))
-;;   :init (mapc
-;;          (lambda (hook)
-;;            (add-hook hook #'parinfer-mode))
-;;          '(emacs-lisp-mode-hook lisp-mode-hook common-lisp-mode-hook clojure-mode-hook))
-;;   :config
-;;   ;; Parinfer will auto switch to Indent Mode whenever parens are balance in Paren Mode.
-;;   ;; (setq parinfer-auto-switch-indent-mode nil)
-;;   (setq parinfer-extensions
-;;         '(defaults                 ; should be included.
-;;            pretty-parens           ; different paren styles for different modes.
-;;            paredit                 ; Introduce some paredit commands.
-;;            smart-tab ; C-b & C-f jump positions and smart shift with tab & S-tab.
-;;            smart-yank            ; Yank behavior depend on mode.
-;;            ))
-;;   )
-
 ;;; [ rainbow-delimiters ] -- rainbow color parenthesis
 
 (use-package rainbow-delimiters
