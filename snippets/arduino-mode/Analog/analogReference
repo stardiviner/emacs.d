@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: analogReference()
+# key: analogReference
+# group: analog.io
+# --
+analogReference(${1:type})

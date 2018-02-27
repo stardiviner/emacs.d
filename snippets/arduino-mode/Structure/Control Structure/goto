@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: goto
+# key: goto
+# group: structure.control
+# --
+${1:label};
+
+goto $1;

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: Stream.available()
+# key: stream-available
+# group: communication.stream
+# --
+${1:Stream instance}.available()

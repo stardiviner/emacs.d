@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: Keyboard.begin()
+# key: keyboard-begin
+# group: usb.keyboard
+# --
+Keyboard.begin();

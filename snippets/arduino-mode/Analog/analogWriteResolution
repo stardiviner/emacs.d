@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: analogWriteResolution()
+# key: analogWriteResolution
+# group: analog.io
+# --
+analogWriteResolution(${1:bits})

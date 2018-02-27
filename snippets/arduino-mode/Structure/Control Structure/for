@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: for
+# key: for
+# group: structure.control
+# --
+for (${1:initialization}; ${2:condition}; ${3:increment}) {
+$0
+}

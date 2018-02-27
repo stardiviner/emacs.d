@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: if .. else if ..
+# key: if-else-if
+# group: structure.control
+# --
+if (${1:condition 1}) {
+$0
+\} else if (${2:condition 2}) {
+
+\} else {
+
+}

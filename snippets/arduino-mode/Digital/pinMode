@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: pinMode()
+# key: pinMode
+# group: digital.io
+# --
+pinMode(${1:pin}, ${2:mode})

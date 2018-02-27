@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: digitalWrite()
+# key: digitalWrite
+# group: digital.io
+# --
+digitalWrite(${1:pin}, ${2:value})

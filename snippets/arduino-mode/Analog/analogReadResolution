@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: analogReadResolution()
+# key: analogReadResolution
+# group: analog.io
+# --
+analogReadResolution(${1:bits})

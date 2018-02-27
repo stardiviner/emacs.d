@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: Serial.begin()
+# key: serial-begin
+# group: communication.serial
+# --
+${1:Serial1}.begin(${1:speed}${2:, ${3:config}})

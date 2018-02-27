@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: Mouse.begin()
+# key: mouse-begin
+# group: usb.mouse
+# --
+Mouse.begin();

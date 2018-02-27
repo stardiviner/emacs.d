@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: analogRead()
+# key: analogRead
+# group: analog.io
+# --
+analogRead(${1:pin})

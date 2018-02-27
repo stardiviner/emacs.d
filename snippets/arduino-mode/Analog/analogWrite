@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: analogWrite()
+# key: analogWrite
+# group: analog.io
+# --
+analogWrite(${1:pin}, ${2:value})

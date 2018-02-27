@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: Serial.write()
+# key: serial-write
+# group: communication.serial
+# --
+${1:Serial}.write(${2})

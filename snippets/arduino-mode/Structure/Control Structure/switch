@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: switch
+# key: switch
+# group: structure.control
+# --
+switch (${1:var}) {
+case ${2:label 1}:
+$0
+case ${3:label 2}:
+
+default:
+
+}
