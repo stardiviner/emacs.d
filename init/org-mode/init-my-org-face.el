@@ -321,6 +321,7 @@
 
 ;;; babel faces (source code block) => #+BEGIN_SRC ... #+END_SRC
 (set-face-attribute 'org-block-begin-line nil
+                    :underline nil
                     :background (cl-case (alist-get 'background-mode (frame-parameters))
                                   ('light
                                    (color-darken-name (face-background 'default) 4))
@@ -328,6 +329,7 @@
                                    (color-lighten-name (face-background 'default) 15)))
                     )
 (set-face-attribute 'org-block-end-line nil
+                    :overline nil
                     :background (cl-case (alist-get 'background-mode (frame-parameters))
                                   ('light
                                    (color-darken-name (face-background 'default) 4))
