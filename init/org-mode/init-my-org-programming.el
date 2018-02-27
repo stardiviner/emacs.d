@@ -16,7 +16,7 @@
   :config
   ;; global projects todo file
   (setq org-projectile-projects-file
-        (concat org-directory "/Programming/Projects/"))
+        (concat org-directory "/Programming Code/Projects/"))
   ;; add files to `org-agenda'.
   (setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
   ;; add org-mode capture templates.
