@@ -21,9 +21,7 @@
   :defer t
   :commands flycheck-mode
   :preface
-  (setq flycheck-check-syntax-automatically '(save)
-        flycheck-idle-change-delay 5.0
-        flycheck-display-errors-delay 0.5)
+  (setq flycheck-check-syntax-automatically '(save))
   (add-hook 'prog-mode-hook #'flycheck-mode)
   :bind (:map linter-prefix
               ;; ("!" . flycheck-mode)
