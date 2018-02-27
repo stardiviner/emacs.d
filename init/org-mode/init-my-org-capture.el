@@ -83,6 +83,7 @@
 
 ;;;_* Archive
 
+(add-to-list 'org-tag-persistent-alist '("ARCHIVE" . ?A))
 
 ;;; [ org-protocol capture ]
 

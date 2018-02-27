@@ -94,7 +94,7 @@
         (:startgroup . nil)
         ("Projects" . nil)
         (:grouptags . nil)
-        ("Agriculture" . ?A)
+        ("Agriculture" . nil)
         (:endgroup . nil)
         ))
 
