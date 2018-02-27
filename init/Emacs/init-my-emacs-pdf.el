@@ -104,56 +104,6 @@
 
   (add-hook 'pdf-view-mode-hook #'my-pdf-tools-setup)
 
-
-  ;; display PDFs on the side window of Emacs.
-  (defvar pdf-minimal-width 72
-    "Minimal width of a window displaying a pdf.
-If an integer, number of columns.  If a float, fraction of the
-original window.")
-
-  (defvar pdf-split-width-threshold 120
-    "Minimum width a window should have to split it horizontally
-for displaying a pdf in the right.")
-
-  (defun pdf-split-window-sensibly (&optional window)
-    "A version of `split-window-sensibly' for pdfs.
-It prefers splitting horizontally, and takes `pdf-minimal-width'
-into account."
-    (let ((window (or window (selected-window)))
-          (width (- (if (integerp pdf-minimal-width)
-                        pdf-minimal-width
-                      (round (* pdf-minimal-width (window-width window)))))))
-      (or (and (window-splittable-p window t)
-               ;; Split window horizontally.
-               (with-selected-window window
-                 (split-window-right width)))
-          (and (window-splittable-p window)
-               ;; Split window vertically.
-               (with-selected-window window
-                 (split-window-below)))
-          (and (eq window (frame-root-window (window-frame window)))
-               (not (window-minibuffer-p window))
-               ;; If WINDOW is the only window on its frame and is not the
-               ;; minibuffer window, try to split it vertically disregarding
-               ;; the value of `split-height-threshold'.
-               (let ((split-height-threshold 0))
-                 (when (window-splittable-p window)
-                   (with-selected-window window
-                     (split-window-below))))))))
-
-  (defun display-buffer-pop-up-window-pdf-split-horizontally (buffer alist)
-    "Call `display-buffer-pop-up-window', using `pdf-split-window-sensibly'
-when needed."
-    (let ((split-height-threshold nil)
-          (split-width-threshold pdf-split-width-threshold)
-          (split-window-preferred-function #'pdf-split-window-sensibly))
-      (display-buffer-pop-up-window buffer alist)))
-
-  (add-to-list 'display-buffer-alist
-               '("\\.pdf\\(<[^>]+>\\)?$" .
-                 (display-buffer-pop-up-window-pdf-split-horizontally)))
-
-
   ;; workaround for pdf-tools not reopening to last-viewed page of the pdf:
   ;; https://github.com/politza/pdf-tools/issues/18#issuecomment-269515117
   (defun my/pdf-set-last-viewed-bookmark ()
@@ -178,9 +128,11 @@ when needed."
   (unless noninteractive  ; as `save-place-mode' does
     (add-hook 'kill-emacs-hook #'my/pdf-set-all-last-viewed-bookmarks))
 
-  ;; [ pdf-outline ]
+  
+  ;; (add-to-list 'display-buffer-alist
+  ;;              '("\\.pdf\\(<[^>]+>\\)?$" . (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
-               '("\\*Outline .*pdf\\*" . (display-buffer-pop-up-window-pdf-split-horizontally)))
+               '("\\*Outline .*pdf\\*" . (display-buffer-below-selected)))
   )
 
 
