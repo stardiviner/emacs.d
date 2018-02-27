@@ -1019,7 +1019,9 @@ dimensions of a block selection."
                  (if (= (length meta) 0) "" meta)
                  (*buffer-info)
                  ;; (*bookmark)
-                 (*buffer-name)
+                 ;; (*buffer-name)
+                 mode-line-buffer-identification
+                 ;; mode-line-frame-identification
                  (*buffer-encoding)
                  (*linum-info)
                  ;; (*wc-mode)
