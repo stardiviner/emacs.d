@@ -219,6 +219,16 @@ is not present in `org-babel-load-languages’
 
 (add-hook 'org-src-mode-hook #'my-org-src-edit-animation)
 
+;;; Tangling with append to file instead of default overwrite.
+(defun org-babel-tangle-append ()
+  "Append source code block at point to its tangle file.
+The command works like `org-babel-tangle' with prefix arg
+but `delete-file' is ignored."
+  (interactive)
+  (cl-letf (((symbol-function 'delete-file) #'ignore))
+    (org-babel-tangle '(4))))
+
+(org-defkey org-mode-map (kbd "C-c C-v M-t") 'org-babel-tangle-append)
 
 ;;; [ ob-async ] -- enables asynchronous execution of org-babel src blocks for *any* languages.
 
