@@ -159,6 +159,8 @@
 (org-link-set-parameters "rss"
                          :follow #'org-rss-link-open)
 
+;;; `info:' link.
+(require 'org-info)
 
 ;; append "`man:'" protocol.
 ;; `[[man:(section: 7 or 3r)gv][gv (man page)]]'
