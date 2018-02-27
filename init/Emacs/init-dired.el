@@ -33,7 +33,7 @@
           (user-error "Already in sudo")
         (dired (concat "/sudo::" dir)))))
 
-  (define-key dired-mode-map "!" 'dired-sudo)
+  (define-key dired-mode-map (kbd "#") 'dired-sudo)
 
   ;; Run rsync in Dired.
   (defun dired-rsync (dest)
