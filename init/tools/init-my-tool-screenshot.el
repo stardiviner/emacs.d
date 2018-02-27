@@ -11,7 +11,10 @@
   (define-prefix-command 'screenshot-prefix))
 (define-key tools-prefix (kbd "S") 'screenshot-prefix)
 
-
+(use-package frameshot
+  :ensure t
+  :commands (frameshot-mode frameshot-take)
+  :bind (:map screenshot-prefix ("S" . frameshot-mode)))
 
 
 (provide 'init-my-tool-screenshot)
