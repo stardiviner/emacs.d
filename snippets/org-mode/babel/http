@@ -3,8 +3,8 @@
 # key: babel-http
 # group: babel
 # --
-#+begin_src http :pretty ${1:other arguments}
-${2:RESTful: GET, POST, PATCH ...} ${3:URL}
+#+begin_src http :pretty :results code :wrap src ${1:json}
+${2:$$(yas-choose-value '("GET" "POST" "PUT" "PATCH" "DELETE" "HEAD" "OPTIONS"))} ${3:URL}
 ${4:HTTP Headers:
 User-Agent: ob-http
 Content-Type: application/json

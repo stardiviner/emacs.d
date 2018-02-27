@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel curl
+# key: babel-curl
+# group: babel.curl
+# --
+#+begin_src shell ${1::results code :wrap src json}
+curl -X ${2:$$(yas-choose-value '("GET" "POST" "PUT" "PATCH" "DELETE" "HEAD" "OPTIONS"))} '${0:https://api.github.com}'
+#+end_src

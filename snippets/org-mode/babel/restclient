@@ -4,5 +4,5 @@
 # group: babel
 # --
 #+begin_src restclient
-${1:$$(yas-choose-value '("GET" "POST" "PUT" "PATCH" "DELETE"))} $0
+${1:$$(yas-choose-value '("GET" "POST" "PUT" "PATCH" "DELETE" "HEAD" "OPTIONS"))} $0
 #+end_src
