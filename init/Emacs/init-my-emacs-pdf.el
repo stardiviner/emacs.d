@@ -73,7 +73,7 @@
     ;; (define-key pdf-view-mode-map (kbd "k") nil)
 
     ;; "auto" slice from bounding box
-    ;; (pdf-view-auto-slice-minor-mode)
+    (add-hook 'pdf-view-mode-hook #'pdf-view-auto-slice-minor-mode)
 
     ;; toggle midnight mode theme
     (defun my-pdf-tools-set-face (theme)
