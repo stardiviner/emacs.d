@@ -27,7 +27,7 @@
   ;; [ record queried words to Org-mode drill files ]
   (require 'org-capture) ; load `org-capture-templates'
 
-  (setq my-org-drill-words-file (concat org-directory "/Tasks/Words/Words.org"))
+  (setq my-org-drill-words-file (concat org-directory "/Drills/Words.org"))
 
   (setq org-capture-templates
         (append '(("w" "org-drill [w]ords"
