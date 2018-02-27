@@ -18,9 +18,6 @@
 ;;
 ;; src_lang{code...}[:header arguments] / NOTE: override by `org-verbatim'.
 ;; result in following =[result]=
-(setq org-babel-exp-inline-code-template "src_%lang[%switches%flags]{%body}"
-      org-babel-inline-result-wrap "=> (~%s~)" ; or "=%s=", "~%s~"
-      )
 
 ;; src_
 (font-lock-add-keywords

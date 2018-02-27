@@ -23,9 +23,6 @@
         (:padline . "true") (:comments . "links")
         ))
 
-;; (setq org-babel-default-inline-header-args)
-;; (setq org-babel-default-lob-header-args)
-
 ;;; Manage org-babel popup buffers with `display-buffer-alist'.
 (add-to-list 'display-buffer-alist
              '("^\\*Org- Src.*\\*" (display-buffer-below-selected)))
@@ -33,6 +30,13 @@
              '("^\\*Org-Babel Preview.*\\*" (display-buffer-below-selected)))
 (add-to-list 'display-buffer-alist
              '("^\\*Org-Babel Error Output\\*" (display-buffer-below-selected)))
+
+;;; [ inline call code block ]
+
+;; (setq org-babel-exp-inline-code-template "src_%lang[%switches%flags]{%body}")
+;; (setq org-babel-default-inline-header-args)
+;; or "=%s=", "~%s~"
+;; (setq org-babel-inline-result-wrap "=> (~%s~)")
 
 ;;; [ noweb ]
 ;; Raise errors when noweb references don't resolve.
@@ -84,6 +88,7 @@
 (org-babel-lob-ingest
  (concat user-emacs-directory "Org-mode/Library of Babel/Library of Babel.org"))
 
+;; (setq org-babel-default-lob-header-args)
 
 ;;; interactive completing named src blocks. [C-c C-v C-q]
 ;; workflow:
