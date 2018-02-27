@@ -11,27 +11,12 @@
   (define-prefix-command 'screencast-prefix))
 (define-key tools-prefix (kbd "M-s") 'screencast-prefix)
 
-;;; [ command-log-mode ] -- log commands to buffer
+;;; [ keycast ] -- Show current command and its key in the mode line.
 
-(use-package command-log-mode
+(use-package keycast
   :ensure t
   :defer t
-  :preface
-  ;; disable default global keybinding [C-c o]
-  (setq command-log-mode-key-binding-open-log nil)
-  :bind (:map screencast-prefix
-              ("M-k" . clm/toggle-command-log-buffer)
-              ("k" . command-log-mode)
-              ("K" . global-command-log-mode))
-  :config
-  (setq command-log-mode-auto-show t
-        command-log-mode-is-global nil
-        command-log-mode-open-log-turns-on-mode t
-        ;; command-log-mode-window-size 40
-        command-log-mode-window-font-size 2
-        )
-  )
-
+  :bind (:map screencast-prefix ("k" . keycast-mode)))
 
 ;;; [ camcorder ] -- Tool for capturing screencasts directly from Emacs (use FFmpeg as backend)
 
