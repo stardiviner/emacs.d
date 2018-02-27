@@ -125,12 +125,19 @@
   (use-package image-dired+
     :ensure t
     :after image-dired
+    :init
+    (eval-after-load 'image-dired+ '(image-diredx-async-mode 1))
+    (eval-after-load 'image-dired+ '(image-diredx-adjust-mode 1))
     :config
-    (image-diredx-async-mode 1)
-    (image-diredx-adjust-mode 1)
+    (define-key image-dired-thumbnail-mode-map (kbd "C-n") 'image-diredx-next-line)
+    (define-key image-dired-thumbnail-mode-map (kbd "C-p") 'image-diredx-previous-line)
+    (define-key image-dired-thumbnail-mode-map (kbd "g") 'revert-buffer)
+    (define-key image-dired-thumbnail-mode-map (kbd "x") 'image-diredx-flagged-delete)
+    (setq image-dired-track-movement nil) ; suppress unknown cursor movements.
+    ;; TODO: not work.
+    (define-key image-dired-minor-mode-map (kbd "C-t D") 'image-dired-show-all-from-dir)
+    (define-key image-dired-minor-mode-map (kbd "C-t s") 'image-dired-slideshow-start)
     (define-key image-dired-thumbnail-mode-map "g" 'revert-buffer)
-    ;; delete confirmation prompt with thumbnails.
-    (define-key image-dired-thumbnail-mode-map "x" 'image-diredx-flagged-delete)
     (add-to-list 'display-buffer-alist
                  '("^\\*image-dired\\*" (display-buffer-same-window)))
     (add-to-list 'display-buffer-alist

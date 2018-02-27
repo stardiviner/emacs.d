@@ -17,7 +17,7 @@
 
 (use-package magithub
   :ensure t
-  :defer t
+  :after magit
   :init
   (magithub-feature-autoinject t)
   (define-key prog-vcs-prefix (kbd "n") 'magithub-dashboard)

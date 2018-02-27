@@ -7,25 +7,30 @@
 ;;; Code:
 
 ;;; ------------------------------------------------------
-;;; separate settings for only active mode-line.
+;;; Active Window
+;;
+;; Inspired by, but not identical to, code in `powerline'.
+;; In particular we don't add anything to `focus-out-hook'
+;; because that turned out to be counterproductive.
 
-(defvar mode-line--selected-window nil
-  "Variable which record mode-line current selected window.")
+(defvar mode-line--active-window (frame-selected-window))
 
-(defun mode-line--record-selected-window ()
-  "Set mode-line selected window to current window."
-  (setq mode-line--selected-window (selected-window)))
+(defun mode-line-window-active-p ()
+  "Return t if the selected window is the active window.
+Or put differently, return t if the possibly only temporarily
+selected window is still going to be selected when we return
+to the command loop."
+  (eq (selected-window) mode-line--active-window))
 
-(add-hook 'post-command-hook 'mode-line--record-selected-window)
+(defun mode-line--set-active-window (&rest _)
+  (let ((win (frame-selected-window)))
+    (unless (minibuffer-window-active-p win)
+      (setq mode-line--active-window win))))
 
-(add-hook 'buffer-list-update-hook
-          (lambda () (force-mode-line-update t)))
-
-(defun active ()
-  "Indicate whether current mode-line is in current selected window."
-  (eq mode-line--selected-window (selected-window)))
-
-;;; ------------------------------------------------------
+(add-hook 'window-configuration-change-hook 'mode-line--set-active-window)
+(add-hook 'focus-in-hook                    'mode-line--set-active-window)
+(advice-add 'handle-switch-frame :after     'mode-line--set-active-window)
+(advice-add 'select-window :after           'mode-line--set-active-window)
 
 ;;; define faces for mode-line
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -79,21 +84,21 @@
 ;;; active window indicator
 (defun *current ()
   "Display an indicator when current selected buffer."
-  (if (active)
+  (if (mode-line-window-active-p)
       (propertize "▌" 'face '(:foreground "cyan"))
     (propertize " " 'face 'variable-pitch)))
 
 ;; emacsclient indicator
 (defun *emacsclient ()
   "Show whether emacsclient is active."
-  (if (and (frame-parameter nil 'client) (active))
+  (if (and (frame-parameter nil 'client) (mode-line-window-active-p))
       (all-the-icons-faicon "hashtag"
                             :face 'mode-line-meta-face
                             :v-adjust -0.05)))
 
 (defun *recursive-editing ()
   "Show current recursive editing info."
-  (if (and (active)
+  (if (and (mode-line-window-active-p)
            (not (string-empty-p (format-mode-line "%]"))))
       (concat
        (all-the-icons-octicon "pencil" :v-adjust -0.05 :face 'mode-line-warn-face)
@@ -176,7 +181,7 @@
 ;;     (when (bound-and-true-p perspeen-modestring)
 ;;       ;; change face
 ;;       (put-text-property 0 6
-;;                          'face (if (active) 'mode-line 'mode-line-inactive)
+;;                          'face (if (mode-line-window-active-p) 'mode-line 'mode-line-inactive)
 ;;                          (nth 1 perspeen-modestring))
 ;;       perspeen-modestring
 ;;       ))
@@ -270,7 +275,7 @@ state (modified, read-only or non-existent)."
        (t
         (upcase (symbol-name sys-name)))))
     )
-   'face (if (active) 'mode-line-warn-face)))
+   'face (if (mode-line-window-active-p) 'mode-line-warn-face)))
 
 ;;; bookmark
 ;;; TODO: optimize the performance
@@ -339,7 +344,7 @@ state (modified, read-only or non-existent)."
           (number-to-string (pdf-cache-number-of-pages))
           "] "
           )
-         'face (if (active) 'mode-line-data-face))))
+         'face (if (mode-line-window-active-p) 'mode-line-data-face))))
   )
 
 ;;; major-mode
@@ -427,7 +432,7 @@ state (modified, read-only or non-existent)."
     (let ((backend (vc-backend buffer-file-name))
           (state   (vc-state buffer-file-name))
           (face    'mode-line-inactive)
-          (active  (active)))
+          (active  (mode-line-window-active-p)))
       (concat
        (propertize " " 'face 'variable-pitch)
        (case backend
@@ -475,36 +480,36 @@ state (modified, read-only or non-existent)."
                                            (flycheck-count-errors flycheck-current-errors)
                                          (+ (or .warning 0) (or .error 0)))))
                             (concat (all-the-icons-octicon "bug" :v-adjust -0.05
-                                                           :face (if (active) '(:foreground "orange red")))
+                                                           :face (if (mode-line-window-active-p) '(:foreground "orange red")))
                                     (propertize
                                      ;; (format " %s issue%s" count (unless (eq 1 count) "s"))
                                      (format "%s" count))))
                         (all-the-icons-faicon "check-square" :v-adjust -0.05
-                                              :face (if (active) '(:foreground "dark sea green")))))
+                                              :face (if (mode-line-window-active-p) '(:foreground "dark sea green")))))
                      (`running
                       (propertize (all-the-icons-faicon "ellipsis-h"
                                                         :v-adjust -0.05
-                                                        :face (if (active) '(:foreground "light sea green")))
-                                  'help-echo "Flycheck running ..."))
+                                                        :face (if (mode-line-window-active-p) '(:foreground "light sea green")))
+                                  'help-echo "Flycheck running ...")
                      (`no-checker
                       (propertize (all-the-icons-octicon "alert" :v-adjust -0.05
-                                                         :face (if (active) '(:foreground "dark gray")))
+                                                         :face (if (mode-line-window-active-p) '(:foreground "dark gray")))
                                   'help-echo "No Checker"))
                      (`not-checked
                       (propertize (all-the-icons-faicon "exclamation-circle" :v-adjust -0.05
-                                                        :face (if (active) '(:foreground "orange")))
+                                                        :face (if (mode-line-window-active-p) '(:foreground "orange")))
                                   'help-echo "Not Checked"))
                      (`errored
                       (propertize (all-the-icons-faicon "exclamation-triangle" :v-adjust -0.05
-                                                        :face (if (active) '(:foreground "red")))
+                                                        :face (if (mode-line-window-active-p) '(:foreground "red")))
                                   'help-echo "Errored"))
                      (`interrupted
                       (propertize (all-the-icons-faicon "ban" :v-adjust -0.05
-                                                        :face (if (active) '(:foreground "dark orange")))
+                                                        :face (if (mode-line-window-active-p) '(:foreground "dark orange")))
                                   'help-echo "Interrupted"))
                      (`suspicious
                       (propertize (all-the-icons-faicon "question-circle" :v-adjust -0.05
-                                                        :face (if (active) '(:foreground "dark magenta")))
+                                                        :face (if (mode-line-window-active-p) '(:foreground "dark magenta")))
                                   'help-echo "Suspicious")))))
         (propertize text
                     'mouse-face '(:box 1)
@@ -562,7 +567,7 @@ state (modified, read-only or non-existent)."
 
 Such as how many characters and lines are selected, or the NxM
 dimensions of a block selection."
-  (when (and (active) mark-active)
+  (when (and (mode-line-window-active-p) mark-active)
     (let ((lines (count-lines (region-beginning) (region-end)))
           (words (count-words (region-end) (region-beginning))))
       (concat
@@ -578,7 +583,7 @@ dimensions of a block selection."
 ;;; macro recording
 (defun *macro-recording ()
   "Display current macro being recorded."
-  (when (and defining-kbd-macro (active))
+  (when (and defining-kbd-macro (mode-line-window-active-p))
     (let ((separator (propertize " " 'face 'mode-line-meta-face)))
       (concat separator
               (all-the-icons-octicon "triangle-right"
@@ -601,7 +606,7 @@ dimensions of a block selection."
   :config
   (defun *anzu ()
     "Show the match index and total number thereof.  Requires `evil-anzu'."
-    (when (and (active) (featurep 'anzu) (not (zerop anzu--total-matched)))
+    (when (and (mode-line-window-active-p) (featurep 'anzu) (not (zerop anzu--total-matched)))
       (propertize
        (format " %s/%d%s "
                anzu--current-position anzu--total-matched
@@ -646,7 +651,7 @@ dimensions of a block selection."
 ;; input method
 (defun *input-method ()
   "Show input-method info in mode-line."
-  (if (and current-input-method-title (active)) ; `set-input-method'
+  (if (and current-input-method-title (mode-line-window-active-p)) ; `set-input-method'
       (propertize (format " {%s}" current-input-method-title)
                   'face 'mode-line-meta-face)))
 
@@ -661,7 +666,7 @@ dimensions of a block selection."
        (concat
         (all-the-icons-faicon "file-powerpoint-o" :v-adjust -0.05)
         (format "%s" org-tree-slide--slide-number))
-       'face (if (active) 'mode-line-data-face))))
+       'face (if (mode-line-window-active-p) 'mode-line-data-face))))
   )
 
 ;; wc-mode (word count) `wc-format-modeline-string', `wc-mode-update'.
@@ -672,7 +677,7 @@ dimensions of a block selection."
 ;;     "Show wc-mode word count."
 ;;     (when (and (featurep 'wc-mode) wc-mode)
 ;;       (propertize (wc-format-modeline-string " Words:[%tw]")
-;;                   'face (if (active) 'mode-line))
+;;                   'face (if (mode-line-window-active-p) 'mode-line))
 ;;       ))
 ;;   )
 
@@ -682,7 +687,7 @@ dimensions of a block selection."
   :config
   (defun *org-noter ()
     "Display org-noter notes count."
-    (if (active) (org-noter--mode-line-text))))
+    (if (mode-line-window-active-p) (org-noter--mode-line-text))))
 
 ;; mmm-mode
 
@@ -707,7 +712,7 @@ dimensions of a block selection."
   :config
   (defun *erc ()
     "Show ERC info from `erc-track-mode'."
-    (if (and (active)
+    (if (and (mode-line-window-active-p)
              (and (boundp 'erc-track-mode) erc-track-mode
                   (boundp 'erc-modified-channels-object))
              ;; (erc-server-process-alive) ; detect buffer has ERC process alive.
@@ -737,7 +742,7 @@ dimensions of a block selection."
 
 (defun *org-clock ()
   "Show org-clock info."
-  (when (and (active)
+  (when (and (mode-line-window-active-p)
              (org-clock-is-active)
              org-clock-idle-timer)
     (concat
@@ -765,7 +770,7 @@ dimensions of a block selection."
 ;;  
 ;;   (defun *org-clock-today ()
 ;;   "Show `org-clock-today' current org clock)."
-;;   (when (and (active)
+;;   (when (and (mode-line-window-active-p)
 ;;              (org-clock-is-active))
 ;;     (propertize
 ;;      (concat
@@ -790,7 +795,7 @@ dimensions of a block selection."
 
 (defun *org-timer ()
   "Show `org-timer' info in my custom mode-line."
-  (if (and (active)
+  (if (and (mode-line-window-active-p)
            (or (and (boundp 'org-timer-mode-line-timer)
 		                org-timer-mode-line-timer)
                (and (boundp 'org-timer-countdown-timer)
@@ -830,7 +835,7 @@ dimensions of a block selection."
          (propertize " %s")))
   (defun *pomodoro ()
     "Show pomodoro/org-pomodoro timer in custom mode-line."
-    (if (and (org-pomodoro-active-p) (active))
+    (if (and (org-pomodoro-active-p) (mode-line-window-active-p))
         (propertize (format "%s" org-pomodoro-mode-line)
                     'face 'mode-line-data-face))
     )
@@ -841,7 +846,7 @@ dimensions of a block selection."
   "Show current time in Emacs custom mode-line."
   (let* ((hour (string-to-number (format-time-string "%I")))
          (icon (all-the-icons-wicon (format "time-%s" hour) :height 1.3 :v-adjust 0.0)))
-    (if (active)
+    (if (mode-line-window-active-p)
         (concat
          (propertize (format "%s" icon)
                      'face `(:height 1.0 :family ,(all-the-icons-wicon-family))
@@ -869,7 +874,7 @@ dimensions of a block selection."
   ;; FIXME: `*rtags-mode-line' caused `beacon-mode' blink does not fade off.
   (defun *rtags-mode-line ()
     "Show `rtags-mode-line' info in my custom mode-line."
-    (if (and (active)
+    (if (and (mode-line-window-active-p)
              (and (boundp 'rtags-enabled) rtags-enabled))
         (propertize
          (concat
@@ -893,7 +898,7 @@ dimensions of a block selection."
 ;;   :config
 ;;   (defun *mu4e ()
 ;;     "Show `mu4e-alert' new messages count in custom mode-line."
-;;     (if (and (active) (and (boundp 'mu4e-alert-mode-line) mu4e-alert-mode-line))
+;;     (if (and (mode-line-window-active-p) (and (boundp 'mu4e-alert-mode-line) mu4e-alert-mode-line))
 ;;         (propertize mu4e-alert-mode-line)))
 ;;   )
 
@@ -903,7 +908,7 @@ dimensions of a block selection."
   :config
   (defun *gnus ()
     "Show `gnus' new messages count in custom mode-line."
-    ;; (if (and (active) )
+    ;; (if (and (mode-line-window-active-p) )
     ;;     (concat
     ;;      (all-the-icons-faicon "mail" :v-adjust -0.05)
     ;;      ;; (propertize gnus-summary-mode-line-format)
@@ -927,7 +932,7 @@ dimensions of a block selection."
            )))
   (run-with-timer 10 600 'github-notifications)
   (defun *github-notifications ()
-    (if (and (active) (> github-notifications-number 0))
+    (if (and (mode-line-window-active-p) (> github-notifications-number 0))
         (propertize
          (concat
           (all-the-icons-faicon "github" :v-adjust 0.05)
@@ -948,7 +953,7 @@ dimensions of a block selection."
 ;;   :config
 ;;   (celestial-mode-line-start-timer)
 ;;   (defun *lunar-sun ()
-;;     (if (active)
+;;     (if (mode-line-window-active-p)
 ;;         celestial-mode-line-string))
 ;;   )
 
@@ -960,7 +965,7 @@ dimensions of a block selection."
   ;; (emms-mode-line 1)
   (setq emms-mode-line-format "[ %s ]")
   (defun *emms ()
-    (when (and emms-player-playing-p (active))
+    (when (and emms-player-playing-p (mode-line-window-active-p))
       ;; emms-mode-line-string
       (format emms-mode-line-format
               (s-truncate 20
