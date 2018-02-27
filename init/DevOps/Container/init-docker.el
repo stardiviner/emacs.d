@@ -30,6 +30,29 @@
     "A helper function to insert container ID or name."
     (interactive (list (docker-read-container-name "Docker container name: ")))
     (insert container-name))
+
+  (add-to-list 'display-buffer-alist
+               '("\\*docker-images\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("\\*docker-containers\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("\\*docker-machines\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("\\*docker-volumes\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("\\*docker-networks\\*" . (display-buffer-below-selected)))
+  
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(docker-images-mode all-the-icons-fileicon "dockerfile" :height 1.0 :v-adjust 0.0))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(docker-containers-mode all-the-icons-fileicon "dockerfile" :height 1.0 :v-adjust 0.0))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(docker-machines-mode all-the-icons-fileicon "dockerfile" :height 1.0 :v-adjust 0.0))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(docker-volumes-mode all-the-icons-fileicon "dockerfile" :height 1.0 :v-adjust 0.0))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(docker-networks-mode all-the-icons-fileicon "dockerfile" :height 1.0 :v-adjust 0.0))
+
   )
 
 ;;; [ dockerfile-mode ] -- Dockerfile
