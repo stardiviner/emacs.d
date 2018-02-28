@@ -755,7 +755,8 @@ dimensions of a block selection."
       'face 'mode-line-data-face)
      ;; get clocking task title
      (propertize
-      (format " %s" (s-truncate 30 org-clock-heading)))
+      (format " %s" (s-truncate 30 org-clock-heading))
+      'face 'mode-line)
      (propertize " " 'face 'variable-pitch))
     )
   )
