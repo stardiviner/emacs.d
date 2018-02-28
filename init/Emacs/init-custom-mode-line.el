@@ -248,6 +248,9 @@ state (modified, read-only or non-existent)."
     ;; encrypted file
     (when (string-match-p "\\.gpg" (buffer-name))
       (all-the-icons-material "enhanced_encryption" :face 'mode-line-info-face))
+    ;; `isearch-mode'
+    (when (and isearch-mode (mode-line-window-active-p))
+      (all-the-icons-faicon "search" :v-adjust -0.05 :face 'mode-line-info-face))
     ;; narrow
     (when (buffer-narrowed-p)
       (all-the-icons-faicon "align-center" :v-adjust -0.05 :face 'mode-line-data-face))
