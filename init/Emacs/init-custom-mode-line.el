@@ -235,9 +235,12 @@ state (modified, read-only or non-existent)."
     ;; process buffer
     (when (null buffer-file-name)
       (all-the-icons-faicon "asterisk" :v-adjust -0.05 :face 'mode-line-data-face))
-    ;; not exist file
-    (when (and buffer-file-name (not (file-exists-p buffer-file-name)))
-      (all-the-icons-octicon "circle-slash" :v-adjust -0.05 :face 'mode-line-error-face))
+    ;; Show an indicator for `org-src-mode' minor mode in custom mode-line.
+    (if (and org-src-mode (mode-line-window-active-p))
+        (all-the-icons-faicon "code" :v-adjust -0.05 :face 'mode-line-data-face)
+      ;; not exist file
+      (when (and buffer-file-name (not (file-exists-p buffer-file-name)))
+        (all-the-icons-octicon "circle-slash" :v-adjust -0.05 :face 'mode-line-error-face)))
     ;; remote file
     (when (and (not (null (buffer-file-name)))
                (file-remote-p (buffer-file-name)))
