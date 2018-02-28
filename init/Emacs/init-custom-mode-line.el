@@ -861,20 +861,23 @@ dimensions of a block selection."
   :ensure t
   :preface
   (setq keycast-window-predicate 'mode-line-window-active-p)
+  (setq keycast-separator-width 0)
   :config
   (defun *keycast ()
     "Show keycast in custom mode-line."
     (when (mode-line-window-active-p)
       mode-line-keycast))
-  (set-face-attribute 'keycast-key nil
-                      :inherit 'mode-line
-                      :height 1.0 :box nil
-                      :foreground "cyan"
-                      :background (face-background 'mode-line)
-                      :box (face-attribute 'mode-line :box)
-                      )
-  (set-face-attribute 'keycast-command nil
-                      :bold nil)
+  (defun my:keycast-faces-setup (theme)
+    (set-face-attribute 'keycast-key nil
+                        :inherit 'mode-line
+                        :height 1.0 :box nil
+                        :foreground "cyan"
+                        :background (face-background 'mode-line)
+                        :box (face-attribute 'mode-line :box)
+                        )
+    (set-face-attribute 'keycast-command nil
+                        :bold nil))
+  (add-hook 'circadian-after-load-theme-hook #'my:keycast-faces-setup)
   )
 
 (defun *space (n)
