@@ -65,11 +65,13 @@
 ;;     )
 ;;   )
 
-;;; [ border ]
+;;; [ border & margin ]
 
+(setq-default left-margin-width 0
+              right-margin-width 0)
 ;; frame internal border width
-(set-frame-parameter (selected-frame) 'internal-border-width 5)
-
+(set-frame-parameter nil 'internal-border-width 5)
+;; (set-window-buffer nil (current-buffer))
 
 ;;; [ fringe ]
 
