@@ -12,7 +12,11 @@
 (use-package arduino-mode
   :ensure t
   :ensure-system-package arduino
-  :defer t)
+  :defer t
+  :config
+  (require 'flycheck-arduino)
+  (add-hook 'arduino-mode-hook #'flycheck-arduino-setup)
+  )
 
 ;;; [ ob-arduino ]
 
