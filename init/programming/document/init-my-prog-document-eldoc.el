@@ -12,7 +12,12 @@
 (use-package eldoc
   :ensure t
   :init
-  (add-hook 'prog-mode-hook #'eldoc-mode)
+  ;; FIX ob-shell eldoc error.
+  (add-hook 'prog-mode-hook
+            (lambda ()
+              (unless (or (eq major-mode 'sh-mode)
+                          (eq major-mode 'org-mode))
+                (eldoc-mode 1))))
   :config
   ;; ElDoc with most `paredit' command.
   ;; whenever the listed commands are used, ElDoc will automatically refresh the minibuffer.
