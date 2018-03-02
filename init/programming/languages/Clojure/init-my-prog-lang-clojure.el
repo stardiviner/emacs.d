@@ -280,16 +280,15 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 
 (use-package clj-refactor
   :ensure t
+  :defer t
+  :init
+  (defun my:clj-refactor-setup ()
+    (clj-refactor-mode 1)
+    (cljr-add-keybindings-with-prefix "C-c C-m"))
+  (add-hook 'clojure-mode-hook #'my:clj-refactor-setup)
+  (with-eval-after-load 'clj-refactor
+    (define-key clj-refactor-map (kbd "C-c C-'") #'hydra-cljr-help-menu/body))
   :config
-  (add-hook 'clojure-mode-hook
-            (lambda ()
-              (clj-refactor-mode 1)
-              ;; insert keybinding setup here
-              (cljr-add-keybindings-with-prefix "M-RET")
-              ))
-
-  (define-key clj-refactor-map (kbd "C-c C-'") #'hydra-cljr-help-menu/body)
-
   ;; skip Tab in `cljr-add-require-to-ns' snippet.
   ;; (advice-add 'cljr-add-require-to-ns :after
   ;;             (lambda (&rest _)
