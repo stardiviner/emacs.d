@@ -81,11 +81,11 @@
   :ensure t
   :ensure-system-package clang
   :defer t
-  :config
+  :init
   (hook-modes c-dialects-mode
     (when (memq major-mode irony-supported-major-modes)
       (irony-mode 1)))
-  
+  :config
   ;; find the compile flag options automatically:
   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
