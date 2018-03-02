@@ -32,6 +32,17 @@
                '("\\*transmission\\*" . (display-buffer-below-selected)))
   )
 
+;;; [ youtube-dl ] -- A youtube-dl download manager for Emacs.
+
+(use-package youtube-dl
+  :load-path "~/Code/Emacs/youtube-dl-emacs/"
+  :defer t
+  :commands (youtube-dl)
+  :config
+  (add-to-list 'display-buffer-alist
+               '("^\\*youtube-dl list\\*" (display-buffer-below-selected)))
+  )
+
 
 (provide 'init-my-tool-downloader)
 
