@@ -76,7 +76,7 @@
 ;; Daily entry (holidays)
 (set-face-attribute 'org-agenda-diary nil
                     :slant 'italic
-                    :family "DejaVu Serif"
+                    :family "Comic Sans MS"
                     :foreground "orange")
 
 ;; Clocking
@@ -176,7 +176,7 @@
 ;; Emphasize
 ;; org-verbatim: =verbatim=
 (set-face-attribute 'org-verbatim nil
-                    :family "DejaVu Serif" :height 100)
+                    :family "Consolas" :height 100)
 
 ;; table
 (set-face-attribute 'org-table nil
@@ -364,7 +364,7 @@
 ;; inline code face => ~code~,  #+RESULTS: : result.
 (set-face-attribute 'org-code nil
                     :inherit nil
-                    :family "DejaVu Serif" :height 100
+                    :family "Consolas" :height 100
                     :background (cl-case (alist-get 'background-mode (frame-parameters))
                                   ('light
                                    (color-darken-name (face-background 'default) 7))
