@@ -100,7 +100,7 @@
 (use-package hl-sexp
   :ensure t
   :defer t
-  :config
+  :init
   (defun my-hl-sexp-set-face (theme)
     "Reload customized faces on `circadian' `THEME' toggling."
     (set-face-attribute 'hl-sexp-face nil
