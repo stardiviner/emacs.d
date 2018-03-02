@@ -127,9 +127,10 @@
   :ensure t
   :after magit
   :defer t
-  :config
+  :init
   (with-eval-after-load 'magit
     (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
+  :config
   ;; TODO: check out the original Issue on GitHub.
   (magit-define-popup-switch 'magit-gitflow-release-finish-popup ?p
     "Push after finish" "--push" t)
