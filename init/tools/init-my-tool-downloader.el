@@ -23,6 +23,15 @@
   :defer t
   )
 
+;;; [ transmission ] -- An interface to a Transmission session for GNU Emacs.
+
+(use-package transmission
+  :ensure t
+  :config
+  (add-to-list 'display-buffer-alist
+               '("\\*transmission\\*" . (display-buffer-below-selected)))
+  )
+
 
 (provide 'init-my-tool-downloader)
 
