@@ -426,6 +426,9 @@ state (modified, read-only or non-existent)."
            ((or 'js-mode 'js2-mode 'js3-mode)
             (if (and (featurep 'nvm) (not (null nvm-current-version)))
                 nvm-current-version))
+           ((or 'image-mode)
+            (if (bound-and-true-p image-type)
+                (format "%s" image-type)))
            )))
     (if env
         (concat "[" env "] "))
