@@ -1,4 +1,4 @@
-;;; init-my-prog-language-server-protocol.el --- init for Language Server Protocol
+;;; init-prog-language-server-protocol.el --- init for Language Server Protocol
 
 ;;; Commentary:
 
@@ -67,6 +67,6 @@
   :ensure t)
 
 
-(provide 'init-my-prog-language-server-protocol)
+(provide 'init-prog-language-server-protocol)
 
-;;; init-my-prog-language-server-protocol.el ends here
+;;; init-prog-language-server-protocol.el ends here

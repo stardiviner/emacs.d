@@ -1,4 +1,4 @@
-;;; init-my-prog-web-server.el --- init for Web Server
+;;; init-prog-web-server.el --- init for Web Server
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -48,6 +48,6 @@
   )
 
 
-(provide 'init-my-prog-web-server)
+(provide 'init-prog-web-server)
 
-;;; init-my-prog-web-server.el ends here
+;;; init-prog-web-server.el ends here

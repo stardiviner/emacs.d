@@ -17,7 +17,7 @@
 ;; (profiler-start 'cpu+mem)
 
 ;;; benchmark
-;; (require 'init-my-emacs-benchmark)
+;; (require 'init-emacs-benchmark)
 
 
 ;;; add my init files directory
@@ -55,8 +55,8 @@
 
 
 ;;; my custom functions
-(require 'init-my-library)
-(require 'init-my-functions)
+(require 'init-library)
+(require 'init-functions)
 
 ;;; add your customizations from here
 
@@ -75,7 +75,7 @@
 
 
 
-;; (require 'init-my-org-mode)
+;; (require 'init-org-mode)
 
 ;;; Org-mode Babel
 (setq org-confirm-babel-evaluate nil)
