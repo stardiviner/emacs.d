@@ -439,6 +439,11 @@ opening 4clojure questions"
   (setq hugsql-ghosts-newline-before-docstrings t)
   )
 
+;;; [ parseclj ] -- EDN reader and Clojure Parser for Emacs Lisp
+
+(use-package parseclj
+  :ensure t)
+
 
 
 (provide 'init-my-prog-lang-clojure)
