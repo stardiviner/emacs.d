@@ -99,6 +99,13 @@
         )
   )
 
+;;; [ elisp-def ] -- Find Emacs Lisp definitions.
+
+(use-package elisp-def
+  :ensure t
+  :init
+  (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
+    (add-hook hook #'elisp-def-mode)))
 
 ;;; [ elisp-refs ] -- semantic code search for emacs lisp.
 
