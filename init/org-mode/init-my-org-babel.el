@@ -247,6 +247,12 @@ but `delete-file' is ignored."
 ;;     (setq eir-jump-after-eval nil))
 ;;   )
 
+;;; [ helm-lib-babel ] -- Emacs helm extension for inserting a reference to an org source block function.
+
+(use-package helm-lib-babel
+  :ensure t
+  :bind (:map org-babel-map ("M-i" . helm-lib-babel-insert)))
+
 ;; load all languages at last.
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 
