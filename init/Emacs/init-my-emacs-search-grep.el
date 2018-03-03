@@ -6,6 +6,11 @@
 
 
 ;;; Code:
+;;; [ elgrep ] -- Emacs grep without external dependencies.
+
+(use-package elgrep
+  :ensure t
+  :defer t)
 
 ;;; [ Grep ]
 
