@@ -52,6 +52,15 @@
   :config
   (css-eldoc-enable))
 
+;;; [ counsel-css ] -- An ivy-mode backend for css selectors (scss/less too).
+
+(use-package counsel-css
+  :ensure t
+  :defer t
+  :commands (counsel-css)
+  :config
+  (add-hook 'css-mode-hook 'counsel-css-imenu-setup))
+
 ;;; [ show-css ] -- Show the css of the html attribute the cursor is on.
 
 ;; (use-package show-css
