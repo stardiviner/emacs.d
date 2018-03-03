@@ -53,6 +53,27 @@
         dionysos-volume-cmd 'pamixer)
   )
 
+;;; [ mpdel ] -- Emacs user interface for Music Player Daemon (MPD)
+
+(use-package mpdel
+  :ensure t
+  :defer t
+  :commands (mpdel-playlist-open)
+  :bind (:map music-prefix ("M" . mpdel-playlist-open))
+  :preface
+  (setq mpdel-prefix-key (kbd "C-x t M"))
+  :init
+  :config
+  (setq libmpdel-music-directory "~/Music/")
+  (add-to-list 'display-buffer-alist
+               '("\\*MPDEL Current Playlist\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("\\*MPDEL Current Song\\*" . (display-buffer-below-selected)))
+  (mpdel-mode 1)
+  (use-package ivy-mpdel
+    :ensure t)
+  )
+
 
 
 (provide 'init-mpd)
