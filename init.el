@@ -354,6 +354,10 @@
 (require 'init-text-checker)
 (require 'init-my-authoring)
 
+;;; Chef
+
+(require 'init-chef)
+
 
 ;;; Games
 
