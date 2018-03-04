@@ -37,8 +37,8 @@
   :defer t
   :commands (daemons)
   :config
-  (add-to-list 'display-buffer-alist
-               '("\\*daemons\\*" . (display-buffer-below-selected)))
+  ;; (add-to-list 'display-buffer-alist
+  ;;              '("\\*daemons\\*" . (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
                '("\\*daemons-output\\*" . (display-buffer-below-selected)))
   )

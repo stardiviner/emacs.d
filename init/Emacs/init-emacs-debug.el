@@ -30,7 +30,7 @@
 (use-package edebug
   :bind (:map emacs-lisp-mode-map ("C-c d e" . edebug-mode))
   :config
-  (setq edebug-trace t)
+  ;; (setq edebug-trace t)
   ;; (add-to-list 'display-buffer-alist
   ;;              '("^\\*edebug-trace\\*" (display-buffer-below-selected)))
   )
