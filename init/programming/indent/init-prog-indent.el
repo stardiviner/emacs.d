@@ -93,7 +93,12 @@
   :ensure t
   :defer t
   :init
-  (add-hook 'prog-mode-hook #'aggressive-indent-mode)
+  (add-hook 'prog-mode-hook
+            (lambda ()
+              (unless (or (eq major-mode 'snippet-mode)
+                          (eq major-mode 'python-mode)
+                          (eq major-mode 'haskell-mode))
+                (aggressive-indent-mode 1))))
   :config
   (setq aggressive-indent-sit-for-time 0.1)
 
