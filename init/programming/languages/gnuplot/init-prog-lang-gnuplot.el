@@ -70,12 +70,9 @@
 ;;; [ ob-gnuplot ]
 
 (use-package org-plus-contrib
-  :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
   :no-require t
-  :pin manual
-  :config
+  :init
   (require 'ob-gnuplot)
-
   (add-to-list 'org-babel-load-languages '(gnuplot . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   (add-to-list 'org-babel-tangle-lang-exts '("gnuplot" . "gp"))

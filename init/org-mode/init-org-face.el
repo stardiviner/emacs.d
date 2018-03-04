@@ -159,11 +159,11 @@
                     :foreground (cl-case (alist-get 'background-mode (frame-parameters))
                                   ('light "orange")
                                   ('dark "orange red")))
-(set-face-attribute 'org-upcoming-distant-deadline nil
-                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
-                                  ('light "orange1")
-                                  ('dark "dark orange"))
-                    )
+;; (set-face-attribute 'org-upcoming-distant-deadline nil
+;;                     :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+;;                                   ('light "orange1")
+;;                                   ('dark "dark orange"))
+;;                     )
 ;; scheduled in agenda, scheduled today, & org-habit
 (set-face-attribute 'org-scheduled-today nil
                     :foreground (cl-case (alist-get 'background-mode (frame-parameters))
