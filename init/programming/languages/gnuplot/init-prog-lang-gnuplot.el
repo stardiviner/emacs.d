@@ -76,12 +76,8 @@
   (add-to-list 'org-babel-load-languages '(gnuplot . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   (add-to-list 'org-babel-tangle-lang-exts '("gnuplot" . "gp"))
-  
-  (setq org-babel-default-header-args:gnuplot
-        '((:session . "none")
-          (:results . "graphics")
-          ;; (:dir . "data/images")
-          ))
+  (add-to-list 'org-babel-default-header-args:gnuplot
+               '(:exports . "both"))
   )
 
 
