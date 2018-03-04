@@ -386,7 +386,14 @@ state (modified, read-only or non-existent)."
                  (all-the-icons-fileicon "clj" :face '(:foreground "green"))
                  (if (projectile-project-name)
                      (with-current-buffer (ignore-errors (cider-current-connection))
-                       (format " %s" (cider--project-name nrepl-project-dir)))))
+                       (format " %s" (cider--project-name nrepl-project-dir))))
+                 (if (bound-and-true-p cider--debug-mode)
+                     (all-the-icons-faicon "wrench"
+                                           :face 'mode-line-warn-face))
+                 (if (bound-and-true-p cider-auto-test-mode)
+                     (all-the-icons-faicon "cogs"
+                                           :face 'mode-line-warn-face))
+                 )
               (concat
                (all-the-icons-faicon "chain-broken"
                                      :v-adjust -0.0 :face 'mode-line-error-face))))
@@ -499,7 +506,7 @@ state (modified, read-only or non-existent)."
                       (propertize (all-the-icons-faicon "ellipsis-h"
                                                         :v-adjust -0.05
                                                         :face (if (mode-line-window-active-p) '(:foreground "light sea green")))
-                                  'help-echo "Flycheck running ...")
+                                  'help-echo "Flycheck running ..."))
                      (`no-checker
                       (propertize (all-the-icons-octicon "alert" :v-adjust -0.05
                                                          :face (if (mode-line-window-active-p) '(:foreground "dark gray")))
@@ -714,6 +721,20 @@ dimensions of a block selection."
      'face 'mode-line-data-face
      'help-echo "buffer-process")))
 
+;;; spinner
+(use-package spinner
+  :ensure t
+  :config
+  (defun *spinner ()
+    "Show spinner with `spinner--mode-line-construct' in custom mode-line."
+    ;; TODO: change spinner
+    ;; (spinner-start 'vertical-breathing)
+    
+    (if (or (get-process "arduino-upload") (get-process "arduino-verify") (get-process "arduino-open"))
+        '(:eval (propertize (spinner-print spinner-current)
+                            'face 'mode-line-data-face)))
+    ))
+
 ;; notifications
 ;; IRC
 (use-package erc
@@ -887,6 +908,7 @@ dimensions of a block selection."
     (set-face-attribute 'keycast-command nil
                         :bold nil))
   (add-hook 'circadian-after-load-theme-hook #'my:keycast-faces-setup)
+  (my:keycast-faces-setup nil)
   )
 
 (defun *space (n)
@@ -964,7 +986,7 @@ dimensions of a block selection."
            ;; (ghub-get "/notifications" '((:participating . "true")))
            ;; (ghub-get "/notifications")
            )))
-  (run-with-timer 10 600 'github-notifications)
+  (run-with-timer 10 3600 'github-notifications)
   (defun *github-notifications ()
     (if (and (mode-line-window-active-p) (> github-notifications-number 0))
         (propertize
@@ -1068,6 +1090,7 @@ dimensions of a block selection."
                  (*pomodoro)
                  (*keycast)
                  (*process)
+                 (*spinner)
                  (*copy-file-on-save)
                  ;; (*rtags-mode-line)
                  ))
@@ -1095,7 +1118,7 @@ dimensions of a block selection."
                  ;; (*purpose)
                  (*major-mode)
                  (*env)
-                 (*space 4)
+                 (*space 8)
                  ))
            (mid (propertize
                  " "
