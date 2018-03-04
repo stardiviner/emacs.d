@@ -364,16 +364,10 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 
 ;;; [ ob-clojure-literate ] -- Clojure Literate Programming in Org-mode Babel.
 
-(use-package org-plus-contrib
-  :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
-  :pin manual
-  :no-require t
-  :init
-  (require 'ob-clojure-literate)
-  (setq ob-clojure-literate-auto-jackin-p t)
-  ;; (add-hook 'org-mode-hook #'ob-clojure-literate-mode)
-  (define-key org-babel-map (kbd "M-c") 'ob-clojure-literate-mode)
-  )
+(require 'ob-clojure-literate)
+(setq ob-clojure-literate-auto-jackin-p t)
+;; (add-hook 'org-mode-hook #'ob-clojure-literate-mode)
+(define-key org-babel-map (kbd "M-c") 'ob-clojure-literate-mode)
 
 
 ;;; [ typed-clojure-mode ] -- Typed Clojure minor mode for Emacs.

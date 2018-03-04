@@ -27,6 +27,10 @@
       )
 
 (defun message-mode-setup ()
+  ;; Org-mode structure
+  (turn-on-orgstruct++)
+  (turn-on-orgtbl)
+
   ;; add email name complete support
   (add-hook 'completion-at-point-functions
             'mail-completion-at-point-function nil t)

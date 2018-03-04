@@ -18,43 +18,43 @@
   )
 
 
-;; (use-package org
-;;   :preface
-;;   ;; [ Org-mode modules ] -- modules that should always be loaded together with org.el.
-;;   ;; t: greedy load all modules.
-;;   ;; nil: disable all extra org-mode modules to speed-up Org-mode file opening.
-;;   (setq org-modules nil)
-;;   :load-path "~/Code/Emacs/org-mode/lisp/"
-;;   :pin manual
-;;   ;; :mode (("\\.org$" . org-mode))
-;;   :config
-;;   (use-package org-plus-contrib
-;;     :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
-;;     :no-require t
-;;     :pin manual)
-;;   ;; add source code version Org-mode Info into Emacs.
-;;   (with-eval-after-load 'info
-;;     (info-initialize)
-;;     (add-to-list 'Info-directory-list
-;;                  "~/Code/Emacs/org-mode/doc/"))
-;;   ;; reload org-mode.
-;;   ;; (unload-feature 'org)
-;;   (org-reload)
-;;
-;;   ;; TODO: a workaround of different versions org-mode incompatible.
-;;   (with-eval-after-load "org"
-;;     (setq org-structure-template-alist
-;;           '((?a . "export ascii")
-;;             (?c . "center")
-;;             (?C . "comment")
-;;             (?e . "example")
-;;             (?E . "export")
-;;             (?h . "export html")
-;;             (?l . "export latex")
-;;             (?q . "quote")
-;;             (?s . "src")
-;;             (?v . "verse"))))
-;;   )
+(use-package org
+  :preface
+  ;; [ Org-mode modules ] -- modules that should always be loaded together with org.el.
+  ;; t: greedy load all modules.
+  ;; nil: disable all extra org-mode modules to speed-up Org-mode file opening.
+  (setq org-modules nil)
+  :load-path "~/Code/Emacs/org-mode/lisp/"
+  :pin manual
+  :mode (("\\.org\\'" . org-mode))
+  :init
+  (use-package org-plus-contrib
+    :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+    :no-require t
+    :pin manual)
+  :config
+  ;; add source code version Org-mode Info into Emacs.
+  (with-eval-after-load 'info
+    (info-initialize)
+    (add-to-list 'Info-directory-list "~/Code/Emacs/org-mode/doc/"))
+  ;; reload org-mode.
+  ;; (unload-feature 'org)
+  (org-reload)
+
+  ;; TODO: a workaround of different versions org-mode incompatible.
+  (with-eval-after-load "org"
+    (setq org-structure-template-alist
+          '((?a . "export ascii")
+            (?c . "center")
+            (?C . "comment")
+            (?e . "example")
+            (?E . "export")
+            (?h . "export html")
+            (?l . "export latex")
+            (?q . "quote")
+            (?s . "src")
+            (?v . "verse"))))
+  )
 
 (unless (boundp 'Org-prefix)
   (define-prefix-command 'Org-prefix))
