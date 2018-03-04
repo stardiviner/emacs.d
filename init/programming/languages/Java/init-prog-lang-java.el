@@ -87,7 +87,12 @@
 ;;   (add-hook 'java-mode-hook 'my-meghanada-settings)
 ;;   )
 
-;;; [ lsp-javacomp ] -- a lsp-mode client that provides Java code-completion and other IDE features for Emacs backed by JavaComp.
+;;; [ lsp-java ]
+
+;; (use-package lsp-java
+;;   :ensure t)
+
+;;; [ lsp-javacomp ] -- Emacs Language Server client backed by JavaComp.
 
 (use-package lsp-javacomp
   :ensure t
