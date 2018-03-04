@@ -13,6 +13,7 @@
   :ensure t
   :init
   ;; FIX ob-shell eldoc error.
+  (global-eldoc-mode -1)
   (add-hook 'prog-mode-hook
             (lambda ()
               (unless (or (eq major-mode 'sh-mode)
