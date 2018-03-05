@@ -71,63 +71,6 @@
   (setq system-packages-noconfirm t)
   )
 
-;;; NOTE: load manual version Org before MELPA Org to fix conflict issue.
-;; (use-package org
-;;   :preface
-;;   ;; remove Emacs built-in org load-path to avoid it been loaded.
-;;   ;; rm -rf /usr/local/share/emacs/27.0.50/lisp/org/
-;;   ;; https://github.com/kaushalmodi/.emacs.d/blob/master/setup-files/setup-org.el
-;;   (progn
-;;     (setq my/org-version-select 'dev)
-;;     (defvar my/default-share-directory "/usr/local/share/") ; my Emacs installed path.
-;;     (defun my/emacs-version ()
-;;       (directory-files (concat my/default-share-directory "emacs/") nil "2.*"))
-;;     (defvar org-builtin-lisp-directory
-;;       (concat my/default-share-directory "emacs/" (car (my/emacs-version)) "/lisp/org")
-;;       "Directory containing lisp files for source code compiled version Emacs built-in Org.")
-;;     (defvar org-builtin-info-directory
-;;       (concat my/default-share-directory "info") ; TODO: how to only filter out the `org.info.gz'.
-;;       "Directory containing Info manual file for source code compiled version Emacs built-in Org.")
-;;     (with-eval-after-load 'package
-;;       ;; If `my/org-version-select' is *not* `emacs', remove the Emacs version of Org
-;;       ;; from the `load-path'.
-;;       (unless (eq my/org-version-select 'emacs)
-;; 	      ;; Remove Org that ships with Emacs from the `load-path'.
-;; 	      (dolist (path load-path)
-;;           (when (string-match-p org-builtin-lisp-directory path)
-;;             (setq load-path (delete path load-path)))))
-;;       ;; If `my/org-version-select' is *not* `elpa', remove the ELPA
-;;       ;; version of Org from the `load-path'.
-;;       (unless (eq my/org-version-select 'elpa)
-;;         (dolist (org-elpa-install-path (directory-files-recursively
-;;                                         package-user-dir
-;;                                         "\\`org\\(-plus-contrib\\)*-[0-9.]+\\'"
-;;                                         :include-directories))
-;;           (setq load-path (delete org-elpa-install-path load-path))
-;;           ;; Also ensure that the associated path is removed from Info
-;;           ;; search list.
-;;           (setq Info-directory-list (delete org-elpa-install-path
-;; 						                                Info-directory-list))))
-;;       ;; if `my/org-version-select' is `dev', let `use-package' to load it.
-;;       )
-;;     )
-;;   ;; specify your own source code version org-mode.
-;;   :load-path "~/Code/Emacs/org-mode/lisp/"
-;;   :pin manual
-;;   :mode (("\\.org$" . org-mode))
-;;   :config
-;;   (use-package org-plus-contrib
-;;     :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
-;;     :no-require t
-;;     :pin manual)
-;;   ;; add source code version Org-mode Info into Emacs.
-;;   (with-eval-after-load 'info
-;;     (info-initialize)
-;;     (add-to-list 'Info-directory-list
-;;                  "~/Code/Emacs/org-mode/doc/"))
-;;   )
-
-
 ;;; initialize installed packages after (use-package <package> :pin manual ..)
 ;; (package-initialize)
 
