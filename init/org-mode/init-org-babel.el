@@ -195,13 +195,14 @@ is not present in `org-babel-load-languages’
 ;;; prepend comment char ahead of `org-coderef-label'.
 ;; auto prefix with comment char when create code ref in src block with `org-store-link'.
 (use-package smartparens
-  :ensure t)
-(defun my-org-src-coderef-format (result)
-  "Auto prefix with comment char before `org-coderef-label' `RESULT'."
-  (if sp-comment-char
-      (format "%s %s" sp-comment-char result)
-    result))
-(advice-add 'org-src-coderef-format :filter-return 'my-org-src-coderef-format)
+  :ensure t
+  :config
+  (defun my-org-src-coderef-format (result)
+    "Auto prefix with comment char before `org-coderef-label' `RESULT'."
+    (if sp-comment-char
+        (format "%s %s" sp-comment-char result)
+      result))
+  (advice-add 'org-src-coderef-format :filter-return 'my-org-src-coderef-format))
 
 
 ;;; beacon effect when open org-mode babel src block editing.
