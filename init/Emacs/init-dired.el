@@ -272,12 +272,6 @@
           (concat user-emacs-directory "init/extensions/make-it-so-recipes/")))
   )
 
-;;; [ exiftool ] -- an elisp wrapper around ExifTool.
-
-(use-package exiftool
-  :ensure t
-  :defer t)
-
 
 (provide 'init-dired)
 

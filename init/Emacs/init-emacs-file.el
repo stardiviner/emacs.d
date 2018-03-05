@@ -98,6 +98,13 @@
 
 (require 'init-tramp)
 
+;;; [ exiftool ] -- an elisp wrapper around ExifTool.
+
+(use-package exiftool
+  :ensure t
+  :defer t)
+
+
 
 (provide 'init-emacs-file)
 
