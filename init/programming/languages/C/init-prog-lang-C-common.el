@@ -83,7 +83,7 @@
   :defer t
   :init
   (hook-modes c-dialects-mode
-    (when (memq major-mode irony-supported-major-modes)
+    (when (memq major-mode '(c-mode c++-mode objc-mode))
       (irony-mode 1)))
   :config
   ;; find the compile flag options automatically:
@@ -92,7 +92,7 @@
   ;; [ company-irony ]
   (use-package company-irony
     :ensure t
-    :config
+    :init
     ;; [ company-irony-c-headers ]
     (use-package company-irony-c-headers
       :ensure t)
@@ -113,7 +113,7 @@
       )
 
     (hook-modes c-dialects-mode
-      (when (memq major-mode irony-supported-major-modes)
+      (when (memq major-mode '(c-mode c++-mode objc-mode))
         (company-irony-add)))
     )
 
@@ -121,17 +121,13 @@
   (use-package irony-eldoc
     :ensure t
     :after irony
-    :config
-    (add-hook 'irony-mode-hook #'irony-eldoc)
-    )
+    :init (add-hook 'irony-mode-hook #'irony-eldoc))
 
   ;; [ flycheck-irony ]
   (use-package flycheck-irony
     :ensure t
     :after irony
-    :config
-    (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)
-    )
+    :init (add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
   )
 
 ;;; [ cquery ] -- Low-latency language server supporting multi-million line C++ code-bases, powered by libclang.
