@@ -174,16 +174,6 @@
   (set-frame-font (format "%s:pixelsize=%d" "Hack" 12) t))
 (add-hook 'circadian-after-load-theme-hook #'my-circadian-font-reset)
 
-;;; [ font-lock-profiler ] -- Coverage and timing tool for font-lock keywords.
-
-;; (use-package font-lock-profiler
-;;   :ensure t)
-
-;;; [ font-lock-studio ] -- Interactive debugger for font-lock keywords (Emacs syntax highlighting rules).
-
-;; (use-package font-lock-studio
-;;   :ensure t)
-
 
 (provide 'init-emacs-font)
 
