@@ -183,15 +183,13 @@
   
   (use-package dired-narrow
     :ensure t
-    :bind (:map dired-mode-map
-                ("/" . dired-narrow)))
+    :bind (:map dired-mode-map ("/" . dired-narrow)))
   
   ;; A convienent way to look up file contents in other window while browsing
   ;; directory in Dired.
   (use-package peep-dired
     :ensure t
-    :bind (:map dired-mode-map
-                ("P" . peep-dired))
+    :bind (:map dired-mode-map ("P" . peep-dired))
     :config
     (setq peep-dired-cleanup-on-disable t
           peep-dired-cleanup-eagerly t

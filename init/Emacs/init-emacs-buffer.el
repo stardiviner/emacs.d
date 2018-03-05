@@ -23,8 +23,7 @@
   :defer t
   :bind ("C-x C-b" . ibuffer)
   :config
-  (setq buffers-menu-max-size nil)
-  )
+  (setq buffers-menu-max-size nil))
 
 ;;; [uniquify] -- meaningful names for buffers with the same name
 

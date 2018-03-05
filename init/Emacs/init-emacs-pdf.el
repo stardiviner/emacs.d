@@ -10,14 +10,13 @@
 ;;; [ pdf-tools ] -- Emacs support library for PDF files.
 
 (use-package pdf-tools
-  ;; :pin manual ; manually update to disable auto update to avoid frequency break.
   :ensure t
   :ensure-system-package (pdfinfo . "sudo pacman -S --noconfirm poppler poppler-data")
   :mode ("\\.pdf\\'" . pdf-view-mode)
   :defer t
-  :config
+  :init
   (pdf-tools-install)
-  
+  :config
   ;; [ PDF View ]
   ;; - [SPC] :: scroll continuous
   ;; - [n/p] :: scroll to next/previous page

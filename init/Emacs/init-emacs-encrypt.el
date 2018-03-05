@@ -86,9 +86,7 @@
 
 (use-package letterbox-mode
   :ensure t
-  :bind (:map encrypt-prefix
-              ("l" . letterbox-toggle))
-  )
+  :bind (:map encrypt-prefix ("l" . letterbox-toggle)))
 
 
 
