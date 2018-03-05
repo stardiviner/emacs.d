@@ -107,20 +107,6 @@
   ;; current directory, instead of this Dired buffer's current directory.
   (setq dired-dwim-target t)
 
-  ;; [ dired+ (diredp) ]
-  ;; (use-package dired+
-  ;;   :ensure t
-  ;;   :config
-  ;;   ;; disable by default hide details
-  ;;   (setq diredp-hide-details-initially-flag nil
-  ;;         diredp-hide-details-propagate-flag nil)
-  ;;   ;; The effect is that when you hit [RET] (or click the mouse) on a directory
-  ;;   ;; in Dired, find-alternate-file is used, so the original Dired buffer is
-  ;;   ;; replaced (deleted) by the new one.
-  ;;   (diredp-toggle-find-file-reuse-dir 1)
-  ;;   ;; image thumbnails tooltip
-  ;;   (add-hook 'dired-mode-hook #'tooltip-mode))
-
   ;; [image-dired ] -- image in Dired
   (use-package image-dired+
     :ensure t
