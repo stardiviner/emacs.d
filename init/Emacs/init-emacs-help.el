@@ -7,6 +7,12 @@
 
 ;;; Code:
 
+
+(add-to-list 'display-buffer-alist
+             '("^\\*Help\\*$" (display-buffer-reuse-window display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist
+             '("^\\*Apropos\\*$" (display-buffer-reuse-window display-buffer-below-selected)))
+
 ;;; [ Info ]
 
 (use-package info
@@ -29,33 +35,6 @@
   :defer t
   :init
   (add-hook 'Info-selection-hook 'info-colors-fontify-node))
-
-;;; [ sicp ] -- Structure and Interpretation of Computer Programs in info format.
-
-(use-package sicp
-  :ensure t
-  :defer t)
-
-
-(add-to-list 'display-buffer-alist
-             '("^\\*Help\\*$" (display-buffer-reuse-window display-buffer-below-selected)))
-(add-to-list 'display-buffer-alist
-             '("^\\*Apropos\\*$" (display-buffer-reuse-window display-buffer-below-selected)))
-
-;;; [ helpful ] -- A better Emacs *help* buffer.
-
-;; (use-package helpful
-;;   :ensure t
-;;   :defer t
-;;   :bind (("C-h f" . helpful-callable) ; replace Emacs default keybindings.
-;;          ("C-h v" . helpful-variable)
-;;          ("C-h k" . helpful-key)
-;;          ;; convenient keybinding:
-;;          ("C-h C-." . helpful-at-point))
-;;   :config
-;;   (add-to-list 'display-buffer-alist
-;;                '("^\\*helpful.*$" (display-buffer-below-selected)))
-;;   )
 
 
 (provide 'init-emacs-help)
