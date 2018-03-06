@@ -110,7 +110,15 @@
   (defengine clojure-docs
     "http://clojuredocs.org/search?q=%s"
     :docstring "Clojure Docs"
-    :keybinding "c")
+    :keybinding "C")
+  (defengine clojars
+    "https://clojars.org/search?q=%s"
+    :docstring "Clojure clojars"
+    :keybinding "j")
+  (defengine java-docs
+    "https://docs.oracle.com/apps/search/search.jsp?category=java&q=%s"
+    :docstring "Java Docs"
+    :keybinding "J")
   (defengine ruby-doc
     "http://ruby-doc.com/search.html?q=%s"
     :docstring "Ruby doc")
@@ -135,7 +143,7 @@
   (defengine code-search
     "http://searchcode.com/?q=%s"
     :docstring "Code Search"
-    :keybinding "C")
+    :keybinding "c")
 
   ;; Linux
   (defengine archlinux-wiki
