@@ -336,10 +336,10 @@
 
 ;;; Science
 
-;; (require 'init-math)
-;; (require 'init-physics)
-;; (require 'init-chemistry)
-;; (require 'init-biology)
+(require 'init-math)
+(require 'init-physics)
+(require 'init-chemistry)
+(require 'init-biology)
 (require 'init-musician)
 
 
