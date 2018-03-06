@@ -240,10 +240,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 
   
   ;; ClojureScript
-  ;; (setq cider-cljs-lein-repl
-  ;;       "(do (require 'shadow.cljs.devtools.api) (require 'shadow.cljs.devtools.server) (shadow.cljs.devtools.server/start!) (shadow.cljs.devtools.api/watch :app) (shadow.cljs.devtools.api/nrepl-select :app))")
-  (setq cider-cljs-lein-repl
-        "(do (require 'figwheel-sidecar.repl-api) (figwheel-sidecar.repl-api/start-figwheel!) (figwheel-sidecar.repl-api/cljs-repl))")
+  (setq cider-default-cljs-repl "Figwheel")
   )
 
 
