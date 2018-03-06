@@ -16,8 +16,8 @@
 (use-package projectile
   :ensure t
   :defer t
-  :preface
-  (setq projectile-keymap-prefix (kbd "C-c p"))
+  :preface (setq projectile-keymap-prefix (kbd "C-c p"))
+  :init (add-hook 'prog-mode-hook 'projectile-mode)
   :config
   ;; Caching: nil, (* 10 60) [10 minutes],
   (setq projectile-enable-caching nil ; nil: disable caching to fix TRAMP hang
@@ -31,38 +31,8 @@
   (setq projectile-completion-system 'ivy
         projectile-use-git-grep t ; use `vc-git-grep'
         )
-
   ;; test
   (setq projectile-create-missing-test-files t)
-
-  ;; Toggle `projectile-mode'
-  ;; (projectile-global-mode)
-  ;; OR:
-  (add-hook 'prog-mode-hook 'projectile-mode)
-
-  (use-package counsel-projectile
-    :ensure t
-    :init (counsel-projectile-mode 1)
-    :config
-    (add-to-list 'counsel-projectile-org-capture-templates
-                 '("b" "BUG" entry
-                   (file+headline "${root}/notes.org" "Bugs")
-                   "* BUG %?
-%u
-%a"))
-    (add-to-list 'counsel-projectile-org-capture-templates
-                 '("c" "CODE" entry
-                   (file+headline "${root}/notes.org" "Bugs")
-                   "* CODE %?
-%u
-%a"))
-    (add-to-list 'counsel-projectile-org-capture-templates
-                 '("f" "FEATURE" entry
-                   (file+headline "${root}/notes.org" "Features")
-                   "* FEATURE %?
-%u
-%a"))
-    )
   )
 
 ;;; [ projectile-variable ] -- store project local variables.
