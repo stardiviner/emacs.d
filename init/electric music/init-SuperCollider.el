@@ -9,18 +9,26 @@
 
 ;;; Code:
 
+;; [ scel ] -- Supercollider Emacs package.
 
-(use-package supercollider
-  ;; from Linux System Package (which only contains *.elc files)
-  :load-path "/usr/share/emacs/site-lisp/SuperCollider/"
-  ;; from Git source code repository (contains *.el source code files)
-  ;; :load-path (concat (getenv "HOME")
-  ;;                    "/Code/SuperCollider/supercollider"
-  ;;                    "/editors/scel/el/")
-  :no-require t
+;; [C-x C-h] search for help.
+;; [C-M-h] switch to the Help browser.
+;; [C-c C-e] allow you to edit the source of the HTML file.
+;; Server control.
+;; - internal
+;; - localhost
+
+(use-package sclang
+  ;; :load-path "/usr/share/emacs/site-lisp/SuperCollider/"
+  :load-path "~/Code/Emacs/scel/el/"
   :ensure-system-package (sclang . "sudo pacman -S --noconfirm supercollider")
   :defer t
-  :load (sclang sclang-interp)
+  :init
+  ;; (require 'sclang)
+  (add-to-list 'display-buffer-alist
+               '("\\*SCLang:PostBuffer\\*" . (display-buffer-below-selected)))
+  :mode ("\\.sc\\'" . sclang-mode)
+  :commands (sclang-mode sclang-start)
   :config
   ;; (setq sclang-extension-path '("/usr/share/SuperCollider/Extensions"
   ;;                               "~/.local/share/SuperCollider/Extensions"))
@@ -83,6 +91,10 @@
     (add-hook 'sclang-mode-hook 'sclang-extensions-mode)
     )
   )
+
+;;; [ ob-sclang ] -- SuperCollider (sclang) with Org-mode Babel.
+
+(require 'ob-sclang)
 
 
 ;;; [ Overtone ] -- Combine SuperCollider + Clojure.
