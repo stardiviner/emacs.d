@@ -14,8 +14,13 @@
 (add-to-list 'org-default-properties "header-args")
 
 ;;; source block default header arguments
-(add-to-list 'org-babel-default-header-args '(:cache . "yes"))
-(add-to-list 'org-babel-default-header-args '(:comments . "links"))
+(setq-default org-babel-default-header-args
+              '((:session . "none")
+                (:noweb . "no") (:hlines . "no")
+                (:tangle . "no") (:comments . "links")
+                (:cache . "yes")
+                (:results . "replace") (:exports . "both")
+                ))
 
 ;;; Manage org-babel popup buffers with `display-buffer-alist'.
 (add-to-list 'display-buffer-alist
