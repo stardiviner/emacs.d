@@ -20,6 +20,7 @@
                           (eq major-mode 'org-mode))
                 (eldoc-mode 1))))
   :config
+  (setq eldoc-idle-delay 0.1)
   ;; ElDoc with most `paredit' command.
   ;; whenever the listed commands are used, ElDoc will automatically refresh the minibuffer.
   (eldoc-add-command 'paredit-backward-delete 'paredit-close-round)
