@@ -57,7 +57,7 @@
   (setq symbol-overlay-idle-time 1.0)
   (defun my-symbol-overlay-set-face (theme)
     "Set `symbol-overlay' faces based on `circadian' color `THEME' switching."
-    (set-face-attribute 'symbol-overlay-temp-face nil
+    (set-face-attribute 'symbol-overlay-default-face nil
                         :inherit t :foreground nil
                         :background (cl-case (alist-get 'background-mode (frame-parameters))
                                       ('light
