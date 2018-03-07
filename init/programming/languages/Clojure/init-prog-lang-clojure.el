@@ -382,10 +382,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 (use-package helm-clojuredocs
   :ensure t
   :defer t
-  :bind (:map clojure-mode-map
-              ("C-h d d" . helm-clojuredocs)
-              :map cider-repl-mode-map
-              ("C-h d d" . helm-clojuredocs)))
+  :bind (:map cider-doc-map ("M-d" . helm-clojuredocs)))
 
 
 ;;; [ elein ] -- running Leiningen commands from Emacs.
