@@ -22,6 +22,11 @@
 ;; (use-package monotropic-theme
 ;;   :ensure t)
 
+;;; [ leuven-theme ]
+
+(use-package leuven-theme
+  :ensure t)
+
 ;;; [ doom-themes ]
 
 (use-package doom-themes
@@ -52,7 +57,7 @@
         calendar-time-zone +480
         calendar-latitude 29.72
         calendar-longitude 120.20)
-  (setq circadian-themes '((:sunrise . spacemacs-light)
+  (setq circadian-themes '((:sunrise . leuven)
                            (:sunset . spacemacs-dark)))
   (circadian-setup))
 
