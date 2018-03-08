@@ -269,7 +269,21 @@
   ;;   :defer t)
   )
 
-
+;;; [ skewer-mode ] -- Live interactive web development in Emacs.
+
+(use-package skewer-mode
+  :ensure t
+  :defer t
+  :commands (run-skewer skewer-mode skewer-html-mode skewer-css-mode)
+  :init
+  (skewer-setup)
+  (add-hook 'js2-mode-hook 'skewer-mode)
+  (add-to-list 'display-buffer-alist
+               '("\\*skewer-repl\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("\\*skewer-error\\*" . (display-buffer-below-selected)))
+  )
+
 ;;; [ Indium ] -- A JavaScript development environment for Emacs.
 
 (use-package indium
