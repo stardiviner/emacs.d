@@ -67,26 +67,21 @@
 
 (require 'ob-js)
 
-(add-to-list 'org-babel-default-header-args:js
-             '(:results . "output"))
-
-;;; Session support.
-;; HACK: "Session evaluation with node.js is not supported"
-;; - mozrepl (deprecated):
-;;   "mozrepl" need package `moz'. https://github.com/bard/mozrepl/
-;; - node.js does not support :session
-;; - suggest you to use `indium'.
-;; (setq org-babel-js-cmd "node") ; "mozrepl" use header argument :cmd
-;; (add-to-list 'org-babel-default-header-args:js
-;;              '(:session . "*Javascript REPL*")  ; package `js-comint'
-;;              )
-
 (add-to-list 'org-babel-load-languages '(js . t))
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 (add-to-list 'org-babel-tangle-lang-exts '("js" . "js"))
 
 (with-eval-after-load 'js2-mode
   (add-to-list 'org-src-lang-modes '("js" . js2)))
+
+(add-to-list 'org-babel-default-header-args:js
+             '(:results . "output"))
+
+;;; Session support.
+;; `skewer-mode'
+(setq org-babel-js-cmd "skewer-mode")
+(add-to-list 'org-babel-default-header-args:js
+             '(:session . "*skewer-repl*"))
 
 
 ;;; [ js2-mode ]
