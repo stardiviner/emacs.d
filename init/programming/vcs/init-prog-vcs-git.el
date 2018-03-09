@@ -91,7 +91,7 @@
             (lambda ()
               ;; company-flyspell + company-ispell
               (make-local-variable 'company-backends)
-              (add-to-list 'company-backends 'company-ispell-dict)
+              (add-to-list 'company-backends 'company-ispell-with-dict)
               (if (featurep 'company-emoji)
                   (add-to-list 'company-backends 'company-emoji))
               ;; company-abbrev

@@ -182,9 +182,8 @@
   (add-hook 'company-completion-cancelled-hook #'my-company-fail-animation)
   )
 
-
 ;; show dictionary for `company-ispell' word with `company-quickhelp'.
-(defun company-ispell-dict (command &optional arg &rest ignored)
+(defun company-ispell-with-dict (command &optional arg &rest ignored)
   "Provide dict as `doc-buffer' for `company-quickdict' popup."
   (interactive (list 'interactive))
   (cl-case command
