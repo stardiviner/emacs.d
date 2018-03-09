@@ -149,7 +149,7 @@ to the command loop."
           (all-the-icons-octicon "file-directory" :v-adjust -0.05 :height 0.9)
           (propertize " " 'face 'variable-pitch)
           ;; `projectile-mode-line'
-          (propertize (projectile-project-name))
+          (propertize (projectile-project-name) 'face 'mode-line-data-face)
           "] "
           ))))
   )
@@ -162,11 +162,14 @@ to the command loop."
   (defun *eyebrowse ()
     "Displays `default-directory', for special buffers like the scratch buffer."
     (concat
-     (all-the-icons-faicon "th" :v-adjust -0.1)
+     (all-the-icons-faicon "codepen" :v-adjust -0.1)
+     (propertize " " 'face 'variable-pitch)
      (propertize
-      ;; (eyebrowse-mode-line-indicator)
+      ;; `eyebrowse-mode-line-indicator'
       (let ((current-slot-number (eyebrowse--get 'current-slot))
-            (current-slot-tag (cadr (alist-get (eyebrowse--get 'current-slot) (eyebrowse--get 'window-configs))))
+            (current-slot-tag (cadr (alist-get
+                                     (eyebrowse--get 'current-slot)
+                                     (eyebrowse--get 'window-configs))))
             (slot-numbers (length (eyebrowse--get 'window-configs))))
 	      (format "[%s:%s] " current-slot-number current-slot-tag))
       'face 'mode-line-data-face)
@@ -438,7 +441,8 @@ state (modified, read-only or non-existent)."
                 (format "%s" image-type)))
            )))
     (if env
-        (concat "[" env "] "))
+        (concat "[" env "] ")
+      (propertize " " 'face 'variable-pitch))
     ))
 
 ;;; vc
@@ -1104,7 +1108,6 @@ dimensions of a block selection."
                  " "
                  ;; (*time)
                  ;; (*lunar-sun)
-                 (*space 1)
                  (*erc)
                  (*emms)
                  ;; (*mu4e)
@@ -1120,7 +1123,7 @@ dimensions of a block selection."
                  ;; (*purpose)
                  (*major-mode)
                  (*env)
-                 (*space 8)
+                 (*space 1)
                  ))
            (mid (propertize
                  " "
