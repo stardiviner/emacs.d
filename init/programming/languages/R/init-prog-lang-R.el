@@ -64,7 +64,7 @@
   ;; (add-hook 'ess-mode-hook #'ess-force-buffer-current)
 
   ;; quickly insert assign operator: <-
-  (define-key ess-mode-map (kbd "=") (lambda () (interactive) (insert " <- ")))
+  (define-key ess-mode-map (kbd "C-c =") (lambda () (interactive) (insert " <- ")))
 
   (add-to-list 'display-buffer-alist
                '("\\*help\\[R\\]\\(.*\\)\\*" . (display-buffer-below-selected)))
