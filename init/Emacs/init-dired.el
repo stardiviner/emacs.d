@@ -222,11 +222,6 @@
         )))
   (use-package dired-hacks-utils
     :ensure t)
-  (use-package dired-collapse
-    :ensure t
-    :config
-    ;; (dired-collapse-mode 1)
-    )
 
   (use-package find-by-pinyin-dired ; Find file by first Pinyin characters of Chinese Hanzi.
     :ensure t)
