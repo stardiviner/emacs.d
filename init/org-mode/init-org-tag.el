@@ -11,7 +11,9 @@
 ;;; Tags
 
 ;; suitable tag position length for 12' inch screen size split window.
-(setq org-tags-column (- (- (/ (/ (display-pixel-width) 2) 10) 3)))
+;; 11.2' screen size use -65
+(setq org-tags-column -65)
+;; (setq org-tags-column (- (- (/ (/ (display-pixel-width) 2) 10) 3)))
 
 ;; enable group tags
 (setq org-group-tags t)
