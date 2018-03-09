@@ -33,6 +33,12 @@
   ;; (setq edebug-trace t)
   ;; (add-to-list 'display-buffer-alist
   ;;              '("^\\*edebug-trace\\*" (display-buffer-below-selected)))
+  ;;; show edebug trace result inline instead of echo-area.
+  (defun my:edebug-previous-result ()
+    "Print the previous result."
+    (interactive)
+    (popup-tip edebug-previous-result))
+  (advice-add 'edebug-previous-result :override #'my:edebug-previous-result)
   )
 
 ;;; [ edebug-x ] -- Extensions for Edebug.
