@@ -5,31 +5,14 @@
 
 ;;; Code:
 
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't 2want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-;; (package-initialize)
-
-;;; [ profiler ]
-
-;; (profiler-start 'cpu+mem)
-
-
-
 ;;; [ things before load ]
 
 (setq inhibit-startup-screen nil)
 (setq inhibit-startup-message t)
 (setq inhibit-startup-echo-area-message "Hacking happy! stardiviner.")
 
-(setq confirm-kill-emacs 'yes-or-no-p)
-
-(toggle-frame-maximized)
-
 ;;; initial values
-(setq scheme-program-name "guile")
-(setq geiser-default-implementation 'guile)
+(defvar Info-default-directory-list nil)
 
 
 (require 'server)

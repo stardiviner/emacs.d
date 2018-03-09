@@ -79,9 +79,8 @@
 
 ;;; Session support.
 ;; `skewer-mode'
-(setq org-babel-js-cmd "skewer-mode")
-(add-to-list 'org-babel-default-header-args:js
-             '(:session . "*skewer-repl*"))
+;; (add-to-list 'org-babel-default-header-args:js
+;;              '(:session . "*skewer-repl*"))
 
 
 ;;; [ js2-mode ]
@@ -284,6 +283,10 @@
 (use-package indium
   :ensure t
   :defer t
+  :commands (indium-run-node indium-run-chrome)
+  :init
+  (add-to-list 'display-buffer-alist
+               '("\\*JS REPL\\*" . (display-buffer-below-selected)))
   :config
   (setq indium-chrome-executable "google-chrome-unstable")
   ;; live JavaScript source edit and update.

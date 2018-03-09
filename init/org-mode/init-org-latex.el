@@ -138,16 +138,12 @@
 ;; (setq org-html-mathjax-options)
 
 
-;;; [ org-edit-latex ] -- Org edit LaTeX block like babel src block.
+;;; [ org-edit-latex ] -- Org edit LaTeX block/inline like babel src block.
 
 (use-package org-edit-latex
   :ensure t
-  :init
-  (setq org-edit-latex-create-master nil)
-  (add-hook 'org-mode-hook #'org-edit-latex-mode)
-  :config
-  (setq org-edit-latex-create-master nil) ; 'ask, t, nil
-  )
+  :preface (setq org-edit-latex-create-master nil)
+  :init (add-hook 'org-mode-hook #'org-edit-latex-mode))
 
 
 ;;; Org-mode export to -> Chinese TeX (ctex) -> PDF

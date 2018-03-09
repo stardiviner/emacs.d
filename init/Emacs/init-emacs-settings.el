@@ -16,6 +16,7 @@
 ;;; ----------------------------------------------------------
 
 (fset 'yes-or-no-p 'y-or-n-p) ; treat 'y' as yes, 'n' as no.
+(setq confirm-kill-emacs 'yes-or-no-p)
 
 (setq inhibit-startup-message t) ; no splash screen
 

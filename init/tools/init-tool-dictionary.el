@@ -37,8 +37,7 @@
 
 (use-package goldendict
   :ensure t
-  :bind (:map dictionary-prefix
-              ("d" . goldendict-dwim)))
+  :bind (:map dictionary-prefix ("d" . goldendict-dwim)))
 
 ;;; [ google-translate ]
 

@@ -11,6 +11,7 @@
 
 (use-package web-mode
   :ensure t
+  :mode ("\\.html\\'" . web-mode)
   :defer t
   :config
   ;; fontifications

@@ -18,14 +18,14 @@
 (use-package info
   :bind ("C-h i" . info-display-manual)
   :init
+  (add-to-list 'display-buffer-alist
+               '("\\*info\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
+  :config
   ;; - `Info-default-directory-list'
   (add-to-list 'Info-directory-list
                (expand-file-name "info/" user-emacs-directory))
-  (add-to-list 'display-buffer-alist
-               '("\\*info\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
   ;; let `[s]' search like =isearch= for incremental search.
   (setq Info-isearch-search t)
-  ;; - `Info-mode-hook'
   )
 
 ;;; [ info-colors ] -- A modern adaption of the extra coloring provided by info+ package.

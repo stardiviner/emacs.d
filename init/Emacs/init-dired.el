@@ -159,8 +159,7 @@
   ;; use `all-the-icons' icons to display for files.
   (use-package all-the-icons-dired
     :ensure t
-    :init
-    (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
+    :init (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
 
   ;; Edit Filename At Point in an Emacs' dired buffer
   (use-package dired-efap

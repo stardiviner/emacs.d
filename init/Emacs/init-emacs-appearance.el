@@ -98,6 +98,10 @@
 ;; additional space to put between lines.
 (setq-default line-spacing 0.1)         ; 0.1, 1, 0, nil.
 
+;;; [ line numbers ]
+
+;;; Emacs native line number mode.
+;; (global-display-line-numbers-mode -1)
 
 ;;; [ current line & column ]
 

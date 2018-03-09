@@ -13,10 +13,10 @@
   :ensure t
   :ensure-system-package guile
   :defer t
-  :init
+  :preface
   (setq scheme-program-name "guile")
-  (with-eval-after-load 'scheme
-    (define-key scheme-mode-map (kbd "C-c C-s") 'run-scheme))
+  (setq geiser-default-implementation 'guile)
+  :bind (:map scheme-mode-map ("C-c C-s" . run-scheme))
   :config
   (add-hook 'scheme-mode-hook #'my-lisp-common-settings)
 
