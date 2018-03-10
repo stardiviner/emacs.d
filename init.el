@@ -7,9 +7,15 @@
 
 ;;; [ things before load ]
 
+;;; fancy startup
+(setq inhibit-startup-message nil) ; no splash screen
+;; (setq fancy-startup-text)
 (setq inhibit-startup-screen nil)
-(setq inhibit-startup-message t)
+(setq fancy-splash-image
+      (expand-file-name "resources/logos/my-emacs-logo.png" user-emacs-directory))
 (setq inhibit-startup-echo-area-message "Hacking happy! stardiviner.")
+(setq-default initial-scratch-message
+              (concat ";; Happy Hacking " (or user-login-name "") "!\n\n"))
 
 ;;; initial values
 (defvar Info-default-directory-list nil)

@@ -41,7 +41,7 @@
       )
 
 ;; interface
-(setq gnus-inhibit-startup-message t
+(setq gnus-inhibit-startup-message nil
       gnus-show-threads t
       gnus-interactive-exit t
       gnus-interactive-catchup t

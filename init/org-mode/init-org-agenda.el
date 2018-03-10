@@ -72,7 +72,7 @@
 (setq org-agenda-scheduled-leaders '("Scheduled: " "%3d days | "))
 
 ;; speedup Org Agenda
-(setq org-agenda-inhibit-startup t
+(setq org-agenda-inhibit-startup nil
       org-agenda-dim-blocked-tasks nil ; don't dim blocked tasks: past deadline, etc
       org-agenda-use-tag-inheritance nil)
 
