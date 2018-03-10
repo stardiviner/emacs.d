@@ -16,6 +16,8 @@
 
 ;;; Code:
 
+(setq-default echo-keystrokes 0.1) ; faster echo key strokes
+
 ;;; [ Modifiers]
 
 ;; (setq x-hyper-keysym 'hyper)

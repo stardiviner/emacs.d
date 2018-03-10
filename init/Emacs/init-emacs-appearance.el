@@ -77,10 +77,10 @@
 
 ;;; [ echo area ]
 
-(setq-default echo-keystrokes 0.1) ; faster echo key strokes
-
 
 ;;; [ Widget ]
+
+;;; [ line ]
 
 ;;; [ line space(spacing) / line height ]
 ;; - (info "(elisp) Line Height")
