@@ -19,29 +19,12 @@
         (scroll-bar-lines . 0)
         ))
 
+(setq initial-frame-alist default-frame-alist)
+(setq window-system-default-frame-alist default-frame-alist)
+(setq minibuffer-frame-alist default-frame-alist)
+
 ;; Every time a window is started, make sure it get maximized
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-(setq initial-frame-alist
-      '((top . 0) (left . 0)
-        (height . 120)
-        (width . 90)
-        (left-fringe) (right-fringe)
-        (tool-bar-lines . 0)
-        (menu-bar-lines . 0)
-        (scroll-bar-lines . 0)
-        ))
-
-(setq window-system-default-frame-alist
-      '((height . 120)
-        (width . 90)
-        (left-fringe) (right-fringe)
-        (tool-bar-lines . 0)))
-
-(setq minibuffer-frame-alist
-      '((height . 2)
-        (width . 80)
-        (tool-bar-lines . 0)))
 
 
 ;; (setq frame-resize-pixelwise nil)
