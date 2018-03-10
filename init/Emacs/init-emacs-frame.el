@@ -46,15 +46,6 @@
 
 ;; (setq frame-resize-pixelwise nil)
 
-;;; Adjust Frame’s Opacity
-
-;; (defun stardiviner/adjust-opacity (frame incr)
-;;   (let* ((oldalpha (or (frame-parameter frame 'alpha) 100))
-;;          (newalpha (+ incr oldalpha)))
-;;     (when (and (<= frame-alpha-lower-limit newalpha) (>= 100 newalpha))
-;;       (modify-frame-parameters frame (list (cons 'alpha newalpha))))))
-
-
 (global-set-key [remap toggle-frame-maximized] 'toggle-frame-fullscreen)
 
 (defun my-turn-current-window-into-new-frame ()

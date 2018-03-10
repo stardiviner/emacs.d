@@ -12,24 +12,18 @@
 
 ;;; [ Transparent ]
 
-(defun my-emacs-transparency-setting (theme)
-  "Set Emacs transparency based on `circadian' color `THEME' switching."
-  (cl-case (alist-get 'background-mode (frame-parameters))
-    ('light
-     (set-frame-parameter (selected-frame) 'alpha '(90 90))
-     (add-to-list 'default-frame-alist '(alpha 90 90)))
-    ('dark
-     (set-frame-parameter (selected-frame) 'alpha '(90 90))
-     (add-to-list 'default-frame-alist '(alpha 90 90)))))
-(add-hook 'circadian-after-load-theme-hook #'my-emacs-transparency-setting)
+(defun my:set-transparency-alpha (alpha)
+  "Loop through transparency `ALPHA' settings."
+  (interactive (list
+                (completing-read "Transparency Alpha: "
+                                 '("100" "90" "80" "70" "60"))))
+  (let* ((active-alpha (string-to-number alpha))
+         (inactive-alpha (- active-alpha 20)))
+    (set-frame-parameter (selected-frame) 'alpha (list active-alpha inactive-alpha))
+    (add-to-list 'default-frame-alist (cons 'alpha (list active-alpha inactive-alpha)))
+    ))
 
-(defun my/emacs-transparency-toggle ()
-  "Toggle Emacs transparency."
-  (interactive)
-  (let ((alpha (frame-parameter nil 'alpha)))
-    (if (equal (if (numberp alpha) alpha (car alpha)) 100)
-        (my-emacs-transparency-setting nil)
-      (set-frame-parameter nil 'alpha '(100 . 100)))))
+(my:set-transparency-alpha "95")
 
 ;;; [ Title ]
 
