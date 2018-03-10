@@ -25,6 +25,12 @@
 
   (add-hook 'edit-server-edit-mode-hook #'flyspell-mode)
 
+  ;; set `emacsclient' and `edit-server' new frame transparency.
+  (add-to-list 'edit-server-new-frame-alist (cons 'alpha (list 85 70)))
+  (add-hook 'edit-server-edit-mode-hook
+            (lambda ()
+              (set-frame-parameter (selected-frame) 'alpha (list 85 70))))
+  
   (setq edit-server-default-major-mode 'markdown-mode)
   (setq edit-server-url-major-mode-alist
         '(("github\\.com" . markdown-mode)
