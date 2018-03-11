@@ -469,6 +469,19 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 ;; (org-notify-start 300)
 
+;;; [ org-kanban ] -- kanban dynamic block for Org-mode.
+
+(use-package org-kanban
+  :ensure t
+  :ensure orgtbl-aggregate
+  :after orgtbl-aggregate
+  :config
+  (defun org-insert-dblock:kanban ()
+    (interactive)
+    (org-create-dblock
+     (list
+      :name "kanban")))
+  )
 
 ;;; auto launch org-agenda after Emacs finished startup.
 (add-hook 'after-init-hook
