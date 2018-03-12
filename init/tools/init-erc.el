@@ -168,7 +168,7 @@ The function is suitable for `erc-after-connect'."
   (defun my/erc-completion-setup ()
     "Setup ERC completion."
     (make-local-variable 'company-minimum-prefix-length)
-    (setq company-minimum-prefix-length 2)
+    (setq company-minimum-prefix-length 4)
     (make-local-variable 'company-backends)
     (setq company-backends '((company-capf :with company-ispell-with-dict)
                              company-keywords
