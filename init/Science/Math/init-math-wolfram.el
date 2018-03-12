@@ -13,9 +13,17 @@
   :ensure t
   :defer t
   :bind (:map prog-doc-map ("A" . wolfram-alpha))
+  :init
+  (add-to-list 'display-buffer-alist
+               '("\\*WolframAlpha\\*" . (display-buffer-below-selected)))
   :config
   (setq wolfram-alpha-app-id "YX2WUR-2J7GPTXY44")
   )
+
+;;; [ wolfram-mode ] -- Mathematica editing and inferior mode.
+
+(use-package wolfram-mode
+  :ensure t)
 
 
 (provide 'init-math-wolfram)
