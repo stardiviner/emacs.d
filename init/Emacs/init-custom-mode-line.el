@@ -900,8 +900,8 @@ dimensions of a block selection."
   (defun *keycast ()
     "Show keycast in custom mode-line."
     (let ((screen-half-width (- (/ (/ (display-pixel-width) 2) 10) 3)))
-      (when (and (> screen-half-width 80)
-                 (mode-line-window-active-p))
+      (unless (not (and (> screen-half-width 80)
+                        (mode-line-window-active-p)))
         mode-line-keycast)))
   (defun my:keycast-faces-setup (theme)
     (set-face-attribute 'keycast-key nil
