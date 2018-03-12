@@ -19,9 +19,9 @@
          entry (file "")
          ;; select todo keyword interactively from `org-todo-keywords'.
          "* %(completing-read \"Todo keyword: \" org-todo-keywords-for-agenda nil t) %^{Capture} \n:PROPERTIES:\n:TIME: %U\n:END: \n%i\n%a\n\n%?"
-         ;; :prepend t
          ;; :time-prompt t
-         :empty-lines 1
+         :empty-lines-before 1
+         :empty-lines-after 1
          )
 
         ;; Tasks
@@ -36,7 +36,8 @@
          entry (file+olp+datetree "~/Org/Diary/Diary.org")
          "* %^{Diary Title}\n:PROPERTIES:\n:TIME: %U\n:END: \n\n[[file:%<%Y-%m-%d-%R>.org][On %<%Y-%m-%d %R>]]\n\nEvent: %?\n\n%i\n\n"
          ;; :time-prompt t
-         :empty-lines 1
+         :empty-lines-before 1
+         :empty-lines-after 1
          :jump-to-captured t
          )
         
@@ -45,13 +46,15 @@
          entry (file "~/Org/Bookmarks/Bookmarks.org")
          "* %^{Bookmark URL}\n\n%A\n\n%?\n\n"
          :empty-lines 1
+         :jump-to-captured t
          )
 
         ;; org-passwords
         ("A" "[A]ccount passwords"
          entry (file "~/Org/Accounts/accounts.org.gpg")
          "* %^{Title}\n  %^{URL}p %^{USERNAME}p %^{PASSWORD}p %^{EMAIL}p"
-         :empty-lines 1
+         :empty-lines-before 1
+         :empty-lines-after 1
          )
 
         ;; code snippets
