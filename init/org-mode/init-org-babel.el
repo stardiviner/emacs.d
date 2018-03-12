@@ -94,7 +94,7 @@
 ;; 1. M-x org-babel-insert-named-source-block (imaginary function)
 ;; 2. List of named source blocks pops up
 ;; 3. Hit enter and "#+call: name-of-source-block()" is inserted at point.
-(defun org-babel-insert-src-block (&optional template)
+(defun org-babel-insert-src-block-call (&optional template)
   "Interactively insert a named src block."
   (interactive)
   (let ((template (or template "#+call: %s()\n"))
@@ -102,7 +102,7 @@
     (unless (string-equal "" src-block)
 	    (insert (format template src-block)))))
 
-(define-key org-babel-map (kbd "C-q") 'org-babel-insert-src-block)
+(define-key org-babel-map (kbd "C-q") 'org-babel-insert-src-block-call)
 
 
 ;;; [ Literate dotfiles management with Org-mode ]
