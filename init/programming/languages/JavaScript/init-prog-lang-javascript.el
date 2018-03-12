@@ -167,10 +167,9 @@
                '("^\\*JavaScript REPL\\*" (display-buffer-below-selected)))
   ;; if use node.js, we need nice output
   (setenv "NODE_NO_READLINE" "1")
+  (setq inferior-js-program-command "node")
+  (setq inferior-js-program-arguments '("--interactive"))
   :config
-  ;; (setq inferior-js-program-command "node")
-  ;; (setq inferior-js-program-command "/usr/bin/java org.mozilla.javascript.tools.shell.Main")
-
   ;; enable tern completion in JS REPL buffer.
   (add-hook 'js-comint-mode-hook #'tern-mode)
 
@@ -178,18 +177,16 @@
   (if (featurep 'nvm)
       (js-do-use-nvm))
 
-  (dolist (hook '(js2-mode-hook
-                  ;; js3-mode-hook
-                  ))
-    (add-hook hook '(lambda ()
-                      (local-set-key (kbd "C-c C-s") 'run-js)
-                      (local-set-key (kbd "C-x C-e") 'js-send-last-sexp)
-                      (local-set-key (kbd "C-M-x") 'js-send-last-sexp-and-go)
-                      (local-set-key (kbd "C-c C-c") 'js-send-region)
-                      (local-set-key (kbd "C-c C-b") 'js-send-buffer)
-                      ;; (local-set-key (kbd "C-c C-b") 'js-send-buffer-and-go)
-                      (local-set-key (kbd "C-c C-l") 'js-load-file)
-                      )))
+  (defun my:js-comint-setup-keybindings ()
+    "Add some custom keybindings for js-comint."
+    (local-set-key (kbd "C-c C-s") 'run-js)
+    (local-set-key (kbd "C-x C-e") 'js-send-last-sexp)
+    (local-set-key (kbd "C-M-x") 'js-send-last-sexp-and-go)
+    (local-set-key (kbd "C-c C-c") 'js-send-region)
+    (local-set-key (kbd "C-c C-b") 'js-send-buffer)
+    ;; (local-set-key (kbd "C-c C-b") 'js-send-buffer-and-go)
+    (local-set-key (kbd "C-c C-l") 'js-load-file))
+  (add-hook 'js2-mode-hook #'my:js-comint-setup-keybindings)
   )
 
 
