@@ -381,10 +381,9 @@
                     )
 
 ;;; LaTeX
-;; (set-face-attribute 'org-latex-face nil
-;;                     :background "brown"
-;;                     :foreground "white"
-;;                     )
+(set-face-attribute 'org-latex-and-related nil
+                    :foreground (color-darken-name (face-foreground 'font-lock-constant-face) 10)
+                    )
 
 ;;; Formula face
 (set-face-attribute 'org-formula nil
