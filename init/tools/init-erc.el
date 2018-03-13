@@ -165,16 +165,11 @@ The function is suitable for `erc-after-connect'."
   (erc-pcomplete-mode 1)
   ;; (erc-completion-mode 1)
 
-  (defun my/erc-completion-setup ()
+  (defun my:erc-completion-setup ()
     "Setup ERC completion."
     (make-local-variable 'company-minimum-prefix-length)
-    (setq company-minimum-prefix-length 4)
-    (make-local-variable 'company-backends)
-    (setq company-backends '((company-capf :with company-ispell-with-dict)
-                             company-keywords
-                             company-abbrev)))
-
-  (add-hook 'erc-mode-hook #'my/erc-completion-setup)
+    (setq company-minimum-prefix-length 3))
+  (add-hook 'erc-mode-hook #'my:erc-completion-setup)
 
   (add-hook 'erc-mode-hook #'turn-on-eldoc-mode)
 
