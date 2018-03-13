@@ -13,7 +13,7 @@
   :ensure t
   :ensure-system-package guile
   :defer t
-  :preface
+  :init
   (setq scheme-program-name "guile")
   (setq geiser-default-implementation 'guile)
   :bind (:map scheme-mode-map ("C-c C-s" . run-scheme))

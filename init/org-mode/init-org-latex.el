@@ -7,82 +7,40 @@
 
 ;;; Code:
 
-
-(setq org-startup-with-latex-preview nil)
+(require 'ox-latex)
 
 ;; highlight inline LaTeX, and org-entities with different face.
 (setq org-highlight-latex-and-related '(latex entities))
 
-;; fix org-mode startup latex preview invalid on non-file buffer.
-;; (defun disable-org-latex-preview-on-nonfile ()
-;;   (interactive)
-;;   (if (not (buffer-file-name))
-;;       (setq-local org-startup-with-latex-preview nil)
-;;     (setq org-startup-with-latex-preview t))
-;;   )
-;;
-;; (add-hook 'org-mode-hook #'disable-org-latex-preview-on-nonfile)
+
+;;; Preview Org-mode LaTeX fragments
+(setq org-startup-with-latex-preview nil)
+;; (setq org-preview-latex-default-process 'dvipng)    ; faster but don't support Chinese by default.
+(setq org-preview-latex-default-process 'imagemagick)  ; slower but support Chinese by default.
+(setq org-latex-image-default-width "2.0\\linewidth")
+(setq org-format-latex-options
+      (plist-put org-format-latex-options :scale 2.0)) ; adjust LaTeX preview image size.
+(setq org-format-latex-options
+      (plist-put org-format-latex-options :html-scale 2.5)) ; adjust HTML exporting LaTeX image size.
 
 
-;;; [ ob-latex ]
-(require 'ob-latex)
-
-(add-to-list 'org-babel-load-languages '(latex . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("latex" . "tex"))
-
-;; generate results as #+BEGIN_LaTeX ... #+END_LaTeX block.
-;; (setq org-babel-default-header-args:latex
-;;       '((:results . "latex")
-;;         (:exports . "results")
-;;         ))
-
-;; let latex babel generate image result
-;; (setq org-babel-default-header-args:latex
-;;       '((:results . "raw graphics")
-;;         (:file . "temp.png")))
-
+;; (setq org-format-latex-header)
 
 ;;; org -> latex packages
 ;; (add-to-list 'org-latex-default-packages-alist)
 ;; (add-to-list 'org-latex-packages-alist)
 
-;; (source code format, and syntax color highlighting)
 
-;; 1. use "listings" + "color"
-;; (add-to-list 'org-latex-packages-alist '("" "listings"))
-;; (add-to-list 'org-latex-packages-alist '("" "color"))
-
-;; 2. use "minted"
-;; (setq org-latex-listings 'minted)
-;; ;;; enable source code wrap with `breaklines'.
-;; (setq org-latex-listings-options '(("breaklines" "true")
-;;                                    ("breakanywhere" "true")))
-;; ;;; add packages to list.
-;; (add-to-list 'org-latex-packages-alist '("" "newfloat" nil))
-;; (add-to-list 'org-latex-packages-alist '("" "minted" nil))
-;; (setq org-latex-pdf-process
-;;       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-;;         "bibtex %b"
-;;         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-;;         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-;;         ))
-;;
-;; or:
-;; (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
+;;; export to PDF with src blocks syntax highlighting.
+(setq org-latex-listings 'minted)
+(add-to-list 'org-latex-packages-alist '("newfloat" "minted" "color"))
+(add-to-list 'org-latex-pdf-process
+	           "latexmk -shell-escape -bibtex -f -pdf %f")
 (setq org-latex-minted-options
-      '(("bgcolor" "bg")
-        ("frame" "lines")
-        ("linenos" "true")))
-
-;;; Use `xelatex' to handle Chinese LaTeX.
-(setq org-latex-pdf-process '(("latexmk -xelatex -g -pdf %b.tex"
-                               "bibtex %b"
-                               "latexmk -xelatex -g -pdf %b.tex"
-                               "latexmk -xelatex -g -pdf %b.tex")
-                              ("xelatex -interaction nonstopmode -output-directory %o %f")))
-
-;; (setq org-format-latex-header)
+      '(("frame" "lines")
+        ("linenos" "true")
+        ("bgcolor" "bg")
+        ))
 
 ;;; set LaTeX export to HTML style.
 (setq org-format-latex-options
@@ -95,16 +53,7 @@
       (plist-put org-format-latex-options :html-foreground "Black"))
 (setq org-format-latex-options
       (plist-put org-format-latex-options :html-background "Transparent"))
-;;; Preview Org-mode LaTeX fragments
-;; (setq org-preview-latex-default-process 'dvipng)    ; faster but don't support Chinese by default.
-(setq org-preview-latex-default-process 'imagemagick)  ; slower but support Chinese by default.
-(setq org-latex-image-default-width "2.0\\linewidth"
-      ;; org-latex-image-default-height "20.0\\lineheight"
-      )
-(setq org-format-latex-options
-      (plist-put org-format-latex-options :scale 2.0)) ; adjust LaTeX preview image size.
-(setq org-format-latex-options
-      (plist-put org-format-latex-options :html-scale 2.5)) ; adjust HTML exporting LaTeX image size.
+
 
 ;;; emabedded latex (inline formula)
 
@@ -112,19 +61,12 @@
 ;;; [ Math ]
 
 ;;; LaTeX Math Symbols
-
 ;; `helm-insert-latex-math'
 
-;;;_* Math formula support
-
-;;; Using CDLaTeX to enter Math
+;;; Math formula support
+;; Using CDLaTeX to enter Math
 ;; (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
-
-;; ;; CDLaTeX minor mode to speed up math input.
-;; (autoload 'cdlatex-mode "cdlatex" nil)
-;; ;; enable `org-cdlatex-mode' for all org files
-;; (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
-
+;;
 ;;; change default `org-cdlatex' keybindings.
 ;; (with-eval-after-load 'org
 ;;   (define-key org-cdlatex-mode-map (kbd "`") nil)
@@ -146,7 +88,23 @@
   :init (add-hook 'org-mode-hook #'org-edit-latex-mode))
 
 
+;;; [ ob-latex ]
+(require 'ob-latex)
+
+(add-to-list 'org-babel-load-languages '(latex . t))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+
+
 ;;; Org-mode export to -> Chinese TeX (ctex) -> PDF
+
+;;; Use `xelatex' to handle Chinese LaTeX.
+(dolist (cmd '("latexmk -xelatex -g -pdf %b.tex"
+               "latexmk -xelatex -g -pdf %b.tex"
+		           "bibtex %b"
+		           "latexmk -xelatex -g -pdf %b.tex"))
+  (add-to-list 'org-latex-pdf-process cmd))
+(add-to-list 'org-latex-pdf-process
+	           "xelatex -interaction nonstopmode -output-directory %o %f")
 
 ;;; [ org2ctex ] -- Export org to ctex (a latex macro for Chinese)
 

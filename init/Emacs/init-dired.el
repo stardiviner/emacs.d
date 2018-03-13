@@ -10,6 +10,7 @@
 ;;; [ Dired ] (Directory editing mode)
 
 (use-package dired
+  :defer t
   :bind (("C-x d" . dired)
          :map dired-mode-map
          ("j" . dired-next-line)
@@ -19,11 +20,10 @@
          ("F" . find-name-dired)
          ;; ("e" . ediff-files)
          )
-  :defer t
-  :config
+  :init
   ;; auto refresh dired when file changes
   (setq dired-auto-revert-buffer t)
-  
+  :config
   (defun dired-sudo ()
     "The sudo privilege to change the owner of a file owned by root."
     (interactive)

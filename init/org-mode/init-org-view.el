@@ -48,7 +48,7 @@
 
 (use-package org-bullets
   :ensure t
-  :defer t
+  :ensure all-the-icons
   :config
   (setq-default org-bullets-bullet-list
                 `(;; disk -> folder -> file style
