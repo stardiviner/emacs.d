@@ -123,6 +123,7 @@
 ;;
 ;; other charsets except 'han : kana, symbol, cjk-misc, bopomofo,
 ;; - WenQuanYi Micro Hei Mono :: 文泉驿 微米黑
+;; - NSimSun / SimSun :: 新宋体
 ;; - "Hiragino Sans GB W3"
 ;; - FZSuXinShiLiuKaiS-R-GB :: 方正苏新诗柳字体
 ;; - DFPShaoNvW5-GB :: 华康少女体 W5
@@ -140,6 +141,7 @@
                       charset
                       ;; (font-spec :family "Noto Sans CJK SC" :size 13)
                       (font-spec :family "WenQuanYi Micro Hei" :size 13)
+                      ;; (font-spec :family "NSimSun" :size 13)
 		                  ;; (font-spec :family "AR PL UKai CN" :size 13)
 		                  ;; (font-spec :family "AR PL UKai TW" :size 13)
                       ))
