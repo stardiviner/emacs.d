@@ -77,10 +77,22 @@
 (add-to-list 'org-babel-default-header-args:js
              '(:results . "output"))
 
-;;; Session support.
-;; `skewer-mode'
-;; (add-to-list 'org-babel-default-header-args:js
-;;              '(:session . "*skewer-repl*"))
+
+(defun ob-js-insert-session-header-arg (session)
+  "Insert ob-js `SESSION' header argument.
+- `js-comint'
+- `skewer-mode'
+- `Indium'
+"
+  (interactive (list (completing-read "ob-js session: "
+                                      '("js-comint" "skewer-mode" "indium"))))
+  (org-babel-insert-header-arg
+   "session"
+   (pcase session
+     ("js-comint" "\"*Javascript REPL*\"")
+     ("skewer-mode" "\"*skewer-repl*\"")
+     ("indium" "\"*JS REPL*\""))))
+(define-key org-babel-map (kbd "J") 'ob-js-insert-session-header-arg)
 
 
 ;;; [ js2-mode ]
@@ -273,6 +285,7 @@
                '("\\*skewer-repl\\*" . (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
                '("\\*skewer-error\\*" . (display-buffer-below-selected)))
+  (advice-add 'run-skewer :before #'httpd-start) ; auto start httpd before `run-skewer'.
   )
 
 ;;; [ Indium ] -- A JavaScript development environment for Emacs.
