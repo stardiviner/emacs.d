@@ -427,7 +427,7 @@ state (modified, read-only or non-existent)."
                                            :v-adjust -0.05 :face '(:foreground "green"))
                (all-the-icons-faicon "chain-broken"
                                      :v-adjust -0.0 :face 'mode-line-error-face))
-             (if (and (featurep pyvenv-mode) pyvenv-mode)
+             (if (and (featurep 'pyvenv-mode) pyvenv-mode)
                  ;; `pyvenv-mode-line-indicator' -> `pyvenv-virtual-env-name'
                  (propertize (format " %s" pyvenv-virtual-env-name)
                              'face '(:foreground "green"))
