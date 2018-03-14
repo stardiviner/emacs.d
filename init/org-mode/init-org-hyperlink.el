@@ -202,10 +202,7 @@ With prefix argument, also display headlines without a TODO keyword."
                          :follow #'org-tag-link-open)
 
 ;;; [ Git ]
-;; In Git local repository file, `org-store-link'. Then insert link in Org-mode buffer.
-;; - `git:'
-;; - `gitbare:'
-;; (require 'org-git-link)
+(require 'org-git-link)
 
 ;;; add file path completion support for `git:' and `gitbare:'
 (org-link-set-parameters "git"
