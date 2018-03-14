@@ -929,27 +929,26 @@ dimensions of a block selection."
 ;; - `rtags-is-indexed'
 ;; You have to run `rdm' with the `--progress' for this to work.
 
-(use-package rtags
-  :ensure t
-  :defines rtags-enabled
-  :config
-  ;; FIXME: `*rtags-mode-line' caused `beacon-mode' blink does not fade off.
-  (defun *rtags-mode-line ()
-    "Show `rtags-mode-line' info in my custom mode-line."
-    (if (and (mode-line-window-active-p)
-             (and (boundp 'rtags-enabled) rtags-enabled))
-        (propertize
-         (concat
-          (if (not (string-empty-p (rtags-mode-line)))
-              (all-the-icons-faicon "paw" :v-adjust -0.05)
-            (rtags-mode-line))
-          (if (rtags-is-indexed)
-              (all-the-icons-faicon "codepen" :v-adjust -0.05))
-          (propertize " " 'face 'variable-pitch))
-         'face 'mode-line)))
-  
-  ;; (add-hook 'rtags-diagnostics-hook #'force-mode-line-update)
-  )
+;; (use-package rtags
+;;   :ensure t
+;;   :defines rtags-enabled
+;;   :config
+;;   ;; FIXME: `*rtags-mode-line' caused `beacon-mode' blink does not fade off.
+;;   (defun *rtags-mode-line ()
+;;     "Show `rtags-mode-line' info in my custom mode-line."
+;;     (if (and (mode-line-window-active-p)
+;;              (and (boundp 'rtags-enabled) rtags-enabled))
+;;         (propertize
+;;          (concat
+;;           (if (not (string-empty-p (rtags-mode-line)))
+;;               (all-the-icons-faicon "paw" :v-adjust -0.05)
+;;             (rtags-mode-line))
+;;           (if (rtags-is-indexed)
+;;               (all-the-icons-faicon "codepen" :v-adjust -0.05))
+;;           (propertize " " 'face 'variable-pitch))
+;;          'face 'mode-line)))
+;;   ;; (add-hook 'rtags-diagnostics-hook #'force-mode-line-update)
+;;   )
 
 ;;; [ Email ]
 ;;; mu4e
