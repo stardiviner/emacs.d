@@ -983,15 +983,18 @@ dimensions of a block selection."
   :ensure t
   :config
   (defvar github-notifications-number nil)
-  (defun github-notifications ()
-    (setq github-notifications-number
-          (length
-           ;; check out documentation of `ghubp-get-notifications'.
-           (ghubp-get-notifications :participating "true") ; from package `ghub+'.
-           ;; (ghub-get "/notifications" '((:participating . "true")))
-           ;; (ghub-get "/notifications")
-           )))
-  (run-with-timer 10 3600 'github-notifications)
+
+  (defun github-fetch-notifications ()
+    (when (my:internet-network-available?)
+      (setq github-notifications-number
+            (length
+             ;; check out documentation of `ghubp-get-notifications'.
+             (ghubp-get-notifications :participating "true")
+             ;; (ghub-get "/notifications" '((:participating . "true")))
+             ))))
+  
+  (run-with-timer 10 3600 'github-fetch-notifications)
+  
   (defun *github-notifications ()
     (if (and (mode-line-window-active-p) (> github-notifications-number 0))
         (propertize
@@ -999,6 +1002,7 @@ dimensions of a block selection."
           (all-the-icons-faicon "github" :v-adjust 0.05)
           (format " %s " github-notifications-number))
          'face 'mode-line-data-face)))
+  
   (defun github-open-notifications-participating ()
     "Open GitHub Notifications/Participating page."
     (interactive)
