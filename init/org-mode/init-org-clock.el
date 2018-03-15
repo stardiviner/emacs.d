@@ -85,6 +85,14 @@
              (concat user-emacs-directory
                      "resources/audio/Hacking Game/hesfx_untold_tick2.wav"))))
 
+
+;;; [ org-mru-clock ] -- Effortlessly clock in/out of org-mode tasks, with completion and persistent history.
+
+(use-package org-mru-clock
+  :ensure t
+  :bind (:map org-clock-prefix ("C-i" . org-mru-clock-in)))
+
+
 
 (provide 'init-org-clock)
 
