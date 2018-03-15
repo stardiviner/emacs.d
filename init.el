@@ -206,7 +206,7 @@
 (require 'init-prog-inferior)
 ;; (require 'init-prog-eval)
 (require 'init-prog-compile)
-;; (require 'init-prog-make)
+(require 'init-prog-build-system)
 (require 'init-prog-lint)
 (require 'init-prog-debug)
 (require 'init-prog-test)

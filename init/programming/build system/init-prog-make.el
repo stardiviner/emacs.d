@@ -29,13 +29,9 @@
 
 (use-package makefile-executor
   :ensure t
+  :defer t
   :init
   (add-hook 'makefile-mode-hook 'makefile-executor-mode))
-
-
-;;; [ CMake ]
-
-(require 'init-prog-make-cmake)
 
 
 (provide 'init-prog-make)

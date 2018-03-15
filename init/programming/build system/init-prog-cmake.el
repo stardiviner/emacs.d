@@ -1,4 +1,4 @@
-;;; init-prog-make-cmake.el --- init for CMake
+;;; init-prog-cmake.el --- init for CMake
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -11,6 +11,7 @@
 
 (use-package cmake-mode
   :ensure t
+  :defer t
   :mode (("CMakeLists\\.txt\\'" . cmake-mode)
          ("\\.cmake\\'" . cmake-mode))
   :config
@@ -21,13 +22,12 @@
 
 ;;; [ cmake-ide ]
 
-;; (use-package cmake-ide
-;;   :ensure t
-;;   :defer t
-;;   :config
-;;   (cmake-ide-setup)
-;;   )
-
+(use-package cmake-ide
+  :ensure t
+  :defer t
+  :config
+  (cmake-ide-setup)
+  )
 
 ;;; [ cmake-project ] -- Integrates CMake build process with Emacs.
 
@@ -36,6 +36,6 @@
   :defer t)
 
 
-(provide 'init-prog-make-cmake)
+(provide 'init-prog-cmake)
 
-;;; init-prog-make-cmake.el ends here
+;;; init-prog-cmake.el ends here
