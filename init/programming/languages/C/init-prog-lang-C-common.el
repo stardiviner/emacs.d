@@ -177,6 +177,16 @@
 ;;   :after flycheck
 ;;   :config (flycheck-clang-analyzer-setup))
 
+;;; [ rainbow-identifiers ] -- highlighting of identifiers based on their names.
+
+(use-package rainbow-identifiers
+  :ensure t
+  :defer
+  :init (hook-modes c-dialects-mode
+          (when (memq major-mode '(c-mode c++-mode objc-mode))
+            (rainbow-identifiers-mode 1)))
+  )
+
 
 
 (provide 'init-prog-lang-C-common)
