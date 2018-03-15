@@ -26,7 +26,7 @@
 
 (unless (boundp 'deploy-prefix)
   (define-prefix-command 'deploy-prefix))
-(define-key prog-tools-prefix (kbd "c") 'deploy-prefix)
+(define-key prog-tools-prefix (kbd "d") 'deploy-prefix)
 
 (use-package copy-file-on-save
   :ensure t
