@@ -17,7 +17,7 @@
 (require 'init-emacs-search-wgrep)
 (require 'init-emacs-search-ag)
 ;; (require 'init-emacs-search-pt)
-;; (require 'init-emacs-search-ripgrep)
+(require 'init-emacs-search-ripgrep)
 (require 'init-emacs-search-finder)
 (require 'init-emacs-search-engine)
 

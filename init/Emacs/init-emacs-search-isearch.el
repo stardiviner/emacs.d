@@ -22,9 +22,9 @@
               ("I" . isearch-forward-regexp)
               ("f" . isearch-forward)
               ("C-f" . isearch-forward-symbol-at-point)
-              ("r" . isearch-forward-regexp)
+              ("F" . isearch-forward-regexp)
               ("b" . isearch-backward)
-              ("R" . isearch-backward-regexp)
+              ("B" . isearch-backward-regexp)
               ("o" . isearch-occur)
               )
   :config

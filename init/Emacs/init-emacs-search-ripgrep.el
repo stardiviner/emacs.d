@@ -7,23 +7,34 @@
 
 ;;; Code:
 
-;;; [ ripgrep ] -- Emacs front-end for ripgrep, a command line search tool.
+(unless (boundp 'rg-prefix)
+  (define-prefix-command 'rg-prefix))
+(define-key search-prefix (kbd "r") 'rg-prefix)
 
-(use-package ripgrep
+;;; [ rg ] -- Use ripgrep (grep and ag replacement) like rgrep.
+
+(use-package rg
   :ensure t
-  :ensure-system-package (rg . "sudo pacman -S --noconfirm ripgrep")
-  :bind (:map search-prefix
-              ("r" . ripgrep-regexp))
+  :defer t
+  :custom (rg-keymap-prefix nil)
+  :preface (setq rg-keymap-prefix rg-prefix)
+  :bind (:map rg-prefix
+              ("r" . rg-dwim)
+              ("R" . rg-dwim-current-directory)
+              ("C-r" . rg)
+              :map projectile-command-map
+              ("s r" . rg-project)
+              )
+  :init
+  (rg-enable-default-bindings)
+  (if (fboundp 'wgrep-ag-setup)
+      (add-hook 'rg-mode-hook #'wgrep-ag-setup))
   :config
-  ;; (setq ripgrep-arguments '())
-  )
-
-;;; [ projectile-ripgrep ] -- front-end for ripgrep, a command line search tool.
-
-(use-package projectile-ripgrep
-  :ensure t
-  :config
-  (define-key search-prefix (kbd "C-r") 'projectile-ripgrep)
+  (setq rg-command-line-flags '()
+        rg-group-result t
+        rg-show-columns t)
+  (add-to-list 'display-buffer-alist
+               '("^\\*rg\\*" (display-buffer-below-selected)))
   )
 
 
