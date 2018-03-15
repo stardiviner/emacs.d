@@ -12,45 +12,40 @@
 
 ;;; convert selected region to Markdown and copy to clipboard for pasting
 ;;; on sites like GitHub, and Stack Overflow.
-
-(defun my-org-md-convert-region-to-md ()
+(defun my:org-convert-region-to-md ()
   "Convert selected region to Markdown and copy to clipboard.
-
 For pasting on sites like GitHub, and Stack Overflow."
   (interactive)
   (require 'ox-md)
-  
-  ;; (with-temp-buffer-window
-  ;;  "*org->markdown temp*"
-  ;;  (org-export-to-buffer 'md "*org->markdown temp*"
-  ;;    async subtreep visible-only) 'delete-window)
-
-  (unless (org-region-active-p) (user-error "No active region to replace"))
-  (x-set-selection 'CLIPBOARD
-                   (org-export-string-as
-                    (buffer-substring (region-beginning) (region-end))
-                    'md t
-                    '(:with-toc nil)))
+  (unless (org-region-active-p) (user-error "No active region selected"))
+  (gui-set-selection
+   'CLIPBOARD
+   (org-export-string-as
+    (buffer-substring (region-beginning) (region-end))
+    'md t
+    '(:with-toc nil)))
   (deactivate-mark))
 
-(unless (boundp 'paste-prefix)
-  (define-prefix-command 'paste-prefix))
-(define-key paste-prefix (kbd "m") 'my-org-md-convert-region-to-md)
-
-;;; copy formatted text from org-mode to applications.
+(define-key paste-prefix (kbd "m") 'my:org-convert-region-to-md)
 
-(defun my-org-formatted-copy ()
-  "Export region to HTML, and copy it to the clipboard."
+;;; copy formatted text from org-mode to applications.
+(defun my:org-convert-region-to-html ()
+  "Export region to HTML, and copy it to the clipboard.
+For pasting source code in Email."
   (interactive)
-  (save-window-excursion
-    (let* ((buf (org-export-to-buffer 'html "*org-mode formatted copy*" nil nil t t))
-           (html (with-current-buffer buf (buffer-string))))
-      (with-current-buffer buf
-        (shell-command-on-region
-         (point-min)
-         (point-max)
-         "textutil -stdin -format html -convert rtf -stdout | pbcopy"))
-      (kill-buffer buf))))
+  (require 'ox-html)
+  (unless (org-region-active-p) (user-error "No active region selected"))
+  (gui-set-selection
+   'CLIPBOARD
+   (org-export-string-as
+    (buffer-substring (region-beginning) (region-end))
+    'html t
+    '(:with-toc nil)))
+  (deactivate-mark))
+
+(define-key paste-prefix (kbd "h") 'my:org-convert-region-to-html)
+;;; `htmlize-buffer' (convert current buffer into HTML output)
+(define-key paste-prefix (kbd "H") 'htmlize-buffer)
 
 
 
@@ -109,10 +104,6 @@ For pasting on sites like GitHub, and Stack Overflow."
 ;;   :config
 ;;   (setq pastery-api-key "9dMWka2QzhnsFyRb4aKb2Fc6tZMudoZb")
 ;;   )
-
-
-;;; htmlize-buffer (convert current buffer into HTML output)
-(define-key paste-prefix (kbd "h") 'htmlize-buffer)
 
 
 (provide 'init-tool-paste)

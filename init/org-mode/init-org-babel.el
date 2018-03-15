@@ -19,8 +19,11 @@
                 (:noweb . "no") (:hlines . "no")
                 (:tangle . "no") (:comments . "links")
                 (:cache . "yes")
-                (:results . "replace") (:exports . "both")
+                (:results . "replace") (:exports . "code")
                 ))
+
+;;; don't evaluate babel when exporting. For helper functions like `my:org-convert-region-to-html' etc.
+;; (setq org-export-babel-evaluate nil)
 
 ;;; Manage org-babel popup buffers with `display-buffer-alist'.
 (add-to-list 'display-buffer-alist
