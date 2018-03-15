@@ -18,9 +18,7 @@
               ("i" . docker-images)
               ("v" . docker-volumes)
               ("n" . docker-networks))
-  :init
-  (require 'docker-process)
-  (setq docker-keymap-prefix "C-c t c")
+  :load (docker-process)
   :config
   (setq docker-containers-show-all t)
   (docker-global-mode 1) ; enable global docker minor mode
@@ -71,11 +69,9 @@
 
 (use-package docker-tramp
   :ensure t
-  :defer t
   :config
-  (setq docker-tramp-use-names t
-        ;; docker-tramp-docker-options nil
-        )
+  (setq docker-tramp-use-names t)
+  ;; (setq docker-tramp-docker-options nil)
 
   (defun docker-tramp-insert-running-container (container)
     "A helper function to insert the running `CONTAINER' name.
@@ -90,6 +86,7 @@ For Org-babel header argument :dir /docker:<name>:."
                    ;; (mapcar 'cdr (docker-tramp--running-containers))
                    (list (completing-read "Docker container name: " containers-name))))
     (insert container))
+  (define-key org-babel-map (kbd "C") 'docker-tramp-insert-running-container)
   )
 
 ;;; [ docker-api ] -- Emacs interface to the Docker API.
