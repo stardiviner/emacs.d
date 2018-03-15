@@ -215,6 +215,16 @@ Optional for Org-mode file: `LINK'."
                 "\\(\\s-*\\)&" 1 1 t))
 
 
+;;; [ Network ]
+
+(defun my:internet-network-available? ()
+  "Detect Internet network available?"
+  (eq (length
+       (with-temp-buffer
+         (url-retrieve-synchronously "https://www.baidu.com")
+         (buffer-string)))
+      0))
+
 ;;; read in encrypted JSON file key-value pairs.
 
 (setq my/account-file (concat user-emacs-directory "accounts.json.gpg"))
