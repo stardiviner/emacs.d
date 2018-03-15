@@ -61,18 +61,35 @@
   :init (which-key-mode 1)
   :bind ("C-h C-h" . which-key-show-top-level)
   :config
-  (setq which-key-idle-delay 0.4
-        which-key-idle-secondary-delay nil)
+  ;; (which-key-setup-side-window-right-bottom)
+  (setq which-key-popup-type 'side-window)
+  (setq which-key-side-window-location 'bottom)
+  ;; (setq which-key-side-window-max-height 0.25)
+  
+  (setq which-key-idle-delay 1.0)
 
   (setq which-key-max-description-length 27
         ;; which-key-separator " ⇢ "
 	      which-key-separator " "
-        ;; which-key-unicode-correction 3
-        which-key-show-prefix 'mode-line ; 'mode-line 'echo 'left
+        which-key-show-prefix 'mode-line ; 'mode-line 'echo 'left, 'top
         which-key-show-remaining-keys t
         )
 
+  (setq which-key-enable-extended-define-key t)
   (setq which-key-sort-order 'which-key-key-order-alpha)
+
+  (add-to-list 'which-key-replacement-alist '(("TAB" . nil) . ("↹" . nil)))
+  (add-to-list 'which-key-replacement-alist '(("RET" . nil) . ("⏎" . nil)))
+  (add-to-list 'which-key-replacement-alist '(("DEL" . nil) . ("⇤" . nil)))
+  (add-to-list 'which-key-replacement-alist '(("SPC" . nil) . ("␣" . nil)))
+
+  (push (cons '(nil . "paredit-mode") 
+              (lambda (kb)
+                (cons (car kb)
+                      (if paredit-mode
+                          "[x] paredit-mode"
+                        "[ ] paredit-mode"))))
+        which-key-replacement-alist)
   
   (setq which-key-highlighted-command-list
         '("toggle"
@@ -84,6 +101,10 @@
 
   (set-face-attribute 'which-key-highlighted-command-face nil
 		                  :underline nil :weight 'bold)
+  ;; (set-face-attribute 'which-key-command-description-face nil
+  ;;                     :inherit nil)
+  ;; (set-face-attribute 'which-key-local-map-description-face nil
+  ;;                     :weight 'bold)
   )
 
 
