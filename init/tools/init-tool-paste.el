@@ -37,10 +37,7 @@ For pasting source code in Email."
   (unless (org-region-active-p) (user-error "No active region selected"))
   (gui-set-selection
    'CLIPBOARD
-   (org-export-string-as
-    (buffer-substring (region-beginning) (region-end))
-    'html t
-    '(:with-toc nil)))
+   (htmlize-region-for-paste (region-beginning) (region-end)))
   (deactivate-mark))
 
 (define-key paste-prefix (kbd "h") 'my:org-convert-region-to-html)
