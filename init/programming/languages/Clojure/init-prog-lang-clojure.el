@@ -278,12 +278,12 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 
 ;;; [ flycheck-clojure, squiggly-clojure ] --
 
-(use-package flycheck-clojure
-  :ensure t
-  :defer t
-  :after flycheck
-  :init
-  (flycheck-clojure-setup))
+;; (use-package flycheck-clojure
+;;   :ensure t
+;;   :defer t
+;;   :after flycheck
+;;   :init
+;;   (flycheck-clojure-setup))
 
 
 ;;; [ clj-refactor ]
