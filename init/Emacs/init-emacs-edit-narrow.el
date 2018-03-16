@@ -7,13 +7,11 @@
 
 ;;; Code:
 
-;;; [ Narrowing ]
+(unless (boundp 'narrow-prefix)
+  (define-prefix-command 'narrow-prefix))
+(define-key editing-prefix (kbd "n") 'narrow-prefix)
 
-;;; Usage:
-;;
-;; - prefix --> [C-x n]
-;; - [C-x n n] -- narrow to region
-;; - [C-x n w] -- widen (undo narrow)
+;;; [ narrow ]
 
 ;;; don't disable narrowing functions
 (put 'narrow-to-region 'disabled nil)     ; [C-x n n]
@@ -22,9 +20,8 @@
 (put 'upcase-region 'disabled nil)        ; [C-x C-u]
 (put 'downcase-region 'disabled nil)      ; [C-x C-l]
 
-(unless (boundp 'narrow-prefix)
-  (define-prefix-command 'narrow-prefix))
-(define-key editing-prefix (kbd "n") 'narrow-prefix)
+(define-key narrow-map (kbd "r") 'narrow-to-region)
+(define-key narrow-map (kbd "n") 'narrow-or-widen-dwim)
 
 (define-key narrow-prefix (kbd "w") 'widen)
 (define-key narrow-prefix (kbd "r") 'narrow-to-region)
@@ -32,10 +29,10 @@
 (define-key narrow-prefix (kbd "p") 'narrow-to-page)
 
 ;;; custom keybinding for handy (narrow + indirect-buffer)
-;;
-;; Usage: [C-x n i], you can kill narrowed indirect buffer like normal buffer with [C-x k]. the modification will keep.
 (defun narrow-to-region-indirect (start end)
-  "Restrict editing in this buffer to the current region, indirectly."
+  "Restrict editing in buffer on region `START' and `END' indirectly.
+You can kill narrowed indirect buffer like normal buffer with \\<kill-buffer>.
+And the modification will keep."
   (interactive "r")
   (deactivate-mark)
   (let ((buf (clone-indirect-buffer nil nil)))
@@ -43,7 +40,6 @@
       (narrow-to-region start end))
     (switch-to-buffer buf)))
 
-;; (global-set-key (kbd "C-x n i") 'narrow-to-region-indirect)
 (define-key narrow-prefix (kbd "i") 'narrow-to-region-indirect)
 
 
@@ -52,7 +48,6 @@
 Intelligently means: region, org-src-block, org-subtree, or defun,
 whichever applies first.
 Narrowing to org-src-block actually calls `org-edit-src-code'.
-
 With prefix P, don't widen, just narrow even if buffer is already
 narrowed."
   (interactive "P")
@@ -70,26 +65,17 @@ narrowed."
                (t (org-narrow-to-subtree))))
         (t (narrow-to-defun))))
 
-(define-key narrow-map (kbd "r") 'narrow-to-region) ; backup `narrow-to-region'.
-(define-key narrow-map (kbd "n") #'narrow-or-widen-dwim)
 (define-key narrow-prefix (kbd "n") #'narrow-or-widen-dwim)
-
-;; This line actually replaces Emacs' entire narrowing keymap, that's
-;; how much I like this command. Only copy it if that's what you want.
-;; (define-key ctl-x-map "n" #'narrow-or-widen-dwim)
-
 
 ;;; [ fancy-narrow ] -- immitate `narrow-to-region' with more eye-candy.
 
 (use-package fancy-narrow
   :ensure t
   :defer t
-  :init
-  (global-set-key [remap narrow-to-region] 'fancy-narrow-to-region)
-  (global-set-key [remap narrow-to-defun] 'fancy-narrow-to-defun)
-  (global-set-key [remap narrow-to-page] 'fancy-narrow-to-page)
-  (global-set-key [remap widen] 'fancy-widen)
-  )
+  :bind (([remap narrow-to-region] . fancy-narrow-to-region)
+         ([remap narrow-to-defun] . fancy-narrow-to-defun)
+         ([remap narrow-to-page] . fancy-narrow-to-page)
+         ([remap widen] . fancy-widen)))
 
 
 (provide 'init-emacs-edit-narrow)
