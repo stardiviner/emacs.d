@@ -25,7 +25,15 @@
 ;;; [ leuven-theme ]
 
 (use-package leuven-theme
-  :ensure t)
+  :ensure t
+  :ensure hl-line
+  :config
+  (defun my:leuven-disable-underline (theme)
+    "Reload customized faces on `circadian' `THEME' toggling."
+    (with-eval-after-load 'hl-line
+      (set-face-attribute 'hl-line nil :underline nil)))
+  (add-hook 'circadian-after-load-theme-hook #'my:leuven-disable-underline)
+  )
 
 ;;; [ doom-themes ]
 
