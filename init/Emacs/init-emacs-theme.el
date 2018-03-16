@@ -35,6 +35,11 @@
   (add-hook 'circadian-after-load-theme-hook #'my:leuven-disable-underline)
   )
 
+;;; [ twilight-bright-theme ]
+
+(use-package twilight-bright-theme
+  :ensure t)
+
 ;;; [ doom-themes ]
 
 (use-package doom-themes
@@ -65,7 +70,10 @@
         calendar-time-zone +480
         calendar-latitude 29.72
         calendar-longitude 120.20)
-  (setq circadian-themes '((:sunrise . leuven)
+  (setq circadian-themes '((:sunrise . twilight-bright)
+                           ("11:00" . leuven)
+                           ("13:00" . twilight-bright)
+                           ("16:00" . doom-one)
                            (:sunset . spacemacs-dark)))
   (circadian-setup))
 
@@ -77,11 +85,7 @@
                                    ('light
                                     (color-darken-name (face-background 'default) 50))
                                    ('dark
-                                    (color-lighten-name (face-background 'default) 30))
-                                   ))
-  (set-face-attribute 'font-lock-builtin-face nil
-                      :background " ")
-  )
+                                    (color-lighten-name (face-background 'default) 30)))))
 (add-hook 'circadian-after-load-theme-hook #'my:font-lock-extra-setup)
 
 
