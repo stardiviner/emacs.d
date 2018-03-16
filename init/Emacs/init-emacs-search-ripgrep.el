@@ -24,6 +24,9 @@
               ("C-r" . rg)
               :map projectile-command-map
               ("s r" . rg-project)
+              ;; swap `projectile-ag' keybinding.
+              ("s s" . rg-project)
+              ("s a" . projectile-ag)
               )
   :init
   (rg-enable-default-bindings)
