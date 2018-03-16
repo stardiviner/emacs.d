@@ -123,6 +123,13 @@
                 org-capture-templates))
   )
 
+;;; [ org-rich-yank ] -- rich text clipboard for org-mode: Paste into a #+BEGIN_SRC block of correct mode, with link to where it came from.
+
+(use-package org-rich-yank
+  :ensure t
+  :commands (org-rich-yank)
+  :bind (:map org-mode-map ("C-M-y" . org-rich-yank)))
+
 
 (provide 'init-org-capture)
 
