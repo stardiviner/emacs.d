@@ -11,6 +11,8 @@
 
 (use-package ivy
   :ensure t
+  ;; [ ivy-hydra ] -- [C-o], [M-o]
+  :ensure ivy-hydra
   :defer t
   :init
   (ivy-mode 1)
@@ -19,63 +21,12 @@
   (setq ivy-use-virtual-buffers t ; treat recentf, bookmarks as virtual buffers.
         ivy-virtual-abbreviate 'full ; use 'full to fix bookmarks uniquify issue.
         ivy-height 5
-        ivy-fixed-height-minibuffer nil
+        ivy-fixed-height-minibuffer t
         ivy-display-style 'fancy
-        ivy-count-format "(%d/%d) "
+        ;; ivy-count-format "(%d/%d) "
         ivy-initial-inputs-alist nil ; remove initial ^ input.
-        ivy-extra-directories '("./" "../") ; remove . and .. directory.
-        ivy-wrap nil
+        ;; ivy-extra-directories '() ; remove . and .. directory.
         )
-
-  ;; use fuzzy search as default matcher
-  ;; (setq ivy-re-builders-alist
-  ;;       '((ivy-switch-buffer . ivy--regex-plus)
-  ;;         (swiper . ivy--regexp-fuzzy)
-  ;;         (t . ivy--regexp-fuzzy)))
-  ;; or more programmatically:
-  ;; (with-eval-after-load 'ivy
-  ;;   (push (cons t #'ivy--regex-plus) ivy-re-builders-alist)
-  ;;   (push (cons #'swiper (cdr (assq t ivy-re-builders-alist))) ivy-re-builders-alist))
-  
-  ;; [ ivy-hydra ] -- [C-o], [M-o]
-  (use-package ivy-hydra
-    :ensure t)
-
-  ;; some actions
-  (ivy-set-actions
-   'counsel-find-file
-   '(("d" (lambda (x) (delete-file (expand-file-name x)))
-      "delete")
-     ))
-  (ivy-set-actions
-   'ivy-switch-buffer
-   '(("k" (lambda (x) (kill-buffer x) (ivy--reset-state ivy-last))
-      "kill")
-     ("j" ivy--switch-buffer-other-window-action
-      "other window")
-     ))
-  
-  ;; {Bookmarks}
-  (defun ivy-bookmark-goto ()
-    "Open ANY bookmark"
-    (interactive)
-    (let (bookmarks filename)
-      ;; load bookmarks
-      (unless (featurep 'bookmark)
-        (require 'bookmark))
-      (bookmark-maybe-load-default-file)
-      (setq bookmarks (and (boundp 'bookmark-alist) bookmark-alist))
-      ;; do the real thing
-      (ivy-read "bookmarks:"
-                (delq nil (mapcar (lambda (bookmark)
-                                    (let (key)
-                                      (setq key (car bookmark))
-                                      (cons key bookmark)))
-                                  bookmarks))
-                :action (lambda (bookmark)
-                          (bookmark-jump bookmark)))
-      ))
-  (global-set-key [remap bookmark-jump] 'ivy-bookmark-goto)
   )
 
 ;;; [ ivy-rich ] -- More friendly display transformer for ivy.
@@ -84,14 +35,6 @@
   :ensure t
   :config
   (ivy-set-display-transformer 'ivy-switch-buffer 'ivy-rich-switch-buffer-transformer))
-
-;;; [ all-the-icons-ivy ] -- Ivy/Counsel integration with all-the-icons.el
-
-;; (use-package all-the-icons-ivy
-;;   :ensure t
-;;   :config
-;;   (all-the-icons-ivy-setup)
-;;   )
 
 ;;; [ counsel ]
 
@@ -143,9 +86,7 @@
   (define-key search-prefix (kbd "M-a") 'counsel-ag) ; [C-u] prompt for dir support
   (define-key search-prefix (kbd "F") 'counsel-fzf)
   :config
-  (setq ivy-use-selectable-prompt t)
-  ;; (setq ivy-switch-buffer-show-info '("%s" "buffer-name"))
-  (setq counsel-yank-pop-truncate t)
+  (setq ivy-use-selectable-prompt nil)
   )
 
 
