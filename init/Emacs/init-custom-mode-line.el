@@ -149,7 +149,8 @@ to the command loop."
           (all-the-icons-octicon "file-directory" :v-adjust -0.05 :height 0.9)
           (propertize " " 'face 'variable-pitch)
           ;; `projectile-mode-line'
-          (propertize (projectile-project-name) 'face 'mode-line-data-face)
+          (propertize (projectile-project-name)
+                      'face (if (mode-line-window-active-p) 'mode-line 'mode-line-inactive))
           "] "
           ))))
   )
@@ -172,7 +173,7 @@ to the command loop."
                                      (eyebrowse--get 'window-configs))))
             (slot-numbers (length (eyebrowse--get 'window-configs))))
 	      (format "[%s:%s] " current-slot-number current-slot-tag))
-      'face 'mode-line-data-face)
+      'face (if (mode-line-window-active-p) 'mode-line 'mode-line-inactive))
      ))
   )
 
@@ -1028,7 +1029,7 @@ dimensions of a block selection."
   :load emms-mode-line
   :config
   ;; (emms-mode-line 1)
-  (setq emms-mode-line-format "[ %s ]")
+  (setq emms-mode-line-format "[%s]")
   (defun *emms ()
     (when (and emms-player-playing-p (mode-line-window-active-p))
       ;; emms-mode-line-string
