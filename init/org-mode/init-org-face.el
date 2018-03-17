@@ -164,7 +164,7 @@
                                   ('light "orange1")
                                   ('dark "dark orange"))
                     )
-;; scheduled in agenda, scheduled today, & org-habit
+;; scheduled in agenda, scheduled today
 (set-face-attribute 'org-scheduled-today nil
                     :foreground (cl-case (alist-get 'background-mode (frame-parameters))
                                   ('light "sea green")
@@ -177,6 +177,20 @@
                     :foreground (cl-case (alist-get 'background-mode (frame-parameters))
                                   ('light "forest green")
                                   ('dark "olive drab")))
+(require 'org-habit)
+;; org-habit
+(set-face-attribute 'org-habit-overdue-face nil
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 4))
+                                  ('dark
+                                   (color-darken-name (face-background 'default) 5))))
+(set-face-attribute 'org-habit-overdue-future-face nil
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 7))
+                                  ('dark
+                                   (color-darken-name (face-background 'default) 8))))
 
 ;; Emphasize
 ;; org-verbatim: =verbatim=
@@ -195,9 +209,9 @@
 ;; the ahead stars face when org indentation. (org-hide)
 (require 'org-indent)
 (set-face-attribute 'org-hide nil
+                    :inherit nil
                     :foreground (face-background 'default)
-                    :background (face-background 'default)
-                    )
+                    :background (face-background 'default))
 (set-face-attribute 'org-document-title nil
                     :inherit nil
                     :weight 'bold
@@ -360,6 +374,7 @@
 ;; Basic face for displaying the secondary selection.
 ;; face for babel src block background color when [C-c '] `org-edit-special'.
 (set-face-attribute 'secondary-selection nil
+                    :weight 'normal
                     :background (cl-case (alist-get 'background-mode (frame-parameters))
                                   ('light
                                    (color-darken-name (face-background 'default) 10))
