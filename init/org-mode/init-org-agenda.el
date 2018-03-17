@@ -331,7 +331,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 (add-to-list 'org-agenda-custom-commands
              '("c" "Custom Agenda with in progress tasks, priority tasks (and all tasks)."
-               ((todo "STARTED")
+               ((todo "STARTED") ; from `org-clock' forced state keyword.
                 (todo "INPROGRESS")
                 (tags "PRIORITY=\"A\""
                       ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))

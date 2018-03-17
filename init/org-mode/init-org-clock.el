@@ -26,7 +26,7 @@
       org-clock-persist-file (concat user-emacs-directory "org-clock-save.el")
       org-clock-in-resume t    ; resume when clock in.
       org-clock-continuously nil ; don't continue on last clock out.
-      org-clock-in-switch-to-state "STARTED"
+      org-clock-in-switch-to-state nil
       org-clock-out-when-done t         ; clock will stop when task marked DONE.
       org-clock-into-drawer t  ; Save clock data and notes in the :LOGBOOK: drawer
       org-clock-out-remove-zero-time-clocks t ; Removes clocked tasks with 0:00 duration
