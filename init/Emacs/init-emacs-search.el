@@ -21,9 +21,6 @@
 (require 'init-emacs-search-finder)
 (require 'init-emacs-search-engine)
 
-(with-eval-after-load 'counsel
-  (define-key search-prefix (kbd "s") 'counsel-ag))
-
 
 (provide 'init-emacs-search)
 

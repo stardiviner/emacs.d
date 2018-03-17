@@ -18,9 +18,13 @@
   :defer t
   :custom (rg-keymap-prefix nil)
   :preface (setq rg-keymap-prefix rg-prefix)
-  :bind (:map rg-prefix
+  :commands (rg rg-literal rg-dwim rg-dwim-current-dir rg-dwim-project-dir)
+  :bind (:map search-prefix
+              ("s" . rg)
+              :map rg-prefix
               ("r" . rg-dwim)
-              ("R" . rg-dwim-current-directory)
+              ("d" . rg-dwim-current-dir)
+              ("p" . rg-dwim-project-dir)
               ("C-r" . rg)
               :map projectile-command-map
               ("s r" . rg-project)
