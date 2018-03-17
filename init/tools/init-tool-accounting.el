@@ -45,55 +45,64 @@
                   ("le" "[E]xpenses")
                   ("les" "[S]hopping" plain
                    (file (lambda () (concat org-directory "/Accounting/my.ledger")))
-                   "%(org-read-date) %^{Event}\n expenses:shopping:%^{category}  %^{Amount}")
+                   "%(org-read-date) %^{Event}\n expenses:shopping:%^{category}  %^{Amount}\n%?"
+                   :empty-lines-before 1)
                   ("lef" "[F]ood" plain
                    (file (lambda () (concat org-directory "/Accounting/my.ledger")))
-                   "%(org-read-date) %^{Event}\n expenses:food:%^{meat,breakfast,lunch,dinner}  %^{Amount}")
+                   "%(org-read-date) %^{Event}\n expenses:food:%^{meat,breakfast,lunch,dinner}  %^{Amount}\n%?"
+                   :empty-lines-before 1)
                   ("let" "[T]raffic" plain
                    (file (lambda () (concat org-directory "/Accounting/my.ledger")))
-                   "%(org-read-date) %^{Event}\n expenses:traffic:%^{bus,train,plane}  %^{Amount}")
+                   "%(org-read-date) %^{Event}\n expenses:traffic:%^{bus,train,plane}  %^{Amount}\n%?"
+                   :empty-lines-before 1)
                   ("leh" "[H]ouse Rent" plain
                    (file (lambda () (concat org-directory "/Accounting/my.ledger")))
-                   "%(org-read-date) %^{Event}\n expenses:house rent:  %^{Amount}")
+                   "%(org-read-date) %^{Event}\n expenses:house rent:  %^{Amount}\n%?"
+                   :empty-lines-before 1)
                   
                   ;; Income
                   ("li" "[I]ncome")
                   ("lis" "[S]alary" plain
                    (file (lambda () (concat org-directory "/Accounting/my.ledger")))
-                   "%(org-read-date) %^{Event}\n income:salary:%^{account}  %^{Amount}")
+                   "%(org-read-date) %^{Event}\n income:salary:%^{account}  %^{Amount}\n%?"
+                   :empty-lines-before 1)
 
                   ;; Transfer
                   ("lt" "[T]ransfer")
                   ("ltb" "Take out money from [B]ank"
                    (file (lambda () (concat org-directory "/Accounting/my.ledger")))
-                   "%(org-read-date) %^{Event}\n transfer:%^{source} -> %^{bank}  %^{Amount}"
-                   )
+                   "%(org-read-date) %^{Event}\n transfer:%^{source} -> %^{bank}  %^{Amount}\n%?"
+                   :empty-lines-before 1)
                   ("lto" "save moeny on [o]nline account"
                    (file (lambda () (concat org-directory "/Accounting/my.ledger")))
-                   "%(org-read-date) %^{Event}\n transfer:%^{source} -> %^{ZhiFuBao}  %^{Amount}"
-                   )
+                   "%(org-read-date) %^{Event}\n transfer:%^{source} -> %^{ZhiFuBao}  %^{Amount}\n%?"
+                   :empty-lines-before 1)
                   ("ltc" "take out moeny to [C]ash"
                    (file (lambda () (concat org-directory "/Accounting/my.ledger")))
-                   "%(org-read-date) %^{Event}\n transfer:%^{source} -> cash  %^{Amount}"
-                   )
+                   "%(org-read-date) %^{Event}\n transfer:%^{source} -> cash  %^{Amount}\n%?"
+                   :empty-lines-before 1)
 
                   ;; Debt
                   ("ld" "[D]ebt")
                   ("ldr" "[R]ent" plain
                    (file (lambda () (concat org-directory "/Accounting/my.ledger")))
-                   "%(org-read-date) %^{Event}\n debt:rent:%^{people}  %^{Amount}")
+                   "%(org-read-date) %^{Event}\n debt:rent:%^{people}  %^{Amount}\n%?"
+                   :empty-lines-before 1)
                   ("ldb" "[B]orrow" plain
                    (file (lambda () (concat org-directory "/Accounting/my.ledger")))
-                   "%(org-read-date) %^{Event}\n debt:borrow:%^{people}  %^{Amount}")
+                   "%(org-read-date) %^{Event}\n debt:borrow:%^{people}  %^{Amount}\n%?"
+                   :empty-lines-before 1)
                   
                   ;; Assets
                   ("la" "[A]ssets")
                   ("lab" "[B]ank" plain
                    (file (lambda () (concat org-directory "/Accounting/my.ledger")))
-                   "%(org-read-date) %^{Event}\n assets:bank:%^{bank}  %^{Amount}")
+                   "%(org-read-date) %^{Event}\n assets:bank:%^{bank}  %^{Amount}\n%?"
+                   :empty-lines-before 1)
                   ("lao" "[O]nline Accounts" plain
                    (file (lambda () (concat org-directory "/Accounting/my.ledger")))
-                   "%(org-read-date) %^{Event}\n assets:online-account:%^{ZhiFuBao}  %^{Amount}")
+                   "%(org-read-date) %^{Event}\n assets:online-account:%^{ZhiFuBao}  %^{Amount}\n%?"
+                   :empty-lines-before 1)
                   )
                 org-capture-templates)))
 
