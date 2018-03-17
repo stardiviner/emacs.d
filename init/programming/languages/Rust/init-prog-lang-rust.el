@@ -11,7 +11,6 @@
 
 (use-package rust-mode
   :ensure t
-  :ensure-system-package rust
   :defer t
   :config
   (setq rust-indent-offset 4
