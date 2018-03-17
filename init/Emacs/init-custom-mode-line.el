@@ -1057,7 +1057,8 @@ dimensions of a block selection."
   ;; show this segment in custom mode-line.
   (defun *copy-file-on-save ()
     "Use `copy-file-on-save-lighter' in custom mode-line."
-    copy-file-on-save-lighter)
+    (if copy-file-on-save-mode
+        copy-file-on-save-lighter))
   )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
