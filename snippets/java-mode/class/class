@@ -3,6 +3,6 @@
 # key: class
 # group: class
 # --
-class ${1:Class} {
+${1:public }class ${2:Class} {
   $0
 }

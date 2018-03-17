@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: clj -Sdeps EDN
+# key: babel-clj-deps-edn
+# group: babel.clojure
+# --
+#+begin_src shell
+clj -Sdeps '{:deps {${1:deps name} {${2:version}}}}'
+#+end_src

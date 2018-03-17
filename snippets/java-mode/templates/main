@@ -3,6 +3,6 @@
 # key: main
 # group: class.method
 # --
-public static ${1:TYPE: void} main(${2:TYPE: String[]} ${3:arg name}) {
+public static ${1:void }main(${2:${3:String[]} ${4:args}}) {
     $0
 }

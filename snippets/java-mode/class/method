@@ -3,6 +3,6 @@
 # key: method
 # group: class.method
 # --
-public ${1:static} ${2:TYPE} ${3:NAME}(${4:TYPE} ${5:arg name}) {
+public ${1:static }${2:TYPE} ${3:NAME}(${4:${5:TYPE} ${6:arg name}}) {
     $0
 }

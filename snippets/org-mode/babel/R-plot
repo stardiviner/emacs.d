@@ -2,7 +2,7 @@
 # name: babel-R-plot
 # key: babel-R-plot
 # --
-#+NAME: ${1:babel name}
-#+begin_src R :session "*R*" :results output graphics :dir "data/images" :file "${2:$1}.png"
+${1:#+NAME: ${2:src block name}
+}#+begin_src R :session "*R*" :results output graphics :file "data/images/${3:$2}.png"
 $0
 #+end_src
