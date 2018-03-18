@@ -210,6 +210,14 @@
 ;; (add-to-list 'display-buffer-alist
 ;;              '("\\*trace-output\\*" . (display-buffer-below-selected)))
 
+;;; [ DTrace ]
+
+(use-package dtrace-script-mode
+  :ensure t
+  :defer t
+  :mode ("\\.d\\'" . dtrace-script-mode)
+  :interpreter ("dtrace" . dtrace-script-mode))
+
 
 (provide 'init-emacs-debug)
 

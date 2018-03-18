@@ -323,6 +323,7 @@
 
 ;;; Science
 
+(require 'init-academic)
 (require 'init-math)
 (require 'init-physics)
 (require 'init-chemistry)
