@@ -41,6 +41,14 @@
   ;; (add-hook 'ag-mode-hook #'next-error-follow-minor-mode) ; so you can navigate with 'n' & 'p'.
   )
 
+;;; [ wgrep-ag ]
+
+(use-package wgrep-ag
+  :ensure t
+  :defer t
+  :after ag
+  :init (add-hook 'ag-mode-hook 'wgrep-ag-setup))
+
 ;;; [ helm-ag ] --- the silver searcher with helm interface.
 
 (use-package helm-ag

@@ -13,9 +13,9 @@
 
 (require 'init-emacs-search-isearch)
 (require 'init-emacs-search-occur)
-(require 'init-emacs-search-grep)
+;; (require 'init-emacs-search-grep)
 (require 'init-emacs-search-wgrep)
-(require 'init-emacs-search-ag)
+;; (require 'init-emacs-search-ag)
 ;; (require 'init-emacs-search-pt)
 (require 'init-emacs-search-ripgrep)
 (require 'init-emacs-search-finder)

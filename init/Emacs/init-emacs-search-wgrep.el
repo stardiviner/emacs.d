@@ -31,16 +31,6 @@
   ;; (setq helm-grep-ag-command "rg --color=always --smart-case --no-heading --line-number %s %s %s")
   )
 
-;;; [ wgrep-ag ]
-
-(use-package wgrep-ag
-  :ensure t
-  :defer t
-  :after ag
-  :init
-  (add-hook 'ag-mode-hook 'wgrep-ag-setup)
-  )
-
 
 (provide 'init-emacs-search-wgrep)
 

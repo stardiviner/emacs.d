@@ -82,8 +82,9 @@
   (unless (boundp 'search-prefix)
     (define-prefix-command 'search-prefix))
   (define-key search-prefix (kbd "g") 'counsel-grep)
+  ;; [C-u] prompt for dir support
   (define-key search-prefix (kbd "M-r") 'counsel-rg)
-  (define-key search-prefix (kbd "M-a") 'counsel-ag) ; [C-u] prompt for dir support
+  ;; (define-key search-prefix (kbd "M-a") 'counsel-ag)
   (define-key search-prefix (kbd "F") 'counsel-fzf)
   :config
   (setq ivy-use-selectable-prompt nil)
