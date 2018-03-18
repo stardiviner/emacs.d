@@ -49,6 +49,7 @@
 (use-package org-bullets
   :ensure t
   :ensure all-the-icons
+  :load (all-the-icons)
   :config
   (setq-default org-bullets-bullet-list
                 `(;; disk -> folder -> file style
@@ -57,6 +58,7 @@
                   ,(all-the-icons-faicon "folder-o")
                   ,(all-the-icons-faicon "book")
                   ,(all-the-icons-faicon "file-text-o")
+                  ,(all-the-icons-faicon "file-o")
                   ,(all-the-icons-faicon "header")
                   ,(all-the-icons-faicon "bookmark")
                   ,(all-the-icons-faicon "bookmark-o")
