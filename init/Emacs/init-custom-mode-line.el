@@ -898,6 +898,14 @@ dimensions of a block selection."
   (setq keycast-window-predicate 'mode-line-window-active-p)
   (setq keycast-separator-width 0)
   :config
+  (add-to-list 'keycast-substitute-alist '(self-insert-command . nil))
+  (add-to-list 'keycast-substitute-alist '(org-self-insert-command . nil))
+  (add-to-list 'keycast-substitute-alist '(next-line . nil))
+  (add-to-list 'keycast-substitute-alist '(previous-line . nil))
+  (add-to-list 'keycast-substitute-alist '(forward-char . nil))
+  (add-to-list 'keycast-substitute-alist '(backward-char . nil))
+  (add-to-list 'keycast-substitute-alist '(move-beginning-of-line . nil))
+  (add-to-list 'keycast-substitute-alist '(move-end-of-line . nil))
   (defun *keycast ()
     "Show keycast in custom mode-line."
     (let ((screen-half-width (- (/ (/ (display-pixel-width) 2) 10) 3)))
