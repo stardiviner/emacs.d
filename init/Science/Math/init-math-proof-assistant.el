@@ -10,41 +10,65 @@
 ;;; [ Proof General ]
 
 (use-package proof-general
-  :ensure-system-package ((proofgeneral . "yaourt -S --noconfirm proofgeneral")
-                          (coqc . "sudo pacman -S --noconfirm coq coq-doc coqide"))
+  ;; :ensure-system-package ((proofgeneral . "yaourt -S --noconfirm proofgeneral")
+  ;;                         (coqc . "sudo pacman -S --noconfirm coq coq-doc coqide"))
   :load-path "~/.emacs.d/site-lisp/ProofGeneral/generic"
   :defer t
-  :config
+  ;; :preface
+  ;; (setq proof-splash-enable nil)
+  :init
+  (load-file "~/.emacs.d/site-lisp/ProofGeneral/generic/proof-site.el")
   (require 'proof-site nil t)
-
-  ;; [ company-coq ]
-  (use-package company-coq
-    :ensure t
-    :config
-    (setq company-coq-dynamic-autocompletion t)
-    ;; (setq company-coq-autocomplete-modules nil)
-    ;; (setq company-coq-autocomplete-context nil)
-    ;; (setq company-coq-autocomplete-symbols nil)
-    ;; (setq company-coq-autocomplete-block-end nil)
-    ;; (setq company-coq-autocomplete-search-results nil)
-
-    (add-hook 'coq-mode-hook
-              '(lambda ()
-                 (set (make-local-variable 'prettify-symbols-alist)
-                      '((":=" . ?≜) ("Proof." . ?∵) ("Qed." . ?■)
-                        ("Defined." . ?□) ("Time" . ?⏱) ("Admitted." . ?😱)))))
-
-    (require 'proof-site nil t)
-    (add-hook 'coq-mode-hook #'company-coq-mode)
-    )
+  (proof-ready-for-assistant 'coq)
+  (require 'proof-config)
+  (require 'proof-shell)
+  (require 'coq-syntax)
+  (require 'coq)
   )
 
+;; (use-package coq
+;;   :load-path "~/.emacs.d/site-lisp/ProofGeneral/coq"
+;;   :defer t
+;;   :commands (run-coq)
+;;   :init
+;;   (require 'coq)
+;;   ;; (require 'coq-inferior)
+;;   (require 'inferior-coq) ; TODO: a temporary fix workaround.
+;;   ;; (autoload 'coq-mode "gallina" "Major mode for editing Coq vernacular." t)
+;;   (autoload 'run-coq "inferior-coq" "Run an inferior Coq process." t)
+;;   (add-to-list 'display-buffer-alist
+;;                '("\\*coq\\*" . (display-buffer-below-selected)))
+;;   )
+
+;; [ company-coq ]
+(use-package company-coq
+  :ensure t
+  :defer t
+  :init
+  (add-hook 'coq-mode-hook #'company-coq-mode)
+  (add-hook 'coq-mode-hook
+            '(lambda ()
+               (set (make-local-variable 'prettify-symbols-alist)
+                    '((":=" . ?≜) ("Proof." . ?∵) ("Qed." . ?■)
+                      ("Defined." . ?□) ("Time" . ?⏱) ("Admitted." . ?😱)))))
+  :config
+  (setq company-coq-dynamic-autocompletion t)
+  ;; (setq company-coq-autocomplete-modules nil)
+  ;; (setq company-coq-autocomplete-context nil)
+  ;; (setq company-coq-autocomplete-symbols nil)
+  ;; (setq company-coq-autocomplete-block-end nil)
+  ;; (setq company-coq-autocomplete-search-results nil)
+  )
 
 ;;; [ ob-coq ]
 (require 'ob-coq)
 (add-to-list 'org-babel-load-languages '(coq . t))
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 (add-to-list 'org-babel-tangle-lang-exts '("coq" . "coq"))
+
+;;; disable auto save.
+(require 'coq-compile-common)
+(setq coq-compile-auto-save 'ignore)
 
 ;;; [ coq-commenter ] -- Emacs commeting support tools for Coq proof assistance.
 

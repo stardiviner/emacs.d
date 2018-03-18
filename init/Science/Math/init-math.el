@@ -9,7 +9,7 @@
 
 ;;; [ Proof Assistant ]
 
-;; (require 'init-math-proof-assistant)
+(require 'init-math-proof-assistant)
 
 ;;; [ company-math ] -- completion backends for unicode math symbols and latex tags.
 
