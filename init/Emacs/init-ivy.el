@@ -47,7 +47,7 @@
          ([remap info-lookup-symbol] . counsel-info-lookup-symbol) ; [C-h S]
          ([remap menu-bar-open] . counsel-tmm) ; [F10] text menu access
          ([remap apropos] . counsel-apropos)
-         ;; ("C-s" . counsel-grep-or-swiper)
+         ("C-s" . counsel-grep-or-swiper)
          ("C-x c p" . counsel-list-processes) ; [C-x c p]
          ("C-x c t" . cancel-function-timers) ; [C-x c t]
          ("C-x c c" . counsel-colors-emacs)
@@ -85,6 +85,9 @@
   ;; [C-u] prompt for dir support
   (define-key search-prefix (kbd "M-r") 'counsel-rg)
   ;; (define-key search-prefix (kbd "M-a") 'counsel-ag)
+  ;; for command `counsel-grep-or-swiper'
+  (setq counsel-grep-base-command
+        "rg -i -M 120 --no-heading --line-number --color never '%s' %s")
   (define-key search-prefix (kbd "F") 'counsel-fzf)
   :config
   (setq ivy-use-selectable-prompt nil)
