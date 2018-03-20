@@ -23,6 +23,9 @@
 
 ;; (setq vc-follow-symlinks 'ask)
 
+(add-to-list 'display-buffer-alist
+             '("\\*vc-diff\\*" . (display-buffer-below-selected)))
+
 
 ;;; Git
 

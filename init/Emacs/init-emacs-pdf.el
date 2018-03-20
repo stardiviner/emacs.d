@@ -132,6 +132,8 @@
   ;;              '("\\.pdf\\(<[^>]+>\\)?$" . (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
                '("\\*Outline .*pdf\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("\\*PDF-Occur\\*" . (display-buffer-below-selected)))
   )
 
 

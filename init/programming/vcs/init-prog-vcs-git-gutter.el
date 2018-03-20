@@ -111,6 +111,8 @@
         git-gutter+-hide-gutter t
         ;; pass option to 'git diff' command: -w: ignore all spaces
         git-gutter+-diff-option "-w")
+  (add-to-list 'display-buffer-alist
+               '("\\*git-gutter+-diff\\*" . (display-buffer-below-selected)))
   )
 
 ;;; [ diff-hl ] -- highlighting uncommitted changes with continuous fringe vertical block.
