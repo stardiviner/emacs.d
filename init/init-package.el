@@ -9,8 +9,6 @@
 
 ;;; [ package.el ] -- Emacs Lisp Package Archive (ELPA)
 
-(require 'cl)
-
 (require 'package)
 
 (setq package-menu-async t)
