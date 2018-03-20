@@ -714,7 +714,7 @@ dimensions of a block selection."
 
 
 ;; process: inferior,
-(defun *process ()
+(defun *mode-line-process ()
   "Show `major-mode' process `mode-line-process' info."
   (when (stringp mode-line-process)
     (propertize
@@ -1108,7 +1108,7 @@ dimensions of a block selection."
                  (*org-timer)
                  (*pomodoro)
                  (*keycast)
-                 (*process)
+                 (*mode-line-process)
                  (*spinner)
                  (*copy-file-on-save)
                  ;; (*rtags-mode-line)
