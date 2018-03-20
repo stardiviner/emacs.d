@@ -70,6 +70,7 @@
 					                            ('dark
 					                             (color-darken-name (face-background 'default) 10)))))
   (add-hook 'circadian-after-load-theme-hook #'my-edebug-set-face)
+  (my-edebug-set-face nil)
 
   (add-to-list 'display-buffer-alist
                '("^\\*Instrumented Functions\\*" (display-buffer-below-selected)))
