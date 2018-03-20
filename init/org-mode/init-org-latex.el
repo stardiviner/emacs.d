@@ -16,7 +16,8 @@
 ;;; Preview Org-mode LaTeX fragments
 (setq org-startup-with-latex-preview nil)
 ;; (setq org-preview-latex-default-process 'dvipng)    ; faster but don't support Chinese by default.
-(setq org-preview-latex-default-process 'imagemagick)  ; slower but support Chinese by default.
+;; (setq org-preview-latex-default-process 'imagemagick)  ; slower but support Chinese by default.
+(setq org-preview-latex-default-process 'dvisvgm) ; generate SVG for better image.
 (setq org-latex-image-default-width "2.0\\linewidth")
 (setq org-format-latex-options
       (plist-put org-format-latex-options :scale 2.0)) ; adjust LaTeX preview image size.
