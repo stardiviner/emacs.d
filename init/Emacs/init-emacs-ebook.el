@@ -19,7 +19,8 @@
   (org-link-set-parameters "ebook"
                            :follow #'org-ebook-open
                            :store #'org-ebook-store-link
-                           :complete #'org-file-complete-link))
+                           :complete #'org-file-complete-link)
+  )
 
 ;;; [ nov ] -- featureful EPUB reader mode.
 
@@ -29,7 +30,7 @@
   :config
   (with-eval-after-load "org"
     (add-to-list 'org-file-apps '("\\.epub\\'" . auto-mode)))
-  ;; (define-key nov-mode-map (kbd "q") 'kill-current-buffer)
+  (define-key nov-mode-map (kbd "q") 'kill-current-buffer)
   )
 
 
