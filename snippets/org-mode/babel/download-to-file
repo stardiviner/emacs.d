@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: download with file result
+# key: babel-download-to-file
+# group: babel.download
+# --
+#+begin_src shell :mkdir yes :dir "${1:data/code}" :results file :file "$0"
+wget -c "$2"
+#+end_src

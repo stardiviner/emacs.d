@@ -3,4 +3,4 @@
 # key: require
 # group: require
 # --
-require '[${1:namespace} :as $0]
+require '[${1:namespace} :${2:as/refer/..} $0]
