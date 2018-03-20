@@ -20,6 +20,27 @@
         )
   (add-to-list 'display-buffer-alist
                '("^\\*lua\\*" (display-buffer-below-selected)))
+
+  ;; Fix Lua indentation lisp lisp-y error
+  (defun lua-busted-fuckups-fix ()
+    (save-excursion
+      (lua-forward-line-skip-blanks 'back)
+      (let* ((current-indentation (current-indentation))
+             (line (thing-at-point 'line t))
+             (busted-p (s-matches?
+			                  (rx (+ bol (* space)
+                               (or "context" "describe" "it" "setup" "teardown")
+                               "("))
+			                  line)))
+        (when busted-p
+          (+ current-indentation lua-indent-level)))))
+
+  (defun rgc-lua-calculate-indentation-override (old-function &rest arguments)
+    (or (lua-busted-fuckups-fix)
+	      (apply old-function arguments)))
+
+  (advice-add #'lua-calculate-indentation-override
+	            :around #'rgc-lua-calculate-indentation-override)
   )
 
 
