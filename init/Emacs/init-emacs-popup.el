@@ -5,7 +5,7 @@
 ;;; Code:
 
 ;;; use GTK+ tooltips for Emacs widget tooltips.
-;; (setq x-gtk-use-system-tooltips t)
+;; (setq x-gtk-use-system-tooltips nil) ; set to `nil' to fix face un-customized issue.
 
 ;;; [ tooltip ]
 
