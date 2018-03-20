@@ -24,7 +24,7 @@
 (setq minibuffer-frame-alist default-frame-alist)
 
 ;; Every time a window is started, make sure it get maximized
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
+;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 
 ;; (setq frame-resize-pixelwise nil)
