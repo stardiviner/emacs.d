@@ -366,6 +366,16 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 ;; (add-hook 'org-mode-hook #'ob-clojure-literate-mode)
 (define-key org-babel-map (kbd "M-c") 'ob-clojure-literate-mode)
 
+;;; [ ob-clojurescript ] -- org-babel support for ClojureScript
+
+(use-package ob-clojurescript
+  :ensure t
+  :init
+  (require 'ob-clojurescript)
+  (add-to-list 'org-babel-load-languages '(clojurescript . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+  )
+
 
 ;;; [ typed-clojure-mode ] -- Typed Clojure minor mode for Emacs.
 
