@@ -11,6 +11,8 @@
 
 (require 'package)
 
+;; (setq package-enable-at-startup nil)
+
 (setq package-menu-async t)
 
 (setq package-user-dir "~/.emacs.d/elpa")
@@ -39,13 +41,10 @@
                (file-exists-p elpa-org-archives-dir))
     (package-refresh-contents)))
 
-
+(package-initialize)
 
 (add-to-list 'display-buffer-alist
              '("^\\*package-build-result\\*" (display-buffer-below-selected)))
-
-;; (setq package-enable-at-startup nil)
-(package-initialize)
 
 
 ;;; Load `use-package' ahead before `package-initialize' for (use-package org :pin manual ...).
@@ -68,10 +67,6 @@
   ;; for system-packages
   (setq system-packages-noconfirm t)
   )
-
-;;; initialize installed packages after (use-package <package> :pin manual ..)
-;; (package-initialize)
-
 
 ;;; [ package-lint ] -- A linting library for elisp package authors.
 
