@@ -14,6 +14,8 @@
 (setq-default TeX-engine 'xetex)
 (with-eval-after-load 'tex-mode
   (add-to-list 'tex-compile-commands '("xelatex %f" t "%r.pdf")))
+(setq-default LaTeX-command  "latex -shell-escape")
+(setq-default shell-escape-mode "-shell-escape") ; should pdflatex command use shell escaping?
 
 ;;; [ LaTeX-mode ]
 
@@ -22,7 +24,6 @@
 
 (use-package auctex
   :ensure t
-  :defer t
   :load (tex-site latex font-latex)
   :config
   ;; macros
@@ -63,29 +64,6 @@
 
   ;; (setq TeX-source-correlate-method)
 
-  ;; LaTeX source code block syntax highlighting.
-  ;; [ minted ]
-  ;; toggle shell escape using [C-c C-t x].
-  (defun TeX-toggle-shell-escape ()
-    "Toggle Shell Escape"
-    (interactive)
-    (setq-local LaTeX-command
-	              (if (string= LaTeX-command "latex") "latex -shell-escape"
-		              "latex"))
-    (setq-local shell-escape-mode "-shell-escape") ; should pdflatex command use shell escaping?
-    
-    (message (concat "shell escape "
-		                 (if (string= LaTeX-command "latex -shell-escape")
-		                     "enabled"
-		                   "disabled"))
-	           ))
-
-  (defun LaTeX-auto-toggle-shell-escape ()
-    (TeX-toggle-shell-escape)
-	  (local-set-key (kbd "C-c C-t x") 'TeX-toggle-shell-escape))
-  
-  (add-hook 'LaTeX-mode-hook #'LaTeX-auto-toggle-shell-escape)
-
   ;; auto close dollars
   (setq TeX-electric-math (cons "$" "$"))
   (setq TeX-electric-sub-and-superscript t) ; use _{} instead of _
@@ -114,6 +92,49 @@ character(s), in which case it deletes the space(s) first."
     (add-to-list 'LaTeX-item-list '("frame" . (lambda () (TeX-insert-macro "pause")))))
   (add-hook 'LaTeX-mode-hook #'LaTeX-insert-item-smartly)
 
+  (defun my:tex-mode-setup ()
+    ;; indent
+    (aggressive-indent-mode)
+    
+    ;; fold: hide some boilerplate
+    (TeX-fold-mode)
+
+    (rainbow-delimiters-mode)
+    (smartparens-mode)
+    
+    ;; linter
+    (flycheck-mode 1)
+
+    ;; Doc
+    ;; (info-lookup-add-help
+    ;;  :mode 'latex-mode
+    ;;  :regexp ".*"
+    ;;  :parse-rule "\\\\?[a-zA-Z]+\\|\\\\[^a-zA-Z]"
+    ;;  :doc-spec '(("(latex2e)Concept Index" )
+    ;;              ("(latex2e)Command Index")))
+    
+    ;; block
+    (local-set-key (kbd "C-c C-i") 'tex-latex-block)
+    
+    ;; Section
+    (setq LaTeX-section-hook
+          '(LaTeX-section-heading
+            LaTeX-section-title
+            LaTeX-section-toc
+            LaTeX-section-section
+            LaTeX-section-label))
+    
+    ;; Math
+    ;; (LaTeX-math-mode)
+    )
+
+  (dolist (hook '(tex-mode-hook
+                  TeX-mode-hook
+                  latex-mode-hook
+                  LaTeX-mode-hook ; from AUCTeX
+                  ))
+    (add-hook hook #'my:tex-mode-setup))
+
   ;; Big faces for sections, chapters, etc.
   (set-face-attribute 'font-latex-sectioning-1-face nil
                       :height 1.5 :bold t)
@@ -121,72 +142,38 @@ character(s), in which case it deletes the space(s) first."
                       :height 1.2 :bold t)
   (set-face-attribute 'font-latex-sectioning-3-face nil
                       :height 1.2 :bold nil)
+  )
 
-  (use-package company-auctex
-    :ensure t
-    :config
-    (defun my-company-auctex-setup ()
-      ;; indent
-      (aggressive-indent-mode)
-      
-      ;; fold: hide some boilerplate
-      (TeX-fold-mode)
+(use-package company-auctex
+  :ensure t
+  :defer t
+  :init
+  (defun my:company-auctex-setup ()
+    ;; complete
+    (make-local-variable 'company-backends)
+    ;; company-math
+    (add-to-list 'company-backends 'company-math-symbols-unicode)
+    (add-to-list 'company-backends 'company-math-symbols-latex)
+    (add-to-list 'company-backends 'company-latex-commands)
 
-      (rainbow-delimiters-mode)
-      (smartparens-mode)
-
-      ;; complete
-      (make-local-variable 'company-backends)
-      ;; company-math
-      (add-to-list 'company-backends 'company-math-symbols-unicode)
-      (add-to-list 'company-backends 'company-math-symbols-latex)
-      (add-to-list 'company-backends 'company-latex-commands)
-
-      ;; company-auctex
-      (add-to-list 'company-backends 'company-auctex-labels)
-      (add-to-list 'company-backends 'company-auctex-bibs)
-      (add-to-list 'company-backends 'company-auctex-environments)
-      (add-to-list 'company-backends 'company-auctex-symbols)
-      (add-to-list 'company-backends 'company-auctex-macros)
-      
-      ;; linter
-      (flycheck-mode 1)
-
-      ;; Doc
-      ;; (info-lookup-add-help
-      ;;  :mode 'latex-mode
-      ;;  :regexp ".*"
-      ;;  :parse-rule "\\\\?[a-zA-Z]+\\|\\\\[^a-zA-Z]"
-      ;;  :doc-spec '(("(latex2e)Concept Index" )
-      ;;              ("(latex2e)Command Index")))
-      
-      ;; block
-      (local-set-key (kbd "C-c C-i") 'tex-latex-block)
-      
-      ;; Section
-      (setq LaTeX-section-hook
-            '(LaTeX-section-heading
-              LaTeX-section-title
-              LaTeX-section-toc
-              LaTeX-section-section
-              LaTeX-section-label))
-      
-      ;; Math
-      ;; (LaTeX-math-mode)
-      )
-
-    (dolist (hook '(tex-mode-hook
-                    TeX-mode-hook
-                    latex-mode-hook
-                    LaTeX-mode-hook ; from AUCTeX
-                    ))
-      (add-hook hook #'my-company-auctex-setup))
+    ;; company-auctex
+    (add-to-list 'company-backends 'company-auctex-labels)
+    (add-to-list 'company-backends 'company-auctex-bibs)
+    (add-to-list 'company-backends 'company-auctex-environments)
+    (add-to-list 'company-backends 'company-auctex-symbols)
+    (add-to-list 'company-backends 'company-auctex-macros)
     )
+
+  (dolist (hook '(tex-mode-hook
+                  TeX-mode-hook
+                  latex-mode-hook
+                  LaTeX-mode-hook ; from AUCTeX
+                  ))
+    (add-hook hook #'my:company-auctex-setup))
 
   (use-package company-math
     :ensure t)
   )
-
 
 ;;; [ RefTeX ] -- a specialized package for support of labels, references.
 
