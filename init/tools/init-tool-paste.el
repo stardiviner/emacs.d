@@ -12,6 +12,25 @@
 
 ;;; convert selected region to Markdown and copy to clipboard for pasting
 ;;; on sites like GitHub, and Stack Overflow.
+(use-package ox-gfm
+  :ensure t
+  :config
+  (defun my:org-convert-region-to-gfm ()
+    "Convert selected region to GitHub Flawed Markdown and copy to clipboard.
+For pasting on sites like GitHub, and Stack Overflow."
+    (interactive)
+    (require 'ox-gfm)
+    (unless (org-region-active-p) (user-error "No active region selected"))
+    (gui-set-selection
+     'CLIPBOARD
+     (org-export-string-as
+      (buffer-substring (region-beginning) (region-end))
+      'gfm t
+      '(:with-toc nil)))
+    (deactivate-mark))
+  (define-key paste-prefix (kbd "m") 'my:org-convert-region-to-gfm)
+  )
+
 (defun my:org-convert-region-to-md ()
   "Convert selected region to Markdown and copy to clipboard.
 For pasting on sites like GitHub, and Stack Overflow."
@@ -26,7 +45,7 @@ For pasting on sites like GitHub, and Stack Overflow."
     '(:with-toc nil)))
   (deactivate-mark))
 
-(define-key paste-prefix (kbd "m") 'my:org-convert-region-to-md)
+(define-key paste-prefix (kbd "M") 'my:org-convert-region-to-md)
 
 ;;; copy formatted text from org-mode to applications.
 (defun my:org-convert-region-to-html ()
