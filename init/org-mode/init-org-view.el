@@ -25,7 +25,9 @@
 
 ;; \pi will display as π
 (setq org-pretty-entities t
-      org-pretty-entities-include-sub-superscripts nil)
+      org-pretty-entities-include-sub-superscripts t
+      org-use-sub-superscripts "{}" ; force use {} to avoid _ confuse in Chinese and pretty-entities.
+      )
 
 (setq org-script-display
       '(((raise -0.3)
