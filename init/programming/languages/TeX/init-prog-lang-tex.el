@@ -11,7 +11,7 @@
 
 ;;; Use `xetex' engine for better TeX compilation for Chinese.
 ;; `TeX-engine-alist', `TeX-engine-in-engine-alist'
-(setq TeX-engine 'xetex)
+(setq-default TeX-engine 'xetex)
 (with-eval-after-load 'tex-mode
   (add-to-list 'tex-compile-commands '("xelatex %f" t "%r.pdf")))
 

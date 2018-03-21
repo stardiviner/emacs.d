@@ -21,11 +21,7 @@
   (setq org-ref-colorize-links t) ; colorize org-ref links.
 
   ;; Let org-mode auto process the LaTeX export to PDF process.
-  (setq org-latex-pdf-process
-        '("pdflatex -interaction nonstopmode -output-directory %o %f"
-          "bibtex %b"
-          "pdflatex -interaction nonstopmode -output-directory %o %f"
-          "pdflatex -interaction nonstopmode -output-directory %o %f"))
+  (add-to-list 'org-latex-pdf-process "bibtex %b" t)
 
   ;; setup org-ref keybindings
   (setq org-ref-bibtex-hydra-key-binding (kbd "C-c ]"))
