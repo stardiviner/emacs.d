@@ -909,8 +909,7 @@ dimensions of a block selection."
   (defun *keycast ()
     "Show keycast in custom mode-line."
     (let ((screen-half-width (- (/ (/ (display-pixel-width) 2) 10) 3)))
-      (unless (not (and (> screen-half-width 80)
-                        (mode-line-window-active-p)))
+      (when (and (> screen-half-width 80) (mode-line-window-active-p))
         mode-line-keycast)))
   (defun my:keycast-faces-setup (theme)
     (set-face-attribute 'keycast-key nil
@@ -918,8 +917,7 @@ dimensions of a block selection."
                         :height 1.0 :box nil
                         :foreground "cyan"
                         :background (face-background 'mode-line)
-                        :box (face-attribute 'mode-line :box)
-                        )
+                        :box (face-attribute 'mode-line :box))
     (set-face-attribute 'keycast-command nil
                         :bold nil))
   (add-hook 'circadian-after-load-theme-hook #'my:keycast-faces-setup)
@@ -991,18 +989,17 @@ dimensions of a block selection."
 (use-package ghub+
   :ensure t
   :config
-  (defvar github-notifications-number nil)
+  (defvar github-notifications-number 0)
 
   (defun github-fetch-notifications ()
-    (when (my:internet-network-available?)
-      (setq github-notifications-number
-            (length
-             ;; check out documentation of `ghubp-get-notifications'.
-             (ghubp-get-notifications :participating "true")
-             ;; (ghub-get "/notifications" '((:participating . "true")))
-             ))))
+    (setq github-notifications-number
+          (length
+           ;; check out documentation of `ghubp-get-notifications'.
+           (ghubp-get-notifications :participating "true")
+           ;; (ghub-get "/notifications" '((:participating . "true")))
+           )))
   
-  (run-with-timer 10 3600 'github-fetch-notifications)
+  (run-with-timer 10 (* 10 60) 'github-fetch-notifications)
   
   (defun *github-notifications ()
     (if (and (mode-line-window-active-p) (> github-notifications-number 0))
