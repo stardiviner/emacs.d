@@ -20,6 +20,8 @@
 
 ;; (require 'festival)
 ;;
+;; Command: `run-festival'
+;;
 ;; (setq festival-auto-start t
 ;;       festival-buffer "*festival*"
 ;;       festival-default-audio-mode 'async

@@ -26,6 +26,8 @@
 
 (use-package python
   :ensure t
+  :defer t
+  :commands (run-python)
   :bind (:map python-mode-map ("C-c C-s" . run-python))
   :init
   (setq python-shell-interpreter "python")

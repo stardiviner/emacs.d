@@ -17,6 +17,11 @@
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 (add-hook 'comint-mode-hook 'ansi-color-for-comint-mode-on)
 
+;; It will always put point back to the statement you entered, right above the
+;; output it created.
+;; (add-to-list 'comint-output-filter-functions
+;;              #'(lambda (STR) (comint-show-output)))
+
 
 (provide 'init-emacs-comint)
 

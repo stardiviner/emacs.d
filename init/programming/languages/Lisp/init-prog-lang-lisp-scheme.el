@@ -39,7 +39,45 @@
                '("\\* Racket REPL \\*" . (display-buffer-below-selected)))
   )
 
-
+;;; [ cmuscheme ] -- Scheme process in a buffer. Adapted from tea.el
+
+;; (use-package cmuscheme
+;;   :ensure t
+;;   :defer t
+;;   :commands (run-scheme))
+
+;;; [ geiser ] -- Scheme completion.
+
+(use-package geiser
+  :ensure t
+  :defer t
+  :commands (run-geiser run-guile)
+  :preface
+  ;; 'guile, 'racket, 'chicken
+  (setq geiser-default-implementation 'guile)
+  :init (add-hook 'scheme-mode-hook #'geiser-mode)
+  :config
+  ;; company-backend
+  (add-hook 'scheme-mode-hook
+            (lambda () (my-company-add-backend-locally 'geiser-company-backend)))
+  ;; auto start geiser inferior buffer process `run-geiser'.
+  (defun my-run-geiser-auto ()
+    (interactive)
+    (let ((geiser-guile-buffer "* Guile REPL *")
+          (geiser-racket-buffer "* Racket REPL *")
+          (geiser-chicken-buffer "* Chicken REPL *"))
+      (unless (get-buffer geiser-guile-buffer)
+        (save-window-excursion
+          (run-geiser geiser-default-implementation)))))
+  (define-key scheme-mode-map (kbd "C-c C-s") 'my-run-geiser-auto)
+  )
+
+;;; [ quack ] -- enhanced Emacs Support for Editing and Running Scheme Code
+
+;; (use-package quack
+;;   :ensure t)
+
+
 ;;; [ ob-scheme ]
 
 (require 'ob-scheme)
@@ -56,44 +94,6 @@
    (add-to-list 'org-babel-default-header-args:scheme
                 '(:session . "* Racket REPL *")))
   )
-
-
-;;; [ cmuscheme ] -- Scheme process in a buffer. Adapted from tea.el
-
-;; (use-package cmuscheme
-;;   :ensure t)
-
-
-;;; [ geiser ] -- Scheme completion.
-
-(use-package geiser
-  :ensure t
-  :defer t
-  :init
-  ;; 'guile, 'racket, 'chicken
-  (setq geiser-default-implementation 'guile)
-  (add-hook 'scheme-mode-hook #'geiser-mode) ; (my-run-geiser-auto)
-  ;; company-backend
-  (add-hook 'scheme-mode-hook
-            (lambda () (my-company-add-backend-locally 'geiser-company-backend)))
-  ;; auto start geiser inferior buffer process `run-geiser'.
-  (defun my-run-geiser-auto ()
-    (interactive)
-    (let ((geiser-guile-buffer "* Guile REPL *")
-          (geiser-racket-buffer "* Racket REPL *")
-          (geiser-chicken-buffer "* Chicken REPL *"))
-      (unless (get-buffer geiser-guile-buffer)
-        (save-window-excursion
-          (run-geiser geiser-default-implementation)))))
-  (define-key scheme-mode-map (kbd "C-c C-s") 'my-run-geiser-auto)
-  )
-
-
-;;; [ quack ] -- enhanced Emacs Support for Editing and Running Scheme Code
-
-;; (use-package quack
-;;   :ensure t)
-
 
 
 (provide 'init-prog-lang-lisp-scheme)

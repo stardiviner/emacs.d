@@ -8,6 +8,7 @@
 ;;; Code:
 
 ;;; [ Shell ] -- [M-x shell]
+(require 'shell)
 
 ;;; fallback [M-x shell] shell to Bash.
 ;;; "$SHELL", "/bin/sh", "/bin/bash", "usr/bin/zsh"

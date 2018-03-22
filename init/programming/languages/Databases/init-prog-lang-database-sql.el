@@ -98,8 +98,7 @@
 (use-package edbi
   :ensure t
   :defer t
-  :bind (:map sql-prefix
-              ("d" . edbi:open-db-viewer))
+  :commands (edbi:open-db-viewer)
   :config
   (setq edbi:completion-tool 'auto-complete) ; none
 
@@ -122,25 +121,17 @@
   ;; [ edbi-minor-mode ] -- use edbi with regular SQL files.
   (use-package edbi-minor-mode
     :ensure t
-    :init
-    (add-hook 'sql-mode-hook
-              (lambda ()
-                (edbi-minor-mode)))
-    )
+    :init (add-hook 'sql-mode-hook (lambda () (edbi-minor-mode))))
 
   ;; [ edbi-sqlite ] -- edbi helper application
   (use-package edbi-sqlite
     :ensure t
-    :bind (:map sql-prefix
-                ("l" . edbi-sqlite))
-    )
+    :commands (edbi-sqlite))
 
   ;; [ edbi-database-url ] -- run edbi with database url.
   (use-package edbi-database-url
     :ensure t
-    :bind (:map sql-prefix
-                ("u" . edbi-database-url))
-    )
+    :commands (edbi-database-url))
 
   ;; [ company-edbi ]
   (use-package company-edbi
@@ -148,15 +139,9 @@
     :init
     (dolist (hook '(sql-mode-hook
                     sql-interactive-mode-hook
-                    edbi:sql-mode-hook
-                    ))
-      (add-hook hook
-                (lambda ()
-                  (my-company-add-backend-locally 'company-edbi)
-                  )))
-    )
+                    edbi:sql-mode-hook))
+      (add-hook hook (lambda () (my-company-add-backend-locally 'company-edbi)))))
   )
-
 
 ;;; [ EmacSQL ] -- high-level SQL database front-end.
 
@@ -164,12 +149,9 @@
 ;;   :ensure t
 ;;   :defer t)
 
-
 ;;; [ db-sql ] -- Connect to SQL server using tramp syntax.
 
-
 ;;; [ sql-complete ] -- support Oracle
-
 
 ;;; [ sql-completion ] -- support MySQL
 

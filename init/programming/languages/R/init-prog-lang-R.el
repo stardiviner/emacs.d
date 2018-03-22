@@ -11,12 +11,13 @@
   :ensure t
   :ensure-system-package (R . "sudo pacman -S --noconfirm r")
   :defer t
+  :load (ess-site)
   :mode (("\\.[rR]\\'" . R-mode)
          ("\\.Rd\\'" . Rd-mode) ; R documentation
          ("\\.S\\'" . S-mode)
          ("\\.Rprofile\\'" . R-mode)
          ("\\.Renviron\\'" . R-mode))
-  :load (ess-site)
+  :commands (R)
   :config
   ;; (setq ess-ask-for-ess-directory nil) ; suppress ESS from prompting for session directory.
   

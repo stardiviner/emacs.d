@@ -8,6 +8,7 @@
 
 ;;; Common Settings for All Lisp dialects
 
+;; for command `run-lisp'.
 (setq inferior-lisp-program "sbcl")
 
 ;;; [ lisp-extra-font-lock ] -- Highlight bound variables and quoted expressions in Lisp.

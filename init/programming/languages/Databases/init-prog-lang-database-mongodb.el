@@ -18,9 +18,7 @@
   :ensure t
   :ensure-system-package mongodb-tools
   :defer t
-  :init
-  (define-key nosql-prefix (kbd "m") 'inf-mongo)
-  )
+  :commands (inf-mongo))
 
 
 ;; [ ob-mongo ] -- Org-mode Babel for MongoDB

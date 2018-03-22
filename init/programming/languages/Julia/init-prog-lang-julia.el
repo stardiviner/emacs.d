@@ -13,6 +13,7 @@
   :ensure t
   :ensure-system-package julia
   :defer t
+  :commands (run-julia)
   :config
   (setq julia-indent-offset 2)
   )
@@ -77,6 +78,11 @@
         (:padnewline . "yes")))
 (add-to-list 'org-src-lang-modes '("julia" . ess-julia))
 
+;;; [ julia-shell ] -- Emacs major mode for an interactive Julia shell.
+
+;; (use-package julia-shell
+;;   :ensure t
+;;   :commands (run-julia))
 
 ;;; [ flycheck-julia ] -- Add a julia syntax checker to flycheck using Lint.jl
 

@@ -6,18 +6,13 @@
 
 ;;; Code:
 
-(unless (boundp 'HTTP-prefix)
-  (define-prefix-command 'HTTP-prefix))
-(define-key inferior-prefix (kbd "H") 'HTTP-prefix)
-
-
 ;;; [ restclient ]
 
 (use-package restclient
   :ensure t
   :defer t
   :mode ("\\.http\\'" . restclient-mode)
-  :bind (:map HTTP-prefix ("r" . restclient-new-buffer))
+  :commands (restclient-new-buffer)
   :config
   (setq restclient-log-request t
         restclient-same-buffer-response t
@@ -104,7 +99,7 @@
 (use-package httprepl
   :ensure t
   :defer t
-  :bind (:map HTTP-prefix ("H" . httprepl))
+  :commands (httprepl)
   :init
   (add-hook 'httprepl-mode-hook
             (lambda () (my-company-add-backend-locally 'company-restclient)))

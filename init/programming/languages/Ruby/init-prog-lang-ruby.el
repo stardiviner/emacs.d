@@ -89,6 +89,10 @@
 (use-package inf-ruby
   :ensure t
   :defer t
+  :commands (run-ruby)
+  :init
+  (add-to-list 'display-buffer-alist
+               '("^\\*ruby\\*" (display-buffer-below-selected)))
   :config
   (add-to-list 'inf-ruby-implementations
                '("inf-ruby" . "irb --inf-ruby-mode --noreadline -EUTF-8"))

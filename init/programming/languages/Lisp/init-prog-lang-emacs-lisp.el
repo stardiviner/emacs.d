@@ -57,6 +57,10 @@
 (use-package ielm
   :ensure t
   :defer t
+  :commands (ielm)
+  :init
+  (add-to-list 'display-buffer-alist
+               '("^\\*ielm\\*" (display-buffer-below-selected)))
   :config
   (setq ielm-dynamic-return t
         ielm-dynamic-multiline-inputs t)

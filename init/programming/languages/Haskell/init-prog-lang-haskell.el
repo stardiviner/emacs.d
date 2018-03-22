@@ -11,9 +11,9 @@
 
 (use-package haskell-mode
   :ensure t
+  :defer t
+  :commands (run-haskell haskell-interactive-switch haskell-interactive-bring)
   :bind (
-         :map inferior-prefix
-         ("h" . haskell-interactive-switch)
          :map haskell-mode-map
          ("C-c C-s" . haskell-interactive-bring)
          ("C-c C-k" . haskell-interactive-mode-clear)

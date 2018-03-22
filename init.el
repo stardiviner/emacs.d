@@ -203,7 +203,6 @@
 (require 'init-prog-template)
 (require 'init-prog-sidebar)
 (require 'init-prog-document)
-(require 'init-prog-inferior)
 ;; (require 'init-prog-eval)
 (require 'init-prog-compile)
 (require 'init-prog-build-system)

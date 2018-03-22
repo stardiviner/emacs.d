@@ -14,8 +14,8 @@
   :defer t
   :mode (("\\.prolog\\'" . prolog-mode)
          ("\\.m\\'" . mercury-mode))
+  :commands (run-prolog)
   :init
-  (autoload 'run-prolog "prolog" "Start a Prolog sub-process." t)
   (autoload 'prolog-mode "prolog" "Major mode for editing Prolog programs." t)
   (autoload 'mercury-mode "prolog" "Major mode for editing Mercury programs." t)
   :config
