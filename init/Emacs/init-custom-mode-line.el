@@ -1033,15 +1033,15 @@ dimensions of a block selection."
   :ensure t
   :load emms-mode-line
   :config
-  ;; (emms-mode-line 1)
-  (setq emms-mode-line-format "[%s]")
+  (setq emms-mode-line-format "%s")
   (defun *emms ()
-    (when (and emms-player-playing-p (mode-line-window-active-p))
-      ;; emms-mode-line-string
-      (format emms-mode-line-format
-              (s-truncate 20
-                          (emms-track-description (emms-playlist-current-selected-track))))))
-  )
+    (let* ((track (emms-playlist-current-selected-track))
+           ;; (description (emms-track-description (emms-playlist-current-selected-track)))
+           (title (cdr (assoc 'info-title track))))
+      (when (and emms-player-playing-p title (mode-line-window-active-p))
+        (format
+         emms-mode-line-format
+         (s-truncate 20 title))))))
 
 ;;; TRAMP
 (defun *tramp ()
