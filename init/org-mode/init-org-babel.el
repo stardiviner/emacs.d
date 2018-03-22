@@ -36,7 +36,11 @@
 ;;; [ inline call code block ]
 
 ;; (setq org-babel-exp-inline-code-template "src_%lang[%switches%flags]{%body}")
-;; (setq org-babel-default-inline-header-args)
+(setq org-babel-default-inline-header-args
+      '((:session . "none")
+        (:results . "replace")
+        (:exports . "both")
+        (:hlines . "yes")))
 ;; or "=%s=", "~%s~"
 ;; (setq org-babel-inline-result-wrap "=> (~%s~)")
 
