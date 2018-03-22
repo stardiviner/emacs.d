@@ -12,7 +12,9 @@
 (use-package octave
   :ensure t
   :ensure-system-package octave
+  :defer t
   :mode ("\\.m\\'" . octave-mode)
+  :commands (run-octave)
   :config
   (setq octave-auto-indent t
         octave-auto-newline t
@@ -26,12 +28,18 @@
 
   (define-key octave-mode-map (kbd "C-c C-d") 'octave-help)
   (define-key inferior-octave-mode-map (kbd "C-c C-d") 'octave-help)
+  (add-to-list 'display-buffer-alist
+               '("\\*Inferior Octave\\*" . (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("\\*Octave Help\\*" . (display-buffer-same-window)))
   )
 
 ;;; [ ac-octave ] -- auto-complete source for Octave.
 
 (use-package ac-octave
   :ensure t
+  :defer t
+  :after octave-mode
   :config
   (add-hook 'octave-mode-hook
             (lambda ()
@@ -39,10 +47,7 @@
               (add-to-list 'ac-sources 'ac-complete-octave)))
   )
 
-(require 'ob-matlab)
-(add-to-list 'org-babel-load-languages '(matlab . t))
-(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("matlab" . "m"))
+;;; [ ob-octave ]
 
 (require 'ob-octave)
 (add-to-list 'org-babel-load-languages '(octave . t))

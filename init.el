@@ -265,7 +265,7 @@
 (require 'init-prog-lang-R)
 (require 'init-prog-lang-julia)
 (require 'init-prog-lang-gnuplot)
-;; (require 'init-prog-lang-octave)
+(require 'init-prog-lang-octave)
 (require 'init-prog-lang-tex)
 ;; (require 'init-bibliography)
 (require 'init-prog-lang-markdown)
