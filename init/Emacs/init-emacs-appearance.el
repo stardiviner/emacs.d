@@ -128,24 +128,6 @@
 
 (blink-cursor-mode 1)
 
-;;; [ beacon ] -- highlight the cursor whenever the window scrolls.
-
-(use-package beacon
-  :ensure t
-  :defer t
-  :init
-  (beacon-mode 1)
-  :config
-  (setq beacon-blink-when-point-moves-vertically 10
-        beacon-blink-when-point-moves-horizontally 20
-        beacon-blink-when-focused t
-        beacon-blink-duration 0.2
-        beacon-blink-delay 0.2
-        beacon-size 30
-        beacon-color 0.5)
-  )
-
-
 ;;; [ Selection ]
 
 (setq transient-mark-mode t)
@@ -158,20 +140,19 @@
 (setq-default global-visual-line-mode nil) ; soft wrap lines at word boundary
 (setq-default visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
 
+;;; [ auto-fill-mode ] -- auto fill paragraphs like hitting [M-q].
 
-;;; toggle fill/un-fill
-(defun my/fill-or-unfill ()
-  "Like `fill-paragraph', but unfill if used twice."
-  (interactive)
-  (let ((fill-column
-         (if (eq last-command 'my/fill-or-unfill)
-             (progn (setq this-command nil)
-                    (point-max))
-           fill-column)))
-    (call-interactively #'fill-paragraph)))
-
-(global-set-key [remap fill-paragraph] #'my/fill-or-unfill)
-
+;;; global
+;; (auto-fill-mode t)
+;;; auto fill comments but not code in programming modes:
+(add-hook 'prog-mode-hook
+          '(lambda () (setq-local comment-auto-fill-only-comments t)))
+;;; enable only for text writing modes.
+(toggle-text-mode-auto-fill)
+(dolist (hook '(text-mode-hook
+                org-mode-hook
+                markdown-mode-hook))
+  (add-hook hook 'turn-on-auto-fill))
 
 ;;; [ fci ] -- Fill Column Indicator
 
@@ -179,27 +160,9 @@
 ;;   (setq fci-rule-width 10)
 ;;   (setq fci-rule-character ?❚)
 ;;   ;; (setq fci-rule-character-color "#999999")
-;;   (setq fci-dash-pattern 1.00))
+;;   (setq fci-dash-pattern 1.00)
+;;   (global-visual-fill-column-mode))
 
-
-;;; [ auto-fill-mode ] -- auto fill paragraphs like hitting [M-q].
-
-;;; global
-;; (auto-fill-mode t)
-;;
-;;; auto fill comments but not code in programming modes:
-(add-hook 'prog-mode-hook
-          '(lambda ()
-             (setq-local comment-auto-fill-only-comments t)
-             ))
-;;
-;;; enable only for text writing modes.
-(toggle-text-mode-auto-fill)
-(dolist (hook
-         '(text-mode-hook
-           org-mode-hook
-           markdown-mode-hook))
-  (add-hook hook 'turn-on-auto-fill))
 
 ;;; [ page (^L) ]
 
@@ -228,6 +191,24 @@
 (setq whitespace-style '(face lines-tail))
 ;; (add-hook 'prog-mode-hook 'whitespace-mode)
 ;; (global-whitespace-mode +1)
+
+
+;;; [ beacon ] -- highlight the cursor whenever the window scrolls.
+
+(use-package beacon
+  :ensure t
+  :defer t
+  :init
+  (beacon-mode 1)
+  :config
+  (setq beacon-blink-when-point-moves-vertically 10
+        beacon-blink-when-point-moves-horizontally 20
+        beacon-blink-when-focused t
+        beacon-blink-duration 0.2
+        beacon-blink-delay 0.2
+        beacon-size 30
+        beacon-color 0.5)
+  )
 
 ;;; [ all-the-icons ] -- A utility package to collect various Icon Fonts and propertize them within Emacs.
 
