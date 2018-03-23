@@ -58,6 +58,12 @@
   :ensure t
   :defer t)
 
+;;; [ apiwrap ] -- api-wrapping macros
+
+(use-package apiwrap
+  :ensure t
+  :defer t)
+
 
 
 (provide 'init-library)
