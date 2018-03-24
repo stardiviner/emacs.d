@@ -36,6 +36,12 @@
       auto-save-interval 0)
 (auto-save-visited-mode t)
 
+;;; [ snapshot-timemachine ] -- provides a interface for snapshot or backup facility, e.g. Btrfs, ZFS, etc.
+
+(use-package snapshot-timemachine
+  :ensure t
+  :commands (snapshot-timemachine snapshot-timeline))
+
 
 (provide 'init-emacs-backup)
 
