@@ -384,28 +384,39 @@ state (modified, read-only or non-existent)."
                                        :v-adjust -0.05 :face '(:foreground "dim gray"))
                (all-the-icons-faicon "chain-broken"
                                      :v-adjust -0.0 :face 'mode-line-error-face))))
-           ((or 'clojure-mode 'clojurescript-mode 'cider-repl-mode)
-            (if (not (equal (cider--modeline-info) "not connected"))
-                (concat
-                 (all-the-icons-fileicon "clj" :face '(:foreground "green"))
-                 (if (projectile-project-name)
-                     (with-current-buffer (ignore-errors (cider-current-connection))
-                       (format " %s" (cider--project-name nrepl-project-dir))))
-                 (if (bound-and-true-p cider--debug-mode)
-                     (all-the-icons-faicon "wrench"
-                                           :face 'mode-line-warn-face))
-                 (if (bound-and-true-p cider-auto-test-mode)
-                     (all-the-icons-faicon "cogs"
-                                           :face 'mode-line-warn-face))
-                 )
+           ('cider-repl-mode
+            ;; CIDER REPL type
+            (pcase cider-repl-type
+              ("clj" (all-the-icons-fileicon "clj" :face '(:foreground "green")))
+              ("cljs" (all-the-icons-fileicon "cljs" :face '(:foreground "green")))))
+           ((or 'clojure-mode 'clojurescript-mode)
+            (cond
+             ;; not connected
+             ((not (equal (cider--modeline-info) "not connected"))
               (concat
-               (all-the-icons-faicon "chain-broken"
-                                     :v-adjust -0.0 :face 'mode-line-error-face))))
+               ;; CIDER project type
+               (pcase (cider-project-type)
+                 ("lein" (all-the-icons-fileicon "clj" :face '(:foreground "green"))))
+               ;; CIDER project name
+               (or (cider-project-name (buffer-local-value 'nrepl-project-dir (current-buffer)))
+                   (with-current-buffer (ignore-errors (cider-current-connection))
+                     (format " %s" (cider--project-name nrepl-project-dir)))
+                   (projectile-project-name))
+               (if (bound-and-true-p cider--debug-mode)
+                   (all-the-icons-faicon "wrench"
+                                         :face 'mode-line-warn-face))
+               (if (bound-and-true-p cider-auto-test-mode)
+                   (all-the-icons-faicon "cogs"
+                                         :face 'mode-line-warn-face))))
+             (t (all-the-icons-faicon "chain-broken" :v-adjust -0.0 :face 'mode-line-error-face))
+             ))
            ('org-mode
             (if (bound-and-true-p ob-clojure-literate-mode)
                 (if (cl-some
                      (lambda (conn)
-                       (string= (buffer-name conn) ob-clojure-literate-default-session))
+                       (member (buffer-name conn) '("*cider-repl localhost*" "*cider-repl ob-clojure*"))
+                       ;; (string= (buffer-name conn) ob-clojure-literate-default-session)
+                       )
                      cider-connections)
                     (all-the-icons-fileicon "clj" :face '(:foreground "green"))
                   (all-the-icons-fileicon "clj" :face '(:foreground "gray")))))
