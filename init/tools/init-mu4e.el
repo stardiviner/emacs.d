@@ -742,8 +742,7 @@
                     :foreground "deep sky blue")
 ;;; unread email
 (set-face-attribute 'mu4e-unread-face nil
-                    :foreground "forest green"
-                    :weight 'normal)
+                    :foreground "forest green")
 (set-face-attribute 'mu4e-system-face nil
                     :foreground "white")
 ;;; trash email

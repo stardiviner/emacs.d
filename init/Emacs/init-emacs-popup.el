@@ -37,13 +37,7 @@
   :bind (:map popup-menu-keymap
               ("M-n" . popup-next)
               ("M-p" . popup-previous)
-              ("M-j" . popup-select))
-  :config
-  ;; (set-face-attribute 'popup-face nil
-  ;;                     :inherit 'tooltip
-  ;;                     :foreground "#073642"
-  ;;                     :background "light yellow")
-  )
+              ("M-j" . popup-select)))
 
 
 ;;; [ pos-tip ]
@@ -57,16 +51,7 @@
         pos-tip-internal-border-width 2
         ;; pos-tip-tab-width nil
         )
-
-  ;; (setq pos-tip-foreground-color "#073642"
-  ;;       pos-tip-background-color "light yellow")
   )
-
-
-;;; [ popup-pos-tip ]
-
-;; (use-package popup-pos-tip)
-
 
 ;;; [ showtip ]
 
