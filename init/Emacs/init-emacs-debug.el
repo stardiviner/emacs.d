@@ -16,14 +16,10 @@
 
 ;;; [ debug ] -- Emacs built-in debugger.
 
-(use-package debug
-  :init
-  ;; for Emacs startup freeze debug.
-  (toggle-debug-on-quit)
-  (add-hook 'after-init-hook (lambda () (setq debug-on-quit nil)))
-  :config
-  (setq debug-on-error t)
-  )
+;; for Emacs startup freeze debug.
+(toggle-debug-on-quit)
+(add-hook 'after-init-hook #'(lambda () (setq debug-on-quit nil)))
+(setq debug-on-error t)
 
 ;;; [ Edebug ] -- Edebug is a source level debugger.
 
