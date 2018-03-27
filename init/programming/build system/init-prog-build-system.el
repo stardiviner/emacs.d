@@ -24,8 +24,8 @@
   :ensure t
   :defer t
   :bind (:map build-system-prefix
-              ("<F6>" . build-helper-run)
-              ("<F7>" . build-helper-re-run)))
+              ("<f6>" . build-helper-run)
+              ("<f7>" . build-helper-re-run)))
 
 
 
