@@ -10,6 +10,11 @@
   (define-prefix-command 'build-system-prefix))
 (global-set-key (kbd "<f6>") 'build-system-prefix)
 
+;;; [ compile ]
+
+(require 'compile)
+(define-key build-system-prefix (kbd "<f8>") 'compile)
+
 ;;; [ Make ]
 
 (require 'init-prog-make)
