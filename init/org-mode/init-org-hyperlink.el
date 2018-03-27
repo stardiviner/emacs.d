@@ -221,6 +221,14 @@ and append it."
           "::"
           (read-from-minibuffer "line:" "1")))
 
+;;; [ orgit ] -- support for Org links to Magit buffers.
+
+(use-package orgit
+  :ensure t
+  :config
+  (setq orgit-log-save-arguments t)
+  ;; (add-to-list 'orgit-export-alist '())
+  )
 
 ;;; `geo:'
 ;; [geo:37.786971,-122.399677;u=35]
