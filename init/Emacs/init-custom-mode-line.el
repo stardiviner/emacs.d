@@ -104,6 +104,20 @@ to the command loop."
        (all-the-icons-octicon "pencil" :v-adjust -0.05 :face 'mode-line-warn-face)
        (propertize (format-mode-line "%]") 'face 'mode-line-warn-face))))
 
+;;; Edebug
+(require 'edebug)
+(defun *edebug ()
+  "Show Edebug info."
+  (propertize
+   (if (or (bound-and-true-p edebug-mode)
+           (bound-and-true-p edebug-x-mode))
+       (concat
+        (all-the-icons-faicon
+         "search-plus" :v-adjust -0.05)
+        (format "[%s]" edebug-execution-mode))
+     (format ""))
+   'face (if (mode-line-window-active-p) 'mode-line-data-face)))
+
 ;;; buffer project info
 (defun buffer-path-relative-to-project ()
   "Displays the buffer's full path relative to the project root.
@@ -1085,6 +1099,7 @@ dimensions of a block selection."
     (let* ((meta (concat
                   (*emacsclient)
                   ;; (*tramp)
+                  (*edebug)
                   (*recursive-editing)
                   (*macro-recording)
                   (*selection-info)
