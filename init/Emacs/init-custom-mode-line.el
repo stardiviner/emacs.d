@@ -284,20 +284,18 @@ state (modified, read-only or non-existent)."
    (concat
     (let ((eol-type (coding-system-eol-type buffer-file-coding-system)))
       (cond
-       ((eq eol-type 0)
-        "" ;; "LF " <-- Unix/Linux EOF
-        )
+       ((eq eol-type 0) ; "LF " <-- Unix/Linux EOF
+        "")
        ((eq eol-type 1) "CRLF ")
        ((eq eol-type 2) "CR ")))
     (let* ((sys (coding-system-plist buffer-file-coding-system))
            (sys-name (plist-get sys :name))
            (sys-cat (plist-get sys :category)))
       (cond
+       ;; "UTF-8" <-- no need to display UTF-8.
        ((memq sys-cat '(coding-category-undecided coding-category-utf-8))
-        "" ;; "UTF-8" <-- no need to display UTF-8.
-        )
-       (t
-        (upcase (symbol-name sys-name)))))
+        "")
+       (t (symbol-name sys-name))))
     )
    'face (if (mode-line-window-active-p) 'mode-line-warn-face)))
 
@@ -937,7 +935,8 @@ dimensions of a block selection."
     "Show keycast in custom mode-line."
     (let ((screen-half-width (- (/ (/ (display-pixel-width) 2) 10) 3)))
       (when (and (> screen-half-width 80) (mode-line-window-active-p))
-        mode-line-keycast)))
+        (ignore-errors
+          mode-line-keycast))))
   (defun my:keycast-faces-setup (theme)
     (set-face-attribute 'keycast-key nil
                         :inherit 'mode-line
@@ -1040,7 +1039,8 @@ dimensions of a block selection."
     (setq github-notifications-number
           (length
            ;; check out documentation of `ghubp-get-notifications'.
-           (ghubp-get-notifications :participating "true")
+           (ignore-errors
+             (ghubp-get-notifications :participating "true"))
            ;; (ghub-get "/notifications" '((:participating . "true")))
            )))
   
