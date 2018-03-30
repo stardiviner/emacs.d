@@ -49,25 +49,21 @@ column.  Place the point after the comment box."
 
 (use-package comment-tags
   :ensure t
-  :init
-  (setq comment-tags-keymap-prefix (kbd "M-g c"))
-  :config
+  :preface (setq comment-tags-keymap-prefix (kbd "M-g c"))
   (setq comment-tags-keyword-faces
         `(("TODO" . ,(list :weight 'bold :foreground "orange"))
           ("FIXME" . ,(list :weight 'bold :foreground "red"))
           ("BUG" . ,(list :weight 'bold :foreground "red"))
+          ("ISSUE" . ,(list :weight 'bold :foreground "dodger blue"))
           ("HACK" . ,(list :weight 'bold :foreground "cyan"))
-          ("KLUDGE" . ,(list :weight 'bold :foreground "forest green"))
           ))
-
+  :init (add-hook 'prog-mode-hook 'comment-tags-mode)
+  :config
   (setq comment-tags-comment-start-only t
         comment-tags-require-colon t
         comment-tags-case-sensitive t
         comment-tags-show-faces t
-        comment-tags-lighter nil)
-
-  (add-hook 'prog-mode-hook 'comment-tags-mode)
-  )
+        comment-tags-lighter nil))
 
 ;; [ poporg ] -- Editing program comments or strings in text mode.
 
