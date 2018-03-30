@@ -3,6 +3,8 @@
 # key: babel-blockdiag
 # group: babel.diagram
 # --
-#+begin_src blockdiag :tool ${1:$$(yas-choose-value '("blockdiag" "seqdiag" "actdiag" "nwdiag"))} :dir "data/images" :file ${2:filename}.png
+#+begin_src blockdiag :tool ${1:$$(yas-choose-value '("blockdiag" "seqdiag" "actdiag" "nwdiag" "rackdiag" "packetdiag"))} :dir "data/images" :file ${2:filename}.png
+$1 {
 $0
+}
 #+end_src

@@ -1,9 +1,11 @@
 # -*- mode: snippet -*-
-# name: babel-java
+# name: java
 # key: babel-java
 # group: babel.java
 # --
 #+HEADERS: :classname ${1:classname} :cmdline "-cp ."
 #+begin_src java :dir "data/code" :results output :exports both
+public class $1 {
 $0
+}
 #+end_src

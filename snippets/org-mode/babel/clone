@@ -1,8 +1,8 @@
 # -*- mode: snippet -*-
-# name: babel clone
+# name: git clone
 # key: babel-clone
 # group: babel.file
 # --
-#+begin_src shell :mkdir yes :dir "data/code" :results raw file :file "${1:file in repo}"
+#+begin_src shell :mkdir yes :results link :dir "data/code" :file "${1:README.md}"
 git clone $0
 #+end_src

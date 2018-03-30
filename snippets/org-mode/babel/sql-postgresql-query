@@ -3,8 +3,8 @@
 # key: babel-sql-postgresql-query
 # --
 ${1:#+NAME: ${2:src block name}
-}${6:#+headers: :var table="${7:table name}"
-}#+headers: :cmdline -h ${3:localhost} -U ${4:username} -w -d ${5:dbname}
+}${8:#+headers: :var table="${9:table name}"
+}#+headers: :cmdline -h ${3:localhost} -U ${4:username}${5: -p ${6:port}} -w -d ${7:dbname}
 #+begin_src sql :engine postgresql :results table
 $0
 #+end_src

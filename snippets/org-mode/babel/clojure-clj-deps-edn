@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: clj -Sdeps EDN
+# name: Clojure clj -Sdeps EDN
 # key: babel-clj-deps-edn
 # group: babel.clojure
 # --

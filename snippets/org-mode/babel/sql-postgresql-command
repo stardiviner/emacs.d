@@ -1,10 +1,10 @@
 # -*- mode: snippet -*-
-# name: SQL PostgreSQL Command
-# key: babel-sql-postgresql-command
+# name: PostgreSQL
+# key: babel-sql-postgresql
 # group: babel.sql.postgresql
 # --
 ${1:#+NAME: ${2:src block name}
-}#+headers: :cmdline -h ${3:localhost} -U ${4:username} -w -d ${5:dbname}
+}#+headers: :cmdline -h ${3:localhost} -U ${4:username} -w${5: -d ${6:dbname}}
 #+begin_src sql :engine postgresql
 $0
 #+end_src
