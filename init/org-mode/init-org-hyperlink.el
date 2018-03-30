@@ -93,6 +93,7 @@
         ;; Audio
         ("\\.mp3\\'" . "play %s")
         ("\\.ogg\\'" . "play %s")
+        ("\\.midi\\'" . "timidity %s")
         (auto-mode . emacs)
         ))
 
