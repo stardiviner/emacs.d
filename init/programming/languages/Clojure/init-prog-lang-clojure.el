@@ -213,6 +213,8 @@ Optional argument NS, if not provided, defaults to
               (define-key paredit-mode-map (kbd "M-{") 'paredit-wrap-curly))
             nil 'local)
 
+  (define-key cider-repl-mode-map (kbd "M-r") 'cider-repl-history)
+
   ;; CIDER helper functions
   (defun my/cider-repl-eval (input)
     "Execute Clojure `INPUT' in CIDER REPL.
