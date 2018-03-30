@@ -67,8 +67,8 @@
 (use-package git-gutter+
   :ensure t
   :init
-  ;; (add-hook 'prog-mode-hook #'git-gutter+-mode)
-  (global-git-gutter+-mode t)
+  (add-hook 'prog-mode-hook #'git-gutter+-mode)
+  ;; (global-git-gutter+-mode t) ; very heavy performance on Org-mode buffer.
   :bind (:map git-gutter-prefix
               ("t" . git-gutter+-mode) ; Turn on/off in the current buffer
               ("T" . global-git-gutter+-mode) ; Turn on/off globally
