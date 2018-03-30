@@ -389,7 +389,9 @@ state (modified, read-only or non-existent)."
   (let ((env
          (pcase major-mode
            ((or 'common-lisp-mode 'lisp-mode 'sly-mrepl-mode 'slime-repl-mode)
-            (if (or (sly-connected-p) (slime-connected-p))
+            (if (or
+                 (and (fboundp 'sly-connected-p) (sly-connected-p))
+                 (and (fboundp 'slime-connected-p) (slime-connected-p)))
                 ;; TODO: use this original (:eval (sly--mode-line-format))
                 (all-the-icons-fileicon "clisp"
                                         :v-adjust -0.05 :face '(:foreground "green"))
