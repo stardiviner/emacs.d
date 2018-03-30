@@ -986,16 +986,34 @@ dimensions of a block selection."
 
 ;;; [ Email ]
 ;;; mu4e
-;; (use-package mu4e
-;;   :ensure-system-package mu
-;;   :load-path "/usr/share/emacs/site-lisp/mu4e/"
-;;   :load (mu4e mu4e-contrib)
-;;   :config
-;;   (defun *mu4e ()
-;;     "Show `mu4e-alert' new messages count in custom mode-line."
-;;     (if (and (mode-line-window-active-p) (and (boundp 'mu4e-alert-mode-line) mu4e-alert-mode-line))
-;;         (propertize mu4e-alert-mode-line)))
-;;   )
+(use-package mu4e
+  :load-path "/usr/share/emacs/site-lisp/mu4e/"
+  :load (mu4e mu4e-contrib)
+  :ensure mu4e-alert
+  :init
+  (require 'mu4e-alert)
+  :config
+  (defun *mu4e ()
+    "Show `mu4e-alert' new messages count in custom mode-line."
+    (if (and (member major-mode '(mu4e-main-mode mu4e-headers-mode mu4e-view-mode))
+             (mode-line-window-active-p))
+        (concat
+		     (propertize
+		      (mu4e~quote-for-modeline mu4e~headers-last-query))
+		     " "
+		     (mu4e-context-label)
+		     (if (and mu4e-display-update-status-in-modeline
+			            (buffer-live-p mu4e~update-buffer)
+			            (process-live-p (get-buffer-process mu4e~update-buffer)))
+			       (propertize " (updating)" 'face 'mode-line-info-face)
+			     "")
+         (if (and (boundp 'mu4e-alert-mode-line) mu4e-alert-mode-line)
+             (propertize
+              (format "%s" mu4e-alert-mode-line)
+              'face 'mode-line-data-face)
+           "")
+         )))
+  )
 
 ;;; Gnus
 (use-package gnus
@@ -1148,7 +1166,7 @@ dimensions of a block selection."
                  ;; (*lunar-sun)
                  (*erc)
                  (*emms)
-                 ;; (*mu4e)
+                 (*mu4e)
                  ;; (*gnus)
                  (*github-notifications)
                  (*flycheck)

@@ -13,14 +13,7 @@
   :load-path "/usr/share/emacs/site-lisp/mu4e/"
   ;; compile from git
   ;; :load-path (expand-file-name "~/Code/Emacs/mu/mu/mu4e")
-  :init
-  (require 'mu4e)
-  (require 'mu4e-contrib)
-
-  (require 'mu4e-main)
-  (require 'mu4e-vars)
-  (require 'mu4e-proc)
-  (require 'mu4e-speedbar)
+  :load (mu4e mu4e-contrib mu4e-main mu4e-vars mu4e-proc mu4e-speedbar)
   :config
   ;; (setq mu4e-mu-home nil ; nil for default
   ;;       mu4e-mu-binary "/usr/sbin/mu"
@@ -72,17 +65,19 @@
                                ("/Trash"       . ?t)
                                ("/Work"        . ?w)
                                ("/Emacs/help"  . ?e)
-                               ("/Emacs/Org-mode" . ?g)
+                               ("/Emacs/Org-mode" . ?O)
                                ("/Lisp/comp-lang" . ?l)
                                ("/Clojure"        . ?c)
+                               ("/ClojureScript"  . ?C)
+                               ("/JavaScript"     . ?j)
                                ))
 
 
 ;; Get Mail, Update -- [U]
 ;; program to get mail; alternatives are 'fetchmail', 'getmail'
 ;; isync or your own shellscript.
-(setq mu4e-get-mail-command "getmail"
-      mu4e-update-interval 1800
+;; (setq mu4e-get-mail-command "proxychains getmail")
+(setq mu4e-update-interval 1800
       mu4e-hide-index-messages t)
 
 ;; Send Mail
@@ -106,7 +101,7 @@
 
 ;; $ sendmail -q
 ;; $ sendmail -oem -oi
-(setq sendmail-program "/usr/sbin/sendmail")
+(setq sendmail-program (executable-find "sendmail"))
 
 ;; 1: msmtp
 ;; (setq sendmail-program "/usr/bin/msmtp")
@@ -167,22 +162,22 @@
       mu4e-use-fancy-chars t
       ;; email prefix marks
       mu4e-headers-new-mark '("N" . " ")
-      mu4e-headers-unread-mark '("u" . "·") ; · • ∘ ☐
+      mu4e-headers-unread-mark '("u" . "·") ; · • ∘
       mu4e-headers-seen-mark '("S" . " ") ; ☑ ☒ ⊟ ⊠ ⊡ ▣ ⋄
-      mu4e-headers-signed-mark '("s" . "✔")
-      mu4e-headers-encrypted-mark '("x" . "⚴")
+      mu4e-headers-signed-mark '("s" . "√")
+      mu4e-headers-encrypted-mark '("x" . "❖")
       mu4e-headers-draft-mark '("D" . "✎")
-      mu4e-headers-attach-mark '("a" . "◘")
-      mu4e-headers-passed-mark '("P" . "❯")
-      mu4e-headers-flagged-mark '("F" . "★") ; ⚑ ★ ☆ ✪ ✾ ✿ ❀
-      mu4e-headers-replied-mark '("R" . "⏎") ; ⏎
+      mu4e-headers-attach-mark '("a" . "❐")
+      mu4e-headers-passed-mark '("P" . "❯") ; my email in thread.
+      mu4e-headers-flagged-mark '("F" . "⚑")
+      mu4e-headers-replied-mark '("R" . "⏎")
       mu4e-headers-trashed-mark '("T" . "✗")
       ;; thread prefix marks
       mu4e-headers-default-prefix '("|" . "➘")
-      mu4e-headers-has-child-prefix '("+" . "⌊") ; ┝
-      mu4e-headers-empty-parent-prefix '("-" . "∠")
-      mu4e-headers-first-child-prefix '("\\" . "╲") ; ↳ ⌊ ↘ ➘ ╲
-      mu4e-headers-duplicate-prefix '("=" . "‡")
+      mu4e-headers-has-child-prefix '("+" . "╰")
+      mu4e-headers-first-child-prefix '("\\" . "↳")
+      mu4e-headers-empty-parent-prefix '("-" . "Г")
+      mu4e-headers-duplicate-prefix '("=" . "▶") ; my own sent email.
       )
 
 
@@ -434,12 +429,8 @@
 
 ;; - `org-mu4e-open' :: open the mu4e message (for paths starting with 'msgid:')
 ;;                      or run the query (for paths starting with 'query:').
-
-(defalias 'org-email-open 'org-mu4e-open)
-
-(org-link-set-parameters "email-msgid" 'org-email-open)
-(org-link-set-parameters "email-query" 'org-email-open)
-
+;; (org-link-set-parameters "email-msgid" :follow #'org-mu4e-open)
+;; (org-link-set-parameters "email-query" :follow #'org-mu4e-open)
 
 
 ;; Sort order and threading
@@ -678,13 +669,12 @@
 
 (defun mu4e-new-mail-alert ()
   "The mu4e new email alert."
-  (interactive)
-  (shell-command
-   (concat "mpv "
-           (getenv "HOME")
-           "/Music/Sounds/Ingress/Speech/speech_incoming_message.ogg"
-           " &> /dev/null"))
-  )
+  (make-process
+   :name "mu4e new mail alert 1"
+   :command (list "mpv" (expand-file-name "~/Music/Sounds/Ingress/SFX/sfx_sonar.wav")))
+  (make-process
+   :name "mu4e new mail alert 2"
+   :command (list "mpv" (expand-file-name "~/Music/Sounds/Ingress/Speech/speech_zoom_lockon.wav"))))
 (add-hook 'mu4e-index-updated-hook 'mu4e-new-mail-alert)
 
 
@@ -710,128 +700,6 @@
                       ;; :weight 'normal
                       ))
 (add-hook 'circadian-after-load-theme-hook 'my-mu4e-set-face)
-
-;;; highlighted email, main view key color like "[q]uit mu4e".
-(set-face-attribute 'mu4e-highlight-face nil
-                    :foreground "cyan" :background "#073642")
-;;; face for things that are ok.
-(set-face-attribute 'mu4e-ok-face nil
-                    :foreground "forest green"
-                    :box '(:color "forest green" :line-width 1 :style nil)
-                    )
-;;; moved
-(set-face-attribute 'mu4e-moved-face nil
-                    :foreground "dark gray" :background "dim gray"
-                    )
-;;; draft (my draft), my sent mail.
-(set-face-attribute 'mu4e-draft-face nil
-                    :foreground "sky blue"
-                    )
-;;; Emacs mu4e window top title.
-(set-face-attribute 'mu4e-title-face nil
-                    :inherit nil
-                    :foreground "yellow")
-;;; readed mail line in index.
-(set-face-attribute 'mu4e-header-face nil
-                    :foreground "dim gray")
-;; modeline face
-(set-face-attribute 'mu4e-modeline-face nil
-                    :weight 'bold)
-;;; footer
-(set-face-attribute 'mu4e-footer-face nil
-                    :foreground "deep sky blue")
-;;; unread email
-(set-face-attribute 'mu4e-unread-face nil
-                    :foreground "forest green")
-(set-face-attribute 'mu4e-system-face nil
-                    :foreground "white")
-;;; trash email
-(set-face-attribute 'mu4e-trashed-face nil
-                    :strike-through "black")
-;;; level 1 cited (quoted email content)
-(set-face-attribute 'mu4e-cited-1-face nil
-                    :foreground "cyan")
-(set-face-attribute 'mu4e-cited-2-face nil
-                    :foreground "dark cyan")
-(set-face-attribute 'mu4e-cited-3-face nil
-                    :foreground "forest green")
-(set-face-attribute 'mu4e-cited-4-face nil
-                    :foreground "gold")
-(set-face-attribute 'mu4e-cited-5-face nil
-                    :foreground "white")
-(set-face-attribute 'mu4e-cited-6-face nil
-                    :foreground "light blue")
-(set-face-attribute 'mu4e-cited-7-face nil
-                    :foreground "light green")
-;;; warning
-(set-face-attribute 'mu4e-warning-face nil
-                    :box '(:color "red" :line-width 1)
-                    :background "dark red"
-                    :foreground "white")
-;;; flagged email
-(set-face-attribute 'mu4e-flagged-face nil
-                    :foreground "white" :background "deep pink"
-                    :weight 'bold
-                    )
-;;; replied email
-(set-face-attribute 'mu4e-replied-face nil
-                    :foreground "orange"
-                    :overline "orange red")
-;; forwarded email
-(set-face-attribute 'mu4e-forwarded-face nil
-                    :foreground "saddle brown"
-                    :overline "dark magenta")
-;; compose
-(set-face-attribute 'mu4e-compose-header-face nil
-                    :foreground "cyan"
-                    :weight 'bold)
-;; -- text follows this line -- where following Org-mode message body.
-(set-face-attribute 'mu4e-compose-separator-face nil
-                    :foreground "red")
-;;; link
-(set-face-attribute 'mu4e-link-face nil
-                    :underline '(:style line)
-                    )
-;;; contact: e.g. Christopher Miles, help-gnu-emacs@gnu.org
-(set-face-attribute 'mu4e-contact-face nil
-                    :foreground "yellow green"
-                    ;; :underline "dim gray"
-                    )
-;;; header-
-;;; header field keys: e.g. From:, To:, Subject:,
-;; some keys.
-(set-face-attribute 'mu4e-header-key-face nil
-                    :foreground "chocolate"
-                    )
-(set-face-attribute 'mu4e-header-marks-face nil
-                    :foreground "light blue"
-                    )
-(set-face-attribute 'mu4e-header-title-face nil
-                    :foreground "white"
-                    )
-(set-face-attribute 'mu4e-header-value-face nil
-                    :foreground "dark gray"
-                    )
-(set-face-attribute 'mu4e-special-header-value-face nil
-                    :foreground "brown"
-                    :weight 'bold
-                    )
-;; header names: like From: Subject: etc.
-(set-face-attribute 'message-header-name nil
-                    :foreground "cyan" :background "black"
-                    :box '(:color "#333333" :line-width -1)
-                    :weight 'bold)
-;; Subject: value
-(set-face-attribute 'message-header-subject nil
-                    :foreground "cyan"
-                    :weight 'bold
-                    :underline t)
-;; To: value
-(set-face-attribute 'message-header-to nil
-                    :foreground "white")
-;; other header values
-(set-face-attribute 'message-header-other nil
-                    :foreground "#888888")
 
 
 ;;; Marking
@@ -914,12 +782,6 @@
   :ensure t
   :config
   (mu4e-maildirs-extension)
-
-  (set-face-attribute 'mu4e-maildirs-extension-maildir-face nil
-                      :foreground "dim gray")
-  (set-face-attribute 'mu4e-maildirs-extension-maildir-hl-face nil
-                      :foreground "lime green")
-
   ;; (setq mu4e-maildirs-extension-custom-list )
   (setq mu4e-maildirs-extension-maildir-default-prefix "┝") ; "|"
   )
@@ -948,6 +810,7 @@
   (mu4e-alert-set-default-style 'libnotify)
   ;; disable mu4e-alert desktop libnotify notifications.
   ;; (add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
+  (setq mu4e-display-update-status-in-modeline t)
   (mu4e-alert-enable-mode-line-display)
   (setq mu4e-alert-interesting-mail-query
         (concat

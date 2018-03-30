@@ -101,7 +101,7 @@
 
 
 ;; (require 'init-gnus)
-;; (require 'init-mu4e)
+(require 'init-mu4e)
 
 
 
@@ -120,11 +120,9 @@
    ;; FIXME: let (setq mail-user-agent 'mu4e-user-agent)
    (if (eq 'mail-user-agent 'mu4e-user-agent)
        ;; there is upper set default mail-user-agent, so default [C-x m] will be change for mu4e
-       (global-set-key (kbd "C-x m") 'mu4e-compose-new)
-     )
+       (global-set-key (kbd "C-x m") 'mu4e-compose-new))
    (define-key email-prefix (kbd "i") 'my-mu4e-jump-to-index)
-   (define-key email-prefix (kbd "C") 'mu4e-compose-new)
-   )
+   (define-key email-prefix (kbd "c") 'mu4e-compose-new))
 
   ;; default
   (t
