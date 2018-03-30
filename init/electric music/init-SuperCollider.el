@@ -20,11 +20,11 @@
 
 (use-package sclang
   ;; :load-path "/usr/share/emacs/site-lisp/SuperCollider/"
-  :load-path "~/Code/Emacs/scel/el/"
+  :load-path "~/Code/Emacs/scel/build/el/"
   :ensure-system-package (sclang . "sudo pacman -S --noconfirm supercollider")
   :defer t
+  :load (sclang)
   :init
-  ;; (require 'sclang)
   (add-to-list 'display-buffer-alist
                '("\\*SCLang:PostBuffer\\*" . (display-buffer-below-selected)))
   :mode ("\\.sc\\'" . sclang-mode)
