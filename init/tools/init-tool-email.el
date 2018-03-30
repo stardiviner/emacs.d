@@ -129,6 +129,10 @@
    (define-key email-prefix (kbd "m") 'compose-mail))
   )
 
+;;; [ Thunderbird ]
+;; use org mode for eml files (useful for thunderbird plugin like "external editor").
+(add-to-list 'auto-mode-alist '("\\.eml\\'" . org-mode))
+
 
 
 (provide 'init-tool-email)
