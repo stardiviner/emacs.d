@@ -33,7 +33,9 @@
   (defun my:edebug-previous-result ()
     "Print the previous result."
     (interactive)
-    (popup-tip edebug-previous-result))
+    ;; (pos-tip-show edebug-previous-result 'popup-face) ; slow
+    (popup-tip edebug-previous-result :truncate t :height 20 :width 45 :nostrip t :margin 1 :nowait nil)
+    )
   (advice-add 'edebug-previous-result :override #'my:edebug-previous-result)
   )
 
