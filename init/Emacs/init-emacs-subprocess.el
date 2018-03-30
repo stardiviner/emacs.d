@@ -36,11 +36,15 @@
 
 ;;; [ bpr ] -- Emacs Background Process Runner.
 
-;; (use-package bpr
-;;   :ensure t
-;;   :defer t
-;;   :commands (bpr-spawn bpr-open-last-buffer)
-;;   )
+(use-package bpr
+  :ensure t
+  :defer t
+  :commands (bpr-spawn bpr-open-last-buffer)
+  :config
+  (setq bpr-colorize-output t)
+  (setq bpr-process-mode #'comint-mode)
+  ;; (setq bpr-on-completion #'FUNC)
+  )
 
 
 
