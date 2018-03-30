@@ -40,6 +40,7 @@
 (use-package bm
   :ensure t
   :defer t
+  :preface (setq bm-face 'highlight)
   :init
   (add-to-list 'display-buffer-alist
                '("\\*bm-bookmarks\\*" (display-buffer-same-window)))
