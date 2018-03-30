@@ -38,8 +38,7 @@
       (add-hook 'rg-mode-hook #'wgrep-ag-setup))
   :config
   (setq rg-command-line-flags '()
-        rg-group-result t
-        rg-show-columns t)
+        rg-group-result t)
   (add-to-list 'display-buffer-alist
                '("^\\*rg\\*" (display-buffer-below-selected)))
   )
