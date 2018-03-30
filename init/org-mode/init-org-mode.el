@@ -8,14 +8,14 @@
 ;;; Code:
 
 
-(use-package org
-  :ensure t
-  :mode (("\\.org$" . org-mode))
-  :init
-  (use-package org-plus-contrib
-    :ensure t
-    :no-require t)
-  )
+;; (use-package org
+;;   :ensure t
+;;   ;; :mode (("\\.org$" . org-mode))
+;;   :init
+;;   (use-package org-plus-contrib
+;;     :ensure t
+;;     :no-require t)
+;;   )
 
 
 (use-package org
@@ -37,8 +37,8 @@
   (with-eval-after-load 'info
     (info-initialize)
     (add-to-list 'Info-directory-list "~/Code/Emacs/org-mode/doc/"))
+
   ;; reload org-mode.
-  ;; (unload-feature 'org)
   (org-reload)
 
   ;; TODO: a workaround of different versions org-mode incompatible.
