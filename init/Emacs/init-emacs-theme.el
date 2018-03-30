@@ -35,6 +35,13 @@
   (add-hook 'circadian-after-load-theme-hook #'my:leuven-disable-underline)
   )
 
+;;; [ eziam-theme ] -- A mostly monochrome theme, inspired by Tao and Leuven, with dark and light versions.
+
+;; (use-package eziam-theme
+;;   :ensure t
+;;   :no-require t
+;;   :load (eziam-light-theme))
+
 ;;; [ doom-themes ]
 
 (use-package doom-themes
@@ -65,9 +72,9 @@
         calendar-time-zone +480
         calendar-latitude 29.72
         calendar-longitude 120.20)
-  (setq circadian-themes '((:sunrise . doom-one-light)
+  (setq circadian-themes '((:sunrise . spacemacs-light)
                            ("11:00" . leuven)
-                           ("13:00" . doom-one-light)
+                           ("13:00" . spacemacs-light)
                            ("16:00" . doom-one)
                            (:sunset . spacemacs-dark)))
   (circadian-setup))
