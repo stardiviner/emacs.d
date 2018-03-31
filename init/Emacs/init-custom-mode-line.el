@@ -994,11 +994,10 @@ dimensions of a block selection."
   :config
   (defun *mu4e ()
     "Show `mu4e-alert' new messages count in custom mode-line."
-    (if (and (member major-mode '(mu4e-main-mode mu4e-headers-mode mu4e-view-mode))
-             (mode-line-window-active-p))
+    (if (member major-mode '(mu4e-main-mode mu4e-headers-mode mu4e-view-mode))
         (concat
 		     (propertize
-		      (mu4e~quote-for-modeline mu4e~headers-last-query))
+		      (or (ignore-errors (mu4e~quote-for-modeline mu4e~headers-last-query)) ""))
 		     " "
 		     (mu4e-context-label)
 		     (if (and mu4e-display-update-status-in-modeline
