@@ -18,6 +18,16 @@
   :defer t
   :bind (:map screencast-prefix ("k" . keycast-mode)))
 
+;;; [ gif-screencast ] -- one-frame-per-action GIF recording for optimal quality/size ratio.
+
+(use-package gif-screencast
+  :ensure t
+  :config
+  (with-eval-after-load 'gif-screencast
+    (define-key gif-screencast-mode-map (kbd "<f12>") 'gif-screencast-toggle-pause)
+    (define-key gif-screencast-mode-map (kbd "<f11>") 'gif-screencast-stop))
+  )
+
 ;;; [ camcorder ] -- Tool for capturing screencasts directly from Emacs (use FFmpeg as backend)
 
 (use-package camcorder
