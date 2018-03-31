@@ -19,7 +19,7 @@
         eww-form-checkbox-symbol "[ ]"
         eww-form-checkbox-selected-symbol "[X]"
         shr-use-fonts nil ; [F] `eww-toggle-fonts' don't use web page variable-pitch font.
-        shr-use-colors t
+        shr-use-colors nil ; don't use webpage's color.
         shr-external-browser 'browse-url-generic
         eww-header-line-format "%t: %u"   ; title: url.
         ;; - DuckDuckGo :: "https://duckduckgo.com/html/?q="
