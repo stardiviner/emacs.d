@@ -12,6 +12,11 @@
 ;; highlight inline LaTeX, and org-entities with different face.
 (setq org-highlight-latex-and-related '(latex entities))
 
+;; let org-mode auto delete those auxiliary files after exporting.
+(setq org-latex-remove-logfiles t)
+(setq org-latex-logfiles-extensions
+      '("lof" "lot" "tex" "aux" "idx" "out" "toc" "nav" "snm" "vrb"
+        "dvi" "fdb_latexmk" "blg" "brf" "fls" "entoc" "ps" "spl" "bbl"))
 
 ;;; Preview Org-mode LaTeX fragments
 (setq org-startup-with-latex-preview nil)
@@ -39,7 +44,8 @@
       (plist-put org-format-latex-options :html-scale 2.5)) ; adjust HTML exporting LaTeX image size.
 
 
-(require 'org-latex-export-settings)
+(require 'org-latex-exp-conf)
+;; (define-key org-mode-map (kbd "C-c M-e") 'org-latex-exp-conf-mode)
 
 ;;; [ LaTeX -> HTML ]
 
