@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: babel-clojure-graphics
-# key: babel-clojure-graphics
+# name: clojure incanter
+# key: babel-clojure-incanter
 # group: babel.clojure
 # --
 #+begin_src clojure :dir "data/images" :results graphics :file "${1:inline image filename}.png"
