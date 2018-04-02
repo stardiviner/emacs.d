@@ -42,11 +42,6 @@
 ;;   :no-require t
 ;;   :load (eziam-light-theme))
 
-;;; [ doom-themes ]
-
-(use-package doom-themes
-  :ensure t)
-
 ;;; [ spacemacs-theme ] -- Spacemacs default color-theme.
 
 (use-package spacemacs-theme
@@ -75,7 +70,6 @@
   (setq circadian-themes '((:sunrise . spacemacs-light)
                            ("11:00" . leuven)
                            ("13:00" . spacemacs-light)
-                           ("16:00" . doom-one)
                            (:sunset . spacemacs-dark)))
   (circadian-setup))
 
