@@ -14,7 +14,7 @@
       auto-revert-verbose nil
       auto-revert-use-notify t)
 
-(global-auto-revert-mode)
+(global-auto-revert-mode -1)
 
 ;;; [ ibuffer ]
 

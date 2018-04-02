@@ -23,6 +23,8 @@
   :init
   ;; auto refresh dired when file changes
   (setq dired-auto-revert-buffer t)
+  (add-hook 'dired-mode-hook #'turn-on-auto-revert-mode)
+  (setq dired-create-destination-dirs 'ask)
   :config
   (defun dired-sudo ()
     "The sudo privilege to change the owner of a file owned by root."
