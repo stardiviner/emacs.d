@@ -109,7 +109,8 @@
    (lisp . t)                           ; Lisp
    (clojure . t)                        ; Clojure
    (js . t)                             ; JavaScript
-   (haskell . t)       			; Haskell
+   (R . t)                              ; R
+   (haskell . t)                        ; Haskell
    (latex . t)                          ; LaTeX
    ))
 
