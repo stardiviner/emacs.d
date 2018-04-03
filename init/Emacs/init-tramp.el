@@ -13,59 +13,75 @@
   :ensure t
   :defer t
   :config
-  ;; hotfix
-  ;; (setq tramp-ssh-controlmaster-options
-  ;;       "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
-  ;; (setq tramp-ssh-controlmaster-options
-  ;;       "-o ControlMaster=auto -o ControlPath='ssh_%C' -o ControlPersist=no")
-
+  (with-eval-after-load 'tramp-cache
+    (setq tramp-persistency-file-name (concat user-emacs-directory "tramp")))
   
-  ;; <default method>
-  (setq tramp-default-method "ssh") ; default "scp" (ssh + scp),
-  ;; (add-to-list 'tramp-default-method-alist '("" ""))
+  (setq tramp-auto-save-directory "/tmp")
+
+  ;; (tramp-debug-buffer-name t)
+  ;; (setq tramp-verbose 10)
 
   ;; speed-up tramp.
   (setq tramp-completion-reread-directory-timeout nil)
 
-  ;; Multi-hops SSH proxy bridges
-  ;; [[info:tramp#Multi-hops][info:tramp#Multi-hops]]
-  ;;
-  ;; (add-to-list 'tramp-default-proxies-alist '(HOST USER SSH-PROXY))
+  ;; <default method>
+  (setq tramp-default-method "ssh")
 
-  ;; ad-hoc proxy
-  ;; (setq tramp-save-ad-hoc-proxies t)
-  ;;
+  ;; (add-to-list 'tramp-default-method-alist
+  ;;              '("\\`\\(127\\.0\\.0\\.1\\|::1\\|dark\\|localhost6?\\)\\'"
+  ;;                "\\`root\\'"
+  ;;                "su"))
+  (add-to-list 'tramp-default-method-alist '(nil "%" "smb"))
+  
+  ;; (add-to-list 'tramp-methods `(,))
+
   ;; <default user>
-  ;; ssh connect: host, user
   ;; NOTE: this cause `ob-shell' :dir /sudo:: error.
   ;; (add-to-list 'tramp-default-user-alist
   ;;              '(("\\`su\\(do\\)?\\'" nil "root")))
   ;; (add-to-list 'tramp-default-user-alist
   ;;              '("ssh" ".*\\.somewhere\\.else\\'" "john"))
-  ;;
+
   ;; <default host>
   ;; (add-to-list 'tramp-default-host-alist)
-  ;;
+
+  ;; ad-hoc proxy
+  ;; (setq tramp-save-ad-hoc-proxies t)
+
   ;; <default proxy>
   ;; (add-to-list 'tramp-default-proxies-alist)
-  ;;
+
+  ;; Multi-hops SSH proxy bridges
+  ;; (add-to-list 'tramp-default-proxies-alist '(HOST USER SSH-PROXY))
+
   ;; Tramp completion
   ;; (add-to-list 'tramp-completion-function-alist)
-  ;;
+
   ;; <predefined connection property>
   ;; (add-to-list 'tramp-connection-properties
   ;;              (list (regexp-quote "/ssh:user@randomhost.your.domain:")
   ;;                    "busybox" t))
 
-  (setq tramp-auto-save-directory "/tmp")
+  ;; use the settings in ~/.ssh/config instead of Tramp's
+  ;; (setq tramp-use-ssh-controlmaster-options nil)
 
-  ;; tramp-debug-buffer-name t
-  ;; (setq tramp-verbose 10)
-
-
+  ;; hotfix
+  ;; (setq tramp-ssh-controlmaster-options
+  ;;       "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
+  ;; (setq tramp-ssh-controlmaster-options
+  ;;       "-o ControlMaster=auto -o ControlPath='ssh_%C' -o ControlPersist=no")
+  
   ;; change SHELL environment variable to solve Tramp hangs issue.
   ;; (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
 
+  ;; don't generate backups for remote files opened as root (security hazzard)
+  (setq backup-enable-predicate
+        (lambda (name)
+          (and (normal-backup-enable-predicate name)
+               (not (let ((method (file-remote-p name 'method)))
+                      (when (stringp method)
+                        (member method '("su" "sudo"))))))))
+  
   ;; [ sh ]
   (require 'tramp-sh)
   (add-to-list 'tramp-remote-path "~/bin")
@@ -73,7 +89,7 @@
   ;; [ sudo in Tramp ]
 
   ;; [ Android adb ]
-  ;; (setq tramp-adb-program "adb")
+  (require 'tramp-adb)
   )
 
 ;;; [ counsel-tramp ] -- Tramp with Ivy/counsel interface.
@@ -92,7 +108,6 @@
 ;;   :ensure t
 ;;   :defer t
 ;;   :config
-;;   (setq tramp-default-method "ssh")
 ;;   (defalias 'exit-tramp 'tramp-cleanup-all-buffers)
 ;;   (with-eval-after-load 'helm-config
 ;;     (define-key helm-command-map (kbd "M-t") 'helm-tramp))
