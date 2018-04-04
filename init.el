@@ -165,7 +165,6 @@
 ;; (require 'init-tool-OpenSpritz)
 (require 'init-tool-email)
 ;; (require 'init-tool-feeds)
-(require 'init-tool-blog)
 (require 'init-tool-contacts)
 ;; (require 'init-tool-password-manager)
 (require 'init-tool-accounting)
