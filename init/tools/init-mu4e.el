@@ -19,7 +19,7 @@
   ;;       mu4e-mu-binary "/usr/sbin/mu"
   ;;       )
 
-  (setq mail-user-agent 'mu4e-user-agent)
+  (setq mail-user-agent 'mu4e-user-agent) ; use mu4e as default Email program for Emacs [C-x m].
   (setq mu4e-compose-in-new-frame t)
 
   ;; Helm sources for searching emails and contacts using mu.
@@ -203,8 +203,9 @@
       '((:flags .  6)
         (:human-date  . 18)
         (:from  . 18)
-        (:thread-subject . nil)
-        ;; (:subject . nil)
+	      ;; (:mailing-list  .   10)
+        ;; (:thread-subject . 30)
+        (:subject . nil)
         )
       )
 
@@ -244,12 +245,14 @@
 ;;               )))
 
 
-;; include in message with C-c C-w
-(setq mu4e-compose-signature-auto-include nil
+;;; Message signatures
+;; include in message with [C-c C-w]
+(setq mu4e-compose-signature-auto-include t
       mu4e-compose-signature
-      "[ stardiviner ] I want to save myself from this world.
-       IRC(freenode): stardiviner     \\ Google+:  numbchild \\
-       https://stardiviner.github.io/
+      "[ stardiviner ] don't need to convince with trends.
+       Blog: https://stardiviner.github.io/
+       IRC(freenode): stardiviner
+       GPG: F09F650D7D674819892591401B5DF1C95AE89AC3
       "
       )
 
@@ -479,8 +482,8 @@
 ;; [ Cite ]
 
 ;; mu-cite
-;; [C-c h] to toggle hide cited.
-(add-hook 'mu4e-view-mode-hook 'mu4e-view-toggle-hide-cited)
+;;; hide cited
+;; (add-hook 'mu4e-view-mode-hook 'mu4e-view-toggle-hide-cited)
 
 ;; message-cite
 (setq message-cite-style message-cite-style-gmail)
@@ -508,7 +511,7 @@
 ;; mu4e normally prefers the plain-text version for messages that consist of
 ;; both a plain-text and html (rich-text) versions of the body-text. You change
 ;; this by setting mu4e-view-prefer-html to t.
-(setq mu4e-view-prefer-html nil)
+(setq mu4e-view-prefer-html t)
 
 ;;; 'html2text, "html2text -utf8 -width 72"
 ;; (setq mu4e-html2text-command 'html2text)
@@ -677,6 +680,12 @@
    :command (list "mpv" (expand-file-name "~/Music/Sounds/Ingress/Speech/speech_zoom_lockon.wav"))))
 (add-hook 'mu4e-index-updated-hook 'mu4e-new-mail-alert)
 
+(defun mu4e-open-mail-sound ()
+  "The mu4e open email sound."
+  (make-process
+   :name "mu4e open mail sound"
+   :command (list "mpv" (expand-file-name "~/Music/Sounds/Ingress/SFX/sfx_sonar.wav"))))
+(add-hook 'mu4e-view-mode-hook 'mu4e-open-mail-sound 'append)
 
 ;;; Faces
 
@@ -708,16 +717,7 @@
 (define-key mu4e-headers-mode-map (kbd "m") 'mu4e-headers-mark-for-something)
 (define-key mu4e-headers-mode-map (kbd "M") 'mu4e-headers-mark-for-move)
 
-
-;;; Add Org-mode structure support for Emails
-
-(add-hook 'mu4e-view-mode-hook
-          (lambda ()
-            (turn-on-orgstruct) ; Org-struct minor mode
-            (turn-on-orgstruct++)
-            ;; enable Orgtbl minor mode in message-mode.
-            (turn-on-orgtbl)))
-
+(add-hook 'mu4e-view-mode-hook #'visual-line-mode)
 
 ;;; Gmail
 ;; (setq mu4e-maildir "~/Maildir")
