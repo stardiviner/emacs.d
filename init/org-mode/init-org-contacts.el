@@ -65,7 +65,7 @@
       )
 
 ;; Create agenda view for contacts matching NAME.
-(define-key Org-prefix (kbd "b") 'org-contacts)
+(define-key Org-prefix (kbd "M-c") 'org-contacts)
 
 (dolist (hook '(message-mode-hook
                 mu4e-compose-mode-hook

@@ -141,9 +141,6 @@
     ;;                           (unless css-mode (css-mode))
     ;;                         (if css-mode (css-mode -1)))))))
     
-    ;; Enable JavaScript completion between <script>...</script> etc.
-    (add-hook 'web-mode-hook 'tern-mode)
-    
     ;; (defadvice company-tern (before web-mode-set-up-ac-sources activate)
     ;;   "Set `tern-mode' based on current language before running `company-tern'."
     ;;   (if (equal major-mode 'web-mode)
