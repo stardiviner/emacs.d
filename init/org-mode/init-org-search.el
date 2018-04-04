@@ -73,7 +73,7 @@
     (interactive)
     (let ((my-emacs-modes-reference-dir
            (concat org-directory
-                   "/Wiki/Computer Technology/Programming/Emacs/modes/")))
+                   "/Wiki/Computer Technology/Programming/Emacs/Data/Emacs Packages/")))
       (helm-org-rifle-directories
        (list my-emacs-modes-reference-dir))))
   

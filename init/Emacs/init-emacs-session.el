@@ -27,12 +27,12 @@
 ;;   )
 
 ;;; open mostly used files
-(find-file (expand-file-name (concat org-directory "/Wiki/Computer Technology/Programming/Emacs/modes/modes.org")))
+(find-file (expand-file-name (concat org-directory "/Wiki/Computer Technology/Programming/Emacs/Data/Emacs Packages/Emacs Packages.org")))
 (find-file (expand-file-name (concat org-directory "/Wiki/Computer Technology/Softwares/Softwares.org")))
 (find-file (expand-file-name (concat org-directory "/Wiki/Computer Technology/Softwares/Commands.org")))
 (find-file (expand-file-name (concat org-directory "/Wiki/Computer Technology/Programming/Implementations/Implementations.org")))
 (find-file (expand-file-name (concat org-directory "/Wiki/Computer Technology/Programming/Implementations/Web/Web Technologies/Web Technologies.org")))
-(find-file (expand-file-name (concat org-directory "/Wiki/Computer Technology/Programming/Emacs/modes/Org-mode/Org-mode.org")))
+;; (find-file (expand-file-name (concat org-directory "/Wiki/Computer Technology/Programming/Emacs/Data/Emacs Packages/Org-mode/Org-mode.org")))
 (find-file (expand-file-name (concat org-directory "/dotfiles/dotfiles.org")))
 
 
