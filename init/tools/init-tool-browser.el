@@ -27,7 +27,7 @@
 
 ;;; set default browser to generic browser
 ;; (setq browse-url-browser-function 'browse-url-generic)
-;; (setq browse-url-generic-program (executable-find "firefox"))
+(setq browse-url-generic-program (executable-find "firefox"))
 ;;
 ;;; set default browser to "Firefox"
 (setq browse-url-browser-function 'browse-url-firefox)
