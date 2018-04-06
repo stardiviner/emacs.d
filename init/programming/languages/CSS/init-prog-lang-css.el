@@ -90,12 +90,10 @@
 
 ;;; [ stylefmt ] -- An emacs interface for stylefmt style code formatter.
 
-(use-package stylefmt
-  :ensure t
-  :defer t
-  :init
-  (add-hook 'css-mode-hook 'stylefmt-enable-on-save)
-  )
+;; (use-package stylefmt
+;;   :ensure t
+;;   :defer t
+;;   :init (add-hook 'css-mode-hook 'stylefmt-enable-on-save))
 
 
 (provide 'init-prog-lang-css)
