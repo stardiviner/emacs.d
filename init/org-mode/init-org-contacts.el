@@ -30,6 +30,7 @@
 :Thought: %^{Thought|open|conservative}
 :MOBILE: %^{Mobile Phone}
 :EMAIL: %^{Email}
+:BLOG: %^{Blog}
 :WeChat: %^{WeChat}
 :QQ:
 :Facebook: %^{Facebook}
@@ -91,7 +92,10 @@
            (concat org-directory "/Contacts/")))
       (helm-org-rifle-directories
        (list my-contacts-reference-dir))))
-  
+
+  (unless (boundp 'reference-prefix)
+    (define-prefix-command 'reference-prefix))
+  (define-key Org-prefix (kbd "r") 'reference-prefix)
   (define-key reference-prefix (kbd "C-c") 'rifle-Contacts-ref)
   )
 
