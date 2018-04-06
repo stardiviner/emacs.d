@@ -596,7 +596,7 @@
 ;; mu4e-headers-full-search. This applies to all search commands.
 
 (setq mu4e-headers-full-search nil) ; whether show all search results. or depend on `mu4e-headers-results-limit'.
-(setq mu4e-headers-results-limit 1000)
+(setq mu4e-headers-results-limit 3000)
 
 ;;; Including related messages
 ;;
@@ -669,6 +669,12 @@
         ("date:1w..now"                  "This week's messages" ?w)
         ("maildir:/Emacs/help"           "Emacs mailbox" ?e)
         ))
+
+;;; Indexing
+;; speed-up indexing
+(setq mu4e-index-cleanup nil ; don't do a full cleanup check
+      mu4e-index-lazy-check t ; don't consider up-to-date dirs
+      )
 
 (defun mu4e-new-mail-alert ()
   "The mu4e new email alert."
