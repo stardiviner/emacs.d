@@ -66,17 +66,13 @@
       (setq inferior-julia-program-name "julia")))
 
 (require 'ob-julia)
-
 (setq org-babel-julia-command "julia")
-
 (add-to-list 'org-babel-load-languages '(julia . t))
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("julia" . "jl"))
 
-(setq org-babel-default-header-args:julia
-      '((:results . "output replace")
-        (:padnewline . "yes")))
-(add-to-list 'org-src-lang-modes '("julia" . ess-julia))
+;; (setq org-babel-default-header-args:julia
+;;       '((:results . "output replace")
+;;         (:padnewline . "yes")))
 
 ;;; [ julia-shell ] -- Emacs major mode for an interactive Julia shell.
 
