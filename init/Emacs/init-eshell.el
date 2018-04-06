@@ -134,9 +134,9 @@ PWD is not in a git repo (or the git command is not found)."
     (interactive)
     (eshell-cmpl-initialize)
     ;; disable company-mode auto complete to speed up Eshell typing command, use [Tab] manually.
-    (company-mode 1)
-    ;; (local-set-key (kbd "<tab>") 'company-complete)
-    (setq-local company-minimum-prefix-length 3)
+    (company-mode -1)
+    (local-set-key (kbd "<tab>") 'company-complete)
+    (setq-local company-minimum-prefix-length 4)
     (setq-local company-idle-delay 0.4)
     (define-key company-active-map [return] 'company-complete-selection)
     (define-key company-active-map "\r" 'company-complete-selection)
