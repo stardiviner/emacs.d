@@ -28,6 +28,7 @@
         ("t" "Add a [t]ime scheduled task into Tasks"
          entry (file "~/Org/Tasks/Computer Todos.org")
          "* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n"
+         :clock-in t :clock-resume t :clock-keep t
          :empty-lines 1
          )
 
@@ -42,7 +43,7 @@
          )
         
         ;; Bookmark
-        ("k" "Add an URL to bookmar[k]s database"
+        ("u" "Add an [U]RL to bookmarks database"
          entry (file "~/Org/Bookmarks/Bookmarks.org")
          "* %^{Bookmark URL}\n\n%A\n\n%?\n\n"
          :empty-lines 1
