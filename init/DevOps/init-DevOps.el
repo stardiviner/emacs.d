@@ -16,7 +16,7 @@
 
 (unless (boundp 'infrastructure-as-code-prefix)
   (define-prefix-command 'infrastructure-as-code-prefix))
-(define-key prog-tools-prefix (kbd "c") 'infrastructure-as-code-prefix)
+(define-key prog-tools-prefix (kbd "i") 'infrastructure-as-code-prefix)
 
 ;; (require 'init-puppet)
 ;; (require 'init-ansible)
