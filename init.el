@@ -360,6 +360,13 @@
 ;;                                 "Date: 2011/10/0 (yes, day 0!)") 0)
 ;;             ))
 
+;;; [ playground ] -- Manage sandboxes for alternative Emacs configurations.
+
+(use-package playground
+  :ensure t
+  :defer t
+  :commands (playground-checkout playground-checkout-with-options))
+
 ;;; show Emacs initialized time.
 (message "Emacs initialized in %s" (emacs-init-time))
 
