@@ -426,13 +426,13 @@ state (modified, read-only or non-existent)."
              ))
            ('org-mode
             (if (bound-and-true-p ob-clojure-literate-mode)
-                (if (cl-some
-                     (lambda (conn)
-                       (member (buffer-name conn) '("*cider-repl localhost*" "*cider-repl ob-clojure*"))
-                       ;; (string= (buffer-name conn) ob-clojure-literate-default-session)
-                       )
-                     cider-connections)
-                    (all-the-icons-fileicon "clj" :face '(:foreground "green"))
+                (if (bound-and-true-p ob-clojure-literate-session)
+                    (concat
+                     (all-the-icons-fileicon "clj" :face '(:foreground "green"))
+                     (propertize
+                      (format "%s" (replace-regexp-in-string
+                                    "cider-repl " ""
+                                    ob-clojure-literate-session))))
                   (all-the-icons-fileicon "clj" :face '(:foreground "gray")))))
            ((or 'ruby-mode 'inf-ruby-mode)
             (concat
