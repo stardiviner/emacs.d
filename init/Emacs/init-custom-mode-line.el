@@ -116,7 +116,8 @@ to the command loop."
          "search-plus" :v-adjust -0.05)
         (format "[%s]" edebug-execution-mode))
      (format ""))
-   'face (if (mode-line-window-active-p) 'mode-line-data-face)))
+   ;; 'face (if (mode-line-window-active-p) 'mode-line-data-face)
+   ))
 
 ;;; buffer project info
 (defun buffer-path-relative-to-project ()
@@ -810,12 +811,11 @@ dimensions of a block selection."
              org-clock-idle-timer)
     (concat
      (all-the-icons-faicon "hourglass-half"
-                           :v-adjust -0.05 :height 0.9 :face 'mode-line-data-face)
+                           :v-adjust -0.05 :height 0.9)
      (propertize " " 'face 'variable-pitch)
      ;; get [0:05] from `org-clock-get-clock-string'
      (propertize
-      (format "%s" (org-duration-from-minutes (org-clock-get-clocked-time)))
-      'face 'mode-line-data-face)
+      (format "%s" (org-duration-from-minutes (org-clock-get-clocked-time))))
      ;; get clocking task title
      (propertize
       (format " %s" (s-truncate 30 org-clock-heading))
@@ -943,9 +943,10 @@ dimensions of a block selection."
   (defun my:keycast-faces-setup (theme)
     (set-face-attribute 'keycast-key nil
                         :inherit 'mode-line
-                        :height 1.0 :box nil
-                        :foreground "cyan"
+                        :height 1.0
+                        ;; :weight 'bold
                         :background (face-background 'mode-line)
+                        :foreground (face-foreground 'mode-line)
                         :box (face-attribute 'mode-line :box))
     (set-face-attribute 'keycast-command nil
                         :bold nil))
