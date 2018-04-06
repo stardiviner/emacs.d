@@ -13,8 +13,8 @@
 ;;; fallback [M-x shell] shell to Bash.
 ;;; "$SHELL", "/bin/sh", "/bin/bash", "usr/bin/zsh"
 ;; (setq shell-file-name (getenv "SHELL"))
-(setq shell-file-name "/bin/bash")
-(setq explicit-shell-file-name "/bin/bash")
+(setq shell-file-name "/usr/bin/bash")
+(setq explicit-shell-file-name "/usr/bin/bash")
 
 ;;; open shell buffer in current window
 (add-to-list 'display-buffer-alist
