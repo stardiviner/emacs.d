@@ -14,6 +14,7 @@
 
 (use-package edit-server
   :ensure t
+  :ensure edit-server-htmlize
   :if window-system
   :defer t
   :init
