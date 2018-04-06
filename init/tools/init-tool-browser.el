@@ -60,10 +60,15 @@
 
 ;;; [ ace-link ] -- easier link selection with ace-mode on many buffer links.
 
-(use-package ace-link
+(use-package ace-link ; [o]
   :ensure t
   :defer t
-  :init (ace-link-setup-default))
+  :init (ace-link-setup-default)
+  (with-eval-after-load "mu4e"
+    (define-key mu4e-view-mode-map (kbd "C-c M-o") 'ace-link-mu4e))
+  (with-eval-after-load "org"
+    (define-key org-agenda-mode-map (kbd "C-c M-o") 'ace-link-org-agenda)
+    (define-key org-mode-map (kbd "C-c M-o") 'ace-link-org)))
 
 
 
