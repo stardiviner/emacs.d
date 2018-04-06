@@ -89,36 +89,36 @@ PWD is not in a git repo (or the git command is not found)."
   (require 'em-prompt)
   (defun my:eshell-prompt-function ()
     (format "{%s} [%s]\n%s %s"
-                    (propertize
-                     (getenv "USER")
-                     'face '(:foreground "sky blue"))
-                    (propertize
-                     (abbreviate-file-name (eshell/pwd))
-                     'face '(:foreground "gray"))
-                    ;; (propertize
-                    ;;  (when (featurep 'pyvenv)
-                    ;;    (concat
-                    ;;     (all-the-icons-alltheicon "python" :face '(:foreground "blue"))
-                    ;;     " "
-                    ;;     (propertize pyvenv-virtual-env-name 'face '(:foreground "gray"))))
-                    ;;  (when (featurep 'rbenv)
-                    ;;    (concat
-                    ;;     (all-the-icons-alltheicon "ruby" :face '(:foreground "red"))
-                    ;;     " "
-                    ;;     (propertize (format "%s" (rbenv--active-ruby-version))
-                    ;;                 'face '(:foreground "gray"))))
-                    ;;  (when (featurep 'nvm)
-                    ;;    (concat
-                    ;;     (all-the-icons-alltheicon "javascript" :face '(:foreground "yellow"))
-                    ;;     " "
-                    ;;     (propertize nvm-current-version 'face '(:foreground "gray"))))
-                    ;;  )
-                    (propertize
-                     (if (= (user-uid) 0) " #" " $")
-                     'face '((:foreground "deep pink")))
-                    ;; set following cmd face
-                    (propertize "" 'face '(:foreground "dark"))
-                    ))
+            (propertize
+             (getenv "USER")
+             'face '(:foreground "sky blue"))
+            (propertize
+             (abbreviate-file-name (eshell/pwd))
+             'face '(:foreground "gray"))
+            ;; (propertize
+            ;;  (when (featurep 'pyvenv)
+            ;;    (concat
+            ;;     (all-the-icons-alltheicon "python" :face '(:foreground "blue"))
+            ;;     " "
+            ;;     (propertize pyvenv-virtual-env-name 'face '(:foreground "gray"))))
+            ;;  (when (featurep 'rbenv)
+            ;;    (concat
+            ;;     (all-the-icons-alltheicon "ruby" :face '(:foreground "red"))
+            ;;     " "
+            ;;     (propertize (format "%s" (rbenv--active-ruby-version))
+            ;;                 'face '(:foreground "gray"))))
+            ;;  (when (featurep 'nvm)
+            ;;    (concat
+            ;;     (all-the-icons-alltheicon "javascript" :face '(:foreground "yellow"))
+            ;;     " "
+            ;;     (propertize nvm-current-version 'face '(:foreground "gray"))))
+            ;;  )
+            (propertize
+             (if (= (user-uid) 0) " #" " $")
+             'face '((:foreground "deep pink")))
+            ;; set following cmd face
+            (propertize "" 'face '(:foreground "dark"))
+            ))
   (setq eshell-prompt-function 'my:eshell-prompt-function)
 
   (setq eshell-prompt-regexp "^[^#$\n]* [#$]")
