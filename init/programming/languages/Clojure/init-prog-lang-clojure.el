@@ -306,6 +306,10 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   ;;             (lambda (&rest _)
   ;;               (yas-next-field)
   ;;               (yas-next-field)))
+
+  ;; FIXME: temporary solution for clj-refactor.
+  (with-eval-after-load "clj-refactor"
+    (remove-hook 'find-file-hook #'cljr--ensure-no-dashes-in-filename))
   )
 
 ;;; [ kibit-helper ] -- Conveniently use the Kibit Leiningen plugin from Emacs.
