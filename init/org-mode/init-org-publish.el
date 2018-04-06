@@ -319,9 +319,25 @@
 
 (defun my-org-publish-sync (args)
   "Sync ox-publish exported files to remote server and pass in project property list `ARGS'."
-  (let ((post (read-from-minibuffer "Post title: ")))
-    (shell-command
-     (concat "cd ~/org-publish/ ;" "git add . ;" "git commit --message='" post "' ;" "git push"))))
+  (interactive)
+  (let ((post (read-from-minibuffer "Post title: "))
+        (cd-source (format "cd %s && " (concat org-directory "/Website")))
+        (cd-master (format "cd %s && " my-org-publish-directory)))
+    ;; source branch "~/Org/Website/"
+    (or (zerop (shell-command (concat cd-source "git add . ")))
+        (error "Source Branch: git-add error"))
+    (or (zerop (shell-command (concat cd-source "git commit --message='" post "'")))
+        (error "Source branch: git-commit error"))
+    (or (zerop (shell-command (concat cd-source "git push origin source")))
+        (error "Source branch: git-push to source error"))
+    ;; gh-pages branch "~/org-publish/"
+    (or (zerop (shell-command (concat cd-master "git add . ")))
+        (error "Master branch: git-add error"))
+    (or (zerop (shell-command (concat cd-master "git commit --message='" post "' ")))
+        (error "Master branch: git-commit error"))
+    (or (zerop (shell-command (concat cd-master "git push origin master")))
+        (error "Master branch: git-push to master error"))
+    ))
 
 (defun my-org-publish-reset ()
   "Reset org-publish with DELETE all generated files."
