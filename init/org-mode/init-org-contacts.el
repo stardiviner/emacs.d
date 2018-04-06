@@ -11,10 +11,7 @@
 
 (require 'org-contacts)
 
-(setq org-contacts-files '("~/Org/Contacts/Contacts.org")
-      org-contacts-icon-use-gravatar nil
-      org-contacts-icon-property "AVATAR"
-      )
+(setq org-contacts-files (list (concat org-directory "/Contacts/Contacts.org")))
 
 (setq org-capture-templates
       (append '(("C" "[C]ontact"
@@ -64,6 +61,10 @@
       "NAME<>\"\"|EMAIL<>\"\"|Mailing-List<>\"\"|ALIAS<>\"\"|RELATIONSHIP<>\"\"|PHONE<>\"\"|ADDRESS<>\"\"|BIRTHDAY<>\"\"|PROGRAMMING-SKILLS<>\"\"|SKILLS<>\"\"|EDUCATION<>\"\"|JOBS<>\"\"|NOTE"
       )
 
+;;; avatar
+(setq org-contacts-icon-use-gravatar nil
+      org-contacts-icon-property "AVATAR")
+
 ;; Create agenda view for contacts matching NAME.
 (define-key Org-prefix (kbd "M-c") 'org-contacts)
 
@@ -73,14 +74,11 @@
   (add-hook hook 'org-contacts-setup-completion-at-point))
 
 
-(defun org-contacts-properties-drawer-link-workaround ()
-  "Fix can't open link in properties drawer issue."
-  (if (cl-some #'(lambda (x)
-                   (string= (expand-file-name x) (buffer-file-name)))
-               org-contacts-files)
-      (setq-local org-startup-with-latex-preview nil)))
-
-(add-hook 'org-mode-hook 'org-contacts-properties-drawer-link-workaround)
+;; (defun org-contacts-properties-drawer-link-workaround ()
+;;   "Fix can't open link in properties drawer issue."
+;;   (if (string= (expand-file-name (buffer-file-name)) org-contacts-files)
+;;       (setq-local org-startup-with-latex-preview nil)))
+;; (add-hook 'org-mode-hook 'org-contacts-properties-drawer-link-workaround)
 
 (use-package helm-org-rifle
   :ensure t
