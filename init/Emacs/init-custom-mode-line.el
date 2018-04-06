@@ -436,7 +436,7 @@ state (modified, read-only or non-existent)."
                   (all-the-icons-fileicon "clj" :face '(:foreground "gray")))))
            ((or 'ruby-mode 'inf-ruby-mode)
             (concat
-             (if (inf-ruby-proc)
+             (if (ignore-errors (inf-ruby-proc))
                  (all-the-icons-alltheicon "ruby"
                                            :v-adjust -0.05 :face '(:foreground "green"))
                (all-the-icons-faicon "chain-broken"
