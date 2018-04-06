@@ -132,18 +132,19 @@
 
 (setq transient-mark-mode t)
 
-
-;;; [ wrap & fill ]
-(setq-default fill-column 80)
-(setq-default truncate-lines t) ; truncate long lines.
-(setq-default truncate-partial-width-windows 50)
-(setq-default global-visual-line-mode nil) ; soft wrap lines at word boundary
+;;; [ wrap line ]
+;; truncate long lines.
+(setq-default truncate-lines t)
+(setq-default word-wrap t)
+;; (setq-default truncate-partial-width-windows 50)
 (setq-default visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
+(setq-default global-visual-line-mode nil) ; soft wrap lines at word boundary
+;; (global-visual-line-mode 1)
 
 ;;; [ auto-fill-mode ] -- auto fill paragraphs like hitting [M-q].
-
+(setq-default fill-column 80)
 ;;; global
-;; (auto-fill-mode t)
+(auto-fill-mode t)
 ;;; auto fill comments but not code in programming modes:
 (add-hook 'prog-mode-hook
           '(lambda () (setq-local comment-auto-fill-only-comments t)))
