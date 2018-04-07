@@ -14,14 +14,13 @@
   ;; [ ivy-hydra ] -- [C-o], [M-o]
   :ensure ivy-hydra
   :defer t
-  :init
-  (ivy-mode 1)
+  :init (ivy-mode 1)
   (define-key read-expression-map (kbd "C-r") #'counsel-minibuffer-history) ; in [M-:]
   :config
   (setq ivy-use-virtual-buffers t ; treat recentf, bookmarks as virtual buffers.
         ivy-virtual-abbreviate 'full ; use 'full to fix bookmarks uniquify issue.
-        ivy-height 5
-        ivy-fixed-height-minibuffer t
+        ivy-height 7
+        ;; ivy-fixed-height-minibuffer t
         ivy-display-style 'fancy
         ;; ivy-count-format "(%d/%d) "
         ivy-initial-inputs-alist nil ; remove initial ^ input.
