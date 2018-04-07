@@ -59,6 +59,11 @@
     (org-odt-convert file "csv")
     (org-table-import csv-file  nil)))
 
+;;; [ org-transform-tree-table ] -- Transform an org-mode outline and its properties to a table format (org-table, CSV).
+
+(use-package org-transform-tree-table
+  :ensure t)
+
 ;;; [ mysql-to-org-mode ] -- Minor mode for emacs to output the results of mysql queries to org tables.
 
 (use-package mysql-to-org
