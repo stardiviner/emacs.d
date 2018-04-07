@@ -141,18 +141,13 @@
 
 (use-package org-pdfview
   :ensure t
-  :defer t
-  :after org
+  :load (org-pdfview)
   :init
+  (org-link-set-parameters "pdfview" :export #'org-pdfview-export)
   ;; change Org-mode default open PDF file function.
   ;; If you want, you can also configure the org-mode default open PDF file function.
   (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (org-pdfview-open link))))
   (add-to-list 'org-file-apps '("\\.pdf::\\([[:digit:]]+\\)\\'" . (lambda (file link) (org-pdfview-open link))))
-  ;; DEPRECATED
-  ;; (add-to-list 'org-file-apps '("\\.pdf\\'" . org-pdfview-open))
-  ;; (add-to-list 'org-file-apps '("\\.pdf::\\([[:digit:]]+\\)\\'" . org-pdfview-open))
-
-  (org-add-link-type "pdfview" 'org-pdfview-open 'org-pdfview-export)
   )
 
 ;; [ org-noter ] -- Emacs document annotator, using Org-mode.
