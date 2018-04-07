@@ -26,13 +26,21 @@
   :no-require t
   :pin manual
   :ensure-system-package scrot
-  :config
-  (require 'org-screenshot)
-  ;; (setq org-screenshot-command-line "scrot -d 5 -s %f") ; "import %f",
-  (add-hook 'org-mode-hook
-            (lambda ()
-              (local-set-key (kbd "C-c o M-s") 'org-screenshot)))
-  )
+  :load (org-screenshot)
+  :commands (org-screenshot-take)
+  :init (add-hook 'org-mode-hook
+                  #'(lambda () (local-set-key (kbd "C-c o M-s") 'org-screenshot-take)))
+  :config (setq org-screenshot-image-directory "data/images"))
+
+;;; [ org-attach-screenshot ] -- screenshots integrated with org attachment dirs.
+
+;; (use-package org-attach-screenshot
+;;   :ensure t
+;;   :commands (org-attach-screenshot)
+;;   :bind (:map Org-prefix ("M-s" . org-attach-screenshot))
+;;   :init
+;;   (setq org-attach-screenshot-command-line "import %f") ; "scrot -c -d 5 -s %f"
+;;   :config (setq org-attach-screenshot-relative-links t))
 
 ;;; [ org-download ] -- drag and drop images to Emacs org-mode.
 
@@ -69,20 +77,13 @@
   (org-download-enable)
   )
 
-;;; [ org-attach-screenshot ] -- screenshots integrated with org attachment dirs.
-
-(use-package org-attach-screenshot
-  :ensure t
-  :commands (org-attach-screenshot))
-
 ;;; [ org-board ] -- Org mode's web archiver.
 
 (use-package org-board
   :ensure t
   :ensure-system-package wget
   :defer t
-  :init
-  (define-key Org-prefix (kbd "C-a") org-board-keymap)
+  :bind (:map Org-prefix ("C-a" . org-board-keymap))
   :config
   (add-to-list 'display-buffer-alist
                '("org-board-wget-call" (display-buffer-below-selected)))
