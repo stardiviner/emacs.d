@@ -16,12 +16,16 @@
   "Loop through transparency `ALPHA' settings."
   (interactive (list
                 (completing-read "Transparency Alpha: "
-                                 '("100" "90" "80" "70" "60"))))
-  (let* ((active-alpha (string-to-number alpha))
-         (inactive-alpha (- active-alpha 20)))
-    (set-frame-parameter (selected-frame) 'alpha (list active-alpha inactive-alpha))
-    (add-to-list 'default-frame-alist (cons 'alpha (list active-alpha inactive-alpha)))
-    ))
+                                 '("unset" "100" "90" "80" "70" "60"))))
+  (if (string= alpha "unset")
+      (progn
+        (set-frame-parameter (selected-frame) 'alpha (list 100 100))
+        (add-to-list 'default-frame-alist (cons 'alpha (list 100 100))))
+    (let* ((active-alpha (string-to-number alpha))
+           (inactive-alpha (- active-alpha 20)))
+      (set-frame-parameter (selected-frame) 'alpha (list active-alpha inactive-alpha))
+      (add-to-list 'default-frame-alist (cons 'alpha (list active-alpha inactive-alpha)))
+      )))
 
 (my:set-transparency-alpha "95")
 
