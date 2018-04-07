@@ -17,14 +17,13 @@
 ;; (setq save-place-file (expand-file-name ".places" user-emacs-directory))
 
 
-;;; [ desktop ] -- save partial status of Emacs when killed.
+;;; [ desktop ] -- save partial status of Emacs when killed for persistence.
 
-;; (use-package desktop
-;;   :ensure t
-;;   :config
-;;   ;; (setq desktop-path (list (concat user-emacs-directory ".desktop-save")))
-;;   (desktop-save-mode 1)
-;;   )
+(use-package desktop
+  :ensure t
+  :preface
+  (setq desktop-path (list (concat user-emacs-directory ".desktop-save")))
+  :config (desktop-save-mode 1))
 
 ;;; open mostly used files
 (find-file (expand-file-name (concat org-directory "/Wiki/Computer Technology/Programming/Emacs/Data/Emacs Packages/Emacs Packages.org")))

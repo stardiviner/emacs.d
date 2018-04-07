@@ -350,8 +350,8 @@
 
 
 
-(require 'init-emacs-session)
 (require 'init-emacs-workspace)
+(require 'init-emacs-session)
 
 ;; (add-hook 'after-init-hook
 ;;           (lambda ()
