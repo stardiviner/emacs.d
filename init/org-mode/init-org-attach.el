@@ -77,6 +77,11 @@
   (org-download-enable)
   )
 
+;;; [ org-web-tools ] -- retrieving web page content and processing it into Org-mode content.
+
+(use-package org-web-tools
+  :ensure t)
+
 ;;; [ org-board ] -- Org mode's web archiver.
 
 (use-package org-board
