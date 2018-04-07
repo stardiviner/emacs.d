@@ -21,8 +21,11 @@
 
 (use-package desktop
   :ensure t
-  :preface
-  (setq desktop-path (list (concat user-emacs-directory ".desktop-save")))
+  :init
+  (let ((desktop-dir (concat user-emacs-directory ".desktop-save")))
+    (unless (file-exists-p desktop-dir)
+      (make-directory desktop-dir))
+    (add-to-list 'desktop-path desktop-dir))
   :config (desktop-save-mode 1))
 
 ;;; open mostly used files
