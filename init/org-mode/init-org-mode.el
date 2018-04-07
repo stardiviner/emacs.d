@@ -62,9 +62,9 @@
 
 
 (let ((org-dir "~/Org"))
-  (if (file-exists-p org-dir)
-      (setq org-directory org-dir)
-    (make-directory org-dir)))
+  (unless (file-exists-p org-dir)
+    (make-directory org-dir))
+  (setq org-directory org-dir))
 
 (require 'init-org-document-structure)
 (require 'init-org-view)
