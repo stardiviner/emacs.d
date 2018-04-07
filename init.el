@@ -353,12 +353,13 @@
 (require 'init-emacs-workspace)
 (require 'init-emacs-session)
 
-;; (add-hook 'after-init-hook
-;;           (lambda ()
-;;             (animate-sequence '("This is a title animation demo"
-;;                                 "Author: stardiviner"
-;;                                 "Date: 2011/10/0 (yes, day 0!)") 0)
-;;             ))
+(defun stardiviner-splash-animation ()
+  "Show ASCII animation."
+  (animate-sequence '("Fuck this shit world!"
+                      "Author: stardiviner"
+                      "Date: 2011/10/0 (yes, day 0!)") 0)
+  (kill-buffer "*Animation*"))
+(add-hook 'after-init-hook #'stardiviner-splash-animation)
 
 ;;; [ playground ] -- Manage sandboxes for alternative Emacs configurations.
 
