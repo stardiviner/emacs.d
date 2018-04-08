@@ -32,6 +32,12 @@
               ("<f6>" . build-helper-run)
               ("<f7>" . build-helper-re-run)))
 
+;;; [ build-status ] -- mode line build status indicator.
+
+(use-package build-status
+  :ensure t
+  :init (add-hook 'prog-mode-hook #'build-status-mode))
+
 
 
 (provide 'init-prog-build-system)

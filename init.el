@@ -206,7 +206,6 @@
 (require 'init-prog-lint)
 (require 'init-prog-debug)
 (require 'init-prog-test)
-;; (require 'init-prog-build)
 ;; (require 'init-prog-test-coverage)
 (require 'init-prog-refactor)
 (require 'init-prog-project)
@@ -283,7 +282,6 @@
   (define-prefix-command 'prog-tools-prefix))
 (global-set-key (kbd "C-c t") 'prog-tools-prefix)
 
-;; (require 'init-prog-build)
 (require 'init-DevOps)
 (require 'init-elasticsearch)
 
