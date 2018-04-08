@@ -88,82 +88,6 @@
  'append)
 
 
-
-;; @@html:<kbd>...</kbd>@@, <kbd> </kbd>
-(defface org-html-kbd-tag
-  '((nil (:foreground "cyan" :background "#004A5D"
-                      :box '(:color "light gray" :line-width 1)
-                      ;; :weight 'bold
-                      )))
-  "Face for highlight Org-mode html tag @<kbd>...@</kbd> or @@html:<kbd>...</kbd>@@."
-  :group 'org-faces)
-
-;; @@html:<kbd>C-h h</kbd>@@
-(font-lock-add-keywords
- 'org-mode
- '(("@@html:<kbd>\\([^<]*\\)</kbd>@@"
-    (1 'org-html-kbd-tag))))
-
-;; @<kbd>C-h h@</kbd>
-(font-lock-add-keywords
- 'org-mode
- '(("@<kbd>\\([^@]*\\)@</kbd>"
-    (1 'org-html-kbd-tag))))
-
-(defun my/org-insert-key ()
-  "Insert keybinding code in Org with a keybinding quickly.
-
-In common insert mode or in select region text to press this keybinding \\<C-c k>.
-to insert <kbd>..</kbd> (HTML) org =[..]= (Org-mode)."
-  (interactive)
-  (if (region-active-p)
-      (let ((where (cons (region-beginning) (region-end))))
-        (insert-pair where "=[" "]="))
-    ;; (insert-pair nil "=[" "]=")
-    (progn
-      (insert "=[]=")
-      (backward-char 2)))
-  )
-
-(defun my/org-insert-kbd ()
-  "Insert literal HTML tag <kbd></kbd>."
-  (interactive)
-  (if (region-active-p)
-      (let ((where (cons (region-beginning) (region-end))))
-        (insert-pair where "@@html:<kbd>" "</kbd>@@"))
-    (progn
-      (insert "@@html:<kbd></kbd>@@ ")
-      (backward-char 9)))
-  )
-
-
-;;; Inserting the kbd tag in interactively
-(eval-after-load 'ox-html
-  ;; If you prefer to use ~ for <code> tags. Replace "code" with
-  ;; "verbatim" here, and replace "~" with "=" below.
-  '(push '(code . "<kbd>%s</kbd>") org-html-text-markup-alist))
-
-(defun my/insert-key (key)
-  "Ask for a KEY then insert its description.
-Will work on both `org-mode' and any mode that accepts plain html."
-  (interactive "kType key sequence: ")
-  (let* ((org-p (derived-mode-p 'org-mode))
-         (tag (if org-p
-                  ;; "~%s~"
-                  "=[%s]="
-                ;; "@@html:<kbd>%s</kbd>@@"
-                "<kbd>%s</kbd>")))
-    (if (null (equal key "\C-m"))
-        (insert
-         (format tag (help-key-description key nil)))
-      ;; If you just hit RET.
-      (insert (format tag ""))
-      (forward-char (if org-p -2 -6)))))
-
-(define-key org-mode-map (kbd "C-c K") 'my/insert-kbd)
-(define-key org-mode-map (kbd "C-c k") 'my/org-insert-key)
-
-
 (provide 'init-org-face-extra)
 
 ;;; init-org-face-extra.el ends here

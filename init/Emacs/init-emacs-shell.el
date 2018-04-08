@@ -20,9 +20,9 @@
 (add-to-list 'display-buffer-alist
              '("^\\*shell\\*$" . (display-buffer-below-selected)))
 (add-to-list 'display-buffer-alist
-             '("^\\*Shell Command Output\\*$" . (display-buffer-below-selected)))
+             '("^\\*Shell Command Output\\*$" . (display-buffer-reuse-window display-buffer-below-selected)))
 (add-to-list 'display-buffer-alist
-             '("^\\*Async Shell Command\\*" (display-buffer-below-selected)))
+             '("^\\*Async Shell Command\\*" (display-buffer-reuse-window display-buffer-below-selected)))
 
 ;; [M-x shell] is a nice shell interface to use, let's make it colorful.
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)

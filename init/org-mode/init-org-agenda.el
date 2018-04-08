@@ -10,6 +10,7 @@
 (require 'org-agenda)
 
 (setq org-agenda-window-setup 'current-window)
+(setq org-agenda-sticky t) ; don't kill *Org Agenda* buffer by [q].
 
 ;; (defun org-agenda--around (split-vertically &rest args)
 ;;   (let ((split-width-threshold 80))
