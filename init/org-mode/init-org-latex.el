@@ -37,11 +37,11 @@
 ;;                :latex-compiler ("xelatex -8bit --shell-escape -interaction=nonstopmode -output-directory %o %f")
 ;;                :image-converter ("dvisvgm %f -n -b min -c %S -o %O")))
 
-(setq org-latex-image-default-width "2.0\\linewidth")
+(setq org-latex-image-default-width "1.5\\linewidth")
 (setq org-format-latex-options
-      (plist-put org-format-latex-options :scale 2.0)) ; adjust LaTeX preview image size.
+      (plist-put org-format-latex-options :scale 1.5)) ; adjust LaTeX preview image size.
 (setq org-format-latex-options
-      (plist-put org-format-latex-options :html-scale 2.5)) ; adjust HTML exporting LaTeX image size.
+      (plist-put org-format-latex-options :html-scale 2.0)) ; adjust HTML exporting LaTeX image size.
 
 
 (require 'org-latex-exp-conf)
