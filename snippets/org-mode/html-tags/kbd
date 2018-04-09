@@ -1,4 +1,4 @@
-# name: kbd
-# key: kbd
+# name: kbd-html
+# key: kbd-html
 # --
 @@html:<kbd>${1}</kbd>@@ $0

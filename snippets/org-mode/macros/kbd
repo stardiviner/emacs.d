@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: {{{kbd(KEY)}}}
+# key: kbd
+# group: macro
+# --
+{{{kbd(${1:C-c })}}} $0
