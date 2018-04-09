@@ -12,6 +12,19 @@
 
 (define-key search-prefix (kbd "f") 'find-prefix)
 
+;;; [ find-dired ]
+
+(use-package find-dired
+  :commands (find-dired find-name-dired find-grep-dired)
+  :bind (:map find-prefix
+              ("f" . find-dired)
+              ("n" . find-name-dired)
+              ("g" . find-grep-dired))
+  :init
+  (add-to-list 'display-buffer-alist
+               '("\\*Find\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
+  )
+
 ;;; [ helm-fuzzy-find ] -- Find files using Fuzzy Search (fuzzy-find) with Helm.
 
 (use-package helm-fuzzy-find
