@@ -36,7 +36,7 @@ to the command loop."
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defface mode-line-buffer-path-face
-  '((t (:inherit mode-line)))
+  '((t (:inherit 'mode-line)))
   "Face used for the directory name part of the buffer path."
   :group 'mode-line)
 
@@ -86,7 +86,7 @@ to the command loop."
   "Display an indicator when current selected buffer."
   (if (mode-line-window-active-p)
       (propertize "▌" 'face '(:foreground "cyan"))
-    (propertize " " 'face 'variable-pitch)))
+    (propertize " ")))
 
 ;; emacsclient indicator
 (defun *emacsclient ()
@@ -162,7 +162,6 @@ to the command loop."
          (concat
           " ["
           (all-the-icons-octicon "file-directory" :v-adjust -0.05 :height 0.9)
-          (propertize " " 'face 'variable-pitch)
           ;; `projectile-mode-line'
           (propertize (projectile-project-name)
                       'face (if (mode-line-window-active-p) 'mode-line 'mode-line-inactive))
@@ -178,8 +177,7 @@ to the command loop."
   (defun *eyebrowse ()
     "Displays `default-directory', for special buffers like the scratch buffer."
     (concat
-     (all-the-icons-faicon "codepen" :v-adjust -0.1)
-     (propertize " " 'face 'variable-pitch)
+     ;; (all-the-icons-octicon "steps" :v-adjust -0.1)
      (propertize
       ;; `eyebrowse-mode-line-indicator'
       (let ((current-slot-number (eyebrowse--get 'current-slot))
@@ -187,8 +185,7 @@ to the command loop."
                                      (eyebrowse--get 'current-slot)
                                      (eyebrowse--get 'window-configs))))
             (slot-numbers (length (eyebrowse--get 'window-configs))))
-	      (format "[%s:%s] " current-slot-number current-slot-tag))
-      'face (if (mode-line-window-active-p) 'mode-line 'mode-line-inactive))
+	      (format "{%s:%s} " current-slot-number current-slot-tag)))
      ))
   )
 
@@ -216,7 +213,7 @@ to the command loop."
 ;;         (concat
 ;;          (propertize "⊞" 'face '(:height 120))
 ;;          (propertize (purpose--modeline-string))
-;;          (propertize " " 'face 'variable-pitch)
+;;          (propertize " ")
 ;;          )))
 ;;   )
 
@@ -231,7 +228,7 @@ to the command loop."
       (if (derived-mode-p 'prog-mode)
           (all-the-icons-faicon "file-code-o" :v-adjust -0.05 :height 0.8)
         ))
-    (propertize " " 'face 'variable-pitch)
+    (propertize " ")
     (propertize (buffer-name))
     )))
 
@@ -275,7 +272,7 @@ state (modified, read-only or non-existent)."
       (all-the-icons-faicon "align-center" :v-adjust -0.05 :face 'mode-line-data-face))
     ;; buffer size
     ;; (format-mode-line "%I")
-    (propertize " " 'face 'variable-pitch))
+    (propertize " "))
    ))
 
 ;;; buffer encoding
@@ -320,7 +317,7 @@ state (modified, read-only or non-existent)."
                                       (bookmark-delete ,(car bookmark))
                                     (bookmark-set ,bookmark))
                                   (force-mode-line-update))))
-         (propertize " " 'face 'variable-pitch))
+         (propertize " "))
       )))
 
 ;;; window number
@@ -341,7 +338,7 @@ state (modified, read-only or non-existent)."
     "Showing the ace-window key in the mode-line."
     (concat
      (window-parameter (selected-window) 'ace-window-path)
-     (propertize " " 'face 'variable-pitch)))
+     (propertize " ")))
   (add-hook 'window-configuration-change-hook 'aw-update)
   )
 
@@ -366,8 +363,7 @@ state (modified, read-only or non-existent)."
           "/"
           (number-to-string (pdf-cache-number-of-pages))
           "] "
-          )
-         'face (if (mode-line-window-active-p) 'mode-line-data-face))))
+          ))))
   )
 
 ;;; major-mode
@@ -472,7 +468,7 @@ state (modified, read-only or non-existent)."
            )))
     (if env
         (concat "[" env "] ")
-      (propertize " " 'face 'variable-pitch))
+      (propertize " "))
     ))
 
 ;;; vc
@@ -484,7 +480,6 @@ state (modified, read-only or non-existent)."
           (face    'mode-line-inactive)
           (active  (mode-line-window-active-p)))
       (concat
-       (propertize " " 'face 'variable-pitch)
        (case backend
          ('Git
           (all-the-icons-faicon "git" :v-adjust -0.05))
@@ -492,10 +487,8 @@ state (modified, read-only or non-existent)."
           (all-the-icons-faicon "cloud" :v-adjust -0.05))
          ('Hg
           (all-the-icons-faicon "cloud" :v-adjust -0.05))
-         (t
-          (format "%s" vc-mode))
-         )
-       (propertize " " 'face 'variable-pitch)
+         (t (format "%s" vc-mode)))
+       (propertize " ")
        (cond ((memq state '(edited added))
               (if active (setq face 'mode-line))
               (all-the-icons-octicon "git-branch" :face face :v-adjust -0.05))
@@ -511,7 +504,6 @@ state (modified, read-only or non-existent)."
              (t
               (if active (setq face 'mode-line))
               (all-the-icons-octicon "git-compare" :face face :v-adjust -0.05)))
-       (propertize " " 'face 'variable-pitch)
        (propertize (substring vc-mode (+ (if (eq backend 'Hg) 2 3) 2))
                    'face (if active `(:foreground "yellow")))
        ))))
@@ -561,7 +553,7 @@ state (modified, read-only or non-existent)."
                       (propertize (all-the-icons-faicon "question-circle" :v-adjust -0.05
                                                         :face (if (mode-line-window-active-p) '(:foreground "dark magenta")))
                                   'help-echo "Suspicious")))))
-        (propertize text
+        (propertize (concat text " ")
                     'mouse-face '(:box 1)
                     'local-map (make-mode-line-mouse-map
                                 'mouse-1 (lambda () (interactive) (flycheck-list-errors)))))
@@ -585,7 +577,7 @@ state (modified, read-only or non-existent)."
 ;;               (propertize
 ;;                (concat
 ;;                 (all-the-icons-faicon "cogs" :v-adjust -0.05)
-;;                 (propertize " " 'face 'variable-pitch)
+;;                 (propertize " ")
 ;;                 (cond
 ;;                  ((string= status "passed")
 ;;                   (all-the-icons-faicon "check-circle"
@@ -621,7 +613,7 @@ dimensions of a block selection."
     (let ((lines (count-lines (region-beginning) (region-end)))
           (words (count-words (region-end) (region-beginning))))
       (concat
-       (propertize " " 'face 'variable-pitch)
+       (propertize " ")
        (all-the-icons-faicon "pencil-square"
                              :v-adjust -0.05
                              :face 'mode-line-data-face)
@@ -748,7 +740,7 @@ dimensions of a block selection."
   (when (stringp mode-line-process)
     (propertize
      (concat
-      (propertize " " 'face 'variable-pitch)
+      (propertize " ")
       (all-the-icons-faicon "spinner" :v-adjust -0.05)
       ;; (format-mode-line "%s")
       mode-line-process)
@@ -812,7 +804,7 @@ dimensions of a block selection."
     (concat
      (all-the-icons-faicon "hourglass-half"
                            :v-adjust -0.05 :height 0.9)
-     (propertize " " 'face 'variable-pitch)
+     (propertize " ")
      ;; get [0:05] from `org-clock-get-clock-string'
      (propertize
       (format "%s" (org-duration-from-minutes (org-clock-get-clocked-time))))
@@ -820,7 +812,7 @@ dimensions of a block selection."
      (propertize
       (format " %s" (s-truncate 30 org-clock-heading))
       'face 'mode-line)
-     (propertize " " 'face 'variable-pitch))
+     (propertize " "))
     )
   )
 
@@ -839,7 +831,7 @@ dimensions of a block selection."
 ;;     (propertize
 ;;      (concat
 ;;       (format "/")
-;;       (propertize " " 'face 'variable-pitch)
+;;       (propertize " ")
 ;;       (all-the-icons-material "timelapse")
 ;;       (format "%s" org-clock-today-string))
 ;;      'face '(:foreground "orange"))
@@ -956,7 +948,7 @@ dimensions of a block selection."
 
 (defun *space (n)
   "Add `N' spaces for custom mode-line alignment."
-  (propertize (make-string n (string-to-char " ")) 'face 'variable-pitch))
+  (propertize (make-string n (string-to-char " "))))
 
 ;; rtags project parsing progress status
 ;; - rtags-remaining-jobs :: integer with count of remaining jobs for all projects
@@ -982,7 +974,7 @@ dimensions of a block selection."
 ;;             (rtags-mode-line))
 ;;           (if (rtags-is-indexed)
 ;;               (all-the-icons-faicon "codepen" :v-adjust -0.05))
-;;           (propertize " " 'face 'variable-pitch))
+;;           (propertize " "))
 ;;          'face 'mode-line)))
 ;;   ;; (add-hook 'rtags-diagnostics-hook #'force-mode-line-update)
 ;;   )
@@ -1100,7 +1092,7 @@ dimensions of a block selection."
      (all-the-icons-faicon "server"
                            :face 'mode-line-warn-face
                            :v-adjust -0.05)
-     (propertize " " 'face 'variable-pitch)
+     (propertize " ")
      )))
 
 ;;; `copy-file-on-save'
@@ -1121,8 +1113,8 @@ dimensions of a block selection."
   `(:eval
     (let* ((meta (concat
                   (*emacsclient)
-                  ;; (*tramp)
-                  (*edebug)
+                  (*tramp)
+                  ;; (*edebug)
                   (*recursive-editing)
                   (*macro-recording)
                   (*selection-info)
@@ -1182,10 +1174,11 @@ dimensions of a block selection."
                  ;; (*purpose)
                  (*major-mode)
                  (*env)
-                 (*space 1)
+                 (*space 3)
                  ))
            (mid (propertize
                  " "
+                 ;; NOTE: `all-the-icons-faicon' affect the length calculating of mode-line fragments.
                  'display `((space
                              :align-to (- (+ right right-fringe right-margin)
                                           ,(+ 1 (string-width (format-mode-line rhs)))))))))
