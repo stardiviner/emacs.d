@@ -141,6 +141,11 @@
 ;; (use-package magit-p4
 ;;   :ensure t)
 
+;;; [ gitignore-templates ] -- Access GitHub .gitignore templates.
+
+(use-package gitignore-templates
+  :ensure t
+  :commands (gitignore-templates-insert gitignore-templates-new-file))
 
 ;;; [ git-messenger ] -- popup commit message at current line.
 
