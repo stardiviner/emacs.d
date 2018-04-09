@@ -216,6 +216,16 @@ The function is suitable for `erc-after-connect'."
         erc-timestamp-format-right "[%H:%M]"
         )
 
+  (set-face-attribute 'erc-prompt-face nil
+                      :inherit 'fixed-pitch)
+  (set-face-attribute 'erc-timestamp-face nil
+                      :inherit 'fixed-pitch)
+  (set-face-attribute 'erc-nick-default-face nil
+                      :inherit 'fixed-pitch)
+  (set-face-attribute 'erc-nick-msg-face nil
+                      :inherit 'fixed-pitch)
+  (set-face-attribute 'erc-nick-prefix-face nil
+                      :inherit 'fixed-pitch)
 
   (require 'erc-goodies)
   ;; interpret control characters

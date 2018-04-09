@@ -80,6 +80,7 @@
 (require 'init-emacs-performance)
 (require 'init-emacs-security)
 (require 'init-emacs-font)
+(require 'init-emacs-face)
 (require 'init-emacs-theme)
 (require 'init-emacs-appearance)
 (require 'init-emacs-prettify)
