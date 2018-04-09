@@ -222,23 +222,79 @@
   :defer t
   :config
   (add-to-list 'all-the-icons-mode-icon-alist
-               '(erc-mode all-the-icons-faicon "commenting-o" :height 1.0 :v-adjust 0.0))
+               '(erc-mode all-the-icons-faicon "commenting-o" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan))
   (add-to-list 'all-the-icons-mode-icon-alist
-               '(ag-mode all-the-icons-faicon "search" :height 1.0 :v-adjust 0.0))
+               '(ag-mode all-the-icons-faicon "search" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan))
   (add-to-list 'all-the-icons-mode-icon-alist
-               '(sh-mode all-the-icons-alltheicon "terminal" :height 1.0 :v-adjust 0.0))
+               '(rg-mode all-the-icons-faicon "search" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan))
   (add-to-list 'all-the-icons-mode-icon-alist
-               '(sql-interactive-mode all-the-icons-faicon "database" 1.0 :v-adjust 0.05))
+               '(ripgrep-search-mode all-the-icons-faicon "search" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan))
   (add-to-list 'all-the-icons-mode-icon-alist
-               '(arduino-mode all-the-icons-fileicon "arduino" 1.0 :v-adjust 0.00))
+               '(sh-mode all-the-icons-alltheicon "terminal" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan))
   (add-to-list 'all-the-icons-mode-icon-alist
-               '(sly-mrepl-mode all-the-icons-fileicon "lisp" :height 1.0 :v-adjust 0.0))
+               '(sql-interactive-mode all-the-icons-faicon "database" 1.0 :v-adjust 0.05 :face all-the-icons-lgreen))
   (add-to-list 'all-the-icons-mode-icon-alist
-               '(slime-repl-mode all-the-icons-fileicon "lisp" :height 1.0 :v-adjust 0.0))
+               '(arduino-mode all-the-icons-fileicon "arduino" 1.0 :v-adjust 0.00 :face all-the-icons-blue-alt))
   (add-to-list 'all-the-icons-mode-icon-alist
-               '(inferior-python-mode all-the-icons-alltheicon "python" :height 1.0 :v-adjust 0.0))
+               '(inferior-lisp-mode all-the-icons-fileicon "lisp" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan-alt))
   (add-to-list 'all-the-icons-mode-icon-alist
-               '(package-menu-mode all-the-icons-octicon "package" :height 1.0 :v-adjust 0.0))
+               '(sly-mrepl-mode all-the-icons-fileicon "lisp" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan-alt))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(slime-repl-mode all-the-icons-fileicon "lisp" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan-alt))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(inferior-python-mode all-the-icons-alltheicon "python" :height 1.0 :v-adjust 0.0 :face all-the-icons-blue-alt))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(py-python-shell-mode all-the-icons-alltheicon "python" :height 1.0 :v-adjust 0.0 :face all-the-icons-blue-alt))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(js-comint-mode all-the-icons-alltheicon "javascript" :height 1.0 :v-adjust 0.0 :face all-the-icons-yellow))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(indium-repl-mode all-the-icons-alltheicon "javascript" :height 1.0 :v-adjust 0.0 :face all-the-icons-yellow))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(skewer-repl-mode all-the-icons-alltheicon "javascript" :height 1.0 :v-adjust 0.0 :face all-the-icons-yellow))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(julia-mode all-the-icons-fileicon "julia" :height 1.0 :v-adjust 0.0 :face all-the-icons-blue-alt))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(package-menu-mode all-the-icons-octicon "package" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan-alt))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(doc-view-mode all-the-icons-faicon "file-pdf-o" :height 1.0 :v-adjust 0.0 :face all-the-icons-dgreen))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(pdf-view-mode all-the-icons-faicon "file-pdf-o" :height 1.0 :v-adjust 0.0 :face all-the-icons-dgreen))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(Info-mode all-the-icons-faicon "file-o" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan-alt))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(Man-mode all-the-icons-faicon "file-o" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan-alt))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(diff-mode all-the-icons-fileicon "diff" :height 1.0 :v-adjust 0.0 :face all-the-icons-maroon))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(magit-revision-mode all-the-icons-octicon "git-commit" :height 1.0 :v-adjust 0.0 :face all-the-icons-maroon))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(debugger-mode all-the-icons-faicon "cogs" :height 1.0 :v-adjust 0.0 :face all-the-icons-maroon))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(latex-mode all-the-icons-fileicon "tex" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(coq-mode all-the-icons-fileicon "coq" :height 1.0 :v-adjust 0.0 :face all-the-icons-maroon))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(tar-mode all-the-icons-faicon "file-archive-o" :height 1.0 :v-adjust 0.0 :face all-the-icons-maroon))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(systemd-mode all-the-icons-faicon "linux" :height 1.0 :v-adjust 0.0 :face all-the-icons-lred))
+  ;; (add-to-list 'all-the-icons-mode-icon-alist
+  ;;              '(plantuml-mode all-the-icons-faicon "" :height 1.0 :v-adjust 0.0))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(org-tree-slide-mode all-the-icons-faicon "file-powerpoint-o" :height 1.0 :v-adjust 0.0 :face all-the-icons-lyellow))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(octave-mode all-the-icons-fileicon "octave" :height 1.0 :v-adjust 0.0 :face all-the-icons-lblue))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(inferior-octave-mode all-the-icons-fileicon "octave" :height 1.0 :v-adjust 0.0 :face all-the-icons-lblue))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(mu4e-main-mode all-the-icons-material "email" :height 1.0 :v-adjust -0.5 :face all-the-icons-lyellow))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(mu4e-headers-mode all-the-icons-material "email" :height 1.0 :v-adjust -0.5 :face all-the-icons-lyellow))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(mu4e-view-mode all-the-icons-material "email" :height 1.0 :v-adjust -0.5 :face all-the-icons-lyellow))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(mu4e-compose-mode all-the-icons-material "email" :height 1.0 :v-adjust -0.5 :face all-the-icons-lyellow))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(slack-message-buffer-mode all-the-icons-faicon "slack" :v-adjust 0.0 :face all-the-icons-purple))
   )
 
 
