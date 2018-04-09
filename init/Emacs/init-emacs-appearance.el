@@ -154,20 +154,25 @@
           '(lambda () (setq-local comment-auto-fill-only-comments t)))
 ;;; enable only for text writing modes.
 (toggle-text-mode-auto-fill)
-(dolist (hook '(text-mode-hook
-                org-mode-hook
-                markdown-mode-hook))
-  (add-hook hook 'turn-on-auto-fill))
 
-;;; [ fci ] -- Fill Column Indicator
+;;; [ visual-fill-column ]
+(require 'visual-fill-column)
+(setq visual-fill-column-width 80)
+;; (setq visual-fill-column-center-text t) ; put text in center.
+;; (global-visual-fill-column-mode 1)
+(dolist (hook '(markdown-mode-hook
+                ))
+  (add-hook hook #'visual-fill-column-mode))
 
-;; (with-eval-after-load 'fill-column-indicator
+;;; [ fill-column-indicator ]
+;; (use-package fill-column-indicator
+;;   :ensure t
+;;   :config
 ;;   (setq fci-rule-width 10)
 ;;   (setq fci-rule-character ?❚)
 ;;   ;; (setq fci-rule-character-color "#999999")
 ;;   (setq fci-dash-pattern 1.00)
-;;   (global-visual-fill-column-mode))
-
+;;   )
 
 ;;; [ page (^L) ]
 

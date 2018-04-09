@@ -173,6 +173,10 @@ The function is suitable for `erc-after-connect'."
 
   (add-hook 'erc-mode-hook #'turn-on-eldoc-mode)
 
+  (add-hook 'erc-mode-hook #'turn-on-auto-fill)
+  (add-hook 'erc-mode-hook #'turn-on-visual-line-mode)
+  ;; (add-hook 'erc-mode-hook #'turn-on-visual-fill-column-mode)
+
   ;; [ View ]
 
   (setq erc-header-line-uses-tabbar-p t)

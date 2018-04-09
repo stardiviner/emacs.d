@@ -723,7 +723,9 @@
 (define-key mu4e-headers-mode-map (kbd "m") 'mu4e-headers-mark-for-something)
 (define-key mu4e-headers-mode-map (kbd "M") 'mu4e-headers-mark-for-move)
 
-(add-hook 'mu4e-view-mode-hook #'visual-line-mode)
+(add-hook 'mu4e-view-mode-hook #'turn-on-visual-line-mode)
+(add-hook 'mu4e-compose-mode-hook #'visual-fill-column-mode)
+(add-hook 'mu4e-compose-mode-hook #'turn-on-auto-fill)
 
 ;;; Gmail
 ;; (setq mu4e-maildir "~/Maildir")
