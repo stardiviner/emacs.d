@@ -16,7 +16,9 @@
 ;;; [ Info ]
 
 (use-package info
-  :bind ("C-h i" . info-display-manual)
+  :bind (("C-h i" . info-display-manual)
+         :map Info-mode-map
+         ("M-g n" . Info-search-next))
   :init
   (add-to-list 'display-buffer-alist
                '("\\*info\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
