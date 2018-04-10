@@ -97,20 +97,22 @@
 ;; (setq org-babel-default-lob-header-args)
 
 ;;; interactive completing named src blocks. [C-c C-v C-q]
-;; workflow:
-;; 1. M-x org-babel-insert-named-source-block (imaginary function)
-;; 2. List of named source blocks pops up
-;; 3. Hit enter and "#+call: name-of-source-block()" is inserted at point.
-(defun org-babel-insert-src-block-call (&optional template)
-  "Interactively insert a named src block."
+(defun +org-babel-insert-named-src-block (&optional template)
+  (interactive)
+  (let ((src-block
+	       (completing-read "Enter src block name[or TAB or ENTER]: " (org-babel-src-block-names))))
+    (unless (string-equal "" src-block)
+	    (insert (format src-block)))))
+(define-key org-babel-map (kbd "C-q") '+org-babel-insert-named-src-block)
+
+(defun +org-babel-insert-src-block-call (&optional template)
+  "Interactively insert a named src block call with `TEMPLATE'."
   (interactive)
   (let ((template (or template "#+call: %s()\n"))
 	      (src-block (completing-read "Enter src block name[or TAB or ENTER]: " (org-babel-src-block-names))))
     (unless (string-equal "" src-block)
 	    (insert (format template src-block)))))
-
-(define-key org-babel-map (kbd "C-q") 'org-babel-insert-src-block-call)
-
+(define-key org-babel-map (kbd "C-k") '+org-babel-insert-src-block-call)
 
 ;;; [ Literate dotfiles management with Org-mode ]
 
