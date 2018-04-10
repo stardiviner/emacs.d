@@ -15,7 +15,8 @@
   :commands (sly)
   :preface (setq sly-default-lisp 'sbcl)
   :init (add-to-list 'display-buffer-alist
-                     '("^\\*sly-mrepl for sbcl\\*" (display-buffer-below-selected)))
+                     '("^\\*sly-mrepl for sbcl\\*"
+                       (display-buffer-reuse-window display-buffer-below-selected)))
   :config
   ;; load SLY contribs
   (setq sly-contribs `(sly-fancy sly-scratch sly-mrepl sly-autodoc))

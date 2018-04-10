@@ -178,9 +178,9 @@
 
   ;; manage CIDER popup buffers.
   (add-to-list 'display-buffer-alist
-               '("^\\*cider-.*\\*" (display-buffer-below-selected)))
+               '("^\\*cider-.*\\*" (display-buffer-reuse-window display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
-               '("^\\*nrepl-.*\\*" (display-buffer-below-selected)))
+               '("^\\*nrepl-.*\\*" (display-buffer-reuse-window display-buffer-below-selected)))
 
   
   (defconst cider-metadata-buffer "*cider-metadata*")

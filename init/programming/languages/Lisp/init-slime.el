@@ -41,7 +41,7 @@
 
   ;; manage SLIME popup buffers
   (add-to-list 'display-buffer-alist
-               '("\\*slime-repl.*\\*" . (display-buffer-below-selected)))
+               '("\\*slime-repl.*\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
                '("\\*slime-events.*\\*" . (display-buffer-below-selected)))
   
