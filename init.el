@@ -249,7 +249,7 @@
 ;; (require 'init-prog-lang-coffeescript)
 ;; (require 'init-prog-lang-sibilant)
 ;; (require 'init-prog-lang-dart)
-(require 'init-prog-lang-database)
+(require 'init-prog-lang-query)
 (require 'init-prog-lang-xml)
 (require 'init-prog-lang-json)
 ;; (require 'init-prog-lang-rdf)

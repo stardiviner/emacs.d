@@ -1,4 +1,4 @@
-;;; init-prog-lang-database.el --- init Databases settings
+;;; init-prog-lang-query.el --- init Databases settings
 
 ;;; Commentary:
 
