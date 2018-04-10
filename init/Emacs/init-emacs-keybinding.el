@@ -22,20 +22,6 @@
 
 ;; (setq x-hyper-keysym 'hyper)
 
-;;; shorter suggestion:
-;; You can run the command ‘find-file’ with C-x C-f
-;; =>
-;; You can run the command ‘emacs-uptime’ with M-x -upt RET
-(setq extended-command-suggest-shorter nil)
-
-;; (defun display-extended-command-shorter (command)
-;;   "Display information on a shorter way to M-x a command."
-;;   (interactive (list (read-extended-command)))
-;;   (message "The command `%s' can be invoked with `M-x %s'"
-;;            command
-;;            (execute-extended-command--shorter command command)))
-
-
 (setq suggest-key-bindings t) ; show the /equivalent/ key binding when [M-x] command has one.
 
 ;;; stop using the arrow keys

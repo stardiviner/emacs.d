@@ -7,35 +7,29 @@
 
 ;;; Code:
 
-;;; [ Helm ] -- 
+;;; [ Helm ] -- Helm is an Emacs incremental and narrowing framework.
 
 (use-package helm
   :ensure t
   :defer t
-  :bind (("M-x" . helm-M-x)
-         ("M-y" . helm-show-kill-ring)
+  :bind (
+         ;; ([remap execute-extended-command] . helm-M-x)
+         ;; ("M-x" . helm-M-x)
+         ;; ([remap switch-to-buffer] . helm-mini)
+         ;; ([remap yank-pop] . helm-show-kill-ring)
          ;; ([remap org-goto] . helm-org-in-buffer-headings) ; [C-c C-j] completion for Org headings
          )
-  :load (helm helm-config)
+  :load (helm helm-config helm-misc)
+  ;; :init (helm-mode 1) (helm-top-poll-mode 1)
   :config
   (setq helm-split-window-inside-p t)
-
-  ;; enable auto resize helm buffer
-  (helm-autoresize-mode t)
-  (if (null helm-autoresize-mode)
-      (setq helm-display-buffer-default-height 10)
-    (setq helm-autoresize-max-height 20
-          helm-autoresize-min-height 10))
-
-  (helm-mode 1)
-
-  ;; Helm internal keybindings `helm-map'
+  (setq helm-mini-default-sources
+        '(helm-source-buffers-list
+          helm-source-bookmarks
+          helm-source-recentf
+          helm-source-buffer-not-found
+          ))
   )
-
-
-;; (use-package helm-git
-;;   :ensure t
-;;   :bind ("M-t" . helm-git))
 
 
 (provide 'init-helm)
