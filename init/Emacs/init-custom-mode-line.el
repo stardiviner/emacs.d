@@ -162,6 +162,7 @@ to the command loop."
          (concat
           " ["
           (all-the-icons-octicon "file-directory" :v-adjust -0.05 :height 0.9)
+          " "
           ;; `projectile-mode-line'
           (propertize (projectile-project-name)
                       'face (if (mode-line-window-active-p) 'mode-line 'mode-line-inactive))
@@ -294,8 +295,7 @@ state (modified, read-only or non-existent)."
        ((memq sys-cat '(coding-category-undecided coding-category-utf-8))
         "")
        (t (symbol-name sys-name))))
-    )
-   'face (if (mode-line-window-active-p) 'mode-line-warn-face)))
+    )))
 
 ;;; bookmark
 ;;; TODO: optimize the performance
@@ -336,9 +336,7 @@ state (modified, read-only or non-existent)."
   :config
   (defun *ace-window ()
     "Showing the ace-window key in the mode-line."
-    (concat
-     (window-parameter (selected-window) 'ace-window-path)
-     (propertize " ")))
+    (window-parameter (selected-window) 'ace-window-path))
   (add-hook 'window-configuration-change-hook 'aw-update)
   )
 
