@@ -699,7 +699,9 @@
 (defun my-mu4e-set-face (theme)
   "Reload customized faces on `circadian' `THEME' toggling."
   (set-face-attribute 'mu4e-header-highlight-face nil
-                      :inherit nil :foreground nil
+                      :inherit nil
+                      :weight 'normal
+                      :foreground nil
                       :background (cl-case (alist-get 'background-mode (frame-parameters))
                                     ('light
                                      (color-darken-name (face-background 'default) 10))
