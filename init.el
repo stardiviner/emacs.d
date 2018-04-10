@@ -66,8 +66,7 @@
   :ensure t
   :config
   (with-eval-after-load "dash"
-    (dash-enable-font-lock))
-  )
+    (dash-enable-font-lock)))
 
 (require 'init-library)
 (require 'init-functions)

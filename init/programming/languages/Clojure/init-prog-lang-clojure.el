@@ -114,6 +114,9 @@
         cider-eval-spinner-type 'horizontal-breathing
         )
 
+  ;; macroexpansion
+  (setq cider-macroexpansion-print-metadata t)
+
   ;; annotations
   ;; (setq cider-completion-annotations-alist
   ;;       `(("function" ,(all-the-icons-faicon "file-text-o" :face 'company-tooltip-annotation :v-adjust -0.05))
@@ -152,9 +155,10 @@
 
   (add-hook 'cider-repl-mode-hook #'subword-mode)
   
-  ;; (setq cider-allow-jack-in-without-project t)
-  ;; (add-hook 'after-init-hook #'cider-jack-in)
-
+  ;; auto inject Clojure dependencies.
+  ;; (add-to-list 'cider-jack-in-dependencies '("incanter" "1.5.7"))
+  ;; Check out function `cljr--inject-jack-in-dependencies'.
+  
   ;; notify user CIDER is connected.
   ;; (add-hook 'cider-connected-hook
   ;;           (lambda ()
@@ -186,7 +190,6 @@
   (defconst cider-metadata-buffer "*cider-metadata*")
   (defun cider-metadata (var &optional ns)
     "Show VAR's metadata in a separate buffer.
-
 Optional argument NS, if not provided, defaults to
 `cider-current-ns'."
     (interactive (list (cider-symbol-at-point)))
@@ -240,9 +243,9 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   ;;               (my/cider-repl-eval "(use '(incanter stats charts))")
   ;;               ) t)
 
-  
+  (setq cider-default-repl-command "lein") ; TODO: change to use "clojure-clj" in future.
   ;; ClojureScript
-  (setq cider-default-cljs-repl "Figwheel")
+  (setq cider-default-cljs-repl "Figwheel") ; "Nashorn"
   )
 
 
@@ -300,7 +303,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   (add-hook 'clojure-mode-hook #'my:clj-refactor-setup)
   (with-eval-after-load 'clj-refactor
     (define-key clj-refactor-map (kbd "C-c C-'") #'hydra-cljr-help-menu/body))
-  :config
+  ;; :config
   ;; skip Tab in `cljr-add-require-to-ns' snippet.
   ;; (advice-add 'cljr-add-require-to-ns :after
   ;;             (lambda (&rest _)

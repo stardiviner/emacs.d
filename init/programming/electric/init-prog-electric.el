@@ -7,6 +7,10 @@
 
 ;;; Code:
 
+;;; [ electric ]
+
+;; `electric-quote-replace-double'
+
 ;;; [ show-paren-mode ]
 
 ;; (use-package paren
@@ -21,6 +25,8 @@
   :ensure t
   :defer t
   :load (smartparens-config)
+  :init (smartparens-global-mode t)
+  ;; (show-smartparens-global-mode t)
   :config
   (setq sp-navigate-consider-sgml-tags '(html-erb-mode
                                          web-mode
@@ -54,9 +60,6 @@
     (sp-local-tag "2" "**" "**")
     (sp-local-tag "s" "```scheme" "```")
     (sp-local-tag "<"  "<_>" "</_>" :transform 'sp-match-sgml-tags))
-
-  (smartparens-global-mode t)
-  ;; (show-smartparens-global-mode t)
   )
 
 

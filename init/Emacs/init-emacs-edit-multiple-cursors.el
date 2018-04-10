@@ -44,21 +44,18 @@
 (use-package multiple-cursors
   :ensure t
   :defer t
-  :bind (
-         ;; ("M-<down-mouse-1>" . mc/add-cursor-on-click)
-         ;; ("M-<mouse-1>" . mc/add-cursor-on-click)
-         :map mc-prefix
-         ("a" . mc/mark-all-dwim)
-         ("r" . set-rectangular-region-anchor)
-         ("m" . mc/mark-next-like-this)
-         ("u" . mc/unmark-next-like-this)
-         ("l" . mc/edit-lines)
-         ("a" . mc/edit-beginnings-of-lines)
-         ("e" . mc/edit-ends-of-lines)
-         ("n" . mc/insert-numbers)
-         ("s" . mc/sort-regions)
-         ("R" . mc/reverse-regions)
-         )
+  :bind (:map mc-prefix
+              ("a" . mc/mark-all-dwim)
+              ("r" . set-rectangular-region-anchor)
+              ("m" . mc/mark-next-like-this)
+              ("u" . mc/unmark-next-like-this)
+              ("l" . mc/edit-lines)
+              ("a" . mc/edit-beginnings-of-lines)
+              ("e" . mc/edit-ends-of-lines)
+              ("n" . mc/insert-numbers)
+              ("s" . mc/sort-regions)
+              ("R" . mc/reverse-regions)
+              )
   :init
   (unless (boundp 'mc/mark-prefix)
     (define-prefix-command 'mc/mark-prefix))

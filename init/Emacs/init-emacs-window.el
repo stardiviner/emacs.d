@@ -35,8 +35,7 @@
 (use-package winner
   :ensure t
   :defer t
-  :init
-  (winner-mode 1))
+  :init (winner-mode 1))
 
 ;;; [ ace-window ] -- Quickly switch windows in Emacs.
 

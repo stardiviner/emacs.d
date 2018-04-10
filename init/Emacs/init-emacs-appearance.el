@@ -31,7 +31,7 @@
 
 ;;; [ Title ]
 
-(setq frame-title-format "Emacs λ Hacking")
+;; (setq frame-title-format "Emacs λ Hacking")
 
 ;; (setq frame-title-format "Emacs λ %b")
 
@@ -94,7 +94,7 @@
 ;; above or below the display line.
 
 ;; additional space to put between lines.
-(setq-default line-spacing 0.1)         ; 0.1, 1, 0, nil.
+;; (setq-default line-spacing 0.1)         ; 0.1, 1, 0, nil.
 
 ;;; [ line numbers ]
 
@@ -196,9 +196,9 @@
 
 ;;; trailing whitespace
 
-(require 'whitespace)
-(setq whitespace-line-column 80) ; limit line length
-(setq whitespace-style '(face lines-tail))
+;; (require 'whitespace)
+;; (setq whitespace-line-column 80) ; limit line length
+;; (setq whitespace-style '(face lines-tail))
 ;; (add-hook 'prog-mode-hook 'whitespace-mode)
 ;; (global-whitespace-mode +1)
 
@@ -208,8 +208,7 @@
 (use-package beacon
   :ensure t
   :defer t
-  :init
-  (beacon-mode 1)
+  :init (beacon-mode 1)
   :config
   (setq beacon-blink-when-point-moves-vertically 10
         beacon-blink-when-point-moves-horizontally 20

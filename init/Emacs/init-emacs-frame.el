@@ -11,8 +11,8 @@
 
 (setq default-frame-alist
       '((top . 0) (left . 0)
-        (height . 120)
-        (width . 90)
+        ;; (height . 120)
+        ;; (width . 100)
         (left-fringe) (right-fringe)
         (tool-bar-lines . 0)
         (menu-bar-lines . 0)

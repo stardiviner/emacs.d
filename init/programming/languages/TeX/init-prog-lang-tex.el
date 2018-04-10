@@ -13,9 +13,9 @@
 ;; `TeX-engine-alist', `TeX-engine-in-engine-alist'
 (setq-default TeX-engine 'xetex)
 (with-eval-after-load 'tex-mode
+  ;; "latexmk -shell-escape -bibtex -xelatex -g -f %f"
   (add-to-list 'tex-compile-commands '("xelatex %f" t "%r.pdf")))
 (setq-default LaTeX-command  "latex -shell-escape")
-(setq-default shell-escape-mode "-shell-escape") ; should pdflatex command use shell escaping?
 
 ;;; [ LaTeX-mode ]
 
@@ -239,6 +239,7 @@ character(s), in which case it deletes the space(s) first."
   :ensure t
   :defer t
   :init
+  (setq-default shell-escape-mode "-shell-escape") ; should pdflatex command use shell escaping?
   (latex-preview-pane-enable)
   :config
   (setq preview-orientation 'right)

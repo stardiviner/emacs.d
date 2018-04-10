@@ -44,11 +44,9 @@
 ;;; [ echo area ]
 
 
-;;; [ help-at-pointer ]
+;;; [ help-at-pointer ] -- local help through the keyboard.
 
-;; (setq help-at-pt-display-when-idle t
-;;       ;; help-at-pt-timer-delay 0.1
-;;       )
+;; (setq help-at-pt-display-when-idle t)
 ;; (help-at-pt-set-timer)
 
 

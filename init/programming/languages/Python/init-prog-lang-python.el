@@ -12,13 +12,16 @@
 (use-package python-mode
   :ensure t
   :ensure-system-package python
+  :commands (py-shell ; `py-python-shell-mode'
+             python python3 python2 ipython jpython)
   :preface
   (setq python-indent-offset 4
         python-indent 4
         python-indent-guess-indent-offset t)
   :config
-  (setq python-skeleton-autoinsert nil ; auto interactive insert skeleton
-        )
+  ;; auto interactive insert skeleton
+  (setq python-skeleton-autoinsert nil)
+  ;; (setq python-shell-completion-native-enable nil) ; `python-shell-completion-native-toggle'
   )
 
 
