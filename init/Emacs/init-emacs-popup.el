@@ -70,45 +70,45 @@
 (use-package posframe
   :ensure t)
 
-(use-package ivy-posframe
-  :ensure t
-  :config
-  ;; global replace ivy in minibuffer.
-  ;; (setq ivy-display-function #'ivy-posframe-display-at-point)
-  ;; (setq ivy-posframe-style 'point)
-  ;; (setq ivy-display-function #'ivy-posframe-display-at-window-bottom-left)
-  ;; (ivy-posframe-enable)
-
-  ;; replace some specific commands.
-  (push '(counsel-org-goto . ivy-posframe-display-at-window-bottom-left) ivy-display-functions-alist)
-  
-  ;; show fringe to ivy-posframe
-  ;; (setq ivy-posframe-parameters
-  ;;       '((left-fringe . 5)
-  ;;         (right-fringe . 5)))
-
-  ;; add border to ivy-posframe
-  ;; (defun ivy-format-function-default (cands)
-  ;;   "Transform CANDS into a string for minibuffer."
-  ;;   (concat "/-------------------------\n"
-  ;;           (ivy--format-function-generic
-  ;;            (lambda (str)
-  ;;              (concat "|> " (ivy--add-face str 'ivy-current-match) ""))
-  ;;            (lambda (str)
-  ;;              (concat "|  " str ""))
-  ;;            cands
-  ;;            "\n")
-  ;;           "\n`--------------------------\n"
-  ;;           ))
-
-  ;; change ivy-posframe background color.
-  (defun my:ivy-posframe-face-setup (theme)
-    "Reload customized faces on `circadian' `THEME' toggling."
-    (set-face-attribute 'ivy-posframe nil
-                        :background (color-darken-name (face-background 'default) 10)
-                        :foreground (face-foreground 'default)))
-  (add-hook 'circadian-after-load-theme-hook #'my:ivy-posframe-face-setup)
-  )
+;; (use-package ivy-posframe
+;;   :ensure t
+;;   :config
+;;   ;; global replace ivy in minibuffer.
+;;   ;; (setq ivy-display-function #'ivy-posframe-display-at-point)
+;;   ;; (setq ivy-posframe-style 'point)
+;;   ;; (setq ivy-display-function #'ivy-posframe-display-at-window-bottom-left)
+;;   ;; (ivy-posframe-enable)
+;;
+;;   ;; replace some specific commands.
+;;   (push '(counsel-org-goto . ivy-posframe-display-at-window-bottom-left) ivy-display-functions-alist)
+;;
+;;   ;; show fringe to ivy-posframe
+;;   ;; (setq ivy-posframe-parameters
+;;   ;;       '((left-fringe . 5)
+;;   ;;         (right-fringe . 5)))
+;;
+;;   ;; add border to ivy-posframe
+;;   ;; (defun ivy-format-function-default (cands)
+;;   ;;   "Transform CANDS into a string for minibuffer."
+;;   ;;   (concat "/-------------------------\n"
+;;   ;;           (ivy--format-function-generic
+;;   ;;            (lambda (str)
+;;   ;;              (concat "|> " (ivy--add-face str 'ivy-current-match) ""))
+;;   ;;            (lambda (str)
+;;   ;;              (concat "|  " str ""))
+;;   ;;            cands
+;;   ;;            "\n")
+;;   ;;           "\n`--------------------------\n"
+;;   ;;           ))
+;;
+;;   ;; change ivy-posframe background color.
+;;   (defun my:ivy-posframe-face-setup (theme)
+;;     "Reload customized faces on `circadian' `THEME' toggling."
+;;     (set-face-attribute 'ivy-posframe nil
+;;                         :background (color-darken-name (face-background 'default) 10)
+;;                         :foreground (face-foreground 'default)))
+;;   (add-hook 'circadian-after-load-theme-hook #'my:ivy-posframe-face-setup)
+;;   )
 
 
 (provide 'init-emacs-popup)
