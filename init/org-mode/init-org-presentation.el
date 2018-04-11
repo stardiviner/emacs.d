@@ -31,6 +31,7 @@
 
 (use-package ox-reveal
   :ensure t
+  :preface (setq org-reveal-note-key-char nil) ; avoid register old #+BEGIN_NOTES.
   :init
   (use-package htmlize
     :ensure t)

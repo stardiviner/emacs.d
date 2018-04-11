@@ -68,6 +68,31 @@
   (setq system-packages-noconfirm t)
   )
 
+;; detect whether ~/.emacs.d/elpa/org-9.1.9/ exist?
+;; (unless (require 'org nil 'noerror)
+;;   (package-install-file (concat user-emacs-directory "init/extensions/org.el")))
+
+(use-package org
+  :preface
+  ;; [ Org-mode modules ] -- modules that should always be loaded together with org.el.
+  ;; t: greedy load all modules.
+  ;; nil: disable all extra org-mode modules to speed-up Org-mode file opening.
+  (setq org-modules nil)
+  :load-path "~/Code/Emacs/org-mode/lisp/"
+  :pin manual
+  :mode (("\\.org\\'" . org-mode))
+  :init
+  (use-package org-plus-contrib
+    :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
+    :no-require t
+    :pin manual)
+  :config
+  ;; add source code version Org-mode Info into Emacs.
+  (with-eval-after-load 'info
+    (info-initialize)
+    (add-to-list 'Info-directory-list "~/Code/Emacs/org-mode/doc/"))
+  )
+
 ;;; [ package-lint ] -- A linting library for elisp package authors.
 
 (use-package package-lint

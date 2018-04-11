@@ -78,7 +78,10 @@
       org-footnote-fill-after-inline-note-extraction t
       )
 
-;;; [ Structure Templates ]
+;;; [ Structure Templates ] -- <[s] expand.
+
+;; (add-to-list 'org-structure-template-alist '("?" . "..."))
+
 
 ;;; [ Entities ]
 
