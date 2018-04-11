@@ -70,10 +70,6 @@
   :config
   (setq counsel-mode-override-describe-bindings t)
   (counsel-mode 1)
-  ;; for command `counsel-grep-or-swiper'
-  (setq counsel-grep-base-command
-        "rg -i -M 120 --no-heading --line-number --color never '%s' %s")
-  (define-key counsel-mode-map (kbd "C-s") 'counsel-grep-or-swiper)
   )
 
 

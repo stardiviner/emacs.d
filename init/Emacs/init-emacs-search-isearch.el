@@ -108,7 +108,6 @@
 (use-package swiper
   :ensure t
   :defer t
-  ;; :bind ("C-s" . counsel-grep-or-swiper)
   :bind ("C-s" . swiper)
   :config
   (set-face-attribute 'swiper-line-face nil
