@@ -596,7 +596,7 @@
 ;; mu4e-headers-full-search. This applies to all search commands.
 
 (setq mu4e-headers-full-search nil) ; whether show all search results. or depend on `mu4e-headers-results-limit'.
-(setq mu4e-headers-results-limit 3000)
+(setq mu4e-headers-results-limit 500)
 
 ;;; Including related messages
 ;;
