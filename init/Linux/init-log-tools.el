@@ -17,6 +17,7 @@
 (use-package view
   :ensure t
   :defer t
+  :init (add-hook 'logview-mode-hook #'view-mode)
   :config
   (defun View-goto-line-last (&optional line)
     "goto last line"
@@ -41,7 +42,8 @@
 
 (use-package lognav-mode
   :ensure t
-  :defer t)
+  :defer t
+  :init (add-hook 'logview-mode-hook #'lognav-mode))
 
 ;;; [ log4j-mode ] -- Java applications' common log format Log4j.
 
