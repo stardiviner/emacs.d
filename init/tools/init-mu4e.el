@@ -825,8 +825,8 @@
 
 ;; A library to provide MIME features.
 (use-package mu-cite
-  :ensure t)
-
+  :ensure t
+  :init (add-hook 'mail-citation-hook 'mu-cite-original))
 
 
 
