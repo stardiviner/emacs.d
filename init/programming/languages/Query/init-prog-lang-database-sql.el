@@ -11,6 +11,9 @@
 
 (require 'sql)
 
+;;; fix MySQL/MariaDB prompt incompatible.
+(sql-set-product-feature 'mysql :prompt-regexp "^\\(MariaDB\\|MySQL\\) \\[[_a-zA-Z]*\\]> ")
+
 (add-to-list 'display-buffer-alist
              '("^\\*SQL:.*\\*" (display-buffer-below-selected)))
 
