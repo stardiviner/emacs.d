@@ -6,11 +6,11 @@
 
 ;;; Code:
 
-;;; [ logview ] -- Emacs mode for viewing log files.
+;;; [ logview ] -- Emacs major mode for viewing log files.
 
 (use-package logview
   :ensure t
-  :defer t)
+  :mode (("\\.log\\'" . logview-mode)))
 
 ;;; [ view-mode ]
 
