@@ -25,15 +25,9 @@
 ;;; [ leuven-theme ]
 
 (use-package leuven-theme
-  :ensure t
-  :ensure hl-line
-  :config
-  (defun my:leuven-disable-underline (theme)
-    "Reload customized faces on `circadian' `THEME' toggling."
-    (with-eval-after-load 'hl-line
-      (set-face-attribute 'hl-line nil :underline nil)))
-  (add-hook 'circadian-after-load-theme-hook #'my:leuven-disable-underline)
-  )
+  ;; :ensure t
+  :load-path "~/Code/Emacs/leuven-theme/"
+  :ensure hl-line)
 
 ;;; [ eziam-theme ] -- A mostly monochrome theme, inspired by Tao and Leuven, with dark and light versions.
 
@@ -51,13 +45,6 @@
   ;; (load-theme 'spacemacs-dark t)
   )
 
-;;; [ kaolin-themes ] -- A set of eye pleasing themes.
-
-;; (use-package kaolin-themes
-;;   :ensure t
-;;   :config
-;;   (load-theme 'kaolin-dark t))
-
 ;;; [ circadian ] -- theme-switching for Emacs based on daytime.
 
 (use-package circadian
@@ -69,7 +56,7 @@
         calendar-longitude 120.20)
   (setq circadian-themes '((:sunrise . spacemacs-light)
                            ("11:00" . leuven)
-                           ("13:00" . spacemacs-light)
+                           ;; ("13:00" . spacemacs-light)
                            (:sunset . spacemacs-dark)))
   (circadian-setup))
 
