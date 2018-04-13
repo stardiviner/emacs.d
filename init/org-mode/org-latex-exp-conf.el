@@ -61,6 +61,7 @@
   (setq-local TeX-engine 'xetex)
 
   ;; set latex to xelatex engine.
+  (setq-local org-latex-pdf-process nil) ; reset to nil to avoid other latex engine override "xetex".
   (org-latex-exp-conf-append
    'org-latex-pdf-process
    "xelatex -8bit --shell-escape  -interaction=nonstopmode -output-directory %o %f")
