@@ -44,7 +44,7 @@
                                   ('light
                                    (color-darken-name (face-background 'default) 10))
                                   ('dark
-                                   (color-darken-name (face-background 'default) 5)))
+                                   (color-lighten-name (face-background 'default) 5)))
                     :box '(:color "gray" :line-width 3 :style nil)
                     :weight 'bold)
 (set-face-attribute 'org-agenda-date-weekend nil
@@ -54,7 +54,7 @@
                                   ('light
                                    (color-darken-name (face-background 'default) 10))
                                   ('dark
-                                   (color-darken-name (face-background 'default) 5)))
+                                   (color-lighten-name (face-background 'default) 5)))
                     :box '(:color "dim gray" :line-width 3 :style nil)
                     :weight 'bold)
 (set-face-attribute 'org-agenda-date-today nil
@@ -64,7 +64,7 @@
                                   ('light
                                    (color-darken-name (face-background 'default) 10))
                                   ('dark
-                                   (color-darken-name (face-background 'default) 5)))
+                                   (color-lighten-name (face-background 'default) 5)))
                     :box '(:color "dim gray" :line-width 5 :style nil)
                     :weight 'bold)
 (set-face-attribute 'org-agenda-current-time nil
@@ -76,7 +76,7 @@
                                   ('light
                                    (color-darken-name (face-background 'default) 10))
                                   ('dark
-                                   (color-darken-name (face-background 'default) 5)))
+                                   (color-lighten-name (face-background 'default) 5)))
                     :box '(:line-width 1)
                     :underline nil
                     :bold t)
@@ -162,7 +162,7 @@
                                   ('light
                                    (color-darken-name (face-foreground 'default) 5))
                                   ('dark
-                                   (color-darken-name (face-foreground 'default) 10)))
+                                   (color-lighten-name (face-foreground 'default) 10)))
                     )
 ;; alread past deadline in agenda
 (set-face-attribute 'org-warning nil
@@ -199,13 +199,13 @@
                                   ('light
                                    (color-darken-name (face-background 'default) 4))
                                   ('dark
-                                   (color-darken-name (face-background 'default) 5))))
+                                   (color-lighten-name (face-background 'default) 5))))
 (set-face-attribute 'org-habit-overdue-future-face nil
                     :background (cl-case (alist-get 'background-mode (frame-parameters))
                                   ('light
                                    (color-darken-name (face-background 'default) 7))
                                   ('dark
-                                   (color-darken-name (face-background 'default) 8))))
+                                   (color-lighten-name (face-background 'default) 8))))
 
 ;; Emphasize
 ;; org-verbatim: =verbatim=
@@ -216,8 +216,11 @@
 ;; table
 (set-face-attribute 'org-table nil
                     :inherit 'fixed-pitch
-                    :background (color-darken-name (face-background 'default) 2)
-                    )
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 5))
+                                  ('dark
+                                   (color-lighten-name (face-background 'default) 5))))
 ;; (set-face-attribute 'org-column nil
 ;;                     :height (face-attribute 'default :height)
 ;;                     :family (face-attribute 'default :family))
@@ -250,7 +253,7 @@
                                   ('light
                                    (color-darken-name (face-background 'default) 5))
                                   ('dark
-                                   (color-darken-name (face-background 'default) 3)))
+                                   (color-lighten-name (face-background 'default) 3)))
                     )
 (set-face-attribute 'org-level-2 nil
                     :inherit 'org-level-1
@@ -331,7 +334,11 @@
 (set-face-attribute 'org-checkbox-statistics-todo nil
                     :inherit 'fixed-pitch
                     ;; :box '(:color "black" :line-width -1)
-                    :background (color-darken-name (face-background 'default) 4))
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 10))
+                                  ('dark
+                                   (color-lighten-name (face-background 'default) 5))))
 ;; * headline [100%] [10/10]
 (set-face-attribute 'org-checkbox-statistics-done nil
                     :inherit 'fixed-pitch
@@ -355,7 +362,11 @@
 ;;; link face [[link][desc]]
 (set-face-attribute 'org-link nil
                     :inherit 'fixed-pitch
-                    :background (color-darken-name (face-background 'default) 5)
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 10))
+                                  ('dark
+                                   (color-lighten-name (face-background 'default) 5)))
                     :underline "DarkTurquoise")
 
 ;; <<<radio target link>>>
@@ -369,7 +380,11 @@
 ;; special keywords :keyword:
 (set-face-attribute 'org-special-keyword nil
                     :inherit '(shadow fixed-pitch)
-                    :background (color-darken-name (face-background 'default) 3))
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 10))
+                                  ('dark
+                                   (color-lighten-name (face-background 'default) 5))))
 ;; meta lines :PROPERTY: value
 (set-face-attribute 'org-meta-line nil
                     :inherit '(font-lock-comment-face fixed-pitch)
@@ -414,7 +429,7 @@
                                   ('light
                                    (color-darken-name (face-background 'default) 10))
                                   ('dark
-                                   (color-darken-name (face-background 'default) 5))))
+                                   (color-lighten-name (face-background 'default) 5))))
 
 ;; Basic face for displaying the secondary selection.
 ;; face for babel src block background color when [C-c '] `org-edit-special'.
@@ -425,7 +440,7 @@
                                   ('light
                                    (color-darken-name (face-background 'default) 10))
                                   ('dark
-                                   (color-darken-name (face-background 'default) 5))))
+                                   (color-lighten-name (face-background 'default) 5))))
 
 ;; inline code face => ~code~,  #+RESULTS: : result.
 (set-face-attribute 'org-code nil
@@ -435,7 +450,7 @@
                                   ('light
                                    (color-darken-name (face-background 'default) 7))
                                   ('dark
-                                   (color-darken-name (face-background 'default) 3)))
+                                   (color-lighten-name (face-background 'default) 3)))
                     :foreground (cl-case (alist-get 'background-mode (frame-parameters))
                                   ('light "tomato")
                                   ('dark "cyan"))
