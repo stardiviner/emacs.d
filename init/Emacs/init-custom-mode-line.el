@@ -35,33 +35,23 @@ to the command loop."
 ;;; define faces for mode-line
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defface mode-line-buffer-path-face
-  '((t (:inherit 'mode-line)))
-  "Face used for the directory name part of the buffer path."
-  :group 'mode-line)
-
-(defface mode-line-buffer-project-face
-  '((t (:inerit 'mode-line-buffer-path-face :bold nil)))
-  "Face used for the filename "
-  :group 'mode-line)
-
-(defface mode-line-buffer-major-mode-face
-  '((t (:inherit 'mode-line :bold t)))
-  "Face used for the buffer's major-mode segment in mode-line."
-  :group 'mode-line)
-
 (defface mode-line-meta-face
   '((t (:inherit 'highlight)))
   "Face used for meta info in mode-line."
   :group 'mode-line)
 
 (defface mode-line-info-face
-  '((t (:foreground "deep pink")))
+  '((t (:foreground "green yellow")))
   "Face used for info segments in mode-line."
   :group 'mode-line)
 
 (defface mode-line-data-face
   '((t (:foreground "cyan")))
+  "Face used for info segments in mode-line."
+  :group 'mode-line)
+
+(defface mode-line-success-face
+  '((t (:inherit 'success)))
   "Face used for info segments in mode-line."
   :group 'mode-line)
 
@@ -85,7 +75,7 @@ to the command loop."
 (defun *current ()
   "Display an indicator when current selected buffer."
   (if (mode-line-window-active-p)
-      (propertize "▌" 'face '(:foreground "cyan"))
+      (propertize "▌" 'face 'mode-line-data-face)
     (propertize " ")))
 
 ;; emacsclient indicator
@@ -221,17 +211,18 @@ to the command loop."
 ;;; buffer name
 (defun *buffer-name ()
   "Display buffer name better."
+  (concat
+   (if (not (null buffer-file-name))
+       (if (derived-mode-p 'prog-mode)
+           (all-the-icons-faicon "file-code-o" :v-adjust -0.05 :height 0.8)
+         (all-the-icons-faicon "file-o" :v-adjust -0.05 :height 0.8)))
+   " "
+   (propertize
+    (buffer-name)
+    'face 'mode-line-buffer-id))
+
   ;; (propertize (buffer-path-relative-to-project))
-  (propertize
-   (concat
-    (if (not (null buffer-file-name))
-        (all-the-icons-faicon "file-o" :v-adjust -0.05 :height 0.8)
-      (if (derived-mode-p 'prog-mode)
-          (all-the-icons-faicon "file-code-o" :v-adjust -0.05 :height 0.8)
-        ))
-    (propertize " ")
-    (propertize (buffer-name))
-    )))
+  )
 
 ;;; buffer info
 (defun *buffer-info ()
@@ -387,17 +378,17 @@ state (modified, read-only or non-existent)."
                  (and (fboundp 'slime-connected-p) (slime-connected-p)))
                 ;; TODO: use this original (:eval (sly--mode-line-format))
                 (all-the-icons-fileicon "clisp"
-                                        :v-adjust -0.05 :face '(:foreground "green"))
+                                        :v-adjust -0.05 :face 'mode-line-success-face)
               (concat
                (all-the-icons-fileicon "clisp"
-                                       :v-adjust -0.05 :face '(:foreground "dim gray"))
+                                       :v-adjust -0.05 :face 'mode-line-info-face)
                (all-the-icons-faicon "chain-broken"
                                      :v-adjust -0.0 :face 'mode-line-error-face))))
            ('cider-repl-mode
             ;; CIDER REPL type
             (pcase cider-repl-type
-              ("clj" (all-the-icons-fileicon "clj" :face '(:foreground "green")))
-              ("cljs" (all-the-icons-fileicon "cljs" :face '(:foreground "green")))))
+              ("clj" (all-the-icons-fileicon "clj" :face 'mode-line-success-face))
+              ("cljs" (all-the-icons-fileicon "cljs" :face 'mode-line-success-face))))
            ((or 'clojure-mode 'clojurescript-mode)
             (cond
              ;; not connected
@@ -405,7 +396,7 @@ state (modified, read-only or non-existent)."
               (concat
                ;; CIDER project type
                (pcase (cider-project-type)
-                 ("lein" (all-the-icons-fileicon "clj" :face '(:foreground "green"))))
+                 ("lein" (all-the-icons-fileicon "clj" :face 'mode-line-success-face)))
                ;; CIDER project name
                (or (cider-project-name (buffer-local-value 'nrepl-project-dir (current-buffer)))
                    (with-current-buffer (ignore-errors (cider-current-connection))
@@ -423,35 +414,35 @@ state (modified, read-only or non-existent)."
             (if (bound-and-true-p ob-clojure-literate-mode)
                 (if (bound-and-true-p ob-clojure-literate-session)
                     (concat
-                     (all-the-icons-fileicon "clj" :face '(:foreground "green"))
+                     (all-the-icons-fileicon "clj" :face 'mode-line-success-face)
                      (propertize
                       (format "%s" (replace-regexp-in-string
                                     "cider-repl " ""
                                     ob-clojure-literate-session))))
-                  (all-the-icons-fileicon "clj" :face '(:foreground "gray")))))
+                  (all-the-icons-fileicon "clj"))))
            ((or 'ruby-mode 'inf-ruby-mode)
             (concat
              (if (ignore-errors (inf-ruby-proc))
                  (all-the-icons-alltheicon "ruby"
-                                           :v-adjust -0.05 :face '(:foreground "green"))
+                                           :v-adjust -0.05 :face 'mode-line-success-face)
                (all-the-icons-faicon "chain-broken"
                                      :v-adjust -0.0 :face 'mode-line-error-face))
              (if (and (featurep 'rbenv) rbenv--modestring)
                  (propertize (format " %s" (rbenv--active-ruby-version))
-                             'face '(:foreground "green")))))
+                             'face 'mode-line-success-face))))
            ((or 'python-mode 'inferior-python-mode)
             (concat
              (if (get-buffer-process (if (eq major-mode 'inferior-python-mode)
                                          (current-buffer)
                                        "*Python*"))
                  (all-the-icons-alltheicon "python"
-                                           :v-adjust -0.05 :face '(:foreground "green"))
+                                           :v-adjust -0.05 :face 'mode-line-success-face)
                (all-the-icons-faicon "chain-broken"
                                      :v-adjust -0.0 :face 'mode-line-error-face))
              (if (and (featurep 'pyvenv-mode) pyvenv-mode)
                  ;; `pyvenv-mode-line-indicator' -> `pyvenv-virtual-env-name'
                  (propertize (format " %s" pyvenv-virtual-env-name)
-                             'face '(:foreground "green"))
+                             'face 'mode-line-success-face)
                ;; conda: `conda-env-current-name'
                )))
            ((or 'js-mode 'js2-mode 'js3-mode)
@@ -503,7 +494,7 @@ state (modified, read-only or non-existent)."
               (if active (setq face 'mode-line))
               (all-the-icons-octicon "git-compare" :face face :v-adjust -0.05)))
        (propertize (substring vc-mode (+ (if (eq backend 'Hg) 2 3) 2))
-                   'face (if active `(:foreground "yellow")))
+                   'face (if active `mode-line-warn-face))
        ))))
 
 ;;; flycheck
@@ -520,36 +511,36 @@ state (modified, read-only or non-existent)."
                                            (flycheck-count-errors flycheck-current-errors)
                                          (+ (or .warning 0) (or .error 0)))))
                             (concat (all-the-icons-octicon "bug" :v-adjust -0.05
-                                                           :face (if (mode-line-window-active-p) '(:foreground "orange red")))
+                                                           :face (if (mode-line-window-active-p) 'mode-line-error-face))
                                     (propertize
                                      ;; (format " %s issue%s" count (unless (eq 1 count) "s"))
                                      (format "%s" count))))
                         (all-the-icons-faicon "check-square" :v-adjust -0.05
-                                              :face (if (mode-line-window-active-p) '(:foreground "dark sea green")))))
+                                              :face (if (mode-line-window-active-p) 'mode-line-info-face))))
                      (`running
                       (propertize (all-the-icons-faicon "ellipsis-h"
                                                         :v-adjust -0.05
-                                                        :face (if (mode-line-window-active-p) '(:foreground "light sea green")))
+                                                        :face (if (mode-line-window-active-p) 'mode-line-data-face))
                                   'help-echo "Flycheck running ..."))
                      (`no-checker
                       (propertize (all-the-icons-octicon "alert" :v-adjust -0.05
-                                                         :face (if (mode-line-window-active-p) '(:foreground "dark gray")))
+                                                         :face (if (mode-line-window-active-p) 'mode-line-warn-face))
                                   'help-echo "No Checker"))
                      (`not-checked
                       (propertize (all-the-icons-faicon "exclamation-circle" :v-adjust -0.05
-                                                        :face (if (mode-line-window-active-p) '(:foreground "orange")))
+                                                        :face (if (mode-line-window-active-p) 'mode-line-warn-face))
                                   'help-echo "Not Checked"))
                      (`errored
                       (propertize (all-the-icons-faicon "exclamation-triangle" :v-adjust -0.05
-                                                        :face (if (mode-line-window-active-p) '(:foreground "red")))
+                                                        :face (if (mode-line-window-active-p) 'mode-line-warn-face))
                                   'help-echo "Errored"))
                      (`interrupted
                       (propertize (all-the-icons-faicon "ban" :v-adjust -0.05
-                                                        :face (if (mode-line-window-active-p) '(:foreground "dark orange")))
+                                                        :face (if (mode-line-window-active-p) 'mode-line-warn-face))
                                   'help-echo "Interrupted"))
                      (`suspicious
                       (propertize (all-the-icons-faicon "question-circle" :v-adjust -0.05
-                                                        :face (if (mode-line-window-active-p) '(:foreground "dark magenta")))
+                                                        :face (if (mode-line-window-active-p) 'mode-line-warn-face))
                                   'help-echo "Suspicious")))))
         (propertize (concat text " ")
                     'mouse-face '(:box 1)
@@ -832,7 +823,7 @@ dimensions of a block selection."
 ;;       (propertize " ")
 ;;       (all-the-icons-material "timelapse")
 ;;       (format "%s" org-clock-today-string))
-;;      'face '(:foreground "orange"))
+;;      'face 'mode-line-warn-face)
 ;;     ))
 ;;   )
 
@@ -1130,8 +1121,7 @@ dimensions of a block selection."
                  (if (= (length meta) 0) "" meta)
                  (*buffer-info)
                  ;; (*bookmark)
-                 ;; (*buffer-name)
-                 mode-line-buffer-identification
+                 (*buffer-name)
                  ;; mode-line-frame-identification
                  (*buffer-encoding)
                  (*linum-info)
