@@ -317,21 +317,19 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 
 ;;; [ kibit-helper ] -- Conveniently use the Kibit Leiningen plugin from Emacs.
 
-(use-package kibit-helper
-  :ensure t
-  :defer t
-  :commands (kibit kibit-current-file kibit-accept-proposed-change)
-  :bind (:map clojure-mode-map
-              ("C-x C-`" . kibit-accept-proposed-change))
-  )
+;; (use-package kibit-helper
+;;   :ensure t
+;;   :defer t
+;;   :commands (kibit kibit-current-file kibit-accept-proposed-change)
+;;   :bind (:map clojure-mode-map
+;;               ("C-x C-`" . kibit-accept-proposed-change)))
 
 ;;; [ cider-decompile ] -- decompilation extension for cider.
 
-(use-package cider-decompile
-  :ensure t
-  :defer t
-  :commands (cider-decompile-func cider-decompile-ns-func))
-
+;; (use-package cider-decompile
+;;   :ensure t
+;;   :defer t
+;;   :commands (cider-decompile-func cider-decompile-ns-func))
 
 ;;; [ cider-spy ] -- Spy on CIDER to get Info.
 

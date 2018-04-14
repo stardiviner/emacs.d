@@ -66,44 +66,9 @@
   ;; (add-to-list  'mm-inhibit-file-name-handlers 'openwith-file-handler)
   )
 
-
-;;; [ snapshot-timemachine ] -- mode to step through (Btrfs, ZFS, ...) snapshots of files.
-
-;; (use-package snapshot-timemachine
-;;   :ensure t
-;;   :defer t)
-
-
-;;; move file to another place
-(defun move-file (new-location)
-  "Write this file to NEW-LOCATION, and delete the old one."
-  (interactive
-   (list (if buffer-file-name
-             (read-file-name "Move file to: ")
-           (read-file-name "Move file to: "
-                           default-directory
-                           (expand-file-name (file-name-nondirectory (buffer-name))
-                                             default-directory)))))
-  (when (file-exists-p new-location)
-    (delete-file new-location))
-  (let ((old-location (buffer-file-name)))
-    (write-file new-location t)
-    (when (and old-location
-               (file-exists-p new-location))
-      (delete-file old-location))))
-
-(bind-key "C-x M-w" #'move-file)
-
 ;;; [ TRAMP ]
 
 (require 'init-tramp)
-
-;;; [ exiftool ] -- an elisp wrapper around ExifTool.
-
-(use-package exiftool
-  :ensure t
-  :defer t)
-
 
 
 (provide 'init-emacs-file)

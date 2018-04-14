@@ -33,16 +33,13 @@
                 allout-plain-bullets-string-len 5
                 allout-plain-bullets-string "*+#>." ; + -> #N -> > -> *
                 )
-  
   (allout-minor-mode 1)
   )
 
 ;;; [ outline ] -- outline mode commands for Emacs.
 
 (use-package outline ; [ C-c @]
-  :init
-  (add-hook 'prog-mode-hook 'outline-minor-mode)
-  )
+  :init (add-hook 'prog-mode-hook 'outline-minor-mode))
 
 ;;; [ hideshow ] -- minor mode cmds to selectively display code/comment blocks.
 

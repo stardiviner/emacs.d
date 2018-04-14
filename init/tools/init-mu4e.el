@@ -21,18 +21,6 @@
 
   (setq mail-user-agent 'mu4e-user-agent) ; use mu4e as default Email program for Emacs [C-x m].
   (setq mu4e-compose-in-new-frame t)
-
-  ;; Helm sources for searching emails and contacts using mu.
-  (use-package helm-mu
-    :ensure t
-    :config
-    ;; Use helm-mu instead of mu4e's search
-    (define-key mu4e-main-mode-map "s" 'helm-mu)
-    (define-key mu4e-headers-mode-map "s" 'helm-mu)
-    (define-key mu4e-view-mode-map "s" 'helm-mu)
-    ;; By the way, enabling `helm-follow-mode' via [C-c C-f] allows to preview
-    ;; emails as you search.
-    )
   )
 
 
@@ -720,6 +708,7 @@
 (add-hook 'mu4e-view-mode-hook #'turn-on-visual-line-mode)
 (add-hook 'mu4e-compose-mode-hook #'visual-fill-column-mode)
 (add-hook 'mu4e-compose-mode-hook #'turn-on-auto-fill)
+(add-hook 'mu4e-compose-mode-hook #'flyspell-mode-on)
 
 ;;; Gmail
 ;; (setq mu4e-maildir "~/Maildir")
@@ -806,27 +795,22 @@
 
 
 ;; [ mu4e-alert ] -- Desktop notifications and modeline display for mu4e.
-(use-package mu4e-alert
-  :ensure t
-  :config
-  (mu4e-alert-set-default-style 'libnotify)
-  ;; disable mu4e-alert desktop libnotify notifications.
-  ;; (add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
-  (setq mu4e-display-update-status-in-modeline t)
-  (mu4e-alert-enable-mode-line-display)
-  (setq mu4e-alert-interesting-mail-query
-        (concat
-         "flag:unread"
-         " AND NOT flag:trashed"
-         ;; " AND NOT maildir:"
-         "AND references: t"
-         ))
-  )
-
-;; A library to provide MIME features.
-(use-package mu-cite
-  :ensure t
-  :init (add-hook 'mail-citation-hook 'mu-cite-original))
+;; (use-package mu4e-alert
+;;   :ensure t
+;;   :config
+;;   (mu4e-alert-set-default-style 'libnotify)
+;;   ;; disable mu4e-alert desktop libnotify notifications.
+;;   ;; (add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
+;;   (setq mu4e-display-update-status-in-modeline t)
+;;   (mu4e-alert-enable-mode-line-display)
+;;   (setq mu4e-alert-interesting-mail-query
+;;         (concat
+;;          "flag:unread"
+;;          " AND NOT flag:trashed"
+;;          ;; " AND NOT maildir:"
+;;          "AND references: t"
+;;          ))
+;;   )
 
 
 

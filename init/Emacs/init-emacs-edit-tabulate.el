@@ -30,6 +30,18 @@ For example: input regexp like [[:space:]]+ for align several space separated se
   ;; Call that command with the regular expression `[[:space:]]+'
   )
 
+(defun align-whitespace (start end)
+  "Align columns by whitespace"
+  (interactive "r")
+  (align-regexp start end
+                "\\(\\s-*\\)\\s-" 1 0 t))
+
+(defun align-& (start end)
+  "Align columns by ampersand"
+  (interactive "r")
+  (align-regexp start end
+                "\\(\\s-*\\)&" 1 1 t))
+
 (add-hook 'align-load-hook
           (lambda ()
             (add-to-list 'align-rules-list
@@ -44,25 +56,6 @@ For example: input regexp like [[:space:]]+ for align several space separated se
 (use-package ialign
   :ensure t
   :commands (ialign-interactive-align))
-
-;;; [ Table Editing ]
-
-;;; http://ergoemacs.org/emacs/emacs_table.html
-
-;;; shows you how to use emacs's “table” feature. This feature will let you
-;;; format tabular data by ASCII drawing. Then you can interactively create and
-;;; edit tables with emacs commands to insert/delete column/row. You can also
-;;; convert it to HTML or LaTeX formats.
-
-;;;_* Usage:
-;;
-;; - (info "(emacs) Text Based Tables")
-;; - [M-x table-] :: commands prefix with `table-'.
-
-;;; [ ETable ] -- An implementation of JTable for Emacs.
-
-;; (use-package etable
-;;   :ensure t)
 
 
 (provide 'init-emacs-edit-tabulate)

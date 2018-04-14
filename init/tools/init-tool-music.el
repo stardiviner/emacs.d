@@ -12,10 +12,6 @@
 
 (define-key tools-prefix (kbd "M") 'music-prefix)
 
-;;; [ MPD ]
-
-(require 'init-mpd)
-
 ;;; [ EMMS ]
 
 (require 'init-emms)

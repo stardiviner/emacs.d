@@ -6,7 +6,7 @@
 
 ;;; Code:
 
-
+;;; [ EBDB ] -- Emacs BBDB.
 
 
 

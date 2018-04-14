@@ -28,7 +28,6 @@
 ;;; set default browser to generic browser
 ;; (setq browse-url-browser-function 'browse-url-generic)
 (setq browse-url-generic-program (executable-find "firefox"))
-;;
 ;;; set default browser to "Firefox"
 (setq browse-url-browser-function 'browse-url-firefox)
 (setq browse-url-firefox-program (executable-find "firefox"))
@@ -38,7 +37,7 @@
 ;; (setq browse-url-chrome-program (executable-find "google-chrome-unstable"))
 
 (require 'init-eww)
-(require 'init-w3m)
+;; (require 'init-w3m)
 
 ;;; [ xwidget-webkit ]
 (define-key browser-prefix (kbd "C-b") 'xwidget-webkit-browse-url)
@@ -69,7 +68,6 @@
   (with-eval-after-load "org"
     (define-key org-agenda-mode-map (kbd "C-c M-o") 'ace-link-org-agenda)
     (define-key org-mode-map (kbd "C-c M-o") 'ace-link-org)))
-
 
 
 (provide 'init-tool-browser)

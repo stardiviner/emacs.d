@@ -49,6 +49,8 @@
 (use-package eldoc-eval
   :ensure t
   :config
+  ;; don't use `pp-eval-expression' *Pp Eval Output* buffer
+  (setq eldoc-eval-preferred-function 'eval-expression)
   (eldoc-in-minibuffer-mode 1))
 
 

@@ -10,31 +10,6 @@
 
 ;;; Code:
 
-;;; Load init layers
-(setq layers-alist
-      '((lisp-layer . "init-prog-lang-lisp")
-        (emacs-lisp-layer . "init-prog-lang-emacs-lisp")
-        (common-lisp-layer . "init-prog-lang-common-lisp")
-        (scheme-layer . "init-prog-lang-lisp-scheme")
-        (clojure-layer . "init-prog-lang-clojure")
-        (python-layer . "init-prog-lang-python")
-        (ruby-layer . "init-prog-lang-ruby")
-        ))
-
-(defun my-load-layer (layer)
-  "Load init file `LAYER'.
-
-Usage:
-\\(my-load-layer 'lisp-layer\\)
-"
-  (interactive)
-  (let ((init-file (cdr (assoc layer layers-alist))))
-    (require (intern init-file))
-    ))
-
-;; (my-load-layer 'lisp-layer)
-
-
 ;;; Group hooks into one new hook.
 
 (defmacro hook-modes (modes &rest body)
@@ -77,33 +52,6 @@ by creating or altering keymaps stored in buffer-local
                        map))))
     (define-key newmap key def)))
 
-
-;;; magical insert kbd for key.
-(defun insert-kbd-for-key (key)
-  (interactive "kKey: ")
-  (insert (format "(kbd \"%s\")" (key-description key))))
-
-;; (global-set-key "C-c k" 'insert-kbd-for-key)
-
-
-;;; Open and play GIF image in Emacs buffer.
-
-(defun my-func/open-and-play-gif-image (file &optional link)
-  "Open and play GIF image `FILE' in Emacs buffer.
-
-Optional for Org-mode file: `LINK'."
-  (let ((gif-image (create-image file))
-        (tmp-buf (get-buffer-create "*Org-mode GIF image animation*")))
-    (switch-to-buffer tmp-buf)
-    (erase-buffer)
-    (insert-image gif-image)
-    (image-animate gif-image nil t)
-    (local-set-key (kbd "q") 'kill-current-buffer)
-    ))
-
-
-;;; [ keybindings ]
-
 ;;; keybinding lookup
 (defun bunch-of-keybinds (key)
   "Look up where is the KEY in key-maps."
@@ -145,7 +93,7 @@ Optional for Org-mode file: `LINK'."
 ;;           (global-key-binding key))))
 ;;     (when (called-interactively-p 'any)
 ;;       (message "At Point: %s\nMinor-mode: %s\nLocal: %s\nGlobal: %s"
-;;                (or (nth 0 ret) "") 
+;;                (or (nth 0 ret) "")
 ;;                (or (mapconcat (lambda (x) (format "%s: %s" (car x) (cdr x)))
 ;;                               (nth 1 ret) "\n             ")
 ;;                    "")
@@ -167,56 +115,7 @@ Optional for Org-mode file: `LINK'."
             (get-text-property (point) 'local-map)))))
 
 
-;;; require and install
-
-;;; this will lead company-mode complete string from (require into (rrequire.
-;; (defun require-x (feature &optional filename noerror package refresh)
-;;   "A replacement for `require' which also installs the feature if it is absent.
-;; - If FEATURE is present, `require' it and return t.
-;;
-;; - If FEATURE is not present, install PACKAGE with `package-install'.
-;; If PACKAGE is nil, assume FEATURE is the package name.
-;; After installation, `require' FEATURE.
-;;
-;; FILENAME is passed to `require'.
-;;
-;; If NOERROR is non-nil, don't complain if the feature couldn't be
-;; installed, just return nil.
-;;
-;; By default, the current package database (stored in
-;; `package-archive-contents') is only updated if it is empty.
-;; Passing a non-nil REFRESH argument forces this update."
-;;   (or (require feature filename t)
-;;       (let ((package (or package
-;;                          (if (stringp feature)
-;;                              (intern feature)
-;;                            feature))))
-;;         (require 'package)
-;;         (unless (and package-archive-contents (null refresh))
-;;           (package-refresh-contents))
-;;         (and (condition-case e
-;;                  (package-install package)
-;;                (error (if noerror nil (error (cadr e)))))
-;;              (require feature filename noerror)))))
-
-
-;;; [ align ]
-
-(defun align-whitespace (start end)
-  "Align columns by whitespace"
-  (interactive "r")
-  (align-regexp start end
-                "\\(\\s-*\\)\\s-" 1 0 t))
-
-(defun align-& (start end)
-  "Align columns by ampersand"
-  (interactive "r")
-  (align-regexp start end
-                "\\(\\s-*\\)&" 1 1 t))
-
-
 ;;; [ Network ]
-
 (defun my:internet-network-available? ()
   "Detect Internet network available?"
   (eq (length

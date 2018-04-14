@@ -61,33 +61,6 @@
                '("^\\*Keys\\*" (display-buffer-below-selected)))
   )
 
-;;; [ inline-crypt ] -- simple inline encryption via openssl.
-
-(use-package inline-crypt
-  :ensure t
-  :commands (inline-crypt-encrypt-region
-             inline-crypt-decrypt-region
-             inline-crypt-encrypt-string
-             inline-crypt-decrypt-string)
-  :preface
-  (unless (boundp 'inline-crypt-prefix)
-    (define-prefix-command 'inline-crypt-prefix))
-  (define-key encrypt-prefix (kbd "i") 'inline-crypt-prefix)
-  :bind (:map inline-crypt-prefix
-              ("r" . inline-crypt-encrypt-region)
-              ("C-r" . inline-crypt-decrypt-region)
-              ("s" . inline-crypt-encrypt-string)
-              ("C-s" . inline-crypt-decrypt-string))
-  :config
-  ;; (setq inline-crypt-openssl-command "openssl")
-  )
-
-;;; [ letterbox-mode ] -- a simple minor mode to add letterboxing to sensitive text.
-
-(use-package letterbox-mode
-  :ensure t
-  :bind (:map encrypt-prefix ("l" . letterbox-toggle)))
-
 
 
 (provide 'init-emacs-encrypt)

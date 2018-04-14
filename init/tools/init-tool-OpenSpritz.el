@@ -11,6 +11,7 @@
 
 (use-package spray
   :ensure t
+  :commands (spray-mode)
   :bind ("<f9>" . spray-mode)
   :config
   (setq spray-wpm 250 ; words per minute

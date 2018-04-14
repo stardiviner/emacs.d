@@ -7,6 +7,10 @@
 
 ;;; Code:
 
+;;; [ Beamer ]
+
+;; (require 'ox-beamer)
+
 ;;; [ org-tree-slide ] -- A presentation tool for org-mode based on the visibility of outline trees.
 
 (use-package org-tree-slide

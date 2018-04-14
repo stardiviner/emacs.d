@@ -7,6 +7,17 @@
 
 ;;; Code:
 
+;;; [ scroll ]
+
+(setq scroll-margin 3
+      scroll-preserve-screen-position 3
+      scroll-conservatively 100000
+      fast-but-imprecise-scrolling t)
+
+;; [ recenter ]
+
+(setq recenter-positions '(top middle bottom))
+
 ;;; [ movement ]
 
 (setq sentence-end-double-space nil)
@@ -56,8 +67,7 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 (use-package show-marks
   :ensure t
-  :bind ("C-c `" . show-marks)
-  )
+  :bind ("C-c `" . show-marks))
 
 
 ;;; [ ace-jump-mode -- Ace Jump Mode ]
@@ -77,25 +87,6 @@ This is the same as using \\[set-mark-command] with the prefix argument."
   (with-eval-after-load "ace-jump-mode"
     (ace-jump-mode-enable-mark-sync))
   )
-
-
-;;; [ scroll ]
-
-(setq scroll-margin 3
-      scroll-preserve-screen-position 3
-      scroll-conservatively 100000
-      fast-but-imprecise-scrolling t)
-
-;; [ recenter ]
-
-(setq recenter-positions '(top middle bottom))
-
-;;; [ beginend ] -- Emacs package to redefine =[M-<]= and =[M->]= for some modes like Dired.
-
-;; (use-package beginend
-;;   :ensure t
-;;   :config
-;;   (beginend-global-mode))
 
 
 (provide 'init-emacs-navigation)

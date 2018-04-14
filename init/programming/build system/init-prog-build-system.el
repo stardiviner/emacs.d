@@ -13,7 +13,6 @@
 ;;; [ compile ]
 
 (require 'compile)
-(define-key build-system-prefix (kbd "<f8>") 'compile)
 
 ;;; [ Make ]
 
@@ -30,13 +29,15 @@
   :defer t
   :bind (:map build-system-prefix
               ("<f6>" . build-helper-run)
-              ("<f7>" . build-helper-re-run)))
+              ("<f7>" . build-helper-re-run)
+              ("<f8>" . compile)))
 
 ;;; [ build-status ] -- mode line build status indicator.
 
-(use-package build-status
-  :ensure t
-  :init (add-hook 'prog-mode-hook #'build-status-mode))
+;;; TODO: need to learn how to use CI like Travis CI.
+;; (use-package build-status
+;;   :ensure t
+;;   :init (add-hook 'prog-mode-hook #'build-status-mode))
 
 
 

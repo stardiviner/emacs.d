@@ -43,12 +43,6 @@
 
 ;;; [ echo area ]
 
-
-;;; [ help-at-pointer ] -- local help through the keyboard.
-
-;; (setq help-at-pt-display-when-idle t)
-;; (help-at-pt-set-timer)
-
 
 (provide 'init-emacs-minibuffer)
 

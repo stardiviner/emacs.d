@@ -12,6 +12,8 @@
 
 (define-key search-prefix (kbd "f") 'find-prefix)
 
+(define-key find-prefix (kbd "h") 'helm-find)
+
 ;;; [ find-dired ]
 
 (use-package find-dired
@@ -23,18 +25,6 @@
   :init
   (add-to-list 'display-buffer-alist
                '("\\*Find\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
-  )
-
-;;; [ helm-fuzzy-find ] -- Find files using Fuzzy Search (fuzzy-find) with Helm.
-
-(use-package helm-fuzzy-find
-  :ensure t
-  :ensure-system-package (ff . "cd ~/Code/Emacs/ff/ ; make && mv ff ~/bin/")
-  :bind (("C-c C-/" . helm-fuzzy-find)
-         :map find-prefix
-         ("h" . helm-fuzzy-find))
-  :config
-  ;; (setq helm-fuzzy-find-keybind "")
   )
 
 

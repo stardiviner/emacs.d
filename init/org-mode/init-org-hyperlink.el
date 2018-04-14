@@ -34,9 +34,8 @@
     (if (yes-or-no-p "Set property :CUSTOM_ID: ? ")
         (org-set-property
          "CUSTOM_ID"
-         (completing-read-default "Property :CUSTOM_ID: value: "
-                                  nil nil nil
-                                  (substring-no-properties (org-get-heading t t)))))))
+         (read-from-minibuffer "Property :CUSTOM_ID: value: "
+                               (substring-no-properties (org-get-heading t t)))))))
 
 (advice-add 'org-store-link :before #'org-store-link-set-headline-custom-id)
 
@@ -50,6 +49,19 @@
 ;; ("pdf" . (foo))
 ;; becomes:
 ;; ("pdf" . (lambda (file link) (foo)))
+
+;;; Open and play GIF image in Emacs buffer.
+(defun my-func/open-and-play-gif-image (file &optional link)
+  "Open and play GIF image `FILE' in Emacs buffer.
+Optional for Org-mode file: `LINK'."
+  (let ((gif-image (create-image file))
+        (tmp-buf (get-buffer-create "*Org-mode GIF image animation*")))
+    (switch-to-buffer tmp-buf)
+    (erase-buffer)
+    (insert-image gif-image)
+    (image-animate gif-image nil t)
+    (local-set-key (kbd "q") 'kill-current-buffer)
+    ))
 
 (setq org-file-apps
       `(;; Web Pages
@@ -234,7 +246,8 @@ and append it."
 ;;; `geo:'
 ;; [geo:37.786971,-122.399677;u=35]
 (defcustom org-geo-link-application-command "gnome-maps"
-  "Specify the program name for openning geo: link.")
+  "Specify the program name for openning geo: link."
+  :type 'string)
 
 (defun org-geo-link-open (uri)
   "Open Geography location `URI' like \"geo:25.5889136,100.2208514\" in Map application."

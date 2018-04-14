@@ -39,8 +39,7 @@
 (use-package picpocket
   :ensure t
   :defer t
-  :commands (picpocket)
-  )
+  :commands (picpocket))
 
 
 (provide 'init-emacs-image)

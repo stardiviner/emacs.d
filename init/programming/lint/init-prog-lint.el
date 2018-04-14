@@ -10,8 +10,7 @@
   (define-prefix-command 'linter-prefix))
 
 (add-hook 'prog-mode-hook
-          (lambda ()
-            (local-set-key (kbd "C-c !") 'linter-prefix)))
+          (lambda () (local-set-key (kbd "C-c !") 'linter-prefix)))
 
 
 ;;; [ FlyCheck ] --- modern on-the-fly syntax checking

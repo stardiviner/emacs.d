@@ -24,8 +24,19 @@
 (use-package org-table-sticky-header
   :ensure t
   :defer t
-  :init
-  (add-hook 'org-mode-hook 'org-table-sticky-header-mode))
+  :init (add-hook 'org-mode-hook 'org-table-sticky-header-mode))
+
+
+;; [ org-plot ] -- Plotting Tables in Org-mode.
+
+(require 'org-plot)
+
+;;; Org Table translator functions.
+(add-to-list 'org-default-properties "ORGTBL") ; for Org-mode Table translator functions.
+
+;; define a keybinding for org table translator functions
+(define-key org-mode-map (kbd "C-c \" i") 'orgtbl-insert-radio-table)
+(define-key org-mode-map (kbd "C-c \" s") 'orgtbl-send-table)
 
 ;;; [ orgtbl-ascii-plot ] -- ascii-art bar plots in org-mode tables.
 
@@ -62,7 +73,8 @@
 ;;; [ org-transform-tree-table ] -- Transform an org-mode outline and its properties to a table format (org-table, CSV).
 
 (use-package org-transform-tree-table
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ mysql-to-org-mode ] -- Minor mode for emacs to output the results of mysql queries to org tables.
 

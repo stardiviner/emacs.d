@@ -28,11 +28,10 @@
   (define-prefix-command 'deploy-prefix))
 (define-key prog-tools-prefix (kbd "d") 'deploy-prefix)
 
-(use-package copy-file-on-save
-  :ensure t
-  :defer t
-  :init
-  (global-copy-file-on-save-mode))
+;; (use-package copy-file-on-save
+;;   :ensure t
+;;   :defer t
+;;   :init (global-copy-file-on-save-mode))
 
 ;;; [ heroku ]
 

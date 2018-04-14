@@ -95,7 +95,7 @@
                           "freemind"
                         "freeplane"))
           ;; TeX
-          ("\\.tex\\'" "pdflatex")
+          ("\\.tex\\'" "xelatex")
           ;; Office
           ("\\.ods\\'\\|\\.xlsx?\\'\\|\\.docx?\\'\\|\\.csv\\'" "libreoffice")
           ))

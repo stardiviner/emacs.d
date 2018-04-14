@@ -112,17 +112,17 @@
 
 ;;; [ org-protocol-capture-html ] -- Capture HTML from the browser selection into Emacs as org-mode content.
 
-(use-package org-protocol-capture-html
-  :quelpa (org-protocol-capture-html
-           :fetcher github :repo "alphapapa/org-protocol-capture-html"
-           :upgrade nil)
-  :config
-  (setq org-capture-templates
-        (append '(("PH" "org-[p]rotocol-capture-[h]tml" entry
-                   (file "")
-                   "* %a :website:\n\n%U %?\n\n%:initial"))
-                org-capture-templates))
-  )
+;; (use-package org-protocol-capture-html
+;;   :quelpa (org-protocol-capture-html
+;;            :fetcher github :repo "alphapapa/org-protocol-capture-html"
+;;            :upgrade nil)
+;;   :config
+;;   (setq org-capture-templates
+;;         (append '(("PH" "org-[p]rotocol-capture-[h]tml" entry
+;;                    (file "")
+;;                    "* %a :website:\n\n%U %?\n\n%:initial"))
+;;                 org-capture-templates))
+;;   )
 
 ;;; [ org-rich-yank ] -- rich text clipboard for org-mode: Paste into a #+BEGIN_SRC block of correct mode, with link to where it came from.
 

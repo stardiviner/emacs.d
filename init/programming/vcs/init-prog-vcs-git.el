@@ -212,6 +212,16 @@
 ;; (use-package pcmpl-git
 ;;   :ensure t)
 
+;;; [ magit-org-todos ] -- Display file "todo.org" (in project root path) to your Magit status section.
+
+(use-package magit-org-todos
+  :ensure t
+  :defer t
+  :after magit
+  :init (magit-org-todos-autoinsert)
+  :bind (:map projectile-command-map ("C-o" . magit-org-todos--magit-visit-org-todo))
+  )
+
 
 
 (provide 'init-prog-vcs-git)

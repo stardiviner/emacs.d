@@ -12,8 +12,7 @@
 (use-package artist
   :ensure t
   :defer t
-  :bind (:map tools-prefix
-              ("a" . artist-mode))
+  :bind (:map tools-prefix ("a" . artist-mode))
   :config
   (defun artist-select-colors ()
     "Insert cXXX format colors for ditaa boxes."

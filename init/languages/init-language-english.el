@@ -11,16 +11,6 @@
 
 ;; (capitalized-words-mode 1)
 
-
-;;; [ captain ] -- CAPiTalization is Automatic IN emacs.
-
-(use-package captain
-  :ensure t
-  :defer t
-  :commands (captain-capitalize-word)
-  :init
-  (global-captain-mode 1))
-
 ;;; [ electric punctuation ]
 
 ;;; [ stem-english ] -- routines for Stemming English word (Emacs)

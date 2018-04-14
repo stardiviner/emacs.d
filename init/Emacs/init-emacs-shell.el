@@ -42,19 +42,9 @@
     (cd "/sudo::/")
     (async-shell-command command)))
 
-
 ;;; [ Eshell ]
 
 (require 'init-eshell)
-
-
-;;; [ run-stuff ] -- A package for convenient, execute command-line actions from Emacs.
-
-;; (use-package run-stuff
-;;   :ensure t
-;;   :commands (run-stuff-command-on-region-or-line)
-;;   :bind ("<C-M-return>" . run-stuff-command-on-region-or-line)
-;;   )
 
 
 

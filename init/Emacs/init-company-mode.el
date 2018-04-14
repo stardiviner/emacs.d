@@ -12,13 +12,15 @@
 (use-package company
   :ensure t
   :defer t
+  ;; disable `company-mode' in `org-mode' for performance.
+  :preface (setq company-global-modes '(not org-mode))
   :commands (global-company-mode)
-  :init
-  (add-hook 'after-init-hook 'global-company-mode)
+  :init (global-company-mode 1)
   :config
   (setq company-minimum-prefix-length 3
         ;; decrease this delay when you can type code continuously fast.
         company-idle-delay .1
+        company-tooltip-idle-delay 0.1
         ;; determine which characters trigger auto-completion the selected candidate.
         company-auto-complete nil ; nil: don't auto select the first candidate when input `company-auto-complete-chars'.
         ;; '(?_ ?\( ?w ?. ?\" ?$ ?\' ?/ ?| ?! ?#)
@@ -230,24 +232,6 @@
     (define-key company-active-map (kbd "M-h") 'company-quickhelp-manual-begin))
   )
 
-
-;;; [ company-statistics ]
-
-;; (use-package company-statistics
-;;   ;; :ensure t
-;;   :config
-;;   (setq company-statistics-auto-restore t
-;;         company-statistics-auto-save t
-;;         company-statistics-file "~/.emacs.d/.company-statistics-cache.el"
-;;         ;; company-statistics-score-calc 'company-statistics-score-calc-default
-;;         ;; company-statistics-score-change 'company-statistics-score-change-default
-;;         company-statistics-size 500
-;;         )
-;;
-;;   (company-statistics-mode)
-;;   )
-
-
 ;;; [ company-mode in minibuffer `M-:' ]
 
 (defun company-mode-minibuffer-setup ()
@@ -262,14 +246,13 @@
 
 (add-hook 'eval-expression-minibuffer-setup-hook 'company-mode-minibuffer-setup)
 
+;;; [ company-box ] -- A company front-end with icons.
 
-;;; [ company-flx ] -- flx based fuzzy matching for company.
-
-;; (use-package company-flx
+;; (use-package company-box
 ;;   :ensure t
-;;   :config
-;;   (with-eval-after-load 'company
-;;     (company-flx-mode +1)))
+;;   :hook (company-mode . company-box-mode)
+;;   ;; :init (add-hook 'company-mode-hook 'company-box-mode)
+;;   )
 
 
 (provide 'init-company-mode)

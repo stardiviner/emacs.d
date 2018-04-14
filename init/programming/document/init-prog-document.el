@@ -9,12 +9,6 @@
   (define-prefix-command 'prog-doc-map))
 (global-set-key (kbd "C-h d") 'prog-doc-map)
 
-;; example
-;; (add-hook 'lisp-mode-hook
-;;           '(lambda ()
-;;              (local-set-key (kbd "C-h d d") 'sly-documentation-lookup)
-;;              ))
-
 (require 'init-prog-document-eldoc)
 (require 'init-prog-document-man)
 ;; (require 'init-prog-document-rfc)

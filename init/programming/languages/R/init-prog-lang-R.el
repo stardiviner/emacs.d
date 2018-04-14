@@ -33,7 +33,7 @@
   ;; - `ess-company-backends' :: for company-mode.
   ;; - `ess-ac-sources' :: for auto-complete.
 
-  (setq ess-use-ido t
+  (setq ess-use-ido nil
         ess-ido-flex-matching t
         ess-pdf-viewer-pref '("emacsclient")
         ;; ess-ps-viewer-pref nil

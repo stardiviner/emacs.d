@@ -177,10 +177,9 @@
   :ensure t
   :defer t
   :commands (paperless)
-  :init
+  :config
   (setq paperless-capture-directory "~/Downloads"
-        paperless-root-directory "~/Org")
-  )
+        paperless-root-directory "~/Org"))
 
 
 (provide 'init-emacs-pdf)

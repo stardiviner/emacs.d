@@ -61,19 +61,6 @@
   ;;                 lisp-prettify-symbols-alist)))
   )
 
-
-;;; [ digit-groups ] -- highlight place-value positions in numbers.
-
-;; (use-package digit-groups
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (add-hook 'org-mode-hook
-;;             (lambda ()
-;;               (if (not (equal (buffer-name) "Diary.org"))
-;;                   (digit-groups-mode 1))))
-;;   )
-
 
 (provide 'init-emacs-prettify)
 

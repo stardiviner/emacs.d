@@ -17,11 +17,6 @@
 
 (require 'color) ; for `color-lighten-name' and `color-darken-name'
 
-;;; [ monotropic-theme ] -- (Almost) monochromatic theme for Emacs based on eink-theme.
-
-;; (use-package monotropic-theme
-;;   :ensure t)
-
 ;;; [ leuven-theme ]
 
 (use-package leuven-theme
@@ -54,8 +49,7 @@
         calendar-time-zone +480
         calendar-latitude 29.72
         calendar-longitude 120.20)
-  (setq circadian-themes '((:sunrise . spacemacs-light)
-                           ("11:00" . leuven)
+  (setq circadian-themes '((:sunrise . leuven)
                            ;; ("13:00" . spacemacs-light)
                            (:sunset . spacemacs-dark)))
   (circadian-setup))

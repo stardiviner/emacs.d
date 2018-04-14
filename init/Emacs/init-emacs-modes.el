@@ -9,17 +9,6 @@
 
 ;;; [ auto-mode-alist ]
 
-(add-to-list 'auto-mode-alist '("\\.conkyrc\\'" . conf-mode))
-(add-to-list 'auto-mode-alist '("conkyrc\\'" . conf-mode))
-
-;;; Arch PKGBUILD (pkgbuild-mode)
-(use-package pkgbuild-mode
-  :ensure t
-  :mode ("/PKGBUILD\\'" . pkgbuild-mode)
-  ;; :init
-  ;; (autoload 'pkgbuild-mode "pkgbuild-mode.el" "PKGBUILD mode." t)
-  ;; (setq auto-mode-alist (append '(("/PKGBUILD\\'" . pkgbuild-mode)) auto-mode-alist))
-  )
 
 ;;; [ mmm-mode ] -- Minor mode to allow multiple major modes in one buffer.
 

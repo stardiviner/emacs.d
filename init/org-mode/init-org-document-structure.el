@@ -47,21 +47,6 @@
 (setq org-hierarchical-todo-statistics nil
       org-checkbox-hierarchical-statistics nil)
 
-;; * Table
-
-;; * Plotting
-
-;; [ org-plot ] -- Plotting Tables in Org-mode.
-
-(require 'org-plot)
-
-;;; Org Table translator functions.
-(add-to-list 'org-default-properties "ORGTBL") ; for Org-mode Table translator functions.
-
-;; define a keybinding for org table translator functions
-(define-key org-mode-map (kbd "C-c \" i") 'orgtbl-insert-radio-table)
-(define-key org-mode-map (kbd "C-c \" s") 'orgtbl-send-table)
-
 ;;; TODO: does this work?
 ;; will be combined with constant `org-global-properties-fixed'
 ;; (add-to-list 'org-global-properties '("Effort" . "0:30"))
@@ -88,16 +73,17 @@
 (defun org-insert-entity-with-ivy ()
   "Insert an org-entity using Ivy."
   (interactive)
-  (ivy-read "Entity: " (loop for element in (append org-entities org-entities-user)
-			                       when (not (stringp element))
-			                       collect
-			                       (cons
-			                        (format "%10s | %s | %s | %s"
-				                              (car element) ;name
-				                              (nth 1 element) ; latex
-				                              (nth 3 element) ; html
-				                              (nth 6 element)) ;utf-8
-			                        element))
+  (ivy-read "Entity: "
+            (loop for element in (append org-entities org-entities-user)
+			            when (not (stringp element))
+			            collect
+			            (cons
+			             (format "%10s | %s | %s | %s"
+				                   (car element) ;name
+				                   (nth 1 element) ; latex
+				                   (nth 3 element) ; html
+				                   (nth 6 element)) ;utf-8
+			             element))
 	          :require-match t
 	          :action '(1
 		                  ("u" (lambda (element) (insert (nth 6 (cdr element)))) "utf-8")

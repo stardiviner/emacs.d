@@ -73,14 +73,6 @@
   (add-hook 'after-revert-hook #'smerge-smart-dwim t)
   )
 
-;;; [ dumb-diff ] -- An Emacs package to fast arbitrary diffs.
-
-;; (use-package dumb-diff
-;;   :ensure t
-;;   :defer t
-;;   :commands (dumb-diff)
-;;   )
-
 
 (provide 'init-prog-vcs-diff)
 

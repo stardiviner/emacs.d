@@ -26,20 +26,16 @@
 (use-package helm-rage
   :ensure t
   :commands (helm-rage)
-  :bind (:map ascii-prefix
-	      ("a" . helm-rage))
-  )
+  :bind (:map ascii-prefix ("a" . helm-rage)))
 
 ;;; [ boxquote ] -- quote text with a semi-box.
 
 (use-package boxquote
   :ensure t
   :init
-  (unless (boundp 'prog-comment-prefix)
-    (define-prefix-command 'prog-comment-prefix))
   (unless (boundp 'boxquote-prefix)
     (define-prefix-command 'boxquote-prefix))
-  (define-key prog-comment-prefix (kbd "q") 'boxquote-prefix)
+  (define-key ascii-prefix (kbd "q") 'boxquote-prefix)
   :bind (:map narrow-map
               ("q" . boxquote-narrow-to-boxquote-content)
               :map boxquote-prefix
@@ -58,11 +54,6 @@
               ("C-y" . boxquote-yank)
               ("p" . boxquote-paragraph)
               )
-  :config
-  ;; (setq boxquote-title-format "[ %s ]")
-
-  ;; `message-completion-function' (like `capf')
-  ;; (setq message-expand-name-databases '(bbdb eudb))
   )
 
 

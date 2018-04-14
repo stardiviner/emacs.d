@@ -43,7 +43,16 @@
 (setq org-format-latex-options
       (plist-put org-format-latex-options :html-scale 2.0)) ; adjust HTML exporting LaTeX image size.
 
+;;; [ webkit-katex-render ] -- An instant Latex Previewer for Emacs.
 
+;; (use-package webkit-katex-render
+;;   ;; :ensure t
+;;   :load-path "~/Code/Emacs/webkit-katex-render/"
+;;   :init (add-hook 'org-mode-hook #'webkit-katex-render-mode)
+;;   ;; (add-hook 'TeX-mode-hook #'webkit-katex-render-mode)
+;;   )
+
+;;; [ Exporting ]
 (require 'org-latex-exp-conf)
 ;; (define-key org-mode-map (kbd "C-c M-e") 'org-latex-exp-conf-mode)
 

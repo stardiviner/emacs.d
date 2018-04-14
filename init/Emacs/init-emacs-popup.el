@@ -10,8 +10,9 @@
 ;;; [ tooltip ]
 
 (use-package tooltip
+  :init (tooltip-mode 1)
   :config
-  (setq tooltip-reuse-hidden-frame t)
+  ;; (setq tooltip-reuse-hidden-frame t)
 
   ;; (setq-default tooltip-delay 0.3         ; default 0.7
   ;;               tooltip-hide-delay 10     ; default 10
@@ -45,12 +46,12 @@
 (use-package pos-tip
   :ensure t
   :defer t
+  :preface (setq x-gtk-use-system-tooltips nil)
   :config
-  (setq pos-tip-use-relative-coordinates nil
-        pos-tip-border-width 1
-        pos-tip-internal-border-width 2
-        ;; pos-tip-tab-width nil
-        )
+  (setq pos-tip-border-width 1
+        pos-tip-internal-border-width 2)
+  (set-face-attribute 'tooltip nil
+                      :family "Hack")
   )
 
 ;;; [ showtip ]

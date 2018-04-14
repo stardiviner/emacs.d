@@ -86,8 +86,11 @@
 
   ;; text
   (dolist (hook
-           '(text-mode-hook
+           '(
+             ;; `text-mode' is parent mode of `org-mode' and `markdown-mode'.
+             ;; text-mode-hook
              markdown-mode-hook
+             ;; org-mode-hook
              ))
     (add-hook hook 'flyspell-mode))
 

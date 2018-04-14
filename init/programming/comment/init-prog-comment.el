@@ -70,8 +70,7 @@ column.  Place the point after the comment box."
 (use-package poporg
   :ensure t
   :bind (("C-c '" . poporg-dwim)
-         :map prog-comment-prefix
-         ("'" . poporg-dwim))
+         :map prog-comment-prefix ("'" . poporg-dwim))
   :init
   ;; display poporg popup buffer below the selected window with 0.3 height.
   (add-to-list 'display-buffer-alist

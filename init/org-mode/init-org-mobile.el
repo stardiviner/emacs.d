@@ -20,7 +20,7 @@
     ))
 
 (setq org-mobile-files (org-agenda-files)
-      org-mobile-inbox-for-pull (concat org-mobile-directory "/from-mobile.org")
+      org-mobile-inbox-for-pull (concat org-mobile-directory "/index.org")
       )
 
 

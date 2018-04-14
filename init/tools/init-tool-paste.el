@@ -9,7 +9,6 @@
   (define-prefix-command 'paste-prefix))
 (define-key tools-prefix (kbd "p") 'paste-prefix)
 
-
 ;;; convert selected region to Markdown and copy to clipboard for pasting
 ;;; on sites like GitHub, and Stack Overflow.
 (use-package ox-gfm
@@ -63,8 +62,6 @@ For pasting source code in Email."
 ;;; `htmlize-buffer' (convert current buffer into HTML output)
 (define-key paste-prefix (kbd "H") 'htmlize-buffer)
 
-
-
 
 ;;; [ yagist ] -- Yet Another gist
 
@@ -101,25 +98,6 @@ For pasting source code in Email."
   (advice-add 'yagist-anonymous-file-name :before #'yagist-anonymous-file-name-for-org-babel)
   )
 
-;;; [ webpaste ] -- paste text to pastebin-like services.
-
-;; (use-package webpaste
-;;   :ensure t
-;;   :defer t
-;;   :bind (:map paste-prefix
-;;               ("C-b" . webpaste-paste-buffer)
-;;               ("C-r" . webpaste-paste-region))
-;;   )
-
-
-;;; [ pastery ] -- paste to pastery from Emacs
-
-;; (use-package pastery
-;;   :ensure t
-;;   :defer t
-;;   :config
-;;   (setq pastery-api-key "9dMWka2QzhnsFyRb4aKb2Fc6tZMudoZb")
-;;   )
 
 
 (provide 'init-tool-paste)

@@ -10,8 +10,7 @@
 
 (require 'ox)
 
-(setq org-export-headline-levels 4
-      org-export-with-clocks t
+(setq org-export-with-clocks t
       org-export-with-planning t
       org-export-with-timestamps t
       org-export-with-properties t
@@ -19,16 +18,15 @@
       )
 
 ;;; Org-mode Babel
-(setq TeX-auto-untabify t ; preserve spacing in src blocks when export LaTeX to PDF.
-      ;; org-export-use-babel nil
-      )
+;; preserve spacing in src blocks when export LaTeX to PDF.
+(setq TeX-auto-untabify t)
+;; `org-export-use-babel'
+(add-to-list 'org-babel-default-header-args '(:eval "never-export"))
 
 ;;; exclude org headlines exporting with a specific tags.
 (setq org-export-exclude-tags '("noexport"))
 
-;;; ------------- Export UTF-8 checkboxes ---------------------
 ;;; This snippet turns - [X] into ☑ and - [ ] into ☐.
-
 ;; 'ascii, 'unicode, 'html
 (setq org-html-checkbox-type 'unicode)
 
@@ -39,46 +37,20 @@
 (setq org-html-doctype "html5"
       org-html-html5-fancy t
       org-html-use-infojs t ; 'when-configured
-      ;; org-html-infojs-options
-      ;; org-html-allow-name-attribute-in-anchors t
       org-html-htmlize-output-type 'inline-css ; make HTML self-containing
-
-      ;; org-html-mathjax-options
-      ;; '((path
-      ;;   "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML")
-      ;;   (scale "100")
-      ;;   (align "center")
-      ;;   (font "TeX")
-      ;;   (linebreaks "false")
-      ;;   (autonumber "AMS")
-      ;;   (indent "0em")
-      ;;   (multlinewidth "85%")
-      ;;   (tagindent ".8em")
-      ;;   (tagside "right")
-      ;;   )
-      ;; org-html-mathjax-template
-      
-      ;; org-html-link-home ""
-      ;; org-html-link-up ""
-      ;; org-html-link-use-abs-url t ; relative to HTML_LINK_HOME
-
-      ;; org-html-head ""
-      ;; org-html-head-extra ""
-
-      ;; org-html-viewport
       )
 
 ;;; Exporting JavaScript babel code block into <script> tag in HTML export.
 
 ;; (add-to-list 'org-src-lang-modes '("inline-js" . javascript))
-(add-to-list 'org-src-lang-modes '("inline-js" . js2))
-(defvar org-babel-default-header-args:inline-js
-  '((:results . "html")
-    (:exports . "results")))
-(defun org-babel-execute:inline-js (body _params)
-  (format "<script type=\"text/javascript\">\n%s\n</script>" body))
+;; (add-to-list 'org-src-lang-modes '("inline-js" . js2))
+;; (defvar org-babel-default-header-args:inline-js
+;;   '((:results . "html")
+;;     (:exports . "results")))
+;; (defun org-babel-execute:inline-js (body _params)
+;;   (format "<script type=\"text/javascript\">\n%s\n</script>" body))
 
-
+
 ;;; [ org-mime ] -- org-mime can be used to send HTML email using Org-mode HTML export.
 
 (use-package org-mime
@@ -158,25 +130,6 @@
       (mapc #'mml-attach-file files)))
   )
 
-;;; [ Beamer ]
-
-;; (require 'ox-beamer)
-
-;;; [ org-preview-html ] -- automatically use eww to preview the current org file on save.
-
-;; (use-package org-preview-html
-;;   :ensure t
-;;   :defer t)
-
-;;; [ org-eww ] -- automatically use eww to preview current org-file when save.
-
-;; (use-package org-eww
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (add-hook 'org-mode-hook 'org-eww-mode)
-;;   )
-
 ;;; [ html2org ] -- convert html to org format text.
 
 (use-package html2org
@@ -196,22 +149,15 @@
 ;;   :ensure t
 ;;   :defer t)
 
-;;; [ org-html-themes ] -- export Org mode files into awesome HTML in 2 minutes.
+;;; [ htmlize ]
 
-(use-package org-html-themes
-  ;; :load-path "~/Org/org-html-themes"
-  :no-require t
-  :init
-  (defun my:org-html-themes-setup ()
-    "Insert Org-mode property for `org-html-themes'."
-    (interactive)
-    (let ((theme (expand-file-name "~/Org/org-html-themes/setup/theme-bigblow-local.setup")))
-      (insert
-       (when (file-exists-p theme)
-         (goto-char (point-min))
-         (concat "#+SETUPFILE: " theme))
-       )))
-  )
+(use-package htmlize
+  :ensure t)
+
+;;; [ htmlfontify ]
+
+(use-package htmlfontify
+  :ensure t)
 
 
 (provide 'init-org-export)

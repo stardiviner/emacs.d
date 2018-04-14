@@ -61,6 +61,9 @@
 
 ;;; [ Conky ]
 
+;; (add-to-list 'auto-mode-alist '("\\.conkyrc\\'" . conf-mode))
+;; (add-to-list 'auto-mode-alist '("conkyrc\\'" . conf-mode))
+
 (use-package lua-mode
   :ensure t
   :defer t
@@ -81,6 +84,15 @@
 ;; (use-package systemtap-mode
 ;;   :ensure t
 ;;   :defer t)
+
+;;; Arch PKGBUILD (pkgbuild-mode)
+(use-package pkgbuild-mode
+  :ensure t
+  :mode ("/PKGBUILD\\'" . pkgbuild-mode)
+  ;; :init
+  ;; (autoload 'pkgbuild-mode "pkgbuild-mode.el" "PKGBUILD mode." t)
+  ;; (setq auto-mode-alist (append '(("/PKGBUILD\\'" . pkgbuild-mode)) auto-mode-alist))
+  )
 
 ;;; [ arch-packer ] -- Arch Linux package management frontend for pacman and pacaur.
 

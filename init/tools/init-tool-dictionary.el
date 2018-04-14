@@ -15,6 +15,7 @@
 
 (use-package sdcv
   :ensure t
+  :defer t
   :bind (:map dictionary-prefix
               ("C-d" . sdcv-search-pointer+)
               ("M-d" . sdcv-search-input))

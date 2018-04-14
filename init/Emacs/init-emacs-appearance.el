@@ -281,6 +281,8 @@
                '(tar-mode all-the-icons-faicon "file-archive-o" :height 1.0 :v-adjust 0.0 :face all-the-icons-maroon))
   (add-to-list 'all-the-icons-mode-icon-alist
                '(systemd-mode all-the-icons-faicon "linux" :height 1.0 :v-adjust 0.0 :face all-the-icons-lred))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(logview-mode all-the-icons-faicon "floppy-o" :height 1.0 :v-adjust 0.0 :face all-the-icons-lyellow))
   ;; (add-to-list 'all-the-icons-mode-icon-alist
   ;;              '(plantuml-mode all-the-icons-faicon "" :height 1.0 :v-adjust 0.0))
   (add-to-list 'all-the-icons-mode-icon-alist

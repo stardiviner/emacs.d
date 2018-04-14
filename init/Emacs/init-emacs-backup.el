@@ -33,15 +33,8 @@
 
 (setq auto-save-default t               ; create #autosave# files
       auto-save-list-file-prefix "~/.emacs.d/.auto-save-list/saves-"
-      ;; auto-save-interval 0
-      )
+      auto-save-interval 1500)
 (auto-save-visited-mode t)
-
-;;; [ snapshot-timemachine ] -- provides a interface for snapshot or backup facility, e.g. Btrfs, ZFS, etc.
-
-(use-package snapshot-timemachine
-  :ensure t
-  :commands (snapshot-timemachine snapshot-timeline))
 
 
 (provide 'init-emacs-backup)

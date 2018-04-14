@@ -11,8 +11,8 @@
 
 (setq default-frame-alist
       '((top . 0) (left . 0)
-        ;; (height . 120)
-        ;; (width . 100)
+        (height . 120)
+        (width . 100)
         (left-fringe) (right-fringe)
         (tool-bar-lines . 0)
         (menu-bar-lines . 0)
@@ -31,14 +31,14 @@
 
 (global-set-key [remap toggle-frame-maximized] 'toggle-frame-fullscreen)
 
-(defun my-turn-current-window-into-new-frame ()
+(defun my:turn-current-window-into-new-frame ()
   "Popup current window to another new frame."
   (interactive)
   (let ((buffer (current-buffer)))
     (unless (one-window-p)
       (delete-window))
     (display-buffer-pop-up-frame buffer nil)))
-(global-set-key (kbd "C-x 5 5") 'my-turn-current-window-into-new-frame)
+(global-set-key (kbd "C-x 5 5") 'my:turn-current-window-into-new-frame)
 
 
 (provide 'init-emacs-frame)

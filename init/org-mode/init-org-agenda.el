@@ -385,21 +385,6 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
                ((org-agenda-overriding-header "Fragment Tasks"))
                ))
 
-
-;;; bind key [C-l] to locate to current time: "now -----" in Org-Agenda buffer.
-
-(defun my-org-agenda-jump-to-current-time ()
-  "Jump to current time now."
-  (interactive)
-  (goto-char
-   (text-property-any (point-min) (point-max)
-                      'face 'org-agenda-current-time))
-  (recenter-top-bottom)
-  )
-
-(define-key org-agenda-mode-map (kbd "C-l") 'my-org-agenda-jump-to-current-time)
-
-
 (define-key org-agenda-mode-map (kbd "M-s") 'org-search-view)
 
 
@@ -472,19 +457,8 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 ;; (org-notify-start 300)
 
-;;; [ org-kanban ] -- kanban dynamic block for Org-mode.
-
-(use-package org-kanban
-  :ensure t
-  :ensure orgtbl-aggregate
-  :after orgtbl-aggregate
-  :config
-  (defun org-insert-dblock:kanban ()
-    (interactive)
-    (org-create-dblock
-     (list
-      :name "kanban")))
-  )
+;;; [ org-collector ] -- collect properties into tables.
+;; (require 'org-collector)
 
 ;;; auto launch org-agenda after Emacs finished startup.
 (add-hook 'after-init-hook

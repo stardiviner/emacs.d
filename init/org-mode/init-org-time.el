@@ -58,14 +58,7 @@ Accepts universal argument `ARG' for \\<C-c C-x r> & \\[org-time-interval]."
   :ensure t
   :defer t
   :commands (org-pomodoro)
-  :init
-  (unless (boundp 'pomodoro-prefix)
-    (define-prefix-command 'pomodoro-prefix))
-  :bind (:map pomodoro-prefix
-              ("o" . org-pomodoro)
-              :map Org-prefix
-              ("p" . org-pomodoro)
-              )
+  :bind (:map Org-prefix ("p" . org-pomodoro))
   :config
   (setq org-pomodoro-play-sounds t
         org-pomodoro-start-sound-p t
@@ -80,10 +73,10 @@ Accepts universal argument `ARG' for \\<C-c C-x r> & \\[org-time-interval]."
 
   ;; start another pomodoro automatically upon a break end.
   (add-hook 'org-pomodoro-break-finished-hook
-            (lambda ()
-              (interactive)
-              (org-pomodoro '(16)) ; double prefix [C-u C-u]
-              ))
+            #'(lambda ()
+                (interactive)
+                (org-pomodoro '(16)) ; double prefix [C-u C-u]
+                ))
   )
 
 

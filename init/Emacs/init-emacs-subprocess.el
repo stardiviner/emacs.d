@@ -7,12 +7,6 @@
 
 ;;; Code:
 
-;;; [ deferred ] -- Simple asynchronous functions for Emacs Lisp.
-
-;; (use-package deferred
-;;   :ensure t
-;;   :defer t)
-
 ;;; [ prodigy ] -- Manage external services from within Emacs.
 
 (use-package prodigy

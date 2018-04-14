@@ -7,15 +7,6 @@
 
 ;;; Code:
 
-;;; get the content of region.
-
-(defun region-content ()
-  "Get the region content if region is active."
-  (interactive)
-  (if (use-region-p) ; `region-active-p'
-      (buffer-substring-no-properties (region-beginning) (region-end))
-    ))
-
 ;;; [ s.el ]
 
 (use-package s
@@ -55,12 +46,6 @@
 ;;; [ treepy ] --
 
 (use-package treepy
-  :ensure t
-  :defer t)
-
-;;; [ apiwrap ] -- api-wrapping macros
-
-(use-package apiwrap
   :ensure t
   :defer t)
 

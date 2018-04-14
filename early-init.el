@@ -13,3 +13,9 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+
+;; (setq package-user-dir
+;;       (let ((elpa-dir-name (format "elpa_%s" emacs-major-version))) ;default = "elpa"
+;;         (file-name-as-directory (expand-file-name elpa-dir-name user-emacs-directory))))
+
+(provide 'early-init)

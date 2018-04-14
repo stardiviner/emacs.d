@@ -193,12 +193,6 @@
 ;;               (setq zeal-at-point-docset '("rails" "javascript" "html" "css"))))
 ;;   )
 
-;;; [ apib-mode ] -- Emacs API Blueprint major mode.
-
-;; (use-package apib-mode
-;;   :ensure t
-;;   :mode "\\.apib\\'")
-
 
 (provide 'init-prog-document-api)
 
