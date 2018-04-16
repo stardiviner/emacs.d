@@ -7,6 +7,11 @@
 ;;; Code:
 
 
+;;; replace list "-" symbol
+(font-lock-add-keywords 'org-mode
+                        '(("^ *\\([-]\\) "
+                           (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+
 ;; inline code face => src_ruby{require 'something'}
 ;;
 ;; (REGEXP . FACE)
