@@ -60,8 +60,7 @@
   (setq magit-repository-directories
         `((,user-emacs-directory . 0)
           ("~/Code/" . 2)
-          ;; ("~/Code/Emacs/" . 2)
-          ;; ("~/Code/Clojure/" . 2)
+          ("~/Org/Website" . 1)
           ))
   
   ;; let magit status buffer display in current window.
