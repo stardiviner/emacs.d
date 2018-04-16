@@ -38,20 +38,6 @@
 
 (add-hook 'message-mode-hook #'message-mode-setup)
 
-
-;;; Email region
-(defun compose-mail-pass-region--advice (origin-func start end &rest args)
-  "Send region from `START' to `END' as the body of an email."
-  (interactive "r")
-  (let ((content (buffer-substring start end)))
-    (funcall-interactively origin-func)
-    (message-goto-body)
-    (insert content); insert region content.
-    ;; move point to To: header.
-    (message-goto-to)))
-(advice-add 'compose-mail :around #'compose-mail-pass-region--advice)
-
-
 ;;; cite region in message-mode.
 (defun message-cite-region (beg end &optional levels)
   "Cite region in message-mode."
