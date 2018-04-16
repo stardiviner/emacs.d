@@ -701,7 +701,10 @@
                       ;; :background "#004A5D" :foreground "white"
                       ;; :box '(:color "#005D5E" :line-width -1)
                       ;; :weight 'normal
-                      ))
+                      )
+  (set-face-attribute 'mu4e-flagged-face nil
+                      :foreground "red")
+  )
 (add-hook 'circadian-after-load-theme-hook 'my-mu4e-set-face)
 
 
