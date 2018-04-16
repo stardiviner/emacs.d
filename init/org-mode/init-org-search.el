@@ -267,18 +267,27 @@
 
 ;;; [ helm-fuzzy-find ] -- [C-c C-/], [C-x c /]
 
-(use-package helm-fuzzy-find
+(use-package helm
   :ensure t
-  :after helm
-  :ensure-system-package (ff . "cd ~/Code/Emacs/ff/ ; make && mv ff ~/bin/")
-  :init
-  (defun org-helm-fuzzy-find ()
+  :config
+  (defun Org-Wiki ()
+    "Search directory Wiki/."
     (interactive)
-    (let ((default-directory org-directory))
-	    (when (yes-or-no-p "Heavy recursive on Org root ~/Org/, continue? ")
-        (helm-fuzzy-find nil))))
-  
-  (define-key Org-prefix (kbd "C-f") 'org-helm-fuzzy-find)
+    (let ((default-directory (concat org-directory "/Wiki")))
+      (call-interactively 'helm-find)))
+  (define-key reference-prefix (kbd "M-w") 'Org-Wiki)
+  (defun Org-Softwares ()
+    "Search directory Softwares/."
+    (interactive)
+    (let ((default-directory (concat org-directory "/Wiki/Computer Technology/Softwares/")))
+      (call-interactively 'helm-find)))
+  (define-key reference-prefix (kbd "M-s") 'Org-Softwares)
+  (defun Org-Emacs ()
+    "Search directory Emacs/."
+    (interactive)
+    (let ((default-directory (concat org-directory "/Wiki/Computer Technology/Programming/Emacs/")))
+      (call-interactively 'helm-find)))
+  (define-key reference-prefix (kbd "M-e") 'Org-Emacs)
   )
 
 
