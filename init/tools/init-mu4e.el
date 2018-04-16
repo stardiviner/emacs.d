@@ -635,23 +635,26 @@
 
 ;; - [b] :: bookmark
 ;; - [B] :: edit bookmark before jump/invoking.
+;;          mu4e-headers-search-bookmark-edit, which lets you edit the bookmarked query before invoking it.
+;;
+;; - check out following variables and functions source code to find out search query keywords you want.
+;; - `mu4e-headers-visible-flags'
+;; - `mu4e~headers-field-apply-basic-properties'
+;; - `$ man mu-query'
 
-;; - B -- mu4e-headers-search-bookmark-edit, which lets you edit the bookmarked query before invoking it.
-;; (setq mu4e-bookmarks
-;;       '(("flag:unread AND NOT flag:trashed" "Unread messages" ?u)
-;;         ("date:today..now" "Today's messages" ?t)
-;;         ("date:7d..now" "Last 7 days" ?w)
-;;         ("mime:image/*" "Messages with images" ?p)))
 (setq mu4e-bookmarks
-      '(("size:5M..500M"                 "Big messages"       ?b)
-        ("date:today..now"               "Today's messages"     ?d)
-        ("date:today..now flag:unread"   "Today's unread messages" ?n)
-        ("date:1w..now"                  "This week's messages" ?w)
-        ("maildir:/Emacs/help"           "Emacs mailbox" ?e)
+      '(("flag:unread AND contact:/.*stardiviner/ OR contact:/.*numbchild@gmail.com/"   "My participated Threads" ?t)
+        ("flag:replied"                  "Replied messages"        ?r)
+        ("flag:passed"                   "Passed  messages"        ?p)
+        ("flag:flagged"                  "Flagged messages"        ?f)
+        ("date:today..now flag:new"      "Today's new messages"    ?n)
+        ("date:today..now"               "Today's messages"        ?d)
+        ("date:1w..now"                  "This week's messages"    ?w)
+        ("maildir:/Emacs/help"           "Emacs mailbox"           ?e)
+        ("maildir:/Emacs/Org-mode"       "Org-mode mailbox"        ?o)
+        ("size:5M..500M"                 "Big messages"            ?b)
         ))
 
-;;; Indexing
-;; speed-up indexing
 (setq mu4e-index-cleanup nil ; don't do a full cleanup check
       mu4e-index-lazy-check t ; don't consider up-to-date dirs
       )
