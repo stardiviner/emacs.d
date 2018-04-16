@@ -177,6 +177,8 @@ The function is suitable for `erc-after-connect'."
   (add-hook 'erc-mode-hook #'turn-on-visual-line-mode)
   ;; (add-hook 'erc-mode-hook #'turn-on-visual-fill-column-mode)
 
+  (define-key erc-mode-map (kbd "C-c M-o") 'browse-url)
+
   ;; [ View ]
 
   (setq erc-header-line-uses-tabbar-p t)
