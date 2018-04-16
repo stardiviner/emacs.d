@@ -58,7 +58,22 @@
          Copyright 2011, Author: %a (%e).<br>
          Last update date: %C.<br>
          Built with %c. (%v HTML)
-         </div>"
+         </div>
+
+<div class='reward'>
+<a href=\"/About/index.html#Reward\"><img src=\"/assets/images/alipay_collect.jpg\" title=\"打赏\" /></a>
+</div>
+
+<div id=\"disqus_thread\"></div>
+<script>
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://stardiviner.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+"
          :html-link-org-files-as-html t
          :section-numbers t
          :with-toc nil
@@ -283,7 +298,22 @@
          Copyright 2011, Author: %a (%e).<br>
          Last update date: %C.<br>
          Built with %c. (%v HTML)
-         </div>"
+         </div>
+
+<div class='reward'>
+<a href=\"/About/index.html#Reward\"><img src=\"/assets/images/alipay_collect.jpg\" title=\"打赏\" /></a>
+</div>
+
+<div id=\"disqus_thread\"></div>
+<script>
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://stardiviner.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+"
                :html-link-org-files-as-html t
                :section-numbers t
                :with-toc nil
