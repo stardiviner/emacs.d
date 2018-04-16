@@ -67,7 +67,10 @@
                 ("U" . eww-lnum-universal)))
   )
 
+(require 'org-eww)
 
+;;; - store URL in EWW for `org-store-link'.
+;;; - copy region and convert to Org format on the fly with `org-eww-copy-for-org-mode' [C-c C-x C-w].
 
 
 
