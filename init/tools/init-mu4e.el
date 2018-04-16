@@ -676,6 +676,9 @@
    :command (list "mpv" (expand-file-name "~/Music/Sounds/Ingress/SFX/sfx_sonar.wav"))))
 (add-hook 'mu4e-view-mode-hook 'mu4e-open-mail-sound 'append)
 
+(add-hook 'mu4e-headers-found-hook 'mu4e-open-mail-sound 'append)
+(add-hook 'mu4e-index-updated-hook 'mu4e-open-mail-sound 'append)
+
 ;;; Faces
 
 ;; current select line
