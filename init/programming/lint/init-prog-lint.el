@@ -19,12 +19,11 @@
   :ensure t
   :defer t
   :commands flycheck-mode
-  :preface
-  (setq flycheck-check-syntax-automatically '(save))
-  (add-hook 'prog-mode-hook #'flycheck-mode)
-  :bind (:map linter-prefix
-              ;; ("!" . flycheck-mode)
-              ;; ("b" . flycheck-buffer)
+  :preface (setq flycheck-check-syntax-automatically '(save))
+  ;; NOTE: ONLY enable `flycheck-mode' MANUALLY. automatically checking will
+  ;; cause high CPU. especially big source code file.
+  ;; :init (add-hook 'prog-mode-hook #'flycheck-mode)
+  :bind (:map linter-prefix ("!" . flycheck-mode)
               :map flycheck-mode-map
               ("M-g M-n" . flycheck-next-error)
               ("M-g M-p" . flycheck-previous-error)
