@@ -18,8 +18,8 @@
   :ensure t
   :defer t
   :load (emms-setup)
+  :bind (:map emms-prefix ("e" . emms))
   :init
-  (define-key emms-prefix (kbd "e") 'emms)
   (add-to-list 'display-buffer-alist
                '("^\\*EMMS Playlist\\*" (display-buffer-below-selected)))
   :config
