@@ -87,12 +87,6 @@
   (define-key emms-mpd-prefix (kbd "P") 'emms-player-mpd-pause)
   (define-key emms-mpd-prefix (kbd "S") 'emms-player-mpd-stop)
 
-  ;; [ mpv ]
-  (use-package emms-player-mpv
-    :ensure t
-    :config
-    (add-to-list 'emms-player-list 'emms-player-mpv))
-
   ;; [ BBT: SBaGen ]
   (define-emms-simple-player sbagen '(file) (emms-player-simple-regexp "sbg") "sbagen")
   )
