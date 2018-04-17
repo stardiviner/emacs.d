@@ -61,7 +61,8 @@
          </div>
 
 <div class='reward'>
-<a href=\"/About/index.html#Reward\"><img src=\"/assets/images/alipay_collect.jpg\" title=\"打赏\" /></a>
+<div id='alipay-payment'><a href=\"/About/index.html#Payment\"><img src=\"/assets/images/alipay_payment.jpg\" title=\"打赏\" /></a></div>
+<div id='wechat-payment'><a href=\"/About/index.html#Payment\"><img src=\"/assets/images/wechat_payment.png\" title=\"打赏\" /></a></div>
 </div>
 
 <div id=\"disqus_thread\"></div>
@@ -301,7 +302,8 @@ s.setAttribute('data-timestamp', +new Date());
          </div>
 
 <div class='reward'>
-<a href=\"/About/index.html#Reward\"><img src=\"/assets/images/alipay_collect.jpg\" title=\"打赏\" /></a>
+<div id='alipay-payment'><a href=\"/About/index.html#Payment\"><img src=\"/assets/images/alipay_payment.jpg\" title=\"打赏\" /></a></div>
+<div id='wechat-payment'><a href=\"/About/index.html#Payment\"><img src=\"/assets/images/wechat_payment.png\" title=\"打赏\" /></a></div>
 </div>
 
 <div id=\"disqus_thread\"></div>
