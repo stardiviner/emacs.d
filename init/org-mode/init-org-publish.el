@@ -9,6 +9,19 @@
 (require 'ox-rss)
 
 (setq org-html-htmlize-output-type 'css)
+;;; org-infojs
+(setq org-html-infojs-options
+      '((path . "https://orgmode.org/org-info.js")
+        (view . "info")
+        (toc . :with-toc)
+        (ftoc . "1")
+        (tdepth . "max")
+        (sdepth . "max")
+        (mouse . "underline")
+        (buttons . "0")
+        (ltoc . "2")
+        (up . :html-link-up)
+        (home . :html-link-home)))
 
 (defvar my-org-publish-directory "~/org-publish/")
 
@@ -211,7 +224,7 @@ s.setAttribute('data-timestamp', +new Date());
                                          "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-32x32.png\" sizes=\"32x32\">"
                                          )
                ;; [ info.js]
-               :html-use-infojs t
+               :html-use-infojs nil
                ))
 
 (add-to-list 'org-publish-project-alist
