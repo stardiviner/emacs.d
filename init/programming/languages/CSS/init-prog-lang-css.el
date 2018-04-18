@@ -27,13 +27,6 @@
 
 (setq css-indent-offset 2)
 
-;; only need to add `company-css' to `css-mode-hook' once,
-;; because `scss-mode' etc are derived from `css-mode'.
-(add-hook 'css-mode-hook
-          (lambda ()
-            (my-company-add-backend-locally 'company-css)
-            ))
-
 
 ;;; [ ob-css ]
 
