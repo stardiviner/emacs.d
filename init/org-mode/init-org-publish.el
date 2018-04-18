@@ -379,11 +379,14 @@ s.setAttribute('data-timestamp', +new Date());
     (shell-command "rm -rf ~/org-publish/*")))
 
 (require 'org-capture)
+(defun my/org-capture-template-blog--get-title ()
+  (let ((title (read-minibuffer "Blog Title: ")))
+    (format "* %s\n:PROPERTIES:\n:DATE: %%U\n:END: \n\n[[file:%s.org][%s]]\n%%i" title title title)))
 (add-to-list
  'org-capture-templates
  '("b" "[B]log"
-   entry (file+olp+datetree (concat org-directory "/Website/Blog/index.org"))
-   "\n* %^{blog title}\n:PROPERTIES:\n:TIME: %U\n:END: \n\n[[file:%<%Y-%m-%d %R>.org][%^{blog title}]]\n\n%i"
+   entry (file "~/Org/Website/Blog/index.org")
+   (function my/org-capture-template-blog--get-title)
    :empty-lines 1
    :jump-to-captured t
    ))
