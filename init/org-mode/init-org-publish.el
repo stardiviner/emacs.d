@@ -137,37 +137,16 @@ s.setAttribute('data-timestamp', +new Date());
          :section-numbers nil
          :table-of-contents nil)
 
-        ("blog-data-code"
-         :base-directory ,(concat org-directory "/Website/Blog/data/code")
+        ("blog-data"
+         :base-directory ,(concat org-directory "/Website/Blog/data")
          :base-extension any
-         :publishing-directory ,(concat my-org-publish-directory "Blog/data/code")
-         :recursive t
-         :publishing-function org-publish-attachment)
-        ("blog-data-images"
-         :base-directory ,(concat org-directory "/Website/Blog/data/images")
-         :base-extension any
-         :publishing-directory ,(concat my-org-publish-directory "Blog/data/images")
-         :recursive t
-         :publishing-function org-publish-attachment)
-        ("blog-data-docs"
-         :base-directory ,(concat org-directory "/Website/Blog/data/docs")
-         :base-extension any
-         :publishing-directory ,(concat my-org-publish-directory "Blog/data/docs")
-         :recursive t
-         :publishing-function org-publish-attachment)
-        ("blog-data-videos"
-         :base-directory ,(concat org-directory "/Website/Blog/data/videos")
-         :base-extension any
-         :publishing-directory ,(concat my-org-publish-directory "Blog/data/videos")
+         :publishing-directory ,(concat my-org-publish-directory "Blog/data")
          :recursive t
          :publishing-function org-publish-attachment)
         ))
 
 (add-to-list 'org-publish-project-alist
-             '("Blog"
-               :components ("blog-org"
-                            "blog-RSS"
-                            "blog-data-code" "blog-data-images" "blog-data-docs" "blog-data-videos")))
+             '("Blog" :components ("blog-org" "blog-RSS" "blog-data")))
 
 (add-to-list 'org-publish-project-alist
              `("assets"                  ; website materials: "JS", "CSS", "Images" etc.
@@ -225,10 +204,21 @@ s.setAttribute('data-timestamp', +new Date());
                                          )
                ;; [ info.js]
                :html-use-infojs nil
+
+               ;; NOTE: `:completion-function' must be in the last component in `org-publish-project-alist'.
+               :completion-function (my-org-publish-sync my-org-publish-finished-notify)
                ))
 
 (add-to-list 'org-publish-project-alist
-             `("About"
+             `("about-data"
+               :base-directory ,(concat org-directory "/Website/About/data")
+               :base-extension any
+               :publishing-directory ,(concat my-org-publish-directory "About/data")
+               :recursive t
+               :publishing-function org-publish-attachment))
+
+(add-to-list 'org-publish-project-alist
+             `("about-org"
                :base-directory ,(concat org-directory "/Website/About")
                :base-extension "org"
                :recursive t
@@ -273,20 +263,21 @@ s.setAttribute('data-timestamp', +new Date());
                                          )
                ;; [ info.js]
                :html-use-infojs t
-
-               :completion-function (my-org-publish-sync my-org-publish-finished-notify)
                ))
 
 (add-to-list 'org-publish-project-alist
-             `("about-data"                  ; website materials: "JS", "CSS", "Images" etc.
-               :base-directory ,(concat org-directory "/Website/About")
+             '("About" :components ("about-org" "about-data")))
+
+(add-to-list 'org-publish-project-alist
+             `("poem-data"
+               :base-directory ,(concat org-directory "/Website/Poem/data")
                :base-extension any
-               :publishing-directory ,(concat my-org-publish-directory "About/")
+               :publishing-directory ,(concat my-org-publish-directory "Poem/data")
                :recursive t
                :publishing-function org-publish-attachment))
 
 (add-to-list 'org-publish-project-alist
-             `("Poem"
+             `("poem-org"
                :base-directory ,(concat org-directory "/Website/Poem")
                :base-extension "org"
                :recursive t
@@ -350,8 +341,11 @@ s.setAttribute('data-timestamp', +new Date());
                ))
 
 (add-to-list 'org-publish-project-alist
+             '("Poem" :components ("poem-org" "poem-data")))
+
+(add-to-list 'org-publish-project-alist
              '("WEBSITE"
-               :components ("assets" "Index" "Blog" "Poem" "about-data" "About")))
+               :components ("assets" "About" "Blog" "Poem" "Index")))
 
 
 (defun my-org-publish-finished-notify (args)
