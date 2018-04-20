@@ -18,15 +18,7 @@
         rust-indent-where-clause t
         rust-match-angle-brackets t
         )
-
-  (defun my-rust-basic-settings ()
-    "Some basic settings for Rust."
-    (interactive)
-    (eldoc-mode 1)
-    (define-key racer-mode-map (kbd "C-c C-d d") 'racer-describe)
-    )
-
-  (add-hook 'rust-mode-hook #'my-rust-basic-settings)
+  (add-hook 'rust-mode-hook #'eldoc-mode)
   )
 
 
@@ -45,8 +37,7 @@
 
 (use-package racer
   :ensure t
-  :ensure-system-package rust-racer
-  :defer t
+  :ensure-system-package (racer . "cargo install racer") ; "sudo pacman -S --noconfirm rust-racer"
   :init
   ;; config racer in the path.
   (let ((rust-src-path (getenv "RUST_SRC_PATH")))
@@ -59,14 +50,15 @@
   
   ;; auto start racer for rust-mode.
   (add-hook 'rust-mode-hook #'racer-mode)
-  :config
   (use-package company-racer
     :ensure t
-    :config
+    :init
     (add-hook 'rust-mode-hook
-              (lambda ()
-                (my-company-add-backend-locally 'company-racer)))
-    )
+              (lambda () (my-company-add-backend-locally 'company-racer))))
+  :config
+  (define-key racer-mode-map (kbd "C-c C-d C-d") 'racer-describe)
+  (add-to-list 'display-buffer-alist
+               '("^\\*Racer Help\\*" . (display-buffer-below-selected)))
   )
 
 ;;; [ cargo ] -- Emacs Cargo client.
