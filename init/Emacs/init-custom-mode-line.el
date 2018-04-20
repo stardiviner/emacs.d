@@ -1014,37 +1014,26 @@ dimensions of a block selection."
   )
 
 ;;; GitHub Notifications (Participating)
-(use-package ghub+
+(use-package github-notifier
   :ensure t
+  :preface (setq github-notifier-token "")
+  :init (github-notifier-mode 1)
   :config
-  (defvar github-notifications-number 0)
-
-  (defun github-fetch-notifications ()
-    (setq github-notifications-number
-          (length
-           ;; check out documentation of `ghubp-get-notifications'.
-           (ignore-errors
-             (ghubp-get-notifications :participating "true"))
-           ;; (ghub-get "/notifications" '((:participating . "true")))
-           )))
+  (setq github-notifier-only-participating t)
+  (setq github-notifier-update-interval (* 60 10))
   
-  (run-with-timer 10 (* 10 60) 'github-fetch-notifications)
-  
-  (defun *github-notifications ()
-    (if (and (mode-line-window-active-p) (> github-notifications-number 0))
+  (defun *github-notifier ()
+    (if (and (mode-line-window-active-p) (> github-notifier-unread-count 0))
+        ;; `github-notifier-mode-line'
         (propertize
          (concat
           (all-the-icons-faicon "github" :v-adjust 0.05)
-          (format " %s " github-notifications-number))
+          (format " %s " github-notifier-unread-count))
          'face 'mode-line-data-face)))
-  
-  (defun github-open-notifications-participating ()
-    "Open GitHub Notifications/Participating page."
-    (interactive)
-    (browse-url "https://github.com/notifications/participating"))
+
   (unless (boundp 'prog-vcs-prefix)
     (define-prefix-command 'prog-vcs-prefix))
-  (define-key prog-vcs-prefix (kbd "N") 'github-open-notifications-participating)
+  (define-key prog-vcs-prefix (kbd "N") 'github-notifier-visit-github)
   )
 
 ;;; Lunar Sunrise/Sunset
@@ -1169,7 +1158,7 @@ dimensions of a block selection."
                  (*emms)
                  (*mu4e)
                  ;; (*gnus)
-                 (*github-notifications)
+                 (*github-notifier)
                  (*flycheck)
                  ;; (*build-status)
                  (*vc)
