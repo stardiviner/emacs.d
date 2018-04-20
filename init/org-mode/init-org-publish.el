@@ -393,7 +393,7 @@ s.setAttribute('data-timestamp', +new Date());
 
 (require 'org-capture)
 (defun my/org-capture-template-blog--get-title ()
-  (let ((title (read-minibuffer "Blog Title: ")))
+  (let ((title (read-from-minibuffer "Blog Title: ")))
     (format "* %s\n:PROPERTIES:\n:DATE: %%U\n:END: \n\n[[file:%s.org][%s]]\n%%i" title title title)))
 (add-to-list
  'org-capture-templates
@@ -401,6 +401,8 @@ s.setAttribute('data-timestamp', +new Date());
    entry (file "~/Org/Website/Blog/index.org")
    (function my/org-capture-template-blog--get-title)
    :empty-lines 1
+   :prepend t
+   :immediate-finish t
    :jump-to-captured t
    ))
 
