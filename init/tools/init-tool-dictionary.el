@@ -42,22 +42,32 @@
 
 ;;; [ google-translate ]
 
-;; (use-package google-translate
-;;   :ensure t
-;;   :defer t
-;;   :bind (:map dictionary-prefix
-;;               ("t" . google-translate-smooth-translate)
-;;               ("T" . google-translate-at-point)
-;;               ("C-t" . google-translate-query-translate)
-;;               )
-;;   :config
-;;   (setq google-translate-enable-ido-completion nil
-;;         google-translate-show-phonetic t
-;;         ;; google-translate-listen-program
-;;         google-translate-output-destination nil ; 'echo-area, 'popup
-;;         google-translate-pop-up-buffer-set-focus nil
-;;         )
-;;   )
+(use-package google-translate
+  :ensure t
+  :defer t
+  :bind (:map dictionary-prefix
+              ("t" . google-translate-smooth-translate)
+              ("C-t" . google-translate-at-point)
+              ("M-t" . google-translate-query-translate)
+              ("C-r" . google-translate-at-point-reverse)
+              ("M-r" . google-translate-query-translate-reverse))
+  :init
+  (add-to-list 'display-buffer-alist
+               '("^\\*Google Translate\\*" . (display-buffer-below-selected)))
+  :config
+  (setq google-translate-enable-ido-completion nil
+        google-translate-show-phonetic t
+        ;; google-translate-listen-program
+        google-translate-output-destination nil ; 'echo-area, 'popup
+        google-translate-pop-up-buffer-set-focus t
+        ;; `google-translate-supported-languages'
+        google-translate-default-target-language "zh-CN"
+        ;; for `google-translate-smooth-translate' + [C-n/p]
+        google-translate-translation-directions-alist '(("en" . "zh-CN")
+                                                        ("zh-CN" . "en")
+                                                        ("zh-CN" . "ja")
+                                                        ("zh-CN" . "ko"))
+        ))
 
 ;;; [ ob-translate ] -- allows you to translate blocks of text within org-mode.
 
