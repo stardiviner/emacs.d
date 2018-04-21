@@ -23,17 +23,18 @@
         (up . :html-link-up)
         (home . :html-link-home)))
 
-(defvar my-org-publish-directory "~/org-publish/")
+(defvar my-org-publish-source "~/Org/Website/")
+(defvar my-org-publish-destination "~/org-publish/")
 
 ;; projects definition
 (setq org-publish-project-alist
       `(("blog-org"
-         :base-directory ,(concat org-directory "/Website/Blog/")
+         :base-directory ,(concat my-org-publish-source "Blog/")
          :base-extension "org"
          :recursive t
          :exclude-tags ("noexport" "todo")
-         :publishing-function (org-html-publish-to-html org-org-publish-to-org)
-         :publishing-directory ,(concat my-org-publish-directory "Blog/")
+         :publishing-function (org-html-publish-to-html org-org-publish-to-org) ; TODO: htmlize-file
+         :publishing-directory ,(concat my-org-publish-destination "Blog/")
 
          ;; TODO: publish to remote with Tramp.
          ;; :publishing-directory "/ssh:stardiviner@github.com:#port:/path/to/dir"
@@ -57,37 +58,8 @@
          :html-head-include-scripts t
          :html-link-home "https://stardiviner.github.io/" ; or "/"
          ;; :html-home/up-format ""
-         :html-preamble
-         "<div class='nav'>
-         <ul>
-         <li><a href='/'>Home</a></li>
-         <li><a href='/Blog/index.html'>Blog</a></li>
-         <li><a href='/Poem/index.html'>Poem</a></li>
-         <li><a href='/About/index.html'>About</a></li>
-         </ul>
-         </div>"
-         :html-postamble
-         "<div class='footer'>
-         Copyright 2011, Author: %a (%e).<br>
-         Last update date: %C.<br>
-         Built with %c. (%v HTML)
-         </div>
-
-<div class='reward'>
-<div id='alipay-payment'><a href=\"/About/index.html#Payment\"><img src=\"/assets/images/alipay_payment.jpg\" title=\"打赏\" /></a></div>
-<div id='wechat-payment'><a href=\"/About/index.html#Payment\"><img src=\"/assets/images/wechat_payment.png\" title=\"打赏\" /></a></div>
-</div>
-
-<div id=\"disqus_thread\"></div>
-<script>
-(function() {
-var d = document, s = d.createElement('script');
-s.src = 'https://stardiviner.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-"
+         :html-preamble ,(org-file-contents (concat my-org-publish-source "assets/preamble.html"))
+         :html-postamble ,(org-file-contents (concat my-org-publish-source "assets/postamble.html"))
          :html-link-org-files-as-html t
          :section-numbers t
          :with-toc nil
@@ -124,9 +96,9 @@ s.setAttribute('data-timestamp', +new Date());
          )
 
         ("blog-RSS"
-         :base-directory ,(concat org-directory "/Website/Blog/")
+         :base-directory ,(concat my-org-publish-source "Blog/")
          :base-extension "org"
-         :publishing-directory ,(concat my-org-publish-directory "Blog")
+         :publishing-directory ,(concat my-org-publish-destination "Blog")
          :publishing-function (org-rss-publish-to-rss) ; generate index.xml
          ;; :rss-image-url "https://stardiviner.github.io/assets/images/RSS.png"
          :rss-extension "xml"
@@ -138,9 +110,9 @@ s.setAttribute('data-timestamp', +new Date());
          :table-of-contents nil)
 
         ("blog-data"
-         :base-directory ,(concat org-directory "/Website/Blog/data")
+         :base-directory ,(concat my-org-publish-source "Blog/data")
          :base-extension any
-         :publishing-directory ,(concat my-org-publish-directory "Blog/data")
+         :publishing-directory ,(concat my-org-publish-destination "Blog/data")
          :recursive t
          :publishing-function org-publish-attachment)
         ))
@@ -150,9 +122,9 @@ s.setAttribute('data-timestamp', +new Date());
 
 (add-to-list 'org-publish-project-alist
              `("assets"                  ; website materials: "JS", "CSS", "Images" etc.
-               :base-directory ,(concat org-directory "/Website/assets")
+               :base-directory ,(concat my-org-publish-source "assets")
                :base-extension any
-               :publishing-directory ,(concat my-org-publish-directory "assets/")
+               :publishing-directory ,(concat my-org-publish-destination "assets/")
                :recursive t
                :publishing-function org-publish-attachment))
 
@@ -163,7 +135,7 @@ s.setAttribute('data-timestamp', +new Date());
                :exclude ".*" ; exclude all other files...
                :include ("index.org") ; ... except index.org.
                :recursive nil
-               :publishing-directory ,(expand-file-name my-org-publish-directory)
+               :publishing-directory ,(expand-file-name my-org-publish-destination)
                :publishing-function org-html-publish-to-html
                
                ;; [ html ]
@@ -171,21 +143,8 @@ s.setAttribute('data-timestamp', +new Date());
                :html-html5-fancy t ; use new HTML5 elements.
                :html-head-include-scripts t
                :html-link-home "https://stardiviner.github.io/"
-               :html-preamble
-               "<div class='nav'>
-               <ul>
-               <li><a href='/'>Home</a></li>
-               <li><a href='/Blog/index.html'>Blog</a></li>
-               <li><a href='/Poem/index.html'>Poem</a></li>
-               <li><a href='/About/index.html'>About</a></li>
-               </ul>
-               </div>"
-               :html-postamble
-               "<div class='footer'>
-         Copyright 2011, Author: %a (%e).<br>
-         Last update date: %C.<br>
-         Built with %c. (%v HTML)
-         </div>"
+               :html-preamble ,(org-file-contents (concat my-org-publish-source "assets/preamble.html"))
+               :html-postamble ,(org-file-contents (concat my-org-publish-source "assets/postamble.html"))
                :html-link-org-files-as-html t
                :section-numbers t
                :with-toc nil
@@ -211,18 +170,18 @@ s.setAttribute('data-timestamp', +new Date());
 
 (add-to-list 'org-publish-project-alist
              `("about-data"
-               :base-directory ,(concat org-directory "/Website/About/data")
+               :base-directory ,(concat my-org-publish-source "About/data")
                :base-extension any
-               :publishing-directory ,(concat my-org-publish-directory "About/data")
+               :publishing-directory ,(concat my-org-publish-destination "About/data")
                :recursive t
                :publishing-function org-publish-attachment))
 
 (add-to-list 'org-publish-project-alist
              `("about-org"
-               :base-directory ,(concat org-directory "/Website/About")
+               :base-directory ,(concat my-org-publish-source "About")
                :base-extension "org"
                :recursive t
-               :publishing-directory ,(concat my-org-publish-directory "About")
+               :publishing-directory ,(concat my-org-publish-destination "About")
                :publishing-function (org-html-publish-to-html)
 
                ;; [ html ]
@@ -230,21 +189,8 @@ s.setAttribute('data-timestamp', +new Date());
                :html-html5-fancy t ; use new HTML5 elements.
                :html-head-include-scripts t
                :html-link-home "https://stardiviner.github.io/"
-               :html-preamble
-               "<div class='nav'>
-               <ul>
-               <li><a href='/'>Home</a></li>
-               <li><a href='/Blog/index.html'>Blog</a></li>
-               <li><a href='/Poem/index.html'>Poem</a></li>
-               <li><a href='/About/index.html'>About</a></li>
-               </ul>
-               </div>"
-               :html-postamble
-               "<div class='footer'>
-         Copyright 2011, Author: %a (%e).<br>
-         Last update date: %C.<br>
-         Built with %c. (%v HTML)
-         </div>"
+               :html-preamble ,(org-file-contents (concat my-org-publish-source "assets/preamble.html"))
+               :html-postamble ,(org-file-contents (concat my-org-publish-source "assets/postamble.html"))
                :html-link-org-files-as-html t
                :section-numbers t
                :with-toc nil
@@ -270,18 +216,18 @@ s.setAttribute('data-timestamp', +new Date());
 
 (add-to-list 'org-publish-project-alist
              `("poem-data"
-               :base-directory ,(concat org-directory "/Website/Poem/data")
+               :base-directory ,(concat my-org-publish-source "Poem/data")
                :base-extension any
-               :publishing-directory ,(concat my-org-publish-directory "Poem/data")
+               :publishing-directory ,(concat my-org-publish-destination "Poem/data")
                :recursive t
                :publishing-function org-publish-attachment))
 
 (add-to-list 'org-publish-project-alist
              `("poem-org"
-               :base-directory ,(concat org-directory "/Website/Poem")
+               :base-directory ,(concat my-org-publish-source "Poem")
                :base-extension "org"
                :recursive t
-               :publishing-directory ,(concat my-org-publish-directory "Poem")
+               :publishing-directory ,(concat my-org-publish-destination "Poem")
                :publishing-function org-html-publish-to-html
                
                ;; [ html ]
@@ -289,37 +235,8 @@ s.setAttribute('data-timestamp', +new Date());
                :html-html5-fancy t ; use new HTML5 elements.
                :html-head-include-scripts t
                :html-link-home "https://stardiviner.github.io/"
-               :html-preamble
-               "<div class='nav'>
-               <ul>
-               <li><a href='/'>Home</a></li>
-               <li><a href='/Blog/index.html'>Blog</a></li>
-               <li><a href='/Poem/index.html'>Poem</a></li>
-               <li><a href='/About/index.html'>About</a></li>
-               </ul>
-               </div>"
-               :html-postamble
-               "<div class='footer'>
-         Copyright 2011, Author: %a (%e).<br>
-         Last update date: %C.<br>
-         Built with %c. (%v HTML)
-         </div>
-
-<div class='reward'>
-<div id='alipay-payment'><a href=\"/About/index.html#Payment\"><img src=\"/assets/images/alipay_payment.jpg\" title=\"打赏\" /></a></div>
-<div id='wechat-payment'><a href=\"/About/index.html#Payment\"><img src=\"/assets/images/wechat_payment.png\" title=\"打赏\" /></a></div>
-</div>
-
-<div id=\"disqus_thread\"></div>
-<script>
-(function() {
-var d = document, s = d.createElement('script');
-s.src = 'https://stardiviner.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-"
+               :html-preamble ,(org-file-contents (concat my-org-publish-source "assets/preamble.html"))
+               :html-postamble ,(org-file-contents (concat my-org-publish-source "assets/postamble.html"))
                :html-link-org-files-as-html t
                :section-numbers t
                :with-toc nil
@@ -361,7 +278,7 @@ s.setAttribute('data-timestamp', +new Date());
   (interactive)
   (let ((post (read-from-minibuffer "Post title: "))
         (cd-source (format "cd %s && " (concat org-directory "/Website")))
-        (cd-master (format "cd %s && " my-org-publish-directory)))
+        (cd-master (format "cd %s && " my-org-publish-destination)))
     ;; source branch "~/Org/Website/"
     (or (zerop (shell-command (concat cd-source "git add . ")))
         (error "Source Branch: git-add error"))
