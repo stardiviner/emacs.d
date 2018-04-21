@@ -21,12 +21,10 @@
 (require 'init-org-view)
 
 (require 'init-org-face)
-(require 'init-org-face-extra)
 
 (defun my-org-mode-set-face (theme)
   "Reload customized faces on `circadian' `THEME' toggling."
-  (load "init-org-face")
-  (load "init-org-face-extra"))
+  (load "init-org-face"))
 (add-hook 'circadian-after-load-theme-hook 'my-org-mode-set-face)
 
 (require 'init-org-keybindings)

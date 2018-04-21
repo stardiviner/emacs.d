@@ -8,7 +8,9 @@
 (require 'ox-html)
 (require 'ox-rss)
 
-(setq org-html-htmlize-output-type 'css)
+(defvar my-org-publish-source "~/Org/Website/")
+(defvar my-org-publish-destination "~/org-publish/")
+
 ;;; org-infojs
 (setq org-html-infojs-options
       '((path . "https://orgmode.org/org-info.js")
@@ -23,8 +25,28 @@
         (up . :html-link-up)
         (home . :html-link-home)))
 
-(defvar my-org-publish-source "~/Org/Website/")
-(defvar my-org-publish-destination "~/org-publish/")
+;;; support "Show Org Source" (.org.html version) button.
+(require 'ox-org) ; `org-org-publish-to-org'
+(require 'htmlize)
+
+;;; - inline CSS (better colors support for src blocks)
+;;; use a specific theme for `ox-org'.
+(setq org-html-htmlize-output-type 'inline-css)
+;;; FIXME: this seems does not work.
+(setq my-org-html-export-theme 'spacemacs-dark)
+(defun my-ox-org-with-theme (orig-fun &rest args)
+  (load-theme my-org-html-export-theme)
+  (unwind-protect
+      (apply orig-fun args)
+    (disable-theme my-org-html-export-theme)))
+(with-eval-after-load "ox-org"
+  (advice-add 'org-export-to-buffer :around 'my-ox-org-with-theme))
+
+;;; - external CSS.
+;; (setq org-html-htmlize-output-type 'css)
+;; ;; There is a command `org-html-htmlize-generate-css'.
+;; (setq org-org-htmlized-css-url "/assets/stylesheets/theme-spacemacs-dark.css")
+
 
 ;; projects definition
 (setq org-publish-project-alist
@@ -33,7 +55,7 @@
          :base-extension "org"
          :recursive t
          :exclude-tags ("noexport" "todo")
-         :publishing-function (org-html-publish-to-html org-org-publish-to-org) ; TODO: htmlize-file
+         :publishing-function (org-html-publish-to-html org-org-publish-to-org)
          :publishing-directory ,(concat my-org-publish-destination "Blog/")
 
          ;; TODO: publish to remote with Tramp.
@@ -65,8 +87,10 @@
          :with-toc nil
          :table-of-contents nil
          ;; [ src code block ]
-         :htmlized-source nil ; src code block syntax highlighting
+         ;; :htmlized-source nil ; src code block syntax highlighting
          ;; use external CSS stylesheet instead.
+         ;; FIXME: caused error
+         :htmlized-source t
          ;; NOTE: conflict with customize font-lock: font-lock-add-keywords defined org faces.
          ;; [ images ]
          :html-inline-images t
