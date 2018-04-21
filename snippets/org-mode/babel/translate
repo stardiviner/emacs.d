@@ -1,9 +1,9 @@
 # -*- mode: snippet -*-
-# name: babel translate
+# name: ob-translate
 # key: babel-translate
 # group: babel
 # expand-env: ((yas-indent-line 'fixed) (yas-wrap-around-region 't))
 # --
-#+begin_src translate :src ${1:source: auto, en} :dest ${2:dest: en, zh, ja, ko}
+#+begin_src translate :src ${1:source: auto, en, zh-CN} :dest ${2:en,zh-TW,ja,ko} ${3::eval yes}
 $0
 #+end_src
