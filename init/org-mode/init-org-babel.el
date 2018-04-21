@@ -19,7 +19,10 @@
                 (:noweb . "no") (:hlines . "no")
                 (:tangle . "no") (:comments . "links")
                 (:cache . "yes")
-                (:results . "replace") (:exports . "code")
+                (:results . "replace")
+                ;; for exporting
+                (:eval . "never-export")
+                (:exports . "both")
                 ))
 
 ;;; don't evaluate babel when exporting. For helper functions like `my:org-convert-region-to-html' etc.

@@ -21,7 +21,9 @@
 ;; preserve spacing in src blocks when export LaTeX to PDF.
 (setq TeX-auto-untabify t)
 ;; `org-export-use-babel'
-(add-to-list 'org-babel-default-header-args '(:eval "never-export"))
+;; export with results but don't re-evaluate src blocks.
+(add-to-list 'org-babel-default-header-args '(:eval . "never-export"))
+(add-to-list 'org-babel-default-header-args '(:exports . "both"))
 
 ;;; exclude org headlines exporting with a specific tags.
 (setq org-export-exclude-tags '("noexport"))
