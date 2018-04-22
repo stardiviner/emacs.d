@@ -1036,6 +1036,17 @@ dimensions of a block selection."
   (define-key prog-vcs-prefix (kbd "N") 'github-notifier-visit-github)
   )
 
+(use-package proxy-mode
+  :ensure t
+  :config
+  (defun *proxy-mode ()
+    (if proxy-mode-proxy-type
+        (propertize
+         (concat
+          (all-the-icons-faicon "compress" :v-adjust -0.05)
+          (format " %s " proxy-mode-proxy-type)))))
+  )
+
 ;;; Lunar Sunrise/Sunset
 ;; (use-package celestial-mode-line
 ;;   :ensure t

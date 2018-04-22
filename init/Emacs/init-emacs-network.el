@@ -40,45 +40,12 @@
 ;;       socks-noproxy '("localhost")
 ;;       socks-server '("Default server" "127.0.0.1" 1086 5))
 
+;;; [ proxy-mode ] A global minor mode to toggle proxy inside of Emacs.
 
-;;; ----------------------------------------------------------
-(defvar my:proxy-toggle-p nil
-  "A global variable indicate current proxy toggle status.
-Used by function `my:proxy-toggle'.")
-
-(defun my:proxy-toggle (proxy)
-  "A command to toggle `PROXY' for Emacs."
-  (interactive (list (unless my:proxy-toggle-p
-                       (completing-read "Select a proxy routine: " '("socks" "url_proxy_services" "env HTTP_PROXY")))))
-  (if my:proxy-toggle-p
-      (setq my:proxy-toggle-p nil)
-    (setq my:proxy-toggle-p proxy))
-  (pcase my:proxy-toggle-p
-    ("socks"
-     (setq url-gateway-method 'socks
-           socks-noproxy '("localhost")
-           socks-server '("Default server" "127.0.0.1" 1086 5)))
-    ("url_proxy_services"
-     (setq url-proxy-services
-           '(("http"  . "127.0.0.1:8118")
-             ("https" . "127.0.0.1:8118")
-             ("ftp"   . "127.0.0.1:8118")
-             ;; don't use `localhost', avoid robe server (For Ruby) can't response.
-             ("no_proxy" . "127.0.0.1")
-             ("no_proxy" . "^.*\\(baidu\\|sina)\\.com")
-             )))
-    ("env HTTP_PROXY"
-     ;; Privoxy
-     (setenv "HTTP_PROXY"  "http://localhost:8118")
-     (setenv "HTTPS_PROXY" "http://localhost:8118"))
-    (_
-     (setq url-gateway-method 'native)
-     (setq url-proxy-services nil)
-     (setenv "HTTP_PROXY"  nil)
-     (setenv "HTTPS_PROXY" nil))
-    ))
-
-
+(use-package proxy-mode
+  :ensure t
+  :commands (proxy-mode)
+  :init (setq proxy-mode-socks-proxy '("Default server" "127.0.0.1" 1086 5)))
 
 
 (provide 'init-emacs-network)
