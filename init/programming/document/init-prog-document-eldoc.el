@@ -35,6 +35,10 @@
 ;;   :init
 ;;   (global-eldoc-overlay-mode 1))
 
+;;; [ help-at-pt ] -- local help through the keyboard.
+
+(setq help-at-pt-display-when-idle t)
+
 
 (provide 'init-prog-document-eldoc)
 
