@@ -77,7 +77,14 @@
   (add-to-list 'org-babel-load-languages '(translate . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   ;; add translate special block into structure template alist.
-  (add-to-list 'org-structure-template-alist '("t" . "src translate")))
+  (add-to-list 'org-structure-template-alist '("t" . "src translate"))
+  (defun ob-translate-toggle-proxy (origin-func body params)
+    (proxy-mode-enable)
+    (let ((output (funcall origin-func body params)))
+      (proxy-mode-disable)
+      output))
+  (advice-add 'org-babel-execute:translate :around #'ob-translate-toggle-proxy)
+  )
 
 
 (provide 'init-tool-dictionary)
