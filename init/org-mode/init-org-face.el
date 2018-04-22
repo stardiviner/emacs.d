@@ -92,13 +92,18 @@
 (set-face-attribute 'org-clock-overlay nil
                     :inherit 'fixed-pitch
                     :inverse-video nil
-                    :foreground "white" :background "#004A5D"
-                    :box '(:color "cyan" :line-width -1 :style nil)
-                    :bold t)
-(set-face-attribute 'org-agenda-clocking nil
-                    :inherit 'fixed-pitch
+                    :weight 'bold
                     :foreground "white" :background "#004A5D"
                     :box '(:color "cyan" :line-width -1 :style nil))
+(set-face-attribute 'org-agenda-clocking nil
+                    :inherit 'fixed-pitch
+                    :weight 'bold
+                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light "black")
+                                  ('dark "white"))
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light "green yellow")
+                                  ('dark "cyan")))
 
 ;; Day-agenda (W30) -> Week number
 (set-face-attribute 'org-agenda-structure nil
