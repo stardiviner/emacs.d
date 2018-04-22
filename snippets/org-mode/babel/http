@@ -4,10 +4,11 @@
 # group: babel
 # --
 #+begin_src http :pretty :results code :wrap src ${1:json}
-${2:$$(yas-choose-value '("GET" "POST" "PUT" "PATCH" "DELETE" "HEAD" "OPTIONS"))} ${3:URL}
+${2:$$(yas-choose-value '("GET" "POST" "PUT" "PATCH" "DELETE" "HEAD" "OPTIONS")) } ${3:URL}
 ${4:HTTP Headers:
 User-Agent: ob-http
 Content-Type: application/json
+Cookie: cookie-key=cookie-value; cookie-key2=cookie-value2;
 key=value1&foo=value2
 }
 $0

@@ -2,6 +2,6 @@
 # name: babel plantuml
 # key: babel-plantuml
 # --
-#+begin_src plantuml :file ${1:output-}.png
+#+begin_src plantuml :dir "data/images" :file ${1:output}.png
 $0
 #+end_src

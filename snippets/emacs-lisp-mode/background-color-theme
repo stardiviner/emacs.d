@@ -7,4 +7,4 @@
                                   ('light
                                    (color-darken-name (face-background 'default) ${1:10}))
                                   ('dark
-                                   (color-darken-name (face-background 'default) ${2:5})))
+                                   (color-lighten-name (face-background 'default) ${2:5})))

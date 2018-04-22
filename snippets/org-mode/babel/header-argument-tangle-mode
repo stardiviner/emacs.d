@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: :tangle-mode
+# key: :tangle-mode
+# group: babel.header-arguments
+# --
+:tangle-mode (identity #o755)

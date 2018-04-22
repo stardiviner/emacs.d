@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: radio-button
+# key: babel-radiobutton
+# group: babel.literate-programming
+# --
+#+attr_org: :radio
+#+name: ${1:name}
+- [X] $2
+- [ ] 
+
+#+BEGIN_SRC ${4:lang} :var ${3:variable}=(org-radiobutton-value "$1")
+$0
+#+END_SRC

@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: git download
+# key: git-download
+# group: shell.git
+# --
+#+begin_src shell :results output :var path=${2}
+if [ -d $2 ]; then
+  cd $2
+  git pull
+else
+  mkdir -p $2
+  git clone ${1:repository} $2 # `dirname $2`
+fi
+#+end_src
