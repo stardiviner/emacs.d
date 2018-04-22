@@ -541,7 +541,19 @@ The function is suitable for `erc-after-connect'."
   ;;   (erc-social-graph-enable)
   ;;   )
 
-
+  ;; Define new custom ERC commands.
+  (defun erc-cmd-MYSYSTEM ()
+    "Send my system version info."
+    (let ((str (shell-command-to-string "uname -a")))
+      (when str (erc-send-message str))))
+  (defun erc-cmd-MYEMACS ()
+    "Send my Emacs version info."
+    (let ((str (emacs-version)))
+      (when str (erc-send-message str))))
+  (defun erc-cmd-MYORG-MODE ()
+    "Send my Org-mode version info."
+    (let ((str (org-version)))
+      (when str (erc-send-message str))))
 
   ;; Search backwards, prompting to open any URL found. This is fantastic for ERC
   ;; buffers. I bind this to [C-c u] because I use it a lot.
