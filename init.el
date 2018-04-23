@@ -182,6 +182,7 @@
 (require 'init-tool-screencast)
 (require 'init-stack-exchange)
 ;; (require 'init-tool-social-network)
+(require 'init-tool-weather)
 
 
 ;;; Programming
