@@ -126,7 +126,7 @@ by creating or altering keymaps stored in buffer-local
 
 ;;; read in encrypted JSON file key-value pairs.
 
-(setq my/account-file (concat user-emacs-directory "accounts.json.gpg"))
+(setq my/account-file (concat user-emacs-directory "secrets/accounts.json.gpg"))
 
 (require 'json)
 
