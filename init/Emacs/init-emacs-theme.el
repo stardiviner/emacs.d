@@ -20,9 +20,8 @@
 ;;; [ leuven-theme ]
 
 (use-package leuven-theme
-  ;; :ensure t
   :load-path "~/Code/Emacs/leuven-theme/"
-  :ensure hl-line)
+  :init (require 'leuven-theme))
 
 ;;; [ eziam-theme ] -- A mostly monochrome theme, inspired by Tao and Leuven, with dark and light versions.
 
