@@ -771,21 +771,6 @@
 
 (setq mu4e-completing-read-function 'completing-read)
 
-;; [ mu4e-maildirs-extension ]
-
-;; - u :: update the index
-;; - C-u u :: only clear the cache
-;; - C-u C-u u :: clear the cache and refresh
-
-(use-package mu4e-maildirs-extension
-  :ensure t
-  :config
-  (mu4e-maildirs-extension)
-  ;; (setq mu4e-maildirs-extension-custom-list )
-  (setq mu4e-maildirs-extension-maildir-default-prefix "┝") ; "|"
-  )
-
-
 ;; [ mu4e-speedbar ]
 
 ;; (add-hook 'mu4e-main-mode-hook 'sr-speedbar-open)
