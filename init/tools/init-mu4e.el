@@ -391,10 +391,9 @@
 (add-to-list 'mu4e-headers-actions
              '("HMark as ham" . mu4e-register-msg-as-ham) t)
 (add-to-list 'mu4e-view-actions
-             '("SMark as spam" . mu4e-register-msg-as-spam) t)
+             '("SMark as spam" . mu4e-view-register-msg-as-spam) t)
 (add-to-list 'mu4e-view-actions
-             '("HMark as ham" . mu4e-register-msg-as-ham) t)
-
+             '("HMark as ham" . mu4e-view-register-msg-as-ham) t)
 
 ;; creating org-mode links from mu4e messages.
 ;;
