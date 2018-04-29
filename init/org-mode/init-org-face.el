@@ -253,6 +253,7 @@
 (setq org-fontify-whole-heading-line t)
 (set-face-attribute 'org-level-1 nil
                     :inherit nil
+                    :family "Comic Sans MS"
                     :weight 'bold :height 130
                     :background (cl-case (alist-get 'background-mode (frame-parameters))
                                   ('light
@@ -262,10 +263,12 @@
                     )
 (set-face-attribute 'org-level-2 nil
                     :inherit 'org-level-1
+                    :family "Comic Neue"
                     :height 120
                     )
 (set-face-attribute 'org-level-3 nil
                     :inherit 'org-level-2
+                    :family (face-attribute 'default :family)
                     :height 110
                     )
 (set-face-attribute 'org-level-4 nil
