@@ -17,6 +17,7 @@
 
 (use-package flycheck
   :ensure t
+  :ensure-system-package (proselint . "pip install --user proselint")
   :defer t
   :commands flycheck-mode
   :preface (setq flycheck-check-syntax-automatically '(save))
@@ -35,6 +36,10 @@
   (setq flycheck-emacs-lisp-load-path 'inherit)
   (add-to-list 'display-buffer-alist
                '("^\\*Flycheck errors\\*" (display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("^\\*Flycheck checker\\*" (display-buffer-below-selected)))
+  ;; checker `proselint' for `org-mode', `markdown-mode', `gfm-mode'.
+  (add-to-list 'flycheck-checkers 'proselint)
   )
 
 
