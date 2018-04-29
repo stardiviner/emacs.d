@@ -102,6 +102,11 @@
    (define-key email-prefix (kbd "m") 'compose-mail))
   )
 
+;; procmail
+(add-to-list 'auto-mode-alist '("\\.procmailrc\\'" . conf-mode))
+;; getmail
+(add-to-list 'auto-mode-alist '("\\.getmailrc\\'" . conf-mode))
+
 ;;; [ Thunderbird ]
 ;; use org mode for eml files (useful for thunderbird plugin like "external editor").
 (add-to-list 'auto-mode-alist '("\\.eml\\'" . org-mode))
