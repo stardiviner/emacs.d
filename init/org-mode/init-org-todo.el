@@ -67,62 +67,135 @@
         ;; (type "TODO" "INPROGRESS" "|" "DONE")
         ))
 
-;; (setq org-faces-easy-properties '((todo . :foreground) (tag . :foreground) (priority . :foreground)))
+(defface org-todo-keyword-todo-face
+  '((t :foreground "orange" :family "Comic Sans MS"
+       :weight bold :box '(:color "dim gray" :line-width -1)))
+  "Face for Org TODO keyword."
+  :group 'org-faces)
+(defface org-todo-keyword-repeat-face
+  '((t :foreground "cyan" :family "Comic Sans MS"
+       :weight bold :box '(:color "dim gray" :line-width -1)))
+  "Face for Org REPEAT keyword."
+  :group 'org-faces)
+(defface org-todo-keyword-habit-face
+  '((t :foreground "cyan" :family "Comic Sans MS"
+       :weight bold :box '(:color "dim gray" :line-width -1)))
+  "Face for Org HABIT keyword."
+  :group 'org-faces)
+(defface org-todo-keyword-next-face
+  '((t :foreground "yellow" :family "Comic Sans MS"
+       :weight bold :box '(:color "dim gray" :line-width -1)))
+  "Face for Org NEXT keyword."
+  :group 'org-faces)
+(defface org-todo-keyword-inprogress-face
+  '((t :foreground "cyan" :family "Comic Sans MS"
+       :weight bold :box '(:color "dim gray" :line-width -1)))
+  "Face for Org INPROGRESS keyword."
+  :group 'org-faces)
+(defface org-todo-keyword-someday-face
+  '((t :foreground "gray" :family "Comic Sans MS"
+       :weight bold :box '(:color "dim gray" :line-width -1)))
+  "Face for Org SOMEDAY keyword."
+  :group 'org-faces)
+(defface org-todo-keyword-later-face
+  '((t :foreground "dim gray" :family "Comic Sans MS"
+       :weight bold :box '(:color "dim gray" :line-width -1)))
+  "Face for Org LATER keyword."
+  :group 'org-faces)
+(defface org-todo-keyword-done-face
+  '((t :foreground "black" :family "Comic Sans MS"
+       :strike-through t :weight bold :box '(:color "dim gray" :line-width -1)))
+  "Face for Org DONE keyword."
+  :group 'org-faces)
+(defface org-todo-keyword-failed-face
+  '((t :foreground "#444444" :family "Comic Sans MS"
+       :strike-through "dark red" :weight bold :box '(:color "dim gray" :line-width -1)))
+  "Face for Org FAILED keyword."
+  :group 'org-faces)
+(defface org-todo-keyword-cancelled-face
+  '((t :foreground "black" :family "Comic Sans MS"
+       :strike-through t :weight bold :box '(:color "dim gray" :line-width -1)))
+  "Face for Org CANCELLED keyword."
+  :group 'org-faces)
+
+(defface org-todo-keyword-code-face
+  '((t :foreground "DodgerBlue" :family "Comic Sans MS"
+       :weight bold :box '(:color "dim gray" :line-width -1)))
+  "Face for Org CODE keyword."
+  :group 'org-faces)
+(defface org-todo-keyword-bug-face
+  '((t :foreground "dark red" :family "Comic Sans MS"
+       :weight bold :box '(:color "dim gray" :line-width -1)))
+  "Face for Org BUG keyword."
+  :group 'org-faces)
+(defface org-todo-keyword-issue-face
+  '((t :foreground "blue" :family "Comic Sans MS"
+       :weight bold :box '(:color "dim gray" :line-width -1)))
+  "Face for Org ISSUE keyword."
+  :group 'org-faces)
+(defface org-todo-keyword-error-face
+  '((t :foreground "red" :family "Comic Sans MS"
+       :weight bold :box '(:color "dim gray" :line-width -1)))
+  "Face for Org ERROR keyword."
+  :group 'org-faces)
+(defface org-todo-keyword-feature-face
+  '((t :foreground "cyan" :family "Comic Sans MS"
+       :weight bold :box '(:color "dim gray" :line-width -1)))
+  "Face for Org FEATURE keyword."
+  :group 'org-faces)
+(defface org-todo-keyword-pull-request-face
+  '((t :foreground "yellow" :family "Comic Sans MS"
+       :weight bold :box '(:color "dim gray" :line-width -1)))
+  "Face for Org Pull-Request keyword."
+  :group 'org-faces)
+(defface org-todo-keyword-review-face
+  '((t :foreground "yellow" :family "Comic Sans MS"
+       :weight bold :box '(:color "dim gray" :line-width -1)))
+  "Face for Org REVIEW keyword."
+  :group 'org-faces)
+
+(defface org-todo-keyword-sex-face
+  '((t :foreground "deep pink" :family "Comic Sans MS"
+       :weight bold :box '(:color "dim gray" :line-width -1)))
+  "Face for Org SEX keyword."
+  :group 'org-faces)
+(defface org-todo-keyword-work-face
+  '((t :foreground "cornflower blue" :family "Comic Sans MS"
+       :weight bold :box '(:color "dim gray" :line-width -1)))
+  "Face for Org WORK keyword."
+  :group 'org-faces)
+(defface org-todo-keyword-learn-face
+  '((t :foreground "green yellow" :family "Comic Sans MS"
+       :weight bold :box '(:color "dim gray" :line-width -1)))
+  "Face for Org LEARN keyword."
+  :group 'org-faces)
+
 (setq org-todo-keyword-faces
       '(;;; todo keywords
-        ("TODO" :foreground "orange"
-         :box '(:color "dim gray" :line-width -1))
-        ("URGENT" :foreground "red"
-         :box '(:color "dim gray" :line-width -1))
-        ("STARTED" :foreground "green"
-         :box '(:color "dim gray" :line-width -1))
-        ("REPEAT" :foreground "cyan"
-         :box '(:color "dim gray" :line-width -1))
-        ("HABIT" :foreground "cyan"
-         :box '(:color "dim gray" :line-width -1))
-        ("NEXT" :foreground "yellow"
-         :box '(:color "dim gray" :line-width -1))
-        ("SOMEDAY" :foreground "gray"
-         :box '(:color "dim gray" :line-width -1))
-        ("INPROGRESS" :foreground "cyan"
-         :box '(:color "dim gray" :line-width -1))
-        ("LATER" :foreground "dim gray"
-         :box '(:color "dim gray" :line-width -1))
-        ("DONE" :foreground "black" :strike-through t
-         :box '(:color "dim gray" :line-width -1))
-        ("FAILED" :foreground "#444444" :strike-through "dark red"
-         :box '(:color "dim gray" :line-width -1))
-        ("CANCELLED" :foreground "black" :strike-through t
-         :box '(:color "dim gray" :line-width -1))
+        ("TODO" . org-todo-keyword-todo-face)
+        ("REPEAT" . org-todo-keyword-repeat-face)
+        ("HABIT" . org-todo-keyword-habit-face)
+        ("NEXT" . org-todo-keyword-next-face)
+        ("SOMEDAY" . org-todo-keyword-someday-face)
+        ("INPROGRESS" . org-todo-keyword-inprogress-face)
+        ("LATER" . org-todo-keyword-later-face)
+        ("DONE" . org-todo-keyword-done-face)
+        ("FAILED" . org-todo-keyword-failed-face)
+        ("CANCELLED" . org-todo-keyword-cancelled-face)
         ;; code programming
-        ("BUG" :foreground "red"
-         :box '(:color "dim gray" :line-width -1 :style nil))
-        ("ISSUE" :foreground "red"
-         :box '(:color "dim gray" :line-width -1 :style nil))
-        ("ERROR" :foreground "red"
-         :box '(:color "dim gray" :line-width -1 :style nil))
-        ("FIXME" :foreground "red"
-         :box '(:color "dim gray" :line-width -1 :style nil))
-        ("FEATURE" :foreground "cyan"
-         :box '(:color "dim gray" :line-width -1 :style nil))
-        ("Pull-Request" :foreground "yellow"
-         :box '(:color "dim gray" :line-width -1 :style nil))
-        ;; types
-        ("CODE" :foreground "DodgerBlue"
-         :box '(:color "dim gray" :line-width -1 :style nil))
+        ("CODE" . org-todo-keyword-code-face)
+        ("BUG" . org-todo-keyword-bug-face)
+        ("ISSUE" . org-todo-keyword-issue-face)
+        ("ERROR" . org-todo-keyword-error-face)
+        ("FEATURE" . org-todo-keyword-feature-face)
+        ("Pull-Request" . org-todo-keyword-pull-request-face)
+        ("REVIEW" . org-todo-keyword-review-face)
         ;; life
-        ("SEX" :foreground "deep pink"
-         :box '(:color "dim gray" :line-width -1 :style nil))
+        ("SEX" . org-todo-keyword-sex-face)
         ;; work
-        ("WORK" :foreground "orange"
-         :box '(:color "dim gray" :line-width -1 :style nil))
-        ("MEETING" :foreground "cornflower blue"
-         :box '(:color "dim gray" :line-width -1 :style nil))
+        ("WORK" . org-todo-keyword-work-face)
         ;; learn
-        ("LEARN" :foreground "green yellow"
-         :box '(:color "dim gray" :line-width -1))
-        ("REVIEW" :foreground "yellow"
-         :box '(:color "dim gray" :line-width -1))
+        ("LEARN" . org-todo-keyword-learn-face)
         ))
 
 
@@ -201,8 +274,7 @@
 (add-to-list 'org-todo-keywords
              '(type "PROJECT(P@/!)" "|" "DONE(d@/!)"))
 (add-to-list 'org-todo-keyword-faces
-             '("PROJECT" :foreground "DodgerBlue"
-               :box '(:color "dim gray" :line-width -1 :style nil)))
+             '("PROJECT" . org-todo-keyword-work-face))
 
 
 ;;; [ inline task ]
