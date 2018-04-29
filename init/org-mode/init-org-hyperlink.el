@@ -262,6 +262,27 @@ and append it."
 
 (org-link-set-parameters "geo" :follow #'org-geo-link-open)
 
+
+;;; [[video:/path/to/file.mp4::00:13:20]]
+(defcustom org-video-link-open-command "mplayer"
+  "Specify the program for openning video: link."
+  :type 'string)
+
+(defun org-video-link-open (uri)
+  "Open video file `URI' with video player."
+  (let* ((list (split-string uri "::"))
+         (path (car list))
+         (start-timstamp (cadr list)))
+    (make-process
+     :command (list org-video-link-open-command
+                    "-ss" start-timstamp
+                    (expand-file-name (org-link-unescape path)))
+     :name "org-video-link")))
+
+(org-link-set-parameters "video"
+                         :follow #'org-video-link-open
+                         :complete #'org-file-complete-link)
+
 ;;; [ Link abbreviations ]
 
 ;; NOTE: you can not contain chinese string in "link name". Org-mode does not
