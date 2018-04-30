@@ -63,6 +63,14 @@
 ;;   (setq yatemplate-dir (locate-user-emacs-file "templates"))
 ;;   )
 
+;;; [ time-stamp ] -- Maintain last change time stamps in files edited by Emacs.
+
+(use-package time-stamp
+  :init (add-hook 'before-save-hook 'time-stamp)
+  :config
+  (setq time-stamp-active t
+        time-stamp-line-limit 20))
+
 
 (provide 'init-prog-template)
 
