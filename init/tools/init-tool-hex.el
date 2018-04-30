@@ -31,9 +31,13 @@
 
 (use-package elf-mode
   :ensure t
-  :init
-  (add-to-list 'auto-mode-alist '("\\.\\(?:a\\|so\\)\\'" . elf-mode))
-  )
+  :mode ("\\.\\(?:a\\|so\\)\\'" . elf-mode))
+
+;;; [ intel-hex-mode ] -- An Emacs mode for Intel hex files.
+
+(use-package intel-hex-mode
+  :ensure t
+  :defer t)
 
 
 (provide 'init-tool-hex)
