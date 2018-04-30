@@ -138,6 +138,9 @@ Optional for Org-mode file: `LINK'."
         (file . find-file)
         (wl . wl-other-frame)))
 
+;;; `eshell:'
+(require 'org-eshell)
+
 ;; `elisp:'
 (setq org-confirm-elisp-link-function 'yes-or-no-p)
 ;; `shell:'
