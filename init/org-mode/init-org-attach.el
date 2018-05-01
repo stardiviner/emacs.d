@@ -19,6 +19,13 @@
 ;;; don't auto add tag "ATTACH"
 (setq org-attach-auto-tag nil)
 
+;;; specify default directory for `org-attach'.
+(defun my/org-attach-set-default-directory (orig-fun &rest args)
+  "Change dir of the shell to buffer's `default-directory'."
+  (let ((default-directory (expand-file-name "~/Downloads/")))
+    (apply orig-fun args)))
+(advice-add #'org-attach :around #'my/org-attach-set-default-directory)
+
 ;;; [ org-screenshot ] -- Take and manage screenshots in Org-mode files.
 
 (use-package org-plus-contrib
