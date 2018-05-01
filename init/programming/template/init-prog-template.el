@@ -21,13 +21,10 @@
 ;;; [ auto-insert ]
 
 (use-package autoinsert
-  :ensure t
-  :defer t
+  :init (auto-insert-mode 1)
   :config
   ;; (setq auto-insert-query 'function)
   (setq auto-insert-directory (locate-user-emacs-file "templates/"))
-
-  (auto-insert-mode 1)
   
   ;; templates: `auto-insert-alist'
   (setq auto-insert-alist nil)
