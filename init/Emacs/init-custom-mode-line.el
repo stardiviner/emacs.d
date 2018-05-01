@@ -361,7 +361,7 @@ state (modified, read-only or non-existent)."
   (if (cdr (assoc major-mode all-the-icons-mode-icon-alist))
       ;; (all-the-icons-icon-for-buffer)
       ;; (all-the-icons-auto-mode-match?)
-      (all-the-icons-icon-for-mode major-mode :v-adjust -0.05 :height 1.0)
+      (all-the-icons-icon-for-mode major-mode :v-adjust -0.1 :height 1.0)
     ;; (all-the-icons-icon-for-file (buffer-file-name) :v-adjust -0.05 :height 1.0)
     (propertize (format-mode-line "%m" mode-name)
                 'face 'mode-line-data-face)
@@ -840,13 +840,10 @@ dimensions of a block selection."
 
 (defun *org-timer ()
   "Show `org-timer' info in my custom mode-line."
-  (if (and (mode-line-window-active-p)
-           (or (and (boundp 'org-timer-mode-line-timer)
-		                org-timer-mode-line-timer)
-               (and (boundp 'org-timer-countdown-timer)
-		                org-timer-countdown-timer)
-               (org-at-item-timer-p)
-               ))
+  (if (or
+       (bound-and-true-p org-timer-mode-line-timer)
+       (bound-and-true-p org-timer-countdown-timer)
+       (bound-and-true-p org-timer-mode-line-string))
       ;; - `org-timer-value-string'
       ;; - `org-timer-set-mode-line'
       ;; - `org-timer-mode-line-string'
