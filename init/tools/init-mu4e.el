@@ -54,7 +54,7 @@
                                ("/Work"        . ?w)
                                ("/Emacs/help"  . ?e)
                                ("/Emacs/Org-mode" . ?O)
-                               ("/Lisp/comp-lang" . ?l)
+                               ("/Lisp/"          . ?l)
                                ("/Clojure"        . ?c)
                                ("/ClojureScript"  . ?C)
                                ("/JavaScript"     . ?j)
@@ -334,7 +334,7 @@
 
 ;; TODO: make use of flag: list.
 
-;; [ Search ] -- [s]  [:references [regexp]] in search query.
+;; [ Search ] -- [s/S]  [:references [regexp]] in search query.
 
 ;; result is:   -> :References : nil
 (add-to-list 'mu4e-header-info-custom
