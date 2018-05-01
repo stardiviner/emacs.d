@@ -93,10 +93,10 @@
 
 ;;; [ cakecrumbs ] -- Show parent-chain on header for HTML / Jade / Pug / LESS / SCSS / Sass / Stylus.
 
-(use-package cakecrumbs
-  :ensure t
-  :defer t
-  :init (cakecrumbs-auto-setup))
+;; (use-package cakecrumbs
+;;   :ensure t
+;;   :defer t
+;;   :init (cakecrumbs-auto-setup))
 
 
 (provide 'init-prog-lang-html)
