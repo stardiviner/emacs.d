@@ -25,6 +25,7 @@
         (up . :html-link-up)
         (home . :html-link-home)))
 
+;;; [ ox-org ]
 ;;; support "Show Org Source" (.org.html version) button.
 (require 'ox-org) ; `org-org-publish-to-org'
 (require 'htmlize)
@@ -89,8 +90,7 @@
          ;; [ src code block ]
          ;; :htmlized-source nil ; src code block syntax highlighting
          ;; use external CSS stylesheet instead.
-         ;; FIXME: caused error
-         :htmlized-source t
+         :htmlized-source nil
          ;; NOTE: conflict with customize font-lock: font-lock-add-keywords defined org faces.
          ;; [ images ]
          :html-inline-images t
