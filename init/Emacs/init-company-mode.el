@@ -42,10 +42,9 @@
   (setq-default company-backends
                 '(company-files         ; files & directory
                   ;; company-gtags company-etags
-                  ;; company-tempo         ; tempo: flexible template insertion
                   (company-capf         ; `completion-at-point-functions'
                    :with company-yasnippet
-                   :with company-tempo
+                   :with company-tempo  ; tempo: flexible template insertion
                    :with company-dabbrev-code
                    ;; :separate company-semantic
                    ;; :separate company-ispell ; for word completion in comment.
@@ -210,27 +209,27 @@
 
 ;;; [ company-quickhelp ] -- quick help document preview & popup
 
-(use-package company-quickhelp
-  :ensure t
-  :config
-  (setq company-quickhelp-use-propertized-text t)
-
-  ;; automatic
-  ;; (company-quickhelp-mode 1)
-  ;;
-  ;; remove echo-area short doc display
-  ;; (setq-default company-frontends
-  ;;               (remq 'company-echo-metadata-frontend company-frontends))
-  ;;
-  ;; (add-to-list 'company-frontends 'company-preview-common-frontend) ; NOTE: this caused company-mode tooltip offset.
-
-  ;; manually
-  (setq company-quickhelp-delay nil) ; set to `nil' to trigger popup doc manually.
-  (add-to-list 'company-frontends 'company-quickhelp-frontend)
-  (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
-  (with-eval-after-load 'company-quickhelp
-    (define-key company-active-map (kbd "M-h") 'company-quickhelp-manual-begin))
-  )
+;; (use-package company-quickhelp
+;;   :ensure t
+;;   :config
+;;   (setq company-quickhelp-use-propertized-text t)
+;;
+;;   ;; automatic
+;;   ;; (company-quickhelp-mode 1)
+;;   ;;
+;;   ;; remove echo-area short doc display
+;;   ;; (setq-default company-frontends
+;;   ;;               (remq 'company-echo-metadata-frontend company-frontends))
+;;   ;;
+;;   ;; (add-to-list 'company-frontends 'company-preview-common-frontend) ; NOTE: this caused company-mode tooltip offset.
+;;
+;;   ;; manually
+;;   (setq company-quickhelp-delay nil) ; set to `nil' to trigger popup doc manually.
+;;   ;; (add-to-list 'company-frontends 'company-quickhelp-frontend)
+;;   (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
+;;   (with-eval-after-load 'company-quickhelp
+;;     (define-key company-active-map (kbd "M-h") 'company-quickhelp-manual-begin))
+;;   )
 
 ;;; [ company-mode in minibuffer `M-:' ]
 
@@ -248,11 +247,59 @@
 
 ;;; [ company-box ] -- A company front-end with icons.
 
-;; (use-package company-box
-;;   :ensure t
-;;   :hook (company-mode . company-box-mode)
-;;   ;; :init (add-hook 'company-mode-hook 'company-box-mode)
-;;   )
+(use-package company-box
+  :ensure t
+  :ensure all-the-icons
+  :hook (company-mode . company-box-mode)
+  :init (require 'all-the-icons)
+  :config
+  (setq company-box-doc-delay 0.3)
+  (define-key company-active-map (kbd "M-h") nil)
+  (define-key company-box-mode-map (kbd "M-h") 'company-box-doc)
+
+  (set-face-attribute 'company-box-candidate nil
+                      :inherit nil
+                      :family (face-attribute 'default :family))
+
+  (setq company-box-backends-colors
+        '((company-capf . (:icon "LightSeaGreen"))
+          (company-keywords . (:all "tomato"))
+          (company-files . (:all "CornflowerBlue"))
+          (company-yasnippet . (:icon "#7C4Dff"
+                                      :candidate "purple" :annotation "gray"
+                                      :selected (:background "purple" :foreground "white")))
+          (company-tempo . (:all "chocolate"))
+          (company-dabbrev . (:all "khaki"))
+          (company-dabbrev-code . (:all "dark khaki"))
+          ;; extra backends
+          (company-elisp . (:icon "firebrick"))
+          (sly-company . (:icon "RoyalBlue"))
+          (company-slime . (:icon "RoyalBlue"))
+          (geiser-company-backend . (:icon "SlateBlue"))
+          (elpy-company-backend . (:icon "orange"))
+          (company-robe . (:icon "red1"))
+          (company-c-headers . (:icon "DarkGoldenrod"))
+          (company-irony . (:icon "DodgerBlue"))
+          (company-irony-c-headers . (:icon "DarkGoldenrod"))
+          (company-go . (:icon "SandyBrown"))
+          (company-racer . (:icon "SteelBlue"))
+          (company-tern . (:icon "yellow3"))
+          (company-lua . (:icon "LightBlue"))
+          (company-edbi . (:icon "DarkGreen"))
+          (company-restclient . (:icon "DarkTurquoise"))
+          ))
+
+  (setq company-box-icons-unknown (all-the-icons-faicon "code" :height 0.9 :v-adjust -0.05))
+  (setq company-box-icons-yasnippet (all-the-icons-faicon "file-code-o" :height 0.8 :v-adjust -0.05))
+  (setq company-box-icons-elisp (list
+                                 ;; "λ" ; function/method
+                                 (all-the-icons-material "functions" :v-adjust -0.15 :height 0.9)
+                                 ;; (all-the-icons-faicon "hashtag")
+                                 "v" ; variable
+                                 (all-the-icons-octicon "package" :height 0.9 :v-adjust -0.05) ; library
+                                 (all-the-icons-faicon "font" :height 0.8 :v-adjust -0.05) ; face
+                                 ))
+  )
 
 
 (provide 'init-company-mode)
