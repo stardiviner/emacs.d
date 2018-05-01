@@ -780,6 +780,7 @@
 ;; Usage:
 ;; - <a o> in headers view & message view :: using the org-capture mechanism.
 
+(require 'init-org-contacts)
 (setq mu4e-org-contacts-file (car org-contacts-files))
 (add-to-list 'mu4e-headers-actions
              '("org-contact-add" . mu4e-action-add-org-contact) t)
