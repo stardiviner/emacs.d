@@ -37,7 +37,7 @@
          (read-from-minibuffer "Property :CUSTOM_ID: value: "
                                (substring-no-properties (org-get-heading t t)))))))
 
-(advice-add 'org-store-link :before #'org-store-link-set-headline-custom-id)
+;; (advice-add 'org-store-link :before #'org-store-link-set-headline-custom-id)
 
 
 ;;; org-file-apps no longer accepts S-expressions as commands
