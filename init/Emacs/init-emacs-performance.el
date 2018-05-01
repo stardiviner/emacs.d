@@ -26,6 +26,18 @@
 
 ;; (setq file-name-handler-alist nil)
 
+
+;;; increase GC at Emacs startup to speedup.
+(setq emacs-start-time (float-time))
+(setq gc-cons-threshold 8000000)
+(add-hook
+ 'after-init-hook
+ (lambda ()
+   (setq gc-cons-threshold (car (get 'gc-cons-threshold 'standard-value)))
+   (insert (format ";; Emacs started in %fs\n"
+                   (- (float-time) emacs-start-time)))))
+
+
 
 (provide 'init-emacs-performance)
 

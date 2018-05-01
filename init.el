@@ -5,6 +5,17 @@
 
 ;;; Code:
 
+;;; load ahead
+
+;;; increase GC at Emacs startup to speedup.
+(setq emacs-start-time (float-time))
+(setq gc-cons-threshold 8000000)
+(add-hook
+ 'after-init-hook
+ (lambda ()
+   (setq gc-cons-threshold (car (get 'gc-cons-threshold 'standard-value)))))
+
+
 ;;; [ splash ]
 (setq fancy-splash-image ; for `fancy-splash-head'
       (expand-file-name "resources/logos/my-emacs-logo.png" user-emacs-directory))
