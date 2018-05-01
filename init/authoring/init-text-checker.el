@@ -52,6 +52,7 @@
   :ensure t
   :ensure-system-package (ispell aspell)
   :defer t
+  :commands (flyspell-buffer)
   :preface
   ;; don't use [M-TAB] keybinding to correct word.
   (setq flyspell-use-meta-tab nil)
@@ -59,6 +60,7 @@
               ("C-." . flyspell-correct-word-before-point)
               ("C-," . flyspell-goto-next-error)
               :map text-checker-prefix
+              ("w" . flyspell-buffer)
               ("n" . flyspell-goto-next-error)
               ("c" . flyspell-correct-word-before-point))
   :init
@@ -67,7 +69,7 @@
 
   ;; programming code
   ;; flyspell-prog-mode : enable flyspell for comments in source code
-  (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+  ;; (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 
   ;; Org-mode
   ;; (add-hook 'org-mode-hook
@@ -81,8 +83,7 @@
   (add-hook 'tex-mode-hook
             (lambda ()
               (setq ispell-parser 'tex)
-              (flyspell-mode 1)
-              ))
+              (flyspell-mode 1)))
 
   ;; text
   (dolist (hook
