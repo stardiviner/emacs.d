@@ -87,10 +87,9 @@
          :section-numbers t
          :with-toc nil
          :table-of-contents nil
-         ;; [ src code block ]
-         ;; :htmlized-source nil ; src code block syntax highlighting
+         ;; [ Show Org source ]
          ;; use external CSS stylesheet instead.
-         :htmlized-source nil
+         :htmlized-source t ; toggle for `org-org-publish-to-org'
          ;; NOTE: conflict with customize font-lock: font-lock-add-keywords defined org faces.
          ;; [ images ]
          :html-inline-images t
