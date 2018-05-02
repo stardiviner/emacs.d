@@ -257,9 +257,17 @@
   (define-key company-active-map (kbd "M-h") nil)
   (define-key company-box-mode-map (kbd "M-h") 'company-box-doc)
 
-  (set-face-attribute 'company-box-candidate nil
-                      :inherit nil
-                      :family (face-attribute 'default :family))
+  (defun my:company-box-faces-setup (theme)
+    "Reload company-box faces on `circadian' `THEME' toggling."
+    (set-face-attribute 'company-box-candidate nil
+                        :inherit nil
+                        :family (face-attribute 'default :family)
+                        :foreground (face-foreground 'default))
+    (set-face-attribute 'company-box-selection nil
+                        :inherit 'company-tooltip-selection)
+    (set-face-attribute 'company-box-background nil
+                        :background (face-background 'company-tooltip)))
+  (add-hook 'circadian-after-load-theme-hook #'my:company-box-faces-setup)
 
   (setq company-box-backends-colors
         '((company-capf . (:icon "LightSeaGreen"))
