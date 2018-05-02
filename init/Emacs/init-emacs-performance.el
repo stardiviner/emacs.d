@@ -22,21 +22,10 @@
 ;;; [ Garbage Collection ]
 
 ;; (setq garbage-collection-messages nil)
-;; (setq gc-cons-threshold (* 8 (expt 10 8)))
+;; (setq gc-cons-threshold (* 8 (expt 10 8))
+;;       gc-cons-percentage 0.6)
 
 ;; (setq file-name-handler-alist nil)
-
-
-;;; increase GC at Emacs startup to speedup.
-(setq emacs-start-time (float-time))
-(setq gc-cons-threshold 8000000)
-(add-hook
- 'after-init-hook
- (lambda ()
-   (setq gc-cons-threshold (car (get 'gc-cons-threshold 'standard-value)))
-   (insert (format ";; Emacs started in %fs\n"
-                   (- (float-time) emacs-start-time)))))
-
 
 
 (provide 'init-emacs-performance)
