@@ -94,6 +94,22 @@
 
 ;;; [ Dynamic Blocks ] -- [C-c C-x i]
 
+;;; insert the kbd tag
+(defun my/org-insert-key (key)
+  "Ask for a key then insert its description.
+Will work on both org-mode and any mode that accepts plain html."
+  (interactive "kType key sequence: ")
+  (let* ((orgp (derived-mode-p 'org-mode))
+         (tag (if orgp "@@html:<kbd>@@%s@@html:</kbd>@@" "<kbd>%s</kbd>")))
+    (if (null (equal key (kbd "C-m")))
+        (insert
+         (format tag (help-key-description key nil)))
+      ;; If you just hit RET.
+      (insert (format tag ""))
+      (forward-char (if orgp -1 -6)))))
+
+(define-key org-mode-map (kbd "C-c k") #'my/org-insert-key)
+
 
 (provide 'init-org-document-structure)
 
