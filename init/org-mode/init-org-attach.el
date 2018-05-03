@@ -87,7 +87,12 @@
 ;;; [ org-web-tools ] -- retrieving web page content and processing it into Org-mode content.
 
 (use-package org-web-tools
-  :ensure t)
+  :ensure t
+  :commands (org-web-tools-insert-link-for-url ; insert Org link
+             org-web-tools-insert-web-page-as-entry ; insert web page as Org entry
+             org-web-tools-read-url-as-org ; display web page as Org in new buffer
+             org-web-tools-convert-links-to-page-entries ; convert all links in current Org entry to Org headings
+             ))
 
 ;;; [ org-board ] -- Org mode's web archiver.
 
