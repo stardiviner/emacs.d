@@ -8,11 +8,13 @@
 ;;; Code:
 
 (use-package mu4e
-  :ensure-system-package mu
-  ;; from Linux package
-  :load-path "/usr/share/emacs/site-lisp/mu4e/"
-  ;; compile from git
-  ;; :load-path (expand-file-name "~/Code/Emacs/mu/mu/mu4e")
+  ;; :ensure-system-package mu
+  ;; ;; from Linux package
+  ;; :load-path "/usr/share/emacs/site-lisp/mu4e/"
+
+  ;; compile from source code
+  :load-path "~/Code/Emacs/mu/mu4e/"
+
   :load (mu4e mu4e-contrib mu4e-main mu4e-vars mu4e-proc mu4e-speedbar)
   :config
   ;; (setq mu4e-mu-home nil ; nil for default
@@ -148,7 +150,7 @@
       mu4e-headers-show-threads t
       mu4e-headers-auto-update t
       mu4e-use-fancy-chars t
-      ;; email prefix marks
+      ;; email prefix
       mu4e-headers-new-mark '("N" . " ")
       mu4e-headers-unread-mark '("u" . "·") ; · • ∘
       mu4e-headers-seen-mark '("S" . " ") ; ☑ ☒ ⊟ ⊠ ⊡ ▣ ⋄
