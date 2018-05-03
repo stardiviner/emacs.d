@@ -11,6 +11,11 @@
 (defvar my-org-publish-source "~/Org/Website/")
 (defvar my-org-publish-destination "~/org-publish/")
 
+;;; [ ox-html ]
+
+;;; Allow displaying source code block using "klipse".
+(setq org-html-klipsify-src t)
+
 ;;; org-infojs
 (setq org-html-infojs-options
       '((path . "https://orgmode.org/org-info.js")
@@ -91,6 +96,8 @@
          ;; use external CSS stylesheet instead.
          :htmlized-source t ; toggle for `org-org-publish-to-org'
          ;; NOTE: conflict with customize font-lock: font-lock-add-keywords defined org faces.
+         ;; [ src blocks ]
+         :html-klipsify-src t
          ;; [ images ]
          :html-inline-images t
          ;; [ stylesheet ]
