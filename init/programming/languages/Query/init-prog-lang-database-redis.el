@@ -11,7 +11,7 @@
 
 (use-package redis
   :ensure t
-  :ensure-system-package redis
+  :ensure-system-package (redis-cli . "sudo pacman -S --noconfirm redis")
   :defer t
   :commands (redis-mode)
   :init
