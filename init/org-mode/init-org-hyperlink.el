@@ -19,8 +19,10 @@
 (define-key org-mode-map (kbd "M-,") 'org-mark-ring-goto)
 
 ;;; use :ID: property for org linking.
-;; (setq org-id-link-to-org-use-id t
-;;       org-id-track-globally t)
+;; (setq org-id-link-to-org-use-id 'create-if-interactive-and-no-custom-id
+;;       org-id-track-globally t
+;;       org-id-locations-file (convert-standard-filename
+;; 				                     (concat user-emacs-directory ".org-id-locations")))
 
 ;;; use :CUSTOM_ID: property for org headlines linking.
 (defun org-store-link-set-headline-custom-id (arg &optional interactive?)
