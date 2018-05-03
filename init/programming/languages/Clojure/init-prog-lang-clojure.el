@@ -118,11 +118,29 @@
   (setq cider-macroexpansion-print-metadata t)
 
   ;; annotations
+  ;; remove "<>" from "<annontaion>"
+  (defun my/cider-default-annotate-completion-function (type ns)
+    "Get completion function based on TYPE and NS."
+    (concat (when ns (format " (%s)" ns))
+            (when type (format " %s" type))))
+  (setq cider-annotate-completion-function #'my/cider-default-annotate-completion-function)
+  
   ;; (setq cider-completion-annotations-alist
-  ;;       `(("function" ,(all-the-icons-faicon "file-text-o" :face 'company-tooltip-annotation :v-adjust -0.05))
-  ;;         ("variable" ,(all-the-icons-faicon "file-o" :face 'company-tooltip-annotation :v-adjust -0.05))
-  ;;         ("macro" ,(all-the-icons-faicon "codepen" :face 'company-tooltip-annotation :v-adjust -0.05))
-  ;;         ("protocol" ,(all-the-icons-faicon "link" :face 'company-tooltip-annotation :v-adjust -0.05))
+  ;;       `(("function" ,(all-the-icons-faicon "gg" :height 0.9 :v-adjust -0.05))
+  ;;         ("method" ,(all-the-icons-material "functions" :height 0.9 :v-adjust -0.05))
+  ;;         ("static-method" ,(all-the-icons-faicon "circle-o-notch" :height 0.9 :v-adjust -0.05))
+  ;;         ("field" ,(all-the-icons-faicon "hashtag" :height 0.9 :v-adjust -0.05))
+  ;;         ("class" ,(all-the-icons-faicon "puzzle-piece" :face 'company-tooltip-annotation :height 0.9 :v-adjust -0.05))
+  ;;         ("keyword" ,(all-the-icons-faicon "heartbeat" :face 'company-tooltip-annotation :height 0.9 :v-adjust -0.05))
+  ;;         ("local" ,(all-the-icons-faicon "circle-thin" :height 0.9 :v-adjust -0.05))
+  ;;         ("var" ,(all-the-icons-faicon "fire" :height 0.9 :v-adjust -0.05))
+  ;;         ("macro" ,(all-the-icons-faicon "codepen" :face 'company-tooltip-annotation :height 0.9 :v-adjust -0.05))
+  ;;         ("namespace" ,(all-the-icons-faicon "cubes" :face 'company-tooltip-annotation :height 0.9 :v-adjust -0.05))
+  ;;         ("protocol" ,(all-the-icons-faicon "link" :face 'company-tooltip-annotation :height 0.9 :v-adjust -0.05))
+  ;;         ("record" ,(all-the-icons-faicon "list-alt" :face 'company-tooltip-annotation :height 0.9 :v-adjust -0.05))
+  ;;         ("special-form" ,(all-the-icons-faicon "cog" :height 0.9 :v-adjust -0.05))
+  ;;         ("type" ,(all-the-icons-faicon "dot-circle-o" :height 0.9 :v-adjust -0.05))
+  ;;         ("import" ,(all-the-icons-octicon "package" :height 0.9 :v-adjust -0.05))
   ;;         ))
 
   ;; Java
