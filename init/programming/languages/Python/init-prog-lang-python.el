@@ -38,7 +38,8 @@
     ("python"
      (setq python-shell-interpreter-args "-i"))
     ("ipython"
-     (setq python-shell-interpreter-args "--simple-prompt --pprint"))
+     (setq python-shell-interpreter-args "--simple-prompt --pprint")
+     (setenv "IPY_TEST_SIMPLE_PROMPT" "1"))
     )
   :config
   (setq python-shell-completion-native-enable nil)
