@@ -67,6 +67,8 @@
       org-contacts-icon-property "AVATAR")
 
 ;; Create agenda view for contacts matching NAME.
+(unless (boundp 'Org-prefix)
+  (define-prefix-command 'Org-prefix))
 (define-key Org-prefix (kbd "M-c") 'org-contacts)
 
 (dolist (hook '(message-mode-hook
