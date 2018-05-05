@@ -172,7 +172,7 @@
 (require 'init-tool-ascii)
 ;; (require 'init-tool-network)
 (require 'init-tool-browser)
-;; (require 'init-tool-downloader)
+(require 'init-tool-downloader)
 (require 'init-tool-OpenSpritz)
 (require 'init-tool-email)
 ;; (require 'init-tool-feeds)

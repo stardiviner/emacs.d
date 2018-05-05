@@ -27,7 +27,8 @@
 
 (use-package transmission
   :ensure t
-  :config
+  :defer t
+  :init
   (add-to-list 'display-buffer-alist
                '("\\*transmission\\*" . (display-buffer-below-selected)))
   )
@@ -38,7 +39,7 @@
   :load-path "~/Code/Emacs/youtube-dl-emacs/"
   :defer t
   :commands (youtube-dl)
-  :config
+  :init
   (add-to-list 'display-buffer-alist
                '("^\\*youtube-dl list\\*" (display-buffer-below-selected)))
   )
