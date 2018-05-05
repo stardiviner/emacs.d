@@ -95,6 +95,9 @@
 ;;; [ ob-sclang ] -- SuperCollider (sclang) with Org-mode Babel.
 
 (require 'ob-sclang)
+(add-to-list 'org-babel-load-languages '(sclang . t))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+(add-to-list 'org-babel-tangle-lang-exts '("sclang" . "sc"))
 
 
 ;;; [ Overtone ] -- Combine SuperCollider + Clojure.
