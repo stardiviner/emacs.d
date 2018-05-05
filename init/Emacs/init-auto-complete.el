@@ -12,10 +12,9 @@
 (use-package auto-complete
   :ensure t
   :defer t
+  :load (auto-complete-config)
+  ;; :init (ac-config-default)
   :config
-  (require 'auto-complete-config)
-  ;; (ac-config-default)
-
   ;; fuzzy completion
   ;; (setq ac-use-fuzzy t)
   

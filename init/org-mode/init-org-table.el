@@ -61,6 +61,14 @@
   :defer t)
 
 ;;; import .xlsx, .csv file into Org.
+(defun org-table-import-xlsx-to-csv-org ()
+  (interactive)
+  (let* ((source-file  (file-name-sans-extension (buffer-file-name (current-buffer))))
+         (xlsx-file (concat source-file ".xlsx"))
+         (csv-file (concat source-file ".csv")))
+    (org-odt-convert xlsx-file "csv")
+    (org-table-import csv-file  nil)))
+
 (defun org-table-import-xlsx-file-to-csv-org (file)
   "Import .xlsx, .csv `FILE' into Org."
   (interactive "f")

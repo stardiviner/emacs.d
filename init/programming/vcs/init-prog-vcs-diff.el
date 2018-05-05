@@ -62,15 +62,15 @@
               ("M-g M" . smerge-popup-context-menu)
               )
   :config
-  (defun smerge-smart-dwim ()
-    "Enable `smerge-mode' automatically."
-    (save-excursion
-      (goto-char (point-min))
-      (when (re-search-forward "^<<<<<<< " nil t)
-        (smerge-mode 1))))
-
-  (add-hook 'find-file-hook #'smerge-smart-dwim t)
-  (add-hook 'after-revert-hook #'smerge-smart-dwim t)
+  ;; (defun smerge-smart-dwim ()
+  ;;   "Enable `smerge-mode' automatically."
+  ;;   (save-excursion
+  ;;     (goto-char (point-min))
+  ;;     (when (re-search-forward "^<<<<<<< " nil t)
+  ;;       (smerge-mode 1))))
+  ;;
+  ;; (add-hook 'find-file-hook #'smerge-smart-dwim t)
+  ;; (add-hook 'after-revert-hook #'smerge-smart-dwim t)
   )
 
 

@@ -104,10 +104,14 @@
         ;; font-lock
         cider-font-lock-dynamically '(macro core deprecated function)
 
+        ;; indentation
+        cider-dynamic-indentation nil
+
         ;; REPL
         cider-repl-result-prefix ";; => "
         ;; cider-known-endpoints '(("host-a" "10.10.10.1" "7888") ("host-b" "7888"))
-        cider-repl-use-pretty-printing t
+        ;; cider-repl-use-pretty-printing nil ; conflict with `cider-repl-use-content-types'
+        ;; cider-repl-use-content-types t
         ;; cider-pprint-fn 'fipp
 
         ;; spinner

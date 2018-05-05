@@ -256,6 +256,8 @@
   (add-to-list 'all-the-icons-mode-icon-alist
                '(skewer-repl-mode all-the-icons-alltheicon "javascript" :height 1.0 :v-adjust 0.0 :face all-the-icons-yellow))
   (add-to-list 'all-the-icons-mode-icon-alist
+               '(inferior-ess-mode all-the-icons-fileicon "R" :height 1.0 :v-adjust 0.0 :face all-the-icons-blue-alt))
+  (add-to-list 'all-the-icons-mode-icon-alist
                '(julia-mode all-the-icons-fileicon "julia" :height 1.0 :v-adjust 0.0 :face all-the-icons-blue-alt))
   (add-to-list 'all-the-icons-mode-icon-alist
                '(package-menu-mode all-the-icons-octicon "package" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan-alt))
@@ -263,6 +265,10 @@
                '(doc-view-mode all-the-icons-faicon "file-pdf-o" :height 1.0 :v-adjust 0.0 :face all-the-icons-dgreen))
   (add-to-list 'all-the-icons-mode-icon-alist
                '(pdf-view-mode all-the-icons-faicon "file-pdf-o" :height 1.0 :v-adjust 0.0 :face all-the-icons-dgreen))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(nov-mode all-the-icons-faicon "file-text-o" :height 1.0 :v-adjust 0.0 :face all-the-icons-dgreen))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(ereader-mode all-the-icons-faicon "file-text-o" :height 1.0 :v-adjust 0.0 :face all-the-icons-dgreen))
   (add-to-list 'all-the-icons-mode-icon-alist
                '(Info-mode all-the-icons-faicon "file-o" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan-alt))
   (add-to-list 'all-the-icons-mode-icon-alist
