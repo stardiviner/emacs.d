@@ -379,7 +379,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 (add-to-list 'org-babel-default-header-args:clojure
              '(:noweb . "yes"))
 (add-to-list 'org-babel-default-header-args:clojure
-             '(:results . "value"))
+             '(:results . "pp"))
 
 ;; No timeout when executing calls on Cider via nrepl
 (setq org-babel-clojure-sync-nrepl-timeout 30)
