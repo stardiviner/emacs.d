@@ -14,6 +14,7 @@
 ;; You can change the tag to any complex tag matching string by
 ;; setting the `org-crypt-tag-matcher' variable.
 (setq org-crypt-tag-matcher "encrypt")
+(add-to-list 'org-default-properties "CRYPTKEY")
 
 ;;; add `org-crypt' required tag to default tag list.
 (setq org-tag-alist
