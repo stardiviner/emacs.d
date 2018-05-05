@@ -26,7 +26,8 @@
     (unless (file-exists-p desktop-dir)
       (make-directory desktop-dir))
     (add-to-list 'desktop-path desktop-dir))
-  :config (desktop-save-mode 1))
+  :config (desktop-save-mode 1)
+  (setq desktop-auto-save-timeout (* 60 10)))
 
 ;;; open mostly used files
 (find-file (expand-file-name (concat org-directory "/Wiki/Computer Technology/Programming/Emacs/Data/Emacs Packages/Emacs Packages.org")))

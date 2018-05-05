@@ -8,9 +8,9 @@
 ;;; Code:
 
 
-;;; disable split window performance slow for `company-box-doc'.
-;; (add-to-list 'display-buffer-alist
-;;              '("^\\*Help\\*$" (display-buffer-reuse-window display-buffer-below-selected)))
+;;; NOTE: disable split window performance slow for `company-box-doc'.
+(add-to-list 'display-buffer-alist
+             '("^\\*Help\\*$" (display-buffer-reuse-window display-buffer-below-selected)))
 (add-to-list 'display-buffer-alist
              '("^\\*Apropos\\*$" (display-buffer-reuse-window display-buffer-below-selected)))
 

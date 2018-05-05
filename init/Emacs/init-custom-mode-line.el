@@ -212,6 +212,7 @@ to the command loop."
 (defun *buffer-name ()
   "Display buffer name better."
   (concat
+   " "
    (if (not (null buffer-file-name))
        (if (derived-mode-p 'prog-mode)
            (all-the-icons-faicon "file-code-o" :v-adjust -0.05 :height 0.8)
@@ -232,6 +233,7 @@ Including the current working directory, the file name, and its
 state (modified, read-only or non-existent)."
   (propertize
    (concat
+    (propertize " ")
     ;; buffer modify status
     (cond
      ((string-equal (format-mode-line "%*") "*") ; modified
@@ -254,17 +256,17 @@ state (modified, read-only or non-existent)."
                (file-remote-p (buffer-file-name)))
       (all-the-icons-faicon "server" :v-adjust -0.05 :face 'mode-line-warn-face))
     ;; encrypted file
-    (when (string-match-p "\\.gpg" (buffer-name))
-      (all-the-icons-material "enhanced_encryption" :face 'mode-line-info-face))
+    ;; (when (string-match-p "\\.gpg" (buffer-name))
+    ;;   (all-the-icons-material "enhanced_encryption" :face 'mode-line-info-face))
     ;; `isearch-mode'
-    (when (and isearch-mode (mode-line-window-active-p))
-      (all-the-icons-faicon "search" :v-adjust -0.05 :face 'mode-line-info-face))
+    ;; (when (and isearch-mode (mode-line-window-active-p))
+    ;;   (all-the-icons-faicon "search" :v-adjust -0.05 :face 'mode-line-info-face))
     ;; narrow
     (when (buffer-narrowed-p)
       (all-the-icons-faicon "align-center" :v-adjust -0.05 :face 'mode-line-data-face))
     ;; buffer size
     ;; (format-mode-line "%I")
-    (propertize " "))
+    )
    ))
 
 ;;; buffer encoding
@@ -1159,7 +1161,7 @@ dimensions of a block selection."
                  ;; (*org-clock-today)
                  (*org-timer)
                  (*pomodoro)
-                 (*keycast)
+                 ;; (*keycast)
                  (*mode-line-process)
                  (*spinner)
                  (*copy-file-on-save)
@@ -1186,9 +1188,10 @@ dimensions of a block selection."
                  (*eyebrowse)
                  ;; (*perspeen)
                  ;; (*purpose)
-                 (*major-mode)
+                 ;; (*major-mode)
+                 (propertize (format-mode-line "%m" mode-name))
                  (*env)
-                 (*space 3)
+                 (*space 2)
                  ))
            (mid (propertize
                  " "

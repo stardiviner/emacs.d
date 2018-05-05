@@ -157,9 +157,7 @@
   ;; - `company-sort-prefer-same-case-prefix'
   ;; - `company-sort-by-backend-importance'
   ;; - `company-sort-by-occurrence'
-  (setq company-transformers '(company-sort-prefer-same-case-prefix
-                               company-sort-by-backend-importance
-                               company-sort-by-occurrence))
+  (setq company-transformers '(company-sort-prefer-same-case-prefix))
 
   ;; animation effect on company completion
   ;; - `beacon-blink', `beacon--shine'
@@ -197,30 +195,6 @@
 ;;   ;; fix `desktop-save-mode' record and enable `company-childframe' on all buffers.
 ;;   (require 'desktop)
 ;;   (push '(company-childframe-mode . nil) desktop-minor-mode-table)
-;;   )
-
-;;; [ company-quickhelp ] -- quick help document preview & popup
-
-;; (use-package company-quickhelp
-;;   :ensure t
-;;   :config
-;;   (setq company-quickhelp-use-propertized-text t)
-;;
-;;   ;; automatic
-;;   ;; (company-quickhelp-mode 1)
-;;   ;;
-;;   ;; remove echo-area short doc display
-;;   ;; (setq-default company-frontends
-;;   ;;               (remq 'company-echo-metadata-frontend company-frontends))
-;;   ;;
-;;   ;; (add-to-list 'company-frontends 'company-preview-common-frontend) ; NOTE: this caused company-mode tooltip offset.
-;;
-;;   ;; manually
-;;   (setq company-quickhelp-delay nil) ; set to `nil' to trigger popup doc manually.
-;;   ;; (add-to-list 'company-frontends 'company-quickhelp-frontend)
-;;   (define-key company-active-map (kbd "M-h") 'company-show-doc-buffer)
-;;   (with-eval-after-load 'company-quickhelp
-;;     (define-key company-active-map (kbd "M-h") 'company-quickhelp-manual-begin))
 ;;   )
 
 ;;; [ company-mode in minibuffer `M-:' ]

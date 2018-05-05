@@ -19,18 +19,11 @@
   :preface (setq projectile-keymap-prefix (kbd "C-c p"))
   :init (add-hook 'prog-mode-hook 'projectile-mode)
   :config
-  ;; Caching: nil, (* 10 60) [10 minutes],
-  (setq projectile-enable-caching nil ; nil: disable caching to fix TRAMP hang
-                                        ; on sending password
-        ;; remote file exists cache expire to 10 minutes
-        projectile-file-exists-remote-cache-expire '(* 30 60)
-        )
-  ;; using Projectile everywhere
-  (setq projectile-require-project-root t)
-  ;; Completion Options
-  (setq projectile-completion-system 'ivy
-        projectile-use-git-grep t ; use `vc-git-grep'
-        )
+  ;; nil: disable caching to fix TRAMP hang on sending password
+  (setq projectile-enable-caching nil
+        projectile-file-exists-remote-cache-expire '(* 60 30)
+        projectile-completion-system 'ivy
+        projectile-use-git-grep t)
   ;; test
   (setq projectile-create-missing-test-files t)
   )
@@ -46,8 +39,7 @@
   :ensure t
   :defer t
   :preface (setq project-shells-keymap-prefix "C-c p M-!")
-  :init (global-project-shells-mode 1)
-  )
+  :init (global-project-shells-mode 1))
 
 
 (provide 'init-prog-project)

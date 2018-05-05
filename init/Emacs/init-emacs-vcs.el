@@ -21,6 +21,7 @@
 
 (require 'vc)
 
+(setq vc-handled-backends '(Git))
 ;; (setq vc-follow-symlinks 'ask)
 
 (add-to-list 'display-buffer-alist

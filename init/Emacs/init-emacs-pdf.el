@@ -19,15 +19,8 @@
   ;; [ PDF View ]
   ;; - [SPC] :: scroll continuous
   ;; - [n/p] :: scroll to next/previous page
-  (setq pdf-view-display-size 'fit-width
-        pdf-view-continuous t
-        ;; pdf-view-image-relief 2
-        ;; pdf-view-bounding-box-margin 0.05
-        pdf-view-use-imagemagick nil
-        pdf-view-use-scaling t ; open PDFs scaled to fit page.
-        pdf-view-resize-factor 1.25 ; more fine-grained zooming.
+  (setq pdf-view-use-scaling t ; open PDFs scaled to fit page.
         pdf-view-use-unicode-ligther nil ; to speed-up pdf-tools by don't try to find unicode.
-        ;; mouse-wheel-follow-mouse t
         )
 
   ;; helpful accessibility shortcuts
@@ -35,26 +28,6 @@
   (define-key pdf-view-mode-map (kbd "h") 'pdf-annot-add-highlight-markup-annotation)
   (define-key pdf-view-mode-map (kbd "t") 'pdf-annot-add-text-annotation)
   (define-key pdf-view-mode-map (kbd "D") 'pdf-annot-delete)
-
-  ;; [ PDF Tools ]
-  ;; [ isearch ]
-  (require 'pdf-isearch)
-  ;; revert to emacs default isearch instead of `swiper' from custom global search utility.
-  (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward)
-  
-  ;; [ outline ]
-  (require 'pdf-outline)
-  (setq pdf-outline-display-labels t
-        pdf-outline-enable-imenu t
-        pdf-outline-imenu-use-flat-menus nil
-        )
-
-  ;; [ annotation ]
-  (require 'pdf-annot)
-  (setq pdf-annot-activate-created-annotations t ; automatically annotate highlights.
-        pdf-annot-tweak-tooltips t
-        pdf-annot-minor-mode-map-prefix (kbd "C-c C-a")
-        )
 
   ;; save after adding annotation comment
   (defun pdf-tools-save-buffer ()
@@ -66,41 +39,26 @@
     ;; Vim like basic scroll keys.
     (define-key pdf-view-mode-map (kbd "j") 'pdf-view-next-line-or-next-page)
     (define-key pdf-view-mode-map (kbd "k") 'pdf-view-previous-line-or-previous-page)
-
     ;; change key [k] to [K] to avoid mis-press.
     ;; (define-key pdf-view-mode-map (kbd "k") nil)
-
-    ;; "auto" slice from bounding box
-    (add-hook 'pdf-view-mode-hook #'pdf-view-auto-slice-minor-mode)
-
-    ;; toggle midnight mode theme
-    (defun my-pdf-tools-set-face (theme)
-      "Set `pdf-tools' faces based on `circadian' color `THEME' switching."
-      ;; color-theme adaptive colors.
-      (setq pdf-view-midnight-colors `(,(face-background 'default) . ,(face-foreground 'default)))
-      ;; green color on black background
-      ;; (setq pdf-view-midnight-colors '("#00B800" . "#000000" ))
-      ;; amber color on black background
-      ;; (setq pdf-view-midnight-colors '("#ff9900" . "#0a0a12" ))
-      ;; original solarized colors
-      ;; (setq pdf-view-midnight-colors '("#839496" . "#002b36" ))
-      )
-    (add-hook 'circadian-after-load-theme-hook #'my-pdf-tools-set-face)
-    ;; (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)
-
-    ;; `pdf-tools-enabled-modes'
-    (pdf-tools-enable-minor-modes)
-    ;;
-    ;; (pdf-isearch-minor-mode)
-    ;; (pdf-occur-global-minor-mode)
-    ;; (pdf-outline-minor-mode)
-    ;; (pdf-links-minor-mode)
-    ;; (pdf-annot-minor-mode)
-    ;; (pdf-misc-minor-mode)
-    ;; (pdf-sync-minor-mode)
     )
 
   (add-hook 'pdf-view-mode-hook #'my-pdf-tools-setup)
+  
+  ;; toggle midnight mode theme
+  ;; (defun my-pdf-tools-set-face (theme)
+  ;;   "Set `pdf-tools' faces based on `circadian' color `THEME' switching."
+  ;;   ;; color-theme adaptive colors.
+  ;;   (setq pdf-view-midnight-colors `(,(face-background 'default) . ,(face-foreground 'default)))
+  ;;   ;; green color on black background
+  ;;   ;; (setq pdf-view-midnight-colors '("#00B800" . "#000000" ))
+  ;;   ;; amber color on black background
+  ;;   ;; (setq pdf-view-midnight-colors '("#ff9900" . "#0a0a12" ))
+  ;;   ;; original solarized colors
+  ;;   ;; (setq pdf-view-midnight-colors '("#839496" . "#002b36" ))
+  ;;   )
+  ;; (add-hook 'circadian-after-load-theme-hook #'my-pdf-tools-set-face)
+  ;; (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)
 
   ;; workaround for pdf-tools not reopening to last-viewed page of the pdf:
   ;; https://github.com/politza/pdf-tools/issues/18#issuecomment-269515117
@@ -165,10 +123,10 @@
   :quelpa (pdf-tools-org :fetcher github :repo "machc/pdf-tools-org" :upgrade nil)
   :defer t
   :init
-  (add-hook 'after-save-hook
-            (lambda ()
-              (when (eq major-mode 'pdf-view-mode)
-                (pdf-tools-org-export-to-org))))
+  (defun my/pdf-tools-org-setup ()
+    (when (eq major-mode 'pdf-view-mode)
+      (pdf-tools-org-export-to-org)))
+  (add-hook 'after-save-hook #'my/pdf-tools-org-setup)
   )
 
 ;; [ paperless ] -- Emacs assisted PDF document filing.

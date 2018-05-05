@@ -41,9 +41,9 @@
 
 ;; [ indent ]
 
-(require 'org-indent)
-(setq org-startup-indented t
-      org-hide-leading-stars t)
+;; (require 'org-indent)
+;; (setq org-startup-indented t
+;;       org-hide-leading-stars t)
 ;; (setq org-adapt-indentation nil)
 
 ;;; [ org-bullets ]

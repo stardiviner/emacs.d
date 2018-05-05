@@ -43,6 +43,13 @@
 
 ;;; [ echo area ]
 
+
+;;; [ savehist ] -- save minibuffer history.
+
+(require 'savehist)
+(setq savehist-autosave-interval (* 60 10))
+(savehist-mode 1)
+
 
 (provide 'init-emacs-minibuffer)
 
