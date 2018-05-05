@@ -17,9 +17,9 @@
          ;; ("M-x" . helm-M-x)
          ;; ([remap switch-to-buffer] . helm-mini)
          ;; ([remap yank-pop] . helm-show-kill-ring)
-         ;; ([remap org-goto] . helm-org-in-buffer-headings) ; [C-c C-j] completion for Org headings
+         ([remap org-goto] . helm-org-in-buffer-headings) ; [C-c C-j] completion for Org headings
          )
-  :load (helm helm-config helm-misc)
+  :load (helm-config helm-misc)
   ;; :init (helm-mode 1) (helm-top-poll-mode 1)
   :config
   (setq helm-split-window-inside-p t)
