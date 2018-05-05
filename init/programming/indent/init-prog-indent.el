@@ -91,15 +91,24 @@
 
 (use-package aggressive-indent
   :ensure t
-  :defer t
-  :init
-  (add-hook 'prog-mode-hook
-            (lambda ()
-              (unless (or (eq major-mode 'snippet-mode)
-                          (eq major-mode 'python-mode)
-                          (eq major-mode 'haskell-mode))
-                (aggressive-indent-mode 1))))
   :config
+  ;; only work if `global-aggressive-indent-mode'
+  (add-to-list 'aggressive-indent-excluded-modes 'python-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'haskell-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'lua-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'coq-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'snippet-mode)
+  ;; global
+  ;; (global-aggressive-indent-mode 1)
+  ;; specific
+  (defun my/aggressive-indent-enable ()
+    (unless (or (member major-mode aggressive-indent-excluded-modes)
+                (member major-mode aggressive-indent-dont-electric-modes))
+      (aggressive-indent-mode 1)))
+  (add-hook 'prog-mode-hook #'my/aggressive-indent-enable)
+
+  (add-to-list 'aggressive-indent-dont-electric-modes 'python-mode)
+
   (setq aggressive-indent-sit-for-time 0.1)
 
   ;; The variable `aggressive-indent-dont-indent-if' lets you customize when you
@@ -110,13 +119,6 @@
                '(and (derived-mode-p 'c++-mode)
                      (null (string-match "\\([;{}]\\|\\b\\(if\\|for\\|while\\)\\b\\)"
                                          (thing-at-point 'line)))))
-
-  (add-to-list 'aggressive-indent-excluded-modes 'python-mode)
-  (add-to-list 'aggressive-indent-excluded-modes 'haskell-mode)
-  (add-to-list 'aggressive-indent-excluded-modes 'lua-mode)
-  (add-to-list 'aggressive-indent-excluded-modes 'makefile-mode)
-  (add-to-list 'aggressive-indent-excluded-modes 'coq-mode)
-  (add-to-list 'aggressive-indent-excluded-modes 'snippet-mode)
   )
 
 
