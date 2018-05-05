@@ -28,6 +28,7 @@
   :init (smartparens-global-mode t)
   ;; (show-smartparens-global-mode t)
   :config
+  (add-to-list 'sp-ignore-modes-list 'org-mode)
   (setq sp-navigate-consider-sgml-tags '(html-erb-mode
                                          web-mode
                                          nxml-mode sgml-mode
