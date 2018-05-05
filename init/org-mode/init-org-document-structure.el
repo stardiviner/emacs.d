@@ -65,7 +65,7 @@
 
 ;;; [ Structure Templates ] -- <[s] expand.
 
-(require 'org-tempo) ; expand snippet <KEY
+;; (require 'org-tempo) ; expand snippet <KEY
 ;; (add-to-list 'org-structure-template-alist '("?" . "..."))
 ;; `tempo-define-template'
 
