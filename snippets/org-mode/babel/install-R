@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-install-R
+# key: babel-install-R
+# group: babel.install
+# --
+#+begin_src R
+install.packages("$0")
+#+end_src

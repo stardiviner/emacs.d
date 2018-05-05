@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: org-publish-audio
+# key: org-publish-audio
+# group: org-publish.audio
+# --
+#+begin_export html
+<audio loop controls="controls">
+  <source src="data/audios/$0.mp3" type="audio/mpeg"/>
+  <p>Your browser does not support the <code>audio</code> tag.</p>
+</audio>
+#+end_export

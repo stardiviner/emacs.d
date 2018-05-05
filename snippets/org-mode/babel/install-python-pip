@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: babel-install-python-pip
+# key: babel-install-python-pip
+# group: babel.install
+# expand-env: ((yas-indent-line 'fixed))
+# --
+#+begin_src shell
+pip install --user -U $0
+#+end_src

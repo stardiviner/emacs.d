@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: org-publish-video
+# key: org-publish-video
+# group: org-publish.video
+# --
+#+begin_src html
+<video controls="controls">
+  <source src="/data/videos/$0.mp4" type="video/mp4" />
+  Your browser does not support the <code>video</code> tag.
+</video>
+#+end_src
