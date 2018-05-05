@@ -184,6 +184,8 @@
   )
 
 
+  (add-to-list 'display-buffer-alist
+               '("^\\*company-documentation\\*" . (display-buffer-below-selected)))
 
 ;;; [ company-childframe ] -- use a child-frame as company candidate menu.
 
