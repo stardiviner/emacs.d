@@ -13,6 +13,8 @@
 
 (setq org-attach-archive-delete 'query)
 
+(setq org-attach-store-link-p 'attached) ; add link to `org-store-link'.
+
 ;; auto commit when Org file is in git repository.
 (setq org-attach-commit t)
 
