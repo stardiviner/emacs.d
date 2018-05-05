@@ -57,8 +57,8 @@
          ([remap org-attach-open] . counsel-org-file) ; browse all attachments for the current Org file
          ([remap locate] . counsel-locate)
          ("C-x c #" . counsel-linux-app)
-         :map read-expression-map ("C-r" . counsel-minibuffer-history) ; in [M-:]
-         :map ivy-minibuffer-map ("M-y" . ivy-next-line)
+         ;; :map read-expression-map ("C-r" . counsel-minibuffer-history) ; in [M-:]
+         ;; :map ivy-minibuffer-map ("M-y" . ivy-next-line)
          )
   :init
   (unless (boundp 'search-prefix)
