@@ -45,6 +45,13 @@
                '("^\\*rg\\*" (display-buffer-below-selected)))
   )
 
+;;; [ helm-rg ]
+
+(use-package helm-rg
+  :ensure t
+  :commands (helm-rg)
+  :bind (:map rg-prefix ("h" . helm-rg)))
+
 
 (provide 'init-emacs-search-ripgrep)
 
