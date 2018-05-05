@@ -269,7 +269,7 @@ The function is suitable for `erc-after-connect'."
   (setq erc-mode-line-format "%S %a")
 
   ;; prompt
-  (setq erc-prompt " (λ): ")
+  (setq erc-prompt " (λ) ⌨ ")
   (defun my-erc-prompt-set-face (theme)
     "Reload customized faces on `circadian' `THEME' toggling."
     (set-face-attribute 'erc-prompt-face nil
