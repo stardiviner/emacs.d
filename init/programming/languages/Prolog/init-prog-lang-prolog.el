@@ -36,7 +36,10 @@
 
 (use-package ob-prolog
   :ensure t
-  :defer t)
+  :defer t
+  :init
+  (add-to-list 'org-babel-load-languages '(prolog . t))
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
 
 
 (provide 'init-prog-lang-prolog)
