@@ -22,18 +22,12 @@
 ;; (add-to-list 'js-enabled-frameworks 'reat)
 
 ;;; auto fill-in in multi-lines comment.
-
-(dolist (hook '(js-mode-hook
-                js2-mode-hook
-                js3-mode-hook
-                ))
-  (add-hook hook
-            (lambda ()
-              (setq-local comment-auto-fill-only-comments t)
-              (setq-local comment-multi-line t)
-              (local-set-key (kbd "RET") 'c-indent-new-comment-line)
-              )
-            ))
+(defun my/js-mode-auto-fill-comments ()
+  (setq-local comment-auto-fill-only-comments t)
+  (setq-local comment-multi-line t)
+  (local-set-key (kbd "RET") 'c-indent-new-comment-line))
+(dolist (hook '(js-mode-hook js2-mode-hook js3-mode-hook))
+  (add-hook hook #'my/js-mode-auto-fill-comments))
 
 
 ;;; helper keybindings
@@ -45,28 +39,13 @@
   (previous-line)
   (end-of-line)
   (newline-and-indent))
-
 (define-key js-mode-map  (kbd "C-o") 'my/open-new-line-upper)
 (with-eval-after-load "js2-mode"
   (define-key js2-mode-map (kbd "C-o") 'my/open-new-line-upper))
 
-
-;;; [ javascript-mode (js-mode) ]
-
-;; - `js-load-file' :: [C-c C-l] load source code for completion.
-
-(with-eval-after-load 'js-mode
-  (add-hook 'js-mode-hook
-            (lambda ()
-              ;; electric-layout-mode doesn't play nice with js-mode.
-              (electric-layout-mode -1)
-              )))
-
-
 ;;; [ ob-js ]
 
 (require 'ob-js)
-
 (add-to-list 'org-babel-load-languages '(js . t))
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 (add-to-list 'org-babel-tangle-lang-exts '("js" . "js"))
@@ -91,7 +70,6 @@
      ("indium" "\"*JS REPL*\""))))
 (define-key org-babel-map (kbd "J") 'ob-js-insert-session-header-arg)
 
-
 ;;; [ js2-mode ]
 
 (use-package js2-mode
@@ -99,34 +77,37 @@
   :ensure-system-package (node . "sudo pacman -S --noconfirm nodejs")
   :defer t
   :mode ("\\.js\\'" . js2-mode)
-  :init
-  (add-hook 'js-mode-hook 'js2-minor-mode)
+  :init (add-hook 'js-mode-hook #'js2-minor-mode)
   (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
   :config
+  (setq js2-mode-show-parse-errors nil ; highlight text with red face `js2-error'.
+        js2-mode-show-strict-warnings t ; highlight warning in underline.
+        ;; supress missing semicolon warnings
+        js2-strict-missing-semi-warning nil
+        js2-missing-semi-one-line-override t
+        ;; externs
+        js2-include-browser-externs t
+        js2-include-node-externs t)
+  
   ;; [ js2-refactor ] -- A JavaScript refactoring library for Emacs.
-  ;; (use-package js2-refactor
-  ;;   :ensure t
-  ;;   :init
-  ;;   (add-hook 'js2-mode-hook #'js2-refactor-mode)
-  ;;   (define-key js2-mode-map (kbd "C-k") #'js2r-kill)
-  ;;   :config
-  ;;   (js2r-add-keybindings-with-prefix "M-RET")
-  ;;   )
+  (use-package js2-refactor
+    :ensure t
+    :init (add-hook 'js2-mode-hook #'js2-refactor-mode)
+    (define-key js2-mode-map (kbd "C-k") #'js2r-kill)
+    :config
+    (js2r-add-keybindings-with-prefix "M-RET"))
 
   ;; [ xref-js2 ] -- Jump to references/definitions using ag & js2-mode's AST in Emacs.
   (use-package xref-js2
     :ensure t
     :init
-    (add-hook 'js2-mode-hook
-              (lambda ()
-                (define-key js2-mode-map (kbd "M-.") nil)
-                (add-to-list (make-local-variable 'xref-backend-functions)
-                             'xref-js2-xref-backend)
-                ))
-    )
+    (defun my/xref-js2-setup ()
+      (define-key js2-mode-map (kbd "M-.") nil)
+      (add-to-list (make-local-variable 'xref-backend-functions)
+                   'xref-js2-xref-backend))
+    (add-hook 'js2-mode-hook #'my/xref-js2-setup))
   )
 
-
 ;;; [ js3-mode ]
 
 ;; (use-package js3-mode
@@ -153,7 +134,6 @@
 ;; (if (featurep 'js3-mode)
 ;;     (add-hook 'js3-mode-hook 'js-mode-setup-flycheck-checkers))
 
-
 ;;; [ nvm ] -- Manage Node versions within Emacs.
 
 ;; (use-package nvm
@@ -164,7 +144,6 @@
 ;;   ;; (nvm-use "system")
 ;;   )
 
-
 ;; [ js-comint ] -- a lightweight comint integration.
 
 (use-package js-comint
@@ -186,7 +165,7 @@
   (if (featurep 'nvm)
       (js-do-use-nvm))
 
-  (defun my:js-comint-setup-keybindings ()
+  (defun my/js-comint-setup-keybindings ()
     "Add some custom keybindings for js-comint."
     (local-set-key (kbd "C-c C-s") 'run-js)
     (local-set-key (kbd "C-x C-e") 'js-send-last-sexp)
@@ -195,10 +174,9 @@
     (local-set-key (kbd "C-c C-b") 'js-send-buffer)
     ;; (local-set-key (kbd "C-c C-b") 'js-send-buffer-and-go)
     (local-set-key (kbd "C-c C-l") 'js-load-file))
-  (add-hook 'js2-mode-hook #'my:js-comint-setup-keybindings)
+  (add-hook 'js2-mode-hook #'my/js-comint-setup-keybindings)
   )
 
-
 ;;; [ nodejs-repl ] -- Run Node.js REPL and communicate the process.
 
 ;; (use-package nodejs-repl
@@ -208,7 +186,6 @@
 ;;   (setenv "NODE_NO_READLINE" "1")
 ;;   )
 
-
 ;;; [ jscs (JavaScript Code Style) ]
 
 ;; (use-package jscs
@@ -226,7 +203,6 @@
 ;;   ;; (add-hook 'js3-mode-hook #'jscs-fix-run-before-save)
 ;;   )
 
-
 ;;; [ tern ] -- code-analysis engine for JavaScript
 
 (use-package tern
@@ -243,9 +219,7 @@
     (add-hook hook 'tern-mode))
   :config
   (add-hook 'tern-mode-hook
-            (lambda ()
-              (local-set-key (kbd "C-c C-d") 'tern-get-docs)
-              ))
+            (lambda () (local-set-key (kbd "C-c C-d") 'tern-get-docs)))
 
   ;; [ company-tern ] -- Tern backend for company-mode.
   (use-package company-tern
@@ -275,9 +249,7 @@
   :ensure t
   :defer t
   :commands (run-skewer skewer-mode skewer-html-mode skewer-css-mode)
-  :init
-  (skewer-setup)
-  (add-hook 'js2-mode-hook 'skewer-mode)
+  :init (skewer-setup)
   (add-to-list 'display-buffer-alist
                '("\\*skewer-repl\\*" . (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
@@ -291,9 +263,8 @@
   :ensure t
   :defer t
   :commands (indium-run-node indium-run-chrome)
-  :init
-  (add-to-list 'display-buffer-alist
-               '("\\*JS REPL\\*" . (display-buffer-below-selected)))
+  :init (add-to-list 'display-buffer-alist
+                     '("\\*JS REPL\\*" . (display-buffer-below-selected)))
   :config
   (setq indium-chrome-executable "google-chrome-unstable")
   ;; live JavaScript source edit and update.
@@ -305,7 +276,6 @@
                (format "window.dispatchEvent(new CustomEvent('patch', {detail: {url: '%s'}}))" url))))
   )
 
-
 ;;; [ lsp-javascript-typescript ] -- Javascript and Typescript support for lsp-mode using javascript-typescript-langserver.
 
 ;; (use-package lsp-javascript-typescript
@@ -318,7 +288,6 @@
 ;;   (add-hook 'rjsx-mode #'lsp-mode) ;; for rjsx-mode support
 ;;   )
 
-
 ;;; [ jsx-mode ] -- The XML inside of JavaScript.
 
 ;; (use-package jsx-mode
@@ -330,7 +299,6 @@
 ;;               (tern-mode 1)))
 ;;   )
 
-
 ;;; [ js-doc ] -- Insert JsDoc style comment easily.
 
 ;; (use-package js-doc
@@ -348,7 +316,6 @@
 ;;         js-doc-license "GPL3")
 ;;   )
 
-
 ;;; [ import-js ] -- A tool to simplify importing JS modules.
 
 ;; (use-package import-js
