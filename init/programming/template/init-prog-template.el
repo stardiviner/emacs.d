@@ -18,6 +18,10 @@
 ;;; [ tempo-snippets ]
 
 
+;;; [ skeleton ] -- Lisp language extension for writing statement skeletons.
+
+;; (require 'skeleton)
+
 ;;; [ auto-insert ]
 
 (use-package autoinsert
