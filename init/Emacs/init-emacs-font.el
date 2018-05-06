@@ -14,6 +14,10 @@
 (defun my-font-settings ()
   "Set Emacs font."
   (interactive)
+  ;; set Unicode characters font
+  (when (member "Symbola" (font-family-list))
+    (set-fontset-font t 'unicode "Symbola" nil 'prepend))
+  
   ;; set CJK font
   (dolist (charset '(kana han symbol cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font)
