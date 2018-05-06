@@ -185,18 +185,6 @@
   (add-to-list 'display-buffer-alist
                '("^\\*company-documentation\\*" . (display-buffer-below-selected)))
 
-;;; [ company-childframe ] -- use a child-frame as company candidate menu.
-
-;; (use-package company-childframe
-;;   :ensure t
-;;   :config
-;;   (company-childframe-mode 1)
-;;   ;; (add-to-list 'company-frontends 'company-childframe-frontend)
-;;   ;; fix `desktop-save-mode' record and enable `company-childframe' on all buffers.
-;;   (require 'desktop)
-;;   (push '(company-childframe-mode . nil) desktop-minor-mode-table)
-;;   )
-
 ;;; [ company-mode in minibuffer `M-:' ]
 
 (defun company-mode-minibuffer-setup ()
@@ -210,69 +198,82 @@
 
 (add-hook 'eval-expression-minibuffer-setup-hook 'company-mode-minibuffer-setup)
 
+;;; [ company-childframe ] -- use a child-frame as company candidate menu.
+
+;; (use-package company-childframe
+;;   :ensure t
+;;   :config
+;;   (company-childframe-mode 1)
+;;   ;; (add-to-list 'company-frontends 'company-childframe-frontend)
+;;   ;; fix `desktop-save-mode' record and enable `company-childframe' on all buffers.
+;;   (require 'desktop)
+;;   (push '(company-childframe-mode . nil) desktop-minor-mode-table)
+;;   )
+
 ;;; [ company-box ] -- A company front-end with icons.
 
-(use-package company-box
-  :ensure t
-  :ensure all-the-icons
-  :hook (company-mode . company-box-mode)
-  :init (require 'all-the-icons)
-  :config
-  (setq company-box-doc-delay 0.3)
-  (define-key company-active-map (kbd "M-h") nil)
-  (define-key company-box-mode-map (kbd "M-h") 'company-box-doc)
-
-  (defun my:company-box-faces-setup (theme)
-    "Reload company-box faces on `circadian' `THEME' toggling."
-    (set-face-attribute 'company-box-candidate nil
-                        :inherit nil
-                        :family (face-attribute 'default :family)
-                        :foreground (face-foreground 'default))
-    (set-face-attribute 'company-box-selection nil
-                        :inherit 'company-tooltip-selection)
-    (set-face-attribute 'company-box-background nil
-                        :background (face-background 'company-tooltip)))
-  (add-hook 'circadian-after-load-theme-hook #'my:company-box-faces-setup)
-
-  (setq company-box-backends-colors
-        '((company-capf . (:icon "LightSeaGreen"))
-          (company-keywords . (:all "tomato"))
-          (company-files . (:all "CornflowerBlue"))
-          (company-yasnippet . (:icon "#7C4Dff"
-                                      :candidate "purple" :annotation "gray"
-                                      :selected (:background "purple" :foreground "white")))
-          (company-tempo . (:all "chocolate"))
-          (company-dabbrev . (:all "khaki"))
-          (company-dabbrev-code . (:all "dark khaki"))
-          ;; extra backends
-          (company-elisp . (:icon "firebrick"))
-          (sly-company . (:icon "RoyalBlue"))
-          (company-slime . (:icon "RoyalBlue"))
-          (geiser-company-backend . (:icon "SlateBlue"))
-          (elpy-company-backend . (:icon "orange"))
-          (company-robe . (:icon "red1"))
-          (company-c-headers . (:icon "DarkGoldenrod"))
-          (company-irony . (:icon "DodgerBlue"))
-          (company-irony-c-headers . (:icon "DarkGoldenrod"))
-          (company-go . (:icon "SandyBrown"))
-          (company-racer . (:icon "SteelBlue"))
-          (company-tern . (:icon "yellow3"))
-          (company-lua . (:icon "LightBlue"))
-          (company-edbi . (:icon "DarkGreen"))
-          (company-restclient . (:icon "DarkTurquoise"))
-          ))
-
-  (setq company-box-icons-unknown (all-the-icons-faicon "code" :height 0.9 :v-adjust -0.05))
-  (setq company-box-icons-yasnippet (all-the-icons-faicon "file-code-o" :height 0.8 :v-adjust -0.05))
-  (setq company-box-icons-elisp (list
-                                 ;; "λ" ; function/method
-                                 (all-the-icons-material "functions" :v-adjust -0.15 :height 0.9)
-                                 ;; (all-the-icons-faicon "hashtag")
-                                 "v" ; variable
-                                 (all-the-icons-octicon "package" :height 0.9 :v-adjust -0.05) ; library
-                                 (all-the-icons-faicon "font" :height 0.8 :v-adjust -0.05) ; face
-                                 ))
-  )
+;; (use-package company-box
+;;   :ensure t
+;;   :ensure all-the-icons
+;;   :hook (company-mode . company-box-mode)
+;;   :init (require 'all-the-icons)
+;;   :config
+;;   ;; (setq company-box-limit 10)
+;;   (setq company-box-doc-delay 0.3)
+;;   (define-key company-active-map (kbd "M-h") nil)
+;;   (define-key company-box-mode-map (kbd "M-h") 'company-box-doc)
+;;
+;;   (defun my:company-box-faces-setup (theme)
+;;     "Reload company-box faces on `circadian' `THEME' toggling."
+;;     (set-face-attribute 'company-box-candidate nil
+;;                         :inherit nil
+;;                         :family (face-attribute 'default :family)
+;;                         :foreground (face-foreground 'default))
+;;     (set-face-attribute 'company-box-selection nil
+;;                         :inherit 'company-tooltip-selection)
+;;     (set-face-attribute 'company-box-background nil
+;;                         :background (face-background 'company-tooltip)))
+;;   (add-hook 'circadian-after-load-theme-hook #'my:company-box-faces-setup)
+;;
+;;   (setq company-box-backends-colors
+;;         '((company-capf . (:icon "LightSeaGreen"))
+;;           (company-keywords . (:all "tomato"))
+;;           (company-files . (:all "CornflowerBlue"))
+;;           (company-yasnippet . (:icon "#7C4Dff"
+;;                                       :candidate "purple" :annotation "gray"
+;;                                       :selected (:background "purple" :foreground "white")))
+;;           (company-tempo . (:all "chocolate"))
+;;           (company-dabbrev . (:all "khaki"))
+;;           (company-dabbrev-code . (:all "dark khaki"))
+;;           ;; extra backends
+;;           (company-elisp . (:icon "firebrick"))
+;;           (sly-company . (:icon "RoyalBlue"))
+;;           (company-slime . (:icon "RoyalBlue"))
+;;           (geiser-company-backend . (:icon "SlateBlue"))
+;;           (elpy-company-backend . (:icon "orange"))
+;;           (company-robe . (:icon "red1"))
+;;           (company-c-headers . (:icon "DarkGoldenrod"))
+;;           (company-irony . (:icon "DodgerBlue"))
+;;           (company-irony-c-headers . (:icon "DarkGoldenrod"))
+;;           (company-go . (:icon "SandyBrown"))
+;;           (company-racer . (:icon "SteelBlue"))
+;;           (company-tern . (:icon "yellow3"))
+;;           (company-lua . (:icon "LightBlue"))
+;;           (company-edbi . (:icon "DarkGreen"))
+;;           (company-restclient . (:icon "DarkTurquoise"))
+;;           ))
+;;
+;;   (setq company-box-icons-unknown (all-the-icons-faicon "code" :height 0.9 :v-adjust -0.05))
+;;   (setq company-box-icons-yasnippet (all-the-icons-faicon "file-code-o" :height 0.8 :v-adjust -0.05))
+;;   (setq company-box-icons-elisp (list
+;;                                  ;; "λ" ; function/method
+;;                                  (all-the-icons-material "functions" :v-adjust -0.15 :height 0.9)
+;;                                  ;; (all-the-icons-faicon "hashtag")
+;;                                  "v" ; variable
+;;                                  (all-the-icons-octicon "package" :height 0.9 :v-adjust -0.05) ; library
+;;                                  (all-the-icons-faicon "font" :height 0.8 :v-adjust -0.05) ; face
+;;                                  ))
+;;   )
 
 
 (provide 'init-company-mode)
