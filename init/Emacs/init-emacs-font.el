@@ -15,19 +15,20 @@
   "Set Emacs font."
   (interactive)
   ;; set Unicode characters font
-  (when (member "Symbola" (font-family-list))
-    (set-fontset-font t 'unicode "Symbola" nil 'prepend))
-  
-  ;; set CJK font
-  (dolist (charset '(kana han symbol cjk-misc bopomofo))
-    (set-fontset-font (frame-parameter nil 'font)
-                      charset
-                      ;; (font-spec :family "Noto Sans CJK SC" :size 13)
-                      ;; (font-spec :family "Source Han" :size 12)
-                      ;; (font-spec :family "Hack" :size 12)
-                      (font-spec :family "WenQuanYi Micro Hei" :size 13)
-                      ;; (font-spec :family "NSimSun" :size 13)
-                      ))
+  (when (display-graphic-p) ; for `set-fontset-font'
+    (when (member "Symbola" (font-family-list))
+      (set-fontset-font t 'unicode "Symbola" nil 'prepend))
+    
+    ;; set CJK font
+    (dolist (charset '(kana han symbol cjk-misc bopomofo))
+      (set-fontset-font (frame-parameter nil 'font)
+                        charset
+                        ;; (font-spec :family "Noto Sans CJK SC" :size 13)
+                        ;; (font-spec :family "Source Han" :size 12)
+                        ;; (font-spec :family "Hack" :size 12)
+                        (font-spec :family "WenQuanYi Micro Hei" :size 13)
+                        ;; (font-spec :family "NSimSun" :size 13)
+                        )))
   
   ;; need to modify English font settings to suitable with chinese font.
   ;; the value is in 1/10pt, so 100 will give you 10pt, etc
