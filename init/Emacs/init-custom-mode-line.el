@@ -70,14 +70,6 @@ to the command loop."
 
 ;;; mode-line indicator fragments
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;;; active window indicator
-(defun *current ()
-  "Display an indicator when current selected buffer."
-  (if (mode-line-window-active-p)
-      (propertize "▌" 'face 'mode-line-data-face)
-    (propertize " ")))
-
 ;; emacsclient indicator
 (defun *emacsclient ()
   "Show whether emacsclient is active."
@@ -150,13 +142,11 @@ to the command loop."
     (if (bound-and-true-p projectile-mode)
         (propertize
          (concat
-          " ["
-          (all-the-icons-octicon "file-directory" :v-adjust -0.05 :height 0.9)
           " "
+          (all-the-icons-faicon "folder-o" :v-adjust -0.05 :height 0.9)
           ;; `projectile-mode-line'
-          (propertize (projectile-project-name)
-                      'face (if (mode-line-window-active-p) 'mode-line 'mode-line-inactive))
-          "] "
+          (projectile-project-name)
+          " "
           ))))
   )
 
@@ -167,17 +157,17 @@ to the command loop."
   :config
   (defun *eyebrowse ()
     "Displays `default-directory', for special buffers like the scratch buffer."
-    (concat
-     ;; (all-the-icons-octicon "steps" :v-adjust -0.1)
-     (propertize
-      ;; `eyebrowse-mode-line-indicator'
-      (let ((current-slot-number (eyebrowse--get 'current-slot))
-            (current-slot-tag (cadr (alist-get
-                                     (eyebrowse--get 'current-slot)
-                                     (eyebrowse--get 'window-configs))))
-            (slot-numbers (length (eyebrowse--get 'window-configs))))
-	      (format "{%s:%s} " current-slot-number current-slot-tag)))
-     ))
+    ;; `eyebrowse-mode-line-indicator'
+    (let ((current-slot-tag (cadr (alist-get
+                                   (eyebrowse--get 'current-slot)
+                                   (eyebrowse--get 'window-configs))))
+          ;; (current-slot-number (eyebrowse--get 'current-slot))
+          ;; (slot-numbers (length (eyebrowse--get 'window-configs)))
+          )
+      (when current-slot-tag
+        (concat
+         (all-the-icons-faicon "codepen" :v-adjust -0.1)
+         (propertize (format " %s " current-slot-tag))))))
   )
 
 ;; (use-package perspeen
@@ -233,7 +223,6 @@ Including the current working directory, the file name, and its
 state (modified, read-only or non-existent)."
   (propertize
    (concat
-    (propertize " ")
     ;; buffer modify status
     (cond
      ((string-equal (format-mode-line "%*") "*") ; modified
@@ -336,9 +325,7 @@ state (modified, read-only or non-existent)."
 ;;; line & column position info
 (defun *linum-info ()
   "Show line & column position info."
-  (propertize " [%l:%c %p] "
-              'face '(:height 0.8))
-  )
+  (propertize " [%l:%c %p] " 'face '(:height 0.8)))
 
 ;;; pdf-tools page position
 (use-package pdf-tools
@@ -479,7 +466,7 @@ state (modified, read-only or non-existent)."
          ('Hg
           (all-the-icons-faicon "cloud" :v-adjust -0.05))
          (t (format "%s" vc-mode)))
-       (propertize " ")
+       (propertize "^")
        (cond ((memq state '(edited added))
               (if active (setq face 'mode-line))
               (all-the-icons-octicon "git-branch" :face face :v-adjust -0.05))
@@ -1143,7 +1130,7 @@ dimensions of a block selection."
                   (*company-lighter)
                   ))
            (lhs (list
-                 (*current)
+                 (propertize "•")
                  ;; (*window-number)
                  (*ace-window)
                  (if (= (length meta) 0) "" meta)
@@ -1188,10 +1175,10 @@ dimensions of a block selection."
                  (*eyebrowse)
                  ;; (*perspeen)
                  ;; (*purpose)
-                 ;; (*major-mode)
-                 (propertize (format-mode-line "%m" mode-name))
+                 (*major-mode)
+                 ;; (propertize (format-mode-line "%m" mode-name))
                  (*env)
-                 (*space 2)
+                 (*space 3)
                  ))
            (mid (propertize
                  " "
