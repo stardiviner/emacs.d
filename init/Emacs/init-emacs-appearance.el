@@ -205,19 +205,18 @@
 
 ;;; [ beacon ] -- highlight the cursor whenever the window scrolls.
 
-;; (use-package beacon
-;;   :ensure t
-;;   :defer t
-;;   :init (beacon-mode 1)
-;;   :config
-;;   (setq beacon-blink-when-point-moves-vertically 10
-;;         beacon-blink-when-point-moves-horizontally 20
-;;         beacon-blink-when-focused t
-;;         beacon-blink-duration 0.2
-;;         beacon-blink-delay 0.2
-;;         beacon-size 30
-;;         beacon-color 0.5)
-;;   )
+(use-package beacon
+  :ensure t
+  :defer t
+  :init (beacon-mode 1)
+  :config
+  (setq beacon-blink-when-point-moves-vertically 10
+        beacon-blink-when-point-moves-horizontally 20
+        beacon-blink-when-focused t
+        beacon-size 60
+        beacon-blink-duration (/ (- beacon-size 10) 100.0)
+        beacon-color "deep pink")
+  )
 
 ;;; [ all-the-icons ] -- A utility package to collect various Icon Fonts and propertize them within Emacs.
 
