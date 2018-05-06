@@ -67,8 +67,8 @@
 (use-package git-gutter+
   :ensure t
   :defer t
-  ;; :init (add-hook 'prog-mode-hook #'git-gutter+-mode)
-  ;; (global-git-gutter+-mode t) ; very heavy performance on Org-mode buffer.
+  :preface (setq git-gutter+-disabled-modes '(asm-mode image-mode))
+  :init (add-hook 'prog-mode-hook #'git-gutter+-turn-on)
   :bind (:map git-gutter-prefix
               ("t" . git-gutter+-mode) ; Turn on/off in the current buffer
               ("T" . global-git-gutter+-mode) ; Turn on/off globally
@@ -106,11 +106,6 @@
               ("m u" . git-gutter:update-all-windows)
               )
   :config
-  (setq git-gutter+-disabled-modes '(asm-mode image-mode)
-        ;; hide gutter if there are no changes
-        git-gutter+-hide-gutter t
-        ;; pass option to 'git diff' command: -w: ignore all spaces
-        git-gutter+-diff-option "-w")
   (add-to-list 'display-buffer-alist
                '("\\*git-gutter+-diff\\*" . (display-buffer-below-selected)))
   )
