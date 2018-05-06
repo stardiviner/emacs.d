@@ -22,6 +22,10 @@
   :ensure t
   :defer t)
 
+(use-package lxc-tramp ; Tramp integration for LXC containers.
+  :ensure t
+  :defer t)
+
 
 (provide 'init-container)
 
