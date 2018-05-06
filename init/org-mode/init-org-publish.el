@@ -21,12 +21,12 @@
       '((path . "https://orgmode.org/org-info.js")
         (view . "info")
         (toc . :with-toc)
-        (ftoc . "1")
+        (ftoc . "2") ; fixed TOC
         (tdepth . "max")
         (sdepth . "max")
         (mouse . "underline")
         (buttons . "0")
-        (ltoc . "2")
+        (ltoc . "3") ; local TOC
         (up . :html-link-up)
         (home . :html-link-home)))
 
