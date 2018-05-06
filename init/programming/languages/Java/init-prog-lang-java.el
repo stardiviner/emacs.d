@@ -34,6 +34,12 @@
 ;; (add-to-list 'org-babel-default-header-args:java
 ;;              '(:cmdline . "-cp ."))
 
+;;; [ lsp-intellij ] -- Emacs client for lsp-intellij-server.
+
+(use-package lsp-intellij
+  :ensure t
+  :init (add-hook 'java-mode-hook #'lsp-intellij-enable))
+
 ;;; [ Eclim ]
 
 ;; (use-package eclim
