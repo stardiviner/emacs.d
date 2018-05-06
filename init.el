@@ -226,7 +226,7 @@
 
 
 ;;; Programming Languages
-;; (require 'init-prog-language-server-protocol)
+(require 'init-prog-lsp)
 
 (require 'init-prog-lang-lisp)
 (require 'init-prog-lang-emacs-lisp)

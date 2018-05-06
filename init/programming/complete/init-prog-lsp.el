@@ -1,4 +1,4 @@
-;;; init-prog-language-server-protocol.el --- init for Language Server Protocol
+;;; init-prog-lsp.el --- init for Language Server Protocol
 
 ;;; Commentary:
 
@@ -11,28 +11,25 @@
 (use-package lsp-mode
   :ensure t
   :defer t
-  :preface
-  (setq lsp-enable-flycheck nil
-        lsp-enable-indentation nil
-        lsp-highlight-symbol-at-point nil)
-  :init
-  (add-hook 'prog-mode-hook #'lsp-mode)
-  (with-eval-after-load 'lsp-mode
-    (require 'lsp-flycheck))
+  :preface (setq lsp-enable-flycheck nil
+                 lsp-enable-indentation nil
+                 lsp-highlight-symbol-at-point nil)
+  :init (add-hook 'prog-mode-hook #'lsp-mode)
   :config
+  ;; [ lsp-ui ] -- UI modules for lsp-mode.
+  (use-package lsp-ui
+    :ensure t
+    :init (add-hook 'lsp-after-open-hook #'lsp-ui-mode))
+  ;; [ company-lsp ] -- company-mode completion backend for lsp-mode.
   (use-package company-lsp
     :ensure t
+    :init (push 'company-lsp company-backends)
     :config
-    (push 'company-lsp company-backends)
     (setq company-lsp-enable-recompletion t
           company-lsp-enable-snippet t
           company-lsp-cache-candidates t
           company-lsp-async t)
     )
-
-  ;; [ lsp-ui ] -- UI modules for lsp-mode.
-  (use-package lsp-ui
-    :ensure t)
   )
 
 
@@ -49,6 +46,6 @@
   :ensure t)
 
 
-(provide 'init-prog-language-server-protocol)
+(provide 'init-prog-lsp)
 
-;;; init-prog-language-server-protocol.el ends here
+;;; init-prog-lsp.el ends here
