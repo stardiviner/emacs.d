@@ -29,6 +29,7 @@
           helm-source-recentf
           helm-source-buffer-not-found
           ))
+  (setq helm-org-headings-fontify t)
   )
 
 
