@@ -43,6 +43,8 @@
 (setq org-format-latex-options
       (plist-put org-format-latex-options :html-scale 2.0)) ; adjust HTML exporting LaTeX image size.
 
+(setq org-latex-prefer-user-labels t)
+
 ;;; [ webkit-katex-render ] -- An instant Latex Previewer for Emacs.
 
 ;; (use-package webkit-katex-render
