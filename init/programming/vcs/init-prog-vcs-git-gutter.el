@@ -68,7 +68,9 @@
   :ensure t
   :defer t
   :preface (setq git-gutter+-disabled-modes '(asm-mode image-mode))
-  :init (add-hook 'prog-mode-hook #'git-gutter+-turn-on)
+  :init
+  (autoload 'git-gutter+-turn-on "git-gutter+")
+  (add-hook 'prog-mode-hook #'git-gutter+-turn-on)
   :bind (:map git-gutter-prefix
               ("t" . git-gutter+-mode) ; Turn on/off in the current buffer
               ("T" . global-git-gutter+-mode) ; Turn on/off globally
