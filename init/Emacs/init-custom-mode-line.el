@@ -139,15 +139,17 @@ to the command loop."
 
   (defun *projectile ()
     "Show projectile project info."
-    (if (bound-and-true-p projectile-mode)
-        (propertize
-         (concat
-          " "
-          (all-the-icons-faicon "folder-o" :v-adjust -0.05 :height 0.9)
-          ;; `projectile-mode-line'
-          (projectile-project-name)
-          " "
-          ))))
+    ;; `projectile-mode-line'
+    (unless (and (bound-and-true-p projectile-mode)
+                 (local-variable-if-set-p 'projectile-project-name))
+      (make-local-variable 'projectile-project-name)
+      (setq-local projectile-project-name (projectile-project-name)))
+    (if projectile-project-name
+        (propertize (concat
+                     " "
+                     (all-the-icons-faicon "folder-o" :v-adjust -0.05 :height 0.9)
+                     projectile-project-name
+                     " "))))
   )
 
 ;;; eyebrowse
@@ -155,19 +157,22 @@ to the command loop."
   :ensure t
   :custom (eyebrowse-keymap-prefix (kbd "C-x w"))
   :config
+  (defvar-local my/eyebrowse-current-slot-tag nil)
   (defun *eyebrowse ()
     "Displays `default-directory', for special buffers like the scratch buffer."
     ;; `eyebrowse-mode-line-indicator'
-    (let ((current-slot-tag (cadr (alist-get
-                                   (eyebrowse--get 'current-slot)
-                                   (eyebrowse--get 'window-configs))))
-          ;; (current-slot-number (eyebrowse--get 'current-slot))
-          ;; (slot-numbers (length (eyebrowse--get 'window-configs)))
-          )
-      (when current-slot-tag
+    (unless (bound-and-true-p my/eyebrowse-current-slot-tag)
+      (let ((current-slot-tag (cadr (alist-get
+                                     (eyebrowse--get 'current-slot)
+                                     (eyebrowse--get 'window-configs))))
+            ;; (current-slot-number (eyebrowse--get 'current-slot))
+            ;; (slot-numbers (length (eyebrowse--get 'window-configs)))
+            )
+        (setq-local my/eyebrowse-current-slot-tag current-slot-tag)))
+    (if my/eyebrowse-current-slot-tag
         (concat
          (all-the-icons-faicon "codepen" :v-adjust -0.1)
-         (propertize (format " %s " current-slot-tag))))))
+         (propertize (format " %s " my/eyebrowse-current-slot-tag)))))
   )
 
 ;; (use-package perspeen
@@ -483,7 +488,7 @@ state (modified, read-only or non-existent)."
               (if active (setq face 'mode-line))
               (all-the-icons-octicon "git-compare" :face face :v-adjust -0.05)))
        (propertize (substring vc-mode (+ (if (eq backend 'Hg) 2 3) 2))
-                   'face (if active `mode-line-warn-face))
+                   'face (if active `mode-line-data-face))
        ))))
 
 ;;; flycheck
@@ -696,8 +701,7 @@ dimensions of a block selection."
 ;;   (defun *wc-mode ()
 ;;     "Show wc-mode word count."
 ;;     (when (and (featurep 'wc-mode) wc-mode)
-;;       (propertize (wc-format-modeline-string " Words:[%tw]")
-;;                   'face (if (mode-line-window-active-p) 'mode-line))
+;;       (propertize (wc-format-modeline-string " Words:[%tw]")))
 ;;       ))
 ;;   )
 
@@ -784,15 +788,11 @@ dimensions of a block selection."
                            :v-adjust -0.05 :height 0.9)
      (propertize " ")
      ;; get [0:05] from `org-clock-get-clock-string'
-     (propertize
-      (format "%s" (org-duration-from-minutes (org-clock-get-clocked-time))))
+     (propertize (format "%s" (org-duration-from-minutes (org-clock-get-clocked-time))))
      ;; get clocking task title
-     (propertize
-      (format " %s" (s-truncate 30 org-clock-heading))
-      'face 'mode-line)
+     (propertize (format " %s" (s-truncate 30 org-clock-heading)))
      (propertize " "))
-    )
-  )
+    ))
 
 
 ;;; [ org-clock-today ] -- show the total clocked time of the current day in the mode line.
@@ -950,7 +950,7 @@ dimensions of a block selection."
 ;;           (if (rtags-is-indexed)
 ;;               (all-the-icons-faicon "codepen" :v-adjust -0.05))
 ;;           (propertize " "))
-;;          'face 'mode-line)))
+;;          )))
 ;;   ;; (add-hook 'rtags-diagnostics-hook #'force-mode-line-update)
 ;;   )
 
@@ -1130,16 +1130,16 @@ dimensions of a block selection."
                   (*company-lighter)
                   ))
            (lhs (list
-                 (propertize "•")
+                 ;; (propertize "•")
                  ;; (*window-number)
-                 (*ace-window)
+                 ;; (*ace-window)
                  (if (= (length meta) 0) "" meta)
                  (*buffer-info)
                  ;; (*bookmark)
                  (*buffer-name)
                  ;; mode-line-frame-identification
                  (*buffer-encoding)
-                 (*linum-info)
+                 ;; (*linum-info)
                  ;; (*wc-mode)
                  (*pdf-tools-page-position)
                  (*org-tree-slide)
