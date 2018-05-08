@@ -734,14 +734,8 @@ dimensions of a block selection."
   :ensure t
   :config
   (defun *spinner ()
-    "Show spinner with `spinner--mode-line-construct' in custom mode-line."
-    ;; TODO: change spinner
-    ;; (spinner-start 'vertical-breathing)
-    
-    (if (or (get-process "arduino-upload") (get-process "arduino-verify") (get-process "arduino-open"))
-        '(:eval (propertize (spinner-print spinner-current)
-                            'face 'mode-line-data-face)))
-    ))
+    "Show current buffer local spinner with in custom mode-line."
+    '(:eval (spinner-print spinner-current))))
 
 ;; notifications
 ;; IRC
