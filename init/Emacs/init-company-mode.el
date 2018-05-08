@@ -193,8 +193,7 @@
   (company-box-mode -1)
   (setq-local company-frontends '(company-pseudo-tooltip-frontend))
   (setq-local company-tooltip-limit 4)
-  (setq-local company-tooltip-minimum 1)
-  )
+  (setq-local company-tooltip-minimum 1))
 
 (add-hook 'eval-expression-minibuffer-setup-hook 'company-mode-minibuffer-setup)
 
@@ -240,7 +239,12 @@
     (set-face-attribute 'company-box-selection nil
                         :inherit 'company-tooltip-selection)
     (set-face-attribute 'company-box-background nil
-                        :background (face-background 'company-tooltip)))
+                        :background (face-background 'default))
+    (add-to-list 'company-box-frame-parameters
+                 `(background-color . ,(face-background 'default)))
+    (add-to-list 'company-box-frame-parameters
+                 `(foreground-color . ,(face-foreground 'default)))
+    )
   (add-hook 'circadian-after-load-theme-hook #'my:company-box-faces-setup)
 
   (setq company-box-backends-colors
