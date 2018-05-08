@@ -22,7 +22,17 @@
 (add-to-list 'auth-sources (concat user-emacs-directory "secrets/.authinfo.gpg"))
 ;; Auth Source debugging
 ;; (setq auth-source-debug t)
-(car (aref (aref (plist-get (car (auth-source-search :host "api.heroku.com")) :secret) 2) 0))
+
+(defun my:auth-source-get (query-key query-value get-key)
+  "Get :secret of QUERY matched auth-source entries.
+Usage: (my:auth-source-get :host \"api.heroku.com\" :user)"
+  (pcase get-key
+    (:secret
+     (car (aref (aref (plist-get (car (auth-source-search query-key query-value)) :secret) 2) 0)))
+    (:user
+     (plist-get (car (auth-source-search query-key query-value)) :user))
+    (:host
+     (plist-get (car (auth-source-search query-key query-value)) :host))))
 
 ;;; [ Secrets ] -- presenting password entries retrieved by Security Service from freedesktop.org.
 
