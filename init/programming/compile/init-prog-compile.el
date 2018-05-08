@@ -16,6 +16,8 @@
 
 (add-to-list 'display-buffer-alist
              '("^\\*compilation\\*" (display-buffer-below-selected)))
+(add-to-list 'display-buffer-alist
+             '("^\\*Compile-Log\\*" (display-buffer-below-selected)))
 
 ;;; [ quickrun ] -- Run command quickly.
 
