@@ -86,49 +86,39 @@
   :bind (:map cider-doc-map
               ("c" . helm-cider-cheatsheet)
               ("C-c" . helm-cider-cheatsheet))
-  :init
-  (add-hook 'clojure-mode-hook #'cider-mode)
+  :init (add-hook 'clojure-mode-hook #'cider-mode)
+  ;; manage CIDER popup buffers.
+  (add-to-list 'display-buffer-alist
+               '("^\\*cider-.*\\*" (display-buffer-reuse-window display-buffer-below-selected)))
+  (add-to-list 'display-buffer-alist
+               '("^\\*nrepl-.*\\*" (display-buffer-reuse-window display-buffer-below-selected)))
   :config
-  (setq cider-auto-mode t
-        ;; cider-repl-pop-to-buffer-on-connect nil
-        cider-auto-select-error-buffer t
-        ;; nrepl-log-messages t
+  ;; Clojure
+  ;; (setq cider-default-repl-command "lein") ; TODO: change to use "clojure-clj" in future.
+  ;; ClojureScript
+  ;; (setq cider-default-cljs-repl "Figwheel") ; "Nashorn"
 
-        ;; Leiningen parameters
-        ;; cider-lein-global-options "-o" ; -o:  for offline
-        ;; cider-lein-parameters "repl :headless :host ::"
-
-        ;; resources
-        ;; cider-prefer-local-resources t
-
-        ;; font-lock
-        cider-font-lock-dynamically '(macro core deprecated function)
-
-        ;; indentation
-        cider-dynamic-indentation nil
-
-        ;; REPL
-        cider-repl-result-prefix ";; => "
-        ;; cider-known-endpoints '(("host-a" "10.10.10.1" "7888") ("host-b" "7888"))
-        ;; cider-repl-use-pretty-printing nil ; conflict with `cider-repl-use-content-types'
-        ;; cider-repl-use-content-types t
-        ;; cider-pprint-fn 'fipp
-
-        ;; spinner
-        cider-eval-spinner-type 'horizontal-breathing
-        )
-
-  ;; macroexpansion
-  (setq cider-macroexpansion-print-metadata t)
+  (setq
+   ;; resources
+   ;; cider-prefer-local-resources t
+   ;; font-lock
+   cider-font-lock-dynamically '(macro core deprecated function)
+   ;; indentation
+   cider-dynamic-indentation nil
+   ;; REPL
+   cider-repl-result-prefix ";; => "
+   ;; spinner
+   cider-eval-spinner-type 'horizontal-breathing
+   )
 
   ;; annotations
   ;; remove "<>" from "<annontaion>"
-  (defun my/cider-default-annotate-completion-function (type ns)
-    "Get completion function based on TYPE and NS."
-    (concat (when ns (format " (%s)" ns))
-            (when type (format " %s" type))))
-  (setq cider-annotate-completion-function #'my/cider-default-annotate-completion-function)
-  
+  ;; (defun my/cider-default-annotate-completion-function (type ns)
+  ;;   "Get completion function based on TYPE and NS."
+  ;;   (concat (when ns (format " (%s)" ns))
+  ;;           (when type (format " %s" type))))
+  ;; (setq cider-annotate-completion-function #'my/cider-default-annotate-completion-function)
+  ;;
   ;; (setq cider-completion-annotations-alist
   ;;       `(("function" ,(all-the-icons-faicon "gg" :height 0.9 :v-adjust -0.05))
   ;;         ("method" ,(all-the-icons-material "functions" :height 0.9 :v-adjust -0.05))
@@ -147,8 +137,6 @@
   ;;         ("import" ,(all-the-icons-octicon "package" :height 0.9 :v-adjust -0.05))
   ;;         ))
 
-  ;; Java
-
   ;; Enlighten faces
   ;; `cider-enlighten-mode' will extremely slow down Clojure/CIDER evaluation.
   ;; (add-hook 'cider-mode-hook #'cider-enlighten-mode)
@@ -157,9 +145,6 @@
   ;; `cider-complete-at-point' in `completion-at-point-functions'
   (add-hook 'cider-repl-mode-hook #'company-mode)
   (add-hook 'cider-mode-hook #'company-mode)
-  ;; enable fuzzy completion for CIDER
-  ;; (add-hook 'cider-repl-mode-hook #'cider-company-enable-fuzzy-completion)
-  ;; (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion)
 
   ;; (use-package cider-hydra
   ;;   :ensure t
@@ -187,8 +172,7 @@
   ;;             (notifications-notify :title "CIDER connected"
   ;;                                   :body "CIDER process connected.")))
 
-  ;; cider-profile.el [C-c C-=]
-  
+  ;; [ cider-profile ] [C-c C-=]
   
   ;; CIDER inspect command keybindings
   (unless (boundp 'cider-inspect-prefix)
@@ -201,13 +185,6 @@
     (define-key cider-inspect-prefix (kbd "e") 'cider-inspect-last-sexp)
     (define-key cider-inspect-prefix (kbd "i") 'cider-inspect-read-and-inspect))
   (add-hook 'clojure-mode-hook #'my:cider-setup-inspect-keybindings)
-
-  ;; manage CIDER popup buffers.
-  (add-to-list 'display-buffer-alist
-               '("^\\*cider-.*\\*" (display-buffer-reuse-window display-buffer-below-selected)))
-  (add-to-list 'display-buffer-alist
-               '("^\\*nrepl-.*\\*" (display-buffer-reuse-window display-buffer-below-selected)))
-
   
   (defconst cider-metadata-buffer "*cider-metadata*")
   (defun cider-metadata (var &optional ns)
@@ -228,8 +205,7 @@ Optional argument NS, if not provided, defaults to
   ;; [ helm-cider ] -- Helm interface to CIDER.
   (use-package helm-cider
     :ensure t
-    :config
-    (add-hook 'cider-mode-hook #'helm-cider-mode))
+    :init (add-hook 'cider-mode-hook #'helm-cider-mode))
 
   ;; bind keybindings to some not-bind wrapping functions in clojure-mode locally.
   (add-hook 'clojure-mode-hook
@@ -238,6 +214,7 @@ Optional argument NS, if not provided, defaults to
               (define-key paredit-mode-map (kbd "M-{") 'paredit-wrap-curly))
             nil 'local)
 
+  ;; REPL history
   (define-key cider-repl-mode-map (kbd "M-r") 'cider-repl-history)
 
   ;; CIDER helper functions
@@ -252,8 +229,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
                             #'(lambda (event)
                                 (notifications-notify
                                  :title "CIDER form evaluation finished.")))
-    (sit-for 5)
-    )
+    (sit-for 5))
   
   ;; (add-hook 'cider-connected-hook
   ;;           #'(lambda ()
@@ -264,13 +240,8 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   ;;               ;; (my/cider-repl-eval "(use '(incanter core stats datasets charts io pdf))")
   ;;               (my/cider-repl-eval "(use '(incanter stats charts))")
   ;;               ) t)
-
-  (setq cider-default-repl-command "lein") ; TODO: change to use "clojure-clj" in future.
-  ;; ClojureScript
-  (setq cider-default-cljs-repl "Figwheel") ; "Nashorn"
   )
 
-
 ;;; run test when load file.
 
 ;; (defun cider-tdd-test ()
@@ -291,17 +262,13 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 ;;
 ;; (add-hook 'clojure-mode-hook 'cider-tdd-mode)
 
-
 ;;; [ debux.el ] -- Integrate Clojure/ClojureScript debugger "Debux" into Emacs.
 
 ;; TODO: https://github.com/philoskim/debux
-
 ;; (use-package debux
 ;;   :load-path "~/Code/Emacs/debux/"
 ;;   ;; :config
 ;;   )
-
-
 
 ;;; [ flycheck-clojure, squiggly-clojure ] --
 
@@ -309,9 +276,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 ;;   :ensure t
 ;;   :defer t
 ;;   :after flycheck
-;;   :init
-;;   (flycheck-clojure-setup))
-
+;;   :init (flycheck-clojure-setup))
 
 ;;; [ clj-refactor ]
 
@@ -359,8 +324,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 ;;   :ensure t
 ;;   :defer t)
 
-
-
+;;; [ ob-clojure ]
 ;;; Org-mode Babel Clojure
 (require 'ob-clojure)
 
@@ -387,7 +351,6 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
              '(:show-process . "no"))
 
 
-
 ;;; [ ob-clojure-literate ] -- Clojure Literate Programming in Org-mode Babel.
 
 (require 'ob-clojure-literate)
@@ -406,7 +369,6 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   )
 
-
 ;;; [ typed-clojure-mode ] -- Typed Clojure minor mode for Emacs.
 
 ;; (use-package typed-clojure-mode
@@ -416,14 +378,12 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 ;;   (add-hook 'clojure-mode-hook 'typed-clojure-mode)
 ;;   )
 
-
 ;;; [ helm-clojuredocs ] -- Searching for help in clojurdocs.org with Helm.
 
 (use-package helm-clojuredocs
   :ensure t
   :defer t
   :bind (:map cider-doc-map ("M-d" . helm-clojuredocs)))
-
 
 ;;; [ elein ] -- running Leiningen commands from Emacs.
 
