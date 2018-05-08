@@ -86,17 +86,22 @@
   (add-hook 'common-lisp-mode-hook 'helm-dash-buffer-local-common-lisp-docsets)
   ;; Clojure
   (defun helm-dash-buffer-local-clojure-docsets ()
-    (setq-local helm-dash-docsets '("Clojure")))
+    (setq-local helm-dash-docsets '("Clojure"))
+    (my-helm-dash-buffer-local-docsets-add '("ClojureDocs")))
   (add-hook 'clojure-mode-hook 'helm-dash-buffer-local-clojure-docsets)
   ;; ClojureScript
   (defun helm-dash-buffer-local-clojurescript-docsets ()
-    (setq-local helm-dash-docsets '("Clojure" "ClojureScript")))
+    (setq-local helm-dash-docsets '("Clojure" "ClojureScript"))
+    (my-helm-dash-buffer-local-docsets-add '("ClojureDocs")))
   (add-hook 'clojurescript-mode-hook 'helm-dash-buffer-local-clojurescript-docsets)
   ;; CIDER REPL
   (defun helm-dash-buffer-local-cider-docsets ()
     (if (eq cider-repl-type "clj")
-        (setq-local helm-dash-docsets '("Clojure"))
-      (setq-local helm-dash-docsets '("Clojure" "ClojureScript"))))
+        (progn
+          (setq-local helm-dash-docsets '("Clojure"))
+          (my-helm-dash-buffer-local-docsets-add '("ClojureDocs")))
+      (setq-local helm-dash-docsets '("Clojure" "ClojureScript"))
+      (my-helm-dash-buffer-local-docsets-add '("ClojureDocs"))))
   (add-hook 'cider-repl-mode-hook 'helm-dash-buffer-local-cider-docsets)
   ;; C
   (defun helm-dash-buffer-local-C-docsets ()
