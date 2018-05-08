@@ -13,6 +13,22 @@
       ;; safe-local-eval-forms
       )
 
+;;; [ password ] -- authentication sources for Gnus and Emacs.
+
+(setq password-cache-expiry nil) ; don't expire password cache.
+
+;;; [ auth-source ]
+
+(add-to-list 'auth-sources (concat user-emacs-directory "secrets/.authinfo.gpg"))
+;; Auth Source debugging
+;; (setq auth-source-debug t)
+(car (aref (aref (plist-get (car (auth-source-search :host "api.heroku.com")) :secret) 2) 0))
+
+;;; [ Secrets ] -- presenting password entries retrieved by Security Service from freedesktop.org.
+
+;; - Variable: `secrets-path'
+;; - Command-Line Utility: `secret-tool'
+
 ;;; [ certificate ]
 
 ;; (require 'tls)

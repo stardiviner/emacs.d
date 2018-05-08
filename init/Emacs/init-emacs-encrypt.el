@@ -11,22 +11,6 @@
   (define-prefix-command 'encrypt-prefix))
 (define-key tools-prefix (kbd "M-e") 'encrypt-prefix)
 
-;;; [ password ]
-
-(setq password-cache-expiry nil) ; don't expire password cache.
-
-
-;;; [ Auth-Source ]
-
-(add-to-list 'auth-sources (concat user-emacs-directory "secrets/.authinfo.gpg"))
-;; Auth Source debugging
-;; (setq auth-source-debug t)
-
-;;; [ Secrets ] -- presenting password entries retrieved by Security Service from freedesktop.org.
-
-;; - Variable: `secrets-path'
-;; - Command-Line Utility: `secret-tool'
-
 ;;; [ EasyPG Assistant ] --- transparent, automatic encryption and decryption.
 
 ;; (use-package pinentry
