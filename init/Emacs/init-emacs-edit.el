@@ -30,8 +30,7 @@
 
 (setq select-enable-clipboard t
       select-enable-primary t
-      select-enable-clipboard-manager t
-      )
+      x-select-enable-clipboard-manager t)
 
 
 
