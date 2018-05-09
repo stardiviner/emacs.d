@@ -217,7 +217,9 @@
   :hook (company-mode . company-box-mode)
   :init (require 'all-the-icons)
   :config
-  (setq company-box-doc-delay 0.3)
+  (setq company-idle-delay .2
+        company-tooltip-idle-delay 0
+        company-box-doc-delay 0.3)
   (define-key company-active-map (kbd "M-h") nil)
   (define-key company-box-mode-map (kbd "M-h") 'company-box-doc)
 
