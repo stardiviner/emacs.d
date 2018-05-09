@@ -239,9 +239,13 @@
     (set-face-attribute 'company-box-selection nil
                         :inherit 'company-tooltip-selection)
     (set-face-attribute 'company-box-background nil
-                        :background (face-background 'default))
+                        :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                      ('light "#ADE7FF")
+                                      ('dark "#454545")))
     (add-to-list 'company-box-frame-parameters
-                 `(background-color . ,(face-background 'default)))
+                 `(background-color . ,(cl-case (alist-get 'background-mode (frame-parameters))
+                                         ('light "#ADE7FF")
+                                         ('dark "#454545"))))
     (add-to-list 'company-box-frame-parameters
                  `(foreground-color . ,(face-foreground 'default)))
     )
