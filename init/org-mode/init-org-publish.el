@@ -16,17 +16,19 @@
 ;;; Allow displaying source code block using "klipse".
 (setq org-html-klipsify-src t)
 
-;;; org-infojs
+(setq org-html-allow-name-attribute-in-anchors t)
+
+;;; org-info.js
 (setq org-html-infojs-options
       '((path . "https://orgmode.org/org-info.js")
-        (view . "info")
+        (view . "showall") ; "info", "overview", "content", "showall"
         (toc . :with-toc)
-        (ftoc . "2") ; fixed TOC
+        (ftoc . "0") ; fixed TOC
         (tdepth . "max")
         (sdepth . "max")
         (mouse . "underline")
         (buttons . "0")
-        (ltoc . "3") ; local TOC
+        (ltoc . "1") ; local TOC
         (up . :html-link-up)
         (home . :html-link-home)))
 
@@ -47,12 +49,6 @@
     (disable-theme my-org-html-export-theme)))
 (with-eval-after-load "ox-org"
   (advice-add 'org-export-to-buffer :around 'my-ox-org-with-theme))
-
-;;; - external CSS.
-;; (setq org-html-htmlize-output-type 'css)
-;; ;; There is a command `org-html-htmlize-generate-css'.
-;; (setq org-org-htmlized-css-url "/assets/stylesheets/theme-spacemacs-dark.css")
-
 
 ;; projects definition
 (setq org-publish-project-alist
