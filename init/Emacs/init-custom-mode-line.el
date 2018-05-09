@@ -1115,7 +1115,7 @@ dimensions of a block selection."
                   ;; (*edebug)
                   (*recursive-editing)
                   (*macro-recording)
-                  (*selection-info)
+                  ;; (*selection-info)
                   (*anzu)
                   (*iedit)
                   (*multiple-cursors)
