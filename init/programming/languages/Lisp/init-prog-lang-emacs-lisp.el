@@ -43,17 +43,6 @@
 ;; (add-to-list 'org-babel-default-header-args:emacs-lisp
 ;;              '(:lexical . "yes"))
 
-
-;;; [ eldoc-eval ] -- Enable eldoc support when minibuffer is in use.
-
-(use-package eldoc-eval
-  :ensure t
-  :config
-  ;; don't use `pp-eval-expression' *Pp Eval Output* buffer
-  (setq eldoc-eval-preferred-function 'eval-expression)
-  (eldoc-in-minibuffer-mode 1))
-
-
 ;;; [ IELM (ELISP interactive) ] -- an REPL for emacs. (Read-Eval-Print-Loop)
 
 (use-package ielm
