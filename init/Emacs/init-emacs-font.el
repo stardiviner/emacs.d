@@ -26,7 +26,7 @@
                         ;; (font-spec :family "Noto Sans CJK SC" :size 13)
                         ;; (font-spec :family "Source Han" :size 12)
                         ;; (font-spec :family "Hack" :size 12)
-                        (font-spec :family "WenQuanYi Micro Hei" :size 13)
+                        (font-spec :family "WenQuanYi Micro Hei" :size 12)
                         ;; (font-spec :family "NSimSun" :size 13)
                         )))
   
