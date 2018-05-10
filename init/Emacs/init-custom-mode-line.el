@@ -41,12 +41,12 @@ to the command loop."
   :group 'mode-line)
 
 (defface mode-line-info-face
-  '((t (:foreground "green yellow")))
+  '((t (:foreground "ForestGreen")))
   "Face used for info segments in mode-line."
   :group 'mode-line)
 
 (defface mode-line-data-face
-  '((t (:foreground "cyan")))
+  '((t (:foreground "DeepSkyBlue")))
   "Face used for info segments in mode-line."
   :group 'mode-line)
 
