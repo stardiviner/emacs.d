@@ -17,6 +17,7 @@
         (tool-bar-lines . 0)
         (menu-bar-lines . 0)
         (scroll-bar . nil)
+        (vertical-scroll-bars . nil)
         ))
 
 (setq initial-frame-alist default-frame-alist)
