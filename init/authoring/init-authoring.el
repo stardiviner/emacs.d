@@ -21,7 +21,7 @@
 
 (use-package org-wc
   :ensure t
-  :defer t)
+  :commands (org-wc-display org-wc-count-subtrees))
 
 ;;; [ wc-mode ] -- minor mode of command `wc' for word counting.
 
