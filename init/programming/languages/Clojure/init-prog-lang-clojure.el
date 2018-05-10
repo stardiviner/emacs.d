@@ -24,7 +24,7 @@
   (add-hook 'clojure-mode-hook #'my-lisp-common-settings)
   
   (autoload 'my-lisp-repl-common-settings "init-prog-lang-lisp.el")
-  (add-hook 'clojure-repl-mode-hook #'my-lisp-repl-common-settings)
+  (add-hook 'cider-repl-mode-hook #'my-lisp-repl-common-settings)
 
   ;; (add-hook 'clojure-mode-hook 'smartparens-strict-mode)
   ;; `subword-mode' is quite useful since we often have to deal with Java class
