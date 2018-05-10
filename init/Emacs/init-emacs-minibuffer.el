@@ -27,7 +27,6 @@
 
 (defun my/minibuffer-lisp-setup ()
   "Setup minibuffer for Lisp editing."
-  (eldoc-mode 1)
   (with-eval-after-load 'rainbow-delimiters
     (rainbow-delimiters-mode-enable))
   (with-eval-after-load 'smartparens
