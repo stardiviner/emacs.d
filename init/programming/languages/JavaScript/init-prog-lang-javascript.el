@@ -21,15 +21,6 @@
 
 ;; (add-to-list 'js-enabled-frameworks 'reat)
 
-;;; auto fill-in in multi-lines comment.
-(defun my/js-mode-auto-fill-comments ()
-  (setq-local comment-auto-fill-only-comments t)
-  (setq-local comment-multi-line t)
-  (local-set-key (kbd "RET") 'c-indent-new-comment-line))
-(dolist (hook '(js-mode-hook js2-mode-hook js3-mode-hook))
-  (add-hook hook #'my/js-mode-auto-fill-comments))
-
-
 ;;; helper keybindings
 
 ;; [C-o] to open a new line upper between {}.
