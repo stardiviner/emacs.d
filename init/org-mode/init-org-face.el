@@ -10,25 +10,6 @@
 (add-hook 'org-mode-hook 'variable-pitch-mode)
 (add-hook 'org-agenda-mode-hook 'variable-pitch-mode)
 
-(set-face-attribute 'italic nil
-                    :slant 'italic
-                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
-                                  ('light "black")
-                                  ('dark "white"))
-                    )
-(set-face-attribute 'bold nil
-                    :weight 'bold
-                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
-                                  ('light "black")
-                                  ('dark "white"))
-                    )
-(set-face-attribute 'bold-italic nil
-                    :weight 'bold :slant 'italic
-                    :foreground (cl-case (alist-get 'background-mode (frame-parameters))
-                                  ('light "black")
-                                  ('dark "white"))
-                    )
-
 ;; Date
 ;; Date: Saturday   27 July 2013
 (set-face-attribute 'org-date nil
