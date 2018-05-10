@@ -226,42 +226,43 @@ to the command loop."
 
 Including the current working directory, the file name, and its
 state (modified, read-only or non-existent)."
-  (propertize
-   (concat
-    ;; buffer modify status
-    (cond
-     ((string-equal (format-mode-line "%*") "*") ; modified
-      (all-the-icons-faicon "chain-broken" :v-adjust -0.0 :face 'mode-line-warn-face))
-     ((string-equal (format-mode-line "%*") "-") ; content saved
-      "")
-     ((string-equal (format-mode-line "%*") "%") ; read-only
-      (all-the-icons-octicon "lock" :v-adjust -0.0 'mode-line-error-face)))
-    ;; process buffer
-    (when (null buffer-file-name)
-      (all-the-icons-faicon "asterisk" :v-adjust -0.05 :face 'mode-line-data-face))
-    ;; Show an indicator for `org-src-mode' minor mode in custom mode-line.
-    (if (and org-src-mode (mode-line-window-active-p))
-        (all-the-icons-faicon "code" :v-adjust -0.05 :face 'mode-line-data-face)
-      ;; not exist file
-      (when (and buffer-file-name (not (file-exists-p buffer-file-name)))
-        (all-the-icons-octicon "circle-slash" :v-adjust -0.05 :face 'mode-line-error-face)))
-    ;; remote file
-    (when (and (not (null (buffer-file-name)))
-               (file-remote-p (buffer-file-name)))
-      (all-the-icons-faicon "server" :v-adjust -0.05 :face 'mode-line-warn-face))
-    ;; encrypted file
-    ;; (when (string-match-p "\\.gpg" (buffer-name))
-    ;;   (all-the-icons-material "enhanced_encryption" :face 'mode-line-info-face))
-    ;; `isearch-mode'
-    ;; (when (and isearch-mode (mode-line-window-active-p))
-    ;;   (all-the-icons-faicon "search" :v-adjust -0.05 :face 'mode-line-info-face))
-    ;; narrow
-    (when (buffer-narrowed-p)
-      (all-the-icons-faicon "align-center" :v-adjust -0.05 :face 'mode-line-data-face))
-    ;; buffer size
-    ;; (format-mode-line "%I")
-    )
+  (concat
+   ;; buffer modify status
+   (pcase (format-mode-line "%*")
+     ;; modified
+     ("*" (all-the-icons-faicon "chain-broken" :v-adjust -0.0 :face 'mode-line-warn-face))
+     ;; content saved
+     ("-" "")
+     ;; read-only
+     ("%" (all-the-icons-octicon "lock" :v-adjust -0.0 'mode-line-error-face)))
+   ;; narrow
+   (when (buffer-narrowed-p)
+     (all-the-icons-faicon "align-center" :v-adjust -0.05 :face 'mode-line-data-face))
+   ;; buffer size
+   ;; (format-mode-line "%I")
    ))
+
+(defun *buffer-type ()
+  "Display icon for current buffer type."
+  ;; process buffer
+  (when (null buffer-file-name)
+    (all-the-icons-faicon "asterisk" :v-adjust -0.05 :face 'mode-line-data-face))
+  ;; Show an indicator for `org-src-mode' minor mode in custom mode-line.
+  ;; (if (and org-src-mode (mode-line-window-active-p))
+  ;;     (all-the-icons-faicon "code" :v-adjust -0.05 :face 'mode-line-data-face)
+  ;;   ;; not exist file
+  ;;   (when (and buffer-file-name (not (file-exists-p buffer-file-name)))
+  ;;     (all-the-icons-octicon "circle-slash" :v-adjust -0.05 :face 'mode-line-error-face)))
+  ;; remote file
+  (when (file-remote-p (buffer-file-name))
+    (all-the-icons-faicon "server" :v-adjust -0.05 :face 'mode-line-warn-face))
+  ;; encrypted file
+  ;; (when (string-match-p "\\.gpg" (buffer-name))
+  ;;   (all-the-icons-material "enhanced_encryption" :face 'mode-line-info-face))
+  ;; `isearch-mode'
+  ;; (when (and isearch-mode (mode-line-window-active-p))
+  ;;   (all-the-icons-faicon "search" :v-adjust -0.05 :face 'mode-line-info-face))
+  )
 
 ;;; buffer encoding
 (defun *buffer-encoding ()
@@ -778,8 +779,8 @@ dimensions of a block selection."
              (org-clock-is-active)
              org-clock-idle-timer)
     (concat
-     (all-the-icons-faicon "hourglass-half"
-                           :v-adjust -0.05 :height 0.9)
+     (propertize " ")
+     (all-the-icons-faicon "hourglass-half" :v-adjust -0.05 :height 0.8)
      (propertize " ")
      ;; get [0:05] from `org-clock-get-clock-string'
      (propertize (format "%s" (org-duration-from-minutes (org-clock-get-clocked-time))))
@@ -1129,6 +1130,7 @@ dimensions of a block selection."
                  ;; (*ace-window)
                  (if (= (length meta) 0) "" meta)
                  (*buffer-info)
+                 ;; (*buffer-type)
                  ;; (*bookmark)
                  (*buffer-name)
                  ;; mode-line-frame-identification
