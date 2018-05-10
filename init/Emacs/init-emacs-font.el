@@ -44,8 +44,6 @@
 (my-font-settings)
 (add-hook 'after-init-hook #'my-font-settings)
 
-;; (add-hook 'circadian-after-load-theme-hook #'my-circadian-font-reset)
-
 
 (provide 'init-emacs-font)
 
