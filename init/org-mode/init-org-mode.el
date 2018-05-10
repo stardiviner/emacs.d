@@ -20,12 +20,12 @@
 (require 'init-org-document-structure)
 (require 'init-org-view)
 
-(require 'init-org-face)
-
-(defun my-org-mode-set-face (theme)
-  "Reload customized faces on `circadian' `THEME' toggling."
-  (load "init-org-face"))
-(add-hook 'circadian-after-load-theme-hook 'my-org-mode-set-face)
+;;; XXX: This heavily affected Emacs Org-mode buffer performance.
+;; (require 'init-org-face)
+;; (defun my-org-mode-set-face (theme)
+;;   "Reload customized faces on `circadian' `THEME' toggling."
+;;   (load "init-org-face"))
+;; (add-hook 'circadian-after-load-theme-hook 'my-org-mode-set-face)
 
 (require 'init-org-keybindings)
 (require 'init-org-complete)
