@@ -42,26 +42,35 @@
   (add-to-list 'flycheck-checkers 'proselint)
   )
 
-
-;;; [ flycheck-inline ] -- display errors with inline style.
+;;; [ flycheck-inline ] -- display Flycheck errors inline.
 
 ;; (use-package flycheck-inline
+;;   :quelpa (flycheck-inline :fetcher github :repo "flycheck/flycheck-inline")
+;;   :init (flycheck-inline-mode))
+
+;;; [ flycheck-popup-tip ] -- displaying errors from Flycheck using popup.el.
+
+;; (use-package flycheck-popup-tip
 ;;   :ensure t
 ;;   :defer t
 ;;   :after flycheck
 ;;   :init
-;;   (add-hook 'flycheck-mode-hook #'flycheck-inline-enable)
+;;   (add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode))
+
+;;; [ flycheck-posframe ] -- Show flycheck error messages using posframe.el
+
+;; (use-package flycheck-posframe
+;;   :ensure t
+;;   :init (add-hook 'flycheck-mode-hook 'flycheck-posframe-mode)
+;;   :config
+;;   (set-face-attribute 'flycheck-posframe-background-face nil
+;;                       :background (cl-case (alist-get 'background-mode (frame-parameters))
+;;                                     ('light
+;;                                      (color-darken-name (face-background 'default) 10))
+;;                                     ('dark
+;;                                      (color-lighten-name (face-background 'default) 5)))
+;;                       )
 ;;   )
-
-
-;;; [ flycheck-popup-tip ] -- displaying errors from Flycheck using popup.el.
-
-(use-package flycheck-popup-tip
-  :ensure t
-  :defer t
-  :after flycheck
-  :init
-  (add-hook 'flycheck-mode-hook 'flycheck-popup-tip-mode))
 
 
 
