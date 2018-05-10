@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: reduce
-# key: reduce
+# name: reduce-fn
+# key: reduce-fn
 # group: reduce
 # --
 reduce ${1:(fn [p n] $0)} $2

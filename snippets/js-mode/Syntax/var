@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: variable definition
+# key: var
+# group: variable
+# --
+var ${1:VAR} = $0;
