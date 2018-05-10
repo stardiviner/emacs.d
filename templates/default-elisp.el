@@ -1,5 +1,7 @@
 ;;; ${1:$$(file-name-base)}.el --- $2
 
+;;; Time-stamp: <>
+
 ;;; Commentary:
 
 $3
