@@ -30,14 +30,15 @@
     (and (string-match-p "\\`[ *]" name)
          (not (string-match-p "\\*magit-diff:" name)))))
 
-(defun my--git-commit-setup-hook ()
+(defun my:git-commit-setup-hook ()
   (setq-local fill-column 72)
+  (auto-fill-mode t)
   (setq-local company-dabbrev-code-modes '(text-mode magit-diff-mode))
   (setq-local company-dabbrev-ignore-buffers
               #'my--company-dabbrev-ignore-except-magit-diff)
   (setq company-dabbrev-code-other-buffers 'all))
 
-(add-hook 'git-commit-setup-hook #'my--git-commit-setup-hook)
+(add-hook 'git-commit-setup-hook #'my:git-commit-setup-hook)
 
 ;;; [ Magit ]
 

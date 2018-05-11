@@ -171,11 +171,8 @@ The function is suitable for `erc-after-connect'."
     (setq company-minimum-prefix-length 3))
   (add-hook 'erc-mode-hook #'my:erc-completion-setup)
 
-  (add-hook 'erc-mode-hook #'turn-on-eldoc-mode)
-
-  (add-hook 'erc-mode-hook #'turn-on-auto-fill)
+  ;; (add-hook 'erc-mode-hook #'turn-on-auto-fill)
   (add-hook 'erc-mode-hook #'turn-on-visual-line-mode)
-  ;; (add-hook 'erc-mode-hook #'turn-on-visual-fill-column-mode)
 
   (define-key erc-mode-map (kbd "C-c M-o") 'browse-url)
 

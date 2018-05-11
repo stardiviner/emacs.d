@@ -138,31 +138,27 @@
 
 ;;; [ wrap line ]
 ;; truncate long lines.
-(setq-default truncate-lines t)
-(setq-default word-wrap t)
+;; (setq-default truncate-lines t)
+;; (setq-default word-wrap t)
 ;; (setq-default truncate-partial-width-windows 50)
-(setq-default visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
-(setq-default global-visual-line-mode nil) ; soft wrap lines at word boundary
-;; (global-visual-line-mode 1)
 
-;;; [ auto-fill-mode ] -- auto fill paragraphs like hitting [M-q].
-(setq-default fill-column 80)
-;;; global
-(auto-fill-mode t)
+;;; [ auto-fill-mode ] -- auto fill (break line) paragraphs like hitting [M-q].
+
+(setq-default fill-column 90)
 ;;; auto fill comments but not code in programming modes:
 (add-hook 'prog-mode-hook
-          '(lambda () (setq-local comment-auto-fill-only-comments t)))
-;;; enable only for text writing modes.
-(toggle-text-mode-auto-fill)
+          #'(lambda () (setq-local comment-auto-fill-only-comments t)))
 
-;;; [ visual-fill-column ]
+;;; [ visual-line-mode ] -- visual soft wrap long line at word boundary.
+
+(setq visual-line-fringe-indicators '(left-curly-arrow right-curly-arrow))
+
+;;; [ visual-fill-column ] -- visual (hide) extra fill column width.
+
 (require 'visual-fill-column)
-(setq visual-fill-column-width 80)
-;; (setq visual-fill-column-center-text t) ; put text in center.
-;; (global-visual-fill-column-mode 1)
-(dolist (hook '(markdown-mode-hook
-                ))
-  (add-hook hook #'visual-fill-column-mode))
+(setq visual-fill-column-width (default-value 'fill-column))
+;; (setq visual-fill-column-center-text t) ; center the text area in the window.
+(add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
 
 ;;; [ fill-column-indicator ]
 ;; (use-package fill-column-indicator
