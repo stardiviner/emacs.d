@@ -63,6 +63,11 @@
          (file (lambda () (concat org-directory "/Programming Code/Code Snippets/snippets.org")))
          ;; Prompt for tag and language
          "* %?%^g\n#+begin_src %^{language}\n\n#+end_src")
+
+        ;; current buffer: in file logging
+        ("L" "Add Change[L]og into current buffer file"
+         entry (file+headline (lambda () (buffer-file-name)) "Change Log")
+         "* %^{Header of Changelog item}\n:PROPERTIES:\n:LOGGED: %U \n:LINK: %a \n:AUTHOR: stardiviner, email: numbchild@gmail.com\n :END:\n %?")
         ))
 
 ;;; Context org-capture templates.
