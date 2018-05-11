@@ -90,7 +90,8 @@
     (interactive)
     (set-face-attribute 'default nil :height 100)
     ;; reset custom-theme.
-    (disable-theme 'poet))
+    (disable-theme 'poet)
+    (circadian-setup))
   )
 
 

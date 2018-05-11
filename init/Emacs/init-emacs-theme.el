@@ -21,16 +21,53 @@
 
 (use-package leuven-theme
   :load-path "~/Code/Emacs/leuven-theme/"
-  ;; :quelpa ((leuven-theme :fetcher github :repo "stardiviner/leuven-theme") :upgrade t)
-  :config (load-theme 'leuven t))
+  :defer t
+  :no-require t
+  :init (require 'leuven-theme)
+  ;; :config (load-theme 'leuven t)
+  )
+
+;;; [ eziam-theme ] -- A mostly monochrome theme, inspired by Tao and Leuven, with dark and light versions.
+
+;; (use-package eziam-theme
+;;   :ensure t
+;;   :no-require t
+;;   :load (eziam-light-theme))
 
 ;;; [ spacemacs-theme ] -- Spacemacs default color-theme.
 
-;; (use-package spacemacs-theme
-;;   :ensure t
-;;   :no-require t
-;;   :config
-;;   (load-theme 'spacemacs-dark t))
+(use-package spacemacs-theme
+  :ensure t
+  :no-require t
+  :defer t
+  ;; (load-theme 'spacemacs-dark t)
+  )
+
+;;; [ circadian ] -- theme-switching for Emacs based on daytime.
+
+(use-package circadian
+  :ensure t
+  :config
+  (setq calendar-location-name "Shaoxing Town"
+        calendar-time-zone +480
+        calendar-latitude 29.72
+        calendar-longitude 120.20)
+  ;; XXX: make sure to use `:defer' keyword for theme `use-package'.
+  (setq circadian-themes '((:sunrise . leuven)
+                           ;; ("13:00" . spacemacs-light)
+                           (:sunset . spacemacs-dark)))
+  (circadian-setup))
+
+
+(defun my:font-lock-extra-setup (theme)
+  "Reload customized faces on `circadian' `THEME' toggling."
+  (set-face-attribute 'underline nil
+                      :underline (cl-case (alist-get 'background-mode (frame-parameters))
+                                   ('light
+                                    (color-darken-name (face-background 'default) 50))
+                                   ('dark
+                                    (color-lighten-name (face-background 'default) 30)))))
+(add-hook 'circadian-after-load-theme-hook #'my:font-lock-extra-setup)
 
 
 (provide 'init-emacs-theme)

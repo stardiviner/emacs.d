@@ -232,6 +232,28 @@
   ;; (add-to-list 'company-box-frame-parameters
   ;;              '(border-color . "gray"))
 
+  (setq-default company-box-frame-parameters company-box-frame-parameters)
+  (defun my:company-box-faces-setup (theme)
+    "Reload company-box faces on `circadian' `THEME' toggling."
+    (set-face-attribute 'company-box-candidate nil
+                        :inherit nil
+                        :family (face-attribute 'default :family)
+                        :foreground (face-foreground 'default))
+    (set-face-attribute 'company-box-selection nil
+                        :inherit 'company-tooltip-selection)
+    (set-face-attribute 'company-box-background nil
+                        :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                      ('light "#EBF4FE")
+                                      ('dark (color-lighten-name (face-background 'default) 4))))
+    (add-to-list 'company-box-frame-parameters
+                 `(background-color . ,(cl-case (alist-get 'background-mode (frame-parameters))
+                                         ('light "#EBF4FE")
+                                         ('dark (color-lighten-name (face-background 'default) 4)))))
+    (add-to-list 'company-box-frame-parameters
+                 `(foreground-color . ,(face-foreground 'default)))
+    )
+  (add-hook 'circadian-after-load-theme-hook #'my:company-box-faces-setup)
+
   (setq company-box-backends-colors
         '((company-capf . (:icon "LightSeaGreen"))
           (company-keywords . (:all "tomato"))

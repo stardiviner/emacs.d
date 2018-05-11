@@ -82,6 +82,16 @@ column.  Place the point after the comment box."
   :config
   (setq poporg-adjust-fill-column t
         poporg-delete-trailing-whitespace t)
+  (defun my-poporg-set-face (theme)
+    "Reload customized faces on `circadian' `THEME' toggling."
+    (set-face-attribute 'poporg-edited-face nil
+                        :foreground "chocolate"
+                        :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                      ('light
+                                       (color-darken-name (face-background 'default) 10))
+                                      ('dark
+                                       (color-darken-name (face-background 'default) 5)))))
+  (add-hook 'circadian-after-load-theme-hook #'my-poporg-set-face)
 
   (define-key poporg-mode-map [remap save-buffer] 'poporg-edit-exit)
   )

@@ -45,6 +45,8 @@
 ;;; Text Scale
 (setq face-font-rescale-alist '(("WenQuanYi Micro Hei" . 1.3)))
 
+;; (add-hook 'circadian-after-load-theme-hook #'my-circadian-font-reset)
+
 
 (provide 'init-emacs-font)
 
