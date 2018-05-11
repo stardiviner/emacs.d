@@ -86,6 +86,15 @@
   (advice-add 'org-babel-execute:translate :around #'ob-translate-toggle-proxy)
   )
 
+;;; [ youdao-dictionary ] -- Youdao Dictionary(有道词典) interface for Emacs
+
+(use-package youdao-dictionary
+  :ensure t
+  :bind (:map dictionary-prefix ("y" . youdao-dictionary-search-at-point))
+  :config
+  (add-to-list 'display-buffer-alist
+               '("^\\*Youdao Dictionary\\*" . (display-buffer-below-selected))))
+
 
 (provide 'init-tool-dictionary)
 
