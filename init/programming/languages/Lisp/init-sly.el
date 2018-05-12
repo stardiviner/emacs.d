@@ -70,9 +70,7 @@
 (use-package sly-repl-ansi-color
   :ensure t
   :after sly
-  :init
-  (add-to-list 'sly-contribs 'sly-repl-ansi-color)
-  )
+  :init (add-to-list 'sly-contribs 'sly-repl-ansi-color))
 
 
 ;;; [ sly-macrostep ] -- Expand CL macros inside source files

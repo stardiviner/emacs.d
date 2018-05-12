@@ -28,13 +28,12 @@
   :init (smartparens-global-mode t)
   ;; (show-smartparens-global-mode t)
   :config
-  (add-to-list 'sp-ignore-modes-list 'org-mode)
+  ;; (add-to-list 'sp-ignore-modes-list 'org-mode)
   (setq sp-navigate-consider-sgml-tags '(html-erb-mode
                                          web-mode
                                          nxml-mode sgml-mode
                                          nxhtml-mode html-mode rhtml-mode
                                          jinja2-mode)
-        ;; sp-ignore-modes-list '(minibuffer-inactive-mode)
         ;; sp-override-key-bindings '((\"C-M-f\" . sp-forward-sexp)
         ;;                            (\"C-<right>\" . nil))
         )

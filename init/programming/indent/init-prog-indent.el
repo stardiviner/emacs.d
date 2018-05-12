@@ -74,12 +74,12 @@
                                        (color-lighten-name (face-background 'default) 20)))))
   (add-hook 'circadian-after-load-theme-hook #'my-indent-guide-set-face)
   
-  ;; (indent-guide-global-mode)
-
   ;; works with `indent-guide-global-mode'
   (add-to-list 'indent-guide-inhibit-modes 'org-mode)
   (add-to-list 'indent-guide-inhibit-modes 'web-mode)
-
+  ;; (indent-guide-global-mode)
+  
+  ;; specific modes
   (defun my/indent-guide-mode-enable ()
     (unless (member major-mode indent-guide-inhibit-modes)
       (indent-guide-mode 1)))

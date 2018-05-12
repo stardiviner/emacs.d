@@ -26,7 +26,6 @@
 
 (add-to-list 'org-babel-load-languages '(perl . t))
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-(add-to-list 'org-babel-tangle-lang-exts '("perl" . "pl"))
 
 ;;; [ plsense ] -- interface for PlSense that is a development tool for Perl.
 

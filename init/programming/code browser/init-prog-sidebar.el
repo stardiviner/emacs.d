@@ -14,8 +14,7 @@
   :defer t
   :commands (dired-sidebar-toggle-sidebar)
   ;; :bind ("<f8>" . dired-sidebar-toggle-sidebar)
-  :preface
-  (setq dired-sidebar-disable-dired-collapse nil)
+  :preface (setq dired-sidebar-disable-dired-collapse nil) ; affect Dired performance hard!!!
   :config
   ;; (setq dired-sidebar-use-custom-font t)
   ;; (setq dired-sidebar-face '(:family "Monaco" :height 120))

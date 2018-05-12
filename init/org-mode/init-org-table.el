@@ -7,15 +7,6 @@
 
 ;;; Code:
 
-
-;;; same width font for org-mode tables.
-;; (add-hook 'org-mode-hook
-;;           (lambda ()
-;;             (face-remap-add-relative 'default
-;;                                      :family "Iosevka Slab"
-;;                                      :height 140)))
-
-
 (add-to-list 'display-buffer-alist
              '("\^\\*Org Table Edit Field\\*" (display-buffer-below-selected)))
 
@@ -25,7 +16,6 @@
   :ensure t
   :defer t
   :init (add-hook 'org-mode-hook 'org-table-sticky-header-mode))
-
 
 ;; [ org-plot ] -- Plotting Tables in Org-mode.
 
