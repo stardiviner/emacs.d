@@ -97,6 +97,11 @@
 ;;   :defer t
 ;;   :init (cakecrumbs-auto-setup))
 
+;;; [ elquery ] -- read and manipulate HTML in Emacs.
+
+(use-package elquery
+  :ensure t)
+
 
 (provide 'init-prog-lang-html)
 
