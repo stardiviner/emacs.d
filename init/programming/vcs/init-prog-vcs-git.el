@@ -67,6 +67,8 @@
   ;; let magit status buffer display in current window.
   (setq magit-display-buffer-function 'display-buffer)
 
+  (add-to-list 'magit-log-arguments "--color")
+  
   ;; show gravatar in Magit revision.
   ;; (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
 
