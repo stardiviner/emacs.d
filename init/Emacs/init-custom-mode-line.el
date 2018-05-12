@@ -73,18 +73,19 @@ to the command loop."
 ;; emacsclient indicator
 (defun *emacsclient ()
   "Show whether emacsclient is active."
-  (if (and (frame-parameter nil 'client) (mode-line-window-active-p))
+  (if (frame-parameter nil 'client)
       (all-the-icons-faicon "hashtag"
-                            :face 'mode-line-meta-face
+                            :face (if (mode-line-window-active-p) 'mode-line-meta-face)
                             :v-adjust -0.05)))
 
 (defun *recursive-editing ()
   "Show current recursive editing info."
-  (if (and (mode-line-window-active-p)
-           (not (string-empty-p (format-mode-line "%]"))))
-      (concat
-       (all-the-icons-octicon "pencil" :v-adjust -0.05 :face 'mode-line-warn-face)
-       (propertize (format-mode-line "%]") 'face 'mode-line-warn-face))))
+  (unless (string-empty-p (format-mode-line "%]"))
+    (propertize
+     (concat
+      (all-the-icons-octicon "pencil" :v-adjust -0.05)
+      (format-mode-line "%]"))
+     'face (if (mode-line-window-active-p) 'mode-line-warn-face))))
 
 ;;; Edebug
 (require 'edebug)
@@ -94,8 +95,7 @@ to the command loop."
    (if (or (bound-and-true-p edebug-mode)
            (bound-and-true-p edebug-x-mode))
        (concat
-        (all-the-icons-faicon
-         "search-plus" :v-adjust -0.05)
+        (all-the-icons-octicon "bug" :v-adjust -0.05)
         (format "[%s]" edebug-execution-mode))
      (format ""))
    ;; 'face (if (mode-line-window-active-p) 'mode-line-data-face)
@@ -105,7 +105,7 @@ to the command loop."
 (defun buffer-path-relative-to-project ()
   "Displays the buffer's full path relative to the project root.
 \(includes the project root\).  Excludes the file basename."
-  (if buffer-file-name
+  (if (bound-and-true-p buffer-file-name)
       (let* ((default-directory (f-dirname buffer-file-name))
              (buffer-path (f-relative buffer-file-name (projectile-project-root)))
              (max-length (truncate (* (window-body-width) 0.4))))
@@ -161,7 +161,8 @@ to the command loop."
   (defun *eyebrowse ()
     "Displays `default-directory', for special buffers like the scratch buffer."
     ;; `eyebrowse-mode-line-indicator'
-    (unless (bound-and-true-p my/eyebrowse-current-slot-tag)
+    (unless (and (bound-and-true-p my/eyebrowse-current-slot-tag)
+                 (local-variable-if-set-p 'my/eyebrowse-current-slot-tag))
       (let ((current-slot-tag (cadr (alist-get
                                      (eyebrowse--get 'current-slot)
                                      (eyebrowse--get 'window-configs))))
@@ -223,7 +224,6 @@ to the command loop."
 ;;; buffer info
 (defun *buffer-info ()
   "Combined information about the current buffer.
-
 Including the current working directory, the file name, and its
 state (modified, read-only or non-existent)."
   (concat
@@ -240,6 +240,25 @@ state (modified, read-only or non-existent)."
      (all-the-icons-faicon "align-center" :v-adjust -0.05 :face 'mode-line-data-face))
    ;; buffer size
    ;; (format-mode-line "%I")
+   ))
+
+;;; buffer encoding
+(defun *buffer-encoding ()
+  "The encoding and eol style of the buffer."
+  (concat
+   (let ((eol-type (coding-system-eol-type buffer-file-coding-system)))
+     (cond
+      ((eq eol-type 0) ; "LF " <-- Unix/Linux EOF
+       "")
+      ((eq eol-type 1) "CRLF ")
+      ((eq eol-type 2) "CR ")))
+   (let* ((sys (coding-system-plist buffer-file-coding-system))
+          (sys-name (plist-get sys :name))
+          (sys-cat (plist-get sys :category)))
+     (cond
+      ;; "UTF-8" <-- no need to display UTF-8.
+      ((memq sys-cat '(coding-category-undecided coding-category-utf-8)) "")
+      (t (symbol-name sys-name))))
    ))
 
 (defun *buffer-type ()
@@ -263,27 +282,6 @@ state (modified, read-only or non-existent)."
   ;; (when (and isearch-mode (mode-line-window-active-p))
   ;;   (all-the-icons-faicon "search" :v-adjust -0.05 :face 'mode-line-info-face))
   )
-
-;;; buffer encoding
-(defun *buffer-encoding ()
-  "The encoding and eol style of the buffer."
-  (propertize
-   (concat
-    (let ((eol-type (coding-system-eol-type buffer-file-coding-system)))
-      (cond
-       ((eq eol-type 0) ; "LF " <-- Unix/Linux EOF
-        "")
-       ((eq eol-type 1) "CRLF ")
-       ((eq eol-type 2) "CR ")))
-    (let* ((sys (coding-system-plist buffer-file-coding-system))
-           (sys-name (plist-get sys :name))
-           (sys-cat (plist-get sys :category)))
-      (cond
-       ;; "UTF-8" <-- no need to display UTF-8.
-       ((memq sys-cat '(coding-category-undecided coding-category-utf-8))
-        "")
-       (t (symbol-name sys-name))))
-    )))
 
 ;;; bookmark
 ;;; TODO: optimize the performance
@@ -458,7 +456,7 @@ state (modified, read-only or non-existent)."
 ;;; vc
 (defun *vc ()
   "Displays the current branch, colored based on its state."
-  (when (and vc-mode buffer-file-name)
+  (when (bound-and-true-p vc-mode)
     (let ((backend (vc-backend buffer-file-name))
           (state   (vc-state buffer-file-name))
           (face    'mode-line-inactive)
@@ -498,7 +496,7 @@ state (modified, read-only or non-existent)."
   :config
   (defun *flycheck ()
     "Show flycheck info in mode-line."
-    (when (and (featurep 'flycheck) flycheck-mode)
+    (when (bound-and-true-p flycheck-mode)
       (let* ((text (pcase flycheck-last-status-change
                      (`finished
                       (if flycheck-current-errors
@@ -590,37 +588,33 @@ state (modified, read-only or non-existent)."
 ;; region selection info
 (defun *selection-info ()
   "Information about the current selection.
-
 Such as how many characters and lines are selected, or the NxM
 dimensions of a block selection."
-  (when (and (mode-line-window-active-p) mark-active)
+  (when mark-active
     (let ((lines (count-lines (region-beginning) (region-end)))
           (words (count-words (region-end) (region-beginning))))
-      (concat
-       (propertize " ")
-       (all-the-icons-faicon "pencil-square"
-                             :v-adjust -0.05
-                             :face 'mode-line-data-face)
-       (propertize (format " (l:%s,w:%s)" lines words)
-                   'face `(:height 0.9 :foreground ,(face-foreground 'mode-line-data-face)))
-       ))
-    ))
+      (propertize
+       (concat
+        " "
+        (all-the-icons-faicon "pencil-square" :v-adjust -0.05)
+        (format " (l:%s,w:%s)" lines words))
+       'face (if (mode-line-window-active-p) 'mode-line-error-face)))))
 
 ;;; macro recording
 (defun *macro-recording ()
   "Display current macro being recorded."
-  (when (and defining-kbd-macro (mode-line-window-active-p))
+  (when (and defining-kbd-macro)
     (let ((separator (propertize " " 'face 'mode-line-meta-face)))
-      (concat separator
-              (all-the-icons-octicon "triangle-right"
-                                     :face 'mode-line-meta-face
-                                     :v-adjust -0.05)
-              separator
-              (if (boundp 'evil-this-macro)
-                  (propertize (char-to-string evil-this-macro)
-                              'face 'mode-line-meta-face))
-              (propertize (number-to-string kmacro-counter))
-              separator))))
+      (propertize
+       (concat separator
+               (all-the-icons-octicon "triangle-right" :v-adjust -0.05
+                                      :face 'mode-line-meta-face)
+               separator
+               (if (bound-and-true-p evil-this-macro)
+                   (char-to-string evil-this-macro))
+               (number-to-string kmacro-counter)
+               separator)
+       'face (if (mode-line-window-active-p) 'mode-line-meta-face)))))
 
 ;;; anzu
 (use-package anzu
@@ -632,12 +626,12 @@ dimensions of a block selection."
   :config
   (defun *anzu ()
     "Show the match index and total number thereof.  Requires `evil-anzu'."
-    (when (and (mode-line-window-active-p) (featurep 'anzu) (not (zerop anzu--total-matched)))
+    (unless (and (bound-and-true-p anzu--total-matched) (zerop anzu--total-matched))
       (propertize
        (format " %s/%d%s "
                anzu--current-position anzu--total-matched
                (if anzu--overflow-p "+" ""))
-       'face 'mode-line-meta-face)))
+       'face (if (mode-line-window-active-p) 'mode-line-meta-face))))
   )
 
 ;;; Iedit
@@ -646,7 +640,7 @@ dimensions of a block selection."
   :config
   (defun *iedit ()
     "Show the number of iedit regions match + what match you're on."
-    (when (and (boundp 'iedit-mode) iedit-mode)
+    (when (bound-and-true-p iedit-mode)
       (propertize
        (let ((this-oc (let (message-log-max) (iedit-find-current-occurrence-overlay)))
              (length (or (ignore-errors (length iedit-occurrences-overlays)) 0)))
@@ -670,14 +664,15 @@ dimensions of a block selection."
     "Show multiple-cursors indicator in mode-line."
     (if (> (mc/num-cursors) 1) ; (mc/fake-cursor-p OVERLAY)
         (propertize
-         (format "[%d]" (mc/num-cursors)) ; `mc/mode-line'
-         'face 'mode-line-meta-face)))
-  )
+         ;; `mc/mode-line'
+         (format "[%d]" (mc/num-cursors))
+         'face 'mode-line-meta-face))))
 
 ;; input method
 (defun *input-method ()
   "Show input-method info in mode-line."
-  (if (and current-input-method-title (mode-line-window-active-p)) ; `set-input-method'
+  (if (bound-and-true-p current-input-method-title)
+      ;; `set-input-method'
       (propertize (format " {%s}" current-input-method-title)
                   'face 'mode-line-meta-face)))
 
@@ -696,15 +691,14 @@ dimensions of a block selection."
   )
 
 ;; wc-mode (word count) `wc-format-modeline-string', `wc-mode-update'.
-;; (use-package wc-mode
-;;   :ensure t
-;;   :config
-;;   (defun *wc-mode ()
-;;     "Show wc-mode word count."
-;;     (when (and (featurep 'wc-mode) wc-mode)
-;;       (propertize (wc-format-modeline-string " Words:[%tw]")))
-;;       ))
-;;   )
+(use-package wc-mode
+  :ensure t
+  :config
+  (defun *wc-mode ()
+    "Show wc-mode word count."
+    (when (bound-and-true-p wc-mode)
+      (propertize (wc-format-modeline-string " Words:[%tw]")))
+    ))
 
 ;;; org-noter
 (use-package org-noter
@@ -712,7 +706,8 @@ dimensions of a block selection."
   :config
   (defun *org-noter ()
     "Display org-noter notes count."
-    (if (mode-line-window-active-p) (org-noter--mode-line-text))))
+    (if (bound-and-true-p org-noter-doc-mode)
+        (org-noter--mode-line-text))))
 
 ;; mmm-mode
 
@@ -720,15 +715,15 @@ dimensions of a block selection."
 ;; process: inferior,
 (defun *mode-line-process ()
   "Show `major-mode' process `mode-line-process' info."
-  (when (stringp mode-line-process)
-    (propertize
-     (concat
-      (propertize " ")
-      (all-the-icons-faicon "spinner" :v-adjust -0.05)
-      ;; (format-mode-line "%s")
-      mode-line-process)
-     'face 'mode-line-data-face
-     'help-echo "buffer-process")))
+  (if (stringp mode-line-process)
+      (propertize
+       (concat
+        (propertize " ")
+        (all-the-icons-faicon "spinner" :v-adjust -0.05)
+        ;; (format-mode-line "%s")
+        mode-line-process)
+       'face 'mode-line-data-face
+       'help-echo "buffer-process")))
 
 ;;; spinner
 (use-package spinner
@@ -736,7 +731,8 @@ dimensions of a block selection."
   :config
   (defun *spinner ()
     "Show current buffer local spinner with in custom mode-line."
-    '(:eval (spinner-print spinner-current))))
+    (if (bound-and-true-p spinner-current)
+        '(:eval (spinner-print spinner-current)))))
 
 ;; notifications
 ;; IRC
@@ -745,17 +741,14 @@ dimensions of a block selection."
   :config
   (defun *erc ()
     "Show ERC info from `erc-track-mode'."
-    (if (and (mode-line-window-active-p)
-             (and (boundp 'erc-track-mode) erc-track-mode
-                  (boundp 'erc-modified-channels-object))
-             ;; (erc-server-process-alive) ; detect buffer has ERC process alive.
+    (if (and (erc-server-process-alive)
              ;; (erc-server-buffer-live-p)
-             (not (string-empty-p erc-modified-channels-object))
-             )
-        (concat
-         (all-the-icons-faicon "comments-o" :v-adjust 0.05)
-         (propertize (format "%s" erc-modified-channels-object)
-                     'face 'mode-line-data-face))
+             (string-empty-p erc-modified-channels-object))
+        (propertize
+         (concat
+          (all-the-icons-faicon "comments-o" :v-adjust 0.05)
+          (format "%s" erc-modified-channels-object))
+         'face (if (mode-line-window-active-p) 'mode-line-error-face))
       )))
 
 (use-package company
@@ -763,31 +756,37 @@ dimensions of a block selection."
   :config
   (defun *company-lighter ()
     "Show company-mode lighter from `company-lighter'."
-    (if (and (boundp 'company-mode) company-mode (consp company-backend))
+    (if (and (bound-and-true-p company-mode) (consp company-backend))
         (propertize
          (company--group-lighter
           (nth company-selection company-candidates) company-lighter-base)
-         'face 'mode-line-data-face)))
-  )
+         'face 'mode-line-data-face))))
 
 
 (require 'org-clock)
-
 (defun *org-clock ()
   "Show org-clock info."
-  (when (and (mode-line-window-active-p)
-             (org-clock-is-active)
-             org-clock-idle-timer)
-    (concat
-     (propertize " ")
-     (all-the-icons-faicon "hourglass-half" :v-adjust -0.05 :height 0.8)
-     (propertize " ")
-     ;; get [0:05] from `org-clock-get-clock-string'
-     (propertize (format "%s" (org-duration-from-minutes (org-clock-get-clocked-time))))
-     ;; get clocking task title
-     (propertize (format " %s" (s-truncate 30 org-clock-heading)))
-     (propertize " "))
-    ))
+  (when (and (org-clock-is-active)
+             org-clock-idle-timer
+             (mode-line-window-active-p))
+    (propertize
+     (concat
+      " "
+      (all-the-icons-faicon "hourglass-half" :v-adjust -0.05 :height 0.8)
+      " "
+      ;; get [0:05] from `org-clock-get-clock-string'
+      (format "%s" (org-duration-from-minutes (org-clock-get-clocked-time)))
+      ;; get clocking task title
+      (format " %s" (s-truncate 30 org-clock-heading))
+      " "))))
+
+;; update org-clock timer in mode-line after `org-clock-out-hook'.
+;; fix org-clock timer does not disappear after clock out.
+(add-hook 'org-clock-out-hook
+          '(lambda ()
+             ;; (org-clock-update-mode-line)
+             (setq org-mode-line-string nil)
+             (force-mode-line-update)))
 
 
 ;;; [ org-clock-today ] -- show the total clocked time of the current day in the mode line.
@@ -811,17 +810,8 @@ dimensions of a block selection."
 ;;     ))
 ;;   )
 
-;; update org-clock timer in mode-line after `org-clock-out-hook'.
-;; fix org-clock timer does not disappear after clock out.
-(add-hook 'org-clock-out-hook
-          '(lambda ()
-             ;; (org-clock-update-mode-line)
-             (setq org-mode-line-string nil)
-             (force-mode-line-update)))
-
 
 (require 'org-timer)
-
 (defun *org-timer ()
   "Show `org-timer' info in my custom mode-line."
   (if (or
@@ -833,12 +823,9 @@ dimensions of a block selection."
       ;; - `org-timer-mode-line-string'
       (propertize
        (concat
-        (all-the-icons-faicon "hourglass-half"
-                              :v-adjust -0.05 :height 0.9 :face 'mode-line-data-face)
+        (all-the-icons-faicon "hourglass-half" :v-adjust -0.05 :height 0.9)
         (format "%s" org-timer-mode-line-string))
-       'face 'mode-line-data-face)
-    )
-  )
+       'face 'mode-line-data-face)))
 
 ;;; Pomodoro (org-pomodoro)
 (use-package org-pomodoro
@@ -861,10 +848,9 @@ dimensions of a block selection."
          (propertize " %s")))
   (defun *pomodoro ()
     "Show pomodoro/org-pomodoro timer in custom mode-line."
-    (if (and (org-pomodoro-active-p) (mode-line-window-active-p))
+    (if (org-pomodoro-active-p)
         (propertize (format "%s" org-pomodoro-mode-line)
-                    'face 'mode-line-data-face))
-    )
+                    'face (if (mode-line-window-active-p) 'mode-line-data-face))))
   )
 
 ;;; Current Time
@@ -878,8 +864,7 @@ dimensions of a block selection."
                      'face `(:height 1.0 :family ,(all-the-icons-wicon-family))
                      'display '(raise -0.0))
          (propertize (format-time-string " %H:%M ") 'face `(:height 0.9))
-         ))
-    ))
+         ))))
 
 ;;; [ keycast ]
 (use-package keycast
@@ -935,8 +920,7 @@ dimensions of a block selection."
 ;;   ;; FIXME: `*rtags-mode-line' caused `beacon-mode' blink does not fade off.
 ;;   (defun *rtags-mode-line ()
 ;;     "Show `rtags-mode-line' info in my custom mode-line."
-;;     (if (and (mode-line-window-active-p)
-;;              (and (boundp 'rtags-enabled) rtags-enabled))
+;;     (if (bound-and-true-p rtags-enabled)
 ;;         (propertize
 ;;          (concat
 ;;           (if (not (string-empty-p (rtags-mode-line)))
@@ -944,7 +928,7 @@ dimensions of a block selection."
 ;;             (rtags-mode-line))
 ;;           (if (rtags-is-indexed)
 ;;               (all-the-icons-faicon "codepen" :v-adjust -0.05))
-;;           (propertize " "))
+;;           " ")
 ;;          )))
 ;;   ;; (add-hook 'rtags-diagnostics-hook #'force-mode-line-update)
 ;;   )
@@ -955,8 +939,7 @@ dimensions of a block selection."
   :load-path "/usr/share/emacs/site-lisp/mu4e/"
   :load (mu4e mu4e-contrib)
   :ensure mu4e-alert
-  :init
-  (require 'mu4e-alert)
+  :init (require 'mu4e-alert)
   :config
   (defun *mu4e ()
     "Show `mu4e-alert' new messages count in custom mode-line."
@@ -971,7 +954,7 @@ dimensions of a block selection."
 			            (process-live-p (get-buffer-process mu4e~update-buffer)))
 			       (propertize " (updating)" 'face 'mode-line-info-face)
 			     "")
-         (if (and (boundp 'mu4e-alert-mode-line) mu4e-alert-mode-line)
+         (if (bound-and-true-p mu4e-alert-mode-line)
              (propertize
               (format "%s" mu4e-alert-mode-line)
               'face 'mode-line-data-face)
@@ -1012,7 +995,7 @@ dimensions of a block selection."
   (run-with-timer 10 (* 10 60) 'github-fetch-notifications)
   
   (defun *github-notifications ()
-    (if (and (mode-line-window-active-p) (> github-notifications-number 0))
+    (if (> github-notifications-number 0)
         (propertize
          (concat
           (all-the-icons-faicon "github" :v-adjust 0.05)
@@ -1032,12 +1015,11 @@ dimensions of a block selection."
   :ensure t
   :config
   (defun *proxy-mode ()
-    (if proxy-mode-proxy-type
+    (if (bound-and-true-p proxy-mode-proxy-type)
         (propertize
          (concat
           (all-the-icons-faicon "compress" :v-adjust -0.05)
-          (format " %s " proxy-mode-proxy-type)))))
-  )
+          (format " %s " proxy-mode-proxy-type))))))
 
 ;;; Lunar Sunrise/Sunset
 ;; (use-package celestial-mode-line
@@ -1057,20 +1039,22 @@ dimensions of a block selection."
   (emms-mode-line 1)
   (setq emms-mode-line-format "%s")
   (defun *emms ()
-    (let* ((track (emms-playlist-current-selected-track))
-           ;; (description (emms-track-description (emms-playlist-current-selected-track)))
-           (title (cdr (assoc 'info-title track))))
-      (when (and emms-player-playing-p title (mode-line-window-active-p))
-        (concat
-         (all-the-icons-faicon "music" :v-adjust -0.05)
-         " "
-         (format
-          emms-mode-line-format
-          (s-truncate 20 title))
-         ;; emms-playing-time-string
-         " "
-         ))
-      ))
+    (if (and (bound-and-true-p emms-player-playing-p)
+             (mode-line-window-active-p))
+        (let* ((track (emms-playlist-current-selected-track))
+               ;; (description (emms-track-description (emms-playlist-current-selected-track)))
+               (title (cdr (assoc 'info-title track))))
+          (when emms-player-playing-p
+            (concat
+             (all-the-icons-faicon "music" :v-adjust -0.05)
+             " "
+             (format
+              emms-mode-line-format
+              (s-truncate 20 title))
+             ;; emms-playing-time-string
+             " "
+             ))
+          )))
   ;; [ emms-mode-line-cycle ]
   ;; :ensure emms-mode-line-cycle
   ;; :load (emms-mode-line-icon)
@@ -1091,8 +1075,7 @@ dimensions of a block selection."
      (all-the-icons-faicon "server"
                            :face 'mode-line-warn-face
                            :v-adjust -0.05)
-     (propertize " ")
-     )))
+     (propertize " "))))
 
 ;;; `copy-file-on-save'
 (use-package copy-file-on-save
@@ -1101,9 +1084,8 @@ dimensions of a block selection."
   ;; show this segment in custom mode-line.
   (defun *copy-file-on-save ()
     "Use `copy-file-on-save-lighter' in custom mode-line."
-    (if copy-file-on-save-mode
-        copy-file-on-save-lighter))
-  )
+    (if (bound-and-true-p copy-file-on-save-mode)
+        copy-file-on-save-lighter)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -1119,10 +1101,9 @@ dimensions of a block selection."
                   ;; (*selection-info)
                   (*anzu)
                   (*iedit)
-                  (*multiple-cursors)
+                  ;; (*multiple-cursors)
                   ;; (*evil-substitute)
                   (*input-method)
-                  (*company-lighter)
                   ))
            (lhs (list
                  ;; (propertize "•")
@@ -1156,6 +1137,7 @@ dimensions of a block selection."
                  ;; first fragment is not `nil'. So I use " " empty string with
                  ;; 1 length.
                  " "
+                 (*company-lighter)
                  ;; (*time)
                  ;; (*lunar-sun)
                  (*erc)
