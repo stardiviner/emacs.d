@@ -35,17 +35,19 @@
 
 (use-package ox-reveal
   :ensure t
+  :ensure htmlize
+  :defer t
   :preface (setq org-reveal-note-key-char nil) ; avoid register old #+BEGIN_NOTES.
-  :init
-  (use-package htmlize
-    :ensure t)
   :config
   ;; "http://cdn.jsdelivr.net/reveal.js/3.0.0/"
   ;; (concat user-emacs-directory "init/org-mode/reveal.js")
   (setq org-reveal-root (expand-file-name (concat user-emacs-directory "Org-mode/reveal.js/")))
-  (setq org-reveal-plugins '(classList markdown zoom notes highlight search remotes multiplex))
   (setq org-reveal-highlight-css "%r/lib/css/zenburn.css")
   (setq org-reveal-theme "blood")
+  (add-to-list 'org-reveal-plugins 'highlight)
+  (add-to-list 'org-reveal-plugins 'multiplex)
+  (setq org-reveal-single-file t)
+  (setq org-reveal-rolling-links t)
   (setq org-reveal-default-frag-style t)
   )
 
