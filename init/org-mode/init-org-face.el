@@ -317,8 +317,20 @@
 ;; - [ ], - [X]
 (set-face-attribute 'org-checkbox nil
                     :inherit 'fixed-pitch
-                    :weight 'normal
-                    :box '(:line-width -1 :color "black" :style nil))
+                    :weight 'bold
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 20))
+                                  ('dark
+                                   (color-lighten-name (face-background 'default) 2)))
+                    :box `(:line-width 2
+                                       :color ,(cl-case (alist-get 'background-mode (frame-parameters))
+                                                 ('light
+                                                  (color-darken-name (face-background 'default) 25))
+                                                 ('dark
+                                                  (color-lighten-name (face-background 'default) 5)))
+                                       :style 'pressed-button)
+                    )
 ;; * headline [7%] [1/10] -> checkbox statistics face.
 (set-face-attribute 'org-checkbox-statistics-todo nil
                     :inherit 'fixed-pitch
