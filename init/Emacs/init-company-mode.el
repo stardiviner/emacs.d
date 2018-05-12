@@ -232,9 +232,28 @@
   ;; (add-to-list 'company-box-frame-parameters
   ;;              '(border-color . "gray"))
 
-  (setq-default company-box-frame-parameters company-box-frame-parameters)
+  (defun company-box-doc--get-frame ()
+    (frame-parameter nil 'company-box-doc-frame))
+  (defun company-box-child-frame-reset ()
+    "Delete old child-frame, then `company-box' create new child-frame."
+    ;; delete all frames except current frame.
+    (mapc
+     (lambda (frame)
+       (unless (equal frame (selected-frame))
+         (delete-frame frame)))
+     (frame-list))
+    (if (frame-live-p (company-box--get-frame))
+        (delete-frame (company-box--get-frame)))
+    (unless (frame-live-p (company-box--get-frame))
+      (company-box--set-frame (company-box--make-frame)))
+    (if (company-box-doc--get-frame)
+        (delete-frame (company-box-doc--get-frame)))
+    (unless (frame-live-p (company-box-doc--get-frame))
+      (set-frame-parameter nil 'company-box-doc-frame nil)))
+
   (defun my:company-box-faces-setup (theme)
     "Reload company-box faces on `circadian' `THEME' toggling."
+    (company-box-child-frame-reset)
     (set-face-attribute 'company-box-candidate nil
                         :inherit nil
                         :family (face-attribute 'default :family)
@@ -245,12 +264,6 @@
                         :background (cl-case (alist-get 'background-mode (frame-parameters))
                                       ('light "#EBF4FE")
                                       ('dark (color-lighten-name (face-background 'default) 4))))
-    (add-to-list 'company-box-frame-parameters
-                 `(background-color . ,(cl-case (alist-get 'background-mode (frame-parameters))
-                                         ('light "#EBF4FE")
-                                         ('dark (color-lighten-name (face-background 'default) 4)))))
-    (add-to-list 'company-box-frame-parameters
-                 `(foreground-color . ,(face-foreground 'default)))
     )
   (add-hook 'circadian-after-load-theme-hook #'my:company-box-faces-setup)
 
