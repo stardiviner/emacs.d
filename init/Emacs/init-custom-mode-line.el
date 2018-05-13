@@ -1137,7 +1137,7 @@ dimensions of a block selection."
                  ;; first fragment is not `nil'. So I use " " empty string with
                  ;; 1 length.
                  " "
-                 (*company-lighter)
+                 ;; (*company-lighter)
                  ;; (*time)
                  ;; (*lunar-sun)
                  (*erc)
