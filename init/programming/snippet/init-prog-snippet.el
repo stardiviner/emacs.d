@@ -87,6 +87,11 @@ $0`(yas-escape-text yas-selected-text)`"
   (add-hook 'yas-after-exit-snippet-hook #'my-yas-exit-animation)
   )
 
+;;; [ ivy-yasnippet ] -- preview yasnippet snippets with Ivy.
+
+(use-package ivy-yasnippet
+  :ensure t
+  :defer t)
 
 ;;; [ auto-yasnippet ] -- quickly create disposable yasnippets.
 
