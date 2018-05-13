@@ -63,28 +63,10 @@
 (define-key org-clock-mode-line-map [header-line mouse-2] 'org-clock-goto)
 (define-key org-clock-mode-line-map [header-line mouse-1] 'org-clock-menu)
 
-
-(add-hook 'org-clock-in-hook
-          (lambda ()
-            (org-clock-play-sound
-             (concat user-emacs-directory
-                     "resources/audio/Ingress/Speech/speech_hacking.wav"))))
-(add-hook 'org-clock-in-prepare-hook
-          (lambda ()
-            (org-clock-play-sound
-             (concat user-emacs-directory
-                     "resources/audio/Ingress/SFX/sfx_typing.wav"))))
-(add-hook 'org-clock-out-hook
-          (lambda ()
-            (org-clock-play-sound
-             (concat user-emacs-directory
-                     "resources/audio/Hacking Game/voice-complete.wav"))))
-(add-hook 'org-clock-cancel-hook
-          (lambda ()
-            (org-clock-play-sound
-             (concat user-emacs-directory
-                     "resources/audio/Hacking Game/hesfx_untold_tick2.wav"))))
-
+(add-hook 'org-clock-in-hook #'sound-voice-hacking)
+(add-hook 'org-clock-in-prepare-hook #'sound-typing)
+(add-hook 'org-clock-out-hook #'sound-voice-complete)
+(add-hook 'org-clock-cancel-hook #'sound-tick2)
 
 ;;; [ org-mru-clock ] -- Effortlessly clock in/out of org-mode tasks, with completion and persistent history.
 

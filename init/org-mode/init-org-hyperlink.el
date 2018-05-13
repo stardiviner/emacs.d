@@ -42,6 +42,7 @@
 
 ;; (advice-add 'org-store-link :before #'org-store-link-set-headline-custom-id)
 
+(add-hook 'org-follow-link-hook #'sound-tick)
 
 ;;; org-file-apps no longer accepts S-expressions as commands
 ;;

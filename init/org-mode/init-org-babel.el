@@ -209,7 +209,7 @@ is not present in `org-babel-load-languages’
                       (buffer-name)))))))
   (message "Source blocks checked in %s." (buffer-name (buffer-base-buffer))))
 
-(add-hook 'org-src-mode-hook 'org-src-block-check)
+(add-hook 'org-src-mode-hook #'org-src-block-check)
 
 ;;; [ coderef ]
 ;;; prepend comment char ahead of `org-coderef-label'.
@@ -229,10 +229,15 @@ is not present in `org-babel-load-languages’
 (defun my-org-src-edit-animation ()
   (interactive)
   (let ((beacon-size 30)
-        (beacon-color "violet red"))
+        (beacon-color "green yellow"))
     (beacon-blink)))
 
 (add-hook 'org-src-mode-hook #'my-org-src-edit-animation)
+(add-hook 'org-src-mode-hook #'sound-tick)
+
+(add-hook 'org-babel-after-execute-hook #'sound-voice-complete)
+(add-hook 'org-babel-post-tangle-hook #'sound-voice-complete)
+(add-hook 'org-babel-pre-tangle-hook #'sound-tick)
 
 ;;; Tangling with append to file instead of default overwrite.
 (defun org-babel-tangle-append ()

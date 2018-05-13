@@ -141,6 +141,84 @@ by creating or altering keymaps stored in buffer-local
 ;; ask for GPG password at first, not in middle of Emacs startup progress.
 (my/json-read-value my/account-file 'yagist)
 
+;;; [ Sounds ]
+
+(autoload 'org-clock-play-sound "org-clock")
+
+(defun sound-typing ()
+  (org-clock-play-sound
+   (concat user-emacs-directory
+           "resources/audio/Ingress/SFX/sfx_typing.wav")))
+(defun sound-tick ()
+  (org-clock-play-sound
+   (concat user-emacs-directory
+           "resources/audio/Hacking Game/hesfx-tick.wav")))
+(defun sound-tick2 ()
+  (org-clock-play-sound
+   (concat user-emacs-directory
+           "resources/audio/Hacking Game/hesfx_untold_tick2.wav")))
+(defun sound-success ()
+  (org-clock-play-sound
+   (concat user-emacs-directory
+           "resources/audio/Ingress/SFX/sfx_ui_success.wav")))
+(defun sound-newmessage ()
+  (org-clock-play-sound
+   (concat user-emacs-directory
+           "resources/audio/Hacking Game/hesfx-newmessage.wav")))
+
+(defun sound-voice-hacking ()
+  (org-clock-play-sound
+   (concat user-emacs-directory
+           "resources/audio/Ingress/Speech/speech_hacking.wav")))
+(defun sound-voice-deployed ()
+  (org-clock-play-sound
+   (concat user-emacs-directory
+           "resources/audio/Ingress/Speech/speech_deployed.wav")))
+(defun sound-voice-connecting ()
+  (org-clock-play-sound
+   (concat user-emacs-directory
+           "resources/audio/Hacking Game/voice-connecting.wav")))
+(defun sound-voice-loading ()
+  (org-clock-play-sound
+   (concat user-emacs-directory
+           "resources/audio/Hacking Game/voice-loading.wav")))
+(defun sound-voice-downloading ()
+  (org-clock-play-sound
+   (concat user-emacs-directory
+           "resources/audio/Hacking Game/voice-downloading.wav")))
+(defun sound-voice-closing ()
+  (org-clock-play-sound
+   (concat user-emacs-directory
+           "resources/audio/Hacking Game/voice-closing.wav")))
+(defun sound-voice-incoming-transmission ()
+  (org-clock-play-sound
+   (concat user-emacs-directory
+           "resources/audio/Hacking Game/voice-incoming-transmission.wav")))
+(defun sound-voice-complete ()
+  (org-clock-play-sound
+   (concat user-emacs-directory
+           "resources/audio/Hacking Game/voice-complete.wav")))
+(defun sound-voice-please-confirm ()
+  (org-clock-play-sound
+   (concat user-emacs-directory
+           "resources/audio/Hacking Game/voice-please-confirm.wav")))
+(defun sound-voice-please-hold ()
+  (org-clock-play-sound
+   (concat user-emacs-directory
+           "resources/audio/Hacking Game/voice-pleasehold.wav")))
+(defun sound-voice-accepted ()
+  (org-clock-play-sound
+   (concat user-emacs-directory
+           "resources/audio/Hacking Game/voice-accepted.wav")))
+(defun sound-voice-welcome ()
+  (org-clock-play-sound
+   (concat user-emacs-directory
+           "resources/audio/Hacking Game/voice-welcome.wav")))
+(defun sound-voice-secure ()
+  (org-clock-play-sound
+   (concat user-emacs-directory
+           "resources/audio/Hacking Game/voice-secure.wav")))
+
 
 
 (provide 'init-functions)
