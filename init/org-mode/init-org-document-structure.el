@@ -16,6 +16,48 @@
 (setq org-special-ctrl-a/e t
       org-special-ctrl-o t)
 
+;;; [ headlines ]
+
+(setq org-fontify-whole-heading-line t)
+(setq org-fontify-done-headline t)
+
+(set-face-attribute 'org-level-1 nil
+                    :inherit nil
+                    :family "Comic Sans MS"
+                    :weight 'bold :height 130
+                    :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                  ('light
+                                   (color-darken-name (face-background 'default) 5))
+                                  ('dark
+                                   (color-lighten-name (face-background 'default) 3))))
+(set-face-attribute 'org-level-2 nil
+                    :inherit 'org-level-1
+                    :family "Comic Neue"
+                    :height 120)
+(set-face-attribute 'org-level-3 nil
+                    :inherit 'org-level-2
+                    :family (face-attribute 'default :family)
+                    :height 110)
+(set-face-attribute 'org-level-4 nil
+                    :inherit 'org-level-3)
+
+;;; [ priority ]
+
+(setq org-priority-faces
+      '((?A .
+            (:foreground "dark gray"
+                         :background "OrangeRed"
+                         :box '(:color "dark gray" :line-width -1)))
+        (?B .
+            (:foreground "dark gray"
+                         :background "dark slate blue"
+                         :box '(:color "dark gray" :line-width -1)))
+        (?C .
+            (:foreground "dim gray"
+                         :background "gray"
+                         :box '(:color "dark gray" :line-width -1)))
+        ))
+
 ;; * Plain Lists::
 
 (require 'org-list)
