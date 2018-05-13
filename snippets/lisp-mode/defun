@@ -3,6 +3,6 @@
 # key: defun
 # group: defun.defun
 # --
-(defun ${1:FUNCTION} (${2:parameters})
+defun ${1:FUNCTION} (${2:parameters})
   "${3:documentation string}"
-  $0)
+  $0
