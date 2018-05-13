@@ -155,10 +155,12 @@
 
 ;;; [ visual-fill-column ] -- visual (hide) extra fill column width.
 
-(require 'visual-fill-column)
-(setq visual-fill-column-width (default-value 'fill-column))
-;; (setq visual-fill-column-center-text t) ; center the text area in the window.
-(add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
+(use-package visual-fill-column
+  :ensure t
+  :config
+  (setq visual-fill-column-width (default-value 'fill-column))
+  ;; (setq visual-fill-column-center-text t) ; center the text area in the window.
+  (add-hook 'visual-line-mode-hook #'visual-fill-column-mode))
 
 ;;; [ fill-column-indicator ]
 ;; (use-package fill-column-indicator
