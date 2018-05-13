@@ -14,36 +14,41 @@
   :preface (setq lsp-enable-flycheck nil
                  lsp-enable-indentation nil
                  lsp-highlight-symbol-at-point nil)
-  :init (add-hook 'prog-mode-hook #'lsp-mode)
-  :config
-  ;; [ lsp-ui ] -- UI modules for lsp-mode.
-  (use-package lsp-ui
-    :ensure t
-    :init (add-hook 'lsp-after-open-hook #'lsp-ui-mode))
-  ;; [ company-lsp ] -- company-mode completion backend for lsp-mode.
-  (use-package company-lsp
-    :ensure t
-    :init (push 'company-lsp company-backends)
-    :config
-    (setq company-lsp-enable-recompletion t
-          company-lsp-enable-snippet t
-          company-lsp-cache-candidates t
-          company-lsp-async t)
-    )
+  ;; :init (add-hook 'prog-mode-hook #'lsp-mode) ; use `lsp-{language}-enable' instead.
+  ;; :config
+  ;; auto set lsp workspace to `projectile-project-root'.
+  ;; (defun my:set-lsp-workspace ()
+  ;;   (when projectile-project-root
+  ;;     ;; FIXME:
+  ;;     (setq lsp--cur-workspace projectile-project-root)))
+  ;; (add-hook 'lsp-before-open-hook #'my:set-lsp-workspace)
   )
 
+;; [ lsp-ui ] -- UI modules for lsp-mode.
 
-(use-package lsp-go
-  :ensure t)
+(use-package lsp-ui
+  :ensure t
+  :init (add-hook 'lsp-after-open-hook #'lsp-ui-mode)
+  :config
+  (setq lsp-ui-doc-enable nil
+        lsp-ui-doc-header t
+        lsp-ui-doc-include-signature t
+        ;; lsp-ui-doc-position 'at-point
+        )
+  )
 
-(use-package lsp-rust
-  :ensure t)
+;; [ company-lsp ] -- company-mode completion backend for lsp-mode.
 
-(use-package lsp-python
-  :ensure t)
-
-(use-package lsp-haskell
-  :ensure t)
+(use-package company-lsp
+  :ensure t
+  :init (add-hook 'lsp-mode-hook
+                  #'(lambda () (my-company-add-backend-locally 'company-lsp)))
+  :config
+  (setq company-lsp-enable-recompletion t
+        company-lsp-enable-snippet t
+        company-lsp-cache-candidates t
+        company-lsp-async t)
+  )
 
 
 (provide 'init-prog-lsp)

@@ -72,23 +72,28 @@
 
 ;; [ company-go ] -- company-mode backend for Go (using gocode).
 
-(use-package company-go
+;; (use-package company-go
+;;   :ensure t
+;;   ;; :load-path (lambda () (concat (getenv "GOPATH") "/src/github.com/nsf/gocode/emacs-company/company-go.el"))
+;;   :ensure-system-package ((gocode . "go get -u github.com/nsf/gocode"))
+;;   :config
+;;   (setq company-go-show-annotation t
+;;         company-go-begin-after-member-access t
+;;         company-go-insert-arguments t
+;;         ;; company-go-gocode-args
+;;         )
+;;   (defun my-company-go-setup ()
+;;     (my-company-add-backend-locally 'company-go)
+;;     (setq-local company-minimum-prefix-length 2))
+;;   (add-hook 'go-mode-hook #'my-company-go-setup)
+;;   )
+
+;;; [ lsp-go ] -- Go support for lsp-mode.
+
+(use-package lsp-go
   :ensure t
-  ;; :load-path (lambda () (concat (getenv "GOPATH") "/src/github.com/nsf/gocode/emacs-company/company-go.el"))
-  :ensure-system-package ((gocode . "go get -u github.com/nsf/gocode"))
-  :config
-  (setq company-go-show-annotation t
-        company-go-begin-after-member-access t
-        company-go-insert-arguments t
-        ;; company-go-gocode-args
-        )
-
-  (defun my-company-go-setup ()
-    (my-company-add-backend-locally 'company-go)
-    (setq-local company-minimum-prefix-length 2))
-  (add-hook 'go-mode-hook #'my-company-go-setup)
-  )
-
+  :ensure-system-package ((go-langserver . "go get -u github.com/sourcegraph/go-langserver"))
+  :init (add-hook 'go-mode-hook #'lsp-go-enable))
 
 ;;; [ gorepl-mode ] -- Go REPL Interactive Development in top of Gore.
 

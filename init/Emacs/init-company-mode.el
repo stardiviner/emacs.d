@@ -300,11 +300,38 @@
   (setq company-box-icons-elisp (list
                                  ;; "λ" ; function/method
                                  (all-the-icons-material "functions" :height 0.8 :v-adjust -0.15)
-                                 ;; (all-the-icons-faicon "hashtag")
-                                 "v" ; variable
+                                 ;; (all-the-icons-faicon "hashtag" :height 0.8 :v-adjust -0.15)
+                                 (all-the-icons-faicon "asterisk" :height 0.8 :v-adjust -0.15) ; variable
                                  (all-the-icons-octicon "package" :height 0.8 :v-adjust -0.05) ; library
                                  (all-the-icons-faicon "font" :height 0.8 :v-adjust -0.05) ; face
                                  ))
+  (setq company-box-icons-lsp
+        `((1 . ,(all-the-icons-faicon "file-text-o" :height 0.8 :v-adjust -0.05)) ;; Text: String
+          (2 . ,(all-the-icons-material "functions" :height 0.8 :v-adjust -0.15)) ;; Method
+          (3 . ,(all-the-icons-material "functions" :height 0.8 :v-adjust -0.15)) ;; Function
+          (4 . ,(all-the-icons-material "functions" :height 0.8 :v-adjust -0.15)) ;; Constructor
+          (5 . ,(all-the-icons-faicon "slack" :height 0.8 :v-adjust -0.15)) ;; Field
+          (6 . ,(all-the-icons-faicon "asterisk" :height 0.8 :v-adjust -0.15)) ;; Variable
+          (7 . ,(all-the-icons-faicon "clone" :height 0.8 :v-adjust -0.15)) ;; Class
+          (8 . ,(all-the-icons-faicon "gg" :height 0.8 :v-adjust -0.15)) ;; Interface
+          (9 . ,(all-the-icons-faicon "cube" :height 0.8 :v-adjust -0.15)) ;; Module
+          (10 . ,(all-the-icons-faicon "puzzle-piece" :height 0.8 :v-adjust -0.15)) ;; Property
+          (11 . ,(all-the-icons-faicon "square-o" :height 0.8 :v-adjust -0.15)) ;; Unit
+          (12 . ,(all-the-icons-faicon "circle-o" :height 0.8 :v-adjust -0.05)) ;; Value
+          (13 . ,(all-the-icons-faicon "tag" :height 0.8 :v-adjust -0.15)) ;; Enum
+          (14 . ,(all-the-icons-faicon "code" :height 0.8 :v-adjust -0.05)) ;; Keyword
+          (15 . ,(all-the-icons-faicon "file-code-o" :height 0.8 :v-adjust -0.05)) ;; Snippet
+          (16 . ,(all-the-icons-faicon "font" :height 0.8 :v-adjust -0.05)) ;; Color
+          (17 . ,(all-the-icons-faicon "file-o" :height 0.8 :v-adjust -0.05)) ;; File
+          (18 . ,(all-the-icons-faicon "link" :height 0.8 :v-adjust -0.15)) ;; Reference
+          (19 . ,(all-the-icons-faicon "folder-o" :height 0.8 :v-adjust -0.05)) ;; Folder
+          (20 . ,(all-the-icons-faicon "hashtag" :height 0.8 :v-adjust -0.15)) ;; EnumMember
+          (21 . ,(all-the-icons-faicon "lightbulb-o" :height 0.8 :v-adjust -0.15)) ;; Constant
+          (22 . ,(all-the-icons-faicon "codepen" :height 0.8 :v-adjust -0.15)) ;; Struct
+          (23 . ,(all-the-icons-faicon "ticket" :height 0.8 :v-adjust -0.05)) ;; Event
+          (24 . ,(all-the-icons-faicon "cog" :height 0.8 :v-adjust -0.15)) ;; Operator
+          (25 . ,(all-the-icons-faicon "question-circle-o" :height 0.8 :v-adjust -0.15)) ;; TypeParameter
+          ))
   )
 
 
