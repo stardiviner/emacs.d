@@ -11,6 +11,7 @@
 (require 'init-emacs-kill-ring)
 (require 'init-emacs-register)
 (require 'init-emacs-region)
+(require 'init-emacs-typography)
 (require 'init-emacs-edit-electric)
 (require 'init-emacs-edit-rectangle)
 (require 'init-emacs-edit-narrow)

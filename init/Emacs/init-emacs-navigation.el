@@ -20,8 +20,6 @@
 
 ;;; [ movement ]
 
-(setq sentence-end-double-space nil)
-
 (setq track-eol t) ; always track end of line when moving at end of line.
 
 ;; set sentence-end to recognize chinese punctuation.
