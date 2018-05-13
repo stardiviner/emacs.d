@@ -15,6 +15,7 @@
 (add-to-list 'org-default-properties "URL")
 (add-to-list 'org-default-properties "Source_Code")
 (add-to-list 'org-default-properties "ISSUE")
+(add-to-list 'org-default-properties "Pull_Request")
 (add-to-list 'org-default-properties "Translation-Chinese")
 
 
