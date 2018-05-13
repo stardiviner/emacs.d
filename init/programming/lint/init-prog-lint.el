@@ -12,6 +12,16 @@
 (add-hook 'prog-mode-hook
           (lambda () (local-set-key (kbd "C-c !") 'linter-prefix)))
 
+;;; [ flymake ] -- A universal on-the-fly syntax checker.
+
+;; (use-package flymake
+;;   :ensure t
+;;   :init (add-hook 'prog-mode-hook #'flymake-mode-on)
+;;   :bind (:map linter-prefix ("!" . flymake-mode)
+;;               :map flymake-mode-map
+;;               ("M-g M-n" . flymake-goto-next-error)
+;;               ("M-g M-p" . flymake-goto-prev-error))
+;;   )
 
 ;;; [ FlyCheck ] --- modern on-the-fly syntax checking
 
