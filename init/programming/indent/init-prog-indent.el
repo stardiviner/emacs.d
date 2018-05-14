@@ -39,6 +39,19 @@
 (use-package indent-guide
   :ensure t
   :defer t
+  :init
+  ;; global
+  ;; works with `indent-guide-global-mode'
+  (with-eval-after-load 'indent-guide
+    (add-to-list 'indent-guide-inhibit-modes 'org-mode)
+    (add-to-list 'indent-guide-inhibit-modes 'web-mode))
+  ;; (indent-guide-global-mode)
+  
+  ;; specific modes
+  (defun my/indent-guide-mode-enable ()
+    (unless (member major-mode indent-guide-inhibit-modes)
+      (indent-guide-mode 1)))
+  (add-hook 'prog-mode-hook #'my/indent-guide-mode-enable)
   :config
   (setq indent-guide-recursive t
         ;; - 0 to avoid zero-column guide line.
@@ -73,17 +86,6 @@
                                       ('dark
                                        (color-lighten-name (face-background 'default) 20)))))
   (add-hook 'circadian-after-load-theme-hook #'circadian:indent-guide-faces)
-  
-  ;; works with `indent-guide-global-mode'
-  (add-to-list 'indent-guide-inhibit-modes 'org-mode)
-  (add-to-list 'indent-guide-inhibit-modes 'web-mode)
-  ;; (indent-guide-global-mode)
-  
-  ;; specific modes
-  (defun my/indent-guide-mode-enable ()
-    (unless (member major-mode indent-guide-inhibit-modes)
-      (indent-guide-mode 1)))
-  (add-hook 'prog-mode-hook #'my/indent-guide-mode-enable)
   )
 
 

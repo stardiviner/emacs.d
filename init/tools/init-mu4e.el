@@ -208,6 +208,8 @@
 
 ;; [ Compose ]
 
+;; - `org-mu4e-compose-org-mode' ::
+
 ;; Compose hooks [mu4e-compose-pre-hook, mu4e-compose-mode-hook]
 ;;
 ;; When replying to an email I want to use the address I received this message
@@ -234,6 +236,9 @@
 ;;                      (t "numbchild@gmail.com")))
 ;;               )))
 
+(add-hook 'mu4e-compose-mode-hook #'visual-fill-column-mode)
+(add-hook 'mu4e-compose-mode-hook #'turn-on-auto-fill)
+(add-hook 'mu4e-compose-mode-hook #'flyspell-mode-on)
 
 ;;; Message signatures
 ;; include in message with [C-c C-w]
@@ -716,9 +721,6 @@
 (define-key mu4e-headers-mode-map (kbd "M") 'mu4e-headers-mark-for-move)
 
 (add-hook 'mu4e-view-mode-hook #'turn-on-visual-line-mode)
-(add-hook 'mu4e-compose-mode-hook #'visual-fill-column-mode)
-(add-hook 'mu4e-compose-mode-hook #'turn-on-auto-fill)
-(add-hook 'mu4e-compose-mode-hook #'flyspell-mode-on)
 
 ;;; Gmail
 ;; (setq mu4e-maildir "~/Maildir")
