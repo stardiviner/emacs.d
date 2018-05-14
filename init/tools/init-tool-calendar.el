@@ -121,6 +121,16 @@
               ("o" . cfw:open-org-calendar)
               ("x" . cfw:open-calendar-buffer))
   :config
+  ;; Grid frame
+  (setq cfw:fchar-junction ?╬
+        cfw:fchar-vertical-line ?║
+        cfw:fchar-horizontal-line ?═
+        cfw:fchar-left-junction ?╠
+        cfw:fchar-right-junction ?╣
+        cfw:fchar-top-junction ?╦
+        cfw:fchar-top-left-corner ?╔
+        cfw:fchar-top-right-corner ?╗)
+
   ;; Faces
   ;; Year / Month
   (set-face-attribute 'cfw:face-title nil
@@ -162,8 +172,8 @@
                       )
   ;; Grid
   (set-face-attribute 'cfw:face-grid nil
-                      :foreground "#333333"
-                      )
+                      :inherit nil
+                      :foreground "#333333")
   ;; ??
   (set-face-attribute 'cfw:face-default-content nil
                       :foreground "gray")
@@ -207,50 +217,8 @@
                       :foreground "dim gray"
                       :weight 'normal)
 
-  ;; Grid frame
-  ;; Another unicode chars
-  (setq cfw:fchar-junction ?╬
-        cfw:fchar-vertical-line ?║
-        cfw:fchar-horizontal-line ?═
-        cfw:fchar-left-junction ?╠
-        cfw:fchar-right-junction ?╣
-        cfw:fchar-top-junction ?╦
-        cfw:fchar-top-left-corner ?╔
-        cfw:fchar-top-right-corner ?╗)
-
-  ;; Line breaking
-  (setq cfw:render-line-breaker 'cfw:render-line-breaker-wordwrap)
-
-
-  ;; for Org-mode
-  (require 'calfw-org)
-
-  ;; (setq cfw:org-agenda-schedule-args '(:timestamp))
-  ;; (setq cfw:org-overwrite-default-keybinding nil)
-
-  ;; org-capture template
-  (setq cfw:org-capture-template
-        '("c" "calfw2org" entry
-          (file nil)
-          "* %?\n %(cfw:org-capture-day)"))
-
-  ;; for iCalendar (Google Calendar) users:
-  ;; (require 'calfw-ical)
-  ;; (cfw:open-ical-calendar "http://www.google.com/calendar/ical/.../basic.ics")
-
-  ;; for Diary users:
-  ;; - [M-x cfw:open-diary-calendar]
-  ;; (require 'calfw-cal)
-
-  ;; calfw-gcal.el -- edit Google Calendar for calfw.
-  ;; (require 'calfw-gcal)
-
-  ;; for Howm users:
-  ;; (require 'calfw-howm)
-
-
   ;; General setting
-  (defun my-open-calfw-week ()
+  (defun calfw:week ()
     (interactive)
     (cfw:open-calendar-buffer
      :contents-sources
@@ -265,15 +233,14 @@
      ;; (list
      ;;  (cfw:ical-create-source "Moon" "~/moon.ics" "Gray") ; Moon annotations
      ;;  )
-     :view 'week                         ; 'month, 'week, 'day
-     )
+     :view 'week)
     (bury-buffer)
     (switch-to-buffer "*cfw-calendar*")
     ;; (toggle-frame-maximized)
     ;; (cfw:refresh-calendar-buffer t)
     )
 
-  (defun my-open-calfw-day ()
+  (defun calfw:day ()
     (interactive)
     (cfw:open-calendar-buffer
      :contents-sources
@@ -281,13 +248,12 @@
       (cfw:org-create-source "dark gray") ; Org-mode source
       (cfw:cal-create-source "orange") ; Diary source
       )
-     :view 'day                           ; 'month, 'week, 'day
-     )
+     :view 'day)
     (bury-buffer)
     (switch-to-buffer "*cfw-calendar*")
     )
 
-  (defun my-open-calfw-month ()
+  (defun calfw:month ()
     (interactive)
     (cfw:open-calendar-buffer
      :contents-sources
@@ -295,35 +261,51 @@
       (cfw:org-create-source "dark gray") ; Org-mode source
       (cfw:cal-create-source "orange") ; Diary source
       )
-     :view 'month                         ; 'month, 'week, 'day
-     )
+     :view 'month)
     (bury-buffer)
-    (switch-to-buffer "*cfw-calendar*")
-    )
+    (switch-to-buffer "*cfw-calendar*"))
 
-  (define-key calendar-prefix (kbd "c") 'my-open-calfw-week)
-  (define-key calendar-prefix (kbd "w") 'my-open-calfw-week)
-  (define-key calendar-prefix (kbd "d") 'my-open-calfw-day)
-  (define-key calendar-prefix (kbd "m") 'my-open-calfw-month)
-
-  ;; for org-agenda
-  (use-package calfw-org
-    :ensure t)
-  ;; for Emacs Diary
-  (use-package calfw-cal
-    :ensure t)
-  ;; for iCal format
-  (use-package calfw-ical
-    :ensure t)
+  (define-key calendar-prefix (kbd "c") 'calfw:week)
+  (define-key calendar-prefix (kbd "w") 'calfw:week)
+  (define-key calendar-prefix (kbd "d") 'calfw:day)
+  (define-key calendar-prefix (kbd "m") 'calfw:month)
   )
 
+;;; [ calfw-org ] -- for Org Agena
 
-;;; [ iCalendar ]
+(use-package calfw-org
+  :ensure t
+  :config
+  ;; (setq cfw:org-agenda-schedule-args '(:timestamp))
+  ;; (setq cfw:org-overwrite-default-keybinding nil)
+
+  ;; org-capture template
+  (setq cfw:org-capture-template
+        '("D" "[D] calfw2org" entry
+          (file nil)
+          "* %?\n %(cfw:org-capture-day)"))
+  )
+
+;; [ calfw-cal ] -- for Emacs Diary
+
+(use-package calfw-cal
+  :ensure t)
+
+;;; [ iCalendar ] -- for for iCalendar (Google Calendar) users
+
+;; (use-package calfw-ical
+;;   :ensure t
+;;   :config
+;;   ;; (cfw:open-ical-calendar "http://www.google.com/calendar/ical/.../basic.ics")
+;;   )
 
 ;; FIXME: deprecated variable (free assigned).
 ;; (setq org-combined-agenda-icalendar-file "~/Org/Calendar/iCalendar.ics")
 
-;;; [ Google Calendar ]
+;;; [ calfw-gcal ] -- edit Google Calendar for calfw.
+
+;; (use-package calfw-gcal
+;;   :ensure t)
 
 ;;;  [ org-gcal ]
 
@@ -339,6 +321,10 @@
 ;;   (add-hook 'org-agenda-mode-hook #'org-gcal-sync)
 ;;   (add-hook 'org-capture-after-finalize-hook #'org-gcal-sync)
 ;;   )
+
+;; for Howm users:
+;; (use-package calfw-howm
+;;   :ensure t)
 
 
 

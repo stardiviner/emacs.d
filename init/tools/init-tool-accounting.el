@@ -40,7 +40,7 @@
 
 (with-eval-after-load 'org-capture
   (setq org-capture-templates
-        (append '(("l" "[L]edger entries")
+        (append '(("l" "[l]edger entries")
                   ;; Expense
                   ("le" "[E]xpenses")
                   ("les" "[S]hopping" plain

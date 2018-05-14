@@ -15,7 +15,7 @@
       (concat org-directory "/Tasks/Tasks.org"))
 
 (setq org-capture-templates
-      '(("c" "[C]apture"
+      '(("c" "[c]apture"
          entry (file "")
          ;; select todo keyword interactively from `org-todo-keywords'.
          "* %(completing-read \"Todo keyword: \" org-todo-keywords-for-agenda nil t) %^{Capture} \n:PROPERTIES:\n:TIME: %U\n:END: \n%i\n%a\n\n%?"

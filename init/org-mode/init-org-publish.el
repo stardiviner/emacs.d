@@ -362,7 +362,7 @@
     (format "* %s\n:PROPERTIES:\n:DATE: %%U\n:END: \n\n[[file:%s.org][%s]]\n%%i" title title title)))
 (add-to-list
  'org-capture-templates
- '("b" "[B]log"
+ '("b" "[b]log"
    entry (file "~/Org/Website/Blog/index.org")
    (function my/org-capture-template-blog--get-title)
    :empty-lines 1
