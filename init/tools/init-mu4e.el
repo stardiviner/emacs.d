@@ -683,7 +683,7 @@
 ;;; Faces
 
 ;; current select line
-(defun my-mu4e-set-face (theme)
+(defun circadian:mu4e-faces (theme)
   "Reload customized faces on `circadian' `THEME' toggling."
   (set-face-attribute 'mu4e-header-highlight-face nil
                       :inherit nil
@@ -706,7 +706,7 @@
   (set-face-attribute 'mu4e-flagged-face nil
                       :foreground "red")
   )
-(add-hook 'circadian-after-load-theme-hook 'my-mu4e-set-face)
+(add-hook 'circadian-after-load-theme-hook #'circadian:mu4e-faces)
 
 
 ;;; Marking

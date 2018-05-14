@@ -251,7 +251,8 @@
     (unless (frame-live-p (company-box-doc--get-frame))
       (set-frame-parameter nil 'company-box-doc-frame nil)))
 
-  (defun my:company-box-faces-setup (theme)
+  (company-box-child-frame-reset)
+  (defun circadian:company-box-faces (theme)
     "Reload company-box faces on `circadian' `THEME' toggling."
     (company-box-child-frame-reset)
     (set-face-attribute 'company-box-candidate nil
@@ -265,7 +266,7 @@
                                       ('light "#EBF4FE")
                                       ('dark (color-lighten-name (face-background 'default) 4))))
     )
-  (add-hook 'circadian-after-load-theme-hook #'my:company-box-faces-setup)
+  (add-hook 'circadian-after-load-theme-hook #'circadian:company-box-faces)
 
   (setq company-box-backends-colors
         '((company-capf . (:icon "LightSeaGreen"))

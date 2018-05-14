@@ -45,8 +45,8 @@
 
   (add-hook 'pdf-view-mode-hook #'my-pdf-tools-setup)
   
-  ;; toggle midnight mode theme
-  ;; (defun my-pdf-tools-set-face (theme)
+  ;; ;; toggle midnight mode theme
+  ;; (defun circadian:pdf-tools-faces (theme)
   ;;   "Set `pdf-tools' faces based on `circadian' color `THEME' switching."
   ;;   ;; color-theme adaptive colors.
   ;;   (setq pdf-view-midnight-colors `(,(face-background 'default) . ,(face-foreground 'default)))
@@ -57,7 +57,7 @@
   ;;   ;; original solarized colors
   ;;   ;; (setq pdf-view-midnight-colors '("#839496" . "#002b36" ))
   ;;   )
-  ;; (add-hook 'circadian-after-load-theme-hook #'my-pdf-tools-set-face)
+  ;; (add-hook 'circadian-after-load-theme-hook #'circadian:pdf-tools-faces)
   ;; (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)
 
   ;; workaround for pdf-tools not reopening to last-viewed page of the pdf:

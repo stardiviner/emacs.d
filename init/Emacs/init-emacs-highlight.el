@@ -55,7 +55,7 @@
   (add-hook 'prog-mode-hook #'symbol-overlay-mode)
   :config
   (setq symbol-overlay-idle-time 1.0)
-  (defun my-symbol-overlay-set-face (theme)
+  (defun circadian:symbol-overlay-faces (theme)
     "Set `symbol-overlay' faces based on `circadian' color `THEME' switching."
     (set-face-attribute 'symbol-overlay-default-face nil
                         :inherit t :foreground nil
@@ -64,7 +64,7 @@
                                        (color-darken-name (face-background 'default) 10))
                                       ('dark
                                        (color-darken-name (face-background 'default) 5)))))
-  (add-hook 'circadian-after-load-theme-hook #'my-symbol-overlay-set-face)
+  (add-hook 'circadian-after-load-theme-hook #'circadian:symbol-overlay-faces)
   )
 
 

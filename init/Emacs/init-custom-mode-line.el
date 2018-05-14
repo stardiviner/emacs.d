@@ -887,7 +887,7 @@ dimensions of a block selection."
       (when (and (> screen-half-width 80) (mode-line-window-active-p))
         (ignore-errors
           mode-line-keycast))))
-  (defun my:keycast-faces-setup (theme)
+  (defun circadian:keycast-faces (theme)
     (set-face-attribute 'keycast-key nil
                         :inherit 'mode-line
                         :height 1.0
@@ -897,8 +897,8 @@ dimensions of a block selection."
                         :box (face-attribute 'mode-line :box))
     (set-face-attribute 'keycast-command nil
                         :bold nil))
-  (add-hook 'circadian-after-load-theme-hook #'my:keycast-faces-setup)
-  (my:keycast-faces-setup nil)
+  (add-hook 'circadian-after-load-theme-hook #'circadian:keycast-faces)
+  (circadian:keycast-faces nil)
   )
 
 (defun *space (n)

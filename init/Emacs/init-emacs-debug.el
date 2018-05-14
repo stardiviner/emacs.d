@@ -43,7 +43,7 @@
               ("M-b" . edebug-x-show-breakpoints)
               ("M-i" . edebug-x-show-instrumented))
   :config
-  (defun my-edebug-set-face (theme)
+  (defun circadian:edebug-faces (theme)
     "Set edebug-x faces based on `circadian' color `THEME' switching"
     (set-face-attribute 'hi-edebug-x-stop nil
                         :reverse-video nil :foreground nil :overline nil
@@ -59,8 +59,8 @@
 					                             (color-darken-name (face-background 'default) 10))
 					                            ('dark
 					                             (color-darken-name (face-background 'default) 20)))))
-  (add-hook 'circadian-after-load-theme-hook #'my-edebug-set-face)
-  (my-edebug-set-face nil)
+  (add-hook 'circadian-after-load-theme-hook #'circadian:edebug-faces)
+  (circadian:edebug-faces nil)
 
   (add-to-list 'display-buffer-alist
                '("^\\*Instrumented Functions\\*" (display-buffer-below-selected)))

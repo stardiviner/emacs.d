@@ -267,7 +267,7 @@ The function is suitable for `erc-after-connect'."
 
   ;; prompt
   (setq erc-prompt " (λ) ⌨ ")
-  (defun my-erc-prompt-set-face (theme)
+  (defun circadian:erc-faces (theme)
     "Reload customized faces on `circadian' `THEME' toggling."
     (set-face-attribute 'erc-prompt-face nil
                         :background (cl-case (alist-get 'background-mode (frame-parameters))
@@ -276,7 +276,7 @@ The function is suitable for `erc-after-connect'."
                                       ('dark
                                        (color-darken-name (face-background 'default) 5)))
                         :foreground "lawn green"))
-  (add-hook 'circadian-after-load-theme-hook #'my-erc-prompt-set-face)
+  (add-hook 'circadian-after-load-theme-hook #'circadian:erc-faces)
 
 
   ;; [ Button ]

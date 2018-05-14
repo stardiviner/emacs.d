@@ -21,25 +21,29 @@
 (setq org-fontify-whole-heading-line t)
 (setq org-fontify-done-headline t)
 
-(set-face-attribute 'org-level-1 nil
-                    :inherit nil
-                    :family "Comic Sans MS"
-                    :weight 'bold :height 130
-                    :background (cl-case (alist-get 'background-mode (frame-parameters))
-                                  ('light
-                                   (color-darken-name (face-background 'default) 5))
-                                  ('dark
-                                   (color-lighten-name (face-background 'default) 3))))
-(set-face-attribute 'org-level-2 nil
-                    :inherit 'org-level-1
-                    :family "Comic Neue"
-                    :height 120)
-(set-face-attribute 'org-level-3 nil
-                    :inherit 'org-level-2
-                    :family (face-attribute 'default :family)
-                    :height 110)
-(set-face-attribute 'org-level-4 nil
-                    :inherit 'org-level-3)
+(defun circadian:org-faces (theme)
+  (set-face-attribute 'org-level-1 nil
+                      :inherit nil
+                      :family "Comic Sans MS"
+                      :weight 'bold :height 130
+                      :background (cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('light
+                                     (color-darken-name (face-background 'default) 5))
+                                    ('dark
+                                     (color-lighten-name (face-background 'default) 3))))
+  (set-face-attribute 'org-level-2 nil
+                      :inherit 'org-level-1
+                      :family "Comic Neue"
+                      :height 120)
+  (set-face-attribute 'org-level-3 nil
+                      :inherit 'org-level-2
+                      :family (face-attribute 'default :family)
+                      :height 110)
+  (set-face-attribute 'org-level-4 nil
+                      :inherit 'org-level-3)
+  )
+(add-hook 'circadian-after-load-theme-hook #'circadian:org-faces)
+(circadian:org-faces nil)
 
 ;;; [ priority ]
 
