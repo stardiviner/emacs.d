@@ -23,12 +23,12 @@
       '((path . "https://orgmode.org/org-info.js")
         (view . "showall") ; "info", "overview", "content", "showall"
         (toc . :with-toc)
-        (ftoc . "0") ; fixed TOC
+        (ftoc . "2") ; fixed TOC
         (tdepth . "max")
         (sdepth . "max")
         (mouse . "underline")
         (buttons . "0")
-        (ltoc . "1") ; local TOC
+        (ltoc . "3") ; local TOC
         (up . :html-link-up)
         (home . :html-link-home)))
 
@@ -88,8 +88,7 @@
          :section-numbers t
          :with-toc nil
          :table-of-contents nil
-         ;; [ Show Org source ]
-         ;; use external CSS stylesheet instead.
+         ;; [ Show Org source, generate .org.html ]
          :htmlized-source t ; toggle for `org-org-publish-to-org'
          ;; NOTE: conflict with customize font-lock: font-lock-add-keywords defined org faces.
          ;; [ src blocks ]
@@ -175,8 +174,8 @@
                :section-numbers t
                :with-toc nil
                :table-of-contents nil
-               ;; [ src code block ]
-               :htmlized-source nil ; src code block syntax highlighting
+               ;; Generate .org.html
+               :htmlized-source nil
                ;; [ images ]
                :html-inline-images t
                ;; [ stylesheet ]
@@ -189,7 +188,7 @@
                                          )
                ;; [ info.js]
                :html-use-infojs nil
-
+               
                ;; NOTE: `:completion-function' must be in the last component in `org-publish-project-alist'.
                :completion-function (my-org-publish-sync my-org-publish-finished-notify)
                ))
@@ -209,7 +208,7 @@
                :recursive t
                :publishing-directory ,(concat my-org-publish-destination "About")
                :publishing-function (org-html-publish-to-html)
-
+               
                ;; [ html ]
                :html-doctype "html5"
                :html-html5-fancy t ; use new HTML5 elements.
@@ -219,10 +218,10 @@
                :html-postamble ,(org-file-contents (concat my-org-publish-source "assets/postamble.html"))
                :html-link-org-files-as-html t
                :section-numbers t
-               :with-toc nil
+               :with-toc t
                :table-of-contents nil
-               ;; [ src code block ]
-               :htmlized-source nil ; src code block syntax highlighting
+               ;; Generate .org.html
+               :htmlized-source nil
                ;; [ images ]
                :html-inline-images t
                ;; [ stylesheet ]
@@ -265,10 +264,10 @@
                :html-postamble ,(org-file-contents (concat my-org-publish-source "assets/postamble.html"))
                :html-link-org-files-as-html t
                :section-numbers t
-               :with-toc nil
+               :with-toc t
                :table-of-contents nil
-               ;; [ src code block ]
-               :htmlized-source nil ; src code block syntax highlighting
+               ;; Generate .org.html
+               :htmlized-source nil
                ;; [ images ]
                :html-inline-images t
                ;; [ stylesheet ]
