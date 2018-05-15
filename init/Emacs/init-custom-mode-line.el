@@ -1011,6 +1011,12 @@ dimensions of a block selection."
   (define-key prog-vcs-prefix (kbd "N") 'github-open-notifications-participating)
   )
 
+;;; [ SuperCollider (scel) ]
+(defun *supercollider ()
+  (if (and (fboundp 'sclang-get-server) (sclang-get-server))
+      ;; `sclang-update-server-info', `sclang-get-server-info-string'
+      sclang-server-info-string))
+
 (use-package proxy-mode
   :ensure t
   :config
@@ -1142,6 +1148,7 @@ dimensions of a block selection."
                  ;; (*lunar-sun)
                  (*erc)
                  (*emms)
+                 (*supercollider)
                  (*mu4e)
                  ;; (*gnus)
                  (*github-notifications)
