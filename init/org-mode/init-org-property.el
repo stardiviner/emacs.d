@@ -12,6 +12,7 @@
 (add-to-list 'org-default-properties "DATE")
 (add-to-list 'org-default-properties "TIME")
 (add-to-list 'org-default-properties "AUTHOR")
+(add-to-list 'org-default-properties "EMAIL")
 (add-to-list 'org-default-properties "URL")
 (add-to-list 'org-default-properties "Source_Code")
 (add-to-list 'org-default-properties "ISSUE")
