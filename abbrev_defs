@@ -61,7 +61,10 @@
 
 (define-abbrev-table 'cljr--change-signature-mode-abbrev-table '())
 
-(define-abbrev-table 'clojure-mode-abbrev-table '())
+(define-abbrev-table 'clojure-mode-abbrev-table
+  '(
+    ("defun" "defn" nil :count 0)
+   ))
 
 (define-abbrev-table 'clojurec-mode-abbrev-table '())
 
