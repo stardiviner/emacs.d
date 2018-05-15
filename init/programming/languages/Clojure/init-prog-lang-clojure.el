@@ -107,8 +107,6 @@
    cider-dynamic-indentation nil
    ;; REPL
    cider-repl-result-prefix ";; => "
-   ;; spinner
-   cider-eval-spinner-type 'horizontal-breathing
    )
 
   ;; annotations
@@ -163,7 +161,9 @@
   (add-hook 'cider-repl-mode-hook #'subword-mode)
   
   ;; auto inject Clojure dependencies.
-  ;; (add-to-list 'cider-jack-in-dependencies '("incanter" "1.5.7"))
+  ;; (cider-add-to-alist 'cider-jack-in-dependencies "org.clojure/tools.nrepl" "0.2.13")
+  ;; (add-to-list 'cider-jack-in-dependencies '("incanter" "1.9.2"))
+  ;; (add-to-list 'cider-jack-in-dependencies '("org.clojure/core.async" "0.4.474"))
   ;; Check out function `cljr--inject-jack-in-dependencies'.
   
   ;; notify user CIDER is connected.
@@ -355,7 +355,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 
 (require 'ob-clojure-literate)
 (setq ob-clojure-literate-auto-jackin-p t)
-;; (setq ob-clojure-literate-project-location "~/.emacs.d/Org-mode/")
+(setq ob-clojure-literate-project-location "~/.emacs.d/Org-mode/")
 ;; (add-hook 'org-mode-hook #'ob-clojure-literate-mode)
 (define-key org-babel-map (kbd "M-c") 'ob-clojure-literate-mode)
 
