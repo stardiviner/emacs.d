@@ -156,6 +156,10 @@ Will work on both org-mode and any mode that accepts plain html."
 
 (define-key org-mode-map (kbd "C-c k") #'my/org-insert-key)
 
+;;; [ org-lint ] -- Org-mode linter. [M-x org-lint]
+
+(require 'org-lint)
+
 
 (provide 'init-org-document-structure)
 
