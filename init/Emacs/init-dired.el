@@ -16,62 +16,14 @@
          ("j" . dired-next-line)
          ("k" . dired-previous-line)
          ("g" . dired-do-redisplay)
-         ("i" . ido-find-file)
          ("F" . find-name-dired)
-         ;; ("e" . ediff-files)
          )
   :init
   ;; auto refresh dired when file changes
   (setq dired-auto-revert-buffer t)
   (add-hook 'dired-mode-hook #'turn-on-auto-revert-mode)
-  (setq dired-create-destination-dirs 'ask)
   :config
-  (defun dired-sudo ()
-    "The sudo privilege to change the owner of a file owned by root."
-    (interactive)
-    (require 'tramp)
-    (let ((dir (expand-file-name default-directory)))
-      (if (string-match "^/sudo:" dir)
-          (user-error "Already in sudo")
-        (dired (concat "/sudo::" dir)))))
-
-  (define-key dired-mode-map (kbd "#") 'dired-sudo)
-
-  ;; Run rsync in Dired.
-  (defun dired-rsync (dest)
-    (interactive (list
-                  (expand-file-name
-                   (read-file-name
-                    "Rsync to:"
-                    (dired-dwim-target-directory)))))
-    ;; store all selected files into "files" list
-    (let ((files (dired-get-marked-files
-                  nil current-prefix-arg))
-          ;; the rsync command
-          (tmtxt/rsync-command "rsync -arvz --progress "))
-      ;; add all selected file names as arguments
-      ;; to the rsync command
-      (dolist (file files)
-        (setq tmtxt/rsync-command
-              (concat tmtxt/rsync-command
-                      (shell-quote-argument file)
-                      " ")))
-      ;; append the destination
-      (setq tmtxt/rsync-command
-            (concat tmtxt/rsync-command
-                    (shell-quote-argument dest)))
-      ;; run the async shell command
-      (async-shell-command tmtxt/rsync-command "*rsync*")
-      ;; finally, switch to that window
-      (other-window 1)))
-
-  (define-key dired-mode-map "Y" 'dired-rsync)
-
-  ;; open file with eww.
-  (define-key dired-mode-map (kbd "e")
-    (lambda ()
-      (interactive)
-      (eww-open-file (dired-get-file-for-visit))))
+  (setq dired-create-destination-dirs 'ask)
 
   ;; Another thing that did annoy me was the fact that when I traverse the
   ;; directory hierarchy, I leave a trail of open Dired buffers with all the
@@ -82,24 +34,6 @@
   ;;
   (put 'dired-find-alternate-file 'disabled nil) ; key [a] in Dired.
 
-  ;; `dired-do-shell-command' does not know (by default) how to handle some
-  ;; filetypes.
-  (setq dired-guess-shell-alist-user
-        '(
-          ;; PDF
-          ("\\.pdf\\'" (if (exec-installed-p "okular")
-                           "okular"
-                         "evince"))
-          ;; Mind Maps
-          ("\\.mm\\'" (if (exec-installed-p "freemind")
-                          "freemind"
-                        "freeplane"))
-          ;; TeX
-          ("\\.tex\\'" "xelatex")
-          ;; Office
-          ("\\.ods\\'\\|\\.xlsx?\\'\\|\\.docx?\\'\\|\\.csv\\'" "libreoffice")
-          ))
-
   ;; allow dired to be able to delete or copy a whole dir.
   (setq dired-recursive-copies 'always)
   (setq dired-recursive-deletes 'top) ; 'top means ask once
@@ -108,6 +42,32 @@
   ;; This means: if there is a Dired buffer displayed in the next window, use its
   ;; current directory, instead of this Dired buffer's current directory.
   (setq dired-dwim-target t)
+
+  ;; reuse the current dired buffer to visit a directory.
+  (use-package dired-single
+    :ensure t
+    :init
+    (defun my:dired-single-enable ()
+      (define-key dired-mode-map [return] 'dired-single-buffer)
+      (define-key dired-mode-map [mouse-1] 'dired-single-buffer-mouse)
+      (define-key dired-mode-map "^"
+        (function (lambda nil (interactive) (dired-single-buffer "..")))))
+    (add-hook 'dired-mode-hook #'my:dired-single-enable))
+  
+  (use-package dired-toggle-sudo
+    :ensure t
+    :bind (:map dired-mode-map ("#" . dired-toggle-sudo)))
+  
+  ;; allow rsync from dired buffers especially for large files.
+  (use-package dired-rsync
+    :ensure t
+    :commands (dired-rsync))
+
+  ;; open file with `eww'.
+  (define-key dired-mode-map (kbd "e")
+    (lambda ()
+      (interactive)
+      (eww-open-file (dired-get-file-for-visit))))
 
   ;; [image-dired ] -- image in Dired
   (use-package image-dired+
@@ -131,12 +91,12 @@
     (add-to-list 'display-buffer-alist
                  '("^\\*image-dired-display-image\\*" (display-buffer-same-window)))
     )
-  
-  (use-package wdired ; Rename files editing their names in dired buffers.
+
+  ;; rename files editing their names in dired buffers.
+  (use-package wdired
     :ensure t
     :bind (:map dired-mode-map ("C-c C-p" . wdired-change-to-wdired-mode))
-    :config
-    (setq wdired-allow-to-change-permissions t))
+    :config (setq wdired-allow-to-change-permissions t))
 
   (use-package dired-x ; extra Dired functionality
     :preface
@@ -151,12 +111,6 @@
                   "\\|^.DS_STORE$\\|^.projectile$"
                   "\\(?:.*\\.\\(?:aux\\|log\\|synctex\\.gz\\|run\\.xml\\|bcf\\|am\\|in\\)\\'\\)\\|^\\.\\|-blx\\.bib"))
     )
-
-  ;; colorful file names in dired buffers.
-  (use-package diredful
-    :ensure t
-    :config
-    (diredful-mode 1))
 
   ;; use `all-the-icons' icons to display for files.
   (use-package all-the-icons-dired
@@ -174,14 +128,9 @@
     ;; (setq dired-efap-initial-filename-selection 'no-extension)
     )
 
-  (use-package dired-aux ; less commonly used parts of dired.
-    :init
-    (use-package async
-      :ensure t
-      :load (dired-async)
-      :config
-      (dired-async-mode 1)))
-  
+  ;; `dired-do-*' commands
+  (require 'dired-aux)
+
   (use-package dired-narrow
     :ensure t
     :bind (:map dired-mode-map ("/" . dired-narrow)))
@@ -197,7 +146,7 @@
           peep-dired-enable-on-directories t
           peep-dired-ignored-extensions '("mkv" "iso" "mp4")))
 
-  ;; launch an external application from dired.
+  ;; launch an external application with command `mimeopen' from dired.
   (use-package dired-launch
     :ensure t
     :bind (:map dired-launch-mode-map
@@ -205,41 +154,7 @@
                 ("K" . nil)
                 ("C-c l" . dired-launch-command)
                 ("C-c L" . dired-launch-with-prompt-command))
-    :config
-    (dired-launch-enable))
-  
-  ;; A simple directory explorer. It also works as a generic tree explore library.
-  (use-package direx
-    :ensure t
-    ;; direx-project -- (bundled with direx.el) -- project tree explorer.
-    :load (direx-project)
-    :bind ("C-c C-j" . my-direx:jump-to-directory)
-    :config
-    (defun my-direx:jump-to-directory ()
-      (interactive)
-      (if (projectile-project-root)
-          ;; (direx-project:jump-to-project-root-other-window)
-          (direx-project:jump-to-project-root)
-        (direx:jump-to-directory-other-window)
-        )))
-  (use-package dired-hacks-utils
-    :ensure t)
-
-  (use-package find-by-pinyin-dired ; Find file by first Pinyin characters of Chinese Hanzi.
-    :ensure t)
-  
-  (use-package ivy-dired-history
-    :ensure t
-    :load (savehist)
-    :defer t
-    :config
-    (add-to-list 'savehist-additional-variables 'ivy-dired-history-variable)
-    (with-eval-after-load 'dired
-      (require 'ivy-dired-history)
-      ;; if you are using ido,you'd better disable ido for dired
-      ;; (define-key (cdr ido-minor-mode-map-entry) [remap dired] nil) ;in ido-setup-hook
-      (define-key dired-mode-map "." 'dired))
-    )
+    :init (dired-launch-enable))
   
   ;; [ make-it-so ] -- Transform files with Makefile recipes.
   (use-package make-it-so
