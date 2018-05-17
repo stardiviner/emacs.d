@@ -21,9 +21,14 @@
 (setq org-fontify-whole-heading-line t)
 (setq org-fontify-done-headline t)
 
+(add-hook 'org-mode-hook 'variable-pitch-mode)
+
 (defun circadian:org-faces (theme)
+  (set-face-attribute 'org-document-title nil
+                      :family "Gabriola"
+                      :height 200)
   (set-face-attribute 'org-level-1 nil
-                      :inherit nil
+                      :inherit 'variable-pitch
                       :family "Comic Sans MS"
                       :weight 'bold :height 130
                       :background (cl-case (alist-get 'background-mode (frame-parameters))
@@ -34,13 +39,40 @@
   (set-face-attribute 'org-level-2 nil
                       :inherit 'org-level-1
                       :family "Comic Neue"
-                      :height 120)
+                      :height 130)
   (set-face-attribute 'org-level-3 nil
                       :inherit 'org-level-2
-                      :family (face-attribute 'default :family)
-                      :height 110)
+                      :family "Linux Biolinum"
+                      :height 130)
   (set-face-attribute 'org-level-4 nil
-                      :inherit 'org-level-3)
+                      :inherit 'org-level-3
+                      :family "Comic Neue")
+  (set-face-attribute 'org-level-5 nil
+                      :inherit 'org-level-4)
+  (set-face-attribute 'org-level-6 nil
+                      :inherit 'org-level-5)
+  (set-face-attribute 'org-level-7 nil
+                      :inherit 'org-level-6)
+  (set-face-attribute 'org-headline-done nil
+                      :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('light
+                                     (color-darken-name (face-background 'default) 20))
+                                    ('dark
+                                     (color-lighten-name (face-background 'default) 20)))
+                      )
+  (set-face-attribute 'org-agenda-done nil
+                      :foreground (cl-case (alist-get 'background-mode (frame-parameters))
+                                    ('light
+                                     (color-darken-name (face-background 'default) 20))
+                                    ('dark
+                                     (color-lighten-name (face-background 'default) 20)))
+                      )
+  (set-face-attribute 'org-code nil
+                      :inherit 'fixed-pitch)
+  (set-face-attribute 'org-verbatim nil
+                      :inherit 'fixed-pitch)
+  (set-face-attribute 'org-block nil
+                      :inherit 'fixed-pitch)
   )
 (add-hook 'circadian-after-load-theme-hook #'circadian:org-faces)
 (circadian:org-faces nil)
