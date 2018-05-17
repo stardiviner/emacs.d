@@ -86,6 +86,10 @@
     "http://apis.io/?search=%s"
     :docstring "APIs"
     :keybinding "a")
+  (defengine Rosetta-Code
+    "https://www.rosettacode.org/mw/index.php?&search=%s"
+    :docstring "Rosetta Code"
+    :keybinding "r")
   (defengine mozilla-developer
     "https://developer.mozilla.org/en-US/search?q=%s"
     :docstring "Mozilla Developer"
