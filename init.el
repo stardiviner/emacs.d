@@ -107,6 +107,7 @@
 (require 'init-emacs-frame)
 (require 'init-emacs-idle)
 (require 'init-emacs-edit)
+(require 'init-emacs-clipboard)
 (require 'init-emacs-navigation)
 (require 'init-emacs-bookmark)
 (require 'init-emacs-keybinding)
