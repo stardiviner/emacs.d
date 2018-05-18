@@ -8,13 +8,14 @@
 
 ;;; [ lsp-mode ] -- A Emacs Lisp library for implementing clients for servers using Microsoft's Language Server Protocol.
 
+;; use `lsp-{language}-enable' instead.
 (use-package lsp-mode
   :ensure t
   :defer t
   :preface (setq lsp-enable-flycheck nil
                  lsp-enable-indentation nil
                  lsp-highlight-symbol-at-point nil)
-  ;; :init (add-hook 'prog-mode-hook #'lsp-mode) ; use `lsp-{language}-enable' instead.
+  ;; :init (add-hook 'prog-mode-hook #'lsp-mode) ; XXX: use in lang-specific mode hook.
   ;; :config
   ;; auto set lsp workspace to `projectile-project-root'.
   ;; (defun my:set-lsp-workspace ()
@@ -41,8 +42,10 @@
 
 (use-package company-lsp
   :ensure t
-  :init (add-hook 'lsp-mode-hook
-                  #'(lambda () (my-company-add-backend-locally 'company-lsp)))
+  :init
+  (defun my:company-lsp-enable ()
+    (my-company-add-backend-locally 'company-lsp))
+  (add-hook 'lsp-mode-hook #'my:company-lsp-enable)
   :config
   (setq company-lsp-enable-recompletion t
         company-lsp-enable-snippet t
