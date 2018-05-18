@@ -217,11 +217,9 @@
   :hook (company-mode . company-box-mode)
   :init (require 'all-the-icons)
   :config
-  (setq company-idle-delay .2
+  (setq company-idle-delay .3
         company-tooltip-idle-delay 0
-        company-box-doc-delay 0.3)
-  (define-key company-active-map (kbd "M-h") nil)
-  (define-key company-box-mode-map (kbd "M-h") 'company-box-doc)
+        company-box-doc-delay 0.6)
 
   (add-to-list 'company-box-frame-parameters
                '(font . "-SRC-Hack-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1"))
@@ -236,6 +234,7 @@
     (frame-parameter nil 'company-box-doc-frame))
   (defun company-box-child-frame-reset ()
     "Delete old child-frame, then `company-box' create new child-frame."
+    (interactive)
     ;; delete all frames except current frame.
     (mapc
      (lambda (frame)
@@ -251,7 +250,7 @@
     (unless (frame-live-p (company-box-doc--get-frame))
       (set-frame-parameter nil 'company-box-doc-frame nil)))
 
-  (company-box-child-frame-reset)
+  (add-hook 'after-init-hook #'company-box-child-frame-reset)
   (defun circadian:company-box-faces (theme)
     "Reload company-box faces on `circadian' `THEME' toggling."
     (company-box-child-frame-reset)
@@ -273,8 +272,8 @@
           (company-keywords . (:all "tomato"))
           (company-files . (:all "CornflowerBlue"))
           (company-yasnippet . (:icon "#7C4Dff"
-                                      :candidate "purple" :annotation "gray"
-                                      :selected (:background "purple" :foreground "white")))
+                                      :candidate "LightSlateBlue" :annotation "SlateBlue"
+                                      :selected (:background "LightSlateBlue" :foreground "white")))
           (company-tempo . (:all "chocolate"))
           (company-dabbrev . (:all "khaki"))
           (company-dabbrev-code . (:all "dark khaki"))
