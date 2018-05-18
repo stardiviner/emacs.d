@@ -88,11 +88,11 @@ column.  Place the point after the comment box."
   )
 
 
-;;; [ org-commentary ] -- generate/update conventional library headers using Org-mode.
+;;; [ org-commentary ] -- insert/generate/update conventional library headers using Org-mode.
 
-;; (use-package org-commentary
-;;   :ensure t
-;;   )
+(use-package org-commentary
+  :ensure t
+  :commands (org-commentary-update))
 
 
 (provide 'init-prog-comment)
