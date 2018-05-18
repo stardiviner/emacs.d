@@ -57,13 +57,7 @@ column.  Place the point after the comment box."
           ("ISSUE" . ,(list :weight 'bold :foreground "dodger blue"))
           ("HACK" . ,(list :weight 'bold :foreground "cyan"))
           ))
-  :init (add-hook 'prog-mode-hook 'comment-tags-mode)
-  :config
-  (setq comment-tags-comment-start-only t
-        comment-tags-require-colon t
-        comment-tags-case-sensitive t
-        comment-tags-show-faces t
-        comment-tags-lighter nil))
+  :init (add-hook 'prog-mode-hook 'comment-tags-mode))
 
 ;; [ poporg ] -- Editing program comments or strings in text mode.
 
