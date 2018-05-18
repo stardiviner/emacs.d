@@ -64,7 +64,8 @@ column.  Place the point after the comment box."
 (use-package poporg
   :ensure t
   :bind (("C-c '" . poporg-dwim)
-         :map prog-comment-prefix ("'" . poporg-dwim))
+         :map prog-comment-prefix ("'" . poporg-dwim)
+         :map poporg-mode-map ([remap save-buffer] . poporg-edit-exit))
   :init
   ;; display poporg popup buffer below the selected window with 0.3 height.
   (add-to-list 'display-buffer-alist
@@ -74,8 +75,6 @@ column.  Place the point after the comment box."
                  (window-height . 0.3)
                  ))
   :config
-  (setq poporg-adjust-fill-column t
-        poporg-delete-trailing-whitespace t)
   (defun circadian:poporg-faces (theme)
     "Reload customized faces on `circadian' `THEME' toggling."
     (set-face-attribute 'poporg-edited-face nil
@@ -86,8 +85,6 @@ column.  Place the point after the comment box."
                                       ('dark
                                        (color-darken-name (face-background 'default) 5)))))
   (add-hook 'circadian-after-load-theme-hook #'circadian:poporg-faces)
-
-  (define-key poporg-mode-map [remap save-buffer] 'poporg-edit-exit)
   )
 
 
