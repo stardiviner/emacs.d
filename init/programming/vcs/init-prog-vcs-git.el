@@ -10,35 +10,37 @@
 (define-key 'prog-vcs-prefix (kbd "g") 'prog-vcs-git-prefix)
 
 
-;; [ git-modes ] -- front end wrapper for vc-git.
+;; [ Git modes ] -- front end wrapper for vc-git.
 
-;; (use-package gitconfig-mode
-;;   :ensure t
-;;   :mode ("\\.gitconfig\\'" . gitconfig-mode))
-;; (use-package gitattributes-mode
+;; (use-package gitconfig ; Emacs lisp interface to work with git-config variables.
 ;;   :ensure t)
-;; (use-package gitignore-mode
-;;   :ensure t
-;;   :mode ("\\.gitignore\\'" . gitignore-mode))
-;; (use-package git-commit
-;;   :ensure t)
+(use-package gitconfig-mode
+  :ensure t
+  :mode ("\\.gitconfig\\'" . gitconfig-mode))
+(use-package gitattributes-mode
+  :ensure t)
+(use-package gitignore-mode
+  :ensure t
+  :mode ("\\.gitignore\\'" . gitignore-mode))
 
-;;; `company-dabbrev' in git commit buffer.
-;; https://github.com/company-mode/company-mode/issues/704
-(defun my--company-dabbrev-ignore-except-magit-diff (buffer)
-  (let ((name (buffer-name)))
-    (and (string-match-p "\\`[ *]" name)
-         (not (string-match-p "\\*magit-diff:" name)))))
-
-(defun my:git-commit-setup-hook ()
-  (setq-local fill-column 72)
-  (auto-fill-mode t)
-  (setq-local company-dabbrev-code-modes '(text-mode magit-diff-mode))
-  (setq-local company-dabbrev-ignore-buffers
-              #'my--company-dabbrev-ignore-except-magit-diff)
-  (setq company-dabbrev-code-other-buffers 'all))
-
-(add-hook 'git-commit-setup-hook #'my:git-commit-setup-hook)
+(use-package git-commit ; edit Git commit messages.
+  :ensure t
+  :config
+  ;; `company-dabbrev' in git commit buffer.
+  ;; https://github.com/company-mode/company-mode/issues/704
+  (defun my--company-dabbrev-ignore-except-magit-diff (buffer)
+    (let ((name (buffer-name)))
+      (and (string-match-p "\\`[ *]" name)
+           (not (string-match-p "\\*magit-diff:" name)))))
+  (defun my:git-commit-setup-hook ()
+    (setq-local fill-column 72)
+    (auto-fill-mode t)
+    (setq-local company-dabbrev-code-modes '(text-mode magit-diff-mode))
+    (setq-local company-dabbrev-ignore-buffers
+                #'my--company-dabbrev-ignore-except-magit-diff)
+    (setq company-dabbrev-code-other-buffers 'all))
+  (add-hook 'git-commit-setup-hook #'my:git-commit-setup-hook)
+  )
 
 ;;; [ Magit ]
 
@@ -87,19 +89,6 @@
   (define-key prog-vcs-git-prefix (kbd "M-b") 'magit-bisect)
   (define-key prog-vcs-git-prefix (kbd "B") 'magit-blame)
   (define-key prog-vcs-git-prefix (kbd "f") 'magit-file-popup)
-  
-  ;; enable ispell words complete in commit message buffer.
-  (add-hook 'git-commit-setup-hook
-            (lambda ()
-              ;; company-flyspell + company-ispell
-              (make-local-variable 'company-backends)
-              (if (featurep 'company-emoji)
-                  (add-to-list 'company-backends 'company-emoji))
-              ;; company-abbrev
-              (setq-local company-dabbrev-code-modes '(text-mode magit-diff-mode))
-              (setq-local company-dabbrev-code-other-buffers 'all)
-              (setq-local company-dabbrev-ignore-buffers #'my--company-dabbrev-ignore-except-magit-diff)
-              ))
 
   ;; manage popup buffers.
   (add-to-list 'display-buffer-alist
