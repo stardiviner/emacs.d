@@ -78,6 +78,12 @@
   (add-to-list 'org-babel-tangle-lang-exts '("rust" . "rs"))
   )
 
+;;; [ lsp-rust ] Rust support for lsp-mdoe.
+
+(use-package lsp-rust
+  :ensure t
+  :init (add-hook 'rust-mode-hook #'lsp-rust-enable))
+
 
 (provide 'init-prog-lang-rust)
 

@@ -36,67 +36,21 @@
 
 ;;; [ lsp-intellij ] -- Emacs client for lsp-intellij-server.
 
-(use-package lsp-intellij
-  :ensure t
-  :init (add-hook 'java-mode-hook #'lsp-intellij-enable))
-
-;;; [ Eclim ]
-
-;; (use-package eclim
+;; (use-package lsp-intellij
 ;;   :ensure t
-;;   :defer t
-;;   ;; Control `eclimd' from emacs
-;;   :load (eclimd)
-;;   :preface
-;;   (setq eclimd-autostart nil
-;;         eclimd-autostart-with-default-workspace t
-;;         eclimd-default-workspace "~/eclipse-workspace"
-;;         eclimd-wait-for-process nil)
-;;   :init
-;;   ;; auto enable `eclim-mode' in `java-mode'.
-;;   (add-hook 'java-mode-hook 'eclim-mode)
-;;   ;; (global-eclim-mode t)
-;;   :config
-;;   ;; Eclim Java
-;;   ;; (setq eclim-java-documentation-root nil
-;;   ;;       eclim-java-android-documentation-root
-;;   ;;       )
-;;   ;; for company-mode
-;;   (use-package company-emacs-eclim
-;;     :ensure t
-;;     :config
-;;     ;; `company-emacs-eclim-setup'
-;;     (defun my-company-eclim-setup ()
-;;       (my-company-add-backend-locally 'company-emacs-eclim))
-;;     (add-hook 'eclim-mode-hook 'my-company-eclim-setup)
-;;     )
-;;   )
-
-;;; [ meghanada ] -- A New Java Develop Environment for Emacs.
-
-;; (use-package meghanada
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (add-hook 'java-mode-hook #'meghanada-mode)
-;;   :config
-;;   (setq meghanada-server-install-dir (locate-user-emacs-file "init/extra/meghanada/")
-;;         meghanada-auto-start t
-;;         meghanada-debug t
-;;         meghanada-use-company nil
-;;         meghanada-use-flycheck t)
-;;   (defun my-meghanada-settings ()
-;;     (interactive)
-;;     (if (not (meghanada-alive-p))
-;;         (message "meghanada not started."))
-;;     (my-company-add-backend-locally 'company-meghanada))
-;;   (add-hook 'java-mode-hook 'my-meghanada-settings)
-;;   )
+;;   :init (add-hook 'java-mode-hook #'lsp-intellij-enable))
 
 ;;; [ lsp-java ]
 
 ;; (use-package lsp-java
-;;   :ensure t)
+;;   :ensure t
+;;   :init (add-hook 'java-mode-hook #'lsp-java-enable)
+;;   :config
+;;   ;; set the projects that are going to be imported into the workspace.
+;;   ;; (setq lsp-java--workspace-folders (list "/path/to/project1"
+;;   ;;                                         "/path/to/project2"
+;;   ;;                                         ...))
+;;   )
 
 ;;; [ lsp-javacomp ] -- Emacs Language Server client backed by JavaComp.
 
@@ -104,8 +58,7 @@
   :ensure t
   :defer t
   :after lsp-mode
-  :init
-  (add-hook 'java-mode-hook #'lsp-mode)
+  :init (add-hook 'java-mode-hook #'lsp-javacomp-enable)
   ;; (defun my:lsp-javacomp-setup ()
   ;;   (when (locate-dominating-file default-directory "javacomp.json")
   ;;     ))

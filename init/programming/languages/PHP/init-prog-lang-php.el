@@ -39,6 +39,12 @@
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 (add-to-list 'org-babel-tangle-lang-exts '("php" . "php"))
 
+;;; [ lsp-php ] -- PHP support for lsp-mode.
+
+(use-package lsp-php
+  :ensure t
+  :init (add-hook 'php-mode-hook #'lsp-php-enable))
+
 
 (provide 'init-prog-lang-php)
 

@@ -98,6 +98,12 @@
   (add-hook 'elpy-mode-hook #'my-elpy-company-setup)
   )
 
+;;; [ lsp-python ] Python support for lsp-mode.
+
+(use-package lsp-python
+  :ensure t
+  :init (add-hook 'python-mode-hook #'lsp-python-enable))
+
 ;;; [ pyvenv ] -- Python virtual environment interface for Emacs.
 
 (use-package pyvenv

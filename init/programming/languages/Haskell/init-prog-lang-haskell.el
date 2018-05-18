@@ -155,6 +155,11 @@
   ;; (setq ghc-debug t)
   )
 
+;;; [ lsp-haskell ] -- Haskell support for lsp-mode.
+
+(use-package lsp-haskell
+  :ensure t
+  :init (add-hook 'haskell-mode-hook #'lsp-haskell-enable))
 
 ;;; [ company-ghc ] -- company-mode back-end for haskell-mode via ghc-mod.
 
