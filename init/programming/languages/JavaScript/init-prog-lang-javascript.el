@@ -194,46 +194,6 @@
 ;;   ;; (add-hook 'js3-mode-hook #'jscs-fix-run-before-save)
 ;;   )
 
-;;; [ tern ] -- code-analysis engine for JavaScript
-
-;; (use-package tern
-;;   :ensure t
-;;   :ensure-system-package (tern . "npm install tern")
-;;   :defer t
-;;   :mode ("\\.tern-project\\'" . json-mode)
-;;   :init
-;;   (dolist (hook '(js-mode-hook
-;;                   js2-mode-hook
-;;                   js3-mode-hook
-;;                   inferior-js-mode-hook
-;;                   ))
-;;     (add-hook hook 'tern-mode))
-;;   :config
-;;   (add-hook 'tern-mode-hook
-;;             (lambda () (local-set-key (kbd "C-c C-d") 'tern-get-docs)))
-;;
-;;   ;; [ company-tern ] -- Tern backend for company-mode.
-;;   (use-package company-tern
-;;     :ensure t
-;;     :init
-;;     (add-hook 'tern-mode-hook
-;;               (lambda ()
-;;                 ;; tern-mode auto push `tern-completion-at-point' to `capf'.
-;;                 ;; (my-company-add-backend-locally 'company-jquery) ; FIXME: `company-jquery' definition is void.
-;;                 (my-company-add-backend-locally 'company-tern)
-;;                 ))
-;;     :config
-;;     (setq company-tern-property-marker " js" ; " ○"
-;;           company-tern-meta-as-single-line t
-;;           )
-;;     )
-;;
-;;   ;; [ tj-mode ] -- major mode for highlighting JavaScript with Tern.
-;;   ;; (use-package tj-mode
-;;   ;;   :ensure t
-;;   ;;   :defer t)
-;;   )
-
 ;;; [ lsp-javascript-typescript ] -- Javascript and Typescript support for lsp-mode using javascript-typescript-langserver.
 
 (use-package lsp-javascript-typescript
@@ -241,6 +201,7 @@
   :defer t
   :commands (lsp-javascript-typescript-enable)
   :init (require 'lsp-javascript-typescript)
+  (add-hook 'js-mode-hook #'lsp-mode)
   (add-hook 'js-mode-hook #'lsp-javascript-typescript-enable))
 
 ;;; [ skewer-mode ] -- Live interactive web development in Emacs.
