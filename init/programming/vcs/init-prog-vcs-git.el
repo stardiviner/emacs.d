@@ -68,11 +68,10 @@
   
   ;; let magit status buffer display in current window.
   (setq magit-display-buffer-function 'display-buffer)
-
+  ;; enable color for Magit logs by default
   (add-to-list 'magit-log-arguments "--color")
-  
   ;; show gravatar in Magit revision.
-  ;; (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
+  (setq magit-revision-show-gravatars '("^Author:     " . "^Commit:     "))
 
   ;; keybindings
   (define-key prog-vcs-git-prefix (kbd "F") 'magit-log-buffer-file)
