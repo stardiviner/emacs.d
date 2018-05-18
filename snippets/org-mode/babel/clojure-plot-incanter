@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: babel-clojure-plot-incanter
+# key: babel-clojure-plot-incanter
+# group: babel.clojure.plot
+# --
+#+begin_src clojure :results graphics :dir "data/images" :file "${1:plot-filename}.png" :var dir=(concat (file-name-directory (buffer-file-name)) "data/images/")
+(use '(incanter core stats datasets charts io pdf))
+
+(def ${2:plot-var} $0)
+(save $2 (str dir "$1.png"))
+#+end_src
