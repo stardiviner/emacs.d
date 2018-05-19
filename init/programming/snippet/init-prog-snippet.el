@@ -91,7 +91,8 @@ $0`(yas-escape-text yas-selected-text)`"
 
 (use-package ivy-yasnippet
   :ensure t
-  :defer t)
+  :defer t
+  :bind (:map yas-minor-mode-map ([remap yas-insert-snippet] . ivy-yasnippet)))
 
 ;;; [ auto-yasnippet ] -- quickly create disposable yasnippets.
 
