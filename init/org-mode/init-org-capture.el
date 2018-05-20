@@ -58,17 +58,52 @@
          :empty-lines-after 1
          )
 
-        ;; code snippets
-        ("s" "code [s]nippet" entry
-         (file (lambda () (concat org-directory "/Programming Code/Code Snippets/snippets.org")))
-         ;; Prompt for tag and language
-         "* %?%^g\n#+begin_src %^{language}\n\n#+end_src")
-
         ;; current buffer: in file logging
         ("L" "Add Change[L]og into current buffer file"
          entry (file+headline (lambda () (buffer-file-name)) "Change Log")
          "* %^{Header of Changelog item}\n:PROPERTIES:\n:LOGGED: %U \n:LINK: %a \n:AUTHOR: stardiviner, email: numbchild@gmail.com\n :END:\n %?")
         ))
+
+;;; code snippets capture template
+(use-package which-func
+  :ensure t
+  :init (autoload 'which-function "which-func.el"))
+
+(defun my/org-capture-get-src-block-string (major-mode)
+  "Given a major mode symbol, return the associated org-src block
+string that will enable syntax highlighting for that language
+
+E.g. tuareg-mode will return 'ocaml', python-mode 'python', etc..."
+
+  (let ((mm (intern (replace-regexp-in-string "-mode" "" (format "%s" major-mode)))))
+    (or (car (rassoc mm org-src-lang-modes)) (format "%s" mm))))
+
+(defun my/org-capture-code-snippet (f)
+  (with-current-buffer (find-buffer-visiting f)
+    (let ((code-snippet (buffer-substring-no-properties (mark) (- (point) 1)))
+          (func-name (which-function))
+          (file-name (buffer-file-name))
+          (line-number (line-number-at-pos (region-beginning)))
+          (org-src-mode (my/org-capture-get-src-block-string major-mode)))
+      (format
+       "file:%s::%s
+In ~%s~:
+
+#+begin_src %s
+%s
+#+end_src"
+       file-name
+       line-number
+       func-name
+       org-src-mode
+       code-snippet))))
+
+;; use region select to capture.
+(add-to-list 'org-capture-templates
+             '("s" "code [s]nippet" entry
+               (file (lambda () (concat org-directory "/Programming Code/Code Snippets/snippets.org")))
+               "* %?\n%(my/org-capture-code-snippet \"%F\")"))
+
 
 ;;; Context org-capture templates.
 ;; TODO:
