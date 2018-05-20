@@ -36,6 +36,8 @@
   (advice-add 'pdf-annot-edit-contents-commit :after 'pdf-tools-save-buffer)
 
   (defun my-pdf-tools-setup ()
+    ;; auto slice page white spans
+    (pdf-view-auto-slice-minor-mode 1)
     ;; Vim like basic scroll keys.
     (define-key pdf-view-mode-map (kbd "j") 'pdf-view-next-line-or-next-page)
     (define-key pdf-view-mode-map (kbd "k") 'pdf-view-previous-line-or-previous-page)
