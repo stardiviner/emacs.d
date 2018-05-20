@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: :var dir=cwd
+# key: :var-dir
+# group: header-arguments.var
+# --
+:var dir=(concat (file-name-directory (buffer-file-name)) "${1:data/images/}")

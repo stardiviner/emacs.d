@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: image-html
+# key: image-html
+# group: image
+# --
+#+begin_export html
+<div id="${1:ID}">
+  <img src="data/images/${2:image}.jpg" />
+</div>
+<style type="text/css">
+ #$1 img {
+   width: ${3:400}px;
+ }
+</style>
+#+end_export
+
