@@ -2,7 +2,145 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/SQLite/Data/Books/SQLite权威指南.pdf"
+(("Debug Emacs and Emacs Lisp.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Data/Manuals/Debug Emacs and Emacs Lisp/Debug Emacs and Emacs Lisp.org")
+ (front-context-string . "#+TITLE: Debug E")
+ (rear-context-string)
+ (position . 1))
+("Social Intercourse.org"
+ (filename . "~/Org/Wiki/Sociology/Social Intercourse/Social Intercourse.org")
+ (front-context-string . "#+TITLE: Social ")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/.emacs.d/Org-mode/ob-clojure/kk.pdf"
+ (filename . "~/.emacs.d/Org-mode/ob-clojure/kk.pdf")
+ (position . 1)
+ (page . 1)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Clojure Packages/data/68/e71eb4-5da4-4920-92b8-2422cb75e7e1/clj-for-datascience.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Clojure Packages/data/68/e71eb4-5da4-4920-92b8-2422cb75e7e1/clj-for-datascience.pdf")
+ (position . 1)
+ (page . 30)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.29871977240398295)
+ (handler . pdf-view-bookmark-jump-handler))
+("clj-new.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Clojure Packages/clj-new.org")
+ (front-context-string . "* Intro\n\nGenerat")
+ (rear-context-string)
+ (position . 1))
+("Sex Knowledge.org"
+ (filename . "~/Org/Wiki/Sexology/Sexual Intercourse/Sex Knowledge/Sex Knowledge.org")
+ (front-context-string . "#+TITLE: Sex Kno")
+ (rear-context-string)
+ (position . 1))
+("Sex Positions.org"
+ (filename . "~/Org/Wiki/Sexology/Sexual Intercourse/Sex Knowledge/Sex Positions/Sex Positions.org")
+ (front-context-string . "#+TITLE: Sex Pos")
+ (rear-context-string)
+ (position . 1))
+("LGBTQ.org"
+ (filename . "~/Org/Wiki/LGBTQ/LGBTQ.org")
+ (front-context-string . "#+TITLE: LGBTQ\n\n")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Sexology/Sexual Intercourse/Sex Positions/Data/Books/你不可不做的爱爱101式 - 王聪霖 (全彩版).pdf"
+ (filename . "~/Org/Wiki/Sexology/Sexual Intercourse/Sex Positions/Data/Books/你不可不做的爱爱101式 - 王聪霖 (全彩版).pdf")
+ (position . 1)
+ (page . 40)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("Poems Collection.org"
+ (filename . "~/Org/Wiki/Literature/Poem/Data/Poems Collection/Poems Collection.org")
+ (front-context-string . "#+TITLE: Poems C")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Books/Clojure Data Structures and Algorithms Cookbook.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Books/Clojure Data Structures and Algorithms Cookbook.pdf")
+ (position . 1)
+ (page . 10)
+ (slice)
+ (size . fit-width)
+ (origin)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Emacs/Data/Emacs Packages/Data/Docs/calc-qref.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Data/Emacs Packages/Data/Docs/calc-qref.pdf")
+ (position . 1)
+ (page . 4)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.18533772652388797)
+ (handler . pdf-view-bookmark-jump-handler))
+("Calc.org"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Emacs/Data/Emacs Packages/Calc.org")
+ (front-context-string . "#+TITLE: Calc\n\n*")
+ (rear-context-string)
+ (position . 1))
+("Kubernetes.org"
+ (filename . "~/Org/Wiki/Computer Technology/Softwares/Kubernetes/Kubernetes.org")
+ (front-context-string . "#+TITLE: Kuberne")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Implementations/Cryptology/Data/Cryptology Methods/FontCode/data/docs/fontcode.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Cryptology/Data/Cryptology Methods/FontCode/data/docs/fontcode.pdf")
+ (position . 1)
+ (page . 4)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("Internet Privacy.org"
+ (filename . "~/Org/Wiki/Internet/Internet Privacy/Internet Privacy.org")
+ (front-context-string . "#+TITLE: Interne")
+ (rear-context-string)
+ (position . 1))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/Data/Books/Learning JavaScript, 3rd Edition.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/Data/Books/Learning JavaScript, 3rd Edition.pdf")
+ (position . 1)
+ (page . 25)
+ (slice)
+ (size . fit-width)
+ (origin)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/Data/Books/Learning JavaScript: A Hand-On Guide to the Fundamentals of Modern JavaScript.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/Data/Books/Learning JavaScript: A Hand-On Guide to the Fundamentals of Modern JavaScript.pdf")
+ (position . 1)
+ (page . 10)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.20664505672609398)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/Data/Books/Head First JavaScript Programming.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/Data/Books/Head First JavaScript Programming.pdf")
+ (position . 1)
+ (page . 472)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/Data/Books/Head first JavaScript.pdf"
+ (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/Data/Books/Head first JavaScript.pdf")
+ (position . 1)
+ (page . 79)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Mathematics/Data/Books/数学指南.pdf"
+ (filename . "~/Org/Wiki/Mathematics/Data/Books/数学指南.pdf")
+ (position . 1)
+ (page . 6)
+ (slice)
+ (size . fit-width)
+ (origin 0.0 . 0.0)
+ (handler . pdf-view-bookmark-jump-handler))
+("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/SQLite/Data/Books/SQLite权威指南.pdf"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Database/SQL/SQLite/Data/Books/SQLite权威指南.pdf")
  (position . 1)
  (page . 7)
@@ -34,10 +172,10 @@
 ("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/Data/Books/深入浅出JavaScript.pdf"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/JavaScript/Data/Books/深入浅出JavaScript.pdf")
  (position . 1)
- (page . 40)
+ (page . 224)
  (slice)
  (size . fit-width)
- (origin)
+ (origin 0.0 . 0.0)
  (handler . pdf-view-bookmark-jump-handler))
 ("Deep Learning.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Implementations/Artificial Intelligence/Deep Learning/Deep Learning.org")
@@ -71,10 +209,10 @@
 ("PDF-LAST-VIEWED: /home/stardiviner/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Books/Clojure for the Brave and True.pdf"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Clojure/Data/Books/Clojure for the Brave and True.pdf")
  (position . 1)
- (page . 63)
+ (page . 84)
  (slice)
  (size . fit-width)
- (origin)
+ (origin 0.0 . 0.0)
  (handler . pdf-view-bookmark-jump-handler))
 ("My Python Examples.org"
  (filename . "~/Org/Wiki/Computer Technology/Programming/Programming Languages/Python/Data/Manuals/My Python Examples/My Python Examples.org")
@@ -139,19 +277,19 @@
  (position . 1))
 ("org-capture-last-stored-marker"
  (filename . "~/Org/Projects/Programming Projects/Code.org")
- (front-context-string . "** BUG cider-eld")
- (rear-context-string . "\n - [ ] search\n\n")
- (position . 179646))
+ (front-context-string . "** TODO How to e")
+ (rear-context-string . ")\n#+end_src\n\n\n\n\n")
+ (position . 15467))
 ("org-refile-last-stored"
  (filename . "~/Org/Projects/Programming Projects/Code.org")
- (front-context-string . "** BUG cider-eld")
- (rear-context-string . "\n - [ ] search\n\n")
- (position . 179646))
+ (front-context-string . "** TODO How to e")
+ (rear-context-string . ")\n#+end_src\n\n\n\n\n")
+ (position . 15467))
 ("org-capture-last-stored"
  (filename . "~/Org/Drills/Words.org")
- (front-context-string . "* merely :drill:")
- (rear-context-string . "\ndealing with.\n\n")
- (position . 80389))
+ (front-context-string . "* thesis :drill:")
+ (rear-context-string . " scatter plot.\n\n")
+ (position . 83360))
 ("PDF-LAST-VIEWED: /tmp/mu-1000/b53469b1/3/test.pdf"
  (filename .
            #("/tmp/mu-1000/b53469b1/3/test.pdf" 0 32
@@ -522,12 +660,6 @@
    (idx 118))
  (filename . "~/Org/Revenge/Revenge.org.gpg")
  (front-context-string . "#+TITLE: Revenge")
- (rear-context-string)
- (position . 1))
-(#("Poems.org" 0 1
-   (idx 119))
- (filename . "~/Org/Wiki/Literature/Poem/Data/Poems/Poems.org")
- (front-context-string . "#+TITLE: Poems\n\n")
  (rear-context-string)
  (position . 1))
 (#("Social Engineering.org" 0 1

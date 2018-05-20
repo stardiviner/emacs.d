@@ -113,11 +113,11 @@
     :docstring "Lisp doc")
   (defengine clojure-docs
     "http://clojuredocs.org/search?q=%s"
-    :docstring "Clojure Docs"
+    :docstring "ClojureDocs.org"
     :keybinding "C")
   (defengine clojars
     "https://clojars.org/search?q=%s"
-    :docstring "Clojure clojars"
+    :docstring "clojars"
     :keybinding "j")
   (defengine java-docs
     "https://docs.oracle.com/apps/search/search.jsp?category=java&q=%s"

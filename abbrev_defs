@@ -13,9 +13,13 @@
 
 (define-abbrev-table 'apropos-mode-abbrev-table '())
 
-(define-abbrev-table 'arduino-mode-abbrev-table '())
+(define-abbrev-table 'arduino-mode-abbrev-table
+  '(
+   ))
 
-(define-abbrev-table 'awk-mode-abbrev-table '())
+(define-abbrev-table 'awk-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'bibtex-mode-abbrev-table '())
 
@@ -25,9 +29,13 @@
 
 (define-abbrev-table 'bookmark-edit-annotation-mode-abbrev-table '())
 
-(define-abbrev-table 'c++-mode-abbrev-table '())
+(define-abbrev-table 'c++-mode-abbrev-table
+  '(
+   ))
 
-(define-abbrev-table 'c-mode-abbrev-table '())
+(define-abbrev-table 'c-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'calc-trail-mode-abbrev-table '())
 
@@ -182,7 +190,16 @@
 
 (define-abbrev-table 'git-gutter+-commit-mode-abbrev-table '())
 
-(define-abbrev-table 'global-abbrev-table '())
+(define-abbrev-table 'global-abbrev-table
+  '(
+    ("myemail" "numbchild@gmail.com" nil :count 0)
+    ("mygmail" "numbchild@gmail.com" nil :count 0)
+    ("mygmailformat" "numbchild[@]{gmail}.com" nil :count 0)
+    ("myhomepage" "http://stardiviner.github.io" nil :count 0)
+    ("mynick" "stardiviner" nil :count 0)
+    ("myqq" "348284894" nil :count 0)
+    ("mytwitter" "@numbchild" nil :count 0)
+   ))
 
 (define-abbrev-table 'gnuplot-comint-mode-abbrev-table '())
 
@@ -230,7 +247,9 @@
 
 (define-abbrev-table 'ivy-occur-mode-abbrev-table '())
 
-(define-abbrev-table 'java-mode-abbrev-table '())
+(define-abbrev-table 'java-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'js-jsx-mode-abbrev-table '())
 
@@ -330,13 +349,17 @@
 
 (define-abbrev-table 'ob-http-mode-abbrev-table '())
 
-(define-abbrev-table 'objc-mode-abbrev-table '())
+(define-abbrev-table 'objc-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'occur-edit-mode-abbrev-table '())
 
 (define-abbrev-table 'occur-mode-abbrev-table '())
 
 (define-abbrev-table 'org-export-stack-mode-abbrev-table '())
+
+(define-abbrev-table 'org-lint--report-mode-abbrev-table '())
 
 (define-abbrev-table 'org-mode-abbrev-table '())
 
@@ -352,7 +375,9 @@
 
 (define-abbrev-table 'pdf-outline-buffer-mode-abbrev-table '())
 
-(define-abbrev-table 'pike-mode-abbrev-table '())
+(define-abbrev-table 'pike-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'plain-tex-mode-abbrev-table '())
 
@@ -448,7 +473,9 @@
 
 (define-abbrev-table 'speedbar-mode-abbrev-table '())
 
-(define-abbrev-table 'sql-mode-abbrev-table '())
+(define-abbrev-table 'sql-mode-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'systemd-mode-abbrev-table '())
 

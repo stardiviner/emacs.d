@@ -41,7 +41,7 @@
                (file-exists-p elpa-org-archives-dir))
     (package-refresh-contents)))
 
-;; (package-initialize)
+(package-initialize)
 
 (add-to-list 'display-buffer-alist
              '("^\\*package-build-result\\*" (display-buffer-below-selected)))

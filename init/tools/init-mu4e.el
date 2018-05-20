@@ -499,15 +499,7 @@
 ;; this by setting mu4e-view-prefer-html to t.
 (setq mu4e-view-prefer-html t)
 
-;;; 'html2text, "html2text -utf8 -width 72"
-;; (setq mu4e-html2text-command 'html2text)
-;; (setq mu4e-html2text-command "html2text -utf8 -width 72 | iconv -t utf-8")
-;; (setq mu4e-html2text-command "pandoc -f html -t org | iconv -t utf-8") ; add utf-8 option.
-
-(setq mu4e-html2text-command 'mu4e-shr2text)
-
-
-;;; Attachments
+;;; Attachments [C-u] + [e]
 
 ;; - A -- action to pick some custom action to perform on current message/attachment.
 ;; - w -- open-with
@@ -517,15 +509,7 @@
 ;; for opening attachments. If you want to use another program, you do so by
 ;; setting the MU_PLAY_PROGRAM environment variable to the program to be used.
 
-(setq mu4e-attachment-dir "~/Downloads"
-      mu4e-view-attachment-actions '(("wopen-with" . mu4e-view-open-attachment-with)
-                                     ("ein-emacs" . mu4e-view-open-attachment-emacs)
-                                     ("|pipe" . mu4e-view-pipe-attachment))
-      ;; [C-u e] saving multiple attachments asks once for a directory and saves
-      ;; all attachments in the chosen directory.
-      mu4e-save-multiple-attachments-without-asking t
-      )
-
+;; (add-to-list 'mu4e-view-attachment-actions '("bbrowse-with-browser" . mu4e-view-browse-with-browser))
 
 ;;; Actions
 
@@ -593,12 +577,6 @@
 ;; setting mu4e-headers-include-related to t, and you can toggle between
 ;; including/not-including with <W>.
 (setq mu4e-headers-include-related t)
-
-
-;;; Compose
-
-;; - `org-mu4e-compose-org-mode' ::
-
 
 ;;; Send
 

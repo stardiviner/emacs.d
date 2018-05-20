@@ -259,7 +259,7 @@
      :contents-sources
      (list
       (cfw:org-create-source "dark gray") ; Org-mode source
-      (cfw:cal-create-source "orange") ; Diary source
+      ;; (cfw:cal-create-source "orange") ; Diary source
       )
      :view 'month)
     (bury-buffer)

@@ -325,13 +325,6 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
         subtree-end
       nil)))
 
-(defun org-agenda-skip-subtree-if-habit ()
-  "Skip an agenda entry if it has a STYLE property equal to \"habit\"."
-  (let ((subtree-end (save-excursion (org-end-of-subtree t))))
-    (if (string= (org-entry-get nil "STYLE") "habit")
-        subtree-end
-      nil)))
-
 (add-to-list 'org-agenda-custom-commands
              '("c" "Custom Agenda with in progress tasks, priority tasks (and all tasks)."
                ((todo "STARTED") ; from `org-clock' forced state keyword.
@@ -344,12 +337,6 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
                          (org-agenda-span 1)
                          (org-agenda-use-time-grid t))
                         )
-                ;; (alltodo ""
-                ;;          ((org-agenda-skip-function
-                ;;            '(or (org-agenda-skip-subtree-if-habit)
-                ;;                 (org-agenda-skip-subtree-if-priority ?A)
-                ;;                 (org-agenda-skip-if nil '(scheduled deadline))))
-                ;;           (org-agenda-overriding-header "All normal priority tasks:")))
                 )
                ((org-agenda-compact-blocks t)))
              )

@@ -225,7 +225,9 @@
 ;;; [ all-the-icons ] -- A utility package to collect various Icon Fonts and propertize them within Emacs.
 
 (use-package all-the-icons
-  :ensure t
+  ;; :ensure t
+  ;; :quelpa (all-the-icons :fetcher github :repo "stardiviner/all-the-icons.el")
+  :load-path "~/Code/Emacs/all-the-icons.el"
   :defer t
   :config
   (add-to-list 'all-the-icons-mode-icon-alist
@@ -262,6 +264,8 @@
                '(inferior-ess-mode all-the-icons-fileicon "R" :height 1.0 :v-adjust 0.0 :face all-the-icons-blue-alt))
   (add-to-list 'all-the-icons-mode-icon-alist
                '(julia-mode all-the-icons-fileicon "julia" :height 1.0 :v-adjust 0.0 :face all-the-icons-blue-alt))
+  (add-to-list 'all-the-icons-mode-icon-alist
+               '(lua-mode all-the-icons-fileicon "lua" :height 1.0 :v-adjust 0.0 :face all-the-icons-blue-alt))
   (add-to-list 'all-the-icons-mode-icon-alist
                '(package-menu-mode all-the-icons-octicon "package" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan-alt))
   (add-to-list 'all-the-icons-mode-icon-alist

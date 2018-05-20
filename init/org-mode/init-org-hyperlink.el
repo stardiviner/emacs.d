@@ -106,6 +106,7 @@ Optional for Org-mode file: `LINK'."
         ("\\.mp4\\'" . "mpv %s")
         ("\\.mov\\'" . "mpv %s")
         ("\\.ogv\\'" . "mpv %s")
+        ("\\.f4v\\'" . "mpv %s")
         ;; Audio
         ("\\.mp3\\'" . "play %s")
         ("\\.ogg\\'" . "play %s")

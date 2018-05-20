@@ -9,11 +9,8 @@
 
 ;;; [ concurrent in Emacs (JIT) ]
 
-;; - [M-x customize-group RET jit-lock RET]
-
 ;; Allow font-lock-mode to do background parsing.
-;; (setq jit-lock-stealth-verbose nil
-;;       jit-lock-stealth-time 1
+;; (setq jit-lock-stealth-time 1
 ;;       ;; jit-lock-stealth-load 200
 ;;       jit-lock-chunk-size 1000
 ;;       jit-lock-defer-time 0.05)

@@ -11,18 +11,8 @@
 
 (use-package eldoc
   :ensure t
-  :init
-  ;; FIX ob-shell eldoc error.
-  (global-eldoc-mode -1)
-  (dolist (hook '(prog-mode-hook
-                  ))
-    (add-hook hook
-              #'(lambda ()
-                  (unless (or (eq major-mode 'sh-mode)
-                              (eq major-mode 'org-mode))
-                    (eldoc-mode 1)))))
+  :init (global-eldoc-mode 1)
   :config
-  (setq eldoc-idle-delay 0.1)
   ;; ElDoc with most `paredit' command.
   ;; whenever the listed commands are used, ElDoc will automatically refresh the minibuffer.
   (eldoc-add-command 'paredit-backward-delete 'paredit-close-round)

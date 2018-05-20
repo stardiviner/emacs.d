@@ -11,8 +11,8 @@
 
 (autoload 'calc "calc :: a calculator" t)
 
-(setq calc-complex-format 'i            ; complex number style: x + yi.
-      )
+;; complex number style: x + yi.
+(setq calc-complex-format 'i)
 
 (unless (boundp 'calculator-prefix)
   (define-prefix-command 'calculator-prefix))

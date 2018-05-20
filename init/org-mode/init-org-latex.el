@@ -92,8 +92,18 @@
 
 ;;; [ MathJax ]
 
-;; (setq org-html-mathjax-options)
-
+;; (setq org-html-mathjax-options
+;;       '((path "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML")
+;;         (scale "100")
+;;         (align "center")
+;;         (font "TeX")
+;;         (linebreaks "false")
+;;         (autonumber "AMS")
+;;         (indent "0em")
+;;         (multlinewidth "85%")
+;;         (tagindent ".8em")
+;;         (tagside "right"))
+;;       )
 
 ;;; [ org-edit-latex ] -- Org edit LaTeX block/inline like babel src block.
 

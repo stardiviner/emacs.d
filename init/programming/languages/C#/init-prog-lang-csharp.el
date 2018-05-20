@@ -11,7 +11,7 @@
 
 (use-package csharp-mode
   :ensure t
-  :ensure-system-package (mono))
+  :ensure-system-package mono)
 
 ;;; [ omnisharp ] -- C# IDE for Emacs.
 

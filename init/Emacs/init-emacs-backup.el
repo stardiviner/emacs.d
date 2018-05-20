@@ -34,7 +34,7 @@
 (setq auto-save-default t               ; create #autosave# files
       auto-save-list-file-prefix "~/.emacs.d/.auto-save-list/saves-"
       auto-save-interval 1500
-      ;; delete-auto-save-files t ; delete auto-save file when a buffer is saved or killed.
+      ;; delete-auto-save-files nil ; don't delete auto-save file when a buffer is saved or killed.
       )
 (auto-save-visited-mode t)
 

@@ -939,8 +939,8 @@ dimensions of a block selection."
   :load-path "/usr/share/emacs/site-lisp/mu4e/"
   :load (mu4e mu4e-contrib)
   :ensure mu4e-alert
-  :init (require 'mu4e-alert)
   :config
+  (require 'mu4e-alert)
   (defun *mu4e ()
     "Show `mu4e-alert' new messages count in custom mode-line."
     (if (member major-mode '(mu4e-main-mode mu4e-headers-mode mu4e-view-mode))

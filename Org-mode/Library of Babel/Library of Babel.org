@@ -2,6 +2,19 @@
 
 * Org-mode
 
+** Babel
+
+*** header arguments
+
+#+NAME: ob-image-dir
+#+begin_src emacs-lisp :cache no
+(concat (file-name-directory (buffer-file-name)) "data/images/")
+#+end_src
+
+#+RESULTS: ob-image-dir
+: /home/stardiviner/.emacs.d/Org-mode/Library of Babel/data/images/
+
+
 ** Export
 
 *** landscape view

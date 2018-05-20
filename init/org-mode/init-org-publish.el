@@ -358,7 +358,7 @@
 (require 'org-capture)
 (defun my/org-capture-template-blog--get-title ()
   (let ((title (read-from-minibuffer "Blog Title: ")))
-    (format "* %s\n:PROPERTIES:\n:DATE: %%U\n:END: \n\n[[file:%s.org][%s]]\n%%i" title title title)))
+    (format "* %s\n:PROPERTIES:\n:DATE: %%U\n:END:\n\n[[file:%s.org][%s]]\n%%i" title title title)))
 (add-to-list
  'org-capture-templates
  '("b" "[b]log"
