@@ -207,19 +207,9 @@ to the command loop."
 ;;; buffer name
 (defun *buffer-name ()
   "Display buffer name better."
-  (concat
-   " "
-   (if (not (null buffer-file-name))
-       (if (derived-mode-p 'prog-mode)
-           (all-the-icons-faicon "file-code-o" :v-adjust -0.05 :height 0.8)
-         (all-the-icons-faicon "file-o" :v-adjust -0.05 :height 0.8)))
-   " "
-   (propertize
-    (buffer-name)
-    'face 'mode-line-buffer-id))
-
-  ;; (propertize (buffer-path-relative-to-project))
-  )
+  (propertize
+   (buffer-name)
+   'face 'mode-line-buffer-id))
 
 ;;; buffer info
 (defun *buffer-info ()
@@ -1100,7 +1090,7 @@ dimensions of a block selection."
   `(:eval
     (let* ((meta (concat
                   (*emacsclient)
-                  (*tramp)
+                  ;; (*tramp)
                   ;; (*edebug)
                   (*recursive-editing)
                   (*macro-recording)
