@@ -191,8 +191,8 @@
 ;; only show thread subject once
 (setq mu4e-headers-fields
       '((:flags .  6)
-        (:human-date  . 18)
-        (:from  . 18)
+        (:human-date  . 12)
+        (:from  . 22)
 	      ;; (:mailing-list  .   10)
         ;; (:thread-subject . 30)
         (:subject . nil)
