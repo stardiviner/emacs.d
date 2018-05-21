@@ -79,10 +79,10 @@
   ;; add translate special block into structure template alist.
   (add-to-list 'org-structure-template-alist '("t" . "src translate"))
   (defun ob-translate-toggle-proxy (origin-func body params)
-    (proxy-mode-enable)
+    (call-interactively 'proxy-mode-enable)
     (let ((output (funcall origin-func body params)))
-      (proxy-mode-disable)
-      output))
+      (call-interactively 'proxy-mode-disable)
+      output))  
   (advice-add 'org-babel-execute:translate :around #'ob-translate-toggle-proxy)
   )
 
