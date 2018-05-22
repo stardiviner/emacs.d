@@ -448,14 +448,19 @@
     (shell-command "rm -rf ~/org-publish/*")))
 
 (require 'org-capture)
-(defun my/org-capture-template-blog--get-title ()
+(defun my/org-capture-template-blog--generate-template ()
   (let ((title (read-from-minibuffer "Blog Title: ")))
-    (format "* %s\n:PROPERTIES:\n:DATE: %%U\n:END:\n\n[[file:%s.org][%s]]\n%%i" title title title)))
+    (format
+     "* %s\n:PROPERTIES:\n:DATE: %%U\n:END:\n\n[[file:%s.org][%s]]\n%%i"
+     title
+     ;; make URL use - to replace space %20.
+     (replace-regexp-in-string "\\ " "-" title)
+     title)))
 (add-to-list
  'org-capture-templates
  '("b" "[b]log"
    entry (file "~/Org/Website/Blog/index.org")
-   (function my/org-capture-template-blog--get-title)
+   (function my/org-capture-template-blog--generate-template)
    :empty-lines 1
    :prepend t
    :immediate-finish t
