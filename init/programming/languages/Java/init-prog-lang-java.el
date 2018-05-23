@@ -56,16 +56,9 @@
 
 (use-package lsp-javacomp
   :ensure t
-  :defer t
-  :after lsp-mode
-  :init (add-hook 'java-mode-hook #'lsp-javacomp-enable)
-  ;; (defun my:lsp-javacomp-setup ()
-  ;;   (when (locate-dominating-file default-directory "javacomp.json")
-  ;;     ))
-  ;; (add-hook 'c-mode-common-hook #'my:lsp-javacomp-setup)
   :config
   (lsp-javacomp-install-server)
-  )
+  (add-hook 'java-mode-hook #'lsp-javacomp-enable))
 
 ;;; [ malabar-mode ] -- JVM Integration for Java and other JVM based languages.
 

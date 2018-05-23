@@ -174,9 +174,9 @@
 
 ;;; [ aggressive-fill-paragraph ] -- minor-mode for keeping paragraphs filled (in both comments and prose).
 
-(use-package aggressive-fill-paragraph
-  :ensure t
-  :init (add-hook 'org-mode-hook #'aggressive-fill-paragraph-mode))
+;; (use-package aggressive-fill-paragraph
+;;   :ensure t
+;;   :init (add-hook 'org-mode-hook #'aggressive-fill-paragraph-mode))
 
 ;;; [ page (^L) ]
 

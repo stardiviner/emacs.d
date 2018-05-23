@@ -46,7 +46,7 @@
 ;;; [ savehist ] -- save minibuffer history.
 
 (require 'savehist)
-(setq savehist-autosave-interval (* 60 10))
+(setq savehist-autosave-interval (* 60 100))
 (savehist-mode 1)
 
 

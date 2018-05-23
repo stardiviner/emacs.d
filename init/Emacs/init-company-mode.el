@@ -219,7 +219,7 @@
   :config
   (setq company-idle-delay .3
         company-tooltip-idle-delay 0
-        company-box-doc-delay 0.6)
+        company-box-doc-delay 1.0)
 
   (add-to-list 'company-box-frame-parameters
                '(font . "-SRC-Hack-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1"))

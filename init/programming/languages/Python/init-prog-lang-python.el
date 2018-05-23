@@ -73,8 +73,7 @@
 
 (use-package elpy
   :ensure t
-  :init
-  (add-hook 'python-mode-hook #'elpy-mode)
+  :init (add-hook 'python-mode-hook #'elpy-enable)
   :bind (:map python-mode-map
               ("C-h d d" . elpy-doc)
               ("M-," . pop-tag-mark))
@@ -109,8 +108,8 @@
 (use-package pyvenv
   :ensure t
   :defer t
-  :init (add-hook 'python-mode-hook #'pyvenv-mode)
-  :config (pyvenv-workon "python3.6"))
+  :init (pyvenv-workon "python3.6")
+  (add-hook 'python-mode-hook #'pyvenv-mode))
 
 ;;; [ pygen ] -- Python code generation in Emacs with Elpy and python-mode.
 

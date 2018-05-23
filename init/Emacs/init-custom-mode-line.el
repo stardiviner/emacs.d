@@ -1089,6 +1089,7 @@ dimensions of a block selection."
   "My custom mode-line."
   `(:eval
     (let* ((meta (concat
+                  " "
                   (*emacsclient)
                   ;; (*tramp)
                   ;; (*edebug)

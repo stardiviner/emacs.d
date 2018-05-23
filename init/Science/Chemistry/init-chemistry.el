@@ -10,6 +10,7 @@
 (use-package smiles-mode
   :ensure t
   :ensure-system-package (babel . "sudo pacman -S --noconfirm openbabel")
+  :defer t
   :config
   (require 'ob-smiles)
   (add-to-list 'org-babel-load-languages '(smiles . t))

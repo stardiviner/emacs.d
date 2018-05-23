@@ -11,6 +11,7 @@
 (use-package forecast
   :ensure t
   :defer t
+  :commands (forecast)
   :config
   (setq forecast-api-key (my/json-read-value my/account-file 'forecast)))
 

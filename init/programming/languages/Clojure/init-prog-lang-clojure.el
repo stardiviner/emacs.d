@@ -356,7 +356,6 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 (require 'ob-clojure-literate)
 (setq ob-clojure-literate-auto-jackin-p t)
 (setq ob-clojure-literate-project-location "~/.emacs.d/Org-mode/")
-;; (add-hook 'org-mode-hook #'ob-clojure-literate-mode)
 (define-key org-babel-map (kbd "M-c") 'ob-clojure-literate-mode)
 
 ;;; [ ob-clojurescript ] -- org-babel support for ClojureScript

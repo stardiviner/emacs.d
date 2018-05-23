@@ -51,7 +51,7 @@
   (defun my/indent-guide-mode-enable ()
     (unless (member major-mode indent-guide-inhibit-modes)
       (indent-guide-mode 1)))
-  (add-hook 'prog-mode-hook #'my/indent-guide-mode-enable)
+  ;; (add-hook 'prog-mode-hook #'my/indent-guide-mode-enable)
   :config
   (setq indent-guide-recursive t
         ;; - 0 to avoid zero-column guide line.

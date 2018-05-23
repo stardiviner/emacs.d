@@ -11,15 +11,14 @@
 
 ;;; [ undo-tree ]
 
-(use-package undo-tree
-  :ensure t
-  :defer t
-  :init
-  (global-undo-tree-mode 1)
-  :config
-  (setq undo-tree-visualizer-diff t
-        undo-tree-visualizer-relative-timestamps t)
-  )
+;; (use-package undo-tree
+;;   :ensure t
+;;   :defer t
+;;   :init (global-undo-tree-mode 1)
+;;   :config
+;;   (setq undo-tree-visualizer-diff t
+;;         undo-tree-visualizer-relative-timestamps t)
+;;   )
 
 
 (provide 'init-emacs-kill-ring)
