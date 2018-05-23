@@ -51,10 +51,10 @@
       )
 
 ;;; FIXME: anniversary appears at day agenda view which it should not appear.
-;; (setq org-agenda-include-diary t
-;;       diary-file (concat org-directory "/Calendars/Anniversary.org")
-;;       org-agenda-diary-file (concat org-directory "/Calendars/Anniversary.org")
-;;       )
+(setq org-agenda-include-diary t
+      diary-file (concat org-directory "/Calendars/Anniversary.org")
+      org-agenda-diary-file (concat org-directory "/Calendars/Anniversary.org")
+      )
 
 
 ;; Agenda Views
