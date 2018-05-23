@@ -45,12 +45,12 @@
                   (company-capf         ; `completion-at-point-functions'
                    :with company-yasnippet
                    :with company-tempo  ; tempo: flexible template insertion
-                   :with company-dabbrev-code
                    ;; :separate company-semantic
                    ;; :separate company-ispell ; for word completion in comment.
                    )
                   (company-keywords
                    :with company-abbrev)
+                  company-dabbrev-code ; caused duplicated candidates with `company-capf'
                   )
                 )
   
