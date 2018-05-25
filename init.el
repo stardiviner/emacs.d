@@ -26,9 +26,6 @@
 (setq-default initial-scratch-message
               (concat ";; Happy Hacking " (or user-login-name "") "!\n\n"))
 
-;;; initial values
-(defvar Info-default-directory-list nil)
-
 
 (require 'server)
 ;; (setq server-use-tcp t) ; allow for running multiple Emacs daemons.

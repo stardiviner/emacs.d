@@ -25,8 +25,8 @@
                '("\\*info\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
   :config
   ;; - `Info-default-directory-list'
-  (add-to-list 'Info-directory-list
-               (expand-file-name "info/" user-emacs-directory))
+  ;; (add-to-list 'Info-directory-list
+  ;;              (expand-file-name "info/" user-emacs-directory))
   ;; let `[s]' search like =isearch= for incremental search.
   (setq Info-isearch-search t)
   )
