@@ -40,7 +40,16 @@
   :ensure t
   :no-require t
   :defer t
-  ;; (load-theme 'spacemacs-dark t)
+  ;; :config (load-theme 'spacemacs-dark t)
+  )
+
+;;; [ one-themes ] -- One color scheme.
+
+(use-package one-themes
+  :ensure t
+  ;; :config
+  ;; (load-theme 'one-dark t)
+  ;; (load-theme 'one-light t)
   )
 
 ;;; [ circadian ] -- theme-switching for Emacs based on daytime.
@@ -53,9 +62,11 @@
         calendar-latitude 29.72
         calendar-longitude 120.20)
   ;; XXX: make sure to use `:defer' keyword for theme `use-package'.
-  (setq circadian-themes '((:sunrise . leuven)
-                           ;; ("13:00" . spacemacs-light)
-                           (:sunset . spacemacs-dark)))
+  (setq circadian-themes '(
+                           (:sunrise . one-light)
+                           ("13:00" . leuven)
+                           (:sunset . spacemacs-dark)
+                           ))
   (circadian-setup))
 
 
