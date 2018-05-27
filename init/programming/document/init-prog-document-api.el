@@ -96,7 +96,7 @@
   (add-hook 'clojurescript-mode-hook 'helm-dash-buffer-local-clojurescript-docsets)
   ;; CIDER REPL
   (defun helm-dash-buffer-local-cider-docsets ()
-    (if (eq cider-repl-type "clj")
+    (if (equal cider-repl-type "clj")
         (progn
           (setq-local helm-dash-docsets '("Clojure"))
           (my-helm-dash-buffer-local-docsets-add '("ClojureDocs")))
