@@ -44,15 +44,14 @@
                   ;; company-gtags company-etags
                   (company-capf         ; `completion-at-point-functions'
                    :with company-yasnippet
-                   :with company-tempo  ; tempo: flexible template insertion
+                   :separate company-tempo  ; tempo: flexible template insertion
+                   :separate company-dabbrev-code ; dabbrev with only code
                    ;; :separate company-semantic
                    ;; :separate company-ispell ; for word completion in comment.
                    )
                   (company-keywords
                    :with company-abbrev)
-                  company-dabbrev-code ; caused duplicated candidates with `company-capf'
-                  )
-                )
+                  ))
   
   (defun my-company-add-backend-locally (backend)
     "Add a backend in my custom way.
