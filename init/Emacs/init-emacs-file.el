@@ -30,30 +30,30 @@
 (use-package openwith
   :ensure t
   :defer t
-  :init (openwith-mode 1)
+  ;; :init (openwith-mode 1) ; disable `openwith' in Org-mode auto open file links.
   :config
   (setq openwith-associations
-        (list
-         (list (openwith-make-extension-regexp
-                '("mpg" "mpeg" "mp3" "mp4"
-                  "avi" "rmvb" "wmv" "wav" "mov" "flv" "hlv"
-                  "ogm" "ogg" "ogv" "mkv" "webm"))
-               "mplayer" '(file))
-         (list (openwith-make-extension-regexp
-                '("xbm" "pbm" "pgm" "ppm" "pnm"))
-               ;; don't open normal images with external program. use Emacs
-               ;; buffer to display inline image:
-               ;; "png" "gif" "bmp" "tif" "jpeg" "jpg"
-               "sxiv" '(file))
-         (list (openwith-make-extension-regexp
-                '("doc" "xls" "ppt" "odt" "ods" "odg" "odp"))
-               "libreoffice" '(file))
-         '("\\.lyx\\'" "lyx" (file))
-         '("\\.chm\\'" "kchmviewer" (file))
-         ;; (list (openwith-make-extension-regexp
-         ;;        '("ps" "ps.gz" "dvi"))
-         ;;       "zathure" '(file))
-         ))
+        (append openwith-associations
+                (list
+                 (list (openwith-make-extension-regexp
+                        '("mpg" "mpeg" "mp3" "mp4"
+                          "avi" "rmvb" "wmv" "wav" "mov" "flv" "hlv"
+                          "ogm" "ogg" "ogv" "mkv" "webm"))
+                       "mplayer" '(file))
+                 (list (openwith-make-extension-regexp
+                        '("xbm" "pbm" "pgm" "ppm" "pnm"
+                          ;; "png" "bmp" "tif" "jpeg" "jpg"
+                          ))
+                       "sxiv" '(file))
+                 (list (openwith-make-extension-regexp
+                        '("doc" "xls" "ppt" "odt" "ods" "odg" "odp"))
+                       "libreoffice" '(file))
+                 '("\\.lyx\\'" "lyx" (file))
+                 '("\\.chm\\'" "kchmviewer" (file))
+                 (list (openwith-make-extension-regexp
+                        '("ps" "ps.gz" "dvi"))
+                       "zathure" '(file))
+                 )))
 
 
   ;;; NOTE: enable this will cause Org-mode open inline displayed images with external program.

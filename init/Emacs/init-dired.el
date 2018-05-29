@@ -63,6 +63,9 @@
     :ensure t
     :commands (dired-rsync))
 
+  ;; open file with external program.
+  (add-hook 'dired-mode-hook #'openwith-mode)
+  
   ;; open file with `eww'.
   (define-key dired-mode-map (kbd "e")
     (lambda ()
