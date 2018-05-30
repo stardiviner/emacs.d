@@ -238,7 +238,7 @@
 
 (add-hook 'mu4e-compose-mode-hook #'visual-fill-column-mode)
 (add-hook 'mu4e-compose-mode-hook #'turn-on-auto-fill)
-(add-hook 'mu4e-compose-mode-hook #'flyspell-mode-on)
+(add-hook 'mu4e-compose-mode-hook #'turn-on-flyspell)
 
 ;;; Message signatures
 ;; include in message with [C-c C-w]
