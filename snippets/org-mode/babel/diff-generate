@@ -3,6 +3,6 @@
 # key: babel-diff-generate
 # group: babel.diff
 # --
-#+begin_src shell :results code :wrap "SRC diff :tangle '$3' :dir '${4:patch-file dir}' "
+#+begin_src sh :results code :wrap "SRC diff :tangle '$3' :dir '${4:patch-file dir}' "
 diff -u ${1:file1} ${2:file2} > ${3:patch-file}.patch
 #+end_src

@@ -3,6 +3,6 @@
 # key: babel-install-freebsd
 # group: babel.install
 # --
-#+begin_src shell :dir /sudo:: :results none
+#+begin_src sh :dir /sudo:: :results none
 sudo pkg install $0
 #+end_src

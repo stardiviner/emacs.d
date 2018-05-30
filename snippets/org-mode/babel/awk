@@ -3,7 +3,7 @@
 # key: babel-awk
 # group: babel.literate-devops
 # --
-#+begin_src shell :dir "data/code"
+#+begin_src sh :dir "data/code"
 gawk -i inplace '/${2:search}/ { gsub(/${3:query}/, "${4:replace}") }; { print }' ${1:file}
 cat $1
 #+end_src

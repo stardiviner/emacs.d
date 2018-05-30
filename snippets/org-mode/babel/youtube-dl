@@ -3,6 +3,6 @@
 # key: babel-youtube-dl
 # group: babel.download
 # --
-#+begin_src shell :dir "data/videos" :results raw file :file "${1:filename}.mkv"
+#+begin_src sh :dir "data/videos" :results raw file :file "${1:filename}.mkv"
 proxy_env youtube-dl --write-sub "$0" -o '%(title)s.%(ext)s'
 #+end_src

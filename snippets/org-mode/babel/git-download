@@ -3,7 +3,7 @@
 # key: git-download
 # group: shell.git
 # --
-#+begin_src shell :results output :var path=${2}
+#+begin_src sh :results output :var path=${2}
 if [ -d $2 ]; then
   cd $2
   git pull

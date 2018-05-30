@@ -4,6 +4,6 @@
 # group: babel.install
 # expand-env: ((yas-indent-line 'fixed))
 # --
-#+begin_src shell
+#+begin_src sh
 pip install --user -U $0
 #+end_src

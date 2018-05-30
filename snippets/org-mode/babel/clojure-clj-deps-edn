@@ -3,6 +3,6 @@
 # key: babel-clj-deps-edn
 # group: babel.clojure
 # --
-#+begin_src shell
+#+begin_src sh
 clj -Sdeps '{:deps \{$0\}\}'
 #+end_src
