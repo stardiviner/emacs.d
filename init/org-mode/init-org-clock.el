@@ -32,7 +32,7 @@
       org-clock-out-remove-zero-time-clocks t ; Removes clocked tasks with 0:00 duration
       org-clock-sound (concat user-emacs-directory "resources/audio/Ingress/Speech/speech_hacking.wav")
       ;; 'mode-line, 'frame-title, 'both, nil.
-      org-clock-clocked-in-display 'frame-title
+      ;; org-clock-clocked-in-display 'frame-title
       ;; org-clock-mode-line-entry t
       org-clock-mode-line-total 'auto
       ;; org-clock-clocktable-language-setup

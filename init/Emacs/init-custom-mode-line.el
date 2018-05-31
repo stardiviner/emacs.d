@@ -745,6 +745,8 @@ dimensions of a block selection."
 
 
 (require 'org-clock)
+(setq org-clock-clocked-in-display nil)
+
 (defun *org-clock ()
   "Show org-clock info."
   (when (and (org-clock-is-active)
