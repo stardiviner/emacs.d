@@ -20,7 +20,7 @@
 
 ;;; org-info.js
 (setq org-html-infojs-options
-      '((path . "https://orgmode.org/org-info.js")
+      '((path . "/assets/scripts/org-info-src.js")
         (view . "showall") ; "info", "overview", "content", "showall"
         (toc . :with-toc)
         (ftoc . "2") ; fixed TOC
@@ -101,7 +101,8 @@
                                    "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/syntax-highlight.css\"/>"
                                    ;; RSS
                                    "<link rel=\"alternate\" type=\"application/rss+xml\" href=\"https://stardiviner.github.io/Blog/index.xml\">"
-                                   ;; "<script type=\"text/javascript\" language=\"JavaScript\" src=\"org-info.js\"></script>"
+                                   ;; org-info.js
+                                   ;; "<script type=\"text/javascript\" language=\"JavaScript\" src=\"assets/scripts/org-info-src.js\"></script>"
                                    ;; icon
                                    "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-16x16.png\" sizes=\"16x16\">"
                                    "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-32x32.png\" sizes=\"32x32\">"
