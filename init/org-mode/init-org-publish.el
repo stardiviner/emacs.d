@@ -241,6 +241,52 @@
              '("About" :components ("about-org" "about-data")))
 
 (add-to-list 'org-publish-project-alist
+             `("thought-data"
+               :base-directory ,(concat my-org-publish-source "Thought/data")
+               :base-extension any
+               :publishing-directory ,(concat my-org-publish-destination "Thought/data")
+               :recursive t
+               :publishing-function org-publish-attachment))
+
+(add-to-list 'org-publish-project-alist
+             `("thought-org"
+               :base-directory ,(concat my-org-publish-source "Thought")
+               :base-extension "org"
+               :recursive t
+               :publishing-directory ,(concat my-org-publish-destination "Thought")
+               :publishing-function (org-html-publish-to-html)
+               
+               ;; [ html ]
+               :html-doctype "html5"
+               :html-html5-fancy t ; use new HTML5 elements.
+               :html-head-include-scripts t
+               :html-link-home "https://stardiviner.github.io/"
+               :html-preamble ,(org-file-contents (concat my-org-publish-source "assets/preamble.html"))
+               :html-postamble ,(org-file-contents (concat my-org-publish-source "assets/postamble.html"))
+               :html-link-org-files-as-html t
+               :section-numbers nil
+               :with-toc t
+               :table-of-contents nil
+               ;; Generate .org.html
+               :htmlized-source t
+               ;; [ images ]
+               :html-inline-images t
+               ;; [ stylesheet ]
+               :html-head-include-default-style t
+               :html-head-extra ,(concat "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/stylesheet.css\"/>"
+                                         "<link rel=\"stylesheet\" type=\"text/css\" href=\"/assets/stylesheets/syntax-highlight.css\"/>"
+                                         ;; icon
+                                         "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-16x16.png\" sizes=\"16x16\">"
+                                         "<link ref=\"icon\" type=\"image/png\" href=\"/assets/images/favicon-32x32.png\" sizes=\"32x32\">"
+                                         )
+               ;; [ info.js]
+               :html-use-infojs t
+               ))
+
+(add-to-list 'org-publish-project-alist
+             '("Thought" :components ("thought-org" "thought-data")))
+
+(add-to-list 'org-publish-project-alist
              `("poem-data"
                :base-directory ,(concat my-org-publish-source "Literature/Poem/data")
                :base-extension any
@@ -408,7 +454,7 @@
 
 (add-to-list 'org-publish-project-alist
              '("WEBSITE"
-               :components ("assets" "About" "Blog" "Literature" "Slides" "Index")))
+               :components ("assets" "About" "Blog" "Thought" "Literature" "Slides" "Index")))
 
 
 (defun my-org-publish-finished-notify (args)
