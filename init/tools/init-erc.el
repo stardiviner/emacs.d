@@ -14,7 +14,7 @@
   ;; [ user info ]
   (setq erc-nick "stardiviner"
         erc-try-new-nick-p nil
-        erc-user-full-name "christopher M. miles"
+        erc-user-full-name "Christopher M. Miles"
         erc-email-userid "numbchild@gmail.com"
         )
   ;; [ password ]

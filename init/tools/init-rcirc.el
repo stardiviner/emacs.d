@@ -1,6 +1,6 @@
 ;;; init-rcirc.el --- init for rcirc.
 
-;;; Time-stamp: <2018-06-01 11:58:10 stardiviner>
+;;; Time-stamp: <2018-06-04 14:04:25 stardiviner>
 
 ;;; Commentary:
 
@@ -17,6 +17,7 @@
       rcirc-default-user-name "stardiviner"
       rcirc-default-full-name "Christopher M. Miles")
 
+;;; /msg NickServ identify <password>
 (setq rcirc-authinfo
       `(("freenode" nickserv "stardiviner" ,(my/json-read-value my/account-file 'erc))
         ;; ("freenode" chanserv "stardiviner" )
@@ -28,7 +29,7 @@
          :channels ("#emacs" "#lisp" "#clojure" "#archlinux")
          :nick "stardiviner"
          :user-name "stardiviner"
-         :port 6667)))
+         :encryption tls :port 6697)))
 ;; (add-to-list 'rcirc-server-alist
 ;;              '("irc.gimp.org" :channels ("#gimp")))
 ;; (add-to-list 'rcirc-server-alist

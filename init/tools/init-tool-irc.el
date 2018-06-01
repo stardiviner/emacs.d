@@ -12,7 +12,7 @@
 (define-key tools-prefix (kbd "i") 'irc-prefix)
 
 
-(require 'init-erc)
+;; (require 'init-erc)
 (require 'init-rcirc)
 
 

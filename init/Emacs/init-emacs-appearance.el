@@ -233,6 +233,8 @@
   (add-to-list 'all-the-icons-mode-icon-alist
                '(erc-mode all-the-icons-faicon "commenting-o" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan))
   (add-to-list 'all-the-icons-mode-icon-alist
+               '(rcirc-mode all-the-icons-faicon "commenting-o" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan))
+  (add-to-list 'all-the-icons-mode-icon-alist
                '(ag-mode all-the-icons-faicon "search" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan))
   (add-to-list 'all-the-icons-mode-icon-alist
                '(rg-mode all-the-icons-faicon "search" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan))
