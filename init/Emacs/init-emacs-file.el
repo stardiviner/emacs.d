@@ -30,7 +30,7 @@
 (use-package openwith
   :ensure t
   :defer t
-  ;; :init (openwith-mode 1) ; disable `openwith' in Org-mode auto open file links.
+  :init (openwith-mode -1) ; disable `openwith' in Org-mode auto open file links.
   :config
   (setq openwith-associations
         (append openwith-associations
