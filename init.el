@@ -228,62 +228,128 @@
 
 (require 'init-prog-lang-lisp)
 (require 'init-prog-lang-emacs-lisp)
-(require 'init-prog-lang-common-lisp)
-(require 'init-prog-lang-scheme)
-;; (require 'init-prog-lang-newLisp)
-;; (require 'init-prog-lang-shen)
-(require 'init-prog-lang-clojure)
-(require 'init-prog-lang-python)
-;; (require 'init-prog-lang-ruby)
-;; (require 'init-prog-lang-perl)
-(require 'init-prog-lang-shell)
-(require 'init-prog-lang-C-common)
-;; (with-eval-after-load 'init-prog-lang-C-common
-;;   (require 'init-prog-tags))
-;; (require 'init-prog-lang-csharp)
-;; (require 'init-prog-lang-fsharp)
-;; (require 'init-prog-lang-D)
-;; (require 'init-prog-lang-go)
-;; (require 'init-prog-lang-rust)
-;; (require 'init-prog-lang-nim)
-;; (require 'init-prog-lang-lua)
-;; (require 'init-prog-lang-swift)
-(require 'init-prog-lang-java)
-;; (require 'init-prog-lang-jvm-groovy)
-;; (require 'init-prog-lang-jvm-kotlin)
-;; (require 'init-prog-lang-php)
-(require 'init-prog-lang-html)
-(require 'init-prog-lang-css)
-(require 'init-prog-lang-javascript)
-;; (require 'init-prog-lang-coffeescript)
-;; (require 'init-prog-lang-sibilant)
-;; (require 'init-prog-lang-dart)
-(require 'init-prog-lang-query)
-(require 'init-prog-lang-xml)
-(require 'init-prog-lang-json)
+(with-eval-after-load 'lisp-mode
+  (require 'init-prog-lang-common-lisp))
+(with-eval-after-load 'scheme-mode
+  (setq scheme-program-name "guile")
+  (require 'init-prog-lang-scheme))
+(with-eval-after-load 'newlisp-mode
+  (require 'init-prog-lang-newLisp))
+(with-eval-after-load 'shen-mode
+  (require 'init-prog-lang-shen))
+(with-eval-after-load 'clojure-mode
+  (require 'init-prog-lang-clojure))
+(with-eval-after-load 'python-mode
+  (require 'init-prog-lang-python))
+(with-eval-after-load 'ruby-mode
+  (require 'init-prog-lang-ruby))
+(with-eval-after-load 'perl-mode
+  (require 'init-prog-lang-perl))
+(with-eval-after-load 'sh-mode
+  (require 'init-prog-lang-shell))
+(with-eval-after-load 'cc-mode
+  (require 'init-prog-lang-C-common))
+(with-eval-after-load "init-prog-lang-C-common.el"
+  (require 'init-prog-tags))
+(with-eval-after-load 'csharp-mode
+  (require 'init-prog-lang-csharp))
+(with-eval-after-load 'fsharp-mode
+  (require 'init-prog-lang-fsharp))
+(with-eval-after-load 'd-mode
+  (require 'init-prog-lang-D))
+(with-eval-after-load 'go-mode
+  (require 'init-prog-lang-go))
+(with-eval-after-load 'rust-mode
+  (require 'init-prog-lang-rust))
+(with-eval-after-load 'nim-mode
+  (require 'init-prog-lang-nim))
+(with-eval-after-load 'lua-mode
+  (require 'init-prog-lang-lua))
+(with-eval-after-load 'swift-mode
+  (require 'init-prog-lang-swift))
+(with-eval-after-load 'java-mode
+  (require 'init-prog-lang-java))
+(with-eval-after-load 'groovy-mode
+  (require 'init-prog-lang-jvm-groovy))
+(with-eval-after-load 'kotlin-mode
+  (require 'init-prog-lang-jvm-kotlin))
+(with-eval-after-load 'php-mode
+  (require 'init-prog-lang-php))
+(with-eval-after-load 'html-mode
+  (require 'init-prog-lang-html))
+(with-eval-after-load 'css-mode
+  (require 'init-prog-lang-css))
+(with-eval-after-load 'js2-mode
+  (require 'init-prog-lang-javascript))
+(with-eval-after-load 'coffee-mode
+  (require 'init-prog-lang-coffeescript))
+(with-eval-after-load 'sibilant-mode
+  (require 'init-prog-lang-sibilant))
+(with-eval-after-load 'dart-mode
+  (require 'init-prog-lang-dart))
+(with-eval-after-load 'nxml-mode
+  (require 'init-prog-lang-xml))
+(with-eval-after-load 'json-mode
+  (require 'init-prog-lang-json))
 ;; (require 'init-prog-lang-rdf)
-;; (require 'init-prog-lang-sdlang)
-;; (require 'init-prog-lang-haskell)
-;; (require 'init-prog-lang-scala)
-;; (require 'init-prog-lang-elixir)
-;; (require 'init-prog-lang-erlang)
-(require 'init-prog-lang-R)
-;; (require 'init-prog-lang-julia)
-(require 'init-prog-lang-gnuplot)
-;; (require 'init-prog-lang-octave)
+(with-eval-after-load 'sdlang-mode
+  (require 'init-prog-lang-sdlang))
+(with-eval-after-load 'haskell-mode
+  (require 'init-prog-lang-haskell))
+(with-eval-after-load 'scala-mode
+  (require 'init-prog-lang-scala))
+(with-eval-after-load 'elixir-mode
+  (require 'init-prog-lang-elixir))
+(with-eval-after-load 'erlang-mode
+  (require 'init-prog-lang-erlang))
+(with-eval-after-load 'R-mode
+  (require 'init-prog-lang-R))
+(with-eval-after-load 'julia-mode
+  (require 'init-prog-lang-julia))
+(with-eval-after-load 'gnuplot-mode
+  (require 'init-prog-lang-gnuplot))
+(with-eval-after-load 'octave-mode
+  (require 'init-prog-lang-octave))
 ;; (require 'init-prog-lang-matlab)
 (require 'init-prog-lang-tex)
 ;; (require 'init-bibliography)
-(require 'init-prog-lang-markdown)
-;; (require 'init-prog-lang-reStructuredText)
-(require 'init-prog-lang-yaml)
-;; (require 'init-prog-lang-prolog)
-;; (require 'init-prog-lang-ocaml)
-;; (require 'init-prog-lang-verilog)
-;; (require 'init-prog-lang-assembly)
-;; (require 'init-prog-lang-forth)
-;; (require 'init-prog-lang-HDL)
-;; (require 'init-prog-lang-applescript)
+(with-eval-after-load 'markdown-mode
+  (require 'init-prog-lang-markdown))
+(with-eval-after-load 'rst-mode
+  (require 'init-prog-lang-reStructuredText))
+(with-eval-after-load 'yaml-mode
+  (require 'init-prog-lang-yaml))
+(with-eval-after-load 'prolog-mode
+  (require 'init-prog-lang-prolog))
+(with-eval-after-load 'tuareg-mode
+  (require 'init-prog-lang-ocaml))
+(with-eval-after-load 'verilog-mode
+  (require 'init-prog-lang-verilog))
+(with-eval-after-load 'asm-mode
+  (require 'init-prog-lang-assembly))
+(with-eval-after-load 'forth-mode
+  (require 'init-prog-lang-forth))
+(with-eval-after-load 'vhdl-mode
+  (require 'init-prog-lang-HDL))
+(with-eval-after-load 'applescript-mode
+  (require 'init-prog-lang-applescript))
+
+;;; [ Query Languages ]
+;; SQL
+(require 'init-prog-lang-database-sql)
+(require 'init-prog-lang-database-sqlite)
+(require 'init-prog-lang-database-mysql)
+(require 'init-prog-lang-database-postgresql)
+;; NewSQL
+(require 'init-prog-lang-database-newsql)
+;; NoSQL
+(require 'init-prog-lang-database-nosql)
+(require 'init-prog-lang-database-mongodb)
+(require 'init-prog-lang-database-redis)
+;;; CQL
+(require 'init-prog-lang-database-cql)
+;;; GraphQL
+(require 'init-prog-lang-database-graphql)
 
 
 ;;; Programming Tools
@@ -293,7 +359,8 @@
 (global-set-key (kbd "C-c t") 'prog-tools-prefix)
 
 (require 'init-DevOps)
-(require 'init-elasticsearch)
+(with-eval-after-load 'es-mode
+  (require 'init-elasticsearch))
 
 
 ;;; Frameworks
