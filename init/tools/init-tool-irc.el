@@ -13,6 +13,7 @@
 
 
 (require 'init-erc)
+(require 'init-rcirc)
 
 
 (provide 'init-tool-irc)
