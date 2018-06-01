@@ -65,9 +65,9 @@
       )
 
 (setq org-babel-load-languages
-      '((org . t)                            ; Org-mode
-        (shell . t)                          ; Shell Script
-        (calc . t)                           ; Calc
+      '((org . t)                       ; Org-mode
+        (shell . t)                     ; Shell Script
+        (calc . t)                      ; Calc
         ))
 
 ;;; [ ob-shell ]

@@ -17,6 +17,7 @@
 ;; - (display-buffer-in-child-frame) :: don't use it!!!
 ;; - (display-buffer-reuse-window (window-height . 0.3))
 ;; - (display-buffer-reuse-window display-buffer-same-window)
+;; - (display-buffer-in-side-window . ((side . bottom) (window-height . 4)))
 (add-to-list 'display-buffer-alist
              '("^\\*Warnings\\*" (display-buffer-below-selected)))
 (add-to-list 'display-buffer-alist

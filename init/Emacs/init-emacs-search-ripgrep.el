@@ -20,8 +20,7 @@
   :custom (rg-keymap-prefix nil)
   :preface (setq rg-keymap-prefix rg-prefix)
   :commands (rg rg-literal rg-dwim rg-dwim-current-dir rg-dwim-project-dir)
-  :bind (:map search-prefix
-              ("s" . rg)
+  :bind (:map search-prefix ("s" . rg)
               :map rg-prefix
               ("r" . rg-dwim)
               ("d" . rg-dwim-current-dir)
@@ -39,7 +38,7 @@
       (add-hook 'rg-mode-hook #'wgrep-ag-setup))
   :config
   (setq rg-group-result t
-        ;; rg-command-line-flags '()
+        ;; rg-command-line-flags '("--debug")
         )
   (add-to-list 'display-buffer-alist
                '("^\\*rg\\*" (display-buffer-below-selected)))

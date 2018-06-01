@@ -16,7 +16,7 @@
   "Loop through transparency `ALPHA' settings."
   (interactive (list
                 (completing-read "Transparency Alpha: "
-                                 '("unset" "100" "90" "80" "70" "60"))))
+                                 '("unset" "100" "95" "90" "80" "70" "60"))))
   (if (string= alpha "unset")
       (progn
         (set-frame-parameter (selected-frame) 'alpha (list 100 100))
