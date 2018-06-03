@@ -49,7 +49,11 @@
   :ensure t
   :init
   (use-package company-nginx
-    :ensure t))
+    :ensure t
+    :config
+    (eval-after-load 'nginx-mode
+      '(add-hook 'nginx-mode-hook #'company-nginx-keywords))
+    ))
 
 ;;; [ apache-mode ]
 
