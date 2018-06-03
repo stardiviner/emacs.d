@@ -72,7 +72,11 @@
   ;;       "-o ControlMaster=auto -o ControlPath='ssh_%C' -o ControlPersist=no")
   
   ;; change SHELL environment variable to solve Tramp hangs issue.
-  ;; (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
+  (eval-after-load 'tramp
+    '(setenv "SHELL" "/bin/bash"))
+
+  ;; fix /bin/zsh no such file or directory issue on remote host.
+  (setq explicit-shell-file-name "/bin/bash")
 
   ;; don't generate backups for remote files opened as root (security hazzard)
   (setq backup-enable-predicate
