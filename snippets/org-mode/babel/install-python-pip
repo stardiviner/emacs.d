@@ -5,5 +5,5 @@
 # expand-env: ((yas-indent-line 'fixed))
 # --
 #+begin_src sh
-pip install --user -U $0
+pip install -U $0
 #+end_src
