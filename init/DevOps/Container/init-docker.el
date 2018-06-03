@@ -96,7 +96,7 @@ For Org-babel header argument :dir /docker:<name>:."
                    ;; (mapcar 'cdr (docker-tramp--running-containers))
                    (list (completing-read "Docker container name: " containers-name))))
     (insert container))
-  (define-key org-babel-map (kbd "C") 'docker-tramp-insert-running-container)
+  (define-key org-babel-map (kbd "M-d") 'docker-tramp-insert-running-container)
   )
 
 ;;; [ docker-api ] -- Emacs interface to the Docker API.
