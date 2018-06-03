@@ -196,18 +196,6 @@
 
 (add-hook 'eval-expression-minibuffer-setup-hook 'company-mode-minibuffer-setup)
 
-;;; [ company-childframe ] -- use a child-frame as company candidate menu.
-
-;; (use-package company-childframe
-;;   :ensure t
-;;   :config
-;;   (company-childframe-mode 1)
-;;   ;; (add-to-list 'company-frontends 'company-childframe-frontend)
-;;   ;; fix `desktop-save-mode' record and enable `company-childframe' on all buffers.
-;;   (require 'desktop)
-;;   (push '(company-childframe-mode . nil) desktop-minor-mode-table)
-;;   )
-
 ;;; [ company-box ] -- A company front-end with icons.
 
 (use-package company-box
