@@ -51,14 +51,14 @@
 					                            ('light
 					                             (color-darken-name (face-background 'default) 10))
 					                            ('dark
-					                             (color-darken-name (face-background 'default) 10))))
+					                             (color-lighten-name (face-background 'default) 10))))
     (set-face-attribute 'hi-edebug-x-debug-line nil
                         :reverse-video nil :foreground nil :underline nil
                         :background (cl-case (alist-get 'background-mode (frame-parameters))
 					                            ('light
 					                             (color-darken-name (face-background 'default) 10))
 					                            ('dark
-					                             (color-darken-name (face-background 'default) 20)))))
+					                             (color-lighten-name (face-background 'default) 20)))))
   (add-hook 'circadian-after-load-theme-hook #'circadian:edebug-faces)
   (circadian:edebug-faces nil)
 
