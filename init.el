@@ -179,7 +179,6 @@
 (require 'init-tool-accounting)
 (require 'init-tool-paste)
 ;; (require 'init-tool-collaborate)
-;; (require 'init-tool-notify)
 (require 'init-tool-irc)
 ;; (require 'init-slack)
 ;; (require 'init-elfeed)
