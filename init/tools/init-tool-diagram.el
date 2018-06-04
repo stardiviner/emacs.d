@@ -56,6 +56,7 @@
 (require 'init-Graphviz) ; Graphviz, Dot
 (require 'init-ditaa)
 (require 'init-blockdiag)
+(require 'init-mermaid)
 
 
 
