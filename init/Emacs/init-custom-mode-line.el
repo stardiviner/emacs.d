@@ -380,9 +380,10 @@ state (modified, read-only or non-existent)."
                (pcase (cider-project-type)
                  ("lein" (all-the-icons-fileicon "clj" :face 'mode-line-success-face)))
                ;; CIDER project name
-               (or (cider-project-name (buffer-local-value 'nrepl-project-dir (current-buffer)))
+               (or (let ((project (cider-project-name (buffer-local-value 'nrepl-project-dir (current-buffer)))))
+                     (unless (equal project "-") project))
                    (with-current-buffer (ignore-errors (cider-current-connection))
-                     (format " %s" (cider--project-name nrepl-project-dir)))
+                     (format "%s" (cider--project-name nrepl-project-dir)))
                    (projectile-project-name))
                (if (bound-and-true-p cider--debug-mode)
                    (all-the-icons-faicon "wrench"
