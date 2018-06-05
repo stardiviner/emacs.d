@@ -146,7 +146,6 @@ to the command loop."
       (setq-local projectile-project-name (projectile-project-name)))
     (if projectile-project-name
         (propertize (concat
-                     " "
                      (all-the-icons-faicon "folder-o" :v-adjust -0.05 :height 0.9)
                      projectile-project-name
                      " "))))
@@ -1139,11 +1138,11 @@ dimensions of a block selection."
                  (*flycheck)
                  ;; (*build-status)
                  (*vc)
-                 ;; (*buffer-project)
-                 (*projectile)
                  (*eyebrowse)
                  ;; (*perspeen)
                  ;; (*purpose)
+                 ;; (*buffer-project)
+                 (*projectile)
                  (*major-mode)
                  ;; (propertize (format-mode-line "%m" mode-name))
                  (*env)
