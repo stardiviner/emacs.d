@@ -405,11 +405,12 @@ state (modified, read-only or non-existent)."
                   (all-the-icons-fileicon "clj"))))
            ((or 'ruby-mode 'inf-ruby-mode)
             (concat
-             (if (ignore-errors (inf-ruby-proc))
-                 (all-the-icons-alltheicon "ruby"
-                                           :v-adjust -0.05 :face 'mode-line-success-face)
-               (all-the-icons-faicon "chain-broken"
-                                     :v-adjust -0.0 :face 'mode-line-error-face))
+             ;; FIXME: heavy performance
+             ;; (if (ignore-errors (inf-ruby-proc))
+             ;;     (all-the-icons-alltheicon "ruby"
+             ;;                               :v-adjust -0.05 :face 'mode-line-success-face)
+             ;;   (all-the-icons-faicon "chain-broken"
+             ;;                         :v-adjust -0.0 :face 'mode-line-error-face))
              (if (and (featurep 'rbenv) rbenv--modestring)
                  (propertize (format " %s" (rbenv--active-ruby-version))
                              'face 'mode-line-success-face))))
@@ -975,7 +976,7 @@ dimensions of a block selection."
            ;; (ghub-get "/notifications" '((:participating . "true")))
            )))
   
-  (run-with-timer 10 (* 10 60) 'github-fetch-notifications)
+  (run-with-timer 10 (* 30 60) 'github-fetch-notifications)
   
   (defun *github-notifications ()
     (if (> github-notifications-number 0)
