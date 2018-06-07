@@ -26,9 +26,11 @@
   )
 
 ;; rebind commands
-(define-key highlight-prefix (kbd "C-s") 'highlight-regexp)
+(define-key highlight-prefix (kbd "M-p") 'highlight-symbol-at-point)
+(define-key highlight-prefix (kbd "M-r") 'highlight-regexp)
+(define-key highlight-prefix (kbd "M-w") 'highlight-phrase)
 (define-key highlight-prefix (kbd "M-u") 'unhighlight-regexp)
-(define-key highlight-prefix (kbd "M-s") 'highlight-lines-matching-regexp)
+(define-key highlight-prefix (kbd "M-l") 'highlight-lines-matching-regexp)
 
 ;;; [ symbol-overlay ] -- highlighting symbols with keymap-enabled overlays.
 
