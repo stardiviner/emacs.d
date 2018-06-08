@@ -26,13 +26,8 @@
         '("Clojure"
           ;; "Common Lisp"
           ;; "Python 3" "Ruby"
-          ;; "Ruby on Rails"
           "HTML" "CSS"
-          "JavaScript" "NodeJS"
-          ;; "Redis" "MongoDB"
-          ;; "RubyMotion"
-          )
-        )
+          "JavaScript" "NodeJS"))
 
   (setq helm-dash-enable-debugging nil)
   
@@ -86,12 +81,12 @@
   (add-hook 'common-lisp-mode-hook 'helm-dash-buffer-local-common-lisp-docsets)
   ;; Clojure
   (defun helm-dash-buffer-local-clojure-docsets ()
-    (setq-local helm-dash-docsets '("Clojure"))
+    (setq-local helm-dash-docsets '("Clojure" "Java_SE9"))
     (my-helm-dash-buffer-local-docsets-add '("ClojureDocs")))
   (add-hook 'clojure-mode-hook 'helm-dash-buffer-local-clojure-docsets)
   ;; ClojureScript
   (defun helm-dash-buffer-local-clojurescript-docsets ()
-    (setq-local helm-dash-docsets '("Clojure" "ClojureScript"))
+    (setq-local helm-dash-docsets '("Clojure" "ClojureScript" "JavaScript"))
     (my-helm-dash-buffer-local-docsets-add '("ClojureDocs")))
   (add-hook 'clojurescript-mode-hook 'helm-dash-buffer-local-clojurescript-docsets)
   ;; CIDER REPL
