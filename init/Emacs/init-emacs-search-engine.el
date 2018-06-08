@@ -118,11 +118,15 @@
   (defengine clojars
     "https://clojars.org/search?q=%s"
     :docstring "clojars"
-    :keybinding "j")
+    :keybinding "J")
+  (defengine maven
+    "https://search.maven.org/beta/search?q=%s"
+    :docstring "Maven"
+    :keybinding "M")
   (defengine java-docs
     "https://docs.oracle.com/apps/search/search.jsp?category=java&q=%s"
     :docstring "Java Docs"
-    :keybinding "J")
+    :keybinding "j")
   (defengine ruby-doc
     "http://ruby-doc.com/search.html?q=%s"
     :docstring "Ruby doc")
