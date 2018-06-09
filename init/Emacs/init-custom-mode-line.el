@@ -140,14 +140,11 @@ to the command loop."
   (defun *projectile ()
     "Show projectile project info."
     ;; `projectile-mode-line'
-    (unless (and (bound-and-true-p projectile-mode)
-                 (local-variable-if-set-p 'projectile-project-name))
-      (make-local-variable 'projectile-project-name)
-      (setq-local projectile-project-name (projectile-project-name)))
-    (if projectile-project-name
+    (if (projectile-project-name)
         (propertize (concat
+                     " "
                      (all-the-icons-faicon "folder-o" :v-adjust -0.05 :height 0.9)
-                     projectile-project-name
+                     (projectile-project-name)
                      " "))))
   )
 
@@ -160,19 +157,15 @@ to the command loop."
   (defun *eyebrowse ()
     "Displays `default-directory', for special buffers like the scratch buffer."
     ;; `eyebrowse-mode-line-indicator'
-    (unless (and (bound-and-true-p my/eyebrowse-current-slot-tag)
-                 (local-variable-if-set-p 'my/eyebrowse-current-slot-tag))
-      (let ((current-slot-tag (cadr (alist-get
-                                     (eyebrowse--get 'current-slot)
-                                     (eyebrowse--get 'window-configs))))
-            ;; (current-slot-number (eyebrowse--get 'current-slot))
-            ;; (slot-numbers (length (eyebrowse--get 'window-configs)))
-            )
-        (setq-local my/eyebrowse-current-slot-tag current-slot-tag)))
-    (if my/eyebrowse-current-slot-tag
-        (concat
-         (all-the-icons-faicon "codepen" :v-adjust -0.1)
-         (propertize (format " %s " my/eyebrowse-current-slot-tag)))))
+    (let ((current-slot-tag (cadr (alist-get
+                                   (eyebrowse--get 'current-slot)
+                                   (eyebrowse--get 'window-configs))))
+          ;; (current-slot-number (eyebrowse--get 'current-slot))
+          ;; (slot-numbers (length (eyebrowse--get 'window-configs)))
+          )
+      (concat
+       (all-the-icons-faicon "codepen" :v-adjust -0.1)
+       (propertize (format " %s " current-slot-tag)))))
   )
 
 ;; (use-package perspeen
@@ -1140,11 +1133,11 @@ dimensions of a block selection."
                  (*flycheck)
                  ;; (*build-status)
                  (*vc)
-                 (*eyebrowse)
                  ;; (*perspeen)
                  ;; (*purpose)
                  ;; (*buffer-project)
                  (*projectile)
+                 (*eyebrowse)
                  (*major-mode)
                  ;; (propertize (format-mode-line "%m" mode-name))
                  (*env)
