@@ -103,13 +103,13 @@ Optional for Org-mode file: `LINK'."
         ("\\.odp\\'" . "libreoffice %s") ; Presentation
         ("\\.odf\\'" . "libreoffice %s") ; Database / Formula
         ;; Video
-        ("\\.mp4\\'" . "mpv %s")
-        ("\\.mov\\'" . "mpv %s")
-        ("\\.ogv\\'" . "mpv %s")
-        ("\\.f4v\\'" . "mpv %s")
+        ("\\.mp4\\'" . "mplayer %s")
+        ("\\.mov\\'" . "mplayer %s")
+        ("\\.ogv\\'" . "mplayer %s")
+        ("\\.f4v\\'" . "mplayer %s")
         ;; Audio
         ("\\.mp3\\'" . "play %s")
-        ("\\.ogg\\'" . "play %s")
+        ("\\.ogg\\'" . "mplayer %s")
         ("\\.midi\\'" . "timidity %s")
         (auto-mode . emacs)
         ))
