@@ -112,7 +112,7 @@ Optional for Org-mode file: `LINK'."
         ("\\.ogg\\'" . "mplayer %s")
         ("\\.midi\\'" . "timidity %s")
         (auto-mode . emacs)
-        ))
+        (t . emacs)))
 
 (add-to-list 'org-file-apps '("\\.swf\\'" . "gnash %s"))
 (add-to-list 'org-file-apps '("\\.jar\\'" . "java -jar %s"))
