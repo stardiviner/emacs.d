@@ -61,9 +61,7 @@
 (use-package ess
   :ensure t
   :load (ess-site ess-custom)
-  :init
-  (if (boundp 'inferior-julia-program-name)
-      (setq inferior-julia-program-name "julia")))
+  :init (setq inferior-julia-program "julia"))
 
 (require 'ob-julia)
 (setq org-babel-julia-command "julia")
