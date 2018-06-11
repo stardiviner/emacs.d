@@ -49,7 +49,9 @@
 
 ;;; [ Notices ] -- [C-c C-o] omit notices.
 
+;;; ("JOIN" "PART" "QUIT" "NICK")
 (add-to-list 'rcirc-omit-responses "AWAY")
+(add-hook 'rcirc-mode-hook #'rcirc-omit-mode)
 
 ;;; [ Edit ]
 
