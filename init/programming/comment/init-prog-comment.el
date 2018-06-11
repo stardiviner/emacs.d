@@ -94,6 +94,13 @@ column.  Place the point after the comment box."
   :ensure t
   :commands (org-commentary-update))
 
+;;; [ banner-comment ] -- turn a comment into a banner.
+
+(use-package banner-comment
+  :ensure t
+  :commands (banner-comment)
+  :bind (:map prog-comment-prefix ("M-b" . banner-comment)))
+
 
 (provide 'init-prog-comment)
 
