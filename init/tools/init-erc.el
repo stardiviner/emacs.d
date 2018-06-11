@@ -104,10 +104,7 @@ The function is suitable for `erc-after-connect'."
        :full-name "christopher M. miles")
       ))
 
-  (define-key irc-prefix (kbd "i") 'my-erc-start-or-switch)
-
-  (define-key irc-prefix (kbd "j") 'erc-track-switch-buffer)
-  (define-key irc-prefix (kbd "b") 'erc-iswitchb)
+  (define-key tools-prefix (kbd "i") 'my-erc-start-or-switch)
 
   ;; [ Tracking ]
   ;;

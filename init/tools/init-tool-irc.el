@@ -7,11 +7,6 @@
 ;;; Code:
 
 
-(unless (boundp 'irc-prefix)
-  (define-prefix-command 'irc-prefix))
-(define-key tools-prefix (kbd "i") 'irc-prefix)
-
-
 ;; (require 'init-erc)
 (require 'init-rcirc)
 

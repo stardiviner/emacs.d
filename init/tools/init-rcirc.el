@@ -55,6 +55,8 @@
 
 (add-hook 'rcirc-mode-hook #'flyspell-mode)
 
+(define-key tools-prefix (kbd "i") 'rcirc)
+
 
 
 (provide 'init-rcirc)
