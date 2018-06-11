@@ -164,6 +164,7 @@
   ;; (cider-add-to-alist 'cider-jack-in-dependencies "org.clojure/tools.nrepl" "0.2.13")
   ;; (add-to-list 'cider-jack-in-dependencies '("incanter" "1.9.2"))
   ;; (add-to-list 'cider-jack-in-dependencies '("org.clojure/core.async" "0.4.474"))
+  (add-to-list 'cider-jack-in-dependencies '("criterium" "0.4.4"))
   ;; Check out function `cljr--inject-jack-in-dependencies'.
   
   ;; notify user CIDER is connected.
