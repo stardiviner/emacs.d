@@ -352,10 +352,10 @@ state (modified, read-only or non-existent)."
                  (and (fboundp 'sly-connected-p) (sly-connected-p))
                  (and (fboundp 'slime-connected-p) (slime-connected-p)))
                 ;; TODO: use this original (:eval (sly--mode-line-format))
-                (all-the-icons-fileicon "clisp"
+                (all-the-icons-fileicon "lisp"
                                         :v-adjust -0.05 :face 'mode-line-success-face)
               (concat
-               (all-the-icons-fileicon "clisp"
+               (all-the-icons-fileicon "lisp"
                                        :v-adjust -0.05 :face 'mode-line-info-face)
                (all-the-icons-faicon "chain-broken"
                                      :v-adjust -0.0 :face 'mode-line-error-face))))

@@ -247,6 +247,8 @@
   (add-to-list 'all-the-icons-mode-icon-alist
                '(arduino-mode all-the-icons-fileicon "arduino" 1.0 :v-adjust 0.00 :face all-the-icons-blue-alt))
   (add-to-list 'all-the-icons-mode-icon-alist
+               '(lisp-mode all-the-icons-fileicon "clisp" :height 1.0 :v-adjust 0.0 :face all-the-icons-blue-alt))
+  (add-to-list 'all-the-icons-mode-icon-alist
                '(inferior-lisp-mode all-the-icons-fileicon "lisp" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan-alt))
   (add-to-list 'all-the-icons-mode-icon-alist
                '(sly-mrepl-mode all-the-icons-fileicon "lisp" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan-alt))
