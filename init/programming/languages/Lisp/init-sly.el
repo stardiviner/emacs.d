@@ -48,18 +48,6 @@
   (add-to-list 'display-buffer-alist
                '("^\\*sly-apropos.*\\*" (display-buffer-below-selected)))
 
-  ;; [ sly-company ] -- Company-mode completion backend for SLY.
-  (use-package sly-company
-    :ensure t
-    :config
-    (defun my-sly-company-setup ()
-      (sly-company-mode 1)
-      (my-company-add-backend-locally 'sly-company))
-    (mapc
-     (lambda (hook) (add-hook hook #'my-sly-company-setup))
-     '(sly-mode-hook sly-mrepl-mode-hook))
-    )
-
   ;; [ ob-lisp ]
   (require 'ob-lisp)
   (setq org-babel-lisp-eval-fn #'sly-eval)
