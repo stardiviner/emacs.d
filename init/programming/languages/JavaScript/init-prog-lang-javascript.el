@@ -149,9 +149,6 @@
   (setq inferior-js-program-command "node")
   (setq inferior-js-program-arguments '("--interactive"))
   :config
-  ;; enable tern completion in JS REPL buffer.
-  (add-hook 'js-comint-mode-hook #'tern-mode)
-
   ;; integrate with nvm.
   (if (featurep 'nvm)
       (js-do-use-nvm))
@@ -198,11 +195,12 @@
 
 (use-package lsp-javascript-typescript
   :ensure t
-  :defer t
-  :commands (lsp-javascript-typescript-enable)
   :init (require 'lsp-javascript-typescript)
-  (add-hook 'js-mode-hook #'lsp-mode)
-  (add-hook 'js-mode-hook #'lsp-javascript-typescript-enable))
+  (add-hook 'js-mode-hook #'lsp-javascript-typescript-enable)
+  (add-hook 'typescript-mode-hook #'lsp-javascript-typescript-enable) ;; for typescript support
+  (add-hook 'js3-mode-hook #'lsp-javascript-typescript-enable) ;; for js3-mode support
+  (add-hook 'rjsx-mode #'lsp-javascript-typescript-enable) ;; for rjsx-mode support
+  )
 
 ;;; [ skewer-mode ] -- Live interactive web development in Emacs.
 
@@ -242,10 +240,6 @@
 ;; (use-package jsx-mode
 ;;   :ensure t
 ;;   :mode ("\\.jsx\\'" . jsx-mode)
-;;   :config
-;;   (add-hook 'jsx-mode-hook
-;;             (lambda ()
-;;               (tern-mode 1)))
 ;;   )
 
 ;;; [ js-doc ] -- Insert JsDoc style comment easily.

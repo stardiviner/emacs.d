@@ -278,6 +278,8 @@
   (require 'init-prog-lang-html))
 (with-eval-after-load 'css-mode
   (require 'init-prog-lang-css))
+(with-eval-after-load 'js-mode
+  (require 'init-prog-lang-javascript))
 (with-eval-after-load 'js2-mode
   (require 'init-prog-lang-javascript))
 (with-eval-after-load 'coffee-mode

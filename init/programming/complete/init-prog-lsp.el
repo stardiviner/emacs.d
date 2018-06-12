@@ -11,7 +11,6 @@
 ;; use `lsp-{language}-enable' instead.
 (use-package lsp-mode
   :ensure t
-  :defer t
   :preface (setq lsp-enable-flycheck nil
                  lsp-enable-indentation nil
                  lsp-highlight-symbol-at-point nil)
