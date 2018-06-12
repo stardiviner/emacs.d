@@ -788,6 +788,13 @@
 ;;          ))
 ;;   )
 
+;;; [ mu4e-conversation ] -- Show a complete thread in a single buffer.
+
+(use-package mu4e-conversation
+  :ensure t
+  :after mu4e
+  :init (setq mu4e-view-func 'mu4e-conversation))
+
 
 
 (provide 'init-mu4e)
