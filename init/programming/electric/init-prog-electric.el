@@ -17,6 +17,8 @@
 ;;   :config
 ;;   (show-paren-mode 1) ; highlight matched parentheses
 ;;   (setq show-paren-style 'parenthesis)
+;;   (set-face-attribute 'show-paren-match nil
+;;                       :background "green yellow")
 ;;   )
 
 ;;; [ smartparens ] -- deals with parens pairs and tries to be smart about it.
@@ -26,7 +28,9 @@
   :defer t
   :load (smartparens-config)
   :init (smartparens-global-mode t)
-  ;; (show-smartparens-global-mode t)
+  (show-smartparens-global-mode t)
+  (set-face-attribute 'sp-show-pair-match-face nil
+                      :background "green yellow")
   :config
   ;; (add-to-list 'sp-ignore-modes-list 'org-mode)
   (setq sp-navigate-consider-sgml-tags '(html-erb-mode
