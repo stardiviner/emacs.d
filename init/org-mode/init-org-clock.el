@@ -68,12 +68,13 @@
 (add-hook 'org-clock-out-hook #'sound-voice-complete)
 (add-hook 'org-clock-cancel-hook #'sound-tick2)
 
-;;; [ org-mru-clock ] -- Effortlessly clock in/out of org-mode tasks, with completion and persistent history.
+;;; [ counsel-org-clock ] -- Counsel (Ivy) interface for org-clock.
 
-(use-package org-mru-clock
+(use-package counsel-org-clock
   :ensure t
-  :bind (:map org-clock-prefix ("C-i" . org-mru-clock-in)))
-
+  :bind (:map org-clock-prefix
+              ("C-i" . counsel-org-clock-history)
+              ("C-c" . counsel-org-clock-context)))
 
 
 (provide 'init-org-clock)
