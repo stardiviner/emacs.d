@@ -913,7 +913,7 @@ dimensions of a block selection."
 ;;; [ Email ]
 ;;; mu4e
 (use-package mu4e
-  :load-path "/usr/share/emacs/site-lisp/mu4e/"
+  :load-path "/usr/local/share/emacs/site-lisp/mu4e/"
   :load (mu4e mu4e-contrib)
   :ensure mu4e-alert
   :config
