@@ -40,6 +40,13 @@
   ;; (setq bpr-on-completion #'FUNC)
   )
 
+;;; [ emacs-application-framework (eaf) ]
+
+(use-package eaf
+  :load-path "~/Code/Emacs/emacs-application-framework/"
+  :commands (eaf-open)
+  :init (require 'eaf))
+
 
 
 (provide 'init-emacs-subprocess)
