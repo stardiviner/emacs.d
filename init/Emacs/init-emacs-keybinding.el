@@ -16,7 +16,7 @@
 
 ;;; Code:
 
-(setq-default echo-keystrokes 0.1) ; faster echo key strokes
+(setq-default echo-keystrokes 0.01) ; faster echo key strokes
 
 ;;; [ Modifiers]
 
