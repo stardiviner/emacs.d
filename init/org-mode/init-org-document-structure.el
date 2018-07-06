@@ -188,6 +188,12 @@ Will work on both org-mode and any mode that accepts plain html."
 
 (define-key org-mode-map (kbd "C-c k") #'my/org-insert-key)
 
+;;; [ org-outline-numbering ] -- displays an outline numbering as overlays on Org mode headlines.
+
+;; (use-package org-outline-numbering
+;;   :ensure t
+;;   :init (add-hook 'org-mode-hook #'org-outline-numbering-mode))
+
 ;;; [ org-lint ] -- Org-mode linter. [M-x org-lint]
 
 (require 'org-lint)
