@@ -4,5 +4,5 @@
 # group: babel.clojure
 # --
 #+begin_src sh
-clj -Sdeps '{:deps \{$0\}\}'
+clj -Sdeps '{:deps \{${1:name} {:mvn/version "$0"}\}\}'
 #+end_src

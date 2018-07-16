@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: babel-docker
+# key: babel-docker
+# group: babel.docker
+# --
+#+begin_src sh :dir /docker:${1:container}: :results none
+$0
+#+end_src

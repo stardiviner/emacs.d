@@ -1,0 +1,18 @@
+# -*- mode: snippet -*-
+# name: babel-plantuml-flow
+# key: babel-plantuml-flow
+# group: babel.plantuml
+# --
+#+begin_src plantuml :dir "data/images" :file ${1}.png
+skinparam defaultFontName DejaVu Sans Mono
+skinparam handwritten true
+
+title $2
+
+note right: $3
+
+(*)--> $0"lein ring server"
+--> ":ring {:handler guestbook.handler/app}"
+--> "guestbook.handler/app"
+--> "guestbook.routes.home/home-routes, guestbook.handler/app-routes"
+#+end_src

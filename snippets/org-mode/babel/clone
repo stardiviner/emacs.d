@@ -3,6 +3,6 @@
 # key: babel-clone
 # group: babel.file
 # --
-#+begin_src sh :mkdir yes :results link ${4::dir "${5:data/code}"} :file "${2:project}${3:/README.md}"
+#+begin_src sh :mkdir yes :results link ${4::dir "data/${5:code}"} :file "${2:project}${3:/README.md}"
 git clone --recursive $1 $2
 #+end_src
