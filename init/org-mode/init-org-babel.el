@@ -24,7 +24,7 @@
                 (:cache . "yes")
                 (:results . "replace")
                 ;; for exporting
-                (:eval . "never-export")
+                (:eval . "no-export")
                 (:exports . "both")
                 ))
 
