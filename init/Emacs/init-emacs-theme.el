@@ -32,6 +32,7 @@
 ;; (use-package eziam-theme
 ;;   :ensure t
 ;;   :no-require t
+;;   :defer t
 ;;   :load (eziam-light-theme))
 
 ;;; [ spacemacs-theme ] -- Spacemacs default color-theme.
@@ -47,6 +48,8 @@
 
 (use-package one-themes
   :ensure t
+  :no-require t
+  :defer t
   ;; :config
   ;; (load-theme 'one-dark t)
   ;; (load-theme 'one-light t)
@@ -61,10 +64,10 @@
         calendar-time-zone +480
         calendar-latitude 29.72
         calendar-longitude 120.20)
-  ;; XXX: make sure to use `:defer' keyword for theme `use-package'.
-  (setq circadian-themes '(
-                           (:sunrise . one-light)
-                           ("13:00" . leuven)
+  ;; NOTE: make sure to use `:defer' keyword for theme `use-package'.
+  (setq circadian-themes '((:sunrise . leuven)
+                           ;; (:sunrise . one-light)
+                           ;; ("13:00" . leuven)
                            (:sunset . spacemacs-dark)
                            ))
   (circadian-setup))
