@@ -82,6 +82,10 @@
 (add-to-list 'org-babel-default-header-args:shell
              '(:noweb . "yes"))
 
+(defvar org-babel-default-header-args:sh '())
+(add-to-list 'org-babel-default-header-args:sh
+             '(:results . "output"))
+
 ;;; [ Tangle ]
 
 (setq org-babel-tangle-lang-exts
