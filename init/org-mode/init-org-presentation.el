@@ -26,8 +26,8 @@
   ;; (org-tree-slide-narrowing-control-profile)
 
   (define-key Org-prefix (kbd "s") 'org-tree-slide-mode)
-  (define-key org-tree-slide-mode-map (kbd "<left>") 'org-tree-slide-move-next-tree)
-  (define-key org-tree-slide-mode-map (kbd "<right>") 'org-tree-slide-move-previous-tree)
+  (define-key org-tree-slide-mode-map (kbd "<left>") 'org-tree-slide-move-previous-tree)
+  (define-key org-tree-slide-mode-map (kbd "<right>") 'org-tree-slide-move-next-tree)
   )
 
 
