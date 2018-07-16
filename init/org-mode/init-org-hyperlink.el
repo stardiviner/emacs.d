@@ -102,6 +102,10 @@ Optional for Org-mode file: `LINK'."
         ("\\.ods\\'" . "libreoffice %s") ; Spreadsheet
         ("\\.odp\\'" . "libreoffice %s") ; Presentation
         ("\\.odf\\'" . "libreoffice %s") ; Database / Formula
+        ;; Windows Office
+        ("\\.docx\\'" . "libreoffice %s")
+        ("\\.pptx\\'" . "libreoffice %s")
+        ("\\.xlsx\\'" . "libreoffice %s")
         ;; Video
         ("\\.mp4\\'" . "mplayer %s")
         ("\\.mov\\'" . "mplayer %s")
