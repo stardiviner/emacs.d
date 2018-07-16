@@ -14,6 +14,7 @@
   :defer t
   :mode ("\\.es$" . es-mode)
   :config
+  (setq es-always-pretty-print t)
   ;; [ ob-elasticsearch (ob-es) ]
   (require 'ob-elasticsearch)
   (add-to-list 'org-babel-load-languages '(elasticsearch . t))
