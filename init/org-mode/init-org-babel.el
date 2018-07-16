@@ -60,7 +60,7 @@
       org-src-preserve-indentation nil
       ;; 0: fix `diff' babel syntax highlighting invalid issue.
       org-edit-src-content-indentation 0
-      org-src-window-setup 'split-window-below
+      org-src-window-setup 'current-window ; 'split-window-below
       org-src-ask-before-returning-to-edit-buffer nil
       )
 
