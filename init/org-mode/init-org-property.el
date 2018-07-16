@@ -14,9 +14,10 @@
 (add-to-list 'org-default-properties "AUTHOR")
 (add-to-list 'org-default-properties "EMAIL")
 (add-to-list 'org-default-properties "URL")
-(add-to-list 'org-default-properties "Source_Code")
+(add-to-list 'org-default-properties "Source-Code")
 (add-to-list 'org-default-properties "ISSUE")
-(add-to-list 'org-default-properties "Pull_Request")
+(add-to-list 'org-default-properties "Pull-Request")
+(add-to-list 'org-default-properties "CONFIG")
 (add-to-list 'org-default-properties "Translation-Chinese")
 
 
