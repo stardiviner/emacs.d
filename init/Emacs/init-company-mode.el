@@ -189,7 +189,8 @@
 (defun company-mode-minibuffer-setup ()
   "Setup company-mode in minibuffer."
   (company-mode 1)
-  (company-box-mode -1)
+  (if (fboundp 'company-box-mode)
+      (company-box-mode -1))
   (setq-local company-frontends '(company-pseudo-tooltip-frontend))
   (setq-local company-tooltip-limit 4)
   (setq-local company-tooltip-minimum 1))
@@ -207,6 +208,8 @@
   (setq company-idle-delay .3
         company-tooltip-idle-delay 0
         company-box-doc-delay 1.0)
+  ;; disable auto `company-box-doc' timer.
+  (setq company-box-doc-enable nil)
 
   (add-to-list 'company-box-frame-parameters
                '(font . "-SRC-Hack-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1"))
@@ -236,8 +239,8 @@
         (delete-frame (company-box-doc--get-frame)))
     (unless (frame-live-p (company-box-doc--get-frame))
       (set-frame-parameter nil 'company-box-doc-frame nil)))
+  (add-hook 'circadian-after-load-theme-hook #'company-box-child-frame-reset)
 
-  (add-hook 'after-init-hook #'company-box-child-frame-reset)
   (defun circadian:company-box-faces (theme)
     "Reload company-box faces on `circadian' `THEME' toggling."
     (company-box-child-frame-reset)
