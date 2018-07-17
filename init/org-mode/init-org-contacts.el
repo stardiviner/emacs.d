@@ -25,7 +25,7 @@
 :BIRTHDAY:
 :GENDER: %^{Gender|Transgender|Male|Female}
 :Sexual: %^{Sexual|Heterosexual|Bisexual|Homosexual}
-:RELATIONSHIP: %^{Relationship|Internet|Meet|Friend|Good Friend|Boy Friend|Girl Friend|Classmate|Schoolmate}
+:RELATIONSHIP: %^{Relationship|Internet|Meet|Friend|Good Friend|Boy Friend|Girl Friend|Workmate|Classmate|Schoolmate}
 :FIRST-MEET: %^U  %^{How is the first-time meet? when? where? how?}
 :Thought: %^{Thought|open|conservative}
 :MOBILE: %^{Mobile Phone}
@@ -43,11 +43,20 @@
 :World-Views:
 :LANGUAGES: %^{Languages|Chinese|Chinese, English|English|Japanese|Korean}
 :EDUCATION: %^{Education}
+:School(university):
+:School(high-school):
+:School(junior-high-school):
+:School(primary-school):
+:School(nursery-school):
 :SKILLS: %^{Skills|Programming|Economy}
 :Programming-Skills: %^{Programming Skills|Emacs|Web|Computer System|Cloud Computation}
 :Programming-Languages: %^{Programming Languages|Lisp|Common Lisp|Clojure|Emacs Lisp|Java|C/C++|Python|Ruby|PHP}
 :Occupation: %^{Occupation|Programmer|Freelancer|Businessman|Servant|Arter}
 :Hobbies: %^{Hobbies|Reading|Music|Movie|Travel}
+:Family:
+:Father:
+:Mother:
+:Financial-Condition:
 :END:"
                  :empty-lines 1
                  :jump-to-captured t
