@@ -91,6 +91,10 @@
   (define-emms-simple-player sbagen '(file) (emms-player-simple-regexp "sbg") "sbagen")
   )
 
+;;; [ org-emms ] -- Play multimedia files from org-mode with EMMS.
+
+(use-package org-emms
+  :ensure t)
 
 ;; [ emms-bilibili ] -- Play Bilibili user favourite videos in EMMS.
 (use-package emms-bilibili
