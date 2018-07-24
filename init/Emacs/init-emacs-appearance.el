@@ -255,6 +255,8 @@
   (add-to-list 'all-the-icons-mode-icon-alist
                '(slime-repl-mode all-the-icons-fileicon "lisp" :height 1.0 :v-adjust 0.0 :face all-the-icons-cyan-alt))
   (add-to-list 'all-the-icons-mode-icon-alist
+               '(inf-clojure-mode all-the-icons-fileicon "clj" :height 1.0 :v-adjust 0.0 :face all-the-icons-maroon))
+  (add-to-list 'all-the-icons-mode-icon-alist
                '(inferior-python-mode all-the-icons-alltheicon "python" :height 1.0 :v-adjust 0.0 :face all-the-icons-blue-alt))
   (add-to-list 'all-the-icons-mode-icon-alist
                '(py-python-shell-mode all-the-icons-alltheicon "python" :height 1.0 :v-adjust 0.0 :face all-the-icons-blue-alt))

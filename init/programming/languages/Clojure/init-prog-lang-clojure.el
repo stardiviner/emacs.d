@@ -76,6 +76,24 @@
     (add-hook 'clojure-mode-hook 'subword-mode))
   )
 
+;;; [ inf-clojure ] --
+
+(use-package inf-clojure
+  :ensure t
+  :commands (inf-clojure)
+  ;; :init (add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
+  :config
+  ;; fix `inf-clojure-minor-mode' conflict wiith `cider-imode' in Clojure buffer of `ob-clojure'.
+  (defun inf-clojure-disable-clojure (&optional arg)
+    (cider-mode -1)
+    (inf-clojure-minor-mode 1))
+  (advice-add 'org-edit-special :after 'inf-clojure-disable-clojure)
+  (add-hook 'inf-clojure-mode-hook #'subword-mode)
+  (add-hook 'inf-clojure-mode-hook #'eldoc-mode)
+  ;; manage inf-clojure popup buffers.
+  (add-to-list 'display-buffer-alist
+               '("^\\*inf-clojure*\\*" (display-buffer-reuse-window display-buffer-below-selected)))
+  )
 
 ;;; [ CIDER ] -- CIDER is a Clojure IDE and REPL for Emacs
 
