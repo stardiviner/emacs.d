@@ -30,15 +30,20 @@
     (insert container-name))
 
   (add-to-list 'display-buffer-alist
-               '("\\*docker-images\\*" . (display-buffer-below-selected)))
+               '("\\*docker-images\\*" .
+                 (display-buffer-reuse-window display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
-               '("\\*docker-containers\\*" . (display-buffer-below-selected)))
+               '("\\*docker-containers\\*" .
+                 (display-buffer-reuse-window display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
-               '("\\*docker-machines\\*" . (display-buffer-below-selected)))
+               '("\\*docker-machines\\*" .
+                 (display-buffer-reuse-window display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
-               '("\\*docker-volumes\\*" . (display-buffer-below-selected)))
+               '("\\*docker-volumes\\*" .
+                 (display-buffer-reuse-window display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
-               '("\\*docker-networks\\*" . (display-buffer-below-selected)))
+               '("\\*docker-networks\\*" .
+                 (display-buffer-reuse-window display-buffer-below-selected)))
   
   (add-to-list 'all-the-icons-mode-icon-alist
                '(docker-images-mode all-the-icons-fileicon "dockerfile" :height 1.0 :v-adjust 0.0))
@@ -95,7 +100,7 @@ For Org-babel header argument :dir /docker:<name>:."
                    ;; but if you want to use the container names, you need to use:
                    ;; (mapcar 'cdr (docker-tramp--running-containers))
                    (list (completing-read "Docker container name: " containers-name))))
-    (insert container))
+    (insert (format ":dir /docker:%s:" container)))
   (define-key org-babel-map (kbd "M-d") 'docker-tramp-insert-running-container)
   )
 
