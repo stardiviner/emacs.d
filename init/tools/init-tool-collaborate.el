@@ -14,7 +14,7 @@
   :defer t
   :config
   (add-to-list 'display-buffer-alist
-               '("\\*Floobits\\*" . (display-buffer-below-selected))))
+               '("\\*Floobits\\*" . (display-buffer-reuse-window display-buffer-below-selected))))
 
 
 

@@ -16,15 +16,9 @@
 
 (require 'init-docker)
 
-;;; [ lxc ] -- LXC integration with Emacs.
+;;; [ LXC ] -- Linux Containers (LXC) integration with Emacs.
 
-(use-package lxc
-  :ensure t
-  :defer t)
-
-(use-package lxc-tramp ; Tramp integration for LXC containers.
-  :ensure t
-  :defer t)
+;; (require 'init-lxc)
 
 
 (provide 'init-container)

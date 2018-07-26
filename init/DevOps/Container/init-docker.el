@@ -18,12 +18,9 @@
               ("i" . docker-images)
               ("v" . docker-volumes)
               ("n" . docker-networks))
-  :load (docker-process)
-  :config
+  :init
   (setq docker-containers-show-all t)
-  (docker-global-mode 1) ; enable global docker minor mode
-
-  (autoload 'docker-read-container-name "docker-containers.el")
+  :config
   (defun docker-insert-container (container-name)
     "A helper function to insert container ID or name."
     (interactive (list (docker-read-container-name "Docker container name: ")))
@@ -56,14 +53,16 @@
   (add-to-list 'all-the-icons-mode-icon-alist
                '(docker-networks-mode all-the-icons-fileicon "dockerfile" :height 1.0 :v-adjust 0.0))
 
-  )
+  ;; enable global docker minor mode
+  (docker-global-mode 1))
 
 ;;; [ dockerfile-mode ] -- Dockerfile
 
 (use-package dockerfile-mode
   :ensure t
   :defer t
-  :config
+  :after company
+  :init
   (add-to-list 'company-keywords-alist
                '(dockerfile-mode
                  "FROM"
@@ -84,10 +83,10 @@
 
 (use-package docker-tramp
   :ensure t
-  :config
+  :init
   (setq docker-tramp-use-names t)
   ;; (setq docker-tramp-docker-options nil)
-
+  :config
   (defun docker-tramp-insert-running-container (container)
     "A helper function to insert the running `CONTAINER' name.
 For Org-babel header argument :dir /docker:<name>:."

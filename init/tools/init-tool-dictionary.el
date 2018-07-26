@@ -53,7 +53,7 @@
               ("M-r" . google-translate-query-translate-reverse))
   :init
   (add-to-list 'display-buffer-alist
-               '("^\\*Google Translate\\*" . (display-buffer-below-selected)))
+               '("^\\*Google Translate\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
   :config
   (setq google-translate-enable-ido-completion nil
         google-translate-show-phonetic t
@@ -86,14 +86,14 @@
   (advice-add 'org-babel-execute:translate :around #'ob-translate-toggle-proxy)
   )
 
-;;; [ youdao-dictionary ] -- Youdao Dictionary(有道词典) interface for Emacs
+;;; [ youdao-dictionary ] -- Youdao Dictionary (有道词典) interface for Emacs
 
 (use-package youdao-dictionary
   :ensure t
   :bind (:map dictionary-prefix ("y" . youdao-dictionary-search-at-point))
   :config
   (add-to-list 'display-buffer-alist
-               '("^\\*Youdao Dictionary\\*" . (display-buffer-below-selected))))
+               '("^\\*Youdao Dictionary\\*" . (display-buffer-reuse-window display-buffer-below-selected))))
 
 
 (provide 'init-tool-dictionary)

@@ -11,6 +11,7 @@
 
 (use-package clojure-mode
   :ensure t
+  :ensure subword
   :ensure-system-package clojure
   :defer t
   :mode (
@@ -80,16 +81,19 @@
 
 (use-package inf-clojure
   :ensure t
+  :defer t
   :commands (inf-clojure)
   ;; :init (add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
   :config
   ;; fix `inf-clojure-minor-mode' conflict wiith `cider-imode' in Clojure buffer of `ob-clojure'.
-  (defun inf-clojure-disable-clojure (&optional arg)
-    (cider-mode -1)
-    (inf-clojure-minor-mode 1))
-  (advice-add 'org-edit-special :after 'inf-clojure-disable-clojure)
-  (add-hook 'inf-clojure-mode-hook #'subword-mode)
-  (add-hook 'inf-clojure-mode-hook #'eldoc-mode)
+  ;; (defun inf-clojure-disable-clojure (&optional arg)
+  ;;   (cider-mode -1)
+  ;;   (inf-clojure-minor-mode 1))
+  ;; (advice-add 'org-edit-special :after 'inf-clojure-disable-clojure)
+  ;; (add-hook 'inf-clojure-mode-hook #'subword-mode)
+  
+  ;; FIXME: it caused auto add newlines.
+  ;; (add-hook 'inf-clojure-mode-hook #'eldoc-mode)
   ;; manage inf-clojure popup buffers.
   (add-to-list 'display-buffer-alist
                '("^\\*inf-clojure*\\*" (display-buffer-reuse-window display-buffer-below-selected)))
@@ -385,11 +389,11 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
 
 (use-package ob-clojurescript
   :ensure t
+  :defer t
   :init
   (require 'ob-clojurescript)
   (add-to-list 'org-babel-load-languages '(clojurescript . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  )
+  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages))
 
 ;;; [ typed-clojure-mode ] -- Typed Clojure minor mode for Emacs.
 
@@ -413,7 +417,7 @@ Usage: (my/cider-repl-eval \"\(clojure expr\)\")"
   :ensure t
   :ensure-system-package (lein . "wget 'https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein' && mv lein ~/bin/ && chmod 755 ~/bin/lein")
   :defer t
-  :config
+  :init
   (defun elein-lein-try ()
     (interactive)
     (if (equal "*scratch*" (buffer-name))
@@ -481,7 +485,8 @@ opening 4clojure questions"
 ;;; [ parseclj ] -- EDN reader and Clojure Parser for Emacs Lisp
 
 (use-package parseclj
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
 

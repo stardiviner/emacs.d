@@ -20,18 +20,25 @@
 
 (use-package gnuplot-mode
   :ensure t
-  :defer t
   :mode (("\\.gp\\'" . gnuplot-mode)
          ("\\.plt\\'" . gnuplot-mode)
          ("\\.gnuplot\\'" . gnuplot-mode))
   :load (gnuplot-context)
-  :config
+  :bind (:map gnuplot-mode-map
+              ("<f5>" . gnuplot-make-buffer)
+              ("C-h d d" . gnuplot-info-at-point)
+              ("C-c C-d" . gnuplot-info-lookup-symbol)
+              ("C-c C-/" . gnuplot-help-function)
+              ("C-c M-i" . gnuplot-inline-display-mode)
+              ("C-c C-s" . run-gnuplot)
+              ("C-c C-z" . run-gnuplot)
+              ("C-c C-c" . gnuplot-show-gnuplot-buffer))
+  :init
   (setq gnuplot-info-display 'window
         gnuplot-tab-completion t
         gnuplot-use-context-sensitive-completion nil
-        gnuplot-eldoc-mode t
-        )
-
+        gnuplot-eldoc-mode t)
+  :config
   (defun my-gnuplot-mode-settings ()
     ;; context sensitive for gnuplot completion & eldoc-mode.
     ;; - `completion-at-point'
@@ -53,35 +60,24 @@
     (when (fboundp 'comint-dynamic-complete)
       (eldoc-add-command 'comint-dynamic-complete))
     )
-  
   (add-hook 'gnuplot-mode-hook #'my-gnuplot-mode-settings)
 
   ;; auto enable `gnuplot-inline-display-mode' in gnuplot comint process buffer.
   (add-hook 'gnuplot-comint-mode-hook 'gnuplot-inline-display-mode)
-
-  (define-key gnuplot-mode-map (kbd "<f5>") 'gnuplot-make-buffer)
-  (define-key gnuplot-mode-map (kbd "C-h d d") 'gnuplot-info-at-point)
-  (define-key gnuplot-mode-map (kbd "C-c C-d") 'gnuplot-info-lookup-symbol)
-  (define-key gnuplot-mode-map (kbd "C-c C-/") 'gnuplot-help-function)
-  (define-key gnuplot-mode-map (kbd "C-c M-i") 'gnuplot-inline-display-mode)
-
-  (define-key gnuplot-mode-map (kbd "C-c C-s") 'run-gnuplot)
-  (define-key gnuplot-mode-map (kbd "C-c C-z") 'run-gnuplot)
-  (define-key gnuplot-mode-map (kbd "C-c C-c") 'gnuplot-show-gnuplot-buffer)
   )
 
 
 ;;; [ ob-gnuplot ]
 
 (use-package org-plus-contrib
+  :pin manual
   :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
   :no-require t
-  :pin manual
   :init
   (require 'ob-gnuplot)
   (add-to-list 'org-babel-load-languages '(gnuplot . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  (add-to-list 'org-babel-tangle-lang-exts '("gnuplot" . "gp"))
+  (add-to-list 'org-babel-tangle-lang-exts '("gnuplot" . "gnuplot"))
   (add-to-list 'org-babel-default-header-args:gnuplot
                '(:exports . "both"))
   )

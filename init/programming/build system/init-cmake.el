@@ -1,4 +1,4 @@
-;;; init-prog-cmake.el --- init for CMake
+;;; init-cmake.el --- init for CMake
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -36,6 +36,6 @@
   :defer t)
 
 
-(provide 'init-prog-cmake)
+(provide 'init-cmake)
 
-;;; init-prog-cmake.el ends here
+;;; init-cmake.el ends here

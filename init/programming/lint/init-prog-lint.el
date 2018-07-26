@@ -55,7 +55,7 @@
 ;;; [ flycheck-inline ] -- display Flycheck errors inline.
 
 ;; (use-package flycheck-inline
-;;   :quelpa (flycheck-inline :fetcher github :repo "flycheck/flycheck-inline")
+;;   :quelpa (flycheck-inline :fetcher github :repo "flycheck/flycheck-inline" :upgrade nil)
 ;;   :init (flycheck-inline-mode))
 
 ;;; [ flycheck-popup-tip ] -- displaying errors from Flycheck using popup.el.

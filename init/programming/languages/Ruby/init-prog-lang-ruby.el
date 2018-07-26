@@ -21,11 +21,11 @@
   ;; :init
   ;; (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
   ;; (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
-  :config
+  :init
   (setq ruby-use-smie t       ; use sexp navigation for Ruby
         ;; bellowing effect only when `ruby-use-smie' is `nil'.
         ruby-deep-indent-paren-style 'space)
-  
+  :config
   (add-hook 'ruby-mode-hook #'eldoc-mode)
   )
 
@@ -47,17 +47,16 @@
 (use-package ruby-tools
   :ensure t
   :defer t
-  :init
+  :config
   (add-hook 'ruby-mode-hook 'ruby-tools-mode)
-  (add-hook 'enh-ruby-mode-hook 'ruby-tools-mode)
-  )
+  (add-hook 'enh-ruby-mode-hook 'ruby-tools-mode))
 
 ;;; [ yari ] -- Yet Another Ri Interface
 
 (use-package yari
   :ensure t
   :defer t
-  :init
+  :config
   (defun my-yari-settings ()
     ;; (local-set-key (kbd "C-h d k") 'yari)
     ;; or with prog-doc-map prefix.
@@ -66,8 +65,7 @@
     (local-set-key (kbd "C-h d") 'ruby-help-doc-map)
     (define-key ruby-help-doc-map (kbd "k") 'yari-helm)
     )
-  (add-hook 'ruby-mode-hook #'my-yari-settings)
-  )
+  (add-hook 'ruby-mode-hook #'my-yari-settings))
 
 ;;; [ rbenv ] -- use rbenv to manage your Ruby versions within Emacs
 
@@ -89,18 +87,15 @@
 (use-package inf-ruby
   :ensure t
   :defer t
-  :commands (run-ruby)
+  :commands (inf-ruby run-ruby)
   :init
-  (add-to-list 'display-buffer-alist
-               '("^\\*ruby\\*" (display-buffer-below-selected)))
+  (setq inf-ruby-default-implementation "ruby")
+  (setq inf-ruby-prompt-read-only t)
+  (add-hook 'ruby-mode-hook #'inf-ruby-minor-mode)
+
   :config
   (add-to-list 'inf-ruby-implementations
                '("inf-ruby" . "irb --inf-ruby-mode --noreadline -EUTF-8"))
-  (setq inf-ruby-default-implementation "ruby")
-  (setq inf-ruby-prompt-read-only t)
-
-  (add-hook 'ruby-mode-hook #'inf-ruby-minor-mode)
-
   ;; auto type "space" behind inf-ruby buffer line to get rid of company-mode completion.
   (defun my-inf-ruby-return ()
     (interactive)
@@ -136,10 +131,10 @@
 (use-package robe
   :ensure t
   :defer t
-  :config
+  :init
   (setq robe-highlight-capf-candidates t
         robe-completing-read-func 'ivy-read)
-
+  :config
   (add-hook 'robe-mode-hook
             (lambda ()
               (local-set-key (kbd "M-.") 'robe-jump)
@@ -163,14 +158,6 @@
    (lambda (hook) (add-hook hook #'robe-mode))
    '(ruby-mode-hook inf-ruby-mode-hook))
   )
-
-;;; [ kungfu ] -- CIDER like REPL for Ruby development.
-
-;; (use-package kungfu
-;;   ;; :ensure t
-;;   :load-path "~/Code/Emacs/ruby-kungfu/kungfu.el"
-;;   :init
-;;   (add-hook 'ruby-mode-hook 'ruby-kungfu-mode))
 
 
 (provide 'init-prog-lang-ruby)

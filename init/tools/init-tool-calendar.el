@@ -20,7 +20,7 @@
   :ensure t
   :defer t
   :bind (:map calendar-prefix ("c" . calendar))
-  :config
+  :init
   ;; ;; Month
   ;; (setq calendar-month-name-array
   ;;       ["January" "February" "March"     "April"   "May"      "June"
@@ -42,17 +42,12 @@
 
   ;; mark today
   (setq calendar-today-marker 'calendar-today)
-  (set-face-attribute 'calendar-today nil
-                      :inherit 'highlight
-                      :box '(:color "dim gray" :line-width -1 :style nil))
-  (add-hook 'calendar-initial-window-hook 'calendar-mark-today)
   
   ;; mark diary entries
   ;; (setq calendar-mark-diary-entries-flag t)
 
   ;; Annotations
   ;; variable -> :annotation-sources
-
   
   ;; Calendar Location: Latitude, Longitude.
   ;;
@@ -68,12 +63,18 @@
         calendar-time-zone +480
         calendar-latitude 29.90256956936341
         calendar-longitude 120.37954302845002)
+  
+  :config
+  (set-face-attribute 'calendar-today nil
+                      :inherit 'highlight
+                      :box '(:color "dim gray" :line-width -1 :style nil))
+  (add-hook 'calendar-initial-window-hook 'calendar-mark-today)
   )
 
 ;;; Localized National Holidays
 (use-package holidays
   :defer t
-  :config
+  :init
   ;; `calfw' collects holidays from function `calendar-holiday-list' and the
   ;; customize variable `calendar-holidays' which belongs to `holidays.el` in
   ;; Emacs.
@@ -83,7 +84,7 @@
 
 (use-package cal-china
   :defer t
-  :config
+  :init
   ;; display the ‘celestial-stem’ (天干) and the ‘terrestrial-branch’ (地支) in Chinese:
   (setq calendar-chinese-celestial-stem
         ["甲" "乙" "丙" "丁" "戊" "己" "庚" "辛" "壬" "癸"]
@@ -92,6 +93,7 @@
   )
 
 ;; [ cal-china-x ] -- Chinese localization, lunar/horoscope/zodiac info and more...
+
 (use-package cal-china-x
   :ensure t
   :defer t
@@ -116,6 +118,7 @@
 
 (use-package calfw
   :ensure t
+  :ensure calfw-org
   :defer t
   :bind (:map calendar-prefix
               ("o" . cfw:open-org-calendar)
@@ -218,6 +221,7 @@
                       :weight 'normal)
 
   ;; General setting
+  (require 'calfw-org)
   (defun calfw:week ()
     (interactive)
     (cfw:open-calendar-buffer
@@ -271,11 +275,13 @@
   (define-key calendar-prefix (kbd "m") 'calfw:month)
   )
 
-;;; [ calfw-org ] -- for Org Agena
+;;; [ calfw-org ] -- calendar view for org-agenda.
 
 (use-package calfw-org
   :ensure t
-  :config
+  :defer t
+  :commands (cfw:open-org-calendar)
+  :init
   ;; (setq cfw:org-agenda-schedule-args '(:timestamp))
   ;; (setq cfw:org-overwrite-default-keybinding nil)
 

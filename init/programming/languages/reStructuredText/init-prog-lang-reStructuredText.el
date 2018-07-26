@@ -41,18 +41,16 @@
 
 ;;; [ sphinx-mode ] -- minor mode providing sphinx support.
 
-(use-package sphinx-mode
-  :ensure t
-  :defer t
-  :init
-  (add-hook 'rst-mode-hook 'sphinx-mode)
-  )
+;; (use-package sphinx-mode
+;;   :ensure t
+;;   :defer t
+;;   :init (add-hook 'rst-mode-hook 'sphinx-mode))
 
 ;;; [ sphinx-frontend ] -- Launch build process for rst documents via sphinx.
 
-(use-package sphinx-frontend
-  :ensure t
-  :defer t)
+;; (use-package sphinx-frontend
+;;   :ensure t
+;;   :defer t)
 
 
 (provide 'init-prog-lang-reStructuredText)

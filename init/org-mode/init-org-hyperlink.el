@@ -402,7 +402,7 @@ and append it."
 ;;; [ org-quick-peek ] -- Quick inline peeks at agenda items and linked nodes in Org-mode.
 
 ;; (use-package org-quick-peek
-;;   :quelpa ((org-quick-peek :fetcher github :repo "alphapapa/org-quick-peek") :upgrade t)
+;;   :quelpa ((org-quick-peek :fetcher github :repo "alphapapa/org-quick-peek") :upgrade nil)
 ;;   )
 
 ;;; [ org-send-ebook ] -- Send org link file to ebook reader.

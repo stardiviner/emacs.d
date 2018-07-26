@@ -26,7 +26,7 @@
   :load (sclang)
   :init
   (add-to-list 'display-buffer-alist
-               '("\\*SCLang:PostBuffer\\*" . (display-buffer-below-selected)))
+               '("\\*SCLang:PostBuffer\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
   :mode ("\\.sc\\'" . sclang-mode)
   :commands (sclang-mode sclang-start)
   :config

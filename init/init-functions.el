@@ -128,7 +128,7 @@ by creating or altering keymaps stored in buffer-local
 
 (setq my/account-file (concat user-emacs-directory "secrets/accounts.json.gpg"))
 
-(require 'json)
+(autoload 'json-read-file "json" nil nil)
 
 (defun my/json-read-value (file key)
   "Read in JSON `FILE' and get the value of symbol `KEY'."
@@ -137,9 +137,6 @@ by creating or altering keymaps stored in buffer-local
                (if (file-exists-p my/account-file)
                    my/account-file
                  (concat user-emacs-directory "accounts.json.gpg"))))))
-
-;; ask for GPG password at first, not in middle of Emacs startup progress.
-(my/json-read-value my/account-file 'yagist)
 
 ;;; [ Sounds ]
 

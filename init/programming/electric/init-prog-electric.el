@@ -27,34 +27,26 @@
   :ensure t
   :defer t
   :load (smartparens-config)
-  :init (smartparens-global-mode t)
-  (show-smartparens-global-mode t)
-  (set-face-attribute 'sp-show-pair-match-face nil
-                      :background "green yellow")
   :config
   ;; (add-to-list 'sp-ignore-modes-list 'org-mode)
-  (setq sp-navigate-consider-sgml-tags '(html-erb-mode
-                                         web-mode
-                                         nxml-mode sgml-mode
-                                         nxhtml-mode html-mode rhtml-mode
-                                         jinja2-mode)
-        ;; sp-override-key-bindings '((\"C-M-f\" . sp-forward-sexp)
-        ;;                            (\"C-<right>\" . nil))
-        )
+  ;; (setq sp-navigate-consider-sgml-tags '(html-erb-mode
+  ;;                                        web-mode
+  ;;                                        nxml-mode sgml-mode
+  ;;                                        nxhtml-mode html-mode rhtml-mode
+  ;;                                        jinja2-mode)
+  ;;       )
+  ;; (setq sp-override-key-bindings '((\"C-M-f\" . sp-forward-sexp)
+  ;;                                  (\"C-<right>\" . nil)))
 
-  (sp-local-pair 'minibuffer-inactive-mode
-                 "'" nil :actions nil)
+  (sp-local-pair 'minibuffer-inactive-mode "'" nil :actions nil)
 
   ;; `code` in clojure comment
-  (sp-with-modes '(clojure-mode)
-    (sp-local-pair "`" "`"))
+  (sp-with-modes '(clojure-mode) (sp-local-pair "`" "`"))
   
   ;; smartparens for other modes.
   (require 'smartparens-ruby)
-
   (require 'smartparens-html)
-  ;; (sp-with-modes '(html-mode sgml-mode)
-  ;;   (sp-local-pair "<" ">"))
+  
   (sp-with-modes '(rhtml-mode)
     ;; (sp-local-pair "<" ">")
     (sp-local-pair "<%" "%>"))
@@ -64,6 +56,11 @@
     (sp-local-tag "2" "**" "**")
     (sp-local-tag "s" "```scheme" "```")
     (sp-local-tag "<"  "<_>" "</_>" :transform 'sp-match-sgml-tags))
+
+  (smartparens-global-mode t)
+  ;; (show-smartparens-global-mode t)
+  ;; (set-face-attribute 'sp-show-pair-match-face nil
+  ;;                     :background "green yellow")
   )
 
 

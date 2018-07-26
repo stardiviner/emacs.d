@@ -36,6 +36,7 @@
             path))
         '("~/Org/Wiki/Things/Things.org" ; Buy Things
           "~/Org/Tasks/"
+          "~/Org/Work/"
           "~/Org/Projects/"
           "~/Org/Learning Plan/"
           "~/Org/Contacts/Contacts.org"

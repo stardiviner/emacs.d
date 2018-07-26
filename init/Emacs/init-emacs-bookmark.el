@@ -69,7 +69,6 @@
   (define-key bookmark-bm-prefix (kbd "c") 'bm-remove-all-current-buffer)
   (define-key bookmark-bm-prefix (kbd "M-c") 'bm-remove-all-all-buffers)
   
-  :config
   (setq bm-in-lifo-order t)
   (setq bm-cycle-all-buffers nil)
   (setq temporary-bookmark-p nil)

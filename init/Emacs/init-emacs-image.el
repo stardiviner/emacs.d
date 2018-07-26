@@ -24,15 +24,14 @@
 
 ;;; [ iimage ] -- inline image minor mode.
 
-(use-package iimage
-  :ensure t
-  :defer t
-  :init
-  ;; enable iimage-mode in some modes
-  (add-hook 'info-mode-hook #'iimage-mode)
-  (add-hook 'wiki-mode-hook #'iimage-mode)
-  (add-hook 'eshell-mode-hook 'iimage-mode)
-  )
+;; (use-package iimage
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   ;; enable iimage-mode in some modes
+;;   (add-hook 'info-mode-hook #'iimage-mode)
+;;   (add-hook 'wiki-mode-hook #'iimage-mode)
+;;   (add-hook 'eshell-mode-hook 'iimage-mode))
 
 ;;; [ picpocket ] -- image viewer
 

@@ -12,16 +12,14 @@
 (use-package aria2
   :ensure t
   :defer t
-  :config
-  (setq aria2-download-directory (expand-file-name "~/Downloads"))
-  )
+  :init
+  (setq aria2-download-directory (expand-file-name "~/Downloads")))
 
 ;;; [ download-region ] -- simple in-buffer download manager for Emacs.
 
 (use-package download-region
   :ensure t
-  :defer t
-  )
+  :commands (download-region-as-url))
 
 ;;; [ transmission ] -- An interface to a Transmission session for GNU Emacs.
 
@@ -30,7 +28,7 @@
   :defer t
   :init
   (add-to-list 'display-buffer-alist
-               '("\\*transmission\\*" . (display-buffer-below-selected)))
+               '("\\*transmission\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
   )
 
 ;;; [ youtube-dl ] -- A youtube-dl download manager for Emacs.
@@ -41,7 +39,7 @@
   :commands (youtube-dl)
   :init
   (add-to-list 'display-buffer-alist
-               '("^\\*youtube-dl list\\*" (display-buffer-below-selected)))
+               '("^\\*youtube-dl list\\*" (display-buffer-reuse-window display-buffer-below-selected)))
   )
 
 

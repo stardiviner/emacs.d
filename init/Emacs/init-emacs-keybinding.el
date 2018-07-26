@@ -146,8 +146,7 @@
   :ensure t
   :defer t
   :bind (("C-h C-k" . Info-goto-emacs-key-command-node) ; revert original function.
-         ("C-h K" . emaps-describe-keymap-bindings))
-  )
+         ("C-h K" . emaps-describe-keymap-bindings)))
 
 ;;; Search Keybindings
 

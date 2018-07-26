@@ -11,7 +11,7 @@
 (setq org-babel-hash-show-time t) ; header argument: :cache yes.
 
 (add-to-list 'display-buffer-alist
-             '("^\\*Org-Babel Results\\*" . (display-buffer-below-selected)))
+             '("^\\*Org-Babel Results\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
 
 ;;; add org-babel header-args property into default properties list.
 (add-to-list 'org-default-properties "header-args")
@@ -66,8 +66,7 @@
 
 (setq org-babel-load-languages
       '((org . t)                       ; Org-mode
-        (shell . t)                     ; Shell Script
-        (calc . t)                      ; Calc
+        ;; (shell . t)                     ; Shell Script
         ))
 
 ;;; [ ob-shell ]
@@ -107,22 +106,22 @@
 ;; (setq org-babel-default-lob-header-args)
 
 ;;; interactive completing named src blocks. [C-c C-v C-q]
-(defun +org-babel-insert-named-src-block (&optional template)
+(defun my/org-babel-insert-named-src-block (&optional template)
   (interactive)
   (let ((src-block
 	       (completing-read "Enter src block name[or TAB or ENTER]: " (org-babel-src-block-names))))
     (unless (string-equal "" src-block)
 	    (insert (format src-block)))))
-(define-key org-babel-map (kbd "C-q") '+org-babel-insert-named-src-block)
+(define-key org-babel-map (kbd "C-q") 'my/org-babel-insert-named-src-block)
 
-(defun +org-babel-insert-src-block-call (&optional template)
+(defun my/org-babel-insert-src-block-call (&optional template)
   "Interactively insert a named src block call with `TEMPLATE'."
   (interactive)
   (let ((template (or template "#+call: %s()\n"))
 	      (src-block (completing-read "Enter src block name[or TAB or ENTER]: " (org-babel-src-block-names))))
     (unless (string-equal "" src-block)
 	    (insert (format template src-block)))))
-(define-key org-babel-map (kbd "C-k") '+org-babel-insert-src-block-call)
+(define-key org-babel-map (kbd "C-k") 'my/org-babel-insert-src-block-call)
 
 ;;; [ Literate dotfiles management with Org-mode ]
 
@@ -132,95 +131,13 @@
 ;;     (org-babel-tangle)))
 ;; (add-hook 'after-save-hook 'tangle-on-save-org-mode-file)
 
-
-;; Enable the auto-revert mode globally. This is quite useful when you have
-;; multiple buffers opened that Org-mode can update after tangling.
-;; All the buffers will be updated with what changed on the disk.
-;; (global-auto-revert-mode)
-
-;; Add Org files to the agenda when we save them
-;; (defun to-agenda-on-save-org-mode-file()
-;;   (when (string= (message "%s" major-mode) "org-mode")
-;;     (org-agenda-file-to-front)))
-;; (add-hook 'after-save-hook 'to-agenda-on-save-org-mode-file)
-
-;; Enable Confluence export
-;; (require 'ox-confluence)
-
-
-
-;; (setq org-src-block-faces
-;;       '(("org" (:background (color-darken-name (face-background 'default) 4)))
-;;         ("latex" (:background "cyan4"))
-;;         ("emacs-lisp" (:background "dark slate gray"))
-;;         ("lisp" (:background "DarkGrey"))
-;;         ("scheme" (:background "DarkGrey"))
-;;         ("clojure" (:background "dark slate blue"))
-;;         ("shell" (:background "dark green"))
-;;         ("python" (:background "orange1"))
-;;         ("ipython" (:background "CadetBlue"))
-;;         ("ruby" (:background "HotPink"))
-;;         ("perl" (:background "#202020"))
-;;         ("php" (:background "SteelBlue4"))
-;;         ("C" (:background "SteelBlue4"))
-;;         ("C++" (:background "SteelBlue3"))
-;;         ("java" (:background "OrangeRed4"))
-;;         ("js" (:background "tomato"))
-;;         ("javascript" (:background "tomato"))
-;;         ("coffee" (:background "dark slate blue"))
-;;         ("haskell" (:background "IndianRed"))
-;;         ("ocaml" (:background "saddle brown"))
-;;         ("sql" (:background "yellow"))
-;;         ("sqlite" (:background "yellow"))
-;;         ("R" (:background "CadetBlue"))
-;;         ("julia" (:background "YellowGreen"))
-;;         ("octave" (:background "YellowGreen"))
-;;         ("matlab" (:background "YellowGreen"))
-;;         ("gnuplot" (:background "YellowGreen"))
-;;         ("sclang" (:background "DeepSkyBlue"))
-;;         ("ditaa" (:background "violet"))
-;;         ("dot" (:background "violet"))
-;;         ("plantuml" (:background "violet"))
-;;         ("ledger" (:background "LightCoral"))
-;;         ("calc" (:background "LightCoral"))
-;;         ))
-
-
-
-;;; source code block check
-(defun org-src-block-check ()
-  "Auto check whether src block has language set.
-- Report an error if there is a source block without a language specified
-- Report an error if there is a source block with a language specified that
-is not present in `org-babel-load-languages’
-– Check as well for the language of inline code blocks.
-– Report the line number instead of the char position."
-  (interactive)
-  (org-element-map (org-element-parse-buffer)
-      '(src-block inline-src-block)
-    (lambda (sb)
-      (let ((language (org-element-property :language sb)))
-        (cond ((null language)
-               (error "Missing language at line %d in %s"
-                      (org-current-line
-                       (org-element-property :post-affiliated sb))
-                      (buffer-name)))
-              ((not (assoc-string language org-babel-load-languages))
-               (error "Unknown language `%s' at line %d in `%s'"
-                      language
-                      (org-current-line
-                       (org-element-property :post-affiliated sb))
-                      (buffer-name)))))))
-  (message "Source blocks checked in %s." (buffer-name (buffer-base-buffer))))
-
-(add-hook 'org-src-mode-hook #'org-src-block-check)
-
 ;;; [ coderef ]
 ;;; prepend comment char ahead of `org-coderef-label'.
 ;; auto prefix with comment char when create code ref in src block with `org-store-link'.
 (use-package smartparens
   :ensure t
-  :config
+  :defer t
+  :init
   (defun my-org-src-coderef-format (result)
     "Auto prefix with comment char before `org-coderef-label' `RESULT'."
     (if sp-comment-char
@@ -257,7 +174,8 @@ but `delete-file' is ignored."
 ;;; [ ob-async ] -- enables asynchronous execution of org-babel src blocks for *any* languages.
 
 (use-package ob-async
-  :ensure t)
+  :ensure t
+  :defer t)
 
 ;;; [ org-babel-eval-in-repl ] -- eval org-babel block code with eval-in-repl.el
 
@@ -275,6 +193,7 @@ but `delete-file' is ignored."
 
 (use-package helm-lib-babel
   :ensure t
+  :defer t
   :bind (:map org-babel-map ("M-i" . helm-lib-babel-insert)))
 
 ;;; [ org-radiobutton ] -- Get the checked item from a check list to be used for
@@ -282,6 +201,7 @@ but `delete-file' is ignored."
 
 (use-package org-radiobutton
   :ensure t
+  :defer t
   :init (global-org-radiobutton-mode))
 
 ;; load all languages at last.

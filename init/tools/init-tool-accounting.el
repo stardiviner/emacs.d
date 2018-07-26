@@ -108,31 +108,31 @@
 
 ;;; [ hledger-mode ] -- Major mode for editing hledger.
 
-(use-package hledger-mode
-  :ensure t
-  :ensure-system-package (hledger hledger-api hledger-ui hledger-web)
-  :mode (("\\.journal\\'" . hledger-mode)
-         ("\\.hledger\\'" . hledger-mode))
-  :bind (:map accounting-prefix
-              ("j" . hledger-run-command)
-              ("e" . hledger-jentry))
-  :config
-  (setq hledger-jfile (expand-file-name (concat org-directory "/Accounting/hledger.journal")))
-  
-  (add-hook 'hledger-mode-hook
-            (lambda ()
-              ;; for company-mode
-              (my-company-add-backend-locally 'hledger-company)
-              ;; for auto-complete
-              (setq-local ac-sources '(hledger-ac-source))
-              ))
-
-  ;; [ ob-hledger ]
-  (require 'ob-hledger)
-  (add-to-list 'org-babel-load-languages '(hledger . t))
-  (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
-  (add-to-list 'org-babel-tangle-lang-exts '("hledger" . "hledger"))
-  )
+;; (use-package hledger-mode
+;;   :ensure t
+;;   :ensure-system-package (hledger hledger-api hledger-ui hledger-web)
+;;   :mode (("\\.journal\\'" . hledger-mode)
+;;          ("\\.hledger\\'" . hledger-mode))
+;;   :bind (:map accounting-prefix
+;;               ("j" . hledger-run-command)
+;;               ("e" . hledger-jentry))
+;;   :config
+;;   (setq hledger-jfile (expand-file-name (concat org-directory "/Accounting/hledger.journal")))
+;;
+;;   (add-hook 'hledger-mode-hook
+;;             (lambda ()
+;;               ;; for company-mode
+;;               (my-company-add-backend-locally 'hledger-company)
+;;               ;; for auto-complete
+;;               (setq-local ac-sources '(hledger-ac-source))
+;;               ))
+;;
+;;   ;; [ ob-hledger ]
+;;   (require 'ob-hledger)
+;;   (add-to-list 'org-babel-load-languages '(hledger . t))
+;;   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+;;   (add-to-list 'org-babel-tangle-lang-exts '("hledger" . "hledger"))
+;;   )
 
 
 

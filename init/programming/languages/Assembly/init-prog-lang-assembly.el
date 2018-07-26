@@ -52,11 +52,10 @@
 
 ;;; [ haxor-mode ] -- Major mode for editing Haxor Assembly Files.
 
-(use-package haxor-mode
-  :ensure t
-  :defer t
-  :mode ("\\.hax\\'" . haxor-mode)
-  )
+;; (use-package haxor-mode
+;;   :ensure t
+;;   :defer t
+;;   :mode ("\\.hax\\'" . haxor-mode))
 
 
 ;;; [ mips-mode ] -- An Emacs major mode for MIPS assembly code.

@@ -18,9 +18,9 @@
 ;; - #+ATTR_HTML: :width 200px
 (use-package org
   :ensure-system-package (convert . "sudo pacman -S --noconfirm imagemagick")
-  :config
-  (setq org-image-actual-width nil) ; inline image scale width.
-  )
+  :init
+  ;; inline image scale width.
+  (setq org-image-actual-width nil))
 
 ;;; smartly set inline image size based on Emacs window width
 ;; (defcustom org-inline-image-width-percent-in-window 80

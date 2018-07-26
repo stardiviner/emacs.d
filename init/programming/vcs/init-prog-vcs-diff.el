@@ -39,8 +39,7 @@
   :bind (:map prog-vcs-diff-prefix
               ("d" . diffview-current)
               ("r" . diffview-region)
-              ("m" . diffview-message))
-  )
+              ("m" . diffview-message)))
 
 
 ;;; [ smerge-mode ] -- simplify editing output from the diff3 program.

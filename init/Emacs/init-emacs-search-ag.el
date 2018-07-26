@@ -27,7 +27,7 @@
   (define-key ag-prefix (kbd "k") 'ag-kill-buffers) ; `ag-kill-other-buffers'
 
   (add-to-list 'display-buffer-alist
-               '("^\\*ag search\\*" (display-buffer-below-selected)))
+               '("^\\*ag search\\*" (display-buffer-reuse-window display-buffer-below-selected)))
   :config
   (setq ag-highlight-search t
         ag-group-matches t

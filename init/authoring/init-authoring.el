@@ -27,23 +27,7 @@
 
 ;; (use-package wc-mode
 ;;   :ensure t
-;;   :init
-;;   (add-hook 'org-mode-hook
-;;             (lambda ()
-;;               (when (and (buffer-file-name)
-;;                          ;; (string= (file-name-directory (buffer-file-name))
-;;                          ;;          "/Users/jcs/org/blog/")
-;;                          )
-;;                 ;; It’s important to add the hook in the :init section,
-;;                 ;; otherwise it won’t work until wc-mode is enabled manually at
-;;                 ;; least once.
-;;                 (wc-mode 1))))
-;;   ;; :bind ("M-=" . wc-mode)
-;;   :config
-;;   (wc-mode nil)
-;;   ;; (run-with-idle-timer (* 60 1) nil
-;;   ;;                      'wc-mode-update)
-;;   )
+;;   :init (wc-mode nil))
 
 ;;; [ writegood-mode ] -- polish up poor writing on the fly (weasel words, passive voice, duplicates).
 

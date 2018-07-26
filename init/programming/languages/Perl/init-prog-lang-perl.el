@@ -29,26 +29,25 @@
 
 ;;; [ plsense ] -- interface for PlSense that is a development tool for Perl.
 
-(use-package plsense
-  :ensure t
-  :defer t
-  :config
-  (setq plsense-popup-help-key "M-h"
-        plsense-display-help-buffer-key "C-h"
-        plsense-jump-to-definition-key "M-.")
-  
-  (plsense-config-default)
-
-  (use-package company-plsense
-    :ensure t
-    :config
-    (dolist (hook '(perl-mode-hook
-                    cperl-mode-hook))
-      (add-hook hook
-                (lambda ()
-                  (my-company-add-backend-locally 'company-plsense))))
-    )
-  )
+;; (use-package plsense
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (setq plsense-popup-help-key "M-h"
+;;         plsense-display-help-buffer-key "C-h"
+;;         plsense-jump-to-definition-key "M-.")
+;;
+;;   (plsense-config-default)
+;;
+;;   (use-package company-plsense
+;;     :ensure t
+;;     :init
+;;     (dolist (hook '(perl-mode-hook
+;;                     cperl-mode-hook))
+;;       (add-hook hook
+;;                 (lambda () (my-company-add-backend-locally 'company-plsense))))
+;;     )
+;;   )
 
 
 (provide 'init-prog-lang-perl)

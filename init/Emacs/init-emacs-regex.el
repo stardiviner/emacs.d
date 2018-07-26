@@ -31,19 +31,14 @@
 (use-package regex-tool
   :ensure t
   :defer t
-  :bind (:map regex-prefix
-	      ("e" . regex-tool))
-  )
+  :bind (:map regex-prefix ("e" . regex-tool)))
 
 ;;; [ pcre2el ] -- convert between PCRE, Emacs and rx regexp syntax.
 
 (use-package pcre2el
   :ensure t
   :defer t
-  :bind (:map regex-prefix
-              ("t" . rxt-mode)
-              ("T" . rxt-global-mode))
-  )
+  :bind (:map regex-prefix ("t" . rxt-mode) ("T" . rxt-global-mode)))
 
 
 ;;; [ rx ] -- A regular expression IDE for Emacs, to help with the creation and testing of regular expressions.
@@ -54,8 +49,7 @@
 (use-package ample-regexps
   :ensure t
   :defer t
-  :bind (:map regex-prefix ("B" . arx-builder))
-  )
+  :bind (:map regex-prefix ("B" . arx-builder)))
 
 ;;; [ visual-regexp ] -- A regexp/replace command for Emacs with interactive visual feedback.
 

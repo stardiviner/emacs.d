@@ -27,44 +27,44 @@
 
 ;;; [ openwith ]
 
-(use-package openwith
-  :ensure t
-  :defer t
-  :init (openwith-mode -1) ; disable `openwith' in Org-mode auto open file links.
-  :config
-  (setq openwith-associations
-        (append openwith-associations
-                (list
-                 (list (openwith-make-extension-regexp
-                        '("mpg" "mpeg" "mp3" "mp4"
-                          "avi" "rmvb" "wmv" "wav" "mov" "flv" "hlv"
-                          "ogm" "ogg" "ogv" "mkv" "webm"))
-                       "mplayer" '(file))
-                 (list (openwith-make-extension-regexp
-                        '("xbm" "pbm" "pgm" "ppm" "pnm"
-                          ;; "png" "bmp" "tif" "jpeg" "jpg"
-                          ))
-                       "sxiv" '(file))
-                 (list (openwith-make-extension-regexp
-                        '("doc" "xls" "ppt" "odt" "ods" "odg" "odp"))
-                       "libreoffice" '(file))
-                 '("\\.lyx\\'" "lyx" (file))
-                 '("\\.chm\\'" "kchmviewer" (file))
-                 (list (openwith-make-extension-regexp
-                        '("ps" "ps.gz" "dvi"))
-                       "zathure" '(file))
-                 )))
-
-
-  ;;; NOTE: enable this will cause Org-mode open inline displayed images with external program.
-  ;; (add-to-list 'openwith-associations '("\\.gif\\'" "gwenview" (file)))
-  ;; (add-to-list 'openwith-associations '("\\.svg\\'" "feh --magick-timeout 5" (file)))
-  (add-to-list 'openwith-associations '("\\.swf\\'" "swfdec-player" (file)))
-  (add-to-list 'openwith-associations '("\\.jar\\'" "java -jar" (file)))
-
-  ;; If you also use emacs for email, you may want to add this to your config:
-  ;; (add-to-list  'mm-inhibit-file-name-handlers 'openwith-file-handler)
-  )
+;; (use-package openwith
+;;   :ensure t
+;;   :defer t
+;;   :init (openwith-mode -1) ; disable `openwith' in Org-mode auto open file links.
+;;   :config
+;;   (setq openwith-associations
+;;         (append openwith-associations
+;;                 (list
+;;                  (list (openwith-make-extension-regexp
+;;                         '("mpg" "mpeg" "mp3" "mp4"
+;;                           "avi" "rmvb" "wmv" "wav" "mov" "flv" "hlv"
+;;                           "ogm" "ogg" "ogv" "mkv" "webm"))
+;;                        "mplayer" '(file))
+;;                  (list (openwith-make-extension-regexp
+;;                         '("xbm" "pbm" "pgm" "ppm" "pnm"
+;;                           ;; "png" "bmp" "tif" "jpeg" "jpg"
+;;                           ))
+;;                        "sxiv" '(file))
+;;                  (list (openwith-make-extension-regexp
+;;                         '("doc" "xls" "ppt" "odt" "ods" "odg" "odp"))
+;;                        "libreoffice" '(file))
+;;                  '("\\.lyx\\'" "lyx" (file))
+;;                  '("\\.chm\\'" "kchmviewer" (file))
+;;                  (list (openwith-make-extension-regexp
+;;                         '("ps" "ps.gz" "dvi"))
+;;                        "zathure" '(file))
+;;                  )))
+;;
+;;
+;;   ;;; NOTE: enable this will cause Org-mode open inline displayed images with external program.
+;;   ;; (add-to-list 'openwith-associations '("\\.gif\\'" "gwenview" (file)))
+;;   ;; (add-to-list 'openwith-associations '("\\.svg\\'" "feh --magick-timeout 5" (file)))
+;;   (add-to-list 'openwith-associations '("\\.swf\\'" "swfdec-player" (file)))
+;;   (add-to-list 'openwith-associations '("\\.jar\\'" "java -jar" (file)))
+;;
+;;   ;; If you also use emacs for email, you may want to add this to your config:
+;;   ;; (add-to-list  'mm-inhibit-file-name-handlers 'openwith-file-handler)
+;;   )
 
 ;;; [ TRAMP ]
 

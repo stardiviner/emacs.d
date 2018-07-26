@@ -1,4 +1,4 @@
-;;; init-prog-make.el --- init for Make utility.
+;;; init-make.el --- init for Make utility.
 ;;; -*- coding: utf-8 -*-
 
 ;;; Commentary:
@@ -36,6 +36,6 @@
   (add-hook 'makefile-mode-hook 'makefile-executor-mode))
 
 
-(provide 'init-prog-make)
+(provide 'init-make)
 
-;;; init-prog-make.el ends here
+;;; init-make.el ends here

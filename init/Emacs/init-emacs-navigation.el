@@ -79,7 +79,10 @@ This is the same as using \\[set-mark-command] with the prefix argument."
 
 (use-package show-marks
   :ensure t
-  :bind ("C-c `" . show-marks))
+  :bind ("C-c `" . show-marks)
+  :init
+  (add-to-list 'display-buffer-alist
+               '("^\\*marks\\*" (display-buffer-reuse-window display-buffer-below-selected))))
 
 
 ;;; [ ace-jump-mode -- Ace Jump Mode ]

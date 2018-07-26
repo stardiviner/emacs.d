@@ -24,6 +24,7 @@
 
 (use-package auctex
   :ensure t
+  :defer t
   :load (tex-site latex font-latex)
   :config
   ;; macros
@@ -31,14 +32,6 @@
     (font-latex-add-keywords '(("citep" "*[[{")) 'reference)
 	  (font-latex-add-keywords '(("citet" "*[[{")) 'reference))
   (add-hook 'LaTeX-mode-hook #'latex-font-lock-add-macros)
-  ;; quotes
-  ;; math
-  ;; verbatim content
-
-  ;; (add-hook 'LaTeX-mode-hook 'auto-fill-mode)
-  
-  ;; (setq TeX-macro-global '())
-  ;; (setq TeX-outline-extra t)
 
   ;; [ Preview ] -- [C-c C-p C-p]
   ;; (setq preview-transparent-color '(highlight :background)
@@ -77,14 +70,10 @@ character(s), in which case it deletes the space(s) first."
     (while (equal (char-after) ?\s) (delete-char 1))
     (while (equal (char-before) ?\s) (delete-char -1))
     (call-interactively 'self-insert-command))
-
   (eval-after-load 'tex '(define-key TeX-mode-map "~" 'electric-tie))
 
   (defun TeX-font-lock-add-tie ()
-    (font-lock-add-keywords
-     nil
-     '(("~" . 'font-latex-sedate-face))))
-  
+    (font-lock-add-keywords nil '(("~" . 'font-latex-sedate-face))))
   (add-hook 'TeX-mode-hook #'TeX-font-lock-add-tie)
 
   ;; [C-c C-j] insert items smartly
@@ -95,16 +84,13 @@ character(s), in which case it deletes the space(s) first."
   (defun my:tex-mode-setup ()
     ;; indent
     (aggressive-indent-mode)
-    
     ;; fold: hide some boilerplate
     (TeX-fold-mode)
-
+    ;; electric
     (rainbow-delimiters-mode)
     (smartparens-mode)
-    
     ;; linter
     (flycheck-mode 1)
-
     ;; Doc
     ;; (info-lookup-add-help
     ;;  :mode 'latex-mode
@@ -112,10 +98,8 @@ character(s), in which case it deletes the space(s) first."
     ;;  :parse-rule "\\\\?[a-zA-Z]+\\|\\\\[^a-zA-Z]"
     ;;  :doc-spec '(("(latex2e)Concept Index" )
     ;;              ("(latex2e)Command Index")))
-    
     ;; block
     (local-set-key (kbd "C-c C-i") 'tex-latex-block)
-    
     ;; Section
     (setq LaTeX-section-hook
           '(LaTeX-section-heading
@@ -123,7 +107,6 @@ character(s), in which case it deletes the space(s) first."
             LaTeX-section-toc
             LaTeX-section-section
             LaTeX-section-label))
-    
     ;; Math
     ;; (LaTeX-math-mode)
     )
@@ -247,8 +230,8 @@ character(s), in which case it deletes the space(s) first."
 
 ;;; [ px ] -- Provides functions to preview LaTeX codes like $x^2$ in any buffer/mode.
 
-(use-package px
-  :ensure t)
+;; (use-package px
+;;   :ensure t)
 
 
 (provide 'init-prog-lang-tex)

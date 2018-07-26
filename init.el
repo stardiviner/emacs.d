@@ -35,7 +35,8 @@
 
 ;;; add my init files directory
 
-(add-to-list 'load-path "/usr/share/emacs/site-lisp/")
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/") ; for compiled version Emacs load system installed Emacs related packages.
+
 (add-to-list 'load-path (expand-file-name "init" user-emacs-directory))
 ;; recursively load init files.
 (let ((default-directory "~/.emacs.d/init/"))
@@ -127,7 +128,7 @@
 (require 'init-emacs-shell)
 (require 'init-emacs-comint)
 (require 'init-emacs-subprocess)
-(require 'init-emacs-rpc)
+;; (require 'init-emacs-rpc)
 (require 'init-emacs-network)
 ;; (require 'init-emacs-xwidget)
 (require 'init-emacs-customize)
@@ -177,7 +178,7 @@
 ;; (require 'init-tool-feeds)
 (require 'init-tool-contacts)
 ;; (require 'init-tool-password-manager)
-(require 'init-tool-accounting)
+;; (require 'init-tool-accounting)
 (require 'init-tool-paste)
 ;; (require 'init-tool-collaborate)
 (require 'init-tool-irc)
@@ -279,12 +280,9 @@
   (require 'init-prog-lang-html))
 (with-eval-after-load 'css-mode
   (require 'init-prog-lang-css))
-(with-eval-after-load 'js-mode
-  (require 'init-prog-lang-javascript))
-(with-eval-after-load 'js2-mode
-  (require 'init-prog-lang-javascript))
-(with-eval-after-load 'coffee-mode
-  (require 'init-prog-lang-coffeescript))
+(require 'init-prog-lang-javascript)
+;; (with-eval-after-load 'coffee-mode
+;;   (require 'init-prog-lang-coffeescript))
 (with-eval-after-load 'sibilant-mode
   (require 'init-prog-lang-sibilant))
 (with-eval-after-load 'dart-mode
@@ -349,9 +347,9 @@
 (require 'init-prog-lang-database-mongodb)
 (require 'init-prog-lang-database-redis)
 ;;; CQL
-(require 'init-prog-lang-database-cql)
+;; (require 'init-prog-lang-database-cql)
 ;;; GraphQL
-(require 'init-prog-lang-database-graphql)
+;; (require 'init-prog-lang-database-graphql)
 
 
 ;;; Programming Tools
@@ -361,8 +359,7 @@
 (global-set-key (kbd "C-c t") 'prog-tools-prefix)
 
 (require 'init-DevOps)
-(with-eval-after-load 'es-mode
-  (require 'init-elasticsearch))
+;; (require 'init-elasticsearch)
 
 
 ;;; Frameworks
@@ -371,8 +368,8 @@
 ;; (require 'init-prog-web-browser)
 ;; (require 'init-prog-framework-ruby-on-rails)
 ;; (require 'init-prog-framework-android)
-(require 'init-prog-framework-arduino)
-(require 'init-serial-programming)
+;; (require 'init-prog-framework-arduino)
+;; (require 'init-serial-programming)
 ;; (require 'init-prog-framework-qt)
 ;; (require 'init-prog-framework-ethereum)
 
@@ -408,7 +405,7 @@
 ;;; Engineering
 
 ;; (require 'init-electronic)
-(require 'init-electric-music)
+;; (require 'init-electric-music)
 
 
 ;;; Authoring & Writing
@@ -430,23 +427,20 @@
 (require 'init-emacs-workspace)
 (require 'init-emacs-session)
 
-(defun stardiviner-splash-animation ()
-  "Show ASCII animation."
-  (animate-sequence '("Fuck this shit world!"
-                      "Author: stardiviner"
-                      "Date: 2011/10/0 (yes, day 0!)") 0)
-  (kill-buffer "*Animation*"))
-(add-hook 'after-init-hook #'stardiviner-splash-animation)
+;; (defun stardiviner-splash-animation ()
+;;   "Show ASCII animation."
+;;   (animate-sequence '("Fuck this shit world!"
+;;                       "Author: stardiviner"
+;;                       "Date: 2011/10/0 (yes, day 0!)") 0)
+;;   (kill-buffer "*Animation*"))
+;; (add-hook 'after-init-hook #'stardiviner-splash-animation)
 
 ;;; [ playground ] -- Manage sandboxes for alternative Emacs configurations.
 
-(use-package playground
-  :ensure t
-  :defer t
-  :commands (playground-checkout playground-checkout-with-options))
-
-;;; show Emacs initialized time.
-(message "Emacs initialized in %s" (emacs-init-time))
+;; (use-package playground
+;;   :ensure t
+;;   :defer t
+;;   :commands (playground-checkout playground-checkout-with-options))
 
 
 ;;; init.el ends here

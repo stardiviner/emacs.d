@@ -14,7 +14,7 @@
   :ensure-system-package (pdfinfo . "sudo pacman -S --noconfirm poppler poppler-data")
   :mode ("\\.pdf\\'" . pdf-view-mode)
   :defer t
-  :init (pdf-tools-install)
+  ;; :init (pdf-tools-install)
   :config
   ;; [ PDF View ]
   ;; - [SPC] :: scroll continuous
@@ -43,25 +43,9 @@
     (define-key pdf-view-mode-map (kbd "k") 'pdf-view-previous-line-or-previous-page)
     ;; change key [k] to [K] to avoid mis-press.
     ;; (define-key pdf-view-mode-map (kbd "k") nil)
-    )
-
+    (pdf-outline-minor-mode 1))
   (add-hook 'pdf-view-mode-hook #'my-pdf-tools-setup)
   
-  ;; ;; toggle midnight mode theme
-  ;; (defun circadian:pdf-tools-faces (theme)
-  ;;   "Set `pdf-tools' faces based on `circadian' color `THEME' switching."
-  ;;   ;; color-theme adaptive colors.
-  ;;   (setq pdf-view-midnight-colors `(,(face-background 'default) . ,(face-foreground 'default)))
-  ;;   ;; green color on black background
-  ;;   ;; (setq pdf-view-midnight-colors '("#00B800" . "#000000" ))
-  ;;   ;; amber color on black background
-  ;;   ;; (setq pdf-view-midnight-colors '("#ff9900" . "#0a0a12" ))
-  ;;   ;; original solarized colors
-  ;;   ;; (setq pdf-view-midnight-colors '("#839496" . "#002b36" ))
-  ;;   )
-  ;; (add-hook 'circadian-after-load-theme-hook #'circadian:pdf-tools-faces)
-  ;; (add-hook 'pdf-view-mode-hook #'pdf-view-midnight-minor-mode)
-
   ;; workaround for pdf-tools not reopening to last-viewed page of the pdf:
   ;; https://github.com/politza/pdf-tools/issues/18#issuecomment-269515117
   (defun my/pdf-set-last-viewed-bookmark ()
@@ -92,7 +76,7 @@
   (add-to-list 'display-buffer-alist
                '("\\*Outline .*pdf\\*" . (display-buffer-below-selected)))
   (add-to-list 'display-buffer-alist
-               '("\\*PDF-Occur\\*" . (display-buffer-below-selected)))
+               '("\\*PDF-Occur\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
   )
 
 
@@ -100,9 +84,14 @@
 
 (use-package org-pdfview
   :ensure t
+  :after org
   :load (org-pdfview)
   :init
-  (org-link-set-parameters "pdfview" :export #'org-pdfview-export)
+  (org-link-set-parameters "pdfview"
+                           :follow #'org-pdfview-open
+                           :export #'org-pdfview-export
+                           :complete #'org-pdfview-complete-link
+                           :store #'org-pdfview-store-link)
   ;; change Org-mode default open PDF file function.
   ;; If you want, you can also configure the org-mode default open PDF file function.
   (add-to-list 'org-file-apps '("\\.pdf\\'" . (lambda (file link) (org-pdfview-open link))))
@@ -114,9 +103,8 @@
 (use-package org-noter
   :ensure t
   :defer t
-  :preface
-  (unless (boundp 'Org-prefix)
-    (define-prefix-command 'Org-prefix))
+  :preface (unless (boundp 'Org-prefix)
+             (define-prefix-command 'Org-prefix))
   :bind (:map Org-prefix ("n" . org-noter)))
 
 ;; [ pdf-tools-org ] -- integrate pdf-tools annotations with Org-mode.
@@ -128,8 +116,7 @@
   (defun my/pdf-tools-org-setup ()
     (when (eq major-mode 'pdf-view-mode)
       (pdf-tools-org-export-to-org)))
-  (add-hook 'after-save-hook #'my/pdf-tools-org-setup)
-  )
+  (add-hook 'after-save-hook #'my/pdf-tools-org-setup))
 
 ;; [ paperless ] -- Emacs assisted PDF document filing.
 

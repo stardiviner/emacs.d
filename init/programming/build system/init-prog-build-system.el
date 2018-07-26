@@ -16,11 +16,11 @@
 
 ;;; [ Make ]
 
-(require 'init-prog-make)
+(require 'init-make)
 
 ;;; [ CMake ]
 
-(require 'init-prog-cmake)
+;; (require 'init-cmake)
 
 ;;; [ build-helper ] -- Utilities to help build code.
 

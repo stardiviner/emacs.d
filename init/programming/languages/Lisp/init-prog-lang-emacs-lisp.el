@@ -50,24 +50,21 @@
   :defer t
   :commands (ielm)
   :init
+  (setq ielm-dynamic-return t
+        ielm-dynamic-multiline-inputs t)
   (add-to-list 'display-buffer-alist
                '("^\\*ielm\\*" (display-buffer-below-selected)))
   :config
-  (setq ielm-dynamic-return t
-        ielm-dynamic-multiline-inputs t)
   (add-hook 'ielm-mode-hook #'my-lisp-repl-common-settings)
   (add-hook 'ielm-mode-hook
-            (lambda ()
-              (my-company-add-backend-locally 'company-elisp)))
-  )
+            (lambda () (my-company-add-backend-locally 'company-elisp))))
 
 ;;; [ eros ] -- Evaluation Result OverlayS for Emacs Lisp.
 
 (use-package eros
   :ensure t
-  :config
-  (eros-mode 1))
-
+  :defer t
+  :init (eros-mode 1))
 
 ;;; [ macrostep ] -- interactive macro-expander for Emacs.
 
@@ -75,7 +72,7 @@
   :ensure t
   :defer t
   :commands (macrostep-expand)
-  :config
+  :init
   (setq macrostep-expand-in-separate-buffer nil
         macrostep-expand-compiler-macros t))
 
@@ -85,7 +82,7 @@
 (use-package elmacro
   :ensure t
   :defer t
-  :config
+  :init
   (setq elmacro-concatenate-multiple-inserts t
         elmacro-objects-to-convert '(frame window buffer)
         ;; elmacro-unwanted-commands-regexp "^\\(ido\\|smex\\)"
@@ -98,9 +95,8 @@
 
 (use-package elisp-def
   :ensure t
-  :init
-  (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
-    (add-hook hook #'elisp-def-mode)))
+  :init (dolist (hook '(emacs-lisp-mode-hook ielm-mode-hook))
+          (add-hook hook #'elisp-def-mode)))
 
 ;;; [ elisp-refs ] -- semantic code search for emacs lisp.
 
@@ -132,8 +128,8 @@
 
 ;;; [ ERT ] -- Emacs Lisp Regression Testing.
 
-(require 'ert)
-(require 'ert-x)
+;; (require 'ert)
+;; (require 'ert-x)
 
 ;;; [ xtest ] -- Simple Testing with Emacs & ERT
 
@@ -147,10 +143,8 @@
 
 (use-package dash
   :ensure t
-  :config
   ;; syntax highlighting of dash functions.
-  (eval-after-load 'dash '(dash-enable-font-lock))
-  )
+  :init (eval-after-load 'dash '(dash-enable-font-lock)))
 
 
 (provide 'init-prog-lang-emacs-lisp)

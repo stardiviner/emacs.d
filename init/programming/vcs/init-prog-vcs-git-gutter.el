@@ -127,6 +127,12 @@
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   )
 
+;;; [ line-reminder ] -- Remind current line status by current buffer.
+
+;; (use-package line-reminder
+;;   :ensure t
+;;   :init (global-line-reminder-mode t))
+
 
 
 (provide 'init-prog-vcs-git-gutter)

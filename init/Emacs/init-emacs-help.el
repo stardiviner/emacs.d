@@ -35,7 +35,6 @@
 
 (use-package info-colors
   :ensure t
-  :defer t
   :init (add-hook 'Info-selection-hook 'info-colors-fontify-node))
 
 

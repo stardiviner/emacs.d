@@ -128,6 +128,8 @@ to the command loop."
 
 (use-package projectile
   :ensure t
+  :preface (setq projectile-keymap-prefix (kbd "C-c p"))
+  :init (add-hook 'prog-mode-hook 'projectile-mode)
   :config
   (defun *buffer-project ()
     "Displays `default-directory', for special buffers like the scratch buffer."
@@ -144,6 +146,7 @@ to the command loop."
         (propertize (concat
                      " "
                      (all-the-icons-faicon "folder-o" :v-adjust -0.05 :height 0.9)
+                     " "
                      (projectile-project-name)
                      " "))))
   )
@@ -316,7 +319,7 @@ state (modified, read-only or non-existent)."
 ;;; pdf-tools page position
 (use-package pdf-tools
   :ensure t
-  :config
+  :init
   (defun *pdf-tools-page-position ()
     "Show current pdf-tools page current position."
     (if (eq 'pdf-view-mode major-mode)
@@ -326,9 +329,7 @@ state (modified, read-only or non-existent)."
           (number-to-string (pdf-view-current-page))
           "/"
           (number-to-string (pdf-cache-number-of-pages))
-          "] "
-          ))))
-  )
+          "] ")))))
 
 ;;; major-mode
 (defun *major-mode ()
@@ -1100,7 +1101,7 @@ dimensions of a block selection."
                  (*buffer-name)
                  ;; mode-line-frame-identification
                  (*buffer-encoding)
-                 ;; (*linum-info)
+                 (*linum-info)
                  ;; (*wc-mode)
                  (*pdf-tools-page-position)
                  (*org-tree-slide)

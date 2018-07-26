@@ -58,7 +58,7 @@
 :Mother:
 :Financial-Condition:
 :END:"
-                 :empty-lines 1
+                 :empty-lines 0
                  :jump-to-captured t
                  )
                 )
@@ -84,13 +84,6 @@
                 mu4e-compose-mode-hook
                 ))
   (add-hook hook 'org-contacts-setup-completion-at-point))
-
-
-;; (defun org-contacts-properties-drawer-link-workaround ()
-;;   "Fix can't open link in properties drawer issue."
-;;   (if (string= (expand-file-name (buffer-file-name)) org-contacts-files)
-;;       (setq-local org-startup-with-latex-preview nil)))
-;; (add-hook 'org-mode-hook 'org-contacts-properties-drawer-link-workaround)
 
 (use-package helm-org-rifle
   :ensure t

@@ -21,13 +21,6 @@
 ;;; don't auto add tag "ATTACH"
 (setq org-attach-auto-tag nil)
 
-;;; specify default directory for `org-attach'.
-(defun my/org-attach-set-default-directory (orig-fun &rest args)
-  "Change dir of the shell to buffer's `default-directory'."
-  (let ((default-directory (expand-file-name "~/Downloads/")))
-    (apply orig-fun args)))
-(advice-add #'org-attach :around #'my/org-attach-set-default-directory)
-
 ;;; [ org-screenshot ] -- Take and manage screenshots in Org-mode files.
 
 (use-package org-plus-contrib
@@ -107,6 +100,14 @@
   (add-to-list 'display-buffer-alist
                '("org-board-wget-call" (display-buffer-below-selected)))
   )
+
+;;; [ org-attach-embedded-images ] --
+
+;; This module provides command `org-attach-embedded-images-in-subtree' to save such
+;; images as attachments and insert org links to them. Each image is named with its sha1
+;; sum.
+;;
+;; (require 'org-attach-embedded-images)
 
 
 (provide 'init-org-attach)

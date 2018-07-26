@@ -239,7 +239,7 @@
         (delete-frame (company-box-doc--get-frame)))
     (unless (frame-live-p (company-box-doc--get-frame))
       (set-frame-parameter nil 'company-box-doc-frame nil)))
-  (add-hook 'circadian-after-load-theme-hook #'company-box-child-frame-reset)
+  ;; FIXME: (advice-add 'circadian-setup :after 'company-box-child-frame-reset)
 
   (defun circadian:company-box-faces (theme)
     "Reload company-box faces on `circadian' `THEME' toggling."

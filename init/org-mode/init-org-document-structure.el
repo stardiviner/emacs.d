@@ -96,7 +96,6 @@
 
 ;; * Plain Lists::
 
-(require 'org-list)
 (setq org-list-allow-alphabetical t)
 
 ;;; [ column view ]
@@ -196,7 +195,10 @@ Will work on both org-mode and any mode that accepts plain html."
 
 ;;; [ org-lint ] -- Org-mode linter. [M-x org-lint]
 
-(require 'org-lint)
+;; (require 'org-lint)
+
+(add-to-list 'display-buffer-alist
+             '("^\\*Org Lint\\*" . (display-buffer-below-selected)))
 
 
 (provide 'init-org-document-structure)

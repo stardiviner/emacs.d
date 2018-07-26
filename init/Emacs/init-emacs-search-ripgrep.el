@@ -41,7 +41,7 @@
         ;; rg-command-line-flags '("--debug")
         )
   (add-to-list 'display-buffer-alist
-               '("^\\*rg\\*" (display-buffer-below-selected)))
+               '("^\\*rg\\*" (display-buffer-reuse-window display-buffer-below-selected)))
   )
 
 ;;; [ helm-rg ]

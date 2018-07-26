@@ -13,7 +13,7 @@
   :init
   ;; set to "internal" Emacs Web Wowser
   ;; (setq browse-url-browser-function 'eww-browse-url)
-  :config
+
   (setq eww-bookmarks-directory "~/.emacs.d/eww/bookmarks/"
         eww-download-directory "~/Downloads/"
         eww-form-checkbox-symbol "[ ]"
@@ -29,7 +29,7 @@
         eww-search-prefix "https://www.google.com/search?q=%s"
         ;; eww-use-external-browser-for-content-type "\\`\\(video/\\|audio/\\|application/ogg\\)"
         )
-
+  :config
   ;; keybindings
   (define-key eww-mode-map (kbd "o") 'eww) ; prompt for a URL.
   
@@ -58,14 +58,14 @@
   (define-key eww-mode-map (kbd "C-r") 'eww-readable)
   
   (define-key eww-mode-map (kbd "<enter>") 'eww-submit)
-
-  ;; follow mode keybindings support.
-  (use-package eww-lnum
-    :ensure t
-    :bind (:map eww-mode-map
-                ("f" . eww-lnum-follow)
-                ("U" . eww-lnum-universal)))
   )
+
+;; follow mode keybindings support.
+(use-package eww-lnum
+  :ensure t
+  :bind (:map eww-mode-map
+              ("f" . eww-lnum-follow)
+              ("U" . eww-lnum-universal)))
 
 (require 'org-eww)
 

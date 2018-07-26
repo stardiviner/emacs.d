@@ -56,6 +56,9 @@
 
 ;;; [ showtip ]
 
+;; (use-package showtip
+;;   :ensure t)
+
 ;;; [ child-frame ]
 
 ;;; [ posframe ] -- Pop a posframe (just a child-frame) at point.

@@ -22,6 +22,7 @@
   ;; auto refresh dired when file changes
   (setq dired-auto-revert-buffer t)
   (add-hook 'dired-mode-hook #'turn-on-auto-revert-mode)
+  
   :config
   (setq dired-create-destination-dirs 'ask)
 
@@ -54,7 +55,7 @@
         (function (lambda nil (interactive) (dired-single-buffer "..")))))
     (add-hook 'dired-mode-hook #'my:dired-single-enable))
   
-  (use-package dired-toggle-sudo
+  (use-package dired-toggle-sudo        ; browse directory with sudo privileges.
     :ensure t
     :bind (:map dired-mode-map ("#" . dired-toggle-sudo)))
   
@@ -75,11 +76,9 @@
   ;; [image-dired ] -- image in Dired
   (use-package image-dired+
     :ensure t
+    :load (image-dired)
     :after image-dired
     :init
-    (eval-after-load 'image-dired+ '(image-diredx-async-mode 1))
-    (eval-after-load 'image-dired+ '(image-diredx-adjust-mode 1))
-    :config
     (define-key image-dired-thumbnail-mode-map (kbd "C-n") 'image-diredx-next-line)
     (define-key image-dired-thumbnail-mode-map (kbd "C-p") 'image-diredx-previous-line)
     (define-key image-dired-thumbnail-mode-map (kbd "g") 'revert-buffer)
@@ -93,18 +92,16 @@
                  '("^\\*image-dired\\*" (display-buffer-same-window)))
     (add-to-list 'display-buffer-alist
                  '("^\\*image-dired-display-image\\*" (display-buffer-same-window)))
-    )
+    :config (image-diredx-async-mode 1) (image-diredx-adjust-mode 1))
 
   ;; rename files editing their names in dired buffers.
-  (use-package wdired
-    :ensure t
-    :bind (:map dired-mode-map ("C-c C-p" . wdired-change-to-wdired-mode))
-    :config (setq wdired-allow-to-change-permissions t))
+  (autoload 'wdired-change-to-wdired-mode "wdired.el" nil t)
+  (define-key dired-mode-map (kbd "C-c C-p") 'wdired-change-to-wdired-mode)
+  ;; (setq wdired-allow-to-change-permissions t)
 
   (use-package dired-x ; extra Dired functionality
-    :preface
     ;; don't bind [C-x C-j] from `dired-x'. (conflict with `ace-window')
-    (setq dired-bind-jump nil)
+    :preface (setq dired-bind-jump nil)
     :config
     ;; ignore specific files
     ;; toggle `dired-omit-mode' to hide hidden files with [C-x M-o]
@@ -126,7 +123,7 @@
     :bind (:map dired-mode-map
                 ([f2] . dired-efap)
                 ([down-mouse-1] . dired-efap-click))
-    :config
+    :init
     (setq dired-efap-use-mouse t)
     ;; (setq dired-efap-initial-filename-selection 'no-extension)
     )
@@ -137,35 +134,14 @@
   (use-package dired-narrow
     :ensure t
     :bind (:map dired-mode-map ("/" . dired-narrow)))
-  
-  ;; A convienent way to look up file contents in other window while browsing
-  ;; directory in Dired.
-  (use-package peep-dired
-    :ensure t
-    :bind (:map dired-mode-map ("P" . peep-dired))
-    :config
-    (setq peep-dired-cleanup-on-disable t
-          peep-dired-cleanup-eagerly t
-          peep-dired-enable-on-directories t
-          peep-dired-ignored-extensions '("mkv" "iso" "mp4")))
 
-  ;; launch an external application with command `mimeopen' from dired.
-  (use-package dired-launch
-    :ensure t
-    :bind (:map dired-launch-mode-map
-                ("J" . nil)
-                ("K" . nil)
-                ("C-c l" . dired-launch-command)
-                ("C-c L" . dired-launch-with-prompt-command))
-    :init (dired-launch-enable))
-  
   ;; [ make-it-so ] -- Transform files with Makefile recipes.
-  (use-package make-it-so
-    :ensure t
-    :config
-    (mis-config-default)
-    (setq mis-recipes-directory
-          (concat user-emacs-directory "init/extensions/make-it-so-recipes/")))
+  ;; (use-package make-it-so
+  ;;   :ensure t
+  ;;   :defer t
+  ;;   :init (mis-config-default)
+  ;;   :config (setq mis-recipes-directory
+  ;;                 (concat user-emacs-directory "init/extensions/make-it-so-recipes/")))
   )
 
 

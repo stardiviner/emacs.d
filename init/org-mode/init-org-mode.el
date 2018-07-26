@@ -20,9 +20,6 @@
 (require 'init-org-document-structure)
 (require 'init-org-view)
 
-;; (add-hook 'org-mode-hook 'variable-pitch-mode)
-;; (add-hook 'org-agenda-mode-hook 'variable-pitch-mode)
-
 (require 'init-org-keybindings)
 (require 'init-org-complete)
 (require 'init-org-table)

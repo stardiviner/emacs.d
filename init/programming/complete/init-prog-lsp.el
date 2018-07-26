@@ -28,29 +28,28 @@
 
 (use-package lsp-ui
   :ensure t
-  :init (add-hook 'lsp-after-open-hook #'lsp-ui-mode)
+  :defer t
   :config
   (setq lsp-ui-doc-enable nil
         lsp-ui-doc-header t
         lsp-ui-doc-include-signature t
         ;; lsp-ui-doc-position 'at-point
         )
-  )
+  (add-hook 'lsp-after-open-hook #'lsp-ui-mode))
 
 ;; [ company-lsp ] -- company-mode completion backend for lsp-mode.
 
 (use-package company-lsp
   :ensure t
-  :init
+  :defer t
+  :init (setq company-lsp-enable-recompletion t
+              company-lsp-enable-snippet t
+              company-lsp-cache-candidates t
+              company-lsp-async t)
+  :config
   (defun my:company-lsp-enable ()
     (my-company-add-backend-locally 'company-lsp))
-  (add-hook 'lsp-mode-hook #'my:company-lsp-enable)
-  :config
-  (setq company-lsp-enable-recompletion t
-        company-lsp-enable-snippet t
-        company-lsp-cache-candidates t
-        company-lsp-async t)
-  )
+  (add-hook 'lsp-mode-hook #'my:company-lsp-enable))
 
 
 (provide 'init-prog-lsp)

@@ -51,8 +51,8 @@
 (use-package org-bullets
   :ensure t
   :ensure all-the-icons
-  :load (all-the-icons)
-  :config
+  :after all-the-icons
+  :init
   (setq-default org-bullets-bullet-list
                 `(;; disk -> folder -> file style
                   ,(all-the-icons-faicon "hdd-o")

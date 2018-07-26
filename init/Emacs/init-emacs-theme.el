@@ -46,14 +46,14 @@
 
 ;;; [ one-themes ] -- One color scheme.
 
-(use-package one-themes
-  :ensure t
-  :no-require t
-  :defer t
-  ;; :config
-  ;; (load-theme 'one-dark t)
-  ;; (load-theme 'one-light t)
-  )
+;; (use-package one-themes
+;;   :ensure t
+;;   :no-require t
+;;   :defer t
+;;   ;; :config
+;;   ;; (load-theme 'one-dark t)
+;;   ;; (load-theme 'one-light t)
+;;   )
 
 ;;; [ circadian ] -- theme-switching for Emacs based on daytime.
 

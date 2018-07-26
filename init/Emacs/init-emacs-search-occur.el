@@ -18,7 +18,7 @@
       (occur (if isearch-regexp isearch-string (regexp-quote isearch-string))))))
 
 (add-to-list 'display-buffer-alist
-             '("^\\*Occur\\*" (display-buffer-below-selected)))
+             '("^\\*Occur\\*" (display-buffer-reuse-window display-buffer-below-selected)))
 
 ;;; [ multi-occur ]
 

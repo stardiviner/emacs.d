@@ -11,16 +11,7 @@
 
 ;; (electric-indent-mode t)
 
-;; (dolist (hook
-;;          '(org-mode-hook
-;;            ruby-mode-hook
-;;            python-mode-hook
-;;            html-mode-hook
-;;            css-mode-hook
-;;            c-mode-hook
-;;            ;; ess-mode-hook
-;;            ))
-;;   (add-hook hook #'(lambda () (electric-pair-local-mode t))))
+;; (add-hook 'prog-mode-hook #'electric-pair-local-mode)
 
 
 

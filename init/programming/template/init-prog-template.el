@@ -9,10 +9,10 @@
 
 ;;; [ tempo ]
 
-(require 'tempo)
+;; (require 'tempo)
 
-(setq tempo-interactive t               ; `tempo-insert' prompt.
-      tempo-insert-region t)
+;; (setq tempo-interactive t               ; `tempo-insert' prompt.
+;;       tempo-insert-region t)
 
 
 ;;; [ tempo-snippets ]
@@ -25,8 +25,8 @@
 ;;; [ auto-insert ]
 
 (use-package autoinsert
-  :init (auto-insert-mode 1)
-  :config
+  :defer t
+  :init
   ;; (setq auto-insert-query 'function)
   (setq auto-insert-directory (locate-user-emacs-file "templates/"))
   
@@ -34,7 +34,8 @@
   (setq auto-insert-alist nil)
   ;; (define-auto-insert '("\\.html?$") "default.html")
   ;; (define-auto-insert '("^build\\.xml\\'" . "Java Ant compile file") "build.xml")
-  
+
+  :config
   ;; combining YASnippet & Auto Insert
   (defun autoinsert-yas-expand ()
     "Replace text in yasnippet template."
@@ -48,7 +49,8 @@
   (define-auto-insert "\\.c$" ["default-C.c" autoinsert-yas-expand])
   (define-auto-insert "\\.cpp$" ["default-C++.cpp" autoinsert-yas-expand])
   (define-auto-insert "\\.java$" ["default-Java.java" autoinsert-yas-expand])
-  )
+
+  (auto-insert-mode 1))
 
 
 ;;; [ skeleton ] -- Lisp language extension for writing statement skeletons.
@@ -67,10 +69,10 @@
 ;;; [ time-stamp ] -- auto-update last change time stamps in files edited by Emacs.
 
 (use-package time-stamp
-  :init (add-hook 'before-save-hook 'time-stamp)
-  :config
+  :init
   (setq time-stamp-active t ; enable `time-stamp'
-        time-stamp-line-limit 20))
+        time-stamp-line-limit 20)
+  (add-hook 'before-save-hook 'time-stamp))
 
 
 (provide 'init-prog-template)

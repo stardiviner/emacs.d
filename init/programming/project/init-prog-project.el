@@ -15,7 +15,6 @@
 
 (use-package projectile
   :ensure t
-  :defer t
   :preface (setq projectile-keymap-prefix (kbd "C-c p"))
   :init (add-hook 'prog-mode-hook 'projectile-mode)
   :config

@@ -56,8 +56,7 @@
         '("~/Org/Bibliography/index.bib"))
 
   (add-hook 'org-mode-hook
-            (lambda ()
-              (my-company-add-backend-locally 'company-bibtex)))
+            (lambda () (my-company-add-backend-locally 'company-bibtex)))
   )
 
 ;;; [ ebib ] -- a BibTeX database manager.

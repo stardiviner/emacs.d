@@ -184,8 +184,7 @@
   :defer
   :init (hook-modes c-dialects-mode
           (when (memq major-mode '(c-mode c++-mode objc-mode))
-            (rainbow-identifiers-mode 1)))
-  )
+            (rainbow-identifiers-mode 1))))
 
 
 

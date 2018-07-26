@@ -8,7 +8,7 @@
 ;;; Code:
 
 (add-to-list 'display-buffer-alist
-             '("\^\\*Org Table Edit Field\\*" (display-buffer-below-selected)))
+             '("\^\\*Org Table Edit Field\\*" (display-buffer-reuse-window display-buffer-below-selected)))
 
 ;;; [ org-table-sticky-header ] -- Sticky header for org-mode tables.
 

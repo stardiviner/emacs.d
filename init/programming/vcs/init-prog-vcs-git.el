@@ -12,8 +12,6 @@
 
 ;; [ Git modes ] -- front end wrapper for vc-git.
 
-;; (use-package gitconfig ; Emacs lisp interface to work with git-config variables.
-;;   :ensure t)
 (use-package gitconfig-mode
   :ensure t
   :mode ("\\.gitconfig\\'" . gitconfig-mode))
@@ -23,12 +21,23 @@
   :ensure t
   :mode ("\\.gitignore\\'" . gitignore-mode))
 
+;;; [ gitignore-templates ] -- Access GitHub .gitignore templates.
+
+(use-package gitignore-templates
+  :ensure t
+  :commands (gitignore-templates-insert gitignore-templates-new-file)
+  ;; TODO: add a hook for find-file on new file named ".gitignore".
+  )
+
+;; (use-package gitconfig ; Emacs lisp interface to work with git-config variables.
+;;   :ensure t)
+
 (use-package git-commit ; edit Git commit messages.
   :ensure t
-  :config
+  :init
   ;; `company-dabbrev' in git commit buffer.
   ;; https://github.com/company-mode/company-mode/issues/704
-  (defun my--company-dabbrev-ignore-except-magit-diff (buffer)
+  (defun my:company-dabbrev-ignore-except-magit-diff (buffer)
     (let ((name (buffer-name)))
       (and (string-match-p "\\`[ *]" name)
            (not (string-match-p "\\*magit-diff:" name)))))
@@ -37,7 +46,7 @@
     (auto-fill-mode t)
     (setq-local company-dabbrev-code-modes '(text-mode magit-diff-mode))
     (setq-local company-dabbrev-ignore-buffers
-                #'my--company-dabbrev-ignore-except-magit-diff)
+                #'my:company-dabbrev-ignore-except-magit-diff)
     (setq company-dabbrev-code-other-buffers 'all))
   (add-hook 'git-commit-setup-hook #'my:git-commit-setup-hook)
   )
@@ -51,7 +60,7 @@
   :bind (:map prog-vcs-prefix
               ("v" . magit-status)
               ("l" . magit-list-repositories))
-  :config
+  :init
   ;; Git WIP (work in progress) in Magit
   (add-to-list 'magit-no-confirm 'safe-with-wip)
 
@@ -102,23 +111,13 @@
                '("^magit-process.*" (display-buffer-same-window)))
   )
 
-;;; [ magit-find-file ]
-
-;; (use-package magit-find-file
-;;   :ensure t
-;;   :bind ("M-t" . magit-find-file)
-;;   )
-
-
 ;;; [ magit-gitflow ] -- Git Flow plugin for magit
 
 (use-package magit-gitflow
   :ensure t
   :after magit
   :defer t
-  :init
-  (with-eval-after-load 'magit
-    (add-hook 'magit-mode-hook 'turn-on-magit-gitflow))
+  :init (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
   :config
   ;; TODO: check out the original Issue on GitHub.
   (magit-define-popup-switch 'magit-gitflow-release-finish-popup ?p
@@ -129,12 +128,6 @@
 
 ;; (use-package magit-p4
 ;;   :ensure t)
-
-;;; [ gitignore-templates ] -- Access GitHub .gitignore templates.
-
-(use-package gitignore-templates
-  :ensure t
-  :commands (gitignore-templates-insert gitignore-templates-new-file))
 
 ;;; [ git-messenger ] -- popup commit message at current line.
 
@@ -147,12 +140,12 @@
               ("m" . git-messenger:copy-message)
               ("c" . git-messenger:copy-message)
               )
-  :config
+  :init
   (setq git-messenger:show-detail t ; always show detail message.
         ;; git-messenger:handled-backends '(git svn)
         git-messenger:use-magit-popup t
         )
-  
+  :config
   ;; enable `magit-commit-mode' after typing 's', 'S', 'd'
   (add-hook 'git-messenger:popup-buffer-hook 'magit-commit-mode)
   )
@@ -186,14 +179,6 @@
 ;;   :ensure t
 ;;   :config
 ;;   (add-hook 'magit-mode-hook 'magit-topgit-mode)
-;;   )
-
-;;; [ projectile-git-autofetch ] -- Automatically fetch git repositories known to projectile.
-
-;; (use-package projectile-git-autofetch
-;;   :ensure t
-;;   :config
-;;   ;; (projectile-git-autofetch-mode 1)
 ;;   )
 
 ;;; [ pcmpl-git ] -- Complete both git commands and their options and arguments.

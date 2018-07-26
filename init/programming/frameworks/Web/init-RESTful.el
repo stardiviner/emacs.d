@@ -12,17 +12,15 @@
   :ensure t
   :defer t
   :mode ("\\.http\\'" . restclient-mode)
-  :commands (restclient-new-buffer)
-  :config
+  :init
   (setq restclient-log-request t
         restclient-same-buffer-response t
         ;; restclient-same-buffer-response-name "*HTTP Response*"
         restclient-inhibit-cookies nil)
-  
+  :config
   (defun restclient-add-separator ()
     (interactive)
     (insert "# separator\n\n"))
-  
   (define-key restclient-mode-map (kbd "C-c C-'") 'restclient-add-separator)
   
   (defun restclient-new-buffer ()
@@ -60,12 +58,8 @@
   ;; [ company-restclient ]
   (use-package company-restclient
     :ensure t
-    :config
-    (add-hook 'restclient-mode-hook
-              (lambda ()
-                (my-company-add-backend-locally 'company-restclient)
-                ))
-    )
+    :init (add-hook 'restclient-mode-hook
+                    (lambda () (my-company-add-backend-locally 'company-restclient))))
 
   ;; [ restclient-test ] -- Run tests with restclient.el
   (use-package restclient-test
@@ -77,7 +71,7 @@
 (use-package ob-restclient
   :ensure t
   :defer t
-  :init
+  :config
   (add-to-list 'org-babel-load-languages '(restclient . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   (add-to-list 'org-babel-tangle-lang-exts '("restclient" . "http"))
@@ -88,7 +82,7 @@
 (use-package ob-http
   :ensure t
   :defer t
-  :init
+  :config
   (add-to-list 'org-babel-load-languages '(http . t))
   (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
   (add-to-list 'org-babel-tangle-lang-exts '("http" . "http"))
@@ -100,7 +94,7 @@
   :ensure t
   :defer t
   :commands (httprepl)
-  :init
+  :config
   (add-hook 'httprepl-mode-hook
             (lambda () (my-company-add-backend-locally 'company-restclient)))
   )

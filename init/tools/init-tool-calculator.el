@@ -37,6 +37,12 @@ If ARG is given, then insert the result to current-buffer"
 
 (define-key calculator-prefix (kbd "x") 'mini-calc)
 
+;;; [ ob-calc ]
+
+(require 'ob-calc)
+(add-to-list 'org-babel-load-languages '(calc . t))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+
 
 (provide 'init-tool-calculator)
 

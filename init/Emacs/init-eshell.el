@@ -133,15 +133,8 @@ PWD is not in a git repo (or the git command is not found)."
     "Setup my Eshell completing."
     (interactive)
     (eshell-cmpl-initialize)
-    ;; disable company-mode auto complete to speed up Eshell typing command, use [Tab] manually.
-    (company-mode -1)
-    (local-set-key (kbd "<tab>") 'company-complete)
     (setq-local company-minimum-prefix-length 4)
-    (setq-local company-idle-delay 0.4)
-    (define-key company-active-map [return] 'company-complete-selection)
-    (define-key company-active-map "\r" 'company-complete-selection)
-    )
-
+    (setq-local company-idle-delay 0.4))
   (add-hook 'eshell-mode-hook 'my-eshell-completing-setup)
 
   (setq eshell-where-to-jump 'begin
@@ -215,13 +208,6 @@ otherwise, they are appended."
       (eshell-printn
        (propertize " " 'display (create-image img)))))
   )
-
-;;; [ eshell-bookmark ] -- Integrate bookmarks with eshell.
-
-(use-package eshell-bookmark
-  :ensure t
-  :config
-  (add-hook 'eshell-mode-hook 'eshell-bookmark-setup))
 
 ;;; [ ob-eshell ]
 

@@ -15,17 +15,11 @@
 
 (use-package helm-org-rifle
   :ensure t
-  :config
-  (setq helm-org-rifle-show-path t
-        helm-org-rifle-fontify-headings t
-        helm-org-rifle-show-todo-keywords t
-        helm-org-rifle-show-tags t
-        helm-org-rifle-directories-recursive t)
-  
+  :defer t
+  :init
   (unless (boundp 'org-rifle-prefix)
     (define-prefix-command 'org-rifle-prefix))
   (define-key Org-prefix (kbd "g") 'org-rifle-prefix)
-
   (define-key org-rifle-prefix (kbd "g") 'helm-org-rifle-current-buffer)
   (define-key org-rifle-prefix (kbd "G") 'helm-org-rifle)
   (define-key org-rifle-prefix (kbd "d") 'helm-org-rifle-directories)
@@ -33,10 +27,17 @@
   (define-key org-rifle-prefix (kbd "a") 'helm-org-rifle-agenda-files)
   (define-key org-rifle-prefix (kbd "M-r") 'helm-org-rifle-org-directory)
 
+  (setq helm-org-rifle-show-path t
+        helm-org-rifle-fontify-headings t
+        helm-org-rifle-show-todo-keywords t
+        helm-org-rifle-show-tags t
+        helm-org-rifle-directories-recursive t)
+
   ;; LaTeX fragments preview support
   ;; FIXME: `org-toggle-latex-fragment' does not support in *non-file* buffer.
   ;; (add-hook 'helm-org-rifle-after-init-hook #'org-toggle-latex-fragment)
-  
+
+  :config
   ;; quick references searching.
   (unless (boundp 'reference-prefix)
     (define-prefix-command 'reference-prefix))
@@ -263,31 +264,6 @@
        (list my-bookmarks-reference-dir))))
 
   (define-key reference-prefix (kbd "C-b") 'rifle-bookmarks-ref)
-  )
-
-;;; [ helm-fuzzy-find ] -- [C-c C-/], [C-x c /]
-
-(use-package helm
-  :ensure t
-  :config
-  (defun Org-Wiki ()
-    "Search directory Wiki/."
-    (interactive)
-    (let ((default-directory (concat org-directory "/Wiki")))
-      (call-interactively 'helm-find)))
-  (define-key reference-prefix (kbd "M-w") 'Org-Wiki)
-  (defun Org-Softwares ()
-    "Search directory Softwares/."
-    (interactive)
-    (let ((default-directory (concat org-directory "/Wiki/Computer Technology/Softwares/")))
-      (call-interactively 'helm-find)))
-  (define-key reference-prefix (kbd "M-s") 'Org-Softwares)
-  (defun Org-Emacs ()
-    "Search directory Emacs/."
-    (interactive)
-    (let ((default-directory (concat org-directory "/Wiki/Computer Technology/Programming/Emacs/")))
-      (call-interactively 'helm-find)))
-  (define-key reference-prefix (kbd "M-e") 'Org-Emacs)
   )
 
 

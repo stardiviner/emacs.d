@@ -12,10 +12,10 @@
 
 ;;; [ subword ] -- editing code WithCamelCaseWritingLikeThis
 
-(use-package subword
-  :ensure t
-  :defer t
-  :init (add-hook 'prog-mode-hook 'subword-mode))
+;; (use-package subword
+;;   :ensure t
+;;   :defer t
+;;   :init (add-hook 'prog-mode-hook 'subword-mode))
 
 ;;; [ glasses ] -- make CamelCase identifiers easy look.
 

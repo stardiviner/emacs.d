@@ -16,10 +16,10 @@
 (use-package org-tree-slide
   :ensure t
   :defer t
-  :config
+  :init
   (setq org-tree-slide-skip-done nil
         org-tree-slide-heading-emphasis t)
-  
+  :config
   ;; profiles
   ;; (org-tree-slide-simple-profile)
   (org-tree-slide-presentation-profile)
@@ -38,7 +38,7 @@
   :ensure htmlize
   :defer t
   :preface (setq org-reveal-note-key-char nil) ; avoid register old #+BEGIN_NOTES.
-  :config
+  :init
   ;; "http://cdn.jsdelivr.net/reveal.js/3.0.0/"
   ;; (concat user-emacs-directory "init/org-mode/reveal.js")
   (setq org-reveal-root (expand-file-name (concat user-emacs-directory "Org-mode/reveal.js/")))

@@ -24,7 +24,7 @@
    (lambda (hook) (add-hook hook #'sly-mode))
    '(lisp-mode-hook lisp-interaction-mode-hook sly-mrepl-mode-hook))
   
-  :config  
+  :config
   (defun my-sly-setup ()
     ;; Autodoc (like `eldoc')
     (sly-autodoc-mode 1)
@@ -64,29 +64,33 @@
 
 (use-package sly-repl-ansi-color
   :ensure t
+  :defer t
   :after sly
   :init (add-to-list 'sly-contribs 'sly-repl-ansi-color))
-
 
 ;;; [ sly-macrostep ] -- Expand CL macros inside source files
 
 ;;; - [C-c M-e] in `sly-editing-mode'.
 
 (use-package sly-macrostep
-  :ensure t)
-
+  :ensure t
+  :defer t
+  :after sly)
 
 ;;; [ sly-named-readtables ] -- Support named readtables in Common Lisp files.
 
 ;; (use-package sly-named-readtables
 ;;   :ensure t
-;;   )
+;;   :defer t
+;;   :after sly)
 
 
 ;;; [ sly-quicklisp ] -- Quicklisp support for SLY with command `sly-quickload' / [C-c C-d C-q].
 
 (use-package sly-quicklisp
-  :ensure t)
+  :ensure t
+  :defer t
+  :after sly)
 
 
 (provide 'init-sly)

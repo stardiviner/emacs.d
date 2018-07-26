@@ -12,7 +12,7 @@
   :bind (:map tools-prefix ("S" . mastodon))
   :init
   (add-to-list 'display-buffer-alist
-               '("^\\*new toot\\*" . (display-buffer-below-selected)))
+               '("^\\*new toot\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
   :commands (mastodon mastodon-toot)
   :config
   ;; - "https://social.bytesexual.net/"

@@ -23,7 +23,7 @@
 (define-key tools-prefix (kbd "t") 'display-time-world)
 
 (add-to-list 'display-buffer-alist
-             '("\\*wclock\\*" . (display-buffer-below-selected)))
+             '("\\*wclock\\*" . (display-buffer-reuse-window display-buffer-below-selected)))
 
 
 (provide 'init-tool-clock)

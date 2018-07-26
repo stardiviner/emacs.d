@@ -11,7 +11,7 @@
 
 (use-package emojify
   :ensure t
-  :config
+  :init
   (setq emojify-emojis-dir (concat user-emacs-directory "emojis")
         emojify-program-contexts '(comments string code)
         emojify-display-style 'image
@@ -19,10 +19,9 @@
         emojify-reveal-on-isearch t
         emojify-show-help t
         )
+  :config
   ;; (add-to-list 'emojify-inhibit-major-modes ')
-
-  (global-emojify-mode 1)
-  )
+  (global-emojify-mode 1))
 
 ;;; [ company-emoji ] -- company-mode backend providing completion for emoji. 🆒💦
 

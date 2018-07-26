@@ -11,7 +11,7 @@
 
 (require 'package)
 
-;; (setq package-enable-at-startup nil)
+(setq package-enable-at-startup nil)
 
 (setq package-menu-async t)
 
@@ -44,7 +44,7 @@
 (package-initialize)
 
 (add-to-list 'display-buffer-alist
-             '("^\\*package-build-result\\*" (display-buffer-below-selected)))
+             '("^\\*package-build-result\\*" (display-buffer-reuse-window display-buffer-below-selected)))
 
 
 ;;; Load `use-package' ahead before `package-initialize' for (use-package org :pin manual ...).
@@ -73,25 +73,23 @@
 ;;   (package-install-file (concat user-emacs-directory "init/extensions/org.el")))
 
 (use-package org
+  :pin manual
+  :load-path "~/Code/Emacs/org-mode/lisp/"
   :preface
-  ;; [ Org-mode modules ] -- modules that should always be loaded together with org.el.
+  ;; Org Mode modules -- modules that should always be loaded together with org.el.
   ;; t: greedy load all modules.
   ;; nil: disable all extra org-mode modules to speed-up Org-mode file opening.
   (setq org-modules nil)
-  :load-path "~/Code/Emacs/org-mode/lisp/"
-  :pin manual
   :mode (("\\.org\\'" . org-mode))
   :init
   (use-package org-plus-contrib
+    :pin manual
     :load-path "~/Code/Emacs/org-mode/contrib/lisp/"
-    :no-require t
-    :pin manual)
-  :config
+    :no-require t)
   ;; add source code version Org-mode Info into Emacs.
   (with-eval-after-load 'info
     (info-initialize)
-    (add-to-list 'Info-directory-list "~/Code/Emacs/org-mode/doc/"))
-  )
+    (add-to-list 'Info-directory-list "~/Code/Emacs/org-mode/doc/")))
 
 ;;; [ package-lint ] -- A linting library for elisp package authors.
 
@@ -105,9 +103,7 @@
   :ensure t
   :defer t
   :after flycheck
-  :init
-  (flycheck-package-setup)
-  )
+  :init (flycheck-package-setup))
 
 ;;; [ Quelpa ] -- Build and install your Emacs Lisp packages on-the-fly directly from source.
 
@@ -116,8 +112,7 @@
   :config
   ;; (setq quelpa-upgrade-p t)
   (add-to-list 'quelpa-melpa-recipe-stores
-               (concat user-emacs-directory "elpa/recipes"))
-  )
+               (concat user-emacs-directory "elpa/recipes")))
 
 ;;; [ Quelpa-use-package ] -- Emacs quelpa handler for use-package.
 
